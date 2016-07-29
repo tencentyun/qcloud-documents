@@ -213,17 +213,16 @@ zengjiayihang
 
 ### 一些常用名词的正确用法
 
-|正确使用|	错误使用|
-|--|--|
-|腾讯云数据中心高速互联网	|腾讯骨干网|
-|App / 应用|	APP、软件、程序|
-|Android|	android、安卓|
-|iOS|	ios、IOS|
-|iPhone	|IPHONE、iphone|
-|App Store	|AppStore、app store|
-|WiFi	|wifi、Wifi、Wi-fi|
-|email	|E-mail、Email|
-|IP	|Ip、ip|
+<table>
+<tbody>
+<tr><td>正确使用</td><td>错误使用</td></tr>
+<tr><td>腾讯云数据中心高速互联网</td><td>腾讯骨干网</td></tr><tr><td>App / 应用</td><td>APP、软件、程序</td></tr><tr><td>Android</td><td>android、安卓</td></tr><tr><td>iOS</td><td>ios、IOS</td></tr><tr><td>iPhone</td><td>IPHONE、iphone</td></tr>
+<tr><td>App Store</td><td>AppStore、app store</td></tr>
+<tr><td>WiFi</td><td>wifi、Wifi、Wi-fi</td></tr>
+<tr><td>email</td><td>E-mail、Email</td></tr>
+<tr><td>IP</td><td>Ip、ip</td></tr>
+</tbody>
+</table>
 
 ## 5. 示例
 *本示例仅供参考此规范中部分条款的使用说明，不保证其对客观事实的描述正确性。
