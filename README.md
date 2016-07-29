@@ -2,8 +2,6 @@
 
 腾讯云对外发布文档规范 V1.0
 
-[TOC]
-
 本文档旨在规范腾讯云所有对外文档（包括但不限于产品文档、API文档、SDK文档、白皮书文档等）的基本格式及风格。腾讯云文档书写语法为Markdown，关于Markdown的更多信息，可参考http://wowubuntu.com/markdown/
 
 注：本标准参考[AWS文档惯例](http://docs.aws.amazon.com/zh_cn/general/latest/gr/docconventions.html) 及 [DaoCloud写作规范和格式规范](http://docs.daocloud.io/write-docs/format)
@@ -46,10 +44,12 @@
 关注文档结构，构建易读的索引。<br><br>
 多使用图、表，增强易懂性。同时注意图表的清晰度，规范统一的图表风格
 </td></tr>
-</tbody></table>
+</tbody>
+</table>
 
 
 ## 1. 字体、颜色规范
+
 腾讯云对外在线文档均由磐石统一编辑发布，采用Markdown编写方式。当前CSS渲染出的默认字体字号如下：
 
 > 注意：除代码块内文字可更改颜色（请使用html标准颜色如red\blue等），其余规范均不可更改。
@@ -73,7 +73,8 @@
 <tr><td>	英文字体	</td><td>	PingFangSC-Light字集（苹方）</td></tr>
 <tr><td>	字体颜色	</td><td>	#000</td></tr>
 <tr><td>	字号	</td><td>不等，见下文“标题/列表规范”。</td></tr>
-</tbody></table>
+</tbody>
+</table>
 
 腾讯云对外离线文档统一为PDF格式，请使用Markdown编辑器编写，有形如以上的规范。
 
