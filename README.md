@@ -1,6 +1,4 @@
-# qcloud-documents
-
-腾讯云对外发布文档规范 V1.0
+# 腾讯云对外发布文档规范
 
 本文档旨在规范腾讯云所有对外文档（包括但不限于产品文档、API文档、SDK文档、白皮书文档等）的基本格式及风格。腾讯云文档书写语法为Markdown，关于Markdown的更多信息，可参考http://wowubuntu.com/markdown/
 
