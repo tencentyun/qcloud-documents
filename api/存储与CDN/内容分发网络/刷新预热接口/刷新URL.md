@@ -1,0 +1,107 @@
+## 1. 接口描述
+
+本接口（RefreshCdnUrl）用于将节点上指定资源设置为过期。
+
+接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
+
+## 2. 输入参数
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的Action字段为RefreshCdnUrl。
+
+| 参数名称   | 是否必选   | 类型     | 描述              |
+| ------ | ---- | ------ | --------------- |
+| urls.n | 是    | String | 需要刷新的 URL，最多100个 |
+
+
+
+#### 注意事项
+
++ 支持一个或多个 URL：
+```
+urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
+```
+以此类推；
++ 注意 URL 必须以'http://' 或 'https://' 开头，否则会报错。
+
+
+
+
+## 3. 输出参数
+
+| 参数名称      | 类型     | 描述             |
+| ------- | ------ | -------------- |
+| code    | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| message | String | 模块错误信息描述，与接口相关。          |
+
+
+
+
+## 4. 示例
+
+### 4.1 输入示例
+
+> urls.0: https://www.test.com/1.jpg
+
+
+
+### 4.2 GET 请求
+
+GET 请求需要将所有参数都加在 URL 后：
+
+```
+https://cdn.api.qcloud.com/v2/index.php?
+Action=RefreshCdnUrl
+&SecretId=XXXXXXXXXXXXXXXXXX
+&Timestamp=1462521223
+&Nonce=123456789
+&Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+&urls.0=https%3A%2F%2www.test.com%2F1.jpg
+```
+
+
+
+### 4.3 POST 请求
+
+POST请求时，参数填充在 HTTP Request-body 中，请求地址：
+
+```
+https://cdn.api.qcloud.com/v2/index.php
+```
+
+参数支持 form-data、x-www-form-urlencoded、json 等格式，参数数组如下：
+
+```
+array (
+  'Action' => 'RefreshCdnUrl',
+  'SecretId' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+  'Timestamp' => 1462864833,
+  'Nonce' => 1149033341,
+  'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+  'urls.0' => 'https://www.test.com/1.jpg'
+)
+```
+
+
+
+
+
+### 4.4 返回结果示例
+
+#### 刷新提交成功 
+
+```json
+{
+    "code": 0,
+    "message": ""
+}
+```
+
+#### 刷新提交失败
+
+```json
+{
+    "code": 4000,
+    "message": "(9110)没有这个域名的信息 cdn no such host"
+}
+```
+### PHP&Python示例下载
+**[示例代码 PHP&Python 新版](https://github.com/zz-mars/CDN_API_DEMO/tree/master/Qcloud_CDN_API)**
