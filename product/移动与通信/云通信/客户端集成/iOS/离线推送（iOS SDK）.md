@@ -293,20 +293,12 @@ fail|失败回调
 
 ```
 
-### 5.4 每条消息声音
+### 5.4 每条离线推送属性
 
-如果需要定制每条消息的提示音，可以在消息增加TIMCustomElem，填写sound字段（声音文件名），此条消息在推送时，会替换用户原有的声音文件名为消息中的文件名推送。可实现每条消息提示不同声音。
+如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置TIMOfflinePushInfo，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。
 
 ```
-/**
- *  自定义消息类型
- */
-@interface TIMCustomElem : TIMElem
-
-/**
- *  自定义消息二进制数据
- */
-@property(nonatomic,retain) NSData * data;
+@interface TIMOfflinePushInfo : NSObject
 /**
  *  自定义消息描述信息，做离线Push时文本展示
  */
@@ -319,7 +311,11 @@ fail|失败回调
  *  离线Push时声音字段信息
  */
 @property(nonatomic,retain) NSString * sound;
+/**
+ *  推送规则标志
+ */
+@property(nonatomic,assign) TIMOfflinePushFlag pushFlag;
+
 @end
 
 ```
-
