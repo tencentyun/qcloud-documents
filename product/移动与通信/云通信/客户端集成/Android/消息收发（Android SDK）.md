@@ -1,4 +1,3 @@
-
 ## 1 消息发送
 
 ### 1.1 通用消息发送
@@ -1091,6 +1090,91 @@ public List<TIMMessage> getLastMsgs(long count)
 参数|说明
 ---|---
 count | 需要获取的消息数，注意这里最多为20 
+
+### 4.7 禁用会话本地存储
+
+直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。在ImSDK 2.2及更高级版本中增加了针对单个会话禁用本地存储的功能，开发者可以根据需要调用`TIMConversation`中的`disableStorage`接口禁用相应的会话本地存储。
+ 
+**原型： **
+
+```
+/**
+ * 禁止当前会话的存储，只对当前初始化有效，重启后需要重新设置。
+ * 需要初始后调用
+ */
+public void disableStorage()
+```
+
+### 4.8 设置会话草稿
+
+ImSDK 2.2及以上版本增加了会话草稿功能，开发者可以通过`TIMConversation`中的相关接口进行草稿操作。
+
+> 1. 草稿只能本地有效，更换终端或者清除数据后将看不到草稿。
+> 2. 草稿信息会存本地数据库，重新登录后依然可以获取。
+ 
+**原型： **
+
+```
+/**
+ * 设置草稿
+ * @param draft 草稿内容, 为null则表示取消草稿
+ */
+public void setDraft(TIMMessageDraft draft)
+
+/**
+ * 获取草稿
+ * @return 返回草稿内容
+ */
+public TIMMessageDraft getDraft()
+
+/**
+ * 当前会话是否存在草稿
+ * @return true - 存在，false - 不存在
+ */
+public boolean hasDraft()
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+draft | 需要设置的草稿 ，需要清空会话草稿时传入null
+
+
+`TIMMessageDraft`说明：
+```
+/**
+ * 获取草稿中的消息元素列表
+ * @return 消息元素列表
+ */
+public List<TIMElem> getElems()
+
+/**
+ * 设置草稿中的消息元素
+ * @param elem 要添加到草稿中的消息元素
+ */
+public void addElem(TIMElem elem)
+
+/**
+ * 获取草稿中用户自定义数据
+ * @return 用户自定义数据
+ */
+public byte[] getUserDefinedData()
+
+/**
+ * 设置草稿中用户自定义数据
+ * @param userDefinedData 用户自定义数据
+ */
+public void setUserDefinedData(byte[] userDefinedData)
+
+/**
+ * 获取草稿的编辑时间
+ * @return 草稿编辑时间
+ */
+public long getTimestamp()
+```
+
+
 
 ## 5 系统消息
 
