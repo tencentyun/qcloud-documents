@@ -16,6 +16,7 @@ libs/mobilepb.jar
 libs/qalsdk.jar
 libs/tls_sdk.jar
 libs/wup-1.0.0-SNAPSHOT.jar
+libs/soload.jar
 libs/armeabi/lib_imcore_jni_gyp.so
 libs/armeabi/libBugly.so
 libs/armeabi/libqalcodecwrapper.so
@@ -51,6 +52,7 @@ libs/x86_64/libwtcrypto.so
 | qalsdk.jar | SDK网络层jar包 |
 | tls_sdk.jar | 帐号系统jar包 |
 | wup-1.0.0-SNAPSHOT.jar | 无线统一协议jar包 |
+| soload.jar | 提高imsdk so库的加载成功率 |
 
 
 

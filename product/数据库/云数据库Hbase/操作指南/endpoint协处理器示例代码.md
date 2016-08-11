@@ -1,14 +1,14 @@
 
 使用协处理，需要将jar包提供给我们，我们安装后提供hdfs地址，您可以再通过shell或者api方式（代码中有示例）安装。强烈建议开发好协处理器jar包后，经过充分测试再安装，避免安装后影响Hbase服务的正常使用。
 
-#### 协处理器开发步骤
+## 协处理器开发步骤
 1.编写proto文件（示例：RowCount.proto）；因为hbase使用google的protoc-2.5.0版本，所以最好使用相同版本编译proto文件，生成java文件（示例：RowCountService.java）；
 2.编写服务端EndPoint代码（示例：RowCountEndPoint.java）；
 3.编写客户端调用Client代码（示例：RowCountClient.java）；
 4.编译jar包
 
 endpoint协处理器示例：
-## proto文件：
+### proto文件
 ```
 option java_package = "com.tencent.yun.endpoint.proto";
 option java_outer_classname = "RowCountService";
@@ -30,7 +30,7 @@ service RowCount {
 	returns (RowCountResponse);
 }
 ```
-## 服务端RowCountEndPoint类：
+### 服务端RowCountEndPoint类
 ```
 import java.io.IOException;
 import java.util.ArrayList;
@@ -115,9 +115,12 @@ public class RowCountEndPoint extends RowCountService.RowCount implements Coproc
 	}
 
 }
+
 ```
-## 客户端RowCountClient类：
+### 客户端RowCountClient类
+
 ```
+
 import java.io.IOException;
 import java.util.Map;
 
@@ -144,18 +147,21 @@ import com.tencent.yun.observer.RegionObserver;
 
 public class RowCountClient {
 
-	public static void testRowCountEndpoint(String tableName) {
+	public static void testRowCountEndpoint(String tableName, String family, String col) throws IOException {
 		System.out.println("begin test.....");
+		long t1 = System.currentTimeMillis();
 		Configuration config = HBaseConfiguration.create();
 		//填写hbase zk地址
 		config.set("hbase.zookeeper.quorum", "100.67.159.134:2181,100.67.159.141:2181,100.67.159.196:2181");
 
 		// 填寫family名和列名
-		final RowCountRequest req = RowCountRequest.newBuilder().setFamily("family").setColumn("field0").build();
+		final RowCountRequest req = RowCountRequest.newBuilder().setFamily(family).setColumn(col).build();
 		RowCountResponse resp = null;
+		Connection con = null;
+		Table table = null;
 		try {
-			Connection con = ConnectionFactory.createConnection(config);
-			Table table = con.getTable(TableName.valueOf(tableName));
+			con = ConnectionFactory.createConnection(config);
+			table = con.getTable(TableName.valueOf(tableName));
 			Map<byte[], Long> results = table.coprocessorService(RowCount.class, null, null,
 					new Batch.Call<RowCount, Long>() {
 
@@ -175,6 +181,8 @@ public class RowCountClient {
 				count += sum;
 			}
 			System.out.println("total count = " + count);
+			long t2 = System.currentTimeMillis();
+			System.out.println("use time = " + (t2-t1));
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ServiceException e) {
@@ -182,12 +190,15 @@ public class RowCountClient {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		} finally{
-			
+			table.close();
+			con.close();
 		}
 	}
 
-	public static void delCorprocessor(String tableName) {
+	public static void delCorprocessor(String tableName) throws IOException {
 		System.out.println("begin delCorprocessor.....");
+		Connection con = null;
+		Admin admin = null;
 		try {
 			Configuration config = HBaseConfiguration.create();
 			//填写hbase zk地址
@@ -195,8 +206,8 @@ public class RowCountClient {
 
 			TableName TABLE = TableName.valueOf(tableName);
 
-			Connection con = ConnectionFactory.createConnection(config);
-			Admin admin = con.getAdmin();
+			con = ConnectionFactory.createConnection(config);
+			admin = con.getAdmin();
 
 			HTableDescriptor tableDesc = admin.getTableDescriptor(TABLE);
 
@@ -206,20 +217,29 @@ public class RowCountClient {
 			admin.modifyTable(TABLE, tableDesc);
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally{
+			admin.close();
+			con.close();
 		}
 		System.out.println("end delCorprocessor.....ok");
 	}
 
-	public static void setupToExistTable(String tableName) {
+	/**
+	 * 支持hbase0.96以上版本
+	 * @throws IOException 
+	 */
+	public static void setupToExistTable(String tableName) throws IOException {
 		System.out.println("begin setupToExistTable.....");
+		Connection con = null;
+		Admin admin = null;
 		try {
 			Configuration config = HBaseConfiguration.create();
 			//填写hbase zk地址
 			config.set("hbase.zookeeper.quorum", "100.67.159.134:2181,100.67.159.141:2181,100.67.159.196:2181");
 
 			TableName TABLE = TableName.valueOf(tableName);
-			Connection con = ConnectionFactory.createConnection(config);
-			Admin admin = con.getAdmin();
+			con = ConnectionFactory.createConnection(config);
+			admin = con.getAdmin();
 
 			HTableDescriptor tableDesc = admin.getTableDescriptor(TABLE);
 
@@ -233,13 +253,18 @@ public class RowCountClient {
 			admin.modifyTable(TABLE, tableDesc);
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally{
+			admin.close();
+			con.close();
 		}
 		System.out.println("end setupToExistTable.....ok");
 
 	}
 
-	public static void createAndSetup(String tableName) {
+	public static void createAndSetup(String tableName) throws IOException {
 		System.out.println("begin safesetup.....");
+		Connection con = null;
+		Admin admin = null;
 		try {
 			Configuration config = HBaseConfiguration.create();
 			//填写hbase zk地址
@@ -247,8 +272,8 @@ public class RowCountClient {
 
 			TableName TABLE = TableName.valueOf(tableName);
 
-			Connection con = ConnectionFactory.createConnection(config);
-			Admin admin = con.getAdmin();
+			con = ConnectionFactory.createConnection(config);
+			admin = con.getAdmin();
 
 			HTableDescriptor tableDesc = new HTableDescriptor(TABLE);
 			HColumnDescriptor columnFamily1 = new HColumnDescriptor("f1");
@@ -266,27 +291,34 @@ public class RowCountClient {
 			System.out.println("end safesetup.....ok");
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally{
+			admin.close();
+			con.close();
 		}
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		if (args == null || args.length < 2) {
 			System.out.println("please input args....");
 			return;
 		}
 		String op = args[0];
 		String tableName = args[1];
+		String family = args[2];
+		String col = args[3];
 
 		if (op.equals("setup")) {
 			setupToExistTable(tableName);
 		} else if (op.equals("safesetup")) {
 			createAndSetup(tableName);
 		} else if (op.equals("run")) {
-			testRowCountEndpoint(tableName);
+			testRowCountEndpoint(tableName, family, col);
 		} else if (op.equals("unset")) {
 			delCorprocessor(tableName);
 		}
 
 	}
+
+}
 ```
