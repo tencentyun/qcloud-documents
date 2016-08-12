@@ -49,6 +49,12 @@
 
 ![](//mccdn.qcloud.com/static/img/4298f90507a749625d7e92cc9004c1b1/image.png)
 
+### 3、添加头文件
+在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXRTMPSDK的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXRTMPSDK/"，如下所示：
+```
+#import "TXRTMPSDK/TXLivePush.h"
+```
+
 ### 三、验证
 
 下面在HelloSDK的代码中，调用SDK的接口，获取SDK版本信息，以验证工程设置是否正确。
@@ -57,19 +63,19 @@
 
 在ViewController.m开头引用SDK的头文件：
 
-```objective-c
-#import "TXRTMPSDK/TXRTMPAPI.h"
+```
+#import "TXRTMPSDK/TXLivePush.h"
 ```
 
 ### 2、添加调用代码
 
 在viewDidLoad方法中添加代码：
 
-```objective-c
+```
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 打印SDK的版本信息
-    NSLog(@"SDK Version = %@", [[TXRtmpApi getSDKVersion] componentsJoinedByString:@"."]);
+    NSLog(@"SDK Version = %@", [[TXLivePush getSDKVersion] componentsJoinedByString:@"."]);
 }
 ```
 
