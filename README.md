@@ -224,4 +224,4 @@
 
 ## 5. 示例
 *本示例仅供参考此规范中部分条款的使用说明，不保证其对客观事实的描述正确性。
-![](https://mccdn.qcloud.com/static/img/09d0b2f6f71a59121e97ab1c80e72e77/image.png)
+![](https://mc.qcloudimg.com/static/img/c3ab304e29ec3c2ce3655184438261b0/image.png)
