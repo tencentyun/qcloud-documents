@@ -176,7 +176,7 @@
 
 这种方案的本质是让APP里链接两份ffmpeg，但是Xcode链接器没有办法做到聪明的可以判断出来两个库的精确调用关系，所以实际上APP内部的两个ffmpeg的调用关系是不可控的（有可能两个库之间的函数交错式调用）。
 
-所以，<font color='red'>如果两个ffmpeg版本不一致，出现莫名其妙的各种crash</font>，而且这种crash看堆栈一般都是崩溃在ffmpeg内部函数里。
+所以，<font color='red'>如果两个ffmpeg版本不一致，会出现莫名其妙的各种crash</font>，而且这种crash看堆栈一般都是崩溃在ffmpeg内部函数里。
 
 ### Android 出现程序崩溃（CRASH）
 - **代码混淆原因**
