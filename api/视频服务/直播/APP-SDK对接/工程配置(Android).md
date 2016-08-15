@@ -59,13 +59,13 @@
 在MainActivity.java中引用SDK的class:
 
 ```
-import com.tencent.rtmp.TXRtmpApi;
+import com.tencent.rtmp.TXLivePusher;
 ```
 
 **2. 在onCreate中调用getSDKVersion接口获取版本号：**
 
 ```
-int[] sdkver = TXRtmpApi.getSDKVersion();
+int[] sdkver = TXLivePusher.getSDKVersion();
 if (sdkver != null && sdkver.length >= 3) {
     Log.d("rtmpsdk","rtmp sdk version is:" + sdkver[0] + "." + sdkver[1] + "." + sdkver[2]);
 }

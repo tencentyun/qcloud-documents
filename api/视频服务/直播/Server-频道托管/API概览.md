@@ -11,6 +11,7 @@
 | 创建录制任务 | [CreateRecord](http://www.qcloud.com/doc/api/258/%E5%88%9B%E5%BB%BA%E5%BD%95%E5%88%B6%E4%BB%BB%E5%8A%A1) | 
 | 终止录制任务 | [StopRecord](http://www.qcloud.com/doc/api/258/%E7%BB%88%E6%AD%A2%E5%BD%95%E5%88%B6%E4%BB%BB%E5%8A%A1) | 
 | 查询已录制分片列表 | [DescribeRecord](http://www.qcloud.com/doc/api/258/%E6%9F%A5%E8%AF%A2%E5%B7%B2%E5%BD%95%E5%88%B6%E5%88%86%E7%89%87%E5%88%97%E8%A1%A8) | 
+| 查询录制文件 | [GetVodRecordFiles](http://www.qcloud.com/doc/api/258/%E6%9F%A5%E8%AF%A2%E5%B7%B2%E5%BD%95%E5%88%B6%E5%88%86%E7%89%87%E5%88%97%E8%A1%A8) | 
 | 创建截图任务 | [CreateLVBShot](http://www.qcloud.com/doc/api/258/%E5%88%9B%E5%BB%BA%E6%88%AA%E5%9B%BE%E4%BB%BB%E5%8A%A1) | 
 | 终止截图任务 | [StopLVBShot](http://www.qcloud.com/doc/api/258/%E7%BB%88%E6%AD%A2%E6%88%AA%E5%9B%BE%E4%BB%BB%E5%8A%A1) | 
 | 查看队列消息 | [DescribeQueueLog](http://www.qcloud.com/doc/api/258/%E6%9F%A5%E7%9C%8B%E9%98%9F%E5%88%97%E6%B6%88%E6%81%AF) | 
