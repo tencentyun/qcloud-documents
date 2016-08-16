@@ -112,16 +112,16 @@
   </tr>
   <tr>
     <td> 正文第一级列表</td>
-    <td> 1) 列表项一<br>2) 列表项二	</td>
+    <td> 1. 列表项一<br>2. 列表项二	</td>
    
   </tr>
   <tr>
     <td> 列表中的第二级列表</td>
-    <td> 1) 列表项一<br><br>这是一段说明<br><br>A. 二级列表项一<br>  B. 二级列表项二	</td>
+    <td> 1. 列表项一<br><br>这是一段说明<br><br>1) 二级列表项一<br>  2) 二级列表项二	</td>
   </tr>
   <tr>
     <td> 二级列表中的第三级列表</td>
-    <td> 1) 列表项一<br><br>这是一段说明<br><br>A. 二级列表项一<br><br>这是另一段说明<br><br>a. 三级列表项1<br>b. 三级列表项2<br><br>B. 二级列表项二</td>
+    <td> 1. 列表项一<br><br>这是一段说明<br><br>1) 二级列表项一<br><br>这是另一段说明<br><br>A. 三级列表项1<br>B.  三级列表项2<br><br>2) 二级列表项二</td>
   </tr>
   </tbody>
 </table>
@@ -224,4 +224,4 @@
 
 ## 5. 示例
 *本示例仅供参考此规范中部分条款的使用说明，不保证其对客观事实的描述正确性。
-![](https://mccdn.qcloud.com/static/img/09d0b2f6f71a59121e97ab1c80e72e77/image.png)
+![](https://mc.qcloudimg.com/static/img/c3ab304e29ec3c2ce3655184438261b0/image.png)
