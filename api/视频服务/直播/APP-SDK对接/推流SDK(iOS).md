@@ -36,11 +36,13 @@ NSString rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 **startPush** 使用来告诉SDK视频流要推到哪个服务器地址去。
 **startPreview** 则是将界面view和Push对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
-> **【关于myView】**
-> 示例代码中，startPreview的参数myView是用来承载SDK渲染层的，SDK会在myView之上构建一个用于OpenGL渲染的子view，我们建议您只拿myView做视频渲染就可以了。
-> 
-> 如果您想要在视频画面之上加弹幕、献花之类的UI控件，可以如下图这般创建一个与myView平级的view，并将其叠加在myView之上。
-> ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+### step 3: 绑定渲染界面
+Step2的示例代码中，startPreview的参数myView是用来承载SDK渲染层的，SDK会在myView之上构建一个用于OpenGL渲染的子view。
+
+如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，可以如下图这般创建一个与myView平级的view，并将其叠加在myView之上，简言之，留myView只做渲染之用对于画面的显示控制是比较有帮助的。
+ ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+
+如果您想要调整渲染界面的大小，只需要调整myView的大小就可以了，内部的视频画面会跟随myView的大小变化而自动地适应。
 
 > **【如何做动画？】**
 > 针对myView做动画是比较自由的，不过请注意做动画的目标属性应该是myView的transform属性而不是frame属性。
@@ -51,7 +53,7 @@ NSString rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
         }];
 ```
 
-### step 3: 美颜滤镜
+### step 4: 美颜滤镜
 如果您是定位美女秀场，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。
 您可以在您的APP得用户操作界面上使用滑竿等空间来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
 
@@ -62,7 +64,7 @@ NSString rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 ```
 
 
-### step 4: 控制摄像头
+### step 5: 控制摄像头
 - **切换前置或后置摄像头** : 默认是使用**前置**摄像头（可以通过修改config配置项来修改这个默认值），调用一次switchCamera 切换一次，注意切换摄像头前必须保证 LivePushConfig 和 LivePush 对象都已经初始化。  
   
 ```objectivec
@@ -82,7 +84,7 @@ NSString rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 	}
 ```
 
-### step 5: 设置Logo水印
+### step 6: 设置Logo水印
 这里要特别说明一下，因为腾讯云支持两种方式设置水印：一种是在推流SDK进行设置，原理是在SDK内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印Logo。
 
  这里我们特别建议您`使用SDK添加水印`，因为在云端打水印有三个明显的问题：
@@ -98,7 +100,7 @@ NSString rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 	_config.watermarkPos = (CGPoint){10, 10};
 ```
 
-### step 6: 硬件编码
+### step 7: 硬件编码
 通过PushConfig里的**enableHWAcceleration**接口可以开启硬件编码。
 ```objectivec
 	[_txLivePublisher stopPush]
