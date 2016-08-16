@@ -821,7 +821,7 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
         alert('当前的聊天类型为群聊天，不能进行拉取好友历史消息操作');
         return;
     }
-    var lastMsgTime = Math.round(new Date().getTime() / 1000);//默认取当前时间
+    var lastMsgTime = 0;//第一次拉取好友历史消息时，必须传0
     var msgKey = '';
     var options = {
         'Peer_Account': selToID, //好友帐号
