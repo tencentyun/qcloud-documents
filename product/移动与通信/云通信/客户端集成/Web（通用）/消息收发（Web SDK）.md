@@ -243,7 +243,7 @@ function convertFileMsgToHtml(content) {
 }
 ```
 
-## 9	解析位置消息元素
+## 解析位置消息元素
 
 示例：
 
