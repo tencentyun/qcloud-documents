@@ -11,8 +11,6 @@ SDK开发包附带的推流器DEMO界面如下：
 
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
 
------------------------------------------------------------------------------------------------------------------
-
 ## 基础篇
 腾讯视频云RTMP SDK的使用特别简单，您只需要在您的App里添加如下几行代码就可以完成对接工作了。目前SDK内部的默认参数设置参考直播场景精心校调过的。
 
@@ -100,14 +98,12 @@ if (!mLivePusher.setBeautyFilter(mBeautyLevel, mWhiteningLevel)) {
 ### step 7: 硬件编码
 通过PushConfig里的**setHardwareAcceleration**接口可以开启硬件编码。
 ```java
-if (HWSupportList.isHWVideoEncodeSupport()){
-    mLivePushConfig.setHardwareAcceleration(mHWVideoEncode);
-}
-else{
+if (!HWSupportList.isHWVideoEncodeSupport()){
     Toast.makeText(getActivity().getApplicationContext(), 
-				   "硬件加速失败，当前手机型号未加入白名单或API级别过低（最低16）", 
+				   "当前手机型号未加入白名单或API级别过低（最低16）,请慎重开启硬件编码！", 
 				   Toast.LENGTH_SHORT).show();
 }
+mLivePushConfig.setHardwareAcceleration(mHWVideoEncode);
 mLivePusher.setConfig(mLivePushConfig);  
 ```
 
@@ -117,8 +113,9 @@ mLivePusher.setConfig(mLivePushConfig);
 
 > **白名单策略**
 > 目前我们在Demo的HWSupportList.java文件里有一个白名单列表，这里是我们自己团队测试过的，可以放心开启硬件加速的Android机型，后续时间里我们会持续增加这个列表的机型数量。
+> 
+> 目前RTMP SDK测试团队已经测试过的机型以及通过情况见 [机型列表](https://mc.qcloudimg.com/static/archive/a1e796c150ea60246e07947b679e0662/archive.xls)，供您参考。
 
------------------------------------------------------------------------------------------------------------------
 ## 定制篇
 刚才讲的是最基本的使用方法，能满足绝大部分需求。
 如果您是一位资深的软件开发工程师，可能还有更专业的要求，比如您可能会关心SDK的运行状态，或者会尝试做一些视频参数的定制等等，接下来我们看一下进阶使用：
@@ -149,19 +146,29 @@ mLivePusher.setPushListener(this);
 ```
 
 #### 事件通知
-事件通知分为**常规事件**、**警告**以及**错误通知**三个部分，详细定义如下：
+- **常规事件** ：一次成功的推流都会通知的事件，比如收到1003就意味着摄像头的画面会开始渲染了。
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
-|PUSH_EVT_CONNECT_SUCC            |  1001| 已经连接推流服务器|
-|PUSH_EVT_PUSH_BEGIN              |  1002| 已经与服务器握手完毕,开始推流|
-|PUSH_EVT_OPEN_CAMERA_SUCC	  | 1003	| 推流器已成功打开摄像头| 
+|PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器|
+|PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
+|PUSH_EVT_OPEN_CAMERA_SUCC	  | 1003	| 推流器已成功打开摄像头（Android部分手机这个过程需要1-2秒）| 
+
+- **警告事件** ：SDK发现了一些问题，比如主播的上行网络质量不理想，但并不意味着流程进行不下去。
+
+| 事件ID                 |    数值  |  含义说明                    |   
+| :-------------------  |:-------- |  :------------------------ | 
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻|
 |PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码|
-|PUSH_WARNING_DNS_FAIL			  |  3001 |  RTMP -DNS解析失败        |
-|PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP服务器连接失败  |
-|PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP服务器握手失败  |
+|PUSH_WARNING_DNS_FAIL			  |  3001 |  RTMP -DNS解析失败（会触发重试流程）        |
+|PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP服务器连接失败（会触发重试流程）  |
+|PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP服务器握手失败（会触发重试流程）  |
+
+- **错误通知** ：SDK发现了一些严重问题，严重到推流是无法继续的，比如用户禁用了APP的Camera权限导致摄像头打不开。
+
+| 事件ID                 |    数值  |  含义说明                    |   
+| :-------------------  |:-------- |  :------------------------ | 
 |PUSH_ERR_OPEN_CAMERA_FAIL        | -1301| 打开摄像头失败|
 |PUSH_ERR_OPEN_MIC_FAIL           | -1302| 打开麦克风失败|
 |PUSH_ERR_VIDEO_ENCODE_FAIL       | -1303| 视频编码失败|
@@ -170,9 +177,7 @@ mLivePusher.setPushListener(this);
 |PUSH_ERR_UNSUPPORTED_SAMPLERATE  | -1306| 不支持的音频采样率|
 |PUSH_ERR_NET_DISCONNECT          | -1307| 网络断连,且经三次抢救无效,可以放弃治疗,更多重试请自行重启推流|
 
-
-详细的定义请参阅头文件**“TXLiveConstants.java”**，网络状态回调 onNetStatus 中各参数的含义已经在注释中有明确的说明，此处不再赘述
-
+> 事件定义请参阅头文件**“TXLiveConstants.java”**
 
 #### 网络状态回调 
   **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态:
@@ -221,8 +226,8 @@ mLivePushConfig.setWatermark(BitmapFactory.decodeResource(
 mLivePusher.setConfig(mLivePushConfig);
 ```
 
-### 4. 如果您希望自定义滤镜
-有些研发能力比较强的客户，会有自定义自己的图像处理的需求，但是希望复用rtmp sdk的整体流程，您可以按照如下攻略进行定制。
+### 4. 如果您想自己加工视频数据
+有些研发能力比较强的客户，会有自定义图像处理的需求（比如自定义图像滤镜），同时又希望复用rtmp sdk的整体流程，如果是这样，您可以按照如下攻略进行定制。
 
 - **Step1. 实现一个图像处理的so**
 您需要自己实现一个so，比如test.so，然后按照如下定义导出一个C风格的函数，之所以强制使用C而不是java是因为图像处理的效率C和C++比较容易胜任。您实现的PVideoProcessHookFunc 处理时间不能过长，试想，如果该函数的处理时间超过50ms，那就意味着SDK推出的视频流，其帧率不可能达到20FPS。
@@ -253,8 +258,15 @@ mLivePushConfig.setCustomModeType(customMode);
 mLivePushConfig.setCustomVideoPreProcessLibrary(path +"/libtest.so", "MyVideoProcessFunc");
 ```
 
-- **Step3. 音频也是一样的**
-音频也是同样的处理思路，只是相应的so的导出函数为：
+### 5. 如果您想自己加工音频数据
+类似视频数据处理思路，但是具体的函数和参数名称要换成音频相关的，java层示例代码如下：
+```java
+customMode |= TXLiveConstants.CUSTOM_MODE_AUDIO_PREPROCESS; //可以和VIDEO_PREPROCESS一起设置
+String path = this.getActivity().getApplicationInfo().dataDir + "/lib";
+mLivePushConfig.setCustomModeType(customMode);
+mLivePushConfig.setCustomAudioPreProcessLibrary(path +"/libtest.so", "MyAudioProcessFunc");
+```
+其中MyAudioProcessFunc应当遵循如下的函数声明：
 ```C
 /* @brief 客户自定义的音频预处理函数原型
  * @param pcm_buffer：   音频PCM数据
@@ -271,15 +283,8 @@ mLivePushConfig.setCustomVideoPreProcessLibrary(path +"/libtest.so", "MyVideoPro
 typedef void (*PAudioProcessHookFunc)(unsigned char * pcm_buffer, int len_buffer,
                                           int sample_rate, int channels, int bit_size);
 ```
-相应的java层调用代码为如下：
-```java
-customMode |= TXLiveConstants.CUSTOM_MODE_AUDIO_PREPROCESS; //支持同时自定义音视频
-String path = this.getActivity().getApplicationInfo().dataDir + "/lib";
-mLivePushConfig.setCustomModeType(customMode);
-mLivePushConfig.setCustomAudioPreProcessLibrary(path +"/libtest.so", "MyAudioProcessFunc");
-```
 
-### 5. 如果您只用SDK来推流
+### 6. 如果您只用SDK来推流
 也有客户只是希望拿SDK用来推流，音视频采集部分由自己的代码控制，SDK用来做音视频编码和推流就可以了。
 如果是这样，您可以按如下步骤实现：
 
@@ -301,7 +306,7 @@ mLivePushConfig.setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_1280_72
 ```
 
 - **Step2. 使用 sendCustomYUVData 向SDK填充数据**
-之后的工作就是向SDK塞入您已经准备好的视频数据（YUV格式），剩下的编码和网络等工作交给SDK来解决。
+之后的工作就是向SDK塞入您自己准备好的视频数据（YUV420 Planar），剩下的编码和网络发送等工作交给SDK来解决。
 ```java
 //(1)先启动推流，不然您给SDK数据它也不会处理
 mLivePusher.startPusher(rtmpUrl.trim());
@@ -312,19 +317,19 @@ new Thread() {
     public void run() {
         while (true) {
             try {
-                FileInputStream in = new FileInputStream("/sdcard/dump_1280_720.yuv");
-                int len = 1280 * 720 * 3 / 2;  //格式为 YUV420 Planar
+                FileInputStream in = new FileInputStream("/sdcard/test_1280_720.yuv");
+                int len = 1280 * 720 * 3 / 2;  //yuv格式为i420
                 byte buffer[] = new byte[len];
                 int count = 0;
                 while ((count = in.read(buffer)) != -1) {
-							      if (len == count) {
-										    mLivePusher.sendCustomYUVData(buffer);
-										} else {
-										    break;
-										}
-										sleep(50, 0);
-							 }
-							 in.close();
+                    if (len == count) {
+						mLivePusher.sendCustomYUVData(buffer);
+					} else {
+					    break;
+				    }
+					sleep(50, 0);
+			    }
+				in.close();
             }catch (Exception e) { 
                 e.printStackTrace(); 
             }
@@ -335,18 +340,12 @@ new Thread() {
 - **Step3. 音频也是一样的**
 音频也是同样的处理思路，只是使用对应的 CustomMode 应当设置为 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
 ```java
-// (1)将 CustomMode 设置为：自己采集视频数据，SDK只负责编码发送
+// (1)将 CustomMode 设置为：自己采集音频数据，SDK只负责编码&发送
 int customMode |= TXLiveConstants.CUSTOM_MODE_AUDIO_PREPROCESS; 
 mLivePushConfig.setCustomModeType(customMode);
 //
-// (2)设置视频编码参数，比如720p，相比如普通模式，VIDEO_CAPTURE模式您有六种分辨率可供选择
-mLivePushConfig.setAudioSampleRate(44100); //您指定的PCM声音采样率
-mLivePushConfig.setAudioChannels(1);       //您指定的声道数
+// (2)设置音频编码参数：音频采样率和声道数
+mLivePushConfig.setAudioSampleRate(44100); 
+mLivePushConfig.setAudioChannels(1);      
 ```
-之后，把**Step2**中的sendCustomYUVData函数换成**sendCustomPCMData**就可以了。
-
-
-
-
-
-
+之后，调用**sendCustomPCMData**向SDK塞入您自己的PCM数据即可。
