@@ -1,0 +1,1 @@
+具体操作指南见[安全组操作指南-配置CVM实例关联安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#5.-配置cvm实例关联安全组)

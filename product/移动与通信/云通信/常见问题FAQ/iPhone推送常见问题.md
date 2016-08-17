@@ -1,0 +1,12 @@
+## 如何做到部分消息推送，部分消息不推送
+一般情况下，APNs推送是将几个Elem的数据拼合而成，TIMTextElem+TIMFaceElem+TIMCustomElem.Desc
+如果希望有些消息APNs不进行推送时，注意这些字段不填写
+
+## 如何控制APNs的响铃声音
+APNs的声音由服务器将声音文件传递给苹果服务器，然后通过APNs通道下发给iPhone。iPhone手机接收到消息后，取出Sound字段，优先搜索App的目录，再搜索系统文件夹，如果无法发现该文件，则默认播放系统声音；如果找到该文件，则播放该文件铃声
+云通信SDK可控制铃声文件的名字：TIMCustomElem结构体中包含有Sound字段，可将铃声的文件填写入该字段中
+
+## 如何实现点开iPhone推送后进入指定的窗口
+1.通过APNs的自定义参数字段，将推送的信息带给客户端（在TIMCustomElem.Ext中填写）；
+2.实现application:didReceiveRemoteNotification方法，识别推送内容，取出自定义字段内容
+3.通过自定义字段的内容实现App内页面跳转，实现点开推送进入指定窗口功能
