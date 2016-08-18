@@ -9,8 +9,6 @@ SDK开发包附带的播放器DEMO界面如下：
 
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_introduction.jpg)
 
------------------------------------------------------------------------------------------------------------------
-
 ## 基础篇
 腾讯视频云RTMP SDK的使用特别简单，您只需要在您的App里添加如下几行代码就可以完成对接工作了。目前SDK内部的默认参数设置参考直播场景精心校调过的。
 
@@ -34,11 +32,13 @@ _txLivePlayer = [[TXLivePlayer alloc] init];
 [_txLivePlayer setupVideoWidget:[UIScreen mainScreen].bounds containView:_myView insertIndex:0]
 ```
 
-> **【关于myView】**
-> 示例代码中，startPreview的参数myView是用来承载SDK渲染层的，SDK会在myView之上构建一个用于OpenGL渲染的子view，我们建议您只拿myView做视频渲染就可以了。
-> 
-> 如果您想要在视频画面之上加弹幕、献花之类的UI控件，可以如下图这般创建一个与myView平级的view，并将其叠加在myView之上。
-> ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+### step 3: 绑定渲染界面
+Step2的示例代码中，startPreview的参数myView是用来承载SDK渲染层的，SDK会在myView之上构建一个用于OpenGL渲染的子view。
+
+如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，可以如下图这般创建一个与myView平级的view，并将其叠加在myView之上，简言之，留myView只做渲染之用对于画面的显示控制是比较有帮助的。
+ ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+
+如果您想要调整渲染界面的大小，只需要调整myView的大小就可以了，内部的视频画面会跟随myView的大小变化而自动地适应。
 
 > **【如何做动画？】**
 > 针对myView做动画是比较自由的，不过请注意做动画的目标属性应该是myView的transform属性而不是frame属性。
@@ -49,7 +49,7 @@ _txLivePlayer = [[TXLivePlayer alloc] init];
         }];
 ```
 
-### step 3: 启动播放器
+### step 4: 启动播放器
 用下面这段代码就可以启动播放器了:
 
 ```objectivec
@@ -57,7 +57,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer startPlay:flvUrl type:PLAY_TYPE_LIVE_FLV]; //推荐FLV
 ```
 
-### step 4: 画面调整
+### step 5: 填充&适应&旋转
 如果你希望调整画面的显示方式，SDK也提供了多种选择：
 ![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
 
@@ -73,7 +73,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 此接口用于在播放中动态调整视频渲染区域的位置和大小
 
 
-### step 5: 硬件加速
+### step 6: 硬件加速
 对于蓝光级别（1080p）的画质，简单采用软件解码的方式很难获得较为流畅的播放体验，所以如果您的场景是以游戏直播为主，建议打开硬件加速开关。
 
 ```objectivec
@@ -83,7 +83,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ```
  强烈建议在切换硬件解码之前**stopPlay**，在切换之后再**startPlay**,否则会产生比较严重的花屏问题。
  
-### step 6: 如何降低延迟并减少画面卡顿？
+### step 7: 如何降低延迟并减少画面卡顿？
 #### 延迟的产生
 这里说的**延迟**是主播 -> 观众的时间延迟，而**卡顿**指的是出现500ms以上的播放停滞。
 如果是在完美的网络环境下，可以做到超低延迟下没有卡顿，但现实是国内的网络环境并不完美，数据在经过互联网传输时必然会有抖动和丢包，从而对播放端的流畅播放产生影响。
@@ -124,7 +124,6 @@ _config.cacheTime              = 5;
 [_txLivePlayer setConfig:_config];
 ```
 
------------------------------------------------------------------------------------------------------------------
 ## 状态篇
 
 ### 1. 内部原理
@@ -170,7 +169,7 @@ _config.cacheTime              = 5;
 
 在**极速模式**下，由于追求较低的延迟，LOADING 到BEGIN 的时间有可能会非常快也非常频繁，这就意味着如果您在这个时候做视频画面的显示和隐藏，体验会非常差，特别不推荐。
 
-如果您使用了极速模式，推荐您可以像映客那样，无视LOADING事件通知，因为最常见的卡顿一般都是几百毫秒的微卡顿；或者最多在视频画面上叠加一个loading小动画，转个小菊花，不要把这种切换的UI表现做得过重，否则就不适合秀场模式了。
+如果您使用了极速模式，推荐您可以像映客那样，无视LOADING事件通知，因为最常见的卡顿一般都是几百毫秒的微卡顿；或者最多在视频画面上叠加一个loading小动画，转个小菊花，<font color='red'>建议不要把这种切换的UI表现做得过重</font>，否则就不适合秀场模式了。
 
 #### 3.2) 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
