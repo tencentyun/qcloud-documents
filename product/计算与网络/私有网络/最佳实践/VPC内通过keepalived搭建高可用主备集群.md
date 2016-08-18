@@ -9,7 +9,7 @@
 2)  暂不支持通过免费ARP报文做VIP的迁移，而是通过调用云API来绑定VIP到主设备上。
 
 ## 主要步骤
-1.  申请VIP，该VIP可以在子网内迁移。
+1.  申请VIP（VPC内用户主动申请的IP都可作为VIP），该VIP可以在子网内迁移。
 2.  主备服务器安装及配置keepalived。
 3.  使用keepalived的notify机制，调用云API进行主备切换。
 4.  （可选）给VIP分配外网IP。
@@ -17,7 +17,7 @@
 
 ## 详细步骤
 ### 步骤1.    申请VIP
-在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
+在某个子网内申请VIP，暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
 
 ```
         
