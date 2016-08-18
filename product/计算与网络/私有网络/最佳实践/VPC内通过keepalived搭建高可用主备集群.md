@@ -1,15 +1,15 @@
 本文将介绍如何在腾讯云VPC内通过keepalived搭建高可用主备集群。
 ## 基本原理
 通常高可用主备集群包含2台服务器，一台主服务器处于某种业务的激活状态（即Active状态），另一台备服务器处于该业务的备用状态（即Standby状态)，它们共享同一个VIP（virtual IP），同一时刻VIP只在一台主设备上生效，当主服务器出现问题，备用服务器接管VIP继续提供服务。高可用主备模式有着广泛的应用，例如：mysql 主备切换、Ngnix web接入。
-![](//mc.qcloudimg.com/static/img/67658d6b32551cb2bdcf10f30bae74c6/1.png)
+![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 
 ## 与物理网络的区别
-在传统的物理网络中可以通过keepalived的VRRP协议协商主备状态，主设备周期性发送免费ARP报文刷新上联交换机的MAC表或终端ARP表，触发VIP的迁移到主设备上。腾讯云VPC内支持部署keepalived来搭建主备高可用集群，与物理网络相比，主要有两个区别：
+在传统的物理网络中可以通过keepalived的VRRP协议协商主备状态，其原理是：主设备周期性发送免费ARP报文刷新上联交换机的MAC表或终端ARP表，触发VIP的迁移到主设备上。腾讯云VPC内支持部署keepalived来搭建主备高可用集群，与物理网络相比，主要有两个区别：
 1)  暂不支持VRRP组播报文，需要将keepalived的vrrp instance配置为单播VRRP报文。
 2)  暂不支持通过免费ARP报文做VIP的迁移，而是通过调用云API来绑定VIP到主设备上。
 
 ## 主要步骤
-1.  申请VIP（VPC内用户主动申请的IP都可作为VIP），该VIP可以在子网内迁移。
+1.  申请VIP，该VIP可以在子网内迁移。
 2.  主备服务器安装及配置keepalived。
 3.  使用keepalived的notify机制，调用云API进行主备切换。
 4.  （可选）给VIP分配外网IP。
@@ -17,7 +17,7 @@
 
 ## 详细步骤
 ### 步骤1.    申请VIP
-在某个子网内申请VIP，暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
+在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
 
 ```
         
@@ -176,15 +176,4 @@ vrrp_instance VI_1 {
         auth_pass 1111
     }
     unicast_peer {
-        10.100.0.2
-    }
-    virtual_ipaddress {
-        10.100.0.100
-}
-nopreempt
-garp_master_delay 1
-garp_master_refresh 5
-}
-
-```
-
+        10.10
