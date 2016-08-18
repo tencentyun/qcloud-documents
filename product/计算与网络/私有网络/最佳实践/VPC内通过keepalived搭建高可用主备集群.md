@@ -5,8 +5,8 @@
 
 ## 与物理网络的区别
 在传统的物理网络中可以通过keepalived的VRRP协议协商主备状态，主设备周期性发送免费ARP报文刷新上联交换机的MAC表或终端ARP表，触发VIP的迁移到主设备上。腾讯云VPC内支持部署keepalived来搭建主备高可用集群，与物理网络相比，主要有两个区别：
-1)  不支持VRRP组播报文，需要将keepalived的vrrp instance配置为单播VRRP报文。
-2)  VIP的迁移不是通过免费ARP报文，而是通过调用云API来绑定VIP到主设备上。
+1)  暂不支持VRRP组播报文，需要将keepalived的vrrp instance配置为单播VRRP报文。
+2)  暂不支持通过免费ARP报文做VIP的迁移，而是通过调用云API来绑定VIP到主设备上。
 
 ## 主要步骤
 1.  申请VIP，该VIP可以在子网内迁移。
@@ -17,38 +17,37 @@
 
 ## 详细步骤
 ### 步骤1.    申请VIP
-在某个子网内申请VIP，暂不仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
+在某个子网内申请VIP，暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
 
 ```
+        
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""
-step1: 下载python-sdk: https://github.com/QcloudApi/qcloudapi-sdk-python
-step2: 将以下python代码保存成vip.py放到sdk的src同级目录,  具体参数参考: https://www.qcloud.com/doc/api/245/1361
-"""
+
 from src.QcloudApi.qcloudapi import QcloudApi
 
 module = 'vpc'
-action = 'AssociateVip'
+action = 'AssignPrivateIpAddresses'
 config = {
-    'Region': 'gz',
-    'secretId': '你的secretId',
-    'secretKey': '你的secretKey',
+    'Region': 'bj',
+    'secretId': '您的secretId',
+    'secretKey': '您的secretKey',
     'method': 'post'
 }
 params = {
-    'vpcId': 'vpc-你的vpcId',
-    'vipId': '你的vpcId',
-    'lanIp': '你的lanIp'
+    'vpcId': '您的vpcID',
+    'networkInterfaceId': '您需要初次见ip绑定的接口名',
+    'secondaryPrivateIpAddressCount': '您需要申请IP地址的个数'
 }
+
 try:
     service = QcloudApi(module, config)
     print service.generateUrl(action, params)
     print service.call(action, params)
 except Exception, e:
     print 'exception:', e
-        
-        ```
+       
+```
         
 ### 步骤2. 主备子机安装keepalived
 以centos为例：`yum –y install keepalived`
@@ -57,23 +56,21 @@ except Exception, e:
 编辑文件/etc/keepalived/keepalived.conf，除基本keepalived的vrrp配置外，注意需要配置单播模式，即指定对端设备的ip地址，在keepalived.conf的vrrp_instance项中指定单播模式：
 
 ```
-vrrp_instance E1 {
-    interface eth0
+vrrp_instance VI_1 {
     state BACKUP
-    virtual_router_id 104 
-    priority 50
+    interface eth0
+    virtual_router_id 51
+    priority 100
     advert_int 1
-    use_vmac uvmac
-    vmac_xmit_base
     authentication {
         auth_type PASS
-        auth_pass hellotencent
+        auth_pass 1111
     }
     unicast_peer {
-        10.131.255.11
+        10.0.0.1    #对端设备的ip地址，例如：10.0.0.1
     }
     virtual_ipaddress {
-        10.131.255.119/24
+        10.100.0.27
     }
     nopreempt
     garp_master_delay 1
@@ -121,8 +118,8 @@ module = 'vpc'
 action = 'MigratePrivateIpAddress'
 config = {
     'Region': 'bj',
-    'secretId': '你的secretId',
-    'secretKey': '你的secretKey',
+    'secretId': '您的secretId',
+    'secretKey': '您的secretKey',
     'method': 'post'
 }
 params = {
