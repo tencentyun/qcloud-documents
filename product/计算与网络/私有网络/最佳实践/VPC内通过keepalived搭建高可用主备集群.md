@@ -1,6 +1,6 @@
 本文将介绍如何在腾讯云VPC内通过keepalived搭建高可用主备集群。
 ## 基本原理
-通常高可用主备集群包含2台服务器，一台主服务器处于某种业务的激活状态（即Active状态），另一台备服务器处于该业务的备用状态（即Standby状态)，它们共享同一个VIP，同一时刻VIP只在一台主设备上生效，当主服务器出现问题，备用服务器接管VIP继续提供服务。高可用主备模式有着广泛的应用，例如：mysql 主备切换、Ngnix web接入。
+通常高可用主备集群包含2台服务器，一台主服务器处于某种业务的激活状态（即Active状态），另一台备服务器处于该业务的备用状态（即Standby状态)，它们共享同一个VIP（virtual IP），同一时刻VIP只在一台主设备上生效，当主服务器出现问题，备用服务器接管VIP继续提供服务。高可用主备模式有着广泛的应用，例如：mysql 主备切换、Ngnix web接入。
 ![](//mc.qcloudimg.com/static/img/67658d6b32551cb2bdcf10f30bae74c6/1.png)
 
 ## 与物理网络的区别
@@ -17,7 +17,7 @@
 
 ## 详细步骤
 ### 步骤1.    申请VIP
-在某个子网内申请VIP，暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
+在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
 
 ```
         
@@ -162,7 +162,7 @@ global_defs {
 vrrp_sync_group G1 {
     group {
         VI_1
-    }
+    }a
     notify_master "/etc/keepalived/vip.py"
 }
 vrrp_instance VI_1 {
