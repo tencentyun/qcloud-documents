@@ -176,4 +176,13 @@ vrrp_instance VI_1 {
         auth_pass 1111
     }
     unicast_peer {
-        10.10
+        10.0.0.1    #对端设备的ip地址，例如：10.0.0.1
+    }
+    virtual_ipaddress {
+        10.100.0.27
+    }
+    nopreempt
+    garp_master_delay 1
+    garp_master_refresh 5
+}
+```
