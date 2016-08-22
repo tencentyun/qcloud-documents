@@ -1,4 +1,21 @@
-## 1. 帐号相关接口
+## 1.实例相关接口
+| 接口功能 | Action ID | 功能描述 | 
+|---------|---------|---------|
+| 查看实例列表| [CdbTdsqlGetInstanceList](/doc/api/309/5447) | 查看实例列表以及详情 |
+| 修改实例名称 | [CdbTdsqlRenameInstance](/doc/api/309/5449) | 修改实例名称 |
+| 实例扩容| [CdbTdsqlExpandInstance](/doc/api/309/5533) | 实例扩容|
+| 修改实例所属项目 | [ CdbTdsqlAssignToProject](/doc/api/309/5534) | 修改实例所属项目|
+| 开放外网地址 | [CdbTdsqlOpenWanIP](/doc/api/309/5535) | 开放外网地址 |
+| 关闭外网地址 | [CdbTdsqlCloseWanIP](/doc/api/309/5536) | 关闭外网地址 |
+| 查询实例规格 | [CdbTdsqlGetSpecList](/doc/api/309/5537) | 查询实例规格 |
+| 查询价格 |[CdbTdsqlGetPrice](/doc/api/309/5538)| 查询价格 |
+| 创建实例 |[CdbTdsqlCreateInstance](/doc/api/309/5539)| 创建实例（包年包月） |
+| 初始化实例 |[CdbTdsqlInitInstance](/doc/api/309/5540)| 初始化实例 |
+| 续费实例 |[CdbTdsqlRenewInstance](/doc/api/309/5541)| 续费实例 |
+| 查询项目列表 |[CdbTdsqlGetProjectList](/doc/api/309/5604)| 查询项目列表 |
+| 查询流程状态 |[CdbTdsqlGetFlowInfo](/doc/api/309/5605)| 查询流程状态 |
+| 查询订单信息 |[CdbTdsqlGetOrderInfo](/doc/api/309/5690)| 查询订单信息 |
+## 2. 帐号相关接口
 
 | 接口功能 | Action ID | 功能描述 | 
 |---------|---------|---------|
@@ -11,12 +28,12 @@
 | 修改帐号备注 | [CdbTdsqlChangeUserDesc](/doc/api/309/5400) | 修改帐号的备注描述 |
 | 重置帐号密码 |[CdbTdsqlResetCdbInstancesPassword](/doc/api/309/5401)| 重置数据库帐号的密码 |
 
-## 2. 备份与恢复相关接口
+## 3. 备份与恢复相关接口
 | 接口功能 | Action ID | 功能描述 | 
 |---------|---------|---------|
 | 获取日志列表 |[CdbTdsqlGetLog](/doc/api/309/5402)| 获取全量冷备、binlog、errlog的日志列表和下载地址 |
 
-## 3. 参数管理接口
+## 4. 参数管理接口
 
 | 接口功能 | Action ID | 功能描述 | 
 |---------|---------|---------|
@@ -25,7 +42,7 @@
 | 查看备份日志设置 | [CdbTdsqlQueryLogConfig](/doc/api/309/5406) | 查看备份日志设置，目前只提供保存天数的信息 |
 | 修改备份日志设置 | [CdbTdsqlModifyLogConfig](/doc/api/309/5407) | 修改备份日志设置，目前只提供保存天数修改的功能 |
 
-## 4. 监控管理接口
+## 5. 监控管理接口
 
 | 接口功能 | Action ID | 功能描述 | 
 |---------|---------|---------|

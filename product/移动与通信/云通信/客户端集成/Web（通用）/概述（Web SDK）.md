@@ -28,46 +28,51 @@ Demo 主要JS文件功能说明如下：
 <!--用于获取文件MD5 js api(发送图片时用到)-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
 <!--web im sdk-->
-<script type="text/javascript" src="sdk/ webim.js?v=1.4.0"></script>
+<script type="text/javascript" src="sdk/ webim.js"></script>
 <script type="text/javascript" src="sdk/json2.js"></script>
+
 <!--web im sdk 登录 示例代码-->
-<script type="text/javascript" src="js/login/login.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/login/login.js"></script>
 <!--web im sdk 登出 示例代码-->
-<script type="text/javascript" src="js/logout/logout.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/logout/logout.js"></script>
 <!--web im 解析一条消息 示例代码-->
-<script type="text/javascript" src="js/common/show_one_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/common/show_one_msg.js"></script>
 <!--web im demo 基本逻辑-->
-<script type="text/javascript" src="js/base.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/base.js"></script>
 <!--web im sdk 资料管理 api 示例代码-->
-<script type="text/javascript" src="js/profile/profile_manager.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/profile/profile_manager.js"></script>
 <!--web im sdk 好友管理 api 示例代码-->
-<script type="text/javascript" src="js/friend/friend_manager.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/friend/friend_manager.js"></script>
 <!--web im sdk 好友申请管理 api 示例代码-->
-<script type="text/javascript" src="js/friend/friend_pendency_manager.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/friend/friend_pendency_manager.js"></script>
 <!--web im sdk 好友黑名单管理 api 示例代码-->
-<script type="text/javascript" src="js/friend/friend_black_list_manager.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/friend/friend_black_list_manager.js"></script>
 <!--web im sdk 群组管理 api 示例代码-->
-<script type="text/javascript" src="js/group/group_manager.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/group/group_manager.js"></script>
 <!--web im sdk 群成员管理 api 示例代码-->
-<script type="text/javascript" src="js/group/group_member_manager.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/group/group_member_manager.js"></script>
 <!--web im sdk 加群申请管理 api 示例代码-->
-<script type="text/javascript" src="js/group/group_pendency_manager.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/group/group_pendency_manager.js"></script>
 <!--web im 切换聊天好友或群组 示例代码-->
-<script type="text/javascript" src="js/switch_chat_obj.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/switch_chat_obj.js"></script>
 <!--web im sdk 获取c2c获取群组历史消息 示例代码-->
-<script type="text/javascript" src="js/msg/get_history_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/msg/get_history_msg.js"></script>
 <!--web im sdk 发送普通消息(文本和表情) api 示例代码-->
-<script type="text/javascript" src="js/msg/send_common_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/msg/send_common_msg.js"></script>
 <!--web im sdk 上传和发送图片消息 api 示例代码-->
-<script type="text/javascript" src="js/msg/upload_and_send_pic_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/msg/upload_and_send_pic_msg.js"></script>
 <!--web im sdk 切换播放语音消息 示例代码-->
-<script type="text/javascript" src="js/msg/switch_play_sound_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/msg/switch_play_sound_msg.js"></script>
 <!--web im sdk 发送自定义消息 api 示例代码-->
-<script type="text/javascript" src="js/msg/send_custom_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/msg/send_custom_msg.js"></script>
 <!--web im 监听新消息(c2c或群) 示例代码-->
-<script type="text/javascript" src="js/msg/receive_new_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/msg/receive_new_msg.js"></script>
 <!--web im 监听群系统通知消息 示例代码-->
-<script type="text/javascript" src="js/msg/receive_group_system_msg.js?v=1.4.0"></script>
+<script type="text/javascript" src="js/msg/receive_group_system_msg.js"></script>
+<!--web im 监听好友系统通知消息 示例代码-->
+<script type="text/javascript" src="js/msg/receive_friend_system_msg.js"></script>
+<!--web im 监听资料系统通知消息 示例代码-->
+<script type="text/javascript" src="js/msg/receive_profile_system_msg.js"></script>
 ```
 
 
@@ -175,7 +180,7 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 | webim.EmotionDataIndexs | 表情标识字符串和index的Map | 键值对形式，key是表情的标识字符串，value是表情index，主要用于发表情消息。 |
 | webim.BROWSER_INFO | 当前浏览器信息<br/>1)	webim.BROWSER_INFO.type-浏览器类型( 包括 ‘ie’，’safari’，’chrome’，’firefox’，’opera’，’unknow’)<br/>2)	webim.BROWSER_INFO.ver-版本号| 区分浏览器版本 |
 |webim.TLS_ERROR_CODE  | TLS错误码<br/>1)	webim.TLS_ERROR_CODE.OK-成功<br/>2)	webim.TLS_ERROR_CODE.SIGNATURE_EXPIRATION –用户UserSig过期|用于帐号为托管模式的情况 |
-| webim.CONNECTION_STATUS | 连接状态<br/>1)	webim.CONNECTION_STATUS.ON-连接状态正常，可正常收发消息<br/>2)	webim.CONNECTION_STATUS.OFF-连接已断开，当前用户已离线，无法收信息| 用于区分用户的当前连接状态 |
+| webim.CONNECTION_STATUS | 连接状态<br/>1)	webim.CONNECTION_STATUS.ON-连接状态正常，可正常收发消息<br/>2)	webim.CONNECTION_STATUS.OFF-连接已断开，当前用户已离线，无法收信息<br/>3)	webim.CONNECTION_STATUS.RECONNECT-连接重新建立| 用于区分用户的当前连接状态 |
 
 类对象
 
