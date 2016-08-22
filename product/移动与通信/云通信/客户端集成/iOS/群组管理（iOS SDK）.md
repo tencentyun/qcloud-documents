@@ -23,7 +23,7 @@ IM云通讯有多种群组类型，其特点以及限制因素可参考[群组�
 
 CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateChatRoomGroup创建聊天室，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。
 
-另外 CreateAVChatRoomGroup 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [互动直播集成多人聊天方案](/doc/product/269/互动直播集成多人聊天方案)。
+另外 CreateAVChatRoomGroup 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
  
 **原型：**
 
