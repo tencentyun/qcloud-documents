@@ -16,6 +16,7 @@ HTTPS服务拥有身份验证，信息加密及完整性校验等优势，但通
 
 3) 测试机，即承载腾讯云https服务的云机器，测试webserver性能，直接返回页面，不需要连接upstream。
 连接关系如下表示：
+
 ![](https://mc.qcloudimg.com/static/img/45cc4191947ca44b37c47499138c8669/image.jpg)
 
 # 4. HTTPS WebServer测试性能数据
