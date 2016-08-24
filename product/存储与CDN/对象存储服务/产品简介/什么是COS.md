@@ -18,9 +18,9 @@ COS 的服务架构图如下所示：
 ![](https://mccdn.qcloud.com/static/img/054a0694e4d52fb1a470debcf57452eb/image.png)
 
 用户可以参阅以下内容获得关于腾讯云 COS 的更多信息：
-[COS 基本术语及概念]()
-[如何使用Bucket]()
-[如何使用对象]()
+[COS 基本术语及概念](/doc/product/430/5863)
+[如何使用Bucket](/doc/product/430/5878)
+[如何使用对象](/doc/product/430/5901)
 
 ## 高频存储
 
