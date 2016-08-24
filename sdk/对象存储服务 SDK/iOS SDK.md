@@ -2,7 +2,7 @@
 
 ### SDK 获取
 
-对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://mccdn.qcloud.com/static/archive/dded51270b574ddc3f58bf24ba8062cb/qcloud-image-ios-v1.1.4.1.zip) 
+对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/a78a41f6eb769e421aa41fa607bc1501/qcloud-image-ios-v1.1.4.2.zip) 
 
 更多示例可参考Demo：[iOS Demo](https://mccdn.qcloud.com/static/archive/4f6b713421f896ae5cbf7f3e2ac12ea6/QcloudDemoApp.zip) 
 
