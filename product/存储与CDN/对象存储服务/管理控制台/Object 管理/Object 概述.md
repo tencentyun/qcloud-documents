@@ -5,7 +5,7 @@ Object是腾讯云 COS 中存储的具体内容，使用 key-value 存储方式�
 元数据（Metadata）：一组键值对，可用于存储有关Object的信息。可以参考[Object HTTP头设置](/doc/product/430/5911)。
 访问控制信息 – 控制Object的访问权限信息。
 
-## 1. Object名称
+## Object名称
 腾讯云 COS 中上传的Object需具有合法的名称，它在 Bucket 中唯一地标识该Object。在控制台Bucket Object列表中可以遍历Object名称。Object名称是采用 Unicode 字符，虽然可以在名称中使用任何 UTF-8 字符，但是每个应用程序对特殊字符的分析方式可能不同。以下原则有助于最大程度符合 DNS、Web 安全字符、XML 分析器和其他 API 的要求。
 
 以下字符集通常可安全地用于键名称：
@@ -33,5 +33,5 @@ report.pdf
 
 > COS 中没有层次结构。但是通过Object名称中的前缀和分隔符，COS 可以推断层次结构并引入Folder的概念。
 
-## 2. Object地址
+## Object地址
 Object的访问地址都是基于 Bucket 的访问地址和Object名称的，腾讯云的Object访问地址构成为 `Bucket域名+“/“+Object名称`，有关Bucket的域名可以参考 [Bucket 域名管理](/doc/product/430/5889)。
