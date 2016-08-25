@@ -58,12 +58,15 @@ Content-Type: "application/json"
 | Content-Length | 是    | http body总长度                    |
 
 请求包http body:
+
 | 参数        | 是否必选 | 类型     | 描述            |
 | --------- | ---- | ------ | ------------- |
 | appid     | 是    | uint   | 业务id          |
 | bucket    | 是    | string | 图片空间          |
 | card_type | 是    | int    | 0身份证正面，1身份证反面 |
 | url_list  | 是    | string | 图片url列表       |
+
+
 
 响应http body（json格式）:
 | 参数          | 类型     | 描述           |
