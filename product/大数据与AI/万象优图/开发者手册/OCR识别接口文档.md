@@ -14,10 +14,13 @@
 ![](https://mc.qcloudimg.com/static/img/e404ca7488e2803674c9fd806621e26d/3.png)
 
 **基本概念：**
+
 | 概念     | 解释               |
 | ------ | ---------------- |
 | appid  | 项目ID, 用于唯一标识接入项目 |
 | bucket | 开发者添加的空间名称       |
+
+
 
 ## 2. OCR_CGI 
 
