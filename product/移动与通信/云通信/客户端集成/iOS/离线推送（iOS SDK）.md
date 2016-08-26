@@ -29,6 +29,7 @@ APNs 证书申请完成以后，需要把生成的p12证书上传到控制台，
 
 1. 注册离线推送服务（registerForRemoteNotifications）
 2. 上传设备Token（[[TIMManager sharedInstance] setToken:]）
+3. 设备切后台时上报事件（[[TIMManager sharedInstance] doBackground:succ:fail:]）
 4. 设备回到前台时上报事件（[[TIMManager sharedInstance] doForeground]）
 
 具体操作请参考视频：[云通信IM-iOS ImSDK离线推送](https://qcloud.com/course/detail/80)。
