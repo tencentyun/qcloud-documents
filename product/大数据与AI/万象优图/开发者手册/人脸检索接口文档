@@ -166,7 +166,7 @@ Content-Type: application/json
   "message":"OK"
 }
 ```
-###2.2 删除个体
+### 2.2 删除个体
 1) 接口
   http://service.image.myqcloud.com/face/delperson
 2) 描述
@@ -221,7 +221,7 @@ Content-Type: application/json
   "message":"OK"
 }
 ```
-###2.3 增加人脸
+### 2.3 增加人脸
 1) 接口
   http://service.image.myqcloud.com/face/addface
 2) 描述
@@ -229,6 +229,7 @@ Content-Type: application/json
 3) 参数
 使用image则使用 multipart/form-data格式
 不使用image则使用 application/json格式
+
 |参数名|	是否必须|	类型|	参数说明|
 | ---- | ---- | ---- | ---- |
 |appid|	必须|	String	|项目ID|
@@ -238,6 +239,7 @@ Content-Type: application/json
 |urls	|可选|	String	|图片的urls, images 和urls只提供一个就可以了,如果都提供,只使用urls|
 |tag	|可选|	String	|备注信息|
 4) 返回值说明
+
 |字段	|类型|	说明|
 | ---- | ---- | ---- |
 |data.session_id	|String	|相应请求的session标识符|
@@ -315,12 +317,13 @@ Content-Type: application/json
   "message":"OK"
 }
 ```
-###2.4	删除人脸
+### 2.4	删除人脸
 1) 接口
  http://service.image.myqcloud.com/face/delface
 2) 描述
  删除一个person下的face，包括特征，属性和face_id。
 3) 参数：使用 application/json格式
+
 |参数名|	是否必须|	类型	|参数说明|
 | ---- | ---- | ---- | ---- |
 |appid|	必须|	String	|项目ID|
@@ -328,6 +331,7 @@ Content-Type: application/json
 |person_id	|必须	|String	|待删除人脸的person ID|
 |face_ids|	必须	|Array(String)|	删除人脸id的列表|
 4) 返回值说明
+
 |字段	|类型|	说明|
 | ---- | ---- | ---- |
 |data.session_id	|String	|相应请求的session标识符|
@@ -372,13 +376,14 @@ Content-Type: application/json
   "message":"OK"
 }
 ``` 
-###2.5	设置信息
+### 2.5	设置信息
 1) 接口
 http://service.image.myqcloud.com/face/setinfo
 2) 描述
 设置Person的name。
 3) 参数
 使用 application/json格式
+
 |参数名|	是否必须|类型	|参数说明|
 | ---- | ---- | ---- | ---- |
 |appid|	必须	|String	|项目ID|
@@ -387,6 +392,7 @@ http://service.image.myqcloud.com/face/setinfo
 |person_name|	可选	|String|	新的name|
 |tag	|可选	|String|	备注信息|
 4) 返回值说明
+
 |字段	|类型	|说明|
 | ---- | ---- | ---- |
 |data.session_id	|String	|相应请求的session标识符|
@@ -425,19 +431,21 @@ Content-Type: application/json
   "message":"OK"
 }
 ``` 
-###2.6	获取信息
+### 2.6	获取信息
 1) 接口
 http://service.image.myqcloud.com/face/getinfo
 2) 描述
 获取一个Person的信息, 包括name, id, tag, 相关的face, 以及groups等信息。
 3) 参数
 使用 application/json格式
+
 |参数名|	是否必须	|类型	|参数说明|
 | ---- | ---- | ---- | ---- |
 |appid|	必须	|String	|项目ID|
 |bucket	|必须|	String|	空间名称|
 |person_id|	必须	|String	|待查询个体的ID|
 4) 返回值说明
+
 |字段	|类型|	说明|
 | ---- | ---- | ---- |
 |data.person_name	|String	|相应person的name|
@@ -488,18 +496,20 @@ Content-Type: application/json
   "message":"OK"
 }
 ``` 
-###2.7	获取组列表
+### 2.7	获取组列表
 1) 接口
 http://service.image.myqcloud.com/face/getgroupids
 2) 描述
 获取一个AppId下所有group列表。
 3) 参数
 使用 application/json格式
+
 |参数名|	是否必须	|类型	|参数说明|
 | ---- | ---- | ---- | ---- |
 |appid	|必须	|String|	项目ID|
 |bucket|	必须	|String|	空间名称|
 4) 返回值说明
+
 |字段	|类型|	说明|
 | ---- | ---- | ---- |
 |data.group_ids|	Array(String)|	相应appid的group_id列表|
@@ -538,19 +548,21 @@ Content-Type: application/json
   "message":"OK"
 }
 ``` 
-###2.8	获取人列表
+### 2.8	获取人列表
 1) 接口
 http://service.image.myqcloud.com/face/getpersonids
 2) 描述
 获取一个组Group中所有person列表。
 3) 参数
 使用 application/json格式
+
 |参数名|	是否必须	|类型|参数说明|
 | ---- | ---- | ---- | ---- |
 |appid	|必须|	String|	项目ID|
 |bucket|	必须	|String	|空间名称|
 |group_id	|必须	|String|	组id|
 4) 返回值说明
+
 |字段	|类型	|说明|
 | ---- | ---- | ---- |
 |data.person_ids	|Array(String)	|相应person的id列表|
@@ -590,19 +602,21 @@ Content-Type: application/json
   "message":"OK"
 }
 ```  
-###2.9	获取人脸列表
+### 2.9	获取人脸列表
 1) 接口
 http://service.image.myqcloud.com/face/getfaceids
 2) 描述
 获取一个组person中所有face列表。
 3) 参数
 使用 application/json格式
+
 |参数名|	是否必须	|类型	|数说明|
 | ---- | ---- | ---- | ---- |
 |appid	|必须	|String|	项目ID|
 |bucket|	必须|	String	|空间名称|
 |person_id|	必须	|String	|个体id|
 4) 返回值说明
+
 |字段|	类型|	说明|
 | ---- | ---- | ---- |
 |data.face_ids	|Array(String)|	相应face的id列表|
@@ -642,25 +656,28 @@ Content-Type: application/json
   "message":"OK"
 }
 ``` 
-###2.10	获取人脸信息
+### 2.10	获取人脸信息
 1) 接口
 http://service.image.myqcloud.com/face/getfaceinfo
 2) 描述
 获取一个face的相关特征信息。
 3) 参数
 使用 application/json格式
+
 |参数名|	是否必须	|类型	|参数说明|
 | ---- | ---- | ---- | ---- |
 |appid	|必须	|String	|项目ID|
 |bucket|必须	|string	|空间名称|
 |face_id|	必须	|String|	人脸id|
 4) 返回值说明
+
 |字段	|类型|	说明|
 | ---- | ---- | ---- |
 |data.face_info	|FaceItem	|人脸信息|
 |code	|Int	|返回状态码|
 |message	|String	|返回错误消息|
 FaceItem说明
+
 |字段	|类型|	说明|
 | ---- | ---- | ---- |
 |face_id	|String	|人脸标识|
@@ -718,7 +735,7 @@ Content-Type: application/json
   "message":"OK"
 }
 ``` 
-###2.11	人脸识别
+### 2.11	人脸识别
 1) 接口
 http://service.image.myqcloud.com/face/identify
 2) 描述
@@ -726,6 +743,7 @@ http://service.image.myqcloud.com/face/identify
 3) 参数
 使用image则使用 multipart/form-data格式
 不使用image则使用 application/json格式
+
 |参数名|	是否必须|	类型	|参数说明|
 | ---- | ---- | ---- | ---- |
 |appid|	必须|	String|	项目ID|
@@ -734,13 +752,15 @@ http://service.image.myqcloud.com/face/identify
 |image|	可选	|Binary|	图片内容|
 |url	|可选|	String|	图片的url, image 和url只提供一个就可以了,如果都提供,只使用url|
 4) 返回值说明
+
 |字段|	类型|	说明|
 | ---- | ---- | ---- |
 |data.session_id	|String	|相应请求的session标识符，可用于结果查询|
 |data.candidates|	Array(IdentifyItem)	|识别出的top5候选人|
 |code|	Int	|返回状态码|
 |message|	String|	返回错误消息|
-IdentifyItem说明
+dentifyItem说明
+
 |字段	|类型	|说明|
 | ---- | ---- | ---- |
 |person_id|	String|	候选者person_id|
