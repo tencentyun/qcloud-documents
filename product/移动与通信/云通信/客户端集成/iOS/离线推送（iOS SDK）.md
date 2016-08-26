@@ -1,6 +1,5 @@
 ## 1. 概述 
 
-
 ### 1.1 推送原理
 
 如想要接收APNs离线消息通知，需要在腾讯云管理平台提交Push证书，在客户端每次登录时，获取并通过API接口上报Token。详细推送原理可参阅：[Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)。
@@ -13,7 +12,9 @@ APNs 证书申请流程可参考文档：[Apple推送证书申请](/doc/product/
 
 ### 1.3 上传证书到控制台
 
-APNs 证书申请完成以后，需要把生成的p12证书上传到控制台，上传后会生成证书id，需要setToken调用时设置。
+APNs 证书申请完成以后，需要把生成的p12证书上传到控制台，上传后会生成证书id，需要setToken调用时设置。APP开发周期中，证书申请流程如下图：
+
+<img src="https://mc.qcloudimg.com/static/img/7ff07f369fa14f0669631c3e0a0f97c1/imsdk_ios_apns_busiId_big.jpg" width=480 />
 
 另外上传时有几个注意点：
 
@@ -21,6 +22,16 @@ APNs 证书申请完成以后，需要把生成的p12证书上传到控制台，
 2. 上传证书生效时间为10分钟左右
 3. 上传证书需要设置密码，无密码收不到推送
 4. 注意生产环境的选择，需要跟证书是否正式的发布证书对应，否则无法收到推送
+
+### 1.4 客户端进行APNs推送
+
+客户端按照如下4个步骤使用APNs推送：
+
+1. 注册离线推送服务（registerForRemoteNotifications）
+2. 上传设备Token（[[TIMManager sharedInstance] setToken:]）
+4. 设备回到前台时上报事件（[[TIMManager sharedInstance] doForeground]）
+
+具体操作请参考视频：[云通信IM-iOS ImSDK离线推送](https://qcloud.com/course/detail/80)。
 
 ## 2. 推送格式 
 
@@ -263,37 +274,7 @@ fail|失败回调
 succ|成功回调，返回 TIMAPNSConfig 结构体
 fail|失败回调
 
-### 5.3 Ext 扩展字段
-
-如果需要收到APNs推送时用户点击跳转到对应页面，需要扩展字段Ext的帮助，用户在发消息时，增加TIMCustomElem，填写对应ext字段，可实现APNs推送时增加APNs的ext字段，由APP进行编码和解析。
-
-```
-/**
- *  自定义消息类型
- */
-@interface TIMCustomElem : TIMElem
-
-/**
- *  自定义消息二进制数据
- */
-@property(nonatomic,retain) NSData * data;
-/**
- *  自定义消息描述信息，做离线Push时文本展示
- */
-@property(nonatomic,retain) NSString * desc;
-/**
- *  离线Push时扩展字段信息
- */
-@property(nonatomic,retain) NSString * ext;
-/**
- *  离线Push时声音字段信息
- */
-@property(nonatomic,retain) NSString * sound;
-@end
-
-```
-
-### 5.4 每条离线推送属性
+### 5.3 每条离线推送属性
 
 如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置TIMOfflinePushInfo，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。
 
