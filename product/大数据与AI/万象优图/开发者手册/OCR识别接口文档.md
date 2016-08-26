@@ -69,9 +69,12 @@ Content-Type: "application/json"
 
 
 响应http body（json格式）:
-| 参数          | 类型     | 描述           |
-| ----------- | ------ | ------------ |
+
+|  参数    | 类型     |   类型   |
+| ---- | ---- | ---- |
 | result_list | json数组 | 具体查询数据，内容见下表 |
+
+
 
 result_list（json数组）中每一项的具体内容
 | 参数      | 类型     | 描述           |
