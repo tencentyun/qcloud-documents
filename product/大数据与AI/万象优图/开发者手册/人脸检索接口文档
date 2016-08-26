@@ -15,13 +15,13 @@
 
 **基本概念：**
 
-| 概念     | 解释               |
-| ------ | ---------------- |
-| appid  | 项目ID, 用于唯一标识接入项目 |
-| bucket | 开发者添加的空间名称       |
-|group_id	|个体(person)以组（group）的形式存储，一个组可以包含多个个体，一个个体也可以存在于多个组。group_id即用来标识group。组(group)没有专门的创建接口，创建个体(person)时，指定group_id则会自动创建。|
-|person_id	|人脸以个体（person）的形式存储，一个个体下可以存储多张人脸。person_id即用来标识person|
-|face_id	|标识每张人脸的id|
+| 概念        | 解释                                       |
+| --------- | ---------------------------------------- |
+| appid     | 项目ID, 用于唯一标识接入项目                         |
+| bucket    | 开发者添加的空间名称                               |
+| group_id  | 个体(person)以组（group）的形式存储，一个组可以包含多个个体，一个个体也可以存在于多个组。group_id即用来标识group。组(group)没有专门的创建接口，创建个体(person)时，指定group_id则会自动创建。 |
+| person_id | 人脸以个体（person）的形式存储，一个个体下可以存储多张人脸。person_id即用来标识person |
+| face_id   | 标识每张人脸的id                                |
 
 
 ## 2. 人脸识别CGI
@@ -81,6 +81,7 @@ http://service.image.myqcloud.com/face/newperson
 | tag         | 可选   | String        | 备注信息                                  |
 
 4) 返回值说明
+
 | 字段              | 类型            | 说明               |
 | --------------- | ------------- | ---------------- |
 | data.session_id | String        | 相应请求的session标识符  |
@@ -91,6 +92,7 @@ http://service.image.myqcloud.com/face/newperson
 | data.group_ids  | Array(String) | 加入成功的组id         |
 | code            | Int           | 返回码              |
 | message         | String        | 返回错误消息           |
+
 5) 样例
 使用url的请求包:
 
@@ -173,21 +175,21 @@ Content-Type: application/json
   删除一个Person。
 3) 参数：使用 application/json格式
 
-|   参数名   |  是否必须    | 类型     |  参数说明    |
-| ---- | ---- | ---- | ---- |
-|appid|必须|	String	|项目ID|
-|bucket	|必须|	String	|空间名称|
-|person_id	|必须	|String	|待删除个体ID|
+| 参数名       | 是否必须 | 类型     | 参数说明    |
+| --------- | ---- | ------ | ------- |
+| appid     | 必须   | String | 项目ID    |
+| bucket    | 必须   | String | 空间名称    |
+| person_id | 必须   | String | 待删除个体ID |
 
 4) 返回值说明
 
-| 字段     |  类型    |说明      |
-| ---- | ---- | ---- |
-|data.session_id	|String	|相应请求的session标识符|
-|data.person_id	|String	|成功删除的person_id|
-|data.deleted	|Int	|成功删除的Person数量|
-|code	|Int|	返回状态码|
-|message|	String	|返回错误消息|
+| 字段              | 类型     | 说明              |
+| --------------- | ------ | --------------- |
+| data.session_id | String | 相应请求的session标识符 |
+| data.person_id  | String | 成功删除的person_id  |
+| data.deleted    | Int    | 成功删除的Person数量   |
+| code            | Int    | 返回状态码           |
+| message         | String | 返回错误消息          |
 
 5) 样例
 请求包：
@@ -230,24 +232,26 @@ Content-Type: application/json
 使用image则使用 multipart/form-data格式
 不使用image则使用 application/json格式
 
-|参数名|	是否必须|	类型|	参数说明|
-| ---- | ---- | ---- | ---- |
-|appid|	必须|	String	|项目ID|
-|bucket|	必须	|String|	空间名称|
-|person_id	|必须	|String	|待增加人脸的个体id|
-|images	|可选	|Array(Binary)	|图片内容|
-|urls	|可选|	String	|图片的urls, images 和urls只提供一个就可以了,如果都提供,只使用urls|
-|tag	|可选|	String	|备注信息|
+| 参数名       | 是否必须 | 类型            | 参数说明                                     |
+| --------- | ---- | ------------- | ---------------------------------------- |
+| appid     | 必须   | String        | 项目ID                                     |
+| bucket    | 必须   | String        | 空间名称                                     |
+| person_id | 必须   | String        | 待增加人脸的个体id                               |
+| images    | 可选   | Array(Binary) | 图片内容                                     |
+| urls      | 可选   | String        | 图片的urls, images 和urls只提供一个就可以了,如果都提供,只使用urls |
+| tag       | 可选   | String        | 备注信息                                     |
+
 4) 返回值说明
 
-|字段	|类型|	说明|
-| ---- | ---- | ---- |
-|data.session_id	|String	|相应请求的session标识符|
-|data.added	|Int	|成功加入的face数量|
-|data.face_ids	|Array(String)	|增加的人脸ID列表|
-|data.ret_codes	|Array(Int)	|每张图片增加人脸的返回码|
-|code	|Int	|返回状态码|
-|message|	String	|返回错误消息|
+| 字段              | 类型            | 说明              |
+| --------------- | ------------- | --------------- |
+| data.session_id | String        | 相应请求的session标识符 |
+| data.added      | Int           | 成功加入的face数量     |
+| data.face_ids   | Array(String) | 增加的人脸ID列表       |
+| data.ret_codes  | Array(Int)    | 每张图片增加人脸的返回码    |
+| code            | Int           | 返回状态码           |
+| message         | String        | 返回错误消息          |
+
 5) 样例
 使用url的请求包:
 ```
@@ -324,21 +328,23 @@ Content-Type: application/json
  删除一个person下的face，包括特征，属性和face_id。
 3) 参数：使用 application/json格式
 
-|参数名|	是否必须|	类型	|参数说明|
-| ---- | ---- | ---- | ---- |
-|appid|	必须|	String	|项目ID|
-|bucket|	必须|	String	|空间名称|
-|person_id	|必须	|String	|待删除人脸的person ID|
-|face_ids|	必须	|Array(String)|	删除人脸id的列表|
+| 参数名       | 是否必须 | 类型            | 参数说明            |
+| --------- | ---- | ------------- | --------------- |
+| appid     | 必须   | String        | 项目ID            |
+| bucket    | 必须   | String        | 空间名称            |
+| person_id | 必须   | String        | 待删除人脸的person ID |
+| face_ids  | 必须   | Array(String) | 删除人脸id的列表       |
+
 4) 返回值说明
 
-|字段	|类型|	说明|
-| ---- | ---- | ---- |
-|data.session_id	|String	|相应请求的session标识符|
-|data.deleted	|Int|	成功删除的face数量|
-|data.face_ids	|Array(String)	|成功删除的face_id列表|
-|code	|Int	|返回状态码|
-|message	|String	|返回错误消息|
+| 字段              | 类型            | 说明              |
+| --------------- | ------------- | --------------- |
+| data.session_id | String        | 相应请求的session标识符 |
+| data.deleted    | Int           | 成功删除的face数量     |
+| data.face_ids   | Array(String) | 成功删除的face_id列表  |
+| code            | Int           | 返回状态码           |
+| message         | String        | 返回错误消息          |
+
 5) 样例
 请求包:
 ```
@@ -375,7 +381,7 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-``` 
+```
 ### 2.5	设置信息
 1) 接口
 http://service.image.myqcloud.com/face/setinfo
@@ -384,21 +390,23 @@ http://service.image.myqcloud.com/face/setinfo
 3) 参数
 使用 application/json格式
 
-|参数名|	是否必须|类型	|参数说明|
-| ---- | ---- | ---- | ---- |
-|appid|	必须	|String	|项目ID|
-|bucket|	必须|	String	|空间名称|
-|person_id	|必须|	String|	相应person的id|
-|person_name|	可选	|String|	新的name|
-|tag	|可选	|String|	备注信息|
+| 参数名         | 是否必须 | 类型     | 参数说明        |
+| ----------- | ---- | ------ | ----------- |
+| appid       | 必须   | String | 项目ID        |
+| bucket      | 必须   | String | 空间名称        |
+| person_id   | 必须   | String | 相应person的id |
+| person_name | 可选   | String | 新的name      |
+| tag         | 可选   | String | 备注信息        |
+
 4) 返回值说明
 
-|字段	|类型	|说明|
-| ---- | ---- | ---- |
-|data.session_id	|String	|相应请求的session标识符|
-|data.person_id	|String	|相应person的id|
-|code	|Int	|返回状态码|
-|message|	String	|返回错误消息|
+| 字段              | 类型     | 说明              |
+| --------------- | ------ | --------------- |
+| data.session_id | String | 相应请求的session标识符 |
+| data.person_id  | String | 相应person的id     |
+| code            | Int    | 返回状态码           |
+| message         | String | 返回错误消息          |
+
 5) 样例
 请求包:
 ``` 
@@ -414,7 +422,7 @@ Content-Type: application/json
   "person_id":"person0",
   "person_name":"NicolasCage"
 }
-``` 
+```
 回包:
 ``` 
 HTTP/1.1 200 OK
@@ -430,7 +438,7 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-``` 
+```
 ### 2.6	获取信息
 1) 接口
 http://service.image.myqcloud.com/face/getinfo
@@ -439,23 +447,25 @@ http://service.image.myqcloud.com/face/getinfo
 3) 参数
 使用 application/json格式
 
-|参数名|	是否必须	|类型	|参数说明|
-| ---- | ---- | ---- | ---- |
-|appid|	必须	|String	|项目ID|
-|bucket	|必须|	String|	空间名称|
-|person_id|	必须	|String	|待查询个体的ID|
+| 参数名       | 是否必须 | 类型     | 参数说明     |
+| --------- | ---- | ------ | -------- |
+| appid     | 必须   | String | 项目ID     |
+| bucket    | 必须   | String | 空间名称     |
+| person_id | 必须   | String | 待查询个体的ID |
+
 4) 返回值说明
 
-|字段	|类型|	说明|
-| ---- | ---- | ---- |
-|data.person_name	|String	|相应person的name|
-|data.person_id|	String	|相应person的id|
-|data.face_ids|	Array(String)|	包含的人脸列表|
-|data.group_ids|	Array(String)	|包含此个体的组id|
-|data.session_id	|String	|相应请求的session标识符|
-|data.tag|	String	|为此个体设置的备注信息|
-|code	|Int	|返回状态码|
-|message|	String	|返回错误消息|
+| 字段               | 类型            | 说明              |
+| ---------------- | ------------- | --------------- |
+| data.person_name | String        | 相应person的name   |
+| data.person_id   | String        | 相应person的id     |
+| data.face_ids    | Array(String) | 包含的人脸列表         |
+| data.group_ids   | Array(String) | 包含此个体的组id       |
+| data.session_id  | String        | 相应请求的session标识符 |
+| data.tag         | String        | 为此个体设置的备注信息     |
+| code             | Int           | 返回状态码           |
+| message          | String        | 返回错误消息          |
+
 5) 样例
 请求包:
 ``` 
@@ -470,7 +480,7 @@ Content-Type: application/json
   "bucket":"test",
   "person_id":"person0"
 }
-``` 
+```
 回包:
 ``` 
 HTTP/1.1 200 OK
@@ -495,7 +505,7 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-``` 
+```
 ### 2.7	获取组列表
 1) 接口
 http://service.image.myqcloud.com/face/getgroupids
@@ -504,17 +514,19 @@ http://service.image.myqcloud.com/face/getgroupids
 3) 参数
 使用 application/json格式
 
-|参数名|	是否必须	|类型	|参数说明|
-| ---- | ---- | ---- | ---- |
-|appid	|必须	|String|	项目ID|
-|bucket|	必须	|String|	空间名称|
+| 参数名    | 是否必须 | 类型     | 参数说明 |
+| ------ | ---- | ------ | ---- |
+| appid  | 必须   | String | 项目ID |
+| bucket | 必须   | String | 空间名称 |
+
 4) 返回值说明
 
-|字段	|类型|	说明|
-| ---- | ---- | ---- |
-|data.group_ids|	Array(String)|	相应appid的group_id列表|
-|code	|Int|	返回状态码|
-|message	|String	|返回错误消息|
+| 字段             | 类型            | 说明                 |
+| -------------- | ------------- | ------------------ |
+| data.group_ids | Array(String) | 相应appid的group_id列表 |
+| code           | Int           | 返回状态码              |
+| message        | String        | 返回错误消息             |
+
 5) 样例
 请求包:
 ``` 
@@ -528,7 +540,7 @@ Content-Type: application/json
   "appid":"123456",
   "bucket":"test"
 }
-``` 
+```
 回包:
 ``` 
 HTTP/1.1 200 OK
@@ -547,7 +559,7 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-``` 
+```
 ### 2.8	获取人列表
 1) 接口
 http://service.image.myqcloud.com/face/getpersonids
@@ -556,18 +568,20 @@ http://service.image.myqcloud.com/face/getpersonids
 3) 参数
 使用 application/json格式
 
-|参数名|	是否必须	|类型|参数说明|
-| ---- | ---- | ---- | ---- |
-|appid	|必须|	String|	项目ID|
-|bucket|	必须	|String	|空间名称|
-|group_id	|必须	|String|	组id|
+| 参数名      | 是否必须 | 类型     | 参数说明 |
+| -------- | ---- | ------ | ---- |
+| appid    | 必须   | String | 项目ID |
+| bucket   | 必须   | String | 空间名称 |
+| group_id | 必须   | String | 组id  |
+
 4) 返回值说明
 
-|字段	|类型	|说明|
-| ---- | ---- | ---- |
-|data.person_ids	|Array(String)	|相应person的id列表|
-|code	|Int	|返回状态码|
-|message	|String	|返回错误消息|
+| 字段              | 类型            | 说明            |
+| --------------- | ------------- | ------------- |
+| data.person_ids | Array(String) | 相应person的id列表 |
+| code            | Int           | 返回状态码         |
+| message         | String        | 返回错误消息        |
+
 5) 样例
 请求包:
 ``` 
@@ -582,7 +596,7 @@ Content-Type: application/json
   "bucket":"test",
   "group_id":"tencent"
 }
-``` 
+```
 回包:
 ``` 
 HTTP/1.1 200 OK
@@ -601,7 +615,7 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-```  
+```
 ### 2.9	获取人脸列表
 1) 接口
 http://service.image.myqcloud.com/face/getfaceids
@@ -610,18 +624,20 @@ http://service.image.myqcloud.com/face/getfaceids
 3) 参数
 使用 application/json格式
 
-|参数名|	是否必须	|类型	|数说明|
-| ---- | ---- | ---- | ---- |
-|appid	|必须	|String|	项目ID|
-|bucket|	必须|	String	|空间名称|
-|person_id|	必须	|String	|个体id|
+| 参数名       | 是否必须 | 类型     | 数说明  |
+| --------- | ---- | ------ | ---- |
+| appid     | 必须   | String | 项目ID |
+| bucket    | 必须   | String | 空间名称 |
+| person_id | 必须   | String | 个体id |
+
 4) 返回值说明
 
-|字段|	类型|	说明|
-| ---- | ---- | ---- |
-|data.face_ids	|Array(String)|	相应face的id列表|
-|code	|Int	|返回状态码|
-|message	|String	|返回错误消息|
+| 字段            | 类型            | 说明          |
+| ------------- | ------------- | ----------- |
+| data.face_ids | Array(String) | 相应face的id列表 |
+| code          | Int           | 返回状态码       |
+| message       | String        | 返回错误消息      |
+
 5) 样例
 请求包:
 ``` 
@@ -636,7 +652,7 @@ Content-Type: application/json
   "bucket":"test",
   "person_id":"person1"
 }
-``` 
+```
 回包:
 ``` 
 HTTP/1.1 200 OK
@@ -655,7 +671,7 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-``` 
+```
 ### 2.10	获取人脸信息
 1) 接口
 http://service.image.myqcloud.com/face/getfaceinfo
@@ -664,34 +680,37 @@ http://service.image.myqcloud.com/face/getfaceinfo
 3) 参数
 使用 application/json格式
 
-|参数名|	是否必须	|类型	|参数说明|
-| ---- | ---- | ---- | ---- |
-|appid	|必须	|String	|项目ID|
-|bucket|必须	|string	|空间名称|
-|face_id|	必须	|String|	人脸id|
+| 参数名     | 是否必须 | 类型     | 参数说明 |
+| ------- | ---- | ------ | ---- |
+| appid   | 必须   | String | 项目ID |
+| bucket  | 必须   | string | 空间名称 |
+| face_id | 必须   | String | 人脸id |
+
 4) 返回值说明
 
-|字段	|类型|	说明|
-| ---- | ---- | ---- |
-|data.face_info	|FaceItem	|人脸信息|
-|code	|Int	|返回状态码|
-|message	|String	|返回错误消息|
+| 字段             | 类型       | 说明     |
+| -------------- | -------- | ------ |
+| data.face_info | FaceItem | 人脸信息   |
+| code           | Int      | 返回状态码  |
+| message        | String   | 返回错误消息 |
+
 FaceItem说明
 
-|字段	|类型|	说明|
-| ---- | ---- | ---- |
-|face_id	|String	|人脸标识|
-|x	|Int|	人脸框左上角x|
-|y	|Int	|人脸框左上角y|
-|width	|Float	|人脸框宽度|
-|height|	Float	|人脸框高度|
-|gender	|Int	|性别 [0(female)~100(male)]|
-|age|	Int	|年龄 [0~100]|
-|expression|	Int	|微笑[0(normal)~50(smile)~100(laugh)]|
-|glass|	Bool	|是否有眼镜 [true,false]|
-|pitch|	Int	|上下偏移[-30,30]|
-|yaw|	Int|	左右偏移[-30,30]|
-|roll|	Int	|平面旋转[-180,180]|
+| 字段         | 类型     | 说明                                 |
+| ---------- | ------ | ---------------------------------- |
+| face_id    | String | 人脸标识                               |
+| x          | Int    | 人脸框左上角x                            |
+| y          | Int    | 人脸框左上角y                            |
+| width      | Float  | 人脸框宽度                              |
+| height     | Float  | 人脸框高度                              |
+| gender     | Int    | 性别 [0(female)~100(male)]           |
+| age        | Int    | 年龄 [0~100]                         |
+| expression | Int    | 微笑[0(normal)~50(smile)~100(laugh)] |
+| glass      | Bool   | 是否有眼镜 [true,false]                 |
+| pitch      | Int    | 上下偏移[-30,30]                       |
+| yaw        | Int    | 左右偏移[-30,30]                       |
+| roll       | Int    | 平面旋转[-180,180]                     |
+
 5) 样例
 请求包:
 ``` 
@@ -706,7 +725,7 @@ Content-Type: application/json
   "bucket":"test",
   "face_id":"1005338790489817087"
 }
-``` 
+```
 回包:
 ``` 
 HTTP/1.1 200 OK
@@ -734,7 +753,7 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-``` 
+```
 ### 2.11	人脸识别
 1) 接口
 http://service.image.myqcloud.com/face/identify
@@ -744,29 +763,32 @@ http://service.image.myqcloud.com/face/identify
 使用image则使用 multipart/form-data格式
 不使用image则使用 application/json格式
 
-|参数名|	是否必须|	类型	|参数说明|
-| ---- | ---- | ---- | ---- |
-|appid|	必须|	String|	项目ID|
-|bucket|	必须	|string|	空间名称|
-|group_id|	必须	|String	|候选人组id|
-|image|	可选	|Binary|	图片内容|
-|url	|可选|	String|	图片的url, image 和url只提供一个就可以了,如果都提供,只使用url|
+| 参数名      | 是否必须 | 类型     | 参数说明                                     |
+| -------- | ---- | ------ | ---------------------------------------- |
+| appid    | 必须   | String | 项目ID                                     |
+| bucket   | 必须   | string | 空间名称                                     |
+| group_id | 必须   | String | 候选人组id                                   |
+| image    | 可选   | Binary | 图片内容                                     |
+| url      | 可选   | String | 图片的url, image 和url只提供一个就可以了,如果都提供,只使用url |
+
 4) 返回值说明
 
-|字段|	类型|	说明|
-| ---- | ---- | ---- |
-|data.session_id	|String	|相应请求的session标识符，可用于结果查询|
-|data.candidates|	Array(IdentifyItem)	|识别出的top5候选人|
-|code|	Int	|返回状态码|
-|message|	String|	返回错误消息|
+| 字段              | 类型                  | 说明                      |
+| --------------- | ------------------- | ----------------------- |
+| data.session_id | String              | 相应请求的session标识符，可用于结果查询 |
+| data.candidates | Array(IdentifyItem) | 识别出的top5候选人             |
+| code            | Int                 | 返回状态码                   |
+| message         | String              | 返回错误消息                  |
+
 dentifyItem说明
 
-|字段	|类型	|说明|
-| ---- | ---- | ---- |
-|person_id|	String|	候选者person_id|
-|face_id|	String	|候选者face_id|
-|confidence	|Float	|候选者的置信度|
-|tag|	String|	人脸备注信息|
+| 字段         | 类型     | 说明           |
+| ---------- | ------ | ------------ |
+| person_id  | String | 候选者person_id |
+| face_id    | String | 候选者face_id   |
+| confidence | Float  | 候选者的置信度      |
+| tag        | String | 人脸备注信息       |
+
 5) 样例
 使用url的请求包:
 ``` 
@@ -782,7 +804,7 @@ Content-Type: application/json
   "group_id":"tencent",
   "url":"http://test-123456.image.myqcloud.com/test.jpg"
 }
-``` 
+```
 使用image的请求包:
 ``` 
 POST /face/identify HTTP/1.1
@@ -809,7 +831,7 @@ Content-Type: image/jpeg
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
-``` 
+```
 回包:
 ``` 
 HTTP/1.1 200 OK
@@ -838,54 +860,54 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-``` 
+```
 ##3. 返回码
 
-|错误码|	含义|
-| ---- | ---- |
-|3	|错误的请求|
-|4	|签名为空|
-|5	|签名串错误|
-|6	|签名中的appid/bucket与操作目标不匹配|
-|9	|签名过期|
-|10	|appid不存在|
-|11	|secretid不存在|
-|12	|appid和secretid不匹配|
-|13	|重放攻击|
-|14	|签名校验失败|
-|15	|操作太频繁，触发频控|
-|16	|Bucket不存在|
-|21	|无效参数|
-|23	|请求包体过大|
-|107	|鉴权服务不可用|
-|108	|鉴权服务不可用|
-|213	|内部错误|
-|-1101|	人脸检测失败|
-|-1102|	图片解码失败|
-|-1103	|特征处理失败|
-|-1104	|提取轮廓错误|
-|-1105	|提取性别错误|
-|-1106	|提取表情错误|
-|-1107	|提取年龄错误|
-|-1108	|提取姿态错误|
-|-1109	|提取眼镜错误|
-|-1200	|特征存储错误|
-|-1300	|图片为空|
-|-1301	|参数为空|
-|-1302	|个体已存在|
-|-1303|	个体不存在|
-|-1304	|参数过长|
-|-1305	|人脸不存在|
-|-1306	|组不存在|
-|-1307	|组列表不存在|
-|-1308|	url图片下载失败|
-|-1309|	人脸个数超过限制|
-|-1310	|个体个数超过限制|
-|-1311	|组个数超过限制|
-|-1312	|对个体添加了几乎相同的人脸|
-|-1400	|非法的图片格式|
-|-1403	|图片下载失败|
- 
+| 错误码   | 含义                       |
+| ----- | ------------------------ |
+| 3     | 错误的请求                    |
+| 4     | 签名为空                     |
+| 5     | 签名串错误                    |
+| 6     | 签名中的appid/bucket与操作目标不匹配 |
+| 9     | 签名过期                     |
+| 10    | appid不存在                 |
+| 11    | secretid不存在              |
+| 12    | appid和secretid不匹配        |
+| 13    | 重放攻击                     |
+| 14    | 签名校验失败                   |
+| 15    | 操作太频繁，触发频控               |
+| 16    | Bucket不存在                |
+| 21    | 无效参数                     |
+| 23    | 请求包体过大                   |
+| 107   | 鉴权服务不可用                  |
+| 108   | 鉴权服务不可用                  |
+| 213   | 内部错误                     |
+| -1101 | 人脸检测失败                   |
+| -1102 | 图片解码失败                   |
+| -1103 | 特征处理失败                   |
+| -1104 | 提取轮廓错误                   |
+| -1105 | 提取性别错误                   |
+| -1106 | 提取表情错误                   |
+| -1107 | 提取年龄错误                   |
+| -1108 | 提取姿态错误                   |
+| -1109 | 提取眼镜错误                   |
+| -1200 | 特征存储错误                   |
+| -1300 | 图片为空                     |
+| -1301 | 参数为空                     |
+| -1302 | 个体已存在                    |
+| -1303 | 个体不存在                    |
+| -1304 | 参数过长                     |
+| -1305 | 人脸不存在                    |
+| -1306 | 组不存在                     |
+| -1307 | 组列表不存在                   |
+| -1308 | url图片下载失败                |
+| -1309 | 人脸个数超过限制                 |
+| -1310 | 个体个数超过限制                 |
+| -1311 | 组个数超过限制                  |
+| -1312 | 对个体添加了几乎相同的人脸            |
+| -1400 | 非法的图片格式                  |
+| -1403 | 图片下载失败                   |
+
  
 
 
