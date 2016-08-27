@@ -1355,6 +1355,120 @@ UI展示最近联系人列表时，时常会展示用户的最后一条消息，
 ---|---
 count | 需要获取的消息数，注意这里最多为20 
 
+### 4.7 禁用会话本地存储
+
+直播场景下，群组类型会话的消息量很大，时常需要禁用直播群的本地消息存储功能。在2.2以后版本增加了针对单个会话禁用本地存储的功能，可以实现不存储直播群消息，同时存储C2C私聊消息。
+ 
+**原型： **
+
+```
+@interface TIMConversation : NSObject
+
+/**
+ * 禁用本会话的存储，只对当前初始化有效，重启后需要重新设置
+ * 需要 initSdk 之后调用
+ */
+-(void) disableStorage;
+
+@end
+```
+
+### 4.8 设置会话草稿
+
+UI展示最近联系人列表时，时常会展示用户的草稿内容，在2.2以后版本增加了设置和获取草稿的接口，用户可以通过此接口设置会话的草稿信息。**草稿信息会存本地数据库，重新登录后依然可以获取**。
+ 
+**原型： **
+
+```
+@interface TIMMessageDraft : NSObject
+
+/**
+ *  设置自定义数据
+ *
+ *  @param userData 自定义数据
+ *
+ *  @return 0 成功
+ */
+-(int) setUserData:(NSData*)userData;
+
+/**
+ *  获取自定义数据
+ *
+ *  @return 自定义数据
+ */
+-(NSData*) getUserData;
+
+/**
+ *  增加Elem
+ *
+ *  @param elem elem结构
+ *
+ *  @return 0       表示成功
+ *          1       禁止添加Elem（文件或语音多于两个Elem）
+ *          2       未知Elem
+ */
+-(int) addElem:(TIMElem*)elem;
+
+/**
+ *  获取对应索引的Elem
+ *
+ *  @param index 对应索引
+ *
+ *  @return 返回对应Elem
+ */
+-(TIMElem*) getElem:(int)index;
+
+/**
+ *  获取Elem数量
+ *
+ *  @return elem数量
+ */
+-(int) elemCount;
+
+/**
+ *  草稿生成对应的消息
+ *
+ *  @return 消息
+ */
+-(TIMMessage*) transformToMessage;
+
+/**
+ *  当前消息的时间戳
+ *
+ *  @return 时间戳
+ */
+-(NSDate*) timestamp;
+
+@end
+
+
+@interface TIMConversation : NSObject
+
+/**
+ *  设置会话草稿
+ *
+ *  @param draft 草稿内容
+ *
+ *  @return 0 成功
+ */
+-(int) setDraft:(TIMMessageDraft*)draft;
+
+/**
+ *  获取会话草稿
+ *
+ *  @return 草稿内容，没有草稿返回nil
+ */
+-(TIMMessageDraft*) getDraft;
+
+@end
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+draft | 需要设置的草稿 ，需要清空会话草稿时传入nil
+
 
 ## 5. 系统消息
 
