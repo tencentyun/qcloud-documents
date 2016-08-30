@@ -136,6 +136,8 @@ function webimLogin() {
 |jsonpCallback	|用于IE9(含)以下浏览器中jsonp回调函数,移动端可不填，pc端必填|	Function|
 |onMsgNotify	|监听新消息函数，必填	|Function|
 |onGroupSystemNotifys	|监听（多终端同步）群系统消息事件，必填|	Object|
+|onFriendSystemNotifys	|监听好友系统通知事件，选填|	Object|
+|onProfileSystemNotifys	|监听资料系统（自己或好友）通知事件，选填|	Object|
 |onGroupInfoChangeNotify|	监听群资料变化事件，选填	|Function|
 
 
@@ -144,11 +146,14 @@ function webimLogin() {
 ```
 //监听事件
 var listeners = {
-    "onConnNotify": onConnNotify,
-    "jsonpCallback": jsonpCallback, //IE9(含)以下浏览器用到的jsonp回调函数
-    "onMsgNotify": onMsgNotify, //监听新消息(私聊，群聊，群提示消息)事件
-    "onGroupInfoChangeNotify": onGroupInfoChangeNotify, //监听群资料变化事件
-    "groupSystemNotifys": groupSystemNotifys//监听（多终端同步）群系统消息事件
+    "onConnNotify": onConnNotify, //监听连接状态回调变化事件,必填
+    "jsonpCallback": jsonpCallback, //IE9(含)以下浏览器用到的jsonp回调函数，
+    "onMsgNotify": onMsgNotify, //监听新消息(私聊，普通群(非直播聊天室)消息，全员推送消息)事件，必填
+    "onBigGroupMsgNotify": onBigGroupMsgNotify, //监听新消息(直播聊天室)事件，直播场景下必填
+    "onGroupSystemNotifys": onGroupSystemNotifys, //监听（多终端同步）群系统消息事件，如果不需要监听，可不填
+    "onGroupInfoChangeNotify": onGroupInfoChangeNotify, //监听群资料变化事件，选填
+    "onFriendSystemNotifys": onFriendSystemNotifys, //监听好友系统通知事件，选填
+    "onProfileSystemNotifys": onProfileSystemNotifys//监听资料系统（自己或好友）通知事件，选填
 };
 ```
 
@@ -162,15 +167,23 @@ var listeners = {
 ```
 //监听连接状态回调变化事件
 var onConnNotify = function (resp) {
+    var info;
     switch (resp.ErrorCode) {
         case webim.CONNECTION_STATUS.ON:
-            //webim.Log.warn('连接状态正常...');
+            webim.Log.warn('建立连接成功: ' + resp.ErrorInfo);
             break;
         case webim.CONNECTION_STATUS.OFF:
-            webim.Log.warn('连接已断开，无法收到新消息，请检查下你的网络是否正常');
+            info = '连接已断开，无法收到新消息，请检查下你的网络是否正常: ' + resp.ErrorInfo;
+            alert(info);
+            webim.Log.warn(info);
+            break;
+        case webim.CONNECTION_STATUS.RECONNECT:
+            info = '连接状态恢复正常: ' + resp.ErrorInfo;
+            alert(info);
+            webim.Log.warn(info);
             break;
         default:
-            webim.Log.error('未知连接状态,status=' + resp.ErrorCode);
+            webim.Log.error('未知连接状态: =' + resp.ErrorInfo);
             break;
     }
 };
@@ -273,10 +286,43 @@ var groupSystemNotifys = {
 ```
 
 
-更详细介绍，请参考第10节。
+更详细介绍，请参考后续章节。
+
+### 2.7	事件回调对象listeners.onFriendSystemNotifys
+
+示例：
+
+```
+//监听好友系统通知函数对象，方法都定义在receive_friend_system_msg.js文件中
+var onFriendSystemNotifys = {
+    "1": onFriendAddNotify, //好友表增加
+    "2": onFriendDeleteNotify, //好友表删除
+    "3": onPendencyAddNotify, //未决增加
+    "4": onPendencyDeleteNotify, //未决删除
+    "5": onBlackListAddNotify, //黑名单增加
+    "6": onBlackListDeleteNotify//黑名单删除
+};
+```
 
 
-### 2.7	事件回调对象listeners.onGroupInfoChangeNotify
+更详细介绍，请参考后续章节。
+
+### 2.8	事件回调对象listeners.onProfileSystemNotifys
+
+示例：
+
+```
+//监听资料系统通知函数对象，方法都定义在receive_profile_system_msg.js文件中
+var onProfileSystemNotifys = {
+    "1": onProfileModifyNotify//资料修改  
+};
+```
+
+
+更详细介绍，请参考后续章节。
+
+
+### 2.9	事件回调对象listeners.onGroupInfoChangeNotify
 
 示例：
 
@@ -314,7 +360,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 |GroupIntroduction	|新的群简介, 为空，则表示没有变化|	String|
 
 
-### 2.8	其他对象options
+### 2.10	其他对象options
 
 属性名：
 
@@ -324,7 +370,7 @@ function onGroupInfoChangeNotify(groupInfo) {
 |isLogOn	|是否开启控制台打印日志,True-开启;False-关闭，默认开启，选填|	Boolean|
 
 
-### 2.9	回调函数cbOk & cbErr
+### 2.11	回调函数cbOk & cbErr
 
 Sdk登录时，可以定义成功回调函数和失败回调函数。
 
