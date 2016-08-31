@@ -8,11 +8,12 @@ COS提供了 5 种头部标识可以配置：
 
 |       Header        |                  解释                  |                示例                |
 | :-----------------: | :----------------------------------: | :------------------------------: |
-|    Cache-Control    |            指定请求和响应遵循的缓存机制            |       no-cache；max-age=200       |
-|    Content-Type     |             返回内容的MIME类型              |            text/html             |
-| Content-Disposition | Object控制用户请求所得的内容存为一个文件的时候提供一个默认的文件名 | attachment; filename="fname.ext" |
-|  Content-Language   |                使用的语言                 |              zh-CN               |
-|  x-cos-meta-自定义内容   |   用户按照自身业务场景，设置需要在 Header 中传输什么参数    |              自定义内容               |
+|    Cache-Control    |            文件的缓存机制           |       no-cache；max-age=200       |
+|    Content-Type     |             文件的 MIME 信息           |            text/html             |
+| Content-Disposition | MIME 协议的扩展 | attachment; filename="fname.ext" |
+|  Content-Language   |                文件的语言                 |              zh-CN               |
+|  Content-Encoding   |  文件的编码格式   | UTF-8 |
+|  x-cos-meta-自定义内容   |   自定义内容    |              自定义内容               |
 
 ## 配置方法
 
