@@ -12,7 +12,7 @@
 
 ![](//mccdn.qcloud.com/static/img/f57187461509be7a104b2d311839f106/image.png)
 
-若资源所属 Bucket 的属性为私有读写，此处复制的地址后会自动计算签名添加后缀，签名生成方法详情请参考 [签名算法](/doc/api/264/5925) 。
+若资源所属 Bucket 的属性为私有读写，此处复制的地址后会自动计算签名添加后缀，签名生成方法详情请参考 [签名算法](/doc/api/264/5993) 。
 
 ```
 http://testbucket-10026302.file.myqcloud.com/test_uploadfile_1.txt?sign=eTgtgdjtdYm0fQ+5zGSLeQ9q3RdhPTEwMDI2MzAyJms9QUtJRG1tSURnYlk0a2h5YzJGVFZ0NjRZNUllZnd5WHhJb1VyJmU9MTQ2MjQzODA5NCZ0PTE0NTk4NDYwOTQmcj04ODYzOTQwOTkmZj0vdGVzdF91cGxvYWRmaWxlXzEudHh0JmI9dGVzdGJ1Y2tldA==
