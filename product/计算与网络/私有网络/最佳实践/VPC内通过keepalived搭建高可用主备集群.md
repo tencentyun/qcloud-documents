@@ -73,7 +73,7 @@ vrrp_instance VI_1 {
         10.0.0.1    #对端设备的ip地址，例如：10.0.0.1
     }
     virtual_ipaddress {
-        10.100.0.27
+        10.100.0.27   #第一步申请的VIP
     }
     nopreempt
     garp_master_delay 1
