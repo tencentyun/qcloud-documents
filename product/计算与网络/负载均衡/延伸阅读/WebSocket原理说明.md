@@ -59,8 +59,8 @@ Sec-WebSocket-Accept: K7DJLdLooIwIG/MOpvWFB3y3FE8=
 
 ![](//mccdn.qcloud.com/static/img/53d8a8462bdf6d4ebe8e1134e40919ef/image.png)
 
-一个使用WebSocket应用于视频的业务思路如下：
-- 使用心跳维护websocket链路，探测客户端端的网红/主播是否在线
+将WebSocket应用于视频业务的思路如下：
+- 使用心跳维护websocket链路，探测客户端的网红/主播是否在线
 - 设置负载均衡7层的proxy_read_timeout默认为60s
 - 设置心跳为50s，即可长期保持Websocket不断开
 
