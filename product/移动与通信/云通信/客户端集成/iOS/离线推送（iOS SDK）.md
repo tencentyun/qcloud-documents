@@ -90,7 +90,7 @@ APNs 推送内容部分为消息体中各个Elem内容组合：
  */
 @property(nonatomic,retain) NSData* token;
 /**
- *  业务ID，传递证书时分配，如果只有一个证书，可以填0
+ *  业务ID，传递证书时分配
  */
 @property(nonatomic,assign) uint32_t busiId;
 @end
