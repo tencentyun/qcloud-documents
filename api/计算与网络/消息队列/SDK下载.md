@@ -26,5 +26,6 @@ endpoint 说明：
 
 公网endpoint：http(s)://cmq-queue-region.api.qcloud.com
 
+- 如果业务进程也部署在腾讯云的CVM子机上，强烈建议使用同地域的内网endpoint。例如在腾讯云北京地域的CVM子机，可以使用http://cmq-queue-bj.api.tencentyun.com。原因：1）同地域内网时延更低；2）目前消息队列对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
 - region 需用具体地域替换：gz（广州），sh（上海），bj（北京）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 - 外网域名请求既支持http，也支持https。内网请求仅支持http。
