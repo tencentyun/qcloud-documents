@@ -24,7 +24,7 @@ endpoint 说明：
 	
 内网endpoint：http(s)://cmq-queue-region.api.tencentyun.com
 
-内网endpoint：http(s)://cmq-queue-region.api.qcloud.com
+公网endpoint：http(s)://cmq-queue-region.api.qcloud.com
 
 - region 需用具体地域替换：gz（广州），sh（上海），bj（北京）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 - 外网域名请求既支持http，也支持https。内网请求仅支持http。
