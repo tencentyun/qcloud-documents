@@ -1,6 +1,17 @@
 #### SDK历史版本及更新日志
  
  
+-----
+
+### 版本号：WNS SDK V 2.5.20
+[下载](http://1251013638.cdn.myqcloud.com/1251013638/wns-qcloud-sdk/cloudwns_sdk_ios_v2.5.20.zip)
+发布时间：2016.9.6  
+版本说明：  
+1.兼容iOS10下ATS特性
+2.增加获取log文件路径接口
+3.替换localdns接口
+4.修复WnsUrlProtocol多线程冲突导致crash
+5.替换demo内测试http请求地址
 
 -----
 
