@@ -22,7 +22,7 @@
 
 endpoint 说明：
 	
-内网endpoint：http(s)://cmq-queue-region.api.tencentyun.com
+内网endpoint：http://cmq-queue-region.api.tencentyun.com
 
 公网endpoint：http(s)://cmq-queue-region.api.qcloud.com
 
