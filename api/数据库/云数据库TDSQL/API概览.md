@@ -15,6 +15,9 @@
 | 查询项目列表 |[CdbTdsqlGetProjectList](/doc/api/309/5604)| 查询项目列表 |
 | 查询流程状态 |[CdbTdsqlGetFlowInfo](/doc/api/309/5605)| 查询流程状态 |
 | 查询订单信息 |[CdbTdsqlGetOrderInfo](/doc/api/309/5690)| 查询订单信息 |
+| 获取自定义备份时间 |[CdbTdsqlGetBackupTime](/doc/api/309/5970)| 获取自定义备份时间 |
+| 设置自定义备份时间 |[CdbTdsqlSetBackupTime](/doc/api/309/5969)| 设置自定义备份时间 |
+
 ## 2. 帐号相关接口
 
 | 接口功能 | Action ID | 功能描述 | 
@@ -48,3 +51,7 @@
 |---------|---------|---------|
 | 查看实例资源使用情况 | [CdbTdsqlGetResourceUsageInfo](/doc/api/309/5408) | 查看实例资源使用情况，如磁盘可用空间，CPU利用率等|
 | 查看实例性能数据 |[CdbTdsqlGetPerformanceInfo](/doc/api/309/5409)| 查看实例性能数据,如活跃连接数，磁盘每秒IO次数 |
+| 查看实例资源使用详情 |[CdbTdsqlGetResourceUsageInfoDetail](/doc/api/309/5968)| 查看实例资源使用详情 |
+| 查看实例性能数据详情 |[CdbTdsqlGetPerformanceInfoDetail](/doc/api/309/5967)| 查看实例性能数据详情 |
+| 获取慢查询记录详情 |[CdbTdsqlGetSlowLogAnalysis](/doc/api/309/5972)| 获取慢查询记录详情 |
+| 查询慢查询日志列表 |[CdbTdsqlGetSlowLogList](/doc/api/309/5973)| 查询慢查询日志列表 |

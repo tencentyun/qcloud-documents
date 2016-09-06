@@ -1,6 +1,6 @@
 ## 基本概念
 
-更改 Object 的 HTTP Header 并不会改变Object的内容，只是增加了Object的 [元数据（Metadata）](/doc/product/430/5901) 键值组。Object头部 Header 是服务器以 HTTP 协议传 HTML 资料到浏览器前所送出的字串。通过修改 Header，可以改变页面的响应形式，或者传达配置信息。例如修改缓存时间。
+更改 Object 的 HTTP Header 并不会改变Object的内容，只是增加了Object的 [元数据（Metadata）](/doc/product/430/5901) 键值组。Object头部 Header 是服务器以 HTTP 协议传 HTML 资料到浏览器前所送出的字串。通过修改 Header，可以改变页面的响应形式，或者传达配置信息，例如修改缓存时间，不会被修改文件本身。举例：修改了Header中的 content-encoding 为 gzip，但是文件本身没有提前用 gz 压缩过，会产生解码错误。
 
 ## 配置详情
 
@@ -8,11 +8,12 @@ COS提供了 5 种头部标识可以配置：
 
 |       Header        |                  解释                  |                示例                |
 | :-----------------: | :----------------------------------: | :------------------------------: |
-|    Cache-Control    |            指定请求和响应遵循的缓存机制            |       no-cache；max-age=200       |
-|    Content-Type     |             返回内容的MIME类型              |            text/html             |
-| Content-Disposition | Object控制用户请求所得的内容存为一个文件的时候提供一个默认的文件名 | attachment; filename="fname.ext" |
-|  Content-Language   |                使用的语言                 |              zh-CN               |
-|  x-cos-meta-自定义内容   |   用户按照自身业务场景，设置需要在 Header 中传输什么参数    |              自定义内容               |
+|    Cache-Control    |            文件的缓存机制           |       no-cache；max-age=200       |
+|    Content-Type     |             文件的 MIME 信息           |            text/html             |
+| Content-Disposition | MIME 协议的扩展 | attachment; filename="fname.ext" |
+|  Content-Language   |                文件的语言                 |              zh-CN               |
+|  Content-Encoding   |  文件的编码格式   | UTF-8 |
+|  x-cos-meta-自定义内容   |   自定义内容    |              自定义内容               |
 
 ## 配置方法
 

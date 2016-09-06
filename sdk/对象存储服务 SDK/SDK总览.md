@@ -4,12 +4,12 @@
 
 | SDK            | 接入文档                     |
 | :------------- | :----------------------- |
-| PHP SDK        | [PHP SDK 接入说明](#)        |
-| Python SDK     | [Python SDK 接入说明](#)     |
-| Node.js SDK    | [Node.js SDK 接入说明](#)    |
-| Java SDK       | [Java SDK 接入说明](#)       |
-| JavaScript SDK | [JavaScript SDK 接入说明](#) |
-| C++ SDK        | [C++ SDK 接入说明](#)        |
-| .NET SDK       | [.NET SDK 接入说明](#)       |
-| Android SDK    | [Android SDK 接入说明](#)    |
-| iOS SDK        | [iOS SDK 接入说明](#)        |
+| PHP SDK        | [PHP SDK 接入说明](/doc/sdk/429/6015)        |
+| Python SDK     | [Python SDK 接入说明](/doc/sdk/429/6016)     |
+| Node.js SDK    | [Node.js SDK 接入说明](/doc/sdk/429/6027)    |
+| Java SDK       | [Java SDK 接入说明](/doc/sdk/429/6017)       |
+| JavaScript SDK | [JavaScript SDK 接入说明](/doc/sdk/429/6020) |
+| C++ SDK        | [C++ SDK 接入说明](/doc/sdk/429/6018)        |
+| .NET SDK       | [.NET SDK 接入说明](/doc/sdk/429/6019)       |
+| Android SDK    | [Android SDK 接入说明](/doc/sdk/429/6022)    |
+| iOS SDK        | [iOS SDK 接入说明](/doc/sdk/429/6021)        |

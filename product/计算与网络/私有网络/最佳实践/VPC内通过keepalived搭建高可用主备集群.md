@@ -9,15 +9,18 @@
 2)  暂不支持通过免费ARP报文做VIP的迁移，而是通过调用云API来绑定VIP到主设备上。
 
 ## 主要步骤
-1.  申请VIP，该VIP可以在子网内迁移。
-2.  主备服务器安装及配置keepalived。
+1.  申请VIP，该VIP仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
+2.  主备服务器安装及配置keepalived(**1.2.8版本以上**)。
 3.  使用keepalived的notify机制，调用云API进行主备切换。
 4.  （可选）给VIP分配外网IP。
 5.  验证主备倒换时VIP及外网IP是否正常切换。
 
 ## 详细步骤
 ### 步骤1.    申请VIP
-在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），暂时仅支持云API申请，云API代码开发指引请参考第6步，申请分配内网IP的云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)，可参考以下python代码：
+在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），暂时仅支持云API，云API代码开发指引请参考第6步。由于VIP绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而VPC内每台CVM在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请VIP。
+**具体操作：** 
+1) 通过云`API:DescribeNetworkInterfaces`[点击查看API详情](https://www.qcloud.com/doc/api/245/4814)得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络ID**和**云服务器的ID**即可）。
+2) 通过云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)在弹性网卡上申请内网VIP的，申请VIP操作可参考以下python代码：
 
 ```
         
@@ -36,7 +39,7 @@ config = {
 }
 params = {
     'vpcId': '您的vpcID',
-    'networkInterfaceId': '您需要初次见ip绑定的接口名',
+    'networkInterfaceId': '您需要初次见ip绑定的弹性网卡ID',
     'secondaryPrivateIpAddressCount': '您需要申请IP地址的个数'
 }
 
@@ -49,10 +52,10 @@ except Exception, e:
        
 ```
         
-### 步骤2. 主备子机安装keepalived
+### 步骤2. 主备子机安装keepalived（1.2.8版本以上）
 以centos为例：`yum –y install keepalived`
 
-### 步骤3.    keepalived.conf配置单播模式：
+### 步骤3.    keepalived.conf配置单播模式
 编辑文件/etc/keepalived/keepalived.conf，除基本keepalived的vrrp配置外，注意需要配置单播模式，即指定对端设备的ip地址，在keepalived.conf的vrrp_instance项中指定单播模式：
 
 ```
@@ -70,7 +73,7 @@ vrrp_instance VI_1 {
         10.0.0.1    #对端设备的ip地址，例如：10.0.0.1
     }
     virtual_ipaddress {
-        10.100.0.27
+        10.100.0.27   #第一步申请的VIP
     }
     nopreempt
     garp_master_delay 1
@@ -78,7 +81,7 @@ vrrp_instance VI_1 {
 }
 ```
 
-### 步骤 4.（可选）给VIP分配外网IP。
+### 步骤 4.（可选）给VIP分配外网IP
 先在控制台申请EIP，再通过云API绑定到1中申请的内网IP，[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)，python代码与步骤1类似。
 
 ### 步骤 5.   keepalived.conf 配置切换脚本
@@ -93,7 +96,7 @@ vrrp_sync_group G1 {
 }
 
 ```
-步骤 6. 验证主备倒换时VIP及外网IP是否正常切换。
+步骤 6. 验证主备倒换时VIP及外网IP是否正常切换
 vip.py：通过云API开发主备切换程序，通过调用内网IP迁移的云API来进行IP地址的切换，以python为例：
 1) [下载python-sdk](https://github.com/QcloudApi/qcloudapi-sdk-python)
 请仔细阅读其中README.md，并将sdk下载到/etc/keepalived目录中，如：
@@ -125,8 +128,8 @@ config = {
 params = {
     'vpcId': 'vpc-2l52o5c2',
     'privateIpAddress': '10.100.0.27',
-    'oldNetworkInterfaceId': 'IP迁移前所在的接口名',
-    'newNetworkInterfaceId': 'IP迁移后所在的接口名'
+    'oldNetworkInterfaceId': 'IP迁移前所在的弹性网卡ID',
+    'newNetworkInterfaceId': 'IP迁移后所在的弹性网卡ID'
 }
 
 try:
@@ -137,7 +140,7 @@ except Exception, e:
     print 'exception:', e
 ```
 
-注意，主备设备上该vip.py中的迁移前后接口名需要对调，需要给vip.py添加可执行属性:
+注意，主备设备上该vip.py中的迁移前后弹性网卡需要对调，需要给vip.py添加可执行属性:
 `Chmod +x vip.py`
 并手动执行vip.py检验,执行下面命令将触发ip地址迁移：
 `/etc/keepalived/vip.py`
