@@ -6,7 +6,6 @@
 | 删除私有网络 | [DeleteVpc](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C) | 删除某个私有网络。 |
 | 修改私有网络名称 | [ModifyVpcAttribute](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%90%8D%E7%A7%B0) | 修改指定vpc的名称。 |
 | 查询私有网络列表 | [DescribeVpcEx](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8) | 批量查询vpc信息，支持分页查询、模糊匹配等。|
-| 查询私有网络详情 | [DescribeVpcs](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E8%AF%A6%E6%83%85) | 根据用户输入信息，如vpcId、私有网络名称等，查询对应私有网络的详细信息。|
 | 绑定私有网络内主机与VIP | [AssociateVip](http://www.qcloud.com/doc/api/245/%E7%BB%91%E5%AE%9A%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%86%85%E4%B8%BB%E6%9C%BA%E4%B8%8EVIP) | 给vpc内云主机绑定一个VIP。 |
 | 创建私有网络和基础网络设备互通 | [AttachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2098) | 创建私有网络和基础网络设备互通。 |
 | 删除私有网络和基础网络设备互通 | [DetachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2097) | 删除私有网络和基础网络设备互通。 |
@@ -30,6 +29,8 @@
 | 修改路由表 | [ModifyRouteTableAttribute](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E8%B7%AF%E7%94%B1%E8%A1%A8) | 修改指定路由表名称。 |
 | 查询路由表 | [DescribeRouteTable](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8) | 根据用户输入信息，如routeTableId、路由表名称等，查询对应路由表的详细信息。|
 | 修改子网关联的路由表 | [AssociateRouteTable](http://www.qcloud.com/doc/api/245/CVM%E5%85%B3%E8%81%94%E5%AD%90%E7%BD%91%E8%B7%AF%E7%94%B1%E8%A1%A8) | 修改子网关联的路由表。 |
+| 添加路由策略 | [CreateRoute](http://www.qcloud.com/doc/api/245/5688) | 新增路由策略。 |
+| 删除路由策略 | [DeleteRoute](http://www.qcloud.com/doc/api/245/5689) | 删除路由策略。 |
 
 
 ## 4. 网络ACL相关接口
