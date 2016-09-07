@@ -65,9 +65,10 @@
 
 ## 7. VPN通道相关接口
 | 接口功能 | Action ID |  功能描述 |
-| 创建VPN通道 | [AddVpnConn](http://www.qcloud.com/doc/api/245/5110) | 创建vpn加密通道，将vpc接入其他网络资源。 |
+|---------|---------|---------|
+| 创建VPN通道 | [AddVpnConnEx](http://www.qcloud.com/doc/api/245/5110) | 创建vpn加密通道，将vpc接入其他网络资源。 |
 | 删除VPN通道 | [DeleteVpnConn](http://www.qcloud.com/doc/api/245/5111) | 删除指定vpn通道。|
-| 修改VPN通道 | [ModifyVpnConn](http://www.qcloud.com/doc/api/245/5112) | 修改指定vpn通道的信息，如名称。 |
+| 修改VPN通道 | [ModifyVpnConnEx](http://www.qcloud.com/doc/api/245/5112) | 修改指定vpn通道的信息，如名称。 |
 | 查询VPN通道列表 | [DescribeVpnConn](http://www.qcloud.com/doc/api/245/5113) | 根据用户信息，如通道ID，名称，查询对应通道的信息。|
 | 下载VPN通道配置 | [GetVpnConnConfig](http://www.qcloud.com/doc/api/245/5114) | 下载vpn通道配置，对通道配置做调整。 |
 | 获取VPN通道的监控数据 | [DescribeVpnConnMonitor](http://www.qcloud.com/doc/api/245/5115) |  获取VPN通道的监控数据。 |
