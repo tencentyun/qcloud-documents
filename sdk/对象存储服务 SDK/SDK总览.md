@@ -4,12 +4,12 @@
 
 | SDK            | 接入文档                     |
 | :------------- | :----------------------- |
-| PHP SDK        | [PHP SDK 接入说明](/doc/sdk/429/6015)        |
-| Python SDK     | [Python SDK 接入说明](/doc/sdk/429/6016)     |
-| Node.js SDK    | [Node.js SDK 接入说明](/doc/sdk/429/6027)    |
-| Java SDK       | [Java SDK 接入说明](/doc/sdk/429/6017)       |
-| JavaScript SDK | [JavaScript SDK 接入说明](/doc/sdk/429/6020) |
-| C++ SDK        | [C++ SDK 接入说明](/doc/sdk/429/6018)        |
-| .NET SDK       | [.NET SDK 接入说明](/doc/sdk/429/6019)       |
-| Android SDK    | [Android SDK 接入说明](/doc/sdk/429/6022)    |
-| iOS SDK        | [iOS SDK 接入说明](/doc/sdk/429/6021)        |
+| PHP SDK        | [PHP SDK 接入说明](/doc/product/430/5942)        |
+| Python SDK     | [Python SDK 接入说明](/doc/product/430/5943)     |
+| Node.js SDK    | [Node.js SDK 接入说明](/doc/product/430/5947)    |
+| Java SDK       | [Java SDK 接入说明](/doc/product/430/5944)       |
+| JavaScript SDK | [JavaScript SDK 接入说明](/doc/product/430/5946) |
+| C++ SDK        | [C++ SDK 接入说明]/doc/product/430/5945()        |
+| .NET SDK       | [.NET SDK 接入说明](/doc/product/430/5966)       |
+| Android SDK    | [Android SDK 接入说明](/doc/product/430/5950)    |
+| iOS SDK        | [iOS SDK 接入说明](/doc/product/430/5949)        |
