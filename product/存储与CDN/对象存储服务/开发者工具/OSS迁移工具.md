@@ -58,7 +58,7 @@ yum -y install php-curl
 
 #### 获取软件
 
-[点击这里]()下载最新版本的 cos_migration 迁移工具。
+[点击这里](https://mc.qcloudimg.com/static/archive/1ce5a174bd3a7ec7cf44b7dbe45e90bf/cos_migration_tools.tar)下载最新版本的 cos_migration 迁移工具。
 
 将安装包放置在存储空间较大的磁盘目录下，执行 tar 命令解压即可使用。
 
