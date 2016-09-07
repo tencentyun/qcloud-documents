@@ -1,4 +1,6 @@
-为方便Node.js开发者调试和接入云API， 我们提供了基于Node.js的SDK：https://github.com/CFETeam/qcloudapi-sdk
+为方便Node.js开发者调试和接入云API， 我们提供了基于Node.js的SDK。
+
+Github地址：https://github.com/CFETeam/qcloudapi-sdk
 
 qcloudapi-sdk 是腾讯云 API 2.0 的 node.js SDK 工具包。
 
@@ -15,7 +17,7 @@ npm i qcloudapi-sdk --save
 
 ## 3. 入门
 
-1) 申请安全凭证。在第一次使用云API之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
+1) [获取安全凭证](https://console.qcloud.com/capi)。在第一次使用云API之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 
 2) 安装并使用本SDK。详细使用方法请参考下面的示例。
 
