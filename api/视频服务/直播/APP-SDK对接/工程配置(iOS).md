@@ -38,7 +38,7 @@
 > 5. CoreMedia.framework
 > 6. CoreGraphics.framework
 > 7. libstdc++.tbd
-> 8. lib.tbd
+> 8. libz.tbd
 > 9. libiconv.tbd
 
 所有添加完毕，工程依赖如下图所示：

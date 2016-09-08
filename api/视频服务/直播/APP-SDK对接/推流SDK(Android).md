@@ -38,7 +38,7 @@ String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
 
 TXCloudVideoView mCaptureView = (TXCloudVideoView) view.findViewById(R.id.video_view);
-mLivePusher.startCameraPreview(mGLRootView);
+mLivePusher.startCameraPreview(mCaptureView);
 ```
 
 其中 **startPusher** 使用来告诉SDK视频流要推到哪个服务器地址去，而 **startCameraPreview** 则是将界面元素和Pusher对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
