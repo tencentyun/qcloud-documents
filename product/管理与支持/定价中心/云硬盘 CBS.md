@@ -18,7 +18,7 @@ CBS 根据使用场景，分为系统盘和数据盘，其中系统盘不支持�
 
 ### 包年包月
 
-table class="diskMonth">
+<table class="diskMonth">
         <tbody><tr>
             <th style="width: 5%;">计费项</th>
             <th style="width: 5%;">硬盘类型</th>
