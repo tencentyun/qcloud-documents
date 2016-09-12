@@ -47,7 +47,7 @@ cam     cbs     cdb     cdn     cmem    cns     configure   cvm
 $ vim ~/.bash_profile
 ```
 追加到文件末尾即可：
-![Alt text](./1472882079703.png)
+![Alt text](https://mc.qcloudimg.com/static/img/8dae9aa2ac7e733ae71d06fbce11939a/1472882079703.png)
 
 
 
