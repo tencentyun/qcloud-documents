@@ -47,7 +47,7 @@ mLivePusher.startCameraPreview(mCaptureView);
 > 传进来的self.view将会作为画面渲染view的父view，建议此父view专门作为渲染使用，如果您想要在摄像头画面之上加弹幕、献花之类的UI控件，请另行创建一个与self.view平级的view，并将该view叠加在self.view之上。
 
 ### step 4: 美颜滤镜
-如果您是定位美女秀场，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。您可以在您的APP得用户操作界面上使用滑竿等空间来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
+如果您是定位美女秀场，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。您可以在您的APP得用户操作界面上使用滑竿等控件来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
 
 接口函数setBeautyFilterDepth可以动态调整美颜及美白级别（不支持Neon指令优化的极个别Android手机无法开启）:
 
