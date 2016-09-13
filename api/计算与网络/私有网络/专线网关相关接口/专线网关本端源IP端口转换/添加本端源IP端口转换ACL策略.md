@@ -34,7 +34,7 @@
 | InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确。可调用<a href="https://www.qcloud.com/doc/api/245/%e5%88%9b%e5%bb%ba%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c?viewType=preview" title="查询私有网络列表">查询私有网络列表</a>(DescribeVpcEx)接口查询。|
 | InvalidDirectConnectGateway.NotFound | 无效的专线网关。专线网关资源不存在，请再次核实您输入的资源信息是否正确。可调用<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%b8%93%e7%ba%bf%e7%bd%91%e5%85%b3?viewType=preview" title="查询专线网关">查询专线网关</a>(DescribeDirectConnectGateway)接口查询。|
 | InvalidLocalSourceIPPortTranslation.NotFound | 无效的本端IP端口转换规则。本端IP端口转换规则不存在，请再次核实您输入的资源信息是否正确。|
-| InvalidLocalSourceIPPortTranslationAcl.Conflict | 本端IP端口转换规则ACL策略冲突。同一个专线网关下不同本端IP端口转换规则之前的ACL策略不能冲突。|
+| InvalidLocalSourceIPPortTranslationAcl.Conflict | 本端IP端口转换规则ACL策略冲突。同一个专线网关下不同本端IP端口转换规则之间的ACL策略不能冲突。|
 | AclRuleLimitExceeded | 您添加的ACL策略已达上限。如果需要更多资源，请联系客服申请。更多VPC资源限制信息详见<a href="https://www.qcloud.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a>。 |
 
 ## 5. 示例

@@ -33,9 +33,9 @@ _txLivePlayer = [[TXLivePlayer alloc] init];
 ```
 
 ### step 3: 绑定渲染界面
-Step2的示例代码中，startPreview的参数myView是用来承载SDK渲染层的，SDK会在myView之上构建一个用于OpenGL渲染的子view。
+step2中的示例代码有一个叫做_myView参数，该参数的作用就是指定视频图像的渲染区域：SDK会在_myView之上构建一个图像控件用于实时渲染视频画面。
 
-如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，可以如下图这般创建一个与myView平级的view，并将其叠加在myView之上，简言之，留myView只做渲染之用对于画面的显示控制是比较有帮助的。
+如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，可以如下图这般创建一个与_myView平级的兄弟view，并将其叠加在_myView之上，简言之，让_myView只用来渲染对于编写清晰的UI代码会比较有帮助。
  ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
 
 如果您想要调整渲染界面的大小，只需要调整myView的大小就可以了，内部的视频画面会跟随myView的大小变化而自动地适应。
@@ -59,18 +59,24 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 ### step 5: 填充&适应&旋转
 如果你希望调整画面的显示方式，SDK也提供了多种选择：
-![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
+![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
-##### setRenderMode
-* RENDER_MODE_FULL_FILL_SCREEN  - 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不留黑边
-* RENDER_MODE_ADJUST_RESOLUTION - 将图像等比例缩放，缩放后的宽和高都不会超过显示区域，居中显示，可能会留有黑边 
+- **setRenderMode**
 
-##### setRenderRotation
-* RENDER_ROTATION_PORTRAIT - 常规的竖屏显示，如果是显示人像，则最适合这种模式了
-* RENDER_ROTATION_LANDSCAPE - 横屏显示，游戏直播比较适合这种模式
+| 可选值 | 含义  |
+|---------|---------|
+| RENDER_MODE_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
+| RENDER_MODE_FILL_EDGE | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
 
-##### resetVideoWidgetFrame
-此接口用于在播放中动态调整视频渲染区域的位置和大小
+- **setRenderRotation**
+
+| 可选值 | 含义  |
+|---------|---------|
+| HOME_ORIENTATION_DOWN | 正常播放（Home键在画面正下方） | 
+| HOME_ORIENTATION_RIGHT | 画面顺时针旋转90度（Home键在画面正右方） | 
+| HOME_ORIENTATION_UP | 画面顺时针旋转180度（Home键在画面正上方） | 
+| HOME_ORIENTATION_LEFT | 画面顺时针旋转270度（Home键在画面正左方） | 
+
 
 
 ### step 6: 硬件加速
@@ -218,13 +224,16 @@ _config.cacheTime              = 5;
   
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
+| NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
+| NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
+| NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
+|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
 |	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率          |
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度        |
-|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
-
+| NET_STATUS_SERVER_IP | 连接的服务器IP | 
 
 
 

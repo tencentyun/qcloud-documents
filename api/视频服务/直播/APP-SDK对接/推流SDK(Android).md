@@ -38,7 +38,7 @@ String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
 
 TXCloudVideoView mCaptureView = (TXCloudVideoView) view.findViewById(R.id.video_view);
-mLivePusher.startCameraPreview(mGLRootView);
+mLivePusher.startCameraPreview(mCaptureView);
 ```
 
 其中 **startPusher** 使用来告诉SDK视频流要推到哪个服务器地址去，而 **startCameraPreview** 则是将界面元素和Pusher对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
@@ -201,6 +201,7 @@ mLivePusher.setPushListener(this);
 | setVideoFPS     	|   视频帧率：即视频编码器每秒生产出多少帧画面，注意由于大部分安卓机器摄像头不支持30FPS以上的采集，推荐您设置FPS为20           |  20      |
 | setVideoResolution|   视频分辨率：目前提供三种16：9分辨率可供您选择      |  640 * 360 |
 | setVideoBitrate 	|   视频比特率：即视频编码器每秒生产出多少数据，单位 kbps |  800  |
+| setVideoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个I帧 | 5s |
 | setAutoAdjustBitrate |   带宽自适应：该功能会根据当前网络情况，自动调整视频比特率，避免视频数据超出发送能力而导致画面卡顿 |   开|
 | setMaxVideoBitrate| 最大输出码率：只有开启自适应码率, 该设置项才能启作用 |   1200 |
 | setMinVideoBitrate| 最小输出码率：只有开启自适应码率, 该设置项才能启作用 |   800  |
