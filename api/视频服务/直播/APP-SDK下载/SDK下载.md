@@ -9,12 +9,40 @@ DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务�
 - 直播：RTMP、FLV格式的在线直播
 - 点播：MP4、HLS和FLV格式的在线点播。
 
-**【下载地址】**
+**【APP安装】**
 
 | 操作系统 | 版本号 | 更新时间|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS  | 1.5.1.301(最新版本苹果审核中)  | 2016-08-04 |  ![QRCode](//mc.qcloudimg.com/static/img/87598f979591c9377f98a2c6e9a03a64/image.png)|
+| IOS  | 1.5.1.301(最新版本苹果审核中)  | 2016-08-04 | ![qr](//mc.qcloudimg.com/static/img/5961cfb63a93a001b8861db2a2269496/image.png)|
 | Android  | 1.6.0.475 | 2016-09-02 | [点击下载](http://sdk-10065671.cos.myqcloud.com/rtmpdemo-1.6.0.475.apk)  |
+
+**【体验地址】**
+RTMP推流具有排它性：同一时间、同一URL，<font color='red'>只能有一个主播</font>在推流中。所以如果您体验推流总是断开（被后台拒绝），说明地址已经被其他的体验者占用，推荐您直接[开通腾讯云直播服务](https://console.qcloud.com/live)并创建自己的频道进行体验。
+
+如下是3组测试地址：
+
+```
+//第一组地址：
+PUSH(RTMP): rtmp://2000.livepush.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e?bizid=2000
+PLAY(FLV) : http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv
+PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_1f4652b179af11e69776e435c87f075e.m3u8
+```
+
+```
+//第二组地址：
+PUSH(RTMP): rtmp://2000.livepush.myqcloud.com/live/2000_44c6e64e79af11e69776e435c87f075e?bizid=2000
+PLAY(FLV) : http://2000.liveplay.myqcloud.com/live/2000_44c6e64e79af11e69776e435c87f075e.flv
+PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_44c6e64e79af11e69776e435c87f075e.m3u8
+```
+
+```
+//第三组地址：
+PUSH(RTMP): rtmp://2000.livepush.myqcloud.com/live/2000_4eb4da7079af11e69776e435c87f075e?bizid=2000
+PLAY(FLV) : http://2000.liveplay.myqcloud.com/live/2000_4eb4da7079af11e69776e435c87f075e.flv
+PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_4eb4da7079af11e69776e435c87f075e.m3u8
+```
+
+
 
 ## 小直播体验
 **【界面截图】**
@@ -29,7 +57,7 @@ DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务�
 **【后台服务】**
 小直播的后台服务目前部署于一台普通的腾讯云虚拟主机上，基于PHP技术构建，提供源码下载和参考。
 
-**【体验地址】**
+**【APP安装】**
 
 | 操作系统 | 版本号 | 更新时间|下载链接 |
 | ---- | ----------- | ---- | ---- | 
@@ -37,11 +65,6 @@ DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务�
 | Android  | 1.1.1.493 | 2016-09-13 | [点击下载](http://sdk-10065671.cos.myqcloud.com/xiaozhibo_1.1.1.493.apk)  |
 
 ## 移动端SDK
-
-| 操作系统 | 版本号 | 更新时间|下载链接 |
-| ---- | ----------- | ---- | ---- | 
-| IOS  | 1.6.0.475  | 2016-09-02 | [点击下载](http://sdk-10065671.cos.myqcloud.com/TX_RTMPSDK_IOS_1.6.0.475.zip)  |
-| Android  | 1.6.0.475 | 2016-09-02 | [点击下载](http://sdk-10065671.cos.myqcloud.com/TX_RTMPSDK_Android_1.6.0.475.zip)  |
 
 **【最新特性】**
 - 增加音频数据加速处理能力，提升速播体验，用户无感知降低播放延迟；
@@ -66,3 +89,11 @@ DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务�
 //IOS Push 新增旋转接口，用于解决本地横屏推流时画面旋转方向错误问题，使用方式请参考接口文档注释；
 -(void) setRenderRotation:(int)rotation;
 ```
+
+**【下载地址】**
+
+| 操作系统 | 版本号 | 更新时间|下载链接 |
+| ---- | ----------- | ---- | ---- | 
+| IOS  | 1.6.0.475  | 2016-09-02 | [点击下载](http://sdk-10065671.cos.myqcloud.com/TX_RTMPSDK_IOS_1.6.0.475.zip)  |
+| Android  | 1.6.0.475 | 2016-09-02 | [点击下载](http://sdk-10065671.cos.myqcloud.com/TX_RTMPSDK_Android_1.6.0.475.zip)  |
+
