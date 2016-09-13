@@ -44,7 +44,7 @@
 
 所有添加完毕，工程依赖如下图所示：
 
-![](//mccdn.qcloud.com/static/img/a9c75d5ba92382c1549f3a99317cbd1f/image.jpg)
+![](//mc.qcloudimg.com/static/img/0e012a7ab67e833eb33aec1e02f5d86b/image.jpg)
 
 关闭工程Bitcode选项。
 
