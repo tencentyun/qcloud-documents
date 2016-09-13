@@ -15,10 +15,10 @@
 |---------|---------|---------|---------|
 | vpcId | 是 | String | 弹性网卡对应的私用网络ID，例如：vpc-7t9nf3pu |
 | networkInterfaceId | 是 | String | 弹性网卡ID，例如：eni-m6dyj72l |
-| privateIpAddressSet.n | 否 | Array | 指定的内网IP地址数组。 |
+| privateIpAddressSet.n | 否 | Array | 申请内网ip时，指定IP地址申请，可以指定主IP，是个可选项。 |
 | privateIpAddressSet.n.primary | 是 | Bool | 是否为主IP，只能设置一个主IP。 |
 | privateIpAddressSet.n.privateIpAddress | 是 | String | 指定的内网IP地址。 |
-| secondaryPrivateIpAddressCount | 否 | Int | 需要新申请的内网IP地址个数。|
+| secondaryPrivateIpAddressCount | 否 | Int | 申请内网ip时，只指定数量，由系统自动生成IP，可选项。|
 
 ## 3. 输出参数
 
