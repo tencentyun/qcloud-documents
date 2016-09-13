@@ -28,7 +28,7 @@ SDK开发包附带的推流器DEMO界面如下：
 用下面这段代码就可以完成推流了： 
 
 ```objectivec 
-NSString rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";    
+NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";    
 [_txLivePush startPreview:_myView];  //myView用来承载我们的渲染控件    
 [_txLivePush startPush:rtmpUrl];
 ```
@@ -55,7 +55,7 @@ Step2的示例代码中，startPreview的参数myView是用来承载SDK渲染层
 
 ### step 4: 美颜滤镜
 如果您是定位美女秀场，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。
-您可以在您的APP得用户操作界面上使用滑竿等空间来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
+您可以在您的APP得用户操作界面上使用滑竿等控件来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
 
 接口函数setBeautyFilterDepth可以动态调整美颜及美白级别:
 
