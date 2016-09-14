@@ -9,7 +9,6 @@ SDK开发包附带的播放器DEMO界面如下：
 
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_introduction.jpg)
 
------------------------------------------------------------------------------------------------------------------
 
 ## 基础篇
 腾讯视频云RTMP SDK的使用特别简单，您只需要在您的App里添加如下几行代码就可以完成对接工作了。目前SDK内部的默认参数设置参考直播场景精心校调过的。
@@ -42,15 +41,23 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 
 ### step 4: 画面调整
 如果你希望调整画面的显示方式，SDK也提供了多种选择：
-![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
+![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
-#### setRenderMode
-* RENDER_MODE_FULL_FILL_SCREEN  - 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不留黑边
-* RENDER_MODE_ADJUST_RESOLUTION - 将图像等比例缩放，缩放后的宽和高都不会超过显示区域，居中显示，可能会留有黑边
+- **setRenderMode**
 
-#### setRenderRotation
-* RENDER_ROTATION_PORTRAIT - 常规的竖屏显示，如果是显示人像，则最适合这种模式了
-* RENDER_ROTATION_LANDSCAPE - 横屏显示，游戏直播比较适合这种模式
+| 可选值 | 含义  |
+|---------|---------|
+| RENDER_MODE_FULL_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
+| RENDER_MODE_ADJUST_RESOLUTION | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
+
+- **setRenderRotation**
+
+| 可选值 | 含义  |
+|:------:|---------|
+| 0 | 正常播放（Home键在画面正下方） | 
+| 90 | 画面逆时针旋转90度 | 
+| 180 | 画面逆时针旋转180度 | 
+| 270 | 画面逆时针旋转270度 | 
 
 
 ### step 5: 硬件加速
@@ -62,7 +69,24 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 ```
  强烈建议在切换硬件解码之前**stopPlay**，在切换之后再**startPlay**,否则会产生比较严重的花屏问题。
  
-### step 6: 如何降低延迟并减少画面卡顿？
+### step 6: 暂停 | 结束播放
+TXLivePlayer 的 **stopPlay** 函数用于停止直播流的拉取、画面渲染和声音的播放等SDK内部动作。
+
+- **暂停播放: ** 如果您只是要暂停播放，可以使用stopPlay(<font color='red'> false</font>) 来实现，stopPlay 的布尔型参数含义为**是否清除最后一帧画面**。
+> 直播没有影音播放器中的暂停的概念，因为主播不会因为一个观众的暂停而暂停，由于腾讯云播放器有秒开模式，所以暂停后继续可以用`stopPlay(false) + start`模拟实现。
+
+- **结束播放: ** 如果您是要彻底结束播放，比如退出播放界面，记得一定要调用渲染View的`onDestroy()`函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
+```java
+@Override
+public void onDestroy() {
+	super.onDestroy();
+	mLivePlayer.stopPlay(true);
+	mPlayerView.onDestroy(); 
+}
+```
+
+
+### step 7: 如何降低延迟并减少画面卡顿？
 #### 延迟的产生
 这里说的**延迟**是主播 -> 观众的时间延迟，而**卡顿**指的是出现500ms以上的播放停滞。
 如果是在完美的网络环境下，可以做到超低延迟下没有卡顿，但现实是国内的网络环境并不完美，数据在经过互联网传输时必然会有抖动和丢包，从而对播放端的流畅播放产生影响。
@@ -90,13 +114,13 @@ TXLivePlayConfig mPlayConfig = new TXLivePlayConfig();
 
 //自动模式
 mPlayConfig.setAutoAdjustCacheTime(true);
-mPlayConfig.setMaxAutoAdjustCacheTime(1);
-mPlayConfig.setMinAutoAdjustCacheTime(5);
+mPlayConfig.setMinAutoAdjustCacheTime(1);
+mPlayConfig.setMaxAutoAdjustCacheTime(5);
 
 //极速模式
 mPlayConfig.setAutoAdjustCacheTime(true);
-mPlayConfig.setMaxAutoAdjustCacheTime(1);
 mPlayConfig.setMinAutoAdjustCacheTime(1);
+mPlayConfig.setMaxAutoAdjustCacheTime(1);
 
 
 //流畅模式
@@ -105,7 +129,7 @@ mPlayConfig.setCacheTime(5);
 
 mLivePlayer.setConfig(mPlayConfig);
 ```
------------------------------------------------------------------------------------------------------------------
+
 ## 状态篇
 
 ### 1. 内部原理
@@ -198,9 +222,13 @@ mLivePusher.setPushListener(this);
 	
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
+| NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
+| NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
+| NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
+|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
 |	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率|
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度|
-|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
+| NET_STATUS_SERVER_IP | 连接的服务器IP | 
