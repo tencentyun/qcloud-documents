@@ -49,5 +49,16 @@ $ vim ~/.bash_profile
 追加到文件末尾即可：
 ![Alt text](https://mc.qcloudimg.com/static/img/8dae9aa2ac7e733ae71d06fbce11939a/1472882079703.png)
 
+###升级腾讯云命令行工具
+如果您已经安装有qcloudcli，请使用pip的--upgrade选项来升级到最新版本的qcloudcli
+```
+$ sudo pip install --upgrade qcloudcli
+```
+###卸载腾讯云命令行工具
+如果您已经安装有qcloudcli，且不再需要使用腾讯云命令行工具，可通过以下命令卸载腾讯云命令行工具
+```
+$ sudo pip uninstall  qcloudcli
+```
+
 
 

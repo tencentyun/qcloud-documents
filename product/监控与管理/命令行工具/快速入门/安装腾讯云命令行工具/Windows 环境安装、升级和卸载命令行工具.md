@@ -20,7 +20,16 @@ NAME:
 DESCRIPTION:
 	The Qcloud Command Line Interface is a unified tool to manage your qcloud services.
 ```
-
+###升级腾讯云命令行工具
+如果您已经安装有qcloudcli，请使用pip的--upgrade选项来升级到最新版本的qcloudcli
+```
+$ pip install --upgrade qcloudcli
+```
+###卸载腾讯云命令行工具
+如果您已经安装有qcloudcli，且不再需要使用腾讯云命令行工具，可通过以下命令卸载腾讯云命令行工具
+```
+$ pip uninstall  qcloudcli
+```
 
 
 
