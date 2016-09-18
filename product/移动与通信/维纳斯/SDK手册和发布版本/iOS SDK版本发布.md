@@ -2,7 +2,14 @@
  
  
 -----
+### 版本号：WNS SDK V 2.5.21
+[下载](http://1251013638.cdn.myqcloud.com/1251013638/wns-qcloud-sdk/cloudwns_sdk_ios_v2.5.21.zip)
+发布时间：2016.9.14  
+版本说明：  
+1.暂时移除iOS10下ATS特性
+2.移除不必要的测速逻辑
 
+-----
 ### 版本号：WNS SDK V 2.5.20
 [下载](http://1251013638.cdn.myqcloud.com/1251013638/wns-qcloud-sdk/cloudwns_sdk_ios_v2.5.20.zip)
 发布时间：2016.9.6  
