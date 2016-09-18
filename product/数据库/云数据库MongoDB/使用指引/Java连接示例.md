@@ -16,6 +16,7 @@ public class MongodbDemo {
 
     public static void main(String[] args) {
         String mongoUri = "mongodb://rwuser:1234567a@10.66.122.28:27017/admin?authMechanism=MONGODB-CR";
+        // 或者 String mongoUri = "mongodb://rwuser:1234567a@10.66.122.28:27017?authMechanism=MONGODB-CR&authSource=admin";
         MongoClientURI connStr = new MongoClientURI(mongoUri);
         MongoClient mongoClient = new MongoClient(connStr);
         try {
