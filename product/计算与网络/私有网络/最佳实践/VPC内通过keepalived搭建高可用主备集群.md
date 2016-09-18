@@ -55,7 +55,7 @@ except Exception, e:
 ### 步骤2. 主备子机安装keepalived（1.2.8版本以上）
 以centos为例：`yum –y install keepalived`
 
-### 步骤3.    keepalived.conf配置单播模式：
+### 步骤3.    keepalived.conf配置单播模式
 编辑文件/etc/keepalived/keepalived.conf，除基本keepalived的vrrp配置外，注意需要配置单播模式，即指定对端设备的ip地址，在keepalived.conf的vrrp_instance项中指定单播模式：
 
 ```
@@ -73,7 +73,7 @@ vrrp_instance VI_1 {
         10.0.0.1    #对端设备的ip地址，例如：10.0.0.1
     }
     virtual_ipaddress {
-        10.100.0.27
+        10.100.0.27   #第一步申请的VIP
     }
     nopreempt
     garp_master_delay 1
@@ -81,7 +81,7 @@ vrrp_instance VI_1 {
 }
 ```
 
-### 步骤 4.（可选）给VIP分配外网IP。
+### 步骤 4.（可选）给VIP分配外网IP
 先在控制台申请EIP，再通过云API绑定到1中申请的内网IP，[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)，python代码与步骤1类似。
 
 ### 步骤 5.   keepalived.conf 配置切换脚本
@@ -96,7 +96,7 @@ vrrp_sync_group G1 {
 }
 
 ```
-步骤 6. 验证主备倒换时VIP及外网IP是否正常切换。
+步骤 6. 验证主备倒换时VIP及外网IP是否正常切换
 vip.py：通过云API开发主备切换程序，通过调用内网IP迁移的云API来进行IP地址的切换，以python为例：
 1) [下载python-sdk](https://github.com/QcloudApi/qcloudapi-sdk-python)
 请仔细阅读其中README.md，并将sdk下载到/etc/keepalived目录中，如：

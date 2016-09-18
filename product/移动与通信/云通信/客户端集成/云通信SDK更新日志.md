@@ -1,3 +1,14 @@
+IM SDK2.3 2016-9-13
+1. 支持同一appid多应用消息推送
+2. Android版本增加google推送支持（FCM实现）
+3. Android版本增加带回调的setOfflinePushToken接口
+4. 消息删除逻辑优化，拉取消息时，自动过滤状态为DELETED的消息
+5. iOS版本将数据库文件从Library/Caches/子目录搬迁到Document/子目录，避免被系统清除
+6. iOS版本可以添加和删除多个TIMMessageListener
+7. iOS版本对常驻线程进行统一命名
+8. 获取会话列表接口，自动过滤消息数为0的会话
+
+
 IM Web SDK1.6 2016-8-15
 1. WEB广播消息需求
 2. 新增好友系统通知

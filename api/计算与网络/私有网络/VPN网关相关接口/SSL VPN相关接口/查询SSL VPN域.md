@@ -44,7 +44,7 @@ acl策略信息数组
  
 输入
 ```
-https://vpc.api.qcloud.com/v2/index.php?Action=DescribeSSLVpnDomain</nowiki>
+https://vpc.api.qcloud.com/v2/index.php?Action=DescribeSSLVpnDomain
 &<公共请求参数>
 &vpcId=93
 &sslVpnId=vpngw-l2tlvgb9

@@ -39,7 +39,7 @@
  
 输入
 ```
-https://vpc.api.qcloud.com/v2/index.php?Action=SetSSLVpnDomain</nowiki>
+https://vpc.api.qcloud.com/v2/index.php?Action=SetSSLVpnDomain
 &<公共请求参数>
 &vpcId=vpc-39lpv32n
 &sslVpnId=vpngw-m1ue61hx

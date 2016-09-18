@@ -6,7 +6,7 @@
 
 传统的Web模式在处理高并发及实时性需求的时候，会遇到难以逾越的瓶颈，需要一种高效节能的双向通信机制来保证数据的实时传输。在此背景下，基于HTML5规范的、有Web TCP之称的 WebSocket应运而生。早期HTML5并没有形成业界统一的规范，各个浏览器和应用服务器厂商有着各异的类似实现，如IBM的MQTT、Comet开源框架等。直到2014年，HTML5终于尘埃落地，正式落实为实际标准规范，各个应用服务器及浏览器厂商逐步开始统一，在 JavaEE7中也实现了WebSocket协议。至此无论是客户端还是服务端的WebSocket都已完备。用户可以查阅[HTML5规范](http://www.jb51.net/w3school/html5/)，熟悉新的HTML协议规范及WebSocket支持。
 
-#### WebSocket 机制
+## WebSocket 机制
 以下简要介绍一下WebSocket的原理及运行机制。
 
 WebSocket是HTML5下一种新的协议。它实现了浏览器与服务器全双工通信，能更好的节省服务器资源和带宽并达到实时通讯的目的。它与HTTP一样通过已建立的TCP连接来传输数据，但是它和HTTP最大不同是：

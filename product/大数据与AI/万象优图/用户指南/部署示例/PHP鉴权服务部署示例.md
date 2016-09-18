@@ -64,7 +64,7 @@ cd /data/www/tencentyun/php
 ```
 {
 	"require":{
-		"tencentyun/tencentyun":"2.0.*"
+		"tencentyun/php-sdk":"2.0.*"
 	}
   }
 ```
@@ -179,10 +179,10 @@ switch ($type) {
 ```
 ## 4 测试
 1. 终端通过CGI：http://203.195.194.28/php/getsignv2.php?type=[opType]&fileid=[fileid]来获取相应的签名。
-opType：可取值：upload(上传), stat（查询）, copy（复制）, del（删除）和download（下载，如果开启token防盗链）；
-fileid：是图片资源的唯一标识；当opType为upload时，如果开发者没有指定fileid，fileid置空，否则指定为相应的fileid；下载签名，fileid可以空，也可以为开发者查看的图片fileid。
-注意： 下载签名只有开发者在控制台上面设置了token防盗链时才使用，如果没有token防盗链，不需要下载签名，直接使用下载url下载图片。
-示例：
+   opType：可取值：upload(上传), stat（查询）, copy（复制）, del（删除）和download（下载，如果开启token防盗链）；
+   fileid：是图片资源的唯一标识；当opType为upload时，如果开发者没有指定fileid，fileid置空，否则指定为相应的fileid；下载签名，fileid可以空，也可以为开发者查看的图片fileid。
+   注意： 下载签名只有开发者在控制台上面设置了token防盗链时才使用，如果没有token防盗链，不需要下载签名，直接使用下载url下载图片。
+   示例：
 
 ```
 http://203.195.194.28/php/getsignv2.php?type=upload&fileid=sample123
