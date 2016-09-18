@@ -33,7 +33,7 @@
 ## 本地为 Linux 时：使用 rdesktop 登录 Windows 实例
 本地 Linux 计算机要登录远程 Windows 实例时，您需要安装相应的远程桌面连接程序，这里推荐使用 rdesktop 进行连接。有关 rdesktop 的更多内容，请参考[这里](http://www.rdesktop.org/)。
 
-### 安装 rdesktop
+1) 安装 rdesktop
 运行`rdesktop`命令检查系统是否已经安装，若未安装则请[下载最新的安装包](https://github.com/rdesktop/rdesktop/releases)，并在相应目录下运行以下命令解压和安装
 ```
 tar xvzf rdesktop-<x.x.x>.tar.gz ##替换x.x.x为下载的版本号 
@@ -42,7 +42,7 @@ cd rdesktop-1.8.3
 make 
 make install
 ```
-### 连接远程 Windows 实例
+2) 连接远程 Windows 实例
 运行以下命令（将示例中的参数改为您自己的参数）：
 
 ```
