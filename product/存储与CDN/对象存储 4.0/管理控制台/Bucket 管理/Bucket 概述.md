@@ -6,10 +6,10 @@
 
 有关这些属性配置的更多信息，可以参考以下内容：
 
-[在 Bucket 托管静态网站](/doc/product/430/5896)
-[配置 Bucket 的访问权限](/doc/product/430/5891)
-[启用跨域共享](/doc/product/430/5894)
-[访问 Bucket 的域名管理](/doc/product/430/5889)
+[在 Bucket 托管静态网站](/doc/product/436/6249)
+[配置 Bucket 的访问权限](/doc/product/436/6247)
+[启用跨域共享](/doc/product/436/6251)
+[访问 Bucket 的域名管理](/doc/product/436/6252)
 
 ## Bucket 限制
 - Bucket 数量上限是200个（不区分地区）。但是 Bucket下目录、文件数量没有限制。
