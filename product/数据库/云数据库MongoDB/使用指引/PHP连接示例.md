@@ -13,7 +13,8 @@ mongo比较老旧，但也可以用，如果要用请选择1.6版本。
 <?php
 // 建立连接
 $manager = new MongoDB\Driver\Manager(
-    'mongodb://rwuser:1234567a@10.66.122.28:27017/admin?authMechanism=MONGODB-CR'
+    'mongodb://rwuser:********@10.66.122.28:27017/admin?authMechanism=MONGODB-CR'
+    // 或者 'mongodb://rwuser:********@10.66.122.28:27017?authMechanism=MONGODB-CR&authSource=admin'
 );
 
 // 准备写入数据
@@ -72,14 +73,15 @@ stdClass Object
 ```
 <?php
 // 推荐使用URI的方式连接
-$connection = new MongoClient("mongodb://rwuser:1234567a@10.66.122.28:27017/admin?authMechanism=MONGODB-CR");
+$connection = new MongoClient("mongodb://rwuser:********@10.66.122.28:27017/admin?authMechanism=MONGODB-CR");
+// 或者 $connection = new MongoClient("mongodb://rwuser:********@10.66.122.28:27017?authMechanism=MONGODB-CR&authSource=admin");
 /*
 // 或者这样也可以
 $connection = new MongoClient("mongodb://10.66.116.103:27017/admin",
     array(
         "username" => "rwuser",
         "password" => "password",
-        "authMechanism" => "MONGODB-CR",
+        "authMechanism" => "MONGODB-CR"
     )
 );
 */

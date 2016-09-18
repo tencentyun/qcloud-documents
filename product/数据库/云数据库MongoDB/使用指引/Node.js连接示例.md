@@ -19,13 +19,14 @@ var mongoClient = require('mongodb').MongoClient,
     assert = require('assert');
 
 var username = 'rwuser',
-    password = '1234567a',
+    password = '********',
     host     = '10.66.117.214',
     port     = '27017',
     dbName   = 'havefun';
 
 // 拼接URI， 注意需要使用鉴权参数 authMechanism=MONGODB-CR
-var url = sprintf('mongodb://%s:%s@%s:%d/%s?authMechanism=MONGODB-CR', username, password, host, port, dbName);
+var url = sprintf('mongodb://%s:%s@%s:%d/%s?authMechanism=MONGODB-CR&authSource=admin', username, password, host, port, dbName);
+// 或者 mongodb://%s:%s@%s:%d/admin?authMechanism=MONGODB-CR
 console.info("url:", url);
 
 mongoClient.connect(url, function(err, db) {
@@ -67,7 +68,7 @@ mongoClient.connect(url, function(err, db) {
 
 ```
 [root@VM_2_167_centos node]# node index.js 
-url: mongodb://rwuser:1234567a@10.66.117.214:27017/havefun?authMechanism=MONGODB-CR
+url: mongodb://rwuser:1234567a@10.66.117.214:27017/havefun?authMechanism=MONGODB-CR&authSource=admin
 Connected correctly to server
 docs: [ { _id: 567a1bf26773935b3ff0b42a, a: 1, something: 'yy' } ]
 ```
@@ -78,7 +79,8 @@ docs: [ { _id: 567a1bf26773935b3ff0b42a, a: 1, something: 'yy' } ]
 var dbUri = "mongodb://" + user + ":" + password + "@" + host + ":" + port + "/" + dbName;
 var opts = {
     auth: {
-        authMechanism: 'MONGODB-CR'
+        authMechanism: 'MONGODB-CR',
+        authSource: 'admin'
     }
 };
 var connection = mongoose.createConnection(dbUri, opts);
