@@ -1,8 +1,8 @@
 Java MongoDB驱动文档
-http://mongodb.github.io/mongo-java-driver/3.0/driver/getting-started/
+http://mongodb.github.io/mongo-java-driver/3.2/driver/getting-started/
 Java Jar包下载
 https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-driver/
-请选择3.0以上版本下载
+请选择3.2以上版本下载
 
 **Java示例代码:**
 ```
@@ -15,8 +15,8 @@ import com.mongodb.client.*;
 public class MongodbDemo {
 
     public static void main(String[] args) {
-        String mongoUri = "mongodb://rwuser:1234567a@10.66.122.28:27017/admin?authMechanism=MONGODB-CR";
-        // 或者 String mongoUri = "mongodb://rwuser:1234567a@10.66.122.28:27017?authMechanism=MONGODB-CR&authSource=admin";
+        String mongoUri = "mongodb://rwuser:********@10.66.122.28:27017/admin?authMechanism=MONGODB-CR";
+        // 或者 String mongoUri = "mongodb://rwuser:********@10.66.122.28:27017?authMechanism=MONGODB-CR&authSource=admin";
         MongoClientURI connStr = new MongoClientURI(mongoUri);
         MongoClient mongoClient = new MongoClient(connStr);
         try {
