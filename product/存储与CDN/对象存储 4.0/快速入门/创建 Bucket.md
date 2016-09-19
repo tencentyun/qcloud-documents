@@ -1,4 +1,4 @@
-##创建 Bucket
+## 创建 Bucket
 登录控制台后，您可以通过 COS 管理控制台创建一个 Bucket，且可以对 Bucket 的各项配置进行自定义设置。
 
 进入 COS 管理控制台，点击 **立即创建 Bucket** ，会弹出创建 Bucket 对话框：
