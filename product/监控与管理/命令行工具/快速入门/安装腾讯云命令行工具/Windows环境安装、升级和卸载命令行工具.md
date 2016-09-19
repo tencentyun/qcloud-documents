@@ -25,14 +25,14 @@ DESCRIPTION:
 如果您已经安装有 qcloudcli，请使用 pip 的 `--upgrade` 选项来升级到最新版本的 qcloudcli：
 
 ```
-$ sudo pip install --upgrade qcloudcli
+$ pip install --upgrade qcloudcli
 ```
 
 ## 卸载命令行工具
 如果您不再需要使用腾讯云命令行工具，可通过以下命令卸载腾讯云命令行工具：
 
 ```
-$ sudo pip uninstall qcloudcli
+$ pip uninstall qcloudcli
 ```
 
 
