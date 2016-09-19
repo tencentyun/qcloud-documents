@@ -11,7 +11,7 @@
 | URL  | 是         | String          | HTTPS 请求地址       | 
 | Https Headers    | 是         | 数据集合          | HTTPS 请求头部         | 
 | Https Method   |是         | String     | HTTPS 请求方法，长语音全文识别请求方法为 POST
-| Https Body   | 是         | String          | HTTPS 请求正文，即语音数据（当 source_type 字段为1时填充），大小不超过5M        | 
+| Https Body   | 是         | String          | HTTPS 请求正文，即语音数据（当 source_type 字段为1时填充），大小不超过 5M        | 
 
 其中，URL 的结构为 ：
 ```
@@ -111,9 +111,9 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 
 | 参数名称           | 类型         | 说明          | 
 | ------------- | ---------- | ------------- | 
-|  code |int | 服务器错误码, 0为成功|
+|  code |int | 服务器错误码，0为成功|
 | message  | String | 服务器返回的信息  |
-| requestId  | int  | 如果成功，返回任务id |
+| requestId  | int  | 如果成功，返回任务 id |
 
 ### 返回示例
  返回消息示例如下：
