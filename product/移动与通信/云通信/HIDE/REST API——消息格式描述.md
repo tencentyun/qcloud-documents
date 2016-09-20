@@ -126,7 +126,7 @@ MsgBody中所填写字段是消息内容。腾讯即时通信支持一条消息�
 					String
 				</td>
 				<td>
-					消息内容。当接收方为iphone后台在线时，做IOS离线Push时文本展示。
+					消息内容。当接收方在后台时，做IOS离线Push时文本展示。
 				</td>
 			</tr>
 		</tbody>
@@ -294,7 +294,7 @@ MsgBody中所填写字段是消息内容。腾讯即时通信支持一条消息�
 				</td>
 				<td>
 					<p>
-						<span style="white-space:nowrap;">自定义消息描述信息；当接收方为iphone后台在线时，做IOS离线Push时文本展示。</span> 
+						<span style="white-space:nowrap;">自定义消息描述信息；当接收方在后台时，做IOS离线Push时文本展示。</span> 
 					</p>
 				</td>
 			</tr>
