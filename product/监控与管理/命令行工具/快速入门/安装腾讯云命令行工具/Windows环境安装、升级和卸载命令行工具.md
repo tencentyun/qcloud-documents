@@ -2,7 +2,7 @@
 
 ## 安装 Python 和 Pip
 安装命令行工具前确保您的系统已经安装了 Python 环境和 Pip 工具。
-[如何安装python环境和pip工具]()
+[如何安装python环境和pip工具](https://www.qcloud.com/doc/product/440/6181#windows.E7.8E.AF.E5.A2.83.E4.B8.8B.E5.AE.89.E8.A3.85-python-.E5.92.8C-pip)
 
 ## 安装命令行工具
 1) 通过pip安装命令行工具
