@@ -6,7 +6,7 @@ Object 访问权限提供了基于 Object 维度的访问权限控制，且该�
 
 - 公有读私有写状态：当产生访问时，COS 会读取到 Object 的权限为公有读，此时无论 Bucket 为何种权限，Object 都可以被直接下载。
 
-- 私有读写状态：当产生访问时，COS 会读取到 Object 权限为私有读写，此时无论 Bucket 为何种权限，Object 都需要通过[签名鉴权]()才可访问。
+- 私有读写状态：当产生访问时，COS 会读取到 Object 权限为私有读写，此时无论 Bucket 为何种权限，Object 都需要通过[签名鉴权](/doc/api/435/6054)才可访问。
 
 - 继承 Bucket 权限：在修改 Object 权限后，恢复其权限与 Bucket 一致。当产生访问时，COS 会读取到Object 权限为继承，转而再匹配 Bucket 的权限，来响应访问。
 
@@ -18,7 +18,7 @@ Object 访问权限提供了基于 Object 维度的访问权限控制，且该�
 
 设置 a.txt 的 Object 访问权限为私有读写，尝试访问。
 
-访问` http://test-1250000000.cos.myqcloud.com/a.txt `将返回 403 Forbidden，内容为 {"errorcode":-45086,"errormsg":"sign check fail"} 签名鉴权失败。在进行[签名]()后访问 `http://test-1250000000.cos.myqcloud.com/a.txt?sign=[签名字符串]` 可以正常访问。
+访问` http://test-1250000000.cos.myqcloud.com/a.txt `将返回 403 Forbidden，内容为 {"errorcode":-45086,"errormsg":"sign check fail"} 签名鉴权失败。在进行[签名](/doc/api/435/6054)后访问 `http://test-1250000000.cos.myqcloud.com/a.txt?sign=[签名字符串]` 可以正常访问。
 
 ## .2. 共有读私有写
 
