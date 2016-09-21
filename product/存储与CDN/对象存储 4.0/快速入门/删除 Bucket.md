@@ -2,8 +2,6 @@
 
 进入 COS 管理控制台，点击需要删除的 Bucket 右侧操作栏中 **删除** ：
 
-![](https://mc.qcloudimg.com/static/img/a570c481d91c06d1a1102975da0cb380/image.png)
+![](https://mc.qcloudimg.com/static/img/896379bc2c20abbc348d6cfcdb9ba465/image.png)
 
 点击 **确定删除** ，即可完成删除操作。
-
-
