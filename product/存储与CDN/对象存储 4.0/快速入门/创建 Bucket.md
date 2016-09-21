@@ -3,7 +3,7 @@
 
 进入 COS 管理控制台，点击 **立即创建 Bucket** ，会弹出创建 Bucket 对话框：
 
-![](https://mc.qcloudimg.com/static/img/c6c13f0946bc9434fe397fac7ae6908e/image.png)
+![](https://mc.qcloudimg.com/static/img/5b21b04816972dd170fe7f15ff9c022c/image.png)
 
 **注意事项**
 
@@ -21,12 +21,14 @@
 ![](https://mc.qcloudimg.com/static/img/61d5969c7ef5a2e96fa28a56811c6582/image.png)
 
 ## 多园区及访问域名
-COS 支持多园区存储，目前开放了广州、上海两个地区。不同地区默认访问域名不同。推荐用户根据自己的业务场景选择就近的地区存储，可以提高上传、下载速度。
+COS 支持多园区存储，目前开放了广州、天津两个地区。不同地区默认访问域名不同。推荐用户根据自己的业务场景选择就近的地区存储，可以提高上传、下载速度。
 
-| 地区         | 区域表示     | 默认域名                                     |
-| ---------- | ------- | ---------------------------------------- |
-| 广州 | cosgz | bucketname-APPID.cosgz.myqcloud.com |
-| 上海 | cossh | bucketname-APPID.cossh.myqcloud.com |
+| 地区         | 区域表示     | 默认域名                                     | 状态 |
+| ---------- | ------- | ---------------------------------------- | ------- | 
+| 广州 | cosgz | bucketname-APPID.cosgz.myqcloud.com | 已上线 | 
+| 天津 | costj | bucketname-APPID.costj.myqcloud.com | 已上线 |
+| 上海 | - | - | 敬请期待 | 
+| 新加坡 | - | - | 敬请期待 |
 
 
 
