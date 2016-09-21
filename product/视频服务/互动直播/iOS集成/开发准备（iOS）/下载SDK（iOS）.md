@@ -9,9 +9,6 @@
 |---------|---------|
 | docs | 里面放了一些开发文档，后面会安排人力统一迁移到腾讯云的文档中心，方便开发者查阅。 |
 | libs | SDK是以Framework的形式提供给APP使用的，libs文件夹下包含了所有的Framework。 |
-| samples\sample1 | 用于演示美女直播、全民直播类的应用场景。|
-| samples\sample2 | 用于演示音视频通讯类的应用场景。|
-**特别注意：**两个sample工程各自包含了一份libs的copy，这样做是为了让sample工程能够被独立地编译运行，几个libs文件夹下Framework的內容并无差别。
 ## 三、SDK文件简介
 libs文件夹中包含了两大SDK的Framework：
 
