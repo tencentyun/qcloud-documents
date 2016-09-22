@@ -1,6 +1,6 @@
 为了防止2016年5月以后 Windows 类型云服务器极端情况下出现断网的问题，我们提供升级程序升级Virtio网卡驱动可以解决该问题。
 
-腾讯云客户可通过以下内网地址下载升级程序，一键完成升级。用户需要登录 Windows 云服务器，并在内部访问尽享站点 `http://mirrors.tencentyun.com/install/windows/update_netkvm.exe`,下载后直接运行升级程序或保存后运行。
+腾讯云客户可通过以下内网地址下载升级程序，一键完成升级。用户需要[登录 Windows 云服务器](/doc/product/213/5435)，并在内部访问镜像站点 `http://mirrors.tencentyun.com/install/windows/update_netkvm.exe`，下载后直接运行升级程序或保存后运行。
 
 如果显示以下信息：表示驱动已经升级成功，重启系统后新的驱动生效。
 
