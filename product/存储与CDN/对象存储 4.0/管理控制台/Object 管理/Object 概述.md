@@ -34,4 +34,4 @@ report.pdf
 > COS 中没有层次结构。但是通过Object名称中的前缀和分隔符，COS 可以推断层次结构并引入Folder的概念。
 
 ## Object地址
-Object的访问地址都是基于 Bucket 的访问地址和Object名称的，腾讯云的Object访问地址构成为 `Bucket域名+“/“+Object名称`，有关Bucket的域名可以参考 [Bucket 域名管理](/doc/product/430/6252)。
+Object的访问地址都是基于 Bucket 的访问地址和Object名称的，腾讯云的Object访问地址构成为 `Bucket域名+“/“+Object名称`，有关Bucket的域名可以参考 [Bucket 域名管理](/doc/product/436/6252)。
