@@ -2,7 +2,7 @@
 
 ### SDK 获取
 
-[项目地址](https://mc.qcloudimg.com/static/archive/6406390e2895fc20a2a271be3a5ed619/cos-php-sdk.zip) 
+[SDK安装包](https://mc.qcloudimg.com/static/archive/6406390e2895fc20a2a271be3a5ed619/cos-php-sdk.zip) 
 
 ### 开发环境
 
