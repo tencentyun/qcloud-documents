@@ -7,7 +7,8 @@ Python 示例代码1:
 import pymongo
 import random
 
-mongodbUri = 'mongodb://rwuser:1234567Test@10.66.180.13:27017/admin?authMechanism=MONGODB-CR'
+mongodbUri = 'mongodb://rwuser:********@10.66.180.13:27017?authMechanism=MONGODB-CR&authSource=admin'
+//或者 mongodbUri = 'mongodb://rwuser:********@10.66.180.13:27017/admin?authMechanism=MONGODB-CR'
 
 
 client = pymongo.MongoClient(mongodbUri)
@@ -33,7 +34,7 @@ Python 示例代码2:
 ```
 #!/usr/bin/python
 import pymongo
-mongodbUri = 'mongodb://rwuser:1234567a@10.66.122.28:27017/admin?authMechanism=MONGODB-CR'
+mongodbUri = 'mongodb://rwuser:********@10.66.122.28:27017/admin?authMechanism=MONGODB-CR&authSource=admin'
 client = pymongo.MongoClient(mongodbUri)
 db = client.someonedb
 
