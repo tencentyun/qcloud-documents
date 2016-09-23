@@ -24,7 +24,7 @@ use qcloudcos\Cosapi;
 若需要支持 HTTPS ，修改 conf.php 中的 API_COSAPI_END_POINT 的值为如下：
 
 ```php
-const API_COSAPI_END_POINT = 'https://web.file.myqcloud.com/files/v1/';
+const API_COSAPI_END_POINT = 'https://tj.file.myqcloud.com/files/v2/';
 ```
 
 ## 生成签名
