@@ -36,3 +36,10 @@
 | [修改定时任务](/doc/api/372/修改定时任务) | ModifyScheduledTask | 修改定时任务配置，如修改定时任务名、定时任务触发时，重设伸缩组的最大、最小伸缩数等。|
 | [删除定时任务](/doc/api/372/删除定时任务) | DeleteScheduledTask | 根据伸缩组ID和定时任务ID，删除特定伸缩组中特定的定时任务。|
 
+## 5. 通知相关接口
+| 接口功能 | Action Name | 功能描述 |
+|---------|---------|---------|
+| [创建通知](/doc/api/372/创建通知) | CreateScalingNotification | 创建新的通知，根据伸缩组ID，用户可以为指定伸缩组创建特定的伸缩活动结果通知。|
+| [查询通知](/doc/api/372/查询通知)  | DescribeScalingNotification| 根据伸缩组ID或通知ID，查询伸缩组中所有或特定通知的具体信息。 |
+| [修改通知](/doc/api/372/修改通知) | ModifyScalingNotification | 修改通知配置，如修改通知的通知类型、通知的接收对象等。|
+| [删除通知](/doc/api/372/删除通知) | DeleteScalingNotification | 根据伸缩组ID和通知ID，删除特定伸缩组中特定的通知。|
