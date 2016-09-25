@@ -42,5 +42,4 @@ Object 访问权限提供了基于 Object 维度的访问权限控制，且该�
 ![](https://mc.qcloudimg.com/static/img/fb3f7470ee8ed5ddfdc6c12996ae8843/image.png)
 
 在点击后的弹窗中设置权限：
-![](https://mc.qcloudimg.com/static/img/087436b06d5b89fe0b8faf9f67e90ba8/image.png)
-
+![](https://mc.qcloudimg.com/static/img/994dbbf53b567c5ae947e1e5962bdc90/image.png)

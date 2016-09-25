@@ -2,7 +2,7 @@
 
 ### SDK 获取
 
-GitHub 项目地址：[https://github.com/tencentyun/cos-php-sdk](https://github.com/tencentyun/cos-php-sdk) 
+[SDK安装包](https://mc.qcloudimg.com/static/archive/66d6012c194bc4a3a05a5a6274d7567c/cos-php-sdk.zip) 
 
 ### 开发环境
 
@@ -24,7 +24,7 @@ use qcloudcos\Cosapi;
 若需要支持 HTTPS ，修改 conf.php 中的 API_COSAPI_END_POINT 的值为如下：
 
 ```php
-const API_COSAPI_END_POINT = 'https://web.file.myqcloud.com/files/v1/';
+const API_COSAPI_END_POINT = 'https://gz.file.myqcloud.com/files/v2/';
 ```
 
 ## 生成签名
