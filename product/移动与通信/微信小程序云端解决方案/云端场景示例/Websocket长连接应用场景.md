@@ -163,7 +163,7 @@ socket.emit('hello', { from: 'techird' });
 `movement`| s => c      | 有用户更新选择或者更新表情会通知其它用户
 `result`  | s => c      | 超过选择时间后，游戏结束，广播游戏结果
 
-具体每个消息的参数可以参考 [server/protocol.brief.md](./server/protocol.brief.md)
+具体每个消息的参数可以参考源码里的 `server/protocol.brief.md`
 
 ## 服务器逻辑
 
