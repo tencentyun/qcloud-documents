@@ -44,12 +44,13 @@ Connect to 10.1.2.3:4321 success
 ```
 
 2.4 诊断输出说明
-|输出|	说明|
-|--|--|
-|TIME_WAIT link 320|	说明当前客户端服务器有320个TCP连接处于TIME_WAIT 状态。TIME_WAIT 过多会造成临时端口不足，无法建立新连接。|
-|tcp_tw_reuse=1|	必须设置为1，表示允许TIME_WAIT 状态的socket重新用于新的连接，从而减少TIME_WAIT造成端口不足问题的出现。|
-|tcp_tw_recycle=1|	必须设置为1，表示开启快速回收TIME_WAIT 状态的socket，从而减少TIME_WAIT造成端口不足问题的出现。|
-|10000 packets transmitted, 10000 received, 0% packet loss, time 1915ms|	发送了10000个ping包，用于分析丢包率和延时情况。有些服务器不支持发ping flood，可以使用慢ping进行分析。|
-|CPU 0.0 0.0 0.0 0.2 5.5|	服务器上CPU使用率最高的5个进程的CPU使用率。|
-|DISK 79% 1% 74% 65% 26%|	服务器上所有磁盘的使用率情况。|
-|Connect to 10.1.2.3:4321 success|	如果成功连接到IP和端口所指向的云缓存Memcached服务，则返回success；否则返回failed。|
+
+| 输出 | 说明 | 
+|---------|---------|
+|TIME_WAIT link 320|说明当前客户端服务器有320个TCP连接处于TIME_WAIT 状态。TIME_WAIT 过多会造成临时端口不足，无法建立新连接。|
+|tcp_tw_reuse=1|必须设置为1，表示允许TIME_WAIT 状态的socket重新用于新的连接，从而减少TIME_WAIT造成端口不足问题的出现。|
+|tcp_tw_recycle=1|必须设置为1，表示开启快速回收TIME_WAIT 状态的socket，从而减少TIME_WAIT造成端口不足问题的出现。|
+|10000 packets transmitted, 10000 received, 0% packet loss, time 1915ms|发送了10000个ping包，用于分析丢包率和延时情况。有些服务器不支持发ping flood，可以使用慢ping进行分析。|
+|CPU 0.0 0.0 0.0 0.2 5.5|服务器上CPU使用率最高的5个进程的CPU使用率。|
+|DISK 79% 1% 74% 65% 26%|服务器上所有磁盘的使用率情况。|
+|Connect to 10.1.2.3:4321 success|如果成功连接到IP和端口所指向的云缓存Memcached服务，则返回success；否则返回failed。|
