@@ -2,7 +2,7 @@
 
 ### 相关资源
 
-[github项目](https://github.com/tencentyun/cos-python-sdk)
+[github项目](https://github.com/tencentyun/cos-python-sdk-v4)
 
 ### 环境依赖
 
