@@ -6,7 +6,7 @@
 
 这篇文章分享一个简单的剪刀石头布的小游戏的制作，希望能对想要在小程序中使用 WebSocket 的开发者有帮助。
 
-![](//mc.qcloudimg.com/static/img/1d4772272b20760b8063356069328be9/image.gif)
+![剪刀石头布小游戏截图](https://mc.qcloudimg.com/static/img/1d4772272b20760b8063356069328be9/image.gif)
 
 整个游戏非常简单，连接到服务器后自动匹配在线玩家（没有则分配一个机器人），然后两人进行剪刀石头布的对抗游戏。当对方进行拳头选择的时候，头像会旋转，这个过程使用 WebSocket 会变得简单快速。
 
@@ -33,13 +33,13 @@
 
 ### 2. 云主机和镜像部署
 
-剪刀石头布的服务器运行代码和配置已经打包成腾讯云 CVM 镜像，大家可以[直接使用]()。
+剪刀石头布的服务器运行代码和配置已经打包成腾讯云 CVM 镜像，大家可以[直接使用](https://buy.qcloud.com/cvm?marketImgId=370)。
 
-![选择镜像](http://easyimage-10028115.file.myqcloud.com/internal/1scug3ht.lvs.jpg)
+> 腾讯云用户可以[免费领取礼包](https://www.qcloud.com/act/event/yingyonghao.html#section-voucher)，体验腾讯云小程序解决方案。
+
+![选择服务市场镜像](http://easyimage-10028115.file.myqcloud.com/internal/p5vbnlfw.yik.jpg)
 
 镜像部署完成之后，云主机上就有运行 WebSocket 服务的基本环境、代码和配置了。
-
-> 腾讯云新用户认证可以领取[代金券大礼包](https://www.qcloud.com/event/newusergift)
 
 > 镜像已包含「剪刀石头布」和「小相册」两个小程序的服务器环境与代码，需要体验两个小程序的朋友无需重复部署
 
