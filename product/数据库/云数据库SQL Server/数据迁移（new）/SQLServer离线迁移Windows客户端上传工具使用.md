@@ -2,7 +2,7 @@
 1、“将“Windows客户端上传工具”下载至本地后，将其解压到任意文件夹（注：文件夹路径请勿包涵中文），解压后的文件目录结构如下：
 ![](https://mc.qcloudimg.com/static/img/716da8b5ece00ca2be062e2b637ff40d/1-1.png)
 
-2、为了保证客户的数据安全，在备份上传之前，需要编辑配置文件etc\conf.json，并填写目的实例的API密钥（[secretId和secretKey](https://console.qcloud.com/capi)）；
+2、为了保证客户的数据安全。在备份上传之前，需要编辑配置文件etc\conf.json，并填写目的实例的API密钥（[secretId和secretKey](https://console.qcloud.com/capi)）。为了保证传输过程的稳定，此工具已经支持断点续传功能；
 ![](https://mc.qcloudimg.com/static/img/8cd149b24b1be3df87371081fa8cad39/1-2.png)
 
 3、进入Windows命令行（“开始>搜索程序和文件>输入cmd”），进入Windows命令行；
