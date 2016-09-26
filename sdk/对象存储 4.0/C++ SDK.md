@@ -2,7 +2,7 @@
 
 ### SDK 获取
 
-对象存储服务的C++ SDK的下载地址： [https://github.com/tencentyun/cos-cpp-sdk/tree/4.0.0](https://github.com/tencentyun/cos-cpp-sdk/tree/4.0.0)
+对象存储服务的C++ SDK的[下载地址](https://mc.qcloudimg.com/static/archive/37975b7588280f4638c87afc5a43b527/cos-cpp-sdk.zip)
 
 ### 开发环境
 
@@ -131,6 +131,8 @@ sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 "IsUploadTakeSha":0, //文件上传时是否携带文件sha值，0：不携带，1：携带
 "DownloadDomainType":2, //下载域名类型,1:cdn,2:cos,3:innercos,4:自定义域名
 "SelfDomain":"",//自定义域名
+"UploadThreadPoolSize":5, //单文件分片上传线程池大小
+"AsynThreadPoolSize":2, //异步上传下载线程池大小
 "LogoutType":1 //日志输出类型,0:不输出,1:输出到屏幕,2输出到syslog
 ```
 
