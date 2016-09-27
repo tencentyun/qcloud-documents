@@ -21,13 +21,13 @@
 ![](https://mc.qcloudimg.com/static/img/61d5969c7ef5a2e96fa28a56811c6582/image.png)
 
 ## 多园区及访问域名
-COS 支持多园区存储，目前开放了广州、天津两个地区。不同地区默认访问域名不同。推荐用户根据自己的业务场景选择就近的地区存储，可以提高上传、下载速度。
+COS 支持多园区存储，目前开放了华北、华南两个地区。不同地区默认访问域名不同。推荐用户根据自己的业务场景选择就近的地区存储，可以提高上传、下载速度。
 
 | 地区         | 区域表示     | 默认域名                                     | 状态 |
 | ---------- | ------- | ---------------------------------------- | ------- | 
-| 广州 | cosgz | bucketname-APPID.cosgz.myqcloud.com | 已上线 | 
-| 天津 | costj | bucketname-APPID.costj.myqcloud.com | 已上线 |
-| 上海 | - | - | 敬请期待 | 
+| 华南 | cosgz | bucketname-APPID.cosgz.myqcloud.com | 已上线 | 
+| 华北 | costj | bucketname-APPID.costj.myqcloud.com | 已上线 |
+| 华东 | - | - | 敬请期待 | 
 | 新加坡 | - | - | 敬请期待 |
 
 
@@ -39,3 +39,5 @@ COS 支持多园区存储，目前开放了广州、天津两个地区。不同�
 > 私有读写：只有该Bucket的创建者及有相应权限的账号才对该Bucket中的文件有读写权限，其他任何人对该Bucket中的文件都没有读写权限。
 
 如后续需要修改Bucekt权限，可通过控制台空间属性修改。
+
+
