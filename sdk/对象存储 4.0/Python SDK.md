@@ -2,7 +2,7 @@
 
 ### 相关资源
 
-github项目](https://github.com/tencentyun/cos-python-sdk/tree/3.3)
+[github项目](https://github.com/tencentyun/cos-python-sdk-v4)
 
 ### 环境依赖
 
@@ -31,7 +31,7 @@ Python 2.7.11
 - pip安装
 
 ```shell
-pip install qcloud_cos
+pip install qcloud_cos_v4
 ```
 
 - 源码安装
@@ -45,7 +45,7 @@ python setup.py install
 ### 卸载SDK
 
 ```shell
-pip uninstall qcloud_cos
+pip uninstall qcloud_cos_v4
 ```
 
 ### 历史版本
