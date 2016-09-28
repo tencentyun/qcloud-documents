@@ -32,7 +32,7 @@
 
 ### 2. 云主机和镜像部署
 
-一笔到底的服务器运行代码和配置已经打包成腾讯云 CVM 镜像，大家可以[直接使用](https://buy.qcloud.com/cvm?marketImgId=370&utm_source=jiaocheng&utm_medium=cvm2&utm_campaign=qcloud)。
+一笔到底的服务器运行代码和配置已经打包成腾讯云 CVM 镜像，大家可以[直接使用](https://buy.qcloud.com/cvm?marketImgId=371&utm_source=jiaocheng&utm_medium=cvm2&utm_campaign=qcloud)。
 
 > 腾讯云用户可以[免费领取礼包](https://www.qcloud.com/act/event/yingyonghao.html#section-voucher)，体验腾讯云小程序解决方案。
 
