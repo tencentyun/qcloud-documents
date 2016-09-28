@@ -1,0 +1,168 @@
+微信小程序示例 - 一笔到底
+=============
+
+[微信小程序](http://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1474632113_xQVCl&token=&lang=zh_CN)提供了一套在微信上运行小程序的解决方案，有比较完整的框架、组件以及 API，在这个平台上面的想象空间很大。
+
+微信的定位并不是 HTML5，这里很多人都有误解。在一些实现上，并不能想当然地用 HTML5 的思路来思考。比如，微信的请求接口 `wx.request` 并不支持 `cookie` 传递，所以会话层不能使用传统的 Session 方式。
+
+这篇文章分享一个简单的画图应用，使用自己新鲜出炉的小程序会话管理能力来判断并当前用户的身份。
+
+![运行截图](http://easyimage-10066543.file.myqcloud.com/internal/w42ur3da.dw2.jpg)
+
+小程序非常简单，使用 Canvas 绘图后，把序列化的 `actions` 提交给服务器保存。下次加载的时候，再列出用户曾经绘制过的图。
+
+## 部署和运行
+
+拿到了本小程序源码的朋友可以尝试自己运行起来。
+
+### 整体架构
+
+![整体架构](http://easyimage-10066543.file.myqcloud.com/internal/acmql3vd.mql.jpg)
+
+### 1. 准备域名和证书
+
+在微信小程序中，所有的网路请求受到严格限制，不满足条件的域名和协议无法请求，具体包括：
+
+* 只允许和在 MP 中配置好的域名进行通信，如果还没有域名，需要[注册一个](https://www.qcloud.com/product/dm.html?utm_source=jiaocheng&utm_medium=domain2&utm_ca)。
+* 网络请求必须走 HTTPS 协议，所以你还需要为你的域名[申请一个证书](https://console.qcloud.com/ssl?utm_source=jiaocheng&utm_medium=ssl2&utm_campaign=qcloud)。
+
+域名注册好之后，可以登录[微信公众平台](https://mp.weixin.qq.com)配置通信域名了。
+
+![配置通信域名](http://easyimage-10028115.file.myqcloud.com/internal/tjzpgjrz.y5a.jpg)
+
+### 2. 云主机和镜像部署
+
+一笔到底的服务器运行代码和配置已经打包成腾讯云 CVM 镜像，大家可以[直接使用](https://buy.qcloud.com/cvm?marketImgId=370&utm_source=jiaocheng&utm_medium=cvm2&utm_campaign=qcloud)。
+
+> 腾讯云用户可以[免费领取礼包](https://www.qcloud.com/act/event/yingyonghao.html#section-voucher)，体验腾讯云小程序解决方案。
+
+![选择服务市场镜像](http://easyimage-10028115.file.myqcloud.com/internal/p5vbnlfw.yik.jpg)
+
+> 镜像已包含所有小程序的服务器环境与代码，需要体验其它小程序的朋友无需重复部署
+
+### 3. 配置 HTTPS
+
+镜像中已经部署了 nginx，需要在 `/etc/nginx/conf.d` 下修改配置中的域名、证书、私钥。
+
+![证书 Nginx 配置](http://easyimage-10028115.file.myqcloud.com/internal/agfty0fn.gfi.jpg)
+
+配置完成后，即可启动 nginx。
+
+```
+nginx
+```
+
+### 4. 域名解析
+
+我们还需要添加域名记录解析到我们的云服务器上，这样才可以使用域名进行 HTTPS 服务。
+
+在腾讯云注册的域名，可以直接使用[云解析控制台](https://console.qcloud.com/cns/domains?utm_source=jiaocheng&utm_medium=cns&utm_campaign=qcloud)来添加主机记录，直接选择上面购买的 CVM。
+
+![添加域名解析](http://easyimage-10028115.file.myqcloud.com/internal/uw25hdj2.k1u.jpg)
+
+解析生效后，我们在浏览器使用域名就可以进行 HTTPS 访问。
+
+![HTTPS 访问效果图](http://easyimage-10028115.file.myqcloud.com/internal/bxfkmjea.g41.jpg)
+
+### 5. 配置云存储 Redis
+
+会话管理依赖 Redis 进行作为缓存管理，开发者可以选择自行搭建 Redis 服务或者直接购买[云存储 Redis 服务](https://buy.qcloud.com/buy/redis?utm_source=jiaocheng&utm_medium=redis&utm_campaign=qcloud)。
+
+### 6. 配置云数据库 MongoDB
+
+一笔到底小程序使用 MongoDB 来存储用户绘制的图像路径，要运行小程序开发者需要自行搭建 MongoDB 服务或者直接购买[云数据库 MongoDB](https://buy.qcloud.com/mongodb?utm_source=jiaocheng&utm_medium=mongo&utm_campaign=qcloud)。
+
+### 7. 启动一笔到底示例 Node 服务
+
+在镜像的 nginx 配置中（`/etc/nginx/conf.d`），已经把`/applet/session`的请求转发到 `http://127.0.0.1:5757`处理。我们需要把 Node 服务运行起来。Node 代码部署在目录`/data/release/qcloud-applet-session`下。
+
+进入该目录：
+
+```sh
+cd /data/release/qcloud-applet-session
+```
+
+在该目录下有个名为`config.js`的配置文件（如下所示），根据注释将`appId`、`appSecret`、`redisConfig`、`mongoConfig`修改成自己的配置。
+
+```js
+module.exports = {
+    port: '5757',
+    ROUTE_BASE_PATH: '/applet',
+
+    // 微信小程序 App ID
+    appId: '',
+
+    // 微信小程序 App Secret
+    appSecret: '',
+
+    // Redis 配置
+    // @see https://www.npmjs.com/package/redis#options-object-properties
+    redisConfig: {
+        host: '',
+        port: '',
+        password: '',
+    },
+
+    // MongoDB 配置
+    // @see https://www.qcloud.com/doc/product/240/3979
+    mongoConfig: {
+        username: '',
+        password: '',
+        host: '',
+        port: '',
+        query: '?authMechanism=MONGODB-CR&authSource=admin',
+        database: 'qcloud-applet-session',
+    },
+};
+```
+
+一笔到底示例使用 pm2 管理 Node 进程，执行以下命令启动 node 服务：
+
+```
+pm2 start process.json
+```
+
+## 实现
+
+### 会话层实现
+
+会话层实现包含两个部分：
+
+* 服务器端：[https://github.com/CFETeam/weapp-session](https://github.com/CFETeam/weapp-session)
+* 客户端：[https://github.com/CFETeam/weapp-session-client](https://github.com/CFETeam/weapp-session-client)
+
+我们的 Demo 直接使用这两个仓库，可以快速地拥有会话层的能力。
+
+会话层的实现和传统 Cookie 的实现方式类似，都是在 Header 上使用特殊的字段跟踪。一个请求的完整流程如下：
+
+![请求声明周期](http://easyimage-10066543.file.myqcloud.com/internal/cv1setht.o1x.jpg)
+
+1. 客户端（微信小程序）发起请求 `request`
+2. [weapp-session-client](https://github.com/CFETeam/weapp-session-client) 包装 `request`
+    * 首次请求
+        - 调用 `wx.login()` 和 `wx.getUserInfo()` 接口获得 `code`、`rawData` 和 `signature`
+        - `requset` 的头部带上 `code`、`rawData` 和 `signature`
+        - 保存 `code` 供下次调用
+    * 非首次请求
+        - `request` 的头部带上保存的 `code`
+3. 服务器收到请求 `request`，中间件从头部提取 `code`、`rawData` 和 `signature` 字段
+    * 如果 `code` 为空，跳到第 `4` 步
+    * 如果 `code` 不为空，且 `rawData` 不为空，需要进行签名校验
+        + 使用 `code`，`appid`、`app_secret` 请求微信接口获得 `session_key` 和 `openid`
+            - 如果接口失败，响应 `ERR_SESSION_KEY_EXCHANGE_FAILED`
+        + 使用签名算法通过 `rawData` 和 `session_key` 计算签名 `signature2`
+        + 对比 `signature` 和 `signature2`
+            - 签名一致，解析 `rawData` 为 `wxUserInfo`
+                * 把 `openid` 写入到 `wxUserInfo`
+                * 把 `(code, wxUserInfo)` 缓存到 Redis
+                * 把 `wxUserInfo` 存放在 `request.$wxUserInfo` 里
+                * 跳到第 `4` 步
+            - 签名不一致，响应 `ERR_UNTRUSTED_RAW_DATA`
+    * 如果 `code` 不为空，但 `rawData` 为空，从 Redis 根据 `code` 查询缓存的用户信息
+        - 找到用户信息，存放在 `request.$wxUserInfo` 字段里，跳到第 `4` 步
+        - 没找到用户信息（可能是过期），响应 `ERR_SESSION_EXPIRED`
+4. `request` 被业务处理，可以使用 `request.$wxUserInfo` 来获取用户信息（`request.$wxUserInfo` 可能为空，业务需要自行处理）
+
+## 源代码
+
+可从 Github 获取 [https://github.com/CFETeam/weapp-session](https://github.com/CFETeam/weapp-session)
