@@ -1,10 +1,12 @@
 
+## RTMP SDK介绍
 腾讯视频云 RTMP SDK 是由腾讯音视频团队开发和推出的一套 RTMP 标准直播解决方案，包含**RTMP推流**、**在线直播观看**和**Vod视频回看**三大类功能，囊括了腾讯音视频团队多年的技术积累，在视频压缩、硬件加速、美颜滤镜、音频降噪、码率控制等方面都做了很多的优化处理。
 
 如果您是一位刚刚接触视频直播的合作伙伴，您只需要几行代码就可以完成对接流程，而如果您是一位资深的移动端软件开发工程师，SDK所提供的丰富的设置接口，亦可让您能够定制出最符合需求的表现。
 
 ![rtmp sdk push](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tx_cloud_push_sdk_struct.jpg)
 
+## 下载RTMP SDK
 在 [SDK下载区](https://www.qcloud.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(iOS)](https://www.qcloud.com/doc/api/258/5320) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
 
@@ -45,7 +47,6 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
             _myView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
         }];
 ```
-
 
 ### step 3: 启动推流
 经过step1 和 step2 的准备之后，用下面这段代码就可以启动推流了： 
