@@ -124,5 +124,7 @@ PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_4eb4da7079af11e69776e435c87f0
 | 操作系统 | 版本号 | 更新时间|下载链接 |
 | ---- | ----------- | ---- | ---- | 
 | IOS  | 1.6.1.770  | 2016-09-30 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDK_And_Demo__IOS_1.6.1.770.zip)  |
+| IOS（冲突优化版） | 1.6.1.770  | 2016-10-03 | [点击下载](http://download-10055601.cos.myqcloud.com/TXRTMPiOSSDK.1.6.1.770.rename.ffmpeg.zip)  |
 | Android  | 1.6.1.770 | 2016-09-30 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDK_And_Demo__Android_1.6.1.770.zip)  |
 
+> **冲突优化版**： 部分客户反馈由于App中引入多版本ffmpeg后会出现命名冲突问题，如果您也同样遇到类似问题，可以使用冲突优化版本尝试解决之，接口&内部逻辑与普通版本完全一致。
