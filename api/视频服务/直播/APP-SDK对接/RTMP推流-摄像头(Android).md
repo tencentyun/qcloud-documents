@@ -10,13 +10,8 @@
 在 [SDK下载区](https://www.qcloud.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(Android)](https://www.qcloud.com/doc/api/258/5319) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
 
-> **x86 模拟器调试**
-> 由于RTMP SDK大量使用iOS系统的高级特性，我们不能保证所有特性在x86环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
-
 ## 对接攻略
-### 适用场景
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
-
 
 ### step 1: 添加界面元素
 为了能够展示摄像头预览的影像，您需要在您的布局xml文件里加入如下一段代码，他会在您的UI上安插一个TXCloudVideoView控件，这是我们用来显示摄像头影像的专用控件：
