@@ -168,7 +168,7 @@ public void onResume() {
 
 ### step 9: 推荐的清晰度
 影响画质的主要因素是三个：**分辨率**、**帧率**和**码率**。
-- **分辨率**：目前腾讯云RTMP SDK支持的三种分辨率均为9:16的常规分辨率：360\*480，540\*960，720\*1280。
+- **分辨率**：摄像头直播有三种 9:16 的常规分辨率可供选择：360\*640，540\*960，720\*1280。
 - **帧率**：FPS <=10 会明显感觉到卡顿，摄像头直播推荐设置 20 FPS。
 - **码率**：编码器每秒编出的数据大小，单位是kbps，比如800kbps代表编码器每秒产生800kb（或100KB）的数据。
 
@@ -241,4 +241,15 @@ SDK发现了一些问题，但SDK还会坚强的活下去。只是抱着拒绝�
 |PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP服务器握手失败（会触发重试流程）  |
 
 > 全部事件定义请参阅头文件**“TXLiveConstants.java”**
+
+### step 14: 结束推流
+结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 都是不能多实例并行运转的，所以清理工作不当会导致下次直播遭受不良的影响。
+```java
+//结束推流，注意做好清理工作
+public void stopRtmpPublish() {
+    mLivePusher.stopCameraPreview(true); //停止摄像头预览
+	mLivePusher.stopPusher();            //停止推流
+    mLivePusher.setPushListener(null);   //解绑 listener
+}
+```
 
