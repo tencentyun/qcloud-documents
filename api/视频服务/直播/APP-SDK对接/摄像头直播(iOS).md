@@ -6,7 +6,7 @@
 
 ![rtmp sdk push](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tx_cloud_push_sdk_struct.jpg)
 
-## 下载SDK
+## 下载RTMP SDK
 在 [SDK下载区](https://www.qcloud.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(iOS)](https://www.qcloud.com/doc/api/258/5320) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
 
@@ -14,9 +14,7 @@
 > 由于RTMP SDK大量使用iOS系统的高级特性，我们不能保证所有特性在x86环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
 
 ## 对接攻略
-### 适用场景
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
-
 
 ### step 1: 创建Push对象
 先创建一个**LivePush**对象，我们后面主要用它来完成推流工作。
@@ -49,7 +47,6 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
             _myView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
         }];
 ```
-
 
 ### step 3: 启动推流
 经过step1 和 step2 的准备之后，用下面这段代码就可以启动推流了： 
@@ -141,15 +138,17 @@ iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都�
 > RTMP SDK 内部有一种保护机制：如果硬件加速资源被其它App占用导致无法开启，会自动切换回软件编码。
 
 ### step 8: 后台推流
-iOS系统中，App一旦切到后台，它对于摄像头的采集能力就被停掉了，这就意味着SDK不能再继续摄像头的直播。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
- - 阶段一（切后台开始 -> 之后的10秒内）- CDN因为没有数据所以无法向观众提供视频流，观众看到画面卡主。
- - 阶段二（10秒 -> 70秒内）- 观众端的播放器因为持续收不到直播流而直接推出，直播间已经人去楼空。
- - 阶段三（70秒以后）- 推流的 RTMP 链路被服务器直接断掉，主播需要重新开启直播才能继续。
+常规模式下，App一旦切到后台，摄像头的采集能力就被 Android 系统停掉了，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
++ 阶段一（切后台开始 -> 之后的10秒内）- CDN因为没有数据所以无法向观众提供视频流，观众看到画面卡主。
++ 阶段二（10秒 -> 70秒内）- 观众端的播放器因为持续收不到直播流而直接推出，直播间已经人去楼空。
++ 阶段三（70秒以后）- 推流的 RTMP 链路被服务器直接断掉，主播需要重新开启直播才能继续。
 
-如上描述的交互体验显然不太好，那么怎么保证这个过程更加平滑呢？SDK 1.6.1 开始我们引入了一种解决方案： 
+主播可能只是短暂接个紧急电话而已，但上述的交互体验显然会让观众全部离开直播间，怎么优化呢？
+从 **SDK 1.6.1** 开始，我们引入了一种解决方案，如下是从观众端的视角看去，该方案可以达到的效果： 
+![](//mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
+
 - **8.1) 设置pauseImg**
 在开始推流前，使用 LivePushConfig 的 pauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
-
 - **8.2) 设置App后台（短暂）运行**
 App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无济于事，所以我们使用下面的代码让App在切到后台后还可再跑几分钟，这段时间如果主播应付一下紧急电话，也就算是“功德圆满”。
 
@@ -159,18 +158,17 @@ App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无
     name:UIApplicationDidEnterBackgroundNotification object:nil];
 
 //收到通知后，调用beginBackgroundTaskWithExpirationHandler
-- (void)handleEnterBackground:(NSNotification *)notification
+-(void)handleEnterBackground:(NSNotification *)notification
 {
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
     }];
 }
 ```
-
 - **8.3) 切后台处理**
 推流中，如果App被切了后台，也就是在 8.2 中的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后，RTMP SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
 
-```objectivec
-//在 8.2 的基础上补一句
+```
+//切后台处理： 在 8.2 的基础上补一句
 - (void)handleEnterBackground:(NSNotification *)notification
 {
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -180,12 +178,13 @@ App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无
 ```
 
 - **8.4) 切前台处理**
-等待App切回前台之后，调用TXLivePush 的 resumePush 接口函数，之后，RTMP SDK 会继续采集摄像头的画面进行推流。
-
+ 等待App切回前台之后，调用TXLivePush 的 resumePush 接口函数，之后，RTMP SDK 会继续采集摄像头的画面进行推流。
+ 
 ```objectivec
+//切前台处理
 - (void)handleEnterForeground:(NSNotification *)notification
 {
-    [_txLivePublisher resumePush];
+    [_txLivePush resumePush];
 }
 ```
 
