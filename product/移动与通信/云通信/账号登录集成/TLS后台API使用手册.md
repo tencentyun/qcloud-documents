@@ -168,10 +168,8 @@ Java原生接口依赖于5个jar包中。在tls_sig_api/java_native/lib目录下
 └── tls_signature.jar
 
 【特别注意】
-如果是从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，可以直接将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
-如果是通过命令行工具自行生成的公私钥，可以直接将公钥文件的内容赋值给接口中的publicBase64Key参数，对于私钥，需要用tls api的tools目录下openssl命令行工具做一下格式转换：
-示例：./openssl pkcs8 -topk8 -in ec_key.pem -outform PEM -out p8_priv.pem -nocrypt
-格式转换后，将p8_priv.pem文件的内容赋值给privateBase64Key参数。
+
+从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，原生接口由于只能使用pkcs8格式的私钥，所以需要将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
 
 ### 2.5 PHP接口
 
@@ -197,6 +195,8 @@ function signature($identifier, $sdkappid, $private_key_path)
 
 ### 2.6 PHP原生接口
 在源码包和二进制包中都带有php/TLSSig.php文件，生成sig接口genSig和校验sig接口verifySig均在其中，注意PHP环境需要带openssl扩展，否则接口使用会报错，另外只支持PHP 5.3及以上的版本。
+
+如果上述实现PHP环境无法满足要求，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
 
 ## 3 windows平台
 
@@ -377,10 +377,7 @@ Java原生接口依赖于5个jar包。在tls_sig_api/java_native/lib目录下：
 
 【特别注意】
 
-如果是从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，可以直接将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
-如果是通过命令行工具自行生成的公私钥，可以直接将公钥文件的内容赋值给接口中的publicBase64Key参数，对于私钥，需要用tls api的tools目录下openssl命令行工具做一下格式转换：
-示例：./openssl pkcs8 -topk8 -in ec_key.pem -outform PEM -out p8_priv.pem -nocrypt
-格式转换后，将p8_priv.pem文件的内容赋值给privateBase64Key参数。
+从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，原生接口由于只能使用pkcs8格式的私钥，所以需要将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
 
 ### 3.5 C#接口
 
@@ -458,9 +455,12 @@ function signature($identifier, $sdkappid, $private_key_path)
 ### 3.7 PHP原生接口
 在源码包和二进制包中都带有php/TLSSig.php文件，生成sig接口genSig和校验sig接口verifySig均在其中，注意PHP环境需要带openssl扩展，否则接口使用会报错，另外只支持PHP 5.3及以上的版本。
 
+如果上述实现PHP环境无法满足要求，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
+
 ## 4 其他平台接口
 - javascript http://bbs.qcloud.com/thread-17311-1-1.html
 - python http://bbs.qcloud.com/thread-14366-1-1.html
+- golang http://bbs.qcloud.com/thread-21826-1-1.html
 
 ## 5 TLS 后台 API 下载
 点击[这里](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)下载。
