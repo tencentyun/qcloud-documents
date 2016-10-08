@@ -24,8 +24,8 @@
 
 在微信小程序中，所有的网路请求受到严格限制，不满足条件的域名和协议无法请求，具体包括：
 
-* 只允许和在 MP 中配置好的域名进行通信，如果还没有域名，需要[注册一个](https://www.qcloud.com/product/dm.html)。
-* 网络请求必须走 HTTPS 协议，所以你还需要为你的域名[申请一个证书](https://console.qcloud.com/ssl)。
+* 只允许和在 MP 中配置好的域名进行通信，如果还没有域名，需要[注册一个](https://www.qcloud.com/product/dm.html?utm_source=jiaocheng&utm_medium=domain2&utm_ca)。
+* 网络请求必须走 HTTPS 协议，所以你还需要为你的域名[申请一个证书](https://console.qcloud.com/ssl?utm_source=jiaocheng&utm_medium=ssl2&utm_campaign=qcloud)。
 
 域名注册好之后，可以登录[微信公众平台](https://mp.weixin.qq.com)配置通信域名了。
 
@@ -33,7 +33,7 @@
 
 ### 2. 云主机和镜像部署
 
-剪刀石头布的服务器运行代码和配置已经打包成腾讯云 CVM 镜像，大家可以[直接使用](https://buy.qcloud.com/cvm?marketImgId=370)。
+剪刀石头布的服务器运行代码和配置已经打包成腾讯云 CVM 镜像，大家可以[直接使用](https://buy.qcloud.com/cvm?marketImgId=371&utm_source=jiaocheng&utm_medium=cvm2&utm_campaign=qcloud)。
 
 > 腾讯云用户可以[免费领取礼包](https://www.qcloud.com/act/event/yingyonghao.html#section-voucher)，体验腾讯云小程序解决方案。
 
@@ -41,7 +41,7 @@
 
 镜像部署完成之后，云主机上就有运行 WebSocket 服务的基本环境、代码和配置了。
 
-> 镜像已包含「剪刀石头布」和「小相册」两个小程序的服务器环境与代码，需要体验两个小程序的朋友无需重复部署
+> 镜像已包含所有小程序的服务器环境与代码，需要体验其它小程序的朋友无需重复部署
 
 ### 3. 配置 HTTPS
 
@@ -59,7 +59,7 @@ nginx
 
 我们还需要添加域名记录解析到我们的云服务器上，这样才可以使用域名进行 HTTPS 服务。
 
-在腾讯云注册的域名，可以直接使用[云解析控制台](https://console.qcloud.com/cns/domains)来添加主机记录，直接选择上面购买的 CVM。
+在腾讯云注册的域名，可以直接使用[云解析控制台](https://console.qcloud.com/cns/domains?utm_source=jiaocheng&utm_medium=cns&utm_campaign=qcloud)来添加主机记录，直接选择上面购买的 CVM。
 
 ![添加域名解析](http://easyimage-10028115.file.myqcloud.com/internal/uw25hdj2.k1u.jpg)
 
