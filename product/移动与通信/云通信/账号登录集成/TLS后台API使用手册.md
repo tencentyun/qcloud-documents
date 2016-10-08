@@ -196,7 +196,7 @@ function signature($identifier, $sdkappid, $private_key_path)
 ### 2.6 PHP原生接口
 在源码包和二进制包中都带有php/TLSSig.php文件，生成sig接口genSig和校验sig接口verifySig均在其中，注意PHP环境需要带openssl扩展，否则接口使用会报错，另外只支持PHP 5.3及以上的版本。
 
-如果上述实现PHP环境无法满足要求，比如使用了红帽系的操作（fedora、centos 和 rel 等）系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
+如果上述实现PHP环境无法满足要求，比如使用了红帽系（fedora、centos 和 rel 等）的操作系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
 
 ## 3 windows平台
 
@@ -455,7 +455,7 @@ function signature($identifier, $sdkappid, $private_key_path)
 ### 3.7 PHP原生接口
 在源码包和二进制包中都带有php/TLSSig.php文件，生成sig接口genSig和校验sig接口verifySig均在其中，注意PHP环境需要带openssl扩展，否则接口使用会报错，另外只支持PHP 5.3及以上的版本。
 
-如果上述实现PHP环境无法满足要求，比如使用了红帽系的操作（fedora、centos 和 rel 等）系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
+如果上述实现PHP环境无法满足要求，比如使用了红帽系（fedora、centos 和 rel 等）的操作系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
 
 ## 4 其他平台接口
 - javascript http://bbs.qcloud.com/thread-17311-1-1.html
