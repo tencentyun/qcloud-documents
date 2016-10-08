@@ -1,4 +1,20 @@
 
+## 小直播体验
+**【界面截图】**
+小直播是基于腾讯视频云服务实现的一个直播APP的原型软件，开放终端和后台的实现源码，适合零基础的客户进行参考和评估之用：
+![](//mc.qcloudimg.com/static/img/05d2e651ff6c9332211eaf7fea167cfa/image.png)
+
+**【功能支持】** 
+- 直播：支持实时直播和观看，延迟3s以内，视频秒开体验。
+- 互动：支持互动消息、弹幕、点赞等互动体验。
+- 回看：超过一分钟的直播内容会自动进入录播列表，提供回看能力。
+
+**【后台服务】**
+小直播的后台服务目前部署于一台普通的腾讯云虚拟主机上，基于PHP技术构建，提供源码下载和参考。
+
+**【APP安装】**
+![](//mc.qcloudimg.com/static/img/88037424e52d602ab0df985b7a0eeb35/image.png)
+
 ## DEMO体验
 **【界面截图】**
 DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务的客户：
@@ -10,7 +26,7 @@ DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务�
 - 点播：MP4、HLS和FLV格式的在线点播
 
 **【APP安装】**
-![](//mc.qcloudimg.com/static/img/6de577ff89bbb280dc6e3888c2724298/image.png)
+![](//mc.qcloudimg.com/static/img/b3b0796bc0bb0af7d6ecb56eb206eae2/image.png)
 
 **【体验地址】**
 RTMP推流具有排它性：同一时间、同一URL，<font color='red'>只能有一个主播</font>在推流中。所以如果您体验推流总是断开（被后台拒绝），说明地址已经被其他的体验者占用，推荐您直接[开通腾讯云直播服务](https://console.qcloud.com/live)并创建自己的频道进行体验。
@@ -38,24 +54,6 @@ PLAY(FLV) : http://2000.liveplay.myqcloud.com/live/2000_4eb4da7079af11e69776e435
 PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_4eb4da7079af11e69776e435c87f075e.m3u8
 ```
 
-
-## 小直播体验
-**【界面截图】**
-小直播是基于腾讯视频云服务实现的一个直播APP的原型软件，开放终端和后台的实现源码，适合零基础的客户进行参考和评估之用：
-![](//mc.qcloudimg.com/static/img/05d2e651ff6c9332211eaf7fea167cfa/image.png)
-
-**【功能支持】** 
-- 直播：支持实时直播和观看，延迟3s以内，视频秒开体验。
-- 互动：支持互动消息、弹幕、点赞等互动体验。
-- 回看：超过一分钟的直播内容会自动进入录播列表，提供回看能力。
-
-**【后台服务】**
-小直播的后台服务目前部署于一台普通的腾讯云虚拟主机上，基于PHP技术构建，提供源码下载和参考。
-
-**【APP安装】**
-![](//mc.qcloudimg.com/static/img/3939152d7b9a6fd0812b886ea049dc83/image.png)
-
-
 ## 移动端SDK
 
 **【最新特性】**
@@ -74,7 +72,7 @@ PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_4eb4da7079af11e69776e435c87f0
 **【测试情况】**
 - 总用例数：351，通过用例数：325，不通过用例数：26
 
-【**接口变更（iOS）**】
+【**接口变更-iOS**】
 > - IOS中 TXLivePlayer类新增接口函数 setMute:(BOOL)bEnable 用于设置静音。
 > - IOS中 TXLivePush类新增接口函数 pausePush 和 resumePush 用于应对APP切后台推流被中断的问题，具体使用方式请参考demo里面的示例：
 >    * 当APP切到后台之后，iOS(以及Android)系统会禁止APP继续采集摄像头的数据，此时如果什么都不做，观众端就会出现断流的情况。
@@ -95,7 +93,7 @@ PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_4eb4da7079af11e69776e435c87f0
      * (BOOL) setMicVolume:(float)volume;  //设置麦克风的音量大小
      * (BOOL) setBGMVolume:(float)volume;  //设置背景音乐的音量大小
 
-【**接口变更（Android）**】
+【**接口变更-Android**】
 > - 新增两个接口用于录屏（录屏要求必须开启硬件加速，否则性能跟不上）
 >   * public void startScreenCapture(); //开始录屏
 >   * public void stopScreenCapture(); //结束录屏
