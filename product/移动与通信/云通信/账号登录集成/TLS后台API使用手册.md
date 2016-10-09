@@ -6,34 +6,7 @@
 
 ### 2.1 工具使用
 
-工具的主要作用是在本地手动生成公私钥，手动生成sig和验证sig。
-
 >注：这里讲解的是工具的使用说明，实际应用中需要开发者后台调用tls的后台api接口生成sig。
-
-进入预编译文件包的tools目录，可以看到下面的几个文件：
-├── genkey.sh                 生成公私钥的批处理文件
-├── openssl.cnf               openssl配置文件，默认不要修改
-├── openssl                    openssl工具可执行文件文件
-└── tls_licence_tools        生成sig和校验sig的工具
-
-**生成公私钥**
-
-进入tools目录，执行下面的命令：
-
-```
- ./genkey.sh
-```
- 
-输出：
-
-```
-read EC key
-writing EC key
-```
-    
-表示生成公私钥成功，公私钥分别为当前目录下的 public.pem 和 ec_key.pem。下面是演示的截图：
-
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151013122910_76990.png)
 
 **linux下生成sig和校验sig**
 
@@ -202,35 +175,7 @@ function signature($identifier, $sdkappid, $private_key_path)
 
 ### 3.1 工具使用
 
-工具的主要作用是在本地手动生成公私钥，手动生成sig和验证sig。
-
 >注：这里讲解的是工具的使用说明，实际应用中需要开发者后台调用tls的后台api接口生成sig。
-
-进入预编译文件包的tools目录，可以看到下面的几个文件：
-├── genkey.bat                生成公私钥的批处理文件
-├── openssl.cnf               openssl配置文件，默认不要修改
-├── openssl.exe               openssl工具可执行文件文件
-└── tls_licence_tools.exe   生成sig和校验sig的工具
-
-**生成公私钥**
-
-打开命令行工具，进入tools目录，执行下面的命令：
-
-```
- genkey.bat
-```
-
-输出：
-
-```
-Loading 'screen' into random state - done
-read EC key
-writing EC key
-```
-      
-表示生成公私钥成功，公私钥分别为当前目录下的 public.pem 和 ec_key.pem。下面是演示截图：
-
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142449_90009.png)
 
 **windows下生成sig和校验sig**
 
