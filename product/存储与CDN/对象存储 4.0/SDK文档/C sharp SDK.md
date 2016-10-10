@@ -1,11 +1,11 @@
 ## 开发准备
 
 ### SDK 获取
-对象存储服务的C# SDK的[下载地址](https://mc.qcloudimg.com/static/archive/d76eadff7abde134c3aee1e7894d514e/cos-dotnet-sdk.tar)
+对象存储服务的C sharp SDK的[下载地址](https://mc.qcloudimg.com/static/archive/d76eadff7abde134c3aee1e7894d514e/cos-dotnet-sdk.tar)
 
 ### 开发准备
 
-1. sdk依赖C# 4.0版本及以上， 推荐使用相同的版本。
+1. sdk依赖C sharp 4.0版本及以上， 推荐使用相同的版本。
 2. 从控制台获取APP ID、SecretID、SecretKey，详情参考权限控制。
 
 
@@ -22,7 +22,7 @@
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public static string Signature(int appId, string secretId, string secretKey, long expired, string bucketName)
 ```
 
@@ -38,7 +38,7 @@ public static string Signature(int appId, string secretId, string secretKey, lon
 
 #### 示例
 
-``` c#
+``` c sharp
 var sign = Sign.Signature(appId, secretId, secretKey, expired, bucketName); 
 ```
 
@@ -46,7 +46,7 @@ var sign = Sign.Signature(appId, secretId, secretKey, expired, bucketName);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public static string SignatureOnce(int appId, string secretId, string secretKey, string remotePath, string bucketName)
 ```
 
@@ -62,7 +62,7 @@ public static string SignatureOnce(int appId, string secretId, string secretKey,
 
 #### 示例
 
-``` c#
+``` c sharp
 var sign = Sign.SignatureOnce(appId, secretId, secretKey,remotePath, bucketName); 
 ```
 
@@ -76,7 +76,7 @@ var sign = Sign.SignatureOnce(appId, secretId, secretKey,remotePath, bucketName)
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string CreateFolder(string bucketName, string remotePath, Dictionary<string, string> parameterDic = null)
 ```
 
@@ -104,7 +104,7 @@ public string CreateFolder(string bucketName, string remotePath, Dictionary<stri
 
 #### 示例
 
-``` c#
+``` c sharp
 var createFolderParasDic = new Dictionary<string, string>();                
     createFolderParasDic.Add(CosParameters.PARA_BIZ_ATTR,"new attribute");
 var result = cos.CreateFolder(bucketName, folder, createFolderParasDic);
@@ -116,7 +116,7 @@ var result = cos.CreateFolder(bucketName, folder, createFolderParasDic);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string UpdateFolder(string bucketName, string remotePath, Dictionary<string, string>  parameterDic = null) 
 ```
 
@@ -143,7 +143,7 @@ public string UpdateFolder(string bucketName, string remotePath, Dictionary<stri
 
 #### 示例
 
-``` c#
+``` c sharp
 var updateParasDic = new Dictionary<string, string>();                
     updateParasDic.Add(CosParameters.PARA_BIZ_ATTR,"new attribute");
 var result = cos.UpdateFolder(bucketName, folder, updateParasDic);
@@ -155,7 +155,7 @@ var result = cos.UpdateFolder(bucketName, folder, updateParasDic);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string GetFolderStat(string bucketName, string remotePath)  
 ```
 
@@ -176,7 +176,7 @@ public string GetFolderStat(string bucketName, string remotePath)
 
 #### 示例
 
-``` c#
+``` c sharp
 var result = cos.GetFolderStat(bucketName, folder);
 ```
 
@@ -186,7 +186,7 @@ var result = cos.GetFolderStat(bucketName, folder);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string DeleteFolder(string bucketName, string remotePath)
 ```
 
@@ -206,7 +206,7 @@ public string DeleteFolder(string bucketName, string remotePath)
 
 #### 示例
 
-``` c#
+``` c sharp
 var result = cos.DeleteFolder(bucketName, folder);
 ```
 
@@ -216,7 +216,7 @@ var result = cos.DeleteFolder(bucketName, folder);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string GetFolderList(string bucketName, string remotePath, Dictionary<string, string>  parameterDic = null)
 ```
 
@@ -247,7 +247,7 @@ public string GetFolderList(string bucketName, string remotePath, Dictionary<str
 
 #### 示例
 
-``` c#
+``` c sharp
 var folderlistParasDic = new Dictionary<string, string>();                
 	folderlistParasDic.Add(CosParameters.PARA_NUM,"100");
 var result = cos.GetFolderList(bucketName, folder, folderlistParasDic);
@@ -261,7 +261,7 @@ var result = cos.GetFolderList(bucketName, folder, folderlistParasDic);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string UploadFile(string bucketName, string remotePath, string localPath, 	Dictionary<string, string>  parameterDic = null)
 ```
 
@@ -292,7 +292,7 @@ public string UploadFile(string bucketName, string remotePath, string localPath,
 
 #### 示例
 
-``` c#
+``` c sharp
 var uploadParasDic = new Dictionary<string, string>();                
 uploadParasDic.Add(CosParameters.PARA_BIZ_ATTR,"file attribute");
 uploadParasDic.Add(CosParameters.PARA_INSERT_ONLY,"0");
@@ -306,7 +306,7 @@ result = cos.UploadFile(bucketName, remotePath, localPath, uploadParasDic);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string UpdateFile(string bucketName, string remotePath, Dictionary<string, string> parameterDic = null)
 ```
 
@@ -339,7 +339,7 @@ public string UpdateFile(string bucketName, string remotePath, Dictionary<string
 
 #### 示例
 
-``` c#
+``` c sharp
 var optionParasDic = new Dictionary<string, string>();
 	optionParasDic.Add(CosParameters.PARA_BIZ_ATTR,"new attribute");
     optionParasDic.Add(CosParameters.PARA_AUTHORITY,AUTHORITY.AUTHORITY_PRIVATEPUBLIC);
@@ -357,7 +357,7 @@ result = cos.UpdateFile(bucketName, remotePath, optionParasDic);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string GetFileStat(string bucketName, string remotePath)
 ```
 
@@ -378,7 +378,7 @@ public string GetFileStat(string bucketName, string remotePath)
 
 #### 示例
 
-``` c#
+``` c sharp
 var result = cos.GetFileStat(bucketName, remotePath);
 ```
 
@@ -388,7 +388,7 @@ var result = cos.GetFileStat(bucketName, remotePath);
 
 #### 方法原型
 
-``` c#
+``` c sharp
 public string DeleteFile(string bucketName, string remotePath) 
 ```
 
@@ -408,14 +408,14 @@ public string DeleteFile(string bucketName, string remotePath)
 
 #### 示例
 
-``` c#
+``` c sharp
 var result = cos.DeleteFile(bucketName, remotePath);
 ```
 
 ### 分片上传list
 接口说明：查询分片上传的情况
 #### 方法原型
-``` c#
+``` c sharp
 public string UploadSliceList(string bucketName, string remotePath)
 ```
 #### 参数说明
@@ -453,7 +453,7 @@ public string UploadSliceList(string bucketName, string remotePath)
 | listparts  | Json Array | 是      | 已上传完成的分片，形如：[{“offset”:0, “datalen”:1024}, {}, {}]. |
 
 #### 示例
-``` c#
+``` c sharp
 var fileSha = SHA1.GetFileSHA1(localPath);
 var result = SliceUploadInit(bucketName, remotePath, localPath, fileSha, bizAttribute, sliceSize, insertOnly);
 ```
@@ -462,7 +462,7 @@ var result = SliceUploadInit(bucketName, remotePath, localPath, fileSha, bizAttr
 接口说明：分片上传的第一次握手,如果上一次分片上传未完成，会返回{"code":-4019,"message":"_ERROR_FILE_NOT_FINISH_UPLOAD"}init
 接口说明：分片上传的第一次握手
 #### 方法原型
-``` c#
+``` c sharp
 public string SliceUploadInit(string bucketName, string remotePath, string localPath, string fileSha,string bizAttribute = "", int sliceSize = SLICE_SIZE.SLIZE_SIZE_1M, int insertOnly = 1)
 ```
 #### 参数说明
@@ -489,7 +489,7 @@ data的数据说明
 | serial_upload | int    | 否      | (非秒传大部分情况下会有) 1：只支持串行分片上传其它：支持并行分片 |
 
 #### 示例
-``` c#
+``` c sharp
 var fileSha = SHA1.GetFileSHA1(localPath);
 var result = SliceUploadInit(bucketName, remotePath, localPath, fileSha, bizAttribute, sliceSize, insertOnly);
 ```
@@ -498,7 +498,7 @@ var result = SliceUploadInit(bucketName, remotePath, localPath, fileSha, bizAttr
 ### 分片上传
 接口说明：分片上传数据
 #### 方法原型
-``` c#
+``` c sharp
 public string SliceUploadData(string bucketName, string remotePath, string localPath, string fileSha, string session, long offset,int sliceSise,string sign)
 ```
 #### 参数说明
@@ -530,7 +530,7 @@ data的数据说明
 | serial_upload | int    | 否      | (非秒传大部分情况下会有) 1：只支持串行分片上传其它：支持并行分片 |
 
 #### 示例
-``` c#
+``` c sharp
 var fileSha = SHA1.GetFileSHA1(localPath);
 var result = SliceUploadDataInit(bucketName, remotePath, localPath, fileSha, session, offset, sliceSize,sign);
 ```
@@ -539,7 +539,7 @@ var result = SliceUploadDataInit(bucketName, remotePath, localPath, fileSha, ses
 ### 分片上传 finish
 接口说明：告诉COS所有分片上传成功
 #### 方法原型
-``` c#
+``` c sharp
 public string SliceUploadFinish(string bucketName, string remotePath, string localPath, string fileSha, string session)
 ```
 #### 参数说明
@@ -568,6 +568,6 @@ data的数据说明
 | datalen | int    | 是      | 分片文件长度                       |
 
 #### 示例
-``` c#
+``` c sharp
 result = SliceUploadFinish(bucketName,remotePath,localPath,fileSha, sessionbizAttribute, sliceSize, insertOnly);
 ```
