@@ -8,4 +8,4 @@
 | Python SDK     | [Python SDK 接入说明](/doc/product/436/6275)     |
 | Java SDK       | [Java SDK 接入说明](/doc/product/436/6273)       |
 | C++ SDK        | [C++ SDK 接入说明](/doc/product/436/6272)      |
-| .NET SDK       | [.NET SDK 接入说明](/doc/product/436/6271)       |
+| C sharp SDK       | [C sharp SDK 接入说明](/doc/product/436/6271)       |
