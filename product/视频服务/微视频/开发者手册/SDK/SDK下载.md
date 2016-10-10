@@ -25,7 +25,7 @@
 **发布时间：**2016-07-11
 **版本说明：**
 修正部分bug
-下载地址：[iOS SDK V1.1.4.1](https://mccdn.qcloud.com/static/archive/cbc49722ac12409ba47f150f06371b91/iOS-SDK.zip) | [iOS 体验 Demo](https://mccdn.qcloud.com/static/archive/870d73f4a51031375a6e139b0da1131a/QcloudDemoApp.zip) | [iOS 代码演示 Demo](https://mccdn.qcloud.com/static/archive/65929e1472906113dfbc5596f2485d26/QcloudDemoApp.zip)
+下载地址：[iOS SDK V1.1.4.1](http://iosimage-10016717.cos.myqcloud.com/qcloud-image-ios-v1.1.4.1.zip)| [iOS 体验 Demo](https://mccdn.qcloud.com/static/archive/870d73f4a51031375a6e139b0da1131a/QcloudDemoApp.zip) | [iOS 代码演示 Demo](https://mccdn.qcloud.com/static/archive/65929e1472906113dfbc5596f2485d26/QcloudDemoApp.zip)
 
 接入文档：[微视频iOS-SDK文档](https://www.qcloud.com/doc/product/314/3501)
 
@@ -68,3 +68,4 @@
 版本号：mvs-dotnet-sdk v1.0.0
 发布时间：2015-08-03
 下载地址：https://github.com/tencentyun/mvs-dotnet-sdk.git
+
