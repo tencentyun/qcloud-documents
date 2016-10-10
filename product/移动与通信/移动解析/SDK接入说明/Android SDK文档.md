@@ -1,4 +1,4 @@
-### 1. 功能介绍
+## 1. 功能介绍
 
 腾讯云智营解析SDK MSDKDns 的主要功能是为了有效的避免由于运营商传统LocalDns解析导致的无法访问最佳接入点的方案。原理为使用Http加密协议替代传统的DNS协议，整个过程不使用域名，大大减少劫持的可能性。
 
@@ -10,9 +10,9 @@
 名词解释：
 DNS_KEY，DNS_ID，开通使用httpdns时，会分配对应业务的ID和KEY，ID和KEY是与产品绑定的，不能修改，通过接口使用httpdns时，需要提供ID与KEY，具体参照接口调用手册
 
-### 2. 接入
+## 2. 接入
 
-#### 2.1. AndroidMainfest配置
+### 2.1. AndroidMainfest配置
 ```
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -35,7 +35,7 @@ DNS_KEY，DNS_ID，开通使用httpdns时，会分配对应业务的ID和KEY，I
 
 注意：`android: value`的值在提供的版本包key_android.txt文件中，即appkey，请按照此文件中的内容修改，AndroidMainfest中的权限如果已经存在不需要重复添加。
 
-#### 2.2 接入HttpDns库
+### 2.2 接入HttpDns库
 将`HttpDnsDemo\libs\msdkhttpdns_xxxx.jar`库文件拷贝至应用libs相应的位置；
 将`HttpDnsDemo\assets\dnsconfig.ini`配置文件拷贝到应用Android\assets目录下；
 
@@ -50,12 +50,12 @@ DNS_KEY，DNS_ID，开通使用httpdns时，会分配对应业务的ID和KEY，I
 |服务端分配的ID | DNS_ID | 注册后由系统或管理员分配|
 |服务端分配的KEY | DNS_KEY | 注册后由系统或管理员分配|
 
-#### 2.3. 接入依赖库
+### 2.3. 接入依赖库
 > 注意：检查应用是否接入过已经接入了腾讯msdk，如果已经接入了腾讯msdk则忽略此步。
 
 将`HttpDnsDemo\libs\ beacon_android_v1.9.4.jar`拷贝至游戏libs相应的位置。
 
-#### 2.4. HttpDns Java接口调用
+### 2.4. HttpDns Java接口调用
 ```
 /**
 * 初始化HttpDns
@@ -82,7 +82,7 @@ UserAction.initUserAction(MainActivity.this. getApplicationContext ());
 String ips = MSDKDnsResolver.getInstance(). getAddrByName(domain);
 ```
 
-### 3．注意事项
+## 3. 注意事项
 
 1. 客户端使用代理
 当客户端使用代理时HttpDns解析的结果就变成了根据代理的IP来判断用户的所在的依据，从而可能会返回和直接用用户IP访问时的不同的结果。
@@ -96,7 +96,7 @@ map.put("resultKey", "resultValue");
 UserAction.onUserAction("WGGetHostByNameResult", true, -1, -1, map, true);
 ```
 
-### 4．线下咨询
+## 4. 线下咨询
 如有其他问题可按以下方式联系咨询：
 QQ：584258402 2202081228
 邮箱：porsche@tencent.com
