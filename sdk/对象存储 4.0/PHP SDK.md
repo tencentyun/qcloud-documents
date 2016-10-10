@@ -1,30 +1,32 @@
 ## 开发准备
 
-### SDK 获取
+### 相关资源
 
-[SDK安装包](https://mc.qcloudimg.com/static/archive/66d6012c194bc4a3a05a5a6274d7567c/cos-php-sdk.zip) 
+[cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)
 
 ### 开发环境
 
 1. 依赖环境：PHP 5.3.0 版本及以上
-2. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](#)。
+2. 从控制台获取APP ID、SecretID、SecretKey，并修改 cos-php-sdk-v4/qcloudcos/conf.php 文件里的相关配置，详情参考[权限控制](#)。
 
 
 
 ### SDK 配置
 
-下载 SDK 后，在使用 SDK 时，加载 cos-php-sdk/include.php 即可。
+下载 SDK 后，在使用 SDK 时，加载 cos-php-sdk-v4/include.php 并设置全局的超时时间及COS所在的区域即可。
 
 ``` php
-require('cos-php-sdk/include.php'); 
-use qcloudcos\Auth;
+require('cos-php-sdk-v4/include.php'); 
 use qcloudcos\Cosapi;
+
+Cosapi::setTimeout(180);
+Cosapi::setRegion('gz');
 ```
 
 若需要支持 HTTPS ，修改 conf.php 中的 API_COSAPI_END_POINT 的值为如下：
 
-```php
-const API_COSAPI_END_POINT = 'https://gz.file.myqcloud.com/files/v2/';
+``` php
+const API_COSAPI_END_POINT = 'https://region.file.myqcloud.com/files/v2/';
 ```
 
 ## 生成签名
@@ -47,7 +49,7 @@ public static function createReusableSignature($expiration, $bucket, $filepath);
 
 #### 示例
 
-```php
+``` php
 $expiration = time() + 60;	
 $bucket = 'testbucket';
 $sign = Auth::appSign($expiration, $bucket);

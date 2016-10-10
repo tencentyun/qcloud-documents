@@ -2,7 +2,7 @@
 
 ### 相关资源
 
-[github项目](https://github.com/tencentyun/cos-java-sdk)
+[cos java sdk v4 github项目](https://github.com/tencentyun/cos-java-sdk-v4)
 
 ### 环境依赖
 
@@ -24,7 +24,7 @@ pom.xml 添加依赖
 
 - 源码安装
 
-从[github](https://www.qcloud.com/doc/product/227/3387)下载源码
+从[cos java sdk v4 github](https://github.com/tencentyun/cos-java-sdk-v4)下载源码
 
 ### 卸载SDK
 
@@ -32,7 +32,41 @@ pom.xml 添加依赖
 
 ### 历史版本
 
-4.2版本是针对COS 4.X系统，接口与3.x的基本一致, 如果需要使用历史版本, 请参见[github](https://github.com/tencentyun/cos-java-sdk/tree/master)
+4.2版本是针对COS 4.X系统，接口与3.x的基本一致, 如果需要使用历史版本, 请参见[cos java sdk v3 github](https://github.com/tencentyun/cos-java-sdk/tree/master)
+
+## 生成客户端对象
+
+### 初始化秘钥信息
+
+```java
+        long appId = 1000000;
+        String secretId = "xxxxxxxxxxxxxxxxxxxxxxxxxxx";
+        String secretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxx";
+        // 设置要操作的bucket
+        String bucketName = "xxxxxxxxx";
+        // 初始化秘钥信息
+        Credentials cred = new Credentials(appId, secretId, secretKey);
+```
+
+### 初始化客户端配置(如设置园区)
+
+```java
+        // 初始化客户端配置
+        ClientConfig clientConfig = new ClientConfig();
+        // 设置bucket所在的区域，比如广州(gz), 天津(tj)
+        clientConfig.setRegion("gz");
+```
+
+### 生成客户端
+
+```java
+        // 初始化cosClient
+        COSClient cosClient = new COSClient(clientConfig, cred);
+```
+
+------
+
+------
 
 ## 文件操作
 

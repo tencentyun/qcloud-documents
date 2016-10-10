@@ -2,7 +2,9 @@
 
 ### 相关资源
 
-[github项目](https://github.com/tencentyun/cos-python-sdk-v4)
+* [GitHub](https://github.com/tencentyun/cos-python-sdk-v4) GitHub项目地址，欢迎贡献代码以及反馈问题。
+* [PyPi](https://pypi.python.org/pypi/cos-python-sdk-v4) PyPi项目地址 
+
 
 ### 环境依赖
 
@@ -51,6 +53,34 @@ pip uninstall qcloud_cos_v4
 ### 历史版本
 
 3.3版本对接口等进行了重构，和之前的历史版本诸多不同，同时修复了一些bug, 和历史版本不兼容, 如果需要使用历史版本, 请参见[github文件操作
+
+## 生成客户端对象
+
+### 初始化客户端
+
+
+```python
+	appid = 100000                  # 替换为用户的appid
+    secret_id = u'xxxxxxxx'         # 替换为用户的secret_id
+    secret_key = u'xxxxxxx'         # 替换为用户的secret_key
+    region = "shanghai" #           # 替换为用户的region，目前可以为 shanghai/guangzhou
+    cos_client = CosClient(appid, secret_id, secret_key, region)
+```
+
+注：region参数用来设置园区，目前可以 shanghai或者guangzhou
+
+
+### 自定义接入点
+
+
+```python
+	conf = CosConfig(hostname='', download_hostname='')
+	cos_client.set_config(conf)
+```
+
+------
+
+------
 
 ## 文件操作
 
