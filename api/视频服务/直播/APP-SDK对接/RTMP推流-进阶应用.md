@@ -80,7 +80,7 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 | enableAutoBitrate |   带宽自适应：该功能会根据当前网络情况，自动调整视频比特率 |   关闭|
 | videoBitrateMax| 最大输出码率：只有开启自适应码率, 该设置项才能启作用 |   1200|
 | videoBitrateMin| 最小输出码率：只有开启自适应码率, 该设置项才能启作用 |   800|
-| videoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个I帧 | 5s |
+| videoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个I帧 | 3s |
 | homeOrientation| 设置视频图像旋转角度，比如是否要横屏推流  |   home在右边（0）home在下面（1）home在左面（2）home在上面（3）   |
 | beautyFilterDepth| 美颜级别：支持1~9 共9个级别，级别越高，效果越明显。0表示关闭  |   关闭   |
 | frontCamera | 默认是前置还是后置摄像头 | 前置 |
