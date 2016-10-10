@@ -35,7 +35,7 @@ DNS_KEY，DNS_ID，开通使用httpdns时，会分配对应业务的ID和KEY，I
 
 注意：`android: value`的值在提供的版本包key_android.txt文件中，即appkey，请按照此文件中的内容修改，AndroidMainfest中的权限如果已经存在不需要重复添加。
 
-### 2.2 接入HttpDns库
+### 2.2. 接入HttpDns库
 将`HttpDnsDemo\libs\msdkhttpdns_xxxx.jar`库文件拷贝至应用libs相应的位置；
 将`HttpDnsDemo\assets\dnsconfig.ini`配置文件拷贝到应用Android\assets目录下；
 
