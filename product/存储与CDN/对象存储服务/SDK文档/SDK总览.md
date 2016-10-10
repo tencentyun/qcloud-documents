@@ -10,6 +10,6 @@
 | Java SDK       | [Java SDK 接入说明](/doc/product/430/5944)       |
 | JavaScript SDK | [JavaScript SDK 接入说明](/doc/product/430/5946) |
 | C++ SDK        | [C++ SDK 接入说明](/doc/product/430/5945)      |
-| .NET SDK       | [.NET SDK 接入说明](/doc/product/430/5966)       |
+| C sharp SDK       | [C sharp SDK 接入说明](/doc/product/430/5966)       |
 | Android SDK    | [Android SDK 接入说明](/doc/product/430/5950)    |
 | iOS SDK        | [iOS SDK 接入说明](/doc/product/430/5949)        |
