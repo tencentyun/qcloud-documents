@@ -393,7 +393,7 @@ imageMogr2是腾讯云·万象优图为开发者提供的简单而功能强大�
 | ----------------------------------- | ---------------------------------------- |
 | /auto-orient                        | 根据exif信息自动把图片旋转回正                        |
 | /strip                              | 去除不安全代码包括exif信息                          |
-| /gravity/<gravityType>              | 图片处理位置，影响其后的裁剪偏移参数，参见下面九宫格方位（目前不支持East, South, West, North），默认值为：Center |
+| /gravity/<gravityType>              | 图片处理位置，影响其后的裁剪偏移参数，参见下面九宫格方位，默认值为：Center |
 | /crop/<imageSizeAndOffsetGeometry>  | 请参考下面的裁剪操作表格，缺省不裁剪                       |
 | /scrop/<imageSizeAndOffsetGeometry> | 基于人脸识别执行智能裁剪功能。裁剪区域根据人的头像位置自动确定。 输出的裁剪后图片大小需要结合宽高参数指定。 |
 | /rotate/<rotateDegree>              | 图片旋转角度，取值范围0-360                         |
