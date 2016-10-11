@@ -142,7 +142,7 @@ Java原生接口依赖于5个jar包中。在tls_sig_api/java_native/lib目录下
 
 【特别注意】
 
-从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，原生接口由于只能使用pkcs8格式的私钥，所以需要将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
+从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，将公钥内容赋值给接口中的publicBase64Key参数，私钥内容赋值给接口中的privateBase64Key参数。
 
 ### 2.5 PHP接口
 
@@ -322,7 +322,7 @@ Java原生接口依赖于5个jar包。在tls_sig_api/java_native/lib目录下：
 
 【特别注意】
 
-从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，原生接口由于只能使用pkcs8格式的私钥，所以需要将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
+从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，将公钥内容赋值给接口中的publicBase64Key参数，私钥内容赋值给接口中的privateBase64Key参数。
 
 ### 3.5 C#接口
 
