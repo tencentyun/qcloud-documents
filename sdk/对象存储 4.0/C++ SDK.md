@@ -1,8 +1,8 @@
 ## 开发准备
 
-### SDK 获取
+### 相关资源
 
-对象存储服务的C++ SDK的[下载地址](https://mc.qcloudimg.com/static/archive/37975b7588280f4638c87afc5a43b527/cos-cpp-sdk.zip)
+[github项目](https://github.com/tencentyun/cos-cpp-sdk-v4)
 
 ### 开发环境
 
