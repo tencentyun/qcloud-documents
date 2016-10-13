@@ -274,6 +274,7 @@ CreateDirResult result = cos.createDir(createDirRequest);
 
 通过ListDirResult对象的成员变量返回请求结果。
 
+
 | 成员变量名称   | 类型           | 变量说明                           |
 | :------- | :----------- | :----------------------------- |
 | code     | String       | 结果码                            |
@@ -354,6 +355,7 @@ ListDirResult result=cos.listDir(listDirRequest);
 
 通过UpdateObjectResult对象的成员变量成员变量返回请求结果。
 
+
 | 成员变量名称 | 类型     | 变量说明   |
 | :----- | :----- | :----- |
 | code   | String | 结果码    |
@@ -405,6 +407,8 @@ UpdateObjectResult result = cos.updateObject(updateObjectRequest);
 #### 返回结果说明
 
 通过GetObjectMetadataResult对象的成员变量返回请求结果。
+
+
 | 成员变量名称   | 类型            | 变量说明      |
 | :------- | :------------ | :-------- |
 | code     | String        | 结果码       |
@@ -462,6 +466,8 @@ GetObjectMetadataRequest result = cos.getObjectMetadata(getObjectMetadataRequest
 #### 返回结果说明
 
 通过RemoveEmptyDirResult对象的成员变量返回请求结果。
+
+
 | 成员变量名称 | 类型     | 变量说明   |
 | :----- | :----- | :----- |
 | code   | String | 结果码    |
@@ -518,6 +524,7 @@ RemoveEmptyDirResult result = cos.removeEmptyDir(removeEmptyDirRequest);
 #### 返回结果说明
 
 通过PutObjectResult对象的成员变量返回请求结果。
+
 
 | 成员变量名称     | 类型     | 变量说明     |
 | :--------- | :----- | :------- |
@@ -597,6 +604,7 @@ PutObjectResult result = cos.putObject(putObjectRequest);
 
 通过UpdateObjectResult对象的成员变量返回请求结果。
 
+
 | 成员变量名称 | 类型     | 变量说明   |
 | :----- | :----- | :----- |
 | code   | String | 结果码    |
@@ -650,6 +658,7 @@ UpdateObjectResult result= cos.updateObject(updateObjectRequest);
 #### 返回结果说明
 
 通过GetObjectMetadataResult对象的成员变量返回请求结果。
+
 
 | 成员变量名称          | 类型                 | 变量说明      |
 | :-------------- | :----------------- | :-------- |
@@ -714,6 +723,7 @@ GetObjectMetadataRequest result=cos.getObjectMetadata(getObjectMetadataRequest);
 
 通过DeleteObjectResult对象的成员变量返回请求结果。
 
+
 | 成员变量名称 | 类型     | 变量说明   |
 | :----- | :----- | :----- |
 | code   | String | 结果码    |
@@ -762,6 +772,7 @@ DeleteObjectResult result = cos.deleteObject(deleteObjectRequest);
 #### 返回结果说明
 
 通过GetObjectResult对象的成员变量返回请求结果。
+
 
 | 成员变量名称 | 类型     | 变量说明   |
 | :----- | :----- | :----- |
