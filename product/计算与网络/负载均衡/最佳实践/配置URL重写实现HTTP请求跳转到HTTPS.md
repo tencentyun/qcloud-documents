@@ -16,7 +16,7 @@ server {
 	#! biz_id example web;
 	#! vivc_id 342;
 	#! vip_list 181.222.12.12 182.111.11.11
-	**listen 80; **
+	listen 80; 
 	server_name example.qcloud.com;
 
 	location / {
@@ -24,7 +24,7 @@ server {
 		#! loc_id 447;
 		#! customized_conf_begin;
 		client_max_body_size 200m;
-		**rewrite ^/.(.*) https://$host/$l redirect;**
+		rewrite ^/.(.*) https://$host/$l redirect;
 		#! customized_conf_end;
 	
 		proxy_pass http://447;
