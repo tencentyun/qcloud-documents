@@ -40,7 +40,7 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
 外网域名请求既支持http，也支持https。内网请求仅支持http。举个例子：如果使用腾讯云北京地区的云主机，那么建议请求北京地域的endpoint，这样可以取得较低的时延，同时使用内网可以减少使用费用。因此选用的 endpoint 为`http://cmq-queue-bj.api.tencentyun.com`。
 
 #### JAVA SDK下载
-下载最新版[CMQ Java SDK](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_java_sdk_V1.0.0.zip)，或选择下载[jar包](http://cmqsdk-10016717.cos.myqcloud.com/cmq.jar)。
+下载最新版[CMQ Java SDK](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_java_sdk_V1.0.1.zip)，或选择下载[jar包](http://cmqsdk-10016717.cos.myqcloud.com/cmq.jar)。
 
 如果使用java源码，直接将源码包含在代码目录下：
 ![](https://mc.qcloudimg.com/static/img/997a2dcd9ebddadae8d0fcc17ac185a2/3.png)
