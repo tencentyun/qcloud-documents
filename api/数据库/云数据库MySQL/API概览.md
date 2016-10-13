@@ -18,6 +18,13 @@
 | 查询回档任务详情 |[GetCdbRollbackJobTask](/doc/api/253/4114)| 查询云数据库实例回档任务详情 |
 | 查询回档任务列表 |[GetCdbRollbackJob](/doc/api/253/4115)| 获取云数据库实例回档任务 |
 | 查询私有网络子网实例数量 | [GetCdbInstanceNumByVpcSubnetId](/doc/api/253/5440) | 查询私有网络子网下的云数据库实例数量 |
+| 查询数据库参数列表 | [GetCdbParams](/doc/api/253/6369) | 查询数据库参数列表 |
+| 修改数据库参数 | [ModifyCdbParams](/doc/api/253/6368) | 修改数据库参数 |
+| 查询数据库参数修改记录 | [GetCdbParamsModifyHistory](/doc/api/253/6367) | 查询数据库参数修改记录 |
+| 查询修改参数任务详情 | [GetCdbModifyParamsJobTask](/doc/api/253/6428) | 查询修改参数任务详情 |
+| 获取只读实例列表 | [GetCdbReadOnlyInstances](/doc/api/253/6417) | 获取只读实例列表 |
+| 恢复实例（按量计费） | [OpenCdbHour](/doc/api/253/6416) | 恢复实例（按量计费） |
+| 销毁实例（按量计费） | [CloseCdbHour](/doc/api/253/6415) | 销毁实例（按量计费） |
 
 ## 3. 监控相关接口
 
