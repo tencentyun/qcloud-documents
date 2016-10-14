@@ -143,25 +143,23 @@ _config.cacheTime              = 5;
 想要获得RTMP SDK的状态通知，您可以提供一个**Listener**给刚才提到的**Player**对象，之后SDK的所有信息都会通过这个Listener反馈给您的App.
 
 ```objectivec
-@interface PublishController ()<TXLivePushListener>
+@interface PlayController ()<UITextFieldDelegate, TXLivePlayListener>
 @end
+_txLivePlayer.delegate = self;
 
-[mLivePusher setDelegate:self];
-
-#pragma - TXLivePushListener
--(void) onPushEvent:(int)EvtID withParam:(NSDictionary*)param
+#pragma - TXLivePlayListener
+-(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param;
 {
     // here your code.
 }
 
--(void) onNetStatus:(NSDictionary *)param
+-(void) onNetStatus:(NSDictionary*) param;
 {
     // here your code.
 }
 ```
 
-### 3. 事件通知
-#### 3.1) 播放事件
+### 3. 播放事件
 播放中的几个关键时间是必须要关心的，否则流程可能无法顺利跑通。
 
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -177,7 +175,7 @@ _config.cacheTime              = 5;
 
 如果您使用了极速模式，推荐您可以像映客那样，无视LOADING事件通知，因为最常见的卡顿一般都是几百毫秒的微卡顿；或者最多在视频画面上叠加一个loading小动画，转个小菊花，<font color='red'>建议不要把这种切换的UI表现做得过重</font>，否则就不适合秀场模式了。
 
-#### 3.2) 结束事件
+### 4. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
@@ -187,13 +185,13 @@ _config.cacheTime              = 5;
 
 >**协议的差异**
 >
->如果播放的是RTMP协议的直播地址，协议本身有比较完善的命令（EOF）来通知服务器直播已经结束，也就是 PLAY_END。
->
-> 如果播放的是点播地址，点播文件的结束也能通过特定的方法被播放器获知的，所以 PLAY_END 同样适用。
+>如果播放的是RTMP协议的直播地址，协议本身有比较完善的命令（EOF）来通知服务器直播已经结束，也就是 PLAY_END。如果播放的是点播地址，点播文件的结束也能通过特定的方法被播放器获知的，所以 PLAY_END 同样适用。
 > 
-> 但对于直播场景中最最常用的**FLV**协议，协议本身是不支持结束通知机制的，故您不可能收到 PLAY_END 事件，即使此时的主播已经停止推送数据了。如果您不做额外的查询业务逻辑来支持，您只能依靠 NET_DISCONNECT 这个事件来通知用户：**“主播暂时不在家！”**。
+> 但对于 **FLV** 协议，协议本身是不支持结束通知机制的，故您不可能收到 PLAY_END 事件，只能依靠 NET_DISCONNECT 这个事件来获知：**“主播已离开！”**。
+> 
+> 推荐的做法是在主播结束推流后，利用聊天室的消息通道群发下线消息来通知所有观众。
 
-#### 3.3) 警告事件
+### 5. 警告事件
 如下的这些事件，您可以不用关心，我们通知出来只是告诉您内部发生了什么，如果您需要做数据上报，倒是可以用一下：
 
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -209,7 +207,7 @@ _config.cacheTime              = 5;
 | PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | RTMP服务器连接失败（仅播放RTMP地址时会抛送）|
 | PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP服务器握手失败（仅播放RTMP地址时会抛送）|
 
-#### 3.4) 连接事件
+### 6. 连接事件
 此外还有几个连接服务器的事件，您也可以不用特别关心，这里也只要是用来测定和统计服务器连接时间和服务器响应速度用的，在用户界面交互上难有什么用处：
 
 | 事件ID                     |    数值  |  含义说明                    |   
@@ -219,8 +217,8 @@ _config.cacheTime              = 5;
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
-#### 3.5) 网络状态回调 
-  **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频质量等有所了解。
+### 7. 状态回调 
+ **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频质量等有所了解。
   
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
