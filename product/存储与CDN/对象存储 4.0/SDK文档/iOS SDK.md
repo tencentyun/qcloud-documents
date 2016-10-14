@@ -10,7 +10,7 @@
 
 -  iOS 7.0+；
 -  手机必须要有网络（GPRS、3G或Wifi网络等）；
--  从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF)。
+-  从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](/doc/api/435/6054)。
 
 
 ### SDK 配置
@@ -68,7 +68,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 这里演示的上传和下载的基本流程，更多细节可以参考demo；在进行这一步之前必须在腾讯云控制台上申请COS业务的appid；
 
-### STEP - 1初始化COSClient
+### STEP - 1 初始化COSClient
 
 #### 示例
 
@@ -76,7 +76,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
 ```
 
-### STEP - 2上传文件
+### STEP - 2 上传文件
 
 在这里我们假设您已经申请了自己业务bucket。SDK所有的任务对应了相应的task，只要把相应的task参数传递给client，就可以完成相应的动作；
 
@@ -103,7 +103,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
     [client putObject:task];
 ```
 
-### STEP - 3下载文件
+### STEP - 3 下载文件
 
 #### 示例
 
@@ -233,9 +233,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 通过调用此接口来查询目录的详细属性，具体步骤如下：
 
-1.实例化 COSDirmMetaCommand  对象；
-2.调用 COSClient  的 getDirMetaData 方法，将 COSDirmMetaCommand 对象传入；
-3.通过COSDirMetaTaskRsp的对象返回结果信息；
+1. 实例化 COSDirmMetaCommand  对象；
+2. 调用 COSClient  的 getDirMetaData 方法，将 COSDirmMetaCommand 对象传入；
+3. 通过COSDirMetaTaskRsp的对象返回结果信息；
 
 #### 参数说明
 
