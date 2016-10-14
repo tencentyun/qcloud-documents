@@ -10,3 +10,4 @@
 | C++ SDK        | [C++ SDK 接入说明](/doc/product/436/6272)      |
 | C sharp SDK       | [C sharp SDK 接入说明](/doc/product/436/6271)       |
 | Android SDK     | [Android SDK 接入说明](/doc/product/436/6515)       |
+| iOS SDK     | [iOS SDK 接入说明](/doc/product/436/6530)       |
