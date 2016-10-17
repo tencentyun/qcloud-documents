@@ -80,7 +80,7 @@ DEMO 二维码：
 接下来您便可以通过 SDK 提供的接口来实现直播聊天室。
 
 ### 4.2 创建直播聊天室
-通过 IMSDK 创建直播聊天室，参见：
+通过 IMSDK 创建直播聊天室(AVChatRoom)，参见：
 
 * [Android 创建群组](/doc/product/269/群组管理（Android%20SDK）#3.1-.E5.88.9B.E5.BB.BA.E5.86.85.E7.BD.AE.E7.B1.BB.E5.9E.8B.E7.BE.A4.E7.BB.84)
 * [iOS 创建群组](/doc/product/269/群组管理（iOS%20SDK）#3.1-.E5.88.9B.E5.BB.BA.E5.86.85.E7.BD.AE.E7.B1.BB.E5.9E.8B.E7.BE.A4.E7.BB.84)
