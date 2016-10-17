@@ -255,6 +255,7 @@ SDK事件监听需要设置`TXLivePush`的delegate属性，该delegate遵循`TXL
 | PUSH_WARNING_DNS_FAIL             | 3001 | RTMP -DNS解析失败（会触发重试流程）          |
 | PUSH_WARNING_SEVER_CONN_FAIL      | 3002 | RTMP服务器连接失败（会触发重试流程）            |
 | PUSH_WARNING_SHAKE_FAIL           | 3003 | RTMP服务器握手失败（会触发重试流程）            |
+| PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP服务器主动断开连接（会触发重试流程）  |
 
 警告事件表示内部遇到了一些问题，但并不影响推流。
 

@@ -20,7 +20,7 @@
 
 子机CVM实例为独享型CVM实例，主机类型应选择【独享型】
 
-![duxiangxing](http://mc.qcloudimg.com/static/img/677d10f30ea742ddcf0f4e2ef57daaba/image.png)
+![duxiangxing](http://mc.qcloudimg.com/static/img/3ad7a61f59c63b1dfcd6ed8831ef3b0b/image.jpg)
 
 
 
@@ -31,7 +31,7 @@
 - 若您选中一台宿主机，您的子机CVM实例将会被分配在这台制定的宿主机上。
 - 若您选择多台同类型宿主机，您选择的宿主机将会作为分配子机CVM实例的资源池。
 
-![suzhuji](http://mc.qcloudimg.com/static/img/ef96f6bc269e732a72fcd3a41a61b62e/image.png)
+![suzhuji](http://mc.qcloudimg.com/static/img/d10eaf8b5b887cfe585c3270b63dc887/image.jpg)
 
 
 
@@ -41,7 +41,7 @@
 
 您所指定的子机资源配置将影响创建子机的数量。
 
-![peizhi](http://mc.qcloudimg.com/static/img/f99a9c960aaf282075eeef65c036b77f/image.png)
+![peizhi](http://mc.qcloudimg.com/static/img/a78c4ca173e569f01fe04a38da3c0f99/image.jpg)
 
 
 
