@@ -1,0 +1,5 @@
+子机CVM实例登录操作与普通云服务器相同。
+
+可参考：[登录Windows实例>](https://www.qcloud.com/doc/product/213/5435)
+
+​                [登录Linux实例>](https://www.qcloud.com/doc/product/213/5436)
