@@ -11,7 +11,7 @@
 **【进阶篇】**
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;进阶篇助您在购买时，帮助您更好的选择适合您的云服务器：
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 当您不知道如何挑选什么配置时，我们提供[配置推荐](),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. 当您不知道如何挑选什么配置时，我们提供[配置推荐](https://www.qcloud.com/act/event/recommand.html),80%的云上用户首选配置，买服务器，听大家的。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. 您可以点击[价格计算器](https://buy.qcloud.com/calculator/cvm)查看您需要的产品组合的价格，估算资源成本，加入购买预算清单，更可实现一键购买。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. 当您不懂云服务器如何计费时，[云服务器计费模式说明](https://www.qcloud.com/doc/product/213/2180)帮您选择适合您业务场景的计费模式。
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. 当您面对丰富多样的机型不知如何选择时，[云服务器机型选择](https://www.qcloud.com/doc/product/213/4833)助您了解不同机型的适用场景和性能，帮助您选择适合您业务场景的机型。
