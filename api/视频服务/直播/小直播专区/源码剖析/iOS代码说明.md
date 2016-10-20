@@ -1,17 +1,17 @@
 ## 1.工程结构
-从github下载移动直播代码后，您将看到TCLVBIMDemo.xcworkspace文件，这是移动直播的Xcode工程工作区，用于管理移动直播的代码工程和依赖的第三方开源类库（位于Pods目录下），如果您需要编译或浏览移动直播相关代码，请打开此文件，请勿直接打开移动直播的工程文件TCLVBIMDemo.xcodeproj。打开TCLVBIMDemo.xcworkspace后，您将看到如下的工程目录结构：
+从github下载小直播代码后，您将看到TCLVBIMDemo.xcworkspace文件，这是小直播的Xcode工程工作区，用于管理小直播的代码工程和依赖的第三方开源类库（位于Pods目录下），如果您需要编译或浏览小直播相关代码，请打开此文件，请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj。打开TCLVBIMDemo.xcworkspace后，您将看到如下的工程目录结构：
 ![](//mc.qcloudimg.com/static/img/8673bf53392e34a9f38d8a5a8625e8eb/image.jpg)
 
 |工程目录 | 说明 | 
 |---------|---------|
-| TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/Base| 移动直播各模块用到的公共库|
-| TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/Logic| 移动直播逻辑层代码|
-| TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/UI| 移动直播界面层代码|
-| TCLVBIMDemo/Framework| 移动直播依赖的framework，主要是TLSSDK、IMSDK、RTMPSDK以及QALSDK(COS上传组件)|
-| Pods| 使用CocoaPods管理移动直播用到的第三方开源类库|
+| TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/Base| 小直播各模块用到的公共库|
+| TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/Logic| 小直播逻辑层代码|
+| TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/UI| 小直播界面层代码|
+| TCLVBIMDemo/Framework| 小直播依赖的framework，主要是TLSSDK、IMSDK、RTMPSDK以及QALSDK(COS上传组件)|
+| Pods| 使用CocoaPods管理小直播用到的第三方开源类库|
 
 ## 2.模块介绍
-移动直播按照功能不同划分了6个模块，分别为：帐号、列表管理、推流、播放、消息以及资料，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
+小直播按照功能不同划分了6个模块，分别为：帐号、列表管理、推流、播放、消息以及资料，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
 #### 模块简介
@@ -38,7 +38,7 @@
 #### 模块简介
 - 主界面主要负责列表、推流和个人资料三个一级功能的切换
 - 登录成功后，默认展示列表界面；点击推流按钮后，将跳转到推流的设置界面；点击个人资料按钮，将跳转到个人资料页面
-- 列表管理包含列表的拉取和展示。目前我们的列表拉取协议支持拉取直播列表，点播列表和混合列表三种模式，移动直播使用的是第三种模式，混合模式的排序规则是直播在前，点播在后
+- 列表管理包含列表的拉取和展示。目前我们的列表拉取协议支持拉取直播列表，点播列表和混合列表三种模式，小直播使用的是第三种模式，混合模式的排序规则是直播在前，点播在后
 
 #### 相关代码
 - Logic:
@@ -93,7 +93,7 @@
 
 ### 消息
 #### 模块介绍
-- 移动直播的互动消息功能主要基于[ImSDK](https://www.qcloud.com/doc/product/269/1569)的群聊功能实现，需要在IMSDK登录后才能调用
+- 小直播的互动消息功能主要基于[ImSDK](https://www.qcloud.com/doc/product/269/1569)的群聊功能实现，需要在IMSDK登录后才能调用
 - 每个直播间都是一个直播大群，推流端在推流之前需要创建直播大群，结束推流时，解散该群；播放端在进入该直播间时，加入该群，退出直播间时，则退出该群
 - 通过实现消息收发的监听类，可以在监听接口中获取相应的消息通知，目前实现的消息类型：文本消息、弹幕消息、点赞消息、用户加入/退出消息、群组解散消息
 - 各种类型的消息都是以文本消息形式发送，采用统一的JSON格式，在JSON中携带消息类型、发送者id、昵称、头像、消息文本的信息，接收端收到消息后解析JSON格式，向上层回调各种类型的消息
@@ -114,9 +114,9 @@
 - 动画说明：
    - TCMsgBulletView 弹幕动画，一个TCMsgBulletView的实例就是一行弹幕动画容器,您可以根据自己的需求创建N个实例来展示N行动画，每行弹幕动画容器在init的时候会先创建一个弹幕View，当有弹幕消息来的时候，弹幕View会根据弹幕消息自动计算自己的大小，然后开始动画，当弹幕View动画结束的时候会被放在 unUsedAnimateViewArray容器里面，当有新的弹幕消息来的时候，会先判断 unUsedAnimateViewArray容器里面是否有弹幕View，如果有，会选择容器里面的一个View开启新的动画，如果没有，会再去初始化一个新的弹幕View开启动画，同样当这个新的弹幕View动画结束的时候也会被放在_unUsedAnimateViewArray容器里面。于此同时，TCMsgBulletView还提供了一个对外变量 lastAnimateView，这个变量的目的是记录每一行弹幕动画容器里面最后一个弹幕View的位置，当有新的弹幕消息来的时候，就可以根据每行 lastAnimateView位置来判断这个消息该扔给哪行弹幕动画容器显示。
    
-   - TCMsgListTableView 消息列表动画，当有新的消息来得时候，会先判断消息列表是否需要滚动，这个时候要记录两个高度，一个是所有cell的总高度 totalCellHeight，一个是TCMsgListTableView的高度 listTableViewHeight,当 totalCellHeight >= listTableViewHeight的时候，开始滚动。另外当用户拖动消息列表的时候，滚动会暂停，当用户拖动结束，如果listTableViewOffset >= totalCellHeight时候，列表又开始滚动，当然，里面还有不少细节调整，具体代码请参考移动直播。
+   - TCMsgListTableView 消息列表动画，当有新的消息来得时候，会先判断消息列表是否需要滚动，这个时候要记录两个高度，一个是所有cell的总高度 totalCellHeight，一个是TCMsgListTableView的高度 listTableViewHeight,当 totalCellHeight >= listTableViewHeight的时候，开始滚动。另外当用户拖动消息列表的时候，滚动会暂停，当用户拖动结束，如果listTableViewOffset >= totalCellHeight时候，列表又开始滚动，当然，里面还有不少细节调整，具体代码请参考小直播。
 
-   - TCAudienceListTableView 观众列表动画，因为观众数量不定，而且进出频繁，内存创建与销毁频繁，所以这里没有用scrollView + imageView去做，而是直接使用tableView控件，实现内存复用，通过旋转tableView 90度，达到我们需要的横排显示效果，这里要特别注意tableView的frame设置，具体代码请参考移动直播。
+   - TCAudienceListTableView 观众列表动画，因为观众数量不定，而且进出频繁，内存创建与销毁频繁，所以这里没有用scrollView + imageView去做，而是直接使用tableView控件，实现内存复用，通过旋转tableView 90度，达到我们需要的横排显示效果，这里要特别注意tableView的frame设置，具体代码请参考小直播。
    - 因为时间精力限制，上述动画可能在性能，效果上还存在一些不足之处，这里仅提供参考，厂商可以根据自己的需求自定义动画效果。
 
 ### 资料
