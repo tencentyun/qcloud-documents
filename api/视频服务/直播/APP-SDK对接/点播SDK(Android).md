@@ -11,7 +11,6 @@
 
 ![](//mc.qcloudimg.com/static/img/9e79a1e82a61b5ae6c45e6da93f3980a/image.png)
 
------------------------------------------------------------------------------------------------------------------
 
 ## 基础篇
 在线FLV点播的接口依然复用直播的接口类，即TXLivePlayer，所以使用方式上有诸多类似之处。
@@ -55,11 +54,11 @@ mLivePlayer.resume();
 
 ### step 5: 画面调整
 如果你希望调整画面的显示方式，SDK也提供了多种选择：
-![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
-
+![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
 #####  setRenderMode
 * RENDER_MODE_FULL_FILL_SCREEN  - 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不留黑边
 * RENDER_MODE_ADJUST_RESOLUTION - 将图像等比例缩放，缩放后的宽和高都不会超过显示区域，居中显示，可能会留有黑边
+
 #####  setRenderRotation
 * RENDER_ROTATION_PORTRAIT - 常规的竖屏显示，如果是显示人像，则最适合这种模式了
 * RENDER_ROTATION_LANDSCAPE - 横屏显示，游戏直播比较适合这种模式
@@ -67,63 +66,56 @@ mLivePlayer.resume();
 
 
 
------------------------------------------------------------------------------------------------------------------
 ## 状态篇
-
-#### 3.1) 播放事件
+### 1. 播放事件
 直播里的状态我们可以关系，也可以不关心，但是点播就不同了，如下三个事件是我们必然要关心的：
 
-| 事件ID                 |    数值  |  含义说明                    |   
-| :-------------------  |:-------- |  :------------------------ | 
-|PLAY_EVT_PLAY_BEGIN	    |  2004    |  视频播放开始				|
-|PLAY_EVT_PLAY_PROGRESS |  2005    |  视频播放进度					|
-|PLAY_EVT_PLAY_END      |  2006    |  视频播放结束					|
+| 事件ID                   | 数值   | 含义说明   |
+| :--------------------- | :--- | :----- |
+| PLAY_EVT_PLAY_BEGIN    | 2004 | 视频播放开始 |
+| PLAY_EVT_PLAY_PROGRESS | 2005 | 视频播放进度 |
+| PLAY_EVT_PLAY_END      | 2006 | 视频播放结束 |
 
 其中进度的通知稍显复杂，因为再param里，会带四个参数，下面是我们的一段示例代码来解释如何处理进度通知
 ```java
 public class MyTestActivity implements ITXLivePlayListener{
+
 @Override
 public void onPlayEvent(int event, Bundle param) {
-// 如下这段代码是处理播放显示的事件，言下之意：不要转菊花了
-if (event == TXLiveConstants.PLAY_EVT_PLAY_BEGIN) {
-stopLoadingAnimation();
+    // 如下这段代码是处理播放显示的事件，言下之意：不要转菊花了
+    if (event == TXLiveConstants.PLAY_EVT_PLAY_BEGIN) {
+        stopLoadingAnimation();
+    }
+    // 如下这段代码是处理播放进度
+    else if (event == TXLiveConstants.PLAY_EVT_PLAY_PROGRESS) {
+        int progress = param.getInt(TXLiveConstants.EVT_PLAY_PROGRESS); //进度（秒数）
+        int duration = param.getInt(TXLiveConstants.EVT_PLAY_DURATION); //时间（秒数）
+        
+				// UI进度进行相应的调整
+				mSeekBar.setProgress(progress);
+        mTextStart.setText(String.format("%2d:%2d",progress/60,progress%60));
+        mTextDuration.setText(String.format("%2d:%2d",duration/60,duration%60));
+        mSeekBar.setMax(duration);
+        return;
+    }
+    // 如下这段代码是处理播放结束的事件
+    else if (event == TXLiveConstants.PLAY_ERR_NET_DISCONNECT
+		         || event == TXLiveConstants.PLAY_EVT_PLAY_END) {
+        stopPlayRtmp();
+        mVideoPlay = false;
+    }
 }
-// 如下这段代码是处理播放进度
-else if (event == TXLiveConstants.PLAY_EVT_PLAY_PROGRESS) {
-int progress = param.getInt(TXLiveConstants.EVT_PLAY_PROGRESS); //进度（秒数）
-int duration = param.getInt(TXLiveConstants.EVT_PLAY_DURATION); //时间（秒数）
-if (!mStartSeek && mSeekBar != null) {
-mSeekBar.setProgress(progress);
-}
-if (mTextStart != null) {
-mTextStart.setText(String.format("%2d:%2d",progress/60,progress%60));
-}
-if (mTextDuration != null) {
-mTextDuration.setText(String.format("%2d:%2d",duration/60,duration%60));
-}
-if (mSeekBar != null) {
-mSeekBar.setMax(duration);
-}
-return;
-}
-// 如下这段代码是处理播放结束的事件
-else if (event == TXLiveConstants.PLAY_ERR_NET_DISCONNECT
-|| event == TXLiveConstants.PLAY_EVT_PLAY_END) {
-stopPlayRtmp();
-mVideoPlay = false;
-}
-}
-mLivePusher.setPushListener(this);
+mLivePlayer.setPlayListener(this);
 ```
 
-#### 3.2) 错误通知
-没有什么事情是一帆风顺的，我们50%以上的时间都在处理异常逻辑，不过直播和点播的异常逻辑目前就一个-断网了。
+### 2. 错误通知
+对于终端开发而言，我们通常会花50%以上的时间用于处理异常逻辑，不过需要您关心的异常逻辑只有网络中断比较重要。
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_ERR_NET_DISCONNECT	          |  -2301|  网络断连,且经多次重连抢救无效,可以放弃治疗,更多重试请自行重启播放|
 
-#### 3.3)一般警告
+### 3. 一般警告
 如下的这些事件，你可以不用关心，我们通知出来只是告诉您内部发生了什么，如果您需要做数据上报，倒是可以用一下：
 
 | 事件ID                           | 数值   | 含义说明                            |
@@ -134,7 +126,7 @@ mLivePusher.setPushListener(this);
 | PLAY_WARNING_RECV_DATA_LAG     | 2104 | 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀    |
 | PLAY_WARNING_VIDEO_PLAY_LAG    | 2105 | 当前视频播放出现卡顿（用户直观感受）              |
 
-#### 3.4) 连接事件
+### 4. 连接事件
 此外还有几个连接服务器的事件，您也可以不用特别关心，这里也只要是用来测定和统计服务器连接时间和服务器响应速度用的，在用户界面交互上难有什么用处：
 
 | 事件ID                     |    数值  |  含义说明                    |   
@@ -144,9 +136,9 @@ mLivePusher.setPushListener(this);
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
-#### 3.5) 状态回调 
-**onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频质量等有所了解。
-
+### 5. 状态回调 
+ **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频质量等有所了解。
+	
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
 |	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
