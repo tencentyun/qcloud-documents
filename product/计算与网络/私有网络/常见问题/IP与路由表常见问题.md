@@ -7,3 +7,11 @@ CIDR（无类别域间路由，Classless Inter-Domain Routing）是由用户指�
 
 ## 3. 路由表配置了某子网内通过NAT网关访问公网，但是该子网内的云主机又配置了弹性IP，这些云主机是通过NAT网关还是弹性IP访问公网？
 NAT网关，点击查看[路由规则优先级说明](https://www.qcloud.com/doc/product/215/4954#.E8.B7.AF.E7.94.B1.E8.A7.84.E5.88.99.E4.BC.98.E5.85.88.E7.BA.A7)。
+
+## 4. 如何修改云主机内网IP？
+云主机主网卡的主内网IP支持修改，辅助网卡的主内网IP不支持修改，操作步骤如下：
+（1）进入[云服务器控制台](https://console.qcloud.com/cvm/)，点击点击左导航栏的云主机，进入云主机列表页。
+（2）点击云主机ID，进入云主机详情页，点击上方tab：弹性网卡。
+（3）点击修改主IP。
+（4）填入新的IP，并保存即可。
+![](https://mc.qcloudimg.com/static/img/9c08d3a7ead4707abd6315e2a092184b/A%7D%257Q%25R3C5QDOR%24JM%25I3U%28D.png)
