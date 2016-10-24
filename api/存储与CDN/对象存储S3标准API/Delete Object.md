@@ -8,7 +8,7 @@ Delete Object请求可以将一个文件（Object）删除。
 
 ```Http
 DELETE /ObjectName HTTP/1.1
-Host:[BucketName]-[UID].[Region].myqcloud.com
+Host: <BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
 Content-Length:length
 Authorization: authorization string
@@ -18,20 +18,44 @@ Authorization: authorization string
 
 无特殊请求参数
 
-### 请求HTTP Header
+### 请求头部
 
-无特殊请求Header，其他内容请参见公共请求Header
+无特殊请求头部，其他内容请参见公共请求头部
 
-### 请求Body
+#### 必选头部
 
-Object
+| 名称   | 描述   | 类型   | 必选   |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+#### 推荐使用头部
+
+| 名称   | 描述   | 类型   | 必选   |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+#### 权限相关头部
+
+| 名称   | 描述   | 类型   | 必选   |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+### 请求内容
+
+无请求内容
 
 ## 返回值
 
-### 返回Header
+### 返回头部
 
-无特殊请求Header，其他内容请参见公共返回Header
+无特殊请求头部，其他头部请参见公共返回头部
 
-### 返回Body
+| 名称   | 描述   | 类型   |
+| ---- | ---- | ---- |
+|      |      |      |
 
-无
+### 返回内容
+
+无返回内容
+
+## 示例

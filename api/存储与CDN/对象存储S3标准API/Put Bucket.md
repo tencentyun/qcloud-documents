@@ -8,7 +8,7 @@ Put Bucket请求可以在指定账号下创建一个Bucket。
 
 ```Http
 PUT / HTTP/1.1
-Host: [BucketName]-[UID].[Region].myqcloud.com
+Host: <BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
 Authorization: authorization string
 ```
@@ -17,11 +17,11 @@ Authorization: authorization string
 
 无特殊请求参数
 
-### 请求HTTP Header
+### 请求头部
 
-无特殊请求Header，其他内容请参见公共请求Header
+无特殊请求头部，其他内容请参见公共请求头部
 
-### 请求自定义Header
+### 必选头部
 
 | 名称                       | 描述                                       | 类型     | 必选   |
 | ------------------------ | ---------------------------------------- | ------ | ---- |
@@ -30,16 +30,30 @@ Authorization: authorization string
 | X-cos-grant-write        | 赋予被授权者写的权限<br />格式X-cos-grant-write: uin=" ",uin=" "，当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
 | X-cos-grant-full-control | 赋予被授权者读写权限<br />格式X-cos-grant-full-control: uin=" ",uin=" "，当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
 
-### 请求Body
+### 推荐使用头部
 
-无
+| 名称   | 描述   | 类型   | 必选   |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+#### 权限相关头部
+
+| 名称   | 描述   | 类型   | 必选   |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+### 请求内容
+
+无请求内容
 
 ## 返回值
 
-### 返回Header
+### 返回头部
 
-无特殊请求Header，其他内容请参见公共返回Header
+无特殊请求头部，其他内容请参见公共返回头部
 
-### 返回Body
+### 返回内容
 
 无
+
+## 示例
