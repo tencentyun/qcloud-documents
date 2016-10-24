@@ -49,7 +49,7 @@
 | 创建负载均衡监听器 | [CreateBmLoadBalancerListeners]() | 用于创建负载均衡监听器。 |
 | 删除负载均衡监听器 | [DeleteBmLoadBalancerListeners]() | 用于删除负载均衡监听器。 |
 | 修改负载均衡监听器 | [ModifyBmLoadBalancerListener]() | 用于修改负载均衡监听器。 |
-| 查询负载均衡健康状态 | [DescribeBm负载均衡HealthStatus]() | 用于查询负载均衡健康状态。 |
+| 查询负载均衡健康状态 | [DescribeBmLBHealthStatus]() | 用于查询负载均衡健康状态。 |
 | 修改负载均衡器后端服务器权重 | [ModifyBmLoadBalancerBackends]() | 修改负载均衡器后端服务器权重。 |
 
 
