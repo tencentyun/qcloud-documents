@@ -14,26 +14,26 @@
 </th></tr>
 <tr>
 <td> secretId
-</td><td><font color=red> 必须 </font>
+</td><td><font color=red> 必选</font>
 </td><td> String
 </td><td>用于标识API调用者身份，您可以在管理您的密钥。
 <br> 您当前密钥为：AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 </td></tr>
 <tr>
 <td> captchaType
-</td><td> <font color=red> 必须 </font>
+</td><td> <font color=red>  必选 </font>
 </td><td> UInt
 </td><td> 验证码类型
 </td></tr>
 <tr>
 <td> disturbLevel
-</td><td> <font color=red> 必须 </font>
+</td><td> <font color=red>  必选 </font>
 </td><td> UInt
 </td><td> 验证码干扰程度
 </td></tr>
 <tr>
 <td> isHttps
-</td><td> <font color=red> 必须 </font>
+</td><td> <font color=red>  必选 </font>
 </td><td> UInt
 </td><td> 返回的JavaScript中是否使用HTTPS
 <br> 0：HTTP
@@ -41,13 +41,31 @@
 </td></tr>
 <tr>
 <td> clientType
-</td><td> <font color=red> 必须 </font>
+</td><td> <font color=red>  必选 </font>
 </td><td> UInt
 </td><td> 客户端类型
 <br> 1：手机Web页面
 <br> 2：PCWeb页面
 <br> 3：APP
 </td></tr>
+<tr>
+<td> accountType
+</td><td> <font color=red>  必选 </font>
+</td><td> UInt
+</td><td> 用户账号类型
+<br> 0：其他账号
+<br> 1：QQ开放帐号
+<br> 2：微信开放帐号
+<br> 4：手机账号
+<br> 6：手机动态码
+<br> 7：邮箱账号
+</td></tr>
+<td> appId
+</td><td> 建议
+</td><td> String
+</td><td> accountType是QQ或微信开放账号时，该参数必填，表示QQ或微信分配给给网站或应用的appId，用来唯一标识网站或应用
+</td></tr>
+<tr>
 <tr>
 <td> uid
 </td><td> 建议
@@ -91,12 +109,6 @@
 </td><td> 可选
 </td><td> String
 </td><td> 手机设备号
-</td></tr>
-<tr>
-<td> appId
-</td><td> 可选
-</td><td> String
-</td><td> accountType是QQ或微信开放账号时，该参数必填，表示QQ或微信分配给给网站或应用的appId，用来唯一标识网站或应用
 </td></tr>
 <td> associateAccount
 </td><td> 可选
