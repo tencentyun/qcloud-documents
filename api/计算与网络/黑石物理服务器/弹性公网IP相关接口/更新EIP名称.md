@@ -39,7 +39,7 @@
     "code": 0,
     "message": "",
     "codeDesc": "Success",
-    "data": {}
+    "data": []
 }
 
 ```
