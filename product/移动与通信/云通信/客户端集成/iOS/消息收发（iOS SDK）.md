@@ -926,14 +926,14 @@ typedef NS_ENUM(NSInteger, TIMMessageStatus){
 -(NSString *) sender;
 
 /**
- *  获取发送者资料
+ *  获取发送者资料（发送者为本人时可能为空）
  *
  *  @return 发送者资料，nil 表示没有获取资料，目前只有字段：identifier、nickname、faceURL、customInfo
  */
 -(TIMUserProfile *) GetSenderProfile;
 
 /**
- *  获取发送者群内资料
+ *  获取发送者群内资料（发送者为本人时可能为空）
  *
  *  @return 发送者群内资料，nil 表示没有获取资料或者不是群消息，目前只有字段：member、nameCard、role、customInfo
  */
@@ -1479,3 +1479,4 @@ draft | 需要设置的草稿 ，需要清空会话草稿时传入nil
 当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅：[群组管理-群事件消息](/doc/product/269/群组管理（iOS%20SDK）#8-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
 
 当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅：[群组管理-群系统消息](/doc/product/269/群组管理（iOS%20SDK）#9-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。 
+

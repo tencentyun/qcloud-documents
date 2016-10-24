@@ -16,20 +16,20 @@ Authorization: authorization string
 
 无特殊请求参数
 
-### 请求HTTP Header
+### 请求头部
 
-无特殊请求Header，其他内容请参见公共请求Header
+无特殊请求头部，其他内容请参见公共请求头部
 
-### 请求Body
+### 请求内容
 
 无
 
 ## 返回值
 
-### 返回Header
+### 返回头部
 
-无特殊请求Header，其他内容请参见公共返回Header
+无特殊请求头部，其他内容请参见公共返回头部
 
-### 返回Body
+### 返回内容
 
 无
