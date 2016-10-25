@@ -3,8 +3,9 @@
 <br> 域名：csec.api.qcloud.com 
 <br> 接口名: CaptchaIframeQuery  
 获取验证码的JavaScript连接，通过将验证码的JavaScript嵌入页面实现验证码的刷新和验证操作。
+
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见公共请求参数页面。<br> 其中，此接口的Action字段为CaptchaIframeQuery。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](https://www.qcloud.com/doc/api/254/1778)。<br> 其中，此接口的Action字段为CaptchaIframeQuery。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -13,17 +14,10 @@
 </th><th> <b>描述</b>
 </th></tr>
 <tr>
-<td> secretId
-</td><td><font color=red> 必选</font>
-</td><td> String
-</td><td>用于标识API调用者身份，您可以在管理您的密钥。
-<br> 您当前密钥为：AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-</td></tr>
-<tr>
 <td> captchaType
 </td><td> <font color=red>  必选 </font>
 </td><td> UInt
-</td><td> 验证码类型
+</td><td> [验证码类型](https://www.qcloud.com/doc/product/295/3267#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B)
 </td></tr>
 <tr>
 <td> disturbLevel
@@ -134,26 +128,26 @@
 <td> url
 </td><td> String
 </td><td> 验证码JavaScript地址，该链接单次有效
-
 </td></tr></tbody></table>
 
 ## 4.示例代码
-代码下载： java  Python   php   
-<p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见公共请求参数小节。
-<p> 请求示例 ：
-<p> https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
+代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe) 　　 [Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　　 [ php  ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe) 
+<p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
+<br> 请求示例 ：
+<br> https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
+<br> &<公共请求参数>
+<br> &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+<br> &captchaType=1
+<br> &disturbLevel=1
+<br> &isHttps=1
+<br> &clientType=1
 
-&<公共请求参数>
-<p> &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-<p> &captchaType=1
-<p> &disturbLevel=1
-<p> &isHttps=1
-<p> &clientType=1
 ## 5.响应示例
 {
-<p>　 "code":0,
-<p> 　"message":"No Error",
-<p> "url":"https://captcha.guard.qcloud.com/template/TCapIframeApi.js?appid=1251001047&clientype=1&lang=2052&asig=-DhJtUkDwLzJpmIfAmasXFn1Y6zCkRQUn8WERrs4lVNmUDcuoDiYYLmoKqd-Ev77Eogpq97Dpb69_MrwGjWXKmTGg9y9iW7wjdriTu_y6WBN4qGsHn6VRk0W1hLB6ZWvqHqw2E5IFCRUcGrHBzMF7A**"
-<p> }
+<br> "code":0,
+<br> "message":"No Error",
+<br>"url":"https://captcha.guard.qcloud.com/template/TCapIframeApi.js?appid=1251001047&clientype=1&lang=2052&asig=-DhJtUkDwLzJpmIfAmasXFn1Y6zCkRQUn8WERrs4lVNmUDcuoDiYYLmoKqd-Ev77Eogpq97Dpb69_MrwGjWXKmTGg9y9iW7wjdriTu_y6WBN4qGsHn6VRk0W1hLB6ZWvqHqw2E5IFCRUcGrHBzMF7A**"
+<br> }
+
 ## 6.错误代码说明
 参考返回的message字段描述
