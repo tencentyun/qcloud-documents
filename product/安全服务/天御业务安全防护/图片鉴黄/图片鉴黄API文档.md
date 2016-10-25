@@ -93,7 +93,7 @@
 </td></tr></tbody></table>
 ## 4. 示例代码
 代码下载：  [Python示例](https://tianyu.qcloud.com/sdk/download/FileDetection/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/FileDetection/php) [Java示例](https://tianyu.qcloud.com/sdk/download/FileDetection/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/FileDetection/net)
-<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见公共请求参数小节。
+<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
 <br> 请求示例 ：
 <br> https://csec.api.qcloud.com/v2/index.php?Action=FileDetection
 <br> &<公共请求参数>

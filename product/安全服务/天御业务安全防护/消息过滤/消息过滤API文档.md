@@ -5,7 +5,7 @@
 <br> 接口名：UgcAntiSpam
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见公共请求参数页面。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。
 <br> 其中，此接口的Action字段为UgcAntiSpam。
 <table class="t">
 <tbody><tr>
@@ -16,32 +16,32 @@
 </th></tr>
 <tr>
 <td> secretId
-</td><td> 必选
+</td><td> <font color=red> 必选 </font color=red>
 </td><td> String
 </td><td>用于标识API调用者身份，您可以在云API密钥管理您的密钥。
 您当前密钥为：AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 </td></tr>
 <tr>
 <td> messageStruct
-</td><td> 必选
+</td><td> <font color=red> 必选 </font color=red>
 </td><td> String
 </td><td> 用户产生的内容，参考消息结构体介绍
 </td></tr>
 <tr>
 <td> messageId
-</td><td> 必选
+</td><td> <font color=red> 必选 </font color=red>
 </td><td> String
 </td><td> 用户产生内容的ID。如果传入此ID，将可以通过恶意结果查询接口获取进一步的信息。
 </td></tr>
 <tr>
 <td> postIp
-</td><td> 必选
+</td><td><font color=red> 必选 </font color=red>
 </td><td> String
 </td><td> 操作来源的外网IP
 </td></tr>
 <tr>
 <td> accountType
-</td><td> 必选
+</td><td> <font color=red> 必选 </font color=red>
 </td><td> UInt
 </td><td> 用户账号类型
 <br> 0：其他账号
@@ -53,7 +53,7 @@
 </td></tr>
 <tr>
 <td> uid
-</td><td> 必选
+</td><td> <font color=red> 必选 </font color=red>
 </td><td> String
 </td><td> 用户ID
 <br> accountType不同对应不同的用户ID。如果是QQ或微信用户则填入对应的openId
@@ -295,8 +295,8 @@
 
 
 ## 5. 示例代码
-代码下载：  Python示例 PHP示例 Java示例 .Net示例
-一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见公共请求参数小节。
+代码下载：  [Python示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/php) [Java示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/net)
+<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
 <br> 请求示例 ：
 <br> https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
 <br> &<公共请求参数>
