@@ -30,6 +30,7 @@ data结构
 |参数名称|类型|描述|
 |---|---|---|
 | data.eipIds | Array | 返回申请中的EIP实例ID列表|
+| data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[EipBmQueryTask]()查询任务状态|
 
 ## 4. 示例
  
@@ -46,10 +47,12 @@ data结构
 {
     "code": 0,
     "message": "",
+    "codeDesc": "Success",
     "data": {
         "eipIds": [
-            "eip-m44ku5d2"
-        ]
+            "eip-qcloudv5"
+        ],
+        "requestId": 2382031
     }
 }
 

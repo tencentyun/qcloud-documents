@@ -8,7 +8,7 @@ Get Object 请求可以将一个文件（Object）下载至本地。该操作需
 
 ``` http
 GET /ObjectName HTTP/1.1
-Host: [BucketName]-[UID].[Region].myqcloud.com
+Host: <BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
 Authorization: authorization string(公有读无需此头部，若携带也无效)
 Range: bytes=byte_range
@@ -25,7 +25,7 @@ Range: bytes=byte_range
 | response-content-disposition | 设置返回头部中的 Content-Disposition 参数。 | String | 否    |
 | response-content-encoding    | 设置返回头部中的 Content-Encoding 参数。    | String | 否    |
 
-### 请求HTTP Header
+### 必选头部
 
 | 名称                  | 描述                                       | 类型     | 必选   |
 | ------------------- | ---------------------------------------- | ------ | ---- |
@@ -50,20 +50,35 @@ HTTP状态码412的判断条件优先于304
 | If-Unmodified-Since条件符合  | 200                  | 200                   | 304                    |
 | If-Unmodified-Since条件不符合 | 412                  | 412                   | 412                    |
 
-### 请求Body
+### 推荐使用头部
+
+| 名称   | 描述   | 类型   | 必选   |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+#### 权限相关头部
+
+| 名称   | 描述   | 类型   | 必选   |
+| ---- | ---- | ---- | ---- |
+|      |      |      |      |
+
+
+### 请求内容
 
 无
 
 ## 返回值
 
-### 返回Header
+### 返回头部
 
 | 名称                | 描述                                       | 类型     |
 | ----------------- | ---------------------------------------- | ------ |
 | x-cos-meta-*      | 用户自定义的元数据                                | String |
 | x-cos-object-type | 用来表示object是否可以被追加上传，枚举值：normal或者appendable | string |
 
-### 返回Body
+### 返回内容
 
-Object
+无返回内容
+
+## 示例
 
