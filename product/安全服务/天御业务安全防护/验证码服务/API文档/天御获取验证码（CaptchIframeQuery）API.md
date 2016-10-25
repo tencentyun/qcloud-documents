@@ -17,13 +17,14 @@
 <td> captchaType
 </td><td> <font color=red>  必选 </font>
 </td><td> UInt
-</td><td> [验证码类型](https://www.qcloud.com/doc/product/295/3267#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B)
+</td><td>
+<a href="https://www.qcloud.com/doc/product/295/6622#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B" target="blank">验证码类型</a>
 </td></tr>
 <tr>
 <td> disturbLevel
 </td><td> <font color=red>  必选 </font>
 </td><td> UInt
-</td><td> 验证码干扰程度
+</td><td><a href="https://www.qcloud.com/doc/api/254/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E" target="blank">验证码干扰程度</a>
 </td></tr>
 <tr>
 <td> isHttps
@@ -131,7 +132,7 @@
 </td></tr></tbody></table>
 
 ## 4.示例代码
-代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe) 　　 [Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　　 [ php  ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe) 
+代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe)  　 [Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　[ php ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe) 
 <p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
 <br> 请求示例 ：
 <br> https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery

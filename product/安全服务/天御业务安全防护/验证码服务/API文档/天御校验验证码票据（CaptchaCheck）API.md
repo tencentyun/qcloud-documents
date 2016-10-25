@@ -5,7 +5,7 @@
 <br> 用户输入验证码之后会获取API返回的票据，必须将此票据通过本接口进行校验，以确认票据是从安全API返回的，否则将可能导致验证码功能被绕过
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上[公共请求参数](httphttps://www.qcloud.com/doc/api/254/1778)，见公共请求参数页面。其中，此接口的Action字段为CaptchaCheck。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上[公共请求参数](https://www.qcloud.com/doc/api/254/1778)，见公共请求参数页面。其中，此接口的Action字段为CaptchaCheck。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -23,13 +23,13 @@
 <td> captchaType
 </td><td> <font color=red> 必选 </font>
 </td><td> Int
-</td><td> 验证码图片的类型
+</td><td> <a href="https://www.qcloud.com/doc/product/295/6622#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B" target="blank">验证码类型</a>
 </td></tr>
 <tr>
 <td> disturbLevel
 </td><td> <font color=red> 必选 </font>
 </td><td> Int
-</td><td> 验证码干扰程度
+</td><td><a href="https://www.qcloud.com/doc/api/254/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E" target="blank">验证码干扰程度</a>
 </td></tr>
 <tr>
 <td> userIp
