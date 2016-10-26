@@ -265,7 +265,7 @@ Action=LoginProtection
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
 &loginIp=127.0.0.1
-&loginT=11254
+&loginTime=11254
 &associateAccount="SpFsjpyvaJ27329"
 ```
 
