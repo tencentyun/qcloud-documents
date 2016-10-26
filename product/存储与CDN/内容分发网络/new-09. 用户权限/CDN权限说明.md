@@ -2,7 +2,6 @@ CDN目前已经接入新版的云资源访问管理（Cloud Resource Access Mana
 
 **注意**：原协作者无法生成密钥对调用API操作，此次功能后，任意子用户都可使用自身密钥对调用有权限使用的API。
 
-
 ## 管理员功能
 ### 创建者
 
@@ -202,8 +201,7 @@ CDN目前已经接入新版的云资源访问管理（Cloud Resource Access Mana
 
 + 使用控制台查询所有刷新记录：
 	![](https://mccdn.qcloud.com/static/img/0592d47b0f65a8271b39a83a684f7c46/image.jpg)
-+ 使用云API [GetCdnRefreshLog](https://www.qcloud.com/doc/api/231/3948) 查询刷新记录；
-+ 使用云API [GetCdnMiddleSourceList](https://www.qcloud.com/doc/api/231/3952) 查询 CDN 中间源 IP 信息。
++ 使用云API [GetCdnRefreshLog](https://www.qcloud.com/doc/api/231/3948) 查询刷新记录。
 
 子用户功能配置案例可参考[子用户配置案例](https://www.qcloud.com/doc/product/228/6693) 。
 
