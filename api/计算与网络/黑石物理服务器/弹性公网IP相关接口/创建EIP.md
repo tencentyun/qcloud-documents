@@ -14,7 +14,7 @@
 | goodsNum | 否 | Int | 创建的EIP数量，默认为1，最大20 |
 | payMode | 否 | String | 创建的EIP计费模式，"flow"：流量计费；"bandwidth"：带宽计费（单位：MB）|
 | bandwidth | 否 | Int | EIP为带宽计费时，选择的带宽上线（单位：MB，当前最大为1000MB）|
-| vpcId | 否 | Int | 申请的EIP归属的VPC的ID |
+| vpcId | 是 | Int | 申请的EIP归属的VPC的ID |
 
  > 平台对用户每地域能申请的EIP最大配额有所限制。上述配额可通过[DescribeEipBmQuota]()接口获取。
 
@@ -38,7 +38,7 @@ data结构
 ```
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<公共请求参数>
+  &<公共请求参数>&goodsNum=2&payMode=flow&vpcId=1
 ```
 
 输出
