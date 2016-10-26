@@ -1,4 +1,4 @@
-## 1. 哪些客户网关设备已知可以使用 VPC 的VPN连接？
+## 1. 支持客户网关设备使用 VPC 的VPN连接？
 点击查看[支持VPN通道的对端设备详情](https://www.qcloud.com/help/VPN%E9%80%9A%E9%81%93%E5%BB%BA%E7%AB%8B%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AE%BE%E5%A4%87)，如果您的设备不在列表中，请联系我们的技术人员进行VPN通道的建立。
 
 ## 2. 一个VPC可以通过VPN连接与多个IDC互联么？
