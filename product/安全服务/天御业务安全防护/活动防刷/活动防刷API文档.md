@@ -250,7 +250,7 @@
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
 ```
 请求示例 ：
-<br> https://csec.api.qcloud.com/v2/index.php?    <br> Action=ActivityAntiRush
+<https://csec.api.qcloud.com/v2/index.php?    <br> Action=ActivityAntiRush
 &<公共请求参数>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
