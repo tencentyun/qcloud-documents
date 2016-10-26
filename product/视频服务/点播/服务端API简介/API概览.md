@@ -105,7 +105,7 @@
 					视频转码
 				</td>
 				<td>
-          对视频进行转码
+          视频转码
 				</td>
 				<td>
         	ConvertVodFile
