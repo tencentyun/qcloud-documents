@@ -229,27 +229,31 @@
 ## 4. 示例代码
 代码下载： [Python示例](https://tianyu.qcloud.com/sdk/download/RegisterProtection/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/RegisterProtection/php) [Java示例](https://tianyu.qcloud.com/sdk/download/RegisterProtection/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/RegisterProtection/net)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见公共请求参数小节。
-<br> 请求示例 ：
-<br> https://csec.api.qcloud.com/v2/index.php?
-<br> Action=RegisterProtection
-<br> &<公共请求参数>
-<br> &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-<br> &accountType=1
-<br> &uid=D692D87319F2098C3877C3904B304706
-<br> &registerIp=127.0.0.1
-<br> &registerTime=11254
-<br> &associateAccount="SpFsjpyvaJ27329"
+```
+请求示例 ：
+https://csec.api.qcloud.com/v2/index.php?
+Action=RegisterProtection
+&<公共请求参数>
+&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&accountType=1
+&uid=D692D87319F2098C3877C3904B304706
+&registerIp=127.0.0.1
+&registerTime=11254
+&associateAccount="SpFsjpyvaJ27329"
+```
 
 ## 5. 响应示例
+```
 {
-<br> "code": 0,
-<br> "message": "No Error",
-<br> "level": 0,
-<br> "registerIp": "121.14.96.121",
-<br> "registerTime": 1436673889,
-<br> "uid": "00000000000000000000000033121475",
-<br> "associateAccount": "SpFsjpyvaJ27329"
-<br> }
+"code": 0,
+"message": "No Error",
+"level": 0,
+"registerIp": "121.14.96.121",
+"registerTime": 1436673889,
+"uid": "00000000000000000000000033121475",
+"associateAccount": "SpFsjpyvaJ27329"
+}
+```
 
 ## 6.错误码说明
 参考返回的message字段描述

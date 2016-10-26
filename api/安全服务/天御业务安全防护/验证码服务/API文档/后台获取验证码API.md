@@ -134,21 +134,24 @@
 ## 4.示例代码
 代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe)  　 [Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　[ php ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe) 
 <p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>小节。
-<br> 请求示例 ：
-<br> https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
-<br> &<公共请求参数>
-<br> &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-<br> &captchaType=1
-<br> &disturbLevel=1
-<br> &isHttps=1
-<br> &clientType=1
-
+```
+请求示例 ：
+https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
+&<公共请求参数>
+&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&captchaType=1
+&disturbLevel=1
+&isHttps=1
+&clientType=1
+```
 ## 5.响应示例
+```
 {
-<br> "code":0,
-<br> "message":"No Error",
-<br>"url":"https://captcha.guard.qcloud.com/template/TCapIframeApi.js?appid=1251001047&clientype=1&lang=2052&asig=-DhJtUkDwLzJpmIfAmasXFn1Y6zCkRQUn8WERrs4lVNmUDcuoDiYYLmoKqd-Ev77Eogpq97Dpb69_MrwGjWXKmTGg9y9iW7wjdriTu_y6WBN4qGsHn6VRk0W1hLB6ZWvqHqw2E5IFCRUcGrHBzMF7A**"
-<br> }
+"code":0,
+"message":"No Error",
+"url":"https://captcha.guard.qcloud.com/template/TCapIframeApi.js?appid=1251001047&clientype=1&lang=2052&asig=-DhJtUkDwLzJpmIfAmasXFn1Y6zCkRQUn8WERrs4lVNmUDcuoDiYYLmoKqd-Ev77Eogpq97Dpb69_MrwGjWXKmTGg9y9iW7wjdriTu_y6WBN4qGsHn6VRk0W1hLB6ZWvqHqw2E5IFCRUcGrHBzMF7A**"
+}
+```
 
 ## 6.错误代码说明
 参考返回的message字段描述

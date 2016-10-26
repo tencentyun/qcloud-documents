@@ -127,21 +127,23 @@
 ## 4.示例代码
 代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe)  　　[Python](httphttps://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　　 [php ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>小节。
-<br> 请求示例 ：
-<br> https://csec.api.qcloud.com/v2/index.php?Action=CaptchaCheck
-<br> &<公共请求参数>
-<br> &ticket=1111
-<br> &captchaType=1
-<br> &disturbLevel=1
-<br> &userIp=127.0.0.1
-
+```
+请求示例 ：
+https://csec.api.qcloud.com/v2/index.php?Action=CaptchaCheck
+&<公共请求参数>
+&ticket=1111
+&captchaType=1
+&disturbLevel=1
+&userIp=127.0.0.1
+```
 ## 5.响应示例
+```
 {
-<br> "code":0,
-<br> "message":"No Error",
-<br> "is_right":0
-<br>  }
-
+"code":0,
+"message":"No Error",
+"is_right":0
+}
+```
 ## 6.错误码说明
 参考返回的message字段描述
 

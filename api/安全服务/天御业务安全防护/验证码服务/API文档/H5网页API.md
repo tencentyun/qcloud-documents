@@ -6,7 +6,7 @@
 ```
 <script type="text/javascript" src="xxx"></script>
 ```
-提示：[JS地址的获取方法](http://www.qcloud.com/doc/api/254/%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81JS)
+提示：[JS地址的获取方法](https://www.qcloud.com/doc/product/295/6620)
 ### 2.2 添加验证码展示控件
 ```
  <div id="TCaptcha" style="" ></div>
@@ -70,6 +70,6 @@
 | capDestroy()  | 无参数，当dom被销毁需要重新使用capInit的时候，在capInit之前调用 |
 
 ## 5. 接入规范
-1）手机验证码页面要全屏显示，否则验证码页面会显示异常影响用户使用。  
+手机验证码页面要全屏显示，否则验证码页面会显示异常影响用户使用。  
 
 

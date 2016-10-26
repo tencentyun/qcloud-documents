@@ -94,24 +94,26 @@
 ## 4. 示例代码
 代码下载：  [Python示例](https://tianyu.qcloud.com/sdk/download/FileDetection/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/FileDetection/php) [Java示例](https://tianyu.qcloud.com/sdk/download/FileDetection/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/FileDetection/net)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-<br> 请求示例 ：
-<br> https://csec.api.qcloud.com/v2/index.php?Action=FileDetection
-<br> &<公共请求参数>
-<br> &fileName=helloworld.avi
-<br> &fileUrl=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%<br> 2F201212%2F18%2F20121218162327_WMCC3.thumb.466_0.jpeg
-<br> &fileMd5=v%2B2%2B45OP78U0cYlB8g%2BBpLrF%2BsE%3D
-
+```
+请求示例 ：
+https://csec.api.qcloud.com/v2/index.php?Action=FileDetection
+&<公共请求参数>
+&fileName=helloworld.avi
+&fileUrl=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201212%2F18%2F20121218162327_WMCC3.thumb.466_0.jpeg
+&fileMd5=v%2B2%2B45OP78U0cYlB8g%2BBpLrF%2BsE%3D
+```
 ## 5. 响应示例
+```
 {
-<br>"code": 0,
-<br>"confidence": 0,
-<br>"contentType": 0,
-<br>"hotScore": 0,
-<br>"level": 0,
-<br>"message": "No Error",
-<br>"normalScore": 99,
-<br>"pornScore": 0
-<br>}
-
+"code": 0,
+"confidence": 0,
+"contentType": 0,
+"hotScore": 0,
+"level": 0,
+"message": "No Error",
+"normalScore": 99,
+"pornScore": 0
+}
+```
 ## 6.错误码说明
 参考返回的message字段描述

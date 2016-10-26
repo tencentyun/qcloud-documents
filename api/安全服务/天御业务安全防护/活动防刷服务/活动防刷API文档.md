@@ -5,7 +5,7 @@
 <br> 接口名：ActivityAntiRush
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见公共请求参数页面。其中，此接口的Action字段为ActivityAntiRush。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。其中，此接口的Action字段为ActivityAntiRush。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -13,13 +13,6 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr>
-<td> secretId
-</td><td> <font color=red> 必选 </font color=red>
-</td><td> String
-</td><td>用于标识API调用者身份，您可以在云API密钥管理您的密钥。
-您当前密钥为：AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-</td></tr>
 <tr>
 <td> accountType
 </td><td><font color=red> 必选 </font color=red>
@@ -253,30 +246,32 @@
 </td></tr></tbody></table>
 
 ## 4. 示例代码
-代码下载：  Python示例 PHP示例 Java示例 .Net示例
-<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见公共请求参数小节。
-<br> 请求示例 ：
+代码下载：  [Python示例](https://tianyu.qcloud.com/sdk/download/ActivityAntiRush/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/ActivityAntiRush/php) [Java示例](https://tianyu.qcloud.com/sdk/download/ActivityAntiRush/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/ActivityAntiRush/net)
+<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
+```
+请求示例 ：
 <br> https://csec.api.qcloud.com/v2/index.php?    <br> Action=ActivityAntiRush
-<br> &<公共请求参数>
-<br> &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-<br> &accountType=1
-<br> &uid=D692D87319F2098C3877C3904B304706
-<br> &userIp=127.0.0.1
-<br> &postTime=11254
-
+&<公共请求参数>
+&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&accountType=1
+&uid=D692D87319F2098C3877C3904B304706
+&userIp=127.0.0.1
+&postTime=11254
+```
 
 ## 5. 响应示例
+```
 {
-<br> "Nonce":516529719,
-<br> "associateAccount":"373909726",
-<br> "code":0,"
-<br> level":1,
-<br> "message":"NoError",
-<br> "postTime":"11254",
-<br> "rootId":"sdsds234sd",
-<br> "uid":"D692D87319F2098C3877C3904B304706",
-<br> "userIp":"10.23.23.20"
-<br> }
-
+"Nonce":516529719,
+"associateAccount":"373909726",
+"code":0,"
+level":1,
+"message":"NoError",
+"postTime":"11254",
+"rootId":"sdsds234sd",
+"uid":"D692D87319F2098C3877C3904B304706",
+"userIp":"10.23.23.20"
+}
+```
 ## 6.错误码说明
 参考返回的message字段描述

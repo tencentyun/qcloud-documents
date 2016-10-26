@@ -5,7 +5,7 @@
 获取验证码的JavaScript连接，通过将验证码的JavaScript嵌入页面实现验证码的刷新和验证操作。
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](https://www.qcloud.com/doc/api/254/1778)。<br> 其中，此接口的Action字段为CaptchaIframeQuery。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>页面。<br> 其中，此接口的Action字段为CaptchaIframeQuery。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -17,7 +17,8 @@
 <td> captchaType
 </td><td> <font color=red>  必选 </font>
 </td><td> UInt
-</td><td> <a href="https://www.qcloud.com/doc/product/295/6622#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B" target="blank">验证码类型</a>
+</td><td>
+<a href="https://www.qcloud.com/doc/product/295/6622#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B" target="blank">验证码类型</a>
 </td></tr>
 <tr>
 <td> disturbLevel
@@ -131,23 +132,26 @@
 </td></tr></tbody></table>
 
 ## 4.示例代码
-代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe) 　　 [Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　　 [ php  ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe) 
-<p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-<br> 请求示例 ：
+代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe)  　 [Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　[ php ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe) 
+<p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>小节。
+```
+请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
-<br> &<公共请求参数>
-<br> &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-<br> &captchaType=1
-<br> &disturbLevel=1
-<br> &isHttps=1
-<br> &clientType=1
-
+&<公共请求参数>
+&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&captchaType=1
+&disturbLevel=1
+&isHttps=1
+&clientType=1
+```
 ## 5.响应示例
+```
 {
-<br> "code":0,
-<br> "message":"No Error",
-<br>"url":"https://captcha.guard.qcloud.com/template/TCapIframeApi.js?appid=1251001047&clientype=1&lang=2052&asig=-DhJtUkDwLzJpmIfAmasXFn1Y6zCkRQUn8WERrs4lVNmUDcuoDiYYLmoKqd-Ev77Eogpq97Dpb69_MrwGjWXKmTGg9y9iW7wjdriTu_y6WBN4qGsHn6VRk0W1hLB6ZWvqHqw2E5IFCRUcGrHBzMF7A**"
-<br> }
+"code":0,
+"message":"No Error",
+"url":"https://captcha.guard.qcloud.com/template/TCapIframeApi.js?appid=1251001047&clientype=1&lang=2052&asig=-DhJtUkDwLzJpmIfAmasXFn1Y6zCkRQUn8WERrs4lVNmUDcuoDiYYLmoKqd-Ev77Eogpq97Dpb69_MrwGjWXKmTGg9y9iW7wjdriTu_y6WBN4qGsHn6VRk0W1hLB6ZWvqHqw2E5IFCRUcGrHBzMF7A**"
+}
+```
 
 ## 6.错误代码说明
 参考返回的message字段描述

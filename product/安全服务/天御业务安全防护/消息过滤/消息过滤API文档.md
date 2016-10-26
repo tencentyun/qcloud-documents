@@ -15,13 +15,6 @@
 </th><th> <b>描述</b>
 </th></tr>
 <tr>
-<td> secretId
-</td><td> <font color=red> 必选 </font color=red>
-</td><td> String
-</td><td>用于标识API调用者身份，您可以在云API密钥管理您的密钥。
-您当前密钥为：AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-</td></tr>
-<tr>
 <td> messageStruct
 </td><td> <font color=red> 必选 </font color=red>
 </td><td> String
@@ -293,35 +286,36 @@
 </td></tr>
 </td></tr></tbody></table>
 
-
 ## 5. 示例代码
 代码下载：  [Python示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/php) [Java示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/net)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-<br> 请求示例 ：
-<br> https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
-<br> &<公共请求参数>
-<br> &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-<br> &accountType=1
-<br> &uid=D692D87319F2098C3877C3904B304706
-<br> &messageId=dgsfjajdahqywjqn
-<br> &postIp=127.0.0.1
-<br>  &messageStruct=AAAAAQAAAELmtYvor5Xlj5HluJbvvIzmnInkurrmiZPlh7vkuYjvvJ
-
+```
+请求示例 ：
+https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
+&<公共请求参数>
+&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&accountType=1
+&uid=D692D87319F2098C3877C3904B304706
+&messageId=dgsfjajdahqywjqn
+&postIp=127.0.0.1
+&messageStruct=AAAAAQAAAELmtYvor5Xlj5HluJbvvIzmnInkurrmiZPlh7vkuYjvvJ
+```
 ## 6.响应示例
+```
 {
-<br> "Nonce":829504212,
-<br>"associateAccount":"373909726",
-<br> "beatTips":"",
-<br>"code":0,
-<br> "level":0,
-<br> "message":"NoError",
-<br> "messageId":"ieafdasfk",
-<br> "postIp":"14.17.22.32",
-<br> "postTime":"1436664316",
-<br> "selfType":0,
-<br> "type":0,
-<br> "uid":"D692D87319F2098C3877C3904B304706"
-<br> }
-
+"Nonce":829504212,
+"associateAccount":"373909726",
+"beatTips":"",
+"code":0,
+"level":0,
+"message":"NoError",
+"messageId":"ieafdasfk",
+"postIp":"14.17.22.32",
+"postTime":"1436664316",
+"selfType":0,
+"type":0,
+"uid":"D692D87319F2098C3877C3904B304706"
+}
+```
 ## 7.错误码说明
 参考返回的message字段描述

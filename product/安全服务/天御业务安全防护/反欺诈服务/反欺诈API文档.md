@@ -250,27 +250,31 @@ RiskDetail类型说明
 
 ## 4. 示例代码
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-<br> 请求示例 ：
+```
+请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
-<br> &<公共请求参数>
-<br> &idNumber=1234567890
-<br> &name=%E6%9D%A8%E7%BA%A2
-<br> &phoneNumber=008613246208548
+&<公共请求参数>
+&idNumber=1234567890
+&name=%E6%9D%A8%E7%BA%A2
+&phoneNumber=008613246208548
+```
 
 ## 5.响应示例
+```
 {
-<br>"code": 0,
-<br>"message": "OK",
-<br>"riskScore": 90,
-<br>"riskInfo": [
-<br>　　{
-<br>　　　"riskCode": 1
-<br>　　},
-<br>　　{
-<br>　　　"riskCode": 203
-<br>　　}
-<br>　]
-<br>}
+"code": 0,
+"message": "OK",
+"riskScore": 90,
+"riskInfo": [
+　　{
+　　　"riskCode": 1
+　　},
+　　{
+　　　"riskCode": 203
+　　}
+　]
+}
+```
 
 ## 6.错误码说明
 参考返回的message字段描述
