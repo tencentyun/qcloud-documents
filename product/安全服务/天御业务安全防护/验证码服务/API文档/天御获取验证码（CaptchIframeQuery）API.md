@@ -5,7 +5,7 @@
 获取验证码的JavaScript连接，通过将验证码的JavaScript嵌入页面实现验证码的刷新和验证操作。
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](https://www.qcloud.com/doc/api/254/1778)。<br> 其中，此接口的Action字段为CaptchaIframeQuery。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>页面。<br> 其中，此接口的Action字段为CaptchaIframeQuery。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -133,7 +133,7 @@
 
 ## 4.示例代码
 代码下载： [java](https://tianyu.qcloud.com/sdk/download/Captcha/java/iframe)  　 [Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　[ php ](https://tianyu.qcloud.com/sdk/download/Captcha/php/iframe) 
-<p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
+<p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>小节。
 <br> 请求示例 ：
 <br> https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
 <br> &<公共请求参数>

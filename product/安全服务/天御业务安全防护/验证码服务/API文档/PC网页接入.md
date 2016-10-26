@@ -6,18 +6,15 @@
 ```
 <script type="text/javascript" src="xxx"></script>
 ```
-
 [JS地址的获取方法](http://www.qcloud.com/doc/api/254/%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81JS)
 ### 2.2 添加验证码展示控件
-```
-<!--显
 ```
 <!--显示验证码的地方预留的最小空间，小于该值会导致显示异常-->
 <!--触发式：300px*40px（宽*高）-->
 <!--嵌入式：300px*270px-->
 <!--弹窗式：300px*310px-->
 <!--通过width和height设置验证码初始宽高，未设置会导致显示异常，默认触发式-->
-<div id="TCaptcha" style="width:300px;height:40px;" ><div>
+<div id="TCaptcha" style="width:300px;height:40px;" ></div>
 ```
 [不同样式体验入口](http://open.captcha.qq.com/cap_web/experience-character.html)
 ### 2.3 初始化并显示验证码
@@ -82,7 +79,10 @@
 
 ## 5. 接入规范
 1）请不要使用iframe页面嵌入验证码。验证码弹出的iframe框大小会变化，如果业务使用iframe会导致验证码iframe页面显示不全。
-<br> 2）PC预留给验证码展示的地方尺寸不能小于300px（宽）*310px（高），否则会导致验证码显示异常而影响用户使用。
-<br> 3）PC页面必须设置验证码显示页面初始宽高。    
 
+2）PC预留给验证码展示的地方尺寸不能小于300px（宽）*310px（高），否则会导致验证码显示异常而影响用户使用。
+
+3）PC页面必须设置验证码显示页面初始宽高。    
+
+## 6. Q&A
 
