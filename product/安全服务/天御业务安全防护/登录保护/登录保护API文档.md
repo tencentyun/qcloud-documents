@@ -281,5 +281,5 @@ Action=LoginProtection
 "associateAccount": "SpFsjpyvaJ27329"
 }　
 ```
-##6. 错误码说明
+## 6. 错误码说明
 参考返回的message字段描述
