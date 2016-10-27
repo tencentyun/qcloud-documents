@@ -13,7 +13,7 @@
 |---------|---------|---------|---------|
 | vpcId | 是 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
 | sslVpnId | 否 | Int | 系统分配的SSLvpn网关ID，例如：vpngw-l2tlvgb9。可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2sslVPN?viewType=preview" title="DescribeSSLVpn">DescribeSSLVpn</a>接口查询。 |
-| groupId | 否 | String |  域的工作组。|
+| groupId | 是 | String |  域的工作组。|
 | ipPool.n | 否 | Array |  sslVPN终端IP段。|
 | acl.n | 否 | Array |  acl策略。|
 | acl.n.proto | 是 | String | acl协议，例如tcp。|
