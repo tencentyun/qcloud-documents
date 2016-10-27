@@ -178,8 +178,7 @@
 </td><td> UInt
 </td><td> 业务ID
 <br> 网站或应用在多个业务中使用此服务，通过此ID区分统计数据
-</td><td>
-</td></tr>
+</td>
 <tr>
 <td> sceneId
 </td><td> 可选

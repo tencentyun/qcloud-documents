@@ -102,6 +102,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=FileDetection
 &fileUrl=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201212%2F18%2F20121218162327_WMCC3.thumb.466_0.jpeg
 &fileMd5=v%2B2%2B45OP78U0cYlB8g%2BBpLrF%2BsE%3D
 ```
+
 ## 5. 响应示例
 ```
 {
@@ -115,5 +116,6 @@ https://csec.api.qcloud.com/v2/index.php?Action=FileDetection
 "pornScore": 0
 }
 ```
+
 ## 6.错误码说明
 参考返回的message字段描述
