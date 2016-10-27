@@ -2,7 +2,7 @@
 ## 1. 地域相关接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 查询地域以及可用区 | [DescribeRegions]() | 用于查询黑石物理服务器可用区的详细信息。 |
+| 查询地域以及可用区 | [DescribeRegions](/doc/api/456/6634) | 用于查询黑石物理服务器可用区的详细信息。 |
 
 ## 2. 物理服务器相关接口
 | 接口功能 | Action ID | 功能描述 |
@@ -12,7 +12,7 @@
 | 查询操作系统列表 | [DescribeOs]() | 用于查询指定物理服务器机型已支持的操作系统列表。 |
 | 查询RAID列表 | [DescribeDeviceClassRaid]() | 用于查询指定黑石物理服务器机型已支持的RAID类型列表。 |
 | 查询设备型号 | [DescribeDeviceClass]() | 用于查询当前售卖的黑石物理服务器机型列表。 |
-| 查询可执行的操作类型 | [DescribeDeviceOperationLog]() | 用于查询黑石物理机服务器操作日志。 |
+| 查询设备操作日志 | [DescribeDeviceOperationLog]() | 用于查询黑石物理机服务器操作日志。 |
 | 查询异步任务状态 | [DescriptionOperationResult](/doc/api/456/6644) | 用于查询黑石物理机服务器异步任务的当前状态。 |
 | 重置密码 | [ResetDevicePasswd](/doc/api/456/6641) | 用于重置黑石物理服务器的root密码。 |
 | 修改服务器名称 | [ModifyDeviceAlias]() | 用于批量修改黑石物理服务器的别名。 |
@@ -24,19 +24,22 @@
 ## 3. 带外相关接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 查询带外VPN信息 | [GetOutBandVPNAuthInfo]() |  用于查询黑石物理服务器带外VPN认证用户名密码等信息。 |
+| 获取带外VPN信息 | [GetOutBandVPNAuthInfo]() |  用于查询黑石物理服务器带外VPN认证用户名密码等信息。 |
+| 获取带外登录信息 | [GetDeviceOutBandInfo]() |  用于查询黑石登录物理服务器带外页面时用户名密码等信息。 |
 | 重置带外VPN密码 | [SetOutBandVPNAuthPwd]() | 用于重置黑石物理服务器的带外VPN认证用户名密码信息。 |
 
-## 4. 网络相关接口
+## 4. 私有网络相关接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 申请VPC内网IP | [ApplyIps]() | 用于申请黑石VPC内的子网IP。 |
-| 释放VPC内网IP | [ReturnIps]() | 用于释放黑石VPC内的子网IP。 |
+| 查询私有网络列表 | [DescribeVpcEx]() | 用于申请黑石VPC内的子网IP。 |
+| 查询私有网络详情 | [ApplyIps]() | 用于申请黑石VPC内的子网IP。 |
+| 查询子网列表 | [ApplyIps]() | 用于申请黑石VPC内的子网IP。 |
+| 查询子网详情 | [ReturnIps]() | 用于释放黑石VPC内的子网IP。 |
 
 ## 5. 负载均衡相关接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 查询负载均衡价格 | [InquiryBm负载均衡Price]() | 用于查询负载均衡价格。 |
+| 查询负载均衡价格 | [InquiryBmLBPrice]() | 用于查询负载均衡价格。 |
 | 获取负载均衡实例列表 | [DescribeBmLoadBalancers]() | 用于获取负载均衡实例列表。 |
 | 创建负载均衡 | [CreateBmLoadBalancer]() | 用于创建负载均衡。 |
 | 删除负载均衡 | [DeleteBmLoadBalancers]() | 用于删除负载均衡。 |
@@ -56,13 +59,13 @@
 ## 6. 弹性公网IP（EIP）相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
-| 查询EIP列表 | [DescribeEipBm]() | 用于查询黑石弹性公网IP列表。
-| 查询EIP限额 | [DescribeEipBmQuota]() | 用于查询黑石弹性公网IP申请限额。
-| 创建EIP | [EipBmApply]() | 用于创建黑石弹性公网IP。
-| 绑定服务器EIP | [EipBmBindRs]() | 用于绑定黑石弹性公网IP到黑石物理服务器。
-| 解绑服务器EIP | [EipBmUnbindRs]() | 用于解绑黑石物理服务器上的弹性公网IP。
-| 释放EIP | [EipBmDelete]() | 用于释放黑石弹性公网IP。
-| 更新EIP名称 | [ModifyEipAlias]() | 用于更新黑石弹性公网IP名称。
-| 修改EIP计费模式 | [EipBmModifyCharge]() | 用于修改黑石弹性公网IP计费模式。
-| 查询EIP任务状态 | [EipBmQueryTask]() | 用于查询黑石弹性公网IP异步任务状态。
+| 查询EIP列表 | [DescribeEipBm](/doc/api/456/6671) | 用于查询黑石弹性公网IP列表。
+| 查询EIP限额 | [DescribeEipBmQuota](/doc/api/456/6668) | 用于查询黑石弹性公网IP申请限额。
+| 创建EIP | [EipBmApply](/doc/api/456/6669) | 用于创建黑石弹性公网IP。
+| 绑定服务器EIP | [EipBmBindRs](/doc/api/456/6673) | 用于绑定黑石弹性公网IP到黑石物理服务器。
+| 解绑服务器EIP | [EipBmUnbindRs](/doc/api/456/6674) | 用于解绑黑石物理服务器上的弹性公网IP。
+| 释放EIP | [EipBmDelete](/doc/api/456/6676) | 用于释放黑石弹性公网IP。
+| 更新EIP名称 | [ModifyEipAlias](/doc/api/456/6672) | 用于更新黑石弹性公网IP名称。
+| 修改EIP计费模式 | [EipBmModifyCharge](/doc/api/456/6675) | 用于修改黑石弹性公网IP计费模式。
+| 查询EIP任务状态 | [EipBmQueryTask](/doc/api/456/6670) | 用于查询黑石弹性公网IP异步任务状态。
 
