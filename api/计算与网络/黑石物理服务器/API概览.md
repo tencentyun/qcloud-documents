@@ -7,18 +7,18 @@
 ## 2. 物理服务器相关接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 购买服务器 | [BuyDevice]() |  用于购买黑石物理服务器。 |
+| 购买服务器 | [BuyDevice](/doc/api/456/6638) |  用于购买黑石物理服务器。 |
 | 查询服务器 | [DescribeDevice]() | 用于查询已购买的黑石物理服务器详细信息。 |
 | 查询操作系统列表 | [DescribeOs]() | 用于查询指定物理服务器机型已支持的操作系统列表。 |
 | 查询RAID列表 | [DescribeDeviceClassRaid]() | 用于查询指定黑石物理服务器机型已支持的RAID类型列表。 |
 | 查询设备型号 | [DescribeDeviceClass]() | 用于查询当前售卖的黑石物理服务器机型列表。 |
 | 查询可执行的操作类型 | [DescribeDeviceOperationLog]() | 用于查询黑石物理机服务器操作日志。 |
-| 查询异步任务状态 | [DescriptionOperationResult]() | 用于查询黑石物理机服务器异步任务的当前状态。 |
-| 重置密码 | [ResetDevicePasswd]() | 用于重置黑石物理服务器的root密码。 |
-| 修改设备别名 | [ModifyDeviceAlias]() | 用于批量修改黑石物理服务器的别名。 |
-| 重装操作系统 | [ReloadDeviceOs]() | 用于重装黑石物理服务器的操作系统。 |
+| 查询异步任务状态 | [DescriptionOperationResult](/doc/api/456/6644) | 用于查询黑石物理机服务器异步任务的当前状态。 |
+| 重置密码 | [ResetDevicePasswd](/doc/api/456/6641) | 用于重置黑石物理服务器的root密码。 |
+| 修改服务器名称 | [ModifyDeviceAlias]() | 用于批量修改黑石物理服务器的别名。 |
+| 重装操作系统 | [ReloadDeviceOs](/doc/api/456/6642) | 用于重装黑石物理服务器的操作系统。 |
 | 开启服务器 | [StartDevice]() | 用于开启黑石物理服务器。 |
-| 关闭服务器 | [ShutdownDevice]() | 用于关闭黑石物理服务器。 |
+| 关闭服务器 | [ShutdownDevice](/doc/api/456/6639) | 用于关闭黑石物理服务器。 |
 | 重启服务器 | [RebootDevice]() | 用于重启黑石物理服务器。 |
 
 ## 3. 带外相关接口
