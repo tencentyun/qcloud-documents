@@ -1,0 +1,175 @@
+## 接口名称
+DescribeVodPlayInfo
+
+## 功能说明
+1. 根据视频名称前缀搜索视频，并返回其播放信息列表。
+
+## 请求方式
+
+### 请求域名
+vod.api.qcloud.com
+
+### 参数说明
+| 参数名称 | 必填 | 类型 | 说明 |
+|---------|---------|---------|---------|
+| fileName | 是 | String | 视频名称（前缀匹配） |
+| pageNo | 否 | int | 页号 |
+| pageSize | 否 | int | 分页大小 |
+
+### 请求示例
+```
+https://domain/v2/index.php?Action=DescribeVodPlayInfo
+&fileName=13425173277
+&COMMON_PARAMS
+```
+## 接口应答
+
+### 参数说明
+| 参数名称 | 类型 | 说明 |
+|---------|---------|---------|
+| code | Int | 错误码, 0: 成功, 其他值: 失败 |
+| message | String | 错误信息 |
+| totalCount | Int | 视频总数 |
+| fileSet | Array | 视频列表结果集 |
+
+fileSet 视频列表结果集
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|---------|
+| fileId | String | 视频ID |
+| fileName | String | 视频名称 |
+| duration | String | 视频持续时间 |
+| status | String | 视频状态， -1：未上传完成，不存在；0：初始化，暂未使用；1：审核不通过，暂未使用；2：正常；3：暂停；4：转码中；5：发布中；6：删除中；7：转码失败；100：已删除 |
+| imageUrl | String | 视频封面图片 |
+| playSet | Array | 视频播放信息 |
+
+playSet 视频播放信息结果集
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|---------|
+| url | String | 播放地址 |
+| definition | Int | 格式， 0: ["", "原始"], 1: ["带水印", "原始"], 10: ["手机", "mp4"], 20: ["标清", "mp4"], 30: ["高清", "mp4"], 110: ["手机", "flv"], 120: ["标清", "flv"], 130: ["高清", "flv"] |
+| vbitrate | Int | 码率，单位：kbps |
+| vheight | Int | 高度，单位：px |
+| vwidth | Int | 宽度，单位：px |
+
+### 错误码说明
+| 错误码 | 含义说明|
+|---------|---------|
+| 4000-7000 | 参见公共错误码。  |
+| xxx | 说明说明说明说明  |
+| yyy | 说明说明说明说明 |
+
+### 应答示例
+```
+
+{
+   "code": 0,
+   "message": "",
+   "totalCount": "105",
+   "fileSet": [
+       {
+           "fileId": "11624759161874546966",
+           "fileName": "13425173277_2015-09-06-18-56-11_2015-09-06-19-06-11",
+           "duration": 600,
+           "status": "2",
+           "image_url": "http://p.qpic.cn/videoyun/0/1203_7626dd7d1c3e48eea1230026126caf7d_1/640",
+           "playSet": [
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f0.mp4",
+                   "definition": 0,
+                   "vbitrate": 250000,
+                   "vheight": 480,
+                   "vwidth": 640
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f10.mp4",
+                   "definition": 10,
+                   "vbitrate": 149128,
+                   "vheight": 240,
+                   "vwidth": 320
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f20.mp4",
+                   "definition": 20,
+                   "vbitrate": 299837,
+                   "vheight": 480,
+                   "vwidth": 640
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f220.av.m3u8",
+                   "definition": 220,
+                   "vbitrate": 524288,
+                   "vheight": 480,
+                   "vwidth": 640
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f30.mp4",
+                   "definition": 30,
+                   "vbitrate": 865828,
+                   "vheight": 960,
+                   "vwidth": 1280
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f40.mp4",
+                   "definition": 40,
+                   "vbitrate": 1709293,
+                   "vheight": 1440,
+                   "vwidth": 1920
+               }
+           ]
+       },
+       {
+           "fileId": "11624759161874546967",
+           "fileName": "13425173277_2015-09-06-19-06-11_2015-09-06-19-16-11",
+           "duration": 599,
+           "status": "2",
+           "image_url": "http://p.qpic.cn/videoyun/0/1203_8a5015084d4f47cd9a0bc5ecfe78aecb_1/640",
+           "playSet": [
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f0.mp4",
+                   "definition": 0,
+                   "vbitrate": 246000,
+                   "vheight": 480,
+                   "vwidth": 640
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f10.mp4",
+                   "definition": 10,
+                   "vbitrate": 149193,
+                   "vheight": 240,
+                   "vwidth": 320
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f20.mp4",
+                   "definition": 20,
+                   "vbitrate": 297656,
+                   "vheight": 480,
+                   "vwidth": 640
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f220.av.m3u8",
+                   "definition": 220,
+                   "vbitrate": 524288,
+                   "vheight": 480,
+                   "vwidth": 640
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f30.mp4",
+                   "definition": 30,
+                   "vbitrate": 899976,
+                   "vheight": 960,
+                   "vwidth": 1280
+               },
+               {
+                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f40.mp4",
+                   "definition": 40,
+                   "vbitrate": 1746652,
+                   "vheight": 1440,
+                   "vwidth": 1920
+               }
+           ]
+       }
+  ]
+}
+```

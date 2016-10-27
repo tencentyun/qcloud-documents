@@ -33,7 +33,7 @@
 			</tr>
 <!--视频管理-->
 			<tr>
-				<td rowspan = 8>
+				<td rowspan = 7>
 					视频管理
 				</td>
 				<td>
@@ -61,7 +61,7 @@
 			</tr>
 			<tr>
 				<td>
-          修改视频属性（名称、描述、分类）
+          修改视频属性
 				</td>
 				<td>		
         	ModifyVodInfo
@@ -81,14 +81,6 @@
 				</td>
 				<td>		
         	DeleteVodTags
-				</td>
-			</tr>
-			<tr>
-				<td>
-          设置视频封面
-				</td>
-				<td>		
-        	ModifyVodInfo
 				</td>
 			</tr>
 			<tr>
@@ -136,7 +128,7 @@
 			</tr>
 			<tr>
 				<td>
-          获取视频分类树形结构
+          获取视频分类层次结构
 				</td>
 				<td>
         	DescribeAllClass
@@ -152,7 +144,7 @@
 			</tr>
 			<tr>
 				<td>
-          修改视频分类属性
+          修改视频分类
 				</td>
 				<td>
         	ModifyClass

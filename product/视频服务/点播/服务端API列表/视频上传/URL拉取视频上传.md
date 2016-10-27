@@ -9,8 +9,8 @@
 错误码 -->
 
 
-## 接口描述
-接口名称：MultiPullVodFile
+## 接口名称
+MultiPullVodFile
 
 ## 功能说明
 1. 通过用户传递的URL，从已有的资源库批量拉取视频文件到腾讯云；
