@@ -41,7 +41,7 @@
 </td><td> 客户端类型
 <br> 1：手机Web页面
 <br> 2：PCWeb页面
-<br> 3：APP
+<br> 4：APP
 </td></tr>
 <tr>
 <td> accountType

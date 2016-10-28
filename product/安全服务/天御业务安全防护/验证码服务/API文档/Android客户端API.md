@@ -3,16 +3,20 @@
     Android系统2.3以上；
 ### 2 开发步骤
 1)	将VerifySDK.jar拷贝到libs目录下关联到工程
-<br> 2)	如AndroidManifest.xml未声明以下权限，则添加声明
+
+[Android-SDK下载](https://mc.qcloudimg.com/static/archive/0380647a95b4e8ebd40129f7967926ac/AndroidSDK.zip)
+
+2)	如AndroidManifest.xml未声明以下权限，则添加声明
 ```
 <uses-permission android:name="android.permission.INTERNET" />
 ```
-<br> 3)	AndroidManifest.xml中添加声明
+3)	AndroidManifest.xml中添加声明
 ```
 <activity android:name="com.token.verifysdk.VerifyActivity"></activity>
 ```
-<br> 4)	需要下发验证码前从后台获取jsurl（参考服务端开发获取验证码JSURL的接口）
-<br> 5)	获取到jsurl后调用接口VerifyCoder.getVerifyCoder().startVerifyActivityForResult(Context context,String jsurl,int requestCode)并实现onActivityResult来接收是否验证成功的通知
+4)	需要下发验证码前从后台获取jsurl（参考服务端开发获取验证码JSURL的接口）
+
+5)	获取到jsurl后调用接口VerifyCoder.getVerifyCoder().startVerifyActivityForResult(Context context,String jsurl,int requestCode)并实现onActivityResult来接收是否验证成功的通知
 ```
 /*
  *  参数说明：

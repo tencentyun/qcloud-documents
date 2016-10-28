@@ -1,8 +1,11 @@
 ## 1. 接口描述
 注册保护接口提供恶意注册识别等能力，根据用户账号、信用和注册的行为和来源判断当次注册的恶意等级。
-<br> 协议：HTTPS
-<br> 域名：csec.api.qcloud.com
-<br> 接口名：RegisterProtection
+
+协议：HTTPS
+
+域名：csec.api.qcloud.com
+
+接口名：RegisterProtection
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。其中，此接口的Action字段为RegisterProtection。
