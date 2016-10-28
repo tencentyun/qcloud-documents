@@ -29,7 +29,7 @@
 <tr>
 <td> code
 <td> Int
-<td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。
+<td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="/doc/api/456/6725" title="公共错误码">公共错误码</a>。
 <tr>
 <td> message
 <td> String
@@ -78,7 +78,9 @@
 ## 4. 示例
 输入
 ```
-https://bm.api.qcloud.com/v2/index.php?Action=GetOutBandVPNAuthInfo&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC&Nonce=6392&Timestamp=1476428786&Region=bj&appId=1251001002&Signature=4h2Mv6hGxjQek6EZaXibKbYlOEY%3D
+https://bm.api.qcloud.com/v2/index.php?
+Action=GetOutBandVPNAuthInfo
+&<公共参数>
 ```
 输出
 ```

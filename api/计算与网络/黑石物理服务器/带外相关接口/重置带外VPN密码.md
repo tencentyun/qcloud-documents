@@ -46,7 +46,7 @@ update:修改此PN帐号的密码，前提条件已经调用本API创建了VPN�
 <tr>
 <td> code
 <td> Int
-<td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。
+<td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="/doc/api/456/6725" title="公共错误码">公共错误码</a>。
 <tr>
 <td> message
 <td> String
@@ -72,7 +72,11 @@ update:修改此PN帐号的密码，前提条件已经调用本API创建了VPN�
 ## 4. 示例
 输入
 ```
-https://bm.api.qcloud.com/v2/index.php?Action=SetOutBandVPNAuthPwd&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC&Nonce=57726&Timestamp=1476431939&Region=bj&appId=1251001002&password=tencent89&createOrUpdate=update&Signature=42ZqsjKT%2F%2Fdv7X0JKpoDmR1PjlE%3D
+https://bm.api.qcloud.com/v2/index.php?
+Action=SetOutBandVPNAuthPwd
+&<公共请求参数>
+&password=tencent89
+&createOrUpdate=update
 ```
 输出
 ```
