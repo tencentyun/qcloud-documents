@@ -26,7 +26,7 @@ DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务�
 - 点播：MP4、HLS和FLV格式的在线点播
 
 **【APP安装】**
-![](//mc.qcloudimg.com/static/img/b3b0796bc0bb0af7d6ecb56eb206eae2/image.png)
+![](//mc.qcloudimg.com/static/img/6bc7924755771248a95bd02f2e008fce/image.png)
 
 **【体验地址】**
 RTMP推流具有排它性：同一时间、同一URL，<font color='red'>只能有一个主播</font>在推流中。所以如果您体验推流总是断开（被后台拒绝），说明地址已经被其他的体验者占用，推荐您直接[开通腾讯云直播服务](https://console.qcloud.com/live)并创建自己的频道进行体验。
