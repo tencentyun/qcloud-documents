@@ -157,17 +157,19 @@ CDN为您提供了两种计费模式：流量计费 和 带宽计费，您可以
 
 ## 购买指导
 
-### 直接使用
+CDN 为<font color="red">后付费产品</font>，先使用后付费，无需提前付费购买，即可直接使用。
 
-在您开通了CDN服务时（如何开通？点击[开通CDN](https://www.qcloud.com/doc/product/228/3156)），您需要选择 **流量计费** 或是 **带宽计费**， 以上两种计费方式均为<font color="red">后付费模式</font>，即您可以先使用，在第二天才会进行扣费，此时您只需要保证您的腾讯云账户中拥有充足的金额，不会被扣至欠费状态。
+登陆 [腾讯云CDN官方页面](https://www.qcloud.com/product/cdn.html)，点击 【立即使用】：
+![](https://mc.qcloudimg.com/static/img/37e78fb6baeade5c4d83e0554e909b24/image.png)
 
-### 购买流量包
+CDN 为后付费产品，需要先经过实名认证：
+![](https://mc.qcloudimg.com/static/img/e207ea6d36bb48898844cdb8878f5620/image.png)
+若您已经通过实名认证，则跳过此步骤。
 
-若您在开通CDN服务时选择的是**流量计费**， 则您可以通过购买流量包来进行抵扣。点击[流量包购买](http://manage.qcloud.com/shoppingcart/shop.php?tab=cdn)页面，即可看到如下各种大小的流量包：
+完成认证后，选择计费方式，即可开通 CDN 服务：
+![](https://mccdn.qcloud.com/static/img/f5d3235f86db2992ad6d01d1e3d07d04/image.png)
 
-![](https://mccdn.qcloud.com/static/img/faf8fafeda54bf592203884e4de3bb13/image.png)
-
-您可以根据需要选择所需大小的流量包，点击**立即购买**即可，流量包使用规则可以参考[计费模型](https://www.qcloud.com/doc/product/228/2949)中流量包抵扣部分说明
+若您选择使用流量计费，可以购买流量包进行抵扣，[点击购买](http://manage.qcloud.com/shoppingcart/shop.php?tab=cdn)。
 
 ## 到期提醒
 
