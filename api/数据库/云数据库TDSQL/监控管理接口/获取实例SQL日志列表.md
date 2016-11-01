@@ -28,7 +28,8 @@
 | data.count | Int | 返回的sqlItems的数量 |
 | data.sqlItems | Array | sql日志数据| 
 
-其中sqlItems包含如下字段，
+其中sqlItems包含如下字段：
+
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | offset | Int | 偏移量| 
