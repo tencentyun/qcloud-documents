@@ -1,14 +1,14 @@
 ## 开发准备
 
-### 相关资源
+### SDK获取
 
-[cos java sdk v4 github项目](https://github.com/tencentyun/cos-java-sdk-v4)
+对象存储服务 Java SDK下载地址：[github项目](https://github.com/tencentyun/cos-java-sdk)
 
-### 环境依赖
+### 开发环境
 
 JDK 1.7
 
-### 安装SDK
+### SDK配置
 
 - maven安装
 
@@ -18,55 +18,17 @@ pom.xml 添加依赖
 <dependency>
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
-            <version>4.2</version>
+            <version>3.3</version>
 </dependency>
 ```
 
 - 源码安装
 
-从[cos java sdk v4 github](https://github.com/tencentyun/cos-java-sdk-v4)下载源码
+从[github](https://github.com/tencentyun/cos-java-sdk)下载源码
 
 ### 卸载SDK
 
-删除pom依赖或源码
-
-### 历史版本
-
-4.2版本是针对COS 4.X系统，接口与3.x的基本一致, 如果需要使用历史版本, 请参见[cos java sdk v3 github](https://github.com/tencentyun/cos-java-sdk/tree/master)
-
-## 生成客户端对象
-
-### 初始化秘钥信息
-
-```java
-        long appId = 1000000;
-        String secretId = "xxxxxxxxxxxxxxxxxxxxxxxxxxx";
-        String secretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxx";
-        // 设置要操作的bucket
-        String bucketName = "xxxxxxxxx";
-        // 初始化秘钥信息
-        Credentials cred = new Credentials(appId, secretId, secretKey);
-```
-
-### 初始化客户端配置(如设置园区)
-
-```java
-        // 初始化客户端配置
-        ClientConfig clientConfig = new ClientConfig();
-        // 设置bucket所在的区域，比如广州(gz), 天津(tj)
-        clientConfig.setRegion("gz");
-```
-
-### 生成客户端
-
-```java
-        // 初始化cosClient
-        COSClient cosClient = new COSClient(clientConfig, cred);
-```
-
-------
-
-------
+删除pom依赖或[源码](https://github.com/tencentyun/cos-java-sdk/tree/master)
 
 ## 文件操作
 
@@ -80,26 +42,22 @@ String uploadFile(UploadFileRequest request);
 
 #### 参数说明
 
-|   参数名   |        类型         | 默认值  |   参数描述   |
-| :-----: | :---------------: | :--: | :------: |
-| request | UploadFileRequest |  无   | 上传文件类型请求 |
+| 参数名     | 类型                | 默认值  | 参数描述     |
+| :------ | :---------------- | :--- | :------- |
+| request | UploadFileRequest | 无    | 上传文件类型请求 |
 
-|    request成员    |       类型        |         默认值         |    设置方法    |                    描述                    |
-| :-------------: | :-------------: | :-----------------: | :--------: | :--------------------------------------: |
-|   bucketName    |     String      |          无          | 构造函数或set方法 |                 bucket名称                 |
-|     cosPath     |     String      |          无          | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
-|    localPath    |     String      |          无          | 构造函数或set方法 |             通过磁盘文件上传的本地绝对路径              |
-|  contentBufer   |     byte[]      |          无          | 构造函数或set方法 |             通过内存上传的buffer内容              |
-|     bizAttr     |     String      |          空          | 构造函数或set方法 |           文件的备注，主要用于对该文件用途的描述            |
-|   insertOnly    | InsertOnly (枚举) | NO_OVER_WRITE (不覆盖) |   set方法    | 是否直插入不覆盖已存在的文件, NO_OVER_WRITE表示只直插入不覆盖, 当文件存在返回错误 OVER_WRITE 表示允许覆盖 |
-| enableSavePoint |     boolean     |        true         |   set方法    | 是否开启断点文件，开启断点文件后，会在本地记录一个断点, 如果上传失败，则会跳过已经上传过的片. 看起断点文件会牺牲一部分上传速度。 |
-| enableShaDigest |     boolean     |        false        |   set方法    | 是否计算sha摘要，如果开启sha，并且bucket下有相同内容文件，则会触发秒传。sha计算会耗费一定的CPU和时间，建议大文件不开启。 |
-|     taskNum     |       int       |         16          |   set方法    |                 文件上传的并发数                 |
+| request成员  | 类型              | 默认值                 | 设置方法       | 描述                                       |
+| :--------- | :-------------- | :------------------ | :--------- | :--------------------------------------- |
+| bucketName | String          | 无                   | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String          | 无                   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| localPath  | String          | 无                   | 构造函数或set方法 | 要上传的本地文件的绝对路径                            |
+| bizAttr    | String          | 空                   | 构造函数或set方法 | 文件的备注，主要用于对该文件用途的描述                      |
+| insertOnly | InsertOnly (枚举) | NO_OVER_WRITE (不覆盖) | set方法      | 是否直插入不覆盖已存在的文件, NO_OVER_WRITE表示只直插入不覆盖, 当文件存在返回错误 OVER_WRITE 表示允许覆盖 |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess, 'data':\$data}, code为0表示成功,  message为SUCCESS或者失败原因, data中包含相关的属性, 详情请参见返回值模块 |
 
 #### 示例
@@ -108,45 +66,6 @@ String uploadFile(UploadFileRequest request);
 UploadFileRequest uploadFileRequest = new UploadFileRequest(bucketName, 		"/sample_file.txt", "local_file_1.txt");
 String uploadFileRet = cosClient.uploadFile(uploadFileRequest);
 ```
-
-
-
-### 下载文件
-
-#### 方法原型
-
-```java
-String getFileLocal(GetFileLocalRequest request);
-```
-
-#### 参数说明
-
-|   参数名   |        参数类型         | 默认值  |  参数描述  |
-| :-----: | :-----------------: | :--: | :----: |
-| request | GetFileLocalRequest |  无   | 下载文件请求 |
-
-| request成员  |   类型    |      默认值       |    设置方法    |                    描述                    |
-| :--------: | :-----: | :------------: | :--------: | :--------------------------------------: |
-| bucketName | String  |       无        | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String  |       无        | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
-| localPath  | String  |       无        | 构造函数或set方法 |                要下载到的本地路径                 |
-|   useCDN   | boolean |      true      |   set方法    |               是否通过CDN进行下载                |
-|  referer   | String  |       空串       |   set方法    |     设置Referer(针对开启了refer防盗链的bucket)      |
-| rangeStart |  long   |       0        |   set方法    |          要下载的字节起始，参见Http Range           |
-|  rangeEnd  |  long   | Long.MAX_VALUE |   set方法    |          下载的字节结束, 参见Http Range           |
-
-#### 示例
-
-```java
-String localPathDown = "src/test/resources/local_file_down.txt";
-GetFileLocalRequest getFileLocalRequest =
-  new GetFileLocalRequest(bucketName, cosFilePath, localPathDown);
-getFileLocalRequest.setUseCDN(false);
-getFileLocalRequest.setReferer("*.myweb.cn");
-String getFileResult = cosClient.getFileLocal(getFileLocalRequest);
-```
-
-
 
 ### 获取文件属性
 
@@ -158,19 +77,19 @@ String statFile(StatFileRequest request);
 
 #### 参数说明
 
-|   参数名   |      参数类型       | 默认值  |   参数描述   |
-| :-----: | :-------------: | :--: | :------: |
-| request | StatFileRequest |  无   | 获取文件属性请求 |
+| 参数名     | 参数类型            | 默认值  | 参数描述     |
+| :------ | :-------------- | :--- | :------- |
+| request | StatFileRequest | 无    | 获取文件属性请求 |
 
-| request成员  |   类型   | 默认值  |    设置方法    |                    描述                    |
-| :--------: | :----: | :--: | :--------: | :--------------------------------------: |
-| bucketName | String |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| request成员  | 类型     | 默认值  | 设置方法       | 描述                                       |
+| :--------- | :----- | :--- | :--------- | :--------------------------------------- |
+| bucketName | String | 无    | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String | 无    | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess, 'data':\$data}, code为0表示成功,  message为SUCCESS或者失败原因, data中包含相关的属性, 详情请参见返回值模块 |
 
 #### 示例
@@ -178,10 +97,7 @@ String statFile(StatFileRequest request);
 ```java
 StatFileRequest statFileRequest = new StatFileRequest(bucketName, "/sample_file.txt");
 String statFileRet = cosClient.statFile(statFileRequest);
-
 ```
-
-
 
 ### 更新文件属性
 
@@ -193,28 +109,28 @@ String updateFile(UpdateFileRequest request);
 
 #### 参数说明
 
-|   参数名   |       参数类型        | 默认值  |   参数描述   |
-| :-----: | :---------------: | :--: | :------: |
-| request | UpdateFileRequest |  无   | 更新文件属性请求 |
+| 参数名     | 参数类型              | 默认值  | 参数描述     |
+| :------ | :---------------- | :--- | :------- |
+| request | UpdateFileRequest | 无    | 更新文件属性请求 |
 
-|     request成员      |     类型      | 默认值  |    设置方法    |                    描述                    |
-| :----------------: | :---------: | :--: | :--------: | :--------------------------------------: |
-|     bucketName     |   String    |  无   | 构造函数或set方法 |                 bucket名称                 |
-|      cosPath       |   String    |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
-|      bizAttr       |   String    |  无   |   set方法    |           文件的备注，主要用于对改文件用途的描述            |
-|     authority      | String (枚举) |  无   |   set方法    | 文件权限，默认是继承bucket的权限合法取值: eInvalid(继承bucket), eWRPrivate(私有读写), eWPrivateRPublic(私有写, 公有读) |
-|    cacheControl    |   String    |  无   |   set方法    |           参见HTTP的Cache-Control           |
-|    contentType     |   String    |  无   |   set方法    |           参见HTTP的Content-Type            |
-|  contentLanguage   |   String    |  无   |   set方法    |         参见HTTP的Content-Language          |
-| contentDisposition |   String    |  无   |   set方法    |        参见HTTP的Content-Disposition        |
-|    x-cos-meta-     |   String    |  无   |   set方法    | 自定义HTTP 头，参数必须以x-cos-meta-开头，值由用户定义，可设置多个 |
+| request成员          | 类型          | 默认值  | 设置方法       | 描述                                       |
+| :----------------- | :---------- | :--- | :--------- | :--------------------------------------- |
+| bucketName         | String      | 无    | 构造函数或set方法 | bucket名称                                 |
+| cosPath            | String      | 无    | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| bizAttr            | String      | 无    | set方法      | 文件的备注，主要用于对改文件用途的描述                      |
+| authority          | String (枚举) | 无    | set方法      | 文件权限，默认是继承bucket的权限合法取值: eInvalid(继承bucket), eWRPrivate(私有读写), eWPrivateRPublic(私有写, 公有读) |
+| cacheControl       | String      | 无    | set方法      | 参见HTTP的Cache-Control                     |
+| contentType        | String      | 无    | set方法      | 参见HTTP的Content-Type                      |
+| contentLanguage    | String      | 无    | set方法      | 参见HTTP的Content-Language                  |
+| contentDisposition | String      | 无    | set方法      | 参见HTTP的Content-Disposition               |
+| x-cos-meta-        | String      | 无    | set方法      | 自定义HTTP 头，参数必须以x-cos-meta-开头，值由用户定义，可设置多个 |
 
 **tips:** 更新属性可以选择其中的某几个，对于HTTP头部cache_control，content_type, content_disposition和x-cos-meta-, 如果本次只更新其中的某几个，其他的都会被抹掉，即这4个属性是整体更新。
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
 
 #### 示例
@@ -234,7 +150,38 @@ updateFileRequest.setXCosMeta("x-cos-meta-yyy", "yyy");
 String updateFileRet = cosClient.updateFile(updateFileRequest);
 ```
 
+### 移动文件(重命名文件)
 
+#### 方法原型
+
+```java
+String moveFile(MoveFileRequest request);
+```
+
+#### 参数说明
+
+| 参数名     | 参数类型            | 默认值  | 参数描述   |
+| :------ | :-------------- | :--- | :----- |
+| request | MoveFileRequest | 无    | 移动文件请求 |
+
+| request成员  | 类型        | 默认值                     | 设置方法       | 描述                                       |
+| :--------- | :-------- | :---------------------- | :--------- | :--------------------------------------- |
+| bucketName | String    | 无                       | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String    | 无                       | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| overWrite  | OverWrite | OverWrite.NO_OVER_WRITE | 构造函数或set方法 | 是否覆盖, 0(默认): 不覆盖, 1: 覆盖                  |
+
+#### 返回结果说明
+
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
+| String | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
+
+#### 示例
+
+```java
+MoveFileRequest moveFileRequest = new MoveFileRequest(bucketName, "/sample_file.txt", "/sample_file_move.txt");
+String moveFileRet = cosClient.moveFile(moveFileRequest);
+```
 
 ### 删除文件
 
@@ -246,19 +193,19 @@ String delFile(DelFileRequest request);
 
 #### 参数说明
 
-|   参数名   |      参数类型      | 默认值  |  参数描述  |
-| :-----: | :------------: | :--: | :----: |
-| request | DelFileRequest |  无   | 删除文件请求 |
+| 参数名     | 参数类型           | 默认值  | 参数描述   |
+| :------ | :------------- | :--- | :----- |
+| request | DelFileRequest | 无    | 删除文件请求 |
 
-| request成员  |   类型   | 默认值  |    设置方法    |                    描述                    |
-| :--------: | :----: | :--: | :--------: | :--------------------------------------: |
-| bucketName | String |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| request成员  | 类型     | 默认值  | 设置方法       | 描述                                       |
+| :--------- | :----- | :--- | :--------- | :--------------------------------------- |
+| bucketName | String | 无    | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String | 无    | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
 
 #### 示例
@@ -267,10 +214,6 @@ String delFile(DelFileRequest request);
 DelFileRequest delFileRequest = new DelFileRequest(bucketName, "/sample_file_move.txt");
 String delFileRet = cosClient.delFile(delFileRequest);
 ```
-
-------
-
-------
 
 ## 目录操作
 
@@ -284,20 +227,20 @@ String createFolder(CreateFolderRequest request);
 
 #### 参数说明
 
-|   参数名   |        参数类型         | 默认值  |  参数描述  |
-| :-----: | :-----------------: | :--: | :----: |
-| request | CreateFolderRequest |  无   | 创建目录请求 |
+| 参数名     | 参数类型                | 默认值  | 参数描述   |
+| :------ | :------------------ | :--- | :----- |
+| request | CreateFolderRequest | 无    | 创建目录请求 |
 
-| request成员  |   类型   | 默认值  |    设置方法    |                    描述                    |
-| :--------: | :----: | :--: | :--------: | :--------------------------------------: |
-| bucketName | String |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
-|  bizAttr   | String |  空   |   set方法    |            目录的备注，主要用于对目录用途的描述            |
+| request成员  | 类型     | 默认值  | 设置方法       | 描述                                       |
+| :--------- | :----- | :--- | :--------- | :--------------------------------------- |
+| bucketName | String | 无    | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String | 无    | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
+| bizAttr    | String | 空    | set方法      | 目录的备注，主要用于对目录用途的描述                       |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
 
 #### 示例
@@ -306,8 +249,6 @@ String createFolder(CreateFolderRequest request);
 CreateFolderRequest createFolderRequest = new CreateFolderRequest(bucketName, "/sample_folder/");
 String createFolderRet = cosClient.createFolder(createFolderRequest);
 ```
-
-
 
 ### 获取目录属性
 
@@ -319,19 +260,19 @@ String statFolder(StatFolderRequest request);
 
 #### 参数说明
 
-|   参数名   |       参数类型        | 默认值  |   参数描述   |
-| :-----: | :---------------: | :--: | :------: |
-| request | StatFolderRequest |  无   | 获取目录属性请求 |
+| 参数名     | 参数类型              | 默认值  | 参数描述     |
+| :------ | :---------------- | :--- | :------- |
+| request | StatFolderRequest | 无    | 获取目录属性请求 |
 
-| request成员  |   类型   | 默认值  |    设置方法    |                    描述                    |
-| :--------: | :----: | :--: | :--------: | :--------------------------------------: |
-| bucketName | String |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
+| request成员  | 类型     | 默认值  | 设置方法       | 描述                                       |
+| :--------- | :----- | :--- | :--------- | :--------------------------------------- |
+| bucketName | String | 无    | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String | 无    | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess, 'data':\$data}, code为0表示成功,  message为SUCCESS或者失败原因, data中包含相关的属性, 详情请参见返回值模块 |
 
 #### 示例
@@ -340,8 +281,6 @@ String statFolder(StatFolderRequest request);
 StatFolderRequest statFolderRequest = new StatFolderRequest(bucketName, "/sample_folder/");
 String statFolderRet = cosClient.statFolder(statFolderRequest);
 ```
-
-
 
 ### 更新目录属性
 
@@ -353,20 +292,20 @@ String updateFolder(UpdateFolderRequest request);
 
 #### 参数说明
 
-|   参数名   |        参数类型         | 默认值  |   参数描述   |
-| :-----: | :-----------------: | :--: | :------: |
-| request | UpdateFolderRequest |  无   | 更新目录属性请求 |
+| 参数名     | 参数类型                | 默认值  | 参数描述     |
+| :------ | :------------------ | :--- | :------- |
+| request | UpdateFolderRequest | 无    | 更新目录属性请求 |
 
-| request成员  |   类型   | 默认值  |    设置方法    |                    描述                    |
-| :--------: | :----: | :--: | :--------: | :--------------------------------------: |
-| bucketName | String |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
-|  bizAttr   | String |  空   |   set方法    |            目录的备注，主要用于对目录用途的描述            |
+| request成员  | 类型     | 默认值  | 设置方法       | 描述                                       |
+| :--------- | :----- | :--- | :--------- | :--------------------------------------- |
+| bucketName | String | 无    | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String | 无    | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
+| bizAttr    | String | 空    | set方法      | 目录的备注，主要用于对目录用途的描述                       |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
 
 #### 示例
@@ -376,8 +315,6 @@ UpdateFolderRequest updateFolderRequest = new UpdateFolderRequest(bucketName, "/
 updateFolderRequest.setBizAttr("这是一个测试目录");
 String updateFolderRet = cosClient.updateFolder(updateFolderRequest);
 ```
-
-
 
 ### 获取目录列表
 
@@ -389,22 +326,24 @@ String listFolder(ListFolderRequest request);
 
 #### 参数说明
 
-|   参数名   |       参数类型        | 默认值  |   参数描述   |
-| :-----: | :---------------: | :--: | :------: |
-| request | ListFolderRequest |  无   | 获取目录成员请求 |
+| 参数名     | 参数类型              | 默认值  | 参数描述     |
+| :------ | :---------------- | :--- | :------- |
+| request | ListFolderRequest | 无    | 获取目录成员请求 |
 
-| request成员  |   类型   | 默认值  |    设置方法    |                    描述                    |
-| :--------: | :----: | :--: | :--------: | :--------------------------------------: |
-| bucketName | String |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
-|    num     |  int   | 199  | 构造函数或set方法 |             获取列表成员的数量，最大为199             |
-|   prefix   | String |  空   | 构造函数或set方法 | 搜索成员的前缀, 例如prefix为test表示只搜索以test开头的文件或目录 |
-|  context   | String |  空   | 构造函数或set方法 | 搜索上下文, 由上一次list的结果返回，作为这一次搜索的起点，用于循环获取一个目录下的所有成员 |
+| request成员  | 类型               | 默认值           | 设置方法       | 描述                                       |
+| :--------- | :--------------- | :------------ | :--------- | :--------------------------------------- |
+| bucketName | String           | 无             | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String           | 无             | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
+| num        | int              | 199           | 构造函数或set方法 | 获取列表成员的数量，最大为199                         |
+| pattern    | ListPattern (枚举) | BOTH          | 构造函数或set方法 | 获取列表成员类型, 合法取值       BOTH(获取文件和目录),       DIR_ONLY(只获取目录),     FILE_ONLY(只获取文件) |
+| prefix     | String           | 空             | 构造函数或set方法 | 搜索成员的前缀, 例如prefix为test表示只搜索以test开头的文件或目录 |
+| context    | String           | 空             | 构造函数或set方法 | 搜索上下文, 由上一次list的结果返回，作为这一次搜索的起点，用于循环获取一个目录下的所有成员 |
+| order      | ListOrder (枚举)   | POSITIVE (正序) | 构造函数或set方法 | 搜索顺序, POSITIVE: 正序, NEGATIVE: 逆序         |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess, 'data':\$data}, code为0表示成功,  message为SUCCESS或者失败原因, data中包含成员列表, 详情请参见返回值模块 |
 
 #### 示例
@@ -413,8 +352,6 @@ String listFolder(ListFolderRequest request);
 ListFolderRequest listFolderRequest = new ListFolderRequest(bucketName, "/sample_folder/");
 String listFolderRet = cosClient.listFolder(listFolderRequest);
 ```
-
-
 
 ### 删除目录
 
@@ -426,19 +363,19 @@ String delFolder(DelFolderRequest request);
 
 #### 参数说明
 
-|   参数名   |       参数类型       | 默认值  |  参数描述  |
-| :-----: | :--------------: | :--: | :----: |
-| request | DelFolderRequest |  无   | 删除目录请求 |
+| 参数名     | 参数类型             | 默认值  | 参数描述   |
+| :------ | :--------------- | :--- | :----- |
+| request | DelFolderRequest | 无    | 删除目录请求 |
 
-| request成员  |   类型   | 默认值  |    设置方法    |                    描述                    |
-| :--------: | :----: | :--: | :--------: | :--------------------------------------: |
-| bucketName | String |  无   | 构造函数或set方法 |                 bucket名称                 |
-|  cosPath   | String |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
+| request成员  | 类型     | 默认值  | 设置方法       | 描述                                       |
+| :--------- | :----- | :--- | :--------- | :--------------------------------------- |
+| bucketName | String | 无    | 构造函数或set方法 | bucket名称                                 |
+| cosPath    | String | 无    | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
 
-#### 返回值
+#### 返回结果说明
 
-| 返回值类型  |                  返回值描述                   |
-| :----: | :--------------------------------------: |
+| 返回值类型  | 返回值描述                                    |
+| :----- | :--------------------------------------- |
 | String | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
 
 #### 示例
@@ -448,15 +385,13 @@ DelFolderRequest delFolderRequest = new DelFolderRequest(bucketName, "/sample_fo
 String delFolderRet = cosClient.delFolder(delFolderRequest);
 ```
 
-------
-
-------
-
 ## 签名管理
 
 签名模块提供了生成多次签名、单次签名和下载签名的接口，其中多次签名和单次签名在文件和目录操作的api内部使用，用户不用关心，下载签名用于方便用户生成下载私有bucket的文件签名。
 
 ### 多次签名
+
+#### 方法原型
 
 ```java
 String getPeriodEffectiveSign(String bucketName, String cosPath, Credentials cred, long expired)
@@ -468,14 +403,14 @@ String getPeriodEffectiveSign(String bucketName, String cosPath, Credentials cre
 
 #### 参数说明
 
-| 参数名      |    参数类型     | 默认值  |                 参数描述                 |
-| -------- | :---------: | :--: | :----------------------------------: |
-| bucket   |   String    |  无   |               bucket名称               |
-| cos_path |   String    |  无   |              要签名的cos路径               |
-| cred     | Credentials |  无   | 用户身份信息, 包括appid, secretId, secretkey |
-| expired  |    long     |  无   |           签名过期时间, UNIX时间戳            |
+| 参数名      | 参数类型        | 默认值  | 参数描述                                 |
+| :------- | :---------- | :--- | :----------------------------------- |
+| bucket   | String      | 无    | bucket名称                             |
+| cos_path | String      | 无    | 要签名的cos路径                            |
+| cred     | Credentials | 无    | 用户身份信息, 包括appid, secretId, secretkey |
+| expired  | long        | 无    | 签名过期时间, UNIX时间戳                      |
 
-#### 返回值
+#### 返回结果说明
 
 base64编码的字符串
 
@@ -489,6 +424,8 @@ String signStr = Sign.getPeriodEffectiveSign(bucketName, "/pic/test.jpg", cred, 
 
 ### 单次签名
 
+#### 方法原型
+
 ```java
 String getOneEffectiveSign(String bucketName, String cosPath, Credentials cred)
 ```
@@ -499,13 +436,13 @@ String getOneEffectiveSign(String bucketName, String cosPath, Credentials cred)
 
 #### 参数说明
 
-|   参数名    |    参数类型     | 默认值  |                 参数描述                 |
-| :------: | :---------: | :--: | :----------------------------------: |
-|  bucket  |   unicode   |  无   |               bucket名称               |
-| cos_path |   unicode   |  无   |              要签名的cos路径               |
-|   cred   | Credentials |  无   | 用户身份信息, 包括appid, secretId, secretkey |
+| 参数名      | 参数类型        | 默认值  | 参数描述                                 |
+| :------- | :---------- | :--- | :----------------------------------- |
+| bucket   | unicode     | 无    | bucket名称                             |
+| cos_path | unicode     | 无    | 要签名的cos路径                            |
+| cred     | Credentials | 无    | 用户身份信息, 包括appid, secretId, secretkey |
 
-#### 返回值
+#### 返回结果说明
 
 base64编码的字符串
 
@@ -518,6 +455,8 @@ String signStr = Sign.getOneEffectiveSign(bucketName, "/pic/test.jpg", cred);
 
 ### 下载签名
 
+#### 方法原型
+
 ```java
 String getDownLoadSign(String bucketName, String cosPath, Credentials cred, long expired)
 ```
@@ -528,14 +467,14 @@ String getDownLoadSign(String bucketName, String cosPath, Credentials cred, long
 
 #### 参数说明
 
-|   参数名    |    参数类型     | 默认值  |                 参数描述                 |
-| :------: | :---------: | :--: | :----------------------------------: |
-|  bucket  |   unicode   |  无   |               bucket名称               |
-| cos_path |   unicode   |  无   |              要签名的cos路径               |
-|   cred   | Credentials |  无   | 用户身份信息, 包括appid, secretId, secretkey |
-| expired  |    long     |  无   |           签名过期时间, UNIX时间戳            |
+| 参数名      | 参数类型        | 默认值  | 参数描述                                 |
+| :------- | :---------- | :--- | :----------------------------------- |
+| bucket   | unicode     | 无    | bucket名称                             |
+| cos_path | unicode     | 无    | 要签名的cos路径                            |
+| cred     | Credentials | 无    | 用户身份信息, 包括appid, secretId, secretkey |
+| expired  | long        | 无    | 签名过期时间, UNIX时间戳                      |
 
-#### 返回值
+#### 返回结果说明
 
 base64编码的字符串
 
@@ -547,15 +486,13 @@ long expired = System.currentTimeMillis() / 1000 + 600;
 String signStr = Sign.getDownLoadSign(bucketName, "/pic/test.jpg", cred, expired);
 ```
 
-------
+## 操作返回值说明
 
-------
+| code | 含义                                   |
+| :--- | :----------------------------------- |
+| 0    | 操作成功                                 |
+| -1   | 输入参数错误, 例如输入的本地文件路径不存在, cos文件路径不符合规范 |
+| -2   | 网络错误, 如404等                          |
+| -3   | 连接cos时发生异常，如连接超时                     |
+| -71  | 操作频率过快，触发cos的频控                      |
 
-## 返回值
-
-| code |                  含义                  |
-| :--: | :----------------------------------: |
-|  0   |                 操作成功                 |
-|  -1  | 输入参数错误, 例如输入的本地文件路径不存在, cos文件路径不符合规范 |
-|  -2  |             网络错误, 如404等              |
-|  -3  |           连接cos时发生异常，如连接超时           |

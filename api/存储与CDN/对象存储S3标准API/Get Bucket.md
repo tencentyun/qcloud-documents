@@ -8,8 +8,8 @@ Get Bucket请求等同于 List Object请求，可以列出该Bucekt下部分或�
 
 ```Http
 GET / HTTP/1.1
-Host:[BucketName]-[UID].[Region].myqcloud.com
-Date: date
+Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Date: *date*
 Authorization: authorization string
 ```
 
@@ -23,21 +23,21 @@ Authorization: authorization string
 | marker        | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始        | String | 否    |
 | max-key       | 单次返回最大的条目数量，默认1000                       | String | 否    |
 
-### 请求HTTP Header
+### 请求头部
 
-无特殊请求Header，其他内容请参见公共请求Header
+无特殊请求头部，其他头部请参见公共请求头部
 
-### 请求Body
+### 请求内容
 
-无
+无请求内容
 
 ## 返回值
 
-### 返回Header
+### 返回头部
 
-无特殊请求Header，其他内容请参见公共返回Header
+无特殊返回头部，其他头部请参见公共返回头部
 
-### 返回Body
+### 返回内容
 
 | 名称            | 描述                                       | 类型     |
 | ------------- | ---------------------------------------- | ------ |
@@ -55,7 +55,7 @@ Authorization: authorization string
 | Etag          | 文件的 SHA-1 算法校验值<br/>父节点：ListBucketResult.Contents | String |
 | Size          | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String |
 | Owner         | Bucket所有者信息<br/>父节点：ListBucketResult.Contents或者ListBucketResult.CommonPrefix | XML    |
-| ID            | Bucket的UID<br/>父节点：ListBucketResult.Contents.Owener | String |
+| ID            | Bucket的UID父节点：ListBucketResult.Contents.Owener | String |
 
 ```XML
 <ListBucketResult>
