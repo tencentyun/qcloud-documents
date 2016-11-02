@@ -13,7 +13,7 @@
 小直播的后台服务目前部署于一台普通的腾讯云虚拟主机上，基于PHP技术构建，提供源码下载和参考。
 
 **【APP安装】**
-![](//mc.qcloudimg.com/static/img/7116376f6f30752ba50f1c8799158c18/image.png)
+![](//mc.qcloudimg.com/static/img/0fbc0caa7f9e5a45d92e50f7cf4e6f0f/image.png)
 
 ## DEMO体验
 **【界面截图】**
