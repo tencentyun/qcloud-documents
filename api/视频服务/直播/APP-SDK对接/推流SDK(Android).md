@@ -38,7 +38,7 @@ String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
 
 TXCloudVideoView mCaptureView = (TXCloudVideoView) view.findViewById(R.id.video_view);
-mLivePusher.startCameraPreview(mGLRootView);
+mLivePusher.startCameraPreview(mCaptureView);
 ```
 
 其中 **startPusher** 使用来告诉SDK视频流要推到哪个服务器地址去，而 **startCameraPreview** 则是将界面元素和Pusher对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
@@ -47,7 +47,7 @@ mLivePusher.startCameraPreview(mGLRootView);
 > 传进来的self.view将会作为画面渲染view的父view，建议此父view专门作为渲染使用，如果您想要在摄像头画面之上加弹幕、献花之类的UI控件，请另行创建一个与self.view平级的view，并将该view叠加在self.view之上。
 
 ### step 4: 美颜滤镜
-如果您是定位美女秀场，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。您可以在您的APP得用户操作界面上使用滑竿等空间来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
+如果您是定位美女秀场，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。您可以在您的APP得用户操作界面上使用滑竿等控件来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
 
 接口函数setBeautyFilterDepth可以动态调整美颜及美白级别（不支持Neon指令优化的极个别Android手机无法开启）:
 
@@ -201,6 +201,7 @@ mLivePusher.setPushListener(this);
 | setVideoFPS     	|   视频帧率：即视频编码器每秒生产出多少帧画面，注意由于大部分安卓机器摄像头不支持30FPS以上的采集，推荐您设置FPS为20           |  20      |
 | setVideoResolution|   视频分辨率：目前提供三种16：9分辨率可供您选择      |  640 * 360 |
 | setVideoBitrate 	|   视频比特率：即视频编码器每秒生产出多少数据，单位 kbps |  800  |
+| setVideoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个I帧 | 5s |
 | setAutoAdjustBitrate |   带宽自适应：该功能会根据当前网络情况，自动调整视频比特率，避免视频数据超出发送能力而导致画面卡顿 |   开|
 | setMaxVideoBitrate| 最大输出码率：只有开启自适应码率, 该设置项才能启作用 |   1200 |
 | setMinVideoBitrate| 最小输出码率：只有开启自适应码率, 该设置项才能启作用 |   800  |

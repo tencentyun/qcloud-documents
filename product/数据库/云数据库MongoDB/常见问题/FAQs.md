@@ -19,16 +19,18 @@ A：参见[云数据库MongoDB相比自建MongoDB的优势 ](http://www.qcloud.c
 A：云数据库MongoDB版针对客户端连接完全兼容MongoDB，只要是官方MongoDB版支持的客户端，云数据库全部支持。比如：C,C++,c#,java,node.js,python,php,perl等等，具体详情见官方链接，参见[https://docs.mongodb.org/ecosystem/drivers/](https://docs.mongodb.org/ecosystem/drivers/)
 
 **Q：在shell里怎么连接腾讯云MongoDB**
-A：`mongo IP:27017 -u rwuser --password=PASSWORD  --authenticationMechanism=MONGODB-CR`
+A：`./mongo 10.66.136.162:27017 -u rwuser --password=******** --authenticationMechanism=MONGODB-CR --authenticationDatabase admin`
+或者
+`./mongo 10.66.136.162:27017/admin -u rwuser --password=********  --authenticationMechanism=MONGODB-CR`
 `-u rwuser `现阶段指定用户名为 `rwuser`, 后续会推出用户管理的功能
-`--authenticationMechanism=MONGODB-CR `验证方式，必须指定此参数
-mongo-cli版本需要在3.0及以上
+`--authenticationMechanism=MONGODB-CR` 和 `--authenticationDatabase=admin` 是认证参数
 
+mongo-cli版本需要在3.0.12及以上
 
 **Q：业务程序里连接MongoDB的URI是什么样的**
 A：`mongodb://rwuser:PASSWORD@IP:27017/admin?authMechanism=MONGODB-CR`
 		推荐使用URI连接，参考文档：
-		[http://www.qcloud.com/doc/product/240/%E6%9F%A5%E7%9C%8B%E5%8F%8A%E7%9B%91%E6%8E%A7%E5%AE%9E%E4%BE%8B%E6%95%B0%E6%8D%AE](http://www.qcloud.com/doc/product/240/%E6%9F%A5%E7%9C%8B%E5%8F%8A%E7%9B%91%E6%8E%A7%E5%AE%9E%E4%BE%8B%E6%95%B0%E6%8D%AE)
+	[https://www.qcloud.com/doc/product/240/3563](https://www.qcloud.com/doc/product/240/3563)
 		[https://docs.mongodb.org/ecosystem/drivers/](https://docs.mongodb.org/ecosystem/drivers/)
 
 **Q：我应该选用哪个版本的驱动程序**

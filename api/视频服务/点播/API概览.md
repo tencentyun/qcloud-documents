@@ -12,8 +12,6 @@
 | 获取视频播放信息列表 | [DescribeVodPlayInfo](http://www.qcloud.com/doc/api/257/%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E4%BF%A1%E6%81%AF%E5%88%97%E8%A1%A8) | 
 | 获取视频详细信息 | [DescribeVodPlayUrls](http://www.qcloud.com/doc/api/257/%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF) | 
 | 修改视频信息 | [ModifyVodInfo](http://www.qcloud.com/doc/api/257/%E4%BF%AE%E6%94%B9%E8%A7%86%E9%A2%91%E4%BF%A1%E6%81%AF) | 
-| 修改视频发布状态 | [SetVodPlayStatus](http://www.qcloud.com/doc/api/257/%E4%BF%AE%E6%94%B9%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E7%8A%B6%E6%80%81) | 
-| 批量修改视频发布和分发状态 | [MultiSetVodPlayStatus](http://www.qcloud.com/doc/api/257/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E8%A7%86%E9%A2%91%E5%8F%91%E5%B8%83%E5%92%8C%E5%88%86%E5%8F%91%E7%8A%B6%E6%80%81) | 
 | 批量获取视频截图地址 | [CreateScreenShot](http://www.qcloud.com/doc/api/257/%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E6%88%AA%E5%9B%BE%E5%9C%B0%E5%9D%80) | 
 | 获取播放器时间轴批量缩略图 | [DescribeScreenShot](http://www.qcloud.com/doc/api/257/%E8%8E%B7%E5%8F%96%E6%92%AD%E6%94%BE%E5%99%A8%E6%97%B6%E9%97%B4%E8%BD%B4%E6%89%B9%E9%87%8F%E7%BC%A9%E7%95%A5%E5%9B%BE) | 
 | 为视频设置显示封面 | [DescribeVodCover](http://www.qcloud.com/doc/api/257/%E4%B8%BA%E8%A7%86%E9%A2%91%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E5%B0%81%E9%9D%A2) | 

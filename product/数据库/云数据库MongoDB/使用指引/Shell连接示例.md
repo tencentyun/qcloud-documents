@@ -1,9 +1,13 @@
 Shell命令：
 
 ```
-mongo 10.66.122.28:27017 -u rwuser --password=1234567a --authenticationMechanism=MONGODB-CR
+./mongo 10.66.136.162:27017/admin -u rwuser --password=********  --authenticationMechanism=MONGODB-CR
+```
+或者
+```
+./mongo 10.66.136.162:27017 -u rwuser --password=********  --authenticationMechanism=MONGODB-CR --authenticationDatabase admin
 ```
 
 示例：
 
-![](//mccdn.qcloud.com/static/img/13cd7ee949d59e1dc2f2d9061c070407/image.png)
+![](//mc.qcloudimg.com/static/img/43e051246f159a8cc894259a44924d3d/image.png)

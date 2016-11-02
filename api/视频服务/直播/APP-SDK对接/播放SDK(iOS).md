@@ -33,9 +33,9 @@ _txLivePlayer = [[TXLivePlayer alloc] init];
 ```
 
 ### step 3: 绑定渲染界面
-Step2的示例代码中，startPreview的参数myView是用来承载SDK渲染层的，SDK会在myView之上构建一个用于OpenGL渲染的子view。
+step2中的示例代码有一个叫做_myView参数，该参数的作用就是指定视频图像的渲染区域：SDK会在_myView之上构建一个图像控件用于实时渲染视频画面。
 
-如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，可以如下图这般创建一个与myView平级的view，并将其叠加在myView之上，简言之，留myView只做渲染之用对于画面的显示控制是比较有帮助的。
+如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，可以如下图这般创建一个与_myView平级的兄弟view，并将其叠加在_myView之上，简言之，让_myView只用来渲染对于编写清晰的UI代码会比较有帮助。
  ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
 
 如果您想要调整渲染界面的大小，只需要调整myView的大小就可以了，内部的视频画面会跟随myView的大小变化而自动地适应。
@@ -59,18 +59,24 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 ### step 5: 填充&适应&旋转
 如果你希望调整画面的显示方式，SDK也提供了多种选择：
-![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
+![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
-##### setRenderMode
-* RENDER_MODE_FULL_FILL_SCREEN  - 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不留黑边
-* RENDER_MODE_ADJUST_RESOLUTION - 将图像等比例缩放，缩放后的宽和高都不会超过显示区域，居中显示，可能会留有黑边 
+- **setRenderMode**
 
-##### setRenderRotation
-* RENDER_ROTATION_PORTRAIT - 常规的竖屏显示，如果是显示人像，则最适合这种模式了
-* RENDER_ROTATION_LANDSCAPE - 横屏显示，游戏直播比较适合这种模式
+| 可选值 | 含义  |
+|---------|---------|
+| RENDER_MODE_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
+| RENDER_MODE_FILL_EDGE | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
 
-##### resetVideoWidgetFrame
-此接口用于在播放中动态调整视频渲染区域的位置和大小
+- **setRenderRotation**
+
+| 可选值 | 含义  |
+|---------|---------|
+| HOME_ORIENTATION_DOWN | 正常播放（Home键在画面正下方） | 
+| HOME_ORIENTATION_RIGHT | 画面顺时针旋转90度（Home键在画面正右方） | 
+| HOME_ORIENTATION_UP | 画面顺时针旋转180度（Home键在画面正上方） | 
+| HOME_ORIENTATION_LEFT | 画面顺时针旋转270度（Home键在画面正左方） | 
+
 
 
 ### step 6: 硬件加速
@@ -137,25 +143,23 @@ _config.cacheTime              = 5;
 想要获得RTMP SDK的状态通知，您可以提供一个**Listener**给刚才提到的**Player**对象，之后SDK的所有信息都会通过这个Listener反馈给您的App.
 
 ```objectivec
-@interface PublishController ()<TXLivePushListener>
+@interface PlayController ()<UITextFieldDelegate, TXLivePlayListener>
 @end
+_txLivePlayer.delegate = self;
 
-[mLivePusher setDelegate:self];
-
-#pragma - TXLivePushListener
--(void) onPushEvent:(int)EvtID withParam:(NSDictionary*)param
+#pragma - TXLivePlayListener
+-(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param;
 {
     // here your code.
 }
 
--(void) onNetStatus:(NSDictionary *)param
+-(void) onNetStatus:(NSDictionary*) param;
 {
     // here your code.
 }
 ```
 
-### 3. 事件通知
-#### 3.1) 播放事件
+### 3. 播放事件
 播放中的几个关键时间是必须要关心的，否则流程可能无法顺利跑通。
 
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -171,7 +175,7 @@ _config.cacheTime              = 5;
 
 如果您使用了极速模式，推荐您可以像映客那样，无视LOADING事件通知，因为最常见的卡顿一般都是几百毫秒的微卡顿；或者最多在视频画面上叠加一个loading小动画，转个小菊花，<font color='red'>建议不要把这种切换的UI表现做得过重</font>，否则就不适合秀场模式了。
 
-#### 3.2) 结束事件
+### 4. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
@@ -181,13 +185,13 @@ _config.cacheTime              = 5;
 
 >**协议的差异**
 >
->如果播放的是RTMP协议的直播地址，协议本身有比较完善的命令（EOF）来通知服务器直播已经结束，也就是 PLAY_END。
->
-> 如果播放的是点播地址，点播文件的结束也能通过特定的方法被播放器获知的，所以 PLAY_END 同样适用。
+>如果播放的是RTMP协议的直播地址，协议本身有比较完善的命令（EOF）来通知服务器直播已经结束，也就是 PLAY_END。如果播放的是点播地址，点播文件的结束也能通过特定的方法被播放器获知的，所以 PLAY_END 同样适用。
 > 
-> 但对于直播场景中最最常用的**FLV**协议，协议本身是不支持结束通知机制的，故您不可能收到 PLAY_END 事件，即使此时的主播已经停止推送数据了。如果您不做额外的查询业务逻辑来支持，您只能依靠 NET_DISCONNECT 这个事件来通知用户：**“主播暂时不在家！”**。
+> 但对于 **FLV** 协议，协议本身是不支持结束通知机制的，故您不可能收到 PLAY_END 事件，只能依靠 NET_DISCONNECT 这个事件来获知：**“主播已离开！”**。
+> 
+> 推荐的做法是在主播结束推流后，利用聊天室的消息通道群发下线消息来通知所有观众。
 
-#### 3.3) 警告事件
+### 5. 警告事件
 如下的这些事件，您可以不用关心，我们通知出来只是告诉您内部发生了什么，如果您需要做数据上报，倒是可以用一下：
 
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -203,7 +207,7 @@ _config.cacheTime              = 5;
 | PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | RTMP服务器连接失败（仅播放RTMP地址时会抛送）|
 | PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP服务器握手失败（仅播放RTMP地址时会抛送）|
 
-#### 3.4) 连接事件
+### 6. 连接事件
 此外还有几个连接服务器的事件，您也可以不用特别关心，这里也只要是用来测定和统计服务器连接时间和服务器响应速度用的，在用户界面交互上难有什么用处：
 
 | 事件ID                     |    数值  |  含义说明                    |   
@@ -213,18 +217,21 @@ _config.cacheTime              = 5;
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
-#### 3.5) 网络状态回调 
-  **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频质量等有所了解。
+### 7. 状态回调 
+ **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频质量等有所了解。
   
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
+| NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
+| NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
+| NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
+|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
 |	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率          |
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度        |
-|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
-
+| NET_STATUS_SERVER_IP | 连接的服务器IP | 
 
 
 

@@ -1,16 +1,17 @@
 ## 开发准备
 
-### SDK 获取
+### 相关资源
 
-对象存储服务的C++ SDK的下载地址： [https://github.com/tencentyun/cos-cpp-sdk/tree/4.0.0](https://github.com/tencentyun/cos-cpp-sdk/tree/4.0.0)
+[github项目](https://github.com/tencentyun/cos-cpp-sdk-v4)
 
 ### 开发环境
 
 1. 安装openssl的库和头文件 [http://www.openssl.org/source/](http://www.openssl.org/source/) 
 2. 安装curl的库和头文件 [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) 
 3. 安装jsoncpp的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
-4. 安装cmake工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
-5. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](doc/api/264/5993)。
+4. 安装boost的库和头文件 [http://www.boost.org/](http://www.boost.org/) 
+5. 安装cmake工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
+6. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](doc/api/264/5993)。
 
 
 
@@ -36,13 +37,7 @@ cmake ..
 make 
 ```
 
-cos_demo.cpp里面有常见API的例子，需要将cos_demo.cpp里的appid、secretId、secretKey、bucket等信息换成自己的信息。生成的cos_demo可以直接运行，生成的静态库名称为：libcossdk.a。 
-
-生成的 libcossdk.a 放到你自己的工程里lib路径下，include 目录你自己的工程的include路径下。 
-
-若需要 HTTPS 支持，修改 CosDefines.h 中kApiCosapiEndpoint  的值为：
-
-[https://sh.file.myqcloud.com/files/v2/](https://sh.file.myqcloud.com/files/v2/)
+cos_demo.cpp里面有常见API的例子。生成的cos_demo可以直接运行，生成的静态库名称为：libcossdk.a。生成的 libcossdk.a 放到你自己的工程里lib路径下，include 目录拷贝到自己的工程的include路径下。 
 
 
 
@@ -122,25 +117,29 @@ sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 
 接口说明：在使用COS操作之前，需要首先进行COS系统参数的设置，然后分别创建CosConfig以及CosAPI对象，COS的操作都是基于CosAPI对象进行的。
 
-### 设置系统参数的方法原型
+### 配置文件
 
 ``` c++
-//设置文件上传时是否携带文件sha值（默认：不携带）
-void CosSysConfig::setIsTakeSha(bool isTakeSha);
-//设置文件上传时的文件分片大小（默认：3M）
-void CosSysConfig::setSliceSize(uint64_t slice_size);
-//设置签名超时时间（默认：60s）
-void CosSysConfig::setExpiredTime(uint64_t time);
-//设置HTTP连接超时时间（默认：5000毫秒）
-void CosSysConfig::setTimeoutInms(uint64_t time);
-//设置HTTP传输超时时间（默认：300000毫秒）
-void CosSysConfig::setGlobalTimeoutInms(uint64_t time);
+"AppID":********,
+"SecretID":"*********************************",
+"SecretKey":"********************************",
+"Region":"sh",   //COS区域, 上传和下载域名均是跟此有关系，因此一定要保证正确
+"SignExpiredTime":360, //签名超时时间
+"CurlConnectTimeoutInms":180,  //http超时时间
+"CurlGlobalConnectTimeoutInms":360, //
+"UploadSliceSize":1048576, //文件分片大小，可选值有524288、1048576、2097152、3145728
+"IsUploadTakeSha":0, //文件上传时是否携带文件sha值，0：不携带，1：携带
+"DownloadDomainType":2, //下载域名类型,1:cdn,2:cos,3:innercos,4:自定义域名
+"SelfDomain":"",//自定义域名
+"UploadThreadPoolSize":5, //单文件分片上传线程池大小
+"AsynThreadPoolSize":2, //异步上传下载线程池大小
+"LogoutType":1 //日志输出类型,0:不输出,1:输出到屏幕,2输出到syslog
 ```
 
 ### COS API对象构造原型
 
 ``` c++
-CosConfig(uint64_t t_appid,const std::string& t_secret_id, const std::string& t_secret_key)
+CosConfig(const string& config_file);
 CosAPI(CosConfig& config);
 ```
 
@@ -323,7 +322,7 @@ string CosAPI::FolderList(FolderListReq& request);
 | listNum | int    | 1000    | 构造函数     | 查询数目，最大为1000                             |
 | context | string | 空字符串    | 构造函数     | 查询上下文。查看第一页，则传空字符串；若需翻页，需要将前一页查询响应中的context设置到参数中 |
 
-####  返回结果说明
+#### 返回结果说明
 
 通过函数返回值返回请求结果的json字符串
 
@@ -367,7 +366,7 @@ string CosAPI::FileUpload(FileUploadReq& request);
 | insertOnly | int    | 1       | 构造函数及setInsertOnly() | 同名文件是否覆盖。0：表示覆盖同名文件，1：表示不覆盖, 当文件存在返回错误 |
 | sliceSize  | int    | 1048576 | setSliceSize()       | 分片大小，可选值512K/1M/2M/3M；默认1M，均需转换为字节数值   |
 
-####  返回结果说明
+#### 返回结果说明
 
 通过函数返回值返回请求结果的json字符串
 

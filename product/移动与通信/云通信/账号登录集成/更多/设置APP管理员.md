@@ -4,4 +4,4 @@
 
 点击相应应用的配置，找到下面图示所在的区域，直接将管理员帐号填写进去，如果有多个请添加多行，最多3个。
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151015064428_35733.png)
+![](https://mc.qcloudimg.com/static/img/576e4de23e8625ad17e809a92da0bd6a/admin.png)
