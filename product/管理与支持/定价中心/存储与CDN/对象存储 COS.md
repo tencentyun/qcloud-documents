@@ -52,7 +52,7 @@ COS 月结账单由三部分组成：
 |       |                               | 500 GB 以上      | 0.6 元/GB  |
 
 【注意事项】
-- 通过 CDN 下发到用户终端产生的流量不在 COS 计费范畴，按 CDN 计费标准收取，请参见[CDN计费](http://www.qcloud.com/doc/product/228/%E8%AE%A1%E8%B4%B9%E8%AF%B4%E6%98%8E)。
+- 通过 CDN 下发到用户终端产生的流量不在 COS 计费范畴，按 CDN 计费标准收取，请参见[CDN计费](/doc/product/439/6801)。
 
 **COS 两种数据传输方式价格比较**
 
