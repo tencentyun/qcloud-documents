@@ -2,7 +2,7 @@
 
 ### SDK获取
 
-对象存储服务 Java SDK下载地址：[github项目](https://github.com/tencentyun/cos-java-sdk)
+对象存储服务 Java SDK下载地址：[github项目](https://github.com/tencentyun/cos-java-sdk-v4)
 
 ### 开发环境
 
