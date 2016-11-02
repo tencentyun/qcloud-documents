@@ -1,8 +1,11 @@
 ## 1. 接口描述
 注册保护接口提供恶意注册识别等能力，根据用户账号、信用和注册的行为和来源判断当次注册的恶意等级。
-<br> 协议：HTTPS
-<br> 域名：csec.api.qcloud.com
-<br> 接口名：RegisterProtection
+
+协议：HTTPS
+
+域名：csec.api.qcloud.com
+
+接口名：RegisterProtection
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。其中，此接口的Action字段为RegisterProtection。
@@ -59,13 +62,13 @@
 <tr>
 <td> nickName
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 昵称，utf8编码
 </td></tr>
 <tr>
 <td> phoneNumber
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 手机号；国家代码-手机号， 如0086-15912345687. 注意0086前不需要+号
 </td></tr>
 <tr>
@@ -83,37 +86,37 @@
 <tr>
 <td> cookieHash
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 用户Http请求中的cookie进行2次hash的值，只要保证相同cookie的Hash值一致即可
 </td></tr>
 <tr>
 <td> registerSource
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 注册来源<br>0：其他<br>1：PC网页<br>2：移动页面<br>3：APP<br>4：微信公众号
 </td></tr>
 <tr>
 <td> referer
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 用户Http请求的referer值
 </td></tr>
 <tr>
 <td> jumpUrl
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 注册成功后跳转页面
 </td></tr>
 <tr>
 <td> userAgent
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 用户Http请求的userAgent
 </td></tr>
 <tr>
 <td> xForwardedFor
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 用户Http请求中的x_forward_for
 </td></tr>
 <tr>
@@ -152,19 +155,19 @@
 </td></tr>
 <td> macAddress
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> mac地址或设备唯一标识
 </td></tr>
 <tr>
 <td> vendorId
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> 手机制造商ID，如果手机注册，请带上此信息
 </td></tr>
 <tr>
 <td> appVersion
 </td><td> 可选
-</td><td> String
+</td><td> string
 </td><td> APP客户端版本
 </td></tr>
 <tr>
@@ -226,7 +229,7 @@
 </td></tr></tbody></table>
 
 ## 4. 示例代码
-代码下载： [Python示例](https://mc.qcloudimg.com/static/archive/dba0f6f37d5c115f94c4e919ea35a922/RegisterProtection.zip) [PHP示例](https://tianyu.qcloud.com/sdk/download/RegisterProtection/php) [Java示例](https://tianyu.qcloud.com/sdk/download/RegisterProtection/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/RegisterProtection/net)
+代码下载： [Python示例](https://mc.qcloudimg.com/static/archive/96f7d86723aebd2cd824a93bc405f5aa/RegisterProtection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/316eacff388775f02eabf769cced222a/RegisterProtection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/1d4853fb7b41fc405adf20a9aed47f24/RegisterProtection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/c699e43c486a75fadb12dd146a3820c4/RegisterProtection.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见公共请求参数小节。
 ```
 请求示例 ：

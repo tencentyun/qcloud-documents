@@ -254,7 +254,7 @@
 </td></tr></tbody></table>
 
 ## 4. 示例代码
-代码下载：  [Python示例](https://tianyu.qcloud.com/sdk/download/LoginProtection/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/LoginProtection/php) [Java示例](https://tianyu.qcloud.com/sdk/download/LoginProtection/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/LoginProtection/net)
+代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/de08cb326ab99b568664b2bb7c269f4e/LoginProtection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/2a728e6e88889ae9082d596288505cfd/LoginProtection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/db5e010d2ab0070fe8b4f08e3a71238b/LoginProtection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/8773908b78df5570f45d3b2a7d25cbfc/LoginProtection.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
 ```
 请求示例 ：
