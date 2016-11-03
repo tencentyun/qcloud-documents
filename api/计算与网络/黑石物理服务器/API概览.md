@@ -24,9 +24,9 @@
 ## 3. 带外相关接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 获取带外VPN信息 | [GetOutBandVPNAuthInfo]() |  用于查询黑石物理服务器带外VPN认证用户名密码等信息。 |
-| 获取带外登录信息 | [GetDeviceOutBandInfo]() |  用于查询黑石登录物理服务器带外页面时用户名密码等信息。 |
-| 重置带外VPN密码 | [SetOutBandVPNAuthPwd]() | 用于重置黑石物理服务器的带外VPN认证用户名密码信息。 |
+| 获取带外VPN信息 | [GetOutBandVPNAuthInfo](/doc/api/456/6679) |  用于查询黑石物理服务器带外VPN认证用户名密码等信息。 |
+| 获取带外登录信息 | [GetDeviceOutBandInfo](/doc/api/456/6678) |  用于查询黑石登录物理服务器带外页面时用户名密码等信息。 |
+| 重置带外VPN密码 | [SetOutBandVPNAuthPwd](/doc/api/456/6680) | 用于重置黑石物理服务器的带外VPN认证用户名密码信息。 |
 
 ## 4. 私有网络相关接口
 | 接口功能 | Action ID | 功能描述 |
@@ -53,6 +53,7 @@
 | 修改负载均衡监听器 | [ModifyBmLoadBalancerListener](/doc/api/456/6661) | 用于修改负载均衡监听器。 |
 | 查询负载均衡健康状态 | [DescribeBmLBHealthStatus](/doc/api/456/6659) | 用于查询负载均衡健康状态。 |
 | 修改负载均衡器后端服务器权重 | [ModifyBmLoadBalancerBackends](/doc/api/456/6662) | 修改负载均衡器后端服务器权重。 |
+| 查询负载均衡异步任务状态 | [DescribeBmLoadBalancersTaskResult](/doc/api/456/6666) | 查询黑石负载均衡异步任务状态。 |
 
 
 ## 6. 弹性公网IP（EIP）相关接口

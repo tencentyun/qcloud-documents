@@ -287,7 +287,7 @@
 </td></tr></tbody></table>
 
 ## 5. 示例代码
-代码下载：  [Python示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/python) [PHP示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/php) [Java示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/java) [.Net示例](https://tianyu.qcloud.com/sdk/download/UgcAntiSpam/net)
+代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/c7e31b9f2ba2850b7cd66c8a81d1229a/UgcAntiSpam.py.zip) [Java示例](https://mc.qcloudimg.com/static/archive/7f16dcb3ed56e8fd0adc4bfdafbe3edd/UgcAntiSpam.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/545fc3dfa7473218c79de8ab9a123c7d/UgcAntiSpam.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
 ```
 请求示例 ：
