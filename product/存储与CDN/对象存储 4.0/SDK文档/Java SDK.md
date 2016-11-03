@@ -129,9 +129,10 @@ String updateFile(UpdateFileRequest request);
 
 #### 返回结果说明
 
-| 返回值类型  | 返回值描述                                    |
-| :----- | :--------------------------------------- |
-| String | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
+| 返回值类型   | 返回值描述                     |
+| :------ | :------------------------ |
+| code    | Code为0表示成功                |
+| message | SUCCESS或者失败原因, 详情请参见返回值模块 |
 
 #### 示例
 
