@@ -15,7 +15,7 @@
 签名分为单次签名和多次签名, 区别为（可参见[签名适用场景](/doc/product/275/签名与鉴权文档#4-.E7.AD.BE.E5.90.8D.E9.80.82.E7.94.A8.E5.9C.BA.E6.99.AF)）: 
 如果针对资源进行写操作(资源删除和资源复制), 那么这个签名必须是单次有效的，重复使用该签名则会返回签名失败；
 如果是上传一个新的资源，那么这个签名可以是多次有效的。有效时长最多为三个月。
-开发者可以通过[服务器SDK文档](http://www.qcloud.com/doc/product/275/SDK%E4%B8%8B%E8%BD%BD)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档)。
+开发者可以通过[服务器SDK文档](http://www.qcloud.com/doc/product/275/SDK%E4%B8%8B%E8%BD%BD)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](/doc/product/275/3805)。
 
 ## 3	图片上传
 ### 3.1 直接上传
@@ -32,7 +32,7 @@
 | Host           | 是    | String | 图片云服务器域名，固定为web.image.myqcloud.com       |
 | Content-Length | 是    | Int    | 整个multipart/form-data内容的总长度，单位：字节（Byte）。 |
 | Content-Type   | 是    | String | 标准的multipart/form-data 格式，参见[rfc1867](http://www.ietf.org/rfc/rfc1867.txt) |
-| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档) |
+| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/doc/product/275/3805) |
 
 
 HTTP包头
@@ -47,13 +47,14 @@ HTTP包头
 返回的HTTP 状态码: 
 - 成功: 200
 - 失败: 400
-  返回内容(json):
 
-  | 字段名称    | 描述            |
-  | ------- | ------------- |
-  | code    | 服务器错误码, 0为成功  |
-  | message | 服务器返回的信息      |
-  | data    | 具体查询数据. 内容见下表 |
+返回内容(json):
+
+| 字段名称    | 描述            |
+| ------- | ------------- |
+| code    | 服务器错误码, 0为成功  |
+| message | 服务器返回的信息      |
+| data    | 具体查询数据. 内容见下表 |
 
 
 data里面字段描述:
@@ -71,7 +72,8 @@ info里面字段描述：
 | 数组名称 | 字段名称   | 描述   |
 | ---- | ------ | ---- |
 | 0    | height | 图片高度 |
-|width|	图片宽度
+|      | width  | 图片宽度 |
+
 
 
 请求示例:
@@ -108,7 +110,7 @@ Content-Type: image/jpeg
 | Host           | 是    | String | 图片云服务器域名，固定为web.image.myqcloud.com       |
 | Content-Length | 是    | Int    | 整个multipart/form-data内容的总长度，单位：字节（Byte）。 |
 | Content-Type   | 是    | String | 标准的multipart/form-data 格式，参见[rfc1867](http://www.ietf.org/rfc/rfc1867.txt) |
-| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档) |
+| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/doc/product/275/3805) |
 
 
 HTTP包头（第一个分片，即控制包）
@@ -126,13 +128,14 @@ HTTP包头（第一个分片，即控制包）
 返回的HTTP 状态码: 
 - 成功: 200
 - 失败: 400
-  返回内容(json):
 
-  | 字段名称    | 描述            |
-  | ------- | ------------- |
-  | code    | 服务器错误码, 0为成功  |
-  | message | 服务器返回的信息      |
-  | data    | 具体查询数据. 内容见下表 |
+返回内容(json):
+
+| 字段名称    | 描述            |
+| ------- | ------------- |
+| code    | 服务器错误码, 0为成功  |
+| message | 服务器返回的信息      |
+| data    | 具体查询数据. 内容见下表 |
 
 
 data里面字段描述:
@@ -157,13 +160,14 @@ data里面字段描述:
 返回的HTTPP 状态码: 
 - 成功: 200
 - 失败: 400
-  返回内容(json):
 
-  | 字段名称    | 描述            |
-  | ------- | ------------- |
-  | code    | 服务器错误码, 0为成功  |
-  | message | 服务器返回的信息      |
-  | data    | 具体查询数据. 内容见下表 |
+返回内容(json):
+
+| 字段名称    | 描述            |
+| ------- | ------------- |
+| code    | 服务器错误码, 0为成功  |
+| message | 服务器返回的信息      |
+| data    | 具体查询数据. 内容见下表 |
 
 
 data里面字段描述:
@@ -175,7 +179,12 @@ data里面字段描述:
 | fileid       | 生成的资源唯一标识符                          |                                          |
 | info         | 图片的具体信息，见下表                         |                                          |
 
+info里面字段描述：
 
+| 数组名称 | 字段名称   | 描述   |
+| ---- | ------ | ---- |
+| 0    | height | 图片高度 |
+|      | width  | 图片宽度 |
 
 ## 4	图片复制
 功能: 将图片复制一份(保留原有图片)。
@@ -186,19 +195,20 @@ data里面字段描述:
 | 参数名称          | 必选   | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
 | Host          | 是    | String | 图片云服务器域名，固定为web.image.myqcloud.com       |
-| Authorization | 是    | String | 单次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档) |
+| Authorization | 是    | String | 单次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/doc/product/275/3805) |
 
 
 返回的HTTPP 状态码: 
 - 成功: 200
 - 失败: 400
-  返回内容(json):
 
-  | 字段名称    | 描述            |
-  | ------- | ------------- |
-  | code    | 服务器错误码, 0为成功  |
-  | message | 服务器返回的信息      |
-  | data    | 具体查询数据. 内容见下表 |
+返回内容(json):
+
+| 字段名称    | 描述            |
+| ------- | ------------- |
+| code    | 服务器错误码, 0为成功  |
+| message | 服务器返回的信息      |
+| data    | 具体查询数据. 内容见下表 |
 
 
 data里面字段描述:
@@ -234,13 +244,14 @@ Content-Length: 0
 返回的HTTPP 状态码: 
 - 成功: 200
 - 失败: 400
-  返回内容(json):
 
-  | 字段名称    | 描述            |
-  | ------- | ------------- |
-  | code    | 服务器错误码, 0为成功  |
-  | message | 服务器返回的信息      |
-  | data    | 具体查询数据. 内容见下表 |
+返回内容(json):
+
+| 字段名称    | 描述            |
+| ------- | ------------- |
+| code    | 服务器错误码, 0为成功  |
+| message | 服务器返回的信息      |
+| data    | 具体查询数据. 内容见下表 |
 
 
 data里面字段描述:
@@ -272,18 +283,19 @@ Host: web.image.myqcloud.com
 | 参数名称          | 必选   | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
 | Host          | 是    | String | 图片云服务器域名，固定为web.image.myqcloud.com       |
-| Authorization | 是    | String | 单次有效签名,用于鉴权，具体生成方式详见[鉴权签名方法](/doc/product/275/签名与鉴权文档) |
+| Authorization | 是    | String | 单次有效签名,用于鉴权，具体生成方式详见[鉴权签名方法](/doc/product/275/3805) |
 
 
 返回的HTTPP 状态码: 
 - 成功: 200
 - 失败: 400
-  返回内容(json):
 
-  | 字段名称    | 描述           |
-  | ------- | ------------ |
-  | code    | 服务器错误码, 0为成功 |
-  | message | 服务器返回的信息     |
+返回内容(json):
+
+| 字段名称    | 描述           |
+| ------- | ------------ |
+| code    | 服务器错误码, 0为成功 |
+| message | 服务器返回的信息     |
 
 
 请求示例:
@@ -393,7 +405,7 @@ imageMogr2是腾讯云·万象优图为开发者提供的简单而功能强大�
 | ----------------------------------- | ---------------------------------------- |
 | /auto-orient                        | 根据exif信息自动把图片旋转回正                        |
 | /strip                              | 去除不安全代码包括exif信息                          |
-| /gravity/<gravityType>              | 图片处理位置，影响其后的裁剪偏移参数，参见下面九宫格方位（目前不支持East, South, West, North），默认值为：Center |
+| /gravity/<gravityType>              | 图片处理位置，影响其后的裁剪偏移参数，参见下面九宫格方位，默认值为：Center |
 | /crop/<imageSizeAndOffsetGeometry>  | 请参考下面的裁剪操作表格，缺省不裁剪                       |
 | /scrop/<imageSizeAndOffsetGeometry> | 基于人脸识别执行智能裁剪功能。裁剪区域根据人的头像位置自动确定。 输出的裁剪后图片大小需要结合宽高参数指定。 |
 | /rotate/<rotateDegree>              | 图片旋转角度，取值范围0-360                         |
@@ -403,17 +415,17 @@ imageMogr2是腾讯云·万象优图为开发者提供的简单而功能强大�
 | /interlace/<Mode>                   | 输出为渐进式jpg格式。Mode可为0或1,0表示不开启渐进式；1表示开启渐进式。该参数仅在输出图片格式为jpg格式时有效。如果输出非jpg图片格式，会忽略该参数，默认值0 |
 缩放操作表格：
 
-| 参数                                  | 含义                                       |
-| ----------------------------------- | ---------------------------------------- |
-| /thumbnail/!<Scale>p                | 指定图片的宽高为原图的Scale%                        |
-| /thumbnail/!<Scale>px               | 指定图片的宽为原图的Scale%，高度不变                    |
-| /thumbnail/!x<Scale>p               | 指定图片的高为原图的Scale%，宽度不变                    |
-| /thumbnail/<Width>x                 | 指定目标图片宽度为Width，高度等比压缩                    |
-| /thumbnail/x<Height>                | 指定目标图片高度为Height，宽度等比压缩                   |
-| /thumbnail/<LongEdge>x<ShortEdge>   | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比缩放 |
-| /thumbnail/!<LongEdge>x<ShortEdge>r | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比缩放 |
-| /thumbnail/<Width>x<Height>!        | 忽略原图宽高比例，指定图片宽度为Width，高度为Height，强行缩放图片，可能导致目标图片变形 |
-/thumbnail/&lt;Areae&gt;@	等比缩放图片，缩放后的像素数量不超过Area
+| 参数                                       | 含义                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| /thumbnail/!&lt;Scale&gt;p               | 指定图片的宽高为原图的Scale%                        |
+| /thumbnail/!&lt;Scale&gt;px              | 指定图片的宽为原图的Scale%，高度不变                    |
+| /thumbnail/!x&lt;Scale&gt;p              | 指定图片的高为原图的Scale%，宽度不变                    |
+| /thumbnail/&lt;Width&gt;x                | 指定目标图片宽度为Width，高度等比压缩                    |
+| /thumbnail/x&lt;Height&gt;               | 指定目标图片高度为Height，宽度等比压缩                   |
+| /thumbnail/&lt;LongEdge&gt;x&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比缩放 |
+| /thumbnail/!&lt;LongEdge&gt;x&lt;ShortEdge&gt;r | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比缩放 |
+| /thumbnail/<Width<x<Height<!             | 忽略原图宽高比例，指定图片宽度为Width，高度为Height，强行缩放图片，可能导致目标图片变形 |
+/thumbnail/<Areae>@	等比缩放图片，缩放后的像素数量不超过Area
 示例：
 
 ```
