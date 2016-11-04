@@ -47,7 +47,7 @@ HTTP包头
 返回的HTTP 状态码: 
 - 成功: 200
 - 失败: 400
-  
+
 返回内容(json):
 
 | 字段名称    | 描述            |
@@ -160,14 +160,14 @@ data里面字段描述:
 返回的HTTPP 状态码: 
 - 成功: 200
 - 失败: 400
-  
+
 返回内容(json):
 
-  | 字段名称    | 描述            |
-  | ------- | ------------- |
-  | code    | 服务器错误码, 0为成功  |
-  | message | 服务器返回的信息      |
-  | data    | 具体查询数据. 内容见下表 |
+| 字段名称    | 描述            |
+| ------- | ------------- |
+| code    | 服务器错误码, 0为成功  |
+| message | 服务器返回的信息      |
+| data    | 具体查询数据. 内容见下表 |
 
 
 data里面字段描述:
@@ -244,14 +244,14 @@ Content-Length: 0
 返回的HTTPP 状态码: 
 - 成功: 200
 - 失败: 400
- 
+
 返回内容(json):
 
-  | 字段名称    | 描述            |
-  | ------- | ------------- |
-  | code    | 服务器错误码, 0为成功  |
-  | message | 服务器返回的信息      |
-  | data    | 具体查询数据. 内容见下表 |
+| 字段名称    | 描述            |
+| ------- | ------------- |
+| code    | 服务器错误码, 0为成功  |
+| message | 服务器返回的信息      |
+| data    | 具体查询数据. 内容见下表 |
 
 
 data里面字段描述:
@@ -289,13 +289,13 @@ Host: web.image.myqcloud.com
 返回的HTTPP 状态码: 
 - 成功: 200
 - 失败: 400
-  
+
 返回内容(json):
 
-  | 字段名称    | 描述           |
-  | ------- | ------------ |
-  | code    | 服务器错误码, 0为成功 |
-  | message | 服务器返回的信息     |
+| 字段名称    | 描述           |
+| ------- | ------------ |
+| code    | 服务器错误码, 0为成功 |
+| message | 服务器返回的信息     |
 
 
 请求示例:
@@ -415,17 +415,17 @@ imageMogr2是腾讯云·万象优图为开发者提供的简单而功能强大�
 | /interlace/<Mode>                   | 输出为渐进式jpg格式。Mode可为0或1,0表示不开启渐进式；1表示开启渐进式。该参数仅在输出图片格式为jpg格式时有效。如果输出非jpg图片格式，会忽略该参数，默认值0 |
 缩放操作表格：
 
-| 参数                                  | 含义                                       |
-| ----------------------------------- | ---------------------------------------- |
-| /thumbnail/!<Scale>p                | 指定图片的宽高为原图的Scale%                        |
-| /thumbnail/!<Scale>px               | 指定图片的宽为原图的Scale%，高度不变                    |
-| /thumbnail/!x<Scale>p               | 指定图片的高为原图的Scale%，宽度不变                    |
-| /thumbnail/<Width>x                 | 指定目标图片宽度为Width，高度等比压缩                    |
-| /thumbnail/x<Height>                | 指定目标图片高度为Height，宽度等比压缩                   |
-| /thumbnail/<LongEdge>x<ShortEdge>   | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比缩放 |
-| /thumbnail/!<LongEdge>x<ShortEdge>r | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比缩放 |
-| /thumbnail/<Width>x<Height>!        | 忽略原图宽高比例，指定图片宽度为Width，高度为Height，强行缩放图片，可能导致目标图片变形 |
-/thumbnail/&lt;Areae&gt;@	等比缩放图片，缩放后的像素数量不超过Area
+| 参数                                       | 含义                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| /thumbnail/!&lt;Scale&gt;p               | 指定图片的宽高为原图的Scale%                        |
+| /thumbnail/!&lt;Scale&gt;px              | 指定图片的宽为原图的Scale%，高度不变                    |
+| /thumbnail/!x&lt;Scale&gt;p              | 指定图片的高为原图的Scale%，宽度不变                    |
+| /thumbnail/&lt;Width&gt;x                | 指定目标图片宽度为Width，高度等比压缩                    |
+| /thumbnail/x&lt;Height&gt;               | 指定目标图片高度为Height，宽度等比压缩                   |
+| /thumbnail/&lt;LongEdge&gt;x&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比缩放 |
+| /thumbnail/!&lt;LongEdge&gt;x&lt;ShortEdge&gt;r | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比缩放 |
+| /thumbnail/<Width<x<Height<!             | 忽略原图宽高比例，指定图片宽度为Width，高度为Height，强行缩放图片，可能导致目标图片变形 |
+/thumbnail/<Areae>@	等比缩放图片，缩放后的像素数量不超过Area
 示例：
 
 ```
