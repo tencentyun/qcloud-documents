@@ -12,6 +12,8 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 ### 包年包月
 
 包年包月 CVM 实例是先购买再使用的方式（提前一次性支付一个月或多个月甚至多年的费用）适用于提前预估设备需求量，价格相比按量计费更低廉。
+
+2016年11月1日起，云服务器包年包月预付费6个月及以上88折，1年83折，2年7折，3年5折.
 		
 #### 标准型
 <table class="cvmMonth">
@@ -59,10 +61,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
         </tr>
         <tr>
             <td>4GB</td>
-           <td>150</td>
-            <td>150</td>
-						<td>150</td>
-            <td>150</td>
+           <td>149</td>
+            <td>149</td>
+						<td>149</td>
+            <td>149</td>
             <td>-</td>
 						<td>180</td>
 						<td>210</td>
@@ -81,40 +83,40 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td rowspan="5">2 核</td>
             <td>2GB</td>
-            <td>150</td>
-            <td>150</td>
-						<td>150</td>
-            <td>150</td>
+            <td>148</td>
+            <td>148</td>
+						<td>148</td>
+            <td>148</td>
 						<td>150</td>
             <td>180</td>
 						<td>210</td>
         </tr>
         <tr>
             <td>4GB</td>
-            <td>200</td>
-            <td>200</td>
-						<td>200</td>
-            <td>200</td>
+            <td>198</td>
+            <td>198</td>
+						<td>198</td>
+            <td>198</td>
 						<td>200</td>
             <td>240</td>
 						<td>280</td>
         </tr>
         <tr>
             <td>8GB</td>
-            <td>300</td>
-            <td>300</td>
-						<td>300</td>
-						<td>300</td>
+            <td>298</td>
+            <td>298</td>
+						<td>298</td>
+						<td>298</td>
             <td>300</td>
             <td>360</td>
 						<td>420</td>
         </tr>
         <tr>
             <td>12GB</td>
-            <td>400</td>
-            <td>400</td>
-						<td>400</td>
-						<td>400</td>
+            <td>398</td>
+            <td>398</td>
+						<td>398</td>
+						<td>398</td>
             <td>400</td>
             <td>480</td>
 						<td>560</td>
@@ -132,50 +134,50 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 					<tr>
             <td rowspan="5">4 核</td>
             <td>4GB</td>
+            <td>296</td>
+            <td>296</td>
+						<td>296</td>
+						<td>296</td>
             <td>300</td>
-            <td>300</td>
-						<td>300</td>
-						<td>300</td>
-            <td>300</td>
-            <td>360</td>
+            <td>296</td>
 						<td>420</td>
         </tr>
         <tr>
             <td>8GB</td>
-            <td>400</td>
-            <td>400</td>
-						<td>400</td>
-						<td>400</td>
+            <td>396</td>
+            <td>396</td>
+						<td>396</td>
+						<td>396</td>
             <td>400</td>
             <td>480</td>
 						<td>560</td>
         </tr>
         <tr>
             <td>12GB</td>
-            <td>500</td>
-						 <td>500</td>
-						  <td>500</td>
-            <td>500</td>
+            <td>496</td>
+						 <td>496</td>
+						  <td>496</td>
+            <td>496</td>
 						<td>500</td>
             <td>600</td>
 						<td>700</td>
         </tr>
         <tr>
             <td>16GB</td>
-            <td>600</td>
-            <td>600</td>
-						<td>600</td>
-						<td>600</td>
+            <td>596</td>
+            <td>596</td>
+						<td>596</td>
+						<td>596</td>
             <td>600</td>
             <td>720</td>
 						<td>840</td>
         </tr>
 				<tr>
             <td>24GB</td>
-            <td>800</td>
-            <td>800</td>
-						<td>800</td>
-						<td>800</td>
+            <td>796</td>
+            <td>796</td>
+						<td>796</td>
+						<td>796</td>
             <td>800</td>
             <td>960</td>
 						<td>1120</td>
@@ -183,10 +185,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td rowspan="5">8 核</td>
             <td>8GB</td>
-            <td>600</td>
-            <td>600</td>
-						<td>600</td>
-            <td>600</td>
+            <td>592</td>
+            <td>592</td>
+						<td>592</td>
+            <td>592</td>
 						<td>600</td>
             <td>720</td>
 						<td>840</td>
@@ -203,30 +205,30 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
         </tr>
         <tr>
             <td>16GB</td>
-            <td>800</td>
-            <td>800</td>
-						<td>800</td>
-            <td>800</td>
+            <td>792</td>
+            <td>792</td>
+						<td>792</td>
+            <td>792</td>
 						<td>800</td>
             <td>960</td>
 						<td>1120</td>
         </tr>
         <tr>
             <td>24GB</td>
-            <td>1000</td>
-            <td>1000</td>
-						<td>1000</td>
-						<td>1000</td>
+            <td>992</td>
+            <td>992</td>
+						<td>992</td>
+						<td>992</td>
             <td>1000</td>
             <td>1200</td>
 						<td>1400</td>
         </tr>
 				<tr>
             <td>32GB</td>
-            <td>1200</td>
-            <td>1200</td>
-						<td>1200</td>
-            <td>1200</td>
+            <td>1192</td>
+            <td>1192</td>
+						<td>1192</td>
+            <td>1192</td>
 						<td>1200</td>
             <td>1440</td>
 						<td>1680</td>
@@ -234,30 +236,30 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 					<tr>
             <td rowspan="4">12 核</td>
             <td>12GB</td>
-            <td>900</td>
-            <td>900</td>
-						<td>900</td>
-						<td>900</td>
+            <td>888</td>
+            <td>888</td>
+						<td>888</td>
+						<td>888</td>
             <td>900</td>
             <td>1080</td>
 						<td>1260</td>
         </tr>
         <tr>
             <td>24GB</td>
-            <td>1200</td>
-            <td>1200</td>
-						<td>1200</td>
-						<td>1200</td>
+            <td>1188</td>
+            <td>1188</td>
+						<td>1188</td>
+						<td>1188</td>
             <td>1200</td>
             <td>1440</td>
 						<td>1680</td>
         </tr>
         <tr>
             <td>28GB</td>
-            <td>1300</td>
-           <td>1300</td>
-						<td>1300</td>
-						<td>1300</td>
+            <td>1288</td>
+           <td>1288</td>
+						<td>1288</td>
+						<td>1288</td>
             <td>1300</td>
             <td>1580</td>
 						<td>1860</td>
@@ -277,10 +279,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td rowspan="3">16 核</td>
             <td>16GB</td>
-            <td>1200</td>
-            <td>1200</td>
-						<td>1200</td>
-						<td>1200</td>
+            <td>1184</td>
+            <td>1184</td>
+						<td>1184</td>
+						<td>1184</td>
             <td>1200</td>
             <td>1440</td>
 						<td>1680</td>
@@ -288,20 +290,20 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
        
         <tr>
             <td>32GB</td>
-            <td>1600</td>
-            <td>1600</td>
-						<td>1600</td>
-						<td>1600</td>
+            <td>1584</td>
+            <td>1584</td>
+						<td>1584</td>
+						<td>1584</td>
             <td>1600</td>
             <td>1920</td>
 						<td>2240</td>
         </tr>
         <tr>
             <td>48GB</td>
-            <td>2000</td>
-            <td>2000</td>
-						<td>2000</td>
-						<td>2000</td>
+            <td>1984</td>
+            <td>1984</td>
+						<td>1984</td>
+						<td>1984</td>
             <td>2000</td>
             <td>2400</td>
 						<td>2800</td>
@@ -330,11 +332,11 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
         </tr>
 				  <tr>
             <td >56GB</td>
-						<td>2600</td>
+						<td>2576</td>
             <td>2900<br>(含1000GB<br>数据盘价格，<br>不可更改)</td>
             <td>2900<br>(含1000GB<br>数据盘价格，<br>不可更改)</td>
 						<td>2600</td>
-            <td>-</td>
+            <td>2600</td>
             <td>-</td>
 						<td>-</td>
         </tr>
@@ -349,6 +351,16 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
             <td>3740<br>(含1000GB<br>数据盘价格，<br>不可更改)</td>
 						<td>4280<br>(含1000GB<br>数据盘价格，<br>不可更改)</td>
         </tr>
+	<tr>
+            <td rowspan="4">32 核</td>
+            <td>64GB</td>
+            <td>3168</td>
+            <td>-</td>
+						<td>-</td>
+            <td>3168</td>
+            <td>-</td>
+						<td>-</td>
+						<td>-</td>
 			
     </tbody></table>
 
@@ -379,30 +391,30 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td rowspan="3">2 核（价格均含起始 50GB 本地 SSD 数据盘价格，可提升至最高 250GB）</td>
             <td>4 GB</td>
-            <td>240</td>
-            <td>240</td>
-						<td>240</td>
-            <td>240</td>
+            <td>198</td>
+            <td>198</td>
+						<td>198</td>
+            <td>198</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
         </tr>
         <tr>
             <td>8 GB</td>
-            <td>340<br></td>
-            <td>340<br></td>
-						<td>340<br></td>
-            <td>340<br></td>
-						<td>-</td>
+            <td>298<br></td>
+            <td>298<br></td>
+						<td>298<br></td>
+            <td>298<br></td>
+						<td>354</td>
             <td>-</td>
 						<td>-</td>
         </tr>
         <tr>
             <td>16 GB</td>
-            <td>540<br></td>
-            <td>540<br></td>
-						<td>540<br></td>
-						<td>540<br></td>
+            <td>498<br></td>
+            <td>498<br></td>
+						<td>498<br></td>
+						<td>498<br></td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -410,30 +422,30 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 					<tr>
             <td rowspan="3">4 核（价格均含起始 50GB 本地 SSD 数据盘价格，可提升至最高 500GB）</td>
             <td>8 GB</td>
-            <td>440</td>
-            <td>440</td>
-						<td>440</td>
-						<td>440</td>
+            <td>396</td>
+            <td>396</td>
+						<td>396</td>
+						<td>396</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
         </tr>
         <tr>
             <td>16 GB</td>
-            <td>640</td>
-            <td>640</td>
-						<td>640</td>
-						<td>640</td>
-            <td>-</td>
+            <td>596</td>
+            <td>596</td>
+						<td>596</td>
+						<td>596</td>
+            <td>708</td>
             <td>-</td>
 						<td>-</td>
         </tr>
 				<tr>
             <td>32 GB</td>
-            <td>1040</td>
-            <td>1040</td>
-						<td>1040</td>
-						<td>1040</td>
+            <td>996</td>
+            <td>996</td>
+						<td>996</td>
+						<td>996</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -441,41 +453,41 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td rowspan="4">8 核（价格均含起始 100GB 本地 SSD 数据盘价格，可提升至最高 1000GB）</td>
             <td>16 GB</td>
-            <td>880</td>
-            <td>880</td>
-						<td>880</td>
-            <td>880</td>
+            <td>792</td>
+            <td>792</td>
+						<td>792</td>
+            <td>792</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
         </tr>
         <tr>
             <td>24 GB</td>
-            <td>1080</td>
-            <td>1080</td>
-						<td>1080</td>
-						<td>1080</td>
+            <td>992</td>
+            <td>992</td>
+						<td>992</td>
+						<td>992</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
         </tr>
 				<tr>
             <td>32 GB</td>
-            <td>1280</td>
-            <td>1280</td>
-						<td>1280</td>
-            <td>1280</td>
-						<td>-</td>
+            <td>1192</td>
+            <td>1192</td>
+						<td>1192</td>
+            <td>1192</td>
+						<td>1416</td>
             <td>-</td>
 						<td>-</td>
         </tr>		
 				<tr>
             <td>40 GB</td>
-            <td>1480</td>
-            <td>1480</td>
-						<td>1480</td>
-            <td>1480</td>
-						<td>-</td>
+            <td>1392</td>
+            <td>1392</td>
+						<td>1392</td>
+            <td>1392</td>
+						<td>1656</td>
             <td>-</td>
 						<td>-</td>
         </tr>		
@@ -483,63 +495,61 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
             <td rowspan="3">12 核（价格均含起始 500GB 本地 SSD 数据盘价格，可提升至最高 1500GB）</td>
             
             <td>24 GB</td>
-            <td>1600</td>
-            <td>1600</td>
-						<td>1600</td>
-						<td>1600</td>
+            <td>1188</td>
+            <td>1188</td>
+						<td>1188</td>
+						<td>1188</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
         </tr>
         <tr>
             <td>36 GB</td>
-            <td>1900</td>
-            <td>1900</td>
-						<td>1900</td>
-						<td>1900</td>
+            <td>1488</td>
+            <td>1488</td>
+						<td>1488</td>
+						<td>1488</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
         </tr>
 				<tr>
             <td>48 GB</td>
-            <td>2200</td>
-            <td>2200</td>
-						<td>2200</td>
-						<td>2200</td>
-            <td>-</td>
+            <td>1788</td>
+            <td>1788</td>
+						<td>1788</td>
+						<td>1788</td>
+            <td>2124</td>
             <td>-</td>
 						<td>-</td>
         </tr>
 					<tr>
             <td>24 核</td>
             <td >120 GB</td>
-            <td>7040<br>(含 3350GB 本地 SSD 数据盘价格，不可更改)</td>
-            <td>6560<br>(含 2950GB 本地 SSD 数据盘价格，不可更改)</td>
-						<td>6560<br>(含 2950GB 本地 SSD 数据盘价格，不可更改)</td>
-						<td>7040<br>(含 3350GB 本地 SSD 数据盘价格，不可更改)</td>
-            <td>-</td>
-            <td>-</td>
-						<td>-</td>
+            <td>4176<br>
+            <td>4176</td>
+            <td>4176</td>
+						<td>4176</td>
+                        <td>4968</td>
         </tr>
 				<tr>
-            <td>32 核（价格均含 4800GB 本地 SSD 数据盘价格，不可更改）</td>
+            <td>32 核</td>
             <td >160 GB</td>
-            <td>9940</td>
+            <td>5568</td>
             <td>-</td>
 						<td>-</td>
-						<td>9940</td>
+						<td>5568</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
         </tr>
 				<tr>
-            <td>48 核（价格均含 7200GB 本地 SSD 数据盘价格，不可更改）</td>
+            <td>48 核</td>
             <td >240 GB</td>
-            <td>14160</td>
+            <td>8352</td>
             <td>-</td>
 						<td>-</td>
-						<td>14160</td>
+						<td>8352</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -573,10 +583,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td>1 核</td>
             <td>8 GB</td>
-            <td>250</td>
-            <td>250</td>
-						<td>250</td>
-            <td>250</td>
+            <td>249</td>
+            <td>249</td>
+						<td>249</td>
+            <td>249</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -584,10 +594,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 					<tr>
             <td >2 核</td>
             <td>16 GB</td>
-            <td>500</td>
-            <td>500</td>
-						<td>500</td>
-						<td>500</td>
+            <td>498</td>
+            <td>498</td>
+						<td>498</td>
+						<td>498</td>
             <td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -595,10 +605,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td>4 核</td>
             <td>32 GB</td>
-            <td>1000</td>
-            <td>1000</td>
-						<td>1000</td>
-            <td>1000</td>
+            <td>996</td>
+            <td>996</td>
+						<td>996</td>
+            <td>996</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -606,10 +616,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 					<tr>
             <td>8 核</td>
             <td>64 GB</td>
-            <td>2000</td>
-            <td>2000</td>
-						<td>2000</td>
-            <td>2000</td>
+            <td>1992</td>
+            <td>1992</td>
+						<td>1992</td>
+            <td>1992</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -617,10 +627,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 						<tr>
             <td>12 核</td>
             <td>96 GB</td>
-            <td>3000</td>
-            <td>3000</td>
-						<td>3000</td>
-            <td>3000</td>
+            <td>2988</td>
+            <td>2988</td>
+						<td>2988</td>
+            <td>2988</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -628,10 +638,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td>16 核</td>
             <td>128 GB</td>
-            <td>4000</td>
-            <td>4000</td>
-						<td>4000</td>
-            <td>4000</td>
+            <td>3984</td>
+            <td>3984</td>
+						<td>3984</td>
+            <td>3984</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -639,10 +649,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td>24 核</td>
             <td>192 GB</td>
-            <td>6000</td>
-            <td>6000</td>
-						<td>6000</td>
-            <td>6000</td>
+            <td>5976</td>
+            <td>5976</td>
+						<td>5976</td>
+            <td>5976</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -650,10 +660,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td>32 核</td>
             <td>256 GB</td>
-            <td>8000</td>
-            <td>8000</td>
-						<td>8000</td>
-            <td>8000</td>
+            <td>7968</td>
+            <td>7968</td>
+						<td>7968</td>
+            <td>7968</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
@@ -661,10 +671,10 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 				<tr>
             <td>48 核</td>
             <td>386 GB</td>
-            <td>11600</td>
-            <td>11600</td>
-						<td>11600</td>
-            <td>11600</td>
+            <td>11552</td>
+            <td>11552</td>
+						<td>11552</td>
+            <td>11552</td>
 						<td>-</td>
             <td>-</td>
 						<td>-</td>
