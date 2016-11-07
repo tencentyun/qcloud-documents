@@ -40,16 +40,16 @@ JSON
 
 #### 2.7.2 分页拉取
 
-可以使用Limit和Offset两个值用于控制分页拉取：
+可以使用Limit和Next两个值用于控制分页拉取：
 1. Limit限制回包中GroupIdList中群组的个数，不得超过10000； 
-1. Offset控制从整个群组列表中的第多少个群组开始拉取信息。对于分页请求（页码数字从1开始），每一页的Offset值应当为：（页码数– 1）×每页展示的群组数量；
-1. 例如：假设需要分页拉取，每页展示20个，则第一页的请求参数应当为`{“Limit” : 20, “Offset” : 0}`，第二页的请求参数应当为`{“Limit” : 20, “Offset” : 20}`，依此类推；
-1. Limit或者Offset的取值不会对应答包体中的TotalCount造成影响。 
+1. Next控制分页。对于分页请求，第一次填0，后面的请求填上一次返回的Next字段，当返回的Next为0，代表所有的群都拉取到了；
+1. 例如：假设需要分页拉取，每页展示20个，则第一页的请求参数应当为`{“Limit” : 20, “Next” : 0}`，第二页的请求参数应当为`{“Limit” : 20, “Next” : 上次返回的Next字段}`，依此类推；
+1. Limit或者Next的取值不会对应答包体中的TotalCount造成影响。 
 
 ```
 {
     "Limit": 1000,  
-    "Offset": 0
+    "Next": 0
 }
 ```
 
@@ -67,7 +67,7 @@ JSON
 ```
 {
     "Limit": 1000,  
-    "Offset": 0,   
+    "Next": 0,   
     "GroupType" : "Public" // 拉取哪种群组形态，不填为拉取所有
 }
 ```
@@ -77,7 +77,7 @@ JSON
 | 字段 | 类型 |属性 |说明 |
 |---------|---------|---------|---------|
 | Limit | Integer | 选填| 本次获取的群组ID数量的上限，不得超过10000。如果不填，默认为最大值10000。 |
-| Offset | Integer | 选填 |本次从第多少个开始获取，如果不填则从0开始。 |
+| Next | Integer | 选填 | 群太多时分页拉取标志，第一次填0，以后填上一次返回的值，返回的Next为0代表拉完了。 |
 | GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过GroupType进行过滤，但此时返回的TotalCount的含义就变成了APP中属于该群组形态的群组总数。不填为获取所有类型的群组。[群组形态](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)包括Public（公开群），Private（私密群），ChatRoom（聊天室）和AVChatRoom（互动直播聊天室）。|
 
 ### 2.9 应答包体示例
@@ -95,7 +95,8 @@ JSON
         {
             "GroupId": "@TGS#2C5SZEAEF"
         }
-    ]
+    ]，
+    "Next": 4454685361
 }
 ```
 ### 2.10 应答包字段说明 
@@ -107,6 +108,7 @@ JSON
 | ErrorInfo | String | 错误信息。  |
 | TotalCount | Integer | APP当前的群组总数。如果仅需要返回特定群组形态的群组，可以通过GroupType进行过滤，但此时返回的TotalCount的含义就变成了APP中该群组形态的群组总数。<br/>例如：假设APP旗下总共50000个群组，其中有20000个为公开群组，如果将请求包体中的GroupType设置为Public，那么不论Limit和Offset怎样设置，应答包体中的TotalCount都为20000，且GroupIdList中的群组全部为公开群组。  |
 | GroupIdList | Array | 获取到的群组ID的集合。 |
+| Next | Integer | 分页拉取的标志。 |
 
 ### 2.11 错误码说明 
 
