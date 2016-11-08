@@ -5,12 +5,13 @@
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。其中，此接口的Action字段为AntiFraud。
+<br>注意：以下每一个参数对于识别恶意都非常重要，任何参数的缺少都有可能影响识别效果 。
 <table class="t">
 <th><b>参数名称</b>
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr> <td colspan="3">基本字段：五选二</td>
+<tr> <td colspan="3">基本字段：共有五项，要求至少选择两项<</td>
 </tr>
 <tr>
 <td> idNumber
@@ -119,6 +120,7 @@
 <td> riskInfo
 </td><td> RiskDetail
 </td><td> 扩展字段，对风险类型的说明
+<br> riskScore为0时无此字段
 </td></tr></tbody></table>
 
 RiskDetail类型说明
@@ -238,13 +240,17 @@ RiskDetail类型说明
   <td>407</td>
 </tr>
 <tr>
-<td rowspan="2"> 异常行为
+<td rowspan="3"> 异常行为
 </td><td> 组团骗贷
 <br></td><td> 501
 </td></tr>
 <tr>
   <td>所在地跳变 </td>
   <td>502</td>
+</tr>
+<tr>
+  <td>其他异常行为</td>
+  <td>503</td>
 </tr>
 </td></tr></tbody></table>
 
