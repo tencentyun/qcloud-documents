@@ -367,13 +367,13 @@ download_url?imageView2/<mode>/w/<Width>/h/<Height>
 | /4/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
 | /5/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩，居中裁剪；如果只指定一边，则表示宽高相等的正方形；同模式1，缩放后其中一边多余的部分会被裁剪掉 |
 | /format/&lt;Format&gt;                   | 目标缩略图的图片格式，Format可为：jpg, bmp, gif, png, webp,yjpeg等，其中yjpeg为万象优图针对jpeg格式进行的优化，本质为jpg格式；缺省为原图格式 |
-| /q/&lt;Quality&gt;                       | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；q后面加！，表示强制使用指定值 |
+| /q/<Quality>                             | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；<Quality>后面加！，表示强制使用指定值 |
 示例：
 
 ```
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageView2/0/w/400/h/300
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageView2/1/w/400/h/600/q/85
-http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageView2/2/w/400/h/600/q!/85
+http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageView2/2/w/400/h/600/q/85!
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageView2/3/w/400/format/png
 ```
 
@@ -410,7 +410,7 @@ imageMogr2是腾讯云·万象优图为开发者提供的简单而功能强大�
 | /scrop/<imageSizeAndOffsetGeometry> | 基于人脸识别执行智能裁剪功能。裁剪区域根据人的头像位置自动确定。 输出的裁剪后图片大小需要结合宽高参数指定。 |
 | /rotate/<rotateDegree>              | 图片旋转角度，取值范围0-360                         |
 | /format/<Format>                    | 目标缩略图的图片格式，Format可为：jpg, bmp, gif, png, webp,yjpeg等，其中yjpeg为万象优图针对jpeg格式进行的优化，本质为jpg格式；缺省为原图格式 |
-| /quality/<Quality>                  | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；q后面加！，表示强制使用指定值 |
+| /quality/<Quality>                  | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；<Quality>后面加！，表示强制使用指定值 |
 | /cgif/<FrameNumber>                 | 只针对原图为gif格式，对gif图片格式进行的优化，降帧降颜色。分为以下两种情况：FrameNumber=1，则按照默认帧数30处理，如果图片帧数大于该帧数则截取；FrameNumber取值(1,100]，则将图片压缩到指定帧数FrameNumber |
 | /interlace/<Mode>                   | 输出为渐进式jpg格式。Mode可为0或1,0表示不开启渐进式；1表示开启渐进式。该参数仅在输出图片格式为jpg格式时有效。如果输出非jpg图片格式，会忽略该参数，默认值0 |
 缩放操作表格：
@@ -473,7 +473,7 @@ http://v2enhance-10000812.image.myqcloud.com/tencentyunRestfulAPITest?imageMogr2
 
 ```
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/crop/!600x600a20a20/quality/85
-http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/crop/!600x600-20a20/quality!/85
+http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/crop/!600x600-20a20/quality/85!
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/format/jpg/interlace/1
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/scrop/300x400
 ```
