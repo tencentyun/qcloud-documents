@@ -22,13 +22,13 @@
 <tr>
 <td> fileUrl
 </td><td> 可选
-</td><td> UInt
-</td><td> 注册时间戳，单位秒
+</td><td> String
+</td><td> 文件的URL地址
 </td></tr>
 <tr>
 <td> fileMd5
 </td><td> 可选
-</td><td> UInt
+</td><td> String
 </td><td> 图片MD5值
 </td></tr>
 <tr>
@@ -48,7 +48,7 @@
 </th></tr>
 <tr>
 <td> level
-</td><td> int
+</td><td> Int
 </td><td> 0：表示无恶意
 <br> 1：文件名恶意
 <br> 2：文件内容恶意
@@ -56,7 +56,7 @@
 </td></tr>
 <tr>
 <td> contentType
-</td><td> int
+</td><td> Int
 </td><td> 文件内容恶意类型：
 <br> 0：未知
 <br> 1：安全
@@ -65,23 +65,23 @@
 </td></tr>
 <tr>
 <td> confidence
-</td><td> double
+</td><td> Double
 </td><td> 识别为黄图的置信度，范围0-100；
 是normalScore, hotScore, pornScore的综合评分，confidence大于83定为疑似图片
 </td></tr>
 <tr>
 <td> normalScore
-</td><td> double
+</td><td> Double
 </td><td> 图片为正常图片的评分
 </td></tr>
 <tr>
 <td> hotScore
-</td><td> double
+</td><td> Double
 </td><td> 图片为性感图片的评分
 </td></tr>
 <tr>
 <td> pornScore
-</td><td> double
+</td><td> Double
 </td><td> 图片为色情图片的评分
 </td></tr></tbody></table>
 ## 4. 示例代码
