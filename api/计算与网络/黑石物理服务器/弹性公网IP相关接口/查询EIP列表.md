@@ -10,7 +10,7 @@
 |-------|----|---|----|----|
 | eipIds.n|否|String|EIP实例ID列表，数组下标从0开始|
 | eips.n|否|String|EIP列表，数组下标从0开始|
-| unInstanceIds.n|否|String|服务器实例ID列表，数组下标从0开始，可通过[DescribeInstances]()接口返回字段中的unInstanceId获取|
+| unInstanceIds.n|否|String|服务器实例ID列表，数组下标从0开始，可通过[DescribeDevice](/doc/api/456/6728)接口返回字段中的instanceId获取|
 | searchKey|否|String|EIP实例名称，模糊匹配|
 | status.n|否|Int|状态列表，数组下标从0开始<br>0：创建中； 1：绑定中；2：已绑定；3：解绑中； 4：未绑定； 6：下线中； 9：创建失败|
 | offset | 否 | Int | 偏移量，默认为0|
@@ -23,7 +23,7 @@
 ## 3. 输出参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码]()。 |
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/doc/api/456/6725)。 |
 | message | String | 错误信息 |
 | codeDesc | String | 错误码描述 |  
 |  totalCount  |  Int |  返回符合过滤条件的EIP数量；假如指定limit，offset，该值有可能大于data数组中的数量 |
@@ -57,6 +57,7 @@ data结构
 ```
 
   https://eip.api.qcloud.com/v2/index.php?
+  &Action=DescribeEipBm
   &<公共请求参数>&startNum=0&endNum=20
 ```
 

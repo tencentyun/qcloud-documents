@@ -32,6 +32,7 @@ Data结构
 ```
 
   https://eip.api.qcloud.com/v2/index.php?
+  &Action=EipBmQueryTask
   &<公共请求参数>&requestId=2383049
 ```
 

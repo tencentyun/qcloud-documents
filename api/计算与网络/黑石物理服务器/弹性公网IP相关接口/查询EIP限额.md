@@ -15,7 +15,7 @@
 ## 3. 输出参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码]()。 |
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/doc/api/456/6725)。 |
 | message |   String | 错误信息 |
 |  totalCount  |  Int |  返回符合过滤条件的EIP数量；假如指定limit，offset，该值有可能大于data数组中的数量 |
 | data |   Array | 返回数组 |
@@ -37,6 +37,7 @@ Data结构
 ```
 
   https://eip.api.qcloud.com/v2/index.php?
+  &Action=DescribeEipBmQuota
   &<公共请求参数>
 ```
 

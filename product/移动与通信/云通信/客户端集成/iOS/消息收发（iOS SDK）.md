@@ -585,7 +585,7 @@ for (int i = 0; i < cnt; i++) {
 @interface TIMImageElem : TIMElem
 
 /**
- *  收消息时不用关注
+ *  要发送的图片路径
  */
 @property(nonatomic,retain) NSString * path;
 
@@ -723,7 +723,7 @@ NSString * pic_path = @"/xxx/imgPath.jpg";
 @property(nonatomic,retain) NSString * path;
 
 /**
- *  存储语音数据
+ *  发送时设置为语音数据，接收时使用getSoundToFile获得数据
  */
 @property(nonatomic,retain) NSData * data;
 
@@ -1468,6 +1468,35 @@ UI展示最近联系人列表时，时常会展示用户的草稿内容，在2.2
 参数|说明
 ---|---
 draft | 需要设置的草稿 ，需要清空会话草稿时传入nil
+
+### 4.9 删除本地会话消息
+
+ImSDK支持保留会话同时删除本地的会话消息。**再次拉取消息时群组类型会话会从服务器重新拉取到消息**。
+
+**原型： **
+
+```
+@interface TIMConversation : NSObject
+
+/**
+ *  删除本地会话消息
+ *
+ *  @param succ  成功时回调
+ *  @param fail  失败时回调
+ *
+ *  @return 0 本次操作成功
+ */
+-(int) deleteLocalMessage:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+succ | 成功回调
+fail | 失败回调
 
 
 ## 5. 系统消息

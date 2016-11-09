@@ -148,6 +148,39 @@ String getFileResult = cosClient.getFileLocal(getFileLocalRequest);
 
 
 
+### 移动文件
+
+#### 方法原型
+
+```java
+String moveFile(MoveFileRequest request);
+```
+
+#### 参数说明
+
+|   参数名   |      参数类型       | 默认值  |  参数描述  |
+| :-----: | :-------------: | :--: | :----: |
+| request | MoveFileRequest |  无   | 移动文件请求 |
+
+| request成员  |   类型   |         默认值         |       设置方法        |                    描述                    |
+| :--------: | :----: | :-----------------: | :---------------: | :--------------------------------------: |
+| bucketName | String |          无          |    构造函数或set方法     |                 bucket名称                 |
+|  cosPath   | String |          无          |    构造函数或set方法     | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+| dstCosPath | String |          无          |    构造函数或set方法     | 移动文件的目标地址，必须从bucket下的根/开始，文件路径不能以/结尾，例如/mytest/demo.txt.move |
+| overWrite  |  枚举类型  | NO_OVER_WRITE (不覆盖) | set方法setOverWrite |       在移动的目标文件存在时，选择不覆盖还是覆盖，默认不覆盖        |
+
+#### 示例
+
+```java
+String cosFilePath = "/sample_file.txt";
+String dstCosFilePath = "/sample_file.txt.bak";
+MoveFileRequest moveRequest =
+  new MoveFileRequest(bucketName, cosFilePath, dstCosFilePath);
+String moveFileResult = cosClient.moveFile(moveRequest);
+```
+
+
+
 ### 获取文件属性
 
 #### 方法原型
