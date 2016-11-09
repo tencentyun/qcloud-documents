@@ -506,6 +506,20 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 public void sendOnlineMessage(TIMMessage msg, TIMValueCallBack<TIMMessage> callback)
 ```
 
+### 1.11 消息转发
+
+在2.4.0及以上版本，在`TIMMessage`中提供了`copyFrom`接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
+
+**原型：**
+```
+/**
+ * 复制消息内容到当前消息（Elem, priority, online, offlinePushInfo等）
+ * @param srcMsg 源消息
+ * @return true 复制成功
+ */
+public boolean copyFrom(@NonNull TIMMessage srcMsg)
+```
+
 
 ## 2 接收消息
 
@@ -1093,7 +1107,7 @@ count | 需要获取的消息数，注意这里最多为20
 
 ### 4.7 禁用会话本地存储
 
-直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。在ImSDK 2.2及更高级版本中增加了针对单个会话禁用本地存储的功能，开发者可以根据需要调用`TIMConversation`中的`disableStorage`接口禁用相应的会话本地存储。
+直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。在ImSDK 2.2.0及更高级版本中增加了针对单个会话禁用本地存储的功能，开发者可以根据需要调用`TIMConversation`中的`disableStorage`接口禁用相应的会话本地存储。
  
 **原型： **
 
@@ -1107,7 +1121,7 @@ public void disableStorage()
 
 ### 4.8 设置会话草稿
 
-ImSDK 2.2及以上版本增加了会话草稿功能，开发者可以通过`TIMConversation`中的相关接口进行草稿操作。
+ImSDK 2.2.0及以上版本增加了会话草稿功能，开发者可以通过`TIMConversation`中的相关接口进行草稿操作。
 
 > 1. 草稿只能本地有效，更换终端或者清除数据后将看不到草稿。
 > 2. 草稿信息会存本地数据库，重新登录后依然可以获取。
