@@ -19,9 +19,9 @@ public static TIMGroupManager getInstance()
 ### 3.1 创建内置类型群组
 
 
-可通过createGroup接口创建群组，创建时可指定群组类型，群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。
+可通过createGroup接口创建群组，创建时可指定群组类型，群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。云通信中内置了私有群、公开群、聊天室和互动直播聊天室四种群组类型，详情请见[群组形态介绍](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)
 
-另外 CreateAVChatRoomGroup 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
+另外 CreateAVChatRoomGroup 创建直播大群(avchatroom)，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
 
 **原型： **
 

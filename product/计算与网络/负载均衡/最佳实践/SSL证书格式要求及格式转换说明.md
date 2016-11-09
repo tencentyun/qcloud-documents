@@ -76,7 +76,7 @@ P7B格式一般出现在windows server和tomcat中。
 
 获取outcertificat.cer里面 [——-BEGIN CERTIFICATE——-， ——-END CERTIFICATE——-] 的内容作为证书上传。
 
-私钥转换：无私钥
+私钥转换：私钥一般在IIS服务器里可导出
 
 ### 4.3. PFX转换为PEM
 
