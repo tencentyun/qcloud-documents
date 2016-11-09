@@ -11,7 +11,7 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr> <td colspan="3">基本字段：共有五项，要求至少选择两项<</td>
+<tr> <td colspan="3">基本字段：共有五项，要求至少选择两项</td>
 </tr>
 <tr>
 <td> idNumber

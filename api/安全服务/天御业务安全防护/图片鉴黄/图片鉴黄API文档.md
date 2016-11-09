@@ -29,20 +29,13 @@
 <td> fileMd5
 </td><td> 可选
 </td><td> UInt
-</td><td> 用户账号类型
-<br> 0：其他账号
-<br> 1：QQ开放帐号
-<br> 2：微信开放帐号
-<br> 4：手机号
-<br> 6：手机动态码
-<br> 7：邮箱
+</td><td> 图片MD5值
 </td></tr>
 <tr>
 <td> fileSha1
 </td><td> 可选
 </td><td> String
-</td><td> 用户ID
-<br> accountType不同对应不同的用户ID。如果是QQ或微信用户则填入对应的openId
+</td><td> 图片sha值
 </td></tr>
 </td></tr></tbody></table>
 
