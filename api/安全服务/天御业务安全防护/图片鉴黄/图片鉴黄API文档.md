@@ -67,7 +67,7 @@
 <td> confidence
 </td><td> Double
 </td><td> 识别为黄图的置信度，范围0-100；
-是normalScore, hotScore, pornScore的综合评分，confidence大于83定为疑似图片
+是normalScore,hotScore,pornScore的综合评分,confidence大于83定为疑似图片
 </td></tr>
 <tr>
 <td> normalScore
