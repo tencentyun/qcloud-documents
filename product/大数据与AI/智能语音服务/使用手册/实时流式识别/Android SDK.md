@@ -91,7 +91,7 @@ void onSliceSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, 
    request：语音识别请求；
    result: 请求结果
    order:该分片在语音流中的顺序
- 2. 返回整个语音流的识别结果
+2. 返回整个语音流的识别结果
  ```
 void onSegmentSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, int order);
  ```
@@ -99,11 +99,11 @@ void onSegmentSuccess(AudioRecognizeRequest request, AudioRecognizeResult result
  request：语音识别请求；
 result: 请求结果
 order:该语音流在所欲语音流中的顺序
- 3. 返回整个语音识别结果
+3. 返回整个语音识别结果
 ```
 void onSuccess(AudioRecognizeRequest request, String result);
 ```
- 4. 识别失败返回
+4. 识别失败返回
  ```
 void onFailure(T1 request, ClientException clientException, ServerException serverException);
 ```
@@ -114,19 +114,19 @@ void onFailure(T1 request, ClientException clientException, ServerException serv
 ```
 void onStartRecord(AudioRecognizeRequest request);
 ```
- 2. 结束录音回调接口
+2. 结束录音回调接口
  ```
 void onStopRecord(AudioRecognizeRequest request);
 ```
- 3. 开始识别回调接口
+3. 开始识别回调接口
 ```
 void onStartRecognize(AudioRecognizeRequest request);
 ```
- 4. 结束识别回调接口
+4. 结束识别回调接口
 ```
 void onStopRecognize(AudioRecognizeRequest request);
 ```
- 5. 返回音量
+5. 返回音量
 ```
 void onVoiceVolume(AudioRecognizeRequest request, int volume);
 ```
@@ -136,7 +136,7 @@ void onVoiceVolume(AudioRecognizeRequest request, int volume);
 ```
 void onFirstVoiceFlowTimeout(AudioRecognizeRequest request);
  ```
-2. 语音流结束超时：
+ 2. 语音流结束超时：
 ```
 void onNextVoiceFlowTimeout(AudioRecognizeRequest request);
 ```
