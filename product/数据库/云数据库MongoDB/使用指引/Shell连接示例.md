@@ -1,11 +1,21 @@
-Shell命令：
+## shell方式连接MongoDB
 
+### mongouser以及在控制台创建的用户名连接
 ```
-./mongo 10.66.136.162:27017/admin -u rwuser --password=********  --authenticationMechanism=MONGODB-CR
+./mongo IP:27017/admin -u mongouser --password=***
 ```
 或者
 ```
-./mongo 10.66.136.162:27017 -u rwuser --password=********  --authenticationMechanism=MONGODB-CR --authenticationDatabase admin
+./mongo IP:27017 -u mongouser --password=*** --authenticationDatabase admin
+```
+
+### rwuser连接
+```
+./mongo IP:27017/admin -u rwuser --password=*** --authenticationMechanism=MONGODB-CR
+```
+或者
+```
+./mongo IP:27017 -u rwuser --password=*** --authenticationMechanism=MONGODB-CR --authenticationDatabase admin
 ```
 
 示例：
