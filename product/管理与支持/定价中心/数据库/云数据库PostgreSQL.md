@@ -1,6 +1,6 @@
 ## 云数据库 PostgreSQL 定价
 
-CDB for PostgreSQL 目前支持实例包年包月付费方式。
+CDB for PostgreSQL 目前提供实例包年包月付费方式。
 
 PostgreSQL目前仍在免费使用期内。预计将于2016年12月开始以按需售卖模式（即内存和硬盘单独计价的售卖方式），具体时间详见官网正式通知。
 
