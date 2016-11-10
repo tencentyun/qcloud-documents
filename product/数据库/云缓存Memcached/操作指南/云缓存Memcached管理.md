@@ -27,7 +27,10 @@
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLDeleteTable.jpg)
 
 ## 5 开启expire过期删除
-详见:开启expire过期删除功能
+1、要使用expire功能，首先需要在腾讯云管理控制台打开对应CMEM实例的expire开关
+![](https://mc.qcloudimg.com/static/img/5fe836860fcf211c0984d84946735d0e/cmem.png)
+2、开启expire功能后，需要在代码里设置key的有效期，具体请参考各语言memcached设置方法。
+3、注意，开启expire功能前设置的key是不会自动过期的。
 
 ## 6 查看监控信息
 
