@@ -1,8 +1,7 @@
 
 ## 开发准备
 ### SDK下载
-智能语音服务实时流式识别 Android SDK 下载地址：Android SDK
-更多示例参考Demo： Android Demo
+智能语音服务实时流式识别 Android SDK 及 Demo下载地址：[Android SDK][1]  
 
 ### 包文件目录
 | 包名称    | 文件目录    | 说明 |
@@ -177,11 +176,4 @@ public static void enableError();
 ```
 
 
-
-
-
-
-
-
-
-
+  [1]: https://mc.qcloudimg.com/static/archive/e463257daf21b76e08b851c2e5d5bfd0/qcloud-aai-android.zip
