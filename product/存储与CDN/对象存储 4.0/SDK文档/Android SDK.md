@@ -326,7 +326,7 @@ listDirRequest.setListener(new ICmdTaskListener() {
 });
 
 
-//支持前缀查询
+// 支持前缀查询
 listDirRequest.setPrefix(prefix);
 ListDirResult result=cos.listDir(listDirRequest);
 ```
