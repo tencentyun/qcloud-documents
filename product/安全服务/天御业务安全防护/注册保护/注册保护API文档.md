@@ -62,13 +62,13 @@
 <tr>
 <td> nickName
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 昵称，utf8编码
 </td></tr>
 <tr>
 <td> phoneNumber
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 手机号；国家代码-手机号， 如0086-15912345687. 注意0086前不需要+号
 </td></tr>
 <tr>
@@ -86,37 +86,37 @@
 <tr>
 <td> cookieHash
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 用户Http请求中的cookie进行2次hash的值，只要保证相同cookie的Hash值一致即可
 </td></tr>
 <tr>
 <td> registerSource
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 注册来源<br>0：其他<br>1：PC网页<br>2：移动页面<br>3：APP<br>4：微信公众号
 </td></tr>
 <tr>
 <td> referer
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 用户Http请求的referer值
 </td></tr>
 <tr>
 <td> jumpUrl
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 注册成功后跳转页面
 </td></tr>
 <tr>
 <td> userAgent
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 用户Http请求的userAgent
 </td></tr>
 <tr>
 <td> xForwardedFor
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 用户Http请求中的x_forward_for
 </td></tr>
 <tr>
@@ -155,25 +155,25 @@
 </td></tr>
 <td> macAddress
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> mac地址或设备唯一标识
 </td></tr>
 <tr>
 <td> vendorId
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 手机制造商ID，如果手机注册，请带上此信息
 </td></tr>
 <tr>
 <td> appVersion
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> APP客户端版本
 </td></tr>
 <tr>
 <td> imei
 </td><td> 可选
-</td><td> string
+</td><td> String
 </td><td> 手机设备号
 </td></tr>
 <td> businessId
