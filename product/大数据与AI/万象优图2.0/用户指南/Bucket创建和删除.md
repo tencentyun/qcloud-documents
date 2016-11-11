@@ -6,12 +6,17 @@
 
 ![创建Bucket](https://mc.qcloudimg.com/static/img/9b48fe8d2debeb9dd2651fb89524c417/image.png)
 
+支持两种方式：
+
+1. 新建：新创建一个Bucket,由于万象优图的存储功能是基于对象存储服务（COS）的，新创建的Bucket也可以在COS控制台里查询到。
+2. 选择已有COS Bucket：通过此种方式，本质上是为一个COS上的Bucket开通图片处理服务。
+
 **请注意：**
 
 + Bucket 数量上限是200个（不区分地区）。但是 Bucket下目录、文件数量没有限制。
 + Bucket 创建于项目下，一个 Bucket 只能属于一个项目，支持切换项目。
 + Bucket 名称支持小写字母和数字的组合，不支持特殊符号及下划线，且不能超过 40 字节。
-+ 腾讯云 COS 中，同一个 APPID 的所有项目下 Bucket 名称是唯一的，不能重名。
++ 同一个 APPID 的所有项目下 Bucket 名称是唯一的，不能重名。
 + Bucket 默认提供两种访问权限：公有读私有写和私有读写。
   > 1. 公有读私有写：任何人（包括匿名访问者）都对该Bucket中的文件有读权限，但只有Bucket创建者及有相应权限的账号才对该Bucket中的文件有写权限。
 
