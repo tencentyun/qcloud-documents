@@ -63,7 +63,7 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 ### 2.2 SDK推流质量专区
 
 您在 2.1 中所看到的图表是源于我们实验测试用的内部数据分析系统，如果您有同样的分析需求，可以在[直播控制台](https://console.qcloud.com/live)的质量监控系统里看到类似的图表，这里的图表的格式更加简明，对其理解不需要太多专业的音视频基础知识。
-![](//mc.qcloudimg.com/static/img/39675dff16348922e96b7f8616a0d0ee/image.png)
+![](//mc.qcloudimg.com/static/img/4bf231da79ec8e45bdc4c16c927da47f/image.png)
 
 ## 3. 校调推流参数
 如果您希望定制视频编码参数，音频编码参数等等，您可以通过设置Config对象实现您的自定义需求，目前我们支持的setting接口如下：
