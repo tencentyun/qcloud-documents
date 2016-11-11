@@ -22,8 +22,4 @@ TDSQL的权限为对象级权限，权限包括MySQL常见的19种权限；也�
 ![](//mccdn.qcloud.com/img56835bf828954.png)
 <span style="background-color:#FFFF00">注意：未创建数据库时，无法设置对象级别权限。</span>
 
-## 2.获取内网地址
-在实例详情页面，直接获取实例内网地址。说明一下，这里的内网地址是VIP，是通过接入网关集群统一访问数据库实例，而非直接连接到数据库实例物理机上，因此是否主机发送故障或主备切换，内网IP都不会变化。
-![](//mccdn.qcloud.com/img56835cbbbeb73.png)
-您可以在和TDSQL**所属网络相同**的云服务器上，直接连接实例的**内网地址**访问TDSQL服务。（注意：您可能需要先安装mysql客户端）
-![](//mccdn.qcloud.com/img56835e0a9470d.png)
+

@@ -22,27 +22,20 @@
 <tr>
 <td> fileUrl
 </td><td> 可选
-</td><td> UInt
-</td><td> 注册时间戳，单位秒
+</td><td> String
+</td><td> 文件的URL地址
 </td></tr>
 <tr>
 <td> fileMd5
 </td><td> 可选
-</td><td> UInt
-</td><td> 用户账号类型
-<br> 0：其他账号
-<br> 1：QQ开放帐号
-<br> 2：微信开放帐号
-<br> 4：手机号
-<br> 6：手机动态码
-<br> 7：邮箱
+</td><td> String
+</td><td> 图片MD5值
 </td></tr>
 <tr>
 <td> fileSha1
 </td><td> 可选
 </td><td> String
-</td><td> 用户ID
-<br> accountType不同对应不同的用户ID。如果是QQ或微信用户则填入对应的openId
+</td><td> 图片sha值
 </td></tr>
 </td></tr></tbody></table>
 
@@ -55,7 +48,7 @@
 </th></tr>
 <tr>
 <td> level
-</td><td> int
+</td><td> Int
 </td><td> 0：表示无恶意
 <br> 1：文件名恶意
 <br> 2：文件内容恶意
@@ -63,7 +56,7 @@
 </td></tr>
 <tr>
 <td> contentType
-</td><td> int
+</td><td> Int
 </td><td> 文件内容恶意类型：
 <br> 0：未知
 <br> 1：安全
@@ -72,23 +65,23 @@
 </td></tr>
 <tr>
 <td> confidence
-</td><td> double
+</td><td> Double
 </td><td> 识别为黄图的置信度，范围0-100；
-是normalScore, hotScore, pornScore的综合评分，confidence大于83定为疑似图片
+是normalScore,hotScore,pornScore的综合评分,confidence大于83定为疑似图片
 </td></tr>
 <tr>
 <td> normalScore
-</td><td> double
+</td><td> Double
 </td><td> 图片为正常图片的评分
 </td></tr>
 <tr>
 <td> hotScore
-</td><td> double
+</td><td> Double
 </td><td> 图片为性感图片的评分
 </td></tr>
 <tr>
 <td> pornScore
-</td><td> double
+</td><td> Double
 </td><td> 图片为色情图片的评分
 </td></tr></tbody></table>
 ## 4. 示例代码
