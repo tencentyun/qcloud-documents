@@ -5,7 +5,7 @@ OCR接口采用http协议，支持多URL和多本地图片文件,每个请求最
 方法：POST
 
 ## 2. 使用图片URL
-###2.1 请求内容
+### 2.1 请求内容
 
 **请求语法:**
 
@@ -207,15 +207,15 @@ result_list（json数组）中每一项的具体内容
 
 data字段具体内容
 
-| 参数	| 类型	| 描述|
-| ---- | ---- | ---- |
-| name| 	string	| 姓名| 
-| phone| 	string| 	手机号| 
-| uin	| string	| QQ号| 
-| name_confidence	| double	| 姓名置信度| 
-| phone_confidence| 	double	| 手机号置信度| 
-| uin_confidence	| double| 	QQ号置信度| 
-| image | string | 返回图片的base64编码（ret_image=1时返回） |
+| 参数               | 类型     | 描述                            |
+| ---------------- | ------ | ----------------------------- |
+| name             | string | 姓名                            |
+| phone            | string | 手机号                           |
+| uin              | string | QQ号                           |
+| name_confidence  | double | 姓名置信度                         |
+| phone_confidence | double | 手机号置信度                        |
+| uin_confidence   | double | QQ号置信度                        |
+| image            | string | 返回图片的base64编码（ret_image=1时返回） |
 
 注：如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1
 
