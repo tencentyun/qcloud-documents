@@ -24,7 +24,7 @@
 </td><td> 2.00元 /GB日
 </td></tr></tbody></table>
 
-## 购买流程
+## 购买指导
 
 ### 购买新表
 1.登录腾讯云首页www.qcloud.com
