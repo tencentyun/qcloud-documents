@@ -29,12 +29,12 @@ Content-Type: "application/json"
 
 **请求包http header:**
 
-| 参数             | 是否必选 | 描述                              |
-| -------------- | ---- | ------------------------------- |
-| Host           | 是    | 访问域名，service.image.myqcloud.com |
-| Authorization  | 是    | 鉴权签名，详见下面鉴权章节                   |
-| Content-Type   | 是    | 标准application/json              |
-| Content-Length | 是    | http body总长度                    |
+| 参数             | 是否必选 | 描述                                   |
+| -------------- | ---- | ------------------------------------ |
+| Host           | 是    | 访问域名，service.image.myqcloud.com      |
+| Authorization  | 是    | 鉴权签名，详见[鉴权文档](/doc/product/460/6968) |
+| Content-Type   | 是    | 标准application/json                   |
+| Content-Length | 是    | http body总长度                         |
 
 **请求包http body:**
 
@@ -172,12 +172,12 @@ image_content
 
 **请求包http header:**
 
-| 参数             | 是否必选 | 描述                              |
-| -------------- | ---- | ------------------------------- |
-| Host           | 是    | 访问域名，service.image.myqcloud.com |
-| Authorization  | 是    | 鉴权签名，详见下面鉴权章节                   |
-| Content-Type   | 是    | 标准的multipart/form-data          |
-| Content-Length | 是    | http body总长度                    |
+| 参数             | 是否必选 | 描述                                   |
+| -------------- | ---- | ------------------------------------ |
+| Host           | 是    | 访问域名，service.image.myqcloud.com      |
+| Authorization  | 是    | 鉴权签名，详见[鉴权文档](/doc/product/460/6968) |
+| Content-Type   | 是    | 标准的multipart/form-data               |
+| Content-Length | 是    | http body总长度                         |
 
 **表单域:**
 
