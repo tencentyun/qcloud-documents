@@ -241,7 +241,7 @@
 </td></tr>
 <tr>
 <td> level
-</td><td> int
+</td><td> Int
 </td><td> 0：表示无恶意<br>1～4：恶意等级由低到高
 </td></tr></tbody></table>
 
