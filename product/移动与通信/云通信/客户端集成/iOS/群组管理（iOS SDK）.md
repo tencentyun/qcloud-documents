@@ -241,7 +241,7 @@ fail|失败回调
 
 ### 3.4 邀请用户入群
 
-TIMGroupManager 的接口 InviteGroupMember 可以拉（邀请）用户进入群组，对私有群，对方直接进入群组，对于共有群，需要对方同意才可进入。
+TIMGroupManager 的接口 InviteGroupMember 可以拉（邀请）用户进入群组，对私有群，对方直接进入群组，对于共有群，默认没有邀请入群功能，提交工单开启功能后需要对方同意才可进入。
 
 **权限说明：**
  
@@ -2067,6 +2067,23 @@ memberInfoList | 变更的群成员的具体资料信息，为TIMGroupTipsElemMe
 ---|---
 identifier | 变更的用户identifier 
 shutupTime | 被禁言的时间 
+
+### 8.7 群事件消息监听器
+
+聊天室和直播大群的群事件消息需要通过注册监听器获得，2.4版本后消息Elem中包含群的成员数。
+
+/**
+ *  群事件通知回调
+ */
+@protocol TIMGroupEventListener <NSObject>
+@optional
+/**
+ *  群tips回调
+ *
+ *  @param elem  群tips消息
+ */
+- (void)onGroupTipsEvent:(TIMGroupTipsElem*)elem;
+@end
 
 ## 9 群系统消息 
 
