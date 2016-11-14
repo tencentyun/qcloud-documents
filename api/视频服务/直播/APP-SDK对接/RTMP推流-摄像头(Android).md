@@ -188,7 +188,29 @@ step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_
 当收到此WARNING时，您可以通过UI提醒主播换一下网络出口，或者离WiFi近一点，或者让他吼一嗓子：“领导，我在直播呢，别上淘宝了行不！什么？没上淘宝？那韩剧也是一样的啊。”
 
 ### step 11: 横屏推流
-通过对 TXLivePushConfig 中的 **setHomeOrientation** 设置项进行配置，可以实现横屏推流。
+大多数情况下，用户习惯以“竖屏持握”进行直播拍摄，观看端看到的也是竖屏样式；有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果。
+![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
+> <font color='red'>**注意**</font>：横屏推流和竖屏推流，观众端看到的图像的宽高比是不同的。
+
+要实现横屏推流，需要完成两步工作：
+#### 调整观众端表现
+通过对 LivePushConfig 中的 **setHomeOrientation** 设置项进行配置，它控制的是观众端看到的视频宽高比是 **16:9** 还是 **6:19**，调整后的结果可以用播放器查看以确认是否符合预期。
+
+| 设置项 | 含义 |
+|:---------|---------|
+| VIDEO_ANGLE_HOME_RIGHT     | home键在右 |
+| VIDEO_ANGLE_HOME_DOWN     | home键在下 |
+| VIDEO_ANGLE_HOME_LEFT       | home键在左 |
+| VIDEO_ANGLE_HOME_UP           | home键在上 |
+
+#### 调整主播端表现
+Android 系统的 Activity 本身支持是否跟随手机的重力感应进行旋转，所以我们要区别对待：
+
+- **系统旋转打开**
+Activity 会随着手机重力感应而旋转，此时不需要对画面做多余的调整。
+
+- **系统旋转关闭**
+Activity 不跟随重力感应发生变化，这里可以通过 TXLivePusher 中的 setRenderRotation 接口来设置主播看到的画面的旋转方向。此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
 
 ### step 12: 背景混音
 RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePusher 中的如下这组接口实现背景混音功能：
@@ -259,4 +281,6 @@ public void stopRtmpPublish() {
     mLivePusher.setPushListener(null);   //解绑 listener
 }
 ```
+
+
 
