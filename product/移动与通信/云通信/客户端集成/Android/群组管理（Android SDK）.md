@@ -19,9 +19,9 @@ public static TIMGroupManager getInstance()
 ### 3.1 创建内置类型群组
 
 
-可通过createGroup接口创建群组，创建时可指定群组类型，群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。云通信中内置了私有群、公开群、聊天室和互动直播聊天室四种群组类型，详情请见[群组形态介绍](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)
+可通过createGroup接口创建群组，创建时可指定群组类型，群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。
 
-另外 CreateAVChatRoomGroup 创建直播大群(avchatroom)，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
+另外 CreateAVChatRoomGroup 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
 
 **原型： **
 
@@ -274,13 +274,13 @@ TIMGroupManager.getInstance().createGroup(
 
 ### 3.4 邀请用户入群
 
-TIMGroupManager 的接口 InviteGroupMember 可以拉（邀请）用户进入群组，对私有群，对方直接进入群组，对于公开群，需要对方同意才可进入。
+TIMGroupManager 的接口 InviteGroupMember 可以拉（邀请）用户进入群组。
 
 **权限说明：**
 
-只有私有群可以拉用户入群； 
-公开群、聊天室邀请用户入群，需要用户同意；
-直播大群不能邀请用户入群；
+私有群：群成员无需受邀用户同意，直接将其拉入群中。
+公开群/聊天室：不允许群成员邀请他人入群。
+互动直播聊天室：不允许任何人（包括APP管理员）邀请他人入群。
 
 **原型： **  
 
@@ -981,6 +981,12 @@ public TIMMessage getLastMsg()
  * @return 群组自定义字段map
  */
 public Map<String, byte[]> getCustom()
+
+/**
+ * 获取在线群成员数（需要通过填写工单申请开通才会返回有效值，其中音视频直播大群无法申请开通）
+ * @return  在线群成员数
+ */
+public long getOnlineMemberNum() 
 ```
 
 **示例：**
@@ -1909,7 +1915,10 @@ void onGroupUpdate(TIMGroupCacheInfo groupCacheInfo);
 
 ## 8. 群事件消息
 
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的Elem标识，通过新消息回调返回消息（参见[新消息通知](/doc/product/269/初始化（Android%20SDK）#2-.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)）。另外，除了从**新消息通知**中获取群事件消息，还可以通过`TIMManager`中的`setGroupEventListener`接口设置群事件监听器来统一监听相应的事件。
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的Elem标识，通过新消息回调返回消息（参见[新消息通知](/doc/product/269/初始化（Android%20SDK）#2-.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)）。另外，除了从**新消息通知**中获取群事件消息，还可以通过`TIMManager`中的`setGroupEventListener`接口设置群事件监听器来统一监听相应的事件。**2.4版本后，从群事件消息中可以拿到当前群成员数**。
+
+>注：
+聊天室（ChatRoom）和互动直播聊天室（AVChatRoom）类型的群组的群组事件消息不会通过**新消息通知**下发，只能通过注册群事件监听器对相应群事件进行监听。
 
 如下图中，展示一条修改群名的事件消息：
 

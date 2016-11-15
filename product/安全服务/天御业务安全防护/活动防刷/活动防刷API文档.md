@@ -1,10 +1,10 @@
-## 1. 接口描述
+## 1.接口描述
 活动防刷接口提供抢券、红包分发、游戏道具、刷榜等活动中用户恶意行为判断能力，根据当前用户的账号、信用、行为判断用户当前操作的恶意等级。
 <br> 协议：HTTPS
 <br> 域名：csec.api.qcloud.com
 <br> 接口名：ActivityAntiRush
 
-## 2. 输入参数
+## 2.输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。其中，此接口的Action字段为ActivityAntiRush。
 <table class="t">
 <tbody><tr>
@@ -192,7 +192,7 @@
 </td></tr>
 </td></tr></tbody></table>
 
-## 3. 输出参数
+## 3.输出参数
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -273,5 +273,3 @@ level":1,
 "userIp":"10.23.23.20"
 }
 ```
-## 6.错误码说明
-参考返回的message字段描述

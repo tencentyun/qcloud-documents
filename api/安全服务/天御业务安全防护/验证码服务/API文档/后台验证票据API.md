@@ -105,7 +105,7 @@
 </td></tr>
 </td></tr></tbody></table>
 
-## 3. 输出参数
+## 3.输出参数
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -144,6 +144,4 @@ https://csec.api.qcloud.com/v2/index.php?Action=CaptchaCheck
 "is_right":0
 }
 ```
-## 6.错误码说明
-参考返回的message字段描述
 
