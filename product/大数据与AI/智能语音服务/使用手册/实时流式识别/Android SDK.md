@@ -1,8 +1,7 @@
 
 ## 开发准备
 ### SDK下载
-智能语音服务实时流式识别 Android SDK 下载地址：Android SDK
-更多示例参考Demo： Android Demo
+智能语音服务实时流式识别 Android SDK 及 Demo下载地址：[Android SDK][1]  
 
 ### 包文件目录
 | 包名称    | 文件目录    | 说明 |
@@ -84,85 +83,110 @@ Int requestId = audioRecognizeRequest.getRequestId();
 ### AudioRecognizeResultListener
 语音识别结果监听类，识别成功返回语音识别的结果，识别失败则通过ClientException和ServerException返回错误原因。
 类对应接口如下：
-
- 1. 返回单个语音流的识别结果
-         void onSliceSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, int order);
-          参数说明：
-          request：语音识别请求；
-          result: 请求结果
-          order:该分片在语音流中的顺序
- 2. 返回整个语音流的识别结果
- void onSegmentSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, int order);
-         参数说明：
-         request：语音识别请求；
-         result: 请求结果
-         order:该语音流在所欲语音流中的顺序
- 3. 返回整个语音识别结果
-           void onSuccess(AudioRecognizeRequest request, String result);
- 4. 识别失败返回
-           void onFailure(T1 request, ClientException clientException, ServerException serverException);
-
+1. 返回单个语音流的识别结果
+ ```
+void onSliceSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, int order);
+```
+  参数说明：
+   request：语音识别请求；
+   result: 请求结果
+   order:该分片在语音流中的顺序
+2. 返回整个语音流的识别结果
+ ```
+void onSegmentSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, int order);
+ ```
+ 参数说明：
+ request：语音识别请求；
+result: 请求结果
+order:该语音流在所欲语音流中的顺序
+3. 返回整个语音识别结果
+```
+void onSuccess(AudioRecognizeRequest request, String result);
+```
+4. 识别失败返回
+ ```
+void onFailure(T1 request, ClientException clientException, ServerException serverException);
+```
 ### AudioRecognizeStateListener
 
 返回语音识别的状态，包括开始录音、开始识别、结束录音以及结束识别，并包含了语音音量回调接口。
-
- 1. 开始录音回调接口
+1. 开始录音回调接口
+```
 void onStartRecord(AudioRecognizeRequest request);
- 2. 结束录音回调接口
+```
+2. 结束录音回调接口
+ ```
 void onStopRecord(AudioRecognizeRequest request);
- 3. 开始识别回调接口
+```
+3. 开始识别回调接口
+```
 void onStartRecognize(AudioRecognizeRequest request);
- 4. 结束识别回调接口
+```
+4. 结束识别回调接口
+```
 void onStopRecognize(AudioRecognizeRequest request);
- 5.返回音量
+```
+5. 返回音量
+```
 void onVoiceVolume(AudioRecognizeRequest request, int volume);
+```
 ### AudioRecognizeTimeoutListener
 语音流超时监听类，包含了起始超时和结束超时。
- 1. 语音流起始超时：
-  void onFirstVoiceFlowTimeout(AudioRecognizeRequest request);
+1. 语音流起始超时：
+```
+void onFirstVoiceFlowTimeout(AudioRecognizeRequest request);
+ ```
  2. 语音流结束超时：
-  void onNextVoiceFlowTimeout(AudioRecognizeRequest request);
+```
+void onNextVoiceFlowTimeout(AudioRecognizeRequest request);
+```
 
 ### AbsCredentialProvider
-签名鉴权类，用户需要自己实现这个类，将原始的签名串进行加密。sdk中LocalCredentialProvider实现了这个接口，但需要用户提供secretKey，为了安全性，强烈建议由用户自己在第三方服务器上进行签名。
-签名接口：String getAudioRecognizeSign(String source);
+签名鉴权类，用户需要自己实现这个类，将原始的签名串进行加密。SDK中LocalCredentialProvider实现了这个接口，但需要用户提供secretKey，为了安全性，强烈建议由用户自己在第三方服务器上进行签名。签名接口：
+```
+String getAudioRecognizeSign(String source);
+```
 ### AAIClient
 语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别，并返回识别结果和状态。
 1. 初始化
 利用用户申请的appid、secretId、自己实现的签名类以及clientConfiguration（可选参数）即可初始化一个AAIClient对象。
-示例： AAIClient aaiClient = new AAIClient(context, appid, secretId, credentialProvider);
-2. 启动语音识别，并设置AudioRecognizeResultListener（必选）和audioRecognizeConfiguration（可选）回调接口监听识别结果（异步处理）。
-示例：
-     aaiClient.startAudioRecognize(audioRecognizeRequest, audioRecognizeResultListener, audioRecognizeConfiguration);
+```
+AAIClient aaiClient = new AAIClient(context, appid, secretId, credentialProvider);
+```
+2. 启动语音识别
+设置AudioRecognizeResultListener（必选）和audioRecognizeConfiguration（可选）回调接口监听识别结果（异步处理）。
+```     
+aaiClient.startAudioRecognize(audioRecognizeRequest, audioRecognizeResultListener, audioRecognizeConfiguration);
+```
 3. 设置识别状态监听
-示例：aaiClient.setAudioRecognizeListener(requestId, audioRecognizeStateListener);
-        requestId：请求的ID号；
-        audioRecognizeStateListener：状态监听器
- 4. 设置超时监听
-示例：
-    aaiClient.setAudioFlowTimeoutListener(requestId,  audioRecognizeTimeoutListener);
-        requestId：请求的ID号；
-        audioRecognizeStateListener：超时监听器
-
+requestId标识请求的ID号；audioRecognizeStateListener是状态监听器。
+```
+aaiClient.setAudioRecognizeListener(requestId, audioRecognizeStateListener);
+```
+4.  设置超时监听
+requestId是请求的ID号；audioRecognizeStateListener是超时监听器。
+```
+aaiClient.setAudioFlowTimeoutListener(requestId,  audioRecognizeTimeoutListener);
+```
 5. 停止语音识别
-            通过请求的ID号来停止请求
-    示例：
-          aaiClient.stopAudioRecognize(requestId);
-
+ 通过请求的ID号来停止请求。
+```
+aaiClient.stopAudioRecognize(requestId);
+```
 6. 取消语音识别
-            通过请求的ID号来取消请求
-示例：
+通过请求的ID号来取消请求。
+```
 aaiClient.cancelAudioRecognize(requestId);
-
+```
 7. 判断识别服务是否空闲
 当前没有请求在录音状态时（可以是识别状态），识别服务即为空闲状态，这时可以启动另一个语音识别请求。
-    示例：
-          aaiClient.isAudioRecognizeIdle();
-          
+```
+aaiClient.isAudioRecognizeIdle();
+```          
 8. 释放AAIClient
-示例：
+```
 aaiClient.release();
-
+```
 ### AAILogger
 用户可以利用AAILogger来控制日志的输出，可以选择性的输出debug、info、warn以及error级别的日志信息。
 ```
@@ -177,11 +201,4 @@ public static void enableError();
 ```
 
 
-
-
-
-
-
-
-
-
+  [1]: https://mc.qcloudimg.com/static/archive/e463257daf21b76e08b851c2e5d5bfd0/qcloud-aai-android.zip

@@ -1094,6 +1094,47 @@ typedef NS_ENUM(NSInteger, TIMMessageStatus){
 @end
 ```
 
+### 3.11 已读回执
+
+对于单聊消息，用户开启已读回执功能后，对方调用setReadMessage时会同步已读信息到本客户端。
+
+**开启已读回执功能：**
+
+```
+@interface TIMManager : NSObject
+
+/**
+ * 启用已读回执，启用后在已读上报时会给对方发送回执，只对单聊回话有效
+ */
+-(void) enableReadReceipt;
+
+/**
+ *  设置消息回执回调
+ *
+ *  @param listener 回调
+ *
+ *  @return 0 成功
+ */
+-(int) setMessageReceiptListener: (id<TIMMessageReceiptListener>)listener;
+
+@end
+```
+
+**原型：**
+
+```
+@interface TIMMessage : NSObject
+
+/**
+ *  对方是否已读（仅C2C消息有效）
+ *
+ *  @return TRUE 已读  FALSE 未读
+ */
+-(BOOL) isPeerReaded;
+
+@end
+```
+
 
 ## 4. 会话操作
 

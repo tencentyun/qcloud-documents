@@ -1,9 +1,9 @@
-## 1. 接口描述
+## 1.接口描述
 <br> 协议：HTTPS
 <br> 域名：csec.api.qcloud.com
 <br> 接口名：AntiFraud
 
-## 2. 输入参数
+## 2.输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。其中，此接口的Action字段为AntiFraud。
 <br>注意：以下每一个参数对于识别恶意都非常重要，任何参数的缺少都有可能影响识别效果 。
 <table class="t">
@@ -11,7 +11,7 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr> <td colspan="3">基本字段：共有五项，要求至少选择两项<</td>
+<tr> <td colspan="3">基本字段：共有五项，要求至少选择两项</td>
 </tr>
 <tr>
 <td> idNumber
@@ -104,7 +104,7 @@
 </td></tr>
 </tbody></table>
 
-## 3. 输出参数
+## 3.输出参数
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -121,7 +121,17 @@
 </td><td> RiskDetail
 </td><td> 扩展字段，对风险类型的说明
 <br> riskScore为0时无此字段
-</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td> message
+</td><td> String
+</td><td> 模块错误信息描述，与接口相关
+</td></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/254/1781)
+</td></tr>
+</tbody></table>
 
 RiskDetail类型说明
 <table class="t">
@@ -254,7 +264,7 @@ RiskDetail类型说明
 </tr>
 </td></tr></tbody></table>
 
-## 4. 示例代码
+## 4.示例代码
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
 ```
 请求示例 ：
@@ -281,7 +291,3 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 　]
 }
 ```
-
-
-## 6.错误码说明
-参考返回的message字段描述
