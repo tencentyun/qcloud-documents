@@ -1,40 +1,40 @@
+## 相关说明
+腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式，对于这两种认证方式，连接URI需要做不同的处理，具体参见[连接示例](https://www.qcloud.com/doc/product/240/3563)一文。
+
 Python 驱动下载 [pymongo](https://pypi.python.org/pypi/pymongo/)
 
-Python 示例代码1:
+## 快速开始
+
+###  Python 示例代码1
 
 ```
 #!/usr/bin/python
 import pymongo
 import random
 
-mongodbUri = 'mongodb://rwuser:********@10.66.180.13:27017?authMechanism=MONGODB-CR&authSource=admin'
-//或者 mongodbUri = 'mongodb://rwuser:********@10.66.180.13:27017/admin?authMechanism=MONGODB-CR'
-
+mongodbUri = 'mongodb://mongouser:thepasswordA1@10.66.187.127:27017/admin'
 
 client = pymongo.MongoClient(mongodbUri)
-db = client.someonedb
-
-#db = client.tage
-db.authenticate("someonedb","test")
+db = client.somedb
 db.user.drop()
-db.user.save({'id':1,'name':'kaka','sex':'male'})
-
-for id in range(2,10):
+element_num=10
+for id in range(element_num):
     name = random.choice(['R9','cat','owen','lee','J'])
     sex = random.choice(['male','female'])
-    db.user.insert({'id':id,'name':name,'sex':sex})
-content = db.user.find()
+    db.user.insert_one({'id':id, 'name':name, 'sex':sex})
 
+content = db.user.find()
 for i in content:
     print i
+
 ```
 
-Python 示例代码2:
+###  Python 示例代码2
 
 ```
 #!/usr/bin/python
 import pymongo
-mongodbUri = 'mongodb://rwuser:********@10.66.122.28:27017/admin?authMechanism=MONGODB-CR&authSource=admin'
+mongodbUri = 'mongodb://mongouser:thepasswordA1@10.66.187.127:27017/admin'
 client = pymongo.MongoClient(mongodbUri)
 db = client.someonedb
 
@@ -48,7 +48,7 @@ for doc in db.somecoll.find({"somekey":"yiqihapi"}):
         print doc
 ```
 
-**输出：**
+输出：
 
 
 ```
