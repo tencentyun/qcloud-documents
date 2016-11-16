@@ -506,6 +506,20 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 public void sendOnlineMessage(TIMMessage msg, TIMValueCallBack<TIMMessage> callback)
 ```
 
+### 1.11 消息转发
+
+在2.4.0及以上版本，在`TIMMessage`中提供了`copyFrom`接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
+
+**原型：**
+```
+/**
+ * 复制消息内容到当前消息（Elem, priority, online, offlinePushInfo等）
+ * @param srcMsg 源消息
+ * @return true 复制成功
+ */
+public boolean copyFrom(@NonNull TIMMessage srcMsg)
+```
+
 
 ## 2 接收消息
 
@@ -897,6 +911,33 @@ public TIMMessagePriority getPriority()
 public TIMGroupReceiveMessageOpt getRecvFlag()
 ```
 
+### 3.11 已读回执
+
+由2.3.0版本开始，提供**针对于C2C消息**的已读回执功能。通过`TIMManager`中的`enableReadReceipt`接口可以启用消息已读回执功能。启用已读回执功能后，在进行[消息已读上报](/doc/product/269/1562#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)的时候会给聊天对方发送已读回执。
+
+通过`TIMManager`的接口`setMessageReceiptListener`可以注册已读回执监听器。通过`TIMMessage`中的`isPeerReaded`可以查询当前消息对方是否已读。
+
+**原型：**
+
+```
+/**
+ * 启用已读回执，启用后在已读上报时会给对方发送回执，只对单聊会话有效
+ */
+public void enableReadReceipt()
+    
+/**
+ * 设置已读回执监听器
+ * @param receiptListener 已读回执监听器
+ */
+public void setMessageReceiptListener(TIMMessageReceiptListener receiptListener)
+
+/**
+ * 获取对方是否已读（仅对C2C消息有效）
+ * @return true - 对方已读， false - 对方未读
+ */
+public boolean isPeerReaded()
+```
+
 ## 4 会话操作
 
 ### 4.1 获取所有会话
@@ -1093,7 +1134,7 @@ count | 需要获取的消息数，注意这里最多为20
 
 ### 4.7 禁用会话本地存储
 
-直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。在ImSDK 2.2及更高级版本中增加了针对单个会话禁用本地存储的功能，开发者可以根据需要调用`TIMConversation`中的`disableStorage`接口禁用相应的会话本地存储。
+直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。在ImSDK 2.2.0及更高级版本中增加了针对单个会话禁用本地存储的功能，开发者可以根据需要调用`TIMConversation`中的`disableStorage`接口禁用相应的会话本地存储。
  
 **原型： **
 
@@ -1107,7 +1148,7 @@ public void disableStorage()
 
 ### 4.8 设置会话草稿
 
-ImSDK 2.2及以上版本增加了会话草稿功能，开发者可以通过`TIMConversation`中的相关接口进行草稿操作。
+ImSDK 2.2.0及以上版本增加了会话草稿功能，开发者可以通过`TIMConversation`中的相关接口进行草稿操作。
 
 > 1. 草稿只能本地有效，更换终端或者清除数据后将看不到草稿。
 > 2. 草稿信息会存本地数据库，重新登录后依然可以获取。

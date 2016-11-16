@@ -24,7 +24,7 @@
 </td><td> 2.00元 /GB日
 </td></tr></tbody></table>
 
-## 购买流程
+## 购买指导
 
 ### 购买新表
 1.登录腾讯云首页www.qcloud.com
@@ -43,4 +43,4 @@
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLBuy3.png)
 
-4.确定是否开启expire过期删除功能。请参见[开启expire过期删除功能](/doc/product/241/云缓存Memcached管理#5-开启expire过期删除)。
+4.确定是否开启expire过期删除功能。请参见[开启expire过期删除功能](/doc/product/439/6806)。

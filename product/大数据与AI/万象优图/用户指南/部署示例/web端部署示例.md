@@ -132,6 +132,7 @@ function initUploadForm () {
                     type: 'post',
                     url: url,
                     dataType: 'json',
+                    contentType:"multipart/form-data",
 		    success:function(ret) { 
 		    	$('#downloadUrl').html(ret.data.download_url);
 		    	$('#fileid').text(ret.data.fileid);
@@ -150,7 +151,6 @@ function initUploadForm () {
 
 </script>
 </body>
-
 ```
 2 测试
 访问web前端入口，进行测试调用，验证各种操作能够正常执行。
