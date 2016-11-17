@@ -3,7 +3,7 @@
 
 进入 COS 管理控制台，点击 **立即创建 Bucket** ，会弹出创建 Bucket 对话框：
 
-![](https://mc.qcloudimg.com/static/img/5b21b04816972dd170fe7f15ff9c022c/image.png)
+![](https://mc.qcloudimg.com/static/img/d098eb96f022c5505148166793c2ac44/Free-Converter.com-qq20161117-1-52615858.jpg)
 
 **注意事项**
 
