@@ -18,7 +18,7 @@ TDSQL是以MariaDB为基础开发的，我们选择MariaDB的原因不仅是因�
 - 可以使用MySQL客户端链接到TDSQL上。
 
 ## TDSQL和MySQL5.6的不兼容性
->TDSQL与MySQL5.6存在能力的差异化的，因此不保证TDSQL与MySQL 100%兼容；值得说明的时，MySQL各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
+>TDSQL与MySQL5.6高度兼容，却有极少点不兼容；值得说明的时，MySQL各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
 
 >因TDSQL内核采用MariaDB，因此本章行文或代码中会出现的MariaDB，可直接理解为TDSQL。
 
@@ -28,12 +28,11 @@ TDSQL是以MariaDB为基础开发的，我们选择MariaDB的原因不仅是因�
 - TDSQL的GTID和MySQL 5.6的GTID不能兼容，也就是说MySQL不能作为TDSQL的从库；
 
 ### 2.Binlog默认配置不同
-- TDSQL的Binlog默认采用Mixed格式，而MySQL默认采用row格式。
->MySQL可以修改为Mixed格式。
+- TDSQL的Binlog默认采用row格式，而MySQL、MariaDB默认采用statement格式。
 
 ### 3.CREAT TABLE ... SELECT命令在基于行模式复制和基于命令模式复制
 
-- 为了使CREAT TABLE ... SELECT命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，TDSQL中的CREAT TABLE ... SELECT命令在从库上将会被转化为CREAT OR RPLACE命令执行。这样的好处是即使从库在执行CREAT TABLE ... SELECT命令时宕机了，仍然能够正常工作。
+- 为了使CREAT TABLE ... SELECT命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，TDSQL中的CREAT TABLE ... SELECT命令在从库上将会被转化为CREAT OR RPLACE命令执行。这样的好处是即使从库中途宕机恢复后仍然能够正常工作。
 
 #### 3.1 默认值推导
 
