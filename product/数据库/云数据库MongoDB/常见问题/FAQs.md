@@ -4,7 +4,7 @@
 A：暂不支持外网访问，需要购买CVM，通过内网的方式进行访问
 
 **Q：产品售卖区域有哪些**
-A：主要是广州、上海，其他地域在测试中，会陆续开放
+A：主要是广州、上海、北京、香港，其他地域在测试中，会陆续开放
 
 **Q：云数据库MongoDB版是否支持动态添加Secondary节点**
 A：目前暂时不支持，该功能在内测中，尽请期待
@@ -19,22 +19,13 @@ A：参见[云数据库MongoDB相比自建MongoDB的优势 ](http://www.qcloud.c
 A：云数据库MongoDB版针对客户端连接完全兼容MongoDB，只要是官方MongoDB版支持的客户端，云数据库全部支持。比如：C,C++,c#,java,node.js,python,php,perl等等，具体详情见官方链接，参见[https://docs.mongodb.org/ecosystem/drivers/](https://docs.mongodb.org/ecosystem/drivers/)
 
 **Q：在shell里怎么连接腾讯云MongoDB**
-A：`./mongo 10.66.136.162:27017 -u rwuser --password=******** --authenticationMechanism=MONGODB-CR --authenticationDatabase admin`
-或者
-`./mongo 10.66.136.162:27017/admin -u rwuser --password=********  --authenticationMechanism=MONGODB-CR`
-`-u rwuser `现阶段指定用户名为 `rwuser`, 后续会推出用户管理的功能
-`--authenticationMechanism=MONGODB-CR` 和 `--authenticationDatabase=admin` 是认证参数
-
-mongo-cli版本需要在3.0.12及以上
+A：参见[Shell连接示例](https://www.qcloud.com/doc/product/240/3978)
 
 **Q：业务程序里连接MongoDB的URI是什么样的**
-A：`mongodb://rwuser:PASSWORD@IP:27017/admin?authMechanism=MONGODB-CR`
-		推荐使用URI连接，参考文档：
-	[https://www.qcloud.com/doc/product/240/3563](https://www.qcloud.com/doc/product/240/3563)
-		[https://docs.mongodb.org/ecosystem/drivers/](https://docs.mongodb.org/ecosystem/drivers/)
+A：参见[连接示例](https://www.qcloud.com/doc/product/240/3563)
 
 **Q：我应该选用哪个版本的驱动程序**
-A：尽量用高版本的，比如PHP可以选择mongo-1.6及以上
+A：尽量用最新版本的，比如PHP可以选择mongo-1.6及以上
 
 **Q：用meteor等各类框架、类库无法连接腾讯云MongoDB**
 A：一般来说都是连接方式、URI拼接错误，请先检查核实
@@ -75,4 +66,4 @@ A：[参见BBS](http://bbs.qcloud.com/thread-17852-1-1.html)
 A：此时实例将处于封禁状态，该状态下不可写入数据，只能做读操作，尝试写入数据的连接将会被关闭。请及时关注自身业务发展和实例使用情况，当容量使用达到一定阈值时请适当扩容。
 
 **Q：连接断开或者出现“Remote server has closed the connection”信息怎么办？**
-A：需要实现一个重连机制，请参考 [实现重连](https://www.qcloud.com/doc/product/240/4980)
+A：首先参考[连接示例](https://www.qcloud.com/doc/product/240/3563)排除认证问题，如果能连上但是依然会出现这个问题那可能需要实现一个重连机制，请参考 [实现重连](https://www.qcloud.com/doc/product/240/4980)

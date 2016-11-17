@@ -137,7 +137,7 @@
 </td></tr>
 <td> code
 </td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/254/1781)
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
 </td></tr>
 </tbody></table>
 
