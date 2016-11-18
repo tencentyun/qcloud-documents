@@ -1,11 +1,11 @@
 ## 1. 实例相关接口
-| 接口功能 | Action ID | 功能描述 | 
+| 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
 | [创建实例（包年包月）](/doc/api/253/1334)| CreateCdb | 创建云数据库实例，计费模式为包年包月 |
 | [查询价格（包年包月）](/doc/api/253/1332)| InquiryCdbPrice | 查询某个云数据库实例规格包年包月的价格 |
 | [创建实例（按量计费）](/doc/api/253/5175)| CreateCdbHour | 创建云数据库实例，计费模式为按量计费 |
 | [查询价格（按量计费）](/doc/api/253/5176)| InquiryCdbPriceHour | 查询某个云数据库实例规格按量计费的价格 |
-| [查询可创建规格（支持可用区、配置自定义）](/doc/api/253/6109)| DescribeCdbProductListNew | 查询可创建的云数据库实例规格，支持按可用区和自定义规格创建实例，<font style="color:red">推荐使用</font> |
+| [查询可创建规格（支持可用区、配置自定义）](/doc/api/253/6109)| DescribeCdbProductListNew | 查询可创建的云数据库实例规格，支持按可用区和自定义规格创建实例。<font style="color:red">推荐使用</font> |
 | [查询可创建规格](/doc/api/253/1333)  | DescribeCdbProductList| 查询可创建的云数据库实例规格 |
 | [查询实例列表](/doc/api/253/1266) | DescribeCdbInstances | 查询云数据库实例列表。可根据云数据库实例ID、访问地址和状态等作过滤条件来查询实例列表。|
 | [查询只读实例列表](/doc/api/253/6417) | GetCdbReadOnlyInstances | 查询只读实例列表，支持通过传入一个或多个主实例ID查询主实例关联的只读实例列表 |
@@ -34,15 +34,15 @@
 | [查询私有网络子网实例数量](/doc/api/253/5440)  | GetCdbInstanceNumByVpcSubnetId| 查询私有网络子网下的云数据库实例数量 |
 
 
-## 3. 监控相关接口
-| 接口功能 | Action ID | 功能描述 | 
+## 2. 监控相关接口
+| 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
 | [查询物理机监控信息](/doc/api/253/4687) | GetCdbDeviceMonitorInfo | 查询物理机的监控信息，<font style='color:red'>暂只支持最高配置实例查询</font> |
 | [查询统计信息](/doc/api/253/4688) | QueryCdbStatisticsInfo | 查询云数据库统计信息，查询的是最近一分钟的统计数据 |
 
 
-## 4. 日志相关接口
-| 接口功能 | Action ID | 功能描述 | 
+## 3. 日志相关接口
+| 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
 | [查询慢查询日志](/doc/api/253/4690) | DescribeCdbSlowQueryLog | 根据云数据库实例ID查询慢查询日志。返回一天的日志信息。|
 | [查询备份与日志](/doc/api/253/4691) | GetCdbExportLogUrl | 查询实例冷备数据、二进制日志和慢查询日志 |
