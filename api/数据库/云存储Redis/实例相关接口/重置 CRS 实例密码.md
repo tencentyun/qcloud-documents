@@ -43,13 +43,13 @@
 
 
 ## 4. 示例
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=ModfiyRedisPassword
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &redisId=crs-ifmymj41
 &oldPassword=49A2d!e@f12e
 &password=12D3E@!r5ed
-```
+</pre>
 返回示例如下：
 ```
 {

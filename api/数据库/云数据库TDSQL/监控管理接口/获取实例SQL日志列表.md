@@ -46,9 +46,9 @@
 
 ## 4. 示例
 输入
-```
+<pre>
 https://tdsql.api.qcloud.com/v2/index.php?Action=CdbTdsqlGetSqlLogList
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &openid=12345
 &openkey=12345
 &pf=qzone
@@ -58,7 +58,7 @@ https://tdsql.api.qcloud.com/v2/index.php?Action=CdbTdsqlGetSqlLogList
 &offset=22593
 &count=10
 &cdbInstanceId=10369
-```
+</pre>
 输出
 ```
 {

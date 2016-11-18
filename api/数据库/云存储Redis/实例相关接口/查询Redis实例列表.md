@@ -48,13 +48,13 @@
 
 ## 4. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &limit=11
 &offset=0
 &redisName=att_test
-```
+</pre>
 输出
 ```
 {

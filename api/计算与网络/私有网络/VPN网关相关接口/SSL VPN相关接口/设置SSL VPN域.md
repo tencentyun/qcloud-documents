@@ -38,16 +38,16 @@
 ## 5. 示例
  
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=SetSSLVpnDomain
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &vpcId=vpc-39lpv32n
 &sslVpnId=vpngw-m1ue61hx
 &groupId=ugrp-975r1ku4
 &sslvpnPort=443
 &ipPool.0=192.168.16.119-192.168.16.121
 
-```
+</pre>
 
 输出
 ```

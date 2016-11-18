@@ -40,11 +40,11 @@
  
 
 ## 4. 示例
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeTaskInfo
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &requestId=11963
-```
+</pre>
 返回示例如下：
 ```
 {

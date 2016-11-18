@@ -33,14 +33,14 @@
 ## 5. 示例
  
 输入
-```
+<pre>
   https://domain/v2/index.php?Action=GetVpnConnConfig
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpnConnId=2
 	&vendorname=cisco
 	&platform=ios
 	&software=V15.4
-```
+</pre>
 
 输出
 ```

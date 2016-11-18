@@ -67,17 +67,17 @@ IPsec配置详情
 ## 5. 示例
  
 输入
-```
+<pre>
 
   https://vpc.api.qcloud.com/v2/index.php?Action=ModifyVpnConnEx
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcId=vpc-03vihbk9
   &vpnGwId=vpngw-kfldykuz
   &vpnConnId=vpnx-ol6bcqp0
   &userGwCidrBlock.0=10.100.2.0/24
   &preSharedKey=tencenttest
 
-```
+</pre>
 
 输出
 ```

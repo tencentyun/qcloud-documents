@@ -32,12 +32,12 @@ Data结构
 ## 4. 示例
  
 输入
-```
+<pre>
 
   https://eip.api.qcloud.com/v2/index.php?
   &Action=EipBmModifyCharge
-  &<公共请求参数>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
-```
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
+</pre>
 
 输出
 ```

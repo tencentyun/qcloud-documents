@@ -299,17 +299,17 @@
 ## 5. 示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/c7e31b9f2ba2850b7cd66c8a81d1229a/UgcAntiSpam.py.zip) [Java示例](https://mc.qcloudimg.com/static/archive/7f16dcb3ed56e8fd0adc4bfdafbe3edd/UgcAntiSpam.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/545fc3dfa7473218c79de8ab9a123c7d/UgcAntiSpam.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-```
+<pre>
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
 &messageId=dgsfjajdahqywjqn
 &postIp=127.0.0.1
 &messageStruct=AAAAAQAAAELmtYvor5Xlj5HluJbvvIzmnInkurrmiZPlh7vkuYjvvJ
-```
+</pre>
 ## 6.响应示例
 ```
 {
