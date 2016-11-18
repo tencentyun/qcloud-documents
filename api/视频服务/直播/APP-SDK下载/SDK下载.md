@@ -1,23 +1,29 @@
+## SDK开发包
+- 修复IOS直播偶现黑屏的问题
+- 修复IOS模拟器编译不通过的问题
+- 修复IOS偶现物理键锁屏、切后台等Crash问题
+- 修复Android某些机型预览摄像头倒置的问题
+- 修复Android某些机型硬编码率过高的问题
+- 优化Android混音接口，使用更简单
 
-## 小直播体验
-**【界面截图】**
-小直播是基于腾讯视频云服务实现的一个直播APP的原型软件，开放终端和后台的实现源码，适合零基础的客户进行参考和评估之用：
-![](//mc.qcloudimg.com/static/img/05d2e651ff6c9332211eaf7fea167cfa/image.png)
+**【详细说明】**
+- 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
+- 开发环境的工程配置请参考 [IOS平台](https://www.qcloud.com/doc/api/258/5320) & [Android平台](https://www.qcloud.com/doc/api/258/5319)。
+- 每个版本的更新情况详见[历史更新记录](https://www.qcloud.com/doc/api/258/6173)
 
-**【功能支持】** 
-- 直播：支持实时直播和观看，延迟3s以内，视频秒开体验。
-- 互动：支持互动消息、弹幕、点赞等互动体验。
-- 回看：超过一分钟的直播内容会自动进入录播列表，提供回看能力。
+**【测试情况】**
+- 总用例数：351，通过用例数：325，不通过用例数：26
 
-**【后台服务】**
-小直播的后台服务目前部署于一台普通的腾讯云虚拟主机上，基于PHP技术构建，提供源码下载和参考。
+**【下载地址】**
 
-**【APP安装】**
-![](//mc.qcloudimg.com/static/img/0fbc0caa7f9e5a45d92e50f7cf4e6f0f/image.png)
+| 操作系统 | 版本号 | 更新时间|下载链接 |
+| ---- | ----------- | ---- | ---- | 
+| IOS  | 1.7.1.1171  | 2016-11-17 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.7.1.1171.zip)  |
+| Android  | 1.7.1.1171 | 2016-11-17 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.7.1.1171.zip)  |
+
 
 ## DEMO体验
 **【界面截图】**
-DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务的客户：
 ![](//mc.qcloudimg.com/static/img/a39eddc4b5f1ea062355ab865a845fb9/image.png)
 
 **【功能支持】** 
@@ -26,13 +32,10 @@ DEMO的整体实现力求简单易懂，适合只对接纯推流和播放服务�
 - 点播：MP4、HLS和FLV格式的在线点播
 
 **【APP安装】**
-![](//mc.qcloudimg.com/static/img/6bc7924755771248a95bd02f2e008fce/image.png)
+![](//mc.qcloudimg.com/static/img/ab0875058708003998c3830f7329b887/image.png)
 
 **【体验地址】**
-RTMP推流具有排它性：同一时间、同一URL，<font color='red'>只能有一个主播</font>在推流中。所以如果您体验推流总是断开（被后台拒绝），说明地址已经被其他的体验者占用，推荐您直接[开通腾讯云直播服务](https://console.qcloud.com/live)并创建自己的频道进行体验。
-
-如下是3组测试地址：
-
+如下是3组测试地址，RTMP推流具有排它性：同一时间、同一URL，<font color='red'>只能有一个主播</font>在推流中。所以如果您体验推流总是断开（被后台拒绝），说明地址已经被其他的体验者占用。
 ```
 //第一组地址：
 PUSH(RTMP): rtmp://2000.livepush.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e?bizid=2000
@@ -54,27 +57,18 @@ PLAY(FLV) : http://2000.liveplay.myqcloud.com/live/2000_4eb4da7079af11e69776e435
 PLAY(HLS) : http://2000.liveplay.myqcloud.com/2000_4eb4da7079af11e69776e435c87f075e.m3u8
 ```
 
-## 移动端SDK
-- IOS更新新的美颜算法，性能及效果有较大提升。（开启硬件加速后才有效）
-- Android更新新的美颜算法，解决部分机型旧美颜算法不生效的问题，同时性能及效果有显著提升。（api 18 以上且开启硬件加速后才有效）
-- IOS SDK增加replaykit录屏能力支持。
-- 直播播放新增Pause/Resume接口，支持暂停与恢复。
-- 解决Android硬编长时间推流之后引起的无数据问题。
-- 解决长时间推流时间戳跳变引起的音画不同步等流异常问题。
-- 解决AAC解码在某些场景下引起的Crash问题。
+如果以上三组地址都被占用，建议您直接安装我们的演示Demo - 小直播APP，体验腾讯云的直播服务能力。
 
-**【详细说明】**
-- 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
-- 开发环境的工程配置请参考 [IOS平台](https://www.qcloud.com/doc/api/258/5320) & [Android平台](https://www.qcloud.com/doc/api/258/5319)。
-- 每个版本的更新情况详见[历史更新记录](https://www.qcloud.com/doc/api/258/6173)
+## 小直播APP
+**【界面截图】**
+![](//mc.qcloudimg.com/static/img/05d2e651ff6c9332211eaf7fea167cfa/image.png)
 
-**【测试情况】**
-- 总用例数：351，通过用例数：325，不通过用例数：26
+**【功能支持】** 
+- 直播：支持实时直播和观看，延迟3s以内，视频秒开体验。
+- 互动：支持互动消息、弹幕、点赞等互动体验。
+- 回放：超过一分钟的直播内容会自动进入录播列表，提供回看能力。
 
-**【下载地址】**
+**【APP安装】**
+![](//mc.qcloudimg.com/static/img/0fbc0caa7f9e5a45d92e50f7cf4e6f0f/image.png)
 
-| 操作系统 | 版本号 | 更新时间|下载链接 |
-| ---- | ----------- | ---- | ---- | 
-| IOS  | 1.6.2.945  | 2016-10-21 | [点击下载](http://download-10055601.cos.myqcloud.com/TXRTMPiOSDemo_1.6.2.945.zip)  |
-| Android  | 1.6.2.945 | 2016-10-21 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidDemo_1.6.2.945.zip)  |
 

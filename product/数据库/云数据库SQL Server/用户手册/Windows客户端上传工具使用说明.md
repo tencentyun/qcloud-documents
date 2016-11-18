@@ -3,6 +3,8 @@
 ![](https://mc.qcloudimg.com/static/img/716da8b5ece00ca2be062e2b637ff40d/1-1.png)
 
 2、为了保证客户的数据安全。在备份上传之前，需要编辑配置文件etc\conf.json，填写客户自己的API密钥（[secretId和secretKey](https://www.qcloud.com/help/%E4%BA%91API%E8%AE%BF%E9%97%AE%E5%AF%86%E9%92%A5%E5%9C%A8%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%AF%86%E9%92%A5%E6%9C%80%E5%A4%9A%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA)），请务必保存好自己的API密钥，切勿泄漏。为了保证传输过程的稳定，此工具已经支持断点续传功能；
+注：conf.json文件请存储为“UTF8无BOM格式”（在windows下建议用notepad++转换编码）
+
 ![](https://mc.qcloudimg.com/static/img/8cd149b24b1be3df87371081fa8cad39/1-2.png)
 
 3、进入Windows命令行（“开始>搜索程序和文件>输入cmd”），进入Windows命令行；
