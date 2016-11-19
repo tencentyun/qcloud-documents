@@ -11,4 +11,4 @@
 ![Alt text](https://mc.qcloudimg.com/static/img/0fd614e229b74e168cc3eb6d6d88cefb/%7B43D44BC2-2162-406D-9732-58B592903E50%7D.png)
 ### 访问wordpress服务
 点击服务，查看服务外网ip，在浏览器输入ip地址即可访问
-![Alt text](待补充)
+![Alt text](https://mc.qcloudimg.com/static/img/da4b9be288ba9d01a6e347792d5ec245/%7B28B0E720-B546-4C5D-B32B-1FEEEA0AB9CC%7D.png)
