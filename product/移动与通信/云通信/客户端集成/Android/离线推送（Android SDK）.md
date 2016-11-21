@@ -105,7 +105,7 @@ ImSDK从2.2.0版本开始提供针对单独每一条消息进行离线推送配�
 **原型：**
 ```
 /**
- * 设置当前消息在对方收到离线推送的时候的配置
+ * 设置当前消息在对方收到离线推送的时候的配置（可选，发送消息时设置）
  * @param settings 离线推送配置
  */
 public void setOfflinePushSettings(TIMMessageOfflinePushSettings settings)
@@ -121,7 +121,7 @@ public TIMMessageOfflinePushSettings getOfflinePushSettings()
 
 ```
 /**
- * 设置当前消息在对方收到离线推送时候展示内容（可选）
+ * 设置当前消息在对方收到离线推送时候展示内容（可选，发送消息时设置）
  * @param descr 展示内容
  */
 public void setDescr(String descr)
@@ -134,7 +134,8 @@ public String getDescr()
 
 
 /**
- * 设置当前消息在对方收到离线推送时候的提示声音（可选）
+ * 设置当前消息在对方收到离线推送时候的提示声音（可选，发送消息时设置）
+ * 特别说明：这里设置的声音只在Android设备上生效
  * @param sound 声音URI，仅支持应用内部的声音资源文件
  */
 public void setSound(Uri sound)
@@ -146,7 +147,7 @@ public void setSound(Uri sound)
 public Uri getSound()
 
 /**
- * 设置当前消息的扩展字段（可选）
+ * 设置当前消息的扩展字段（可选，发送消息时设置）
  * @param ext 扩展字段内容
  */
 public void setExt(byte[] ext)
@@ -159,7 +160,7 @@ public byte[] getExt()
 
 
 /**
- * 设置当前消息是否允许离线推送，默认允许推送（可选）
+ * 设置当前消息是否允许离线推送，默认允许推送（可选，发送消息时设置）
  * @param enabled true - 允许离线推送， false - 不允许离线推送
  */
 public void setEnabled(boolean enabled)
@@ -169,6 +170,21 @@ public void setEnabled(boolean enabled)
  * @return 是否允许推送标识， true - 允许推送， false - 不允许推送
  */
 public boolean isEnabled()
+
+/**
+ * 获取当前消息的通知标题
+ * 特别说明：此接口在2.3.1及以上版本的ImSDK提供
+ * @return 通知标题
+ */
+public String getTitle()
+
+/**
+ * 设置当前消息在对方收到离线推送时候的通知标题（可选，发送消息时设置）
+ * 特别说明：此接口在2.3.1及以上版本的ImSDK提供
+ * @param title 通知标题
+ */
+public void setTitle(String title)
+
 ```
 
 
@@ -408,8 +424,9 @@ iconID|要显示在提醒中的图标的资源ID。
 
 为了保证APP被杀后，在小米设备上仍然能够收消息，可以集成小米推送。目前，**SDK仅支持推送通知栏消息**。
 
->注
-如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。
+>注：
+1. 收到离线消息时，默认通知标题为`a new message`。
+2. 如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。
 
 ### 4.1 添加小米离线推送证书
 
@@ -648,8 +665,9 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 为了保证APP被杀后，在华为设备上仍然能够收到消息，需要集成华为推送。目前，**SDK仅支持推送通知栏消息**。
 
->注
-如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
+>注：
+1. 收到离线消息时，默认通知标题为`a new message`。
+2. 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
 
 ### 5.1 添加华为离线推送证书
 

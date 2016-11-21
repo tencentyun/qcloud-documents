@@ -44,9 +44,9 @@
 ## 5. 示例
  
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeSSLVpn
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &openid=12345
 &openkey=12345
 &pf=qzone
@@ -54,7 +54,7 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeSSLVpn
 &format=json
 &userip.0=10.0.0.1
 
-```
+</pre>
 
 输出
 ```

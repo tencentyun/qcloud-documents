@@ -89,7 +89,7 @@ statisticsType.m.statistics 和  statisticsType.m.period 填写时，为该指�
  
 输入
 
-```
+<pre>
  https://monitor.api.qcloud.com/v2/index.php?Action=CreateMetric
  &namespace=name1
  &metricName=metric1
@@ -100,8 +100,8 @@ statisticsType.m.statistics 和  statisticsType.m.period 填写时，为该指�
  &unit=kb
  &statisticsType.0.period=300
  &statisticsType.0.statistics=last
- &COMMON_PARAMS
-```
+ &<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 
 输出
 ```

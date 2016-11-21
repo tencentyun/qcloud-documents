@@ -80,9 +80,9 @@
 
 | 功能说明 | 接口 | 
 |---------|---------|
-| 添加好友  | [v4/openim_dirty_words/get](/doc/product/269/查询APP自定义脏字)|
-| 删除好友   | [v4/openim_dirty_words/add](/doc/product/269/添加APP自定义脏字) |
-| 删除所有好友  | [v4/openim_dirty_words/delete](/doc/product/269/删除APP自定义脏字) |
+| 添加脏字  | [v4/openim_dirty_words/get](/doc/product/269/查询APP自定义脏字)|
+| 删除脏字   | [v4/openim_dirty_words/add](/doc/product/269/添加APP自定义脏字) |
+| 删除所有脏字  | [v4/openim_dirty_words/delete](/doc/product/269/删除APP自定义脏字) |
 ## 8 数据下载
 
 | 功能说明 |接口 | 

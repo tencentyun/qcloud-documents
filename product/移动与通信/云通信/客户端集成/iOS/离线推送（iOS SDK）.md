@@ -2,7 +2,7 @@
 
 ### 1.1 推送原理
 
-如想要接收APNs离线消息通知，需要在腾讯云管理平台提交Push证书，在客户端每次登录时，获取并通过API接口上报Token。详细推送原理可参阅：[Apple Push Notification Service](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html)。
+如想要接收APNs离线消息通知，需要在腾讯云管理平台提交Push证书，在客户端每次登录时，获取并通过API接口上报Token。详细推送原理可参阅：[Apple Push Notification Service](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
 
 APNs推送功能只用于通知用户，如果APP在前台，以 onNewMessage 回调获取新消息为准，didReceiveRemoteNotification 获取到的消息由于不可控，可以忽略。
 
@@ -301,3 +301,4 @@ fail|失败回调
 @end
 
 ```
+

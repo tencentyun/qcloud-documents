@@ -105,7 +105,7 @@
 </td></tr>
 </td></tr></tbody></table>
 
-## 3. 输出参数
+## 3.输出参数
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -127,15 +127,15 @@
 ## 4.示例代码
 代码下载： [java](https://mc.qcloudimg.com/static/archive/91612588f14dd8632dbb044d4a62061c/captcha_iframe_java%281%29.zip)  　　[Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　　 [php ](https://mc.qcloudimg.com/static/archive/f574a0d4f290e96dc751cf62b65cc9c2/captcha_iframe_php%281%29.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>小节。
-```
+<pre>
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=CaptchaCheck
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &ticket=1111
 &captchaType=1
 &disturbLevel=1
 &userIp=127.0.0.1
-```
+</pre>
 ## 5.响应示例
 ```
 {
@@ -144,6 +144,4 @@ https://csec.api.qcloud.com/v2/index.php?Action=CaptchaCheck
 "is_right":0
 }
 ```
-## 6.错误码说明
-参考返回的message字段描述
 

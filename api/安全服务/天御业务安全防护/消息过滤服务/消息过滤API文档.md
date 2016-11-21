@@ -1,10 +1,10 @@
-## 1. 接口描述
+## 1.接口描述
 识别用户产生的内容中是否含有敏感、色情、欺诈广告等关键词，并进一步根据用户行为判断行为是否有恶意。
 <br> 协议：HTTPS
 <br> 域名：csec.api.qcloud.com
 <br> 接口名：UgcAntiSpam
 
-## 2. 输入参数
+## 2.输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。
 <br> 其中，此接口的Action字段为UgcAntiSpam。
 <table class="t">
@@ -170,7 +170,7 @@
 </td></tr>
 </td></tr></tbody></table>
 
-## 3. 输出参数
+## 3.输出参数
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -191,6 +191,11 @@
 <td> messageId
 </td><td> String
 </td><td> 用户产生内容的ID。如果传入此ID，将可以通过恶意结果查询接口获取进一步的信息。
+</td></tr>
+<tr>
+<td> message
+</td><td> String
+</td><td> 模块错误信息描述，与接口相关
 </td></tr>
 <tr>
 <td> uid
@@ -228,7 +233,12 @@
 </td><td> String
 </td><td> 打击原因，如命中的关键词
 </td></tr>
-</td></tr></tbody></table>
+</td></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
+</td></tr>
+</tbody></table>
 
 ## 4. 消息结构介绍
 消息结构体用于存储用户输入的文本、图片、视频和系统表情等内容，使用 TLV 格式存储，其中 Type 是 4 个字节，Length 是 4 个字节，Value 的值通过 Length 指定，Type 和 Length 都是网络字节序，其中所有的中文字符均为 UTF8 编码。目前支持的 Type 类型如下：
@@ -289,17 +299,17 @@
 ## 5. 示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/c7e31b9f2ba2850b7cd66c8a81d1229a/UgcAntiSpam.py.zip) [Java示例](https://mc.qcloudimg.com/static/archive/7f16dcb3ed56e8fd0adc4bfdafbe3edd/UgcAntiSpam.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/545fc3dfa7473218c79de8ab9a123c7d/UgcAntiSpam.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-```
+<pre>
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
 &messageId=dgsfjajdahqywjqn
 &postIp=127.0.0.1
 &messageStruct=AAAAAQAAAELmtYvor5Xlj5HluJbvvIzmnInkurrmiZPlh7vkuYjvvJ
-```
+</pre>
 ## 6.响应示例
 ```
 {
@@ -317,5 +327,3 @@ https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
 "uid":"D692D87319F2098C3877C3904B304706"
 }
 ```
-## 7.错误码说明
-参考返回的message字段描述

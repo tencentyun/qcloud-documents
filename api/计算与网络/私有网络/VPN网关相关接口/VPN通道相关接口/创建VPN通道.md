@@ -74,16 +74,16 @@ IPsec配置详情
 ## 5. 示例
  
 输入
-```
+<pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=AddVpnConnEx
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcId=vpc-amhnnao5
   &userGwId=cgw-e098slul
   &vpnGwId=vpngw-dystbrkv
   &userGwCidrBlock.0=10.56.20.1/24
   &preSharedKey=dgdgd33
 
-```
+</pre>
 
 输出
 ```
