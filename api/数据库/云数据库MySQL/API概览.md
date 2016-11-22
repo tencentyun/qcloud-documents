@@ -23,25 +23,31 @@
 | [修改参数](/doc/api/253/6368) | ModifyCdbParams | 修改数据库参数，提交成功后返回修改参数的任务ID |
 | [查询修改参数任务详情](/doc/api/253/6428) | GetCdbModifyParamsJobTask | 通过修改参数的任务ID查询修改参数任务详情 |
 | [查询参数修改记录](/doc/api/253/6367) | GetCdbParamsModifyHistory | 查询数据库参数修改记录 |
-| [查询参数模板列表](/doc/api/253/6549) | GetCdbParamTemplateList | 查询数据库参数模板列表 |
-| [查询默认参数模板详情](/doc/api/253/6544) | GetCdbDefaultParamInfo | 查询默认数据库参数模板详情 |
-| [新增参数模板](/doc/api/253/6548) | AddCdbParamTemplate | 新增数据库参数模板 |
-| [删除参数模板](/doc/api/253/6547) | DelCdbParamTemplate | 删除数据库参数模板 |
-| [修改参数模板](/doc/api/253/6546) | ModifyCdbParamTemplate | 修改数据库参数模板内容 |
-| [查询参数模板详情](/doc/api/253/6545) | GetCdbParamTemplateInfo | 查询云数据库参数模板详情 |
 | [查询回档任务详情](/doc/api/253/4114) | GetCdbRollbackJobTask | 查询云数据库实例回档的任务详情 |
 | [查询回档任务列表](/doc/api/253/4115) | GetCdbRollbackJob | 查询云数据库实例回档任务列表 |
 | [查询私有网络子网实例数量](/doc/api/253/5440)  | GetCdbInstanceNumByVpcSubnetId| 查询私有网络子网下的云数据库实例数量 |
 
 
-## 2. 监控相关接口
+## 2. 参数模板相关接口
+| 接口功能 | Action Name | 功能描述 | 
+|---------|---------|---------|
+
+| [查询默认参数模板详情](/doc/api/253/7190) | GetCdbDefaultParamInfo | 查询默认数据库参数模板详情 |
+| [查询参数模板列表](/doc/api/253/7185) | GetCdbParamTemplateList | 查询数据库参数模板列表 |
+| [新增参数模板](/doc/api/253/7186) | AddCdbParamTemplate | 新增数据库参数模板 |
+| [删除参数模板](/doc/api/253/7187) | DelCdbParamTemplate | 删除数据库参数模板 |
+| [查询参数模板详情](/doc/api/253/7189) | GetCdbParamTemplateInfo | 查询云数据库参数模板详情 |
+| [修改参数模板](/doc/api/253/7188) | ModifyCdbParamTemplate | 修改数据库参数模板内容 |
+
+
+## 3. 监控相关接口
 | 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
 | [查询物理机监控信息](/doc/api/253/4687) | GetCdbDeviceMonitorInfo | 查询物理机的监控信息，<font style='color:red'>暂只支持最高配置实例查询</font> |
 | [查询统计信息](/doc/api/253/4688) | QueryCdbStatisticsInfo | 查询云数据库统计信息，查询的是最近一分钟的统计数据 |
 
 
-## 3. 日志相关接口
+## 4. 日志相关接口
 | 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
 | [查询慢查询日志](/doc/api/253/4690) | DescribeCdbSlowQueryLog | 根据云数据库实例ID查询慢查询日志。返回一天的日志信息。|
