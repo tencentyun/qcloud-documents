@@ -41,16 +41,16 @@ data 数组的结构：
 
 ## 4. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=CreateRedis
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &zoneId=100002
 &typeId=1
 &memSize=1024
 &goodsNum=1
 &period=2
 &password=49A2d!e@f12e
-```
+</pre>
 输出
 ```
 {

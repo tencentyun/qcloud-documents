@@ -38,14 +38,14 @@
 
 ## 5. 示例
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DeleteLocalIPTranslationNatRule
 &vpcId=vpc-csnmo39l
 &directConnectGatewayId=dcg-mm01ughx
 &localIPTranslation.0.originalIP=10.100.10.2
 &localIPTranslation.0.translationIP=183.0.0.1
-&COMMON_PARAMS
-```
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 输出
 ```
 {

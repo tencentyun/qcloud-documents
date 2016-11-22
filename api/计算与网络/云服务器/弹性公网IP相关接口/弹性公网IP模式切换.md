@@ -40,14 +40,14 @@
 ## 4. 示例
  
 输入
-```
+<pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &eipId=eip-mksy14ay
   &mode=0
 
-```
+</pre>
 
 输出
 ```
