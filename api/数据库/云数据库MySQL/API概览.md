@@ -32,7 +32,6 @@
 ## 2. 参数模板相关接口
 | 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
-
 | [查询默认参数模板详情](/doc/api/253/7190) | GetCdbDefaultParamInfo | 查询默认数据库参数模板详情 |
 | [查询参数模板列表](/doc/api/253/7185) | GetCdbParamTemplateList | 查询数据库参数模板列表 |
 | [新增参数模板](/doc/api/253/7186) | AddCdbParamTemplate | 新增数据库参数模板 |
