@@ -248,16 +248,16 @@
 ## 4. 示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/b449f0f6b49fc1c93c274971e4d300a0/ActivityAntiRush.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/218a8a04da2a2da7186116a0a820ecdd/ActivityAntiRush.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/2fc1d9734ee03527df2777417b226882/ActivityAntiRush.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/c3a9c8b4f310117e2caa4c644f15a00f/ActivityAntiRush.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-```
+<pre>
 请求示例 ：
 <https://csec.api.qcloud.com/v2/index.php?Action=ActivityAntiRush
-&<公共请求参数>
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
 &userIp=127.0.0.1
 &postTime=11254
-```
+</pre>
 
 ## 5. 响应示例
 ```

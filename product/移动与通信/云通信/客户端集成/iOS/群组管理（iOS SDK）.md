@@ -2072,6 +2072,7 @@ shutupTime | 被禁言的时间
 
 聊天室和直播大群的群事件消息需要通过注册监听器获得，2.4版本后消息Elem中包含群的成员数。
 
+```
 /**
  *  群事件通知回调
  */
@@ -2084,6 +2085,7 @@ shutupTime | 被禁言的时间
  */
 - (void)onGroupTipsEvent:(TIMGroupTipsElem*)elem;
 @end
+```
 
 ## 9 群系统消息 
 

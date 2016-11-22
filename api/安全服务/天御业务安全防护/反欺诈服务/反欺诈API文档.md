@@ -129,7 +129,7 @@
 </td></tr>
 <td> code
 </td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/254/1781)
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
 </td></tr>
 </tbody></table>
 
@@ -266,14 +266,14 @@ RiskDetail类型说明
 
 ## 4.示例代码
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-```
+<pre>
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
-&<公共请求参数>
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
 &idNumber=1234567890
 &name=%E6%9D%A8%E7%BA%A2
 &phoneNumber=008613246208548
-```
+</pre>
 
 ## 5.响应示例
 ```

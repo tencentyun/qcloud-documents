@@ -1,10 +1,14 @@
+## 相关说明
+腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式，对于这两种认证方式，连接URI需要做不同的处理，具体参见[连接示例](https://www.qcloud.com/doc/product/240/3563)一文。
+
 Java MongoDB驱动文档
 http://mongodb.github.io/mongo-java-driver/3.2/driver/getting-started/
 Java Jar包下载
 https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-driver/
 请选择3.2以上版本下载
 
-**Java示例代码:**
+## 快速开始
+### Java示例代码
 ```
 package mongodbdemo;
 
@@ -15,8 +19,7 @@ import com.mongodb.client.*;
 public class MongodbDemo {
 
     public static void main(String[] args) {
-        String mongoUri = "mongodb://rwuser:********@10.66.122.28:27017/admin?authMechanism=MONGODB-CR";
-        // 或者 String mongoUri = "mongodb://rwuser:********@10.66.122.28:27017?authMechanism=MONGODB-CR&authSource=admin";
+        String mongoUri = "mongodb://mongouser:thepasswordA1@10.66.187.127:27017/admin";
         MongoClientURI connStr = new MongoClientURI(mongoUri);
         MongoClient mongoClient = new MongoClient(connStr);
         try {
@@ -42,7 +45,6 @@ public class MongodbDemo {
             while (cursor.hasNext()) {
                 System.out.println("find document: " + cursor.next());
             }
-
         } finally {
             //关闭连接
             mongoClient.close();
@@ -51,7 +53,7 @@ public class MongodbDemo {
 }
 ```
 
-**输出:**
+输出
 
 ```
 INFO: Opened connection [connectionId{localValue:2, serverValue:67621}] to 10.66.122.28:27017

@@ -1,4 +1,4 @@
-# 高 IO 型 I2 实例
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高IO型 I2 实例经过了优化，可以向应用程序提供每秒上万次低延迟性随机 I/O 操作 (IOPS)，是高磁盘IO的最佳选择，它们非常适合用于下列情况：
 
 - NoSQL 数据库（例如MongoDB）
@@ -18,7 +18,7 @@
 - 采用 SSD 的实例存储
 	- 高随机 IOPS，典型场景下随机读 IOPS 可达 40000 （blocksize =4k ，iodepth =32）；
 	- 高吞吐量，典型场景下随机读吞吐可达 300MB/s（blocksize =4k ，iodepth =32）；
-- 默认网络增强型，包转发率高达30w pps。
+- 默认网络增强型，无需额外付费，包转发率可高达30w pps。
 
 
 ## 高 IO 型 I2 实例功能
