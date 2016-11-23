@@ -26,8 +26,17 @@
 |---------|---------|---------|
 | data.dealId | String | 唯一订单号，通过 [DescribeRedisDealDetail](https://www.qcloud.com/doc/api/260/5329) 可以查询订单详情 |
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
+| SerialIdError| 没有找到serialId对应实例 |
+| InstanceDeleted| 实例过期已被回收 |
+| InstanceStatusAbnormal| 实例状态异常，暂时不能执行该操作 |
+| PeriodError| 购买时长不在限制范围内 |
+| AccountNotEnoughToPay | 账号余额不足 |
 
-## 4. 示例
+## 5. 示例
 输入
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=RenewRedis

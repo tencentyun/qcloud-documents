@@ -21,7 +21,13 @@
 <td> message <td> String <td> 错误信息
 </tbody></table>
 
-## 4. 示例
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
+| SerialIdError | 没有找到serialId对应实例 |
+
+## 5. 示例
 <pre>
   https://redis.api.qcloud.com/v2/index.php?Action=ModifyRedisProject
 	&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>

@@ -63,7 +63,13 @@
 | newMemsize | int | 升级后实例容量， 单位:MB|
 | redisIds | Array | 关联的redisId列表|
 
-## 4. 示例
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
+| DealIdNotFound | 订单号不存在 |
+
+## 5. 示例
 输入
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedisDealDetail
