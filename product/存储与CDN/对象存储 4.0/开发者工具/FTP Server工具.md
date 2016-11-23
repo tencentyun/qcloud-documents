@@ -6,6 +6,30 @@ COS FTP v4是依赖COS 4.X的FTP服务端工具。通过COS FTP工具可以通�
 
 **下载机制**：下载直接流式返回给客户端
 
+## 支持FTP命令
+
+- put
+
+- get
+
+- mput
+
+- mget
+
+- delete
+
+- mkdir
+
+- ls
+
+- cd
+
+- bye
+
+- quit
+
+- size
+
 ## 使用环境 
 
 ### 使用系统
@@ -30,7 +54,7 @@ Linux (推荐腾讯云Centos系列CVM)
 
 ### 获取程序包
 
-Github地址：https://github.com/tencentyun/cos_ftp_v4
+下载地址：[COS FTP V4 github](https://github.com/tencentyun/cos_ftp_v4)
 
 ### 源码结构
 
@@ -56,7 +80,7 @@ Github地址：https://github.com/tencentyun/cos_ftp_v4
 
 ### 配置
 
-配置文件conf/vsftd.conf中的主要配置是vsftpd的配置,可以参考vsftpd配置说明, 需要改动的主要是以下两模块
+配置文件conf/vsftd.conf中的是vsftpd的配置,可以参考以下配置说明, 需要改动的主要是以下两模块
 
 1. COS账户信息配置
 
@@ -87,7 +111,7 @@ Github地址：https://github.com/tencentyun/cos_ftp_v4
 
 ### 停止
 
-运行sh  stop.sh
+运行 sh  stop.sh
 
  
 
