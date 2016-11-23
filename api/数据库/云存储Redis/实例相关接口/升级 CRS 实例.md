@@ -26,8 +26,18 @@
 |---------|---------|---------|
 | data.dealId | String | 唯一订单号，通过 [DescribeRedisDealDetail](https://www.qcloud.com/doc/api/260/5329) 可以查询订单详情 |
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
+| SerialIdError| 没有找到serialId对应实例 |
+| InstanceStatusAbnormal| 实例状态异常，暂时不能执行该操作  |
+| ReduceCapNotAllowed | 请求容量小于实例实际容量，暂不支持缩容 |
+| MemSizeError| 请求的规格不在售卖规格中 |
+| AccountNotEnoughToPay | 账号余额不足 |
 
-## 4. 示例
+
+## 5. 示例
 输入
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=UpgradeRedis
