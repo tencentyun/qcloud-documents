@@ -152,15 +152,15 @@
 ## 5. 示例
 输入
 
-```
+<pre>
 https://domain/v2/index.php?Action=CaptchaQuery
  &userIp=121.14.96.121
  &businessId=1
  &captchaType=1
  &uid=1
  &script=1
- &COMMON_PARAMS
-```
+ &<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 
 输出
 

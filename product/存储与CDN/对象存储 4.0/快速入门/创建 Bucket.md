@@ -3,7 +3,7 @@
 
 进入 COS 管理控制台，点击 **立即创建 Bucket** ，会弹出创建 Bucket 对话框：
 
-![](https://mc.qcloudimg.com/static/img/c6c13f0946bc9434fe397fac7ae6908e/image.png)
+![](https://mc.qcloudimg.com/static/img/eb79b292988425981082ff2c3fbdac91/Free-Converter.com-qq20161117-1-48840304.jpg)
 
 **注意事项**
 
@@ -21,14 +21,16 @@
 ![](https://mc.qcloudimg.com/static/img/61d5969c7ef5a2e96fa28a56811c6582/image.png)
 
 ## 多园区及访问域名
-COS 支持多园区存储，目前开放了广州、上海两个地区。不同地区默认访问域名不同。推荐用户根据自己的业务场景选择就近的地区存储，可以提高上传、下载速度。
+COS 支持多园区存储，目前开放了华北、华南、华东三个地区。不同地区默认访问域名不同。推荐用户根据自己的业务场景选择就近的地区存储，可以提高上传、下载速度。
 
-| 地区         | 区域表示     | 默认域名                                     |
-| ---------- | ------- | ---------------------------------------- |
-| 广州 | cosgz | bucketname-APPID.cosgz.myqcloud.com |
-| 上海 | cossh | bucketname-APPID.cossh.myqcloud.com |
+| 地区   | 区域表示 | 默认下载域名                                  | 上传域名                 | 状态   |
+| ---- | ---- | --------------------------------------- | -------------------- | ---- |
+| 华南   | gz   | [bucketname]-[appid].cosgz.myqcloud.com | gz.file.myqcloud.com | 已上线  |
+| 华北   | tj   | [bucketname]-[appid].costj.myqcloud.com | tj.file.myqcloud.com | 已上线  |
+| 华东   | sh   | [bucketname]-[appid].cossh.myqcloud.com | sh.file.myqcloud.com | 已上线  |
+| 新加坡  | -    | -                                       | -                    | 敬请期待 |
 
-
+**内网跨区域访问： 不同区域的不同腾讯云产品之间无法直接进行访问。若需要实现内网跨区域的访问， 例如，所在区域为广州的 CVM 需要使用新加坡的 COS 上的数据，则需要使用 VPC 部署专属网络通道，实现高速访问体验。 [点击查看 VPC 相关信息](https://www.qcloud.com/product/vpc.html)**
 
 ## 访问权限
 > 公有读私有写：任何人（包括匿名访问者）都对该Bucket中的文件有读权限，但只有Bucket创建者及有相应权限的账号才对该Bucket中的文件有写权限。
@@ -37,3 +39,5 @@ COS 支持多园区存储，目前开放了广州、上海两个地区。不同�
 > 私有读写：只有该Bucket的创建者及有相应权限的账号才对该Bucket中的文件有读写权限，其他任何人对该Bucket中的文件都没有读写权限。
 
 如后续需要修改Bucekt权限，可通过控制台空间属性修改。
+
+

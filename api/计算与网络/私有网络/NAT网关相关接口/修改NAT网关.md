@@ -33,13 +33,13 @@
 
 ## 5. 示例
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=ModifyNatGateway
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &natId=nat-jngbqyfs
 &vpcId=314
 &natName=cici
-```
+</pre>
 输出
 ```
 {

@@ -38,7 +38,7 @@
 
 ## 4. 示例
 输入
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.phpAction=GetMonitorRealtimeData
 &namespace=name1
 &metricName=metric1
@@ -50,8 +50,8 @@ https://monitor.api.qcloud.com/v2/index.phpAction=GetMonitorRealtimeData
 &dimensions.0.value=v0
 &dimensions.1.value=v1
 &dimensions.2.value=v2
-&COMMON_PARAMS
-```
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 输出
 ```
 成功返回

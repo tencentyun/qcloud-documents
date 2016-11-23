@@ -39,15 +39,15 @@
 ## 5. 示例
  
 输入
-```
+<pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=ModifyVpnGw
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcId=vpc-amhnnao5
   &vpnGwId=vpngw-dystbrkv
   &vpnGwName=test-9910
   &isAutoRenewals=0
 
-```
+</pre>
 
 输出
 ```

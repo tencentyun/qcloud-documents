@@ -1,6 +1,6 @@
 ## 云缓存 Memcached 定价
 
-云缓存 Memcached 根据分配空间进（使用空间 + 预留缓冲空间）行计费，不足1G时按1G收费。
+云缓存 Memcached 根据分配空间进（使用空间 + 预留缓冲空间）计费，不足1G时按1G收费。
 
 - 表缩容指的是减少表的占用空间，也即存储缩容。因为需要预留缓冲空间，缩容后表使用率不会超过80%。表缩容的最小粒度是1GB，如果缩容会造成使用率超过80%，则不能进行缩容。
 
@@ -24,7 +24,7 @@
 </td><td> 2.00元 /GB日
 </td></tr></tbody></table>
 
-## 购买流程
+## 购买指导
 
 ### 购买新表
 1.登录腾讯云首页www.qcloud.com
@@ -43,4 +43,4 @@
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NoSQLBuy3.png)
 
-4.确定是否开启expire过期删除功能。请参见[开启expire过期删除功能](/doc/product/241/云缓存Memcached管理#5-开启expire过期删除)。
+4.确定是否开启expire过期删除功能。请参见[开启expire过期删除功能](/doc/product/439/6806)。

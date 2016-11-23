@@ -59,12 +59,12 @@ Content-Type: "application/json"
 
 请求包http body:
 
-| 参数        | 是否必选 | 类型     | 描述            |
-| --------- | ---- | ------ | ------------- |
-| appid     | 是    | uint   | 业务id          |
-| bucket    | 是    | string | 图片空间          |
-| card_type | 是    | int    | 0身份证正面，1身份证反面 |
-| url_list  | 是    | string | 图片url列表       |
+| 参数        | 是否必选 | 类型     | 描述                      |
+| --------- | ---- | ------ | ----------------------- |
+| appid     | 是    | uint   | 业务id                    |
+| bucket    | 是    | string | 图片空间                    |
+| card_type | 是    | int    | 0为身份证有照片的一面，1为身份证有国徽的一面 |
+| url_list  | 是    | string | 图片url列表                 |
 
 
 
@@ -83,7 +83,7 @@ result_list（json数组）中每一项的具体内容
 | url     | string | 当前图片的url     |
 | data    |        | 具体查询数据，内容见下表 |
 
-data字段具体内容（身份证正面）
+data字段具体内容（身份证有照片的一面）
 
 | 参数                     | 类型         | 描述      |
 | ---------------------- | ---------- | ------- |
@@ -251,7 +251,7 @@ image_content
 | --------- | ---- | ----------- | ---------------------------------------- |
 | appid     | 是    | uint        | 业务id                                     |
 | bucket    | 是    | string      | 图片空间                                     |
-| card_type | 是    | int         | 0身份证正面，1身份证反面                            |
+| card_type | 是    | int         | 0为身份证有照片的一面，1为身份证有国徽的一面                  |
 | image     | 是    | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等image开头的字符串。响应http body中会按照该字符串的字典序排列。每张图片需指定filename，filename的值为可为空，响应http body中会返回用户设置的filename值。 |
 
 **响应http body（json格式）**
@@ -269,7 +269,7 @@ result_list（json数组）中每一项的具体内容
 | filename | string | 当前图片的filename，与请求包中filename一致 |
 | data     |        | 具体查询数据，内容见下表                  |
 
-data字段具体内容（身份证正面）
+data字段具体内容（身份证有照片的一面）
 
 | 参数                     | 类型         | 描述      |
 | ---------------------- | ---------- | ------- |

@@ -32,15 +32,15 @@
 
 ## 4. 示例
 输入
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.phpAction=DescribeObjects
 &namespace=name1
 &metricName=zqmetric1
 &dimensionNames.0=d1
 &dimensionNames.1=d2
 &dimensionNames.2=d3
-&COMMON_PARAMS
-```
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 输出
 ```
 {

@@ -32,13 +32,13 @@
 
 ## 5. 示例
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=EipBindNatGateway
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &natId=nat-8pbrkzh6
 &vpcId=314
 &autoAllocEipNum=1
-```
+</pre>
 输出
 ```
 {

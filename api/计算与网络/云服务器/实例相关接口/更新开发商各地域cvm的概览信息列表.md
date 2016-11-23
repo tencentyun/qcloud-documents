@@ -23,16 +23,16 @@
 
 ## 4. 示例
 输入
-```
+<pre>
 https://cvm.api.qcloud.com/v2/index.php?Action=ModifyUserCvmOverview
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &cvmOverviews.0.regionId=1
 &cvmOverviews.0.newFlag=1
 &cvmOverviews.0.validCvmNum=100
 &cvmOverviews.1.regionId=2
 &cvmOverviews.1.newFlag=0
 &cvmOverviews.1.validCvmNum=50
-```
+</pre>
 输出
 ```
 {

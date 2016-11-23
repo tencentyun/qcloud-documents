@@ -1,3 +1,14 @@
+IM SDK2.4 2016-11-09
+1. 全面兼容ATS模式
+2. 消息转发功能：提供copyFrom接口，可以跳过下载步骤，直接拷贝图片、文件等消息后直接转发
+3. 支持AVChatRoom群组动态更新群成员数：TIMGroupEventListener接口返回当前群成员数目
+4. AVChatRoom支持消息过滤自定义
+5. TIMOfflinePushInfo属性支持小米华为推送相关设置
+6. 优化拉取群组漫游消息流程
+7. 优化语音、文件、微视频上传下载流程
+8. 支持设置拉取最近联系人列表时禁止抛出onNewMessage
+
+
 IM SDK2.3 2016-9-13
 1. 支持同一appid多应用消息推送
 2. Android版本增加google推送支持（FCM实现）
