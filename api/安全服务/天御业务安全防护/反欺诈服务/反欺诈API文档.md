@@ -1,16 +1,17 @@
-## 1. 接口描述
+## 1.接口描述
 <br> 协议：HTTPS
 <br> 域名：csec.api.qcloud.com
 <br> 接口名：AntiFraud
 
-## 2. 输入参数
+## 2.输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)页面。其中，此接口的Action字段为AntiFraud。
+<br>注意：以下每一个参数对于识别恶意都非常重要，任何参数的缺少都有可能影响识别效果 。
 <table class="t">
 <th><b>参数名称</b>
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr> <td colspan="3">基本字段：五选二</td>
+<tr> <td colspan="3">基本字段：共有五项，要求至少选择两项</td>
 </tr>
 <tr>
 <td> idNumber
@@ -103,7 +104,7 @@
 </td></tr>
 </tbody></table>
 
-## 3. 输出参数
+## 3.输出参数
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -119,7 +120,18 @@
 <td> riskInfo
 </td><td> RiskDetail
 </td><td> 扩展字段，对风险类型的说明
-</td></tr></tbody></table>
+<br> riskScore为0时无此字段
+</td></tr>
+<tr>
+<td> message
+</td><td> String
+</td><td> 模块错误信息描述，与接口相关
+</td></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
+</td></tr>
+</tbody></table>
 
 RiskDetail类型说明
 <table class="t">
@@ -238,7 +250,7 @@ RiskDetail类型说明
   <td>407</td>
 </tr>
 <tr>
-<td rowspan="2"> 异常行为
+<td rowspan="3"> 异常行为
 </td><td> 组团骗贷
 <br></td><td> 501
 </td></tr>
@@ -246,18 +258,22 @@ RiskDetail类型说明
   <td>所在地跳变 </td>
   <td>502</td>
 </tr>
+<tr>
+  <td>其他异常行为</td>
+  <td>503</td>
+</tr>
 </td></tr></tbody></table>
 
-## 4. 示例代码
+## 4.示例代码
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-```
+<pre>
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
-&<公共请求参数>
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
 &idNumber=1234567890
 &name=%E6%9D%A8%E7%BA%A2
 &phoneNumber=008613246208548
-```
+</pre>
 
 ## 5.响应示例
 ```
@@ -275,7 +291,3 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 　]
 }
 ```
-
-
-## 6.错误码说明
-参考返回的message字段描述

@@ -38,7 +38,7 @@ data的内容
 
 ## 4. 示例
 输入
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.phpAction=CreateAlarmRule
 &namespace=test
 &metricName=m1
@@ -49,8 +49,8 @@ https://monitor.api.qcloud.com/v2/index.phpAction=CreateAlarmRule
 &period=300
 &statistics =sum
 &constancy=10
-&COMMON_PARAMS
-```
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 输出
 ```
 {

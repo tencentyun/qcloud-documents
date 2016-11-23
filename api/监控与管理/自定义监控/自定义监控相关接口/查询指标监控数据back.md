@@ -36,7 +36,7 @@ dimensions.n.value和dimensions.n.name的值对应，dimensions.n.value可由查
 
 ## 4. 示例
 输入
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 &namespace=name1
 &metricName=metric1
@@ -48,8 +48,8 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 &dimensions.2.value=v3
 &period=300
 &statistics=last
-&COMMON_PARAMS
-```
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 输出
 ```
 {

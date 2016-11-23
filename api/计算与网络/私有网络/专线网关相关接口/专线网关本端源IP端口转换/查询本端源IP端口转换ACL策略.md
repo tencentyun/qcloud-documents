@@ -39,14 +39,14 @@
 
 ## 5. 示例
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeLocalSourceIPPortTranslationAclRule
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &vpcId=vpc-dfgg190
 &directConnectGatewayId=dcg-ddf14d
 &translationIPPool=11.1.1.1-11.1.1.10
 &aclRules.0=25
-```
+</pre>
 输出
 ```
 {

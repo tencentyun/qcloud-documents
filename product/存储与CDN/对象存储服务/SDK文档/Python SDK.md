@@ -76,9 +76,11 @@ def upload_file(self, request)
 
 #### 返回结果说明
 
-| 返回值类型 | 返回值描述                                    |
-| :---- | :--------------------------------------- |
-| dict  | {'code':\$code,  'message':$mess, 'data':\$data}, code为0表示成功,  message为SUCCESS或者失败原因, data中包含相关的属性, 详情请参见返回值模块 |
+| 返回值类型 | 返回值描述                 |
+| :---- | :-------------------- |
+| code  | code为0表示成功            |
+| mess  | message为SUCCESS或者失败原因 |
+| data  | data中包含相关的属性          |
 
 #### 示例
 
