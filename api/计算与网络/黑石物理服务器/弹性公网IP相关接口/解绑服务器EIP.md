@@ -27,7 +27,16 @@ Data结构
 |---|---|---|
 | data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[EipBmQueryTask](/doc/api/456/6670)查询任务状态|
 
-## 4. 示例
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
+|9032|InternalCgwErr|内部接口错误|
+|30009|EipNotExist|操作的EIP记录不存在|
+|30010|EipStateCannotOp|EIP当前状态不允许解绑|
+
+## 5. 示例
  
 输入
 <pre>
