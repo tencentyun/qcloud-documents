@@ -1,37 +1,36 @@
-Object是腾讯云 COS 中存储的具体内容，使用 key-value 存储方式，专门用于存储任意多的数据。Object必须存储在一个或多个存储桶中，由以下基本内容组成：
+Object 访问权限提供了基于 Object 维度的访问权限控制，且该配置优先级高于 Bucket 权限。
 
-键（Key）：Object名称。在 Bucket 中唯一标识一个Object
-值（Value）：创建完 Bucket 后，可将本地任意类型的文件上传至 Bucket 中。每个 COS 的Bucket 都支持无限个数的文件存储，单文件上传最大支持 50G，单文件存储最大支持500G。
-元数据（Metadata）：一组键值对，可用于存储有关Object的信息。可以参考[Object HTTP头设置](/doc/product/430/5911)。
-访问控制信息 – 控制Object的访问权限信息。
+通过修改 Object 访问权限，可以实现例如：在私有 Bucket 中设置个别允许公有访问的 Object，或在公有 Bucket 中设置个别需要鉴权才可以访问的 Object。Object 的权限有如下类型：
 
-## Object名称
-腾讯云 COS 中上传的Object需具有合法的名称，它在 Bucket 中唯一地标识该Object。在控制台Bucket Object列表中可以遍历Object名称。Object名称是采用 Unicode 字符，虽然可以在名称中使用任何 UTF-8 字符，但是每个应用程序对特殊字符的分析方式可能不同。以下原则有助于最大程度符合 DNS、Web 安全字符、XML 分析器和其他 API 的要求。
+- 默认状态：任何一个新的 Object 被创建时，其不具备权限属性，则访问会跳过 Object 直接匹配 Bucket 的权限。
 
-以下字符集通常可安全地用于键名称：
+- 公有读私有写状态：当产生访问时，COS 会读取到 Object 的权限为公有读，此时无论 Bucket 为何种权限，Object 都可以被直接下载。
 
-| 类型    | 详细内容                  | 
-| ------ | -------------------- |
-| 字母数字字符 | [0-9 , a-z , A-Z]    |    
-| 特殊字符   | `!`、`-`、`_`、`.`、`* ` | 
+- 私有读写状态：当产生访问时，COS 会读取到 Object 权限为私有读写，此时无论 Bucket 为何种权限，Object 都需要通过[签名鉴权](/doc/api/435/6054)才可访问。
 
-以下是安全的Object名称示例：
+- 继承 Bucket 权限：在修改 Object 权限后，恢复其权限与 Bucket 一致。当产生访问时，COS 会读取到Object 权限为继承，转而再匹配 Bucket 的权限，来响应访问。
 
-my-organization
-my.great_photos-2016/01/me.jpg
-videos/2016/birthday/video1.wmv
+> 设置的Object权限只有通过直接访问域名（外网访问、内网访问）有效。对于使用 CDN 加速域名访问（形如 .file.myqcloud.com 或在 CDN 绑定了自定义域名）的访问，鉴权要求以 Bucket 权限为准。
 
-需要注意的是，COS 的底层实现逻辑不存在Folder层次结构；但是用户可以在 COS 中创建Folder，并以分隔符标识文件层级结构。假设 Bucket 中包含具有以下名称的文件：
+假设在 APPID 为 1250000000 下创建了权限为**公有读私有写** Bucket 名称为 test，在 Bucket 根目录上传了Object a.txt。此时访问 `http://test-1250000000.cos.myqcloud.com/a.txt` 可以正常下载。
 
-Vedio/mybday.mp4
+## 1. 私有读写
 
-Document/lesson1.mp4
+设置 a.txt 的 Object 访问权限为私有读写，尝试访问。
 
-report.pdf
+访问` http://test-1250000000.cos.myqcloud.com/a.txt `将返回 403 Forbidden，内容为 {"errorcode":-45086,"errormsg":"sign check fail"} 签名鉴权失败。在进行[签名](/doc/api/435/6054)后访问 `http://test-1250000000.cos.myqcloud.com/a.txt?sign=[签名字符串]` 可以正常访问。
 
-控制台使用名称前缀（Vedio/、Document/）和分隔符（“/”）呈现FolderVedio和Document，而 report.pdf Object名没有前缀，因此这个Object在 Bucket 的根目录出现。
+## .2. 共有读私有写
 
-> COS 中没有层次结构。但是通过Object名称中的前缀和分隔符，COS 可以推断层次结构并引入Folder的概念。
+设置 a.txt 的Object访问权限为公有读私有写，尝试访问。
 
-## Object地址
-Object的访问地址都是基于 Bucket 的访问地址和Object名称的，腾讯云的Object访问地址构成为 `Bucket域名+“/“+Object名称`，有关Bucket的域名可以参考 [Bucket 域名管理](/doc/product/430/5889)。
+访问 `http://test-1250000000.cos.myqcloud.com/a.txt` 可以正常下载。再一次修改 Bucket 属性，将 Bucket 权限设置为**私有读写**，尝试访问 `http://test-1250000000.cos.myqcloud.com/a.txt`，仍可正常下载。
+
+## 3. 覆盖 Bucket 权限
+
+修改 Bucket 权限设置为**私有读写**，设置 a.txt Object 访问权限为私有读写，尝试访问。
+
+访问` http://test-1250000000.cos.myqcloud.com/a.txt` 返回 403 Forbidden，内容为 {"errorcode":-45086,"errormsg":"sign check fail"} 签名鉴权失败。在签名后访问 `http://test-1250000000.cos.myqcloud.com/a.txt?sign=[签名字符串]` 则可以正常访问。
+
+此时，修改 Bucket 权限设置为**公有读私有写**，尝试访问 `http://test-1250000000.cos.myqcloud.com/a.txt` 返回 403 Forbidden，内容为 {"errorcode":-45086,"errormsg":"sign check fail"} 签名鉴权失败。在签名后访问 `http://test-1250000000.cos.myqcloud.com/a.txt?sign=[签名字符串]` 则可以正常访问。
+

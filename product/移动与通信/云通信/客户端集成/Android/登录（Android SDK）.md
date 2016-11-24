@@ -30,13 +30,9 @@ callback | 回调接口。
 
 
 ```
-// accountType 和 sdkAppId 通讯云管理平台分配
 // identifier为用户名，userSig 为用户登录凭证
-// appidAt3rd 在私有帐号情况下，填写与sdkAppId 一样
  
 TIMUser user = new TIMUser();
-user.setAccountType(accountType);
-user.setAppIdAt3rd(appIdAt3rd);
 user.setIdentifier(identifier);
  
 //发起登录请求
@@ -114,7 +110,7 @@ public void initStorage(int sdkAppId,
 参数|说明
 ---|---
 sdkAppId | 用于标识接入SDK的应用Id，由腾讯分配。
-user | 用户帐号：<br>accountType，帐号类型，由腾讯分配。<br>appIdAt3rd，使用自有帐号或腾讯开放帐号时，填写为与sdkAppId相同的字符串。<br>identifier，用户帐号。
+user | 用户帐号：<br>identifier，用户帐号。
 userSig | 用户帐号签名，由私钥加密获得，这里可以不填。
 cb | 回调接口。
 
@@ -122,13 +118,9 @@ cb | 回调接口。
 
 
 ```
-// accountType 和 sdkAppId 通讯云管理平台分配
 // identifier为用户名，userSig 为用户登录凭证
-// appidAt3rd 在私有帐号情况下，填写与sdkAppId 一样
  
 TIMUser user = new TIMUser();
-user.setAccountType(accountType);
-user.setAppIdAt3rd(appIdAt3rd);
 user.setIdentifier(identifier);
  
 //发起登录请求

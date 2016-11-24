@@ -38,19 +38,35 @@ data 数组的结构：
 |---------|---------|---------|
 | data.dealId | String | 订单号，通过 [DescribeRedisDealDetail](https://www.qcloud.com/doc/api/260/5329) 可以查询订单详情 |
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
+| UinNotInWhiteList| 业务还在灰度中 |
+| NoRedisService| 该地域暂时不提供redis服务 |
+| NoRequestTypeService| 该地域暂时不提供请求类型的redis服务 |
+| InstanceTypeIdError| 请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原单机版） |
+| MemSizeError| 请求的规格不在售卖规格中 |
+| GoodsNumError| 单次购买实例数超过限制 |
+| PeriodError| 购买时长不在限制范围内 |
+| OnlyVPCOnSpecZoneId| 金融地区只提供vpc网络下redis服务 |
+| SubnetIdError| vpc网络下的子网id 不存在 |
+| PasswordEmpty| 密码为空 |
+| PasswordRuleError | 密码规则错误 |
+| AccountNotEnoughToPay | 账号余额不足 |
 
-## 4. 示例
+## 5. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=CreateRedis
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &zoneId=100002
 &typeId=1
 &memSize=1024
 &goodsNum=1
 &period=2
 &password=49A2d!e@f12e
-```
+</pre>
 输出
 ```
 {

@@ -41,15 +41,25 @@
 <td> data.requestId <td> UInt <td> 任务ID, 可通过<a href='/doc/api/260/1387' >DescribeTaskInfo</a>接口查询任务执行状态
 </tbody></table>
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
+| SerialIdError | 没有找到serialId对应实例 |
+| InstanceStatusAbnormal | 实例状态异常，暂时不能执行该操作 |
+| PasswordRuleError | 密码规则错误 |
+| PasswordEmpty | 密码为空 |
+| OldPasswordError | 旧密码错误 |
 
-## 4. 示例
-```
+
+## 5. 示例
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=ModfiyRedisPassword
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &redisId=crs-ifmymj41
 &oldPassword=49A2d!e@f12e
 &password=12D3E@!r5ed
-```
+</pre>
 返回示例如下：
 ```
 {

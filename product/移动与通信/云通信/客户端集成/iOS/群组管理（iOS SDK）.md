@@ -21,7 +21,7 @@ IM云通讯有多种群组类型，其特点以及限制因素可参考[群组�
 
 ### 3.1 创建内置类型群组
 
-CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateChatRoomGroup创建聊天室，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。
+CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateChatRoomGroup创建聊天室，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。云通信中内置了私有群、公开群、聊天室和互动直播聊天室四种群组类型，详情请见[群组形态介绍](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)
 
 另外 CreateAVChatRoomGroup 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
  
@@ -241,12 +241,12 @@ fail|失败回调
 
 ### 3.4 邀请用户入群
 
-TIMGroupManager 的接口 InviteGroupMember 可以拉（邀请）用户进入群组，对私有群，对方直接进入群组，对于共有群，需要对方同意才可进入。
+TIMGroupManager 的接口 InviteGroupMember 可以拉（邀请）用户进入群组。
 
 **权限说明：**
  
 只有私有群可以拉用户入群； 
-公开群、聊天室邀请用户入群，需要用户同意；
+不允许群成员邀请他人入群，但创建群时可以直接拉人入群；
 直播大群不能邀请用户入群；
 
 **原型：**
@@ -2067,6 +2067,25 @@ memberInfoList | 变更的群成员的具体资料信息，为TIMGroupTipsElemMe
 ---|---
 identifier | 变更的用户identifier 
 shutupTime | 被禁言的时间 
+
+### 8.7 群事件消息监听器
+
+聊天室和直播大群的群事件消息需要通过注册监听器获得，2.4版本后消息Elem中包含群的成员数。
+
+```
+/**
+ *  群事件通知回调
+ */
+@protocol TIMGroupEventListener <NSObject>
+@optional
+/**
+ *  群tips回调
+ *
+ *  @param elem  群tips消息
+ */
+- (void)onGroupTipsEvent:(TIMGroupTipsElem*)elem;
+@end
+```
 
 ## 9 群系统消息 
 

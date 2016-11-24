@@ -6,34 +6,7 @@
 
 ### 2.1 工具使用
 
-工具的主要作用是在本地手动生成公私钥，手动生成sig和验证sig。
-
 >注：这里讲解的是工具的使用说明，实际应用中需要开发者后台调用tls的后台api接口生成sig。
-
-进入预编译文件包的tools目录，可以看到下面的几个文件：
-├── genkey.sh                 生成公私钥的批处理文件
-├── openssl.cnf               openssl配置文件，默认不要修改
-├── openssl                    openssl工具可执行文件文件
-└── tls_licence_tools        生成sig和校验sig的工具
-
-**生成公私钥**
-
-进入tools目录，执行下面的命令：
-
-```
- ./genkey.sh
-```
- 
-输出：
-
-```
-read EC key
-writing EC key
-```
-    
-表示生成公私钥成功，公私钥分别为当前目录下的 public.pem 和 ec_key.pem。下面是演示的截图：
-
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151013122910_76990.png)
 
 **linux下生成sig和校验sig**
 
@@ -156,6 +129,8 @@ javac -encoding utf-8 tls_sigcheck.java
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126141635_23603.png)
 
+【**多线程**】如果在 java 代码中使用了多线程的方式生成 usersig，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
+
 ### 2.4 Java原生接口
 
 Java原生接口依赖于5个jar包中。在tls_sig_api/java_native/lib目录下：
@@ -168,10 +143,8 @@ Java原生接口依赖于5个jar包中。在tls_sig_api/java_native/lib目录下
 └── tls_signature.jar
 
 【特别注意】
-如果是从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，可以直接将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
-如果是通过命令行工具自行生成的公私钥，可以直接将公钥文件的内容赋值给接口中的publicBase64Key参数，对于私钥，需要用tls api的tools目录下openssl命令行工具做一下格式转换：
-示例：./openssl pkcs8 -topk8 -in ec_key.pem -outform PEM -out p8_priv.pem -nocrypt
-格式转换后，将p8_priv.pem文件的内容赋值给privateBase64Key参数。
+
+从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，将公钥内容赋值给接口中的publicBase64Key参数，私钥内容赋值给接口中的privateBase64Key参数。
 
 ### 2.5 PHP接口
 
@@ -198,39 +171,13 @@ function signature($identifier, $sdkappid, $private_key_path)
 ### 2.6 PHP原生接口
 在源码包和二进制包中都带有php/TLSSig.php文件，生成sig接口genSig和校验sig接口verifySig均在其中，注意PHP环境需要带openssl扩展，否则接口使用会报错，另外只支持PHP 5.3及以上的版本。
 
+如果上述实现PHP环境无法满足要求，比如使用了红帽系（fedora、centos 和 rel 等）的操作系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
+
 ## 3 windows平台
 
 ### 3.1 工具使用
 
-工具的主要作用是在本地手动生成公私钥，手动生成sig和验证sig。
-
 >注：这里讲解的是工具的使用说明，实际应用中需要开发者后台调用tls的后台api接口生成sig。
-
-进入预编译文件包的tools目录，可以看到下面的几个文件：
-├── genkey.bat                生成公私钥的批处理文件
-├── openssl.cnf               openssl配置文件，默认不要修改
-├── openssl.exe               openssl工具可执行文件文件
-└── tls_licence_tools.exe   生成sig和校验sig的工具
-
-**生成公私钥**
-
-打开命令行工具，进入tools目录，执行下面的命令：
-
-```
- genkey.bat
-```
-
-输出：
-
-```
-Loading 'screen' into random state - done
-read EC key
-writing EC key
-```
-      
-表示生成公私钥成功，公私钥分别为当前目录下的 public.pem 和 ec_key.pem。下面是演示截图：
-
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142449_90009.png)
 
 **windows下生成sig和校验sig**
 
@@ -364,6 +311,8 @@ javac -encoding utf-8 tls_sigcheck.java
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142954_16596.png)
 
+【**多线程**】如果在 java 代码中使用了多线程的方式生成 usersig，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
+
 ### 3.4 Java原生接口
 
 Java原生接口依赖于5个jar包。在tls_sig_api/java_native/lib目录下：
@@ -377,10 +326,7 @@ Java原生接口依赖于5个jar包。在tls_sig_api/java_native/lib目录下：
 
 【特别注意】
 
-如果是从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，可以直接将java版本的公钥内容赋值给接口中的publicBase64Key参数，将java版本的私钥内容赋值给接口中的privateBase64Key参数。
-如果是通过命令行工具自行生成的公私钥，可以直接将公钥文件的内容赋值给接口中的publicBase64Key参数，对于私钥，需要用tls api的tools目录下openssl命令行工具做一下格式转换：
-示例：./openssl pkcs8 -topk8 -in ec_key.pem -outform PEM -out p8_priv.pem -nocrypt
-格式转换后，将p8_priv.pem文件的内容赋值给privateBase64Key参数。
+从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，将公钥内容赋值给接口中的publicBase64Key参数，私钥内容赋值给接口中的privateBase64Key参数。
 
 ### 3.5 C#接口
 
@@ -458,9 +404,12 @@ function signature($identifier, $sdkappid, $private_key_path)
 ### 3.7 PHP原生接口
 在源码包和二进制包中都带有php/TLSSig.php文件，生成sig接口genSig和校验sig接口verifySig均在其中，注意PHP环境需要带openssl扩展，否则接口使用会报错，另外只支持PHP 5.3及以上的版本。
 
+如果上述实现PHP环境无法满足要求，比如使用了红帽系（fedora、centos 和 rel 等）的操作系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与openssl和系统无关的实现。
+
 ## 4 其他平台接口
 - javascript http://bbs.qcloud.com/thread-17311-1-1.html
 - python http://bbs.qcloud.com/thread-14366-1-1.html
+- golang http://bbs.qcloud.com/thread-21826-1-1.html
 
 ## 5 TLS 后台 API 下载
 点击[这里](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)下载。

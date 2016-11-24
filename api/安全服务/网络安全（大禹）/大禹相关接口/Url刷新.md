@@ -25,11 +25,11 @@
 | log_id | String | 刷新日志ID | 
 
 ## 4. 示例
-```
+<pre>
 https://dayu.api.qcloud.com/v2/index.php?Action=RefreshDayuUrl
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &urls.0=http://www.qq.com/index.html
-```
+</pre>
 
 返回示例如下：
 ```

@@ -32,16 +32,16 @@
 ## 5. 示例
  
 输入
-```
+<pre>
 https://domain/v2/index.php?Action=DescribeVpnConnMonitor
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &vpcId=7
 &vpnGwId=8
 &vpnConnId=5
 &metricName=outtraffic
 &starttime=2015-07-14 00:00:00
 &endtime=2015-07-14 23:00:00
-```
+</pre>
 
 输出
 ```

@@ -37,14 +37,17 @@
 <td> data.status <td> Int <td> 任务状态0:待执行，1：执行中，2：成功，3：失败，-1 执行出错
 </tbody></table>
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
  
-
-## 4. 示例
-```
+## 5. 示例
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeTaskInfo
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &requestId=11963
-```
+</pre>
 返回示例如下：
 ```
 {

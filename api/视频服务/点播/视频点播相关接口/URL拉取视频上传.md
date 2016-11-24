@@ -117,9 +117,9 @@
 ## 4. 示例
  
 输入1
-```
+<pre>
  https://domain/v2/index.php?Action=MultiPullVodFile
- &pullset.1.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.html%3Fvid%3Dc0152uievii
+ &pullset.1.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.mp4 //url必须指向可下载的视频地址
  &pullset.1.fileName=test
  &pullset.1.isTranscode=1
  &pullset.1.priority=1
@@ -128,8 +128,8 @@
  &pullset.1.notifyUrl=http%3A%2F%2Ftest.com%2Ftest
  &pullset.1.classId=0
  &pullset.1.isReport=1
- &COMMON_PARAMS
-```
+ &<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 
 输出1
 ```

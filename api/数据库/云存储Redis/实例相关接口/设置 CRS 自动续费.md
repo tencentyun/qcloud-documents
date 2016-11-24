@@ -19,14 +19,23 @@
 | code | Int | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
 | message | String | 错误信息描述, 成功时，该值为空 |
 
-## 4. 示例
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| SystemError | 系统内部错误 |
+| SerialIdError| 没有找到serialId对应实例 |
+| InstanceDeleted| 实例过期已被回收 |
+| InstanceIsolated| 实例过期已被隔离 |
+| IsAutoRenewError| 自动续费标识错误(0 - 不设置自动续费，实例到期会通知；1 - 设置自动续费，到期会自动续费；2 - 到期不续费也不通知) |
+
+## 5. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=SetRedisAutoRenew
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &redisIds.0=crs-ifmymj41
 &isAutoRenew=1
-```
+</pre>
 输出
 ```
 {
