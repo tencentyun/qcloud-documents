@@ -222,6 +222,14 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
+</td></tr>
+<td> message
+</td><td> String
+</td><td> 模块错误信息描述，与接口相关
+</td></tr>
 <tr>
 <td> Nonce
 </td><td> UInt
@@ -248,36 +256,27 @@
 </td><td> accountType是QQ或微信开放账号时，用于标识QQ或微信用户登录后关联业务自身的账号ID
 </td></tr>
 <tr>
-<td> message
-</td><td> String
-</td><td> 模块错误信息描述，与接口相关
-</td></tr>
-<tr>
 <td> level
 </td><td> Int
 </td><td> 0：表示无恶意<br>1～4：恶意等级由低到高
-</td></tr>
-<td> code
-</td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
 </td></tr>
 </tbody></table>
 
 ## 4.示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/de08cb326ab99b568664b2bb7c269f4e/LoginProtection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/2a728e6e88889ae9082d596288505cfd/LoginProtection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/db5e010d2ab0070fe8b4f08e3a71238b/LoginProtection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/8773908b78df5570f45d3b2a7d25cbfc/LoginProtection.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/doc/api/254/1778)小节。
-<pre>
+```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?
 Action=LoginProtection
-&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+&<公共请求参数>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
 &loginIp=127.0.0.1
 &loginTime=11254
 &associateAccount="SpFsjpyvaJ27329"
-</pre>
+```
 
 ## 5.响应示例
 ```
