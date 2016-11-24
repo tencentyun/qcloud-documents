@@ -125,6 +125,10 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
+</td></tr>
 <tr>
 <td> message
 </td><td> String
@@ -135,25 +139,21 @@
 </td><td> String
 </td><td> 验证码JavaScript地址，该链接单次有效
 </td></tr>
-<td> code
-</td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
-</td></tr>
 </tbody></table>
 
 ## 4.示例代码
 代码下载： [java](https://mc.qcloudimg.com/static/archive/91612588f14dd8632dbb044d4a62061c/captcha_iframe_java.zip)  　 [Python](https://mc.qcloudimg.com/static/archive/fa66d7a10894782ebaa156661f53c6da/captcha_iframe_python.zip) 　[ php ](https://mc.qcloudimg.com/static/archive/f574a0d4f290e96dc751cf62b65cc9c2/captcha_iframe_php.zip) 
 <p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>小节。
-<pre>
+```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<公共请求参数>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &captchaType=1
 &disturbLevel=1
 &isHttps=1
 &clientType=1
-</pre>
+```
 ## 5.响应示例
 ```
 {

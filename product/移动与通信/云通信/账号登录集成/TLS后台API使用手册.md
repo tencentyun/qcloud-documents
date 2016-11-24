@@ -129,6 +129,8 @@ javac -encoding utf-8 tls_sigcheck.java
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126141635_23603.png)
 
+【**多线程**】如果在 java 代码中使用了多线程的方式生成 usersig，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
+
 ### 2.4 Java原生接口
 
 Java原生接口依赖于5个jar包中。在tls_sig_api/java_native/lib目录下：
@@ -308,6 +310,8 @@ javac -encoding utf-8 tls_sigcheck.java
 下面是运行结果，
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142954_16596.png)
+
+【**多线程**】如果在 java 代码中使用了多线程的方式生成 usersig，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
 
 ### 3.4 Java原生接口
 

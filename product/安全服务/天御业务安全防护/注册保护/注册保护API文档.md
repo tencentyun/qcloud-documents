@@ -197,15 +197,19 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
-<tr>
-<td> Nonce
-</td><td> UInt
-</td><td> 随机正整数，与 Timestamp 联合起来, 用于防止重放攻击（公共参数）
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
 </td></tr>
 <tr>
 <td> message
 </td><td> String
 </td><td> 模块错误信息描述，与接口相关
+</td></tr>
+<tr>
+<td> Nonce
+</td><td> UInt
+</td><td> 随机正整数，与 Timestamp 联合起来, 用于防止重放攻击（公共参数）
 </td></tr>
 <tr>
 <td> registerIp
@@ -233,10 +237,7 @@
 </td><td> 0：表示无恶意<br>1～4：恶意等级由低到高
 </td></tr>
 <tr>
-<td> code
-</td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
-</td></tr>
+
 </tbody></table>
 
 ## 4.示例代码
