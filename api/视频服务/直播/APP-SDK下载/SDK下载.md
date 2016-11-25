@@ -1,10 +1,11 @@
 ## SDK开发包
-- 修复IOS直播偶现黑屏的问题
-- 修复IOS模拟器编译不通过的问题
-- 修复IOS偶现物理键锁屏、切后台等Crash问题
-- 修复Android某些机型预览摄像头倒置的问题
-- 修复Android某些机型硬编码率过高的问题
-- 优化Android混音接口，使用更简单
+- Android采集编码重构；
+- Android软编支持新美颜效果；
+- Android硬编新增云端黑名单控制；
+- 解决Android摄像头频繁打开关闭引发的多线程问题；
+- Android录屏隐私模式新增推送主播音频能力；
+- 解决Android HLS、MP4点播前后台切换花屏问题；
+- 解决IOS模拟器播放花屏问题；
 
 **【详细说明】**
 - 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
@@ -18,8 +19,8 @@
 
 | 操作系统 | 版本号 | 更新时间|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS  | 1.7.1.1171  | 2016-11-17 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.7.1.1171.zip)  |
-| Android  | 1.7.1.1171 | 2016-11-17 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.7.1.1171.zip)  |
+| IOS  | 1.7.2.1310  | 2016-11-25 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.7.2.1310.zip)  |
+| Android  | 1.7.2.1310 | 2016-11-25 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.7.2.1310.zip)  |
 
 
 ## DEMO体验
