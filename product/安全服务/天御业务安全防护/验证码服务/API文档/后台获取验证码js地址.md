@@ -125,6 +125,10 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
+</td></tr>
 <tr>
 <td> message
 </td><td> String
@@ -134,10 +138,6 @@
 <td> url
 </td><td> String
 </td><td> 验证码JavaScript地址，该链接单次有效
-</td></tr>
-<td> code
-</td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
 </td></tr>
 </tbody></table>
 
