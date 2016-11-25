@@ -5,7 +5,7 @@
 <br> 用户输入验证码之后会获取API返回的票据，必须将此票据通过本接口进行校验，以确认票据是从安全API返回的，否则将可能导致验证码功能被绕过
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>页面。其中，此接口的Action字段为CaptchaCheck。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://www.qcloud.com/document/product/295/7279"target="blank">公共请求参数</a>页面。其中，此接口的Action字段为CaptchaCheck。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -126,16 +126,16 @@
 
 ## 4.示例代码
 代码下载： [java](https://mc.qcloudimg.com/static/archive/91612588f14dd8632dbb044d4a62061c/captcha_iframe_java%281%29.zip)  　　[Python](https://tianyu.qcloud.com/sdk/download/Captcha/python/iframe) 　　 [php ](https://mc.qcloudimg.com/static/archive/f574a0d4f290e96dc751cf62b65cc9c2/captcha_iframe_php%281%29.zip)
-<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/doc/api/254/1778"target="blank">公共请求参数</a>小节。
-<pre>
+<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/document/product/295/7279"target="blank">公共请求参数</a>小节。
+```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=CaptchaCheck
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<公共请求参数>
 &ticket=1111
 &captchaType=1
 &disturbLevel=1
 &userIp=127.0.0.1
-</pre>
+```
 ## 5.响应示例
 ```
 {
