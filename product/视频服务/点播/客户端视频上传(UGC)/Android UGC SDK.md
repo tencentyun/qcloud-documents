@@ -1,17 +1,5 @@
-﻿#UGC集成使用文档
-
-
-> * 下载SDK
-> * SDK集成
-> * 使用流程
-
-##下载SDK
-
-点击下载[tvcsdk.zip](https://mc.qcloudimg.com/static/archive/ab5853a171024359000887545e260c2c/tvcsdk_201611041102.zip)
-
-##SDK集成
-
-解压zip包，配置工程导入其中的jar包:
+## SDK集成
+[点击下载](https://mc.qcloudimg.com/static/archive/ab5853a171024359000887545e260c2c/tvcsdk_201611041102.zip)Android UGC SDK。解压zip包，配置工程导入其中的jar包:
 
 >* tvcsdk.jar
 >* okio-1.6.0.jar
@@ -20,7 +8,7 @@
 
 SDK需要网络访问相关的一些权限，需要在AndroidManifest.xml中增加如下权限说明:
 
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -31,35 +19,35 @@ SDK需要网络访问相关的一些权限，需要在AndroidManifest.xml中增�
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
-##使用流程
+## 本地视频上传
 
-#####1. 创建上传对象
+### Step 1：创建上传对象
 
 ```java
 TVCClient client = new TVCClient(getApplicationContext(), SecretId, Signature);
 ```
 
 参数名称|参数类型|参数说明
-:--|:--|:--:
+:--|:--|:--
 context|Context|上下文
 scretId|String|密钥
-signature|String|签名
+signature|String|从服务端获取的上传签名
 
-#####2. 创建上传配置
+### Step 2：创建上传配置
 
 ```java
-TVCUploadInfo info = new TVCUploadInfo("mp4", videoPath, "jpg", coverPath);
+TVCUploadInfo info = new TVCUploadInfo(fileType, videoPath, coverType, coverPath);
 ```
 
 参数名称|参数类型|参数说明
-:--|:--|:--:
-fileType|String|视频文件类型
+:--|:--|:--
+fileType|String|视频文件类型，支持mp4, flv
 filePath|String|视频文件路径
-coverType|String|封面图片类型
-coverPath|String|封面图片路径
+coverType|String|封面图片类型，必须为jpg，如果不上传则填空字符串
+coverPath|String|封面图片路径，如果不上传则填空字符串
 
 
-#####3. 开始上传
+### Step3：视频上传
 
 ```java
 client.uploadVideo(info, new TVCUploadListener() {
@@ -72,7 +60,7 @@ client.uploadVideo(info, new TVCUploadListener() {
 
             @Override
             public void onFailed(int errCode, String errMsg) {
-                Toast.makeText(MainActivity.this, "err " + errCode + "" 
+                Toast.makeText(MainActivity.this, "err " + errCode + ""
                         + errMsg, Toast.LENGTH_SHORT).show();
             }
 
@@ -85,7 +73,3 @@ client.uploadVideo(info, new TVCUploadListener() {
             }
         });
 ```
-
-**注意事项：**
-
-* coverType字段和coverPath字段传null表示不上传封面预览图
