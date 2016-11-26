@@ -16,7 +16,7 @@ vod.api.qcloud.com
 
 ### 请求示例
 ```
-https://domain/v2/index.php?Action=DescribeVodPlayUrls
+https://vod.api.qcloud.com/v2/index.php?Action=DescribeVodPlayUrls
 &fileId=2721945854681023354
 &COMMON_PARAMS
 ```

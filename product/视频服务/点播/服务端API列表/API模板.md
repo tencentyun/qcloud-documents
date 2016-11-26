@@ -18,10 +18,10 @@ vod.api.qcloud.com
 
 ### 请求示例
 ```
-  https://vod2.api.qcloud.com/v2/index.php?Action=ActionName
-  &argName1=value1
-  &argName2=value2
-  &COMMON_PARAMS
+https://vod.api.qcloud.com/v2/index.php?Action=ActionName
+&argName1=value1
+&argName2=value2
+&COMMON_PARAMS
 ```
 ## 接口应答
 

@@ -103,17 +103,6 @@
         	ConvertVodFile
 				</td>
 			</tr>
-<!--视频截图
-			<tr>
-				<td>
-					视频截图
-				</td>
-				<td>
-				</td>
-				<td>					
-				</td>
-			</tr>
--->
 <!--视频分类管理-->
 			<tr>
 				<td rowspan = 5>
@@ -158,5 +147,25 @@
         	DeleteClass
 				</td>
 			</tr>
+<!--事件通知-->
+				<tr>
+					<td  rowspan = 2>
+						事件通知
+					</td>
+					<td>
+						拉取事件通知
+					</td>
+					<td>
+						PullVodEvent
+					</td>
+				</tr>
+				<tr>
+					<td>
+						确认事件通知
+					</td>
+					<td>
+						ConfirmVodEvent
+					</td>
+				</tr>
 		</tbody>
 	</table>
