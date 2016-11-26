@@ -38,7 +38,7 @@ vod2.api.qcloud.com
 
 ### 请求示例
 ```
-https://vod2.api.qcloud.com/v2/index.php?Action=ActionName
+https://vod.api.qcloud.com/v2/index.php?Action=ActionName
 &pullset.1.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.html%3Fvid%3Dc0152uievii
 &pullset.1.fileName=test
 &pullset.1.isTranscode=1
