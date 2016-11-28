@@ -3,7 +3,7 @@
 ### 相关资源
 
 * [GitHub](https://github.com/tencentyun/cos-python-sdk-v4) GitHub项目地址，欢迎贡献代码以及反馈问题。
-* [PyPi](https://pypi.python.org/pypi/cos-python-sdk-v4) PyPi项目地址 
+* [PyPi](https://pypi.python.org/pypi/qcloud_cos_v4) PyPi项目地址 
 
 
 ### 环境依赖
@@ -77,10 +77,6 @@ pip uninstall qcloud_cos_v4
 	conf = CosConfig(hostname='', download_hostname='')
 	cos_client.set_config(conf)
 ```
-
-------
-
-------
 
 ## 文件操作
 
