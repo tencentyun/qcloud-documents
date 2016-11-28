@@ -11,8 +11,8 @@
 
 目前腾讯云点播提供给如下平台的UGC上传SDK：
 
-1. iOS；
-2. Android。
+1. iOS UGC SDK；
+2. Android UGC SDK。
 
 ## 业务流程
 UGC视频上传的整体流程分为如下两部：
@@ -25,8 +25,9 @@ UGC视频上传的整体流程分为如下两部：
 
 TODO
 
-## UGC上传
+## 客户端本地视频上传
 
 参见：
+
 1. iOS UGC视频上传；
 2. Android UGC视频上传。
