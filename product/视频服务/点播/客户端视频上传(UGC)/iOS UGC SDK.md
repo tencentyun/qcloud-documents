@@ -1,7 +1,7 @@
 ## SDK集成
 
 ### 下载SDK
-下载[TVCClientSDK.framework](https://www.qcloud.com/doc/product/266/6965)和[libCOSClient.a](https://github.com/tencentyun/COS_iOS_SDK)。
+下载[TVCClientSDK.framework](https://www.qcloud.com/doc/product/266/6965)。
 
 ### 引入依赖包
 
@@ -57,4 +57,4 @@ param.coverPath = coverPath;
 
 * TVCConfig参数字段不能为空；
 * TVCUploadParam参数字段video路径不能为空，cover字段为空表示不上传封面预览图；
-* 苹果规定2017年后所有上架App强制使用ATS，目前仅提供Http服务，提供Https服务后可在TVCConfig中配置使用Https协议；
+* 苹果规定2017年后所有上架App强制使用ATS，目前Http或https服务均可配置使用，苹果强制使用ATS后可在TVCConfig中配置使用Https协议；
