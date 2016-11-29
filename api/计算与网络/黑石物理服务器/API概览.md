@@ -31,8 +31,10 @@
 ## 4. 私有网络相关接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 查询私有网络列表 | [DescribeBmVpcEx](/doc/api/456/6646) | 用于申请黑石VPC内的子网IP。 |
-| 查询子网列表 | [DescribeBmSubnetEx](/doc/api/456/6648) | 用于申请黑石VPC内的子网IP。 |
+| 查询私有网络列表 | [DescribeBmVpcEx](/doc/api/456/6646) | 用于查询黑石私有网络VPC列表。 |
+| 查询子网列表 | [DescribeBmSubnetEx](/doc/api/456/6648) | 用于查询黑石私有网络子网列表。 |
+| 申请内网IP | [ApplyIps](/doc/api/386/7337) | 用于申请黑石VPC内的子网IP。 |
+| 退还子网IP | [ReturnIps](/doc/api/386/7338) | 用于退还黑石VPC内的子网IP。 |
 
 
 ## 5. 负载均衡相关接口
