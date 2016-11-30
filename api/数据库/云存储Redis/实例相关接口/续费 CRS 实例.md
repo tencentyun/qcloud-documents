@@ -29,12 +29,12 @@
 ## 4. 错误码
 | 错误码 | 描述 |
 |---------|---------|---------|
-| SystemError | 系统内部错误 |
-| SerialIdError| 没有找到serialId对应实例 |
-| InstanceDeleted| 实例过期已被回收 |
-| InstanceStatusAbnormal| 实例状态异常，暂时不能执行该操作 |
-| PeriodError| 购买时长不在限制范围内 |
-| AccountNotEnoughToPay | 账号余额不足 |
+| InstanceNotExists | 没有找到serialId对应的实例 |
+| InstanceDeleted| 实例到期已被回收 |
+| InstanceBeenLocked| 实例实例正被其它流程锁定，暂时不能执行该操作 |
+| PeriodExceedMaxLimit| 购买时长超过最大时长限制 |
+| PeriodLessThanMinLimit| 购买时长小于最小时长限制 |
+| AccountIsNotEnough | 账号余额不足，请充值 |
 
 ## 5. 示例
 输入
