@@ -31,7 +31,12 @@ Data结构
 | data.dailyAllocWanIpQuota | Int | 日解绑EIP时重新分配普通公网IP的次数限制| 
 | data.dailyAllocWanIpCount | Int | 当天解绑EIP并重新分配普通公网IP次数 |
 
-## 4. 示例
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9006|InternalErr|内部数据操作异常|
+
+## 5. 示例
  
 输入
 <pre>

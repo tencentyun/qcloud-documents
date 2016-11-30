@@ -5,7 +5,7 @@
 
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/309/5379' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为CdbTdsqlGetSqlLogList。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/309/7016' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为CdbTdsqlGetSqlLogList。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -17,7 +17,7 @@
 ## 3. 输出参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/309/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 英文错误描述 |
 | data | Array | 返回数据 |
@@ -42,9 +42,16 @@
 | timestamp | Int | sql执行的unix时间| 
 | timeCostMs | Int | sql执行的时间耗时| 
 | resultCode | Int |  sql执行的返回码| 
+## 4. 错误码表
 
+以下是本接口常见的错误码，如果有不在此列的错误请查阅[TDSQL错误码表](/doc/api/309/7150)
 
-## 4. 示例
+| 错误码 | 描述 |
+|---------|---------|
+| DbOperationFailed | DB内部失败 |
+| InstanceStatusAbnormal | 实例状态异常(非删除), 不能进行操作 |
+| ConnectKafkaFailed | 链接KAFKA错误 |
+## 5. 示例
 输入
 <pre>
 https://tdsql.api.qcloud.com/v2/index.php?Action=CdbTdsqlGetSqlLogList

@@ -80,9 +80,12 @@
 <td> data.redisSet.deadlineTime <td> String <td> 到期时间
 </tbody></table>
 
- 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| InvalidParameter | 业务参数错误 |
 
-## 4. 示例
+## 5. 示例
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
 &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
