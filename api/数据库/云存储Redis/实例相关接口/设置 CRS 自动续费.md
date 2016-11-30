@@ -26,7 +26,7 @@
 | InstanceNotExists| 没有找到serialId对应的实例 |
 | InstanceDeleted| 实例到期已被回收 |
 | InstanceIsolated| 实例到期已被隔离 |
-
+| IsAutoRenewError| 自动续费标识错误(0 - 不设置自动续费，实例到期会通知；1 - 设置自动续费，到期会自动续费；2 - 到期不续费也不通知) |
 
 ## 5. 示例
 输入
