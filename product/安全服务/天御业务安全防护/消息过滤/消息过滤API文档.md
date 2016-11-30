@@ -177,6 +177,14 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
+</td></tr>
+<td> message
+</td><td> String
+</td><td> 模块错误信息描述，与接口相关
+</td></tr>
 <tr>
 <td> postIp
 </td><td> String
@@ -191,11 +199,6 @@
 <td> messageId
 </td><td> String
 </td><td> 用户产生内容的ID。如果传入此ID，将可以通过恶意结果查询接口获取进一步的信息。
-</td></tr>
-<tr>
-<td> message
-</td><td> String
-</td><td> 模块错误信息描述，与接口相关
 </td></tr>
 <tr>
 <td> uid
@@ -232,11 +235,6 @@
 <td> beatTips
 </td><td> String
 </td><td> 打击原因，如命中的关键词
-</td></tr>
-</td></tr>
-<td> code
-</td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
 </td></tr>
 </tbody></table>
 

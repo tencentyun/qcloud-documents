@@ -14,13 +14,13 @@
 </th><th> <b>描述</b>
 </th></tr>
 <tr>
-<td> fileName
+<td> fileUrl
 </td><td><font color=red> 必选 </font color=red>
 </td><td> String
 </td><td> 文件名
 </td></tr>
 <tr>
-<td> fileUrl
+<td> fileName
 </td><td> 可选
 </td><td> String
 </td><td> 文件的URL地址
@@ -46,6 +46,14 @@
 </th><th> <b>类型</b>
 </th><th> <b>描述</b>
 </th></tr>
+<td> code
+</td><td> Int
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
+</td></tr>
+<td> message
+</td><td> String
+</td><td> 模块错误信息描述，与接口相关
+</td></tr>
 <tr>
 <td> level
 </td><td> Int
@@ -62,10 +70,6 @@
 <br> 1：安全
 <br> 2：风险
 <br> 3：病毒
-</td></tr>
-<td> code
-</td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/254/1781"target="black">公共错误码</a>
 </td></tr>
 <tr>
 <td> confidence
@@ -89,10 +93,6 @@
 </td><td> 图片为色情图片的评分
 </td></tr>
 <tr>
-<td> message
-</td><td> String
-</td><td> 模块错误信息描述，与接口相关
-</td></tr>
 </tbody></table>
 
 ## 4.示例代码

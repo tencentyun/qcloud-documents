@@ -1,8 +1,8 @@
 ## 1. 接口描述
-域名:bm.api.qcloud.com
-接口名:DescribeDeviceClassRaid
 
-获取设备类型对应的RAID方式
+本接口 (DescribeDeviceClassRaid) 获取设备类型对应的RAID方式。
+接口请求域名：<font style="color:red">bm.api.qcloud.com</font>
+
 
 
 ## 2. 输入参数
@@ -83,15 +83,15 @@
 
 
 
-模块错误码
+## 4. 模块错误码
 
-| code | 描述 |
-|------|------|
-| 9001 | 操作数据库错误 |
-| 10001 | 参数错误|
+| code |codeDesc| 描述 |
+|------|------|------|
+| 9001 |InternalError.DbError| 操作数据库错误 |
 
 
-## 4. 示例
+
+## 5. 示例
 输入
 ```
 https://bm.api.qcloud.com/v2/index.php?Action=DescribeDeviceClassRaid&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC&Nonce=48476&Timestamp=1476436689&Region=bj&Signature=afRlJQ0disdT97B7uIfVB4v2KWo%3D
