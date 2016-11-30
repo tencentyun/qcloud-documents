@@ -32,17 +32,16 @@
 ## 4. 错误码
 | 错误码 | 描述 |
 |---------|---------|---------|
-| SystemError | 系统内部错误 |
-| UinNotInWhiteList | 业务还在灰度中 |
-| InstanceTypeIdError| 请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原单机版） |
-| NoRedisService| 该地域暂时不提供redis服务 |
-| NoRequestTypeService| 该地域暂时不提供请求类型的redis服务 |
-| MemSizeError| 请求的规格不在售卖规格中 |
-| GoodsNumError| 一次购买的实例数超过限制 |
-| PeriodError| 购买时长不在限制范围内 |
-| SerialIdError| 没有找到serialId对应实例 |
-| InstanceDeleted| 实例过期已被回收 |
-| InstanceStatusAbnormal| 实例状态异常，暂时不能执行该操作 |
+| UserNotInWhiteList | 用户不在白名单中 |
+| NoRedisService| 请求的区域暂时不提供redis服务 |
+| NoTypeIdRedisService| 请求的区域暂时不提供请求类型的redis服务 |
+| InvalidInstanceTypeId| 请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原单机版) |
+| InvalidMemSize| 请求的容量不在售卖规格中（memSize应为1024的整数倍，单位：MB） |
+| MemSizeNotInRange| 请求的容量不在售卖容量范围内（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询售卖容量限制） |
+| PeriodExceedMaxLimit| 购买时长超过最大时长限制 |
+| PeriodLessThanMinLimit| 购买时长小于最小时长限制 |
+| GoodsNumNotInRange| 一次购买的实例数超过售卖数量限制（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询购买实例数限制） |
+
 
 ## 5. 示例
 输入

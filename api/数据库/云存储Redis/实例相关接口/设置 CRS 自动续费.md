@@ -22,11 +22,11 @@
 ## 4. 错误码
 | 错误码 | 描述 |
 |---------|---------|---------|
-| SystemError | 系统内部错误 |
-| SerialIdError| 没有找到serialId对应实例 |
-| InstanceDeleted| 实例过期已被回收 |
-| InstanceIsolated| 实例过期已被隔离 |
-| IsAutoRenewError| 自动续费标识错误(0 - 不设置自动续费，实例到期会通知；1 - 设置自动续费，到期会自动续费；2 - 到期不续费也不通知) |
+| InvalidParameter | 业务参数错误 |
+| InstanceNotExists| 没有找到serialId对应的实例 |
+| InstanceDeleted| 实例到期已被回收 |
+| InstanceIsolated| 实例到期已被隔离 |
+
 
 ## 5. 示例
 输入
