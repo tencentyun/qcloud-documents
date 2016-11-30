@@ -24,8 +24,8 @@
 ## 4. 错误码
 | 错误码 | 描述 |
 |---------|---------|---------|
-| SystemError | 系统内部错误 |
-| SerialIdError | 没有找到serialId对应实例 |
+| InvalidParameter | 业务参数错误 |
+| InstanceNotExists | 没有找到serialId对应的实例 |
 
 ## 5. 示例
 <pre>

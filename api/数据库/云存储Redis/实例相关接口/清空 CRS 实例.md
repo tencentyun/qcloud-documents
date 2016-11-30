@@ -36,9 +36,10 @@
 ## 4. 错误码
 | 错误码 | 描述 |
 |---------|---------|---------|
-| SystemError | 系统内部错误 |
-| SerialIdError | 没有找到serialId对应实例 |
-| InstanceStatusAbnormal | 实例状态异常，暂时不能执行该操作 |
+| InvalidParameter | 业务参数错误 |
+| InstanceNotExists | 没有找到serialId对应的实例 |
+| InstanceLockedError | 实例已被锁住，暂时不能执行该操作 |
+| InstanceStatusAbnormal | 实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除） | 
 | PasswordEmpty | 密码为空 |
 | PasswordError | 密码错误 | 
 
