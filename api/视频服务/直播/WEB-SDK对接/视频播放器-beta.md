@@ -60,10 +60,13 @@ var player = new TcPlayer('id_test_video', {
 这段代码就可以支持在PC以及手机浏览器上播放HLS（m3u8）协议的直播视频了，不过，前面我们有说过，HLS（m3u8）协议的视频虽然兼容性还不错（部分Android手机依然不支持），但其延迟非常高，大约20秒以上的延迟。
 
 <font color="red">这里有一个线上的使用例子，您可以点击打开看到视频播放的效果，也可以查看页面的源代码，里面有完整的案例代码：</font>
+
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true
 ```
+
 您也可以在链接后面加上需要播放的视频地址，刷新后就会播放这个视频地址，例如：
+
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true&m3u8=http://2527.vod.myqcloud.com/2527_d84eecd64fb011e6becac93ea7058338.f220.av.m3u8
 ```
