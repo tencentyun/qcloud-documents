@@ -24,7 +24,7 @@ server {
 		#! loc_id 447;
 		#! customized_conf_begin;
 		client_max_body_size 200m;
-		rewrite ^/.(.*) https://$host/$l redirect;
+		rewrite ^/.(.*) https://$host/$1 redirect;
 		#! customized_conf_end;
 	
 		proxy_pass http://447;
