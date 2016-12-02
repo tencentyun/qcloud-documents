@@ -54,6 +54,8 @@ var player = new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
 "coverpic" : "http://www.test.com/myimage.jpg",
+"width" :  '480',//视频的显示宽度，可以自定义任意尺寸
+"height" : '320'//视频的显示高度，可以自定义任意尺寸
 });
 ```
 
@@ -74,9 +76,11 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 ```javascript
 var player =  new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
-"flv": "2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个flv的播放地址
+"flv": "2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个flv的播放地址，用于PC平台的播放
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
 "coverpic" : "http://www.test.com/myimage.jpg",
+"width" :  '480',//视频的显示宽度，可以自定义任意尺寸
+"height" : '320'//视频的显示高度，可以自定义任意尺寸
 });
 ```
 跟前一段代码的区别就在于，我们增加了一个flv的播放地址，腾讯云Web播放器如果发现目前的浏览器是PC浏览器，会主动选择flv链路，因为可以实现更低的延迟。
@@ -158,7 +162,7 @@ var player = new TcPlayer('id_test_video', {
 | rtmp             | String  | 无       | <font color="red">4选1</font>参数， rtmp 播放URL| rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
 | width            | Number  | 无     | <font color="red">必选</font>，设置播放器宽度，单位为像素 |   640                                        |
 | height           | Number  | 无     | <font color="red">必选</font>，设置播放器高度，单位为像素 |   480                                        |
-| live             | Boolean  | false | <font color="red">必选</font>，设置视频是否为直播类型，将决定是否渲染时间轴等控件 |  true                   |
+| live             | Boolean  | false | <font color="red">可选</font>，设置视频是否为直播类型，将决定是否渲染时间轴等控件 |  true                   |
 | autoplay         | Boolean  | false | 是否自动播放 |  true                                                                                  |
 | coverpic         | String   | 无     | 预览封面    |  http://www.test.com/myimage.jpg                                                          |
 
