@@ -1,8 +1,8 @@
-**ÔËĞĞÇ°±Ø±¸**£º
+ï»¿**è¿è¡Œå‰å¿…å¤‡**ï¼š
 
-Ê¹ÓÃ¿Í»§¶ËJedis£¬ÏÂÔØºÍ²Î¿¼µØÖ·£ºhttps://github.com/xetorthio/jedis/wiki/Getting-started
+ä½¿ç”¨å®¢æˆ·ç«¯Jedisï¼Œä¸‹è½½å’Œå‚è€ƒåœ°å€ï¼šhttps://github.com/xetorthio/jedis/wiki/Getting-started
 
-**Ê¾Àı´úÂë**£º
+**ç¤ºä¾‹ä»£ç **ï¼š
 
 ```
 import redis.clients.jedis.Jedis;
@@ -11,25 +11,25 @@ public class HelloRedis {
 
   public static void main(String[] args) {
         try {
-            /**ÒÔÏÂ²ÎÊı·Ö±ğÌîĞ´ÄúµÄredisÊµÀıÄÚÍøIP£¬¶Ë¿ÚºÅ£¬ÊµÀıidºÍÃÜÂë*/
+            /**ä»¥ä¸‹å‚æ•°åˆ†åˆ«å¡«å†™æ‚¨çš„rediså®ä¾‹å†…ç½‘IPï¼Œç«¯å£å·ï¼Œå®ä¾‹idå’Œå¯†ç */
             String host = "192.168.0.195";
             int port = 6379;
             String instanceid = "84ffd722-b506-4934-9025-645bb2a0997b";
             String password = "1234567q";
-            //Á¬½Óredis
+            //è¿æ¥redis
             Jedis jedis = new Jedis(host, port);
-            //¼øÈ¨
+            //é‰´æƒ
             jedis.auth(instanceid + ":" + password);
 
-            /**½ÓÏÂÀ´¿ÉÒÔÓä¿ìµÄ¿ªÊ¼²Ù×÷redisÊµÀı£¬¿ÉÒÔ²Î¿¼£ºhttps://github.com/xetorthio/jedis */
-            //ÉèÖÃkey
+            /**æ¥ä¸‹æ¥å¯ä»¥æ„‰å¿«çš„å¼€å§‹æ“ä½œrediså®ä¾‹ï¼Œå¯ä»¥å‚è€ƒï¼šhttps://github.com/xetorthio/jedis */
+            //è®¾ç½®key
             jedis.set("redis", "tencent");
             System.out.println("set key redis suc, value is: tencent");
-            //»ñÈ¡key
+            //è·å–key
             String value = jedis.get("redis");
             System.out.println("get key redis is: " + value);
 
-            //¹Ø±ÕÍË³ö
+            //å…³é—­é€€å‡º
             jedis.quit();
             jedis.close();
         } catch (Exception e) {
@@ -39,5 +39,5 @@ public class HelloRedis {
 }
 ```
 
-**ÔËĞĞ½á¹û**£º
+**è¿è¡Œç»“æœ**ï¼š
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/JAVA-1.jpg)
