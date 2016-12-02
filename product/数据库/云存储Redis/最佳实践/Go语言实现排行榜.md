@@ -1,4 +1,4 @@
-# GOÓïÑÔÊµÏÖÅÅĞĞ°ñ¹¦ÄÜ
+ï»¿# GOè¯­è¨€å®ç°æ’è¡Œæ¦œåŠŸèƒ½
 ```
 package main
 
@@ -79,5 +79,5 @@ func main() {
 	fmt.Println("The rank of player " + selectPlayer + " is " + strconv.Itoa(rank))
 }
 ```
-½á¹ûÈçÏÂ£º
+ç»“æœå¦‚ä¸‹ï¼š
 ![](https://mc.qcloudimg.com/static/img/f6743aeb0757050eb65db9b2c684c0a7/image.png)
