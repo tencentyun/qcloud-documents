@@ -2,8 +2,7 @@
 ConcatVodFile
 
 ## 功能说明
-1. 拼接文件,目前支持拼接出mp4和hls这两种视频文件。
-2. 源文件需要是相同类型，并且只支持mp4/flv。
+1. 拼接文件。
 
 ## 请求方式
 Get
@@ -14,17 +13,15 @@ vod.api.qcloud.com
 ### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------------|----------|---------|---------|
-| srcFileList | 是 | string数组 | 文件id列表 |
-| name          | 是 | int    | 拼接出来的文件名称|
-| dstType      | 是 | string数组    | 目的格式 |
+| srcFileList | 是 | Array | 文件id列表 |
+| name          | 是 | Int    | 拼接出来的文件名称|
 
 ### 请求示例
 ```
-https://vod.api.qcloud.com/v2/index.php?Action=Vod_ConcatFile
+https://vod.api.qcloud.com/v2/index.php?Action=Vod_SimpleConcatHls
 &srcFileList.0=16092504232103571364
 &srcFileList.1=16092504232103571365
 &name="testfile"
-&dstType="m3u8"
 &COMMON_PARAMS
 ```
 ## 接口应答
@@ -34,7 +31,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=Vod_ConcatFile
 |---------|---------|---------|
 | code | Int | 错误码, 0: 成功, 其他值: 失败 |
 | message | string | 错误信息 |
-| vodTaskId | string | 描述拼接任务的唯一id，可以通过此id查询任务状态 |
+| fileId | string | 拼接出的文件id |
 
 ### 错误码说明
 | 错误码 | 含义说明|
@@ -49,6 +46,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=Vod_ConcatFile
 {
     "code": 0,
     "message": ""，
-	“vodTaskId": ""
+	“fileId": "123121321234"
 }
 ```
