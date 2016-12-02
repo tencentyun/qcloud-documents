@@ -25,7 +25,7 @@ Web播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ### Step 1：页面准备工作
 在需要播放视频的页面（包括PC或H5）中引入初始化脚本
 ```
-<script src="//qzonestyle.gtimg.cn/open/qcloud/video/live/h5/live_connect.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer.js" charset="utf-8"></script>;
 ```
 
 >注意：**<font color="red">直接用本地网页是调试不了的</font>，因为腾讯云Web播放器处理不了这种情况下的跨域问题。**
@@ -50,7 +50,7 @@ http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8播放地址
 
 我们现在要在手机浏览器上播放这个 URL 的视频，javascript代码可以这样写：
 ```javascript
-var player = new TencentCloud.Player("id_test_video", {
+var player = new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
 "coverpic" : "http://www.test.com/myimage.jpg",
@@ -62,7 +62,7 @@ var player = new TencentCloud.Player("id_test_video", {
 #### 3.2 PC上实现更低的延迟
 那么对于PC浏览器而言，我们是否可以做的更好呢？当然可以，因为PC浏览器支持flash，它可强大多了，现在我们的代码要这样写：
 ```javascript
-var player = new TencentCloud.Player("id_test_video", {
+var player =  new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
 "flv": "2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个flv的播放地址
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
@@ -129,11 +129,13 @@ var player = new TencentCloud.Player("id_test_video", {
 "coverpic" : "http://www.test.com/myimage.jpg",
 });
 ```
-多种清晰度切换的功能即将支持，敬请期待。
+<br>
+<font color="red">多种清晰度切换的功能即将支持，敬请期待。</font>
 
 ### Step 5：定制错误提示语
-我们默认的提示语您可能觉得不符合您的需求，比如“连接服务器失败”或者“视频格式不支持”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器支持提示语定制：
-定制错误提示语的功能即将支持，敬请期待。
+我们默认的提示语您可能觉得不符合您的需求，比如“连接服务器失败”或者“视频格式不支持”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
+<br>
+<font color="red">定制错误提示语的功能即将支持，敬请期待。</font>
 
 
 ## 参数列表
