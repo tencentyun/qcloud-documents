@@ -29,15 +29,22 @@ Data结构
 |---|---|---|
 | data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[EipBmQueryTask](/doc/api/456/6670)查询任务状态|
 
-## 4. 示例
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
+|30016|ISPInvalid|ISP非法|
+
+## 5. 示例
  
 输入
-```
+<pre>
 
   https://eip.api.qcloud.com/v2/index.php?
   &Action=EipBmModifyCharge
-  &<公共请求参数>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
-```
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
+</pre>
 
 输出
 ```

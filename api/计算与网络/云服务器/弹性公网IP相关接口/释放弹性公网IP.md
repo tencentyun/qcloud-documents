@@ -16,7 +16,7 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> eipIds.n  <td> 是 <td> String <td> EIP实例ID列表，数组下标从0开始，可通过<a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEip">DescribeEip</a>接口返回字段中的eipId获取
+<td> eipIds.n  <td> 是 <td> String <td> EIP实例ID列表，列表下标从0开始，可通过<a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEip">DescribeEip</a>接口返回字段中的eipId获取
 </tbody></table>
 
  
@@ -39,13 +39,13 @@
 ## 4. 示例
  
 输入
-```
+<pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &eipIds.0=eip-gzc5rgr2
 
-```
+</pre>
 
 输出
 ```

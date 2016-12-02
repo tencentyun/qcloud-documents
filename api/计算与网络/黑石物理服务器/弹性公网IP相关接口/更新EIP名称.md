@@ -22,15 +22,21 @@
 | message |   String | 错误信息 |
 | data |   Array | 返回数组 |
 
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
+|30009|EipNotExist|操作的EIP记录不存在|
 
-## 4. 示例
+## 5. 示例
  
 输入
 ```
 
   https://eip.api.qcloud.com/v2/index.php?
   &Action=ModifyEipAlias
-  &<公共请求参数>&eipId=eip-test&eipName=test
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&eipId=eip-test&eipName=test
 ```
 
 输出

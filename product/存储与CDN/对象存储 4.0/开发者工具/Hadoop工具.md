@@ -1,6 +1,6 @@
 ## 功能说明
 
-可以使用 Hadoop 大数据处理引擎，如 MapReduce，Hive 处理存储在腾讯云对象存储 COS 上的数据。
+可以使用 Hadoop 大数据处理引擎，如 MapReduce，Hive 处理存储在腾讯云对象存储 COS 上的数据。**只适用于COS 4.0**
 
 **实现机制**：Hadoop cosn 插件实现了以腾讯云 COS 作为底层存储的文件系统运行上层的计算任务，如 MapReduce、Hive、Spark、Tez 等。cosn 支持以任意形式上传到 COS 上的数据被 Hadoop 处理。
 

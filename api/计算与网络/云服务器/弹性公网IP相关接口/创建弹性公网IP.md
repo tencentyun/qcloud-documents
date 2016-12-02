@@ -28,7 +28,7 @@
 |---------|---------|---------|
 | code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考<a href="/doc/api/229/1234" title="错误码">错误码</a>。 |
 | message |   String | 错误信息 |
-| data |   Array | 返回数组 |
+| data |   Array | 返回列表 |
 
 Data结构
 
@@ -46,10 +46,10 @@ Data结构
 ## 4. 示例
  
 输入
-```
+<pre>
  https://eip.api.qcloud.com/v2/index.php?
- &<公共请求参数>
-```
+ &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+</pre>
 
 输出
 ```

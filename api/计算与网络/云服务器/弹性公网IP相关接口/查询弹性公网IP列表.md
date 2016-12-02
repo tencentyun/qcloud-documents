@@ -16,19 +16,19 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> eipIds.n  <td> 否 <td> String <td> EIP实例ID列表，数组下标从0开始
+<td> eipIds.n  <td> 否 <td> String <td> EIP实例ID列表，列表下标从0开始
 <tr>
-<td> eips.n  <td> 否 <td> String <td> EIP列表，数组下标从0开始
+<td> eips.n  <td> 否 <td> String <td> EIP列表，列表下标从0开始
 <tr>
-<td> unInstanceIds.n  <td> 否 <td> String <td> 服务器实例ID列表，数组下标从0开始，可通过<a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a>接口返回字段中的unInstanceId获取
+<td> unInstanceIds.n  <td> 否 <td> String <td> 服务器实例ID列表，列表下标从0开始，可通过<a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a>接口返回字段中的unInstanceId获取
 <tr>
-<td> networkInterfaceIds.n <td> 否 <td> String <td> 弹性网卡唯一ID列表，数组下标从0开始，可通过<a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a>接口返回字段中的networkInterfaceId获取
+<td> networkInterfaceIds.n <td> 否 <td> String <td> 弹性网卡唯一ID列表，列表下标从0开始，可通过<a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a>接口返回字段中的networkInterfaceId获取
 <tr>
 <td> privateIpAddress  <td> 否 <td> String <td> 服务器内网IP
 <tr>
 <td> searchKey <td> 否 <td> String <td> EIP实例名称，模糊匹配
 <tr>
-<td> status.n  <td> 否 <td> Int <td> 状态列表，数组下标从0开始<br>0：创建中； 1：绑定中； 2：已绑定； 3：解绑中； 4：未绑定； 6：下线中； 9：创建失败
+<td> status.n  <td> 否 <td> Int <td> 状态列表，列表下标从0开始<br>0：创建中； 1：绑定中； 2：已绑定； 3：解绑中； 4：未绑定； 6：下线中； 9：创建失败
 <tr>
 <td> type  <td> 否 <td> Int <td> 0：CVM；1：NAT网关
 <tr>
@@ -48,8 +48,8 @@
 |---------|---------|---------|
 | code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考<a href="/doc/api/229/1234" title="错误码">错误码</a>。 |
 | message |   String | 错误信息 |
-|  totalCount  |  Int |  返回符合过滤条件的EIP数量；假如指定limit，offset，该值有可能大于data数组中的数量 |
-| data |   Array | 返回数组 |
+|  totalCount  |  Int |  返回符合过滤条件的EIP数量；假如指定limit，offset，该值有可能大于data列表中的数量 |
+| data |   Array | 返回列表 |
 
 Data结构
 
@@ -59,7 +59,7 @@ Data结构
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> data.eipSet <td> Array <td> 返回EIP信息数组
+<td> data.eipSet <td> Array <td> 返回EIP信息列表
 <tr>
 <td> data.eipSet.eipId <td> String <td> EIP实例ID
 <tr>
@@ -93,11 +93,11 @@ Data结构
 ## 4. 示例
  
 输入
-```
+<pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<公共请求参数>
-```
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+</pre>
 
 输出
 ```

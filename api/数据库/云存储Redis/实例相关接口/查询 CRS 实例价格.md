@@ -29,17 +29,31 @@
 |---------|---------|---------|
 | data.price | Int | 购买或者续费实例的总费用，单位：分 | 
 
-## 4. 示例
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| UserNotInWhiteList | 用户不在白名单中 |
+| NoRedisService| 请求的区域暂时不提供redis服务 |
+| NoTypeIdRedisService| 请求的区域暂时不提供请求类型的redis服务 |
+| InvalidInstanceTypeId| 请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原单机版) |
+| InvalidMemSize| 请求的容量不在售卖规格中（memSize应为1024的整数倍，单位：MB） |
+| MemSizeNotInRange| 请求的容量不在售卖容量范围内（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询售卖容量限制） |
+| PeriodExceedMaxLimit| 购买时长超过最大时长限制 |
+| PeriodLessThanMinLimit| 购买时长小于最小时长限制 |
+| GoodsNumNotInRange| 一次购买的实例数超过售卖数量限制（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询购买实例数限制） |
+
+
+## 5. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=InquiryRedisPrice
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &zoneId=100002
 &typeId=1
 &memSize=1024
 &goodsNum=1
 &period=2
-```
+</pre>
 输出
 ```
 {

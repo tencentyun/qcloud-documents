@@ -38,19 +38,36 @@ data 数组的结构：
 |---------|---------|---------|
 | data.dealId | String | 订单号，通过 [DescribeRedisDealDetail](https://www.qcloud.com/doc/api/260/5329) 可以查询订单详情 |
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| UserNotInWhiteList | 用户不在白名单中 |
+| NoRedisService| 请求的区域暂时不提供redis服务 |
+| NoTypeIdRedisService| 请求的区域暂时不提供请求类型的redis服务 |
+| InvalidInstanceTypeId| 请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原单机版) |
+| InvalidMemSize| 请求的容量不在售卖规格中（memSize应为1024的整数倍，单位：MB） |
+| MemSizeNotInRange| 请求的容量不在售卖容量范围内（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询售卖容量限制） |
+| PeriodExceedMaxLimit| 购买时长超过最大时长限制 |
+| PeriodLessThanMinLimit| 购买时长小于最小时长限制 |
+| GoodsNumNotInRange| 一次购买的实例数超过售卖数量限制（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询购买实例数限制） |
+| OnlyVPCOnSpecZoneId| 请求的地区目前只提供vpc网络下的redis服务 |
+| InvalidSubnetId| vpc网络下的子网id不存在 |
+| PasswordEmpty| 密码为空 |
+| PasswordRuleError | 密码规则错误，密码必须是8-16位字符，且至少包含字母、数字和字符（!@#%^*()）中的两种 |
+| AccountIsNotEnough | 账号余额不足，请充值 |
 
-## 4. 示例
+## 5. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=CreateRedis
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &zoneId=100002
 &typeId=1
 &memSize=1024
 &goodsNum=1
 &period=2
 &password=49A2d!e@f12e
-```
+</pre>
 输出
 ```
 {

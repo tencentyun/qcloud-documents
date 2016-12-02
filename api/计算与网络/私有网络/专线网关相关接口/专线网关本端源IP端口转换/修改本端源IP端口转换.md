@@ -36,14 +36,14 @@
 
 ## 5. 示例
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=ModifyLocalSourceIPPortTranslationNatRule
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &vpcId=vpc-dfgg190
 &directConnectGatewayId=dcg-ddf14d
 &oldTranslationIPPool=138.0.0.11-138.0.0.19
 &translationIPPool=138.0.0.11-138.0.0.25
-```
+</pre>
 输出
 ```
 {

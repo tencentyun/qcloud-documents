@@ -1,9 +1,10 @@
 ## 1. 接口描述
-域名:bm.api.qcloud.com
-接口名:SetOutBandVPNAuthPwd
 
-设置带外VPN认证用户密码
-此API分为两个逻辑，创建VPN认证用户及设置认证用户的密码。
+本接口 (SetOutBandVPNAuthPwd) 设置带外VPN认证用户密码。
+接口请求域名：<font style="color:red">bm.api.qcloud.com</font>
+
+
+此API分为两个逻辑，创建VPN认证用户及设置认证用户的密码，需两次不同参数值调用。
 
 创建VPN认证用户: 先调用 GetOutBandVPNAuthInfo 获取VPN信息，如GetOutBandVPNAuthInfo返回的be_first=true, 则必须要调用本API，并设置入参createOrUpdate值为create。
 
@@ -33,7 +34,7 @@
 <td> 是
 <td> String
 <td> 取值为create或者update字符串。 create: 创建此appId的VPN帐号，只有在GetOutBandVPNAuthInfo返回的be_first=true时需要创建；
-update:修改此PN帐号的密码，前提条件已经调用本API创建了VPN认证用户。
+update:修改此VPN认证帐号的密码，前提条件：已经调用本API创建了VPN认证用户。
 </tbody></table>
 
 
@@ -58,26 +59,26 @@ update:修改此PN帐号的密码，前提条件已经调用本API创建了VPN�
 </tbody></table>
 
 
-模块错误码
+## 4. 模块错误码
 
-| code | 描述 |
-|------|------|
-| 10100 | 访问鉴权模块错误 |
-| 10101 | 鉴权模块返回错误 |
-| 10004 | 参数错误 |
-
-
+| code |codeDesc| 描述 |
+|------|------|------|
+| 10004 |OperationDenied| 没有操作权限 |
+| 10100 |InternalError.ObAuthAccessError| 访问鉴权模块错误 |
+| 10101 |InternalError.ObAuthError|鉴权模块返回错误 |
 
 
-## 4. 示例
+
+
+## 5. 示例
 输入
-```
+<pre>
 https://bm.api.qcloud.com/v2/index.php?
 Action=SetOutBandVPNAuthPwd
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &password=tencent89
 &createOrUpdate=update
-```
+</pre>
 输出
 ```
 {

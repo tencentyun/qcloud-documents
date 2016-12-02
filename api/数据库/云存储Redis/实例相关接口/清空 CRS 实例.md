@@ -33,15 +33,23 @@
 |---------|---------|---------|
 | data.requestId | Int | 任务ID 可通过 [DescribeTaskInfo](/doc/api/260/1387) 查询 任务执行结果 |
 
- 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| InvalidParameter | 业务参数错误 |
+| InstanceNotExists | 没有找到serialId对应的实例 |
+| InstanceLockedError | 实例已被锁住，暂时不能执行该操作 |
+| InstanceStatusAbnormal | 实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除） | 
+| PasswordEmpty | 密码为空 |
+| PasswordError | 密码错误 | 
 
-## 4. 示例
-```
+## 5. 示例
+<pre>
   https://redis.api.qcloud.com/v2/index.php?Action=ClearRedis
-	&<公共请求参数>
+	&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 	&redisId=crs-ifmymj41
 	&password=49A2d!e@f12e
-```
+</pre>
 返回示例如下：
 ```
 {

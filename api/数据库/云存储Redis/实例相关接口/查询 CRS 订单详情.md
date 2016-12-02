@@ -63,15 +63,20 @@
 | newMemsize | int | 升级后实例容量， 单位:MB|
 | redisIds | Array | 关联的redisId列表|
 
-## 4. 示例
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| DealIdNotFound | 订单号不存在 |
+
+## 5. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedisDealDetail
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &dealIds.0=432583
 &dealIds.1=432586
 &dealIds.2=432587
-```
+</pre>
 输出
 ```
 {

@@ -26,15 +26,25 @@
 |---------|---------|---------|
 | data.dealId | String | 唯一订单号，通过 [DescribeRedisDealDetail](https://www.qcloud.com/doc/api/260/5329) 可以查询订单详情 |
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| InstanceNotExists | 没有找到serialId对应的实例 |
+| InvalidMemSize| 请求的容量不在售卖规格中（memSize应为1024的整数倍，单位：MB） |
+| MemSizeNotInRange| 请求的容量不在售卖容量范围内（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询售卖容量限制） |
+| InstanceStatusAbnormal| 实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除）  |
+| ReduceCapacityNotAllowed | 请求容量小于实例实际容量，暂不支持缩容 |
+| AccountIsNotEnough | 账号余额不足，请充值 |
 
-## 4. 示例
+
+## 5. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=UpgradeRedis
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &redisId=crs-ifmymj41
 &memSize=2048
-```
+</pre>
 输出
 ```
 {

@@ -50,16 +50,22 @@ data结构
 | data.eipSet.latestPayMode | String | 最近一次操作变更的EIP计费模式，"flow"：流量计费； "bandwidth"：带宽计费 |
 | data.eipSet.latestBandwidth | Int | 最近一次操作变更的EIP计费模式对应的带宽上限值，仅在带宽计费模式下有效（单位：MB）|
 
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
 
-## 4. 示例
+
+## 5. 示例
  
 输入
-```
+<pre>
 
   https://eip.api.qcloud.com/v2/index.php?
   &Action=DescribeEipBm
-  &<公共请求参数>&startNum=0&endNum=20
-```
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&startNum=0&endNum=20
+</pre>
 
 输出
 ```
