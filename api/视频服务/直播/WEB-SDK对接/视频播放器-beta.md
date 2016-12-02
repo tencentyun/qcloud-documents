@@ -131,7 +131,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 如下的代码是让播放器支持多种清晰度的支持，也就是在播放器的用户界面上展示多种清晰度线路的选择。
 
 ```javascript
-var player = new TencentCloud.Player("id_test_video", {
+var player = new TcPlayer('id_test_video', {
 "m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",
 "m3u8_hd": "http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8",
 "m3u8_sd": "http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8",
