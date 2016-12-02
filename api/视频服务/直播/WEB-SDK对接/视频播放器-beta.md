@@ -141,12 +141,12 @@ var player = new TencentCloud.Player("id_test_video", {
 "coverpic" : "http://www.test.com/myimage.jpg",
 });
 ```
-<br>
+
 <font color="red">多种清晰度切换的功能即将支持，敬请期待。</font>
 
 ### Step 5：定制错误提示语
 我们默认的提示语您可能觉得不符合您的需求，比如“连接服务器失败”或者“视频格式不支持”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
-<br>
+
 <font color="red">定制错误提示语的功能即将支持，敬请期待。</font>
 
 
