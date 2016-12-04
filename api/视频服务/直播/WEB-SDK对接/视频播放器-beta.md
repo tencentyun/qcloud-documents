@@ -54,22 +54,12 @@ var player = new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
 "coverpic" : "http://www.test.com/myimage.jpg",
-"width" :  '480',//视频的显示宽度，可以自定义任意尺寸
-"height" : '320'//视频的显示高度，可以自定义任意尺寸
+"width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
+"height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
 ```
 
 这段代码就可以支持在PC以及手机浏览器上播放HLS（m3u8）协议的直播视频了，不过，前面我们有说过，HLS（m3u8）协议的视频虽然兼容性还不错（部分Android手机依然不支持），但其延迟非常高，大约20秒以上的延迟。
-
-<font color="red">这里有一个线上的使用例子，您可以点击打开看到视频播放的效果，也可以查看页面的源代码，里面有完整的案例代码：</font>
-
-[http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true)
-
-您也可以在链接后面加上需要播放的视频地址，刷新后就会播放这个视频地址，例如：
-
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true&m3u8=http://2527.vod.myqcloud.com/2527_d84eecd64fb011e6becac93ea7058338.f220.av.m3u8
-```
 
 #### 3.2 PC上实现更低的延迟
 那么对于PC浏览器而言，我们是否可以做的更好呢？当然可以，因为PC浏览器支持flash，它可强大多了，现在我们的代码要这样写：
@@ -79,8 +69,8 @@ var player =  new TcPlayer('id_test_video', {
 "flv": "2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个flv的播放地址，用于PC平台的播放
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
 "coverpic" : "http://www.test.com/myimage.jpg",
-"width" :  '480',//视频的显示宽度，可以自定义任意尺寸
-"height" : '320'//视频的显示高度，可以自定义任意尺寸
+"width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
+"height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
 ```
 跟前一段代码的区别就在于，我们增加了一个flv的播放地址，腾讯云Web播放器如果发现目前的浏览器是PC浏览器，会主动选择flv链路，因为可以实现更低的延迟。
@@ -88,17 +78,17 @@ var player =  new TcPlayer('id_test_video', {
 当然，前提条件是FLV和HLS（m3u8）这两个地址都是可以出流的，如果您使用腾讯云的视频直播服务，这个问题是不需要犯愁的，因为腾讯云的每一条直播频道都默认支持FLV、RTMP和HLS（m3u8）三种播放协议。
 
 #### 3.3 播放不了怎么办？
-（to-do：补充一张正常效果图）
-如果这段代码运行正常，您将看到上面的效果，但如果您发现不能播放，基本上逃不出如下几个原因：
+如果您发现视频不能播放，基本上逃不出如下几个原因：
 
--  **（原因一） 直播结束了？**
-也就是主播不在直播中状态，这种情况就没办法了，我们能做的就是提示一下“主播已经离开”。
+-  **（原因一） 视频源有问题**
+如果是直播URL，那一定要检查一下是不是主播已经停止推流了，状态不处于“直播中”的情况，可以用浮窗提示一下观众：“主播已经离开”。
+如果是点播URL，那要检查您要播放的文件是否还在服务器上，比如要播放的地址是否已经被其它人从点播系统移除了。
 
 - **（原因二） 本地网页调试**
-目前腾讯云的 Web 播放器是不支持本地网页去调试的，主要是浏览器有跨域安全限制。
+目前腾讯云的 Web 播放器是不支持本地网页去调试的，主要是浏览器有跨域安全限制。所以您如果是在Windows上随便放一个test.html文件然后测试，是肯定播放不了的，需要将其上传到一个服务器上进行测试。
 
 - **（原因三） 手机兼容问题**
-FLV 和 RTMP 这两种地址，在普通的手机浏览器上都是不支持的（最新版本的QQ浏览器支持flv协议的播放），只能用HLS（m3u8)。
+FLV 和 RTMP 这两种地址，在普通的手机浏览器上都是不支持的（最新版本的QQ浏览器支持flv协议的播放，但普及度还不高），只能用HLS（m3u8)。
 
 - **（原因四） 跨域安全问题**
 PC浏览器的视频播放是基于Flash控件实现的，但做过Flash开发的同学都知道，<font color='red'>Flash控件会做跨域访问检查</font>，不过只有当您要播放的视频URL不是隶属于腾讯云时，才会碰到这个问题。解决方法就是：在视频服务器的根域名下的跨域配置文件 crossdomain.xml 中增加 qq.com 和 qzonestyle.gtimg.cn 两个域名：
@@ -144,13 +134,22 @@ var player = new TcPlayer('id_test_video', {
 });
 ```
 
-<font color="red">多种清晰度切换的功能即将支持，敬请期待。</font>
+<font color="red">文档稍有超前，下周的2.1版本才支持多种清晰度切换，敬请期待。</font>
 
 ### Step 5：定制错误提示语
 我们默认的提示语您可能觉得不符合您的需求，比如“连接服务器失败”或者“视频格式不支持”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
 
-<font color="red">定制错误提示语的功能即将支持，敬请期待。</font>
+<font color="red">文档稍有超前，下周的2.1版本才支持定制错误提示语，敬请期待。</font>
+## 源码参考
+这里有一个线上的示例代码，在PC浏览器中右键“查看页面源码”即可查看页面的代码实现：
 
+[http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true)
+
+您也用它来测试播放器的效果，在链接后面加上需要播放的视频地址，刷新后就会播放这个视频地址：
+
+```
+http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true&m3u8=http://2527.vod.myqcloud.com/2527_d84eecd64fb011e6becac93ea7058338.f220.av.m3u8
+```
 
 ## 参数列表
 
@@ -171,22 +170,22 @@ var player = new TcPlayer('id_test_video', {
 
 - **为什么H5播放视频拉伸变形了？**
 
-    解答：H5并不具备拉伸视频的能力，请检查播放器的容器宽高是否设置正确
+    解答：H5并不具备拉伸视频的能力，请检查播放器的容器宽高是否设置正确。
 
--  **QQ浏览器下无法在盖住视频**
+-  **为什么我自己的div无法在盖在视频上？**
 
-    解答：浏览器接管了H5的视频播放功能，X5内核视频播放使用了自研的播放器，考虑用户体验，浏览器使用了统一的播放界面。相关信息参考[QQ浏览器文档说明](http://x5.tencent.com/guide?id=2009)
+    解答：不同浏览器对于video标签的实现方案不同，比如您的网页如果是从QQ或者微信里打开的（这里说的是Android系统下），那么极高的概率会使用QQ或微信捆绑的X5浏览器内核，也就是QQ浏览器内核，该团队考虑当时处于某些原因的考虑，采用了“视频video标签一定要处于最上层”的实现方案（相关信息参考[QQ浏览器文档说明](http://x5.tencent.com/guide?id=2009)），不过最近通过公司内部的各种协调，QQ浏览器团队正在逐步修改这个策略，您在看到这个文档时，可能最新版本的X5浏览器内核已经解决了这个问题。
 
 -  **iOS系统下视频自动全屏播放**
 
-	解答：iOS系统由于webkit设置原因，默认视频全屏播放，如果您的视频需要在APP内实现内联播放，可以设置webkit-playsinline属性。目前iOS10以下版本的Safari无法禁止视频自动全屏。
+	解答：iOS系统由于webkit设置原因，默认视频全屏播放，如果您的视频是在APP内实现内联播放（即您自己的App包装一个iOS的webview控件，用此控件显示网页，这种模式下您可以对webview进行一些细节定制，它的表现可以和标准safari浏览器有所不同），可以设置webkit-playsinline属性。目前iOS10以下版本的Safari是无法禁止视频自动全屏的。
 
 -  **为什么在 PC Chrome 中Flash播放器会有两个播放按钮？**
 
-	解答：从Chrome 42版本开始将不再自动播放Flash, 只对主要的Flash内容进行自动播放，其它的Flash内容将被暂停播放，除非用户决定去手动点开它。
+	解答：从Chrome 42版本开始将不再自动播放Flash（谷歌购买了WebRTC并进行开源并不是没有想法的）, 只对主要的Flash内容进行自动播放，其它的Flash内容将被暂停播放，除非用户决定去手动点开它。
 
 -  **为什么在 PC 浏览器中可以播放直播视频，移动端却不行**
 
-    解答：在移动端浏览器中播放直播视频，目前只支持hls(m3u8)协议，因此需要确认直播拉流地址是否有hls(m3u8)拉流url。
+    解答：在移动端浏览器中播放直播视频，目前只支持hls(m3u8)协议，因此需要确认直播拉流地址是否有hls(m3u8)拉流url，如果您只给我们的播放器一个flv或者rtmp的地址，是没有什么办法在手机上观看的。
 
 
