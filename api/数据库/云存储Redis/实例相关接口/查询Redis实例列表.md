@@ -45,8 +45,12 @@
 | data.redisSet.typeIddesc | String | 实例类型描述 | 
 | data.redisSet.deadlineTime | String | 实例到期时间 | 
 
+## 4. 错误码
+| 错误码 | 描述 |
+|---------|---------|---------|
+| InvalidParameter | 业务参数错误 |
 
-## 4. 示例
+## 5. 示例
 输入
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
