@@ -10,7 +10,7 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | redisId | 是 | String | 实例串号,可通过[查询CRS实例列表接口](http://www.qcloud.com/doc/api/260/1384)查询|
-| period | 是 | UInt | 购买时长，单位：月，范围[1，36]|
+| period | 是 | UInt | 购买时长，单位：月，取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]|
 
 
 ## 3. 输出参数
@@ -18,6 +18,7 @@
 |---------|---------|---------|
 | code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
 | message | String | 错误信息描述, 成功时，该值为空 |
+| codeDesc | String | 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。 |
 | data | Array |返回的订单数组|
 
 **data数组结构：**
@@ -27,14 +28,15 @@
 | data.dealId | String | 唯一订单号，通过 [DescribeRedisDealDetail](https://www.qcloud.com/doc/api/260/5329) 可以查询订单详情 |
 
 ## 4. 错误码
-| 错误码 | 描述 |
+以下错误码表列出了该接口的业务逻辑错误码。
+| 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
-| InstanceNotExists | 没有找到serialId对应的实例 |
-| InstanceDeleted| 实例到期已被回收 |
-| InstanceBeenLocked| 实例实例正被其它流程锁定，暂时不能执行该操作 |
-| PeriodExceedMaxLimit| 购买时长超过最大时长限制 |
-| PeriodLessThanMinLimit| 购买时长小于最小时长限制 |
-| AccountIsNotEnough | 账号余额不足，请充值 |
+|10701|InstanceNotExists|没有找到serialId对应的实例|
+|11055|InstanceDeleted|实例到期已被回收|
+|11056|InstanceBeenLocked|实例实例正被其它流程锁定，暂时不能执行该操作|
+|11065|PeriodExceedMaxLimit|购买时长超过最大时长限制|
+|11066|PeriodLessThanMinLimit|购买时长小于最小时长限制|
+|100207|AccountIsNotEnough| 账号余额不足，请充值|
 
 ## 5. 示例
 输入
@@ -49,6 +51,7 @@ https://redis.api.qcloud.com/v2/index.php?Action=RenewRedis
 {
     "code":"0",
     "message":"",
+	"codeDesc": "Success",
 	"data":{
 		"dealId":"432586"
 	}

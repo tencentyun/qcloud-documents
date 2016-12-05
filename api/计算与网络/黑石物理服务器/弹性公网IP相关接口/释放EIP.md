@@ -1,9 +1,10 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
+该接口用于释放弹性公网IP，以方便用户清理不使用的EIP资源。
+
+域名: <font style="color:red">eip.api.qcloud.com</font>
 接口名: EipBmDelete
 
-释放弹性公网IP。
+
 
  
 

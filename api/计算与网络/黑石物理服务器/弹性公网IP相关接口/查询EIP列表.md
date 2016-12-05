@@ -1,9 +1,8 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
-接口名: DescribeEipBm
+该接口用于查询当前使用中的弹性公网IP列表。
 
-查询弹性公网IP。
+域名: <font style="color:red">eip.api.qcloud.com</font>
+接口名: DescribeEipBm
 
 ## 2. 输入参数
 |参数名称|必选|类型|描述|
@@ -17,6 +16,8 @@
 | limit | 否 | Int | 返回EIP数量，默认 20, 最大值 100|
 | orderBy | 否 | String | 排序字段，支持： eipId, eip, status, unInstanceId, arrears, createdAt|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
+|vpcId|否|Int|EIP所属vpcId，会筛选出指定vpc的EIP|
+|payMode|否|字符串型|计费模式，流量计费：flow，带宽计费：bandwidth，默认值,"flow"|
 
  > 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；比如我想查询第110~149 这40条记录，则可以设置 offset=110，limit=40。
 

@@ -1,9 +1,8 @@
 ## 1. 接口描述
+该接口用于解绑黑石物理服务器上的弹性公网IP，解绑后EIP仍然会收取闲置费，请及时[释放清理](/document/product/213/1380)。
  
-域名: eip.api.qcloud.com
+域名: <font style="color:red">eip.api.qcloud.com</font>
 接口名: bmUnBindRs
-
-解绑服务器上的弹性公网IP。
 
  
 
