@@ -1,0 +1,1 @@
+您可以通过第三方工具如mysqldump、mydumper来把TDSQL中的数据导出到目标位置。

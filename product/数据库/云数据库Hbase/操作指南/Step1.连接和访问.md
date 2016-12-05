@@ -1,9 +1,6 @@
 ##  获取连接IP
 
-1)	申请资格
-[点击](https://www.qcloud.com/product/HBase.html)进入产品介绍页申请测试资格
-
-2)	获取实例ID和IP信息	
+1)	获取实例ID和IP信息	
 进入腾讯云Hbase管理中心，可以查看实例ID，并获取连接Hbase的一个或多个IP和端口：
 ![](https://mccdn.qcloud.com/static/img/14a8f475ffafe4c4cefdd84fe1737517/shili.png)
 

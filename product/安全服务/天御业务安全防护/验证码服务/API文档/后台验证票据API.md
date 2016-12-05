@@ -115,12 +115,12 @@
 <tr>
 <td> code
 </td><td> Int
-</td><td> 错误码 0: 成功 5100: 验证失败 其他值表示请求失败
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/document/product/295/7285)
 </td></tr>
 <tr>
 <td> message
 </td><td> String
-</td><td> 错误信息
+</td><td> 模块错误信息描述，与接口相关
 </td></tr>
 </td></tr></tbody></table>
 
