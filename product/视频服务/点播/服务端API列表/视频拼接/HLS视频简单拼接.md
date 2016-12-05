@@ -1,5 +1,5 @@
 ## 接口名称
-ConcatVodFile
+SimpleConcatHls
 
 ## 功能说明
 1. 拼接文件；
@@ -20,10 +20,10 @@ vod.api.qcloud.com
 
 ### 请求示例
 ```
-https://vod.api.qcloud.com/v2/index.php?Action=Vod_SimpleConcatHls
+https://vod.api.qcloud.com/v2/index.php?Action=SimpleConcatHls
 &srcFileList.0.fileId=16092504232103571364
 &srcFileList.1.fileId=16092504232103571365
-&name="testfile"
+&name=testfile
 &COMMON_PARAMS
 ```
 ## 接口应答
@@ -47,7 +47,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=Vod_SimpleConcatHls
 ```
 {
     "code": 0,
-    "message": ""，
-	“fileId": "123121321234"
+    "message": "",
+    "fileId": "123121321234"
 }
 ```
