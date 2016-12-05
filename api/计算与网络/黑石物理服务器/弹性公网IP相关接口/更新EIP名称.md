@@ -1,11 +1,10 @@
 ## 1. 接口描述
+该接口用于更改弹性公网EIP的别名。用户通过该接口自定义申请到的EIP的别名，方便管理。
  
-域名: eip.api.qcloud.com
+域名: <font style="color:red">eip.api.qcloud.com</font>
 接口名: ModifyEipAlias
 
-更改弹性公网EIP别名。
 
- 
 
 ## 2. 输入参数
  

@@ -1,9 +1,8 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
-接口名: DescribeEipBm
+该接口用于查询当前使用中的弹性公网IP列表。
 
-查询弹性公网IP。
+域名: <font style="color:red">eip.api.qcloud.com</font>
+接口名: DescribeEipBm
 
 ## 2. 输入参数
 |参数名称|必选|类型|描述|
