@@ -16,3 +16,20 @@
 直播总时间=所有房间直播的累积和
 
 比如某平台某天总共直播2000小时，截图间隔10秒，那么截图总张数=2000*60*60/10=7200000张
+
+### 6.如何接入直播安全服务
+第一步：在[腾讯云官网](https://www.qcloud.com/)注册帐号
+
+*如果需要，可以建立协作帐号共同管理。具体在“用户中心——项目管理——用户与权限”中创建策略和项目组
+![](https://mc.qcloudimg.com/static/img/04fbcdbff4e01cedfee4c1293fa2e3a0/image.png)
+![](https://mc.qcloudimg.com/static/img/3413ae3b2fd2504ebcaea67f7316d323/image.png)
+
+第二步： 进入管理中心，在云产品中选择直播产品，申请开通直播服务
+![](https://mc.qcloudimg.com/static/img/a5bcaca5ce9109d29a378c644aaca1e7/image.png)  
+![](https://mc.qcloudimg.com/static/img/9cdfcd6cefc295c77997e19ef11bf240/image.png)
+
+第三步：开通直播权限后，配置截图鉴黄功能即可
+
+第四步：在[鉴黄管理平台](http:jh.live.qcloud.com)注册帐号并登录
+
+第五步：在平台上对视频进行管理和操作，具体见本文4.2直播鉴黄管理平台
