@@ -24,6 +24,8 @@
 <tr>
 <td> message <td> String <td> 错误信息
 <tr>
+<td> codeDesc <td> String <td> 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。
+<tr>
 <td> data <td> Array <td> 返回的数据数组
 </tbody></table>
 
@@ -37,9 +39,14 @@
 <td> data.status <td> Int <td> 任务状态0:待执行，1：执行中，2：成功，3：失败，-1 执行出错
 </tbody></table>
 
- 
+## 4. 错误码
+以下错误码表列出了该接口的业务逻辑错误码。
+| 错误代码 | 英文提示 | 错误描述 |
+|---------|---------|---------|
+|11201|InvalidParameter|业务参数错误|
 
-## 4. 示例
+ 
+## 5. 示例
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeTaskInfo
 &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
@@ -50,9 +57,9 @@ https://redis.api.qcloud.com/v2/index.php?Action=DescribeTaskInfo
 {
     "code": 0,
 	"message": "",
+	"codeDesc": "Success",
     "data": {
         "status": 2
     }
 }
 ```
-

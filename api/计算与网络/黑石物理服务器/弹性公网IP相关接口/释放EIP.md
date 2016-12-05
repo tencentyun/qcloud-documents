@@ -1,9 +1,10 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
+该接口用于释放弹性公网IP，以方便用户清理不使用的EIP资源。
+
+域名: <font style="color:red">eip.api.qcloud.com</font>
 接口名: EipBmDelete
 
-释放弹性公网IP。
+
 
  
 
@@ -28,7 +29,17 @@ Data结构
 |---|---|---|
 | data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[EipBmQueryTask](/doc/api/456/6670)查询任务状态|
 
-## 4. 示例
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9000|InternalCgwErr|内部接口异常|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
+|30009|EipNotExist|操作的EIP记录不存在|
+|30010|EipStateCannotOp|EIP当前状态不允许释放|
+|30013|EipRecordNotExist|EIP记录不存在|
+
+## 5. 示例
  
 输入
 <pre>

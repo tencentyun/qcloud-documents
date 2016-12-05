@@ -1,9 +1,8 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
-接口名: DescribeEipBm
+该接口用于查询当前使用中的弹性公网IP列表。
 
-查询弹性公网IP。
+域名: <font style="color:red">eip.api.qcloud.com</font>
+接口名: DescribeEipBm
 
 ## 2. 输入参数
 |参数名称|必选|类型|描述|
@@ -17,6 +16,8 @@
 | limit | 否 | Int | 返回EIP数量，默认 20, 最大值 100|
 | orderBy | 否 | String | 排序字段，支持： eipId, eip, status, unInstanceId, arrears, createdAt|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
+|vpcId|否|Int|EIP所属vpcId，会筛选出指定vpc的EIP|
+|payMode|否|字符串型|计费模式，流量计费：flow，带宽计费：bandwidth，默认值,"flow"|
 
  > 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；比如我想查询第110~149 这40条记录，则可以设置 offset=110，limit=40。
 
@@ -50,8 +51,14 @@ data结构
 | data.eipSet.latestPayMode | String | 最近一次操作变更的EIP计费模式，"flow"：流量计费； "bandwidth"：带宽计费 |
 | data.eipSet.latestBandwidth | Int | 最近一次操作变更的EIP计费模式对应的带宽上限值，仅在带宽计费模式下有效（单位：MB）|
 
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
 
-## 4. 示例
+
+## 5. 示例
  
 输入
 <pre>

@@ -1,9 +1,8 @@
 ## 1. 接口描述
+该接口用于申请创建黑石弹性公网IP。
  
-域名: eip.api.qcloud.com
+域名: <font style="color:red">eip.api.qcloud.com</font>
 接口名: EipBmApply
-
-创建黑石弹性公网IP。
 
  
 
@@ -32,15 +31,25 @@ data结构
 | data.eipIds | Array | 返回申请中的EIP实例ID列表|
 | data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[EipBmQueryTask](/doc/api/456/6670)查询任务状态|
 
-## 4. 示例
+## 4. 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
+|30001|ExceedTheLimit|申请总数超过限额|
+|30003|ExceedDailyLimit|当日申请数超限额|
+|30016|ISPInvalid|ISP非法|
+
+
+## 5. 示例
  
 输入
-<pre>
+```
 
   https://eip.api.qcloud.com/v2/index.php?
   &Action=EipBmApply
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&goodsNum=2&payMode=flow&vpcId=1
-</pre>
+```
 
 输出
 ```
