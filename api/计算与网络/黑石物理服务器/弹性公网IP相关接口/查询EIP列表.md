@@ -14,7 +14,7 @@
 | status.n|否|Int|状态列表，数组下标从0开始<br>0：创建中； 1：绑定中；2：已绑定；3：解绑中； 4：未绑定； 6：下线中； 9：创建失败|
 | offset | 否 | Int | 偏移量，默认为0|
 | limit | 否 | Int | 返回EIP数量，默认 20, 最大值 100|
-| orderBy | 否 | String | 排序字段，支持： eipId, eip, status, unInstanceId, arrears, createdAt|
+| orderBy | 否 | String | 排序字段，支持这些字段名：eipId, eip, status, unInstanceId, arrears, createdAt。[查看说明](#datastruct)|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
 |vpcId|否|Int|EIP所属vpcId，会筛选出指定vpc的EIP|
 |payMode|否|字符串型|计费模式，流量计费：flow，带宽计费：bandwidth，默认值,"flow"|
@@ -28,9 +28,9 @@
 | message | String | 错误信息 |
 | codeDesc | String | 错误码描述 |  
 |  totalCount  |  Int |  返回符合过滤条件的EIP数量；假如指定limit，offset，该值有可能大于data数组中的数量 |
-| data |   Array | 返回数组 |
+| data |   Array | 返回EIP实例列表，具体结构描述如下 |
 
-data结构
+<span id="datastruct">data结构</span>
 
 |参数名称|类型|描述|
 |---|---|---|

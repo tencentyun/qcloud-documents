@@ -9,8 +9,8 @@
  
 |参数名称|必选|类型|描述|
 |-------|----|---|----|----|
-| eipId | 否 | String | EIP实例ID |
-| instanceId | 否 | String | 服务器实例ID，可通过[DescribeDevice](/doc/api/456/6728)接口返回字段中的instanceId获取|
+| eipId | 是 | String | EIP实例ID |
+| instanceId | 是 | String | 服务器实例ID，可通过[DescribeDevice](/doc/api/456/6728)接口返回字段中的instanceId获取|
 
  > 已绑定到NAT网关的物理机，目前暂不支持同时绑定EIP
 
@@ -19,7 +19,7 @@
 |---------|---------|---------|
 | code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/doc/api/456/6725)。 |
 | message |   String | 错误信息 |
-| data |   Array | 返回数组 |
+| data |   Array | 返回异步任务信息 |
 
 Data结构
 
