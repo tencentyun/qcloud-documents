@@ -32,8 +32,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=SimpleConcatHls
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
 | code | Int | 错误码, 0: 成功, 其他值: 失败 |
-| message | string | 错误信息 |
-| fileId | string | 拼接出的文件id |
+| message | String | 错误信息 |
+| fileId | String | 拼接出的文件id |
 
 ### 错误码说明
 | 错误码 | 含义说明|
