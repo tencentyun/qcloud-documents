@@ -14,23 +14,45 @@
 			</tr>
 <!--视频上传-->
 			<tr>
-				<td rowspan = 2>
-					视频上传
+				<td rowspan = 3>
+					服务端视频上传
 				</td>
 				<td>
-          本地视频上传
+          初始化上传
 				</td>
-				<td>					
+				<td>
+          InitUpload
 				</td>
 			</tr>
 			<tr>
 				<td>
-          URL拉取视频上传
+          分片上传
 				</td>
 				<td>
-        	MultiPullVodFile
+        	UploadPart
 				</td>
 			</tr>
+			<tr>
+				<td>
+          结束上传
+				</td>
+				<td>
+        	FinishUpload
+				</td>
+			</tr>
+<!--URL拉取视频上传-->
+			<tr>
+				<td rowspan = 1>
+					URL拉取视频上传
+				</td>
+				<td>
+          URL拉取视频上传
+				</td>
+				<td>		
+				  MultiPullVodFile			
+				</td>
+			</tr>
+
 <!--视频管理-->
 			<tr>
 				<td rowspan = 7>
@@ -103,6 +125,26 @@
         	ConvertVodFile
 				</td>
 			</tr>
+<!--视频拼接-->
+	<tr>
+		<td rowspan = 2>
+			视频拼接
+		</td>
+		<td>
+			普通视频拼接
+		</td>
+		<td>
+			ConcatFile
+		</td>
+	</tr>
+	<tr>
+		<td>
+			HLS视频简单拼接
+		</td>
+		<td>
+			SimpleConcatHls
+		</td>
+	</tr>
 <!--视频分类管理-->
 			<tr>
 				<td rowspan = 5>
@@ -167,5 +209,17 @@
 						ConfirmVodEvent
 					</td>
 				</tr>
+<!--任务管理-->
+					<tr>
+						<td  rowspan = 1>
+							任务管理
+						</td>
+						<td>
+							查询异步任务的状态
+						</td>
+						<td>
+							QueryVodTaskStatus
+						</td>
+					</tr>
 		</tbody>
 	</table>
