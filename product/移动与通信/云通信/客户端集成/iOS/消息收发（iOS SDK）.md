@@ -487,6 +487,29 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 @end
 ```
 
+### 1.11 消息转发
+
+在2.4.0及以上版本，在TIMMessage中提供了copyFrom接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
+
+**原型：**
+
+```
+/**
+ *  消息
+ */
+@interface TIMMessage : NSObject
+/**
+ *  拷贝消息中的属性（ELem、priority、online、offlinePushInfo）
+ *
+ *  @param srcMsg 源消息
+ *
+ *  @return 0 成功
+ */
+- (int)copyFrom:(TIMMessage*)srcMsg;
+
+@end
+```
+
 ## 2. 接收消息
 
 在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 TIMMessageListener，如果用户是登录状态，ImSDK收到新消息会通过此方法抛出，另外需要注意，通过onNewMessage抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。

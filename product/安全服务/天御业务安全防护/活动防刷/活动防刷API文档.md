@@ -202,12 +202,12 @@
 <tr>
 <td> code
 </td><td> Int
-</td><td> 返回码
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/document/product/295/7285)
 </td></tr>
 <tr>
 <td> message
 </td><td> String
-</td><td> UTF-8编码，出错消息
+</td><td> 模块错误信息描述，与接口相关
 </td></tr>
 <tr>
 <td> Nonce

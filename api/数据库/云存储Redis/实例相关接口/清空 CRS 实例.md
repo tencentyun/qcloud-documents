@@ -25,6 +25,7 @@
 |---------|---------|---------|
 | code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。 |
 | message| String |错误信息 |
+| codeDesc | String | 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。 |
 | data | Array | 返回的数组|
 
 **data数组结构：**
@@ -34,13 +35,16 @@
 | data.requestId | Int | 任务ID 可通过 [DescribeTaskInfo](/doc/api/260/1387) 查询 任务执行结果 |
 
 ## 4. 错误码
-| 错误码 | 描述 |
+以下错误码表列出了该接口的业务逻辑错误码。
+| 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
-| SystemError | 系统内部错误 |
-| SerialIdError | 没有找到serialId对应实例 |
-| InstanceStatusAbnormal | 实例状态异常，暂时不能执行该操作 |
-| PasswordEmpty | 密码为空 |
-| PasswordError | 密码错误 | 
+|11201|InvalidParameter|业务参数错误|
+|10701|InstanceNotExists|没有找到serialId对应的实例|
+|10707|InstanceLockedError|实例已被锁住，暂时不能执行该操作|
+|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除）|
+|10501|PasswordEmpty| 密码为空|
+|10712|PasswordError| 密码错误|
+
 
 ## 5. 示例
 <pre>
@@ -54,9 +58,9 @@
 {
     "code": 0,
 	"message": ""，
+	"codeDesc": "Success",
 	"data": {
         "requestId": 11965
     }
 }
 ```
-

@@ -1,11 +1,7 @@
 ## SDK开发包
-- Android采集编码重构；
-- Android软编支持新美颜效果；
-- Android硬编新增云端黑名单控制；
-- 解决Android摄像头频繁打开关闭引发的多线程问题；
-- Android录屏隐私模式新增推送主播音频能力；
-- 解决Android HLS、MP4点播前后台切换花屏问题；
-- 解决IOS模拟器播放花屏问题；
+- 解决Android点击闪光灯界面卡死；
+- 解决Android部分机型编码出来的FPS不准
+- 解决Android播放hls/MP4结束时小概率异常退出；
 
 **【详细说明】**
 - 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
@@ -19,8 +15,8 @@
 
 | 操作系统 | 版本号 | 更新时间|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS  | 1.7.2.1310  | 2016-11-25 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.7.2.1310.zip)  |
-| Android  | 1.7.2.1310 | 2016-11-25 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.7.2.1310.zip)  |
+| IOS  | 1.7.2.1313  | 2016-12-01 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.7.2.1313.zip)  |
+| Android  | 1.7.2.1313 | 2016-12-01 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.7.2.1313.zip)  |
 
 
 ## DEMO体验

@@ -1,4 +1,4 @@
-**运行前必备**：
+﻿**运行前必备**：
 
 下载并安装redis-py
 https://github.com/andymccurdy/redis-py?spm=5176.730001.3.11.WvETSA
