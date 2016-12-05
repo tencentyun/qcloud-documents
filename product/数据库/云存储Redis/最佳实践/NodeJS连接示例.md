@@ -1,4 +1,4 @@
-**运行前必备**：
+﻿**运行前必备**：
 
 安装node-redis，安装命令：
 npm install hiredis redis

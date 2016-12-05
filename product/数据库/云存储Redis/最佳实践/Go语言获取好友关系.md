@@ -1,4 +1,4 @@
-# GoÓïÑÔ»ñÈ¡ºÃÓÑ¹ØÏµ
+ï»¿# Goè¯­è¨€è·å–å¥½å‹å…³ç³»
 ```
 package main
 
@@ -52,5 +52,5 @@ func main() {
 	fmt.Println()
 }
 ```
-½á¹ûÈçÏÂ£º
+ç»“æœå¦‚ä¸‹ï¼š
 ![](https://mc.qcloudimg.com/static/img/6119908db94734b6b398075da64ef2d4/image.png)

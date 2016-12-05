@@ -1,4 +1,4 @@
-COS FTP V4 用于通过FTP协议往COS上传和下载文件.
+COS FTP V4 用于通过FTP协议往COS上传和下载文件.**只适用于COS 4.0**
 
 ## 功能说明
 

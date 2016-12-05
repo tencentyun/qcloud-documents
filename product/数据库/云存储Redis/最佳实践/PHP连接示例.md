@@ -1,36 +1,36 @@
-**ÔËĞĞÇ°±Ø±¸**£º
+ï»¿**è¿è¡Œå‰å¿…å¤‡**ï¼š
 
-Ê¹ÓÃ¿Í»§¶Ëphpredis£¬ÏÂÔØºÍ²Î¿¼µØÖ·£ºhttps://github.com/phpredis/phpredis
+ä½¿ç”¨å®¢æˆ·ç«¯phpredisï¼Œä¸‹è½½å’Œå‚è€ƒåœ°å€ï¼šhttps://github.com/phpredis/phpredis
 
-**Ê¾Àı´úÂë**£º
+**ç¤ºä¾‹ä»£ç **ï¼š
 
 ```
 <?php
-  /**ÒÔÏÂ²ÎÊı·Ö±ğÌîĞ´ÄúµÄredisÊµÀıÄÚÍøIP£¬¶Ë¿ÚºÅ£¬ÊµÀıidºÍÃÜÂë*/
+  /**ä»¥ä¸‹å‚æ•°åˆ†åˆ«å¡«å†™æ‚¨çš„rediså®ä¾‹å†…ç½‘IPï¼Œç«¯å£å·ï¼Œå®ä¾‹idå’Œå¯†ç */
   $host = "192.168.0.2";
   $port = 6379;
   $instanceid = "c532952f-55dc-4c22-a941-63057e560788";
   $pwd = "1234567q";
 
   $redis = new Redis();
-  //Á¬½Óredis
+  //è¿æ¥redis
   if ($redis->connect($host, $port) == false) {
     die($redis->getLastError());
   }
-  //¼øÈ¨
+  //é‰´æƒ
   if ($redis->auth($instanceid . ":" . $pwd) == false) {
     die($redis->getLastError());
   }
   
-  /**½ÓÏÂÀ´¿ÉÒÔÓä¿ìµÄ¿ªÊ¼²Ù×÷redisÊµÀı£¬¿ÉÒÔ²Î¿¼£ºhttps://github.com/phpredis/phpredis */
+  /**æ¥ä¸‹æ¥å¯ä»¥æ„‰å¿«çš„å¼€å§‹æ“ä½œrediså®ä¾‹ï¼Œå¯ä»¥å‚è€ƒï¼šhttps://github.com/phpredis/phpredis */
   
-  //ÉèÖÃkey
+  //è®¾ç½®key
   if ($redis->set("redis", "tencent") == false) {
     die($redis->getLastError());
   }
   echo "set key redis suc, value is:tencent\n";
   
-  //»ñÈ¡key
+  //è·å–key
   $value = $redis->get("redis");
   echo "get key redis is:".$value."\n";
 ?>
@@ -38,5 +38,5 @@
 
 
 
-**ÔËĞĞ½á¹û**£º
+**è¿è¡Œç»“æœ**ï¼š
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/PHP-1.jpg)
