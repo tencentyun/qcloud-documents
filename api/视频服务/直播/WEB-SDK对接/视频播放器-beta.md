@@ -154,7 +154,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 ## 参数列表
 
 | 参数             | 类型     | 默认值   | 参数说明                                     |   示例
-|-----------------|--------- |--------  |--------------------------------------------  |----------------------------|
+|-----------------|--------- |--------  |-------------------------------------------- |----------------------------|
 | m3u8             | String  | 无       |  m3u8 播放URL                                | http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
 | flv             | String  | 无       |  flv 播放URL                                  | http://2157.liveplay.myqcloud.com/2157_358535a.flv |
 | mp4             | String  | 无       |  mp4 播放URL                                  | http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
