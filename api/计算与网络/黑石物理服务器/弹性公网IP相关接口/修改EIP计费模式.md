@@ -9,7 +9,7 @@
  
 |参数名称|必选|类型|描述|
 |-------|----|---|----|----|
-| eipIds.n|否|数组型|EIP实例ID列表，可以通过[DescribeEipBm](/doc/api/456/6671)接口查询，数组下标从0开始|
+| eipIds.n|否|Array|EIP实例ID列表，可以通过[DescribeEipBm](/doc/api/456/6671)接口查询，数组下标从0开始|
 | payMode|是|String|EIP计费方式：flow-流量计费；bandwidth-带宽计费|
 | bandwidth|否|Int|带宽上限（该字段只在带宽计费模式下生效），单位MB，最小为0
 
@@ -19,7 +19,7 @@
 |---------|---------|---------|
 | code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/doc/api/456/6725)。 |
 | message |   String | 错误信息 |
-| data |   Array | 返回数组 |
+| data |   Array | 返回异步任务id，具体结构描述如下 |
 
 Data结构
 
