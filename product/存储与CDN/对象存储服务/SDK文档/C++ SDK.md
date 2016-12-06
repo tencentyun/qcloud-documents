@@ -10,7 +10,7 @@
 2. 安装curl的库和头文件 [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) 
 3. 安装jsoncpp的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
 4. 安装cmake工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
-5. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF)。
+5. 从控制台获取APP ID、SecretID、SecretKey
 
 
 
@@ -121,7 +121,7 @@ string path= "/myFloder/myFile.rar";
 sign = AuthUtility::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 ```
 
-更多签名相关详细说明，请参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
+更多签名相关详细说明，请参考[签名算法](https://www.qcloud.com/document/product/430/5993) 。
 
 ## 初始化操作
 
