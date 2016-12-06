@@ -21,11 +21,11 @@
 第一步：在[腾讯云官网](https://www.qcloud.com/)注册帐号
 
 *如果需要，可以建立协作帐号共同管理。具体在“用户中心——项目管理——用户与权限”中创建策略和项目组
-![](https://mc.qcloudimg.com/static/img/04fbcdbff4e01cedfee4c1293fa2e3a0/image.png)
-![](https://mc.qcloudimg.com/static/img/3413ae3b2fd2504ebcaea67f7316d323/image.png)
+![](https://mc.qcloudimg.com/static/img/a9a764a39f439fbd70ec71f1fc2b38b4/image.png)
+![](https://mc.qcloudimg.com/static/img/bc6f6bc367ab0c729db682ac0615844b/image.png)
 
 第二步： 进入管理中心，在云产品中选择直播产品，申请开通直播服务
-![](https://mc.qcloudimg.com/static/img/a5bcaca5ce9109d29a378c644aaca1e7/image.png)  
+![](https://mc.qcloudimg.com/static/img/40275a021955b2b7e9d9bb9362d067ec/image.png)  
 ![](https://mc.qcloudimg.com/static/img/9cdfcd6cefc295c77997e19ef11bf240/image.png)
 
 第三步：开通直播权限后，配置截图鉴黄功能即可
