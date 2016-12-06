@@ -4,11 +4,15 @@
 2.这里使用了tutum/wordpress Docker镜像来创建一个公开访问的Wordpress网站
 
 ### 创建wordpress服务
+
 1.输入服务名称，选择运行集群
+
 2.填写镜像tutum/wordpress，选择latest版本
+
 3.填写端口映射
-![Alt text](https://mc.qcloudimg.com/static/img/36d6ff6880bca5f8f4603c4531e1b842/%7BAC1A39EF-CC1F-4623-90F1-722E2178FB1F%7D.png)
-![Alt text](https://mc.qcloudimg.com/static/img/0fd614e229b74e168cc3eb6d6d88cefb/%7B43D44BC2-2162-406D-9732-58B592903E50%7D.png)
+
+![Alt text](https://mc.qcloudimg.com/static/img/3b40d7cd09c0850569fa7967b7aaa362/Image+024.png)
+![Alt text](https://mc.qcloudimg.com/static/img/27a0a00a151c5f5ebacffca5fc8f832a/Image+025.png)
 ### 访问wordpress服务
 点击服务，查看服务外网ip，在浏览器输入ip地址即可访问
-![Alt text](https://mc.qcloudimg.com/static/img/da4b9be288ba9d01a6e347792d5ec245/%7B28B0E720-B546-4C5D-B32B-1FEEEA0AB9CC%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/c0132b35996db099c02af7f2cf747137/Image+023.png)
