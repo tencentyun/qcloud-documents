@@ -3,7 +3,7 @@
 
 
 
-但需要提醒的是，https相比于http，在引入更多安全性（视频方面并不是特别需要）的同时也牺牲了连接速度和CPU使用率。所以如果您APP在新的上架政策下，还要需要继续使用HTTP，方法修改Info.plist，将`myqcloud.com`加入到`NSExceptionDomains`中。具体的修改如图所示:
+但需要提醒的是，https相比于http，在引入更多安全性（视频方面并不是特别需要）的同时也牺牲了连接速度和CPU使用率。所以如果您APP在新的上架政策下，还要需要继续使用HTTP，方法修改Info.plist，将`myqcloud.com`加入到`NSExceptionDomains`中。具体的修改如图所示:  
 
 ![myqcloud](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/myqcloud.png)
 
