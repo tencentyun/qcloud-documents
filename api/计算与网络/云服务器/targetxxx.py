@@ -1,4 +1,8 @@
 #coding:utf-8
+try:
+    import rmarshal as marshal
+except:
+    import marshal
 """
 r=open('vstation_vsScheduler_3_20161202.log')
 f=r.read().splitlines()
@@ -35,6 +39,7 @@ def entry_point(argv):
     v[1].b=v[2]
     v[2].b=v[1]
     print v[1].b.b.b.b.b.b.b.b.b.b.b.b.b.c 
+    print marshal.dumps("{'a':3}")
     return 0
 
 # _____ Define and setup target ___
