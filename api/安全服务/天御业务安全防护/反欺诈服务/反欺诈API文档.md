@@ -114,6 +114,10 @@
 <td> code
 </td><td> Int
 </td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/document/product/295/7285"target="black">公共错误码</a>
+<tr><td> codeDesc
+</td><td> String
+</td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
+</td></tr>
 <tr>
 <td> message
 </td><td> String
