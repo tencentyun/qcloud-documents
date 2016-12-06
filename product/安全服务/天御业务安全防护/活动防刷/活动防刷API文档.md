@@ -205,6 +205,10 @@
 </td><td> Int
 </td><td> 返回码
 </td></tr>
+<tr><td> codeDesc
+</td><td> String
+</td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
+</td></tr>
 <tr>
 <td> message
 </td><td> String
