@@ -143,5 +143,4 @@ ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(),
         avRootView = (AVRootView) findViewById(R.id.av_root_view);
         ILVLiveManager.getInstance().setAvVideoView(avRootView);
 ```  
-        
-[信令及上麦参见](./ILVLiveSenior.md)        
+           
