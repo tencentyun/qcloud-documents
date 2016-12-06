@@ -1,6 +1,6 @@
+已提供数据库安全审计功能存在以下能力限制：
 
-> 通过测试，数据库审计目前已经支持绝大多数SQL语句，如有发现存在不足，请联系腾讯云工作人员或发送邮件到vitosu@tencent.com反馈。
-1、已支持DCL,DDL,DML语句的解析
+1、支持DCL,DDL,DML如下语句的解析，但不支持
 ```
 Insert,Replace,Select,Union,Update,Delete,CreateDatabase:,CreateEvent,CreateFunction,CreateIndex,CreateLog,
 CreateTable,CreateServer,CreateProcedure,CreateTablespace,CreateTrigger,CreateView,CreateUDF,CreateUser,

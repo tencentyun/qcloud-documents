@@ -12,3 +12,7 @@
 3. 修复php sdk 鉴权失败bug；
 4. 修复php 发送消息bug；
 
+####  2016-12-01
+5. sdk 支持主题和订阅模式；
+6. c++ sdk 改用cmake 管理项目；
+7. java sdk 改用 maven 管理项目。

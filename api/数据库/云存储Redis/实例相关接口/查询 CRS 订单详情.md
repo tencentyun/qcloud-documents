@@ -9,7 +9,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| dealIds.n | 是 | String | 订单号列表 |
+| dealIds.n | 是 | String | 订单号组成的数组，数组下标从0开始 |
 
 
 ## 3. 输出参数
@@ -17,6 +17,7 @@
 |---------|---------|---------|
 | code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
 | message | String | 错误信息描述, 成功时，该值为空 |
+| codeDesc | String | 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。 |
 | dealDetails | Array | 返回的订单数组 |
 
 **dealDetails数组结构：**
@@ -63,7 +64,14 @@
 | newMemsize | int | 升级后实例容量， 单位:MB|
 | redisIds | Array | 关联的redisId列表|
 
-## 4. 示例
+## 4. 错误码
+以下错误码表列出了该接口的业务逻辑错误码。
+
+| 错误代码 | 英文提示 | 错误描述 |
+|---------|---------|---------|
+|11059|DealIdNotFound|订单号不存在|
+
+## 5. 示例
 输入
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedisDealDetail
@@ -77,6 +85,7 @@ https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedisDealDetail
 {
     "code": 0,
     "message": "",
+	"codeDesc": "Success",
     "dealDetails": [
         {
             "dealId": "432583",
