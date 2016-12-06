@@ -38,6 +38,7 @@ Authorization: authorization string
 | 名称                | 描述                                       | 类型     |
 | ----------------- | ---------------------------------------- | ------ |
 | x-cos-meta-*      | 用户自定义的元数据                                | String |
+| x-cos-object-type | 用来表示object是否可以被追加上传，枚举值：normal或者appendable | string |
 
 
 ### 返回内容
