@@ -126,15 +126,21 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 
 ```javascript
 var player = new TcPlayer('id_test_video', {
-"m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",
+"m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",//请替换成实际可用的播放地址
 "m3u8_hd": "http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8",
 "m3u8_sd": "http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8",
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
 "coverpic" : "http://www.test.com/myimage.jpg",
 });
 ```
+如此设置后您捡回看到这样的实现效果
+![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
 
-<font color="red">文档稍有超前，下周的2.1版本才支持多种清晰度切换，敬请期待。</font>
+#### 4.3 实现用例
+这里有一个线上的示例代码，里面实现了多种分辨率的设置以及切换功能，在PC浏览器中右键“查看页面源码”即可查看页面的代码实现：
+[http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html)
+
+<font color="red">pc端现已支持多种清晰度播放并支持切换的功能，移动端将在2.2版本中支持，敬请期待。</font>
 
 ### Step 5：定制错误提示语
 我们默认的提示语您可能觉得不符合您的需求，比如“连接服务器失败”或者“视频格式不支持”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
