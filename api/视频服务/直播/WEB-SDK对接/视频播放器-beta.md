@@ -133,19 +133,29 @@ var player = new TcPlayer('id_test_video', {
 "coverpic" : "http://www.test.com/myimage.jpg",
 });
 ```
-如此设置后您捡回看到这样的实现效果
-![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
 
 #### 4.3 实现用例
 这里有一个线上的示例代码，里面实现了多种分辨率的设置以及切换功能，在PC浏览器中右键“查看页面源码”即可查看页面的代码实现：
-[http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html)
+[http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true)
 
 <font color="red">pc端现已支持多种清晰度播放并支持切换的功能，移动端将在2.2版本中支持，敬请期待。</font>
 
 ### Step 5：定制错误提示语
 我们默认的提示语您可能觉得不符合您的需求，比如“连接服务器失败”或者“视频格式不支持”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
 
-<font color="red">文档稍有超前，下周的2.1版本才支持定制错误提示语，敬请期待。</font>
+| Code  | 提示语|说明                                       |
+|-------|-----------|---------------------------------------|
+| 1   	| 网络错误，请检查网络配置或者播放链接是否正确|  (H5提示的错误)          |
+| 2     | 视频解码错误 | 视频格式WEB播放器无法解码(H5播放器提示的错误)            |
+| 3     | 网络错误，请检查网络配置或者播放链接是否正确|  (H5提示的错误)          |
+| 4	    | 视频源错误，请检查播放链接是否有效|         (H5提示的错误)           |
+| 1001	| 网络错误，请检查网络配置或者播放链接是否正确|  网络已断开(Flash : NetConnection.Connect.Closed)                   |
+| 1002	| 视频源错误，请检查播放链接是否有效|  拉取播放文件失败(Flash : NetStream.Play.StreamNotFound)，可能是服务器错误或者视频文件不存在     |
+| 2032	| 视频源错误，请检查播放链接是否有效|   (Flash提示的错误)                 |
+| 2048	| 网络错误，请检查网络配置或者播放链接是否正确| 请求m3u8文件失败，可能是网络错误或者跨域问题|
+
+
+<font color="red">由于Flash的黑盒特性以及H5视频播放标准的不确定性，错误提示语会时长更新</font>
 ## 源码参考
 这里有一个线上的示例代码，在PC浏览器中右键“查看页面源码”即可查看页面的代码实现：
 
