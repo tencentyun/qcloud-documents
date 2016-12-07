@@ -144,6 +144,7 @@ var player = new TcPlayer('id_test_video', {
 我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
 
 #### 5.1 代码实现
+如下是让播放器支持自定义提示语的核心代码，设置的提示语主要落在wording属性上。
 ```javascript
 var player = new TcPlayer('id_test_video', {
 "m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",//请替换成实际可用的播放地址
@@ -189,15 +190,24 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 
 | 参数             | 类型     | 默认值   | 参数说明                                     |   示例
 |-----------------|--------- |--------  |-------------------------------------------- |----------------------------|
-| m3u8             | String  | 无       |  m3u8 播放URL                                | http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
-| flv             | String  | 无       |  flv 播放URL                                  | http://2157.liveplay.myqcloud.com/2157_358535a.flv |
-| mp4             | String  | 无       |  mp4 播放URL                                  | http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
-| rtmp             | String  | 无       |  rtmp 播放URL                                | rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
+| m3u8             | String  | 无       |  原画m3u8 播放URL                                | http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
+| m3u8_hd             | String  | 无       |  高清m3u8 播放URL                                | http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8 |
+| m3u8_sd             | String  | 无       |  标清m3u8 播放URL                          | http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8 |
+| flv             | String  | 无       |  原画flv 播放URL                                  | http://2157.liveplay.myqcloud.com/2157_358535a.flv |
+| flv_hd             | String  | 无       |  高清flv 播放URL                                  | http://2157.liveplay.myqcloud.com/2157_358535ahd.flv |
+| flv_sd             | String  | 无       |  标清flv 播放URL                                  | http://2157.liveplay.myqcloud.com/2157_358535asd.flv |
+| mp4             | String  | 无       |  原画mp4 播放URL                                  | http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
+| mp4_hd             | String  | 无       |  高清mp4 播放URL                                  | http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
+| mp4_sd             | String  | 无       |  标清mp4 播放URL                                  | http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
+| rtmp             | String  | 无       |  原画rtmp 播放URL                                | rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
+| rtmp_hd             | String  | 无       |  高清rtmp 播放URL                                | rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
+| rtmp_sd             | String  | 无       |  标清rtmp 播放URL                                | rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
 | width            | Number  | 无     | <font color="red">必选</font>，设置播放器宽度，单位为像素 |   640                                        |
 | height           | Number  | 无     | <font color="red">必选</font>，设置播放器高度，单位为像素 |   480                                        |
 | live             | Boolean  | false | <font color="red">可选</font>，设置视频是否为直播类型，将决定是否渲染时间轴等控件 |  true                   |
 | autoplay         | Boolean  | false | 是否自动播放 |  true                                                                                  |
 | coverpic         | String   | 无     | 预览封面    |  http://www.test.com/myimage.jpg                                                          |
+| wodring         | Object   | 无     | 自定义文案    |  { 2032: '请求视频失败，请检查网络'}                                                          |
 
 
 ## 常见问题
