@@ -160,7 +160,7 @@ var player = new TcPlayer('id_test_video', {
 这里有一个线上的示例代码，里面使用了自定义提示文案的功能，在PC浏览器中右键“查看页面源码”即可查看页面的代码实现：
 [http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http://2527.vod.myqcloud.com/2527_b393eb1.f230.av.m3u8](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http://2527.vod.myqcloud.com/2527_b393eb1.f230.av.m3u8)
 
-
+#### 5.3 错误码对照表
 | Code  | 提示语|说明                                       |
 |-------|-----------|---------------------------------------|
 | 1   	| 网络错误，请检查网络配置或者播放链接是否正确|  (H5提示的错误)          |
