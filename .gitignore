@@ -1,2 +1,4 @@
 .DS_Store
-api/数据库/云数据库MySQL/.idea/workspace.xml
+*.pyc
+*.py
+*.xml

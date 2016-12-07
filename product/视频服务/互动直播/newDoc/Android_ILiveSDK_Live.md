@@ -1,10 +1,11 @@
-#ILiveSDK直播基础接口简介
-##简单直播流程示例
+#直播基础接口简介
+
+##直播流程示例
 
 ![](http://mc.qcloudimg.com/static/img/e6632b362fbc90745505823b1dc295bd/image.png)
 
 
-###1 ILiveSDK初始化
+### 1 初始化
 
 | 接口名|  接口描述  |
 |---------|---------|
@@ -24,7 +25,7 @@ ILiveSDK.getInstance().initSdk(getApplicationContext(), appid, accoutype);
 ```  
 
 
-###2 账号登录
+### 2 账号登录
 | 接口名|  接口描述  |
 |---------|---------|
 | **iLiveLogin** | 使用托管方式或独立模式，在获取到用户的sig后，使用登录接口，告知后台音视频模块上线了（包括avsdk）|
@@ -51,7 +52,7 @@ ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(),
                 }
             });
 ```      
-###3 创建房间
+### 3 创建房间
 
 | 接口名| 接口描述 |
 |---------|---------|
@@ -83,7 +84,7 @@ ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(),
                 }
             });
 ```
-###4 加入房间
+### 4 加入房间
 | 接口名|  接口描述  |
 |---------|---------|
 | **joinRoom** | 观众角色调用加入房间接口|
@@ -127,7 +128,7 @@ ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(),
             
 ###设置渲染层
 > 渲染层级示例图 在界面层xml插入一个AVRootView,音视频数据最终是通过AVRootView渲染出来。考虑多屏互动情况，AVRootView实际上不是一层View而是多层AVVideoView的叠加。直播业务默认主播在第0层默认最大，其他互动观众分别在1，2，3层。每层大小都可以动态调节。
-> 
+
 
 ![](http://mc.qcloudimg.com/static/img/d063a1980cc046cafa0444df0b609d02/image.png)
 * 示例
@@ -143,5 +144,4 @@ ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(),
         avRootView = (AVRootView) findViewById(R.id.av_root_view);
         ILVLiveManager.getInstance().setAvVideoView(avRootView);
 ```  
-        
-[信令及上麦参见](./ILVLiveSenior.md)        
+           

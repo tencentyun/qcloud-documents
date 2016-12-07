@@ -41,11 +41,11 @@
     }
 ## 3 接口调用流程
 1.基本API：无论实时语音，还是消息语音功能，都需要调用基本API,在开始时进行语音的初始化，结束时进行反初始化，以及中间调用API时，需要调用poll触发处理相关回调，
-[基本API调用 ](http://www.baidu.com)。  
+[基本API调用 ](https://www.qcloud.com/document/product/556/7665)。  
 2.实时语音API：实时语音功能调用，
-[实时语音API调用](http://www.baidu.com)。   
+[实时语音API调用](https://www.qcloud.com/document/product/556/7667)。   
 3.语音消息API：消息语音功能调用，
-[语音消息API调用](http://www.baidu.com)。    
+[语音消息API调用](https://www.qcloud.com/document/product/556/7670)。    
 ![](https://mc.qcloudimg.com/static/img/c2055b982fda95b416144c907dfceed0/1.png)  
 
 
