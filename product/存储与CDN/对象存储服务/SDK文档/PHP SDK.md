@@ -9,7 +9,7 @@ Composer 项目名：tencentyun/cos-php-sdk
 ### 开发环境
 
 1. 依赖环境：PHP 5.3.0 版本及以上
-2. 从控制台获取APP ID、SecretID、SecretKey，详情参考权限控制。
+2. 从控制台获取APP ID、SecretID、SecretKey。
 
 
 
