@@ -333,6 +333,7 @@ Action=LoginProtection
 ```
 {
 "code": 0,
+"codeDesc":"success" ,
 "message": "No Error",
 "level": 0,
 "loginIp": "121.14.96.121",
@@ -340,4 +341,5 @@ Action=LoginProtection
 "uid": "00000000000000000000000033121475",
 "associateAccount": "SpFsjpyvaJ27329"
 }　
+
 ```

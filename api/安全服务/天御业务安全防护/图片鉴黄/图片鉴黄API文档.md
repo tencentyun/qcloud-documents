@@ -114,6 +114,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=FileDetection
 ```
 {
 "code": 0,
+"codeDesc":"success" ,
 "confidence": 0,
 "contentType": 0,
 "hotScore": 0,

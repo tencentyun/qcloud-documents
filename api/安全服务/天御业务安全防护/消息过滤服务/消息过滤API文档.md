@@ -320,6 +320,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
 "associateAccount":"373909726",
 "beatTips":"",
 "code":0,
+"codeDesc":"success" ,
 "level":0,
 "message":"NoError",
 "messageId":"ieafdasfk",
