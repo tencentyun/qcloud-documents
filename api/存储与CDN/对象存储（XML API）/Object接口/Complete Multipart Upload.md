@@ -24,7 +24,7 @@ Authorization: Auth
 无特殊请求参数
 
 ### 请求头部
-无特殊请求Header
+无特殊请求头部
 
 ### 请求内容
 
@@ -41,6 +41,7 @@ Authorization: Auth
     <PartNumber></PartNumber>
     <ETag></ETag>
   </Part>
+  ...
 </CompleteMultipartUpload>
 ```
 
@@ -48,7 +49,7 @@ Authorization: Auth
 
 ### 返回头部
 
-无特殊返回Header
+无特殊返回头部
 
 ### 返回内容
 

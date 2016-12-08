@@ -50,12 +50,12 @@ Authorization: auth
 
 #### 权限相关头部
 
-| 名称                       | 描述                                       | 类型   | 必选   |
-| ------------------------ | ---------------------------------------- | ---- | ---- |
-| x-cos-acl                | 允许用户自定义文件权限。<br />有效值：private \| public-read \| public-read-write | 否    | 否    |
-| X-cos-grant-read         | 赋予被授权者读的权限<br />格式X-cos-grant-read: uin=" ",uin=" " | 否    | 否    |
-| X-cos-grant-write        | 赋予被授权者写的权限<br />格式X-cos-grant-write: uin=" ",uin=" " | 否    | 否    |
-| X-cos-grant-full-control | 赋予被授权者读写权限<br />格式X-cos-grant-full-control: uin=" ",uin=" " | 否    | 否    |
+| 名称                       | 描述                                       | 类型     | 必选   |
+| ------------------------ | ---------------------------------------- | ------ | ---- |
+| x-cos-acl                | 允许用户自定义文件权限。<br/ >有效值：private \| public-read \| public-read-write | String | 否    |
+| X-cos-grant-read         | 赋予被授权者读的权限<br/>格式X-cos-grant-read: uin=" ",uin=" " | String | 否    |
+| X-cos-grant-write        | 赋予被授权者写的权限<br/>格式X-cos-grant-write: uin=" ",uin=" " | String | 否    |
+| X-cos-grant-full-control | 赋予被授权者读写权限<br/>格式X-cos-grant-full-control: uin=" ",uin=" " | String | 否    |
 
 ### 请求内容
 
@@ -65,12 +65,12 @@ Authorization: auth
 
 ### 返回头部
 
-| 名称                         | 描述                |
-| -------------------------- | ----------------- |
-| x-cos-next-append-position | 下一次追加操作的起始点，单位：字节 |
-| x-cos-content-sha1         | 分段的校验值            |
-| ETag                       | 文件的唯一标识           |
+| 名称                         | 描述                | 类型     |
+| -------------------------- | ----------------- | ------ |
+| x-cos-next-append-position | 下一次追加操作的起始点，单位：字节 | String |
+| x-cos-content-sha1         | 分段的校验值            | String |
+| ETag                       | 文件的唯一标识           | String |
 
 ### 返回内容
 
-无返回内容否
+无返回内容

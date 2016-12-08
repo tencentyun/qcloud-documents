@@ -1,6 +1,6 @@
 ## 功能描述
 
-Get Object 请求可以将一个文件（Object）下载至本地。该操作需要对目标 Object 具有读权限，或目标 Object 对所有人都开放了读权限（公有读）。当目标Object不存在时，如List Bucket有权限，返回404；无权限，返回403.
+Get Object 请求可以将一个文件（Object）下载至本地。该操作需要对目标 Object 具有读权限或目标 Object 对所有人都开放了读权限（公有读）。当目标Object不存在时，如Get Bucket有权限，返回404；无权限，返回403。
 
 ## 请求
 

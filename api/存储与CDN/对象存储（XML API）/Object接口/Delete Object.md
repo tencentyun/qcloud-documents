@@ -8,7 +8,7 @@ Delete Object请求可以将一个文件（Object）删除。
 ```Http
 PUT /ObjectName HTTP/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
-Date: *date*
+Date: date
 Content-Length:length
 Authorization: authorization string
 ```
