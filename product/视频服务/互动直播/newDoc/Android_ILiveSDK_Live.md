@@ -1,6 +1,6 @@
-#直播基础接口简介
+# 直播基础接口简介
 
-##直播流程示例
+## 直播流程示例
 
 ![](http://mc.qcloudimg.com/static/img/e6632b362fbc90745505823b1dc295bd/image.png)
 
@@ -18,7 +18,7 @@
 | int | 传入业务方appid |
 | int | 传入业务方 accounttype |
 
-*示例
+* 示例
   
 ```java 
 ILiveSDK.getInstance().initSdk(getApplicationContext(), appid, accoutype);
@@ -36,7 +36,7 @@ ILiveSDK.getInstance().initSdk(getApplicationContext(), appid, accoutype);
 | String | 鉴权的密钥Sig 如果是独立登录方式，是业务方后台计算生成后下发的|
 | ILiveCallBack | 帐号登录回调接口。通知上线是否成功 |
 <br/>
-*示例
+* 示例
     
 ```java     
 ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(), "123456", new ILiveCallBack() {
@@ -126,7 +126,7 @@ ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(),
 ```            
             
             
-###设置渲染层
+### 设置渲染层
 > 渲染层级示例图 在界面层xml插入一个AVRootView,音视频数据最终是通过AVRootView渲染出来。考虑多屏互动情况，AVRootView实际上不是一层View而是多层AVVideoView的叠加。直播业务默认主播在第0层默认最大，其他互动观众分别在1，2，3层。每层大小都可以动态调节。
 
 
