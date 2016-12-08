@@ -7,10 +7,12 @@ SimpleConcatHls
 3. 目标文件生成后一定是hls的。
 
 ## 请求方式
-Get
 
 ### 请求域名
 vod.api.qcloud.com
+
+### 最高调用频率
+100次/分钟
 
 ### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
@@ -44,7 +46,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=SimpleConcatHls
 | 10009 | 文件状态异常  |
 
 ### 应答示例
-```
+```javascript
 {
     "code": 0,
     "message": "",
