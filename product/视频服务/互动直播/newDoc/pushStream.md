@@ -5,7 +5,7 @@
 ### 1 客户端SDK接口
 #### Android
 ##### 开始旁路直播
-######1. 设置推流参数
+###### 1. 设置推流参数
 ```
 ILivePushOption option = new ILivePushOption();
 option.channelName("新随心播推流");
@@ -26,7 +26,7 @@ sdkType|TIMAvManager.SDKType|可选|设置当前sdk类型
 rateType|TIMAvManager.RateType|原始码率|支持的码率
 encode|TIMAvManager.StreamEncode|RTMP|设置推流编码类型
 
-######2. 开始旁路推流
+###### 2. 开始旁路推流
 
 ```
 ILiveRoomManager.getInstance().startPushStream(option, new ILiveCallBack<TIMAvManager.StreamRes>() {
@@ -69,7 +69,7 @@ Android旁路直播功能的详细实现见[新随心播](https://github.com/zha
 
 #### ios
 ##### 开始旁路直播
-######1. 设置推流参数
+###### 1. 设置推流参数
 ```
 ILivePushOption *option = [[ILivePushOption alloc] init];
 ChannelInfo *info = [[ChannelInfo alloc] init];
@@ -100,7 +100,7 @@ channelName|NSString|必填|直播频道的名称
 channelDesc|NSString|可选|直播频道的描述
 channelPassword|NSString|可选|为接收方播放器设置的密码
 
-######2. 开始旁路推流
+###### 2. 开始旁路推流
 
 ```
 [[ILiveRoomManager getInstance] startPushStream:option succ:^(id selfPtr) {
