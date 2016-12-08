@@ -151,8 +151,8 @@ var player = new TcPlayer('id_test_video', {
 "autoplay" : true,      //iOS下safari浏览器是不开放这个能力的
 "coverpic" : "http://www.test.com/myimage.jpg",
 "wording": {
-    2032: '请求视频失败，请检查网络',
-    2048: '请求m3u8文件失败，可能是网络错误或者跨域问题'
+    2032: "请求视频失败，请检查网络",
+    2048: "请求m3u8文件失败，可能是网络错误或者跨域问题"
 }
 });
 ```
