@@ -1,12 +1,13 @@
 ## 功能描述
-使用API读取Bucket的ACL表，只有所有者有权操作。
+
+Get Object ACL接口实现使用API读取Object的ACL表，只有所有者有权操作。
 
 ## 请求
 
 ### 请求语法
 
 ```http
-GET /?acl Http/1.1
+GET /ObjectName?acl Http/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
 Authorization: Auth
@@ -23,6 +24,7 @@ Authorization: Auth
 | 参数名称          | 描述   | 类型     | 必选   |
 | ------------- | ---- | ------ | ---- |
 | Authorization | 签名串  | String | 是    |
+
 
 ### 请求内容
 

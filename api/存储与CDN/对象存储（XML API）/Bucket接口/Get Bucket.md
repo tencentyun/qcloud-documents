@@ -9,8 +9,8 @@ Get Bucket请求等同于 List Object请求，可以列出该Bucekt下部分或�
 ```Http
 GET / HTTP/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
-Date: *date*
-Authorization: authorization string
+Date: date
+Authorization: auth
 ```
 
 ### 请求参数

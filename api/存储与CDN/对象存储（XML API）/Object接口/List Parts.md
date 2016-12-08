@@ -1,5 +1,5 @@
 ## 功能描述
-List Parts用来查询特定分块上传中的已上传块。
+List Parts用来查询特定分块上传中的已上传的块。
 
 ## 请求
 
@@ -8,8 +8,8 @@ List Parts用来查询特定分块上传中的已上传块。
 ```Http
 GET /ObjectName?uploadId=UploadId HTTP/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
-Date: *date*
-Authorization: authorization string
+Date: date
+Authorization: auth
 ```
 
 ### 请求参数
