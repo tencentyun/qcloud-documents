@@ -15,4 +15,4 @@
 | 文件操作 |   更新文件属性   | POST |  [更新文件属性API说明](/doc/api/435/6072)   |
 | 文件操作 |   删除文件    | POST |   [删除文件API说明](//doc/api/435/6073)    |
 | 文件操作 |   移动文件    | POST |   [移动文件API说明](///doc/api/435/6730)    |
-历史版本API，请点击查看[历史版本文档](www.qcloud.com/document/product/430)
+历史版本API，请点击查看[历史版本文档](/document/product/430/6012)
