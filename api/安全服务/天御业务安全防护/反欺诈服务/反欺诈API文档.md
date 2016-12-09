@@ -26,7 +26,7 @@
 <br> 注意0086前不需要+号
 </td></tr>
 <tr>
-<td> bankCardNum
+<td> bankCardNumber
 </td><td> String
 </td><td> 银行卡号
 </td></tr>
