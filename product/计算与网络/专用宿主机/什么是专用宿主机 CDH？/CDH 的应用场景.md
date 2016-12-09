@@ -16,5 +16,5 @@
 
 支持指定围笼购买产品，同时结合其他产品打造单租户独享区域，宿主机、网络、内存、磁盘均单租户专用。
 
-![fin](http://mc.qcloudimg.com/static/img/b8ae6b5de3e35202f1fc3d63895d1f97/image.png
+![fin](http://mc.qcloudimg.com/static/img/b8ae6b5de3e35202f1fc3d63895d1f97/image.png)
 

@@ -17,11 +17,11 @@
 
 ## 服务端SDK
 推荐您使用[腾讯云服务端SDK](https://www.qcloud.com/doc/sdk)，目前提供了如下几种语言的版本：
-- [PHP](https://www.qcloud.com/doc/sdk/217/PHP)
-- [Python](https://www.qcloud.com/doc/sdk/217/Python)
-- [Java](https://www.qcloud.com/doc/sdk/217/Java)
-- [.Net](https://www.qcloud.com/doc/sdk/217/.NET)
-- [Node.js](https://www.qcloud.com/doc/sdk/217/Node.js)
+- PHP
+- Python
+- Java
+- .Net
+- Node.js
 
 这些SDK的目的只有一个：帮您以最简单的方式连上腾讯云服务器，而且确保中间链路安全可靠不被攻击。
 

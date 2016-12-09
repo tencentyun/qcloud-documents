@@ -8,7 +8,7 @@ https://oss.sonatype.org/content/repositories/releases/org/mongodb/mongo-java-dr
 请选择3.2以上版本下载
 
 ## 快速开始
-### Java示例代码
+### 原生Java示例代码
 ```
 package mongodbdemo;
 
@@ -61,4 +61,22 @@ insert document: Document{{key=value, username=jack, age=31, _id=56a6ebb565b33b7
 find document: Document{{_id=56a3189565b33b2e7ca150ba, key=value, username=jack, age=31}}
 Jan 26, 2016 11:44:53 AM com.mongodb.diagnostics.logging.JULLogger log
 INFO: Closed connection [connectionId{localValue:2, serverValue:67621}] to 10.66.122.28:27017 because the pool has been closed.
+```
+
+### Spring Data MongoDB 配置示例
+本示例主要是为了体现出[认证库admin](https://www.qcloud.com/document/product/240/3563#.E8.AE.A4.E8.AF.81.E6.95.B0.E6.8D.AE.E5.BA.93)的配置方法，具体还请参考您使用的Spring和Spring Data MongoDB的版本而定。
+```
+<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+</bean>
+<bean id="mongoDbFactory" class="org.springframework.data.mongodb.core.SimpleMongoDbFactory">
+    <constructor-arg name="mongo" ref="mongo" />
+    <constructor-arg name="databaseName" value="您的目标库" />
+    <constructor-arg name="credentials" ref="userCredentials" />
+    <constructor-arg name="authenticationDatabaseName" value="admin" />
+</bean>
+<bean id="userCredentials" class="org.springframework.data.authentication.UserCredentials">
+    <constructor-arg name="username" value="用户名" />
+    <constructor-arg name="password" value="密码" />
+</bean>
 ```

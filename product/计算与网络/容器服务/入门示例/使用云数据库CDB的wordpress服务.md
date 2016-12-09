@@ -1,4 +1,5 @@
 ## 使用云数据库CDB的wordpress服务
+
 ### 说明
 在单实例版wordpress示例中您学会了如何快速安装WordPress。 
 其中数据是写到同一个容器中运行的mysql数据库中，虽然这样的配置可以快速且容易启动，但它也有一个问题，如果容器因任何原因停止，数据库和WordPress文件丢失。
@@ -22,4 +23,4 @@ WORDPRESS_DB_HOST  =  云数据库MYsql的地址
 WORDPRESS_DB_PASSWORD  = 初始化时填写的密码
 
 #### 创建完成，访问测试
-![Alt text](https://mc.qcloudimg.com/static/img/7bc02b10d802999c755f187351e64d63/%7B9A1566DD-C111-4AAB-96CA-88AF7768661E%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/c0132b35996db099c02af7f2cf747137/Image+023.png)

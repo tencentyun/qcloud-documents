@@ -1,6 +1,6 @@
 配置指南：
 1. 需要配置符合PFS规范的加密套餐，目前推荐配置：
-`ECDHE-RSA-AES128-GCM-SHA256:ECDH:AES:HIGH:!aNULL:!MD5:!ADH:!DH`
+`ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4`
 2. 需要在服务端TLS协议中启用TLS1.2，目前推荐配置：
 `TLSv1 TLSv1.1 TLSv1.2`
 
@@ -9,7 +9,7 @@
 更新Nginx根目录下 conf/nginx.conf 文件如下：
 ```
 server {
-	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDH:AES:HIGH:!aNULL:!MD5:!ADH:!DH;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
 	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 }
 ```
@@ -21,7 +21,7 @@ server {
 <IfModule mod_ssl.c>
         <VirtualHost *:443>
 		SSLProtocol TLSv1 TLSv1.1 TLSv1.2
-		SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDH:AES:HIGH:!aNULL:!MD5:!ADH:!DH
+		SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4
 		</VirtualHost>
 </IfModule>
 ```
@@ -32,7 +32,7 @@ server {
 <Connector port="443" protocol="HTTP/1.1" SSLEnabled="true"
     scheme="https" secure="true"
     SSLProtocol="TLSv1+TLSv1.1+TLSv1.2"
-    SSLCipherSuite="ECDHE-RSA-AES128-GCM-SHA256:ECDH:AES:HIGH:!aNULL:!MD5:!ADH:!DH" />
+    SSLCipherSuite="ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4" />
 ```
 
 ### 4.IIS 证书配置
