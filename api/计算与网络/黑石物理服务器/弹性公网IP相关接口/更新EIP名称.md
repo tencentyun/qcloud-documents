@@ -10,8 +10,8 @@
  
 |参数名称|必选|类型|描述|
 |-------|----|---|----|----|
-| eipId|否|String|EIP实例ID，可以通过[DescribeEipBm](/doc/api/456/6671)接口查询|
-| eipName|否|String|待设定的EIP名称，仅可以使用英文、汉字、数字、连接线"-"或下划线"_"|
+| eipId|是|String|EIP实例ID，可以通过[DescribeEipBm](/doc/api/456/6671)接口查询|
+| eipName|是|String|待设定的EIP名称，仅可以使用英文、汉字、数字、连接线"-"或下划线"_"|
 
 
 ## 3. 输出参数
