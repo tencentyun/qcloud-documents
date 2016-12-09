@@ -1,5 +1,5 @@
 ## 功能描述
-Delete Bucket请求可以在指定账号下删除Bucket，删除账号之前要求Bucket为空。
+Delete Bucket请求可以在指定账号下删除Bucket，删除之前要求Bucket为空。
 
 ## 请求
 
