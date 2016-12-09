@@ -11,7 +11,7 @@
 |-------|----|---|----|----|
 | eipIds.n|否|Array|EIP实例ID列表，可以通过[DescribeEipBm](/doc/api/456/6671)接口查询，数组下标从0开始|
 | payMode|是|String|EIP计费方式：flow-流量计费；bandwidth-带宽计费|
-| bandwidth|否|Int|带宽上限（该字段只在带宽计费模式下生效），单位MB，最小为0
+| bandwidth|否|Int|带宽上限（该字段只在带宽计费模式下生效），单位MB，默认值为1，最小为0
 
 
 ## 3. 输出参数
