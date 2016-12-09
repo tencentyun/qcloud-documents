@@ -49,7 +49,7 @@ Authorization: auth
 | NextKeyMarker                     | 假如返回条目被截断，则返回NextKeyMarker就是下一个条目的起点<br/>父节点：ListMultipartUploadsResult | String    |
 | NextUploadIdMarker                | 假如返回条目被截断，则返回UploadId就是下一个条目的起点<br/>父节点：ListMultipartUploadsResult | String    |
 | MaxUploads                        | 单次返回最大的条目数量<br/>父节点：ListMultipartUploadsResult | String    |
-| IsTruncated                       | 返回条目是否被截断，布尔值：True \| False<br/>父节点：ListMultipartUploadsResult | Boolen    |
+| IsTruncated                       | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListMultipartUploadsResult | Boolen    |
 | Upload                            | 每个Upload的信息<br/>父节点：ListMultipartUploadsResult | Container |
 | Key                               | Object的名称<br/>父节点：Upload                 | Integer   |
 | UploadID                          | 标示本次分块上传的ID<br/>父节点：Upload               | Integer   |
