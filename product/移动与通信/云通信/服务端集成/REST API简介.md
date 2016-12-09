@@ -141,3 +141,14 @@ Postman是一款功能强大的网页调试与发送网页HTTP请求的Chrome插
 ### 6.1 PHP Server SDK 
 
 [PHP Server SDK](/doc/product/269/PHP%20Server%20SDK)将一些常用的REST API封装成了函数，并以接口类的方式暴露给开发者。 
+
+## 7 FAQ 
+
+### 7.1 REST请求有概率超时，收不到任何响应 
+
+（1）IM后台REST接口设置的超时时间是3s，调用方设置的超时时间应该长于3s。
+（2）ping yun.tim.qq.com 确认网络是否可达。
+（3）telnet yun.tim.qq.com 443 确认能否连接服务端口。
+（4）使用curl -G https://yun.tim.qq.com 简单测试确认能够收到响应。
+（5）确认机器的dns server配置是内网dns server，还是公共dns server。如果是内网dns server，请确保dns server网络出口和本机器网络出口ip所在地域运营商一致。
+（6）建议业务调用方使用“长连接+连接池”模式。 
