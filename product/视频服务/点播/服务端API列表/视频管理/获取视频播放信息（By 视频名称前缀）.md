@@ -69,112 +69,112 @@ playSet 视频播放信息结果集
 ### 应答示例
 ```javascript
 {
-   "code": 0,
-   "message": "",
-   "totalCount": "105",
-   "fileSet": [
-       {
-           "fileId": "11624759161874546966",
-           "fileName": "13425173277_2015-09-06-18-56-11_2015-09-06-19-06-11",
-           "duration": 600,
-           "status": "2",
-           "image_url": "http://p.qpic.cn/videoyun/0/1203_7626dd7d1c3e48eea1230026126caf7d_1/640",
-           "playSet": [
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f0.mp4",
-                   "definition": 0,
-                   "vbitrate": 250000,
-                   "vheight": 480,
-                   "vwidth": 640
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f10.mp4",
-                   "definition": 10,
-                   "vbitrate": 149128,
-                   "vheight": 240,
-                   "vwidth": 320
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f20.mp4",
-                   "definition": 20,
-                   "vbitrate": 299837,
-                   "vheight": 480,
-                   "vwidth": 640
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f220.av.m3u8",
-                   "definition": 220,
-                   "vbitrate": 524288,
-                   "vheight": 480,
-                   "vwidth": 640
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f30.mp4",
-                   "definition": 30,
-                   "vbitrate": 865828,
-                   "vheight": 960,
-                   "vwidth": 1280
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f40.mp4",
-                   "definition": 40,
-                   "vbitrate": 1709293,
-                   "vheight": 1440,
-                   "vwidth": 1920
-               }
-           ]
-       },
-       {
-           "fileId": "11624759161874546967",
-           "fileName": "13425173277_2015-09-06-19-06-11_2015-09-06-19-16-11",
-           "duration": 599,
-           "status": "2",
-           "image_url": "http://p.qpic.cn/videoyun/0/1203_8a5015084d4f47cd9a0bc5ecfe78aecb_1/640",
-           "playSet": [
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f0.mp4",
-                   "definition": 0,
-                   "vbitrate": 246000,
-                   "vheight": 480,
-                   "vwidth": 640
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f10.mp4",
-                   "definition": 10,
-                   "vbitrate": 149193,
-                   "vheight": 240,
-                   "vwidth": 320
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f20.mp4",
-                   "definition": 20,
-                   "vbitrate": 297656,
-                   "vheight": 480,
-                   "vwidth": 640
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f220.av.m3u8",
-                   "definition": 220,
-                   "vbitrate": 524288,
-                   "vheight": 480,
-                   "vwidth": 640
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f30.mp4",
-                   "definition": 30,
-                   "vbitrate": 899976,
-                   "vheight": 960,
-                   "vwidth": 1280
-               },
-               {
-                   "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f40.mp4",
-                   "definition": 40,
-                   "vbitrate": 1746652,
-                   "vheight": 1440,
-                   "vwidth": 1920
-               }
-           ]
-       }
-  ]
+    "code": 0,
+    "message": "",
+    "totalCount": "105",
+    "fileSet": [
+        {
+            "fileId": "11624759161874546966",
+            "fileName": "13425173277_2015-09-06-18-56-11_2015-09-06-19-06-11",
+            "duration": 600,
+            "status": "2",
+            "image_url": "http://p.qpic.cn/videoyun/0/1203_7626dd7d1c3e48eea1230026126caf7d_1/640",
+            "playSet": [
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f0.mp4",
+                    "definition": 0,
+                    "vbitrate": 250000,
+                    "vheight": 480,
+                    "vwidth": 640
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f10.mp4",
+                    "definition": 10,
+                    "vbitrate": 149128,
+                    "vheight": 240,
+                    "vwidth": 320
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f20.mp4",
+                    "definition": 20,
+                    "vbitrate": 299837,
+                    "vheight": 480,
+                    "vwidth": 640
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f220.av.m3u8",
+                    "definition": 220,
+                    "vbitrate": 524288,
+                    "vheight": 480,
+                    "vwidth": 640
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f30.mp4",
+                    "definition": 30,
+                    "vbitrate": 865828,
+                    "vheight": 960,
+                    "vwidth": 1280
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f40.mp4",
+                    "definition": 40,
+                    "vbitrate": 1709293,
+                    "vheight": 1440,
+                    "vwidth": 1920
+                }
+            ]
+        },
+        {
+            "fileId": "11624759161874546967",
+            "fileName": "13425173277_2015-09-06-19-06-11_2015-09-06-19-16-11",
+            "duration": 599,
+            "status": "2",
+            "image_url": "http://p.qpic.cn/videoyun/0/1203_8a5015084d4f47cd9a0bc5ecfe78aecb_1/640",
+            "playSet": [
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f0.mp4",
+                    "definition": 0,
+                    "vbitrate": 246000,
+                    "vheight": 480,
+                    "vwidth": 640
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f10.mp4",
+                    "definition": 10,
+                    "vbitrate": 149193,
+                    "vheight": 240,
+                    "vwidth": 320
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f20.mp4",
+                    "definition": 20,
+                    "vbitrate": 297656,
+                    "vheight": 480,
+                    "vwidth": 640
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f220.av.m3u8",
+                    "definition": 220,
+                    "vbitrate": 524288,
+                    "vheight": 480,
+                    "vwidth": 640
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f30.mp4",
+                    "definition": 30,
+                    "vbitrate": 899976,
+                    "vheight": 960,
+                    "vwidth": 1280
+                },
+                {
+                    "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f40.mp4",
+                    "definition": 40,
+                    "vbitrate": 1746652,
+                    "vheight": 1440,
+                    "vwidth": 1920
+                }
+            ]
+        }
+    ]
 }
 ```

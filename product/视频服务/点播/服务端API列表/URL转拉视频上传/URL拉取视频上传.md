@@ -72,7 +72,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ActionName
 | yyy | 说明说明说明说明 |
 
 ### 应答示例
-```
+```javascript
 {
     "code": 0,
     "message": ""

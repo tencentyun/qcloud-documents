@@ -24,16 +24,16 @@ APP后台接收该事件通知的方法参见服务端事件通知简介。
 
 ```javascript
 {
-    "version" : 4,
+    "version": 4,
     "event_type": "pull-complete",
-    "data" : {
-        "status" : 0,
-        "message" : "",
-        "vod_task_id" : "pull-f5ac8127b3b6b85cdc13f237c6005d8",
+    "data": {
+        "status": 0,
+        "message": "",
+        "vod_task_id": "pull-f5ac8127b3b6b85cdc13f237c6005d8",
         "file_url": "http://251000330.vod2.myqcloud.com/vod251000330/14508071098244959037/f0.flv",
         "file_id": "14508071098244959037",
-        "transcode_task_id" : "transcode-0bee89b07a248e27c83fc3d5951213c1",
-        "porncheck_task_id" : "porncheck-f5ac8127b3b6b85cdc13f237c6005d80"
+        "transcode_task_id": "transcode-0bee89b07a248e27c83fc3d5951213c1",
+        "porncheck_task_id": "porncheck-f5ac8127b3b6b85cdc13f237c6005d80"
     }
 }
 ```

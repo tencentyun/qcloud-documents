@@ -75,25 +75,25 @@ fileSet 视频列表结果集
 ### 应答示例
 ```javascript
 {
-    "code" : 0,
-    "message" : "",
-    "fileSet" : [
+    "code": 0,
+    "message": "",
+    "fileSet": [
         {
-            "fileId" : "1976554120332374777",
-            "fileName" : "蓝色茉莉(01h35m56s-01h38m23s)",
-            "fileIntro" : "",
-            "size" : "7865592",
-            "duration" : "147",
-            "status" : "2",
-            "vid" : "1200_1870483a9a6011e4a137dfa495b17abf",
-            "createTime" : "2015-01-12 21:37:11",
-            "updateTime" : "2015-01-13 11:23:01",
-            "classId" : "0",
-            "className" : "其他",
-            "imageUrl" : "http://p.qpic.cn/videoyun/0/1200_1870483a9a6011e4a137dfa495b17abf_1/640",
-            "tags" : [
-                "其他",
-            ],
+            "fileId": "1976554120332374777",
+            "fileName": "蓝色茉莉(01h35m56s-01h38m23s)",
+            "fileIntro": "",
+            "size": "7865592",
+            "duration": "147",
+            "status": "2",
+            "vid": "1200_1870483a9a6011e4a137dfa495b17abf",
+            "createTime": "2015-01-12 21:37:11",
+            "updateTime": "2015-01-13 11:23:01",
+            "classId": "0",
+            "className": "其他",
+            "imageUrl": "http://p.qpic.cn/videoyun/0/1200_1870483a9a6011e4a137dfa495b17abf_1/640",
+            "tags": [
+                "其他"
+            ]
         }
     ]
 }
