@@ -28,7 +28,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeVodPlayUrls
 ### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
-| code | Int | 错误码, 0: 成功, 其他值: 失败 |
+| code | Integer | 错误码, 0: 成功, 其他值: 失败 |
 | message | String | 错误信息 |
 | playSet | Array | 该视频的播放信息结果集 |
 
@@ -37,10 +37,10 @@ playSet 该视频的播放信息结果集
 | **参数名称** | **类型** | **描述** |
 |---------|---------|---------|
 | url | String | 播放地址 |
-| definition | Int | 格式， 0: ["", "原始"], 1: ["带水印", "原始"], 10: ["手机", "mp4"], 20: ["标清", "mp4"], 30: ["高清", "mp4"], 110: ["手机", "flv"], 120: ["标清", "flv"], 130: ["高清", "flv"],210: ["手机", "hls"], 220: ["标清", "hls"], 230: ["高清", "hls"],240: ["超高清", "hls"] |
-| vbitrate | Int | 码率，单位：kbps |
-| vheight | Int | 高度，单位：px |
-| vwidth | Int | 宽度，单位：px |
+| definition | Integer | 格式， 0: ["", "原始"], 1: ["带水印", "原始"], 10: ["手机", "mp4"], 20: ["标清", "mp4"], 30: ["高清", "mp4"], 110: ["手机", "flv"], 120: ["标清", "flv"], 130: ["高清", "flv"],210: ["手机", "hls"], 220: ["标清", "hls"], 230: ["高清", "hls"],240: ["超高清", "hls"] |
+| vbitrate | Integer | 码率，单位：kbps |
+| vheight | Integer | 高度，单位：px |
+| vwidth | Integer | 宽度，单位：px |
 
 ### 错误码说明
 | 错误码 | 含义说明|

@@ -1,86 +1,60 @@
-## 功能名称
-转拉完成回调
+## 事件说明
+如果APP配置了事件通知，则在URL转拉任务完成之后，点播后台会将该事件通知给APP后台。
 
-## 功能说明
-1. 转拉任务完成后，通知用户。
+APP后台接收该事件通知的方法参见服务端事件通知简介。
 
-## 注意事项
-1. 要启用回调，必须配置回调URL，并打开本条回调协议对应的开关；
-2. 回调的方向是：腾讯云后台向APP后台发起HTTP POST请求。
-
-## 可能触发该回调的场景
-1. 转拉任务完成后。
-
-## 回调发生时机
-1. 转拉任务完成后。
-
-## 接口说明
-
-### 请求参数
+### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
-| status | String | 错误码, 0: 成功, 其他值: 失败 |
-| message | Int | 错误信息  |
-| file_id | String | 转拉生成的文件的id |
-| file_url | String | 转拉生成的文件的url  |
-| file_type | String | 转拉生成的文件的类型 |
-| vodtask_id | String | 发起转拉请求后获取到的唯一id |
-| imgUrl | Struct | 图片信息  |
-| videoUrls | Struct | 视频信息 |
-| player_code | Struct | 播放器代码 |
+| version | Integer | 回调版本号，固定为4 |
+| event_type | String | 回调类型，固定为"pull-complete" |
+| data | Object | 具体回调数据 |
+| data.status | Integer | 错误码，0: 成功；其他值: 失败 |
+| data.message | String | 错误信息  |
+| data.file_url | String | 视频上传完成之后的URL  |
+| data.file_id | String | 发起拼接请求后获取到的唯一id |
+| data.transcode_task_id | String | 如果该视频上传之后发起了转码，则该参数为转码任务id |
+| data.porncheck_task_id | String | 如果该视频上传之后发起了鉴黄，则该参数为鉴黄任务id |
 
-### HTTP请求方式
-POST
-### HTTP请求包体格式
-JSON
-### 回调请求包示例
-```
+
+## 示例
+对于HTTP回调，以下内容为HTTP Post Body；对于基于消息队列的可靠通知，以下内容为PullVodEvent接口返回包体中eventList数组的元素。
+
+### 示例：URL转拉成功
+
+```javascript
 {
-    "image_video": {
-        "code": 0,
-        "duration": 10,
-        "vid": "231414",
-        "message": "success",
-        "imgUrl": {
-            "id": 3213,
-            "url": "www.qcloud.com/templurl.png",
-            "vheight": 21,
-            "width": 32
-        },
-        "videoUrls": [
-            {
-                "url": "www.qcloucd.com/temp_video.mp4",
-                "md5": "fdasfdsafsadf",
-                "sha": "dasfdsfas",
-                "size": 123,
-                "update_time": "2015084912: 0: 0",
-                "vbirate": 231,
-                "vheight": 480,
-                "vwidth": 800
-            }
-        ],
-        "file_id": "12312314124",
-        "ret": 0,
-        "player_code": {
-            "h5": "",
-            "flash": "",
-            "iframe": ""
-        }
+    "version" : 4,
+    "event_type": "pull-complete",
+    "data" : {
+        "status" : 0,
+        "message" : "",
+        "vod_task_id" : "pull-f5ac8127b3b6b85cdc13f237c6005d8",
+        "file_url": "http://251000330.vod2.myqcloud.com/vod251000330/14508071098244959037/f0.flv",
+        "file_id": "14508071098244959037",
+        "transcode_task_id" : "transcode-0bee89b07a248e27c83fc3d5951213c1",
+        "porncheck_task_id" : "porncheck-f5ac8127b3b6b85cdc13f237c6005d80"
     }
 }
 ```
-### 回调请求包字段说明
-| 参数名称 | 类型 | 说明 |
-|---------|---------|---------|
-| status | Int | 错误码, 0: 成功, 其他值: 失败 |
-| message | String | 错误信息  |
-### 回调应答包示例
-```
+
+### 示例：URL转拉失败
+
+TODO：完善真正的错误码和错误信息 by fishlyliu
+
+```javascript
 {
-    "code": 0,
-	"message": "success"
+    "version" : 4,
+    "event": "pull-complete",
+    "data" : {
+        "status" : 1,
+        "message" : "???",
+        "vod_task_id" : "pull-f5ac8127b3b6b85cdc13f237c6005d8"
+    }
 }
 ```
 
-
-
+### 错误码说明
+| 错误码 | 含义说明|
+|---------|---------|
+| TODO | TODO  |

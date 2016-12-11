@@ -33,7 +33,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=SimpleConcatHls
 ### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
-| code | Int | 错误码, 0: 成功, 其他值: 失败 |
+| code | Integer | 错误码, 0: 成功, 其他值: 失败 |
 | message | String | 错误信息 |
 | fileId | String | 拼接出的文件id |
 

@@ -16,8 +16,8 @@ vod.api.qcloud.com
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
 | fileName | 是 | String | 视频名称（前缀匹配） |
-| pageNo | 否 | int | 页号 |
-| pageSize | 否 | int | 分页大小 |
+| pageNo | 否 | Integer | 页号 |
+| pageSize | 否 | Integer | 分页大小 |
 
 ### 请求示例
 ```
@@ -30,9 +30,9 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeVodPlayInfo
 ### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
-| code | Int | 错误码, 0: 成功, 其他值: 失败 |
+| code | Integer | 错误码, 0: 成功, 其他值: 失败 |
 | message | String | 错误信息 |
-| totalCount | Int | 视频总数 |
+| totalCount | Integer | 视频总数 |
 | fileSet | Array | 视频列表结果集 |
 
 fileSet 视频列表结果集
@@ -51,10 +51,10 @@ playSet 视频播放信息结果集
 | **参数名称** | **类型** | **描述** |
 |---------|---------|---------|---------|
 | url | String | 播放地址 |
-| definition | Int | 格式， 0: ["", "原始"], 1: ["带水印", "原始"], 10: ["手机", "mp4"], 20: ["标清", "mp4"], 30: ["高清", "mp4"], 110: ["手机", "flv"], 120: ["标清", "flv"], 130: ["高清", "flv"] |
-| vbitrate | Int | 码率，单位：kbps |
-| vheight | Int | 高度，单位：px |
-| vwidth | Int | 宽度，单位：px |
+| definition | Integer | 格式， 0: ["", "原始"], 1: ["带水印", "原始"], 10: ["手机", "mp4"], 20: ["标清", "mp4"], 30: ["高清", "mp4"], 110: ["手机", "flv"], 120: ["标清", "flv"], 130: ["高清", "flv"] |
+| vbitrate | Integer | 码率，单位：kbps |
+| vheight | Integer | 高度，单位：px |
+| vwidth | Integer | 宽度，单位：px |
 
 ### 错误码说明
 | 错误码 | 含义说明|
