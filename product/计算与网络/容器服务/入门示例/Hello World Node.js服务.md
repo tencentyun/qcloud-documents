@@ -1,4 +1,6 @@
 ## Hello World Node.js服务
+### 说明
+本文旨在帮助大家了解如何快速创建一个容器集群内的hello world的Node.js版的服务，更多关于如何构建docker镜像的教程可参考[构建docker镜像](https://www.qcloud.com/document/product/457/7208)
 
 ### 编写应用程序
 1.创建一个hellonode的文件夹，加入server.js文件
@@ -35,7 +37,7 @@ Hello World!
 到这里helloworld应用程序编写完成
 
 ### 创建Docker镜像
-制作docker镜像更多详情见：[构建doker镜像教程](待补充)
+制作docker镜像更多详情见：[构建doker镜像教程](https://www.qcloud.com/document/product/457/7208)
 在hellonode文件夹下，创建Dockerfile文件:
 ```shell
 FROM node:4.4
@@ -64,7 +66,7 @@ hello-node                                     v1                  027232e62e3f 
 ```
 
 ### 上传该镜像到qcloud 镜像仓库
-更多镜像操作详情见：[镜像仓库基本教程](待补充)
+更多镜像操作详情见：[镜像仓库基本教程](https://www.qcloud.com/document/product/457/6781)
 ```shell
 [root@VM_3_224_centos hellonode]# sudo docker tag 027232e62e3f ccr.ccs.tencentyun.com/test/helloworld:v1
 [root@VM_3_224_centos hellonode]# sudo docker push ccr.ccs.tencentyun.com/test/helloworld:v1

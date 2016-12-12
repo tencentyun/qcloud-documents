@@ -1,5 +1,5 @@
 ## 1、Sdk目录结构说明
-WnsSDK:包含WnsSDK.framework
+WnsSDK:包含WnsSDK4Cloud.framework
 WnsSDKDemo:示例工程,演示了如何使用WnsSDK
 Doc:
 &#160;&#160;&#160;&#160;WnsSDK使用说明:本文档
@@ -48,8 +48,8 @@ WnsSDK在初始化后, 会和Wns后台建立并保持一个长连接, 后续的�
 
 ### 3.3、数据收发
 初始化完Sdk后, 应用即可通过Sdk来发送数据. 根据发送的数据的类型的不同, 我们提供了两组接口: 发送二进制数据和发送http数据，开发商可以根据后端的协议类型(protobuf类的二进制数据 或 http协议)选择不同的接口。
-#### 3.3.1、Http数据收发
-对于发送HTTP数据, 我们提供了两种接口方式，分别如下
+#### 3.3.1、Http(s)数据收发
+对于发送HTTP(s)数据, 我们提供了两种接口方式，分别如下
 **1、兼容系统接口方案：**
 基于iOS系统的URL Loading System实现的, 只需引入WnsURLProtocol.h, 然后绑定sdk实例并向系统注册，代码如下
 
@@ -82,7 +82,7 @@ if (request.HTTPBody)
 **[注意]此模式下，sdk会自动将url设置为cmd，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[控制台说明](http://www.qcloud.com/doc/product/276/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AF%B4%E6%98%8E)**
 
 ** 2、Wns Sdk接口方案**
-调用接口sendHTTPRequest来收发Http数据。
+调用接口sendHTTPRequest来收发Http(s)数据。
 
 开发商终端需要修改老的接口，替换为Wns的收发接口(该接口不支持http的301, 302跳转)
 

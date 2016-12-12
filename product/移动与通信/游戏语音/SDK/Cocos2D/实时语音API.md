@@ -1,5 +1,5 @@
 ## 1 概述
-使用实时语音，需要先调用[基本API](http://www.baidu.com)。
+使用实时语音，需要先调用[基本API](https://www.qcloud.com/document/product/556/7665)。
 
 ## 2 实时语音API调用流程
  

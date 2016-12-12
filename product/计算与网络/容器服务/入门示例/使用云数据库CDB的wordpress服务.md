@@ -23,4 +23,4 @@ WORDPRESS_DB_HOST  =  云数据库MYsql的地址
 WORDPRESS_DB_PASSWORD  = 初始化时填写的密码
 
 #### 创建完成，访问测试
-![Alt text](https://mc.qcloudimg.com/static/img/7bc02b10d802999c755f187351e64d63/%7B9A1566DD-C111-4AAB-96CA-88AF7768661E%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/c0132b35996db099c02af7f2cf747137/Image+023.png)
