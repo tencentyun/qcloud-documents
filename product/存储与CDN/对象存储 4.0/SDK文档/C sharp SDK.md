@@ -7,7 +7,7 @@
 ### 开发准备
 
 1. sdk依赖C# 4.0版本及以上， 推荐使用相同的版本。
-2. 从控制台获取APP ID、SecretID、SecretKey，详情参考权限控制。
+2. 从控制台获取APP ID、SecretID、SecretKey。
 3. 修改园区，CosCloud.cs文件内的URL定义，例如上海：http://sh.file.myqcloud.com/files/v2/，天津：http://tj.file.myqcloud.com/files/v2/。
 
 
@@ -34,9 +34,9 @@ public static string Signature(int appId, string secretId, string secretKey, lon
 | ---------- | ------ | ------ | ---------------------------------------- |
 | appId      | int    | 是      | AppId                                    |
 | secretId   | string | 是      | Secret Id                                |
-| secretKey  | string | 是      | Secret Key，以上三项从[控制台](/document/product/430/5904)获取。 |
+| secretKey  | string | 是      | Secret Key，以上三项从[控制台](/document/product/436/6238)获取。 |
 | expired    | long   | 是      | 过期时间，Unix时间戳                             |
-| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/430/5887) |
+| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/436/6245) |
 
 #### 示例
 
@@ -58,8 +58,8 @@ public static string SignatureOnce(int appId, string secretId, string secretKey,
 | ---------- | ------ | ------ | ---------------------------------------- |
 | appId      | int    | 是      | AppId                                    |
 | secretId   | string | 是      | Secret Id                                |
-| secretKey  | string | 是      | Secret Key，以上三项从[控制台](/document/product/430/5904)获取。 |
-| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/430/5887) |
+| secretKey  | string | 是      | Secret Key，以上三项从[控制台](/document/product/436/6238)获取。 |
+| bucketName | string | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/436/6245) |
 | remotePath | string | 是      | 文件唯一的标识，格式/appid/bucketname/filepath/filename，其中/filepath/filename为文件在此bucketname下的全路径， |
 
 #### 示例
@@ -68,7 +68,7 @@ public static string SignatureOnce(int appId, string secretId, string secretKey,
 var sign = Sign.SignatureOnce(appId, secretId, secretKey,remotePath, bucketName); 
 ```
 
-更多签名详细说明，请参考[权限控制](/document/product/430/5891) 。
+更多签名详细说明，请参考[权限控制](/document/product/436/6247) 。
 
 ## 目录操作
 
