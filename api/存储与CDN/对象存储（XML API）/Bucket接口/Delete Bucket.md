@@ -1,5 +1,5 @@
 ## 功能描述
-Delete Bucket请求可以在指定账号下删除Bucket
+Delete Bucket请求可以在指定账号下删除Bucket，删除之前要求Bucket为空。
 
 ## 请求
 
@@ -8,7 +8,7 @@ Delete Bucket请求可以在指定账号下删除Bucket
 ```Http
 DELETE / HTTP/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
-Date: *date*
+Date: date
 Authorization: authorization string
 ```
 
@@ -28,7 +28,7 @@ Authorization: authorization string
 
 ### 返回头部
 
-无返回头部
+无特殊返回头部，其他头部请参见公共返回头部
 
 ### 返回内容
 

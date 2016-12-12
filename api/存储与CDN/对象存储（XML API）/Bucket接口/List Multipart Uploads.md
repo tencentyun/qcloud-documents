@@ -8,8 +8,8 @@ List Multiparts Uploads用来查询正在进行中的分块上传。单次最多
 ```Http
 GET /?uploads HTTP/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
-Date: *date*
-Authorization: authorization string
+Date: date
+Authorization: auth
 ```
 
 ### 请求参数
@@ -20,8 +20,8 @@ Authorization: authorization string
 | encoding-type    | 规定返回值的编码方式                               | String | 否    |
 | Prefix           | 前缀匹配，用来规定返回的文件前缀地址                       | String | 否    |
 | max-uploads      | 单次返回最大的条目数量，默认1000                       | String | 否    |
-| key-marker       | 与upload-id-marker一起使用</Br>当upload-id-marker未被指定时，ObjectName字母顺序大于key-marker的条目将被列出</Br>当upload-id-marker被指定时，ObjectName字母顺序大于key-marker的条目被列出，ObjectName字母顺序等于key-marker同时UploadID大于upload-id-marker的条目将被列出。 | String | 否    |
-| upload-id-marker | 与key-marker一起使用</Br>当key-marker未被指定时，upload-id-marker将被忽略</Br>当key-marker被指定时，ObjectName字母顺序大于key-marker的条目被列出，ObjectName字母顺序等于key-marker同时UploadID大于upload-id-marker的条目将被列出。 | String | 否    |
+| key-marker       | 与upload-id-marker一起使用<Br/>当upload-id-marker未被指定时，ObjectName字母顺序大于key-marker的条目将被列出<Br/>当upload-id-marker被指定时，ObjectName字母顺序大于key-marker的条目被列出，ObjectName字母顺序等于key-marker同时UploadID大于upload-id-marker的条目将被列出。 | String | 否    |
+| upload-id-marker | 与key-marker一起使用<Br/>当key-marker未被指定时，upload-id-marker将被忽略<Br/>当key-marker被指定时，ObjectName字母顺序大于key-marker的条目被列出，ObjectName字母顺序等于key-marker同时UploadID大于upload-id-marker的条目将被列出。 | String | 否    |
 
 ### 请求头部
 
@@ -35,7 +35,7 @@ Authorization: authorization string
 
 ### 返回头部
 
-无返回头部
+无特殊返回头部，其他头部请参见公共返回头部
 
 ### 返回内容
 
@@ -49,7 +49,7 @@ Authorization: authorization string
 | NextKeyMarker                     | 假如返回条目被截断，则返回NextKeyMarker就是下一个条目的起点<br/>父节点：ListMultipartUploadsResult | String    |
 | NextUploadIdMarker                | 假如返回条目被截断，则返回UploadId就是下一个条目的起点<br/>父节点：ListMultipartUploadsResult | String    |
 | MaxUploads                        | 单次返回最大的条目数量<br/>父节点：ListMultipartUploadsResult | String    |
-| IsTruncated                       | 返回条目是否被截断，布尔值：True \| False<br/>父节点：ListMultipartUploadsResult | Boolen    |
+| IsTruncated                       | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListMultipartUploadsResult | Boolen    |
 | Upload                            | 每个Upload的信息<br/>父节点：ListMultipartUploadsResult | Container |
 | Key                               | Object的名称<br/>父节点：Upload                 | Integer   |
 | UploadID                          | 标示本次分块上传的ID<br/>父节点：Upload               | Integer   |

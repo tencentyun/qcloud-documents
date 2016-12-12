@@ -1,6 +1,6 @@
 ## 功能描述
 
-Get Object 请求可以将一个文件（Object）下载至本地。该操作需要对目标 Object 具有读权限或目标 Object 对所有人都开放了读权限（公有读）。当目标Object不存在时，如Get Bucket有权限，返回404；无权限，返回403。
+Get Object 请求可以将一个文件（Object）下载至本地。该操作需要对目标 Object 具有读权限或目标 Object 对所有人都开放了读权限（公有读）。
 
 ## 请求
 
@@ -27,13 +27,10 @@ Range: bytes=byte_range
 
 #### 推荐使用头部
 
-| 名称                  | 描述                                       | 类型     | 必选   |
-| ------------------- | ---------------------------------------- | ------ | ---- |
-| Range               | RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位。     | String | 否    |
-| If-Modified-Since   | 如果文件修改时间晚于指定时间，才返回文件内容。否则返回 304 (not modified)。 | String | 否    |
-| If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed)。 | String | 否    |
-| If-Match            | 当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed)。 | String | 否    |
-| If-None-Match       | 当 ETag 与指定的内容不一致，才返回文件。否则返回304 (not modified)。 | String | 否    |
+| 名称                | 描述                                       | 类型     | 必选   |
+| ----------------- | ---------------------------------------- | ------ | ---- |
+| Range             | RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位。     | String | 否    |
+| If-Modified-Since | 如果文件修改时间晚于指定时间，才返回文件内容。否则返回 304 (not modified)。 | String | 否    |
 
 ### 请求内容
 
@@ -51,4 +48,4 @@ Range: bytes=byte_range
 
 ### 返回内容
 
-无返回内容
+文件内容

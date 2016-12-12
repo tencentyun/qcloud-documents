@@ -62,6 +62,7 @@
 ### [直播被中断事件的处理](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/breakEvent.md)
 ### [在线人数](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/onlineMember.md)
 ### [功能定制](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/custom.md)
+### [日志说明](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/log.md)
 
 ##运营相关
 ###[微信支付证照要求](https://www.qcloud.com/document/product/268/6048)

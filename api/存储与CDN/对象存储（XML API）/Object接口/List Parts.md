@@ -1,5 +1,5 @@
 ## 功能描述
-List Parts用来查询特定分块上传中的已上传块。
+List Parts用来查询特定分块上传中的已上传的块。
 
 ## 请求
 
@@ -8,8 +8,8 @@ List Parts用来查询特定分块上传中的已上传块。
 ```Http
 GET /ObjectName?uploadId=UploadId HTTP/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
-Date: *date*
-Authorization: authorization string
+Date: date
+Authorization: auth
 ```
 
 ### 请求参数
@@ -50,7 +50,7 @@ Authorization: authorization string
 | PartNumberMarker     | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始<br/>父节点：ListPartsResult | String    |
 | NextPartNumberMarker | 假如返回条目被截断，则返回NextMarker就是下一个条目的起点<br/>父节点：ListPartsResult | String    |
 | MaxParts             | 单次返回最大的条目数量<br/>父节点：ListPartsResult      | String    |
-| IsTruncated          | 返回条目是否被截断，布尔值：True \| False<br/>父节点：ListPartsResult | Boolen    |
+| IsTruncated          | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListPartsResult | Boolen    |
 | Part                 | 用来表示每一个块的信息<br/>父节点：ListPartsResult      | Container |
 | PartNumber           | 块的编号<br/>父节点：Part                        | String    |
 | LastModified         | 块最后修改时间 <br/>父节点：Part                    | Date      |
