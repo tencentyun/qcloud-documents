@@ -78,7 +78,7 @@ playSet 视频播放信息结果集
             "fileName": "13425173277_2015-09-06-18-56-11_2015-09-06-19-06-11",
             "duration": 600,
             "status": "2",
-            "image_url": "http://p.qpic.cn/videoyun/0/1203_7626dd7d1c3e48eea1230026126caf7d_1/640",
+            "imageUrl": "http://p.qpic.cn/videoyun/0/1203_7626dd7d1c3e48eea1230026126caf7d_1/640",
             "playSet": [
                 {
                     "url": "http://vcloud1203.tc.qq.com/1203_7626dd7d1c3e48eea1230026126caf7d.f0.mp4",
@@ -129,7 +129,7 @@ playSet 视频播放信息结果集
             "fileName": "13425173277_2015-09-06-19-06-11_2015-09-06-19-16-11",
             "duration": 599,
             "status": "2",
-            "image_url": "http://p.qpic.cn/videoyun/0/1203_8a5015084d4f47cd9a0bc5ecfe78aecb_1/640",
+            "imageUrl": "http://p.qpic.cn/videoyun/0/1203_8a5015084d4f47cd9a0bc5ecfe78aecb_1/640",
             "playSet": [
                 {
                     "url": "http://vcloud1203.tc.qq.com/1203_8a5015084d4f47cd9a0bc5ecfe78aecb.f0.mp4",
