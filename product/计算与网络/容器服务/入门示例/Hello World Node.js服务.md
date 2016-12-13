@@ -2,6 +2,8 @@
 ### 说明
 本文旨在帮助大家了解如何快速创建一个容器集群内的hello world的Node.js版的服务，更多关于如何构建docker镜像的教程可参考[构建docker镜像](https://www.qcloud.com/document/product/457/7208)
 
+如何上传镜像到到腾讯云镜像仓库，可在我的镜像中查看使用指引:
+![Alt text](https://mc.qcloudimg.com/static/img/0ae8fa6656a91c104e1406869b1c52b0/Image+029.png)
 ### 编写应用程序
 1.创建一个hellonode的文件夹，加入server.js文件
 ```shell
@@ -82,8 +84,14 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 ```
 ### 通过该镜像创建服务
 点击创建服务按钮，选择运行集群，填写端口配置，点击创建：
-![Alt text](https://mc.qcloudimg.com/static/img/979bd2db10439e2c8b6a31ce01842d66/%7BCEE6F806-ED8C-45FA-8E2E-CC8611FB5537%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/2d2e8b7062efaf5885a079e2e25d40fb/Image+030.png)
+
+跳转到事件列表，可查看具体创建流水
+![Alt text](https://mc.qcloudimg.com/static/img/4ba5db220592bce5d2d9a1f21459035c/Image+031.png)
+![Alt text](https://mc.qcloudimg.com/static/img/ba8e9db37cf6b65177c1945b4e65fb99/Image+032.png)
+
 创建完成后点击服务,查看服务详情，可以通过服务外网IP或负载均衡器域名访问
-![Alt text](https://mc.qcloudimg.com/static/img/519490b36fd393d54c6400bda799db1b/%7B8B32B5C8-F46E-4FF6-8931-5A910390B383%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/8902f525a85fc73f4427ecba2ccf1d30/Image+033.png)
+
 在浏览器中输入ip地址，即可看到helloworld
-![Alt text](https://mc.qcloudimg.com/static/img/3b69a1b409ea64246e3e2ddd3cf8dadc/%7BA2F39A4B-2E83-4157-BC57-FACB02F30EF2%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/1342aa5ff1575e683ef2ed813b872721/Image+034.png)
