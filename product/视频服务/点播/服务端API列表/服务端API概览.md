@@ -269,11 +269,11 @@
         </tr>
         <tr>
             <td>
-                获取视频分类列表
+                获取全部视频分类列表
             </td>
             <td>
                 <a href="/document/product/266/7814">
-                    GetClassInfo
+                    GetAllClassInfo
                 </a>
             </td>
 			<td>

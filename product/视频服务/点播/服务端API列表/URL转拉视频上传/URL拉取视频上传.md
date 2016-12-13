@@ -3,10 +3,12 @@
 调用该接口之后，可以通过查询任务状态接口来查看转拉状态（TODO）；
 转拉完成之后，如果配置了服务端回调，云点播后台会发起URL转拉完成之后回调（TODO）。
 对于已经存在的转拉任务，是跳过，还是重置？
-回调URL，回调方式，不能通过指定，全部读配置
+回调URL，回调方式，不能通过指定，全部读配置-->
 
 ## 接口名称
-MultiPullVodFile
+MultiPullVideoFromUrl
+
+> 接口别名(兼容点播1.0)：MultiPullVodFile
 
 ## 功能说明
 1. 通过用户传递的URL，从已有的资源库批量拉取视频文件到腾讯云；
@@ -64,6 +66,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ActionName
 | 错误码 | 含义说明|
 |---------|---------|
 | aaa-bbb | 参见[公共错误码](/document/product/266/7783)  |
+
 
 ### 应答示例
 ```javascript
