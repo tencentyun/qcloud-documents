@@ -1,225 +1,97 @@
-## API列表
-<table style="display:table;width:100%">
-		<tbody>
-			<tr>
-				<td style="width:20%;background-color:#CCCCCC;">
-					<strong>分类</strong>
-				</td>
-				<td style="width:50%;background-color:#CCCCCC;">
-					<strong>功能</strong>
-				</td>
-				<td style="background-color:#CCCCCC;">
-					<strong>接口名称</strong>
-				</td>
-			</tr>
-<!--视频上传-->
-			<tr>
-				<td rowspan = 3>
-					服务端视频上传
-				</td>
-				<td>
-          初始化上传
-				</td>
-				<td>
-          InitUpload
-				</td>
-			</tr>
-			<tr>
-				<td>
-          分片上传
-				</td>
-				<td>
-        	UploadPart
-				</td>
-			</tr>
-			<tr>
-				<td>
-          结束上传
-				</td>
-				<td>
-        	FinishUpload
-				</td>
-			</tr>
-<!--URL拉取视频上传-->
-			<tr>
-				<td rowspan = 1>
-					URL拉取视频上传
-				</td>
-				<td>
-          URL拉取视频上传
-				</td>
-				<td>		
-				  MultiPullVodFile			
-				</td>
-			</tr>
-
-<!--视频管理-->
-			<tr>
-				<td rowspan = 7>
-					视频管理
-				</td>
-				<td>
-          获取视频属性信息（By FileId）
-				</td>
-				<td>
-        	DescribeVodInfo
-				</td>
-			</tr>
-			<tr>
-				<td>
-          获取视频播放信息（By 视频名称前缀）
-				</td>
-				<td>		
-        	DescribeVodPlayInfo
-				</td>
-			</tr>
-			<tr>
-				<td>
-          获取视频播放信息（By FileId）
-				</td>
-				<td>		
-        	DescribeVodPlayUrls
-				</td>
-			</tr>
-			<tr>
-				<td>
-          修改视频属性
-				</td>
-				<td>		
-        	ModifyVodInfo
-				</td>
-			</tr>
-			<tr>
-				<td>
-          增加视频标签
-				</td>
-				<td>		
-        	CreateVodTags
-				</td>
-			</tr>
-			<tr>
-				<td>
-          删除视频标签
-				</td>
-				<td>		
-        	DeleteVodTags
-				</td>
-			</tr>
-			<tr>
-				<td>
-          删除视频
-				</td>
-				<td>		
-        	DeleteVodFile
-				</td>
-			</tr>
-<!--视频转码-->
-			<tr>
-				<td>
-					视频转码
-				</td>
-				<td>
-          视频转码
-				</td>
-				<td>
-        	ConvertVodFile
-				</td>
-			</tr>
-<!--视频拼接-->
-	<tr>
-		<td rowspan = 2>
-			视频拼接
-		</td>
-		<td>
-			普通视频拼接
-		</td>
-		<td>
-			ConcatFile
-		</td>
-	</tr>
-	<tr>
-		<td>
-			HLS视频简单拼接
-		</td>
-		<td>
-			SimpleConcatHls
-		</td>
-	</tr>
-<!--视频分类管理-->
-			<tr>
-				<td rowspan = 5>
-					视频分类管理
-				</td>
-				<td>
-          创建视频分类
-				</td>
-				<td>
-        	CreateClass
-				</td>
-			</tr>
-			<tr>
-				<td>
-          获取视频分类层次结构
-				</td>
-				<td>
-        	DescribeAllClass
-				</td>
-			</tr>
-			<tr>
-				<td>
-          获取视频分类列表
-				</td>
-				<td>
-        	DescribeClass
-				</td>
-			</tr>
-			<tr>
-				<td>
-          修改视频分类
-				</td>
-				<td>
-        	ModifyClass
-				</td>
-			</tr>
-			<tr>
-				<td>
-          删除视频分类
-				</td>
-				<td>
-        	DeleteClass
-				</td>
-			</tr>
-<!--事件通知-->
-				<tr>
-					<td  rowspan = 2>
-						事件通知
-					</td>
-					<td>
-						拉取事件通知
-					</td>
-					<td>
-						PullVodEvent
-					</td>
-				</tr>
-				<tr>
-					<td>
-						确认事件通知
-					</td>
-					<td>
-						ConfirmVodEvent
-					</td>
-				</tr>
-<!--任务管理-->
-					<tr>
-						<td  rowspan = 1>
-							任务管理
-						</td>
-						<td>
-							查询异步任务的状态
-						</td>
-						<td>
-							QueryVodTaskStatus
-						</td>
-					</tr>
-		</tbody>
-	</table>
+## 服务端API列表
+<table style="display:table">
+  <tbody>
+    <tr>
+      <td style="background-color:#CCCCCC;">
+        <strong>分类</strong></td>
+      <td style="background-color:#CCCCCC;">
+        <strong>功能</strong></td>
+      <td style="background-color:#CCCCCC;">
+        <strong>接口名称</strong></td>
+    </tr>
+    <!--视频上传-->
+    <tr>
+      <td rowspan=3>服务端视频上传</td>
+      <td>初始化上传</td>
+      <td><a href="/document/product/266/7809">InitUpload</a></td></tr>
+    <tr>
+      <td>分片上传</td>
+      <td><a href="/document/product/266/7810">UploadPart</td></tr>
+    <tr>
+      <td>结束上传</td>
+      <td><a href="/document/product/266/7811">FinishUpload</a></td></tr>
+    <!--URL拉取视频上传-->
+    <tr>
+      <td rowspan=1>URL拉取视频上传</td>
+      <td>URL拉取视频上传</td>
+      <td><a href="/document/product/266/7817">MultiPullVodFile</a></td></tr>
+    <!--视频管理-->
+    <tr>
+      <td rowspan=7>视频管理</td>
+      <td>获取视频属性信息（By FileId）</td>
+      <td><a href="/document/product/266/7823">DescribeVodInfo</a></td></tr>
+    <tr>
+      <td>获取视频播放信息（By 视频名称前缀）</td>
+      <td><a href="/document/product/266/7825">DescribeVodPlayInfo</a></td></tr>
+    <tr>
+      <td>获取视频播放信息（By FileId）</td>
+      <td><a href="/document/product/266/7824">DescribeVodPlayUrls</a></td></tr>
+    <tr>
+      <td>修改视频属性</td>
+      <td><a href="/document/product/266/7828">ModifyVodInfo</a></td></tr>
+    <tr>
+      <td>增加视频标签</td>
+      <td><a href="/document/product/266/7826">CreateVodTags</a></td></tr>
+    <tr>
+      <td>删除视频标签</td>
+      <td><a href="/document/product/266/7827">DeleteVodTags</a></td></tr>
+    <tr>
+      <td>删除视频</td>
+      <td><a href="/document/product/266/7838">DeleteVodFile</a></td></tr>
+    <!--视频转码-->
+    <tr>
+      <td>视频转码</td>
+      <td>视频转码</td>
+      <td><a href="/document/product/266/7822">ConvertVodFile</a></td></tr>
+    <!--视频拼接-->
+    <tr>
+      <td rowspan=2>视频拼接</td>
+      <td>普通视频拼接</td>
+      <td><a href="/document/product/266/7821">ConcatFile</a></td></tr>
+    <tr>
+      <td>HLS视频简单拼接</td>
+      <td><a href="/document/product/266/7820">SimpleConcatHls</a></td></tr>
+    <!--视频分类管理-->
+    <tr>
+      <td rowspan=5>视频分类管理</td>
+      <td>创建视频分类</td>
+      <td><a href="/document/product/266/7812">CreateClass</a></td></tr>
+    <tr>
+      <td>获取视频分类层次结构</td>
+      <td><a href="/document/product/266/7813">DescribeAllClass</a></td></tr>
+    <tr>
+      <td>获取视频分类列表</td>
+      <td><a href="/document/product/266/7814">DescribeClass</a></td></tr>
+    <tr>
+      <td>修改视频分类</td>
+      <td><a href="/document/product/266/7815">ModifyClass</a></td></tr>
+    <tr>
+      <td>删除视频分类</td>
+      <td><a href="/document/product/266/7816">DeleteClass</a></td></tr>
+    <!--可靠事件通知-->
+    <tr>
+      <td rowspan=2>可靠事件通知</td>
+      <td>拉取事件通知</td>
+      <td><a href="/document/product/266/7818">PullVodEvent</a></td></tr>
+    <tr>
+      <td>确认事件通知</td>
+      <td><a href="/document/product/266/7819">ConfirmVodEvent</a></td></tr>
+    <!--任务管理-->
+	<!--
+    <tr>
+      <td rowspan=1>任务管理</td>
+      <td>查询异步任务的状态</td>
+      <td><a href="">QueryVodTaskStatus</a></td></tr>
+	-->
+  </tbody>
+</table>
