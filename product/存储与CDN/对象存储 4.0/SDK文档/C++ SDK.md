@@ -106,8 +106,6 @@ string path= "/myFloder/myFile.rar";
 sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 ```
 
-更多签名相关详细说明，请参考[权限控制](/document/product/436/6247)。
-
 ## 初始化操作
 
 ### 初始化
@@ -139,8 +137,6 @@ sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 CosConfig(const string& config_file);
 CosAPI(CosConfig& config);
 ```
-
-
 
 ## 目录操作
 
