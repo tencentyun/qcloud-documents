@@ -11,8 +11,8 @@
 
 目前腾讯云点播提供给如下平台的UGC上传SDK：
 
-1. iOS UGC SDK；
-2. Android UGC SDK。
+1. [iOS UGC SDK](/document/product/266/7836)；
+2. [Android UGC SDK](/document/product/266/7837)。
 
 ## 业务流程
 UGC视频上传的整体流程分为如下两部：
@@ -23,11 +23,16 @@ UGC视频上传的整体流程分为如下两部：
 ### 客户端申请上传签名
 为了确保开发者在云点播的空间不被恶意使用，对于所有的UGC上传请求，点播服务端都会校验该请求的合法性。因此，客户端在发起视频上传之前，必须先向APP的后台申请签名。
 
-获取上传文件签名的计算过程，可简单分为如下三个步骤：获取签名所需信息，拼接明文字符串，将明文字符串转化为签名。 
-####获取签名所需信息
-生成签名所需信息包括项目的Secret ID、Secret Key和待上传文件的文件名。可以在腾讯云管理中心控制台页面的**【云产品】**---**【监控与管理】**下的**【云 API 密钥】**页面查看到自己的Secret ID和Secret Key。 
-####拼接签名明文字符串 Original
+获取上传文件签名的计算过程，可简单分为如下三个步骤：获取签名所需信息，拼接明文字符串，将明文字符串转化为签名。
+
+**Step1：获取签名所需信息**
+
+生成签名所需信息包括项目的Secret ID、Secret Key和待上传文件的文件名。可以在腾讯云管理中心控制台页面的**【云产品】**---**【监控与管理】**下的**【云 API 密钥】**页面查看到自己的Secret ID和Secret Key。
+
+**Step2：拼接签名明文字符串**
+
 签名明文字符串 Original 的格式如下：  
+
 Original="s=[SecretID]&f=[FileName]&t=[currentTime]&e=[expiredTime]&r=[rand]"
  
 签名明文串中各字段含义如下：
@@ -38,7 +43,8 @@ Original="s=[SecretID]&f=[FileName]&t=[currentTime]&e=[expiredTime]&r=[rand]"
 - e 	签名的失效时刻，是一个符合Unix Epoch时间戳规范的数值，单位为秒。e的计算方式为e = t + 签名有效时长。签名有效时长最大取值为777600090天） 
 - r 	随机串，无符号10进制整数，用户需自行生成，最长10位 
 
-####将明文字符串转化为签名
+**Step3：将明文字符串转化为签名**
+
 拼接好签名的明文字符串Original后，用已经获取的SecretKey对明文串进行**HMAC-SHA1**加密，得到SignTmp：
  
 SignTmp = HMAC-SHA1(SecretKey, Original) 
@@ -47,11 +53,14 @@ SignTmp = HMAC-SHA1(SecretKey, Original)
  
 Sign = Base64(append(SignTmp, Original)) 
 
-注 1：此处使用的是标准的Base64编码，不是urlsafe的Base64编码。
+> 注意
+> 
+> 1. 此处使用的是标准的Base64编码，不是urlsafe的Base64编码。
+> 2. 由于使用了HMAC算法，计算SignTmp的结果为二进制字符串，因此建议将算法写在同一函数中实现。单独输出SignTmp可能导致拼接后的字串有误。 
 
-注 2：由于使用了HMAC算法，计算SignTmp的结果为二进制字符串，因此建议将算法写在同一函数中实现。单独输出SignTmp可能导致拼接后的字串有误。 
+## 示例
 
-####示例
+### PHP示例
  
 本节介绍生成签名的算法实例，实例中使用PHP语言（若开发者使用其他开发语言，请使用对应的函数）。 
 
@@ -84,11 +93,3 @@ echo $signature."\n";
 最终得到的签名为：
  
 IEmbRAPy5IgIAFnt7XPAToaY3RRzPUFLSURVZkxVRVVpZ1FpWHFtN0NWU3NwS0pudWFpSUt0eHFBdiZmPXRlbmNlbnRfdGVzdC5tcDQmdD0xNDM3OTk1NjQ0JmU9MTQzNzk5NTcwNCZyPTIwODE2NjA0MjE= 
-
-
-## 客户端本地视频上传
-
-参见：
-
-1. iOS UGC视频上传；
-2. Android UGC视频上传。

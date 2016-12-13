@@ -5,10 +5,6 @@
 对于已经存在的转拉任务，是跳过，还是重置？
 回调URL，回调方式，不能通过指定，全部读配置
 
-文档需要完善：
-错误码 -->
-
-
 ## 接口名称
 MultiPullVodFile
 
@@ -67,9 +63,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ActionName
 ### 错误码说明
 | 错误码 | 含义说明|
 |---------|---------|
-| aaa-bbb | 公共错误码，参见xxxx。  |
-| xxx | 说明说明说明说明  |
-| yyy | 说明说明说明说明 |
+| aaa-bbb | 参见[公共错误码](/document/product/266/7783)  |
 
 ### 应答示例
 ```javascript

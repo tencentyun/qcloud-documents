@@ -21,7 +21,7 @@ Build Settings -> Other Linker Flags
 
 ### Step1：生成上传对象
 
-```
+```objectivec
 TVCConfig *config = [[TVCConfig alloc] init];
 config.signature = signature;
 config.secretId = secretId;
@@ -31,7 +31,7 @@ self.client = [[TVCClient alloc] initWithConfig:config];
 
 ### Step2：生成上传参数
 
-```
+```objectivec
 TVCUploadParam *param = [[TVCUploadParam alloc] init];
 param.videoPath = videoPath;
 param.coverPath = coverPath;
@@ -39,7 +39,7 @@ param.coverPath = coverPath;
 
 ### Step3：视频上传
 
-```
+```objectivec
 [ws.client uploadVideo:param result:^(TVCUploadResponse *resp) {
         NSLog(@"result : %d-%@-%@-%@-%@",
                 resp.retCode,
@@ -53,8 +53,8 @@ param.coverPath = coverPath;
 }];
 ```
 
-**注意事项：**
+注意事项：
 
 * TVCConfig参数字段不能为空；
 * TVCUploadParam参数字段video路径不能为空，cover字段为空表示不上传封面预览图；
-* 苹果规定2017年后所有上架App强制使用ATS，目前Http或https服务均可配置使用，苹果强制使用ATS后可在TVCConfig中配置使用Https协议；
+* 苹果规定2017年后所有上架App强制使用ATS，目前Http或https服务均可配置使用，苹果强制使用ATS后可在TVCConfig中配置使用Https协议。
