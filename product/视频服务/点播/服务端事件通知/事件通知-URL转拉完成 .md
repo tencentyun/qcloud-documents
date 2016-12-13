@@ -6,7 +6,7 @@ APP后台接收该事件通知的方法参见服务端事件通知简介。
 ### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
-| version | Integer | 回调版本号，固定为4 |
+| version | Integer | 回调版本号，固定为4.0 |
 | eventType | String | 回调类型，固定为PullComplete |
 | data | Object | 具体回调数据 |
 | data.status | Integer | 错误码，0: 成功；其他值: 失败 |
@@ -24,7 +24,7 @@ APP后台接收该事件通知的方法参见服务端事件通知简介。
 
 ```javascript
 {
-    "version": 4,
+    "version": "4.0",
     "eventType": "PullComplete",
     "data": {
         "status": 0,
@@ -44,7 +44,7 @@ TODO：完善真正的错误码和错误信息 by fishlyliu
 
 ```javascript
 {
-    "version" : 4,
+    "version" : "4.0",
     "eventType": "PullComplete",
     "data" : {
         "status" : 1,
