@@ -82,7 +82,7 @@
         </tr>
         <!--视频管理-->
         <tr>
-            <td rowspan=7>
+            <td rowspan=6>
                 视频管理
             </td>
             <td>
