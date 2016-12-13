@@ -53,7 +53,7 @@ param.coverPath = coverPath;
 }];
 ```
 
-注意事项：
+**注意事项：**
 
 * TVCConfig参数字段不能为空；
 * TVCUploadParam参数字段video路径不能为空，cover字段为空表示不上传封面预览图；
