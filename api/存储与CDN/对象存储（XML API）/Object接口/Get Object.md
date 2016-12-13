@@ -25,6 +25,8 @@ Range: bytes=byte_range
 | response-content-disposition | 设置返回头部中的 Content-Disposition 参数。 | String | 否    |
 | response-content-encoding    | 设置返回头部中的 Content-Encoding 参数。    | String | 否    |
 
+### 请求头部
+
 #### 推荐使用头部
 
 | 名称                | 描述                                       | 类型     | 必选   |
