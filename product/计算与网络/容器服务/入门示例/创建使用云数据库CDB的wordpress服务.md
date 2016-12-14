@@ -1,5 +1,3 @@
-## 使用云数据库CDB的wordpress服务
-
 ### 说明
 在单实例版wordpress示例中您学会了如何快速安装WordPress。 
 其中数据是写到同一个容器中运行的mysql数据库中，虽然这样的配置可以快速且容易启动，但它也有一个问题，如果容器因任何原因停止，数据库和WordPress文件丢失。
@@ -8,7 +6,7 @@
 
 ### 详细步骤
 #### 创建容器服务集群
-详情见快速入门中步骤二[创建集群](https://www.qcloud.com/doc/product/457/6774)
+详情见基本教程中[集群基本教程](https://www.qcloud.com/document/product/457/6779)
 
 #### 创建云数据库CDB
 选择集群所属网络，添加Mysql数据库,(也可不在VPC内，但只能通过公网访问)
