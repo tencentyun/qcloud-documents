@@ -34,7 +34,7 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 
 ## 强制HTTPS
 
-证书配置成功后，会出现 **强制跳转** 开关，开启后，即时用户发起 HTTP 请求，也会强制跳转为 HTTPS进行访问：
+证书配置成功后，会出现 **强制跳转** 开关，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS进行访问：
 
 ![](https://mc.qcloudimg.com/static/img/16abdcd52cbc8072881a2b40b05ccfee/https_set.png)
 
