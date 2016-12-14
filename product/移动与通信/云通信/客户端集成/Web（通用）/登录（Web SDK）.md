@@ -1,5 +1,5 @@
 ## 1 TLS登录（托管模式）
- 
+
 Demo集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于TLS账号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://www.qcloud.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在demo中如何集成托管模式下的web 版TLS SDK。
 
 在index.html引入web 版TLS sdk，如： 
@@ -109,19 +109,25 @@ function webimLogin() {
 
 下面介绍每个参数的定义。
 
-### 2.1 用户信息对象loginInfo
+
+
+### 2.1 	用户信息对象loginInfo
 
 
 属性名：
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|sdkAppID	|用户标识接入SDK的应用ID，必填|	String|
-|appIDAt3rd	|App用户使用OAuth授权体系分配的Appid，和sdkAppID一样，必填	|String|
-|accountType|	账号类型，必填|	Integer|
-|identifier	|用户帐号，选填	|String|
-|identifierNick|	用户昵称，选填	|String|
-|userSig	|鉴权Token，identifier不为空时，userSig必填	|String|
+| 名称             | 说明                                      | 类型      |
+| -------------- | --------------------------------------- | ------- |
+| sdkAppID       | 用户标识接入SDK的应用ID，必填                       | String  |
+| appIDAt3rd     | App用户使用OAuth授权体系分配的Appid，和sdkAppID一样，必填 | String  |
+| accountType    | 账号类型，必填                                 | Integer |
+| identifier     | 用户帐号，选填                                 | String  |
+| identifierNick | 用户昵称，选填                                 | String  |
+| userSig        | 鉴权Token，identifier不为空时，userSig必填        | String  |
+
+**特别注意**，identifierNick的值只在初始化的登录时有效（第一次登录某identifier)，初始化账号后的昵称修改，需要调用setProfilePortrait接口。[接口文档](https://www.qcloud.com/document/product/269/1599)
+
+Web端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一账号），需要联系商务经理提[需求工单](https://www.qcloud.com/document/product/269/3916#2.18)。
 
 
 
@@ -130,30 +136,37 @@ function webimLogin() {
 
 属性名：
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|onConnNotify	|用于监听用户连接状态变化的函数，选填	|Function|
-|jsonpCallback	|用于IE9(含)以下浏览器中jsonp回调函数,移动端可不填，pc端必填|	Function|
-|onMsgNotify	|监听新消息函数，必填	|Function|
-|onGroupSystemNotifys	|监听（多终端同步）群系统消息事件，必填|	Object|
-|onFriendSystemNotifys	|监听好友系统通知事件，选填|	Object|
-|onProfileSystemNotifys	|监听资料系统（自己或好友）通知事件，选填|	Object|
-|onGroupInfoChangeNotify|	监听群资料变化事件，选填	|Function|
+| 名称                      | 说明                                   | 类型       |
+| ----------------------- | ------------------------------------ | -------- |
+| onConnNotify            | 用于监听用户连接状态变化的函数，选填                   | Function |
+| jsonpCallback           | 用于IE9(含)以下浏览器中jsonp回调函数,移动端可不填，pc端必填 | Function |
+| onMsgNotify             | 监听新消息函数，必填                           | Function |
+| onBigGroupMsgNotify     | 监听新消息(直播聊天室)事件，**直播场景**下必填           | Function |
+| onGroupInfoChangeNotify | 监听群资料变化事件，选填                         | Object   |
+| onGroupSystemNotifys    | 监听（多终端同步）群系统消息事件，必填                  | Object   |
+| onFriendSystemNotifys   | 监听好友系统通知事件，选填                        | Object   |
+| onProfileSystemNotifys  | 监听资料系统（自己或好友）通知事件，选填                 | Object   |
+| onKickedEventCall       | 被其他登录实例踢下线，选填                        | Function |
+| onC2cEventNotifys       | 监听C2C系统消息通道，选填                       | Object   |
 
 
 示例：
 
 ```
 //监听事件
+
+//监听事件
 var listeners = {
-    "onConnNotify": onConnNotify, //监听连接状态回调变化事件,必填
-    "jsonpCallback": jsonpCallback, //IE9(含)以下浏览器用到的jsonp回调函数，
-    "onMsgNotify": onMsgNotify, //监听新消息(私聊，普通群(非直播聊天室)消息，全员推送消息)事件，必填
-    "onBigGroupMsgNotify": onBigGroupMsgNotify, //监听新消息(直播聊天室)事件，直播场景下必填
-    "onGroupSystemNotifys": onGroupSystemNotifys, //监听（多终端同步）群系统消息事件，如果不需要监听，可不填
-    "onGroupInfoChangeNotify": onGroupInfoChangeNotify, //监听群资料变化事件，选填
-    "onFriendSystemNotifys": onFriendSystemNotifys, //监听好友系统通知事件，选填
-    "onProfileSystemNotifys": onProfileSystemNotifys//监听资料系统（自己或好友）通知事件，选填
+    "onConnNotify": onConnNotify//监听连接状态回调变化事件,必填
+    ,"jsonpCallback": jsonpCallback//IE9(含)以下浏览器用到的jsonp回调函数，
+    ,"onMsgNotify": onMsgNotify//监听新消息(私聊，普通群(非直播聊天室)消息，全员推送消息)事件，必填
+    ,"onBigGroupMsgNotify": onBigGroupMsgNotify//监听新消息(直播聊天室)事件，直播场景下必填
+    ,"onGroupSystemNotifys": onGroupSystemNotifys//监听（多终端同步）群系统消息事件，如果不需要监听，可不填
+    ,"onGroupInfoChangeNotify": onGroupInfoChangeNotify//监听群资料变化事件，选填
+    ,"onFriendSystemNotifys": onFriendSystemNotifys//监听好友系统通知事件，选填
+    ,"onProfileSystemNotifys": onProfileSystemNotifys//监听资料系统（自己或好友）通知事件，选填
+    ,"onKickedEventCall" : onKickedEventCall//被其他登录实例踢下线
+    ,"onC2cEventNotifys": onC2cEventNotifys//监听C2C系统消息通道
 };
 ```
 
@@ -191,11 +204,12 @@ var onConnNotify = function (resp) {
 
 其中回调返回的参数resp对象属性定义如下：
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|ActionStatus	|连接状态标识，OK-标识连接成功FAIL-标识连接失败|	String|
-|ErrorCode	|连接状态码，具体请参考webim. CONNECTION_STATUS常量对象|Integer|
-|ErrorInfo	|错误提示信息	|String|
+| 名称           | 说明                                      | 类型      |
+| ------------ | --------------------------------------- | ------- |
+| ActionStatus | 连接状态标识，OK-标识连接成功FAIL-标识连接失败             | String  |
+| ErrorCode    | 连接状态码，具体请参考webim. CONNECTION_STATUS常量对象 | Integer |
+| ErrorInfo    | 错误提示信息                                  | String  |
+
 
 
 ### 2.4	事件回调对象listeners.jsonpCallback
@@ -216,9 +230,9 @@ function jsonpCallback(rspData) {
 
 属性名：
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|rspData	|接口返回的数据	|String|
+| 名称      | 说明      | 类型     |
+| ------- | ------- | ------ |
+| rspData | 接口返回的数据 | String |
 
 
 
@@ -261,6 +275,7 @@ function onMsgNotify(newMsgList) {
 其中参数newMsgList 为webim.Msg数组，即[webim.Msg]
 
 
+
 ### 2.6	事件回调对象listeners.onGroupSystemNotifys
 
 示例：
@@ -288,6 +303,8 @@ var groupSystemNotifys = {
 
 更详细介绍，请参考后续章节。
 
+
+
 ### 2.7	事件回调对象listeners.onFriendSystemNotifys
 
 示例：
@@ -307,6 +324,8 @@ var onFriendSystemNotifys = {
 
 更详细介绍，请参考后续章节。
 
+
+
 ### 2.8	事件回调对象listeners.onProfileSystemNotifys
 
 示例：
@@ -322,7 +341,21 @@ var onProfileSystemNotifys = {
 更详细介绍，请参考后续章节。
 
 
-### 2.9	事件回调对象listeners.onGroupInfoChangeNotify
+
+### 2.9	事件回调对象listeners.onC2cEventNotifys
+
+示例：
+
+```javascript
+//监听C2C消息通道的处理，方法在receive_new_msg.js文件中
+var onC2cEventNotifys = {
+	"92": onMsgReadedNotify,//消息已读通知
+};
+```
+
+
+
+### 2.10	事件回调对象listeners.onGroupInfoChangeNotify
 
 示例：
 
@@ -350,27 +383,29 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 属性名：
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|GroupId	|群id	|String|
-|GroupFaceUrl |	新群组图标, 为空，则表示没有变化|String|
-|GroupName	|新群名称, 为空，则表示没有变化	|String|
-|OwnerAccount	|新的群主id, 为空，则表示没有变化|	String|
-|GroupNotification	|新的群公告, 为空，则表示没有变化	|String|
-|GroupIntroduction	|新的群简介, 为空，则表示没有变化|	String|
+| 名称                | 说明                 | 类型     |
+| ----------------- | ------------------ | ------ |
+| GroupId           | 群id                | String |
+| GroupFaceUrl      | 新群组图标, 为空，则表示没有变化  | String |
+| GroupName         | 新群名称, 为空，则表示没有变化   | String |
+| OwnerAccount      | 新的群主id, 为空，则表示没有变化 | String |
+| GroupNotification | 新的群公告, 为空，则表示没有变化  | String |
+| GroupIntroduction | 新的群简介, 为空，则表示没有变化  | String |
 
 
-### 2.10	其他对象options
+
+### 2.11	其他对象options
 
 属性名：
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|isAccessFormalEnv	|是否访问正式环境下的后台接口，True-访问正式，False-访问测试环境默认访问正式环境接口，选填	|Boolean|
-|isLogOn	|是否开启控制台打印日志,True-开启;False-关闭，默认开启，选填|	Boolean|
+| 名称                | 说明                                       | 类型      |
+| ----------------- | ---------------------------------------- | ------- |
+| isAccessFormalEnv | 是否访问正式环境下的后台接口，True-访问正式，False-访问测试环境默认访问正式环境接口，选填 | Boolean |
+| isLogOn           | 是否开启控制台打印日志,True-开启;False-关闭，默认开启，选填     | Boolean |
 
 
-### 2.11	回调函数cbOk & cbErr
+
+### 2.12	回调函数cbOk & cbErr
 
 Sdk登录时，可以定义成功回调函数和失败回调函数。
 

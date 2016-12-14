@@ -17,5 +17,5 @@
 5. 踢人和中断主播；
 
 ### 附录
-* [TLS账号登录集成说明](https://www.qcloud.com/doc/product/268/3328)。
+* [TLS账号登录集成说明](https://www.qcloud.com/document/product/268/7653)。
 * 独立模式server demo下载地址(准备中......)
