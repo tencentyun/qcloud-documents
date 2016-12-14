@@ -143,10 +143,11 @@ mLivePusher.setConfig(mLivePushConfig);
 在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
 - **8.2) 设置setPauseFlag**
 在开始推流前，使用 TXLivePushConfig 的 setPauseFlag 接口设置切后台pause推流时需要停止哪些采集，停止视频采集则会推送pauseImg设置的默认图，停止音频采集则会推送静音数据，采用枚举或值组合来设置。
-```java
-mLivePusher.setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示停止停止音视频采集推送默认图及静音数据；
-mLivePusher.setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止停止视频采集推送默认图及采集的音频数据；
-```
+
+> setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示停止停止音视频采集推送默认图及静音数据；
+>
+> setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止停止视频采集推送默认图及采集的音频数据；
+
 - **8.3) 切后台处理**
 推流中，如果App被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，RTMP SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
 ```java
