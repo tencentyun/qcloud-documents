@@ -10,5 +10,5 @@
 | 文件操作 |  分片上传文件   | POST |     [分片上传文件API说明](/doc/api/264/6006)     |
 | 文件操作 |  查询文件属性   | GET  |     [查询文件属性API说明](/doc/api/264/6008)     |
 | 文件操作 |  更新文件属性   | POST |     [更新文件属性API说明](/doc/api/264/6011)     |
-| 文件操作 | 移动（重命名）文件 | POST | [移动（重命名）文件API说明](/document/product/436/6730) |
-| 文件操作 |   删除文件    | POST | [删除文件API说明](/document/product/436/6073)  |
+| 文件操作 | 移动（重命名）文件 | POST | [移动（重命名）文件API说明](/document/product/430/6009) |
+| 文件操作 |   删除文件    | POST | [删除文件API说明](/document/product/430/6010)  |
