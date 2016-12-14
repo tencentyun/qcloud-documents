@@ -7,10 +7,10 @@
 智能旋转方案保证显示的视频（包括观众端和主播端等任意角色）始终是正向画面（以主播眼睛看到的上下顺序为准）。视频会自适应到界面View中。
 #### 效果
 
-主播（镜像）| 观众横屏  | 观众竖屏|
-:-------------:|:-------------:|:-------------:|
+主播（镜像）| 观众横屏  | 观众竖屏
+:-------------:|:-------------:|:-------------:
 ![](https://mc.qcloudimg.com/static/img/9c92bc6451a93a712bc690546f50f599/A1.jpg)| ![](https://mc.qcloudimg.com/static/img/bcd3f3c3de5f9bde1c4118d2f6b3184e/A2.jpg) | ![](https://mc.qcloudimg.com/static/img/3046bacdce4346d3648463f1ff9e9528/A3.jpg)|
-![](https://mc.qcloudimg.com/static/img/0b060536074d4694135053e50f85ac44/A4.jpg)| ![](https://mc.qcloudimg.com/static/img/b3b5844c8b8ca160a22d997cc5da9e88/A5.jpg) | ![](https://mc.qcloudimg.com/static/img/cdd8766bc972215373b1ae8126a73b7a/A6.jpg)|
+![](https://mc.qcloudimg.com/static/img/0b060536074d4694135053e50f85ac44/A4.jpg)| ![](https://mc.qcloudimg.com/static/img/b3b5844c8b8ca160a22d997cc5da9e88/A5.jpg) | ![](https://mc.qcloudimg.com/static/img/cdd8766bc972215373b1ae8126a73b7a/A6.jpg)
 
 #### Android实现方式
 1.在工程中导入LiveSDK    
