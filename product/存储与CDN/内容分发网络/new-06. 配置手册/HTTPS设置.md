@@ -11,13 +11,13 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 - 域名不是由 COS 同步而来的 .file.myqcloud.com 后缀域名；
 - 域名的接入方式为 **自有源** 或者 **COS源**、**FTP源**；
 
-您可以登陆 [CDN 控制台](https://console.qcloud.com/cdn) ，在域名管理页面看到域名 HTTPS 的配置情况，带有绿色小锁标记的域名，表示证书配置成功：
+登录[CDN控制台](https://console.qcloud.com/cdn)，进入 【域名管理】 页面，点击域名右侧 **管理** 按钮，进入管理页面：
 
-![](https://mc.qcloudimg.com/static/img/dbc107ff2d66739658661ec98b944111/1.png)
+![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
 
-点击右侧【管理】，可以在【高级配置】中看到对应的证书信息：
+在 【高级配置】中找到 **HTTPS配置** 模块
 
-![](https://mc.qcloudimg.com/static/img/b39a8d8b4f4ce4e07a09da3c4611b95f/image.png)
+![](https://mc.qcloudimg.com/static/img/fa28d53a7eba792519986e88ea5bcef8/https.png)
 
 ## 证书类型
 
@@ -30,3 +30,12 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 ## 证书管理
 
 证书添加、变更、删除等操作请前往 [证书管理](https://console.qcloud.com/cdn/tools/certificate) 页面进行，文档说明请查看 [证书管理说明](https://www.qcloud.com/doc/product/228/6303)。
+
+
+## 强制HTTPS
+
+证书配置成功后，会出现 **强制跳转** 开关，开启后，即时用户发起 HTTP 请求，也会强制跳转为 HTTPS进行访问：
+
+![](https://mc.qcloudimg.com/static/img/16abdcd52cbc8072881a2b40b05ccfee/https_set.png)
+
+<font color="blue">仅当HTTPS证书配置成功后，才可开启强制跳转</font>

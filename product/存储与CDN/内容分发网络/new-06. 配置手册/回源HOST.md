@@ -9,11 +9,11 @@
 
 ## 配置说明
 
-您可以登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择 **域名管理** 页面，点击要修改回源 HOST 配置的域名右侧**管理**按钮：
+登录[CDN控制台](https://console.qcloud.com/cdn)，进入 【域名管理】 页面，点击域名右侧 **管理** 按钮，进入管理页面：
 
-![](https://mc.qcloudimg.com/static/img/dbc107ff2d66739658661ec98b944111/1.png)
+![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
 
-您可以在基本配置中找到**回源HOST**配置项：
+在 【基本配置】中找到 **回源配置** 模块，配置回源host：
 
 ![](https://mc.qcloudimg.com/static/img/5440c6887c5120a103601f52167113dd/image.png)
 

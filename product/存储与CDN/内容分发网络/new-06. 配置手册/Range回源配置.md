@@ -4,11 +4,14 @@ CDN 为您提供 Range 回源配置功能，开启 Range回源配置能够有效
 <font color="orange">源站需要支持 Range 请求</font>
 
 ## 配置说明
-登陆 [CDN 控制台](https://console.qcloud.com/cdn)，点击左侧 **域名管理** 菜单栏，点击域名右侧 **管理** 按钮，进入域名配置页面：
-![](https://mc.qcloudimg.com/static/img/f96f3c9d0c1c213aace990e18db5d463/2.png)
 
-您可以在 **基本配置** 中找到 **Range 回源配置** 配置项：
-![](https://mc.qcloudimg.com/static/img/2a26fadea61364813e7e4f7601afd9f5/range.png)
+登录[CDN控制台](https://console.qcloud.com/cdn)，进入 【域名管理】 页面，点击域名右侧 **管理** 按钮，进入管理页面：
+
+![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+
+您可以在 【回源配置】 中找到 **Range 回源配置** 配置项：
+
+![](https://mc.qcloudimg.com/static/img/42ee9cf64caf0e5b98467709e14df0c6/range.png)
 
 ### 默认配置
 默认情况下，Range 回源配置为 **开启** 状态。

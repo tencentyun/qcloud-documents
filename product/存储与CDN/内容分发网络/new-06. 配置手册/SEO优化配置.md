@@ -5,11 +5,11 @@ SEO优化配置是为解决域名接入CDN后，因CDN频繁变更IP而影响域
 
 ## 配置说明
 
-您可在 CDN 接入时配置缓存时间，详情查看[域名接入（自有源）](https://www.qcloud.com/doc/product/228/5734) 或 [域名接入（COS源）](https://www.qcloud.com/doc/product/228/5735)。您也可以登录[CDN 控制台](https://console.qcloud.com/cdn)，选择 **域名管理** 页面，点击要修改 SEO 优化配置的域名右侧 **管理** 按钮：
+登录[CDN控制台](https://console.qcloud.com/cdn)，进入 【域名管理】 页面，点击域名右侧 **管理** 按钮，进入管理页面：
 
-![](https://mc.qcloudimg.com/static/img/dbc107ff2d66739658661ec98b944111/1.png)
+![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
 
-您可以在 **高级配置** 中找到 **SEO 优化配置** 配置项：
+您可以在 【高级配置】 中找到 **SEO 优化配置** 配置项：
 
 ![](https://mccdn.qcloud.com/static/img/d9643dcd9a8d747fc79642cdaf059499/SEO.png)
 
