@@ -18,7 +18,7 @@ CDN 为您提供 Range 回源配置功能，开启 Range回源配置能够有效
 
 ### 配置效果说明
 
-假设用户请求资源：http://www.test.com/test.apk ，节点收到请求后，发现缓存的 test.apk 文件已过期，此时发起回源请求。
+假设用户请求资源：```http://www.test.com/test.apk``` ，节点收到请求后，发现缓存的 test.apk 文件已过期，此时发起回源请求。
 
 **开启 Range 回源配置：**
 
