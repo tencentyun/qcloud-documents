@@ -45,7 +45,7 @@
 <tr>
 <td> name
 </td><td> String
-</td><td> 姓名
+</td><td> 姓名(注意：使用中文参与鉴权签名)
 </td></tr>
 <tr>
 <td> emailAddress

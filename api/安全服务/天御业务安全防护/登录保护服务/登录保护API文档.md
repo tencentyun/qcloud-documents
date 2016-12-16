@@ -296,23 +296,6 @@ riskType详细说明
 </tr>
 </td></tr></tbody></table>
 
-riskType详细说明
-<table class="t">
-<tbody><tr>
-<th height="23"> <b>风险类型</b>
-</th><th> <b>风险详情</b>
-</th><th> <b>风险码</b>
-</th></tr>
-<tr>
-<td rowspan="4">账号风险 </td>
-</tr>
-<td rowspan="2">行为风险</td>
-</tr>
-<td rowspan="3">环境风险</td>
-</tr>
-</td></tr></tbody></table>
-
-
 ## 4.示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/de08cb326ab99b568664b2bb7c269f4e/LoginProtection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/2a728e6e88889ae9082d596288505cfd/LoginProtection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/db5e010d2ab0070fe8b4f08e3a71238b/LoginProtection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/8773908b78df5570f45d3b2a7d25cbfc/LoginProtection.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/document/product/295/7279)小节。
@@ -333,7 +316,6 @@ Action=LoginProtection
 ```
 {
 "code": 0,
-"codeDesc":"success" ,
 "message": "No Error",
 "level": 0,
 "loginIp": "121.14.96.121",
@@ -341,5 +323,4 @@ Action=LoginProtection
 "uid": "00000000000000000000000033121475",
 "associateAccount": "SpFsjpyvaJ27329"
 }　
-
 ```
