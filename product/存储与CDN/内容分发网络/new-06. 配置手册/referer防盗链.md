@@ -1,6 +1,6 @@
 ## 功能介绍
 
-若您希望对业务资源的访问来源进行控制，CDN 为您提供了 Refererer 防盗链配置功能。通过对用户HTTP Request Header 中 refererer 字段的值设置过滤策略，从而限制访问来源。
+若您希望对业务资源的访问来源进行控制，CDN 为您提供了 Referer 防盗链配置功能。通过对用户HTTP Request Header 中 Referer 字段的值设置过滤策略，从而限制访问来源。
 
 ## 配置说明
 
