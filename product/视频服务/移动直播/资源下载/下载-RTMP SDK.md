@@ -8,8 +8,8 @@
 
 **【注意事项】**
 - 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
-- 开发环境的工程配置请参考 [IOS平台](https://www.qcloud.com/doc/api/258/5320) & [Android平台](https://www.qcloud.com/doc/api/258/5319)。
-- 每个版本的更新情况详见[历史更新记录](https://www.qcloud.com/doc/api/258/6173)
+- 开发环境的工程配置请参考 [IOS平台](https://www.qcloud.com/document/product/454/7876) & [Android平台](https://www.qcloud.com/document/product/454/7877)。
+- 每个版本的更新情况详见[历史更新记录](https://www.qcloud.com/document/product/454/7878)
 
 **【测试情况】**
 - 总用例数：351，通过用例数：325，不通过用例数：26
