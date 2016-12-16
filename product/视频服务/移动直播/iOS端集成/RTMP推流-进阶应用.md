@@ -1,7 +1,4 @@
-
->注：为了减少文档篇幅，同时由于RTMP SDK 在两个平台的接口相似度极高，所以本文中所有示例代码仅给出Objective-C的版本。
-
-## 1. RTMP SDK 推流原理
+## 1. 推流原理
 腾讯云 RTMP SDK 内部状态机原理如下图所示：
 - **Step1 - 调用的起点：**TXLivePush 对象的 startPush 被调用后，推流的流程便会开始启动。
 
@@ -13,7 +10,7 @@
 
 ![SDK内部原理](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tencent_cloud_rtmp_sdk_pusher_status_14.jpg)
 
-## 2. 了解 SDK 推流质量
+## 2. 质量监控
 RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是个黑盒是我们所不希望看到的情况，所以我们提供了一种**状态反馈机制**：每1-2秒就会将内部各种状态参数反馈出来。
 
 ![](//mc.qcloudimg.com/static/img/48fd46af4e17b0299fd00a0e661a16f0/image.png)
@@ -65,7 +62,7 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 您在 2.1 中所看到的图表是源于我们实验测试用的内部数据分析系统，如果您有同样的分析需求，可以在[直播控制台](https://console.qcloud.com/live)的质量监控系统里看到类似的图表，这里的图表的格式更加简明，对其理解不需要太多专业的音视频基础知识。
 ![](//mc.qcloudimg.com/static/img/4bf231da79ec8e45bdc4c16c927da47f/image.png)
 
-## 3. 校调推流参数
+## 3. 参数校调
 如果您希望定制视频编码参数，音频编码参数等等，您可以通过设置Config对象实现您的自定义需求，目前我们支持的setting接口如下：
 
 | 参数名           |    含义                                          |   默认值  | 
@@ -103,7 +100,89 @@ _config.videoBitratePIN = 800;
 _pusher = [[TXLivePush alloc] initWithConfig: _config];
 ```
 
-## 4. 如果您想加工视频数据
+## 4. 智能控速
+### 4.1 背景说明
+RTMP 推流质量对于观看体验非常关键，因为如果主播的推流质量不佳，那么所有观众看到的视频画面都是卡顿的，据统计，视频云客户群 80% 以上的直播间卡顿问题均是由于 RTMP 推流质量不佳导致的。
+
+![](//mc.qcloudimg.com/static/img/4bf231da79ec8e45bdc4c16c927da47f/image.png)
+
+在众多的推流质量问题中，主播的上行网络不给力引发的问题又是最主要的，上行带宽不足会导致音视频数据在主播端堆积并丢弃，从而使观众端看到的视频画面出现卡顿甚至长时间卡死。
+
+所以，优化主播上行卡顿问题能够有效地提升推流质量，进而提升观看端的质量，尤其在国内运营商普遍限制上行带宽的情况下。
+
+但是网络问题不随人的意志为转移，主播家里买的 4Mbps 宽带套餐，不可能因为主播装一个 App 就让其变成 8Mbps，因此，我们只能采用顺势而为的做法 —— **主动适应上行网络的情况**。
+
+
+### 4.2 可选方案
+1.7.0 版本开始，RTMP SDK 提供了针对三种场景的推荐方案：
+
+#### 【秀场直播】
+- **场景特点**
+秀场模式的分辨率一般采用  360\*640 的分辨率， 码率上相应的采用 800kbps ，该模式下我们一般更关注画面清晰度和声音流畅度。如果主播的网络遭遇波动，主动降低画质来确保流畅性未必是我们追求的效果。
+
+ 因为秀场模式的码率本来就不高，这个时候压低码率的收益非常有限，码率降得少了没什么实质性改善，码率降得多了，就必然会引入区域性的马赛克，同时会大幅牺牲画面色彩的丰富度。
+
+- **流控方案**
+针对上述场景特点，我们**推荐不要做流控**，当主播的网络遭遇波动时，RTMP SDK 会通过 **PUSH_WARNING_NET_BUSY** 事件通知给您的App。这个时候建议您通过 UI 上的提示，提醒一下主播自己现在接入的WiFi不太给力，是不是考虑坐的离路由器近一点？
+```
+TXLivePushConfig* _config;
+_config.videoBitratePIN	  = 700;  // 700kbps
+_config.enableAutoBitrate = NO;   //固定码率推流
+_config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//设置推流分辨率
+```
+
+#### 【手游直播】
+- **场景特点**
+跟秀场模式不同，手游直播场景下的分辨率和码率都比较高，比如 540p 甚至 720p 的分辨率是非常常见的，码率也一般在 1.5Mbps 以上，有些画面变化幅度比较大的游戏（比如 TempleRun）的甚至要2.5Mbps以上的上行带宽才能扛得住。
+
+ 于此同时，手游直播的主播一般都更加职业和专注，倾向于会选择网络较好的场景进行长时间的直播，期间网络波动的情况更多的是偶发性的临时波动。
+
+- **流控方案**
+针对上述场景特点，我们推荐采用 **AUTO_ADJUST_BITRATE_STRATEGY_2** 策略自动调整码率，该方案的特点是快速探测，快速调整，比较适合大码率的手游直播场景。
+```
+TXLivePushConfig* _config;
+_config.videoBitrateMin   = 500;//动态调整的最小码率
+_config.videoBitrateMax   = 1000;//动态调整的最大码率
+_config.videoBitratePIN   = 800;//刚开始进入的默认码率
+_config.enableAutoBitrate = YES;//是否开启动态调整码率
+_config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//默认分辨率 
+_config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_2;
+```
+
+- **进阶应用**
+每一数值的码率都有最适合的分辨率与之搭配，比如 600kbps 的码率配合 360p 的分辨率，不管是颜色还是清晰度都是挺不错的，但如果 600kbps 的码率要配合 720p 的分辨率，画面就会大大缩水，这是由于视频编码率通常要牺牲更多的画质来换取更高的分辨率。
+
+ 基于这个原因，在 720p 的分辨率场景下，如果简单的将码率从 1.5Mbps 降低到 500kbps，后果就是运动画面下的(720p - 500kbps) 的马赛克要远多于(360p - 500kbps) 。
+
+ 所以，对于高清场景的游戏推流，我们更推荐采用 **AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2** ，它会在降低码率的同时，相应的调整分辨率，以保持码率和分辨率之间的最佳平衡点。
+ ```
+ TXLivePushConfig* _config;
+ _config.videoBitrateMin      = 800;//动态调整的最小码率
+ _config.videoBitrateMax      = 3000;//动态调整的最大码率
+ _config.videoBitratePIN      = 1800;//刚开始进入的默认码率
+ _config.enableAutoBitrate    = YES;//是否开启动态调整码率
+ _config.videoResolution      = VIDEO_RESOLUTION_TYPE_720_1280;//默认分辨率 
+_ config.autoAdjustStrategy  = AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2;
+```
+ 
+#### 【移动场景】
+- **场景特点**
+移动场景是个很宽泛的概念，我们团队将带宽不稳定的场景统称为移动场景，该场景下，主播的上行网络会经常发生变动，这一段时间可能是1Mbps， 下一段时间可能就变成 300kbps了。
+
+- **流控方案**
+针对这种场景，我们推荐采用 **AUTO_ADJUST_BITRATE_STRATEGY_1**，该策略模式下会尽量让带宽跟着网络情况持续做适应性调整。带来的收益就是在带宽不稳定的情况下推流质量会灵活应对，当然，这也有代价，那就是当网络稳定的情况下，推流码率也会“很不安分”，相比于固定码率会带来更多的波动。
+ ```
+ TXLivePushConfig* _config;
+ _config.videoBitrateMin   = 500;//动态调整的最小码率
+ _config.videoBitrateMax   = 1000;//动态调整的最大码率
+ _config.videoBitratePIN   = 800;//刚开始进入的默认码率
+ _config.enableAutoBitrate = YES;//是否开启动态调整码率
+ _config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//默认分辨率 
+ _config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_1;
+```
+
+## 5. 替换数据源
+### 5.1 如果您想加工视频数据
 有些研发能力比较强的客户，会有自定义图像处理的需求（比如堆加字幕），同时又希望复用rtmp sdk的整体流程，如果是这样，您可以按照如下攻略进行定制。
 
 ```objectivec
@@ -132,7 +211,7 @@ typedef void (*PVideoProcessHookFunc)(unsigned char * yuv_buffer, int len_buffer
 
 > 您的预处理函数，MyHookVideoFunc的处理时间不能过长，试想，如果该函数的处理时间超过50ms，那就意味着SDK推出的视频流，其帧率不可能达到20FPS。
 
-## 5. 如果您想加工音频数据
+### 5.2 如果您想加工音频数据
 类似视频数据处理，但是具体的名称要换成音频相关的。
 ```objectivec
 //（1）设置CustomMode为 CUSTOM_MODE_AUDIO_PREPROCESS
@@ -159,7 +238,7 @@ typedef void (*PAudioProcessHookFunc)(unsigned char * pcm_buffer, int len_buffer
                                           int sample_rate, int channels, int bit_size);
 ```
 
-## 6. 如果您只用SDK来推流
+### 5.3 如果您只是用SDK来推流
 也有客户只是希望拿SDK用来推流，音视频采集部分由自己的代码控制，SDK用来做音视频编码和推流就可以了。
 如果是这样，您可以按如下步骤实现：
 
