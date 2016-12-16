@@ -6,7 +6,7 @@
 
 此API分为两个逻辑，创建VPN认证用户及设置认证用户的密码，需两次不同参数值调用。
 
-创建VPN认证用户: 先调用 GetOutBandVPNAuthInfo 获取VPN信息，如GetOutBandVPNAuthInfo返回的be_first=true, 则必须要调用本API，并设置入参createOrUpdate值为create。
+创建VPN认证用户: 先调用<a href="/doc/api/386/6679" title="获取带外VPN信息">获取带外VPN信息(GetOutBandVPNAuthInfo)接口</a> 获取VPN信息，如GetOutBandVPNAuthInfo返回的be_first=true, 则必须要调用本API，并设置入参createOrUpdate值为create。
 
 设置认证用户的密码： 已经调用本API创建过VPN认证用户，直接调用本API设置。
 
@@ -33,7 +33,7 @@
 <td> createOrUpdate
 <td> 是
 <td> String
-<td> 取值为create或者update字符串。 create: 创建此appId的VPN帐号，只有在GetOutBandVPNAuthInfo返回的be_first=true时需要创建；
+<td> 取值为create或者update字符串。 create: 创建此appId的VPN帐号，只有在<a href="/doc/api/386/6679" title="获取带外VPN信息">获取带外VPN信息(GetOutBandVPNAuthInfo)接口</a> 返回的be_first=true时需要创建；
 update:修改此VPN认证帐号的密码，前提条件：已经调用本API创建了VPN认证用户。
 </tbody></table>
 
