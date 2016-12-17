@@ -143,10 +143,13 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 |PLAY_EVT_PLAY_LOADING	|  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
 
 - **不要在收到 PLAY_LOADING 后隐藏播放画面**
-因为PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。
+因为PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个半透明的 loading 动画。
 
 - **LOADING 频繁与否多是由cacheTime决定的**
 TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime 属性被设置的很小，那么 LOADING 就会变得非常频繁，如果你您发现有频繁LOADING的情况出现，请参考[卡顿&延迟](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) 进行校调。
+
+- **PLAY_PROGRESS 播放进度的处理**
+如果您对如何处理点播时的 PLAY_EVT_PLAY_PROGRESS 事件没有思路，可以参考示例代码-[进度处理](https://www.qcloud.com/document/product/454/7896)。
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
