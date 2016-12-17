@@ -1,14 +1,16 @@
+## 基础知识
+**推流**（也叫发布）是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
 
-## RTMP SDK介绍
-腾讯视频云 RTMP SDK 是由腾讯音视频团队开发和推出的一套 RTMP 标准直播解决方案，包含**RTMP推流**、**在线直播观看**和**Vod视频回看**三大类功能，囊括了腾讯音视频团队多年的技术积累，在视频压缩、硬件加速、美颜滤镜、音频降噪、码率控制等方面都做了很多的优化处理。
-
-如果您是一位刚刚接触视频直播的合作伙伴，您只需要几行代码就可以完成对接流程，而如果您是一位资深的移动端软件开发工程师，SDK所提供的丰富的设置接口，亦可让您能够定制出最符合需求的表现。
-
-![rtmp sdk push](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tx_cloud_push_sdk_struct.jpg)
-
-## 下载RTMP SDK
-在 [SDK下载区](https://www.qcloud.com/doc/api/258/6172#.E7.A7.BB.E5.8A.A8.E7.AB.AFsdk) 里找到指定平台的SDK压缩包，压缩包中包含了SDK本体和Demo的代码，参考 [工程配置(Android)](https://www.qcloud.com/doc/api/258/5319) 在Xcode中将其运行起来，如果一起顺利可以看到如下界面。
+腾讯云 RTMP SDK 主要帮您解决在智能手机上的推流问题，它的接口非常简单易用，只需要一个推流URL就能驱动：
 ![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
+
+## 限制说明
+RTMP SDK <font color='red'>**不限制**</font> 您向非腾讯云地址推流。
+
+为解决国内 DNS 映射不准确的问题，SDK 1.5.2 版本开始引入就近选路，即通过腾讯云就近选路服务器选择离主播最优的推流线路，这一改进对推流质量提升很大。但相应的，选路结果中只有腾讯云的服务器地址。而且，由于我们大量的客户采用专属推流域名，SDK 无法简单通过 URL 文本分析就辨别出是不是推到腾讯云。
+
+所以，如果您需要推流到**非腾讯云地址**，可以通过客服联系我们，我们可以为您的账号关闭就近选路。该项配置通过云控实现，故您不需要发布新的客户端版本来解决这个问题。
+
 
 ## 对接攻略
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
@@ -145,7 +147,7 @@ mLivePusher.setConfig(mLivePushConfig);
 在开始推流前，使用 TXLivePushConfig 的 setPauseFlag 接口设置切后台pause推流时需要停止哪些采集，停止视频采集则会推送pauseImg设置的默认图，停止音频采集则会推送静音数据。
 >  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示同时停止视频和音频采集，并且推送填充用的音视频流；
 >         
->  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止摄像头采集视频画面，但保持麦克风继续采集声音，用于主播更新等场景；
+>  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止摄像头采集视频画面，但保持麦克风继续采集声音，用于主播更衣等场景；
 
 - **8.3) 切后台处理**
 推流中，如果App被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，RTMP SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
@@ -240,8 +242,6 @@ Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转�
     }
 ```
 
-
-
 ### step 12: 背景混音
 RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePusher 中的如下这组接口实现背景混音功能：
 
@@ -254,11 +254,23 @@ RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机�
 | setMicVolume|设置混音时麦克风的音量大小，推荐在UI上实现相应的一个滑动条，由主播自己设置|
 | setBGMVolume|设置混音时背景音乐的音量大小，推荐在UI上实现相应的一个滑动条，由主播自己设置|
 
-### step 13: 事件处理
-####  事件监听
+### step 13: 结束推流
+结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 都是不能多实例并行运转的，所以清理工作不当会导致下次直播遭受不良的影响。
+```java
+//结束推流，注意做好清理工作
+public void stopRtmpPublish() {
+    mLivePusher.stopCameraPreview(true); //停止摄像头预览
+	mLivePusher.stopPusher();            //停止推流
+    mLivePusher.setPushListener(null);   //解绑 listener
+}
+```
+
+
+## 事件处理
+### 1. 事件监听
 RTMP SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相关的事件，注意 TXLive<font color='red'>Push</font>Listener 只能监听得到 <font color='red'>PUSH_</font> 前缀的推流事件。
 
-####  常规事件 
+### 2. 常规事件 
 一次成功的推流都会通知的事件，比如收到1003就意味着摄像头的画面会开始渲染了
 
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -267,7 +279,7 @@ RTMP SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推�
 |PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
 |PUSH_EVT_OPEN_CAMERA_SUCC	  | 1003	| 推流器已成功打开摄像头（Android部分手机这个过程需要1-2秒）| 
 
-####  错误通知 
+### 3. 错误通知 
 SDK发现了一些严重问题，推流无法继续了，比如用户禁用了APP的Camera权限导致摄像头打不开。
 
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -280,14 +292,14 @@ SDK发现了一些严重问题，推流无法继续了，比如用户禁用了AP
 |PUSH_ERR_UNSUPPORTED_SAMPLERATE  | -1306| 不支持的音频采样率|
 |PUSH_ERR_NET_DISCONNECT          | -1307| 网络断连,且经三次抢救无效,可以放弃治疗,更多重试请自行重启推流|
 
-####  警告事件 
+### 4. 警告事件 
 SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”哦。
 
-- PUSH_WARNING_NET_BUSY
-主播网络不给力，如果您需要UI提示，这个 warning 相对比较有用（step10）。
+- **WARNING_NET_BUSY**
+主播网络不给力。如果您需要UI提示，这个 warning 相对比较有用（step10）。
 
-- PUSH_WARNING_SERVER_DISCONNECT
-推流请求被后台拒绝了，会触发有限次数的重试逻辑，有可能可以在某一次重试中推流成功。但实话实说，大部分场景中都是推流地址里的txSecret计算错了，或者被其他人占用了测试地址，所以这个 warning 对您的调试帮助意义更大。
+- <font color='red'>**WARNING_SERVER_DISCONNECT**</font>
+推流请求被后台拒绝了。出现这个问题一般是由于推流地址里的 txSecret 计算错了，或者是推流地址被其他人占用了（一个推流URL同时只能有一个端推流）。
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
@@ -300,17 +312,5 @@ SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 |PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP服务器主动断开连接（会触发重试流程）  |
 
 > 全部事件定义请参阅头文件**“TXLiveConstants.java”**
-
-### step 14: 结束推流
-结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 都是不能多实例并行运转的，所以清理工作不当会导致下次直播遭受不良的影响。
-```java
-//结束推流，注意做好清理工作
-public void stopRtmpPublish() {
-    mLivePusher.stopCameraPreview(true); //停止摄像头预览
-	mLivePusher.stopPusher();            //停止推流
-    mLivePusher.setPushListener(null);   //解绑 listener
-}
-```
-
 
 
