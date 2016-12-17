@@ -20,8 +20,6 @@ APP后台接收该事件通知的方法参见[服务端事件通知简介](/docu
 ## 示例
 对于HTTP回调，以下内容为HTTP Post Body；对于基于消息队列的可靠通知，以下内容为PullVodEvent接口返回包体中eventList数组的元素。
 
-### 示例：URL转拉成功
-
 ```javascript
 {
     "version": "4.0",
@@ -37,24 +35,3 @@ APP后台接收该事件通知的方法参见[服务端事件通知简介](/docu
     }
 }
 ```
-
-### 示例：URL转拉失败
-
-TODO：完善真正的错误码和错误信息 by fishlyliu
-
-```javascript
-{
-    "version" : "4.0",
-    "eventType": "PullComplete",
-    "data" : {
-        "status" : 1,
-        "message" : "???",
-        "vodTaskId" : "pull-f5ac8127b3b6b85cdc13f237c6005d8"
-    }
-}
-```
-
-### 错误码说明
-| 错误码 | 含义说明|
-|---------|---------|
-| TODO | TODO  |
