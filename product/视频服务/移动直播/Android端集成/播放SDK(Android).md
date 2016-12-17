@@ -241,7 +241,7 @@ mPlayConfig.setAutoAdjustCacheTime(false);
 mPlayConfig.setCacheTime(5);
 
 mLivePlayer.setConfig(mPlayConfig);
-
+```
 
 
 
