@@ -13,8 +13,8 @@ RTMP SDK 包含推流和播放两方面功能，推流为主播端功能，播�
  通常使用的点播协议如下，现在比较流行的是HLS(以“http”打头，以“.m3u8”结尾)的点播地址：
 ![](//mc.qcloudimg.com/static/img/4b42a00bb7ce2f58f362f35397734177/image.jpg)
 
-## 限制说明
-腾讯云 RTMP SDK <font color='red'>**不对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址，但它只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址 以及 FLV 、MP4 和 HLS（m3u8）三种格式的点播地址。
+## 特别说明
+腾讯云 RTMP SDK <font color='red'>**不对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但 RTMP SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 FLV 、MP4 和 HLS（m3u8）三种格式的点播地址。
 
 ## 对接攻略
 
