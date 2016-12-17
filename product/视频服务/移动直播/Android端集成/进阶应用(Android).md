@@ -15,7 +15,7 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 
 ![](//mc.qcloudimg.com/static/img/48fd46af4e17b0299fd00a0e661a16f0/image.png)
 
-您要做的就是提供一个 **TXLivePushListener** 监听器给 TXLivePush 对象，RTMP SDK 会通过 onNetStatus 回调将所有内部状态全部通知出去。
+您要做的就是提供一个 **TXLivePushListener** 监听器给 TXLivePusher 对象，RTMP SDK 会通过 onNetStatus 回调将所有内部状态全部通知出去。
   
 |  推流状态                   |  含义说明                    |   
 | :------------------------  |  :------------------------ | 
@@ -67,37 +67,38 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 
 | 参数名           |    含义                                          |   默认值  | 
 | :-------------- | :-----------------------------------------------| :------: |
-| audioSampleRate|   音频采样率：录音设备在一秒钟内对声音信号的采集次数   |  44100   |  
-| enableNAS          |   噪声抑制：开启后可以滤掉背景杂音（32000以下采样率有效） |  关闭     |
-| enableHWAcceleration|   视频硬编码：开启后最高可支持720p， 30fps视频采集   |  开启   |  
-| videoFPS     |   视频帧率：即视频编码器每秒生产出多少帧画面，注意由于大部分机器性能不足以支持30FPS以上的编码，推荐您设置FPS为20           |  20      |
-| videoResolution|   视频分辨率：目前提供四种16：9分辨率可供您选择      |  640 * 360 |
-| videoBitratePIN |   视频比特率：即视频编码器每秒生产出多少数据，单位 kbps |  800|
-| enableAutoBitrate |   带宽自适应：该功能会根据当前网络情况，自动调整视频比特率 |   关闭|
-| videoBitrateMax| 最大输出码率：只有开启自适应码率, 该设置项才能启作用 |   1200|
-| videoBitrateMin| 最小输出码率：只有开启自适应码率, 该设置项才能启作用 |   800|
-| videoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个I帧 | 3s |
-| homeOrientation| 设置视频图像旋转角度，比如是否要横屏推流  |   home在右边（0）home在下面（1）home在左面（2）home在上面（3）   |
-| beautyFilterDepth| 美颜级别：支持1~9 共9个级别，级别越高，效果越明显。0表示关闭  |   关闭   |
-| frontCamera | 默认是前置还是后置摄像头 | 前置 |
-| watermark | 水印图片（UIImage对象） | 腾讯云Logo（demo）  |    
-| watermarkPos | 水印图片相对左上角坐标的位置 | （0, 0）  |                                                                        
+| setAudioSampleRate|   音频采样率：录音设备在一秒钟内对声音信号的采集次数   |  44100   |  
+| setANS          |   噪声抑制：开启后可以滤掉背景杂音（32000以下采样率有效） |  关闭     |
+| setHardwareAcceleration|   视频硬编码：开启后最高可支持720p， 30fps视频采集   |  开启   |  
+| setVideoFPS     |   视频帧率：即视频编码器每秒生产出多少帧画面，注意由于大部分机器性能不足以支持30FPS以上的编码，推荐您设置FPS为20           |  20      |
+| setVideoResolution|   视频分辨率：目前提供四种16：9分辨率可供您选择      |  640 * 360 |
+| setVideoBitrate |   视频比特率：即视频编码器每秒生产出多少数据，单位 kbps |  800|
+| setAutoAdjustBitrate   |   带宽自适应：该功能会根据当前网络情况，自动调整视频比特率 |   关闭|
+| setAutoAdjustStrategy |   如果开启带宽自适应，可以通过该接口设置动态调整码率的策略 |   STRATEGY_1 |
+| setMaxVideoBitrate| 最大输出码率：只有开启自适应码率, 该设置项才能启作用 |   1200|
+| setMinVideoBitrate| 最小输出码率：只有开启自适应码率, 该设置项才能启作用 |   800|
+| setVideoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个I帧 | 3s |
+| setHomeOrientation| 设置视频图像旋转角度，比如是否要横屏推流  |   home在右边（0）home在下面（1）home在左面（2）home在上面（3）   |
+| setBeautyFilter| 美颜级别：支持1~9 共9个级别，级别越高，效果越明显。0表示关闭  |   关闭   |
+| setFrontCamera | 默认是前置还是后置摄像头 | 前置 |
+| setWatermark | 水印图片（UIImage对象） | 腾讯云Logo（demo）  |    
+| setTouchFocus| 是否开启手动对焦| 开启 |
+| setPauseImg | 设置后台推流时垫片用的图片 | Demo中打包的一张资源图片 | 
 
 这些参数的设置推荐您在启动推流之前就指定，因为大部分设置项是在重新推流之后才能生效的。参考代码如下：
 
-```objectivec
+```java
 //成员变量中声明 _config 和 _pusher
 ....
 //初始化 _config
-_config = [[TXLivePushConfig alloc] init];
+mLivePushConfig = new TXLivePushConfig();
 
 // 修改参数设置为声音44100采样率，视频800固定码率
-_config.audioSampleRate = 44100;
-_config.enableAutoBitrate = NO;
-_config.videoBitratePIN = 800;
+mLivePushConfig.setAudioSampleRate(44100);
+mLivePushConfig.setAutoAdjustBitrate(false);
+mLivePushConfig.setVideoBitrate(800);
 
-//初始化 _pusher
-_pusher = [[TXLivePush alloc] initWithConfig: _config];
+mLivePusher.setConfig(mLivePushConfig);
 ```
 
 ## 4. 智能控速
@@ -125,10 +126,9 @@ RTMP 推流质量对于观看体验非常关键，因为如果主播的推流质
 - **流控方案**
 针对上述场景特点，我们**推荐不要做流控**，当主播的网络遭遇波动时，RTMP SDK 会通过 **PUSH_WARNING_NET_BUSY** 事件通知给您的App。这个时候建议您通过 UI 上的提示，提醒一下主播自己现在接入的WiFi不太给力，是不是考虑坐的离路由器近一点？
 ```
-TXLivePushConfig* _config;
-_config.videoBitratePIN	  = 700;  // 700kbps
-_config.enableAutoBitrate = NO;   //固定码率推流
-_config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//设置推流分辨率
+mLivePushConfig.setVideoBitrate(700);  // 700kbps
+mLivePushConfig.setAutoAdjustBitrate(false);   //固定码率推流
+mLivePushConfig.setVideoResolution(VIDEO_RESOLUTION_TYPE_360_640); //设置推流分辨率
 ```
 
 #### 【手游直播】
@@ -139,14 +139,14 @@ _config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//设置推流分辨�
 
 - **流控方案**
 针对上述场景特点，我们推荐采用 **AUTO_ADJUST_BITRATE_STRATEGY_2** 策略自动调整码率，该方案的特点是快速探测，快速调整，比较适合大码率的手游直播场景。
-```
+```java
 TXLivePushConfig* _config;
-_config.videoBitrateMin   = 500;//动态调整的最小码率
-_config.videoBitrateMax   = 1000;//动态调整的最大码率
-_config.videoBitratePIN   = 800;//刚开始进入的默认码率
-_config.enableAutoBitrate = YES;//是否开启动态调整码率
-_config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//默认分辨率 
-_config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_2;
+mLivePushConfig.setMinVideoBitrate(500);//动态调整的最小码率
+mLivePushConfig.setMaxVideoBitrate(1000);//动态调整的最大码率
+mLivePushConfig.setVideoBitrate(800);//刚开始进入的默认码率
+mLivePushConfig.setAutoAdjustBitrate(true);//是否开启动态调整码率
+mLivePushConfig.setAutoAdjustStrategy(AUTO_ADJUST_BITRATE_STRATEGY_2);
+mLivePushConfig.setVideoResolution(VIDEO_RESOLUTION_TYPE_360_640);//默认分辨率 
 ```
 
 - **进阶应用**
@@ -155,14 +155,14 @@ _config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_2;
  基于这个原因，在 720p 的分辨率场景下，如果简单的将码率从 1.5Mbps 降低到 500kbps，后果就是运动画面下的(720p - 500kbps) 的马赛克要远多于(360p - 500kbps) 。
 
  所以，对于高清场景的游戏推流，我们更推荐采用 **AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2** ，它会在降低码率的同时，相应的调整分辨率，以保持码率和分辨率之间的最佳平衡点。
- ```
- TXLivePushConfig* _config;
- _config.videoBitrateMin      = 800;//动态调整的最小码率
- _config.videoBitrateMax      = 3000;//动态调整的最大码率
- _config.videoBitratePIN      = 1800;//刚开始进入的默认码率
- _config.enableAutoBitrate    = YES;//是否开启动态调整码率
- _config.videoResolution      = VIDEO_RESOLUTION_TYPE_720_1280;//默认分辨率 
-_ config.autoAdjustStrategy  = AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2;
+```java
+TXLivePushConfig* _config;
+mLivePushConfig.setMinVideoBitrate(800);//动态调整的最小码率
+mLivePushConfig.setMaxVideoBitrate(3000);//动态调整的最大码率
+mLivePushConfig.setVideoBitrate(1800);//刚开始进入的默认码率
+mLivePushConfig.setAutoAdjustBitrate(true);//是否开启动态调整码率
+mLivePushConfig.setAutoAdjustStrategy(AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2);
+mLivePushConfig.setVideoResolution(VIDEO_RESOLUTION_TYPE_720_1280);//默认分辨率 
 ```
  
 #### 【移动场景】
@@ -171,14 +171,14 @@ _ config.autoAdjustStrategy  = AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2;
 
 - **流控方案**
 针对这种场景，我们推荐采用 **AUTO_ADJUST_BITRATE_STRATEGY_1**，该策略模式下会尽量让带宽跟着网络情况持续做适应性调整。带来的收益就是在带宽不稳定的情况下推流质量会灵活应对，当然，这也有代价，那就是当网络稳定的情况下，推流码率也会“很不安分”，相比于固定码率会带来更多的波动。
- ```
- TXLivePushConfig* _config;
- _config.videoBitrateMin   = 500;//动态调整的最小码率
- _config.videoBitrateMax   = 1000;//动态调整的最大码率
- _config.videoBitratePIN   = 800;//刚开始进入的默认码率
- _config.enableAutoBitrate = YES;//是否开启动态调整码率
- _config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//默认分辨率 
- _config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_1;
+```java
+TXLivePushConfig* _config;
+mLivePushConfig.setMinVideoBitrate(500);//动态调整的最小码率
+mLivePushConfig.setMaxVideoBitrate(1000);//动态调整的最大码率
+mLivePushConfig.setVideoBitrate(800);//刚开始进入的默认码率
+mLivePushConfig.setAutoAdjustBitrate(true);//是否开启动态调整码率
+mLivePushConfig.setAutoAdjustStrategy(AUTO_ADJUST_BITRATE_STRATEGY_1);
+mLivePushConfig.setVideoResolution(VIDEO_RESOLUTION_TYPE_360_640);//默认分辨率 
 ```
 
 ## 5. 替换数据源
