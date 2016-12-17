@@ -33,12 +33,13 @@ UGC视频上传的整体流程分为如下两部：
 
 签名明文字符串 Original 的格式如下：  
 
-Original="s=[SecretID]&f=[FileName]&t=[currentTime]&e=[expiredTime]&r=[rand]"
+Original="s=[SecretID]&f=[FileName]&fs=[FileSha]&t=[currentTime]&e=[expiredTime]&r=[rand]"
  
 签名明文串中各字段含义如下：
 
 - s 	项目的Secret ID 
 - f 	待上传文件的文件名称 
+- fs	文件的SHA
 - t 	当前时间戳，是一个符合 Unix Epoch时间戳规范的数值，单位为秒 
 - e 	签名的失效时刻，是一个符合Unix Epoch时间戳规范的数值，单位为秒。e的计算方式为e = t + 签名有效时长。签名有效时长最大取值为777600090天） 
 - r 	随机串，无符号10进制整数，用户需自行生成，最长10位 
@@ -58,38 +59,8 @@ Sign = Base64(append(SignTmp, Original))
 > 1. 此处使用的是标准的Base64编码，不是urlsafe的Base64编码。
 > 2. 由于使用了HMAC算法，计算SignTmp的结果为二进制字符串，因此建议将算法写在同一函数中实现。单独输出SignTmp可能导致拼接后的字串有误。 
 
-## 示例
+## UGC上传签名生成示例代码
 
-### PHP示例
- 
-本节介绍生成签名的算法实例，实例中使用PHP语言（若开发者使用其他开发语言，请使用对应的函数）。 
+- PHP示例
+- Node.js示例
 
-#####1、获取签名所需信息获取得到的签名所需信息如下：
- 
-$secret_id = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
- 
-$secret_key = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
- 
-$current = time();
- 
-$expired = $current + 3600;
-  
-$rdm = rand();
- 
-$filename = "tencent_test.mp4";
- 
-#####2、拼接签名明文串
- 
-$orignal = 'k='.$secret_id.'&t='.$current.'&e='.$expired.'&f='.$filename.'&r='.$rdm;
- 
-#####3、生成签名
- 
-$signature=base64_encode(hash_hmac('SHA1',$orignal,$secret_key, true).$orignal);
- 
-echo $signature."\n";
-  
-如 original="s=AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv&f=tencent_test.mp4&t=1437995644&e=1437995704&r=2081660421"
- 
-最终得到的签名为：
- 
-IEmbRAPy5IgIAFnt7XPAToaY3RRzPUFLSURVZkxVRVVpZ1FpWHFtN0NWU3NwS0pudWFpSUt0eHFBdiZmPXRlbmNlbnRfdGVzdC5tcDQmdD0xNDM3OTk1NjQ0JmU9MTQzNzk5NTcwNCZyPTIwODE2NjA0MjE= 
