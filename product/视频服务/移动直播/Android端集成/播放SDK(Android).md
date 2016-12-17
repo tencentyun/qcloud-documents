@@ -143,7 +143,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime 属性被设置的很小，那么 LOADING 就会变得非常频繁，如果你您发现有频繁LOADING的情况出现，请参考[卡顿&延迟](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) 进行校调。
 
 - **PLAY_PROGRESS 播放进度的处理**
-如果您对如何处理点播时的 PLAY_EVT_PLAY_PROGRESS 事件没有思路，可以参考示例代码-[进度处理](https://www.qcloud.com/document/product/454/7887)。
+如果您对如何处理点播时的 PLAY_EVT_PLAY_PROGRESS 事件没有思路，可以参考示例代码-[播放进度](https://www.qcloud.com/document/product/454/7887)。
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
