@@ -1,12 +1,12 @@
 ## 接口名称
-InitUpload
+InitUploadUGC
 
 ## 功能说明
-1. 该接口适用于APP将自己**服务器**上的视频上传到点播服务端；
-1. 对于将**客户端**（iOS/Android/Web）视频上传到点播服务端的需求（UGC），**不适合**使用该接口进行上传（因为APP不应当将自己的SecretId和SecretKey暴露到客户端）；应当使用[UGC视频上传综述](/document/product/266/7835)中描述的方法进行上传；
-1. 由于视频文件通常较大，故而一般需要采用分片上传的方式；整个上传过程涉及[初始化上传](/document/product/266/7809)、[分片上传](/document/product/266/7810)、[结束上传](/document/product/266/7811)三步，具体流程参见下图；
+1. 该接口适用于APP将自己**客户端**上的视频上传到点播服务端；
+1. 该接口亦可用于APP将自己服务端视频上传到点播服务端的场景，但我们建议使用服务端上传SDK或者服务端上传接口（[InitUpload](/document/product/266/7809)/[UploadPart](/document/product/266/7810)/[FinishUpload](/document/product/266/7811)）来进行上传；
+1. 由于视频文件通常较大，故而一般需要采用分片上传的方式；整个上传过程涉及[初始化上传(UGC)](/document/product/266/7902)、[分片上传(UGC)](/document/product/266/7903)、[结束上传(UGC)](/document/product/266/7904)三步，具体流程参见下图；
 1. 支持秒传、断点续传；
-1. 接口本身逻辑较为复杂，点播封装了多种语言的SDK来简化开发者的调用；我们建议开发者直接使用服务端SDK来实现服务端本地视频上传逻辑。
+1. 接口本身逻辑较为复杂，点播封装了多种语言的UGC上传SDK来简化开发者的调用，详见[UGC视频上传综述](/document/product/266/7835)。
 
 ![](//mc.qcloudimg.com/static/img/2d025243b3a9c492a53e309f92f3a2c1/image.png)
 
@@ -16,26 +16,22 @@ InitUpload
 vod2.qcloud.com
 
 > 注意：
-> - 服务端视频上传的域名与其他服务端API不同，**不是**vod.api.qcloud.com；
+> - UGC视频上传、服务端视频上传的域名与其他服务端API不同，**不是**vod.api.qcloud.com；
+> - UGC视频上传的签名(signature)生成方式与服务端API不同，方法参见UGC视频上传签名生成；
+> - 单个视频文件上传所调用的所有接口，包括[初始化上传(UGC)](/document/product/266/7902)、[分片上传(UGC)](/document/product/266/7903)、[结束上传(UGC)](/document/product/266/7904)，均使用相同的signature；
 > - 该接口仅支持GET方法，不支持POST方法。
-
-### 最高调用频率
-100次/分钟
 
 ### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
-| fileName | 是 | String | 视频文件本地名称，长度在40个字节以内，不得包含\ / : * ? " < > 等字符 |
 | fileSha | 是 | String | 视频文件的SHA值，计算方法见下文 |
 | fileSize | 是 | Integer | 视频文件的总大小，单位字节Byte |
 | dataSize | 是 | Integer | 调用分片上传接口(UploadPart)时，每个分片的大小；建议设置为524288(512KB)或者1048576(1MB) |
-| fileType | 是 | String | 视频文件的类型，根据后缀区分 |
-| tags.n | 否 | String | 视频标签 |
-| classId | 否 | Integer | 视频的分类ID |
-| isTranscode | 否 | Integer | 是否转码，0：否，1：是；默认为0；如果不执行转码，可在上传成功后通过控制台进行转码，或者调用视频转码接口([TranscodeFile](/document/product/266/7822)) |
-| isScreenshot | 否 | Integer | 是否截图，0：否，1：是；默认为0 |
-| isWatermark | 否 | Integer | 是否打水印，0：否，1：是，默认为0；如果选择打水印，请务必在管理控制台提前完成水印文件选择和位置设定，否则可能导致上传失败 |
-| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
+| signature | 是 | String | UGC上传签名，参见UGC视频上传签名生成 |
+
+**注意：**
+
+- 文件名称、文件分类、是否转码等控制项，不是由客户端指定的，而是由服务端在signature中传递。
 
 **fileSha的计算方法：**
 
@@ -44,18 +40,11 @@ vod2.qcloud.com
 
 ### 请求示例
 ```
-https://vod2.qcloud.com/v2/index.php?Action=InitUpload
-&fileName=test
+https://vod2.qcloud.com/v2/index.php?Action=InitUploadUGC
 &fileSha=b4a5c70c76e79e01ab3a5c306de3d9eedeadeca9
 &fileSize=20350000
 &dataSize=1048576
-&fileType=mp4
-&tags.1=foo
-&tags.2=bar
-&isTranscode=1
-&isScreenshot=1
-&isWatermark=1
-&COMMON_PARAMS
+&signature=IEmbRAPy5IgIAFnt7XPAToaY3RRzPUFLSURVZ
 ```
 
 ## 接口应答

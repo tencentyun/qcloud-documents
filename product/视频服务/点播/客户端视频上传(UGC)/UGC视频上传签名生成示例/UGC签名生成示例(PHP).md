@@ -13,7 +13,7 @@ $file_name = "tencent_test.mp4";
 $file_sha = "a9993e364706816aba3e25717850c26c9cd0d89d";
 
 $arg_list = array(
-	"k" => $secret_id,
+	"s" => $secret_id,
 	"t" => $current,
 	"e" => $expired,
 	"f" => $file_name,
