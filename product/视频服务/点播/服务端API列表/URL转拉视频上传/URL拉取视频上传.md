@@ -28,32 +28,30 @@ vod.api.qcloud.com
 ### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
-|pullset.n.url | 是 | String | 需要拉取的视频URL，n为一个整数，第一个视频n填1，第二个视频n填2，依次递增；下同|
-|pullset.n.fileName | 是 | String | 视频文件的名称|
-|pullset.n.fileMd5 | 否 | string | 视频文件的MD5|
-|pullset.n.isTranscode | 否 | Integer | 是否转码，0：否，1：是，默认为0；如果不执行转码，可在上传后，在管理控制台视频文件管理进行转码；|
-|pullset.n.isScreenshot | 否 | Integer | 是否截图，0：否，1：是，默认为0|
+|pullset.n.url | 是 | String | 需要拉取的视频URL，n为一个整数，第一个视频n填1，第二个视频n填2，依次递增；下同 |
+|pullset.n.fileName | 是 | String | 视频文件的名称 |
+|pullset.n.fileMd5 | 否 | string | 视频文件的MD5 |
+|pullset.n.isTranscode | 否 | Integer | 是否转码，0：否，1：是，默认为0；如果不执行转码，可在上传后，在管理控制台视频文件管理进行转码|
+|pullset.n.isScreenshot | 否 | Integer | 是否截图，0：否，1：是，默认为0 |
 |pullset.n.isWatermark | 否 | Integer | 是否打水印，0：否，1：是，默认为0；如果选择打水印，请务必在管理控制台提前完成水印文件选择和位置设定，否则可能导致上传失败；|
-|pullset.n.notifyUrl | 否 | String | 腾讯云通过回调该URL地址通知；调用方该视频已经拉取完毕。|
-|pullset.n.classId | 否 | Integer | 视频的分类ID|
-|pullset.n.tags | 否 | String | 视频的标签，有多个标签的话采用逗号分隔|
-|pullset.n.priority | 否 | Integer | 优先级0:中 1：高 2：低|
-|pullset.n.isReport | 否 | Integer | 回调开关，是否需要回包给开发商，0：否，1：是，默认为0|
+|pullset.n.classId | 否 | Integer | 视频的分类ID |
+|pullset.n.tags | 否 | String | 视频的标签，有多个标签的话采用英文逗号分隔 |
+|pullset.n.priority | 否 | Integer | 优先级：0:中 1：高 2：低 |
 
 ### 请求示例
+
 ```
-https://vod.api.qcloud.com/v2/index.php?Action=ActionName
+https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVideoFromUrl
 &pullset.1.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.html%3Fvid%3Dc0152uievii
 &pullset.1.fileName=test
 &pullset.1.isTranscode=1
 &pullset.1.priority=1
 &pullset.1.isScreenshot=1
 &pullset.1.isWatermark=1
-&pullset.1.notifyUrl=http%3A%2F%2Ftest.com%2Ftest
 &pullset.1.classId=0
-&pullset.1.isReport=1
 &COMMON_PARAMS
 ```
+
 ## 接口应答
 
 ### 参数说明
@@ -76,7 +74,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=ActionName
 | 1159 | 内部错误 |
 | 1163 | 没有水印，但请求中指定了要设置水印 |
 | 10003 | 内部错误 |
-
 
 ### 应答示例
 ```javascript

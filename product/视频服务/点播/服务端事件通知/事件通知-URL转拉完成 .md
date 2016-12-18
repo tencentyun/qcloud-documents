@@ -6,7 +6,7 @@ APP后台接收该事件通知的方法参见[服务端事件通知简介](/docu
 ### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
-| version | Integer | 回调版本号，固定为4.0 |
+| version | String | 回调版本号，固定为4.0 |
 | eventType | String | 回调类型，固定为PullComplete |
 | data | Object | 具体回调数据 |
 | data.status | Integer | 错误码，0: 成功；其他值: 失败 |
@@ -18,7 +18,9 @@ APP后台接收该事件通知的方法参见[服务端事件通知简介](/docu
 
 
 ## 示例
-对于HTTP回调，以下内容为HTTP Post Body；对于基于消息队列的可靠通知，以下内容为PullVodEvent接口返回包体中eventList数组的元素。
+
+- 对于[HTTP回调](/document/product/266/7829#http.E5.9B.9E.E8.B0.83)，以下内容为HTTP Post Body；
+- 对于基于消息队列的可靠通知，以下内容为PullVodEvent接口返回包体中eventList数组的元素。
 
 ```javascript
 {
