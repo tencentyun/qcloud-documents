@@ -1,6 +1,59 @@
-| 核心指标比较 | 普通套餐 | 其他 |
-|---------|---------|---------|
-| 推送速度 | 10万条/秒（共享） | 更快的速度 |
-| 离线保存消息条数| 5条 | 更多的消息保存 |
-| 价格 | 2000 | 议价 |
-| 备注 | 单次推送目标用户数超过1万（每天可推送最多100次），即需要按套餐收费；默认开通普通套餐，如需要VIP，请发送工单提交申请。[工单指引>>](https://www.qcloud.com/document/product/269/3916#1-.E4.BA.91.E9.80.9A.E4.BF.A1.E9.85.8D.E7.BD.AE.E5.8F.98.E6.9B.B4.E9.9C.80.E6.B1.82.E5.B7.A5.E5.8D.95.E7.9A.84.E6.8F.90.E4.BA.A4.E6.96.B9.E5.BC.8F) |  |
+<table style="display:table;width:100%">
+		<tbody>
+			<tr>
+				<td style="width:30%;background-color:#CCCCCC;">
+					<strong>功能</strong><strong> </strong> 
+				</td>
+				<td style="width:30%;background-color:#CCCCCC;">
+					<strong>子功能</strong> 
+				</td>
+				<td style="width:40%;background-color:#CCCCCC;">
+					<strong>功能</strong><strong>备注/常见问题</strong> 
+				</td>
+				</tr>
+		<tr>
+			<td rowspan="3">
+				核心指标比较
+			</td>
+			<td>
+				普通套餐<br>
+			</td>
+			<td>
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				其他<br>
+			</td>
+			<td>
+				支持公有群/聊天室/讨论组/直播聊天室<br>
+			</td>
+		</tr>
+		<tr>
+		</tr>
+			</tr>
+			<tr>
+				<td>
+					会话获取
+				</td>
+				<td>
+					<br>
+				</td>
+				<td>
+					发消息时首先需要先获取会话，获取会话需要指定会话类型（群组&单聊）
+				</td>
+			</tr>
+			<tr>
+				<td>
+					会话删除
+				</td>
+				<td>
+					<br>
+				</td>
+				<td>
+					此处仅删除会话记录，会话中的消息并未删除
+				</td>
+			</tr>
+		</tbody>
+	</table>
