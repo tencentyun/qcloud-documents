@@ -2,58 +2,26 @@
 		<tbody>
 			<tr>
 				<td style="width:30%;background-color:#CCCCCC;">
-					<strong>功能</strong><strong> </strong> 
+					<strong>功能 </strong> 
 				</td>
 				<td style="width:30%;background-color:#CCCCCC;">
 					<strong>子功能</strong> 
 				</td>
 				<td style="width:40%;background-color:#CCCCCC;">
-					<strong>功能</strong><strong>备注/常见问题</strong> 
+					<strong>功能备注/常见问题</strong> 
 				</td>
-				</tr>
-		<tr>
-			<td rowspan="3">
-				核心指标比较
-			</td>
-			<td>
-				普通套餐<br>
-			</td>
-			<td>
-				<br>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				其他<br>
-			</td>
-			<td>
-				支持公有群/聊天室/讨论组/直播聊天室<br>
-			</td>
-		</tr>
-		<tr>
-		</tr>
 			</tr>
 			<tr>
 				<td>
-					会话获取
+					支持Android/iOS/Windows C++/Web<br>
 				</td>
 				<td>
 					<br>
 				</td>
 				<td>
-					发消息时首先需要先获取会话，获取会话需要指定会话类型（群组&单聊）
+					支持Android/iOS/Windows C++/Web等主流平台互通，跨终端全平台的服务<br>
 				</td>
 			</tr>
-			<tr>
-				<td>
-					会话删除
-				</td>
-				<td>
-					<br>
-				</td>
-				<td>
-					此处仅删除会话记录，会话中的消息并未删除
-				</td>
-			</tr>
+			
 		</tbody>
 	</table>
