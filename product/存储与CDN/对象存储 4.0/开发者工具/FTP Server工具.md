@@ -1,4 +1,4 @@
-COS FTP V4 用于通过FTP协议往COS上传和下载文件.**只适用于COS 4.0**
+COS FTP V4 用于通过FTP协议往COS上传和下载文件.
 
 ## 功能说明
 
@@ -8,7 +8,7 @@ COS FTP v4是依赖COS 4.X的FTP服务端工具。通过COS FTP工具可以通�
 
 **下载机制**：下载直接流式返回给客户端
 
-## 支持FTP命令
+### 支持FTP命令
 
 - put
 - get
@@ -22,13 +22,14 @@ COS FTP v4是依赖COS 4.X的FTP服务端工具。通过COS FTP工具可以通�
 - quit
 - size
 
-## 不支持FTP命令
+### 不支持FTP命令
 
 - append
 
 
+## 依赖环境
 
-## 适用COS版本 
+### COS版本 
 
 4.x
 
@@ -99,12 +100,12 @@ libidn-devel
 4. 控制端口与数据端口设置, 可以使用默认设置(建议端口在1025 ~ 65535， 并保证未被防火墙iptables过滤)
 	listen_port=2121
 ```
-## 编译
+### 编译
 
 1. 因为FTP需要使用本地磁盘，因此请将FTP源码程序放在一个存储空间较大的盘。(腾讯云初始的机器购买的数据盘需要手动格式化并挂载, 请参考 [https://www.qcloud.com/doc/product/213/2974](https://www.qcloud.com/doc/product/213/2974)
 2. 以**root 身份运行build.sh**(因为build.sh里会调用yum进行安装依赖库，推荐使用腾讯云主流的Centos系列系统，如果是其他系列系统，如ubuntu，请修改opbin/env_init.sh )
 
-## 运行
+### 运行
 
 ```
 1. 切换到cos_ftp账户(这个账户是在build.sh脚本里建立的), su cos_ftp
@@ -114,7 +115,7 @@ libidn-devel
 4. 执行FTP的上传下载等命令
 ```
 
-## 停止
+### 停止
 
 ```
 sh  stop.sh

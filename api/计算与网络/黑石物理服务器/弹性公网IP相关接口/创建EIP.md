@@ -1,9 +1,8 @@
 ## 1. 接口描述
+该接口用于申请创建黑石弹性公网IP。
  
-域名: eip.api.qcloud.com
+域名: <font style="color:red">eip.api.qcloud.com</font>
 接口名: EipBmApply
-
-创建黑石弹性公网IP。
 
  
 
@@ -23,7 +22,7 @@
 |---------|---------|---------|
 | code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/doc/api/456/6725)。 |
 | message |   String | 错误信息 |
-| data |   Array | 返回数组 |
+| data |   Array | 返回申请的eip实例对应的异步任务信息，具体结构描述如下 |
 
 data结构
 
