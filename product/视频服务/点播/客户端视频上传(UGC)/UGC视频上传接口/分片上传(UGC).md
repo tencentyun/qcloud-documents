@@ -1,5 +1,5 @@
 ## 接口名称
-UploadPartUGC
+UploadPartEx
 
 ## 功能说明
 1. 该接口适用于APP将自己**客户端**上的视频上传到点播服务端；
@@ -50,7 +50,7 @@ vod2.qcloud.com
 如下为请求URL，真正的视频数据需要在POST请求的body中提交。
 
 ```
-https://vod2.qcloud.com/v2/index.php?Action=UploadPartUGC
+https://vod2.qcloud.com/v2/index.php?Action=UploadPartEx
 &fileSha=b4a5c70c76e79e01ab3a5c306de3d9eedeadeca9
 &offset=0
 &dataSize=1048576

@@ -1,5 +1,5 @@
 ## 接口名称
-InitUploadUGC
+InitUploadEx
 
 ## 功能说明
 1. 该接口适用于APP将自己**客户端**上的视频上传到点播服务端；
@@ -40,7 +40,7 @@ vod2.qcloud.com
 
 ### 请求示例
 ```
-https://vod2.qcloud.com/v2/index.php?Action=InitUploadUGC
+https://vod2.qcloud.com/v2/index.php?Action=InitUploadEx
 &fileSha=b4a5c70c76e79e01ab3a5c306de3d9eedeadeca9
 &fileSize=20350000
 &dataSize=1048576
