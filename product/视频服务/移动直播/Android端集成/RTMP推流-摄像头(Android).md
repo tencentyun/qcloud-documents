@@ -14,6 +14,9 @@ RTMP SDK <font color='red'>**不限制您向非腾讯云地址**</font> 推流�
 ## 对接攻略
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
 
+### step 0: 获取测试URL
+开通直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://www.qcloud.com/document/product/454/7915)。
+
 ### step 1: 添加界面元素
 为了能够展示摄像头预览的影像，您需要在您的布局xml文件里加入如下一段代码，他会在您的UI上安插一个TXCloudVideoView控件，这是我们用来显示摄像头影像的专用控件：
 ```xml
