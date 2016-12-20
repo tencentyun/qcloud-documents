@@ -10,7 +10,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| deviceClass | 是 | String | 设备类型。腾讯的设备类型deviceClass，通过接口[DescribeDeviceClass](查询设备型号) 获得设备类型 |
+| deviceClass | 是 | String | 设备类型。腾讯的设备类型deviceClass，通过接口[查询设备型号(DescribeDeviceClass)](/doc/api/456/6636) 获得设备类型 |
 
 
 
