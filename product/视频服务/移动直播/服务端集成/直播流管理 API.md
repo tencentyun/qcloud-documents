@@ -1,5 +1,4 @@
-﻿
-## API列表
+﻿## API列表
 ![](//mc.qcloudimg.com/static/img/ae90fa870c89c023a409988377de0bdc/image.png)
 
 腾讯云提供了一组直播码管理API，供您的**后台服务器**进行调用，可以实现基本的直播流状态查询和管理功能：
