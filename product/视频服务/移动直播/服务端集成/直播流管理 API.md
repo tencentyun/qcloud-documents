@@ -1,11 +1,11 @@
-﻿## API列表
+## API列表
 ![](//mc.qcloudimg.com/static/img/ae90fa870c89c023a409988377de0bdc/image.png)
 
 腾讯云提供了一组直播码管理API，供您的**后台服务器**进行调用，可以实现基本的直播流状态查询和管理功能：
 
 | API                                | 功能介绍                                                   |
 |---------------------------------|--------------------------------------------------------------|
-| [Live_Channel_GetStatus](https://www.qcloud.com/doc/api/258/5958) |  仅查询某条流的状态信息（旧版本接口） | 
+| [Live_Channel_GetStatus](https://www.qcloud.com/doc/api/258/5958) |  仅查询某条流的状态信息 | 
 | [Live_Channel_SetStatus](https://www.qcloud.com/doc/api/258/5959) | 对某条流实行**禁播**操作，主要用于鉴黄场景 | 
 | [Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960)| 查询某条流在直播过程中的**录制**文件列表 | 
 
@@ -34,8 +34,3 @@
 ```
 	sign = MD5(5d41402abc4b2a76b9719d911017c5921471850187) = b17971b51ba0fe5916ddcd96692e9fb3
 ```
- 
- 
-
-
-
