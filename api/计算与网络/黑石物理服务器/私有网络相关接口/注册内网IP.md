@@ -1,7 +1,6 @@
 ## 1. 接口描述
  
-本接口（RegisterBatchIp）用于在指定IP所属的子网必须加入黑石NAT网关的情况下，指定VPC内网IP加入到VPC管理的黑石NAT网关中。
-否则，指定IP不会绑定到黑石NAT网关中。
+本接口（RegisterBatchIp）用于当指定内网IP所属子网已经加入黑石NAT网关时，将此内网IP加入黑石NAT网关中，否则，此内网IP不会加入黑石NAT网关。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
