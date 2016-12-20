@@ -100,7 +100,8 @@ ImSDK从2.2.0版本开始提供针对单独每一条消息进行离线推送配�
 
 >注意：
 >1. 针对单条消息设置的离线推送配置优先级是最高的，也就是在同时设置了全局离线推送配置及单条消息离线推送配置的情况下，将以单条消息离线推送配置为准。
->2. 目前仅支持应用内置的声音文件。
+>2. 目前Android设备的声音仅支持应用内置的声音文件。
+>3. 此章节是根据ImSDK 2.5.0来说明的，在接入低于2.5.0版本的ImSDK时，单条消息的离线推送配置请参考SDK下载包中的javadoc进行配置。
 
 **原型：**
 ```
@@ -117,37 +118,24 @@ public void setOfflinePushSettings(TIMMessageOfflinePushSettings settings)
 public TIMMessageOfflinePushSettings getOfflinePushSettings()
 ```
 
-`TIMMessageOfflinePushSettings`说明：
+其中,
+**`TIMMessageOfflinePushSettings`：**
 
 ```
 /**
  * 设置当前消息在对方收到离线推送时候展示内容（可选，发送消息时设置）
- * @param descr 展示内容
+ * @param descr 正文内容
  */
 public void setDescr(String descr)
 
 /**
- * 获取当前消息的离线推送展示内容
- * @return 展示内容
+ * 获取当前消息的离线推送展示正文内容
+ * @return 正文内容
  */
 public String getDescr()
 
-
 /**
- * 设置当前消息在对方收到离线推送时候的提示声音（可选，发送消息时设置）
- * 特别说明：这里设置的声音只在Android设备上生效
- * @param sound 声音URI，仅支持应用内部的声音资源文件
- */
-public void setSound(Uri sound)
-
-/**
- * 获取当前消息的离线推送提示声音URI
- * @return 声音URI，没有设置则返回null
- */
-public Uri getSound()
-
-/**
- * 设置当前消息的扩展字段（可选，发送消息时设置）
+ * 设置当前消息的扩展字段（可选，发送消息的时候设置）
  * @param ext 扩展字段内容
  */
 public void setExt(byte[] ext)
@@ -157,7 +145,6 @@ public void setExt(byte[] ext)
  * @return 扩展字段内容，没有设置返回null
  */
 public byte[] getExt()
-
 
 /**
  * 设置当前消息是否允许离线推送，默认允许推送（可选，发送消息时设置）
@@ -172,22 +159,166 @@ public void setEnabled(boolean enabled)
 public boolean isEnabled()
 
 /**
- * 获取当前消息的通知标题
- * 特别说明：此接口在2.3.1及以上版本的ImSDK提供
+ * 获取当前消息在Android设备上的离线推送配置
+ * @return Android设备上的离线推送配置
+ */
+public AndroidSettings getAndroidSettings()
+
+/**
+ * 设置当前消息在Android设备上的离线推送配置（可选，发送消息时设置）
+ * @param androidSettings 当前消息在Android设备上的离线推送配置
+ */
+public void setAndroidSettings(AndroidSettings androidSettings)
+
+/**
+ * 获取当前消息在IOS设备上的离线推送配置
+ * @return IOS设备上的离线推送配置
+ */
+public IOSSettings getIosSettings()
+
+/**
+ * 设置当前消息在IOS设备上的离线推送配置（可选，发送消息时设置）
+ * @param iosSettings 当前消息在Android设备上的离线推送配置
+ */
+public void setIosSettings(IOSSettings iosSettings)
+
+```
+
+**`TIMMessageOfflinePushSettings.AndroidSettings`：**
+```
+/**
+ * 获取通知标题
  * @return 通知标题
  */
 public String getTitle()
 
 /**
- * 设置当前消息在对方收到离线推送时候的通知标题（可选，发送消息时设置）
- * 特别说明：此接口在2.3.1及以上版本的ImSDK提供
+ * 设置通知标题（可选，发送消息时设置）
  * @param title 通知标题
  */
 public void setTitle(String title)
 
+/**
+ * 获取当前消息在Android设备上的离线推送提示声音URI
+ * @return 声音URI，没有设置则返回null
+ */
+public Uri getSound()
+
+/**
+ * 设置当前消息在Android设备上的离线推送提示声音（可选，发送消息时设置）
+ * @param sound 声音URI，仅支持应用内部的声音资源文件
+ */
+public void setSound(Uri sound)
+
+/**
+ * 获取当前消息的通知模式
+ * @return 通知模式
+ */
+public NotifyMode getNotifyMode()
+
+/**
+ * 设置当前消息在对方收到离线推送时候的通知模式（可选，发送消息时设置）
+ * @param mode 通知模式，默认为普通通知栏消息模式
+ */
+public void setNotifyMode(NotifyMode mode)
 ```
 
+**`TIMMessageOfflinePushSettings.IOSSettings`：**
+```
+/**
+ * 获取当前消息在IOS设备上的离线推送提示声音
+ * @return 声音文件路径，没有设置则返回null
+ */
+public String getSound()
 
+/**
+ * 设置当前消息在IOS设备上的离线推送提示声音（可选，发送消息时设置）
+ * @param sound 声音文件路径
+ */
+public void setSound(String sound)
+
+/**
+ * 获取当前消息是否开启Badge计数
+ * @return true - 当前消息开启Badge计数
+ */
+public boolean isBadgeEnabled()
+
+/**
+ * 设置当前消息是否开启Badge计数，默认开启（可选，发送消息时设置）
+ * @param badgeEnabled 否开启Badge计数
+ */
+public void setBadgeEnabled(boolean badgeEnabled)
+```
+
+**示例：**
+```
+//构造一条消息
+TIMMessage msg = new TIMMessage();
+
+//添加文本内容
+TIMTextElem elem = new TIMTextElem();
+elem.setText("a new msg from " + selfId);
+if(msg.addElement(elem) != 0) {
+    Log.d(tag, "addElement failed");
+    return;
+}
+
+//设置当前消息的离线推送配置
+TIMMessageOfflinePushSettings settings = new TIMMessageOfflinePushSettings();
+settings.setEnabled(true);
+settings.setDescr("I'm description");
+//设置离线推送扩展信息
+JSONObject object = new JSONObject();
+try {
+    object.put("level", 15);
+    object.put("task", "TASK15");
+    settings.setExt(object.toString().getBytes("utf-8"));
+} catch (JSONException e) {
+    e.printStackTrace();
+} catch (UnsupportedEncodingException e) {
+    e.printStackTrace();
+}
+
+//设置在Android设备上收到消息时的离线配置
+TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
+androidSettings.setTitle("I'm title");
+//只推送普通通知栏消息
+androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Normal);
+//设置离线消息声音
+androidSettings.setSound(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.hualala));
+settings.setAndroidSettings(androidSettings);
+
+//设置在IOS设备上收到消息时的离线配置
+TIMMessageOfflinePushSettings.IOSSettings iosSettings = settings.new IOSSettings();
+//开启角标更新
+iosSettings.setBadgeEnabled(true);
+//设置离线消息声音
+iosSettings.setSound("/path/to/sound/file");
+settings.setIosSettings(iosSettings);
+
+msg.setOfflinePushSettings(settings);
+
+//获取一个单聊会话
+TIMConversation conversation = TIMManager.getInstance().getConversation(
+        TIMConversationType.C2C,    //会话类型：单聊
+        peer); 						//会话对方用户帐号
+        
+//发送消息
+conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
+    @Override
+    public void onError(int code, String desc) {//发送消息失败
+        //错误码code和错误描述desc，可用于定位请求失败原因
+        //错误码code列表请参见错误码表
+        Log.e(tag, "send message failed. code: " + code + " errmsg: " + desc);
+    }
+
+    @Override
+    public void onSuccess(TIMMessage msg) {//发送消息成功
+        Log.d(tag, "SendMsg ok! peer:" + peer );
+    }
+});
+
+```
 
 ## 3 集成云通信离线推送
 
