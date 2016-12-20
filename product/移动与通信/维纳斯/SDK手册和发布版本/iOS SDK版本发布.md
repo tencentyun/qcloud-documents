@@ -1,5 +1,24 @@
 #### SDK历史版本及更新日志
- 
+
+ -----
+### 版本号：WNS SDK V 3.1.0
+[下载](http://1251013638.cdn.myqcloud.com/1251013638/wns-qcloud-sdk/cloudwns_sdk_ios_v3.1.0.zip)
+发布时间：2016.12.19  
+版本说明：  
+1.提升sdk稳定性
+
+ -----
+### 版本号：WNS SDK V 3.0.9
+[下载](http://1251013638.cdn.myqcloud.com/1251013638/wns-qcloud-sdk/cloudwns_sdk_ios_v3.0.9.zip)
+发布时间：2016.12.7  
+版本说明： 
+
+1.兼容iOS10下ATS特性
+2.支持发送https请求
+ 
+升级指南： 
+ 1.WnsSDK.framework变更为WnsSDK4Cloud.framework
+2.app链接时需要添加系统库：libresolv.tbd、libc++.dylib
  
 -----
 ### 版本号：WNS SDK V 2.5.21

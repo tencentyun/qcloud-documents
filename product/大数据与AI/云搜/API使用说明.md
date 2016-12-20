@@ -121,7 +121,7 @@
 <tr>
 <td> message
 </td><td> String
-</td><td> 错误信息，错误码详情参见<a href="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.4._.E6.95.B0.E6.8D.AE.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" class="external text" title="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.4._.E6.95.B0.E6.8D.AE.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" target="_blank" rel="nofollow">错误码说明</a>
+</td><td> 错误信息，错误码详情参见<a href="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="//www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
 </td></tr>
 <tr>
 <td> data
@@ -211,14 +211,8 @@
 </th><th> <b>参数值示例</b>
 </th></tr>
 <tr>
-<td rowspan="5"> 腾讯云公共参数
+<td rowspan="4"> 腾讯云公共参数
 </td><td> Action
-</td><td> 方法名
-</td><td> 是
-</td><td> DataManipulation
-</td></tr>
-<tr>
-<td> Action
 </td><td> 方法名
 </td><td> 是
 </td><td> DataManipulation
@@ -598,7 +592,7 @@ Type=1：当前属性越大，排序越靠前；
 <tr>
 <td> message
 </td><td> String
-</td><td> 错误信息，错误码详情参见<a href="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.3._.E6.A3.80.E7.B4.A2.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" class="external text" title="http://wiki.qcloud.com/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83#1.3._.E6.A3.80.E7.B4.A2.E6.8E.A5.E5.8F.A3.E9.94.99.E8.AF.AF.E7.A0.81.E9.9B.86.E5.90.88" target="_blank" rel="nofollow">错误码说明</a>
+</td><td> 错误信息，错误码详情参见<a href="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
 </td></tr>
 <tr>
 <td> echo
@@ -805,17 +799,11 @@ Type=1：当前属性越大，排序越靠前；
 </th><th> <b>参数值示例</b>
 </th></tr>
 <tr>
-<td rowspan="5"> 腾讯云公共参数
+<td rowspan="4"> 腾讯云公共参数
 </td><td> Action
 </td><td> 方法名
 </td><td> 是
-</td><td> DataManipulation
-</td></tr>
-<tr>
-<td> Action
-</td><td> 方法名
-</td><td> 是
-</td><td> DataManipulation
+</td><td> DataSearch
 </td></tr>
 <tr>
 <td> SecretId
@@ -894,7 +882,7 @@ Type=1：当前属性越大，排序越靠前；
 
 <div class="code" style="margin-left:20px">
 <pre>   https://yunsou.api.qcloud.com/v2/index.php?
-	Action=DataManipulation
+	Action=DataSearch
 	&amp;Nonce=345122
 	&amp;Region=sz
 	&amp;SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA

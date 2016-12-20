@@ -141,7 +141,13 @@ mLivePusher.setConfig(mLivePushConfig);
 
 - **8.1) 设置pauseImg**
 在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
-- **8.2) 切后台处理**
+- **8.2) 设置setPauseFlag**
+在开始推流前，使用 TXLivePushConfig 的 setPauseFlag 接口设置切后台pause推流时需要停止哪些采集，停止视频采集则会推送pauseImg设置的默认图，停止音频采集则会推送静音数据。
+>  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示同时停止视频和音频采集，并且推送填充用的音视频流；
+>         
+>  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止摄像头采集视频画面，但保持麦克风继续采集声音，用于主播更新等场景；
+
+- **8.3) 切后台处理**
 推流中，如果App被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，RTMP SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
 ```java
 // activity 的 onStop 生命周期函数
@@ -149,11 +155,10 @@ mLivePusher.setConfig(mLivePushConfig);
 public void onStop(){
     super.onStop();
     mCaptureView.onPause();  // mCaptureView 是摄像头的图像渲染view
-    mLivePusher.stopCameraPreview(false); // 停止摄像头采集（就算不停止也采集不到了）
     mLivePusher.pausePusher(); // 通知 SDK 进入“后台推流模式”了
 }
 ```
-- **8.3) 切前台处理**
+- **8.4) 切前台处理**
 等待App切回前台之后，调用 TXLivePusher 的 resumePush 接口函数，之后，RTMP SDK 会继续采集摄像头的画面进行推流。
 ```java
 // activity 的 onStop 生命周期函数
@@ -161,8 +166,7 @@ public void onStop(){
 public void onResume() {
     super.onResume();
     mCaptureView.onResume();     // mCaptureView 是摄像头的图像渲染view
-    mLivePusher.resumePusher();  // 通知 SDK 重回前台推流 
-    mLivePusher.startCameraPreview(mCaptureView); // 恢复摄像头的图像采集
+    mLivePusher.resumePusher();  // 通知 SDK 重回前台推流
 }
 ```
 

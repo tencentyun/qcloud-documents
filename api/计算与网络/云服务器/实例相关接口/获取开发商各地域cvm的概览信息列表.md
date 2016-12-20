@@ -9,7 +9,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| regionIds.n (regionIds 为数组，此处入参需要填写数组元素 ) | 是 | String | 地域ID列表|
+| regionIds.n (regionIds 为列表，此处入参需要填写列表元素 ) | 是 | String | 地域ID列表|
 
 
 ## 3. 输出参数
@@ -26,12 +26,12 @@
 
 ## 4. 示例
 输入
-```
+<pre>
 https://cvm.api.qcloud.com/v2/index.php?Action=DescribeUserCvmOverview
 &regionIdList.0=1
 &regionIdList.2=2
-&COMMON_PARAMS
-```
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 输出
 ```
 {

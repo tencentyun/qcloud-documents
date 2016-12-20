@@ -15,7 +15,7 @@
 | redisName | 否 | String | 实例名称|
 | orderBy | 否 | String | 枚举范围redisId,projectId,createtime|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
-| projectIds.n (projectIds 为数组，此处入参需要填写数组元素 ) | 否 | String | 项目ID 数组|
+| projectIds.n (projectIds 为数组，此处入参需要填写数组元素 ) | 否 | String | 项目ID 组成的数组，数组下标从0开始|
 
 
 ## 3. 输出参数
@@ -23,6 +23,7 @@
 |---------|---------|---------|
 | code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
+| codeDesc | String | 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。 |
 | totalCount | Int | 实例数 |
 | data | Array |  |
 | data.redisSet | Array | | 
@@ -45,21 +46,28 @@
 | data.redisSet.typeIddesc | String | 实例类型描述 | 
 | data.redisSet.deadlineTime | String | 实例到期时间 | 
 
+## 4. 错误码
+以下错误码表列出了该接口的业务逻辑错误码。
 
-## 4. 示例
+| 错误代码 | 英文提示 | 错误描述 |
+|---------|---------|---------|
+|11201|InvalidParameter|业务参数错误|
+
+## 5. 示例
 输入
-```
+<pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &limit=11
 &offset=0
 &redisName=att_test
-```
+</pre>
 输出
 ```
 {
     "code":"0",
     "message":"",
+	"codeDesc": "Success",
     "totalCount":"1",
     "data":{
         "redisSet":[
@@ -87,4 +95,3 @@ https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
     }
 }
 ```
-

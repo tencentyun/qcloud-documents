@@ -9,9 +9,10 @@
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | string | 私有网络ID或者统一ID，建议使用统一ID，例如：vpc-x7d44d|
-| natId | 是 | string | NAT网关统一ID,例如：nat-df45454|
-| natName | 是 | string | NAT网关名称，取值：1-25个中文、英文大小写的字母、数字和下划线分隔符，同一个VPC下名称不能重复 |
+| vpcId | 是 | string | 私有网络ID或者统一ID，建议使用统一ID，例如：vpc-x7d44d。|
+| natId | 是 | string | NAT网关统一ID,例如：nat-df45454。|
+| natName | 否 | string | NAT网关名称，取值：1-25个中文、英文大小写的字母、数字和下划线分隔符，同一个VPC下名称不能重复。 |
+| bandwidth | 否 | int | 网关最大外网出带宽(单位:Mbps), 默认: 100Mbps, 具体支持数据请参见<a href="https://www.qcloud.com/doc/product/215/1682" title="网关说明" >私有网络网关说明</a>。 |
 
 
 ## 3. 输出参数
@@ -33,13 +34,13 @@
 
 ## 5. 示例
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=ModifyNatGateway
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &natId=nat-jngbqyfs
 &vpcId=314
 &natName=cici
-```
+</pre>
 输出
 ```
 {

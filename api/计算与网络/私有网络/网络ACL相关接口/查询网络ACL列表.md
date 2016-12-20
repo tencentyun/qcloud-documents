@@ -12,7 +12,7 @@
 | vpcId | 否 | String | 子网所属的私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-0ox8fuhw。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
 | networkAclId | 否 | String | 系统分配的网络ACL ID，例如：acl-0ox8fuhw。可通过<a href="https://www.qcloud.com/doc/api/245/1441" title="DescribeNetworkAcl">DescribeNetworkAcl</a>接口查询。 |
 | offset | 否 | Int | 初始行的偏移量，默认为0。 |
-| limit | 否 | Int | 每页行数，默认为20。 |
+| limit | 否 | Int | 每页行数，默认为20，最大支持50。 |
 | orderField | 否 | String | 按某个字段排序，目前仅支持createTime,networkAclName排序，默认按createTime排序。 |
 | orderDirection | 否 | String | 升序（asc）还是降序（desc），默认：asc。 |
 
@@ -62,13 +62,13 @@
 ## 5. 示例
  
 输入
-```
+<pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetworkAcl
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcId=vpc-erxok83l
   &networkAclId=acl-jk7weyp2
 
-```
+</pre>
 
 输出
 ```

@@ -26,7 +26,7 @@
 
 ## 4. 示例
 输入
-```
+<pre>
 http://monitor.api.qcloud.com/v2/index.php?Action=PutMonitorData
 &SecretId=xxxxxxx
 &Region=gz
@@ -35,8 +35,8 @@ http://monitor.api.qcloud.com/v2/index.php?Action=PutMonitorData
 &Signature=mysignature
 &Namespace=web_site
 &Data=[{“dimensions”:{“d1”:”v1”,”d2”:”v2”,”d3”:”v3”,”d4”:”v4”,”d5”:”v5”},”metricName”:”metric1”,”value”:123},…]
-&COMMON_PARAMS
-```
+&<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+</pre>
 输出
 ```
 {

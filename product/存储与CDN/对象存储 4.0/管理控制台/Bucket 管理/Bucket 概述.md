@@ -15,12 +15,12 @@
 ## 多园区及访问域名
 COS 支持多园区存储，目前开放了华南、华北、华东三个地区。不同地区默认访问域名不同。推荐用户根据自己的业务场景选择就近的地区存储，可以提高上传、下载速度。
 
-| 地区         | 区域表示     | 默认域名                                     | 状态 |
-| ---------- | ------- | ---------------------------------------- | ------- | 
-| 华南 | cosgz | bucketname-APPID.cosgz.myqcloud.com | 已上线 | 
-| 华北 | costj | bucketname-APPID.costj.myqcloud.com | 已上线 |
-| 华东 | cossh | bucketname-APPID.cossh.myqcloud.com | 已上线 | 
-| 新加坡 | - | - | 敬请期待 |
+| 地区   | 区域表示 | 默认下载域名                              | 上传域名                 | 状态   |
+| ---- | ---- | ----------------------------------- | -------------------- | ---- |
+| 华南   | gz   | bucketname-APPID.cosgz.myqcloud.com | gz.file.myqcloud.com | 已上线  |
+| 华北   | tj   | bucketname-APPID.costj.myqcloud.com | tj.file.myqcloud.com | 已上线  |
+| 华东   | sh   | bucketname-APPID.cossh.myqcloud.com | sh.file.myqcloud.com | 已上线  |
+| 新加坡  | -    | -                                   | -                    | 敬请期待 |
 
 **内网跨区域访问： 不同区域的不同腾讯云产品之间无法直接进行访问。若需要实现内网跨区域的访问， 例如，所在区域为广州的 CVM 需要使用新加坡的 COS 上的数据，则需要使用 VPC 部署专属网络通道，实现高速访问体验。 [点击查看 VPC 相关信息](https://www.qcloud.com/product/vpc.html)**
 

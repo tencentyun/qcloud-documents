@@ -1,9 +1,10 @@
 ## 1. 接口描述
-域名:bm.api.qcloud.com
-接口名:GetOutBandVPNAuthInfo
 
-获取带外VPN认证信息
-用户使用带外SSL VPN客户端登录VPN时，用获取到的信息作为客户端需要输入的信息。
+本接口 (GetOutBandVPNAuthInfo) 获取带外VPN认证信息。
+接口请求域名：<font style="color:red">bm.api.qcloud.com</font>
+
+
+用户使用带外SSL VPN客户端登录VPN时，用获取到的信息作为VPN客户端输入的信息。
 
 
 ## 2. 输入参数
@@ -48,40 +49,42 @@
 <tr>
 <td> vpnGwAddr
 <td> String
-<td> 带外SSL VPN地址。
+<td> 带外SSL VPN网关地址。
 <tr>
 <td> userName
 <td> String
-<td> 带外SSL VPN 用户名。
+<td> 带外SSL VPN 认证用户名。
 <tr>
 <td> userGroup
 <td> String
-<td> 带外SSL VPN 用户组, 即带外SSL VPN客户端中的域信息。
+<td> 带外SSL VPN 认证用户所在的用户组, 对应带外SSL VPN客户端中需要输入的域信息。
 <tr>
 <td> be_first
 <td> Bool
-<td> 此接口中返回的userName是否为第一次使用, 如为true, 则需要用户调用API SetOutBandVPNAuthPwd并且入参createOrUpdate值为create，创建此appId的vpn帐号; false 为已经调用过SetOutBandVPNAuthPwd创建过VPN帐号。
+<td> 此接口中返回的userName是否为第一次使用。 
+ 如为true, 则是第一次, 需要用户调用API SetOutBandVPNAuthPwd并且入参createOrUpdate值为create，创建此appId的vpn认证帐号; 
+ false 为已经调用过SetOutBandVPNAuthPwd创建过VPN认证帐号。
 </tbody></table>
 
 
-模块错误码
+## 4. 模块错误码
 
-| code | 描述 |
-|------|------|
-| 9001 | 操作数据库错误 |
-| 10100 | 访问鉴权模块错误 |
-| 10101 | 鉴权模块返回错误 |
-| 10004 | 参数错误 |
-| 10105 | 操作错误，系统无此用户的VPN设置信息 |
+| code |codeDesc| 描述 |
+|------|------|------|
+| 9001 |InternalError.DbError| 操作数据库错误 |
+| 10004 |OperationDenied| 没有操作权限 |
+| 10100 |InternalError.ObAuthAccessError| 访问鉴权模块错误 |
+| 10101 |InternalError.ObAuthError|鉴权模块返回错误 |
+| 10105 |InvalidResource.ObAuthNoConfig|操作错误，系统无此用户的VPN设置信息 |
 
 
-## 4. 示例
+## 5. 示例
 输入
-```
+<pre>
 https://bm.api.qcloud.com/v2/index.php?
 Action=GetOutBandVPNAuthInfo
-&<公共参数>
-```
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+</pre>
 输出
 ```
 {

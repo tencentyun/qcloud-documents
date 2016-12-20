@@ -20,8 +20,7 @@
 |---------|---------|---------|
 | code| Int | 错误码，0: 成功，其他值: 失败。 |
 | message | String | 错误信息。 |
-| period | Int | 查询的购买时长，单位月 |
-| bandwidth | Int | 带宽，单位Mb/s。 |
+| price | Int | 价格。 |
 
 ## 4. 错误码表
  该接口没有业务错误码，公共错误码详见<a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="私有网络错误码">vpc错误码</a>
@@ -29,12 +28,12 @@
 ## 5. 示例
  
 输入
-```
+<pre>
   https://domain/v2/index.php?Action=InquiryVpnPrice
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &period=1
   &bandwidth=5
-```
+</pre>
 
 输出
 ```

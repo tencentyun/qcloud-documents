@@ -15,7 +15,7 @@
 | vpnConnId | 否  | String | 系统分配的VPN通道ID，可使用vpnConnId或unVpnConnId，建议使用unVpnConnId，例如：vpnx-ol6bcqp0。 |  
 | vpnConnName | 否  | String | vpn通道名称，支持模糊查询。 |  
 | offset | 否 | Int | 初始行的偏移量，默认为0。 |
-| limit | 否 | Int | 每页行数，默认为20。 |
+| limit | 否 | Int | 每页行数，默认为20，最大支持50。 |
 | orderField | 否 | String | 按某个字段排序，目前仅支持createTime,vpnConnName排序，默认按createTime排序。 |
 | orderDirection | 否 | String | 升序（asc）还是降序（desc），默认：asc。 |
 
@@ -85,12 +85,12 @@ IPsec配置信息数组内容
 ## 5. 示例
  
 输入
-```
+<pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=DescribeVpnConn
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcId=vpc-erxok83l
 
-```
+</pre>
 
 输出
 ```

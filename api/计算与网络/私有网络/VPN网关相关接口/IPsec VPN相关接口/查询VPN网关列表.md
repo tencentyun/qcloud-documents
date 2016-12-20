@@ -16,7 +16,7 @@
 | vpnGwName | 否 | String | vpn网关名称，支持模糊搜索。|
 | dealId | 否 | String | 购买VPN网关的订单号，可以按订单号查询购买的VPN网关信息。|
 | offset | 否 | Int | 初始行的偏移量，默认为0。 |
-| limit | 否 | Int | 每页行数，默认为20。 |
+| limit | 否 | Int | 每页行数，默认为20，最大支持50。 |
 | orderField | 否 | String | 按某个字段排序，目前仅支持createTime,vpnGwName排序，默认按createTime排序。 |
 | orderDirection | 否 | String | 升序（asc）还是降序（desc），默认：asc。 |
 
@@ -54,12 +54,12 @@
 ## 5. 示例
  
 输入
-```
+<pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=DescribeVpnGw
-  &<公共请求参数>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcId=vpc-erxok83l
 
-```
+</pre>
 
 输出
 ```

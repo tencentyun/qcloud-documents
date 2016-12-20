@@ -1,6 +1,10 @@
 本页面为万象优图V2加强版的Restful API文档。
-旧版本（V1和V2版本）的Restful API参见[万象优图Restful API文档-V1](/doc/product/275/RESTful API_V1)和[万象优图Restful API文档-V2](/doc/product/275/RESTful API_V2)。
+
+1. 旧版本（V1和V2版本）的Restful API参见[万象优图Restful API文档-V1](/doc/product/275/RESTful API_V1)和[万象优图Restful API文档-V2](/doc/product/275/RESTful API_V2)。
+2. 如果您使用的是万象优图2.0，则APPID是以125为前三位的的，请查看[新版文档](https://www.qcloud.com/doc/product/460/6818)。
+
 注意：各版本只能使用属于其的CGI，请不要混用。具体版本说明请参照[版本说明](/doc/product/275/版本说明)。
+
 ## 1	基本概念
 
 | 概念     | 解释                                       |
@@ -18,6 +22,9 @@
 开发者可以通过[服务器SDK文档](http://www.qcloud.com/doc/product/275/SDK%E4%B8%8B%E8%BD%BD)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](/doc/product/275/3805)。
 
 ## 3	图片上传
+
+<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传接口，请查看[新版文档](https://www.qcloud.com/doc/api/264/6005)。
+
 ### 3.1 直接上传
 功能: 直接上传单张图片, 只支持POST表单(multipart/form-data)方式, 目前只支持20M以内的图片。
 接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] (自定义fileid)
@@ -97,6 +104,9 @@ Content-Type: image/jpeg
 
 
 ### 3.2 分片上传
+
+<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传接口，请查看[新版文档](https://www.qcloud.com/doc/api/264/6006)。
+
 功能: 将文件分成固定大小片段上传, 适用于图片文件偏大的情况(如大于5MB)。目前单张图片大小限制为20MB。
 接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] (自定义fileid)
 接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/ (由后台自动生成fileid)

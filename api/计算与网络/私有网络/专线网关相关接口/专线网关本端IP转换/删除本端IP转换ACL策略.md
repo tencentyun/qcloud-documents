@@ -33,15 +33,15 @@
 
 ## 5. 示例
 输入
-```
+<pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DeleteLocalIPTranslationAclRule
-&<公共请求参数>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &vpcId=vpc-dfgg190
 &directConnectGatewayId=dcg-ddf14d
 &originalIP=10.0.0.5
 &translationIP=138.0.0.11
 &aclRules.0=25
-```
+</pre>
 输出
 ```
 {

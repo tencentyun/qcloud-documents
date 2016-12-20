@@ -1,10 +1,7 @@
 ## SDK开发包
-- IOS、Android新增ZoomIn、ZoomOut接口
-- 新增点播 MPEG4 v3解码支持
-- 新增智能控速模式，根据网速自适应调整码率及分辨率
-- 修复HLS、MP4录制快进问题，及多种异常模式下录制的HLS、MP4播放问题
-- IOS 采集优化，彻底修复闪屏等相关问题
-- Android JNI优化，修复偶现回调失败问题
+- 解决Android点击闪光灯界面卡死；
+- 解决Android部分机型编码出来的FPS不准
+- 解决Android播放hls/MP4结束时小概率异常退出；
 
 **【详细说明】**
 - 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
@@ -18,8 +15,8 @@
 
 | 操作系统 | 版本号 | 更新时间|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS  | 1.7.0.1156  | 2016-11-11 | [点击下载](http://download-10055601.cos.myqcloud.com/TXRTMPiOSDemoSrc_1.7.0.1156.zip)  |
-| Android  | 1.7.0.1156 | 2016-11-11 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidDemoSrc_1.7.0.1156.zip)  |
+| IOS  | 1.8.0.1459  | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.8.0.1459.zip)  |
+| Android  | 1.8.0.1459 | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.8.0.1459.zip)  |
 
 
 ## DEMO体验
