@@ -5,7 +5,7 @@
 
 1. [iOS UGC SDK](/document/product/266/7836)；
 2. [Android UGC SDK](/document/product/266/7837)；
-3. Web UGC SDK。
+3. [Web UGC SDK](/document/product/266/7938)。
 
 如果您有其他平台的UGC上传需求，可以基于点播UGC视频上传接口进行开发，包括如下三个接口：
 
@@ -31,13 +31,13 @@ UGC视频上传的整体流程分为如下两步：
 
 ## UGC视频上传签名生成
 
-点播UGC视频上传签名是一段由base64进行编码的二进制串，其中包含的主要信息如下：
+点播UGC视频上传签名是一段经过[Base64](https://tools.ietf.org/html/rfc4648)编码的二进制串，其中包含的主要信息如下：
 
 1. 上传参数信息，包括：
     1. APP的SecretID；
     1. 视频的基本信息，例如视频名称、标签；
     1. 视频上传到点播之后的处理方式，例如是否进行转码、是否进行鉴黄等；
-1. 用SecretKey生成的二进制签名，点播后台据此来校验UGC上传签名的合法性。
+1. 用SecretKey生成的[HMAC-SHA1](https://www.ietf.org/rfc/rfc2104.txt)签名，点播后台据此来校验UGC上传签名的合法性。
 
 ### 上传参数信息
 
@@ -54,11 +54,11 @@ UGC视频上传的整体流程分为如下两步：
 ## UGC视频上传签名生成
 计算UGC视频上传签名，主要分为如下三个步骤：
 
-- 获取签名计算所需信息；
-- 拼接明文字符串(QueryString)；
-- 依照文字符串构造签名。
+1. 获取签名计算所需信息；
+1. 拼接明文字符串；
+1. 依照文字符串构造签名。
 
-云点播提供了多种不同语言的签名上传示例代码，参见UGC上传签名生成示例代码。
+云点播提供了多种不同语言的签名上传示例代码，参见[UGC上传签名生成示例代码](#ugc.E4.B8.8A.E4.BC.A0.E7.AD.BE.E5.90.8D.E7.94.9F.E6.88.90.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
 
 ### 获取签名计算所需信息
 
@@ -81,7 +81,7 @@ s=[SecretID]&f=[FileName]&fs=[FileSha]&t=[currentTime]&e=[expiredTime]&r=[rand]
 > 1. 与服务端API的签名生成方式不同，这里不需要对所有参数进行排序；
 > 1. 建议APP使用编程语言已有的QueryString相关类库来生成签名，而不是手工拼装字符串。
 
-## 将明文字符串转化为签名
+### 将明文字符串转化为签名
 
 拼接好签名的明文字符串Original后，用已经获取的SecretKey对明文串进行[HMAC-SHA1](https://www.ietf.org/rfc/rfc2104.txt)加密，得到SignTmp：
 
