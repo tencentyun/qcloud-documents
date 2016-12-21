@@ -9,6 +9,8 @@
 
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
+[调用Demo](https://www.qcloud.com/document/product/228/1734)
+
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的Action字段为GetCdnOverseaPv。
 
@@ -118,5 +120,3 @@ array (
     }
 }
 ```
-### PHP&Python示例下载
-**[示例代码 PHP&Python 新版](https://github.com/zz-mars/CDN_API_DEMO/tree/master/Qcloud_CDN_API)**

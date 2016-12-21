@@ -11,8 +11,7 @@
 3. 安装jsoncpp的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
 4. 安装boost的库和头文件 [http://www.boost.org/](http://www.boost.org/) 
 5. 安装cmake工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 
-6. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](doc/api/264/5993)。
-
+6. 从控制台获取APP ID、SecretID、SecretKey。
 
 注意：
 
@@ -107,8 +106,6 @@ string path= "/myFloder/myFile.rar";
 sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 ```
 
-更多签名相关详细说明，请参考[权限控制](doc/api/264/5993)。
-
 ## 初始化操作
 
 ### 初始化
@@ -140,8 +137,6 @@ sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 CosConfig(const string& config_file);
 CosAPI(CosConfig& config);
 ```
-
-
 
 ## 目录操作
 

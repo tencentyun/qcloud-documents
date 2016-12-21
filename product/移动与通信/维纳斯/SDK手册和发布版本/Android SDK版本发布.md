@@ -1,6 +1,14 @@
 #### Android SDK历史版本及更新日志
  
  
+ ### 版本号：WNS SDK V 2.6.0
+发布时间：2016.12.14
+版本说明：  
+1、支持发送https请求
+[下载](http://1251013638.cdn.myqcloud.com/1251013638/wns-qcloud-sdk/cloudwns_sdk_and_v2.6.0.zip)
+
+ 
+ 
 ### 版本号：WNS SDK V 2.5.14
 发布时间：2016.3.21  
 版本说明：  

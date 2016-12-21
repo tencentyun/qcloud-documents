@@ -201,6 +201,10 @@
 </td><td> Int
 </td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/document/product/295/7285"target="black">公共错误码</a>
 </td></tr>
+<tr><td> codeDesc
+</td><td> String
+</td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
+</td></tr>
 <tr>
 <td> message
 </td><td> String
@@ -237,8 +241,36 @@
 </td><td> 0：表示无恶意<br>1～4：恶意等级由低到高
 </td></tr>
 <tr>
-
+<td> riskType
+</td><td> Array
+</td><td> 风险类型
+</td></tr>
 </tbody></table>
+
+riskType详细说明
+<table class="t">
+<tbody><tr>
+<th height="23"> <b>风险类型</b>
+</th><th> <b>风险详情</b>
+</th><th> <b>风险码</b>
+</th></tr>
+<tr>
+<td rowspan="4">账号风险 </td>
+<td>帐号信用低<br></td><td>1</td></tr><tr>
+<td>垃圾帐号<br></td><td>2</td></tr><tr>
+<td>无效帐号<br></td><td>3</td></tr><tr>
+<td>黑名单<br></td><td>4</td></tr><tr>
+</tr>
+<td rowspan="2">行为风险</td>
+<td>批量操作<br></td><td>101</td></tr><tr>
+<td>自动机<br></td><td>102</td></tr><tr>
+</tr>
+<td rowspan="3">环境风险</td>
+<td>环境异常<br></td><td>201</td></tr><tr>
+<td>js上报异常<br></td><td>202</td></tr><tr>
+<td>撞库<br></td><td>203</td></tr><tr>
+</tr>
+</td></tr></tbody></table>
 
 ## 4.示例代码
 代码下载： [Python示例](https://mc.qcloudimg.com/static/archive/96f7d86723aebd2cd824a93bc405f5aa/RegisterProtection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/316eacff388775f02eabf769cced222a/RegisterProtection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/1d4853fb7b41fc405adf20a9aed47f24/RegisterProtection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/c699e43c486a75fadb12dd146a3820c4/RegisterProtection.cs.zip)

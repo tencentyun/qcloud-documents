@@ -280,6 +280,33 @@ fail|失败回调
 如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置TIMOfflinePushInfo，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。
 
 ```
+@interface TIMAndroidOfflinePushConfig : NSObject
+/**
+ *  离线推送时展示标签
+ */
+@property(nonatomic,retain) NSString * title;
+/**
+ *  Android离线Push时声音字段信息
+ */
+@property(nonatomic,retain) NSString * sound;
+/**
+ *  离线推送时通知形式
+ */
+@property(nonatomic,assign) TIMAndroidOfflinePushNotifyMode notifyMode;
+
+@end
+
+@interface TIMIOSOfflinePushConfig : NSObject
+/**
+ *  离线Push时声音字段信息
+ */
+@property(nonatomic,retain) NSString * sound;
+/**
+ *  忽略badge计数
+ */
+@property(nonatomic,assign) BOOL ignoreBadge;
+@end
+
 @interface TIMOfflinePushInfo : NSObject
 /**
  *  自定义消息描述信息，做离线Push时文本展示
@@ -290,14 +317,17 @@ fail|失败回调
  */
 @property(nonatomic,retain) NSString * ext;
 /**
- *  离线Push时声音字段信息
- */
-@property(nonatomic,retain) NSString * sound;
-/**
  *  推送规则标志
  */
 @property(nonatomic,assign) TIMOfflinePushFlag pushFlag;
-
+/**
+ *  iOS离线推送配置
+ */
+@property(nonatomic,retain) TIMIOSOfflinePushConfig * iosConfig;
+/**
+ *  Android离线推送配置
+ */
+@property(nonatomic,retain) TIMAndroidOfflinePushConfig * androidConfig;
 @end
 
 ```

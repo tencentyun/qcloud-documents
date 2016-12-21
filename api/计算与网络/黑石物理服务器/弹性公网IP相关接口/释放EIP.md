@@ -1,9 +1,10 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
+该接口用于释放弹性公网IP，以方便用户清理不使用的EIP资源。
+
+域名: <font style="color:red">eip.api.qcloud.com</font>
 接口名: EipBmDelete
 
-释放弹性公网IP。
+
 
  
 
@@ -11,7 +12,7 @@
  
 |参数名称|必选|类型|描述|
 |-------|----|---|----|----|
-| eipIds.n|否|数组型|EIP实例ID列表，可以通过[DescribeEipBm](/doc/api/456/6671)接口查询，数组下标从0开始|
+| eipIds.n|是|数组型|EIP实例ID列表，可以通过[DescribeEipBm](/doc/api/456/6671)接口查询，数组下标从0开始|
 
  > 绑定状态的EIP不可以释放，只可以释放未绑定状态的EIP。
 
@@ -20,7 +21,7 @@
 |---------|---------|---------|
 | code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/doc/api/456/6725)。 |
 | message |   String | 错误信息 |
-| data |   Array | 返回数组 |
+| data |   Array | 返回异步任务信息，具体结构描述如下 |
 
 Data结构
 

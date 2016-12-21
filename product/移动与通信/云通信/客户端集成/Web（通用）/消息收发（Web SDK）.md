@@ -416,11 +416,11 @@ webim.sendMsg(msg,cbOk, cbErr)
 
 参数列表：
 
-| 名称 | 说明 | 类型 |
-|---------|---------|---------|
-|msg|	消息对象|	webim.Msg|
-|cbOk	|调用接口成功回调函数|	Function|
-|cbErr	|调用接口失败回调函数	|Function|
+| 名称    | 说明         | 类型        |
+| ----- | ---------- | --------- |
+| msg   | 消息对象       | webim.Msg |
+| cbOk  | 调用接口成功回调函数 | Function  |
+| cbErr | 调用接口失败回调函数 | Function  |
 
 
 
@@ -936,3 +936,19 @@ for (var i in sessMap) {
 ```
 selSess = webim.MsgStore.sessByTypeId(selType, selToID);
 ```
+## 获取最近联系人
+
+可以拉取最近联系人的会话列表。 
+
+**示例：** 
+
+```
+webim.getRecentContactList({
+	'Count': 10 //最近的会话数 ,最大为100
+},function(resp){
+	//业务处理
+},function(resp){
+	//错误回调
+});
+```
+请参考demo代码 recentcontact/recent_contact_list_manager.js
