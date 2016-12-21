@@ -178,7 +178,7 @@ public IOSSettings getIosSettings()
 
 /**
  * 设置当前消息在IOS设备上的离线推送配置（可选，发送消息时设置）
- * @param iosSettings 当前消息在Android设备上的离线推送配置
+ * @param iosSettings 当前消息在IOS设备上的离线推送配置
  */
 public void setIosSettings(IOSSettings iosSettings)
 

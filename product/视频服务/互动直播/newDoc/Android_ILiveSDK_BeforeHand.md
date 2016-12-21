@@ -22,12 +22,16 @@
 ## 四 集成到开发者自己的代码工程里
 ### 1 引入SDK
 * **aar方式集成**,(强烈推荐)<br/>
-	如果你使用的Android Studio开发，那么导入iliveSDK非常简单。只需一行代码就可以搞定了 
+	如果你使用的Android Studio开发，那么导入iliveSDK非常简单。只需两行代码就可以搞定了 
 
-	compile 'com.tencent.livesdk:livesdk:X.X.X'
+
+	直播业务功能       
+	compile 'com.tencent.livesdk:livesdk:X.X.X'      
+	核心功能     
+	compile 'com.tencent.ilivesdk:ilivesdk:X.X.X' 
 
 	
-	(X.X.X 替换成对应版本号 比如1.0.1)。同步完成之后可以在build文件夹中找到ilivesdk文件夹。<br /> 
+	(X.X.X 替换成对应版本号 比如1.0.1)。同步完成之后可以在build文件夹中找到livesdk和ilivesdk文件夹。<br /> 
 ![](https://mc.qcloudimg.com/static/img/ecd51eab082087cd2049a6a06a84ea76/ilivelocation.png)
 	
 		

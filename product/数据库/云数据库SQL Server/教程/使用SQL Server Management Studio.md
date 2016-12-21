@@ -4,7 +4,7 @@
 **建议安装环境**：Windows Server 2012 R2标准版 64位中文版；
 **推荐配置**：1核CPU，2GB内存
 
-**软件官方下载地址**：http://download.microsoft.com/download/0/9/9/099E0C83-072B-42A5-83A0-9BB3D2E6E2A3/SQLManagementStudio_x64_CHS.exe
+**软件官方下载地址**：https://download.microsoft.com/download/3/1/D/31D734E0-BFE8-4C33-A9DE-2392808ADEE6/SSMS-Setup-CHS.exe
 
 **软件官方使用说明**：微软官方文档
 https://msdn.microsoft.com/zh-cn/library/ms174173(v=sql.105).aspx
