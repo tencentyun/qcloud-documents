@@ -7,6 +7,7 @@
 + 每一个客户每天能够提交的海外CDN预热资源上限为1000条，每一个客户每次提交的海外CDN预热资源上限为20条；
 + 若默认上限无法满足您的业务需求，请联系我们为您调整配额；
 
+[调用Demo](https://www.qcloud.com/document/product/228/1734)
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的Action字段为CdnOverseaPushser。

@@ -82,8 +82,7 @@ array (
     }
 }
 ```
-### PHP&Python示例下载
-**[示例代码 PHP&Python 新版](https://github.com/zz-mars/CDN_API_DEMO/tree/master/Qcloud_CDN_API)**
+
 
 
 
