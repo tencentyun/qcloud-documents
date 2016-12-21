@@ -48,7 +48,7 @@
 	&<公共请求参数>
 	&vpcId=vpc-2ari9m7h
 	&subnetId=subnet-keqt3oty
-	&ipList[0]=10.1.1.2&ipList[1]=10.1.1.300
+	&ipList.0=10.1.1.2&ipList.1=10.1.1.300
 ```
 
 输出
