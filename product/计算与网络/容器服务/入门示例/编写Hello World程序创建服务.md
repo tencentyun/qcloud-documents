@@ -1,8 +1,9 @@
-### 说明
+## 说明
 本文旨在帮助大家了解如何快速创建一个容器集群内的hello world的Node.js版的服务，更多关于如何构建docker镜像的教程可参考[构建docker镜像](https://www.qcloud.com/document/product/457/7208)
 
-如何上传镜像到到腾讯云镜像仓库，可在我的镜像中查看使用指引:
-![Alt text](https://mc.qcloudimg.com/static/img/0ae8fa6656a91c104e1406869b1c52b0/Image+029.png)
+如何上传镜像到到腾讯云镜像仓库，可在我的镜像中查看[使用指引](https://www.qcloud.com/document/product/457/6781#.E6.8E.A8.E9.80.81.E9.95.9C.E5.83.8F.E5.88.B0.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93)
+
+## 第一步 编写代码制作镜像
 ### 编写应用程序
 1.创建一个hellonode的文件夹，加入server.js文件
 ```shell
@@ -81,7 +82,11 @@ The push refers to a repository [ccr.ccs.tencentyun.com/test/helloworld]
 2f71b45e4e25: Pushed 
 v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107be9 size: 1772
 ```
-### 通过该镜像创建服务
+
+## 第二步：创建集群
+1.首先要拥有一个可运行容器的集群，如无集群新建一个集群，详情查看[新建集群](https://www.qcloud.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4)
+
+## 第三步：通过该镜像创建服务
 点击创建服务按钮，选择运行集群，填写端口配置，点击创建：
 ![Alt text](https://mc.qcloudimg.com/static/img/2d2e8b7062efaf5885a079e2e25d40fb/Image+030.png)
 
