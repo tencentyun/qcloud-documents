@@ -8,7 +8,7 @@ FinishUploadEx
 1. 支持秒传、断点续传；
 1. 接口本身逻辑较为复杂，点播封装了多种语言的UGC上传SDK来简化开发者的调用，详见[UGC视频上传综述](/document/product/266/7835)。
 
-![](//mc.qcloudimg.com/static/img/2d025243b3a9c492a53e309f92f3a2c1/image.png)
+![](//mc.qcloudimg.com/static/img/03bceeaebef439eb218edd080ef4d7fa/image.png)
 
 ## 请求方式
 
