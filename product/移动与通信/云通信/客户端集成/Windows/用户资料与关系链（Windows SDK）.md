@@ -96,7 +96,7 @@ cb | 回调
 ## 3. 获取资料 
 
 ### 3.1 获取自己的资料 
-可通过 TIMGetSelfProfile方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.3-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
+可通过 TIMGetSelfProfile方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 3.4 获取好友资料的部分字段 方法设置，此方法全局有效。
 
 **原型：**
 
@@ -140,7 +140,7 @@ allowType | 好友验证方式
 
 ### 3.2 获取好友的资料
 
-可通过 TIMGetFriendProfile 方法获取好友的资料（1.9版本之前可以获取任何人资料，1.9版本之后调用 GetUsersProfile 获取），默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.3-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网路获取数据。：
+可通过 TIMGetFriendProfile 方法获取好友的资料（1.9版本之前可以获取任何人资料，1.9版本之后调用 GetUsersProfile 获取），默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 3.4 获取好友资料的部分字段 方法设置，此方法全局有效。此接口从网路获取数据。：
 
 **原型：**
 
@@ -191,7 +191,7 @@ allowType | 好友验证方式
 
 
 ### 3.3 获取任何人的资料
-1.9 以后版本可通过 TIMFriendshipManager的 GetUsersProfile 方法获取任何用户公开资料，1.9版本之前可以使用 GetFriendsProfile 获取所有人资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.3-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
+1.9 以后版本可通过 TIMFriendshipManager的 GetUsersProfile 方法获取任何用户公开资料，1.9版本之前可以使用 GetFriendsProfile 获取所有人资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 3.4 获取好友资料的部分字段 方法设置，此方法全局有效。
 
 ```
 /**
@@ -250,19 +250,26 @@ allowType | 好友验证方式
 void TIMGetPartialProfile(char** id, uint32_t num, TIMGetProfileOptionHandle handle, TIMGetFriendProfileCallback* cb);
 
 
-	typedef enum_E_TIMGetProfileType
-	{
-		TIM_GET_PROFILE_None			= 0,
-		TIM_GET_PROFILE_Nick			= 0x01,		//获取昵称
-		TIM_GET_PROFILE_AllowType		= 0x01 << 1, //获取ALLOWTYPE
-		TIM_GET_PROFILE_FaceUrl			= 0x01 << 2, //获取FaceURL
-	}E_TIMGetProfileType;
+typedef enum _E_TIMProfileFlag
+{
+	TIM_PROFILE_FLAG_NONE			= 0x00,
+	TIM_PROFILE_FLAG_NICK			= 0x01, //昵称
+	TIM_PROFILE_FLAG_ALLOW_TYPE		= 0x01 << 1, //好友验证方式
+	TIM_PROFILE_FLAG_FACE_URL       = 0x01 << 2, //头像
+	TIM_PROFILE_FLAG_REMARK         = 0x01 << 3, //好友备注
+	TIM_PROFILE_FLAG_GROUP			= 0x01 << 4, //好友分组
+	TIM_PROFILE_FLAG_SELF_SIGNATURE = 0X01 << 5, //个性签名
+	TIM_PROFILE_FLAG_GENDER			= 0x01 << 6,
+	TIM_PROFILE_FLAG_BIRTHDAY		= 0x01 << 7,
+	TIM_PROFILE_FLAG_LOCATION		= 0x01 << 8,
+	TIM_PROFILE_FLAG_LANGUAGE		= 0x01 << 9,
+}TIMProfileFlag;
 
 
 typedef void* TIMGetProfileOptionHandle;
 TIMGetProfileOptionHandle CreateGetProfileOptionHandle();
 void DestroyGetProfileOptionHandle(TIMGetProfileOptionHandle handle);
-void SetFlag4GetProfileOptionHandle(TIMGetProfileOptionHandle handle, E_TIMGetProfileType type);
+void SetFlag4GetProfileOptionHandle(TIMGetProfileOptionHandle handle, TIMProfileFlag type);
 void SetCustomInfo4GetProfileOptionHandle(TIMGetProfileOptionHandle handle, TIMProfileCustomInfoHandle custom_info);
 ```
 **参数说明：**
@@ -283,7 +290,7 @@ void DemoGetPartialProfile()
 	members[1] = "user2";
 
 	TIMGetProfileOptionHandle opt = CreateGetProfileOptionHandle();
-	SetFlag4GetProfileOptionHandle(opt, E_TIMGetProfileType(TIM_GET_PROFILE_Nick | TIM_GET_PROFILE_FaceUrl));
+	SetFlag4GetProfileOptionHandle(opt, TIMProfileFlag(TIM_GET_PROFILE_Nick | TIM_GET_PROFILE_FaceUrl));
 	TIMProfileCustomInfoElemHandle custom_elem = CreateProfileCustomInfoElemHandle();
 	char* key = "my_key";
 	SetKey4ProfileCustomInfoElemHandle(custom_elem, key, strlen(key)); // 设置查询key为“my_key”的profile自定义字段
