@@ -7,7 +7,7 @@
 
 等需要低时延的I/O密集型应用。
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高 IO 型 I2 机器采用主频 2.4 GHz 的 Intel E5-Xeon Broadwell（v4） CPU处理器和 DDR4 内存，其中所有配置的系统盘均为SSD本地盘。搭载网络增强，包转发能力高达30w。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高 IO 型 I2 机器采用主频 2.4 GHz 的 Intel E5-Xeon Broadwell（v4） CPU处理器和 DDR4 内存，其中所有配置的系统盘均为SSD本地盘。搭配网络增强，网络转发能力最高可达30w pps。
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有关高 IO 型 I2 实例支持购买配置，请参阅[CVM实例配置](https://www.qcloud.com/doc/product/213/2177)。 
 ## 硬件规格
@@ -18,7 +18,7 @@
 - 采用 SSD 的实例存储
 	- 高随机 IOPS，典型场景下随机读 IOPS 可达 40000 （blocksize =4k ，iodepth =32）；
 	- 高吞吐量，典型场景下随机读吞吐可达 300MB/s（blocksize =4k ，iodepth =32）；
-- 默认网络增强型，无需额外付费，包转发率可高达30w pps。
+- 默认网络增强型，无需额外付费，网络转发能力最高可达30w pps。
 
 
 ## 高 IO 型 I2 实例功能
