@@ -50,7 +50,6 @@
 ## 4. 日志相关接口
 | 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
-| [查询慢查询日志](/doc/api/253/4690) | DescribeCdbSlowQueryLog | 根据云数据库实例ID查询慢查询日志。返回一天的日志信息。|
 | [查询备份与日志](/doc/api/253/4691) | GetCdbExportLogUrl | 查询实例冷备数据、二进制日志和慢查询日志 |
 | [查询备份数据的库表](/doc/api/253/5105) | GetBackupDatabaseTableList | 查询备份数据的库表 |
 | [查询备份地址（支持分库表）](/doc/api/253/5125) | GetExportBackupUrl | 查询备份数据的地址，支持分库表查询 |
