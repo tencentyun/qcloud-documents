@@ -17,7 +17,7 @@ AirPlay 是苹果开发的一种无线技术，能把 iPhone 上的屏幕内容�
 | CocoaAsyncSocket.framework ( >= 1.0)  | 第三方开源库 | [DOWNLOAD](https://github.com/robbiehanson/CocoaAsyncSocket) |
 | TXRTMPSDK.framework ( >= 1.8.1)  | RTMP SDK | [DOWNLOAD](https://www.qcloud.com/document/product/454/7873) |
 
-> 由于受公司内产品独占使用要求限制，TXAirPlayService 开发包暂不提供下载，我们在努力争取尽快放开下载。
+> 由于受公司内产品独占使用要求限制，最近这个月 TXAirPlayService 开发包暂不提供下载，我们在努力争取尽快放开下载。
 
 ## 接入流程
 ### 1. 配置参数
