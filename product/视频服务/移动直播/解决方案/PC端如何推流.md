@@ -1,260 +1,114 @@
-## 功能简介
-本节要介绍的内容是在主播和观众之间的IM消息解决方案，小直播使用[**腾讯云通讯**](https://www.qcloud.com/product/im.html)服务实现如下几个功能点：
-（1）普通文本消息
-（2）弹幕消息
-（3）点赞消息
-（4）系统通知，比如“XXX已加入房间”或者“主播已离开”等等。
-![](//mc.qcloudimg.com/static/img/d77b0df57a0aa4b102d13868bbdc4cd4/image.png)
+## PC直播简介
 
-## 对接攻略
-### 1. 开通服务
-在使用腾讯云通讯服务之前，首先要将这个服务开通，可以按照如下步骤操作：
+![](//mc.qcloudimg.com/static/img/f47bf4ef0fcb96bdccf6f302b274afce/image.png)
 
-进入[云通讯管理控制台](https://console.qcloud.com/avc)，如果还没有服务，直接点击**直接开通云通讯**按钮即可。新认证的腾讯云账号，云通讯的应用列表是空的，如下图：
-![](//mc.qcloudimg.com/static/img/c033ddba671a514c7b160e1c99a08b55/image.png)
+腾讯云PC直播是在PC（**windows/mac**）上借助安装的推流软件 **OBS（推荐）**或者 **XSplit**，向腾讯**视频云**的**推流地址**，推送经过压缩编码**现场活动**、**教学**、**投影**或者**游戏**等画面。同时观众可以通过和推流地址相对应的播放地址收看**实时画面**。
 
-点击**创建应用接入**按钮创建一个新的应用接入，即您要接入腾讯云IM通讯服务的App的名字，我们的测试应用名称叫做“小直播演示”，如下图所示：
-![](//mc.qcloudimg.com/static/img/897bff65af6202322a434b6fa3f8a0bd/image.png)
 
-点击确定按钮，之后就可以在应用列表中看到刚刚添加的项目了，如下图所示：
-![](//mc.qcloudimg.com/static/img/1c1cb2c2fa4c6f0dc7be06bf8329dee3/image.png)
+## PC直播流程
+PC直播流程非常简单，主要步骤：
+- 从腾讯云直播控制台获取一个**推流地址**和3个播放地址，解决**往哪推流**的问题。
+- 采用第三方的推流软件，设置推流音视频源以及编码参数，解决推什么**内容**的问题。
+- 观众就可以使用我们提供的RTMP DEMO通过设置播放地址即可进行观看。解决内容**触达到观众**那里的问题。
 
-### 2. 应用配置
-上图的列表中，SDKAPPID 这一列显示的是腾讯云通讯业务ID，这个ID在对接各平台版本的IM SDK时都会用到，右侧有一个**应用配置**按钮，点击这里进入下一步的配置工作，如下图所示。
-![](//mc.qcloudimg.com/static/img/d52ac3662d5310673a5d6c6a78f50da4/image.png)
+![](//mc.qcloudimg.com/static/img/617e7cc6ae3313a2456e2672535e4097/image.png)
 
-此处的配置项比较多，但大部分都不重要，你可以不配置或者之后有需要再随时调整，比如：
 
-| 配置项 | 项目说明 |
-|-------|---------|
-| 账号名称 | 您可以随便填写（不要用特殊奇葩火星文等字符） |
-| 验证方式 | 目前有且仅有“系统生成公钥”，所以这一项配置您无需关心。 |
-| 账号管理员名称 | 是一个可以方便调试用的UserId，如果您是工程师，直接填写自己后面常用的账号id就可以了，使用云通讯服务的高级特性是才有可能用到。 |
-| 验证短信签名| 就是短信文本的前缀，填写App的中文名称就可以了。 |
-| 集成模式 | 这个部分我们在下面详细介绍 |
+## 1. 直播前准备
+- 在腾讯云开通云直播服务
+如果您尚未开通，点击这里[申请开通](https://console.qcloud.com/live)云直播服务。
+![](//mc.qcloudimg.com/static/img/f45715687e787ee9a8e18154d1e13b92/image.png)
 
-这些配置好以后，您要做的就是点击**保存**按钮就可以了。
+### 1.2 生成推流地址
+如何您尚未准备好**推流地址**，点击这里[接入管理 >> 直播码接入 >>推流生成器](https://console.qcloud.com/live)生成一个**推流地址**和三个播放地址。
 
-### 3. 集成模式
+其中，域名为 **livepush.myqcloud.com** 的即为推流地址：
+![](//mc.qcloudimg.com/static/img/98b9b659be67a9ac32384b606ace943f/image.png)
 
-#### 3.1 两种集成模式
-集成模式说的是**账号集成用什么模式**？ 针对客户不同的安全性要求，我们有不同的推荐方案：
+### 1.3 准备好直播用的网络
+- **网络选择**
 
-| 集成模式 | 适用场景 | 对接难度 | 设计目标 |
-|------------|-------------|-------------| -----------|
-| 访客（托管）模式 | 适合对**身份确认要求**不高的场景，比如允许App用户都可以发言的直播间聊天室场景。 | 采用guestLogin模式登录 IM SDK即可，对接成本极低。 | 设计目标是降低对接成本，让您能够不对接自由账号系统的情况下就能使用IM服务，腾讯云会为每个App用户生成一个<font color='blue'>“访客账号“</font>，该账号可以用来收发消息，但这些账号跟您现有的账号体系没什么关系，所以它们也只能用来收发消息。|
-| 独立（鉴权）模式 | 对**身份确认要求**非常高的客户，比如只能允许自己App的注册用户才可以收发消息。 | 需要使用UserSig安全签名，对接成本比较高。| 设计目标是将消息收发权限交给客户掌控，它要求在您的登录服务器确认App用户合法身份后需派发签名，腾讯云通过检查签名真实性后才允许收发消息。这样可以让消息的收发者都100%是您的账号体系里的账号。|
+|网络类型|方便性|稳定性|
+|--|--|--|
+|有线网|差|好|
+|WIFI|好|差|
+条件容许建议用有线网络，相对WIFI比较稳定，信号不容易受到干扰。如果是活动直播建议WIFI，更加便捷。
 
->**帮助您理解**
->
-> - **访客模式**下，腾讯云通讯服务就像公共电话亭，在手机流行起来以前，公共电话服务还是很有市场的，但是我们对公共电话号码可从来没有特别在意过，确认对方身份靠的是通话里面的：“hello, this is rex！"
->
-> - **独立模式**下，腾讯云通讯服务就像是个人手机服务，每个人都有确定的手机号码，好处就是看 “来电号码” 就能确认对方身份。代价就是买手机卡的时候要先过一下实名制，绑定个身份证什么的。
+- **上行带宽测量**
+对于上行带宽的要求，视视频质量，分辨率而定。一般视频质量越好，分辨率越高，对上行带宽的要求，就越高。建议上行带宽不低于1Mbps。如何知道当前网络的上行带宽情况呢？推荐使用[speedtest](http://www.speedtest.net/)测试一下。
+![](//mc.qcloudimg.com/static/img/b5724af9873220c395e295894205e4ad/image.png)
 
-#### 3.2 访客（托管）模式
-访客模式的设计目标是降低对接成本，让您能够不对接账号系统的情况下就能使用IM服务，腾讯云会为每个App用户生成一个<font color='blue'>“访客账号“</font>，该账号只会用来收发消息。您可以将这些访客账号理解为一个个“傀儡账号”。消息发送者的真实用户信息（昵称、头像等等）不跟访客账号绑定，而是跟着消息体一起发出去。
+### 1.4 安装推流软件
+- **OBS安装**
+去[OBS官网](https://obsproject.com/download)，下载相应的安装包，按照默认设置进行安装。OBS支持 Windows/Mac/Linux等系统。确认是Open Broadcaster Software。OBS也提供OBS Studio，不是本文介绍的软件。
+![](//mc.qcloudimg.com/static/img/dcbb929e364b1d8e80c04e326a756a26/image.png)
 
-该模式的接入流程非常简单：点点鼠标 + 写几行对接代码就能搞定。
+- **XSplit安装**
+去[XSplit官网](https://www.xsplit.com/zh_cn/)，下载安装包，安装默认设置进行安装。
+XSplit是收费的，如果银子不够的话，推荐用OBS（**Free**）。XSplit游戏直播有单独的安装包，非游戏直播推荐使用 BroadCaster。
+![](//mc.qcloudimg.com/static/img/18c47cb7646e189acc168e6a5e8e4714/image.png)
 
-（1）首先，在 **2. 应用配置** 中集成模式选项里选择 **托管模式**，这样能让腾讯云为访客模式的访客账号提供后台支持。
-（2）在客户端代码中对接 IM SDK 的访客登录模式即可，这里包括 TLS（TLS 的全称是 “Tencent Login Service” ，是腾讯云 IM SDK 的核心组件）和 IM SDK 两处的函数调用。
+## 2. 软件参数设置
+### 2.1 设置推流地址
+假设准备好的推流地址为:
+> rtmp://3891.livepush.myqcloud.com/live/3891_test?bizid=3891&txSecret=xxx&txTime=58540F7F
 
-直接复用小直播 App 源码的话会简单很多，只需调用一个函数（iOS平台：位于TCIMPlatform.h 中的 guestLogin 函数；Android平台：位于TCLoginMgr.java 中的 guestLogin 函数）就可以达成目标，函数内部已经帮您封装了相关逻辑，如下是源码解释：
+设置时会分为前后两部分进行设置:
+> 其中推流地址前半部分 **“rtmp://3891.livepush.myqcloud.com/live/”** 一般被称为 **FMS URL**
+> 推流地址的后半部分**“3891_test?bizid=3891&txSecret=xxx&txTime=58540F7F”**一般被称为**串流码**。
 
-- **iOS 平台**
-   + 查询SDKAPPID ，ID的获取参考文章上半部分的 **1. 开通服务**。
-   + 调用 TLSHelper 头文件中的 TLSGuestLogin 函数，它会到腾讯云后台请求一个访客账号，如果第一步骤中的 SDKAPPID 没有设置错误，并且手机可以接入互联网，那么您会成功拿到一个 TLSUserInfo 对象，TLSUserInfo.identifier 即为访客账号的ID。
-   + 使用 TLSHelper 的 getTLSUserSig 函数可以为该 identifier 生成一个合法的 UserSig 签名。
-   + 最后，使用刚刚拿到的 identifier 和 UserSig 可以构造一个 TIMLoginParam 对象，之后使用 TIMManager 的 login 函数即可完成 IM SDK 的登录流程了。
- 
-```objective-c
-// 示例代码 1： 调用TLS（Tencent Login Server）的访客模式登录
-- (void)guestLogin:(UIButton *)button {
-    TLSUserInfo *info = [[TLSHelper getInstance] getGuestIdentifier];
-    int ret = [[TLSHelper getInstance] TLSGuestLogin:self];
-    if (ret == 0) {
-           // 登录中，转个登录中的菊花吧
-    } else {
-           // TLSHelper 出错了， 请检查 IMSDK_APPID 是不是搞错了
-    }
-}
+- **OBS推流地址设置**
+![](//mc.qcloudimg.com/static/img/8f5dabbdea9882531464017385648e0c/image.png)
+点击**设定** 选中 **广播设定**，依次配置模式为**直播流**、串流服务为**Custom**、FMS URL为推流地址的前半部分、播放路径/串码流为推流地址的后半部分。自动重连是在OBS检测到网络断开等异常情况，自动触发推流连接操作，建议勾选。
+![](//mc.qcloudimg.com/static/img/88024aaff126c5e34f4e96b9cd7e37c2/image.png)
 
-// 示例代码 2： 在TLS（Tencent Login Server）登录成功后调用IM SDK 登录
-- (void)OnGuestLoginSuccess:(TLSUserInfo *)userInfo {
-    TIMLoginParam *loginParam = [[TIMLoginParam alloc] init];
-    loginParam.appidAt3rd = @"88888888"; // 填写您的SDKAPPID
-    loginParam.sdkAppId = 88888888       // 填写您的SDKAPPID
-    loginParam.accountType = @"0";
-    loginParam.identifier = userInfo.identifier;
-    loginParam.userSig = [[TLSHelper getInstance] getTLSUserSig:userInfo.identifier];
+### 2.2 设置音视频源
+音视频源相当于你要投递的包裹的内容。内容形式主要有三种:
+- 来自视频采集设备，如camera 或者是专业的录像设备等。
+- 来自PC窗口或者游戏源。
+- 来自存放在PC上的视频图片等媒体文件。
 
-    [[TIMManager sharedInstance] login:loginParam succ:^{
-		     // OK, 登录成功，后面就可以发消息了！
-    } fail:^(int code, NSString *msg) {
-        // im sdk 登录失败，请检查 IMSDK_APPID 是不是搞错了
-    }];
-}
-```
+- **OBS 音视频源设置**
+**特别提醒**：在来源框中**点击鼠标右键**，左键是没有反应的。弹出添加菜单，随后弹出**获取窗口**、显示器获取、图片源、投影片放映、文字来源、CLR Browser、 **视频捕捉设备**、游戏源等。其中获取窗口和视频捕捉设备两项比较常用。不用的来源，相应的设置就不太一样。接下来主要介绍 **视频捕捉设备** 的设置。
+![](//mc.qcloudimg.com/static/img/c2f5a64918807e99aad4bd7778259e62/image.png)
+![](//mc.qcloudimg.com/static/img/6f15746021918db02fbaefa6dc56c22b/image.png)
+![](//mc.qcloudimg.com/static/img/d60b1a9c246d381a5e698bafac8c3f4e/image.png)
 
-- **Android 平台**
-   + 查询SDKAPPID ，ID的获取参考文章上半部分的 **1. 开通服务**。
-   + 调用TLS（Tencent Login Service）的 TLSGuestLogin 函数完成访客登录，此时它会到腾讯云后台请求一个访客账号，如果第一步骤中的SDKAPPID 没有设置错误，并且手机可以接入互联网，那么您会成功拿到一个 TLSUserInfo 对象，TLSUserInfo.identifier 即为访客账号的ID。
-   + 使用TLS的 getUserSig 函数可以为该 identifier 生成一个合法的 UserSig 签名。
-   + 最后，使用刚刚拿到的 identifier 和 UserSig 调用 TIMManager 的 login 函数即可完成 IM SDK 的登录流程了。
+### 2.3 设置音视频格式
+设置好视频来源后，虽然能够获取音视频信号，但是原始的音视频信号对带宽的需求过大不适合在网络上传播。因此直播前最重要一步，就是要设置音视频编码参数。
 
-```java
-// 示例代码： Android 平台下实现IM SDK 的访客登录
-public void guestLogin() {
-   //调用TLS（Tencent Login Server）的访客登录模式
-   mTLSLoginHelper.TLSGuestLogin(new TLSGuestLoginListener() {
-       @Override
-       public void OnGuestLoginSuccess(TLSUserInfo tlsUserInfo) {
-           //设置 SDKAPPID
-           TIMUser user = new TIMUser();
-           user.setAccountType(String.valueOf(TCConstants.IMSDK_ACCOUNT_TYPE));
-           user.setAppIdAt3rd(String.valueOf(TCConstants.IMSDK_APPID));
-           user.setIdentifier(tlsUserInfo.identifier);
-           String userSig = mTLSLoginHelper.getUserSig(identifier);
+| 设置项 | 功能案例 | 
+|:--------:|---------|
+|**x264**|工业界使用最为广泛的h264编码器，在同等画质下有更高的视频压缩比，**建议勾选**。|
+|Nvidia NVENC|采用nv显卡专用的视频处理核心来编码。需要Nvidia显卡的支持。|
+|Quick Sync|是采用英特尔快速视频同步技术，硬件编码，编码速度和画质都较好，但<font color='red'>兼容性差</font>、码率高。|
+|**CBR**|视频编码码率控制模式之一，称为固定输出码率控制。稳定的码率更加适合网络的传输，**建议勾选**。|
+| **AAC** | 目前最流行的直播音频编码格式，**建议勾选**。|
 
-            //发起 IM SDK 登录操作，登录成功后就可以发消息了
-            TIMManager.getInstance().login(TCConstants.IMSDK_APPID, user, userSig, new TIMCallBack() {
-                @Override
-                public void onSuccess() {
-                    // OK, 登录成功，后面就可以发消息了！
-                }
-							  @Override
-                public void onError(int i, String s) {
-                   // im sdk 登录失败，请检查 IMSDK_APPID 是不是搞错了
-                }
-            });
-        }
-    });
-}
-```
+- **OBS 音视频格式设置**
+![](//mc.qcloudimg.com/static/img/eb91f2e51ca3b3d8c39028262b4eae21/image.png)
 
-#### 3.3 独立（鉴权）模式
+## 3. 播放验证
 
-独立模式的设计目标是将消息收发权限交给客户掌控，它要求在您的登录服务器确认 Ap p用户合法身份后需派发签名，腾讯云通过检查签名真实性后才允许收发消息，这样可以确保消息的收发者100%都是您的账号体系里的账号。
+### 3.1 确认播放地址
+如果推理地址（livepush）为：
+> rtmp://3891.**<font color='blue'>livepush</font>**.myqcloud.com/live/3891_test?bizid=3891&txSecret=xxx&txTime=58540F7F
 
-该模式适合对 **只允许自己App的注册用户才可以收发消息** 的场景，<font color='red'>如果您对这点没要求，只需要用 IM SDK 当聊天室用，不推荐使用该模式，因为对接时间要稍长一些</font>，如下：
+那么播放地址（liveplay）即：
 
-该模式对接步骤如下：
-> 1. 在腾讯云通讯[管理控制台](https://console.qcloud.com/avc)，将集成模式选为**独立模式**，并下载签名用的公私钥。
-> ![](//mc.qcloudimg.com/static/img/4e79ff175d8053f8998e02732468e398/image.png)
-> 
-> 2. 手机App的登录逻辑依旧按您原来的流程，即ID + PASSWORD到您的登录服务器进行验证。如果登录成功了，您的登录服务器需要额外签发一个UserSig签名给App，该签名使用步骤1中下载到的私钥对相应的ID进行[非对称加密](https://www.qcloud.com/doc/product/269/1510)。
->
-> 3. 手机App在拿到ID和UserSig以后，就可以调用IM SDK的imLogin(ID, UserSig)接口进行登录了，腾讯云后台会使用步骤一中相应的公钥进行解密，从而验证ID是否得到了您的登录服务器的认可。
+| 播放协议 | 播放地址 | 
+|---------|---------|
+| FLV |  rtmp://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test |
+| RTMP | http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.flv |
+| HLS(m3u8) | http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.m3u8 |
 
-以上步骤的示意图如下：
-![](//mc.qcloudimg.com/static/img/1e541b2931d0cb8fb1815f26aa8fb493/image.png)
 
-这里貌似有点复杂，实际上它背后的原理是关于**两家公司的后台服务器怎么相互信任的故事**，我们打个更形象的比方：
-> 1. 某个女性用户在您的App上登录了，她使用了之前在您这里注册的ID和登录口令，ID叫做 “花仙子”。
->
-> 2. 您这边在拿到ID和口令后立刻进行了验证，并且确认她可以登录App。于此同时，您还开给她一张**放行条(UserSig)**，上面写着“<font color='blue'> '花仙子' 是良民的干活，到你腾讯的地盘，你可得伺候好了，不要亏待她...</font>”，为了确保这个放行条不被伪造，您还在上面用正楷签了名。
->
-> 3. 腾讯云在看了您的放行条以后，确认签字为您本人亲笔所签，自然会提供相应的服务。
+### 3.2 RTMP DEMO 播放验证
+[下载](https://www.qcloud.com/document/product/454/6555) RTMP DEMO，将播放地址用在线二维码[生成器](http://cli.im/)生成二维码后，即可扫码播放。
 
-上述就是消息鉴权背后的对接方案，它的核心目标就是限制哪些没有得到您的后台服务器认可的用户收发消息，但让您的服务器检查每一条消息又是不合适的，所以才演化出了这样一套方案。
+### 3.3 VLC 播放验证
+[VLC下载地址](http://www.videolan.org/vlc/)，安装按照默认设置即可。打开后点击**媒体菜单**，选择**打开网络串流**，填写播放地址，点击**播放**。
+![](//mc.qcloudimg.com/static/img/7923a14be5525bd37719c18d54243403/image.png)
 
-### 4. 消息收发
-腾讯云通讯服务支持多种消息类型的格式，比如文本、图片、表情、语音甚至小文件，这部分可以在[云通讯文档专区](https://www.qcloud.com/doc/product/269) 进行了解。
-
-相对而言，直播中的消息形态比较简单，主要是如下几种类型：
-- 普通文本消息：包括发送者的昵称以及消息本身。
-- 弹幕消息：本质也是文本消息，只是消息的展示方式会更显花哨。
-- 点赞消息：当一位观众为主播点赞时，要保证其他观众也能看到
-- 系统通知，比如“XXX已加入房间”或者“主播已离开”等等。
-
-针对这种比较简单的场景，我们在小直播中相应地采用了一种非常简单的办法：**统一采用文本消息通道收发消息，因为有多字段（如消息类型、用户头像、昵称等）拼装需求的情况，我们采用了json格式对数据进行组装。**
-
-比如：“花仙子” 给主播发了一条消息 “帅哥笑一下” ，按照上述方案，真正发送的文本消息为：
-```json
-{
-    "userAction": 1,
-	"userId": 27149, 
-	"nickName": "花仙子", 
-	"headPic": "http: //www.test.com/headpic/27149.png",
-	"msg": "帅哥笑一下"
-}
-```
-其中，**userAction** 是我们在小直播中定义的消息类型，一共有 5 种，它们分别是：
-
-| userAction | 数字 | 含义 |
-|---------|---------|---------|
-| AVIMCMD_Custom_Text | 1 | 文本消息 |
-| AVIMCMD_Custom_EnterLive | 2 | 用户加入直播 |
-| AVIMCMD_Custom_ExitLive | 3 | 用户退出直播 |
-| AVIMCMD_Custom_Like | 4 | 点赞消息 |
-| AVIMCMD_Custom_Danmaku | 5 | 弹幕消息 |
-
-接下来是小直播里的源码摘抄，源码的作用是发送一条普通的文本消息，谨供您参考：
-
-#### 4.1 iOS平台
-```
-//源码位于 TCMsgHandler.m 文件中
-- (void)sendMessage:(AVIMCommand)cmd userId:(NSString *)userId
-             nickName:(NSString *)nickName 
-						 headPic:(NSString *)headPic 
-						 msg:(NSString *)msgContent
-{
-    if ((AVIMCMD_Custom_Text == cmd || AVIMCMD_Custom_Danmaku == cmd) && msgContent.length == 0)
-    {
-        DebugLog(@"sendMessage failed, msg length is 0");
-        return;
-    }
-    
-    NSDictionary* dict = @{@"userAction" : @(cmd),
-		@"userId" : TC_PROTECT_STR(userId), 
-		@"nickName" : TC_PROTECT_STR(nickName), 
-		@"headPic" : TC_PROTECT_STR(headPic), 
-		@"msg" : TC_PROTECT_STR(msgContent)};
-    
-    NSData* data = [TCUtil dictionary2JsonData:dict];
-    NSString *content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-    TIMTextElem *textElem = [[TIMTextElem alloc] init];
-    [textElem setText:content];
-
-    TIMMessage *timMsg = [[TIMMessage alloc] init];
-    [timMsg addElem:textElem];
-
-    [_chatRoomConversation sendMessage:timMsg succ:^{
-        DebugLog(@"sendMessage success, cmd:%d", cmd);
-    } fail:^(int code, NSString *msg) {
-        DebugLog(@"sendMessage failed, cmd:%d, code:%d, errmsg:%@", cmd, code, msg);
-    }];
-}
-```
-
-#### 4.2 Android 平台
-```
-//源码位于 TCChatRoomMgr.java 文件中
-private void sendMessage(int cmd, String param, TIMValueCallBack<TIMMessage> timValueCallBack) 
-{
-    JSONObject sendJson = new JSONObject();
-    try {
-		sendJson.put("userAction", cmd);
-        sendJson.put("userId", TCUserInfoMgr.getInstance().getUserId());
-        sendJson.put("nickName", TCUserInfoMgr.getInstance().getNickname());
-        sendJson.put("headPic", TCUserInfoMgr.getInstance().getHeadPic());
-        sendJson.put("msg", param);
-    } catch (JSONException e) {
-        e.printStackTrace();
-    }
-    
-	String cmds = sendJson.toString();
-    TIMMessage msg = new TIMMessage();
-    TIMTextElem elem = new TIMTextElem();
-    elem.setText(cmds);
-		
-	if (msg.addElement(elem) != 0) {
-	    Log.d(TAG, "addElement failed");
-        return;
-	}
-	sendTIMMessage(msg, timValueCallBack);
-}
-```
 
 
