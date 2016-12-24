@@ -15,11 +15,17 @@
 - **x86 模拟器调试**
 > 由于RTMP SDK大量使用iOS系统的高级特性，我们不能保证所有特性在x86环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
 
-## 对接攻略
-本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、活动直播等场景。如果您需要实现游戏录屏推流，请参考进阶功能区的游戏推流文档。
+## 准备工作
 
-### step 0: 获取测试URL
-开通直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://www.qcloud.com/document/product/454/7915)。
+- **获取开发包**
+[下载](https://www.qcloud.com/document/product/454/7873) RTMP SDK 开发包，并按照[工程配置](https://www.qcloud.com/document/product/454/7876)指引将 RTMP SDK 嵌入您的 APP 开发工程。
+
+- **获取测试URL**
+[开通](https://console.qcloud.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://www.qcloud.com/document/product/454/7915)。
+
+
+## 代码对接
+本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、活动直播等场景。如果您需要实现游戏录屏推流，请参考进阶功能区的游戏推流文档。
 
 ### step 1: 创建Push对象
 先创建一个 **LivePush** 对象，我们后面主要用它来完成推流工作。
