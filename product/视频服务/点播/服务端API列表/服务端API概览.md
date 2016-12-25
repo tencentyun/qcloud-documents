@@ -16,11 +16,6 @@
                     接口名称
                 </strong>
             </td>
-            <td style="background-color:#CCCCCC;">
-                <strong>
-					接口别名(兼容点播1.0)
-                </strong>
-            </td>
         </tr>
         <!--视频上传-->
         <tr>
@@ -35,8 +30,6 @@
                     InitUpload
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <tr>
             <td>
@@ -46,8 +39,6 @@
                 <a href="/document/product/266/7810">
                     UploadPart
             </td>
-			<td>
-			</td>
         </tr>
         <tr>
             <td>
@@ -58,8 +49,6 @@
                     FinishUpload
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <!--URL拉取视频上传-->
         <tr>
@@ -71,14 +60,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7817">
-                    MultiPullVideoFromUrl
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7817">
                     MultiPullVodFile
                 </a>
-			</td>
+            </td>
         </tr>
         <!--视频管理-->
         <tr>
@@ -90,29 +74,19 @@
             </td>
             <td>
                 <a href="/document/product/266/7824">
-                    GetVideoInfo
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7824">
                     DescribeVodPlayUrls
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
                 批量获取视频信息
             </td>
-            <td>
-                <a href="/document/product/266/7823">
-                    GetVideoInfoBatch
-                </a>
-            </td>
 			<td>
                 <a href="/document/product/266/7823">
                     DescribeVodInfo
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
@@ -120,14 +94,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7825">
-                    GetVideoInfoByNamePrefix
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7825">
                     DescribeVodPlayInfo
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
@@ -135,14 +104,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7828">
-                    ModifyVideoInfo
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7828">
                     ModifyVodInfo
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
@@ -150,14 +114,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7826">
-                    AddVideoTags
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7826">
                     CreateVodTags
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
@@ -165,14 +124,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7827">
-                    DeleteVideoTags
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7827">
                     DeleteVodTags
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
@@ -180,14 +134,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7838">
-                    DeleteVideo
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7838">
                     DeleteVodFile
                 </a>
-			</td>
+            </td>
         </tr>
         <!--视频转码-->
         <tr>
@@ -199,14 +148,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7822">
-                    TranscodeVideo
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7822">
                     ConvertVodFile
                 </a>
-			</td>
+            </td>
         </tr>
         <!--视频拼接-->
         <tr>
@@ -221,8 +165,6 @@
                     ConcatVideo
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <tr>
             <td>
@@ -233,8 +175,6 @@
                     SimpleConcatHls
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <!--视频分类管理-->
         <tr>
@@ -249,8 +189,6 @@
                     CreateClass
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <tr>
             <td>
@@ -258,14 +196,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7813">
-                    GetClassHierarchy
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7813">
                     DescribeAllClass
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
@@ -273,14 +206,9 @@
             </td>
             <td>
                 <a href="/document/product/266/7814">
-                    GetClassInfo
-                </a>
-            </td>
-			<td>
-                <a href="/document/product/266/7814">
                     DescribeClass
                 </a>
-			</td>
+            </td>
         </tr>
         <tr>
             <td>
@@ -291,8 +219,6 @@
                     ModifyClass
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <tr>
             <td>
@@ -303,8 +229,6 @@
                     DeleteClass
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <!--可靠事件通知-->
         <tr>
@@ -319,8 +243,6 @@
                     PullVodEvent
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <tr>
             <td>
@@ -331,8 +253,6 @@
                     ConfirmVodEvent
                 </a>
             </td>
-			<td>
-			</td>
         </tr>
         <!--任务管理-->
         <!-- <tr>

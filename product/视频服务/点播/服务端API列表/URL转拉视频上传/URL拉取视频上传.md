@@ -6,9 +6,7 @@
 回调URL，回调方式，不能通过指定，全部读配置-->
 
 ## 接口名称
-MultiPullVideoFromUrl
-
-> 接口别名(兼容点播1.0)：MultiPullVodFile
+MultiPullVodFile
 
 ## 功能说明
 1. 通过用户传递的URL，从已有的资源库批量拉取视频文件到腾讯云；
@@ -16,6 +14,11 @@ MultiPullVideoFromUrl
 
 > 注意：
 > 请务必确保URL为视频文件，而不是包含视频文件的网页地址。
+
+## 事件通知
+文件上传成功可触发[事件通知-URL转拉完成](/document/product/266/7831)。APP后台可据此监听点播系统中的视频上传行为。
+
+更多参见[服务端事件通知简介](/document/product/266/7829)。
 
 ## 请求方式
 
@@ -42,7 +45,7 @@ vod.api.qcloud.com
 ### 请求示例
 
 ```
-https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVideoFromUrl
+https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVodFile
 &pullset.1.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.html%3Fvid%3Dc0152uievii
 &pullset.1.fileName=test
 &pullset.1.isTranscode=1
