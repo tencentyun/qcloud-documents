@@ -5,7 +5,7 @@
 ### 1 客户端SDK接口
 #### Android
 ##### 开始录制
-######1. 设置录制参数
+###### 1. 设置录制参数
 
 ```
 ILiveRecordOption option = new ILiveRecordOption();
@@ -30,7 +30,7 @@ recordType|AVRecordType|AV_RECORD_TYPE_VIDEO|录制类型
 :--:|:--:|:--:
 addTag|String|添加视频标签
 
-######2. 开始录制
+###### 2. 开始录制
 
 ```
 ILiveRoomManager.getInstance().startRecordVideo(option, new ILiveCallBack() {
@@ -69,7 +69,7 @@ Android录制功能的详细实现见[新随心播](https://github.com/zhaoyang2
 
 #### ios
 ##### 开始录制
-######1. 设置录制参数
+###### 1. 设置录制参数
 
 ```
 ILiveRecordOption *option = [[ILiveRecordOption alloc] init];
@@ -93,7 +93,7 @@ isWaterMark|BOOL|（暂不支持，默认为NO）|是否打水印
 sdkType|AVSDKType|必填（当前版本请选AVSDK_TYPE_NORMAL）|SDK对应的业务类型
 recordType|AVRecordType|AV_RECORD_TYPE_VIDEO|录制类型
 
-######2. 开始录制
+###### 2. 开始录制
 
 ```
 [[ILiveRoomManager getInstance] startRecordVideo:option succ:^{

@@ -138,6 +138,9 @@ var player = new TcPlayer('id_test_video', {
 这里有一个线上的示例代码，里面使用了多种分辨率的设置以及切换功能，在PC浏览器中右键“查看页面源码”即可查看页面的代码实现：
 [http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true)
 
+正常情况将看到这样的效果：
+![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
+
 <font color="red">pc端现已支持多种清晰度播放并支持切换的功能，移动端将在2.2版本中支持，敬请期待。</font>
 
 ### Step 5：定制错误提示语
