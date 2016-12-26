@@ -88,14 +88,14 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 
 ## 第三步：通过该镜像创建服务
 点击创建服务按钮，选择运行集群，填写端口配置，点击创建：
-![Alt text](https://mc.qcloudimg.com/static/img/2d2e8b7062efaf5885a079e2e25d40fb/Image+030.png)
+![Alt text](https://mc.qcloudimg.com/static/img/cb114031ca66d0c126ee92a6671f6eb5/Image+073.png)
 
 跳转到事件列表，可查看具体创建流水
-![Alt text](https://mc.qcloudimg.com/static/img/4ba5db220592bce5d2d9a1f21459035c/Image+031.png)
-![Alt text](https://mc.qcloudimg.com/static/img/ba8e9db37cf6b65177c1945b4e65fb99/Image+032.png)
+![Alt text](https://mc.qcloudimg.com/static/img/7121a486db35c98a81e8e1408e97b585/Image+074.png)
+![Alt text](https://mc.qcloudimg.com/static/img/922306ca4c4524e7113802d0840be86d/Image+075.png)
 
 创建完成后点击服务,查看服务详情，可以通过服务外网IP或负载均衡器域名访问
-![Alt text](https://mc.qcloudimg.com/static/img/8902f525a85fc73f4427ecba2ccf1d30/Image+033.png)
+![Alt text](https://mc.qcloudimg.com/static/img/81e12259e6947039374295a7f838e298/Image+076.png)
 
 在浏览器中输入ip地址，即可看到helloworld
 ![Alt text](https://mc.qcloudimg.com/static/img/1342aa5ff1575e683ef2ed813b872721/Image+034.png)
