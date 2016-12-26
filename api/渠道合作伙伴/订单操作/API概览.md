@@ -2,5 +2,5 @@
 | 接口功能   | Action ID            |
 | ------ | -------------------- |
 | 查看客户订单 | [QueryClientDeals]() |
-| 支付订单   | [PayDeals]()         |
+| 支付订单   | [PayDealsNew]()         |
 
