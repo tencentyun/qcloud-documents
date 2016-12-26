@@ -25,9 +25,9 @@
 这里我们直接点完成，不填写高级设置
 
 
-5) 创建完成，查看负载均衡器域名或VIP
+3) 创建完成，查看负载均衡器域名或VIP
 
 ![Alt text](https://mc.qcloudimg.com/static/img/b5eea292a440c16cb92c29bd37fe0c69/Image+071.png)
 
-6) 通过域名或VIP访问服务
+4) 通过域名或VIP访问服务
 ![Alt text](https://mc.qcloudimg.com/static/img/e48f617e80dce415d83aff243d299268/Image+015.png)
