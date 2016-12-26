@@ -1,5 +1,4 @@
-﻿
-## 1.接口描述
+##1.接口描述
 
 - **接口**
   - **Live_Channel_GetChannelList**：查询频道列表。
