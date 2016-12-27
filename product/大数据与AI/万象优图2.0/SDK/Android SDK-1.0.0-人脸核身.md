@@ -1,8 +1,8 @@
 ## 开发准备
 
 ### SDK获取
-人脸核身sdk的Android SDK-1.0.0下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/9f5229f0bb019f5fe5b9f6b7bc6134af/faceid-1.0.0.zip)
-更多示例可以参考Demo：[Android SDK Demo](https://mc.qcloudimg.com/static/archive/6e5c11cd423409f50804410e47b04e9a/FaceIdDemo+.zip)
+人脸核身sdk的Android SDK-1.0.0下载地址：[Android SDK]()
+更多示例可以参考Demo：[Android SDK Demo]()
 
 ### 开发准备
 1. 开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得appid、SecretId和SecretKey等；
@@ -184,12 +184,12 @@ new Thread(new Runnable() {
 ### 用户配置
 用户调用ClientConfiguration类的静态方法来修改全局配置。
 
-| 方法                         | 方法描述       | 默认值        |
-| -------------------------- | ---------- | ---------- |
-| setMaxTaskConcurrentNumber | 设置最大任务并发数  | 5          |
-| setHttpConnectTimeout      | HTTP连接超时时间 | 30*1000ms  |
-| setHttpReadTimeout         | HTTP读超时时间  | 160*1000ms |
-| setHttpWriteTimeout        | HTTP写超时时间  | 160*1000ms |
+方法| 方法描述 | 默认值
+--|--
+setMaxTaskConcurrentNumber| 设置最大任务并发数 | 5
+setHttpConnectTimeout | HTTP连接超时时间 | 30*1000ms
+setHttpReadTimeout | HTTP读超时时间 | 160*1000ms
+setHttpWriteTimeout | HTTP写超时时间 | 160*1000ms
 
 示例
 ```
@@ -215,10 +215,10 @@ String sign = credentialProvider.getMultipleSign(bucket, duration); // 生成签
 ### 实例化FaceIdClient
 调用构造函数```FaceIdClient(Context context, String appid)```来初始化FaceIdClient对象，该对象可以用于发送和取消请求。
 
-| 参数名称    | 类型      | 是否必填 | 参数描述        |
-| ------- | ------- | ---- | ----------- |
-| context | Context | 是    | 上下文         |
-| appid   | String  | 是    | 腾讯云注册的appid |
+参数名称|类型|是否必填|参数描述
+--|--|--|--
+context|Context|是|上下文
+appid|String|是|腾讯云注册的appid
 初始化示例：
 ```
 FaceIdClient faceIdClient = new FaceIdClient(context, appid);
@@ -242,13 +242,13 @@ public static ImageIdCardCompareRequest getInstanceByPath(String bucket, String 
 ```
 参数说明：
 
-| 参数名称         | 类型     | 是否必填 | 参数描述          |
-| ------------ | ------ | ---- | ------------- |
-| bucket       | String | 是    | 用户创建的bucket名称 |
-| idCardNumber | String | 是    | 身份证号码         |
-| idCardName   | String | 是    | 身份证名称         |
-| imagePath    | String | 是    | 本地图片路径        |
-| seq          | String | 否    | 用于日志查询        |
+参数名称|类型|是否必填|参数描述
+--|--|--|--
+bucket| String | 是 | 用户创建的bucket名称
+idCardNumber|String |是|身份证号码
+idCardName|String|是|身份证名称
+imagePath|String|是|本地图片路径
+seq|String |否|用于日志查询
 >**人脸对比示例代码请参见*快速入门***
 
 2、通过上传图像url进行对比。人脸对比请求初始化函数：
@@ -257,22 +257,22 @@ public static ImageIdCardCompareRequest getInstanceByUrl(String bucket, String i
 ```
 参数说明：
 
-| 参数名称         | 类型     | 是否必填 | 参数描述          |
-| ------------ | ------ | ---- | ------------- |
-| bucket       | String | 是    | 用户创建的bucket名称 |
-| idCardNumber | String | 是    | 身份证号码         |
-| idCardName   | String | 是    | 身份证名称         |
-| url          | String | 是    | 图片的url路径      |
-| seq          | String | 否    | 用于日志查询        |
+参数名称|类型|是否必填|参数描述
+--|--|--|--
+bucket| String | 是 | 用户创建的bucket名称
+idCardNumber|String |是|身份证号码
+idCardName|String|是|身份证名称
+url|String|是|图片的url路径
+seq|String |否|用于日志查询
 
 返回结果ImageIdCardCompareResult：
 
-| 参数名称       | 类型     | 参数描述       |
-| ---------- | ------ | ---------- |
-| code       | int    | 状态码        |
-| message    | String | 结果信息       |
-| similarity | float  | 图像和身份证的相似度 |
-| seq        | String | 用于日志查询     |
+参数名称|类型|参数描述
+--|---|--
+code| int | 状态码
+message|String|结果信息
+similarity|float|图像和身份证的相似度
+seq|String |用于日志查询
 >**人脸对比示例代码请参见*快速入门***
 
 ### 获取唇语
@@ -282,18 +282,18 @@ public GetLipLanguageRequest(String bucket, String seq);
 ```
 参数说明：
 
-| 参数名称   | 类型     | 是否必填 | 参数描述          |
-| ------ | ------ | ---- | ------------- |
-| bucket | String | 是    | 用户创建的bucket名称 |
-| seq    | String | 否    | 用于日志查询        |
+参数名称|类型|是否必填|参数描述
+--|--|--|--
+bucket| String | 是 | 用户创建的bucket名称
+seq|String |否|用于日志查询
 
 返回结果GetLipLanguageResult：
 
-| 参数名称         | 类型     | 参数描述 |
-| ------------ | ------ | ---- |
-| code         | int    | 状态码  |
-| message      | String | 结果信息 |
-| validateData | String | 唇语   |
+参数名称|类型|参数描述
+--|---|--
+code| int | 状态码
+message|String|结果信息
+validateData|String|唇语
 >**获取唇语示例代码请参见*快速入门***
 
 ### 人脸核身
@@ -303,27 +303,27 @@ public VideoImageIdentityRequest(String bucket, String validateData, String vide
 ```
 参数说明
 
-| 参数名称         | 类型      | 是否必填 | 参数描述                  |
-| ------------ | ------- | ---- | --------------------- |
-| bucket       | String  | 是    | 用户创建的bucket名称         |
-| validateData | String  | 是    | 唇语字符串                 |
-| videoPath    | String  | 是    | 本地视频路径                |
-| imagePath    | String  | 否    | 本地图片路径                |
-| compare      | boolean | 否    | video中的照片和image是否做对比， |
-| seq          | String  | 否    | 用于日志查询                |
+参数名称|类型|是否必填|参数描述
+--|--|--|--
+bucket| String | 是 | 用户创建的bucket名称
+validateData|String|是|唇语字符串
+videoPath|String|是|本地视频路径
+imagePath|String|否|本地图片路径
+compare|boolean|否|video中的照片和image是否做对比，
+seq|String |否|用于日志查询
 
 返回结果VideoImageIdentityResult：
 
-| 参数名称           | 类型     | 参数描述          |
-| -------------- | ------ | ------------- |
-| code           | int    | 状态码           |
-| message        | String | 结果信息          |
-| liveStatus     | int    | 活体检测错误码       |
-| liveMessage    | String | 活体检测错误描述      |
-| compareStatus  | int    | 人脸对比检测错误码     |
-| compareMessage | String | 人脸对比检测错误描述    |
-| similarity     | int    | 人脸对比检测的相似度    |
-| photo          | String | 人脸检测中相似度最高的图像 |
+参数名称|类型|参数描述
+--|---|--
+code| int | 状态码
+message|String|结果信息
+liveStatus|int|活体检测错误码
+liveMessage|String|活体检测错误描述
+compareStatus|int|人脸对比检测错误码
+compareMessage|String|人脸对比检测错误描述
+similarity|int|人脸对比检测的相似度
+photo|String|人脸检测中相似度最高的图像
 >**人脸核身示例代码请参见*快速入门***
 
 ### 人脸核身
@@ -333,26 +333,26 @@ VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath,
 ```
 参数说明
 
-| 参数名称         | 类型     | 是否必填 | 参数描述          |
-| ------------ | ------ | ---- | ------------- |
-| bucket       | String | 是    | 用户创建的bucket名称 |
-| validateData | String | 是    | 唇语字符串         |
-| videoPath    | String | 是    | 本地视频路径        |
-| idCardNumber | String | 是    | 身份证号码         |
-| idCardName   | String | 是    | 身份证姓名         |
-| seq          | String | 否    | 用于日志查询        |
+参数名称|类型|是否必填|参数描述
+--|--|--|--
+bucket| String | 是 | 用户创建的bucket名称
+validateData|String|是|唇语字符串
+videoPath|String|是|本地视频路径
+idCardNumber|String|是|身份证号码
+idCardName|String|是|身份证姓名
+seq|String |否|用于日志查询
 
 返回结果VideoIdCardIdentityResult：
 
-| 参数名称           | 类型     | 参数描述          |
-| -------------- | ------ | ------------- |
-| code           | int    | 状态码           |
-| message        | String | 结果信息          |
-| liveStatus     | int    | 活体检测错误码       |
-| liveMessage    | String | 活体检测错误描述      |
-| compareStatus  | int    | 人脸对比检测错误码     |
-| compareMessage | String | 人脸对比检测错误描述    |
-| similarity     | int    | 人脸对比检测的相似度    |
-| photo          | String | 人脸检测中相似度最高的图像 |
+参数名称|类型|参数描述
+--|---|--
+code| int | 状态码
+message|String|结果信息
+liveStatus|int|活体检测错误码
+liveMessage|String|活体检测错误描述
+compareStatus|int|人脸对比检测错误码
+compareMessage|String|人脸对比检测错误描述
+similarity|int|人脸对比检测的相似度
+photo|String|人脸检测中相似度最高的图像
 >**人脸核身示例代码请参见*快速入门***
 
