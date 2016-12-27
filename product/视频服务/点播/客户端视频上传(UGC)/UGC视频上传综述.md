@@ -49,7 +49,13 @@ UGC视频上传的整体流程分为如下两步：
 | e | Integer | 是 | 签名失效时刻，是一个符合Unix Epoch时间戳规范的数值，单位为秒。e 的计算方式为 e = t + 签名有效时长。签名有效时长最大取值为7776000（90天）|
 | r | Integer | 是 | 随机串，无符号10进制整数，用户需自行生成，最长10位 |
 | fs | String | 是 | 文件的SHA-1签名，由客户端计算并提交到APP后台 |
-| uid | String | 否 | 用户在APP内的唯一标识，例如对腾讯qq就是qq号 |
+| ft | String | 是 | 文件类型，例如mp4,flv,avi等，注意不需要"." |
+| uid | String | 是 | 用户在APP内的唯一标识，建议取md5计算结果，例如对qq，号码12345就是uid=md5(12345)。本参数需要保证|
+| tc | Integer | 否 | 是否转码，需要转码时，tc=1 |
+| ss | Integer | 否 | 转码时是否截图，需要截图时，ss=1。本参数仅tc=1时有效 |
+| wm | Integer | 否 | 转码时是否加水印，需要转码加水印时，wm=1。本参数仅tc=1时有效 |
+| cid | Integer | 否 | 文件分类id，需要指定分类id时填入 |
+| tag.n | String | 否 | 文件标签，可指定最多10个标签，使用方式：例如三个标签就是tag.1=a&tag.2=b&tag.3=c|
 
 ## UGC视频上传签名生成
 计算UGC视频上传签名，主要分为如下三个步骤：
@@ -71,7 +77,7 @@ UGC视频上传的整体流程分为如下两步：
 拼接签名明文字符串，形式为HTTP QueryString。格式如下：
 
 ```
-s=[SecretID]&f=[FileName]&fs=[FileSha]&t=[currentTime]&e=[expiredTime]&r=[rand]
+s=[SecretID]&f=[FileName]&fs=[FileSha]&t=[currentTime]&e=[expiredTime]&r=[rand]&uid=[uid]
 ```
 
 我们设拼接好的明文字符串为Original。
