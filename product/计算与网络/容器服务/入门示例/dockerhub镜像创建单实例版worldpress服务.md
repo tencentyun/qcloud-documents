@@ -20,7 +20,6 @@ WordPress的图形设计在性能上易于操作、易于浏览；在外观上�
 
 3.填写端口映射
 
-![Alt text](https://mc.qcloudimg.com/static/img/3b40d7cd09c0850569fa7967b7aaa362/Image+024.png)
 ![Alt text](https://mc.qcloudimg.com/static/img/27a0a00a151c5f5ebacffca5fc8f832a/Image+025.png)
 ### 访问wordpress服务
 点击服务，查看服务外网ip，在浏览器输入ip地址即可访问

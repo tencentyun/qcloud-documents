@@ -216,7 +216,7 @@ TIM_DECL void		TIMDisableStorage();
 
 ## 7. 初始化 
 
-在使用SDK进一步操作之前，需要初始SDK： 
+在使用SDK进一步操作之前，需要初始化SDK： 
 
 **原型：**
 
