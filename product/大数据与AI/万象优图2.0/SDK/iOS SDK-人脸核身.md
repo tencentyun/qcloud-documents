@@ -10,7 +10,7 @@
 
 -  iOS 8.0+；
 -  手机必须要有网络（GPRS、3G或Wifi网络等）；
--  从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF)。
+-  开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得appid、SecretId和SecretKey等；
 
 
 ### SDK 配置
@@ -65,9 +65,9 @@ CI 的 iOS SDK压缩包组成：
 
 #### 参数说明
 
-| 参数名称          | 类型           | 是否必填 | 说明                                       |
-| ------------- | ------------ | ---- | ---------------------------------------- |
-| appId         | NSString *   | 是    | 项目ID，即APP ID。                            		|
+| 参数名称  | 类型         | 是否必填 | 说明            |
+| ----- | ---------- | ---- | ------------- |
+| appId | NSString * | 是    | 项目ID，即APP ID。 |
 
 
 #### 示例
@@ -124,25 +124,25 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
 
 #### CIICreatPersonTask的属性说明
 
-| 参数名称      | 类型         | 是否必填 | 说明                 |
-| ----------- | ---------- | ---- | ------------------ |
-| filePath         | NSString * | 是    | 图片的路径 |
-| photoUrl         | NSString * | 是    | 图片的url, filePath和photoUrl只提供一个即可,如果都提供,只使用url |
-| idcardNumber  	  | NSString * | 是    | 用户身份证号码          |
-| idcardName  	  | NSString * | 否    | 用户身份证姓名            |
-| bucket      | NSString * | 是    | 目录所属 bucket 名称     |
-| sign        | NSString * | 是    | 签名                 |
-| sessionId  	  | NSString * | 否    | 相应请求的session标识符，可用于结果查            |
+| 参数名称         | 类型         | 是否必填 | 说明                                       |
+| ------------ | ---------- | ---- | ---------------------------------------- |
+| filePath     | NSString * | 是    | 图片的路径                                    |
+| photoUrl     | NSString * | 是    | 图片的url, filePath和photoUrl只提供一个即可,如果都提供,只使用url |
+| idcardNumber | NSString * | 是    | 用户身份证号码                                  |
+| idcardName   | NSString * | 否    | 用户身份证姓名                                  |
+| bucket       | NSString * | 是    | 目录所属 bucket 名称                           |
+| sign         | NSString * | 是    | 签名                                       |
+| sessionId    | NSString * | 否    | 相应请求的session标识符，可用于结果查                   |
 
 #### 返回结果说明
 
 通过CITaskRsp 的对象返回结果
 
-| 属性名称      | 类型         | 说明       |
-| --------- | ---------- | -------- |
-| retCode 	| 	 int    | 任务描述代码  |
-| descMsg   | NSString *| 任务描述信息  |
-| data   | NSDictionary *| 任务请求返回数据  |
+| 属性名称    | 类型             | 说明       |
+| ------- | -------------- | -------- |
+| retCode | int            | 任务描述代码   |
+| descMsg | NSString *     | 任务描述信息   |
+| data    | NSDictionary * | 任务请求返回数据 |
 
 #### 示例
 
@@ -175,21 +175,21 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
 
 #### CIGetLipIdentificationStringTask参数说明
 
-| 参数名称      | 类型         | 是否必填 | 说明                 |
-| ----------- | ---------- | ---- | ------------------ |
-| seq         | NSString * | 否    | 标识请求序列号|
-| bucket      | NSString * | 是    | 目录所属 bucket 名称     |
-| sign        | NSString * | 是    | 签名                 |
+| 参数名称   | 类型         | 是否必填 | 说明             |
+| ------ | ---------- | ---- | -------------- |
+| seq    | NSString * | 否    | 标识请求序列号        |
+| bucket | NSString * | 是    | 目录所属 bucket 名称 |
+| sign   | NSString * | 是    | 签名             |
 
 #### 返回结果说明
 
 通过CITaskRsp 的对象返回结果
 
-| 属性名称      | 类型         | 说明       |
-| --------- | ---------- | -------- |
-| retCode 	| 	 int    | 任务描述代码  |
-| descMsg   | NSString *| 任务描述信息  |          
-| data   | NSDictionary *| 任务请求返回数据  |                
+| 属性名称    | 类型             | 说明       |
+| ------- | -------------- | -------- |
+| retCode | int            | 任务描述代码   |
+| descMsg | NSString *     | 任务描述信息   |
+| data    | NSDictionary * | 任务请求返回数据 |
 
 #### 示例
 
@@ -217,26 +217,26 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
 
 #### CILipIdentificationCompareTask参数说明
 
-| 参数名称      | 类型         | 是否必填 | 说明                 |
-| ----------- | ---------- | ---- | ------------------ |
-| videoPath         | NSString * | 是    | 视频的路径 |
-| photoPath         | NSString * | 是    | 与视频对比的图片 |
-| validate  	  | NSString * | 是    | 执行CIGetLipIdentificationStringTask 返回的唇语验证数据         |
-| bucket      | NSString * | 是    | 目录所属 bucket 名称     |
-| sign        | NSString * | 是    | 签名                 |
-| compareFlag  	  | NSString * | 否    | 录制的视频是否和图片作对比，yes 是对比，no 不做对比           |
-| seq        | NSString * | 是    | 相应请求的session标识符，可用于结果查             |
+| 参数名称        | 类型         | 是否必填 | 说明                                       |
+| ----------- | ---------- | ---- | ---------------------------------------- |
+| videoPath   | NSString * | 是    | 视频的路径                                    |
+| photoPath   | NSString * | 是    | 与视频对比的图片                                 |
+| validate    | NSString * | 是    | 执行CIGetLipIdentificationStringTask 返回的唇语验证数据 |
+| bucket      | NSString * | 是    | 目录所属 bucket 名称                           |
+| sign        | NSString * | 是    | 签名                                       |
+| compareFlag | NSString * | 否    | 录制的视频是否和图片作对比，yes 是对比，no 不做对比            |
+| seq         | NSString * | 是    | 相应请求的session标识符，可用于结果查                   |
 
 
 #### 返回结果说明
 
 通过CIITaskRsp的对象返回结果信息
 
-| 属性名称      | 类型         | 说明       |
-| --------- | ---------- | -------- |
-| retCode 	| 	   int       | 任务描述代码  |
-| descMsg   | 	NSString    *| 任务描述信息  |    
-| data	    |  NSDictionary *| 任务返回业务信息 |     
+| 属性名称    | 类型             | 说明       |
+| ------- | -------------- | -------- |
+| retCode | int            | 任务描述代码   |
+| descMsg | NSString    *  | 任务描述信息   |
+| data    | NSDictionary * | 任务返回业务信息 |
 
 
 #### 示例
@@ -269,15 +269,15 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
 
 #### CIIDNumbeVideoComparTask 参数说明
 
-| 参数名称      | 类型         | 是否必填 | 说明                 |
-| ----------- | ---------- | ---- | ------------------ |
-| videoPath         | NSString * | 是    | 视频的路径 |
-| validate  	  | NSString * | 是    | 执行CIGetLipIdentificationStringTask 返回的唇语验证数据         |
-| idcardNumber  	  | NSString * | 是    | 用户身份证号码          |
-| idcardName  	  | NSString * | 否    | 用户身份证姓名            |
-| faceList         | NSArray * | 是    | 删除人脸id的列表） |
-| bucket      | NSString * | 是    | 目录所属 bucket 名称     |
-| sign        | NSString * | 是    | 签名                 |
+| 参数名称         | 类型         | 是否必填 | 说明                                       |
+| ------------ | ---------- | ---- | ---------------------------------------- |
+| videoPath    | NSString * | 是    | 视频的路径                                    |
+| validate     | NSString * | 是    | 执行CIGetLipIdentificationStringTask 返回的唇语验证数据 |
+| idcardNumber | NSString * | 是    | 用户身份证号码                                  |
+| idcardName   | NSString * | 否    | 用户身份证姓名                                  |
+| faceList     | NSArray *  | 是    | 删除人脸id的列表）                               |
+| bucket       | NSString * | 是    | 目录所属 bucket 名称                           |
+| sign         | NSString * | 是    | 签名                                       |
 | seq        | NSString * | 是    | 相应请求的session标识符，可用于结果查        
 
 
@@ -285,11 +285,11 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
 
 通过CITaskRsp的对象返回结果信息
 
-| 属性名称      | 类型         | 说明       |
-| --------- | ---------- | -------- |
-| retCode 	| 	   int       | 任务描述代码  |
-| descMsg   | 	NSString    *| 任务描述信息  |    
-| data	    |  NSDictionary *| 任务返回业务信息 |  
+| 属性名称    | 类型             | 说明       |
+| ------- | -------------- | -------- |
+| retCode | int            | 任务描述代码   |
+| descMsg | NSString    *  | 任务描述信息   |
+| data    | NSDictionary * | 任务返回业务信息 |
 
 #### 示例
 
