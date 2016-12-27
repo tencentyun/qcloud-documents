@@ -165,7 +165,7 @@ global_defs {
 vrrp_sync_group G1 {
     group {
         VI_1
-    }a
+    }
     notify_master "/etc/keepalived/vip.py"
 }
 vrrp_instance VI_1 {

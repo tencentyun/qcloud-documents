@@ -19,7 +19,8 @@
 | [Live_Channel_GetStatus](https://www.qcloud.com/doc/api/258/5958) |  仅查询某条流的状态信息（旧版本接口） | 
 | [Live_Channel_SetStatus](https://www.qcloud.com/doc/api/258/5959) | 对某条流实行**禁播**操作，主要用于鉴黄场景 | 
 | [Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960)| 查询某条流在直播过程中的**录制**文件列表 | 
-| [Live_Queue_Get](https://www.qcloud.com/doc/api/258/5961)| 查询某条流在直播过程中的**截图**文件列表 | 
+| [Live_Queue_Get](https://www.qcloud.com/doc/api/258/5961)| 查询某条流在直播过程中的**截图**文件列表 |
+|[Live_Channel_GetChannelList](https://www.qcloud.com/document/product/267/7992)|查询频道列表|
 
 ### 2. 调用方法
 
