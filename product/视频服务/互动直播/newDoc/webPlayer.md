@@ -1,8 +1,12 @@
 ## web端观看
 
-由于互动直播是私有协议，需要用旁路推流的方式转成标准的直播协议，这样就可以在web上观看了。<br/>
-web播放器相关的开发可以参考[web直播播放器](https://www.qcloud.com/document/product/267/5704)
+由于互动直播本身是私有协议，在web上，特别是微信、手Q上很难直接支持。<br/>
+所以需要调[旁路直播接口](https://www.qcloud.com/document/product/268/7612)，在腾讯云服务器上把私有协议的视频流转成标准协议的视频流，就可以观看了。<br/>
+
+## web端播放器
+
+我们为web端的观看提供了[播放器sdk](https://www.qcloud.com/document/product/267/5704)。
 
 ## web端消息互动
 
-参考[云通信 web sdk](https://www.qcloud.com/document/product/269/1594)
+demo正在准备中。目前可以先参考[云通信 web sdk](https://www.qcloud.com/document/product/269/1594)。
