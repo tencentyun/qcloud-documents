@@ -151,12 +151,6 @@ except Exception, e:
 
 ```
 ! Configuration File for keepalived
-global_defs {
-   notification_email {
-     acassen@firewall.loc
-     failover@firewall.loc
-     sysadmin@firewall.loc
-   }
    notification_email_from Alexandre.Cassen@firewall.loc
    smtp_server 192.168.200.1
    smtp_connect_timeout 30
