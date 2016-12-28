@@ -40,7 +40,8 @@ Frameworks目录
 将下载好的SDK复制到工程目录下，工程目录右键，Add Files to " you projectname",在demo中如下图所示：
 
 1. Build Settings/Linking/Other Linker Flags，增加 -ObjC 配置，如下图所示：
-![](http://mc.qcloudimg.com/static/img/f473f6c580a4196af7d3d33edf140bdb/image.png)
+![](http://mc.qcloudimg.com/static/img/9e48e62964428b6b12e11c262ff29178/image.png)
+
 
 2. Build Settings/Linking/Bitcode，增加 Bitcode 配置，设置为NO，如下图所示:
 ![](http://mc.qcloudimg.com/static/img/f473f6c580a4196af7d3d33edf140bdb/image.png)

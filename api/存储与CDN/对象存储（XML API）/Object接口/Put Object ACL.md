@@ -37,10 +37,10 @@ Authorization: Auth
 
 | 参数名称                     | 描述                                       | 类型     | 必选   |
 | ------------------------ | ---------------------------------------- | ------ | ---- |
-| X-cos-acl                | 定义Object的ACL属性，有效值：private, public-read，默认值：private | String | 否    |
-| X-cos-grant-read         | 赋予被授权者读的权限，格式X-cos-grant-read: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
-| X-cos-grant-write        | 赋予被授权者写的权限，格式X-cos-grant-write: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
-| X-cos-grant-full-control | 赋予被授权者读写权限，格式X-cos-grant-full-control: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
+| x-cos-acl                | 定义Object的ACL属性，有效值：private, public-read，默认值：private | String | 否    |
+| x-cos-grant-read         | 赋予被授权者读的权限，格式X-cos-grant-read: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
+| x-cos-grant-write        | 赋予被授权者写的权限，格式X-cos-grant-write: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
+| x-cos-grant-full-control | 赋予被授权者读写权限，格式X-cos-grant-full-control: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
 
 ### 请求内容
 
