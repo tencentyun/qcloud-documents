@@ -16,6 +16,11 @@ Android 浏览器的差异就跟 Android 系统一样种类繁多，制式和标
 - **面对 X5 浏览器内核应当怎样应对？**
 Android系统上，从微信或者QQ上点开的网页，基本都是QQ浏览器推出的 X5 内核，X5 内核在视频播放这里有自己的策略和规则，如果您不清楚，会面临很多的坑要踩。
 
+- **面对 PC 浏览器内核应当怎样应对？**
+PC 上的浏览器都不能原生支持直播视频流，所以如果 Web 页面被在 PC 上打开却看不了视频，也是非常尴尬的事情。
+
+好，接下来就让我们通过如下的对接攻略，帮您解决上述提到的几个技术难题。
+
 ## 对接攻略
 整体技术架构如下图所示：
 ![](//mc.qcloudimg.com/static/img/b76f4b3b1b1961d8a8d4d0ea4dc14ad2/image.png)
@@ -50,14 +55,7 @@ Android系统上，从微信或者QQ上点开的网页，基本都是QQ浏览器
 </td></tr>
 </tbody></table>
 
-具体分享的URL是什么？下面是一个例子：分享主播 test1234 的直播页面到微信朋友圈里，这个 URL 为什么会长成这个样子？ 我们会在 [页面做了什么](#step5.3A-.E9.A1.B5.E9.9D.A2.E5.81.9A.E4.BA.86.E4.BB.80.E4.B9.88) 中向您详细介绍。
-
-<table class="t" style="text-align: center; width:750px">
-<tbody>
-<tr><td>
-http://imgcache.qq.com/open/qcloud/video/share/xiaozhibo.html?sdkappid=1400012345&acctype=8888&userid=test1234&type=0
-</td></tr>
-</tbody></table>
+具体分享的URL是什么呢？我们会在 [页面做了什么](#step5.3A-.E9.A1.B5.E9.9D.A2.E5.81.9A.E4.BA.86.E4.BB.80.E4.B9.88) 中向您详细介绍。
 
 ### Step2: 用户打开链接
 这一步是用户操作，我们不需要做什么，但是有几个点我们需要给您同步：
