@@ -5,6 +5,7 @@ http://avc.qcloud.com/demo/webim/index.html
 
 官网直播聊天室demo地址：
 http://avc.qcloud.com/demo/webim/biggroup/mobile/index.html
+
 直播聊天室demo运行指引地址：
 https://www.qcloud.com/doc/product/269/4105
 
