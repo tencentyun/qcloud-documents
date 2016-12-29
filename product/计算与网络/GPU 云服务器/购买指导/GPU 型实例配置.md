@@ -5,7 +5,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**特点：**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	•	高频 Intel Xeon E5-2680 (Broadwell) 处理器
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	•	高性能 NVIDIA Tesla M40 GPU，每个具有 3071 个 CUDA 核心与 12GB 显示内存
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	•	高性能 NVIDIA Tesla M40 GPU，每个具有 3071 个 CUDA 核心与 24GB 显示内存
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	•	默认网络增强， 无额外收费。
 	
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**G2 实例提供两种配置：**
