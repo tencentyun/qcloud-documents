@@ -1,6 +1,6 @@
 本节将以视频形式向您介绍如何使用腾讯云服务器搭建Discuz!论坛。
 
-查看视频：
+**查看视频：**
 [一个小时搭建自己的Discuz!论坛 >>](https://www.qcloud.com/course/detail/56)
 
 主要操作步骤包括：
