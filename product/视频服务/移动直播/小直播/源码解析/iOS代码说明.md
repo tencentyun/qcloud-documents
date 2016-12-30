@@ -8,10 +8,12 @@
 | TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/Logic| 小直播逻辑层代码|
 | TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/UI| 小直播界面层代码|
 | TCLVBIMDemo/Framework| 小直播依赖的framework，主要是TLSSDK、IMSDK、RTMPSDK以及QALSDK(COS上传组件)|
+| TCLVBIMDemo/TCLVBIMDemoUpload| Replaykit方式录屏的扩展的逻辑层代码|
+| TCLVBIMDemo/TCLVBIMDemoUploadUI|  Replaykit方式录屏的扩展的界面层代码|
 | Pods| 使用CocoaPods管理小直播用到的第三方开源类库|
 
 ## 2.模块介绍
-小直播按照功能不同划分了6个模块，分别为：帐号、列表管理、推流、播放、消息以及资料，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
+小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、推流、播放、消息、资料以及连麦，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
 #### 模块简介
@@ -136,4 +138,20 @@
 	   - TCUserInfoTableViewCell    用于绘制展示用户个人信息界面的tableview
 	   - TCEditUserInfoTableViewCell  用于绘制编辑个人信息页面的tableview，用于可直接在此tableview内编辑个人信息
 	   - TCUserInfoTableViewCell      用于绘制负责的tableview中的cell如图片，文字等组合控件
-	
+
+### 连麦
+#### 模块简介
+- 小直播结合SDK的连麦能力以及im的C2C消息接口实现了连麦功能
+-  C2C消息主要用于主播和连麦观众的通知和回复：观众发起连麦请求和观众已推流成功需要通知主播，主播做相应回复
+- 主播端开始直播后，连麦观众向主播发起连麦请求，主播同意连麦请求后，连麦观众和主播分别通过对方的播放地址拉取视频数据并展示，后台对主播和连麦观众的推流数据进行混流，第三方观众看到的直接是混流后的视频
+
+#### 时序图
+![](//mc.qcloudimg.com/static/img/1b80501829fd5528bf41d4c9a84aed2b/image.png)
+
+#### 相关代码
+- Logic:
+	- TCLinkMicMgr：对C2C消息进行封装，对上层提供通知和回复的接口
+- UI:
+	- TCLinkMicPushController：连麦主播端的界面实现，继承自TCPushController，实现连麦请求的响应和连麦观众画面的拉取
+	- TCLinkMicPlayController：连麦观众端的界面实现，继承自TCPlayController，发起连麦请求、进行推流以及主播端画面的拉取
+
