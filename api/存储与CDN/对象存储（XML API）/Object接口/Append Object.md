@@ -1,7 +1,7 @@
 ## 功能描述
 Append请求可以将一个文件（Object）以分块追加的方式上传至 Bucket 中。使用Append Upload的文件必须事前被设定为Appendable。当Appendable的文件被执行Put Object的操作以后，文件被覆盖，属性改变为Normal。
 
-文件属性可以在Head Object操作中被查询到，当您发起Head Object请求时，会返回自定义Header『x-oss-object-type』，该Header只有两个枚举值：Normal或者Appendable。
+文件属性可以在Head Object操作中被查询到，当您发起Head Object请求时，会返回自定义Header『x-cos-object-type』，该Header只有两个枚举值：Normal或者Appendable。
 
 追加上传建议文件大小1M - 5G。如果position的值和当前Object的长度不致，COS会返回409错误。如果Append一个Normal的Object，COS会返回409 ObjectNotAppendale。
 
@@ -53,9 +53,9 @@ Authorization: auth
 | 名称                       | 描述                                       | 类型     | 必选   |
 | ------------------------ | ---------------------------------------- | ------ | ---- |
 | x-cos-acl                | 允许用户自定义文件权限。<br/ >有效值：private，public-read，public-read-write | String | 否    |
-| X-cos-grant-read         | 赋予被授权者读的权限<br/>格式X-cos-grant-read: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
-| X-cos-grant-write        | 赋予被授权者写的权限<br/>格式X-cos-grant-write: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
-| X-cos-grant-full-control | 赋予被授权者读写权限<br/>格式X-cos-grant-full-control: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
+| x-cos-grant-read         | 赋予被授权者读的权限<br/>格式x-cos-grant-read: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
+| x-cos-grant-write        | 赋予被授权者写的权限<br/>格式x-cos-grant-write: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
+| x-cos-grant-full-control | 赋予被授权者读写权限<br/>格式x-cos-grant-full-control: uin=" ",uin=" "<Br/> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String | 否    |
 
 ### 请求内容
 

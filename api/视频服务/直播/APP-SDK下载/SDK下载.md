@@ -18,6 +18,14 @@
 | IOS  | 1.8.0.1459  | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.8.0.1459.zip)  |
 | Android  | 1.8.0.1459 | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.8.0.1459.zip)  |
 
+1.8.1 SDK Develop Preview版，主要包含连麦功能
+
+
+| 操作系统 | 版本号 | 更新时间|下载链接 |
+| ---- | ----------- | ---- | ---- | 
+| IOS完整版  | 1.8.1.1590  | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKIOSDevelopPreview1.8.1.1590.zip)  |
+| IOSRename版  | 1.8.1.1590  | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKIOSRenameDevelopPreview1.8.1.1590.zip)  |
+| Android  | 1.8.1.1590 | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKAndroidDevelopPreview1.8.1.1590.zip)  |
 
 ## DEMO体验
 **【界面截图】**

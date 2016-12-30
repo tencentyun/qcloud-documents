@@ -18,7 +18,7 @@ Hadoop-2.7.2 及以上
 
 ### 获取 cos-java-sdk
 
-下载地址：https://github.com/tencentyun/cos-java-sdk-hadoop
+下载地址：https://github.com/tencentyun/cos-java-sdk-hadoop-v4
 
 在下载路径运行以下命令进行编译，获取 target 目录下的 cos_api-4.2.jar
 
@@ -28,7 +28,7 @@ mvn clean package -Dmaven.test.skip=true
 
 ### 获取 hadoop-cos 插件
 
-下载地址：https://github.com/tencentyun/hadoop-cosn
+下载地址：https://github.com/tencentyun/hadoop-cosn-v4
 
 因为 cosn 依赖 SDK，请将上一步编译的 cos_api-4.2.jar 拷贝到 src/main/resources 下，然后运行以下命令进行编译,获取 target 目录下的 hadoop-cos-2.7.2.jar
 

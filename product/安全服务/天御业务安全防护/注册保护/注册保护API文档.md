@@ -272,23 +272,6 @@ riskType详细说明
 </tr>
 </td></tr></tbody></table>
 
-riskType详细说明
-<table class="t">
-<tbody><tr>
-<th height="23"> <b>风险类型</b>
-</th><th> <b>风险详情</b>
-</th><th> <b>风险码</b>
-</th></tr>
-<tr>
-<td rowspan="4">账号风险 </td>
-</tr>
-<td rowspan="2">行为风险</td>
-</tr>
-<td rowspan="3">环境风险</td>
-</tr>
-</td></tr></tbody></table>
-
-
 ## 4.示例代码
 代码下载： [Python示例](https://mc.qcloudimg.com/static/archive/96f7d86723aebd2cd824a93bc405f5aa/RegisterProtection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/316eacff388775f02eabf769cced222a/RegisterProtection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/1d4853fb7b41fc405adf20a9aed47f24/RegisterProtection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/c699e43c486a75fadb12dd146a3820c4/RegisterProtection.cs.zip)
 <br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/document/product/295/7279)小节。

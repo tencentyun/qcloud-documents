@@ -5,11 +5,14 @@
 
 3) 选择地域和可用区。当您需要多台云服务器时推荐分别选择不同可用区以达到容灾效果。
 
-4) 选择机型和配置。腾讯云提供三种机型。
-- 标准型：覆盖低核到大核，适合中小型Web或数据库业务
-- 高IO型：系统盘数据盘均为高性能SSD盘，适合低时延和IO密集型应用
-- 内存型：CPU内存比为1：8，适合大规模内存操作、查找和计算
-具体对比可以参考[这里](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B#3.-机型)。
+4) 选择机型和配置。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据底层硬件的不同，腾讯云目前提供了 *系列 1* 和 *系列 2* （下文也称为 *上一代实例* 和 *当前一代实例* ）两种不同的实例系列，不同的实例系列提供如下实例类型：
+
+**当前一代实例类型**：[标准型S2](https://www.qcloud.com/doc/product/213/7154)，[高IO型I2](https://www.qcloud.com/doc/product/213/7155)，[内存型M2](https://www.qcloud.com/doc/product/213/7156)，[计算型C2](https://www.qcloud.com/doc/product/213/7157)
+**上一代实例类型**：标准型S1，高IO型I1，内存型M1
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为获得最佳性能，我们建议您在新建实例时使用当前一代实例类型。实例类型详细说明，请参见[实例类型概述](https://www.qcloud.com/document/product/213/7153)。
+
 
 根据第二步确定的配置选择实例规格。
 ![](//mccdn.qcloud.com/static/img/0a506ce5c9c271ee09ea237ce1d34944/image.png)
@@ -47,3 +50,4 @@
 10) 选择安全组（确保登录端口22开放，更多信息见[安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)），点击【立即购买】按钮，完成支付后即可进入[控制台](https://console.qcloud.com/cvm)查收您的云服务器。
 
 云服务器创建好后用户将会会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码（选择密码登录时）等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的Linux登录密码保障主机安全性。
+
