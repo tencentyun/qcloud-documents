@@ -90,8 +90,9 @@ PC 上的浏览器都不能原生支持直播视频流，所以如果 Web 页面
 >
 > PC 浏览器要依靠 Flash 控件完成视频播放，但 Flash 本身有跨域问题，如果你的网页以及 Step4 中的后台服务器不是部署在腾讯云的，需要在服务器的根目录下添加跨域配置文件 crossdomain.xml ：
 ```xml
+<?xml version="1.0"?>
 <cross-domain-policy>
-		<allow-access-from domain="*.*" secure="false"/>
+		<allow-access-from domain="*" secure="false"/>
 </cross-domain-policy>
 ```
 
