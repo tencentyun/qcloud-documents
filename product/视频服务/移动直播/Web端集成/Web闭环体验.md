@@ -86,6 +86,16 @@ PC 上的浏览器都不能原生支持直播视频流，所以如果 Web 页面
 | xzb.js |  js | 核心 javascript 文件，直播观看和 IM 聊天室的实现逻辑，都位于此 js 中。 |
 | xiaozhibo.html| 根目录 | 唯一的 html 页面，其中的 PlayerContainer 为视频渲染区域，其上紧贴着的 div 是聊天区域。|
 
+> **PC 跨域问题**
+>
+> PC 浏览器要依靠 Flash 控件完成视频播放，但 Flash 本身有跨域问题，如果你的网页以及 Step4 中的后台服务器不是部署在腾讯云的，需要在服务器的根目录下添加跨域配置文件 crossdomain.xml ：
+```xml
+<cross-domain-policy>
+		<allow-access-from domain="*.*" secure="false"/>
+</cross-domain-policy>
+```
+
+
 ### Step4: Web后台搭建
 这部分工作可以交给贵团队的**后端工程师**处理，主要工作就是在您的业务服务器上提供一个 **信息查询接口：**。
 
@@ -127,6 +137,10 @@ http://imgcache.qq.com/open/qcloud/video/share/xiaozhibo.html?sdkappid=140001234
 #### 5.2 网页的内部原理
 
 xiaozhibo.html 中挂载的 xzb.js 是网页的主控 javascript 文件，也就是驱动整个页面的逻辑中枢，它以如下的步骤去实现整个页面的功能：
+
+- **配置关键参数**
+xzb.js 顶部的 accountMode、sdkAppID、accountType 以及 serverURL 等全局变量是需要您自行配置的，前面三个参数跟im sdk 有关系，serverURL 则是 Step4 中 Web 后台的服务器地址。
+
 - **解析URL中的参数** 
 initParams() 函数负责将 URL 尾部的 userid 等参数解析出来。
 
