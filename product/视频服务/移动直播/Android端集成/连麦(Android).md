@@ -1,4 +1,4 @@
-本文档主要介绍腾讯云连麦功能的对接方案，如果您想要了解连麦的原理，欢迎阅读如何实现连麦功能？
+本文档主要介绍腾讯云连麦功能的对接方案，如果您想要了解连麦的原理，欢迎阅读 [如何实现连麦功能？](https://www.qcloud.com/document/product/454/8092)
 
 ## 更新版本
 RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qcloud.com/document/product/454/7873) 更新最新版本的 RTMP SDK。同时，我们的 小直播 [DEMO](https://www.qcloud.com/document/product/454/6991) 也已经集成了这套解决方案的示例代码。
@@ -30,21 +30,22 @@ session_id 是一个32为整数，在连麦用的推流 URL 和播放 URL 中都
  
 - **1.2 TXLivePushConfig**
   + 开启回音消除 enableAEC 
- + 开启硬件加速 enableHWAcceleration 
+ + 开启硬件加速 setHardwareAcceleration 
  + 设置推流分辨率为 VIDEO_RESOLUTION_360_640 （秀场直播最流行的分辨率）
  + 设置推流的码率为 800kbps （斗鱼和映客比这要低一点）
  + 设置音频采样率为 <font color='red'>AUDIO_SAMPLE_RATE_48000</font> （不要用其它的）
 
- ``` 
+ ```java 
  //先设置推流参数
- _txLivePush.config.enableAEC = YES;
- _txLivePush.config.enableHWAcceleration = YES;
- _txLivePush.config.videoResolution = VIDEO_RESOLUTION_320_480; // 秀场直播最流行的分辨率
- _txLivePush.config.videoResolution = 800; // 斗鱼和映客比这要低一点
- _txLivePush.config.videoResolution = AUDIO_SAMPLE_RATE_48000;  // 不要用其它的
- _txLivePush.config.audioChannels   = 1; // 单声道
+ mPushConfig.enableAEC(true);
+ mPushConfig.setHardwareAcceleration(true);
+ mPushConfig.setVideoResolution(VIDEO_RESOLUTION_360_640); // 秀场直播最流行的分辨率
+ mPushConfig.setVideoBitrate(800); // 斗鱼和映客比这要低一点
+ mPushConfig.setAudioSampleRate(AUDIO_SAMPLE_RATE_48000);  // 不要用其它的
+ mPushConfig.setAudioChannels(1); // 单声道
+ 
  //之后再启动推流
- [_txLivePush startPush:rtmpUrl];
+ mPushConfig.startPush(rtmpURL);
 ```
 
 ### step2. 请求连麦
@@ -69,21 +70,22 @@ session_id 是一个32为整数，在连麦用的推流 URL 和播放 URL 中都
  
 - **3.2 TXLivePushConfig**
  + 开启回音消除 enableAEC 
- + 开启硬件加速 enableHWAcceleration 
+ + 开启硬件加速 setHardwareAcceleration 
  + 设置推流分辨率为 <font color='red'>VIDEO_RESOLUTION_320_480</font> （“小主播”不需要太高分辨率，因为在观众端看到都是小画面）
  + 设置推流的码率为 <font color='red'>300kbps</font>  （码率太高是种浪费）
  + 设置音频采样率为 <font color='red'>AUDIO_SAMPLE_RATE_48000</font> （不要用其它的）
 
- ``` 
+ ```java
  //先设置推流参数
- _txLivePush.config.enableAEC = YES;
- _txLivePush.config.enableHWAcceleration = YES;
- _txLivePush.config.videoResolution = VIDEO_RESOLUTION_320_480; // “小主播”不需要太高分辨率
- _txLivePush.config.videoResolution = 300; // 码率太高是种浪费
- _txLivePush.config.videoResolution = AUDIO_SAMPLE_RATE_48000;  // 不要用其它的
- _txLivePush.config.audioChannels   = 1; // 单声道
+ mPushConfig.enableAEC(true);
+ mPushConfig.setHardwareAcceleration(true);
+ mPushConfig.setVideoResolution(VIDEO_RESOLUTION_320_480); // 秀场直播最流行的分辨率
+ mPushConfig.setVideoBitrate(300); // 斗鱼和映客比这要低一点
+ mPushConfig.setAudioSampleRate(AUDIO_SAMPLE_RATE_48000);  // 不要用其它的
+ mPushConfig.setAudioChannels(1); // 单声道
+ 
  //之后再启动推流
- [_txLivePush startPush:rtmpUrl];
+ mPushConfig.startPush(rtmpURL);
 ```
 
 
@@ -112,18 +114,20 @@ session_id 是一个32为整数，在连麦用的推流 URL 和播放 URL 中都
 - **4.3.2 修改播放器参数**
  + startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC**
  + TXLivePlayConfig 中开启回音消除 enableAEC
- + TXLivePlayConfig 中开启硬件加速 enableHWAcceleration
  + TXLivePlayConfig 中将播放模式设置为极速模式，缓冲区改为 200ms
+ + TXLivePlayer 中开启硬件解码 enableHardwareDecode
  
- ``` 
+ ```java 
  //修改播放器参数
- _txLivePlay.config.enableAEC = YES;              // 开启回音消除
- _txLivePlay.config.enableHWAcceleration = YES;   // 硬件解码
- _txLivePlay.config.bAutoAdjustCacheTime = YES;   // 极速模式 - 有明显的延迟修正表现
- _txLivePlay.config.minAutoAdjustCacheTime = 0.2; // 200ms
- _txLivePlay.config.maxAutoAdjustCacheTime = 0.2; // 200ms
- //之后再启动推流
- [_txLivePlay startPlay:rtmpUrl type:PLAY_TYPE_LIVE_RTMP_ACC];
+ mPlayConfig.enableAEC(true);                // 开启回音消除
+ mPlayConfig.setAutoAdjustCacheTime(true);   // 极速模式 - 有明显的延迟修正表现
+ mPlayConfig.setMinAutoAdjustCacheTime(0.2); // 200ms
+ mPlayConfig.setMaxAutoAdjustCacheTime(0.2); // 200ms
+ 
+ //之后再启动播放
+ mLivePlayer.setConfig(mPlayConfig);         
+ mLivePlayer.enableHardwareDecode(true);     // 硬件解码
+ mLivePlayer.startPlay(rtmpUrl, PLAY_TYPE_LIVE_RTMP_ACC);
 ```
 
 > **<font color='red'>特别提醒</font>**：<font color='black'>加速链路不能用于普通观众端播放！！！</font>
@@ -148,15 +152,17 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
 - **LivePlayConfig设置**
   + 在设置方面，观众端建议采用来自 CDN 集群的 FLV 地址进行播放，播放模式也尽量采用 1s 固定缓冲区的极速模式。
 
-``` 
+ ```java
  //修改播放器参数
- _txLivePlay.config.enableAEC = NO;               // 观众端无需回音消除
- _txLivePlay.config.enableHWAcceleration = YES;   // 硬件解码
- _txLivePlay.config.bAutoAdjustCacheTime = YES;   // 极速模式 - 有明显的延迟修正表现
- _txLivePlay.config.minAutoAdjustCacheTime = 1;   // 1000ms
- _txLivePlay.config.maxAutoAdjustCacheTime = 1;   // 1000ms
- //之后再启动推流
- [_txLivePlay startPlay:flvUrl type:PLAY_TYPE_LIVE_FLV];
+ mPlayConfig.enableAEC(false);               // 观众端无需回音消除
+ mPlayConfig.setAutoAdjustCacheTime(true);   // 极速模式 - 有明显的延迟修正表现
+ mPlayConfig.setMinAutoAdjustCacheTime(1);   // 1000ms
+ mPlayConfig.setMaxAutoAdjustCacheTime(1);   // 1000ms
+ 
+ //之后再启动播放
+ mLivePlayer.setConfig(mPlayConfig);         
+ mLivePlayer.enableHardwareDecode(true);     // 硬件解码
+ mLivePlayer.startPlay(rtmpUrl, PLAY_TYPE_LIVE_RTMP_ACC);
 ```
 
 #### 5.2 服务端混流（Beta）

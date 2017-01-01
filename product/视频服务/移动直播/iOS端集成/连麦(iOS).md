@@ -39,9 +39,9 @@ session_id 是一个32为整数，在连麦用的推流 URL 和播放 URL 中都
  //先设置推流参数
  _txLivePush.config.enableAEC = YES;
  _txLivePush.config.enableHWAcceleration = YES;
- _txLivePush.config.videoResolution = VIDEO_RESOLUTION_320_480; // 秀场直播最流行的分辨率
- _txLivePush.config.videoResolution = 800; // 斗鱼和映客比这要低一点
- _txLivePush.config.videoResolution = AUDIO_SAMPLE_RATE_48000;  // 不要用其它的
+ _txLivePush.config.videoResolution = VIDEO_RESOLUTION_360_640; // 秀场直播最流行的分辨率
+ _txLivePush.config.videoBitratePIN = 800; // 斗鱼和映客比这要低一点
+ _txLivePush.config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;  // 不要用其它的
  _txLivePush.config.audioChannels   = 1; // 单声道
  //之后再启动推流
  [_txLivePush startPush:rtmpUrl];
@@ -79,9 +79,10 @@ session_id 是一个32为整数，在连麦用的推流 URL 和播放 URL 中都
  _txLivePush.config.enableAEC = YES;
  _txLivePush.config.enableHWAcceleration = YES;
  _txLivePush.config.videoResolution = VIDEO_RESOLUTION_320_480; // “小主播”不需要太高分辨率
- _txLivePush.config.videoResolution = 300; // 码率太高是种浪费
- _txLivePush.config.videoResolution = AUDIO_SAMPLE_RATE_48000;  // 不要用其它的
+ _txLivePush.config.videoBitratePIN = 300; // 码率太高是种浪费
+ _txLivePush.config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;  // 不要用其它的
  _txLivePush.config.audioChannels   = 1; // 单声道
+ 
  //之后再启动推流
  [_txLivePush startPush:rtmpUrl];
 ```
@@ -116,13 +117,14 @@ session_id 是一个32为整数，在连麦用的推流 URL 和播放 URL 中都
  + TXLivePlayConfig 中将播放模式设置为极速模式，缓冲区改为 200ms
  
  ``` 
- //修改播放器参数
+ //设置播放器参数
  _txLivePlay.config.enableAEC = YES;              // 开启回音消除
- _txLivePlay.config.enableHWAcceleration = YES;   // 硬件解码
  _txLivePlay.config.bAutoAdjustCacheTime = YES;   // 极速模式 - 有明显的延迟修正表现
  _txLivePlay.config.minAutoAdjustCacheTime = 0.2; // 200ms
  _txLivePlay.config.maxAutoAdjustCacheTime = 0.2; // 200ms
- //之后再启动推流
+ 
+ //之后再启动播放
+ _txLivePlay.enableHWAcceleration = YES;          // 硬件解码
  [_txLivePlay startPlay:rtmpUrl type:PLAY_TYPE_LIVE_RTMP_ACC];
 ```
 
@@ -151,11 +153,11 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
 ``` 
  //修改播放器参数
  _txLivePlay.config.enableAEC = NO;               // 观众端无需回音消除
- _txLivePlay.config.enableHWAcceleration = YES;   // 硬件解码
  _txLivePlay.config.bAutoAdjustCacheTime = YES;   // 极速模式 - 有明显的延迟修正表现
  _txLivePlay.config.minAutoAdjustCacheTime = 1;   // 1000ms
  _txLivePlay.config.maxAutoAdjustCacheTime = 1;   // 1000ms
  //之后再启动推流
+ _txLivePlay.enableHWAcceleration = YES;          // 硬件解码
  [_txLivePlay startPlay:flvUrl type:PLAY_TYPE_LIVE_FLV];
 ```
 
@@ -197,8 +199,3 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
 
 ### step5. 多路混流
 - **跨房连麦**：目前不支持服务端混流，只支持客户端混流。我们会在春节后启用新的commen cgi 风格接口，届时大家会在 [腾讯云服务端API](https://www.qcloud.com/document/product/454/7920) 中查到该接口的定义。
-
-
-
-
-
