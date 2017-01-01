@@ -1,4 +1,4 @@
-本文档主要介绍腾讯云连麦功能的对接方案，如果您想要了解连麦的原理，欢迎阅读如何实现连麦功能？
+本文档主要介绍腾讯云连麦功能的对接方案，如果您想要了解连麦的原理，欢迎阅读 [如何实现连麦功能？](https://www.qcloud.com/document/product/454/8092)
 
 ## 更新版本
 RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qcloud.com/document/product/454/7873) 更新最新版本的 RTMP SDK。同时，我们的 小直播 [DEMO](https://www.qcloud.com/document/product/454/6991) 也已经集成了这套解决方案的示例代码。
