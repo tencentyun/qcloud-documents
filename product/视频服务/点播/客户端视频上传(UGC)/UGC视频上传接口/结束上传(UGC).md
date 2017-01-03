@@ -65,7 +65,6 @@ https://vod2.qcloud.com/v2/index.php?Action=FinishUploadEx
 {
     "code": 0,
     "message": "",
-    "fileId": "7031868222808505913",
-    "url": "http://10013.vod2.myqcloud.com/vod10013/7031868222808505913/f0.mp4"
+    "fileId": "7031868222808505913"
 }
 ```
