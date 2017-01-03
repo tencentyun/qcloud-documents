@@ -45,11 +45,12 @@ https://vpc.api.qcloud.com/v2/index.php?Action=ModifyLocalSourceIPPortTranslatio
 &vpcId=vpc-dfgg190
 &directConnectGatewayId=dcg-ddf14d
 &translationIPPool=138.0.0.11-138.0.0.111
-&aclRules.n.protocol=tcp
-&aclRules.n.sourceCidr=111.0.0.1/18
-&aclRules.n.sourcePort=80
-&aclRules.n.destinationCidr=10.0.0.2/18
-&aclRules.n.destinationPort=90
+&aclRules.0.aclRuleId=26
+&aclRules.0.protocol=tcp
+&aclRules.0.sourceCidr=111.0.0.1/18
+&aclRules.0.sourcePort=80
+&aclRules.0.destinationCidr=10.0.0.2/18
+&aclRules.0.destinationPort=90
 </pre>
 输出
 ```
