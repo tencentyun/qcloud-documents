@@ -46,7 +46,7 @@ Authorization: auth
 | Expect              | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容。 | String | 否    |
 | Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据返回。      | String | 否    |
 | x-cos-content-sha1  | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值。    | String | 否    |
-| x-cos-meta-*        | 允许用户自定义的头部信息，将作为 Object 元数据返回。           | String | 否    |
+| x-cos-meta-*        | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。    | String | 否    |
 
 #### 权限相关头部
 
