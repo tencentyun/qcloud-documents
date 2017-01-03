@@ -13,6 +13,7 @@
 | directConnectGatewayId | 是 | String | 系统分配的专线网关ID，例如：dcg-4d545d。|
 | translationIPPool | 是 | String | 映射后IP池。|
 | aclRules.n | 是 | Array | ACL策略信息。|
+| aclRules.n.aclRuleId | 是 | Int | ACL规则ID，例如：25。|
 | aclRules.n.protocol | 是 | String | 协议：TCP、UDP or ALL。|
 | aclRules.n.sourceCidr | 是 | String | 访问的源IP，支持IP、IP段（CIDR格式），如果不填写指所有IP。 |
 | aclRules.n.sourcePort | 是 | String | 访问的源端口，支持xx-xx范围，不填或者填0或者0-0都表示不限端口。 |
