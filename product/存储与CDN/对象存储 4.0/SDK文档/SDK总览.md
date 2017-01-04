@@ -11,3 +11,4 @@
 | C sharp SDK       | [C sharp SDK 接入说明](/doc/product/436/6271)       |
 | Android SDK     | [Android SDK 接入说明](/doc/product/436/6515)       |
 | iOS SDK     | [iOS SDK 接入说明](/doc/product/436/6530)       |
+| JavaScript SDK    | [JavaScript SDK 接入说明](/document/product/436/8095)    |

@@ -3,15 +3,11 @@
 官网demo体验地址：
 http://avc.qcloud.com/demo/webim/index.html
 
-面向直播场景接入请参考：
-
 官网直播聊天室demo地址：
 http://avc.qcloud.com/demo/webim/biggroup/mobile/index.html
 
 直播聊天室demo运行指引地址：
 https://www.qcloud.com/doc/product/269/4105
-
-
 
 SDK包下载地址：
 https://www.qcloud.com/product/im.html
@@ -27,7 +23,7 @@ web服务器软件：Apache 2.4 64位
 下载 64位 apache，地址：
 http://www.apachehaus.com/cgi-bin/download.plx?dli=StmURFWaNJzTEx2KWVkRwAlVOpkVFVFdSxGZPVWQ
 
-查看其他版本，地址：
+查看其他版本，地址
 http://www.apachehaus.com/cgi-bin/download.plx
 
 将下载的压缩包，解压到本地某个目录下，比如，放在D:\Program Files\目录下。
@@ -115,11 +111,11 @@ http://localhost:8080/webim/index.html
 显示demo首页：
 ![](//mccdn.qcloud.com/static/img/deaf3ceeb96916e35ce611602f4c0074/image.png)
 
- 
+
 点击确认会跳转到tls登录界面，直接点击游客登录，会跳回到首页，效果如下：
 
  ![](//mccdn.qcloud.com/static/img/37f008df51e98574886ac25a9becbd9f/image.png)
- 
+
  ![](//mccdn.qcloud.com/static/img/0e1c29203362cac113a13ff1547dca47/image.png)
 
 登录之后，可以搜素、添加好友，建群：
@@ -162,7 +158,7 @@ var accountType = 792; //开发者改成自己的业务帐号类型
 
 进入登录页：
 ![](//mccdn.qcloud.com/static/img/100c4f8b786c2ffa2f0c3ee3cff5f226/image.png)
- 
+
 
 填写登录用户信息identifier和userSig，userSig需要开发者在自己的服务器调用tls api生成。
 独立模式生成usersig，请参考链接：
