@@ -24,11 +24,11 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 
 - **1.1 推流URL加连麦参数**
 在[如何获取推流地址](https://www.qcloud.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8.E6.8B.BC.E8.A3.85.EF.BC.9F)中，我们详细介绍了推流地址的拼装规则，如果要做连麦，推流地址里面还要额外加一段参数：
-![](//mc.qcloudimg.com/static/img/56c67567f18dccae904f620e4f6c693b/image.png)
+![](//mc.qcloudimg.com/static/img/a066ac2f6caf1764b69477a9aa031d0e/image.png)
 
-**&mix=layer:s;session_id:1234;t_id:1** 的作用是告诉腾讯云：这条直播流是支持连麦的，连麦房间号为 1234。
+ **&mix=layer:s;session_id:1234;t_id:1** 的作用是告诉腾讯云：这条直播流是支持连麦的，连麦房间号为 1234。
  
- [session_id](#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A) 的值可以是任意的 **<font color='red'>32 位整数</font>**，但要注意，两个不同房间的 session_id 不要相同，否则后台系统会乱掉。layer 和 tid 是用于后台混流用的参数，[Step5.2](#step5.-.E5.A4.9A.E8.B7.AF.E6.B7.B7.E6.B5.81) 中会做详细说明。
+  [session_id](#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A) 的值可以是任意的 **<font color='red'>32 位整数</font>**，但要注意，两个不同房间的 session_id 不要相同，否则后台系统会乱掉。layer 和 tid 是用于后台混流用的参数，[Step5.2](#step5.-.E5.A4.9A.E8.B7.AF.E6.B7.B7.E6.B5.81) 中会做详细说明。
  
 - **1.2 TXLivePushConfig**
   + 开启回音消除 enableAEC 
@@ -150,10 +150,12 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
   
 - **客户端混流的不足**
   + 下行数据是多路，所以带宽消耗要高于服务端混流。
-  
-- **LivePlayConfig设置**
-  + 在设置方面，观众端建议采用来自 CDN 集群的 FLV 地址进行播放，播放模式也尽量采用 1s 固定缓冲区的极速模式。
 
+- **如何实现客户端混流**？
+  + RTMP SDK 1.8.2 开始支持直播播放器多实例运行，所以创建多个 TXLivePlayer 即可实现观众端多路混流。
+  + 播放地址推荐使用更稳定的 FLV 播放地址。
+  + TXLivePlayConfig 必须采用 1s 固定缓冲区的极速模式，以避免多个播放实例的延迟差异过大，示例代码如下：
+  
 ``` 
  //修改播放器参数
  _txLivePlay.config.enableAEC = NO;               // 观众端无需回音消除
