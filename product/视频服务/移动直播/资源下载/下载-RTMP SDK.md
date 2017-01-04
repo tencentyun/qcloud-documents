@@ -1,10 +1,11 @@
 **【最新修改】**
-- 修复IOS直播偶现黑屏的问题
-- 修复IOS模拟器编译不通过的问题
-- 修复IOS偶现物理键锁屏、切后台等Crash问题
-- 修复Android某些机型预览摄像头倒置的问题
-- 修复Android某些机型硬编码率过高的问题
-- 优化Android混音接口，使用更简单
+- IOS解决命名冲突问题
+- IOS、Android直播支持多实例播放能力，点播暂时不支持多实例播放
+- 优化较差网络情况下的播放体验
+- 优化混音功能
+
+**【特别说明】**
+- 最近很多客户关心连麦功能的release时间，这里非常感谢大家的关注，连麦功能由于接口设计被领导挑战易用性不好，本周会进行最后一轮的调整，预计下周五之前放出正式版。这里对热心等待的客户表示抱歉，我们会利用元旦期间加班搞定这些细节问题，敬请期待。
 
 **【注意事项】**
 - 压缩包中是可以通过编译并运行的DEMO工程，SDK位于DEMO文件夹内。
@@ -18,20 +19,10 @@
 
 | 操作系统 | 版本号 | 更新时间|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS  | 1.8.0.1459  | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPIOSSDK1.8.0.1459.zip)  |
-| Android  | 1.8.0.1459 | 2016-12-09 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPAndroidSDK1.8.0.1459.zip)  |
-
-
-
-1.8.1 SDK Develop Preview版，主要包含连麦功能
-
-
-| 操作系统 | 版本号 | 更新时间|下载链接 |
-| ---- | ----------- | ---- | ---- | 
-| IOS完整版  | 1.8.1.1590  | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKIOSDevelopPreview1.8.1.1590.zip)  |
-| IOSRename版  | 1.8.1.1590  | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKIOSRenameDevelopPreview1.8.1.1590.zip)  |
-| Android  | 1.8.1.1590 | 2016-12-23 | [点击下载](http://download-10055601.cos.myqcloud.com/RTMPSDKAndroidDevelopPreview1.8.1.1590.zip)  |
-
+| IOS完整版  | 1.8.1.1637  | 2016-12-29 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPIOSSDK1.8.1.1637.zip)  |
+| IOSRename版  | 1.8.1.1637  | 2016-12-29 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPIOSRenameSDK1.8.1.1637.zip)  |
+| IOS精简版  | 1.8.1.1637  | 2016-12-29 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPIOSSimpleSDK1.8.1.1637.zip)  |
+| Android  | 1.8.1.1637 | 2016-12-29 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPAndroidSDK1.8.1.1637.zip)  |
 
 
 
