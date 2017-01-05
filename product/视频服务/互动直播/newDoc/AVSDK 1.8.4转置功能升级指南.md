@@ -72,7 +72,7 @@
 自定义采集注意点：
 
 * ios调用fillExternalCaptureFrame时，SDK底层会自动补充角度值；
-* Android刚需要自己手动填写角度值（具体值可参考[角度方案]()）。**要保证在互通时画面方向正确，Android端首先参考[考角度方案]()填对之后，这样SDK才不会将画面转置出错；**;
+* Android刚需要自己手动填写角度值（具体值可参考[角度方案](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E8%A7%86%E9%A2%91%E6%9C%8D%E5%8A%A1/%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD/newDoc/%E8%A7%92%E5%BA%A6%E6%96%B9%E6%A1%88.md)）。**要保证在互通时画面方向正确，Android端首先参考[考角度方案](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E8%A7%86%E9%A2%91%E6%9C%8D%E5%8A%A1/%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD/newDoc/%E8%A7%92%E5%BA%A6%E6%96%B9%E6%A1%88.md)填对之后，这样SDK才不会将画面转置出错；**;
 * 在不开转置情况下：fillExternalCaptureFrame里填入的角度值是多少，传给观众的值就是多少；
 * 在开转置情况下：主播在fillExternalCaptureFrame之后，SDK还会对画面进行转置，并修改角度值为0, 然后上行视频数据包，这样传给观众的就一直是0, 观众端需要根据宽高来判断是否有横屏；
 
