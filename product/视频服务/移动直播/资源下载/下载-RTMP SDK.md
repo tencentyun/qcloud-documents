@@ -14,9 +14,9 @@
 **【文档索引】**
 <table class="t">
 <tbody><tr>
-<th width=150> 文档标题
-</th><th width=500> 内容介绍
-</th><th width=83> 参考文档
+<th style="text-align: center; width: 150px;"> 文档标题
+</th><th style="text-align: center; width: 500px;"> 内容介绍
+</th><th style="text-align: center; width: 150px;"> 参考文档
 </th></tr>
 <tr>
 <td style="text-align: center;"> iOS 推流
