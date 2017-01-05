@@ -15,7 +15,7 @@
 <table class="t">
 <tbody><tr>
 <th style="text-align: center; width: 150px;"> 文档标题
-</th><th style="text-align: center; width: 600px;"> 内容介绍
+</th><th style="text-align: center; width: 550px;"> 内容介绍
 </th><th style="text-align: center; width: 85px;"> 参考文档
 </th></tr>
 <tr>
