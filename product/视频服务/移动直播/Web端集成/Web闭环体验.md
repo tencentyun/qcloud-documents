@@ -79,23 +79,25 @@ PC 上的浏览器都不能原生支持直播视频流，所以如果 Web 页面
 | pictures | img | 示例网页所用的示例图片，您可以根据需要自行替换和调整。 |
 | json2.js     | sdk |  IM 云通讯的基础JS库，主要用于提供Web端的聊天室功能相关API。 | 
 | webim.js    | sdk | IM 云通讯的基础JS库，主要用于提供Web端的聊天室功能相关API。 |
-| base.js      |  js     | IM 云通讯的基础JS库，主要用于提供Web端的聊天室功能相关API。 |
-| jquery-2.1.4.min.js |  js |  jquery 运行库。 | 
-| ua.js |   js | 用于浏览器判断的一个基础JS库，确认当前网页是运行于何种浏览器。 | 
-| vconsole.min.js | js | 一个方便调试的基础JS库，您可以移除它。|
-| xzb.js |  js | 核心 javascript 文件，直播观看和 IM 聊天室的实现逻辑，都位于此 js 中。 |
+| base.js      |  js  | IM 云通讯的基础JS库，主要用于提供Web端的聊天室功能相关API。 |
+| lib.js          | js     | 本页面依赖的一些基本的 javascript 公共脚本文件 |
+| config.js    |  js   |  配置中心，比如后台服务器地址就是在这里进行配置 | 
+| xzb.js        |  js | 核心 javascript 文件，直播观看和 IM 聊天室的实现逻辑，都位于此 js 中。 |
 | xiaozhibo.html| 根目录 | 唯一的 html 页面，其中的 PlayerContainer 为视频渲染区域，其上紧贴着的 div 是聊天区域。|
 
-> **PC 跨域问题**
->
-> PC 浏览器要依靠 Flash 控件完成视频播放，但 Flash 本身有跨域问题，如果你的网页以及 Step4 中的后台服务器不是部署在腾讯云的，需要在服务器的根目录下添加跨域配置文件 crossdomain.xml ：
-```xml
-<?xml version="1.0"?>
-<cross-domain-policy>
-		<allow-access-from domain="*" secure="false"/>
-</cross-domain-policy>
-```
+#### 3.1 配置config.js
 
+| 配置项 | 含义 | 参考文档 |
+|:-------: |:--------------|:----------:|
+| SERVER | 为该网页提供视频播放信息的业务服务器。 | [DOC](https://www.qcloud.com/document/product/454/8046#step4.3A-web.E5.90.8E.E5.8F.B0.E6.90.AD.E5.BB.BA) |
+| accountMode | IM SDK 的账号集成模式（配置要跟小直播中保持一致）。 | [DOC](https://www.qcloud.com/document/product/454/7980) | 
+| sdkAppID | IM 服务开通后分配的一个id，如果分享URL的参数中携带可以不配置。 | [DOC](https://www.qcloud.com/document/product/454/7953#3.2-im-sdk-appid) |
+| accountType |  IM 服务开通后分配的一个type，如果分享URL的参数中携带可以不配置。 | [DOC](https://www.qcloud.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
+
+#### 3.2 调试&部署页面
+- 如果您要调试，要注意直接 <font color='red'>在 Windows 下用浏览器打开 xiaozhibo.html 是不行的</font>，需要将其上传到一台可访问的服务器上进行调试，如果您没有自己的服务器，可以参照源码包里的 readme.pdf 部署一台。
+ 
+- 静态网页的部署推荐使用[CDN 内容分发网络](https://www.qcloud.com/product/cdn)，CDN 的优势就是能极大的缩减用户打开页面的速度，从而提升用户体验。
 
 ### Step4: Web后台搭建
 这部分工作可以交给贵团队的**后端工程师**处理，主要工作就是在您的业务服务器上提供一个 **信息查询接口：**。
@@ -138,29 +140,38 @@ http://imgcache.qq.com/open/qcloud/video/share/xiaozhibo.html?sdkappid=140001234
 #### 5.2 网页的内部原理
 
 xiaozhibo.html 中挂载的 xzb.js 是网页的主控 javascript 文件，也就是驱动整个页面的逻辑中枢，它以如下的步骤去实现整个页面的功能：
-
-- **配置关键参数**
-xzb.js 顶部的 accountMode、sdkAppID、accountType 以及 serverURL 等全局变量是需要您自行配置的，前面三个参数跟im sdk 有关系，serverURL 则是 Step4 中 Web 后台的服务器地址。
+- **主函数**
+init() 为全局主入口函数，它串联起整个页面的全部逻辑链条：initParams() -> initLogin() -> initPlayer() -> ...
 
 - **解析URL中的参数** 
-initParams() 函数负责将 URL 尾部的 userid 等参数解析出来。
+initParams() 函数负责将 URL 尾部的 userid 等参数解析出来，initParams() 的最后一个动作是去 config.js 中 SERVER 配置项所指定的服务器地址上，用 userid 作为参数查询播放URL。
 
 - **创建播放器**
 initPlayer() 函数会根据当前是 PC 浏览器还是手机浏览器，选择相应的方式创建播放器。
 
-- **拉取视频URL并进行播放**
-initParams() 中的后半部分还会通过 ajax 去小直播的服务器（您需要换成您的后台）拉取视频流地址。
+- **视频播放**
+loadVideo() 负责驱动网页中的播放器播放视频URL，需要您注意的是，大部分手机浏览器是限制视频的自动播放的（可能设计者考虑流量的问题），所以如果您发现同样的页面在不同手机上的自动播放表现不一致，这并不是什么奇怪的事情。
 
 - **登录到聊天室**
-initLogin() 通过从 URL 中解析的 sdkappid 和 acctype 等参数，登录到聊天室中（Web 页面不具备创建聊天室的能力，所以成功进入的前提是主播在小直播 App 端已经创建了聊天室）。
+initLogin() 通过从 URL 中解析的 sdkappid 和 acctype 等参数（如果 URL 中不懈怠则直接使用 config.js 中配置的 sdkappid 和 acctype），登录到聊天室中（Web 页面不具备创建聊天室的能力，所以成功进入的前提是主播在小直播 App 端已经创建了聊天室）。
 
-## 安全拦截
+## 常见问题
+### 1. 微信拦截
 不管直播还是点播都会有一个播放URL，需要把播放地址的域名添加到安全域名的列表里，不添加会有可能被微信以"非微信官方网页"为由拦截视频地址，导致不能播放视频。
 
 登录微信公众平台进入“公众号设置”的“功能设置”里添加“JS接口安全域名”。设置域名后，该域名的网页内容不会被重新排版或者被拦截，但依然要遵守微信平台运营规则，否则依然会受到相应处罚。
 
 [怎么去掉“非微信官方网页，将由微信转换为手机预览模式”的提示页面？](https://www.zhihu.com/question/45748989)
 
+### 2. Flash 跨域
+PC 浏览器要依靠 Flash 控件完成视频播放，但 Flash 本身有跨域问题，如果你的网页以及 Step4 中的后台服务器不是部署在腾讯云的，需要在服务器的根目录下添加跨域配置文件 crossdomain.xml ：
+
+```xml
+<?xml version="1.0"?>
+<cross-domain-policy>
+		<allow-access-from domain="*" secure="false"/>
+</cross-domain-policy>
+```
 
 
 
