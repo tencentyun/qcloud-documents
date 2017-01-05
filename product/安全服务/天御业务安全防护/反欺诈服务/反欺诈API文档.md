@@ -145,7 +145,7 @@ RiskDetail类型说明
 </th><th> <b>说明</b>
 </th></tr>
 <tr>
-<td rowspan="5"> 帐号风险
+<td rowspan="7"> 帐号风险
 </td><td> 信贷中介
 <br></td>
 <td>1</td>
@@ -155,6 +155,7 @@ RiskDetail类型说明
   <td>2</td>
   <td>互联网行为涉嫌色情、赌博、毒品等违法行为</td>
 </tr>
+
 <tr>
   <td>虚假资料 </td>
   <td>3</td>
@@ -169,6 +170,16 @@ RiskDetail类型说明
   <td>身份认证失败 </td>
   <td>5</td>
   <td>身份信息对（身份证、手机号、姓名）涉嫌伪造</td>
+</tr>
+<tr>
+  <td>疑似恶意欺诈 </td>
+  <td>6</td>
+  <td>存在骗贷行为</td>
+</tr>
+<tr>
+  <td>失信名单 </td>
+  <td>7</td>
+  <td>失信名单</td>
 </tr>
 <tr>
 <td rowspan="4"> 区域风险
