@@ -40,7 +40,7 @@ Content-Type: "application/json"
 
 | 参数        | 是否必选 | 类型     | 描述           |
 | --------- | ---- | ------ | ------------ |
-| appid     | 是    | uint   | 业务id         |
+| appid     | 是    | string | 业务id         |
 | bucket    | 是    | string | 图片空间         |
 | ret_image | 是    | int    | 0不返回图片，1返回图片 |
 | url_list  | 是    | string | 图片url列表      |
