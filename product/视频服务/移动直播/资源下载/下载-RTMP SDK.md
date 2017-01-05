@@ -15,8 +15,8 @@
 <table class="t">
 <tbody><tr>
 <th style="text-align: center; width: 150px;"> 文档标题
-</th><th style="text-align: center; width: 500px;"> 内容介绍
-</th><th style="text-align: center; width: 150px;"> 参考文档
+</th><th style="text-align: center; width: 600px;"> 内容介绍
+</th><th style="text-align: center; width: 85px;"> 参考文档
 </th></tr>
 <tr>
 <td style="text-align: center;"> iOS 推流
@@ -32,7 +32,7 @@
 </td><td> 介绍连麦功能的使用方法，如您对原理有疑问可以阅读 <a href="https://www.qcloud.com/document/product/454/8092">连麦原理</a> 了解详情。
 </td><td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/8090">DOC</a>
 </td></tr>
-<td style="text-align: center;">  iOS 进阶
+<td style="text-align: center;"> iOS 进阶
 </td><td> 介绍 RTMP SDK 的内部原理、质量监控手段、参数校调方法（FPS、GOP、分辨率、码率 ...） 以及智能控速等功能。
 </td><td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7884">DOC</a>
 </td></tr>
