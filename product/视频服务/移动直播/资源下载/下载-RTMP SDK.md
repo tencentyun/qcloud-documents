@@ -76,8 +76,8 @@
 
 | 操作系统 | 版本号 | 版本说明|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS完整版  | 1.8.2.1761  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPIOSSDK1.8.2.1761.zip)  |
-| IOSRename版  | 1.8.2.1761  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPIOSDKRename1.8.2.1761.zip)  |
+| IOS完整版  | 1.8.2.1761  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOS1.8.2.1761.zip)  |
+| IOSRename版  | 1.8.2.1761  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSSimple1.8.2.1761.zip)  |
 | IOS精简版  | 1.8.2.1761  | 在完整版的基础上裁剪掉了非核心功能，双架构代码体积增量 800k。<br> 精简版点播功能的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSRename1.8.2.1761.zip)  |
 | Android完整版  | 1.8.2.1761 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.8.2.1761.zip)  |
 | Android精简版  | 1.8.2.1761 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.8.2.1761.zip)  |
