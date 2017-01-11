@@ -2,7 +2,7 @@
 
 ### SDK 获取
 
-对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/a78a41f6eb769e421aa41fa607bc1501/qcloud-image-ios-v1.1.4.2.zip) 
+人脸核身的 iOS SDK 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/0ff7d0d15a9fa3eee03b6cdb61821c99/CISDK_iOS-1.0.1.zip) 
 
 更多示例可参考Demo：[iOS Demo](https://mc.qcloudimg.com/static/archive/abdd2f53afdbe005278e9a81d61da6d4/QcloudDemoApp.zip) 
 
@@ -50,7 +50,7 @@ CI 的 iOS SDK压缩包组成：
 
 **签名获取：**
 
-移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 。
+移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](/document/product/460/6968) 。
 
 
 ## 初始化

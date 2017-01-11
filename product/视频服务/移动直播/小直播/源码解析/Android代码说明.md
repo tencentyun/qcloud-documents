@@ -1,5 +1,5 @@
 ## 1.工程结构
-从github下载小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
+[下载](https://www.qcloud.com/document/product/454/6991)小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
 ![](//mc.qcloudimg.com/static/img/af1b516a6c254da0224486bd35e3d2b6/image.png)
 
 |文件/目录 | 说明 | 
@@ -15,7 +15,7 @@
 - 弹幕：dfm
 
 ## 2.模块介绍
-小直播按照功能不同划分了6个模块，分别为：帐号、列表管理、推流、播放、消息以及资料，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
+小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、推流、播放、消息、资料以及连麦，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
 #### 模块简介
@@ -122,3 +122,19 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 	- TCEditUseInfoActivity.java: 用户资料修改页面
 	- TCLineEditTextView.java: 文本修改控件，对控件EditText的简单封装，可以用来修改文本，并显示相关信息
 	- TCTextEditActivity.java: 文本修改页面，对控件EditText的封装，使用单独的页面来修改文本，并显示相关信息
+
+### 连麦
+#### 模块简介
+- 小直播结合SDK的连麦能力以及im的C2C消息接口实现了连麦功能
+-  C2C消息主要用于主播和连麦观众的通知和回复：观众发起连麦请求和观众已推流成功需要通知主播，主播做相应回复
+- 主播端开始直播后，连麦观众向主播发起连麦请求，主播同意连麦请求后，连麦观众和主播分别通过对方的播放地址拉取视频数据并展示，后台对主播和连麦观众的推流数据进行混流，第三方观众看到的直接是混流后的视频
+
+#### 时序图
+![](//mc.qcloudimg.com/static/img/1b80501829fd5528bf41d4c9a84aed2b/image.png)
+
+#### 相关代码
+- Logic:
+	- TCLinkMicMgr：对C2C消息进行封装，对上层提供通知和回复的接口
+- UI:
+	- TCLinkMicLivePushActivity：连麦主播端的界面实现，继承自TCLivePublisherActivity，实现连麦请求的响应和连麦观众画面的拉取
+	- TCLinkMicLivePlayActivity：连麦观众端的界面实现，继承自TCLivePlayerActivity，发起连麦请求、进行推流以及主播端画面的拉取
