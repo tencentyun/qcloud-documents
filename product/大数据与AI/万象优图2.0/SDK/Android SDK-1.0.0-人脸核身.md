@@ -38,13 +38,14 @@ final FaceIdClient faceIdClient = new FaceIdClient(context, appid);
 String bucket = "your bucket"; // bucket名称
 String idCardNumber = "your id card number"; // 身份证号码
 String idCardName = "your idCard name"; // 身份证姓名
-String imagePath = "your image path"; // 本地图片文件路径
+File image = new File("your image path"); // 本地图片文件
 String seq = "seq";
 
 String sign = "多次有效签名"; // 测试时可以利用CredentialProvider类来生成签名
 
 // 初始化人脸对比请求
-final ImageIdCardCompareRequest imageIdCardCompareRequest = ImageIdCardCompareRequest.getInstanceByPath(bucket, idCardNumber, idCardName, imagePath, seq);
+final ImageIdCardCompareRequest imageIdCardCompareRequest = new ImageIdCardCompareRequest(bucket, idCardNumber, idCardName, image, seq);
+
 // 设置签名
 imageIdCardCompareRequest.setSign(sign);
 
@@ -74,7 +75,7 @@ String seq = "seq";
 String sign = "多次有效签名"; // 测试时可以利用CredentialProvider类来生成签名
 
 // 初始化请求
-final ImageIdCardCompareRequest imageIdCardCompareRequest = ImageIdCardCompareRequest.getInstanceByUrl(bucket, idCardNumber, idCardName, url, seq);
+final ImageIdCardCompareRequest imageIdCardCompareRequest = new ImageIdCardCompareRequest(bucket, idCardNumber, idCardName, url, seq);
 // 设置签名
 imageIdCardCompareRequest.setSign(sign);
 
@@ -237,9 +238,11 @@ faceIdClient.release();
 ### 人脸对比
 自带人脸识别数据库，可实时为国内公民提供在线的身份证照片比对。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。
 1、通过上传本地图像进行对比。人脸对比请求初始化函数：
-``` 
-public static ImageIdCardCompareRequest getInstanceByPath(String bucket, String idCardNumber, String idCardName, String imagePath, String seq);
+
 ```
+public ImageIdCardCompareRequest(String bucket, String idCardNumber, String idCardName, File image, String seq);
+```
+
 参数说明：
 
 | 参数名称         | 类型     | 是否必填 | 参数描述          |
@@ -247,8 +250,34 @@ public static ImageIdCardCompareRequest getInstanceByPath(String bucket, String 
 | bucket       | String | 是    | 用户创建的bucket名称 |
 | idCardNumber | String | 是    | 身份证号码         |
 | idCardName   | String | 是    | 身份证名称         |
-| imagePath    | String | 是    | 本地图片路径        |
+| image        | File   | 是    | 本地图片          |
 | seq          | String | 否    | 用于日志查询        |
+
+2、通过上传图像url进行对比。人脸对比请求初始化函数：
+
+```
+public ImageIdCardCompareRequest(String bucket, String idCardNumber, String idCardName, String url, String seq);
+```
+
+参数说明：
+
+| 参数名称         | 类型     | 是否必填 | 参数描述          |
+| ------------ | ------ | ---- | ------------- |
+| bucket       | String | 是    | 用户创建的bucket名称 |
+| idCardNumber | String | 是    | 身份证号码         |
+| idCardName   | String | 是    | 身份证名称         |
+| url          | String | 是    | 图片的url路径      |
+| seq          | String | 否    | 用于日志查询        |
+
+返回结果ImageIdCardCompareResult：
+
+| 参数名称       | 类型     | 参数描述       |
+| ---------- | ------ | ---------- |
+| code       | int    | 状态码        |
+| message    | String | 结果信息       |
+| similarity | float  | 图像和身份证的相似度 |
+| seq        | String | 用于日志查询     |
+
 >**人脸对比示例代码请参见*快速入门***
 
 2、通过上传图像url进行对比。人脸对比请求初始化函数：
