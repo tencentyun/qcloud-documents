@@ -1,3 +1,6 @@
+## 事件名称
+PullComplete
+
 ## 事件说明
 如果APP配置了事件通知，则在URL转拉任务完成之后，点播后台会将该事件通知给APP后台。
 
@@ -29,7 +32,7 @@ APP后台接收该事件通知的方法参见[服务端事件通知简介](/docu
     "data": {
         "status": 0,
         "message": "",
-        "vodTaskId": "pull-f5ac8127b3b6b85cdc13f237c6005d8",
+        "vodTaskId": "Pull-f5ac8127b3b6b85cdc13f237c6005d8",
         "fileId": "14508071098244959037",
         "fileUrl": "http://251000330.vod2.myqcloud.com/vod251000330/14508071098244959037/f0.flv",
         "transcodeTaskId": "transcode-0bee89b07a248e27c83fc3d5951213c1",
