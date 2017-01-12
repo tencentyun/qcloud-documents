@@ -1,14 +1,19 @@
 ## 构建docker镜像教程
 
+### 说明
 DockerHub 提供了大量的镜像可用，详情可查看:[hub.docker.com](https://hub.docker.com/)
+
+Docker容器的设计宗旨是让用户在相对独立的环境中运行独立的程序
+
+Docker容器程序在镜像内程序运行结束后会自动退出。如果要令构建的镜像在服务中持续运行，需要在创建服务页面指定自身持续执行的程序，如：业务主程序，main函数入口等。
 
 但由于企业环境的多样性，并非所有应用都能在  DockerHub 找到对应的镜像来使用, 你可以通过以下教程了解到如何将应用打包成Docker镜像。
 
 docker生成镜像目前有两种方式：
 
-1.通过Dockerfile自动构建镜像
+- 通过Dockerfile自动构建镜像
+- 通过容器内操作，并执行Commit来实现打包生成镜像
 
-2.通过容器内操作，并执行Commit来实现打包生成镜像
 
 ### Dockerfile自动编译生成（推荐使用）
 按Dockerhub官方提供的wordpress为例，点击查看[详情](https://github.com/docker-library/wordpress/blob/7d40c4237f01892bb6dbc67d1a82f5b15f807ca1/php5.6/apache/Dockerfile)
