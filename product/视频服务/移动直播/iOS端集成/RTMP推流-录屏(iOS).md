@@ -45,9 +45,7 @@ iOS 10的Replay Kit支持两种直播方式
 
 ### 导入RTMP SDK
 
-直播扩展需要导入TXRTMPSDK.framework。扩展导入framework的方式和主App导入方式相同，SDK的系统依赖库也没有区别。具体可参考腾讯云官网《工程配置(iOS)》
-
-> https://www.qcloud.com/doc/api/258/5320
+直播扩展需要导入TXRTMPSDK.framework。扩展导入framework的方式和主App导入方式相同，SDK的系统依赖库也没有区别，具体可参考腾讯云官网《[工程配置(iOS)](https://www.qcloud.com/document/product/454/7876)》。
 
 
 ## 对接流程
@@ -114,9 +112,7 @@ s_txLivePublisher是我们用于推流的对象。实例化s_txLivePublisher的�
 }
 ```
 
-s_txLivePublisher的config不能使用默认的配置，需要设置自定义采集视频和音频。关于自定义采集的设置的原理和工作方式，参见腾讯云文档《RTMP推流－进阶应用》
-
-> https://www.qcloud.com/doc/api/258/6458
+s_txLivePublisher的config不能使用默认的配置，需要设置自定义采集视频和音频。关于自定义采集的设置的原理和工作方式，参见腾讯云文档《[RTMP推流－深度使用](https://www.qcloud.com/document/product/454/7884)》。
 
 视频启用autoSampleBufferSize，开启此选项后，您不需要关心推流的分辨率，SDK会自动根据输入的分辨率设置编码器；如果您关闭此选项，那么代表您需要自定义分辨率
 
