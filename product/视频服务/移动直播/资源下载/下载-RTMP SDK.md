@@ -82,5 +82,6 @@
 | Android完整版  | 1.8.2.1761 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.8.2.1761.zip)  |
 | Android精简版  | 1.8.2.1761 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.8.2.1761.zip)  |
 
-
+**【联系我们】**
+我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎[联系我们](https://www.qcloud.com/document/product/454/7998)。
 
