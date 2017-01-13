@@ -25,13 +25,6 @@
 </td><td> Int
 </td><td> <a href="https://www.qcloud.com/doc/product/295/6622#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B" target="blank">验证码类型</a>
 </td></tr>
-<tr>
-<td> disturbLevel
-</td><td> <font color=red> 必选 </font>
-</td><td> Int
-</td><td><a href="https://www.qcloud.com/doc/api/254/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E" target="blank">验证码干扰程度</a>
-</td></tr>
-<tr>
 <td> userIp
 </td><td> <font color=red> 必选 </font>
 </td><td> String
