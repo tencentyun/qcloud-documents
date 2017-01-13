@@ -1,7 +1,7 @@
 ## 1 Overview
 Basic APIs are required for both Voice Chat and Voice Message features.
 
-## 2 Call Basic APIs
+## 2 Flowchart
 
 ![](https://mc.qcloudimg.com/static/img/d709f155acaeb336df5ee93ddc708105/2.png)
 
@@ -10,7 +10,7 @@ Basic APIs are required for both Voice Chat and Voice Message features.
 2. Call `GetEngine` to obtain `GCloudVoice` object.  
 3. Initialize the object and set callback  
 4. Call Voice Chat API or Voice Message API as required
-5. Call `Poll()` function to drive the program operation in the `Tick` area (such as `Update` of `Unity3D`) of system. 
+5. To use `Tick` in the system (such as `Update` of `Unity3D`), call `Poll()` function.
 
 
 ## 3 Basic API
@@ -42,12 +42,12 @@ Before initialization, call this API to set information like game ID and key, an
 
       GCloudVoiceErr SetAppInfo(string appID, string appKey, string openID)
     
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
   |appID|string| Game ID as on the service activation page|
   |appKey|string| Game Key as on the service activation page|
   |openID|string| Player unique ID, such as the OpenID obtained via Mobile QQ or WeChat|
-  |Return value|GCloudVoiceErr|Return GCLOUD_VOICE_SUCC if operation succeeds|
+  | Return value | GCloudVoiceErr | Return GCLOUD_VOICE_SUCC if operation succeeds |
 
 3. Sample Code
 
@@ -85,9 +85,9 @@ Call this API to set your engine mode: "Realtime" for Team Chatting and Commande
       };
       GCloudVoiceErr SetMode(GCloudVoiceMode mode)
     
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |mode|GCloudVoiceMode| "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text
+  | mode | GCloudVoiceMode | "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text 
 
 3. Sample Code
 
@@ -179,6 +179,3 @@ In case of system `Resume` event, call this API to notify the engine to `Resume`
       		m_voiceengine.Resume();
       	}
       }
-4. Error Codes  
-
-  GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization

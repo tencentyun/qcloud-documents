@@ -39,7 +39,7 @@ Conduct initialization in Java. See below:
     		GCloudVoiceEngine.getInstance().init(getApplicationContext(), this);
     	}
     }
-## 3 Call APIs
+## 3 API Calling Flows
 1. Basic API: For both Voice Chat and Voice Message features, you need to call basic APIs for initialization at start and deinitialization at the end. You also need to call `Poll` for callbacks of APIs called in the process.
 [Call Basic APIs](https://www.qcloud.com/document/product/556/7665).  
 2. Voice Chat API: Used for Voice Chat feature

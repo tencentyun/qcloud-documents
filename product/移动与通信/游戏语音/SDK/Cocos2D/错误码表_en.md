@@ -4,13 +4,13 @@ This document introduces the error codes of GVoice C++ API SDK.
       
 ## 2 Error Code List
 	
-|Error	|Hexadecimal value |Decimal value |Meaning|
+|Error	|Hexadecimal value |Decimal value |Description|
 |--|--|--|--|
 |GCLOUD_VOICE_SUCC|	0x0|	0	|Success|
 |GCLOUD_VOICE_PARAM_NULL|	0x1001|	4097	|Some parameters are null|
 |GCLOUD_VOICE_NEED_SETAPPINFO|	0x1002	|4098|	Need to call SetAppInfo first before calling other APIs|
 |GCLOUD_VOICE_INIT_ERR|	0x1003|	4099|	Init Error|
-|GCLOUD_VOICE_RECORDING_ERR|	0x1004	|4100|	Operation failed as it's recording now|
+| GCLOUD_VOICE_RECORDING_ERR |	0x1004	| 4100 |	Operation failed as it's recording now|
 |GCLOUD_VOICE_POLL_BUFF_ERR|	0x1005|	4101|	poll buffer is not enough or null|
 |GCLOUD_VOICE_MODE_STATE_ERR|	0x1006|	4102|	call some api, but the mode is not correct, maybe you shoud call SetMode first and correct|
 |GCLOUD_VOICE_PARAM_INVALID|	0x1007|	4103	|some param is null or value is invalid for our request, used right param and make sure is value range is correct by our comment|
@@ -21,11 +21,11 @@ This document introduces the error codes of GVoice C++ API SDK.
 |GCLOUD_VOICE_POLL_MSG_NO|	0x100C	|4108|	poll no msg to update|
 |GCLOUD_VOICE_REALTIME_STATE_ERR|	0x2001|	8193	|call some realtime api, but state err. such as OpenMic but you have not Join Room first|
 |GCLOUD_VOICE_JOIN_ERR|	0x2002	|8194	|Failed to join the room|
-|GCLOUD_VOICE_QUIT_ROOMNAME_ERR|	0x2003|	8195|	Error while quitting. The quitting roomname does not match the joining roomname|
+|GCLOUD_VOICE_QUIT_ROOMNAME_ERR|	0x2003|	8195|	Error while quitting. The quitting room is not the room joined|
 |GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR|	0x2004|	8196|	open mic in bigroom,but not anchor role|
-|GCLOUD_VOICE_AUTHKEY_ERR|	0x3001|	12289|	apply authkey api error|
+|GCLOUD_VOICE_AUTHKEY_ERR|	0x3001|	12289|	Error while applying for Authkey API|
 |GCLOUD_VOICE_PATH_ACCESS_ERR|	0x3002	|12290|	Failed to access the path: the file does not exist or the access is denied|
-|GCLOUD_VOICE_PERMISSION_MIC_ERR|	0x3003|	12291|	you have not right to access micphone in android|
+|GCLOUD_VOICE_PERMISSION_MIC_ERR|	0x3003|	12291|	You're not authorized to access micphone in Android|
 |GCLOUD_VOICE_NEED_AUTHKEY|	0x3004|	12292|	Call ApplyMessageKey to get the authkey first|
 |GCLOUD_VOICE_UPLOAD_ERR	|0x3005	|12293|	upload file err|
 |GCLOUD_VOICE_HTTP_BUSY|	0x3006|	12294|	http is busy,maybe the last upload/download not finish.|

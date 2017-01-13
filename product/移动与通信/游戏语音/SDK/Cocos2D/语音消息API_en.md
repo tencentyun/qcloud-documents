@@ -1,7 +1,7 @@
 ## 1 Overview
 To use Voice Message, you need to call [Basic API](https://www.qcloud.com/document/product/556/7665) at first.
 
-## 2 Call APIs for Voice Message 
+## 2 Flowchart 
 ![](https://mc.qcloudimg.com/static/img/28ec9bf0eab80c06c7883219fbd7604a/jj3.png)  
 **How-To**   
 1. Call `SetMode()` to enable Voice Message mode.  
@@ -23,9 +23,9 @@ For Voice Message mode, call this API to apply for permission first
 
   `GCloudVoiceErrno ApplyMessageKey(int msTimeout)`
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |msTimeout|int|Timeout setting (unit:ms)
+  | msTimeout | int | Timeout setting (unit: ms) 
 The application result will be called back via `void OnApplyMessageKey(GCloudVoiceCompleteCode code)`.
 
 3. Sample Code
@@ -36,7 +36,7 @@ The application result will be called back via `void OnApplyMessageKey(GCloudVoi
       }
 4. Error Codes
 
-GCLOUD_VOICE_PARAM_INVALID: Parameters transferred in are incorrect, such as timeout of 5000ms-60000ms     
+GCLOUD_VOICE_PARAM_INVALID: Parameters transferred in are incorrect. For example, the timeout range should be 5000ms-60000ms     
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization    
 GCLOUD_VOICE_AUTHKEY_ERR: Internal error while applying for a Key. Please contact GCloud team and provide log for positioning.
 ### 3.2. Set the max length of a voice message
@@ -48,9 +48,9 @@ For Voice Message mode, call this API to set the max length of voice message (up
 
   `GCloudVoiceErrno SetMaxMessageLength(int msTime)`
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |msTimeout|itn|Maximum length of voice message (unit: ms)|
+  | msTime | int | Maximum length of voice message (unit: ms)|
 3. Sample Code
 
   `int ret1 = gcloud_voice::GetVoiceEngine()->SetMaxMessageLength (60000);`
@@ -68,9 +68,9 @@ For Voice Message mode, call this API to specify a storage path for the recorded
 
   `GCloudVoiceErrno StartRecording(const char * filePath)`
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |filePath|const char*| Storage path of recorded files (separated by "/" but not "\").
+  | filePath | const char*| Storage path of recorded files (separated by "/" but not "\").
 3. Sample Code
 
       public void Click_btnStartRecord()
@@ -84,7 +84,7 @@ GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Message mode 
 GCLOUD_VOICE_PARAM_INVALID: Invalid parameters: the path is empty.  
 GCLOUD_VOICE_NEED_AUTHKEY: Need to call `GetAuthKey` first to get permission 
-GCLOUD_VOICE_PATH_ACCESS_ERR : The path provided is invalid or not writable  
+GCLOUD_VOICE_PATH_ACCESS_ERR: The path provided is invalid or not writable  
 ### 3.4 Stop Recording
 1. API Description  
 
@@ -114,7 +114,7 @@ After recording, call this API to upload the recorded file to the specified stor
 
   `GCloudVoiceErrno UploadRecordedFile(const char * filePath, int msTimeout = 60000)`
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
   |filePath|const char*| Storage path of recorded files (separated by "/" but not "\").
   |msTimeout|int|File uploading timed out
@@ -143,11 +143,11 @@ After recording, call this API to upload the recorded file to the specified stor
 
       GCloudVoiceErrno DownloadRecordedFile (const char *fileID, const char * downloadFilePath, int msTimeout = 60000);
     
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |fileID| const char *| ID of files to be downloaded
-  |downloadFilePath|const char *| Storage path of downloaded recording files (separated by "/" but not "\")
-  |msTimeout|int|File downloading timed out
+  | fileID | const char *| ID of files to be downloaded 
+  | downloadFilePath | const char *| Storage path of downloaded recording files (separated by "/" but not "\") 
+  | msTimeout | int | Timeout setting for file downloading 
 The downloading result is called back via `void OnDownloadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID)`.
 
 3. Sample Code
@@ -173,7 +173,7 @@ Call this API to play downloaded recording files.
 
   `GCloudVoiceErrno PlayRecordedFile (const char * downloadFilePath)`
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
   |filePath|const char*| Storage path of downloaded files (separated by "/" but not "\")
 For successful playback, `void OnPlayRecordedFile(GCloudVoiceCompleteCode code,const char *filePath)` will be called back.
@@ -190,7 +190,7 @@ For successful playback, `void OnPlayRecordedFile(GCloudVoiceCompleteCode code,c
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Message mode 
 GCLOUD_VOICE_PARAM_INVALID: Parameters transferred are incorrect, and the path is empty.    
-GCLOUD_VOICE_PATH_ACCESS_ERR : The path provided is invalid or not writable  
+GCLOUD_VOICE_PATH_ACCESS_ERR: The path provided is invalid or not writable  
 GCLOUD_VOICE_SPEAKER_ERR: Failed to enable microphone.  
 ### 3.8 Stop playing the recording file downloaded
 1. API Description  
@@ -214,15 +214,15 @@ GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Message mode
 ### 3.9 Callback of Request for Voice Message Key
 1. API Description  
 
-Callback may occur when applying for voice message.
+Callback may occur when applying for voice message key.
 
 2. Function Prototype
 
   `void OnApplyMessageKey(GCloudVoiceCompleteCode code) ;`
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
+  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
 3. Sample Code
 
       void MessageNotify::OnApplyMessageKey(gcloud_voice::GCloudVoiceCompleteCode code)
@@ -244,9 +244,9 @@ Call this API to callback the result of file uploading.
 
   `void OnUploadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID) `
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
+  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
   |filepath|const char *| Path of files to be uploaded|
   |fileid|const char *|File ID|
 3. Sample Code
@@ -269,9 +269,9 @@ Call this API to callback the result of file downloading.
 
  `void OnDownloadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID) ;`
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
+  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
   |filepath|const char *| Downloading path|
   |fileid|const char *|File ID|
 3. Sample Code
@@ -293,10 +293,10 @@ If users do not suspend the play and the voice recording document has been playe
 
   `void OnPlayRecordedFile(GCloudVoiceCompleteCode code,const char *filePath) `
 
-  |Parameter|Type|Meaning|
+  | Parameter | Type | Description |
   |--|--|--|
-  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
-  |filepath|const char *| Path of files to be played|
+  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
+  | filepath | const char * | Path of files to be played|
 3. Sample Code
 
       void MessageNotify::OnPlayRecordedFile(gcloud_voice::GCloudVoiceCompleteCode code,const char *filePath)
