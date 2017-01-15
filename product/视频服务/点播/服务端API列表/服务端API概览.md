@@ -254,6 +254,20 @@
                 </a>
             </td>
         </tr>
+        <!--点播1.0兼容接口-->
+        <tr>
+            <td>
+                点播1.0兼容接口
+            </td>
+            <td>
+                依照video_id查询视频信息
+            </td>
+            <td>
+                <a href="/document/product/266/8227">
+                    DescribeRecordPlayInfo
+                </a>
+            </td>
+        </tr>
         <!--任务管理-->
         <!-- <tr>
         <td rowspan=1>任务管理</td>
