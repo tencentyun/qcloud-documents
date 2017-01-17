@@ -51,3 +51,33 @@ Range: bytes=byte_range
 ### 返回内容
 
 文件内容
+
+## 示例
+
+### 请求
+
+```HTTP
+GET /123 HTTP/1.1
+Host:zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Date: Thu, 12 Jan 2017 09:10:22 GMT
+Content-Type: application/octet-stream
+Content-Length: 16087
+Connection: keep-alive
+Accept-Ranges: bytes
+Content-Disposition: attachment; filename*="UTF-8''123"
+Content-Range: bytes 0-16086/16087
+ETag: "9a4802d5c99dafe1c04da0a8e7e166bf"
+Last-Modified: Wed, 11 Jan 2017 15:30:07 GMT
+x-cos-object-type: normal
+x-cos-request-id: NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ==
+
+[Object]
+```
+

@@ -53,13 +53,13 @@ Authorization: Auth
 
 ### 返回内容
 
-| 名称                      | 描述                 | 类型        |
-| ----------------------- | ------------------ | --------- |
-| CompleteMultipartUpload | 说明所有返回信息           | Contianer |
-| Location                | 创建的Object的外网访问域名   | URI       |
-| Bucket                  | 分块上传的目标Bucket      | String    |
-| Key                     | Object的名称          | String    |
-| ETag                    | 合并后文件的 SHA-1 算法校验值 | String    |
+| 名称                      | 描述               | 类型        |
+| ----------------------- | ---------------- | --------- |
+| CompleteMultipartUpload | 说明所有返回信息         | Contianer |
+| Location                | 创建的Object的外网访问域名 | URI       |
+| Bucket                  | 分块上传的目标Bucket    | String    |
+| Key                     | Object的名称        | String    |
+| ETag                    | 合并后文件的 MD5算法校验值  | String    |
 
 ```xml
 <CompleteMultipartUpload>
