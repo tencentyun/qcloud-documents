@@ -78,3 +78,67 @@ Authorization: auth
   </CommonPrefixes>
 </ListBucketResult>
 ```
+
+## 示例
+
+### 请求
+
+```HTTP
+GET / HTTP/1.1
+Host:zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213451;32557109451&q-key-time=1484213451;32557109451&q-header-list=host&q-url-param-list=&q-signature=0336a1fc8350c74b6c081d4dff8e7a2db9007dce
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 1132
+Connection: keep-alive
+Vary: Accept-Encoding
+Date: Thu Jan 12 17:30:54 2017
+Server: tencent-cos
+x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
+
+<?xml version='1.0' encoding='utf-8' ?>
+<ListBucketResult>
+	<Name>zuhaotestnorth</Name>
+	<Prefix/>
+	<Marker/>
+	<MaxKeys>1000</MaxKeys>
+	<Delimiter>/</Delimiter>
+	<IsTruncated>false</IsTruncated>
+	<Contents>
+		<Key>testL</Key>
+		<LastModified>Wed Jan 11 18:57:06 2017</LastModified>
+		<ETag>&quot;79f2a852fac7e826c9f4dbe037f8a63b&quot;</ETag>
+		<Size>10485760</Size>
+	</Contents>
+	<Contents>
+		<Key>testL1</Key>
+		<LastModified>Wed Jan 11 19:02:17 2017</LastModified>
+		<ETag>&quot;3f9a5dbff88b25b769fa6304902b5d9d&quot;</ETag>
+		<Size>10485760</Size>
+	</Contents>
+	<Contents>
+		<Key>testLLL</Key>
+		<LastModified>Wed Jan 11 16:36:08 2017</LastModified>
+		<ETag>&quot;39bfb88c11c65ed6424d2e1cd4db1826&quot;</ETag>
+		<Size>10485760</Size>
+	</Contents>
+	<Contents>
+		<Key>testLOL</Key>
+		<LastModified>Wed Jan 11 17:24:10 2017</LastModified>
+		<ETag>&quot;fb31459ad10289ff49327fd91a3e1f6a&quot;</ETag>
+		<Size>4</Size>
+	</Contents>
+	<Contents>
+		<Key>tet</Key>
+		<LastModified>Wed Jan 11 15:54:02 2017</LastModified>
+		<ETag>&quot;83b3ec25cc19626ac073297eba30fbc4&quot;</ETag>
+		<Size>10485760</Size>
+	</Contents>
+</ListBucketResult>
+```
+
