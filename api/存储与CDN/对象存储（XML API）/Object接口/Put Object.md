@@ -62,3 +62,28 @@ Authorization: authorization string
 ### 返回内容
 
 无返回内容
+
+## 示例
+
+### 请求
+
+```HTTP
+PUT /ObjectName HTTP/1.1
+Host:zuhaotestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc
+Content-Length: 64
+
+[Object]
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Date: Tue Jan 17 15:50:02 2017
+Etag: 020df6d63448ae38a1de7924a68ba1e2
+x-cos-request-id: NTg3ZGNjYTlfNDUyMDRlXzUyOTlfMjRj
+```
+
