@@ -7,7 +7,7 @@ Get Service接口实现获取该用户下所有Bucket列表。该API接口需要
 
 ```HTTP
 GET / HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:service.cos.myqcloud.com
 Date:date
 Authorization: Auth
 ```
