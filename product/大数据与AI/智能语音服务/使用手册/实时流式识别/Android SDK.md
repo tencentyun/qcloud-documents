@@ -371,7 +371,7 @@ cookie|String|cookie值
 参数名称|类型|是否必填|参数描述
 --|--|--|--
 engineModelType|int|是|引擎模型类型
-resultTextFormat| int | 是 | 用户控制台设置的模板名称
+resultTextFormat| int | 是 | 识别文本结果的编码形式，可选值包括：UTF-8，GB2312，GBK，BIG5
 resType|int|是|结果返回方式
 示例：
 ```

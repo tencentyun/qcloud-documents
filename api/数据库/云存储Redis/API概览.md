@@ -16,7 +16,7 @@
 | [升级实例 （包年包月）](http://www.qcloud.com/doc/api/260/5328)| UpgradeRedis | 升级实例到指定的规格，并扣除[查询升级实例价格](http://www.qcloud.com/doc/api/260/5327)接口返回的费用信息|
 | [查询订单详情](http://www.qcloud.com/doc/api/260/5329) | DescribeRedisDealDetail | 查询订单详细信息|
 | [设置自动续费](http://www.qcloud.com/doc/api/260/5330)  | SetRedisAutoRenew| 设置或取消自动续费， 设置自动续费后，系统将在实例到期时，自动发起续费|
-| [查询Redis实例及实例列表](http://www.qcloud.com/doc/api/260/5430) | DescribeRedis |  按条件查询实例详情列表 | 
+| [查询 CRS 实例及实例列表](http://www.qcloud.com/doc/api/260/1384) | DescribeRedis |  按条件查询实例详情列表 | 
 | [重置CRS实例密码](http://www.qcloud.com/doc/api/260/1390) | ModfiyRedisPassword | 重置实例密码
 | [修改Redis实例项目](http://www.qcloud.com/doc/api/260/1385) | ModifyRedisProject |  修改实例所属项目 |
 | [清空CRS实例](http://www.qcloud.com/doc/api/260/1386) | ClearRedis |  清空实例数据 | 

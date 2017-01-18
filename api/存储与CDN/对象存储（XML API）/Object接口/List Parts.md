@@ -81,3 +81,48 @@ Authorization: auth
   </Part>
 </ListPartsResult>
 ```
+
+## 示例
+
+### 请求
+
+```HTTP
+GET /coss3/test10M_2?uploadId=14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0&max-parts=1 HTTP/1.1
+Host:burning-1251668577.cn-east.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484643123;1484646723&q-key-time=1484643123;1484646723&q-header-list=host&q-url-param-list=max-parts;uploadId&q-signature=b8b4055724e64c9ad848190a2f7625fd3f9d3e87
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 661
+Connection: keep-alive
+Date: Tue Jan 17 16:52:08 2017
+x-cos-request-id: NTg3ZGRiMzhfMmM4OGY3XzdhY2NfYw==
+
+<ListPartsResult>
+	<Bucket>burning</Bucket>
+	<Encoding-type/>
+	<Key>test10M_2</Key>
+	<UploadId>14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0</UploadId>
+	<Initiator>
+		<UID/>
+	</Initiator>
+	<Owner>
+		<UID>1251668577</UID>
+	</Owner>
+	<PartNumberMarker>0</PartNumberMarker>
+	<Part>
+		<PartNumber>1</PartNumber>
+		<LastModified>Tue Jan 17 16:43:37 2017</LastModified>
+		<ETag>&quot;a1f8e5e4d63ac6970a0062a6277e191fe09a1382&quot;</ETag>
+		<Size>5242880</Size>
+	</Part>
+	<NextPartNumberMarker>1</NextPartNumberMarker>
+	<StorageClass>Standard</StorageClass>
+	<MaxParts>1</MaxParts>
+	<IsTruncated>true</IsTruncated>
+</ListPartsResult>
+```

@@ -55,12 +55,12 @@ Authorization: Auth
 | InitiateMultipartUploadResult | 说明所有返回信息      | Contianer |
 | Bucket                        | 分片上传的目标Bucket | String    |
 | Key                           | Object的名称     | String    |
-| UploadID                      | 在后续上传中使用的ID   | String    |
+| Upload                        | 在后续上传中使用的ID   | String    |
 
 ```xml
 <InitiateMultipartUploadResult>
   <Bucket></Bucket>
   <Key></Key>
-  <UploadID></UploadID>
+  <Upload></Upload>
 </InitiateMultipartUploadResult>
 ```
