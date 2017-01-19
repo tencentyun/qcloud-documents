@@ -69,3 +69,18 @@ Authorization: Auth
   <ETag></ETag>
 </CompleteMultipartUpload>
 ```
+
+## 示例
+
+### 请求
+
+```
+
+```
+
+### 返回
+
+```
+
+```
+

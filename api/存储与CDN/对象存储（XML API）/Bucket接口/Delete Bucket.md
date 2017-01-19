@@ -33,3 +33,18 @@ Authorization: authorization string
 ### 返回内容
 
 无返回内容
+
+## 示例
+
+### 请求
+
+```
+
+```
+
+### 返回
+
+```
+
+```
+
