@@ -89,7 +89,8 @@ x-cos-request-id: NTg3ZjIzZTZfOWIxZjRlXzZmMzhfMWRj
 
 <InitiateMultipartUploadResult>
 	<Bucket>arlenhuangtestsgnoversion</Bucket>
-	<Key>ObjectName</Key>	               <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
+	<Key>ObjectName</Key>
+	<UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
 </InitiateMultipartUploadResult>
 ```
 
