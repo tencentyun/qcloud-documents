@@ -3,9 +3,9 @@
 Linux系统下，请登录云服务器使用如下命令下载安装包。
 wget mirrors.tencentyun.com/install/sec/agent.zip
 
-windows系统下，请在云服务器浏览器中通过以下地址下载安装包。（目前只支持win2008和win2012）
-mirrors.tencentyun.com/install/sec/agent-Win.exe 
-
+windows系统下，请在云服务器浏览器中通过以下地址下载安装包。（目前支持win2003、win2008和win2012）
+<br>mirrors.tencentyun.com/install/windows/win-Agent-install.exe
+<br>(域名为腾讯云内网域名，请使用腾讯云服务器访问该链接下载)
 
 **2. 安全加固组件在云安全控制台显示状态异常，怎么办？**
 答：安全加固组件出现异常，一般是两种情况：未安装组件和组件故障。
