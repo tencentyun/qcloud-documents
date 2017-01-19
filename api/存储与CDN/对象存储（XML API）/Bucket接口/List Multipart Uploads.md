@@ -53,6 +53,7 @@ Authorization: auth
 | Upload                            | 每个Upload的信息<br/>父节点：ListMultipartUploadsResult | Container |
 | Key                               | Object的名称<br/>父节点：Upload                 | Integer   |
 | UploadID                          | 标示本次分块上传的ID<br/>父节点：Upload               | Integer   |
+| StorageClass                      | 用来表示分块的存储级别，枚举值：Standard，Standard_IA，Nearline <br/>父节点：Upload | String    |
 | Initiator                         | 用来表示本次上传发起者的信息，子节点包括UID<br/>父节点：Upload   | Container |
 | UID                               | 开发商APPID<br/>父节点：Initiator，Owner         | String    |
 | Owner                             | 用来表示这些分块所有者的信息，子节点包括UID<br/>父节点：Upload   | Container |
@@ -77,6 +78,7 @@ Authorization: auth
   <Upload>
     <Key></Key>
     <UploadID></UploadID>
+    <StorageClass></StorageClass>
     <Initiator>
       <UID></UID>
     </Initiator>

@@ -47,6 +47,7 @@ Authorization: auth
 | Initiator            | 用来表示本次上传发起者的信息，子节点包括UID<br/>父节点：ListPartsResult | Container |
 | UID                  | 开发商APPID                                 | String    |
 | Owner                | 用来表示这些分块所有者的信息，子节点包括UID<br/>父节点：ListPartsResult | Container |
+| StorageClass         | 用来表示这些分块的存储级别，枚举值：Standard，Standard_IA，Nearline<br/>父节点：ListPartsResult | String    |
 | PartNumberMarker     | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始<br/>父节点：ListPartsResult | String    |
 | NextPartNumberMarker | 假如返回条目被截断，则返回NextMarker就是下一个条目的起点<br/>父节点：ListPartsResult | String    |
 | MaxParts             | 单次返回最大的条目数量<br/>父节点：ListPartsResult      | String    |
@@ -69,6 +70,7 @@ Authorization: auth
   <Owner>
     <UID></UID>
   </Owner>
+  <StorageClass></StorageClass>
   <PartNumberMarker></PartNumberMarker>
   <NextPartNumberMarker></NextPartNumberMarker>
   <MaxParts></MaxParts>

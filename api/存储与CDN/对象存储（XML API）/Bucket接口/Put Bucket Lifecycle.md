@@ -1,6 +1,8 @@
 ## 功能描述
 Put Bucket Lifecycle请求实现设置生命周期管理的功能。您可以通过该请求实现数据的冷热沉降和定期删除。此请求为覆盖操作，上传新的配置文件将覆盖之前的配置文件。生命周期管理对文件和文件夹同时生效。
 
+（目前只支持华南园区）
+
 ## 请求
 
 ### 请求语法
@@ -39,7 +41,7 @@ Authorization: Auth
 | Expiration                     | 配置文件的定期删除规则，过期时间必须大于转换时间<Br/>父节点：Rule    | Container | 是              |
 | Days                           | 在文件创建指定天数以后执行操作。Transition操作请用自然数，Expiration操作请用正整数，不同的Rule下可使用不同的时间格式，相同Rule下冲突<Br/>父节点：Transition，Expiration | Intger    | Days与Date二选一   |
 | Date                           | 在指定时间点执行操作，时间格式为ISO 8601格式，须指定东八区触发当天午夜零点零分，可以指定历史时间，例如2016-10-31T00:00:00+08:00；当前时间大于等于Date便执行操作，长期有效；不同的Rule下可使用不同的时间格式，相同Rule下冲突<Br/>父节点：Transition，Expiration | Intger    | Days与Date二选一   |
-| StorageClass                   | 指定存储级别，枚举值：Standard，Standard_IA，Nearline<Br/>父节点：Transition | String    | Transition中必须有 |
+| StorageClass                   | 指定存储级别，枚举值：Standard，Standard_IA，Nearline。<Br/>父节点：Transition | String    | Transition中必须有 |
 | AbortIncompleteMultipartUpload | 配置未完成分块上传的定期删除规则<Br/>父节点：Rule            | Container | 是              |
 | DaysAfterInitiation            | 在初始化分块上传之后指定天数以后Abort操作                  | 正整数       | 是              |
 
