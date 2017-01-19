@@ -92,3 +92,42 @@ Authorization: Auth String
 ### 返回内容
 
 无返回内容
+
+## 示例
+
+### 请求
+
+```HTTP
+PUT /?acl HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484724784;32557620784&q-key-time=1484724784;32557620784&q-header-list=host&q-url-param-list=acl&q-signature=785d9075b8154119e6a075713c1b9e56ff0bddfc
+Content-Length: 229
+Content-Type: application/x-www-form-urlencoded
+
+<AccessControlPolicy>
+  <Owner>
+    <uin>2779643970</uin>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee type="RootAccount">
+        <uin>2779643970</uin>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy>
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Wed Jan 18 15:41:31 2017
+Server: tencent-cos
+x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
+```
+

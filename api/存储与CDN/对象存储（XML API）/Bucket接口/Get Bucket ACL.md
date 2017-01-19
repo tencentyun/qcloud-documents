@@ -73,3 +73,38 @@ Authorization: Auth
 </AccessControlPolicy>
 ```
 
+## 示例
+
+### 请求
+
+```HTTP
+GET /?acl HTTP/1.1
+Host:zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 266
+Connection: keep-alive
+Date: Thu Jan 12 17:23:49 2017
+Server: tencent-cos
+x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
+
+<AccessControlPolicy>
+	<Owner>
+		<uin>2779643970</uin>
+	</Owner>
+	<AccessControlList>
+		<Grant>
+			<Grantee type="RootAccount">
+				<uin>2779643970</uin>
+			</Grantee>
+			<Permission>FULL_CONTROL</Permission>
+		</Grant>
+	</AccessControlList>
+</AccessControlPolicy>
+```

@@ -75,3 +75,37 @@ Authorization: Auth
 </AccessControlPolicy>
 ```
 
+## 示例
+
+### 请求
+
+```HTTP
+GET /ObjectName?acl HTTP/1.1
+Host:zuhaotestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484641748;32557537748&q-key-time=1484641748;32557537748&q-header-list=host&q-url-param-list=acl&q-signature=79a3cb15cd1a2a2b6d567d78c7e8f9cd895bde21
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 266
+Date: Tue Jan 17 16:30:03 2017
+x-cos-request-id: NTg3ZGQ2MGJfNDQyMDRlXzE3YTdfMjk3
+
+<AccessControlPolicy>
+	<Owner>
+		<uin>2779643970</uin>
+	</Owner>
+	<AccessControlList>
+		<Grant>
+			<Grantee type="RootAccount">
+				<uin>2779643970</uin>
+			</Grantee>
+			<Permission>FULL_CONTROL</Permission>
+		</Grant>
+	</AccessControlList>
+</AccessControlPolicy>
+```
+
