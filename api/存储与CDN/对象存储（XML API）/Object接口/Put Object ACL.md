@@ -101,7 +101,24 @@ Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484726016;32557622016&q-key-time=1484726016;32557622016&q-header-list=host&q-url-param-list=acl&q-signature=e8b788abcd242ac20b6412205460f1de9afe0f7a
 Content-Length: 229
 Content-Type: application/x-www-form-urlencoded
+
+<AccessControlPolicy>
+  <Owner>
+    <uin>2779643970</uin>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee type="RootAccount">
+        <uin>2779643970</uin>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy>
 ```
+
+
+
 
 ### 返回
 
