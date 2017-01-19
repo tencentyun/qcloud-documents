@@ -13,7 +13,7 @@ Developed by Tencent, GVoice now serves many flagship games in China, e.g. Glory
 
 
 ### Global Service Ability
-Relying on Tencent Cloud's robust facilities and advanced dynamic CDN acceleration technology, users around the world can get access to Game Voice easily. 
+Relying on Tencent cloud-based equipment and dynamic CDN acceleration technology, Game Voice may be used in five continents over the world. Only the connection point needs to be changed (code does not need to be rewritten) when the game is operated overseas.
 
 ### Low Cost
 GVoice service is charged by DAU, which brings lower costs than the traditional bill-by-length mode.

@@ -7,7 +7,7 @@ Check whether it is connected to system libraries
 
 (1) Check whether the `init` method of `GCloudVoiceEngine` is called in Java. 
 ![](https://mc.qcloudimg.com/static/img/bdea05411bb37424592d69a76dc595e7/dc8f3e667738b047bf2cf777f5d209a4.jpg)
-(2) Make sure you're using an Android support library jar file later than V6.0. Using V6.0 and older versions to enable the microphone will get `GCLOUD_VOICE_PERMISSION_MIC_ERR`
+(2) Make sure you're using android.support.v6.jar and later. The voice engine of GVoice uses functions are used in voice engine to check the permission of microphone, bove 6.0. Otherwise `GCLOUD_VOICE_PERMISSION_MIC_ERR` will be returned if microphone is opened via Android 6.0.
 ### 3. I call `SpeechToText`, but get `GV_ON_STT_APIERR`
 
 (1) Make sure that the file is recorded with the mode `ofSetMode(GCloudVoiceMode.Translation)`.

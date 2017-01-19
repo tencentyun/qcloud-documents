@@ -17,7 +17,7 @@ Download and decompress the SDK package, you will see:
 
 ![](https://mc.qcloudimg.com/static/img/bdea05411bb37424592d69a76dc595e7/image.jpg)
 
-## 3 API Calling Flows
+## 3 Call APIs
 1. Basic API: For both Voice Chat and Voice Message features, you need to call basic APIs for initialization at start and deinitialization at the end. You also need to call `Poll` for callbacks of APIs called in the process.
 [Call Basic APIs](https://www.qcloud.com/document/product/556/7675).  
 2. Voice Chat API: Used for Voice Chat feature

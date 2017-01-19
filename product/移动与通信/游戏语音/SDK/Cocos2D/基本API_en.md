@@ -1,7 +1,7 @@
 ## 1 Overview
 Basic APIs are required for both Voice Chat and Voice Message features.
 
-## 2 Flowchart
+## 2 Call Basic APIs
 
 ![](https://mc.qcloudimg.com/static/img/9732bfc1f2b2adb4995c59329a7ead52/1.png)  
 **How-To**  
@@ -9,7 +9,7 @@ Basic APIs are required for both Voice Chat and Voice Message features.
 2. Call `GetVoiceEngine` to obtain `IGcloudVoiceEngine` object  
 3. Initialize the object and set callback  
 4. Call Voice Chat API or Voice Message API as required
-5. To use `Tick` in the system (such as `Update` of `Unity3D`), call `Poll()` function.
+5. Call `Poll()` function to drive the program operation in the `Tick` area (such as `Update` of `Unity3D`) of system 
 
 
 
@@ -42,12 +42,12 @@ Before initialization, call this API to set information like game ID and key, an
 
   ` GCloudVoiceErrno SetAppInfo(const char *appID,const char *appKey, const char *openID)`
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | appID | const char * | Game ID as on the service activation page |
-  | appKey | const char *| Game Key as on the service activation page |
-  | openID | const char * | Player unique ID, such as the OpenID obtained via Mobile QQ or WeChat|
-  | Return value | GCloudVoiceErr | Return GCLOUD_VOICE_SUCC if operation succeeds |
+  |appID|const char *| Game ID as on the service activation page|
+  |appKey|const char *| Game Key as on the service activation page|
+  |openID|const char *| Player unique ID, such as the OpenID obtained via Mobile QQ or WeChat|
+  |Return value|GCloudVoiceErr|Return GCLOUD_VOICE_SUCC if operation succeeds|
 
 3. Sample Code
 
@@ -85,9 +85,9 @@ Call this API to set your engine mode: "Realtime" for Team Chatting and Commande
       };
       GCloudVoiceErr SetMode(GCloudVoiceMode mode)
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | mode | GCloudVoiceMode | "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text 
+  |mode|GCloudVoiceMode| "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text
 3. Sample Code
 
             gcloud_voice::GetVoiceEngine()>SetMode(gcloud_voice::IGCloudVoiceEngine::RealTime);

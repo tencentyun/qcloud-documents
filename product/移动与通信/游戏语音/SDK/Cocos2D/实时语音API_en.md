@@ -1,13 +1,13 @@
 ## 1 Overview
 To use Voice Chat, you need to call [Basic API](https://www.qcloud.com/document/product/556/7665) at first.
 
-## 2 Flowchart 
+## 2 Call APIs for Voice Chat 
  
 ![](https://mc.qcloudimg.com/static/img/d7eb0df95ebdff5e8f9d44a8a01bd74f/jj2.png)  
 **How-To**   
 1. Call `SetMode()` to enable Voice Chat mode.  
 2. Call `JoinTeamRoom()` to enable Team Chatting mode, or `JoinNationalRoom()` to enable Commander mode.  
-3. When it is necessary to use `Tick`, use `poll` to check the callback. Call `OnJoinRoomComplete()` to return the result of joining a room.  
+3. It is necessary to use the call `poll` of `Tick` to check the callback, and `OnJoinRoomComplete()` method will be called back when after successful or failed entry to room.  
 4. After joining the room, call `OpenMic()` to enable microphone to collect voice and send it to the network.  
 5. Call `OpenSpeaker()` to enable the speaker and begin to receive audio stream on the Internet and play automatically.  
 6. Call `QuitRoom()` to quit the room, and then `OnQuitRoomComplete()` method will be called back when it succeed.  
@@ -27,10 +27,10 @@ Call this API to join a team chat room.
 
   `GCloudVoiceErrno JoinTeamRoom(const char *roomName, int msTimeout = 10000) `  
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   ---|---|---
-  roomName | const char * | Name of room to be joined 
-  msTimeout | int | Timeout settings for joining a room (unit: ms) 
+  |roomName| const char *| Name of room to be joined| 
+  |msTimeout|int|Timeout settings for joining a room (unit: ms)
 The result of joining a room is called back via `void OnJoinRoom(GCloudVoiceCompleteCode code, const char *roomName, int memberID)`.
 
 3. Sample Code
@@ -43,7 +43,7 @@ The result of joining a room is called back via `void OnJoinRoom(GCloudVoiceComp
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization    
 GCLOUD_VOICE_MODE_STATE_ERR: Need to call `SetMode` first to set to Voice Chat mode  
-GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect (room name is empty or over 127 bytes). The parameter should be consisted of a-z, A-Z, 0-9, -,_, and the timeout range should be 5000ms-60000ms.  
+GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For example, room name is empty or too long (up to 127 bytes) and consisting of a-z, A-Z, 0-9, -,_. Timeout range: 5000ms-60000ms.  
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. For example, users have entered the room, but it is necessary to call `QuitRoom` first before entering again.
 ### 3.2 Join National Battle Room
 
@@ -60,11 +60,11 @@ To enable Commander mode, you need to call this API to join a National Battle ro
       };
       GCloudVoiceErrno JoinNationalRoom(const char *roomName, GCloudVoiceMemberRole role, int msTimeout = 10000)   
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | roomName | const char * | Name of room to be joined|
-  | role | GCloudVoiceMemberRole | Role of member. Listeners can only listen but not speak. Hosts can speak and listen. |
-  | msTimeout | int | Timeout setting for joining a room (unit: ms) 
+  |roomName| const char *| Name of room to be joined|
+  |role|GCloudVoiceMemberRole| Role of member. Listeners can only listen but not speak. Hosts can speak and listen. |
+  |msTimeout|int|Timeout setting for joining a room (unit: ms)
 The result of joining a room is called back via `void OnJoinRoom(GCloudVoiceCompleteCode code, const char *roomName, int memberID)`.
 
 3. Sample Code
@@ -81,7 +81,7 @@ The result of joining a room is called back via `void OnJoinRoom(GCloudVoiceComp
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
 GCLOUD_VOICE_MODE_STATE_ERR: Need to call `SetMode` first to set to Voice Chat mode  
-GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect (room name is empty or over 127 bytes). The parameter should be consisted of a-z, A-Z, 0-9, -,_, and the timeout range should be 5000ms-60000ms.  
+GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For example, room name is empty or too long (127 bytes at the most) and consisting of a-z, A-Z, 0-9, -,_. Timeout range: 5000ms-60000ms.
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. For example, users have entered the room, but it is necessary to call `QuitRoom` first before entering again.
 ### 3.3 Quit Voice Chat
 1. API Description  
@@ -92,10 +92,10 @@ Call this API to quit Voice Chat rooms (both Team Chatting and Commander).
 
   `GCloudVoiceErrno QuitRoom(const char *roomName, int msTimeout = 10000) ` 
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | roomName | const char *| Name of the room to be quit|
-  | msTimeout | int | Timeout settings of quitting a room (unit: ms)
+  |roomName| const char *| Name of the room to be quit|
+  |msTimeout|int| Timeout settings of quitting a room (unit: ms)
 The result of quitting the room is called back via `void OnQuitRoom(GCloudVoiceCompleteCode code, const char *roomName)`.
 
 3. Sample Code
@@ -109,7 +109,7 @@ The result of quitting the room is called back via `void OnQuitRoom(GCloudVoiceC
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode  
-GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect (room name is empty or over 127 bytes). The parameter should be consisted of a-z, A-Z, 0-9, -,_, and the timeout range should be 5000ms-60000ms.  
+GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For example, room name is empty or too long (up to 127 bytes) and consisting of a-z, A-Z, 0-9, -,_. Timeout range: 5000ms-60000ms.  
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. E.g. you've not joined a room.
 ### 3.4 Enable Microphone
 
@@ -132,7 +132,7 @@ For Voice Chat mode, after joining the room (both team chatting and commander mo
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode  
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. E.g. the player has not joined a room.  
-GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR: You're a are a listener and cannot use the microphone.
+GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR: Microphone cannot be opened in the big room for users as listeners.
 ### 3.5 Disable Microphone
 
 1. API Description
@@ -208,11 +208,11 @@ Use this callback to return the result of joining a room
 
   `virtual void OnJoinRoom(GCloudVoiceCompleteCode code, const char *roomName, int memberID) ;`
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
-  | roomName | const char * | Name of room joined |
-  | memberID | int | ID of member joined the room successfully |
+  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
+  |roomName| const char *| Name of room joined|
+  |memberID|int| ID of member joined the room|
 3. Sample Code
 
        void NationalRoomNotify::OnJoinRoom(gcloud_voice::GCloudVoiceCompleteCode code, const char *roomName, int memberID)
@@ -232,11 +232,11 @@ Return the result of quitting room via this callback.
 
   `virtual void OnQuitRoom(GCloudVoiceCompleteCode code, const char *roomName) ;`
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
-  | roomName | const char *| Name of room quitted|
-  | memberID | int | ID of member joined the room successfully |
+  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
+  |roomName| const char *| Name of room quitted|
+  |memberID|int| ID of member joined the room|
 3. Sample Code
     
       void NationalRoomNotify::OnQuitRoom(gcloud_voice::GCloudVoiceCompleteCode code, const char *roomName)
@@ -257,10 +257,10 @@ Use this callback to notify member status changes, like starting or stopping spe
 
   `virtual void OnMemberVoice    (const unsigned int *members, int count) ;`
 
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | members | int[] | Members with status changes. Values show in pairs like [memberID &#124; status]. Count pairs in total. The status may be "0" (stop talking), "1" (start talking) and "2" (resume talking). |
-  | count | int | Count of members with status changed 
+  |members|int[] |Members with status changes. Values show in pairs like [memberID &#124; status]. Count pairs in total. The status may be "0" (stop talking), "1" (start talking) and "2" (resume talking). |
+  |count|int| Count of members with status changed
 3. Sample Code
 
       void NationalRoomNotify::OnMemberVoice (const unsigned int *members, int count)

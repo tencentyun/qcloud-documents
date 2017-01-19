@@ -1,7 +1,7 @@
 ## 1 Overview
 To use Voice Messages, you need to call [Basic APIs](https://www.qcloud.com/document/product/556/7675).
 
-## 2 Flowchart
+## 2 Call APIs for Voice Message 
  
 ![](https://mc.qcloudimg.com/static/img/f3de36c0e998cb98d4085ede1879e65d/j3.jpg)
 
@@ -24,9 +24,9 @@ For Voice Message mode, call this API to apply for permission first
 
       GCloudVoiceErr ApplyMessageKey(int msTimeout)
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | msTimeout | int | Timeout setting (unit: ms) 
+  |msTimeout|int|Timeout setting (unit:ms)
     
 The request result is called back via delegate void ApplyMessageKeyCompleteHandler(GCloudVoiceCompleteCode code).  
 
@@ -43,7 +43,7 @@ The request result is called back via delegate void ApplyMessageKeyCompleteHandl
       };
 4. Error Codes
 
-    GCLOUD_VOICE_PARAM_INVALID: Parameters transferred in are incorrect. For example, the timeout range should be 5000ms-60000ms     
+    GCLOUD_VOICE_PARAM_INVALID: Parameters transferred in are incorrect, such as timeout of 5000ms-60000ms
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_AUTHKEY_ERR: Apply for internal errors of Key. Now it is necessary to contact GCloud team and provide log for positioning.
 ### 3.2. Set the max length of a voice message
@@ -55,9 +55,9 @@ For Voice Message mode, call this API to set the max length of voice message (up
 
       GCloudVoiceErr SetMaxMessageLength(int msTime)
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | msTime | int | Maximum length of voice message (unit: ms)|
+  |msTimeout|itn|Maximum length of voice message (unit: ms)|
 3. Sample Code
 
       int ret1 = m_voiceengine.SetMaxMessageLength (60000);
@@ -65,8 +65,7 @@ For Voice Message mode, call this API to set the max length of voice message (up
 4. Error Codes
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
-    GCLOUD_VOICE_PARAM_INVALID: Parameters transferred in are incorrect. For example, the time range should be 1000ms-1000260ms。
-     
+    GCLOUD_VOICE_PARAM_INVALID: Parameters transferred in are incorrect, such as time period of 1000ms-1000260ms
 ### 3.3 Start Recording
 1. API Description  
 
@@ -76,7 +75,7 @@ For Voice Message mode, call this API to specify a storage path for the recorded
 
       GCloudVoiceErr StartRecording(string filePath)
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
   |filePath|string| Storage path of recorded files (separated by "/" but not "\"
 3. Sample Code
@@ -123,7 +122,7 @@ After recording, call this API to upload the recorded file to the specified stor
 
       GCloudVoiceErr UploadRecordedFile(string filePath, int msTimeout)
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
   |filePath|string| Storage path of recorded files (separated by "/" but not "\"
   |msTimeout|int|File uploading timed out
@@ -153,11 +152,11 @@ After recording, call this API to upload the recorded file to the specified stor
     
       GCloudVoiceErr DownloadRecordedFile(string fileID, string downloadFilePath, int msTimeout);
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | fileID | string | ID of files to be downloaded
-  | downloadFilePath | string|Storage path of downloaded recording files (separated by "/" but not "\")
-  | msTimeout | int | Timeout setting for file downloading 
+  |fileID| string| ID of files to be downloaded
+  |downloadFilePath|string|Storage path of downloaded recording files (separated by "/" but not "\")
+  |msTimeout|int|File downloading timed out
  The downloading result is called back via delegate void DownloadRecordFileCompletehandler(GCloudVoiceCompleteCode code, string filepath, string fileid).   
 
 3. Sample Code
@@ -183,9 +182,9 @@ Call this API to play downloaded recording files.
 2. Function Prototype
 
       GCloudVoiceErr PlayRecordedFile (string downloadFilePath)
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | filePath | string | Storage path of downloaded files (separated by "/" but not "\")
+  |filePath|string| Storage path of downloaded files (separated by "/" but not "\")
   
  For successful playback, `delegate void PlayRecordFilCompletehandler(GCloudVoiceCompleteCode code, string filepath)` will be called back.   
 
@@ -234,16 +233,16 @@ Call this API to suspend playing
 ### 3.9 Callback of Request for Voice Message Key
 1. API Description  
 
-Callback may occur when applying for voice message key.
+Callback may occur when applying for voice message.
 
 2. Function Prototype
 
       delegate void ApplyMessageKeyCompleteHandler(GCloudVoiceCompleteCode code)
       public abstract event ApplyMessageKeyCompleteHandler OnApplyMessageKeyComplete
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
+  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
 3. Sample Code
     
       m_voiceengine.OnApplyMessageKeyComplete += (IGCloudVoice.GCloudVoiceCompleteCode code) => {
@@ -265,11 +264,11 @@ Call this API to callback the result of file uploading.
       delegate void UploadReccordFileCompletehandler(GCloudVoiceCompleteCode code, string filepath, string fileid)
       public abstract event UploadReccordFileCompletehandler OnUploadReccordFileComplete
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
-  | filepath | string | Path of files to be uploaded|
-  | fileid | string | File ID
+  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
+  |filepath|string| Path of files to be uploaded|
+  |fileid|string|File ID
 3. Sample Code
 
       m_voiceengine.OnUploadReccordFileComplete += (IGCloudVoice.GCloudVoiceCompleteCode code, string filepath, string fileid) => {
@@ -294,11 +293,11 @@ Call this API to callback the result of file downloading.
       delegate void DownloadRecordFileCompletehandler(GCloudVoiceCompleteCode code, string filepath, string fileid)
       public abstract event DownloadRecordFileCompletehandler OnDownloadRecordFileComplete
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
+  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
   |filepath|string| Downloading path|
-  | fileid | string | File ID
+  |fileid|string|File ID
 3. Sample Code
 
       m_voiceengine.OnDownloadRecordFileComplete += (IGCloudVoice.GCloudVoiceCompleteCode code, string filepath, string fileid) => {
@@ -320,10 +319,10 @@ If users do not suspend the play and the voice recording document has been playe
       delegate void PlayRecordFilCompletehandler(GCloudVoiceCompleteCode code, string filepath)
       public abstract event PlayRecordFilCompletehandler OnPlayRecordFilComplete;
     
-  | Parameter | Type | Description |
+  |Parameter|Type|Meaning|
   |--|--|--|
-  | code | GCloudVoiceCompleteCode | Refer to definition of GCloudVoiceCompleteCode |
-  | filepath | string | Path of files to be played|
+  |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
+  |filepath|string| Path of files to be played|
 3. Sample Code
 
       m_voiceengine.OnPlayRecordFilComplete += (IGCloudVoice.GCloudVoiceCompleteCode code, string filepath) => {
