@@ -70,13 +70,26 @@ Authorization: Auth
 
 ### 请求
 
-```
-
+```HTTP
+POST /ObjectName?uploads HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727259;32557623259&q-key-time=1484727259;32557623259&q-header-list=host&q-url-param-list=uploads&q-signature=b5f46c47379aeaee74be7578380b193c01b28045
 ```
 
 ### 返回
 
-```
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 230
+Connection: keep-alive
+Date: Wed Jan 18 16:14:30 2017
+Server: tencent-cos
+x-cos-request-id: NTg3ZjIzZTZfOWIxZjRlXzZmMzhfMWRj
 
+<InitiateMultipartUploadResult>
+	<Bucket>arlenhuangtestsgnoversion</Bucket>
+	<Key>ObjectName</Key>	               <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
+</InitiateMultipartUploadResult>
 ```
 
