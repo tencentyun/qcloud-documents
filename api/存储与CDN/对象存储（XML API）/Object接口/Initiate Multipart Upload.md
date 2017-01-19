@@ -65,3 +65,18 @@ Authorization: Auth
   <Upload></Upload>
 </InitiateMultipartUploadResult>
 ```
+
+## 示例
+
+### 请求
+
+```
+
+```
+
+### 返回
+
+```
+
+```
+

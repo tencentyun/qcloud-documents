@@ -92,3 +92,18 @@ Authorization: auth
   </CommonPrefixs>
 </ListMultipartUploadsResult>
 ```
+
+## 示例
+
+### 请求
+
+```
+
+```
+
+### 返回
+
+```
+
+```
+
