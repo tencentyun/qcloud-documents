@@ -63,16 +63,15 @@ pip uninstall qcloud_cos_v4
 	appid = 100000                  # 替换为用户的appid
     secret_id = u'xxxxxxxx'         # 替换为用户的secret_id
     secret_key = u'xxxxxxx'         # 替换为用户的secret_key
-    region = "shanghai" #           # 替换为用户的region，目前可以为 shanghai/guangzhou
-    cos_client = CosClient(appid, secret_id, secret_key, region)
+    region_info = "sh" #           # 替换为用户的region，例如sh, gz, tj等
+    cos_client = CosClient(appid, secret_id, secret_key, region=region_info)
 ```
 
-注：region参数用来设置园区，目前可以 shanghai或者guangzhou
 
 
 ### 自定义接入点
 
-
+如果需要使用自定义的接入域名，可以通过下面的方式设置
 ```python
 	conf = CosConfig(hostname='', download_hostname='')
 	cos_client.set_config(conf)

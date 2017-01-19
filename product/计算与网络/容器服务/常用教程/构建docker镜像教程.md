@@ -1,14 +1,19 @@
 ## 构建docker镜像教程
 
+### 说明
 DockerHub 提供了大量的镜像可用，详情可查看:[hub.docker.com](https://hub.docker.com/)
+
+Docker容器的设计宗旨是让用户在相对独立的环境中运行独立的程序
+
+Docker容器程序在镜像内程序运行结束后会自动退出。如果要令构建的镜像在服务中持续运行，需要在创建服务页面指定自身持续执行的程序，如：业务主程序，main函数入口等。
 
 但由于企业环境的多样性，并非所有应用都能在  DockerHub 找到对应的镜像来使用, 你可以通过以下教程了解到如何将应用打包成Docker镜像。
 
 docker生成镜像目前有两种方式：
 
-1.通过Dockerfile自动构建镜像
+- 通过Dockerfile自动构建镜像
+- 通过容器内操作，并执行Commit来实现打包生成镜像
 
-2.通过容器内操作，并执行Commit来实现打包生成镜像
 
 ### Dockerfile自动编译生成（推荐使用）
 按Dockerhub官方提供的wordpress为例，点击查看[详情](https://github.com/docker-library/wordpress/blob/7d40c4237f01892bb6dbc67d1a82f5b15f807ca1/php5.6/apache/Dockerfile)
@@ -76,7 +81,7 @@ docker.io/php                                  5.6-apache          eb8333e24502 
 
 使用Dockerfile来构建镜像有以下建议：
 1.尽量精简、不安装多余的软件包
-2.尽量选择Docker官方提供镜像作为基础版本，较少镜像体积
+2.尽量选择Docker官方提供镜像作为基础版本，减少镜像体积
 3.Dockerfile的开头几行的指令应当固定下来，不建议频繁更改，有利于利用缓存
 4.多条RUN命令使用'\'连接，有利于理解且方便维护
 5.通过-t 标记构建镜像，有利于管理新创建的镜像
