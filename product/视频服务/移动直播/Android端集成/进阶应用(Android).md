@@ -185,7 +185,7 @@ mLivePushConfig.setVideoResolution(VIDEO_RESOLUTION_TYPE_360_640);//默认分辨
 研发实力不俗的客户，会有自定义图像处理的需求（比如堆加字幕），同时又希望复用rtmp sdk的整体流程，如果是这样，您可以按照如下攻略进行定制。
 
 - **设置视频处理回调**
-通过 TXLivePusher 的 setVideoProcessListener 接口设置自定义视频处理回调
+通过 **TXLivePusher** 的 **setVideoProcessListener** 接口设置自定义视频处理回调
 
 ```java
 public interface VideoCustomProcessListener {
