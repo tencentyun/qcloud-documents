@@ -26,6 +26,14 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
  + 使用 **对方的直播码 + sessionid + 推流防盗链KEY** 拼装出低延迟播放 URL。对，没写错，是推流防盗链KEY。
  + 使用 **PLAY_TYPE_LIVE_RTMP_ACC** 播放参数让 TXLivePlayer 的表现更适应低延时场景。
 
+## 工程配置
+- 相比于 RTMP SDK 精简版，支持连麦功能的 RTMP SDK 开发包中增加了两个新的 so 文件，需要向您当前 Android 工程的 **armeabi** 和 **armeabi-v7a** 文件夹中各同步一份：
+  + libstlport_shared.so : STL 基础库，熟悉 C++ 的同学可能都用过
+  + libtraeimp-armeabi-v7a.so : TRAE 回声抑制组件，用于解决连麦过程中的回声问题
+
+- 目前 TRAE Android 版组件还只支持 armeabi 和 armeabi-v7a 两种架构 ，如果您当前工程要求支持 arm64，请在gradle文件里加上abiFilters，以免集成SDK后，在64位安卓手机上运行出现崩溃。添加abiFilters的方式如下：
+![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/gradle_abiFilters.png)
+
 ## 同房连麦
 ### step1. “大主播”推流
 我们在 [Android 推流](https://www.qcloud.com/document/product/454/7885) 中有详细介绍如何在主播端开启直播功能，这里您可以直接参考，流程上都是一样的。所以，如果您是第一次接触RTMP SDK，务必要先阅读一下基础推流功能的文档。
