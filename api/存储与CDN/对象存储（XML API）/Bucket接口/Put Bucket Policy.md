@@ -10,6 +10,8 @@ Put Bucket Policy请求可以向Bucket写入权限策略，当Bucket已存在权
 PUT /?policy Http/1.1
 Host:<Bucketname>-<UID>.<Region>.myqcloud.com
 Date: date
+Content-Type:application/json
+Content-MD5:MD5
 Authorization: Auth String
 ```
 

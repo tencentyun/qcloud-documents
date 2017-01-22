@@ -1,6 +1,6 @@
 ## 功能描述
 
-使用API写入Bucket的ACL表，您可以通过Header：『x-cos-acl』『x-cos-grant-read』『x-cos-grant-write』『x-cos-grant-full-control』传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能选择Header和Body其中一种，否则返回冲突。
+使用API写入Bucket的ACL表，您可以通过Header：『x-cos-acl』『x-cos-grant-read』『x-cos-grant-write』『x-cos-grant-full-control』传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能**选择`Header`和`Body`其中一种**，否则返回冲突。
 
 Put Bucket ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有所有者有权操作。
 
@@ -22,6 +22,8 @@ Put Bucket ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有
 PUT /?acl Http/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
+Content-Type:application/xml
+Content-MD5:MD5
 x-cos-acl: [对应权限]
 x-cos-grant-read: uin="",uin=""
 x-cos-grant-write: uin="",uin=""
