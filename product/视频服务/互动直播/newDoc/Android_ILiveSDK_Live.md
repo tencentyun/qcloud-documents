@@ -1,6 +1,6 @@
-#直播基础接口简介
+# 直播基础接口简介
 
-##直播流程示例
+## 直播流程示例
 
 ![](http://mc.qcloudimg.com/static/img/e6632b362fbc90745505823b1dc295bd/image.png)
 

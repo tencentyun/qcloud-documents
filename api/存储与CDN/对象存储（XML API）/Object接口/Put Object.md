@@ -36,6 +36,7 @@ Authorization: authorization string
 | Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据保存。      | String | 否    |
 | x-cos-content-sha1  | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值。    | String | 否    |
 | x-cos-meta-*        | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。    | String | 否    |
+| x-cos-storage-class | 设置Object的存储级别，枚举值：Standard，Standard_IA，Nearline，默认值：Standard（目前只支持华南园区） | String | 否    |
 
 
 #### 权限相关头部
@@ -57,7 +58,7 @@ Authorization: authorization string
 
 | 名称   | 描述                                       | 类型     |
 | ---- | ---------------------------------------- | ------ |
-| ETag | 返回文件的 SHA-1 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| ETag | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
 
 ### 返回内容
 

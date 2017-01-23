@@ -15,15 +15,14 @@ To use Voice Chat, you need to call [Basic APIs](https://www.qcloud.com/document
 **Note**  
 For commander mode, only 5 people are allowed to speak. Users will be assigned a role (listener or host) when they join the room.
 
-
 ### 3 Voice Chat APIs
 
 ### 3.1 Join Team Chat Room
-1. API Description 
+1.API Description 
  
 To enable the Team Chatting feature of Voice Chat mode, you need to call this API to join a team chatroom first.
 
-2. Function Prototype
+2.Function Prototype
 
       GCloudVoiceErr JoinTeamRoom(string roomName, int msTimeout)   
     
@@ -33,7 +32,7 @@ To enable the Team Chatting feature of Voice Chat mode, you need to call this AP
   |msTimeout|int|Timeout setting for joining a room (unit: ms)
    The result of joining the room is be called back via delegate void JoinRoomCompleteHandler(GCloudVoiceCompleteCode code, string roomName, int memberID).
 
-3. Sample Code
+3.Sample Code
 
       public void JoinRoomBtn_Click()
       {
@@ -42,19 +41,19 @@ To enable the Team Chatting feature of Voice Chat mode, you need to call this AP
       	int ret = m_voiceengine.JoinTeamRoom(m_roomName, 15000);
       	PrintLog ("joinroom ret=" + ret);
       }
-4. Error Codes
+4.Error Codes
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_MODE_STATE_ERR: Need to call SetMode to set to Voice Chat mode
-    GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For example, room name is empty or too long (127 bytes at the most) and consisting of a-z, A-Z, 0-9, -,_. Timeout range: 5000ms-60000ms.
-    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error (e.g. the user has already joined the room. Need to call QuitRoom first and join again).
+    GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect.For example, room name is empty or too long (127 bytes at the most) and consisting of a-z, A-Z, 0-9, -,_.Timeout range: 5000ms-60000ms.
+    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error (e.g.the user has already joined the room.Need to call QuitRoom first and join again).
 ### 3.2 Join National Battle Room
 
-1. API Description  
+1.API Description  
   
 To enable Commander mode, you need to call this API to join a National Battle room first.
 
-2. Function Prototype
+2.Function Prototype
 
       public enum GCloudVoiceRole
       {
@@ -66,12 +65,12 @@ To enable Commander mode, you need to call this API to join a National Battle ro
   |Parameter|Type|Meaning|
   |--|--|--|
   |roomName|string| Name of room to be joined|
-  |role|GCloudVoiceRole| Role of members. Listener can only receive voice, and cannot send voice; while anchor can both send and receive voice.|
+  |role|GCloudVoiceRole| Role of members.Listener can only receive voice, and cannot send voice; while anchor can both send and receive voice.|
  |msTimeout|int| Timeout settings for joining a room (unit: ms)
 
 The result of joining the room is called back via `delegate void JoinRoomCompleteHandler(GCloudVoiceCompleteCode code, string roomName, int memberID)`.
 
-3. Sample Code
+3.Sample Code
 
       public void AudienceJoin_Click()
       {
@@ -85,18 +84,18 @@ The result of joining the room is called back via `delegate void JoinRoomComplet
       int ret = m_voiceengine.JoinNationalRoom(m_roomName, GCloudVoiceRole.ANCHOR, 15000);
       PrintLog ("AnchorJoin ret=" + ret);
       }
-4. Error Codes
+4.Error Codes
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_MODE_STATE_ERR: Need to call SetMode to set to Voice Chat mode
-    GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For example, room name is empty or too long (127 bytes at the most) and consisting of a-z, A-Z, 0-9, -,_. Timeout range: 5000ms-60000ms.
-    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error (e.g. the user has already joined the room. Need to call QuitRoom first and join again).
+    GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect.For example, room name is empty or too long (127 bytes at the most) and consisting of a-z, A-Z, 0-9, -,_.Timeout range: 5000ms-60000ms.
+    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error (e.g.the user has already joined the room.Need to call QuitRoom first and join again).
 ### 3.3 Quit Voice Chat
-1. API Description  
+1.API Description  
 
 Call this API to quit Voice Chat rooms (both Team Chatting and Commander).
 
-2. Function Prototype
+2.Function Prototype
 
       GCloudVoiceErr QuitRoom(string roomName, int msTimeout);  
     
@@ -106,30 +105,30 @@ Call this API to quit Voice Chat rooms (both Team Chatting and Commander).
   |msTimeout|int| Timeout settings of quitting a room (unit: ms)
 The result of quitting the room should be called back via `delegate void QuitRoomCompleteHandler(GCloudVoiceCompleteCode code, string roomName, int memberID)`.
 
-3. Sample Code  
+3.Sample Code  
 
       public void QuitRoomBtn_Click()
       {
       Debug.Log ("quit room btn click");
       m_voiceengine.QuitRoom(m_roomName, 15000);
       }   
-4. Error Codes  
+4.Error Codes  
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode
-    GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For example, room name is empty or too long (127 bytes at the most) and consisting of a-z, A-Z, 0-9, -,_. Timeout range: 5000ms-60000ms.
-    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. (e.g. the user has not joined the room)
+    GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect.For example, room name is empty or too long (127 bytes at the most) and consisting of a-z, A-Z, 0-9, -,_.Timeout range: 5000ms-60000ms.
+    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error.(e.g.the user has not joined the room)
 ### 3.4 Enable Microphone
 
-1. API Description 
+1.API Description 
  
 For Voice Chat mode, after joining the room (both team chatting and commander mode), call this API to enable your microphone to collect voice and send it to the network.
 
-2. Function Prototype
+2.Function Prototype
 
   `GCloudVoiceErr OpenMic();  `
   
-3. Sample Code
+3.Sample Code
 
       public void OpenMicBtn_Click()
       {
@@ -137,47 +136,47 @@ For Voice Chat mode, after joining the room (both team chatting and commander mo
       	int ret = m_voiceengine.OpenMic ();
       	PrintLog ("openmic ret=" + ret);
       }  
-4. Error Codes
+4.Error Codes
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode
-    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. (e.g. the user has not joined the room)
+    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error.(e.g.the user has not joined the room)
     GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR: Microphone cannot be opened in the big room for users as listeners.
 ### 3.5 Disable Microphone
 
-1. API Description  
+1.API Description  
 
 For Voice Chat mode, after joining a room (both Team Chatting and Commander), call this API to disable microphone if you don't want to collect audio and send them to the network anymore.
 
 
-2. Function Prototype
+2.Function Prototype
 
  ` GCloudVoiceErr CloseMic();  `  
 
-3. Sample Code
+3.Sample Code
 
       public void CloseMicBtn_Click()
       {
       	Debug.Log ("CoseMic btn click");
       	m_voiceengine.CloseMic ();
       } 
-4. Error Codes
+4.Error Codes
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode
-    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. (e.g. the user has not joined the room)
+    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error.(e.g.the user has not joined the room)
     GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR: Microphone cannot be opened or closed in the big room for users as listeners.
 ### 3.6 Enable Speaker
 
-1. API Description 
+1.API Description 
  
 For Voice Chat mode, after joining a room (both Team Chatting and Commander), call this API to enable speaker to receive and play audio.
 
-2. Function Prototype
+2.Function Prototype
 
  ` GCloudVoiceErr OpenSpeaker();  `  
 
-3. Sample Code
+3.Sample Code
 
       public void OpenSpeakerBtn_Click()
       {
@@ -185,40 +184,40 @@ For Voice Chat mode, after joining a room (both Team Chatting and Commander), ca
       	int ret = m_voiceengine.OpenSpeaker ();
       	PrintLog ("OpenSpeaker ret=" + ret);
       }
-4. Error Codes
+4.Error Codes
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode
-    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. (e.g. the user has not joined the room)
+    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error.(e.g.the user has not joined the room)
 ### 3.7 Disable Speaker
 
-1. API Description  
+1.API Description  
 
 For Voice Chat mode, after joining a room (both Team Chatting and Commander), call this API to disable speaker if you don't want to receive and play audio data from the network anymore.
 
 
-2. Function Prototype
+2.Function Prototype
 
   `GCloudVoiceErr CloseSpeaker();  `  
 
-3. Sample Code
+3.Sample Code
 
       public void CloseSpeakerBtn_Click()
       {
       	Debug.Log ("Close speaker btn click");
       	m_voiceengine.CloseSpeaker ();
       }
-4. Error Codes
+4.Error Codes
 
     GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
     GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode
-    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. (e.g. the user has not joined the room)
+    GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error.(e.g.the user has not joined the room)
 ### 3.8 Callback of joining a room
-1. API Description 
+1.API Description 
  
 Notification of successful or failed entry to room will be sent via delegate
 
-2. Function Prototype
+2.Function Prototype
 
       delegate qvoid JoinRoomCompleteHandler(GCloudVoiceCompleteCode code, string roomName, int memberID)
       public abstract event JoinRoomCompleteHandler OnJoinRoomComplete;
@@ -229,7 +228,7 @@ Notification of successful or failed entry to room will be sent via delegate
   |roomName| string| Name of room to be joined|
   |memberID|int| ID of member joined the room|
 
-3. Sample Code
+3.Sample Code
 
       m_voiceengine.OnJoinRoomComplete += (IGCloudVoice.GCloudVoiceCompleteCode code, string roomName, int memberID) => {
       	PrintLog ("On Join Room With " + code);
@@ -238,11 +237,11 @@ Notification of successful or failed entry to room will be sent via delegate
       	//UIManager.m_Instance.OnJoinRoomDone(code);
       };
 ### 3.9 Callback of Quitting Room
-1. API Description  
+1.API Description  
 
 Notification of the result of quitting room will be sent via `delegate`.
 
-2. Function Prototype
+2.Function Prototype
 
       delegate void QuitRoomCompleteHandler(GCloudVoiceCompleteCode code, string roomName, int memberID)
       public abstract event QuitRoomCompleteHandler OnQuitRoomComplete;
@@ -253,7 +252,7 @@ Notification of the result of quitting room will be sent via `delegate`.
   |roomName| string| Name of room quitted|
   |memberID|int| ID of member joined the room|
 
-3. Sample Code
+3.Sample Code
 
       m_voiceengine.OnQuitRoomComplete += (IGCloudVoice.GCloudVoiceCompleteCode code, string roomName, int memberID) => {
      	 PrintLog ("On Quit Room With " + code);
@@ -263,20 +262,20 @@ Notification of the result of quitting room will be sent via `delegate`.
       };
 ### 3.10 Callback of Member Status Changes
 
-1. API Description  
+1.API Description  
 
 Use this callback to notify member status changes, like starting or stopping speaking
 
-2. Function Prototype
+2.Function Prototype
 
       delegate void MemberVoiceHandler(int[] members, int count) ;
       public abstract event MemberVoiceHandler  OnMemberVoice;
     
   |Parameter|Type|Meaning|
   |--|--|--|
-  |members|int[]| Members with status changes. Values show in pairs like [memberID &#124; status]. Count pairs in total. The status may be "0" (stop talking), "1" (start talking) and "2" (resume talking). |
+  |members|int[]| Members with status changes.Values show in pairs like [memberID &#124; status].Count pairs in total.The status may be "0" (stop talking), "1" (start talking) and "2" (resume talking).|
   |count|int| Count of members with status changed
-3. Sample Code
+3.Sample Code
 
       m_voiceengine.OnMemberVoice += (int[] members, int count) =>
       {
@@ -289,4 +288,5 @@ Use this callback to notify member status changes, like starting or stopping spe
       	}
       	//UIManager.m_Instance.UpdateMemberState(members, length, usingCount);
       };
+
 

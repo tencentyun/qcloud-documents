@@ -46,6 +46,7 @@ Range: bytes=byte_range
 | ----------------- | ---------------------------------------- | ------ |
 | x-cos-meta-*      | 用户自定义的元数据                                | String |
 | x-cos-object-type | 用来表示object是否可以被追加上传，枚举值：normal或者appendable | string |
+| x-cos-storage-class | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String | 
 
 
 ### 返回内容

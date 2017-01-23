@@ -5,7 +5,7 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 
 ## 名词解释
 - **session_id ？**
->session_id 是一个32为整数，在连麦用的推流 URL 和播放 URL 中都会用到，代表连麦房间号。
+>session_id 是一个**数字**（如1234，不能是英文字符），在连麦用的推流 URL 和播放 URL 中都会用到，代表连麦房间号。
 >
 >如果我们做的足够好，是可以把主播的推流**直播码**直接用作连麦房间号的，毕竟直播码就是直播房间号的技术代称，这样也可以省去您加参数的步骤。但由于历史原因，常规直播系统和连麦系统两套后台系统的key值类型不同（一个是数字，一个是字符串），所以采用多加一个 session_id 的参数来绕开兼容问题。
 > 
@@ -40,13 +40,13 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 
  **&mix=layer:s;session_id:1234;t_id:1** 的作用是告诉腾讯云：这条直播流是支持连麦的，连麦房间号为 1234。
  
- [session_id](#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A) 的值可以是任意的 **<font color='red'>32 位整数</font>**，但要注意，两个不同房间的 session_id 不要相同，否则后台系统会乱掉。layer 和 tid 是用于后台混流用的参数，[Step5.2](#step5.-.E5.A4.9A.E8.B7.AF.E6.B7.B7.E6.B5.81) 中会做详细说明。
+ [session_id](#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A) 的值可以是任意的 **<font color='red'>数字</font>**（如1234，不能是英文字符），但要注意，两个不同房间的 session_id 不要相同，否则后台系统会乱掉。layer 和 tid 是用于后台混流用的参数，[Step5.2](#step5.-.E5.A4.9A.E8.B7.AF.E6.B7.B7.E6.B5.81) 中会做详细说明。
  
 - **1.2 TXLivePushConfig**
   + 开启回音消除 enableAEC 
  + 开启硬件加速 enableHWAcceleration 
  + 设置推流分辨率为 VIDEO_RESOLUTION_360_640 （秀场直播最流行的分辨率）
- + 设置推流的码率为 800kbps （斗鱼和映客比这要低一点）
+ + 设置推流的码率为 800kbps （这是适合360p的码率，如果想用更高的分辨率，就要需要更高的码率来配合）
  + 设置音频采样率为 <font color='red'>AUDIO_SAMPLE_RATE_48000</font> （不要用其它的）
 
  ``` 
@@ -54,7 +54,7 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
  _txLivePush.config.enableAEC = YES;
  _txLivePush.config.enableHWAcceleration = YES;
  _txLivePush.config.videoResolution = VIDEO_RESOLUTION_360_640; // 秀场直播最流行的分辨率
- _txLivePush.config.videoBitratePIN = 800; // 斗鱼和映客比这要低一点
+ _txLivePush.config.videoBitratePIN = 800; // 这是适合360p的码率，如果想用更高的分辨率，就要需要更高的码率来配合
  _txLivePush.config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;  // 不要用其它的
  _txLivePush.config.audioChannels   = 1; // 单声道
  //之后再启动推流
@@ -73,13 +73,13 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 观众 A 如果得到“大主播”的恩准，就跃身成为“小主播”，接下来“小主播”要开始推流，否则“大主播”看不到“小主播”的影像。
 ![](//mc.qcloudimg.com/static/img/e65523468a3cdf617f2215b5a07c139a/image.png)
 
-“小主播”推流的对接方案跟 Step1 中“大主播”推流的一样，也是两处修改点：
+“小主播”推流的对接方案跟 Step1 中“大主播”推流的对接方案一样，也是两处修改点：
 
 - **3.1 推流URL加连麦参数**
  + 推流地址的拼接方式参考 Step1.1 。
- + “小主播”的推流地址中的直播码要用自己的，**不要跟“大主播”的相同**，否则会被腾讯云判定为非法推流。
+ + “小主播”的推流地址中的直播码要用自己的，**不要跟“大主播”的相同**，否则会被腾讯云判定为重复推流而拒绝掉。
  + 对于同间连麦场景，“小主播“的推流地址中的 session_id 建议使用“大主播”的 session_id。
- + 跨房连麦场景中，由于主播都是先开始自主推流的，所以 session_id 推荐用直播码换算（session_id 是32位整数）。
+ + 跨房连麦场景中，由于两个主播在连麦前就已经开始推流了，所以 session_id 不要求相同（session_id 被要求是一个数字，如果直播码原本就是数字，可以直接拿直播码当 session_id 来用）。
  
 - **3.2 TXLivePushConfig**
  + 开启回音消除 enableAEC 
@@ -121,10 +121,11 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 不管是“大主播”还是“小主播”，低延时的播放链路都是可以用过 **TXLivePlayer** 来实现的，具体做法如下：
 
 - **4.3.1 生成低延时链路的URL**
-![](//mc.qcloudimg.com/static/img/57362a8f433c3d3b0eb944b365f3146d/image.png)
- + URL 必须选用 rtmp 播放协议 ，flv 是没有办法做到秒级延迟的。
+![](//mc.qcloudimg.com/static/img/59c492abef77cddaf026cfd7509de678/image.png)
+ + URL 必须选用 **rtmp** 播放协议 ，flv 是没有办法做到秒级延迟的。
  + session_id 必须是对方的，简言之，如果是“小主播（们）”这边拼装播放地址，session_id 就是“大主播”的。同房连麦场景，大小主播都共用一个session_id，我们就不用操心这事儿了。
- + 播放地址必须要加防盗链签名，签名方法参考 [推流防盗链的计算](https://www.qcloud.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F)。因为几乎所有腾讯云的客户都配置了推流防盗链KEY，为了减少您的接入成本，可以直接使用推流防盗链KEY。
+ + 播放地址必须要加防盗链签名，签名方法参考 [推流防盗链的计算](https://www.qcloud.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F)。因为几乎所有腾讯云的客户都配置了推流防盗链KEY，为了减少您的接入成本，可以直接使用**推流**防盗链KEY。
+
 
 - **4.3.2 修改播放器参数**
  + startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC**
@@ -158,7 +159,7 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
 源自 RTMP SDK 1.8.2 开始支持的多实例播放，也就是可以并行的播放多个直播 URL， 视频 View 也可以相互叠加。这样一来，只要观众端能拿到多个主播的 URL 就可以实现客户端混流。
 
 - **客户端混流的优势**
-  + 由于观众端的表现由App自行控制，能够支持更灵活的界面排布
+  + 由于观众端的表现由App自行控制，能够支持更灵活的界面排布，比如观众可以随意拖拽小画面位置
   
 - **客户端混流的不足**
   + 下行数据是多路，所以带宽消耗要高于服务端混流。
@@ -174,7 +175,7 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
  _txLivePlay.config.bAutoAdjustCacheTime = YES;   // 极速模式 - 有明显的延迟修正表现
  _txLivePlay.config.minAutoAdjustCacheTime = 1;   // 1000ms
  _txLivePlay.config.maxAutoAdjustCacheTime = 1;   // 1000ms
- //之后再启动推流
+ //之后再启动播放
  _txLivePlay.enableHWAcceleration = YES;          // 硬件解码
  [_txLivePlay startPlay:flvUrl type:PLAY_TYPE_LIVE_FLV];
 ```
@@ -184,8 +185,9 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
 ![](//mc.qcloudimg.com/static/img/acc74a1e1a53eb7c248da22832ef894c/image.png)
 
 - **服务端混流的优势**
-  + 混流在服务端处理，音画同步问题处理的更好。
+  + 观众端平滑过渡，整个连麦过程中观看地址都是不变的。
   + 下行数据只有一路，所以对于高并发的直播场景，能有效降低带宽消耗。
+  + 混流在服务端处理，音画同步问题处理的更好。
 
 - **服务端混流的不足**
   + 目前处于Beta阶段，还只支持 1v1 混流，而且稳定性还稍有不足。
@@ -217,7 +219,7 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
 - **跨房连麦**：两个房间的主播本来就处于直播中状态，所以不需要提前协商 session_id，各自指定各自的 session_id，确保两边不相同即可。
 
 ### step4. 低延时播放链路
-- **跨房连麦**：“小主播” 和 “大主播” 的 session_id 是不一样，所以在拼装低延迟播放URL时，一定要使用对方的session_id，不要用自己的，否则视频卡到崩溃也是很正常的事情。
+- **跨房连麦**：“小主播” 和 “大主播” 的 session_id 是不一样，所以在拼装低延迟播放URL时，一定要使用对方的session_id，不要用自己的，否则视频卡到崩溃也是很正常的。
 
 ### step5. 多路混流
 - **跨房连麦**：目前不支持服务端混流，只支持客户端混流。我们会在春节后启用新的commen cgi 风格接口，届时大家会在 [腾讯云服务端API](https://www.qcloud.com/document/product/454/7920) 中查到该接口的定义。
