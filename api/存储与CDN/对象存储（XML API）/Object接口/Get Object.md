@@ -7,7 +7,7 @@ Get Object 请求可以将一个文件（Object）下载至本地。该操作需
 ### 请求语法
 
 ```http
-GET /ObjectName?acl Http/1.1
+GET /ObjectName Http/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
 Authorization: authorization string(公有读无需此头部，若携带也无效)
@@ -42,11 +42,11 @@ Range: bytes=byte_range
 
 ### 返回头部
 
-| 名称                | 描述                                       | 类型     |
-| ----------------- | ---------------------------------------- | ------ |
-| x-cos-meta-*      | 用户自定义的元数据                                | String |
-| x-cos-object-type | 用来表示object是否可以被追加上传，枚举值：normal或者appendable | string |
-| x-cos-storage-class | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String | 
+| 名称                  | 描述                                       | 类型     |
+| ------------------- | ---------------------------------------- | ------ |
+| x-cos-meta-*        | 用户自定义的元数据                                | String |
+| x-cos-object-type   | 用来表示object是否可以被追加上传，枚举值：normal或者appendable | string |
+| x-cos-storage-class | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
 
 
 ### 返回内容
