@@ -435,7 +435,8 @@ imageMogr2是腾讯云·万象优图为开发者提供的简单而功能强大�
 | /thumbnail/&lt;LongEdge&gt;x&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比缩放 |
 | /thumbnail/!<LongEdge>x<ShortEdge>r      | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比缩放 |
 | /thumbnail/<Width>x<Height>!             | 忽略原图宽高比例，指定图片宽度为Width，高度为Height，强行缩放图片，可能导致目标图片变形 |
-/thumbnail/<Areae>@	等比缩放图片，缩放后的像素数量不超过Area
+| /thumbnail/<Area>@	| 等比缩放图片，缩放后的像素数量不超过Area|
+
 示例：
 
 ```
@@ -444,6 +445,7 @@ http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumb
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/!x50p
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/200x
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/200x400!
+http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/35000@
 ```
 
 九宫格方位图：
