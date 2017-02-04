@@ -6,10 +6,11 @@
 
 
 #### 第二步：创建nginx服务
-1. 从控制台进入【容器服务】页面，点击左侧列表中的【服务】，在服务页面点击【新建】按钮。
+
+1.从控制台进入【容器服务】页面，点击左侧列表中的【服务】，在服务页面点击【新建】按钮。
 ![Alt text](https://mc.qcloudimg.com/static/img/11081690d6b480bd66c68a3c2982b04d/Image+007.png)
 
-2. 填写服务的基本信息。
+2.填写服务的基本信息。
 
 服务名称只能由小写字母和数字组成，并以小写字母开头。此处以nginx为例。
 
@@ -22,16 +23,11 @@
 在端口映射中指定负载均衡监听端口和容器端口。
 
 其他选项保持为默认设置，点击【创建服务】。
-
-
 ![Alt text](https://mc.qcloudimg.com/static/img/c18b47dfdbe50fbb87a3f29fb45b1539/%7B24E5F58D-4F21-468C-B8D1-6481E09736C1%7D.png)
 
-
-
-
-3. 创建完成后，在服务列表中点击服务名称来查看负载均衡器域名和负载均衡IP。
+3.创建完成后，在服务列表中点击服务名称来查看负载均衡器域名和负载均衡IP。
 
 ![Alt text](https://mc.qcloudimg.com/static/img/b5eea292a440c16cb92c29bd37fe0c69/Image+071.png)
 
-4. 通过域名或负载均衡IP来访问服务。
+4.通过域名或负载均衡IP来访问服务。
 ![Alt text](https://mc.qcloudimg.com/static/img/e48f617e80dce415d83aff243d299268/Image+015.png)
