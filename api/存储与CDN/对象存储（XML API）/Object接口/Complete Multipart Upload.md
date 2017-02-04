@@ -97,7 +97,7 @@ x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 	<Location>http://arlenhuangtestsgnoversion-1251668577.cossgp.myqcloud.com/ObjectName</Location>
 	<Bucket>arlenhuangtestsgnoversion</Bucket>
 	<Key>ObjectName</Key>
-	<ETag>&quot;3a0f1fd698c235af9cf098cb74aa25bc&quot;</ETag>
+	<ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
 </CompleteMultipartUpload>
 ```
 

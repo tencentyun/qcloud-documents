@@ -119,7 +119,7 @@ x-cos-request-id: NTg3ZGRiMzhfMmM4OGY3XzdhY2NfYw==
 	<Part>
 		<PartNumber>1</PartNumber>
 		<LastModified>Tue Jan 17 16:43:37 2017</LastModified>
-		<ETag>&quot;a1f8e5e4d63ac6970a0062a6277e191fe09a1382&quot;</ETag>
+		<ETag>"a1f8e5e4d63ac6970a0062a6277e191fe09a1382"</ETag>
 		<Size>5242880</Size>
 	</Part>
 	<NextPartNumberMarker>1</NextPartNumberMarker>
