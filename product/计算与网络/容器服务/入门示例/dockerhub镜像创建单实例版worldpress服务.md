@@ -19,6 +19,7 @@ WordPress是一个注重美学、易用性和网络标准的个人信息发布�
 3.填写端口映射。
 
 ![Alt text](https://mc.qcloudimg.com/static/img/27a0a00a151c5f5ebacffca5fc8f832a/Image+025.png)
+
 4.点击【下一步】完成配置。
 ### 访问wordpress服务
 点击服务，查看服务外网IP，在浏览器输入IP地址即可访问。
