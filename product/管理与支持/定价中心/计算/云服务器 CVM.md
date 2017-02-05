@@ -94,8 +94,9 @@ CVM 定价主要包括 CVM 实例价格，磁盘价格，网络价格。
 
 ## 官网购买
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有用户均可通过腾讯云官方网站进行云服务的购买。根据计费模式的不同，用户可以购买包年包月（按月/年购买）和按量计费（按秒计费，小时结算）两种不同类型的云服务器，详见[计费模式说明](https://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;官网购买说明可点击[这里](https://www.qcloud.com/doc/product/213/6998)查看,下面分别介绍两种不同类型云服务器的官网购买方式。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有用户均可通过腾讯云官方网站进行云服务的购买。根据计费模式的不同，用户可以购买包年包月（按月/年购买）和按量计费（按秒计费，小时结算）两种不同类型的云服务器，详见[计费模式说明](/document/product/439/6796)。
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;官网购买说明可点击[这里](/document/product/439/8302)查看,下面分别介绍两种不同类型云服务器的官网购买方式。
 
 ### 包年包月
 
