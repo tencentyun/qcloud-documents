@@ -24,7 +24,7 @@
 <td> messageId
 </td><td> <font color=red> 必选 </font color=red>
 </td><td> String
-</td><td> 用户产生内容的ID。如果传入此ID，将可以通过恶意结果查询接口获取进一步的信息。
+</td><td> 用户产生内容的ID，消息内容的唯一ID用于标识某条消息。
 </td></tr>
 <tr>
 <td> postIp
@@ -320,6 +320,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
 "associateAccount":"373909726",
 "beatTips":"",
 "code":0,
+"codeDesc":"success" ,
 "level":0,
 "message":"NoError",
 "messageId":"ieafdasfk",
