@@ -12,25 +12,130 @@ APNs 证书申请流程可参考文档：[Apple推送证书申请](/doc/product/
 
 ### 1.3 上传证书到控制台
 
-APNs 证书申请完成以后，需要把生成的p12证书上传到控制台，上传后会生成证书id，需要setToken调用时设置。APP开发周期中，证书申请流程如下图：
+完成APNs 证书申请以后，需要把生成的p12证书上传到控制台：
 
-<img src="https://mc.qcloudimg.com/static/img/7ff07f369fa14f0669631c3e0a0f97c1/imsdk_ios_apns_busiId_big.jpg" width=480 />
+<img src="http://mc.qcloudimg.com/static/img/d34bd0d7d3fe35a9171d396230df0fc6/image.png" width=480 />
 
-另外上传时有几个注意点：
+上传时有几个注意点：
 
 1. 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）
 2. 上传证书生效时间为10分钟左右
 3. 上传证书需要设置密码，无密码收不到推送
-4. 注意生产环境的选择，需要跟证书是否正式的发布证书对应，否则无法收到推送
+4. 注意生产环境的选择，发布AppStore的证书需要设置为生产环境，否则无法收到推送
 
-### 1.4 客户端进行APNs推送
+### 1.4 客户端实现APNs推送
 
-客户端按照如下4个步骤使用APNs推送：
+客户端要实现接收APNs推送，需要实现4个部分：***向苹果后台请求DeviceToken***、***登录SDK后上传Token到腾讯云***、***APP进入后台时上报切后台事件***、***APP进入前台时上报切前台事件***。
 
-1. 注册离线推送服务（registerForRemoteNotifications）
-2. 上传设备Token（[[TIMManager sharedInstance] setToken:]）
-3. 设备切后台时上报事件（[[TIMManager sharedInstance] doBackground:succ:fail:]）
-4. 设备回到前台时上报事件（[[TIMManager sharedInstance] doForeground]）
+向苹果后台请求DeviceToken请参考如下代码：
+
+```
+
+- (void)registNotification
+{
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+    }
+}
+
+/**
+ *  在AppDelegate的回调中会返回DeviceToken，需要在登录后上报给腾讯云后台
+/**
+-(void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [[IMAPlatform sharedInstance] configOnAppRegistAPNSWithDeviceToken:deviceToken];
+}
+
+```
+
+上传Token到腾讯云请参考如下代码，填写参数时***busiId需要和控制台分配的证书ID保持一致***：
+
+```
+
+- (void)configOnAppRegistAPNSWithDeviceToken:(NSData *)deviceToken
+{
+    DebugLog(@"didRegisterForRemoteNotificationsWithDeviceToken:%ld", (unsigned long)deviceToken.length);
+    NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
+    [[TIMManager sharedInstance] log:TIM_LOG_INFO tag:@"SetToken" msg:[NSString stringWithFormat:@"My Token is :%@", token]];
+    TIMTokenParam *param = [[TIMTokenParam alloc] init];
+
+#if kAppStoreVersion
+
+// AppStore版本
+#if DEBUG
+    param.busiId = 2383;
+#else
+    param.busiId = 2382;
+#endif
+    
+#else
+    //企业证书id
+    param.busiId = 2516;
+#endif
+    
+    [param setToken:deviceToken];
+    
+//    [[TIMManager sharedInstance] setToken:param];
+    [[TIMManager sharedInstance] setToken:param succ:^{
+       
+        NSLog(@"-----> 上传token成功 ");
+    } fail:^(int code, NSString *msg) {
+        NSLog(@"-----> 上传token失败 ");
+    }];
+}
+
+```
+
+上报切后台事件请参考如下代码：
+
+```
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    __block UIBackgroundTaskIdentifier bgTaskID;
+    bgTaskID = [application beginBackgroundTaskWithExpirationHandler:^ {
+        
+        //不管有没有完成，结束background_task任务
+        [application endBackgroundTask: bgTaskID];
+        bgTaskID = UIBackgroundTaskInvalid;
+    }];
+    
+    [[IMAPlatform sharedInstance] configOnAppEnterBackground];
+}
+
+- (void)configOnAppEnterBackground
+{
+    NSUInteger unReadCount = [[IMAPlatform sharedInstance].conversationMgr unReadMessageCount];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = unReadCount;
+    
+    TIMBackgroundParam  *param = [[TIMBackgroundParam alloc] init];
+    [param setC2cUnread:(int)unReadCount];
+    
+    [[TIMManager sharedInstance] doBackground:param succ:^() {
+        DebugLog(@"doBackgroud Succ");
+    } fail:^(int code, NSString * err) {
+        DebugLog(@"Fail: %d->%@", code, err);
+    }];
+}
+
+```
+
+上报切前台事件请参考如下代码：
+
+```
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+   [[TIMManager sharedInstance] doForeground];
+}
+
+```
 
 具体操作请参考视频：[云通信IM-iOS ImSDK离线推送](https://qcloud.com/course/detail/80)。
 
