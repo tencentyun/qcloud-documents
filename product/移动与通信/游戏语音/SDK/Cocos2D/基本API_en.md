@@ -18,7 +18,7 @@ Basic APIs are required for both Voice Chat and Voice Message features.
 ### 3.1 Create `IGcloudVoiceEngine` object
 1. API Description
 
-Call this API to get `VoiceEngine` object.
+	Call this API to get `VoiceEngine` object.
 
 2. Function Prototype
 
@@ -29,51 +29,49 @@ Call this API to get `VoiceEngine` object.
 
       private IGCloudVoiceEngine* m_voiceengine = gcloud_voice::GetVoiceEngine(); 
 
-4. Error Codes
-
-NULL object is returned when error occurs.
+4. Error Codes  
+   NULL object is returned when error occurs.
 
 ### 3.2 Set Business Information
 1. API Description
 
-Before initialization, call this API to set information like game ID and key, and user's unique OpenID.
+	Before initialization, call this API to set information like game ID and key, and user's unique OpenID.
 
 2. Function Prototype
 
-  ` GCloudVoiceErrno SetAppInfo(const char *appID,const char *appKey, const char *openID)`
+  	` GCloudVoiceErrno SetAppInfo(const char *appID,const char *appKey, const char *openID)`
 
-  |Parameter|Type|Meaning|
-  |--|--|--|
-  |appID|const char *| Game ID as on the service activation page|
-  |appKey|const char *| Game Key as on the service activation page|
-  |openID|const char *| Player unique ID, such as the OpenID obtained via Mobile QQ or WeChat|
-  |Return value|GCloudVoiceErr|Return GCLOUD_VOICE_SUCC if operation succeeds|
+  	|Parameter|Type|Meaning|
+  	|--|--|--|
+  	|appID|const char *| Game ID as on the service activation page|
+  	|appKey|const char *| Game Key as on the service activation page|
+  	|openID|const char *| Player unique ID, such as the OpenID obtained via Mobile QQ or WeChat|
+  	|Return value|GCloudVoiceErr|Return GCLOUD_VOICE_SUCC if operation succeeds|
 
 3. Sample Code
 
-  `gcloud_voice::GetVoiceEngine()->SetAppInfo("932849489","d94749efe9fce61333121de84123ef9b","E81DCA1782C5CE8B0722A366D7ECB41F");`
+ 	 `gcloud_voice::GetVoiceEngine()->SetAppInfo("932849489","d94749efe9fce61333121de84123ef9b","E81DCA1782C5CE8B0722A366D7ECB41F");`
 ### 3.3 Engine Initialization
 
 1. API Description
 
-After setting your business information, call this API to initialize the engine.
+	After setting your business information, call this API to initialize the engine.
 
 2. Function Prototype  
 
-  `GCloudVoiceErr Init();`  
+  	`GCloudVoiceErr Init();`  
 
 3. Sample Code
 
-  `gcloud_voice::GetVoiceEngine()->Init();`
+  	`gcloud_voice::GetVoiceEngine()->Init();`
 
-4. Error Codes
-
+4. Error Codes  
 GCLOUD_VOICE_NEED_SETAPPINFO: Need to call SetAppInfo first
 
 ### 3.4 Set Engine Mode
 1. API Description
 
-Call this API to set your engine mode: "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text.
+	Call this API to set your engine mode: "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text.
 
 2. Function Prototype
 
@@ -85,24 +83,23 @@ Call this API to set your engine mode: "Realtime" for Team Chatting and Commande
       };
       GCloudVoiceErr SetMode(GCloudVoiceMode mode)
 
-  |Parameter|Type|Meaning|
-  |--|--|--|
-  |mode|GCloudVoiceMode| "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text
+  	|Parameter|Type|Meaning|
+  	|--|--|--|
+  	|mode|GCloudVoiceMode| "Realtime" for Team Chatting and Commander mode; "Message" for Voice Message; "Translation" for Voice-To-Text
 3. Sample Code
 
             gcloud_voice::GetVoiceEngine()>SetMode(gcloud_voice::IGCloudVoiceEngine::RealTime);
 4. Error Codes
 
-GCLOUD_VOICE_NEED_SETAPPINFO: Need to call `SetAppInfo` first
+	GCLOUD_VOICE_NEED_SETAPPINFO: Need to call `SetAppInfo` first
 
 ### 3.5 Query Trigger Event Callback
 1. API Description  
 
-Event callback may be triggered via periodic `Poll` call in `update`.
+	Event callback may be triggered via periodic `Poll` call in `update`.
 
-2. Function Prototype
-
-  `GCloudVoiceErr Poll()`
+2. Function Prototype  
+	`GCloudVoiceErr Poll()`
 
 3. Sample Code  
 
@@ -111,17 +108,18 @@ Event callback may be triggered via periodic `Poll` call in `update`.
       {
       	gcloud_voice::GetVoiceEngine()->Poll();
       }
-4. Error Codes
+4. Error Codes  
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
+
 ### 3.6 `Pause` of System
 1. API Description
 
-In case of system `Pause` event, call this API to notify the engine of `Pause`.
+	In case of system `Pause` event, call this API to notify the engine of `Pause`.
 
 2. Function Prototype
 
-  `GCloudVoiceErr Pause()`
+  	`GCloudVoiceErr Pause()`
 
 3. Sample Code
 
@@ -129,17 +127,18 @@ In case of system `Pause` event, call this API to notify the engine of `Pause`.
       {
       	gcloud_voice::GetVoiceEngine()->Pause();
       }
-4. Error Codes
+4. Error Codes  
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization
+
 ### 3.7 System `Resume`
 1. API Description  
 
-In case of system `Resume` event, call this API to notify the engine to `Resume`.
+	In case of system `Resume` event, call this API to notify the engine to `Resume`.
 
 2. Function Prototype
 
-  `GCloudVoiceErr Resume()`  
+  	`GCloudVoiceErr Resume()`  
 
 3. Sample Code  
 
