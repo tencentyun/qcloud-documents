@@ -329,7 +329,7 @@ $dstPath = "/myFolder/test.mp4";
 $bizAttr = "";
 $insertOnly = 0;
 $sliceSize = 3 * 1024 * 1024;
-$result = Cosapi::upload($bucketName,$srcPath,dstPath ,"biz_attr");
+$result = Cosapi::upload($bucketName,$srcPath,$dstPath ,"biz_attr");
 ```
 
 ### 文件属性更新

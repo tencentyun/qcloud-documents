@@ -44,7 +44,6 @@ Authorization: Auth
       ...
     </Tag>
   </TagSet>
-  ...
 </Tagging>
 ```
 
