@@ -1,15 +1,19 @@
 **【版本说明】**
-- 版本号：1.8.2.1761 @ 2017-01-06
-- 基于腾讯云加速链路实现连麦功能，且支持1v1服务端混流 （连麦模式下暂时不支持混音，1.8.3解决）
-- 直播支持多实例播放能力（点播暂时不支持多实例播放）
+- 版本号：1.9.0.1948 @ 2017-01-20
+- iOS ：支持开启Bitcode，用于减少AppStore的安装包体积；
+- iOS ：软硬编美颜统一，统一使用GPU加速方案；
+- iOS + Android：音频模块优化，连麦支持背景音播放；
+- iOS + Android：点播多线程优化（直播在上个版本已支持多实例）
+- iOS + Android：解决网络卡顿时，播放停止（stopPlay）阻塞UI线程时间较长的问题；
+- iOS ： 新增耳返功能，即主播在插上耳机唱歌时，可以实时听到自己发音的效果；
+- Android：由于系统API的延迟问题，暂时尚未支持，我们会继续努力。
+- 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)。
 
 **【版本预告】**
-- 1.8.3 版本预计春节前一周发布
-- 计划补全连麦时BGM混音功能的冲突问题
-- 计划支持耳返功能
-- 计划增加点播多实例播放能力
-- 计划优化iOS软编码下的美颜效果
-- 计划优化网络卡顿时 stopPlay 的卡顿问题
+- 1.9.1 版本预计2月底发布
+- 计划优化iOS和Android平台的美艳效果和部分机型的清晰度问题
+- 计划优化音频JitterBuffer，旨在优化连麦时的声音流畅度
+- 计划增加耳返时的声音混响音效
 
 **【文档索引】**
 <table class="t">
@@ -76,11 +80,11 @@
 
 | 操作系统 | 版本号 | 版本说明|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS完整版  | 1.8.2.1761  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOS1.8.2.1761.zip)  |
-| IOSRename版  | 1.8.2.1761  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSRename1.8.2.1761.zip)  |
-| IOS精简版  | 1.8.2.1761  | 在完整版的基础上裁剪掉了非核心功能，双架构代码体积增量 800k。<br> 精简版点播功能的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSSimple1.8.2.1761.zip)  |
-| Android完整版  | 1.8.2.1761 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.8.2.1761.zip)  |
-| Android精简版  | 1.8.2.1761 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.8.2.1761.zip)  |
+| IOS完整版  | 1.9.0.1948  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOS1.9.0.1948.zip)  |
+| IOSRename版  | 1.9.0.1948  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSRename1.9.0.1948.zip)  |
+| IOS精简版  | 1.9.0.1948  | 在完整版的基础上裁剪掉了非核心功能，双架构代码体积增量 800k。<br> 精简版点播功能的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSSimple1.9.0.1948.zip)  |
+| Android完整版  | 1.9.0.1948 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.9.0.1948.zip)  |
+| Android精简版  | 1.9.0.1948 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.9.0.1948.zip)  |
 
 **【联系我们】**
 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎[联系我们](https://www.qcloud.com/document/product/454/7998)。
