@@ -3,7 +3,6 @@
 |---------|---------|---------|
 | [查询可创建规格（支持可用区、配置自定义）](http://www.qcloud.com/document/product/240/8318) | DescribeMongoDBProduct | 查询可创建的实例规格 |
 
-
 ## 2. 实例相关接口
 
 | 接口名 | Action Name | 功能描述 |
@@ -18,4 +17,4 @@
 | [修改实例项目](http://www.qcloud.com/document/product/240/8307) | ModifyMongoDBProject| 修改实例所属项目|
 | [查询副本集实例列表](http://www.qcloud.com/document/product/240/8312) | DescribeMongoDBReplSet |  按条件查询副本集实例详情列表 | 
 | [重置实例密码](http://www.qcloud.com/document/product/240/8316) | ResetMongoDBPassword | 重置实例密码 |
-| [查询任务结果](http://www.qcloud.com/document/product/240/8310) | GetMongoDBJobInfo | 查询任务执行结果 |  
+| [查询任务结果](http://www.qcloud.com/document/product/240/8310) | GetMongoDBJobInfo | 查询任务执行结果 |
