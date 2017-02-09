@@ -1,5 +1,5 @@
 ## 1.接口描述
-删除某BGP高防IP下添加白名单列表 
+增加某BGP高防IP下添加白名单列表 
 <br>协议：HTTPS
 <br>域名：csec.api.qcloud.com
 <br>接口名：NS.BGPIP.Whitelist.Add
