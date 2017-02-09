@@ -22,7 +22,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| taskId | String | 任务ID |
+| jobId | String | 任务ID |
 
 
 ## 4. 错误码表
@@ -50,7 +50,7 @@ https://cdb.api.qcloud.com/v2/index.php?Action=OpenCdbExtranetAccess
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "taskId": 223
+        "jobId": 223
     }
 }
 ```
