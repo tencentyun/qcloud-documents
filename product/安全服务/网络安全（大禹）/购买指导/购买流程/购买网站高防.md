@@ -1,6 +1,6 @@
 ## Step1.添加域名
 新用户进入大禹DDoS分布式防御管理控制台后，在“域名管理”页面点击“添加域名”：
-![](//mccdn.qcloud.com/img56c5d10fb21a8.png)
+![](https://mc.qcloudimg.com/static/img/5ea6553f2446c67f700bd1ae752ab051/4.png)
 ## Step2.填入信息
 填入有效信息，如下图：
 ![](//mccdn.qcloud.com/img56c5d12455fb5.png)
