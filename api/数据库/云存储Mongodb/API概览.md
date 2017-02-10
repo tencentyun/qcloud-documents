@@ -7,12 +7,11 @@
 
 | 接口名 | Action Name | 功能描述 |
 |---------|---------|---------|
-| [查询副本集实例价格(包年包月)](http://www.qcloud.com/document/product/240/8311) | InquiryMongoDBReplSetPrice | 获取副本集实例价格(包年包月),支持新购、续费、升级实例时价格查询 |
-| [创建副本集实例（包年包月）](http://www.qcloud.com/document/product/240/8308) | CreateMongoDBReplSet | 创建副本集实例（包年包月），并扣除[查询副本集实例价格(包年包月)](http://www.qcloud.com/document/product/240/8311)接口返回的费用|
-| [续费实例(包年包月)](http://www.qcloud.com/document/product/240/8314) | RenewMongoDB| 续费指定实例，并扣除[查询副本集实例价格(包年包月)](http://www.qcloud.com/document/product/240/8311)接口返回的费用|
-| [升级实例(包年包月)](http://www.qcloud.com/document/product/240/8309) | UpgradeMongoDB| 升级指定实例，并扣除[查询副本集实例价格(包年包月)](http://www.qcloud.com/document/product/240/8311)接口返回的费用|
+| [查询实例价格（包年包月）](http://www.qcloud.com/document/product/240/8311) | InquiryMongoDB | 获取实例价格(包年包月),支持新购、续费、升级实例时价格查询 |
+| [创建实例（包年包月）](http://www.qcloud.com/document/product/240/8308) | CreateMongoDB | 创建实例（包年包月），并扣除[查询实例价格（包年包月）](http://www.qcloud.com/document/product/240/8311)接口返回的费用|
+| [续费实例(包年包月)](http://www.qcloud.com/document/product/240/8314) | RenewMongoDB| 续费指定实例，并扣除[查询实例价格（包年包月）](http://www.qcloud.com/document/product/240/8311)接口返回的费用|
+| [升级实例(包年包月)](http://www.qcloud.com/document/product/240/8309) | UpgradeMongoDB| 升级指定实例，并扣除[查询实例价格（包年包月）](http://www.qcloud.com/document/product/240/8311)接口返回的费用|
 | [查询订单详情](http://www.qcloud.com/document/product/240/8313)| DescribeMongodbDealDetail | 查询新购、续费、升级订单的详情|
-| [查询副本集实例列表](http://www.qcloud.com/document/product/240/8312) | DescribeMongoDBReplSet |  按条件查询副本集实例详情列表 | 
 | [设置自动续费](http://www.qcloud.com/document/product/240/8315)| SetMongoDBAutoRenew | 设置或取消自动续费， 设置自动续费后，系统将在实例到期时，自动发起续费|
 | [重置实例密码](http://www.qcloud.com/document/product/240/8316) | ResetMongoDBPassword | 重置实例密码 |
 | [修改实例项目](http://www.qcloud.com/document/product/240/8307) | ModifyMongoDBProject| 修改实例所属项目|
