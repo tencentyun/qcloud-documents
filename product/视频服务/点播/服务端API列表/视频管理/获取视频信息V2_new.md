@@ -1,0 +1,205 @@
+## 接口名称
+GetVideoInfo
+
+## 功能说明
+1. 获取指定视频的基础信息（名称、大小、时长、封面图片等）、转码信息（地址、格式、码率、分辨率等）、雪碧图信息、指定时间点截图信息等。
+2. 可以指定回包过滤部分信息。
+
+## 请求方式
+
+### 请求域名
+vod.api.qcloud.com
+
+### 最高调用频率
+100次/分钟
+
+### 参数说明
+| 参数名称 | 必填 | 类型 | 说明 |
+|---------|---------|---------|---------|
+| fileId | 是 | String | 希望获取的视频的ID |
+| infoFilter.n | 否 | String | 回包信息过滤控制。BasicInfo-过滤基础信息，TranscodeInfo-过滤转码信息，ImageSpriteInfo-过滤雪碧图信息，screenshotByTimeInfo-过滤指定时间点截图信息。未指定的信息会出现在回包中。 |
+| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
+
+### 请求示例
+```
+https://vod.api.qcloud.com/v2/index.php?Action=GetVideoInfo
+&fileId=12345
+&infoFilter.1=TranscodeInfo
+&infoFilter.2=ImageSpriteInfo
+&COMMON_PARAMS
+```
+## 接口应答
+
+### 参数说明
+| 参数名称 | 类型 | 说明 |
+|---------|---------|---------|
+| code | Integer | 错误码, 0: 成功, 其他值: 失败 |
+| message | String | 错误信息 |
+| basicInfo | Object | 视频基础信息 |
+| screenshotByTimeInfo | Object | 指定时间点截图信息 |
+| imageSpriteInfo | Object | 视频雪碧图信息 |
+| transcodeInfo | Array | 视频转码信息 |
+<!--
+| keyFrameDescInfo | Object | 视频关键帧描述（打点）信息 |
+-->
+
+basicInfo 视频基础信息
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| name | String | 视频名称 |
+| size | Integer | 视频大小。单位：字节 |
+| duration | Integer | 视频时长。单位：秒 |
+| description | String | 视频描述 |
+| status | Integer | 视频状态， -1：未上传完成，不存在；0：初始化，暂未使用；1：审核不通过，暂未使用； 2：正常；3：暂停；4：转码中；5：发布中；6：删除中；7：转码失败；10：等待转码；11：转码部分完成（终态）100：已删除 |
+| createTime | Integer | 视频创建时间，距离1970-01-01 00:00:00的秒数 |
+| updateTime | Integer | 视频信息最近更新时间，距离1970-01-01 00:00:00的秒数 |
+| expireTime | Integer | 视频过期时间，距离1970-01-01 00:00:00的秒数 |
+| classificationId | Integer | 视频分类 |
+| playerId | Integer | ??? |
+| coverUrl | String | 视频封面图片地址 |
+| type | String | ??? |
+
+transcodeInfo 视频转码信息
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| url | String | 转码后的视频文件地址 |
+| definition | Integer | [转码规格]() |
+| vbitrate | Integer | 码率，单位：kbps |
+| vheight | Integer | 高度，单位：px |
+| vwidth | Integer | 宽度，单位：px |
+
+imageSpriteInfo 雪碧图信息
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| imageSpriteList | Array | 特定规格的雪碧图信息集合，每个元素代表一套相同规格的雪碧图 |
+
+imageSpriteList 特定规格的雪碧图信息集合
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| definition | Integer | [雪碧图规格]() |
+| height | Integer | 雪碧图小图的高度 |
+| width | Integer | 雪碧图小图的宽度 |
+| totalCount | Integer | 每一张雪碧图中小图的数量 |
+| screenshotUrl | Array | 每一张雪碧图的地址 |
+
+screenshotByTimeInfo 指定时间点截图信息
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| screenshotByTimeList | Array | 特定规格的指定时间点截图信息集合，每个元素代表一套相同规格的截图 |
+
+screenshotByTimeList 特定规格的指定时间点截图信息集合
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| definition | Integer | [指定时间点截图规格]() |
+| height | Integer | 雪碧图小图的高度 |
+| width | Integer | 雪碧图小图的宽度 |
+| picInfoList | Array | 同一规格的截图信息集合，每个元素代表一张截图 |
+
+picInfoList 同一规格的截图信息集合，每个元素代表一张截图
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| status | Integer | 该张截图的状态，0-截图成功，非0-截图失败 |
+| time | Integer | 该张截图对应视频文件中的时间偏移。单位：秒 |
+| url | String | 该张截图的地址，如果status非0，则url不存在 |
+
+<!---
+keyFrameDescInfo 视频关键帧描述（打点）信息
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| keyFrame | Array | 视频打点信息集合，每个元素代表一个打点 |
+
+keyFrame 视频打点信息集合
+
+| **参数名称** | **类型** | **描述** |
+|---------|---------|---------|
+| timeOffset | Integer | 打点时间偏移，唯一标识一个打点。单位：秒 |
+| type | String | 打点类型 |
+| comment | String | 打点文本描述信息 |
+| screenshotUrl | String | 打点对应的视频截图地址 |
+| custom | String | 用户自定义信息，最大512字节 |
+-->
+
+### 错误码说明
+| 错误码 | 含义说明|
+|---------|---------|
+| 4000-7000 | 参见[公共错误码](/document/product/266/7783)  |
+| 1 | 内部错误  |
+| 1000 | 无效参数  |
+| 1001 | 内部错误  |
+| 1003 | 内部错误  |
+| 2000 | 内部错误  |
+| 10008 | 文件不存在  |
+| 10022 | 内部错误 |
+
+### 应答示例
+```javascript
+{
+    "code": 0,
+    "message": "",
+    "basicInfo" : { 
+        "name" : "test file",
+        "size" : 1000,
+        "duration" : 10,
+        "description" : "",
+        "status" : 2,
+        "createTime" : 1485156352, 
+        "updateTime" : 1485156352, 
+        "expireTime" : 1485256352,
+        "classificationId" : 1,
+        "playerId" : 0,
+        "coverUrl" : "http://www.qq.com/test.jpg",
+        "type" : ""
+    },
+    "transcodeInfo": [
+        {
+            "url": "http://vcloud1200.tc.qq.com/1200_5b9688d481d8b811095d30a78cf44c4285026a4c.f0.mp4",
+            "definition": 0,
+            "vbitrate": 2332000,
+            "vheight": 576,
+            "vwidth": 1024
+        }
+    ],
+    "imageSpriteInfo": {
+        "imageSpriteList": [
+            {
+                "definition": 10,
+	            "height": 576,
+	            "width": 1024
+                "totalCount": 100,
+                "screenshotUrl": [
+                    "http://www.qq.com/test.jpg"
+                ]
+            }
+        ]
+    },
+	"screenshotByTimeInfo": {
+        "screenshotByTimeList": [
+            {
+                "definition": 10,
+	            "height": 576,
+	            "width": 1024
+                "picInfoList": [
+                    {
+                        "status": 0,
+                        "time": 1,
+                        "url": "http://www.qq.com/test.jpg"
+                    },
+                    {
+                        "status": 0,
+                        "time": 10,
+                        "url": "http://www.qq.com/test.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
