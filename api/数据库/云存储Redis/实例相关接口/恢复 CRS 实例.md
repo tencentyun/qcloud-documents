@@ -1,16 +1,16 @@
 ## 1. 接口描述
-本接口(ResetRedisPassword)用于重置CRS实例密码。
+本接口(RestoreInstance)用于恢复CRS实例。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
-密码规则： 长度为8-16个字符；至少包含字母、数字和字符（!@#%^()）中的两种
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://www.qcloud.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为ResetRedisPassword。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://www.qcloud.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为RestoreInstance。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |:---------|---------|---------|---------|
 | redisId | 是 | String | 待操作的实例ID，可通过 [DescribeRedis](/document/product/239/1384) 接口返回值中的 redisId 获取。|
-| password | 是 | String | 实例新密码，密码规则： 长度为8-16个字符；至少包含字母、数字和字符（!@#%^()）中的两种 |
+| password | 是 | String | 实例密码，恢复实例时，需要校验实例密码 |
+| backupId | 是 | String | 备份ID，可通过 [GetRedisBackupList](/document/product/239/1384) 接口返回值中的 backupId 获取。 |
 
 ## 3. 输出参数
 
@@ -36,15 +36,18 @@
 |11201|InvalidParameter|业务参数错误|
 |10701|InstanceNotExists|没有找到serialId对应的实例|
 |10707|InstanceLockedError|实例已被锁住，暂时不能执行该操作|
-|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（比如：流程中，已隔离，已删除）|
-|11058|PasswordRuleError|密码规则错误，密码必须是8-16位字符，且至少包含字母、数字和字符（!@#%^*()）中的两种|
+|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除）|
+|10711|BackupStatusAbnormal|备份状态异常，暂不能执行该操作。备份可能已过期或已被删除|
+|10710|BackupLockedError|备份已被其它任务锁住，暂时不能执行该操作|
+|10712|PasswordError|实例密码错误|
 
 ## 5. 示例
 <pre>
-https://redis.api.qcloud.com/v2/index.php?Action=ResetRedisPassword
+https://redis.api.qcloud.com/v2/index.php?Action=RestoreInstance
 &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &redisId=crs-izbob1wh
 &password=12D3E@!r5ed
+&backupId=e824aecc-ef5e-11e6-a2c7-525400082493
 </pre>
 返回示例如下：
 ```
@@ -53,7 +56,7 @@ https://redis.api.qcloud.com/v2/index.php?Action=ResetRedisPassword
     "message": ""，
 	"codeDesc": "Success",
 	"data": {
-        "requestId": 375073
+        "requestId": 375074
     }
 }
 ```

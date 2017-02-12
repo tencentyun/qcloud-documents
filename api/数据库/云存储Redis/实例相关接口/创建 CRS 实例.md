@@ -57,7 +57,7 @@ data 数组的结构：
 |11054|InvalidSubnetId|vpc网络下的子网id不存在|
 |10501|PasswordEmpty|密码为空|
 |11058|PasswordRuleError|密码规则错误，密码必须是8-16位字符，且至少包含字母、数字和字符（!@#%^*()）中的两种|
-|100207|AccountIsNotEnough|账号余额不足，请充值|
+|100207|OperationConstraints.AccountBalanceNotEnough|账号余额不足，请充值|
 
 ## 5. 示例
 输入
