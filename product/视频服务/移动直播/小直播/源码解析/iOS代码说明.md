@@ -13,7 +13,7 @@
 | Pods| 使用CocoaPods管理小直播用到的第三方开源类库|
 
 ## 2.编译运行
-下载代码后，打开**TCLVBIMDemo.xcworkspace**工程文件，由于小直播目前还不支持模拟器调试，只能在真机调试，所以您需要按照如下步骤配置工程的证书：
+下载代码后，打开**TCLVBIMDemo.xcworkspace**工程文件（请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj），由于小直播目前还不支持模拟器调试，只能在真机调试，所以您需要按照如下步骤配置工程的证书：
 **Step1:配置bundle id及签名证书**
 ![](//mc.qcloudimg.com/static/img/e2c29a0daa9dbba958c970fadc0a3f09/image.jpg)
 **Step2:配置完签名后，还需要配置App Groups**
