@@ -18,7 +18,6 @@
 | message | String | 模块错误信息描述，与接口相关。 |
 | codeDesc | String | 英文错误描述 |
 | data | Array | 返回的数据 |
-
 其中，data 的字段为：
 
 | 参数名称 | 类型 | 描述 |
