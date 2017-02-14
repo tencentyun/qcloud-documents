@@ -26,22 +26,34 @@ Authorization: Auth String
 ### 请求内容
 
 ```json
-{	
-    "version":"2.0",
-    "principal":   {"qcs":["qcs::cam::uin/<RootAccout>:uin/<SubAccount>","qcs::cam::uin/<RootAccout>:uin/<SubAccount>"]},
-    "statement":
-    [
-       {
-            "effect":"allow",        
-            "action":["name/cos:<ActionName>"],
-            "resource":["qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/<ObjectName>",
-                      "qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/[dir1]/*"],
-        }
+{
+    "version": "2.0",
+    "principal": {
+        "qcs": [
+            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>",
+            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>"
+        ]
+    },
+    "statement": [
         {
-            "effect":"allow",        
-            "action":["name/cos:<ActionName>"],
-            "resource":["qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/<ObjectName>",
-                      "qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/[dir1]/*"],
+            "effect": "allow",
+            "action": [
+                "name/cos:<ActionName>"
+            ],
+            "resource": [
+                "qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/<ObjectName>",
+                "qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/[dir1]/*"
+            ]
+        },
+        {
+            "effect": "allow",
+            "action": [
+                "name/cos:<ActionName>"
+            ],
+            "resource": [
+                "qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/<ObjectName>",
+                "qcs::cos:<Region>:uid/<Accout>:prefix//<uid>/<BucketName>/[dir1]/*"
+            ]
         }
     ]
 }
