@@ -53,3 +53,34 @@ Authorization: Auth
   </TagSet>
 </Tagging>
 ```
+
+## 示例
+### 请求
+
+```XML
+GET /?tagging HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484817283;32557713283&q-key-time=1484817283;32557713283&q-header-list=host&q-url-param-list=tagging&q-signature=b1da7bf83c43fd06fc4c5664ecb832b98966b193
+
+```
+### 返回
+
+```xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 96
+Connection: keep-alive
+Date: Thu Jan 19 17:14:51 2017
+Server: tencent-cos
+x-cos-request-id: NTg4MDgzOGJfOWExZjRlXzQ2YTBfZTY0
+
+<Tagging>
+	<TagSet>
+		<Tag>
+			<Key>1</Key>
+			<Value>2</Value>
+		</Tag>
+	</TagSet>
+</Tagging>
+
+```
