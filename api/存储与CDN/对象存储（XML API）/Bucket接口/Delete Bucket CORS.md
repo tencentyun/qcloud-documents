@@ -40,7 +40,6 @@ Authorization: Auth
 DELETE /?cors HTTP/1.1
 Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484816036;32557712036&q-key-time=1484816036;32557712036&q-header-list=host&q-url-param-list=cors&q-signature=e92eecbf0022fe7e5fd39b2c500b22da062be50a
-> 
 
 ```
 ### 返回
