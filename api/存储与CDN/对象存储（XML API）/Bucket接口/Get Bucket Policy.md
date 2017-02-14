@@ -69,7 +69,7 @@ Authorization: Auth
 ```
 ## 示例
 ### 请求
-```JSON
+```http
 GET /?policy HTTP/1.1
 Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814099;32557710099&q-key-time=1484814099;32557710099&q-header-list=host&q-url-param-list=policy&q-signature=0523d7c6305b6676611c44798d2c48b659e68869 
