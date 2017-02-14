@@ -66,6 +66,14 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-
 Content-Type:application/xml
 Content-Length: 75
 
+<Tagging>
+  <TagSet>
+    <Tag>
+      <Key>1</Key>
+      <Value>2</Value>
+    </Tag>
+  </TagSet>
+</Tagging>
 ```
 ### 返回
 ```xml
