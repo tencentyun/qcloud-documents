@@ -71,17 +71,37 @@ Authorization: Auth String
 
 ## 示例
 ### 请求
-```XML
+```JSON
 PUT /?policy HTTP/1.1
 Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484813288;32557709288&q-key-time=1484813288;32557709288&q-header-list=host&q-url-param-list=policy&q-signature=05f7fc936369f910a94a0c815e1f1752f034d47a
 Content-Type: application/json
 Content-Length: 233
 
+{
+  "version": "2.0", 
+  "principal": {
+    "qcs": [
+      "qcs::cam::uin/909619481:uin/909619481"
+    ]
+  }, 
+  "statement": [
+    {
+      "effect": "allow", 
+      "action": [
+        "name/cos:GetBucket"
+      ], 
+      "resource": [
+        "qcs::cos:sg:uid/1251668577:prefix//1251668577/arlenhuangtestsgnoversion/*"
+      ]
+    }
+  ]
+}
+
 ```
 
 ### 返回
-```XML
+```JSON
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0
