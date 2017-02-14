@@ -59,3 +59,35 @@ Authorization: Auth
   ...
 </CORSConfiguration>
 ```
+
+## 示例
+### 请求
+```xml
+GET /?cors HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484815944;32557711944&q-key-time=1484815944;32557711944&q-header-list=host&q-url-param-list=cors&q-signature=a2d28e1b9023d09f9277982775a4b3b705d0e23e
+
+```
+### 返回
+```xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 345
+Connection: keep-alive
+Date: Thu Jan 19 16:52:31 2017
+Server: tencent-cos
+x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZTBh
+
+<CORSConfiguration> 
+  <CORSRule> 
+    <ID>1234</ID>  
+    <AllowedOrigin>http://www.qq.com</AllowedOrigin>  
+    <AllowedMethod>PUT</AllowedMethod>  
+    <AllowedHeader>x-cos-meta-test</AllowedHeader>  
+    <ExposeHeader>x-cos-meta-test1</ExposeHeader>  
+    <MaxAgeSeconds>500</MaxAgeSeconds> 
+  </CORSRule> 
+</CORSConfiguration>
+
+```
+
