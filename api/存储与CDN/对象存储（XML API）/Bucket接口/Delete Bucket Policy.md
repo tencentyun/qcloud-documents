@@ -38,7 +38,7 @@ Authorization: Auth String
 
 ## 示例
 ### 请求
-```xml
+```json
 
 DELETE /?policy HTTP/1.1
 Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
@@ -47,7 +47,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-
 
 ```
 ### 返回
-```xml
+```json
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0
