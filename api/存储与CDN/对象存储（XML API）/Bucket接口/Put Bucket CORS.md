@@ -82,6 +82,17 @@ Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814927;32557710927&q-key-time=1484814927;32557710927&q-header-list=host&q-url-param-list=cors&q-signature=8b9f05dabce2578f3a79d732386e7cbade9033e3
 Content-Type:application/xml
 Content-Length: 280
+
+<CORSConfiguration>
+  <CORSRule>
+    <ID>1234</ID>
+    <AllowedOrigin>http://www.qq.com</AllowedOrigin>
+    <AllowedMethod>PUT</AllowedMethod>
+    <AllowedHeader>x-cos-meta-test</AllowedHeader>
+    <MaxAgeSeconds>500</MaxAgeSeconds>
+    <ExposeHeader>x-cos-meta-test1</ExposeHeader>
+  </CORSRule>
+</CORSConfiguration>
 ```
 ### 返回
 ```XML
