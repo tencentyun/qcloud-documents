@@ -93,7 +93,7 @@ x-cos-request-id: NTg4MDg0ZGVfOTkxZjRlXzEwOGVfZjdh
 	<Contents>
 		<Key>ObjectName</Key>
 		<LastModified>Wed Jan 18 16:58:13 2017</LastModified>
-		<ETag>&quot;&quot;3a0f1fd698c235af9cf098cb74aa25bc&quot;&quot;</ETag>
+		<ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
 		<Size>10485760</Size>
 	</Contents>
 </ListBucketResult>
