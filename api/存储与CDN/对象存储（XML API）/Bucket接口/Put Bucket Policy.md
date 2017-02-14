@@ -71,7 +71,7 @@ Authorization: Auth String
 
 ## 示例
 ### 请求
-```JSON
+```XML
 PUT /?policy HTTP/1.1
 Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484813288;32557709288&q-key-time=1484813288;32557709288&q-header-list=host&q-url-param-list=policy&q-signature=05f7fc936369f910a94a0c815e1f1752f034d47a
@@ -81,7 +81,7 @@ Content-Length: 233
 ```
 
 ### 返回
-```JSON
+```XML
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0
