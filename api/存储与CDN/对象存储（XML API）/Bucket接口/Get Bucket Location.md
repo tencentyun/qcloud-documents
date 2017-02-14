@@ -46,7 +46,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-
 
 ```
 ### 返回
-```xml
+```http
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 92
