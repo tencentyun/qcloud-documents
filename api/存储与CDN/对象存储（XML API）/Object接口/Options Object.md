@@ -54,3 +54,30 @@ Access-Control-Request-Headers:RequestHeader
 ### 返回内容
 
 无返回内容
+
+## 示例
+
+### 请求
+```http
+OPTIONS /coss3/ObjectName HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Origin:http://www.qq.com
+Access-Control-Request-Method:PUT
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487070734;32466654734&q-key-time=1487070734;32559966734&q-header-list=host&q-url-param-list=&q-signature=2ac3ada19910f44836ae0df72a0ec1003f34324b
+
+```
+### 返回
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Access-Control-Allow-Headers: x-cos-meta-test
+Access-Control-Allow-Methods: PUT
+Access-Control-Allow-Origin: http://www.qq.com
+Access-Control-Expose-Headers: x-cos-meta-test1
+Access-Control-Max-Age: 500
+Date: Tue Feb 14 19:13:51 2017
+Server: tencent-cos
+x-cos-request-id: NThhMmU2NmZfMmM4OGY3XzZjZGFfMTkzNw==
+```

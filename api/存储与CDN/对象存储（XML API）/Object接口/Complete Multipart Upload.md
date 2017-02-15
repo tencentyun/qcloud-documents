@@ -1,5 +1,5 @@
 ## 功能描述
-Complete Multipart Upload用来实现完成一个分块上传。当您已经使用Upload Parts上传所有块以后，你可以用该API完成上传。在使用该API时，您必须在Body中给出每一个块的PartNumber和ETag，用来校验块的准确性。
+Complete Multipart Upload用来实现完成整个分块上传。当您已经使用Upload Parts上传所有块以后，你可以用该API完成上传。在使用该API时，您必须在Body中给出每一个块的PartNumber和ETag，用来校验块的准确性。
 
 由于分块上传的合并需要数分钟时间，因而当合并分块开始的时候，COS就立即返回200的状态码，在合并的过程中，COS会周期性的返回空格信息来保持连接活跃，直到合并完成，COS会在Body中返回合并后块的内容。
 
@@ -97,7 +97,7 @@ x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 	<Location>http://arlenhuangtestsgnoversion-1251668577.cossgp.myqcloud.com/ObjectName</Location>
 	<Bucket>arlenhuangtestsgnoversion</Bucket>
 	<Key>ObjectName</Key>
-	<ETag>&quot;3a0f1fd698c235af9cf098cb74aa25bc&quot;</ETag>
+	<ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
 </CompleteMultipartUpload>
 ```
 

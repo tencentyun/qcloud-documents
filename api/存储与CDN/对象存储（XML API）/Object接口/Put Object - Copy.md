@@ -39,9 +39,9 @@ x-cos-storage-class:
 ### 请求头部
 
 #### 必选头部
-| 名称                | 描述                              | 类型     | 必选   |
-| ----------------- | ------------------------------- | ------ | ---- |
-| x-cos-copy-source | 源文件URL路径，可以通过versionid子资源指定历史版本 | String | 是    |
+| 名称                | 描述                                | 类型     | 必选   |
+| ----------------- | --------------------------------- | ------ | ---- |
+| x-cos-copy-source | 源文件URL绝对路径，可以通过versionid子资源指定历史版本 | String | 是    |
 
 #### 推荐使用头部
 
@@ -86,4 +86,27 @@ x-cos-storage-class:
   <ETag></ETag>
   <LastModified></LastModified>
 </CopyObjectResult>
+```
+## 示例
+
+### 请求
+```http
+PUT /coss3/destinationObject HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+X-cos-copy-source:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com/ObjectName
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487063832;32466647832&q-key-time=1487063832;32559959832&q-header-list=host&q-url-param-list=&q-signature=a1c35e63125977022c7d8a81a5c7918c9c403f68
+
+```
+
+### 返回
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 198
+Connection: keep-alive
+Date: Tue Feb 14 17:22:01 2017
+ETag: "72c1bc1feb83a71c229de411c947f110"
+Server: tencent-cos
+x-cos-request-id: NThhMmNjMzlfMmM4OGY3XzZjZGFfOGM1
+
 ```

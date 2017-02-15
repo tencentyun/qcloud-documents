@@ -113,31 +113,31 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
 	<Contents>
 		<Key>testL</Key>
 		<LastModified>Wed Jan 11 18:57:06 2017</LastModified>
-		<ETag>&quot;79f2a852fac7e826c9f4dbe037f8a63b&quot;</ETag>
+		<ETag>"79f2a852fac7e826c9f4dbe037f8a63b"</ETag>
 		<Size>10485760</Size>
 	</Contents>
 	<Contents>
 		<Key>testL1</Key>
 		<LastModified>Wed Jan 11 19:02:17 2017</LastModified>
-		<ETag>&quot;3f9a5dbff88b25b769fa6304902b5d9d&quot;</ETag>
+		<ETag>"3f9a5dbff88b25b769fa6304902b5d9d"</ETag>
 		<Size>10485760</Size>
 	</Contents>
 	<Contents>
 		<Key>testLLL</Key>
 		<LastModified>Wed Jan 11 16:36:08 2017</LastModified>
-		<ETag>&quot;39bfb88c11c65ed6424d2e1cd4db1826&quot;</ETag>
+		<ETag>"39bfb88c11c65ed6424d2e1cd4db1826"</ETag>
 		<Size>10485760</Size>
 	</Contents>
 	<Contents>
 		<Key>testLOL</Key>
 		<LastModified>Wed Jan 11 17:24:10 2017</LastModified>
-		<ETag>&quot;fb31459ad10289ff49327fd91a3e1f6a&quot;</ETag>
+		<ETag>"fb31459ad10289ff49327fd91a3e1f6a"</ETag>
 		<Size>4</Size>
 	</Contents>
 	<Contents>
 		<Key>tet</Key>
 		<LastModified>Wed Jan 11 15:54:02 2017</LastModified>
-		<ETag>&quot;83b3ec25cc19626ac073297eba30fbc4&quot;</ETag>
+		<ETag>"83b3ec25cc19626ac073297eba30fbc4"</ETag>
 		<Size>10485760</Size>
 	</Contents>
 </ListBucketResult>
