@@ -37,7 +37,7 @@
 |11056|InstanceBeenLocked|实例实例正被其它流程锁定，暂时不能执行该操作|
 |11065|PeriodExceedMaxLimit|购买时长超过最大时长限制|
 |11066|PeriodLessThanMinLimit|购买时长小于最小时长限制|
-|100207|AccountIsNotEnough| 账号余额不足，请充值|
+|100207|OperationConstraints.AccountBalanceNotEnough| 账号余额不足，请充值|
 
 ## 5. 示例
 输入

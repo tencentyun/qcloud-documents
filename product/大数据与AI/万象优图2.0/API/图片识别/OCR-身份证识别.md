@@ -270,7 +270,7 @@ data字段具体内容（身份证有照片的一面）
 | name                   | string     | 姓名      |
 | sex                    | string     | 性别      |
 | nation                 | string     | 民族      |
-| birthday               | string     | 出生日期    |
+| birth                  | string     | 出生日期    |
 | address                | string     | 地址      |
 | id                     | string     | 身份证号    |
 | name_confidence_all    | array(int) | 证件姓名置信度 |
@@ -403,4 +403,5 @@ Content-Type: image/jpeg
 | -1507 | 无法访问url对应的图片服务器                     |
 | -5062 | url对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 | -5103 | OCR识别失败                             |
+| -5107 | 提供的图片不是身份证                          |
 

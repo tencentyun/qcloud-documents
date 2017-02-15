@@ -9,7 +9,6 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | cdbInstanceId | 是 | String | 实例ID，格式如：cdb-c1nl9rpv。与云数据库控制台页面中显示的实例ID相同，可使用[查询实例列表](/doc/api/253/1266) 接口获取，其值为输出参数中字段 uInstanceId 的值。 |
-| dstType | 是 | String | 实例类型，可使用[查询实例列表](/doc/api/253/1266) 接口获取，其值为输出参数中字段 cdbType 的值。 |
 
 
 ## 3. 输出参数
@@ -23,7 +22,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| taskId | String | 任务ID |
+| jobId | String | 任务ID |
 
 
 ## 4. 错误码表
@@ -32,6 +31,7 @@
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
 | 9003 | InvalidParameter | 参数错误 |
+| 9003 | InvalidParameter | 交易参数错误 |
 
 
 ## 5. 示例
@@ -50,7 +50,7 @@ https://cdb.api.qcloud.com/v2/index.php?Action=OpenCdbExtranetAccess
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "taskId": 223
+        "jobId": 223
     }
 }
 ```

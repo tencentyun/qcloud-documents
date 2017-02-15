@@ -12,7 +12,18 @@
 | TCLVBIMDemo/TCLVBIMDemoUploadUI|  Replaykit方式录屏的扩展的界面层代码|
 | Pods| 使用CocoaPods管理小直播用到的第三方开源类库|
 
-## 2.模块介绍
+## 2.编译运行
+下载代码后，打开**TCLVBIMDemo.xcworkspace**工程文件（请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj），由于小直播目前还不支持模拟器调试，只能在真机调试，所以您需要按照如下步骤配置工程的证书：
+**Step1:配置bundle id及签名证书**
+![](//mc.qcloudimg.com/static/img/e2c29a0daa9dbba958c970fadc0a3f09/image.jpg)
+**Step2:配置完签名后，还需要配置App Groups**
+![](//mc.qcloudimg.com/static/img/cd7f2559857e8248efa08551e80e8c05/image.jpg)
+**Step3:配置其他TARGETS**
+按照Step1和Step2配置另外2个targets：TCLVBIMDemoUpload和TCLVBIMDemoUploadUI，这2个targets是用于replaykit方式的录屏推流，如果您不需要这个功能，可以删除这2个targets
+
+配置完成后，工程就可以在真机上运行，但是如果要真正体验小直播的功能，还需要修改TCConstants.h中的配置，如何配置，请参考[终端集成](https://www.qcloud.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90.E5.8F.8A.E5.9B.9E.E8.B0.83.E8.AE.BE.E7.BD.AE)
+
+## 3.模块介绍
 小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、推流、播放、消息、资料以及连麦，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
@@ -155,3 +166,4 @@
 	- TCLinkMicPushController：连麦主播端的界面实现，继承自TCPushController，实现连麦请求的响应和连麦观众画面的拉取
 	- TCLinkMicPlayController：连麦观众端的界面实现，继承自TCPlayController，发起连麦请求、进行推流以及主播端画面的拉取
 
+  
