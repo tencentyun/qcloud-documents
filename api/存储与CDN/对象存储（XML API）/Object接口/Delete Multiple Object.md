@@ -93,3 +93,31 @@ Authorization: authorization string
   </Error>
 </DeleteResult>
 ```
+## 示例
+### 请求
+```http
+POST /coss3/?delete HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Content-MD5:35385efb5ba5134bffb192bfa17c3d5e
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487065662;32466649662&q-key-time=1487065662;32559961662&q-header-list=host&q-url-param-list=delete&q-signature=286ef48c81f1652c37c635f0fb7db7a2150aa5ba
+Content-Length: 75
+Content-Type: application/x-www-form-urlencoded
+```
+### 返回
+```http
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 79
+Connection: keep-alive
+Date: Tue Feb 14 17:49:12 2017
+Server: tencent-cos
+x-cos-request-id: NThhMmQyOTdfMmM4OGY3XzZjZGFfY2Mx
+
+<DeleteResult>
+	<Deleted>
+		<Key>ObjectName</Key>
+	</Deleted>
+</DeleteResult>
+
+```
+

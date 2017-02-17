@@ -20,4 +20,8 @@
 | [修改CRS实例密码](http://www.qcloud.com/doc/api/260/1390) | ModfiyRedisPassword | 修改实例密码
 | [修改Redis实例项目](http://www.qcloud.com/doc/api/260/1385) | ModifyRedisProject |  修改实例所属项目 |
 | [清空CRS实例](http://www.qcloud.com/doc/api/260/1386) | ClearRedis |  清空实例数据 | 
-| [CRS查询任务结果](http://www.qcloud.com/doc/api/260/1387) | DescribeTaskInfo | 查询任务执行结果 |  
+| [CRS查询任务结果](http://www.qcloud.com/doc/api/260/1387) | DescribeTaskInfo | 查询任务执行结果 |
+| [手动备份 CRS 实例](http://www.qcloud.com/doc/api/239/8402) | ManualBackupInstance | 手动备份 CRS 实例 |
+| [查询 CRS 实例备份列表](http://www.qcloud.com/doc/api/239/8403) | GetRedisBackupList | 查询 CRS 实例备份列表 |  
+| [恢复 CRS 实例](http://www.qcloud.com/doc/api/239/8401) | RestoreInstance | 恢复 CRS 实例 |  
+| [查询 CRS 实例的任务列表](http://www.qcloud.com/doc/api/239/8404) | GetRedisTaskList | 查询 CRS 实例的任务列表 |
