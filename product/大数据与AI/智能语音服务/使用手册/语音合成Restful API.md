@@ -93,7 +93,6 @@ HRCKlbwPhWtVvfGn914qE5O1rwc=
 请求 headers 为：
 ```
 {
-"Content-Type":"application/octet-stream",
 "Authorization":"HRCKlbwPhWtVvfGn914qE5O1rwc="
 }
 ```
