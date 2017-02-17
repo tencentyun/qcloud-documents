@@ -18,12 +18,11 @@
 | message | String | 模块错误信息描述，与接口相关。 |
 | codeDesc | String | 英文错误描述 |
 | data | Array | 返回的数据 |
-
 其中，data 的字段为：
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| GTID | String |  'YES'为已开通,'NO'为未开通 |
+| GTID | String |  GTID开通状态，可能返回值：YES-已开通；NO-未开通 |
 
 
 ## 4. 错误码表
