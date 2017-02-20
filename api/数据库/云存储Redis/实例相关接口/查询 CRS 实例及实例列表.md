@@ -8,7 +8,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| limit | 是 | Int | 页面大小|
+| limit | 是 | Int | 分页大小|
 | offset | 是 | Int | 当前页码|
 | redisId | 否 | String | 实例Id|
 | redisName | 否 | String | 实例名称|

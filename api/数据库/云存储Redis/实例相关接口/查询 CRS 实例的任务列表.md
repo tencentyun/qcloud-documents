@@ -8,7 +8,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |:---------|---------|---------|---------|
-| limit | 是 | Int | 页面大小 |
+| limit | 是 | Int | 分页大小 |
 | offset | 是 | Int | 当前页码，默认为0。 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；例如查询第110~149 这40条记录，则可以设置 offset=110 limit=40。 |
 | redisId | 否 | String | 实例ID, 可通过 [DescribeRedis](/document/product/239/1384) 接口返回值中的 redisId 获取，支持按照实例ID筛选任务。|
 | redisName | 否 | String | 实例名称，可通过 [DescribeRedis](/document/product/239/1384) 接口返回值中的 redisName 获取，支持按照实例名称筛选任务。 |
