@@ -1,16 +1,17 @@
 ## 1. 接口描述
-本接口(RestoreInstance)用于恢复CRS实例。
+本接口(ExportRedisBackup)用于导出CRS实例的备份。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
-- 目标实例只能恢复到自身的备份，不能恢复到别的实例的备份。
+- 导出备份为rdb格式的文件；
+- 只有集群版实例才需要导出备份；
+- 只有导出备份后，才能调用GetBackupDownloadUrl接口下载该备份。
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://www.qcloud.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为RestoreInstance。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://www.qcloud.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为ExportRedisBackup。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |:---------|---------|---------|---------|
 | redisId | 是 | String | 待操作的实例ID，可通过 [DescribeRedis](/document/product/239/1384) 接口返回值中的 redisId 获取。|
-| password | 是 | String | 实例密码，恢复实例时，需要校验实例密码 |
 | backupId | 是 | String | 备份ID，可通过 [GetRedisBackupList](/document/product/239/1384) 接口返回值中的 backupId 获取。 |
 
 ## 3. 输出参数
@@ -35,29 +36,24 @@
 |---------|---------|---------|
 |11201|InvalidParameter|业务参数错误|
 |10701|InstanceNotExists|没有找到serialId对应的实例|
-|10707|InstanceLockedError|实例已被锁住，暂时不能执行该操作|
-|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除）|
-|10711|BackupStatusAbnormal|备份状态异常，暂不能执行该操作。备份可能已过期或已被删除|
-|10710|BackupLockedError|备份已被其它任务锁住，暂时不能执行该操作|
-|10712|PasswordError|实例密码错误|
 |11213|BackupNotExists|根据backupId，没有找到实例对应的备份|
+|11214|OnlyClusterInstanceCanExportBackup|只有集群版的实例才支持导出备份|
 
 ## 5. 示例
 <pre>
-https://redis.api.qcloud.com/v2/index.php?Action=RestoreInstance
+https://redis.api.qcloud.com/v2/index.php?Action=ExportRedisBackup
 &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-&redisId=crs-izbob1wh
-&password=12D3E@!r5ed
-&backupId=e824aecc-ef5e-11e6-a2c7-525400082493
+&redisId=crs-j30wibe7
+&backupId=3a07b27e-f744-11e6-babc-525400082493
 </pre>
 返回示例如下：
 ```
 {
     "code": 0,
-    "message": ""，
-	"codeDesc": "Success",
-	"data": {
-        "requestId": 375074
+    "message": "",
+    "codeDesc": "Success",
+	 "data": {
+        "requestId": 400151
     }
 }
 ```
