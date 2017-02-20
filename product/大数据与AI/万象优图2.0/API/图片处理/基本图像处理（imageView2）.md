@@ -17,16 +17,16 @@ download_url?imageView2/<mode>/w/<Width>/h/<Height>
 
 ## 3. 参数说明
 
-| 参数                            | 含义                                       |
-| ----------------------------- | ---------------------------------------- |
-| /0/w/<LongEdge>/h/<ShortEdge> | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，则另一边自适应 |
-| /1/w/<Width>/h/<Height>       | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩，剧中裁剪；如果只指定一边，则表示宽高相等的正方形；缩放后的图片的大小为<Width>x<Height>（其中一边多余的部分会被裁剪掉） |
-| /2/w/<Width>/h/<Height>       | 限定缩略图的宽和高的最大值分别为Width和Height，进行等比压缩；如果只指定一边，则另一边自适应 |
-| /3/w/<Width>/h/<Height>       | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
-| /4/w/<LongEdge>/h/<ShortEdge> | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
-| /5/w/<LongEdge>/h/<ShortEdge> | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩，居中裁剪；如果只指定一边，则表示宽高相等的正方形；同模式1，缩放后其中一边多余的部分会被裁剪掉 |
-| /format/<Format>              | 目标缩略图的图片格式，Format可为：jpg, bmp, gif, png, webp,yjpeg等，其中yjpeg为万象优图针对jpeg格式进行的优化，本质为jpg格式；缺省为原图格式 |
-| /q/<Quality>                  | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；<Quality>后面加！，表示强制使用指定值 |
+| 参数                                       | 含义                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| /0/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，则另一边自适应 |
+| /1/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩，剧中裁剪；如果只指定一边，则表示宽高相等的正方形；缩放后的图片的大小为&lt;Width&gt;x&lt;Height&gt;（其中一边多余的部分会被裁剪掉） |
+| /2/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最大值分别为Width和Height，进行等比压缩；如果只指定一边，则另一边自适应 |
+| /3/w/&lt;Width&gt;/h/&lt;Height&gt;      | 限定缩略图的宽和高的最小值分别为Width和Height，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
+| /4/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
+| /5/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩，居中裁剪；如果只指定一边，则表示宽高相等的正方形；同模式1，缩放后其中一边多余的部分会被裁剪掉 |
+| /format/&lt;Format&gt;                   | 目标缩略图的图片格式，Format可为：jpg, bmp, gif, png, webp,yjpeg等，其中yjpeg为万象优图针对jpeg格式进行的优化，本质为jpg格式；缺省为原图格式 |
+| /q/&lt;Quality&gt;                              | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；&lt;Quality&gt; 后面加！，表示强制使用指定值 |
 
 ## 4. 示例
 

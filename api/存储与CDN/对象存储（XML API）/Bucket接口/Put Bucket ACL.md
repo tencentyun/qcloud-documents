@@ -1,6 +1,6 @@
 ## 功能描述
 
-使用API写入Bucket的ACL表，您可以通过Header：『x-cos-acl』『x-cos-grant-read』『x-cos-grant-write』『x-cos-grant-full-control』传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能选择Header和Body其中一种，否则返回冲突。
+使用API写入Bucket的ACL表，您可以通过Header：『x-cos-acl』『x-cos-grant-read』『x-cos-grant-write』『x-cos-grant-full-control』传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能**选择`Header`和`Body`其中一种**，否则返回冲突。
 
 Put Bucket ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有所有者有权操作。
 
@@ -22,6 +22,8 @@ Put Bucket ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有
 PUT /?acl Http/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
+Content-Type:application/xml
+Content-MD5:MD5
 x-cos-acl: [对应权限]
 x-cos-grant-read: uin="",uin=""
 x-cos-grant-write: uin="",uin=""
@@ -53,7 +55,7 @@ Authorization: Auth String
 | uin                 | 用户QQ号                                    | String    |
 | Subacount           | 子账户QQ账号                                  | String    |
 | AccessControlList   | 被授权者信息与权限信息                              | Container |
-| Grant               | 单条授权信息，一个AccessControlList钟可以拥有100条Grant | Container |
+| Grant               | 单条授权信息，每个AccessControlList可以拥有100条Grant  | Container |
 | Grantee             | 被授权者资源信息，type类型可以为RootAcount， SubAccount；当type类型为RootAcount时，可以在UIN中填写QQ，也可以填写anonymous（指代所有类型用户）。当type类型为RootAcount时，UIN代表根账户账号，SubAccount代表子账户账号 | Container |
 | Permission          | 权限信息，枚举值：READ，WRITE，FULL_CONTROL         | String    |
 
@@ -92,3 +94,42 @@ Authorization: Auth String
 ### 返回内容
 
 无返回内容
+
+## 示例
+
+### 请求
+
+```HTTP
+PUT /?acl HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484724784;32557620784&q-key-time=1484724784;32557620784&q-header-list=host&q-url-param-list=acl&q-signature=785d9075b8154119e6a075713c1b9e56ff0bddfc
+Content-Length: 229
+Content-Type: application/x-www-form-urlencoded
+
+<AccessControlPolicy>
+  <Owner>
+    <uin>2779643970</uin>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee type="RootAccount">
+        <uin>2779643970</uin>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy>
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Wed Jan 18 15:41:31 2017
+Server: tencent-cos
+x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
+```
+

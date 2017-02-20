@@ -11,8 +11,8 @@
 |---------|---------|---------|---------|
 | vpcId | 是 | string | 私有网络ID，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-03vihbk9,可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 | 
 | vpnGwId | 是 | String | 系统分配的VPN网关ID，可使用vpnGwId或unVpnGwId，建议unVpnGwId，例如：vpngw-dystbrkv。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>接口查询。 |
-| vpnConnId | 是 | String | 系统分配的VPN通道ID，可使用vpnConnId或unVpnConnId，建议使用unVpnConnId，例如：vpnx-ol6bcqp0。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E9%80%9A%E9%81%93%E5%88%97%E8%A1%A8" title="DescribeVpnConn">DescribeVpnConn</a>接口查询。 | 
-| vpnConnName | 否 | String | 通道名称，取值：1-25个中文、英文大小写的字母、数字和下划线分隔符，同一个VPC下名称不可重复。 |
+| vpnConnId | 是 | String | 系统分配的VPN通道ID，可使用vpnConnId或unVpnConnId，建议使用unVpnConnId，例如：vpnx-ol6bcqp0。可通过<a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>接口查询。 | 
+| vpnConnName | 否 | String | 通道名称，可任意命名，但不得超过60个字符。同一个VPC下名称不可重复。 |
 | preSharedKey | 否 | String | 预共享密钥。 |
 | userGwCidrBlock.n | 否 | Array | 对端网段CIDR地址，可写多个，指定vpc可以和哪些IDC网段通信，后面升级为spdAcl（粒度更细），userGwCidrBlock和spdAcl必须填一项。 |
 | spdAcl.n | 否 | Array | SPD策略组，用户指定VPC内哪些网段可以和您IDC中哪些网段通信，由userGwCidrBlock升级而来，userGwCidrBlock和spdAcl必须填一项，更多详见产品说明文档。 |
@@ -61,7 +61,7 @@ IPsec配置详情
 |---------|---------|
 | InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询VPC。 |
 | InvalidVpnGw.NotFound | 无效的vpn网关。vpn网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>接口查询vpn网关。 |
-| InvalidVpnGw.NotFound | 无效的vpn通道。vpn通道资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e9%80%9a%e9%81%93%e5%88%97%e8%a1%a81?viewType=preview" title="DescribeVpnConn">DescribeVpnConn</a>接口查询vpn通道。 |
+| InvalidVpnGw.NotFound | 无效的vpn通道。vpn通道资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>接口查询vpn通道。 |
  
 
 ## 5. 示例

@@ -53,4 +53,4 @@ psql -U pgtest -h 10.xxx.xxx.xxx -d pg001 -p 4321 -f pg001.sql
 
 ##4.通过互联网迁移数据
 如果您的数据总量不大（例如不超过10GB），也可以通过pgAdmin等工具并通过互联网直接导入数据，例如：
-[](https://mc.qcloudimg.com/static/img/a4d8bd006f5f5d976dab220589753f44/image.png)
+![](https://mc.qcloudimg.com/static/img/a4d8bd006f5f5d976dab220589753f44/image.png)

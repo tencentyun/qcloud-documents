@@ -1,5 +1,5 @@
 ## 1.工程结构
-从github下载小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
+[下载](https://www.qcloud.com/document/product/454/6991)小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
 ![](//mc.qcloudimg.com/static/img/af1b516a6c254da0224486bd35e3d2b6/image.png)
 
 |文件/目录 | 说明 | 

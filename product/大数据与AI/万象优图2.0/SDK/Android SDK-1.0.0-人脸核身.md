@@ -1,10 +1,10 @@
-## 开发准备
+## 1. 开发准备
 
-### SDK获取
+### 1.1 SDK获取
 人脸核身sdk的Android SDK-1.0.0下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/9f5229f0bb019f5fe5b9f6b7bc6134af/faceid-1.0.0.zip)
 更多示例可以参考Demo：[Android SDK Demo](https://mc.qcloudimg.com/static/archive/6e5c11cd423409f50804410e47b04e9a/FaceIdDemo+.zip)
 
-### 开发准备
+### 1.2 开发准备
 1. 开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得appid、SecretId和SecretKey等；
 2. 手机必须要有网络（GPRS、3G或Wifi等）；
 3. 支持Android 4.0及其以上版本；
@@ -24,7 +24,7 @@
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 ```
-## 快速入门
+## 2. 快速入门
 ### 初始化FaceIdClient
 ```
 Context context = getApplicationContext();
@@ -38,13 +38,14 @@ final FaceIdClient faceIdClient = new FaceIdClient(context, appid);
 String bucket = "your bucket"; // bucket名称
 String idCardNumber = "your id card number"; // 身份证号码
 String idCardName = "your idCard name"; // 身份证姓名
-String imagePath = "your image path"; // 本地图片文件路径
+File image = new File("your image path"); // 本地图片文件
 String seq = "seq";
 
 String sign = "多次有效签名"; // 测试时可以利用CredentialProvider类来生成签名
 
 // 初始化人脸对比请求
-final ImageIdCardCompareRequest imageIdCardCompareRequest = ImageIdCardCompareRequest.getInstanceByPath(bucket, idCardNumber, idCardName, imagePath, seq);
+final ImageIdCardCompareRequest imageIdCardCompareRequest = new ImageIdCardCompareRequest(bucket, idCardNumber, idCardName, image, seq);
+
 // 设置签名
 imageIdCardCompareRequest.setSign(sign);
 
@@ -74,7 +75,7 @@ String seq = "seq";
 String sign = "多次有效签名"; // 测试时可以利用CredentialProvider类来生成签名
 
 // 初始化请求
-final ImageIdCardCompareRequest imageIdCardCompareRequest = ImageIdCardCompareRequest.getInstanceByUrl(bucket, idCardNumber, idCardName, url, seq);
+final ImageIdCardCompareRequest imageIdCardCompareRequest = new ImageIdCardCompareRequest(bucket, idCardNumber, idCardName, url, seq);
 // 设置签名
 imageIdCardCompareRequest.setSign(sign);
 
@@ -237,9 +238,11 @@ faceIdClient.release();
 ### 人脸对比
 自带人脸识别数据库，可实时为国内公民提供在线的身份证照片比对。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。
 1、通过上传本地图像进行对比。人脸对比请求初始化函数：
-``` 
-public static ImageIdCardCompareRequest getInstanceByPath(String bucket, String idCardNumber, String idCardName, String imagePath, String seq);
+
 ```
+public ImageIdCardCompareRequest(String bucket, String idCardNumber, String idCardName, File image, String seq);
+```
+
 参数说明：
 
 | 参数名称         | 类型     | 是否必填 | 参数描述          |
@@ -247,9 +250,8 @@ public static ImageIdCardCompareRequest getInstanceByPath(String bucket, String 
 | bucket       | String | 是    | 用户创建的bucket名称 |
 | idCardNumber | String | 是    | 身份证号码         |
 | idCardName   | String | 是    | 身份证名称         |
-| imagePath    | String | 是    | 本地图片路径        |
+| image        | File   | 是    | 本地图片          |
 | seq          | String | 否    | 用于日志查询        |
->**人脸对比示例代码请参见*快速入门***
 
 2、通过上传图像url进行对比。人脸对比请求初始化函数：
 ```
@@ -296,8 +298,10 @@ public GetLipLanguageRequest(String bucket, String seq);
 | validateData | String | 唇语   |
 >**获取唇语示例代码请参见*快速入门***
 
-### 人脸核身
-根据用户上传的照片和视频，进行人脸核身验证。人脸核身构造函数：
+### 人脸核身---活体检测视频与用户照片的比对
+
+根据用户提前上传的照片与在线录制的活体视频，通过人脸识别进行匹配验证。人脸核身构造函数：
+
 ```
 public VideoImageIdentityRequest(String bucket, String validateData, String videoPath, String imagePath, boolean compare, String seq);
 ```
@@ -326,11 +330,14 @@ public VideoImageIdentityRequest(String bucket, String validateData, String vide
 | photo          | String | 人脸检测中相似度最高的图像 |
 >**人脸核身示例代码请参见*快速入门***
 
-### 人脸核身
+### 人脸核身---活体检测视频与身份证高清照片的比对
+
 自带人脸识别数据库，可实时为国内公民提供在线的身份证照片比对。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。人脸核身构造函数：
+
 ```
 VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath, String idCardNumber, String idCardName, String seq);
 ```
+
 参数说明
 
 | 参数名称         | 类型     | 是否必填 | 参数描述          |
@@ -354,5 +361,6 @@ VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath,
 | compareMessage | String | 人脸对比检测错误描述    |
 | similarity     | int    | 人脸对比检测的相似度    |
 | photo          | String | 人脸检测中相似度最高的图像 |
->**人脸核身示例代码请参见*快速入门***
+
+> **人脸核身示例代码请参见*快速入门***
 

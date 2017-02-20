@@ -1,5 +1,5 @@
 ## 工具使用方法
-1、将“[Windows客户端上传工具](https://mc.qcloudimg.com/static/archive/924f2030cc27762d677c533ae533b1b1/upload.zip)”下载至本地后，将其解压到任意文件夹（注：文件夹路径请勿包涵中文），解压后的文件目录结构如下：
+1、将“[Windows客户端上传工具](https://mc.qcloudimg.com/static/archive/ef1dec9f9a72cbafdc707915475a368e/upload.zip)”下载至本地后，将其解压到任意文件夹（注：文件夹路径请勿包涵中文），解压后的文件目录结构如下：
 ![](https://mc.qcloudimg.com/static/img/716da8b5ece00ca2be062e2b637ff40d/1-1.png)
 
 2、为了保证客户的数据安全。在备份上传之前，需要编辑配置文件etc\conf.json，填写客户自己的API密钥（[secretId和secretKey](https://www.qcloud.com/help/%E4%BA%91API%E8%AE%BF%E9%97%AE%E5%AF%86%E9%92%A5%E5%9C%A8%E5%93%AA%E9%87%8C%E8%8E%B7%E5%8F%96%EF%BC%8C%E8%AE%BF%E9%97%AE%E5%AF%86%E9%92%A5%E6%9C%80%E5%A4%9A%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA)），请务必保存好自己的API密钥，切勿泄漏。为了保证传输过程的稳定，此工具已经支持断点续传功能；

@@ -1,3 +1,5 @@
+说明：该接口的费用可查看[文档](/document/product/460/6970)。按使用量进行月结。
+
 ### 1. 接口描述
 
 OCR接口采用http协议，支持多URL和多本地图片文件,每个请求最多支持20张图片或url。
@@ -41,7 +43,7 @@ Content-Type: "application/json"
 
 | 参数        | 是否必选 | 类型     | 描述                      |
 | --------- | ---- | ------ | ----------------------- |
-| appid     | 是    | uint   | 业务id                    |
+| appid     | 是    | string | 业务id                    |
 | bucket    | 是    | string | 图片空间                    |
 | card_type | 是    | int    | 0为身份证有照片的一面，1为身份证有国徽的一面 |
 | url_list  | 是    | string | 图片url列表                 |
@@ -268,7 +270,7 @@ data字段具体内容（身份证有照片的一面）
 | name                   | string     | 姓名      |
 | sex                    | string     | 性别      |
 | nation                 | string     | 民族      |
-| birthday               | string     | 出生日期    |
+| birth                  | string     | 出生日期    |
 | address                | string     | 地址      |
 | id                     | string     | 身份证号    |
 | name_confidence_all    | array(int) | 证件姓名置信度 |
@@ -401,4 +403,5 @@ Content-Type: image/jpeg
 | -1507 | 无法访问url对应的图片服务器                     |
 | -5062 | url对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 | -5103 | OCR识别失败                             |
+| -5107 | 提供的图片不是身份证                          |
 

@@ -377,7 +377,8 @@ download_url?imageView2/<mode>/w/<Width>/h/<Height>
 | /4/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比压缩；如果只指定一边，代表另外一边为同样的值 |
 | /5/w/&lt;LongEdge&gt;/h/&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比压缩，居中裁剪；如果只指定一边，则表示宽高相等的正方形；同模式1，缩放后其中一边多余的部分会被裁剪掉 |
 | /format/&lt;Format&gt;                   | 目标缩略图的图片格式，Format可为：jpg, bmp, gif, png, webp,yjpeg等，其中yjpeg为万象优图针对jpeg格式进行的优化，本质为jpg格式；缺省为原图格式 |
-| /q/<Quality>                             | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；<Quality>后面加！，表示强制使用指定值 |
+| /q/&lt;Quality&gt;                              | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；&lt;Quality&gt; 后面加！，表示强制使用指定值 |
+
 示例：
 
 ```
@@ -411,31 +412,35 @@ imageMogr2是腾讯云·万象优图为开发者提供的简单而功能强大�
 
 #### 8.2.2 参数说明
 
-| 参数                                  | 含义                                       |
-| ----------------------------------- | ---------------------------------------- |
-| /auto-orient                        | 根据exif信息自动把图片旋转回正                        |
-| /strip                              | 去除不安全代码包括exif信息                          |
-| /gravity/<gravityType>              | 图片处理位置，影响其后的裁剪偏移参数，参见下面九宫格方位，默认值为：Center |
-| /crop/<imageSizeAndOffsetGeometry>  | 请参考下面的裁剪操作表格，缺省不裁剪                       |
-| /scrop/<imageSizeAndOffsetGeometry> | 基于人脸识别执行智能裁剪功能。裁剪区域根据人的头像位置自动确定。 输出的裁剪后图片大小需要结合宽高参数指定。 |
-| /rotate/<rotateDegree>              | 图片旋转角度，取值范围0-360                         |
-| /format/<Format>                    | 目标缩略图的图片格式，Format可为：jpg, bmp, gif, png, webp,yjpeg等，其中yjpeg为万象优图针对jpeg格式进行的优化，本质为jpg格式；缺省为原图格式 |
-| /quality/<Quality>                  | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；<Quality>后面加！，表示强制使用指定值 |
-| /cgif/<FrameNumber>                 | 只针对原图为gif格式，对gif图片格式进行的优化，降帧降颜色。分为以下两种情况：FrameNumber=1，则按照默认帧数30处理，如果图片帧数大于该帧数则截取；FrameNumber取值(1,100]，则将图片压缩到指定帧数FrameNumber |
-| /interlace/<Mode>                   | 输出为渐进式jpg格式。Mode可为0或1,0表示不开启渐进式；1表示开启渐进式。该参数仅在输出图片格式为jpg格式时有效。如果输出非jpg图片格式，会忽略该参数，默认值0 |
+| 参数                                      | 含义                                       |
+| --------------------------------------- | ---------------------------------------- |
+| /auto-orient                            | 根据原图的exif信息自动把图片旋转回正。                    |
+| /strip                                  | 去除不安全代码包括exif信息。                         |
+| /gravity/&lt;gravityType&gt;                 | 图片处理位置，影响其后的裁剪偏移参数，参见下面九宫格方位，默认值为中间：Center。 |
+| /thumbnail/&lt;imageSizeAndOffsetGeometry&gt; | 参考下面的缩放操作参数表。                            |
+| /crop/&lt;imageSizeAndOffsetGeometry&gt;      | 请参考下面的裁剪参数表，缺省不裁剪。                       |
+| /scrop/&lt;imageSizeAndOffsetGeometry&gt;     | 基于人脸识别执行智能裁剪功能。裁剪区域根据人的头像位置自动确定。 输出的裁剪后图片大小需要结合宽高参数指定。参考下面的智能裁剪参数表。 |
+| /rotate/&lt;rotateDegree&gt;                  | 图片旋转角度，取值范围0-360，默认不旋转。                  |
+| /format/&lt;Format&gt;                        | 目标缩略图的图片格式，Format可为：jpg, bmp, gif, png, webp,yjpeg等，其中yjpeg为万象优图针对jpeg格式进行的优化，本质为jpg格式；缺省为原图格式。 |
+| /quality/&lt;Quality&gt;                      | 图片质量，取值范围0-100，默认值为原图质量；取原图质量和指定质量的最小值；&lt;Quality&gt;后面加！，表示强制使用指定值，如：90！。 |
+| /cgif/&lt;FrameNumber&gt;                     | 只针对原图为gif格式，对gif图片格式进行的优化，降帧降颜色。分为以下两种情况：FrameNumber=1，则按照默认帧数30处理，如果图片帧数大于该帧数则截取；FrameNumber取值(1,100]，则将图片压缩到指定帧数FrameNumber。 |
+| /interlace/&lt;Mode&gt;                       | 输出为渐进式jpg格式。Mode可为0或1,0表示不开启渐进式；1表示开启渐进式。该参数仅在输出图片格式为jpg格式时有效。如果输出非jpg图片格式，会忽略该参数，默认值0。 |
+
 缩放操作表格：
 
-| 参数                                       | 含义                                       |
-| ---------------------------------------- | ---------------------------------------- |
-| /thumbnail/!&lt;Scale&gt;p               | 指定图片的宽高为原图的Scale%                        |
-| /thumbnail/!<Scale>px                    | 指定图片的宽为原图的Scale%，高度不变                    |
-| /thumbnail/!x<Scale>p                    | 指定图片的高为原图的Scale%，宽度不变                    |
-| /thumbnail/<Width>x                      | 指定目标图片宽度为Width，高度等比压缩                    |
-| /thumbnail/x<Height>                     | 指定目标图片高度为Height，宽度等比压缩                   |
-| /thumbnail/&lt;LongEdge&gt;x&lt;ShortEdge&gt; | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比缩放 |
-| /thumbnail/!<LongEdge>x<ShortEdge>r      | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比缩放 |
-| /thumbnail/<Width>x<Height>!             | 忽略原图宽高比例，指定图片宽度为Width，高度为Height，强行缩放图片，可能导致目标图片变形 |
-/thumbnail/<Areae>@	等比缩放图片，缩放后的像素数量不超过Area
+
+| 参数                                  | 含义                                       |
+| ----------------------------------- | ---------------------------------------- |
+| /thumbnail/!&lt;Scale&gt;p                | 指定图片的宽高为原图的Scale%                        |
+| /thumbnail/!&lt;Scale&gt;px               | 指定图片的宽为原图的Scale%，高度不变                    |
+| /thumbnail/!x&lt;Scale&gt;p               | 指定图片的高为原图的Scale%，宽度不变                    |
+| /thumbnail/&lt;Width&gt;x                 | 指定目标图片宽度为Width，高度等比压缩                    |
+| /thumbnail/x&lt;Height&gt;                | 指定目标图片高度为Height，宽度等比压缩                   |
+| /thumbnail/&lt;LongEdge&gt;x&lt;ShortEdge&gt;   | 限定缩略图的长边和短边的最大值分别为LongEdge和ShortEdge，进行等比缩放 |
+| /thumbnail/!&lt;LongEdge&gt;x&lt;ShortEdge&gt;r | 限定缩略图的长边和短边的最小值分别为LongEdge和ShortEdge，进行等比缩放 |
+| /thumbnail/&lt;Width&gt;x&lt;Height&gt;!        | 忽略原图宽高比例，指定图片宽度为Width，高度为Height，强行缩放图片，可能导致目标图片变形 |
+| /thumbnail/&lt;Area&gt;@                  | 等比缩放图片，缩放后的图像，总像素数量不超过Area                   |
+
 示例：
 
 ```
@@ -444,6 +449,7 @@ http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumb
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/!x50p
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/200x
 http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/200x400!
+http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?imageMogr2/thumbnail/35000@
 ```
 
 九宫格方位图：
