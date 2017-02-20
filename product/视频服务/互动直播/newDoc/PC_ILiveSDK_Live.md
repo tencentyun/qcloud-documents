@@ -6,6 +6,7 @@
 在初始化SDK前，需要设置几个基本的回调函数
 
 * 示例:
+
 ```c++
 void :OnLocalVideo( VideoFrame* video_frame, void* custom_data )
 {
@@ -33,6 +34,7 @@ iLiveSDK::getInstance()->setRemoteVideoCallBack(OnRemoteVideo, NULL); //设置�
 |int|accountType|传入业务方 accountType|
 
 * 示例：
+
 ```c++
 int nRet = iLiveSDK::getInstance()->initSdk(appid, AccountType);
 if (nRet != ilivesdk::NO_ERR)
@@ -57,6 +59,7 @@ PC版iLiveSDK目前仅支持独立模式。
 |  void * |data |用户自定义的数据的指针，在成功和失败的回调函数中原封不动地返回 |
 
 * 示例：
+
 ```c++
 void OniLiveLoginSuccess( void* data )
 {
@@ -83,6 +86,7 @@ iLiveSDK::getInstance()->LiveLogin(userId, userSig, OniLiveLoginSuccess, OniLive
 | void * |data |用户自定义的数据的指针，在成功和失败的回调函数中原封不动地返回|
 
 * 示例：
+
 ```c++
 void OniLiveCreateRoomSuc( void* data )
 {
@@ -120,6 +124,7 @@ iLiveSDK::getInstance()->createRoom( roomOption, OniLiveCreateRoomSuc, OniLiveCr
 | void * |data |用户自定义的数据的指针，在成功和失败的回调函数中原封不动地返回|
 
 * 示例：
+
 ```c++
 void OniLiveJoinRoomSuc( void* data )
 {

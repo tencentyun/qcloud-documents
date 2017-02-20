@@ -6,13 +6,13 @@
 #### Ubuntu
 配置Docker加速器：
 
-您可以使用如下的脚本将mirror的配置添加到docker daemon的启动参数中
-- 如果您的系统是 Ubuntu 12.04 14.04，Docker 1.9 以上
+您可以使用如下的脚本将mirror的配置添加到docker daemon的启动参数中。
+- 如果您的系统是 Ubuntu 12.04 14.04，Docker 1.9 以上。
 ```shell
 echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=https://mirror.ccs.tencentyun.com" | sudo tee -a /etc/default/docker
 sudo service docker restart
 ```
-- 如果您的系统是 Ubuntu 15.04 16.04，Docker 1.9 以上
+- 如果您的系统是 Ubuntu 15.04 16.04，Docker 1.9 以上。
 ```shell
 sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo tee /etc/systemd/system/docker.service.d/mirror.conf <<-'EOF'

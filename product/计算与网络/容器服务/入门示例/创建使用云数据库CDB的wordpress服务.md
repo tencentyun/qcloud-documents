@@ -19,8 +19,8 @@
 环境变量填写：
 WORDPRESS_DB_HOST = 云数据库MySQL的地址
 WORDPRESS_DB_PASSWORD = 初始化时填写的密码
-点击完成以完成创建。
+点击【完成】以完成创建。
 
 ![Alt text](https://mc.qcloudimg.com/static/img/523f276c9c722503ff538392d4d63c9c/Image+039.png)
-#### 第三步：访问测试
+#### 第四步：访问测试
 ![Alt text](https://mc.qcloudimg.com/static/img/c0132b35996db099c02af7f2cf747137/Image+023.png)

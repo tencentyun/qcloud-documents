@@ -10,7 +10,7 @@ DELETE /ObjectName HTTP/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
 Content-Length:length
-Authorization: authorization string
+Authorization: auth
 ```
 
 ### 请求参数

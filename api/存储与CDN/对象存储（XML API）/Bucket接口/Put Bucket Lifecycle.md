@@ -11,9 +11,9 @@ Put Bucket Lifecycle请求实现设置生命周期管理的功能。您可以通
 PUT /?lifecycle HTTP 1.1
 Host:<Bucketname>-<UID>.<Region>.myqcloud.com
 Date:date
+Content-Type:application/xml
+Content-MD5:MD5
 Authorization: Auth
-
-[XML] File
 ```
 
 ### 请求参数

@@ -10,8 +10,9 @@ PUT /?cors HTTP 1.1
 Host:<Bucketname>-<UID>.<Region>.myqcloud.com
 Date: date
 Content-Length: length
+Content-Type:application/xml
+Content-MD5:MD5
 Authorization: Auth
-x-cos-sha1: sha1
 
 <XML 文件>
 ```
