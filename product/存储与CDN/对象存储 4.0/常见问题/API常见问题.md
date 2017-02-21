@@ -27,7 +27,7 @@ A: 使用bucket 的 上传域名和下载域名结构具有如下特征：
 
 **Q: 想要用XML API，文档在哪？**
 
-API 文档 https://www.qcloud.com/document/product/436/7751
+A：API 文档 https://www.qcloud.com/document/product/436/7751
 
 ### 历史数据问题 
 
