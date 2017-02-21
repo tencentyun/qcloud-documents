@@ -18,7 +18,7 @@ Object是腾讯云 COS 中存储的具体内容，使用 key-value 存储方式�
 字符上(↑)：CAN (24) <br/>
 字符下(↓)：EM (25) <br/>
 字符右(→)：SUB (26) <br/>
-字符左(←)：ESC (27) </font>
+字符左(←)：ESC (27) <br/> </font>
 
 以下是安全的Object名称示例：
 
