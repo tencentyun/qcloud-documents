@@ -2,11 +2,11 @@
 
 ### 基本概念
 
-**Q：XML API与4.0的JSON格式API有什么关系？**
+**Q：XML API与4.0版本的JSON格式API有什么关系？**
 
 A：4.0版本JSON格式API接口即2016年9月之后，用户接入COS使用的API，上传域名为[Region].file.myqcloud.com。4.0版本的JSON格式API接口日后将保持维护状态，可以正常使用但是不发展新特性。其与标准XML的API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
 
-**Q：XML API与3.0的JSON格式API有什么关系？**
+**Q：XML API与3.0版本的JSON格式API有什么关系？**
 
 A：3.0版本的JSON格式API接口即2016年10月之前，用户接入COS使用的API，上传域名为web.file.myqcloud.com。对于使用3.0版本的JSON格式API接口的用户，COS将主动帮助用户缓慢迁移数据，转发请求，客户无需变更。其与标准XML的API 底层架构不同，数据不互通，接口不兼容。
 
