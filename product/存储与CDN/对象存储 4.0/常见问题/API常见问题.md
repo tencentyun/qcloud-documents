@@ -14,12 +14,12 @@ A：3.0版本的JSON格式API接口即2016年10月之前，用户接入COS使用
 
 A: 使用bucket 的 上传域名和下载域名结构具有如下特征：
 
-| 地区   | 版本      | 示例下载地址                                   | 示例上传地址                                   |
+| 地区   | 版本       | 示例下载地址                                   | 示例上传地址                                   |
 | ---- | ---------- | ---------------------------------------- | ---------------------------------------- |
-| 上海   | v3-JSON | bucket-[8 位 100 开头数字].cos.myqcloud.com   | web.file.myqcloud.com                    |
-| 华南   | v4-JSON | bucket-[9 位 125 开头数字].cosgz.myqcloud.com | gz.file.myqcloud.com                     |
-| 华北   | v4-JSON | bucket-[9 位 125 开头数字].costj.myqcloud.com | tj.file.myqcloud.com                     |
-| 华东   | v4-JSON | bucket-[9 位 125 开头数字].cossh.myqcloud.com | sh.file.myqcloud.com                     |
+| 上海   | v3-JSON  | bucket-[8 位 100 开头数字].cos.myqcloud.com   | web.file.myqcloud.com                    |
+| 华南   | v4-JSON  | bucket-[9 位 125 开头数字].cosgz.myqcloud.com | gz.file.myqcloud.com                     |
+| 华北   | v4-JSON  | bucket-[9 位 125 开头数字].costj.myqcloud.com | tj.file.myqcloud.com                     |
+| 华东   | v4-JSON  | bucket-[9 位 125 开头数字].cossh.myqcloud.com | sh.file.myqcloud.com                     |
 | 华南   | v4-XML  | bucket-[9 位 125 开头数字].cn-south.myqcloud.com | bucket-[9 位 125 开头数字].cn-south.myqcloud.com |
 | 华北   | v4-XML  | bucket-[9 位 125 开头数字].cn-north.myqcloud.com | bucket-[9 位 125 开头数字].cn-north.myqcloud.com |
 | 华东   | v4-XML  | bucket-[9 位 125 开头数字].cn-east.myqcloud.com | bucket-[9 位 125 开头数字].cn-east.myqcloud.com |
