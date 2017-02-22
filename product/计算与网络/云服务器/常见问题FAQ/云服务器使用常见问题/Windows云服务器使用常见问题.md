@@ -6,7 +6,7 @@ Windows 运行一段时间以后，由于系统本身原因或第三方软件，
 
 腾讯提供了zipconfig_service服务来配置和修复IP地址错误，以上错误可以下载该服务的升级包来修复。
 
-执行方法：下载工具包zipconfig_update1.0.0.6.zip，解压后执行里面的zipconfig_update.bat。
+执行方法：下载工具包zipconfig\_update1.0.0.6.zip，解压后执行里面的zipconfig\_update.bat。
 内网地址：http://mirrors.tencentyun.com/install/windows/zipconfig_update1.0.0.6.zip
 
 执行后示例如下：

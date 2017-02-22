@@ -6,7 +6,7 @@ The figure below shows an example of the problem:
 
 Tencent provides zipconfig_service for you to configure and fix IP address error. The above error can be fixed by downloading the upgrade package of this service.
 
-How to: Download the toolkit zipconfig_update1.0.0.6.zip, and run zipconfig_update.bat after extraction.
+How to: Download the toolkit zipconfig\_update1.0.0.6.zip, and run zipconfig\_update.bat after extraction.
 Private network link: http://mirrors.tencentyun.com/install/windows/zipconfig_update1.0.0.6.zip
 
 An example result upon execution:
