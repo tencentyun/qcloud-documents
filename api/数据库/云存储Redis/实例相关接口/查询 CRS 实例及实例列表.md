@@ -14,7 +14,11 @@
 | redisName | 否 | String | 实例名称|
 | orderBy | 否 | String | 枚举范围redisId,projectId,createtime|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
-| projectIds.n (projectIds 为数组，此处入参需要填写数组元素 ) | 否 | String | 项目ID 组成的数组，数组下标从0开始|
+| vpcIds.n  | 否 | Int | 历史原因，仍保留该参数，推荐使用下面参数unVpcIds。 私有网络ID数组，数组下标从0开始，如果不传则默认选择基础网络。|
+| unVpcIds.n  | 否 | String | 私有网络ID数组，数组下标从0开始，如果不传则默认选择基础网络。请使用[私有网络列表](https://www.qcloud.com/doc/api/245/1372) 查询返回的unVpcId为准，如：vpc-kd7d06of|
+| subnetIds.n | 否 | Int | 历史原因，仍保留该参数，推荐使用下面参数unSubnetIds。私有网络下的子网ID数组，数组下标从0开始|
+| unSubnetIds.n | 否 | String | 子网ID数组，数组下标从0开始。 vpc子网下，取值以查询[查询子网列表](https://www.qcloud.com/document/product/215/1371) 返回的unSubnetId为准，如：subnet-3lzrkspo|
+| projectIds.n | 否 | String | 项目ID 组成的数组，数组下标从0开始|
 
 ## 3. 输出参数
 | 参数名称 | 类型 | 描述 |
@@ -31,8 +35,10 @@
 | data.redisSet.projectId | Int | 项目id | 
 | data.redisSet.regionId | Int | 地域id | 
 | data.redisSet.zoneId | Int | 区域id | 
-| data.redisSet.vpcId | Int | vpc网络id | 
-| data.redisSet.subnetId | Int | vpc网络下子网id | 
+| data.redisSet.vpcId | Int | vpc网络id，不推荐使用 |
+| data.redisSet.unVpcId | String | vpc网络id，推荐使用 |  
+| data.redisSet.subnetId | Int | vpc网络下子网id，不推荐使用 |
+| data.redisSet.unSubnetId | String | vpc网络下子网id，推荐使用 | 
 | data.redisSet.status | Int | 实例当前状态，0：待初始化；1：实例在流程中；2：实例运行中；-2：实例已隔离 | 
 | data.redisSet.statusDesc | String | 实例状态描述 | 
 | data.redisSet.wanIp | String | 实例vip | 
@@ -76,8 +82,10 @@ https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
                 "projectId":"0",
                 "regionId":"1",
                 "zoneId":"100002",
-                "vpcId":"0",
-                "subnetId":"0",
+                "vpcId": 4864,
+ 				"unVpcId": "vpc-j5yvvkul",
+                "subnetId": 14158,
+				"unSubnetId": "subnet-py2q60ty",
                 "status":"2",
                 "statusDesc":"实例运行中",
                 "wanIp":"10.66.170.224",
