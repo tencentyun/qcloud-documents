@@ -1,67 +1,3 @@
-## XML API与JSON API使用问题
-
-### 权限问题
-
-**Q: XML API 密钥与JSON API的密钥是否通用了？**
-
-A: 相互通用，9 位数 125 开头的 APPID 请使用腾讯云提供的 API 密钥，可以通过 COS 控制台查看，也可以通过 https://console.qcloud.com/capi 查看个人 API 秘钥。
-
-**Q: XML API 签名与JSON API的签名是否通用了？**
-
-A: 相互不通用，XML API和JSON API各自有各自的签名方式。
-
-JSON API签名：https://www.qcloud.com/document/product/436/6054
-
-XML API签名：https://www.qcloud.com/document/product/436/7778 。
-
-**Q: XML API 设置的ACL权限与JSON API设置的ACL权限是否通用了？**
-
-A: 相互不通用，XML API和JSON API各自有各自的ACL权限。
-
-**Q: XML API 设置的ACL权限与目前控制台设置的ACL权限是否通用了？**
-
-A: 相互不通用，控制台的ACL与JSON API设置的ACL权限一致，目前控制台和XML API各自有各自的ACL权限。
-
-**Q: XML API 来访问JSON API设置的ACL权限的Bucket会发生什么？**
-
-A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
-
-**Q: XML API 来访问控制台设置的ACL权限的Bucket会发生什么？**
-
-A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
-
-**Q: JSON API 来访问XML API设置的ACL权限的Bucket会发生什么？**
-
-A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
-
-**Q: 控制台来访问XML API设置的ACL权限的Bucket会发生什么？**
-
-A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
-
-### 上传下载问题
-
-**Q: XML API的上传域名是什么？**
-
-A: V4 XML API 上传域名根据地域分区，例如bucket-[9 位 125 开头数字].cn-south.myqcloud.com。V4 JSON API 上传域名使用 gz.file.myqcloud.com 和 tj.file.myqcloud.com。V3 JSON API 上传域名是 web.file.myqcloud.com。
-
-**Q: XML API上传路径？**
-
-A: 举例上传一个文件 Put http://BucketName-UID.Region.myqcloud.com/ObjectName 具体参看 API 文档。
-
-### 秘钥问题
-
-**Q: 如何查找判定秘钥位置？**
-
-A: 秘钥在 https://console.qcloud.com/cos4/secret 查看，根据您创建的 Bucket 下载地址，后面那一串数字所对应的 APPID 即可以使用的秘钥。
-
-**Q: 如何修改秘钥？**
-
-A: 暂时不支持修改秘钥，后续会支持。
-
-**Q: 不小心通过「云 API 秘钥」修改了秘钥，会有什么影响？**
-
-A: 可以通过 https://console.qcloud.com/capi 查看修改。注意修改后，可能导致数据侧和 CDN 侧秘钥不同步的问题。如果遇到问题暂时无法解决，CDN 相关问题只能通过重新绑定 CDN 域名（包括默认赠送的域名也需关闭再开启）。数据侧无法访问的问题只能通过重新创建 Bucket 解决。
-
 ## 历史版本和数据
 
 ### 历史版本区别
@@ -154,6 +90,71 @@ A: JSON API只维护现状，不发展新功能，长期和使用（不建议使
 **Q: 未来XML API有什么新的功能？**
 
 A: 批量删除，跨域操作，生命周期管理，手动复制，跨区域自动复制，静态网站，表单上传，版本管理，回调，日志记录。
+
+## XML API与JSON API使用问题
+
+### 权限问题
+
+**Q: XML API 密钥与JSON API的密钥是否通用了？**
+
+A: 相互通用，9 位数 125 开头的 APPID 请使用腾讯云提供的 API 密钥，可以通过 COS 控制台查看，也可以通过 https://console.qcloud.com/capi 查看个人 API 秘钥。
+
+**Q: XML API 签名与JSON API的签名是否通用了？**
+
+A: 相互不通用，XML API和JSON API各自有各自的签名方式。
+
+JSON API签名：https://www.qcloud.com/document/product/436/6054
+
+XML API签名：https://www.qcloud.com/document/product/436/7778 。
+
+**Q: XML API 设置的ACL权限与JSON API设置的ACL权限是否通用了？**
+
+A: 相互不通用，XML API和JSON API各自有各自的ACL权限。
+
+**Q: XML API 设置的ACL权限与目前控制台设置的ACL权限是否通用了？**
+
+A: 相互不通用，控制台的ACL与JSON API设置的ACL权限一致，目前控制台和XML API各自有各自的ACL权限。
+
+**Q: XML API 来访问JSON API设置的ACL权限的Bucket会发生什么？**
+
+A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
+
+**Q: XML API 来访问控制台设置的ACL权限的Bucket会发生什么？**
+
+A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
+
+**Q: JSON API 来访问XML API设置的ACL权限的Bucket会发生什么？**
+
+A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
+
+**Q: 控制台来访问XML API设置的ACL权限的Bucket会发生什么？**
+
+A: 默认权限，所有者有权限，其他人无权限，Bucket为Private。
+
+### 上传下载问题
+
+**Q: XML API的上传域名是什么？**
+
+A: V4 XML API 上传域名根据地域分区，例如bucket-[9 位 125 开头数字].cn-south.myqcloud.com。V4 JSON API 上传域名使用 gz.file.myqcloud.com 和 tj.file.myqcloud.com。V3 JSON API 上传域名是 web.file.myqcloud.com。
+
+**Q: XML API上传路径？**
+
+A: 举例上传一个文件 Put http://BucketName-UID.Region.myqcloud.com/ObjectName 具体参看 API 文档。
+
+### 秘钥问题
+
+**Q: 如何查找判定秘钥位置？**
+
+A: 秘钥在 https://console.qcloud.com/cos4/secret 查看，根据您创建的 Bucket 下载地址，后面那一串数字所对应的 APPID 即可以使用的秘钥。
+
+**Q: 如何修改秘钥？**
+
+A: 暂时不支持修改秘钥，后续会支持。
+
+**Q: 不小心通过「云 API 秘钥」修改了秘钥，会有什么影响？**
+
+A: 可以通过 https://console.qcloud.com/capi 查看修改。注意修改后，可能导致数据侧和 CDN 侧秘钥不同步的问题。如果遇到问题暂时无法解决，CDN 相关问题只能通过重新绑定 CDN 域名（包括默认赠送的域名也需关闭再开启）。数据侧无法访问的问题只能通过重新创建 Bucket 解决。
+
 
 ### 性能差异
 
