@@ -1,5 +1,5 @@
 ### 测试目的
-cos与阿里oss进行文件上传、下载、删除三个维度进行对比测试，以下是详细报告。
+COS V4与COS V3进行文件上传、下载、删除三个维度进行对比测试，以下是详细报告。
 
 ### 测试数据准备
 在测试前，先往bucket准备部分基础数据。
@@ -24,10 +24,10 @@ cos与阿里oss进行文件上传、下载、删除三个维度进行对比测�
 
 
 >- COS： 创建华东地区的bucket       
->- OSS：创建华东2地区的bucket
+
 
 ### 测试工具
-client端均使用各自官网提供的python sdk。
+client端均使用官网提供的python sdk。
 
 ### 场景与测试
 先往bucket准备好基准数据，然后测试以下三种操作：上传，下载，删除。
@@ -36,7 +36,7 @@ client端均使用各自官网提供的python sdk。
 
 
 >- cos v4的场景：另外开启了一个脚本，每隔2s对该bucket进行文件操作(上传，获取文件属性，更新文件属性，更新后再次获取文件属性)以及目录操作(创建目录，更新目录，获取目录属性，list目录，删除目录)。模拟现网有一定压力的情况下来进行以下测试。
->- ali oss与cos v3的场景：均无对该bucket模拟压力。
+>- cos v3的场景：均无对该bucket模拟压力。
 
 
 **测试方法：**
@@ -56,22 +56,22 @@ client端均使用各自官网提供的python sdk。
 
 - **文件上传测试(50K/2M/50M)：**
 
+![50K](https://mc.qcloudimg.com/static/img/77781d1c1ca151fe1eb442cba38b4826/image.png)
 
-![50K](https://mc.qcloudimg.com/static/img/33895197e8e525cd45be273a9c2c98c6/image.png)
+![2M](https://mc.qcloudimg.com/static/img/f5a745855caa2779e6d56b7fb69e24c7/2M.png)
+
+![50M](https://mc.qcloudimg.com/static/img/b1f56ef61bab03582e4c06cc83ce3b4e/50M.png)
 
 
-![2M](https://mc.qcloudimg.com/static/img/c7d75b1736d2da7f6f2d559c0f979afa/image.png)
-
-
-![50M](https://mc.qcloudimg.com/static/img/3db75f54b3ca05702ed99bbc7d831074/image.png)
-
-**总结：文件删除功能，50k小文件上传，阿里的耗时最小，优于COS。但在大文件 2M以及50M文件上传的情况下，COS V4耗时最小，文件越大，对比越明显。**
+**总结：文件删除功能，2M文件上传，COS V3耗时最小，优于COS V4 。但在50K以及50M文件上传的情况下，COS V4耗时最小。**
 
 
 - **文件删除测试(50K/2M/50M)：**
 
 50K/2M/50M 文件删除(文件上传成功后，执行删除，记录耗时)
-![文件删除平均耗时](https://mc.qcloudimg.com/static/img/05eacb313ff216b5ff04e2867319e3a1/image.png)
+
+
+![文件删除平均耗时](https://mc.qcloudimg.com/static/img/862a65028a064f083edf65062096b143/image.png)
 
 |产品   |50k文件删除平均耗时(ms)|	2M文件删除平均耗时(ms)|50M文件删除平均耗时(ms)|
 |--------|--------|--------|--------|
@@ -79,7 +79,7 @@ client端均使用各自官网提供的python sdk。
 |COS V4	 | 184.19|	181.04	|198.99|
 |Ali OSS |	110.1	|123.79|	109.64|
 
-**总结：COS V3删除耗时随着文件大小增大而增大，COSV4与Ali OSS删除文件跟大小不呈线性相关。Ali OSS略优于COS。**
+**总结：COS V3删除耗时随着文件大小增大而增大，COS V4删除文件跟大小不呈线性相关。**
 
 
 
@@ -88,34 +88,32 @@ client端均使用各自官网提供的python sdk。
 
 100k的文件下载72小时，每隔60s进行下载，记录下载耗时
 
-![文件下载100K对比](https://mc.qcloudimg.com/static/img/1fbaaadb4e21f942c99e14e63606d928/image.png)
-![文件下载100K对比](https://mc.qcloudimg.com/static/img/77e46d2f62be08991aa14fbbb073c463/image.png)
 
+![图片描述](https://mc.qcloudimg.com/static/img/8d89db4ece7cffa638403e0c07d62035/100K.png)
 
 
 |产品	|100k文件下载平均耗时(ms)	|样本数|
 |---------|-------|-------|-------|
 |COS V3	  |269.95	|5459|
 |COS V4	  |149.5|	5346|
-|Ali OSS	|118.35|	5458|
 
-**总结：100k文件下载耗时方面，阿里OSS平均耗时优于COS，稳定性方面，COS V4跟阿里OSS相差不大，阿里OSS数据上稍微占优一点。**
+
+**总结：100K文件下载耗时方面，COS V4平均耗时低，优于COS V3。**
 
 
 
 - **网络ping时延对比：**
 
 (每隔60s进行ping一次，每次ping一个icmp包)：
-![延时比](https://mc.qcloudimg.com/static/img/37d9c70387d73bc62d71666c8690ef58/image.png)
 
 
 |产品	 | ping域名平均耗时(ms)     |	样本数 |
 |--------|---------|--------|--------|
 |COS V3	| 4.52	 | 5791 |
 |COS V4	| 5.07    |	5792|
-|Ali OSS|	5.3	 | 5787  |
 
-**总结：网络ping时延对比方面，COS V3平均耗时最低，COS V4紧随其后，Ali OSS耗时最高，COS的 ping域名平均耗时整体上优于Ali OSS。**
+
+**总结：通过测试，网络ping时延对比方面，COS V3平均耗时较低，优于COS V4。**
 
 
 
