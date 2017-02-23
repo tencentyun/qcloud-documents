@@ -55,13 +55,13 @@ client端均使用官网提供的python sdk。
 
 - **文件上传测试(50K/2M/50M)：**
 
-![50K](https://mc.qcloudimg.com/static/img/6b16538528c4c92ddcdc2a096083bade/50K.png)
+![50K](https://mc.qcloudimg.com/static/img/d22f6c3b2eb3721b71c3f1828a5649cf/50K2.png)
 
 
-![2M](https://mc.qcloudimg.com/static/img/f5a745855caa2779e6d56b7fb69e24c7/2M.png)
+![2M](https://mc.qcloudimg.com/static/img/e63d09e94f8f20c23c717c429c7a2905/2M2.png)
 
 
-![50M](https://mc.qcloudimg.com/static/img/b1f56ef61bab03582e4c06cc83ce3b4e/50M.png)
+![50M](https://mc.qcloudimg.com/static/img/46dda2f037ad2ca321823189694ba6ad/50M2.png)
 
 
 **总结：文件删除功能，2M文件上传，COS V3耗时最小，优于COS V4 。但在50K以及50M文件上传的情况下，COS V4耗时最小。**
