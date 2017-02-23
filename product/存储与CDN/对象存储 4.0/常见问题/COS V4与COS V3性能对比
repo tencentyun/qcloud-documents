@@ -55,9 +55,11 @@ client端均使用官网提供的python sdk。
 
 - **文件上传测试(50K/2M/50M)：**
 
-![50K](https://mc.qcloudimg.com/static/img/77781d1c1ca151fe1eb442cba38b4826/image.png)
+![50K](https://mc.qcloudimg.com/static/img/6b16538528c4c92ddcdc2a096083bade/50K.png)
+
 
 ![2M](https://mc.qcloudimg.com/static/img/f5a745855caa2779e6d56b7fb69e24c7/2M.png)
+
 
 ![50M](https://mc.qcloudimg.com/static/img/b1f56ef61bab03582e4c06cc83ce3b4e/50M.png)
 
@@ -70,7 +72,7 @@ client端均使用官网提供的python sdk。
 50K/2M/50M 文件删除(文件上传成功后，执行删除，记录耗时)
 
 
-![文件删除平均耗时](https://mc.qcloudimg.com/static/img/862a65028a064f083edf65062096b143/image.png)
+![文件删除平均耗时](https://mc.qcloudimg.com/static/img/84e1f9f536925c8ba3575de5afdde3d6/image.png)
 
 |产品   |50k文件删除平均耗时(ms)|	2M文件删除平均耗时(ms)|50M文件删除平均耗时(ms)|
 |--------|--------|--------|--------|
