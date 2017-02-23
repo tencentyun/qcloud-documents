@@ -54,19 +54,21 @@ client端均使用各自官网提供的python sdk。
 
 ### 测试图表与总结
 
-**文件上传测试(50K/2M/50M)：**
+- **文件上传测试(50K/2M/50M)：**
 
 
 ![50K](https://mc.qcloudimg.com/static/img/33895197e8e525cd45be273a9c2c98c6/image.png)
 
+
 ![2M](https://mc.qcloudimg.com/static/img/c7d75b1736d2da7f6f2d559c0f979afa/image.png)
+
 
 ![50M](https://mc.qcloudimg.com/static/img/3db75f54b3ca05702ed99bbc7d831074/image.png)
 
 **总结：文件删除功能，50k小文件上传，阿里的耗时最小，优于COS。但在大文件 2M以及50M文件上传的情况下，COS V4耗时最小，文件越大，对比越明显。**
 
 
-**文件删除测试(50K/2M/50M)：**
+- **文件删除测试(50K/2M/50M)：**
 
 50K/2M/50M 文件删除(文件上传成功后，执行删除，记录耗时)
 ![文件删除平均耗时](https://mc.qcloudimg.com/static/img/05eacb313ff216b5ff04e2867319e3a1/image.png)
@@ -82,7 +84,7 @@ client端均使用各自官网提供的python sdk。
 
 
 
-**文件下载测试(100k)：**
+- **文件下载测试(100k)：**
 
 100k的文件下载72小时，每隔60s进行下载，记录下载耗时
 
@@ -101,7 +103,7 @@ client端均使用各自官网提供的python sdk。
 
 
 
-**网络ping时延对比：**
+- **网络ping时延对比：**
 
 (每隔60s进行ping一次，每次ping一个icmp包)：
 ![延时比](https://mc.qcloudimg.com/static/img/37d9c70387d73bc62d71666c8690ef58/image.png)
@@ -115,7 +117,7 @@ client端均使用各自官网提供的python sdk。
 
 
 
-**其他数据：**
+- **其他数据：**
 client机器相关数据采集：
 
 ![CPU采用率](https://mc.qcloudimg.com/static/img/5528c6689eeba7da8b4431d0a478845d/image.png)
