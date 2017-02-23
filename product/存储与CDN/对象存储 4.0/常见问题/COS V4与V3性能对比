@@ -115,7 +115,7 @@ client端均使用各自官网提供的python sdk。
 |COS V4	| 5.07    |	5792|
 |Ali OSS|	5.3	 | 5787  |
 
-
+**总结：网络ping时延对比方面，COS V3平均耗时最低，COS V4紧随其后，Ali OSS耗时最高，COS的 ping域名平均耗时整体上优于Ali OSS**
 
 - **其他数据：**
 client机器相关数据采集：
