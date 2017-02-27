@@ -3,7 +3,7 @@
 
 接口名 | Action Name| 功能描述
 ---|---|---
-创建设备账户 | CreateDeviceUser | 用户创建设备账户
+创建设备账户 | [CreateDeviceUser](https://www.qcloud.com/document/product/568/8502?!preview) | 用户创建设备账户
 查询设备账户 | QueryDeviceUser  | 用于查询设备账户（前缀匹配查询）
 修改设备账户 | ModifyDeviceUser | 用于修改设备账户的密码
 删除设备账户 | DeleteDeviceUser | 用于删除指定的设备账户
