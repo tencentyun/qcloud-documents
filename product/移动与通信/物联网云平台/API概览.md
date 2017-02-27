@@ -1,5 +1,5 @@
-# API概览
-## 1.设备账户管理接口
+
+1.设备账户管理接口
 
 接口名 | Action Name| 功能描述
 ---|---|---
@@ -8,14 +8,14 @@
 修改设备账户 | ModifyDeviceUser | 用于修改设备账户的密码
 删除设备账户 | DeleteDeviceUser | 用于删除指定的设备账户
 
-## 2.账户权限管理接口
+2.账户权限管理接口
 接口名 | Action Name| 功能描述
 ---|---|---
-添加账户ACL | AddUserAcl | 用于添加账户的一条ACL
+添加账户ACL| AddUserAcl | 用于添加账户的一条ACL
 获取账户下ACL列表 | GetUserAclList | 用于获取指定账户的所有ACL列表
 删除账户ACL | DeleteUserAcl | 用于删除账户的一条ACL
 
-## 3.系统运行监控接口
+3.系统运行监控接口
 接口名 | Action Name| 功能描述
 ---|---|---
 获取收发包的统计数据 | GetPacketCount | 用于获取收发包的统计数据
