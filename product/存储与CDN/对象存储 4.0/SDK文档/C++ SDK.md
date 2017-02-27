@@ -118,7 +118,7 @@ sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 "AppID":********,
 "SecretID":"*********************************",
 "SecretKey":"********************************",
-"Region":"sh",   //COS区域, 上传和下载域名均是跟此有关系，因此一定要保证正确
+"Region":"sh",   //COS区域, 华东园区：sh ；华南园区：gz ；华北园区：tj ；上传和下载域名均是跟此有关系，因此一定要保证正确
 "SignExpiredTime":360, //签名超时时间
 "CurlConnectTimeoutInms":180,  //http超时时间
 "CurlGlobalConnectTimeoutInms":360, //

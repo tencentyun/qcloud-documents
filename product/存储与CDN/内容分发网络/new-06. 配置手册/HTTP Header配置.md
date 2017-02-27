@@ -8,11 +8,11 @@ HTTP的消息通常包括以下两种：
 
 腾讯云提供的HTTP Header配置功能，当您的用户请求业务资源时，在返回的**响应消息**中<font color="red">添加</font>配置的头域，以实现跨域访问等目的。
 
-**注意：** 
-+ 源站响应资源时的所有头部信息均会存放在CDN节点上，当资源在节点命中时，所存放头部信息会一起返回给用户;
+**注意：**
++ 当资源在节点未命中时会进行回源，此时源站返回头部信息会一起返回给用户；当资源在节点命中缓存时，CDN 默认会将缓存的源站 Access-Control-Allow-Origin、Timing-Allow-Origin、Content-Disposition、Accept-Ranges头部信息返回给用户，如需缓存所有源站返回头部，可提交工单进行人工配置支持；
 + 由于HTTP Header配置是针对域名，因此一旦配置生效，用户对该域名下任意一个资源的响应消息中均会加入所配置头域；
 + 配置HTTP Header 仅影响客户端（如浏览器）的响应行为，不会影响到CDN节点的缓存行为；
-+ <font color="red">Access-Control-Allow-Origin 与 Content-Disposition 头域CDN默认会继承源站，因此请避免源站与CDN同时配置。</font>
+
 
 
 ## 配置说明

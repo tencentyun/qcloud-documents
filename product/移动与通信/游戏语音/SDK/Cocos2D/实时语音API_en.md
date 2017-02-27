@@ -19,11 +19,11 @@ For commander mode, only 5 people are allowed to speak. Users will be assigned a
 ### 3 Voice Chat APIs
 
 ### 3.1 Join Team Chat Room
-1. API Description 
+1.API Description 
 
 Call this API to join a team chat room.
 
-2. Function Prototype
+2.Function Prototype
 
   `GCloudVoiceErrno JoinTeamRoom(const char *roomName, int msTimeout = 10000) `  
 
@@ -33,13 +33,13 @@ Call this API to join a team chat room.
   |msTimeout|int|Timeout settings for joining a room (unit: ms)
 The result of joining a room is called back via `void OnJoinRoom(GCloudVoiceCompleteCode code, const char *roomName, int memberID)`.
 
-3. Sample Code
+3.Sample Code
 
       public void JoinRoomBtn_Click()
       {
       	gcloud_voice::GetVoiceEngine()->JoinTeamRoom("cz_test2", 5000);
       }    
-4. Error Codes
+4.Error Codes
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization    
 GCLOUD_VOICE_MODE_STATE_ERR: Need to call `SetMode` first to set to Voice Chat mode  
@@ -47,7 +47,7 @@ GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For exampl
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. For example, users have entered the room, but it is necessary to call `QuitRoom` first before entering again.
 ### 3.2 Join National Battle Room
 
-1. API Description  
+1.API Description  
   
 To enable Commander mode, you need to call this API to join a National Battle room first.
 
@@ -88,7 +88,7 @@ GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. For example, users hav
 
 Call this API to quit Voice Chat rooms (both Team Chatting and Commander).
 
-2. Function Prototype
+2.Function Prototype
 
   `GCloudVoiceErrno QuitRoom(const char *roomName, int msTimeout = 10000) ` 
 
@@ -98,14 +98,14 @@ Call this API to quit Voice Chat rooms (both Team Chatting and Commander).
   |msTimeout|int| Timeout settings of quitting a room (unit: ms)
 The result of quitting the room is called back via `void OnQuitRoom(GCloudVoiceCompleteCode code, const char *roomName)`.
 
-3. Sample Code
+3.Sample Code
 
       public void QuitRoomBtn_Click()
       {
       	gcloud_voice::GetVoiceEngine()->QuitRoom("cz_test", 5000);
       }   
 
-4. Error Codes
+4.Error Codes
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode  
@@ -113,21 +113,21 @@ GCLOUD_VOICE_PARAM_INVALID: The parameters transferred are incorrect. For exampl
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. E.g. you've not joined a room.
 ### 3.4 Enable Microphone
 
-1. API Description
+1.API Description
  
 For Voice Chat mode, after joining the room (both team chatting and commander mode), call this API to enable your microphone to collect voice and send it to the network.
 
-2. Function Prototype
+2.Function Prototype
 
   `GCloudVoiceErr OpenMic();  `
   
-3. Sample Code
+3.Sample Code
 
       public void OpenMicBtn_Click()
       {
       	gcloud_voice::GetVoiceEngine()->OpenMic();
       }  
-4. Error Codes
+4.Error Codes
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode  
@@ -135,22 +135,22 @@ GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. E.g. the player has no
 GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR: Microphone cannot be opened in the big room for users as listeners.
 ### 3.5 Disable Microphone
 
-1. API Description
+1.API Description
   
 For Voice Chat mode, after joining a room (both Team Chatting and Commander), call this API to disable microphone if you don't want to collect audio and send them to the network anymore.
 
 
-2. Function Prototype
+2.Function Prototype
 
   `GCloudVoiceErrno CloseMic();  `
 
-3. Sample Code
+3.Sample Code
 
       public void CloseMicBtn_Click()
       {
       	gcloud_voice::GetVoiceEngine()->CloseMic ();
       } 
-4. Error Codes
+4.Error Codes
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode  
@@ -158,53 +158,53 @@ GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. E.g. the player has no
 GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR: Microphone cannot be opened or closed in the big room for users as listeners.  
 ### 3.6 Enable Speaker
 
-1. API Description
+1.API Description
  
 For Voice Chat mode, after joining a room (both Team Chatting and Commander), call this API to enable speaker to receive and play audio.
 
-2. Function Prototype
+2.Function Prototype
 
   `GCloudVoiceErrno OpenSpeaker();  `
 
-3. Sample Code
+3.Sample Code
 
       public void OpenSpeakerBtn_Click()
       {
       	gcloud_voice::GetVoiceEngine()->OpenSpeaker ();
       }
-4. Error Codes
+4.Error Codes
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode  
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. E.g. the player has not joined a room.  
 ### 3.7 Disable Speaker
 
-1. API Description
+1.API Description
   
 For Voice Chat mode, after joining a room (both Team Chatting and Commander), call this API to disable speaker if you don't want to receive and play audio data from the network anymore.
 
 
-2. Function Prototype
+2.Function Prototype
 
  ` GCloudVoiceErrno CloseSpeaker();  `
 
-3. Sample Code
+3.Sample Code
 
       public void CloseSpeakerBtn_Click()
       {
       	gcloud_voice::GetVoiceEngine()->CloseSpeaker ();
       }
-4. Error Codes
+4.Error Codes
 
 GCLOUD_VOICE_NEED_INIT: Need to call `Init` first for initialization  
 GCLOUD_VOICE_MODE_STATE_ERR: Not in Voice Chat mode  
 GCLOUD_VOICE_REALTIME_STATE_ERR: Voice Chat status error. E.g. the player has not joined a room.  
 ### 3.8 Callback of joining a room
-1. API Description
+1.API Description
  
 Use this callback to return the result of joining a room
 
-2. Function Prototype
+2.Function Prototype
 
   `virtual void OnJoinRoom(GCloudVoiceCompleteCode code, const char *roomName, int memberID) ;`
 
@@ -213,7 +213,7 @@ Use this callback to return the result of joining a room
   |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
   |roomName| const char *| Name of room joined|
   |memberID|int| ID of member joined the room|
-3. Sample Code
+3.Sample Code
 
        void NationalRoomNotify::OnJoinRoom(gcloud_voice::GCloudVoiceCompleteCode code, const char *roomName, int memberID)
       {
@@ -224,11 +224,11 @@ Use this callback to return the result of joining a room
       	}
       };
 ### 3.9 Callback of Quitting Room
-1. API Description  
+1.API Description  
 
 Return the result of quitting room via this callback.
 
-2. Function Prototype
+2.Function Prototype
 
   `virtual void OnQuitRoom(GCloudVoiceCompleteCode code, const char *roomName) ;`
 
@@ -237,7 +237,7 @@ Return the result of quitting room via this callback.
   |code|GCloudVoiceCompleteCode| Refer to definition of GCloudVoiceCompleteCode|
   |roomName| const char *| Name of room quitted|
   |memberID|int| ID of member joined the room|
-3. Sample Code
+3.Sample Code
     
       void NationalRoomNotify::OnQuitRoom(gcloud_voice::GCloudVoiceCompleteCode code, const char *roomName)
       {
@@ -249,11 +249,11 @@ Return the result of quitting room via this callback.
       }
 ### 3.10 Callback of Member Status Changes
 
-1. API Description
+1.API Description
   
 Use this callback to notify member status changes, like starting or stopping speaking
 
-2. Function Prototype
+2.Function Prototype
 
   `virtual void OnMemberVoice    (const unsigned int *members, int count) ;`
 
@@ -261,7 +261,7 @@ Use this callback to notify member status changes, like starting or stopping spe
   |--|--|--|
   |members|int[] |Members with status changes. Values show in pairs like [memberID &#124; status]. Count pairs in total. The status may be "0" (stop talking), "1" (start talking) and "2" (resume talking). |
   |count|int| Count of members with status changed
-3. Sample Code
+3.Sample Code
 
       void NationalRoomNotify::OnMemberVoice (const unsigned int *members, int count)
       {

@@ -298,8 +298,10 @@ public GetLipLanguageRequest(String bucket, String seq);
 | validateData | String | 唇语   |
 >**获取唇语示例代码请参见*快速入门***
 
-### 人脸核身
-根据用户上传的照片和视频，进行人脸核身验证。人脸核身构造函数：
+### 人脸核身---活体检测视频与用户照片的比对
+
+根据用户提前上传的照片与在线录制的活体视频，通过人脸识别进行匹配验证。人脸核身构造函数：
+
 ```
 public VideoImageIdentityRequest(String bucket, String validateData, String videoPath, String imagePath, boolean compare, String seq);
 ```
@@ -327,4 +329,38 @@ public VideoImageIdentityRequest(String bucket, String validateData, String vide
 | similarity     | int    | 人脸对比检测的相似度    |
 | photo          | String | 人脸检测中相似度最高的图像 |
 >**人脸核身示例代码请参见*快速入门***
+
+### 人脸核身---活体检测视频与身份证高清照片的比对
+
+自带人脸识别数据库，可实时为国内公民提供在线的身份证照片比对。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。人脸核身构造函数：
+
+```
+VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath, String idCardNumber, String idCardName, String seq);
+```
+
+参数说明
+
+| 参数名称         | 类型     | 是否必填 | 参数描述          |
+| ------------ | ------ | ---- | ------------- |
+| bucket       | String | 是    | 用户创建的bucket名称 |
+| validateData | String | 是    | 唇语字符串         |
+| videoPath    | String | 是    | 本地视频路径        |
+| idCardNumber | String | 是    | 身份证号码         |
+| idCardName   | String | 是    | 身份证姓名         |
+| seq          | String | 否    | 用于日志查询        |
+
+返回结果VideoIdCardIdentityResult：
+
+| 参数名称           | 类型     | 参数描述          |
+| -------------- | ------ | ------------- |
+| code           | int    | 状态码           |
+| message        | String | 结果信息          |
+| liveStatus     | int    | 活体检测错误码       |
+| liveMessage    | String | 活体检测错误描述      |
+| compareStatus  | int    | 人脸对比检测错误码     |
+| compareMessage | String | 人脸对比检测错误描述    |
+| similarity     | int    | 人脸对比检测的相似度    |
+| photo          | String | 人脸检测中相似度最高的图像 |
+
+> **人脸核身示例代码请参见*快速入门***
 

@@ -1,22 +1,22 @@
-## 构建docker镜像教程
+## 构建Docker镜像教程
 
 ### 说明
-DockerHub 提供了大量的镜像可用，详情可查看:[hub.docker.com](https://hub.docker.com/)
+DockerHub 提供了大量的镜像可用，详情可查看:[hub.docker.com](https://hub.docker.com/)。
 
-Docker容器的设计宗旨是让用户在相对独立的环境中运行独立的程序
+Docker容器的设计宗旨是让用户在相对独立的环境中运行独立的程序。
 
 Docker容器程序在镜像内程序运行结束后会自动退出。如果要令构建的镜像在服务中持续运行，需要在创建服务页面指定自身持续执行的程序，如：业务主程序，main函数入口等。
 
-但由于企业环境的多样性，并非所有应用都能在  DockerHub 找到对应的镜像来使用, 你可以通过以下教程了解到如何将应用打包成Docker镜像。
+由于企业环境的多样性，并非所有应用都能在  DockerHub 找到对应的镜像来使用。 你可以通过以下教程了解到如何将应用打包成Docker镜像。
 
-docker生成镜像目前有两种方式：
+Docker生成镜像目前有两种方式：
 
-- 通过Dockerfile自动构建镜像
-- 通过容器内操作，并执行Commit来实现打包生成镜像
+- 通过Dockerfile自动构建镜像。
+- 通过容器内操作，并执行Commit来打包生成镜像。
 
 
 ### Dockerfile自动编译生成（推荐使用）
-按Dockerhub官方提供的wordpress为例，点击查看[详情](https://github.com/docker-library/wordpress/blob/7d40c4237f01892bb6dbc67d1a82f5b15f807ca1/php5.6/apache/Dockerfile)
+以Dockerhub官方提供的wordpress为例，点击查看[详情](https://github.com/docker-library/wordpress/blob/7d40c4237f01892bb6dbc67d1a82f5b15f807ca1/php5.6/apache/Dockerfile)。
 ```shell
 FROM php:5.6-apache
 
@@ -59,8 +59,8 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
 ```
 
-通过上述Dockerfile文件可以了解到，内置执行了许多的Linux命令来安装和部署软件
-在终端创建个文件夹保存该Dockerfile保存以上文件，并通过docker build 的命令来构建镜像
+通过上述Dockerfile文件可以了解到，内置执行了许多的Linux命令来安装和部署软件。
+在终端创建一个文件夹来保存该Dockerfile文件，并通过docker build 的命令来构建镜像。
 ```shell
 [root@VM_88_88_centos worldpress]# docker build ./
 Sending build context to Docker daemon 3.072 kB
@@ -71,7 +71,7 @@ Trying to pull repository docker.io/library/php ...
 269e95c6053a: Pull complete 
 ......
 ```
-通过docker images命令即可查看到构建完成的镜像
+通过docker images命令即可查看到构建完成的镜像。
 ```shell
 [root@VM_88_88_centos worldpress]# docker images
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
@@ -80,25 +80,25 @@ docker.io/php                                  5.6-apache          eb8333e24502 
 ```
 
 使用Dockerfile来构建镜像有以下建议：
-1.尽量精简、不安装多余的软件包
-2.尽量选择Docker官方提供镜像作为基础版本，减少镜像体积
-3.Dockerfile的开头几行的指令应当固定下来，不建议频繁更改，有利于利用缓存
-4.多条RUN命令使用'\'连接，有利于理解且方便维护
-5.通过-t 标记构建镜像，有利于管理新创建的镜像
-6.不在Dockerfile中映射公有端口
-7.push之前先在本地运行，确保构建的镜像无误
+1.尽量精简，不安装多余的软件包。
+2.尽量选择Docker官方提供镜像作为基础版本，减少镜像体积。
+3.Dockerfile的开头几行的指令应当固定下来，不建议频繁更改，有效利用缓存。
+4.多条RUN命令使用'\'连接，有利于理解且方便维护。
+5.通过-t 标记构建镜像，有利于管理新创建的镜像。
+6.不在Dockerfile中映射公有端口。
+7.Push之前先在本地运行，确保构建的镜像无误。
 
 ### 执行Commit来实现打包生成镜像
 通过Dockerfile可以快速构建镜像，而通过commit来生成镜像可以解决应用在部署过程中有大量的交互内容，通过Dockerfile难以构建的情景。
 
 通过commit构建镜像操作如下：
-1.运行基础镜像容器，并进入console
+1.运行基础镜像容器，并进入console。
 ```shell
 [root@VM_88_88_centos ~]# docker run -i -t centos
 [root@f5f1beda4075 /]# 
 
 ```
-2.安装需要的软件，并添加配置
+2.安装需要的软件，并添加配置。
 ```shell
 [root@f5f1beda4075 /]# yum update && yum install  openssh-server
 Loaded plugins: fastestmirror, ovl
@@ -117,7 +117,7 @@ Dependency Installed:
 
 Complete!
 ```
-3.配置完成后打开新终端保存该镜像
+3.配置完成后打开新终端保存该镜像。
 ```shell
 [root@VM_88_88_centos ~]# docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES

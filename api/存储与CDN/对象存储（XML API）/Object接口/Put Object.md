@@ -36,6 +36,7 @@ Authorization: authorization string
 | Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据保存。      | String | 否    |
 | x-cos-content-sha1  | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值。    | String | 否    |
 | x-cos-meta-*        | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。    | String | 否    |
+| x-cos-storage-class | 设置Object的存储级别，枚举值：Standard，Standard_IA，Nearline，默认值：Standard（目前只支持华南园区） | String | 否    |
 
 
 #### 权限相关头部
@@ -57,8 +58,33 @@ Authorization: authorization string
 
 | 名称   | 描述                                       | 类型     |
 | ---- | ---------------------------------------- | ------ |
-| ETag | 返回文件的 SHA-1 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| ETag | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
 
 ### 返回内容
 
 无返回内容
+
+## 示例
+
+### 请求
+
+```HTTP
+PUT /ObjectName HTTP/1.1
+Host:zuhaotestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc
+Content-Length: 64
+
+[Object]
+```
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Date: Tue Jan 17 15:50:02 2017
+Etag: 020df6d63448ae38a1de7924a68ba1e2
+x-cos-request-id: NTg3ZGNjYTlfNDUyMDRlXzUyOTlfMjRj
+```
+

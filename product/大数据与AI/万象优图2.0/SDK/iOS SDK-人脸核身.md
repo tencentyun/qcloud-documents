@@ -2,7 +2,7 @@
 
 ### SDK 获取
 
-人脸核身的 iOS SDK 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/0ff7d0d15a9fa3eee03b6cdb61821c99/CISDK_iOS-1.0.1.zip) 
+人脸核身的 iOS SDK 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/71b1c0bcb84ba926866af194d9f9743e/CISDK_1.0.2.zip) 
 
 ### 开发准备
 

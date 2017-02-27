@@ -1,6 +1,6 @@
 ## 功能描述
 
-使用API写入Object的ACL表，您可以通过Header：『x-cos-acl』『x-cos-grant-read』『x-cos-grant-write』『x-cos-grant-full-control』传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能选择Header和Body其中一种，否则，返回冲突。
+使用API写入Object的ACL表，您可以通过Header：『x-cos-acl』『x-cos-grant-read』『x-cos-grant-write』『x-cos-grant-full-control』传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能选择`Header`和`Body`其中一种，否则，返回冲突。
 
 Put Object ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有所有者有权操作。
 
@@ -20,6 +20,8 @@ Put Object ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有
 PUT /ObjectName?acl Http/1.1
 Host:<BucketName>-<UID>.<Region>.myqcloud.com
 Date: date
+Content-Type:application/xml
+Content-MD5:MD5
 x-cos-acl: [对应权限]
 x-cos-grant-read: uin="",uin=""
 x-cos-grant-write: uin="",uin=""
@@ -90,3 +92,43 @@ Authorization: Auth
 ### 返回内容
 
 无返回内容
+
+## 示例
+
+### 请求
+
+```HTTP
+PUT /ObjectName?acl HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484726016;32557622016&q-key-time=1484726016;32557622016&q-header-list=host&q-url-param-list=acl&q-signature=e8b788abcd242ac20b6412205460f1de9afe0f7a
+Content-Length: 229
+Content-Type: application/x-www-form-urlencoded
+
+<AccessControlPolicy>
+  <Owner>
+    <uin>2779643970</uin>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee type="RootAccount">
+        <uin>2779643970</uin>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy>
+```
+
+
+### 返回
+
+```HTTP
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Wed Jan 18 15:54:43 2017
+Server: tencent-cos
+x-cos-request-id: NTg3ZjFmNDNfOWIxZjRlXzZmMzlfMjEz
+```
+

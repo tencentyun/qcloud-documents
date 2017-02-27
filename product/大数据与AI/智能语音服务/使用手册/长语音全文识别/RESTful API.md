@@ -3,15 +3,15 @@
 
 ### RESTful API请求结构
 
-语音全文转写识别的 RESTful API 请求结构如下：
+语音长语音全文识别的 RESTful API 请求结构如下：
 
-| 参数名称    | 必选   | 类型   | 描述    | 
+| 参数名称    | 必选    | 类型   | 描述    | 
 | ------------- | ---------- | ------------- | ---------- |
 | Version | 是         | String          | HTTPS 协议版本         | 
 | URL  | 是         | String          | HTTPS 请求地址       | 
 | Https Headers    | 是         | 数据集合          | HTTPS 请求头部         | 
 | Https Method   |是         | String     | HTTPS 请求方法，长语音全文识别请求方法为 POST
-| Https Body   | 是         | String          | HTTPS 请求正文，即语音数据（当 source_type 字段为1时填充），大小不超过 5M        | 
+| Https Body   | 是         | String     | HTTPS 请求正文，即语音数据（当 source_type 字段为1时填充），大小不超过 5M   | 
 
 其中，URL 的结构为 ：
 ```
@@ -36,13 +36,13 @@ URL 中各字段含义如下（各字段的值需要进行 URL 编码）：
 | ------------- | ---------- | ------------- | ---------- |
 | appid | 是 | uint  | 腾讯云应用 ID 值   | 
 | projectid  | 否   | uint | 腾讯云项目 ID，不填为默认项目，即0，总长度不超过1024字节 | 
-| sub_service_type  | 否   | uint   | 子服务类型。0：全文转写。目前只支持全文转写  | 
-| engine_model_type | 否  | uint  | 引擎类型。8k_0：电话8k通用模型；16k_0：16k 通用模型| 
-| callback_url | 否  | String  | 回调 URL，用户接受结果，长度大于0，小于2048 |
-| res_text_format | 否 | uint  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |
+| sub_service_type  | 是   | uint   | 子服务类型。0：长语音全文识别。1：实时流式识别。  | 
+| engine_model_type | 是  | uint  | 引擎类型。8k_0：电话8k通用模型；16k_0：16k 通用模型| 
+| callback_url | 是  | String  | 回调 URL，用户接受结果，长度大于0，小于2048 |
+| res_text_format | 是 | uint  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |
 | res_type | 否 | uint  | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回 |
 | source_type | 是 | uint  |  语音数据来源。0：语音 URL；1：语音数据（post body）|
-| url | 否   | String  | 语音URL，公网可下载。当 source_type 值为0时填写该字段，为1时不填；URL 的长度大于0，小于2048 |
+| url | 否   | String  | 语音URL，公网可下载。当 source_type 值为0时须填写该字段，为1时不填；URL 的长度大于0，小于2048 |
 | secretid  | 是 | String | 官网 SecretId |
 | timestamp | 是 | uint | 当前时间戳，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒 | 
 | expired |  是 | uint | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；expired 必须大于 timestamp 且 expired - timestamp 小于90天 |
@@ -59,7 +59,7 @@ HTTPS  Headers 的结构如下：
 
 ### 请求示例
 
-下列示例中，<箭头括号>表示必须替换为有效值的变量。当语音数据来源 source_type=1 时，采用直接 POST 语音数据，请求 Host 与路径：
+下列示例中，<箭头括号>表示必须替换为有效值的变量。当语音数据来源 source_type=0时，采用公网可访问URL语音数据，请求 Host 与路径：
 ```
 http://aai.qcloud.com/asr/v1/<appid>
 ```
@@ -68,23 +68,35 @@ http://aai.qcloud.com/asr/v1/<appid>
 {
 "projectid":0,
 "sub_service_type":0,
-"engine_model_type":0,
-"url":"<url>",
+"engine_model_type":1,
+"url":"http://test.qq.com/rec_callback",
 "res_text_format":0,
 "res_type":1,
+"callback_url":"http://test.qq.com/rec_callback",
 "source_type":0,
-"secretid":"<secretid>",
+"secretid":"AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv",
 "timestamp":1473752207,
 "expired":1473752807,
 "nonce":"44925",
 }
 ```
-
+这里以< appid > = 200001, < SecretKey >=bLcPnl88WU30VY57ipRhSePfPdOfSruK 为例拼接签名原文，则拼接的签名原文为：
+```
+POSTaai.qcloud.com/asr/v1/2000001?callback_url=http://test.qq.com/rec_callback&engine_model_type=1&expired=1473752807&nonce=44925&projectid=0&res_text_format=0&res_type=1&secretid=AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv&source_type=0&sub_service_type=0&timestamp=1473752207&url=http://test.qq.com/voice_url
+```
+对原文进行加密处理：
+```
+Base64Encode(HmacSha1(签名原文, SecretKey))
+```
+最终得到签名串为：
+```
+UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
+```
 请求 headers 为：
 ```
 {
 "Content-Type":"application/octet-stream",
-"Authorization":"<Authorization>"
+"Authorization":"UyKZ+Q4xMbdu3gxOmPD7tgnAm1A="
 }
 ```
 
@@ -106,8 +118,7 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 ## 返回结构
 
 ### RESTful API 返回结果
-
-语音全文转写识别的 RESTful API 请求返回结果如下表所示：
+语音长语音全文识别的 RESTful API 请求返回结果如下表所示：
 
 | 参数名称           | 类型         | 说明          | 
 | ------------- | ---------- | ------------- | 

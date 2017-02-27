@@ -18,7 +18,7 @@
 
 在Putty会话窗口中， 输入管理员帐号，按回车键。
 >管理员帐号：
-ubuntu/SUSE/CentOS/Debian：root
+ubuntu/CentOS/Debian：root
 
 
 再输入初始密码，回车完成登录。
