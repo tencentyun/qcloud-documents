@@ -39,7 +39,7 @@ Whichever type of disk you choose, a complimentary 20GB system disk will be prov
 
 9) Select a login method.
 - Password login: the system automatically generates the initial password and sends it to you via an internal message. Once the initial password is received, you use the default username and password to log in to the Linux CVM.
-- Key login: more secure than password login and requires you to [create a pair of keys](http://www.qcloud.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥)first.
+- Key login: more secure than password login and requires you to [create a pair of keys](http://www.qcloud.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) first.
 
 10) Choose a Security Group (make sure the login port 22 is open and see [Security Group](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84) for more information), click "Buy Now" button and complete the payment, and then you may enter the [Console](https://console.qcloud.com/cvm) to check and accept your CVM.
 

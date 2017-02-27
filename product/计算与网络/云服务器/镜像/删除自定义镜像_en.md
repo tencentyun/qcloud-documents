@@ -1,6 +1,6 @@
-After using the custom image, you can delete it. When you delete a custom image, you will not be able to use this image to [start a new CVM instance](/doc/product/213/4855), but any instances that are already started will not affected. If you want to remove all instances that were purchased and started from this image, you can refer to [Expiration of Annual/Monthly Package Instances](/doc/product/213/4931) or [Terminate Pay-by-Traffic Instances](/doc/product/213/4930).
+After using the custom image, you can delete it. When you delete a custom image, you will not be able to use this image to [start a new CVM instance](/doc/product/213/4855), but any instances that are already started will not affected. If you want to remove all instances that were purchased and started from this image, you can refer to [Expiration of Annual/Monthly Package Instances](/doc/product/213/4931) or [Terminate Pay-per-use Instances](/doc/product/213/4930).
 
-> - If you have already shared a custom image to others [see here](/doc/product/213/4944), you cannot delete it. You need to cancel all of its sharing before deleting a custom image.
+> - If you have already shared a custom image to others ([see here](/doc/product/213/4944)), you cannot delete it. You need to cancel all of its sharing before deleting a custom image.
 > - You can only delete the custom image, but neither the common image nor the shared image.
 
 ## Delete custom images via console
