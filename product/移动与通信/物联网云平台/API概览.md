@@ -11,7 +11,7 @@
 2.账户权限管理接口
 接口名 | Action Name| 功能描述
 ---|---|---
-添加账户ACL| AddUserAcl | 用于添加账户的一条ACL
+添加账户ACL | AddUserAcl | 用于添加账户的一条ACL
 获取账户下ACL列表 | GetUserAclList | 用于获取指定账户的所有ACL列表
 删除账户ACL | DeleteUserAcl | 用于删除账户的一条ACL
 
