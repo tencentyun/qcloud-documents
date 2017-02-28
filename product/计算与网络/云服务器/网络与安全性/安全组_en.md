@@ -62,7 +62,7 @@ In addition, if the last policy of the multiple security groups to which the clo
 | Supports rules that 'Allow' or 'Deny' | Supports rules that 'Allow' or 'Deny' |
 | Stateful: The return data stream is automatically allowed and is not affected by any rules | Stateless: The return data stream must be explicitly allowed by the rule |
 
-1) Open "CVM Console" (https://console.qcloud.com/cvm/).
+1) Open [CVM Console](https://console.qcloud.com/cvm/).
 
 ## Create security group
 
@@ -138,7 +138,7 @@ or
 
 
 ## Security Group Cloud API
-Security Group Developer Tool, you can use the cloud API to complete security group operations, and manage configurations between security groups and CVM instances; click [Here](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88#6.- Security group related interfaces).
+Security Group Developer Tool, you can use the cloud API to complete security group operations, and manage configurations between security groups and CVM instances; click [here](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88#6.-安全组相关接口).
 
 
 
