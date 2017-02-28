@@ -49,8 +49,7 @@
 1. [登录Windows云服务器 >>](http://www.qcloud.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 2. [Windows格式化数据 >>](http://www.qcloud.com/doc/product/213/Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E6%8D%AE%E7%9B%98%E5%88%86%E5%8C%BA%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96)
 3. [Windows环境配置 >>](http://www.qcloud.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP)
-4. [Windows程序安装 >>](http://www.qcloud.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%
-5. 8A%A1%E5%99%A8)
+4. [Windows程序安装 >>](http://www.qcloud.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 
 ### Linux系统云服务器运维手册
 
@@ -66,9 +65,9 @@
 
 若您在应用初期、请求量较小时选用较低的硬件配置，而随着应用快速增长、服务请求量剧增，您可以通过 [调整实例配置](https://www.qcloud.com/doc/product/213/5730) 快速调整硬件，提高服务的处理速度，更好地满足您变化的需求。
 
-您仍会遇到其他 [云服务器管理常见问题](https://www.qcloud.com/doc/product/213/2539)，我们提供常见问题合集供您查阅，方便您快速定位及解决疑问。
+若您仍遇到其他 [云服务器管理常见问题](https://www.qcloud.com/doc/product/213/2539)，我们提供常见问题合集供您查阅，方便您快速定位及解决疑问。
 
 
-如您有其他疑问未得到解决，您可拨打服务热线4009-100-100或者 [发起工单](https://console.qcloud.com/workorder/category) 反馈给我们，我们将在第一时间为您答疑解惑！
+若您有其他疑问未得到解决，您可拨打服务热线 4009-100-100 或者 [发起工单](https://console.qcloud.com/workorder/category) 反馈给我们，我们将在第一时间为您答疑解惑！
 
 
