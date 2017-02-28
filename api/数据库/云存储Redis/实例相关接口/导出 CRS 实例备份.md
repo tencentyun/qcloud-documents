@@ -39,6 +39,7 @@
 |10701|InstanceNotExists|没有找到serialId对应的实例|
 |11213|BackupNotExists|根据backupId，没有找到实例对应的备份|
 |11214|OnlyClusterInstanceCanExportBackup|只有集群版的实例才支持导出备份|
+|10711|BackupStatusInvalid|备份状态无效（集群版只能导出状态为2的备份）|
 
 ## 5. 示例
 <pre>
