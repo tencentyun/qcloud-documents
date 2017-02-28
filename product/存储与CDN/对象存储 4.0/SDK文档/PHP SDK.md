@@ -115,7 +115,7 @@ public static function createFolder($bucketName, $path, $bizAttr = null);
 
 ``` php
 $bizAttr = "attr_folder";
-$result  = Cosapi::createFolder($bu	cketName, $path,$bizAttr)
+$result  = Cosapi::createFolder($bucketName, $path,$bizAttr)
 ```
 
 ### 目录更新
