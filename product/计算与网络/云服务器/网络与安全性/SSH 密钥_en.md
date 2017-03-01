@@ -41,4 +41,4 @@ Or right-click the name of the key to be modified, and click the [Modify] button
 ## Log into a Linux CVM using the SSH key
 To log into a Linux CVM using the SSH key, you first need to bind the SSH key to the CVM.
 
-For details on how to log into a Linux CVM using the SSH key, see [Logging onto a Linux CVM]. (/doc/product/213/5436).
+For details on how to log into a Linux CVM using the SSH key, see [Logging onto a Linux CVM](/doc/product/213/5436).

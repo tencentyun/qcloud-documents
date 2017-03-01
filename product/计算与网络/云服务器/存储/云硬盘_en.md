@@ -4,7 +4,7 @@ In case of frequent data changes that require faster read/write speed and persis
 
 For more information, see:
 
-- [Technical architecture of Tencent Cloud's Cloud Block Storage] (/doc/product/362/4137)
+- [Technical architecture of Tencent Cloud's Cloud Block Storage](/doc/product/362/4137)
 
 - [Snapshot of Tencent Cloud's Cloud Block Storage](https://www.qcloud.com/doc/product/362/2455)
 

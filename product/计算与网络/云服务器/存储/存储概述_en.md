@@ -54,7 +54,7 @@ You can keep a backup copy of data by creating a snapshot for Cloud Block Storag
 
 ## Local disk
 
-Local disk is a storage medium located on the same physical machine as the CVM instance and can provide low-latency storage for the instance. The data on the local disk will only be retained for the life cycle of CVM instance and will be lost when the CVM is destroyed. For more information, see [Local Disk] (/doc/product/213/5798).
+Local disk is a storage medium located on the same physical machine as the CVM instance and can provide low-latency storage for the instance. The data on the local disk will only be retained for the life cycle of CVM instance and will be lost when the CVM is destroyed. For more information, see [Local Disk](/doc/product/213/5798).
 
 ## Object storage COS
 
