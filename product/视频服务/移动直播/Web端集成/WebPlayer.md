@@ -123,7 +123,7 @@ style支持的样式有3种：
 
 这里有一个线上的示例代码，里面使用了cover方式显示封面，在PC浏览器中右键“查看页面源码”即可查看页面的代码实现：
 [http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html)
-<br>
+
 <font color="red">备注：在某些移动端设置封面会无效，具体说明请查看常见问题</font>
 
 ### Step 5：多清晰度的支持
@@ -322,5 +322,3 @@ PC Flash：
 -  **为什么在 PC 浏览器中可以播放直播视频，移动端却不行？**
 
     在移动端浏览器中播放直播视频，目前只支持hls(m3u8)协议，因此需要确认直播拉流地址是否有hls(m3u8)拉流url，如果您只给我们的播放器一个flv或者rtmp的地址，是没有什么办法在手机上观看的。
-
-
