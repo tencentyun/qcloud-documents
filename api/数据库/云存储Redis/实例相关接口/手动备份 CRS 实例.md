@@ -2,6 +2,7 @@
 本接口(ManualBackupInstance)用于手动备份CRS实例。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
+- 请不要频繁的调用该接口，最好每天调用次数不超过24次，否则调用可能会失败。
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://www.qcloud.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为ManualBackupInstance。

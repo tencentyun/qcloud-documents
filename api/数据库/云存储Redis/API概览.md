@@ -24,5 +24,6 @@
 | [CRS查询任务结果](http://www.qcloud.com/doc/api/260/1387) | DescribeTaskInfo | 查询任务执行结果 |
 | [手动备份 CRS 实例](/document/product/239/8402) | ManualBackupInstance | 手动备份 CRS 实例 |
 | [查询 CRS 实例备份列表](/document/product/239/8403) | GetRedisBackupList | 查询 CRS 实例备份列表 |  
-| [恢复 CRS 实例](/document/product/239/8401) | RestoreInstance | 恢复 CRS 实例 |  
+| [恢复 CRS 实例](/document/product/239/8401) | RestoreInstance | 恢复 CRS 实例 |
+| [导出CRS实例备份](/document/product/239/8430) | ExportRedisBackup | 导出CRS实例备份 |  
 | [查询 CRS 实例的任务列表](/document/product/239/8404) | GetRedisTaskList | 查询 CRS 实例的任务列表 |

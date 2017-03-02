@@ -93,6 +93,7 @@ HRCKlbwPhWtVvfGn914qE5O1rwc=
 请求 headers 为：
 ```
 {
+"Content-Type":"multipart/form-data",
 "Authorization":"HRCKlbwPhWtVvfGn914qE5O1rwc="
 }
 ```
