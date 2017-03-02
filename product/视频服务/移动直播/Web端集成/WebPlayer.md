@@ -125,6 +125,7 @@ style支持的样式有3种：
 [http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html)
 <br>
 <font color="red">备注：在某些移动端设置封面会无效，具体说明请查看常见问题</font>
+
 ### Step 5：多清晰度的支持
 #### 5.1 原理介绍
 我们知道优酷、土豆、腾讯上的视频有些是有多清晰度选择的，这个效果如何实现呢？
@@ -308,7 +309,7 @@ PC Flash：
 
 	如果您的页面是在Safari下打开的，目前iOS10以下版本的Safari是无法禁止视频自动全屏播放的，iOS10可以通过前面说的方法（为 `<video>` 标签设置 playsinline 属性）实现非全屏模式（即内联的方式）播放。我们的播放器已经自动加上这个属性，只需要终端支持即可。
 
-	如果是Android终端，众所周知Android系统有各种各样的定制版本，每个版本对 `<video>` 标签的实现都有差别，并没有一个完整的统一，所以在Android上播放视频所展现的一致性，相比iOS要差很多。按照现有通用的办法，播放器已经自动加上 webkit-playsinline playsinline 属性，只需要终端支持即可。
+	如果是Android终端，众所周知Android系统有各种各样的定制版本，每个版本对 `<video>` 标签的实现都有差别，并没有一个完整的统一标准，所以在Android上播放视频所展现的一致性，相比iOS要差很多。按照现有通用的办法，播放器已经自动加上 webkit-playsinline playsinline 属性，只需要终端支持即可。
 
 -  **为什么在移动端浏览器视频无法自动播放？**
 
