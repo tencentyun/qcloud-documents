@@ -167,7 +167,7 @@
 
 
 ### 4.	华北地区(北京)-北京二区
-[点击购买](https://buy.qcloud.com/?regionId=8&zoneId=800001&generation=v2)
+[点击购买](https://buy.qcloud.com/?regionId=8&zoneId=800002)
 
 #### 4.1. **标准型S2**  
 
