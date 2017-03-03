@@ -1,8 +1,8 @@
 **【版本说明】**
 - 版本号：1.9.1.2088 @ 2017-03-01
-- iOS & Android：优化了摄像头直播中的美颜效果和清晰度体验，详情请关注 [iOS平台](https://www.qcloud.com/document/product/454/7879#step-4.3A-.E7.BE.8E.E9.A2.9C.E6.BB.A4.E9.95.9C) & [Android平台](https://www.qcloud.com/document/product/454/7885#step-4.3A-.E7.BE.8E.E9.A2.9C.E6.BB.A4.E9.95.9C)。
+- iOS & Android：优化了摄像头直播中的美颜效果和清晰度体验，详情请关注 [如何实现更好的画质](https://www.qcloud.com/document/product/454/7955)。
 - iOS & Android：美颜增加了滤镜功能，多种主流滤镜效果供您的主播选择，详情请关注 [iOS平台](https://www.qcloud.com/document/product/454/7879#step-4.3A-.E7.BE.8E.E9.A2.9C.E6.BB.A4.E9.95.9C) & [Android平台](https://www.qcloud.com/document/product/454/7885#step-4.3A-.E7.BE.8E.E9.A2.9C.E6.BB.A4.E9.95.9C)。
-- iOS & Android：增加了 setVideoQuality 接口，画质选择更简单更声音，，详情请关注 [iOS平台](https://www.qcloud.com/document/product/454/7879#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6) & [Android平台](https://www.qcloud.com/document/product/454/7885#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6)。
+- iOS & Android：增加了 setVideoQuality 接口，画质选择更简单更声音，详情请关注 [iOS平台](https://www.qcloud.com/document/product/454/7879#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6) & [Android平台](https://www.qcloud.com/document/product/454/7885#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6)。
 - iOS ：解决了某些客户反馈的iOS过曝问题，在人造光源比较强的场景下会有明显差异。
 - iOS：进一步优化了耳返的延迟（[混响功能](https://www.qcloud.com/document/product/454/7879#step-13.3A-.E8.80.B3.E8.BF.94.26amp.3B.E6.B7.B7.E5.93.8D) 由于还有bug没有解决完，Delay一周Release）。
 - 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)。
