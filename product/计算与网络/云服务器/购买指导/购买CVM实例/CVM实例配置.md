@@ -10,7 +10,7 @@
 
 ### 1.	华南地区(广州)－广州二区
 #### 1.1. **标准型 S2** 
-点击购买
+[点击购买](https://buy.qcloud.com/?regionId=1&zoneId=100002&generation=v2)
 
 | CPU（核）  | 内存（GB） | 本地硬盘（GB）| 云硬盘（GB）|SSD云硬盘（GB）|高性能云硬盘（GB）|
 |---------|---------|-----|------|-----|-----|
@@ -60,6 +60,8 @@
 
 
 ### 2. 华南地区(广州)-广州三区
+[点击购买](https://buy.qcloud.com/?regionId=1&zoneId=100003&generation=v2)
+
 
 #### 2.1. **标准型S2**  
 
@@ -110,6 +112,8 @@
 | 32 | 120 |1000|－ |
 
 ### 3.	华东地区(上海)-上海一区
+[点击购买](https://buy.qcloud.com/?regionId=4&zoneId=200001&generation=v2)
+
 
 #### 3.1. **标准型S2**  
 
@@ -163,6 +167,7 @@
 
 
 ### 4.	华北地区(北京)-北京二区
+[点击购买](https://buy.qcloud.com/?regionId=8&zoneId=800001&generation=v2)
 
 #### 4.1. **标准型S2**  
 
