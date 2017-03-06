@@ -19,4 +19,4 @@
 | 参数名称 | 例子 | 类型 | 描述 |
 |---------|---------|---------|---------|
 |before| <font color=red> [1000Mbps,…] </font color=red> |Array | 防护前流量峰值，即这段时间粒度内的流量最大值，例如粒度是五分钟，就表示5分钟之内的峰值 |
-| attackPeak |<font color=red> [50Mbps,…] </font color=red>| Array | 清洗过的用户正常流量，即这段时间粒度内的流量最大值，例如粒度是五分钟，就表示5分钟之内的峰值 |
+| after |<font color=red> [50Mbps,…] </font color=red>| Array | 清洗过的用户正常流量，即这段时间粒度内的流量最大值，例如粒度是五分钟，就表示5分钟之内的峰值 |
