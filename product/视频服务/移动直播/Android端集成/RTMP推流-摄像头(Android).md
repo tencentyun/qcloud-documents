@@ -77,6 +77,10 @@ if (mLivePusher != null) {
 ![](//mc.qcloudimg.com/static/img/ad0711f3c35f2087d3520677bfd64391/image.png)
 > 如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG，不要用 JPG，不要用 JPG...</font>
 
+- **曝光**
+setExposureCompensation 可以调节曝光值，这个调整项在 iOS 端是没有的（我们使用了系统的自动曝光）。但是 Android 机型差异太大，很多千元机的自动曝光效果实在一般，所以我们还是推荐在您的 UI 界面上提供一个自动曝光的操作滑竿，让主播可以自己调节曝光值大小。
+![](//mc.qcloudimg.com/static/img/b4c3fcc20a580347bb1360c5b59fd08c/image.png)
+>setExposureCompensation 的参数为 -1 到 1 的浮点数： 0 表示不调整， -1 是将曝光降到最低， 1 表示是将曝光加强到最高。
 
 ### step 5: 控制摄像头
 - **切换前置或后置摄像头** 
