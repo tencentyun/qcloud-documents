@@ -47,7 +47,7 @@ Input
 <pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
   &eipId=eip-mksy14ay
   &unInstanceId=ins-hyvbipjg
 

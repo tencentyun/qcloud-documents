@@ -40,7 +40,7 @@ Input
   &instanceId=ins-12345678
   &imageName=test
   &imageDescription=desc
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

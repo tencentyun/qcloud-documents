@@ -61,7 +61,7 @@ Input
   https://dfw.api.qcloud.com/v2/index.php?Action=ModifySecurityGroupAttributes
   &sgId=sg-o1wkaolh
   &sgName=Test 1
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 
 </pre>
 

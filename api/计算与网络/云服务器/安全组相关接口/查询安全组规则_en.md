@@ -58,7 +58,7 @@ Ingress/egress rule member structure
 <td> action <td> String <td> Action, accept or drop
 </tbody></table>
 
- ## 4. Error Code Table
+## 4. Error Codes
  <table class="t"><tbody><tr>
 <th><b>Error Code</b></th>
 <th><b>Description</b></th>
@@ -77,7 +77,7 @@ Input
 
   https://dfw.api.qcloud.com/v2/index.php?Action=DescribeSecurityGroupPolicy
   &sgId=sg-33ocnj9n
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 
 </pre>
 
