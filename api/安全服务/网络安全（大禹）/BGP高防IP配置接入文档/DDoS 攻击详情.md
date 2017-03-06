@@ -1,8 +1,8 @@
 ## 1.接口描述
-获取BGP高防IP被CC攻击流量详情
+获取BGP高防IP被DDoS攻击流量详情
 <br> 协议：HTTPS
 <br> 域名：csec.api.qcloud.com
-<br> 接口名：NS.BGPIP.Protection.CC.GetDetails 
+<br> 接口名：NS.BGPIP.Protection.DDoS.GetDetails 
 
 ## 2.输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上[公共请求参数](https://www.qcloud.com/document/product/295/7279)，见公共参数说明页面。
@@ -23,7 +23,7 @@
 | 参数名称 | 例子| 类型 | 描述 |
 |---------|---------|---------|---------|
 |total| <font color=red> 123 </font color=red> |Integer | 共有多少条攻击详情 |
-|records |<font color=red> [obj,…] </font color=red>| Array | 攻击详情数组，数组元素如下：<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "endTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "peak" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :   1234<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "overload" : "yes/no"} |
+|records |<font color=red> [obj,…] </font color=red>| Array | 攻击详情数组，数组元素如下：<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "endTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "peak" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :   1234<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "overload" : "yes/no"<br>} |
 |startTime|2013-03-01 01:23:45| Time | 攻击开始时间|
 |endTime|2013-03-01 01:23:50| Time | 攻击结束时间|
 |peak|<font color=red>80Mbps </font color=red>| Integer | 攻击峰值流量 |
