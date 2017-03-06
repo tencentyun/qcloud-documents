@@ -46,19 +46,19 @@ The following request parameter list only provides API request parameters. Publi
 <td> data.sgRemark <td> String <td> Security group remark
 </tbody></table>
 
-## 4. Error Code Table
- <table class="t"><tbody><tr>
-<th><b>Error Code Value</b></th>
-<th><b>Cause</b></th>
+## 4. Error Codes
+<table class="t"><tbody><tr>
+<th><b>Error Code</b></th>
+<th><b>Description</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception
 <tr>
-<td> 7002 <td> The number of security groups has reached the upper limit
+<td> 7002 <td> Reached the upper limit of security groups
 <tr>
 <td> 7005 <td> The security group name already exists
 <tr>
-<td> 9003 <td> The security group name / remark is too long or contains invalid character(s)
+<td> 9003 <td> The security group name/remark is too long or contains invalid characters
 </tbody></table>
 
 ## 5. Example

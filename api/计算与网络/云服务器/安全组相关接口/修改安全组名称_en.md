@@ -1,25 +1,25 @@
 ## 1. API Description
  
-This API (ModifySecurityGroupAttributes) is used to modify the attribute information of existing security groups, including the name and description.
+This API (ModifySecurityGroupAttributes) is used to modify the names and descriptions of existing security groups.
 Domain name for API request: <font style="color:red">dfw.api.qcloud.com</font>
-1) Security group names and descriptions can be modified with the system-generated unique ID (a string with the prefix sg) as the index. Only security groups under the current account can be modified.
-2) Modified security group names cannot be the same as the names of other security groups in the project, and must not be longer than 25 UTF-8 characters. Modified security group descriptions must not be longer than 100 UTF-8 characters.
+1) Security group names and descriptions can be modified with the system-generated unique ID (a string with the prefix sg) as the index. You can only modify security groups under your current account.
+2) Security group names in the same project must be unique. The security group name can contain up to 25 UTF-8 characters and the description can contain up to 100 UTF-8 characters.
 3) Modifying the attribute information of security groups does not affect network security policies on bound CVMs.
 
 ## 2. Input Parameters
  
-The following request parameter list only provides API request parameters. Public request parameters need to be added when the API is called. See the Public Request Parameters page for details. The Action field for this API is ModifySecurityGroupAttributes.
+Only request parameters of this API are listed below. Public request parameters need to be added when the API is called. See the Public Request Parameters page for details. The Action field for this API is ModifySecurityGroupAttributes.
 <table class="t"><tbody><tr>
 <th><b>Parameter Name</b></th>
 <th><b>Required</b></th>
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> sgId <td> Yes <td> String <td> Unique security group ID, e.g, sg-33ocnj9n; may derive from DescribeSecurityGroups or CreateSecurityGroup
+<td> sgId <td> Yes <td> String <td> Unique security group ID, e.g, sg-33ocnj9n; you can obtain it using DescribeSecurityGroups or CreateSecurityGroup
 <tr>
-<td> sgName <td> No <td> String <td> New security group name; arbitrary naming is allowed; must be no more than 60 characters in length
+<td> sgName <td> No <td> String <td> New security group name; up to 60 characters
 <tr>
-<td> sgRemark <td> No <td> String <td> New security group remarks; must be no more than 100 characters in length
+<td> sgRemark <td> No <td> String <td> New security group remarks; up to 100 characters
 </tbody></table>
 
  
@@ -37,19 +37,19 @@ The following request parameter list only provides API request parameters. Publi
 <td> message <td> String <td> Error message
 </tbody></table>
 
- ## 4. Error Code Table
- <table class="t"><tbody><tr>
-<th><b>Error Code Value</b></th>
-<th><b>Cause</b></th>
+## 4. Error Codes
+<table class="t"><tbody><tr>
+<th><b>Error Code</b></th>
+<th><b>Description</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception
 <tr>
 <td> 7005 <td> The security group name already exists
 <tr>
-<td> 7006 <td> The system prohibits modifying the security group by default
+<td> 7006 <td> This is a preset security group and cannot be modified
 <tr>
-<td> 9003 <td> The security group name / remark is too long or contains invalid character(s)
+<td> 9003 <td> The security group name/remark is too long or contains invalid characters
 </tbody></table>
 
 

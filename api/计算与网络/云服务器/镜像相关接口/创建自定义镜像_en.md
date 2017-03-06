@@ -5,7 +5,7 @@ This API (CreateImage) is used to make the current status of the instance system
 
 Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
 
-* Currently, image service is provided for free.
+* Image service is FREE of charge now.
 * The target instance needs to be shut down before you can create a custom image.
 * A maximum of 10 custom images are allowed to be created for each region.
 

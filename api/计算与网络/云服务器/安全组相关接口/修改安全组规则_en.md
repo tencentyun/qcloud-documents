@@ -1,9 +1,9 @@
 ## 1. API Description
  
-This API (ModifySecurityGroupPolicy) is used to modify the rules for existing security groups.
+This API (ModifySecurityGroupPolicy) is used to modify the rules of existing security groups.
 Domain name for API request: <font style="color:red">dfw.api.qcloud.com</font>
 
-1) The inbound and outbound rules for a security group are entered through the "ingress" and "egress" lists respectively, and there is a [Number Limit](https://www.qcloud.com/doc/product/213/500#2.-.E5.AE.89.E5.85.A8.E7.BB.84.E7.9A.84.E9.99.90.E5.88.B6) on the rules for each direction. The DROP All rule, which takes effect at last by default, does not need to be entered and is not subject to the rule number limit.
+1) Input the inbound and outbound rules for a security group through the "ingress" and "egress" lists respectively. There is a [upper limit](https://www.qcloud.com/doc/product/213/500#2.-.E5.AE.89.E5.85.A8.E7.BB.84.E7.9A.84.E9.99.90.E5.88.B6) for each kind of rules. The DROP All rule, which takes effect at last by default, does not need to be entered and is not subject to the rule number limit.
 2) When there are multiple rules for the inbound or outbound direction, the rules take effect in the order shown in the entered list, overwriting the original rules of the security group.
 3) Rules [Description](https://www.qcloud.com/doc/product/213/500#3.-.E5.AE.89.E5.85.A8.E7.BB.84.E8.A7.84.E5.88.99)
 4) Each security group rule can contain up to four valid fields: ipProtocol, cidrIp or sgId (the two are mutually exclusive and cannot be entered at the same time), portRange, and action. The action field is required. If any of the other fields does not appear, it means that the rule will ignore that field and match all when processing network messages.
@@ -63,19 +63,19 @@ ingress / egress rule member structure
 <td> message <td> String <td> Error message
 </tbody></table>
 
- ## 4. Error Code Table
- <table class="t"><tbody><tr>
-<th><b>Error Code Value</b></th>
-<th><b>Cause</b></th>
+## 4. Error Codes
+<table class="t"><tbody><tr>
+<th><b>Error Code</b></th>
+<th><b>Description</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception
 <tr>
 <td> 7001 <td> Security group does not belong to the current user
 <tr>
-<td> 7002 <td> The number of rules exceeds the quota limit
+<td> 7002 <td> Reached the upper limit of rules
 <tr>
-<td> 7006 <td> The system prohibits modifying the security group by default
+<td> 7006 <td> This is a preset security group and cannot be deleted
 <tr>
 <td> 9003 <td> The rule data format is incorrect
 </tbody></table>

@@ -18,9 +18,9 @@ The following request parameter list only provides API request parameters. Publi
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> projectId <td> No <td> Int <td> Project ID; does not return all the security group lists under the project
+<td> projectId <td> No <td> Int <td> Project ID; if it's left empty, all security groups under this project are returned
 <tr>
-<td> instanceId <td> No <td> String <td> CVM ID; existence of this parameter invalidates other filter conditions
+<td> instanceId <td> No <td> String <td> CVM ID; if this is provided, all other filter conditions are ignored
 <tr>
 <td> sgId <td> No <td> String <td> Filters results by sgId, and only supports exact filtering
 <tr>
@@ -56,10 +56,10 @@ Data structure
 
 </tbody></table>
 
- ## 4. Error Code Table
+## 4. Error Codes
  <table class="t"><tbody><tr>
-<th><b>Error Code Value</b></th>
-<th><b>Cause</b></th>
+<th><b>Error Code</b></th>
+<th><b>Description</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception

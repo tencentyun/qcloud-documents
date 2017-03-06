@@ -60,8 +60,8 @@ Ingress/egress rule member structure
 
  ## 4. Error Code Table
  <table class="t"><tbody><tr>
-<th><b>Error Code Value</b></th>
-<th><b>Cause</b></th>
+<th><b>Error Code</b></th>
+<th><b>Description</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception

@@ -3,7 +3,7 @@
 Domain name: eip.api.qcloud.com
 API name: DescribeEipQuota
 
-Query the quota on EIPs for a specified region.
+This API is used to query the quota on EIPs for a specified region.
 
  
 
