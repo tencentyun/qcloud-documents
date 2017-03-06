@@ -59,13 +59,28 @@ mLivePusher.startCameraPreview(mCaptureView);
 - **startCameraPreview** 则是将界面元素和Pusher对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 ### step 4: 美颜滤镜
-对于摄像头直播的场景，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。
-
-您可以在您的APP得用户操作界面上使用滑竿等控件来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
-
+- **美颜**
+setBeautyFilter 接口可以设置美颜和美白级别，两者的调整级别都是 0 至 9，0 表示不启用美颜，1.9.1 版本开始美颜效果做了明显的优化，配合 540 * 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
 ```java
-mLivePusher.setBeautyFilter(mBeautyLevel, mWhiteningLevel);
+mLivePusher.setBeautyFilter(7, 3);
 ```
+
+- **滤镜**
+setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了Demo中，您可以随意使用，不用担心版权问题。
+```java
+Bitmap bmp = null;
+bmp = decodeResource(getResources(), R.drawable.langman);
+if (mLivePusher != null) {
+       mLivePusher.setFilter(bmp);
+}
+```
+![](//mc.qcloudimg.com/static/img/ad0711f3c35f2087d3520677bfd64391/image.png)
+> 如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG，不要用 JPG，不要用 JPG...</font>
+
+- **曝光**
+setExposureCompensation 可以调节曝光值，这个调整项在 iOS 端是没有的（我们使用了系统的自动曝光）。但是 Android 机型差异太大，很多千元机的自动曝光效果实在一般，所以我们还是推荐在您的 UI 界面上提供一个自动曝光的操作滑竿，让主播可以自己调节曝光值大小。
+![](//mc.qcloudimg.com/static/img/b4c3fcc20a580347bb1360c5b59fd08c/image.png)
+>setExposureCompensation 的参数为 -1 到 1 的浮点数： 0 表示不调整， -1 是将曝光降到最低， 1 表示是将曝光加强到最高。
 
 ### step 5: 控制摄像头
 - **切换前置或后置摄像头** 
@@ -121,18 +136,15 @@ mLivePushConfig.setHardwareAcceleration(true);
 mLivePusher.setConfig(mLivePushConfig);  
 ```
 
-- **机型白名单**
-> 上述示例代码中的第一句为 HWSupportList.isHWVideoEncodeSupport 调用，该函数并不是RTMP SDK提供的函数，而是位于Demo的 HWSupportList.java 文件中。
-> 
-> HWSupportList 是我们的专业测试团队处理过的一个[白名单列表](https://mc.qcloudimg.com/static/archive/a1e796c150ea60246e07947b679e0662/archive.xls)，列表中的机型可以放心开启硬件加速的Android机型，后续时间里我们会持续增加这个列表的机型数量。
+- **兼容性评估**
+Android 手机目前对硬件加速的支持已较前两年有明显的进步，目前支持度还是不错的，但仍有个别机型有兼容性问题，目前 RTMP SDK 通过一个内部的黑名单进行控制，避免在部分兼容性差的机型上出现问题。
+
+- **效果差异**
+开启硬件加速后手机耗电量会有明显降低，机身温度也会比较理想，但画面大幅运动时马赛克感会比软编码要明显很多，而且越是早起的低端机，马赛克越是严重。所以如果您是对画质要求很高的客户，不推荐开启硬件加速。
 
 - **推荐的设计**
->  不在白名单中的机型<font color='red'>**并非一定有问题**</font>，只是因为Android机型众多，我们没有精力全部测试过，所以如果您希望**在列表以外的机型上开启硬件加速**，最好加一些安全机制，比如一个推荐的做法是：
->  
->  提供两种或两种以上的清晰度选项，比如标清（360\*640）和高清（540\*960）两个档位，其中标清因为编码计算压力不大，采用软编码即可；高清则使用硬件编码。
->  
->  如此一来，如果高清档位的硬件加速出现问题，可以有标清档位作为保底方案。
-
+我们在 setVideoQuality 的高清档（推荐档位）和标清档均推荐使用软件编码，如果您担心CPU和发热问题，可以做一个简单的保护逻辑： 
+> 如果发现推流的 **FPS** ( 通过 TXLivePushListener 的 NET_STATUS_VIDEO_FPS 事件可以获知 ) 持续过低，比如半分钟内持续低于 10 帧/秒，表示 CPU 负载过重，则切换为硬编码。
 
 ### step 8: 后台推流
 常规模式下，App一旦切到后台，摄像头的采集能力就被 Android 系统停掉了，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
@@ -183,17 +195,19 @@ public void onResume() {
 影响画质的主要因素是三个：**分辨率**、**帧率**和**码率**。
 - **分辨率**：摄像头直播有三种 9:16 的常规分辨率可供选择：360\*640，540\*960，720\*1280。
 - **帧率**：FPS <=10 会明显感觉到卡顿，摄像头直播推荐设置 20 FPS。
-- **码率**：编码器每秒编出的数据大小，单位是kbps，比如800kbps代表编码器每秒产生800kb（或100KB）的数据。
+- **码率**：编码器每秒编出的数据大小，单位是kbps，比如 800kbps 代表编码器每秒产生 800kb（或100KB）的数据。
 
-好的画质是分辨率、帧率和码率三者之间的平衡，如下是几种清晰度档位的推荐设置结果。其中，括号中标注的是 TXLivePushConfig 的对应设置函数：
+好的画质是分辨率、帧率、码率与主播上行网速之间的一种平衡，1.9.1 版本开始，TXLivePusher 提供了几个我们已经配置好的画质选项，您可以通过 setVideoQuality 函数进行设置，它有如下几个选项：
 
-| 档位   | 分辨率（setVideoResolution） | FPS（setVideoFPS） | 码率（setVideoBitrate） |
-|---------|---------|---------|---------|
-| 标清 | VIDEO_RESOLUTION_TYPE_360_640 | 20 | 700kbps |
-| 高清 | VIDEO_RESOLUTION_TYPE_540_960 | 20 | 1000kbps | 
-| 超清 | VIDEO_RESOLUTION_TYPE_720_1280 | 20 | 1500kbps |
+| 档位   | 分辨率| FPS| 码率 | 使用场景 | 
+|:-------:|---------|---------|:-------:|---------|
+| **标清** | 360\*640 | 15 | 400kbps - 800kbps | 对流畅度要求比较高的客户适合选用，如果主播的网络条件不理想，<br>直播的画质会偏模糊，但总体卡顿率不会太高。 |
+| **高清**<br><font color='red'>（推荐）</font> | 540\*960 | 15 | 1000kbps | 如果主播的网络条件正常，画面清晰度能达到最优效果，<br>如果网络不理想，直播画质不会有变化，但会有卡顿和跳帧现象。 |
+| **超清** | 720\*1280 | 15 | 1500kbps | 如果是小屏观看不推荐。如果是大屏幕观看，且主播网络质量很好可以考虑。|
+| **大主播** | 540\*960 | 15 | 1000kbps | 连麦中大主播使用，因为是观众的主画面，追求清晰一些的效果。 |
+| **小主播** | 320\*480 | 15 | 350kbps | 连麦中小主播使用，因为是小画面，画面追求流畅。|
 
-> 美女秀场领域，我们的客户一般是选择**高清**档位，因为它比较平衡：720p超清档拍人像比较浪费，360p的效果又不能在清晰度上跟竞品拉开差距。
+> 使用 setVideoQuality 之后，依然可以使用 TXLivePushConfig 设置画质，SDK 会以最后一次的设置为准。
 
 ### step 10: 提醒主播“网络不好”
 step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
@@ -215,13 +229,12 @@ step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_
 | VIDEO_ANGLE_HOME_LEFT       | home键在左 |
 | VIDEO_ANGLE_HOME_UP           | home键在上 |
 
-#### 调整主播端表现
+- **调整主播端表现**
 观众端的画面表现符合预期以后，剩下要做的就是调整主播端的预览画面，这时可以通过 TXLivePusher 中的 setRenderRotation 接口，来旋转主播端看到的画面旋转方向，此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
 
-#### Activity自动旋转
+- **Activity自动旋转**
 Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），如何做到下面这种横竖屏推流跟随重力感应而变换的效果呢？
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
-
 ```java
     @Override
     public void onConfigurationChanged(Configuration newConfig) {

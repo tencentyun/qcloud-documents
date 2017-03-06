@@ -2,6 +2,7 @@
 本接口(RestoreInstance)用于恢复CRS实例。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
+- 目标实例只能恢复到自身的备份，不能恢复到别的实例的备份。
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://www.qcloud.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为RestoreInstance。
@@ -25,8 +26,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |:---------|---------|---------|
-| data.requestId | 任务ID | 任务ID，可通过 [DescribeTaskInfo](/document/product/239/1387) 接口查询任务执行状态
-
+| data.requestId | 任务ID | 任务ID，可通过 [DescribeTaskInfo](/document/product/239/1387) 接口查询任务执行状态|
 
 ## 4. 错误码
 以下错误码表列出了该接口的业务逻辑错误码。
@@ -40,6 +40,7 @@
 |10711|BackupStatusAbnormal|备份状态异常，暂不能执行该操作。备份可能已过期或已被删除|
 |10710|BackupLockedError|备份已被其它任务锁住，暂时不能执行该操作|
 |10712|PasswordError|实例密码错误|
+|11213|BackupNotExists|根据backupId，没有找到实例对应的备份|
 
 ## 5. 示例
 <pre>

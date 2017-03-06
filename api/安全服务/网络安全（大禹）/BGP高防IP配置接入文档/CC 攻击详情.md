@@ -10,7 +10,7 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| Id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
 | beginDate|<font color=red> 必选 </font color=red>| String | 统计的开始时间，格式是YYYY-MM-DD，如2016-11-10 |
 | endDate|<font color=red> 必选 </font color=red>| String | 统计的结束时间，格式是YYYY-MM-DD，如2016-11-11 |
 | sorting.field|<font color=red> 可选 </font color=red>| String | 取值范围：count，表示以攻击峰值做排序 |

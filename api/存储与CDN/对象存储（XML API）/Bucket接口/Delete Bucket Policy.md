@@ -35,3 +35,28 @@ Authorization: Auth String
 ### 返回内容
 
 无返回内容
+
+## 示例
+### 请求
+```json
+
+DELETE /?policy HTTP/1.1
+Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814613;32557710613&q-key-time=1484814613;32557710613&q-header-list=host&q-url-param-list=policy&q-signature=57c9a3f67b786ddabd2c208641944ec7f9b02f98
+
+
+```
+### 返回
+```json
+HTTP/1.1 204 No Content
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Thu Jan 19 16:30:21 2017
+Server: tencent-cos
+x-cos-request-id: NTg4MDc5MWRfNDQyMDRlXzNiMDRfZTEw
+
+
+```
+
+ 

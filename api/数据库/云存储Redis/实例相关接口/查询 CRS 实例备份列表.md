@@ -3,12 +3,14 @@
 本接口(GetRedisBackupList)用于查询CRS实例的备份列表。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
+- 目前备份只保留7天，所以只能查询到最近7天以内的备份，包括用户发起的手动备份和凌晨的系统备份。
+
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://www.qcloud.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的 Action 字段为GetRedisBackupList。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |:---------|---------|---------|---------|
-| limit | 是 | Int | 页面大小。 |
+| limit | 是 | Int | 分页大小。 |
 | offset | 是 | Int | 当前页码，默认为0。 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；例如查询第110~149 这40条记录，则可以设置 offset=110 limit=40。 |
 | redisId | 是 | String | 待操作的实例ID，可通过 [DescribeRedis](/document/product/239/1384) 接口返回值中的 redisId 获取。|
 | beginTime | 否 | String | 开始时间，格式如：2017-02-08 16:46:34。查询实例在 [beginTime, endTime] 时间段内开始备份的备份列表。 |

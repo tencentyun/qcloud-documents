@@ -10,7 +10,7 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| Id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
 | paging.index|<font color=red> 必选 </font color=red>| Integer | 页面索引，0表示第一页 |
 | paging.count|<font color=red> 必选 </font color=red>| Integer | 每页返回详情数|
 

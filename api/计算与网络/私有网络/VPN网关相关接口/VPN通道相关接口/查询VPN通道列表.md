@@ -79,7 +79,7 @@ IPsec配置信息数组内容
 |---------|---------|
 | InvalidVpc.NotFound | 无效的 VPC。VPC 资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询VPC。 |
 | InvalidVpnGw.NotFound | 无效的 VPN 网关。VPN 网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>接口查询vpn网关。 |
-| InvalidVpnGw.NotFound | 无效的 VPN 通道。VPN 通道资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e9%80%9a%e9%81%93%e5%88%97%e8%a1%a81?viewType=preview" title="DescribeVpnConn">DescribeVpnConn</a>接口查询vpn通道。 |
+| InvalidVpnGw.NotFound | 无效的 VPN 通道。VPN 通道资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>接口查询vpn通道。 |
 
 
 ## 5. 示例

@@ -50,7 +50,7 @@ COSClientConfig config = new COSClientConfig();
 
 | 方法                                       | 方法描述                                     |
 | ---------------------------------------- | ---------------------------------------- |
-| setEndPoint(COSEndPoint endPoint)        | 设置园区：华南 COSEndPoint.COS_GZ;  华北 COSEndPoint.COS_TJ ;sdk中默认为华南地区 |
+| setEndPoint(COSEndPoint endPoint)        | 设置园区：华南 COSEndPoint.COS_GZ;  华北 COSEndPoint.COS_TJ ；华东 COSEndPoint.COS_SH ; sdk中默认为华南地区 |
 | setConnectionTimeout(int connectionTimeout) | 连接超时设置                                   |
 | setSocketTimeout(int socketTimeout)      | 读取超时设置                                   |
 | setMaxConnectionsCount(int maxConnectionsCount) | 并发数大小设置                                  |
@@ -189,7 +189,7 @@ GetObjectResult getObjectResult = cos.getObject(getObjectRequest);
 
 **签名获取：**
 
-SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https:///doc/api/435/6054)。
+SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https://www.qcloud.com/document/product/436/6054)。
 
 
 ## 目录操作 

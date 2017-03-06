@@ -20,8 +20,10 @@
 | goodsNum | 是 | UInt | 实例数量，单次购买实例数量以 [查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口返回的规格为准， 取值范[data.types.minBuyNum, data.types.maxBuyNum]|
 | period | 是 | UInt | 购买时长，单位：月，取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]|
 | password | 是 | String | 实例密码，密码规则：1.长度为8-16个字符；2:至少包含字母、数字和字符（!@#%^()）中的两种 |
-| vpcId | 是 | UInt | vpc网络id, 如果是基础网络， vpcId=0,  vpc网络下，取值以查询[私有网络列表](https://www.qcloud.com/doc/api/245/1372) 返回的vpcid为准|
-| subnetId | 否 | UInt | 基础网络下， subnetId无效， vpc子网下，取值以查询[私有网络列表](https://www.qcloud.com/doc/api/245/1372) 返回的subnetid为准|
+| vpcId | 否 | UInt | 历史原因，仍保留该参数，推荐使用下面参数unVpcId。 私有网络ID，如果不传则默认选择基础网络。|
+| unVpcId | 否 | String | 私有网络ID，如果不传则默认选择基础网络，请使用[私有网络列表](https://www.qcloud.com/doc/api/245/1372) 查询 返回的unVpcId为准，如：vpc-kd7d06of|
+| subnetId | 否 | UInt | 历史原因，仍保留该参数，推荐使用下面参数unSubnetId。私有网络下的子网ID，如果设置了 vpcId，则 subnetId 必填。|
+| unSubnetId | 否 | String | 基础网络下， subnetId无效； vpc子网下，取值以查询[查询子网列表](https://www.qcloud.com/document/product/215/1371) 返回的unSubnetId为准，如：subnet-3lzrkspo|
 | projectId | 否 | UInt | 项目id，取值以用户账户>用户账户相关接口查询>[项目列表](https://www.qcloud.com/doc/api/403/4400)返回的projectId为准|
 
 

@@ -14,7 +14,7 @@
 购买云服务器成功后，登录[腾讯云控制台](https://console.qcloud.com/)，点击右侧站内信按钮，查收新购买的服务器页面中将包含云主机登录管理员帐号及初始密码，如下图所示。
 ![](//mccdn.qcloud.com/img56a20f10a373a.png)
 
-下载远程链接软件Putty，参考下载地址：http://www.putty.nl/download.html
+下载远程链接软件Putty，参考下载地址：http://www.chiark.greenend.org.uk/~sgtatham/putty/
 
 打开Putty客户端，在PuTTY Configuration 窗口中输入以下内容：
 - Host Name：Linux云服务器的公网IP。

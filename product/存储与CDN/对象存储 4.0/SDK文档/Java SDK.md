@@ -53,8 +53,8 @@ pom.xml 添加依赖
 ```java
         // 初始化客户端配置
         ClientConfig clientConfig = new ClientConfig();
-        // 设置bucket所在的区域，比如广州(gz), 天津(tj)
-        clientConfig.setRegion("gz");
+        // 设置bucket所在的区域，比如华南园区：gz； 华北园区：tj；华东园区：sh ；
+        clientConfig.setRegion("gz");
 ```
 
 ### 生成客户端
