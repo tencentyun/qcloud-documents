@@ -27,12 +27,12 @@ You can use the ResizeInstance and ResizeInstanceHour APIs to upgrade the instan
 3) In the "Adjust Configuration" box that pops up, select the configuration you want to degrade to, and click "OK" to degrade the CVM configuration and extend the expiry time instantly.
 ![](//mccdn.qcloud.com/static/img/21681e206c9b96374135cdcf1d83bf22/image.png)
 
-### Degrade configuration of instances charged by quantity
+### Degrade configuration of pay-per-use instances
 >The adjustment can only be made to CVM instances that are <font color="red">**shut down**</font> and <font color="red">**both the system and data disks of which are cloud disks**</font>.
 
 1) Go to [Tencent Cloud Console](https://console.qcloud.com/), and click the "Cloud Virtual Machine" tab on the top to enter the CVM list.
 
-2) To adjust the configuration of a shutdown CVM instance **charged by quantity**, click "More" - "Adjust Configuration" on the action bar to the right side.
+2) To adjust the configuration of a shutdown CVM instance **pay-per-use**, click "More" - "Adjust Configuration" on the action bar to the right side.
 
 3) In the "Adjust Configuration" box that pops up, select the configuration you want to degrade to, and click "OK" to degrade the CVM configuration instantly.
 ![](//mccdn.qcloud.com/static/img/52fb811d1c55fa1f3c5905804ce75bef/image.png)
