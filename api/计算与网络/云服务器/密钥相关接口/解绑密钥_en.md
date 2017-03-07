@@ -16,7 +16,7 @@ The following list only provides API request parameters. For additional paramete
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | keyId | Yes | String | Key ID. |
-| instanceIds.n | Yes | String | Instance ID (This API allows passing multiple instance IDs for unbinding at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)). |
+| instanceIds.n | Yes | String | Instance ID (This API allows passing multiple instance IDs for unbinding at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568). |
 
 
 ## 3. Output Parameters

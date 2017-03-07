@@ -3,7 +3,7 @@ This API (DescribeAvailabilityZones) is used to query the details of Tencent Clo
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* For the definition of availability zone, please refer to [The region section under product documentation](https://www.qcloud.com/doc/product/213/497#2.-.E5.8F.AF.E7.94.A8 .E5.8C.BA).
+* For the definition of availability zone, please refer to the [Region](https://www.qcloud.com/doc/product/213/497#2.-.E5.8F.AF.E7.94.A8.E5.8C.BA) section under product documentation.
 * The content includes the IDCs of availability zones.
 * You can view the information on an availability zone by specifying the zone ID.
 * The list of availability zone IDs is as follows: 
@@ -64,7 +64,7 @@ Input
 
 <pre>
   https://cvm.api.qcloud.com/v2/index.php?Action=DescribeAvailabilityZones
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
   zoneId=100001
 </pre>
 

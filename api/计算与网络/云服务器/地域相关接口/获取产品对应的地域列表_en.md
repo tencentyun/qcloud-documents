@@ -31,7 +31,7 @@ Input
 <pre>
 https://cvm.api.qcloud.com/v2/index.php?Action=DescribeProductRegionList
  &instanceType=1
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+ &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

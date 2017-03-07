@@ -4,14 +4,14 @@ This API (ShareImage) is used to share images.
 
 Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
 
-* After an image is shared, the users to whom the image is shared can create instances using the image.
+* Sharers of the image can use this image to create instances.
 * Each custom image can be shared to a maximum of 50 accounts.
 * A shared image can only be used to create instances and its name and description cannot be changed.
-* The region to which the image is shared should be the same as the image's source region.
+* The share-to region of image should be the region of the sharer.
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -32,7 +32,7 @@ Input
 https://image.api.qcloud.com/v2/index.php?Action=ShareImage
 &imageId=img-apatyoed
 &uinList.0=909619400
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 Output
 
