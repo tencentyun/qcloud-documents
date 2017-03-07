@@ -1,14 +1,14 @@
 ## 1. API Description
  
-This API (RunInstancesHour) is used to create one or more charge-by-quantity instances with specified configuration.
+This API (RunInstancesHour) is used to create postpaid CVMs with specified configuration.
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* The instances created by API are subject to the number limit described in the [Restrictions on CVM Instance Purchase](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E8%B4%AD%E4%B9%B0%E9%99%90%E5%88%B6), and share the quota with instances created by the official website.
+* The instances created by this API are subject to the number limit described in the [Restrictions on CVM Instance Purchase](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E8%B4%AD%E4%B9%B0%E9%99%90%E5%88%B6), and share the quota with instances created from the Console.
 * For **limitations on the ratio** of CPU to memory, refer to [CVM Instance Configuration](/document/product/213/2177).
 * The creation of an instance will take some time, so this API will not immediately return the instance results. Instead, an InstanceId will be returned, with which you can query the status of the instance through the [DescribeInstances](/doc/api/229/831) API. If the status changes from "Creating..." to "Running", the creation is successful.  
 * The instance is in "running" status after successfully created, so you don't need to call [StartInstances](/doc/api/229/1249) again to start it.
-* Users with a bandwidth package plan cannot purchase charge-by-quantity instances.
+* Users with a bandwidth package plan cannot purchase pay-per-use instances.
 * If you need to change the bandwidth, change it using the API [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) after the instance is created successfully. <font style="color:red">**The bandwidth of public network is 0 by default if not specified**</font>.
 * Supported instance types:
 
@@ -21,7 +21,7 @@ Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides request parameters of this API. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

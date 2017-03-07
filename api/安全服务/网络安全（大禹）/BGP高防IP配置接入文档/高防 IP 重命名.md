@@ -10,5 +10,5 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| bqpId | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| bgpId | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
 | name |<font color=red> 必选 </font color=red>| String | 高防IP的名称 |

@@ -1,28 +1,28 @@
-An elastic network card is a virtual network interface, you can bind the cloud host with the elastic network card to gain access. Elastic network cards offer great assistance in the configuration and management of a network, as well as building highly reliable network solutions.
+An elastic network interface （ENI）is a virtual network interface, you can bind the CVM with the ENI to gain access. ENI offerS great assistance in the configuration and management of a network, as well as building highly reliable network solutions.
 
-Elastic network cards use a private network, with a private area and subnet properties; they can only bind CVMs within the same available area. A CVM can bind multiple elastic network cards, the specific number of bindings will be based on host specifications.
+ENIs use a private network, with a private area and subnet properties; they can only bind CVMs within the same availability zone. A CVM can bind multiple ENIs, the specific number of bindings will be based on CVM specifications.
 
 ## Basic info
 
-The elastic network card mainly has the following associated information:
+The ENI mainly has the following associated information:
 
-1. Main network card or secondary network card: When the cloud host of the private network is created, the network card created by the linkage is the main network card. The network card that the user created will be used as the secondary network card; you cannot bind/unbind the main network card, but can do so with the secondary one.
+1. Primary ENI and secondary ENI: When the CVM of the private network is created, the ENI created by the linkage is the main ENI. The ENI that the user created will be used as the secondary ENI; you cannot bind/unbind the main ENI, but can do so with the secondary one.
 
-2. Main private network IP: Elastic network card's main network IP; when an elastic network card is created. it is either randomly assigned by the system or created by the user. Main network card's main private network IP support modification; while secondary network card's main private network IP does not.
+2. Main private network IP: ENI's primary IP; when an ENI is created. it is either randomly assigned by the system or created by the user. For a primary ENI, the primary private IP can be modified. But for a secondary ENI, the primary private IP cannot be modifed.
 
-3. Secondary private IP: a secondary network IP that is bound, in addition to the main IP, to the elastic network card. It is automatically configured by the user when creating or editing an elastic network card, and supports binding/unbinding.
+3. Secondary private IP: a secondary network IP that is bound, in addition to the main IP, to the ENI. It is automatically configured by the user when creating or editing an ENI, and supports binding/unbinding.
 
-4. Elastic public network IP: binds with private IPs on the elastic network card one at a time.
+4. Elastic public network IP: binds with private IPs on the ENI one at a time.
 
-5. Security groups: Elastic network cards can be bound to one or more security groups.
+5. Security groups: ENIs can be bound to one or more security groups.
 
-6. MAC Address: The elastic network card has a globally unique MAC address.
+6. MAC Address: Each ENI has a globally unique MAC address.
 
 ## Restrictions on use
 
-According to CPU and memory configurations, the number of elastic network cards and single network cards that a CVM can bind vary greatly; the number of network cards and single network card IP quotas are shown in the table below:
+According to CPU and memory configurations, the number of ENIs and IPs per ENI that a CVM can bind vary greatly. Please see below:
 
-| Cloud Host Configuration | Elastic Network Cards | Number of network cards bound to IP |
+| CVM Configuration | ENIs | IPs per ENI |
 | ------------------- | :---- | :------ |
 | CPU: 1 core  memory: 1G    | 2     | 2       |
 | CPU: 1 core  memory: >1G   | 2     | 6       |
@@ -34,31 +34,31 @@ According to CPU and memory configurations, the number of elastic network cards 
 
 
 ## Operation Guide
-### Check Elastic network card
+### Check ENIs
 
 1) Open [CVM console](https://console.qcloud.com/cvm).
 
 2) Click the CVM instance ID to access the CVM details page.
 
-3) Click the Elastic Network Card tab to view information about the elastic network adapter bound to the cloud host.
+3) Click the ENI tab to view information about the elastic network adapter bound to the CVM.
 
-### Create elastic network card
+### Create ENIs
 
-A primary network card will be created automatically when you create a CVM. The primary card cannot be bound and unbound. 
+A primary ENI will be created automatically when you create a CVM. The primary ENI cannot be bound and unbound. 
 
-To create a new elastic network card, please do the followings:
+To create a new ENI, please do the followings:
 
 1) Open [CVM console](https://console.qcloud.com/cvm).
 
 2) Find the desired CVM via the ID
 
-3) In the operation column, select "More - Elastic Network Cards-Bind Elastic Network Cards"
+3) In the operation column, select "More - ENI - Bind ENI"
 
-4) Select "New Elastic Network Card" in the pop-up window
+4) Select "New ENI" in the pop-up window
 
-5) Enter data of the network card and click "Confirm"
+5) Enter data of the ENI and click "OK"
 
-## Bind elastic public IP
+## Bind elastic public IPs
 
 Method 1:
 
@@ -66,8 +66,8 @@ Method 1:
 
 2) Click the CVM instance ID to access the CVM details page.
 
-3) Click the [Elastic Network Card tab] and click "Bind a Network Card.
-4) In the pop-up list, select elastic network card in the same VPC and the **same availability zone**
+3) Click the "ENI - Bind an ENI".
+4) In the pop-up list, select ENIs in the same VPC and the **same availability zone**
 
 5) Click "Confirm" to complete
 
@@ -83,11 +83,11 @@ Method 2:
 
 5) Click "Confirm" to complete
 
-Tip 1: A CVM can only be bound with elastic network cards in the same VPC and availability zone
+Tip 1: A CVM can only be bound with ENIs in the same VPC and availability zone
 
-Tip 2: There're upper limits for bound network cards. Please check the Usage Restriction section for details
+Tip 2: There're upper limits for bound ENIs. Please check the Usage Restriction section for details
 
-### Unbind elastic network card
+### Unbind ENIs
 
 Method 1:
 
@@ -95,7 +95,7 @@ Method 1:
 
 2) Click the CVM instance ID to access the CVM details page.
 
-3) Click the elastic network card tab and select the desired elastic network card
+3) Click the ENI tab and select the desired ENI
 
 4) Click "Unbind" to complete
 
@@ -257,7 +257,7 @@ Note 2: After the private IP is unbound, it will automatically disassociate from
 
 5) In the pop-up window, enter the new main network IP, and click [OK] to complete the modification.
 
-### Change subnet of elastic network card
+### Change subnet of ENI
 
 1) Open [Private network VPC console](https://console.qcloud.com/vpc).
 
@@ -273,6 +273,6 @@ Note 2: After the private IP is unbound, it will automatically disassociate from
 
 > Note:
 1. You can only change subnet of the primary network card
-2.  Before changing the subnet of an elastic network card, unbind all secondary IPs.
-3, When modifying the subnet of an elastic network card, you can only change it to other subnets under the availability zone.
+2. Before changing the subnet of an elastic network card, unbind all secondary IPs.
+3. When modifying the subnet of an elastic network card, you can only change it to other subnets under the availability zone.
 

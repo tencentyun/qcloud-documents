@@ -16,3 +16,8 @@
 | virtualPort | <font color=red> 必选 </font color=red> | Integer | 转发端口 |
 | sourcePort | <font color=red> 必选 </font color=red> | Integer | 源站端口 |
 | ipList | <font color=red> 必选 </font color=red> | String | 要转发到机器的IP列表，一条规则不超过20个IP |
+
+## 3.输出参数
+| 参数名称 | 是否必须 | 类型 | 描述 |
+|---------|---------|---------|---------|
+| ruleId | <font color=red> 必选 </font color=red> | String | 该转发规则的ID |

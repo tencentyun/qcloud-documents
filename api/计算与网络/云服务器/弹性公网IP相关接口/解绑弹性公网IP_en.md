@@ -20,13 +20,13 @@ The platform imposes a quota on the number of attempts to unbind an EIP and real
 <tr>
 <td> eipId <td> No <td> String <td> Instance ID of EIP, which can be obtained from eipId in the returned field of <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEipQuota">DescribeEip</a> API
 <tr>
-<td> allocWanIp <td> No <td> Int <td> Whether to a reallocate a new ordinary public IP for the primary IP of the server's primary NIC after the EIP is unbound from the server. The ordinary public IP will be released upon the release of the server and is not elastic. <br>0: Do not allocate; 1: Allocate (The default is 0).
+<td> allocWanIp <td> No <td> Int <td> Whether to a reallocate a new ordinary public IP for the primary IP of the server's primary ENI after the EIP is unbound from the server. The ordinary public IP will be released upon the release of the server and is not elastic. <br>0: Do not allocate; 1: Allocate (The default is 0).
 <tr>
-<td> networkInterfaceId <td> No <td> String <td> The unique ID of elastic NIC, which can be obtained from networkInterfaceId in the returned field of <a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API
+<td> networkInterfaceId <td> No <td> String <td> The unique ID of ENI, which can be obtained from networkInterfaceId in the returned field of <a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API
 <tr>
 <td> privateIpAddress <td> No <td> String <td> Private IP of the server. Either the parameter eipId, or the parameters networkInterfaceId and privateIpAddress are passed during the unbinding.
 <tr>
-<td> unBindPrivateIpWithEip <td> No <td> Int <td> Whether to unbind the binding between networkInterfaceId/privateIpAddress and EIP after the EIP is unbound from the server. This parameter applies only when the primary IP of non-primary NIC is unbound for a server supporting elastic NIC. In other cases, unbinding is performed by default. <br>0: Do not unbind; 1: Unbind (The default is 1).
+<td> unBindPrivateIpWithEip <td> No <td> Int <td> Whether to unbind the binding between networkInterfaceId/privateIpAddress and EIP after the EIP is unbound from the server. This parameter applies only when the primary IP of non-primary ENI is unbound for a server supporting ENI. In other cases, unbinding is performed by default. <br>0: Do not unbind; 1: Unbind (The default is 1).
 </tbody></table>
 
  
@@ -48,7 +48,7 @@ Input
 <pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
   &eipId=eip-mksy14ay
   &allocWanIp=0
 

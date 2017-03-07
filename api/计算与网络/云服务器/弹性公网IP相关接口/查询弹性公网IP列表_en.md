@@ -3,7 +3,7 @@
 Domain name: eip.api.qcloud.com
 API name: DescribeEip
 
-Query elastic public IP.
+This API is used to query elastic public IP.
 
  
 
@@ -22,7 +22,7 @@ Query elastic public IP.
 <tr>
 <td> unInstanceIds.n <td> No <td> String <td> List of server instance IDs, with subscripts starting with 0. It can be obtained from unInstanceId in the returned field of <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a> API.
 <tr>
-<td> networkInterfaceIds.n <td> No <td> String <td> List of unique IDs of elastic NICs, with subscripts starting with 0. It can be obtained from networkInterfaceId in the returned field of <a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.
+<td> networkInterfaceIds.n <td> No <td> String <td> List of unique IDs of ENIs, with subscripts starting with 0. It can be obtained from networkInterfaceId in the returned field of <a href="/doc/api/245/4814" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.
 <tr>
 <td> privateIpAddresss <td> No <td> String <td> Private IP of the server.
 <tr>
@@ -47,7 +47,7 @@ Query elastic public IP.
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values​indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| code | Int | Common error code. A value of 0 indicates success, and other values ​indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
 | message | String | Module error message description depending on API. For more information, please refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
 | totalCount | Int | Return the number of EIPs matching the filter criteria; if "limit" and "offset" are specified, the value may be greater than the number in the data list |
 | data | Array | Return a list |
@@ -78,7 +78,7 @@ Data structure
 <tr>
 <td> data.eipSet.unInstanceId <td> String <td> The instance ID of the server to which the EIP is bound. If there is no binding between them, leave the parameter empty.
 <tr>
-<td> data.eipSet.networkInterfaceId <td> String <td> The unique ID of elastic NIC
+<td> data.eipSet.networkInterfaceId <td> String <td> The unique ID of ENI
 <tr>
 <td> data.eipSet.privateIpAddress <td> String <td> Private IP of the server
 <tr>

@@ -4,7 +4,7 @@ Tencent Cloud provides cloud monitoring for all users by default, no need for th
 
 Some cloud products provide a separate monitoring data reading tab on their own console pages. CVM is used in this example
 
-1) Open [Tencent Cloud Console](https://console.qcloud.com), select [CVM].
+1) Open [Tencent Cloud Console](https://console.qcloud.com), select "CVM".
 
 2) Click the CVM Instance ID from the list of CVMs to view the monitoring data, and enter the CVM details page.
 
@@ -15,9 +15,9 @@ Some cloud products provide a separate monitoring data reading tab on their own 
 ## Obtain monitoring data from the cloud monitoring console
 The cloud monitoring console is the unified entry point for all product monitoring data; here, users can view monitoring data for most of the products used. In this case, CVM is used as an example.
 
-1) Open [Tencent Cloud Console](https://console.qcloud.com), select [Cloud Product] - [Cloud Monitoring].
+1) Open [Tencent Cloud Console](https://console.qcloud.com), select "Cloud Products - Cloud Monitoring".
 
-2) On the left navigation bar, select [Cloud Product Monitoring] - [CVM].
+2) On the left navigation bar, select "Cloud Product Monitoring - CVM".
 
 3) Click the CVM Instance ID from the list of CVMs displayed to view the monitoring data, and enter the monitoring details page.
 

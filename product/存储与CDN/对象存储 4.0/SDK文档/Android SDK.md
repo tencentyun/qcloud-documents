@@ -189,7 +189,7 @@ GetObjectResult getObjectResult = cos.getObject(getObjectRequest);
 
 **签名获取：**
 
-SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https:///doc/api/435/6054)。
+SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https://www.qcloud.com/document/product/436/6054)。
 
 
 ## 目录操作 

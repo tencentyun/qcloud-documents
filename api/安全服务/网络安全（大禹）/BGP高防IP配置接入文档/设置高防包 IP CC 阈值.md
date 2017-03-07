@@ -10,5 +10,5 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| bqpId | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| bgpId | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
 | threshold |<font color=red> 必选 </font color=red>| String | CC防护阈值，传0表示关闭CC防护，注意CC防护阈值只能小于当前防护套餐的CC防护峰值，对应关系如下：![](https://mc.qcloudimg.com/static/img/48aebbd9e0e609608399b189c40682dd/image.png)|

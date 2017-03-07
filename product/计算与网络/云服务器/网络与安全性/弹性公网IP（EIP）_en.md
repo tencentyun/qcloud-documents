@@ -61,7 +61,7 @@ When an elastic IP has been purchased, but <font color="red">is not yet bound to
 
 3) Click the [Bind] button next to the cloud product EIP list item you want to bind. If this elastic IP is bound to a cloud product instance, the button will be unavailable. Please unbind it first.
 	
-4) In the pop-up box, select the cloud product type you need to bind, and select the corresponding cloud product instance ID; click the 【Bind】 button to complete binding with the cloud product.
+4) In the pop-up box, select the cloud product type you need to bind, and select the corresponding cloud product instance ID; click the "Bind" button to complete binding with the cloud product.
 
 ## Unbind elastic public IP to cloud product
 

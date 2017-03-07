@@ -38,7 +38,7 @@ Input
   https://cvm.api.qcloud.com/v2/index.php?Action=DescribeZoneAbility
   &zoneId=800001
   &capacity.1=cbs
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

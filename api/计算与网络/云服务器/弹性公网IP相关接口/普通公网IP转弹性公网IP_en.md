@@ -3,7 +3,7 @@
 Domain name: eip.api.qcloud.com
 API name: TransformWanIpToEip
 
-Transform the ordinary public IP bound to a server to an elastic public IP (EIP). After the conversion, the EIP will be retained when the server is released.
+This API is used to conver an ordinary public IP to an EIP. The EIP will be retained when the server is released.
 
  
 
@@ -16,7 +16,7 @@ Transform the ordinary public IP bound to a server to an elastic public IP (EIP)
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> unInstanceId <td> Yes <td> String <td> Instance ID of the server to be operated which has an ordinary public IP. It can be obtained from unInstanceId in the returned field of <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a> API. 
+<td> unInstanceId <td> Yes <td> String <td> Instance ID of target CVM. It can be obtained from unInstanceId in the returned field of <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeInstances">DescribeInstances</a> API. 
 </tbody></table>
 
  
@@ -38,7 +38,7 @@ Input
 <pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
   &unInstanceId=ins-hyvbipjg
 
 </pre>

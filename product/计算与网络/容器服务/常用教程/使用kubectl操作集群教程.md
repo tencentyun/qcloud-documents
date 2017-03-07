@@ -3,7 +3,15 @@
 
 如果您已经安装有kubectl工具，请忽略本步骤。详细安装kubectl过程参考[Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/)
 
-下载kubectl:
+下载kubectl（腾讯云主机内网下载）:
+```shell
+# Linux
+curl -LO http://mirrors.tencentyun.com/install/ccs/v1.4.6/linux/amd64/kubectl 
+
+# Windows
+curl -LO http://mirrors.tencentyun.com/install/ccs/v1.4.6/windows/amd64/kubectl.exe
+```
+下载kubectl（公网下载）:
 ```shell
 # OS X
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
@@ -14,6 +22,7 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s htt
 # Windows
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
 ```
+
 添加执行权限
 ```shell
 chmod +x ./kubectl
@@ -42,7 +51,7 @@ Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommi
 请求方法：
 kubectl 命令 -s "域名信息" --username=用户名 --password=密码 --certificate-authority=证书路径，如：
 ```shell
-kubectl get node -s "https://cls-66668888.docker.tencent-cloud.com:60002" --username=admin --password=6666o9oIB2gHD88882quIfLMy6666 --certificate-authority=/etc/kubernetes/cluster-ca.crt
+kubectl get node -s "https://cls-66668888.ccs.tencent-cloud.com" --username=admin --password=6666o9oIB2gHD88882quIfLMy6666 --certificate-authority=/etc/kubernetes/cluster-ca.crt
 ```
 
 #### 方法二：修改kubectl配置文件  
@@ -50,7 +59,7 @@ kubectl get node -s "https://cls-66668888.docker.tencent-cloud.com:60002" --user
 设置kubectl配置,修改以下命令中的密码、证书信息
 ```shell
 kubectl config set-credentials default-admin --username=admin --password=6666o9oIB2gHD88882quIfLMy6666
-kubectl config set-cluster default-cluster --server=https://cls-66668888.docker.tencent-cloud.com:60002 --certificate-authority=/etc/kubernetes/cluster-ca.crt
+kubectl config set-cluster default-cluster --server=https://cls-66668888.ccs.tencent-cloud.com --certificate-authority=/etc/kubernetes/cluster-ca.crt
 kubectl config set-context default-system --cluster=default-cluster --user=default-admin
 kubectl config use-context default-systemhttps://mc.qcloudimg.com/static/img/1aac831641ccfc0b3becd0b38e2a9634/Image+014.png
 
@@ -60,4 +69,10 @@ kubectl config use-context default-systemhttps://mc.qcloudimg.com/static/img/1aa
 kubectl get nodes
 NAME        STATUS    AGE
 10.0.0.61   Ready     10h
+```
+
+### 设置kubectl命令自动补全
+您可以通过配置Kubectl自动补全，提高可使用性
+```shell
+source <(kubectl completion bash)
 ```

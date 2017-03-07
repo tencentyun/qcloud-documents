@@ -72,15 +72,25 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 - **startPreview** 的参数就是step2中需要您指定的view，startPreview 的作用就是将界面view控件和LivePush对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 ### step 4: 美颜滤镜
-对于摄像头直播的场景，美颜是必不可少的一个功能点，本SDK提供了一种简单版实现，包含磨皮（level 1 -> level 10）和美白 (level 1 -> level 3)两个功能。
-
-您可以在您的APP得用户操作界面上使用滑竿等控件来让用户选择美颜效果，或者推荐您也可以先用Demo里的滑竿进行，达到您满意的效果后，将此时的数值固定到程序的设置参数里。
-
-接口函数setBeautyFilterDepth可以动态调整美颜及美白级别:
-
+- **美颜**
+setBeautyFilterDepth 接口可以设置美颜和美白级别，两者的调整级别都是 0 至 9，0 表示不启用美颜，1.9.1 版本开始美颜效果做了明显的优化，配合 540 * 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
 ```objectivec
-[_txLivePush setBeautyFilterDepth:_beauty_level setWhiteningFilterDepth:_whitening_level];
+[_txLivePush setBeautyFilterDepth:7 setWhiteningFilterDepth:3];
 ```
+
+- **滤镜**
+setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了Demo中，您可以随意使用，不用担心版权问题。
+```objectivec
+NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
+if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
+        path = [path stringByAppendingPathComponent:lookupFileName];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        [_txLivePublisher setFilter:image];
+} 
+```
+![](//mc.qcloudimg.com/static/img/ad0711f3c35f2087d3520677bfd64391/image.png)
+> 如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG，不要用 JPG，不要用 JPG...</font>
+
 
 ### step 5: 控制摄像头
 - **切换前置或后置摄像头** 
@@ -140,11 +150,11 @@ txLivePush.config.enableHWAcceleration = YES;
 [_txLivePush startPush:rtmpUrl]
 ```
 
-- **推荐开启硬编**
-iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都非常过关，所以硬件加速在iOS平台是非常推荐的，可以放心开启。
+- **兼容性评估**
+iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都非常过关，所以硬件加速在iOS平台是非常推荐的，可以放心开启。而且 SDK 内部有健全的保护机制，如果硬编码资源被其它后台App占用，会自动转成软编码。
 
-- **最新美颜效果**
-不少客户对老版本SDK的美颜不满意，所以 SDK 1.6.2 开始我们换用了新的美颜方案，但是新美颜算法的计算量要略大于老版本的美颜算法。由于测试团队对性能标准要求非常严格和苛刻，所以我们最终确定：<font color='red'>只有开启硬件加速的情况下才会启用新的美颜效果</font>。
+- **效果差异**
+开启硬件加速后手机耗电量会有明显降低，机身温度也会比较理想，但画面大幅运动时马赛克感会比软编码要明显。
   
 - **避免中途切换**
 避免在推流过程中开关硬件加速，虽然大部分情况下没有问题，但有各种异常隐患。推荐的做法是一开始就开启，而不是中途再打开。
@@ -209,15 +219,17 @@ App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无
 - **帧率**：FPS <=10 会明显感觉到卡顿，摄像头直播推荐设置 20 FPS。
 - **码率**：编码器每秒编出的数据大小，单位是kbps，比如800kbps代表编码器每秒产生800kb（或100KB）的数据。
 
-好的画质是分辨率、帧率和码率三者之间的平衡，如下是几种清晰度档位的推荐设置结果。其中，括号中标注的是 LivePushConfig 的对应设置项：
+好的画质是分辨率、帧率、码率与主播上行网速之间的一种平衡，1.9.1 版本开始，TXLivePush 提供了几个我们已经配置好的画质选项，您可以通过 setVideoQuality 函数进行设置，它有如下几个选项：
 
-| 档位   | 分辨率（videoResolution） | FPS（videoFPS） | 码率（videoBitratePIN） |
-|---------|---------|---------|---------|
-| 标清 | VIDEO_RESOLUTION_TYPE_360_640 | 20 | 700kbps |
-| 高清 | VIDEO_RESOLUTION_TYPE_540_960 | 20 | 1000kbps | 
-| 超清 | VIDEO_RESOLUTION_TYPE_720_1280 | 20 | 1500kbps |
+| 档位   | 分辨率| FPS| 码率 | 使用场景 | 
+|:-------:|---------|---------|:-------:|---------|
+| **标清** | 360*640 | 15 | 400kbps - 800kbps | 对流畅度要求比较高的客户适合选用，如果主播的网络条件不理想，<br>直播的画质会偏模糊，但总体卡顿率不会太高。 |
+| **高清**<br><font color='red'>（推荐）</font> | 540*960 | 15 | 1000kbps | 如果主播的网络条件正常，画面清晰度能达到最优效果，<br>如果网络不理想，直播画质不会有变化，但会有卡顿和跳帧现象。 |
+| **超清** | 720*1280 | 15 | 1500kbps | 如果是小屏观看不推荐。如果是大屏幕观看，且主播网络质量很好可以考虑。|
+| **大主播** | 540*960 | 15 | 1000kbps | 连麦中大主播使用，因为是观众的主画面，追求清晰一些的效果。 |
+| **小主播** | 320*480 | 15 | 350kbps | 连麦中小主播使用，因为是小画面，画面追求流畅。|
 
-> 美女秀场领域，我们的客户一般是选择**高清**档位，因为它比较平衡：720p超清档拍人像比较浪费，360p的效果又不能在清晰度上跟竞品拉开差距。
+> 使用 setVideoQuality 之后，依然可以使用 TXLivePushConfig 设置画质，以最后一次的设置为准。
 
 ### step 10: 提醒主播“网络不好”
 step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
@@ -230,7 +242,7 @@ step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_
 > <font color='red'>**注意：**</font> 横屏推流和竖屏推流，观众端看到的图像的宽高比是不同的，竖屏9:16，横屏16：9。
 
 要实现横屏推流，需要在两处进行设置：
-#### 调整观众端表现
+- **调整观众端表现**
 通过对 LivePushConfig 中的 **homeOrientation** 设置项进行配置，它控制的是观众端看到的视频宽高比是 **16:9** 还是 **6:19**，调整后的结果可以用播放器查看以确认是否符合预期。
 
 | 设置项 | 含义 |
@@ -240,14 +252,14 @@ step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_
 | VIDEO_ANGLE_HOME_LEFT       | home键在左 |
 | VIDEO_ANGLE_HOME_UP           | home键在上 |
 
-#### 调整主播端表现
+- **调整主播端表现**
 接下来就看主播本地渲染是否正常，这里可以通过 TXLivePush 中的 setRenderRotation 接口来设置主播看到的画面的旋转方向。此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
 
 ### step 12: 背景混音
 RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePush 中的如下这组接口实现背景混音功能：
 
 | 接口 | 说明 |
-|---------|---------|
+|:-------:|---------|
 | playBGM | 通过path传入一首歌曲，[小直播Demo](https://www.qcloud.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
 | stopBGM|停止播放背景音乐|
 | pauseBGM|暂停播放背景音乐|
@@ -255,7 +267,29 @@ RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机�
 | setMicVolume|设置混音时麦克风的音量大小，推荐在UI上实现相应的一个滑动条，由主播自己设置|
 | setBGMVolume|设置混音时背景音乐的音量大小，推荐在UI上实现相应的一个滑动条，由主播自己设置|
 
-### step 13: 结束推流
+### step 13: 耳返&混响
+- **耳返**
+指的是当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音，这是由于主播自己的声音是通过头部骨骼（固体）传入耳朵，而观众听到声音最终是通过空气介质传入耳朵，这两种方式听的声音是有很大差异的，因此主播有需求直接听到观众端的效果。
+![](//mc.qcloudimg.com/static/img/fca1094c93126ad5b61d962ec22ad0d5/image.png)
+
+ 在 TXLivePushConfig中 enableAudioPreview 接口可以打开耳返（如果是连麦，推荐大主播开，小主播就不要开了，实时音视频通话时开耳返会很奇怪。）
+
+- **混响**
+指的是耳返的时候，声音要加入一些特效，比如KTV、会堂、磁性、金属 等等，这个效果最终也会作用到观众端，让主播的歌声更加有味道。通过 TXLivePush 的成员函数 setReverbType (1.9.2 开始支持) 可以设置混响特效，目前可以支持的混响特效有：
+
+| 混响类型 | 枚举值 | 含义 |
+|---------|:---------:|:---------:|
+| REVERB_TYPE_0 | 0 | 关闭 |
+| REVERB_TYPE_1 | 1 | KTV |
+| REVERB_TYPE_2 | 2 | 小房间 |
+| REVERB_TYPE_3 | 3 | 大会堂 |
+| REVERB_TYPE_4 | 4 | 低沉 |
+| REVERB_TYPE_5 | 5 | 洪亮 |
+| REVERB_TYPE_6 | 6 | 金属声 |
+| REVERB_TYPE_7 | 7 | 磁性 |
+
+
+### step 14: 结束推流
 结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePush 对象同一时刻只能有一个在运行，所以清理工作不当会导致下次直播遭受不良的影响。
 ```objectivec
 //结束推流，注意做好清理工作
