@@ -8,13 +8,13 @@ Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | imageId | Yes | String | Image ID, which can be obtained from unImgId in the returned field of [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) API. |
-|imageName | No | String |Image name, which cannot be identical to an existing image name. If you don't want to modify it, left it blank or do not pass the value. Naming rule: The name should contain 1-16 characters, including English letters, numbers, and "-".
-| imageDescription | No | String | Description of the image. If you don't want to modify it, left it blank or do not pass the value. Naming rule: The name contains 0-64 characters, including Chinese characters, English letters, numbers, "-", and "_".
+|imageName | No | String |Image name, which cannot be identical to an existing image name. If you don't want to modify it, left it blank. Naming rule: The name should contain 1-16 characters, including English letters, numbers, and "-".
+| imageDescription | No | String | Description of the image. If you don't want to modify it, left it blank. Naming rule: The name contains 0-64 characters, including English letters, numbers, "-", and "_".
 
  
 
@@ -34,7 +34,7 @@ Input
   &imageId=img-12345678
   &imageName=testName
   &imageDescription=descrip
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

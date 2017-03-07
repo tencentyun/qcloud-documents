@@ -42,7 +42,7 @@ Input
   &instanceIds.0=ins-xxxxx
   &instanceIds.1=ins-xxxxx
   &keyId=skey-xxxxx
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

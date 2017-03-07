@@ -64,7 +64,7 @@ Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
 | Windows Server 2012 R2 Datacenter Edition 64-bit Chinese | img-29hl923v |
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
  
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|------------------|
@@ -103,7 +103,7 @@ Input
 <pre>
   https://cvm.api.qcloud.com/v2/index.php?Action=DescribeImages
   &imageType=1
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

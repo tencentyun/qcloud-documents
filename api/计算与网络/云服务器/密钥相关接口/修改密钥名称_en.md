@@ -10,7 +10,7 @@ Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 ## 2. Input Parameters
 
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -36,7 +36,7 @@ Input
   https://cvm.api.qcloud.com/v2/index.php?Action=ModifyKeyPair
   &keyId=skey-mv9yzyjj
   &keyName=Tencent
-  &<Public request parameters>
+  &<Common request parameters>
 
 ```
 

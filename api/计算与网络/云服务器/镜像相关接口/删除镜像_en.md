@@ -6,13 +6,13 @@ This API (DeleteImages) is used to delete one or more images.
 Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
 
 
-* Any image with a status of "Creating..." or "In Use" cannot be deleted.
+* Images with the status of "Creating..." or "In Use" cannot be deleted.
 * A maximum of 10 custom images are allowed to be created for each region. Deletion of images can free the quota on account.
 
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -35,11 +35,11 @@ Input
   https://cvm.api.qcloud.com/v2/index.php?Action=DeleteImages
   &imageIds.0=img-xxxxxxxx
   &imageIds.1=img-xxxxxxxx
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output
-Refer to [Format of Returned Results of Batch Asynchronous Task API](http://www.qcloud.com/doc/api/229/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F#2.-批量异步任务接口返回格式)
+Refer to [Asyn Task API Return Format](http://www.qcloud.com/doc/api/229/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F#2.-批量异步任务接口返回格式)
 
 
 

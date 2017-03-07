@@ -4,7 +4,7 @@ This API (ResizeInstanceHour) is used to adjust the configuration of specified i
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* This API only applies to charge-by-quantity instances for pre-paid users. To make adjustments to instances with an annual or monthly plan, please use [ResizeInstance](https://www.qcloud.com/doc/api/229/1306) API.
+* This API only applies to pay-per-use instances for pre-paid users. To make adjustments to instances with an annual or monthly plan, please use [ResizeInstance](https://www.qcloud.com/doc/api/229/1306) API.
 * Configuration upgrade can only be performed on the instances that have been shut down.
 * Upgrade is only allowed for the instances that have a Cloud Block Storage.
 * An instance to which an elastic block storage has been mounted is not supported.
