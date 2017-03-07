@@ -10,5 +10,5 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| bqpId | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
-| threshold |<font color=red> 必选 </font color=red>| String | 弹性防护峰值，传0表示关闭弹性防护 |
+| bgpId | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| limit |<font color=red> 必选 </font color=red>| Integer | 弹性防护峰值，传0表示关闭弹性防护,单位是Mb |

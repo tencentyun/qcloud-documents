@@ -4,8 +4,8 @@ This API (ReturnInstance) is used to return instances.
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* Charge-by-quantity instances will keep running if they are not destroyed. When an instance is not used, it need to be returned.
-* This API only supports return of charge-by-quantity instances. For any instance with an annual or monthly plan that is created wrongly,  the request to return the instance needs to be sent to [Ticket System](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=7).
+* Postpaid instances will keep running if they are not terminated. When an instance is not used, it need to be returned.
+* This API only supports return of postpaid instances. To return prepaid instances, please [submit a ticket](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=7).
 
 ## 2. Input Parameters
 

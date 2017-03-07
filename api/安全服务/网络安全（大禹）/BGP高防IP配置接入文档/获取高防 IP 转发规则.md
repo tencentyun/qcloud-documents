@@ -10,7 +10,7 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| bgpId | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
 | paging.index|<font color=red> 必选 </font color=red>| Integer | 页面索引，0表示第一页 |
 | paging.count|<font color=red> 必选 </font color=red>| Integer | 每页返回详情数|
 
@@ -18,7 +18,7 @@
 ## 3.输出参数
 | 参数名称 | 例子| 类型 | 描述 |
 |---------|---------|---------|---------|
-|total| <font color=red> 123 </font color=red> |Integer | 共有多少条攻击详情 |
+|total| <font color=red> 123 </font color=red> |Integer | 该高防IP共配置过多少条转发规则 |
 |transRules |<font color=red> [obj,…] </font color=red>| Array | 攻击详情数组，数组元素如下：<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "rule-00000001",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"protocol": "TCP" <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"virtualPort": "80",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sourcePort": "80",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ipList": "1.2.3.4；1.1.1.1"<br>} |
 |id|rule-00000001| String | 该转发规则的ID|
 |protocol|<font color=red>TCP </font color=red>| String | 转发规则所用协议，目前只支持TCP |

@@ -18,4 +18,4 @@
 ## 3.输出参数
 | 参数名称 | 例子| 类型 | 描述 |
 |---------|---------|---------|---------|
-|apoints| <font color=red> [1000次,…] </font color=red> |Array | 在该时间粒度内的CC攻击拦截次数的总和 |
+|points| <font color=red> [1000次,…] </font color=red> |Array | 在该时间粒度内的CC攻击拦截次数的总和 |

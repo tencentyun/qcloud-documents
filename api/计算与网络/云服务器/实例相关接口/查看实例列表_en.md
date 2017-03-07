@@ -30,11 +30,11 @@ Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 | 18 | Cloud Load Balance unbinding
 | 19 | Upgrading
 | 20 | Key issuing
-| 21| In maintenance (cannot operate on the instance <br>but does not affect the normal operation)
+| 21 | In maintenance (cannot operate on the instance <br>but does not affect the normal operation)
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -90,11 +90,11 @@ diskInfo contains a lot of hard disk information, and the data structure for eac
 | Parameter name | Type | Description |
 |---------|---------|---------|
 | storageId | String | Hard disk ID.
-| storageType | Int | Hard disk type. <br>1. Local disk <br>2.Cloud Block Storage <br>3.SSD local disk <br>4.SSD cloud disk
+| storageType | Int | Hard disk type. <br>1. Local disk <br>2.Cloud HHD Storage <br>3.SSD local disk <br>4.SSD cloud disk
 | storageSize | Int | Data disk size (GB).
 | rootId | String | System disk ID.
 | rootSize | Int | System disk size (GB). |
-| rootType | Int | System disk type. <br>1. Local disk <br>2.Cloud Block Storage <br>3.SSD local disk <br>4.SSD cloud disk
+| rootType | Int | System disk type. <br>1. Local disk <br>2.Cloud HHD Storage <br>3.SSD local disk <br>4.SSD cloud disk
 
 
 ## 4. Example
@@ -105,7 +105,7 @@ Input:
  https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstances
  &instanceIds.0=ins-r8hr2upy
  &instanceIds.1=ins-5d8a23rs
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>>
+ &<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 </pre>
 
 Output:
