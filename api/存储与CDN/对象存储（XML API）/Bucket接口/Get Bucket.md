@@ -55,7 +55,7 @@ Authorization: auth
 | Etag                  | 文件的 SHA-1 算法校验值<br/>父节点：ListBucketResult.Contents | String |
 | Size                  | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String |
 | Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | Container    |
-| StorageClass | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
+| StorageClass          | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
 | ID                    | Bucket的UID父节点：ListBucketResult.Contents.Owener | String |
 | CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   |    String    |
 
@@ -117,30 +117,35 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
 		<LastModified>Wed Jan 11 18:57:06 2017</LastModified>
 		<ETag>"79f2a852fac7e826c9f4dbe037f8a63b"</ETag>
 		<Size>10485760</Size>
+		<StorageClass>Standard</StorageClass>
 	</Contents>
 	<Contents>
 		<Key>testL1</Key>
 		<LastModified>Wed Jan 11 19:02:17 2017</LastModified>
 		<ETag>"3f9a5dbff88b25b769fa6304902b5d9d"</ETag>
 		<Size>10485760</Size>
+		<StorageClass>Standard</StorageClass>
 	</Contents>
 	<Contents>
 		<Key>testLLL</Key>
 		<LastModified>Wed Jan 11 16:36:08 2017</LastModified>
 		<ETag>"39bfb88c11c65ed6424d2e1cd4db1826"</ETag>
 		<Size>10485760</Size>
+		<StorageClass>Standard</StorageClass>
 	</Contents>
 	<Contents>
 		<Key>testLOL</Key>
 		<LastModified>Wed Jan 11 17:24:10 2017</LastModified>
 		<ETag>"fb31459ad10289ff49327fd91a3e1f6a"</ETag>
 		<Size>4</Size>
+		<StorageClass>Standard</StorageClass>
 	</Contents>
 	<Contents>
 		<Key>tet</Key>
 		<LastModified>Wed Jan 11 15:54:02 2017</LastModified>
 		<ETag>"83b3ec25cc19626ac073297eba30fbc4"</ETag>
 		<Size>10485760</Size>
+		<StorageClass>Standard</StorageClass>
 	</Contents>
 </ListBucketResult>
 ```
