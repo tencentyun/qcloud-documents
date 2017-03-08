@@ -40,6 +40,7 @@ Authorization: Auth
 | Buckets                | 说明本次返回的Bucket列表的所有信息<br/>父节点：ListAllMyBucketsResult | Contianer |
 | Bucket                 | 单个Bucket的信息<br/>父节点：ListAllMyBucketsResult.Buckets | Contianer |
 | Name                   | Bucket名称<br/>父节点：ListAllMyBucketsResult.Buckets.Bucket | String    |
+|Location                | Bucket所在区域，枚举值：china-east，china-south，china-north，china-southwest | String    |
 | CreateDate             | Bucket创建时间，ISO8601格式，例如 2016-11-09T08:46:32.000Z<br/>父节点：ListAllMyBucketsResult.Buckets.Bucket | Date      |
 
 ```XML
@@ -50,6 +51,7 @@ Authorization: Auth
   <Buckets>
     <Bucket>
       <Name></Name>
+      <Location></Location>
       <CreateDate></CreateDate>
     </Bucket>
    ...
