@@ -3,9 +3,9 @@ This API (DescribeAvailabilityZones) is used to query the details of Tencent Clo
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* For the definition of availability zone, please refer to the [Region](https://www.qcloud.com/doc/product/213/497#2.-.E5.8F.AF.E7.94.A8.E5.8C.BA) section under product documentation.
+* For the definition of availability zones, please refer to the [Region](https://www.qcloud.com/doc/product/213/497#2.-.E5.8F.AF.E7.94.A8.E5.8C.BA) product documentation.
 * The content includes the IDCs of availability zones.
-* You can view the information on an availability zone by specifying the zone ID.
+* You can check the information on an availability zone by specifying the zone ID.
 * The list of availability zone IDs is as follows: 
 
 | Availability Zone Name | Availability Zone ID |
@@ -20,11 +20,11 @@ Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides request parameters for this API. For other parameters, refer to [Common Request Parameters](/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| zoneId| No| Int| Availability zone ID |
+| zoneId| No| Int| ID of the availability zone |
 
 
 
@@ -43,7 +43,7 @@ zoneSet is a collection of information on availability zones. The data structure
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| zoneId| Int| Availability zone ID. |
+| zoneId| Int| ID of availability zone. |
 | idcList | Array | IDC list. |
 
 
@@ -58,7 +58,7 @@ idcList is a collection of information on IDCs subordinated to an availability z
 
 
 
-## 4. Example
+## 4. Sample Codes
 
 Input
 

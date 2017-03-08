@@ -52,12 +52,12 @@ The following list only provides request parameters of this API. For additional 
  
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| unInstanceIds | Array | ID of an instance generated automatically by the system in the format "ins-xxxxxxxx", which is used to query the details of the instance through [DescribeInstances](/doc/api/229/831) API. |
+| code | Int | Common error code. 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81). |
+| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81). |
+| unInstanceIds | Array | ID of an instance generated automatically by the system in the format "ins-xxxxxxxx". You can use it to query the details of the instance through [DescribeInstances](/doc/api/229/831) API. |
 
 ## 4. Error Codes
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [CVM Error Codes](/document/product/213/6982) page.
+The following list only provides the business logic error codes for this API. For other common error codes, refer to [CVM Error Codes](/document/product/213/6982).
 
 | Error Code | Description |
 |---|---|
@@ -81,7 +81,7 @@ Input
   &storageSize=50
   &goodsNum=1
   &zoneId=100001
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

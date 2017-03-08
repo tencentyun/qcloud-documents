@@ -4,11 +4,11 @@ This API (DescribeInstances) is used to get the details of one or more instances
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* You can obtain the instance list based on instance ID, instance name or instance state.
+* You can query instance list based on instance ID, instance name or instance state.
 * If the parameter is empty, returns the current user a certain number (specified by limit, the default is 20) of instances.
-* The "Instance State" field indicates the state that the instance is currently in, including the following states:
+* The "status" field indicates the status of the instance, including the following status:
 
-| State ID | State Name |
+| Status ID | Status Name |
 |---------|---------|
 | 1 | Failure |
 | 2 | Running 

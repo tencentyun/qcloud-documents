@@ -1,13 +1,13 @@
-Public request parameters are the request parameters that are used by every API. Unless it is necessary, these parameters will not be described in the separate documents for each API. However, <font style="color:red">they need to be carried in each request, in order to properly initiate a request</font>. Public request parameters are capitalized, to distinguish them from API request parameters.
+Common request parameters are the request parameters that are used by every API. Unless it is necessary, these parameters will not be described in the separate documents for each API. However, <font style="color:red">they need to be included in each request</font>. The first letter of common request parameters are capitalized, to distinguish them from API request parameters.
 
-Public request parameters are listed below:
+Common request parameters are listed below:
 
 <table class="t">
 <tbody><tr>
 <th><b> Parameter </b>
 </th><th width="50"><b>Required</b>
-</th><th><b> Type </b>
 </th><th><b> Description </b>
+</th><th><b> Type </b>
 </th></tr>
 <tr>
 <td> Action
@@ -18,7 +18,7 @@ Public request parameters are listed below:
 <tr>
 <td> Region
 </td><td> No
-</td><td> The region parameter, which identifies in which zone you want to operate the instances. The values for the region parameter are:  <br>Beijing:bj, Guangzhou:gz, Shanghai:sh, Hong Kong:hk, North America:ca, Singapore:sg, Shanghai Finance:shjr, Shenzhen Finance:szjr, Guangzhou open zone: gzopen<br><B> Note: 1. This parameter is required under normal circumstances. If it is not required, we will state that in the corresponding API. <br>2. Some regions are in the alpha test and currently only open for some users. </B>
+</td><td> This parameter indicates the region you want to operate the instances. The values for the region parameter are: <br>Beijing:bj, Guangzhou:gz, Shanghai:sh, Hong Kong:hk, North America:ca, Singapore:sg, Shanghai Finance:shjr, Shenzhen Finance:szjr, Guangzhou open zone: gzopen<br><B> Note: 1. This parameter is required fot most cases. If it is not required, we will state that in the corresponding API doc. <br>2. Some regions are in trial period and only open for authorized users. </B>
 </td><td> String
 </td></tr>
 <tr>
@@ -36,13 +36,13 @@ Public request parameters are listed below:
 <tr>
 <td> SecretId
 </td><td> Yes
-</td><td> The SecretId that indicates the identity requested on the <a href="https://console.qcloud.com/capi">cloud API key</a>. A SecretId corresponds to a unique SecretKey, which is used to generate a request signature. For details, refer to the <a href="/doc/api/372/4214" title="Signature Mode">Signature Mode</a> page.
+</td><td> The SecretId that indicates the identity requested on the <a href="https://console.qcloud.com/capi">Cloud API key</a>. A SecretId corresponds to a unique SecretKey, which is used to generate a request signature. For details, refer to the <a href="/doc/api/372/4214" title="签名方法">Signature Mode</a> page.
 </td><td> String
 </td></tr>
 <tr>
 <td> Signature
 </td><td> Yes
-</td><td> Request signature, used to verify the legitimacy of the request, the system automatically generated based on input parameters. For details, refer to the <a href="/doc/api/372/4214" title="Signature Mode">Signature Mode</a> page.
+</td><td> Request signature, used to verify the legitimacy of the request, the system automatically generated based on input parameters. For details, refer to the <a href="/doc/api/372/4214" title="签名方法">Signature Mode</a> page.
 </td><td> String
 </td></tr></tbody></table>
 
@@ -59,4 +59,4 @@ Action=DescribeInstances
 &<API request parameters>
 ```
 
-A complete request requires two types of request parameters: public request parameters and API request parameters. Only the aforementioned six public request parameters are listed here. For more information about API request parameters, refer to the <a href="/doc/api/372/API request parameters" title="API request parameters">API request parameters</a> section.
+A complete request requires two types of request parameters: public request parameters and API request parameters. Only the aforementioned six public request parameters are listed here. For more information about API request parameters, refer to the <a href="/doc/api/372/接口请求参数" title="接口请求参数">API request parameters</a> section.
