@@ -49,14 +49,15 @@ Authorization: auth
 | NextMarker            | 假如返回条目被截断，则返回NextMarker就是下一个条目的起点<br/>父节点：ListBucketResult | String |
 | CommonPrefixes        | 将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix<br/>父节点：ListBucketResult | String |
 | Encoding-Type         | 编码类型，作用于Delimiter，Marker，Prefix，NextMarker，Key<br/>父节点：ListBucketResult | String |
-| Content               | 元数据信息<br/>父节点：ListBucketResult           | XML    |
+| Content               | 元数据信息<br/>父节点：ListBucketResult           | Container    |
 | Key                   | Object名称<br/>父节点：ListBucketResult.Contents | String |
 | LastModified          | Object最后修改时间<br/>父节点：ListBucketResult.Contents | Date   |
 | Etag                  | 文件的 SHA-1 算法校验值<br/>父节点：ListBucketResult.Contents | String |
 | Size                  | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String |
-| Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | XML    |
+| Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | Container    |
+| StorageClass | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
 | ID                    | Bucket的UID父节点：ListBucketResult.Contents.Owener | String |
-| CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   |        |
+| CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   |    String    |
 
 ```XML
 <ListBucketResult>
@@ -73,6 +74,7 @@ Authorization: auth
     <Owner>
       <ID></ID>
      </Owner>
+     <StorageClass></StorageClass>
   </Contents>
   <CommonPrefixes>
     <Prefix></Prefix>
