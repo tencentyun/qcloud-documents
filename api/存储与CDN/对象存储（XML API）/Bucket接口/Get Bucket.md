@@ -1,6 +1,6 @@
 ## 功能描述
 
-Get Bucket请求等同于 List Object请求，可以列出该Bucekt下部分或者所有Object，发起该请求需要拥有Read权限。
+Get Bucket请求等同于 List Object请求，可以列出该Bucket下部分或者所有Object，发起该请求需要拥有Read权限。
 
 ## 请求
 
