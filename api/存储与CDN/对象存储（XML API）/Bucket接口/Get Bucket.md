@@ -1,6 +1,6 @@
 ## 功能描述
 
-Get Bucket请求等同于 List Object请求，可以列出该Bucekt下部分或者所有Object，发起该请求需要拥有Read权限。
+Get Bucket请求等同于 List Object请求，可以列出该Bucket下部分或者所有Object，发起该请求需要拥有Read权限。
 
 ## 请求
 
@@ -45,7 +45,7 @@ Authorization: auth
 | Prefix                | 前缀匹配，用来规定返回的文件前缀地址<br/>父节点：ListBucketResult | String |
 | Marker                | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始<br/>父节点：ListBucketResult | String |
 | Maxkey                | 单次返回最大的条目数量<br/>父节点：ListBucketResult     | String |
-| IsTruncated           | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListBucketResult | Boolen |
+| IsTruncated           | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListBucketResult | Boolean |
 | NextMarker            | 假如返回条目被截断，则返回NextMarker就是下一个条目的起点<br/>父节点：ListBucketResult | String |
 | CommonPrefixes        | 将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix<br/>父节点：ListBucketResult | String |
 | Encoding-Type         | 编码类型，作用于Delimiter，Marker，Prefix，NextMarker，Key<br/>父节点：ListBucketResult | String |
@@ -56,7 +56,7 @@ Authorization: auth
 | Size                  | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String |
 | Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | Container    |
 | StorageClass          | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
-| ID                    | Bucket的UID父节点：ListBucketResult.Contents.Owener | String |
+| ID                    | Bucket的UID<br/>父节点：ListBucketResult.Contents.Owner | String |
 | CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   |    String    |
 
 ```XML

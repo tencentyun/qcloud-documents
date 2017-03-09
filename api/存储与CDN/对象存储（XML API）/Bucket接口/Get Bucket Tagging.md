@@ -36,7 +36,7 @@ Authorization: Auth
 | ------- | ---------------------------- | --------- |
 | Tagging | 说明所有TagSet和Tag的信息            | Contianer |
 | TagSet  | 说明一系列的Tag信息<br/>父节点：Tagging  | Contianer |
-| Tag     | 说明单个的Tag信息<br/>父节点：TagSetTag | Contianer |
+| Tag     | 说明单个的Tag信息<br/>父节点：TagSet | Contianer |
 | Key     | Tag的类别名称<br/>父节点：Tag         | String    |
 | Value   | Tag的值<br/>父节点：Tag            | String    |
 
