@@ -2,9 +2,10 @@
 Delete Bucket Policy请求可以向Bucket删除权限策略。
 
 只有Bucket所有者有权限发起该请求。
-假如您没有拥有Delete Bucket Policy的权限，则返回403 Access Denied；
-假如您拥有Delete Bucket Policy的权限但不是所有者时，将返回405 Method Not Allowed；
-如果权限策略不存在，将返回204 No Content。
+
+- 假如您没有拥有Delete Bucket Policy的权限，则返回403 Access Denied；
+- 假如您拥有Delete Bucket Policy的权限但不是所有者时，将返回405 Method Not Allowed；
+- 如果权限策略不存在，将返回204 No Content。
 
 ## 请求
 
