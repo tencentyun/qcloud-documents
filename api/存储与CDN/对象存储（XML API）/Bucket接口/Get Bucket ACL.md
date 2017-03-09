@@ -41,7 +41,7 @@ Authorization: Auth
 | AccessControlPolicy | 一条独立的ACL记录                               | Container |
 | Owner               | 标识资源的所有者                                 | Container |
 | uin                 | 用户QQ号                                    | String    |
-| Subacount           | 子账户QQ账号                                  | String    |
+| Subaccount           | 子账户QQ账号                                  | String    |
 | AccessControlList   | 被授权者信息与权限信息                              | Container |
 | Grant               | 单条授权信息，一个AccessControlList可以拥有100条Grant | Container |
 | Grantee             | 被授权者资源信息，type类型可以为RootAcount， SubAccount；当type类型为RootAcount时，可以在UIN中填写QQ，也可以填写anonymous（指代所有类型用户）。当type类型为RootAcount时，UIN代表根账户账号，SubAccount代表子账户账号 | Container |
