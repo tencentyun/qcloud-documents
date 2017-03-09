@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket CORS实现跨域访问读取。
+Get Bucket CORS实现跨域访问配置读取。
 
 ## 请求
 
