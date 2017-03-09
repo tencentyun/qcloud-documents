@@ -33,15 +33,15 @@ Data structure
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> data.key <td> String <td> key indicates the associated security group ID
+<td> data.key <td> String <td> The associated security group ID
 <tr>
-<td> data.value <td> String <td> value indicates the associated security group ID
+<td> data.value <td> String <td> The associated security group ID
 </tbody></table>
 
- ## 4. Error Code Table
- <table class="t"><tbody><tr>
-<th><b>Error Code Value</b></th>
-<th><b>Cause</b></th>
+## 4. Error Codes
+<table class="t"><tbody><tr>
+<th><b>Error Code</b></th>
+<th><b>Description</b></th>
 <tr>
 
 <td> 7000 <td> Security group backend exception
@@ -57,7 +57,7 @@ Input
 
   https://dfw.api.qcloud.com/v2/index.php?Action=DescribeAssociateSecurityGroups
   &sgIds.0=sg-5ua9adfv
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 
 </pre>
 

@@ -1,14 +1,14 @@
 ## 1. API Description
  
-This API (RunInstancesHour) is used to create one or more charge-by-quantity instances with specified configuration.
+This API (RunInstancesHour) is used to create postpaid CVMs with specified configuration.
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* The instances created by API are subject to the number limit described in the [Restrictions on CVM Instance Purchase](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E8%B4%AD%E4%B9%B0%E9%99%90%E5%88%B6), and share the quota with instances created by the official website.
+* The instances created by this API are subject to the number limit described in the [Restrictions on CVM Instance Purchase](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E8%B4%AD%E4%B9%B0%E9%99%90%E5%88%B6), and share the quota with instances created from the Console.
 * For **limitations on the ratio** of CPU to memory, refer to [CVM Instance Configuration](/document/product/213/2177).
 * The creation of an instance will take some time, so this API will not immediately return the instance results. Instead, an InstanceId will be returned, with which you can query the status of the instance through the [DescribeInstances](/doc/api/229/831) API. If the status changes from "Creating..." to "Running", the creation is successful.  
 * The instance is in "running" status after successfully created, so you don't need to call [StartInstances](/doc/api/229/1249) again to start it.
-* Users with a bandwidth package plan cannot purchase charge-by-quantity instances.
+* Users with a bandwidth package plan cannot purchase pay-per-use instances.
 * If you need to change the bandwidth, change it using the API [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) after the instance is created successfully. <font style="color:red">**The bandwidth of public network is 0 by default if not specified**</font>.
 * Supported instance types:
 
@@ -21,7 +21,7 @@ Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides request parameters of this API. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -52,12 +52,12 @@ The following list only provides API request parameters. For additional paramete
  
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| unInstanceIds | Array | ID of an instance generated automatically by the system in the format "ins-xxxxxxxx", which is used to query the details of the instance through [DescribeInstances](/doc/api/229/831) API. |
+| code | Int | Common error code. 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81). |
+| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81). |
+| unInstanceIds | Array | ID of an instance generated automatically by the system in the format "ins-xxxxxxxx". You can use it to query the details of the instance through [DescribeInstances](/doc/api/229/831) API. |
 
 ## 4. Error Codes
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [CVM Error Codes](/document/product/213/6982) page.
+The following list only provides the business logic error codes for this API. For other common error codes, refer to [CVM Error Codes](/document/product/213/6982).
 
 | Error Code | Description |
 |---|---|
@@ -81,7 +81,7 @@ Input
   &storageSize=50
   &goodsNum=1
   &zoneId=100001
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

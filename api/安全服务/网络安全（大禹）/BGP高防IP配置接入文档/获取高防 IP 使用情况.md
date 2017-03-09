@@ -8,4 +8,4 @@
 | 参数名称 | 例子/单位| 类型 | 描述 |
 |---------|---------|---------|---------|
 |attacks| <font color=red> 1035/次 </font color=red> |Integer | DDoS攻击次数 |
-| day |<font color=red> 23<color=red>| Integer | 高防IP已使用的天数|
+| days |<font color=red> 23<color=red>| Integer | 高防IP已使用的天数|

@@ -92,6 +92,10 @@ done
         <name>fs.cos.buffer.dir</name>
         <value>/data/rabbitliu/work/hadoop/hadoop_test/cos_buf</value>
     </property>
+    <property>
+        <name>fs.cos.userinfo.region</name>
+        <value>tj</value>
+    </property>
 </configuration>
 ```
 
@@ -101,7 +105,7 @@ done
 - fs.cos.userinfo.secretId/secretKey 属性 填写您账户的秘钥信息
 - fs.cosn.impl 为 cosn 的实现类，固定为 org.apache.hadoop.fs.cosnative.NativeCosFileSystem
 - fs.cos.buffer.dir 请设置一个实际存在的目录，运行过程中产生的临时文件会暂时放于此处
-
+- fs.cos.userinfo.region 请填写你的地域信息，tj(天津)，sh(上海)，gz(广州)
 ## 使用软件
 
 ### 使用 hadoo fs 常用命令

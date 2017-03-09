@@ -1,6 +1,6 @@
 ## 1. API Description
  
-This API (RestartInstances) is used to restart one or more instances.
+This API (RestartInstances) is used to restart instances.
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 

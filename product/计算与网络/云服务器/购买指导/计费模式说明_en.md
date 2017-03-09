@@ -5,8 +5,8 @@ The following table lists the differences between the two billing modes:
 	<thead>
 		<tr>
 <th scope="row"><strong>Modes </strong></th>
-<th scope="col"><strong>Annual/Monthly Package</strong></th>
-			<th scope="col"><strong>Pay per use</strong></th>
+<th scope="col"><strong>Prepaid Package</strong></th>
+			<th scope="col"><strong>Postpaid</strong></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -54,11 +54,9 @@ The following table lists the differences between the two billing modes:
 
 
 
-## 1.	Annual/Monthly Package
+## 1.	Prepaid Package
 
-An example for annual/monthly-package CVMs is first purchase and then use: When you purchase CVMs in the prepaid mode, the system will deduct corresponding amount from your cloud expense account based on the resources hardware (including CPU, memory, data disk) that you purchase and network costs.
-
-An example for annual/monthly-package CVMs is first purchase and then use: When you purchase CVMs in the prepaid mode, the system will deduct corresponding amount from your cloud expense account based on the resources hardware (including CPU, memory, data disk) that you purchase and network costs.
+An example for prepaid CVMs is first purchase and then use: When you purchase CVMs in the prepaid mode, the system will deduct corresponding amount from your cloud expense account based on the resources hardware (including CPU, memory, data disk) that you purchase and network costs.
 
 Amount to be deducted for buying cloud services = Number of cloud services applied × Unit price of cloud services.
 
@@ -66,20 +64,20 @@ Therefore, before purchasing cloud services, you need first to check the balance
 
 For prices of annual/monthly-package CVM instances, [see here](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#1.-包年包月)
  
-For configuration of annual/monthly-package CVM instances, [see here](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+For configuration of prepaid CVM instances, [see here](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
 
-For expiration reminder for annual/monthly-package CVMs, [see here](http://www.qcloud.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#1.-包年包月云服务器到期提醒)
+For expiration reminder for prepaid CVMs, [see here](http://www.qcloud.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#1.-包年包月云服务器到期提醒)
 
-For adjusting instance configuration of annual/monthly-package CVMs, [see here](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
+For adjusting instance configuration of prepaid CVMs, [see here](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
 
 
-## 2.	Pay-per-use
+## 2.	Postpaid
 
-Pay-per-use  is an elastic billing mode for CVM instances. You can activate/terminate at any time to make payment based on actual CVM usage. Billing reference period is accurate to **seconds**. Advance payment is not required and settlement is made every hour on the hour. Applicable to online scare buying and other scenarios with highly fluctuating equipment demands, its unit price 3-4 times higher than that of the Annual/Monthly Package mode.
+For postpaid CVMs, you can activate/terminate them at any time and pay accroding to your actual usage. Billing reference period is accurate to **seconds**. Advance payment is not required and settlement is made every hour on the hour. Applicable to online scare buying and other scenarios with highly fluctuating equipment demands, its unit price 3-4 times higher than that of the Annual/Monthly Package mode.
 
-When you activate a pay-per-use CVM instance, the system will freeze in advance one-hour hardware (including CPU, memory, and data disk) fees for the CVM and make settlement every hour on the hour (Beijing time, based on your last-hour actual CVM usage. The hourly unit price of CVM instances is displayed upon purchase, and settlement is made by **actual seconds**, with costs rounded to two decimal places. Billing starts at the point when the CVM instance is created successfully, and ends at the point when you initiate a termination operation.
+When you activate a postpaid CVM instance, the system will freeze in advance one-hour hardware (including CPU, memory, and data disk) fees for the CVM and make settlement every hour on the hour (Beijing time, based on your last-hour actual CVM usage. The hourly unit price of CVM instances is displayed upon purchase, and settlement is made by **actual seconds**, with costs rounded to two decimal places. Billing starts at the point when the CVM instance is created successfully, and ends at the point when you initiate a termination operation.
 
-One-hour fees will be frozen when a pay-per-use CVM is created. When you adjust configuration of the pay-per-use CVM, the system unfreeze the already frozen fees and freeze another fees based on the unit price of the new configuration. When the CVM instance is terminated, the frozen fees become unfrozen. 
+One-hour fees will be frozen when a postpaid CVM is created. When you adjust configuration of the postpaid CVM, the system unfreeze the already frozen fees and freeze another fees based on the unit price of the new configuration. When the CVM instance is terminated, the frozen fees become unfrozen. 
 
 **Billing in seconds, no cost waste**
 Billing starts when the CVM instance is created successfully, and ends when you initiate a termination operation.
@@ -90,12 +88,12 @@ Pay-per-use CVMs use 3-tier pricing, saving more money for longer usage.
 | Phase | Tier 1 | Tier 2 | Tier 3|
 |---|---|---|---|
 | Duration (hours) | 0 < T  96 | 96 <T  360 | T > 360 |
->Note:  T is the time of continuous use of pay-per-use CVMs.
+>Note:  T is the time of continuous use of postpaid CVMs.
 
 | Phase | Tier 1 | Tier 2 | Tier 3|
 |---|---|---|---|
 | Price (CNY/hour) | P | 50% × P | 34% × P |
-> Note:  P is the tier-1 unit price of pay-per-use CVMs.
+> Note:  P is the tier-1 unit price of postpaid CVMs.
 
 
 ![](//mc.qcloudimg.com/static/img/2b8e3a898dab0454d77d99a0e1c1eb07/image.jpg)
@@ -110,12 +108,12 @@ Take 1-core 2 GB configuration as an example: tier-1 unit price is 0.42 CNY/hour
 
 Click the links below for more information on pay-per-use instructions.
 
-For prices of pay-per-use CVM instances, [see here](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#2.-按量计费) 
+For prices of postpaid CVM instances, [see here](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#2.-按量计费) 
 
-For configuration of pay-per-use CVM instances, [see here](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+For configuration of postpaid CVM instances, [see here](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
 
-For expiration reminder for pay-per-use CVMs, [see here](http://www.qcloud.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#2.-按量计费云服务器到期提醒) 
+For expiration reminder for postpaid CVMs, [see here](http://www.qcloud.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#2.-按量计费云服务器到期提醒) 
 
-For adjusting instance configuration of pay-per-use CVMs, [see here](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
+For adjusting instance configuration of postpaid CVMs, [see here](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
 
 
