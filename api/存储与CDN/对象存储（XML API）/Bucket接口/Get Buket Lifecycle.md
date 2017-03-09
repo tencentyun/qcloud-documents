@@ -41,7 +41,7 @@ Authorization: Auth
 | Prefix                         | 前缀匹配策略，根目录则填空；多个Rule不能同时指定相同前缀路径；父目录指定某条Rule时，子目录不能指定相同类型的Rule<Br/>父节点：LifecycleConfiguration | String    |
 | Status                         | 是否生效此条策略，枚举值：Enabled, Disabled<Br/>父节点：LifecycleConfiguration | String    |
 | ID                             | 标示策略名称<Br/>父节点：LifecycleConfiguration    | String    |
-| Transition                     | 配置文件的冷热沉降规则<Br/>父节点：Rule                 | Container |
+| Transition                     | 配置文件的生命周期管理配置<Br/>父节点：Rule                 | Container |
 | Expiration                     | 配置文件的定期删除规则，过期时间必须大于转换时间<Br/>父节点：Rule    | Container |
 | Days                           | 在文件创建指定天数以后执行操作。Transition操作请用自然数，Expiration操作请用正整数，不同的Rule下可使用不同的时间格式，相同Rule下冲突<Br/>父节点：Transition，Expiration | Integer    |
 | Date                           | 在指定时间点执行操作，时间格式为ISO 8601格式，须指定东八区触发当天午夜零点零分，可以指定历史时间，例如2016-10-31T00:00:00+08:00；当前时间大于等于Date便执行操作，长期有效；不同的Rule下可使用不同的时间格式，相同Rule下冲突<Br/>父节点：Transition，Expiration | Integer    |
