@@ -56,7 +56,7 @@ Authorization: auth
 | Size                  | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String |
 | Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | Container    |
 | StorageClass          | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
-| ID                    | Bucket的UID父节点：ListBucketResult.Contents.Owener | String |
+| ID                    | Bucket的UID父节点：ListBucketResult.Contents.Owner | String |
 | CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   |    String    |
 
 ```XML
