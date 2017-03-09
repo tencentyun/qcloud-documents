@@ -1,12 +1,12 @@
 ## 1. API Description
  
-This API (UpdateInstanceBandwidthHour) is used to adjust the public network bandwidth of charge-by-quantity instances.
+This API (UpdateInstanceBandwidthHour) is used to adjust the public network bandwidth of postpaid instances.
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 * The adjustment takes effect immediately. Both upgrade and downgrade are supported.
-* This API only applies to charge-by-quantity instances. For the instances with an annual or a monthly plan, please use [UpdateInstanceBandwidth](https://www.qcloud.com/doc/api/229/1251) API.
-* The minimum bandwidth can be 0Mpbs. The maximum bandwidth is 100Mbps for charge-by-traffic instances, 200Mbps for charge-by-fixed-bandwidth instances, and 1000Mbps for the instances on dedicated hosts.
+* This API only applies to postpaid. For prepaid instances, please use [UpdateInstanceBandwidth](https://www.qcloud.com/doc/api/229/1251) API.
+* The minimum bandwidth can be 0Mpbs. The maximum bandwidth is 100Mbps for postpaid instances, 200Mbps for charge-by-fixed-bandwidth instances, and 1000Mbps for the instances on dedicated hosts.
 
 ## 2. Input Parameters
 

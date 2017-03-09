@@ -4,9 +4,9 @@ This API (UpdateInstanceBandwidth) is used to adjust the public network bandwidt
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* This API only applies to the instances with an annual or monthly plan and users with [Bandwidth Package](https://www.qcloud.com/doc/product/213/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#1.-.E4.BB.80.E4.B9.88.E6.98.AF.E5.B8.A6.E5.AE.BD.E5.8C.85.E6.A8.A1.E5.BC.8F.EF.BC.9F).  * For charge-by-quantity instances, please use [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) API.
+* This API only applies to [prepaid instances](https://www.qcloud.com/doc/product/213/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#1.-.E4.BB.80.E4.B9.88.E6.98.AF.E5.B8.A6.E5.AE.BD.E5.8C.85.E6.A8.A1.E5.BC.8F.EF.BC.9F).  * For postpaid instances, please use [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) API.
 * This API only supports upgrade of bandwidth and does not allow a downgrade.
-* The maximum bandwidth is 100Mbps for charge-by-traffic instances, 200Mbps for charge-by-fixed-bandwidth instances, and 1000Mbps for the instances on dedicated hosts.
+* The maximum bandwidth is 100Mbps for pay-per-use instances, 200Mbps for charge-by-fixed-bandwidth instances, and 1000Mbps for the instances on dedicated hosts.
 * <font style="color:red">Only charge-by-fixed-bandwidth model is supported.</font>
 
 ## 2. Input Parameters

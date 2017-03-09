@@ -41,7 +41,7 @@ x-cos-storage-class:
 #### 必选头部
 | 名称                | 描述                                | 类型     | 必选   |
 | ----------------- | --------------------------------- | ------ | ---- |
-| x-cos-copy-source | 源文件URL绝对路径，可以通过versionid子资源指定历史版本 | String | 是    |
+| x-cos-copy-source | 源文件URL绝对路径，可以通过versionid子资源指定历史版本， 需要URLencode| String | 是  |
 
 #### 推荐使用头部
 

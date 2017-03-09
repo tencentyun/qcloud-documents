@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket CORS实现跨域访问读取。
+Get Bucket CORS实现跨域访问配置读取。
 
 ## 请求
 
@@ -34,8 +34,8 @@ Authorization: Auth
 
 | 名称                | 描述                                       | 类型        | 必选   |
 | ----------------- | ---------------------------------------- | --------- | ---- |
-| CORSConfiguration | 说明跨域配置的所有信息，最多可以包含100条ORSRule            | Contianer | 是    |
-| CORSRule          | 单条配置的信息<br/>父节点：CORSRule                 | Contianer | 是    |
+| CORSConfiguration | 说明跨域配置的所有信息，最多可以包含100条CORSRule            | Container | 是    |
+| CORSRule          | 单条配置的信息<br/>父节点：CORSRule                 | Container | 是    |
 | ID                | 规则名称，可选填<br/>父节点：CORSRule                | String    | 否    |
 | AllowedMethod     | 允许的HTTP操作，枚举值：Get，Put，Head，Post，Delete<br/>父节点：CORSRule | Enum      | 是    |
 | AllowedOrigin     | 允许的访问来源，支持『*』通配符<br/>父节点：CORSRule        | String    | 是    |

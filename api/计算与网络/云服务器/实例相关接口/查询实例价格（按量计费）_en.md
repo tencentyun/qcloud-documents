@@ -1,16 +1,16 @@
 ## 1. API Description
  
-This API (InquiryInstancePriceHour) is used to get the instance price (charge by quantity).
+This API (InquiryInstancePriceHour) is used to query the price of postpaid instance.
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* This API applies only to <font color="red">charge-by-quantity instance</font>. To query the price of an instance with an annual or monthly plan, please use [InquiryInstancePrice](https://www.qcloud.com/doc/api/229/1349) API.
+* This API applies only to <font color="red">postpaid instance</font>. To query the price of a prepaid instance, please use [InquiryInstancePrice](https://www.qcloud.com/doc/api/229/1349) API.
 
 ## 2. Input Parameters
 
 The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
 
-* There are range limits on the parameters. For more information on the parameters,  please refer to [this API](https://www.qcloud.com/doc/api/229/1248)
+* There are range limits on the parameters. For more information on the parameters, please see [here](https://www.qcloud.com/doc/api/229/1248)
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

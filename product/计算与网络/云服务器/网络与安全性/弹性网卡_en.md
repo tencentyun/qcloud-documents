@@ -6,13 +6,13 @@ ENIs use a private network, with a private area and subnet properties; they can 
 
 The ENI mainly has the following associated information:
 
-1. Main ENI or secondary ENI: When the CVM of the private network is created, the ENI created by the linkage is the main ENI. The ENI that the user created will be used as the secondary ENI; you cannot bind/unbind the main ENI, but can do so with the secondary one.
+1. Primary ENI and secondary ENI: When the CVM of the private network is created, the ENI created by the linkage is the main ENI. The ENI that the user created will be used as the secondary ENI; you cannot bind/unbind the main ENI, but can do so with the secondary one.
 
-2. Main private network IP: Elastic network card's main network IP; when an elastic network card is created. it is either randomly assigned by the system or created by the user. Main network card's main private network IP support modification; while secondary ENI's main private network IP does not.
+2. Main private network IP: ENI's primary IP; when an ENI is created. it is either randomly assigned by the system or created by the user. For a primary ENI, the primary private IP can be modified. But for a secondary ENI, the primary private IP cannot be modifed.
 
-3. Secondary private IP: a secondary network IP that is bound, in addition to the main IP, to the elastic network card. It is automatically configured by the user when creating or editing an ENI, and supports binding/unbinding.
+3. Secondary private IP: a secondary network IP that is bound, in addition to the main IP, to the ENI. It is automatically configured by the user when creating or editing an ENI, and supports binding/unbinding.
 
-4. Elastic public network IP: binds with private IPs on the elastic network card one at a time.
+4. Elastic public network IP: binds with private IPs on the ENI one at a time.
 
 5. Security groups: ENIs can be bound to one or more security groups.
 

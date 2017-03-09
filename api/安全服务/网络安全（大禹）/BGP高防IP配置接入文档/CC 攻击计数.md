@@ -18,5 +18,5 @@
 | 参数名称 | 例子/单位| 类型 | 描述 |
 |---------|---------|---------|---------|
 |attacks| <font color=red> 1035/次 </font color=red> |Integer | CC攻击次数 |
-| attackPeak |<font color=red> 35000/Mbps </font color=red>| Integer | CC攻击峰值qps |
+| attackPeak |<font color=red> 35000/QPS </font color=red>| Integer | CC攻击峰值qps |
 

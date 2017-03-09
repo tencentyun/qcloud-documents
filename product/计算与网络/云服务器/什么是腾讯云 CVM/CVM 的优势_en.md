@@ -40,8 +40,8 @@ Cloud security developed by Tencent security team with years of expertise and ex
 - Provide a wide range of officially verified application software and operation and maintenance tools to make operation and maintenance more convenient so that you no longer have to worry about tool management.
 - Provide comprehensive API system which can be used for easy integration of CVM and your internal monitoring and operation systems to achieve business operation and maintenance system that closely meets business demands and is fully automated.
 
-## Economy
-- CVM instance and its network deployment both support annual or monthly plan and charge by quantity billing mode in order to meet the demands of different scenarios;
+## Low Cost
+- CVM instance and its network deployment both support prepaid and postpaid modes in order to meet the demands of different scenarios;
 - You can make the purchase depending on your own demands. Reasonable consumption is realized as pre-purchase or preparation for hardware resources is not required. This will help you effectively reduce investment in infrastructure.
 
 
