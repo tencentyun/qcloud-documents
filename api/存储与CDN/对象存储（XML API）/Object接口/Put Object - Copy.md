@@ -13,7 +13,7 @@ Put Object - Copy请求实现将一个文件从源路径复制到目标路径。
 
 ```HTTP
 PUT /destinationObject HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Cache-Control:
 Content-Disposition:
