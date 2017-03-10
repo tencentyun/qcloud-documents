@@ -39,7 +39,14 @@ COS 的 iOS SDK压缩包组成：
 
 ![参数配置](https://mccdn.qcloud.com/static/img/58327ba5d83809c77da158ff95627ef7/image.png)
 
-在工程info.plist文件中添加App Transport Security Settings 类型，然后在App Transport Security Settings下添加Allow Arbitrary Loads 类型Boolean,值设为YES
+在工程info.plist文件中添加App Transport Security Settings 类型，然后在App Transport Security Settings下添加Allow Arbitrary Loads 类型Boolean,值设为YES。
+
+如果想要在程序中使用HTTPS协议，请做如下设置：
+```objective-c
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+[client openHttpsRequest:YES];
+```
+
 
 ### 初始化
 
