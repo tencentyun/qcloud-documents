@@ -193,7 +193,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 
 
-###自定义采集视频数据
+### 自定义采集视频数据
 
 自定义视频数据流程图:    
 
@@ -249,10 +249,11 @@ ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.leng
     mCameraSize.width, mCameraSize.height, 270, AVVideoCtrl.COLOR_FORMAT_I420, AVView.VIDEO_SRC_TYPE_CAMERA);
 ```
 
-###自定义预处理视频数据
+
+### 自定义预处理视频数据
 
 
-![](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos/blob/master/raw/pretreat.png)
+![](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos/blob/master/raw/pretreat.png)         
 
 
 1、拦截AVSDK相机数据
@@ -260,7 +261,7 @@ ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.leng
 | 接口名|  接口描述  |
 |---------|---------|
 | **setLocalVideoPreProcessCallback** | 设置本地摄像头视频的前处理函数|
-#####实现代码：
+##### 实现代码：
 <pre>
 
 /*
@@ -279,7 +280,7 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 }
 </pre>
 
-#####回调数据类型 AVVideoCtrl.VideoFrame 参数说明：
+##### 回调数据类型 AVVideoCtrl.VideoFrame 参数说明：
 
 | 参数|  含义  |
 |---------|---------|
@@ -297,7 +298,7 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 拦截到AVSDK回吐的相机数据，用户就可以对其做预处理；比如美白，美颜，人脸识别等；预处理之后的数据，通过 AVVideoCtrl.VideoFrame.data 塞回 AVSDK；AVSDK会自动渲染，编码。
 
 3，取消拦截AVSDK相机数据
-#####实现代码：
+##### 实现代码：
 <pre>
 // 返回true： 成功    false: 失败
 
