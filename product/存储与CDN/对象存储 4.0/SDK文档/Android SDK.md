@@ -55,6 +55,7 @@ COSClientConfig config = new COSClientConfig();
 |   setSocketTimeout(int socketTimeout)    |                读取超时设置                |
 | setMaxConnectionsCount(int maxConnectionsCount) |               并发数大小设置                |
 |   setMaxRetryCount(int maxRetryCount)    |               失败请求重试次数               |
+|   setHttpProtocol(String httpProtocol)   | 设置请求协议类型：默认为http请求，即"http://";若为https请求,则为 "https://" |
 
 
 #### 实例化 COSClient
