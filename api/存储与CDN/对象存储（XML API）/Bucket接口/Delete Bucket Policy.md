@@ -13,7 +13,7 @@ Delete Bucket Policy请求可以向Bucket删除权限策略。
 
 ```http
 DELETE /?policy Http/1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: Auth String
 ```
