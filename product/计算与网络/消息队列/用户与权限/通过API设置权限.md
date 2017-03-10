@@ -68,7 +68,7 @@
 | 参数 | 描述 | 示例取值 |
 |---------|---------|---------|
 | strategyName | 策略名称。 | strategy1 |
-| strategyInfo | 策略描述的内容。（！注意，这里要传一个json字符串）) |'{"version":"2.0","principal":{"qcs":["qcs::cam::uin/1238423:uin/3232","qcs::cam::uin/1238423:groupid/13"]},"statement":[{"effect":"allow","action":"name/cmqqueue:ListQueue","resource":"*"},{"effect":"allow","action":["name/cmqqueue:ReceiveMessage","name/cmqqueue:BatchDeleteMessage"],"resource":["qcs::cmqqueue:bj:uin/1238423:queueName/3232/horacetest1","qcs::cmqqueue:bj:uin/1238423:queueName/3232/horacetest1"]}]}' |
+| strategyInfo | 策略描述的内容。（！注意，这里要传一个json字符串）) | 见示例代码 |
 | remark | 策略的备注。 | horace test |
 | resource设置* | 如果操作是需要关联资源的，它表示所有对象。如果操作是不需要关联资源的（比如 list 操作），它表示空对象。 |/ |
 
