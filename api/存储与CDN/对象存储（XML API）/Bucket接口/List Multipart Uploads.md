@@ -1,5 +1,5 @@
 ## 功能描述
-List Multiparts Uploads用来查询正在进行中的分块上传。单次最多列出1000个正在进行中的分块上传。
+List Multipart Uploads用来查询正在进行中的分块上传。单次最多列出1000个正在进行中的分块上传。
 
 ## 请求
 
@@ -7,7 +7,7 @@ List Multiparts Uploads用来查询正在进行中的分块上传。单次最多
 
 ```Http
 GET /?uploads HTTP/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: auth
 ```
@@ -49,7 +49,7 @@ Authorization: auth
 | NextKeyMarker                     | 假如返回条目被截断，则返回NextKeyMarker就是下一个条目的起点<br/>父节点：ListMultipartUploadsResult | String    |
 | NextUploadIdMarker                | 假如返回条目被截断，则返回UploadId就是下一个条目的起点<br/>父节点：ListMultipartUploadsResult | String    |
 | MaxUploads                        | 单次返回最大的条目数量<br/>父节点：ListMultipartUploadsResult | String    |
-| IsTruncated                       | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListMultipartUploadsResult | Boolen    |
+| IsTruncated                       | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListMultipartUploadsResult| Boolean    |
 | Upload                            | 每个Upload的信息<br/>父节点：ListMultipartUploadsResult | Container |
 | Key                               | Object的名称<br/>父节点：Upload                 | Integer   |
 | UploadID                          | 标示本次分块上传的ID<br/>父节点：Upload               | Integer   |
