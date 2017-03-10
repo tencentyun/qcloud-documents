@@ -13,7 +13,7 @@ Complete Multipart Upload用来实现完成整个分块上传。当您已经使�
 
 ```http
 POST /ObjectName?uploadId=UploadId HTTP 1.1
-Host: <BucketName>-<UID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-length: Size
 Authorization: Auth
@@ -55,7 +55,7 @@ Authorization: Auth
 
 | 名称                      | 描述               | 类型        |
 | ----------------------- | ---------------- | --------- |
-| CompleteMultipartUpload | 说明所有返回信息         | Contianer |
+| CompleteMultipartUpload | 说明所有返回信息         | Container |
 | Location                | 创建的Object的外网访问域名 | URI       |
 | Bucket                  | 分块上传的目标Bucket    | String    |
 | Key                     | Object的名称        | String    |
