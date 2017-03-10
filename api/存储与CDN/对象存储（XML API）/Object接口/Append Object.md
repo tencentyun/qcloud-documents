@@ -13,7 +13,7 @@ Appendable的文件不可以被复制，不参与版本管理，不参与生命�
 
 ```http
 POST /ObjectName?append&position=*position* HTTP/1.1
-Host: <BucketName>-<UID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Content-Length: size
 Content-Type: ContentType
 Date: date
