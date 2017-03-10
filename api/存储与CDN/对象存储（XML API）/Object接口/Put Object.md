@@ -7,7 +7,7 @@ Put Object请求可以将一个文件（Oject）上传至指定Bucket。
 
 ```Http
 PUT /ObjectName HTTP/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: authorization string
 ```

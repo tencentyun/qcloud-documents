@@ -1,17 +1,17 @@
 API request parameters depends on specific APIs. Different APIs support different API request parameters. The first letter of API request parameters is lowercase to distinguish them from public request parameters.
-We here use <a href="/doc/api/229/831" title="DescribeInstances">DescribeInstances</a> as an example. It supports these API request parameters:
+We here use <a href="/doc/api/229/831" title="查询实例列表">DescribeInstances</a> as an example. It supports these API request parameters:
 
 | Parameter | Required | Type | Description | 
 |---------|---------|---------|---------|
-| instanceIds.n | No | String | ID array of CVM instances to be queried, its subscript starting from 0. You can use instanceId and unInstanceId, and the uniform resource ID: unInstanceId is recommended. |
+| instanceIds.n | No | String | ID array of CVM instances to be queried （starting from 0). You can use instanceId and unInstanceId, and the uniform resource ID: unInstanceId is recommended. |
 | lanIps.n | No | String | Private IP array of CVMs to be queried.  | 
-| searchWord | No | String | User-defined host alias. |
+| searchWord | No | String | User-defined CVM name. |
 | offset | No | Int | Offset value, which defaults to 0.  | 
 | limit | No | Int | The maximum number of CVM that can be queried at one time. The default is 20 and the maximum is 100. |
 | status | No | Int | Status of the CVM to be queried. |
-| projectId | No | String | Project ID. The CVM instances for all projects are queried if it is not specified. 0 indicates the default project. If you want to specify a different project, you can call the <a href="/doc/api/229/DescribeProject" title="DescribeProject">DescribeProject</a> API to query. |
+| projectId | No | String | Project ID. The CVM instances for all projects are queried if it is not specified. 0 indicates the default project. If you want to specify a different project, you can call the <a href="/doc/api/229/查询项目列表" title="查询项目列表">DescribeProject</a> API to query. |
 | simplify | No | Int | Obtains non-real time data. When simplify = 1 is specified, then non-real time data is obtained. |
-| zoneId | No | Int | Availability zone ID. The CVM instances for all availability zones are queried if it is not specified. To specify an availability zone, you can call the <a href="/doc/api/229/1286" title="DescribeAvailabilityZones">DescribeAvailabilityZones</a> API to query. |
+| zoneId | No | Int | Availability zone ID. The CVM instances for all availability zones are queried if it is not specified. To specify an availability zone, you can call the <a href="/doc/api/229/1286" title="查询可用区">DescribeAvailabilityZones</a> API to query. |
 
 The fields are described as follows:
 <table class="t">
@@ -22,7 +22,7 @@ Note: If the parameter name is ended with ".n", it indicates that this parameter
 </td></tr>
 <tr>
 <td> Required
-</td><td> Indicates whether this parameter is required. "Yes" means that this parameter must be specified to call this API; "No" means that it may not be specified. In the DescribeInstances API, all API request parameters are not mandatory. Only with public request parameters, you can call the API.
+</td><td> Indicates whether this parameter is required. "Yes" means that this parameter must be specified to call this API; "No" means that it may not be specified. In the DescribeInstances API, all API request parameters are not mandatory. You can call this API using common request parameters.
 </td></tr>
 <tr>
 <td> Type
@@ -34,11 +34,11 @@ Note: If the parameter name is ended with ".n", it indicates that this parameter
 </td></tr>
 </tbody></table>
 
-Assume that the user wants to query the auto scaling group list. Then the request link may be as follows:
+If you want to query the auto scaling group list, the request should be:
 
 <pre>
 https://cvm.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 &instanceIds.0=ins-0hm4gvho
 &instanceIds.1=ins-8oby8q00
 &offset=0
@@ -47,4 +47,4 @@ https://cvm.api.qcloud.com/v2/index.php?
 &zoneId=100003
 </pre>
 
-A complete request requires two types of request parameters: public request parameters and API request parameters. Only API request parameters, but no public request parameters, are listed here. For more information about public request parameters, refer to the See the <a href="/doc/api/372/Public request parameters" title="Public request parameters">Public request parameters</a> section.
+A complete request requires two types of request parameters: common request parameters and API request parameters. Only API request parameter are listed here. For more information about common request parameters, refer to <a href="/doc/api/372/公共请求参数" title="公共请求参数">Common request parameters</a>.

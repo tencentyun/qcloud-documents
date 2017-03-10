@@ -7,7 +7,7 @@ Delete Object请求可以将一个文件（Object）删除。
 
 ```Http
 DELETE /ObjectName HTTP/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-Length:length
 Authorization: auth

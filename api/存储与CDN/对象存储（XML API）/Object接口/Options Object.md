@@ -9,7 +9,7 @@ Options Object请求实现跨域访问的预请求。即发出一个 OPTIONS 请
 
 ```HTTP
 OPTIONS /ObjectName HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Origin:Origin
 Access-Control-Request-Method:HTTPMethod
 Access-Control-Request-Headers:RequestHeader
