@@ -9,7 +9,7 @@ Get Bucket Lifecycle请求实现读取生命周期管理的配置。当配置不
 
 ```HTTP
 GET /?lifecycle HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```
