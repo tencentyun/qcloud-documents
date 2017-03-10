@@ -48,13 +48,13 @@ COSClientConfig config = new COSClientConfig();
 
 #### 配置 COSClientConfig
 
-| 方法                                       | 方法描述                                     |
-| ---------------------------------------- | ---------------------------------------- |
-| setEndPoint(COSEndPoint endPoint)        | 设置园区：华南 COSEndPoint.COS_GZ;  华北 COSEndPoint.COS_TJ ；华东 COSEndPoint.COS_SH ;新加坡 COSEndPoint.COS_SGP;  sdk中默认为华南地区 |
-| setConnectionTimeout(int connectionTimeout) | 连接超时设置                                   |
-| setSocketTimeout(int socketTimeout)      | 读取超时设置                                   |
-| setMaxConnectionsCount(int maxConnectionsCount) | 并发数大小设置                                  |
-| setMaxRetryCount(int maxRetryCount)      | 失败请求重试次数                                 |
+|                    方法                    |                 方法描述                 |
+| :--------------------------------------: | :----------------------------------: |
+|       setEndPoint(String endPoint)       | 设置园区：华南 "gz"， 华北 "tj"， 华东"sh",新加坡"sgp";sdk中默认为华南地区 |
+| setConnectionTimeout(int connectionTimeout) |                连接超时设置                |
+|   setSocketTimeout(int socketTimeout)    |                读取超时设置                |
+| setMaxConnectionsCount(int maxConnectionsCount) |               并发数大小设置                |
+|   setMaxRetryCount(int maxRetryCount)    |               失败请求重试次数               |
 
 
 #### 实例化 COSClient
