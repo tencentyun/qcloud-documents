@@ -8,7 +8,7 @@ Get Bucket Notification接口实现读取用户回调通知配置。
 
 ```HTTP
 GET /?notification HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```
