@@ -18,7 +18,7 @@ Put Object ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有
 
 ```http
 PUT /ObjectName?acl Http/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-Type:application/xml
 Content-MD5:MD5
