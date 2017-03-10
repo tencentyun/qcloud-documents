@@ -197,7 +197,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 自定义视频数据流程图:
 
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/custom_flow.png)
+![](//mc.qcloudimg.com/static/img/0baaafa05e5549ff30f584ac9424f756/image.png)
 
 ### Android
 
