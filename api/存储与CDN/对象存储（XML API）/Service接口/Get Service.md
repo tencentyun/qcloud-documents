@@ -58,4 +58,47 @@ Authorization: Auth
   </Buckets>
 </ListAllMyBucketsResult>
 ```
+## 示例 
 
+### 请求  
+```xml
+
+GET / HTTP/1.1
+Host:service.cos.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1489110340;32468694340&q-key-time=1489110340;32562006340&q-header-list=host&q-url-param-list=&q-signature=cb46d5ce6daed2d3dc0db7130a57193497605620
+```
+
+### 返回
+```xml
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 19935
+Connection: keep-alive
+Date: Fri Mar 10 09:45:46 2017
+Server: tencent-cos
+x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
+
+<ListAllMyBucketsResult>
+	<Owner>
+		<uin>2779643970</uin>
+	</Owner>
+	<Buckets>
+		<Bucket>
+			<Name>01</Name>
+			<Location>china-south</Location>
+			<CreateDate>2016-09-13 15:20:15</CreateDate>
+		</Bucket>
+		<Bucket>
+			<Name>0111</Name>
+			<Location>china-south</Location>
+			<CreateDate>2017-01-11 17:23:51</CreateDate>
+		</Bucket>
+		<Bucket>
+			<Name>1201new</Name>
+			<Location>china-south</Location>
+			<CreateDate>2016-12-01 09:45:02</CreateDate>
+		</Bucket>
+   </Buckets>
+</ListAllMyBucketsResult>
+
+```
