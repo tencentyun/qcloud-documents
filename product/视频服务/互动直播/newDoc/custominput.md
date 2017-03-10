@@ -197,7 +197,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 自定义视频数据流程图:
 
-![](//mc.qcloudimg.com/static/img/0baaafa05e5549ff30f584ac9424f756/image.png)
+![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/custom_flow.png)
 
 ### Android
 
@@ -251,7 +251,7 @@ ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.leng
 
 ###自定义预处理视频数据
 
-![](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos/blob/master/raw/pretreat.png)
+![](//mc.qcloudimg.com/static/img/0baaafa05e5549ff30f584ac9424f756/image.png)
 
 1、拦截AVSDK相机数据
 
