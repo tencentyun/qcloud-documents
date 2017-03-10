@@ -42,4 +42,4 @@ Authorization: Auth
 | 名称                      | 描述                                       | 类型        | 
 | ----------------------- | ---------------------------------------- | --------- | 
 | VersioningConfiguration | 说明版本控制的具体信息                              | Container | 
-| Status                  | 说明版本是否开启，枚举值：Suspended \| Enabled<Br/>父节点： | Enum      | 
+| Status                  | 说明版本是否开启，枚举值：Suspended, Enabled<Br/>父节点： | Enum      | 
