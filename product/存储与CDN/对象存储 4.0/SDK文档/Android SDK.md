@@ -50,7 +50,7 @@ COSClientConfig config = new COSClientConfig();
 
 |                    方法                    |                 方法描述                 |
 | :--------------------------------------: | :----------------------------------: |
-|       setEndPoint(String endPoint)       | 设置园区：华南 "gz"， 华北 "tj"， 华东"sh",新加坡"sgp";sdk中默认为华南地区 |
+|       setEndPoint(String endPoint)       | 设置园区：华南 "gz"， 华北 "tj"， 华东"sh"，新加坡"sgp";sdk中默认为华南地区 |
 | setConnectionTimeout(int connectionTimeout) |                连接超时设置                |
 |   setSocketTimeout(int socketTimeout)    |                读取超时设置                |
 | setMaxConnectionsCount(int maxConnectionsCount) |               并发数大小设置                |
