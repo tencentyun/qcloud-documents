@@ -35,10 +35,10 @@ Authorization: Auth
 | 名称                     | 描述                                       | 类型        |
 | ---------------------- | ---------------------------------------- | --------- |
 | ListAllMyBucketsResult | 说明本次返回的所有信息                              | Container |
-| Owner                  | 说明Bucket所有者的信息<br/>父节点：ListAllMyBucketsResult | Contianer |
+| Owner                  | 说明Bucket所有者的信息<br/>父节点：ListAllMyBucketsResult | Container |
 | UIN                    | Bucket所有者的UIN<br/>父节点：ListAllMyBucketsResult.Owner | String    |
-| Buckets                | 说明本次返回的Bucket列表的所有信息<br/>父节点：ListAllMyBucketsResult | Contianer |
-| Bucket                 | 单个Bucket的信息<br/>父节点：ListAllMyBucketsResult.Buckets | Contianer |
+| Buckets                | 说明本次返回的Bucket列表的所有信息<br/>父节点：ListAllMyBucketsResult | Container |
+| Bucket                 | 单个Bucket的信息<br/>父节点：ListAllMyBucketsResult.Buckets | Container |
 | Name                   | Bucket名称<br/>父节点：ListAllMyBucketsResult.Buckets.Bucket | String    |
 |Location                | Bucket所在区域，枚举值：china-east，china-south，china-north，china-southwest | String    |
 | CreateDate             | Bucket创建时间，ISO8601格式，例如 2016-11-09T08:46:32.000Z<br/>父节点：ListAllMyBucketsResult.Buckets.Bucket | Date      |
