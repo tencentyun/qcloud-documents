@@ -250,7 +250,9 @@ ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.leng
 ```
 
 ###自定义预处理视频数据
-![](//mc.qcloudimg.com/static/img/0baaafa05e5549ff30f584ac9424f756/image.png)             
+
+![](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos/blob/master/raw/pretreat.png)
+
 1、拦截AVSDK相机数据
 
 | 接口名|  接口描述  |
