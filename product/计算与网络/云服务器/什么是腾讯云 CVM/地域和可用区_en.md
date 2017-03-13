@@ -107,7 +107,7 @@ Specify which resources of Tencent Cloud are global, which resources are regiona
   <td>Users can access Tencent Cloud resources globally with the same account ID.</td>
 </tr>
 <tr>
-<td> <a href="/doc/product/213/5223">SSH key</a> </td>
+<td> <a href="/document/product/416/7594">SSH key</a> </td>
   <td>skey-xxxxxxxx</td>
   <td>Available in all regions</td>
   <td>Users can use SSH key to bind to any CVM in any region under their account.</td>
