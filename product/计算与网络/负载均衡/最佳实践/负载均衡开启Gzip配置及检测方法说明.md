@@ -1,30 +1,58 @@
-在**公网有固定IP型**的负载均衡实例中，**http/https协议**支持用户开启Gzip压缩功能。用户开启Gzip压缩后，浏览器端不需要进行配置（主流浏览器都支持Gzip功能）。对于云服务器端，用户需要配置可使用Gzip的http最低版本为http 1.0。因为在腾讯云内部使用的是http1.0协议，而客户RS端如不做配置，使用的是nginx默认配置，即http1.1版本，因此会出现不兼容的问题。下面的例子展示了Gzip配置的修改方法。
+在**公网应用型负载均衡、公网有固定IP型负载均衡**实例中，**HTTP/HTTPS协议**支持用户开启gzip压缩功能。开启gzip功能对网页进行压缩，可以有效降低网络传输的数据量，提升客户端浏览器的访问速度。
 
-示例RS运行环境：Debian 6
-1. 使用vim依据用户路径打开Nginx配置文件：
+用户开启gzip压缩后，浏览器端不需要进行配置（主流浏览器都支持gzip功能）。在云服务器端，由于腾讯云内部全网支持HTTP/1.1协议，因此用户也无需配置，使用的是nginx默认配置（HTTP/1.1）即可兼容。下面的例子讲解了gzip模块的语法配置和检测方法。
+
+示例云服务器运行环境：Debian 6
+
+1 . 使用vim依据用户路径打开Nginx配置文件：
 ```
 vim /etc/nginx/nginx.conf
 ```
-2. 找到如下代码进行修改：
+2 . 找到如下代码：
 ```
 gzip on;
 gzip_min_length 1k;
 gzip_buffers 4 16k;
-gzip_http_version 1.0;
+gzip_http_version 1.1;
 gzip_comp_level 2;
+gzip_types text/html application/json;
 ```
-部分代码功能如下：
-第1行：开启Gzip
-第2行：不压缩临界值，大于1K的才压缩，一般不用改
-第3行：buffer不用改
-第4行：nginx默认是HTTP/1.1，腾讯云支持的最低版本是HTTP/1.0，因此需要改为 **gzip_http_version 1.0;**
-第5行：压缩级别，1-10，数字越大压缩的越好，时间也越长
+上述代码的语法如下：
+gzip：开启或关闭gzip模块。
 
-3. 将文件保存退出，进入到Nginx bin文件目录，执行如下命令重新加载Nginx
+> 	语法：gzip on/off	
+>   作用域：http, server, location
+	
+gzip_min_length：设置允许压缩的页面最小字节数，页面字节数从header头中的Content-Length中进行获取。默认值是1k。
+
+> 	语法：gzip_min_length length
+>   作用域：http, server, location
+	
+gzip_buffers：设置系统获取几个单位的缓存用于存储gzip的压缩结果数据流。4 16k 代表以 16k 为单位，按照原始数据大小以 16k 为单位的4倍申请内存。
+
+> 	语法: gzip_buffers number size
+>   作用域: http, server, location
+	
+gzip_comp_level：gzip压缩比，范围为1~9。1 压缩比最小处理速度最快，9 压缩比最大但处理最慢（传输快但比较消耗cpu）。
+
+> 	语法: gzip_comp_level 1..9
+>   作用域: http, server, location
+	
+gzip_http_level：代表可以使用gzip功能的HTTP最低版本。由于腾讯云现已全网支持HTTP/1.1，因此无需进行更改。***即使用户设置为gzip_http_version 1.0，gzip依然可以生效。***由于设置HTTP/1.0代表了需要使用gzip功能的HTTP最低版本，因此可以向上兼容HTTP/1.1。
+
+>   语法: gzip_http_version 1.0 | 1.1;
+>   作用域: http, server, location
+
+gzip_types：匹配MIME类型进行压缩，默认"text/html" 类型是会被压缩的。***如果需要对json格式数据进行压缩，则需要在此语句中添加application/json类型数据***
+
+>   语法: gzip_types mime-type [mime-type ...]
+>   作用域: http, server, location
+
+3 . 如对配置有修改，则首先将文件保存退出，进入到Nginx bin文件目录，执行如下命令重新加载Nginx
 ```
 ./nginx -s reload
 ```
-4. 使用curl命令测试Gzip是否成功开启
+4 . 最后使用curl命令测试gzip是否成功开启
 ```
 curl -I -H "Accept-Encoding: gzip, deflate" "http://www.qcloud.com/example/"
 ```

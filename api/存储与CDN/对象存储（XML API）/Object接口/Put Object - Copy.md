@@ -13,7 +13,7 @@ Put Object - Copy请求实现将一个文件从源路径复制到目标路径。
 
 ```HTTP
 PUT /destinationObject HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Cache-Control:
 Content-Disposition:
@@ -41,7 +41,7 @@ x-cos-storage-class:
 #### 必选头部
 | 名称                | 描述                                | 类型     | 必选   |
 | ----------------- | --------------------------------- | ------ | ---- |
-| x-cos-copy-source | 源文件URL绝对路径，可以通过versionid子资源指定历史版本 | String | 是    |
+| x-cos-copy-source | 源文件URL绝对路径，可以通过versionid子资源指定历史版本， 需要URLencode| String | 是  |
 
 #### 推荐使用头部
 

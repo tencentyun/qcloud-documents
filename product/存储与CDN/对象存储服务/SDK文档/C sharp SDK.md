@@ -1,7 +1,7 @@
 ## 开发准备
 
 ### SDK 获取
-对象存储服务的C sharp SDK的[下载地址](https://mc.qcloudimg.com/static/archive/d76eadff7abde134c3aee1e7894d514e/cos-dotnet-sdk.tar)
+对象存储服务的C sharp SDK的[下载地址](https://github.com/tencentyun/cos-dotnet-sdk)
 
 ### 开发准备
 

@@ -13,7 +13,7 @@ Complete Multipart Upload用来实现完成整个分块上传。当您已经使�
 
 ```http
 POST /ObjectName?uploadId=UploadId HTTP 1.1
-Host: <BucketName>-<UID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-length: Size
 Authorization: Auth
@@ -55,7 +55,7 @@ Authorization: Auth
 
 | 名称                      | 描述               | 类型        |
 | ----------------------- | ---------------- | --------- |
-| CompleteMultipartUpload | 说明所有返回信息         | Contianer |
+| CompleteMultipartUpload | 说明所有返回信息         | Container |
 | Location                | 创建的Object的外网访问域名 | URI       |
 | Bucket                  | 分块上传的目标Bucket    | String    |
 | Key                     | Object的名称        | String    |
@@ -94,7 +94,7 @@ Server: tencent-cos
 x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 
 <CompleteMultipartUpload>
-	<Location>http://arlenhuangtestsgnoversion-1251668577.cossgp.myqcloud.com/ObjectName</Location>
+	<Location>arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com/ObjectName</Location>
 	<Bucket>arlenhuangtestsgnoversion</Bucket>
 	<Key>ObjectName</Key>
 	<ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>

@@ -8,7 +8,7 @@ Head Object请求可以取回对应Object的元数据，Head的权限与Get的�
 
 ```Http
 HEAD /ObjectName HTTP/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: auth
 ```

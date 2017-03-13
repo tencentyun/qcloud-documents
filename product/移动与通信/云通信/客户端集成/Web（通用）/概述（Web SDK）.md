@@ -1,17 +1,17 @@
-## 1 ImSDK集成 
+## 1 ImSDK集成
 
-本节主要介绍如何集成ImSDK。 
+本节主要介绍如何集成ImSDK。
 
 官网体验demo请直接访问：[云通信web demo](http://avc.qcloud.com/demo/webim/index.html)
 
 demo运行指引请访问：[demo指引](https://www.qcloud.com/doc/product/269/DEMO%E6%8C%87%E5%BC%95)
 
-### 1.1 下载ImSDK 
+### 1.1 下载ImSDK
 
-从官网下载ImSDK，包含以下库文件： 
+从官网下载ImSDK，包含以下库文件：
 
 ```
-sdk/webim.js 
+sdk/webim.js
 sdk/json2.js
 ```
 
@@ -77,9 +77,9 @@ Demo 主要JS文件功能说明如下：
 
 
 
-### 1.2 集成ImSDK 
+### 1.2 集成ImSDK
 
-首先引入web sdk： 
+首先引入web sdk：
 
 ```
 <script type="text/javascript" src="sdk/json2.js"></script>
@@ -101,9 +101,9 @@ Demo 主要JS文件功能说明如下：
 ```
 
 **说明：**如果帐号采用的是独立模式，开发者需要在自己的服务器调用TLS API生成用户票据，然后调用ImSdk提供的接口进行相关操作。
- 
+
 ### 1.3 sdk函数调用顺序
- 
+
 如果帐号是[托管模式](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，在调用sdk登录api之前，需要先进行以下操作：
 
 | 步骤 | 对应函数 | 说明 |
@@ -139,14 +139,13 @@ Sdk函数使用顺序，如下：
 |群组管理|webim.createGroup(options,cbOk, cbErr);|创建群|
 |群组管理|webim.applyJoinGroup(options,cbOk,cbErr);等|申请加群等|
 |sdk登出|webim.logout(options,cbOk, cbErr); |退出，用于切换帐号登录 |
- 
-### 1.4 支持版本
- 
-ImSDK支持 IE 7+，Chrome 7+，FireFox 3.6+，Opera 12+和Safari 6+。
-Demo 支持 IE 8+，Chrome 7+，FireFox 3.6+，Opera 12+和Safari 6+。
 
+### 1.4 支持版本
+
+ImSDK支持 IE 7+ ( windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+和Safari 6+。
+Demo 支持 IE 8+ ( windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+和Safari 6+。
 ## 2 ImSDK 基本概念
- 
+
 会话：ImSDK中会话(Session)分为两种，一种是C2C会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。
 
 如下图所示，一个会话表示与一个好友的对话：
@@ -158,9 +157,9 @@ Demo 支持 IE 8+，Chrome 7+，FireFox 3.6+，Opera 12+和Safari 6+。
 ![](//mccdn.qcloud.com/static/img/f9c516615c9917881c2b5842968ed9fd/image.png)
 
 消息：ImSDK中消息(webim.Msg)表示要发送给对方的内容，消息包括若干属性，如自己是否为发送者，发送人帐号，消息产生时间等；一条消息由若干Elem组合而成，每种Elem可以是文本、表情，图片等，消息支持多种Elem组合发送。
- 
+
 ### 2.1 ImSDK对象简介
- 
+
 SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
 常量对象
@@ -190,7 +189,7 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 |webim.Msg|一条消息对象|消息发送、接收的API中都会涉及此类型的对象|
 |webim.Tool|工具对象|提供了一些公用的函数。比如格式化时间戳函数formatTimeStamp(),获取字符串（utf-8编码）所占字节数getStrBytes()等|
 |webim.Log|控制台打印日志对象|方便查看接口的请求url，请求data和响应data，在初始化sdk时，可以传递一个布尔类型的变量来控制是否在控制台打印日志|
-	
+
 ### 2.2 会话对象Session
 
 对象名：

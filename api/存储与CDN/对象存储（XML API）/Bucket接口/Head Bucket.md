@@ -8,7 +8,7 @@ Head Bucket请求可以确认是否存在该Bucket，是否有权限访问，Hea
 
 ```http
 HEAD / Http/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: auth
 ```

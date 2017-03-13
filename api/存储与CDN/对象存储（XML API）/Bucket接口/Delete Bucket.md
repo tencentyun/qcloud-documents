@@ -7,7 +7,7 @@ Delete Bucket请求可以在指定账号下删除Bucket，删除之前要求Buck
 
 ```Http
 DELETE / HTTP/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: authorization string
 ```

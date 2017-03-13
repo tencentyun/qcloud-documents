@@ -9,7 +9,7 @@ Delete Multiple Object请求实现批量删除文件，最大支持单次删除1
 
 ```Http
 POST /?delete HTTP/1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-Length:length
 Content-Type:application/xml
@@ -75,9 +75,9 @@ Authorization: authorization string
 | 名称           | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |
 | DeleteResult | 说明本次删除的返回结果                           | Container |
-| Deleted      | 说明本次删除的成功Object信息<Br/>父节点：eleteResult | Container |
+| Deleted      | 说明本次删除的成功Object信息<Br/>父节点：DeleteResult | Container |
 | Key          | Object的名称<Br/>父节点：Deleted，Error       | String    |
-| Error        | 说明本次删除的失败Object信息<Br/>父节点：eleteResult | Container |
+| Error        | 说明本次删除的失败Object信息<Br/>父节点：DeleteResult | Container |
 | Code         | 删除失败的错误码                              | String    |
 | Message      | 删除错误信息                                | String    |
 
