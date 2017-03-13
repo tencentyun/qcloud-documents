@@ -22,7 +22,7 @@ CDN 为后付费产品，需要通过实名认证。新用户登陆 [CDN 控制�
 ## 选择计费方式
 完成资质认证后，进入 CDN 控制台，可对计费方式进行选择：
 ![](https://mccdn.qcloud.com/static/img/f5d3235f86db2992ad6d01d1e3d07d04/image.png)
-详细计费价格计算说明可以参考[价格总览](https://www.qcloud.com/doc/product/228/6539)。
+详细计费价格计算说明可以参考[价格总览](https://www.qcloud.com/document/product/439/6732)。
 
 
 
