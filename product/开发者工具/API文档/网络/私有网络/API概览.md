@@ -151,7 +151,7 @@
 | 弹性网卡申请内网Ip | [AssignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4817) | 弹性网卡申请内网Ip。 |
 | 弹性网卡退还内网Ip | [UnassignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4819) | 弹性网卡退还内网Ip。 |
 | 弹性网卡绑定云主机 | [AttachNetworkInterface](https://www.qcloud.com/doc/api/245/4820) | 弹性网卡绑定云主机。 |
-| 弹性网卡解绑云主机 | [DetachNetworkInterface](https://www.qcloud.com/doc/api/245/4821) | 弹性网卡解绑云主机。 |
+| 弹性网卡解绑云主机 | [DetachNetworkInterface](https://www.qcloud.com/document/product/215/4822) | 弹性网卡解绑云主机。 |
 | 弹性网卡迁移 | [MigrateNetworkInterface](https://www.qcloud.com/doc/api/245/5384) | 弹性网卡迁移。 |
 | 内网IP迁移 | [DetachNetworkInterface](https://www.qcloud.com/doc/api/245/5385) | 内网IP迁移。 |
 
