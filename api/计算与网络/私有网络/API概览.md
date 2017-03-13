@@ -109,9 +109,9 @@
 | 删除专线网关本端IP转换 | [DeleteLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5186) | 删除专线网关本端IP转换。 |
 | 修改专线网关本端IP转换 | [ModifyLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5187) | 修改专线网关本端IP转换。 |
 | 查询专线网关本端IP转换 | [DescribeLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5188) | 查询专线网关本端IP转换。 |
-| 添加专线网关本端源IP端口转换 | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4892) | 添加专线网关本端源IP端口转换。 |
-| 删除专线网关本端源IP端口转换 | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4898) | 删除专线网关本端源IP端口转换。 |
-| 修改专线网关本端源IP端口转换 | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4841) | 修改专线网关本端源IP端口转换。 |
+| 添加专线网关本端源IP端口转换 | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5190) | 添加专线网关本端源IP端口转换。 |
+| 删除专线网关本端源IP端口转换 | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5191) | 删除专线网关本端源IP端口转换。 |
+| 修改专线网关本端源IP端口转换 | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5192) | 修改专线网关本端源IP端口转换。 |
 | 查询专线网关本端源IP端口转换 | [DescribeLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4836) | 查询专线网关本端源IP端口转换。 |
 | 添加专线网关本端目的IP端口转换 | [CreateLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4894) | 添加专线网关本端目的IP端口转换。 |
 | 删除专线网关本端目的IP端口转换 | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4893) | 删除专线网关本端目的IP端口转换。 |
