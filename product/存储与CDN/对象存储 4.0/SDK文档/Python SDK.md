@@ -4,7 +4,7 @@
 
 * [GitHub](https://github.com/tencentyun/cos-python-sdk-v4) GitHub项目地址，欢迎贡献代码以及反馈问题。
 * [PyPi](https://pypi.python.org/pypi/qcloud_cos_v4) PyPi项目地址 
-
+（本SDK适用于COS V4 版本）
 
 ### 环境依赖
 
