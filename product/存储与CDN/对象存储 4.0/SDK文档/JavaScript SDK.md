@@ -4,6 +4,8 @@
 
 COS服务的js sdk v4版本的下载地址： [https://github.com/tencentyun/cos-js-sdk-v4.git](https://github.com/tencentyun/cos-js-sdk-v4.git)
 
+（本版本SDK基于JSON API封装组成）
+
 ### 开发环境
 
 1. 使用SDK需要浏览器支持HTML 5
