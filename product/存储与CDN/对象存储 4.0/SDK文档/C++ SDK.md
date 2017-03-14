@@ -19,6 +19,7 @@
 2. curl默认不支持多线程环境，如果项目使用多线程，在编译curl执行 configure 时需指定 --enable-ares 参数来开启异步DNS解析，依赖 c-ares库，如果系统没有，可到[http://c-ares.haxx.se/](http://c-ares.haxx.se/) 下载安装。
 3. jsoncpp的1.y.x版本需要c++11的支持，如果编译器不支持，可以换成 0.y.x版本。
 （本SDK适用COS V4版本）
+
 ### SDK 配置
 
 直接下载github上提供的源代码，集成到您的开发环境。 
