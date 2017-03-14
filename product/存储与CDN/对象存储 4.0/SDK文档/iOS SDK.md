@@ -5,7 +5,7 @@
 对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
 
 更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git) 
-（本SDK适用COS V4版本）
+（本版本SDK基于JSON API封装组成）
 
 ### 开发准备
 
