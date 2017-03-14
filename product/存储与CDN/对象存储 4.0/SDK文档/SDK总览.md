@@ -12,3 +12,4 @@
 | Android SDK    | [Android SDK 接入说明](/doc/product/436/6517) |
 | iOS SDK        | [iOS SDK 接入说明](/doc/product/436/6530)    |
 | JavaScript SDK | [JavaScript SDK 接入说明](/document/product/436/8095) |
+| Node.js SDK | [Node.js SDK 接入说明](/document/product/436/8629) |
