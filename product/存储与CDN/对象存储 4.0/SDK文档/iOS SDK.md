@@ -700,4 +700,61 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
     };
     [client putObject:task];
 ```
+### 文件断点续传
+
+#### 方法原型
+
+调用此接口进行文件的下载操作，具体步骤如下：
+
+1. 实例化 COSObjectMultipartResumePutTask  对象；
+2. 调用 COSClient  的 ObjectResumePutMultipart 命令，传入 COSObjectMultipartResumePutTask   对象。
+3. 通过COSObjectUploadTaskRsp  的对象返回结果信息
+4. 当分片上传的任务被中断了，可以进行续传；
+
+#### 参数说明
+
+| 参数名称            | 类型         | 是否必填 | 说明                                   |
+| --------------- | ---------- | ---- | ------------------------------------ |
+| filePath        | NSString * | 是    | 文件路径                                 |
+| sign            | NSString * | 是    | 签名                                   |
+| bucket          | NSString * | 是    | 目标 Bucket 名称                         |
+| fileName        | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
+| attrs           | NSString * | 否    | 文件自定义属性                              |
+| directory       | NSString * | 是    | 文件上传目录，相对路径 ,举例“/path”               |
+| insertOnly      | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
+
+
+#### 返回结果说明
+
+通过COSObjectUploadTaskRsp 的对象返回结果信息
+
+| 属性名称    | 类型         | 说明                                 |
+| ------- | ---------- | ---------------------------------- |
+| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| descMsg | NSString * | 任务描述信息                             |
+
+#### 示例
+
+```objective-c
+
+    COSObjectMultipartResumePutTask *task = [[COSObjectMultipartResumePutTask alloc] init];
+    task.filePath = path;
+    task.fileName = fileName;
+    task.bucket = bucket;
+    task.attrs = @"customAttribute";
+    task.directory = dir;
+    task.insertOnly = YES;
+    task.sign = _sign;
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];  client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+       
+        if (rsp.retCode == 0) {
+          //sucess
+        }else{ }
+    };
+    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+      //进度
+    };
+    [client ObjectResumePutMultipart:task];
+```
+
 
