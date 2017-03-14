@@ -7,7 +7,7 @@
 ### 环境依赖
 
 JDK 1.7
-（本SDK适用于COS V4版本）
+（本版本SDK基于JSON API封装组成）
 
 ### 安装SDK
 
