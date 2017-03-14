@@ -2,7 +2,8 @@
 
 ### 相关资源
 
-[cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)（本SDK适用COS V4版本）
+[cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)
+（本SDK适用COS V4版本）
 
 
 ### 开发环境
