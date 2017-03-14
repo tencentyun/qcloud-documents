@@ -13,6 +13,8 @@ var expired = current + 86400;  // 签名有效期：1天
 // Step 3：根据客户端所提交的文件信息，拼装参数列表
 var file_name = "tencent_test.mp4";
 var file_sha = "a9993e364706816aba3e25717850c26c9cd0d89d";
+var uid="1234";
+var ft="AVI";
 
 var arg_list = {
 	s : secret_id,
@@ -20,7 +22,9 @@ var arg_list = {
 	e : expired,
 	f : file_name,
 	fs : file_sha,
-	r : Math.round(Math.random() * Math.pow(10, 10))
+	ft : file_type,
+	r : Math.round(Math.random() * Math.pow(10, 10)),
+	uid : uid
 }
 
 // Step 4：生成签名

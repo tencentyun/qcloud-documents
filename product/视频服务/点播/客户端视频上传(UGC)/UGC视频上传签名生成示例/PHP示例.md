@@ -11,6 +11,7 @@ $expired = $current + 86400;  // 签名有效期：1天
 // Step 3：根据客户端所提交的文件信息，拼装参数列表
 $file_name = "tencent_test.mp4";
 $file_sha = "a9993e364706816aba3e25717850c26c9cd0d89d";
+$uid="1234";
 
 $arg_list = array(
 	"s" => $secret_id,
@@ -18,6 +19,8 @@ $arg_list = array(
 	"e" => $expired,
 	"f" => $file_name,
 	"fs" => $file_sha,
+	"ft" => $file_type,
+	"uid" => $uid,
 	"r" => rand());
 
 // Step 4：生成签名
