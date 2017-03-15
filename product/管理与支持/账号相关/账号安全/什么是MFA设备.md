@@ -1,5 +1,6 @@
 **MFA**(Multi-FactorAuthentication)即多因子认证，是一种安全认证方法，MFA设备（又叫动态口令卡或token卡）是提供这种安全认证方法的设备。目前腾讯云提供两种MFA设备：**硬件MFA设备**和**虚拟MFA设备**。
 
+
 ## 1.硬件MFA设备
 ![](https://mc.qcloudimg.com/static/img/e5fd0f764b6a40626557beb032a4d6b2/image.png)
 
