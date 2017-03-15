@@ -2,33 +2,33 @@
 
 ### SDK 获取
 
-对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/a78a41f6eb769e421aa41fa607bc1501/qcloud-image-ios-v1.1.4.2.zip) 
+对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
 
-更多示例可参考Demo：[iOS Demo](https://mc.qcloudimg.com/static/archive/abdd2f53afdbe005278e9a81d61da6d4/QcloudDemoApp.zip) 
+更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git) 
+（本版本SDK基于JSON API封装组成）
 
 ### 开发准备
 
--  iOS 5.0+；
+-  iOS 7.0+；
 -  手机必须要有网络（GPRS、3G或Wifi网络等）；
--  从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](/document/product/430/5891)。
+-  从控制台获取APP ID、SecretID、SecretKey。
 
 
 ### SDK 配置
 
 #### SDK 导入
 
-COS 的 iOS SDK 由上传 SDK 和下载 SDK 两个压缩包组成：
+COS 的 iOS SDK压缩包组成：
 
-- QCloudUploadSDK.zip
-- QCloudDownloadSDK.zip
+- COSClientSDK.zip
 
-每个压缩包都包含了一个 .a 静态库和一个包含头文件的文件夹 Headers，如下图所示。上传包提供了支持 bitcode 版本，与不支持 bitcode 版本，可根据业务需要进行选择。
+压缩包中都包含了一个 .a 静态库和一个包含头文件的文件夹 Headers，如下图所示。上传包提供了支持 bitcode 版本，与不支持 bitcode 版本，可根据业务需要进行选择。
 
 ![上传SDK](https://mccdn.qcloud.com/static/img/05f5a1d6768985aa11b23c3808914989/image.png)
 
 ![下载SDK](https://mccdn.qcloud.com/static/img/190e5c8c4920ba4d7334f7ba64fd3839/image.png)
 
-将解压后的 QCloudUploadSDK 和 QCloudDownloadSDK 拖入工程目录，Xcode 会自动将其加入链接库列表中。
+将解压后的 COSSDK 拖入工程目录，Xcode 会自动将其加入链接库列表中。
 
 ![导入 SDK 包](https://mccdn.qcloud.com/static/img/96dda4e5f2e4f8fab3fbda3de1cd8e25/image.png)
 
@@ -40,26 +40,93 @@ COS 的 iOS SDK 由上传 SDK 和下载 SDK 两个压缩包组成：
 
 ![参数配置](https://mccdn.qcloud.com/static/img/58327ba5d83809c77da158ff95627ef7/image.png)
 
-#### 依赖库添加
+在工程info.plist文件中添加App Transport Security Settings 类型，然后在App Transport Security Settings下添加Allow Arbitrary Loads 类型Boolean,值设为YES。
 
-在 build Phases -> Link Binary With Libraries 中加入下列依赖库：
-
-- SystemConfiguration.framework
-- CoreTelephony.framework
-
-若需要使用上传SDK ，还需加入以下依赖库：
-
-- libstdc++.6.dylib
-
-若需要使用下载 SDK ，还需加入以下依赖库：
-
-- MobileCoreServices.framework
-- libxml2.dylib
-- libz.dylib
+如果想要在程序中使用HTTPS协议，请做如下设置：
+```objective-c
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+[client openHttpsRequest:YES];
+```
 
 
+### 初始化
 
-## 签名获取
+引入上传 SDK 的头文件 *COSClient .h*，使用目录操作时，需要先实例化 COSClient  对象。
+
+#### 方法原型
+
+```objective-c
+- (instancetype)initWithAppId:(NSString*)appId  withRegion:(NSString *)region;
+```
+
+#### 参数说明
+
+| 参数名称   | 类型         | 是否必填 | 说明                                       |
+| ------ | ---------- | ---- | ---------------------------------------- |
+| appId  | NSString * | 是    | 项目ID，即APP ID。                            |
+| region | NSString * | 是    | bucket被创建的时候机房区域，比如华东园区：“sh” ，华南园区："gz"，华北园区："tj" |
+
+#### 示例
+
+```objective-c
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+```
+
+## 快速入门
+
+这里演示的上传和下载的基本流程，更多细节可以参考demo；在进行这一步之前必须在腾讯云控制台上申请COS业务的appid；
+
+### STEP - 1 初始化COSClient
+
+#### 示例
+
+```objective-c
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+```
+
+### STEP - 2 上传文件
+
+在这里我们假设您已经申请了自己业务bucket。SDK所有的任务对应了相应的task，只要把相应的task参数传递给client，就可以完成相应的动作；
+
+#### 示例
+
+```objective-c
+    COSObjectPutTask *task = [COSObjectPutTask new];
+    task.filePath = path;
+    task.fileName = fileName;
+    task.bucket = bucket;
+    task.attrs = @"customAttribute";
+    task.directory = dir;
+    task.insertOnly = YES;
+    task.sign = _sign;
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+         //sucess
+        }else{}
+    };
+    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+          //progress
+    };
+    [client putObject:task];
+```
+
+### STEP - 3 下载文件
+
+#### 示例
+
+```objective-c
+ 	COSObjectGetTask *cm = [[COSObjectGetTask alloc] initWithUrl:imgUrl.text];
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		//
+    };
+    client.downloadProgressHandler = ^(int64_t receiveLength,int64_t contentLength){        
+    };
+    [client getObjectRequest:cm];
+```
+
+## 生成签名
 
 **签名类型：**
 
@@ -70,444 +137,281 @@ COS 的 iOS SDK 由上传 SDK 和下载 SDK 两个压缩包组成：
 
 **签名获取：**
 
-移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](/document/product/430/5891) 。
+移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。
 
 ## 目录操作
 
-### 初始化
-
-引入上传 SDK 的头文件 *TXYUploadManager.h*，使用目录操作时，需要先实例化 TXYUploadManager 对象。
+### 目录创建
 
 #### 方法原型
-
-```objective-c
-- (instancetype)initWithCloudType:(TXYCloudType)cloudType 
-  					persistenceId:(NSString *)persistenceId 
-                      		appId:(NSString*)appId;
-```
-
-#### 参数说明
-
-| 参数名称          | 类型           | 是否必填 | 说明                                       |
-| ------------- | ------------ | ---- | ---------------------------------------- |
-| cloudType     | TXYCloudType | 是    | 业务类型，COS服务设置为：TXYCloudTypeForFile        |
-| persistenceId | NSString *   | 是    | TXYUploadManager 实例对应的持久化 id，此 id 必须全局唯一，persistenceId 为 nil 时，上传任务不持久化 |
-| appId         | NSString *   | 是    | 项目ID，即APP ID。                            |
-
-#### 示例
-
-```objective-c
-TXYUploadManager *uploadManager = [[TXYUploadManager alloc] 
-                                        initWithCloudType(TXYCloudTypeForFile 
-                                            persistenceId:@"qcloudobject" 
-                                                    appId:@"10000002")];
-```
-
-### 目录创建
 
 通过此接口在指定的 bucket 下创建目录，具体步骤如下：
 
-1. 实例化 TXYCreateDir 对象；
-2. 调用 TXYUploadManager 的 sendCommand 方法，将 TXYCreateDir 对象传入。
-3. 通过TXYCreateDirCommandRsp的对象返回结果
-
-#### 方法原型
-
-```objective-c
-- (instancetype) initWithPath:(NSString*)path 
-                       bucket:(NSString*)bucket 
-                         sign:(NSString*)sign 
-                needOverWrite:(BOOL)overwrite 
-              customAttribute:(NSString*)attrs;
-```
+1. 实例化 COSCreateDirCommand  对象；
+2. 调用 COSClient 的 createDirRequest 方法，将 COSCreateDirCommand 对象传入。
+3. 通过COSCreatDirTaskRsp 的对象返回结果
 
 #### 参数说明
 
-| 参数名称      | 类型         | 是否必填 | 说明                 |
-| --------- | ---------- | ---- | ------------------ |
-| path      | NSString * | 是    | 目录路径（相对于bucket的路径） |
-| bucket    | NSString * | 是    | 目录所属 bucket 名称     |
-| sign      | NSString * | 是    | 签名                 |
-| overwrite | BOOL       | 是    | 是否覆盖相同名字的目录或文件     |
-| attrs     | NSString * | 否    | 用户自定义属性            |
+| 参数名称   | 类型         | 是否必填 | 说明                 |
+| ------ | ---------- | ---- | ------------------ |
+| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
+| bucket | NSString * | 是    | 目录所属 bucket 名称     |
+| sign   | NSString * | 是    | 签名                 |
+| attrs  | NSString * | 否    | 用户自定义属性            |
 
 #### 返回结果说明
 
-通过TXYCreateDirCommandRsp的对象返回结果
+通过COSCreatDirTaskRsp 的对象返回结果
 
-| 属性名称      | 类型         | 说明       |
-| --------- | ---------- | -------- |
-| overwrite | BOOL       | 文件是否被覆盖  |
-| ctime     | NSInteger  | 文件的创建时间  |
-| accessUrl | NSString * | 文件的访问url |
+| 属性名称    | 类型         | 说明     |
+| ------- | ---------- | ------ |
+| retCode | int        | 任务描述代码 |
+| descMsg | NSString * | 任务描述信息 |
 
 #### 示例
 
 ```objective-c
-TXYCreateDir *createDirCommand = [[TXYCreateDir alloc] initWithPath(path:DIRPATH 
-                                                                  bucket:BUCKETNAME 
-                                                                    sing:SIGN 
-                                                               overwrite:YES
-                                                                   attrs:ATTRS)];
 
-[uploadManager sendCommand:createDirCommand 
-				  complete:^(TXYCreateDirCommandRsp *resp) {
-								if (resp.retCode >= 0 ) {
-									// 创建成功
-								} 
-								else {
-									// 创建失败
-								}
-							}];
+	COSCreateDirCommand *cm = [COSCreateDirCommand new];
+    cm.directory = dir;
+    cm.bucket = bucket;
+    cm.sign = _sign;
+    cm.attrs = @"dirTest";
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+			//sucess
+        }else{
+			//fail
+		}
+    };
+    [client createDir:cm];
 ```
 
 ### 目录属性更新
 
-通过调用此接口更新目录的自定义属性，具体步骤如下：
-
-1. 实例化 TXYUpdate 对象；
-2. 调用 TXYUploadManager 的 sendCommand 方法，将 TXYUpdate 对象传入；
-3. 通过TXYUpdateCommandRsp 对象返回结果
-
 #### 方法原型
 
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                   objectType:(TXYObjectType)objectType
-				authorityType:(TXYAuthorityType)fileAuthorityType
-              customAttribute:(NSString*)attrs;
-```
+通过调用此接口更新目录的自定义属性，具体步骤如下：
+
+1. 实例化 COSUpdateDirCommand  对象；
+2. 调用 COSClient  的 updateDirRequest 方法，将 COSUpdateDirCommand 对象传入；
+3. 通过COSUpdateDirTaskRsp 对象返回结果
 
 #### 参数说明
 
-| 参数名称              | 类型               | 是否必填 | 说明                                   |
-| ----------------- | ---------------- | ---- | ------------------------------------ |
-| path              | NSString *       | 是    | 目录路径（相对于bucket的路径）                   |
-| bucket            | NSString *       | 是    | 目录所属 bucket 名称                       |
-| sign              | NSString *       | 是    | 签名                                   |
-| objectType        | TXYObjectType    | 是    | 业务类型，目录属性更新时设置为：TXYObjectDir         |
-| fileAuthorityType | TXYAuthorityType | 是    | 文件权限类型，如设置文件权限和bucket相同：eInvalidAuth |
-| attrs             | NSString *       | 否    | 用户自定义属性                              |
+| 参数名称   | 类型         | 是否必填 | 说明                 |
+| ------ | ---------- | ---- | ------------------ |
+| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
+| bucket | NSString * | 是    | 目录所属 bucket 名称     |
+| sign   | NSString * | 是    | 签名                 |
+| attrs  | NSString * | 否    | 用户自定义属性            |
+
 #### 返回结果说明
 
-通过TXYUpdateCommandRsp 对象返回结果
+通过COSUpdateDirTaskRsp 的对象返回结果
 
-| 属性名称    | 类型         | 说明                                 |
-| ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
-| descMsg | NSString * | 任务描述信息                             |
+| 属性名称    | 类型         | 说明     |
+| ------- | ---------- | ------ |
+| retCode | int        | 任务描述代码 |
+| descMsg | NSString * | 任务描述信息 |
 
 #### 示例
 
 ```objective-c
-TXYUpdate *updateDirCommand = [[TXYUpdate alloc] initWithPath:DIRPATH
-                                                       bucket:BUCKETNAME
-                                                         sign:SIGN
-                                                   objectType:TXYObjectDir
-												authorityType:eInvalidAuth
-                                              customAttribute:ATTRS];
 
-[uploadManager sendCommand: updateDirCommand
-				 compelete:^(TXYUpdateCommandRsp *resp) {
-								if(resp.retCode >= 0) {
-									// 更新成功
-								}
-								else {
-									// 更新失败
-								}
-							}];
+    COSUpdateDirCommand *cm = [COSUpdateDirCommand new];
+    cm.directory = dir;
+    cm.bucket = bucket;
+    cm.sign = _sign;//本业务使用一次性签名
+    cm.attrs = @"dirTest";
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+            //sucess
+        }else{}
+    };
+    [client updateDir:cm];
 ```
 
 ### 目录属性查询
 
-通过调用此接口来查询目录的详细属性，具体步骤如下：
-
-1.实例化 TXYStat 对象；
-2.调用 TXYUploadManager 的 sendCommand 方法，将 TXYUpdate 对象传入；
-3.通过TXYStatCommandRsp的对象返回结果信息；
-
 #### 方法原型
 
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                   objectType:(TXYObjectType)objectType;
-```
+通过调用此接口来查询目录的详细属性，具体步骤如下：
+
+1. 实例化 COSDirmMetaCommand  对象；
+2. 调用 COSClient  的 getDirMetaData 方法，将 COSDirmMetaCommand 对象传入；
+3. 通过COSDirMetaTaskRsp的对象返回结果信息；
 
 #### 参数说明
 
-| 参数名称       | 类型            | 是否必填 | 说明                       |
-| ---------- | ------------- | ---- | ------------------------ |
-| path       | NSString *    | 是    | 目录路径（相对于bucket的路径）       |
-| bucket     | NSString *    | 是    | 目录所属 bucket 名称           |
-| sign       | NSString *    | 是    | 签名                       |
-| objectType | TXYObjectType | 是    | 文件属性查询是，设置为：TXYObjectDir |
+| 参数名称   | 类型         | 是否必填 | 说明                 |
+| ------ | ---------- | ---- | ------------------ |
+| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
+| bucket | NSString * | 是    | 目录所属 bucket 名称     |
+| sign   | NSString * | 是    | 签名                 |
+
 
 #### 返回结果说明
 
-通过TXYStatCommandRsp的对象返回结果信息
+通过COSDirmMetaCommand的对象返回结果信息
 
-| 属性名称        | 类型                | 说明                                 |
-| ----------- | ----------------- | ---------------------------------- |
-| fileDirInfo | TXYFileDirInfo  * | 单个文件目录信息                           |
-| retCode     | int               | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
-| descMsg     | NSString *        | 任务描述信息                             |
+| 属性名称    | 类型             | 说明     |
+| ------- | -------------- | ------ |
+| retCode | int            | 任务描述代码 |
+| descMsg | NSString    *  | 任务描述信息 |
+| data    | NSDictionary * | 任务描述信息 |
 
 
 #### 示例
 
 ```objective-c
-TXYStat *statCommand = [[TXYStat alloc] initWithPath:DIRPATH
-                                              bucket:BUCKETNAME
-                                                sign:SIGN
-                                          objectType:TXYObjectDir];
 
-[uploadManager sendCommand: statCommand
-				 compelete:^(TXYStatCommandRsp *resp){
-								if(resp.retCode >= 0){
-									// 查询成功
-								}
-								else{
-									// 查询失败
-								}
-							}];
+	COSDirmMetaCommand *cm = [COSDirmMetaCommand new];
+    cm.directory = dir;
+    cm.bucket = bucket;
+    cm.sign = sign;
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+			//sucess
+		}else{}
+    };
+    [client getDirMetaData:cm];
 ```
 
 ### 目录删除
 
-调用此接口，进行指定 bucket 下目录的删除，如果目录中存在有效文件或目录，将不能删除。具体步骤如下：
-
-1. 实例化 TXYDelete 对象；
-2. 调用 TXYUploadManager 的 SendCommand 命令，传入 TXYDelete 对象；
-3. 通过TXYTaskRsp的对象返回结果信息
-
 #### 方法原型
 
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                   objectType:(TXYObjectType)objectType;
-```
+调用此接口，进行指定 bucket 下目录的删除，如果目录中存在有效文件或目录，将不能删除。具体步骤如下：
+
+1. 实例化 COSDeleteDirCommand  对象；
+2. 调用 COSClient  的 deleteDirRequest 命令，传入 COSDeleteDirCommand  对象；
+3. 通过COSdeleteDirTaskRsp 的对象返回结果信息
+
 
 #### 参数说明
 
-| 参数名称       | 类型            | 是否必填 | 说明                         |
-| ---------- | ------------- | ---- | -------------------------- |
-| path       | NSString *    | 是    | 目录路径（相对于bucket的路径）         |
-| bucket     | NSString *    | 是    | 目录所属 bucket 名称             |
-| sign       | NSString *    | 是    | 签名                         |
-| objectType | TXYObjectType | 是    | 业务类型，目录删除时设置为：TXYObjectDir |
+| 参数名称   | 类型         | 是否必填 | 说明                 |
+| ------ | ---------- | ---- | ------------------ |
+| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
+| bucket | NSString * | 是    | 目录所属 bucket 名称     |
+| sign   | NSString * | 是    | 签名                 |
+
 
 #### 返回结果说明
 
-通过TXYTaskRsp的对象返回结果信息
+通过COSdeleteDirTaskRsp的对象返回结果信息
 
-| 属性名称    | 类型         | 说明                                 |
-| ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
-| descMsg | NSString * | 任务描述信息                             |
+| 属性名称    | 类型            | 说明     |
+| ------- | ------------- | ------ |
+| retCode | int           | 任务描述代码 |
+| descMsg | NSString    * | 任务描述信息 |
 
 #### 示例
 
 ```objective-c
-TXYDelete *deleteCommand = [[TXYDelete alloc] initWithPath:DIRPATH
-                                                    bucket:BUCKETNAME
-                                                      sign:SIGN
-                                                objectType:TXYObjectDir];
 
-[uploadManager sendCommand: deleteCommand
-				 compelete:^(TXYTaskRsp *resp) {
-								if(resp.retCode >= 0) {
-									// 删除成功
-								}
-								else {
-									// 删除失败
-								}
-							}];
+    COSDeleteDirCommand *cm = [COSDeleteDirCommand new];
+    cm.directory = dir;
+    cm.bucket = bucket;
+    cm.sign = _oneSign;//删除使用一次性签名
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+            //sucess;
+        }else{}
+    };
+    [client deleteDir:cm];
 ```
 
-### 列举目录中的文件和目录
-
-调用此接口可以列出 bucket 中，指定目录下的文件、目录信息，具体步骤如下：
-
-1. 实例化 TXYListDir 对象；
-2. 调用 TXYUploadManager 对象的 sendCommand 方法，将 TXYListDir 对象传入;
-3. 通过TXYListDirCommandRsp的对象返回结果信息
+### 目录列表
 
 #### 方法原型
 
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                       number:(NSUInteger)num
-                  listPattern:(TXYListPattern)pattern
-                        order:(BOOL)order
-                  pageContext:(NSString*)context;
-```
+调用此接口可以列出 bucket 中，指定目录下的文件、目录信息，具体步骤如下：
+
+1. 实例化 COSListDirCommand 对象；
+2. 调用 COSClient 对象的 listDirRequest 方法，将 COSListDirCommand 对象传入;
+3. 通过COSDirListTaskRsp 的对象返回结果信息
 
 #### 参数说明
 
-| 参数名称    | 类型             | 是否必填 | 说明                                       |
-| ------- | -------------- | ---- | ---------------------------------------- |
-| path    | NSString *     | 是    | 目录路径（相对于bucket的路径）                       |
-| bucket  | NSString *     | 是    | 目录所属 bucket 名称                           |
-| sign    | NSString *     | 是    | 签名                                       |
-| num     | NSUInteger     | 是    | 一次拉取数目设定                                 |
-| pattern | TXYListPattern | 是    | 拉取设定：TXYListBoth - 目录和文件都拉取，TXYListDirOnly - 只拉取目录，TXYListFileOnly - 只拉取文件 |
-| order   | BOOL           | 是    | 排序设定，0 - 正序 1-反序                         |
-| context | NSString*      | 否    | 分页浏览的上下文，第一次拉取时可以为空，后续拉取分页内容时必须填充        |
+| 参数名称        | 类型         | 是否必填 | 说明                                       |
+| ----------- | ---------- | ---- | ---------------------------------------- |
+| path        | NSString * | 是    | 目录路径（相对于bucket的路径）                       |
+| bucket      | NSString * | 是    | 目录所属 bucket 名称                           |
+| sign        | NSString * | 是    | 签名                                       |
+| num         | NSUInteger | 是    | 一次拉取数目设定                                 |
+| pageContext | NSString * | 是    | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中 |
+| prefix      | NSString * | 是    | 前缀查询                                     |
 
 #### 返回结果说明
 
 通过TXYListDirCommandRsp的对象返回结果信息
 
-| 属性名称            | 类型         | 说明              |
-| --------------- | ---------- | --------------- |
-| dirCount        | NSUInteger | 目录个数            |
-| fileCount       | NSUInteger | 文件个数            |
-| fileDirInfoList | NSArray  * | 文件目录属性列表        |
-| pageContext     | NSString * | 分页浏览目录的上下文，后台返回 |
-| hasMore         | BOOL       | 有无下一页数据         |
+| 属性名称     | 类型            | 说明       |
+| -------- | ------------- | -------- |
+| context  | NSString *    | 目录个数     |
+| listover | NSString *    | 文件个数     |
+| infos    | NSArray  *    | 文件目录属性列表 |
+| retCode  | int           | 任务描述代码   |
+| descMsg  | NSString    * | 任务描述信息   |
 
 #### 示例
 
 ```objective-c
-// 第一次拉取目录时，context 为空
-TXYListDir *listDirCommand = [[TXYListDir alloc] initWithPath:DIRPATH
-                                                       bucket:BUCKETNAME
-                                                         sign:SIGN
-                              					 	      num:10
-                                                      pattern:TXYListBoth 
-                              					        order:YES
-                                                      context:nil];
 
-[uploadManager sendCommand: listDirCommand
-				 compelete:^(TXYListDirCommandRsp *resp) {
-								if(resp.retCode >= 0) {
-									// 拉取成功
-								}
-								else {
-									// 拉取失败
-								}
-							}];
+    COSListDirCommand *cm = [COSListDirCommand new]；
+    cm.directory = dir;
+    cm.bucket = bucket;
+    cm.sign = _sign;
+    cm.number = 100;
+    cm.pageContext = @"";
+    cm.prefix = @"xx";
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+          //sucess
+        }else{}
+    };
+    [client listDir:cm];
 ```
 
-### 列举目录下制定前缀文件&目录
-
-通过此接口查询目录下，指定前缀的文件和目录，具体步骤如下：
-
-1. 实例化 TXYSearch 对象；
-2. 调用 TXYUploadManager 对象的 sendCommand 方法，将 TXYSearch 对象传入；
-3. 通过TXYSearchCommandRsp的对象返回结果信息
-
-#### 方法原型
-
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                       number:(NSUInteger)num
-                  pageContext:(NSString*)context;
-```
-
-#### 参数说明
-
-| 参数名称    | 类型         | 是否必填 | 说明                                |
-| ------- | ---------- | ---- | --------------------------------- |
-| path    | NSString * | 是    | 目录路径，前缀查询                         |
-| bucket  | NSString * | 是    | 目录所属 bucket 名称                    |
-| sign    | NSString * | 是    | 签名                                |
-| num     | NSUInteger | 是    | 一次拉取数目设定                          |
-| context | NSString*  | 否    | 分页浏览的上下文，第一次拉取时可以为空，后续拉取分页内容时必须填充 |
-
-#### 返回结果说明
-
-通过TXYSearchCommandRsp的对象返回结果信息
-
-| 属性名称            | 类型         | 说明              |
-| --------------- | ---------- | --------------- |
-| dirCount        | NSUInteger | 目录个数            |
-| fileCount       | NSUInteger | 文件个数            |
-| fileDirInfoList | NSArray  * | 文件目录属性列表        |
-| pageContext     | NSString * | 分页浏览目录的上下文，后台返回 |
-| hasMore         | BOOL       | 有无下一页数据         |
-
-#### 示例
-
-```objective-c
-// 第一次拉取目录时，context 为空
-TXYSearch *listDirCommand = [[TXYSearch alloc] initWithPath:DIRPATH
-                                                     bucket:BUCKETNAME
-                                                       sign:SIGN
-                              					 	    num:10
-                                                      context:nil];
-
-[uploadManager sendCommand: listDirCommand
-				 compelete:^(TXYSearchCommandRsp *resp) {
-								if(resp.retCode >= 0) {
-									// 拉取成功
-								}
-								else {
-									// 拉取失败
-								}
-							}];
-```
 
 ## 文件操作
 
 ### 初始化
 
-与目录操作相同，在进行文件操作之前，需引入上传 SDK 的头文件 *TXYUploadManager.h*，实例化 TXYUploadManager 对象。
-
 #### 方法原型
 
-```objective-c
-- (instancetype)initWithCloudType:(TXYCloudType)cloudType
-  					persistenceId:(NSString *)persistenceId
-                      		appId:(NSString*)appId;
-```
+与目录操作相同，在进行文件操作之前，需引入上传 SDK 的头文件 *COSClient .h*，实例化 COSClient 对象。
 
 #### 参数说明
 
-| 参数名称          | 类型           | 是否必填 | 说明                                       |
-| ------------- | ------------ | ---- | ---------------------------------------- |
-| cloudType     | TXYCloudType | 是    | 业务类型，COS服务设置为：TXYCloudTypeForFile        |
-| persistenceId | NSString *   | 是    | TXYUploadManager 实例对应的持久化id，此id必须全局唯一，persistenceId为nil时，上传任务不持久化 |
-| appId         | NSString *   | 是    | 项目ID，即APP ID。                            |
+| 参数名称   | 类型         | 是否必填 | 说明                                 |
+| ------ | ---------- | ---- | ---------------------------------- |
+| appId  | NSString * | 是    | 项目ID，即APP ID。                      |
+| region | NSString * | 是    | bucket被创建的时候机房区域，比如上海：“sh” 广州："gz" |
 
 #### 示例
 
 ```objective-c
-TXYUploadManager *uploadManager = [[TXYUploadManager alloc] 
-                                   initWithCloudType:TXYCloudTypeForFile 
-                                       persistenceId:@"qcloudobject" 
-                                               appId:@"10000002"];
+- (instancetype)initWithAppId:(NSString*)appId  withRegion:(NSString *)region;
 ```
 
 ### 文件上传
 
-调用此接口者可进行本地文件上传操作，具体步骤如下：
-
-1. 实例化 TXYFileUploadTask对象；
-2. 调用 TXYUploadManager 对象的 upload 方法，将 TXYFileUploadTask 对象传入；
-3. 通过TXYFileUploadTaskRsp的对象返回结果信息
-
 #### 方法原型
 
-```objective-c
-- (instancetype)initWithPath:(NSString *)filePath
-                        sign:(NSString*)sign
-                      bucket:(NSString *)bucket
-					fileName:(NSString *)fileName
-             customAttribute:(NSString *)attrs
-             uploadDirectory:(NSString*)directory
-                  insertOnly:(BOOL)inser;
-```
+调用此接口者可进行本地文件上传操作，具体步骤如下：
+
+1. 实例化 COSObjectPutTask ；
+2. 调用 COSClient 对象的 putObject 方法，将 COSObjectPutTask  对象传入；
+3. 通过COSObjectUploadTaskRsp的对象返回结果信息
 
 #### 参数说明
 
@@ -523,74 +427,57 @@ TXYUploadManager *uploadManager = [[TXYUploadManager alloc]
 
 #### 返回结果说明
 
-通过TXYFileUploadTaskRsp的对象返回结果信息
+通过COSObjectUploadTaskRsp的对象返回结果信息
 
 | 属性名称      | 类型         | 说明                                 |
 | --------- | ---------- | ---------------------------------- |
 | retCode   | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
 | descMsg   | NSString * | 任务描述信息                             |
-| fileURL   | NSString * | 成功后，后台返回文件的 CDN url                |
-| fileId    | NSString * | 成功后，后台返回文件的key（cos业务没有fileid）      |
+| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
 | sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
 
 #### 示例
 
 ```objective-c
-TXYFileUploadTask *fileTask = [[TXYFileUploadTask alloc] initWithPath:FILEPATH
-																 sign:SIGN
-															   bucket:BUCKETNAME
-															 fileName:fileName
-                                                      customAttribute:nil
-													  uploadDirectory:(NSString*)directory
-                                                      insertOnly:YES];
 
-[uploadManager upload:fileTask
-			 complete:^(TXYTaskRsp *resp, NSDictionary *context) {
-							fileResp = (TXYFileUploadTaskRsp *)resp;
-							if(fileResp.retCode >= 0) {
-								//上传成功
-							}
-							else {
-								//上传失败
-							}
- 						}
-			 process:^(int64_t totalSize, int64_t sendSize, NSDictionary *context) {
-               				// 上传进度
-  						}
-		 stateChange:^(TXYUploadTaskStat state, NSDictionary *context) {
-           					// 上传状态变化
-                  		}];
+    COSObjectPutTask *task = [COSObjectPutTask new];
+    task.filePath = path;
+    task.fileName = fileName;
+    task.bucket = bucket;
+    task.attrs = @"customAttribute";
+    task.directory = dir;
+    task.insertOnly = YES;
+    task.sign = _sign;
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+         //sucess
+        }else{}
+    };
+    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+          //progress
+    };
+    [client putObject:task];
 ```
 
 ### 文件属性更新
 
-调用此接口更新文件的自定义属性，具体步骤如下：
-
-1. 实例化 TXYUpdate 对象；
-2. 调用 TXYUploadManager 的 SendCommand 命令，传入 TXYUpdate  对象；
-3. 通过TXYUpdateCommandRsp的对象返回结果信息
-
 #### 方法原型
 
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                   objectType:(TXYObjectType)objectType
-				authorityType:(TXYAuthorityType)fileAuthorityType
-              customAttribute:(NSString*)attrs;
-```
+调用此接口更新文件的自定义属性，具体步骤如下：
+
+1. 实例化 COSObjectUpdateCommand  对象；
+2. 调用 COSClient 的 updateObject 命令，传入 COSObjectUpdateCommand   对象；
+3. 通过COSObjectUpdateTaskRsp的对象返回结果信息
 
 #### 参数说明
 
-| 参数名称              | 类型               | 是否必填 | 说明                           |
-| ----------------- | ---------------- | ---- | ---------------------------- |
-| path              | NSString *       | 是    | 目录路径（相对于bucket的路径）           |
-| bucket            | NSString *       | 是    | 目录所属 bucket 名称               |
-| sign              | NSString *       | 是    | 签名                           |
-| objectType        | TXYObjectType    | 是    | 业务类型，目录属性更新时设置为：TXYObjectDir |
-| fileAuthorityType | TXYAuthorityType | 是    | 文件权限类型                       |
-| attrs             | NSString *       | 否    | 用户自定义属性                      |
+| 参数名称     | 类型         | 是否必填 | 说明             |
+| -------- | ---------- | ---- | -------------- |
+| fileName | NSString * | 是    |                |
+| bucket   | NSString * | 是    | 目录所属 bucket 名称 |
+| sign     | NSString * | 是    | 签名             |
+| attrs    | NSString * | 否    | 用户自定义属性        |
 
 #### 返回结果说明
 
@@ -604,108 +491,91 @@ TXYFileUploadTask *fileTask = [[TXYFileUploadTask alloc] initWithPath:FILEPATH
 #### 示例
 
 ```objective-c
-TXYUpdate *updateFileCommand = [[TXYUpdate alloc] initWithPath:FILEPATH
-                                                        bucket:BUCKETNAME
-                                                          sign:SIGN
-                                                    objectType:TXYObjectFile
-												 authorityType:nil
-                                               customAttribute: ATTRS];
-
-[uploadManager sendCommand: updateFileCommand
-				 compelete:^(TXYUpdateCommandRsp *resp){
-								if(resp.retCode >= 0){
-									// 更新成功
-								}
-								else{
-									// 更新失败
-								}
-							}];
+    COSObjectUpdateCommand *cm = [COSObjectUpdateCommand new]
+	cm.fileName = file;
+	cm.bucket = bucket;
+	cm.sign = _oneSign;//单次签名
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+			//sucess
+        }else{
+    };
+    [client updateObject:cm];
 ```
 
 ### 文件属性查询
 
-调用此接口可查询文件的属性信息，具体步骤如下：
-
-1. 实例化 TXYStat 对象；
-2. 调用 TXYUploadManager 的 SendCommand 命令，传入 TXYStat  对象；
-3. 通过TXYStatCommandRsp类返回结果信息
-
 #### 方法原型
 
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                   objectType:(TXYObjectType)objectType;
-```
+调用此接口可查询文件的属性信息，具体步骤如下：
+
+1. 实例化 COSObjectMetaCommand  对象；
+2. 调用 COSClient 的 getObjectInfo 命令，传入 COSObjectMetaCommand   对象；
+3. 通过COSObjectMetaTaskRsp 类返回结果信息
+
 
 #### 参数说明
 
-| 参数名称       | 类型            | 是否必填 | 说明                        |
-| ---------- | ------------- | ---- | ------------------------- |
-| path       | NSString *    | 是    | 文件路径                      |
-| bucket     | NSString *    | 是    | 文件所属 bucket 名称            |
-| sign       | NSString *    | 是    | 签名                        |
-| objectType | TXYObjectType | 是    | 文件属性查询是，设置为：TXYObjectFile |
+| 参数名称      | 类型         | 是否必填 | 说明                 |
+| --------- | ---------- | ---- | ------------------ |
+| filename  | NSString * | 是    |                    |
+| bucket    | NSString * | 是    | 文件所属 bucket 名称     |
+| directory | NSString * | 是    | 目录路径（相对于bucket的路径） |
+| sign      | NSString * | 是    | 签名                 |
 
 #### 返回结果说明
 
 通过TXYStatCommandRsp类返回结果信息
 
-| 属性名称     | 类型            | 说明                                 |
-| -------- | ------------- | ---------------------------------- |
-| retCode  | int           | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
-| descMsg  | NSString *    | 任务描述信息                             |
-| fileInfo | TXYFileInfo * | 成功时，文件基本信息                         |
+| 属性名称    | 类型             | 说明                                 |
+| ------- | -------------- | ---------------------------------- |
+| retCode | int            | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| descMsg | NSString *     | 任务描述信息                             |
+| data    | NSDictionary * | 成功时，文件基本信息                         |
 
 #### 示例
 
 ```objective-c
-TXYStat *statCommand = [[TXYStat alloc]initWithPath:FILEPATH
-                                             bucket:BUCKETNAME
-                                               sign:SIGN
-                                         objectType:TXYObjectFile];
+ 
+    COSObjectMetaCommand *cm = [COSObjectMetaCommand new] ;
+	cm.fileName = file;
+	cm.bucket = bucket;
+    cm.directory = dir;
+	cm.sign = _oneSign;//单次签名
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+         	//sucess
+        }else{}
+    };
+    [client getObjectMetaData:cm];
 
-[uploadManager sendCommand: statCommand
-				 compelete:^(TXYStatCommandRsp *resp){
-								if(resp.retCode >= 0){
-									// 查询成功
-								}
-								else{
-									// 查询失败
-								}
-							}];
 ```
 
 ### 文件删除
 
-调用此接口进行文件的删除操作，具体步骤如下：
-
-1. 实例化 TXYDelete 对象；
-2. 调用 TXYUploadManager 的 SendCommand 命令，传入 TXYDelete 对象。
-3. 通过TXYTaskRsp的对象返回结果信息
-
 #### 方法原型
 
-```objective-c
-- (instancetype) initWithPath:(NSString*)path
-                       bucket:(NSString*)bucket
-                         sign:(NSString*)sign
-                   objectType:(TXYObjectType)objectType;
-```
+调用此接口进行文件的删除操作，具体步骤如下：
+
+1. 实例化 COSObjectDeleteCommand  对象；
+2. 调用 COSClient  的 deleteObject 命令，传入 COSObjectDeleteCommand  对象。
+3. 通过COSObjectDeleteTaskRsp的对象返回结果信息
 
 #### 参数说明
 
 | 参数名称       | 类型            | 是否必填 | 说明                          |
 | ---------- | ------------- | ---- | --------------------------- |
-| path       | NSString *    | 是    | 要删除的文件的路径                   |
+| filename   | NSString *    | 是    |                             |
 | bucket     | NSString *    | 是    | 文件所属 Bucket 名称              |
+| directory  | NSString *    | 是    | 目录路径（相对于bucket的路径）          |
 | sign       | NSString *    | 是    | 签名                          |
 | objectType | TXYObjectType | 是    | 业务类型，文件删除时设置为：TXYObjectFile |
 
 #### 返回结果说明
 
-通过TXYTaskRsp的对象返回结果信息
+通过COSObjectDeleteTaskRsp的对象返回结果信息
 
 | 属性名称    | 类型         | 说明                                 |
 | ------- | ---------- | ---------------------------------- |
@@ -715,152 +585,176 @@ TXYStat *statCommand = [[TXYStat alloc]initWithPath:FILEPATH
 #### 示例
 
 ```objective-c
-TXYDelete *deleteCommand = [[TXYDelete alloc]initWithPath:FILEPATH
-                                                   bucket:BUCKETNAME
-                                                     sign:SIGN
-                                               objectType:TXYObjectFile];
 
-[uploadManager sendCommand: deleteCommand
-				 compelete:^(TXYTaskRsp *resp){
-								if(resp.retCode >= 0){
-									// 删除成功
-								}
-								else{
-									// 删除失败
-								}
-							}];
+    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
+	cm.fileName = file;
+	cm.bucket = bucket;
+    cm.directory = dir;
+	cm.sign = _oneSign;//单次签名
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];;
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+        if (resp.retCode == 0) {
+            //sucess
+        }else{        }
+    };
+    [client deleteObject:cm];
 ```
 
-## 对象下载
-
-### 初始化
-
-在下载文件前，需要先实例化下载管理类 TXYDownloader，并对下载器的一些属性进行配置。
+### 文件下载
 
 #### 方法原型
 
-```objective-c
-- (instancetype)initWithPersistenceId:(NSString *)persistenceId 
-                                 type:(TXYDownloadType)type;
-```
+调用此接口进行文件的下载操作，具体步骤如下：
+
+1. 实例化 COSObjectGetTask 对象；
+2. 调用 COSClient  的 getObjectRequest 命令，传入 COSObjectGetTask  对象。
+3. 通过COSGetObjectTaskRsp 的对象返回结果信息
 
 #### 参数说明
 
-| 参数名称          | 类型              | 是否必填 | 说明                                       |
-| ------------- | --------------- | ---- | ---------------------------------------- |
-| persistenceId | NSString *      | 是    | persistenceId 值不同表示缓存目录不同，为nil内部会自动创建一个缓存目录统一管理 |
-| type          | TXYDownloadType | 是    | 下载业务类型，COS服务设置为：TXYDownloadTypeFile      |
+| 参数名称     | 类型         | 是否必填 | 说明     |
+| -------- | ---------- | ---- | ------ |
+| filePath | NSString * | 是    | 文件下载地址 |
 
- #### 示例
-
-```objective-c
-TXYDownloader *downloadManager = [[TXYDownloader alloc] 	 
-                            			initWithPersistenceId:@"qcloudobject"
-                           					             type:TXYDownloadTypeFile];
-```
-
-**下载并发数设置：**可以指定下载器最大并发数。
-
-方法原型：
-
-```objective-c
-- (void)setMaxConcurrent:(int)count;
-```
-
-示例：
-
-```objective-c
-[downloadManager setMaxConcurrent:10];
-```
-
-**长连接/断点续传设置：**可以设定是否开启长连接和端点续传功能。
-
-方法原型：
-
-```objective-c
-// enable - YES 表示支持断点续传， No 表示不支持断点续传
-- (void)enableHTTPRange:(BOOL)enable;
-// enable - YES 表示支持 HTTP 长连接， No 表示不支持
-- (void)enableKeepAlive:(BOOL)enable;
-```
-
-示例：
-
-```objective-c
-[downloadManager enableHTTPRange:YES];
-[downloadManager enableKeepAlive:YES];
-```
-
-
-### 下载器使用
-
-对已知 URL 的资源进行下载，异步模式进行。
-
-#### 方法原型
-
-```objective-c
-- (void)download:(NSString *)url 
-          target:(id)target 
-       succBlock:(void (^)(NSString *url, NSData *data, NSDictionary *info))succBlock
-       failBlock:(void (^)(NSString *url, NSError *error))failBlock 
-   progressBlock:(void (^)(NSString *url, NSNumber *value))progressBlock 
-           param:(NSDictionary *)param;
-```
-
-#### 参数说明
-
-| 参数名称          | 说明                                       |
-| ------------- | ---------------------------------------- |
-| url           | 资源地址                                     |
-| target        | 通知的对象                                    |
-| succBlock     | 成功通知                                     |
-| failBlock     | 失败通知                                     |
-| progressBlock | 进度通知，当前下载百分比                             |
-| param         | 可以指定 TXYDownloaderParam 族一系列参数,也可以用于透传使用者的参数 |
 
 #### 返回结果说明
 
-| 参数名称  | 说明          |
-| ----- | ----------- |
-| url   | 资源地址        |
-| data  | 文件数据        |
-| info  | 资源相关信息      |
-| error | 失败信息        |
-| value | 进度通知，当前下载进度 |
+通过 通过COSGetObjectTaskRsp 的对象返回结果信息
+
+| 属性名称    | 类型              | 说明                                 |
+| ------- | --------------- | ---------------------------------- |
+| retCode | int             | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| descMsg | NSString *      | 任务描述信息                             |
+| object  | NSMutableData * | 下载文件                               |
 
 #### 示例
 
 ```objective-c
-[downloadManager download:URL
-			      target:self
- 		       succBlock:^(NSString *url, NSData *data, NSDictionary *info) {
-							// 下载成功
-						}
-				failBlock:^(NSString *url, NSError *error) {
-							// 下载失败
-						} 
-			progressBlock:^(NSString *url, NSNumber *value) {
-							// 下载进度
-						} 
-					param:nil];
+
+ 	COSObjectGetTask *cm = [[COSObjectGetTask alloc] initWithUrl:imgUrl.text];
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		//
+    };
+    client.downloadProgressHandler = ^(int64_t receiveLength,int64_t contentLength){        
+    };
+    [client getObject:cm];
+
 ```
 
-### 取消下载
-
-取消对指定URL资源的下载任务，或取消所有下载请求。
+### 文件分片上传
 
 #### 方法原型
 
-```objective-c
-// 取消 target 对应的下载请求，url 为资源地址
-- (void)cancel:(NSString *)url target:(id)target;
-// 取消所有的下载请求
-- (void)cancelAll;
-```
+调用此接口进行文件的下载操作，具体步骤如下：
+
+1. 实例化 COSObjectPutTask  对象；
+2. 调用 COSClient  的 putObject 命令，传入 COSObjectPutTask   对象。
+3. 通过COSObjectUploadTaskRsp  的对象返回结果信息
+4. 当multipartUpload 参数设置为YES 的时候上传文件上传的方式为分片上传，该参数默认为NO；
+
+#### 参数说明
+
+| 参数名称            | 类型         | 是否必填 | 说明                                   |
+| --------------- | ---------- | ---- | ------------------------------------ |
+| filePath        | NSString * | 是    | 文件路径                                 |
+| multipartUpload | BOOL       | 否    | 文件上传是否使用分片上传                         |
+| sign            | NSString * | 是    | 签名                                   |
+| bucket          | NSString * | 是    | 目标 Bucket 名称                         |
+| fileName        | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
+| attrs           | NSString * | 否    | 文件自定义属性                              |
+| directory       | NSString * | 是    | 文件上传目录，相对路径 ,举例“/path”               |
+| insertOnly      | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
+
+
+#### 返回结果说明
+
+通过COSObjectUploadTaskRsp 的对象返回结果信息
+
+| 属性名称    | 类型         | 说明                                 |
+| ------- | ---------- | ---------------------------------- |
+| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| descMsg | NSString * | 任务描述信息                             |
 
 #### 示例
 
 ```objective-c
-[downloadManager cancel:URL target:self];
-[downloadManager cancelAll];
+
+	COSObjectPutTask *task = [[COSObjectPutTask alloc] init];
+	task.multipartUpload = YES;//分片上传设置参数
+    task.filePath = path;
+    task.fileName = fileName;
+    task.bucket = bucket;
+    task.attrs = @"customAttribute";
+    task.directory = dir;
+    task.insertOnly = YES;
+    task.sign = _sign;
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];  client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+       
+        if (rsp.retCode == 0) {
+          //sucess
+        }else{ }
+    };
+    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+      //进度
+    };
+    [client putObject:task];
 ```
+### 文件断点续传
+
+#### 方法原型
+
+调用此接口进行文件的下载操作，具体步骤如下：
+
+1. 实例化 COSObjectMultipartResumePutTask  对象；
+2. 调用 COSClient  的 ObjectResumePutMultipart 命令，传入 COSObjectMultipartResumePutTask   对象。
+3. 通过COSObjectUploadTaskRsp  的对象返回结果信息
+4. 当分片上传的任务被中断了，可以进行续传；
+
+#### 参数说明
+
+| 参数名称       | 类型         | 是否必填 | 说明                                   |
+| ---------- | ---------- | ---- | ------------------------------------ |
+| filePath   | NSString * | 是    | 文件路径                                 |
+| sign       | NSString * | 是    | 签名                                   |
+| bucket     | NSString * | 是    | 目标 Bucket 名称                         |
+| fileName   | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
+| attrs      | NSString * | 否    | 文件自定义属性                              |
+| directory  | NSString * | 是    | 文件上传目录，相对路径 ,举例“/path”               |
+| insertOnly | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
+
+
+#### 返回结果说明
+
+通过COSObjectUploadTaskRsp 的对象返回结果信息
+
+| 属性名称    | 类型         | 说明                                 |
+| ------- | ---------- | ---------------------------------- |
+| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| descMsg | NSString * | 任务描述信息                             |
+
+#### 示例
+
+```objective-c
+
+    COSObjectMultipartResumePutTask *task = [[COSObjectMultipartResumePutTask alloc] init];
+    task.filePath = path;
+    task.fileName = fileName;
+    task.bucket = bucket;
+    task.attrs = @"customAttribute";
+    task.directory = dir;
+    task.insertOnly = YES;
+    task.sign = _sign;
+    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];  client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+       
+        if (rsp.retCode == 0) {
+          //sucess
+        }else{ }
+    };
+    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+      //进度
+    };
+    [client ObjectResumePutMultipart:task];
+```
+
+

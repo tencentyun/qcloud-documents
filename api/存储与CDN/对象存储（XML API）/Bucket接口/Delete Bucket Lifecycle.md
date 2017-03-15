@@ -9,7 +9,7 @@ Delete Bucket Lifecycle请求实现删除生命周期管理。
 
 ```HTTP
 DELETE /?lifecycle HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```

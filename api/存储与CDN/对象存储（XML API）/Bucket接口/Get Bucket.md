@@ -8,20 +8,20 @@ Get Bucket请求等同于 List Object请求，可以列出该Bucket下部分或�
 
 ```Http
 GET / HTTP/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: auth
 ```
 
 ### 请求参数
 
-| 名称            | 描述                                       | 类型     | 必选   |
-| ------------- | ---------------------------------------- | ------ | ---- |
-| prefix        | 前缀匹配，用来规定返回的文件前缀地址                       | String | 否    |
-| delimiter     | 定界符为一个符号，如果有Prefix，则将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix，然后列出所有Common Prefix。如果没有Prefix，则从路径起点开始 | String | 否    |
-| encoding-type | 规定返回值的编码方式                               | String | 否    |
-| marker        | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始        | String | 否    |
-| max-keys      | 单次返回最大的条目数量，默认1000                       | String | 否    |
+| 名称            | 描述                                       | 类型     | 
+| ------------- | ---------------------------------------- | ------ |
+| prefix        | 前缀匹配，用来规定返回的文件前缀地址                       | String | 
+| delimiter     | 定界符为一个符号，如果有Prefix，则将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix，然后列出所有Common Prefix。如果没有Prefix，则从路径起点开始 | String | 
+| encoding-type | 规定返回值的编码方式                               | String | 
+| marker        | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始        | String | 
+| max-keys      | 单次返回最大的条目数量，默认1000                       | String | 
 
 ### 请求头部
 
@@ -56,7 +56,7 @@ Authorization: auth
 | Size                  | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String |
 | Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | Container    |
 | StorageClass          | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
-| ID                    | Bucket的UID<br/>父节点：ListBucketResult.Contents.Owner | String |
+| ID                    | Bucket的AppID<br/>父节点：ListBucketResult.Contents.Owner | String |
 | CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   |    String    |
 
 ```XML

@@ -116,7 +116,7 @@ A: V4 XML API 上传域名根据地域分区，例如bucket-[9 位 125 开头数
 
 **Q: XML API上传路径？**
 
-A: 举例上传一个文件 Put http://BucketName-UID.Region.myqcloud.com/ObjectName 具体参看 API 文档。
+A: 举例上传一个文件 Put http://BucketName-AppID.Region.myqcloud.com/ObjectName 具体参看 API 文档。
 
 ### 秘钥问题
 
