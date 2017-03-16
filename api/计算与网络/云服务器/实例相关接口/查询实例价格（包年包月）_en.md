@@ -1,32 +1,32 @@
 ## 1. API Description
  
-This API (InquiryInstancePrice) is used to obtain the instance price (annual or monthly plan).
+This API (InquiryInstancePrice) is used to obtain the price of prepaid instances.
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 
-* This API applies only to <font color="red"> instances with an annual or monthly plan</font>. To query the price of a charge-by-quantity instance, please use [InquiryInstancePriceHour](https://www.qcloud.com/doc/api/229/1346) API.
+* This API applies only to <font color="red"> prepaid instances</font>. To query the price of a postpaid instance, please use [InquiryInstancePriceHour](https://www.qcloud.com/doc/api/229/1346) API.
 
 
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976).
 
 Different products have different input parameters. Here are the details:
 
-### 2.1. Query the price of successfully purchased instances with an monthly plan
+### 2.1. Query the price of successfully renewed prepaid instances
 **For renewals**
 
 | Parameter Name | Required | Type | Description | Source |
 |---------|---------|---------|---------|---------|
 | instanceType | Yes | Int | Instance type | The system sets it to 1 for a CVM instance. |
-| instanceId | Yes | String | Instance ID to be operated | It can be obtained from the unInstanceId in the returned field of <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8">DescribeInstances</a> API. |
+| instanceId | Yes | String | ID of the target instance | It can be obtained from the unInstanceId in the returned field of <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8">DescribeInstances</a> API. |
 | period | Yes | Int | Purchase or renewal length | User defined, in months. The maximum is 36 and the minimum is 1. |
 
-### 2.2. Query the price of instances with an annual or monthly plan
+### 2.2. Query the price of prepaid instances
 
-* These parameters have specific range limits. For more information on the parameters, please refer to [this API](https://www.qcloud.com/doc/api/229/1248).
+* These parameters have specific range limits. For more information on the parameters, please [see　here](https://www.qcloud.com/doc/api/229/1248).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -112,7 +112,7 @@ Input
   &mem=1
   &storageSize=10
   &period=1
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

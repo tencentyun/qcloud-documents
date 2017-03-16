@@ -13,7 +13,7 @@ Tencent Cloud supports distribution of cloud resources in different locations by
 			<th>Availability Zone</th>
 		</tr>
 		<tr>
-			<td rowspan="7">Within Chinese territory</td>
+			<td rowspan="7">Mainland China</td>
 			<td rowspan="3">South China region (Guangzhou)</td>
 			<td>Guangzhou Zone I (Sold out)</td>
 		</tr>
@@ -40,7 +40,7 @@ Tencent Cloud supports distribution of cloud resources in different locations by
 			<td>Beijing Zone I</td>
 		</tr>
 		<tr>
-			<td rowspan="3">Outside China</td>
+			<td rowspan="3">International</td>
 			<td>Southeast Asia region (Hong Kong)</td>
 			<td>Hong Kong Zone I</td>
 		</tr>
@@ -60,13 +60,13 @@ Tencent Cloud supports distribution of cloud resources in different locations by
 ## Region
 Different regions of Tencent Cloud are completely isolated to ensure maximal stability and fault tolerance among those regions. Currently, South China, East China, and North China are covered domestically, and Hong Kong and Singapore nodes for South East Asia and Toronto node for North America are also available. We will gradually increase region supply for coverage of more nodes. Users are advised to choose the region closest to their clients in order to reduce access latency and improve download speed.
 
-Region attribute is differentiated for all behaviors such as enabling and viewing instances by users. If image of the instance that the users need to enable does not exist in the region, then the image needs to be copied to current region. For more information, please see [Copy image] (/doc/product/213/4943).
+Region attribute is differentiated for all behaviors such as enabling and viewing instances by users. If image of the instance that the users need to enable does not exist in the region, then the image needs to be copied to current region. For more information, please see [Copy image](/doc/product/213/4943).
 
 - Even located in different availability zones, cloud resources in the same region are connected via private network, and can be accessed directly using [Private IP](/doc/product/213/5225).
 - Cloud services of different regions <font color="red">cannot communicate via private network by default</font>.
  - CVMs cannot access other CVMs, Cloud Database or Cloud Memcached across regions by default.
- - When binding Cloud Load Balance to the server, only CVM in the current region can be chosen;
-- Cloud resources of different regions can perform Internet access via [Public IP](/doc/product/213/5224); Cloud Services in VPC can also communicate via [Peer connection](/doc/product/215/5000) provided by Tencent Cloud using Tencent Cloud high-speed con- [Cloud Load Balance](https://www.qcloud.com/doc/product/214) does not support cross-region data forwarding.
+ - When binding Cloud Load Balance to the server, only CVMs in the current region can be chosen;
+- Cloud resources of different regions can perform Internet access via [Public IP](/doc/product/213/5224); Cloud Services in VPC can also communicate via [Peering connection](/doc/product/215/5000) provided by Tencent Cloud using Tencent Cloud high-speed con- [Cloud Load Balance](https://www.qcloud.com/doc/product/214) does not support cross-region data forwarding.
 - The name of regional availability zone is the most straightforward representation of the coverage range of the data center. To make the name of regional availability zone easier for clients to understand, the "coverage range + city where the data center- The above private network interconnection refers to the interconnection of resources under the same account. Private networks for resources under different accounts are completely isolated.
 
 **Special instructions for Hong Kong region:**
@@ -89,8 +89,8 @@ When starting an instance, users can choose any availability zone within the spe
 
 For an instance that is already started, its availability zone cannot be changed, but its user can migrate it to another availability zone by other means. The migration process involves creating a custom image from the original instance, using the custom image to start an instance in a new availability zone and updating the configuration of the new instance. 
 
-1. Create a custom image for current instance. For more information, see [Create Custom Image](/doc/product/213/4942).2. If the network environment of the current instance is [Virtual Private Cloud] (/doc/product/213/5227) and the private IP address needs to be retained after the migration, users can first delete the subnet in the current availability zone and then create a subnet in the new availability zone with the same IP address range as that of the original subnet. Please note that a subnet can be deleted only when it contains no available instance. Thus, all the instances in the current subnet should be migrated to the new subnet.3. Create a new instance in the new availability zone using the custom image you have just created. User can choose the same type and configuration as those of the original instance, or choose new ones. For more information, see [Purchase and Start an Instance] (/doc/product/213/4855).4. If an elastic IP address is associated with the original instance, then dissociate it from the old instance and associate it with the new instance. For more information, see [Elastic IP] (/doc/product/213/5733).
-5. (Optional) If the type of original instance is [Charge by Quantity](https://www.qcloud.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), then you can choose to destroy the original instance. For more information, see [Destroy an Instance] (/doc/product/213/4930). If the type of the original instance is [Annual or Monthly Plan], (https://www.qcloud.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88)you can choose to wait until it expires and reclaim it.
+1. Create a custom image for current instance. For more information, see [Create Custom Image](/doc/product/213/4942).2. If the network environment of the current instance is [Virtual Private Cloud](/doc/product/213/5227) and the private IP address needs to be retained after the migration, users can first delete the subnet in the current availability zone and then create a subnet in the new availability zone with the same IP address range as that of the original subnet. Please note that a subnet can be deleted only when it contains no available instance. Thus, all the instances in the current subnet should be migrated to the new subnet.3. Create a new instance in the new availability zone using the custom image you have just created. User can choose the same type and configuration as those of the original instance, or choose new ones. For more information, see [Purchase and Start an Instance](/doc/product/213/4855).4. If an elastic IP address is associated with the original instance, then dissociate it from the old instance and associate it with the new instance. For more information, see [Elastic IP](/doc/product/213/5733).
+5. (Optional) If the type of original instance is [pay-per-use](https://www.qcloud.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), then you can choose to terminate the original instance. For more information, see [Terminate an Instance](/doc/product/213/4930). If the type of the original instance is [prepaid](https://www.qcloud.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88), you can choose to wait until it expires and reclaim it.
 ## How to select region and availability zone
 When purchasing Cloud Services, it is recommended to choose the region that is closest to your customers to minimize the access latency and improve download speed.
 
@@ -107,7 +107,7 @@ Specify which resources of Tencent Cloud are global, which resources are regiona
   <td>Users can access Tencent Cloud resources globally with the same account ID.</td>
 </tr>
 <tr>
-<td> <a href="/doc/product/213/5223">SSH key</a> </td>
+<td> <a href="/document/product/416/7594">SSH key</a> </td>
   <td>skey-xxxxxxxx</td>
   <td>Available in all regions</td>
   <td>Users can use SSH key to bind to any CVM in any region under their account.</td>
@@ -146,7 +146,7 @@ Specify which resources of Tencent Cloud are global, which resources are regiona
 <td> <a href="https://www.qcloud.com/doc/product/362/2455">Snapshot</a> </td>
   <td>snap-xxxxxxxx</td>
   <td>Available in multiple availability zones of a single region</td>
-  <td>After creating snapshot for a specific Cloud Block Storage, users can use this snapshot in the region for other operations (such as creating Cloud Block Storage)</td>
+  <td>After creating snapshot for a specific Cloud disk, users can use this snapshot in the region for other operations (such as creating Cloud disks)</td>
 </tr>
 <tr>
 <td> <a href="/doc/product/214/524">Cloud Load Balance</a> </td>

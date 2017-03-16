@@ -1,28 +1,28 @@
 ## 1. Instance-related APIs
-| Function | Action ID | Description
+| Name | Action ID | Description
 |---------|---------|---------|
 | View instance list | [DescribeInstances](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8) | Obtain the details of one or more instances.
-| Create instance (annual or monthly plan) | [RunInstances](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) | Create one or more instances with specified configuration (annual or monthly plan).
-| Create instance (charge by quantity) | [RunInstancesHour](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Create one or more instances with specified configuration (charge by quantity).
-| Start instance | [StartInstances](http://www.qcloud.com/doc/api/229/%E5%90%AF%E5%8A%A8%E5%AE%9E%E4%BE%8B) | Start one or more instances.
-| Shut down instance | [StopInstances](http://www.qcloud.com/doc/api/229/%E5%85%B3%E9%97%AD%E5%AE%9E%E4%BE%8B) | Shut down one or more instances.
-| Restart instance | [RestartInstances](http://www.qcloud.com/doc/api/229/%E9%87%8D%E5%90%AF%E5%AE%9E%E4%BE%8B) | Restart one or more instances.
+| Create prepaid instances | [RunInstances](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) | Create one or more prepaid instances with specified configuration.
+| Create postpaid instances | [RunInstancesHour](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Create one or more postpaid instances with specified configuration.
+| Start up instances | [StartInstances](http://www.qcloud.com/doc/api/229/%E5%90%AF%E5%8A%A8%E5%AE%9E%E4%BE%8B) | Start one or more instances.
+| Stop instances | [StopInstances](http://www.qcloud.com/doc/api/229/%E5%85%B3%E9%97%AD%E5%AE%9E%E4%BE%8B) | Stop running of one or more instances.
+| Restart instances | [RestartInstances](http://www.qcloud.com/doc/api/229/%E9%87%8D%E5%90%AF%E5%AE%9E%E4%BE%8B) | Restart one or more instances.
 | Reinstall system | [ResetInstances](http://www.qcloud.com/doc/api/229/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F) | Reinstall the operating system on the specified instance.
 | Modify instance attributes | [ModifyInstanceAttributes](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%9E%E4%BE%8B%E5%90%8D%E7%A7%B0) | Modify the attributes of an instance, such as instance name.
 | Reset password | [ResetInstancePassword](http://www.qcloud.com/doc/api/229/%E9%87%8D%E7%BD%AE%E5%AF%86%E7%A0%81) | Reset the password of the instance's operating system to a user-specified value.
-| Query instance price (annual or monthly plan) | [InquiryInstancePrice](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) | Obtain the instance price (annual or monthly plan).
-| Query instance price (charge by quantity) | [InquiryInstancePriceHour](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Obtain the instance price (charge by quantity).
-| Adjust configuration (annual or monthly plan) | [ResizeInstance](http://www.qcloud.com/doc/api/229/%E8%B0%83%E6%95%B4%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) | Allow you to upgrade or downgrade the configuration of specified instance, including CPU, memory, and data disks.
-| Adjust configuration (charge by quantity) | [ResizeInstanceHour](http://www.qcloud.com/doc/api/229/%E8%B0%83%E6%95%B4%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Upgrade or downgrade the configuration of specified instance, including CPU, memory, and data disks.
-| Renew instance (annual or monthly plan) | [RenewInstance](http://www.qcloud.com/doc/api/229/%E7%BB%AD%E8%B4%B9%E5%AE%9E%E4%BE%8B%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) |Renew the instance with an annual or monthly plan.
-| Return instance (charge by quantity) | [ReturnInstance](http://www.qcloud.com/doc/api/229/%E9%80%80%E8%BF%98%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Used to return instances.
-| Modify the project of instance | [ModifyInstanceProject](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%9E%E4%BE%8B%E6%89%80%E5%B1%9E%E9%A1%B9%E7%9B%AE) | Modify the project to which an instance belongs.
-| Set auto renewal for instance | [SetAutoRenew](/document/product/213/1746) | Set renewal policy for an instance.
+| Query prepaid instance price | [InquiryInstancePrice](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) | Obtain the price of prepaid instances.
+| Query postpaid instance price | [InquiryInstancePriceHour](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Obtain the price of postpaid instances.
+| Change Configurations of Prepaid Instances | [ResizeInstance](http://www.qcloud.com/doc/api/229/%E8%B0%83%E6%95%B4%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) | Change configuration of specified instance, including CPU, memory, and data disks.
+| Change Configurations of Postpaid Instances | [ResizeInstanceHour](http://www.qcloud.com/doc/api/229/%E8%B0%83%E6%95%B4%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Change configuration of specified instance, including CPU, memory, and data disks.
+| Renew prepaid instances | [RenewInstance](http://www.qcloud.com/doc/api/229/%E7%BB%AD%E8%B4%B9%E5%AE%9E%E4%BE%8B%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89) |Renew the instance with an annual or monthly plan.
+| Return postpaid instances | [ReturnInstance](http://www.qcloud.com/doc/api/229/%E9%80%80%E8%BF%98%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89) | Used to return instances.
+| Change Projects of Instances | [ModifyInstanceProject](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%9E%E4%BE%8B%E6%89%80%E5%B1%9E%E9%A1%B9%E7%9B%AE) | Modify the project to which an instance belongs.
+| Set Intances to Auto-renewal | [SetAutoRenew](/document/product/213/1746) | Set renewal policy for an instance.
 
 # # 2. Image-related APIs
-| Function | Action ID | Description
+| Name | Action ID | Description
 |---------|---------|---------|
-| View list of available images | [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) | Obtain the images that current account can use to create CVM instances.
+| View list of available images | [DescribeImages](http://www.qcloud.com/document/api/213/1272) | Obtain the images that current account can use to create CVM instances.
 | Create custom images | [CreateImage](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F) | Make the current status of instance system disk into a new image, which can be used to quickly create instances.
 | Delete images | [DeleteImages](http://www.qcloud.com/doc/api/229/%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F) |Delete one or more images.
 | Modify image attributes | [ModifyImageAttributes](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E9%95%9C%E5%83%8F%E5%B1%9E%E6%80%A7) | Modify the information of an image such as name and description.
@@ -32,10 +32,10 @@
 | Query the list of accounts to which the image is shared| [GetImageShareUinInfo](/document/api/213/2391) | Query the image-sharing information of current account, including the list of accounts to which the image is shared.
 
 ## 3. Network-related APIs
-| Function | Action ID | Description
+| Name | Action ID | Description
 |---------|---------|---------|
-| Adjust the bandwidth of instances with an annual or monthly plan | [UpdateInstanceBandwidth](/document/api/213/1251) | Adjust the bandwidth of public network of instances with an annual or monthly plan.
-| Adjust the bandwidth of charge-by-quantity instances | [UpdateInstanceBandwidthHour](/document/api/213/1345) | Adjust the bandwidth of public network of charge-by-quantity instances.
+| Adjust the bandwidth of prepaid instances | [UpdateInstanceBandwidth](/document/api/213/1251) | Adjust the bandwidth of public network of instances with an annual or monthly plan.
+| Adjust the bandwidth of postpaid instances | [UpdateInstanceBandwidthHour](/document/api/213/1345) | Adjust the bandwidth of public network of postpaid instances.
 
 ## 4. Security group-related APIs
 | Function | Action ID | Description
@@ -43,7 +43,7 @@
 | Query security group list | [DescribeSecurityGroups](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%88%97%E8%A1%A8) | Query the list of existing security groups.
 | Create security group| [CreateSecurityGroup](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%89%E5%85%A8%E7%BB%84) | Create a new security group.
 | Delete security group | [DeleteSecurityGroup](http://www.qcloud.com/doc/api/229/%E5%88%A0%E9%99%A4%E5%AE%89%E5%85%A8%E7%BB%84) | Delete a security group.
-| Modify security group name | [ModifySecurityGroupAttributes](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E5%90%8D%E7%A7%B0) |Modify the attribute information of an existing security group, including name and description.
+| Rename security groups | [ModifySecurityGroupAttributes](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E5%90%8D%E7%A7%B0) |Modify the attribute information of an existing security group, including name and description.
 | Query security group rules | [DescribeSecurityGroupPolicy](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E8%A7%84%E5%88%99) | Query the rules for existing security groups.
 | Modify security group rules | [ModifySecurityGroupPolicy](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E8%A7%84%E5%88%99) | Modify the rules for existing security groups.
 | Query the list of instances associated with a security group | [DescribeInstancesOfSecurityGroup](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%85%B3%E8%81%94%E7%9A%84%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%88%97%E8%A1%A8) |Query the CVM associated with the specified security group.
@@ -51,7 +51,7 @@
 | Query the list of associated security groups | [DescribeAssociateSecurityGroups](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%AE%89%E5%85%A8%E7%BB%84%E5%85%B3%E8%81%94%E7%9A%84%E5%AE%89%E5%85%A8%E7%BB%84%E5%88%97%E8%A1%A8) | Query which security groups have outbound or inbound rules that contain the entered security group ID.
 
 ## 5. Elastic IP-related APIs
-| Function | Action ID | Description
+| Name | Action ID | Description
 |---------|---------|---------|
 | Query the list of elastic public IPs (EIPs) | [DescribeEip](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8) | Query EIPs
 | Query the quota on EIPs| [DescribeEipQuota](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E9%85%8D%E9%A2%9D) |Query the quota on EIPs for specified region.
@@ -60,10 +60,10 @@
 | Release EIP | [DeleteEip](http://www.qcloud.com/doc/api/229/%E9%87%8A%E6%94%BE%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | Release an EIP.
 | Bind EIP | [EipBindInstance](http://www.qcloud.com/doc/api/229/%E7%BB%91%E5%AE%9A%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | Bind an EIP to the server.
 | Unbind EIP| [EipUnBindInstance](http://www.qcloud.com/doc/api/229/%E8%A7%A3%E7%BB%91%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | Unbind the EIP from the server.
-| Transform ordinary public IP to EIP | [TransformWanIpToEip](http://www.qcloud.com/doc/api/229/%E6%99%AE%E9%80%9A%E5%85%AC%E7%BD%91IP%E8%BD%AC%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | Transform an ordinary public IP bound to the server to an EIP. After the conversion, the EIP will be retained when the server is released. 
+| Transform ordinary public IP to EIP | [TransformWanIpToEip](http://www.qcloud.com/doc/api/229/%E6%99%AE%E9%80%9A%E5%85%AC%E7%BD%91IP%E8%BD%AC%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | Convert an ordinary public IP bound to the server to an EIP. After the conversion, the EIP will be retained when the server is released. 
 
 ## 6. Key-related APIs
-| Function | Action ID | Description
+| Name | Action ID | Description
 |---------|---------|---------|
 | Query keys | [DescribeKeyPairs](http://www.qcloud.com/doc/api/229/查询密钥) | Query keys
 | Create a key | [CreateKeyPair](http://www.qcloud.com/doc/api/229/创建密钥) | Create a key.

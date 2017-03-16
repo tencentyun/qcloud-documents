@@ -1,4 +1,4 @@
-## BGP高防IP快速接入（转发目标为非腾讯云）
+## BGP高防IP快速接入（业务部署在非腾讯云）
 
 登录“大禹网络安全”控制台，在“BGP高防IP”控制页中找到您已经开通的高防IP实例，点击实例ID，进入配置页面
 ![](https://mc.qcloudimg.com/static/img/fd9063bdf1f69cb2f4c5bd73d1764787/image.png)
@@ -17,5 +17,22 @@
 
 高防IP暂不支持配置七层转发，敬请期待。
 
+## BGP高防IP快速接入（业务部署在腾讯云）
+**第一步** 登陆高防IP控制后台,选择相应地域云内高防IP[https://console.qcloud.com/dayu/bgpip/list/gz](https://console.qcloud.com/dayu/bgpip/list/gz)
+![](https://mc.qcloudimg.com/static/img/77f84c2fa6f0b717c14359ba034dd457/image.png)
+
+**第二步** 创建监听器
+
+基本配置根据业务情况设置相应的协议端口,高防IP是四层转发,7层应用协议如http等也是选择tcp,如下图
+![](https://mc.qcloudimg.com/static/img/0bf032d596c4e6b36a76894b68e177a8/image.png)
+
+高级配置可以根据业务具体情况配置,如不清楚,默认配置即可.
+![](https://mc.qcloudimg.com/static/img/4882b69c1b812ed98c9840619b3b0b5f/image.png)
+健康检查默认是开启,建议不要自行修改配置,这里可以对出故障的服务器端口进行自动踢除保障业务可用.
+
+**第三步** 绑定云主机,设置权重即可
+![](https://mc.qcloudimg.com/static/img/78e9673be6ff3ed2beef607b48ebd211/image.png)
 
 
+**第四步** 将业务切换至高防IP即可
+![](https://mc.qcloudimg.com/static/img/9d05f9c52675ffb46f01e887f6d0872e/image.png)

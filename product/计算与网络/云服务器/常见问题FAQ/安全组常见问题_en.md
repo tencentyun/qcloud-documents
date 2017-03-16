@@ -25,7 +25,7 @@ The policy is two-fold: **Allow** and **Reject** traffic.
 A lower number indicates a higher priority.
 
 ### 6. How to adjust the priority for security groups?
-Go to "CVM Console" -> "Details Page" -> "Security Group" -> "Security Groups You've Joined" -> "Edit".
+Go to "CVM Console" -> "Details Page" -> "Security Group" -> "Bound Security Groups" -> "Modify".
 
 ### 7. Even though all the CVMs have been returned, the security groups still cannot be deleted, why?
 Check the Recycle Bin for any CVM. The deletion won't be successful when there is bound CVM(s) in the Recycle Bin.

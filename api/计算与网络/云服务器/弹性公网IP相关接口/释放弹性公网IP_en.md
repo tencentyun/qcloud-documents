@@ -3,7 +3,7 @@
 Domain name: eip.api.qcloud.com
 API name: DeleteEip
 
-Release the elastic public IP (EIP).
+This API is used to release EIPs.
 
  
 
@@ -38,7 +38,7 @@ Input
 <pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
   &eipIds.0=eip-gzc5rgr2
 
 </pre>

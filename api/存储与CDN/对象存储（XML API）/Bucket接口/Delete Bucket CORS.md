@@ -7,7 +7,7 @@ Delete Bucket CORS实现跨域访问配置删除。
 
 ```HTTP
 DELETE /?cors HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```

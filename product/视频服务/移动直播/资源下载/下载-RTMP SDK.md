@@ -1,19 +1,41 @@
 **【版本说明】**
-- 版本号：1.9.0.1948 @ 2017-01-20
-- iOS ：支持开启Bitcode，用于减少AppStore的安装包体积；
-- iOS ：软硬编美颜统一，统一使用GPU加速方案；
-- iOS + Android：音频模块优化，连麦支持背景音播放；
-- iOS + Android：点播多线程优化（直播在上个版本已支持多实例）
-- iOS + Android：解决网络卡顿时，播放停止（stopPlay）阻塞UI线程时间较长的问题；
-- iOS ： 新增耳返功能，即主播在插上耳机唱歌时，可以实时听到自己发音的效果；
-- Android：由于系统API的延迟问题，暂时尚未支持，我们会继续努力。
+- 版本号：1.9.1.2088 @ 2017-03-01
+- iOS & Android：优化了摄像头直播中的美颜效果和清晰度体验，详情请关注 [如何实现更好的画质](https://www.qcloud.com/document/product/454/7955)。
+- iOS & Android：美颜增加了滤镜功能，多种主流滤镜效果供您的主播选择，详情请关注 [iOS平台](https://www.qcloud.com/document/product/454/7879#step-4.3A-.E7.BE.8E.E9.A2.9C.E6.BB.A4.E9.95.9C) & [Android平台](https://www.qcloud.com/document/product/454/7885#step-4.3A-.E7.BE.8E.E9.A2.9C.E6.BB.A4.E9.95.9C)。
+- iOS & Android：增加了 setVideoQuality 接口，画质选择更简单更声音，详情请关注 [iOS平台](https://www.qcloud.com/document/product/454/7879#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6) & [Android平台](https://www.qcloud.com/document/product/454/7885#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6)。
+- iOS ：解决了某些客户反馈的iOS过曝问题，在人造光源比较强的场景下会有明显差异。
+- iOS：进一步优化了耳返的延迟（[混响功能](https://www.qcloud.com/document/product/454/7879#step-13.3A-.E8.80.B3.E8.BF.94.26amp.3B.E6.B7.B7.E5.93.8D) 由于还有bug没有解决完，Delay一周Release）。
 - 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)。
 
+**【美颜优化】**
+- **细节提升**：新版本美颜通过全新的区域识别和面部检测方案，将眼睛、眉毛、胡须、头发等细节的处理尽可能削减为零，以保证最大限度的接近真实情况。
+
+- **前景侧重**：通过对编码方案进行优化，突出对前景人物的侧重，尽可能保留主播的细节，忽略其它非重要部分，在同样的码率下可以呈现更加清晰亮丽的人物细节。
+
+- **算法优化**：通过对磨皮算法的优化，在真实度上提升的同时降低了GPU的负载，解决了之前把美颜效果调高后画面细节损失严重，“宛如油画”的效果不再出现，同时耗电和发热问题也有所改善。
+
+- **曝光改善**：通过启用新的曝光方案，解决了iOS曝光过度的问题；同时针对 Android 各机型摄像头曝光敏感度不同的现状，提供了曝光设置功能，可以让主播在曝光不理想（低端机较常见）时手动修正曝光效果。
+
+- **滤镜效果**：新版本美颜还增加了色彩滤镜效果，八种自带的滤镜给主播一些个性化的风格选择，滤镜的设计和调配均出自我们专业的视觉团队，无需担心版权问题，如下是滤镜效果的展示视频（左：主播端 右：观众端）
+<video style="width:830px;height:470px;"src="http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/46dfc3109031868222871736639/f0.f30.mp4" controls="controls">
+抱歉，您的浏览器不支持在线播放MP4！
+</video>
+
+- **版本对比**：新旧版本美颜效果对比（左：1.9.0 vs 右：1.9.1 ）
+<video style="width:830px;height:470px;"src="http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/f2d370249031868222870425840/f0.f30.mp4" controls="controls">
+抱歉，您的浏览器不支持在线播放MP4！
+</video>
+
+- **版本对比**：与知名直播APP美颜效果对比（左：1.9.1 vs 右：某椒iOS版 ）
+<video style="width:830px;height:470px;"src="http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/f2d3e27b9031868222870426200/f0.f30.mp4" controls="controls">
+抱歉，您的浏览器不支持在线播放MP4！
+</video>
+
 **【版本预告】**
-- 1.9.1 版本预计2月底发布
-- 计划优化iOS和Android平台的美艳效果和部分机型的清晰度问题
-- 计划优化音频JitterBuffer，旨在优化连麦时的声音流畅度
-- 计划增加耳返时的声音混响音效
+- 1.9.2 版本预计3月中发布beta版，3月底发布正式版
+- 计划增加观众端视频片段的录制和分享功能
+- 计划增加UGC小视频采集和发布功能
+- 计划增加声音混响功能
 
 **【文档索引】**
 <table class="t">
@@ -72,20 +94,20 @@
 
 
 **【测试情况】**
-- 核心用例测试： 总用例数 - 43， 通过用例数 - 43，不通过用例数 - 0
-- 系统用例测试： 总用例数 - 87， 通过用例数 - 87，不通过用例数 - 0
-- 全部用例测试： 总用例数 - 356，通过用例数 - 332，不通过用例数 - 24
+- 核心测试用例： 总用例数 - 43， 通过用例数 - 43， 不通过用例数 - 0
+- 系统测试用例： 总用例数 - 255，通过用例数 - 255，不通过用例数 - 0
+- 全量测试用例： 总用例数 - 635，通过用例数 - 621，不通过用例数 - 14
 
 **【下载地址】**
 
 | 操作系统 | 版本号 | 版本说明|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS完整版  | 1.9.0.1948  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOS1.9.0.1948.zip)  |
-| IOSRename版  | 1.9.0.1948  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSRename1.9.0.1948.zip)  |
-| IOS精简版  | 1.9.0.1948  | 在完整版的基础上裁剪掉了非核心功能，双架构代码体积增量 800k。<br> 精简版点播功能的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKIOSSimple1.9.0.1948.zip)  |
-| Android完整版  | 1.9.0.1948 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.9.0.1948.zip)  |
-| Android精简版  | 1.9.0.1948 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.9.0.1948.zip)  |
+| IOS完整版  | 1.9.1.2088  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS1.9.1.2088.zip)  |
+| IOSRename版  | 1.9.1.2088  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename1.9.1.2088.zip) |
+| IOS精简版  | 1.9.1.2088  | 在完整版的基础上裁剪掉了非核心功能，双架构代码体积增量 <font color='red'>800K</font> 。<br> 精简版点播功能的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple1.9.1.2088.zip)  |
+| Android完整版  | 1.9.1.2088 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.9.1.2088.zip)  |
+| Android精简版  | 1.9.1.2088 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.9.1.2088.zip)  |
 
 **【联系我们】**
-我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎[联系我们](https://www.qcloud.com/document/product/454/7998)。
+我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://www.qcloud.com/document/product/454/7998)。
 
