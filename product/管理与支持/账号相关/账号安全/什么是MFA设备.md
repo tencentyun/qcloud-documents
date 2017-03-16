@@ -13,5 +13,7 @@
 
 | 手机类型      | 设备名称 |
 | --------- | -----:|
-| ios     | [https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8 "google身份验证器")|
-| android         |   [https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8 "google身份验证器") ; [http://sj.qq.com/myapp/detail.htm?apkName=com.authy.authy](http://sj.qq.com/myapp/detail.htm?apkName=com.authy.authy "Authy双重身份验证") |
+| ios     | [google身份验证器](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8)|
+| android         |   [google身份验证器](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) ; [Authy双重身份验证](http://sj.qq.com/myapp/detail.htm?apkName=com.authy.authy) |
+
+
