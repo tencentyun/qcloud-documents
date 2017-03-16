@@ -213,16 +213,17 @@ enableExternalCapture|开启/关闭外部视频捕获设备
 参数类型|说明
 :--|:--:
 boolean|true表示开启,false表示关闭
+boolean|true表示开启本地渲染，false表示关闭
 EnableExternalCaptureCompleteCallback|指向App定义的回调函数
 
 ```java
-ILiveSDK.getInstance().getAvVideoCtrl().enableExternalCapture(false, 
-       new AVVideoCtrl.EnableExternalCaptureCompleteCallback(){
-                @Override
-                protected void onComplete(boolean enable, int result) {
-                    super.onComplete(enable, result);
-                }
-            });
+ILiveSDK.getInstance().getAvVideoCtrl().enableExternalCapture(false, true
+      new AVVideoCtrl.EnableExternalCaptureCompleteCallback(){
+@Override
+protected void onComplete(boolean enable, int result) {
+super.onComplete(enable, result);
+}
+});
 ```
 
 2、获取原始视频数据，加工处理
