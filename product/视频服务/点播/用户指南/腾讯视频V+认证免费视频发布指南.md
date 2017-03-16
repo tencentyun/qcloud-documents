@@ -2,4 +2,4 @@
 
 用户可在管理控制台访问如下菜单，登录腾讯视频V+页面，完成注册以使用对应服务。
 
-![](//mc.qcloudimg.com/static/img/5efdd6074c3af2346df1cfe0aef6e30a/image.png)
+![](https://mc.qcloudimg.com/static/img/5efdd6074c3af2346df1cfe0aef6e30a/332.png)
