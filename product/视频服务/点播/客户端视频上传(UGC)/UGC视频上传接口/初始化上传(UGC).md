@@ -26,7 +26,7 @@ vod2.qcloud.com
 |---------|---------|---------|---------|
 | fileSha | 是 | String | 视频文件的SHA值，计算方法见下文 |
 | fileSize | 是 | Integer | 视频文件的总大小，单位字节Byte |
-| dataSize | 是 | Integer | 调用分片上传接口(UploadPart)时，每个分片的大小；建议设置为524288(512KB)或者1048576(1MB) |
+| dataSize | 是 | Integer | 调用分片上传接口(UploadPartEx)时，每个分片的大小；可选值：524288(512KB)、1048576(1MB) |
 | signature | 是 | String | UGC上传签名，参见UGC视频上传签名生成 |
 
 **注意：**
