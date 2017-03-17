@@ -1,11 +1,11 @@
 **【版本说明】**
 - 版本号：1.9.2.2231 @ 2017-03-18
-- iOS & Android：优化了摄像头直播中的美颜效果，并增加了对滤镜的支持 ，详情请关注 [如何实现更好的画质](https://www.qcloud.com/document/product/454/7955)。
+- iOS & Android：优化了摄像头直播中的美颜效果，并增加了对滤镜的支持 ，详情请关注 [如何实现更好的画质](https://www.qcloud.com/document/product/454/7955)
 - iOS & Android：增加了对本地文件播放的支持。（startPlay 中设置 PLAY_TYPE_LOCAL_VIDEO）
-- iOS & Android：重新设计了播放器中缓冲区的方案，对于低延迟链路的声音流畅性有优化。
-- iOS：增加了 setReverbType 接口，可设置多种声音混响效果，详情参考 [耳返&混响](https://www.qcloud.com/document/product/454/7879#step-13.3A-.E8.80.B3.E8.BF.94.26amp.3B.E6.B7.B7.E5.93.8D)。
+- iOS & Android：重新设计了播放器中缓冲区的方案，对于低延迟链路的声音流畅性有优化
+- iOS：增加了 setReverbType 接口，可设置多种声音混响效果，详情参考 [耳返&混响](https://www.qcloud.com/document/product/454/7879#step-13.3A-.E8.80.B3.E8.BF.94.26amp.3B.E6.B7.B7.E5.93.8D)
 - iOS：优化了直播过程中添加水印的性能。
-- 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)。
+- 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)
 
 **【美颜优化】**
 - **细节提升**：新版本美颜通过全新的区域识别和面部检测方案，将眼睛、眉毛、胡须、头发等细节的处理尽可能削减为零，以保证最大限度的接近真实情况。
