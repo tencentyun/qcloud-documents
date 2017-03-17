@@ -1,3 +1,27 @@
+
+### Version 1.9.2
+- iOS & Android：增加了对本地文件播放的支持。（startPlay 中设置 PLAY_TYPE_LOCAL_VIDEO）
+- iOS & Android：重新设计了播放器中缓冲区的方案，对于低延迟链路的声音流畅性有优化。
+- iOS：增加了 setReverbType 接口，可设置多种声音混响效果。
+- iOS：优化了直播过程中添加水印的性能。
+
+### Version 1.9.1
+（1）iOS & Android：优化了摄像头直播中的美颜效果和清晰度体验。
+（2）iOS & Android：美颜增加了滤镜功能，多种主流滤镜效果供您的主播选择。
+（3）iOS & Android：增加了 setVideoQuality 接口，画质选择更简单更声音。
+（4）iOS ：解决了某些客户反馈的iOS过曝问题，在人造光源比较强的场景下会有明显差异。
+（5）iOS：进一步优化了耳返的延迟（混响功能 由于还有bug没有解决完，Delay一周Release）。
+历史版本功能可参看 变更历史。
+
+### Version 1.9.0
+（1）iOS ：支持开启Bitcode，用于减少AppStore的安装包体积；
+（2）iOS ：软硬编美颜统一，统一使用GPU加速方案；
+（3）iOS + Android：音频模块优化，连麦支持背景音播放；
+（4）iOS + Android：点播多线程优化（直播在上个版本已支持多实力）
+（5）iOS + Android：解决网络卡顿时，播放停止（stopPlay）阻塞UI线程时间较长的问题；
+（6）iOS ： 新增耳返功能，即主播在插上耳机唱歌时，可以实时听到自己发音的效果；
+（7）Android：由于系统API的延迟问题，暂时尚未支持，我们会继续努力。
+
 ### Version 1.9.0
 （1）iOS ：支持开启Bitcode，用于减少AppStore的安装包体积；
 （2）iOS ：软硬编美颜统一，统一使用GPU加速方案；
