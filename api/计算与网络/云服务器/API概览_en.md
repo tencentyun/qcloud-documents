@@ -19,7 +19,7 @@
 | Change Projects of Instances | [ModifyInstanceProject](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%9E%E4%BE%8B%E6%89%80%E5%B1%9E%E9%A1%B9%E7%9B%AE) | Modify the project to which an instance belongs.
 | Set Intances to Auto-renewal | [SetAutoRenew](/document/product/213/1746) | Set renewal policy for an instance.
 
-# # 2. Image-related APIs
+## 2. Image-related APIs
 | Name | Action ID | Description
 |---------|---------|---------|
 | View list of available images | [DescribeImages](http://www.qcloud.com/document/api/213/1272) | Obtain the images that current account can use to create CVM instances.
