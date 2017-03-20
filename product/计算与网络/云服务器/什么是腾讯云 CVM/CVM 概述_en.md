@@ -1,20 +1,20 @@
 ## Introduction of Tencent Cloud CVM
-Tencent Cloud Cloud Virtual Machine (CVM) provides extendable calculating capacity on the cloud, free you from estimation of resources usage and in-advanced investment. You can quickly enable CVMs easily and quickly and deploy your applications immediately. Tencent Cloud CVM allows you to configure your CVM with any combination of CPU, memory, disk, network, security and so on. You can also change them anytime as required.
+Tencent Cloud Cloud Virtual Machine (CVM) provides extendable calculated capacity on the cloud, and avoids the situation where estimation of resources usage and early-stage investment is required in advance with traditional servers. With Tencent Cloud CVM, users can quickly enable CVMs of any number in a short period of time and deploy applications immediately. Tencent Cloud CVM supports user customization of all resources, such as CPU, memory, hard drive, network, security and so on. It also allows for easy adjustment of the resources in case of changes in visits, load and other demands.
 
-Glossary:
+Basic concepts:
 
 - [Instance](/doc/product/213/4939): Virtual computing resources on the cloud 
 - [Region and availability zone](/doc/product/213/6091): Position of instances and other resources
 - [Image](/doc/product/213/4940): A preset instance template, including pre-configuration environment of the server (operating system and other installed software)
-- [Instance type](/doc/product/213/4833): Different configurations of instance: CPU, memory, storage, network, etc.
+- [Instance type](/document/product/213/7153): Different configurations of instance:  CPU, memory, storage, network, etc.
 - [Local disk](/doc/product/213/5798): Devices that are located on the same physical server with instances and can be used for persistent storage by instances
-- [Cloud disk](/doc/product/213/4953): Distributed persistent block storage devices provided, can be used as system disk for instances or expandable data disk
+- [Cloud Block Storage](/doc/product/213/4953): Distributed persistent block storage devices provided, can be used as system disk for instances or expandable data disk
 - [SSH key pairs](/doc/product/213/6092): Use SSH key pairs of high security (Public keys are stored by Tencent Cloud, and private keys are stored in secure locations by users) and [Login Password](/doc/product/213/6093) using ordinary password as the login methods.
 - [Private IP address](/doc/product/213/5225): Internal service address of the instance; [Public IP address](/doc/product/213/5224): External service address of the instance
 - [Security Group](/doc/product/213/5221): Secure access control of instances that specifies rules for IP, protocol and port of incoming and outbound instances
 - [Virtual Private Cloud](/doc/product/215/4927): Customized virtual cyberspace, logically isolated from other resources
 - [Elastic IP](/doc/product/213/5733): Static Public IP designed specifically for dynamic network to meet demands for fast troubleshooting
-- [Metadata](/doc/product/213/4934): Tag for identifying instance sources within the instances
+- [Metadata](/doc/product/213/4934): Tag for identifying instance sources within the instances, namely [Metadata](/doc/product/213/4934).
 - [Tencent Cloud console](https://console.qcloud.com/): Web-based user interface
 
 
@@ -38,3 +38,5 @@ If you're new to Tencent Cloud CVM, please refer to [Quick start for Windows CVM
 
 For information on billing mode and specific prices of the CVM, see [Cloud Virtual Machine instance prices](https://www.qcloud.com/doc/product/213/2176).
 
+
+test
