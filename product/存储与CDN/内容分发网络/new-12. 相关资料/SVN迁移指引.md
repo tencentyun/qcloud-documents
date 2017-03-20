@@ -4,7 +4,8 @@
 
 #### 1 安装SVN客户端
 
-在迁移SVN前，请需要在本地PC上安装SVN客户端。推荐使用1.7版本的SVN客户端。请不要升级到1.8版本，1.8版本存在缺陷，可能会导致SVN同步异常。
+迁移SVN前，您需要将SVN服务器上的资源同步至本地。
+推荐使用1.7版本的SVN客户端。请不要升级到1.8版本，1.8版本存在缺陷，可能会导致SVN同步异常。
 
 SVN客户端下载：http://subversion.apache.org/download/ 
 SVN中文简介：http://www.subversion.org.cn/?action-channel-name-product 
@@ -12,7 +13,7 @@ SVN手册：http://svndoc.iusesvn.com/
 
 #### 2 迁出SVN数据
 
-连接SVN库并迁出数据到本地服务器上，分为2步：
+连接SVN库并迁出数据到本地服务器上：
 
 1.选择要存储SVN文件的目录，cd进入该目录，执行svn checkout命令（CDN服务的SVN路径获取，详见：[CDN文件发布](http://www.qcloud.com/doc/product/228/CDN%E6%96%87%E4%BB%B6%E5%8F%91%E5%B8%83)），拿云服务账号为1251991073的开发者举例，执行的命令如下所示：
 
