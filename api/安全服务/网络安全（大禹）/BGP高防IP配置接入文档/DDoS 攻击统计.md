@@ -9,7 +9,7 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| Id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
 | beginDate|<font color=red> 必选 </font color=red>| String | 统计的开始时间，格式是YYYY-MM-DD，如2016-11-10 |
 | endDate|<font color=red> 必选 </font color=red>| String | 统计的结束时间，格式是YYYY-MM-DD，如2016-11-11 |
 | stride|<font color=red> 必选 </font color=red>| Integer | 攻击流量的统计粒度，单位是分钟，对应关系如下：<br>时间长度=1天，stride=5<br>时间长度=7天，stride=60<br>时间长度=30天，stride=1440 |
@@ -19,4 +19,4 @@
 | 参数名称 | 例子 | 类型 | 描述 |
 |---------|---------|---------|---------|
 |before| <font color=red> [1000Mbps,…] </font color=red> |Array | 防护前流量峰值，即这段时间粒度内的流量最大值，例如粒度是五分钟，就表示5分钟之内的峰值 |
-| attackPeak |<font color=red> [50Mbps,…] </font color=red>| Array | 清洗过的用户正常流量，即这段时间粒度内的流量最大值，例如粒度是五分钟，就表示5分钟之内的峰值 |
+| after |<font color=red> [50Mbps,…] </font color=red>| Array | 清洗过的用户正常流量，即这段时间粒度内的流量最大值，例如粒度是五分钟，就表示5分钟之内的峰值 |

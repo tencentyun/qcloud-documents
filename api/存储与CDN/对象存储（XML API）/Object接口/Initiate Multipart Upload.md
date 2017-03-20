@@ -7,7 +7,7 @@ Initiate Multipart Upload请求实现初始化分片上传，成功执行此请�
 
 ```http
 POST /Object?uploads HTTP 1.1
-Host: <BucketName>-<UID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: Auth
 ```
@@ -53,7 +53,7 @@ Authorization: Auth
 
 | 名称                            | 描述            | 类型        |
 | ----------------------------- | ------------- | --------- |
-| InitiateMultipartUploadResult | 说明所有返回信息      | Contianer |
+| InitiateMultipartUploadResult | 说明所有返回信息      | Container |
 | Bucket                        | 分片上传的目标Bucket | String    |
 | Key                           | Object的名称     | String    |
 | UploadId                      | 在后续上传中使用的ID   | String    |

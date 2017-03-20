@@ -9,7 +9,7 @@ Get Bucket Policy请求可以向Bucket读取权限策略。
 
 ```http
 GET /?policy Http/1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```

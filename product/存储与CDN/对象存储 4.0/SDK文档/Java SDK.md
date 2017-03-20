@@ -7,6 +7,7 @@
 ### 环境依赖
 
 JDK 1.7
+（本版本SDK基于JSON API封装组成）
 
 ### 安装SDK
 
@@ -18,7 +19,7 @@ pom.xml 添加依赖
 <dependency>
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
-            <version>4.2</version>
+            <version>4.4</version>
 </dependency>
 ```
 

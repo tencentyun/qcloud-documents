@@ -17,7 +17,7 @@ CVM instance has the following states:
 
 
 ## Instance starting
-After starting, the instance will go into pending state. The [Instance Types](/doc/product/213/4833) specified when starting will determine the hardware configuration of the instance. The system will use image specified when starting to launch the instance. It will be connected to the instance after a short period of time. When the instance is ready, it will enter into running state.
+After starting, the instance will go into pending state. The [Instance Types](/document/product/213/7153) specified when starting will determine the hardware configuration of the instance. The system will use image specified when starting to launch the instance. It will be connected to the instance after a short period of time. When the instance is ready, it will enter into running state.
 
 The instance will obtain a private IP address. Other CVMs in the same regions and of the same network environment (VPC or basic network) are able to communicate with it; if you select an instance with public bandwidth/traffic, you will also get a public IP address that allows you to communicate with the instance from Internet. Users can connect to a running instance, and then use it like a normal computer.
 

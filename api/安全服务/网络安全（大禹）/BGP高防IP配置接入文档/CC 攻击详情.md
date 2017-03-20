@@ -10,7 +10,7 @@
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| Id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
+| id | <font color=red> 必选 </font color=red> | String | BGP高防IP的资源ID |
 | beginDate|<font color=red> 必选 </font color=red>| String | 统计的开始时间，格式是YYYY-MM-DD，如2016-11-10 |
 | endDate|<font color=red> 必选 </font color=red>| String | 统计的结束时间，格式是YYYY-MM-DD，如2016-11-11 |
 | sorting.field|<font color=red> 可选 </font color=red>| String | 取值范围：count，表示以攻击峰值做排序 |
@@ -22,7 +22,7 @@
 | 参数名称 | 例子| 类型 | 描述 |
 |---------|---------|---------|---------|
 |total| <font color=red> 123 </font color=red> |Integer | 共有多少条攻击详情 |
-|arecords |<font color=red> [obj,…] </font color=red>| Array | 攻击详情数组，数组元素如下： |
+|records |<font color=red> [obj,…] </font color=red>| Array | 攻击详情数组，数组元素如下：<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "endTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 1234<br>} |
 |startTime|2013-03-01 01:23:45| Time | 攻击开始时间|
 |endTime|2013-03-01 01:23:50| Time | 攻击结束时间|
-|count|<font color=red>80Mbps </font color=red>| Integer | 攻击峰值流量 |
+|count|<font color=red>80次 </font color=red>| Integer | 攻击峰值 |

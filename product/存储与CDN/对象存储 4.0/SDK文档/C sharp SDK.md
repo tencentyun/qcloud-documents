@@ -9,8 +9,7 @@
 1. sdk依赖C# 4.0版本及以上， 推荐使用相同的版本。
 2. 从控制台获取APP ID、SecretID、SecretKey。
 3. 修改园区，CosCloud.cs文件内的URL定义，例如华东：http://sh.file.myqcloud.com/files/v2/ 华北：http://tj.file.myqcloud.com/files/v2/ 华南：http://gz.file.myqcloud.com/files/v2/
-
-
+（本版本SDK基于JSON API封装组成）
 
 ### SDK 配置
 

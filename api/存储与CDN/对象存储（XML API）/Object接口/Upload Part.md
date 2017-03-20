@@ -9,7 +9,7 @@ Upload Part请求实现在初始化以后的分块上传，支持的块的数量
 
 ```http
 PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP 1.1
-Host: <BucketName>-<UID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-Length: Size
 Authorization: Auth

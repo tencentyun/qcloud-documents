@@ -1,6 +1,6 @@
 本文档介绍了GVoice游戏语音C++接口SDK的接入方法，适用于Cocos2D引擎，或iOS、Android平台直接开发的游戏。
 ## 1 下载SDK
-[下载Cocos SDK包 版本：1.1.2](http://doc-10010986.cos.myqcloud.com/gvoice/gcloud_voice_1_1_2_136114_20161209_Cocos.zip)  
+[下载Cocos SDK包 版本：1.1.3](http://doc-10010986.cos.myqcloud.com/gvoice/gcloud_voice_1_1_3_138155_20170103_Cocos.zip)  
 下载SDK包解压后，目录结构如下：  
 ![](https://mc.qcloudimg.com/static/img/2f7a1f0e63529d18107011635287be2a/ml.png)
 ## 2 系统配置

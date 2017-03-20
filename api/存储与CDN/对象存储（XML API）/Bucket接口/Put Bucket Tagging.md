@@ -7,7 +7,7 @@ Put Bucket Tagging接口实现给用指定Bucket打标签。用来组织和管�
 
 ```HTTP
 PUT /?tagging HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Content-Type:application/xml
 Authorization: Auth

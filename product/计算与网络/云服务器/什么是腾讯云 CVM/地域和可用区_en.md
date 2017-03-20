@@ -112,7 +112,7 @@ Specify which resources of Tencent Cloud are global, which resources are regiona
   <td>Each Tencent Cloud user account is unique and applicable to all resources under the account.</td>
 </tr>
 <tr>
-<td> <a href="/doc/product/213/5223">SSH key</a> </td>
+<td> <a href="/document/product/416/7594">SSH key</a> </td>
   <td>skey-xxxxxxxx</td>
   <td>Cross-region</td>
   <td>You can bind an SSH key pair to any CVM in any region under your account.</td>

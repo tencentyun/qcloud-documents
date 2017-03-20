@@ -34,7 +34,7 @@
 |---------|---------|
 | InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确。可调用<a href="https://www.qcloud.com/doc/api/245/%e5%88%9b%e5%bb%ba%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c" title="查询私有网络列表">查询私有网络列表</a>(DescribeVpcEx)接口查询。|
 | InvalidDirectConnectGateway.NotFound | 无效的专线网关。专线网关资源不存在，请再次核实您输入的资源信息是否正确。可调用<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%b8%93%e7%ba%bf%e7%bd%91%e5%85%b3" title="查询专线网关">查询专线网关</a>(DescribeDirectConnectGateway)接口查询。|
-| InvalidLocalIPTranslation.NotFound | 无效的本端IP转换规则。本端IP转换规则不存在，请再次核实您输入的资源信息是否正确。可调用<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%b8%93%e7%ba%bf%e7%bd%91%e5%85%b3%e6%9c%ac%e7%ab%afIP%e8%bd%ac%e6%8d%a2" title="查询专线网关本端IP转换">查询专线网关本端IP转换</a>(DescribeLocalIPTranslationNatRule)接口查询。|
+| InvalidLocalIPTranslation.NotFound | 无效的本端IP转换规则。本端IP转换规则不存在，请再次核实您输入的资源信息是否正确。可调用<a href="https://www.qcloud.com/document/product/215/5188" title="查询专线网关本端IP转换">查询专线网关本端IP转换</a>(DescribeLocalIPTranslationNatRule)接口查询。|
 
 ## 5. 示例
 输入
