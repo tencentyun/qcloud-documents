@@ -50,7 +50,7 @@ Data结构
   https://eip.api.qcloud.com/v2/index.php?
   &Action=EipBmBindVpcIp
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-  &vpcIp=10.10.x.x&eipId=eip-vvvvvvv
+  &vpcIp=10.10.x.x&eipId=eip-vvvvvvv&vpcId=1000
 
 </pre>
 
