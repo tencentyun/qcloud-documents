@@ -49,7 +49,7 @@
 
 ## 2. Installation and configuration of PHP
 ### 2.1. Installation of PHP 5.3 and earlier versions
-1) Download the PHP installer (Download from:  http://windows.php.net/download/), select the installer indicated in the following figure:
+1) Download the PHP installer (Download from: http://windows.php.net/download/), select the installer indicated in the following figure:
 
 ![](//mccdn.qcloud.com/img56b1bdc4dbec6.png)
 

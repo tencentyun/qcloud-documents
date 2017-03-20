@@ -2,7 +2,7 @@ This document is designed to help users maximize the security and reliability du
 
 ## Security and network
 
-- Restrict access by using a firewall (Security Group) to only allow the trusted addresses to access instances, and set the most stringent rules in the Security Group. For example, by restricting the TCP inbound traffic of port 80 to IP `111.111.111.111`, you can make your CVM perform TCP access only from your local host ` 111.111.111.111`. For more information, see [Security Group](/doc/product/213/5221).
+- Control access by using a firewall (Security Group) to only allow the trusted addresses to access instances, and set the most stringent rules in the Security Group. For example, by restricting the TCP inbound traffic of port 80 to IP `111.111.111.111`, you can make your CVM perform TCP access only from your local host ` 111.111.111.111`. For more information, see [Security Group](/doc/product/213/5221).
 - Create different Security Group rules for instance groups of different security levels to ensure that the instances running important business cannot be accessed easily from the outside.
 - Regularly update and protect applications on the instances.
 - Choose to use [Virtual Private Cloud](/doc/product/213/5227) to divide logical areas.
@@ -16,7 +16,7 @@ This document is designed to help users maximize the security and reliability du
 
 ## Backup and recovery
 
-- Back up instances by use of [CBS Snapshot](/doc/ product/362/5754) function on a regular basis.
+- Back up instances by use of [CBS Snapshot](/doc/product/362/5754) function on a regular basis.
 - Deploy key components of application across multiple availability zones and copy the data as appropriate.
 - Use [Elastic IP](/doc/product/213/5733) for domain name mapping and ensure that the server can quickly redirect the service IP to another CVM instance when it is unavailable.
 - Regularly review the monitoring data and set alarm as appropriate . For more information, see [Cloud Monitoring Product Documentation](https://www.qcloud.com/doc/product/248).

@@ -86,8 +86,8 @@ The combination results in this example are:
 GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0
 ```
 
-### 2.4. Generating a Signed String
-This step generates a signed string.
+### 2.4. Generating a signature
+This step generates a signature.
 First, the HMAC-SHA1 algorithm is used to complete signature with the **signed source string** obtained in the previous step, and then the generated signed string is encoded using Base64 to obtain the final signed string.
 
 Specific codes are as follows (the PHP language as an example):
@@ -107,10 +107,10 @@ NSI3UqqD99b/UJb4tbG/xZpRW64=
 
 When using other programming languages in development, you can also verify the signed source string in the above example, as long as the same signed string is obtained.
 
-## 3. Signed string encoding
-The generated signed string cannot be used directly as a request parameter, and URL encoding is required.
-If the signed string generated in the previous step is NSI3UqqD99b/UJb4tbG/xZpRW64=, then the URL-encoded string is NSI3UqqD99b%2FUJb4tbG%2FxZpRW64%3D. Therefore, the resulting signature request parameter is: NSI3UqqD99b%2FUJb4tbG%2FxZpRW64%3D, which will be used to generate the final request URL.
-**Note: If you use the GET request mode, then URL encoding is required for all request parameter values. Some language libraries will automatically encode the URL. Duplicate encoding will cause signature verification failure.**
+## 3. Signature encoding
+The generated signature cannot be used directly as a request parameter, and URL encoding is required.
+If the signature generated in the previous step is ```NSI3UqqD99b/UJb4tbG/xZpRW64=```, then the URL-encoded string is ```NSI3UqqD99b%2FUJb4tbG%2FxZpRW64%3D```. Therefore, the resulting signature request parameter is: ```NSI3UqqD99b%2FUJb4tbG%2FxZpRW64%3D```, which will be used to generate the final request URL.
+<font color='red'>Note: If you use the GET request mode, then URL encoding is required for all request parameter values. Some language libraries will automatically encode the URL. Duplicate encoding will cause signature verification failure.</font>
 
 ## 4. Authentication failure
 When the authentication fails, possible errors are as follows:
