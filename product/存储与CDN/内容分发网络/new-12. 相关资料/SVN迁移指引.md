@@ -30,11 +30,12 @@ svn checkout https://cdn.yun.qq.com/1251991073
 登陆 [COS控制台](https://console.qcloud.com/cos)，若未开通，请点击开通COS对象存储服务，在左侧点击【Bucket列表】：
 ![](https://mc.qcloudimg.com/static/img/d51ad3613df1102e8e788dc2460bbc04/cos-1.png)
 
-选择【所属项目】: 您可以根据需要对该源站进行分项目管理
-填写 Bucket 名称：为bucket命名，影响访问域名，示例中填写APPID
-填写所属地域：根据需要选择COS所在园区
-访问权限：选择【公有读私有写】
-CDN加速：选择【开启】
+点击页面上【创建Bucket】按钮，填充如下项：
++ 选择【所属项目】: 您可以根据需要对该源站进行分项目管理
++ 填写 Bucket 名称：为bucket命名，示例中填写APPID
++ 填写所属地域：根据需要选择COS所在园区
++ 访问权限：选择【公有读私有写】
++ CDN加速：选择【开启】
 ![](https://mc.qcloudimg.com/static/img/30e118a44492ab71bc026ff503bf6ca7/cos-2.png)
 
 此时可以看到该 bucket 对应的域名为：
@@ -59,6 +60,11 @@ http://1251991073.cdn.myqcloud.com/1251991073/image/1.png
 ```
 http://1251991073-1251991073.costj.myqcloud.com/image/1.png
 ```
+
+您可以在[CDN控制台](https://console.qcloud.com/cdn) 查看该域名的流量带宽实时统计、分析数据：
+![](https://mc.qcloudimg.com/static/img/97fab7ced01a83251798c55539d17991/cos-4.png)
+
+COS加速域名在CDN控制台上能够进行配置管理、查看统计分析数据、日志下载、刷新预热等功能。
 
 更多COS使用指南可参考：https://www.qcloud.com/document/product/436
 
