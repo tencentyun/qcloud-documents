@@ -28,7 +28,7 @@ svn checkout https://cdn.yun.qq.com/1251991073
 #### 3 创建Bucket
 
 登陆 [COS控制台](https://console.qcloud.com/cos)，若未开通，请点击开通COS对象存储服务，在左侧点击【Bucket列表】：
-![](https://mc.qcloudimg.com/static/img/d51ad3613df1102e8e788dc2460bbc04/cos-1.png)
+![](https://mc.qcloudimg.com/static/img/b87d5d718cf5c7e8b6d93cd2acc78783/cos-1.png)
 
 点击页面上【创建Bucket】按钮，填充如下项：
 + 选择【所属项目】: 您可以根据需要对该源站进行分项目管理
