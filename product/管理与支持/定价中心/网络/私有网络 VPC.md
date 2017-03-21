@@ -21,8 +21,6 @@ NAT 网关提供按网关租用和按流量使用两种计费模式，其中流�
 ### 定价详情
 
 <table class="cvmMonth">
-     
-     <tbody>
 <tr>
 
 <th style="width: 10%;" rowspan="2">功能</th>
@@ -254,7 +252,6 @@ NAT 网关提供按网关租用和按流量使用两种计费模式，其中流�
 <tr>
 <td >大于2000Mbps</td>
 </tr>
-</tbody>
 </table>
 
 ## 购买指导
