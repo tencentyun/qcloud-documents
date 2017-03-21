@@ -18,7 +18,7 @@ The following request parameter list only provides API request parameters. Commo
 | offset | No | Int | Offset of initial line. Default is 0.  |
 | limit | No | Int | Number of lines per page. Default is 20. Maximum is 50.  |
 | orderField | No | String | Sort by a certain field. Currently, sorting by createTime (default) and directConnectGatewayName is supported.  |
-| orderDirection | No | String | Ascending (asc) or descending (desc). Default is asc.  |
+| orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc.  |
 
  
 
