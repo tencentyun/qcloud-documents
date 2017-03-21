@@ -8,7 +8,7 @@ Put Bucket请求可以在指定账号下创建一个Bucket。
 
 ```Http
 PUT / HTTP/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: auth
 ```

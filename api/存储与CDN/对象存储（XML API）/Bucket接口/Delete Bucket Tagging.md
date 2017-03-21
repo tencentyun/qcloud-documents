@@ -7,7 +7,7 @@ Delete Bucket Tagging接口实现删除指定Bucket的标签。
 
 ```HTTP
 DELETE /?tagging HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```

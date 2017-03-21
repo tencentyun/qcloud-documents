@@ -22,7 +22,7 @@ You can select any Linux system of any version as needed.
 6) Select the type of hard disk and the size of data disk.
 Tencent Cloud provides Cloud Block Storage and local hard disk.
 - Cloud Block Storage: delivers high data reliability with the distributed three-copy mechanism.
-- Local hard disk: a storage located on the physical machine where the CVM resides; it allows low latency but may cause single-point loss risk. For the comparison, see [here](http://www.qcloud.com/doc/product/362/%E7%A1%AC%E7%9B%98%E5%AF%B9%E6%AF%94).
+- Local hard disk: a storage located on the physical machine where the CVM resides; it allows low latency but may cause single-point loss risk. For the comparison, see [here](http://www.qcloud.com/document/product/213/5798).
 
 Whichever type of disk you choose, a complimentary 20GB system disk will be provided for each Linux CVM purchase by default, and if you choose Cloud Block Storage, you can adjust the capacity to 50GB through the billing mode. You can select the data disk size as needed when making the purchase.
 ![](//mccdn.qcloud.com/static/img/ef73fc3a1b4d6d1579b322d92d536ac1/image.png)

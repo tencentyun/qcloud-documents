@@ -7,7 +7,7 @@ Put Bucket CORS实现跨域访问设置，您可以通过传入XML格式的配�
 
 ```HTTP
 PUT /?cors HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-Length: length
 Content-Type:application/xml

@@ -8,7 +8,7 @@ Get Object 请求可以将一个文件（Object）下载至本地。该操作需
 
 ```http
 GET /ObjectName Http/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: authorization string(公有读无需此头部，若携带也无效)
 Range: bytes=byte_range

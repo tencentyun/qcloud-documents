@@ -6,7 +6,7 @@ qcloudapi-sdk-python是为了让Python开发者能够在自己的代码里更快
 
 
 ## 1. 资源
-见不同模块API的公共参数、API概览、错误码。如[云服务器API公共参数](http://www.qcloud.com/doc/api/229/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)、[云服务器API概览](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88)、[云服务器API错误码](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81)。
+见不同模块API的公共参数、API概览、错误码。如[云服务器API公共参数](http://www.qcloud.com/document/api/213/6976)、[云服务器API概览](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88)、[云服务器API错误码](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81)。
 
 ## 2. 安装
 安装python环境，若已有python环境可跳过本步骤。

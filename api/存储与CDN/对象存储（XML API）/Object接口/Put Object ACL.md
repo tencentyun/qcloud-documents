@@ -1,16 +1,16 @@
 ## 功能描述
 
-使用API写入Object的ACL表，您可以通过Header：『x-cos-acl』『x-cos-grant-read』『x-cos-grant-write』『x-cos-grant-full-control』传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能选择`Header`和`Body`其中一种，否则，返回冲突。
+使用API写入Object的ACL表，您可以通过Header："x-cos-acl", "x-cos-grant-read" ,"x-cos-grant-write" ,"x-cos-grant-full-control"传入ACL信息，也可以通过body以XML格式传入ACL信息，但是只能选择`Header`和`Body`其中一种，否则，返回冲突。
 
 Put Object ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有所有者有权操作。
 
-『x-cos-acl』：枚举值为public-read，private；public-read意味这个Object有公有读私有写的权限，private意味这个Object有私有读写的权限。
+"x-cos-acl"：枚举值为public-read，private；public-read意味这个Object有公有读私有写的权限，private意味这个Object有私有读写的权限。
 
-『x-cos-grant-read』：意味被赋予权限的用户拥有该Object的读权限
+"x-cos-grant-read"：意味被赋予权限的用户拥有该Object的读权限
 
-『x-cos-grant-write』：意味被赋予权限的用户拥有该Object的写权限
+"x-cos-grant-write"：意味被赋予权限的用户拥有该Object的写权限
 
-『x-cos-grant-full-control』：意味被赋予权限的用户拥有该Object的读写权限
+"x-cos-grant-full-control"：意味被赋予权限的用户拥有该Object的读写权限
 
 ## 请求
 
@@ -18,7 +18,7 @@ Put Object ACL是一个覆盖操作，传入新的ACL将覆盖原有ACL。只有
 
 ```http
 PUT /ObjectName?acl Http/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-Type:application/xml
 Content-MD5:MD5

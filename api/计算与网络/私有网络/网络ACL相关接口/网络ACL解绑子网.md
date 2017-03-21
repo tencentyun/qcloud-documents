@@ -10,7 +10,7 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | vpcId | 是 | String | 子网所属的私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
-| networkAclName | 是 | String | 网络ACL名称，取值：1-60个中文、英文大小写的字母、数字和下划线分隔符，同一个VPC下名称不可重复。 | 
+| networkAclId | 是 | String | 系统分配的网络ACL ID，例如：acl-e9dbyl8s。可通过<a href="https://www.qcloud.com/doc/api/245/1441" title="DescribeNetworkAcl">DescribeNetworkAcl</a>接口查询。 | 
 | subnetIds.n | 是 | Array | 系统分配的子网ID列表，兼容subnetId或unSubnetId，建议使用unsubnetId，可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8" title="DescribeSubnetEx">DescribeSubnetEx</a>接口查询。 |  
 
 

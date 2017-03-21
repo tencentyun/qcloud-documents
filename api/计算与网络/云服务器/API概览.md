@@ -22,7 +22,7 @@
 ## 2. 镜像相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
-| 查看可用的镜像列表 | [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) | 用于获取本账户能够使用的镜像，用户可以使用这些镜像来创建CVM实例。
+| 查看可用的镜像列表 | [DescribeImages](http://www.qcloud.com/document/api/213/1272) | 用于获取本账户能够使用的镜像，用户可以使用这些镜像来创建CVM实例。
 | 创建自定义镜像 | [CreateImage](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F) | 用于将实例系统盘的当前状态制作成全新的镜像，使用此镜像可以快速创建实例。
 | 删除镜像 | [DeleteImages](http://www.qcloud.com/doc/api/229/%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F) | 用于删除一个或者多个镜像。
 | 修改镜像属性 | [ModifyImageAttributes](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E9%95%9C%E5%83%8F%E5%B1%9E%E6%80%A7) | 用于修改镜像的名称和描述等信息。

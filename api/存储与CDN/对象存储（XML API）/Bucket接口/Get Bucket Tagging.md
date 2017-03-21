@@ -7,7 +7,7 @@ Get Bucket Tagging接口实现获取指定Bucket的标签。
 
 ```HTTP
 GET /?tagging HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```

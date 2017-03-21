@@ -79,11 +79,11 @@
 ## 6. 导入相关接口
 | 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
+| [上传导入文件](/document/api/236/8595) | UploadCdbImportSQLFile | 用于上传导入文件 |
 | [发起文件导入任务](/document/api/236/8376) | StartCdbImportJob | 用于发起文件导入任务 |
 | [终止文件导入任务](/document/api/236/8379) | StopCdbImportJob | 用于终止文件导入任务 |
 | [查询导入文件列表](/document/api/236/8377) | GetCdbImportSQLFileList | 用于查询导入文件列表 |
 | [查询最近导入文件记录](/document/api/236/8378) | GetCdbImportSQLFileHistory | 用于查询最近导入文件记录 |
-| [上传导入文件](/document/api/236/8594) | UploadCdbImportSQLFile | 用于上传导入文件 |
 
 
 ## 7. 回档相关接口
