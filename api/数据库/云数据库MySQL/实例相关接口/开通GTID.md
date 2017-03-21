@@ -40,7 +40,6 @@
 https://cdb.api.qcloud.com/v2/index.php?Action=OpenCdbExtranetAccess
 &<<a href="/document/product/236/6921">公共请求参数</a>>
 &cdbInstanceId=cdb-8qrg9t04
-&dstType=CUSTOM
 </pre>
 
 输出
