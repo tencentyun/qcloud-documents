@@ -26,7 +26,7 @@ If a Windows system image fails to be created, perform a check following the ste
 <tr>
 <td>QcloudService.exe
 </td><td>C:\Windows\
-</td><td>Qcloud Service
+</td><td>Tencent Cloud Service
 </td></tr>
 <tr>
 <td>WinAgent.exe

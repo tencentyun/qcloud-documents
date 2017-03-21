@@ -4,7 +4,7 @@ Tencent Cloud CVM Windows Server 2008 R2 Enterprise Edition SP1 and Windows Serv
 > ![](//mccdn.qcloud.com/static/img/5cd57bbbd48668cca57efdaba7e5ae84/image.png)
 > - The network will flash during the upgrade. Check whether it will affect the business before the upgrade. You need to restart the computer after the upgrade.
 
-Tencent Cloud users can download VirtIO NIC driver installation file for Windows Server 2008 R2 and Windows Server 2012 R2 from the following private network address. Private network download address: http://mirrors.tencentyun.com/install/windows/virtio_64_10003.msi
+Tencent Cloud users can download VirtIO NIC driver installation file for Windows Server 2008 R2 and Windows Server 2012 R2 from the following private network address. Private network download address: http://irrors.tencentyun.com/install/windows/virtio_64_10003.msi
 
 Double-click to start the installer, select "Typical" installation mode, then click "Install" button:
 ![](//mccdn.qcloud.com/static/img/0d596e42ae299cfa295a0493dc68bc4d/image.png)

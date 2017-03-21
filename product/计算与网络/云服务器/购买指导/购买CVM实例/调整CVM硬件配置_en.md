@@ -21,7 +21,7 @@ Upon configuration downgrade, if the residual value of your actual payment is gr
 - Each account can only submit three orders of unconditional refunds, cumulatively each user can apply for three CVMs. No configuration downgrade will be processed for those orders beyond these limits 
 - Within these limits, you can still apply for configuration upgrade after configuration downgrade. 
 - In case of suspected abnormal/malicious configuration downgrade, Tencent Cloud the right to veto configuration downgrade processes. Tencent Cloud reserves the right of final interpretation to the extent permitted by law. 
-- 
+
 For details, refer to [Adjust CVM Instance Configuration](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
 
 ### 2.2. Postpaid CVMs

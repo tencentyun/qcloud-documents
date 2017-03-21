@@ -21,13 +21,13 @@ Each CVM instance is assigned a default private IP at startup. For different [Ne
 ## Private network DNS 
 Private network DNS services are responsible for domain name resolutions; if a DNS configuration is wrong, the domain name cannot be accessed. Therefore, Tencent Cloud provides reliable private DNS servers in different regions. The specific configuration is as follows:
 <table><tbody>
-<tr><th>Network environment</th><th>region</th><th>Private DNS server</th></tr>
+<tr><th>Network environment</th><th>Region</th><th>Private DNS server</th></tr>
 <tr><td rowspan="7">Basic network</td><td>Guangzhou</td><td>10.225.30.181<br>10.225.30.223</td></tr>
 <tr><td>Shanghai</td><td>10.236.158.114<br>10.236.158.106</td></tr>
 <tr><td>Beijing</td><td>10.53.216.182<br>10.53.216.198</td></tr>
-<tr><td>Shanghai Financial</td><td>10.48.18.9<br>10.48.18.82</td></tr>
+<tr><td>Shanghai Finance</td><td>10.48.18.9<br>10.48.18.82</td></tr>
 <tr><td>North America</td><td>10.116.19.188<br>10.116.19.185</td></tr>
-<tr><td>Hongkong</td><td>10.243.28.52<br>10.225.30.178</td></tr>
+<tr><td>Hong Kong</td><td>10.243.28.52<br>10.225.30.178</td></tr>
 <tr><td>Singapore</td><td>100.78.90.19<br>100.78.90.8</td></tr>
 <tr><td>Private network</td><td>All regions</td><td>183.60.83.19<br>183.60.82.98</td></tr>
 </tbody>
@@ -52,7 +52,7 @@ You can use the Tencent Cloud console and API to determine the private IP of the
 
 2) CVM list shows the names of your instances; move the mouse over the CVM private IP, click on the copy button that appears, and copy the IP.
 
-3) (optional) Click on the CVM Instance ID to view detailed CVM info, including ** Parameters **, ** Monitoring **, ** Health Check **, ** Security Group **, ** Operation log **.
+3) (Optional) Click on the CVM Instance ID to view detailed CVM info, including ** Parameters **, ** Monitoring **, ** Health Check **, ** Security Group **, ** Operation log **.
 
 > The public IP is mapped to the private network IP through NAT. Therefore, if you view the properties of the network interface within the instance (for example, through ifconfig (Linux) or ipconfig (Windows)), the public IP is not displayed.
 

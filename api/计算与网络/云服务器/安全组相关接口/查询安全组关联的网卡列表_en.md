@@ -33,9 +33,9 @@ ENI list structure:
 <td> networkInterfaceId <td> String <td> ENI ID, e.g., eni-3056glfn
 </tbody></table>
 
-## 4. Error Code Table
+## 4. Error Codes
  <table class="t"><tbody><tr>
-<th><b>Error Code Value</b></th>
+<th><b>Error Code</b></th>
 <th><b>Description</b></th>
 <tr>
 

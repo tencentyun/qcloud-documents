@@ -3,7 +3,7 @@ We here use <a href="/doc/api/229/831" title="查询实例列表">DescribeInstan
 
 | Parameter | Required | Type | Description | 
 |---------|---------|---------|---------|
-| instanceIds.n | No | String | ID array of CVM instances to be queried （starting from 0). You can use instanceId and unInstanceId, and the uniform resource ID: unInstanceId is recommended. |
+| instanceIds.n | No | String | ID array of CVM instances to be queried (starting from 0). You can use instanceId and unInstanceId, and the uniform resource ID: unInstanceId is recommended. |
 | lanIps.n | No | String | Private IP array of CVMs to be queried.  | 
 | searchWord | No | String | User-defined CVM name. |
 | offset | No | Int | Offset value, which defaults to 0.  | 

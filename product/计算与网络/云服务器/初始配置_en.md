@@ -11,7 +11,7 @@ Please set a strong password for your account and keep all the login information
 
 ## Identity verification
 
-After you have signed up as a Tencent Cloud user, you need to go through identity verification before the use of some products (such as the pay-per-use CVMs, COS, CDN, etc.). When you have completed the identity verification, you can use all of Tencent Cloud services by default (except those services that specially need a separate application).
+After you have signed up as a Tencent Cloud user, you need to go through identity verification before the use of some products (such as the postpaid CVMs, COS, CDN, etc.). When you have completed the identity verification, you can use all of Tencent Cloud services by default (except those services that specially need a separate application).
 ![](//mccdn.qcloud.com/static/img/61e2b15b057ef2508656e1972c422c1c/image.jpg)
 ![](//mccdn.qcloud.com/static/img/2e668e7e607ea863f1d2b4540397334d/image.png)
 
