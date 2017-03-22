@@ -548,7 +548,7 @@ data的数据说明
 | ------------- | ------ | ------ | ---------------------------------- |
 | session       | string | 是     | (非秒传的大部分情况会有)	唯一标识此文件传输过程的id       |
 | offset        | Int    | 是      | 当前分片的offset                        |
-| datalen       | int    | 是      | 分片文件长度slice_size                   |
+| datalen       | int    | 是      |  分片长度slice_size,返回的datalen就是当前分片的大小                |
 | serial_upload | int    | 否      | (非秒传大部分情况下会有) 1：只支持串行分片上传其它：支持并行分片 |
 
 #### 示例
