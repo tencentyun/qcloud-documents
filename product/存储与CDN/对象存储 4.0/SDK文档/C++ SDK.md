@@ -489,7 +489,7 @@ string rsp = cos.FileDelete(fileDeleteReq);
 
 | **参数名** | **类型**          | **默认值** | **参数描述** |
 | ------- | --------------- | ------- | -------- |
-| request | FolderDeleteReq | 无       | 目录删除请求类型 |
+| request | FileDeleteReq | 无      | 文件删除请求类型 |
 
 FolderDeleteReq
 
