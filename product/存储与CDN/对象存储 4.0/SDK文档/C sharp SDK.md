@@ -484,7 +484,7 @@ public string SliceUploadInit(string bucketName, string remotePath, string local
 | bucketName | string | 是      | bucket名称   |
 | remotePath | string | 是      | 文件在服务端的全路径 |
 | localPath  | string | 是      | 本地文件路径     |
-| fileSha    | stirng | 是      | 文件的Sha值    |
+| fileSha    | string | 是      | 文件的Sha值    |
 
 #### 返回结果说明
 
@@ -528,7 +528,7 @@ public string SliceUploadData(string bucketName, string remotePath, string local
 | bucketName | string | 是      | bucket名称       |
 | remotePath | string | 是      | 文件在服务端的全路径     |
 | localPath  | string | 是      | 本地文件路径         |
-| fileSha    | stirng | 是      | 文件的Sha值        |
+| fileSha    | string | 是      | 文件的Sha值        |
 | session    | string | 是      | 唯一标识此文件传输过程的id |
 | offset     | int    | 是      | 分片的偏移量         |
 | sliceSize  | int    | 是      | 分片的大小          |
@@ -577,7 +577,7 @@ public string SliceUploadFinish(string bucketName, string remotePath, string loc
 | bucketName | string | 是      | bucket名称       |
 | remotePath | string | 是      | 文件在服务端的全路径     |
 | localPath  | string | 是      | 本地文件路径         |
-| fileSha    | stirng | 是      | 文件的Sha值        |
+| fileSha    | string | 是      | 文件的Sha值        |
 | session    | string | 是      | 唯一标识此文件传输过程的id |
 
 #### 返回结果说明
