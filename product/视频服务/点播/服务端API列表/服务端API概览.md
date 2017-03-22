@@ -84,7 +84,7 @@
             </td>
 			<td>
                 <a href="/document/product/266/8586">
-                    DescribeVodInfo
+                    GetVideoInfo
                 </a>
             </td>
         </tr>
