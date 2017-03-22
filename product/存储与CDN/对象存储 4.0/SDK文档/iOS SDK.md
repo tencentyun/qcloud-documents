@@ -433,8 +433,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 | --------- | ---------- | ---------------------------------- |
 | retCode   | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
 | descMsg   | NSString * | 任务描述信息                             |
-| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
-| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
+| accessURL | NSString * | 成功后，后台返回文件的 CDN url                |
+| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
+| httpsURL | NSString * | 成功后，后台返回文件的 https url                 |
 
 #### 示例
 
