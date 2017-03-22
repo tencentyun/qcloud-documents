@@ -240,7 +240,7 @@
             </td>
             <td>
                 <a href="/document/product/266/7818">
-                    PullVodEvent
+                    PullEvent
                 </a>
             </td>
         </tr>
@@ -250,7 +250,7 @@
             </td>
             <td>
                 <a href="/document/product/266/7819">
-                    ConfirmVodEvent
+                    ConfirmEvent
                 </a>
             </td>
         </tr>
