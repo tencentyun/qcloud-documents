@@ -455,7 +455,7 @@ public string UploadSliceList(string bucketName, string remotePath)
 | session    | String     | 是      | init返回的标识                                |
 | filesize   | Int        | 是      | 文件大小                                     |
 | slice_size | Int        | 是      | 分片大小（64K-3M） 大于1M 必须为1M 整数倍              |
-| sha        | String     | 否      | 文件的全文sha值，init时带了则返回                     |
+| sha        | String     | 否      | 文件的全文sha值，init时若已带sha值，则返回该值                 |
 | listparts  | Json Array | 是      | 已上传完成的分片，形如：[{“offset”:0, “datalen”:1024}, {}, {}]. |
 
 #### 示例
