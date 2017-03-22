@@ -137,7 +137,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 **签名获取：**
 
-移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。
+移动端 SDK 中用到的签名，为了保障密钥等信息的安全性，推荐用户自建简单的密钥创建和获取服务，客户端在使用时向服务器先请求合法的签名。
 
 ## 目录操作
 
