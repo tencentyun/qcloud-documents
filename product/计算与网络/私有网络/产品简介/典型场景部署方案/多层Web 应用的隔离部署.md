@@ -43,7 +43,7 @@
 ## 操作步骤
 为部署多层web应用，您需要完成以下步骤：
 第一步：创建私有网络，[点击查看操作详情](https://www.qcloud.com/document/product/215/4927#.E5.88.9B.E5.BB.BA.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E3.80.81.E5.88.9D.E5.A7.8B.E5.8C.96.E5.AD.90.E7.BD.91.E5.92.8C.E8.B7.AF.E7.94.B1.E8.A1.A8)。
-第二步：创建web层子网，[添加云主机](https://www.qcloud.com/document/product/215/5168#.E7.AC.AC.E5.9B.9B.E6.AD.A5.EF.BC.9A.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA)，部署负载均衡服务，详情查看部署[负载均衡实例](https://www.qcloud.com/document/product/214/6574#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E5.88.9B.E5.BB.BA.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B)。
-第三步：创建逻辑层子网，[添加云主机](https://www.qcloud.com/document/product/215/5168#.E7.AC.AC.E5.9B.9B.E6.AD.A5.EF.BC.9A.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA)。
+第二步：创建web层子网，[添加云主机](https://www.qcloud.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA)，部署负载均衡服务，详情查看部署[负载均衡实例](https://www.qcloud.com/document/product/214/6574#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E5.88.9B.E5.BB.BA.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B)。
+第三步：创建逻辑层子网，[添加云主机](https://www.qcloud.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA)。
 第四步：创建数据层子网，添加云数据库，点击查看[购买云数据库](https://www.qcloud.com/document/product/236/3128)。
-第五步：分别为三个子网配置网络ACL，规则如上表所示，[点击查看操作详情](https://www.qcloud.com/document/product/215/5132#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)。
+第五步：分别为三个子网配置网络ACL，规则如上表所示，[点击查看操作详情](https://www.qcloud.com/document/product/215/8119)。

@@ -18,7 +18,7 @@
 1. sdk中提供了curl和jsoncpp的库以及头文件，以上库编译好后替换掉sdk中相应的库和头文件即可，如果以上库已经安装到系统里，也可删除sdk中相应的库和头文件。
 2. curl默认不支持多线程环境，如果项目使用多线程，在编译curl执行 configure 时需指定 --enable-ares 参数来开启异步DNS解析，依赖 c-ares库，如果系统没有，可到[http://c-ares.haxx.se/](http://c-ares.haxx.se/) 下载安装。
 3. jsoncpp的1.y.x版本需要c++11的支持，如果编译器不支持，可以换成 0.y.x版本。
-
+（本版本SDK基于JSON API封装组成）
 
 ### SDK 配置
 
@@ -118,7 +118,7 @@ sign = Auth::AppSignOnce(10000000, "SecretId", "SecretKey", path, bucketName);
 "AppID":********,
 "SecretID":"*********************************",
 "SecretKey":"********************************",
-"Region":"sh",   //COS区域, 上传和下载域名均是跟此有关系，因此一定要保证正确
+"Region":"sh",   //COS区域, 华东园区：sh ；华南园区：gz ；华北园区：tj ；上传和下载域名均是跟此有关系，因此一定要保证正确
 "SignExpiredTime":360, //签名超时时间
 "CurlConnectTimeoutInms":180,  //http超时时间
 "CurlGlobalConnectTimeoutInms":360, //
@@ -348,7 +348,7 @@ string CosAPI::FileUpload(FileUploadReq& request);
 
 | **参数名** | **类型**          | **默认值** | **参数描述** |
 | ------- | --------------- | ------- | -------- |
-| request | FolderUploadReq | 无       | 文件上传请求类型 |
+| request | FileUploadReq | 无       | 文件上传请求类型 |
 
 | **参数名**    | **类型** | **默认值** | **设置方法**             | **参数描述**                               |
 | ---------- | ------ | ------- | -------------------- | -------------------------------------- |
@@ -448,7 +448,7 @@ string CosAPI::FileStat(FileStatReq& request)
 
 | **参数名** | **类型**      | **默认值** | **参数描述** |
 | ------- | ----------- | ------- | -------- |
-| request | FileStatReq | 无       | 目录列表请求类型 |
+| request | FileStatReq | 无       | 文件查询请求类型 |
 
 FileStatReq
 
@@ -489,7 +489,7 @@ string rsp = cos.FileDelete(fileDeleteReq);
 
 | **参数名** | **类型**          | **默认值** | **参数描述** |
 | ------- | --------------- | ------- | -------- |
-| request | FolderDeleteReq | 无       | 目录删除请求类型 |
+| request | FileDeleteReq | 无      | 文件删除请求类型 |
 
 FolderDeleteReq
 

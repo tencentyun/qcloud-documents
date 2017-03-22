@@ -11,7 +11,7 @@
 |---------|---------|---------|---------|
 | natName | 是 | string | NAT网关名称，支持1-25个中文、英文大小写的字母、数字和下划线分隔符，同一个VPC内NAT网关名称不能重复。 |
 | vpcId | 是 | string | 私有网络ID或者统一ID，建议使用统一ID,可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
-| maxConcurrent | 是 | int | 网关并发连接上限，例如：100、300、1000，单位为万,具体支持数据请参见<a href="https://www.qcloud.com/doc/product/215/1682" title="网关说明" >私有网络网关说明</a>。 |
+| maxConcurrent | 是 | int | 网关并发连接上限，例如：1000000、3000000、10000000，具体支持数据请参见<a href="https://www.qcloud.com/doc/product/215/1682" title="网关说明" >私有网络网关说明</a>。 |
 | bandwidth | 否 | int | 网关最大外网出带宽(单位:Mbps), 默认: 100Mbps, 具体支持数据请参见<a href="https://www.qcloud.com/doc/product/215/1682" title="网关说明" >私有网络网关说明</a>。 |
 | assignedEipSet.n | 否 | string | 绑定网关的弹性IP数组, assignedEipSet和autoAllocEipNum至少传一个，例如：assignedEipSet.0=10.0.0.1 ，更多关于弹性IP的信息请参考<a href="" title="">弹性IP</a>。|
 | autoAllocEipNum | 否 | int | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考<a href="" title="">弹性IP</a>。 |

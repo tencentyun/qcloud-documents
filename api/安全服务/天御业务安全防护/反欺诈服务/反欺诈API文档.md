@@ -36,11 +36,20 @@
 </td><td> 用户请求来源IP
 </td></tr>
 <tr>
-<td> imei
+<td rowspan="2"> imei <br> idfa
 </td><td> String
-</td><td> 国际移动用户识别码
+</td><td> imei 国际移动用户识别码 
+</td></tr>
+<tr><td> String
+</td><td> idfa ios系统广告标示符
+</td></tr>
 <tr> <td colspan="3">其他可选字段</td>
 </th></tr>
+</td></tr>
+<tr>
+<td> scene
+</td><td> Uint
+</td><td> 业务场景ID， 0：借贷（默认值） 1：支付
 </td></tr>
 <tr>
 <td> name
@@ -145,9 +154,10 @@ RiskDetail类型说明
 </th><th> <b>说明</b>
 </th></tr>
 <tr>
-<td rowspan="5"> 帐号风险
-</td><td> 信贷中介
-<br></td>
+<td rowspan="7"> 帐号风险
+</td>
+<td> 信贷中介
+</td>
 <td>1</td>
 <td>涉嫌从事包装客户资料，伪造客户资料，冒用客户资料，套取机构风险政策等职业的用户或者机构成员</td></tr>
 <tr>
@@ -155,6 +165,7 @@ RiskDetail类型说明
   <td>2</td>
   <td>互联网行为涉嫌色情、赌博、毒品等违法行为</td>
 </tr>
+
 <tr>
   <td>虚假资料 </td>
   <td>3</td>
@@ -169,6 +180,16 @@ RiskDetail类型说明
   <td>身份认证失败 </td>
   <td>5</td>
   <td>身份信息对（身份证、手机号、姓名）涉嫌伪造</td>
+</tr>
+<tr>
+  <td>疑似恶意欺诈 </td>
+  <td>6</td>
+  <td>存在骗贷行为</td>
+</tr>
+<tr>
+  <td>失信名单 </td>
+  <td>7</td>
+  <td>失信名单</td>
 </tr>
 <tr>
 <td rowspan="4"> 区域风险
@@ -303,6 +324,8 @@ RiskDetail类型说明
 </td></tr></tbody></table>
 
 ## 4.示例代码
+代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/a8b291becf06c9fefab003f6afc16509/AntiFraud.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/06397c265ae2dc364f2f47559125ce5b/AntiFraud.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/04d6cf531a5487399c4f824238df1a25/AntiFraud.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/de77f53a2d809c5bbdb569c5ca5c77aa/AntiFraud.cs.zip)
+
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/document/product/295/7279)小节。
 ```
 请求示例 ：

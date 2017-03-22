@@ -7,6 +7,8 @@
 
 
 ## 后台自动拼装？
+
+### 推流URL 
 实际产品中，您不可能为每一个主播手工创建推流和播放URL，而是要由您的服务器自行拼装，只要符合腾讯云标准规范的URL 就可以用来推流，如下是一条标准的推流URL，它由三个部分组成：
  ![url](//mc.qcloudimg.com/static/img/6b4fd09ab2c7d6f1503070f8c994f4e0/image.png)
 
@@ -22,12 +24,17 @@
 - **示例代码**
 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage)页面下半部分有示例代码（PHP和Java两个版本）演示如何生成防盗链地址。
 
+### 播放URL
+播放URL的拼接跟推流URL一样简单，只是需要把子域名从 **livepush** 改成 **<font color='red'>liveplay</font>**：
+![](//mc.qcloudimg.com/static/img/b7d8744654af4a174edf47f8998348a4/image.png)
+
 ## 防盗链的计算？
 安全防盗链指的是推流和播放URL中的 **txSecret** 字段，它的作用是防止攻击者伪造您的后台生成推流URL，或者非法盗取您的播放地址为自己谋利。
 
 ### 安全原理
 为了不让攻击者可以伪造您的服务器生成推流URL，我们需要您现在直播管理控制台配置 **防盗链加密KEY**，由于攻击者无法轻易获得加密KEY，也就无法伪造出有效的推流URL，如下图所示：
 ![](//mccdn.qcloud.com/static/img/4ea1512fd335f68f30cca0a01e902966/image.png)
+
 
 ### 计算过程
 - **step1 ： 交换秘钥**

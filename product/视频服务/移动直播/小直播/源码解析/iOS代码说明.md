@@ -1,5 +1,5 @@
 ## 1.工程结构
-从github下载小直播代码后，您将看到TCLVBIMDemo.xcworkspace文件，这是小直播的Xcode工程工作区，用于管理小直播的代码工程和依赖的第三方开源类库（位于Pods目录下），如果您需要编译或浏览小直播相关代码，请打开此文件，请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj。打开TCLVBIMDemo.xcworkspace后，您将看到如下的工程目录结构：
+[下载](https://www.qcloud.com/document/product/454/6991)小直播代码后，您将看到TCLVBIMDemo.xcworkspace文件，这是小直播的Xcode工程工作区，用于管理小直播的代码工程和依赖的第三方开源类库（位于Pods目录下），如果您需要编译或浏览小直播相关代码，请打开此文件，请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj。打开TCLVBIMDemo.xcworkspace后，您将看到如下的工程目录结构：
 ![](//mc.qcloudimg.com/static/img/8673bf53392e34a9f38d8a5a8625e8eb/image.jpg)
 
 |工程目录 | 说明 | 
@@ -8,10 +8,23 @@
 | TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/Logic| 小直播逻辑层代码|
 | TCLVBIMDemo/TCLVBIMDemo/Classes/LVB/UI| 小直播界面层代码|
 | TCLVBIMDemo/Framework| 小直播依赖的framework，主要是TLSSDK、IMSDK、RTMPSDK以及QALSDK(COS上传组件)|
+| TCLVBIMDemo/TCLVBIMDemoUpload| Replaykit方式录屏的扩展的逻辑层代码|
+| TCLVBIMDemo/TCLVBIMDemoUploadUI|  Replaykit方式录屏的扩展的界面层代码|
 | Pods| 使用CocoaPods管理小直播用到的第三方开源类库|
 
-## 2.模块介绍
-小直播按照功能不同划分了6个模块，分别为：帐号、列表管理、推流、播放、消息以及资料，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
+## 2.编译运行
+下载代码后，打开**TCLVBIMDemo.xcworkspace**工程文件（请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj），由于小直播目前还不支持模拟器调试，只能在真机调试，所以您需要按照如下步骤配置工程的证书：
+**Step1:配置bundle id及签名证书**
+![](//mc.qcloudimg.com/static/img/e2c29a0daa9dbba958c970fadc0a3f09/image.jpg)
+**Step2:配置完签名后，还需要配置App Groups**
+![](//mc.qcloudimg.com/static/img/cd7f2559857e8248efa08551e80e8c05/image.jpg)
+**Step3:配置其他TARGETS**
+按照Step1和Step2配置另外2个targets：TCLVBIMDemoUpload和TCLVBIMDemoUploadUI，这2个targets是用于replaykit方式的录屏推流，如果您不需要这个功能，可以删除这2个targets
+
+配置完成后，工程就可以在真机上运行，但是如果要真正体验小直播的功能，还需要修改TCConstants.h中的配置，如何配置，请参考[终端集成](https://www.qcloud.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90.E5.8F.8A.E5.9B.9E.E8.B0.83.E8.AE.BE.E7.BD.AE)
+
+## 3.模块介绍
+小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、推流、播放、消息、资料以及连麦，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
 #### 模块简介
@@ -136,4 +149,21 @@
 	   - TCUserInfoTableViewCell    用于绘制展示用户个人信息界面的tableview
 	   - TCEditUserInfoTableViewCell  用于绘制编辑个人信息页面的tableview，用于可直接在此tableview内编辑个人信息
 	   - TCUserInfoTableViewCell      用于绘制负责的tableview中的cell如图片，文字等组合控件
-	
+
+### 连麦
+#### 模块简介
+- 小直播结合SDK的连麦能力以及im的C2C消息接口实现了连麦功能
+-  C2C消息主要用于主播和连麦观众的通知和回复：观众发起连麦请求和观众已推流成功需要通知主播，主播做相应回复
+- 主播端开始直播后，连麦观众向主播发起连麦请求，主播同意连麦请求后，连麦观众和主播分别通过对方的播放地址拉取视频数据并展示，后台对主播和连麦观众的推流数据进行混流，第三方观众看到的直接是混流后的视频
+
+#### 时序图
+![](//mc.qcloudimg.com/static/img/1b80501829fd5528bf41d4c9a84aed2b/image.png)
+
+#### 相关代码
+- Logic:
+	- TCLinkMicMgr：对C2C消息进行封装，对上层提供通知和回复的接口
+- UI:
+	- TCLinkMicPushController：连麦主播端的界面实现，继承自TCPushController，实现连麦请求的响应和连麦观众画面的拉取
+	- TCLinkMicPlayController：连麦观众端的界面实现，继承自TCPlayController，发起连麦请求、进行推流以及主播端画面的拉取
+
+  

@@ -122,7 +122,19 @@ step 9 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_B
 ### step 8: 横竖屏适配
 腾讯云 RTMP SDK 中内部已经实现了动态横竖屏切换视频逻辑，所以在使用录屏直播时无需关注这个问题，主播的手机在横竖屏切换的时候，观众端看到的画面会同主播的视角保持一致。
 
-### step 9: 事件处理
+### step 9: 向SDK填充自定义Audio数据
+如果你希望把音频的采集替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
+```java
+// (1)将 CustomMode 设置为：自己采集音频数据，SDK只负责编码&发送
+_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;
+//
+// (2)设置音频编码参数：音频采样率和声道数
+_config.audioSampleRate = 44100;
+_config.audioChannels   = 1;
+```
+之后，调用**sendCustomPCMData**向SDK塞入您自己的PCM数据即可。
+
+### step 10: 事件处理
 ####  事件监听
 RTMP SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相关的事件，注意 TXLive<font color='red'>Push</font>Listener 只能监听得到 <font color='red'>PUSH_</font> 前缀的推流事件。
 
@@ -169,7 +181,7 @@ SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 
 > 全部事件定义请参阅头文件**“TXLiveConstants.java”**
 
-### step 10: 结束推流
+### step 11: 结束推流
 结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePusher 对象同一时刻只能有一个在运行，所以清理工作不当会导致下次直播遭受不良的影响。
 ```java
 //结束录屏直播，注意做好清理工作

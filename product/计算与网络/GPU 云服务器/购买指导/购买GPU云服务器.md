@@ -1,4 +1,8 @@
-1) 登录腾讯云官网，进入[GPU 云服务器购买页面](https://buy.qcloud.com/buy/cvm)
+GPU云服务器目前处于**内测**中。
+如您未取得购买权限，请点击 [GPU 产品介绍页](https://www.qcloud.com/product/gpu)进行申请。
+如您已有购买权限，可参照以下步骤进行购买。
+
+1) 登录腾讯云官网，进入[GPU 云服务器购买页面](https://buy.qcloud.com/?regionId=4&zoneId=200001&generation=v2&deviceType=gpu)(如您未取得购买权限，则未能看到 GPU 实例的购买页面，请获取购买权限再进行操作。)
 
 2) 选择计费模式：包年包月
 
@@ -7,7 +11,7 @@
 4) 选择机型和配置。
 
 - **机型：**【系列2】-【GPU型G2】
-- **配置：**可根据您的需要挑选，具体配置，请参考[ GPU 机型配置](todo)
+- **配置：**可根据您的需要挑选，具体配置，请参考[ GPU 机型配置](https://www.qcloud.com/document/product/560/8024)
 
 
 5) GPU 云服务器提供Centos、Ubuntu、Windows三种公共镜像，您可根据您的需要挑选公共镜像的版本。
@@ -17,7 +21,6 @@
 **系统盘：**Windows云服务器默认赠送50GB系统盘，Linux 实例默认赠送20GB系统盘。
 
 **数据盘：**GPU 云服务器提供本地 SSD 硬盘的数据盘。您也可以购买 GPU 实例成功之后[创建云硬盘](https://www.qcloud.com/document/product/362/5744#.E5.88.9B.E5.BB.BA.E5.BC.B9.E6.80.A7.E4.BA.91.E7.9B.98)并挂载。
-
 
 
 7) 选择网络类型（基础网络或私有网络）及公网带宽（按固定带宽计费或按使用流量计费）。

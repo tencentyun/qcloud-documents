@@ -33,8 +33,9 @@
 |---------|---------|---------|
 | 查询私有网络列表 | [DescribeBmVpcEx](/doc/api/456/6646) | 用于查询黑石私有网络VPC列表。 |
 | 查询子网列表 | [DescribeBmSubnetEx](/doc/api/456/6648) | 用于查询黑石私有网络子网列表。 |
-| 申请内网IP | [ApplyIps](/doc/api/386/7337) | 用于申请黑石VPC内的子网IP。 |
-| 退还子网IP | [ReturnIps](/doc/api/386/7338) | 用于退还黑石VPC内的子网IP。 |
+| 申请内网IP | [ApplyIps](/document/product/386/7337) | 用于申请黑石VPC内的子网IP。 |
+| 退还子网IP | [ReturnIps](/document/product/386/7338) | 用于退还黑石VPC内的子网IP。 |
+| 注册子网IP | [RegisterBatchIp](/document/product/386/7925) | 用于注册黑石VPC内的子网IP。 |
 
 
 ## 5. 负载均衡相关接口
@@ -66,6 +67,8 @@
 | 创建EIP | [EipBmApply](/doc/api/456/6669) | 用于创建黑石弹性公网IP。
 | 绑定服务器EIP | [EipBmBindRs](/doc/api/456/6673) | 用于绑定黑石弹性公网IP到黑石物理服务器。
 | 解绑服务器EIP | [EipBmUnbindRs](/doc/api/456/6674) | 用于解绑黑石物理服务器上的弹性公网IP。
+| 绑定EIP到VPCIP | [EipBmBindVpcIp](/document/product/386/8684) | 用于绑定黑石弹性公网IP到黑石VPC的IP地址（多用于虚拟化）。
+| 从VPCIP解绑EIP | [EipBmUnbindVpcIp](/document/product/386/8685) | 用于解绑黑石VPC的IP地址上的弹性公网IP（多用于虚拟化）。
 | 释放EIP | [EipBmDelete](/doc/api/456/6676) | 用于释放黑石弹性公网IP。
 | 更新EIP名称 | [ModifyEipAlias](/doc/api/456/6672) | 用于更新黑石弹性公网IP名称。
 | 修改EIP计费模式 | [EipBmModifyCharge](/doc/api/456/6675) | 用于修改黑石弹性公网IP计费模式。

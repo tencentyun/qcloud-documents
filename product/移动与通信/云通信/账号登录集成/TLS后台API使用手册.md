@@ -16,7 +16,7 @@
 $ ./tls_licence_tools
 ```
 
-        
+
 输出：
  ```
 current version: 201511190000
@@ -25,7 +25,7 @@ Usage:
     get sig e.g.:./tls_licence_tools gen ec_key.pem sig 1400001052 xiaojun
     verify sig:./tls_licence_tools verify pub_key_file sig_file sdkappid identifier
     verify sig e.g.: ./tls_licence_tools verify public.pem sig 1400001052 xiaojun
-```       
+```
 
 下面是演示截图：
 
@@ -70,14 +70,14 @@ Usage:
 下面解释下参数模板中参数的意义：
 
 ```
-gen和verify分别表示生成sig和校验sig的命令  
-pri_key_file：私钥文件的路径  
-pub_key_file：公钥文件的路径  
-sig_file：sig 文件的路径，如果是生成 sig，那么会将 sig 写入这个文件，如果是校验 sig，那么会从这个文件读取 sig 的内容  
+gen和verify分别表示生成sig和校验sig的命令
+pri_key_file：私钥文件的路径
+pub_key_file：公钥文件的路径
+sig_file：sig 文件的路径，如果是生成 sig，那么会将 sig 写入这个文件，如果是校验 sig，那么会从这个文件读取 sig 的内容
 sdkappid：创建应用时页面上分配的 sdkappid
 identifier：用户标识，即用户id
 ```
-      
+
 >注意：生成的sig有效期为180天，开发者需要在sig过期前，重新生成sig。
 
 ### 2.2 C++接口
@@ -156,7 +156,7 @@ function signature($identifier, $sdkappid, $private_key_path)
     # 这里需要写绝对路径，开发者根据自己的路径进行调整
     $command = '/home/signature'
     . ' ' . escapeshellarg($private_key_path)
-    . ' ' . escapeshellarg($sdk_appid)
+    . ' ' . escapeshellarg($sdkappid)
     . ' ' . escapeshellarg($identifier);
     $ret = exec($command, $out, $status);
     if ($status == -1)
@@ -186,7 +186,7 @@ function signature($identifier, $sdkappid, $private_key_path)
 ```
 tls_licence_tools.exe
 ```
-        
+
 输出：
 
 ```
@@ -197,7 +197,7 @@ Usage:
     verify sig: tls_licence_tools.exe verify pub_key_file sig_file sdkappid identifier
     verify sig e.g.: tls_licence_tools.exe verify public.pem sig 1400001052 xiaojun
 ```
-        
+
 下面是演示截图：
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142633_17041.png)
@@ -243,14 +243,14 @@ sig文件的内容如下图：
 下面解释下参数模板中参数的意义：
 
 ```
-gen和verify分别表示生成sig和校验sig的命令  
-pri_key_file：私钥文件的路径  
-pub_key_file：公钥文件的路径  
+gen和verify分别表示生成sig和校验sig的命令
+pri_key_file：私钥文件的路径
+pub_key_file：公钥文件的路径
 sig_file：sig 文件的路径，如果是生成 sig，那么会将 sig 写入这个文件，如果是校验 sig，那么会从这个文件读取 sig 的内容
 sdkappid：创建应用时页面上分配的 sdkappid
 identifier：用户标识，即用户 id
 ```
-       
+
 >注意：生成的sig有效期为180天，开发者需要在sig过期前，重新生成sig。
 
 ### 3.2 C++接口
@@ -346,7 +346,7 @@ class sigcheck
         StringBuilder err_msg,
         UInt32 err_msg_buff_len
     );
- 
+
     [DllImport(dllpath.DllPath, EntryPoint = "tls_vri_sig_ex", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
     public extern static int tls_vri_sig_ex(
         string sig,
@@ -389,7 +389,7 @@ function signature($identifier, $sdkappid, $private_key_path)
     # 这里需要写绝对路径，开发者根据自己的路径进行调整
     $command = 'D:\\signature.exe'
     . ' ' . escapeshellarg($private_key_path)
-    . ' ' . escapeshellarg($sdk_appid)
+    . ' ' . escapeshellarg($sdkappid)
     . ' ' . escapeshellarg($identifier);
     $ret = exec($command, $out, $status);
     if ($status == -1)

@@ -2,11 +2,11 @@
 
 登录管理中心后，您可以通过万象优图的管理控制台创建一个Bucket，创建完成后可对该Bucket进行自定义配置。
 
-进入COS管理控制台，点击“创建Bucket”,会弹出如下图所示的对话框：
+进入COS管理控制台，点击“创建Bucket”，会弹出如下图所示的对话框：
 
 支持两种方式：
 
-1. 新建：新创建一个Bucket,由于万象优图的存储功能是基于对象存储服务（COS）的，新创建的Bucket也可以在COS控制台里查询到。
+1. 新建：新创建一个Bucket，由于万象优图的存储功能是基于对象存储服务（COS）的，新创建的Bucket也可以在COS控制台里查询到。
 2. 选择已有COS Bucket：通过此种方式，本质上是为一个COS上的Bucket开通图片处理服务。
 
 ![创建Bucket](https://mc.qcloudimg.com/static/img/9b48fe8d2debeb9dd2651fb89524c417/image.png)
@@ -14,7 +14,7 @@
 **请注意：**
 
 + Bucket 数量上限是200个（不区分地区）。但是 Bucket下目录、文件数量没有限制。
-+ Bucket 创建于项目下，一个 Bucket 只能属于一个项目，支持切换项目。
++ Bucket 创建于项目下，一个 Bucket 只能属于一个项目。
 + Bucket 名称支持小写字母和数字的组合，不支持特殊符号及下划线，且不能超过 40 字节。
 + 同一个 APPID 的所有项目下 Bucket 名称是唯一的，不能重名。
 + Bucket 默认提供两种访问权限：公有读私有写和私有读写。
@@ -38,7 +38,7 @@
 | 地区   | 区域表示  | 默认域名                                    | 状态   |
 | ---- | ----- | --------------------------------------- | ---- |
 | 华南   | picgz | [bucketname]-[appid].picgz.myqcloud.com | 已上线  |
-| 华北   | pictj | [bucketname]-[appid].pictj.myqcloud.com | 部署中  |
+| 华北   | pictj | [bucketname]-[appid].pictj.myqcloud.com | 已上线  |
 | 华东   | picsh | [bucketname]-[appid].picsh.myqcloud.com | 部署中  |
 | 新加坡  | -     | -                                       | 敬请期待 |
 

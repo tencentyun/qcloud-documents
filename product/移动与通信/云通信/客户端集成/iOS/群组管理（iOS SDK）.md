@@ -545,7 +545,7 @@ fail | 失败回调
 
 **权限说明：**
  
-此接口可以获取自己所加入的群列表，返回的TIMGroupInfo只包含group\groupName\groupType 信息，想要获取更加详细的字段，可通过【4.1 设置拉取字段】进行设置（1.9版本以上引入）；
+此接口可以获取自己所加入的群列表，返回的TIMGroupInfo只包含group\groupName\groupType 信息；
 此接口只能获得加入的部分直播大的列表；
  
 **原型：**

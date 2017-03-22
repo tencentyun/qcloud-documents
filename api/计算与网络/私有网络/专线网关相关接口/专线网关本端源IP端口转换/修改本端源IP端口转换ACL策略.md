@@ -13,6 +13,7 @@
 | directConnectGatewayId | 是 | String | 系统分配的专线网关ID，例如：dcg-4d545d。|
 | translationIPPool | 是 | String | 映射后IP池。|
 | aclRules.n | 是 | Array | ACL策略信息。|
+| aclRules.n.aclRuleId | 是 | Int | ACL规则ID，例如：25。|
 | aclRules.n.protocol | 是 | String | 协议：TCP、UDP or ALL。|
 | aclRules.n.sourceCidr | 是 | String | 访问的源IP，支持IP、IP段（CIDR格式），如果不填写指所有IP。 |
 | aclRules.n.sourcePort | 是 | String | 访问的源端口，支持xx-xx范围，不填或者填0或者0-0都表示不限端口。 |
@@ -44,11 +45,12 @@ https://vpc.api.qcloud.com/v2/index.php?Action=ModifyLocalSourceIPPortTranslatio
 &vpcId=vpc-dfgg190
 &directConnectGatewayId=dcg-ddf14d
 &translationIPPool=138.0.0.11-138.0.0.111
-&aclRules.n.protocol=tcp
-&aclRules.n.sourceCidr=111.0.0.1/18
-&aclRules.n.sourcePort=80
-&aclRules.n.destinationCidr=10.0.0.2/18
-&aclRules.n.destinationPort=90
+&aclRules.0.aclRuleId=26
+&aclRules.0.protocol=tcp
+&aclRules.0.sourceCidr=111.0.0.1/18
+&aclRules.0.sourcePort=80
+&aclRules.0.destinationCidr=10.0.0.2/18
+&aclRules.0.destinationPort=90
 </pre>
 输出
 ```

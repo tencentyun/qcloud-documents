@@ -1,4 +1,4 @@
-﻿#### 1.phoenix配置
+#### 1.phoenix配置
 需要使用phoenix需要先下载我们提供的[phoenix的jar包](http://hbase-10010986.cos.myqcloud.com/phoenix-4.8.1-HBase-1.1.tar.gz)，下载后解压到CVM的任意一个目录下:
 ![](https://mc.qcloudimg.com/static/img/4b4c9ca995e86e9b4ea41274d10be5e5/h1.png)
 然后进入bin目录下，在配置文件hbase-site.xml中添加如下配置

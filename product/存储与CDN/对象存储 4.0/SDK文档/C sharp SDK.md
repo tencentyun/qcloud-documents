@@ -8,9 +8,8 @@
 
 1. sdk依赖C# 4.0版本及以上， 推荐使用相同的版本。
 2. 从控制台获取APP ID、SecretID、SecretKey。
-3. 修改园区，CosCloud.cs文件内的URL定义，例如上海：http://sh.file.myqcloud.com/files/v2/，天津：http://tj.file.myqcloud.com/files/v2/。
-
-
+3. 修改园区，CosCloud.cs文件内的URL定义，例如华东：http://sh.file.myqcloud.com/files/v2/ 华北：http://tj.file.myqcloud.com/files/v2/ 华南：http://gz.file.myqcloud.com/files/v2/
+（本版本SDK基于JSON API封装组成）
 
 ### SDK 配置
 
@@ -456,7 +455,7 @@ public string UploadSliceList(string bucketName, string remotePath)
 | session    | String     | 是      | init返回的标识                                |
 | filesize   | Int        | 是      | 文件大小                                     |
 | slice_size | Int        | 是      | 分片大小（64K-3M） 大于1M 必须为1M 整数倍              |
-| sha        | String     | 否      | 文件的全文sha值，init时带了则返回                     |
+| sha        | String     | 否      | 文件的全文sha值，init时若已带sha值，则返回该值                 |
 | listparts  | Json Array | 是      | 已上传完成的分片，形如：[{“offset”:0, “datalen”:1024}, {}, {}]. |
 
 #### 示例
@@ -485,7 +484,7 @@ public string SliceUploadInit(string bucketName, string remotePath, string local
 | bucketName | string | 是      | bucket名称   |
 | remotePath | string | 是      | 文件在服务端的全路径 |
 | localPath  | string | 是      | 本地文件路径     |
-| fileSha    | stirng | 是      | 文件的Sha值    |
+| fileSha    | string | 是      | 文件的Sha值    |
 
 #### 返回结果说明
 
@@ -529,7 +528,7 @@ public string SliceUploadData(string bucketName, string remotePath, string local
 | bucketName | string | 是      | bucket名称       |
 | remotePath | string | 是      | 文件在服务端的全路径     |
 | localPath  | string | 是      | 本地文件路径         |
-| fileSha    | stirng | 是      | 文件的Sha值        |
+| fileSha    | string | 是      | 文件的Sha值        |
 | session    | string | 是      | 唯一标识此文件传输过程的id |
 | offset     | int    | 是      | 分片的偏移量         |
 | sliceSize  | int    | 是      | 分片的大小          |
@@ -547,9 +546,9 @@ data的数据说明
 
 | **参数名**       | **类型** | **必带** | **参数描述**                           |
 | ------------- | ------ | ------ | ---------------------------------- |
-| session       | string | 是否     | (非秒传的大部分情况会有)	唯一标识此文件传输过程的id       |
+| session       | string | 是     | (非秒传的大部分情况会有)	唯一标识此文件传输过程的id       |
 | offset        | Int    | 是      | 当前分片的offset                        |
-| datalen       | int    | 是      | 分片文件长度slice_size                   |
+| datalen       | int    | 是      |  分片长度slice_size,返回的datalen就是当前分片的大小                |
 | serial_upload | int    | 否      | (非秒传大部分情况下会有) 1：只支持串行分片上传其它：支持并行分片 |
 
 #### 示例
@@ -578,7 +577,7 @@ public string SliceUploadFinish(string bucketName, string remotePath, string loc
 | bucketName | string | 是      | bucket名称       |
 | remotePath | string | 是      | 文件在服务端的全路径     |
 | localPath  | string | 是      | 本地文件路径         |
-| fileSha    | stirng | 是      | 文件的Sha值        |
+| fileSha    | string | 是      | 文件的Sha值        |
 | session    | string | 是      | 唯一标识此文件传输过程的id |
 
 #### 返回结果说明

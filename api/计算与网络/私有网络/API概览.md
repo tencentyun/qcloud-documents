@@ -16,7 +16,7 @@
 |---------|---------|---------|
 | 创建子网 | [CreateSubnet](http://www.qcloud.com/doc/api/245/%E5%88%9B%E5%BB%BA%E5%AD%90%E7%BD%91) |  创建子网，并指定可用区。 |
 | 删除子网 | [DeleteSubnet](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E5%AD%90%E7%BD%91) | 删除指定子网。 |
-| 修改子网名称 | [ModifySubnetAttribute](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E5%AD%90%E7%BD%91%E5%90%8D%E7%A7%B0) | 修改指定子网名称。 |
+| 修改子网名称 | [ModifySubnetAttribute](http://www.qcloud.com/document/product/215/1313) | 修改指定子网名称。 |
 | 查询子网列表 | [DescribeSubnetEx](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8) | 批量查询子网信息，支持分页查询、模糊匹配等。|
 | 查询子网详情 | [DescribeSubnet](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E8%AF%A6%E6%83%85) | 根据用户输入信息，如subnetId、子网名称等，查询对应子网的详细信息。|
 
@@ -28,7 +28,7 @@
 | 删除路由表 | [DeleteRouteTable](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E8%B7%AF%E7%94%B1%E8%A1%A8) | 删除指定路由表，删除后该路由表内路由策略都失效。 |
 | 修改路由表 | [ModifyRouteTableAttribute](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E8%B7%AF%E7%94%B1%E8%A1%A8) | 修改指定路由表名称。 |
 | 查询路由表 | [DescribeRouteTable](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8) | 根据用户输入信息，如routeTableId、路由表名称等，查询对应路由表的详细信息。|
-| 修改子网关联的路由表 | [AssociateRouteTable](http://www.qcloud.com/doc/api/245/CVM%E5%85%B3%E8%81%94%E5%AD%90%E7%BD%91%E8%B7%AF%E7%94%B1%E8%A1%A8) | 修改子网关联的路由表。 |
+| 修改子网关联的路由表 | [AssociateRouteTable](https://www.qcloud.com/document/api/215/1416) | 修改子网关联的路由表。 |
 | 添加路由策略 | [CreateRoute](http://www.qcloud.com/doc/api/245/5688) | 新增路由策略。 |
 | 删除路由策略 | [DeleteRoute](http://www.qcloud.com/doc/api/245/5689) | 删除路由策略。 |
 
@@ -109,12 +109,12 @@
 | 删除专线网关本端IP转换 | [DeleteLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5186) | 删除专线网关本端IP转换。 |
 | 修改专线网关本端IP转换 | [ModifyLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5187) | 修改专线网关本端IP转换。 |
 | 查询专线网关本端IP转换 | [DescribeLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5188) | 查询专线网关本端IP转换。 |
-| 添加专线网关本端源IP端口转换 | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4892) | 添加专线网关本端源IP端口转换。 |
-| 删除专线网关本端源IP端口转换 | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4898) | 删除专线网关本端源IP端口转换。 |
-| 修改专线网关本端源IP端口转换 | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4841) | 修改专线网关本端源IP端口转换。 |
+| 添加专线网关本端源IP端口转换 | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5190) | 添加专线网关本端源IP端口转换。 |
+| 删除专线网关本端源IP端口转换 | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5191) | 删除专线网关本端源IP端口转换。 |
+| 修改专线网关本端源IP端口转换 | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5192) | 修改专线网关本端源IP端口转换。 |
 | 查询专线网关本端源IP端口转换 | [DescribeLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4836) | 查询专线网关本端源IP端口转换。 |
-| 添加专线网关本端目的IP端口转换 | [CreateLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4894) | 添加专线网关本端目的IP端口转换。 |
-| 删除专线网关本端目的IP端口转换 | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4893) | 删除专线网关本端目的IP端口转换。 |
+| 添加专线网关本端目的IP端口转换 | [CreateLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5195) | 添加专线网关本端目的IP端口转换。 |
+| 删除专线网关本端目的IP端口转换 | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5196) | 删除专线网关本端目的IP端口转换。 |
 | 修改专线网关本端目的IP端口转换 | [ModifyLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4842) | 修改专线网关本端目的IP端口转换。 |
 | 查询专线网关本端目的IP端口转换 | [DescribeLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4837) | 查询专线网关本端目的IP端口转换。 |
 | 添加专线网关对端IP转换 | [CreatePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5190) | 添加专线网关对端IP转换。 |
@@ -151,7 +151,7 @@
 | 弹性网卡申请内网Ip | [AssignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4817) | 弹性网卡申请内网Ip。 |
 | 弹性网卡退还内网Ip | [UnassignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4819) | 弹性网卡退还内网Ip。 |
 | 弹性网卡绑定云主机 | [AttachNetworkInterface](https://www.qcloud.com/doc/api/245/4820) | 弹性网卡绑定云主机。 |
-| 弹性网卡解绑云主机 | [DetachNetworkInterface](https://www.qcloud.com/doc/api/245/4821) | 弹性网卡解绑云主机。 |
+| 弹性网卡解绑云主机 | [DetachNetworkInterface](https://www.qcloud.com/document/product/215/4822) | 弹性网卡解绑云主机。 |
 | 弹性网卡迁移 | [MigrateNetworkInterface](https://www.qcloud.com/doc/api/245/5384) | 弹性网卡迁移。 |
 | 内网IP迁移 | [MigratePrivateIpAddress](https://www.qcloud.com/doc/api/245/5385) | 内网IP迁移。 |
 

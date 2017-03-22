@@ -1,4 +1,4 @@
-﻿# GO语言实现排行榜功能
+
 ```
 package main
 

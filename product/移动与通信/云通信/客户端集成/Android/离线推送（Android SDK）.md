@@ -223,6 +223,22 @@ public NotifyMode getNotifyMode()
 public void setNotifyMode(NotifyMode mode)
 ```
 
+**`TIMMessageOfflinePushSettings.NotifyMode`:**
+
+`NotifyMode`只是针对第三方离线推送进行设置的，比如小米、华为的离线推送。
+
+```
+/**
+ * 普通通知栏消息模式，离线消息下发后，点击通知栏消息直接启动应用，不会给应用进行回调
+ */
+NotifyMode.Normal
+
+/**
+ * 自定义消息模式，离线消息下发后，点击通知栏消息会给应用进行回调
+ */
+NotifyMode.Custom
+```
+
 **`TIMMessageOfflinePushSettings.IOSSettings`：**
 ```
 /**
@@ -282,8 +298,8 @@ try {
 //设置在Android设备上收到消息时的离线配置
 TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
 androidSettings.setTitle("I'm title");
-//只推送普通通知栏消息
-androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Normal);
+//推送自定义通知栏消息，接收方收到消息后点击通知栏消息会给应用回调（针对小米、华为离线推送）
+androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Custom);
 //设置离线消息声音
 androidSettings.setSound(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.hualala));
 settings.setAndroidSettings(androidSettings);

@@ -4,83 +4,53 @@
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/260/1753' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的 Action 字段为 DescribeRedis。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/372/4153' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为DescribeRedis。
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>是否必选</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> limit <td> 是 <td> Uint <td> 返回实例列表数量，默认 20, 最大值 100
-<tr>
-<td> offset <td> 是 <td> Uint <td> 偏移量，默认为0。 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；例如查询第110~149 这40条记录，则可以设置 offset=110 limit=40。
-<tr>
-<td> redisId <td> 否 <td> String <td> 实例Id
-<tr>
-<td> redisName <td> 否 <td> String <td> 实例名称
-<tr>
-<td> orderBy <td> 否 <td> String <td> 枚举范围：redisId，projectId，createtime
-<tr>
-<td> orderType <td> 否 <td> Uint <td> 排序方式： 1 - 倒序，0 - 顺序，默认1倒序
-<tr>
-<td> projectIds <td> 否 <td> String <td> 项目ID数组
-</tbody></table>
-
- 
+| 参数名称 | 是否必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| limit | 是 | Int | 分页大小|
+| offset | 是 | Int | 当前页码|
+| redisId | 否 | String | 实例Id|
+| redisName | 否 | String | 实例名称|
+| orderBy | 否 | String | 枚举范围redisId,projectId,createtime|
+| orderType | 否 | Int | 1倒序，0顺序，默认倒序|
+| vpcIds.n  | 否 | Int | 历史原因，仍保留该参数，推荐使用下面参数unVpcIds。 私有网络ID数组，数组下标从0开始，如果不传则默认选择基础网络。|
+| unVpcIds.n  | 否 | String | 私有网络ID数组，数组下标从0开始，如果不传则默认选择基础网络。请使用[私有网络列表](https://www.qcloud.com/doc/api/245/1372) 查询返回的unVpcId为准，如：vpc-kd7d06of|
+| subnetIds.n | 否 | Int | 历史原因，仍保留该参数，推荐使用下面参数unSubnetIds。私有网络下的子网ID数组，数组下标从0开始|
+| unSubnetIds.n | 否 | String | 子网ID数组，数组下标从0开始。 vpc子网下，取值以查询[查询子网列表](https://www.qcloud.com/document/product/215/1371) 返回的unSubnetId为准，如：subnet-3lzrkspo|
+| projectIds.n | 否 | String | 项目ID 组成的数组，数组下标从0开始|
 
 ## 3. 输出参数
- 
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
+| message | String | 模块错误信息描述，与接口相关。|
+| codeDesc | String | 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。 |
+| totalCount | Int | 实例数 |
+| data | Array |  |
+| data.redisSet | Array | | 
+| data.redisSet.redisName | String | 实例名称 | 
+| data.redisSet.redisId | String | 实例唯一串号| 
+| data.redisSet.appid | Int | appid | 
+| data.redisSet.projectId | Int | 项目id | 
+| data.redisSet.regionId | Int | 地域id | 
+| data.redisSet.zoneId | Int | 区域id | 
+| data.redisSet.vpcId | Int | vpc网络id，不推荐使用 |
+| data.redisSet.unVpcId | String | vpc网络id，推荐使用 |  
+| data.redisSet.subnetId | Int | vpc网络下子网id，不推荐使用 |
+| data.redisSet.unSubnetId | String | vpc网络下子网id，推荐使用 | 
+| data.redisSet.status | Int | 实例当前状态，0：待初始化；1：实例在流程中；2：实例运行中；-2：实例已隔离 | 
+| data.redisSet.statusDesc | String | 实例状态描述 | 
+| data.redisSet.wanIp | String | 实例vip | 
+| data.redisSet.port | Int | 实例端口号 | 
+| data.redisSet.createtime | String | 实例创建时间 | 
+| data.redisSet.size | Int | 实例容量大小，单位：MB| 
+| data.redisSet.sizeUsed | Int | 实例当前已使用容量，单位：MB | 
+| data.redisSet.typeId | Int | 实例类型，1：集群版；2：单机版| 
+| data.redisSet.typeIddesc | String | 实例类型描述 |
+| data.redisSet.autoRenewFlag | Int | 实例是否设置自动续费标识，1：设置自动续费；0：未设置自动续费 |  
+| data.redisSet.deadlineTime | String | 实例到期时间 |
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> code <td> Int <td>  公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。
-<tr>
-<td> message <td> String <td> 错误信息
-<tr>
-<td> codeDesc <td> String <td> 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。
-<tr>
-<td> totalCount <td> UInt <td> 记录总数
-<tr>
-<td> data <td> Array <td> 返回数组
-<tr>
-<td> data.redisSet <td> Array <td> 实例集合
-<tr>
-<td> data.redisSet.redisName <td> String <td> 实例名称
-<tr>
-<td> data.redisSet.redisId <td> String <td> 实例ID
-<tr>
-<td> data.redisSet.appid <td> UInt <td> 用户ID
-<tr>
-<td> data.redisSet.projectId <td> UInt <td>项目ID
-<tr>
-<td> data.redisSet.regionId <td> UInt <td> 地域ID
-<tr>
-<td> data.redisSet.zoneId <td> UInt <td> 可用区ID
-<tr>
-<td> data.redisSet.vpcId <td> UInt <td> 网络ID
-<tr>
-<td> data.redisSet.subnetId <td> UInt <td> 子网ID
-<tr>
-<td> data.redisSet.status <td> Int <td> 状态, 0 - 待初始化； 1 - 流程中； 2  - 运行中；  -2 - 已隔离
-<tr>
-<td> data.redisSet.statusDesc <td> String <td> 状态描述
-<tr>
-<td> data.redisSet.wanIp <td> String <td> 服务IP，内网ip，redis不能同外网访问
-<tr>
-<td> data.redisSet.port <td> UInt <td> 服务端口
-<tr>
-<td> data.redisSet.createtime <td> String <td> 创建时间
-<tr>
-<td> data.redisSet.size <td> UInt <td> 实例容量，单位： MB
-<tr>
-<td> data.redisSet.sizeUsed <td> UInt <td> 实例使用量， 单位： MB
-<tr>
-<td> data.redisSet.deadlineTime <td> String <td> 到期时间
-</tbody></table>
 
 ## 4. 错误码
 以下错误码表列出了该接口的业务逻辑错误码。
@@ -106,22 +76,27 @@ https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
     "data": {
         "redisSet": [
             {
-                "redisName": "腾讯云测试实例",
-                "redisId": "crs-ifmymj41",
-                "appid": 125100000,
-                "projectId": 0,
-                "regionId": 1,
-                "zoneId": 100002,
-                "vpcId": 0,
-                "subnetId": 0,
-                "status": 2,
-                "statusDesc": "实例运行中",
-                "wanIp": "10.66.114.214",
-                "port": 6379,
-                "createtime": "2015-09-11 11:16:00",
-                "size": 1024,
-                "sizeUsed": 0,
-                "deadlineTime": "2016-09-19 00:00:00"
+                "redisName":"att_test",
+                "redisId":"crs-ooakfyj3",
+                "appid":"1251966477",
+                "projectId":"0",
+                "regionId":"1",
+                "zoneId":"100002",
+                "vpcId": 4864,
+ 				"unVpcId": "vpc-j5yvvkul",
+                "subnetId": 14158,
+				"unSubnetId": "subnet-py2q60ty",
+                "status":"2",
+                "statusDesc":"实例运行中",
+                "wanIp":"10.66.170.224",
+                "port":"6379",
+                "createtime":"2016-05-04 16:59:53",
+                "size":"2048",
+                "sizeUsed":"0",
+                "typeId":"1",
+                "typeIddesc":"集群版",
+				"autoRenewFlag": 1,
+                "deadlineTime":"2016-08-14 16:59:53"
             }
         ]
     }

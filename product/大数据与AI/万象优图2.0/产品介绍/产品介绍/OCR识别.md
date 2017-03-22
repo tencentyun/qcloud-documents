@@ -14,10 +14,10 @@ b. 高稳定性
 
 支持身份证正反面识别，一次扫描即可识别所有字段，对倾斜、暗光、曝光、阴影等异常情况稳定性好、识别准确率高，通过自适应判别纠正技术更将身份证上的数字识别准确率提高到了99.9%以上，与业界竞品对比显示，在多个字段上处于当前领先地位。
 
-](https://mc.qcloudimg.com/static/img/dfc1bcdd3be822b730eb347b17f5f55f/image.jpg))
+![身份证识别](https://mc.qcloudimg.com/static/img/dfc1bcdd3be822b730eb347b17f5f55f/image.jpg)
 
 ## 3. 名片识别
 
 支持姓名、手机号、QQ等字段的自动定位与识别，对拍摄环境鲁棒性高，支持30度以内的角度偏转，姓名字段与手机号码字段自动识别准确率均在90%以上，对比移动端热门应用效果处于业界一流水平。
 
-](https://mc.qcloudimg.com/static/img/dd9ecbcb093fe51b8c3e9cf38be1eb69/image.jpg))
+![名片识别](https://mc.qcloudimg.com/static/img/dd9ecbcb093fe51b8c3e9cf38be1eb69/image.jpg)
