@@ -173,7 +173,8 @@ def update_file(self, request)
 | content_disposition |   unicode    |  无   |   set方法    |        参见HTTP的Content-Disposition        |
 |     x-cos-meta-     |   unicode    |  无   |   set方法    | 自定义HTTP 头，参数必须以x-cos-meta-开头，值由用户定义，可设置多个 |
 
-**tips:** 更新属性可以选择其中的某几个，对于HTTP头部cache_control，content_type, content_disposition和x-cos-meta-, 如果本次只更新其中的某几个，其他的都会被抹掉，即这4个属性是整体更新。
+**tips:** 用户可以在以上这些属性中选择几个进行更新。如果本次只更新HTTP头部cache_control，content_type, content_disposition和x-cos-meta-这四个中的某几个，其他的几个没有更新和设置，那么其他没有被设置的头部会被清除删除掉，不会出现，即这4个属性会出现整体一起更新变动。
+
 
 #### 返回值
 
