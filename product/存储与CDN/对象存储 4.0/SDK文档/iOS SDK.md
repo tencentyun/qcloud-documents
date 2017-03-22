@@ -260,9 +260,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型             | 说明     |
 | ------- | -------------- | ------ |
-| retCode | int            | 任务描述代码 |
-| descMsg | NSString    *  | 任务描述信息 |
-| data    | NSDictionary * | 任务描述信息 |
+| retCode | int            | 正常返回0，错误返回非0，并描述结果状态信息。 |
+| descMsg | NSString    *  | 正常返回OK，错误返回错误描述信息。  |
+| data    | NSDictionary * | 描述结果状态信息 |
 
 
 #### 示例
