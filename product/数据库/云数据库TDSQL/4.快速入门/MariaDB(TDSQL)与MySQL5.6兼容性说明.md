@@ -5,11 +5,11 @@ TDSQL是以MariaDB为基础开发的，我们选择MariaDB的原因不仅是因�
 
 >本文所描述的内容，虽然经过大量实际项目验证和案例测试，但由于笔者能力有限，如果存在遗漏和错误，欢迎向** vitosu@tencent.com **直接反馈。
 
-## TDSQL和MariaDB的兼容性
-完全兼容MariaDB 10.0.10、10.1.9两个版本。
+## MariaDB(TDSQL)和开源MariaDB的兼容性
+完全兼容MariaDB。
 
-## TDSQL与MySQL5.6兼容性
->TDSQL与MySQL5.6高度兼容，这意味着已用于 MySQL 数据库的代码、应用程序、驱动程序和工具，无需更改（或少量调整），即可与TDSQL配合使用。
+## MariaDB(TDSQL)与MySQL5.6兼容性
+>MariaDB(TDSQL)与MySQL5.6高度兼容，这意味着已用于 MySQL 数据库的代码、应用程序、驱动程序和工具，无需更改（或少量调整），即可与TDSQL配合使用。
 
 - 数据文件和表定义文件是二进制兼容的；
 - 所有的客户端API和协议都是兼容的；
@@ -18,17 +18,14 @@ TDSQL是以MariaDB为基础开发的，我们选择MariaDB的原因不仅是因�
 - 可以使用MySQL客户端链接到TDSQL上。
 
 ## TDSQL和MySQL5.6的不兼容性
->TDSQL与MySQL5.6高度兼容，却有极少点不兼容；值得说明的时，MySQL各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
-
->因TDSQL内核采用MariaDB，因此本章行文或代码中会出现的MariaDB，可直接理解为TDSQL。
-
+>MariaDB(TDSQL)与MySQL5.6高度兼容，却有极少点不兼容；值得说明的时，MySQL各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
 
 
 ### 1.GTID不兼容
-- TDSQL的GTID和MySQL 5.6的GTID不能兼容，也就是说MySQL不能作为TDSQL的从库；
+- MariaDB(TDSQL)的GTID和MySQL 5.6的GTID不能兼容，也就是说MySQL不能作为TDSQL的从库；
 
 ### 2.Binlog默认配置不同
-- TDSQL的Binlog默认采用row格式，而MySQL、MariaDB默认采用statement格式。
+- MariaDB(TDSQL)的Binlog默认采用row格式，而MySQL、MariaDB默认采用statement格式。
 
 ### 3.CREAT TABLE ... SELECT命令在基于行模式复制和基于命令模式复制
 
@@ -113,7 +110,7 @@ Mysql5.7和mariadb中，由于NULL属于未知值，在上述的对比中结果�
 MariaDB 执行inplace alter table后，show create table t1后发现运行结果与mysql用ALGORITHM=COPY时运行结果相同
 
 
-### 4.MySQL/TDSQL的未定义行为
+### 4.MySQL/MariaDB(TDSQL)的未定义行为
 
 >**未定义行为(undefined behavior)**的意思是，MySQL/Mariadb可以按照任意方式实现这种功能和行为，而且版本之间可能发生变化而不需要通知用户或者明确指出。MySQL和MariaDB对这些行为的实现可能产生相同的结果或者不同的结果。
 
