@@ -1,4 +1,5 @@
-﻿## Where to query the bills
+
+## Where to query the bills
 
 You can check the details of your CDN bills in **Consumption Details** menu of **User Center** on Tencent Cloud official website. With relevant permission, you can check the detailed data by following the steps below:
 

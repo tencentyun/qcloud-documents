@@ -272,6 +272,7 @@ Note 2: After the private IP is unbound, it will automatically disassociate from
 6) Click the [Save] button to complete the subnet replacement of the elastic network card.
 
 > Note:
+> 
 1. You can only change subnet of the primary network card
 2. Before changing the subnet of an elastic network card, unbind all secondary IPs.
 3. When modifying the subnet of an elastic network card, you can only change it to other subnets under the availability zone.

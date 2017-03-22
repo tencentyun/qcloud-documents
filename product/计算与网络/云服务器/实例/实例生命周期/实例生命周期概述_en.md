@@ -42,9 +42,9 @@ For more information, see [Shutdown Instance](/doc/product/213/4929).
 
 ## Instance termination
 Users can terminate the instance if they no longer need CVM instances. Note:
-- For instances with an annual or monthly plan, it will be moved into the Recycle Bin upon expiration, and be terminated automatically after 7 days.
-- for instances charged by quantity, users can terminate them manually either through Tencent Cloud Console or Tencent Cloud API.
+- For prepaid instances, it will be moved into the Recycle Bin upon expiration, and be terminated automatically after 7 days.
+- For postpaid instances, users can terminate them manually either through Tencent Cloud Console or Tencent Cloud API.
 
 When terminating an instance, the system disks and data disks designated when purchasing will be terminated as well. But elastic cloud disks mounted on it will not be affected.
 
-For more information, see [Terminate Instance] (/doc/product/213/4930).
+For more information, see [Terminate Instance](/doc/product/213/4930).

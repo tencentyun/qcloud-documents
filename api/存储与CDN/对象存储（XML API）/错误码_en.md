@@ -25,7 +25,7 @@ Corresponding HTTP status code: 3XX, 4XX, 5XX
 </Error>
 ```
 
-**Element Description**
+**Parameter Description**
 
 | Element Name      | Description                               | Type        |
 | --------- | ---------------------------------------- | --------- |
@@ -36,7 +36,7 @@ Corresponding HTTP status code: 3XX, 4XX, 5XX
 | RequestId | The server will automatically generate a unique ID for the request when the request is sent. When a problem occurs, request-id can help COS locate the problem faster.  | String    |
 | TraceId   | When a request encounters an error, the server will automatically generate a unique ID for the error. When a problem occurs, trace-id can help COS locate the problem faster. When a request encounters an error, one trace-id will correspond to one request-id.  | String    |
 
-## List of Error Codes
+##Error Codes
 
 **3XX Errors**
 

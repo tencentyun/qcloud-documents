@@ -1,11 +1,10 @@
 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Memory M2 instance** is designed to deliver high performance for the workload of large-sized datasets in process memory. It features a large memory, and a memory instance up to 384GB based on DDR4 is available. Its price is lower than any other memory instances with the same memory, which makes it the perfect choice for applications that need high memory computing. This type of instances is suitable for the following circumstances:
+**Memory M2 instance** is designed to deliver high performance for the workload of large-sized datasets in process memory. It features a large memory, and a memory instance up to 384GB based on DDR4 is available. Its price is lower than any other memory instances with the same memory, which makes it the perfect choice for applications that need high memory computing. This type of instances is suitable for the following circumstances:
 - Applications that need extensive memory operations, search, and computing, such as high-performance databases, and distributed memory caching.
 - Users who build their own hadoop clusters or redis for like gene computing.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A Memory M2 instance features 2.4GHz Intel E5-Xeon Broadwell (v4) CPU processor and DDR4 memory. Its price is lower than any other memory instances with the same memory, which makes it the perfect choice for applications that need high memory computing. It also offers the options of local disks, common cloud disks and SSD cloud disks for the data disks (The option may vary with different hardware specifications).
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the available configurations when you purchase a Memory M2 instance, refer to [CVM Instance Configurations](https://www.qcloud.com/doc/product/213/2177).
+A Memory M2 instance features 2.4GHz Intel E5-Xeon Broadwell (v4) CPU processor and DDR4 memory. Its price is lower than any other memory instances with the same memory, which makes it the perfect choice for applications that need high memory computing. It also offers the options of local disks, common cloud disks and SSD cloud disks for the data disks (The option may vary with different hardware specifications).
+For the available configurations when you purchase a Memory M2 instance, refer to [CVM Instance Configurations](https://www.qcloud.com/doc/product/213/2177).
 
 
 ## Hardware Specification
@@ -20,7 +19,7 @@ The hardware specification of a Memory M2 instance is as follows:
 ## Requirements for Memory M2 instances
 The requirements for M2 instances are as follows:
 
-- M2 instance can be used on the basis of [Annual or Monthly Plan](https://www.qcloud.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) or [Charge-by-Quantity](https://www.qcloud.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), or as the production instance of memory host in dedicated hosts;
+- M2 instance can be used on the basis of [prepaid](https://www.qcloud.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) or [postpaid](https://www.qcloud.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), or as the production instance of memory host in dedicated hosts;
 - Support I2 instance startup in basic network and [Virtual Private Cloud](https://www.qcloud.com/doc/product/215/535#.E8.85.BE.E8.AE.AF.E4.BA.91.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F);
 - For the available configurations when you purchase a Memory M2 instance, refer to [CVM Instance Configurations](https://www.qcloud.com/doc/product/213/2177).
 
