@@ -290,7 +290,7 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 | **int width** | 视频宽|
 | **int height** | 视频高|
 | **int rotate** | 视频图像角度。角度可以是0, 1, 2, 3. 0,1,2,3的含义为图像需要分别顺时针旋转0*90 1*90、 2*90、 3*90度才能正立|
-| **int videoFormat** | 视频格式，目前Android只支持I420；默认为0|
+| **int videoFormat** | 视频格式，目前支持I420、NV21、NV12、RGB565、RGB24、ARGB；默认为0|
 | **String identifier** | 房间成员identifie|
 | **int srcType** | 视频采集来源 NONE = 0 CAMERA = 1 SCREEN = 2 MEDIA = 3|
 | **long timeStamp** | 视频帧的时间戳，SDK内部会自动填写好，utc时间，0为无效值|
