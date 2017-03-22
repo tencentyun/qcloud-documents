@@ -354,7 +354,7 @@ def list_folder(self, request)
 |  cos_path   | unicode |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
 |     num     |   int   | 199  | 构造函数或set方法 |             获取列表成员的数量，最大为199             |
 |   prefix    | unicode |  空   | 构造函数或set方法 | 搜索成员的前缀, 例如prefix为test表示只搜索以test开头的文件或目录 |
-|   context   | unicode |  空   | 构造函数或set方法 | 搜索上下文, 由上一次list的结果返回，作为这一次搜索的起点，用于循环获取一个目录下的所有成员 |
+|   context   | unicode |  空   | 构造函数或set方法 | 透传字段，从响应的返回内容中得到。若查看第一页，则将空字符串作为 context 传入。若需要翻页，需要将前一页返回内容中的 context 透传到参数中。 |
 
 #### 返回值
 
