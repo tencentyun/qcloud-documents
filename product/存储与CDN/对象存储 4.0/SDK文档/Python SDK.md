@@ -52,7 +52,8 @@ pip uninstall qcloud_cos_v4
 
 ### 历史版本
 
-3.3版本对接口等进行了重构，和之前的历史版本诸多不同，同时修复了一些bug, 和历史版本不兼容, 如果需要使用历史版本, 请参见github文件操作
+3.3版本对接口等进行了重构，和之前的历史版本诸多不同，同时修复了一些bug, 和历史版本不兼容, 如果需要使用历史版本, 请参见[v3版的python sdk](https://www.qcloud.com/document/product/430/5943)
+
 
 ## 生成客户端对象
 
@@ -172,7 +173,8 @@ def update_file(self, request)
 | content_disposition |   unicode    |  无   |   set方法    |        参见HTTP的Content-Disposition        |
 |     x-cos-meta-     |   unicode    |  无   |   set方法    | 自定义HTTP 头，参数必须以x-cos-meta-开头，值由用户定义，可设置多个 |
 
-**tips:** 更新属性可以选择其中的某几个，对于HTTP头部cache_control，content_type, content_disposition和x-cos-meta-, 如果本次只更新其中的某几个，其他的都会被抹掉，即这4个属性是整体更新。
+**tips:** 用户可以在以上这些属性中选择几个进行更新。如果本次只更新HTTP头部cache_control，content_type, content_disposition和x-cos-meta-这四个中的某几个，其他的几个没有更新和设置，那么其他没有被设置的头部会被清除删除掉，不会出现，即这4个属性会出现整体一起更新变动。
+
 
 #### 返回值
 
@@ -352,7 +354,7 @@ def list_folder(self, request)
 |  cos_path   | unicode |  无   | 构造函数或set方法 | cos路径, 必须从bucket下的根/开始，目录路径必须以/结尾, 例如 /mytest/dir/ |
 |     num     |   int   | 199  | 构造函数或set方法 |             获取列表成员的数量，最大为199             |
 |   prefix    | unicode |  空   | 构造函数或set方法 | 搜索成员的前缀, 例如prefix为test表示只搜索以test开头的文件或目录 |
-|   context   | unicode |  空   | 构造函数或set方法 | 搜索上下文, 由上一次list的结果返回，作为这一次搜索的起点，用于循环获取一个目录下的所有成员 |
+|   context   | unicode |  空   | 构造函数或set方法 | 透传字段，从响应的返回内容中得到。若查看第一页，则将空字符串作为 context 传入。若需要翻页，需要将前一页返回内容中的 context 透传到参数中。 |
 
 #### 返回值
 

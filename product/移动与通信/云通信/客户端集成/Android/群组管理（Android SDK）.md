@@ -647,7 +647,7 @@ TIMGroupManager.getInstance().getGroupList(cb);
 
 ### 3.10 解散群组
 
-通过 deleteGroup 可以解散群组。
+通过 `deleteGroup` 可以解散群组。
 
 **权限说明：**
 
@@ -657,7 +657,7 @@ TIMGroupManager.getInstance().getGroupList(cb);
 **原型：   **
 
 ```
-public void deleteGroupMember(java.lang.String groupId,TIMCallBack cb)
+public void deleteGroup(java.lang.String groupId,TIMCallBack cb)
 ```
 删除群组
 
