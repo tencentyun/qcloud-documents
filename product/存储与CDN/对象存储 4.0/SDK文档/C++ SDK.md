@@ -448,7 +448,7 @@ string CosAPI::FileStat(FileStatReq& request)
 
 | **参数名** | **类型**      | **默认值** | **参数描述** |
 | ------- | ----------- | ------- | -------- |
-| request | FileStatReq | 无       | 文件查询列表请求类型 |
+| request | FileStatReq | 无       | 文件查询请求类型 |
 
 FileStatReq
 
