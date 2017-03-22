@@ -513,7 +513,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 1. 实例化 COSObjectMetaCommand  对象；
 2. 调用 COSClient 的 getObjectInfo 命令，传入 COSObjectMetaCommand   对象；
-3. 通过COSObjectMetaTaskRsp 类返回结果信息
+3. 通过COSObjectMetaTaskRsp 对象返回结果信息
 
 
 #### 参数说明
