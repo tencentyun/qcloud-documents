@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 | offset | No | Int | Offset of initial line. Default is 0 |
 | limit | No | Int | Number of lines per page. Default is 20, maximum is 50. |
 | orderField | No | String | Sorting by a certain field. No sorting by default. <br>Support field: natId |
-| orderDirection | No | String | Ascending (asc) or descending (desc). Default is asc |
+| orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc |
 
 
 ## 3. Output Parameters

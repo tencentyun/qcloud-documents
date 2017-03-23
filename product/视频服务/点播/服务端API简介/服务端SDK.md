@@ -3,8 +3,8 @@
 所有API均包含一般服务端API调用、服务端视频上传两大类功能。
 
 - [vod-php-server-sdk-v4](https://github.com/tencentyun/vod-php-server-sdk-v4)
-- vod-nodejs-server-sdk-v4(即将推出)
+- [vod-java-server-sdk-v4](https://github.com/tencentyun/vod-java-server-sdk-v4)
+- [vod-csharp-server-sdk-v4](https://github.com/tencentyun/vod-csharp-server-sdk-v4)
 - vod-python-server-sdk-v4(即将推出)
-- vod-java-server-sdk-v4(即将推出)
+- vod-nodejs-server-sdk-v4(即将推出)
 - vod-golang-server-sdk-v4(即将推出)
-- vod-csharp-server-sdk-v4(即将推出)

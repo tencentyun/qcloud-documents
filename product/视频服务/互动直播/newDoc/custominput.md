@@ -14,9 +14,9 @@
 
 如上图所示，用户可以其中任意环节对数据进行拦截并作相应的处理。
 
-这里以混音为例:
+### 混音
 
-### Android
+#### Android
 
 1、注册回调
 
@@ -53,7 +53,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
     };
 ```
 
-### iOS
+#### iOS
 
 **音频透传**，主要用于在直播中对Mic采集到的数据作再加工处理，一般用于在直播间内添加背景音等，其对透传的音频数据有格式要求，默认使用的音频格式为QAVAudioFrameDesc = {48000, 2, 16}。通常的有下面两种使用方法：<br>
 1､ 麦克风透传：开麦克风端（有上行音频能力端）能听到，其他人可听到：以下代码为设置麦克风透传
@@ -185,15 +185,20 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
         
 ```
 
+### 自定义音频采集
+
+#### avsdk1.8.4后增加了此功能，目前的做法还需这样。略显繁琐，今后会进一步优化。
+
+1. 主播或上麦观众腾讯云后台spear角色配置里音频场景要设置为“开播”（开播场景会占用本地录音权限），也可以设置为“观看”这样就不会占用本地音频设备了；
+2. 进房间时mic和speaker都要打开；
+3. 进房间成功后调用接口AVAudioCtrl.changeAudioCategory切换至观看场景（第一步如果设置为“观看”场景此步省略）；
+4. 调enableExternalAudioDataInput开启自定义采集音频；
+5. 调fillExternalAudioFrame将外部采集的音频塞给AVSDK；
+6. 以上接口都需在主线程调用。
 
 
 
-
-
-
-
-
-### 自定义采集视频数据
+### 自定义视频数据采集
 
 自定义视频数据流程图:    
 
@@ -290,7 +295,7 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 | **int width** | 视频宽|
 | **int height** | 视频高|
 | **int rotate** | 视频图像角度。角度可以是0, 1, 2, 3. 0,1,2,3的含义为图像需要分别顺时针旋转0*90 1*90、 2*90、 3*90度才能正立|
-| **int videoFormat** | 视频格式，目前Android只支持I420；默认为0|
+| **int videoFormat** | 视频格式，目前支持I420、NV21、NV12、RGB565、RGB24、ARGB；默认为0|
 | **String identifier** | 房间成员identifie|
 | **int srcType** | 视频采集来源 NONE = 0 CAMERA = 1 SCREEN = 2 MEDIA = 3|
 | **long timeStamp** | 视频帧的时间戳，SDK内部会自动填写好，utc时间，0为无效值|
@@ -370,7 +375,7 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 
 |接口|描述|
 |---|---|
-|OnVideoPreview:|远程画面回调，接收远程帧数据，再使用ILiveSDK的渲染接口渲染，用户只需要添加一个渲染区域即可。渲染详情请参考[新版随心播](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master/TILLiveSDKShow)|
+|OnVideoPreview:|远程画面回调，接收远程帧数据，再使用ILiveSDK的渲染接口渲染，用户只需要添加一个渲染区域即可。渲染详情请参考[新版随心播](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master)|
 
 |参数类型|参数名|说明|
 |---|---|---|

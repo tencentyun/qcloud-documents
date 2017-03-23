@@ -41,6 +41,7 @@ Data结构
 |-49997|VpcIpInvalid|操作的VpcIp属于物理机IP|
 |-49996|VpcIpSubnetInvalid|操作的VpcIp的子网信息异常|
 |-49995|TunnelEipNotSuport|隧道模式的EIP暂不支持绑定VpcIP|
+|-49994|VpcIpNotApplyed|操作的VpcIp未申请|
 
 ## 5. 示例
  

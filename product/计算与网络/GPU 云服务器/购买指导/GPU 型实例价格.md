@@ -2,9 +2,11 @@ GPU 实例包括硬件（CPU、内存、GPU）、磁盘（系统盘、数据盘�
 
 | 型号|GPU  <br>(Tesla M40) | GPU 内存 <br> (GDDR5) |vCPU <br> (Xeon E5 v4) | 内存  <br>(DDR4)|数据盘 <br>（本地SSD硬盘）| 价格 |
 |---------|---------|---------|---------|---------|---------|---------|
-| G2.large|1颗 | 24GB |28核 | 60GB |  1700GB| **4349 元/月**|
-| G2.2xlarge|2颗 | 48GB | 56核 | 120GB | 3400GB| **8698 元/月** |
+| G2.large|1颗 | 24GB |28核 | 60GB |  1700GB| **4288 元/月**|
+| G2.2xlarge|2颗 | 48GB | 56核 | 120GB | 3400GB| **8576 元/月** |
 
 >注：
 >[磁盘价格总览>>](https://www.qcloud.com/document/product/213/2255)
 >[网络价格总览>>](https://www.qcloud.com/document/product/213/509)
+
+

@@ -66,7 +66,7 @@
         </tr>
         <!--视频管理-->
         <tr>
-            <td rowspan=7>
+            <td rowspan=8>
                 视频管理
             </td>
             <td>
@@ -75,6 +75,16 @@
             <td>
                 <a href="/document/product/266/7824">
                     DescribeVodPlayUrls
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                获取视频信息V2
+            </td>
+			<td>
+                <a href="/document/product/266/8586">
+                    GetVideoInfo
                 </a>
             </td>
         </tr>
@@ -138,10 +148,10 @@
                 </a>
             </td>
         </tr>
-        <!--视频转码-->
+        <!--视频处理-->
         <tr>
-            <td>
-                视频转码
+            <td rowspan=4>
+                视频处理
             </td>
             <td>
                 视频转码
@@ -152,13 +162,9 @@
                 </a>
             </td>
         </tr>
-        <!--视频拼接-->
         <tr>
-            <td rowspan=2>
-                视频拼接
-            </td>
             <td>
-                普通视频拼接
+                视频拼接
             </td>
             <td>
                 <a href="/document/product/266/7821">
@@ -166,6 +172,27 @@
                 </a>
             </td>
         </tr>
+        <tr>
+            <td>
+                截取雪碧图
+            </td>
+            <td>
+                <a href="/document/product/266/8101">
+                    CreateImageSprite
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                按时间点截图
+            </td>
+            <td>
+                <a href="/document/product/266/8102">
+                    CreateSnapshotByTimeOffset
+                </a>
+            </td>
+        </tr>
+        <!--
         <tr>
             <td>
                 HLS视频简单拼接
@@ -176,6 +203,7 @@
                 </a>
             </td>
         </tr>
+        -->
         <!--视频分类管理-->
         <tr>
             <td rowspan=5>
@@ -240,7 +268,7 @@
             </td>
             <td>
                 <a href="/document/product/266/7818">
-                    PullVodEvent
+                    PullEvent
                 </a>
             </td>
         </tr>
@@ -250,7 +278,7 @@
             </td>
             <td>
                 <a href="/document/product/266/7819">
-                    ConfirmVodEvent
+                    ConfirmEvent
                 </a>
             </td>
         </tr>
