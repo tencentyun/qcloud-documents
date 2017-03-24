@@ -299,7 +299,7 @@ listDirRequest.setListener(new ICmdTaskListener() {
     public void onSuccess(COSRequest cosRequest, COSResult cosResult) {
     		//查询成功
         ListDirResult listObjectResult = (ListDirResult) cosResult;
-        if(listObjectResult.infos != null && listObjectResult.infos.size() > 0)｛
+        if(listObjectResult.infos != null && listObjectResult.infos.size() > 0) {
         for(int i = 0; i < length; i++){
             String str = listObjectResult.infos.get(i);
             try {
@@ -311,8 +311,8 @@ listDirRequest.setListener(new ICmdTaskListener() {
                 }
             } catch (JSONException e) {
                e.printStackTrace();
-           ｝ 
-     ｝
+            } 
+     }
      }
 
    	 if (!listover) {
