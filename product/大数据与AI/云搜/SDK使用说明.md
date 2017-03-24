@@ -2,24 +2,9 @@
 
 如下所示：
 
-<table class="t" style="margin-left:20px">
-<tr>
-<th> <b>开发语言</b>
-</th><th> <b>下载连接</b>
-</th></tr>
-<tr>
-<td> PHP
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-php" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-php" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-php</a>
-</td></tr>
-<tr>
-<td> Python
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-python" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-python" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-python</a>
-</td></tr>
-<tr>
-<td> Java
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-java" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-java" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-java</a>
-</td></tr>
-<tr>
-<td> .Net
-</td><td> <a href="https://github.com/QcloudApi/qcloudapi-sdk-dotnet" class="external free" title="https://github.com/QcloudApi/qcloudapi-sdk-dotnet" target="_blank" rel="nofollow">https://github.com/QcloudApi/qcloudapi-sdk-dotnet</a>
-</td></tr></table>
+| 开发语言 | github地址 | 下载 |
+|---------|---------|---------|
+| PHP | https://github.com/QcloudApi/qcloudapi-sdk-php | [点击下载](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip) |
+| Python | https://github.com/QcloudApi/qcloudapi-sdk-python | [点击下载](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip) |
+| Java | https://github.com/QcloudApi/qcloudapi-sdk-java | [点击下载](https://mc.qcloudimg.com/static/archive/72dbc1a82ad8e18dead2e6dc07acd5d7/qcloudapi-sdk-java-master.zip) |
+| .Net | https://github.com/QcloudApi/qcloudapi-sdk-dotnet | [点击下载](https://mc.qcloudimg.com/static/archive/b55098d83c78db530c53fb10f44c3fef/qcloudapi-sdk-dotnet-master.zip) |
