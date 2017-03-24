@@ -2,8 +2,6 @@ WordPress 是一款常用的搭建个人博客网站的软件。使用腾讯云�
 
 本节以视频形式向您介绍如何在腾讯云云端快速构建一个 WordPress 个人站点。
 
-**查看视频：**
-[搭建WordPress个人站点 >>](https://www.qcloud.com/course/detail/128)
 
 **主要操作步骤：**
 1. 创建云服务器 
@@ -25,3 +23,5 @@ WordPress 是一款常用的搭建个人博客网站的软件。使用腾讯云�
 - 增加多台 CVM 实例，并利用[负载均衡](https://www.qcloud.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用[弹性伸缩](https://www.qcloud.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
 - 利用[对象存储](https://www.qcloud.com/document/product/436)，存储静态网页和海量图片、视频等。
+
+**查看视频：**
