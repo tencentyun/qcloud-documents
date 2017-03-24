@@ -348,7 +348,7 @@ string CosAPI::FileUpload(FileUploadReq& request);
 
 | **参数名** | **类型**          | **默认值** | **参数描述** |
 | ------- | --------------- | ------- | -------- |
-| request | FolderUploadReq | 无       | 文件上传请求类型 |
+| request | FileUploadReq | 无       | 文件上传请求类型 |
 
 | **参数名**    | **类型** | **默认值** | **设置方法**             | **参数描述**                               |
 | ---------- | ------ | ------- | -------------------- | -------------------------------------- |
@@ -448,7 +448,7 @@ string CosAPI::FileStat(FileStatReq& request)
 
 | **参数名** | **类型**      | **默认值** | **参数描述** |
 | ------- | ----------- | ------- | -------- |
-| request | FileStatReq | 无       | 目录列表请求类型 |
+| request | FileStatReq | 无       | 文件查询请求类型 |
 
 FileStatReq
 
@@ -489,7 +489,7 @@ string rsp = cos.FileDelete(fileDeleteReq);
 
 | **参数名** | **类型**          | **默认值** | **参数描述** |
 | ------- | --------------- | ------- | -------- |
-| request | FolderDeleteReq | 无       | 目录删除请求类型 |
+| request | FileDeleteReq | 无      | 文件删除请求类型 |
 
 FolderDeleteReq
 
