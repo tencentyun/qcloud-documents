@@ -365,7 +365,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSListDirCommand *cm = [COSListDirCommand new]；
+    COSListDirCommand *cm = [COSListDirCommand new];
     cm.directory = dir;
     cm.bucket = bucket;
     cm.sign = _sign;
@@ -587,7 +587,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
+    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new];
 	cm.fileName = file;
 	cm.bucket = bucket;
     cm.directory = dir;
