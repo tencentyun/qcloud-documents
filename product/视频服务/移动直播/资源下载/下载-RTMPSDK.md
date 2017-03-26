@@ -1,5 +1,5 @@
 ## 版本说明
-- 版本号：1.9.2.2231 @ 2017-03-18
+- 版本号：1.9.2.2243 @ 2017-03-22
 - iOS & Android：优化了摄像头直播中的美颜效果，并增加了对滤镜的支持 ，详情请关注 [如何实现更好的画质](https://www.qcloud.com/document/product/454/7955)
 - iOS & Android：增加了对本地文件播放的支持。（startPlay 中设置 PLAY_TYPE_LOCAL_VIDEO）
 - iOS & Android：重新设计了播放器中缓冲区的方案，对于低延迟链路的声音流畅性有优化
