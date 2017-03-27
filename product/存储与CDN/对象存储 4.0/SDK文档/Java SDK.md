@@ -4,6 +4,8 @@
 
 [cos java sdk v4 github项目](https://github.com/tencentyun/cos-java-sdk-v4)
 
+[Java SDK本地下载](https://mc.qcloudimg.com/static/archive/2549fea204187b28d05fb1ac470f49d4/cos-java-sdk-v4-master.zip)
+
 ### 环境依赖
 
 JDK 1.7
