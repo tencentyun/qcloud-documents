@@ -1,4 +1,5 @@
-﻿## Underlying Implementation
+
+## Underlying Implementation
 
 Tencent cloud load balance (CLB) currently provides load balancing services on layer 4 and layer 7. Tencent gateway (TGW), the unified gateway product launched by Tencent, will provide cloud load balance feature, with high reliability, scalability, high performance, strong anti-attack capability and so on. It supports large-scale concurrent access and prevents malicious attacking traffic. The product forms of CLB include: cloud load balance capabilities, converging public network IP, anti DDoS attacks, QoS, FTP and SIP support, etc.
 

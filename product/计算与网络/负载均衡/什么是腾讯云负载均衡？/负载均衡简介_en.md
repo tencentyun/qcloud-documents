@@ -1,4 +1,5 @@
-﻿## What is Cloud Load Balancer?
+
+## What is Cloud Load Balancer?
 Cloud Load Balancer is a traffic delivery service for multiple [CVMs](/doc/product/213/495). Cloud load balancer can extend application systems' external service capabilities through traffic delivery and improve their availability by eliminating single point of failure.
 
 The Cloud Load Balance service virtualizes multiple CVM resources located in the **same region** into a high-performance, high-availability application service pool by setting a virtual service address (VIP), and delivers the network requests from the client to the CVM pool in a way specified by the application.
