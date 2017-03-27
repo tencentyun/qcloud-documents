@@ -2,10 +2,10 @@
 
 ### 相关资源
 
-COS服务的nodjes sdk v5版本的下载地址： [https://github.com/tencentyun/cos-nodejs-sdk-v5.git](https://github.com/tencentyun/cos-nodejs-sdk-v5.git) 
+COS服务的Node.js SDK v5版本的GitHub下载地址： [https://github.com/tencentyun/cos-nodejs-sdk-v5.git](https://github.com/tencentyun/cos-nodejs-sdk-v5.git) 
 （本版本SDK基于XML API封装组成）
 
-
+COS服务的Node.js SDK v5版本的本地下载地址：[Node.js SDK本地下载](https://mc.qcloudimg.com/static/archive/af0c4f2cf2804b23f02832ac4cd6f28f/cos-nodejs-sdk-v5-master.zip)
 ### 开发环境
 
 1. 使用SDK需要您的运行环境包含nodejs 以及npm , nodejs版本建议7.0版本以上
