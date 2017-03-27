@@ -1,4 +1,5 @@
-﻿## 1. Comparative analysis of Cloud Load Balancing Algorithm
+
+## 1. Comparative analysis of Cloud Load Balancing Algorithm
 
 ### 1.1. Weighted Round-Robin Scheduling
 

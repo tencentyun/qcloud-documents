@@ -1,4 +1,5 @@
-﻿## How does SSL mutual authentication work
+
+## How does SSL mutual authentication work
 
 - The browser sends a connection request to the secure server.
 - The server sends its certificate along with the certificate-related information to the client browser.

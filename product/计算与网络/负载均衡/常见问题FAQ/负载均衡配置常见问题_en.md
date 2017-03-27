@@ -1,4 +1,5 @@
-﻿## 1. What to do if a CVM instance exception is indicated in the health check?
+
+## 1. What to do if a CVM instance exception is indicated in the health check?
 Please conduct troubleshooting using the following steps:
 - Make sure that you access your application service directly via the CVM.
 - Make sure that the relevant port has been opened on back-end CVM.

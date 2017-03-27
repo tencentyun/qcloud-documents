@@ -1,4 +1,6 @@
-﻿## Purchase Channels
+
+## Purchase Channels
+
 Users may purchase any types of cloud load balancer instances provided by Tencent Cloud in the following ways:
 
 ### Purchasing via Official Site

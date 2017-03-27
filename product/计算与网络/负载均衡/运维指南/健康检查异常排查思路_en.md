@@ -1,4 +1,5 @@
-﻿## 1. Layer-4 Troubleshooting
+
+## 1. Layer-4 Troubleshooting
 
 Under TCP protocol, cloud load balancer uses SYN packet for the check, while under UDP protocol, it uses Ping command for the check.
 

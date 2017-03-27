@@ -1,4 +1,5 @@
-﻿## What is Session Persistence?
+
+## What is Session Persistence?
 
 Session persistence is one of the most common issues with cloud load balancer, and it is also a relatively complex one.  Session persistence is sometimes called Sticky Sessions.  Session persistence refers to a mechanism on the cloud load balancer that can identify the association between the client and the CVM during interaction, ensuring that a series of associated access requests keep allocating to a single server while performing cloud load balance. 
 

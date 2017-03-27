@@ -1,4 +1,3 @@
-﻿
 # 1. About Cloud Load Balancer (CLB)'s HTTPS Capability
 
 Tencent Cloud's CLB has achieved significant improvement in HTTPS performance based on the full optimization of protocol stack and servers. At the same time, our cooperation with world-leading certificate providers results in a considerable cost-saving in certificates. Tencent Cloud's CLB brings substantial benefits for your business in the following aspects:
