@@ -2,8 +2,9 @@
 
 ### SDK 获取
 
-COS服务的js sdk v4版本的下载地址： [https://github.com/tencentyun/cos-js-sdk-v4.git](https://github.com/tencentyun/cos-js-sdk-v4.git)
+COS服务的js sdk v4版本的下载GitHub地址： [https://github.com/tencentyun/cos-js-sdk-v4.git](https://github.com/tencentyun/cos-js-sdk-v4.git)
 
+[JavaScript SDK 本地下载](https://mc.qcloudimg.com/static/archive/98c6ca6493b2d5721738e10801cfcee2/cos-js-sdk-v4-master.zip)
 
 ### 开发环境
 
