@@ -1,5 +1,4 @@
 ## Service Availability
-
 We guarantee a 99.95% service availability for Cloud Load Balance, which means Cloud Load Balance will be available for service for at least 99.95% of the time, or 30(d)×24(h)×60(min)×99.95%=43,178.4 minutes, and be unavailable for service for 21.6 minutes at most each month. Such service availability is also applicable to Layer4/7 cloud load balancing VIP.
 
 When a CVM fails, the cloud load balancer will automatically eliminate the failed CVM and order other CVMs to handle the traffic of this CVM, whose downtime will not be included in the unavailable time of Cloud Load Balance.
