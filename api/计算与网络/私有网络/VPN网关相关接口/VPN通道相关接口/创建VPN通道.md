@@ -13,8 +13,8 @@
 | vpcId | 是 | string | 网络ID或者统一ID，建议使用统一ID,可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 | 
 | vpnGwId | 是 | String | 系统分配的VPN网关ID，可使用vpnGwId或unVpnGwId，建议unVpnGwId，例如：vpngw-dystbrkv。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>接口查询。 |
 | userGwId | 是 | String | 对端网关ID值，可使用userGwId或unUserGwId，建议使用unUserGwId，例如：cgw-e098slul。可通过<a href="https://www.qcloud.com/document/product/215/5119" title=" DescribeUserGw"> DescribeUserGw</a>接口查询。 |
-| vpnConnName | 否 | String | 通道名称，可任意命名，但不得超过60个字符。 |
-| preSharedKey | 否 | String | 预共享密钥。 |
+| vpnConnName | 是 | String | 通道名称，可任意命名，但不得超过60个字符。 |
+| preSharedKey | 是 | String | 预共享密钥。 |
 | userGwCidrBlock.n | 否 | Array | 对端网段CIDR地址，可写多个，指定vpc可以和哪些IDC网段通信，后面升级为spdAcl（粒度更细），userGwCidrBlock和spdAcl必须填一项。 |
 | spdAcl | 否 | String | SPD策略组，json格式，例如：{"10.0.0.5/24":["172.123.10.5/16"]}，10.0.0.5/24是vpc内网段172.123.10.5/16是IDC网段。用户指定VPC内哪些网段可以和您IDC中哪些网段通信，由userGwCidrBlock升级而来，userGwCidrBlock和spdAcl必须填一项。 |
 | ikeSet.n | 否 | Array | IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自保护机制，用户配置网络安全协议，详见<a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN连接-IKE配置">VPN连接-IKE配置</a>。 |

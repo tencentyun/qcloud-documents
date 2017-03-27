@@ -1,53 +1,53 @@
 # 数据订阅SDK
 ## SDK下载
-![点击下载][//mc.qcloudimg.com/static/archive/1c2d128c829ee54191b0627d8645a4fc/binlogsdk-2.0.2.jar.zip]
+[点击下载][1]
 
 ## SDK示例代码简介
 ---
 使用腾讯云DTS数据订阅示例代码如下：
 ```
 public class Main {
-	
-	public static void main(String[] args) throws Exception {
-		//创建一个context
-		SubscribeContext context=new SubscribeContext();
-		
-		//用户secretId、secretKey
-		context.setSecretId("AKID-522dabaa14dceed746ba8ccfb58e9e6f");
-		context.setSecretKey("AKEY-0ff4c4557c1183fc572baecfa505869d");
+ 
+    public static void main(String[] args) throws Exception {
+        //创建一个context
+        SubscribeContext context=new SubscribeContext();
+     
+        //用户secretId、secretKey
+        context.setSecretId("AKID-522dabaa14dceed746ba8ccfb58e9e6f");
+        context.setSecretKey("AKEY-0ff4c4557c1183fc572baecfa505869d");
 
-		//订阅的serviceIp和servicePort
-		context.setServiceIp("10.108.112.24");
-		context.setServicePort(50120);
-			
-		//创建客户端
-		SubscribeClient client=new DefaultSubscribeClient(context);
-			//创建订阅listener
-			ClusterListener listener= new ClusterListener() {
-			@Override
-			public void notify(List<ClusterMessage> messages) throws Exception {
-				//消费订阅到的数据
-				for(ClusterMessage m:messages){
-					for(Record.Field f:m.getRecord().getFieldList()){
-						if(f.getFieldname().equals("id")){
-							System.out.println("seq:"+f.getValue());
-						}
-					}
-					//消费完之后，确认消费
-					m.ackAsConsumed();   
-				}  
-			}
-			@Override
-			public void onException(Exception e){
-				System.out.println("listen exception"+e);
-			}};
-		//添加监听者
-		client.addClusterListener(listener);
-		//设置请求的订阅通道
-		client.askForGUID("dts-channel-B2eG8xbLvi472wV3");
-		//启动客户端
-		client.start();
-	}
+        //订阅的serviceIp和servicePort
+        context.setServiceIp("10.108.112.24");
+        context.setServicePort(50120);
+         
+        //创建客户端
+        SubscribeClient client=new DefaultSubscribeClient(context);
+            //创建订阅listener
+            ClusterListener listener= new ClusterListener() {
+            @Override
+            public void notify(List<ClusterMessage> messages) throws Exception {
+                //消费订阅到的数据
+                for(ClusterMessage m:messages){
+                    for(Record.Field f:m.getRecord().getFieldList()){
+                        if(f.getFieldname().equals("id")){
+                            System.out.println("seq:"+f.getValue());
+                        }
+                    }
+                    //消费完之后，确认消费
+                    m.ackAsConsumed();   
+                }  
+            }
+            @Override
+            public void onException(Exception e){
+                System.out.println("listen exception"+e);
+            }};
+        //添加监听者
+        client.addClusterListener(listener);
+        //设置请求的订阅通道
+        client.askForGUID("dts-channel-B2eG8xbLvi472wV3");
+        //启动客户端
+        client.start();
+    }
 }
 ```
 整个流程是个典型的生产者消费者模型，SDK作为消费者不断地从服务器拉取订阅的Binlog数据，消费数据，消费完确认消费完数据，比较直观：
@@ -56,7 +56,7 @@ public class Main {
  3. 最后启动客户端，开始流程
 在监听器`ClusterListener`中，可以根据用户自身的需求，对收到的数据进行操作，还可以对收到Binlog数据根据类型进行过滤，比如过滤掉所有`drop`语句等。
  
- 注意到示例代码中，用户需要提供五个参数。其中，`secretId`和`secretKey`是跟用户腾讯云帐号关联的密钥值，可以在腾讯云管理中心-->云产品-->关系型数据库-->MySQL-->密钥管理服务中查看，SDK用这两个两个参数来对用户操作进行鉴权；另外三个参数`serviceIp` `servicePort` `channelId`都是与用户Binlog订阅相关的，在腾讯云CDB for MySQL相应页面配置好订阅内容后，会展示在控制台上，具体操作步骤请参考控制台操作指引。
+ 注意到示例代码中，用户需要提供五个参数。其中，`secretId`和`secretKey`是跟用户腾讯云帐号关联的密钥值，可以在腾讯云管理中心--\>云产品--\>关系型数据库--\>MySQL--\>密钥管理服务中查看，SDK用这两个两个参数来对用户操作进行鉴权；另外三个参数`serviceIp` `servicePort` `channelId`都是与用户Binlog订阅相关的，在腾讯云CDB for MySQL相应页面配置好订阅内容后，会展示在控制台上，具体操作步骤请参考控制台操作指引。
 
 ## SDK API说明
 ---
@@ -79,7 +79,7 @@ public void setSecretId(String secretId)
 
 | 参数名 | 类型 | 参数含义 |
 |:-------------:|:-------------|:-------------|
-| secretId | String| 安全凭证secretId，可以在腾讯云管理中心-->云产品-->关系型数据库-->MySQL-->密钥管理服务中查看 |
+| secretId | String| 安全凭证secretId，可以在腾讯云管理中心--\>云产品--\>关系型数据库--\>MySQL--\>密钥管理服务中查看 |
 
 ###### 返回结果
 无
@@ -94,7 +94,7 @@ public void setSecretKey(String secretKey)
 ###### 输入参数
 | 参数名 | 类型 | 参数含义 |
 |:-------------:|:-------------|:-------------|
-| secretKey| String| 安全凭证secretKey，可以在腾讯云管理中心-->云产品-->关系型数据库-->MySQL-->密钥管理服务中查看 |
+| secretKey| String| 安全凭证secretKey，可以在腾讯云管理中心--\>云产品--\>关系型数据库--\>MySQL--\>密钥管理服务中查看 |
 
 ###### 返回结果
 无
@@ -159,9 +159,9 @@ public DefaultSubscribeClient(SubscribeContext context, boolean isSync) throws E
 
 ###### 抛出异常
 
- - 	IllegalArgumentException：如果用户提交的参数context，有参数不合理将抛此异常。不合理包括：没有安全凭证或者格式出错，没有服务的IP和端口，或者格式出错。
+ -  IllegalArgumentException：如果用户提交的参数context，有参数不合理将抛此异常。不合理包括：没有安全凭证或者格式出错，没有服务的IP和端口，或者格式出错。
  - Excetion：如果SDK内部初始化出错，将抛Exception异常。
- 
+	 
 ##### **构造DefaultSubscribeClient**
 ---
 ###### 函数原型
@@ -177,9 +177,9 @@ public DefaultSubscribeClient(SubscribeContext context) throws Exception
 
 ###### 抛出异常
 
- - 	IllegalArgumentException：如果用户提交的参数context，有参数不合理将抛此异常。不合理包括：没有安全凭证或者格式出错，没有服务的IP和端口，或者格式出错。
+ -  IllegalArgumentException：如果用户提交的参数context，有参数不合理将抛此异常。不合理包括：没有安全凭证或者格式出错，没有服务的IP和端口，或者格式出错。
  - Excetion：如果SDK内部初始化出错，将抛Exception异常。
- 
+	 
 #### 类方法
 ##### **添加SDK消费客户端的监听者**
 ---
@@ -200,7 +200,7 @@ public void addClusterListener(ClusterListener listener) throws Exception
 
  - IllegalArgumentException：如果用户提交的参数listener为空，将抛IllegalArgumentException异常。
  - Exception：当前SDK暂时仅支持一个Listener，如果加入多个监听者，将抛Exception异常。
- 
+	 
 ##### **请求某个订阅通道的增量数据**
 ---
 ###### 函数原型
@@ -341,7 +341,7 @@ public void ackAsConsumed() throws Exception
 
 #### 类方法
 ##### **获取Record的属性值**
-----
+---- 
 ###### 函数原型
 public String getAttribute(String key)
 
@@ -353,17 +353,17 @@ public String getAttribute(String key)
 可能的属性键值为：
 | 属性键值Key | 说明 |
 |:-------------|:-------------|
-|record_id |	Record的ID，这个ID在订阅过程中不保证递增|
-|source_type |	Record对应数据库实例的引擎类型，目前取值为：mysql|
-|source_category |	Record的类型，目前取值为：full_recorded|
-|timestamp |	Record落binlog的时间，这个时间同时也是这条SQL在RDS中执行的时间|
-|checkpoint | Record对应的binlog文件的位点，格式为:file_offset@file_name，filen_name为binlog文件的数字后缀|
-|record_type | Record对应的操作类型，主要取值包括：insert/update/delete/replace/ddl/begin/commit/heartbeat |
-|db 	|Record更新表，对应的数据库名|
-|table_name |	Record更新表的表名|
-|record_encoding|	Record对应的编码|
-|primary |	 Record更新表的主键列名|
-|fields_enc |	Record每个字段值的编码，各个字段之间用逗号隔开，如果非字符类型那么取值为空|
+|record\_id |    Record的ID，这个ID在订阅过程中不保证递增|
+|source\_type |  Record对应数据库实例的引擎类型，目前取值为：mysql|
+|source\_category |  Record的类型，目前取值为：full\_recorded|
+|timestamp |    Record落binlog的时间，这个时间同时也是这条SQL在RDS中执行的时间|
+|checkpoint | Record对应的binlog文件的位点，格式为:file\_offset@file\_name，filen\_name为binlog文件的数字后缀|
+|record\_type | Record对应的操作类型，主要取值包括：insert/update/delete/replace/ddl/begin/commit/heartbeat |
+|db     |Record更新表，对应的数据库名|
+|table\_name |   Record更新表的表名|
+|record\_encoding|   Record对应的编码|
+|primary |   Record更新表的主键列名|
+|fields\_enc |   Record每个字段值的编码，各个字段之间用逗号隔开，如果非字符类型那么取值为空|
 
 
 ###### 返回结果
@@ -405,7 +405,7 @@ public String getCheckpoint()
 ###### 返回结果
 | 类型 | 参数含义 |
 |:-------------|:-------------|
-| String| 记录在Binlog中的Checkpoint，格式为:binlog_offset@binlog_fid。其中binlog_offset为变更记录在binlog文件中的偏移量，binlog_fid为binlog文件名。|
+| String| 记录在Binlog中的Checkpoint，格式为:binlog\_offset@binlog\_fid。其中binlog\_offset为变更记录在binlog文件中的偏移量，binlog\_fid为binlog文件名。|
 
 ###### 抛出异常
 无
@@ -547,7 +547,7 @@ Field类定义了每个字段的编码、类型、字段名、字段值以及是
 
 #### 类方法
 ##### **获取字段的编码格式**
-----
+---- 
 ###### 函数原型
 public String getFieldEnc()
 
@@ -562,7 +562,7 @@ public String getFieldEnc()
 无
 
 ##### **获取字段名称**
-----
+---- 
 ###### 函数原型
 public String getFieldname()
 
@@ -578,7 +578,7 @@ public String getFieldname()
 
 
 ##### **获取字段的数据类型**
-----
+---- 
 ###### 函数原型
 public Field.Type getType()
 
@@ -595,7 +595,7 @@ public Field.Type getType()
 
 
 ##### **获取字段的值**
-----
+---- 
 ###### 函数原型
 public ByteString getFieldname()
 
@@ -612,7 +612,7 @@ public ByteString getFieldname()
 
 
 ##### **判断字段是否为主键**
-----
+---- 
 ###### 函数原型
 public Boolean isPrimary()
 
@@ -625,3 +625,5 @@ public Boolean isPrimary()
 
 ###### 抛出异常
 无
+
+[1]:	//mc.qcloudimg.com/static/archive/1c2d128c829ee54191b0627d8645a4fc/binlogsdk-2.0.2.jar.zip
