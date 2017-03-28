@@ -3,7 +3,7 @@
 Domain: vod.api.qcloud.com
 API name:  DescribeVodPlayUrls
 
-Acquire all play URLs, format, bit rate, height, width information of current video
+Acquire all playback URLs, format, bit rate, height, width information of current video
 
  
 
