@@ -1,4 +1,5 @@
-﻿## Applying for Domain Validation (DV) SSL Certificate
+
+## Applying for Domain Validation (DV) SSL Certificate
 
 ### 1. Application Entry
 

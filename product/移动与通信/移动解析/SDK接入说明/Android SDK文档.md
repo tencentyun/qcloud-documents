@@ -2,7 +2,10 @@
 
 腾讯云智营解析SDK MSDKDns 的主要功能是为了有效的避免由于运营商传统LocalDns解析导致的无法访问最佳接入点的方案。原理为使用Http加密协议替代传统的DNS协议，整个过程不使用域名，大大减少劫持的可能性。
 
-您可以通过Github获取最新的智营解析 Android SDK：https://github.com/tencentyun/httpdns-android-sdk
+您可以通过以下方式获取智营解析 Android SDK：
+
+[从 Github 访问 >>](https://github.com/tencentyun/httpdns-android-sdk)
+[点击下载 Android SDK >>](https://mc.qcloudimg.com/static/archive/bb98fef0f1ce611e5fb04aeb01f7eeab/httpdns-android-sdk-master.zip)
 
 注意：
 如果客户端的业务是与host绑定的，比如是绑定了host的http服务或者是cdn的服务，那么在用HTTPDNS返回的IP替换掉URL中的域名以后，还需要指定下Http头的Host字段。以curl为例，假设你要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：`curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt`

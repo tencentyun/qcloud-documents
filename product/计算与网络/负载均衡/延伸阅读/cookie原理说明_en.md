@@ -1,4 +1,6 @@
-﻿## What Is a Cookie? 
+
+## What Is a Cookie? 
+
 HTTP is a stateless protocol, which means that the client and the server do not need to establish a persistent connection. The connection between the client and the server is based on a request-response mode: the client and the server establish a connection - the client submits a request - the server returns a response after receiving a request, and then they are disconnected.
 
 So, if the client and the server will be disconnected and no longer have any relationship after a request is completed, when a user logs in on page 1 and then is navigated to page 2 of the same Web application, how does page 2 know that the user has already logged in? In other words, when the client initiates another request, how does the server determine whether the two different requests are from the same client?

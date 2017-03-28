@@ -1,4 +1,5 @@
-﻿## Multiple Availability Zones for Cloud Load Balancer
+
+## Multiple Availability Zones for Cloud Load Balancer
 
 
 The cloud load balancer (CLB) supports disaster tolerance across availability zones. For example, multiple clusters are deployed in two availability zone (of one region) in Shenzhen Finance Zone I and II to achieve disaster tolerance across availability zones in one region. This capability allows the cloud load balancer to forward the front-end access traffic of one availability zone to other availability zones in the same region within 10 seconds to restore service capabilities in case of failure of the former available zone

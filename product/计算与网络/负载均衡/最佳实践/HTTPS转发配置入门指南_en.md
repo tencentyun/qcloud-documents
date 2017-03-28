@@ -1,4 +1,4 @@
-﻿<<<<<<< Updated upstream
+
 ## About Cloud Load Balance Capacity
 
 Tencent Cloud's CLB has achieved significant improvement in HTTPS performance based on the full optimization of protocol stack and servers. At the same time, our cooperation with world-leading certificate providers results in a considerable cost-saving in certificates. Tencent Cloud's CLB brings substantial benefits for the business in the following aspects:
@@ -9,8 +9,7 @@ Tencent Cloud's CLB has achieved significant improvement in HTTPS performance ba
 4. One-stop service covering SSL certificate application, monitoring and replacement. By working with world-leading certificate providers including comodo and symantec, we have significantly simplified the certificate application procedures and reduced relevant costs.
 5. Anti-CC and WAF capabilities Effectively prevent attacks at application layer such as slow connection, high-frequency targeted attack, SQL injection, website malicious code.
 
-=======
-<<<<<<< HEAD
+
 #1. About Cloud Load Balance Capacity
 
 Tencent Cloud's CLB has achieved significant improvement in HTTPS performance based on the full optimization of protocol stack and servers. At the same time, our cooperation with world-leading certificate providers results in a considerable cost-saving in certificates. Tencent Cloud's CLB brings substantial benefits for the business in the following aspects:

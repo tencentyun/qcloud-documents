@@ -1,4 +1,5 @@
-﻿## What is the SSL Certificate Chain?
+
+## What is the SSL Certificate Chain?
 
 There are two types of CAs: Root CAs and intermediate CAs. In order for an SSL certificate to be trusted, that certificate must have been issued by a CA that is included in the trusted store of the connecting device.
 	

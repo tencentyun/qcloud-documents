@@ -1,4 +1,5 @@
-﻿## Public Network Application-based CLB - Flow Chart
+
+## Public Network Application-based CLB - Flow Chart
 
 The Layer-7 business process and Layer-4 business process of the public network application-based CLB are displayed as follows:
 

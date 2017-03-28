@@ -1,4 +1,5 @@
-﻿## 1. How to apply for commonly-used certificates
+
+## 1. How to apply for commonly-used certificates
 
 - Generate private key locally: openssl genrsa -out privateKey.pem 2048, where privateKey.pem is your private key file. Make sure to place the file in a secure place for safekeeping.
 - Generate certificate request file: openssl req -new -key privateKey.pem -out server.csr, where server.csr is your certificate request file which is used to apply for certificate
