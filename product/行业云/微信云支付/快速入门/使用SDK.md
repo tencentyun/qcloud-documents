@@ -1,92 +1,119 @@
 ## SDK开发
-- 调用云支付即可使用云支付提供的对外接口，也可以使用SDK提供的接口，SDK对请求参数进行打包、签名、封装HTTPS请求等操作使得商户调用云支付系统更加方便。
-- 当前SDK只支持刷卡支付、查询订单、撤单、门店上传、门店下载5个接口。其中刷卡支付为异步方式，刷卡接口调用成功只代表支付提交成功，支付结果需要通过查询订单得到。撤单接口为同步调用云支付接口。后续会提供其他场景的接口。
-- 当前只提供了Windows环境下的SDK，后续会提供其他环境。
-[点击下载SDK>>](https://mc.qcloudimg.com/static/archive/7584829da631c20b705fb49bfa0e27f0/SDK.zip)
 
-## Windows下的SDK使用说明
+- 调用云支付即可使用云支付提供的对外接口，也可以使用 SDK 提供的接口，SDK 对请求参数进行打包、签名、封装 HTTPS 请求等操作使得商户调用云支付系统更加方便。
 
-### 支付类
+- 当前SDK支持刷卡支付、查询订单、取消订单(包含撤单和关单)、扫码支付、申请退款、查询退款、门店上传、门店下载8个接口。其中刷卡支付和扫码支付为异步方式，接口调用成功只代表支付提交成功，支付结果需要通过查询订单得到；取消订单、申请退款、退款查询、门店上传、门店下载接口为同步调用云支付接口。
+ 
+- 当前只提供了 Windows 环境下的 SDK，后续会提供其他环境。[点击下载SDK>>](https://mc.qcloudimg.com/static/archive/11125cb23fabd1b41107e415bfd993ad/SDK.zip)
 
-#### 初始化函数
+## windows下的SDK使用说明
+
+### 初始化函数
 
 使用云支付类接口时需要在进程启动时调用初始化函数，函数定义如下：
 
-![](https://mc.qcloudimg.com/static/img/8467956ce8023751457553f8e5eeb730/image.png)
+![](https://mc.qcloudimg.com/static/img/0c11f96209c282e4c55702087849c418/image.png)
 
-初始函数的参数打包的格式如下图。
-其中有些参数可以不设置，如果不设置，则会使用系统的默认值，建议使用默认值。
+初始参数打包例子，有些参数可以不用设置。如果不设置，则会使用系统的默认值。建议使用默认值：
 
-![](https://mc.qcloudimg.com/static/img/48d7fb3ec045bc4578f85dbaf4aab608/image.png)
+![](https://mc.qcloudimg.com/static/img/c1111bbddaeb87bc93991aa48306c823/image.png)
+![](https://mc.qcloudimg.com/static/img/bcc9f934b47858c12bce00c6a3f6bc40/image.png)
 
-初始参数打包例子：
+初始参数打包示例：
+
 ![](https://mc.qcloudimg.com/static/img/e9956b2451c74fdebb3654d4eb20ab53/image.png)
 
-#### 结束函数
-
-使用云支付类接口时需要在进程退出时调用结束函数，函数定义如下：
-
-![](https://mc.qcloudimg.com/static/img/025565506110172861aada26e31e56f5/image.png)
+### 支付类
 
 #### 刷卡支付
 
-接口定义如下，返回0表示受理支付成功，-1表示受理失败。如果支付受理成功，并不表示支付成功，需要通过查单接口去查询是否支付成功。
+接口定义如下，返回0表示受理支付成功，-1表示受理失败。
+需要注意的是，支付受理成功并不代表支付成功，需要通过查单接口去查询是否支付成功。
 
-![](https://mc.qcloudimg.com/static/img/0cfdb97230024a8782dbd33813476ccb/image.png)
+![](https://mc.qcloudimg.com/static/img/9dda0e7a882f0edb8828a76b75022d32/image.png)
 
 构造刷卡支付请求参数的例子：
 
-![](https://mc.qcloudimg.com/static/img/86c0df6aabe415992a81b79393c6a116/image.png)
+![](https://mc.qcloudimg.com/static/img/444dedddf935fbc4d2b7c1c5704f6b91/image.png)
 
-调用SDK刷卡支付接口的例子：
 
-![](https://mc.qcloudimg.com/static/img/9cdc522402c312881e0d722fa725ed25/image.png)
+调用 SDK 刷卡支付接口的例子：
+
+![](https://mc.qcloudimg.com/static/img/b422837b1b5f809ae7e8176a87347f61/image.png)
 
 #### 查询订单
 
 可以查询一个订单的支付结果，支付成功则返回具体的订单信息，接口定义如下：
+![](https://mc.qcloudimg.com/static/img/ba6032f3c843d5c1e0da7bf3fbc44556/image.png)
 
-![](https://mc.qcloudimg.com/static/img/96050fc5a9d5967e2123b1fbe5e58b88/image.png)
 
 构造查询订单请求参数的例子：
 
-![](https://mc.qcloudimg.com/static/img/4115697df52d15e320e38a757f883d79/image.png)
+![](https://mc.qcloudimg.com/static/img/4b178e73fe2b6e56ca49b6812448c36f/image.png)
 
-调用SDK查单接口的例子：
+刷卡支付调用SDK查单接口例子：
 
-![](https://mc.qcloudimg.com/static/img/ee4effb08cc8aeb52174c42b21bba375/image.png)
+![](https://mc.qcloudimg.com/static/img/586b2a47a70695538cb90c4333ac2491/image.png)
 
-如果支付成功，订单信息保存在`order`中，为`json`格式，需要按照`cloud_pay_sdk.proto`中`OrderSdk`的结构去解析具体的订单信息。
+如果支付成功，订单信息保存在 order 中，为 json 格式，需要按照 `cloud_pay_sdk.proto` 中 `OrderSdk` 的结构去解析具体的订单信息。
 
-#### 撤单订单
+#### 取消订单
 
-商户可以主动调用撤单接口，撤单接口为同步调用云支付的撤单接口。
+商户可以主动调用取消订单接口，取消订单接口为同步调用云支付的撤单（对应刷卡支付）或关单接口（对应扫码支付）。
 
-![](https://mc.qcloudimg.com/static/img/ab9b90d624442171ec0ca01b90de34d8/image.png)
+![](https://mc.qcloudimg.com/static/img/db06c77ab6a495f11869d7c5b9adc10b/image.png)
 
-构造撤销订单请求参数的例子：
+刷卡支付下构造取消订单请求参数的例子：
 
-![](https://mc.qcloudimg.com/static/img/cb7e1634b485fead75e95c7d6a5758c9/image.png)
+![](https://mc.qcloudimg.com/static/img/62fb392de50bd80eb18e983b626aff3a/image.png)
 
-调用SDK撤销订单接口的例子：
+刷卡支付下调用SDK取消订单接口例子：
 
-![](https://mc.qcloudimg.com/static/img/2ffd3ce5845656e809a90dbfead44ec5/image.png)
+![](https://mc.qcloudimg.com/static/img/aab8ed77b94e2a109e025ff6f855831c/image.png)
+
+#### 扫码支付
+
+扫码支付接口，返回0表示受理支付成功，-1表示受理失败。支付受理成功并不代表预下单成功，需要通过查单接口去查询是否预下单成功。
+
+![](https://mc.qcloudimg.com/static/img/84c9ade2542f961c4a20bb4360dedf6f/image.png)
+
+扫码支付下构造扫码支付请求参数的例子：
+
+![](https://mc.qcloudimg.com/static/img/ab4001e6bf1cb8d39e0d2227ff446eeb/image.png)
+
+扫码支付下调用SDK扫码支付接口例子：
+
+![](https://mc.qcloudimg.com/static/img/ea268d59867960ef04b994cb5e5938c1/image.png)
+
+#### 申请退款
+
+支付成功的订单，可以申请退款。申请退款接口为：
+
+![](https://mc.qcloudimg.com/static/img/801f3d5b1b0b4049cfec73c7ff725118/image.png)
+
+构造申请退款请求参数为例子：
+
+![](https://mc.qcloudimg.com/static/img/6fdf88d048d075ec9d6c0bb11857126c/image.png)
+
+调用申请退款请求的接口例子：
+
+![](https://mc.qcloudimg.com/static/img/51247510ff1accc2731d744e7c22ef7f/image.png)
+
+#### 查询退款
+
+申请退款成功后，可以查询退款的进展：
+
+![](https://mc.qcloudimg.com/static/img/b1410f5855e07e7adf79f782d6c9a605/image.png)
+
+构造查询退款请求参数的例子：
+
+![](https://mc.qcloudimg.com/static/img/af1331d4ca219d8d3c7dd5f2fba99d57/image.png)
+
+调用查询退款请求的例子： 
+
+![](https://mc.qcloudimg.com/static/img/2cf4655acfbfb2e96e10c12144c3da95/image.png)
 
 ### 门店类
-
-#### 初始化函数
-
-调用门店的接口，需要先调用门店相关的初始化函数。
-
-![](https://mc.qcloudimg.com/static/img/ac910ffb35e3823df41eaf5e857e0604/image.png)
-
-初始函数的参数打包的格式如下图，其中有些参数可以不用设置，如果不设置使用系统的默认值，建议使用默认值。
-
-![](https://mc.qcloudimg.com/static/img/a0d0c863e9fee8b529375dc91d2d93a4/image.png)
-
-构造门店初始化请求参数的例子：
-
-![](https://mc.qcloudimg.com/static/img/b2b3f609f6e78bd152a7ff0f1565155a/image.png)
 
 #### 设置门店信息
 
@@ -115,3 +142,9 @@
 调用查询门店接口的例子：
 
 ![](https://mc.qcloudimg.com/static/img/ac464c1d700788e404813440b7eba188/image.png)
+
+### 结束函数
+
+使用云支付类接口时需要在进程退出时调用结束函数，函数定义如下：
+
+![](https://mc.qcloudimg.com/static/img/025565506110172861aada26e31e56f5/image.png)

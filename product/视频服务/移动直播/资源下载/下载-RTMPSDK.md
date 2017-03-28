@@ -1,5 +1,5 @@
-**【版本说明】**
-- 版本号：1.9.2.2231 @ 2017-03-18
+## 版本说明
+- 版本号：1.9.2.2243 @ 2017-03-22
 - iOS & Android：优化了摄像头直播中的美颜效果，并增加了对滤镜的支持 ，详情请关注 [如何实现更好的画质](https://www.qcloud.com/document/product/454/7955)
 - iOS & Android：增加了对本地文件播放的支持。（startPlay 中设置 PLAY_TYPE_LOCAL_VIDEO）
 - iOS & Android：重新设计了播放器中缓冲区的方案，对于低延迟链路的声音流畅性有优化
@@ -7,7 +7,7 @@
 - iOS：优化了直播过程中添加水印的性能。
 - 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)
 
-**【美颜优化】**
+## 美颜优化
 - **细节提升**：新版本美颜通过全新的区域识别和面部检测方案，将眼睛、眉毛、胡须、头发等细节的处理尽可能削减为零，以保证最大限度的接近真实情况。
 <video style="width:830px;height:470px;"src="http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/f2d370249031868222870425840/f0.f30.mp4" controls="controls">
 抱歉，您的浏览器不支持在线播放MP4！
@@ -19,10 +19,10 @@
 
 - **曝光改善**：通过启用新的曝光方案，解决了iOS曝光过度的问题；同时针对 Android 各机型摄像头曝光敏感度不同的现状，提供了曝光设置功能，可以让主播在曝光不理想（低端机较常见）时手动修正曝光效果。
 
-**【版本预告】**
+## 版本预告
 - 2.0.0 版本预计3月31日发布，RTMP SDK将增加小视频采集和发布功能。
 
-**【文档索引】**
+## 文档索引
 <table class="t">
 <tbody><tr>
 <th style="text-align: center; width: 150px;"> 文档标题
@@ -78,21 +78,21 @@
 </tbody></table>
 
 
-**【测试情况】**
+## 测试情况
 - 核心测试用例： 总用例数 - 43， 通过用例数  - 43， 不通过用例数 - 0
 - 系统测试用例： 总用例数 - 261，通过用例数 - 261，不通过用例数 - 0
 - 全量测试用例： 总用例数 - 646，通过用例数 - 635，不通过用例数 - 11
 
-**【下载地址】**
+## 下载地址
 
 | 操作系统 | 版本号 | 版本说明|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS完整版  | 1.9.2.2231  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS1.9.2.2231.zip)  |
-| IOSRename版  | 1.9.2.2231  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename1.9.2.2231.zip) |
-| IOS精简版  | 1.9.2.2231  | 在完整版的基础上裁剪掉了非核心功能，双架构代码体积增量 <font color='red'>800K</font> 。<br> 精简版点播功能的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple1.9.2.2231.zip)  |
-| Android完整版  | 1.9.2.2231 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.9.2.2231.zip)  |
-| Android精简版  | 1.9.2.2231 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.9.2.2231.zip)  |
+| IOS完整版  | 1.9.2.2243  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS1.9.2.2243.zip)  |
+| IOSRename版  | 1.9.2.2243  | 在完整版的基础上，对 ffmpeg 等开源组件进行了符号重命名。<br>如果您原项目中有打包 ffmpeg 导致符号冲突或者运行时莫名其妙的崩溃，推荐使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename1.9.2.2243.zip) |
+| IOS精简版  | 1.9.2.2243  | 在完整版的基础上裁剪掉了非核心功能，双架构代码体积增量 <font color='red'>800K</font> 。<br> 精简版点播功能的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple1.9.2.2243.zip)  |
+| Android完整版  | 1.9.2.2243 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid1.9.2.2243.zip)  |
+| Android精简版  | 1.9.2.2243 | 在完整版的基础上裁剪掉了连麦功能。 <br> 如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple1.9.2.2243.zip)  |
 
-**【联系我们】**
+## 联系我们
 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://www.qcloud.com/document/product/454/7998)。
 

@@ -2,7 +2,10 @@
 
 ### 相关资源
 
-[github项目](https://github.com/tencentyun/cos-cpp-sdk-v4)
+[github项目地址](https://github.com/tencentyun/cos-cpp-sdk-v4)
+
+[C++ SDK 本地下载](https://mc.qcloudimg.com/static/archive/ebb45053fb35607c81359b48cd83a759/cos-cpp-sdk-v4-master.zip)
+
 
 ### 开发环境
 
@@ -348,7 +351,7 @@ string CosAPI::FileUpload(FileUploadReq& request);
 
 | **参数名** | **类型**          | **默认值** | **参数描述** |
 | ------- | --------------- | ------- | -------- |
-| request | FolderUploadReq | 无       | 文件上传请求类型 |
+| request | FileUploadReq | 无       | 文件上传请求类型 |
 
 | **参数名**    | **类型** | **默认值** | **设置方法**             | **参数描述**                               |
 | ---------- | ------ | ------- | -------------------- | -------------------------------------- |
@@ -448,7 +451,7 @@ string CosAPI::FileStat(FileStatReq& request)
 
 | **参数名** | **类型**      | **默认值** | **参数描述** |
 | ------- | ----------- | ------- | -------- |
-| request | FileStatReq | 无       | 目录列表请求类型 |
+| request | FileStatReq | 无       | 文件查询请求类型 |
 
 FileStatReq
 
@@ -489,7 +492,7 @@ string rsp = cos.FileDelete(fileDeleteReq);
 
 | **参数名** | **类型**          | **默认值** | **参数描述** |
 | ------- | --------------- | ------- | -------- |
-| request | FolderDeleteReq | 无       | 目录删除请求类型 |
+| request | FileDeleteReq | 无      | 文件删除请求类型 |
 
 FolderDeleteReq
 

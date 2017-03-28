@@ -2,7 +2,9 @@
 
 ### SDK 获取
 
-对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
+对象存储服务的 iOS SDK 的GitHub下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
+
+[iOS SDK 本地下载](https://mc.qcloudimg.com/static/archive/ce6e00447ad609382d52f8a22d5ccce8/COS_iOS_SDK-master.zip)
 
 更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git) 
 （本版本SDK基于JSON API封装组成）
@@ -137,7 +139,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 **签名获取：**
 
-移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。
+移动端 SDK 中用到的签名，为了保障密钥等信息的安全性，推荐用户自建简单的密钥创建和获取服务，客户端在使用时向服务器先请求合法的签名。
 
 ## 目录操作
 
@@ -260,9 +262,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型             | 说明     |
 | ------- | -------------- | ------ |
-| retCode | int            | 任务描述代码 |
-| descMsg | NSString    *  | 任务描述信息 |
-| data    | NSDictionary * | 任务描述信息 |
+| retCode | int            | 正常返回0，错误返回非0，并描述结果状态信息。 |
+| descMsg | NSString    *  | 正常返回OK，错误返回错误描述信息。  |
+| data    | NSDictionary * | 描述结果状态信息 |
 
 
 #### 示例
@@ -365,7 +367,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSListDirCommand *cm = [COSListDirCommand new]；
+    COSListDirCommand *cm = [COSListDirCommand new];
     cm.directory = dir;
     cm.bucket = bucket;
     cm.sign = _sign;
@@ -433,8 +435,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 | --------- | ---------- | ---------------------------------- |
 | retCode   | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
 | descMsg   | NSString * | 任务描述信息                             |
-| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
-| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
+| accessURL | NSString * | 成功后，后台返回文件的 CDN url                |
+| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
+| httpsURL | NSString * | 成功后，后台返回文件的 https url                 |
 
 #### 示例
 
@@ -512,7 +515,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 1. 实例化 COSObjectMetaCommand  对象；
 2. 调用 COSClient 的 getObjectInfo 命令，传入 COSObjectMetaCommand   对象；
-3. 通过COSObjectMetaTaskRsp 类返回结果信息
+3. 通过COSObjectMetaTaskRsp 对象返回结果信息
 
 
 #### 参数说明
@@ -586,7 +589,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
+    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new];
 	cm.fileName = file;
 	cm.bucket = bucket;
     cm.directory = dir;
