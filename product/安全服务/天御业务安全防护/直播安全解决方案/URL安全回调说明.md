@@ -105,3 +105,5 @@ B. 封禁级别说明
 <td>整站黑</td></tr>
 <tr><td>5</td>
 <td>整域黑</td></tr>
+</td></tr>
+</tbody></table>
