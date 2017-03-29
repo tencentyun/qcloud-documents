@@ -2,11 +2,11 @@
 
 ### 简介
 
-cosfs 能让您在Linux/Mac OS X 系统中把Tencent COS bucket 挂载到本地文件 系统中，您能够便捷的通过本地文件系统操作COS 上的对象，实现数据的共享。
+COS-Fuse 能让您在Linux 系统中把Tencent COS bucket 挂载到本地文件 系统中，您能够便捷的通过本地文件系统操作COS 上的对象，实现数据的共享。
 
 ### 功能
 
-cosfs 基于s3fs 构建，具有s3fs 的全部功能。主要功能包括：
+COS-Fuse 基于s3fs 构建，具有s3fs 的全部功能。主要功能包括：
 
 - 支持POSIX 文件系统的大部分功能，包括文件读写，目录，链接操作，权限，uid/gid
 - 通过COS 的multipart 功能上传大文件。
@@ -17,7 +17,6 @@ cosfs 基于s3fs 构建，具有s3fs 的全部功能。主要功能包括：
 ### 系统环境
 
 Linux
-
 
 
 ## 使用方法
