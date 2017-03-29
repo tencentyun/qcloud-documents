@@ -75,7 +75,7 @@ cosfs appid:my-bucket /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=i
 **说明：**-ouse_cache 指定了使用本地cache来缓存临时文件，进一步提高性能，如果不需要本地cache或者本地磁盘容量有限，可不指定该选项。
 
 ### 卸载
-卸载bucket:
+卸载 bucket:
 ```
 fusermount -u /tmp/cosfs # non-root user
 ```
@@ -83,7 +83,7 @@ fusermount -u /tmp/cosfs # non-root user
 ## 常见问题
 ### 局限性
 
-cosfs 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：
+COS-Fuse 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：
 
 - 随机或者追加写文件会导致整个文件的重写。
 - 元数据操作，例如 list directory ，性能较差，因为需要远程访问COS服务器。
