@@ -5,6 +5,7 @@
 您可以通过以下方式获取智营解析 iOS SDK：
 
 [从 Github 访问 >>](https://github.com/tencentyun/httpdns-ios-sdk)
+[点击下载 iOS SDK >>](https://mc.qcloudimg.com/static/archive/2430d31ca1a56bcf9861910dd17f22a9/httpdns-ios-sdk-master.zip)
 
 注意：
 如果客户端的业务是与host绑定的，比如是绑定了host的http服务或者是cdn的服务，那么在用HTTPDNS返回的IP替换掉URL中的域名以后，还需要指定下Http头的Host字段。
