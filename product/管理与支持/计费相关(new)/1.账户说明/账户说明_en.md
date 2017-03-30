@@ -1,4 +1,4 @@
- e ## What is Cloud Account?
+## What is Cloud Account?
 
 Each user registered with Tencent Cloud will be assigned a cloud account. Users can manage cloud costs with this account , such as topping up account, buying Tencent Cloud services using the account balance, etc.
 <font color="red">Post-paid payment is supported for Tencent Cloud's international products:</font> 
