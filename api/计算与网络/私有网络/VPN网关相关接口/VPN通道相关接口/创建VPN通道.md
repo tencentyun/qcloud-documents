@@ -66,7 +66,6 @@ IPsec配置详情
 | InvalidVpnGw.NotFound | 无效的vpn网关。vpn网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>接口查询vpn网关。 |
 | InvalidUserGw.NotFound | 无效的对端网关。对端网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a>接口查询对端网关。 |
 | InvalidVpnConnName | VPN 名称不合法。可任意命名，但不得超过60个字符。 |
-| InvalidVpnConnName.InUse | vpn通道名称已被使用。同一个VPC内vpn通道名称不能重复。 |
 | VpnConnLimitExceeded | 您已经达到指定区域vpn通道资源申请数量上限。如果需要更多资源，请联系客服申请。更多vpc资源限制信息详见<a href="https://www.qcloud.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a>。 |
 
 

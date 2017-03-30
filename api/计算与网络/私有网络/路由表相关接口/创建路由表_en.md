@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | Yes | String | ID of VPC to which the subnet belongs. It can be vpcId or unVpcId. unVpcId is recommended. For example, vpc-rqndayhs. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| routeTableName | Yes|  String| Routing table name. You can specify any name you like, but its length should be limited to 60 characters. The name must be unique within the same VPC.   |
+| routeTableName | Yes|  String| Routing table name. You can specify any name you like, but its length should be limited to 60 characters.   |
 | routeSet.n | No | array | Content of routing table. This is optional.  |
 | routeSet.n.destinationCidrBlock | Yes | String | Destination network segment, which cannot be within the VPC network segment. For example: 112.20.51.0/24. |
 | routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: nat gateway. |
@@ -42,7 +42,6 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC.  VPC resource does not exist. Please verify that you have entered resource information correctly. You can query VPC through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | InvalidRouteTableName | Invalid routing table name.  You can specify any name you like, but its length should be limited to 60 characters.   |
-| InvalidRouteTableName.InUse | The routing table name has been used by another routing table under the VPC.  The routing table name must be unique within the same VPC.   |
 | InvalidDestinationCidr | Invalid destination network segment.   |
 | RouteTableLimitExceeded | Number of routing tables allowed to be created has been exceeded.  Please contact customer service for more resources.  For more information on VPC resource restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.   |
 | RouteLimitExceeded | The upper limit of number of routing table policies has been exceeded.  Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |

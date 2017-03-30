@@ -14,7 +14,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | vpcId | Yes | String | Virtual private cloud ID of elastic NIC (new ID is recommended), for example: vpc-7t9nf3pu.   |
 | subnetId | Yes | String | Subnet of elastic NIC (new ID is recommended), for example: subnet-0ap8nwca.  |
-| eniName| Yes| String | Elastic NIC name; you can specify any name you like, but its length should be limited to 60 characters. The name must be unique within the same VPC.  |
+| eniName| Yes| String | Elastic NIC name; you can specify any name you like, but its length should be limited to 60 characters.  |
 | eniDescription| No | String | Elastic NIC description; you can specify any name you like, but its length should be limited to 60 characters.   |
 | privateIpAddressSet.n | No | Array | Specified private IP address array.   |
 | privateIpAddressSet.n.primary | Yes | Bool | Indicate whether it is a primary IP; can only set one primary IP.   |
@@ -38,7 +38,6 @@ The following error code list only provides the business logic error codes for t
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API |
 | InvalidSubnet.NotFound | Invalid subnet, subnet resource does not exist. Please verify that the resource information you entered is correct. You can query the subnet via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8" title="DescribeSubnetEx">DescribeSubnetEx</a> API |
 | InvalidNetworkInterfaceName | Elastic NIC is invalid. you can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidNetworkInterface.InUse | The elastic NIC name is already used by another elastic NIC under the VPC. The elastic NIC name must be unique within the same VPC.  |
 | NetworkInterfaceLimitExceeded | Number of Elastic NICs exceeds the upper limit. Please contact customer service for more resources. For more information on VPC resources restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a> |
 
 ## 5. Example

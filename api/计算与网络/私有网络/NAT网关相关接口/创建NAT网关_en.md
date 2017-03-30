@@ -9,7 +9,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
-| natName | Yes | string | NAT gateway name, which has a length of 1-25 characters, and can contain Chinese characters, uppercase and lowercase English letters, numbers, and underscores. The NAT gateway name must be unique under the same VPC.  |
+| natName | Yes | string | NAT gateway name, which has a length of 1-25 characters, and can contain Chinese characters, uppercase and lowercase English letters, numbers, and underscores.  |
 | vpcId | Yes | string | Virtual private cloud ID or unified ID (unified ID is recommended). Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | maxConcurrent | Yes | int | The limit of concurrent connection of NAT gateway, for example: 1000000, 3000000, 10000000. For more information about supported data, please refer to <a href="https://www.qcloud.com/doc/product/215/1682" title="Gateway Description" >Virtual Private Cloud Gateway Description</a>.  |
 | bandwidth | No | int | The maximum public network output bandwidth of the gateway (unit: Mbps),  which is 100Mbps by default. For more information about supported data, please refer to <a href="https://www.qcloud.com/doc/product/215/1682" title="Gateway Description" >Virtual Private Cloud Gateway Description</a>.  |
@@ -33,7 +33,6 @@ The following error code list only provides the business logic error codes for t
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API |
 | InvalidNatGatewayName | The NAT gateway name is invalid. Valid NAT gateway name shall have a length of 1-60 characters, and can contain Chinese characters, uppercase and lowercase English letters, numbers, and underscores |
-| InvalidNatGateway.InUse | The NAT gateway name has been used by other NAT gateways under the VPC. The NAT gateway name must be unique under the same VPC.  |
 | NatGatewayLimitExceeded | The number of created NAT gateways exceeds the limit. Please contact customer service for more resources. For more information on VPC resource restrictions, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a> |
 
 ## 5. Example
