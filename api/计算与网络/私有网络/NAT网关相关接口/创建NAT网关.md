@@ -9,7 +9,7 @@
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| natName | 是 | string | NAT网关名称，支持1-25个中文、英文大小写的字母、数字和下划线分隔符，同一个VPC内NAT网关名称不能重复。 |
+| natName | 是 | string | NAT网关名称，支持1-25个中文、英文大小写的字母、数字和下划线分隔符。 |
 | vpcId | 是 | string | 私有网络ID或者统一ID，建议使用统一ID,可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
 | maxConcurrent | 是 | int | 网关并发连接上限，例如：1000000、3000000、10000000，具体支持数据请参见<a href="https://www.qcloud.com/doc/product/215/1682" title="网关说明" >私有网络网关说明</a>。 |
 | bandwidth | 否 | int | 网关最大外网出带宽(单位:Mbps), 默认: 100Mbps, 具体支持数据请参见<a href="https://www.qcloud.com/doc/product/215/1682" title="网关说明" >私有网络网关说明</a>。 |
@@ -33,7 +33,6 @@
 |---------|---------|
 | InvalidVpc.NotFound | 无效的 VPC，VPC 资源不存在。请再次核实您输入的资源信息是否正确，可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询 VPC |
 | InvalidNatGatewayName | NAT 网关名称不合法。NAT 网关名称取值范围：1-60个中文、英文大小写的字母、数字和下划线分隔符 |
-| InvalidNatGateway.InUse | NAT 网关名称已被 VPC 下其他 NAT 网关使用，同一个 VPC 内NAT 网关名称不能重复。 |
 | NatGatewayLimitExceeded | 创建的 NAT 网关数量超过上限。如果需要更多资源，请联系客服申请。更多VPC资源限制信息详见<a href="https://www.qcloud.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a> |
 
 ## 5. 示例
