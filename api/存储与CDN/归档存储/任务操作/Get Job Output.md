@@ -77,5 +77,4 @@ Range:ByteRangeToRetrieve
 
 **取回Archive**
 
-下载对应Archive。
-
+下载对应Archive
