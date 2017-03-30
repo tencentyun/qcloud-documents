@@ -14,7 +14,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | vpcId | Yes | String | Virtual private cloud ID of elastic NIC (new ID is recommended), for example: vpc-7t9nf3pu.   |
 | subnetId | Yes | String | Subnet of elastic NIC (new ID is recommended), for example: subnet-0ap8nwca.  |
-| eniName| Yes| String | Elastic NIC name; you can specify any name you like, but its length should be limited to 60 characters. The name must be unique within the same VPC.  |
+| eniName| Yes| String | Elastic NIC name; you can specify any name you like, but its length should be limited to 60 characters.  |
 | eniDescription| No | String | Elastic NIC description; you can specify any name you like, but its length should be limited to 60 characters.   |
 | privateIpAddressSet.n | No | Array | Specified private IP address array.   |
 | privateIpAddressSet.n.primary | Yes | Bool | Indicate whether it is a primary IP; can only set one primary IP.   |
