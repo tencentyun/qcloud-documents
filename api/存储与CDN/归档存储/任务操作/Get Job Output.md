@@ -79,4 +79,3 @@ Range:ByteRangeToRetrieve
 
 下载对应Archive。
 
-## 示例

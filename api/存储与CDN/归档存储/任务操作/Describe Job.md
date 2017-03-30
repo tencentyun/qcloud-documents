@@ -2,7 +2,7 @@
 
 Describle Job 请求实现获取Vault的具体任务信息
 
-支持跨账户操作。当操作本账户时，UID为"-"。
+支持跨账户操作。当操作本账户时，UID为"-"
 
 ## 请求
 
@@ -39,7 +39,7 @@ Authorization: Auth
 
 | 名称                    | 描述                                       | 类型       |
 | --------------------- | ---------------------------------------- | -------- |
-| Action                | Job类型，枚举值：  `ArchiveRetrieval`， `InventoryRetrieval`。 对于档案取回任务，此值为 `ArchiveRetrieval` | String   |
+| Action                | Job类型， 对于档案取回任务，此值为 `ArchiveRetrieval`   | String   |
 | JobId                 | 任务的ID                                    | String   |
 | JobDescription        | 任务的描述                                    | String   |
 | CreationDate          | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z`。 | ISO 8601 |
@@ -53,7 +53,7 @@ Authorization: Auth
 | ArchiveSHA256TreeHash | 档案取回操作的整个档案的 SHA256 树形哈希                 | String   |
 | RetrievalByteRange    | 档案取回任务所取回的字节范围，格式为“*StartByteValue*-*EndByteValue*”。如果没有在档案取回中指定范围，则取回整个档案，并且 *StartByteValue* 等于 0，*EndByteValue* 等于档案大小减去 1 | String   |
 | SHA256TreeHash        | 档案请求范围的 SHA256 树形哈希值。 当指定未以树形哈希对齐的范围的档案取回任务，该值为Null； 当指定不等于整个档案的范围并且任务状态为InProgress的档案任务，该值为Null，任务完成后，SHA256TreeHash字段将具有值。 | String   |
-| Tier                 | Archive检索的检索类型。枚举值： `Expedited` ，`Standard` ，`Bulk` | String   |
+| Tier                  | Archive检索的检索类型。枚举值： `Expedited` ，`Standard` ，`Bulk` | String   |
 
 ```JSON
 {     
@@ -79,7 +79,7 @@ Authorization: Auth
 
 | 名称                           | 描述                                       | 类型       |
 | ---------------------------- | ---------------------------------------- | -------- |
-| Action                       | Job类型，枚举值：  `ArchiveRetrieval`， `InventoryRetrieval`。 对于档案取回任务，此值为 `ArchiveRetrieval` | String   |
+| Action                       | Job类型， 对于档案取回任务，此值为 `ArchiveRetrieval`   | String   |
 | JobId                        | 任务的ID                                    | String   |
 | JobDescription               | 任务的描述                                    | String   |
 | CreationDate                 | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z`。 | ISO 8601 |
