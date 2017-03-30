@@ -13,17 +13,15 @@ PUT /<UID>/vaults/<VaultName>/access-policy HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
-
-{JSON String}
 ```
 
 ### 请求参数
 
-无特殊请求参数。
+无特殊请求参数
 
 ### 请求头部
 
-无特殊请求头部，其他头部请参见公共请求头部。
+无特殊请求头部，其他头部请参见公共请求头部
 
 ### 请求内容
 
@@ -63,7 +61,7 @@ Authorization: Auth
 
 已支持条件操作
 
-| 条件操作符                   | 含义     | 条件名                    | 举例                                       |
+| ConditionOperator       | 含义     | 条件名                    | 举例                                       |
 | ----------------------- | ------ | ---------------------- | ---------------------------------------- |
 | ip_equal                | ip等于   | ip,ip要符合CIDR规范         | {" ip_equal  ":{"ip":"10.121.2.10/24"}}  |
 | ip_not_equal            | ip不等于  | ip，ip要符合CIDR规范         | {" ip_not_equal  ":{"ip":["10.121.2.10/24",  "10.121.2.20/24"]}} |
