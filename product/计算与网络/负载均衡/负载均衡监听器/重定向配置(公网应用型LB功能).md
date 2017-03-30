@@ -59,17 +59,13 @@ server {
 #### A.方案说明：
 假定开发者需要配置网站 https://example.com 。开发者希望用户在浏览器中输入网址时，直接键入www.example.com 即可通过 HTTPS 协议安全访问。www.example.com下，不仅仅是一个地址，后端关联的URL可能有数百的（用正则匹配），总的real server数量会有几百个。逐一配置难度太大。腾讯云支持一键式的，强制https跳转。
 第一步，现在腾讯云控制台，将https监听器配置好。 也就是https://example.com的web环境搭建好
-
+![](https://mc.qcloudimg.com/static/img/61a723a69c581968a46fe86447f1473a/1111.jpg)
 第二步，到应用型负载均衡器，控制台处启用重定向能力，目前支持域名级别，整体跳转。
-
+![](https://mc.qcloudimg.com/static/img/e066362fed8d3cf7740dd50c49c6004b/2222.jpg)
 #### B.方案优势：
 - 仅需1次配置：一个域名，一次配置即可完成强制https。
 - 更新：若https服务的url有增减，只需要在控制台，重新使用该功能刷新一遍即可。
 
-## 二、典型案例（马上金融）
-1、domain1+url1 ：80 跳转到 domain1 +url1 ：443，满足全网站强制https的需求
-2、自定义重定向：页面1重定向到页面2。主要用于当源地址，服务器维护，升级，或售罄等情况下，将请求重定向到其他页面（公告栏、首页等）
-
-## 三、注意事项
+## 二、注意事项
 - 会话保持：如client端访问了 example.com/bbs/test/123.html，且后端cvm开启了会话保持。 当启用重定向，将流量导到 example.com/bbs/test/456.html时。原会话保持机制将失效
 - TCP/UDP重定向：暂不支持ip+port级别的重定向，后续版本将提供。
