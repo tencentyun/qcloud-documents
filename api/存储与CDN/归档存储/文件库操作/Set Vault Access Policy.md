@@ -44,20 +44,19 @@ Authorization: Auth
                 "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>",
                 "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>"
             ],
-            "condition": [
-                {
-                    "<ConditionOperator>": {
-                        "<ConditionName>": [
-                            "<ConditionValue>",
-                            "<ConditionValue>"
-                        ]
-                    }
+            "condition": {
+                "<ConditionOperator>": {
+                    "<ConditionName>": [
+                        "<ConditionValue>",
+                        "<ConditionValue>"
+                    ]
                 }
-            ]
+            }
         }
     ]
 }
 ```
+
 
 已支持条件操作
 
