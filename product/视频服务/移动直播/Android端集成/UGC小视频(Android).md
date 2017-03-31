@@ -87,6 +87,7 @@ mTXCameraRecord.toggleTorch(mFlashOn);
 // （由于采用优图团队的知识产权，我们无法对外免费提供，需要使用特权版 SDK 才能支持）
 //////////////////////////////////////////////////////////////////////////
 
+// 设置动效贴纸 motionTmplPath 动效文件路径： 空String "" 则取消动效
 mTXCameraRecord.setMotionTmp(motionTmplPath);
 ```
 
