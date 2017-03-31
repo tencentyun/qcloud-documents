@@ -52,7 +52,7 @@ Authorization: Auth
 ```JSON
 
 {
-  "Marker": String
+  "Marker": String,
   "VaultList": [ 
    {
     "CreationDate": String,
@@ -61,7 +61,7 @@ Authorization: Auth
     "SizeInBytes": Number,
     "VaultQCS": String,
     "VaultName": String
-   }, 
+   }
    ...
   ]
 }

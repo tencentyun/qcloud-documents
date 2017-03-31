@@ -64,7 +64,8 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 | PLAY_TYPE_VOD_FLV | 2 | 传入的URL为RTMP点播地址 |
 | PLAY_TYPE_VOD_HLS | 3 | 传入的URL为HLS(m3u8)点播地址 |
 | PLAY_TYPE_VOD_MP4 | 4 | 传入的URL为MP4点播地址 |
-
+| PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟连麦链路直播地址（仅适合于连麦场景） |
+| PLAY_TYPE_LOCAL_VIDEO | 6 | 手机本地视频文件 |
 
 ### step 4: 画面调整
 
@@ -253,20 +254,4 @@ _config.cacheTime              = 5;
 
 [_txLivePlayer setConfig:_config];
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
