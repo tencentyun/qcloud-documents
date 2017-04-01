@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | vpcId | Yes | String | Virtual private cloud ID of the subnet, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-ktom9wg5. You can query this through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  | 
 | networkAclId | Yes | String | Network ACL ID assigned by the system. For example: acl-cva92t60. Can be queried via the API <a href="https://www.qcloud.com/doc/api/245/1441" title="DescribeNetworkAcl">DescribeNetworkAcl</a>.  |
-| networkAclName | Yes | String | Network ACL name; you can specify any name you like, but its length should be limited to 60 characters. The name must be unique under the same VPC.  |
+| networkAclName | Yes | String | Network ACL name; you can specify any name you like, but its length should be limited to 60 characters.  |
 
 
 ## 3. Output Parameters
@@ -30,7 +30,6 @@ The following request parameter list only provides API request parameters. Commo
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query VPCs via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | InvalidNetworkAclID.NotFound | Invalid network ACL ID. Network ACL ID does not exist. Please verify that the resource information you entered is correct. You can query network ACL IDs via the API <a href="https://www.qcloud.com/doc/api/245/1441" title="DescribeNetworkAcl">DescribeNetworkAcl</a>.  |
 | InvalidNetworkAclName | Invalid network ACL name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidNetworkAclName.InUse | The network ACL name is already used by another network ACL under the VPC. The network ACL name must be unique under the same VPC.  |
 
 ## 5. Example
  

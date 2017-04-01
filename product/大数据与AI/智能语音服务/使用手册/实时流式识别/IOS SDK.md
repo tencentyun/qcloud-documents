@@ -2,47 +2,44 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK][1]
+实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/e681b228c06e53096510b3b61c012d36/QCloudAAI_IOSSDK.zip)
 
-更多示例可参考Demo：[iOS Demo][2]
+更多示例可参考 Demo：[iOS Demo](https://mc.qcloudimg.com/static/archive/44653a19a6f274ebc2b3f7ef028bb72b/QCloudAAI_IOSDemo.zip)
 
 ### 开发准备
 
--  只支持iOS 8.0及以上版本，不支持 bitcode 版本；
--  实时流式语音识别，需要手机能够连接网络（GPRS、3G或Wifi网络等）；
--  从控制台获取APP ID、SecretID、SecretKey，详情参考[基本概念]()。
+-  只支持 iOS 8.0 及以上版本，不支持 bitcode 版本；
+-  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 WiFi 网络等）；
+-  从控制台获取 APP ID、SecretID、SecretKey，详情参考[基本概念](https://www.qcloud.com/document/product/441/6194)。
 
 
 ### SDK 配置
 
 #### SDK 导入
 
-iOS SDK压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一个 .a 静态库和一个头文件文件夹 Headers。
+iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一个` .a` 静态库和一个头文件文件夹 Headers。
 
 #### 工程配置
 
-在 Build Settings 中设置 Other Linker Flags，加入参数 -ObjC。
+在 Build Settings 中设置 Other Linker Flags，加入参数 `-ObjC`。
 
 ![参数配置](https://mccdn.qcloud.com/static/img/58327ba5d83809c77da158ff95627ef7/image.png)
 
-在工程info.plist文件中设置：
+在工程` info.plist` 文件中设置：
 
-1, App Transport Security Settings 类型，然后在App Transport Security Settings下添加Allow Arbitrary Loads 类型Boolean，值设为YES；
+1. App Transport Security Settings 类型，然后在App Transport Security Settings下添加Allow Arbitrary Loads 类型 Boolean，值设为 `YES`；
 
-2, 在程序中初始化QCloudAAIClient的实例对象myClient ， [myClient openHTTPSrequset:YES]；程序可以支持https；
+2. 在程序中初始化 QCloudAAIClient 的实例对象 myClient ，` [myClient openHTTPSrequset:YES]`；（程序可以支持 https）
 
-3, 在工程info.plist文件中添加Privacy - Microphone Usage Description，获取系统的么麦克风的权限。
-
-在工程中添加依赖库,在build Phases  Link Binary Whith Libraries 中添加以下库：
-
-1, libstdc++.6.0.9.tbd；
-
-2, libc++.tdb。
+3. 在工程 `info.plist `文件中添加 Privacy - Microphone Usage Description，获取系统的麦克风的权限；
+在工程中添加依赖库，在 build Phases  Link Binary Whith Libraries 中添加以下库：
+	- libstdc++.6.0.9.tbd
+	- libc++.tdb
 
 
 ## 签名获取
 
-移动端 SDK 中用到的签名，建议由业务服务器来生成，并由移动端向业务服务器请求。业务侧服务器需要进行签名的生成，具体生成和使用请参照[签名鉴权][3] 。识别SDK签名必须实现QCloudAAIClient的 QCloudAAIGetSignDelegate 的协议，对由SDK 提供(NSString*)param，进行加密处理；
+移动端 SDK 中用到的签名，建议由业务服务器来生成，并由移动端向业务服务器请求。业务侧服务器需要进行签名的生成，具体生成和使用请参照[签名鉴权](https://www.qcloud.com/document/product/441/6203) 。识别SDK签名必须实现QCloudAAIClient的 QCloudAAIGetSignDelegate 的协议，对由SDK 提供(NSString*)param，进行加密处理；
 
 ```objective-c
 // 获取请求的签名
@@ -64,12 +61,12 @@ iOS SDK压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一�
 
 | 参数名称          | 类型           | 是否必填 | 说明                                       |
 | ------------- | ------------ | ---- | ---------------------------------------- |
-| appId         | NSString *   | 是    | 项目ID，即APP ID。  |
-| sid         | NSString *   | 是    | 项目的SecretID。  |
-| pid         | NSString *   | 是    | 项目的ProjectID。  |
+| appId         | NSString *   | 是    | 项目ID，即 `APP ID`  |
+| sid         | NSString *   | 是    | 项目的 `SecretID`  |
+| pid         | NSString *   | 是    | 项目的 `ProjectID`  |
 
 
-### STEP1：初始化QCloudAAIClient
+### STEP1：初始化 QCloudAAIClient
 
 #### 示例
 
@@ -77,7 +74,10 @@ iOS SDK压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一�
 QCloudAAIClient *client= [[QCloudAAIClient alloc] initWithAppid:appid secretid:sid projectId:projectId]];
 ```
 ### STEP2：开始语音识别
+
+```
 -(BOOL)startDetectionWihtCompletionHandle:(QCloudAAICompletionHandler)handler stateChange:(QCloudAAIChangeHandler)stateChange；
+```
 
 #### 示例
 
@@ -116,8 +116,3 @@ QCloudAAIClient *client= [[QCloudAAIClient alloc] initWithAppid:appid secretid:s
  [client stop];
 
 ```
-
-
-  [1]: https://mc.qcloudimg.com/static/archive/e681b228c06e53096510b3b61c012d36/QCloudAAI_IOSSDK.zip
-  [2]: https://mc.qcloudimg.com/static/archive/44653a19a6f274ebc2b3f7ef028bb72b/QCloudAAI_IOSDemo.zip
-  [3]: https://www.qcloud.com/document/product/441/6203
