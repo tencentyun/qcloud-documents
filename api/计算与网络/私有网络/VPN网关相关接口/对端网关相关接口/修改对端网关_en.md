@@ -10,7 +10,7 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | userGwId | Yes | String | Peer gateway ID assigned by the system. For example: cgw-e098slul |
-| userGwName | Yes | String | Peer gateway name. You can use any content as long as it does not exceed 60 characters. The name must be unique under the same developer.  |
+| userGwName | Yes | String | Peer gateway name. You can use any content as long as it does not exceed 60 characters.  |
 
 ## 3. Output Parameters
 
@@ -25,7 +25,6 @@ The following request parameter list only provides API request parameters. Commo
 | Error code | Description |
 |---------|---------|
 | InvalidUserGwName | Invalid peer gateway name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidUserGwName.InUse | Peer gateway name already in use. The peer gateway name must be unique under the same account.  |
 | InvalidUserGw.NotFound | Invalid peer gateway. Peer gateway resource does not exist. Please verify that the resource information you entered is correct. You can query peer gateway by using the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
 
 ## 5. Example
