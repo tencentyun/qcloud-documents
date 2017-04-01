@@ -7,7 +7,7 @@
 - **Cross-region copying of image**: You can copy your custom images to other Tencent Cloud regions.
 - **4 disk types**: HDD local disk, SSD local disk, HDD Cloud disk, SSD Cloud disk.
 - **Custom access control**: Define your CVM and network access strategies by setting Security Groups and network ACLs for different instances.
-- **Top-speed public network**: 20-line BGP public network that covers almost all network service providers. No matter which ISP your clients are using, they can always enjoy the same top-speed bandwidth. Optional public network bandwidth of maximum 200Mbps
+- **Top-speed public network**: 20-line BGP public network that covers almost all network service providers. No matter which ISP your clients are using, they can always enjoy the same top-speed bandwidth. Optional public network bandwidth of maximum 200 Mbps
 - **Stable private network quality**: the private networks of Tencent Cloud's data centers in the same region are interconnected, all with megabyte or gigabyte underlying networks, thus ensuring communication quality within the private networks.
 - **Custom network structure**: Virtual Private Cloud (VPC) provides independent network space with custom division of network segment as well as IP address and custom router strategy etc. Provide port-level access control for comprehensive logic isolation of network.
 - **Various CVM login methods**: provide various login methods including key login, password login, VNC login, etc.

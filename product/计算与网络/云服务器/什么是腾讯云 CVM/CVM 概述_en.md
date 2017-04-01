@@ -1,5 +1,5 @@
 ## Introduction of Tencent Cloud CVM
-Tencent Cloud Cloud Virtual Machine (CVM) provides extendable calculating capacity on the cloud, frees you from estimation of resources usage and in-advance investment. With Tencent Cloud CVM, you can enable CVMs and deploy applications immediately. Tencent Cloud CVM allows you to configure your resources according to your actual requirements, such as CPU, memory, storgae, network, security and so on. 
+Tencent Cloud Cloud Virtual Machine (CVM) provides extendable calculating capacity on the cloud, frees you from estimation of resources usage and in-advance investment. With Tencent Cloud CVM, you can enable CVMs and deploy applications immediately. Tencent Cloud CVM allows you to configure your resources according to your actual requirements, such as CPU, memory, storage, network, security and so on. 
 
 Glossary:
 
