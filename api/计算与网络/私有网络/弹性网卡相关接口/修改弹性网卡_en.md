@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (ModifyNetworkInterface) is used to modify elastic NICs.
+This API (ModifyNetworkInterface) is used to modify ENIs.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 
@@ -9,10 +9,10 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | Yes | String | Virtual private cloud ID of elastic NIC, for example: vpc-7t9nf3pu.  |
-| networkInterfaceId | Yes | String | Elastic NIC ID assigned by the system,  for example: eni-m6dyj72l.  |
-| eniName | No | String | Elastic NIC name. You can specify any name you like, but its length should be limited to 60 characters. The name must be unique within the same VPC.  |
-| eniDescription | No | String | Elastic NIC description. You can specify any name you like, but its length should be limited to 60 characters. |
+| vpcId | Yes | String | Virtual private cloud ID of ENI, for example: vpc-7t9nf3pu.  |
+| networkInterfaceId | Yes | String | ENI ID assigned by the system,  for example: eni-m6dyj72l.  |
+| eniName | No | String | ENI name. You can specify any name you like, but its length should be limited to 60 characters. The name must be unique within the same VPC.  |
+| eniDescription | No | String | ENI description. You can specify any name you like, but its length should be limited to 60 characters. |
 
 
 ## 3. Output Parameters
@@ -28,8 +28,8 @@ The following error code list only provides the business logic error codes for t
 | Error Code | Description |
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly. You can query the VPC by using the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API |
-| InvalidNetworkInterface.NotFound | Invalid elastic NIC, Elastic NIC resource does not exist. Please verify that you have entered resource information correctly. You can query the elastic NIC via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.  |
-| InvalidEniName.InUse | The elastic NIC name has already been used.  |
+| InvalidNetworkInterface.NotFound | Invalid ENI, ENI resource does not exist. Please verify that you have entered resource information correctly. You can query the ENI via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.  |
+| InvalidEniName.InUse | The ENI name has already been used.  |
 
 ## 5. Example
 Input

@@ -1,17 +1,17 @@
 ## 1. API Description
 
-This API (UnassignPrivateIpAddresses) is used to return the private IP of elastic NIC.
+This API (UnassignPrivateIpAddresses) is used to return the private IP of ENI.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
-If an auxiliary private IP on the elastic NIC is returned, the API will automatically dissociate it from the elastic public IP. The primary auxiliary private IP on the elastic NIC cannot be returned.
+If an auxiliary private IP on the ENI is returned, the API will automatically dissociate it from the elastic public IP. The primary auxiliary private IP on the ENI cannot be returned.
 
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is UnassignPrivateIpAddresses.
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | Yes | String | Virtual private cloud ID of elastic NIC, for example: vpc-7t9nf3pu |
-| networkInterfaceId | Yes | String | Elastic NIC ID, for example: eni-m6dyj72l |
+| vpcId | Yes | String | Virtual private cloud ID of ENI, for example: vpc-7t9nf3pu |
+| networkInterfaceId | Yes | String | ENI ID, for example: eni-m6dyj72l |
 | privateIpAddress.n | Yes | Array | The auxiliary private IP address array to be returned, for example: privateIpAddress.0=10.0.0.2 |
 
 ## 3. Output Parameters
@@ -28,7 +28,7 @@ The following list only provides the business logic error codes for this API. Fo
 | Error Code | Description |
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly. You can query the VPC via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API |
-| InvalidNetworkInterface.NotFound | Invalid elastic NIC, Elastic NIC resource does not exist. Please verify that you have entered resource information correctly. You can query the elastic NIC via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API |
+| InvalidNetworkInterface.NotFound | Invalid ENI, ENI resource does not exist. Please verify that you have entered resource information correctly. You can query the ENI via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API |
 | InvalidPrivateip.IsPrimary | The primary IP cannot be unbound |
 
 ## 5. Example

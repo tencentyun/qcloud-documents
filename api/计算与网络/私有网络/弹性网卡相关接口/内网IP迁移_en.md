@@ -3,8 +3,8 @@
 This API (MigratePrivateIpAddress) is used to migrate private IPs.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
-1) If a user of this API migrates a private IP from one elastic NIC to another elastic NIC, the primary IP address cannot be migrated.
-2) The original elastic NIC and the elastic NIC to which the private IP is migrated must be in the same subnet.
+1) If a user of this API migrates a private IP from one ENI to another ENI, the primary IP address cannot be migrated.
+2) The original ENI and the target ENI must be in the same subnet.
 
 
 ## 2. Input Parameters
@@ -12,10 +12,10 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | Yes | String | Virtual private cloud ID of elastic NIC, for example: vpc-7t9nf3pu.  |
+| vpcId | Yes | String | Virtual private cloud ID of ENI, for example: vpc-7t9nf3pu.  |
 | privateIpAddress | Yes | String | The private IP address to be migrated, for example: 10.0.0.6.  |
-| oldNetworkInterfaceId | Yes | String | ID of the elastic NIC before the private IP is migrated, for example: eni-m6dyj72l.  |
-| newNetworkInterfaceId | Yes | String | ID of the elastic NIC to which the private IP is migrated, for example: eni-dfddf454d.  |
+| oldNetworkInterfaceId | Yes | String | ID of the ENI before the private IP is migrated, for example: eni-m6dyj72l.  |
+| newNetworkInterfaceId | Yes | String | ID of the ENI to which the private IP is migrated, for example: eni-dfddf454d.  |
 
 
 ## 3. Output Parameters
@@ -32,7 +32,7 @@ The following error code list only provides the business logic error codes for t
 | Error Code | Description |
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly. You can query the VPC via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API.  |
-| InvalidNetworkInterface.NotFound | Invalid elastic NIC, Elastic NIC resource does not exist. Please verify that you have entered resource information correctly. You can query the elastic NIC via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.  |
+| InvalidNetworkInterface.NotFound | Invalid ENI, ENI resource does not exist. Please verify that you have entered resource information correctly. You can query the ENI via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.  |
 
 ## 5. Example
 Input
