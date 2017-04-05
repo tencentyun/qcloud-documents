@@ -42,7 +42,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.instanceSet | Array | CVM information bound to ENI | 
 | data.n.groupSet | Array | Security group information bound to ENI | 
 
-**privateIpAddressesSet information array: **
+**privateIpAddressesSet information array:**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -51,21 +51,21 @@ The following request parameter list only provides API request parameters. Commo
 | wanIp | String | Public IP |
 | EipId | String | EIP ID |
 
-**instanceSet information array: **
+**instanceSet information array:**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | instanceId | String | Tencent CVM instance ID, for example: ins-xx44545f | 
 | attachTime | String | binding time, for example: 2016-02-15 19:20:54 | 
 
-**groupSet information array: **
+**groupSet information array:**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | sgId | String | Security group ID, for example: sg-dfg1df54 | 
 | sgName | String | Security group name | 
 
-## 4. Error Code Table
+## 4. Error Codes
 The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |

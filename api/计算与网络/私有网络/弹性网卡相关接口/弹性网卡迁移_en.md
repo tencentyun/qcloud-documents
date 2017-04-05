@@ -4,7 +4,7 @@ This API (MigrateNetworkInterface) is used to migrate ENIs.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 1) This API is used to migrate the ENI from one CVM to another. The primary ENI cannot be migrated.
-2) The CVM before and after the migration must be in shutdown or running status. For details on the CVM status, refer to<a href="https://www.qcloud.com/doc/api/229/831" title="Query Tencent CVM Information">Query Tencent CVM Information</a>.
+2) The CVM before and after the migration must be in shutdown or running status. For details on the CVM status, refer to <a href="https://www.qcloud.com/doc/api/229/831" title="Query CVM Information">Query CVM Information</a>.
 3) The CVM after the migration must belong to the VPC sub-machine. The availability zone of​the CVM after the migration must be the same as that of ​the ENI.
 
 ## 2. Input Parameters
@@ -30,9 +30,9 @@ The following error code list only provides the business logic error codes for t
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API.  |
-| InvalidNetworkInterface.NotFound | Invalid ENI, ENI resource does not exist. Please verify that the resource information you entered is correct. You can query the ENI via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.  |
-| InvalidInstance.NotFound | Invalid CVM instance. The CVM instance resource does not exist. Please verify that the resource information you entered is correct. You can query the CVM instance via the <a href="https://www.qcloud.com/doc/api/229/831" title="DescribeInstances">DescribeInstances</a> API.  |
+| InvalidVpc.NotFound | VPC does not exist. Please check the information you entered. You can query the VPC via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API.  |
+| InvalidNetworkInterface.NotFound | ENI does not exist. Please check the information you entered. You can query the ENI via the <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%bc%b9%e6%80%a7%e7%bd%91%e5%8d%a1%e4%bf%a1%e6%81%af?viewType=preview" title="DescribeNetworkInterfaces">DescribeNetworkInterfaces</a> API.  |
+| InvalidInstance.NotFound | The CVM instance does not exist. Please check the information you entered. You can query the CVM instance via the <a href="https://www.qcloud.com/doc/api/229/831" title="DescribeInstances">DescribeInstances</a> API.  |
 | InvalidNetworkInterface.AlreadyAssociated | The ENI is already bound to a CVM.  |
 
 ## 5. Example
