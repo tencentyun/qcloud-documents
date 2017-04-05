@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (DescribeSSLVpnDomain) is used to query sslVPN domain.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font> 
+Domain for API request: <font style="color:red">vpc.api.qcloud.com</font> 
 
  
 
@@ -22,25 +22,25 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Error code, 0:  Succeeded, other values:  Failed.  |
 | message | String | Error message.  |
-| data.n | Array | Returned ssl vpn domain information |
+| data.n | Array | Returned SSL VPN domain information |
 | data.n.groupId | String | Workgroup ID, for example: ugrp-8zbvqpea. |
 | data.n.ipPool | Array | Terminal IP range. |
-| data.n.acl.n | Array | Information array of acl rules. |
+| data.n.acl.n | Array | Information array of ACL rules. |
 
-Information array of acl rules
+Information array of ACL rules
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| acl.n.proto | String | acl protocol, for example tcp. |
+| acl.n.proto | String | ACL protocol, for example TCP. |
 | acl.n.action | String | ACL rule, 0: Allow, 1: Reject. |
 | acl.n.destinationPort | String | Destination port. |
-| acl.n.sourceCidr | String | Source IP or source network segment. |
-| acl.n.destinationCidr | String | Destination IP or network segment. |
+| acl.n.sourceCidr | String | Source IP or IP address range. |
+| acl.n.destinationCidr | String | Destination IP or IP address range. |
 
-## 4. Error Code Table
- The API does not have a business error code. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
+## 4. Error Codes
+ The API does not have a business error code. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes">VPC Error Codes</a>
  
-## 5. Example
+## 5. Example****
  
 Input
 <pre>
