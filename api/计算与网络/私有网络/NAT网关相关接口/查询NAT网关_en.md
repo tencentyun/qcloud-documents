@@ -35,7 +35,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.vpcId | string | VPC unified ID, for example: vpc-xgfd55d |
 | data.n.natName | string | NAT gateway name |
 | data.n.state | int | NAT gateway status, 0: Running, 1: Unavailable, 2: Be in arrears and out of service |
-| data.n.maxConcurrent | int | The limit of concurrent connection of NAT gateway, 100w: small-sized, 300w: medium-sized, 1000w: large-sized. For more information, refer to <a href="">Introduction to NAT Gateway</a> |
+| data.n.maxConcurrent | int | The limit of concurrent connection of NAT gateway. 1 million: small-sized; 300 million: medium-sized; 10 million: large-sized. For more information, refer to <a href="">Introduction to NAT Gateway</a> |
 | data.n.bandwidth | int | The maximum public network output bandwidth of the gateway (unit: Mbps). For more information, refer to <a href="">Introduction to NAT Gateway</a> |
 | data.n.eipCount | string | Unified ID of NAT gateway, for example: nat-xx454 |
 | data.n.eipSet | array | All of the EIP information of the gateway, for example:[183.60.249.11] |
