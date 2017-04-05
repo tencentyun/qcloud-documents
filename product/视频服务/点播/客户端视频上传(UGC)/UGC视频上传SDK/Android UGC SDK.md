@@ -1,5 +1,5 @@
 ## SDK集成
-[点击下载](https://mc.qcloudimg.com/static/archive/ab5853a171024359000887545e260c2c/tvcsdk_201611041102.zip)Android UGC SDK。解压zip包，配置工程导入其中的jar包:
+点击下载[Android UGC SDK](https://mc.qcloudimg.com/static/archive/b060a4157dafeb2d3e3626cdfa7a6b6f/Android-UGC_201703291104.zip)Android UGC SDK。解压zip包，配置工程导入其中的jar包:
 
 >* tvcsdk.jar
 >* okio-1.6.0.jar
