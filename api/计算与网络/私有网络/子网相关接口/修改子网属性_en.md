@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | vpcId | Yes | String | VPC ID of the subnet, which can be vpcId or unVpcId. unVpcId is recommended. You can query this through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | subnetId | Yes | String | ID of the subnet to be modified. Both subnetId and unSubnetId are supported. unSubnetId is recommended. You can query this through the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8" title="DescribeSubnetEx">DescribeSubnetEx</a>. |
-| subnetName | Yes | String | Subnet name. You can specify any name you like, but its length should be limited to 60 characters. Subnet name must be unique under the same VPC.  |
+| subnetName | Yes | String | Subnet name. You can specify any name you like, but its length should be limited to 60 characters. |
  
 
 ## 3. Output Parameters
@@ -30,7 +30,6 @@ The following request parameter list only provides API request parameters. Commo
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | InvalidSubnet.NotFound | Invalid subnet. Subnet resource does not exist. Please verify that the resource information you entered is correct. You can query subnets via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8" title="DescribeSubnetEx">DescribeSubnetEx</a>.  |
 | InvalidSubnetName | Subnet name is invalid or is already used by another subnet under the VPC. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidSubnetName.InUse | The subnet name is already used by another subnet under the VPC. Subnet name must be unique in the same VPC.  |
 
 ## 5. Example
  
