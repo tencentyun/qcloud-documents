@@ -2,7 +2,7 @@
 Domain: lb.api.qcloud.com
 API: DescribeBmLoadBalancerBackends
 
-Acquire list of BM load balancer backend servers
+This API is used to acquire list of BM load balancer backend servers
 
 ## 2. Input Parameters
 | Parameter Name | Required | Type | Description |

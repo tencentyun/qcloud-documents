@@ -2,7 +2,9 @@
 
 ### SDK 获取
 
-对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
+对象存储服务的 iOS SDK 的GitHub下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
+
+[iOS SDK 本地下载](https://mc.qcloudimg.com/static/archive/ce6e00447ad609382d52f8a22d5ccce8/COS_iOS_SDK-master.zip)
 
 更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git) 
 （本版本SDK基于JSON API封装组成）
@@ -365,7 +367,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSListDirCommand *cm = [COSListDirCommand new]；
+    COSListDirCommand *cm = [COSListDirCommand new];
     cm.directory = dir;
     cm.bucket = bucket;
     cm.sign = _sign;
@@ -587,7 +589,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
+    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new];
 	cm.fileName = file;
 	cm.bucket = bucket;
     cm.directory = dir;
