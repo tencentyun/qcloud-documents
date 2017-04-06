@@ -1,7 +1,7 @@
 ## 1. API Description
 
-This API (DeleteVpnConn) is used to delete VPN channel.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
+This API (DeleteVpnConn) is used to delete VPN tunnel.
+Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
  
 
@@ -23,15 +23,15 @@ The following request parameter list only provides API request parameters. Commo
 | message |  String | Error message |
 | data.taskId | Int  | Task ID. The operation result can be queried with taskId. For more information, refer to <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">API for Querying Task Execution Result</a>.  |
 
- ## 4. Error Code Table
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| InvalidVpnGw.NotFound | Invalid VPN gateway. VPN gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN gateway via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>.  |
-| InvalidVpnConnState | Invalid VPN channel status |
-| InvalidVpnConn.NotFound | Invalid VPN channel. VPN channel resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN channel via the API <a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>.  |
+| InvalidVpc.NotFound | VPC does not exist. Please check the information you entered. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| InvalidVpnGw.NotFound | VPN gateway does not exist. Please check the information you entered. You can query the VPN gateway via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>.  |
+| InvalidVpnConnState | Invalid VPN tunnel status |
+| InvalidVpnConn.NotFound | Invalid VPN tunnel. VPN tunnel does not exist. Please check the information you entered. You can query the VPN channel via the API <a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>.  |
 
 ## 5. Example
  
