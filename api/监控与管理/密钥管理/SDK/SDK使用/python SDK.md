@@ -51,7 +51,7 @@ windows cmd
 #### 方法原型
 
 ```
-    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT')
 ```
 
 #### 参数说明
@@ -85,16 +85,14 @@ windows cmd
 #### 方法原型
 
 ```
-    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def get_key_attributes(self, KeyId=None)
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|KeyId|string|None|主密钥Id|
 
 返回值 KeyMetadata结构体 描述如下：
 
@@ -110,58 +108,52 @@ windows cmd
 #### 使用示例
 
 ```
-    description ='for test'
-    alias = 'kms_test'
-    kms_meta = kms_account.create_key(description,alias)
+    keyId=''  # 请填写你的keyId
+    key_meta = kms_account.get_key_attributes("kms-awy8dndb")
+    print key_meta
 ```
 
 ### 获取主密钥列表
 #### 方法原型
 
 ```
-    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def list_key(self, offset=0, limit=10)
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|offset|int|0|返回列表偏移值。|
+|limit|int|10|本次返回列表限制个数，不填写默认为返回10个。|
 
 返回值 KeyMetadata结构体 描述如下：
 
 |属性名称|类型|含义|
 |---------|---------|---------|
-|KeyId|string|密钥id|
-|CreateTime|uinx time|创建时间|
-|Description|string|密钥描述|
-|KeyState|string|密钥状态|
-|KeyUsage|string|密钥用途|
-|Alias|string|密钥别名|
+|totalCount|int|表示所有的密钥个数。|
+|keys|array|key数组。|
 
 #### 使用示例
 
 ```
-    description ='for test'
-    alias = 'kms_test'
-    kms_meta = kms_account.create_key(description,alias)
+    totalCount, keys = kms_account.list_key()
+    print keys
 ```
 ### 生成数据密钥
 #### 方法原型
 
 ```
-    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def generate_data_key(self, KeyId=None, KeySpec=None, NumberOfBytes=None, EncryptionContext=None)
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|KeyId|string|None|主密钥Id。|
+|KeySpec|string|None|生成数据密钥算法。|
+|NumberOfBytes|int|None|生成指定长度的数据密钥。|
 
 返回值 KeyMetadata结构体 描述如下：
 
