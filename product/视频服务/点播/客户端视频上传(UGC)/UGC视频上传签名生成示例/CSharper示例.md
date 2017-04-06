@@ -98,7 +98,7 @@ namespace GetUgcSign
 
             string strSign = sign.GetSign();
             Console.WriteLine(strSign);
-            Thread.Sleep(1000000);
+            //Thread.Sleep(1000000);
         }
     }
 }
