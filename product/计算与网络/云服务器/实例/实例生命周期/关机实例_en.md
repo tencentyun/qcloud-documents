@@ -1,15 +1,17 @@
 Shutdown instance is equivalent to the shutdown operation of local computers (such as shutdown command in Windows system and Linux system). The following instance attributes are modifiable only if the instance is in the shutdown state:
-- Instance configuration (CPU, memory)
+- Instance configuration (CPU, MEM)
 - The size of Cloud Block Storage mounted on the instance
 - Change Password
 - Load Key
 
-When shutting down a running instance,
+When you shut down a CVM instance,
 
 - the instance will be shut down with all services stopped. The state of instance will first change to shutting-down and then shutdown completed after it has been shut down.
 - all the storage of the instance will remain connected to the instance, and all data are saved.
 - data in memory will be lost while the instance is being shut down.
-- all the services associated with the instance as well as their associated relationships are maintained, for example: instance [Public IP](/doc/product/213/5224) and [Private IP](/doc/product/213/5225) remain unchanged, and [Elastic Public IP](/doc/produ- If the instance belongs to [Backend Server Cluster of Cloud Load Balance Instances](https://www.qcloud.com/doc/product/214/1155), it will no longer function to provide services after shutdown. If the Cloud Load Balance instance is configured with health- If the instance is in [Auto Scaling Group](https://www.qcloud.com/doc/product/377/3590), the Auto Scaling service will mark shutdown instance as poor performance, move the same out of Auto Scaling group and launch replacement instance. For more informat
+- all the services associated with the instance as well as their associated relationships are maintained, including [Public IP](/doc/product/213/5224), [Private IP](/doc/product/213/5225), [Elastic Public IP](/doc/product/213/5733) and [Classiclink](/doc/product/215/5002).
+- If the instance belongs to a [Backend Server Cluster of a CLB Instance](https://www.qcloud.com/doc/product/214/1155), it will stop providing services. If a health check policy is configure for this CLB instance, this CVM instance will be blocked. If no health check policy is configured, the client may receive 502 error. For more information, please see [Health Check](https://www.qcloud.com/doc/product/214/3394).
+- If the instance is in [Auto Scaling Group](https://www.qcloud.com/doc/product/377/3590), the Auto Scaling service will mark shutdown instance as poor performance, move the same out of Auto Scaling group and launch replacement instance. For more information, please see [auto scaling documentation](https://www.qcloud.com/doc/product/377).
 ## Shutdown instance via the console
 1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
 

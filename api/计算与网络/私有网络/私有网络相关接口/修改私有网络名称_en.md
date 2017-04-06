@@ -13,7 +13,7 @@ Currently, only modification to the name in the VPC attributes is supported.
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | Yes | String | VPC ID assigned by the system. Support both vpcId before the upgrade and unVpcId after the upgrade.  |
-| vpcName | Yes | String | VPC name. You can specify any name you like, but its length should be limited to 60 characters. VPC name must be unique under the same region.  |
+| vpcName | Yes | String | VPC name. You can specify any name you like, but its length should be limited to 60 characters. |
  
 
 ## 3. Output Parameters
@@ -29,7 +29,6 @@ Currently, only modification to the name in the VPC attributes is supported.
  | Error Code | Description |
 |---------|---------|
 | InvalidVpcName | Invalid VPC name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidVpcName.InUse | The VPC name is already in use. The VPC name of the same developer within the same region must be unique.  |
 | InvalidVpc.NotFound | Invalid vpc. The vpc resource does not exist. Please verify that you have entered resource information correctly.  |
 
 ## 5. Example

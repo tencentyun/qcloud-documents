@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (AddUserGw) is used to create peer gateway.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font> 
+Domain for API request: <font style="color:red">vpc.api.qcloud.com</font> 
  
 
 ## 2. Input Parameters
@@ -9,7 +9,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| userGwName | Yes | String | Peer gateway name. You can use any content as long as it does not exceed 60 characters. The name must be unique under the same developer.  |
+| userGwName | Yes | String | Peer gateway name, up to 60 characters, must be unique under the same developer account.  |
 | userGwAddr | Yes | String | Public IP of the peer gateway. For example: 183.30.0.1.  |
 
  
@@ -18,19 +18,19 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Error code, 0:  Succeeded, other values:  Failed.  |
+| code | Int | Error code, 0: Succeeded, other values: Failed.  |
 | message | String | Error message.  |
 | userGwId | String | Peer gateway ID assigned by the system. For example: cgw-e098slul |
 
-## 4. Error Code Table
+## 4. Error Codes
  The following list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error code | Description |
 |---------|---------|
-| InvalidUserGwName | Invalid peer gateway name. You can specify any name you like, but its length should be limited to 60 characters.  |
+| InvalidUserGwName | Invalid peer gateway name. It should be within 60 characters.  |
 | InvalidUserGwName.InUse | Peer gateway name already in use. The peer gateway name must be unique under the same account.  |
 | InvalidUserGw.InUse | Peer gateway public IP already in use. The peer gateway public IP must be unique under the same account.  |
-| UserGwLimitExceeded | The limit of requested peer gateway resources for the specific region has been reached. Please contact customer service for more resources. For more information on VPC resource restrictions, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions"> VPC Usage Restrictions</a>.  |
+| UserGwLimitExceeded | Reached the upper limit of requested peer gateways for the specific region. Please contact customer service for more resources. For more information, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits"> VPC Service Limits</a>.  |
 
 ## 5. Example
  

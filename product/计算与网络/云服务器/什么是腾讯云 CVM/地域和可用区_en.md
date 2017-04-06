@@ -58,7 +58,7 @@ Tencent Cloud supports distribution of cloud resources in different locations by
 
 
 ## Region
-Regions are completely isolated with each other, so as to ensure high stability and fault tolerance. Tecent Cloud now have 3 regions in Mainland China and provides nodes in Hong Kong, Singapore and Toronto. You are recommended to choose nearest region to reduce access latency and improve download speed.
+Regions are completely isolated with each other, so as to ensure high stability and fault tolerance. Tencent Cloud now have 3 regions in Mainland China and provides nodes in Hong Kong, Singapore and Toronto. You are recommended to choose nearest region to reduce access latency and improve download speed.
 
 Region attribute is differentiated for all behaviors such as enabling and viewing instances by users. If image of the instance that the users need to enable does not exist in the region, then the image needs to be copied to current region. For more information, please see [Copy Image](/doc/product/213/4943).
 
@@ -66,7 +66,7 @@ Region attribute is differentiated for all behaviors such as enabling and viewin
 - Cloud services of different regions <font color="red">cannot communicate via private network by default</font>.
 - CVMs cannot access other CVMs, Cloud Database or Cloud Memcached across regions by default.
 - When binding Cloud Load Balance to the server, only CVMs in the current region can be chosen;
-- Cloud resources on different regions can commmunicate via [Public IP](/doc/product/213/5224). Cloud Services on VPC can access Internet via [peering connection](/doc/product/215/5000) service. 
+- Cloud resources on different regions can communicate via [Public IP](/doc/product/213/5224). Cloud Services on VPC can access Internet via [peering connection](/doc/product/215/5000) service. 
 - [Cloud Load Balance](https://www.qcloud.com/doc/product/214) does not support cross-region data forwarding.
 - Regions are named by Coverage + City, and availability zones are named by city + serial number.  
 - Only resources under the same account can communicate via private network. 
@@ -74,7 +74,7 @@ Region attribute is differentiated for all behaviors such as enabling and viewin
 **Notes for Hong Kong region:**
 
 - The following cloud services are temporarily unavailable: Cloud Memcached, elastic web engine, Cloud Object Storage, Cloud Block Storage, one-click opening of server and domain binding with separated regions and servers.
-- When you need to log in to CVMs in Hong Kong region, login via jump server is recommended for better operation and maintenance experience.
+- When you need to log in to CVMs in Hong Kong region, log in via jump server is recommended for better operation and maintenance experience.
 
 **Notes for North America region:**
 

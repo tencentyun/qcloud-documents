@@ -1,7 +1,7 @@
 ## SDK集成
 
 ### 下载SDK
-下载[TVCClientSDK.framework](https://www.qcloud.com/doc/product/266/6965)。
+下载[TVCClientSDK.framework](https://mc.qcloudimg.com/static/archive/968464cff8b4e4238a93cec6fe177c46/TVCClientSDK.framework_ios_1.0.2.zip)。
 
 ### 引入依赖包
 

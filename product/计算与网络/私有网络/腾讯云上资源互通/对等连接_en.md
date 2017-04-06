@@ -16,7 +16,7 @@ VPC supports both regional and cross-region peering connections (i.e., cross-reg
 | Comparison Item | Regional Peering Connection | Cross-region Peering Connection |
 |---------|---------|---------|
 | Underlying architecture | Local private network within a single region based on Tencent Cloud | Cross-region internal MPLS network based on Tencent Cloud |
-| Bandwidth | No bandwidth limit | Maximum 1 Gbps, bandwidth upper limit can be set |
+| Bandwidth | No bandwidth limit | Maximum 1 GB, bandwidth upper limit can be set |
 | Billing Rule | 	Free of charge | 	Daily rate is applicable depending on the regions where both sides of the peering connection are located and the actually used network bandwidth. For details, please refer to [Price Overview](https://www.qcloud.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88) |	
 | Availability | Above 99.95%, no single point of failure | 	Above 99.95%, no single point of failure |	
 | Cross-account connection | Support | Support |	
@@ -47,7 +47,7 @@ When using peering connection, you have to note the following:
 
 | Resource | Restriction | Description |
 |---------|---------|---------|
-| Bandwidth limit for cross-region peering connection | 1Gbps | If you need a larger bandwidth, please initiate the request by submitting a ticket. There is no limit for the bandwidth of regional peering connections. |
+| Bandwidth limit for cross-region peering connection | 1 GB | If you need a larger bandwidth, please initiate the request by submitting a ticket. There is no limit for the bandwidth of regional peering connections. |
 | Number of peering connections supported by each VPC |10 |　|
 
 > Note: For peering connection services in other region, please submit a ticket for the request.
