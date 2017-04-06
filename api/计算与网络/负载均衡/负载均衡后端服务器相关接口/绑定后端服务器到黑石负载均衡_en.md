@@ -2,7 +2,7 @@
 Domain: lb.api.qcloud.com
 API: RegisterInstancesWithBmLoadBalancer
 
-Bind backend CVM to BM load balancer
+This API is used to bind backend CVM to Blackstone load balancer
 
 ## 2. Input Parameters
 | Parameter Name | Required | Type | Description |

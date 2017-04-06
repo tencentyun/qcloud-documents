@@ -26,15 +26,15 @@ The following request parameter list only provides API request parameters. Commo
 | message | String | Error message. |
 | peeringConnectionId | String | Peering connection ID assigned by the system, e.g. pcx-6gw5wvmk |  |
 
- ## 4. Error Code List
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
 | InvalidPeeringConnectionName | Invalid peering connection name. You can specify any name you like, but its length should be limited to 60 characters.  |
 | PeeringConnectionVpcConflict | Conflict occurs between VPC segments in peering connection |
-| PeeringConnectionLimitExceeded | The limit of requested peering connection resources for the specified region has been reached. Please contact customer service for more resources. For more information on VPC resources restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
+| PeeringConnectionLimitExceeded | The limit of requested peering connection resources for the specified region has been reached. Please contact customer service for more resources. For more information, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits">VPC Service Limits</a>.  |
+| InvalidVpc.NotFound | VPC does not exist. Please verify that you have entered resource information correctly.  |
 
 ## 5. Example
 Input
