@@ -34,7 +34,6 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | InvalidNetworkAclName | Invalid network ACL name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidNetworkAclName.InUse | The network ACL name is already used by another network ACL under the VPC. The network ACL name must be unique under the same VPC.  |
 | NetworkAclLimitExceeded | Number of created network ACLs has exceeded the limit. Please contact customer service for more resources. For more information on VPC resource restrictions, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
  
 

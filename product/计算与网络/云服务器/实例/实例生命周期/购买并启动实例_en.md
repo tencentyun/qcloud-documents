@@ -30,7 +30,7 @@ Tencent Cloud provides Cloud Block Storage and local hard disk.
 - Cloud Block Storage: delivers high data reliability with the distributed three-copy mechanism.
 - Local hard disk: a storage located on the physical machine where the CVM resides; it allows low latency but may cause single-point loss risk. For the comparison, see [here](/doc/product/213/4952).
 
-Whichever type of disk you choose, a complimentary 20GB system disk will be provided for each Linux CVM purchase by default, and you can adjust the capacity to 50GB through the billing mode; a complimentary 50GB system disk will be supplied with each Windows CVM purchase by default, and it cannot be adjusted at the moment. You can select the data disk size as needed when making the purchase.
+Whichever type of disk you choose, a complimentary 20 GB system disk will be provided for each Linux CVM purchase by default, and you can adjust the capacity to 50 GB through the billing mode; a complimentary 50 GB system disk will be supplied with each Windows CVM purchase by default, and it cannot be adjusted at the moment. You can select the data disk size as needed when making the purchase.
 
 7) Choose the type of network (basic network or VPC) and network billing mode (charge by fixed bandwidth or by traffic).
 - Basic network: suitable for new users; CVM private networks of the same user are interconnected.

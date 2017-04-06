@@ -25,7 +25,7 @@
 |---------|---------|---------|
 | routeTableName | String | Routing table name, which can be 1-60 Chinese or English characters (uppercase and lowercase). Numbers and underscores are also supported |
 | destinationCidrBlock | String | Destination network segment. For example: 112.20.51.0/24. Cannot use values within the VPC network segment. |
-| nextType | String | Type of next hop. Currently we support the following types: 0: public network gateway; 1: vpn gateway; 3: direct connect gateway; 4: peering connection; 7: sslvpn; 8: nat gateway |
+| nextType | String | Type of next hop. Currently we support the following types: 0: public network gateway; 1: vpn gateway; 3: direct connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway |
 | nextHub | String | Next hop address. You can simply specify the gateway IDs (it is recommended to use new IDs) for different next hop types and the system will automatically match to the next hop address.  |
 
 ## 4. Network ACL related Parameters
@@ -33,9 +33,9 @@
 | Parameters | Type | Description |
 |---------|---------|---------|
 | networkAclId | String | AclID assigned by the system. For example: acl-4n9efgju |
-| networkAclName | String | Network Acl name, which can be 1-60 Chinese or English characters (uppercase and lowercase). Numbers and underscores are also supported |
-| ruleDirection | Int | Direction of the network Acl rule. 0: out; 1: in |
-| networkAclEntrySet | Array | acl rule. Please refer to the Network ACL API document for details |
+| networkAclName | String | Network ACL name, which can be 1-60 Chinese or English characters (uppercase and lowercase). Numbers and underscores are also supported |
+| ruleDirection | Int | Direction of the network ACL rule. 0: out; 1: in |
+| networkAclEntrySet | Array | ACL rule. Please refer to the Network ACL API document for details |
 
 
 ## 5. IPsec vpn Gateway Parameters
@@ -118,7 +118,7 @@
 | directConnectGatewayName | String | Peering connection name, which can be 1-60 Chinese or English characters (uppercase and lowercase). Numbers and underscores are also supported |
 | type | Int | Direct connect gateway type. 0: Non-NAT; 1: NAT. Default is non-NAT gateway |
 | natRule | Array | Network address translation rule. Refer to the Direct Connect Gateway API document for details |
-| aclRule | Array | Network acl rule group. Refer to the Direct Connect Gateway API document for details |
+| aclRule | Array | Network ACL rule group. Refer to the Direct Connect Gateway API document for details |
 | createTime | String | Direct connect gateway creation time. For example: 2016-05-18 15:01:46 |
 
 ## 11. NAT Gateway Related Parameters
@@ -132,18 +132,18 @@
 | state | Int | NAT gateway status, 0: Running, 1: Unavailable, 2: Be in arrears and out of service |
 | createTime | String | NAT gateway creation time. For example: 2016-05-18 15:01:46 |
 
-## 12. Elastic NIC Related Parameters
+## 12. ENI Related Parameters
 
 | Parameters | Type | Description |
 |---------|---------|---------|
 | networkInterfaceId | String | Elastic NIC ID assigned by the system, for example: eni-9r7vukmh |
-| eniName | String | Elastic NIC name, which can be 1-60 Chinese or English characters (uppercase and lowercase). Numbers and underscores are also supported |
-| eniDescrption | String | Elastic NIC description (25 characters or less) |
-| primary | Bool | Elastic NIC type. true: Primary NIC; false: Common NIC |
-| macAddress | String | mac address of the elastic NIC. For example: 02:81:60:cb:27:37 |
-| vpcId | String | VPC ID of the elastic NIC. For example: vpc-2ari9m7h |
-| subnetId | String | Subnet ID of the elastic NIC. For example: subnet-2ari9m7h |
-| createTime | String | Elastic NIC creation time. For example: 2016-05-18 15:01:46 |
+| eniName | String | ENI name, which can be 1-60 Chinese or English characters (uppercase and lowercase). Numbers and underscores are also supported |
+| eniDescrption | String | ENI description (25 characters or less) |
+| primary | Bool | ENI type. true: Primary ENI; false: secondary ENI |
+| macAddress | String | mac address of the ENI. For example: 02:81:60:cb:27:37 |
+| vpcId | String | VPC ID of the ENI. For example: vpc-2ari9m7h |
+| subnetId | String | Subnet ID of the ENI. For example: subnet-2ari9m7h |
+| createTime | String | ENI creation time. For example: 2016-05-18 15:01:46 |
 
 ## 13. Attributes Related to the Link between VPC and Basic Network
 | Parameters | Type | Description |

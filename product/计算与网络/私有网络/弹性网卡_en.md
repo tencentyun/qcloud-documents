@@ -1,14 +1,14 @@
 ENI is a virtual network interface. You can bind an ENI to a CVM and connect it to the network. ENI is very useful when configuring management networks and establishing highly reliable network solutions.
 
-ENI has VPC, availability zone and subnet attributes. You can only bind it to CVMs under the same availability zone. Each CVM may have multiple ENIs bound to it. The allowed number of NICs depends on the specifications of the host.
+ENI has VPC, availability zone and subnet attributes. You can only bind it to CVMs under the same availability zone. Each CVM may have multiple ENIs bound to it. The allowed number of ENIs depends on the specifications of the host.
 
 ## Basic Information
 
 An ENI has the following major relevant information:
 
-1. Primary NIC or secondary NIC: The NIC that was created when creating the CVM within the VPC is the primary NIC. And NICs created by the user will be secondary NICs. You can bind/unbind secondary NICs but not the primary one.
+1. Primary ENI or secondary ENI: The ENI that was created when creating the CVM within the VPC is the primary ENI. And ENIs created by the user will be secondary ENIs. You can bind/unbind secondary ENIs but not the primary one.
 
-2. Primary private IP: The primary private IP of the ENI is assigned by the system, or specified by the user when the NIC was created. You can modify the primary private IP of the primary NIC, but not the ones for secondary NICs.
+2. Primary private IP: The primary private IP of the ENI is assigned by the system, or specified by the user when the ENI was created. You can modify the primary private IP of the primary ENI, but not the ones for secondary ENIs.
 
 3. Secondary private IP: Secondary private IPs that are bound to the ENI, other than the primary IP, are configured by the user when he/she creates of modifies the ENI. You can bind/unbind these IPs.
 
@@ -21,9 +21,9 @@ An ENI has the following major relevant information:
 
 ## Usage Constraints
 
-The number of ENIs that may bind to a CVM, and the number of private IPs that can bind to each NIC will greatly vary according to CPU and RAM configuration. These allowed numbers are shown in the following table. Also, refer to [Usage Constraints of Other VPC Products](https://www.qcloud.com/doc/product/215/537).
+The number of ENIs that may bind to a CVM, and the number of private IPs that can bind to each ENI will greatly vary according to CPU and RAM configuration. These allowed numbers are shown in the following table. Also, refer to [Usage Constraints of Other VPC Products](https://www.qcloud.com/doc/product/215/537).
 
-| CVM Configuration               | Number of ENIs | Number of IPs for Each NIC |
+| CVM Configuration               | Number of ENIs | Number of IPs for Each ENI |
 | ------------------- | :---- | :------ |
 | CPU:  Single core   RAM:  1G    | 2     | 2       |
 | CPU:  Single core   RAM:  >1G   | 2     | 6       |
@@ -92,7 +92,7 @@ Note 1: Once the ENI is deleted, its private IPs, elastic public IPs and securit
 
 Note 2: You can only delete ENIs that are not currently associated with CVMs.
 
-Note 3: The primary NIC will be deleted as the CVM is deleted.
+Note 3: The primary ENI will be deleted as the CVM is deleted.
 
 ### Assigning Private IP (Tencent Cloud Console)
 
@@ -126,7 +126,7 @@ There are two ways to configure private IPs in CVMs. The example below is based 
 
 `ip addr add [ip/mask] dev [ifname]` 
 
-Example: If you wish to add the IP "192.168.0.5" within subnet 192.168.0.0/24 for the NIC "eth0" of the CVM, execute the command
+Example: If you wish to add the IP "192.168.0.5" within subnet 192.168.0.0/24 for the ENI "eth0" of the CVM, execute the command
 
  `ip addr add 192.168.0.5/24 dev eth0`
 
@@ -144,7 +144,7 @@ Note: Private IPs configured in this way are only written in the system memory o
 
 `ls`
 
-3) Find the NIC name from the list. Take Tencent Cloud centos 7.2 CVM as an example: If you need to bind private IP for an NIC named "ifcfg-eth0", execute the vim command to open the configuration file of this NIC
+3) Find the ENI name from the list. Take Tencent Cloud centos 7.2 CVM as an example: If you need to bind private IP for an ENI named "ifcfg-eth0", execute the vim command to open the configuration file of this ENI
 
 `vim ifcfg-eth0`
 
@@ -180,11 +180,11 @@ Change the configuration into:
 
 Save the modified configuration file and exit vim.
 
-4) Restart NIC
+4) Restart ENI
 
 `systemctl restart network`
 
-Check whether the IP address has been added into NIC "eth0"
+Check whether the IP address has been added into ENI "eth0"
 
 `ip addr`
 
@@ -268,7 +268,7 @@ Note 2: Once the private IP is unbound, the elastic public IP will be automatica
 
 6) Click "Save" to finish the subnet changing process.
 
-Note 1: You can only change subnet for the primary NIC.
+Note 1: You can only change subnet for the primary ENI.
 
 Note 2: You must unbind all secondary IPs before you can change subnet for the ENI.
 

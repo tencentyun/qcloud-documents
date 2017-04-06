@@ -30,7 +30,6 @@ The following request parameter list only provides API request parameters. Commo
 | Error Code | Description |
 |---------|---------|
 | InvalidDirectConnectGatewayName | Invalid Direct Connect gateway name. Valid name has a length of 1-60 characters, and can contain Chinese characters, uppercase and lowercase English letters, numbers, and underscores |  |
-| InvalidDirectConnectGatewayName.InUse | The Direct Connect gateway name is already in use. The name must be unique within the same VPC.  |
 | DirectConnectGatewayLimitExceeded | The limit of requested Direct Connect gateway resources for the specific region has been reached. Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
 

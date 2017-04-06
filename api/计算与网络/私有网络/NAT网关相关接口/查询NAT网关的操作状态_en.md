@@ -15,9 +15,9 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Error code. 0:  Succeeded, other values:  Failed |
+| code | Int | Error code. 0: Succeeded, other values: Failed |
 | message | string | Error message |
-| data.status | int | Production result: 0:  Succeeded; 1: Failed; 2: In progress |
+| data.status | int | Production result: 0: Succeeded; 1: Failed; 2: In progress |
 | data.errorCode | string | Error code |
 
  ## 4. Error Code List

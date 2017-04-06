@@ -11,7 +11,7 @@ Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | Yes | String | VPC ID assigned by the system. Support both vpcId before the upgrade and unVpcId after the upgrade.  |
-| instanceIds.n | Yes | Array | Basic network CVM ID, for example: instanceIds.0=10.0.0.2. It can be queried via API <a href="https://www.qcloud.com/doc/api/229/831" title="查看实例列表">DescribeInstances</a>.  |
+| instanceIds.n | Yes | Array | Basic network CVM ID, for example: instanceIds.0=ins-df454d. It can be queried via API <a href="https://www.qcloud.com/doc/api/229/831" title="查看实例列表">DescribeInstances</a>.  |
  
 
 ## 3. Output Parameters

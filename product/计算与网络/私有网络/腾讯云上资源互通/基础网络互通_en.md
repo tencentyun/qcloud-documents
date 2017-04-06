@@ -1,5 +1,5 @@
 ## Introduction
-Basic network interconnection means to associate CVMs in the basic network with specified VPCs, thus allowing CVMs in the basic network to communicate with cloud services in VPCs (such as CVMs and databases). By default, VPC network is completely isolated. Neither other VPCs nor the basic network is able to communicate with it. [Peering Connection](https://www.qcloud.com/doc/product/215/5000) made it possible for different VPCs to communicate with each other. While communication between the basic network and a certain VPC is made possible by basic network interconnection. As shown in the figure below, the basic network CVM can access cloud resources within the VPC such as CVM, cloud database, private network cloud load balancer, cloud cache and so on. However, the CVM in the VPC can only access the basic network CVM which is interconnected with it, but not the other computing resources within the basic network. This feature only supports interconnection within the same region, as shown below.
+Classiclink means to associate CVMs in the basic network with specified VPCs, thus allowing CVMs in the basic network to communicate with cloud services in VPCs (such as CVMs and databases). By default, VPC network is completely isolated. Neither other VPCs nor the basic network is able to communicate with it. [Peering Connection](https://www.qcloud.com/doc/product/215/5000) made it possible for different VPCs to communicate with each other. While communication between the basic network and a certain VPC is made possible by Classiclink. As shown in the figure below, the basic network CVM can access cloud resources within the VPC such as CVM, cloud database, private network cloud load balancer, cloud cache and so on. However, the CVM in the VPC can only access the basic network CVM which is interconnected with it, but not the other computing resources within the basic network. This feature only supports interconnection within the same region, as shown below.
 ![](//mccdn.qcloud.com/static/img/ec304e11bfe74202087af2ecdc043397/image.png)
 
 ## Influence on Basic Network Interconnected CVMs Caused by Router, Security Group and Network ACL
@@ -10,8 +10,8 @@ Basic network interconnection means to associate CVMs in the basic network with 
 - This feature only supports the interconnection between basic network and VPC. You cannot change the network environment for the CVM. Once the network environment (VPC or basic network) has been determined for the CVM, you will no longer be able to change it.
 - A basic network CVM can be associated with only one VPC at a time.
 - Currently, interconnection feature is only supported for VPC and basic network under the same region.
-- Basic network interconnection feature is only supported for VPCs within the network segment `10.[0~47].0.0/16`. The IP range for VPCs of other network segments may conflict with the basic network IP segment.
-- CVM traffic during the basic network interconnection can only be routed to private IP address within the VPC, but not the other destinations other than the VPC. That is, the basic network CVM cannot access public network or VPC resources outside the current VPC through network equipments such as its VPN gateway, direct connect gateway, public network gateway, peering connection, NAT gateway and so on. Likewise, the peer of VPN, direct connection and peering connection cannot access the current basic network CVM either.
+- Classiclink feature is only supported for VPCs within the network segment `10.[0~47].0.0/16`. The IP range for VPCs of other network segments may conflict with the basic network IP segment.
+- CVM traffic during the Classiclink can only be routed to private IP address within the VPC, but not the other destinations other than the VPC. That is, the basic network CVM cannot access public network or VPC resources outside the current VPC through network equipment such as its VPN gateway, direct connect gateway, public network gateway, peering connection, NAT gateway and so on. Likewise, the peer of VPN, direct connection and peering connection cannot access the current basic network CVM either.
 - The cloud load balancer instance within the VPC cannot be bound with the basic network CVM which is interconnected with the current VPC.
 - Changing the private IP of the basic network CVM will cancel the association with the VPC, which means the original record will lose its functional effect. Please add the record again in the VPC Console if you wish to associate them.
 - The interconnection relationship with VPC will not be unbound by actions against the CVM such as isolation due to arrears, security isolation, cold migration, failover, configuration modification, operating system switching and so on.
@@ -24,12 +24,12 @@ Basic network interconnection means to associate CVMs in the basic network with 
 | Supported cloud resources | Cloud virtual machine (CVM) | Cannot access basic network resources such as CDB, CMEM, LB, etc. |
 
 ## Billing Method
-The basic network interconnection feature is free to use. Refer to [Tencent Cloud VPC Pricing Overview](https://www.qcloud.com/doc/product/215/3079) for prices of other VPC services.
+The Classiclink feature is free to use. Refer to [Tencent Cloud VPC Pricing Overview](https://www.qcloud.com/doc/product/215/3079) for prices of other VPC services.
 
 ## Instructions
 ### Associating Basic Network CVM with VPC
 Example:
-If you wish to allow CVM "TomCVM" to communicate with VPC "TomVPC" via basic network interconnection, you will need to follow the following steps:
+If you wish to allow CVM "TomCVM" to communicate with VPC "TomVPC" via Classiclink, you will need to follow the following steps:
 1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
 2) Select **Region: Beijing**, click the VPC to be interconnected with basic network (`TomVPC`) and enter its detail page.
 3) Click "Classlink" tab, and click "Bind CVM" button. 

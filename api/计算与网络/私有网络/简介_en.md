@@ -16,7 +16,7 @@ Before using these APIs, please make sure that you have a thorough understanding
 | directConnectGateway | DirectConnectGateway | Direct Connect gateway. This used to establish a link between VPC and user's IDC based on interconnection among ISP private lines to build hybrid cloud.  |
 | NATGateway | NatGateway | NAT gateway, through which VPC accesses the Internet.  |
 | classicLink | ClassicLink | Link between VPC and basic network |
-| networkInterface | NetworkInterface | Elastic NIC |
+| networkInterface | NetworkInterface | Elastic network interface |
 
-## 2. Usage Restrictions
-For details, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>. If you need more resources, you can contact customer service personnel. We will provide you with individualized configuration after an evaluation.
+## 2. Service Limits
+For details, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits">VPC Service Limits</a>. If you need more resources, you can contact customer service personnel. We will provide you with individualized configuration after an evaluation.

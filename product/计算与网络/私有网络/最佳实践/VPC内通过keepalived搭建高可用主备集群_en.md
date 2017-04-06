@@ -8,7 +8,7 @@ In the traditional physical network, you can negotiate the master/slave state th
 1) VRRP multicast message is currently not supported. You need to configure keepalived vrrp instance to unicast VRRP message.
 2) Gratuitous ARP message is currently not supported for VIP migration. VIP is bound to the master device by calling Cloud APIs.
 
-## Main Steps
+## How To
 1. Apply for VIP, which only supports migration within subnet (the master and slave servers must be in the same subnet).
 2. Install and configure keepalived (**Version 1.2.8 or above**) on master and slave servers.
 3. Use the "notify" mechanism of keepalived to call the Cloud APIs for master/slave switchover.
@@ -17,10 +17,10 @@ In the traditional physical network, you can negotiate the master/slave state th
 
 ## Detailed Steps
 ### Step 1. Apply for VIP
-Apply for a VIP in a subnet (any IP applied by users within the VPC can be used as VIP). Currently only Cloud API is supported. Please refer to Step 6 for the development instruction of Cloud API codes. VIP is bound on elastic NIC (including the primary NIC and secondary NIC). A primary NIC will be assigned to each CVM in VPC by default when it's created, so you can apply for VIP on the primary NIC bound to the master server.
+Apply for a VIP in a subnet (any IP applied by users within the VPC can be used as VIP). Currently only Cloud API is supported. Please refer to Step 6 for the development instruction of Cloud API codes. VIP is bound on ENI (including the primary ENI and secondary ENI). A primary ENI will be assigned to each CVM in VPC by default when it's created, so you can apply for VIP on the primary ENI bound to the master server.
 **The specific procedure is as follows:** 
-1) Get the `networkInterfaceId` of CVM primary NIC (enter the input parameters: **VPC ID** and **CVM ID**) through the Cloud `API: DescribeNetworkInterfaces` [click to view the API details](https://www.qcloud.com/doc/api/245/4814).
-2) When applying for Private IP in the elastic NIC through the Cloud `API: AssignPrivateIpAddresses` [Click to view API details](https://www.qcloud.com/doc/api/245/4817), please refer to the following Python code for VIP application:
+1) Get the `networkInterfaceId` of CVM primary ENI (enter the input parameters: **VPC ID** and **CVM ID**) through the Cloud `API: DescribeNetworkInterfaces` [click to view the API details](https://www.qcloud.com/doc/api/245/4814).
+2) When applying for Private IP in the ENI through the Cloud `API: AssignPrivateIpAddresses` [Click to view API details](https://www.qcloud.com/doc/api/245/4817), please refer to the following Python code for VIP application:
 
 ```
         
