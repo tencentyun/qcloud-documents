@@ -1,5 +1,5 @@
 ## 1. API Description
- ModifyLoadBalancerBackends API is used to modify the weight of CVMs that are bound to the cloud load balancer instance. Request forwarding rules are adjusted by modifying weight of CVMs. For more information about weight configuration, please refer to [Weight Configuration](/doc/product/214/功能介绍#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE) from product instructions.
+ ModifyLoadBalancerBackends API is used to modify the weight of CVMs that are bound to the cloud load balancer instance. Request forwarding rules are adjusted by modifying weight of CVMs. For more information about weight configuration, please refer to [Weight Configuration](/doc/product/214/功能介绍#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE).
  
 Domain for API access: lb.api.qcloud.com
 

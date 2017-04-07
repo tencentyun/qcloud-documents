@@ -1,5 +1,5 @@
 ## 1. API Description
- DescribeLoadBalancerBackends API is used to view the list of CVMs bound to the cloud load balancer instance backend, according to the instance ID.
+ DescribeLoadBalancerBackends API is used to query the list of CVMs bound to the CLB instance by the instance ID.
  
  Domain for API access: lb.api.qcloud.com
 
