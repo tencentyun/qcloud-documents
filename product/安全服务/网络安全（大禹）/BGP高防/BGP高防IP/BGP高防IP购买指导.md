@@ -6,8 +6,9 @@
 ### 3.购买步骤
 1.进入[BGP高防IP购买页面](https://buy.qcloud.com/buy/bgp_ip)；
 <br>2.源站选择部署在非腾讯云；
-<br>3.选择需要的基础防护带宽大小；
+<br>3.选择需要的保底防护带宽大小；
 <br>4.选择需要的弹性防护带宽大小；
 <br>5.选择需要的使用时长；
-![](https://mc.qcloudimg.com/static/img/55f3d1f08a598e6d1e2c7205c705a88f/image.png)
+<br>6.您可以选择自动续费功能；
+![](https://mc.qcloudimg.com/static/img/24109b9240ee45f75b7046250f66c347/image.png)
 
