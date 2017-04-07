@@ -10,7 +10,7 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 4) The number of VPC resources that can be created in a region is also limited. For more information, please see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits">VPC Service Limits</a>. If you need to create more resources, please contact the online customer service. 
 
 ## 2. Input Parameters
- The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is CreateVpc.
+ The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, please see <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is CreateVpc.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

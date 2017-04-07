@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (ModifyVpcAttribute) is used to modify VPCs.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 Currently, only modification to the name in the VPC attributes is supported.
 
@@ -13,23 +13,23 @@ Currently, only modification to the name in the VPC attributes is supported.
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | Yes | String | VPC ID assigned by the system. Support both vpcId before the upgrade and unVpcId after the upgrade.  |
-| vpcName | Yes | String | VPC name. You can specify any name you like, but its length should be limited to 60 characters. |
+| vpcName | Yes | String | VPC name. It should be within  60 characters. |
  
 
 ## 3. Output Parameters
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, please refer to <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code. 0: success； other values: failed. For more information, please see <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a>. |
 | message | String | Module error message description depending on API. |
  
- ## 4. Error Code List
- The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+## 4. Error Codes
+ The following error code list only provides the error codes for this API. For common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
  | Error Code | Description |
 |---------|---------|
-| InvalidVpcName | Invalid VPC name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidVpc.NotFound | Invalid vpc. The vpc resource does not exist. Please verify that you have entered resource information correctly.  |
+| InvalidVpcName | Invalid VPC name. It should be within  60 characters.  |
+| InvalidVpc.NotFound | The VPC does not exist. Please check the information you entered. |
 
 ## 5. Example
  
