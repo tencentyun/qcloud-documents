@@ -4,9 +4,12 @@
 
 [cos java sdk v4 github项目](https://github.com/tencentyun/cos-java-sdk-v4)
 
+[Java SDK本地下载](https://mc.qcloudimg.com/static/archive/2549fea204187b28d05fb1ac470f49d4/cos-java-sdk-v4-master.zip)
+
 ### 环境依赖
 
 JDK 1.7
+（本版本SDK基于JSON API封装组成）
 
 ### 安装SDK
 
@@ -87,7 +90,7 @@ String uploadFile(UploadFileRequest request);
 |    localPath    |     String      |          无          | 构造函数或set方法 |             通过磁盘文件上传的本地绝对路径              |
 |  contentBufer   |     byte[]      |          无          | 构造函数或set方法 |             通过内存上传的buffer内容              |
 |     bizAttr     |     String      |          空          | 构造函数或set方法 |           文件的备注，主要用于对该文件用途的描述            |
-|   insertOnly    | InsertOnly (枚举) | NO_OVER_WRITE (不覆盖) |   set方法    | 是否直插入不覆盖已存在的文件, NO_OVER_WRITE表示只直插入不覆盖, 当文件存在返回错误 OVER_WRITE 表示允许覆盖 |
+|   insertOnly    | InsertOnly (枚举) | NO_OVER_WRITE (不覆盖) |   set方法    | 是否直插入不覆盖已存在的文件。 NO_OVER_WRITE表示只直插入不覆盖，当文件存在时会返回错误； OVER_WRITE表示允许覆盖，当文件存在时覆盖原有文件，覆盖不会产生错误。|
 | enableSavePoint |     boolean     |        true         |   set方法    | 是否开启断点文件，开启断点文件后，会在本地记录一个断点, 如果上传失败，则会跳过已经上传过的片。开启断点文件会牺牲一部分上传速度。 |
 | enableShaDigest |     boolean     |        false        |   set方法    | 是否计算sha摘要，如果开启sha，并且bucket下有相同内容文件，则会触发秒传。sha计算会耗费一定的CPU和时间，建议大文件不开启。 |
 |     taskNum     |       int       |         16          |   set方法    |                 文件上传的并发数                 |

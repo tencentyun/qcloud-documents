@@ -68,9 +68,9 @@
 | 参数 | 描述 | 示例取值 |
 |---------|---------|---------|
 | strategyName | 策略名称。 | strategy1 |
-| strategyInfo | 策略描述的内容。（！注意，这里要传一个json字符串）) | 见示例代码 |
+| strategyInfo | 策略描述的内容。（注意，这里要传一个json字符串) | 见示例代码 |
 | remark | 策略的备注。 | horace test |
-| resource设置* | 如果操作是需要关联资源的，它表示所有对象。如果操作是不需要关联资源的（比如 list 操作），它表示空对象。 |/ |
+| resource设置* | 如果操作是需要关联资源的，它表示所有对象。如果操作是不需要关联资源的（比如 list 操作），它表示空对象。 |* |
 
 **示例代码：**
 
@@ -120,7 +120,7 @@
 	- serviceType为cos、cdn、vpc等，"*"表示所有业务。不可以为空。
 	- region为地域，值为空，表示所有地域，其他地域分别是"gz", "st", "tj", "sh", "hk", "ca", "shjr", "bj"。默认为空。
 	- account，表示为"uin/${uin}"或者"uid/${uid}"。为空时，对于CDN业务和VPC业务等的资源，填充为"uin/${uin}"，对于COS业务的资源，填充化为"uid/${uid}“， "${uin}"或"${uid}"表示访问者的uin或者uid。默认为空。（还有一种特殊情况，“uin/-1”,一般是预设策略才出现，扩展表展开后会把-1变成开发商的uin，另外预设策略只允许子账户或角色的授权，所以可以直接用子账户或角色所属的根账户uin来替换-1。）
-	- resource由name/value构成。name表示业务对资源的定义。如cos是用prefix描述，cdn用host描述等。"*"表示所有资源，归一化为"*/*"的形式。不可以为空。
+	- resource由name/value构成。name表示业务对资源的定义。如cmq的为queueName和topicName。cos是用prefix描述，cdn用host描述等。"*"表示所有资源，归一化为"*/*"的形式。不可以为空。
 	- 用户、策略也是一种资源。CAM 根账户描述为 qcs::cam::uin/1238423: uin/1238423，CAM子账户描述为qcs::cam::uin/1238423: uin/3236671，匿名用户描述为qcs::cam::anonymous:anonymous。
 	- resource 为空时表示操作不需要关联对象。在系统中归一化为*。
   - 对资源描述中uin或uid是否真的是该资源的拥有者，需要由业务来校验。强制要求业务在鉴权通过后必须校验，建议在授权时也进行校验。 

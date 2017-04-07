@@ -64,7 +64,8 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 | PLAY_TYPE_VOD_FLV | 2 | 传入的URL为RTMP点播地址 |
 | PLAY_TYPE_VOD_HLS | 3 | 传入的URL为HLS(m3u8)点播地址 |
 | PLAY_TYPE_VOD_MP4 | 4 | 传入的URL为MP4点播地址 |
-
+| PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟连麦链路直播地址（仅适合于连麦场景） |
+| PLAY_TYPE_LOCAL_VIDEO | 6 | 手机本地视频文件 |
 
 ### step 4: 画面调整
 
@@ -125,12 +126,30 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 
 软解和硬解的切换需要在切换之前先**stopPlay**，切换之后再**startPlay**，否则会产生比较严重的花屏问题。
 
-
 ```objectivec
   [_txLivePlayer stopPlay];
   _txLivePlayer.enableHWAcceleration = YES;
   [_txLivePlayer startPlay:_flvUrl type:_type];
 ```
+
+### step 9: 截流录制
+截流录制指的是：观众在观看直播时，可以通过点击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
+
+![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
+
+```objectivec
+//指定一个 TXVideoRecordListener 用于同步录制的进度和结果
+_txLivePlayer.recordDelegate = recordListener;
+//启动录制，可放于录制按钮的响应函数里，目前只支持录制视频源，弹幕消息等等目前还不支持
+[_txLivePlayer startRecord: RECORD_TYPE_STREAM_SOURCE]; 
+// ...
+// ...
+//结束录制，可放于结束按钮的响应函数里
+[_txLivePlayer stopRecord];                             
+```
+- 录制的进度以时间为单位，由 TXVideoRecordListener 的 onRecordProgress 通知出来。
+- 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 onRecordComplete 通知出来。
+- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [UGC小视频](https://www.qcloud.com/document/product/454/8838)。
  
 ## 状态监听
 腾讯云 RTMP SDK 一直坚持白盒化设计原则，你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（质量反馈）通知给您。
@@ -253,20 +272,4 @@ _config.cacheTime              = 5;
 
 [_txLivePlayer setConfig:_config];
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

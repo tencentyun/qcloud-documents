@@ -9,6 +9,7 @@ Both types of the messages consist of a start line, one or more header fields, a
 Tencent Cloud provides HTTP Header Configuration which allows such features as cross-domain access by <font color="red">adding </font> configured header field in the returned **response message** when your user requests for service resource.
 
 **Note:**
+
 + If resource is not hit at a node, the request will go back to origin. In this case, the header information returned from origin server will be returned to user altogether; If resource is hit in the cache at a node, CDN will return cached Access-Control-Allow-Origin, Timing-Allow-Origin, Content-Disposition and Accept-Ranges header information of the origin server to the user by default. If you wish to cache all of headers from origin, please submit a ticket and request for manual configuration support;
 + HTTP Header configuration is specific to a domain. Once the configuration takes effect, the configured header field will be added to user's response messages to any of the resources under this domain;
 + Configuring HTTP Header will only affect the response behaviors of the client (such as browser), and will not affect caching behaviors of CDN nodes;
@@ -18,6 +19,7 @@ Tencent Cloud provides HTTP Header Configuration which allows such features as c
 ## Configuration Instructions
 
 CDN provides the following five header field configurations:
+
 + Content-Disposition: Enable customized resource downloading configuration and default file name upon downloading;
 + Content-Language: Specify resource response language at the client (such as browser);
 + Access-Control-Allow-Origin: Specify the request origins allowed to access the resource for a cross-domain request;
@@ -74,7 +76,7 @@ Access-Control-Max-Age is measured in second. Here is a configuration example:
 
 >Access-Control-Max-Age: 1728000
 
-This indicates no more pre-request will be sent for the cross-domain access to this resource within 1728000 seconds (20 days).
+This indicates no more pre-request will be sent for the cross-domain access to this resource within 1,728,000 seconds (20 days).
 
 ### Configuration Process
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:

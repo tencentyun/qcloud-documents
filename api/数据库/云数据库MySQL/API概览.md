@@ -79,11 +79,11 @@
 ## 6. 导入相关接口
 | 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
+| [上传导入文件](/document/api/236/8595) | UploadCdbImportSQLFile | 用于上传导入文件 |
 | [发起文件导入任务](/document/api/236/8376) | StartCdbImportJob | 用于发起文件导入任务 |
 | [终止文件导入任务](/document/api/236/8379) | StopCdbImportJob | 用于终止文件导入任务 |
 | [查询导入文件列表](/document/api/236/8377) | GetCdbImportSQLFileList | 用于查询导入文件列表 |
 | [查询最近导入文件记录](/document/api/236/8378) | GetCdbImportSQLFileHistory | 用于查询最近导入文件记录 |
-| [上传导入文件](/document/api/236/8594) | UploadCdbImportSQLFile | 用于上传导入文件 |
 
 
 ## 7. 回档相关接口
@@ -104,7 +104,29 @@
 | [修改备份信息](/document/api/236/7397) | ModifyCdbBackupInfo | 修改备份信息，例如修改备份的名称 |
 
 
-## 9. 任务相关接口
+## 9. 数据迁移相关接口
+| 接口功能 | Action Name | 功能描述 | 
+|---------|---------|---------|
+| [创建数据迁移任务](/document/product/236/7724) | CreateCdbDataMigrationTask | 用于创建数据迁移任务 |
+| [查询数据迁移任务列表](/document/product/236/7461) | GetCdbDataMigrationTaskList | 用于查询数据迁移任务列表 |
+| [校验数据迁移任务](/document/product/236/7726) | CheckCdbDataMigrationTask | 用于校验数据迁移任务 |
+| [启动数据迁移任务](/document/product/236/7712) | StartCdbDataMigrationTask | 用于启动数据迁移任务 |
+| [停止数据迁移任务](/document/product/236/7710) | TerminateCdbDataMigrationTask | 用于停止数据迁移任务 |
+| [修改数据迁移任务](/document/product/236/7725) | ModifyCdbDataMigrationTask | 用于修改数据迁移任务 |
+| [删除数据迁移任务](/document/product/236/7709) | DelCdbDataMigrationTask | 用于停止数据迁移任务 |
+
+
+## 10. 数据同步相关接口
+| 接口功能 | Action Name | 功能描述 | 
+|---------|---------|---------|
+| [创建数据同步任务](/document/product/236/7928) | CreateCdbDataSyncTask | 用于在主实例所在地域创建数据同步任务 |
+| [查询数据同步任务列表](/document/product/236/7933) | GetCdbDataSyncTaskList | 用于查询数据同步任务列表 |
+| [校验数据同步任务](/document/product/236/7931) | CheckCdbDataSyncTask | 用于校验数据同步任务 |
+| [启动数据同步任务](/document/product/236/7930) | StartCdbDataSyncTask | 用于启动数据同步任务 |
+| [删除数据同步任务](/document/product/236/7929) | DelCdbDataSyncTask | 用于删除数据同步任务 |
+
+
+## 11. 任务相关接口
 | 接口功能 | Action Name | 功能描述 | 
 |---------|---------|---------|
 | [查询任务列表](/document/api/236/7464) | GetCdbJobList | 查询云数据库任务列表 |

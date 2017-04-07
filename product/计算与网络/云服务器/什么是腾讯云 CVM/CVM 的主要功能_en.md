@@ -1,15 +1,15 @@
-- Available in multiple regions and availability zones: South China, East China and North China are covered domestically. Overseas nodes include Hong Kong, Singapore and North America. Deployment of application in regions close to the location of your users.
-- 4 major configurations: **Standard** (suitable for medium- and small-sized Web applications and databases), **High IO** (suitable for I/O intensive applications with low latency), **Memory** (suitable for applications that need extensive memory operation, searching and computing); and **Network Enhanced** (- 
-- Series 2 CVM: the Series 2 CVM comes with the latest generation Intel v4 CPU, with which integer and floating-point computation performance has improved by 100%; Performance of built-in DDR4 memory has improved by 30%. It also comes with network 
-- Flexible adjustment of configurations: CVM provides a large variety of options and adjustment for calculation, network and disk. Provide network adjustment at any time without shutting down the machine. Support hardware adjustment based on cloud disk an- 
-- 2 billing modes: prepaid annual/monthly plan and pay-per-use are available.
-- Rich images: public image (with multiple Linux and Windows operating system types), service marketplace image (with integration of third parties for different application environments), and custom image (Image created by users via image crea- 
-- Cross-region copying of image: to take advantage of Tencent Cloud's different geographical locations for convenient use, we provide custom copy of image to other Tencent Cloud regions.
-- 4 disk types: ordinary local disk, SSD local disk, ordinary Cloud disk, SSD Cloud disk.
-- Custom access control: custom host and network access strategy through Security Group and network AC, set up different firewalls flexibly for different instances.
-- Top-speed quality of public network: 20-line BGP public network that covers almost all network service providers. No matter which ISP your clients are using, they can always enjoy the same top-speed bandwidth. Optional public network bandwidth of maximu- 
-- Stable private network quality: the private networks of Tencent Cloud's data centers in the same region are interconnected, all with megabyte or gigabyte underlying networks, thus ensuring communication quality within the private networks.
-- Custom network structure: Virtual Private Cloud (VPC) provides independent network space with custom division of network segment as well as IP address and custom router strategy etc. Provide port-level access control for comprehensive logic isolation of- 
-- Various methods for remote login to the CVM: provide various login methods including key login, password login, VNC login, etc.
-- Diverse security services: provide DDoS protection, DNS hijacking detection, intrusion detection, vulnerability scanning, webshell detection, login protection and other security services to safeguard your server.
-- Provide Cloud Monitor for free and support multiple types of real-time forewarning.
+- **Multiple regions and availability zones**: South China, East China and North China are covered domestically. Overseas nodes include Hong Kong, Singapore and North America. Deployment of application in regions close to the location of your users.
+- **4 configuration models**: **Standard** (suitable for medium- and small-sized Web applications and databases), **High IO** (suitable for I/O intensive applications with low latency), **Memory Optimized** (suitable for applications that need extensive memory operation, searching and computing); and **Compute Optimized** (for large-scale game servers and ad service engines, and other applications requiring high compute performance)
+- **Series 2 CVM**: Series 2 CVMs come with the Intel Broadwell（v4）CPU, with which integer and floating-point computation performance has improved by 100%. Performance of built-in DDR4 memory has improved by 30%. 
+- **Flexible adjustment of configurations**: CVM provides a large variety of options and adjustment for calculation, network and disk. You can adjustment network at any time without shutting down the machine. You can also adjust cloud disks with the machine shut down.
+- **2 billing modes**: prepaid and postpaid modes are supported.
+- **Rich images**: public image (with multiple Linux and Windows operating system types), service marketplace image (with integration of third parties for different application environments), and custom image (Image created by users) 
+- **Cross-region copying of image**: You can copy your custom images to other Tencent Cloud regions.
+- **4 disk types**: HDD local disk, SSD local disk, HDD Cloud disk, SSD Cloud disk.
+- **Custom access control**: Define your CVM and network access strategies by setting Security Groups and network ACLs for different instances.
+- **Top-speed public network**: 20-line BGP public network that covers almost all network service providers. No matter which ISP your clients are using, they can always enjoy the same top-speed bandwidth. Optional public network bandwidth of maximum 200 Mbps
+- **Stable private network quality**: the private networks of Tencent Cloud's data centers in the same region are interconnected, all with megabyte or gigabyte underlying networks, thus ensuring communication quality within the private networks.
+- **Custom network structure**: Virtual Private Cloud (VPC) provides independent network space with custom division of network segment as well as IP address and custom router strategy etc. Provide port-level access control for comprehensive logic isolation of network.
+- **Various CVM login methods**: provide various login methods including key login, password login, VNC login, etc.
+- **Diverse security services**: provide DDoS protection, DNS hijacking detection, intrusion detection, vulnerability scanning, webshell detection, login protection and other security services to safeguard your server.
+- **FREE Cloud Monitor service**: support multiple types of real-time forewarning.

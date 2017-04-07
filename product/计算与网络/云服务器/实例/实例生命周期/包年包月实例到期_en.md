@@ -1,4 +1,4 @@
-Different from instances that are charged by quantity, instance with an annual or monthly plan cannot be terminated by users. After a certain time following the its end of life cycle, it will be automatically terminated by the system. The CVM instance with an annual or monthly plan will be shut down on the expiry date and automatically put into the Recycle Bin. It will be retained for 7 calendar days during which you can choose to renew. The instance will then be terminated if it is not renewed within 7 calendar days. At the same time, you can [renew (or set up auto renewal for)](/doc/product/213/6143) the instance with such plan before the expiry date, to prevent services interruption due to shutdown when it expires.
+Different from postpaid instances, prepaid instance cannot be terminated by users. After a certain time following the its end of life cycle, it will be automatically terminated by the system. Prepaid CVM instances are shut down on the expiry date and automatically put into the Recycle Bin. It will be retained for 7 calendar days during which you can choose to renew. The instance will then be terminated if it is not renewed within 7 calendar days. At the same time, you can [renew (or set up auto renewal for)](/doc/product/213/6143) the instance with such plan before the expiry date, to prevent services interruption due to shutdown when it expires.
 
 ## Instance Recycle
 
@@ -6,7 +6,7 @@ Tencent Cloud Recycle Bin is a recovery mechanism and system for cloud services.
 
 If your CVM instance hasn't been renewed before the expiry date (including), the system will end its service (network outage and service shutdown with data saved only) from the expiry date. Within 7 workings days after it has been put into the Recycle Bin, you can still recover it by renewing it. If, during this period, the instance hasn't been renewed, the system will release the resources, and **data will be erased and cannot be recovered**.
 
-- After putting into the Recycle Bin, CVM will be **forced to terminate** the mounting relationship with Cloud Load Balance, Elastic Public IP, elastic cloud disk, auxiliary NIC, and basic network interconnection. The mounting relationship **cannot be recovered** after renewal, you have to reset it.
+- After putting into the Recycle Bin, CVM will be **forced to terminate** the mounting relationship with Cloud Load Balance, Elastic Public IP, elastic cloud disk, auxiliary ENI, and basic network interconnection. The mounting relationship **cannot be recovered** after renewal, you have to reset it.
 - For sufficient account balance, the device with auto renewal setting will perform renewal automatically upon expiration.
 
 For objects in the Recycle Bin, users can only **renew to recover** the recycled object before terminating.

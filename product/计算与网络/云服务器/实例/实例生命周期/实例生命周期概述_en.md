@@ -17,7 +17,7 @@ CVM instance has the following states:
 
 
 ## Instance starting
-After starting, the instance will go into pending state. The [Instance Types](/doc/product/213/4833) specified when starting will determine the hardware configuration of the instance. The system will use image specified when starting to launch the instance. It will be connected to the instance after a short period of time. When the instance is ready, it will enter into running state.
+After starting, the instance will go into pending state. The [Instance Types](/document/product/213/7153) specified when starting will determine the hardware configuration of the instance. The system will use image specified when starting to launch the instance. It will be connected to the instance after a short period of time. When the instance is ready, it will enter into running state.
 
 The instance will obtain a private IP address. Other CVMs in the same regions and of the same network environment (VPC or basic network) are able to communicate with it; if you select an instance with public bandwidth/traffic, you will also get a public IP address that allows you to communicate with the instance from Internet. Users can connect to a running instance, and then use it like a normal computer.
 
@@ -42,9 +42,9 @@ For more information, see [Shutdown Instance](/doc/product/213/4929).
 
 ## Instance termination
 Users can terminate the instance if they no longer need CVM instances. Note:
-- For instances with an annual or monthly plan, it will be moved into the Recycle Bin upon expiration, and be terminated automatically after 7 days.
-- for instances charged by quantity, users can terminate them manually either through Tencent Cloud Console or Tencent Cloud API.
+- For prepaid instances, it will be moved into the Recycle Bin upon expiration, and be terminated automatically after 7 days.
+- For postpaid instances, users can terminate them manually either through Tencent Cloud Console or Tencent Cloud API.
 
 When terminating an instance, the system disks and data disks designated when purchasing will be terminated as well. But elastic cloud disks mounted on it will not be affected.
 
-For more information, see [Terminate Instance] (/doc/product/213/4930).
+For more information, see [Terminate Instance](/doc/product/213/4930).

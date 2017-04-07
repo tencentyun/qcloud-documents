@@ -1,7 +1,7 @@
 Once you've purchased and started a Linux instance, you can connect to and log in to it. The login method depends on your local operating system and whether the CVM instance can be accessed by Internet. See the table below for details.
 <table><tbody>
 <tr><th>Local operating system</th><th> Linux CVM instance with public IP</th><th>Linux CVM instance without public IP</th></tr>
-<tr><td>Windows</td><td>VNC Login<br>Login with Remote Login Software<br>Key Login</td><td rowspan="3">VNC Login</td></tr>
+<tr><td>Windows</td><td>VNC Login<br>Remote Login Software<br>Key Login</td><td rowspan="3">VNC Login</td></tr>
 <tr><td>Linux</td><td>VNC Login<br>SSH Login<br>Key Login</td></tr>
 <tr><td>Mac OS</td><td>VNC Login<br>SSH Login<br>Key Login</td></tr>
 </tbody></table>
@@ -24,7 +24,7 @@ With password login, you need to use the administrator account ID and the corres
 
 ### Prerequisites for login with key
 
-To log in with an SSH key, first you need to create an SSH key, download the private key and bind it to Linux CVM. To learn more about key operations, refer to[SSH Key](/doc/product/213/6092).
+To log in with an SSH key, first you need to create an SSH key, download the private key and bind it to Linux CVM. To learn more about key operations, refer to [SSH Key](/doc/product/213/6092).
 ![](//mccdn.qcloud.com/img56a5d553bddcf.png)
 
 Log in to [Tencent Cloud Console](https://console.qcloud.com), click "Cloud Virtual Machine" - "SSH Key" to enter the key window. Click "Create Key" button, and type a key name to create a new key. After the key is created, click "Download" button to download a private key.
@@ -136,6 +136,7 @@ By clicking the Ctrl+Alt+Del command at the top left corner, enter the system lo
 ![](//mccdn.qcloud.com/img56b1a6ff2e305.png)
 
 > Note:
+> 
 >- Ctrl + Alt + Delete is a shortcut key combination for you to log in to Windows or open task manager after the screen is locked.
 >- This terminal is exclusive, that is, only one user can log in using VNC at a time.
 >- To log in with VNC in the normal way, you need to use modern browsers such as Chrome, Firefox, IE10 or above.

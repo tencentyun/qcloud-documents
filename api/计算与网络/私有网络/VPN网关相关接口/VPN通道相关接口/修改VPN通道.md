@@ -12,12 +12,12 @@
 | vpcId | 是 | string | 私有网络ID，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-03vihbk9,可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 | 
 | vpnGwId | 是 | String | 系统分配的VPN网关ID，可使用vpnGwId或unVpnGwId，建议unVpnGwId，例如：vpngw-dystbrkv。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>接口查询。 |
 | vpnConnId | 是 | String | 系统分配的VPN通道ID，可使用vpnConnId或unVpnConnId，建议使用unVpnConnId，例如：vpnx-ol6bcqp0。可通过<a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>接口查询。 | 
-| vpnConnName | 否 | String | 通道名称，可任意命名，但不得超过60个字符。同一个VPC下名称不可重复。 |
+| vpnConnName | 否 | String | 通道名称，可任意命名，但不得超过60个字符。 |
 | preSharedKey | 否 | String | 预共享密钥。 |
 | userGwCidrBlock.n | 否 | Array | 对端网段CIDR地址，可写多个，指定vpc可以和哪些IDC网段通信，后面升级为spdAcl（粒度更细），userGwCidrBlock和spdAcl必须填一项。 |
 | spdAcl.n | 否 | Array | SPD策略组，用户指定VPC内哪些网段可以和您IDC中哪些网段通信，由userGwCidrBlock升级而来，userGwCidrBlock和spdAcl必须填一项，更多详见产品说明文档。 |
 | IKESet.n | 否 | Array | IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自保护机制，用户配置网络安全协议，详见<a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN连接-IKE配置">VPN连接-IKE配置</a>。 |
-| IPsecSet.n | 否 | Array | IPSec配置，腾讯云提供IPSec安全会话设置，详见<a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.4-ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPSec配置">VPN连接-IPSec配置</a>。|
+| IPsecSet.n | 否 | Array | IPSec配置，腾讯云提供IPSec安全会话设置，详见<a href="https://www.qcloud.com/document/product/215/4956#ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPSec配置">VPN连接-IPSec配置</a>。|
 
 IKE配置详情
 

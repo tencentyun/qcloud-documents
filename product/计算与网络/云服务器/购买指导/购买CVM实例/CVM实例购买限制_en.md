@@ -27,7 +27,7 @@ For each user, fixed quotas are allocated for Tencent Cloud prepaid CVMs in each
 3) The calculation period for each quota is a calendar month. For example, the calculation period for February 2016 is: 00:00:00 February 1 - 23:59:59 February 29
 
 
-4) If you need to activate more prepaid CVMs, you can apply through [Quota Application Link](http://manage.qcloud.com/dbexp/apply.php?product=cvmmonthlyquota). We will increase your quota after evaluating your actual needs. The increased quota is valid for the calendar month. On the first day of the next month, the quota will turn to the original value. 
+4) If you need to activate more prepaid CVMs, you can [submit an application](http://manage.qcloud.com/dbexp/apply.php?product=cvmmonthlyquota). We will increase your quota after evaluating your actual needs. The increased quota is valid for the calendar month. On the first day of the next month, the quota will turn to the original value. 
 
 
 5) In case of suspected abnormal/malicious quota increase, Tencent Cloud the right to reject refund applications. Tencent Cloud reserves the right of final interpretation to the extent permitted by law.

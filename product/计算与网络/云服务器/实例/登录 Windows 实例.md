@@ -34,7 +34,12 @@
 本地 Linux 计算机要登录远程 Windows 实例时，您需要安装相应的远程桌面连接程序，这里推荐使用 rdesktop 进行连接。有关 rdesktop 的更多内容，请参考[这里](http://www.rdesktop.org/)。
 
 1) 安装 rdesktop
-运行`rdesktop`命令检查系统是否已经安装，若未安装则请[下载最新的安装包](https://github.com/rdesktop/rdesktop/releases)，并在相应目录下运行以下命令解压和安装
+运行`rdesktop`命令检查系统是否已经安装，若未安装则请 [转到 github 下载最新安装包 >>](https://github.com/rdesktop/rdesktop/releases)
+或 点击以下链接直接下载 v1.8.3版本：
+[rdesktop-1.8.3.tar.gz](https://mc.qcloudimg.com/static/archive/06483121ce067b537342687dd6a909d8/rdesktop-1.8.3.tar.gz)
+[rdesktop-1.8.3.zip](https://mc.qcloudimg.com/static/archive/24adfd7586f55bd96cd6714a6078a4df/rdesktop-1.8.3.zip)
+
+并在相应目录下运行以下命令解压和安装
 ```
 tar xvzf rdesktop-<x.x.x>.tar.gz ##替换x.x.x为下载的版本号 
 cd rdesktop-1.8.3

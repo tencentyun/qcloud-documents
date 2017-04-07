@@ -2,7 +2,10 @@
 
 腾讯云智营解析SDK MSDKDns的主要功能是为了有效的避免由于运营商传统LocalDns解析导致的无法访问最佳接入点的方案。原理为使用Http加密协议替代传统的DNS协议，整个过程不使用域名，大大减少劫持的可能性。
 
-您可以通过Github获取最新的智营解析 iOS SDK：https://github.com/tencentyun/httpdns-ios-sdk
+您可以通过以下方式获取智营解析 iOS SDK：
+
+[从 Github 访问 >>](https://github.com/tencentyun/httpdns-ios-sdk)
+[点击下载 iOS SDK >>](https://mc.qcloudimg.com/static/archive/2430d31ca1a56bcf9861910dd17f22a9/httpdns-ios-sdk-master.zip)
 
 注意：
 如果客户端的业务是与host绑定的，比如是绑定了host的http服务或者是cdn的服务，那么在用HTTPDNS返回的IP替换掉URL中的域名以后，还需要指定下Http头的Host字段。

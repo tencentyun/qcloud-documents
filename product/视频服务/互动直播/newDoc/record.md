@@ -123,9 +123,9 @@ IOS录制功能的详细实现见[新随心播](https://github.com/zhaoyang21cn/
 通过音视频通信SDK录制的视频将存储在点播服务中
 
 1. 用户访问点播的[管理控制台](http://console.qcloud.com/video)可以对录制的文件进行相应的管理操作<br/>
-2. 用户也可以通过点播提供的API进行管理操作，[API手册](https://www.qcloud.com/doc/api/257/API%E6%A6%82%E8%A7%88)<br/>
+2. 用户也可以通过点播提供的API进行管理操作，[API手册](https://www.qcloud.com/document/product/266/7788)<br/>
 3. DescribeVodPlayInfo能根据文件名（开始录制Api中，录制参数所填文件名）获取到录制
-文件下载地址。详见[参考文档](https://www.qcloud.com/doc/api/257/%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E4%BF%A1%E6%81%AF%E5%88%97%E8%A1%A8)
+文件下载地址。详见[参考文档](https://www.qcloud.com/document/product/266/8586)
 
 ### 3 价格和计费说明
 

@@ -1,0 +1,2 @@
+Like CVM, public network gateway needs to be purchased in CVM purchase page. Log in to [Tencent Cloud CVM Purchase Page](http://manage.qcloud.com/shoppingcart/shop.php?tab=cvm), select the VPC and subnet that need public network gateway in the network options, then check "For Public Network Gateway". After the purchase, the public network gateway is created. You can configure the host in VPC. The mutual access between the host and public network is achieved through the public network gateway.
+![](//mccdn.qcloud.com/img568e273bc4959.png)

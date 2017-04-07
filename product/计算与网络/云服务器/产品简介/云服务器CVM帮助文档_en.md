@@ -8,14 +8,14 @@ This document is prepared to provide you a preliminary Cloud Virtual Machine (CV
 
 **[Advanced]**
 
-The advanced guide helps you choose the CVM that suits you better when making the purchase:<br>1. If you are not sure which configurations to choose, see [Configuration recommendations](https://www.qcloud.com/act/event/recommand.html). It covers the needs for 80% of the cloud users. <br>2. Click [Price calculator](https://buy.qcloud.com/calculator/cvm) to view the price for the product portfolio that you need for estimation of resource costs. You may choose to add it to your purchase budget list for one-click buy.<br>3. When you are not sure how CVM charges you, [CVM pricing mode](https://www.qcloud.com/doc/product/213/2180) can help you select the billing mode that suits your business scenarios.<br>4. When you have no idea which model to choose among various options, [CVM model selection](https://www.qcloud.com/doc/product/213/4833) can help you learn about the applicable scenarios and performance of different models so that you can choose the one that is suitable for your business scenarios.
+The advanced guide helps you choose the CVM that suits you better when making the purchase:<br>1. If you are not sure which configurations to choose, see [Configuration recommendations](https://www.qcloud.com/act/event/recommand.html). It covers the needs for 80% of the cloud users. <br>2. Click [Price calculator](https://buy.qcloud.com/calculator/cvm) to view the price for the product portfolio that you need for estimation of resource costs. You may choose to add it to your purchase budget list for one-click buy.<br>3. When you are not sure how CVM charges you, [CVM pricing mode](https://www.qcloud.com/doc/product/213/2180) can help you select the billing mode that suits your business scenarios.<br>4. When you have no idea which model to choose among various options, [CVM model selection](https://www.qcloud.com/document/product/213/7153) can help you learn about the applicable scenarios and performance of different models so that you can choose the one that is suitable for your business scenarios.
 **[Practice]**
 
 This practical guide provides detailed operation instructions to guide you through account registration, purchase, login and management of CVM. Please refer to this article for a quick start for the basic use of Windows and Linux CVM.
 
 **Quick start for Windows CVM**
 
-<br>[1. Register an accoun](https://www.qcloud.com/doc/product/213/2764)
+<br>[1. Register an account](https://www.qcloud.com/doc/product/213/2764)
 <br>[2. Confirm region and Windows CVM configurations](https://www.qcloud.com/doc/product/213/2762)
 <br>[3. Create Windows CVM](https://www.qcloud.com/doc/product/213/2763)
 <br>[4. Log in to Windows CVM](https://www.qcloud.com/doc/product/213/2783)
@@ -40,7 +40,7 @@ The advanced guide provides more detailed CVM management and operation instructi
 [1. Log in to Windows CVM](http://www.qcloud.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 <br>[2. Windows data formatting](http://www.qcloud.com/doc/product/213/Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E6%8D%AE%E7%9B%98%E5%88%86%E5%8C%BA%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96)
 <br>[3. Windows environment configuration](http://www.qcloud.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP)
-<br>[4. Windows program installatio](http://www.qcloud.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+<br>[4. Windows program installation](http://www.qcloud.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 
 **Linux CVM Operation and Maintenance Manual**
 

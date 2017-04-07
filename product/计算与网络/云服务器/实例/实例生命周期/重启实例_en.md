@@ -2,7 +2,7 @@ Reboot is a necessary method to maintain CVM. Rebooting CVM instances is equival
 
 Since the physical characteristics of instances are not changed after the reboot, the Public IP address and Private IP address of, and any data stored in the instances will not be altered.
 
-Rebooting instances will not start a new billing period. The length of time for use of charge-by-quantity instance will be kept, which will not affect its price range.
+Rebooting instances will not start a new billing period. The length of time for use of postpaid instance will be kept, which will not affect its price range.
 
 
 ## Use console to reboot instances
