@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, TX_Enum_Type_VideoQuality) {
 	VIDEO_QUALITY_LINKMIC_S
 ```
 
+
 详细解释一下这几种画质
 
 - VIDEO_QUALITY_STANDARD_DEFINITION：标清 - 采用 360 * 640 级别分辨率，码率会在 400kbps - 800kbps 之间自适应，如果主播的网络条件不理想，直播的画质会偏模糊，但总体卡顿率不会太高。
@@ -70,17 +71,20 @@ _txLivePush.delegate = _pushDelegate;
 [_txLivePush startPush:rtmpUrl];
 ```
 
+
 如果有小主播和大主播连麦，也即**第一个小主播加入连麦**后，请您调用：
 
 ```
 [_txLivePush setVideoQuality:VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER]; //连麦模式：大主播
 ```
 
+
 如果没有小主播和大主播连麦，也即**最后一个小主播退出连麦**后，请您调用：
 
 ```
 [_txLivePush setVideoQuality:VIDEO_QUALITY_HIGH_DEFINITION];       //非连麦模式：高清
 ```
+
 
 通过调用接口setVideoQuality，SDK内部会自动选择最优的分辨率、帧率、码率及码率调控策略等视频质量参数。需要说明的是，如果没有小主播和大主播连麦，强烈不建议选择VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER。因为这种方式追求的是尽量降低时延，可能会影响流畅性；同时会开启回音消除，会有额外的性能损耗。
 
@@ -96,6 +100,7 @@ _txLivePush.delegate = _pushDelegate;
 [_txLivePush startPreview:previewView];
 [_txLivePush startPush:rtmpUrl];
 ```
+
 
 通过调用接口setVideoQuality，选择VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER，SDK内部会自动选择最优的分辨率、帧率、码率及码率调控策略等视频质量参数，同时会开启音频回音消除。
 
@@ -142,6 +147,7 @@ _livePlayer.deletate = _playDelegate;
 [_livePlayer startPlay:playUrl type:PLAY_TYPE_LIVE_RTMP_ACC]; //开始播放，type参数必须设置为PLAY_TYPE_LIVE_RTMP_ACC
 ```
 
+
 【特别提醒】
 
 - 加速链路不能用于普通观众端播放！！！因为加速链路采用了核心节点的带宽，成本几倍于普通 CDN 带宽成本，所以只适用于主播间的实时音视频链路。同时，腾讯云限制了每一条流通过加速拉流接口观看的链路数，目前最多为5路。
@@ -158,11 +164,13 @@ _livePlayer.deletate = _playDelegate;
 http://fcgi.video.qcloud.com/common_access
 ```
 
+
 #### 2. 通过GET方式传递鉴权参数
 
 ```
 http://fcgi.video.qcloud.com/common_access?cmd=appid&interface=Mix_StreamV2&t=t&sign=sign
 ```
+
 
 - **cmd**：填写直播APPID，用于区分不同客户的身份
 - **interface**：固定填写Mix_StreamV2
@@ -177,6 +185,7 @@ t = 1490858347                                              //t 过期时间
 key + t = "40328529ca4381a80c6ecf2e6aa574381490858347"      //key 和 t 进行字符串拼接
 sign = MD5（key + t） = "7f29ed83c61b77de1b0d66936fd4fd44"   //对拼接后的字符串计算MD5
 ```
+
 
 #### 3. 通过POST方式传递混流参数
 
@@ -247,6 +256,7 @@ sign = MD5（key + t） = "7f29ed83c61b77de1b0d66936fd4fd44"   //对拼接后的
 }
 ```
 
+
 详细解释一下混流参数
 
 - 上面混流参数里，以#开始的内容是python格式的注释；
@@ -262,6 +272,7 @@ sign = MD5（key + t） = "7f29ed83c61b77de1b0d66936fd4fd44"   //对拼接后的
 ```
 {"code":0, "message":"Success!", "timestamp":1490079362}
 ```
+
 
 - **code**: 错误码，0表示成功，其它表示失败
 - **message**:错误描述信息
