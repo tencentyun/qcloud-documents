@@ -155,165 +155,105 @@ windows cmd
 |KeySpec|string|None|生成数据密钥算法。|
 |NumberOfBytes|int|None|生成指定长度的数据密钥。|
 
-返回值 KeyMetadata结构体 描述如下：
+返回值 
+(plaintext, ciphertextBlob)
 
-|属性名称|类型|含义|
-|---------|---------|---------|
-|KeyId|string|密钥id|
-|CreateTime|uinx time|创建时间|
-|Description|string|密钥描述|
-|KeyState|string|密钥状态|
-|KeyUsage|string|密钥用途|
-|Alias|string|密钥别名|
+plaintext 表示生成的数据密钥明文
 
+ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-	
-	description ='for test'
-	alias = 'kms_test'
-	kms_meta = kms_account.create_key(description,alias)
+        KeySpec = "AES_128"
+        Plaintext, CiphertextBlob = kms_account.generate_data_key(KeyId, KeySpec)
+        print "the data key : %s \n  the encrypted data key :%s\n" % (Plaintext, CiphertextBlob)
 ```
 ### 启用主密钥
 #### 方法原型
 
 ```
-
-	def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def enable_key(self, KeyId=None)
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|KeyId|string|None|主密钥Id|
 
-返回值 KeyMetadata结构体 描述如下：
-
-|属性名称|类型|含义|
-|---------|---------|---------|
-|KeyId|string|密钥id|
-|CreateTime|uinx time|创建时间|
-|Description|string|密钥描述|
-|KeyState|string|密钥状态|
-|KeyUsage|string|密钥用途|
-|Alias|string|密钥别名|
+返回值 无
 
 #### 使用示例
 
 ```
-	
-	description ='for test'
-	alias = 'kms_test'
-	kms_meta = kms_account.create_key(description,alias)
+    kms_account.enable_key(KeyId)
 ```
 ### 禁用主密钥
 #### 方法原型
 
 ```
-
-	def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def disable_key(self, KeyId=None)
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|KeyId|string|None|主密钥Id|
 
-返回值 KeyMetadata结构体 描述如下：
-
-|属性名称|类型|含义|
-|---------|---------|---------|
-|KeyId|string|密钥id|
-|CreateTime|uinx time|创建时间|
-|Description|string|密钥描述|
-|KeyState|string|密钥状态|
-|KeyUsage|string|密钥用途|
-|Alias|string|密钥别名|
-
+返回值 无
 #### 使用示例
 
 ```
-	
-	description ='for test'
-	alias = 'kms_test'
-	kms_meta = kms_account.create_key(description,alias)
+    kms_account.disable_key(KeyId)
 ```
+
 ## 加解密操作
 ### 加密
 #### 方法原型
 
 ```
-
-	def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def encrypt(self, KeyId=None, Plaintext="", EncryptionContext=None)
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|KeyId|string|None|主密钥Id|
+|Plaintext|string|空字符串|明文|
+|EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
-返回值 KeyMetadata结构体 描述如下：
-
-|属性名称|类型|含义|
-|---------|---------|---------|
-|KeyId|string|密钥id|
-|CreateTime|uinx time|创建时间|
-|Description|string|密钥描述|
-|KeyState|string|密钥状态|
-|KeyUsage|string|密钥用途|
-|Alias|string|密钥别名|
+返回值 ciphertextBlob 密文：
 
 #### 使用示例
 
 ```
-	
-	description ='for test'
-	alias = 'kms_test'
-	kms_meta = kms_account.create_key(description,alias)
+    Plaintest = "test message data"
+    CiphertextBlob = kms_account.encrypt(kms_meta.KeyId, Plaintest)
+    print "the encrypted data is :%s \n" % CiphertextBlob
 ```
 ### 解密
 #### 方法原型
 
 ```
-
-	def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT'):
+    def decrypt(self, CiphertextBlob="", EncryptionContext=None)
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|CiphertextBlob|string|空字符串|密文|
+|EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
-返回值 KeyMetadata结构体 描述如下：
-
-|属性名称|类型|含义|
-|---------|---------|---------|
-|KeyId|string|密钥id|
-|CreateTime|uinx time|创建时间|
-|Description|string|密钥描述|
-|KeyState|string|密钥状态|
-|KeyUsage|string|密钥用途|
-|Alias|string|密钥别名|
+返回值  plaintext 明文：
 
 #### 使用示例
 
 ```
-	
-	description ='for test'
-	alias = 'kms_test'
-	kms_meta = kms_account.create_key(description,alias)
+    Plaintest = kms_account.decrypt(CiphertextBlob)
+    print "the decrypted data is :%s\n" % Plaintest
 ```
 
 
