@@ -41,7 +41,6 @@
     	VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER = 4,  //大主播，连麦模式下使用
     	VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER  = 5,  //小主播，连麦模式下使用
     };
-
 详细解释一下这几种画质
 
 - VIDEO_QUALITY_STANDARD_DEFINITION：标清 - 采用 360 * 640 级别分辨率，码率会在 400kbps - 800kbps 之间自适应，如果主播的网络条件不理想，直播的画质会偏模糊，但总体卡顿率不会太高。
@@ -60,34 +59,30 @@
 大主播启动推流， 请按照如下方式调用：
 
     TXLivePushConfig* _config = [[TXLivePushConfig alloc] init];
-    _config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;				//音频采样率默认就是48K，不要设为其它值 
+    _config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;           //音频采样率默认就是48K，不要设为其它值 
     _txLivePush = [[TXLivePush alloc] initWithConfig: _config];
 	_txLivePush.delegate = _pushDelegate;
-    [_txLivePush setVideoQuality:VIDEO_QUALITY_HIGH_DEFINITION];	//非连麦模式：高清
+    [_txLivePush setVideoQuality:VIDEO_QUALITY_HIGH_DEFINITION]; //非连麦模式：高清
     [_txLivePush startPreview:previewView];
     [_txLivePush startPush:rtmpUrl];
-
 如果有小主播和大主播连麦，也即**第一个小主播加入连麦**后，请您调用：
 
-    [_txLivePush setVideoQuality:VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER];	//连麦模式：大主播
-
+    [_txLivePush setVideoQuality:VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER]; //连麦模式：大主播
 如果没有小主播和大主播连麦，也即**最后一个小主播退出连麦**后，请您调用：
 
-    [_txLivePush setVideoQuality:VIDEO_QUALITY_HIGH_DEFINITION];	//非连麦模式：高清
-
+    [_txLivePush setVideoQuality:VIDEO_QUALITY_HIGH_DEFINITION];       //非连麦模式：高清
 通过调用接口setVideoQuality，SDK内部会自动选择最优的分辨率、帧率、码率及码率调控策略等视频质量参数。需要说明的是，如果没有小主播和大主播连麦，强烈不建议选择VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER。因为这种方式追求的是尽量降低时延，可能会影响流畅性；同时会开启回音消除，会有额外的性能损耗。
 
 #### 小主播推流
 小主播启动推流，请按照如下方式调用：
 
     TXLivePushConfig* _config = [[TXLivePushConfig alloc] init];
-    _config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;					//音频采样率默认就是48K，不要设为其它值 
+    _config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;                 //音频采样率默认就是48K，不要设为其它值 
     _txLivePush = [[TXLivePush alloc] initWithConfig: _config];
 	_txLivePush.delegate = _pushDelegate;
-    [_txLivePush setVideoQuality:VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER];	//连麦模式：小主播
+    [_txLivePush setVideoQuality:VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER]; //连麦模式：小主播
     [_txLivePush startPreview:previewView];
     [_txLivePush startPush:rtmpUrl];
-
 通过调用接口setVideoQuality，选择VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER，SDK内部会自动选择最优的分辨率、帧率、码率及码率调控策略等视频质量参数，同时会开启音频回音消除。
 
 【特别说明】
@@ -130,7 +125,6 @@ startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC*
     [_livePlayer setupVideoWidget:CGRectMake(0, 0, 0, 0) containView: videoView insertIndex:0];
     [_livePlayer setRenderMode:RENDER_MODE_FILL_SCREEN];
     [_livePlayer startPlay:playUrl type:PLAY_TYPE_LIVE_RTMP_ACC]; //开始播放，type参数必须设置为PLAY_TYPE_LIVE_RTMP_ACC
-
 【特别提醒】
 
 - 加速链路不能用于普通观众端播放！！！因为加速链路采用了核心节点的带宽，成本几倍于普通 CDN 带宽成本，所以只适用于主播间的实时音视频链路。同时，腾讯云限制了每一条流通过加速拉流接口观看的链路数，目前最多为5路。
@@ -144,11 +138,9 @@ startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC*
 #### 1. 通过 HTTP 协议，请求这个 CGI
 
     http://fcgi.video.qcloud.com/common_access
-
 #### 2. 通过GET方式传递鉴权参数
 
     http://fcgi.video.qcloud.com/common_access?cmd=appid&interface=Mix_StreamV2&t=t&sign=sign
-
 - **cmd**：填写直播APPID，用于区分不同客户的身份
 - **interface**：固定填写Mix_StreamV2
 - **t（过期时间）**：UNIX时间戳，即从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数；这个字段表示的是请求过期时间，请您在获取当前时间（秒）的基础上加60秒偏移
@@ -156,47 +148,46 @@ startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC*
 
 举例说明安全签名**sign**的计算方法 
 
-    key = "40328529ca4381a80c6ecf2e6aa57438"					//API鉴权key 
-    t = 1490858347												//t 过期时间
+    key = "40328529ca4381a80c6ecf2e6aa57438"                    //API鉴权key 
+    t = 1490858347                                              //t 过期时间
     key + t = "40328529ca4381a80c6ecf2e6aa574381490858347"      //key 和 t 进行字符串拼接
     sign = MD5（key + t） = "7f29ed83c61b77de1b0d66936fd4fd44"   //对拼接后的字符串计算MD5
-
 #### 3. 通过POST方式传递混流参数
 
 混流参数是json格式的字符串，用来指定对哪些视频流进行混流操作以及混流的方式，下面举例说明
 
 	{
-        "timestamp":int(time.time()),			# UNIX时间戳，即从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数
-        "eventId":int(time.time()),				# 混流事件ID，取时间戳即可，后台使用
+        "timestamp":int(time.time()),           # UNIX时间戳，即从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数
+        "eventId":int(time.time()),             # 混流事件ID，取时间戳即可，后台使用
         "interface":
         {
-            "interfaceName":"Mix_StreamV2",		# 固定取值"Mix_StreamV2"
+            "interfaceName":"Mix_StreamV2",	    # 固定取值"Mix_StreamV2"
             "para":
             {
-                "app_id": appid,				# 填写直播APPID
-                "interface": "mix_streamv2.start_mix_stream_advanced",	# 固定取值"mix_streamv2.start_mix_stream_advanced"
-                "mix_stream_session_id" : "3891_denny1",				# 填大主播的流ID
-                "output_stream_id": "3891_denny1",						# 填大主播的流ID
+                "app_id": appid,                # 填写直播APPID
+                "interface": "mix_streamv2.start_mix_stream_advanced",  # 固定取值"mix_streamv2.start_mix_stream_advanced"
+                "mix_stream_session_id" : "3891_denny1",                # 填大主播的流ID
+                "output_stream_id": "3891_denny1",                      # 填大主播的流ID
                 "input_stream_list":
                 [
                     # 大主播：背景画面
                     {
-                        "input_stream_id":"3891_denny1",	# 流ID
+                        "input_stream_id":"3891_denny1",    # 流ID
                         "layout_params":
                         {   
-                            "image_layer": 1				# 图层标识号：大主播填 1 ;  小主播按照顺序填写2、3、4
+                            "image_layer": 1                # 图层标识号：大主播填 1 ;  小主播按照顺序填写2、3、4
                         }   
                     },
                     # 小主播1
                     {
-                        "input_stream_id":"3891_denny2",	# 流ID
+                        "input_stream_id":"3891_denny2",    # 流ID
                         "layout_params":
                         {   
-                            "image_layer": 2,				# 图层标识号
-                            "image_width": 160,				# 小主播画面宽度
-                            "image_height": 240,			# 小主播画面高度
-                            "location_x": 380,				# x偏移：相对于大主播背景画面左上角的横向偏移
-                            "location_y": 630				# y偏移：相对于大主播背景画面左上角的纵向偏移
+                            "image_layer": 2,               # 图层标识号
+                            "image_width": 160,             # 小主播画面宽度
+                            "image_height": 240,            # 小主播画面高度
+                            "location_x": 380,              # x偏移：相对于大主播背景画面左上角的横向偏移
+                            "location_y": 630               # y偏移：相对于大主播背景画面左上角的纵向偏移
                         }   
                      },
                     # 小主播2
@@ -227,7 +218,6 @@ startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC*
             }
         }
     }
-
 详细解释一下混流参数
 
 - 上面混流参数里，以#开始的内容是python格式的注释；
@@ -241,11 +231,9 @@ startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC*
 #### 4. CGI返回的是一段json格式的字符串，如下所示
 
     {"code":0, "message":"Success!", "timestamp":1490079362}
-
 - **code**: 错误码，0表示成功，其它表示失败
 - **message**:错误描述信息
 - **timestamp**:时间戳，取值与混流参数里的timestamp相同
-
 
 关于启动视频混流的其它注意事项
 
