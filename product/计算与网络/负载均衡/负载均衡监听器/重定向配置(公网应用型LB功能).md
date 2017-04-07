@@ -27,7 +27,6 @@ server {
     location / {
         client_max_body_size 200m;
         rewrite ^/.(.*) https://$host/$1 redirect;   //在CVM上做rewrite配置
-        proxy_pass http://447;
 } 
 }
 ```
@@ -41,7 +40,6 @@ server {
     location / {
         client_max_body_size 200m;
         rewrite ^/.(.*) https://xxx.xxx.xx:10011/x redirect;   //在CVM上做rewrite配置
-        proxy_pass http://447;
 } 
 }
 ```
