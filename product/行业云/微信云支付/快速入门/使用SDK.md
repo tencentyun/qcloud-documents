@@ -4,7 +4,7 @@
 
 - 当前SDK支持刷卡支付、查询订单、取消订单(包含撤单和关单)、扫码支付、申请退款、查询退款、门店上传、门店下载8个接口。其中刷卡支付和扫码支付为异步方式，接口调用成功只代表支付提交成功，支付结果需要通过查询订单得到；取消订单、申请退款、退款查询、门店上传、门店下载接口为同步调用云支付接口。
  
-- 当前只提供了 Windows 环境下的 SDK，后续会提供其他环境。[点击下载SDK>>](https://mc.qcloudimg.com/static/archive/11125cb23fabd1b41107e415bfd993ad/SDK.zip)
+- 当前只提供了 Windows 环境下的 SDK，后续会提供其他环境。[点击下载SDK>>](https://mc.qcloudimg.com/static/archive/c5a0e7f9d742b3cc64a8ede5be02c190/SDK.zip)
 
 ## windows下的SDK使用说明
 

@@ -9,7 +9,7 @@
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| name | 是 | string | IPsec VPN网关名称，可任意命名，但不得超过60个字符。同一个VPC内IPsec VPN网关名称不能重复。 |
+| name | 是 | string | IPsec VPN网关名称，可任意命名，但不得超过60个字符。 |
 | vpcId | 是 | string | 网络ID或者统一ID，建议使用统一ID,可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 |
 | period | 是 | Int | 查询的购买时长，单位月，最大36个月。 |
 | bandwidth | 是 | Int | 带宽，只支持：5、10、20、50、100，单位Mb。 |

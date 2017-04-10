@@ -14,7 +14,7 @@ Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcName | Yes | String | VPC name. You can specify any name you like, but its length should be limited to 60 characters. The VPC name must be unique under the same region.  |
+| vpcName | Yes | String | VPC name. You can specify any name you like, but its length should be limited to 60 characters.  |
 | cidrBlock | Yes | String | VPC network segment. Available values include 10.0.0.0/16, 172.16.0.0/16 and 192.168.0.0/16 as well as their subnets. Please refer to VPC Network Segment Layout Instruction for details.  |
 | subnetSet.n | No | Array | Subnet information array. You can create subnets as you create the VPC. Optional. |
 | subnetSet.n.subnetName | Yes | String | Subnet name. You can specify any name you like, but its length should be limited to 60 characters. |
@@ -48,7 +48,6 @@ Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 | Error Code | Description |
 |---------|---------|
 | InvalidVpcName | Invalid VPC name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidVpcName.InUse | The VPC name is already in use. The VPC name of the same developer within the same region must be unique.  |
 | InvalidVpcCidr | Invalid vpc CIDR. Available values include 10.0.0.0/16, 172.16.0.0/16 and 192.168.0.0/16 as well as their subnets. Please refer to VPC Network Segment Layout Instruction for details.  |
 | VpcLimitExceeded | The limit of requested vpc resources for the specific region has been reached. Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
 | InvalidVpc.NotFound | Invalid vpc. The vpc resource does not exist. Please verify that you have entered resource information correctly.  |

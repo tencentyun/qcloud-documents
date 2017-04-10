@@ -1,21 +1,21 @@
 ## 1. API Description
 
-This API (CreateNetworkInterface) is used to create elastic NICs.
+This API (CreateNetworkInterface) is used to create ENIs.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
-1) When creating an elastic NIC, you can specify a private IP and a primary IP. The specified private IP must be in the subnet of the elastic NIC, and cannot be occupied.
-2) When creating an elastic NIC, you can specify the number of private IP addresses that need to be requested. The system will randomly generate the private IP address(es).
-3) You can bind an existing security group when creating an elastic NIC.
+1) When creating an ENI, you can specify a private IP and a primary IP. The specified private IP must be in the subnet of the ENI, and cannot be occupied.
+2) When creating an ENI, you can specify the number of private IP addresses that need to be requested. The system will randomly generate the private IP address(es).
+3) You can bind an existing security group when creating an ENI.
 
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/245/4772" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is CreateNetworkInterface.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | Yes | String | Virtual private cloud ID of elastic NIC (new ID is recommended), for example: vpc-7t9nf3pu.   |
-| subnetId | Yes | String | Subnet of elastic NIC (new ID is recommended), for example: subnet-0ap8nwca.  |
-| eniName| Yes| String | Elastic NIC name; you can specify any name you like, but its length should be limited to 60 characters.  |
-| eniDescription| No | String | Elastic NIC description; you can specify any name you like, but its length should be limited to 60 characters.   |
+| vpcId | Yes | String | Virtual private cloud ID of ENI (new ID is recommended), for example: vpc-7t9nf3pu.   |
+| subnetId | Yes | String | Subnet of ENI (new ID is recommended), for example: subnet-0ap8nwca.  |
+| eniName| Yes| String | ENI name; should be within 60 characters.  |
+| eniDescription| No | String | ENI description; should be within 60 characters.   |
 | privateIpAddressSet.n | No | Array | Specified private IP address array.   |
 | privateIpAddressSet.n.primary | Yes | Bool | Indicate whether it is a primary IP; can only set one primary IP.   |
 | privateIpAddressSet.n.privateIpAddress | Yes | String | Specified private IP address.   |
@@ -35,10 +35,10 @@ The following error code list only provides the business logic error codes for t
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API |
-| InvalidSubnet.NotFound | Invalid subnet, subnet resource does not exist. Please verify that the resource information you entered is correct. You can query the subnet via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8" title="DescribeSubnetEx">DescribeSubnetEx</a> API |
-| InvalidNetworkInterfaceName | Elastic NIC is invalid. you can specify any name you like, but its length should be limited to 60 characters.  |
-| NetworkInterfaceLimitExceeded | Number of Elastic NICs exceeds the upper limit. Please contact customer service for more resources. For more information on VPC resources restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a> |
+| InvalidVpc.NotFound | VPC does not exist. Please check the information you entered. You can query the VPC via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API |
+| InvalidSubnet.NotFound |  Subnet does not exist. Please check the information you entered. You can query the subnet via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8" title="DescribeSubnetEx">DescribeSubnetEx</a> API |
+| InvalidNetworkInterfaceName | Invalid ENI name. The ENI name should be within 60 characters.  |
+| NetworkInterfaceLimitExceeded | Number of ENIs exceeds the upper limit. Please contact customer service for more resources. For more information on VPC resources restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits">VPC Service Limits</a> |
 
 ## 5. Example
 Input

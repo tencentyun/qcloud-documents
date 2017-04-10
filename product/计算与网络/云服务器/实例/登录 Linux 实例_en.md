@@ -1,7 +1,7 @@
 Once you've purchased and started a Linux instance, you can connect to and log in to it. The login method depends on your local operating system and whether the CVM instance can be accessed by Internet. See the table below for details.
 <table><tbody>
 <tr><th>Local operating system</th><th> Linux CVM instance with public IP</th><th>Linux CVM instance without public IP</th></tr>
-<tr><td>Windows</td><td>VNC Login<br>Login with Remote Login Software<br>Key Login</td><td rowspan="3">VNC Login</td></tr>
+<tr><td>Windows</td><td>VNC Login<br>Remote Login Software<br>Key Login</td><td rowspan="3">VNC Login</td></tr>
 <tr><td>Linux</td><td>VNC Login<br>SSH Login<br>Key Login</td></tr>
 <tr><td>Mac OS</td><td>VNC Login<br>SSH Login<br>Key Login</td></tr>
 </tbody></table>

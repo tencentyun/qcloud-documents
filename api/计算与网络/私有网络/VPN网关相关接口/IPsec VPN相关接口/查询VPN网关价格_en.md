@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (InquiryVpnPrice) is used to query the VPN price.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font> 
+Domain for API request: <font style="color:red">vpc.api.qcloud.com</font> 
  
 
 ## 2. Input Parameters

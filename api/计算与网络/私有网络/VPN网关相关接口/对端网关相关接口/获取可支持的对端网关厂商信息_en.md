@@ -1,6 +1,6 @@
 ## 1. API Description
 This API (DescribeUserGwVendor) is used to acquire information on supported peer gateway vendors.
-Domain for API request:<font style='color:red'>vpc.api.qcloud.com </font>
+Domain for API request: <font style='color:red'>vpc.api.qcloud.com </font>
 
 
 
@@ -22,7 +22,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.software | String | Software version | 
 | data.vendorname | String | Vendor | 
 
-## 4. Error Code Table
+## 4. Error Codes
 The API does not have a business error code. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
 
 ## 5. Example

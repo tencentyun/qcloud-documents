@@ -6,10 +6,10 @@ To create a VPC, the Action field in common request parameter should be CreateVp
 
 | Parameter | Description | Value |
 |---------|---------|---------|
-| vpcName | VPC name | 1-60 letters (upper-/lower-case), numbers and undelines |
-| cidrBlock | VPC CIDR block | VPC network segment. It can be 10.0.0.0/16, 172.16.0.0/16, 192.168.0.0/16 and their subnets. For details, please see VPC network segment planning introduction. |
+| vpcName | VPC name | 1-60 letters (upper-/lower-case), numbers and underlines |
+| cidrBlock | VPC CIDR block | VPC IP address range. It can be 10.0.0.0/16, 172.16.0.0/16, 192.168.0.0/16 and their subnets. For details, please see VPC network segment planning introduction. |
 | subnetSet.n |Subnet array | Optional |
-| subnetSet.n.subnetName | Subnet name | 1-60 letters (upper-/lower-case), numbers and undelines |
+| subnetSet.n.subnetName | Subnet name | 1-60 letters (upper-/lower-case), numbers and underlines |
 | subnetSet.n.cidrBlock | Subnet segment | The subnet segment must be within the VPC network segment|
 | subnetSet.n.zoneId | ID of availability zone | Refer to the introduction of availability zone |
 

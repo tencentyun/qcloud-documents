@@ -25,7 +25,6 @@ The following request parameter list only provides API request parameters. Commo
 | Error code | Description |
 |---------|---------|
 | InvalidPeeringConnectionName | Invalid peering connection name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidPeeringConnectionName.InUse | The peering connection name is already in use. The peering connection name must be unique within the same VPC.  |
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
 | InvalidPeeringConnection.NotFound | Invalid peering connection. Peering connection resource does not exist. Please verify that you have entered resource information correctly.  |
 

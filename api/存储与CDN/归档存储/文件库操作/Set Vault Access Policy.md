@@ -44,32 +44,31 @@ Authorization: Auth
                 "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>",
                 "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>"
             ],
-            "condition": [
-                {
-                    "<ConditionOperator>": {
-                        "<ConditionName>": [
-                            "<ConditionValue>",
-                            "<ConditionValue>"
-                        ]
-                    }
+            "condition": {
+                "<ConditionOperator>": {
+                    "<ConditionName>": [
+                        "<ConditionValue>",
+                        "<ConditionValue>"
+                    ]
                 }
-            ]
+            }
         }
     ]
 }
 ```
 
+
 已支持条件操作
 
 | ConditionOperator       | 含义     | 条件名                    | 举例                                       |
 | ----------------------- | ------ | ---------------------- | ---------------------------------------- |
-| ip_equal                | ip等于   | ip,ip要符合CIDR规范         | {" ip_equal  ":{"ip":"10.121.2.10/24"}}  |
-| ip_not_equal            | ip不等于  | ip，ip要符合CIDR规范         | {" ip_not_equal  ":{"ip":["10.121.2.10/24",  "10.121.2.20/24"]}} |
-| date_not_equal          | 时间不等于  | qcs:current_time(当前时间) | {"date_not_equal":{"qcs:current_time":"2016-06-01  00:01:00"}} |
-| date_greater_than       | 时间大于   | qcs:current_time(当前时间) | {" date_greater_than  ":{"qcs:current_time":"2016-06-01 00:01:00"}} |
-| date_greater_than_equal | 时间大于等于 | qcs:current_time(当前时间) | {"  date_greater_than_equal ":{"qcs:current_time":"2016-06-01  00:01:00"}} |
-| date_less_than          | 时间小于   | qcs:current_time(当前时间) | {" date_less_than  ":{"qcs:current_time":"2016-06-01 00:01:00"}} |
-| date_less_than_equal    | 时间小于等于 | qcs:current_time(当前时间) | {"  date_less_than_equal ":{"qcs:current_time":"2016-06-01  00:01:00"}} |
+| ip_equal                | ip等于   | ip,ip要符合CIDR规范         | {" ip_equal  ":{"qcs:ip":"10.121.2.10/24"}}  |
+| ip_not_equal            | ip不等于  | ip，ip要符合CIDR规范         | {" ip_not_equal  ":{"qcs:ip":["10.121.2.10/24",  "10.121.2.20/24"]}} |
+| date_not_equal          | 时间不等于  | qcs:current_time(当前时间) | {"date_not_equal":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |
+| date_greater_than       | 时间大于   | qcs:current_time(当前时间) | {" date_greater_than  ":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |
+| date_greater_than_equal | 时间大于等于 | qcs:current_time(当前时间) | {"  date_greater_than_equal ":{"qcs:current_time":2016-01-01T12:00:11Z"}} |
+| date_less_than          | 时间小于   | qcs:current_time(当前时间) | {" date_less_than  ":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |
+| date_less_than_equal    | 时间小于等于 | qcs:current_time(当前时间) | {"  date_less_than_equal ":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |
 
 
 ## 返回值

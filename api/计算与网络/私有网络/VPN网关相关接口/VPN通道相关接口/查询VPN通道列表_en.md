@@ -1,7 +1,7 @@
 ## 1. API Description
 
-This API (DescribeVpnConn) is used to query VPN channel list.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
+This API (DescribeVpnConn) is used to query VPN tunnel list.
+Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
  
 
@@ -12,8 +12,8 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | vpcId | No | string | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-03vihbk9. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  | 
 | vpnGwId | No  | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>.  |
-| vpnConnId | No  | String | VPN channel ID assigned by the system, which can be vpnConnId or unVpnConnId. unVpnConnId is recommended. For example: vpnx-ol6bcqp0.  |  
-| vpnConnName | No  | String | VPN channel name, fuzzy query is supported.  |  
+| vpnConnId | No  | String | VPN tunnel ID assigned by the system, which can be vpnConnId or unVpnConnId. unVpnConnId is recommended. For example: vpnx-ol6bcqp0.  |  
+| vpnConnName | No  | String | VPN tunnel name, fuzzy query is supported.  |  
 | offset | No | Int | Offset of initial line. Default is 0.  |
 | limit | No | Int | Number of rows per page. Default is 20. Supports up to 50.  |
 | orderField | No | String | Sort by a certain field. Currently, the sorting can be performed only by createTime (default) and vpnConnName.  |
@@ -26,7 +26,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Error code, 0: Succeeded; other values: Failed |
 | message |  String | Error message |
-| totalCount |   Int | Return the total number of VPN channels in the result|
+| totalCount |   Int | Return the total number of VPN tunnels in the result|
 | data.n | Array  | Returned array |
 | data.n.vpcId | String | Virtual private cloud ID assigned by the system, for example: gz_vpc_8849.  |
 | data.n.unVpcId | String | Virtual private cloud ID assigned by the system, new ID is recommended. For example: vpc-0ox8fuhw.  |
@@ -36,12 +36,12 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.userGwId | String |Peer gateway ID assigned by the system. For example: 122.   |
 | data.n.unUserGwId | String | New peer gateway ID assigned by the system. For example: cgw-e098slul.  |
 | data.n.userGwAddress | String | Public IP of the peer gateway. For example: 183.12.0.1.  |
-| data.n.vpnConnName | String | Channel name.  |
+| data.n.vpnConnName | String | Tunnel name.  |
 | data.n.preSharedKey | String | Pre-shared private key. For example: d!@#12d. |
-| data.n.sourceCidr | Array | Source network segment.  |
-| data.n.destinationCidr | Array | Destination network segment.  |
-| data.n.vpcConnStatus | Int | VPN channel statuses, 0: Creating, 1: Creation error, 2: Modifying, 3: Modification error, 4: Deleting, 5: Deletion error, 6: Running properly. |
-| data.n.netStatus | String | Network condition of the VPN channel, available: connected, unavailable: not connected. |
+| data.n.sourceCidr | Array | Source IP address range.  |
+| data.n.destinationCidr | Array | Destination IP address range.  |
+| data.n.vpcConnStatus | Int | VPN tunnel statuses, 0: Creating, 1: Creation error, 2: Modifying, 3: Modification error, 4: Deleting, 5: Deletion error, 6: Running properly. |
+| data.n.netStatus | String | Network condition of the VPN tunnel, available: connected, unavailable: not connected. |
 | data.n.IKEArr.n | Array | Information array of IKE configurations.  |
 | data.n.IPSECArr.n | Array | Information array of IPsec configurations.  |
 
@@ -53,11 +53,11 @@ Content of IKE configuration information array
 | IKEArr.n.propoAuthenAlgorithm | String | IKE configuration, authentication algorithm. For example: md5. See the product instruction for details.  |
 | IKEArr.n.exchangeMode |String | IKE configuration, negotiation mode. For example: aggressive. See the product instruction for details.  |
 | IKEArr.n.localIdentity | String | IKE configuration, local identity type. For example: address. See the product instruction for details.  |
-| IKEArr.n.remoteIdentity | String | IKE configuration, peered identity type. For example: address. See the product instruction for details.  |
+| IKEArr.n.remoteIdentity | String | IKE configuration, peer identity type. For example: address. See the product instruction for details.  |
 | IKEArr.n.localAddress | String | IKE configuration, local identity. localAddress is the public IP of the VPN gateway by default. See the product instruction for details.  |
-| IKEArr.n.remoteAddress | String | IKE configuration, peered identity. See the product instruction for details.  |
+| IKEArr.n.remoteAddress | String | IKE configuration, peer identity. See the product instruction for details.  |
 | IKEArr.n.localFqdnName | String | IKE configuration, local identity. See the product instruction for details.  |
-| IKEArr.n.remoteFqdnName | String | IKE configuration, peered identity. See the product instruction for details.  |
+| IKEArr.n.remoteFqdnName | String | IKE configuration, peer identity. See the product instruction for details.  |
 | IKEArr.n.dhGroupName | String | IKE configuration, DH group, specifies the DH group used for exchanging the private key. For example: group1. See the product instruction for details.  |
 | IKEArr.n.ikeSaLifetimeSeconds | Int | IKE configuration, IKE SA Lifetime, unit: second, sets the SA lifetime of IKE security proposal. For example: 3600. See the product instruction for details.  |
 
@@ -68,18 +68,18 @@ Content of IPsec configuration information array
 | IPSECArr.n.encryptAlgorithm | String | IPsec configuration, encryption algorithm. For example: 3des-cbc. See the product instruction for details.  |
 | IPSECArr.n.integrityAlgorith | String | IPsec configuration, authentication algorithm. For example: md5. See the product instruction for details.  |
 | IPSECArr.n.ipsecSaLifetimeSeconds |  Int | IPsec configuration, IPsec SA lifetime (s), unit: second. For example: 360. See the product instruction for details.  |
-| IPSECArr.n.ipsecSaLifetimeTraffic |  Int | IPsec configuration, IPsec SA lifetime(KB), unit: KB. For example: 3600. See the product instruction for details.  |
+| IPSECArr.n.ipsecSaLifetimeTraffic |  Int | IPsec configuration, IPsec SA lifetime (KB), unit: KB. For example: 3600. See the product instruction for details.  |
 | IPSECArr.n.pfsDhGroup |  String | IPsec configuration, PFS. For example: dh-group1. See the product instruction for details.  |
 
 
- ## 4. Error Code Table
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please check the information you entered. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | InvalidVpnGw.NotFound | Invalid VPN gateway. VPN gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN gateway via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>.  |
-| InvalidVpnGw.NotFound | Invalid VPN channel. VPN channel resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN channel via the API <a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>.  |
+| InvalidVpnGw.NotFound | Invalid VPN tunnel. VPN tunnel resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN tunnel via the API <a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>.  |
 
 
 ## 5. Example

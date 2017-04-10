@@ -2,7 +2,7 @@
 Domain: vpc.api.qcloud.com
 API: InquiryNatPrice
 
-Query NAT gateway price.
+This API is used to query NAT gateway price.
 
 ## 2. Input Parameters
 | Parameter Name | Required  | Type | Description |
