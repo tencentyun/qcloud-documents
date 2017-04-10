@@ -20,7 +20,7 @@ vod.api.qcloud.com
 | to | No | String | End time. Default is 2038-1-1 00:00:00 |
 | classId | No | Integer | Video category ID, used for filtering |
 | status | No | Integer | Video status, used for filtering. -1: Upload incomplete, does not exist; 0: Initialize, not in use; 1: Verification failed, not in use; 2: Normal; 3: Paused; 4: Transcoding; 5: Publishing; 6: Deleting; 7: Transcoding failed; 100: Deleted |
-| orderby | No | Integer | Order of the results. By default, the results are sorted in descending order by time. 0: Ascending order by time; 1: Descending order by time |
+| orderby | No | Integer | Order of the results. By default, the results are sorted in ascending order by time. 0: Ascending order by time; 1: Descending order by time |
 | pageNo | No | Integer | Page number |
 | pageSize | No | Integer | Page size, value range: 10-100 |
 | COMMON_PARAMS | Yes |  | Refer to [Common Parameters](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
