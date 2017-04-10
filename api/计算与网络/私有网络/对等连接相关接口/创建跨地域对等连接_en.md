@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 | vpcId | Yes | String | ID of VPC, which can be vpcId or unVpcId. unVpcId is recommended. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>. |
 | peerVpcId | Yes | String | Receiver's VPC ID, which can be vpcId or unVpcId. unVpcId is recommended. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>. |
 | peerUin | Yes | String | Receiver's unique account ID on Tencent Cloud. You can check this in the personal information at User Center by contacting receiver. <a href="https://www.qcloud.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Click here to view instructions</a>. |
-| peeringConnectionName | Yes | String | Peering connection name. You can specify any name you like, but its length should be limited to 60 characters. The name must be unique within the same VPC. |
+| peeringConnectionName | Yes | String | Peering connection name. You can specify any name you like, but its length should be limited to 60 characters. |
 | peerRegion | Yes | String | Receiver's region. For more information about the supported regions, refer to <a href="https://www.qcloud.com/doc/product/215/1685" title="对等连接">About Peering Connection</a>.  |
 | bandwidth | Yes | String | Upper limit of bandwidth for peering connection (in Mbps). There is no limit by default. For more information about the limit, refer to <a href="https://www.qcloud.com/doc/product/215/1685" title="对等连接">About Peering Connection</a>. |
 
@@ -35,7 +35,6 @@ The following error code list only provides the business logic error codes for t
 | Error Code | Description |
 |---------|---------|
 | InvalidPeeringConnectionName | Invalid peering connection name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidPeeringConnectionName.InUse | The peering connection name is already in use. The peering connection name must be unique within the same VPC.  |
 | PeeringConnectionVpcConflict | Conflict occurs between VPC segments in peering connection |
 | PeeringConnectionLimitExceeded | The limit of requested peering connection resources for the specified region has been reached. Please contact customer service for more resources. For more information on VPC resources restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
