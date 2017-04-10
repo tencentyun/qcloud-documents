@@ -1,15 +1,13 @@
-# C++ sdk
+# PHP sdk
 ## 开发准备
 
 ### 相关资源
--[GitHub地址](https://github.com/tencentyun/kms-cpp-sdk.git) ,欢迎贡献代码以及反馈问题。
+-[GitHub地址](https://github.com/tencentyun/kms-php-sdk.git) ,欢迎贡献代码以及反馈问题。
 
 -[C++ sdk 本地下载]()
 ### 开发环境
-1. [安装openssl的库和头文件](http://www.openssl.org/source/)
-2. [安装libcurl](https://curl.haxx.se/download.html)
-3. [安装cmake工具](https://cmake.org/download/)
-4. 从控制台获取APP ID, SecretID,SecretKey。
+1. 依赖环境：PHP5.3.0版本及以上
+2. 从控制台获取APP ID, SecretID,SecretKey。
 
 
 ### SDK配置
