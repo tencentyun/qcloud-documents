@@ -31,16 +31,16 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 ## 生成客户端对象
 
 ``` 
-    string secretId='xxxxxx';    #替换为用户的secretId
-    string secretKey = 'xxxxxx'; #替换为用户的secretKey
-    string endpoint = 'https://kms-region.api.tencentyun.com'; # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
+    string secretId="xxxxxx;    #替换为用户的secretId
+    string secretKey = "xxxxxx"; #替换为用户的secretKey
+    string endpoint = "https://kms-region.api.tencentyun.com"; # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
     KMSAccount account(endpoint,secretId,secretKey);
 ```
 ### 初始化客户端配置
 客户端默认使用sha1 签名算法，可以调用签名算法修改签名方式
 
 ```
-    account.set_sign_method('sha256');
+    account.set_sign_method("sha256");
 ```
 
 ## 密钥管理操作
@@ -75,8 +75,8 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 
 ```
     KeyMetadata meta ;
-    string description ='test';
-    string alias = 'kms_test';
+    string description ="test";
+    string alias = "kms_test";
     string KeyUsage="ENCRYPT/DECRYPT";
     account.create_key(meta,Description,Alias,KeyUsage);
 ```
@@ -110,7 +110,7 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 
 ```
     KeyMetadata meta;
-    string keyId=''  # 请填写你的keyId
+    string keyId=""  # 请填写你的keyId
     account.get_key_attributes(meta.KeyId,meta);
 ```
 
