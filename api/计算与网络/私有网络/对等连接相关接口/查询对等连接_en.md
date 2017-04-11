@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (DescribeVpcPeeringConnections) is used to query VPC peering connection
+This API (DescribeVpcPeeringConnections) is used to query VPC peering connection.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 ## 2. Input Parameters
@@ -35,16 +35,16 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.peeringConnectionName | String | Peering connection name | 
 | data.n.state | Int | Connection status<br>0: Requesting; 1: Connected; 2: Expired; 3: Rejected; 4: Deleted | 
 | data.n.createTime | String | Creation time of peering connection | 
-| data.n.uin | String | Your unique account ID on Tencent Cloud. You can check this in the personal information at User Center. <a href="https://www.qcloud.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Click here to view instructions</a>. | 
-| data.n.peerUin | String | Receiver's unique account ID on Tencent Cloud. You can check this in the personal information at User Center by contacting receiver. <a href="https://www.qcloud.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Click here to view instructions</a>. | 
+| data.n.uin | String | Your unique account ID on Tencent Cloud. You can check this on Tencent Cloud User Center. <a href="https://www.qcloud.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Learn more</a>. | 
+| data.n.peerUin | String | Receiver's unique account ID on Tencent Cloud. The receivers can check this by themselves on Tencent Cloud User Center. <a href="https://www.qcloud.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Learn more</a>. | 
 
- ## 4. Error Code List
+## 4. Error Codes
 The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
-| InvalidPeeringConnection.NotFound | Invalid peering connection. Peering connection resource does not exist. Please verify that you have entered resource information correctly.  |
+| InvalidVpc.NotFound | VPC does not exist. Please check the information you entered.  |
+| InvalidPeeringConnection.NotFound | Peering connection does not exist. Please check the information you entered. |
 
 ## 5. Example
 Input
