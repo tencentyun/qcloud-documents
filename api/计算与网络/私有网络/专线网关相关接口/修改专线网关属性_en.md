@@ -29,7 +29,6 @@ The following request parameter list only provides API request parameters. Commo
 | Error Code | Description |
 |---------|---------|
 | InvalidDirectConnectGatewayName | Invalid Direct Connect gateway name. Direct Connect gateway name, which has a length of 1-60 characters, and can contain Chinese characters, uppercase and lowercase English letters, numbers, and underscores.  |
-| InvalidDirectConnectGatewayName.InUse | The Direct Connect gateway name is already in use. The Direct Connect gateway name must be unique within the same VPC.  |
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
 | InvalidDirectConnectGateway.NotFound | Invalid Direct Connect gateway. Direct Connect gateway resource does not exist. Please verify that you have entered resource information correctly.  |
 

@@ -28,7 +28,6 @@ The following request parameter list only provides API request parameters. Commo
 | Error code | Description |
 |---------|---------|
 | InvalidUserGwName | Invalid peer gateway name. It should be within 60 characters.  |
-| InvalidUserGwName.InUse | Peer gateway name already in use. The peer gateway name must be unique under the same account.  |
 | InvalidUserGw.InUse | Peer gateway public IP already in use. The peer gateway public IP must be unique under the same account.  |
 | UserGwLimitExceeded | Reached the upper limit of requested peer gateways for the specific region. Please contact customer service for more resources. For more information, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits"> VPC Service Limits</a>.  |
 
