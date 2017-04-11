@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain:  vod.api.qcloud.com
-API name:  DescribeAutoScreenShot
+This API (DescribeAutoScreenShot) is used to batch acquire snapshots generated during transcoding process.
 
-Batch acquire snapshots generated during transcoding process
+Domain:  vod.api.qcloud.com
 
  
 

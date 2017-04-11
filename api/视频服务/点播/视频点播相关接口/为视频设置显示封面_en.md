@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain:  vod.api.qcloud.com
-API name:  DescribeVodCover
+This API (DescribeVodCover) is used to set the cover for the video.
 
-Set the cover for the video
+Domain:  vod.api.qcloud.com
 
  
 

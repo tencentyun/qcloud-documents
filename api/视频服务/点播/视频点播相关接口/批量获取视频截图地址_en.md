@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain: vod.api.qcloud.com 
-API: CreateScreenShot 
+This API (CreateScreenShot) is used to acquire the URL addresses of multiple snapshots of different sizes for the specified file. Files are sorted according to the order of their IDs which correspond to snapshots at 0%, 10%, 20%, to 90% position of the time line, respectively.
 
-Acquire the URL addresses of multiple snapshots of different sizes for the specified file. Files are sorted according to the order of their IDs which correspond to snapshots at 0%, 10%, 20%, to 90% position of the time line, respectively.
+Domain: vod.api.qcloud.com 
 
  
 

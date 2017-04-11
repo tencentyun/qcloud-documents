@@ -1,10 +1,8 @@
 ## 1. API Description
- 
+
+This API (MultiPullVodFile) is used to pull a batch of video files to Tencent Cloud from existing resource library, according to URLs passed by the user. Through this API, multiple video files can be pulled in batched. The order of each video is determined based on the value of "n" from the input parameter.
+
 Domain: vod.api.qcloud.com
-API name:  MultiPullVodFile
-
-Pull a batch of video files to Tencent Cloud from existing resource library, according to URLs passed by the user. This API is able to batch pull multiple video files. The order of each video is determined based on the value of "n" from the input parameter.
-
  
 
 ## 2. Input Parameters
@@ -38,7 +36,7 @@ Pull a batch of video files to Tencent Cloud from existing resource library, acc
 <td> pullset.n.isScreenshot
 <td> No
 <td> Int
-<td> Whether to take snapshot. 0: No (default), 1: Yes
+<td> Take snapshot or not. 0: No (default), 1: Yes
 <tr>
 <td> pullset.n.isWatermark
 <td> No
