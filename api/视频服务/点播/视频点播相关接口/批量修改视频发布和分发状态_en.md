@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain: vod.api.qcloud.com 
-API name:  MultiSetVodPlayStatus  
+This API (MultiSetVodPlayStatus) is used to modify file publish status, and the status which indicates whether the file has been delivered to CDN.
 
-Used to modify file publish status, and the status which indicates whether the file has been delivered to CDN.
+Domain: vod.api.qcloud.com 
 
  
 

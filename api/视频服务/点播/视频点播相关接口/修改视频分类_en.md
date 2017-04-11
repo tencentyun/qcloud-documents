@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain: vod.api.qcloud.com
-API name:  ModifyVodClass
+This API (ModifyVodClass) is used to modify the category of video files.
 
-Modify the category of video files
+Domain: vod.api.qcloud.com
 
  
 

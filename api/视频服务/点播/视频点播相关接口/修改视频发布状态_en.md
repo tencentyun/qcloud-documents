@@ -1,11 +1,12 @@
 ## 1. API Description
+
+
+This API (SetVodPlayStatus) is used to pause or resume  playing a video.
+
  
 Domain: vod.api.qcloud.com
-API name:  SetVodPlayStatus
 
-Pause the video or resume the play
 
- 
 
 ## 2. Input Parameters
  
