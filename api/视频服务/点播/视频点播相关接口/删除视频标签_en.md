@@ -1,9 +1,9 @@
 ## 1. API Description
+
+This API (DeleteVodTags) is used to delete video tags in batch.
+
  
 Domain: vod.api.qcloud.com
-API name:  DeleteVodTags
-
-Used to batch delete video tags
 
  
 

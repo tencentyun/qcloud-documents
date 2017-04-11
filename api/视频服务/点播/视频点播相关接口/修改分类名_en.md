@@ -1,9 +1,8 @@
 ## 1. API Description
+
+This API (ModifyClass) is used to modify the category name.
  
 Domain:  vod.api.qcloud.com
-API name:  ModifyClass
-
-Modify the category name
 
  
 

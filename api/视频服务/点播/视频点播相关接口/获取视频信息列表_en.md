@@ -1,9 +1,8 @@
 ## 1. API Description
- 
-Domain: vod.api.qcloud.com
-API name:  DescribeVodInfo
 
-Used to acquire video information. Acquire video information list according to certain information of the video, such as ID, duration or status.
+This API (DescribeVodInfo) is used to acquire video information. Acquire video information list according to certain information of the video, such as ID, duration or status.
+
+Domain: vod.api.qcloud.com
 
  
 

@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain:  vod.api.qcloud.com
-API name:  DescribeAllClass
+This API (DescribeAllClass) is used to acquire all category class relationships of the current user.
 
-Used to acquire all category class relationships of the current user
+Domain:  vod.api.qcloud.com
 
  
 
