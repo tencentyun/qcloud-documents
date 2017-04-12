@@ -1,49 +1,29 @@
-# Python sdk
+# JAVA sdk
 ## 开发准备
 
 ### 相关资源
--[GitHub地址](https://github.com/tencentyun/kms-python-sdk) ,欢迎贡献代码以及反馈问题。
+-[GitHub地址]() ,欢迎贡献代码以及反馈问题。
 
--[python sdk 本地下载]()
+-[JAVA sdk 本地下载]()
 ### 环境依赖
-python2.7 目前不支持python3
-
-获取python版本的方法：
-
-linux shell 
-
-```
-
-    $python -V
-
-    Python 2.7.11
-```
-
-windows cmd
-
-```
-   
-    D:>python -V
-    Python 2.7.11
-```
-
-如果提示不是内部或者外部命令，请先在window环境变量PATH里面添加上python的绝对路径
+JDK1.7
 
 ### 历史版本
 
 ## 生成客户端对象
 
 ``` 
-    secretId='xxxxxx'    #替换为用户的secretId
-    secretKey = 'xxxxxx' #替换为用户的secretKey
-    endpoint = 'https://kms-region.api.tencentyun.com' # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
-    kms_account = KMSAccount(endpoint,secretId,secretKey)
+    //从腾讯云官网查询的云API密钥信息
+    String secretId="";
+    String secretKey="";
+    String endpoint = "";       
+    KMSAccount account = new KMSAccount(endpoint,secretId, secretKey);
 ```
 ### 初始化客户端配置
 客户端默认使用sha1 签名算法，可以调用签名算法修改签名方式
 
 ```
-    kms_account.set_sign_method('sha256')
+    account.setSignMethod("sha256");
 ```
 
 ## 密钥管理操作
@@ -51,16 +31,16 @@ windows cmd
 #### 方法原型
 
 ```
-    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT')
+    public KeyMetadata create_key(String Description,String Alias ,String KeyUsage) throws Exception
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|Description|string|无|主密钥描述|
+|Alias|string|无|主密钥别名|
+|KeyUsage|string|无|主密钥用途：默认是加解密|
 
 返回值 KeyMetadata结构体 描述如下：
 
@@ -76,23 +56,24 @@ windows cmd
 #### 使用示例
 
 ```
-    description ='for test'
-    alias = 'kms_test'
-    kms_meta = kms_account.create_key(description,alias)
+    String Description = "test";
+    String Alias= "test";
+    String KeyUsage = "ENCRYPT/DECRYPT";
+    KeyMetadata meta = account.create_key(Description , Alias , KeyUsage);
 ```
 
 ### 获取主密钥属性
 #### 方法原型
 
 ```
-    def get_key_attributes(self, KeyId=None)
+    public KeyMetadata get_key_attributes(String KeyId) throws Exception
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id|
+|KeyId|string|无|主密钥Id|
 
 返回值 KeyMetadata结构体 描述如下：
 
@@ -108,40 +89,38 @@ windows cmd
 #### 使用示例
 
 ```
-    keyId=''  # 请填写你的keyId
-    key_meta = kms_account.get_key_attributes("kms-awy8dndb")
-    print key_meta
+    meta = account.get_key_attributes(KeyId);
 ```
 
 ### 设置主密钥属性
 #### 方法原型
 
 ```
-    def set_key_attributes(self, KeyId=None, Alias=None)
+    public void set_key_attributes(String KeyId , String Alias) throws Exception
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id|
-|Alias|string|None|主密钥别名|
+|KeyId|string|无|主密钥Id|
+|Alias|string|无|主密钥别名|
 
 返回值 无
 
 #### 使用示例
 
 ```
-    keyId=''  # 请填写你的keyId
-    Alias=''  # 请填写你的主密钥别名
-    kms_account.get_key_attributes(keyId,Alias)
+    Alias = "for test";
+    account.set_key_attributes(KeyId, Alias);
 ```
+
 
 ### 获取主密钥列表
 #### 方法原型
 
 ```
-    def list_key(self, offset=0, limit=10)
+    public void  list_key(int offset, int limit,List<String> KeyList) throws Exception
 ```
 
 #### 参数说明
@@ -150,25 +129,21 @@ windows cmd
 |---------|---------|---------|---------|
 |offset|int|0|返回列表偏移值。|
 |limit|int|10|本次返回列表限制个数，不填写默认为返回10个。|
-
-返回值 KeyMetadata结构体 描述如下：
-
-|属性名称|类型|含义|
-|---------|---------|---------|
-|totalCount|int|表示所有的密钥个数。|
-|keys|array|key数组。|
+|KeyList|list|无|本次返回的KeyId 列表。|
 
 #### 使用示例
 
 ```
-    totalCount, keys = kms_account.list_key()
-    print keys
+    ArrayList<String> KeyId  = new ArrayList<String>();
+    account.list_key(-1,-1,KeyId);
+    for(int i = 0 ; i < KeyId.size(); ++i)
+    	System.out.println("the " +Integer.toString(i) + "Key id is " + KeyId.get(i));
 ```
 ### 生成数据密钥
 #### 方法原型
 
 ```
-    def generate_data_key(self, KeyId=None, KeySpec=None, NumberOfBytes=None, EncryptionContext=None)
+    public String generate_data_key(String KeyId, String KeySpec, int NumberOfBytes , String EncryptionContext,String Plaintext ) throws Exception
 ```
 
 #### 参数说明
@@ -178,25 +153,24 @@ windows cmd
 |KeyId|string|None|主密钥Id。|
 |KeySpec|string|None|生成数据密钥算法。|
 |NumberOfBytes|int|None|生成指定长度的数据密钥。|
+|Plaintext|string|无|生成的数据密钥明文。|
 
-返回值 
-(plaintext, ciphertextBlob)
+返回值 CiphertextBlob 生成的数据密钥密文。
 
-plaintext 表示生成的数据密钥明文
-
-ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-        KeySpec = "AES_128"
-        Plaintext, CiphertextBlob = kms_account.generate_data_key(KeyId, KeySpec)
-        print "the data key : %s \n  the encrypted data key :%s\n" % (Plaintext, CiphertextBlob)
+   String KeySpec = "AES_128";
+   String Plaintext  = "";   		
+   String CiphertextBlob = account.generate_data_key(meta.KeyId, KeySpec,1024,"",Plaintext);
+   System.out.println("the data key string is " + Plaintext);
+   System.out.println("the encrypted data key string is "+CiphertextBlob);
 ```
 ### 启用主密钥
 #### 方法原型
 
 ```
-    def enable_key(self, KeyId=None)
+    public void enable_key(String KeyId) throws Exception
 ```
 
 #### 参数说明
@@ -210,13 +184,13 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    kms_account.enable_key(KeyId)
+    account.enable_key(KeyId);
 ```
 ### 禁用主密钥
 #### 方法原型
 
 ```
-    def disable_key(self, KeyId=None)
+    public void disable_key(String KeyId) throws Exception
 ```
 
 #### 参数说明
@@ -229,7 +203,7 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    kms_account.disable_key(KeyId)
+    account.disable_key(KeyId);
 ```
 
 ## 加解密操作
@@ -253,15 +227,14 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    Plaintest = "test message data"
-    CiphertextBlob = kms_account.encrypt(kms_meta.KeyId, Plaintest)
-    print "the encrypted data is :%s \n" % CiphertextBlob
+    CiphertextBlob  = account.encrypt(KeyId, Plaintext,"");
+    System.out.println("the encrypted data is " + CiphertextBlob);
 ```
 ### 解密
 #### 方法原型
 
 ```
-    def decrypt(self, CiphertextBlob="", EncryptionContext=None)
+    public String decrypt(String CiphertextBlob , String EncryptionContext)throws Exception
 ```
 
 #### 参数说明
@@ -276,8 +249,8 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    Plaintest = kms_account.decrypt(CiphertextBlob)
-    print "the decrypted data is :%s\n" % Plaintest
+    Plaintext = account.decrypt( Plaintext,"");
+    System.out.println("the decrypted data is " + Plaintext);
 ```
 
 
