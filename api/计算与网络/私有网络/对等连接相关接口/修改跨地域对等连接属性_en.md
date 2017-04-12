@@ -20,15 +20,14 @@ The following request parameter list only provides API request parameters. Commo
 | message | String | Error message. |
 | taskId | Int | Task ID. The operation result can be queried with taskId. For more information, refer to <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">API for Querying Task Execution Result</a>.  |
 
- ## 4. Error Code List
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error code | Description |
 |---------|---------|
-| InvalidPeeringConnectionName | Invalid peering connection name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidPeeringConnectionName.InUse | The peering connection name is already in use. The peering connection name must be unique within the same VPC.  |
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
-| InvalidPeeringConnection.NotFound | Invalid peering connection. Peering connection resource does not exist. Please verify that you have entered resource information correctly.  |
+| InvalidPeeringConnectionName | Invalid peering connection name. It should be within 60 characters.  |
+| InvalidVpc.NotFound | VPC not exist. Please check the information you entered. |
+| InvalidPeeringConnection.NotFound |Peering connection not exist. Please check the information you entered.|
 
 ## 5. Example
 Input

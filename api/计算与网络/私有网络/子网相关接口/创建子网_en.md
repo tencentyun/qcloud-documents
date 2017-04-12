@@ -15,8 +15,8 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | Yes | String | VPC ID of the subnet, which can be vpcId or unVpcId. unVpcId is recommended. Can be queried via API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| subnetSet.n | No | Array | Subnet information array. You can create subnets as you create the VPC. Optional. |
-| subnetSet.n.subnetName | Yes | String | Subnet name. You can specify any name you like, but its length should be limited to 60 characters. The name must be unique under the same VPC. |
+| subnetSet.n | Yes | Array | Subnet information array. You can create subnets as you create the VPC. Optional. |
+| subnetSet.n.subnetName | Yes | String | Subnet name. You can specify any name you like, but its length should be limited to 60 characters. |
 | subnetSet.n.cidrBlock | Yes | String | Subnet network segment. It must lie within the range of the VPC network segment. Subnet network segments must not overlap with each other within the same VPC. |
 | subnetSet.n.zoneId | Yes | Int | ID of the availability zone in which the subnet resides. You may set up disaster tolerance across availability zones by choosing different availability zones for different subnets. Refer to <a href="https://www.qcloud.com/doc/product/215/4927#.E5.8F.AF.E7.94.A8.E5.8C.BA.EF.BC.88zone.EF.BC.89">VPC Availability Zone Instruction</a> for available values.  |
  
@@ -42,7 +42,6 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | InvalidSubnetName | Invalid subnet name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidSubnetName.InUse | The subnet name is already used by another subnet under the VPC. Subnet name must be unique in the same VPC.  |
 | InvalidSubnetCidr | Subnet CIDR is invalid or does not lie within the range of the VPC network segment. Subnet CIDR value range: 10.0.0.0/16, 172.16.0.0/16, 192.168.0.0/16 and their subnets.  |
 | InvalidSubnet.Conflict | Subnet network segment is in conflict with other segments within the VPC.  |
 | SubnetLimitExceeded | The limit of requested subnet resources for the specific region has been reached. Please contact customer service for more resources. For more information on VPC resource restrictions, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |

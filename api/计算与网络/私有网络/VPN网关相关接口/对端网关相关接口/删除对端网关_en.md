@@ -1,6 +1,6 @@
 ## 1. API Description
 This API (DeleteUserGw) is used to delete peer gateway.
-Domain for API request:<font style='color:red'>vpc.api.qcloud.com </font>
+Domain for API request: <font style='color:red'>vpc.api.qcloud.com </font>
 
 
 
@@ -19,8 +19,8 @@ The following request parameter list only provides API request parameters. Commo
 | code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Code page. |
 | message | String | Module error message description depending on API. |
 
- ## 4. Error Code Table
- The following list only provides the business logic error codes for this API. For additional common error codes, refer to<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+## 4. Error Codes
+ The following list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error code | Description |
 |---------|---------|

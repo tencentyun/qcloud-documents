@@ -1,13 +1,18 @@
 ## BGP高防IP快速接入（业务部署在非腾讯云）
 
-登录“大禹网络安全”控制台，在“BGP高防IP”控制页中找到您已经开通的高防IP实例，点击实例ID，进入配置页面
+**第一步** 登录控制台高防IP配置页面
+
+登录“[大禹网络安全](https://console.qcloud.com/dayu/bgpip)”控制台，在“BGP高防IP”控制页中找到您已经开通的业务部署在非腾讯云的高防IP实例，点击实例ID，进入配置页面
+![](https://mc.qcloudimg.com/static/img/a9d6ddfda4cc899cdb7185a33671d25a/image.png)
 ![](https://mc.qcloudimg.com/static/img/fd9063bdf1f69cb2f4c5bd73d1764787/image.png)
+
+**第二步** 新建转发规则
 
 在“转发规则”配置栏中点击“新建”按钮，新建转发规则。按下图所示，首先选择转发规则（目前支持TCP协议），再填写转发端口（最终想通过高防IP的哪个端口来访问，一般来说跟源站端口是相同的），然后填写源站端口（源站提供服务的真实端口）和源站IP
 
 ![](https://mc.qcloudimg.com/static/img/86a466a99e39b3a04685644e00d105b7/image.png)
 
-注意：
+**注意**
 
 - 如果一个域名对应多个源站IP，可以都写进去，最多支持20个。不同的源站IP之间英文分号";"分隔；
 - 用多个源站之间会以轮询方式做负载均衡；
@@ -18,8 +23,10 @@
 高防IP暂不支持配置七层转发，敬请期待。
 
 ## BGP高防IP快速接入（业务部署在腾讯云）
-**第一步** 登陆高防IP控制后台,选择相应地域云内高防IP[https://console.qcloud.com/dayu/bgpip/list/gz](https://console.qcloud.com/dayu/bgpip/list/gz)
-![](https://mc.qcloudimg.com/static/img/77f84c2fa6f0b717c14359ba034dd457/image.png)
+**第一步** 登录控制台高防IP配置页面
+
+登录“[大禹网络安全](https://console.qcloud.com/dayu/bgpip)”控制台，在“BGP高防IP”控制页中找到您已经开通的业务部署在腾讯云的高防IP实例，点击实例ID，进入配置页面
+![](https://mc.qcloudimg.com/static/img/4113bb40717b8710cb8689843cac23b2/image.png)
 
 **第二步** 创建监听器
 
@@ -35,4 +42,4 @@
 
 
 **第四步** 将业务切换至高防IP即可
-![](https://mc.qcloudimg.com/static/img/9d05f9c52675ffb46f01e887f6d0872e/image.png)
+![](https://mc.qcloudimg.com/static/img/a1d4e5b7f2787e6369376785980dc61c/image.png)

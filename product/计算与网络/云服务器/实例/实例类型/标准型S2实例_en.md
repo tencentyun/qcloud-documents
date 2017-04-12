@@ -1,9 +1,9 @@
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standard S2 instance is designed to provide general baseline performance, and is able to achieve the balance among compute, memory and network resources. It is a great choice for many applications, and is perfect for general workloads, such as medium- and small-sized Web applications and databases.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Standard S2 instance features 2.4GHz Intel E5-Xeon Broadwell (v4) CPU processor and DDR4 memory, and also offers the options of local disks, common cloud disks and SSD cloud disks for the data disks (The option may vary with different hardware specifications).
+Standard S2 instance is designed to provide general baseline performance, and is able to achieve the balance among compute, memory and network resources. It is a great choice for many applications, and is perfect for general workloads, such as medium- and small-sized Web applications and databases.
+Standard S2 instance features 2.4 GHz Intel E5-Xeon Broadwell (v4) CPU processor and DDR4 RAM, and also offers the options of local disks, common cloud disks and SSD cloud disks for the data disks (The option may vary with different hardware specifications).
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the available configurations when you purchase a Standard M2 instance, refer to [CVM Instance Configurations](https://www.qcloud.com/doc/product/213/2177).
+For the available configurations when you purchase a Standard M2 instance, refer to [CVM Instance Configurations](https://www.qcloud.com/doc/product/213/2177).
 
 ## Hardware Specification
 The hardware specifications of Standard S2 instances are as follows:

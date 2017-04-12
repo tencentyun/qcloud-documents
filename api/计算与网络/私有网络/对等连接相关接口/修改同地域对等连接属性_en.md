@@ -19,15 +19,14 @@ The following request parameter list only provides API request parameters. Commo
 | code | Int | Error code. 0: Succeeded; other values: Failed. |
 | message | String | Error message. |
 
- ## 4. Error Code List
+## 4. Error Codes
   The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error code | Description |
 |---------|---------|
-| InvalidPeeringConnectionName | Invalid peering connection name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidPeeringConnectionName.InUse | The peering connection name is already in use. The peering connection name must be unique within the same VPC.  |
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
-| InvalidPeeringConnection.NotFound | Invalid peering connection. Peering connection resource does not exist. Please verify that you have entered resource information correctly.  |
+| InvalidPeeringConnectionName | Invalid peering connection name. It should be within 60 characters.  |
+| InvalidVpc.NotFound | VPC not exist. Please check the information you entered.|
+| InvalidPeeringConnection.NotFound |Peering connection not exist. Please check the information you entered. |
 
 ## 5. Example
 Input

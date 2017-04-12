@@ -150,7 +150,7 @@
         </tr>
         <!--视频处理-->
         <tr>
-            <td rowspan=4>
+            <td rowspan=5>
                 视频处理
             </td>
             <td>
@@ -189,6 +189,16 @@
             <td>
                 <a href="/document/product/266/8102">
                     CreateSnapshotByTimeOffset
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                HLS视频简单剪切
+            </td>
+            <td>
+                <a href="/document/product/266/8859">
+                    SimpleClipHls
                 </a>
             </td>
         </tr>

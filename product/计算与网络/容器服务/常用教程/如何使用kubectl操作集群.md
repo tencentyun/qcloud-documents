@@ -61,7 +61,7 @@ kubectl get node -s "https://cls-66668888.ccs.tencent-cloud.com" --username=admi
 kubectl config set-credentials default-admin --username=admin --password=6666o9oIB2gHD88882quIfLMy6666
 kubectl config set-cluster default-cluster --server=https://cls-66668888.ccs.tencent-cloud.com --certificate-authority=/etc/kubernetes/cluster-ca.crt
 kubectl config set-context default-system --cluster=default-cluster --user=default-admin
-kubectl config use-context default-systemhttps://mc.qcloudimg.com/static/img/1aac831641ccfc0b3becd0b38e2a9634/Image+014.png
+kubectl config use-context default-system https://mc.qcloudimg.com/static/img/1aac831641ccfc0b3becd0b38e2a9634/Image+014.png
 
 ```
 配置完成，直接使用kubectl命令

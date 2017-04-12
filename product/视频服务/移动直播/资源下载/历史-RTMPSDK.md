@@ -1,3 +1,7 @@
+### Version 2.0.0
+- iOS & Android：增加 UGC 小视频的采集和发布功能。
+- iOS & Android：增加截流录制功能，观众可以在观看直播时截取一段形成 UGC 小视频，然后分享出来。
+- iOS：增加了新的“美白”滤镜，适合较为偏爱映客美颜效果的客户。
 
 ### Version 1.9.2
 - iOS & Android：增加了对本地文件播放的支持。（startPlay 中设置 PLAY_TYPE_LOCAL_VIDEO）

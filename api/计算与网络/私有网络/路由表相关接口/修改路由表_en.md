@@ -13,10 +13,10 @@ After the modification, the original content of routing table will be totally re
 |---------|---------|---------|---------|
 | vpcId | Yes | String | ID of VPC to which the subnet belongs. It can be vpcId or unVpcId. unVpcId is recommended. For example, vpc-rqndayhs. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | routeTableId | Yes | String | The routing table ID assigned by the system, which can be routeTableId or unRouteTableId. unRouteTableId is recommended. For example: rtb-rqndayhs. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>.  |
-| routeTableName | No|  String| Routing table name; you can specify any name you like, but its length should be limited to 60 characters. The name must be unique within the same VPC.  |
-| routeSet.n | No | array | Content of routing table. This is optional. |
-| routeSet.n.destinationCidrBlock | Yes | String | Destination network segment, which cannot be within the VPC network segment. For example: 112.20.51.0/24. |
-| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: nat gateway. |
+| routeTableName | No|  String| Routing table name; up to 60 characters.  |
+| routeSet.n | No | array | (Optional) Content of routing table. |
+| routeSet.n.destinationCidrBlock | Yes | String | Destination IP address range. It should not be within the VPC IP address range. For example: 112.20.51.0/24. |
+| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway. |
 | routeSet.n.nextHub | Yes | String | Next hop address. You just need to specify gateway IDs (new ID is recommended) of different next hop types and the system will automatically match to the next hop address.  |
 | routeSet.n.description | No | String | Route description, which should be limited to 60 characters.  |
   
@@ -28,20 +28,20 @@ After the modification, the original content of routing table will be totally re
 | message | String | Error message.   |
 
 
- ## 4. Error Code List
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC.  VPC resource does not exist. Please verify that you have entered resource information correctly. You can query VPC through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| InvalidRouteTableId.NotFound | Invalid routing table. The routing table ID does not exist. Please verify that you have entered resource information correctly. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>.  | 
-| InvalidRouteTableName | Invalid routing table name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| InvalidRouteTableName.InUse | The routing table name has been used by another routing table under the VPC. The routing table name must be unique within the same VPC.  |
-| RouteLimitExceeded | The upper limit of number of routing table policies has been exceeded. Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
-| RouteAlreadyExists | The destination network segment already exists in the routing table policy. No conflict between destination network segments is allowed in the same routing table.  |
+| InvalidVpc.NotFound | VPC not exist. Please check the information you entered. You can query VPC through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| InvalidRouteTableId.NotFound | Routing table ID not exist. Please check the information you entered. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>.  | 
+| InvalidRouteTableName | Invalid routing table name. It should be within 60 characters.  |
+| RouteLimitExceeded | Reached the upper limit of routing table policies. Please contact customer service for more resources. For more information, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
+| RouteAlreadyExists | The destination IP address range already exists in the routing table policy.  |
 | InvalidRouteNextType | Invalid next hop type. For supported types, refer to the descriptions of input parameters.  |
-| InvalidRouteNextHub.NotFound | The next hop address does not exist. Please verify that you have entered next hop address resource ID correctly.  |
-| InvalidRoute.NextHubLimitExceeded | The maximum number of paths in public network gateway ECMP is 8.   |  
+| InvalidRouteNextHub.NotFound | The next hop address does not exist. Please check the information you entered.  |
+| InvalidRoute.NextHubLimitExceeded | The maximum number of paths in public network gateway ECMP is 8.   | 
+ 
 ## 5. Example
  
 Input

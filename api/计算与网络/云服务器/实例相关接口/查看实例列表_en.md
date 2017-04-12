@@ -30,22 +30,22 @@ Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 | 18 | Cloud Load Balance unbinding
 | 19 | Upgrading
 | 20 | Key issuing
-| 21 | In maintenance (cannot operate on the instance <br>but does not affect the normal operation)
+| Others | In maintenance (The instance is running normally. But you cannot operate on this instance.)
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For common parameters, please see [Common Request Parameters](/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| instanceIds.n | No | String | (Filter condition) Filter by one or more instance ID(s). It can be obtained from the unInstanceId in the returned value of [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API (This API allows passing multiple IDs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)).
+| instanceIds.n | No | String | IDs of instances you want to query. It can be obtained from the unInstanceId in the returned value of [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API. (This API allows passing multiple IDs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)).
 | lanIps.n | No | String | (Filter condition) Filter by the Private IP or Public IP (including IP and Elastic IP automatically assigned when the instance is created) of one or more instance(s)(This API allows passing multiple IPs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)).
 | searchWord | No | String | (Filter condition) Filter by instance name, support fuzzy query. |
-| status | No | Int | (Filter condition) The states of the instances, which are listed above.
+| status | No | Int | (Filter condition) The status of the instances, which are listed above.
 | projectId | No | Int | (Filter condition) [Project ID](/document/api/378/4398). |
 | zoneId | No | Int | (Filter condition) [Availability Zone ID](/document/api/213/806). |
-| offset | No | Int | Offset; default value is 0. For more information about `offset`, refer to the relevant sections in API [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89).
-| limit | No | Int | Number of returned results. The default value is 20, and the maximum is 100. For more information on `limit`, refer to relevant sections in API [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89).
+| offset | No | Int | Offset; default value is 0. For more information about `offset`, please see [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89).
+| limit | No | Int | Number of returned results. The default value is 20, and the maximum is 100. For more information about `limit`, please see [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89).
 
 
 ## 3. Output Parameters
@@ -63,7 +63,7 @@ instanceSet contains a lot of instance information, and the data structure for e
 |---------|---------|---------|
 | instanceName | String | Instance name.
 | unInstanceId | String | Instance ID in the format "ins-xxxxxxxx".
-| lanIp | String | Private IP of instance primary NIC.
+| lanIp | String | Private IP of instance primary ENI.
 | wanIpSet | Array | Public IP list (including IP and Elastic IP automatically assigned when the instance is created).
 | cpu | Int | The number of CPU cores.
 | mem | Int | Memory size (GB).
@@ -72,17 +72,17 @@ instanceSet contains a lot of instance information, and the data structure for e
 | status | Int | Current status. For specific meaning, see above.
 | Region | String | The region. Specific meaning can be queried through the [DescribeProductRegionList](/document/api/213/2849) API.
 | createTime | String | Time of creation.
-| deadlineTime | String | Expiry time. For charge-by-quantity instances, it will be"0000-00-00 00:00".
-| autoRenew | Int | [Auto Renewal Identification](https://www.qcloud.com/doc/api/229/1746). <br>0 indicates that the instance is not automatically renewed; <br>1 indicates that the instance is automatically renewed; <br>2 indicates that the instance is no longer renewed.
+| deadlineTime | String | Expiry time. For postpaid instances, it will be"0000-00-00 00:00".
+| autoRenew | Int | Whether the instance is set to [Auto Renewal](https://www.qcloud.com/doc/api/229/1746). <br>0: Do not auto renew; <br>1: Auto renew; <br>2: Do not renew.
 | projectId | Int | [Project ID](https://www.qcloud.com/doc/api/229/1335).
 | os | String | Operating system name.
-| cvmPayMode | String | Billing mode. <br>0: Postpaid mode that charges by month; <br>1: Annual or monthly plan; <br>2: Charge by quantity
-| networkPayMode | String | Network billing mode. <br> 0: Postpaid mode that charges by month; <br>1: Annual or monthly plan; <br> 2: Charge by traffic; <br> 3: Charge by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |
+| cvmPayMode | String | Billing mode. <br>0: Monthly postpaid; <br>1: Prepaid package; <br>2: Postpaid
+| networkPayMode | String | Network billing mode. <br> 0: Monthly postpaid; <br>1: Prepaid package; <br> 2: Bill by traffic; <br> 3: Bill by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |
 | zoneId | Int | [Availability Zone](/doc/product/213/6091) ID.
 | zoneName | String | Availability zone name.
 | vpcId | Int | [Virtual Private Cloud](/help/什么是私有网络) ID.
 | subnetId | Int | Subnet ID.
-| isVpcGateway | Int | Whether it is the [Gateway](https://www.qcloud.com/doc/product/215/1682) for VPC. <br>0: No; <br>1: Yes
+| isVpcGateway | Int | Whether a VPC [gateway](https://www.qcloud.com/doc/product/215/1682). <br>0: No; <br>1: Yes
 | diskInfo | Array | The object that contains the hard disk information.
 
 diskInfo contains a lot of hard disk information, and the data structure for each single hard disk information is as follows:
@@ -90,11 +90,11 @@ diskInfo contains a lot of hard disk information, and the data structure for eac
 | Parameter name | Type | Description |
 |---------|---------|---------|
 | storageId | String | Hard disk ID.
-| storageType | Int | Hard disk type. <br>1. Local disk <br>2.Cloud HHD Storage <br>3.SSD local disk <br>4.SSD cloud disk
+| storageType | Int | Hard disk type. <br>1. Local disk <br>2. Cloud HHD Storage <br>3. SSD local disk <br>4. SSD cloud disk
 | storageSize | Int | Data disk size (GB).
 | rootId | String | System disk ID.
 | rootSize | Int | System disk size (GB). |
-| rootType | Int | System disk type. <br>1. Local disk <br>2.Cloud HHD Storage <br>3.SSD local disk <br>4.SSD cloud disk
+| rootType | Int | System disk type. <br>1. Local disk <br>2. Cloud HHD Storage <br>3. SSD local disk <br>4. SSD cloud disk
 
 
 ## 4. Example

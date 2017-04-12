@@ -15,7 +15,7 @@ This practical guide provides detailed operation instructions to guide you throu
 
 **Quick start for Windows CVM**
 
-<br>[1. Register an accoun](https://www.qcloud.com/doc/product/213/2764)
+<br>[1. Register an account](https://www.qcloud.com/doc/product/213/2764)
 <br>[2. Confirm region and Windows CVM configurations](https://www.qcloud.com/doc/product/213/2762)
 <br>[3. Create Windows CVM](https://www.qcloud.com/doc/product/213/2763)
 <br>[4. Log in to Windows CVM](https://www.qcloud.com/doc/product/213/2783)
@@ -40,7 +40,7 @@ The advanced guide provides more detailed CVM management and operation instructi
 [1. Log in to Windows CVM](http://www.qcloud.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 <br>[2. Windows data formatting](http://www.qcloud.com/doc/product/213/Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E6%8D%AE%E7%9B%98%E5%88%86%E5%8C%BA%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96)
 <br>[3. Windows environment configuration](http://www.qcloud.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP)
-<br>[4. Windows program installatio](http://www.qcloud.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+<br>[4. Windows program installation](http://www.qcloud.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 
 **Linux CVM Operation and Maintenance Manual**
 

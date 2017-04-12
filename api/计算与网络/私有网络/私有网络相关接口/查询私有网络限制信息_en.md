@@ -1,8 +1,8 @@
 ## 1. API Description 
-Domain:  vpc.api.qcloud.com<br>
-API name:  DescribeVpcLimit<br>
+Domain: vpc.api.qcloud.com<br>
+API name: DescribeVpcLimit<br>
 
-Query VPC restrictions.
+This API is used to query VPC service limits.
 
 ## 2. Input Parameters
 <table class="t"><tbody><tr>
@@ -11,7 +11,7 @@ Query VPC restrictions.
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> type.n <td> Yes <td> String <td> VPC characteristic type
+<td> type.n <td> Yes <td> String <td> VPC type
 </tbody></table>
 
 

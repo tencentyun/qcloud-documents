@@ -1,11 +1,8 @@
 ## 1. API Description
- 
+This API (DescribeAcl) is used to query network ACLs.
+
 Domain name:  vpc.api.qcloud.com
-API name:  DescribeAcl
 
-Query network ACL
-
- 
 
 ## 2. Input Parameters
  
@@ -35,7 +32,7 @@ Query network ACL
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> code <td> Int <td> Error code, 0:  succeeded, other values:  failed
+<td> code <td> Int <td> Error code, 0: succeeded, other values: failed
 <tr>
 <td> message <td> String <td> Error message
 <tr>
@@ -55,7 +52,7 @@ Query network ACL
 <tr>
 <td> data.aclSet.vpcName <td> String <td> VPC name
 <tr>
-<td> data.aclSet.vpcCidrBlock <td> String <td> VPC network segment
+<td> data.aclSet.vpcCidrBlock <td> String <td> VPC IP address range
 <tr>
 <td> data.aclSet.subnetNum <td> Int <td> Number of bound subnets
 <tr>

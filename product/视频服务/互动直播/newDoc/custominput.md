@@ -189,7 +189,12 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 #### avsdk1.8.4后增加了此功能，目前的做法还需这样。略显繁琐，今后会进一步优化。
 
-1. 主播或上麦观众腾讯云后台spear角色配置里音频场景要设置为“开播”（开播场景会占用本地录音权限），也可以设置为“观看”这样就不会占用本地音频设备了；2. 进房间时mic和speaker都要打开；3. 进房间成功后调用接口AVAudioCtrl.changeAudioCategory切换至观看场景（第一步如果设置为“观看”场景此步省略）；4. 调enableExternalAudioDataInput开启自定义采集音频；5. 调fillExternalAudioFrame将外部采集的音频塞给AVSDK；6. 以上接口都需在主线程调用。
+1. 主播或上麦观众腾讯云后台spear角色配置里音频场景要设置为“开播”（开播场景会占用本地录音权限），也可以设置为“观看”这样就不会占用本地音频设备了；
+2. 进房间时mic和speaker都要打开；
+3. 进房间成功后调用接口AVAudioCtrl.changeAudioCategory切换至观看场景（第一步如果设置为“观看”场景此步省略）；
+4. 调enableExternalAudioDataInput开启自定义采集音频；
+5. 调fillExternalAudioFrame将外部采集的音频塞给AVSDK；
+6. 以上接口都需在主线程调用。
 
 
 
@@ -370,7 +375,7 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 
 |接口|描述|
 |---|---|
-|OnVideoPreview:|远程画面回调，接收远程帧数据，再使用ILiveSDK的渲染接口渲染，用户只需要添加一个渲染区域即可。渲染详情请参考[新版随心播](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master/TILLiveSDKShow)|
+|OnVideoPreview:|远程画面回调，接收远程帧数据，再使用ILiveSDK的渲染接口渲染，用户只需要添加一个渲染区域即可。渲染详情请参考[新版随心播](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master)|
 
 |参数类型|参数名|说明|
 |---|---|---|

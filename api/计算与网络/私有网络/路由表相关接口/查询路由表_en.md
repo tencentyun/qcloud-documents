@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | No | String | ID of VPC to which the subnet belongs. This can be vpcId or unVpcId. unVpcId is recommended. For example, vpc-0ox8fuhw.  It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.   |
-| routeTableId | No | String | The routing table ID assigned by the system, which can be routeTableId or unRouteTableId. unRouteTableId is recommended. For example, rtb-0ox8fuhw.  It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>.  |
+| routeTableId | No | String | The routing table ID assigned by the system, which can be routeTableId or unRouteTableId. unRouteTableId is recommended. For example, rtb-0ox8fuhw. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>.  |
 | routeTableName | No | String | Routing table name. Fuzzy query is supported.   |
 | offset | No | Int | Offset of initial line. Default is 0.   |
 | limit | No | Int | Number of lines per page. Default is 20, maximum is 50.  |
@@ -32,7 +32,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.routeTableId | String | The routing table ID assigned by the system, for example, gz_rtb_8849.   |
 | data.n.unRouteTableId | String | New routing table ID assigned by the system. New ID is recommended. For example, rtb-0ox8fuhw.   |
 | data.n.routeTableName | String  | Routing table name.   |
-| data.n.routeTableType | Int  | Type of routing table. 0: default routing table; 1: ordinary routing table. For details on the differences between default routing table and ordinary routing table, refer to <a href="" title="路由表产品说明">Routing Table Product Overview</a>.   |
+| data.n.routeTableType | Int  | Type of routing table. 0: default routing table; 1: ordinary routing table. For details on the differences between default routing table and ordinary routing table, refer to <a href="" title="Routing Table Product Overview">Routing Table Product Overview</a>.   |
 | data.n.routeTableCreateTime | String  | Creation time of routing table, for example: 2015-11-06 17:50:21.   |
 | data.n.subnetNum | Int  | Number of associated subnets.   |
 | data.n.routeTableSet.n | Array  | An array of routing policy information.   |
@@ -42,18 +42,18 @@ routeTableSet Routing Policy Information Array
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | routeTableSet.n.destinationCidrBlock | string  | Destination network segment, which cannot be within VPC network segment. For example, 112.20.51.0/24.   |
-| routeTableSet.n.nextType | string  | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: nat gateway.   |
+| routeTableSet.n.nextType | string  | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway.   |
 | routeTableSet.n.nextHub | string  | Next hop address. You just need to specify gateway IDs (new ID is recommended) of different next hop types and the system will automatically match to the next hop address.  |
 | routeTableSet.n.unNextHub | string  | Unique ID of next hop address. It is recommended to use the unified ID.   |
 | routeTableSet.n.description | string  | Route description.   |
  
-  ## 4. Error Code List
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>. 
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC.  VPC resource does not exist. Please verify that you have entered resource information correctly. You can query VPC through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  | 
-| InvalidRouteTableId.NotFound | Invalid routing table.  The routing table ID does not exist. Please verify that you have entered resource information correctly. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>.  | 
+| InvalidVpc.NotFound |VPC not exist. Please check the information you entered. You can query VPC through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  | 
+| InvalidRouteTableId.NotFound | Routing table ID not exist. Please check the information you entered. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8" title="DescribeRouteTable">DescribeRouteTable</a>.  | 
  
 ## 5. Example
  

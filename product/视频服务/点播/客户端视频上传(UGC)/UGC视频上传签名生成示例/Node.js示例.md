@@ -7,7 +7,7 @@ var secret_id = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
 var secret_key = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
 
 // Step 2：设置签名有效时间
-var current = (new Date()).getTime()
+var current = parseInt((new Date()).getTime() / 1000)
 var expired = current + 86400;  // 签名有效期：1天
 
 // Step 3：根据客户端所提交的文件信息，拼装参数列表

@@ -3,6 +3,7 @@
 ### SDK 获取
 
 对象存储服务的 Android SDK 的下载github地址:[Android SDK](https://github.com/tencentyun/cos_android_sdk)。
+对象存储服务的 [Android SDK 本地下载](https://mc.qcloudimg.com/static/archive/0423c3be84c30d3549cfc45c13b68c7f/cos_android_sdk-master+%281%29.zip)。
 
 更多示例可参考Demo:[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/blob/master/qclouddemo.zip)。 
 （本版本SDK基于JSON API封装组成）
@@ -299,7 +300,7 @@ listDirRequest.setListener(new ICmdTaskListener() {
     public void onSuccess(COSRequest cosRequest, COSResult cosResult) {
     		//查询成功
         ListDirResult listObjectResult = (ListDirResult) cosResult;
-        if(listObjectResult.infos != null && listObjectResult.infos.size() > 0)｛
+        if(listObjectResult.infos != null && listObjectResult.infos.size() > 0) {
         for(int i = 0; i < length; i++){
             String str = listObjectResult.infos.get(i);
             try {
@@ -311,8 +312,8 @@ listDirRequest.setListener(new ICmdTaskListener() {
                 }
             } catch (JSONException e) {
                e.printStackTrace();
-           ｝ 
-     ｝
+            } 
+     }
      }
 
    	 if (!listover) {
