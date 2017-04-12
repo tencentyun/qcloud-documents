@@ -12,7 +12,8 @@ Usage restrictions:
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/364/2745).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976
+).
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
@@ -27,7 +28,8 @@ The following request parameter list only provides API request parameters. For o
 | code | Int | Error code. 0:  Succeeded, other values:  Failed |
 | message | String | Error message |
 | detail | Array | Returned array|
-| detail.requestId | Int | Task ID. Refer to [Format of Returned Results for Asynchronous Task APIs](https://www.qcloud.com/doc/api/364/2749#1.-.E6.99.AE.E9.80.9A.E5.BC.82.E6.AD.A5.E4.BB.BB.E5.8A.A1.E6.8E.A5.E5.8F.A3.E8.BF.94.E5.9B.9E.E6.A0.BC.E5.BC.8F) | 
+| detail.requestId | Int | Task ID. Refer to [Format of Returned Results for Asynchronous Task APIs](https://www.qcloud.com/document/product/240/8325
+) | 
 
 ## 4. Error Code List
 
