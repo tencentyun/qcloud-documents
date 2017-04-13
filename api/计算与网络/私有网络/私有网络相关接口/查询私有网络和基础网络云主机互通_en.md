@@ -1,6 +1,6 @@
 ## 1. API Description
  
-This API (DescribeVpcClassicLink) is used to query the link between VPC and CVMs in basic network.
+This API (DescribeVpcClassicLink) is used to query the Classiclink between VPC and CVM.
 Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 
 
@@ -12,7 +12,7 @@ Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | No | String | The Virtual Private Cloud ID assigned by the system. Both the vpcId before upgrading and the upgraded unVpcId are supported. For example: vpc-dgd5454.  |
-| classicLinkId | No | String | Link ID between vpc and CVM in basic network, for example: vcx-opgnzgo9.  |
+| classicLinkId | No | String | Classiclink ID between VPC and CVM, for example: vcx-opgnzgo9.  |
 | lanIp | No | String | CVM private IP.  |
 | offset | No | Int | Offset of initial line. Default is 0.  |
 | limit | No | Int | Number of lines per page. Default is 20 (maximum is 50).  |
@@ -24,25 +24,25 @@ Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a>. |
 | message | String | Module error message description depending on API. |
 | totalCount | Int | Returned total number of links. |
 | data.n | Array | Returned details. |
 | data.n.lanIp | String | Private IP address of Tencent CVM. |
-| data.n.unVpcId | String | Unified ID for vpc assigned by the system, which is upgraded from vpcId. The system supports both IDs for compatibility purpose, but the unified ID is recommended. For example: vpc-2ari9m7h. |
+| data.n.unVpcId | String | Unified ID for VPC assigned by the system, which is upgraded from vpcId. The system supports both IDs for compatibility purpose, but the unified ID is recommended. For example: vpc-2ari9m7h. |
 | data.n.vpcId | String | Virtual private cloud ID assigned by the system, for example: gz_vpc_15. |
 | data.n.classicLinkId | String | Link ID assigned by the system. For example: vcx-opgnzgo9. |
 | data.n.createTime | String | Creation time, for example: 2016-01-21 14:59:37. |
-| data.n.instanceId | String | Unified ID of Tencent CVM, for example: ins-xxd51df. |
-| data.n.instanceName | String | Tencent CVM name. |
+| data.n.instanceId | String | Unified ID of CVM, for example: ins-xxd51df. |
+| data.n.instanceName | String | CVM name. |
 
- ## 4. Error Code List
- The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+## 4. Error Codes
+ The following error code list only provides error codes for this API. For common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
-| InvalidLanIp.NotFound | The CVM does not exist. Please verify that the lanIP you entered is correct. To query the CVMs under the VPC, please refer to <a href="https://www.qcloud.com/doc/api/229/831" title="查看云主机实例列表">View CVM Instance List</a>.  |
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
+| InvalidLanIp.NotFound | The CVM does not exist. Please verify that the lanIP you entered is correct. To query the CVMs under the VPC, please see <a href="https://www.qcloud.com/doc/api/229/831" title="Query CVM Instance List">Query CVM Instance List</a>.  |
+| InvalidVpc.NotFound | The VPC does not exist. Please check the information you entered.  |
 
 ## 5. Example
  
