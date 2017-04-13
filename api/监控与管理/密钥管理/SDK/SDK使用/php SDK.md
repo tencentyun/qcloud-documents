@@ -95,6 +95,29 @@
     $kms_meta = $kms_account->get_key_attributes($keyId);
 ```
 
+### 设置主密钥属性
+#### 方法原型
+
+```
+    public function set_key_attributes($KeyId = NULL, $Alias)
+```
+
+#### 参数说明
+
+| 参数名 | 类型 | 默认值 | 参数描述 |
+|---------|---------|---------|---------|
+|KeyId|string|None|主密钥Id|
+|Alias|string|无|设置的主密钥别名|
+
+返回值 无
+
+#### 使用示例
+
+```
+    $Alias = "for test" ;
+    $kms_account->set_key_attributes($kms_meta->KeyId,$Alias);
+```
+
 ### 获取主密钥列表
 #### 方法原型
 
