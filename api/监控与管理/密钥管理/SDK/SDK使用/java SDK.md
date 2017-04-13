@@ -2,7 +2,7 @@
 ## 开发准备
 
 ### 相关资源
--[GitHub地址]() ,欢迎贡献代码以及反馈问题。
+-[GitHub地址](https://github.com/tencentyun/kms-java-sdk) ,欢迎贡献代码以及反馈问题。
 
 -[JAVA sdk 本地下载]()
 ### 环境依赖
