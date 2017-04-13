@@ -87,7 +87,7 @@ Authorization: Auth
 
 | 名称           | 描述                                       | 类型     |
 | ------------ | ---------------------------------------- | ------ |
-| Location     | 任务的相对 URI 路径，格式 /<UID>/vaults/<VaultName>/jobs/<JobID> | String |
+| Location     | 任务的相对 URI 路径，格式 / <UID> / vaults / <VaultName> / jobs / <JobID> | String |
 | x-cas-job-id | 任务的 ID，即 JobID                           | String |
 
 ### 返回内容
