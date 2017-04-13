@@ -9,11 +9,7 @@
 如果您觉得目前产品定位比较适合，可以跟我们商务同事（联系方式可以向腾讯云客服索要）沟通具体价格，我们商务同学会提供给您特权版 SDK 压缩包的解码密码，并替您向优图实验室申请 license。
 
 ## 版本下载
-可以到 [RTMP SDK 开发包](https://www.qcloud.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个so，替换你工程中的非特权版jar和so即可。
-
-> 区分特权版与非特权版，可以查看SDK的bundler id。bundler id为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
->
-> 也可以通过体积直观判断，特权版SDK的体积也比非特权版大很多。
+可以到 [RTMP SDK 开发包](https://www.qcloud.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license文件 可以跟我们的商务同学获取）, 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个so，替换你工程中的非特权版jar和so即可。
 
 ## 工程设置
 
@@ -37,7 +33,7 @@
 
 ## 功能调用
 
-### 动效功能
+### 1. 动效功能
 
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 
@@ -60,7 +56,8 @@
 public void setMotionTmpl(String tmplPath);
 ```
 
-### 绿幕功能
+
+### 2. 绿幕功能
 
 使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
 
@@ -76,10 +73,8 @@ public void setMotionTmpl(String tmplPath);
 public void setGreenScreenFile(String path);
 ```
 
->基础款的增值 SDK 同时附赠了 20 款动效素材，而且这 20 款素材并非固定，您可以自己到天天P图的素材库中挑选自己喜欢的 20 款素材（部分游戏题材的素材因为涉及 IP 授权，不能对外提供）。
 
-
-### 大眼瘦脸
+### 3. 大眼瘦脸
 
 > 2.0.0 版 SDK 的大眼和瘦脸功能还在紧张开发中，我们会尽快 release.
 
