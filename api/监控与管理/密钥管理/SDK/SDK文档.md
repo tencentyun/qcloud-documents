@@ -71,7 +71,7 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
         print "the decrypted data is :%s\n" % Plaintest
 
         # get key attributes
-        key_meta = kms_account.get_key_attributes("kms-awy8dndb")
+        key_meta = kms_account.get_key_attributes(key_meta.KeyId)
         print key_meta
 
         # set key attributes
