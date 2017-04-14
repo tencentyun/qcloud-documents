@@ -7,17 +7,17 @@ All the HDD cloud storages (including system disks and data disks) purchased alo
 
 ### Specification
 
-System disk: A fee-free capacity of 20GB is provided. You can choose to buy disks with a larger capacity. It supports a maximum of 50GB.
-Data disk: A capacity from 10GB up to 16,000GB (in 10GB increments) is provided, and its maximum capacity to be selected varies with the specific hardware configuration.
+System disk: A fee-free capacity of 20 GB is provided. You can choose to buy disks with a larger capacity. It supports a maximum of 50 GB.
+Data disk: A capacity from 10 GB up to 16,000 GB (in 10GB increments) is provided, and its maximum capacity to be selected varies with the specific hardware configuration.
 
 ### Performance
 
-An IO throughput of 40-100MB/s and a random IOPS of hundreds - one thousand are provided.
+An IO throughput of 40-100 MB/s and a random IOPS of hundreds - one thousand are provided.
 
 ### Price
 
-Annual or monthly plan: RMB 0.3/GB/month
-Pay by usage: RMB 0.042/100G/hour
+Prepaid: 0.3 CNY/GB/month
+Postpaid: 0.042 CNY/100 G/hour
 
 ### Usage Scenarios
 
@@ -31,24 +31,24 @@ Based on the full SSD storage media, SSD cloud storages can provide I/O capabili
 
 ### Specification
 
-A capacity from 250GB up to 4TB (in 10G increments) is provided
+A capacity from 250 GB up to 4 TB (in 10 GB increments) is provided
 
 ### Performance
 
-A single SSD cloud storage can provide a random read/write IOPS of 24,000, and a throughput of 260MB/s. Specific performance values depend on the purchased capacity:
+A single SSD cloud storage can provide a random read/write IOPS of 24,000, and a throughput of 260 MB/sec. Specific performance values depend on the purchased capacity:
 
 | Performance Indicator | Computing |
 |---------|---------|
 | IOPS | {min 24\*capacity, max 24,000}<br>24 IOPS are provided per GB, and the upper limit is 24,000; the minimum IOPS value is 6,000; |
 | Throughput | {min 150+0.147\*(Purchased capacity-250GB), max 260} MB/s<br>The minimum throughput value is 150 MB/s with an increment of 0.147 MB/s per GB and the upper limit is 260 MB/s; |
-| Latency | 0.5-2ms |
+| Latency | 0.5-2 ms |
 
 Compared with HDD cloud storages, the performance of SSD cloud storages increases 20+ times for the random IOPS and 8-16 times for the throughput; also, it is normal for IOPS performance of SSD cloud storages to have a fluctuation of about 10% in general;
 
 ### Price
 
-Annual or monthly plan: RMB 1.1/GB/month
-Pay by usage: RMB 0.332/hour/100GB
+Prepaid: 1.1 CNY/GB/month
+Postpaid: 0.332 CNY/hour/100 GB
 
 ### Usage Scenarios
 
@@ -61,15 +61,15 @@ Pay by usage: RMB 0.332/hour/100GB
 
 ### Specification
 
-A capacity from 50GB up to 4TB is provided
+A capacity from 50 GB up to 4 TB is provided
 
 ### Performance
 
 | Performance Indicator | Computing |
 |---------|---------|
 | IOPS | {min 1,500, max 4,500}<br>Formula: 1,500 + disk capacity\*8; |
-| Throughput | {min 75, max 130} MB/s<br>Formula: 75MB/s + CBS capacity\*0.147;<br>The minimum throughput value is 75 MB/s, and the upper limit is 130 MB/s; |
-| Latency | 0.5-2ms |
+| Throughput | {min 75, max 130} MB/s<br>Formula: 75 MB/s + CBS capacity\*0.147;<br>The minimum throughput value is 75 MB/s, and the upper limit is 130 MB/s; |
+| Latency | 0.5-2 ms |
 
 ### Price
 
@@ -102,11 +102,11 @@ You can purchase premium cloud storages to meet the following requirements:
         </tr>
         <tr>
             <td>Capacity of a single disk (used as a data disk)</td>
-            <td>10GB - 1,000GB</td>
-            <td>10GB - 250GB</td>
-						<td>10GB - 16,000GB</td>
-            <td>250GB - 4,000GB</td>
-            <td>50GB - 4,000GB</td>
+            <td>10GB - 1,000 GB</td>
+            <td>10GB - 250 GB</td>
+						<td>10 GB - 16,000 GB</td>
+            <td>250GB - 4,000 GB</td>
+            <td>50GB - 4,000 GB</td>
         </tr>
         <tr>
             <td>Maximum throughput</td>

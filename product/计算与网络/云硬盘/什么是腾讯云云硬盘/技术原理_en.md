@@ -42,7 +42,7 @@ In the distributed system, the copy failure often happens, during which the dist
 
 There are many reasons resulting in the copy failures, such as hardware problem of storage device itself, network problem, drive or internal procedure bug, etc.
 
-If the same recovery method is used for all the failures, the recovery cost will be higher. For example, for 4T sata disk with limited disk bandwidth, it will take about 23 hours to recover at the rate of 50MB/s, and the recovery cost is even higher for recovery of the whole machine.
+If the same recovery method is used for all the failures, the recovery cost will be higher. For example, for 4T sata disk with limited disk bandwidth, it will take about 23 hours to recover at the rate of 50 MB/s, and the recovery cost is even higher for recovery of the whole machine.
 
 In fact, except the hardware failure, the software or network failure can actually be recovered in a short time, and there are not many data changes occurred during this period.
 

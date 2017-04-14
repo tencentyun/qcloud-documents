@@ -5,7 +5,7 @@ In this example, the user has purchased a system disk with a capacity of 20GB an
 
 ## Preconditions
 - Please make sure that you have gone through [Connect Cloud Block Storage to a CVM Instance](/doc/product/362/5745), and [Log in to Linux Instance](/doc/product/213/5436).
-- <font color="red">After formatting, all data in the data disk will be erased. Before formatting, please make sure that there is no data in the data disk, or that important data has been backed up. In order to avoid service errors, please make sure that CVM has already stopped external service before formatting.</font>
+- After formatting, all data in the data disk will be erased. Before formatting, please make sure that there is no data in the data disk, or that important data has been backed up. In order to avoid service errors, please make sure that CVM has already stopped external service before formatting.
 - If you have purchased multiple cloud disks, it is suggested that you set a custom name for the elastic cloud disk with important data in it and configure automatic renewal, to prevent any impact on your business caused by expired elastic cloud disk when the disk is not renewed in time. 
 - Users can locate a cloud disk quickly by using the custom name or the private IP of an associated CVM in the [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs).
 
@@ -21,7 +21,7 @@ You can see that the non-elastic cloud disk `vdb` created with the CVM and the e
 2) Execute the command `ls -l /dev/disk/by-id/`, you can see the relation between the elastic cloud disk and the device name. Note: At this time, the information of non-elastic cloud disk will not be shown here.
 ![](//mccdn.qcloud.com/static/img/c004f380599b1ac12475f325f24b9d77/image.png)
 
-If the disk has never been initialized, you need to create a file system before you can use it. A cloud disk created from a snapshot may already contain a file system. <font color="red">All original data will be overwritten if you create a new file system when a file system already exists.</font>
+If the disk has never been initialized, you need to create a file system before you can use it. A cloud disk created from a snapshot may already contain a file system. All original data will be overwritten if you create a new file system when a file system already exists.
 
 Special information, such as file system type, can be listed out by using the command `file -s device`.
 
