@@ -43,7 +43,7 @@
 
 将zip包中Resource目录以folder refrence形式添加到工程中。
 
-![](./xcode1.png)
+![](https://mc.qcloudimg.com/static/img/b7fac6b5e08b0ff245b17d29f7296b18/AAE85661-7601-4473-A338-747FB9A6981C.png)
 
 这些资源非常重要，否则切换到换脸类素材时会发生crash。
 
