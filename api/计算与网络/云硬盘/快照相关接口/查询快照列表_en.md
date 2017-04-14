@@ -5,9 +5,6 @@ This API (DescribeSnapshots) is used to query the details of snapshots. You can 
 
 Domain for API request: <font style="color:red">snapshot.api.qcloud.com</font>
 
-Usage restrictions:
-
-No special restrictions. For specific parameter restrictions, refer to the table below.
 
 
 ## 2. Input Parameters
@@ -49,9 +46,9 @@ snapshotSet Structure
 | storageSize | Int | The size of cloud disk creating this snapshot. When using a snapshot to create an elastic cloud storage, the size of the newly created elastic cloud storage must be larger than this size |
 
 
-## 4. Error Code List
+## 4. Error Codes
 
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://www.qcloud.com/doc/api/364/4207).
+The following list only provides the business logic error codes for this API. For common error codes, refer to [Cloud Block Storage Error Codes](https://www.qcloud.com/doc/api/364/4207).
 
 | Error Code | English Description | Error Description |
 | ------- | ------- | ------- |
@@ -67,7 +64,7 @@ https://snapshot.api.qcloud.com/v2/index.php?
 &limit=1
 </pre>
 
-The returned results are as below. As shown in the results, the totalCount is 5, which indicates that the user has five snapshots under this region, but only the information of one snapshot is returned, because the value of the parameter "limit" entered for query is 1 (limit=1). This snapshot (snapshotId) is a data disk snapshot (diskType). The size of the cloud disk (storageId) creating this snapshot is 10GB (storageSize), and the snapshot's current status is "normal" (snapshotStatus).
+The returned results are as below. As shown in the results, the totalCount is 5, which indicates that the user has five snapshots under this region, but only the information of one snapshot is returned, because the value of the parameter "limit" entered for query is 1 (limit=1). This snapshot (snapshotId) is a data disk snapshot (diskType). The size of the cloud disk (storageId) creating this snapshot is 10 GB (storageSize), and the snapshot's current status is "normal" (snapshotStatus).
 
 ```
 {

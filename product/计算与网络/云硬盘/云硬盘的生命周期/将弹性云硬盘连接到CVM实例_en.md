@@ -1,14 +1,14 @@
 After being created, a non-elastic cloud disk (a cloud disk whose lifecyle is same as that of CVM instance) is automatically connected to the created CVM instance and cannot be changed. You can also manually mount an elastic cloud disk to any instance within the same availability zone and check how many additional cloud disks can be mounted for each instance. For more information on the maximum number of cloud disks allowed to be mounted, refer to [Usage Restrictions](/doc/product/362/5145). For more information on elastic cloud disk and non-elastic cloud disk, refer to [Categories of Cloud Block Storage](https://www.qcloud.com/document/product/362/2353).
 
 ## Connecting an elastic cloud disk to CVM instance in console
-Currently, only elastic HDD cloud storages used as <font color="red">data disks</font> can be mounted, and system disks are not allowed to be mounted.
+Currently, only elastic HDD cloud storages used as data disks can be mounted, and system disks are not allowed to be mounted.
 
 1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/).
 
 2) Go to "Cloud Virtual Machine" - "Cloud Block Storage" tab.
 
-3) In the CBS list page, click "More" - "Mount to CVM" button next to the cloud disk with a status of <font color="red">Pending mounted, Mounting/Unmounting Supported</font> for a single disk mounting.
-You can also check the cloud disks with a status of <font color="red">Pending mounted, Mounting/Unmounting Supported</font>, and click the "Mount" button on the top for a batch mounting.
+3) In the CBS list page, click "More" - "Mount to CVM" button next to the cloud disk with a status of **Pending mounted, Mounting/Unmounting Supported** for a single disk mounting.
+You can also check the cloud disks with a status of **Pending mounted, Mounting/Unmounting Supported**, and click the "Mount" button on the top for a batch mounting.
 
 4) In the pop-up box, select the CVM to which the cloud disk to be mounted, and click "OK". After the mounting, log in to the CVM to check the mounting status of the cloud disks.
 
@@ -19,7 +19,7 @@ Please refer to [API AttachCbsStorages](https://www.qcloud.com/doc/api/364/2520)
 
 ## How to solve the problem that some of the created CVM instances cannot recognize elastic cloud disks
 
-All of the supplied images support mounting/unmounting of elastic cloud disks. <font color="red">Please make sure to perform unmount (for Linux) or offline (for Windows) actions before removing (uninstalling) the disk, otherwise it is likely that the disk cannot be recognized when mounted again.</font>
+All of the supplied images support mounting/unmounting of elastic cloud disks. >Please make sure to perform unmount (for Linux) or offline (for Windows) actions before removing (uninstalling) the disk, otherwise it is likely that the disk cannot be recognized when mounted again.
 
 If you have purchased the following CVMs and plan to add elastic cloud disks to the CVMs:
 

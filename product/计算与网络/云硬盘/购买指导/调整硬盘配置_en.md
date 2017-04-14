@@ -3,8 +3,8 @@ Cloud disk is an expandable storage device on cloud. When a cloud disk is create
 > If the maximum capacity of CBS (4T) cannot meet your needs, you can use RAID to create a logically large space by crossing multiple physical hard disks. For more information, please refer to [Configuring RAID Group of a Cloud Disk](/doc/product/362/5761).
 
 ## Preconditions
-- For CVMs with annual/monthly plan or pay-by-usage plan, you can only change its configuration when its system disk and data disk are <font color="red">cloud disks</font>.
-- For a 8G system disk whose stock operating system is Linux, you can expand the capacity by reinstalling the system. The system disk supports a capacity of 20G-50G. Tencent Cloud will provide you with fee-free capacity of 20GB.
+- For CVMs with annual/monthly plan or pay-by-usage plan, you can only change its configuration when its system disk and data disk are cloud disks.
+- For a 8 G system disk whose stock operating system is Linux, you can expand the capacity by reinstalling the system. The system disk supports a capacity of 20 G-50 G. Tencent Cloud will provide you with fee-free capacity of 20GB.
 - For **a system disk** and a data disk typed as **non-elastic cloud disk**, you can expand the capacity only when the CVMs on which they are mounted are shut down.
 - For an elastic cloud disk not mounted on a CVM, you can expand its capacity directly. If it has been mounted on a CVM, you need to shut down the CVM first before the expansion, or unmount the elastic cloud disk before the expansion, and remount it on the original CVM after the expansion.
 - After disk expansion, you need to manually modify the file system configuration to make use of the newly expanded capacity. For more information, please refer to [Expanding Linux File System](/doc/product/362/6135) and [Expanding Windows File System](/doc/product/362/6136).

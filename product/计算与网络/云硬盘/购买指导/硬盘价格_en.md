@@ -14,11 +14,11 @@
         </tr>
         <tr>
             <td>Capacity of a single disk (used as a data disk)</td>
-            <td>10GB - 1,000GB</td>
-            <td>10GB - 250GB</td>
-						<td>10GB - 16,000GB</td>
-            <td>250GB - 4,000GB</td>
-            <td>50GB - 4,000GB</td>
+            <td>10 GB - 1,000 GB</td>
+            <td>10 GB - 250 GB</td>
+						<td>10 GB - 16,000 GB</td>
+            <td>250 GB - 4,000 GB</td>
+            <td>50 GB - 4,000 GB</td>
         </tr>
         <tr>
             <td>Maximum throughput</td>
@@ -33,7 +33,7 @@
             <td>N/A</td>
             <td>N/A</td>
 						<td>N/A</td>
-            <td>Throughput={min 150+0.147*(purchased capacity-250GB), max 260} MB/s<br>
+            <td>Throughput={min 150+0.147*(purchased capacity-250 GB), max 260} MB/s<br>
 The minimum throughput value is 150 MB/s with an increment of 0.147 MB/s per GB and the upper limit is 260 MB/s;</td>
             <td>Throughput={min 75+disk capacity*0.147, max 130} MB/s<br>The minimum throughput value is 75 MB/s, and the upper limit is 130 MB/s;
 </td>
