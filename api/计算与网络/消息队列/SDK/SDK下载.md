@@ -13,7 +13,7 @@ github地址如下：
 - [php sdk](https://github.com/tencentyun/cmq-php-sdk)
 
 
-- [c++ sdk](https://github.com/tencentyun/cmq-c++-sdk)
+- [c++ sdk](https://github.com/tencentyun/cmq-cpp-sdk)
 
 下载地址如下：
 
