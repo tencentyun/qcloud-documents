@@ -54,5 +54,5 @@ Verify again that the partition expansion information is correct, and click "Yes
 Wait until the partition expansion is completed, and click "OK":
 ![](//mccdn.qcloud.com/static/img/b06ca48c96f5c2230077b9e3430b779a/image.png)
 
-When opening "My Computer", you can see the change of partition after the expansion (in this example, the capacity of D: drive is increased from 60G to 109G):
+When opening "My Computer", you can see the change of partition after the expansion (in this example, the capacity of D: drive is increased from 60 G to 109 G):
 ![](//mccdn.qcloud.com/static/img/cfb207b4364adc4e59cea68ad700271b/image.png)
