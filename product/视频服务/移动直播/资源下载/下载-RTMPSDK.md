@@ -1,17 +1,21 @@
 ## 版本说明
-- 版本号：2.0.0.2453 @ 2017-04-07
-- iOS & Android：增加 UGC 小视频的采集和发布功能，使用方法见 [iOS](https://www.qcloud.com/document/product/454/8838) & [Android](https://www.qcloud.com/document/product/454/8843)。
-- iOS & Android：增加截流录制功能：观众可以在观看直播时录制一小段视频并分享出来，使用方法见 [iOS](https://www.qcloud.com/document/product/454/7880#step-9.3A-.E6.88.AA.E6.B5.81.E5.BD.95.E5.88.B612) & [Android](https://www.qcloud.com/document/product/454/7886#step-9.3A-.E6.88.AA.E6.B5.81.E5.BD.95.E5.88.B612)。
-- iOS：增加了新的“美白”滤镜，适合较为偏爱映客美颜效果的客户，[setFilter](https://www.qcloud.com/document/product/454/7885#step-4.3A-.E7.BE.8E.E9.A2.9C.E6.BB.A4.E9.95.9C) 可以设置滤镜效果。
+- 版本号：2.0.1.2615 @ 2017-04-14
+- iOS & Android：优化连麦，增加多人连麦能力，使用方法见 [iOS](https://www.qcloud.com/document/product/454/8871) & [Android](https://www.qcloud.com/document/product/454/8872)。
+- iOS & Android：增加 UGC 小视频添加背景音乐功能，使用方法见 [iOS](https://www.qcloud.com/document/product/454/7880#step-9.3A-.E6.88.AA.E6.B5.81.E5.BD.95.E5.88.B612) & [Android](https://www.qcloud.com/document/product/454/7886#step-9.3A-.E6.88.AA.E6.B5.81.E5.BD.95.E5.88.B612)。
+- iOS & Android：新增纯音频推流功能。
+- iOS & Android：新增播放端截图功能。
+- iOS & Android：FFMPEG库更新到安全版本。
+- iOS & Android：优化FLV、RTMP数据包头解析。
+- Android：新增混响功能，预设多种混响效果。
+- Android：特权版新增绿幕功能。
+- iOS：优化软解性能，开放播放端数据回调接口，客户可以自定义播放渲染。
 - 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)。
 
 
 ## 版本预告
-- 2.0.1 版本预计4月14日发布
-- 预计增加 UGC 小视频录制时的背景音功能
-- 预计增加 UGC 小视频编辑器功能（由于工作量比较大，如果没有意外，该功能会完美地跳票到 4 月底）
+- 2.0.2 版本预计4月28日发布
+- 预计增加 UGC 小视频编辑器功能
 - 预计提升 Android 硬件编码效果，减少硬件编码模式下的运动画面马赛克问题（软编码无此问题）
-- 预计增加 Player 视频数据回调接口，方便 VR 等直播场景的定制
 
 ## 文档索引
 <table class="t">
