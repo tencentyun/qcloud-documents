@@ -1,7 +1,7 @@
 ## 版本说明
 - 版本号：2.0.1.2615 @ 2017-04-15
 - iOS & Android：优化连麦，增加多人连麦能力，使用方法见 [iOS](https://www.qcloud.com/document/product/454/8871) & [Android](https://www.qcloud.com/document/product/454/8872)。
-- iOS & Android：增加 UGC 小视频添加背景音乐功能，使用方法见 [iOS](https://www.qcloud.com/document/product/454/7880#step-9.3A-.E6.88.AA.E6.B5.81.E5.BD.95.E5.88.B612) & [Android](https://www.qcloud.com/document/product/454/7886#step-9.3A-.E6.88.AA.E6.B5.81.E5.BD.95.E5.88.B612)。
+- iOS & Android：增加 UGC 小视频添加背景音乐功能。
 - iOS & Android：新增纯音频推流功能。
 - iOS & Android：新增播放端截图功能。
 - iOS & Android：FFMPEG库更新到安全版本。
