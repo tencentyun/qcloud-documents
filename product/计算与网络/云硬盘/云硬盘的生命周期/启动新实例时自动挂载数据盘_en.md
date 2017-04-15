@@ -1,8 +1,3 @@
-
-
-
-
-
 ## Automatically mount data disks (linux) when using custom image and data disk snapshot to start a new instance
 When starting new CVM instances, if a user specifies a ***custom image*** and***data disk snapshot***, the Cloud Block Storage of Tencent Cloud can support automatic mounting after a CVM instance is started (which means reading and writing for data disks can be achieved directly without the need to perform a series of operations including adding, partitioning and formatting). Users need to perform several operations on the original instances before making custom images and data disk snapshots. Details of these operations will be described below.
 

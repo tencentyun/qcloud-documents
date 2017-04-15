@@ -97,4 +97,4 @@ except Exception, e:
 ```
 
 ## 5. FAQ
-If the message "ImportError: No module named requests.auth" appears, please install requests (see [here](https://github.com/kennethreitz/requests) for details).
+If the message *"ImportError: No module named requests.auth"* appears, please install *requests* (see [here](https://github.com/kennethreitz/requests) for details).

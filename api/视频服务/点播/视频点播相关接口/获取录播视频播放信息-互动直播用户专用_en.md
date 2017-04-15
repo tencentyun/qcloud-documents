@@ -1,10 +1,8 @@
 ## 1. API Description
  
+This API (DescribeRecordPlayInfo) is used to help ILVB users to acquire video information, which is only available to ILVB users. It Acquires video information list according to video file name.
+
 Domain: vod.api.qcloud.com
-API name:  DescribeRecordPlayInfo
-
-This API is only available to ILVB users. Used to help ILVB users to acquire video information. Acquire video information list according to video file name.
-
 
 ## 2. Input Parameters
  
@@ -23,7 +21,7 @@ This API is only available to ILVB users. Used to help ILVB users to acquire vid
 <td> No
 <td> String
 <td> Call-back address, used to notify that file recording is complete and whether transcoding process is finished
-You need to pass this parameter before relevant actions are finished to receive corresponding call-back content. Otherwise there will be no call-back content
+You need to pass this parameter to receive corresponding call-back content before relevant actions are finished. Otherwise there will be no call-back content.
 <tr>
 </tbody></table>
 

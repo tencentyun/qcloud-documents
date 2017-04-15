@@ -33,5 +33,6 @@ Security Group can be considered as the firewall for CVM and is used to control 
 
 ## (Optional) Create a Cloud API key
 
-Tencent Cloud's [Cloud API](https://www.qcloud.com/product/api.html) provides developers with a simple and efficient call interface so that users can use and manage Cloud Services of Tencent Cloud in a development environment. Cloud API key is the prerequisite for the use of Cloud API. Each call to the Cloud API requires an authentication using the Cloud API key.  For more information about the authentication using the Cloud API key, see [Authentication](https://www.qcloud.com/doc/api/229/1227). If you have not created any Cloud API key yet, you need to create it by yourself through the console by following the steps below.
+Tencent Cloud's [Cloud API](https://www.qcloud.com/product/api.html) provides developers with a simple and efficient call interface so that users can use and manage Cloud Services of Tencent Cloud in a development environment. Cloud API key is the prerequisite for the use of Cloud API. Each call to the Cloud API requires an authentication using the Cloud API key.  For more information about the authentication using the Cloud API key, see [Signing Methods](https://www.qcloud.com/document/product/213/6984?lang=en). If you have not created any Cloud API key yet, you need to create it by yourself through the console by following the steps below.
 > Note: There is a limit on the number of Cloud API keys that can be created for each account. At present, a maximum of 2 keys can be created.
+

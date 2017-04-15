@@ -53,4 +53,5 @@ For more information on partitioning, formatting and file system creation on Lin
 
 5) Enter the disk created, create a file called `qcloud.txt`, enter the required content, click "Save". Now, the writing of file has been completed.
 
-For more information on partitioning, formatting, going online and file system creation on Windows system, please refer to [Partitioning, Formating, Going Online and File System Creation on Windows System](/doc/product/362/6134).
+For more information on partitioning, formatting, going online and file system creation on Windows system, please refer to [Partitioning, Formating, Going Online and File System Creation on Windows System](https://www.qcloud.com/document/product/362/6734
+).

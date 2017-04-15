@@ -1,25 +1,27 @@
-#c++ sdk
+# C++ sdk
 ## 开发准备
 
 ### 相关资源
--[GitHub地址]() ,欢迎贡献代码以及反馈问题。
+-[GitHub地址](https://github.com/tencentyun/kms-cpp-sdk.git) ,欢迎贡献代码以及反馈问题。
 
--[c++ sdk 本地下载]()
+-[C++ sdk 本地下载]()
 ### 开发环境
-1. 安装openssl的库和头文件[http://www.openssl.org/source](http://www.openssl.org/source/)
-2. 安装libcurl
-3. 安装cmake工具
+1. [安装openssl的库和头文件](http://www.openssl.org/source/)
+2. [安装libcurl](https://curl.haxx.se/download.html)
+3. [安装cmake工具](https://cmake.org/download/)
 4. 从控制台获取APP ID, SecretID,SecretKey。
 
 
-###SDK配置
+### SDK配置
 下载github上提供的源码，集成到您的开发环境。
 
 执行下面的命令：
 
 ```
     cd ${kms-cpp-sdk}
-    cmake .
+    mkdir -p build 
+    cd build
+    cmake ..
     make 
 ```
 
@@ -29,16 +31,16 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 ## 生成客户端对象
 
 ``` 
-    secretId='xxxxxx'    #替换为用户的secretId
-    secretKey = 'xxxxxx' #替换为用户的secretKey
-    endpoint = 'https://kms-region.api.tencentyun.com' # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
-    kms_account = KMSAccount(endpoint,secretId,secretKey)
+    string secretId="xxxxxx;    #替换为用户的secretId
+    string secretKey = "xxxxxx"; #替换为用户的secretKey
+    string endpoint = "https://kms-region.api.tencentyun.com"; # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
+    KMSAccount account(endpoint,secretId,secretKey);
 ```
 ### 初始化客户端配置
 客户端默认使用sha1 签名算法，可以调用签名算法修改签名方式
 
 ```
-    kms_account.set_sign_method('sha256')
+    account.set_sign_method("sha256");
 ```
 
 ## 密钥管理操作
@@ -46,13 +48,14 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 #### 方法原型
 
 ```
-    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT')
+    void create_key(KeyMetadata & meta,const string &Description="",const string & Alias = "" , const string  & KeyUsage="ENCRYPT/DECRYPT");
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
+|KeyMetadata|struct||主密钥属性结构体，该参数返回创建的主密钥属性结构| 
 |Description|string|None|主密钥描述|
 |Alias|string|空字符串|主密钥别名|
 |KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
@@ -71,16 +74,18 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 #### 使用示例
 
 ```
-    description ='for test'
-    alias = 'kms_test'
-    kms_meta = kms_account.create_key(description,alias)
+    KeyMetadata meta ;
+    string description ="test";
+    string alias = "kms_test";
+    string KeyUsage="ENCRYPT/DECRYPT";
+    account.create_key(meta,Description,Alias,KeyUsage);
 ```
 
 ### 获取主密钥属性
 #### 方法原型
 
 ```
-    def get_key_attributes(self, KeyId=None)
+    void get_key_attributes(const string & KeyId, KeyMetadata & meta);
 ```
 
 #### 参数说明
@@ -88,6 +93,7 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥Id|
+|KeyMetadata|struct||主密钥属性结构体，该参数返回创建的主密钥属性结构| 
 
 返回值 KeyMetadata结构体 描述如下：
 
@@ -103,71 +109,90 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 #### 使用示例
 
 ```
-    keyId=''  # 请填写你的keyId
-    key_meta = kms_account.get_key_attributes("kms-awy8dndb")
-    print key_meta
+    KeyMetadata meta;
+    string keyId=""  # 请填写你的keyId
+    account.get_key_attributes(meta.KeyId,meta);
 ```
 
-### 获取主密钥列表
+### 设置主密钥属性
 #### 方法原型
 
 ```
-    def list_key(self, offset=0, limit=10)
+    void set_key_attributes(const string & KeyId, const string & Alias);
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|offset|int|0|返回列表偏移值。|
-|limit|int|10|本次返回列表限制个数，不填写默认为返回10个。|
+|KeyId|string|None|主密钥Id|
+|Alias|string|无|主密钥属性结构体，该参数返回创建的主密钥属性结构| 
 
-返回值 KeyMetadata结构体 描述如下：
-
-|属性名称|类型|含义|
-|---------|---------|---------|
-|totalCount|int|表示所有的密钥个数。|
-|keys|array|key数组。|
 
 #### 使用示例
 
 ```
-    totalCount, keys = kms_account.list_key()
-    print keys
+    Alias = "For test";
+    account.set_key_attributes(KeyId, Alias);
+```
+
+### 获取主密钥列表
+#### 方法原型
+
+```
+    void list_key(vector<string> & keyIds, const int offset= 0 , const int limit = 10);
+```
+
+#### 参数说明
+
+| 参数名 | 类型 | 默认值 | 参数描述 |
+|---------|---------|---------|---------|
+|keyIds|vector|无|返回keyid vector|
+|offset|int|0|返回列表偏移值|
+|limit|int|10|本次返回列表限制个数，不填写默认为返回10个|
+
+#### 使用示例
+
+```
+     vector<string> KeyIds;
+     account.list_key(KeyIds);
+     for(unsigned int i = 0 ; i < KeyIds.size(); ++i)
+         cout<<"the "<<i<<" key id is :"<<KeyIds[i]<<endl;
 ```
 ### 生成数据密钥
 #### 方法原型
 
 ```
-    def generate_data_key(self, KeyId=None, KeySpec=None, NumberOfBytes=None, EncryptionContext=None)
+    void generate_data_key( string &KeyId, const string & KeySpace, int NumberOfBytes,const string & EncryptionContext,string & Plaintext,string &CiphertextBlob);
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id。|
-|KeySpec|string|None|生成数据密钥算法。|
-|NumberOfBytes|int|None|生成指定长度的数据密钥。|
+|KeyId|string|None|主密钥Id|
+|KeySpec|string|None|生成数据密钥算法|
+|NumberOfBytes|int|None|生成指定长度的数据密钥|
+|EncryptionContext|json string |无|生成数据密钥时提供的额外的json key-value|
+|Plaintext|string|无|生成的数据密钥明文|
+|CiphertextBlob|string|无|生成的数据密钥密文|
 
-返回值 
-(plaintext, ciphertextBlob)
-
+返回值 入参中：
 plaintext 表示生成的数据密钥明文
-
 ciphertextBlob：表示生成的数据密钥密文
+
 #### 使用示例
 
 ```
-        KeySpec = "AES_128"
-        Plaintext, CiphertextBlob = kms_account.generate_data_key(KeyId, KeySpec)
-        print "the data key : %s \n  the encrypted data key :%s\n" % (Plaintext, CiphertextBlob)
+       string KeySpec="AES_128";
+       string Plaintext,CiphertextBlob;
+       account.generate_data_key(meta.KeyId,KeySpec,1024,"",Plaintext, CiphertextBlob);
 ```
 ### 启用主密钥
 #### 方法原型
 
 ```
-    def enable_key(self, KeyId=None)
+    void enable_key(const string & KeyId);
 ```
 
 #### 参数说明
@@ -181,13 +206,14 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    kms_account.enable_key(KeyId)
+    string KeyId= ""  // 请填写你的keyId;
+    account.enable_key(KeyId)
 ```
 ### 禁用主密钥
 #### 方法原型
 
 ```
-    def disable_key(self, KeyId=None)
+    void disable_key(const string & KeyId);
 ```
 
 #### 参数说明
@@ -200,7 +226,8 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    kms_account.disable_key(KeyId)
+    string KeyId= ""  // 请填写你的keyId;
+    account.disable_key(KeyId)
 ```
 
 ## 加解密操作
@@ -208,7 +235,7 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 方法原型
 
 ```
-    def encrypt(self, KeyId=None, Plaintext="", EncryptionContext=None)
+    string encrypt(const string &KeyId , const string & plaintext, const string & EncryptionContext);
 ```
 
 #### 参数说明
@@ -217,22 +244,22 @@ ciphertextBlob：表示生成的数据密钥密文
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥Id|
 |Plaintext|string|空字符串|明文|
-|EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
+|EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数|
 
 返回值 ciphertextBlob 密文：
 
 #### 使用示例
 
 ```
-    Plaintest = "test message data"
-    CiphertextBlob = kms_account.encrypt(kms_meta.KeyId, Plaintest)
-    print "the encrypted data is :%s \n" % CiphertextBlob
+    string KeyId = "" ; // 请填写你的keyId;
+    string Plaintest = "test message data"
+    string CiphertextBlob = account.encrypt(KeyId,Plaintest,"");
 ```
 ### 解密
 #### 方法原型
 
 ```
-    def decrypt(self, CiphertextBlob="", EncryptionContext=None)
+    string decrypt(const string & CiphertextBlob, const string & EncryptionContext);
 ```
 
 #### 参数说明
@@ -247,8 +274,7 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    Plaintest = kms_account.decrypt(CiphertextBlob)
-    print "the decrypted data is :%s\n" % Plaintest
+     Plaintext = account.decrypt(CiphertextBlob,"");
 ```
 
 

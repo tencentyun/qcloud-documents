@@ -3,12 +3,12 @@
 This API (DescribeVpcEx) is used to query VPC list.
 Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 
-When no parameter is passed for the API, the first 20 VPCs in the default sort order will be returned.
+When no parameter is passed, the first 20 VPCs in the default sort order will be returned.
 
  
 
 ## 2. Input Parameters
- The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeVpcEx.
+ The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, pleases see <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeVpcEx.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -25,9 +25,9 @@ When no parameter is passed for the API, the first 20 VPCs in the default sort o
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | message | String | Module error message description depending on API. |
-| totalCount | Int | Total number of VPCs of the developer. |
+| totalCount | Int | Total number of VPCs under the developer account. |
 | data.n | Array | VPC information array. |
 | data.n.vpcId | String | vpcId assigned by the system, e.g. gz_vpc_266. |
 | data.n.unVpcId | String | The new vpcID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new vpcId, for example: vpc-5gu2jxf4. |
@@ -43,12 +43,12 @@ When no parameter is passed for the API, the first 20 VPCs in the default sort o
 | data.n.natNum | Int | Number of NAT gateways under the VPC. |
 | data.n.createTime | String | Creation time of the VPC. |
 
-  ## 4. Error Code List
- The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+## 4. Error Codes
+ The following error code list only provides the business logic error codes for this API. For common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
  | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid vpc. The vpc resource does not exist. Please verify that you have entered resource information correctly.  |
+| InvalidVpc.NotFound | The VPC does not exist. Please check the information you entered.  |
 
 ## 5. Example
  

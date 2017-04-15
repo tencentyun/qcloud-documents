@@ -8,7 +8,7 @@ In the traditional physical network, you can negotiate the master/slave state th
 1) VRRP multicast message is currently not supported. You need to configure keepalived vrrp instance to unicast VRRP message.
 2) Gratuitous ARP message is currently not supported for VIP migration. VIP is bound to the master device by calling Cloud APIs.
 
-## How To
+## Main Steps
 1. Apply for VIP, which only supports migration within subnet (the master and slave servers must be in the same subnet).
 2. Install and configure keepalived (**Version 1.2.8 or above**) on master and slave servers.
 3. Use the "notify" mechanism of keepalived to call the Cloud APIs for master/slave switchover.
@@ -85,7 +85,7 @@ vrrp_instance VI_1 {
 Apply for EIP on the console, and then bind it to the private IP applied in Step 1 through Cloud API, [click to view the specific call method](https://www.qcloud.com/doc/api/229/1377). The python code is similar to that of Step 1.
 
 ### Step 5. Use keepalived.conf to configure the switch script
-When the master/slave switchover occurs, the new master device is switched by calling vip.py with "notify".
+When the master/slave switchover occurs, the new master device is switched by calling `vip.py` with "notify".
 
 ```
 vrrp_sync_group G1 {
@@ -96,23 +96,23 @@ vrrp_sync_group G1 {
 }
 
 ```
-Step 6. Verify whether the VIP and public IP are switched normally when the master/slave switchover occurs.
+### Step 6. Verify whether the VIP and public IP are switched normally when the master/slave switchover occurs.
 Vip.py: Develop the master/slave switchover program through Cloud API, and switch the IP address by calling the Cloud API of private IP migration. Take python as an example:
 1) [Download python-sdk](https://github.com/QcloudApi/qcloudapi-sdk-python)
-Please read README.md carefully and download sdk to the directory /etc/keepalived:
+Please read README.md carefully and download SDK to the directory `/etc/keepalived`:
 
 2) Get Cloud API key:
 ![](//mc.qcloudimg.com/static/img/ffd379c9e886d0ae3de4fba34539aac7/2.png)
 ![](//mc.qcloudimg.com/static/img/900df050c3d619566a482ff4e1bd5433/4.png)
-3) Develop vip.py switchover program for calling the Cloud API based on the SDK, save vip.py to the directory /etc/keepalived. The Cloud API of private IP migration:
+3) Develop vip.py switchover program for calling the Cloud API based on the SDK, save `vip.py` to the directory `/etc/keepalived`. The Cloud API of private IP migration:
 
 ```
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 """
-step1: Download python-sdk:  https://github.com/QcloudApi/qcloudapi-sdk-python
-step2: Save the following python code as vip.py to the same level directory of sdk src. Please refer to the following for specific parameters: https://www.qcloud.com/doc/api/245/1361
+Step 1: Download python-sdk:`https://github.com/QcloudApi/qcloudapi-sdk-python`
+Step 2: Save the following python code as vip.py to the same level directory of sdk src. Please refer to the following for specific parameters: https://www.qcloud.com/doc/api/245/1361
 """
 
 from src.QcloudApi.qcloudapi import QcloudApi

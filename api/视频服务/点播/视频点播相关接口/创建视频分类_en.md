@@ -1,10 +1,8 @@
 ## 1. API Description
  
+This API （CreateClass） is used to create categories to manage video files. This is a global operation, which doesn't involve the category and association of specific files.  For details, see ModifyVodInfo function.
+
 Domain: vod.api.qcloud.com
-API name:  CreateClass
-
-Used to create categories to manage video files. This operation is considered global, category association of specific files is not involved. Refer to ModifyVodInfo function for detailed file operations.
-
  
 
 ## 2. Input Parameters
