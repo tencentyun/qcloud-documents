@@ -236,37 +236,5 @@ Modifying: Click "Modify IP Port Mapping" to the right of the line where the IP 
 4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://www.qcloud.com/doc/product/248/1073).
 
 ## API Overview
-You can use the command line or APIs to configure and manage the Direct Connect gateway. For more information about VPC API, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/product/215/4954).
-
-| Function | Action ID | Description
-|---------|---------|---------|
-| Create Direct Connect Gateway | [CreateDirectConnectGateway](https://www.qcloud.com/doc/api/245/4824) | Create a Direct Connect gateway.  |
-| Modify Attributes of Direct Connect Gateway | [ModifyDirectConnectGateway](https://www.qcloud.com/doc/api/245/4825) | Modify the attributes of Direct Connect gateway. |
-| Delete Direct Connect Gateway | [DeleteDirectConnectGateway](https://www.qcloud.com/doc/api/245/4826) | Delete a Direct Connect gateway.  |
-| Query Direct Connect Gateway | [DescribeDirectConnectGateway](https://www.qcloud.com/doc/api/245/4827) | Query a Direct Connect gateway.  |
-| Create Local IP Translation for Direct Connect Gateway | [CreateLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4891) | Create local IP translation for Direct Connect gateway.  |
-| Delete Local IP Translation for Direct Connect Gateway | [DeleteLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4897) | Delete local IP translation for Direct Connect gateway.  |
-| Modify Local IP Translation Rule for Direct Connect Gateway | [ModifyLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4839) | Modify local IP translation rules for Direct Connect gateway.  |
-| Query Local IP Translation for Direct Connect Gateway | [DescribeLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4834) | Query local IP translation for Direct Connect gateway.  |
-| Create Local Source IP Port Translation for Direct Connect Gateway | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4892) | Create local source IP port translation for Direct Connect gateway.  |
-| Delete Local Source IP Port Translation for Direct Connect Gateway | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4898) | Delete local source IP port translation for Direct Connect gateway.  |
-| Modify Local Source IP Port Translation for Direct Connect Gateway | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4841) | Modify local source IP port translation for Direct Connect gateway.  |
-| Query Local Source IP Port Translation for Direct Connect Gateway | [DescribeLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4836) | Query local source IP port translation for Direct Connect gateway.  |
-| Create Local Destination IP Port Translation for Direct Connect Gateway | [CreateLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4894) | Create local destination IP port translation for Direct Connect gateway.  |
-| Delete Local Destination IP Port Translation for Direct Connect Gateway | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4893) | Delete local destination IP port translation for Direct Connect gateway.  |
-Modify Local Destination IP Port Translation for Direct Connect Gateway | [ModifyLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4842) | Modify local destination IP port translation for Direct Connect gateway.  |
-| Query Local Destination IP Port Translation for Direct Connect Gateway | [DescribeLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/doc/api/245/4837) | Query the local destination IP port translation for Direct Connect gateway.  |
-Create Peer IP Translation for Direct Connect Gateway | [CreatePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4896) | Create the peer IP translation for Direct Connect gateway.  |
-| Delete Peer IP Translation for Direct Connect Gateway | [DeletePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4895) | Delete the peer IP translation for Direct Connect gateway.  |
-| Modify Peer IP Translation for Direct Connect Gateway | [ModifyPeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4840) | Modify the peer IP translation for Direct Connect gateway.  |
-| Query Peer IP Translation for Direct Connect Gateway | [DescribePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/4835) | Query the peer IP translation for Direct Connect gateway.  |
-| Create Local IP Translation ACL Rule | [CreateLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4843) | Create the local IP translation ACL rule.  |
-| Delete Local IP Translation ACL Rule | [DeleteLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4844) | Delete the local IP translation ACL rule.  |
-| Modify Local IP Translation ACL Rule | [ModifyLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4845) | Modify the local IP translation ACL rule.  |
-| Query Local IP Translation ACL Rule | [DescribeLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/4846) | Query the local IP translation ACL rule.  |
-| Create Local IP Port Translation ACL Rule | [CreateLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4848) | Create the local IP port translation ACL rule.  |
-| Delete Local IP Port Translation ACL Rule | [DeleteLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4849) | Delete the local IP port translation ACL rule.  |
-| Modify Local IP Port Translation ACL Rule | [ModifyLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4850) | Modify the local IP port translation ACL rule.  |
-| Query Local IP Port Translation ACL Rule | [DescribeLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/4851) | Query the local IP port translation ACL rule.  |
-
+You can use the command line or APIs to configure and manage the Direct Connect gateway. Please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/product/215/4954).
 
