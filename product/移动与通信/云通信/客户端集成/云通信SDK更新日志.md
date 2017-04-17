@@ -1,3 +1,22 @@
+#### IM SDK2.5.3 2017-4-17
+iOS:
+1. sendOnlineMessage接口支持群组类型消息，消息不存本地、不存离线、不计入未读
+2. 提供findMessages方法，提供按消息ID获取本地消息
+3. TIMIOSOfflinePushConfig提供设置APNs推送静音选项
+4. 修复高频接收消息时，内存上涨问题
+ 
+Android:
+1. 增加查找消息接口（详情请查看TIMConversation下的findMessages）
+2. sendOnlineMessage接口支持群组类型消息，消息不存本地、不存离线、不计入未读
+3. APNS推送新增接收端不播放提示音且不振动的配置选项（参见TIMMessageOfflinePushSettings.IOSSettings.NO_SOUND_NO_VIBRATION）
+4. 网络优化，增强SDK对弱网络场景的抗性
+
+windows:
+1. 修复了可能导致crash的问题
+
+接口变更：
+1. TIMMessageOfflinePushSettings.AndroidSettings及TIMMessageOfflinePushSettings.IOSSettings构造方式变更。
+详情请参见官网文档（https://www.qcloud.com/document/product/269/3899）
 
 #### IM Android SDK2.5.2 2017-3-1
 1. 修复偶现发包返回超时的问题（返回码6205）
