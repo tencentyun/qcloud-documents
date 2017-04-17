@@ -1,7 +1,7 @@
 To create a VPC peering connection between different developers within the same region, you need to perform the following steps:
 
 1) Initiator makes a request for creating a regional peering connection
-You can use API [Create Regional Peering Connection](/doc/api/372/2107) to initiate a request for creating regional peering connection. After this, you need to notify the receiver's developer to accept request.
+You can use API [Create Regional Peering Connection](https://www.qcloud.com/document/product/215/2107) to initiate a request for creating regional peering connection. After this, you need to notify the receiver's developer to accept request.
 
 2) Receiver accepts the request for peering connection
 If you are the receiver, you can use API [Accept Regional Peering Connection](https://www.qcloud.com/document/product/215/2106) to accept the regional peering connection created by the initiator's developer.
