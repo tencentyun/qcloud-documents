@@ -4,7 +4,7 @@ iOS:
 2. 提供findMessages方法，提供按消息ID获取本地消息
 3. TIMIOSOfflinePushConfig提供设置APNs推送静音选项
 4. 修复高频接收消息时，内存上涨问题
- 
+
 Android:
 1. 增加查找消息接口（详情请查看TIMConversation下的findMessages）
 2. sendOnlineMessage接口支持群组类型消息，消息不存本地、不存离线、不计入未读
