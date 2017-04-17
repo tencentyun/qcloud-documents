@@ -40,6 +40,7 @@ vi qcloud.txt
 ```
 Write some content in the edit mode, such as: "This is my first test". After pressing ESC to exit the edit mode, enter `wq` to save the changed content. When executing the` ls` command, you'll find that the file has been written to the disk.
 
+.For more information on partitioning, formatting  and file system creation on Linux system, please refer to [Partitioning, Formatting, Mounting and File System Creation on Linux System](https://www.qcloud.com/document/product/362/6735).
 
 
 
