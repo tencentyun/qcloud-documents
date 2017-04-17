@@ -52,34 +52,47 @@ windows cmd
 ##### 方法原型
 
 ```
-    def create_key(self, Description=None, Alias="", KeyUsage='ENCRYPT/DECRYPT')
+    def create(self, queue_meta)
 ```
 
 ##### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
-|KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
+|queue_meta|QueueMeta|无|队列属性|
 
-返回值 KeyMetadata结构体 描述如下：
+QueueMeta结构体 描述如下：
 
 | 属性名称 | 类型 | 含义 |
 |---------|---------|---------|
-|KeyId|string|密钥id|
-|CreateTime|uinx time|创建时间|
-|Description|string|密钥描述|
-|KeyState|string|密钥状态|
-|KeyUsage|string|密钥用途|
-|Alias|string|密钥别名|
+|queueName|string|队列名称|
+|maxMsgHeapNum|int|队列中最大的消息堆积数量|
+|pollingWaitSeconds|int|队列消费消息时默认轮训时间，单位：秒|
+|visibilityTimeout|int|消息可见性超时， 单位：秒|
+|maxMsgSize|int|消息最大长度，单位：Byte|
+|msgRetentionSeconds|int|消息在队列中的保留周期，单位：秒|
+|rewindSeconds|int|队列允许回溯时间，单位：秒|
+|activeMsgNum|int|队列中，可消费消息数，近似值|
+|inactiveMsgNum|int|队列中，正在被消费的消息数，近似值|
+|createTime|unix time| 队列创建时间， unix时间戳|
+|lastModifyTime|unix time|最近一次修改队列属性时间，unix时间戳|
+|rewindmsgNum|int|已经删除，但是还在回溯保留时间内的消息数量|
+|minMsgTime|int|消息最小未消费时间，单位：秒|
+|delayMsgNum|int|延时消息数量|
 
 ##### 使用示例
 
 ```
-    description ='for test'
-    alias = 'kms_test'
-    kms_meta = kms_account.create_key(description,alias)
+    queue_name = sys.argv[1] if len(sys.argv) > 1 else "MySampleQueue"
+    my_queue = my_account.get_queue(queue_name)
+    # 创建队列, 具体属性请参考cmq/queue.py中的QueueMeta结构
+    queue_meta = QueueMeta()
+    queue_meta.queueName = queue_name
+    queue_meta.pollingWaitSeconds = 10
+    queue_meta.visibilityTimeout = 10
+    queue_meta.maxMsgSize = 1024
+    queue_meta.msgRetentionSeconds = 3600
+    my_queue.create(queue_meta)
 ```
 
 #### 获取队列属性
