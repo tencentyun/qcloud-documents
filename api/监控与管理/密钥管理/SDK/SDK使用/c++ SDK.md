@@ -114,6 +114,28 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
     account.get_key_attributes(meta.KeyId,meta);
 ```
 
+### 设置主密钥属性
+#### 方法原型
+
+```
+    void set_key_attributes(const string & KeyId, const string & Alias);
+```
+
+#### 参数说明
+
+| 参数名 | 类型 | 默认值 | 参数描述 |
+|---------|---------|---------|---------|
+|KeyId|string|None|主密钥Id|
+|Alias|string|无|主密钥属性结构体，该参数返回创建的主密钥属性结构| 
+
+
+#### 使用示例
+
+```
+    Alias = "For test";
+    account.set_key_attributes(KeyId, Alias);
+```
+
 ### 获取主密钥列表
 #### 方法原型
 

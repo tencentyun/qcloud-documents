@@ -4,35 +4,21 @@
 ### 相关资源
 -[GitHub地址](https://github.com/tencentyun/kms-php-sdk.git) ,欢迎贡献代码以及反馈问题。
 
--[C++ sdk 本地下载]()
+-[PHP sdk 本地下载]()
 ### 开发环境
 1. 依赖环境：PHP5.3.0版本及以上
 2. 从控制台获取APP ID, SecretID,SecretKey。
 
-
-### SDK配置
-下载github上提供的源码，集成到您的开发环境。
-
-执行下面的命令：
-
-```
-    cd ${kms-cpp-sdk}
-    mkdir -p build 
-    cd build
-    cmake ..
-    make 
-```
-
-sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直接运行，生成的libKMS.a 和libKMS.so文件可以放到自己的lib文件夹下，inc目录拷贝到自己工程的include路径下。
 ### 历史版本
 
 ## 生成客户端对象
 
 ``` 
-    string secretId="xxxxxx;    #替换为用户的secretId
-    string secretKey = "xxxxxx"; #替换为用户的secretKey
-    string endpoint = "https://kms-region.api.tencentyun.com"; # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
-    KMSAccount account(endpoint,secretId,secretKey);
+    // 从腾讯云官网查看云api的密钥信息
+    $secretId = "";
+    $secretKey = "";
+    $endPoint = "";
+    $kms_account = new KMSAccount($endPoint,$secretId,$secretKey);
 ```
 ### 初始化客户端配置
 客户端默认使用sha1 签名算法，可以调用签名算法修改签名方式
@@ -46,16 +32,15 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 #### 方法原型
 
 ```
-    void create_key(KeyMetadata & meta,const string &Description="",const string & Alias = "" , const string  & KeyUsage="ENCRYPT/DECRYPT");
+    public function create_key($Alias = NULL, $Description = NULL, $KeyUsage="ENCRYPT/DECRYPT")
 ```
 
 #### 参数说明
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyMetadata|struct||主密钥属性结构体，该参数返回创建的主密钥属性结构| 
-|Description|string|None|主密钥描述|
-|Alias|string|空字符串|主密钥别名|
+|Description|string|NULL|主密钥描述|
+|Alias|string|NULL|主密钥别名|
 |KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|
 
 返回值 KeyMetadata结构体 描述如下：
@@ -72,18 +57,17 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 #### 使用示例
 
 ```
-    KeyMetadata meta ;
-    string description ="test";
-    string alias = "kms_test";
-    string KeyUsage="ENCRYPT/DECRYPT";
-    account.create_key(meta,Description,Alias,KeyUsage);
+    $Description = "test";
+    $Alias = "test";
+    $KeyUsage= "ENCRYPT/DECRYPT";
+    $kms_meta = $kms_account->create_key($Alias,$Description,$KeyUsage);
 ```
 
 ### 获取主密钥属性
 #### 方法原型
 
 ```
-    void get_key_attributes(const string & KeyId, KeyMetadata & meta);
+    public function get_key_attributes($KeyId = NULL)
 ```
 
 #### 参数说明
@@ -91,7 +75,6 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥Id|
-|KeyMetadata|struct||主密钥属性结构体，该参数返回创建的主密钥属性结构| 
 
 返回值 KeyMetadata结构体 描述如下：
 
@@ -109,14 +92,37 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 ```
     KeyMetadata meta;
     string keyId=""  # 请填写你的keyId
-    account.get_key_attributes(meta.KeyId,meta);
+    $kms_meta = $kms_account->get_key_attributes($keyId);
+```
+
+### 设置主密钥属性
+#### 方法原型
+
+```
+    public function set_key_attributes($KeyId = NULL, $Alias)
+```
+
+#### 参数说明
+
+| 参数名 | 类型 | 默认值 | 参数描述 |
+|---------|---------|---------|---------|
+|KeyId|string|None|主密钥Id|
+|Alias|string|无|设置的主密钥别名|
+
+返回值 无
+
+#### 使用示例
+
+```
+    $Alias = "for test" ;
+    $kms_account->set_key_attributes($kms_meta->KeyId,$Alias);
 ```
 
 ### 获取主密钥列表
 #### 方法原型
 
 ```
-    void list_key(vector<string> & keyIds, const int offset= 0 , const int limit = 10);
+    public function list_key($offset = 0, $limit = 10)
 ```
 
 #### 参数说明
@@ -130,16 +136,13 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 #### 使用示例
 
 ```
-     vector<string> KeyIds;
-     account.list_key(KeyIds);
-     for(unsigned int i = 0 ; i < KeyIds.size(); ++i)
-         cout<<"the "<<i<<" key id is :"<<KeyIds[i]<<endl;
+     $ret_pkg = $kms_account->list_key(); 
 ```
 ### 生成数据密钥
 #### 方法原型
 
 ```
-    void generate_data_key( string &KeyId, const string & KeySpace, int NumberOfBytes,const string & EncryptionContext,string & Plaintext,string &CiphertextBlob);
+    public function generate_data_key($KeyId = NULL, $KeySpec = "", $NumberOfBytes = 1024,$EncryptionContext =NULL)
 ```
 
 #### 参数说明
@@ -147,28 +150,27 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥Id|
-|KeySpec|string|None|生成数据密钥算法|
-|NumberOfBytes|int|None|生成指定长度的数据密钥|
-|EncryptionContext|json string |无|生成数据密钥时提供的额外的json key-value|
-|Plaintext|string|无|生成的数据密钥明文|
-|CiphertextBlob|string|无|生成的数据密钥密文|
+|KeySpec|string|""|生成数据密钥算法|
+|NumberOfBytes|int|1024|生成指定长度的数据密钥|
+|EncryptionContext|string |NULL|生成数据密钥时提供的额外的json key-value|
 
-返回值 入参中：
-plaintext 表示生成的数据密钥明文
-ciphertextBlob：表示生成的数据密钥密文
+返回字典中 ：
+plaintext 对应的value 表示生成的数据密钥明文
+ciphertextBlob：对应的value 表示生成的数据密钥密文
 
 #### 使用示例
 
 ```
-       string KeySpec="AES_128";
-       string Plaintext,CiphertextBlob;
-       account.generate_data_key(meta.KeyId,KeySpec,1024,"",Plaintext, CiphertextBlob);
+       $KeySpec = "AES_128";
+       $ret_pkg = $kms_account->generate_data_key($kms_meta->KeyId,$KeySpec,1024,"");
+       $Plaintext = $ret_pkg['plaintext'];
+       $CiphertextBlob = $ret_pkg['ciphertextBlob'];
 ```
 ### 启用主密钥
 #### 方法原型
 
 ```
-    void enable_key(const string & KeyId);
+    public function enable_key($KeyId = NULL)
 ```
 
 #### 参数说明
@@ -182,14 +184,14 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    string KeyId= ""  // 请填写你的keyId;
-    account.enable_key(KeyId)
+    $KeyId= ""  // 请填写你的keyId;
+    $kms_account->enable_key($KeyId);
 ```
 ### 禁用主密钥
 #### 方法原型
 
 ```
-    void disable_key(const string & KeyId);
+    public function disable_key($KeyId= NULL)
 ```
 
 #### 参数说明
@@ -202,8 +204,8 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 使用示例
 
 ```
-    string KeyId= ""  // 请填写你的keyId;
-    account.disable_key(KeyId)
+    $KeyId= ""  // 请填写你的keyId;
+    $kms_account->disable_key($KeyId);
 ```
 
 ## 加解密操作
@@ -211,46 +213,44 @@ ciphertextBlob：表示生成的数据密钥密文
 #### 方法原型
 
 ```
-    string encrypt(const string &KeyId , const string & plaintext, const string & EncryptionContext);
+    public function encrypt($KeyId = NULL, $Plaintext=NULL,$EncryptionContext =NULL)
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥Id|
-|Plaintext|string|空字符串|明文|
-|EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数|
+|KeyId|string|NULL|主密钥Id|
+|Plaintext|string|NULL|明文|
+|EncryptionContext|string|NULL|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数|
 
 返回值 ciphertextBlob 密文：
 
 #### 使用示例
 
 ```
-    string KeyId = "" ; // 请填写你的keyId;
-    string Plaintest = "test message data"
-    string CiphertextBlob = account.encrypt(KeyId,Plaintest,"");
+    $CiphertextBlob = $kms_account->encrypt($KeyId,$Plaintext);
 ```
 ### 解密
 #### 方法原型
 
 ```
-    string decrypt(const string & CiphertextBlob, const string & EncryptionContext);
+    public function decrypt($CiphertextBlob = NULL,$EncryptionContext = NULL)
 ```
 
 #### 参数说明
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|CiphertextBlob|string|空字符串|密文|
-|EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
+|CiphertextBlob|string|NULL|密文|
+|EncryptionContext|string|NULL|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
-返回值  plaintext 明文：
+返回值  plaintext 明文
 
 #### 使用示例
 
 ```
-     Plaintext = account.decrypt(CiphertextBlob,"");
+     $Plaintext = $kms_account->decrypt($CiphertextBlob);
 ```
 
 

@@ -28,11 +28,11 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
 #### 内外网区别
 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网endpoint：
 1) 同地域内网的时延更低；
-2) 目前消息队列对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
+2) 目前KMS对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
 
 
 #### Python SDK下载
-下载最新版[KMS kms SDK](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_java_sdk_V1.0.1.zip)，或选择下载[jar包](http://cmqsdk-10016717.cos.myqcloud.com/cmq.jar)。
+下载最新版[KMS SDK](https://www.qcloud.com/document/product/573/8908)。
 
 ### 使用 KMS Python SDK
 
@@ -63,7 +63,7 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
 
         # encrypt the data string
         Plaintest = "test message data"
-        CiphertextBlob = kms_account.encrypt(kms_meta.KeyId, Plaintext)
+        CiphertextBlob = kms_account.encrypt(kms_meta.KeyId, Plaintest)
         print "the encrypted data is :%s \n" % CiphertextBlob
 
         # decrypt the encrypted data string
@@ -71,7 +71,7 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
         print "the decrypted data is :%s\n" % Plaintest
 
         # get key attributes
-        key_meta = kms_account.get_key_attributes("kms-awy8dndb")
+        key_meta = kms_account.get_key_attributes(key_meta.KeyId)
         print key_meta
 
         # set key attributes
