@@ -19,7 +19,7 @@
         </tr>
         <!--视频上传-->
         <tr>
-            <td rowspan=3>
+            <td rowspan=4>
                 服务端视频上传
             </td>
             <td>
@@ -50,6 +50,15 @@
                 </a>
             </td>
         </tr>
+        <tr>
+            <td>
+                视频封面上传
+            </td>
+            <td>
+                <a href="/document/product/266/8833">
+                    SmallFileUpload
+            </td>
+        </tr>
         <!--URL拉取视频上传-->
         <tr>
             <td rowspan=1>
@@ -66,7 +75,7 @@
         </tr>
         <!--视频管理-->
         <tr>
-            <td rowspan=8>
+            <td rowspan=9>
                 视频管理
             </td>
             <td>
@@ -110,16 +119,6 @@
         </tr>
         <tr>
             <td>
-                修改视频属性
-            </td>
-            <td>
-                <a href="/document/product/266/7828">
-                    ModifyVodInfo
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 增加视频标签
             </td>
             <td>
@@ -140,11 +139,31 @@
         </tr>
         <tr>
             <td>
+                修改视频属性
+            </td>
+            <td>
+                <a href="/document/product/266/7828">
+                    ModifyVodInfo
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 删除视频
             </td>
             <td>
                 <a href="/document/product/266/7838">
                     DeleteVodFile
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                截图地址设为视频封面
+            </td>
+            <td>
+                <a href="/document/product/266/8814">
+                    DescribeVodCover
                 </a>
             </td>
         </tr>
