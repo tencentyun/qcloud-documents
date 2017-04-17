@@ -109,22 +109,14 @@
 | 删除专线网关本端IP转换 | [DeleteLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5186) | 删除专线网关本端IP转换。 |
 | 修改专线网关本端IP转换 | [ModifyLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5187) | 修改专线网关本端IP转换。 |
 | 查询专线网关本端IP转换 | [DescribeLocalIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5188) | 查询专线网关本端IP转换。 |
-| 添加专线网关本端源IP端口转换 | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5190
-) | 添加专线网关本端源IP端口转换。 |
-| 删除专线网关本端源IP端口转换 | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5191
-) | 删除专线网关本端源IP端口转换。 |
-| 修改专线网关本端源IP端口转换 | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5192
-) | 修改专线网关本端源IP端口转换。 |
-| 查询专线网关本端源IP端口转换 | [DescribeLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5193
-) | 查询专线网关本端源IP端口转换。 |
-| 添加专线网关本端目的IP端口转换 | [CreateLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5195
-) | 添加专线网关本端目的IP端口转换。 |
-| 删除专线网关本端目的IP端口转换 | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5196
-) | 删除专线网关本端目的IP端口转换。 |
-| 修改专线网关本端目的IP端口转换 | [ModifyLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5197
-) | 修改专线网关本端目的IP端口转换。 |
-| 查询专线网关本端目的IP端口转换 | [DescribeLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5198
-) | 查询专线网关本端目的IP端口转换。 |
+| 添加专线网关本端源IP端口转换 | [CreateLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5190) | 添加专线网关本端源IP端口转换。 |
+| 删除专线网关本端源IP端口转换 | [DeleteLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5191) | 删除专线网关本端源IP端口转换。 |
+| 修改专线网关本端源IP端口转换 | [ModifyLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5192) | 修改专线网关本端源IP端口转换。 |
+| 查询专线网关本端源IP端口转换 | [DescribeLocalSourceIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5193) | 查询专线网关本端源IP端口转换。 |
+| 添加专线网关本端目的IP端口转换 | [CreateLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5195) | 添加专线网关本端目的IP端口转换。 |
+| 删除专线网关本端目的IP端口转换 | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5196) | 删除专线网关本端目的IP端口转换。 |
+| 修改专线网关本端目的IP端口转换 | [ModifyLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5197) | 修改专线网关本端目的IP端口转换。 |
+| 查询专线网关本端目的IP端口转换 | [DescribeLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5198) | 查询专线网关本端目的IP端口转换。 |
 | 添加专线网关对端IP转换 | [CreatePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5190) | 添加专线网关对端IP转换。 |
 | 删除专线网关对端IP转换 | [DeletePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5191) | 删除专线网关对端IP转换。 |
 | 修改专线网关对端IP转换 | [ModifyPeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5192) | 修改专线网关对端IP转换。 |
@@ -159,8 +151,7 @@
 | 弹性网卡申请内网Ip | [AssignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4817) | 弹性网卡申请内网Ip。 |
 | 弹性网卡退还内网Ip | [UnassignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4819) | 弹性网卡退还内网Ip。 |
 | 弹性网卡绑定云主机 | [AttachNetworkInterface](https://www.qcloud.com/doc/api/245/4820) | 弹性网卡绑定云主机。 |
-| 弹性网卡解绑云主机 | [DetachNetworkInterface](https://www.qcloud.com/document/product/215/4822
-) | 弹性网卡解绑云主机。 |
+| 弹性网卡解绑云主机 | [DetachNetworkInterface](https://www.qcloud.com/document/product/215/4822) | 弹性网卡解绑云主机。 |
 | 弹性网卡迁移 | [MigrateNetworkInterface](https://www.qcloud.com/doc/api/245/5384) | 弹性网卡迁移。 |
 | 内网IP迁移 | [MigratePrivateIpAddress](https://www.qcloud.com/doc/api/245/5385) | 内网IP迁移。 |
 
