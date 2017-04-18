@@ -9,7 +9,7 @@
 | 绑定私有网络内主机与VIP | [AssociateVip](http://www.qcloud.com/doc/api/245/%E7%BB%91%E5%AE%9A%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%86%85%E4%B8%BB%E6%9C%BA%E4%B8%8EVIP) | 给vpc内云主机绑定一个VIP。 |
 | 创建私有网络和基础网络设备互通 | [AttachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2098) | 创建私有网络和基础网络设备互通。 |
 | 删除私有网络和基础网络设备互通 | [DetachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2097) | 删除私有网络和基础网络设备互通。 |
-| 查询私有网络和基础网络设备互通 | [DescribeVpcClassicLink](https://www.qcloud.com/doc/api/245/2097) | 查询私有网络和基础网络设备互通。 |
+| 查询私有网络和基础网络设备互通 | [DescribeVpcClassicLink](https://www.qcloud.com/document/api/215/2112) | 查询私有网络和基础网络设备互通。 |
 
 ## 2. 子网相关接口
 | 接口功能 | Action ID | 功能描述 | 
