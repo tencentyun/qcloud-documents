@@ -16,7 +16,7 @@
 |---------|---------|---------|
 | 创建子网 | [CreateSubnet](http://www.qcloud.com/doc/api/245/%E5%88%9B%E5%BB%BA%E5%AD%90%E7%BD%91) |  创建子网，并指定可用区。 |
 | 删除子网 | [DeleteSubnet](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E5%AD%90%E7%BD%91) | 删除指定子网。 |
-| 修改子网名称 | [ModifySubnetAttribute](http://www.qcloud.com/document/product/215/1313) | 修改指定子网名称。 |
+| 修改子网名称 | [ModifySubnetAttribute](https://www.qcloud.com/document/api/215/1313) | 修改指定子网名称。 |
 | 查询子网列表 | [DescribeSubnetEx](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8) | 批量查询子网信息，支持分页查询、模糊匹配等。|
 | 查询子网详情 | [DescribeSubnet](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E8%AF%A6%E6%83%85) | 根据用户输入信息，如subnetId、子网名称等，查询对应子网的详细信息。|
 
