@@ -1,6 +1,6 @@
 ## Basic Concepts
 
-Changing the HTTP Header of an Object will not change the content of the Object, except adding the [Metadata](/doc/product/436/6254) key-value pair to the Object. The Object Header is a string sent by the server before it sends the HTML data to the browser using HTTP protocol. You can change the response mode of a page or send the configuration information by modifying the Header. For example, changing the cache expiration time will not change the file. For example, if the content-encoding in Header is changed to gzip, but the file has not been compressed with gz in advance, a decoding error will occur.
+Changing the HTTP Header of an Object will not change the content of the Object, except adding the key-value pair to the Object. The Object Header is a string sent by the server before it sends the HTML data to the browser using HTTP protocol. You can change the response mode of a page or send the configuration information by modifying the Header. For example, changing the cache expiration time will not change the file. For example, if the content-encoding in Header is changed to gzip, but the file has not been compressed with gz in advance, a decoding error will occur.
 
 ## About the Configuration
 
