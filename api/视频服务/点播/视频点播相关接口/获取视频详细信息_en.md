@@ -1,10 +1,8 @@
 ## 1. API Description
  
+This API (DescribeVodPlayUrls) is used to acquire all playback URLs, format, bit rate, height, width information of current video.
+
 Domain: vod.api.qcloud.com
-API name:  DescribeVodPlayUrls
-
-Acquire all playback URLs, format, bit rate, height, width information of current video
-
  
 
 ## 2. Input Parameters

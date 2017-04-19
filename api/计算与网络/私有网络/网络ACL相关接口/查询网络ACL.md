@@ -3,8 +3,7 @@
 域名: vpc.api.qcloud.com
 接口名: DescribeAcl
 
-查询网络acl列表
-
+查询网络acl列表，接口已废弃，请使用接口<a href='https://www.qcloud.com/document/api/215/1441'>DescribeNetworkAcl</a>查询网络ACL信息
  
 
 ## 2. 输入参数

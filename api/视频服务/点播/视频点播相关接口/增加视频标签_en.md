@@ -1,9 +1,9 @@
 ## 1. API Description
+
+This API ( CreateVodTags) is used to add video tags.
+
  
 Domain: vod.api.qcloud.com
-API name:  CreateVodTags
-
-Batch add video tags
 
  
 

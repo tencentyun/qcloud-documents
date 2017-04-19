@@ -1,7 +1,8 @@
 ## 1. API Description
+
+This  API (ConvertVodFile) is used to perform transcoding and add watermark for uploaded videos. Detailed configuration for transcoding and watermark will follow the configuration parameters of the Console.
+
 Domain: vod.api.qcloud.com
-API name:  ConvertVodFile
-Perform transcoding and add watermark for uploaded videos. Detailed configuration for transcoding and watermark will follow the configuration parameters of the Console.
 
 ## 2. Input Parameters
  </b></th>

@@ -101,7 +101,7 @@ ImSDK从2.2.0版本开始提供针对单独每一条消息进行离线推送配�
 >注意：
 >1. 针对单条消息设置的离线推送配置优先级是最高的，也就是在同时设置了全局离线推送配置及单条消息离线推送配置的情况下，将以单条消息离线推送配置为准。
 >2. 目前Android设备的声音仅支持应用内置的声音文件。
->3. 此章节是根据ImSDK 2.5.0来说明的，在接入低于2.5.0版本的ImSDK时，单条消息的离线推送配置请参考SDK下载包中的javadoc进行配置。
+>3. 此章节是根据ImSDK 2.5.3来说明的，在接入低于2.5.3版本的ImSDK时，单条消息的离线推送配置请参考SDK下载包中的javadoc进行配置。
 
 **原型：**
 ```
@@ -249,7 +249,7 @@ public String getSound()
 
 /**
  * 设置当前消息在IOS设备上的离线推送提示声音（可选，发送消息时设置）
- * @param sound 声音文件路径
+ * @param sound 声音文件路径，当设置为{@see IOSSettings#NO_SOUND_NO_VIBRATION}时表示无提示音无振动
  */
 public void setSound(String sound)
 
@@ -296,21 +296,27 @@ try {
 }
 
 //设置在Android设备上收到消息时的离线配置
-TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
+TIMMessageOfflinePushSettings.AndroidSettings androidSettings = new TIMMessageOfflinePushSettings.AndroidSettings();
+//ImSDK 2.5.3之前的构造方式
+//TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
 androidSettings.setTitle("I'm title");
 //推送自定义通知栏消息，接收方收到消息后点击通知栏消息会给应用回调（针对小米、华为离线推送）
 androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Custom);
-//设置离线消息声音
+//设置android设备收到消息时的提示音，声音文件需要放置到raw文件夹
 androidSettings.setSound(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.hualala));
 settings.setAndroidSettings(androidSettings);
 
 //设置在IOS设备上收到消息时的离线配置
-TIMMessageOfflinePushSettings.IOSSettings iosSettings = settings.new IOSSettings();
-//开启角标更新
-iosSettings.setBadgeEnabled(true);
-//设置离线消息声音
+TIMMessageOfflinePushSettings.IOSSettings iosSettings = new TIMMessageOfflinePushSettings.IOSSettings();
+//ImSDK 2.5.3之前的构造方式
+//TIMMessageOfflinePushSettings.IOSSettings iosSettings = settings.new IOSSettings();
+
+//开启Badge计数
+iosSettings.setBadgeEnabled(true);  
+//设置ios收到消息时没有提示音且不振动（ImSDK 2.5.3新增特性）
+//iosSettings.setSound(TIMMessageOfflinePushSettings.IOSSettings.NO_SOUND_NO_VIBRATION);
+//设置IOS设备收到离线消息时的提示音
 iosSettings.setSound("/path/to/sound/file");
-settings.setIosSettings(iosSettings);
 
 msg.setOfflinePushSettings(settings);
 

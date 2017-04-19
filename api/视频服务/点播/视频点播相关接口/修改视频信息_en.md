@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain: vod.api.qcloud.com
-API name:  ModifyVodInfo 
+This API (ModifyVodInfo) is used to modify the description information of video files, including category, name, and description.
 
-Modify the description information of video files, including category, name, and description
+Domain: vod.api.qcloud.com
 
  
 

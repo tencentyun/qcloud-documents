@@ -1,10 +1,10 @@
 ## 1. API Description
 
-Domain:  vod.api.qcloud.com
-API name:  DescribeScreenShot
-Used to acquire thumbnails on the player time line. Once size is specified, thumbnails will be acquired according to specified height/width with a frequency of 1 thumbnail per 10 seconds. Every 100 acquired images will be grouped into one large image, with a corresponding address in a fixed format. Users may acquire these images in sequence according to the fixed format after performing certain actions.
-Note: This API is only available to users who have purchased certain service packages. Refer to [Product Introduction](http://www.qcloud.com/product/vod.html#price) for details.
+This API ( DescribeScreenShot) is used to acquire thumbnails on the player time line. Once size is specified, thumbnails will be acquired according to specified height/width with a frequency of 1 thumbnail per 10 seconds. Every 100 acquired images will be grouped into one large image, with a corresponding address in a fixed format. Users may acquire these images in sequence according to the fixed format after performing certain actions.
 
+Note: This API is only available to users who have purchased certain service packages. For details, see [Product Introduction](http://www.qcloud.com/product/vod.html#price) for details.
+
+Domain:  vod.api.qcloud.com
 
 ## 2. Input Parameters
 

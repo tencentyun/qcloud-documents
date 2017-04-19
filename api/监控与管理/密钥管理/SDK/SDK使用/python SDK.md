@@ -2,7 +2,7 @@
 ## 开发准备
 
 ### 相关资源
--[GitHub地址]() ,欢迎贡献代码以及反馈问题。
+-[GitHub地址](https://github.com/tencentyun/kms-python-sdk) ,欢迎贡献代码以及反馈问题。
 
 -[python sdk 本地下载]()
 ### 环境依赖
@@ -111,6 +111,30 @@ windows cmd
     keyId=''  # 请填写你的keyId
     key_meta = kms_account.get_key_attributes("kms-awy8dndb")
     print key_meta
+```
+
+### 设置主密钥属性
+#### 方法原型
+
+```
+    def set_key_attributes(self, KeyId=None, Alias=None)
+```
+
+#### 参数说明
+
+| 参数名 | 类型 | 默认值 | 参数描述 |
+|---------|---------|---------|---------|
+|KeyId|string|None|主密钥Id|
+|Alias|string|None|主密钥别名|
+
+返回值 无
+
+#### 使用示例
+
+```
+    keyId=''  # 请填写你的keyId
+    Alias=''  # 请填写你的主密钥别名
+    kms_account.get_key_attributes(keyId,Alias)
 ```
 
 ### 获取主密钥列表

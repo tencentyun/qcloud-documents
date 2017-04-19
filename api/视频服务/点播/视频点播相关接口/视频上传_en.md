@@ -1,7 +1,8 @@
 ## 1. API Description
  
+This API (MultipartUploadVodFile) is used to upload multiple parts of a video file.
+
 Domain: vod.qcloud.com
-API name:  MultipartUploadVodFile
 
 Note:
 1. Only http protocols are supported. 
@@ -12,7 +13,7 @@ Note
 1. Only post protocols are supported.
 2. PostBody only stores the file binary streams pointed by offset and dataSize.
 3. Content-Type does not support form-data. The application/octet-stream is recommended.
-4. Except for the last part, the dataSize of the first part must be equal to 512k, and the middle parts must be larger than or equal to 512k. The dataSize of all parts must be equal to the content-length.
+4. Except for the last part, the dataSize of the first part must be equal to 512 KB, and the middle parts must be larger than or equal to 512 KB. The dataSize of all parts must be equal to the content-length.
  
 <table class="t"><tbody><tr>
 <th><b>Parameter Name</b></th>
