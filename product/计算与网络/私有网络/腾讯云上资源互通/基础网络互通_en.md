@@ -51,11 +51,6 @@ If you wish to allow CVM "TomCVM" to communicate with VPC "TomVPC" via Classicli
 ## Related APIs
 You can use APIs to configure and manage the interconnection between your VPC and basic network. Refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909) for more information about VPC API services.
 
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Create interconnection between VPC and basic network device | [AttachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2098) | Create interconnection between VPC and basic network device.  |
-| Delete interconnection between VPC and basic network device interworking | [DetachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2097) | Delete interconnection between VPC and basic network device.  |
-| Query interconnection between VPC and basic network device | [DescribeVpcClassicLink](https://www.qcloud.com/doc/api/245/2097) | Query interconnection between VPC and basic network device.  |
 
 
 

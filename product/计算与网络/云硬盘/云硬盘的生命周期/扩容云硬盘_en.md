@@ -1,6 +1,7 @@
 Cloud disk is an expandable storage device. When a cloud disk is created, you can expand its capacity at any time to increase its storage space without losing any data on it. To expand and use the expanded capacity, the users need to expand both the physical cloud disk and the file system on it to identify the newly available space.
 
-> If the maximum capacity of cloud disk (4T) cannot meet your needs, you can create a logically super-large space by using RAID to cross multiple physical block storage. For more information, please refer to [Configuring RAID Group of a Cloud Disk](/doc/product/362/5761).
+> If the maximum capacity of cloud disk (4T) cannot meet your needs, you can create a logically super-large space by using RAID to cross multiple physical block storage. For more information, please refer to [Configuring RAID Group of a Cloud Disk](https://www.qcloud.com/document/product/362/2932
+).
 
 ## Expanding Elastic Cloud Disk
 ### Expanding an Elastic cloud disk via the Console
@@ -11,7 +12,8 @@ Cloud disk is an expandable storage device. When a cloud disk is created, you ca
 
 3) Only the cloud disk which is in the status of "To be Mounted" and "Mounting/Unmounting Supported" can be expanded (i.e., the elastic cloud disk which is in the status of "Not mounted"). Click "More" - "Expand" buttons in the end to select the new required size (it must be larger than or equal to the current size), and complete the payment to finish expanding the cloud disk.
 
-> For elastic cloud block storage which has been connected to the instance, please firstly perform [Unmounting the Elastic Cloud Disk](/doc/product/362/6740)
+> For elastic cloud block storage which has been connected to the instance, please firstly perform [Unmounting the Elastic Cloud Disk](https://www.qcloud.com/document/product/362/6740
+)
 
 ### Expanding an Elastic cloud disk via API
 Please refer to [ResizeCbsStorage API](https://www.qcloud.com/doc/api/364/2527).

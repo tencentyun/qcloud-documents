@@ -12,7 +12,8 @@ You can also check the cloud disks with a status of **Pending mounted, Mounting/
 
 4) In the pop-up box, select the CVM to which the cloud disk to be mounted, and click "OK". After the mounting, log in to the CVM to check the mounting status of the cloud disks.
 
-After being mounted, a cloud disk must go through a series operations such as partitioning and formatting to be put into use. For instructions on how to perform such operations, please refer to [Partitioning, Formatting and File System Creation on Windows System](/doc/product/362/6134) and [Partitioning, Formatting, Mouting and File System Creation on Linux System](/doc/product/362/5746).
+After being mounted, a cloud disk must go through a series operations such as partitioning and formatting to be put into use. For instructions on how to perform such operations, please refer to [Partitioning, Formatting and File System Creation on Windows System](https://www.qcloud.com/document/product/362/6734
+) and [Partitioning, Formatting, Mouting and File System Creation on Linux System](/doc/product/362/5746).
 
 ## Connecting an elastic cloud disk to CVM instance with API
 Please refer to [API AttachCbsStorages](https://www.qcloud.com/doc/api/364/2520).

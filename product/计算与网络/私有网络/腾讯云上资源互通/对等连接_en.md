@@ -239,20 +239,3 @@ When you create a cross-account peering connection/shared Direct Connect, you ne
 ## Related APIs
 You can use API operations to set and manage your peering connection. For more information on additional resources in VPC, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
  
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Create Regional Peering Connection | [CreateVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e5%88%9b%e5%bb%ba%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Create a regional peering connection.   |
-| Delete Regional Peering Connection | [DeleteVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e5%88%a0%e9%99%a4%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Delete a regional peering connection.   |
-| Modify Regional Peering Connection | [ModifyVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e4%bf%ae%e6%94%b9%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5%e5%b1%9e%e6%80%a7) | Modify a regional peering connection.   |
-| Accept Regional Peering Connection | [AcceptVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e6%8e%a5%e5%8f%97%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Accept a regional peering connection.   |
-| Reject Regional Peering Connection | [RejectVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e9%a9%b3%e5%9b%9e%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Reject a regional peering connection.   |
-| Enable Expired Regional Peering Connection | [EnableVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e5%90%af%e7%94%a8%e5%90%8c%e5%9c%b0%e5%9f%9f%e8%bf%87%e6%9c%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Enable an expired regional peering connection.   |
-| Create Cross-region Peering Connection | [CreateVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e5%88%9b%e5%bb%ba%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Create a cross-region peering connection   |
-| Delete Cross-region Peering Connection | [DeleteVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e5%88%a0%e9%99%a4%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Delete a cross-region peering connection.   |
-| Modify Cross-region Peering Connection | [ModifyVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e4%bf%ae%e6%94%b9%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5%e5%b1%9e%e6%80%a7) | Modify a cross-region peering connection.   |
-| Accept Cross-region Peering Connection | [AcceptVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e6%8e%a5%e5%8f%97%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Accept a cross-region peering connection.   |
-| Reject Cross-region Peering Connection | [RejectVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e9%a9%b3%e5%9b%9e%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Reject a cross-region peering connection.   |
-| Enable Expired Cross-region Peering Connection | [EnableVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e5%90%af%e7%94%a8%e8%b7%a8%e5%9c%b0%e5%9f%9f%e8%bf%87%e6%9c%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Enable an expired cross-region peering connection.   |
-| Query Peering Connection | [DescribeVpcPeeringConnections](https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Query a peering connection.   |
-
-
