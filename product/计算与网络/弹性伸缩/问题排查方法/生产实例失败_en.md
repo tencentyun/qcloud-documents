@@ -8,7 +8,7 @@ There are mainly 6 causes for scale-up failures:
 |---------|---------|---------|
 | 1 | Scaling configuration failure | A scaling configuration failure occurs because the associated resources (images, snapshots, security groups, etc.) have been deleted. Enter the scaling configuration details page to check the mistakenly deleted resources. The mistakenly deleted resource are marked in red.  | 
 | 2 | Abnormal scaling group | This occurs because the associated LB or VPC has been deleted, or the account balance is insufficient.  | 
-| 3 | Insufficient CVM purchase quota | Every user has CVM purchase quota. The default quota of pay-by-usage CVM is 30 per availability zone. AS will not be able to produce machines if this quota is exceeded.  | 
+| 3 | Insufficient CVM purchase quota | Every user has CVM purchase quota. The default quota of postpaid CVM is 30 per availability zone. AS will not be able to produce machines if this quota is exceeded.  | 
 | 4 | Model does not exist | The model defined in your scaling configuration is not correct or sold out.  | 
 | 5 | Resources sold out |Tencent Cloud resources are sold out (of very rare occurrence).  | 
 | 6 | Other background error | Refer to the scaling activity details page for the detailed reasons (of very rare occurrence).  | 
@@ -16,8 +16,6 @@ There are mainly 6 causes for scale-up failures:
 Troubleshooting Steps
 
 ### 1. Check the Descriptions of the Reasons
-
-Tencent Cloud AS provides the industry's most descriptive presentation of causes for failed scaling group activities.
 
 You can check the causes directly in the "Scaling Activity" in the scaling group management page:
 
@@ -27,7 +25,7 @@ You can check the causes directly in the "Scaling Activity" in the scaling group
 
 You can perform actions based on the causes for failed scaling group activities. See the following table.
 
-| No. | Causes | Action | 
+| No. | Causes | Solution | 
 |---------|---------|---------|
 | 1 | Image is deleted | 	Change scaling configuration | 
 | 2 | CLB is deleted | Modify CLB | 
