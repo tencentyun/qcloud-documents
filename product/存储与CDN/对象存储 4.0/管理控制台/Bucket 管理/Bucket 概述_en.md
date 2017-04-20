@@ -1,4 +1,4 @@
-Tencent Cloud COS is a storage service on the Web, where a Bucket must be created before any file (object) is stored. Users can use Tencent Cloud console, COS API, SDK and other ways to create a Bucket and upload an object. This section introduces the basic concepts of the bucket and provides instructions on how to use it. For information on how to use objects, please refer to [Object](https://www.qcloud.com/document/product/436/6255).
+Tencent Cloud COS is a storage service on the Web, where a Bucket must be created before any file (object) is stored. Users can use Tencent Cloud console, COS API, SDK and other ways to create a Bucket and upload an object. This section introduces the basic concepts of the bucket and provides instructions on how to use it. 
 
 ## Configuring Bucket Attributes
 

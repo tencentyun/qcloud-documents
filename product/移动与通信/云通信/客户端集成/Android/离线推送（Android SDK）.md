@@ -249,7 +249,7 @@ public String getSound()
 
 /**
  * 设置当前消息在IOS设备上的离线推送提示声音（可选，发送消息时设置）
- * @param sound 声音文件路径
+ * @param sound 声音文件路径，当设置为{@see IOSSettings#NO_SOUND_NO_VIBRATION}时表示无提示音无振动
  */
 public void setSound(String sound)
 

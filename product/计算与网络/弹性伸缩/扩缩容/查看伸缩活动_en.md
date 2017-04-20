@@ -1,4 +1,4 @@
-##View Scaling Activities
+## View Scaling Activities
 
 Open the Console, and select [**Scaling Group**](https://console.qcloud.com/autoscaling) in the navigation bar.
 
