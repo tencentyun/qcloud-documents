@@ -499,7 +499,12 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ### 1.10 在线消息
 
-对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与sendMessage类似，**注意：只针对单聊消息有效。**
+对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与sendMessage类似。
+
+> 注意：
+1. ImSDK 2.5.3之前版本只对单聊消息有效。
+2. ImSDK 2.5.3及之后版本，增加对群消息的支持。**如果需要支持这种群消息，请注意各平台都需要升级到2.5.3及以上版本。**
+
 
 ```
 //发送在线消息（服务器不保存消息）
@@ -938,6 +943,48 @@ public void setMessageReceiptListener(TIMMessageReceiptListener receiptListener)
 public boolean isPeerReaded()
 ```
 
+### 3.12 消息序列号
+
+通过`TIMMessage`中的接口`getSeq`可以获取到当前消息的序列号。
+
+> ImSDK 2.5.3 提供
+
+```
+/**
+ * 获取当前消息的序列号
+ * @return 当前消息的序列号
+ */
+public long getSeq()
+```
+
+### 3.13 消息随机码
+
+通过`TIMMessage`中的接口`getRand`可以获取到当前消息的随机码。
+
+> ImSDK 2.5.3 提供
+
+```
+/**
+ * 获取当前消息的随机码
+ * @return 当前消息的随机码
+ */
+public long getRand()
+```
+
+### 3.14 消息查找参数
+
+ImSDK中的消息需要通过{seq, rand, timestamp, isSelf} 四元组来唯一确定一条具体的消息，我们把这个四元组称为消息的查找参数。通过`TIMMessage`中的`getMessageLocator`接口可以从当前消息中获取到当前消息的查找参数。
+
+> ImSDK 2.5.3 提供
+
+```
+/**
+ * 获取当前消息的查找参数
+ * @return 当前消息的查找参数
+ */
+public TIMMessageLocator getMessageLocator()
+```
+
 ## 4 会话操作
 
 ### 4.1 获取所有会话
@@ -1215,7 +1262,50 @@ public void setUserDefinedData(byte[] userDefinedData)
 public long getTimestamp()
 ```
 
+### 4.9 消息查找
 
+ImSDK提供了根据提供参数查找相应消息的功能，只能精准查找，暂时不支持模糊查找。开发者可以通过调用`TIMConversation`中的`findMessages`方法进行消息查找。
+
+> ImSDK 2.5.3 提供
+
+```
+/**
+ * 根据提供的参数查找相应消息
+ * @param locators 消息查找参数
+ * @param cb 回调，返回查找到的消息
+ */
+public void findMessages(@NonNull List<TIMMessageLocator> locators, TIMValueCallBack<List<TIMMessage>> cb)
+```
+
+其中参数中的`TIMMessageLocator`可以通过消息中的`getMessageLocator`方法来获取，或者自行构造。
+
+**TIMMessageLocator:**
+```
+/**
+ * 设置要查找的消息的时间戳
+ * @param timestamp 消息时间戳
+ */
+public TIMMessageLocator setTimestamp(long timestamp)
+
+
+/**
+ * 设置要查找的消息的序列号
+ * @param seq 消息的序列号
+ */
+public TIMMessageLocator setSeq(long seq)
+
+/**
+ * 设置要查找的消息随机码
+ * @param rand 消息随机码
+ */
+public TIMMessageLocator setRand(long rand)
+
+/**
+ * 设置要查找的消息的发送者是否是自己
+ * @param self true - 发送者是自己， false - 发送者不是自己
+ */
+public TIMMessageLocator setSelf(boolean self)
+```
 
 ## 5 系统消息
 

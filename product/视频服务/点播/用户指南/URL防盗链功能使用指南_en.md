@@ -1,0 +1,4 @@
+
+URL hotlink protection helps secure your video contents. With hotlink protection, you can generate a video file playback URL in real time, which is available within a specified time to effectively secure the video contents. If you have released relevant static codes including URLs and player codes before enabling the hotlink protection, they will become unavailable after the function is enabled. You can access video files only through URLs generated dynamically. If you need to use player codes, please disable the hotlink protection and use the Blacklist & Whitelist to secure the contents.
+
+You can enable or disable the hotlink protection on the console. To ensure the normal use of hotlink protection, please refer to [Tencent Cloud URL Hotlink Protection Description](http://video.qcloud.com/download/docs/QVOD_HotLink_Protection_User_Guide.pdf) for the test. To obtain a URL, refer to [API Description](http://www.qcloud.com/doc/api/257/API%E6%A6%82%E8%A7%88)
