@@ -149,16 +149,4 @@ NAT Gateway can be deleted when it is not needed. The routing table and routing 
 ## API Overview
 You can use API operations to set and manage your NAT gateway. For more information about other resources in a VPC, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
 
-| Function | Action ID |  Description |
-|---------|---------|---------|
-| Create NAT Gateway | [CreateNatGateway](https://www.qcloud.com/doc/api/245/4094 | Create a NAT gateway.  |
-| Query NAT gateway creation progress | [QueryNatGatewayProductionStatus](https://www.qcloud.com/doc/api/245/4089) |  Query the creation progress of a NAT gateway.  |
-| Delete NAT gateway | [DeleteNatGateway](https://www.qcloud.com/doc/api/245/4087) | Delete a NAT gateway.  |
-| Modify NAT gateway | [ModifyNatGateway](https://www.qcloud.com/doc/api/245/4086) | Modify a NAT gateway.  |
-| Query NAT gateway | [DescribeNatGateway](https://www.qcloud.com/doc/api/245/4088) |  Query a NAT gateway.  |
-| Create NAT Gateway | [CreateNatGateway](https://www.qcloud.com/doc/api/245/4094 | Create a NAT gateway.  |
-| Unbind EIP for NAT gateway | [EipUnBindNatGateway](https://www.qcloud.com/doc/api/245/4092) | Unbind an EIP for a NAT gateway  |
-| Upgrade NAT gateway specifications | [CreateNatGateway](https://www.qcloud.com/doc/api/245/4090 | Upgrade the specifications of a NAT gateway  |
-
-
 

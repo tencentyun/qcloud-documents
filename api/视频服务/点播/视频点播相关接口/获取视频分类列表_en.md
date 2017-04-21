@@ -1,10 +1,8 @@
 ## 1. API Description
  
+This API (DescribeClass) is used to acquire global category list, including the relationship between ID and category description (not relevant to specific files).
+
 Domain: vod.api.qcloud.com
-API name:  DescribeClass 
-
-Used to acquire global category list, including the relationship between ID and category description (not relevant to specific files).
-
  
 
 ## 2. Input Parameters

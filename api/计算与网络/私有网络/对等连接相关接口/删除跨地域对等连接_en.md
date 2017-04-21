@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (DeleteVpcPeeringConnectionEx) is used to delete cross-regional peering connection.
+This API (DeleteVpcPeeringConnectionEx) is used to delete cross-region peering connection.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 1) Either of the sides can delete the peering connection at any time. The peering connection becomes invalid immediately after being deleted.
@@ -22,13 +22,13 @@ The following request parameter list only provides API request parameters. Commo
 | message | string | Error message. |
 | taskId | int | Task ID. The operation result can be queried with taskId. For more information, refer to <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">API for Querying Task Execution Result</a>. |
 
- ## 4. Error Code List
+## 4. Error Codes
 The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that you have entered resource information correctly.  |
-| InvalidPeeringConnection.NotFound | Invalid peering connection. Peering connection resource does not exist. Please verify that you have entered resource information correctly.  |
+| InvalidVpc.NotFound | VPC not exist. Please check the information you entered.|
+| InvalidPeeringConnection.NotFound | Peering connection not exist. Please check the information you entered. |
 
 ## 5. Example
 Input

@@ -16,7 +16,7 @@ The network ACL rules consist of the following four components:
 Tencent Cloud will evaluate the data packet and determine whether to allow the packets to flow in and out of the subnets to which it is associated based on the ACL inbound/outbound rules associated with the subnet.
 
 ## Priority of ACL Rules
-The network ACL rules shall be sequentially applied from the first rule (the top of the list) to the last rule (the bottom of the list). If rules/partial rules conflict, the rule that is ***higher in the list*** will be applied by default.
+The network ACL rules shall be sequentially applied from the first rule (the top of the list) to the last rule (the bottom of the list). In case of conflicts between rules, the rule that is ***higher in the list*** will be applied by default.
 For example, if you need to allow all source IPs to access all ports on the CVM, and refuse only the HTTP access to port 80 of the host with the source IP of `192.168.200.11/24`, you can set it as follows:
 
 | Protocol Type | Port | Source IP | Policy |
@@ -62,54 +62,43 @@ Network ACL services are free of charge. For more information about charges for 
 ## Operation Instruction
 
 ### Creating a Network ACL
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select "Security" - "Network ACL" tab on the left.
-2) Click "New", enter the name of the new network ACL and the VPC to which it belongs in the pop-up box, and then click OK.
+1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the **Virtual Private Cloud** navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select **Security - Network ACL** tab on the left.
+2) Click **New**, enter the name of the new network ACL and the VPC to which it belongs in the pop-up box, and then click **OK**.
 
 ### Querying a Network ACL
-1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select "Security" - "Network ACL" tab on the left.
+1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the **Virtual Private Cloud** navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select **Security - Network ACL** tab on the left.
 2)	Select the region and VPC on the top to check the network ACL of the VPC.
 
 ### Adding Network ACL Rules
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select "Security" - "Network ACL" tab on the left.
+1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select **Security - Network ACL** tab on the left.
 2) Click on the ID of the network ACL to be modified in the list to enter the details page of network ACL.
-3) Click on the "Inbound Rule" or "Outbound Rule" tab, and "Edit" button next to the rule list, and then click on "New Line".
-4) The new rule will be added in the ***first line*** of the rule list by default. Select the protocol type and enter the port, source IP/destination IP and policy, and then click on "Save" button. The new rule will then be displayed in the ACL rule list.
+3) Click on the **Inbound Rule** or **Outbound Rule** tab, and **Edit** button next to the rule list, and then click on **New Line**.
+4) The new rule will be added in the ***first line*** of the rule list by default. Select the protocol type and enter the port, source IP/destination IP and policy, and then click **Save**. The new rule will then be displayed in the ACL rule list.
 
 ### Deleting Network ACL Rules
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select "Security" - "Network ACL" tab on the left.
+1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select **Security - Network ACL** tab on the left.
 2) Click on the ID of the network ACL to be modified in the list to enter the details page of network ACL.
-3) Click on the "Inbound Rule" or "Outbound Rule" tab, and "Edit" button next to the rule list, and then click on "Delete" button in the network ACL line to be deleted.
-4) This ACL rule will then become gray. If this rule is deleted by mistake, you can undo it by clicking on "Recover the Deletion" button.
-5) Click on "Save" button to save the above operations.
+3) Click on the **Inbound Rule** or **Outbound Rule** tab, and **Edit** button next to the rule list, and then click **Delete** in the network ACL line to be deleted.
+4) This ACL rule will then become gray. If this rule is deleted by mistake, you can undo it by clicking on **Recover the Deletion** button.
+5) Click **Save** to save the above operations.
 >Note: The deletion of ACL rules will take effect only after clicking on Save button.
 
 ### Associating a Subnet with Network ACL
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select "Security" - "Network ACL" tab on the left.
+1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the **Virtual Private Cloud** navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select **Security - Network ACL** tab on the left.
 2) Click on the ID of the network ACL to be associated to enter the details page of network ACL.
-3) Click on the [Basic Info] tab and then "Bind" button in the Associated Subnets.
-4) In the pop-up box, select the subnet in the VPC that needs to be associated, and then click on "OK" to associate the network ACL with the subnet.
+3) Click on the **Basic Info** tab and then **Bind** button in the Associated Subnets.
+4) In the pop-up box, select the subnet in the VPC that needs to be associated, and then click on **OK** to associate the network ACL with the subnet.
 
 ### Dissociating a Subnet with Network ACL
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select "Security" - "Network ACL" tab on the left.
+1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the **Virtual Private Cloud** navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select **Security - Network ACL** tab on the left.
 2) Click on the ID of the network ACL to be dissociated to enter the details page of network ACL.
-3) Click on the [Basic Info] tab; in the Associated Subnets list, click on "Unbind" button in the subnet line to be dissociated, or check all the subnets to be unbound, and click on "Batch Unbind" button to unbind the subnets to network ACL.
+3) Click on the **Basic Info** tab; in the Associated Subnets list, click **Unbind** in the subnet line to be dissociated, or check all the subnets to be unbound, and click on **Unbind Selected** button to unbind the subnets to network ACL.
 
 ### Deleting Network ACL
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select "Security" - "Network ACL" tab on the left.
-2) Click on "Delete" button in the network ACL line to be deleted, and then click on "OK" in the pop-up box to confirm deletion to delete the network ACL and its rules.
-3)	If the "Delete" button is gray, the network ACL is associated with a subnet. You need to unbind first before deleting it.
+1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click on the "Virtual Private Cloud" navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then select **Security - Network ACL** tab on the left.
+2) Click on **Delete** button in the network ACL line to be deleted, and then click on **OK** in the pop-up box to confirm deletion to delete the network ACL and its rules.
+3)	If the **Delete** button is gray, the network ACL is associated with a subnet. You need to unbind first before deleting it.
  
-## API Overview
+## Related APIs
 You can use API operations to set and manage network ACL APIs. For more information about VPC API functions, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
-
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Create a VPC network ACL | [CreateNetworkAcl](http://www.qcloud.com/doc/api/245/%E5%88%9B%E5%BB%BAVPC%E7%BD%91%E7%BB%9CACL) | Create a security firewall.  |
-| Delete a network ACL | [DeleteNetworkAcl](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E7%BD%91%E7%BB%9CACL) | Delete a specified security firewall.  |
-| Modify the name of network ACL | [ModifyNetworkAcl](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E7%BD%91%E7%BB%9CACL%E5%90%8D%E7%A7%B0) | Modify the name of security firewall.  |
-| Query a network ACL | [DescribeNetworkAcl](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%BB%9CACL%E5%88%97%E8%A1%A8) | Query a VPC security firewall list.  |
-| Set network ACL rules | [ModifyNetworkAclEntry](http://www.qcloud.com/doc/api/245/%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9CACL%E8%A7%84%E5%88%99) | Set security firewall network rules.  |
-| Bind a subnet to network ACL | [CreateSubnetAclRule](http://www.qcloud.com/doc/api/245/%E7%BD%91%E7%BB%9CACL%E7%BB%91%E5%AE%9A%E5%AD%90%E7%BD%91) | Bind a subnet to security firewall.  |
-| Unbind a subnet to network ACL | [DeteleSubnetAclRule](http://www.qcloud.com/doc/api/245/%E7%BD%91%E7%BB%9CACL%E8%A7%A3%E7%BB%91%E5%AD%90%E7%BD%91) | Unbind a subnet to security firewall.  |
-
 

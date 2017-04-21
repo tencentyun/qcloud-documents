@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (DescribeNetworkAcl) is used to query network ACL.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
  
 
 ## 2. Input Parameters
@@ -51,7 +51,7 @@ The following request parameter list only provides API request parameters. Commo
 | networkAclEntrySet.egress.n.portRange | String | Source port (or source port range). For example: 80 or 90-100.  |
 | networkAclEntrySet.egress.n.action | Int | Policy. 1: Allow, 0: Reject.  |
 
- ## 4. Error Code Table
+## 4. Error Code Table
   The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error code | Description |

@@ -3,7 +3,7 @@
 This API (CreateRouteTable) is used to create routing table. 
 Domain for API request:<font style="color:red">vpc.api.qcloud.com</font> 
 
-When VPC has been created, the system will create a default routing table with which all new subnets will be associated.  By default, you can use the default routing table to manage your routing policies.  It you have many routing policies, you can call the API for creating routing table to create more routing tables to manage your routing policies. 
+When VPC has been created, the system will create a default routing table with which all new subnets will be associated. By default, you can use the default routing table to manage your routing policies.  It you have many routing policies, you can call the API for creating routing table to create more routing tables to manage your routing policies. 
 
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>.  The Action field for this API is CreateRouteTable. 
@@ -13,9 +13,9 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | vpcId | Yes | String | ID of VPC to which the subnet belongs. It can be vpcId or unVpcId. unVpcId is recommended. For example, vpc-rqndayhs. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | routeTableName | Yes|  String| Routing table name. You can specify any name you like, but its length should be limited to 60 characters.   |
-| routeSet.n | No | array | Content of routing table. This is optional.  |
+| routeSet.n | No | array | (Optional) Content of routing table.|
 | routeSet.n.destinationCidrBlock | Yes | String | Destination network segment, which cannot be within the VPC network segment. For example: 112.20.51.0/24. |
-| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: nat gateway. |
+| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway. |
 | routeSet.n.nextHub | Yes | String | Next hop address. You just need to specify gateway IDs (new ID is recommended) of different next hop types and the system will automatically match to the next hop address.  |
 | routeSet.n.description | No | String | Route description, which should be limited to 60 characters.   |
 
@@ -35,7 +35,7 @@ The following request parameter list only provides API request parameters. Commo
 | routeTableSet.n.nextHub | String  | Next hop address. You just need to specify the gateway ID (new ID is recommended) of a different next hop type and the system will automatically match to the next hop address.  |
 | routeTableSet.n.description | String  | Route description.   |
 
- ## 4. Error Code List
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>. 
 
 | Error Code | Description |

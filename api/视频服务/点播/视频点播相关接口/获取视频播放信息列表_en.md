@@ -1,10 +1,8 @@
 ## 1. API Description
+
+This API ( DescribeVodPlayInfo) is used to acquire video information, which acquires video information list according to video file name.
  
 Domain: vod.api.qcloud.com
-API name:  DescribeVodPlayInfo
-
-Used to acquire video information. Acquire video information list according to video file name.
- 
 
 ## 2. Input Parameters
  

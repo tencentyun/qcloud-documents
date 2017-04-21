@@ -1,4 +1,4 @@
-## #  #API Name
+## API Name
 SmallFileUpload
 
 ## Feature Description

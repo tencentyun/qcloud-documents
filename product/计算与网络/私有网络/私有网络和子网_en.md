@@ -258,27 +258,3 @@ The prerequisite for deleting a subnet is that the IPs in the subnet is not occu
 
 ## API Overview
 You can use API to set up and manage your VPCs and subnets. Click to view [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
-
-### VPC Related APIs
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Create a VPC | [CreateVpc](http://www.qcloud.com/doc/api/245/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C) | Create a VPC and plan your network segment.   |
-| Delete a VPC | [DeleteVpc](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C) | Delete a certain VPC.   |
-| Modify a VPC Name | [ModifyVpcAttribute](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%90%8D%E7%A7%B0) | Modify the name of a specified VPC.   |
-| Query VPC List | [DescribeVpcEx](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8) | Query VPC information in batches, supporting paged query and fuzzy match, etc.  |
-| Query VPC Details | [DescribeVpcs](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E8%AF%A6%E6%83%85) | Query VPC details based on user inputs such as vpcId, VPC name, etc.  |
-| Bind VPC CVM to VIP | [AssociateVip](http://www.qcloud.com/doc/api/245/%E7%BB%91%E5%AE%9A%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%86%85%E4%B8%BB%E6%9C%BA%E4%B8%8EVIP) | Bind a VIP to VPC CVM.   |
-| Create link between VPC and basic network device | [AttachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2098) | Create a link between VPC and basic network device.   |
-| Delete link between VPC and basic network device | [DetachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2097) | Delete the link between VPC and basic network device.   |
-| Query link between VPC and basic network device | [DescribeVpcClassicLink](https://www.qcloud.com/doc/api/245/2097) | Query the link between VPC and basic network device.   |
-
-### Subnet-related APIs
-| Function | Action ID | Description | 
-|---------|---------|---------|
-| Create a Subnet | [CreateSubnet](http://www.qcloud.com/doc/api/245/%E5%88%9B%E5%BB%BA%E5%AD%90%E7%BD%91) | Create a subnet and specify its availability zone.   |
-| Delete a Subnet | [DeleteSubnet](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E5%AD%90%E7%BD%91) | Delete the specified subnet.   |
-| Modify Subnet Name | [ModifySubnetAttribute](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E5%AD%90%E7%BD%91%E5%90%8D%E7%A7%B0) | Modify the name of a specified subnet.   |
-| Query Subnet List | [DescribeSubnetEx](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E5%88%97%E8%A1%A8) | Query the subnet information in batches, supporting paged query and fuzzy match, etc.  |
-| Query Subnet Details | [DescribeSubnet](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E5%AD%90%E7%BD%91%E8%AF%A6%E6%83%85) | Query subnet details based on user inputs such as subnetId, subnet name, etc.  |
-
-

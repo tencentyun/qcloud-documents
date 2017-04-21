@@ -1,9 +1,8 @@
 ## 1. API Description
  
-Domain: vod.api.qcloud.com 
-API name:  DeleteVodFile 
+This API (DeleteVodFile) is used to delete uploaded video files.
 
-Used to delete uploaded video files.
+Domain: vod.api.qcloud.com 
 
  
 
