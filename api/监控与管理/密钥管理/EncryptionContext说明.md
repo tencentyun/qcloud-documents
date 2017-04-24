@@ -1,24 +1,18 @@
-# 请求域名说明
+# Encryption Context 说明
+- 当在加密（Encrypt、GenerateDataKey）时指定了该参数时，解密（Decrypt）密文时，需要传入等价的参数，才能正确的解密。
+- Encryption Context的有效值是一个总长度在8192个字符数以内的json字符串，并且只能是String-String形式的。当您直接调用API填Encryption Context的时候，请注意转义的问题。
 
-外网接口请求域名：<font style="color:red">kms-region.api.qcloud.com</font>
+**无效的Encryption Context举例**
 
-内网接口请求域名：<font style="color:red">kms-region.api.tencentyun.com</font>
-
-> 任何时候，包括内测期间，如果使用外网域名产生公网下行流量，都会收取流量费用。 所以强烈建议服务在腾讯云上的用户使用**内网**域名，内网不会产生流量费用。
-
-> 只支持https协议。
-
-# 地域说明
-
-接口请求域名中 region 需用具体地域替换，地域以域名的region为准，公共参数的region在这里会被忽略。目前kms上线region如下表所示：
-
-| 区域 | 替换值| 外网请求域名 | 内网请求域名 |
-|---------|---------|---------|---------|
-|北京| bj|kms-bj.api.qcloud.com|kms-bj.api.tencentyun.com|
-|上海|sh|kms-sh.api.qcloud.com|kms-sh.api.tencentyun.com|
-|广州|gz|kms-gz.api.qcloud.com|kms-gz.api.tencentyun.com|
+```
+[{"Key":"Value"}] //json数组
+{"Key":12345} //String-int
+{"Key":["value1","value2"]} //String-数组
+```
 
 
+**等价的Encryption Context**
 
-
-
+```
+{"Key1":"Value1","Key2":"Value2"} 与 {"Key2":"Value2","Key1":"Value1"} 等价
+```
