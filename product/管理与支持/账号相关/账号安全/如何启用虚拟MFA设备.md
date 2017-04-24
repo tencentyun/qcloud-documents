@@ -14,6 +14,7 @@
 
 - 点击小程序中的扫码按钮，扫描第二步中的密钥二维码即可生成一组动态安全码。
 - 生成的动态码列表如图所示
+
 ![](https://mc.qcloudimg.com/static/img/e0e20d4174a7a102d4836f680d2e5fbe/image.png)
 
 ### step4.绑定MFA设备并开启保护设置
