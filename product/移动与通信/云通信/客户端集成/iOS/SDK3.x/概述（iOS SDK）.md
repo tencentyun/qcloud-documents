@@ -8,7 +8,7 @@ ImSDK.framework 支持iOS 7.0 及以上系统。
 
 ### 1.2 下载ImSDK
 
-从 [官网](https://www.qcloud.com/product/im.html#sdk) 下载ImSDK开发包，主要包括：ImSDK.framework、IMCore.framework、TLSSDK.framework、QALSDK.framework。各个包的说明如下：
+从 [官网](https://www.qcloud.com/product/im.html#sdk) 下载ImSDK开发包，主要包括：ImSDK.framework、IMMessageExt.framework、IMGroupExt.framework、IMFriendshipExt.framework、TLSSDK.framework、QALSDK.framework。各个包的说明如下：
 
 必选SDK：**必须是一个版本成套使用，不同版本不可混用**
 
@@ -70,7 +70,7 @@ IMSDKBugly.framework
 
 ### 1.5 功能开发
 
-在调用代码中引入头文件ImSDK.h、IMMessageExt.h、IMGroupExt.h、IMFriendshipExt.h，根据后续章节的开发指引进行功能的开发。其中函数调用顺序可参见（1.2.2 调用顺序介绍）。
+在调用代码中引入头文件ImSDK.h、IMMessageExt.h、IMGroupExt.h、IMFriendshipExt.h，根据后续章节的开发指引进行功能的开发。
 
 ## 2. ImSDK 基本概念
 
