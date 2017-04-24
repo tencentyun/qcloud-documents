@@ -9,7 +9,7 @@
 ## Purchasing and Creating a Cloud Load Balancer Instance
 > Please note that the cloud load balancer can only forward the traffic to the CVM instances within the same region. So please create the cloud load balancer instances within the same region where both CVMs reside in as described in "Preconditions".
 
-1) Log in to Tencent Cloud, go to [Cloud Load Balance Purchase Page](http://manage.qcloud.com/shoppingcart/shop.php?tab=lb).
+1) Log in to Tencent Cloud, go to [Cloud Load Balance Purchase Page](https://buy.qcloud.com/lb).
 
 2) In this example, select "North China (Beijing)", where the CVMs reside in, as the region, select "Public Network (with Daily Rate)" as the instance type, and select "Basic Network" as the network environment.
 
