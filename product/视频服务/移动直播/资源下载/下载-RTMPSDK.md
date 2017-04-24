@@ -1,5 +1,5 @@
 ## 版本说明
-- 版本号：2.0.1.2615 @ 2017-04-15
+- 版本号：2.0.1.2620 @ 2017-04-21
 - iOS & Android：优化连麦，增加多人连麦能力，使用方法见 [iOS](https://www.qcloud.com/document/product/454/8871) & [Android](https://www.qcloud.com/document/product/454/8872)。
 - iOS & Android：增加 UGC 小视频添加背景音乐功能。
 - iOS & Android：新增纯音频推流功能。
@@ -82,12 +82,12 @@
 
 | 操作系统 | 版本号 | 版本说明|下载链接 |
 | ---- | ----------- | ---- | ---- | 
-| IOS完整版  | 2.0.1.2615  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.1.2615.zip)  |
-| IOS精简版  | 2.0.1.2615   | 裁剪掉了非核心功能，代码体积增量 <font color='red'>800K</font> 。播放器的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.1.2615.zip)  |
-| IOSRename版  | 2.0.1.2615  | 在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.1.2615.zip) |
-| Android完整版  | 2.0.1.2615 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid2.0.1.2615.zip)  |
-| Android精简版  | 2.0.1.2615 | 在完整版的基础上裁剪掉了连麦功能。如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.1.2615.zip)  |
-| 双平台特权版  | 2.0.1.2615  | 在完整版的基础上，结合天天P图的美妆 SDK 实现了大眼、瘦脸、动效贴纸、绿幕特效等功能，使用请联系商务。 | [点击下载](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPIOS%26AndroidSDKPitu.zip) |
+| IOS完整版  | 2.0.1.2620  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.1.2620.zip)  |
+| IOS精简版  | 2.0.1.2620   | 裁剪掉了非核心功能，代码体积增量 <font color='red'>800K</font> 。播放器的兼容性不及完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.1.2620.zip)  |
+| IOSRename版  | 2.0.1.2620  | 在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.1.2620.zip) |
+| Android完整版  | 2.0.1.2620 | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid2.0.1.2620.zip)  |
+| Android精简版  | 2.0.1.2620 | 在完整版的基础上裁剪掉了连麦功能。如果您的项目中已打包互动直播SDK，推荐使用次版本。 | [点击下载](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.1.2620.zip)  |
+| 双平台特权版  | 2.0.1.2620  | 在完整版的基础上，结合天天P图的美妆 SDK 实现了大眼、瘦脸、动效贴纸、绿幕特效等功能，使用请联系商务。 | [点击下载](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPIOS%26AndroidSDKPitu.zip) |
 
 ## 联系我们
 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://www.qcloud.com/document/product/454/7998)。
