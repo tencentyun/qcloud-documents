@@ -10,7 +10,7 @@ If you are the receiver, you can use API [Accept Regional Peering Connection](ht
 After the receiver accepts the request for peering connection, you need to modify routing table policy by calling API [Modify Routing Table](https://www.qcloud.com/document/product/215/1416), and create a new routing policy, which directs the next hop that accesses receiver's VPC through peering connection towards the this peering connection.
 
 4) Initiator modifies the routing table associated with subnet
-After the routing policy is configured, you can use API [Modify Routing Table Associated with Subnet](/doc/api/372/1416) to direct the subnet that needs to access receiver's VPC through peering connection to the routing table mentioned above.
+After the routing policy is configured, you can use API [Modify Routing Table Associated with Subnet](https://www.qcloud.com/document/product/215/1416) to direct the subnet that needs to access receiver's VPC through peering connection to the routing table mentioned above.
 
 5) Receiver modifies the routing table
 After the request for peering connection is accepted, you need to modify routing table policy by calling the API [Modify Routing Table](https://www.qcloud.com/document/product/215/1416), and create a new routing policy, which will direct the next hop that accesses initiator's VPC through peering connection to this peering connection.

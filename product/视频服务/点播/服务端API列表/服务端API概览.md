@@ -317,7 +317,7 @@
                 点播1.0兼容接口
             </td>
             <td>
-                依照video_id查询视频信息
+                依照VID查询视频信息
             </td>
             <td>
                 <a href="/document/product/266/8227">

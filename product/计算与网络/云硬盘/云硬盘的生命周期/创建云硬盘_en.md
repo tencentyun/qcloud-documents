@@ -36,7 +36,7 @@ If you need to keep the data disk snapshots in the newly created disk, you can s
 
 
 ### Creating an Elastic Cloud Disk with API
-Please refer to [API CreateCbsStorage](https://www.qcloud.com/document/api/364/2524).
+Please refer to [API CreateCbsStorage](https://www.qcloud.com/document/api/362/2524).
 
 ## Creating Non-elastic Cloud Disk
 ### Creating a non-elastic cloud disk in console
