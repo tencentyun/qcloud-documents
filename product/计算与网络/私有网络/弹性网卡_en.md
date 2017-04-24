@@ -275,16 +275,5 @@ Note 2: You must unbind all secondary IPs before you can change subnet for the E
 Note 3: When changing subnet for the ENI, you can only choose another subnet under the same availability zone.
 
 ## API Overview
-Functional APIs for ENI are listed below. Refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909) for more information about other VPC resources.
-
-
-| Function | Action ID | Description
-|---------|---------|---------|
-| Create ENI | [CreateNetworkInterface](https://www.qcloud.com/doc/api/245/4811) |  Create ENI.  |
-| Delete ENI | [DeleteNetworkInterface](https://www.qcloud.com/doc/api/245/4813) |  Delete ENI.  |
-| Query ENI Information | [DescribeNetworkInterfaces](https://www.qcloud.com/doc/api/245/4814) | Query ENI information.  |
-| Assign Private IP for ENI | [AssignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4817) | Assign private IP for ENI.  |
-| Unassign Private IP for ENI | [UnassignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4819) | Unassign private IP for ENI.  |
-| Bind ENI to CVM | [AttachNetworkInterface](https://www.qcloud.com/doc/api/245/4820) | Bind ENI to CVM.  |
-| Unbind ENI from CVM | [DetachNetworkInterface](https://www.qcloud.com/doc/api/245/4821) | Unbind ENI from CVM.  |
+Refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909) for more information about other VPC resources.
 

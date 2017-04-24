@@ -183,36 +183,4 @@ VPN tunnel provides alarm function:
  
 
 ## API Overview
-You can use API operations to configure and manage your VPN connections. For more APIs relevant to VPC, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
-### VPN-related APIs
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Query the price of VPN gateway | [InquiryVpnPrice](http://www.qcloud.com/doc/api/245/5104) | Query the price of VPN gateway.  |
-| Purchase VPN gateway | [CreateVpn](http://www.qcloud.com/doc/api/245/5106) | Purchase VPN gateway.  |
-| Modify the properties of VPN gateway | [ModifyVpnGw](http://www.qcloud.com/doc/api/245/5107) | Modify the information of specified VPN gateway, such as name. |
-| Query the VPN gateway list | [DescribeVpnGw](http://www.qcloud.com/doc/api/245/5108) | Query the information of the corresponding VPN gateway based on user information such as the ID and name of VPN gateway. |
-| Renew the VPN gateway | [RenewVpn](http://www.qcloud.com/doc/api/245/5109) | Renew the VPN gateway.  |
-
-### Peer Gateway-related APIs
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Create a peer gateway | [AddUserGw](http://www.qcloud.com/doc/api/245/5116) | Create the peer gateway to connect to.  |
-| Delete a peer gateway | [DeleteUserGw](http://www.qcloud.com/doc/api/245/5117) | Delete the specified peer gateway.  |
-| Modify the name of peer gateway | [ModifyUserGw](http://www.qcloud.com/doc/api/245/5118) | Modify the name of peer gateway.  |
-| Query the peer gateway list | [DescribeUserGw](http://www.qcloud.com/doc/api/245/5119) | Query the information of the corresponding peer gateway based on user information such as the ID and name of peer gateway. |
-| Obtain the vendor information of supported peer gateways | [DescribeUserGwVendor](http://www.qcloud.com/doc/api/245/5120) | Query the vendor information of peer gateways supported by Tencent Cloud VPN.  |
-
-
-### VPN Tunnel-related APIs
-
-| Function | Action ID |  Description |
-|---------|---------|---------|
-| Create a VPN tunnel | [AddVpnConn](http://www.qcloud.com/doc/api/245/5110) | Create a VPN encrypted tunnel to connect VPC to other network resources.  |
-| Delete VPN tunnel | [DeleteVpnConn](http://www.qcloud.com/doc/api/245/5111) | Delete the specified VPN tunnel. |
-| Modify VPN tunnel | [ModifyVpnConn](http://www.qcloud.com/doc/api/245/5112) | Modify the information of the specified VPN tunnel, such as the name.  |
-| Query the VPN tunnel list | [DescribeVpnConn](http://www.qcloud.com/doc/api/245/5113) | Query the information of the corresponding tunnel based on user information such as the ID and name of VPN tunnel. |
-| Download VPN tunnel configuration | [GetVpnConnConfig](http://www.qcloud.com/doc/api/245/5114) | Download VPN tunnel configuration to make adjustments to tunnel configuration.  |
-| Obtain the monitoring data of VPN tunnel | [DescribeVpnConnMonitor](http://www.qcloud.com/doc/api/245/5115) | Obtain the monitoring data of VPN tunnel.  |
-
-
-
+You can use API operations to configure and manage your VPN connections. Please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
