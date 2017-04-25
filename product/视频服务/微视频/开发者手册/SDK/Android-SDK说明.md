@@ -231,7 +231,7 @@ FileStatTask task = new FileStatTask(fileId, FileType.Video, BUCKET,
 });
 
 task.setAuth(VIDEO_SIGN);
-videoUploadMgr.upload(task)
+videoUploadMgr.sendCommand(task);
 ```
 
 ### 3.5 文件删除
@@ -271,7 +271,7 @@ FileDeleteTask task= new FileDeleteTask(fileId, FileType.Video, BUCKET,
 });
 
 task.setAuth(VIDEO_SIGN);
-videoUploadMgr.upload(task);
+videoUploadMgr.sendCommand(task)
 ```
 
 ### 3.6 文件复制
@@ -312,7 +312,7 @@ FileCopyTask task = new FileCopyTask(FileType.Video, BUCKET, fileId,
 });
 
 task.setAuth(VIDEO_SIGN);
-videoUploadMgr.upload(task);
+videoUploadMgr.sendCommand(task)
 ```
 
 ### 3.7 日志上报

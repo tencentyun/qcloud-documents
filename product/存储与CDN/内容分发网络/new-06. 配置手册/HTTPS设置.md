@@ -3,6 +3,8 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 
 <font color="red">HTTPS 配置目前已全面开放，欢迎使用。</font>
 
+HTTP2.0火热内测中，[点击申请](https://www.qcloud.com/act/apply/cdn_http2)
+
 ## 配置说明
 
 满足以下条件的域名才可配置 HTTPS：
@@ -39,3 +41,11 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 ![](https://mc.qcloudimg.com/static/img/16abdcd52cbc8072881a2b40b05ccfee/https_set.png)
 
 <font color="blue">仅当HTTPS证书配置成功后，才可开启强制跳转</font>
+
+## HTTP2.0 
+
+获得HTTP2.0内测资格的用户，在成功为域名配置了HTTPS证书后，可以开启HTTP2.0：
+
+![](https://mc.qcloudimg.com/static/img/30c160c9102a38893f51e6e0060d158d/HTTP2.0.png)
+
+更多技术细节，[点击查看](https://www.qcloud.com/community/article/541321)。
