@@ -1,13 +1,13 @@
 ## 1. API Description
 
-This API (GetCdnOverseaPv) is used to query the statistics regarding the number of requests for specified domain on a specified day.
+This API (GetCdnOverseaPv) is used to query the statistics of number of requests for specified domain on a specified day.
 
 + There is a statistical point every 5 minutes, and a total of 288 statistical points a day;
 + You may specify a date within the last 30 days;
 + You can query one domain at a time. The domain must have overseas CDN activated.
 
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request:cdn.api.qcloud.com
 
 [Call Demo](https://www.qcloud.com/document/product/228/1734)
 
@@ -16,18 +16,15 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type     | Description                    |
 | ---- | ---- | ------ | --------------------- |
-| date | Yes    | String | Specifies query date, format is yyyy-mm-dd. For example: 2016-09-22|
+| date | Yes    | String | Specifies query date (within last 30 days) in the format of yyyy-mm-dd. For example: 2016-09-22|
 | host  | Yes    | String | Specifies the domain to be queried |
-
-**Note:**
-+ date: query date. Currently you can only query data within the last 30 days, format needs to be yyyy-mm-dd.
 
 
 ## 3. Output Parameters
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) |
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Object | Returned data result, details are described below                            |
@@ -36,7 +33,7 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name           | Type     | Description                                       |
 | -------------- | ------ | ---------------------------------------- |
 | period         | Int    | Time span of the statistic data, default is 5 minutes                          |
-| app_id         | String | Tencent Cloud Services account [Click to View](http://console.qcloud.com/cloudAccount), corresponding the UIN |
+| app_id         | String | Tencent Cloud Services account ([see here](http://console.qcloud.com/cloudAccount)), corresponding to the UIN |
 | host           | String | Domain that was specified to be queried                                  |
 | start_datetime | String | Start time of the query. If you enter 2016-09-22, the start time will be 2016-09-22 00:00:00 |
 | end_datetime   | String | End time of the query. If you enter 2016-09-22, the end time will be 2016-09-22 23:55:00 |
