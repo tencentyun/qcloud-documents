@@ -9,4 +9,4 @@
 
 输入网站的域名，选择地域和项目，选择需要防护的服务器IP，然后点击确认。添加后系统会自动进行审核，审核完成后会显示防护中，说明已经对WAF完成了设置。
 ![](https://mc.qcloudimg.com/static/img/0cd6795299006c7b05279d113fb76124/%7B99F9B188-E49B-44F3-ABA4-60595E024302%7D.png)
-![](https://mc.qcloudimg.com/static/img/b6e5aa88b6e11547b70e61b9c77e6a68/%7B5DC5BCAA-FA5E-4982-A170-6A7C90F2E6CD%7D.png)
+![](https://mc.qcloudimg.com/static/img/d7a9ecc0f097f21b1d0250c3d2e8a35b/%7BFAB2674F-9B08-48C3-8ED0-31229D7F42F6%7D.png)
