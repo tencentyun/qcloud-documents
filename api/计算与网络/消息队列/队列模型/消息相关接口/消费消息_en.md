@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (ReceiveMessage) is used to consume a message in the queue. The ReceiveMessage operation will change the status of the received message into "inactive". The duration of "inactive" status is determined by the queue attribute visibilityTimeout (Refer to [CreateQueue API](/doc/api/431/5832) for details). The consumer needs to delete the message using (batch)DeleteMessage API after the message has been successfully consumed within visibilityTimeout. Otherwise the message will return to "active" status and can be consumed by consumers again.
 
@@ -16,7 +16,7 @@ Domain for private network API request:<font style="color:red">cmq-queue-region.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/229/1230).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

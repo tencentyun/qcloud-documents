@@ -5,8 +5,8 @@ This API (DescribeInstances) is used to get the details of one or more instances
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 * You can query instance list based on instance ID, instance name or instance status.
-* If the parameter is empty, returns the current user a certain number (specified by limit, the default is 20) of instances.
-* The "status" field indicates the status of the instance, including the following status:
+* If the parameter is empty, returns certain number (specified by limit, the default is 20) of instances under the current user account.
+* The `status` field indicates the status of the instance, including the following status:
 
 | Status ID | Status Name |
 |---------|---------|
@@ -89,12 +89,12 @@ diskInfo contains a lot of hard disk information, and the data structure for eac
 
 | Parameter name | Type | Description |
 |---------|---------|---------|
-| storageId | String | Hard disk ID.
-| storageType | Int | Hard disk type. <br>1. Local disk <br>2. Cloud HHD Storage <br>3. SSD local disk <br>4. SSD cloud disk
+| storageId | String | Data disk ID.
+| storageType | Int | Data disk type. <br>1. Local disk <br>2. Cloud HDD storage <br>3. SSD local disk <br>4. SSD cloud storage <br>5. Premium cloud storage
 | storageSize | Int | Data disk size (GB).
 | rootId | String | System disk ID.
 | rootSize | Int | System disk size (GB). |
-| rootType | Int | System disk type. <br>1. Local disk <br>2. Cloud HHD Storage <br>3. SSD local disk <br>4. SSD cloud disk
+| rootType | Int | System disk type. <br>1. Local disk <br>2. Cloud HDD storage <br>3. SSD local disk <br>4. SSD cloud storage
 
 
 ## 4. Example

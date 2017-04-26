@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (BatchDeleteMessage) is used to delete a batch of messages (currently you can delete up to 16 messages at a time) that have already been consumed. The consumer needs to use the ReceiptHandle (obtained after the last consume operation) as parameter to locate the messages to be deleted. You can only execute this operation before NextVisibleTime. Messages will return to Active status after NextVisibleTime and ReceiptHandle will become invalid, causing deletion operation to fail. In this case, you will need to re-consume the messages and acquire ReceiptHandle again. Under concurrent consuming scenario, if a message is deleted by one of the consumers, the other consumers will no longer be able to obtain the deleted message.
 
@@ -16,7 +16,7 @@ Domain for private network API request:<font style="color:red">cmq-queue-region.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/229/1230).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
