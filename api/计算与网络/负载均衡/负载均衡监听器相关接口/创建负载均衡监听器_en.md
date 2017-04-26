@@ -17,9 +17,6 @@ Usage limit for private network cloud load balancers:
 3) Within one cloud load balancer, CVMs must have different ports,
 4) UDP, TCP protocols are supported.
 
-Usage limit for public network (without daily rate or static public network IP) cloud load balancers:
-1) Only HTTP protocol is supported,
-2) Within one cloud load balancer, CVMs must have different ports, and each port must be consistent with the cloud load balancer listening port.
 ## 2. Request Parameters
    The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](/doc/api/244/4183). The Action field for this API is CreateLoadBalancerListeners.
 
@@ -29,9 +26,9 @@ Usage limit for public network (without daily rate or static public network IP) 
 | loadBalancerId | Yes | String | The ID of the cloud load balancer instance, which can be loadBalancerId or unLoadBalancerId (recommended). You can query it via the API <a href="https://www.qcloud.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
 | listeners.n.loadBalancerPort | Yes | Int | Listening API of the cloud load balancer listener. Value range: 1-65535. "listeners" is an array, you may create multiple listeners. n is subscript. |
 | listeners.n.instancePort | Yes | Int | Listening port of the cloud load balancer instance listener backend CVM. Value range: 1-65535. |
-| listeners.n.protocol | Yes | Int | Protocol type of the cloud load balancer instance listener. 1: HTTP, 2: TCP, 3:UDP, 4: HTTPS. <br>Public network (with daily rate) cloud load balancer instances support HTTP, UDP, TCP, HTTPS protocols; <br>Public network (without daily rate) cloud load balancer instances support HTTP protocol; <br>Private network cloud load balancer instances support TCP and UDP protocols. |
+| listeners.n.protocol | Yes | Int | Protocol type of the cloud load balancer instance listener. 1: HTTP, 2: TCP, 3:UDP, 4: HTTPS. <br>Public network (with daily rate) cloud load balancer instances support HTTP, UDP, TCP, HTTPS protocols; <br>Private network cloud load balancer instances support TCP and UDP protocols. |
 | listeners.n.listenerName | No | String | Name of the cloud load balancer listener. |
-| listeners.n.sessionExpire | No | Int | Session duration of the cloud load balancer listener. Unit: second. <br>Value range for non-HTTP listeners of public network (with daily rate) cloud load balancer instances, and listeners of public network (without daily rate) cloud load balancer instances: 900-3600; <br>Session duration value range for HTTP and HTTPS listeners of public network (with daily rate) cloud load balancer instances: 30-3600; <br>Configuration of this field is not supported for private network cloud load balancer instances. |
+| listeners.n.sessionExpire | No | Int | Session duration of the cloud load balancer listener. Unit: second. <br>Value range for non-HTTP listeners of public network (with daily rate) cloud load balancer instances: 900-3600; <br>Session duration value range for HTTP and HTTPS listeners of public network (with daily rate) cloud load balancer instances: 30-3600; <br>Configuration of this field is not supported for private network cloud load balancer instances. |
 | listeners.n.healthSwitch | No | Int | Indicate whether health check is enabled for cloud load balancer instance listener. 1: On; 0: Off. Default value is 1 (On). |
 | listeners.n.timeOut | No | Int | Health check response timeout for the cloud load balancer listener. Value range: 2-60. Default is 2. Unit: second. <br><font color="red">The response timeout must be smaller than health check time interval. </font><br>Currently you cannot configure response timeout for public network (with daily rate) HTTP or HTTPS listeners. |
 | listeners.n.intervalTime | No | Int | Health check time interval of cloud load balancer listener. Default value: 5; value range: 5-300; unit: second. <br>Value range for HTTPS and HTTP protocols: 30-300 seconds. Default is 30. |

@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (BatchSendMessage) is used to send a batch of messages (currently you can send up to 16) to the specified queue.
 
@@ -16,7 +16,7 @@ Domain for private network API request:<font style="color:red">cmq-queue-region.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/229/1230).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
