@@ -2,15 +2,15 @@
 
 This API (GetMonitorData) is used to acquire monitoring data of cloud products. Obtain corresponding monitoring data based on the namespace of the product, object dimension description and monitoring metrics specified by the user.
 
-Note: The new API for acquiring monitoring data (GetMonitorData) can be used to obtain data with a granularity of 1 minute. This API can also be used to acquire monitoring data of more products with a higher granularity in the future. We will no longer update the old version (GetMetricStatistics). It is recommended to use this new API.
-
 Domain: monitor.api.qcloud.com
+
+Note: The new API for acquiring monitoring data (GetMonitorData) can be used to obtain data with a granularity of 1 minute. This API can also be used to acquire monitoring data of more products with a higher granularity in the future. We will no longer update the old version (GetMetricStatistics). It is recommended to use this new API.
 
 
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Common request parameters are also needed when API is called. For more information, please see <a href="/doc/api/405/公共请求参数" title="Common Request Parameters">Common Request Parameters</a>. The Action field for this API is GetMonitorData.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/405/公共请求参数" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is GetMonitorData.
 
 
 <table class="t"><tbody><tr>
@@ -113,7 +113,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb
 &metricName=pvv_outtraffic
 &dimensions.0.name=protocol
@@ -143,7 +143,7 @@ Output
 }
 ```
 
-Special notes:
+Notes:
 1) dimensions.n.name and dimensions.n.value are used to specify a monitoring object. Some objects can only be specified using multiple dimensions.
 For example, in 5.5 Cloud Load Balance, you need to specify three dimensions (protocol, vip, vport) to acquire pvv_outtraffic (outbound traffic).
 ```
@@ -178,7 +178,7 @@ dimensions.2.value=80
 ## 6. List of Product Monitoring Metrics
 
 ### 6.1 CVM
-Tencent Cloud Virtual Machine (CVM) is a server which runs in the Tencent Cloud Data Center. Please see the <a href="/document/product/213" title="CVM Introduction">CVM Introduction</a> page for detailed introductions.
+Tencent Cloud Virtual Machine (CVM) is a server which runs in the Tencent Cloud Data Center. For detailed introductions, please see the <a href="/document/product/213" title="CVM Introduction">CVM Introduction</a> page.
 When querying monitoring data of CVMs, the values of input parameters are as follows:
 namespace: qce/cvm
 dimensions.0.name=unInstanceId
@@ -209,13 +209,13 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 </td></tr>
 <tr>
 <td> lan_outpkg
-</td><td> Private network outbound packet volume
+</td><td> Private network outbound packets
 </td><td> packets/second
 </td><td> unInstanceId CVM ID
 </td></tr>
 <tr>
 <td> lan_inpkg
-</td><td> Private network inbound packet volume
+</td><td> Private network inbound packets
 </td><td> packets/second
 </td><td> unInstanceId CVM ID
 </td></tr>
@@ -239,13 +239,13 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 </td></tr>
 <tr>
 <td> wan_outpkg
-</td><td> Public network outbound packet volume
+</td><td> Public network outbound packets
 </td><td> packets/second
 </td><td> unInstanceId CVM ID
 </td></tr>
 <tr>
 <td> wan_inpkg
-</td><td> Public network inbound packet volume
+</td><td> Public network inbound packets
 </td><td> packets/second
 </td><td> unInstanceId CVM ID
 </td></tr>
@@ -255,7 +255,7 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 
 <table class="t">
 <tbody><tr>
-<th> <b>Metric Name</b>
+<th> <b>Metric name</b>
 </th><th> <b>Description</b>
 </th><th> <b>Unit</b>
 </th><th> <b>Dimension</b>
@@ -268,7 +268,7 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 </td></tr>
 <tr>
 <td> cpu_loadavg
-</td><td>Average CPU usage, obtained by analyzing data in /proc/loadavg and then taking the maximum value of the average CPU usage within one minute
+</td><td> Average CPU utilization, obtained by analyzing data in /proc/loadavg and then taking the maximum value of the average CPU load within one minute
 (Windows machines do not have this metric)
 </td><td>
 </td><td> unInstanceId CVM ID
@@ -281,7 +281,7 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 </td></tr>
 <tr>
 <td> mem_usage
-</td><td> Memory utilization rate
+</td><td> Memory utilization
 </td><td>% 
 </td><td> unInstanceId CVM ID
 </td></tr>
@@ -310,7 +310,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cvm
 &metricName=cpu_usage
 &dimensions.0.name=unInstanceId
@@ -339,7 +339,7 @@ Output
 
 
 ### 6.2 Direct Connect
-Direct Connect provides a fast approach to connect Tencent Cloud with local data centers. You can have access to Tencent Cloud computing resources in multiple regions in one go using a single physical direct connection line, to achieve a flexible and reliable hybrid cloud deployment. Please see the <a href="/doc/product/216/产品概述" title="Product Overview">Direct Connect Introduction</a> page for detailed introductions.
+Direct Connect provides a fast approach to connect Tencent Cloud with local data centers. You can have access to Tencent Cloud computing resources in multiple regions in one go using a single physical direct connection line, to achieve a flexible and reliable hybrid cloud deployment. For detailed introductions, please see the <a href="/doc/product/216/产品概述" title="Product Overview">Direct Connect Introduction</a> page.
 When querying monitoring data of direct connect products, the values of input parameters are as follows:
 
 #### 6.2.1 Physical Direct Connect
@@ -373,7 +373,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/dc_line
 &metricName=inpkg
 &dimensions.0.name=directconnectid
@@ -408,7 +408,7 @@ dimensions.0.value is the ID of the direct connect tunnel
 **Available values of metricName**
 
 <table class="t"><tbody><tr>
-<th><b>Metric Name</b></th>
+<th><b>Metric name</b></th>
 <th><b>Description</b></th>
 <th><b>Unit</b></th>
 <th><b>Dimension</b></th>
@@ -419,18 +419,18 @@ dimensions.0.value is the ID of the direct connect tunnel
 <td> directconnectconnid Direct connect tunnel ID
 <tr>
 <td> inpkg
-<td> Inbound packet volume
-<td> packets/s
+<td> Inbound packets
+<td> packets/second
 <td> directconnectconnid Direct connect tunnel ID
 <tr>
 <td> intraffic
 <td> Inbound traffic
 <td> kb
-<td>directconnectconnid Direct connect tunnel ID
+<td> directconnectconnid Direct connect tunnel ID
 <tr>
 <td> outpkg
-<td> Outbound packet volume
-<td> packets/s
+<td> Outbound packets
+<td> packets/second
 <td> directconnectconnid Direct connect tunnel ID
 <tr>
 <td> outtraffic
@@ -439,7 +439,7 @@ dimensions.0.value is the ID of the direct connect tunnel
 <td> directconnectconnid Direct connect tunnel ID
 <tr>
 <td> pkgdrop
-<td> Lost packets
+<td> Packet loss
 <td> %
 <td> directconnectconnid Direct connect tunnel ID
 </tbody></table>
@@ -450,7 +450,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/dc_channel
 &metricName=delay
 &dimensions.0.name=directconnectconnid 
@@ -478,7 +478,7 @@ Output
 
 ### 6.3 Cloud Load Balancer
 
-Cloud Load Balancer is a service used to deliver traffic to multiple CVMs. Please see the <a href="/doc/product/214/概述" title="Overview">Cloud Load Balancer Introduction</a> page for detailed introductions.
+Cloud Load Balancer is a service used to deliver traffic to multiple CVMs. For detailed introductions, please see the <a href="/doc/product/214/概述" title="Overview">Cloud Load Balancer Introduction</a> page.
 Here's a list of cloud load balancer metrics (metricName) that can be displayed currently:
 
 | Metric Name       | Description    | Unit   |
@@ -507,7 +507,7 @@ This dimension represents the overall monitoring metric of a public network clou
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -527,7 +527,7 @@ This dimension represents the monitoring metric of a public network cloud load b
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -553,7 +553,7 @@ This dimension represents the monitoring metric for a backend server that is bou
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -583,7 +583,7 @@ This dimension represents the monitoring metric for a certain port of a backend 
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -616,7 +616,7 @@ This dimension represents the overall monitoring metric of a private network clo
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -639,7 +639,7 @@ This dimension represents the monitoring metric of a private network cloud load 
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -671,7 +671,7 @@ This dimension represents the monitoring metric of the backend machine that is b
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_rs_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -702,7 +702,7 @@ This dimension represents the monitoring metric for a certain port of a backend 
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_rs_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -721,7 +721,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 
 
 ### 6.4 Content Delivery Network
-The CDN (Content Delivery Network) works by creating a new network layer in the existing Internet and delivering contents of websites to the network that is closest to users. For more information, please see the <a href="/doc/product/228/产品概述" title="Product Instructions">CDN Introduction</a> page.
+The CDN (Content Delivery Network) works by creating a new network layer in the existing Internet and delivering contents of websites to the network that is closest to users. For detailed introductions, please see the <a href="/doc/product/228/产品概述" title="Product Overview">CDN Introduction</a> page.
 When querying monitoring data of CDN products, the values of input parameters are as follows:
 namespace: qce/cdn
 Available values for dimension name are: projectid, domain
@@ -741,7 +741,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cdn
 &metricName=requests
 &dimensions.0.name=projectid
@@ -771,7 +771,7 @@ Output
 
 ### 6.5 Cloud Database MySQL
 
-Cloud Database for MySQL is a high-performance distributed data storage service created by Tencent Cloud in a professional manner based on the world's most popular open source database MySQL. Please see the <a href="/doc/product/236/简介" title="Introduction">Cloud Database for MySQL</a> page for detailed introductions.
+Cloud Database for MySQL is a high-performance distributed data storage service created by Tencent Cloud in a professional manner based on the world's most popular open source database MySQL. For detailed introductions, please see the <a href="/doc/product/236/简介" title="Overview">Cloud Database for MySQL</a> page.
 When querying monitoring data of Cloud Database for MySQL products, the values of input parameters are as follows:
 namespace: qce/cdb
 Value for dimension name: uInstanceId
@@ -792,8 +792,8 @@ dimensions.0.value is the ID of cdb instance
 | com_replace           | Number of overwrites            | overwrites/second    | uInstanceId |
 | queries               | Total number of requests           | requests/second    | uInstanceId |
 | threads_connected     | Number of currently opened connections        | connections      | uInstanceId |
-| real_capacity         | Used disk space         | MB     | uInstanceId |
-| capacity              | Occupied disk space         | MB     | uInstanceId |
+| real_capacity         | Disk space (excluding the space occupied by binlog)         | MB     | uInstanceId |
+| capacity              | Disk space (including the space occupied by binlog)         | MB     | uInstanceId |
 | bytes_sent            | Private network outbound traffic          | Byte/second | uInstanceId |
 | bytes_received        | Private network inbound traffic          | Byte/second | uInstanceId |
 | qcache_use_rate       | Cache utilization rate          | %      | uInstanceId |
@@ -818,7 +818,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cdb
 &metricName=slow_queries
 &dimensions.0.name=uInstanceId
@@ -839,6 +839,7 @@ Output
 	"period": 300,
 	"dataPoints": [
 		55,
+		46,
 		33
 	]
 }
@@ -846,7 +847,7 @@ Output
 
 ### 6.6 Cloud Database TDSQL
 
-Tencent Cloud Database TDSQL is a highly secure enterprise-level cloud database under the OLTP scenario and has been serving for Tencent's billing services for more than 10 years. TDSQL is compatible with MySQL syntaxes, with advanced features such as thread pool, auditing, cross-region disaster recovery. This cloud database service is simple to expand, easy to use and cost-efficient. Please see the <a href="/doc/product/237/产品概述" title="Product Instructions">Cloud Database TDSQL Introduction</a> page for detailed introductions.
+Tencent Cloud Database TDSQL is a highly secure enterprise-level cloud database under the OLTP scenario and has been serving for Tencent's billing services for more than 10 years. TDSQL is compatible with MySQL syntaxes, with advanced features such as thread pool, auditing, cross-region disaster recovery. This cloud database service is simple to expand, easy to use and cost-efficient. For detailed introductions, please see the <a href="/doc/product/237/产品概述" title="Product Overview">Cloud Database TDSQL Introduction</a> page.
 When querying monitoring data of Cloud Database TDSQL products, the values of input parameters are as follows:
 
 namespace: qce/tdsql
@@ -879,7 +880,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/tdsql
 &metricName=data_disk_available
 &dimensions.0.name=uuid
@@ -907,7 +908,7 @@ Output
 
 ### 6.7 Cloud Database SQL Server
 
-Cloud Database SQL Server is a cloud database service developed by Tencent Cloud in a professional manner, based on the SQL Server published by Microsoft. Please see the <a href="/doc/product/238/产品概述" title="Product Instructions">Cloud Database SQL Server</a> page for detailed introductions.
+Cloud Database SQL Server is a cloud database service developed by Tencent Cloud in a professional manner, based on the SQL Server published by Microsoft. For detailed introductions, please see the <a href="/doc/product/238/产品概述" title="Product Overview">Cloud Database SQL Server</a> page.
 When querying monitoring data of Cloud Database SQL Server products, the values of input parameters are as follows:
 
 namespace: qce/sqlserver
@@ -929,8 +930,8 @@ dimensions.0.value is the resource ID of the instance
 | in_flow                | Total size of inbound packets of all connections           | MB/s | resourceId |
 | out_flow               | Total size of outbound packets of all connections           | MB/s | resourceId |
 | iops                   | Number of disk I/O operations                | times/second  | resourceId |
-| disk_reads             | Number of of disk read operations per second              | times/second  | resourceId |
-| disk_writes            | Number of of disk write operations per second              | times/second  | resourceId |
+| disk_reads             | Number of disk read operations per second              | times/second  | resourceId |
+| disk_writes            | Number of disk write operations per second              | times/second  | resourceId |
 | slow_queries           | Number of queries with operation time longer than 1 second         | queries    | resourceId |
 | blocks_processes       | Number of currently blocked processes                | processes    | resourceId |
 | lock_requests          | Average number of lock requests per second            | times/second  | resourceId |
@@ -950,7 +951,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/sqlserver
 &metricName=cpu
 &dimensions.0.name=resourceId
@@ -978,7 +979,7 @@ Output
 
 ### 6.8 Cloud Redis Store
 
-Cloud Redis Store (CRS) is a highly available, highly reliable Redis service platform based on Tencent Cloud's years of technical experience in distributed cache and demand for Redis-related business operations. Please see the <a href="/doc/product/239/产品介绍" title="Product Description">Cloud Redis Introduction</a> page for detailed introductions.
+Cloud Redis Store (CRS) is a highly available, highly reliable Redis service platform based on Tencent Cloud's years of technical experience in distributed cache and demand for Redis-related business operations. For detailed introductions, please see the <a href="/doc/product/239/产品介绍" title="Product Introduction">Cloud Redis Introduction</a> page.
 When querying monitoring data of Cloud Redis products, the values of input parameters are as follows:
 
 namespace: qce/redis
@@ -1025,7 +1026,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/redis
 &metricName=cache_hit_ratio
 &dimensions.0.name=redis_uuid
@@ -1072,8 +1073,8 @@ For the values of dimensions.0.value, see the table below
 | Value Type  | Value Example                                     | Description                                       |
 | ----- | ---------------------------------------- | ---------------------------------------- |
 | Instance ID  | cmgo-6ielucen                            | The instance ID is the unique identifier of a MongoDB instance;<br/>You can query this ID from the <a href="https://console.qcloud.com/mongodb">MongoDB Console</a>;<br/>You can also acquire this ID by calling MongoDB APIs |
-| Replica set ID | cmgo-6ielucen_0<br/>cmgo-6ielucen_2      | Acquire replica set ID by adding the "_index number" suffix behind the instance ID;<br/>The "index number" starts from 0, up to a maximum of <number of replica sets - 1><br/>A replica set instance contains only one replica set, thus the suffix is always "_0";<br/>Sharded instance contains multiple shards, each shard is a replica set. For example: add "_2" as suffix for the replica set ID of the third shard |
-| Node ID  | cmgo-6ielucen_0-node-primary<br/>cmgo-6ielucen_1-node-slave0<br/>cmgo-6ielucen_3-node-slave2 | Add "-node-primary" suffix behind a replica set ID to acquire its primary node ID;<br/>Add "-node-slave<slave node index number>" to acquire the corresponding slave node ID,<br/> The "slave node index number" starts from 0, up to a maximum of <number of slave nodes - 1> |
+| Replica set ID | cmgo-6ielucen_0<br/>cmgo-6ielucen_2      | Acquire replica set ID by adding the "_index number" suffix behind the instance ID;<br/>The "index number" starts from 0, up to a maximum of [number of replica sets - 1];<br/>A replica set instance contains only one replica set, thus the suffix is always "_0";<br/>Sharded instance contains multiple shards, each shard is a replica set. For example: add "_2" as suffix for the replica set ID of the third shard |
+| Node ID  | cmgo-6ielucen_0-node-primary<br/>cmgo-6ielucen_1-node-slave0<br/>cmgo-6ielucen_3-node-slave2 | Add "-node-primary" suffix behind a replica set ID to acquire its primary node ID;<br/>Add "-node-slave[slave node index number]" to acquire the corresponding slave node ID, <br/>The "slave node index number" starts from 0, up to a maximum of [number of slave nodes - 1] |
 
 Available values of metricName
 
@@ -1107,7 +1108,7 @@ To query the number of requests with a latency of more than 100 ms for a certain
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<Common request parameters>
+&<common request parameters>
 &namespace=qce/cmongo
 &metricName=delay_100
 &dimensions.0.name=target
@@ -1139,7 +1140,7 @@ To query the master/slave latency of a certain replica set, enter:
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<Common request parameters>
+&<common request parameters>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target
@@ -1171,7 +1172,7 @@ To query the number of connections of a certain node, enter:
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<Common request parameters>
+&<common request parameters>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target
@@ -1204,7 +1205,7 @@ When querying the number of connections of a certain node, the output is:
 
 Cloud Physical Machines provide load balancing features.
 Parameters for querying Cloud Physical Machine Load Balancer product monitoring data
-namespace:  qce/bm_lb
+namespace: qce/bm_lb
 Dimension description:
 
 | Name       | Meaning    |
@@ -1245,7 +1246,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/bm_lb
 &metricName=inpkg
 &dimensions.0.name=protocol
@@ -1326,7 +1327,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cmq
 &metricName=invisibleMsgNum
 &dimensions.0.name=queueId
@@ -1413,7 +1414,7 @@ Output
 ```
 
 ### 6.12 VPC
-Tencent Cloud Virtual Private Cloud (VPC) is a customized network space on Tencent Cloud that is logically isolated, which is similar to the traditional network you run in the data center. The service resources hosted in Tencent Cloud VPC include Cloud Virtual Machine, Cloud Load Balance, Cloud Database and other resources of Cloud Services in your Tencent Cloud. You can fully control your VPC environment, including customizing network segmentation, IP address and routing policy, and achieve multi-layer security protections through network ACL and security group and so on. At the same time, you can also use IPsec VPN/Direct Connect to connect the VPC with your data center, to deploy hybrid cloud in a flexible manner. Please see the <a href="https://www.qcloud.com/document/product/215/535" title="Product Overview">VPC Product Overview</a> page for detailed introductions.
+Tencent Cloud Virtual Private Cloud (VPC) is a customized network space on Tencent Cloud that is logically isolated, which is similar to the traditional network you run in the data center. The service resources hosted in Tencent Cloud VPC include Cloud Virtual Machine, Cloud Load Balance, Cloud Database and other resources of Cloud Services in your Tencent Cloud. You can fully control your VPC environment, including customizing network segmentation, IP address and routing policy, and achieve multi-layer security protections through network ACL and security group and so on. At the same time, you can also use IPsec VPN/Direct Connect to connect the VPC with your data center, to deploy hybrid cloud in a flexible manner. For detailed introductions, please see the <a href="https://www.qcloud.com/document/product/215/535" title="Product Overview">VPC Product Overview</a> page.
 When querying monitoring data of VPC products, the values of input parameters are as follows:
 
 #### 6.12.1 Peering Connection
@@ -1475,3 +1476,56 @@ Output
 }
 ```
 
+#### 6.12.2 Basic Network Cross-region Interconnection
+VPC basic network cross-region interconnection means the capability for basic network CVMs in different regions to communicate with each other as if they belong to the same network.
+
+When querying the monitoring data of basic network cross-region interconnection product, the values for input parameters are as follows:
+
+Value for dimension name: peeringConnectionId
+
+namespace: qce/pcx
+
+dimensions.0.name=peeringConnectionId
+dimensions.0.value is the ID for basic network cross-region interconnection
+
+**Available values of metricName**
+
+| Metric Name       | Description   | Unit   | Dimension                        |
+| ---------- | ---- | ---- | ------------------------- |
+| inpkg      | Inbound packets  | packets/second  | peeringConnectionId |
+| inbandwidth  | Inbound bandwidth  | Mbps | peeringConnectionId |
+| outpkg     | Outbound packets  | packets/second  | peeringConnectionId |
+| outbandwidth | Outbound bandwidth  | Mbps | peeringConnectionId |
+| pkgdrop    | Packet loss rate  | %    | peeringConnectionId |
+
+**Example: How to read peering connection monitoring metrics**
+
+Input
+
+<pre>
+https://monitor.api.qcloud.com/v2/index.php?
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&namespace=qce/pcx
+&metricName=inpkg
+&dimensions.0.name=peeringConnectionId
+&dimensions.0.value=pcx-086ypwc8
+&startTime=2016-06-28 14:10:00
+&endTime=2016-06-28 14:20:00
+</pre>
+
+Output
+
+```
+{
+	"code": 0,
+	"message": "",
+	"metricName": "inpkg",
+	"startTime": "2016-06-28 14:10:00",
+	"endTime": "2016-06-28 14:20:00",
+	"period": 300,
+	"dataPoints": [
+		30,
+		40
+	]
+}
+```
