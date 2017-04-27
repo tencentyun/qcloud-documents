@@ -1,4 +1,4 @@
-## 1. 获取通讯管理器
+## 1. 通讯管理器初始化
 
 ImSDK一切操作都是由通讯管理器TIMManager开始，SDK操作第一步需要获取TIMManager单例：
 
@@ -19,6 +19,34 @@ ImSDK一切操作都是由通讯管理器TIMManager开始，SDK操作第一步�
 
 ```
 TIMManager * manager = [TIMManager sharedInstance];
+```
+
+在使用SDK进一步操作之前，需要初始SDK：
+
+**原型:**
+
+```
+@interface TIMManager : NSObject
+
+/**
+ *  初始化SDK
+ *
+ *  @param config      配置信息，全局有效
+ *
+ *  @return 0 成功
+ */
+- (int)initSdk:(TIMSdkConfig*)config;
+
+/**
+ *  初始化当前manager，在initSdk:后调用，login:前调用
+ *
+ *  @param config    配置信息，对当前TIMManager有效
+ *
+ *  @return 0 成功
+ */
+- (int)setUserConfig:(TIMUserConfig*)config;
+- 
+@end
 ```
 
 ## 2. 新消息通知
@@ -362,34 +390,5 @@ ImSDK内部日志级别可通过配置TIMSdkConfig进行修改，控制ImSDK的�
 @end
 ```
 
-## 10. 通讯管理器初始化
-
-在使用SDK进一步操作之前，需要初始SDK：
-
-**原型:**
-
-```
-@interface TIMManager : NSObject
-
-/**
- *  初始化SDK
- *
- *  @param config      配置信息，全局有效
- *
- *  @return 0 成功
- */
-- (int)initSdk:(TIMSdkConfig*)config;
-
-/**
- *  初始化当前manager，在initSdk:后调用，login:前调用
- *
- *  @param config    配置信息，对当前TIMManager有效
- *
- *  @return 0 成功
- */
-- (int)setUserConfig:(TIMUserConfig*)config;
-- 
-@end
-```
 
 
