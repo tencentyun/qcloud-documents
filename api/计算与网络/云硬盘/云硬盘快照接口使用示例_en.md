@@ -11,7 +11,7 @@ First, create a snapshot for the specified Cloud Block Storage using the [Create
 | storageId | ID of the Cloud Block Storage that needs to create snapshots |  disk-nmnaafrh |
 | snapshotName | The name of the snapshot created | snap_test |
 
-By combining [Common Request Parameters](/doc/api/364/2745) and API request parameters, you can get the final form of request as follows:
+By combining [Common Request Parameters](https://www.qcloud.com/document/api/213/6976) and API request parameters, you can get the final form of request as follows:
 
 ```txt
 https://snapshot.api.qcloud.com/v2/index.php?
@@ -45,7 +45,7 @@ You can roll back snapshots through the [ApplySnapshot (Roll Back Snapshot)](htt
 | storageId | ID of the Cloud Block Storage to which the snapshot is to be rolled back | disk-nmnaafrh |
 
 
-By combining [Common Request Parameters](/doc/api/364/2745) and API request parameters, you can get the final form of request as follows:
+By combining [Common Request Parameters](https://www.qcloud.com/document/api/213/6976) and API request parameters, you can get the final form of request as follows:
 
 ```txt
 https://snapshot.api.qcloud.com/v2/index.php?

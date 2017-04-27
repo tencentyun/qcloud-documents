@@ -1,6 +1,6 @@
 ## 基本概念
 
-更改 Object 的 HTTP Header 并不会改变 Object 的内容，只是增加了 Object 的 [元数据（Metadata）](/doc/product/436/6254) 键值组。Object 头部 Header 是服务器以 HTTP 协议传 HTML 资料到浏览器前所送出的字串。通过修改 Header，可以改变页面的响应形式，或者传达配置信息，例如修改缓存时间，不会被修改文件本身。举例：修改了 Header 中的 content-encoding 为 gzip，但是文件本身没有提前用 gz 压缩过，会产生解码错误。
+更改 Object 的 HTTP Header 并不会改变 Object 的内容，只是增加了 Object 的元数据键值组。Object 头部 Header 是服务器以 HTTP 协议传 HTML 资料到浏览器前所送出的字串。通过修改 Header，可以改变页面的响应形式，或者传达配置信息，例如修改缓存时间，不会被修改文件本身。举例：修改了 Header 中的 content-encoding 为 gzip，但是文件本身没有提前用 gz 压缩过，会产生解码错误。
 
 ## 配置详情
 
