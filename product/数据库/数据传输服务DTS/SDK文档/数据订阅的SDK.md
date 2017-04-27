@@ -350,12 +350,13 @@ public String getAttribute(String key)
 | key| String| 属性值的名称 |
 
 可能的属性键值为：
+
 | 属性键值Key | 说明 |
 |:-------------|:-------------|
 |record_id |	Record的ID，这个ID在订阅过程中不保证递增|
 |source_type |	Record对应数据库实例的引擎类型，目前取值为：mysql|
 |source_category |	Record的类型，目前取值为：full_recorded|
-|timestamp |	Record落binlog的时间，这个时间同时也是这条SQL在RDS中执行的时间|
+|timestamp |	Record落binlog的时间，这个时间同时也是这条SQL在CDB中执行的时间|
 |checkpoint | Record对应的binlog文件的位点，格式为:file_offset@file_name，filen_name为binlog文件的数字后缀|
 |record_type | Record对应的操作类型，主要取值包括：insert/update/delete/replace/ddl/begin/commit/heartbeat |
 |db 	|Record更新表，对应的数据库名|
