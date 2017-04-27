@@ -22,7 +22,7 @@ You can also go to [User Center](https://console.qcloud.com/developer) and click
 ## Select Billing Mode
 After the qualification verification, you can go to the CDN Console to select the billing mode:
 ![](https://mccdn.qcloud.com/static/img/f5d3235f86db2992ad6d01d1e3d07d04/image.png)
-For detailed information on billing price calculation, please refer to [Price Overview](https://www.qcloud.com/doc/product/228/6539).
+For detailed information on billing price calculation, please refer to [Price Overview](https://www.qcloud.com/document/product/439/6732).
 
 
 

@@ -6,7 +6,7 @@ Basic concepts:
 - [Instance](/doc/product/213/4939): Virtual computing resources on the cloud 
 - [Region and availability zone](/doc/product/213/6091): Position of instances and other resources
 - [Image](/doc/product/213/4940): A preset instance template, including pre-configuration environment of the server (operating system and other installed software)
-- [Instance type](/doc/product/213/4833): Different configurations of instance:  CPU, memory, storage, network, etc.
+- [Instance type](/document/product/213/7153): Different configurations of instance:  CPU, memory, storage, network, etc.
 - [Local disk](/doc/product/213/5798): Devices that are located on the same physical server with instances and can be used for persistent storage by instances
 - [Cloud Block Storage](/doc/product/213/4953): Distributed persistent block storage devices provided, can be used as system disk for instances or expandable data disk
 - [SSH key pairs](/doc/product/213/6092): Use SSH key pairs of high security (Public keys are stored by Tencent Cloud, and private keys are stored in secure locations by users) and [Login Password](/doc/product/213/6093) using ordinary password as the login methods.

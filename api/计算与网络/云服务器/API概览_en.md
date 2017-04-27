@@ -22,7 +22,7 @@
 # # 2. Image-related APIs
 | Name | Action ID | Description
 |---------|---------|---------|
-| View list of available images | [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) | Obtain the images that current account can use to create CVM instances.
+| View list of available images | [DescribeImages](http://www.qcloud.com/document/api/213/1272) | Obtain the images that current account can use to create CVM instances.
 | Create custom images | [CreateImage](http://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F) | Make the current status of instance system disk into a new image, which can be used to quickly create instances.
 | Delete images | [DeleteImages](http://www.qcloud.com/doc/api/229/%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F) |Delete one or more images.
 | Modify image attributes | [ModifyImageAttributes](http://www.qcloud.com/doc/api/229/%E4%BF%AE%E6%94%B9%E9%95%9C%E5%83%8F%E5%B1%9E%E6%80%A7) | Modify the information of an image such as name and description.

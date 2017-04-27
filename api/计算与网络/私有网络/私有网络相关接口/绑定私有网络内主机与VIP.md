@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口(AssociateVip)用于私用网络云主机绑定VIP，将预先分配的内网Vip绑定到指定的子机，便于多台子机做主备功能。
+本接口(AssociateVip)用于私用网络云主机绑定VIP，将预先分配的内网Vip绑定到指定的子机，便于多台子机做主备功能，<font style="color:red">本接口实现的功能我们已经用弹性网卡功能代替，不推荐使用该接口</font>，新接口调用方式及使用场景详见<a href="https://www.qcloud.com/document/product/215/5850">VPC内通过keepalived搭建高可用主备集群</a>。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 1) 目前VIP需要联系在线客服申请。
