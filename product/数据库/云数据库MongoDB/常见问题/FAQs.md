@@ -8,7 +8,7 @@ A：MongoDB采用一种贪婪的策略会尽量分配可用的内存用作缓存
 **Q：实例的连接数规格是多少？是否支持升级连接数？**
 A：连接数规格参考：[连接限制说明](https://www.qcloud.com/document/product/240/622)，连接数和实例规格相关，可以通过升级规格以获取更大的连接数。
 
-**Q：在php中，如果限制最大连接数？**
+**Q：在php中，如果设置最大连接数？**
 A：
 •	MongoDB驱动([PHP官网文档](http://php.net/manual/en/set.mongodb.php))可以通过在连接URL中配置maxPoolSize参数控制连接数
  •	MongoDB([PHP官网文档](http://php.net/manual/en/set.mongodb.php)) 驱动，可以通过Mongo::setPoolSize() 方法设置连接数http://php.net/manual/en/mongopool.setsize.php
