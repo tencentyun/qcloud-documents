@@ -8,7 +8,7 @@ Upload Part请求实现上传档案的一段数据。支持乱序上传档案段
 
 当Content-Range为必须以初始化分块时对应的块大小严格一致。例如，指定 4 194 304 字节 (4MB) 的段大小，则 0 到 4 194 303 字节 (4MB-1) 以及 4 194 304 (4MB) 到 8 388 607 (8MB-1) 为有效的段范围。2097152（ 2MB） 到6291456（ 6MB-1）为非法段范围。
 
-成功上传段后，将返回 `204 No Content` 。
+成功上传段后，将返回 `204 No Content` 
 
 ## 请求
 
@@ -18,7 +18,7 @@ Upload Part请求实现上传档案的一段数据。支持乱序上传档案段
 PUT /<UID>/vaults/<VaultName>/multipart-uploads/<uploadID> HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: Date
-Authorization: SignatureValue
+Authorization: Auth
 Content-Range: ContentRange
 Content-Length: PayloadSize
 Content-Type: application/octet-stream
@@ -44,7 +44,7 @@ x-cas-content-sha256: Checksum of the entire payload
 
 | 名称             | 描述            | 类型     | 必选   |
 | -------------- | ------------- | ------ | ---- |
-| Content-Length | 数据段的长度（以字节为单位 | String | 否    |
+| Content-Length | 数据段的长度（以字节为单位） | String | 否    |
 
 ### 请求内容
 
