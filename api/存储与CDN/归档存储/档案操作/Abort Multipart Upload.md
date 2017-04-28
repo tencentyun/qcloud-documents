@@ -10,7 +10,7 @@ Abort Multipart Upload请求实现终止分段上传。
 DELETE /<UID>/vaults/<VaultName>/multipart-uploads/<uploadID> HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: Date
-Authorization: SignatureValue
+Authorization: Auth
 ```
 
 ### 请求参数
