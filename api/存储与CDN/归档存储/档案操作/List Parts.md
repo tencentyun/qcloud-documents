@@ -18,7 +18,7 @@ Authorization: Auth
 | 名称     | 描述                            | 类型     | 必选   |
 | ------ | ----------------------------- | ------ | ---- |
 | limit  | 要返回部分的最大数目。最大值和默认值都为 1000。    | 正整数    | 否    |
-| marker | 以OffSet排序，`marker` 指定应从其开始列出段 | String | 否    |
+| marker | 所有的块以OffSet排序，`marker` 指定应从该Offset值开始列出段 | String | 否   |
 
 ### 请求头部
 
