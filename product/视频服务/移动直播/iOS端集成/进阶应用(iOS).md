@@ -181,102 +181,47 @@ _ config.autoAdjustStrategy  = AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2;
  _config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_1;
 ```
 
-## 5. 替换数据源
-### 5.1 如果您想加工视频数据
-有些研发能力比较强的客户，会有自定义图像处理的需求（比如堆加字幕），同时又希望复用rtmp sdk的整体流程，如果是这样，您可以按照如下攻略进行定制。
+## 5. 定制视频数据
+研发实力不俗的客户，会有自定义图像处理的需求（比如堆加字幕），同时又希望复用rtmp sdk的整体流程，如果是这样，您可以按照如下攻略进行定制。
+
+- **设置视频处理回调**
+设置 **TXLivePush** 的 **videoProcessDelegate** 代理点，即可实现对视频画面的定制。
 
 ```objectivec
-//（1）设置CustomMode为 CUSTOM_MODE_VIDEO_PREPROCESS
-_config.customModeType |= CUSTOM_MODE_VIDEO_PREPROCESS;
-//
-//（2）设置自定义视频数据的函数 MyHookVideoFunc
-_config.pVideoFuncPtr = MyHookVideoFunc;
-```
+@protocol TXVideoCustomProcessDelegate <NSObject>
 
-这里的pVideoFuncPtr是一个函数指针，在您指定了CustomMode为VIDEO_PREPROCESS之后，SDK不会再自己对采集到的视频做预处理，而是转而调用传给他的YUV处理函数（示例代码中的MyHookVideoFunc），其中pVideoFuncPtr应当遵循如下的函数声明：
-```C
-/* @brief 客户自定义的视频预处理函数原型
- * @param yuv_buffer：视频YUV数据，格式固定是YUV420 Planar
- * @param len_buffer：数据长度
- * @param width：     视频width
- * @param height：    视频height
- * @return
- * @remark （1）该函数会被SDK同步调用，故您需要同步返回预处理后的数据
- *         （2）处理后的数据长度必须和处理前保持一致
- *         （3）您或者直接处理yuv_buffer，或者将处理后的数据memcpy到yuv_buffer所指的内存区域，
- *             这块内存的生命期由SDK负责管理（也就是释放）
+/**
+ * 在OpenGL线程中回调，在这里可以进行采集图像的二次处理
+ * @param textureId  纹理ID
+ * @param width      纹理的宽度
+ * @param height     纹理的高度
+ * @return           返回给SDK的纹理
+ * 说明：SDK回调出来的纹理类型是GL_TEXTURE_2D，接口返回给SDK的纹理类型也必须是GL_TEXTURE_2D
  */
-typedef void (*PVideoProcessHookFunc)(unsigned char * yuv_buffer, int len_buffer, int width, int height);
-```
-
-> 您的预处理函数，MyHookVideoFunc的处理时间不能过长，试想，如果该函数的处理时间超过50ms，那就意味着SDK推出的视频流，其帧率不可能达到20FPS。
-
-### 5.2 如果您想加工音频数据
-类似视频数据处理，但是具体的名称要换成音频相关的。
-```objectivec
-//（1）设置CustomMode为 CUSTOM_MODE_AUDIO_PREPROCESS
-_config.customModeType |= CUSTOM_MODE_AUDIO_PREPROCESS;
-//
-//（2）设置自定义视频数据的函数 MyHookAudioFunc
-_config.pAudioFuncPtr = MyHookAudioFunc;
-```
-其中pAudioFuncPtr应当遵循如下的函数声明：
-```C
-/* @brief 客户自定义的音频预处理函数原型
- * @param pcm_buffer：   音频PCM数据
- * @param len_buffer：   数据长度
- * @param sample_rate：  采样频率
- * @param channels：     声道数
- * @param bit_size：     采样位宽
- * @return
- * @remark （1）该函数会被SDK同步调用，故您需要同步返回预处理后的数据
- *         （2）处理后的数据长度必须和处理前保持一致
- *         （3）您或者直接处理pcm_buffer，或者将处理后的数据memcpy到pcm_buffer所指的内存区域，
- *             这块内存的生命期由SDK负责管理（也就是释放）
+-(GLuint)onTextureCustomProcess:(GLuint)texture width:(CGFloat)width height:(CGFloat)height;
+ 
+/**
+ * 在OpenGL线程中回调，可以在这里释放创建的OpenGL资源
  */
-typedef void (*PAudioProcessHookFunc)(unsigned char * pcm_buffer, int len_buffer,
-                                          int sample_rate, int channels, int bit_size);
+-(void)onTextureDestoryed;
+
+@end
 ```
 
-### 5.3 如果您只是用SDK来推流
-也有客户只是希望拿SDK用来推流，音视频采集部分由自己的代码控制，SDK用来做音视频编码和推流就可以了。
-如果是这样，您可以按如下步骤实现：
+- **在回调函数中对视频数据进行加工**
+实现 TXVideoCustomProcessDelegate 的 onTextureCustomProcess 函数，以实现对视频画面的自定义处理。textureId 指定的纹理是一块类型为 GLES20.GL_TEXTURE_2D 的纹理。
 
-- **Step1. 设置 setCustomModeType 和相关参数**
-这里需要将CustomMode设置为CUSTOM_MODE_VIDEO_CAPTURE，含义是“不需要SDK采集音视频数据”，同时还需要设置视频分辨率。
-```
-// (1)将 CustomMode 设置为：自己采集视频数据，SDK只负责编码发送
-_config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE;
-//
-// (2)设置视频编码输出分辨率，VIDEO_CAPTURE模式您有六种分辨率可供选择
-//  VIDEO_RESOLUTION_TYPE_360_640:  pYUVBuff的分辨率必须符合360*640
-//  VIDEO_RESOLUTION_TYPE_540_960:  pYUVBuff的分辨率必须符合540*960
-//  VIDEO_RESOLUTION_TYPE_720_1280: pYUVBuff的分辨率必须符合720*1280
-//  VIDEO_RESOLUTION_TYPE_640_360:  pYUVBuff的分辨率必须符合640*360
-//  VIDEO_RESOLUTION_TYPE_960_540:  pYUVBuff的分辨率必须符合960*540
-//  VIDEO_RESOLUTION_TYPE_1280_720: pYUVBuff的分辨率必须符合1280*720
-_config.videoResolution = VIDEO_RESOLUTION_TYPE_1280_720;
-```
+ 对于 texture 数据的操作，需要一定的 OpenGL 基础知识，另外计算量不宜太大，因为 onTextureCustomProcess 的调用频率跟 FPS 相同，过于繁重的处理很容易造成 GPU 过热。
 
-- **Step2. 使用 sendCustomVideoData 向SDK填充Video数据**
-之后的工作就是向SDK塞入您自己准备好的视频数据（目前支持的格式为：420SP、420YpCbCr、420P、BGRA8888、RGBA8888、NV12），剩下的编码和网络发送等工作交给SDK来解决。
-```
-//(1)先启动推流，注意不再要startPreview或者startScreenCapture
-[_txLivePublisher startPush:rtmpUrl]
-//
-//(2)此处示例代码简单描述怎么向SDK塞入您自己的YUV数据
-[_txLivePublisher sendCustomVideoData: buffer dataLen:len 
-          videoType:VIDEO_TYPE_420P width:720 height:1280];
-```
 
-- **Step3. 使用 sendCustomPCMData 向SDK填充Audio数据**
-在视频改用外部采集的情况下，音频还可以继续由SDK内部采集处理，如果你希望把音频的采集也替换成自己的逻辑，需要为 CustomMode 设置项追加 CUSTOM_MODE_AUDIO_CAPTURE，于此同时，您也需要指定声音采样率等和声道数等关键信息。
-```java
-// (1)将 CustomMode 设置为：自己采集音频数据，SDK只负责编码&发送
-_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;
-//
-// (2)设置音频编码参数：音频采样率和声道数
-_config.audioSampleRate = 44100;
-_config.audioChannels   = 1;
-```
-之后，调用**sendCustomPCMData**向SDK塞入您自己的PCM数据即可。
+## 6. 替换数据源
+如果您只希望使用 RTMP SDK 来推流，音视频采集和预处理（即美颜、滤镜这些）全部由自己的代码来控制，可以按如下步骤实现：
+
+- **Step1. 不再调用 TXLivePush 的 startPreview 接口**
+这样 SDK 本身就不会再采集视频数据和音频数据，而只是启动预处理、编码、流控、发送 等跟推流相关的工作
+
+- **Step2. 使用 sendVideoSampleBuffer 向SDK填充Video数据**
+sendVideoSampleBuffer 的作用是向 SDK 塞入您采集和处理后的视频数据，目前支持 RGBA 和 NV12 两种格式。
+
+- **Step3. 使用 sendAudioSampleBuffer 向SDK填充Audio数据**
+sendAudioSampleBuffer 的作用是向 SDK 塞入您采集和处理后的音频数据，请使用单声道、16位宽、48000Hz 的 PCM  声音数据。

@@ -14,9 +14,9 @@
 
 如上图所示，用户可以其中任意环节对数据进行拦截并作相应的处理。
 
-这里以混音为例:
+### 混音
 
-### Android
+#### Android
 
 1、注册回调
 
@@ -53,7 +53,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
     };
 ```
 
-### iOS
+#### iOS
 
 **音频透传**，主要用于在直播中对Mic采集到的数据作再加工处理，一般用于在直播间内添加背景音等，其对透传的音频数据有格式要求，默认使用的音频格式为QAVAudioFrameDesc = {48000, 2, 16}。通常的有下面两种使用方法：<br>
 1､ 麦克风透传：开麦克风端（有上行音频能力端）能听到，其他人可听到：以下代码为设置麦克风透传
@@ -185,23 +185,31 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
         
 ```
 
+### 自定义音频采集
+
+#### avsdk1.8.4后增加了此功能，目前的做法还需这样。略显繁琐，今后会进一步优化。
+
+1. 主播或上麦观众腾讯云后台spear角色配置里音频场景要设置为“开播”（开播场景会占用本地录音权限），也可以设置为“观看”这样就不会占用本地音频设备了；
+2. 进房间时mic和speaker都要打开；
+3. 进房间成功后调用接口AVAudioCtrl.changeAudioCategory切换至观看场景（第一步如果设置为“观看”场景此步省略）；
+4. 调enableExternalAudioDataInput开启自定义采集音频；
+5. 调fillExternalAudioFrame将外部采集的音频塞给AVSDK；
+6. 以上接口都需在主线程调用。
 
 
 
+### 自定义视频数据采集
 
-
-
-
-
-##自定义视频数据
-
-自定义视频数据流程图:
+自定义视频数据流程图:    
 
 ![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/custom_flow.png)
 
 ### Android
 
 1、打开摄像头，同时需要调用enableExternalCapture做一些准备
+
+2、获取原始视频数据，加工处理
+接收到系统回吐出的原始数据，用户就可以对其做预处理；比如美白，美颜，人脸识别等；预处理之后的画面需要用户自己完成渲染，与ILiveSDK无直接联系。
 
 接口名|接口描述
 :--|:--:
@@ -210,16 +218,17 @@ enableExternalCapture|开启/关闭外部视频捕获设备
 参数类型|说明
 :--|:--:
 boolean|true表示开启,false表示关闭
+boolean|true表示开启本地渲染，false表示关闭
 EnableExternalCaptureCompleteCallback|指向App定义的回调函数
 
 ```java
-ILiveSDK.getInstance().getAvVideoCtrl().enableExternalCapture(false, 
-       new AVVideoCtrl.EnableExternalCaptureCompleteCallback(){
-                @Override
-                protected void onComplete(boolean enable, int result) {
-                    super.onComplete(enable, result);
-                }
-            });
+ILiveSDK.getInstance().getAvVideoCtrl().enableExternalCapture(false, true
+      new AVVideoCtrl.EnableExternalCaptureCompleteCallback(){
+@Override
+protected void onComplete(boolean enable, int result) {
+super.onComplete(enable, result);
+}
+});
 ```
 
 2、获取原始视频数据，加工处理
@@ -245,6 +254,63 @@ int|视频源类型。当前仅支持VIDEO_SRC_TYPE_CAMERA
 ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.length,
     mCameraSize.width, mCameraSize.height, 270, AVVideoCtrl.COLOR_FORMAT_I420, AVView.VIDEO_SRC_TYPE_CAMERA);
 ```
+
+
+### 自定义预处理视频数据
+
+      
+![](https://mc.qcloudimg.com/static/img/0baaafa05e5549ff30f584ac9424f756/11.png)
+
+
+1、拦截AVSDK相机数据
+
+| 接口名|  接口描述  |
+|---------|---------|
+| **setLocalVideoPreProcessCallback** | 设置本地摄像头视频的前处理函数|
+##### 实现代码：
+<pre>
+
+/*
+函数说明：
+a,预处理相机数据后，一般只需要将处理后的数据重新写回 VideoFrame.data ，并且需要保持视频数据格式和大小不变；
+b,其他的参数一般不需要修改
+
+返回值：true： 成功    false: 失败
+*/
+boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCallback(new AVVideoCtrl.LocalVideoPreProcessCallback(){
+
+                    @Override
+                    public void onFrameReceive(AVVideoCtrl.VideoFrame var1) {
+						Log.d("SdkJni", "base class SetLocalPreProcessCallback.onFrameReceive");
+					}
+}
+</pre>
+
+##### 回调数据类型 AVVideoCtrl.VideoFrame 参数说明：
+
+| 参数|  含义  |
+|---------|---------|
+| **byte[] data** | 视频数据（a,目前Android只支持I420数据输出;b,对数据预处理后，数据仍然塞回 data；只要视频格式保持一致，AVSDK就可以正常的预览和编码）|
+| **int dataLen** | 视频数据长度|
+| **int width** | 视频宽|
+| **int height** | 视频高|
+| **int rotate** | 视频图像角度。角度可以是0, 1, 2, 3. 0,1,2,3的含义为图像需要分别顺时针旋转0*90 1*90、 2*90、 3*90度才能正立|
+| **int videoFormat** | 视频格式，目前支持I420、NV21、NV12、RGB565、RGB24、ARGB；默认为0|
+| **String identifier** | 房间成员identifie|
+| **int srcType** | 视频采集来源 NONE = 0 CAMERA = 1 SCREEN = 2 MEDIA = 3|
+| **long timeStamp** | 视频帧的时间戳，SDK内部会自动填写好，utc时间，0为无效值|
+
+2，预处理视频数据
+拦截到AVSDK回吐的相机数据，用户就可以对其做预处理；比如美白，美颜，人脸识别等；预处理之后的数据，通过 AVVideoCtrl.VideoFrame.data 塞回 AVSDK；AVSDK会自动渲染，编码。
+
+3，取消拦截AVSDK相机数据
+##### 实现代码：
+<pre>
+// 返回true： 成功    false: 失败
+
+boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCallback(null);
+</pre>
+
  -----
 ### iOS
 自定义采集画面的用途主要用于预处理原始数据，比如用户需要人脸识别，画面美化，动效处理等，如下是通过自定义采集画面后，增加动效效果图，示例图：
@@ -309,7 +375,7 @@ ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.leng
 
 |接口|描述|
 |---|---|
-|OnVideoPreview:|远程画面回调，接收远程帧数据，再使用ILiveSDK的渲染接口渲染，用户只需要添加一个渲染区域即可。渲染详情请参考[新版随心播](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master/TILLiveSDKShow)|
+|OnVideoPreview:|远程画面回调，接收远程帧数据，再使用ILiveSDK的渲染接口渲染，用户只需要添加一个渲染区域即可。渲染详情请参考[新版随心播](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master)|
 
 |参数类型|参数名|说明|
 |---|---|---|

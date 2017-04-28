@@ -17,7 +17,7 @@
 | userGwCidrBlock.n | 否 | Array | 对端网段CIDR地址，可写多个，指定vpc可以和哪些IDC网段通信，后面升级为spdAcl（粒度更细），userGwCidrBlock和spdAcl必须填一项。 |
 | spdAcl.n | 否 | Array | SPD策略组，用户指定VPC内哪些网段可以和您IDC中哪些网段通信，由userGwCidrBlock升级而来，userGwCidrBlock和spdAcl必须填一项，更多详见产品说明文档。 |
 | IKESet.n | 否 | Array | IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自保护机制，用户配置网络安全协议，详见<a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN连接-IKE配置">VPN连接-IKE配置</a>。 |
-| IPsecSet.n | 否 | Array | IPSec配置，腾讯云提供IPSec安全会话设置，详见<a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.4-ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPSec配置">VPN连接-IPSec配置</a>。|
+| IPsecSet.n | 否 | Array | IPSec配置，腾讯云提供IPSec安全会话设置，详见<a href="https://www.qcloud.com/document/product/215/4956#ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPSec配置">VPN连接-IPSec配置</a>。|
 
 IKE配置详情
 
@@ -61,7 +61,7 @@ IPsec配置详情
 |---------|---------|
 | InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询VPC。 |
 | InvalidVpnGw.NotFound | 无效的vpn网关。vpn网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>接口查询vpn网关。 |
-| InvalidVpnGw.NotFound | 无效的vpn通道。vpn通道资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e9%80%9a%e9%81%93%e5%88%97%e8%a1%a81?viewType=preview" title="DescribeVpnConn">DescribeVpnConn</a>接口查询vpn通道。 |
+| InvalidVpnGw.NotFound | 无效的vpn通道。vpn通道资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>接口查询vpn通道。 |
  
 
 ## 5. 示例

@@ -9,11 +9,11 @@ Domain name for API request: <font style="color:red"> image.api.qcloud.com</font
 
 ## 2. Input Parameters
 
-The following list of request parameters lists only API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976).
+The following list of request parameters lists only API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| imageIds.n | Yes | String | Image ID, which can be obtained from unImgId in the returned value of [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) API (This API allows passing multiple IDs at a time). For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)). |
+| imageIds.n | Yes | String | Image ID, which can be obtained from unImgId in the returned value of [DescribeImages](http://www.qcloud.com/document/api/213/1272) API (This API allows passing multiple IDs at a time). For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)). |
 
 
 ## 3. Output Parameters
@@ -52,7 +52,7 @@ Input
 <pre>
 https://image.api.qcloud.com/v2/index.php?Action=GetImageShareUinInfo
 &imageIds.0=img-jgggrva9
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

@@ -21,136 +21,238 @@ NAT 网关提供按网关租用和按流量使用两种计费模式，其中流�
 ### 定价详情
 
 <table class="cvmMonth">
-        <tbody><tr>
-            <th style="width: 10%;" rowspan="2">功能</th>
-            <th style="width: 10%;" rowspan="2">计费模式</th>
-                        <th style="width: 30%;" rowspan="2">配置</th>
-            <th style="width: 50%;" colspan="4">价格</th>
-        </tr>
-        <tr>
-            <th>北京<br>上海<br>上海金融<br>广州<br>深圳金融</th>
-                        <th>香港</th>
-                                                 <th>新加坡</th>
-            <th>多伦多</th>
-        </tr>
-        <tr>
-            <td>自定义私有网络</td>
-            <td colspan="6" rowspan="4" align="center">免费</td>
-        </tr>
-        <tr>
-            <td>自定义子网</td>
-        </tr>
-        <tr>
-            <td>自定义路由</td>
-        </tr>
-        <tr>
-        
-                
-                <tr>
-            <td rowspan="5">VPN网关</td>
-            <td rowspan="5">包年包月按带宽付费<br>（元/月）</td>
-            <td>5Mbps</td>
-            <td>380</td>
-                        <td>380</td>
-                                                 <td>380</td>
-            <td>480</td>
-        </tr>
-                <tr>
-            <td>10Mbps</td>
-            <td>880</td>
-                            <td>880</td>
-                        <td>880</td>
-            <td>1330</td>
-        </tr>
-                <tr>
-            <td>20Mbps</td>
-            <td>1880</td>
-                                    <td>1880</td>
-                        <td>1880</td>
-            <td>2330</td>
-        </tr>
-                <tr>
-            <td>50Mbps</td>
-            <td>4880</td>
-                        <td>4880</td>
-                                                   <td>4880</td>
-            <td>5330</td>
-        </tr>
-                <tr>
-            <td>100Mbps</td>
-            <td>9880</td>
-                        <td>9880</td>
-                                             <td>9880</td>
-            <td>10330</td>
-        </tr>
-                                <tr>
-            <td rowspan="4">NAT网关</td>
-            <td rowspan="3">网关租用费<br>（元/小时）</td>
-            <td>小型</td>
-            <td>0.5</td>
-            <td>0.75</td>
-                                    <td>0.75</td>
-                        <td>0.8</td>
-        </tr>
-                <tr>
-            <td>中型</td>
-            <td>1.5</td>
-            <td>2.25</td>
-                        <td>2.25</td>
-                        <td>2.4</td>
-        </tr>
-                <tr>
-            <td>大型</td>
-            <td>5</td>
-            <td>7.5</td>
-                        <td>7.5</td>
-                        <td>8</td>
-        </tr>
-                <td colspan="2">流量使用费用（仅计算从NAT网关流向Internet单向流量）<br>（元/GB）</td>
-            <td>0.8</td>
-            <td>1.0</td>
-                        <td>0.8</td>
-                        <td>0.5</td>
-        </tr>
-                <tr>
-                    <td>同地域对等连接</td>
-                 <td colspan="6" rowspan="1" align="center">免费</td>
-                 </tr>
-        </tr>
-    <tr>
-            <td rowspan="5">跨地域对等连接</td>
-                        <td rowspan="5">带宽峰值（出 max + 入 max）<br><br>按天计费（元 / Mbps / 天）<br><br>峰值带宽按每 5min 平均带宽计<br></td>
+<tr>
+
+<th style="width: 10%;" rowspan="2">功能</th>
+
+<th style="width: 10%;" rowspan="2">计费模式</th>
+
+<th style="width: 30%;" rowspan="2">配置</th>
+
+<th style="width: 50%;" colspan="4">价格</th>
+
+</tr>
+
+
+<tr>
+
+<th>北京<br>上海<br>上海金融<br>广州<br>深圳金融</th>
+
+<th>香港</th>
+
+<th>新加坡</th>
+
+<th>多伦多</th>
+
+</tr>
+
+
+<tr>
+<td>自定义私有网络</td>
+<td colspan="6" rowspan="3" align="center">免费</td>
+</tr>
+
+<tr>
+<td>自定义子网</td>
+</tr>
+
+<tr>
+<td>自定义路由</td>
+</tr>
+
+
+
+<tr>
+
+<td rowspan="5">VPN网关</td>
+
+<td rowspan="5">包年包月按带宽付费<br>（元/月）</td>
+
+<td>5Mbps</td>
+
+<td>380</td>
+
+<td>380</td>
+
+<td>380</td>
+
+<td>480</td>
+
+</tr>
+
+
+<tr>
+
+<td>10Mbps</td>
+<td>880</td>
+
+<td>880</td>
+
+<td>880</td>
+
+<td>1330</td>
+
+</tr>
+
+
+<tr>
+
+<td>20Mbps</td>
+
+<td>1880</td>
+
+<td>1880</td>
+
+<td>1880</td>
+
+<td>2330</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>50Mbps</td>
+
+<td>4880</td>
+
+<td>4880</td>
+
+<td>4880</td>
+
+<td>5330</td>
+
+</tr>
+
+
+<tr>
+
+<td>100Mbps</td>
+
+<td>9880</td>
+
+<td>9880</td>
+
+<td>9880</td>
+
+<td>10330</td>
+
+</tr>
+
+
+<tr>
+
+<td rowspan="4">NAT网关</td>
+
+<td rowspan="3">网关租用费<br>（元/小时）</td>
+
+<td>小型</td>
+
+<td>0.5</td>
+
+<td>0.75</td>
+
+<td>0.75</td>
+
+<td>0.8</td>
+
+</tr>
+
+
+<tr>
+
+<td>中型</td>
+
+<td>1.5</td>
+
+ <td>2.25</td>
+
+ <td>2.25</td>
+
+ <td>2.4</td>
+
+</tr>
+
+
+<tr>
+
+<td>大型</td>
+
+<td>5</td>
+
+<td>7.5</td>
+
+<td>7.5</td>
+
+<td>8</td>
+
+</tr>
+
+
+<tr>
+<td colspan="2">流量使用费用（仅计算从NAT网关流向Internet单向流量）<br>（元/GB）</td>
+
+<td>0.8</td>
+
+<td>1.0</td>
+
+<td>0.8</td>
+
+<td>0.5</td>
+
+</tr>
+<tr>
+
+<td>同地域对等连接</td>
+
+<td colspan="6" rowspan="1" align="center">免费</td>
+
+</tr>
+
+<tr>
+
+<td rowspan="5">跨地域对等连接</td>
+
+<td rowspan="5">带宽峰值（出 max + 入 max）<br><br>按天计费（元 / Mbps / 天）<br><br>峰值带宽按每 5min 平均带宽计<br></td>
                         <td>0Mbps - 20Mbps</td>
-                        <td>20</td>
-                                                <td>120</td>
-                        <td>120</td>
-                        <td>120</td>
-        </tr>
-                
-                <tr>
-                <td>20Mbps - 100Mbps</td>
-                        <td>12</td>
-                        <td>80</td>
-                                                 <td>80</td>
-                        <td>80</td>
-                </tr>
-                
-                <tr>
-                <td>100Mbps - 500Mbps</td>
-                <td colspan="4" rowspan="3">　　　　　　　请与商务洽谈<br>　　<br>
-                </tr>
-                
-                <tr>
-                <td>500Mbps - 2000Mbps</td>
-                </tr>
-                
-             <tr>
-                <td >大于2000Mbps</td>
-                </tr>
-                </tr>
-                    
-                
-    </tbody></table>
+
+<td>20</td>
+
+<td>120</td>
+
+<td>120</td>
+
+<td>120</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>20Mbps - 100Mbps</td>
+
+<td>12</td>
+
+<td>80</td>
+
+<td>80</td>
+
+<td>80</td>
+
+</tr>
+<tr>
+<td>100Mbps - 500Mbps</td>
+<td colspan="4" rowspan="3">请与商务洽谈<br><br></td>
+</tr>
+<tr>
+<td>500Mbps - 2000Mbps</td>
+</tr>
+<tr>
+<td >大于2000Mbps</td>
+</tr>
+</table>
 
 ## 购买指导
 

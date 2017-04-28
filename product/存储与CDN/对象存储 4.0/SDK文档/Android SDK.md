@@ -3,8 +3,10 @@
 ### SDK 获取
 
 对象存储服务的 Android SDK 的下载github地址:[Android SDK](https://github.com/tencentyun/cos_android_sdk)。
+对象存储服务的 [Android SDK 本地下载](https://mc.qcloudimg.com/static/archive/0423c3be84c30d3549cfc45c13b68c7f/cos_android_sdk-master+%281%29.zip)。
 
 更多示例可参考Demo:[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/blob/master/qclouddemo.zip)。 
+（本版本SDK基于JSON API封装组成）
 
 ### 开发准备
 
@@ -48,13 +50,14 @@ COSClientConfig config = new COSClientConfig();
 
 #### 配置 COSClientConfig
 
-| 方法                                       | 方法描述                                     |
-| ---------------------------------------- | ---------------------------------------- |
-| setEndPoint(COSEndPoint endPoint)        | 设置园区：华南 COSEndPoint.COS_GZ;  华北 COSEndPoint.COS_TJ ；华东 COSEndPoint.COS_SH ; sdk中默认为华南地区 |
-| setConnectionTimeout(int connectionTimeout) | 连接超时设置                                   |
-| setSocketTimeout(int socketTimeout)      | 读取超时设置                                   |
-| setMaxConnectionsCount(int maxConnectionsCount) | 并发数大小设置                                  |
-| setMaxRetryCount(int maxRetryCount)      | 失败请求重试次数                                 |
+|                    方法                    |                 方法描述                 |
+| :--------------------------------------: | :----------------------------------: |
+|       setEndPoint(String endPoint)       | 设置园区：华南 "gz"， 华北 "tj"， 华东"sh"，新加坡"sgp";sdk中默认为华南地区 |
+| setConnectionTimeout(int connectionTimeout) |                连接超时设置                |
+|   setSocketTimeout(int socketTimeout)    |                读取超时设置                |
+| setMaxConnectionsCount(int maxConnectionsCount) |               并发数大小设置                |
+|   setMaxRetryCount(int maxRetryCount)    |               失败请求重试次数               |
+|   setHttpProtocol(String httpProtocol)   | 设置请求协议类型：默认为http请求，即"http://"; 若为https请求,则为 "https://" |
 
 
 #### 实例化 COSClient
@@ -189,7 +192,7 @@ GetObjectResult getObjectResult = cos.getObject(getObjectRequest);
 
 **签名获取：**
 
-SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https:///doc/api/435/6054)。
+SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https://www.qcloud.com/document/product/436/6054)。
 
 
 ## 目录操作 
@@ -210,7 +213,7 @@ SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务�
 | appid    | String           | 是    | 腾讯云APP ID       |
 | bucket   | String           | 是    | 目录所属bucket 名称   |
 | cosPath  | String           | 是    | 需要创建目录的路径       |
-| biz_attr | String           | 否    | 目录绑定的属性信息，由业务维护 |
+| biz_attr | String           | 否    | 目录绑定的属性信息，由用户维护 |
 | sign     | String           | 是    | 签名信息，此处使用多次签名   |
 | listener | ICmdTaskListener | 否    | 结果回调            |
 
@@ -297,7 +300,7 @@ listDirRequest.setListener(new ICmdTaskListener() {
     public void onSuccess(COSRequest cosRequest, COSResult cosResult) {
     		//查询成功
         ListDirResult listObjectResult = (ListDirResult) cosResult;
-        if(listObjectResult.infos != null && listObjectResult.infos.size() > 0)｛
+        if(listObjectResult.infos != null && listObjectResult.infos.size() > 0) {
         for(int i = 0; i < length; i++){
             String str = listObjectResult.infos.get(i);
             try {
@@ -309,8 +312,8 @@ listDirRequest.setListener(new ICmdTaskListener() {
                 }
             } catch (JSONException e) {
                e.printStackTrace();
-           ｝ 
-     ｝
+            } 
+     }
      }
 
    	 if (!listover) {

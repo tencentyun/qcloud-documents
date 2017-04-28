@@ -4,14 +4,14 @@ This API (UpdateInstanceBandwidth) is used to adjust the public network bandwidt
 
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
-* This API only applies to the instances with an annual or monthly plan and users with [Bandwidth Package](https://www.qcloud.com/doc/product/213/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#1.-.E4.BB.80.E4.B9.88.E6.98.AF.E5.B8.A6.E5.AE.BD.E5.8C.85.E6.A8.A1.E5.BC.8F.EF.BC.9F).  * For charge-by-quantity instances, please use [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) API.
-* This API only supports upgrade of bandwidth and does not allow a downgrade.
-* The maximum bandwidth is 100Mbps for charge-by-traffic instances, 200Mbps for charge-by-fixed-bandwidth instances, and 1000Mbps for the instances on dedicated hosts.
+* This API only applies to [prepaid instances](https://www.qcloud.com/doc/product/213/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98#1.-.E4.BB.80.E4.B9.88.E6.98.AF.E5.B8.A6.E5.AE.BD.E5.8C.85.E6.A8.A1.E5.BC.8F.EF.BC.9F).  * For postpaid instances, please use [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) API.
+* Bandwidth can only be upgraded but not degraded.
+* The maximum bandwidth is 100Mbps for pay-per-use instances, 200Mbps for charge-by-fixed-bandwidth instances, and 1000Mbps for the instances on dedicated hosts.
 * <font style="color:red">Only charge-by-fixed-bandwidth model is supported.</font>
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -25,8 +25,8 @@ The following list only provides API request parameters. For additional paramete
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81). |
+| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81). |
 | dealIds | Array | The generated order number, which is used to query the information on execution.
 
 
@@ -40,12 +40,12 @@ Input
   &bandwidth=2
   &startTime=2014-07-20
   &endTime=2014-08-20
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output
 
- * Note: dealIds does not apply to charge-by-traffic instances.
+ * Note: dealIds does not apply to postpaid instances.
 
 ```
 

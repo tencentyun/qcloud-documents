@@ -40,7 +40,7 @@ public void createAVChatroomGroup(String groupName, TIMValueCallBack<String> cb)
 
 参数|说明
 ---|---
-type | 群类型:  Private 私有群，Public 公开群，ChatRoom 聊天室，AVChatRoom 直播大群
+type | 群类型: 私有群（Private）、公开群（Public）、聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
 members | 待加入群组的成员列表，创建者默认加入，无需指定（群内最多10000人）
 groupName | 群组名称（最长30字节）
 cb | 回调，OnSuccess函数的参数中将返回创建成功的群组Id
@@ -118,7 +118,7 @@ TIMGroupManager.CreateGroupParam 提供的属性设置方法：
 ```
 /**
  * 设置要创建的群的类型（必填）
- * @param type 群类型, 目前支持的群类型："Public", "Private", "ChatRoom", "AVChatRoom"
+ * @param type 群类型, 目前支持的群类型："Public", "Private", "ChatRoom", "AVChatRoom", "BChatRoom"
  */
 public void setGroupType(String type)
 
@@ -229,7 +229,7 @@ public void createGroup(String type, List<String> members, String groupName, Str
 
 参数|说明
 ---|---
-type | 群类型:  Private 私有群，Public 公开群，ChatRoom 聊天室
+type | 群类型: 私有群（Private）、公开群（Public）、聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
 members | 待加入群组的成员列表，创建者默认加入，无需指定（群内最多10000人）
 groupName | 群组名称（最长30字节）
 groupId | 自定义群组id
@@ -569,7 +569,9 @@ TIMGroupManager.getInstance().getGroupMembers(
 **权限说明：**
 
 此接口可以获取自己所加入的群列表，返回的信息只包含部分基本信息，详细群组信息可以根据[群成员获取群组资料](#4.2-.E7.BE.A4.E6.88.90.E5.91.98.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.99)进行获取。
-此接口只能获得加入的部分直播大群的列表；
+
+> 私有群、公开群和聊天室支持使用本接口获取用户加入的群组；
+互动直播聊天室和在线成员广播大群因为内部实现的差异，获取用户加入的群组时不会获取到这两种类型的群组。
 
 **原型： **   
 
@@ -647,7 +649,7 @@ TIMGroupManager.getInstance().getGroupList(cb);
 
 ### 3.10 解散群组
 
-通过 deleteGroup 可以解散群组。
+通过 `deleteGroup` 可以解散群组。
 
 **权限说明：**
 
@@ -657,7 +659,7 @@ TIMGroupManager.getInstance().getGroupList(cb);
 **原型：   **
 
 ```
-public void deleteGroupMember(java.lang.String groupId,TIMCallBack cb)
+public void deleteGroup(java.lang.String groupId,TIMCallBack cb)
 ```
 删除群组
 

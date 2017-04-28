@@ -14,7 +14,7 @@ You need to use the administrator account ID and the corresponding password to l
   - If you select "Auto Generate Password" when starting the instance, then the initial password will be randomly assigned by the system. You can log in to [Tencent Cloud Console](https://console.qcloud.com/), and click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
   ![](//mccdn.qcloud.com/img56a20f10a373a.png)
 
-  - If you select "Custom Password" when starting the instance, then the password will be the one you specified when purchasing the CVM instance. To learn more about password, for example, what to do if I forget the login password, refer to [Login Password] (/doc/product/213/6093).
+  - If you select "Custom Password" when starting the instance, then the password will be the one you specified when purchasing the CVM instance. To learn more about password, for example, what to do if I forget the login password, refer to [Login Password](/doc/product/213/6093).
 
 ## Windows system: use Remote Desktop Connection to log in to Windows instance
 On the local Windows machine, click "Start" - "Run", enter `mstsc` command to open the Remote Desktop Connection dialog box.
@@ -28,7 +28,7 @@ Click "Connect", and, in the screen that opens, enter the administrator account 
 
 Click "OK" to log in to Windows CVM.
 
-If the login fails, check if your CVM instance allows inbound traffic over port 3389. Refer to [Security Group] (/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL] (/doc/product/215/5132) as well. 
+If the login fails, check if your CVM instance allows inbound traffic over port 3389. Refer to [Security Group](/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL](/doc/product/215/5132) as well. 
 
 ## Linux system: Use rdesktop to log in to Windows instance
 To log in to a remote Windows instance, you need to install an appropriate remote desktop connector, for which rdesktop is recommended. For more information about rdesktop, see [Here](http://www.rdesktop.org/).
@@ -51,7 +51,7 @@ rdesktop -u Administrator -p <your-password> <hostname or ip address>
 "-u" is followed by the username, which is `Administrator`, "-p" is followed by password you obtained from the Prerequisites step and <hostname or ip address> is the public IP or custom domain name of your Windows instance.
 
 
-If the login fails, check if your CVM instance allows inbound traffic over port 3389. Refer to [Security Group] (/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL] (/doc/product/215/5132) as well. 
+If the login fails, check if your CVM instance allows inbound traffic over port 3389. Refer to [Security Group](/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL](/doc/product/215/5132) as well. 
 
 ## Mac operating system: Use Microsoft Remote Desktop Connection Client for Mac to log in to Windows instance
 
@@ -59,12 +59,13 @@ Go to the Microsoft official website to download [Remote Desktop Connection Clie
 
 After the installation is completed, use the username and password you obtained from the Prerequisites step to log in to the remote Windows instance.
 
-If the login fails, check if your CVM instance allows inbound traffic over port 3389. Refer to [Security Group] (/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL] (/doc/product/215/5132) as well.  
+If the login fails, check if your CVM instance allows inbound traffic over port 3389. Refer to [Security Group](/doc/product/213/5221) to check the Port. If your CVM is in [Virtual Private Cloud/VPC], check related subnet [Network ACL](/doc/product/215/5132) as well.  
 
 ## Use VNC to log in to instance
 VNC login is a way Tencent Cloud provides for users to connect to their CVMs through Web browser. When the remote login client is not installed or cannot be used, you can connect to your CVM using VNC login and check the CVM status. This also allows you to perform basic CVM management operations with the CVM account.
 
 VNC login scenarios include at least the following:
+
 - Check the progress of a CVM startup
 - Log in to the server with VNC when client SSH or mstsc login is not available 
 
@@ -77,6 +78,7 @@ By clicking the Ctrl+Alt+Del command at the top left corner, enter the system lo
 ![](//mccdn.qcloud.com/img56b1a6ff2e305.png)
 
 > Note:
+> 
 >- Ctrl + Alt + Delete is a shortcut key combination for you to log in to Windows or open task manager after the screen is locked.
 >- This terminal is exclusive, that is, only one user can log in using VNC at a time.
 >- To log in with VNC in the normal way, you need to use modern browsers such as Chrome, Firefox, IE10 or above.

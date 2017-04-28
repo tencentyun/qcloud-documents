@@ -3,7 +3,7 @@ Append请求可以将一个文件（Object）以分块追加的方式上传至 B
 
 文件属性可以在Head Object操作中被查询到，当您发起Head Object请求时，会返回自定义Header『x-cos-object-type』，该Header只有两个枚举值：Normal或者Appendable。
 
-追加上传建议文件大小1M - 5G。如果position的值和当前Object的长度不致，COS会返回409错误。如果Append一个Normal的Object，COS会返回409 ObjectNotAppendale。
+追加上传建议文件大小1M - 5G。如果position的值和当前Object的长度不致，COS会返回409错误。如果Append一个Normal的Object，COS会返回409 ObjectNotAppendable。
 
 Appendable的文件不可以被复制，不参与版本管理，不参与生命周期管理，不可跨区域复制。
 
@@ -13,7 +13,7 @@ Appendable的文件不可以被复制，不参与版本管理，不参与生命�
 
 ```http
 POST /ObjectName?append&position=*position* HTTP/1.1
-Host: <BucketName>-<UID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Content-Length: size
 Content-Type: ContentType
 Date: date
@@ -41,7 +41,7 @@ Authorization: auth
 | Cache-Control       | RFC 2616 中定义的缓存策略，将作为 Object 元数据返回。      | String | 否    |
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为 Object 元数据返回。      | String | 否    |
 | Content-Encoding    | RFC 2616 中定义的编码格式，将作为 Object 元数据返回。      | String | 否    |
-| Cotent-MD5          | RFC 1864 中定义的 128-bit 内容 MD5 算法校验值。      | String | 否    |
+| Content-MD5          | RFC 1864 中定义的 128-bit 内容 MD5 算法校验值。      | String | 否    |
 | Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据返回。 | String | 否    |
 | Expect              | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容。 | String | 否    |
 | Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据返回。      | String | 否    |

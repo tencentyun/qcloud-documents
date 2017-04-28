@@ -3,6 +3,9 @@
 ### 相关资源
 
 [cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)
+（本版本SDK基于JSON API封装组成）
+
+[PHP SDK 本地下载](https://mc.qcloudimg.com/static/archive/5ac534d6c4af2462b3996c8a4d9c3b06/cos-php-sdk-v4-master.zip)
 
 ### 开发环境
 
@@ -23,7 +26,7 @@ Cosapi::setTimeout(180);
 
 // 设置COS所在的区域，对应关系如下：
 //     华南  -> gz
-//     华中  -> sh
+//     华东  -> sh
 //     华北  -> tj
 Cosapi::setRegion('gz');
 ```
@@ -115,7 +118,7 @@ public static function createFolder($bucketName, $path, $bizAttr = null);
 
 ``` php
 $bizAttr = "attr_folder";
-$result  = Cosapi::createFolder($bu	cketName, $path,$bizAttr)
+$result  = Cosapi::createFolder($bucketName, $path,$bizAttr)
 ```
 
 ### 目录更新

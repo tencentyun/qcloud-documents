@@ -1,12 +1,13 @@
 为方便Python开发者调试和接入云API， 我们提供了基于Python的SDK。
 
-Github地址：https://github.com/QcloudApi/qcloudapi-sdk-python
+[从 Githb 访问 >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
+[点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
 
-qcloudapi-sdk-python是为了让Python开发者能够在自己的代码里更快捷方便的使用腾讯云的API而开发的SDK工具包。
+qcloudapi-sdk-python 是为了让 Python 开发者能够在自己的代码里更快捷方便的使用腾讯云的 API 而开发的 SDK 工具包。
 
 
 ## 1. 资源
-见不同模块API的公共参数、API概览、错误码。如[云服务器API公共参数](http://www.qcloud.com/doc/api/229/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)、[云服务器API概览](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88)、[云服务器API错误码](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81)。
+见不同模块API的公共参数、API概览、错误码。如[云服务器API公共参数](http://www.qcloud.com/document/api/213/6976)、[云服务器API概览](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88)、[云服务器API错误码](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81)。
 
 ## 2. 安装
 安装python环境，若已有python环境可跳过本步骤。
@@ -22,7 +23,9 @@ $ sudo make install
 1) [获取安全凭证](https://console.qcloud.com/capi)。在第一次使用云API之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 
 
-2) [下载SDK](https://github.com/QcloudApi/qcloudapi-sdk-python)，放入到您的程序目录。详细使用方法请参考下面的示例。
+2) 下载SDK，放入到您的程序目录。详细使用方法请参考下面的示例。
+[从 Githb 访问 >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
+[点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
 
 ## 4. 示例
 

@@ -19,6 +19,10 @@ iOS
 ```
 [[TIMManager sharedInstance] setLogLevel];
 ```
+Web
+```
+webim.Log.setOn(0);
+```
 ## 1.7升级1.8出现异常
 
 > E/imsdk.IMMsfCoreProxy: [E]OnExchangeTicketTimeout|code: -1000 desc: 请求失败，请你稍后重试。

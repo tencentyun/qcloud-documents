@@ -4,15 +4,15 @@ This API (SyncCvmImage) is used to synchronize a custom image to another region.
 
 Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
 
-* Currently, image service is provided for free.
+* Image service is FREE of charge now.
 * Users can synchronize custom images to different regions.
-* A maximum of 10 custom images are allowed to be created for each region.
-* You can use [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) API to query the synchronization information of images. Status of 4 indicates that the image is being synchronized (destination region), and status of 5 indicates that the image is being copied (source region).
+* A maximum of 10 custom images can be created for each region.
+* You can use [DescribeImages](http://www.qcloud.com/document/api/213/1272) API to query the synchronization information of images. Status of 4 indicates that the image is being synchronized (destination region), and status of 5 indicates that the image is being copied (source region).
 * This does not apply to North America region.
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following list only provides API request parameters. For additional parameters, refer to [Common Request Parameters](/document/api/213/6976) page.
  
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -37,7 +37,7 @@ Input
   &imgIdList.0=1
   &dstRegion.0=sh
   &desRegion.1=hk
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

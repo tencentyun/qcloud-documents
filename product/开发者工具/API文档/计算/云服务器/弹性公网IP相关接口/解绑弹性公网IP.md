@@ -39,7 +39,7 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> code <td> Int <td> 错误码, 0: 成功, 其他值: 失败，具体含义可以参考<a href="/doc/api/229/1234" title="错误码">错误码</a>。
+<td> code <td> Int <td> 错误码, 0: 成功, 其他值: 失败，具体含义可以参考<a href="/document/product/213/6982" title="错误码">错误码</a>。
 <tr>
 <td> message <td> String <td> 错误信息
 </tbody></table>
