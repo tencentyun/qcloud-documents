@@ -1,16 +1,16 @@
 ## 功能描述
 
-List Multipart Uploads请求实现列出正在进行中的分块上传
+List Multipart Uploads请求实现列出正在进行中的分段上传
 
 ## 请求
 
 ### 请求语法
 
 ```HTTP
-GET /<UID>/vaults/<VaultName>/multipart-uploads/ HTTP/1.1
+GET /<UID>/vaults/<VaultName>/multipart-uploads HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: Date
-Authorization: SignatureValue
+Authorization: Auth
 ```
 
 ### 请求参数
@@ -18,7 +18,7 @@ Authorization: SignatureValue
 | 名称     | 描述                         | 类型     | 必选   |
 | ------ | -------------------------- | ------ | ---- |
 | limit  | 要返回部分的最大数目。最大值和默认值都为 1000。 | 正整数    | 否    |
-| marker | 以字典序排序，`marker` 指定应从其开始列出  | String | 否    |
+| marker | 不透明字符串，用来标示一个分段上传，所有的分段上传以时间正序排序，`marker` 指定应从该上传的开始时间点列出其后所有的分段上传  | String | 否    |
 
 ### 请求头部
 
