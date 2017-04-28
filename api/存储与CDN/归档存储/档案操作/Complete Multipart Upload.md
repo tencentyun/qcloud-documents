@@ -10,7 +10,7 @@ Complete Multipart Upload请求实现结束分段上传，形成文件。发起�
 POST /<UID>/vaults/<VaultName>/multipart-uploads/<uploadID> HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: date
-Authorization: SignatureValue
+Authorization: Auth
 x-cas-sha256-tree-hash: SHA256 tree hash of the archive
 x-cas-archive-size: ArchiveSize in bytes
 ```
@@ -39,7 +39,7 @@ x-cas-archive-size: ArchiveSize in bytes
 | 名称               | 描述              | 类型     |
 | ---------------- | --------------- | ------ |
 | Location         | 新创建档案的相对 URI 路径 | String |
-| x-amz-archive-id | 档案的 ID          | String |
+| x-cas-archive-id | 档案的 ID          | String |
 
 ### 返回内容
 
