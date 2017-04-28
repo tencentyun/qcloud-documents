@@ -10,7 +10,7 @@ List Parts请求实现列出已上传的数据段。
 GET /<UID>/vaults/<VaultName>/multipart-uploads/<uploadID> HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: Date
-Authorization: SignatureValue
+Authorization: Auth
 ```
 
 ### 请求参数
@@ -18,7 +18,7 @@ Authorization: SignatureValue
 | 名称     | 描述                            | 类型     | 必选   |
 | ------ | ----------------------------- | ------ | ---- |
 | limit  | 要返回部分的最大数目。最大值和默认值都为 1000。    | 正整数    | 否    |
-| marker | 以字典序排序，`marker` 指定应从其开始列出段 | String | 否    |
+| marker | 以OffSet排序，`marker` 指定应从其开始列出段 | String | 否    |
 
 ### 请求头部
 
@@ -42,7 +42,7 @@ Authorization: SignatureValue
 | CreationDate       | 分段上传启动的 UTC 时间，ISO 8601 日期格式，例如， 2013-03-20T17:03:43.221Z | String |
 | Marker             | 如果未展示完所有结果，则返回下一页的Marker，否则返回NULL        | String |
 | MultipartUploadId  | 用以标示上传的UploadID                          | String |
-| PartSizeInBytes    | 固定的每段大小以字节为单位）                           | Number |
+| PartSizeInBytes    | 固定的每段大小（以字节为单位）                           | Number |
 | Parts              | 分段上传的数据段的列表                              | Array  |
 | RangeInBytes       | 数据段的字节范围                                 | String |
 | SHA256TreeHash     | 数据段的SHA256 树形哈希值                         | String |
