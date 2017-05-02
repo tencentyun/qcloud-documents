@@ -165,7 +165,7 @@ The time length between PLAY_LOADING and PLAY_BEGIN varies in a range from 5ms t
 In TXLivePlayConfig, attribute cacheTime can be set for player. Too small cacheTime value can cause a high frequency of LOADING. In case of frequent LOADING, please make an adjustment by referring to [Stutter & Latency](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F).
 
 - **Work with PLAY_PROGRESS playback progress**
-If you have no idea abouthow to handle the PLAY_EVT_PLAY_PROGRESS event during VOD, refer to the sample code - [Playback Progress](https://www.qcloud.com/document/product/454/7887).
+If you have no idea about how to handle the PLAY_EVT_PLAY_PROGRESS event during VOD, refer to the sample code - [Playback Progress](https://www.qcloud.com/document/product/454/7887).
 
 ### 2. Ending Events
 | Event ID                 |    Value  |  Description                    |   
