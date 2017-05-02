@@ -9,8 +9,6 @@
 - 函数代码显示以下代码片段:
 
 ```
-from __future__ import print_function
-
 print('Hello World function start.')
 
 def main_handler(event, context):
