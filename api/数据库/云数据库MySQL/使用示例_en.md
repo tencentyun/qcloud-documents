@@ -4,9 +4,9 @@ First, use API [Query Supported Specifications (supporting custom availability z
 
 
 ## 1. Query Supported Specifications (supporting custom availability zones and configurations)
-Before creating a cloud database instance, we need to check which instance specifications are supported for the selected region. Only <a href='/doc/api/253/1739' title='Common Request Parameters'>Common Request Parameters</a> are required for this API.
+Before creating a cloud database instance, we need to check which instance specifications are supported for the selected region. Only <a href='/document/product/236/6921' title='Common Request Parameters'>Common Request Parameters</a> are required for this API.
 
-By inputting <a href='/doc/api/253/1739' title='Common Request Parameters'>Common Request Parameters</a>, you can get the final request as follows:
+By inputting <a href='/document/product/236/6921' title='Common Request Parameters'>Common Request Parameters</a>, you can get the final request as follows:
 
 ```
 https://cdb.api.qcloud.com/v2/index.php?Action=DescribeCdbProductListNew
@@ -95,7 +95,7 @@ In the following example, custom specifications are used, cdbType is set to CUST
 | volume | No | Int | Size of instance disk (unit: GB). This parameter is required if the value of cdbType is CUSTOM. This parameter will be ignored if the value of cdbType is an integer. You can use API [Query Supported Specifications (supporting custom availability zones and configurations)](/doc/api/253/6109) to acquire supported disk range |
 | zoneId | No | Int | Availability zone ID. By default, the system will automatically select an availability zone. You can use API [Query Supported Specifications (supporting custom availability zones and configurations)](/doc/api/253/6109) to acquire supported availability zones) |
 
-By combining <a href='/doc/api/253/1739' title='Common Request Parameters'>Common Request Parameters</a> and API request parameters, you can get the final request as follows:
+By combining <a href='/document/product/236/6921' title='Common Request Parameters'>Common Request Parameters</a> and API request parameters, you can get the final request as follows:
 
 ```
 https://cdb.api.qcloud.com/v2/index.php?Action=CreateCdb
@@ -151,7 +151,7 @@ When an instance is created, you need to initialize it. After being initialized 
 | lowerCaseTableNames | Yes | Int | Whether the table name only be saved in lowercase. Possible returned values: 1 - Only saved in lowercase; 0 - Case-sensitive |
 | password | Yes | String | Password of root account, which should be a combination of 8-16 characters comprised of at least two of the following types: letters, numbers, special characters (!, @, #, $, %, ^, *, ()) |
 
-By combining <a href='/doc/api/253/1739' title='Common Request Parameters'>Common Request Parameters</a> and API request parameters, you can get the final request as follows:
+By combining <a href='/document/product/236/6921' title='Common Request Parameters'>Common Request Parameters</a> and API request parameters, you can get the final request as follows:
 
 ```
 https://cdb.api.qcloud.com/v2/index.php?Action=CdbMysqlInit
