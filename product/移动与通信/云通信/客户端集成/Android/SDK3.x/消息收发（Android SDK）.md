@@ -39,7 +39,7 @@ conversation = TIMManager.getInstance().getConversation(
 **b. 消息发送**
 
 通过 `TIMManager` 获取会话`TIMConversation`后，可发送消息和获取会话缓存消息；
-ImSDK中消息的解释可参阅（[ImSDK对象简介](TODO/doc/product/269/概述（Android%20SDK）#2.1-imsdk对象简介))。
+ImSDK中消息的解释可参阅（[ImSDK对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B11))。
 ImSDK中的消息由`TIMMessage`表达， 一个`TIMMessage` 由多个 `TIMElem` 组成，每个`TIMElem`可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151013075817_75666.png)
@@ -719,7 +719,7 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 
 ## 2 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK收到新消息会通过回调中的`onNewMessage`抛出。 注册方法请参考 [新消息通知](TODO)。
+在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK收到新消息会通过回调中的`onNewMessage`抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#5-.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A516)。
 
 > 注意：
 > 通过onNewMessage抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK会拉取C2C离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
@@ -846,7 +846,7 @@ public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack call
 
 **语音消息已读状态：**
 
-语音是否已经播放，可使用 [消息自定义字段](TODO/doc/product/269/消息收发（Android%20SDK）#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 customInt 的值 0 表示未播放，1表示播放，当用户点击播放后可设置 customInt 的值为1。
+语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B526) 实现，如 customInt 的值 0 表示未播放，1表示播放，当用户点击播放后可设置 customInt 的值为1。
 
 **原型：**
 ```
@@ -907,7 +907,7 @@ TIMMessageExt msgExt = new TIMMessageExt(msg);
 
 ### 3.1 消息是否已读
 
-通过`TIMMessageExt` 的方法 `isRead`可以获取消息是否已读。这里已读与否取决于APP则进行的[已读上报](TODO/doc/product/269/未读消息计数（Android%20SDK）#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
+通过`TIMMessageExt` 的方法 `isRead`可以获取消息是否已读。这里已读与否取决于APP则进行的[已读上报](/doc/product/269/9226#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)。
 
 **原型：**
 ```
@@ -1014,7 +1014,7 @@ public String getCustomStr()
 
 ### 3.9 消息优先级
 
-对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用TIMCustomElem进行定义，发送消息时，可使用不同接口定义消息优先级。具体消息优先级的策略，可参阅 [互动直播集成多人聊天方案](TODO/doc/product/269/互动直播集成多人聊天方案)。
+对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用TIMCustomElem进行定义，发送消息时，可使用不同接口定义消息优先级。具体消息优先级的策略，可参阅 [互动直播集成多人聊天方案](/doc/product/269/互动直播集成多人聊天方案)。
 
 > 注意：
 > 只针对群聊消息有效。
@@ -1044,7 +1044,7 @@ public TIMGroupReceiveMessageOpt getRecvFlag()
 
 ### 3.11 已读回执
 
-ImSDK提供**针对于C2C消息**的已读回执功能。通过`TIMUserConfigMsgExt`中的`enableReadReceipt`接口可以启用消息已读回执功能。启用已读回执功能后，在进行[消息已读上报](TODO/doc/product/269/1562#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)的时候会给聊天对方发送已读回执。
+ImSDK提供**针对于C2C消息**的已读回执功能。通过`TIMUserConfigMsgExt`中的`enableReadReceipt`接口可以启用消息已读回执功能。启用已读回执功能后，在进行[消息已读上报](/doc/product/269/9226#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)的时候会给聊天对方发送已读回执。
 
 通过`TIMUserConfigMsgExt`的接口`setMessageReceiptListener`可以注册已读回执监听器。通过`TIMMessageExt`中的`isPeerReaded`可以查询当前消息对方是否已读。
 
@@ -1418,11 +1418,11 @@ public TIMMessageLocator setSelf(boolean self)
 
 会话类型（TIMConversationType）除了C2C单聊和Group群聊以外，还有一种系统消息，系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是关系链系统消息，一种是群系统消息。
 
-关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](TODO/doc/product/269/用户资料与关系链（Android%20SDK）#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
+关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A540)。
 
-当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅[群事件消息](TODO/doc/product/269/群组管理（Android%20SDK）#8.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
+当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅[群事件消息](/doc/product/269/9236#9.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF41)。
 
-当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](TODO/doc/product/269/群组管理（Android%20SDK）#9.-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
+当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](/doc/product/269/9236#10.-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF48)。
 
 
 ## 6 设置后台消息通知栏提醒

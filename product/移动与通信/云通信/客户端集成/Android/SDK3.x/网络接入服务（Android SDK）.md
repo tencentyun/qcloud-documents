@@ -23,13 +23,11 @@ Log.i(TAG,"request:" + url );
 request.request(new QALHttpValueCallBack(){                        
 	@Override
 	public void onFailed(int arg0, String arg1) {
-		// TODO Auto-generated method stub
 		Log.e(TAG,"http request error:" + arg0 +":" + arg1);
 	}
 
 	@Override
-	public void onFinished(QALHttpResponse arg0) {
-		// TODO Auto-generated method stub                                    
+	public void onFinished(QALHttpResponse arg0) {                         
 	   Log.i(TAG,"http rsp status:" +  arg0.getStatus() +"|len:" + arg0.getBody().length  +"|costTime:" + use_time );
 	}
 						 
@@ -52,13 +50,11 @@ request.request(new QALHttpValueCallBack(){
 
 	@Override
 	public void onFailed(int arg0, String arg1) {
-		// TODO Auto-generated method stub
 		Log.e(TAG,"http request error:" + arg0 +":" + arg1);
 	}
 
 	@Override
 	public void onFinished(QALHttpResponse arg0) {
-		// TODO Auto-generated method stub
 		long use_time = System.currentTimeMillis() - startTime;
 		Log.d(TAG,"http rsp status:" +  arg0.getStatus() +"|len:" + arg0.getBody().length  +"|costTime:" + use_time );
 	}
