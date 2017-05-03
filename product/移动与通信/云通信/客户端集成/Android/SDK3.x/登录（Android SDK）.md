@@ -94,10 +94,8 @@ public int initStorage(@NonNull String identifier, @NonNull TIMCallBack cb)
 **示例：**
 
 ```
-//获取通讯管理器扩展实例
-TIMManagerExt ext = new TIMManagerExt(TIMManager.getInstance());
 //初始化本地存储
-ext.initStorage(identifier, new TIMCallBack() {
+TIMManagerExt.getInstance().initStorage(identifier, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "initStorage failed, code: " + code + "|descr: " + desc);

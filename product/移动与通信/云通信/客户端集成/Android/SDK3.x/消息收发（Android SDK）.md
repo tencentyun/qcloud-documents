@@ -1124,8 +1124,7 @@ public List<TIMConversation> getConversionList()
 **示例：**
 
 ```
-TIMManagerExt ext = new TIMManagerExt(TIMManager.getInstance());
-List<TIMConversation> list = ext.getConversationList();
+List<TIMConversation> list = TIMManagerExt.getInstance().getConversationList();
 ```
 
 ### 4.2 最近联系人漫游
@@ -1272,8 +1271,7 @@ public boolean deleteConversationAndLocalMsgs(TIMConversationType type, String p
 **示例：**
 
 ```
-TIMManagerExt managerExt = new TIMManagerExt(TIMManager.getInstance());
-managerExt.deleteConversation(TIMConversationType.C2C, "hello");
+TIMManagerExt.getInstance().deleteConversation(TIMConversationType.C2C, "hello");
 ```
 示例中删除了与用户hello的C2C会话。
 
