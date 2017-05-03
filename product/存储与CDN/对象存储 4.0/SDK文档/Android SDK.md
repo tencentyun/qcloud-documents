@@ -146,6 +146,7 @@ putObjectRequest.setListener(new  IUploadTaskListener(){
          Log.w("TEST","进度：  " + (int)progress + "%"); 
       }
 });
+PutObjectResult result = cos.PutObject(putObjectRequest);
 ```
 
 ### 下载文件
