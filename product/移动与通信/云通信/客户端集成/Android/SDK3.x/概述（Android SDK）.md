@@ -173,7 +173,7 @@ ImSDK 对象主要分为通讯管理器，会话、消息，群管理，，具�
 | TIMConversation | 会话，负责会话相关操作 | 如发送消息，获取会话消息缓存，获取未读计数等，可以通过扩展类`TIMConversationExt`使用更多会话相关高级功能 |
 | TIMMessage | 消息 | 包括文本、图片等不同类型消息。可以通过扩展类`TIMMessageExt`使用更多消息相关高级功能 | 
 | TIMGroupManager | 群组管理器 | 负责创建群组、加群、退群等，可以通过扩展类`TIMGroupManagerExt`使用更多群组相关高级功能 |
-| TIMFriendshipManager | 资料关系链管理器 | 负责资料获取、修改和关系链信息，可以通过扩展类`TIMFriendshipManager`使用更多资料关系链管理相关高级功能 |
+| TIMFriendshipManager | 资料关系链管理器 | 负责资料获取、修改和关系链信息，可以通过扩展类`TIMFriendshipManagerExt`使用更多资料关系链管理相关高级功能 |
 
 	
 ### 2.2 调用顺序介绍
@@ -193,7 +193,7 @@ ImSDK调用API需要遵循以下顺序，其余辅助方法需要在登录成功
 				</td>
 			</tr>
 			<tr>
-				<td rowspan="3">
+				<td rowspan="5">
 					初始化<br>
 				</td>
 			</tr>
@@ -214,11 +214,6 @@ ImSDK调用API需要遵循以下顺序，其余辅助方法需要在登录成功
 				</td>
 			</tr>
 			<tr>
-				<td rowspan="4">
-					登录<br>
-				</td>
-			</tr>
-			<tr>
 				<td>
 					TIMManager : setUserConfig<br>
 				</td>
@@ -232,6 +227,11 @@ ImSDK调用API需要遵循以下顺序，其余辅助方法需要在登录成功
 				</td>
 				<td>
 					设置消息监听<br>
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="2">
+					登录<br>
 				</td>
 			</tr>
 			<tr>
@@ -296,4 +296,3 @@ ImSDK调用API需要遵循以下顺序，其余辅助方法需要在登录成功
 			</tr>
 		</tbody>
 	</table>
-	
