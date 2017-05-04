@@ -226,14 +226,14 @@ TIMUserConfig userConfig = new TIMUserConfig()
 		});
 
 //消息扩展用户配置
-TIMUserConfigMsgExt msgExt = new TIMUserConfigMsgExt(userConfig)
+userConfig = new TIMUserConfigMsgExt(userConfig)
 		//禁用消息存储
 		.enableStorage(false)
 		//开启消息已读回执
 		.enableReadReceipt(true);
 
 //资料关系链扩展用户配置
-TIMUserConfigSnsExt snsExt = new TIMUserConfigSnsExt(msgExt)
+userConfig = new TIMUserConfigSnsExt(msgExt)
 		//开启资料关系链本地存储
 		.enableFriendshipStorage(true)
 		//设置关系链变更事件监听器
@@ -274,7 +274,8 @@ TIMUserConfigSnsExt snsExt = new TIMUserConfigSnsExt(msgExt)
 			}
 		});
 
-TIMUserConfigGroupExt grpExt = new TIMUserConfigGroupExt(userConfig)
+//群组管理扩展用户配置
+userConfig = new TIMUserConfigGroupExt(userConfig)
 		//开启群组资料本地存储
 		.enableGroupStorage(true)
 		//设置群组资料变更事件监听器
@@ -311,7 +312,7 @@ TIMUserConfigGroupExt grpExt = new TIMUserConfigGroupExt(userConfig)
 		});
 
 //将用户配置与通讯管理器进行绑定
-TIMManager.getInstance().setUserConfig(grpExt);
+TIMManager.getInstance().setUserConfig(userConfig);
 ```
 
 ### 4.1 网络事件通知
