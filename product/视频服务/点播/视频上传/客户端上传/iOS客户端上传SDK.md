@@ -1,12 +1,10 @@
-
-
 ## 简介
 
 Android平台的客户端上传SDK，可向腾讯云点播系统上传视频和封面文件。
 
 ### 集成方式
 
-下载[TVCClientSDK.framework]()，引入依赖包。
+下载[iOS UGC SDK](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.2.2801.zip)，引入依赖包。
 
 ![](http://mc.qcloudimg.com/static/img/397fddc2dffe71787a849e279e8864b1/image.png)
 
@@ -30,14 +28,14 @@ Android平台的客户端上传SDK，可向腾讯云点播系统上传视频和�
 | 参数名称 | 必填 | 类型 | 含义 |
 | --- | --- | --- | --- |
 | secretId | 是 | String | [云API密钥](https://console.qcloud.com/capi)的Secret ID |
-| signature | 是 | String | 从APP服务器获取的[客户端签名]() |
-| forceHttps | 否 | Bool | 是否只允许使用HTTPS协议 |
+| signature | 是 | String | 从APP服务器获取的[客户端签名](/document/product/266/9219) |
+| forceHttps | 是 | Bool | 是否只允许使用HTTPS协议 |
 
 ```objectivec
 TVCConfig *config = [[TVCConfig alloc] init];
 config.secretId = secretId;
 config.signature = signature;
-config.forceHttps = NO;
+config.forceHttps = YES;
 self.client = [[TVCClient alloc] initWithConfig:config];
 ```
 
@@ -55,7 +53,6 @@ self.client = [[TVCClient alloc] initWithConfig:config];
 ```objectivec
 TVCUploadParam *param = [[TVCUploadParam alloc] init];
 param.videoPath = videoPath;
-param.coverPath = coverPath;
 ```
 
 同时上传视频和封面：
@@ -63,6 +60,7 @@ param.coverPath = coverPath;
 ```objectivec
 TVCUploadParam *param = [[TVCUploadParam alloc] init];
 param.videoPath = videoPath;
+param.coverPath = coverPath;
 ```
 
 ### 第三步：执行上传操作
