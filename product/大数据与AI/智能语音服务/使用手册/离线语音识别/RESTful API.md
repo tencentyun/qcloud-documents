@@ -3,14 +3,14 @@
 
 ### RESTful API请求结构
 
-语音长语音全文识别的 RESTful API 请求结构如下：
+离线语音识别的 RESTful API 请求结构如下：
 
 | 参数名称    | 必选    | 类型   | 描述    | 
 | ------------- | ---------- | ------------- | ---------- |
 | Version | 是         | String          | HTTPS 协议版本         | 
 | URL  | 是         | String          | HTTPS 请求地址       | 
 | Https Headers    | 是         | 数据集合          | HTTPS 请求头部         | 
-| Https Method   |是         | String     | HTTPS 请求方法，长语音全文识别请求方法为 POST
+| Https Method   |是         | String     | HTTPS 请求方法，离线语音识别请求方法为 POST
 | Https Body   | 是         | String     | HTTPS 请求正文，即语音数据（当 source_type 字段为1时填充），大小不超过 5M   | 
 
 其中，URL 的结构为 ：
@@ -36,7 +36,7 @@ URL 中各字段含义如下（各字段的值需要进行 URL 编码）：
 | ------------- | ---------- | ------------- | ---------- |
 | appid | 是 | uint  | 腾讯云应用 ID 值   | 
 | projectid  | 否   | uint | 腾讯云项目 ID，不填为默认项目，即0，总长度不超过1024字节 | 
-| sub_service_type  | 是   | uint   | 子服务类型。0：长语音全文识别。1：实时流式识别。  | 
+| sub_service_type  | 是   | uint   | 子服务类型。0：离线语音识别。1：实时流式识别。  | 
 | engine_model_type | 是  | uint  | 引擎类型。8k_0：电话8k通用模型；16k_0：16k 通用模型| 
 | callback_url | 是  | String  | 回调 URL，用户接受结果，长度大于0，小于2048 |
 | res_text_format | 是 | uint  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |
@@ -118,7 +118,7 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 ## 返回结构
 
 ### RESTful API 返回结果
-语音长语音全文识别的 RESTful API 请求返回结果如下表所示：
+离线语音识别的 RESTful API 请求返回结果如下表所示：
 
 | 参数名称           | 类型         | 说明          | 
 | ------------- | ---------- | ------------- | 
