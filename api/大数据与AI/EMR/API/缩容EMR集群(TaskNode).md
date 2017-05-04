@@ -28,7 +28,7 @@
 
 输入
 <pre>
-  https://emr.api.qcloud.com/v2/index.php?Action=CreateVpc
+  https://emr.api.qcloud.com/v2/index.php?Action=EmrDestroyTaskNode
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &ClusterId=emr-rowyenms
   &IPs.0=10.0.0.235
