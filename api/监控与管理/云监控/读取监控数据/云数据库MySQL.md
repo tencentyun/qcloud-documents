@@ -138,7 +138,9 @@ dimensions.0.value为cdb实例id
 | volume_rate           | 容量使用率          | %      | uInstanceId |
 | query_rate            | 查询使用率          | %      | uInstanceId |
 | qps                   | 每秒执行操作数        | 次/秒    | uInstanceId |
-| tps                   | 每秒执行事务数        | 次/秒    | uInstanceId |\
+| tps                   | 每秒执行事务数        | 次/秒    | uInstanceId |
+| cpu_use_rate          | CPU占比         | %    | uInstanceId |
+| memory_use            | 内存占用        | MB    | uInstanceId |
 
 ## 6. 示例
 
@@ -153,7 +155,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 &namespace=qce/cdb
 &metricName=slow_queries
 &dimensions.0.name=uInstanceId
-&dimensions.0.value=ins-e242adzf
+&dimensions.0.value=cdb-e242adzf
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
 </pre>
