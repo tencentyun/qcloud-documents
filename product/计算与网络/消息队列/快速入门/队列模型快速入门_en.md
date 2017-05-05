@@ -1,4 +1,3 @@
-﻿
 ## 1. Creating a Queue
 
 ```

@@ -1,4 +1,4 @@
-﻿### Asynchronous Communication Protocol
+## Asynchronous Communication Protocol
 After sending a message to the message queue, the sender can go back immediately instead of waiting for a response from the receiver. The message will be retained in the queue until it is fetched by the receiver. Therefore, the message is sent and processed asynchronously.
 
 ## Improved Reliability

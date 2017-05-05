@@ -3,7 +3,7 @@ To use Tencent Cloud Monitor to view the **CVM** metric data and generate alarms
 ## Installing on Linux
 After [logging in to Linux instance](/doc/product/213/5436), you can execute the following command to install required components, as shown below:
 ```
-wget http://mirrors.tencentyun.com/install/monitor/linux_stargate_installer
+wget http://update2.agent.tencentyun.com/update/linux_stargate_installer
 chmod +x linux_stargate_installer
 ./linux_stargate_installer
 ```
@@ -14,7 +14,7 @@ Once installed, you will see the following results:
 ![](//mccdn.qcloud.com/img568a751592aea.png)
 
 ## Installing on Windows
-1) After [logging in to Windows instance](/doc/product/213/5435), you can access `http://mirrors.tencentyun.com/install/monitor/windows-stargate-installer.exe` through the private network and download the installer `windows-stargate-installer.exe`.
+1) After [logging in to Windows instance](/doc/product/213/5435), you can access `http://update2.agent.tencentyun.com/update/windows-stargate-installer.exe` through the private network and download the installer `windows-stargate-installer.exe`.
 
 2) Run the installer to install it automatically.
 
