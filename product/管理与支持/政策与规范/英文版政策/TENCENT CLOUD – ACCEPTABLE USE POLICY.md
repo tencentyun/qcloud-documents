@@ -1,11 +1,8 @@
-
-Last modified: [Insert date that AUP goes live]
-
 ## INTRODUCTION 
 
 This Acceptable Use Policy sets out rules of good behaviour applicable to your use of Tencent Cloud.  By using Tencent Cloud, you agree to this Policy.
 
-Should you have any questions about, or any person’s compliance with, this Policy, please contact us at cloudlegalenquiries@tencent.com. 
+Should you have any questions about, or any person’s compliance with, this Policy, please contact us at [cloudlegalenquiries@tencent.com. ](cloudlegalenquiries@tencent.com)
 
 Any terms used in this Policy will have the same meaning as the equivalent defined terms in the Tencent Cloud Terms of Service, unless the context requires otherwise. 
 
@@ -14,14 +11,13 @@ Any terms used in this Policy will have the same meaning as the equivalent defin
 You agree not to (and to not allow any person (including any End Users) to) engage in any of the following prohibited activities (or encourage any person to engage in such prohibited activities) on or in relation to Tencent Cloud. 
 
 + **No breach of the Tencent Cloud Terms of Service.** You may not use Tencent Cloud in any manner or for any purpose which breaches the Tencent Cloud Terms of Service (including this Policy) or which breaches the terms of service of any other Tencent service or product.
-
 + **No illegal, harmful or offensive use or content.** You may not use Tencent Cloud to:
-
    - violate any applicable laws or regulations; 
    - engage in any illegal (or potentially illegal) activities;
    - send any unsolicited, unauthorised spam, advertising or promotional messages; 
    - share or publish any other person’s personally identifiable information using Tencent Cloud without their express consent; 
-   - create multiple accounts for disruptive or abusive purposes; 
+   - create multiple accounts for disruptive or abusive purposes;
+   - create multiple accounts for disruptive or abusive purposes;
    - submit, upload, store, transmit or display any content (whether displayed publicly or not) which in fact or in our reasonable opinion: 
 
 		- violates any applicable laws or regulations; 
@@ -39,16 +35,14 @@ You agree not to (and to not allow any person (including any End Users) to) enga
    - intentionally distribute viruses, worms, Trojan horses, corrupted files or other malicious code or items; 
    - probe or test the vulnerability of, or otherwise circumvent (or attempt to circumvent) any security features on, Tencent Cloud, our Systems or other users' Systems. **"Systems"** means any network, computer or telecommunication systems; 
    - decompile, reverse compile or reverse engineer any of Tencent Cloud Software, or seek to do any of the foregoing, except to the extent that applicable laws and regulations do not allow us to prevent you from doing this;
-   - interfere with our, any user's or any other party's Systems – including via unauthorised access; interception of data or connections; falsifying the origin of your data or connections; or attacking any Systems in an unauthorised manner (including by "Denial of Service" attacks or broadcast attacks); or 
-   
+   - interfere with our, any user's or any other party's Systems – including via unauthorised access; interception of data or connections; falsifying the origin of your data or connections; or attacking any Systems in an unauthorised manner (including by "Denial of Service" attacks or broadcast attacks); or  
    - operating any Systems or services on (or that connect to) Tencent Cloud that are prohibited by us, at our sole discretion. 
    
-**RESTRICTIONS ON YOUR USE OF TENCENT CLOUD SOFTWARE**
+## RESTRICTIONS ON YOUR USE OF TENCENT CLOUD SOFTWARE
 
 You may not, and you may not permit any other person (including any End Users) to (except where we expressly permit you to do so):
 
    - sub-license, rent, lease or sell Tencent Cloud Software;
-   
    - use Tencent Cloud Software to gain unauthorised access to any system, account or data;
    - directly or indirectly charge others for use or access to Tencent Cloud Software;
    - directly or indirectly suggest our support or endorsement of any product, service or content (including any personal web site);
@@ -63,14 +57,14 @@ You may not, and you may not permit any other person (including any End Users) t
    - 
 Please note that there may be technological measures in Tencent Cloud Software that are designed to prevent unlicensed or unauthorised use of Tencent Cloud Software or use of Tencent Cloud Software in breach of this Policy.  You agree that we may use these measures and that you will not seek to disable or circumvent them in any way.
 
-**PROHIBITED USERS**
+## PROHIBITED USERS
 
 In addition to any prohibitions as set out in the Tencent Cloud Terms of Use, you may not register for or use Tencent Cloud if: 
 
    - you are less than 13 years of age; or
    - we have previously terminated your account and advised you that you may no longer use Tencent Cloud or any of our other services.
 
-**BREACH OF THIS POLICY OR MISUSE OF TENCENT CLOUD**
+## BREACH OF THIS POLICY OR MISUSE OF TENCENT CLOUD
 
 We reserve the right, but are not obliged, to investigate any alleged breach of this Policy or misuse of Tencent Cloud. We may terminate any user's use of or access to Tencent Cloud in accordance with the Tencent Cloud Terms of Service. In addition, and to the extent not already allowed by the Tencent Cloud Terms of Service, we may report any activity that violates (or may violate) any applicable laws or regulations to appropriate law enforcement or regulatory authorities or other appropriate third parties, and cooperate with such authorities or third parties in any related investigations. Such cooperation may include disclosing: 
 
