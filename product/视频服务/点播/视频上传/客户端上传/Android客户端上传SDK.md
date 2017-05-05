@@ -34,7 +34,7 @@ SDK需要一些网络访问相关的权限，需在**AndroidManifest.xml**中增
 | --- | --- | --- | --- |
 | context | 是 | Context | 上下文，可以填getApplicationContext() |
 | secretId | 是 | String | [云API密钥](https://console.qcloud.com/capi)的Secret ID |
-| signature | 是 | String | 从APP服务器获取的[客户端签名](/document/product/266/9219) |
+| signature | 是 | String | 从APP服务器获取的[客户端上传签名](/document/product/266/9221) |
 | timeout | 否 | Integer | 网络请求超时时间，默认为8秒 |
 
 ```java

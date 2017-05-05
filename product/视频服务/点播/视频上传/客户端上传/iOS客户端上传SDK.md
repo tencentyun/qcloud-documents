@@ -28,7 +28,7 @@ Android平台的客户端上传SDK，可向腾讯云点播系统上传视频和�
 | 参数名称 | 必填 | 类型 | 含义 |
 | --- | --- | --- | --- |
 | secretId | 是 | String | [云API密钥](https://console.qcloud.com/capi)的Secret ID |
-| signature | 是 | String | 从APP服务器获取的[客户端签名](/document/product/266/9219) |
+| signature | 是 | String | 从APP服务器获取的[客户端上传签名](/document/product/266/9221) |
 | forceHttps | 是 | Bool | 是否只允许使用HTTPS协议 |
 
 ```objectivec
