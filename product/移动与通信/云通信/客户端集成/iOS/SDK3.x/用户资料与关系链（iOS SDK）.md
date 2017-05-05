@@ -99,29 +99,70 @@ profile.language = 1;
 
 ```
 /**
- *  用户资料
+ *  好友资料
  */
-@interface TIMUserProfile : NSObject
+@interface TIMUserProfile : TIMCodingModel
 
 /**
  *  用户identifier
  */
-@property(nonatomic,retain) NSString* identifier;
+@property(nonatomic,strong) NSString* identifier;
 
 /**
  *  用户昵称
  */
-@property(nonatomic,retain) NSString* nickname;
+@property(nonatomic,strong) NSString* nickname;
 
 /**
- *  用户备注（获取自己的资料时，该字段为空）
+ *  用户备注（最大96字节，获取自己资料时，该字段为空）
  */
-@property(nonatomic,retain) NSString* remark;
+@property(nonatomic,strong) NSString* remark;
 
 /**
  *  好友验证方式
  */
 @property(nonatomic,assign) TIMFriendAllowType allowType;
+
+/**
+ * 用户头像
+ */
+@property(nonatomic,strong) NSString* faceURL;
+
+/**
+ *  用户签名
+ */
+@property(nonatomic,strong) NSData* selfSignature;
+
+/**
+ *  好友性别
+ */
+@property(nonatomic,assign) TIMGender gender;
+
+/**
+ *  好友生日
+ */
+@property(nonatomic,assign) uint32_t birthday;
+
+/**
+ *  好友区域
+ */
+@property(nonatomic,strong) NSData* location;
+
+/**
+ *  好友语言
+ */
+@property(nonatomic,assign) uint32_t language;
+
+/**
+ *  好友分组名称 NSString* 列表
+ */
+@property(nonatomic,strong) NSArray* friendGroups;
+
+/**
+ *  自定义字段集合,key是NSString*类型,value是NSData*类型
+ *  (key值按照后台配置的字符串传入)
+ */
+@property(nonatomic,strong) NSDictionary* customInfo;
 
 @end
 
@@ -160,6 +201,8 @@ identifier | 自己的用户标识
 nickname | 自己的昵称 
 remark | 为空，获取好友资料时有效 
 allowType | 好友验证方式 
+friendGroups | 为空，获取好友资料时有效
+customInfo | 个人资料的自定义属性
 
 **示例：**
 
