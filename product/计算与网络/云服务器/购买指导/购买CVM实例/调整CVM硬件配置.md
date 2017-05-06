@@ -27,5 +27,5 @@
 ### 2.2. 按量计费
 购买了按量计费的云服务器实例后，用户随时可以降配。降级次数无限制。
 
-具体降级方式请参考[调整CVM实例配置](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+具体降级方式请参考[调整CVM实例配置](https://www.qcloud.com/document/product/213/5730)
 
