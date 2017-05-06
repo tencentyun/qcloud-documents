@@ -55,8 +55,8 @@ table th:nth-of-type(3) {  width: 100px; }
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 基于优图实验室的 AI 专利技术，实现了大眼、瘦脸、动效贴纸、绿幕等特效功能，使用方法见 [特效](https://www.qcloud.com/document/product/454/9018)。 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPIOS%26AndroidSDKPitu.zip) |
-| Android平台  | 基于优图实验室的 AI 专利技术，实现了大眼、瘦脸、动效贴纸、绿幕等特效功能，使用方法见 [特效](https://www.qcloud.com/document/product/454/9018)。 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPIOS%26AndroidSDKPitu.zip) |
+| iOS平台  | 基于优图实验室的 AI 专利技术，实现了大眼、瘦脸、动效贴纸、绿幕等特效功能，使用方法见 [特效功能](https://www.qcloud.com/document/product/454/9018)。 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPIOS%26AndroidSDKPitu.zip) |
+| Android平台  | 基于优图实验室的 AI 专利技术，实现了大眼、瘦脸、动效贴纸、绿幕等特效功能，使用方法见 [特效功能](https://www.qcloud.com/document/product/454/9018)。 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPIOS%26AndroidSDKPitu.zip) |
 
 ## 联系我们
 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://www.qcloud.com/document/product/454/7998)。
