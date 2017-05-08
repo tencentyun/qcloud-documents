@@ -40,9 +40,9 @@ table th:nth-of-type(3) {  width: 100px; }
 
 | 版本类型 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| 完整版  |  包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.2.2801.zip)  |
-| 精简版  |  在完整版的基础上裁剪掉了非核心功能，代码体积增量 <font color='red'>900KB</font> 。播放器的兼容性逊于完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.2.2801.zip)  |
-| rename版  |  在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.2.2801.zip) |
+| 完整版  |  包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.2.2807.zip)  |
+| 精简版  |  在完整版的基础上裁剪掉了非核心功能，代码体积增量 <font color='red'>900KB</font> 。播放器的兼容性逊于完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.2.2807.zip)  |
+| rename版  |  在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.2.2807.zip) |
 
 - **Android 平台 （2.0.2.2801）**
 
