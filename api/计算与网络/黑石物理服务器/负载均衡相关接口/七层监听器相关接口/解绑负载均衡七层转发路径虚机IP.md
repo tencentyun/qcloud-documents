@@ -51,14 +51,14 @@ vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
 输入
 
 <pre>
-	https://domain/v2/index.php?Action=UnbindBmL7LocationVmIp
-	&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-	&loadBalancerId=lb-abcdefgh
-	&listenerId=lbl-abcdefgh
-	&domainId=dm-abcdefgh
-	&locationId=loc-abcdefgh
-	&vmList.1.port=1234
-	&vmList.1.vmIp=1.1.1.1
+https://domain/v2/index.php?Action=UnbindBmL7LocationVmIp
+&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&loadBalancerId=lb-abcdefgh
+&listenerId=lbl-abcdefgh
+&domainId=dm-abcdefgh
+&locationId=loc-abcdefgh
+&vmList.1.port=1234
+&vmList.1.vmIp=1.1.1.1
 </pre>
 
 输出
