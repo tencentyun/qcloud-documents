@@ -35,10 +35,14 @@
 |---------|---------|---------|
 | 查询私有网络列表 | [DescribeBmVpcEx](/doc/api/456/6646) | 用于查询黑石私有网络VPC列表。 |
 | 查询子网列表 | [DescribeBmSubnetEx](/doc/api/456/6648) | 用于查询黑石私有网络子网列表。 |
-| 申请内网IP | [ApplyIps](/document/product/386/7337) | 用于申请黑石VPC内的子网IP。 |
+| 申请子网IP | [ApplyIps](/document/product/386/7337) | 用于申请黑石VPC内的子网IP。 |
 | 退还子网IP | [ReturnIps](/document/product/386/7338) | 用于退还黑石VPC内的子网IP。 |
 | 注册子网IP | [RegisterBatchIp](/document/product/386/7925) | 用于注册黑石VPC内的子网IP。 |
-
+| 创建子网 | [CreateBmSubnet](/document/product/386/9263) | 用于创建黑石VPC子网。 |
+| 删除子网 | [DeleteBmSubnet](/document/product/386/9264) | 用于删除黑石VPC子网。 |
+| 物理机加入子网 | [CreateBmInterface](/document/product/386/9265) | 用于黑石物理机加入其虚拟子机所在子网。 |
+| 物理机移除子网 | [DelBmInterface](/document/product/386/9266) | 用于黑石物理机从其虚拟子机所在子网移除。 |
+| 查询任务状态 | [QueryBmTaskResult](/document/product/386/9267) | 用于查询黑石物理机加入、移除子网等操作任务的状态。 |
 
 ## 5. 负载均衡相关接口
 | 接口功能 | Action ID | 功能描述 |
