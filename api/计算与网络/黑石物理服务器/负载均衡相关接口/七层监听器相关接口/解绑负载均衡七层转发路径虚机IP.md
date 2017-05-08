@@ -7,14 +7,14 @@
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/doc/api/456/6718)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/doc/api/386/6718)页面。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| loadBalancerId | 是 | String |   负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/doc/api/456/6658)查询。|
-| listenerId | 是 | String | 负载均衡七层监听器ID，可通过接口[DescribeBmForwardListeners](/doc/api/456/6658)查询。|
-| domainId | 是 | String |   负载均衡七层转发域名ID，可通过接口[DescribeBmForwardRules](/doc/api/456/6658)查询。|
-| locationId | 是 | String |   负载均衡七层转发路径ID，可通过接口[DescribeBmForwardRules](/doc/api/456/6658)查询。|
+| loadBalancerId | 是 | String |   负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/doc/api/386/9306)查询。|
+| listenerId | 是 | String | 负载均衡七层监听器ID，可通过接口[DescribeBmForwardListeners](/doc/api/386/9283)查询。|
+| domainId | 是 | String |   负载均衡七层转发域名ID，可通过接口[DescribeBmForwardRules](/doc/api/386/9285)查询。|
+| locationId | 是 | String |   负载均衡七层转发路径ID，可通过接口[DescribeBmForwardRules](/doc/api/386/9285)查询。|
 | vmList | 是 | Array |   待解绑的主机信息。|
 
 vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
@@ -29,7 +29,7 @@ vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](/doc/api/456/6725)。|
+| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](/doc/api/386/6725)。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 返回码信息描述。|
 
