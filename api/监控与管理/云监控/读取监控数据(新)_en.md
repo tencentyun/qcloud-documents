@@ -811,6 +811,8 @@ dimensions.0.value is the ID of cdb instance
 | query_rate            | Query utilization rate          | %      | uInstanceId |
 | qps                   | Queries per second        | times/second    | uInstanceId |
 | tps                   | Transactions per second        | times/second    | uInstanceId |
+| cpu_use_rate          | CPU utilization rate   | %    | uInstanceId |
+| memory_use            | Memory used      | MB    | uInstanceId |
 
 **Example: How to read Cloud Database for MySQL monitoring metrics**
 
@@ -822,7 +824,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &namespace=qce/cdb
 &metricName=slow_queries
 &dimensions.0.name=uInstanceId
-&dimensions.0.value=ins-e242adzf
+&dimensions.0.value=cdb-e242adzf
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
 </pre>

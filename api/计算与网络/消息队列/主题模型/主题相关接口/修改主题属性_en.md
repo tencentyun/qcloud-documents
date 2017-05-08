@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (SetTopicAttributes) is used to modify the attributes of a message topic. <font color="red">Please note that the topic name cannot be modified</font>
 

@@ -1,4 +1,4 @@
-﻿## 1. Queue Endpoint Subscription
+## 1. Queue Endpoint Subscription
 
 CMQ will push the message text for topic publishing to the subscription Queue, so that consumers can read the corresponding message from the Queue.
 

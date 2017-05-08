@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口（RegisterBatchIp）用于当指定内网IP所属子网已经加入黑石NAT网关时，将此内网IP加入黑石NAT网关中，否则，此内网IP不会加入黑石NAT网关。
+本接口（RegisterBatchIp）用于当指定子网IP进行IP申请。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
@@ -12,9 +12,10 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 系统分配的私有网络ID，支持升级前的vpcId，也支持升级后的unVpcId。 |
-| subnetId | 是 | String | 系统分配的私有网络子网ID，支持升级前的subnetId，也支持升级后的unSubnetId。 |
+| vpcId | 是 | String | 系统分配的私有网络ID，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
+| subnetId | 是 | String | 系统分配的私有网络子网ID，可使用subnetId或unSubnetId，建议使用unsubnetId，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 |
 | ipList | 是 | Array | 申请IP数组，数组个数范围为1-20。 |
+| ipClass | 否 | Int | IP类型，0为物理机IP，1为虚拟机类型IP，2为托管类型IP。默认传1 |
 
 
  
