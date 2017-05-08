@@ -1,4 +1,4 @@
-## **Error Codes** 
+## Error Codes
 
 Message field indicates a module-related error.
 Example:
