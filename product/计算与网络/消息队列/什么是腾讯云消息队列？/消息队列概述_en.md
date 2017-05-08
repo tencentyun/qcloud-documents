@@ -1,4 +1,5 @@
-﻿## Product Overview
+
+## Product Overview
 
 Tencent Cloud's Cloud Message Queue (CMQ) is a distributed message queue service used for storing messages transferred between processes. It is designed to provide reliable message-based asynchronous communication service between different applications deployed in a distributed way or between different components of an application. Messages are stored in a highly reliable and available message queue, which allows multiple processes to perform read and write operations simultaneously without interfering with each other. With Tencent Cloud CMQ, messages can be transferred, without any data loss, between distributed components of applications executing different tasks. There is no need to keep every component available at all time.
 
