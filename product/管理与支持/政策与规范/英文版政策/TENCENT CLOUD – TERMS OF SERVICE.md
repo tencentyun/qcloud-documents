@@ -436,3 +436,91 @@ the following terms apply:
 (c)these Terms and any dispute or claim arising out of or in connection with these Terms will be governed by the law of the Hong Kong Special Administrative Region; and
 
 (d)any dispute, controversy or claim (whether in contract, tort or otherwise) arising out of, relating to, or in connection with these Terms, including their existence, validity, interpretation, performance, breach or termination, will be referred to and finally resolved by arbitration administered by the Hong Kong International Arbitration Centre under the Hong Kong International Arbitration Centre Administered Arbitration Rules in force when the Notice of Arbitration is submitted. The seat of the arbitration will be Hong Kong. There will be one arbitrator only. The arbitration proceedings will be conducted in English.
+
+## TENCENT CLOUD TERMS OF SERVICE (USA-SPECIFIC TERMS)
+
+If you are a user of Tencent Cloud in the United States of America, the below Additional Terms and Policies: (a) are incorporated into these Terms; (b) apply to your use of Tencent Cloud; and (c) override the head terms of these Terms to the extent of any inconsistency.
+
+If you are a user of Tencent Cloud in the United States of America, the following terms expressly replaces Section 23 of these Terms. 
+
+If you live in (or, if a business, your principal place of business is in) the United States, the laws of the state where you live govern all claims, regardless of conflict of law principles, except that the Federal Arbitration Act governs all provisions relating to arbitration.  You and we irrevocably consent to the exclusive jurisdiction and venue of the state or federal courts of California, for all disputes arising out of or relating to these Terms that are heard in court (excluding arbitration). 
+ 
+EACH OF THE PARTIES HERETO IRREVOCABLY WAIVES ANY AND ALL RIGHT TO TRIAL BY JURY OR TO PARTICIPATE IN A CLASS ACTION IN ANY LEGAL PROCEEDING ARISING OUT OF OR RELATING TO THESE TERMS OR THE TRANSACTIONS CONTEMPLATED HEREBY.
+In the event of a dispute, you and we agree to try for sixty (60) days to resolve it informally. If you and we are unable to come to informal resolution within sixty (60) days, you and we agree to binding individual arbitration before the American Arbitration Association (**"AAA"**) under the Federal Arbitration Act (**"FAA"**) (with such arbitration to be conducted under the AAA's Commercial Arbitration Rules), and not to sue in court in front of a judge or jury. Instead, a neutral arbitrator will decide and the arbitrator’s decision will be final except for a limited right of appeal under the FAA. Class action lawsuits, class-wide arbitrations, private attorney-general actions, and any other proceeding where someone acts in a representative capacity are not allowed, and nor is combining individual proceedings without the consent of all parties.  These Terms govern to the extent they conflict with the AAA’s Commercial Arbitration Rules or Consumer Arbitration Rules. You and we must file in arbitration any claim or dispute (except intellectual property disputes) within one year from when it first could be filed. If the class action waiver is found to be illegal or unenforceable as to all or some parts of a dispute, then those parts won’t be arbitrated but will proceed in court, with the rest proceeding in arbitration. If any other provision of these provisions regarding arbitration is found to be illegal or unenforceable, that provision will be severed but the rest of these provisions regarding arbitration still apply.
+
+If you are a California resident, then (except to the extent prohibited by applicable laws and regulations) you agree to waive California Civil Code Section 1542, and any similar provision in any other jurisdiction (if you are a resident of such other jurisdiction), which states: "A general release does not extend to claims which the creditor does not know or suspect to exist in his favour at the time of executing the release, which, if known by him must have materially affected his settlement with the debtor”.
+
+
+## TENCENT CLOUD TERMS OF SERVICE (EUROPEAN UNION-SPECIFIC TERMS)
+
+If you are a user of Tencent Cloud in the European Union, and you are a natural person who is acting for purposes which are outside your trade, business, craft or profession as defined under the EU Directive 2011/83/EU on consumer rights, the below Additional Terms and Policies: (a) are incorporated into these Terms; (b) apply to your use of Tencent Cloud; and (c) override the head terms of these Terms to the extent of any inconsistency.
+
+**Right of withdrawal**
+
+(a)You have the right to withdraw from this contract within 14 days without giving any reason.
+
+(b)The withdrawal period will expire after 14 days from the day of the signing of the contract.
+
+(c)To exercise the right of withdrawal, you must notify us (within the 14 days period referenced in paragraph (b) above) of your decision to withdraw from this contract by: (i) an unequivocal statement , and (ii) notifying our Customer Support team via the contact details set out at Section 1.5(b) of these Terms. You may use the below model withdrawal form, but it is not obligatory.
+
+(d)To meet the withdrawal deadline, it is sufficient for you to send your communication concerning your exercise of the right of withdrawal before the withdrawal period has expired.
+
+**Effects of withdrawal**
+
+(a)If you withdraw from this contract, we will reimburse to you all payments received from you, including the costs of delivery (with the exception of the supplementary costs resulting from your choice of a type of delivery other than the least expensive type of standard delivery offered by us), without undue delay and in any event not later than 14 days from the day on which we are informed about your decision to withdraw from this contract. We will carry out such reimbursement using the same means of payment as you used for the initial transaction, unless you have expressly agreed otherwise; in any event, you will not incur any fees as a result of such reimbursement.
+
+(b)If you requested to begin the performance of services during the withdrawal period, you will pay us an amount which is in proportion to what has been provided until you have communicated us your withdrawal from this contract, in comparison with the full coverage of the contract.
+
+**Model withdrawal form**
+
+To: Aceville Pte Ltd, 16 Collyer Quay, No. 1829, Level 18, Singapore 049318
+
+I hereby give notice that I withdraw from my contract for the provision of the following service,
+
+Ordered on <sup>(1)</sup>/received on <sup>(1)</sup>
+
+Name of consumer(s),
+
+Address of consumer(s),
+
+Signature of consumer(s) (only if this form is notified on paper),
+
+Date
+
+<sup>(1)</sup>Delete as appropriate.
+
+**Liability for Tencent Cloud - limitation of liability**
+
+(a)We and our affiliate companies are liable without limitation for damages in cases of intent or gross negligence.
+
+(b)We and our affiliate companies will further be liable for damages caused by slight negligence only if they are due (i) to a material breach of duty which endangers the achievement of the objective of the contract with you, or (ii) to a failure to comply with duties the very discharge of which is an essential prerequisite for the proper performance of the contract and on the observance of which you may rely. In these cases, our liability will be limited to the damage which can be typically foreseen for such type of contracts. We exclude any further liability in cases of slight negligence.
+
+(c)The above limitations of liability will apply to all claims for damages, irrespective of their legal cause, except for claims for damages in the event of (i) an injury to life, body or health, (ii) an explicit assumption of a guarantee (in which case the liability terms and limitation period under the guarantee, if any, will apply), and (iii) a violation of the specific national implementation of Directive 85/374/EEC (“Product Liability Directive”) in the Member State of the EU in which you are domiciled or of which you are a resident.
+
+(d)To the extent that the liability of us and our affiliate companies is excluded or limited, this also applies to the personal liability of our employees, statutory representatives and agents.
+
+**Dispute Resolution**
+
+Notwithstanding Section 23 of these Terms, any dispute, controversy or claim (whether in contract, tort or otherwise) between us and you, arising out of, relating to, or in connection with these Terms will be referred to and finally resolved by the court of your place or residence or domicile.
+
+## TENCENT CLOUD TERMS OF SERVICE (SOUTH KOREA-SPECIFIC TERMS)
+If you are a user of Tencent Cloud in the Republic of Korea (i.e. South Korea), the below Additional Terms and Policies: (a) are incorporated into these Terms; (b) apply to your use of Tencent Cloud; and (c) override the head terms of these Terms to the extent of any inconsistency.
+The following terms apply to you if you are a consumer as defined under the Act on Consumer Protection in Electronic Commerce.
+
+**Cancellation period**
+
+Upon purchasing any service or feature of Tencent Cloud, you may cancel your purchase or order within 7 days from the date of your receipt of notice regarding the purchase or order, by notifying (within such 7 days period) our Customer Support team via the contact details set out at Section 1.5(b) of these Terms; provided that if you have already used the relevant service or feature of Tencent Cloud, we may refund the amount paid by you after deducting the relevant fees for such service or feature used, as calculated on a daily basis up to the date of your cancellation or cessation of use, as the case may be.
+  
+**Suspension of your account **
+
+We will only suspend or terminate your Tencent Cloud account if we have a legitimate reason for doing so, and we will give you 30 days' notice unless we are unable to do so (e.g. for legal reasons).
+
+If you do not use your Tencent Cloud account for a period of at least 6 months, we may suspend or terminate your account, but we will give you at least 30 days' notice before doing so.
+
+**Prepaid charges**
+
+You may request a refund of prepaid charges (or a relevant proportion of prepaid charges) where a material functional error or technical failure occurs in the provision of Tencent Cloud, such that the functional error or technical failure makes it impossible or substantially disruptive to accomplish the original purposes of using Tencent Cloud.
+
+**Erroneous charges**
+
+If you believe that we have charged you in error: (a) you may contact us to claim for a refund of the allegedly erroneous charge; and (b) we will refund the erroneous charges if we determine that there have been any such erroneous charges after reviewing your claim/request.
