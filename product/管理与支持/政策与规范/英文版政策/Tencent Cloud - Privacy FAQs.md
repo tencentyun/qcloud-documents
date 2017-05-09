@@ -1,7 +1,4 @@
-
-Last modified: [Insert date that this Policy goes live.]
-
-**INTRODUCTION  **
+## INTRODUCTION  
 
 Welcome to Tencent Cloud!
 
@@ -15,7 +12,7 @@ In this Policy:
    - 
 Please note that where you submit any Personal Information (other than Customer Personal Information) to us in your use of Tencent Cloud, we will use, process and store such Personal Information in accordance with the Tencent Privacy Policy. [@Elong: please include a link to the Tencent umbrella privacy policy.]
 
-**PARTIES' RESPONSIBILTIES FOR COMPLIANCE**
+## PARTIES' RESPONSIBILTIES FOR COMPLIANCE
 
 By using Tencent Cloud:
 
