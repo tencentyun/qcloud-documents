@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (BatchReceiveMessage) is used to consume multiple messages in the queue (currently, you can consume up to 16 at a time). The BatchReceiveMessage operation will change the status of received messages into "inactive". The duration of "inactive" status is determined by the queue attribute visibilityTimeout (Refer to [CreateQueue API](/doc/api/431/5832) for details). The consumer needs to delete the message using (batch)DeleteMessage API after the message has been successfully consumed within visibilityTimeout. Otherwise the message will return to "active" status and can be consumed by consumers again.
 
@@ -16,7 +16,7 @@ Domain for private network API request:<font style="color:red">cmq-queue-region.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/229/1230).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
