@@ -1,25 +1,26 @@
 ## 简介
 
-Android平台的客户端上传SDK，可向腾讯云点播系统上传视频和封面文件。
+iOS 平台的客户端上传 SDK，可向腾讯云点播系统上传视频和封面文件。
 
-### 集成方式
+## 集成方式
+### 下载 SDK
 
-下载[iOS UGC SDK](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.2.2801.zip)，引入依赖包。
+下载 [iOS SDK](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.2.2801.zip)，引入依赖包。
 
 ![](http://mc.qcloudimg.com/static/img/397fddc2dffe71787a849e279e8864b1/image.png)
 
 ### 配置项目
 
-位置：Build Settings -> Other Linker Flags
+位置：***Build Settings -> Other Linker Flags***
 
 ![](http://mc.qcloudimg.com/static/img/1363842b36c56ecee4230c9e86fec473/image.png)
 
-**注意**
+***注意***
 
-* libCOSClient.a有模拟器和真机版本，请根据开发环境使用对应的版本
-* 务必强制加载libCOSClient.a静态库，否则会导致crash
+* libCOSClient.a 有模拟器和真机版本，请根据开发环境使用对应的版本
+* 务必强制加载 libCOSClient.a 静态库，否则会导致 crash
 
-## 本地视频上传步骤
+## 上传步骤
 
 ### 第一步：初始化
 
@@ -27,9 +28,9 @@ Android平台的客户端上传SDK，可向腾讯云点播系统上传视频和�
 
 | 参数名称 | 必填 | 类型 | 含义 |
 | --- | --- | --- | --- |
-| secretId | 是 | String | [云API密钥](https://console.qcloud.com/capi)的Secret ID |
-| signature | 是 | String | 从APP服务器获取的[客户端上传签名](/document/product/266/9221) |
-| forceHttps | 是 | Bool | 是否只允许使用HTTPS协议 |
+| secretId | 是 | String | [云 API 密钥](https://console.qcloud.com/capi)的 Secret ID |
+| signature | 是 | String | 从 APP 服务器获取的[上传签名](/document/product/266/9221) |
+| forceHttps | 是 | Bool | 是否只允许使用 HTTPS 协议 |
 
 ```objectivec
 TVCConfig *config = [[TVCConfig alloc] init];
@@ -41,7 +42,7 @@ self.client = [[TVCClient alloc] initWithConfig:config];
 
 ### 第二步：指定上传目标
 
-指定上传目标的参数有视频和封面信息。如果只上传视频，则封面路径参数填空字符串。
+上传目标有视频和封面信息，如果只上传视频，则封面信息参数填空字符串。
 
 | 参数名称 | 必填 |类型 | 含义 |
 | --- | --- | --- | --- |

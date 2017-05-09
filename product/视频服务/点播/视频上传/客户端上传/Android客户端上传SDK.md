@@ -1,17 +1,17 @@
 ## 简介
 
-Android平台的客户端上传SDK，可向腾讯云点播系统上传视频和封面文件。
+Android 平台的客户端上传 SDK，可向腾讯云点播系统上传视频和封面文件。
 
 ## 集成方式
 
-下载[Android UGC SDK](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.2.2801.zip)，导入所需的jar包:
+下载 [Android SDK](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.2.2801.zip)，导入所需的 jar 包:
 
 >* tvcsdk.jar
 >* okio-1.6.0.jar
 >* okhttp-3.2.0.jar
 >* cos-sdk-android-1.4.2.jar
 
-SDK需要一些网络访问相关的权限，需在**AndroidManifest.xml**中增加如下权限说明:
+SDK 需要一些网络访问相关的权限，需在 ***AndroidManifest.xml*** 中增加如下权限说明:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -24,7 +24,7 @@ SDK需要一些网络访问相关的权限，需在**AndroidManifest.xml**中增
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 ```
 
-## 本地视频上传步骤
+## 上传步骤
 
 ### 第一步：初始化
 
@@ -32,9 +32,9 @@ SDK需要一些网络访问相关的权限，需在**AndroidManifest.xml**中增
 
 | 参数名称 | 必填 | 类型 | 含义 |
 | --- | --- | --- | --- |
-| context | 是 | Context | 上下文，可以填getApplicationContext() |
-| secretId | 是 | String | [云API密钥](https://console.qcloud.com/capi)的Secret ID |
-| signature | 是 | String | 从APP服务器获取的[客户端上传签名](/document/product/266/9221) |
+| context | 是 | Context | 上下文，可以填 getApplicationContext() |
+| secretId | 是 | String | [云 API 密钥](https://console.qcloud.com/capi)的 Secret ID |
+| signature | 是 | String | 从 APP 服务器获取的[客户端上传签名](/document/product/266/9221) |
 | timeout | 否 | Integer | 网络请求超时时间，默认为8秒 |
 
 ```java
@@ -43,7 +43,7 @@ TVCClient client = new TVCClient(context, secretId, signature);
 
 ### 第二步：指定上传目标
 
-指定上传目标的参数有视频和封面信息。如果只上传视频，则封面信息参数填空字符串。
+上传目标有视频和封面信息，如果只上传视频，则封面信息参数填空字符串。
 
 | 参数名称 | 必填 |类型 | 含义 |
 | --- | --- | --- | --- |
