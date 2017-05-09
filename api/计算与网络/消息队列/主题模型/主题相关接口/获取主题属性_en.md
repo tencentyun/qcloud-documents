@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (GetTopicAttributes) is used to get the attributes of a created topic. In addition to the configurable attributes that are configured when a topic is created, the returned attributes also include the topic creation time (createTime), the time when the topic attributes were last modified (lastModifyTime) and the statistics about the messages in the topic (approximate value).
 

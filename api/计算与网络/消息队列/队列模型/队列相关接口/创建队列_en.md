@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (CreateQueue) is used to create a new queue under the user's account.
 

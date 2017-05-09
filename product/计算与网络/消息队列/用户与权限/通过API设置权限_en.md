@@ -1,4 +1,4 @@
-﻿## Prerequisite: Key of Sub-user
+## Prerequisite: Key of Sub-user
 
 Log in to the console using the account and password of sub-account, and you can find the key of sub-user in the "Cloud Products" - "[Cloud API Key](https://console.qcloud.com/capi)". The key is used to generate the signature, and you can have access to relevant Tencent Cloud resources after passing the verification.
 
@@ -108,8 +108,6 @@ This API is used for users or user groups to associate with/remove policies.
 	"actionType":1
 }
 ```
-
-
 ## Instructions
 > Note: This section is applicable to user and permission management of various services. When setting CMQ service, please determine the relevant values of CMQ according to the following instructions.
 

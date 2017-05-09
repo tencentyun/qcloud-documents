@@ -1,4 +1,3 @@
-﻿
 ## Queue Model
 
 ### Queue-related APIs

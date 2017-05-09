@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (BatchPublishMessage) is used to publish a batch of messages (a maximum of 16 currently) to a specified topic.
 

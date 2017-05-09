@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (CreateTopic) is used to create a new topic under the user's account.
 
