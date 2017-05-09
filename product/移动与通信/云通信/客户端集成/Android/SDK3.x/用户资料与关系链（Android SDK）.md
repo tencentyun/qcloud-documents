@@ -1554,38 +1554,3 @@ public void getFutureFriends(long flags, long futureFlags, @Nullable List<String
 							 @NonNull TIMFriendFutureMeta meta, TIMValueCallBack<TIMGetFriendFutureListSucc> cb)
 ```
 
-## 11. 昵称检索 
-
-Imsdk允许用户根据昵称来搜索用户。  
-
-**原型：**
-
-```
-/**
- * 根据昵称信息搜索用户资料
- * @param nickName 用户昵称关键字
- * @param pageIndex 分页号
- * @param pageSize 每个分页的用户数
- * @param cb 回调，在onSuccess回调参数中返回搜索结果{@see TIMUserSearchSucc}
- */
-public void searchUserByNickname(@NonNull String nickName, long pageIndex, long pageSize, 
-								 @NonNull TIMValueCallBack<TIMUserSearchSucc> cb)
-
-```
-
-**示例：**
-
-```
-TIMFriendshipManagerExt.getInstance().searchUser("test_user", 0, 10, new TIMValueCallBack<TIMUserSearchSucc>() {
-    @Override
-    public void onError(int code, String desc) {
-        Log.d(tag, "search user failed, code:" + code + " desc:" + desc);
-    }
-
-    @Override
-    public void onSuccess(TIMUserSearchSucc timUserSearchSucc) {
-        Log.d(tag, "search user succ. total:" + timUserSearchSucc.getTotalNum() + "|vecSize:" + timUserSearchSucc.getInfoList().size());
-    }
-});
-```
-
