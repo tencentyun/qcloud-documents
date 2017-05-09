@@ -11,8 +11,8 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| loadBalancerId | 是 | String |   负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/document/product/456/9306)查询。|
-| listenerId | 是 | String | 负载均衡四层监听器ID，可通过接口[DescribeBmListeners](/document/product/456/9296)查询。|
+| loadBalancerId | 是 | String |   负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/document/product/386/9306)查询。|
+| listenerId | 是 | String | 负载均衡四层监听器ID，可通过接口[DescribeBmListeners](/document/product/386/9296)查询。|
 | vmList | 是 | Array |   待绑定的虚机信息。可以绑定多个主机端口。目前一个四层监听器下面最多允许绑定255个主机端口。|
 
 vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
