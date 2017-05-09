@@ -1983,47 +1983,4 @@ meta | 请求信息，参见 TIMFriendFutureMeta 定义
 succ | 成功回调
 fail | 失败回调
 
-## 11. 昵称检索 
-
-ImSDK支持使用依照昵称模糊搜索用户，使用SearchUser实现。 
-
-**原型：**
-
-```
-/**
- *  按昵称信息搜索用户资料
- *
- *  @param nickName    用户名称内容
- *  @param pageIndex   分页号
- *  @param pageSize    每页用户数目
- *  @param succ  成功回调，返回 TIMUserProfile* 列表
- *  @param fail  失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SearchUser:(NSString*)nickName pageIndex:(uint64_t)pageIndex pageSize:(uint64_t)pageSize succ:(TIMUserSearchSucc)succ fail:(TIMFail)fail;
-```
-**参数说明：**
-
-参数 | 说明
---- | ---
-nickName  | 要搜索的昵称关键字 
-pageIndex  |  分页号，从0开始 
-pageSize      | 每页的数量 
-succ            | 成功回调，返回搜索结果 
-fail              | 失败回调 
-
-**示例： **
-
-```
-[[TIMFriendshipManager sharedInstance] SearchUser:@"test" pageIndex:0 pageSize:10 succ:^(uint64_t totalNum, NSArray * users) {
-    NSLog(@"total num=%llu", totalNum);
-    NSLog(@"users=%@", users);
-} fail:^(int code, NSString * msg) {
-    NSLog(@"SearchUser failed: code=%d, err=%@", code, msg);
-}];
-```
-
-示例中检索名称中包含@"test"的用户列表。 
-
 
