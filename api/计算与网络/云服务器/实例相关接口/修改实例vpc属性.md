@@ -13,13 +13,13 @@
 
 以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/6976)页面。
 
-| 名称      |    类型 |  是否必选 | 描述|
+| 名称      |  是否必选|    类型  | 描述|
 |---------|---------|---------|---------|
-|instanceId |String|是|待操作的实例ID。可通过 [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API返回值中的 unInstanceId 获取|
-|vpcId | String| 是 |私有网络ID。|
-|subnetId| String|是|私有网络子网ID。|
-|privateIpAddresses.n| array of Strings|是|私有子网ip数组，目前只支持一个ip。|
-|autoPowerOffFlag| int| 否 |1表示自动关机，0表示不自动关机，默认为1|
+|instanceId |是|String|待操作的实例ID。可通过 [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API返回值中的 unInstanceId 获取|
+|vpcId | 是 |String| 私有网络ID。|
+|subnetId| 是|String|私有网络子网ID。|
+|privateIpAddresses.n| 是|array of Strings|私有子网ip数组，目前只支持一个ip。|
+|autoPowerOffFlag| 否 |int| 1表示自动关机，0表示不自动关机，默认为1|
 
 ## 3. 输出参数
  
