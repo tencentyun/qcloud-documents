@@ -15,7 +15,7 @@
 
 | 名称      |    类型 |  是否必选 | 描述|
 |---------|---------|---------|---------|
-|instanceId |String|是|String|待操作的实例ID。可通过 [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API返回值中的 unInstanceId 获取|
+|instanceId |String|是|待操作的实例ID。可通过 [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API返回值中的 unInstanceId 获取|
 |vpcId | String| 是 |私有网络ID。|
 |subnetId| String|是|私有网络子网ID。|
 |privateIpAddresses.n| array of Strings|是|私有子网ip数组，目前只支持一个ip。|
