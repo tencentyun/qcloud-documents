@@ -43,6 +43,9 @@
 | 物理机加入子网 | [CreateBmInterface](/document/product/386/9265) | 用于黑石物理机加入其虚拟子机所在子网。 |
 | 物理机移除子网 | [DelBmInterface](/document/product/386/9266) | 用于黑石物理机从其虚拟子机所在子网移除。 |
 | 查询任务状态 | [QueryBmTaskResult](/document/product/386/9267) | 用于查询黑石物理机加入、移除子网等操作任务的状态。 |
+| 查询子网IP分配列表 | [DescribeBmSubnetIps](/document/product/386/9318) | 用于查询黑石VPC子网IP分配列表。 |
+| 查询加入子网的物理机列表 | [DescribeBmCpmBySubnetId](/document/product/386/9319) | 用于查询加入到子网的所有物理机列表。 |
+| 查询物理机加入的子网列表 | [DescribeBmSubnetByCpmId](/document/product/386/9320) | 用于查询物理机加入的子网列表。 |
 
 ## 5. 负载均衡相关接口
 | 接口功能 | Action ID | 功能描述 |

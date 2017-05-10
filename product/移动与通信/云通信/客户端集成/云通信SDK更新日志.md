@@ -1,3 +1,12 @@
+#### IM Lite SDK3.0 2017-5-8
+1. 将ImSDK和IMCore重新组合为ImSDK、IMMessageExt、IMGroupExt和IMFriendExt
+2. 优化ImSDK初始化方法为initSdk：和setUserConfig
+3. 整理ImSDK中接口命名和Protocol回调方法命名，统一小写字母开头
+4. ImSDK功能：基本的登录、收发消息、资料和群组功能
+5. IMMessageExt功能：全量消息功能，包括拉取消息、本地存储、未读计数等
+6. IMGroupExt功能：全量群组功能，包括所有群组类型管理、群成员管理等
+7. IMFriendExt功能：全量资料关系链功能，包括好友列表、黑名单等
+
 #### IM SDK2.5.4 2017-4-28
 1. 修复IMSDK中定时器机制的BUG
 

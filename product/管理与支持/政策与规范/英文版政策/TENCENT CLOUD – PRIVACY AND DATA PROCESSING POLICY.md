@@ -1,7 +1,4 @@
-TENCENT CLOUD – PRIVACY AND DATA PROCESSING POLICY
-Last modified: [Insert date that this Policy goes live.]
-
-##INTRODUCTION  
+## INTRODUCTION  
 
 Welcome to Tencent Cloud!
 This Policy informs you of our practices for processing Customer Personal Information (as defined below) that you submit, upload, transmit or display as part of Your Content in connection with your use of Tencent Cloud.  It is important for you to understand how we treat Customer Personal Information, so please read this Policy carefully. 

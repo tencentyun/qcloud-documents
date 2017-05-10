@@ -1,3 +1,5 @@
+Last modified: [Insert date that this TOS goes live]
+
 ## 1.THESE TERMS AND TENCENT CLOUD
 
 Welcome to Tencent Cloud! Your use of Tencent Cloud is subject to these Terms of Service (these "Terms"). Thank you for reviewing these Terms – we hope you enjoy using Tencent Cloud. 
@@ -17,8 +19,8 @@ Welcome to Tencent Cloud! Your use of Tencent Cloud is subject to these Terms of
 (f)If you are using Tencent Cloud on behalf of a company, partnership, association, government or other organisation (your “Organisation”), you represent and warrant that you are authorised to do so and that you are authorised to bind your Organisation to these Terms. In such circumstances, “you” will include your Organisation.
 
 (g)We may translate these Terms into multiple languages. If there is any difference between the English version and any other language version of these Terms, the English version will apply (to the extent permitted by applicable laws and regulations).
-
-**1.2　Contracting Entity**
+**
+1.2　Contracting Entity**
 
 (a)By using Tencent Cloud, you are agreeing to be bound by these Terms between you and Aceville Pte Ltd, a Singaporean company located at 16 Collyer Quay, No. 1829, Level 18, Singapore 049318 (“we”, “our” and “us”). 
 
@@ -34,7 +36,7 @@ For the purposes of these Terms, any reference to "Tencent Cloud" in these Terms
 
 **1.4 These Terms apply only to your use of Tencent Cloud's non-China located servers**
 
-For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at[ [腾讯云服务协议]](https://www.qcloud.com/document/product/301/1967). Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
+For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at [[腾讯云服务协议]](https://www.qcloud.com/document/product/301/1967?lang=en). Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
 
 **1.5 Contacting us**
 
@@ -74,11 +76,11 @@ If you are a citizen or a habitual resident of any of the following countries, t
 
 You must comply with the following policies in using Tencent Cloud:
 
-(a)[Privacy and Data Processing Policy ](https://www.qcloud.com/document/product/301/9247)– which sets out how we collect, store and process Your Content. 
+(a)Privacy and Data Processing Policy – which sets out how we collect, store and process Your Content. 
 
-(b)[Acceptable Use Policy](https://www.qcloud.com/document/product/301/9245) – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
+(b)Acceptable Use Policy – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
 
-(c)[Copyright Policy](https://www.qcloud.com/document/product/301/9246) – which sets out how we deal with copyright-related complaints. 
+(c)Copyright Policy – which sets out how we deal with copyright-related complaints. 
 
 **2.4 Inconsistencies **
 
@@ -109,7 +111,7 @@ You agree that we may take any such actions at any time.
 5.1You may need to create an account with us in order to access and use Tencent Cloud.
 
 5.2Any account that you open with us is personal to you and you are prohibited from gifting, lending, transferring or otherwise permitting any other person to access or use your account. Your account name, user ID and other identifiers you adopt within Tencent Cloud remains our property and we can disable, reclaim and reuse these once your account is terminated or deactivated for whatever reason by either you or us.
-
+ 
 5.3You are responsible for: 
 
 (a)safeguarding your account details, including any passwords used to access your account and Tencent Cloud, and 
@@ -221,7 +223,7 @@ and for each of sub-paragraphs (i) to (iv), whether the relevant applicable law 
 
 ## 9.Responsibility for End Users
 
-Where you or any third party directly or indirectly: 
+9.1Where you or any third party directly or indirectly: 
 
 (a)accesses or uses Your Content; or
 
@@ -241,7 +243,7 @@ you agree to the following:
 
 We comply with the provisions of the Digital Millennium Copyright Act applicable to Internet service providers (17 U.S.C. §512, as amended). If you have a copyright-related complaint about any content posted in Tencent Cloud, please follow the instructions set out in our Tencent Cloud Copyright Policy. 
 
-## 11.ADVERTISING CONTENT ON TENCENT CLOUD
+### 11.ADVERTISING CONTENT ON TENCENT CLOUD
 
 11.1Tencent Cloud may include advertising or commercial content. You agree that: 
 
@@ -436,6 +438,7 @@ the following terms apply:
 (c)these Terms and any dispute or claim arising out of or in connection with these Terms will be governed by the law of the Hong Kong Special Administrative Region; and
 
 (d)any dispute, controversy or claim (whether in contract, tort or otherwise) arising out of, relating to, or in connection with these Terms, including their existence, validity, interpretation, performance, breach or termination, will be referred to and finally resolved by arbitration administered by the Hong Kong International Arbitration Centre under the Hong Kong International Arbitration Centre Administered Arbitration Rules in force when the Notice of Arbitration is submitted. The seat of the arbitration will be Hong Kong. There will be one arbitrator only. The arbitration proceedings will be conducted in English.
+
 
 ## TENCENT CLOUD TERMS OF SERVICE (USA-SPECIFIC TERMS)
 
