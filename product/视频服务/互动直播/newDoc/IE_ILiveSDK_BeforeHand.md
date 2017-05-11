@@ -7,7 +7,7 @@
 32位IE9，32位IE10，IE11
 
 ## 下载SDK和DEMO
-demo工程是基于ILiveSDK(IE)开发的互动直播应用。应用名为随心播，可以与其他终端的随心播互通。您可以在腾讯云官网下载ILiveSDK(IE)及其demo。其中包含了ILiveSDK(IE)，接口文档，js接口文件和接口调用示例等，具体如下：
+demo工程是基于ILiveSDK(IE)开发的互动直播应用。应用名为随心播，可以与其他终端的随心播互通。您可以在[腾讯云官网下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/iLiveSDK_web.zip)ILiveSDK(IE)及其demo。其中包含了ILiveSDK(IE)，接口文档，js接口文件和接口调用示例等，具体如下：
   
 
 文件 | 说明 | 
