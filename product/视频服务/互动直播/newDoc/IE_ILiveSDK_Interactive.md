@@ -4,12 +4,23 @@ iLiveSDK中的音视频通讯能力被抽象为房间这个概念。在同一个
 
 ![业务流程](http://mc.qcloudimg.com/static/img/e6632b362fbc90745505823b1dc295bd/image.png)
 
-## 初始化
-使用其他各项功能前必须将iLiveSDK初始化。
+## 创建对象
+创建iliveSDK对象供后续使用。
 
 ```
 //iLiveSDK是cab组件的id
 var sdk = new ILiveSDK(sdkappid, accounttype, "iLiveSDK");
+```
+
+## 初始化
+使用其他各项功能前必须将iLiveSDK初始化。
+
+```
+sdk.init(function () {
+    alert("init succ");
+}, function (errMsg) {
+    alert("错误码:" + errMsg.code + " 错误信息:" + errMsg.desc);
+});
 ```
 
 ## 登录
