@@ -35,8 +35,7 @@ iLiveSDK/iLiveSDK.js | 互动直播接口，封装了iLiveSDK.cab的接口供业
  1. 将cab文件和iLiveSDK.js放入电脑任意位置
  2. 在html页面中添加`
 <object id="iLiveSDK" classid="CLSID:54E71417-216D-47A2-9224-C991A099C531" codebase="路径/iLiveSDK.cab"></object>`
- 3. 在html页面中添加js接口文件`
-<script type="text/javascript" src="路径/iLiveSDK.js"></script>`
+ 3. 在html页面中添加js接口文件<script type="text/javascript" src="路径/iLiveSDK.js"></script>
  4. 调用iLiveSDK中的接口实现业务需求
 
 ## SDK日志
