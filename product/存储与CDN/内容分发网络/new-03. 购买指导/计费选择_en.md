@@ -36,8 +36,8 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 ### Calculation Method
 Assume that the CDN peak bandwidth for the previous day is X, the tiered calculation is performed as follows:
 
-> If X < 500 Mbps, the charge billed is X  * 1.1;
-> If 500Mbps <= X < 5000Mbps, the charge billed is X  * 1.0;
+> If X < 500 Mbps, the charge billed is X  /* 1.1;
+> If 500Mbps <= X < 5000Mbps, the charge billed is X  /* 1.0;
 > If 5000Mbps <= X < 50000Mbps, the charge billed is X * 0.9;
 > If X >= 50000Mbps, please contact us for off-line contracting. We have more discount options available for you.
 
