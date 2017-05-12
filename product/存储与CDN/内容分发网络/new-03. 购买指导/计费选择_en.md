@@ -36,9 +36,9 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 ### Calculation Method
 Assume that the CDN peak bandwidth for the previous day is X, the tiered calculation is performed as follows:
 
-> If X < 500 Mbps, the charge billed is X \ * 1.1;
-> If 500Mbps <= X < 5000Mbps, the charge billed is X \ * 1.0;
-> If 5000Mbps <= X < 50000Mbps, the charge billed is X \ * 0.9;
+> If X < 500 Mbps, the charge billed is X  * 1.1;
+> If 500Mbps <= X < 5000Mbps, the charge billed is X  * 1.0;
+> If 5000Mbps <= X < 50000Mbps, the charge billed is X * 0.9;
 > If X >= 50000Mbps, please contact us for off-line contracting. We have more discount options available for you.
 
 You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for a charge estimation.
@@ -84,13 +84,13 @@ CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with 
 Unlike "Pay by Bandwidth", "Pay by Traffic" method takes a tiered progressive approach based on monthly traffic. Examples on how to calculate the charge are illustrated as shown below:
 
 + If the traffic consumed on January 1 is 3TB, as shown in the figure below: The gray bar in the figure is the actual billing tier, and green bar is the traffic consumed on January 1, out of which 2TB falls into 0TB - 2TB billing tier and the remaining 1TB into 2TB - 10TB billing tier, so the actual charge billed for January 1 equals 2\* 1000 \* 0.34 + 1\* 1000\* 0.32;
-![](https://mc.qcloudimg.com/static/img/bfdae242f6cca57421a65e46a96b0c67/image.png)
+  ![](https://mc.qcloudimg.com/static/img/bfdae242f6cca57421a65e46a96b0c67/image.png)
 
 + If the traffic consumed on January 2 is also 3TB, as shown in the figure below: The traffic will be accumulated on a monthly basis for "Pay by Traffic" method. In this way, the total traffic consumed on January 2 falls into 2TB - 10TB billing tier, and the actual charge billed for January 2 equals 3\* 1000\* 0.32;
-![](https://mc.qcloudimg.com/static/img/f62d1056c1c2cab249cec62ad6e74ddc/image.png)
+  ![](https://mc.qcloudimg.com/static/img/f62d1056c1c2cab249cec62ad6e74ddc/image.png)
 
 + If the traffic consumed on January 3 is 7TB, as shown below: Among the 7TB, 4TB falls into 2TB - 10TB billing tier and 3TB into 10TB - 50TB billing tier, so the actual charge charged for January 3 equals 4\* 1000\* 0.32 + 3\* 1000\* 0.3;
-![](https://mc.qcloudimg.com/static/img/954e2d483e31afd411f9a91ebd7f66c8/image.png)
+  ![](https://mc.qcloudimg.com/static/img/954e2d483e31afd411f9a91ebd7f66c8/image.png)
 
 By such a way, the charge for each day in January can be calculated. From February 1, a new progressive billing process will be started from scratch.
 
