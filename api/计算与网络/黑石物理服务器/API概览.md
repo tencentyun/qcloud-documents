@@ -46,6 +46,16 @@
 | 查询子网IP分配列表 | [DescribeBmSubnetIps](/document/product/386/9318) | 用于查询黑石VPC子网IP分配列表。 |
 | 查询加入子网的物理机列表 | [DescribeBmCpmBySubnetId](/document/product/386/9319) | 用于查询加入到子网的所有物理机列表。 |
 | 查询物理机加入的子网列表 | [DescribeBmSubnetByCpmId](/document/product/386/9320) | 用于查询物理机加入的子网列表。 |
+| 查询黑石NAT网关列表 | [DescribeBmNatGateway](/document/product/386/9355) | 用于查询黑石NAT网关。 |
+| 查询NAT网关的操作状态 | [QueryBmNatGatewayProductionStatus](/document/product/386/9356) | 用于查询黑石NAT网关的操作状态。 |
+| 创建黑石NAT网关 | [CreateBmNatGateway](/document/product/386/9348) | 用于创建黑石NAT网关。 |
+| 删除黑石NAT网关 | [DeleteBmNatGateway](/document/product/386/9349) | 用于删除黑石NAT网关。 |
+| NAT网关绑定EIP | [EipBindBmNatGateway](/document/product/386/9350) | 用于黑石NAT网关绑定EIP。 |
+| NAT网关解绑EIP | [EipUnBindBmNatGateway](/document/product/386/9351) | 用黑石于NAT网关解绑EIP。 |
+| NAT网关绑定子网 | [SubnetBindBmNatGateway](/document/product/386/9352) | 用于黑石NAT网关绑定子网。 |
+| NAT网关解绑子网 | [SubnetUnBindBmNatGateway](/document/product/386/9353) | 用黑石于NAT网关解绑子网。 |
+| 升级NAT网关规格 | [UpgradeBmNatGateway](/document/product/386/9354) | 用于升级黑石NAT网关规格。 |
+
 
 ## 5. 负载均衡相关接口
 | 接口功能 | Action ID | 功能描述 |
