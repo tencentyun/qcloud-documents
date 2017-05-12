@@ -38,7 +38,7 @@
 | 13011 | BmVpcNat.InvalidEipVpcId | 弹性IP所属VPC与NAT网关不一致。 |
 | 13012 | BmVpcNat.SubnetUsed | 子网已被绑定到其他NAT网关。 |
 | 13013 | BmVpcNat.EipUsed | 绑定NAT网关的弹性IP已被使用。 |
-| 13015 | BmVpcNat.EipLimitExceeded | 绑定NAT网关的弹性IP已被使用。 |
+| 13015 | BmVpcNat.EipLimitExceeded | 绑定NAT网关的弹性IP达到上限。 |
 ## 5. 示例
 输入
 <pre>
