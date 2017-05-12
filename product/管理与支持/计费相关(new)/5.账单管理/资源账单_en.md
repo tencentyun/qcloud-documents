@@ -19,14 +19,14 @@ Prepaid resources charged each month
 
 - The resources that charges on an hourly basis: The resource statement of October shows the postpaid resources that charges on an hourly basis used from 23:00, September 30 to 23:00, October 31 (if any).
 
-<font color="red">The above time may not be exactly when the postpaid resources have a delayed settlement</font>.
+The above time may not be exactly when the postpaid resources have a delayed settlement.
 
 - If the postpaid resources that charges on an hourly basis after 22:00, October 31 have a delayed settlement, then the resource statement of October will only show the postpaid resources that charges on an hourly basis used from 23:00, September 30 to 22:00, October 31.
 
 
-## How to check the postpaid (Pay by Usage) resource statement?
+## How do I check the postpaid (pay by usage) resource statement?
 
-Select "Postpaid" to view the deduction records and the total amount of deductions of corresponding postpaid resources. Postpaid resources combine and show the deduction records of the month based on instance and month dimension, and provide statements to see the usage details. For the expenses in the records: the resources that charges on a monthly basis is used in the last month; the resources that charges on a daily basis is used from the last day of the last month to the last but one day of this month; the resources that charges on an hourly basis is used from the last hour of the last month to the last but one hour of this month. The deduction records and usage statements of postpaid resources are also available for download.
+Select **Postpaid** to view the deduction records and the total deduction amount of corresponding postpaid resources. Postpaid resources show monthly deduction records based on instance, and provide statements of usage details. For the expenses in the records: the resources that charges on a monthly basis is used in the last month; the resources that charges on a daily basis is used from the last day of the last month to the last but one day of this month; the resources that charges on an hourly basis is used from the last hour of the last month to the last but one hour of this month. The deduction records and usage statements of postpaid resources are also available for download.
 
 ![](https://mc.qcloudimg.com/static/img/919e97e8ef317b19fcc4e14c189f89b4/2.png)
 

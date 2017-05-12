@@ -1,3 +1,3 @@
-###  How to use vouchers?
+###  How do I use vouchers?
 
-Please refer to [Instructions on Use of Vouchers](/doc/product/285/代金券).
+For more information, please see [Instructions on Use of Vouchers](/doc/product/285/代金券).
