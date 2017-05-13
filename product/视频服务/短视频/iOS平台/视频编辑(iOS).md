@@ -1,85 +1,80 @@
-ï»¿## è§†é¢‘ç¼–è¾‘
+ï»¿
+## ½Ó¿Ú½éÉÜ
 
-### åŠŸèƒ½æ¦‚è¿°
-
-è§†é¢‘ç¼–è¾‘æ˜¯å½“å‰æµè¡Œçš„å°è§†é¢‘åŠŸèƒ½é‡Œï¼Œä¸€ä¸ªä¸å¯ç¼ºå°‘çš„åŠŸèƒ½ã€‚RTMP SDK 2.0.2æä¾›äº†æœ€åŸºç¡€çš„è£å‰ªå’Œåˆå¹¶åŠŸèƒ½ï¼ˆæ»¤é•œã€æ··éŸ³ã€å­—å¹•ç­‰é«˜çº§åŠŸèƒ½å°šåœ¨å¼€å‘ä¸­ï¼‰ã€‚
-
-### æ¥å£ä»‹ç»
-
-| ç±»å                   | åŠŸèƒ½       |
+| ÀàÃû                   | ¹¦ÄÜ       |
 | -------------------- | -------- |
-| TXUGCVideoInfoReader | è§†é¢‘æ–‡ä»¶ä¿¡æ¯è¯»å– |
-| TXUGCEditer          | è§†é¢‘ç¼–è¾‘     |
-| TXUGCJoiner          | è§†é¢‘åˆå¹¶     |
-| TXOperationParam     | æ“ä½œç±»å‹å¯¹è±¡   |
+| TXUGCVideoInfoReader | ÊÓÆµÎÄ¼şĞÅÏ¢¶ÁÈ¡ |
+| TXUGCEditer          | ÊÓÆµ±à¼­     |
+| TXUGCJoiner          | ÊÓÆµºÏ²¢     |
+| TXOperationParam     | ²Ù×÷ÀàĞÍ¶ÔÏó   |
 
-### æ¥å…¥æ­¥éª¤
+## ½ÓÈë²½Öè
 
-### 1. è§†é¢‘ä¿¡æ¯è·å–
-#### 1.1 è·å–è§†é¢‘åŸºæœ¬ä¿¡æ¯
-ä¸ºäº†æ–¹ä¾¿ä½¿ç”¨ï¼ŒTXUGCVideoInfoReaderæä¾›äº†æ–¹æ³•ï¼Œä¸€æ¬¡æ€§è¯»å‡ºæ‰€æœ‰ç›¸å…³ä¿¡æ¯ï¼Œè¿™äº›ä¿¡æ¯å°†åœ¨åç»­çš„è§†é¢‘ç¼–è¾‘è¿‡ç¨‹ä¸­ä½¿ç”¨ã€‚
+### 1. ĞÅÏ¢¶ÁÈ¡
+#### 1.1 ¶ÁÈ¡ÊÓÆµ»ù±¾ĞÅÏ¢
+TXUGCVideoInfoReaderÌá¹©ÁË·½·¨£¬Ò»´ÎĞÔ¶Á³öËùÓĞÏà¹ØĞÅÏ¢£¬ÕâĞ©ĞÅÏ¢½«ÔÚºóĞøµÄÊÓÆµ±à¼­¹ı³ÌÖĞÊ¹ÓÃ¡£
 
 ```objective-c
 /*
- * è§†é¢‘ä¿¡æ¯
+ * ÊÓÆµĞÅÏ¢
  */
 @interface TXVideoInfo : NSObject
-@property (nonatomic, strong) UIImage*              coverImage;     //è§†é¢‘é¦–å¸§å›¾ç‰‡
-@property (nonatomic, assign) CGFloat               duration;       //è§†é¢‘æ—¶é•¿(s)
-@property (nonatomic, assign) unsigned long long    fileSize;       //è§†é¢‘å¤§å°(byte)
-@property (nonatomic, assign) int                   fps;            //è§†é¢‘fps
-@property (nonatomic, assign) int                   bitrate;        //è§†é¢‘ç ç‡ (kbps)
-@property (nonatomic, assign) int                   audioSampleRate;//éŸ³é¢‘é‡‡æ ·ç‡
-@property (nonatomic, assign) int                   width;          //è§†é¢‘å®½åº¦
-@property (nonatomic, assign) int                   height;         //è§†é¢‘é«˜åº¦
+@property (nonatomic, strong) UIImage*              coverImage;     //ÊÓÆµÊ×Ö¡Í¼Æ¬
+@property (nonatomic, assign) CGFloat               duration;       //ÊÓÆµÊ±³¤(s)
+@property (nonatomic, assign) unsigned long long    fileSize;       //ÊÓÆµ´óĞ¡(byte)
+@property (nonatomic, assign) int                   fps;            //ÊÓÆµfps
+@property (nonatomic, assign) int                   bitrate;        //ÊÓÆµÂëÂÊ (kbps)
+@property (nonatomic, assign) int                   audioSampleRate;//ÒôÆµ²ÉÑùÂÊ
+@property (nonatomic, assign) int                   width;          //ÊÓÆµ¿í¶È
+@property (nonatomic, assign) int                   height;         //ÊÓÆµ¸ß¶È
 @end
 
 + (TXVideoInfo *)getVideoInfo:(NSString *)videoPath;
 ```
 
-#### 1.2 ç”Ÿæˆé¢„è§ˆç¼©ç•¥å›¾
-è§†é¢‘ç¼–è¾‘é€šå¸¸è¦æä¾›ä¸€ä¸ªç¼©ç•¥å›¾åˆ—è¡¨ï¼Œä»¥ä¾¿ç”¨æˆ·å¿«é€Ÿé¢„è§ˆå’Œå®šä½è§†é¢‘æ–‡ä»¶ã€‚è·å–è§†é¢‘ç¼©ç•¥å›¾çš„æ–¹æ³•å¦‚ä¸‹ï¼š
+#### 1.2 Éú³ÉÔ¤ÀÀËõÂÔÍ¼
+ÊÓÆµ±à¼­Í¨³£ÒªÌá¹©Ò»¸öËõÂÔÍ¼ÁĞ±í£¬ÒÔ±ãÓÃ»§¿ìËÙÔ¤ÀÀºÍ¶¨Î»ÊÓÆµÎÄ¼ş¡£»ñÈ¡ÊÓÆµËõÂÔÍ¼µÄ·½·¨ÈçÏÂ£º
 
 ```objective-c
 [TXUGCVideoInfoReader getSampleImages:10 videoPath:_videoPath progress:^(int number, UIImage *image) {
-        // UIæ˜¾ç¤º iamge
+        // UIÏÔÊ¾ iamge
     }];
 ```
 
-å‚æ•°ä¼ å…¥è§†é¢‘æ–‡ä»¶è·¯å¾„å’ŒæœŸæœ›çš„ç¼©ç•¥å›¾æ•°é‡å¦‚æ­¤å¤„çš„10ï¼Œä½¿ç”¨è€…å¯ä»¥æ ¹æ®Appç•Œé¢è®¾è®¡çš„é¢„è§ˆåŒºåŸŸå¤§å°è®¡ç®—å‡ºæ‰€éœ€è¦çš„ç¼©ç•¥å›¾æ•°é‡ï¼ŒSDKæ ¹æ®è§†é¢‘æ–‡ä»¶çš„æ—¶é•¿ï¼Œå‡åŒ€è¯»å–æŒ‡å®šæ•°é‡çš„è§†é¢‘æˆªå›¾ã€‚
+²ÎÊı´«ÈëÊÓÆµÎÄ¼şÂ·¾¶ºÍÆÚÍûµÄËõÂÔÍ¼ÊıÁ¿Èç´Ë´¦µÄ10£¬Ê¹ÓÃÕß¿ÉÒÔ¸ù¾İApp½çÃæÉè¼ÆµÄÔ¤ÀÀÇøÓò´óĞ¡¼ÆËã³öËùĞèÒªµÄËõÂÔÍ¼ÊıÁ¿£¬SDK¸ù¾İÊÓÆµÎÄ¼şµÄÊ±³¤£¬¾ùÔÈ¶ÁÈ¡Ö¸¶¨ÊıÁ¿µÄÊÓÆµ½ØÍ¼¡£
 
-### 2. è§†é¢‘ç¼–è¾‘
-#### 2.1 è§†é¢‘é¢„è§ˆ
-è§†é¢‘ç¼–è¾‘æä¾›äº†å³æ—¶é¢„è§ˆä¸æ’­æ”¾é¢„è§ˆä¸¤ç§æ–¹å¼ï¼Œé¢„è§ˆéœ€è¦ä¸Šå±‚æä¾›ä¸€ä¸ªUIViewç”¨äºæ˜¾ç¤ºè§†é¢‘ç”»é¢ã€‚
+### 2. ÊÓÆµ±à¼­
+#### 2.1 ÊÓÆµÔ¤ÀÀ
+ÊÓÆµ±à¼­Ìá¹©ÁË¼´Ê±Ô¤ÀÀÓë²¥·ÅÔ¤ÀÀÁ½ÖÖ·½Ê½£¬Ô¤ÀÀĞèÒªÉÏ²ãÌá¹©Ò»¸öUIViewÓÃÓÚÏÔÊ¾ÊÓÆµ»­Ãæ¡£
 
-è°ƒç”¨`- (instancetype)initWithPreview:(TXPreviewParam *)param`åˆ›å»ºTXUGCEditerå¯¹è±¡ï¼Œç¼–è¾‘è¿‡ç¨‹ä¸­çš„å³æ—¶é¢„è§ˆå’Œæ’­æ”¾éƒ½å°†æ¸²æŸ“åˆ°è¿™ä¸ªUIViewä¸Šã€‚
+µ÷ÓÃ`- (instancetype)initWithPreview:(TXPreviewParam *)param`´´½¨TXUGCEditer¶ÔÏó£¬±à¼­¹ı³ÌÖĞµÄ¼´Ê±Ô¤ÀÀºÍ²¥·Å¶¼½«äÖÈ¾µ½Õâ¸öUIViewÉÏ¡£
 
-é¢„è§ˆå•å¸§ç”»é¢ï¼Œåœ¨ç¼©ç•¥å›¾ä¸Šç§»åŠ¨å¯ä»¥æ ¹æ®å½“å‰æ—¶é—´æˆ³é¢„è§ˆæŸä¸€å¸§ç”»é¢ï¼Œç›´æ¥è°ƒç”¨`- (void)previewAtTime:(CGFloat)time;`æ­¤å‡½æ•°å³å¯ï¼Œå½“å‰è§†é¢‘å¸§ä¼šè‡ªåŠ¨æ˜¾ç¤ºåœ¨ä¼ å…¥çš„é¢„è§ˆviewä¸Šï¼Œé€šè¿‡æŒ‡å®šé¢„è§ˆviewçš„æ¸²æŸ“æ¨¡å¼å¯ä»¥è®¾ç½®è‡ªé€‚åº”ä¸å¡«å……ä¸¤ç§æ¨¡å¼ã€‚
+Ô¤ÀÀµ¥Ö¡»­Ãæ£¬ÔÚËõÂÔÍ¼ÉÏÒÆ¶¯¿ÉÒÔ¸ù¾İµ±Ç°Ê±¼ä´ÁÔ¤ÀÀÄ³Ò»Ö¡»­Ãæ£¬Ö±½Óµ÷ÓÃ`- (void)previewAtTime:(CGFloat)time;`´Ëº¯Êı¼´¿É£¬µ±Ç°ÊÓÆµÖ¡»á×Ô¶¯ÏÔÊ¾ÔÚ´«ÈëµÄÔ¤ÀÀviewÉÏ£¬Í¨¹ıÖ¸¶¨Ô¤ÀÀviewµÄäÖÈ¾Ä£Ê½¿ÉÒÔÉèÖÃ×ÔÊÊÓ¦ÓëÌî³äÁ½ÖÖÄ£Ê½¡£
 
-*  `PREVIEW_RENDER_MODE_FILL_SCREEN`è¡¨ç¤ºå¡«å……æ¨¡å¼
-*  `PREVIEW_RENDER_MODE_FILL_EDGE`è¡¨ç¤ºè‡ªé€‚åº”æ¨¡å¼
+*  `PREVIEW_RENDER_MODE_FILL_SCREEN`±íÊ¾Ìî³äÄ£Ê½
+*  `PREVIEW_RENDER_MODE_FILL_EDGE`±íÊ¾×ÔÊÊÓ¦Ä£Ê½
 
-é¢„è§ˆæ’­æ”¾è§†é¢‘ï¼Œç›´æ¥è°ƒç”¨`- (void)startPlayFromTime:(CGFloat)startTime toTime:(CGFloat)endTime`å®ç°ï¼Œè¡¨ç¤ºé¢„è§ˆæ’­æ”¾æŸä¸ªæ—¶é—´åŒºé—´çš„è§†é¢‘ï¼Œè§†é¢‘é¢„è§ˆçš„è¿›åº¦å¯ä»¥é€šè¿‡`previewDelegate`è·å–ã€‚
+Ô¤ÀÀ²¥·ÅÊÓÆµ£¬Ö±½Óµ÷ÓÃ`- (void)startPlayFromTime:(CGFloat)startTime toTime:(CGFloat)endTime`ÊµÏÖ£¬±íÊ¾Ô¤ÀÀ²¥·ÅÄ³¸öÊ±¼äÇø¼äµÄÊÓÆµ£¬ÊÓÆµÔ¤ÀÀµÄ½ø¶È¿ÉÒÔÍ¨¹ı`previewDelegate`»ñÈ¡¡£
 
 
-#### 2.2 è£å‰ªç”Ÿæˆè§†é¢‘ 
+#### 2.2 ²Ã¼ôÉú³ÉÊÓÆµ 
 
-å¯¹ä¸€ä¸ªè§†é¢‘ç¼–è¾‘æœ‰å¾ˆå¤šç§æ“ä½œï¼Œè£å‰ªåªæ˜¯å…¶ä¸­ä¸€ç§ã€‚å› æ­¤ï¼Œæˆ‘ä»¬å°†è¿™äº›æ“ä½œå®šä¹‰ä¸º`TXOperationParam`å¯¹è±¡ï¼Œ
+¶ÔÒ»¸öÊÓÆµ±à¼­ÓĞºÜ¶àÖÖ²Ù×÷£¬²Ã¼ôÖ»ÊÇÆäÖĞÒ»ÖÖ¡£Òò´Ë£¬ÎÒÃÇ½«ÕâĞ©²Ù×÷¶¨ÒåÎª`TXOperationParam`¶ÔÏó£¬
 
 ```objective-c
 /*
- * è§†é¢‘æ“ä½œ
+ * ÊÓÆµ²Ù×÷
  */
 @interface TXOperationParam : NSObject
-@property (nonatomic, assign) TXOperationType       type;           //æ“ä½œç±»å‹
-@property (nonatomic, assign) CGFloat               startTime;      //æ“ä½œå¼€å§‹æ—¶é—´(s)
-@property (nonatomic, assign) CGFloat               endTime;        //æ“ä½œç»“æŸæ—¶é—´(s)
+@property (nonatomic, assign) TXOperationType       type;           //²Ù×÷ÀàĞÍ
+@property (nonatomic, assign) CGFloat               startTime;      //²Ù×÷¿ªÊ¼Ê±¼ä(s)
+@property (nonatomic, assign) CGFloat               endTime;        //²Ù×÷½áÊøÊ±¼ä(s)
 @end
 ```
 
-TXOperationTypeç›®å‰åªæ”¯æŒOPERATION_TYPE_CUTï¼ˆå‰ªè£è§†é¢‘ï¼‰ï¼ŒstartTimeè¡¨ç¤ºè£å‰ªçš„å¼€å§‹æ—¶é—´ï¼ŒendTimeè¡¨ç¤ºè£å‰ªçš„ç»“æŸæ—¶é—´ã€‚
+TXOperationTypeÄ¿Ç°Ö»Ö§³ÖOPERATION_TYPE_CUT£¨¼ô²ÃÊÓÆµ£©£¬startTime±íÊ¾²Ã¼ôµÄ¿ªÊ¼Ê±¼ä£¬endTime±íÊ¾²Ã¼ôµÄ½áÊøÊ±¼ä¡£
 
-å½“å¯¹è§†é¢‘æ“ä½œæ»¡æ„åï¼Œé€šè¿‡è°ƒç”¨`- (int)setOperationList:(NSArray<TXOperationParam *> *)operationList`è®¾ç½®ç¼–è¾‘æ“ä½œï¼Œæ¥ä¸‹æ¥å°±æ˜¯æŠŠå‰é¢æ“ä½œåº”ç”¨åœ¨æ¯ä¸€å¸§ä¸Šï¼Œæœ€ç»ˆè¾“å‡ºä¸ºä¸€ä¸ªæ–‡ä»¶ã€‚
+µ±¶ÔÊÓÆµ²Ù×÷ÂúÒâºó£¬Í¨¹ıµ÷ÓÃ`- (int)setOperationList:(NSArray<TXOperationParam *> *)operationList`ÉèÖÃ±à¼­²Ù×÷£¬½ÓÏÂÀ´¾ÍÊÇ°ÑÇ°Ãæ²Ù×÷Ó¦ÓÃÔÚÃ¿Ò»Ö¡ÉÏ£¬×îÖÕÊä³öÎªÒ»¸öÎÄ¼ş¡£
 
 ```objective-c
 TXUGCEditer* _ugcEdit = [[TXUGCEditer alloc] initWithPreview:param];
@@ -90,30 +85,28 @@ param.endTime   = _videoRangeSlider.rightPos;
 [_ugcEdit setOperationList:@[param]];
 [_ugcEdit generateVideo:VIDEO_COMPRESSED_540P videoOutputPath:_videoOutputPath];
 ```
-è¾“å‡ºæ—¶æŒ‡å®šæ–‡ä»¶å‹ç¼©è´¨é‡å’Œè¾“å‡ºè·¯å¾„ï¼Œè¾“å‡ºçš„è¿›åº¦å’Œç»“æœä¼šé€šè¿‡`generateDelegate`ä»¥å›è°ƒçš„å½¢å¼é€šçŸ¥ç”¨æˆ·ã€‚
+Êä³öÊ±Ö¸¶¨ÎÄ¼şÑ¹ËõÖÊÁ¿ºÍÊä³öÂ·¾¶£¬Êä³öµÄ½ø¶ÈºÍ½á¹û»áÍ¨¹ı`generateDelegate`ÒÔ»Øµ÷µÄĞÎÊ½Í¨ÖªÓÃ»§¡£
 
-### 3. è§†é¢‘åˆæˆ
+### 3. ÊÓÆµºÏ³É
 
-è§†é¢‘åˆæˆéœ€è¦åˆ›å»ºTXUGCJoinerå¯¹è±¡ï¼ŒåŒTXUGCEditerç±»ä¼¼ï¼Œåˆæˆä¹Ÿéœ€è¦ä¸Šå±‚æä¾›é¢„è§ˆUIViewï¼Œegï¼š
+ÊÓÆµºÏ³ÉĞèÒª´´½¨TXUGCJoiner¶ÔÏó£¬Í¬TXUGCEditerÀàËÆ£¬ºÏ³ÉÒ²ĞèÒªÉÏ²ãÌá¹©Ô¤ÀÀUIView£¬eg£º
 ```objective-c
 TXPreviewParam *param = [[TXPreviewParam alloc] init];
 param.videoView = _videoPreview.renderView;
 TXUGCJoiner* _ugcJoin = [[TXUGCJoiner alloc] initWithPreview:param];
-[_ugcJoin setVideoPathList:_composeArray];//éœ€è¦åˆå¹¶çš„æ–‡ä»¶æ•°ç»„
+[_ugcJoin setVideoPathList:_composeArray];//ĞèÒªºÏ²¢µÄÎÄ¼şÊı×é
 _ugcJoin.previewDelegate = _videoPreview;
 ```
-è®¾ç½®å¥½é¢„è§ˆviewåŒæ—¶ä¼ å…¥å¾…åˆæˆçš„è§†é¢‘æ–‡ä»¶æ•°ç»„åï¼Œå¯ä»¥å¼€å§‹æ’­æ”¾é¢„è§ˆï¼Œåˆæˆæ¨¡å—æä¾›äº†ä¸€ç»„æ¥å£æ¥åšè§†é¢‘çš„æ’­æ”¾é¢„è§ˆï¼Œegï¼š
+ÉèÖÃºÃÔ¤ÀÀviewÍ¬Ê±´«Èë´ıºÏ³ÉµÄÊÓÆµÎÄ¼şÊı×éºó£¬¿ÉÒÔ¿ªÊ¼²¥·ÅÔ¤ÀÀ£¬ºÏ³ÉÄ£¿éÌá¹©ÁËÒ»×é½Ó¿ÚÀ´×öÊÓÆµµÄ²¥·ÅÔ¤ÀÀ£¬eg£º
 
-*  `startPlay`è¡¨ç¤ºè§†é¢‘æ’­æ”¾å¼€å§‹
-*  `pausePlay`è¡¨ç¤ºè§†é¢‘æ’­æ”¾æš‚åœ
-*  `resumePlay`è¡¨ç¤ºè§†é¢‘æ’­æ”¾æ¢å¤
+*  `startPlay`±íÊ¾ÊÓÆµ²¥·Å¿ªÊ¼
+*  `pausePlay`±íÊ¾ÊÓÆµ²¥·ÅÔİÍ£
+*  `resumePlay`±íÊ¾ÊÓÆµ²¥·Å»Ö¸´
 
-é¢„è§ˆæ•ˆæœæ»¡æ„åè°ƒç”¨ç”Ÿæˆæ¥å£å³å¯ç”Ÿæˆåˆæˆåçš„æ–‡ä»¶ï¼Œegï¼š
+Ô¤ÀÀĞ§¹ûÂúÒâºóµ÷ÓÃÉú³É½Ó¿Ú¼´¿ÉÉú³ÉºÏ³ÉºóµÄÎÄ¼ş£¬eg£º
 ```objective-c
 _ugcJoin.composeDelegate = self;
 [_ugcJoin composeVideo:VIDEO_COMPRESSED_540P videoOutputPath:_outFilePath];
 ```
 
-åˆæˆæ—¶æŒ‡å®šæ–‡ä»¶å‹ç¼©è´¨é‡å’Œè¾“å‡ºè·¯å¾„ï¼Œè¾“å‡ºçš„è¿›åº¦å’Œç»“æœä¼šé€šè¿‡`composeDelegate`ä»¥å›è°ƒçš„å½¢å¼é€šçŸ¥ç”¨æˆ·ã€‚
-
-### 
+ºÏ³ÉÊ±Ö¸¶¨ÎÄ¼şÑ¹ËõÖÊÁ¿ºÍÊä³öÂ·¾¶£¬Êä³öµÄ½ø¶ÈºÍ½á¹û»áÍ¨¹ı`composeDelegate`ÒÔ»Øµ÷µÄĞÎÊ½Í¨ÖªÓÃ»§¡£
