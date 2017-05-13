@@ -55,22 +55,3 @@ In User Management page, click "Delete" on the right to delete sub-user:
 ![](https://mccdn.qcloud.com/static/img/cae5604578091dcf640713d1469bf0cc/image.jpg)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
