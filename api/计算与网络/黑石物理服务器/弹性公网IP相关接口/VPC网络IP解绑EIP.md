@@ -2,7 +2,7 @@
 该接口用于绑定黑石弹性公网IP到黑石私有网络的IP（非黑石物理机IP）。解绑后EIP仍然会收取闲置费，请及时[释放清理](/document/product/386/6676)。
  
 域名: <font style="color:red">eip.api.qcloud.com</font>
-接口名: bmUnBindVpcIp
+接口名: EipBmUnBindVpcIp
 
  
 
