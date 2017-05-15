@@ -71,11 +71,11 @@ Select "Associating with Object" on the right of feature set to set the resource
 
 The features that are activated in the previous step need to be associated with objects. Creator can perform the association in three ways:
 + All Objects: Allow the sub-users to perform this feature on all the objects. Any newly added projects or domains are covered by the permission.
-	![](https://mccdn.qcloud.com/static/img/94ccf470b4289fefd327b766b32ca381/image.jpg)
+  ![](https://mccdn.qcloud.com/static/img/94ccf470b4289fefd327b766b32ca381/image.jpg)
 + Project Dimension: The users who don't set any project only have **Default Project**, so they can't associate with objects by project dimension and only can select all objects. The users who have multiple projects can directly divide the projects by project dimension. No resetting is required for newly added or deleted domains in project. (Note: The "All Projects" check box at the top left is only used for selecting all, and newly added projects still cannot be covered by the permission);
- ![](https://mccdn.qcloud.com/static/img/c5b68d2c37a26a3fa3cfe4b276ac7e1f/image.jpg)
+   ![](https://mccdn.qcloud.com/static/img/c5b68d2c37a26a3fa3cfe4b276ac7e1f/image.jpg)
 + Domain Dimension: Associate with objects individually by domains. If only this type is used, the policy configuration needs to be modified for any newly added domain (querying domain and filtering projects are supported);
- ![](https://mccdn.qcloud.com/static/img/8ef7af35224493aae588ef9c2dea9189/image.jpg)
+   ![](https://mccdn.qcloud.com/static/img/8ef7af35224493aae588ef9c2dea9189/image.jpg)
 
 ## Editing Policy
 
@@ -96,40 +96,3 @@ You can check the user groups or users that have been associated with the policy
 
 Only custom policies can be deleted. You can delete custom policies just by clicking "Delete" on the right. **The policies that have been associated with users or user groups can only be deleted after disassociation**.
 ![](https://mccdn.qcloud.com/static/img/1ad3908439ec0ca93fe01324fd494346/image.jpg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

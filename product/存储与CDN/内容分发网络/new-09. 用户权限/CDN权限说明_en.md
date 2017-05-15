@@ -197,10 +197,10 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 + [RefreshCdnDir](https://www.qcloud.com/doc/api/231/3947): Refresh directory
 
 ### Default Features
-Once the sub-user has configured permissions for CDN features, the following operations can be performed by default** without any configuration**:
+Once the sub-user has configured permissions for CDN features, the following operations can be performed by default **without any configuration**:
 
 + Use the Console to query all refresh records:
-	![](https://mccdn.qcloud.com/static/img/0592d47b0f65a8271b39a83a684f7c46/image.jpg)
+  ![](https://mccdn.qcloud.com/static/img/0592d47b0f65a8271b39a83a684f7c46/image.jpg)
 + Use Cloud API [GetCdnRefreshLog](https://www.qcloud.com/doc/api/231/3948) to query refresh records.
 
 For the example of sub-user feature configuration, please refer to [Sub-user Configuration Example](https://www.qcloud.com/doc/product/228/6693).

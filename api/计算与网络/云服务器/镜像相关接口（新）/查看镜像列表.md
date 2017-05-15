@@ -1,0 +1,88 @@
+# DescribeImages
+-------------------
+
+## 1. 接口描述
+
+	查看镜像列表
+
+
+注：本接口为改版后的API接口。如需了解旧接口相关信息，请参考：[DescribeImages(旧版)](https://www.qcloud.com/document/api/213/1272)
+
+
+接口请求域名：<font style="color:red">image.api.qcloud.com</font>
+
+
+
+## 2. 输入参数
+
+以下请求参数列表仅列出了接口请求参数，其它参数可参考[公共请求参数](/document/api/213/6976)。
+
+| 参数名称 |  类型 |是否必选| 描述 |
+|---------|---------|---------|---------|
+| ImageIds |  array of String |否 | 镜像ID列表 。
+| Filters |  array of Filter |否 | 查询过滤器 。 可选值包括 `image-id`, `image-type`
+| Offset |  Integer |否 | 整数类型 ；Offset不得小于0。其默认值为 `0`
+| Limit |  Integer |否 | 整数类型 ；Limit不得小于100。其默认值为 `20`
+
+
+## 3. 输出参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| RequestId | String | 唯一请求ID。每次请求都会返回一个唯一的 RequestId，当客户调用接口失败需要后台研发人员处理时需提供该 RequestId。|
+| ImageSet |  array of Image | 一个关于镜像详细信息的结构体，主要包括镜像的主要状态与属性
+| TotalCount |  Integer | 整数类型
+
+
+## 4. 错误码
+
+> 腾讯云在极少数情况下可能会删减或增加错误码；开发者需要保证应用程序编写的健壮性。
+
+| 错误码 |  描述 |
+|---------|---------|
+|InvalidFilter | 无效的过滤器 |
+
+
+要查看更多错误码，见参考[公共错误码]()
+
+## 5. 示例 
+
+>**GET** `https://image.api.qcloud.com/?Action=DescribeImages`
+>>&ImageIds.0=img-o3ycss2p<br>
+>>&[公共请求参数](/doc/api/229/6976)
+
+```json
+
+{
+    "Response": {
+        "ImageSet": [
+            {
+                "ImageId": "img-pmqg1cw7",
+                "ImageOsName": "centos6.6x86_32",
+                "ImageType": "PUBLIC_IMAGE",
+                "ImageCreateTime": "1970-01-01T00:00:00+00:00",
+                "ImageStatus": "NORMAL",
+                "ImageName": "CentOS 6.6 32位",
+                "ImageDescription": "CentOS 6.6 32位",
+                "Creator": "PUBLIC"
+            },
+            {
+                "ImageId": "img-ri0lm2zt",
+                "ImageOsName": "centos6.6x86_64",
+                "ImageType": "PUBLIC_IMAGE",
+                "ImageCreateTime": "1970-01-01T00:00:00+00:00",
+                "ImageStatus": "NORMAL",
+                "ImageName": "CentOS 6.6 64位",
+                "ImageDescription": "CentOS 6.6 64位",
+                "Creator": "PUBLIC"
+            }
+        ],
+        "TotalCount": 364,
+        "RequestID": "5920380e-277a-420a-a221-0caac3eb7159"
+    }
+}
+
+```
+
+
+

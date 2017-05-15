@@ -125,21 +125,10 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
 ```     
 
 ### 4. 文件预览
-使用 [播放SDK](https://www.qcloud.com/document/product/454/7880) 即可预览刚才生成的 MP4 文件，需要在调用 startPlay 时指定播放类型为 [PLAY_TYPE_LOCAL_VIDEO](https://www.qcloud.com/document/product/454/7880#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE6) 。
+使用 [视频播放](https://www.qcloud.com/document/product/584/9372) 即可预览刚才生成的 MP4 文件，需要在调用 startPlay 时指定播放类型为 [PLAY_TYPE_LOCAL_VIDEO](https://www.qcloud.com/document/product/584/9372#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE6) 。
 
 ### 5. 获取签名
-要把刚才生成的 MP4 发布到腾讯云视频分发 CDN 上，就需要 **SecretID** 和 **Signature**，它的作用类似用户名和密码一样来确保您的云存储服务安全，避免您的流量和存储空间被其它攻击者盗用。
-
-- **SecretID （密钥ID）**
-你可以在 [云 API 密钥](https://console.qcloud.com/capi) 管理里获取或者创建一个 SecretID，如下图红框标注部分：
-![](//mc.qcloudimg.com/static/img/23f95aaa97adf3eeae3bf90470fe5122/image.png)
-
-- **Signature（上传签名）**
-上传签名就是基于从腾讯云获取的 SecretID 和 SecretKey ，用一套标准的签名算法，算出的一段一次性有效的字符串。
-
- 为了确保安全，需要您将计算签名的程序放在您的后台服务器上，而不是把计算函数写在 APP 里，因为破解 APP 并获取签名用的 SecretKey 是比较容易的事情，而要攻破您的服务器则并非是一般能力的攻击者能做得到的。
-
- 签名计算方法参考：[如何生成签名？](https://www.qcloud.com/document/product/266/7835?!preview&lang=zh#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E8.AE.A1.E7.AE.97.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 生成发布签名时，<font color='red'>FileName、FileSha 以及 uid 字段都可以留空不填写。</font>
+要把刚才生成的 MP4 文件发布到腾讯云上，App 需要拿到上传文件用的短期有效上传签名，这部分有独立的文档介绍，详情请参考 [Server端集成 - 签名派发](https://www.qcloud.com/document/product/584/9371)。
 
 ### 6. 文件发布
 TXUGCPublish（位于 TXUGCPublish.h）负责将 MP4 文件发布到腾讯云视频分发平台上，以确保视频观看的就近调度、秒开播放、动态加速 以及海外接入等需求。
