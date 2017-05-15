@@ -1,12 +1,14 @@
 ## web app tutorial
 
 ### 本文将介绍在腾讯云容器服务里，如何构建一个最简单的web应用。 ###
+
 #### 该web应用分为两部分：####
 1、前端服务，用于处理客户端的查询和写入请求。
 2、数据存储服务，使用redis，写入的数据存放到redis-master，读取操作访问的是redis-slave，redis-master和redis-slave通过主从复制来保持数据同步。
 该应用是kubernetes项目自带的例子，链接地址为 https://github.com/kubernetes/kubernetes/tree/release-1.6/examples/guestbook 。
 
 #### 一、要展示本应用，您首先需要创建一个[容器集群](https://console.qcloud.com/ccs/cluster)：####
+
 1、填写集群名。
 2、指定集群的位置(广州、上海、北京等)。
 3、指定集群的节点网络，节点网络必须位于某个VPC内，如果您当前没有vpc，请先[创建一个vpc](https://console.qcloud.com/vpc)，并在该vpc下创建一个子网。
@@ -20,7 +22,9 @@
 ![](https://mc.qcloudimg.com/static/img/503003ab0d98eb9acf0109ee5b10a00e/image.png)
 
 #### 二、集群创建成功后，我们就可以开始创建我们的web应用####
+
 ##### 1、创建redis-master服务#####
+
 1. 指定服务名称redis-master。
 2. 选择集群为我们刚刚创建的集群my-first-cluster。
 3. 设置服务的实例信息(实例可以包含多个容器)：
@@ -29,7 +33,8 @@
 4. 设置服务运行的实例数，redis-master服务需要运行1个实例，我们选择1。
 5. 选择服务的访问方式，因为我们的redis服务是内部服务，只提供给集群内其它服务访问，所以我们选择仅在集群内访问。
 6. 最后设置服务的访问端口，我们的服务实例包含1个redis容器，该容器监听了6379端口，所以我们配置端口映射的容器端口为6379，服务端口跟容器端口一样，也设置成6379，这样其它服务可以通过服务名称 redis-master以及端口6379就可以访问到我们的master容器了。
-7. ![](https://mc.qcloudimg.com/static/img/0205c172fdcc02921087024c0dfda6fa/image.png)
+
+![](https://mc.qcloudimg.com/static/img/0205c172fdcc02921087024c0dfda6fa/image.png)
 
 
 ##### 2、创建redis-slave服务#####
@@ -45,10 +50,12 @@
 4. 设置服务运行的实例数，redis-slave服务需要运行1个实例，我们选择1。
 5. 选择服务的访问方式，因为我们的redis slave服务是内部服务，只提供给集群内其它服务访问，所以我们选择仅在集群内访问。
 6. 最后设置服务的访问端口，我们的服务实例包含1个redis slave容器，该容器监听了6379端口，所以我们配置端口映射的容器端口为6379，服务端口跟容器端口一样，也设置成6379，这样其它服务可以通过服务名称 redis-slave以及端口6379就可以访问到我们的slave容器了。
+
 ![](https://mc.qcloudimg.com/static/img/c289316bdb27dbf837cd3cba9de3b9da/image.png)
 
 
 ##### 3、创建frontend服务#####
+
 1. 指定服务名称frontend。
 2. 选择集群为我们刚刚创建的集群my-first-cluster。
 3. 设置服务的实例信息：
@@ -58,9 +65,11 @@
 4. 设置服务运行的实例数，frontend服务需要运行1个实例，我们选择1。
 5. 选择服务的访问方式，因为我们的frontend需要提供外网浏览器访问，我们选择公网负载均衡访问方式。
 6. 最后设置服务的访问端口，我们的服务实例包含1个frontend容器，该容器监听了80端口，所以我们配置端口映射的容器端口为80，服务端口跟容器端口一样，也设置成80，这样，用户通过浏览器访问我们的负载均衡ip就可以访问到我们的frontend容器了。
+
 ![](https://mc.qcloudimg.com/static/img/fc06f28b107cae9aed975fddc71bf270/image.png)
 
 ##### 4、查看服务#####
+
 点击左侧栏的服务，即可看到我们刚刚创建的三个服务，其中frontend服务可以公网访问，因为我们指定了公网负载均衡访问方式，而redismaster和redisslave服务只能够在集群内被其它服务访问，因为我们设置了访问方式为集群内访问。
 ![](https://mc.qcloudimg.com/static/img/f6f97b051b982a79f48972151c2cb9e8/image.png)
 我们注意到，frontend服务的属性里面的ip地址有两个： 一个外网ip 211.159.213.194和一个内网ip 10.20.255.125，而redisslave和redismaster服务分别只有一个内网ip，那是因为frontend服务的访问方式为公网负载均衡方式访问，所以我们为该服务分配了一个公网负载均衡，该外网ip就是公网负载均衡的ip，由于frontend服务的访问端口为80，所以我们可以在浏览器直接输入该外网ip 211.159.213.194，可以看到：
