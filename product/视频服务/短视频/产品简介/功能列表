@@ -1,10 +1,10 @@
 ## SDK支持功能列表
 
 <table>
-   <tr style="background:#bfdfff",font-weight:bold>
-      <td>功能模块</td>
-      <td>功能点</td>
-      <td>功能介绍</td>
+   <tr style="background:#cccccc">
+      <td font-weight:bold>功能模块</td>
+      <td font-weight:bold>功能点</td>
+      <td font-weight:bold>功能介绍</td>
    </tr>
    <tr>
       <td rowspan="2">拍摄</td>
@@ -73,7 +73,6 @@
       <td>通过拖放设置字幕在画面中显示的位置</td>
    </tr>
    <tr>
-      <td></td>
       <td>文字设置</td>
       <td>在容器中输入文字内容并且根据容器的样式和大小，自适应文字的颜色和大小</td>
    </tr>
@@ -93,9 +92,6 @@
    <tr>
       <td>文件合成</td>
       <td>将选择的视频文件按既定顺序拼接生成一个新的视频</td>
-   </tr>
-   <tr>
-      <td></td>
    </tr>
 </table>
 
