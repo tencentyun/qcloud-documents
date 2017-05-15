@@ -16,7 +16,7 @@
 | 名称      |    类型 |  是否必选 | 描述|
 |---------|---------|---------|---------|
 |InstanceId |String|是|待操作的实例ID。可通过[`DescribeInstances`](https://www.qcloud.com/doc/api/229/831)接口返回值中的`InstanceId`获取。|
-|VirtualPrivateCloud | VirtualPrivateCloud object| 是 |私有网络相关信息配置。通过该参数指定私有网络的ID，子网ID，私有网络ip等信息。|
+VirtualPrivateCloud |[ VirtualPrivateCloud object](https://www.qcloud.com/document/api/213/9451#virtualprivatecloud5)| 是 |私有网络相关信息配置。通过该参数指定私有网络的ID，子网ID，私有网络ip等信息。|
 |ForceStop| Boolean| 否 |是否对运行中的实例选择强制关机。默认为TRUE。|
 
 ## 3. 输出参数
