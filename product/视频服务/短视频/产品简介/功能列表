@@ -1,13 +1,13 @@
 ## SDK支持功能列表
 
 <table>
-   <tr>
-      <td>**功能模块**</td>
-      <td>**功能点**</td>
-      <td>**功能介绍**</td>
+   <tr style="background:#bfdfff";font-weight:bold>
+      <td>功能模块</td>
+      <td>功能点</td>
+      <td>功能介绍</td>
    </tr>
    <tr>
-      <td colspan="2">拍摄</td>
+      <td rowspan="2">拍摄</td>
       <td>对焦</td>
       <td>短视频拍摄过程中手动对焦</td>
    </tr>
@@ -17,7 +17,7 @@
       <td>短视频拍摄的启、停、时间线、灯光的控制</td>
    </tr>
    <tr>
-      <td colspan="4">裁剪</td>
+      <td rowspan="4">裁剪</td>
       <td>帧时间线</td>
       <td>裁剪时在时间线上按设定间隔显示关键帧的图像</td>
    </tr>
@@ -37,7 +37,7 @@
       <td>设置短视频生成后的速度，比如是正常速度的n倍</td>
    </tr>
    <tr>
-      <td colspan="3">混音</td>
+      <td rowspan="3">混音</td>
       <td>选择声音文件</td>
       <td>选择自带声音文件或用户手机本地的mp3作为背景音</td>
    </tr>
@@ -52,7 +52,7 @@
       <td>设置背景音量大小(相对于视频原声)</td>
    </tr>
    <tr>
-      <td colspan="4">特效</td>
+      <td rowspan="4">特效</td>
       <td>美颜参数设置</td>
       <td>拍摄时设置人脸的美白、磨皮、强度、瘦脸和大眼强度</td>
    </tr>
@@ -72,7 +72,7 @@
       <td>在拍摄和编辑时，识别出人脸五官，然后添加变形、覆盖挂件等效果</td>
    </tr>
    <tr>
-      <td colspan="4">字幕</td>
+      <td rowspan="4">字幕</td>
       <td>选择字幕容器</td>
       <td>添加字幕时可以选择字幕边框背景的样式，比如气泡等等</td>
    </tr>
@@ -92,7 +92,7 @@
       <td>一段短视频可以添加多段字幕，每段字幕可以设置其显示的其实时间点</td>
    </tr>
    <tr>
-      <td colspan="3">拼接</td>
+      <td rowspan="3">拼接</td>
       <td>选择文件</td>
       <td>在客户端从手机本地选择多个视频文件</td>
    </tr>
