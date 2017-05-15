@@ -1,4 +1,5 @@
-﻿# **Error Codes** #
+## Error Codes
+
 Message field indicates a module-related error.
 Example:
 "message": "(100004) projectId is incorrect"

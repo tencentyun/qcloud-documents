@@ -15,13 +15,13 @@ Authorization: auth
 
 ### 请求参数
 
-| 名称            | 描述                                       | 类型     | 
+| 名称            | 描述                                       | 类型     |
 | ------------- | ---------------------------------------- | ------ |
-| prefix        | 前缀匹配，用来规定返回的文件前缀地址                       | String | 
-| delimiter     | 定界符为一个符号，如果有Prefix，则将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix，然后列出所有Common Prefix。如果没有Prefix，则从路径起点开始 | String | 
-| encoding-type | 规定返回值的编码方式                               | String | 
-| marker        | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始        | String | 
-| max-keys      | 单次返回最大的条目数量，默认1000                       | String | 
+| prefix        | 前缀匹配，用来规定返回的文件前缀地址                       | String |
+| delimiter     | 定界符为一个符号，如果有Prefix，则将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix，然后列出所有Common Prefix。如果没有Prefix，则从路径起点开始 | String |
+| encoding-type | 规定返回值的编码方式                               | String |
+| marker        | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始        | String |
+| max-keys      | 单次返回最大的条目数量，默认1000                       | String |
 
 ### 请求头部
 
@@ -39,25 +39,25 @@ Authorization: auth
 
 ### 返回内容
 
-| 名称                    | 描述                                       | 类型     |
-| --------------------- | ---------------------------------------- | ------ |
-| Name                  | Bucket名字<br/>父节点：ListBucketResult        | String |
-| Prefix                | 前缀匹配，用来规定返回的文件前缀地址<br/>父节点：ListBucketResult | String |
-| Marker                | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始<br/>父节点：ListBucketResult | String |
-| Maxkey                | 单次返回最大的条目数量<br/>父节点：ListBucketResult     | String |
-| IsTruncated           | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListBucketResult | Boolean |
-| NextMarker            | 假如返回条目被截断，则返回NextMarker就是下一个条目的起点<br/>父节点：ListBucketResult | String |
-| CommonPrefixes        | 将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix<br/>父节点：ListBucketResult | String |
-| Encoding-Type         | 编码类型，作用于Delimiter，Marker，Prefix，NextMarker，Key<br/>父节点：ListBucketResult | String |
-| Content               | 元数据信息<br/>父节点：ListBucketResult           | Container    |
-| Key                   | Object名称<br/>父节点：ListBucketResult.Contents | String |
-| LastModified          | Object最后修改时间<br/>父节点：ListBucketResult.Contents | Date   |
-| Etag                  | 文件的 SHA-1 算法校验值<br/>父节点：ListBucketResult.Contents | String |
-| Size                  | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String |
-| Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | Container    |
-| StorageClass          | Object的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
-| ID                    | Bucket的AppID<br/>父节点：ListBucketResult.Contents.Owner | String |
-| CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   |    String    |
+| 名称                    | 描述                                       | 类型        |
+| --------------------- | ---------------------------------------- | --------- |
+| Name                  | Bucket名字<br/>父节点：ListBucketResult        | String    |
+| Prefix                | 前缀匹配，用来规定返回的文件前缀地址<br/>父节点：ListBucketResult | String    |
+| Marker                | 默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始<br/>父节点：ListBucketResult | String    |
+| Maxkeys               | 单次返回最大的条目数量<br/>父节点：ListBucketResult     | String    |
+| IsTruncated           | 返回条目是否被截断，布尔值：True，False<br/>父节点：ListBucketResult | Boolean   |
+| NextMarker            | 假如返回条目被截断，则返回NextMarker就是下一个条目的起点<br/>父节点：ListBucketResult | String    |
+| CommonPrefixes        | 将Prefix到delimiter之间的相同路径归为一类，定义为Common Prefix<br/>父节点：ListBucketResult | String    |
+| Encoding-Type         | 编码类型，作用于Delimiter，Marker，Prefix，NextMarker，Key<br/>父节点：ListBucketResult | String    |
+| Content               | 元数据信息<br/>父节点：ListBucketResult           | Container |
+| Key                   | Object名称<br/>父节点：ListBucketResult.Contents | String    |
+| LastModified          | Object最后修改时间<br/>父节点：ListBucketResult.Contents | Date      |
+| Etag                  | 文件的 SHA-1 算法校验值<br/>父节点：ListBucketResult.Contents | String    |
+| Size                  | 文件大小，单位Byte<br/>父节点：ListBucketResult.Contents | String    |
+| Owner                 | Bucket所有者信息<br/>父节点：ListBucketResult.Contents | Container |
+| StorageClass          | Object的存储级别，枚举值：Standard，Standard_IA，Nearline<br/>父节点：ListBucketResult.Contents.Owner | String    |
+| ID                    | Bucket的AppID<br/>父节点：ListBucketResult.Contents.Owner | String    |
+| CommonPrefixes.Prefix | 单条Common Prefix<br/>父节点：CommonPrefixes   | String    |
 
 ```XML
 <ListBucketResult>

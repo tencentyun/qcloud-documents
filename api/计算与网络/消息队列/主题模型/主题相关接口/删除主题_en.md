@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (DeleteTopic) is used to delete a created topic.
 
