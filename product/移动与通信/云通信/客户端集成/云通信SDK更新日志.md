@@ -1,3 +1,6 @@
+#### IM Lite SDK3.0.1 2017-5-15
+1. 修复部分so库无法兼容Android 5.0以下机器的问题
+
 #### IM Lite SDK3.0 2017-5-8
 1. 将ImSDK和IMCore重新组合为ImSDK、IMMessageExt、IMGroupExt和IMFriendExt
 2. 优化ImSDK初始化方法为initSdk：和setUserConfig
