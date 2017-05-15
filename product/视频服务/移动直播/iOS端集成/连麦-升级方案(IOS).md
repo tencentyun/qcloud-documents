@@ -12,6 +12,7 @@
 如上图所示，连麦演示Demo的使用方法是：
 
 1. 拿两个手机，模拟大、小主播分别启动推流，可以点击连麦演示界面右下角的按钮来选择角色（大主播或者小主播）；
+2. “点击连麦演示界面右上角的 + 按钮，扫描一个**播放地址（必须包括防盗链key：即播放地址必须包含bizid、txSecret和txTime三个参数，具体生成方式请参考本文后面[加速拉流链路URL](https://www.qcloud.com/document/product/454/8871?!preview=true&lang=zh#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E4.BA.92.E7.9B.B8.E6.8B.89.E6.B5.818)里的介绍）**，添加一路拉流”，大、小主播分别按照这种方式拉取对方的视频流；
 3. 经过步骤1和步骤2两步操作，即可在大、小主播之间建立起双向实时视频对话，具体效果如下图所示。
 
 ![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/linkmic_demo_example.png)
