@@ -1,4 +1,4 @@
-﻿<table><tbody>
+<table><tbody>
 <th width=15%>Time</th>
 <th>Updates</th>
 <tr>

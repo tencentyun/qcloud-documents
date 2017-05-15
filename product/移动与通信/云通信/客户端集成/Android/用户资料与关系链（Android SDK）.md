@@ -545,7 +545,7 @@ cb | 回调
 
 ### 5.1 添加好友
 
-通过 TIMFriendshipManager的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为3000个： 
+通过 TIMFriendshipManager的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为1000个： 
 
 **原型：   **
 
@@ -1187,43 +1187,4 @@ custom | 自定义字段，如要获取填写
 meta | 请求信息，参见 TIMFriendFutureMeta 定义
 cb | 回调
 
-## 11. 昵称检索 
-
-Imsdk允许用户根据昵称来搜索用户。  
-
-**原型：**
-
-```
-public void searchUser(java.lang.String nickName,
-                       long pageIndex,
-                       long pageSize,
-                       TIMValueCallBack<TIMUserSearchSucc> cb)
-
-```
-根据昵称信息搜索用户资料。
-
-**参数说明：**
- 
- 参数|说明
- ---|---
-nickName | 用户昵称关键字 
-pageIndex | 分页号 
-pageSize | 每个分页的用户数 
-cb | 回调，在onSuccess回调参数中返回搜索结果，详见TIMUserSearchSucc 
-
-**示例：**
-
-```
-TIMFriendshipManager.getInstance().searchUser("test_user",0, 10, new TIMValueCallBack<TIMUserSearchSucc>() {
-    @Override
-    public void onError(int code, String desc) {
-        Log.d(tag, "search user failed, code:" + code + " desc:" + desc);
-    }
-
-    @Override
-    public void onSuccess(TIMUserSearchSucc timUserSearchSucc) {
-        Log.d(tag, "search user succ. total:" + timUserSearchSucc.getTotalNum() + "|vecSize:" + timUserSearchSucc.getInfoList().size());
-    }
-});
-```
 

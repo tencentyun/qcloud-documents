@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This AP (PublishMessage) is used to publish a message to a specified topic.
 

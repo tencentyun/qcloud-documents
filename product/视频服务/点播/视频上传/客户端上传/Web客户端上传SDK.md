@@ -1,24 +1,28 @@
-### 简介
+## 简介
 
-用于浏览器文件上传的SDK，可向腾讯云点播系统上传视频和封面文件。
+用于浏览器的客户端上传 SDK，可向腾讯云点播系统上传视频和封面文件。
 
-### Demo
-[https://video.qcloud.com/sdk/ugcuploader.html](https://video.qcloud.com/sdk/ugcuploader.html)
+## 集成方式
 
 ### 开发环境
 
-1. 使用SDK需要浏览器支持HTML 5
-2. 需要APP服务器派发客户端上传签名，生成签名的方法请见[这里](/document/product/266/9221)
+* 使用 SDK 需要浏览器支持 HTML 5
+* 需要 APP 服务器派发客户端上传签名，生成签名的方法请见[上传签名](/document/product/266/9221)
 
-### 集成方式
+### 集成
 
 在页面引入ugcuploader.js即可。
 ```js
 <script src="//imgcache.qq.com/open/qcloud/js/vod/sdk/ugcUploader.js"></script>
 ```
-### 本地视频上传步骤
 
-####  第一步：获取签名操作
+### Demo
+
+[http://video.qcloud.com/sdk/ugcuploader.html](http://video.qcloud.com/sdk/ugcuploader.html)
+
+## 上传步骤
+
+###  第一步：获取上传签名
 ```js
 var getSignature = function(callback){
     $.ajax({
@@ -34,9 +38,9 @@ var getSignature = function(callback){
 
 ```
 
-####  第二步：指定上传目标
-指定上传目标的参数有视频文件、封面文件和获取签名函数等回调函数。如果只上传视频，则封面参数可不填。<br  /><br  />
+###  第二步：指定上传目标
 
+上传目标有视频和封面信息。如果只上传视频，则封面参数可不填。
 
 | 参数名称 |  必填 |类型 | 参数描述 |
 | ------ | ------ | ------ | ------ | ------ |
@@ -48,18 +52,20 @@ var getSignature = function(callback){
 | progress  |否 | Function |  上传进度的回调函数 |
 | finish    | 否 |Function | 上传结果的回调函数 |
 
-#####  回调函数说明
+回调函数说明
 
 | 函数名 | 说明 | 参数类型 | 参数含义 |
 | ------ | ------ | ------ | ------ |
-| getSignature | 获取签名回调 | Function | callbak：把获取到的签名作为callback函数的参数（如：callback(signature)）; |
+| getSignature | 获取签名回调 | Function | callback：把获取到的签名作为 callback 函数的参数，即callback(signature); |
 | success | 上传成功回调 | Object | type：上传成功的文件种类，'video'（视频）或者'cover'（封面）|
 | error | 上传失败回调 | Object | type：上传失败的文件种类，'video'（视频）或者'cover'（封面）|
-| progress | 上传进度回调 | Object | type：上传进行中的文件种类，'video'（视频）或者'cover'（封面）<br  />name：上传中的文件名<br  />curr：文件上传进度 |
-| finish   | 上传结果回调 | Object | fileId：视频文件Id<br  />videoName：视频名称<br  />videoUrl：视频播放地址<br  />coverName：封面名称<br  />coverUrl：封面展示地址 |
+| progress | 上传进度回调 | Object | type：上传进行中的文件种类，'video'（视频）或者'cover'（封面）<br/>name：上传中的文件名<br/>curr：文件上传进度 |
+| finish   | 上传结果回调 | Object | fileId：视频文件 ID<br/>videoName：视频名称<br/>videoUrl：视频播放地址<br/>coverName：封面名称<br/>coverUrl：封面展示地址 |
 
-#### 第三步：执行上传操作
+### 第三步：执行上传操作
+
 #### 仅上传视频
+
 ```js
 qcVideo.ugcUploader.start({
     videoFile: videoFile,
@@ -85,6 +91,7 @@ qcVideo.ugcUploader.start({
 ```
 
 #### 同时上传视频和封面
+
 ```js
 qcVideo.ugcUploader.start({
     videoFile: videoFile,

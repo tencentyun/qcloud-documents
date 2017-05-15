@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (ListTopic) is used to display the topic list under a user's account, and the list can be obtained by page.
 
