@@ -17,16 +17,16 @@ github地址如下：
 
 下载地址如下：
 
-- [java sdk](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_java_sdk_V1.0.4.zip)
+- [java sdk](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_java_sdk_V1.0.4.zip)
 
 
-- [python sdk](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_python_sdk_V1.0.4.zip)
+- [python sdk](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_python_sdk_V1.0.4.zip)
 
 
-- [php sdk](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
+- [php sdk](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
 
 
-- [c++ sdk](http://cmqsdk-10016717.cos.myqcloud.com/qc_cmq_cpp_sdk_V1.0.4.zip)
+- [c++ sdk](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_cpp_sdk_V1.0.4.zip)
 
 
 ## SDK使用注意事项
