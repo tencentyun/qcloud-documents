@@ -8,9 +8,11 @@
    </tr>
    <tr>
       <td rowspan="2">拍摄</td>
+   </tr>
       <td>对焦</td>
       <td>短视频拍摄过程中手动对焦</td>
-   </tr>
+   <tr>
+    </tr>
    <tr>
       <td></td>
       <td>拍摄控制</td>
