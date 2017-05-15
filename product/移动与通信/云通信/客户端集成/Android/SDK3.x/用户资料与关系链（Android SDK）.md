@@ -695,7 +695,7 @@ TIMFriendshipManagerExt.getInstance().modifySnsProfile(param, new TIMCallBack() 
 
 ### 5.1 添加好友
 
-通过 `TIMFriendshipManagerExt`的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为3000个： 
+通过 `TIMFriendshipManagerExt`的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为1000个： 
 
 **原型：   **
 
