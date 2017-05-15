@@ -8,10 +8,10 @@
 2、数据存储服务，使用redis，写入的数据存放到redis-master，读取操作访问的是redis-slave，redis-master和redis-slave通过主从复制来保持数据同步。
 该应用是kubernetes项目自带的例子，链接地址为 https://github.com/kubernetes/kubernetes/tree/release-1.6/examples/guestbook 。
 
-### 一、要展示本应用，您首先需要创建一个[容器集群](https://console.qcloud.com/ccs/cluster)：
+### 一、创建容器集群
 
-1、填写集群名。
-2、指定集群的位置(广州、上海、北京等)。
+1、进入创建集群页面，创建[容器集群](https://console.qcloud.com/ccs/cluster)：
+2、填写集群名、指定集群的位置(广州、上海、北京等)。
 3、指定集群的节点网络，节点网络必须位于某个VPC内，如果您当前没有vpc，请先[创建一个vpc](https://console.qcloud.com/vpc)，并在该vpc下创建一个子网。
 4、指定容器网络。
 5、为集群节点选择机型(cpu和内存)。
@@ -22,7 +22,7 @@
 ![](https://mc.qcloudimg.com/static/img/f5b0e1faaa7458ea145df50e2d387c3f/image.png)
 ![](https://mc.qcloudimg.com/static/img/503003ab0d98eb9acf0109ee5b10a00e/image.png)
 
-### 二、集群创建成功后，我们就可以开始创建我们的web应用
+### 二、创建web应用
 
 #### 1、创建redis-master服务
 
