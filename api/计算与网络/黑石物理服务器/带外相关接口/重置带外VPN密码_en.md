@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (SetOutBandVPNAuthPwd) is used to set the password for the authenticated user of out-band VPN.
-Domain for API request:<font style="color:red">bm.api.qcloud.com</font>
+Domain for API request: bm.api.qcloud.com
 
 
 This API has two logics, creation of a VPN authenticated user and setting of password for an authenticated user. Two calls involving different parameter values are needed for the execution of the two logics.
@@ -33,7 +33,7 @@ Setting password for an authenticated user: After creating a VPN authenticated u
 <td> createOrUpdate
 <td> Yes
 <td> String
-<td> The value is a string "create" or "update". create: Create a VPN account for this appId. The creation is only needed when "be_first = true" is returned by API <a href="/doc/api/386/6679" title="Get Out-of-Band VPN Information">Get Out-of-Band VPN Information (GetOutBandVPNAuthInfo)</a>;
+<td> The value is a string "create" or "update". <br>create: Create a VPN account for this appId. The creation is only needed when "be_first = true" is returned by <a href="/doc/api/386/6679" title="Get Out-of-Band VPN Information">GetOutBandVPNAuthInfo</a> API. <br>
 update: Modify the password for the VPN authenticated account. This is on the condition that this API has been called for the creation of a VPN authenticated user
 </tbody></table>
 
@@ -59,7 +59,7 @@ update: Modify the password for the VPN authenticated account. This is on the co
 </tbody></table>
 
 
-## 4. Module Error Codes
+## 4. Error Codes
 
 | Code | codeDesc | Description |
 |------|------|------|
