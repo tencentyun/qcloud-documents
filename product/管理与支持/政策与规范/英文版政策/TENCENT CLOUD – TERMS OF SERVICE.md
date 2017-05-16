@@ -1,10 +1,8 @@
-Last modified: [Insert date that this TOS goes live]
-
 ## 1.THESE TERMS AND TENCENT CLOUD
 
 Welcome to Tencent Cloud! Your use of Tencent Cloud is subject to these Terms of Service (these "Terms"). Thank you for reviewing these Terms – we hope you enjoy using Tencent Cloud. 
 
-### 1.1　Application of and compliance with these Terms
+**1.1　Application of and compliance with these Terms**
 
 (a)Please review these Terms and our policies and instructions to understand how you can and cannot use Tencent Cloud. You must comply with these Terms in your use of Tencent Cloud and only use Tencent Cloud as permitted by (and in compliance with) applicable laws and regulations (including laws related to data privacy and protection), wherever you may be when you use Tencent Cloud. By using Tencent Cloud, you agree to these Terms. If you do not agree to these Terms, you must not use Tencent Cloud.
 
@@ -20,13 +18,13 @@ Welcome to Tencent Cloud! Your use of Tencent Cloud is subject to these Terms of
 
 (g)We may translate these Terms into multiple languages. If there is any difference between the English version and any other language version of these Terms, the English version will apply (to the extent permitted by applicable laws and regulations).
 
-### 1.2　Contracting Entity
+**1.2　Contracting Entity**
 
 (a)By using Tencent Cloud, you are agreeing to be bound by these Terms between you and Aceville Pte Ltd, a Singaporean company located at 16 Collyer Quay, No. 1829, Level 18, Singapore 049318 (“we”, “our” and “us”). 
 
 (b)We may specify in our Additional Terms and Policies (as detailed in Section  2 below) that you are contracting with a different Tencent affiliate company for Tencent Cloud services. Where this is the case, the relevant contracting entity will be identified in the relevant Additional Terms and Policies.
 
-### 1.3　“Tencent Cloud” 
+**1.3　“Tencent Cloud” **
 
 For the purposes of these Terms, any reference to "Tencent Cloud" in these Terms refers to Tencent Cloud services provided by or on behalf of us or our affiliate companies from time to time, including the following: 
 
@@ -34,11 +32,11 @@ For the purposes of these Terms, any reference to "Tencent Cloud" in these Terms
 
 (b)all Tencent Cloud-related APIs made available by us.
 
-### 1.4 These Terms apply only to your use of Tencent Cloud's non-China located servers
+**1.4 These Terms apply only to your use of Tencent Cloud's non-China located servers**
 
-For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at [insert hyperlink to Chinese terms]. Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
+For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at[ [腾讯云服务协议]](https://www.qcloud.com/document/product/301/1967). Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
 
-### 1.5 Contacting us
+**1.5 Contacting us**
 
 If you have:
 
@@ -58,11 +56,11 @@ If you have:
 
 Tencent Cloud contains a diverse range of services and features, so there are additional terms and policies ("Additional Terms and Policies") that may be applicable to your use of all or part of Tencent Cloud. We will notify you of the Additional Terms and Policies from time to time, including as set out in this Section 2 and otherwise from time to time within Tencent Cloud. The Additional Terms and Policies notified to you from time to time all form part of and are incorporated into these Terms. 
 
-### 2.1 Feature-specific terms
+**2.1 Feature-specific terms**
 
 Feature-specific terms apply to specific Tencent Cloud uses and features.  We will notify you of such feature-specific terms from time to time within Tencent Cloud. 
 
-### 2.2 Country-specific terms
+**2.2 Country-specific terms**
 
 If you are a citizen or a habitual resident of any of the following countries, the following country-specific terms (as set out within these Terms) will also apply to your use of Tencent Cloud:
 
@@ -72,31 +70,31 @@ If you are a citizen or a habitual resident of any of the following countries, t
 
 (c)Republic of Korea (i.e. South Korea). 
 
-### 2.3 Policies
+**2.3 Policies**
 
 You must comply with the following policies in using Tencent Cloud:
 
-(a)Privacy and Data Processing Policy – which sets out how we collect, store and process Your Content. 
+(a)[Privacy and Data Processing Policy ](https://www.qcloud.com/document/product/301/9247)– which sets out how we collect, store and process Your Content. 
 
-(b)Acceptable Use Policy – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
+(b)[Acceptable Use Policy](https://www.qcloud.com/document/product/301/9245) – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
 
-(c)Copyright Policy – which sets out how we deal with copyright-related complaints. 
+(c)[Copyright Policy](https://www.qcloud.com/document/product/301/9246) – which sets out how we deal with copyright-related complaints. 
 
-### 2.4 Inconsistencies 
+**2.4 Inconsistencies **
 
 Subject to applicable laws and regulations and unless otherwise specified within these Terms or any Additional Terms and Policies, to the extent of any inconsistency between these Terms and any Additional Terms and Policies, the Additional Terms and Policies will apply to the extent of the relevant inconsistency. 
 
 ## 3.CHANGES TO THESE TERMS 
 
-### 3.1 We may make changes to these Terms over time (for example, to reflect changes to Tencent Cloud or applicable laws and regulations), so please come back and review these Terms regularly.
+3.1 We may make changes to these Terms over time (for example, to reflect changes to Tencent Cloud or applicable laws and regulations), so please come back and review these Terms regularly.
 
-### 3.2 Where we consider that any changes to these Terms are reasonably material, we will (where reasonably practicable or required by law) notify you (within Tencent Cloud, via direct communication to you or other means) prior to such changes becoming effective. 
+3.2 Where we consider that any changes to these Terms are reasonably material, we will (where reasonably practicable or required by law) notify you (within Tencent Cloud, via direct communication to you or other means) prior to such changes becoming effective. 
 
-### 3.3 By continuing to use Tencent Cloud after we make any changes to these Terms, you are agreeing to be bound by the revised Terms.
+3.3 By continuing to use Tencent Cloud after we make any changes to these Terms, you are agreeing to be bound by the revised Terms.
 
 ## 4.CHANGES TO TENCENT CLOUD
 
-### 4.1 As Tencent Cloud evolves, we may from time to time:
+4.1 As Tencent Cloud evolves, we may from time to time:
  
 (a)add, change or remove features or services from Tencent Cloud (including in relation to whether a feature or service is free of charge or not); and/or
 
@@ -104,15 +102,15 @@ Subject to applicable laws and regulations and unless otherwise specified within
 
 You agree that we may take any such actions at any time. 
  
-### 4.2Where we consider that any changes to Tencent Cloud are reasonably material, we will (where reasonably practicable or required by law) notify you (within Tencent Cloud, via direct communication to you or other means) prior to such changes becoming effective.
+4.2Where we consider that any changes to Tencent Cloud are reasonably material, we will (where reasonably practicable or required by law) notify you (within Tencent Cloud, via direct communication to you or other means) prior to such changes becoming effective.
 
 ## 5.YOUR ACCOUNT
 
-### 5.1You may need to create an account with us in order to access and use Tencent Cloud.
+5.1You may need to create an account with us in order to access and use Tencent Cloud.
 
-### 5.2Any account that you open with us is personal to you and you are prohibited from gifting, lending, transferring or otherwise permitting any other person to access or use your account. Your account name, user ID and other identifiers you adopt within Tencent Cloud remains our property and we can disable, reclaim and reuse these once your account is terminated or deactivated for whatever reason by either you or us.
+5.2Any account that you open with us is personal to you and you are prohibited from gifting, lending, transferring or otherwise permitting any other person to access or use your account. Your account name, user ID and other identifiers you adopt within Tencent Cloud remains our property and we can disable, reclaim and reuse these once your account is terminated or deactivated for whatever reason by either you or us.
 
-### 5.3You are responsible for: 
+5.3You are responsible for: 
 
 (a)safeguarding your account details, including any passwords used to access your account and Tencent Cloud, and 
 
@@ -120,23 +118,23 @@ You agree that we may take any such actions at any time.
 
 You must promptly notify us (by contacting our Customer Support team) if you know or suspect that your password or account has been compromised. We will regard all use of your account on Tencent Cloud as being by you, except where we have received and acknowledged your notification to us regarding your account or password being compromised.
 
-### 5.4We may allow you to register for and login to Tencent Cloud using sign-on functionalities provided by third party platforms, such as Facebook or Google. You agree to comply with the relevant third party platform's terms and conditions applicable to your use of such functionalities (in addition to these Terms). 
+5.4We may allow you to register for and login to Tencent Cloud using sign-on functionalities provided by third party platforms, such as Facebook or Google. You agree to comply with the relevant third party platform's terms and conditions applicable to your use of such functionalities (in addition to these Terms). 
 
 ## 6.PAYMENTS 
 
-### 6.1You may, from time to time, make payments to us as part of your use of Tencent Cloud (including for the provision of Tencent Cloud or provision of certain additional features within Tencent Cloud), on a prepaid or postpaid basis (as set out within Tencent Cloud). We may set out further terms applying to such payments (including in relation to refunds (if any), billing arrangements and any consequences of failing to make timely payments). You must comply with all such terms in relation to your payments to us. You agree that you are solely responsible for all fees and taxes associated with any such payments, and that pricing and availability of Items and products are subject to change at any time.
+6.1You may, from time to time, make payments to us as part of your use of Tencent Cloud (including for the provision of Tencent Cloud or provision of certain additional features within Tencent Cloud), on a prepaid or postpaid basis (as set out within Tencent Cloud). We may set out further terms applying to such payments (including in relation to refunds (if any), billing arrangements and any consequences of failing to make timely payments). You must comply with all such terms in relation to your payments to us. You agree that you are solely responsible for all fees and taxes associated with any such payments, and that pricing and availability of Items and products are subject to change at any time.
 
-### 6.2If you are paying charges to us on a prepaid basis – you will be charged the relevant amount for the prepaid period at the time of purchase as a single lump sum. 
+6.2If you are paying charges to us on a prepaid basis – you will be charged the relevant amount for the prepaid period at the time of purchase as a single lump sum. 
 
-### 6.3If you are paying us charges on a postpaid basis – we will invoice you on a monthly basis (unless another period is agreed with you) for any charges (or other amounts) incurred by you in relation to your use of Tencent Cloud during the previous month. You agree that:
+6.3If you are paying us charges on a postpaid basis – we will invoice you on a monthly basis (unless another period is agreed with you) for any charges (or other amounts) incurred by you in relation to your use of Tencent Cloud during the previous month. You agree that:
 
 (a)we will send all invoices to you via your Tencent Cloud account console; and
 
 (b)you agree to pay all such invoiced amounts within 30 days from the date of the relevant invoice, using any of the payment methods as provided by us. 
 
-### 6.4If we do not receive your payment of any amounts due from you for any reason, we may terminate or suspend our provision of Tencent Cloud to you. 
+6.4If we do not receive your payment of any amounts due from you for any reason, we may terminate or suspend our provision of Tencent Cloud to you. 
 
-### 6.5We may from time to time make available payment methods to you for automatic, recurring or subscription-based charges. Where we do so, you agree that (subject to applicable laws and regulations): 
+6.5We may from time to time make available payment methods to you for automatic, recurring or subscription-based charges. Where we do so, you agree that (subject to applicable laws and regulations): 
 
 (a)such purchases or payments are generally made by you on an advance prepaid basis. We will notify you of all automatic renewals before they occur; 
 
@@ -154,38 +152,38 @@ You must promptly notify us (by contacting our Customer Support team) if you kno
 
 (d)we will provide you with further instructions within Tencent Cloud regarding how you may update or cancel the relevant payment method. 
 
-### 6.6We may change any charges for Tencent Cloud (or any part of Tencent Cloud) at any time upon publication within Tencent Cloud. Any such changed charges will apply to your use of Tencent Cloud (or relevant part of Tencent Cloud): 
+6.6We may change any charges for Tencent Cloud (or any part of Tencent Cloud) at any time upon publication within Tencent Cloud. Any such changed charges will apply to your use of Tencent Cloud (or relevant part of Tencent Cloud): 
 
 (a)if you are on a month-by-month Tencent Cloud subscription, as part of your next monthly billing cycle after 14 days after such publication date has elapsed; and
  
 (b)if you are on a fixed-term Tencent Cloud subscription, at the conclusion of your then-current fixed term. If you do not accept such change to the charges, we may be unable to provide Tencent Cloud (or the relevant part of Tencent Cloud) to you after the expiry of your then-current fixed term.
 
-### 6.7SUBJECT TO:
+6.7SUBJECT TO:
 
 (a)MANDATORY APPLICABLE LAWS AND REGULATIONS; OR 
 
 (b)AS OTHERWISE SPECIFIED BY US IN THESE TERMS OR FOR A PARTICULAR ITEM OR SERVICE WITHIN TENCENT CLOUD, 
 IN NO CIRCUMSTANCES WILL WE BE REQUIRED TO PROVIDE A REFUND FOR ANY PAYMENTS MADE BY YOU TO US IN RELATION TO ANY ITEMS OR SERVICE WITHIN TENCENT CLOUD (WHETHER USED OR UNUSED).
 
-### 6.8If you believe that we have charged you in error, and subject to applicable laws and regulations: 
+6.8If you believe that we have charged you in error, and subject to applicable laws and regulations: 
 
 (a)you must contact us within 30 days of the date of the relevant charge; and 
 
 (b)no refunds will be given for any erroneous charges after such 30 days period.
 
-### 6.9We may process payments from you in Tencent Cloud via a third party service, and we may provide your relevant Information to such third parties to process your payments. You agree to comply with that relevant third party's terms and conditions in relation to the payment processing service, as further set out in Section 16 below.   
+6.9We may process payments from you in Tencent Cloud via a third party service, and we may provide your relevant Information to such third parties to process your payments. You agree to comply with that relevant third party's terms and conditions in relation to the payment processing service, as further set out in Section 16 below.   
 
 ## 7.YOUR CONTENT
 
-### 7.1When you submit, upload, transmit or display any data, information, media or other content in connection with your use of Tencent Cloud (“Your Content”): 
+7.1When you submit, upload, transmit or display any data, information, media or other content in connection with your use of Tencent Cloud (“Your Content”): 
 
 (a)we will only access and process Your Content for the purpose of providing you with Tencent Cloud in accordance with these Terms; and
 
 (b)in relation to any Personal Information (as defined in the Tencent Cloud Privacy and Data Processing Policy) forming part of Your Content, we will only act as a data processor, data intermediary, vendor or service provider (if you are a business entity) or similar designation made under applicable laws and regulations for parties that only process Personal Information for the purposes instructed by others. 
 
-### 7.2You give us and our affiliate companies a non-exclusive, transferable, sub-licensable, royalty-free, worldwide licence to use Your Content only to provide Tencent Cloud (and the features and services within Tencent Cloud) to you.  You do not otherwise grant us any rights in Your Content, except as otherwise agreed between you and us. 
+7.2You give us and our affiliate companies a non-exclusive, transferable, sub-licensable, royalty-free, worldwide licence to use Your Content only to provide Tencent Cloud (and the features and services within Tencent Cloud) to you.  You do not otherwise grant us any rights in Your Content, except as otherwise agreed between you and us. 
 
-### 7.3In addition, you agree that we and our affiliate companies (subject to these Terms, our Tencent Cloud Privacy and Data Processing Policy and applicable laws and regulations):
+7.3In addition, you agree that we and our affiliate companies (subject to these Terms, our Tencent Cloud Privacy and Data Processing Policy and applicable laws and regulations):
 
 (a)may be required to retain or disclose Your Content in order to: 
 
@@ -205,25 +203,25 @@ and for each of sub-paragraphs (i) to (iv), whether the relevant applicable law 
 
 (d)may be required to retain or disclose Your Content in order to enforce these Terms or to protect any rights, property or safety of ours, our affiliate companies or other users of Tencent Cloud. 
 
-### 7.4You acknowledge that even if you seek to delete Your Content from Tencent Cloud, it may as a technical and administrative matter take some time or not be possible to achieve this – for example, we may not be able to prevent any third party from storing or using any of Your Content that you have made public via Tencent Cloud. 
+7.4You acknowledge that even if you seek to delete Your Content from Tencent Cloud, it may as a technical and administrative matter take some time or not be possible to achieve this – for example, we may not be able to prevent any third party from storing or using any of Your Content that you have made public via Tencent Cloud. 
  
-### 7.5We reserve the right to block or remove Your Content for any reason, including as is in our opinion appropriate or as required by applicable laws and regulations or as otherwise in accordance with our Tencent Cloud Copyright Policy. 
+7.5We reserve the right to block or remove Your Content for any reason, including as is in our opinion appropriate or as required by applicable laws and regulations or as otherwise in accordance with our Tencent Cloud Copyright Policy. 
 
 ## 8.Responsibility AND SECURITY for Your Content
 
-### 8.1You are solely responsible for Your Content. We are not responsible for maintaining a backup of Your Content – we recommend that you keep a back-up copy of it at all times. 
+8.1You are solely responsible for Your Content. We are not responsible for maintaining a backup of Your Content – we recommend that you keep a back-up copy of it at all times. 
 
-### 8.2You must at all times ensure that: 
+8.2You must at all times ensure that: 
 
 (a)you have the rights required to copy, process, transmit, access, publish, display and use Your Content, and to grant us and other third parties the rights as set out in these Terms; and 
 
 (b)Your Content (and our use of Your Content in accordance with these Terms) does not infringe or violate any applicable laws or regulations or the rights of any person.
 
-### 8.3We will comply with any of our security and processing-related obligations as expressly set out in these Terms (including our Tencent Cloud Privacy and Data Processing Policy). Otherwise, we have no security, protection or processing-related obligations in relation to Your Content, and you are responsible for properly configuring Tencent Cloud and ensuring that Your Content is appropriately secured and protected.
+8.3We will comply with any of our security and processing-related obligations as expressly set out in these Terms (including our Tencent Cloud Privacy and Data Processing Policy). Otherwise, we have no security, protection or processing-related obligations in relation to Your Content, and you are responsible for properly configuring Tencent Cloud and ensuring that Your Content is appropriately secured and protected.
 
 ## 9.Responsibility for End Users
 
-9.1Where you or any third party directly or indirectly: 
+Where you or any third party directly or indirectly: 
 
 (a)accesses or uses Your Content; or
 
@@ -243,7 +241,7 @@ you agree to the following:
 
 We comply with the provisions of the Digital Millennium Copyright Act applicable to Internet service providers (17 U.S.C. §512, as amended). If you have a copyright-related complaint about any content posted in Tencent Cloud, please follow the instructions set out in our Tencent Cloud Copyright Policy. 
 
-### 11.ADVERTISING CONTENT ON TENCENT CLOUD
+## 11.ADVERTISING CONTENT ON TENCENT CLOUD
 
 11.1Tencent Cloud may include advertising or commercial content. You agree that: 
 
@@ -438,7 +436,6 @@ the following terms apply:
 (c)these Terms and any dispute or claim arising out of or in connection with these Terms will be governed by the law of the Hong Kong Special Administrative Region; and
 
 (d)any dispute, controversy or claim (whether in contract, tort or otherwise) arising out of, relating to, or in connection with these Terms, including their existence, validity, interpretation, performance, breach or termination, will be referred to and finally resolved by arbitration administered by the Hong Kong International Arbitration Centre under the Hong Kong International Arbitration Centre Administered Arbitration Rules in force when the Notice of Arbitration is submitted. The seat of the arbitration will be Hong Kong. There will be one arbitrator only. The arbitration proceedings will be conducted in English.
-
 
 ## TENCENT CLOUD TERMS OF SERVICE (USA-SPECIFIC TERMS)
 

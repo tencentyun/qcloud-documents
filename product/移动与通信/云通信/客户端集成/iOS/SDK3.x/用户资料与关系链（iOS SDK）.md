@@ -476,7 +476,7 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
 
 ### 5.1 添加好友
  
-通过 TIMFriendshipManager的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为3000个： 
+通过 TIMFriendshipManager的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为1000个： 
 
 **原型：**
 
