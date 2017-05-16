@@ -516,12 +516,6 @@ public void getToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 public String getUuid()
 
 /**
- * 设置待发送的文件二进制数据
- * @param data 文件二进制数据
- */
-public void setData(byte[] data) 
-
-/**
  * 获取文件大小
  * @return 文件大小
  */
