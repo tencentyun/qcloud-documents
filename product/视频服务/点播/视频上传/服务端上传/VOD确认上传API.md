@@ -64,7 +64,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=CommitUpload
 ```
 
 ### 相关接口
-1. [点播发起上传]()
+1. [VOD发起上传]()
 2. [查询上传分片](/document/api/436/6070)
 3. [初始化分片上传](/document/api/436/6067)
 4. [逐个上传分片](/document/api/436/6068)
