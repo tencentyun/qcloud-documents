@@ -11,7 +11,7 @@
 
 假设用户A和用户B进行连麦，连麦演示Demo的使用方法是：
 
-1. 用户A、用户B分别生成自己的推流地址和拉流地址；需要特别注意的是，**拉流地址里必须包括防盗链key：即必须包含bizid、txSecret和txTime三个参数**，具体生成方式请参考本文后面[加速拉流链路URL](https://www.qcloud.com/document/product/454/8871?!preview=true&lang=zh#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E4.BA.92.E7.9B.B8.E6.8B.89.E6.B5.818)里的介绍；
+1. 用户A、用户B分别生成自己的推流地址和拉流地址；需要特别注意的是，**拉流地址里必须包括防盗链key：即必须包含bizid、txSecret和txTime三个参数**，具体生成方式请参考本文后面[加速拉流链路URL](https://www.qcloud.com/document/product/454/8871#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E4.BA.92.E7.9B.B8.E6.8B.89.E6.B5.818)里的介绍；
 
 ```
 推流地址A: rtmp://3891.livepush.myqcloud.com/live/3891_streamA?bizid=3891&txSecret=9d6e1a1ec1dde00dab718e5684ad53a3&txTime=5919D07F
@@ -31,7 +31,7 @@
 
 【特别说明】
 - 步骤3中“扫描拉流地址，添加一路拉流”，必须保证拉流地址包含防盗链key；因为只有包含防盗链key，演示Demo才会使用本文后面介绍的加速拉流接口进行拉流播放，以降低视频时延，并做音频回声消除；
-- 连麦演示Demo只用于在大、小主播之间建立双向实时视频对话，没有做视频混流，其它第三方观众看到的还是大主播一个人的视频画面；您在实际对接过程中，需要按照本文后面介绍的[视频混流方法](https://www.qcloud.com/document/product/454/8871#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.B7.B7.E6.B5.819)，对大、小主播做视频混流，才可以达到真正的连麦效果。
+- 连麦演示Demo只用于在大、小主播之间建立双向实时视频对话，没有做视频混流，其它第三方观众看到的还是大主播一个人的视频画面；您在实际对接过程中，需要按照本文后面介绍的[视频混流方法](https://www.qcloud.com/document/product/454/8871#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.B7.B7.E6.B5.8111)，对大、小主播做视频混流，才可以达到真正的连麦效果。
 
 ### 对接攻略
 
