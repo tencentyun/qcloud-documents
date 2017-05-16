@@ -1,6 +1,6 @@
 ## 产品介绍FAQ
 ### 1.DDoS攻击都有什么类型？
-常见的DDoS攻击类型有SYN Flood、ACK Flood、ICMP Flood、UDP Flood、NTP Flood 、SSDP Flood、DNS Flood、HTTP Flood，以及CC攻击
+常见的DDoS攻击类型有SYN Flood、ACK Flood、ICMP Flood、UDP Flood、NTP Flood 、SSDP Flood、DNS Flood、HTTP Flood，以及CC攻击。
 ### 2.如何防DDoS攻击？
 首先需要足够大的机房带宽，接下攻击流量，其次需要有好的防护设备，识别并清洗掉攻击流量。
 
@@ -27,7 +27,7 @@
 
 ### 3.封堵时间多长？如何提前解封
 普通封堵时长为2小时，大流量攻击封堵时长为24小时。
-<br>处理方式：
+处理方式：
 1.等待平台解封，期间您可以通过内网地址访问您的服务器
 2.如需提前解封，您可以购买或升级BGP高防产品
 2.1 已购买BGP高防产品的客户，建议您升级产品，提前解封；
