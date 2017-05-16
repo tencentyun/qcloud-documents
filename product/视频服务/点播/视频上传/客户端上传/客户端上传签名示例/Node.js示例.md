@@ -11,7 +11,6 @@ var current = parseInt((new Date()).getTime() / 1000)
 var expired = current + 86400;  // 签名有效期：1天
 
 // 向参数列表填入参数
-
 var arg_list = {
 	secretId : secret_id,
 	currentTimeStamp : current,
@@ -19,7 +18,7 @@ var arg_list = {
 	random : Math.round(Math.random() * Math.pow(2, 32))
 }
 
-// Step 4：生成签名
+// 计算签名
 var orignal = querystring.stringify(arg_list);
 var orignal_buffer = new Buffer(orignal, "utf8");
 
