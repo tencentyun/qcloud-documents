@@ -1,6 +1,6 @@
 ## 功能描述
 
-Set Vault Access Policy 请求实现为一个 Vault 设置权限。
+Set Vault Access Policy 请求实现为一个 Vault 设置权限。具体策略语法参考『认证与鉴权』-『权限管理』
 
 只支持所有者设置权限，对应 UID 值为 "-"。成功后返回 204 No Content。
 
