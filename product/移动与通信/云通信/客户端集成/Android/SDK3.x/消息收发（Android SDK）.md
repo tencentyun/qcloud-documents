@@ -351,12 +351,6 @@ public void setPath(String path)
 public String getUuid() 
 
 /**
- * 设置二进制数据
- * @param data 声音二进制数据
- */
-public void setData(byte[] data)
-
-/**
  * 获取二进制数据长度
  * @return 二进制数据长度
  */
@@ -514,12 +508,6 @@ public void getToFile(@NonNull final String path, @NonNull TIMCallBack callback)
  * @return uuid，可作为唯一标示用于缓存的key
  */
 public String getUuid()
-
-/**
- * 设置待发送的文件二进制数据
- * @param data 文件二进制数据
- */
-public void setData(byte[] data) 
 
 /**
  * 获取文件大小
@@ -874,10 +862,7 @@ long    getFileSize()
  
 //获取uuid
 java.lang.String    getUuid()
- 
-//设置待发送的文件二进制数据
-void    setData(byte[] data)
- 
+  
 //设置文件名
 void    setFileName(java.lang.String fileName)
 ```

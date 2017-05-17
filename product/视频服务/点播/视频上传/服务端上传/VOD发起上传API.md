@@ -26,7 +26,7 @@ vod.api.qcloud.com
 ### 请求示例
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=ApplyUpload
-&video_type=mp4
+&videoType=mp4
 &COMMON_PARAMS
 ```
 ## 接口应答
@@ -38,10 +38,10 @@ https://vod.api.qcloud.com/v2/index.php?Action=ApplyUpload
 | message | String | 错误信息 |
 | video | Array | 视频文件的COS上传信息 |
 | cover | Array | 封面文件的COS上传信息 |
-| storage_appid | String | COS上传使用的账号 |
-| storage_bucket | String | COS上传使用的bucket |
-| storage_region | String | COS上传的地域 |
-| vod_session_key | String | 确认上传时使用的会话Key |
+| storageAppid | String | COS上传使用的appid |
+| storageBucket | String | COS上传使用的bucket |
+| storageRegion | String | COS上传的地域 |
+| vodSessionKey | String | VOD确认上传时使用的会话Key |
 
 #### COS上传信息结果集
 | 参数名称 | 类型 | 描述 |
@@ -69,15 +69,15 @@ https://vod.api.qcloud.com/v2/index.php?Action=ApplyUpload
         "storageSignature": "7oYYOyab7dhs49YwdIhxPM04aFhhPTEwMDI8ODUzJmI9NmMwZjFjMDB2b2RnenAyNTEwMDAzMzMmaz1BS0lESVdlN0F0STEwUFFrbThSRURsNFVPN0k2bXluNk5ERjcmZT0xNDkzMTA5MjY4JnQ9MTQ5MjkzNjQ2MCZyPTk1ZDI3MTY0MSZmPQ==",
         "storagePath": "/6c0f1c00vodgzp251000333/dee2156d24820810452266402/24820810452266403.jpg"
     },
-    "storage_appId": 10022853,
-    "storage_bucket": "6c0f1c00vodgzp251000333",
-    "storage_region": "gzp",
-    "vod_session_key": "3KEGq9DWHl1xF819mM4jVFkGn5WON80NwN/rTrx56UoEFApIV9DQ7t5m1g4hASR11gKWwGxkignB3AmhKOpUnym7wyNEHOwDJPcT5fBu66iCLcW7bhyRfDSsQcVpX0Wt96RKSsZFf62jeAB+e5640U8rMPV3Rf2eR+y1AgI+EC3JZU5iZbjLX4qNVI4RuLvLGcCUkYqWAYeqfHMYjvz0Fzhg6KuxnLicfs4D0gpyoX1X6gcsX8cWS0S0jCaZ+Q/r29IlU/w6E+UDFuk5yZik+whNxaZ/mOrctqr25jQ="
+    "storageAppId": 10022853,
+    "storageBucket": "6c0f1c00vodgzp251000333",
+    "storageRegion": "gzp",
+    "vodSessionKey": "3KEGq9DWHl1xF819mM4jVFkGn5WON80NwN/rTrx56UoEFApIV9DQ7t5m1g4hASR11gKWwGxkignB3AmhKOpUnym7wyNEHOwDJPcT5fBu66iCLcW7bhyRfDSsQcVpX0Wt96RKSsZFf62jeAB+e5640U8rMPV3Rf2eR+y1AgI+EC3JZU5iZbjLX4qNVI4RuLvLGcCUkYqWAYeqfHMYjvz0Fzhg6KuxnLicfs4D0gpyoX1X6gcsX8cWS0S0jCaZ+Q/r29IlU/w6E+UDFuk5yZik+whNxaZ/mOrctqr25jQ="
 }
 ```
 
 ### 相关接口
-1. [点播确认上传]()
+1. [VOD确认上传]()
 2. [查询上传分片](/document/api/436/6070)
 3. [初始化分片上传](/document/api/436/6067)
 4. [逐个上传分片](/document/api/436/6068)

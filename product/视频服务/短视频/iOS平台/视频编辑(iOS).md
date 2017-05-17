@@ -1,91 +1,87 @@
 ﻿
-## 接口介绍
-
-| 类名                   | 功能       |
-| -------------------- | -------- |
-| TXUGCVideoInfoReader | 视频文件信息读取 |
-| TXUGCEditer          | 视频编辑     |
-| TXOperationParam     | 操作类型对象   |
-
 ## 复用现有UI
-视频编辑器由于逻辑本身的复杂性决定了其 UI 复杂度很高，此文档适用于您要自己编写 UI 界面的场景；相比之下，我们更推荐您使用我们在 SDK 开发包中附赠的 UI 控件源代码，您可以通过代码复用 + 风格修改，节省掉大量 UI 细节的处理时间。
+视频编辑器具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，而且随着 SDK 的编辑功能不断强化，这里的复杂性会越来越高，所以我们比较推荐复用 SDK 开发包中的 UI 源码（ VideoEditor 目录包含短视频的编辑器代码）。
+
+
+### 1. 视频裁剪
+![](//mc.qcloudimg.com/static/img/a3242d1e0abb14e332011205a384100d/image.jpg)
+
+- VideoPreview 用于实现上图中的视频预览区
+- VideoRangeSlider 用于实现上图中的滑动条和裁剪工具
+- VideoEditViewController 用于将 VideoPreview 和 VideoRangeSlider 整合起来。
+
+### 2. 滤镜特效
+2.0.4 版本支持，敬请期待
+
+### 3. 音轨处理
+2.0.4 版本支持，敬请期待
+
+### 4. 视频加速
+2.0.4 版本支持，敬请期待
+
+### 5. 字幕叠加
+2.0.4 版本支持，敬请期待
+
 
 ## 自己实现UI
+如果您不考虑复用我们开发包中的 UI 代码，决心自己实现 UI 部分，则可以参考如下的攻略进行对接：
 
-### 1. 读取视频信息
-#### 1.1 读取视频基本信息
-TXUGCVideoInfoReader提供了方法，一次性读出所有相关信息，这些信息将在后续的视频编辑过程中使用。
+### 1. 预览图片组
+
+TXVideoInfoReader 的 getVideoInfo 方法可以获取指定视频文件的一些基本信息，getSampleImages 则可以获取指定数量的预览图：
 
 ```objective-c
-/*
- * 视频信息
- */
-@interface TXVideoInfo : NSObject
-@property (nonatomic, strong) UIImage*              coverImage;     //视频首帧图片
-@property (nonatomic, assign) CGFloat               duration;       //视频时长(s)
-@property (nonatomic, assign) unsigned long long    fileSize;       //视频大小(byte)
-@property (nonatomic, assign) int                   fps;            //视频fps
-@property (nonatomic, assign) int                   bitrate;        //视频码率 (kbps)
-@property (nonatomic, assign) int                   audioSampleRate;//音频采样率
-@property (nonatomic, assign) int                   width;          //视频宽度
-@property (nonatomic, assign) int                   height;         //视频高度
-@end
-
+// 获取视频文件的信息
 + (TXVideoInfo *)getVideoInfo:(NSString *)videoPath;
+
+// 对视频文件进行预读，均匀得生成 count 张预览图片组
++ (void)getSampleImages:(int)count
+              videoPath:(NSString *)videoPath
+               progress:(sampleProcess)sampleProcess;
 ```
 
-#### 1.2 提取缩略图
-视频编辑通常要提供一个缩略图列表，以便用户快速预览和定位视频文件。获取视频缩略图的方法如下：
+开发包中的 VideoRangeSlider 即使用了 getSampleImages 获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
 
+### 2 效果预览
+视频编辑提供了 **定点预览**（将视频画面定格在某一时间点）与**区间预览**（循环播放某一时间段A<=>B内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。
+
+- **绑定 UIView**
+TXVideoEditer 的 initWithPreview 函数用于绑定一个 UIView 给 SDK 来渲染视频画面，绑定时需要制定**自适应**与**填充**两种模式。
 ```objective-c
-[TXUGCVideoInfoReader getSampleImages:10 videoPath:_videoPath progress:^(int number, UIImage *image) {
-        // UI显示 image
-    }];
+PREVIEW_RENDER_MODE_FILL_SCREEN - 填充模式，尽可能充满屏幕不留黑边，所以可能会裁剪掉一部分画面。
+PREVIEW_RENDER_MODE_FILL_EDGE   - 适应模式，尽可能保持画面完整，但当宽高比不合适时会有黑边出现。
 ```
 
-参数传入视频文件路径和期望的缩略图数量如此处的10，使用者可以根据App界面设计的预览区域大小计算出所需要的缩略图数量，SDK根据视频文件的时长，均匀读取指定数量的视频截图。
+- **定点预览**
+TXVideoEditer 的 previewAtTime 函数用于定格显示某一个时间点的视频画面。
 
-### 2. 视频文件编辑
+- **区间预览**
+TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B内的视频片段。
 
-#### 2.1 视频预览
-视频编辑提供了即时预览与播放预览两种方式，预览需要上层提供一个UIView用于显示视频画面。
 
-调用`- (instancetype)initWithPreview:(TXPreviewParam *)param`创建TXUGCEditer对象，编辑过程中的即时预览和播放都将渲染到这个UIView上。
-
-预览单帧画面，在缩略图上移动可以根据当前时间戳预览某一帧画面，直接调用`- (void)previewAtTime:(CGFloat)time;`此函数即可，当前视频帧会自动显示在传入的预览view上，通过指定预览view的渲染模式可以设置自适应与填充两种模式。
-
-*  `PREVIEW_RENDER_MODE_FILL_SCREEN`表示填充模式
-*  `PREVIEW_RENDER_MODE_FILL_EDGE`表示自适应模式
-
-预览播放视频，直接调用`- (void)startPlayFromTime:(CGFloat)startTime toTime:(CGFloat)endTime`实现，表示预览播放某个时间区间的视频，视频预览的进度可以通过`previewDelegate`获取。
-
-#### 2.2 裁剪生成视频 
-
-对一个视频编辑有很多种操作，裁剪只是其中一种。因此，我们将这些操作定义为`TXOperationParam`对象，
-
-```objective-c
-/*
- * 视频操作
- */
-@interface TXOperationParam : NSObject
-@property (nonatomic, assign) TXOperationType       type;           //操作类型
-@property (nonatomic, assign) CGFloat               startTime;      //操作开始时间(s)
-@property (nonatomic, assign) CGFloat               endTime;        //操作结束时间(s)
-@end
-```
-
-TXOperationType目前只支持OPERATION_TYPE_CUT（剪裁视频），startTime表示裁剪的开始时间，endTime表示裁剪的结束时间。
-
-当对视频操作满意后，通过调用`- (int)setOperationList:(NSArray<TXOperationParam *> *)operationList`设置编辑操作，接下来就是把前面操作应用在每一帧上，最终输出为一个文件。
+### 3 视频裁剪
+视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
 
 ```objective-c
 TXUGCEditer* _ugcEdit = [[TXUGCEditer alloc] initWithPreview:param];
-TXOperationParam *param = [[TXOperationParam alloc] init];
-param.type      = OPERATION_TYPE_CUT;
-param.startTime = _videoRangeSlider.leftPos;
-param.endTime   = _videoRangeSlider.rightPos;
-[_ugcEdit setOperationList:@[param]];
+// 设置裁剪的 起始时间 和 结束时间
+[_ugcEdit setCutFromTime:_videoRangeSlider.leftPos toTime:_videoRangeSlider.rightPos];
+// ...
+// 生成最终的视频文件
+_ugcEdit.generateDelegate = self;
 [_ugcEdit generateVideo:VIDEO_COMPRESSED_540P videoOutputPath:_videoOutputPath];
 ```
 输出时指定文件压缩质量和输出路径，输出的进度和结果会通过`generateDelegate`以回调的形式通知用户。
+
+### 4. 滤镜特效
+2.0.4 版本支持，敬请期待
+
+### 5. 音轨处理
+2.0.4 版本支持，敬请期待
+
+### 6. 视频加速
+2.0.4 版本支持，敬请期待
+
+### 7. 字幕叠加
+2.0.4 版本支持，敬请期待
 
