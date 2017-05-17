@@ -29,6 +29,9 @@ AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 
 * 任何需要从手机上收集互动直播日志的场景
 
+
+<img src="https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/log_report.png" width = "360" height = "480" alt="图片名称" align=center />
+
 ### 使用方法
 
 1. 集成iLive sdk(?哪个版本)
