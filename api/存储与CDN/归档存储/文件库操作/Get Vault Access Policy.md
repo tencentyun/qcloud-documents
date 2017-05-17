@@ -38,15 +38,15 @@ Authorization: Auth
 ```json
 {
     "version": "2.0",
-    "principal": {
-        "qcs": [
-            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>",
-            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>"
-        ]
-    },
     "statement": [
         {
             "effect": "allow",
+            "principal": {
+              "qcs": [
+                "qcs::cam::uin/<RootAccout>:uin/<SubAccount>",
+                "qcs::cam::uin/<RootAccout>:uin/<SubAccount>"
+              ]
+            },
             "action": [
                 "name/cas:<ActionName>"
             ],
