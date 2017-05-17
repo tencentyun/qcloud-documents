@@ -7,7 +7,9 @@
 32位IE9，32位IE10，IE11
 
 ## 下载SDK和DEMO
-demo工程是基于ILiveSDK(IE)开发的互动直播应用。应用名为随心播，可以与其他终端的随心播互通。您可以在[腾讯云官网下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/iLiveSDK_web.zip)ILiveSDK(IE)及其demo。其中包含了ILiveSDK(IE)，接口文档，js接口文件和接口调用示例等，具体如下：
+demo工程是基于ILiveSDK(IE)开发的互动直播应用。应用名为随心播，可以与其他终端的随心播互通。   
+您可以直接在这里[在线体验](https://sxb.qcloud.com/webdemo/index.html)其效果。   
+也可以在[腾讯云官网下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/iLiveSDK_web.zip)ILiveSDK(IE)及其demo。其中包含了ILiveSDK(IE)，接口文档，js接口文件和接口调用示例等，具体如下：
   
 
 文件 | 说明 | 
@@ -22,7 +24,7 @@ iLiveSDK/iLiveSDK.js | 互动直播接口，封装了iLiveSDK.cab的接口供业
 ## demo运行及其注意事项
 运行demo可以对ILiveSDK(IE)具备的能力有个直观的印象。您可以参照如下步骤运行demo：
 
- 1. 把随心播代码中的appid和accountType修改成开发者自己的。即在demo.js中找到OnInit方法，找到`sdk = new ILiveSDK(1400027849, 11656, "iLiveSDKCom")`语句，修改其中前两个参数。
+ 1. 把随心播代码中的appid和accountType修改成开发者自己的。即在demo.js中找到OnInit方法，找到`sdk = new ILiveSDK(1400027849, 11656, "iLiveSDKCom")`语句，用自己的`SDKAppID`和`accountType`替换前两个参数。如何获取这两个参数，可以参考[快速参数配置](https://www.qcloud.com/document/product/268/7599)。
  2. 将[随心播后台代码](https://github.com/zhaoyang21cn/SuiXinBoPHPServer)部署到自己服务器上，并按照文档修改后台的秘钥。
  2. 用IE打开index.html，并允许activeX控件，可以看到注册和登录界面。
  ![登录界面](http://mc.qcloudimg.com/static/img/cf9dec67f37159dc9fec9d529dcf47f1/image.png)
@@ -38,5 +40,5 @@ iLiveSDK/iLiveSDK.js | 互动直播接口，封装了iLiveSDK.cab的接口供业
  3. 在html页面中添加js接口文件<script type="text/javascript" src="路径/iLiveSDK.js"></script>
  4. 调用iLiveSDK中的接口实现业务需求
 
-## SDK日志
+## SDK日志位置
 日志地址：%appdata%\Tencent\iLiveSDK（在开始菜单运行中执行）

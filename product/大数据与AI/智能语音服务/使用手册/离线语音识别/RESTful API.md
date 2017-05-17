@@ -173,4 +173,53 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 |1031|ERROR_AUDIO_TOO_LARGE|发送的语音数据过大（大于 5M）|
 |1033|ERROR_UNKNOWN|其他未知错误|
 
+## PHP代码示例
+
+```php
+<?php
+$appid = YOUR_APPID ;
+// https://console.qcloud.com/capi
+// 从该页面获取APPID的SecretId和SecretKey
+$secretid ='YOUR_SECRET_ID';
+$secretkey = 'YOUR_SECRET_KEY';
+
+$req_url = 'aai.qcloud.com/asr/v1/'.$appid;
+
+$args = array(
+    'channel_num' => 1,
+    'secretid' => $secretid,
+    'engine_model_type' => 1,
+    'timestamp' => time(),
+    'expired' => time() + 3600,
+    'nonce' => rand(100000, 200000),
+    'projectid' => 0,
+    'callback_url' => "http://aai.qcloud.com/cb",
+    'res_text_format' => 0,
+    'res_type' => 1,
+    'source_type' => 0,
+    'sub_service_type' => 0,
+    'url' => "http://aai.qcloud.com/test.mp3",
+);
+
+// 参数按照Key的字母序排序
+ksort($args);
+
+$arg_str = "";
+foreach($args as $k => $v) {
+    $arg_str = $arg_str . "$k=$v&";
+}
+$arg_str = trim($arg_str, "&");
+
+// 拼接签名串
+$sig_str = "POST$req_url?$arg_str";
+echo "sig_str: $sig_str\n";
+
+// 计算签名
+$signature = base64_encode(hash_hmac("sha1", $sig_str, $secretkey, TRUE));
+echo "signature: $signature\n";
+
+$req_url = "https://$req_url?$arg_str";
+echo "curl -sv -H 'Authorization:$signature' '$req_url' -d ''\n";
+
+```
 
