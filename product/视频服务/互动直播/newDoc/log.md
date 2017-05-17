@@ -26,6 +26,97 @@ IMSDK|Library/Caches/imsdk_YYYMMDD.log
 AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 
 
+
+## 日志收集接口
+
+### 适用场景 
+
+* 任何需要从手机上收集互动直播日志的场景
+
+### 使用方法
+
+1. 集成iLive sdk(?哪个版本)
+      
+	**1.4.0以上**
+	 	
+2. 在需要用户上报日志的时候，调用日志上报接口。iLive sdk会直接把日志传到腾讯云后台。     
+
+	
+**android接口**	
+
+```java
+/**
+ * 上报日志
+ *
+ * @param desc 描述
+ * @param data 0表示当天 1-昨天 2-前天 类推
+ * @param callBack 回调
+ * 
+ */
+ILiveSDK.getInstance().uploadLog(String desc, int data ILiveCallBack callback);
+```
+**IOS接口**         
+
+```java
+/**
+ 日志上报
+ 
+ @param logDesc      日志描述
+ @param dayOffset    日期，0-当天，1-昨天，2-前天，以此类推
+ @param uploadResult 上报回调
+ */
+(void)uploadLog:(NSString *)logDesc logDayOffset:(int)dayOffset uploadResult:(ILiveLogUploadResultBlock)uploadResult;
+```
+
+4. 开发者可以在[日志查询平台](http://vip.avc.qcloud.com/SdkLog/home)查询用户和下载用户上传的日志。
+
+
+![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/iLiveSDK_Log.png)
+
+
+5. 当需要进一步分析问题的时候，可以提供日志id给腾讯云技术支持人员。
+
+### 常见问题
+
+* 都会上报哪些日志？  
+     
+    **iLiveSDK流程日志，IMSDK消息系统日志，AVSDK日志 后期会加上Crash信息日志**
+    
+* 如何指定上报哪天的日志？     
+
+	**0表示当天 1-昨天 2-前天 类推**
+	
+* 上报过程中如果网络中断了会怎么样？      
+
+	**需要重新传送**
+	
+* 上报的日志是否有删除策略？     
+
+    **超过15天， 日志超过1000条自动清理** 
+    
+* 错误码 
+		        
+	0    ： 日志上报成功
+
+	8101 ： 参数错误
+
+	8102 ： 文件不存在
+
+	8103 ： 压缩失败
+
+	8104 ： 获取签名失败
+
+	8105 ： 协议解析失败
+
+	8106 ： 上传失败
+
+	8107 ： 上报结果失败
+
+
+
+
+
+
 ## iLive SDK 关键路径的LOG
 
 开发者在遇到问题时，可以根据这些日志，判断哪个流程执行出错，有助于定位问题。<br/><br/>
