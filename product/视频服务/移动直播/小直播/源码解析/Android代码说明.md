@@ -10,7 +10,7 @@
 | ui/customviews| 小直播ui用到的自定义控件|
 | jniLibs| 小直播依赖的腾讯相关sdk，主要是BuglySDK、TLSSDK、IMSDK及RTMPSDK|
 ### 库使用说明
-##### [直播 SDK](https://www.qcloud.com/document/product/454/7873)  (必选)
+#### [直播 SDK](https://www.qcloud.com/document/product/454/7873)  (必选)
 移动直播最主要的 SDK，其提供了推流、直播、点播、连麦、录屏等功能。
 - jar 包
 txrtmpsdk.jar
@@ -23,7 +23,7 @@ txrtmpsdk.jar
 | libtraeimp-rtmp-armeabi.so | 连麦功能库 |
 | libstlport_shared.so  | 连麦功能库 |
 
-##### IM SDK  (必选)
+#### IM SDK  (必选)
 提供消息收发功能。
 - jar 包
 
@@ -43,7 +43,7 @@ txrtmpsdk.jar
 	- libqalmsfboot.so
   - libwtcrypto.so
 
-##### [UGC 小视频](https://www.qcloud.com/document/product/454/8843)（非必选）
+#### [UGC 小视频](https://www.qcloud.com/document/product/454/8843)（非必选）
 UGC 小视频的录制和发布以及编辑功能。
 - jar 包
 
@@ -65,22 +65,22 @@ UGC 小视频的录制和发布以及编辑功能。
 | libTXSHA1.so | UGC 计算上传文件的 SHA 值 |
 
 
-##### 商业增值版 (小直播源码中没有)
+#### 商业增值版 (小直播源码中没有)
 基于优图实验室的 AI 专利技术，实现了大眼、瘦脸、动效贴纸、绿幕等特效功能。如果没有用到该功能，可以删除相关 so 库。
 - libblasV8.so   
 - librsjni.so  
 - libRSSupport.so  
 
-##### volley  (非必选)
+#### volley  (非必选)
 第三方的网络请求库
 
-##### Gson  (非必选)
+#### Gson  (非必选)
 第三方的用来在Java 对象和JSON 数据之间进行映射的Java 类库
 
 #### Glide  (非必选)
 第三方的图片加载库
 
-##### dfm  (非必选)
+#### dfm  (非必选)
 第三方弹幕库。如果你希望在聊天中有弹幕效果，建议保留。
 
 
