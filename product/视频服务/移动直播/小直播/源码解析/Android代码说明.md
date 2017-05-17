@@ -1,5 +1,5 @@
 ## 1.工程结构
-[下载](https://www.qcloud.com/document/product/454/6991)小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
+从github下载小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
 ![](//mc.qcloudimg.com/static/img/af1b516a6c254da0224486bd35e3d2b6/image.png)
 
 |文件/目录 | 说明 | 
@@ -9,13 +9,84 @@
 | ui| 小直播界面层代码|
 | ui/customviews| 小直播ui用到的自定义控件|
 | jniLibs| 小直播依赖的腾讯相关sdk，主要是BuglySDK、TLSSDK、IMSDK及RTMPSDK|
-### 依赖第三方库 
-- 网络：volley，gson
-- 界面:appcompat，design，recyclerview
-- 弹幕：dfm
+### 库使用说明
+##### [直播 SDK](https://www.qcloud.com/document/product/454/7873)  (必选)
+移动直播最主要的 SDK，其提供了推流、直播、点播、连麦、录屏等功能。
+- jar 包
+txrtmpsdk.jar
+- so 库
+    移动直播因使用连麦功能，所以选择集成完整版。目前完整版只支持 armeabi 和 armeabi-v7 两种架构。
+		
+|  库名 | 描述 |
+|  --------- | ---------- |
+| libtxrtmpsdk.so | 直播核心组件 |
+| libtraeimp-rtmp-armeabi.so | 连麦功能库 |
+| libstlport_shared.so  | 连麦功能库 |
+
+##### IM SDK  (必选)
+提供消息收发功能。
+- jar 包
+
+| 包名      |    描述  |
+| :--------: | :--------:| 
+| imsdk.jar           |   ImSDK基础包，只提供消息、资料关系链管理、群组管理等的最基础功能 | 
+| qalsdk.jar |   SDK网络层jar包 |  
+| soload.jar      |   提高imsdk so库的加载成功率 | 
+| mobilepb.jar |   protobuffer处理相关jar包 |  
+| tls_sdk.jar      |   帐号系统jar包 |   
+| wup-1.0.0-SNAPSHOT.jar      |   无线统一协议jar包 | 
+
+- so 库
+移动直播目前只集成 armeabi 架构
+	- lib_imcore_jni_gyp.so
+	- libqalcodecwrapper.so
+	- libqalmsfboot.so
+  - libwtcrypto.so
+
+##### [UGC 小视频](https://www.qcloud.com/document/product/454/8843)（非必选）
+UGC 小视频的录制和发布以及编辑功能。
+- jar 包
+
+
+| 包名      |    描述  |
+| :--------: | :--------:| 
+| ugcupload.jar | UGC 上传文件到点播系统 jar 包|
+| sha1utils.jar | UGC 计算上传文件的 SHA 值 jar 包|
+| okio-1.6.0.jar | 网络操作 I/O 库 |
+| okhttp-3.2.0.jar | 网络请求库 |
+| cos-sdk-android.1.4.3.6.jar |  对象存储 COS 相关的 jar 包|
+
+- so 库
+
+
+| 库名      |    描述  |
+| :--------: | :--------:| 
+| libTcHevcDec.so | 用于 H265 播放 |
+| libTXSHA1.so | UGC 计算上传文件的 SHA 值 |
+
+
+##### 商业增值版 (小直播源码中没有)
+基于优图实验室的 AI 专利技术，实现了大眼、瘦脸、动效贴纸、绿幕等特效功能。如果没有用到该功能，可以删除相关 so 库。
+- libblasV8.so   
+- librsjni.so  
+- libRSSupport.so  
+
+##### volley  (非必选)
+第三方的网络请求库
+
+##### Gson  (非必选)
+第三方的用来在Java 对象和JSON 数据之间进行映射的Java 类库
+
+#### Glide  (非必选)
+第三方的图片加载库
+
+##### dfm  (非必选)
+第三方弹幕库。如果你希望在聊天中有弹幕效果，建议保留。
+
+
 
 ## 2.模块介绍
-小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、推流、播放、消息、资料以及连麦，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
+小直播按照功能不同划分了6个模块，分别为：帐号、列表管理、推流、播放、消息以及资料，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
 ### 帐号模块
 #### 模块简介
@@ -122,19 +193,3 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 	- TCEditUseInfoActivity.java: 用户资料修改页面
 	- TCLineEditTextView.java: 文本修改控件，对控件EditText的简单封装，可以用来修改文本，并显示相关信息
 	- TCTextEditActivity.java: 文本修改页面，对控件EditText的封装，使用单独的页面来修改文本，并显示相关信息
-
-### 连麦
-#### 模块简介
-- 小直播结合SDK的连麦能力以及im的C2C消息接口实现了连麦功能
--  C2C消息主要用于主播和连麦观众的通知和回复：观众发起连麦请求和观众已推流成功需要通知主播，主播做相应回复
-- 主播端开始直播后，连麦观众向主播发起连麦请求，主播同意连麦请求后，连麦观众和主播分别通过对方的播放地址拉取视频数据并展示，后台对主播和连麦观众的推流数据进行混流，第三方观众看到的直接是混流后的视频
-
-#### 时序图
-![](//mc.qcloudimg.com/static/img/1b80501829fd5528bf41d4c9a84aed2b/image.png)
-
-#### 相关代码
-- Logic:
-	- TCLinkMicMgr：对C2C消息进行封装，对上层提供通知和回复的接口
-- UI:
-	- TCLinkMicLivePushActivity：连麦主播端的界面实现，继承自TCLivePublisherActivity，实现连麦请求的响应和连麦观众画面的拉取
-	- TCLinkMicLivePlayActivity：连麦观众端的界面实现，继承自TCLivePlayerActivity，发起连麦请求、进行推流以及主播端画面的拉取
