@@ -27,7 +27,7 @@
 	e.登录成功的界面如图所示，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 	![](//mc.qcloudimg.com/static/img/abd8efce579343d25f534143c19c132e/image.png)
 - Linux系统
-	a.以CentOS 7.2 64位系统的CVM为例，利用CentOS自带的包管理软件Yum去腾讯云的镜像源上下载安装MySQL客户端。
+	a.以CentOS 7.2 64位系统的CVM为例，利用CentOS自带的包管理软件Yum去腾讯云的镜像源下载安装MySQL客户端。
 	相关命令为：
 	```yum install mysql```
 	图示如下：
