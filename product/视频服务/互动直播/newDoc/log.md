@@ -34,7 +34,7 @@ AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 
 ### 使用方法
 
-1. 集成iLive sdk(?哪个版本)
+1. 集成iLive sdk
       
 	**1.4.0以上**
 	 	
