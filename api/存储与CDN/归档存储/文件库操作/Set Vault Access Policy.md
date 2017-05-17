@@ -28,15 +28,15 @@ Authorization: Auth
 ```json
 {
     "version": "2.0",
-    "principal": {
-        "qcs": [
-            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>",
-            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>"
-        ]
-    },
     "statement": [
         {
             "effect": "allow",
+            "principal": {
+              "qcs": [
+                "qcs::cam::uin/<RootAccout>:uin/<SubAccount>",
+                "qcs::cam::uin/<RootAccout>:uin/<SubAccount>"
+              ]
+            },
             "action": [
                 "name/cas:<ActionName>"
             ],
@@ -62,7 +62,7 @@ Authorization: Auth
 
 | ConditionOperator       | 含义     | 条件名                    | 举例                                       |
 | ----------------------- | ------ | ---------------------- | ---------------------------------------- |
-| ip_equal                | ip等于   | ip,ip要符合CIDR规范         | {" ip_equal  ":{"qcs:ip":"10.121.2.10/24"}}  |
+| ip_equal                | ip等于   | ip,ip要符合CIDR规范         | {" ip_equal  ":{"qcs:ip":"10.121.2.10/24"}} |
 | ip_not_equal            | ip不等于  | ip，ip要符合CIDR规范         | {" ip_not_equal  ":{"qcs:ip":["10.121.2.10/24",  "10.121.2.20/24"]}} |
 | date_not_equal          | 时间不等于  | qcs:current_time(当前时间) | {"date_not_equal":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |
 | date_greater_than       | 时间大于   | qcs:current_time(当前时间) | {" date_greater_than  ":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |
