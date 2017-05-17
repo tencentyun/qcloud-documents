@@ -29,8 +29,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc<br>
     vpc:region<br>
     vpc:requester_vpc</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
  
@@ -475,8 +474,7 @@ none'>cPeeringConnection</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc<br>
     vpc:requester_vpc<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
  
@@ -498,8 +496,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region<br>
     vpc:requester_vpc<br>
     vpc:requester_vpc_region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
@@ -692,8 +689,7 @@ none'>cPeeringConnection</span></td>
     vpc:region<br>
     vpc:requester_vpc<br>
     </td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
  
@@ -708,8 +704,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region<br>
     vpc:requester_vpc<br>
     vpc:requester_vpc_region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
@@ -841,8 +836,7 @@ none'>cPeeringConnection</span></td>
     vpc:region<br>
     vpc:requester_vpc<br>
     </td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
  
@@ -865,8 +859,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region<br>
     vpc:requester_vpc<br>
     vpc:requester_vpc_region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
@@ -1123,8 +1116,7 @@ none'>cPeeringConnection</span></td>
     vpc:region<br>
     vpc:requester_vpc<br>
     </td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
  
@@ -1147,8 +1139,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region<br>
     vpc:requester_vpc<br>
     vpc:requester_vpc_region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
@@ -1201,8 +1192,7 @@ none'>cPeeringConnection</span></td>
     vpc:region<br>
     vpc:requester_vpc<br>
     </td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:region表示vpc所在地域。</td>
  
@@ -1225,8 +1215,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region<br>
     vpc:requester_vpc<br>
     vpc:requester_vpc_region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
