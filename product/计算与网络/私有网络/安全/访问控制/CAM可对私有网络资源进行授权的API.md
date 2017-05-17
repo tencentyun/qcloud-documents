@@ -53,8 +53,7 @@ none'>cPeeringConnectionEx</span></td>
     vpc:accepter_vpc_region<br>
     vpc:requester_vpc<br>
     vpc:requester_vpc_region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc表示接收=
-方VPC，取值为接收方VPC；<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>
     vpc:accepter_vpc_region表示接收方地域。<br>
     vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>
     vpc:requester_vpc_region表示发起方地域。</td>
