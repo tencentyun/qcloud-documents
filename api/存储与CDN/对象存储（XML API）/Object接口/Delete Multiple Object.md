@@ -9,7 +9,7 @@ Delete Multiple Object请求实现批量删除文件，最大支持单次删除1
 
 ```Http
 POST /?delete HTTP/1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date: date
 Content-Length:length
 Content-Type:application/xml

@@ -12,7 +12,7 @@ The following list only provides API request parameters. For additional paramete
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| imageId | Yes | String | Image ID, which can be obtained from unImgId in the returned field of [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) API. |
+| imageId | Yes | String | Image ID, which can be obtained from unImgId in the returned field of [DescribeImages](http://www.qcloud.com/document/api/213/1272) API. |
 |imageName | No | String |Image name, which cannot be identical to an existing image name. If you don't want to modify it, left it blank. Naming rule: The name should contain 1-16 characters, including English letters, numbers, and "-".
 | imageDescription | No | String | Description of the image. If you don't want to modify it, left it blank. Naming rule: The name contains 0-64 characters, including English letters, numbers, "-", and "_".
 

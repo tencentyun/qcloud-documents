@@ -1,8 +1,10 @@
 # Purchase CVMs on Console
 
 This section introduces special notes for purchasing CVMs on the Console. To learn about how to purchase CVMs on th console, please refer to the CVM purchase guide:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For the guide on Windows CVM purchase, click [here](https://www.qcloud.com/doc/product/213/2763)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For the guide on Linux CVM purchase, click [here](https://www.qcloud.com/doc/product/213/2972) 
+
+For the guide on Windows CVM purchase, click [here](https://www.qcloud.com/doc/product/213/2763)
+
+For the guide on Linux CVM purchase, click [here](https://www.qcloud.com/doc/product/213/2972) 
 
 ## Purchase history
 Purchase history supports displaying your recent **10** purchase records. With it, you can achieve one-key purchase of the same configuration, to simplify the purchase path. 

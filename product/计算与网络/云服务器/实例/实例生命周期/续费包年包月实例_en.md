@@ -1,4 +1,4 @@
-Different from instances that are charged by quantity, instance with an annual or monthly plan cannot be terminated by users. It will be recycled by the system after a certain time following the expiration. You can renew the instance with an annual or monthly plan through manual or auto renewal at any time to avoid data loss or interruption of service due to instances being terminated by the system upon expiration.
+Unlike postpaid instances, pripaid instance cannot be terminated by users. It will be recycled by the system after a certain time following the expiration. You can renew the instance with an annual or monthly plan through manual or auto renewal at any time to avoid data loss or interruption of service due to instances being terminated by the system upon expiration.
 
 ## Instance Renewal
 
@@ -15,7 +15,7 @@ You can renew the instance with an annual or monthly plan before the expiry date
 ![](//mccdn.qcloud.com/img568c94be10169.png)
 
 ### Renew instance via API
-Users can use Renew Instance API to renew instances. For details, see [Instance Renewal (Annual or Monthly Plan) API](https://www.qcloud.com/doc/api/229/1348).
+Users can use Renew Instance API to renew instances. For details, see [Renew Prepaid Instances API](https://www.qcloud.com/doc/api/229/1348).
 
 ## Set up auto renewal
 
@@ -24,7 +24,7 @@ At the same time, you can also set auto renewal for CVM instance with an annual 
 
 1) Log in to [Tencent Cloud Console](https://console.qcloud.com), move the mouse pointer to the top right corner of your account name, and select "Renew" in the menu.
 
-2) For CVM instances with an annual or monthly plan to be renewed, click on "Set to Auto Renew" on the action bar to the right side.
+2) To renew prepaid CVM instances, click on "Set to Auto Renew" on the action bar to the right side.
 
 3) Click "OK" in the pop-up box of auto renewal.
 

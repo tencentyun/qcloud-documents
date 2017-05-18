@@ -1,7 +1,7 @@
 ## 1 直播场景下的 IM 需求
 直播显然成为互联网当下最热的领域之一。对于任意一个直播系统，无外乎都是由音视频系统与 IM 系统组成的。IM 在直播系统中的主要作用是实现观众与主播、观众与观众之间的文字互动，互动内容包括普通文本消息、表情消息、点赞消息、进退房间消息和红包打赏消息等。
 
-云通信针对直播领域的多人聊天需求提供了一套完整的解决方案：AVChatRoom（也称为互动直播大群）。其基本能力包括：
+云通信针对直播领域的多人聊天需求提供了一套完整的解决方案：AVChatRoom（也称为互动直播聊天室）。其基本能力包括：
 
 * 基本的消息分发能力；
 * 聊天室人数无上限；
@@ -40,9 +40,13 @@ DEMO 二维码：
 
 ### 3.2 DEMO 源码下载与代码导读
 
-- [Android 源码下载与导读](https://github.com/zhaoyang21cn/Android_Suixinbo)
-- [iOS 源码下载与导读](https://github.com/zhaoyang21cn/iOS_Suixinbo)
-- [H5 源码下载与导读](/doc/product/269/H5直播聊天室DEMO指引)
+- 下载Android SDK
+	- [查看 github Android 源码与导读 >>](https://github.com/zhaoyang21cn/Android_Suixinbo)
+	-	[点击下载 Android SDK >>](https://mc.qcloudimg.com/static/archive/e8389820ad5dc3b40cf3dc689d3f5432/Android_Suixinbo-master.zip)
+- 下载 iOS SDK
+	- [查看 github iOS 源码下载与导读 >>](https://github.com/zhaoyang21cn/iOS_Suixinbo)
+	- [点击下载 iOS SDK >>](https://mc.qcloudimg.com/static/archive/8015331b15c58c29ce01d303fff00ee7/iOS_Suixinbo-master.zip)
+- [H5 源码下载与导读 >>](/doc/product/269/H5直播聊天室DEMO指引)
 
 ## 4 直播聊天室接入指引
 

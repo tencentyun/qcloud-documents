@@ -94,6 +94,7 @@ Reference: http://en.wikipedia.org/wiki/Template:Unix_commands, http://www.linux
 
 ## 12. What to do when Cron does not work?
 The trouble-shooting procedures are as follows:
+
 1) Verify whether crontab is running normally.
 You can run crontab -e command and add the following test entry \*/1 \* \* \* \* /bin/date >> /tmp/crontest 2>&1 &, and then observe /tmp/crontest file. 
 In case of any problem, it is recommended to use ps aux|grep cron to look for pid of cron and use kill -9 PID to terminate cron process, and then restart cron with /etc/init.d/cron start. 
@@ -108,6 +109,7 @@ In case of any problem, it is recommended to use ps aux|grep cron to look for pi
 
 ## 13. How to set startup task for CVM?
 Linux kernel startup procedure is as follows:
+
 Start /sbin/init process,
 then execute init initial script,
 run level script/etc/rc.d/rc\*.d, where value of \* means running mode which can be viewed in /etc/inittab, and finally execute /etc/rc.d/rc.local.

@@ -35,10 +35,10 @@ Authorization: Auth
 | 名称                     | 描述                                       | 类型        |
 | ---------------------- | ---------------------------------------- | --------- |
 | ListAllMyBucketsResult | 说明本次返回的所有信息                              | Container |
-| Owner                  | 说明Bucket所有者的信息<br/>父节点：ListAllMyBucketsResult | Contianer |
+| Owner                  | 说明Bucket所有者的信息<br/>父节点：ListAllMyBucketsResult | Container |
 | UIN                    | Bucket所有者的UIN<br/>父节点：ListAllMyBucketsResult.Owner | String    |
-| Buckets                | 说明本次返回的Bucket列表的所有信息<br/>父节点：ListAllMyBucketsResult | Contianer |
-| Bucket                 | 单个Bucket的信息<br/>父节点：ListAllMyBucketsResult.Buckets | Contianer |
+| Buckets                | 说明本次返回的Bucket列表的所有信息<br/>父节点：ListAllMyBucketsResult | Container |
+| Bucket                 | 单个Bucket的信息<br/>父节点：ListAllMyBucketsResult.Buckets | Container |
 | Name                   | Bucket名称<br/>父节点：ListAllMyBucketsResult.Buckets.Bucket | String    |
 |Location                | Bucket所在区域，枚举值：china-east，china-south，china-north，china-southwest | String    |
 | CreateDate             | Bucket创建时间，ISO8601格式，例如 2016-11-09T08:46:32.000Z<br/>父节点：ListAllMyBucketsResult.Buckets.Bucket | Date      |
@@ -58,48 +58,47 @@ Authorization: Auth
   </Buckets>
 </ListAllMyBucketsResult>
 ```
+## 示例 
 
-## 示例
-
-### 请求
-
-```XML
+### 请求  
+```xml
 
 GET / HTTP/1.1
-Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484817623;32557713623&q-key-time=1484817623;32557713623&q-header-list=host&q-url-param-list=&q-signature=9ef0c2ad86045f67d03b43cc4359ef861605390e
-> 
-
+Host:service.cos.myqcloud.com
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1489110340;32468694340&q-key-time=1489110340;32562006340&q-header-list=host&q-url-param-list=&q-signature=cb46d5ce6daed2d3dc0db7130a57193497605620
 ```
 
 ### 返回
-
-```XML
-
+```xml
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 428
+Content-Length: 19935
 Connection: keep-alive
-Date: Thu Jan 19 17:20:30 2017
+Date: Fri Mar 10 09:45:46 2017
 Server: tencent-cos
-x-cos-request-id: NTg4MDg0ZGVfOTkxZjRlXzEwOGVfZjdh
+x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
 
-<?xml version='1.0' encoding='utf-8' ?>
-<ListBucketResult>
-	<Name>arlenhuangtestsgnoversion</Name>
-	<Prefix/>
-	<Marker/>
-	<MaxKeys>1000</MaxKeys>
-	<Delimiter>/</Delimiter>
-	<IsTruncated>false</IsTruncated>
-	<Contents>
-		<Key>ObjectName</Key>
-		<LastModified>Wed Jan 18 16:58:13 2017</LastModified>
-		<ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
-		<Size>10485760</Size>
-	</Contents>
-</ListBucketResult>
+<ListAllMyBucketsResult>
+	<Owner>
+		<uin>2779643970</uin>
+	</Owner>
+	<Buckets>
+		<Bucket>
+			<Name>01</Name>
+			<Location>china-south</Location>
+			<CreateDate>2016-09-13 15:20:15</CreateDate>
+		</Bucket>
+		<Bucket>
+			<Name>0111</Name>
+			<Location>china-south</Location>
+			<CreateDate>2017-01-11 17:23:51</CreateDate>
+		</Bucket>
+		<Bucket>
+			<Name>1201new</Name>
+			<Location>china-south</Location>
+			<CreateDate>2016-12-01 09:45:02</CreateDate>
+		</Bucket>
+   </Buckets>
+</ListAllMyBucketsResult>
 
 ```
-
-

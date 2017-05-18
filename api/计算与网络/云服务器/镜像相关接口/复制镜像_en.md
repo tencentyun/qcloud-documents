@@ -7,7 +7,7 @@ Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
 * Image service is FREE of charge now.
 * Users can synchronize custom images to different regions.
 * A maximum of 10 custom images can be created for each region.
-* You can use [DescribeImages](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E7%9A%84%E9%95%9C%E5%83%8F%E5%88%97%E8%A1%A8) API to query the synchronization information of images. Status of 4 indicates that the image is being synchronized (destination region), and status of 5 indicates that the image is being copied (source region).
+* You can use [DescribeImages](http://www.qcloud.com/document/api/213/1272) API to query the synchronization information of images. Status of 4 indicates that the image is being synchronized (destination region), and status of 5 indicates that the image is being copied (source region).
 * This does not apply to North America region.
 
 ## 2. Input Parameters

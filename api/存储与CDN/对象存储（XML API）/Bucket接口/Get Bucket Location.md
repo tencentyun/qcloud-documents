@@ -7,7 +7,7 @@ Get Bucket Location接口获取Bucket所在地域信息，只有Bucket所有者�
 
 ```HTTP
 GET /?location HTTP 1.1
-Host:<Bucketname>-<UID>.<Region>.myqcloud.com
+Host:<Bucketname>-<AppID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```

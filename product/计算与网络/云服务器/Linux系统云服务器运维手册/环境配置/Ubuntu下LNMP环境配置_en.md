@@ -33,7 +33,7 @@ The appearance of the following page indicates that nginx has been installed and
 ![](//mccdn.qcloud.com/img56af51bf21d78.png)
 
 ## 2. Configuration of PHP
-2) Confirm the starting mode of php
+1) Confirm the starting mode of php
 Confirm the starting mode in /etc/php5/fpm/pool.d/www.conf (The example environment is ubuntu12, php5.3, and the php configuration path may vary with different versions), and check the listener method of php by searching with the keyword listen:
 
 ```

@@ -28,9 +28,9 @@
 ## 4. 负载均衡健康检查相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|---------|
-| [查询负载均衡健康检查阈值](/doc/api/244/查询负载均衡健康检查阈值) | DescribeLBHealth | 查询负载均衡实例默认的健康检查参数。|
-| [查询负载均衡健康检查状态](/doc/api/244/查询负载均衡健康检查状态) | DescribeLBHealthStatus | 查询负载均衡实例默认的健康状态。|
-| [修改负载均衡健康检查属性](/doc/api/244/修改负载均衡健康检查属性) | ModifyLBHealth | 修改负载均衡实例默认的健康检查属性信息。|
+| [查询负载均衡健康检查阈值](https://www.qcloud.com/document/product/214/1325) | DescribeLBHealth | 查询负载均衡实例默认的健康检查参数。|
+| [查询负载均衡健康检查状态](https://www.qcloud.com/document/product/214/1326) | DescribeLBHealthStatus | 查询负载均衡实例默认的健康状态。|
+| [修改负载均衡健康检查属性](https://www.qcloud.com/document/product/214/1327) | ModifyLBHealth | 修改负载均衡实例默认的健康检查属性信息。|
 
 ## 5. 负载均衡监控相关接口
 | 接口名 | Action ID | 功能描述 |

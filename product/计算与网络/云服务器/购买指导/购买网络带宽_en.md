@@ -31,7 +31,7 @@ The Pay-by-Traffic mode can be considered as the traffic mode provided by mobile
 
 >Note:  In principle, Tencent Cloud allocates to users an inbound public network bandwidth in 1:1 proportion to the outbound bandwidth they purchased. However, since the inbound bandwidth is generally lower than the outbound bandwidth, Tencent Cloud will lift the inbound bandwidth limit on users when the overall inbound bandwidth in the current availability zone is lower than the outbound bandwidth, allowing users to exceed the limit and therefore improving user experience. When the overall inbound bandwidth in the current availability zone becomes higher than the outbound bandwidth, the inbound bandwidth limit will be put again on users, first on those users whose inbound bandwidth is extremely different from the outbound bandwidth.
 
-### Annual/Monthly Package + Pay by Bandwidth
+### Prepaid CVM + Pay by Bandwidth
 
 The Annual/Monthly Package + Pay by Bandwidth mode is a network billing mode available for prepaid annual/monthly-package CVMs. You select the maximum bandwidth value (0 Mbps - 200 Mbps) for a single CVM. The bandwidth fees are calculated into the total price along with the CVM and hard disk fees. You choose the time period (month/year) and pay the corresponding total amount. Then you can use the CVM, hard disk and network during this period. It should be noted that packet loss occurs when the instantaneous network speed of a single CVM exceeds the maximum bandwidth value.
 
@@ -61,10 +61,10 @@ Network bandwidth adjustment (upgrade, but not downgrade) is supported. You can 
 
 Annual/Monthly Package + Pay by Bandwidth users need to purchase the maximum outbound bandwidth (QoS), and pay fees of one or more months or even several years in advance. Packets are discarded when the peak bandwidth exceeds the QoS limit.
 
-The CVM billing mode is: **Annual/Monthly Package**. [See Billing Instructions - Annual/Monthly Package](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#1.-包年包月)
+The CVM billing mode is: **prepaid**. See [Billing Instructions - Prepaid](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#1.-包年包月)
 
 
-### Pay by Traffic + Pay by Bandwidth
+### Postpaid CVM + Pay by Bandwidth
 
 The Pay by Traffic + Pay by Bandwidth mode is a network billing mode available for postpaid pay-by-traffic CVMs. You select the maximum bandwidth value (0 Mbps - 100 Mbps) for a single CVM. The bandwidth fees are calculated into the total price along with the CVM and hard disk fees. After you make your choice, the system will freeze the total unit price of one hour, and then make settlement every hour on the hour for the last billing cycle. Billing of all products is accurate to seconds. It should be noted that packet loss occurs when the instantaneous network speed of a single CVM exceeds the maximum bandwidth value.
 
@@ -95,11 +95,11 @@ In the Pay by Traffic + Pay by Bandwidth mode, network bandwidth adjustment (bot
 #### Billing instructions
 Pay per use + Pay by Bandwidth users need to set the maximum outbound public network bandwidth (QoS), and pay as they go, billing accuracy to seconds, settled every hour. Packets are discarded when the peak bandwidth exceeds the QoS limit.
 
-The CVM billing mode is: **Pay per use**. [See Billing Instructions - Pay per use](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#2.-Pay by Traffic)
+The CVM billing mode is: **Pay per use**. [See Billing Instructions - Postipaid](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#2.-Pay by Traffic)
 
 
 ### Pay by Traffic
-In the Pay-by-Traffic mode, network costs are determined solely by the outbound traffic of a single CVM, regardless of the CVM billing mode (Annual/Monthly Package or Pay by Traffic) You can set the maximum bandwidth limit. Packet loss occurs when the instantaneous network speed of a single CVM exceeds the limit.
+In the Pay-by-Traffic mode, network costs are determined solely by the outbound traffic of a single CVM, regardless of the CVM billing mode (Prepaid or postpaid). You can set the maximum bandwidth limit. Packet loss occurs when the instantaneous network speed of a single CVM exceeds the limit.
 
 #### Charging standards
 
@@ -107,7 +107,7 @@ In the Pay-by-Traffic mode, network costs are determined solely by the outbound 
 |---------|---------|
 | Mainland China, Singapore | 0.80 CNY/GB | 
 | Hong Kong | 1.00 CNY/GB | 
-| North America | 0.50 CNY /GB | 
+| North America, American West | 0.50 CNY /GB | 
 
 #### Purchase procedure
 Select "Annual/Monthly Package" or "Pay by Traffic" for the user billing mode and then select "By Data Usage" from the bandwidth. The network cost is calculated separately, based on your actual traffic, billing accuracy to seconds, settled every hour.
@@ -128,7 +128,7 @@ Pay-by-Traffic is based on your actual outbound traffic. You can set the maximum
 | 8 < Number of cores <24 | 0-400 | 
 | Number of cores  24 | 0-400, or no upper limit | 
 
-CVM billing mode: **Annual/Monthly Package ** and **Pay by Traffic**. [See Billing Instructions](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)
+CVM billing mode: **Prepaid ** and **Postpaid**. [See Billing Instructions](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)
 
 Pay-by-Traffic is featured by simple rules and paying as you go. Costs entirely depend on your actual outbound traffic per unit time. Suitable for those users with highly fluctuating network, to reduce their costs.
 

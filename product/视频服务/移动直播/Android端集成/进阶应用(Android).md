@@ -211,5 +211,18 @@ public interface VideoCustomProcessListener {
 
 > 对于 texture 数据的操作，需要一定的 OpenGL 基础知识，另外计算量不宜太大，因为 onTextureCustomProcess 的调用频率跟 FPS 相同，过于繁重的处理很容易造成 GPU 过热。
 
+## 6. 替换数据源
+如果您只希望使用 RTMP SDK 来推流，音视频采集和预处理（即美颜、滤镜这些）全部由自己的代码来控制，可以按如下步骤实现：
+
+- **Step1. 不再调用 TXLivePusher 的 startCameraPreview 接口**
+这样 SDK 本身就不会再采集视频数据和音频数据，而只是启动预处理、编码、流控、发送 等跟推流相关的工作
+
+- **Step2. 使用 sendCustomVideoData 向SDK填充Video数据**
+sendCustomVideoData 的作用是向 SDK 塞入您采集和处理后的视频数据，目前支持 i420 格式。
+
+- **Step3. 使用 sendCustomPCMData 向SDK填充Audio数据**
+sendAudioSampleBuffer 的作用是向 SDK 塞入您采集和处理后的音频数据，请使用单声道、16位宽、48000Hz 的 PCM  声音数据。
+
+
 
 

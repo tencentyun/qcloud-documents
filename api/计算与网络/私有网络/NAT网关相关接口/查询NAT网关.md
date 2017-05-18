@@ -11,11 +11,11 @@
 |---------|---------|---------|---------|
 | natId | 否 | String | NAT网关统一ID，例如：nat-xx454|
 | natName | 否 | String | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | String | 私有网络ID或统一ID，建议使用统一ID，例如：vpc-dfdg42d |
+| vpcId | 否 | String | 私有网络ID或统一ID，建议使用统一ID，例如：vpc-dfdg42d。|
 | offset | 否 | Int | 初始行的偏移量，默认为0|
 | limit | 否 | Int | 每页行数，默认为20，最大支持50。|
-| orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId |
-| orderDirection | 否 | String | 升序（asc）或降序（desc），默认：asc|
+| orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId。|
+| orderDirection | 否 | String | 升序（asc）或降序（desc），默认：desc。|
 
 
 ## 3. 输出参数
@@ -32,7 +32,7 @@
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | data.n.natId | string | NAT网关统一ID，例如：nat-xx454 |
-| data.n.unVpcId | string | 私有网络统一ID，例如：vpc-xgfd55d |
+| data.n.vpcId | string | 私有网络统一ID，例如：vpc-xgfd55d |
 | data.n.natName | string | NAT网关名称 |
 | data.n.state | int | NAT网关状态，0:运行中, 1:不可用, 2:欠费停服 |
 | data.n.maxConcurrent | int | NAT网关并发连接上限, 100w:小型, 300w:中型, 1000w:大型，详见<a href="">NAT网关产品说明</a> |
@@ -66,8 +66,7 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNatGateway
     "data": [
         {
             "appId": "1351000042",
-            "vpcId": 245,
-            "unVpcId": "vpc-8e0ypm3z",
+            "vpcId": "vpc-8e0ypm3z",
             "vpcName": "alblack.bbb1",
             "natId": "nat-dhfpwhtm",
             "natName": "apollan",

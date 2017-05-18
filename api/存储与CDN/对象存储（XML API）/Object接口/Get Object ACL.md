@@ -8,7 +8,7 @@ Get Object ACL接口实现使用API读取Object的ACL表，只有所有者有权
 
 ```http
 GET /ObjectName?acl Http/1.1
-Host:<BucketName>-<UID>.<Region>.myqcloud.com
+Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: Auth
 ```

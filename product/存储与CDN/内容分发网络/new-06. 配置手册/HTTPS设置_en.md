@@ -40,3 +40,9 @@ The **Forced Redirect** button will appear when the certificate is successfully 
 
 <font color="blue">The feature is only available after HTTPS certificate is successfully configured</font>
 
+## HTTP2.0
+
+If you already obtained the qualifications of HTTP 2.0 closed beta,  you can open HTTP2.0 after finish the configuration of HTTPS certificate:
+
+![](https://mc.qcloudimg.com/static/img/30c160c9102a38893f51e6e0060d158d/HTTP2.0.png)
+

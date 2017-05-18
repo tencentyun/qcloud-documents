@@ -44,6 +44,6 @@ Some of the resources and functions on Tencent Cloud can support two kinds of ne
 
 ## Migrate instances within the basic network to VPC
 1) [Create a Custom Mirror](/doc/product/213/4942) for the CVM instance in the basic network environment.
-2) (Optional) [Create a Snapshot] of the CVM instance data disk in the basic network environment (/doc/product/362/5755).
+2) (Optional) [Create a Snapshot](/doc/product/362/5755) of the CVM instance data disk in the basic network environment.
 3) [Create a VPC and Subnet](https://www.qcloud.com/doc/product/215/4927#.E5.88.9B.E5.BB.BA.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E3.80.81.E5.88.9D.E5.A7.8B.E5.8C.96.E5.AD.90.E7.BD.91.E5.92.8C.E8.B7.AF.E7.94.B1.E8.A1.A8).
 4) [Purchase and Start the CVM Instance](/doc/product/213/4855) in the VPC.

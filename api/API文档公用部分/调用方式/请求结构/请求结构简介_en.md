@@ -1,4 +1,4 @@
-when you call a Tencent Cloud API, a request with corresponding parameters is sent to the server address of Tencent Cloud API. The Tencent Cloud API request structure consists of the following parts:
+When you call a Tencent Cloud API, a request with corresponding parameters is sent to the server address of Tencent Cloud API. The Tencent Cloud API request structure consists of the following parts:
 
 ## 1. Service address
 Tencent Cloud API service access address depends on specific modules. For details, see the description of each API.

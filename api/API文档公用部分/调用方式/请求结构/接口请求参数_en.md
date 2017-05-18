@@ -3,13 +3,13 @@ We here use <a href="/doc/api/229/831" title="查询实例列表">DescribeInstan
 
 | Parameter | Required | Type | Description | 
 |---------|---------|---------|---------|
-| instanceIds.n | No | String | ID array of CVM instances to be queried （starting from 0). You can use instanceId and unInstanceId, and the uniform resource ID: unInstanceId is recommended. |
+| instanceIds.n | No | String | ID array of CVM instances to be queried (starting from 0). You can use instanceId and unInstanceId, and the uniform resource ID: unInstanceId is recommended. |
 | lanIps.n | No | String | Private IP array of CVMs to be queried.  | 
 | searchWord | No | String | User-defined CVM name. |
 | offset | No | Int | Offset value, which defaults to 0.  | 
 | limit | No | Int | The maximum number of CVM that can be queried at one time. The default is 20 and the maximum is 100. |
 | status | No | Int | Status of the CVM to be queried. |
-| projectId | No | String | Project ID. The CVM instances for all projects are queried if it is not specified. 0 indicates the default project. If you want to specify a different project, you can call the <a href="/doc/api/229/查询项目列表" title="查询项目列表">DescribeProject</a> API to query. |
+| projectId | No | String | Project ID. The CVM instances for all projects are queried if it is not specified. 0 indicates the default project. If you want to specify a different project, you can call the <a href="/document/product/378/4400" title="查询项目列表">DescribeProject</a> API to query. |
 | simplify | No | Int | Obtains non-real time data. When simplify = 1 is specified, then non-real time data is obtained. |
 | zoneId | No | Int | Availability zone ID. The CVM instances for all availability zones are queried if it is not specified. To specify an availability zone, you can call the <a href="/doc/api/229/1286" title="查询可用区">DescribeAvailabilityZones</a> API to query. |
 

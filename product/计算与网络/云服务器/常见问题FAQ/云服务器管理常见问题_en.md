@@ -6,7 +6,7 @@ You can view the record of the adjustments you've made to CVM configuration in t
 ### 2. How does the annual or monthly plan work for degrading of configuration and extension of expiry time? 
 The refundable difference between the unexpended part of you've paid and the unexpended part for the target configuration by the time the configuration of your CVM needs to be degraded is calculated. If the difference is larger than zero, that difference will be converted into the length of time supported by the target configuration and the expiry time of the server will be extended accordingly. If the difference is less than zero, the expiry time of your server will not be adjusted.
 
-### 3. Is there a possibility that the configuration of the server with an annual or monthly plan is degraded but an extended expiry time is not offered? 
+### 3. Is there a possibility that the configuration of the prepaid server is degraded but an extended expiry time is not offered? 
 Yes. 
 For example, the price for your configuration A is 100CNY/month as shown on the official website before you degrade it, whereas you purchased it at the price of 50CNY/month with a 50% promotion discount. After ten days of use, you need to degrade the configuration to B, which is priced 60CNY/month on the official website. In this case, the difference between the paid price (50CNY/month) and the official website price (60CNY/month) is less than zero, so the expiry time of your server will not be adjusted.  
 This may also happen when vouchers or other non-cash payment methods are used to make the purchase. In this case, you will be prompted with the following message when degrading the configuration:

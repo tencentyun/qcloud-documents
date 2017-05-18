@@ -8,7 +8,7 @@ Put Bucket Versioning实现启用或者暂停版本控制功能。
 
 ```HTTP
 PUT /?versioning HTTP 1.1
-Host:[Bucketname]-[UID].[Region].myqcloud.com
+Host:<Bucketname>-<UID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```
@@ -23,16 +23,16 @@ Authorization: Auth
 
 ### 请求内容
 
+| 名称                      | 描述                                       | 类型        | 必须   |
+| ----------------------- | ---------------------------------------- | --------- | ---- |
+| VersioningConfiguration | 说明版本控制的具体信息                              | Container | 是    |
+| Status                  | 说明版本是否开启，枚举值：Suspended, Enabled</Br>父节点：VersioningConfiguration | Enum      | 是    |
+
 ```xml
 <VersioningConfiguration>
   <Status>Enabled</Status>
 </VersioningConfiguration>
 ```
-
-| 名称                      | 描述                                       | 类型        | 必须   |
-| ----------------------- | ---------------------------------------- | --------- | ---- |
-| VersioningConfiguration | 说明版本控制的具体信息                              | Container | 是    |
-| Status                  | 说明版本是否开启，枚举值：Suspended \| Enabled</Br>父节点： | Enum      | 是    |
 
 ## 返回值
 

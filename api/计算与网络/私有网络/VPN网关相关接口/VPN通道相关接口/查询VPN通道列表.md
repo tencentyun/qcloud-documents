@@ -17,7 +17,7 @@
 | offset | 否 | Int | 初始行的偏移量，默认为0。 |
 | limit | 否 | Int | 每页行数，默认为20，最大支持50。 |
 | orderField | 否 | String | 按某个字段排序，目前仅支持createTime,vpnConnName排序，默认按createTime排序。 |
-| orderDirection | 否 | String | 升序（asc）还是降序（desc），默认：asc。 |
+| orderDirection | 否 | String | 升序（asc）还是降序（desc），默认：desc。 |
 
 
 ## 3. 输出参数
@@ -42,34 +42,36 @@
 | data.n.destinationCidr | Array | 目标网段。 |
 | data.n.vpcConnStatus | Int | vpn通道状态， 0:创建中，1:创建出错，2:修改中，3:修改出错，4:删除中，5:删除出错，6:运行正常。|
 | data.n.netStatus | String | vpn通道网络状态，available:已连通，unavailable:未连通。|
-| data.n.IKEArr.n | Array | IKE配置信息数组。 |
-| data.n.IPSECArr.n | Array | IPsec配置信息数组。 |
+| data.n.IKESet | Array | IKE配置信息数组。 |
+| data.n.IPsecSet | Array | IPsec配置信息数组。 |
 
 IKE配置信息数组内容
 
 | 参数名称 | 类型 | 描述|
 |---------|---------|---------|
-| IKEArr.n.propoEncryAlgorithm |String | IKE配置，身份认证方法，例如：'3des-cbc'，更多详见产品说明文档。 |
-| IKEArr.n.propoAuthenAlgorithm | String | IKE配置，认证算法，例如：'md5'，更多详见产品说明文档。 |
-| IKEArr.n.exchangeMode |String | IKE配置，协商模式：例如：'aggressive'，更多详见产品说明文档。 |
-| IKEArr.n.localIdentity | String | IKE配置，本端标识类型：例如：'address',，更多详见产品说明文档。 |
-| IKEArr.n.remoteIdentity | String | IKE配置，对端标识类型：例如：'address'，更多详见产品说明文档。 |
-| IKEArr.n.localAddress | String | IKE配置，本端标识，localAddress默认为vpn网关公网IP，更多详见产品说明文档。 |
-| IKEArr.n.remoteAddress | String | IKE配置，对端标识，更多详见产品说明文档。 |
-| IKEArr.n.localFqdnName | String | IKE配置，本端标识，更多详见产品说明文档。 |
-| IKEArr.n.remoteFqdnName | String | IKE配置，对端标识，更多详见产品说明文档。 |
-| IKEArr.n.dhGroupName | String | IKE配置，DH group，指定IKE交换密钥时使用的DH组，例如：'group1'，更多详见产品说明文档。 |
-| IKEArr.n.ikeSaLifetimeSeconds | Int | IKE配置，IKE SA Lifetime，单位：秒，设置IKE安全提议的SA生存周期，例如：3600，更多详见产品说明文档。 |
+| IKESet.propoEncryAlgorithm |String | IKE配置，身份认证方法，例如：'3des-cbc'，更多详见产品说明文档。 |
+| IKESet.propoAuthenAlgorithm | String | IKE配置，认证算法，例如：'md5'，更多详见产品说明文档。 |
+| IKESet.exchangeMode |String | IKE配置，协商模式：例如：'aggressive'，更多详见产品说明文档。 |
+| IKESet.localIdentity | String | IKE配置，本端标识类型：例如：'address',，更多详见产品说明文档。 |
+| IKESet.remoteIdentity | String | IKE配置，对端标识类型：例如：'address'，更多详见产品说明文档。 |
+| IKESet.localAddress | String | IKE配置，本端标识，localAddress默认为vpn网关公网IP，更多详见产品说明文档。 |
+| IKESet.remoteAddress | String | IKE配置，对端标识，更多详见产品说明文档。 |
+| IKESet.localFqdnName | String | IKE配置，本端标识，更多详见产品说明文档。 |
+| IKESet.remoteFqdnName | String | IKE配置，对端标识，更多详见产品说明文档。 |
+| IKESet.dhGroupName | String | IKE配置，DH group，指定IKE交换密钥时使用的DH组，例如：'group1'，更多详见产品说明文档。 |
+| IKESet.ikeSaLifetimeSeconds | Int | IKE配置，IKE SA Lifetime，单位：秒，设置IKE安全提议的SA生存周期，例如：3600，更多详见产品说明文档。 |
 
 IPsec配置信息数组内容
 
 | 参数名称 | 类型 | 描述|
 |---------|---------|---------|
-| IPSECArr.n.encryptAlgorithm | String | IPsec配置，加密算法，例如：'3des-cbc'，更多详见产品说明文档。 |
-| IPSECArr.n.integrityAlgorith | String | IPsec配置，认证算法：例如：'md5'，更多详见产品说明文档。 |
-| IPSECArr.n.ipsecSaLifetimeSeconds |  Int | IPsec配置，IPsec SA lifetime(s)：单位秒，例如：360，更多详见产品说明文档。 |
-| IPSECArr.n.ipsecSaLifetimeTraffic |  Int | IPsec配置，IPsec SA lifetime(KB)：单位KB，例如：3600，更多详见产品说明文档。 |
-| IPSECArr.n.pfsDhGroup |  String | IPsec配置，PFS：例如：'dh-group1'更多详见产品说明文档。 |
+| IPsecSet.encryptAlgorithm | String | IPsec配置，加密算法，例如：'3des-cbc'，更多详见产品说明文档。 |
+| IPsecSet.integrityAlgorith | String | IPsec配置，认证算法：例如：'md5'，更多详见产品说明文档。 |
+| IPsecSet.encapMode | String | IPsec配置，报文封装模式：例如：'tunnel'，更多详见产品说明文档。 |
+| IPsecSet.securityProto | String | IPsec配置，安全协议：例如：'ESP'，更多详见产品说明文档。 |
+| IPsecSet.ipsecSaLifetimeSeconds |  Int | IPsec配置，IPsec SA lifetime(s)：单位秒，例如：360，更多详见产品说明文档。 |
+| IPsecSet.ipsecSaLifetimeTraffic |  Int | IPsec配置，IPsec SA lifetime(KB)：单位KB，例如：3600，更多详见产品说明文档。 |
+| IPsecSet.pfsDhGroup |  String | IPsec配置，PFS：例如：'dh-group1'更多详见产品说明文档。 |
 
 
  ## 4. 错误码表
@@ -227,7 +229,7 @@ IPsec配置信息数组内容
             ],
             "vpnProto": "ip-sec",
             "createTime": "2015-08-06 20:29:25",
-            "IKEArr": {
+            "IKESet": {
                 "propoAuthenAlgorithm": "md5",
                 "propoEncryAlgorithm": "3des-cbc",
                 "exchangeMode": "main",
@@ -240,7 +242,7 @@ IPsec配置信息数组内容
                 "dhGroupName": "group2",
                 "ikeSaLifetimeSeconds": "11180"
             },
-            "IPSECArr": {
+            "IPsecSet": {
                 "encryptAlgorithm": "aes-cbc-192",
                 "integrityAlgorith": "md5",
                 "encapMode": "tunnel",
