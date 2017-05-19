@@ -1,24 +1,24 @@
 ## 基础知识
-**推流**（也叫发布）是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
+**推流** 是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
 
-腾讯云 RTMP SDK 主要帮您解决在智能手机上的推流问题，它的接口非常简单易用，只需要一个推流URL就能驱动：
-![demo](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/pusher_demo_introduction_2.jpg)
+腾讯视频云 SDK 主要帮您解决在智能手机上的推流问题，它的接口非常简单易用，只需要一个推流URL就能驱动：
+![](//mc.qcloudimg.com/static/img/ca7f200c31a9323c032e9e000831ea63/image.jpg)
 
 ## 特别说明
 - **<font color='red'>不限制云服务商</font>**
-> RTMP SDK 不会限制您**向非腾讯云地址推流**，但如何才能推流到非腾讯云地址呢？
+> SDK 不会限制您**向非腾讯云地址推流**，但如何才能推流到非腾讯云地址呢？
 > 
 > 为解决国内 DNS 映射不准确的问题，SDK 1.5.2 版本开始引入就近选路，即通过腾讯云就近选路服务器选择离主播最优的推流线路，这一改进对推流质量提升很大。但相应的，选路结果中只有腾讯云的服务器地址。而且，由于我们大量的客户采用专属推流域名，SDK 无法简单通过 URL 文本分析就辨别出是不是推到腾讯云。
 > 
 > 所以，如果您需要推流到其他云商的推流地址，可以通过客服联系我们，我们可以为您的账号关闭就近选路。该项配置通过云控实现，故您不需要发布新的客户端版本来解决这个问题。
 
 - **x86 模拟器调试**
-> 由于RTMP SDK大量使用iOS系统的高级特性，我们不能保证所有特性在x86环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
+> 由于 SDK 大量使用iOS系统的高级特性，我们不能保证所有特性在x86环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
 
 ## 准备工作
 
 - **获取开发包**
-[下载](https://www.qcloud.com/document/product/454/7873) RTMP SDK 开发包，并按照[工程配置](https://www.qcloud.com/document/product/454/7876)指引将 RTMP SDK 嵌入您的 APP 开发工程。
+[下载](https://www.qcloud.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://www.qcloud.com/document/product/454/7876)指引将 SDK 嵌入您的 APP 开发工程。
 
 - **获取测试URL**
 [开通](https://console.qcloud.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://www.qcloud.com/document/product/454/7915)。
@@ -45,7 +45,7 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
 接下来我们要给摄像头的影像画面找个地方来显示，iOS系统中使用view作为基本的界面渲染单位，所以您只需要准备一个view传给 LivePush 对象的 **startPreview** 接口函数就可以了。
 
 - **推荐的布局！**
-> 实际上，RTMP SDK 的内部并不是直接把画面渲染在您提供的view上，而是在这个view之上创建一个用于OpenGL渲染的子视图（subView），但是，这个渲染用的subView的大小会跟随您提供的view大小变化而自动调整。
+> 实际上，SDK 的内部并不是直接把画面渲染在您提供的view上，而是在这个view之上创建一个用于OpenGL渲染的子视图（subView），但是，这个渲染用的subView的大小会跟随您提供的view大小变化而自动调整。
 >![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
 >
 > 不过即如此，如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，我们也推荐您”另起炉灶“（再创建一个平级的view），这样可以避免很多前后画面覆盖的问题。
@@ -68,7 +68,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 [_txLivePush startPush:rtmpUrl];
 ```
 
-- **startPush** 的作用是告诉 RTMP SDK 音视频流要推到哪个推流URL上去。
+- **startPush** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
 - **startPreview** 的参数就是step2中需要您指定的view，startPreview 的作用就是将界面view控件和LivePush对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 ### step 4: 设定清晰度
@@ -125,7 +125,7 @@ if(!frontCamera) {
 ```
 
 - **自定义手动对焦**
-RTMP SDK 的iOS版本内部有默认的手动对焦逻辑，虽然功能没什么问题，但是经常由于屏幕的触控事件被抢占而无法发挥作用。同时，界面排布的自由我们原则上绝不能干预。
+SDK 的iOS版本内部有默认的手动对焦逻辑，虽然功能没什么问题，但是经常由于屏幕的触控事件被抢占而无法发挥作用。同时，界面排布的自由我们原则上绝不能干预。
 我们在新版本的 TXLivePush 里增加了一个 setFocusPosition 函数接口，您可以自己根据手指触控位置进行手动对焦。
 
 ```objectivec
@@ -170,7 +170,7 @@ iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都�
 - **避免中途切换**
 避免在推流过程中开关硬件加速，虽然大部分情况下没有问题，但有各种异常隐患。推荐的做法是一开始就开启，而不是中途再打开。
 
-> RTMP SDK 内部有一种保护机制：如果硬件加速资源被其它App占用导致无法开启，会自动切换回软件编码。
+> SDK 内部有一种保护机制：如果硬件加速资源被其它App占用导致无法开启，会自动切换回软件编码。
 
 ### step 9: 后台推流
 常规模式下，App一旦切到后台，摄像头的采集能力就会被 iOS 暂时停止掉，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
@@ -186,7 +186,7 @@ iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都�
 在开始推流前，使用 LivePushConfig 的 pauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
 
 - **9.2) 设置App后台（短暂）运行**
-App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无济于事，所以我们使用下面的代码让App在切到后台后还可再跑几分钟，这段时间如果主播应付一下紧急电话，也就算是“功德圆满”。
+App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济于事，所以我们使用下面的代码让App在切到后台后还可再跑几分钟，这段时间如果主播应付一下紧急电话，也就算是“功德圆满”。
 
 ```objectivec
 //先注册后退消息通知
@@ -201,7 +201,7 @@ App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无
 }
 ```
 - **9.3) 切后台处理**
-推流中，如果App被切了后台，也就是在 8.2 中的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后，RTMP SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
+推流中，如果App被切了后台，也就是在 8.2 中的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
 
 ```
 //切后台处理： 在 8.2 的基础上补一句
@@ -214,7 +214,7 @@ App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无
 ```
 
 - **9.4) 切前台处理**
- 等待App切回前台之后，调用TXLivePush 的 resumePush 接口函数，之后，RTMP SDK 会继续采集摄像头的画面进行推流。
+ 等待App切回前台之后，调用TXLivePush 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
  
 ```objectivec
 //切前台处理
@@ -225,7 +225,7 @@ App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无
 ```
 
 ### step 10: 提醒主播“网络不好”
-step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
+step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
 
 当收到此WARNING时，您可以通过UI提醒主播换一下网络出口，或者离WiFi近一点，或者让他吼一嗓子：“领导，我在直播呢，别上淘宝了行不！什么？没上淘宝？那韩剧也是一样的啊。”
 
@@ -249,7 +249,7 @@ step 13 中会介绍 RTMP SDK 的推流事件处理，其中 **PUSH_WARNING_NET_
 接下来就看主播本地渲染是否正常，这里可以通过 TXLivePush 中的 setRenderRotation 接口来设置主播看到的画面的旋转方向。此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
 
 ### step 12: 背景混音
-RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePush 中的如下这组接口实现背景混音功能：
+SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePush 中的如下这组接口实现背景混音功能：
 
 | 接口 | 说明 |
 |:-------:|---------|
@@ -296,7 +296,7 @@ RTMP SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机�
 
 ## 事件处理
 ### 1. 事件监听
-RTMP SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相关的事件，注意 TXLive<font color='red'>Push</font>Listener 只能监听得到 <font color='red'>PUSH_</font> 前缀的推流事件。
+SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相关的事件，注意 TXLive<font color='red'>Push</font>Listener 只能监听得到 <font color='red'>PUSH_</font> 前缀的推流事件。
 
 ### 2. 常规事件 
 一次成功的推流都会通知的事件，比如收到1003就意味着摄像头的画面会开始渲染了
