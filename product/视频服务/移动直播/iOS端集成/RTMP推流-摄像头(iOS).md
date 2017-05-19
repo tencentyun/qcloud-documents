@@ -83,9 +83,15 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 |:-------:|---------|---------|:-------:|---------|
 | **标清** | 360\*640 | 15 | 400kbps - 800kbps | 如果您比较关注带宽成本，推荐选择该档位，<br>画质会偏模糊，但带宽费用较高清档要低 60%。 |
 | **高清**<br><font color='red'>（推荐）</font> | 540\*960 | 15 | 1200kbps | 如果您比较关注视频画质，推荐选择该档位，<br>能确保绝大多数主流手机都能推出很清晰的画面。 |
-| **超清** | 720\*1280 | 15 | 1800kbps | 慎用：如果您的场景多是小屏观看不推荐使用。<br>如果是大屏幕观看，且主播网络质量很好可以考虑。|
+| **超清** | 720\*1280 | 15 | 1800kbps | 慎用：如果您的场景多是小屏观看不推荐使用。<br>如果是大屏幕观看，且主播网络质量很好可以考虑。<br>建议开启硬件加速|
 
-> 使用 setVideoQuality 之后，依然可以使用 TXLivePushConfig 设置画质，以最后一次的设置为准。
+设置项选择
+
+| 档位 | 设置项 |
+| :------: | :--------: |
+| **360P** | VIDEO_QUALITY_STANDARD_DEFINITION |
+| **540P** | VIDEO_QUALITY_HIGH_DEFINITION |
+| **720P** | VIDEO_QUALITY_SUPER_DEFINITION |
 
 ### step 5: 美颜滤镜
 - **美颜**
@@ -122,10 +128,10 @@ if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
 
 ```objectivec
 if(!frontCamera) {
-	BOOL bEnable = YES;
-	//bEnable为YES，打开闪光灯; bEnable为NO，关闭闪光灯
-	BOOL result = [_txLivePush toggleTorch: bEnable];
-	//result为YES，打开成功;result为NO，打开失败
+    BOOL bEnable = YES;
+    //bEnable为YES，打开闪光灯; bEnable为NO，关闭闪光灯
+    BOOL result = [_txLivePush toggleTorch: bEnable];
+    //result为YES，打开成功;result为NO，打开失败
 }
 ```
 
@@ -214,7 +220,7 @@ App 如果切后台后就彻底被休眠掉，那么 RTMP SDK 再有本事也无
 {
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
     }];
-	[_txLivePush pausePush];
+    [_txLivePush pausePush];
 }
 ```
 
@@ -310,7 +316,7 @@ RTMP SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推�
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器|
 |PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
-|PUSH_EVT_OPEN_CAMERA_SUCC	  | 1003	| 推流器已成功打开摄像头（Android部分手机这个过程需要1-2秒）| 
+|PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（Android部分手机这个过程需要1-2秒）| 
 
 ### 3. 错误通知 
 SDK发现了一些严重问题，推流无法继续了，比如用户禁用了APP的Camera权限导致摄像头打不开。
@@ -339,7 +345,7 @@ SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻|
 |PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码|
-|PUSH_WARNING_DNS_FAIL			  |  3001 |  RTMP -DNS解析失败（会触发重试流程）        |
+|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP -DNS解析失败（会触发重试流程）        |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP服务器连接失败（会触发重试流程）  |
 |PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP服务器握手失败（会触发重试流程）  |
 |PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP服务器主动断开连接（会触发重试流程）  |
