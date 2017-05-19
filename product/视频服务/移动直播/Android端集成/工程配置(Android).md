@@ -76,7 +76,7 @@ if (sdkver != null && sdkver.length >= 3) {
 ```
 
 ### 6.问题排查
-如果您将 SDK 导入到您的工程，编译运行出现类似以下的错误：
+如果您将 SDK 导入到您的工程，编译运行出现类似以下错误：
 
 ```
 Caused by: android.view.InflateException: 
