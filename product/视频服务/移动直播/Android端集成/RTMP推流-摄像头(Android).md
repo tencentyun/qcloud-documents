@@ -77,9 +77,9 @@ mLivePusher.startCameraPreview(mCaptureView);
 
 | 档位 | 设置项 |
 | :------: | :--------: |
-| **360P** | TXLiveConstants.VIDEO_QUALITY_STANDARD_DEFINITION |
-| **540P** | TXLiveConstants.VIDEO_QUALITY_HIGH_DEFINITION |
-| **720P** | TXLiveConstants.VIDEO_QUALITY_SUPER_DEFINITION |
+| **360P** | VIDEO_QUALITY_STANDARD_DEFINITION |
+| **540P** | VIDEO_QUALITY_HIGH_DEFINITION |
+| **720P** | VIDEO_QUALITY_SUPER_DEFINITION |
 
 ### step 5: 美颜滤镜
 - **美颜**
@@ -155,9 +155,18 @@ if (!HWSupportList.isHWVideoEncodeSupport()){
                    "当前手机型号未加入白名单或API级别过低（最低18）,请慎重开启硬件编码！", 
                    Toast.LENGTH_SHORT).show();
 }
-mLivePushConfig.setHardwareAcceleration(true);
+mLivePushConfig.setHardwareAcceleration(mHWVideoEncode);
 mLivePusher.setConfig(mLivePushConfig);  
 ```
+
+mHWVideoEncode 有以下选项。
+
+|  硬件加速选项 | 含义 |
+| :-----------| :-----------|
+| ENCODE_VIDEO_HARDWARE | 开启硬件加速 |
+| ENCODE_VIDEO_SOFTWARE | 禁用硬件加速，默认禁用硬件加速 |
+| ENCODE_VIDEO_AUTO | 自动选择是否启用硬件加速 |
+
 
 - **兼容性评估**
 Android 手机目前对硬件加速的支持已较前两年有明显的进步，目前支持度还是不错的，但仍有个别机型有兼容性问题，目前 RTMP SDK 通过一个内部的黑名单进行控制，避免在部分兼容性差的机型上出现问题。如果您使用硬件编码失败，RTMP SDK 内部会自动切换为软件编码。
