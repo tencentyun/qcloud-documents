@@ -2,7 +2,7 @@ The update mechanism for the resources cached on the nodes in CDN is generally c
 
 When resources have been updated at your origin server, you can use CDN's resource prefetch feature to cache the resources at the origin server to all CDN nodes.
 
-<font color="red">URL prefetch feature is under a gray release. It will be fully available in the future.</font>
+<font color="red">URL prefetch feature is under a Gray-box release. It will be fully available in the future.</font>
 
 ## URL Refreshing
 
@@ -42,7 +42,7 @@ Enter the URLs of objects to be prefetched (must contain http:// or https://), o
 
 **Note:**
 + If the resource has been cached on the node and has not expired, it will not be updated to the latest one. If you need to update the resources on all CDN nodes to the latest ones, you can refresh them before prefetch.
-+ A maximum of 1000 URLs are allowed to be prefetched each day and a maximum of 20 URLs are allowed to be submitted for each prefetch. It takes about 5 to 10 minutes for the prefetch to take effect, depending on the file size;
++ A maximum of 1000 URLs are allowed to be prefetched each day and a maximum of 20 URLs are allowed to be submitted for each prefetch. It takes about 5 to 30 minutes for the prefetch to take effect, depending on the file size;
 
 
 ## Task Query

@@ -67,8 +67,6 @@ Paste PEM-encoded certificate content and private key to corresponding text boxe
 
 The CDN system can recognize the CDN accelerated domains that can use the uploaded certificate (with a status of Deploying or Activated). You can check the domains in batch:
 
-![]()
-
 + A maximum of 10 accelerated domains are allowed to be checked at a time; 
 + You can configure the certificate for the domains that have been successfully configured with a certificate. Users can switch between the certificates seamlessly without affecting the use of HTTPS;
 + If among the checked domains there is any domain connected with COS origin or FTP origin, only HTTP is supported;
@@ -206,32 +204,3 @@ CDN uses **Nginx**. Select the certificates with an extension of .crt or .key un
 You can also complete the certificate chain by pasting the content of CA certificate (PEM format) to the bottom of domain certificate (PEM format):
 
 ![](https://mc.qcloudimg.com/static/img/53927ba56ceba5d0a3ed0c5d80257c8a/cer_add.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,23 +27,23 @@ If there was no request for the domain on that day, no log would be generated. I
 The order and meaning of fields in the downloaded log are shown in the following table:
 
 
-| Order   | Log Content       |
-| ---- | ---------- |
-| 1    | Request time       |
-| 2    | Client IP of access domain |
-| 3    | Domain accessed     |
-| 4    | Request path of file     |
-| 5    | Bytes of current access |
-| 6    | Province         |
-| 7    | ISP        |
-| 8    | HTTP status code   |
-| 9    | referer infor |
-| 10   | Response time (ms)   |
-| 11   | User-Agent |
-| 12   | Range parameter   |
-| 13 | HTTP Method |
-| 14 | HTTP protocol ID |
-| 15 | Cache HIT/MISS  |
+| Order | Log Content                |
+| ----- | -------------------------- |
+| 1     | Request time               |
+| 2     | Client IP of access domain |
+| 3     | Domain accessed            |
+| 4     | Request path of file       |
+| 5     | Bytes of current access    |
+| 6     | Province                   |
+| 7     | ISP                        |
+| 8     | HTTP status code           |
+| 9     | referer infor              |
+| 10    | Response time (ms)         |
+| 11    | User-Agent                 |
+| 12    | range parameter            |
+| 13    | HTTP Method                |
+| 14    | HTTP protocol ID           |
+| 15    | Cache HIT/MISS             |
 
 ### Region Mapping
 
