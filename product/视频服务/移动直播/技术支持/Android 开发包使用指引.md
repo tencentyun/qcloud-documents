@@ -9,7 +9,7 @@
 ## 直播点播
 直播中视频源是正在推流的主播，点播的视频源则是服务器上已存在的视频文件（e.g.优酷土豆），注意两者的区别。
 
-解压 SDK 开发包，进入 Play 目录，参考 PlayViewController 对推流功能的使用，PlayViewController 同时支持直播播放（界面上没有进度条）和点播播放（界面有进度条）两种能力：
+解压 SDK 开发包，进入 Play 目录，参考 PlayViewController 对播放功能的使用，PlayViewController 同时支持直播播放（界面上没有进度条）和点播播放（界面有进度条）两种能力：
 
 1. 创建 TXLivePlayer 对象（该对象支持多例，但每个 Player 都要有自己独立的 View）。
 2. 使用 setupVideoWidget 接口函数指定渲染视频画面用的 UIView。
