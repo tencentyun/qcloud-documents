@@ -74,3 +74,29 @@ if (sdkver != null && sdkver.length >= 3) {
 ```
 07-13 20:25:05.099 26119-26119/? D/rtmpsdk: rtmp sdk version is:1.5.188
 ```
+
+### 6.问题排查
+如果您将 SDK 导入到您的工程，编译运行出现类似以下的错误：
+
+```
+Caused by: android.view.InflateException: 
+Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
+```
+
+可以按照以下流程来排查问题
+**1**. 确认是否已经将 SDK 中的 jar 包和 so 库放在 jnilib 目录下.
+**2**.  如果您使用完整版本，确认下是否将 x64 架构的 so 库过滤掉。因为完整版本中的连麦功能暂时不支持 x64 架构的手机。
+```
+    buildTypes {
+        release {
+            minifyEnabled  false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            ndk {
+                // 需要将 armeabi-x64 架构过滤掉
+                abiFilters "armeabi", "armeabi-v7a"
+            }
+        }
+    }
+```
+**3**.  检查下混淆规则，确认是否将 RTMP SDK 相关的类也给混淆了。
