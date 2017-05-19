@@ -1,3 +1,20 @@
+### Version 2.0.3
+- Android：新增UGC裁剪与拼接功能。
+- Android：优化播放端Player及渲染View，支持动画、悬浮框、大小屏切换等。
+- Android：软硬编新增Auto选项，SDK根据手机性能自动启用硬编或者软编。
+- iOS：优化IOS过曝问题，曝光更自然。
+- iOS & Android：针对弱网环境优化自适应码率控制，新增两种低分辨率（180×320、270×480）推流支持。
+- iOS & Android：优化Demo目录及代码结构，降低接入成本，新增小视频录制、裁剪、拼接、连麦Demo，简单易用。
+
+### Version 2.0.2
+- iOS：新增UGC裁剪与拼接功能。
+- iOS：精简版支持Bitcode。
+- Android：特权版新增大眼瘦脸功能。
+- Android：优化硬编效果，提升编码质量。
+- Android：开发播放端数据接口，硬解数据以Surface形式提供，软解数据以buffer形式提供。
+- iOS & Android：优化前置摄像头在开启P图、绿幕后的镜像表现。
+- iOS & Android：优化UGC上传协议。
+
 ### Version 2.0.1
 - iOS & Android：优化连麦，增加多人连麦能力。
 - iOS & Android：增加 UGC 小视频添加背景音乐功能。

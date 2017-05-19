@@ -76,8 +76,8 @@ instanceSet contains a lot of instance information, and the data structure for e
 | autoRenew | Int | Whether the instance is set to [Auto Renewal](https://www.qcloud.com/doc/api/229/1746). <br>0: Do not auto renew; <br>1: Auto renew; <br>2: Do not renew.
 | projectId | Int | [Project ID](https://www.qcloud.com/doc/api/229/1335).
 | os | String | Operating system name.
-| cvmPayMode | String | Billing mode. <br>0: Monthly postpaid; <br>1: Prepaid package; <br>2: Postpaid
-| networkPayMode | String | Network billing mode. <br> 0: Monthly postpaid; <br>1: Prepaid package; <br> 2: Bill by traffic; <br> 3: Bill by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |
+| cvmPayMode | Int | Billing mode. <br>0: Monthly postpaid; <br>1: Prepaid package; <br>2: Postpaid
+| networkPayMode | Int | Network billing mode. <br> 0: Monthly postpaid; <br>1: Prepaid package; <br> 2: Bill by traffic; <br> 3: Bill by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |
 | zoneId | Int | [Availability Zone](/doc/product/213/6091) ID.
 | zoneName | String | Availability zone name.
 | vpcId | Int | [Virtual Private Cloud](/help/什么是私有网络) ID.
