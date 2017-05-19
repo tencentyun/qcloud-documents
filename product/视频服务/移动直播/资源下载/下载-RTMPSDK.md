@@ -1,10 +1,11 @@
 ## 版本说明
-- 版本号：2.0.3.3025 @ 2017-05-16
+- 版本号：2.0.3.3032 @ 2017-05-19
+- iOS & Android：优化音视频内核，画质清晰度提升。
+- iOS：优化IOS过曝问题，曝光更自然。
 - Android：新增UGC裁剪与拼接功能。
 - Android：优化播放端Player及渲染View，支持动画、悬浮框、大小屏切换等。
 - Android：软硬编新增Auto选项，SDK根据手机性能自动启用硬编或者软编。
-- iOS：优化IOS过曝问题，曝光更自然。
-- iOS & Android：针对弱网环境优化自适应码率控制，新增两种低分辨率（180×320、270×480）推流支持。
+- iOS & Android：setVideoQuality 新增【动态】选项，适应海外等网络条件差异巨大的场景。
 - iOS & Android：优化Demo目录及代码结构，降低接入成本，新增小视频录制、裁剪、拼接、连麦Demo，简单易用。
 - 历史版本功能可参看 [变更历史](https://www.qcloud.com/document/product/454/7878)。
 
@@ -32,22 +33,22 @@ table th:nth-of-type(2) {  width: 550px; }
 table th:nth-of-type(3) {  width: 100px; }
 </style>
 
-- **iOS 平台（2.0.3.3025）**
+- **iOS 平台（2.0.3.3032）**
 
 | 版本类型 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| 完整版  |  包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.3.3025.zip)  |
-| 精简版  |  在完整版的基础上裁剪掉了非核心功能，代码体积增量 <font color='red'>900KB</font> 。播放器的兼容性逊于完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.3.3025.zip)  |
-| rename版  |  在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.3.3025.zip) |
+| 完整版  |  包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.3.3032.zip)  |
+| 精简版  |  在完整版的基础上裁剪掉了非核心功能，代码体积增量 <font color='red'>900KB</font> 。播放器的兼容性逊于完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.3.3032.zip)  |
+| rename版  |  在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.3.3032.zip) |
 
-- **Android 平台 （2.0.3.3025）**
+- **Android 平台 （2.0.3.3032）**
 
 | 版本类型 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| 完整版  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid2.0.3.3025.zip)  |
-| 精简版  | 在完整版的基础上裁剪掉了连麦功能，适合跟互动直播 iLiveSDK 一起使用。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.3.3025.zip)  |
+| 完整版  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid2.0.3.3032.zip)  |
+| 精简版  | 在完整版的基础上裁剪掉了连麦功能，适合跟互动直播 iLiveSDK 一起使用。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.3.3032.zip)  |
 
-- **商用付费版 （2.0.3.3025）**
+- **商用付费版 （2.0.3.3032）**
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
