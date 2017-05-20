@@ -4,7 +4,6 @@
 
 ## Android SDK
 
-> [录制发布视频](/document/product/584/9369)
 > [视频编辑](/document/product/584/9502)
 > [视频拼接](/document/product/584/9503)
 > [视频播放](/document/product/584/9373)
@@ -12,7 +11,6 @@
 
 ## iOS SDK
 
-> [录制发布视频](/document/product/584/9367)
 > [视频编辑](/document/product/584/9375)
 > [视频拼接](/document/product/584/9370)
 > [视频播放](/document/product/584/9372)
@@ -20,6 +18,5 @@
 
 ## Web SDK
 
-> [发布视频](/document/product/266/9239)
 > [视频播放](/document/product/266/5235)
-> Web SDK不需要下载，直接在页面中引入js即可，详情请见以上两个链接
+> Web SDK不需要下载，直接在页面中引入js即可，详情请见以上链接
