@@ -83,10 +83,8 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 
 | 可选值 | 含义  |
 |---------|---------|
-| HOME_ORIENTATION_DOWN | 正常播放（Home键在画面正下方） | 
-| HOME_ORIENTATION_RIGHT | 画面顺时针旋转90度（Home键在画面正右方） | 
-| HOME_ORIENTATION_UP | 画面顺时针旋转180度（Home键在画面正上方） | 
-| HOME_ORIENTATION_LEFT | 画面顺时针旋转270度（Home键在画面正左方） | 
+| RENDER_ROTATION_PORTRAIT | 正常播放（Home键在画面正下方） | 
+| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home键在画面正左方） | 
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
