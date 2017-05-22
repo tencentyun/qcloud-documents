@@ -52,7 +52,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/1ebd35df99dcc88839d92e4b64f6d857/11.jpg)
 
-邮寄清单：网站备案信息真实性核验单<font color='red'>（2 份原件）</font>
+邮寄清单：网站备案信息真实性核验单<font color='red'>（两份原件）</font>
 
 邮寄地址：
 
