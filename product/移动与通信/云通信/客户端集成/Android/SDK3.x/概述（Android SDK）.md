@@ -142,8 +142,8 @@ libs
 ### 1.5 代码混淆规则
 如果你的项目中使用proguard等工具做了代码混淆，请保留以下选项。
 ```
--keep class com.tencent.imsdk.**{*;}
--dontwarn com.tencent.imsdk.**
+-keep class com.tencent.**{*;}
+-dontwarn com.tencent.**
 
 -keep class tencent.**{*;}
 -dontwarn tencent.**
