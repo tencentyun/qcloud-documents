@@ -1,4 +1,4 @@
-#### IM  SDKV3 3.0.1 2017-5-22
+#### IM  SDKV3 3.0.2 2017-5-22
 1. 修复AVChatRoom可能无法接收到群消息的问题
 2. 接口调整
     i. 废弃TIMFileElem, TIMSoundElem中的setData接口
