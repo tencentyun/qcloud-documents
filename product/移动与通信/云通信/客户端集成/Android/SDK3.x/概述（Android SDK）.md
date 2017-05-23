@@ -126,6 +126,9 @@ libs
 	</intent-filter>
 	<intent-filter>
 		<action android:name="android.intent.action.TIMEZONE_CHANGED" />
+	</intent-filter>           
+	<intent-filter>
+		<action android:name="com.tencent.qalsdk.service.TASK_REMOVED" />
 	</intent-filter>
 </receiver>                
 ```

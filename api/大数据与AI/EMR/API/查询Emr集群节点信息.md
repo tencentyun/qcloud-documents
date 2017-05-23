@@ -9,8 +9,8 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| ClusterId | 否 | string | emr集群ID，emr-xxxx格式 |
-| NodeFlag | 否 | string | 节点名称, 取值为：master，core，task，common，all |
+| ClusterId | 是 | string | emr集群ID，emr-xxxx格式 |
+| NodeFlag | 是 | string | 节点名称, 取值为：master，core，task，common，all |
 | PageNo | 否 | int | 第几页，首页从1开始 |
 | PageSize | 否 | int | 每页记录数，默认20 |
 
