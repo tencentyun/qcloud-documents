@@ -18,7 +18,7 @@
 | ZoneId | 是 | uint | 所在地域可用区ID |
 | VpcId | 是 | string | 创建EMR集群所在的私有网络vpcId, vpc-xxxxx格式 |
 | SubnetId | 是 | string | 创建EMR集群的所在的私有网络subnetId, subnet-xxxx格式 |
-| SoftInfo | 是 | array string MasterNodes | 需要安装的软件包 |
+| SoftInfo.n | 是 | array string | 需要安装的软件包 |
 | MasterNodes | 是 | uint | master节点个数 | 
 | CoreNodes | 是 | uint | core节点个数 |
 | TaskNodes | 否 | uint | task节点个数 |

@@ -934,13 +934,22 @@ public boolean isSelf()
 > 此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称）。
 
 ```
-//获取消息发送方
+/**
+ * 获取消息发送方
+ * @return 消息发送方user
+ */
 public String getSender()
 
-//获取发送者个人资料
+/**
+ * 获取发送者资料
+ * @return 发送者资料，null表示没有获取到资料，目前只有字段：identifier、nickname、faceURL、customInfo
+ */
 public TIMUserProfile getSenderProfile()
 
-//获取发送者群内资料
+/**
+ * 获取发送者群内资料
+ * @return 发送者群内资料，null表示没有获取到资料或者不是群消息，目前只有字段：user、nameCard、role、customInfo
+ */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
 

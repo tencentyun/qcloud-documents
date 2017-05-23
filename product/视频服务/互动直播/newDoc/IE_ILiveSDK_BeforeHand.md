@@ -9,15 +9,15 @@
 ## 下载SDK和DEMO
 demo工程是基于ILiveSDK(IE)开发的互动直播应用。应用名为随心播，可以与其他终端的随心播互通。   
 您可以直接在这里[在线体验](https://sxb.qcloud.com/webdemo/index.html)其效果。   
-也可以在[腾讯云官网下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/iLiveSDK_web.zip)ILiveSDK(IE)及其demo。其中包含了ILiveSDK(IE)，接口文档，js接口文件和接口调用示例等，具体如下：
+也可以在[github](https://github.com/zhaoyang21cn/ILiveSDK_Web_Demos)下载ILiveSDK(IE)及其demo。其中包含了ILiveSDK(IE)，接口文档，js接口文件和接口调用示例等，具体如下：
   
 
 文件 | 说明 | 
 ----|------|
-/demo | demo工程，可以用IE打开index.html  | 
+/suixinbo | demo随心播工程，可以用IE打开index.html  | 
 iLiveSDK/iLiveSDK.cab | 互动直播组件，业务层不会直接与此文件交互  | 
 iLiveSDK/iLiveSDK.js | 互动直播接口，封装了iLiveSDK.cab的接口供业务层调用  | 
-/doc | iLiveSDK.js的接口文档  | 
+/doc | 相关文档  | 
 /tools | 开发者工具 | 
 
 
@@ -36,7 +36,7 @@ iLiveSDK/iLiveSDK.js | 互动直播接口，封装了iLiveSDK.cab的接口供业
 
  1. 将cab文件和iLiveSDK.js放入电脑任意位置
  2. 在html页面中添加`
-<object id="iLiveSDK" classid="CLSID:54E71417-216D-47A2-9224-C991A099C531" codebase="路径/iLiveSDK.cab"></object>`
+<object id="iLiveSDK" classid="CLSID:54E71417-216D-47A2-9224-C991A099C531" codebase="路径/iLiveSDK.cab#version=版本号"></object>`
  3. 在html页面中添加js接口文件<script type="text/javascript" src="路径/iLiveSDK.js"></script>
  4. 调用iLiveSDK中的接口实现业务需求
 
