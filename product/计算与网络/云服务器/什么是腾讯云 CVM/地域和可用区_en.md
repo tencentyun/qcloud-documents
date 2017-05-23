@@ -90,7 +90,7 @@ Availability zones (Zone) refer to Tencent Cloud's physical data centers whose p
 
 When starting an instance, users can choose any availability zone within the specified region. If a user needs to ensure the high reliability of application systems so that the services are still available even when a failure occurs in an instance, the user can use cross-zone deployment scheme (e.g. [Cloud Load Balance](https://www.qcloud.com/doc/product/214), [Elastic IP](/doc/product/213/5733), etc.) to allow the instance in another availability zone to handle the relevant requests in replace of the failed instance.
 
-### Migrate an instance to another availability zone
+### Migrating an instance to another availability zone
 
 Once an instance is started, its availability zone cannot be changed. However you can migrate it to another availability zone. 
 

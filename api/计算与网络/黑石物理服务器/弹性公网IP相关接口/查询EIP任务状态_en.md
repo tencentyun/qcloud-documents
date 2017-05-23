@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (EipBmQueryTask) is used to query the asynchronous task status of EIP, with the focus on the progress of such operations as binding and unbinding.
  
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: eip.api.qcloud.com
 
 
 ## 2. Input Parameters
