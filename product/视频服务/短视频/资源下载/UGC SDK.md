@@ -28,7 +28,7 @@
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
 | iOS平台  | 2.0.3.3032 @ 2017-05-19 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.3.3032.zip)   |
-| Android平台  | 2.0.3.3032 @ 2017-05-19 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.3.3032.zip) |
+| Android平台  | 2.0.3.3032 @ 2017-05-19 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid2.0.3.3032.zip) |
 
 - **付费版**
 
