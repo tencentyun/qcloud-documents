@@ -1,1 +1,1 @@
-![](//mc.qcloudimg.com/static/img/21771e9183af6984703a62437e53abcd/shortvideo.jpg)
+![](//mc.qcloudimg.com/static/img/fece5bc14dc61e2aa0e82f28dfd36f1b/shortvideo1.jpg)
