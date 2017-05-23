@@ -6,7 +6,7 @@ Classiclink means to associate CVMs in the basic network with specified VPCs, th
 - The private IP of the associated basic network CVM will be automatically added to the Local policy of the VPC's routing table, in which case the CVM in the VPC and services in this basic network will be able to communicate with each other. You do not need to manually modify the routing table rules in the current VPC. 
 - After the basic network CVM is associated with VPC, their security firewall and network ACL will remain effective. That is to say, you can restrict the access from associated basic network CVM by configuring network ACL for the VPC subnet. You can also configure security group rules for CVMs in the basic network and VPC to restrict network access for both directions.
 
-## Usage Constraints
+## Service Limits
 - This feature only supports the interconnection between basic network and VPC. You cannot change the network environment for the CVM. Once the network environment (VPC or basic network) has been determined for the CVM, you will no longer be able to change it.
 - A basic network CVM can be associated with only one VPC at a time.
 - Currently, interconnection feature is only supported for VPC and basic network under the same region.
@@ -42,20 +42,15 @@ If you wish to allow CVM "TomCVM" to communicate with VPC "TomVPC" via Classicli
 3) Click "Classlink" tab to view the list of basic network CVMs associated with the VPC.
 
 
-### Disassociate VPC and Basic Network CVM
+### Disassociating VPC and Basic Network CVM
 1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
 2) Click the ID of the VPC to be interconnected with basic network and enter its detail page.
 3) Click "Classlink". In the list of basic network CVMs, select the CVM to be disassociated and click "Disassociate" button.
 4) Click "OK" to complete the disassociation process.
 
-## API Overview
+## Related APIs
 You can use APIs to configure and manage the interconnection between your VPC and basic network. Refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909) for more information about VPC API services.
 
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Create interconnection between VPC and basic network device | [AttachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2098) | Create interconnection between VPC and basic network device.  |
-| Delete interconnection between VPC and basic network device interworking | [DetachClassicLinkVpc](https://www.qcloud.com/doc/api/245/2097) | Delete interconnection between VPC and basic network device.  |
-| Query interconnection between VPC and basic network device | [DescribeVpcClassicLink](https://www.qcloud.com/doc/api/245/2097) | Query interconnection between VPC and basic network device.  |
 
 
 

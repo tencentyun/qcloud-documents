@@ -272,9 +272,14 @@ fail|失败回调
 
 ### 4.3 每条离线推送属性
 
-如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置TIMOfflinePushInfo，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。
+如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置TIMOfflinePushInfo，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。**填入kIOSOfflinePushNoSound到sound属性时接收端强制为静音提示**
 
 ```
+/**
+ 填入sound字段表示接收时不会播放声音
+ */
+extern NSString * const kIOSOfflinePushNoSound;
+
 @interface TIMAndroidOfflinePushConfig : NSObject
 /**
  *  离线推送时展示标签

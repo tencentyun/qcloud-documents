@@ -1,50 +1,51 @@
-The life cycle of Tencent Cloud CVM instance refers to the period ranging from its launching state till its termination. Using Tencent Cloud CVM to manage the instance during its life cycle can help ensure that the applications on CVM render services in an efficient and cost-effective manner.
+The lifecycle of CVM instance refers to the period ranging from launching to termination. 
 
-The following shows the conversion between different instance states. For more information about instances with an annual or monthly plan as well as instances charged by quantity, see [Billing Model Instruction](/doc/product/213/2180).
+The chart below shows the lifecycle of prepaid and postpaid CVM instances. For more information the different billing types, please see [here](/doc/product/213/2180).
 
-! [](//Mc.qcloudimg.com/static/img/551771757a0419084585ccbfad776d86/image.png)
+![](//Mc.qcloudimg.com/static/img/551771757a0419084585ccbfad776d86/image.png)
 
-CVM instance has the following states:
-- Creating 
+Status of CVM instances including:
+- Launching 
 - Running 
-- Rebooting
-- Shutting-down 
-- Shutdown completed 
-- Resetting
+- Restarting
+- Shutting down 
+- Shutdown 
+- Reinstalling
 - Terminating 
 - Terminated 
-- (Optional) Recycled
+- (Optional) Reclaimed
 
 
-## Instance starting
-After starting, the instance will go into pending state. The [Instance Types](/document/product/213/7153) specified when starting will determine the hardware configuration of the instance. The system will use image specified when starting to launch the instance. It will be connected to the instance after a short period of time. When the instance is ready, it will enter into running state.
+## Launching Instances
+Once you launch a CVM, the instance status becomes **Launching**. The launch specifications are determined by the [instance type](/document/product/213/7153). The system will use the specified image to launch the instance. It may take a while for launching. When the instance is ready, its status becomes **Running**.
 
-The instance will obtain a private IP address. Other CVMs in the same regions and of the same network environment (VPC or basic network) are able to communicate with it; if you select an instance with public bandwidth/traffic, you will also get a public IP address that allows you to communicate with the instance from Internet. Users can connect to a running instance, and then use it like a normal computer.
+The instance will obtain a private IP address, with which other CVMs in the same regions and of the same network environment (VPC or basic network) are able to communicate with the instance. For instance with public bandwidth/traffic, a public IP address is assigned for accesses from Internet.
 
-For more information, see [Purchase and Start an Instance](/doc/product/213/4855), [Logging into Windows Instance](/doc/product/213/5435), and [Logging into Linux Instance](/doc/product/213/5436).
+For more information, see [Purchase and Launch Instances](/doc/product/213/4855), [Log In to Windows Instance](/doc/product/213/5435), and [Log In to Linux Instance](/doc/product/213/5436).
 
-## Instance rebooting
-We suggest that users can choose Tencent Cloud Console or Tencent Cloud API to reboot the instance, instead of running the rebooting command in the operating system. After rebooting, it will enter into rebooting state.
+## Restarting Instances
+It's suggested to restart instance on Console or via API, instead of running the rebooting command in the operating system. 
 
-Instance rebooting is equivalent to the restarting of computers. After rebooting, the instance will maintain its public IP address, private IP address and all the data on the hard disk. Normally, it takes dozens of seconds or even several minutes to reboot the instance, depending on the instance configuration.
+Restarting an instance is similar to rebooting a computer. The public IP address, private IP address and all data on the disk are remained unchanged. It may take about several seconds to minutes to restart the instance, depending on the instance configuration.
 
-For more information, see [Reboot Instance](/doc/product/213/4928).
+For more information, see [Restarting Instances](/doc/product/213/4928).
 
-## Instance shutdown
+## Shutting down Instances
 
-Users can perform shutdown operation on the instance to stop services if necessary. You can choose Tencent Cloud Console or Tencent Cloud API to shut down an instance. 
+You can shut down instance to stop services on Console or via API. 
 
-After shutdown, the CVM instance will still be displayed in the console. <font color="red">The instance charged by quantity will continue its billing until the user terminates it whether it has been shut down or not. </font>After a certain period time following the expiration, instances with an annual or monthly plan will be shut down and moved to the Recycle Bin. It should be noted that users ***cannot*** connect to the instance that has been shut down.
+Shutdown CVM instances are still visible on the console. For postpaid CVMs, the billing does not stop. It should be noted that users ***cannot*** connect to the instance that has been shut down.
 
-Instance shutdown is equivalent to the shutdown of computers. Shutdown is the prerequisite for certain operations (for example, adjusting configuration, resetting password, etc.). The shutdown operation will not change public IP address, private IP address and all the data on the hard disk of CVM. But follow-up operations (adjusting hardware configuration) may change IP. Please refer to corresponding operation steps.
+You need to shut down the instance before certain operations, like adjusting configuration, resetting password, etc.. The public IP address, private IP address and all data on the disk are remained unchanged.
 
-For more information, see [Shutdown Instance](/doc/product/213/4929).
+For more information, see [Shutting Down Instances](/doc/product/213/4929).
 
-## Instance termination
-Users can terminate the instance if they no longer need CVM instances. Note:
-- For prepaid instances, it will be moved into the Recycle Bin upon expiration, and be terminated automatically after 7 days.
-- For postpaid instances, users can terminate them manually either through Tencent Cloud Console or Tencent Cloud API.
+## Terminating Instances
+You can terminate unnecessary instances if required.
+Note:
+- Prepaid instances will be moved into the Recycle Bin upon expiration, and be terminated automatically after 7 days.
+- For postpaid instances, users can terminate them manually on the Console or via API.
 
 When terminating an instance, the system disks and data disks designated when purchasing will be terminated as well. But elastic cloud disks mounted on it will not be affected.
 
-For more information, see [Terminate Instance](/doc/product/213/4930).
+For more information, see [Terminating Instances](/doc/product/213/4930).

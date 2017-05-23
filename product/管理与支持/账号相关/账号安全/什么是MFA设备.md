@@ -13,9 +13,9 @@
 ### 腾讯云支持的虚拟设备
 
 
-| 手机类型      | 设备名称 |
+| 手机类型      | 应用程序 |
 | --------- | -----:|
-| ios     | [google身份验证器](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8)|
-| android         |   [google身份验证器](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) ; [Authy双重身份验证](http://sj.qq.com/myapp/detail.htm?apkName=com.authy.authy) |
+| ios  / Android    | 微信小程序--腾讯云+|
+
 
 

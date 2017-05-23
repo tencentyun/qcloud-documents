@@ -10,8 +10,7 @@ Initiate Job 请求实现将 Archive 或者 Archive 列表取出到缓存池，�
 | ------ | --------- | -------- | ------- |
 | 数据访问时间 | 1-5 分钟    | 3-5 小时   | 5-12 小时 |
 
-
-如果没有足够的容量处理 Expedited 类型请求时，则返回503 InsufficientCapacityException。
+ Expedited 类型请求，最大支持256 MB文件。
 
 ## 请求
 
@@ -87,7 +86,7 @@ Authorization: Auth
 
 | 名称           | 描述                                       | 类型     |
 | ------------ | ---------------------------------------- | ------ |
-| Location     | 任务的相对 URI 路径，格式 /<UID>/vaults/<VaultName>/jobs/<JobID> | String |
+| Location     | 任务的相对 URI 路径，格式 /< UID >/vaults/< VaultName >/jobs/< JobID > | String |
 | x-cas-job-id | 任务的 ID，即 JobID                           | String |
 
 ### 返回内容

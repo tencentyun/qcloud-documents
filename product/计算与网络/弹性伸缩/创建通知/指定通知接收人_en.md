@@ -19,7 +19,7 @@ AS sends a notification on a **user group** basis, rather than **recipient**.
 
 - You have defined a number of notification recipients, who may be in the same or different departments. You may wish that a certain type of notifications to be sent to the recipients of department A, and another type to the recipients of department B. Then you can define a user group, and put the different notification recipients to this particular user group.
 
-**How to set up:**
+**Setting Up:**
 1. Go to [User Group Management](https://console.qcloud.com/cam/groups), click **New User Group**, fill in the user name and click **OK**.
 2. Then click **Add User** to add the relevant notification recipient(s).
 

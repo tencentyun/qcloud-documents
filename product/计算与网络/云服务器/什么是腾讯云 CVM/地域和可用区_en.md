@@ -90,7 +90,7 @@ Availability zones (Zone) refer to Tencent Cloud's physical data centers whose p
 
 When starting an instance, users can choose any availability zone within the specified region. If a user needs to ensure the high reliability of application systems so that the services are still available even when a failure occurs in an instance, the user can use cross-zone deployment scheme (e.g. [Cloud Load Balance](https://www.qcloud.com/doc/product/214), [Elastic IP](/doc/product/213/5733), etc.) to allow the instance in another availability zone to handle the relevant requests in replace of the failed instance.
 
-### Migrate an instance to another availability zone
+### Migrating an instance to another availability zone
 
 Once an instance is started, its availability zone cannot be changed. However you can migrate it to another availability zone. 
 
@@ -99,7 +99,7 @@ Once an instance is started, its availability zone cannot be changed. However yo
 ## How do I select the region and availability zone?
 While purchasing Tencent loud services, it is recommended to choose the region that is closest to your customers to minimize the access latency and improve download speed.
 
-## Resource Availability Range
+## Resource Availability
 Specify which resources of Tencent Cloud are global, which resources are regional and not specific to any availability zone and which resources are based on availability zones.
 
 <table>
@@ -172,7 +172,7 @@ Specify which resources of Tencent Cloud are global, which resources are regiona
   <td>Users cannot create a subnet across availability zones.</td>
 </tr>
 <tr>
-<td> <a href="/doc/product/215/4954">Route table</a> </td>
+<td> <a href="/doc/product/215/4954">Routing table</a> </td>
   <td>rtb-xxxxxxxx</td>
   <td>Cross-zone</td>
   <td>When creating a routing table, users need to designate a specific VPC, and therefore location attribute of the VPC should be followed.</td>

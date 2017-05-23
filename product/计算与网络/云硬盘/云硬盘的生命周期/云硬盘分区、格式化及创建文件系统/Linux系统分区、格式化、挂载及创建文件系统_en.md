@@ -1,10 +1,11 @@
-Instances can recognize a connected cloud disk and regard it as an ordinary hard disk. Users can use any file systems to format and partition the Cloud Block Storage device, and create a file system for it. After this, any data written into the file system will be written into the cloud disk, and the data will be transparent to the applications that use this device. This document will use an example to show you how to use block storage device in a CVM, and describe several points you need to be aware of in details. You can also go to the [Windows System Partitioning, Formatting, Linking and File System Creation](/doc/product/362/6134) page for a guide on how to use Cloud Block Storage on Windows instances.
+Instances can recognize a connected cloud disk and regard it as an ordinary hard disk. Users can use any file systems to format and partition the Cloud Block Storage device, and create a file system for it. After this, any data written into the file system will be written into the cloud disk, and the data will be transparent to the applications that use this device. This document will use an example to show you how to use block storage device in a CVM, and describe several points you need to be aware of in details. You can also go to the [Windows System Partitioning, Formatting, Linking and File System Creation](https://www.qcloud.com/document/product/362/6734
+) page for a guide on how to use Cloud Block Storage on Windows instances.
 
 In this example, the user has purchased a system disk with a capacity of 20GB and a data disk with a capacity of 30GB (i.e. non-elastic cloud disk) when activating the CVM, then the user also purchased an elastic cloud disk with a capacity of 10GB in the Cloud Block Storage Console.
 
 ## Preconditions
 - Please make sure that you have gone through [Connect Cloud Block Storage to a CVM Instance](/doc/product/362/5745), and [Log in to Linux Instance](/doc/product/213/5436).
-- <font color="red">After formatting, all data in the data disk will be erased. Before formatting, please make sure that there is no data in the data disk, or that important data has been backed up. In order to avoid service errors, please make sure that CVM has already stopped external service before formatting.</font>
+- After formatting, all data in the data disk will be erased. Before formatting, please make sure that there is no data in the data disk, or that important data has been backed up. In order to avoid service errors, please make sure that CVM has already stopped external service before formatting.
 - If you have purchased multiple cloud disks, it is suggested that you set a custom name for the elastic cloud disk with important data in it and configure automatic renewal, to prevent any impact on your business caused by expired elastic cloud disk when the disk is not renewed in time. 
 - Users can locate a cloud disk quickly by using the custom name or the private IP of an associated CVM in the [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs).
 
@@ -20,7 +21,7 @@ You can see that the non-elastic cloud disk `vdb` created with the CVM and the e
 2) Execute the command `ls -l /dev/disk/by-id/`, you can see the relation between the elastic cloud disk and the device name. Note: At this time, the information of non-elastic cloud disk will not be shown here.
 ![](//mccdn.qcloud.com/static/img/c004f380599b1ac12475f325f24b9d77/image.png)
 
-If the disk has never been initialized, you need to create a file system before you can use it. A cloud disk created from a snapshot may already contain a file system. <font color="red">All original data will be overwritten if you create a new file system when a file system already exists.</font>
+If the disk has never been initialized, you need to create a file system before you can use it. A cloud disk created from a snapshot may already contain a file system. All original data will be overwritten if you create a new file system when a file system already exists.
 
 Special information, such as file system type, can be listed out by using the command `file -s device`.
 

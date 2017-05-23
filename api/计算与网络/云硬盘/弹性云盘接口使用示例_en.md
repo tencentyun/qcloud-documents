@@ -15,7 +15,7 @@ Before creating an elastic cloud storage, you can inquire about the price of the
 | payMode | Payment mode. Currently, only Prepaid is supported | prePay |
 | storageSize | Size of the elastic cloud storage to be created (GB) | 50 |
 
-By combining [Common Request Parameters](/doc/api/364/2745) and API request parameters, you can get the final request as follows:
+By combining [Common Request Parameters](https://www.qcloud.com/document/api/213/6976) and API request parameters, you can get the final request as follows:
 
 ```txt
 https://cbs.api.qcloud.com/v2/index.php?
@@ -56,7 +56,7 @@ You can use the API [CreateCbsStorages (Create elastic cloud storage)](/doc/api/
 | payMode | Payment mode. Currently, only Prepaid is supported | prePay |
 | storageSize | Size of the elastic cloud storage to be created (GB) | 50 |
 
-By combining [Common Request Parameters](/doc/api/364/2745) and API request parameters, you can get the final request as follows:
+By combining [Common Request Parameters](https://www.qcloud.com/document/api/213/6976) and API request parameters, you can get the final request as follows:
 
 ```txt
 https://cbs.api.qcloud.com/v2/index.php?
@@ -93,7 +93,7 @@ When the elastic cloud storage has been created, you can use [AttachCbsStorages 
 | storageIds.0 | ID of elastic cloud storage to be mounted | disk-czwe3ihx |
 | uInstanceId | ID of CVM to which the elastic cloud storage will be mounted | ins-4fet7izv |
 
-By combining [Common Request Parameters](/doc/api/364/2745) and API request parameters, you can get the final request as follows:
+By combining [Common Request Parameters](https://www.qcloud.com/document/api/213/6976) and API request parameters, you can get the final request as follows:
 
 ```txt
 https://cbs.api.qcloud.com/v2/index.php?
@@ -124,6 +124,7 @@ The result of the above request is as follows. You can check whether the cloud s
 
 ## 4. Initialize the Cloud Disk on CVM
 
-The first time you use the new elastic cloud storage, you need to perform a series of operations on it, such as partitioning, formatting etc. For details, please refer to [Data Disk Partitioning and Formatting on Windows System ](https://www.qcloud.com/doc/product/213/2158) and [Data Disk Mounting, Partitioning and Formatting on Linux System ](https://www.qcloud.com/doc/product/362/3893). Note: For Linux system, partitioning is not necessary. You can skip the partitioning process and directly proceed to the formatting.
+The first time you use the new elastic cloud storage, you need to perform a series of operations on it, such as partitioning, formatting etc. For details, please refer to [Data Disk Partitioning and Formatting on Windows System ](https://www.qcloud.com/doc/product/213/2158) and [Data Disk Mounting, Partitioning and Formatting on Linux System ](https://www.qcloud.com/document/product/362/6735
+). Note: For Linux system, partitioning is not necessary. You can skip the partitioning process and directly proceed to the formatting.
 
 

@@ -25,11 +25,11 @@ The number of ENIs that may bind to a CVM, and the number of private IPs that ca
 
 | CVM Configuration               | Number of ENIs | Number of IPs for Each ENI |
 | ------------------- | :---- | :------ |
-| CPU:  Single core   RAM:  1G    | 2     | 2       |
-| CPU:  Single core   RAM:  >1G   | 2     | 6       |
+| CPU:  Single core   RAM:  1 G    | 2     | 2       |
+| CPU:  Single core   RAM:  >1 G   | 2     | 6       |
 | CPU:  Dual core             | 2     | 10      |
-| CPU:  4-core   RAM:  < 16G | 4     | 10      |
-| CPU:  4-core   RAM:  > 16G | 4     | 20      |
+| CPU:  4-core   RAM:  < 16 G | 4     | 10      |
+| CPU:  4-core   RAM:  > 16 G | 4     | 20      |
 | CPU:  8 to 12 cores          | 6     | 20      |
 | CPU:  >12-core           | 8     | 30      |
 
@@ -42,9 +42,9 @@ Free. For more information regarding the prices of VPC services, refer to [VPC P
 
 1) Open the [VPC Console](https://console.qcloud.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
-3) Click the "Instance ID" of an ENI to go to its detail page and view its information.
+3) Click the **Instance ID** of an ENI to go to its detail page and view its information.
 
 ### Creating ENI
 
@@ -70,11 +70,11 @@ Free. For more information regarding the prices of VPC services, refer to [VPC P
 
 1) Open the [VPC Console](https://console.qcloud.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
-3) Find the line of the ENI and click "Unbind CVM" in the action bar.
+3) Find the line of the ENI and click **Unbind CVM** in the action bar.
 
-4) Click "OK" to complete the unbinding process.
+4) Click **OK** to complete the unbinding process.
 
 Tips: Once you unbind an ENI, information such as its associated private IPs, elastic public IPs, security groups will be retained.
 
@@ -82,11 +82,11 @@ Tips: Once you unbind an ENI, information such as its associated private IPs, el
 
 1) Open the [VPC Console](https://console.qcloud.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
-3) Find the line of the ENI and click "Delete" in the action bar.
+3) Find the line of the ENI and click **Delete** in the action bar.
 
-4) Click "OK" to complete the deletion process.
+4) Click **OK** to complete the deletion process.
 
 Note 1: Once the ENI is deleted, its private IPs, elastic public IPs and security groups will be disassociated.
 
@@ -98,17 +98,17 @@ Note 3: The primary ENI will be deleted as the CVM is deleted.
 
 1) Open the [VPC Console](https://console.qcloud.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
-3) Click the "Instance ID" of the ENI to go to its detail page and view its information.
+3) Click the **Instance ID** of the ENI to go to its detail page and view its information.
 
-4) Click "IP Management" tab to view the private IPs and elastic public IPs that are already bound to the ENI.
+4) Click **IP Management** tab to view the private IPs and elastic public IPs that are already bound to the ENI.
 
-5) Click "Assign Private IP" button to open the "Assign Private IP" window.
+5) Click **Assign Private IP** button to open the **Assign Private IP** window.
 
 6) You can choose to "Auto Assign" or "Manually Enter" private IP.
 
-7) You can click the "Add" button to assign multiple IPs for the ENI in the "Assign Private IP" window.
+7) You can click the **Add** button to assign multiple IPs for the ENI in the "Assign Private IP" window.
 
 8) Click "OK" button to complete the assigning process.
 
@@ -214,11 +214,11 @@ Note 2: Once the private IP is unbound, the elastic public IP will be automatica
 
 1) Open the [VPC Console](https://console.qcloud.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
-3) Click the "Instance ID" of the ENI to go to its detail page and view its information.
+3) Click the **Instance ID** of the ENI to go to its detail page and view its information.
 
-4) Click "IP Management" tab to view the private IPs that are already bound to the ENI.
+4) Click **IP Management** tab to view the private IPs that are already bound to the ENI.
 
 5) Click "Bind" button in the "Bound Elastic Public IP" column of the line to which the private IP belongs.
 
@@ -275,16 +275,5 @@ Note 2: You must unbind all secondary IPs before you can change subnet for the E
 Note 3: When changing subnet for the ENI, you can only choose another subnet under the same availability zone.
 
 ## API Overview
-Functional APIs for ENI are listed below. Refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909) for more information about other VPC resources.
-
-
-| Function | Action ID | Description
-|---------|---------|---------|
-| Create ENI | [CreateNetworkInterface](https://www.qcloud.com/doc/api/245/4811) |  Create ENI.  |
-| Delete ENI | [DeleteNetworkInterface](https://www.qcloud.com/doc/api/245/4813) |  Delete ENI.  |
-| Query ENI Information | [DescribeNetworkInterfaces](https://www.qcloud.com/doc/api/245/4814) | Query ENI information.  |
-| Assign Private IP for ENI | [AssignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4817) | Assign private IP for ENI.  |
-| Unassign Private IP for ENI | [UnassignPrivateIpAddresses](https://www.qcloud.com/doc/api/245/4819) | Unassign private IP for ENI.  |
-| Bind ENI to CVM | [AttachNetworkInterface](https://www.qcloud.com/doc/api/245/4820) | Bind ENI to CVM.  |
-| Unbind ENI from CVM | [DetachNetworkInterface](https://www.qcloud.com/doc/api/245/4821) | Unbind ENI from CVM.  |
+Refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909) for more information about other VPC resources.
 

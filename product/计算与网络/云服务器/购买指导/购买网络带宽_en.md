@@ -107,7 +107,7 @@ In the Pay-by-Traffic mode, network costs are determined solely by the outbound 
 |---------|---------|
 | Mainland China, Singapore | 0.80 CNY/GB | 
 | Hong Kong | 1.00 CNY/GB | 
-| North America | 0.50 CNY /GB | 
+| North America, American West | 0.50 CNY /GB | 
 
 #### Purchase procedure
 Select "Annual/Monthly Package" or "Pay by Traffic" for the user billing mode and then select "By Data Usage" from the bandwidth. The network cost is calculated separately, based on your actual traffic, billing accuracy to seconds, settled every hour.

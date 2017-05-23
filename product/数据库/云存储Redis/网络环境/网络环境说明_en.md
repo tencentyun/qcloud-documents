@@ -1,0 +1,1 @@
+There are two types of Tencent Cloud network environments: Basic Network and Virtual Private Cloud (VPC). For more information, please see [Network Environment Document](https://www.qcloud.com/document/product/213/5227).
