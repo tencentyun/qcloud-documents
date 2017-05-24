@@ -135,5 +135,5 @@ ImSDK3.x版本优化了SDK的初始化流程和较多的模块接口，接口逻
 <b>消息</b> | <b> TIMImageElem</b> | 仅保留指定文件路径方式下载资源
 <b>消息</b> | <b> TIMMessage delFromStorage</b> | <b>TIMMessage remove</b>
 <b>回调</b> | <b>TIMGroupAssistantListener</b> | <b>TIMGroupListener</b>
-<b>回调</b> | <b>TIMGroupMemberListener</b> | <b>TIMGroupEventListener</b>
-<b>回调</b> | <b>TIMFriendshipProxyListener</b> | <b>TIMFriendshipListener</b>
+<b>回调</b> | <b>TIMGroupMemberListener</b> | <b>TIMGroupEventListener</b>注意首字母小写
+<b>回调</b> | <b>TIMFriendshipProxyListener</b> | <b>TIMFriendshipListener</b>注意首字母小写
