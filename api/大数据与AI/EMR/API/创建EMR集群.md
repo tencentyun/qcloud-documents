@@ -14,7 +14,7 @@
 
 | 参数名称 | 是否必选 | 类型 | 描述 |
 | --------|---------|------|------|
-| ProductId | 否 | uint | EMR版本ID|
+| ProductId | 是 | uint | EMR版本ID|
 | ZoneId | 是 | uint | 所在地域可用区ID |
 | VpcId | 是 | string | 创建EMR集群所在的私有网络vpcId, vpc-xxxxx格式 |
 | SubnetId | 是 | string | 创建EMR集群的所在的私有网络subnetId, subnet-xxxx格式 |
