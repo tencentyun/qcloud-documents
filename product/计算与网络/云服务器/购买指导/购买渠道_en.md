@@ -1,8 +1,8 @@
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The CVM supports two purchase modes: official website purchase and API purchase. This section will detail these two purchase modes.
+The CVM supports two purchase modes: official website purchase and API purchase. This section will detail these two purchase modes.
 ## Official website purchase
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All users can purchase CVMs on the official website of Tencent Cloud. By billing mode, users can purchase two types of CVMs: prepaid (monthly/annual purchase) and postpaid (billing in seconds, settled every hour). For details, see [Billing Instructions](https://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E).
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For official website purchase of CVMs, click [here](https://www.qcloud.com/doc/product/213/6998). In the following section, we will introduce official website purchase of two kinds of CVMs.
+All users can purchase CVMs on the official website of Tencent Cloud. By billing mode, users can purchase two types of CVMs: prepaid (monthly/annual purchase) and postpaid (billing in seconds, settled every hour). For details, see [Billing Instructions](https://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E).
+For official website purchase of CVMs, click [here](https://www.qcloud.com/doc/product/213/6998). In the following section, we will introduce official website purchase of two kinds of CVMs.
 
 ### Prepaid Package
 

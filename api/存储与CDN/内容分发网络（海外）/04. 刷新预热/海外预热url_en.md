@@ -1,11 +1,11 @@
 ## 1. API Description
 This API (CdnOverseaPushser) is used to submit overseas CDN URL prefetch tasks.
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: cdn.api.qcloud.com
 
-**API Instruction**
-+ Each user is allowed to submit 1000 overseas CDN resources for prefetch per day, and up to 20 resources for each submission;
-+ If the default limit cannot meet your business needs, please contact us to adjust the quota;
+**Note**
++ Up to 1,000 URLs can be prefetched per day, and up to 20 URLs for one time.
++ Contact Tencent Cloud sales representatives if you need to increase the quota
 
 [Call Demo](https://www.qcloud.com/document/product/228/1734)
 
@@ -14,13 +14,12 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name   | Required | Type     | Description                        |
 | ------ | ---- | ------ | ------------------------- |
-| urls.n | Yes    | String | Resource URL to be prefetched. You may prefetch multiple URLs |
+| urls.n | Yes    | String | URLs to be prefetched. You may prefetch multiple URLs |
 
 **Note:**
 
-+ The submitted URLs must have "http://" or "https://" as prefix;
-
-+ You may prefetch one or multiple URLs. When prefetching multiple URLs, you can pass parameters like this:
++ URLs must start with "http://" or "https://"
++ To prefetch multiple URLs, please pass parameters like this:
 
   ```
   urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
@@ -28,21 +27,21 @@ The following request parameter list only provides API request parameters. Commo
 
 + You can submit URLs that belong to different domains, in which case CDN will split them into different prefetch tasks according to their domains;
 
-+ Prefetch will lead to a high back-to-origin bandwidth, please split your prefetch tasks and submit them according to your origin server's bandwidth;
++ Prefetching may bring high origin-pull bandwidth, please split your prefetch tasks and submit them according to your origin server's bandwidth;
 
 ## 3. Output Parameters
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
 | code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
 | message  | String | Module error message description depending on API.                           |
-| codeDesc | String | English error message or error code at business side.                           |
+| codeDesc | String | Error message      |
 | data     | Object | Returned data result                                   |
 
 **data Field Description**
 
 | Parameter Name    | Type     | Description          |
 | ------- | ------ | ----------- |
-| task_id | String | ID information of the submitted prefetch task |
+| task_id | String | ID of the submitted prefetching task |
 
 ## 4. Example
 ### 4.1 Example of Input
