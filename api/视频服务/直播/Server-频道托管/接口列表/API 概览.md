@@ -6,7 +6,6 @@
 | 修改直播频道        | [ModifyLVBChannel](https://www.qcloud.com/doc/api/258/4718) |
 | 批量启用直播频道      | [StartLVBChannel](https://www.qcloud.com/doc/api/258/4719) |
 | 批量停止直播频道      | [StopLVBChannel](https://www.qcloud.com/doc/api/258/4720) |
-| 查询直播频道当前并发收看数 | [DescribeLVBOnlineUsers](https://www.qcloud.com/doc/api/258/4721) |
 | 删除直播频道        | [DeleteLVBChannel](https://www.qcloud.com/doc/api/258/4722) |
 | 创建录制任务        | [CreateRecord](https://www.qcloud.com/doc/api/258/4723) |
 | 终止录制任务        | [StopRecord](https://www.qcloud.com/doc/api/258/4724) |
