@@ -13,6 +13,7 @@
 ## 创建 Bucket
 
 1、完成注册与登录后，您就可以开始使用 COS 管理控制台 创建 Bucket。**必须**先创建一个 Bucket,然后才能在管理控制台中存储数据。
+
 2、进入 COS 管理控制台，点击 **立即创建 Bucket** ，会弹出创建 Bucket 对话框：
 
 ![](//mccdn.qcloud.com/static/img/a72342e5d10c18ccba9dde905fcd8695/image.png)
@@ -48,6 +49,7 @@
 > 私有读写：只有该Bucket的创建者及有相应权限的账号才对该Bucket中的文件有读写权限，其他任何人对该Bucket中的文件都没有读写权限。
 
 如后续需要修改Bucekt权限，可通过控制台空间属性修改。
+
 
 下一步：[上传 Object]()
 
