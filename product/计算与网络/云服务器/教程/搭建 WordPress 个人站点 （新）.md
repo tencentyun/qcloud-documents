@@ -252,6 +252,7 @@ quit
 vi /usr/share/nginx/html/wp-config-sample.php
 ```
 找到文件中 MySQL 的部分，按字母“I”键进入 INSERT 模式（Vim 命令下，单击鼠标右键即可执行粘贴操作），将3.1 中已配置好的数据库相关信息写入：
+
 <div class="code"><p></p><pre> 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
