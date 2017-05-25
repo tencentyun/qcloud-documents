@@ -26,9 +26,8 @@ c. 查看此数据库实例的外网地址。
 ![](//mc.qcloudimg.com/static/img/e364724c2944099a9cd9c8c8c79fd96f/image.png)
 
 2.登录到数据库
- 
 -从Windows系统登录
-a.下载一个MariadDB客户端并安装。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/。
+a.下载一个MariaDB客户端并安装。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/。
 b.打开sqlyog，输入输入MariaDB数据库实例的外网域名和端口号，数据库帐号以及密码。
 	我的SQL主机地址：此例中输入tdsql-6gy3mopk.gz.cdb.myqcloud.com。
 	用户名：用前文中创建的用户名test123。
@@ -42,10 +41,10 @@ c.登录成功的界面如图所示，在此页面上您可以看到MariaDB数�
 a.以CentOS 7.2 64位系统的CVM为例，利用CentOS自带的包管理软件Yum去官网下载安装MySQL客户端。
 b.使用MySQL命令行工具登录到MariaDB数据库。
 		相关命令为：
-		`mysql -h hostname -u username -p`
-		请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为之前创建的用户test123，并在提示password：后输入账户test123对应的密码。
-		本例中hostname为10.30.0.7
-![](//mc.qcloudimg.com/static/img/f8dccff34309cfd332f600f1ceb35ff1/image.png)
+		`mysql -h hostname -P port -u username -p`
+		请将hostname替换为目标MySQL数据库实例的外网IP地址，将username替换为之前创建的用户test123，并在提示password：后输入账户test123对应的密码。
+		本例中hostname为tdsql-6gy3mopk.gz.cdb.myqcloud.com，port为114。
+![](//mc.qcloudimg.com/static/img/8ff5ae0ee3914f683731815c15b3058b/image.png)
 c.在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html.
 
 下图中以show databases；为例。
@@ -74,7 +73,7 @@ b.使用MySQL命令行工具登录到MariaDB数据库。
 		相关命令为：
 		`mysql -h hostname -u username -p`
 		请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为之前创建的用户test123，并在提示password：后输入账户test123对应的密码。
-		本例中hostname为10.30.0.7
+		本例中hostname为10.30.0.7。
 ![](//mc.qcloudimg.com/static/img/f8dccff34309cfd332f600f1ceb35ff1/image.png)
 c.在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html.
 
