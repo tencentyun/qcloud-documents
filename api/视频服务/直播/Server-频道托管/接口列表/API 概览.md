@@ -15,4 +15,6 @@
 | 终止截图任务        | [StopLVBShot](https://www.qcloud.com/doc/api/258/4727) |
 | 查看队列消息        | [DescribeQueueLog](https://www.qcloud.com/doc/api/258/4728) |
 | 删除录制任务        | [DeleteRecord](https://www.qcloud.com/doc/api/258/4729) |
-| 删除截图任务        | [DeleteLVBShot](https://www.qcloud.com/doc/api/258/4730) |
+| 删除截图任务        | [DeleteLVBShot](https://www.qcloud.com/doc/api/258/4730) |
+| 查询录制任务列表 | [DescribeRecordList](https://www.qcloud.com/document/product/267/4731)|
+| 查询截图任务列表 |[DescribeLVBShotList](https://www.qcloud.com/document/product/267/4732)|
