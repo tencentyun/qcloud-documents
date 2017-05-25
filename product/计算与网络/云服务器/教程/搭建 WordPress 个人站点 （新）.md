@@ -15,16 +15,17 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 ![云主机1](//mc.qcloudimg.com/static/img/45c91766dea3e929af02e31dc029b9b0/image.png)
 
 本教程中创建的云主机配置及系统镜像信息如下：
- 信息|参数 
----|---
-操作系统 | CentOS 6.8 64位
-CPU | 1核
-内存 | 1GB
-系统盘|	20GB(本地磁盘)
-数据盘|	30GB(本地磁盘)
-公网带宽|	1Mbps
-镜像名称|	CentOS 6.8 64位
-类型|	公有镜像
+ 
+| 信息 | 参数 | 
+|---------|---------|
+| 操作系统 | CentOS 6.8 64位 |
+| CPU | 1核|
+|内存 | 1GB|
+|系统盘|	20GB(本地磁盘)|
+|数据盘|	30GB(本地磁盘)|
+|公网带宽|	1Mbps|
+|镜像名称|	CentOS 6.8 64位|
+|类型|	公有镜像|
 
 后续步骤将会用到以下信息，请注意保存：
 云主机用户名和密码；
@@ -58,7 +59,6 @@ yum install nginx php php-fpm php-mysql mysql-server -y
 安装完成，PuTTY 窗口会提示“Complete!”。
 ![安装软件1](//mc.qcloudimg.com/static/img/5eab9d11f7f6fe299613a0ac5cec0fc0/image.png)
 同时可以上滑滚动条查看当前安装包版本：
-![安装软件2](//mc.qcloudimg.com/static/img/534c45902e0f6bf3368fd4a8679bbaa0/image.png)
 ![安装软件2](//mc.qcloudimg.com/static/img/b2c0d28096e5089d58590fdc4d64ebc7/image.png)
 
 本教程中安装包版本分别如下：
@@ -193,7 +193,7 @@ rm /usr/share/nginx/html/index.html
 ```
 窗口提示是否删除，输入 “y” 回车。
 ![安装WP0](//mc.qcloudimg.com/static/img/54b9ca3f101b22e8323266120b9e427b/image.png)
-2. 下载 WordPress 并解压到当前目录。
+2. 依次下载 WordPress 并解压到当前目录。
 ```
 wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
 ```
@@ -209,6 +209,7 @@ mv wordpress/* /usr/share/nginx/html/
 ```
 chmod -R 777 /usr/share/nginx/html
 ```
+
 ### 3.2 配置数据库
 在写博客之前，您需要先建好数据库，以存储各类数据。请根据以下步骤进行 MySQL 数据库配置。
 1. 进入 MySQL：
@@ -243,7 +244,7 @@ FLUSH PRIVILEGES;
 quit
 ```
 
-### 3.2 写入数据库信息
+### 3.3 写入数据库信息
 完成数据库配置后，还需要将数据库信息写入 WordPress 的配置文件。
 1. 打开配置文件
 使用以下命令打开 WordPress 的配置文件：
@@ -251,7 +252,6 @@ quit
 vi /usr/share/nginx/html/wp-config-sample.php
 ```
 找到文件中 MySQL 的部分，按字母“I”键进入 INSERT 模式（Vim 命令下，单击鼠标右键即可执行粘贴操作），将3.1 中已配置好的数据库相关信息写入：
-
 <div class="code"><p></p><pre> 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -283,13 +283,13 @@ http://公网IP
 2. 输入刚才设置的用户名和密码，点击登录。
 ![配置WP3](//mc.qcloudimg.com/static/img/3d24a1747ba899a1d3812e8f30992a8a/image.png)
 3. 成功登录到网站管理后台（中文称为仪表盘）。可在仪表盘对网站进行管理，如更换网站主题、发表文章等。
-![配置WP4](//mc.qcloudimg.com/static/img/9b543d0311fba3de07ca954ef5e4a733/image.png)就可以开启您的个人博客之旅了。
+![配置WP4](//mc.qcloudimg.com/static/img/9b543d0311fba3de07ca954ef5e4a733/image.png)
 4. 此时，其他用户通过访问以下地址，即可看到网站。
 ```
 http://119.29.228.67
 ```
 ![配置WP5](//mc.qcloudimg.com/static/img/a7360313672aa00c6c90a1050c562538/image.png)
-5. 配置完成后， 将`html`文件夹权限改回 755。
+5. 配置完成后， 将`html`文件夹权限改回 755。您就可以开启个人博客之旅了。
 ```
 chmod -R 755 /usr/share/nginx/html
 ```
