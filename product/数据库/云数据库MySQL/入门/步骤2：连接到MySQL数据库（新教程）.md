@@ -2,15 +2,15 @@
 - 外网访问：借助外网账号的方式，可以通过控制台中的登录入口，登录到phpMyAdmin界面对数据库进行操作。
 - 内网访问：使用在同一个可用区的CVM来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台CVM需要与数据库同时处于基础网络中，或者属于同一个VPC，关于VPC的更多信息请查看<a href="https://www.qcloud.com/document/product/215/535" target="_blank">VPC概述</a>。）
 # 外网访问
-1. 在腾讯云控制台中，选择**云产品**-**关系型数据库**-**MySQL-实例列表**，选择状态为运行中的目标实例，点击**登录**。
+1.在腾讯云控制台中，选择**云产品**-**关系型数据库**-**MySQL-实例列表**，选择状态为运行中的目标实例，点击**登录**。
 ![](//mc.qcloudimg.com/static/img/248ca91c3b13e3f249c752f43019ed1a/image.png)
-2. 在phpMyAdmin的登录界面，用户名输入root，密码为之前在初始化选项中配置的root账户的密码，点击**执行**来登录。
+2.在phpMyAdmin的登录界面，用户名输入root，密码为之前在初始化选项中配置的root账户的密码，点击**执行**来登录。
 ![](//mc.qcloudimg.com/static/img/f895c2c3f9fc5f9b157052383cac00c8/image.png)
-3. 您现在已经成功连接到数据库，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
+3.您现在已经成功连接到数据库，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/c8f60117f5aec772663d3c7890c96b1e/image.png)
 # 内网访问
-1. 登录到与此数据库实例属于同一个可用区的网络可达的CVM主机，关于登录CVM主机请查看<a href="https://www.qcloud.com/document/product/213/2764" target="_blank">WIndows CVM入门</a>或<a href="https://www.qcloud.com/document/product/213/2936" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MySQL数据库实例都处于基础网络之中，或者处于同一个VPC中。
-1. 请根据CVM的操作系统选择推荐的连接方式：
+1.登录到与此数据库实例属于同一个可用区的网络可达的CVM主机，关于登录CVM主机请查看<a href="https://www.qcloud.com/document/product/213/2764" target="_blank">WIndows CVM入门</a>或<a href="https://www.qcloud.com/document/product/213/2936" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MySQL数据库实例都处于基础网络之中，或者处于同一个VPC中。
+2.请根据CVM的操作系统选择推荐的连接方式：
 - Windows系统
 	a.下载一个标准的SQL客户端。此步骤中我们推荐您下载MySQL Workbench，这是windows系统下较常见的SQL客户端。在CVM中打开https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
 ![](//mc.qcloudimg.com/static/img/4d7e6c56f02aad86f232e5cdd8c0bb17/image.png)
