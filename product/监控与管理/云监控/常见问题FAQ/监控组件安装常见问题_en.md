@@ -6,7 +6,7 @@ A: Installation directories on Linux: /usr/local/qcloud/stargate and /usr/local/
 Install by executing the following commands:
 
 ```
-1.  wget http://mirrors.tencentyun.com/install/monitor/linux_stargate_installer
+1.  wget http://update2.agent.tencentyun.com/update/linux_stargate_installer
 2.  chmod +x linux_stargate_installer
 3.  ./linux_stargate_installer
 ```
@@ -21,7 +21,7 @@ Once installed, you will see the following:
 
 ## 3. How to install Cloud Monitor Agent on Windows?
 
-1) After logging in to the server, download `windows-stargate-installer.exe` from `http://mirrors.tencentyun.com/install/monitor/windows-stargate-installer.exe`.
+1) After logging in to the server, download `windows-stargate-installer.exe` from `http://update2.agent.tencentyun.com/update/windows-stargate-installer.exe`.
 
 2) Run` windows-stargate-installer.exe` to install it automatically.
 Once installed, you will see the following results:

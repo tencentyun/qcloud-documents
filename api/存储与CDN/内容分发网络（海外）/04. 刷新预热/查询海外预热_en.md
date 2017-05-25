@@ -2,7 +2,7 @@
 
 This API (GetCdnOverseaPushLogs) is used to query the operation status of submitted overseas prefetch tasks.
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: cdn.api.qcloud.com
 
 **API Instruction**
 

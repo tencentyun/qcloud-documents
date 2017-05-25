@@ -37,8 +37,9 @@ URL 中各字段含义如下（各字段的值需要进行 URL 编码）：
 | appid | 是 | uint  | 腾讯云应用 ID 值   | 
 | projectid  | 否   | uint | 腾讯云项目 ID，不填为默认项目，即0，总长度不超过1024字节 | 
 | sub_service_type  | 是   | uint   | 子服务类型。0：离线语音识别。1：实时流式识别。  | 
-| engine_model_type | 是  | uint  | 引擎类型。8k_0：电话8k通用模型；16k_0：16k 通用模型| 
+| engine_model_type | 是  | String  | 引擎类型。8k_0：电话8k通用模型；16k_0：16k 通用模型| 
 | callback_url | 是  | String  | 回调 URL，用户接受结果，长度大于0，小于2048 |
+| channel_num | 否  | unit  | 语音声道数，仅在电话8k通用模型下，支持1和2，其他模型仅支持1 |
 | res_text_format | 是 | uint  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |
 | res_type | 否 | uint  | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回 |
 | source_type | 是 | uint  |  语音数据来源。0：语音 URL；1：语音数据（post body）|

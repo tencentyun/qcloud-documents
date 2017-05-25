@@ -1,6 +1,6 @@
-We use the region and the availability zone to describe the location of the Tencent Cloud data center. You can purchase a Cloud Physical Machine (CPM) in a specified region and availability zone.
+Region and the Availability Zone are used to describe the locations of the Tencent Cloud data centers. You can purchase a Cloud Physical Machine (CPM) in a specified region and availability zone.
 
-Region refers to an independent geographical location. Within a region, there are multiple mutually isolated data centers referred to as availability zone.</br>
+Region is an independent geographical location. Within a region, there are multiple mutually isolated data centers referred to as availability zone.</br>
 Different regions are completely independent to ensure maximal fault tolerance and stability. Each availability zone is also independent. However, availability zones in the same region can be connected via private network links with low latency.
 
 You can purchase CPM in different locations and you are recommended to deploy your business in different availability zones to avoid unavailability of service caused by single point of failure.
@@ -15,10 +15,10 @@ The followings are the regions and availability zones where data centers are ope
 			<th>Availability Zone</th>
 		</tr>
 		<tr>
-			<td rowspan="7">Within China</td>
+			<td rowspan="7">China</td>
 			<td rowspan="3">North China (Beijing)</td>
 			<td>Beijing Zone 1</td>
-			<tr><td>Beijing Zone 2 (Creating)</td></tr>
+			<tr><td>Beijing Zone 2 (Coming soon)</td></tr>
 		</tr>
 		<tr>
 			
@@ -33,7 +33,7 @@ The followings are the regions and availability zones where data centers are ope
 		</tr>
 		<tr>
 			<td>South China (Guangzhou)</td>
-			<td>Guangzhou Zone 1 (Creating)</td>
+			<td>Guangzhou Zone 1 (Coming soon)</td>
 		</tr>
 			
 	</tbody>

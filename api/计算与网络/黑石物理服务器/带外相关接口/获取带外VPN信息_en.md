@@ -41,7 +41,7 @@ When you log in to VPN from the out-of-band SSL VPN client, you can enter the ac
 <td> Returned authInfo instance. For more information on its composition, please see below.
 </tbody></table>
 
-</b></th>Parameter authInfo is composed as follows:</b></th>
+</b></th>authInfo is composed as follows:</b></th>
 <table class="t"><tbody><tr>
 <th><b>Parameter Name</b></th>
 <th><b>Type</b></th>
@@ -67,7 +67,7 @@ When you log in to VPN from the out-of-band SSL VPN client, you can enter the ac
 </tbody></table>
 
 
-## 4. Module Error Codes
+## 4. Error Codes
 
 | Code |codeDesc| Description |
 |------|------|------|

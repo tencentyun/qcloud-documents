@@ -28,7 +28,7 @@ The following request parameter list only provides API request parameters. For a
 | sysSwaporuefiSpace | No | Int | The size of swap partition or /boot/efi partition of system disk. When the machine boots in UEFI mode, the partition is /boot/efi with a default size of 2 G. The partition is swap for normal machines, in which case you don't need to specify this partition. To determine whether the machine boots in UEFI mode, please see the [Query Device Class (DescribeDeviceClass)](/doc/api/456/6636) API |
 | sysUsrlocalSpace | No | Int | Size of /usr/local partition. This partition does not exist by default.  |
 | sysDataSpace | No | Int | Size of /data partition. Any remaining space of the system disk will be allocated to the /data partition.  |
-
+| hyperThreading | No | Int | Whether to enable hyper-threading. 0: disable; 1: enable. Default is 1. |
 
 
 
