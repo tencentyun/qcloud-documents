@@ -1,4 +1,4 @@
-# 删除object和bucket
+
 
 ![](//mc.qcloudimg.com/static/img/9d0f230cf9ba1de913d75df2cda1bb60/image.png)
 
