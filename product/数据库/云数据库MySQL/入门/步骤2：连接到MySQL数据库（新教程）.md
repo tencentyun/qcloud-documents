@@ -12,7 +12,7 @@
 1. 在数据管理控制台的登录界面，帐号输入root，密码为之前在初始化选项中配置的root账户的密码，点击**登录**来登录。
 ![](//mc.qcloudimg.com/static/img/b5538d93dc27d99af6fed9f0e5c9b798/image.png)
 
-1. 在数据管理页面可以查看实例的状态和基本信息。点击**反馈PMA**访问数据库。
+1. 在数据管理页面可以查看实例的状态和基本信息。点击**返回PMA**访问数据库。
 ![](//mc.qcloudimg.com/static/img/ceab808b44adf5feba818e70a079b83e/image.png)
 
 1. 您现在已经通过phpMyAdmin成功连接到MySQL数据库，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
