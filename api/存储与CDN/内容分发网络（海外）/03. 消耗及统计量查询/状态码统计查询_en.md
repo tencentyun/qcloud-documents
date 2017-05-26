@@ -19,7 +19,7 @@ The following request parameter list only provides API request parameters. Commo
 | host  | Yes    | String | Specifies the domain to be queried |
 
 **Note:**
-+ date: query date. Currently you can only query data within the last 30 days, format needs to be yyyy-mm-dd.
++ date: query date. Currently you can only query data within the last 30 days. The supported date format is yyyy-mm-dd.
 
 
 ## 3. Output Parameters

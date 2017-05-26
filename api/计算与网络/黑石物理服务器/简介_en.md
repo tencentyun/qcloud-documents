@@ -1,4 +1,4 @@
-Welcome to Tencent Cloud Physical Machine.
+
 
 The Cloud Physical Machine (CPM), which runs at the Tencent Data Center, provides auto scaling computing services and can be used to build and host software systems based on your business needs.
 

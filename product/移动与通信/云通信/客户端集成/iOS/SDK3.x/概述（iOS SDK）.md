@@ -115,3 +115,25 @@ ImSDK调用API需要遵循以下顺序，其余辅助方法需要在登录成功
 资料关系链 | TIMFriendshipManager | 资料关系链管理
 注销 | TIMManager : logout | 注销（用户可选）
 
+## 3. ImSDK2.x升级到ImSDK3.x
+
+ImSDK3.x版本优化了SDK的初始化流程和较多的模块接口，接口逻辑不变。
+具体接口变更请参考如下表格：
+
+模块 | 2.0接口 | 3.0接口
+---|---|---
+<b>初始化 TIMManager</b> | initSdk:<br>disableCrashReport<br>initLogSettings:<br>setLogLevel:<br>setLogListener:<br>setLogListenerLevel:<br>setDBPath:<br>setConnListener: | initSdk:
+<b>初始化 TIMManager</b> | disableStorage<br>disableAutoReport<br>enableReadReceipt<br>disableRecentContact<br>disableRecentContactNotify<br>enableFriendshipProxy<br>enableGroupAssistant<br>initFriendshipSetting:<br>initGroupSetting:<br>setUserStatusListener:<br>setRefreshListener:<br>setReceiptListener:<br>setMessageUpdateListener:<br>setUploadProgressListener:<br>setFriendProxyListener:<br>setGroupAssistantListener: | setUserConfig:
+<b>TIMFriendshipManager</b> | 接口名首字母大写 | 接口名首字母小写
+<b>TIMFriendshipManager</b> | SetNickname:succ:fail:<br>SetAllowType:succ:fail:<br>SetAllowType:succ:fail:<br>SetFaceURL:succ:fail:<br>SetSelfSignature:succ:fail:<br>SetGender:succ:fail:<br>SetBirthday:succ:fail:<br>SetLocation:succ:fail:<br>SetLanguage:succ:fail:<br>SetCustom:succ:fail:<br> | modifySelfProfile:profile:succ:fail:
+<b>TIMFriendshipManager</b> | GetFriendListV2:custom:meta:succ:fail: | setUserConfig:配置需要拉取的资料字段<br>getFriendList:succ:fail:
+<b>TIMFriendshipProxy</b> | GetFriendList<br>GetFriendsProfile:<br>GetFriendGroupList<br>GetFriendGroup: | <b>TIMFriendshipManager</b><br> getFriendsProfile:<br>getFriendGroup:
+<b>TIMGroupManager</b> | 接口名首字母大写 | 接口名首字母小写
+<b>TIMGroupManager</b> | GetGroupPublicInfoV2:flags:custom:succ:fail: | setUserConfig:配置需要拉取的资料字段<br>getGroupPublicInfo:succ:fail:
+<b>TIMGroupManager</b> | GetGroupMemberV2:flags:custom:nextSeq:succ:fail: | getGroupMembers:ByFilter:flags:custom:nextSeq:succ:fail:
+<b>消息</b> | <b>TIMSoundElem、TIMFileElem</b> | 仅保留指定文件路径方式上传和下载资源
+<b>消息</b> | <b> TIMImageElem</b> | 仅保留指定文件路径方式下载资源
+<b>消息</b> | <b> TIMMessage delFromStorage</b> | <b>TIMMessage remove</b>
+<b>回调</b> | <b>TIMGroupAssistantListener</b> | <b>TIMGroupListener</b>
+<b>回调</b> | <b>TIMGroupMemberListener</b> | <b>TIMGroupEventListener</b>注意首字母小写
+<b>回调</b> | <b>TIMFriendshipProxyListener</b> | <b>TIMFriendshipListener</b>注意首字母小写

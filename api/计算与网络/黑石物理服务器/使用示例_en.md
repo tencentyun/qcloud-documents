@@ -1,13 +1,14 @@
 In order to help you get started with Cloud Physical Machine (CPM) API, we provide an example on how to use it. This article provides the guide on how to use the API to create a CPM.
 
-## 1. Purchasing a CPM
+##Purchasing a CPM
 
 Before purchasing a CPM, we need to know which models configured for the CPM are available, because they determine the performance and corresponding price of the CPM. For more information, please see [Query Device Class](/document/product/386/6636). After selecting a model, we need to select the corresponding [RAID Type](/document/product/386/7370) and an [Operating System](/document/product/386/6727) supported for BM.
-If we want to create a CPM (monthly plan) with a model of PS100 in Beijing CPM zone 1, and select Centos 7.2 operating system and the array of RAID 1+0, the required request parameters are shown as below:
+
+For example, to create a CPM (monthly plan) with a model of PS100 in Beijing Zone 1, and select Centos 7.2 operating system and the array of RAID 1+0, the request parameters should be:
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| zoneId | Yes | Int | Availability zone ID. You can use API [(DescribeRegions)](/doc/api/456/6634) to acquire CPM availability zone information. |
+| zoneId | Yes | Int | Availability zone ID. You can use [(DescribeRegions)](/doc/api/456/6634) API to acquire CPM availability zone information. |
 | vpcId | Yes | Int | VPC ID. You can use API [DescribeBmVpcEx](/doc/api/456/6646) to acquire VPC information. |
 | subnetId | Yes | Int | Subnet ID. You can use API [DescribeBmSubnetEx](/doc/api/456/6648) to acquire VPC information. |
 | deviceClassCode | Yes | String | Device class code (the "code" displayed in the purchase page). You can use API [DescribeDeviceClass](/doc/api/456/6636) to acquire device class information, where the "deviceClassDisplay" field is the value required by deviceClassCode |
