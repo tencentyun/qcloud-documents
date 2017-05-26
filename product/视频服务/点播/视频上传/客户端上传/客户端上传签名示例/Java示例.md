@@ -39,7 +39,7 @@ public class Signature {
 			byte[] hash = mac.doFinal(contextStr.getBytes(CONTENT_CHARSET));
 			byte[] sigBuf = byteMerger(hash, contextStr.getBytes("utf8"));
 			strSign = new String(new BASE64Encoder().encode(sigBuf).getBytes());
-			strSign = strSign.replace(" ", "").replace("\n", "").replace("\r", "");;
+			strSign = strSign.replace(" ", "").replace("\n", "").replace("\r", "");
 		} catch (Exception e) {
 			System.out.print(e.toString());
 			return "";
