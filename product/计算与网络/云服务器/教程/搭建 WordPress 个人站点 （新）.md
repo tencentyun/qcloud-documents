@@ -133,13 +133,13 @@ service php-fpm start
 ```
 vim /etc/php.ini
 ```
-进入后直接输入以下内容，回车直接定位到 “session.save_path” 的位置：
+进入后直接输入以下内容，回车定位到 “session.save_path” 的位置：
 ```
 /session.save_path
 ```
 按字母“I”键或 “Insert” 键切换至编辑模式，将其改为  ：
 ```
-session.save_path =  “/var/lib/php/session”
+session.save_path = "/var/lib/php/session"
 ```
 ![配置php1](//mc.qcloudimg.com/static/img/50036b980ac464375c51d2d78177de36/image.png)
 更改`/var/lib/php/session`目录下所有文件的属组都改成 nginx 和 nginx。
@@ -171,7 +171,7 @@ http://云主机的公网 IP/index.php
 ![验证环境1](//mc.qcloudimg.com/static/img/9da10fc81a5ca2af45d1a39727d5b84a/image.png)
 
 ## 步骤 3：安装和配置 WordPress
-### 3.1 下载和安装 WordPress
+### 3.1 下载 WordPress
 腾讯云提供了 Yum 下载源，但内置 WordPress 安装包为英文版，出于方便使用的考虑，本教程从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装。
 1. 先删除网站根目录下的`index.html`文件。
 ```
@@ -186,16 +186,6 @@ wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
 ```
 tar zxvf wordpress-4.7.4-zh_CN.tar.gz
 ```
-3. 将已解压的所有文件移动到网站根目录 `/usr/share/nginx/html/` 。 
-```
-mv wordpress/* /usr/share/nginx/html/
-```
-窗口提示是否覆盖原文件，输入 “y” 回车确认删除。
-4. 修改`html`目录权限为 777，赋予目录最大读写权限（配置完成后，改回 755）。
-```
-chmod -R 777 /usr/share/nginx/html
-```
-
 ### 3.2 配置数据库
 在写博客之前，您需要先建好数据库，以存储各类数据。请根据以下步骤进行 MySQL 数据库配置。
 1. 登录 MySQL 服务器。
@@ -204,21 +194,20 @@ chmod -R 777 /usr/share/nginx/html
 mysql -uroot -p
 ```
 在系统提示时，输入密码（步骤 2.3.2 已设置 MySQL root 用户的密码为 123456）登录。
-![配置数据库1](//mc.qcloudimg.com/static/img/dc2420d8a32c659d40872d2aef5e4717/image.png)
 2. 为 WordPress 创建数据库并设置用户名和密码（本教程设置如下，您可自行定义）。
 为 WordPress 创建 MySQL 数据库 “wordpress”。
 ```
 CREATE DATABASE wordpress;
 ```
-为已创建好的 MySQL 数据库创建一个新用户`user@localhost`。
+为已创建好的 MySQL 数据库创建一个新用户 “user@localhost”。
 ```
 CREATE USER user@localhost;
 ```
-并为此用户设置密码`wordpresspassword`。
+并为此用户设置密码“wordpresspassword”。
 ```
 SET PASSWORD FOR user@localhost=PASSWORD("wordpresspassword");
 ```
-3. 为创建的用户开通数据库 “wordpress”的完全访问权限。
+3. 为创建的用户开通数据库 “wordpress” 的完全访问权限。
 ```
 GRANT ALL PRIVILEGES ON wordpress.* TO user@localhost IDENTIFIED BY 'wordpresspassword';
 ```
@@ -232,52 +221,51 @@ exit
 ```
 
 ### 3.3 写入数据库信息
-完成数据库配置后，还需要将数据库信息写入 WordPress 的配置文件。
-1. 打开配置文件
-使用以下命令打开 WordPress 的配置文件：
+完成数据库配置后，还需要将数据库信息写入 WordPress 的配置文件。WordPress 安装文件夹包含名为 wp-config-sample.php 的示例配置文件。本步骤将复制此文件并进行编辑以适应具体配置。 
+1. 创建新配置文件
+将`wp-config-sample.php`文件复制到名为`wp-config.php`的文件,使用以下命令创建新的配置文件，并将原先的示例配置文件保留作为备份。
 ```
-vi /usr/share/nginx/html/wp-config-sample.php
+cd wordpress/
+cp wp-config-sample.php wp-config.php
 ```
-找到文件中 MySQL 的部分，按字母“I”键进入 INSERT 模式（Vim 命令下，单击鼠标右键即可执行粘贴操作），将3.1 中已配置好的数据库相关信息写入：
-
+2. 打开并编辑新创建的配置文件。
+```
+vim /wp-config.php
+```
+找到文件中 MySQL 的部分，按字母“I”键或 “Insert” 键切换至编辑模式，将步骤 3.2 中已配置好的数据库相关信息写入：
 <div class="code"><p></p><pre> 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', <font color="red">'wordpress'</font>);
+define('DB_NAME', '<font color="red">wordpress</font>');
 
 /** MySQL database username */
-define('DB_USER', <font color="red">'user'</font>);
+define('DB_USER', '<font color="red">user</font>');
 
 /** MySQL database password */
-define('DB_PASSWORD', <font color="red">'wordpresspassword'</font>);
+define('DB_PASSWORD', '<font color="red">wordpresspassword</font>');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
-</div></pre>
-修改完成后，按“Esc”键，输入“:wq”，保存文件并返回。
+define('DB_HOST', 'localhost');</pre></div>
+修改完成后，按“Esc”键，输入“:wq”，保存文件返回。
+```
+cd
+```
+### 3.4 安装 WordPress
+步骤3.1到3.3，已解压了安装文件夹、创建了 MySQL 数据库与用户并自定义了 WordPress 配置文件，此步骤开始完成 WordPress 的安装。
+1. 移动安装文件至 Web 服务器文档根目录，以便可以运行安装脚本完成安装。
+```
+mv wordpress/* /usr/share/nginx/html/
+```
+2. 在 Web 浏览器地址栏输入 WordPress 站点的 IP 地址（云主机的公网 IP 地址，或者该地址后跟wordpress文件夹），可以看到 WordPress 安装屏幕，就可以开始配置 WordPress。
+![配置WP1](//mc.qcloudimg.com/static/img/8f3b3291b7a90554af392a66ab0cf64e/image.png)
+3. 将其余安装信息输入WordPress 安装向导。
+| 所需信息 | 备注 | 
+|---------|---------|
+| 站点标题 |  WordPress 网站名称。 |
+|用户名| WordPress 管理员名称。出于安全考虑，建议设置一个不同于 admin 的名称。因为与默认用户名称 admin 相比，该名称更难破解。|
+|密码| 可以使用默认强密码或者自定义密码。请勿重复使用现有密码，并确保将密码保存在安全的位置。|
+|您的电子邮件|用于接收通知的电子邮件地址。|
 
-### 3.4 配置 WordPress
-在配置好环境后，在浏览器地址栏输入 IP 地址，就可以开始配置 WordPress。
-```
-http://119.29.228.67
-```
-```
-http://公网IP
-```
+4. 单击安装 WordPress 完成安装。
 
-1. 在出现的页面中配置站点名称，用户名和密码，点击安装，完成后进入登录页面。
-![配置WP1](//mc.qcloudimg.com/static/img/7a73ea1be112aa80891e74684c0fccf0/image.png)
-![配置WP2](//mc.qcloudimg.com/static/img/8f3b3291b7a90554af392a66ab0cf64e/image.png)
-2. 输入刚才设置的用户名和密码，点击登录。
-![配置WP3](//mc.qcloudimg.com/static/img/3d24a1747ba899a1d3812e8f30992a8a/image.png)
-3. 成功登录到网站管理后台（中文称为仪表盘）。可在仪表盘对网站进行管理，如更换网站主题、发表文章等。
-![配置WP4](//mc.qcloudimg.com/static/img/9b543d0311fba3de07ca954ef5e4a733/image.png)
-4. 此时，其他用户通过访问以下地址，即可看到网站。
-```
-http://119.29.228.67
-```
-![配置WP5](//mc.qcloudimg.com/static/img/a7360313672aa00c6c90a1050c562538/image.png)
-5. 配置完成后， 将`html`文件夹权限改回 755。您就可以开启个人博客之旅了。
-```
-chmod -R 755 /usr/share/nginx/html
-```
+现在可以登录 WordPress 博客并开始发布博客文章了。
