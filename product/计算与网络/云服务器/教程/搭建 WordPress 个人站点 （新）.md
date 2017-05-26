@@ -62,12 +62,12 @@ chkconfig php-fpm on
 
 ### 2.3 软件配置
 将 Nginx、MySQL、PHP 等各软件安装好之后，还需要对各软件分别进行配置。以下是详细步骤：
-#### 2.3.1 配置 Nginx
-1. 请使用 Vim 命令打开`default.conf`文件，取消对 IPv6 地址的监听同时配置 Nginx，实现与 PHP 的联动。
+#### 1. 配置 Nginx
+ 1. 请使用 Vim 命令打开`default.conf`文件，取消对 IPv6 地址的监听同时配置 Nginx，实现与 PHP 的联动。
 ```
 vim /etc/nginx/conf.d/default.conf
 ```
-2. 按字母“I”键或 “Insert” 键切换至编辑模式，将已有内容全部清除，复制并粘贴以下内容到 `default.conf`文件。
+ 2. 按字母“I”键或 “Insert” 键切换至编辑模式，将已有内容全部清除，复制并粘贴以下内容到 `default.conf`文件。
 <div class="code"><p></p><pre> 
 server {
     listen       80;
@@ -101,32 +101,32 @@ server {
 
  }</pre></div>
 修改完成后，按 “Esc” 键，输入 “:wq”，保存文件并返回。
-3. 启动 Nginx。
+ 3. 启动 Nginx。
 ```
 service nginx start
 ```
 
-3. 测试 Nginx 服务是否正常运行
+ 3. 测试 Nginx 服务是否正常运行
 在浏览器中，访问 CentOS 云主机公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功：
 ![ 测试Nginx2](//mc.qcloudimg.com/static/img/807692945e05c68f7fe5d24c6b186f2f/image.png)
 
-#### 2.3.2 配置 MySQL
-1. 启动 MySQL 服务器。
+#### 2. 配置 MySQL
+ 1. 启动 MySQL 服务器。
 ```
 service mysqld start
 ```
-2. 设置 MySQL 服务器 root 用户的密码，本教程设置为 “123456”，后续步骤中需要用到此用户名和密码。
+ 2. 设置 MySQL 服务器 root 用户的密码，本教程设置为 “123456”，后续步骤中需要用到此用户名和密码。
 ```
  /usr/bin/mysqladmin -u root password "123456"
 ```
 
-#### 2.3.3 配置 PHP
-1. 启动 PHP-FPM 服务。
+#### 3. 配置 PHP
+ 1. 启动 PHP-FPM 服务。
 ```
 service php-fpm start
 ```
-2. 配置 PHP Session 的存储路径。
+ 2. 配置 PHP Session 的存储路径。
 打开`/etc/php.ini`文件。
 ```
 vim /etc/php.ini
@@ -145,12 +145,12 @@ session.save_path = "/var/lib/php/session"
 chown -R nginx:nginx /var/lib/php/session 
 ``` 
 
-#### 2.3.4 验证环境配置
-1. 请使用以下命令在 Web 目录下创建`index.php`文件：
+#### 4. 验证环境配置
+ 1. 请使用以下命令在 Web 目录下创建`index.php`文件：
 ```
 vi /usr/share/nginx/html/index.php
 ```
-2. 按字母“I”键或 “Insert” 键切换至编辑模式，写入如下内容：
+ 2. 按字母“I”键或 “Insert” 键切换至编辑模式，写入如下内容：
 ```
 <?php
 echo "<title>Test Page</title>";
@@ -158,7 +158,7 @@ echo "Hello World!";
 ?>
 ```
 输入完成后，按“Esc”键，输入 “:wq”，保存文件并返回。
-3. 在浏览器中，访问该`index.php`文件，查看环境配置是否成功：
+ 3. 在浏览器中，访问该`index.php`文件，查看环境配置是否成功：
 ```
 http://119.29.228.67/index.php
 ```
