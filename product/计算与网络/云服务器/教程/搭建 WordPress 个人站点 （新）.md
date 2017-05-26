@@ -47,12 +47,10 @@ yum install nginx php php-fpm php-mysql mysql-server -y
 ![安装软件1](//mc.qcloudimg.com/static/img/5eab9d11f7f6fe299613a0ac5cec0fc0/image.png)
 同时可以上滑滚动条查看当前安装包版本：
 ![安装软件2](//mc.qcloudimg.com/static/img/54fe7152ded20d5048728b5b98566eb6/image.png)
-
 本教程中安装包版本分别如下：
 Nginx：1.10.2
 MySQL：5.1.73
 PHP：5.3.3
-
 2. 将各软件设置为开机启动：
 ```
 chkconfig nginx on
