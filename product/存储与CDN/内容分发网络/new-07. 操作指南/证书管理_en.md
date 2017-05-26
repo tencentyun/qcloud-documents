@@ -60,7 +60,7 @@ If you have a multi-domain certificate or wildcard-domain certificate applicable
 
 Paste PEM-encoded certificate content and private key to corresponding text boxes. You can modify the Remark to identify the configured certificate, and then click "Next":
 
-![](https://mc.qcloudimg.com/static/img/7727906d2ef60512160c300f1e5fa4eb/image.png)
+![](https://mc.qcloudimg.com/static/img/3b9ee17d804d79b23d045542d26bbd51/7.png)
 
 
 ### 2. Associating with domains
@@ -76,7 +76,7 @@ The CDN system can recognize the CDN accelerated domains that can use the upload
 
 Once the configuration is submitted, CDN will configure the certificate for the selected domains. It will take about 5 minutes to configure certificate for each domain. Please wait a moment:
 
-![](https://mc.qcloudimg.com/static/img/49b9cf146779f81ab63658a40352420d/image.png)
+![](https://mc.qcloudimg.com/static/img/3e8b51a5718f5cb9c893f71c6d81220c/8.png)
 
 You can check the certificate configuration status on "Certificate Management" page.
 
@@ -188,10 +188,6 @@ openssl pkcs12 -in certname.pfx -nocerts -out key.pem -nodes
 
 
 ### Completion of Certificate Chain
-
-During the configuration using self-owned certificate, if "Completion of Certificate Chain is Required" appears:
-
-![](https://mc.qcloudimg.com/static/img/1720998f8386c793ced5d58151630f5b/image.png)
 
 CA agency mainly provide the following three certificates:
 

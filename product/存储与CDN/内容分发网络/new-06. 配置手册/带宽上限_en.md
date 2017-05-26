@@ -30,10 +30,6 @@ You can modify the cap as well as how to process user requests when it is reache
 
 ![](https://mc.qcloudimg.com/static/img/771ee9889b358b9b3cfe0a22f5db0f36/4.png)
 
-We will notify you via e-mail and SMS when the cap is reached. You can check the domain status in the CDN Console:
-
-![](https://mc.qcloudimg.com/static/img/058144a86c01b3fc423ab24f9dc26946/image.png)
-
 
 ### Note
 
