@@ -20,12 +20,12 @@ Tencent Cloud's old users and permissions mechanism provides three types of glob
 ![](https://mccdn.qcloud.com/static/img/e094573d3c490eef87952ef95d32bd2b/image.png)
 
 After the upgrade to the new CAM system, the old collaborator types will make a smooth transition to the existing default policies, as shown below:
-![](https://mccdn.qcloud.com/static/img/1cace17172be4a2a603de0c3e6edcfdb/image.jpg)
+![](https://mc.qcloudimg.com/static/img/8448453a645b659bac91b62298f4f5f0/2.png)
 
 The mapping relationship is as follows:
-+ Manage All Users >>> Super Administrator
-+ Manage All Cloud Resources >>> Cloud Resource Administrator
-+ Manage Finance >>> Finance Administrator
++ Manage All Users >>>  AdministratorAccess
++ Manage All Cloud Resources >>>  QCloudResourceFullAccess
++ Manage Finance >>>  QCloudFinanceFullAccess
 
 
 ### Project Collaborator -> Custom Policy
@@ -36,7 +36,7 @@ Tencent Cloud's old project collaborator sub-user:
 
 After the upgrade to the new CAM system, the old project collaborators will make a smooth transition to a custom policy with the type of "Project Management" and be associated with old sub-users, as shown below:
 
-![](https://mccdn.qcloud.com/static/img/641120f3b17c2d942a20965538b89503/image.png)
+![](https://mc.qcloudimg.com/static/img/f28443d4315a31919b173924b94c228e/3.png)
 
 You can set the scope of business involved in project management as required.
 
@@ -48,32 +48,32 @@ You can set the scope of business involved in project management as required.
 ## Creating Policy
 
 Log in to [Tencent Cloud Console](https://console.qcloud.com), and select [Users and Permissions](https://console.qcloud.com/cam) from the drop-down menu bar:
-![](https://mccdn.qcloud.com/static/img/d222bf03bc784de99bd7b1f23063e13a/image.jpg)
+![](https://mc.qcloudimg.com/static/img/2ac03b249e5fa93e982726f6064e432d/5.png)
 
 Select "Policy Management" in the menu bar on the left, and select "Custom Policy":
-![](https://mccdn.qcloud.com/static/img/f4ebdd17551f5fa2381d9cdb6c56f9f6/image.jpg)
+![](https://mc.qcloudimg.com/static/img/329d1548a0da4552fc7389ae25f84a4c/6.png)
 
 ### Selecting Service Type
 Click "Create Custom Policy", name the policy, check "CDN" as the service type, and click "Next":
-![](//mccdn.qcloud.com/static/img/e1ff2e94880181004d4b7f1c9c946eff/image.jpg)
+![](https://mc.qcloudimg.com/static/img/6ef81771a317d2bc0177c792fcea5ef5/7.png)
 
 ### Activating Features
 CDN provides a number of features for query and management, which cover the permissions to present Console and call APIs. For more information, refer to [CDN Features](). Activate the features you need, and click "Next":
 
-![](https://mccdn.qcloud.com/static/img/b372b4c097643683a18d3bfbb5ce80de/image.jpg)
+![](https://mc.qcloudimg.com/static/img/b4d6a07995598d6c7945edfea8145eec/8.png)
 
 
 ### Associating with Object
 
 Select "Associating with Object" on the right of feature set to set the resources for which the operation is allowed:
 
-![](https://mccdn.qcloud.com/static/img/379782fffb8c93d4b62bba5f1cd78260/image.jpg)
+![](https://mc.qcloudimg.com/static/img/97d3ced56e4993c1a236ce8cf300a5ae/9.png)
 
 The features that are activated in the previous step need to be associated with objects. Creator can perform the association in three ways:
 + All Objects: Allow the sub-users to perform this feature on all the objects. Any newly added projects or domains are covered by the permission.
-  ![](https://mccdn.qcloud.com/static/img/94ccf470b4289fefd327b766b32ca381/image.jpg)
+  ![](https://mc.qcloudimg.com/static/img/937590f181cd60dfe93057a63431bbe7/10.png)
 + Project Dimension: The users who don't set any project only have **Default Project**, so they can't associate with objects by project dimension and only can select all objects. The users who have multiple projects can directly divide the projects by project dimension. No resetting is required for newly added or deleted domains in project. (Note: The "All Projects" check box at the top left is only used for selecting all, and newly added projects still cannot be covered by the permission);
-   ![](https://mccdn.qcloud.com/static/img/c5b68d2c37a26a3fa3cfe4b276ac7e1f/image.jpg)
+   ![](https://mc.qcloudimg.com/static/img/ab6145c54a22837cb286417c4b955deb/11.png)
 + Domain Dimension: Associate with objects individually by domains. If only this type is used, the policy configuration needs to be modified for any newly added domain (querying domain and filtering projects are supported);
    ![](https://mccdn.qcloud.com/static/img/8ef7af35224493aae588ef9c2dea9189/image.jpg)
 
@@ -81,18 +81,18 @@ The features that are activated in the previous step need to be associated with 
 
 Creator can **only** edit the custom policy. Click to enter "Custom Policy" list:
 
-![](https://mccdn.qcloud.com/static/img/9e0f87167d5ee6ec928e3a0c3927653e/image.jpg)
+![](https://mc.qcloudimg.com/static/img/a40a8497d4641d495bcf6789d9f12178/13.png)
 
 You can modify basic information of policy, associated objects and activation/deactivation of features:
 
-![](https://mccdn.qcloud.com/static/img/3eb77db6fd241b7a2aa41494f0491e18/image.jpg)
+![](https://mc.qcloudimg.com/static/img/7f5f6100f66748bf814ea14aa8be655c/14.png)
 
 You can check the user groups or users that have been associated with the policy (only checking is allowed, no modification can be made):
 
-![](https://mccdn.qcloud.com/static/img/fcb2359300d5b792dd826d07be12a951/image.jpg)
+![](https://mc.qcloudimg.com/static/img/55710fc8a6f960b876c17d34da9b25ce/15.png)
 
 
 ## Deleting Policy
 
 Only custom policies can be deleted. You can delete custom policies just by clicking "Delete" on the right. **The policies that have been associated with users or user groups can only be deleted after disassociation**.
-![](https://mccdn.qcloud.com/static/img/1ad3908439ec0ca93fe01324fd494346/image.jpg)
+![](https://mc.qcloudimg.com/static/img/50e237e17165c9fab8a144f03d8c1354/16.png)

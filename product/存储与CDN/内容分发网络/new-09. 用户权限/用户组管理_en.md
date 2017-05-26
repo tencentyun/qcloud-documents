@@ -5,24 +5,24 @@ User group is user for the management of a group of sub-users with the same perm
 
 Log in to [Users and Permissions](https://console.qcloud.com/cam), and select "User Group Management" on the left:
 
-![](https://mccdn.qcloud.com/static/img/6bc0e23cc86083eaa2e0de5e523b9ca7/image.jpg)
+![](https://mc.qcloudimg.com/static/img/954e5fde6a20f7e9ed19b3ee127461a7/1.png)
 
 Click "Create New User Group", and enter the user group name and remarks:
 
-![](https://mccdn.qcloud.com/static/img/3c9becd55f8b398f968d0042919ad1f5/image.jpg)
+![](https://mc.qcloudimg.com/static/img/211aee1d4072b7df6cf776b57be87fda/2.png)
 
 ## Edit User Groups
 
 Click the name of user group to be edited in the list:
-![](https://mccdn.qcloud.com/static/img/8468a0e265deedacd7c4e6fcd119f1f6/image.jpg)
+![](https://mc.qcloudimg.com/static/img/495049aae8d7c76743e2ab10ad2549b4/3.png)
 
 You can modify the remarks of user group, and add or delete policy:
-![](https://mccdn.qcloud.com/static/img/f0583c4f24ea88a08e220ed272911126/image.jpg)
+![](https://mc.qcloudimg.com/static/img/7b45f5705bc1ca84bf0ea69a650699ae/4.png)
 
 You can also delete or add sub-users in a user group:
-![](https://mccdn.qcloud.com/static/img/9b445cb81491085b3df4732f5b93cc6e/image.jpg)
+![](https://mc.qcloudimg.com/static/img/ce1c6b03a6dbdbecff7946268240a9e9/5.png)
 
 ## Delete User Group
 
 Click "Delete" on the right of the list to delete specified user group:
-![](https://mccdn.qcloud.com/static/img/529157308720df29e8d334353c7a0319/image.jpg)
+![](https://mc.qcloudimg.com/static/img/8857242c9adf54a70b61f836bf99f408/6.png)

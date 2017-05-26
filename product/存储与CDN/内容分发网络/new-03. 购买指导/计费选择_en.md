@@ -99,14 +99,15 @@ You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for calcul
 ## Traffic Package
 The customer who uses **Pay by Traffic** method can purchase a traffic package from which the traffic consumed will be deducted. Traffic consumed is deducted preferably from the traffic package, and the traffic beyond the package quota is billed based on tiered prices.
 ### Traffic Package Price
-Traffic Package Size | Price (RMB/Each) | Validity Period |
-|--------|--------| --------| 
-| 100GB | 34 | 6 Months |
-| 200GB| 68 | 6 Months |
-| 500GB | 170 | 6 Months |
-| 1TB | 340 | 6 Months |
-| 2TB| 680 | 6 Months |
-| 5TB | 1640 | 6 Months |
+
+| Traffic Package Size | Price (RMB/Each) | Validity Period |
+| -------------------- | ---------------- | --------------- |
+| 100GB                | 34               | 6 Months        |
+| 200GB                | 68               | 6 Months        |
+| 500GB                | 170              | 6 Months        |
+| 1TB                  | 340              | 6 Months        |
+| 2TB                  | 680              | 6 Months        |
+| 5TB                  | 1640             | 6 Months        |
 
 Traffic package special offer is underway, please click [Buy Now](http://manage.qcloud.com/shoppingcart/shop.php?tab=cdn).
 

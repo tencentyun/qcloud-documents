@@ -9,11 +9,11 @@ When the bandwidth cap is reached, the domain will go into <font color="orange">
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to **Domain Management** page. Then click the **Manage** button to the right of the domain name whose configuration is to be modified:
 
-![](https://mc.qcloudimg.com/static/img/dbc107ff2d66739658661ec98b944111/1.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 You can find **Capped Bandwidth Configuration** in **Advanced Configuration**:
 
-![](https://mc.qcloudimg.com/static/img/d721bd1a39199ce198c274582c188e95/image.png)
+![](https://mc.qcloudimg.com/static/img/0a53afbcf5f33dd59c2ec4e9cc7824c4/2.png)
 
 
 ### Default Configuration
@@ -24,11 +24,11 @@ By default, capped bandwidth configuration is disabled.
 
 When capped bandwidth configuration is enabled, by default, the bandwidth cap is 10Gbps and when the cap is reached, "access request is forwarded to origin server":
 
-![](https://mc.qcloudimg.com/static/img/72a40024a3605bfaea25eee2a8d8566f/image.png)
+![](https://mc.qcloudimg.com/static/img/d534483a485993d979cbab4bec715d54/3.png)
 
 You can modify the cap as well as how to process user requests when it is reached:
 
-![](https://mc.qcloudimg.com/static/img/70f460f66a853637a66e4f71a6c5eca2/image.png)
+![](https://mc.qcloudimg.com/static/img/771ee9889b358b9b3cfe0a22f5db0f36/4.png)
 
 We will notify you via e-mail and SMS when the cap is reached. You can check the domain status in the CDN Console:
 
