@@ -22,7 +22,7 @@
 
 1）在腾讯云控制台中，选择**云产品**-**关系型数据库**-**MySQL-实例列表**，点击目标实例的ID进入实例详情页。
 ![](//mc.qcloudimg.com/static/img/018350e48f1d535d105c3c6340d36b2d/image.png)
-2）在实例详情页点击外网地址后的**开启**，输入外网访问帐号cdb_outerroot对应的密码，点击**确定**。
+2）在实例详情页点击外网地址后的**开启**，设置外网访问帐号cdb_outerroot对应的密码，点击**确定**。
 ![](//mc.qcloudimg.com/static/img/730e65a8b10f429a80ea15456b9a7193/image.png)
 ![](//mc.qcloudimg.com/static/img/48a8489d3c0341ef87627fdc108f93e7/image.png)
 3）实例详情页会显示开通后的外网地址，随后的步骤里会用到此地址。
@@ -33,7 +33,7 @@
 5）使用MySQL命令行工具登录到MySQL。
 		相关命令为：
 		`mysql -h hostname -P port -u username -p`
-		请将hostname替换为目标MySQL数据库实例的外网IP地址，将port替换为外网端口号将username替换为默认的外网访问用户名cdb_outerroot，并在提示password：后输出cdb_outerroot账户对应的密码。
+		请将hostname替换为目标MySQL数据库实例的外网IP地址，将port替换为外网端口号将username替换为默认的外网访问用户名cdb_outerroot，并在提示Enter password：后输出cdb_outerroot账户对应的密码。
 		本例中hostname为59281c4e4b511.gz.cdb.myqcloud.com，外网端口号为15311。
 ![](//mc.qcloudimg.com/static/img/48df6390ccf7669d04403cd84b8b6fad/image.png)
 
@@ -78,9 +78,9 @@
 	2）使用MySQL命令行工具登录到MySQL。
 		相关命令为：
 		`mysql -h hostname -u username -p`
-		请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为默认的用户名root，并在提示password：后输出root账户对应的密码。
+		请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为默认的用户名root，并在提示Enter password：后输出root账户对应的密码。
 		本例中hostname为10.66.238.24。
-		![](//mc.qcloudimg.com/static/img/d1da9f59f0fff77ad2a8ff18e0b11e7c/image.png)
+![](//mc.qcloudimg.com/static/img/d1da9f59f0fff77ad2a8ff18e0b11e7c/image.png)
 
 	3）在MySQL>提示符下可以发送SQL语句到要执行的MySQL服务器，具体命令行请参考此网站：https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html
 
