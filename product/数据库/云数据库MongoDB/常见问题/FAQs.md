@@ -84,7 +84,7 @@ A：主要是广州、上海、北京、香港，上海金融，深圳金融，�
 A：目前暂时不支持，该功能在内测中，尽请期待
 
 **Q：云数据库MongoDB版是否支持分片（sharding）**
-A：目前暂时不支持，该功能在内测中，尽请期待
+A：支持
 
 **Q：云数据库MongoDB与自建MongoDB的区别**
 A：参见[云数据库MongoDB相比自建MongoDB的优势 ](http://www.qcloud.com/doc/product/240/%E4%BA%A7%E5%93%81%E4%BC%98%E5%8A%BF)

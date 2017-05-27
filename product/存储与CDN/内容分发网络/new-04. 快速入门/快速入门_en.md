@@ -1,4 +1,4 @@
-﻿You can get started with CDN service quickly by following these steps.
+You can get started with CDN service quickly by following these steps.
 
 
 
@@ -8,29 +8,25 @@ You need to complete qualification verification and activate CDN service before 
 
 
 
-![](https://mccdn.qcloud.com/static/img/d5c70cd18181ccfc2877b33a4f558015/image.png)
+![](https://mc.qcloudimg.com/static/img/e18070b417464286ac4badf201f9c766/1.png)
 
 ## Step 2: Connect a Domain
 
 1. Go to [CDN Console](https://console.qcloud.com/cdn) and click "Create a distribution" in "Domain Management" menu:	
 
-   ![](https://mccdn.qcloud.com/static/img/aab5853c8e017d5abe14b043a5b3afab/image.png)
+   ![](https://mc.qcloudimg.com/static/img/81a12799500ecd1cc2c5668755db6cd0/2.png)
 
-2. Enter basic information and the acceleration domain; select a content type and a proper origin type:
+2. Enter basic information and the acceleration domain; select a content type and a proper origin type.
 
-   ![](https://mc.qcloudimg.com/static/img/0f0615a58b0efb43bda5a44f88416e86/1.png)
+   Perform custom configuration based on actual business demand, such as cache configuration:
 
-3. Perform custom configuration based on actual business demand, such as cache configuration and hotlink protection configuration:
+   ![](https://mc.qcloudimg.com/static/img/18d66f24137e00ac86bd5e5795300adb/3%283%29.png)
 
-   ![](https://mccdn.qcloud.com/static/img/7c6a1d69406e92c51c9b0296e9c5e306/image.png)
+   ​
 
-4. Verify basic information and configuration. Click "Back" to modify, or "Submit" if all information is correct:
+3. The domain will be added once submitted. Please wait for the domain configuration (about 10 minutes).
 
-   ![](https://mc.qcloudimg.com/static/img/3b95a9deec69bb8c6a098c5a5810ee74/image.png)
-
-5. The domain will be added once submitted. Please wait for the domain configuration (about 10 minutes).
-
-   ![](https://mccdn.qcloud.com/static/img/8bd9ee32953db24d825be3ddcb9c47d6/image.png)
+   ![](https://mc.qcloudimg.com/static/img/0a03db953d30949addab41f3c7078a45/4.png)
 
 
 
@@ -38,12 +34,10 @@ You need to complete qualification verification and activate CDN service before 
 
 1. Once domain configuration is completed, the system will assign the corresponding CDN domain to you, which should be suffixed with .cdn.dnsv1.com:
 
-   ​
-
-   ![](https://mccdn.qcloud.com/static/img/93257fff3cdf7311a2108bfec8d9fab0/image.png)
+   ![](https://mc.qcloudimg.com/static/img/91d44977a92cde67d2ee52568d0bb694/5.png)
 
 2. You need to complete CNAME configuration at the DNS service provider of the connection domain to map your domain to the CDN domain using CNAME. To learn about how to configure it, please click [CNAME Configuration Instruction](https://www.qcloud.com/doc/product/228/3121);
 
 3. Verify if domain CNAME resolution is successful: The time needed for the CNAME to take effect varies for different DNS service providers (usually within 30 minutes). You can also check whether a CNAME is in effect by using PING. If you are directed to the domain suffixed with "cdntip.com" or "tcdn.qq.com" by using PING, the domain CNAME is already in effect.
 
-   ![](https://mccdn.qcloud.com/static/img/dbf7687249e59b5d0aeef4f9cdadfec5/image.png)
+   ![](https://mc.qcloudimg.com/static/img/d89485f878a6a08c594bd8f65c961ed8/6.png)

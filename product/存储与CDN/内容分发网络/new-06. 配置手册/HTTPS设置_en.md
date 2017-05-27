@@ -13,11 +13,11 @@ HTTPS configuration is only available to domains which meet the following condit
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 Go to "Advanced Configuration" and find "HTTPS Configuration"
 
-![](https://mc.qcloudimg.com/static/img/fa28d53a7eba792519986e88ea5bcef8/https.png)
+![](https://mc.qcloudimg.com/static/img/df38d5d35b266e96c99f4ab67732cfd8/2.png)
 
 ## Certificate Types
 
@@ -36,7 +36,7 @@ Go to [Certificate Management](https://console.qcloud.com/cdn/tools/certificate)
 
 The **Forced Redirect** button will appear when the certificate is successfully configured. When it is enabled, any HTTP request made by the user will be redirected to HTTPS for access:
 
-![](https://mc.qcloudimg.com/static/img/16abdcd52cbc8072881a2b40b05ccfee/https_set.png)
+![](https://mc.qcloudimg.com/static/img/22b01df16d9b4d50397b612b60252cfa/3.png)
 
 <font color="blue">The feature is only available after HTTPS certificate is successfully configured</font>
 
@@ -44,5 +44,5 @@ The **Forced Redirect** button will appear when the certificate is successfully 
 
 If you already obtained the qualifications of HTTP 2.0 closed beta,  you can open HTTP2.0 after finish the configuration of HTTPS certificate:
 
-![](https://mc.qcloudimg.com/static/img/30c160c9102a38893f51e6e0060d158d/HTTP2.0.png)
+![](https://mc.qcloudimg.com/static/img/72d122326ad99bb23f1ba66690bae91c/4.png)
 

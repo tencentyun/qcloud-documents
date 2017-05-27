@@ -13,7 +13,7 @@ You can initiate diagnosis through "Current device access diagnosis" when you fi
 3. Click the test address generated in step 2 to open the diagnosis page and start collecting diagnosis information. Please do not close the diagnosis page during the process, the page will close on its own when the process is completed;
 4. After the diagnosis, you can go to "Diagnosis report" tab to review the results.
 
-![本机诊断](https://mc.qcloudimg.com/static/img/33da072a0bb7e8dc1b4760f46f5132cf/image.png)
+![本机诊断](https://mc.qcloudimg.com/static/img/30d52a0a7b01e4b9f802177ceda62bb0/1.png)
 
 
 ### User Access Diagnosis 
@@ -25,14 +25,14 @@ When a user reports that there is a problem while accessing resource, you can lo
 3. Send this test address to your user. Diagnosis information will be collected when your user opens the test URL. Please do not close the page during the process.
 4. After the diagnosis, you can go to "Diagnosis report" tab to review the results that have been collected from the user.
 
-![用户诊断](https://mc.qcloudimg.com/static/img/9472e76b645ed71f745451d31ef58ef1/image.png)
+![用户诊断](https://mc.qcloudimg.com/static/img/215ff9302a2e2f5026140d6dff9ac794/2.png)
 
 
 ### Reviewing the Diagnosis Report
 From the console, go to Inspect Tool >> Self-diagnose page and select "Diagnosis report" tab to see a list of diagnosis reports. Diagnosis reports that have been generated will be presented in the page, sorted by time of creation.
-![诊断报告列表](https://mc.qcloudimg.com/static/img/970fd85db28891e090e879d4f9700cd3/image.png)
+![诊断报告列表](https://mc.qcloudimg.com/static/img/fd6eeaf8759acbe844d90bef5da29003/3.png)
 You can click "Check" to view the details of the report. 
-![报告详情](https://mc.qcloudimg.com/static/img/d7aa4c44c5fcbd4ba5a963e8c0028601/image.png)
+![报告详情](https://mc.qcloudimg.com/static/img/ad105416d8677a8d37faa252bef7489d/4.png)
 
 The Report Details page is divided into two sections, "Diagnosis object" and "Diagnosis report":
 

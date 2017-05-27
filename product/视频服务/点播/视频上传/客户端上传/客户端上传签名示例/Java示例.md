@@ -51,8 +51,8 @@ public class Signature {
 class Test {
 	public static void main(String[] args) {
 		Signature sign = new Signature();
-		sign.m_strSecId = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
-		sign.m_strSecKey = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
+		sign.m_strSecId = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+		sign.m_strSecKey = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 		sign.m_qwNowTime = System.currentTimeMillis() / 1000;
 		sign.m_iRandom = new Random().nextInt(java.lang.Integer.MAX_VALUE);
 		sign.m_iSignValidDuration = 3600 * 24 * 2;
