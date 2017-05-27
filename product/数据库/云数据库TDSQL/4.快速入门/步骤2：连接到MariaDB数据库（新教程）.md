@@ -14,7 +14,6 @@
 ![](//mc.qcloudimg.com/static/img/38297ac6bb2bde4a085cddd53ba8dcd7/image.png)
 查看帐号权限，点击**关闭**完成配置。
 ![](//mc.qcloudimg.com/static/img/385bfb7ab899da5266a56242601a4c62/image.png)
-
 # 外网访问
 1. 获取数据库的外网地址。
 1). 点击运行中的MariaDB数据库实例的ID名，进入详情页。
@@ -49,7 +48,7 @@ mysql -h hostname -P port -u username -p
 `
 请将hostname替换为目标MySQL数据库实例的外网IP地址，将username替换为之前创建的用户test123，并在提示Enter password：后输入账户test123对应的密码。
 本例中hostname为tdsql-6gy3mopk.gz.cdb.myqcloud.com，port为114。
-![](//mc.qcloudimg.com/static/img/8ff5ae0ee3914f683731815c15b3058b/image.png)
+![](//mc.qcloudimg.com/static/img/230ca6d65526050e062c3f59186d4e6c/image.png)
 3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：<https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html>
 下图中以 `show databases；`为例。
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
@@ -81,5 +80,5 @@ mysql -h hostname -P port -u username -p
 本例中hostname为10.30.0.7。
 ![](//mc.qcloudimg.com/static/img/f8dccff34309cfd332f600f1ceb35ff1/image.png)
 3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：<https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html>
-下图中以show databases；为例。
+下图中以`show databases；`为例。
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
