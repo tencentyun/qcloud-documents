@@ -6,6 +6,8 @@ GPU 云服务器目前提供 G2 实例，适用于通用 GPU 计算应用程序�
 	•	高频 Intel Xeon E5-2680 (Broadwell) 处理器
 	•	高性能 NVIDIA Tesla M40 GPU，每个具有 3072 个 CUDA 核心与 24GB 显示内存
 	•	默认网络增强， 无额外收费。
+	•      如需扩展本地SSD磁盘容量，可单独[购买弹性云盘](https://www.qcloud.com/document/product/362/2732)进行挂载。	
+	
 	
 **G2 实例提供两种配置：**
 
