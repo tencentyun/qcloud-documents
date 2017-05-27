@@ -1,8 +1,8 @@
 ## 1. API Description
-This API is used to bind BM EIP to a CPM.
+This API (EipBmBindRs) is used to bind BM EIP to a CPM.
 
-Domain: <font style="color:red">eip.api.qcloud.com</font>
-API name: EipBmBindRs
+Domain: eip.api.qcloud.com
+
 
 
 ## 2. Input Parameters

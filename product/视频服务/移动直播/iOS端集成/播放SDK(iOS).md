@@ -14,7 +14,7 @@ RTMP SDK 包含推流和播放两方面功能，推流为主播端功能，播�
 ![](//mc.qcloudimg.com/static/img/4b42a00bb7ce2f58f362f35397734177/image.jpg)
 
 ## 特别说明
-腾讯云 RTMP SDK <font color='red'>**不对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但 RTMP SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 FLV 、MP4 和 HLS（m3u8）三种格式的点播地址。
+腾讯云 RTMP SDK <font color='red'>**不会对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但 RTMP SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
 
 ## 对接攻略
 
@@ -83,10 +83,8 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 
 | 可选值 | 含义  |
 |---------|---------|
-| HOME_ORIENTATION_DOWN | 正常播放（Home键在画面正下方） | 
-| HOME_ORIENTATION_RIGHT | 画面顺时针旋转90度（Home键在画面正右方） | 
-| HOME_ORIENTATION_UP | 画面顺时针旋转180度（Home键在画面正上方） | 
-| HOME_ORIENTATION_LEFT | 画面顺时针旋转270度（Home键在画面正左方） | 
+| RENDER_ROTATION_PORTRAIT | 正常播放（Home键在画面正下方） | 
+| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home键在画面正左方） | 
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
@@ -132,12 +130,14 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
   [_txLivePlayer startPlay:_flvUrl type:_type];
 ```
 
-### step 9: 截流录制
-截流录制指的是：观众在观看直播时，可以通过点击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
+### step 9: 截流录制（仅直播）
+截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过点击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
 
 ![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
 
 ```objectivec
+//如下代码用于展示直播播放场景下的录制功能
+//
 //指定一个 TXVideoRecordListener 用于同步录制的进度和结果
 _txLivePlayer.recordDelegate = recordListener;
 //启动录制，可放于录制按钮的响应函数里，目前只支持录制视频源，弹幕消息等等目前还不支持
@@ -149,7 +149,7 @@ _txLivePlayer.recordDelegate = recordListener;
 ```
 - 录制的进度以时间为单位，由 TXVideoRecordListener 的 onRecordProgress 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 onRecordComplete 通知出来。
-- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [UGC小视频](https://www.qcloud.com/document/product/454/8838)。
+- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://www.qcloud.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
  
 ## 状态监听
 腾讯云 RTMP SDK 一直坚持白盒化设计原则，你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（质量反馈）通知给您。
@@ -179,10 +179,9 @@ TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime
 - **<font color='red'>如何判断直播已结束？</font>**
 如果是**点播**，我们可以通过 PLAY_EVT_PLAY_END 事件判断是否已经播放结束。
 
- 如果是**直播**，仅靠 RTMP SDK 本身是无法获知主播是否已经结束推流的。可预期的表现是：主播结束推流后，RTMP SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
+ 如果是**直播**，仅靠 SDK 本身是无法获知主播是否已经结束推流的。可预期的表现是：主播结束推流后，RTMP SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
 
  出现这个问题的原因是标准播放协议中本身没有通用的 STOP 标准，所以推荐的做法是通过聊天室群发 **“直播已结束”** 这类系统消息来完成你的目标。
-
 
 
 ### 3. 警告事件
@@ -227,40 +226,24 @@ TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
 
- 
 ## 卡顿&延迟
-**直播产品** 对于低卡顿率和低延迟的追求永远是一个热门的话题，很对客户以为卡顿率和延迟的多少完全是由云的质量决定的，其实不然，推流模块和**播放器本身在其中起到了更为关键的决定性作用**，同样的网络环境和播放地址，好的播放器和差劲的播放器可以表现出完全不同的延迟和卡顿率。
+在直播场景下，能决定一款 APP 产品的用户体验好坏的关键指标就是：卡顿率的高低和延迟的高低。
 
-### 1. 原理解释
-**延迟**是指主播 -> 观众的时间延迟，而**卡顿**指的是出现500ms以上的播放停滞。
+**播放器本身在其中起到了更为关键的决定性作用**，同样的网络环境和播放地址，不同的播放器可能会表现出完全不同的延迟和卡顿率。（比如 PC 浏览器上主流的 flash 播放器会因为播放策略过于简单粗暴，产生延迟越对越多的问题）
 
-如果是在完美的网络环境下，我们可以轻松做到超低延+零卡顿，但现实当中网络环境并不完美，数据在经过互联网传输时必然会有拥塞和丢包:
-![tx_live_service_lag](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tx_live_service_lag.jpg)
+所以，在您完成本篇文档前面部分罗列的功能代码对接后，请务必阅读 [卡顿优化-播放端优化](https://www.qcloud.com/document/product/454/7946#5.-.E6.92.AD.E6.94.BE.E7.AB.AF.E7.9A.84.E4.BC.98.E5.8C.969) 来校调出最适合您的业务场景的播放模式。
 
-为了缓解这些不稳定因素，云服务和终端APP都需要引入一些缓冲区来抵抗不稳定，然而，缓冲区的加入就不可避免地引入了延迟。
+- **三种模式的特性对比**
 
-所以，**延迟和流畅是一架天平的两端**，如果过分强调低延迟，就会导致轻微的网络波动即产生明显的播放端卡顿。反之，如果过分强调流畅，就意味着引入大量的延迟（典型的案例就是HLS(m3u8)通过引入10-30秒的延迟来实现流畅的播放体验)。
+![](//mc.qcloudimg.com/static/img/1d5a860ff74f9d026a36c04dd8bb27ef/image.jpg)
 
-### 2. 三种模式
-为了能够让您无需了解过多流控处理知识就能优化出较好的播放体验，腾讯云 RTMP SDK 经过多个版本的改进，优化出一套自动调节技术，并在其基础上推出了三种比较优秀的延迟控制方案：
+- **三种模式的对接代码**
 
-- **自动模式**：如果您不太确定您的主要场景是什么，可以直接选择这个模式。
->把 TXLivePlayConfig 中的 setAutoAdjustCache 开关打开，即为自动模式.在该模式下，播放器会根据当前网络情况，对延迟进行自动调节（默认情况下播放器会在1s - 5s 这个区间内自动调节延迟大小，您可以通过setMinCacheTime 和 setMaxCacheTime对默认值进行修改），以保证在足够流畅的情况下尽量降低观众跟主播端的延迟，确保良好的互动体验。
-
-- **极速模式**：主要适用于**秀场直播**等互动性高，因而对延迟要求比较苛刻的场景。
-> 极速模式设置方法是  **setMinCacheTime = setMaxCacheTime = 1s**  ， 而您也发现了，自动模式跟极速模式的差异只是MaxCacheTime 有所不同 （极速模式的 MaxCacheTime 一般比较低，而自动模式的MaxCacheTime 则相对较高 ），这种灵活性主要得益于SDK内部的自动调控技术，可以在不引入卡顿的情况下自动修正延时大小，而MaxCacheTime 反应的就是调节速度：MaxCacheTime的值越大，调控速度会越发保守，当然卡顿概率就会越低。
- 
-- **流畅模式**：主要适用于**游戏直播** 等大码率高清直播场景。
-> 当把播放器中的 setAutoAdjustCache 开关关闭，即为流畅模式，在该模式下，播放器采取的处理策略跟Adobe FLASH内核的缓存出策略如出一辙：当视频出现卡顿后，会进入 loading 状态直到缓冲区蓄满，之后进入playing状态，直到下一次遭遇无法抵御的网络波动。默认情况下，缓冲大小为5s，您可以通过setCacheTime进行更改。
-> 
-> 在延迟要求不高的场景下，这种看似简单的模式会更加可靠，因为该模式本质上就是通过牺牲一点延迟来降低卡顿率。
-
-### 3. 代码对接
 ```objectivec
 TXLivePlayConfig*  _config = [[TXLivePlayConfig alloc] init];
 //自动模式
 _config.bAutoAdjustCacheTime   = YES;
-_config.minAutoAdjustCacheTime = 1;
+_config.minAutoAdjustCacheTime = 1; 
 _config.maxAutoAdjustCacheTime = 5;
 //极速模式
 _config.bAutoAdjustCacheTime   = YES;
@@ -271,5 +254,10 @@ _config.bAutoAdjustCacheTime   = NO;
 _config.cacheTime              = 5;
 
 [_txLivePlayer setConfig:_config];
+
+//设置完成之后再启动播放
+
 ```
+
+注意：各家云商一般都会在CDN端引入 **1.5s - 2s** 左右的延迟，这是不可避免的，所以 **总延迟 = CDN延迟 + CacheTime。**
 

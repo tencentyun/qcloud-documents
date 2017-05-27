@@ -46,6 +46,16 @@
 | 查询子网IP分配列表 | [DescribeBmSubnetIps](/document/product/386/9318) | 用于查询黑石VPC子网IP分配列表。 |
 | 查询加入子网的物理机列表 | [DescribeBmCpmBySubnetId](/document/product/386/9319) | 用于查询加入到子网的所有物理机列表。 |
 | 查询物理机加入的子网列表 | [DescribeBmSubnetByCpmId](/document/product/386/9320) | 用于查询物理机加入的子网列表。 |
+| 查询黑石NAT网关列表 | [DescribeBmNatGateway](/document/product/386/9355) | 用于查询黑石NAT网关。 |
+| 查询NAT网关的操作状态 | [QueryBmNatGatewayProductionStatus](/document/product/386/9356) | 用于查询黑石NAT网关的操作状态。 |
+| 创建黑石NAT网关 | [CreateBmNatGateway](/document/product/386/9348) | 用于创建黑石NAT网关。 |
+| 删除黑石NAT网关 | [DeleteBmNatGateway](/document/product/386/9349) | 用于删除黑石NAT网关。 |
+| NAT网关绑定EIP | [EipBindBmNatGateway](/document/product/386/9350) | 用于黑石NAT网关绑定EIP。 |
+| NAT网关解绑EIP | [EipUnBindBmNatGateway](/document/product/386/9351) | 用黑石于NAT网关解绑EIP。 |
+| NAT网关绑定子网 | [SubnetBindBmNatGateway](/document/product/386/9352) | 用于黑石NAT网关绑定子网。 |
+| NAT网关解绑子网 | [SubnetUnBindBmNatGateway](/document/product/386/9353) | 用黑石于NAT网关解绑子网。 |
+| 升级NAT网关规格 | [UpgradeBmNatGateway](/document/product/386/9354) | 用于升级黑石NAT网关规格。 |
+
 
 ## 5. 负载均衡相关接口
 | 接口功能 | Action ID | 功能描述 |
@@ -100,7 +110,7 @@
 | 绑定服务器EIP | [EipBmBindRs](/doc/api/456/6673) | 用于绑定黑石弹性公网IP到黑石物理服务器。
 | 解绑服务器EIP | [EipBmUnbindRs](/doc/api/456/6674) | 用于解绑黑石物理服务器上的弹性公网IP。
 | 绑定EIP到VPCIP | [EipBmBindVpcIp](/document/product/386/8684) | 用于绑定黑石弹性公网IP到黑石VPC的IP地址（多用于虚拟化）。
-| 从VPCIP解绑EIP | [EipBmUnbindVpcIp](/document/product/386/8685) | 用于解绑黑石VPC的IP地址上的弹性公网IP（多用于虚拟化）。
+| 从VPCIP解绑EIP | [EipBmUnBindVpcIp](/document/product/386/8685) | 用于解绑黑石VPC的IP地址上的弹性公网IP（多用于虚拟化）。
 | 释放EIP | [EipBmDelete](/doc/api/456/6676) | 用于释放黑石弹性公网IP。
 | 更新EIP名称 | [ModifyEipAlias](/doc/api/456/6672) | 用于更新黑石弹性公网IP名称。
 | 修改EIP计费模式 | [EipBmModifyCharge](/doc/api/456/6675) | 用于修改黑石弹性公网IP计费模式。
