@@ -260,6 +260,11 @@ mv * /usr/share/nginx/html/
 2. 在 Web 浏览器地址栏输入 WordPress 站点的 IP 地址（云主机的公网 IP 地址，或者该地址后跟wordpress文件夹），可以看到 WordPress 安装屏幕，就可以开始配置 WordPress。
 ![配置WP1](//mc.qcloudimg.com/static/img/6012d2bcc2f5a5a78e333e57f08545f6/image.png)
 3. 将其余安装信息输入WordPress 安装向导，单击 “安装 WordPress” 完成安装。
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
 
 | 所需信息 | 备注 | 
 |---------|---------|
