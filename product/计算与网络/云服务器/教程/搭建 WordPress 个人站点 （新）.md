@@ -232,7 +232,7 @@ cp wp-config-sample.php wp-config.php
 vim /wp-config.php
 ```
 找到文件中 MySQL 的部分，按字母“I”键或 “Insert” 键切换至编辑模式，将步骤 3.2 中已配置好的数据库相关信息写入：
-```
+<div class="code"><p></p><pre> 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', '<font color="red">wordpress</font>');
@@ -245,7 +245,7 @@ define('DB_PASSWORD', '<font color="red">wordpresspassword</font>');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
-```
+</pre></div>
 修改完成后，按“Esc”键，输入“:wq”，保存文件返回。
 ```
 cd
@@ -266,7 +266,15 @@ mv wordpress/* /usr/share/nginx/html/
 |用户名| WordPress 管理员名称。出于安全考虑，建议设置一个不同于 admin 的名称。因为与默认用户名称 admin 相比，该名称更难破解。|
 |密码| 可以使用默认强密码或者自定义密码。请勿重复使用现有密码，并确保将密码保存在安全的位置。|
 |您的电子邮件|用于接收通知的电子邮件地址。|
-
 4. 单击安装 WordPress 完成安装。
 
-现在可以登录 WordPress 博客，并开始发布博客文章了。
+现在可以用登录 WordPress 博客，并开始发布博客文章了。
+
+## 后续步骤
+1. 以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
+建议通过 [腾讯云购买域名](https://dnspod.qcloud.com/?from=qcloud)。 
+
+2. 域名指向中国境内服务器的网站，必须进行[网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。在域名获得备案号之前，网站是无法开通使用的。
+腾讯云有代备案系统，方便您进行备案。备案免费，一般审核时间为20天左右。请您耐心等待。
+
+3. 您需要在腾讯云 [云解析](https://console.qcloud.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考[域名解析](https://www.qcloud.com/document/product/302/3446)
