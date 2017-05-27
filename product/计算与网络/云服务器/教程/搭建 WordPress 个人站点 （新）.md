@@ -265,7 +265,6 @@ table th:first-of-type {
     width: 100px;
 }
 </style>
-
 | 所需信息 | 备注 | 
 |---------|---------|
 | 站点标题 |  WordPress 网站名称。 |
