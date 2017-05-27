@@ -6,14 +6,14 @@ You can download the detailed log containing the information about users' access
 
 
 
-Log in to [CDN Console](https://console.qcloud.com/cdn) and select **Advanced Tools** page. You'll see the **Log Management** feature provided by CDN.
+Log in to [CDN Console](https://console.qcloud.com/cdn) and select **Logs** page. You'll see the **Log Management** feature provided by CDN.
 
 
-![](http://mc.qcloudimg.com/static/img/39a034fddb6c0f53961155d387a6aa2c/image.png)
+![](https://mc.qcloudimg.com/static/img/043e70b6829ce67d6af125b51736b249/1.png)
 
 Select the domain for which you want to check logs and the date range, then click **Query** to get the log download link, and click the link to download:
 
-![](https://mc.qcloudimg.com/static/img/1abb1c752e4863a8541bf5179fb20da0/image.png)
+![](https://mc.qcloudimg.com/static/img/9d9544788db54ab4c1fb920629be77ab/2.png)
 
 If there was no request for the domain on that day, no log would be generated. In this case, "No Data" will appear.
 

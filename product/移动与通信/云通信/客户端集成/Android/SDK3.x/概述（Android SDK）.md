@@ -126,7 +126,9 @@ libs
 	</intent-filter>
 	<intent-filter>
 		<action android:name="android.intent.action.TIMEZONE_CHANGED" />
-	</intent-filter>           
+	</intent-filter>     
+	
+	<!-- ImSDK 3.0.2 后添加 -->
 	<intent-filter>
 		<action android:name="com.tencent.qalsdk.service.TASK_REMOVED" />
 	</intent-filter>
@@ -142,8 +144,8 @@ libs
 ### 1.5 代码混淆规则
 如果你的项目中使用proguard等工具做了代码混淆，请保留以下选项。
 ```
--keep class com.tencent.imsdk.**{*;}
--dontwarn com.tencent.imsdk.**
+-keep class com.tencent.**{*;}
+-dontwarn com.tencent.**
 
 -keep class tencent.**{*;}
 -dontwarn tencent.**

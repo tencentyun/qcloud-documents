@@ -1,8 +1,8 @@
 ## 1. API Description
-This API is used to bind BM EIP to BM VPC IP (other than CPM IP).
+This API (EipBmBindVpcIp) is used to bind BM EIP to BM VPC IP (other than CPM IP).
 
-Domain: <font style="color:red">eip.api.qcloud.com</font>
-API name: EipBmBindVpcIp
+Domain: eip.api.qcloud.com
+
 
 
 ## 2. Input Parameters
