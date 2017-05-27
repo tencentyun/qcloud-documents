@@ -189,36 +189,3 @@ var_dump ($client->faceCompare(array('file'=>'F:\pic\yang.jpg'), array('file'=>'
 var_dump ($client->faceCompare(array('file'=>'F:\pic\yang.jpg'), array('file'=>'F:\pic\yang2.jpg')));
 ```
 
-#### 3.3 人脸核身
-
-##### 身份证识别对比
-
-```php
-//身份证url
-var_dump ($client->faceIdCardCompare('xxxxxxxxxxx', 'xxxxxxxx', array('url'=>'http://docs.ebdoor.com/Image/CompanyCertificate/1/16844.jpg')));
-//身份证文件file
-var_dump ($client->faceIdCardCompare('xxxxxxxxxxx', 'xxxxxxxxxxx', array('file'=>'F:\pic\idcard.jpg')));
-//身份证文件内容
-var_dump ($client->faceIdCardCompare('xxxxxxxxxxx', 'xxxxxxxxxxx', array('buffer'=>file_get_contents('F:\pic\idcard.jpg'))));
-```
-
-##### 活体检测—获取唇语验证码
-
-```php
-$obj = $client->faceLiveGetFour();
-var_dump ($obj);
-$validate_data = $obj['data']['validate_data'];
-```
-
-##### 活体检测-视频与用户照片的比对
-
-```php
-var_dump ($client->faceLiveDetectFour($validate_data, array('file'=>'F:\pic\ZOE_0171.mp4'), False, array('F:\pic\idcard.jpg')));
-```
-
-##### 活体检测-视频与身份证高清照片的比对
-
-```php
-var_dump ($client->faceIdCardLiveDetectFour($validate_data, array('file'=>'F:\pic\ZOE_0171.mp4'), 'xxxxxxxxxxx', 'xxxxxxxxxxx'));
-```
-

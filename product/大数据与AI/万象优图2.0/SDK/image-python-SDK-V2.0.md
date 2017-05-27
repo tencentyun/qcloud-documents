@@ -177,35 +177,3 @@ print (client.face_compare(CIUrl('http://www.miexue.com/d/file/junshiyingshi/201
 print (client.face_compare(CIFile('./zhao1.jpg'), CIUrl('http://www.miexue.com/d/file/junshiyingshi/2016-12-05/60bce03aac7a57e4fc600ecee1591e1d.jpg')))
 ```
 
-#### 3.3 人脸核身   
-
-##### 身份证识别对比
-
-```python
-	#身份证url
-	print (client.face_idcardcompare('420822198804266119', '李时杰', CIUrl('http://docs.ebdoor.com/Image/CompanyCertificate/1/16844.jpg')))
-	#身份证文件file
-	print (client.face_idcardcompare('420822198804266119', '李时杰', CIFile('./id4_zheng.jpg')))
-```
-
-##### 活体检测—获取唇语验证码
-
-```python
-	obj = client.face_livegetfour()
-	print (obj)
-	#验证码
-	validate_data = obj['data']['validate_data']
-```
-
-##### 活体检测-视频与身份证高清照片的比对
-
-```python	
-	print (client.face_livedetectfour(validate_data, CIFile('../dn.qlv'), False, CIFile('../wxb.jpg')))
-```
-
-##### 活体检测-视频与用户照片的比对	
-
-```python	
-	print (client.face_idcardlivedetectfour(validate_data, CIFile('../dnn.qlv'), '330782198802084329', '李时杰'))
-```
-
