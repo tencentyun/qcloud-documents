@@ -67,7 +67,7 @@ chkconfig php-fpm on
 
 ### 2.3 软件配置
 将 Nginx、MySQL、PHP 等各软件安装好之后，还需要对各软件分别进行配置。以下是详细步骤：
-#### 1. 配置 Nginx
+1. 配置 Nginx
  1. 请使用 Vim 命令打开`default.conf`文件，取消对 IPv6 地址的监听同时配置 Nginx，实现与 PHP 的联动。
 ```
 vim /etc/nginx/conf.d/default.conf
@@ -116,7 +116,7 @@ service nginx start
 显示如下，则说明 Nginx 安装配置成功：
 ![ 测试Nginx2](//mc.qcloudimg.com/static/img/1a992f4caab3388effc70a856eaac941/image.png)
  
-#### 2. 配置 MySQL
+2. 配置 MySQL
  1. 启动 MySQL 服务器。
 ```
 service mysqld start
@@ -126,7 +126,7 @@ service mysqld start
  /usr/bin/mysqladmin -u root password "123456"
 ```
  
-#### 3. 配置 PHP
+3. 配置 PHP
  1. 启动 PHP-FPM 服务。
 ```
 service php-fpm start
@@ -150,7 +150,7 @@ session.save_path = "/var/lib/php/session"
 chown -R nginx:nginx /var/lib/php/session 
 ``` 
  
-#### 4. 验证环境配置
+4. 验证环境配置
  1. 请使用以下命令在 Web 目录下创建`index.php`文件：
 ```
 vim /usr/share/nginx/html/index.php
