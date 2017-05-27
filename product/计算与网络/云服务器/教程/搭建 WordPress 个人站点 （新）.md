@@ -1,4 +1,5 @@
 WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP 语言和 MySQL 数据库开发。您可借助腾讯云云服务器 CVM，通过简单的操作即可运行 Wordpress，发布个人博客。本教程以 CentOS 6.8 为例，搭建一个 WordPress 个人站点，具体操作方法如下：
+![步骤流程](//mc.qcloudimg.com/static/img/6b7d99e96b495d10cd44624892c2ee46/image.png)
 ## 相关简介
 以下是本教程中，将会使用的服务或工具：
 
