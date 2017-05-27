@@ -3,6 +3,12 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 以下是本教程中，将会使用的服务或工具：
 
 **云服务器 CVM**：本教程使用腾讯云云服务器 CVM （以下简称 CVM ）创建云主机，来完成搭建 WordPress 搭建工作。
+ 
+**域名注册**：如果想要使用易记的域名访问您的 WordPress 站点，可以使用腾讯云域名注册服务来购买域名。
+ 
+** 网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
+
+**云解析**：在腾讯云云解析配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。
 
 **PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。点击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
 
@@ -271,10 +277,9 @@ mv wordpress/* /usr/share/nginx/html/
 现在可以用登录 WordPress 博客，并开始发布博客文章了。
 
 ## 后续步骤
-1. 以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
+1. 您可以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
 建议通过 [腾讯云购买域名](https://dnspod.qcloud.com/?from=qcloud)。 
 
-2. 域名指向中国境内服务器的网站，必须进行[网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。在域名获得备案号之前，网站是无法开通使用的。
-腾讯云有代备案系统，方便您进行备案。备案免费，一般审核时间为20天左右。请您耐心等待。
+2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，一般审核时间为20天左右。请您耐心等待。
 
-3. 您需要在腾讯云 [云解析](https://console.qcloud.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考[域名解析](https://www.qcloud.com/document/product/302/3446)
+3. 您需要在腾讯云 [云解析](https://console.qcloud.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://www.qcloud.com/document/product/302/3446)
