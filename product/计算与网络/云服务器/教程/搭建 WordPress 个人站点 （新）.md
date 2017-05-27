@@ -237,15 +237,16 @@ vim wp-config.php
 ```
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', '<font color="red">wordpress</font>');
+define('DB_NAME', 'wordpress');
 
 /** MySQL database username */
-define('DB_USER', '<font color="red">user</font>');
+define('DB_USER', 'user');
 
 /** MySQL database password */
-define('DB_PASSWORD', '<font color="red">wordpresspassword</font>');
+define('DB_PASSWORD', 'wordpresspassword');
 
 /** MySQL hostname */
+define('DB_HOST', 'localhost');
 ```
 修改完成后，按“Esc”键，输入“:wq”，保存文件返回。
 
