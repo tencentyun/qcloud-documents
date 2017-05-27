@@ -37,8 +37,9 @@ URL 中各字段含义如下（各字段的值需要进行 URL 编码）：
 | appid | 是 | uint  | 腾讯云应用 ID 值   | 
 | projectid  | 否   | uint | 腾讯云项目 ID，不填为默认项目，即0，总长度不超过1024字节 | 
 | sub_service_type  | 是   | uint   | 子服务类型。0：离线语音识别。1：实时流式识别。  | 
-| engine_model_type | 是  | uint  | 引擎类型。8k_0：电话8k通用模型；16k_0：16k 通用模型| 
+| engine_model_type | 是  | String  | 引擎类型。8k_0：电话8k通用模型；16k_0：16k 通用模型| 
 | callback_url | 是  | String  | 回调 URL，用户接受结果，长度大于0，小于2048 |
+| channel_num | 否  | unit  | 语音声道数，仅在电话8k通用模型下，支持1和2，其他模型仅支持1 |
 | res_text_format | 是 | uint  | 识别结果文本编码方式。0：UTF-8；1：GB2312； 2：GBK； 3：BIG5 |
 | res_type | 否 | uint  | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回 |
 | source_type | 是 | uint  |  语音数据来源。0：语音 URL；1：语音数据（post body）|
@@ -173,4 +174,53 @@ http://aai.qcloud.com/asr/v1/<appid>?engine_model_type=0
 |1031|ERROR_AUDIO_TOO_LARGE|发送的语音数据过大（大于 5M）|
 |1033|ERROR_UNKNOWN|其他未知错误|
 
+## PHP代码示例
+
+```php
+<?php
+$appid = YOUR_APPID ;
+// https://console.qcloud.com/capi
+// 从该页面获取APPID的SecretId和SecretKey
+$secretid ='YOUR_SECRET_ID';
+$secretkey = 'YOUR_SECRET_KEY';
+
+$req_url = 'aai.qcloud.com/asr/v1/'.$appid;
+
+$args = array(
+    'channel_num' => 1,
+    'secretid' => $secretid,
+    'engine_model_type' => 1,
+    'timestamp' => time(),
+    'expired' => time() + 3600,
+    'nonce' => rand(100000, 200000),
+    'projectid' => 0,
+    'callback_url' => "http://aai.qcloud.com/cb",
+    'res_text_format' => 0,
+    'res_type' => 1,
+    'source_type' => 0,
+    'sub_service_type' => 0,
+    'url' => "http://aai.qcloud.com/test.mp3",
+);
+
+// 参数按照Key的字母序排序
+ksort($args);
+
+$arg_str = "";
+foreach($args as $k => $v) {
+    $arg_str = $arg_str . "$k=$v&";
+}
+$arg_str = trim($arg_str, "&");
+
+// 拼接签名串
+$sig_str = "POST$req_url?$arg_str";
+echo "sig_str: $sig_str\n";
+
+// 计算签名
+$signature = base64_encode(hash_hmac("sha1", $sig_str, $secretkey, TRUE));
+echo "signature: $signature\n";
+
+$req_url = "https://$req_url?$arg_str";
+echo "curl -sv -H 'Authorization:$signature' '$req_url' -d ''\n";
+
+```
 

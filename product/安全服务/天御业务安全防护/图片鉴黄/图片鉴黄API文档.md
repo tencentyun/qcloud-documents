@@ -17,13 +17,13 @@
 <td> fileUrl
 </td><td><font color=red> 必选 </font color=red>
 </td><td> String
-</td><td> 文件名
+</td><td> 文件的URL地址
 </td></tr>
 <tr>
 <td> fileName
-</td><td> 可选
+</td><td><font color=red>  必选 </font color=red>
 </td><td> String
-</td><td> 文件的URL地址
+</td><td> 文件名
 </td></tr>
 <tr>
 <td> fileMd5

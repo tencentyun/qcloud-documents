@@ -545,7 +545,7 @@ cb | 回调
 
 ### 5.1 添加好友
 
-通过 TIMFriendshipManager的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为3000个： 
+通过 TIMFriendshipManager的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为1000个： 
 
 **原型：   **
 
@@ -1015,26 +1015,6 @@ void OnFriendProfileUpdate(List<TIMUserProfile> profiles);
  */
 void OnAddFriendReqs(List<TIMSNSChangeInfo> reqs);
 
-/**
- *  添加好友分组通知
- *
- *  @param friendgroups 好友分组列表，详见{@see TIMFriendGroup}
- */
-void OnAddFriendGroups(List<TIMFriendGroup> friendgroups);
-
-/**
- *  删除好友分组通知
- *
- *  @param names 好友分组名称列表
- */
-void OnDelFriendGroups(List<String> names);
-
-/**
- *  好友分组更新通知
- *
- *  @param friendgroups 好友分组列表, 详见{@see TIMFriendGroup}
- */
-void OnFriendGroupUpdate(List<TIMFriendGroup> friendgroups);
 ```
 
 通过设置 TIMFriendshipProxyListener 变更回调，可以在发生不同事件的时候感知不同的事件，之后可通过同步接口获取信息并更新UI操作。
@@ -1186,5 +1166,6 @@ futureFlag | 获取的未决标记，如未决，已决，推荐等类型
 custom | 自定义字段，如要获取填写
 meta | 请求信息，参见 TIMFriendFutureMeta 定义
 cb | 回调
+
 
 

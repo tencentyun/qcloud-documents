@@ -1,7 +1,7 @@
 ## 1. API Description
-This API (ModifyEipAlias) is used to change the alias of EIP. You can customize the requested EIP alias through this API for an easier management.
+This API (ModifyEipAlias) is used to rename EIP. You can customize the requested EIP alias through this API for an easier management.
  
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: eip.api.qcloud.com
 
 
 

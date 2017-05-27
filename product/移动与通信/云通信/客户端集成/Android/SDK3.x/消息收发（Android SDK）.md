@@ -351,12 +351,6 @@ public void setPath(String path)
 public String getUuid() 
 
 /**
- * 设置二进制数据
- * @param data 声音二进制数据
- */
-public void setData(byte[] data)
-
-/**
  * 获取二进制数据长度
  * @return 二进制数据长度
  */
@@ -514,12 +508,6 @@ public void getToFile(@NonNull final String path, @NonNull TIMCallBack callback)
  * @return uuid，可作为唯一标示用于缓存的key
  */
 public String getUuid()
-
-/**
- * 设置待发送的文件二进制数据
- * @param data 文件二进制数据
- */
-public void setData(byte[] data) 
 
 /**
  * 获取文件大小
@@ -874,10 +862,7 @@ long    getFileSize()
  
 //获取uuid
 java.lang.String    getUuid()
- 
-//设置待发送的文件二进制数据
-void    setData(byte[] data)
- 
+  
 //设置文件名
 void    setFileName(java.lang.String fileName)
 ```
@@ -949,13 +934,22 @@ public boolean isSelf()
 > 此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称）。
 
 ```
-//获取消息发送方
+/**
+ * 获取消息发送方
+ * @return 消息发送方user
+ */
 public String getSender()
 
-//获取发送者个人资料
+/**
+ * 获取发送者资料
+ * @return 发送者资料，null表示没有获取到资料，目前只有字段：identifier、nickname、faceURL、customInfo
+ */
 public TIMUserProfile getSenderProfile()
 
-//获取发送者群内资料
+/**
+ * 获取发送者群内资料
+ * @return 发送者群内资料，null表示没有获取到资料或者不是群消息，目前只有字段：user、nameCard、role、customInfo
+ */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
 

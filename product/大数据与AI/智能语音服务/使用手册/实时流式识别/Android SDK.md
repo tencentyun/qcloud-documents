@@ -1,7 +1,7 @@
 
 ## 开发准备
 ### SDK下载
-智能语音服务实时流式识别 Android SDK 及 Demo下载地址：[Android SDK][1]  
+智能语音服务实时流式识别 Android SDK 及 Demo下载地址：[Android SDK][1]
 
 ### 开发前
 1. 开发者使用实时流式识别功能前，需要先在腾讯云-控制台注册账号，并获得appid、SecretId和SecretKey等；
@@ -10,16 +10,26 @@
 
 ### 运行环境配置
 
-#### 引入.so文件
-- libWXVoice.so
-- libEVadEmbed.so
+##### 引入.so文件
+- libWXVoice.so：腾讯语音检测so库
 
-#### 引入jar包
-- aai-2.1.1.jar
-- vad.jar
+##### 引入jar包
+- aai-2.1.2.jar:腾讯云智能语音sdk
 - okhttp-3.2.0.jar
 - okio-1.6.0.jar
 - slf4j-android-1.6.1-RC1.jar
+
+腾讯云智能语音服务sdk支持本地构建或者远程构建两种方式：
+#### 本地构建
+可以直接下载Android SDK 及 Demo，然后集成对应的so文件和jar包（均在sdk-source目录下），最后将okhttp3、okio和slf4j三个库也集成到app中。
+#### 远程构建
+在build.gradle文件中添加：
+```
+compile 'com.tencent.aai:aai:2.1.2:@aar'
+compile 'com.squareup.okhttp3:okhttp:3.6.0'
+compile 'org.slf4j:slf4j-android:1.6.1-RC1'
+```
+如果您使用gradle来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
 
 #### 在AndroidManifest.xml添加如下权限：
 ```
@@ -419,4 +429,4 @@ public static void enableError();
 ```
 
 
-  [1]: https://mc.qcloudimg.com/static/archive/f85aeb7cdf167e4bbf23cea0a715b1ba/qcloud-aai-android-sdk-2.1.1.zip
+  [1]: https://mc.qcloudimg.com/static/archive/6600e4e3ed5d41a5b9bfd649a4f7a3aa/aai-android-sdk-v2.x.zip

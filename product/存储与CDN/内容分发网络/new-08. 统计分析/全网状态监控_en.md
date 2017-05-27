@@ -4,7 +4,7 @@ CDN keeps sending requests to monitor files according to monitor points from pro
 
 ## Query of Real-time Network Status
 The real-time status of the entire network is shown below:
-![](https://mc.qcloudimg.com/static/img/27ff7c2db628266b382268e1c76b51b9/global.png)
+![](https://mc.qcloudimg.com/static/img/e8d3049c3e98f22e457fb8fbc61b0ee2/1.png)
 
 **Note:**
 
@@ -14,8 +14,3 @@ The real-time status of the entire network is shown below:
 ## Network Monitoring
 In this page, you can query for historical record of latency and availability curve graph of specified region and carrier in specified time range:
 ![](https://mc.qcloudimg.com/static/img/22a76d7228081546d446c3dc52853d08/globao_query.png)
-
-
-
-
-
