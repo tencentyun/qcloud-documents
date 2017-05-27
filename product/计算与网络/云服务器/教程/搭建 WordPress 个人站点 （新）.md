@@ -16,7 +16,6 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 ## 步骤 1：创建并运行云服务器
 1. 请根据您的需要 [购买云服务器](https://buy.qcloud.com/cvm?regionId=8&projectId=8)。
 以下创建指引供您参考：
-[创建 Windows 云服务器](https://www.qcloud.com/document/product/213/2763)
 [创建 Linux 云服务器](https://www.qcloud.com/document/product/213/2972)
 2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.qcloud.com/cvm)  查看或编辑云主机状态。
 ![云主机1](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
