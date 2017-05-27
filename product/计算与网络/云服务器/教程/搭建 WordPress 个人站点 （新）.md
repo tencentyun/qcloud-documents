@@ -275,4 +275,5 @@ mv * /usr/share/nginx/html/
 
 2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，一般审核时间为20天左右。请您耐心等待。
 
-3. 您需要在腾讯云 [云解析](https://console.qcloud.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://www.qcloud.com/document/product/302/3446)
+3. 您需要在腾讯云 [云解析](https://console.qcloud.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://www.qcloud.com/document/product/302/3446)。
+ 
