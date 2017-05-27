@@ -7,10 +7,12 @@
 1. 点击运行中的MariaDB数据库实例的ID名，进入详情页。
 ![](//mc.qcloudimg.com/static/img/08e24afbf51b941df4b8c4a893857b31/image.png)
 
-2. 在**帐号管理**页点击**创建帐号**，并设置帐号的相关权限。
-此处以帐号test123为例，开通全部权限。
+2. 在**帐号管理**页点击**创建帐号**，并设置帐号的相关权限。此处以帐号test123为例，开通全部权限。
+创建帐号，设置密码，并点击**确定**：
 ![](//mc.qcloudimg.com/static/img/b5673f5c88f57d4a389fc4e673416659/image.png)
+设置帐号test123拥有的权限，点击**保存配置**：
 ![](//mc.qcloudimg.com/static/img/38297ac6bb2bde4a085cddd53ba8dcd7/image.png)
+查看帐号权限，点击**关闭**完成配置。
 ![](//mc.qcloudimg.com/static/img/385bfb7ab899da5266a56242601a4c62/image.png)
 
 # 外网访问
@@ -34,19 +36,22 @@
 3). 登录成功的界面如图所示，在此页面上您可以看到MariaDB数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/d050b1917e7ccfea62a9ec7c8992c313/image.png)
  
--从Linux系统登录
+**-从Linux系统登录**
 1). 以CentOS 7.2 64位系统的CVM为例，去官网下载安装MySQL客户端。
-	具体命令为：
-	`yum intall mysql`
+具体命令为：
+`
+yum intall mysql
+`
 2). 使用MySQL命令行工具登录到MariaDB数据库。
-		相关命令为：
-		`mysql -h hostname -P port -u username -p`
-		请将hostname替换为目标MySQL数据库实例的外网IP地址，将username替换为之前创建的用户test123，并在提示Enter password：后输入账户test123对应的密码。
-		本例中hostname为tdsql-6gy3mopk.gz.cdb.myqcloud.com，port为114。
+相关命令为：
+`
+mysql -h hostname -P port -u username -p
+`
+请将hostname替换为目标MySQL数据库实例的外网IP地址，将username替换为之前创建的用户test123，并在提示Enter password：后输入账户test123对应的密码。
+本例中hostname为tdsql-6gy3mopk.gz.cdb.myqcloud.com，port为114。
 ![](//mc.qcloudimg.com/static/img/8ff5ae0ee3914f683731815c15b3058b/image.png)
-3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html.
-
-下图中以show databases；为例。
+3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：<https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html>
+下图中以 `show databases；`为例。
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
 # 内网访问
@@ -55,27 +60,26 @@
 **-从Windows系统登录**
 1). 下载一个MariadDB客户端并安装。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/。
 2). 打开sqlyog，输入输入MariaDB数据库实例的内网IP和端口号，数据库帐号以及密码。
-	我的SQL主机地址：此例中输入10.30.0.7。
-	用户名：用前文中创建的用户名test123。
-	密码：用户test123对应的密码。
-	端口：此例中输入3306。
+我的SQL主机地址：此例中输入10.30.0.7。
+用户名：用前文中创建的用户名test123。
+密码：用户test123对应的密码。
+端口：此例中输入3306。
 ![](//mc.qcloudimg.com/static/img/d4b72b365c7e31ac824851602ca5a29a/image.png)
 3). 登录成功的界面如图所示，在此页面上您可以看到MariaDB数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/7646040af53a923f47c4973a4aac7680/image.png)
 
 **-从Linux系统登录**
 1). 以CentOS 7.2 64位系统的CVM为例，利用CentOS自带的包管理软件Yum去腾讯云的镜像源下载安装MySQL客户端。
-	相关命令为：
-	```yum install mysql```
-	图示如下：
+相关命令为：
+`yum install mysql`
+图示如下：
 	![](//mc.qcloudimg.com/static/img/eee76fa95379b8a25fc076b66b4ca28c/image.png)
 2). 使用MySQL命令行工具登录到MariaDB数据库。
-		相关命令为：
-		`mysql -h hostname -u username -p`
-		请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为之前创建的用户test123，并在提示Enter password：后输入账户test123对应的密码。
-		本例中hostname为10.30.0.7。
+相关命令为：
+`mysql -h hostname -u username -p`
+请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为之前创建的用户test123，并在提示Enter password：后输入账户test123对应的密码。
+本例中hostname为10.30.0.7。
 ![](//mc.qcloudimg.com/static/img/f8dccff34309cfd332f600f1ceb35ff1/image.png)
-3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html.
-
+3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：<https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html>
 下图中以show databases；为例。
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
