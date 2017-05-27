@@ -125,6 +125,7 @@ service mysqld start
 ```
  /usr/bin/mysqladmin -u root password "123456"
 ```
+
 #### 2.3.3 配置 PHP
 1. 启动 PHP-FPM 服务。
 ```
