@@ -26,7 +26,7 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 
 ## 步骤 2：搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MySQL 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建好云主机之后，您可以开始进行 LNMP 环境搭建。
-> Linux：Linux 环境（本文为 CentOS 6.8）；
+> Linux：Linux 系统（本文为 CentOS 6.8）；
 Nginx：Web 服务器程序，用来解析 Web 程序；
 MySQL：一个数据库管理系统；
 PHP：Web 服务器生成网页的程序。
