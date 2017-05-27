@@ -238,7 +238,8 @@ cp wp-config-sample.php wp-config.php
 vim /wp-config.php
 ```
 找到文件中 MySQL 的部分，按字母“I”键或 “Insert” 键切换至编辑模式，将步骤 3.2 中已配置好的数据库相关信息写入：
-<div class="code"><p></p><pre> 
+
+```
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', '<font color="red">wordpress</font>');
@@ -250,8 +251,7 @@ define('DB_USER', '<font color="red">user</font>');
 define('DB_PASSWORD', '<font color="red">wordpresspassword</font>');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
-</pre></div>
+```
 修改完成后，按“Esc”键，输入“:wq”，保存文件返回。
 ```
 cd
