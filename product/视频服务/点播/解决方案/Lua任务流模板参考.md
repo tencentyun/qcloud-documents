@@ -4,6 +4,7 @@
 #### File.mediaInfo
 
 返回：MediaInfo对象。
+
 该属性为File对象的只读属性（即：对该对象的任何操作均会被任务流忽略），任务流可以据此获得文件的一些基本信息，例如视频流和音频流信息、文件来源等。
 
 <!--#### File.mediaProperty
@@ -14,6 +15,7 @@
 #### File.processActionSet
 
 返回：ActionSet对象。
+
 开发者可以通过该属性指定视频文件的处理动作，可以进行的动作包括：
 
 - 转码动作：TranscodeAction；
@@ -110,12 +112,14 @@ MediaInfo是一个Lua Table，其中包含了视频的各种基本信息。典�
 ### 属性
 ### TranscodeAction.transcodeDefinition
 返回：转码输出模板ID，类型为数组。
+
 可以通过该属性设置转码输出模板。
 
 
 #### TranscodeAction.watermarkDefinition
 
 返回：转码水印模板ID。
+
 可以通过该属性设置水印模板。
 
 #### TranscodeAction.disableHigherBitrate
@@ -167,6 +171,7 @@ MediaInfo是一个Lua Table，其中包含了视频的各种基本信息。典�
 #### ImageSpriteAction.definition
 
 返回：雪碧图截图参数模板ID。
+
 可以通过该属性控制视频的雪碧图截图动作。
 
 ### 方法
@@ -177,6 +182,7 @@ MediaInfo是一个Lua Table，其中包含了视频的各种基本信息。典�
 ### 属性
 #### CoverBySnapshotAction.definition
 返回：截图参数模板ID。
+
 可以通过该属性控制如何将视频指定位置的截图设置为其封面。
 
 ### 方法
@@ -189,6 +195,7 @@ MediaInfo是一个Lua Table，其中包含了视频的各种基本信息。典�
 #### DRM.definition
 
 返回：视频加密参数模板ID。
+
 可以通过该属性设置视频加密参数模板。
 
 ### 方法
