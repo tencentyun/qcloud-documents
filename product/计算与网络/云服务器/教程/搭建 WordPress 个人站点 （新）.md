@@ -20,9 +20,9 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.qcloud.com/cvm)  查看或编辑云主机状态。
 ![云主机1](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
 
-本教程中云主机的操作系统版本为 CentOS 6.8。**后续步骤将会用到以下信息，请注意保存：
+本教程中云主机的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
 - 云主机用户名和密码；
-- 云主机公网 IP。**
+- 云主机公网 IP。
 ## 步骤 2：搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MySQL 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建好云主机之后，您可以开始进行 LNMP 环境搭建。
 > Linux：Linux 系统（本文为 CentOS 6.8）；
