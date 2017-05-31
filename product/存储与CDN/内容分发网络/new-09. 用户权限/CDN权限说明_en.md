@@ -46,7 +46,7 @@ Since the division of projects is applicable to all cloud resources, you can sel
 #### Console Permission Control
 This feature enables sub-users to query the consumption and statistics data of one or more specified projects. The sub-users with this permission can perform the following operations in the Console:
 
-![](https://mccdn.qcloud.com/static/img/01897e47d5c42bd4e3f83468f53a4b81/image.jpg)
+![](https://mc.qcloudimg.com/static/img/2eaa53e3a644a26de5bc6b685c7ebd95/1.png)
 
 + CDN Console - Overview Page: Display the overview of one or more specified projects;
 + CDN Console - Statistics Analysis - Usage Statistics: Query and download consumption details of one or more specified projects;
@@ -72,7 +72,7 @@ The sub-users with this permission can apply for a Cloud API Key (for more infor
 
 This feature enables sub-users to query the domain information of one or more specified projects (including their configuration details). The sub-users with this permission can perform the following operations in the Console:
 
-![](https://mccdn.qcloud.com/static/img/8c221a7116a875fcf0ee1180819eeef7/image.jpg)
+![](https://mc.qcloudimg.com/static/img/4bd216b6f87d5841ace57eb8b0a8bd58/2.png)
 
 + CDN Console - Domain Management: View the domain information of one or more specified projects, and click "Management" to view more configuration details;
 
@@ -93,9 +93,9 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 #### Console Permission Control
 This feature enables sub-users to query the log download links on specified date of one or more specified projects. The sub-accounts with this permission can perform the following operations in the Console:
 
-![](https://mccdn.qcloud.com/static/img/88a905fae2f609ac2ca929cf1da5ef06/image.jpg)
+![](https://mc.qcloudimg.com/static/img/e1e3372ab5d24ca1a76cd5cfb744eae1/3.png)
 
-+ CDN Console - Advanced Tools - Log Management: Query the log download links of domains in one or more specified projects
++ CDN Console - Logs: Query the log download links of domains in one or more specified projects
 
 #### Cloud API Permission Control
 The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://www.qcloud.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs to query the log download links (the domain must belong to a project covered by the permission):
@@ -113,9 +113,9 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 
 This feature enables sub-users to add domain to one or more specified projects. The following operations can be performed in the Console:
 
-![](https://mccdn.qcloud.com/static/img/c2d1166e7d61a37c361bf44efce60d2b/image.jpg)
+![](https://mc.qcloudimg.com/static/img/f140a611512ad738b053ff2757455acd/4.png)
 
-![](https://mccdn.qcloud.com/static/img/e57b0ae0f4f9b9ec8516991e5103d4b3/image.jpg)
+![](https://mc.qcloudimg.com/static/img/71ed3a35de5e2cfb0aa3dc51cd1e054c/5.png)
 
 + CDN Console - Domain Management - Add Domain: In Step 1 page of Add Domain, the projects shown in "Project" drop-down box are the ones to which a domain is allowed to be added. If no project exists, it means the sub-user has no permission to add domain and thus cannot perform further operations.
 
@@ -133,7 +133,7 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 
 This feature enables sub-users to make one or more specified projects online/offline. The following operations can be performed in the Console:
 
-![](https://mccdn.qcloud.com/static/img/008fec0ecccdb8749d9f69b027171e3c/image.jpg)
+![](https://mc.qcloudimg.com/static/img/73e47117cd61959c0dc06396a2f31c66/6.png)
 
 + CDN Console - Domain Management: Find a domain covered by the permission for going online/offline (activated/closed).
 
@@ -150,9 +150,9 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 #### Console Permission Control
 This feature enables sub-users to manage domain configurations for one or more specified projects. The following operations can be performed in the Console:
 
-![](https://mccdn.qcloud.com/static/img/3dc9b19234ab04d3d777574d25b3edd1/image.jpg)
+![](https://mc.qcloudimg.com/static/img/c4fe35f70c4a901dc52d4010c9e81829/7.png)
 
-+ CDN Console - Domain Management: Click "Management" to edit the basic and advanced configurations for the domains for which you have permission;
++ CDN Console - Domain Management: Click "Manage" to edit the basic and advanced configurations for the domains for which you have permission;
 
 #### Cloud API Permission Control
 The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://www.qcloud.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs for domain configuration management (the specified domain must be covered by the permission):
@@ -169,7 +169,7 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 ####  Console Permission Control
 This feature enables sub-users to delete domains in one or more specified projects. The following operation can be performed in the Console:
 
-![](https://mccdn.qcloud.com/static/img/15d5108655abec1f7c888dd87a31451c/image.jpg)
+![](https://mc.qcloudimg.com/static/img/8c4fc166efdb3ba932654eb01db663d3/8.png)
 
 + CDN Console - Domain management: Right click a closed domain for which you have permission to delete it;
 
@@ -186,9 +186,9 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 #### Console Permission Control
 This feature enables sub-users to perform refresh and prefetch operations on URLs or directories of domains in one or more specified projects. The operation performed in the Console is shown below:
 
-![](https://mccdn.qcloud.com/static/img/6ecc88d7a9768c19957badb16a1fbddb/image.jpg)
+![](https://mc.qcloudimg.com/static/img/31438f0de7b10401a15f98b9e0c265ce/9.png)
 
-+ CDN Console - Refresh Cache: Paste URLs or directories under the domain for which you have permission in batch to the text box, and submit them for refresh.
++ CDN Console - Purge Cache: Paste URLs or directories under the domain for which you have permission in batch to the text box, and submit them for refresh.
 
 #### Cloud API Permission Control
 The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://www.qcloud.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs to perform refresh and prefetch (only the URLs and directories under the domain covered by the permission can be submitted):
@@ -200,19 +200,9 @@ The sub-users with this feature can apply for a Cloud API Key (for more informat
 Once the sub-user has configured permissions for CDN features, the following operations can be performed by default **without any configuration**:
 
 + Use the Console to query all refresh records:
-  ![](https://mccdn.qcloud.com/static/img/0592d47b0f65a8271b39a83a684f7c46/image.jpg)
+  ![](https://mc.qcloudimg.com/static/img/88fef5c20d4e32b639136348e40c24c4/10.png)
 + Use Cloud API [GetCdnRefreshLog](https://www.qcloud.com/doc/api/231/3948) to query refresh records.
 
 For the example of sub-user feature configuration, please refer to [Sub-user Configuration Example](https://www.qcloud.com/doc/product/228/6693).
-
-
-
-
-
-
-
-
-
-
 
 

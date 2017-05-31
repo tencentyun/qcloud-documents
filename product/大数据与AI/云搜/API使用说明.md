@@ -102,7 +102,7 @@
 <td> contents.n
 </td><td> 是
 </td><td> Array
-</td><td> 文档内容
+</td><td> 文档内容(UTF8编码，长度限制在32k以下)
 </td></tr></table>
 
 ### 2.3 输出参数

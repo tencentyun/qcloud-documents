@@ -1,8 +1,8 @@
 ```php
 <?php
 // 确定APP的云API密钥
-$secret_id = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
-$secret_key = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
+$secret_id = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+$secret_key = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
 // 确定签名的当前时间和失效时间
 $current = time();

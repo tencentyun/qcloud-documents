@@ -5,29 +5,35 @@
 COS服务的Node.js SDK v5版本的GitHub下载地址： [https://github.com/tencentyun/cos-nodejs-sdk-v5.git](https://github.com/tencentyun/cos-nodejs-sdk-v5.git) 
 （本版本SDK基于XML API封装组成）
 
-COS服务的Node.js SDK v5版本的本地下载地址：[Node.js SDK本地下载](https://mc.qcloudimg.com/static/archive/af0c4f2cf2804b23f02832ac4cd6f28f/cos-nodejs-sdk-v5-master.zip)
+大部分接口的使用 demo 在这里： [demo](https://github.com/tencentyun/cos-nodejs-sdk-v5/blob/master/demo/demo.js)
+
+### npm 引入
+
+```shell
+npm i cos-nodejs-sdk-v5 --save
+```
+
+
 ### 开发环境
 
 1. 使用SDK需要您的运行环境包含nodejs 以及npm , nodejs版本建议7.0版本以上
-2. 安装好npm之后记得在sdk的解压目录npm install 一次（安装依赖包）；
-3. 去您的控制台获取APPID, SecretId, SecretKey，地址在 https://console.qcloud.com/capi
-
+2. 安装好 npm 之后记得在sdk的解压目录npm install 一次（安装依赖包）；
+3. 去您的控制台获取 AppId, SecretId, SecretKey, 地址在 https://console.qcloud.com/capi
 
 
 ### SDK配置
 
 ```js
-	//修改config.js里的信息，填上您在API密钥页面获取的几个值，下面的值仅为示例
-	exports.APPID = '111';
-	exports.SECRET_ID = 'AKIDxxxxxxx';
-	exports.SECRET_KEY = 'xxxxxxxx';
-	
-
+var COS = require('cos-nodejs-sdk-v5');
+var cos = new COS({
+    AppId: '1250000000',
+    SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+});
 ```
 
 
 ## Service操作
-
 
 ### Get Service
 
@@ -41,7 +47,7 @@ Get Service接口实现获取该用户下所有Bucket列表。该API接口需要
 
 ```js
 
-COS.getService(params, function(err, data) {
+cos.getService(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -92,7 +98,7 @@ var params = {
 	Region : 'STRING_VALUE'		/* 必须 */
 };
 
-COS.headBucket(params, function(err, data) {
+cos.headBucket(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -143,7 +149,7 @@ var params = {
 	EncodingType : 'STRING_VALUE',	/* 非必须 */
 };
 
-COS.getBucket(params, function(err, data) {
+cos.getBucket(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -213,7 +219,7 @@ var params = {
 	GrantFullControl : 'STRING_VALUE'	/* 非必须 */
 };
 
-COS.putBucket(params, function(err, data) {
+cos.putBucket(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -263,7 +269,7 @@ var params = {
 	Region : 'STRING_VALUE'		/* 必须 */
 };
 
-COS.deleteBucket(params, function(err, data) {
+cos.deleteBucket(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -308,7 +314,7 @@ var params = {
 	Region : 'STRING_VALUE'		/* 必须 */
 };
 
-COS.getBucketACL(params, function(err, data) {
+cos.getBucketACL(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -367,7 +373,7 @@ var params = {
 	GrantFullControl : 'STRING_VALUE'	/* 非必须 */
 };
 
-COS.putBucketACL(params, function(err, data) {
+cos.putBucketACL(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -418,7 +424,7 @@ var params = {
 	Region : 'STRING_VALUE'		/* 必须 */
 };
 
-COS.getBucketCORS(params, function(err, data) {
+cos.getBucketCORS(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -492,7 +498,7 @@ var params = {
 	]
 };
 
-COS.putBucketCORS(params, function(err, data) {
+cos.putBucketCORS(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -544,7 +550,7 @@ var params = {
 	Region : 'STRING_VALUE'			/* 必须 */
 };
 
-COS.deleteBucketCORS(params, function(err, data) {
+cos.deleteBucketCORS(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -590,7 +596,7 @@ var params = {
 	Region : 'STRING_VALUE'			/* 必须 */
 };
 
-COS.getBucketLocation(params, function(err, data) {
+cos.getBucketLocation(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -637,7 +643,7 @@ var params = {
 	Region : 'STRING_VALUE'		/* 必须 */
 };
 
-COS.getBucketTagging(params, function(err, data) {
+cos.getBucketTagging(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -691,7 +697,7 @@ var params = {
 	]
 };
 
-COS.putBucketTagging(params, function(err, data) {
+cos.putBucketTagging(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -742,7 +748,7 @@ var params = {
 	Region : 'STRING_VALUE'		/* 必须 */
 };
 
-COS.deleteBucketTagging(params, function(err, data) {
+cos.deleteBucketTagging(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -796,7 +802,7 @@ var params = {
 	IfModifiedSince : 'STRING_VALUE'	/* 非必须 */
 };
 
-COS.headObject(params, function(err, data) {
+cos.headObject(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -857,7 +863,7 @@ var params = {
 	Output : 'STRING_VALUE' || 'WRITE_STRING'		/* 必须 */
 };
 
-COS.getObject(params, function(err, data) {
+cos.getObject(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -932,7 +938,7 @@ var params = {
 	'x-cos-meta-*' : 'STRING_VALUE'					/* 非必须 */
 };
 
-COS.putObject(params, function(err, data) {
+cos.putObject(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -995,7 +1001,7 @@ var params = {
 	Key : 'STRING_VALUE'							/* 必须 */
 };
 
-COS.deleteObject(params, function(err, data) {
+cos.deleteObject(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1051,7 +1057,7 @@ var params = {
 	AccessControlRequestHeaders : 'STRING_VALUE'		/* 非必须 */
 };
 
-COS.optionsObject(params, function(err, data) {
+cos.optionsObject(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1108,7 +1114,7 @@ var params = {
 	Key : 'STRING_VALUE'							/* 必须 */
 };
 
-COS.getObjectACL(params, function(err, data) {
+cos.getObjectACL(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1167,7 +1173,7 @@ var params = {
 	GrantFullControl : 'STRING_VALUE'	/* 非必须 */
 };
 
-COS.putObjectACL(params, function(err, data) {
+cos.putObjectACL(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1229,7 +1235,7 @@ var params = {
 
 };
 
-COS.deleteMultipleObject(params, function(err, data) {
+cos.deleteMultipleObject(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1299,7 +1305,7 @@ var params = {
 	'x-cos-meta-*' : 'STRING_VALUE'					/* 非必须 */
 };
 
-COS.MultipartInit(params, function(err, data) {
+cos.MultipartInit(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1368,7 +1374,7 @@ var params = {
 	UploadId : 'STRING_VALUE',						/* 必须 */
 };
 
-COS.MultipartUpload(params, function(err, data) {
+cos.MultipartUpload(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1430,7 +1436,7 @@ var params = {
 	]
 };
 
-COS.MultipartComplete(params, function(err, data) {
+cos.MultipartComplete(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1489,7 +1495,7 @@ var params = {
 	PartNumberMarker : 'STRING_VALUE'				/* 非必须 */
 };
 
-COS.MultipartListPart(params, function(err, data) {
+cos.MultipartListPart(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1559,7 +1565,7 @@ var params = {
 	UploadId : 'STRING_VALUE'						/* 必须 */
 };
 
-COS.MultipartAbort(params, function(err, data) {
+cos.MultipartAbort(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1613,7 +1619,7 @@ var params = {
 	UploadIdMarker : 'STRING_VALUE'					/* 非必须 */
 };
 
-COS.MultipartList(params, function(err, data) {
+cos.MultipartList(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1697,7 +1703,7 @@ var ProgressCallback = function(progressData) {
 	console.log(progressData);
 };
 
-COS.sliceUploadFile(params, function(err, data) {
+cos.sliceUploadFile(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
