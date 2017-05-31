@@ -26,7 +26,7 @@ npm i cos-nodejs-sdk-v5 --save
 ```js
 var COS = require('cos-nodejs-sdk-v5');
 var cos = new COS({
-    AppId: 'test',
+    AppId: '1250000000',
     SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 });
