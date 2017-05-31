@@ -6,10 +6,10 @@
 返回：MediaInfo对象。
 该属性为File对象的只读属性（即：对该对象的任何操作均会被任务流忽略），任务流可以据此获得文件的一些基本信息，例如视频流和音频流信息、文件来源等。
 
-#### File.mediaProperty
+<!--#### File.mediaProperty
 
 返回：MediaProperty对象。
-开发者可以通过该对象设置的视频属性信息，主要是媒资相关信息。
+开发者可以通过该对象设置的视频属性信息，主要是媒资相关信息。-->
 
 #### File.processActionSet
 
@@ -21,14 +21,14 @@
 - 雪碧图截图动作：ImageSpriteAction；
 - 使用截图设置封面动作：CoverBySnapshotAction。
 
-#### File.publishActionSet
+<!--#### File.publishActionSet
 
 返回：ActionSet对象。
 开发者可以通过该属性指定视频文件的分发动作。
 
 #### File.publishProperty
 返回：PublishProperty对象。
-开发者可以通过该属性指定视频文件的分发属性。
+开发者可以通过该属性指定视频文件的分发属性。-->
 
 ### 方法
 无。
@@ -67,7 +67,7 @@ MediaInfo是一个Lua Table，其中包含了视频的各种基本信息。典�
 }
 ```
 
-## MediaProperty类
+<!--## MediaProperty类
 开发者可以通过该对象设置的视频属性信息，主要是媒资相关信息。
 
 ### 属性
@@ -86,7 +86,7 @@ MediaInfo是一个Lua Table，其中包含了视频的各种基本信息。典�
 无。
 
 ### 方法
-无。
+无。-->
 
 ## ActionSet类
 动作集合。
@@ -109,7 +109,7 @@ MediaInfo是一个Lua Table，其中包含了视频的各种基本信息。典�
 
 ### 属性
 ### TranscodeAction.transcodeDefinition
-返回：转码输出模板ID，类型为数组（Table）。
+返回：转码输出模板ID，类型为数组。
 可以通过该属性设置转码输出模板。
 
 
