@@ -1224,15 +1224,12 @@ Delete Multiple Object请求实现批量删除文件，最大支持单次删除1
 var params = {
 	Bucket : 'STRING_VALUE',						/* 必须 */
 	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
 	Quiet : 'BOOLEAN_VALUE',						/* 非必须 */
 	Objects :  [
-		{
-			Key : 'STRING_VALUE'					/* 必须 */
-		},
-		...
-	]
-
+	    {
+	        Key : 'STRING_VALUE'					/* 必须 */
+        }
+    ]
 };
 
 cos.deleteMultipleObject(params, function(err, data) {
@@ -1250,7 +1247,6 @@ cos.deleteMultipleObject(params, function(err, data) {
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称		
   * Region —— (String) ： 地域名称
-  * Key —— (String) ： 文件名称
   * Quiet —— (Boolean)  ： 布尔值，这个值决定了是否启动Quiet模式，True启动Quiet模式，False启动Verbose模式，默认False
     父节点：Delete
   * Objects —— (Array) ： 要删除的文件列表

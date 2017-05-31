@@ -1224,15 +1224,12 @@ Delete Multiple Object请求实现批量删除文件，最大支持单次删除1
 var params = {
 	Bucket : 'STRING_VALUE',						/* 必须 */
 	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
 	Quiet : 'BOOLEAN_VALUE',						/* 非必须 */
 	Objects :  [
-		{
-			Key : 'STRING_VALUE'					/* 必须 */
-		},
-		...
-	]
-
+	    {
+	        Key : 'STRING_VALUE'					/* 必须 */
+        }
+    ]
 };
 
 cos.deleteMultipleObject(params, function(err, data) {
