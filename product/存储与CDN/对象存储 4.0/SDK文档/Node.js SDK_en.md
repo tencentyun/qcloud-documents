@@ -1247,7 +1247,6 @@ cos.deleteMultipleObject(params, function(err, data) {
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称		
   * Region —— (String) ： 地域名称
-  * Key —— (String) ： 文件名称
   * Quiet —— (Boolean)  ： 布尔值，这个值决定了是否启动Quiet模式，True启动Quiet模式，False启动Verbose模式，默认False
     父节点：Delete
   * Objects —— (Array) ： 要删除的文件列表
@@ -1302,7 +1301,7 @@ var params = {
 	'x-cos-meta-*' : 'STRING_VALUE'					/* 非必须 */
 };
 
-cos.MultipartInit(params, function(err, data) {
+cos.multipartInit(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1371,7 +1370,7 @@ var params = {
 	UploadId : 'STRING_VALUE',						/* 必须 */
 };
 
-cos.MultipartUpload(params, function(err, data) {
+cos.multipartUpload(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1433,7 +1432,7 @@ var params = {
 	]
 };
 
-cos.MultipartComplete(params, function(err, data) {
+cos.multipartComplete(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1492,7 +1491,7 @@ var params = {
 	PartNumberMarker : 'STRING_VALUE'				/* 非必须 */
 };
 
-cos.MultipartListPart(params, function(err, data) {
+cos.multipartListPart(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1562,7 +1561,7 @@ var params = {
 	UploadId : 'STRING_VALUE'						/* 必须 */
 };
 
-cos.MultipartAbort(params, function(err, data) {
+cos.multipartAbort(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
@@ -1616,7 +1615,7 @@ var params = {
 	UploadIdMarker : 'STRING_VALUE'					/* 非必须 */
 };
 
-cos.MultipartList(params, function(err, data) {
+cos.multipartList(params, function(err, data) {
 	if(err) {
 		console.log(err);
 	} else {
