@@ -3,16 +3,44 @@
 - 内网访问：使用在同一个可用区的CVM来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台CVM需要与数据库同时处于基础网络中，或者属于同一个VPC，关于VPC的更多信息请查看<a href="https://www.qcloud.com/document/product/215/535" target="_blank">VPC概述</a>。）
 
 # 外网访问
+请根据外网中主机的操作系统选择对应的登录方式：
+
+**- Windows：**
+
 1. 在腾讯云控制台中，选择**云产品**-**关系型数据库**-**MySQL-实例列表**，选择状态为运行中的目标实例，点击**登录**。
 ![](//mc.qcloudimg.com/static/img/248ca91c3b13e3f249c752f43019ed1a/image.png)
 1. 在数据管理控制台的登录界面，帐号输入root，密码为之前在初始化选项中配置的root账户的密码，点击**登录**来登录。
 ![](//mc.qcloudimg.com/static/img/b5538d93dc27d99af6fed9f0e5c9b798/image.png)
 
-1. 在数据管理页面可以查看实例的状态和基本信息。点击**反馈PMA**访问数据库。
+1. 在数据管理页面可以查看实例的状态和基本信息。点击**返回PMA**访问数据库。
 ![](//mc.qcloudimg.com/static/img/ceab808b44adf5feba818e70a079b83e/image.png)
 
 1. 您现在已经通过phpMyAdmin成功连接到MySQL数据库，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/c8f60117f5aec772663d3c7890c96b1e/image.png)
+
+**-Linux：**
+
+1）在腾讯云控制台中，选择**云产品**-**关系型数据库**-**MySQL-实例列表**，点击目标实例的ID进入实例详情页。
+![](//mc.qcloudimg.com/static/img/018350e48f1d535d105c3c6340d36b2d/image.png)
+2）在实例详情页点击外网地址后的**开启**，设置外网访问帐号cdb_outerroot对应的密码，点击**确定**。
+![](//mc.qcloudimg.com/static/img/730e65a8b10f429a80ea15456b9a7193/image.png)
+![](//mc.qcloudimg.com/static/img/48a8489d3c0341ef87627fdc108f93e7/image.png)
+3）实例详情页会显示开通后的外网地址，随后的步骤里会用到此地址。
+![](//mc.qcloudimg.com/static/img/3d1176c8958f8ffc0e1f2594fc7f3141/image.png)
+4）以CentOS 7.2 64位系统为例，利用CentOS自带的包管理软件Yum去下载安装MySQL客户端。
+	相关命令为：
+	```yum install mysql```
+5）使用MySQL命令行工具登录到MySQL。
+		相关命令为：
+		`mysql -h hostname -P port -u username -p`
+		请将hostname替换为目标MySQL数据库实例的外网IP地址，将port替换为外网端口号将username替换为默认的外网访问用户名cdb_outerroot，并在提示Enter password：后输出cdb_outerroot账户对应的密码。
+		本例中hostname为59281c4e4b511.gz.cdb.myqcloud.com，外网端口号为15311。
+![](//mc.qcloudimg.com/static/img/48df6390ccf7669d04403cd84b8b6fad/image.png)
+
+6）在MySQL>提示符下可以发送SQL语句到要执行的MySQL服务器，具体命令行请参考此网站：https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html
+
+	下图中以show databases；为例。
+![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
 # 内网访问
 1. 登录到与此数据库实例属于同一个可用区的网络可达的CVM主机，关于登录CVM主机请查看<a href="https://www.qcloud.com/document/product/213/2764" target="_blank">WIndows CVM入门</a>或<a href="https://www.qcloud.com/document/product/213/2936" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MySQL数据库实例都处于基础网络之中，或者处于同一个VPC中。
@@ -50,9 +78,9 @@
 	2）使用MySQL命令行工具登录到MySQL。
 		相关命令为：
 		`mysql -h hostname -u username -p`
-		请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为默认的用户名root，并在提示password：后输出root账户对应的密码。
+		请将hostname替换为目标MySQL数据库实例的内网IP地址，将username替换为默认的用户名root，并在提示Enter password：后输出root账户对应的密码。
 		本例中hostname为10.66.238.24。
-		![](//mc.qcloudimg.com/static/img/d1da9f59f0fff77ad2a8ff18e0b11e7c/image.png)
+![](//mc.qcloudimg.com/static/img/d1da9f59f0fff77ad2a8ff18e0b11e7c/image.png)
 
 	3）在MySQL>提示符下可以发送SQL语句到要执行的MySQL服务器，具体命令行请参考此网站：https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html
 
