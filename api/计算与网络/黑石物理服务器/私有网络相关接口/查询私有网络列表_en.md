@@ -35,7 +35,7 @@ When no parameter is passed for the API, the first 20 VPCs in the default sort o
 | data.n.subnetNum | Int | Number of subnets under the VPC. |
 | data.n.createTime | String | Creation time of the VPC. |
 
-  ## 4. Error Codes
+## 4. Error Codes
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|

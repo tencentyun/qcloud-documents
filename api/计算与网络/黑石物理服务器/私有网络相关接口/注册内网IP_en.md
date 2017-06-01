@@ -30,7 +30,7 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 | data.n | Array | The array of IPs registered successfully. |
 
 
-  ## 4. Error Codes
+## 4. Error Codes
 
  | Error Code | Error message | Description |
 |---------|---------|---------|
