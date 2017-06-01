@@ -233,7 +233,7 @@ userConfig = new TIMUserConfigMsgExt(userConfig)
 		.enableReadReceipt(true);
 
 //资料关系链扩展用户配置
-userConfig = new TIMUserConfigSnsExt(msgExt)
+userConfig = new TIMUserConfigSnsExt(userConfig)
 		//开启资料关系链本地存储
 		.enableFriendshipStorage(true)
 		//设置关系链变更事件监听器
