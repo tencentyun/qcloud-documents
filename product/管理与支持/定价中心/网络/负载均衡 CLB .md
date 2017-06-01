@@ -32,7 +32,7 @@ CLB 定价主要包括实例租用费和后端服务器带宽流量费。
 
 ### 官网购买
 
-登录腾讯云 [负载均衡服务购买页](http://manage.qcloud.com/shoppingcart/shop.php?tab=lb)，可购买负载均衡产品。
+登录腾讯云 [负载均衡服务购买页](https://buy.qcloud.com/lb)，可购买负载均衡产品。
 
 ### API 购买
 

@@ -8,7 +8,7 @@
 [点击下载 Android SDK >>](https://mc.qcloudimg.com/static/archive/bb98fef0f1ce611e5fb04aeb01f7eeab/httpdns-android-sdk-master.zip)
 
 注意：
-如果客户端的业务是与host绑定的，比如是绑定了host的http服务或者是cdn的服务，那么在用HTTPDNS返回的IP替换掉URL中的域名以后，还需要指定下Http头的Host字段。以curl为例，假设你要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：`curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt`
+如果客户端的业务是与host绑定的，比如是绑定了host的http服务或者是cdn的服务，那么在用HttpDNS返回的IP替换掉URL中的域名以后，还需要指定下Http头的Host字段。以curl为例，假设你要访问www.qq.com，通过HttpDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：`curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt`
 
 名词解释：
 DNS_KEY，DNS_ID，开通使用httpdns时，会分配对应业务的ID和KEY，ID和KEY是与产品绑定的，不能修改，通过接口使用httpdns时，需要提供ID与KEY，具体参照接口调用手册
