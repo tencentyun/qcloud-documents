@@ -4,6 +4,6 @@ Besides, if you have customized screenshot specifications, you can submit a tick
 
 ## Standard Output Specifications of Image Sprite in VOD System
 
-| Specifications | Width of Small Image | Height of Small Image | Number of Rows of Small Image | Number of Columns of Small Image | Screenshot Interval | Filling Method |
+| Template ID | Width of Small Image | Height of Small Image | Number of Rows of Small Image | Number of Columns of Small Image | Screenshot Interval | Filling Method |
 |---------|---------|---------|---------|---------|---------|---------|
 | 10 | 142 | 80 | 10 | 10 | 10 | Filled with black |

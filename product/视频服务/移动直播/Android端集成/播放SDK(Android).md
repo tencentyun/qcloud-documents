@@ -145,7 +145,21 @@ mLivePlayer.stopRecord();
 - 录制的进度以时间为单位，由 ITXVideoRecordListener 的 	onRecordProgress 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的 	onRecordComplete 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://www.qcloud.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
- 
+
+
+### step 10:视频截图
+视频截图功能满足了观众想将主播直播过程中的精彩画面进行截图保存的需求。视频截图只会截图当前视频流的一帧原始画面，而不会截取整个屏幕内容。
+```
+mLivePlayer.snapshot(new ITXSnapshotListener() {
+    @Override
+    public void onSnapshot(Bitmap bmp) {
+        if (null != bmp) {
+           //获取到截图bitmap
+        }
+    }
+});
+```
+
 ## 状态监听
 腾讯云 RTMP SDK 一直坚持白盒化设计原则，你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（质量反馈）通知给您。
 
