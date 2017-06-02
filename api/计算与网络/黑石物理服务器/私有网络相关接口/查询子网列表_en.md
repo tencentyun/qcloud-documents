@@ -34,7 +34,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.cidrBlock | String | Subnet network segment, for example: 192.168.0.0/25. |
 | data.n.zoneId | String | ID of the availability zone in which the subnet resides. For example: 200001. |
 
- ## 4. Error Codes
+## 4. Error Codes
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|
