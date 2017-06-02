@@ -1,8 +1,5 @@
 
-
-![](//mc.qcloudimg.com/static/img/9d0f230cf9ba1de913d75df2cda1bb60/image.png)
-
-您已经向bucket里添加了一个Object，如果你想查看有关Object的信息，并且将Object下载至本地
+您已经向Bucket里添加了一个Object，如果你想查看有关Object的信息，并且将Object下载至本地
 
 - 首先进入 COS 管理控制台，点击 Object 所在的 Bucket，在 Object 列表右侧，点击 **文件信息**：
 
