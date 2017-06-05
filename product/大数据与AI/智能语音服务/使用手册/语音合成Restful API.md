@@ -145,6 +145,139 @@ HRCKlbwPhWtVvfGn914qE5O1rwc=
 |1002|语音合成失败|
 |1003|语音转码失败|
 
+## Python代码示例
+```python
+#!/usr/bin/python
+# coding: UTF-8
+
+import requests
+import time
+import random
+import hmac, hashlib, base64
+import json
+
+appid = 0
+secret_id = 'your_secret_id'
+secret_key = 'your_secret_key'
+
+args = {
+        'secretid': secret_id,
+        'projectid': 0,
+        'sub_service_type': 0,
+        'speech_format': 'mp3',
+        'volume': 2,
+        'person': 0,
+        'speed': 0,
+        'timestamp': int(time.time()),
+        'expired': int(time.time()) + 60 * 60,
+        'nonce': random.randint(1048576, 104857600),
+}
+
+query_str = "&".join(["%s=%s"%(k,args[k]) for k in sorted(args.keys())])
+calc_str = "POSTaai.qcloud.com/tts/v1/%(appid)s?%(query_str)s"%vars()
+hashed = hmac.new(secret_key, calc_str, hashlib.sha1)
+headers = {"Authorization": base64.b64encode(hashed.digest())}
+
+url = "http://aai.qcloud.com/tts/v1/%(appid)s?%(query_str)s"%vars()
+upload_file = "hello.txt"
+files = {"file": open(upload_file, "rb")}
+resp = requests.post(url=url, files=files, headers=headers)
+resp = json.loads(resp.text)
+data = base64.b64decode(resp["speech"])
+
+f = open("hello.mp3", "w")
+f.write(data)
+f.close()
+```
+## PHP版本
+```php
+<?php
+ini_set("display_errors", "1");
+error_reporting(E_ALL);
+$serverIp = "aai.qcloud.com";
+$serverPort = 80;
+
+$appid = YOUR_APPID;
+// 获取secretId 和 secretKey -> https://console.qcloud.com/capi
+$secret_id = 'YOUR_SECRET_ID';
+$secret_key = 'YOUR_SECRET_KEY';
+
+$query_arr = array(
+    'secretid' => $secret_id,
+    'projectid' => 0,
+    'sub_service_type' => 0,
+    'speech_format' => 'mp3',
+    'volume' => 2,
+    'person' => 0,
+    'speed' => 0,
+    'timestamp' => time(),
+    'expired' => time() + 60 * 60,
+    'nonce' => rand(),
+);
+
+ksort($query_arr);
+$query_str = "";
+foreach($query_arr as $key => $val) {
+    $query_str .= "$key=$val&";
+}
+$query_str = trim($query_str, "&");
+
+// 计算签名
+$sign_str = "POSTaai.qcloud.com/tts/v1/$appid?$query_str";
+$signature = base64_encode(hash_hmac('SHA1', $sign_str, $secret_key, TRUE));
+
+// 请求消息体，multipart/form-data格式
+$form_boundary = "----WebKitFormBoundarybS1Fvrpes3yfBSvu";
+$body_str = "--$form_boundary\r\n";
+$body_str .= "Content-Disposition: form-data; name=".'"'."test1".'"'."; filename=".'"'."test_upload.txt".'"'."\r\n";
+$body_str .= "Content-Type: application/octet-stream\r\n";
+$body_str .= "\r\n";
+$body_str .= "你好啊吃饭了没\r\n";
+$body_str .= "--$form_boundary\r\n";
+$body_str .= "Content-Disposition: form-data; name=".'"'."test2".'"'."; filename=".'"'."debug.log".'"'."\r\n";
+$body_str .= "Content-Type: application/octet-stream\r\n";
+$body_str .= "\r\n";
+$body_str .= "最近雾霾很严重最好留在室内\r\n";
+$body_str .= "--$form_boundary\r\n";
+$body_str .= 'Content-Disposition: form-data; name="submit"'."\r\n";
+$body_str .= "\r\n";
+$body_str .= "Submit\r\n";
+$body_str .= "--$form_boundary--\r\n";
+
+$req = "POST /tts/v1/$appid?$query_str HTTP/1.1 \r\n";
+$req .= "Host: aai.qcloud.com\r\n";
+$req .= "Authorization: $signature\r\n";
+$req .= "Content-Type: multipart/form-data; boundary=$form_boundary\r\n";
+$req .= "Content-Length: ";
+$req .= strlen($body_str);
+$req .= "\r\n\r\n";
+$req .= $body_str;
+echo "=================== req start ===================\n";
+echo "$req\n";
+echo "=================== req end ===================\n";
+$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+if($socket < 0){
+    echo "socket_create failed : ".socket_strerror($socket)."\n";
+    return ;
+}
+$res = socket_connect($socket, $serverIp,$serverPort);
+if($res < 0){
+    echo "socket_connect failed : ".socket_strerror($res)."\n";
+    return ;
+}
+$res = socket_write($socket,$req,strlen($req));
+if(!$res){
+    echo "socket_write failed : ".socket_strerror($socket)."\n";
+    return ;
+}
+$rsp = "";
+while($tmprsp = socket_read($socket,8192)){
+    $rsp .= $tmprsp;
+}
+echo "=================== resp ===================\n";
+echo "rsp :\n".$rsp."\n";
+socket_close($socket);
+```
 
 ## PHP代码示例
 ```php
