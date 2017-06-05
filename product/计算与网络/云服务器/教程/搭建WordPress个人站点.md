@@ -13,7 +13,7 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 
 **PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。点击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
 
-## 步骤 1：创建并运行云服务器
+## 步骤 一：创建并运行云服务器
 1. 请根据您的需要 [购买云服务器](https://buy.qcloud.com/cvm?regionId=8&projectId=8)。
 以下创建指引供您参考：
 [创建 Linux 云服务器](https://www.qcloud.com/document/product/213/2972)
@@ -23,7 +23,8 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 本教程中云主机的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
 - 云主机用户名和密码；
 - 云主机公网 IP。
-## 步骤 2：搭建 LNMP 环境
+
+## 步骤 二：搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MySQL 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建好云主机之后，您可以开始进行 LNMP 环境搭建。
 > Linux：Linux 系统（本文为 CentOS 6.8）；
 Nginx：Web 服务器程序，用来解析 Web 程序；
@@ -168,7 +169,7 @@ http://云主机的公网 IP/index.php
 页面显示 “Hello World!”，则说明 LNMP 环境配置成功。
 ![验证环境1](//mc.qcloudimg.com/static/img/88de64e6ff862edfeae10acb2ee787ec/image.png)
 
-## 步骤 3：安装和配置 WordPress
+## 步骤 三：安装和配置 WordPress
 ### 3.1 下载 WordPress
 腾讯云提供了 Yum 下载源，但内置 WordPress 安装包为英文版，考虑到用语习惯，您也可以从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装。本教程正是采用的 WordPress 中文版本。
 1. 先删除网站根目录下的`index.html`文件。
