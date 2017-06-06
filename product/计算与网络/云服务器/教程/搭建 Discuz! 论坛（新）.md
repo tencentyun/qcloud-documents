@@ -208,6 +208,7 @@ cp -r upload/* /var/www/html/
 ```
 chmod -R 777 /var/www/html
 ```
+
 #### 4.3 安装 Discuz!
 至此，论坛已经完全搭建完毕，可以在浏览器中进行安装了。
 1. 在 Web 浏览器地址栏输入步骤四中配置好的域名或 Discuz! 站点的 IP 地址（云主机的公网 IP 地址），可以看到 Discuz! 安装界面，就可以开始安装 Discuz! 了。单击【我同意】，然后选择【下一步】。
