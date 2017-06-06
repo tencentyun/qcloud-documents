@@ -145,6 +145,50 @@ HRCKlbwPhWtVvfGn914qE5O1rwc=
 |1002|语音合成失败|
 |1003|语音转码失败|
 
+## Python代码示例
+```python
+#!/usr/bin/python
+# coding: UTF-8
+
+import requests
+import time
+import random
+import hmac, hashlib, base64
+import json
+
+appid = 0
+secret_id = 'your_secret_id'
+secret_key = 'your_secret_key'
+
+args = {
+        'secretid': secret_id,
+        'projectid': 0,
+        'sub_service_type': 0,
+        'speech_format': 'mp3',
+        'volume': 2,
+        'person': 0,
+        'speed': 0,
+        'timestamp': int(time.time()),
+        'expired': int(time.time()) + 60 * 60,
+        'nonce': random.randint(1048576, 104857600),
+}
+
+query_str = "&".join(["%s=%s"%(k,args[k]) for k in sorted(args.keys())])
+calc_str = "POSTaai.qcloud.com/tts/v1/%(appid)s?%(query_str)s"%vars()
+hashed = hmac.new(secret_key, calc_str, hashlib.sha1)
+headers = {"Authorization": base64.b64encode(hashed.digest())}
+
+url = "http://aai.qcloud.com/tts/v1/%(appid)s?%(query_str)s"%vars()
+upload_file = "hello.txt"
+files = {"file": open(upload_file, "rb")}
+resp = requests.post(url=url, files=files, headers=headers)
+resp = json.loads(resp.text)
+data = base64.b64decode(resp["speech"])
+
+f = open("hello.mp3", "w")
+f.write(data)
+f.close()
+```
 
 ## PHP代码示例
 ```php
