@@ -3,8 +3,8 @@ var querystring = require("querystring");
 var crypto = require('crypto');
 
 // 确定APP的云API密钥
-var secret_id = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
-var secret_key = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
+var secret_id = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+var secret_key = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
 
 // 确定签名的当前时间和失效时间
 var current = parseInt((new Date()).getTime() / 1000)

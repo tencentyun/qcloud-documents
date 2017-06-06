@@ -13,4 +13,4 @@ The real-time status of the entire network is shown below:
 
 ## Network Monitoring
 In this page, you can query for historical record of latency and availability curve graph of specified region and carrier in specified time range:
-![](https://mc.qcloudimg.com/static/img/22a76d7228081546d446c3dc52853d08/globao_query.png)
+![](https://mc.qcloudimg.com/static/img/a87da04d5cc1d2bcd5858aa65a2c1fb3/2.png)

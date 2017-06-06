@@ -3,31 +3,29 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 ## 相关简介
 以下是本教程中，将会使用的服务或工具：
 
-**云服务器 CVM**：本教程使用腾讯云云服务器 CVM （以下简称 CVM ）创建云主机，来完成搭建 WordPress 搭建工作。
+**云服务器 CVM**：本教程使用腾讯云云服务器 CVM （以下简称 CVM ）创建云主机，来完成 WordPress 搭建工作。
  
 **域名注册**：如果想要使用易记的域名访问您的 WordPress 站点，可以使用腾讯云域名注册服务来购买域名。
  
 ** 网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
 
-**云解析**：在腾讯云云解析配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。
+**云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
 
 **PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。点击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
 
 ## 步骤 1：创建并运行云服务器
 1. 请根据您的需要 [购买云服务器](https://buy.qcloud.com/cvm?regionId=8&projectId=8)。
 以下创建指引供您参考：
-[创建 Windows 云服务器](https://www.qcloud.com/document/product/213/2763)
 [创建 Linux 云服务器](https://www.qcloud.com/document/product/213/2972)
 2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.qcloud.com/cvm)  查看或编辑云主机状态。
 ![云主机1](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
 
 本教程中云主机的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
-云主机用户名和密码；
-云主机公网 IP。
-
+- 云主机用户名和密码；
+- 云主机公网 IP。
 ## 步骤 2：搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MySQL 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建好云主机之后，您可以开始进行 LNMP 环境搭建。
-> Linux：Linux 环境（本文为 CentOS 6.8）；
+> Linux：Linux 系统（本文为 CentOS 6.8）；
 Nginx：Web 服务器程序，用来解析 Web 程序；
 MySQL：一个数据库管理系统；
 PHP：Web 服务器生成网页的程序。
@@ -36,8 +34,8 @@ PHP：Web 服务器生成网页的程序。
 > 搭建过程中将会用到 Yum 命令、Vim 命令以及相关 PuTTY 命令 。
 
 ### 2.1 运行 PuTTY 连接 Linux 云主机
-1. 请下载 PuTTY 到您的电脑，打开下载所在文件夹，解压文件；双击 “putty.exe”，出现配置界面。
-2. 选择 “Session”，在 “Host Name (or IP address)” 输入框中输入欲访问的主机名或 IP，如 “server1” 或 “192.168.2.10”。本教程输入的是已启动的云主机公网 IP。其他配置保持默认。
+1. 请 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524) 到您的电脑，打开下载所在文件夹，解压文件；双击 “putty.exe”，出现配置界面。
+2. 选择 “Session”，在 “Host Name (or IP address)” 输入框中输入欲访问的主机名或 IP，如 “server1” 或 “192.168.2.10”。本教程输入的是云主机的公网 IP。其他配置保持默认。
 3. 在 “Saved Sessions” 输入栏中命名会话，单击 “Save” ，即可保存会话配置。
 ![putty1](//mc.qcloudimg.com/static/img/a7f57ac399e06522be67de3cf9d264e0/image.png)
 4. 配置完成后单击 “Open” 按钮，将会出现确认证书的提示窗，请选择 “是” 。
@@ -125,6 +123,7 @@ service mysqld start
 ```
  /usr/bin/mysqladmin -u root password "123456"
 ```
+
 #### 2.3.3 配置 PHP
 1. 启动 PHP-FPM 服务。
 ```
@@ -171,7 +170,7 @@ http://云主机的公网 IP/index.php
 
 ## 步骤 3：安装和配置 WordPress
 ### 3.1 下载 WordPress
-腾讯云提供了 Yum 下载源，但内置 WordPress 安装包为英文版，出于方便使用的考虑，本教程从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装。
+腾讯云提供了 Yum 下载源，但内置 WordPress 安装包为英文版，考虑到用语习惯，您也可以从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装。本教程正是采用的 WordPress 中文版本。
 1. 先删除网站根目录下的`index.html`文件。
 ```
 rm /usr/share/nginx/html/index.html
@@ -194,6 +193,7 @@ tar zxvf wordpress-4.7.4-zh_CN.tar.gz
 mysql -uroot -p
 ```
 在系统提示时，输入密码（步骤 2.3.2 已设置 MySQL root 用户的密码为 123456）登录。
+
 2. 为 WordPress 创建数据库并设置用户名和密码（本教程设置如下，您可自行定义）。
 为 WordPress 创建 MySQL 数据库 “wordpress”。
 ```
@@ -207,14 +207,17 @@ CREATE USER user@localhost;
 ```
 SET PASSWORD FOR user@localhost=PASSWORD("wordpresspassword");
 ```
+
 3. 为创建的用户开通数据库 “wordpress” 的完全访问权限。
 ```
 GRANT ALL PRIVILEGES ON wordpress.* TO user@localhost IDENTIFIED BY 'wordpresspassword';
 ```
+
 4. 使用以下命令使所有配置生效。
 ```
 FLUSH PRIVILEGES;
 ```
+
 5. 配置完成，退出 MySQL。
 ```
 exit
@@ -256,7 +259,7 @@ define('DB_HOST', 'localhost');
 ```
 mv * /usr/share/nginx/html/
 ```
-2. 在 Web 浏览器地址栏输入 WordPress 站点的 IP 地址（云主机的公网 IP 地址，或者该地址后跟wordpress文件夹），可以看到 WordPress 安装屏幕，就可以开始配置 WordPress。
+2. 在 Web 浏览器地址栏输入 WordPress 站点的 IP 地址（云主机的公网 IP 地址，或者该地址后跟 “wordpress文件夹”），可以看到 WordPress 安装屏幕，就可以开始配置 WordPress。
 ![配置WP1](//mc.qcloudimg.com/static/img/6012d2bcc2f5a5a78e333e57f08545f6/image.png)
 3. 将其余安装信息输入WordPress 安装向导，单击 “安装 WordPress” 完成安装。
 
@@ -271,9 +274,8 @@ mv * /usr/share/nginx/html/
 
 ## 后续步骤
 1. 您可以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
-建议通过 [腾讯云购买域名](https://dnspod.qcloud.com/?from=qcloud)。 
+您可以通过 [腾讯云购买域名](https://dnspod.qcloud.com/?from=qcloud)。 
 
-2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，一般审核时间为20天左右。请您耐心等待。
-
+2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，一般审核时间为20天左右。
 3. 您需要在腾讯云 [云解析](https://console.qcloud.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://www.qcloud.com/document/product/302/3446)。
  
