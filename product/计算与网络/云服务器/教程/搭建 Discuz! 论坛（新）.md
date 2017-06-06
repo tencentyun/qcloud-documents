@@ -81,6 +81,8 @@ PHP：Web 服务器生成网页的程序。
 ![安装4](//mc.qcloudimg.com/static/img/b2729abfc2e3fd5679ab8d1e7efc102b/image.png)
 5. 安装完成后，您可以访问论坛。
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
+ 
+镜像安装更多相关问题，请参考 [Discuz! 镜像安装手册](http://www.websoft9.com/xdocs/discuz-image-guide)。
 
 ## 自主安装
 对于想自主安装 Discuz! 论坛的用户，您可以参考以下教程：
