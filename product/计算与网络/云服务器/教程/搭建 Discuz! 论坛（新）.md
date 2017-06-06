@@ -216,7 +216,7 @@ chmod -R 777 /var/www/html
 ![安装2](//mc.qcloudimg.com/static/img/c5a521673ed6f1a3528ba67ca5886ee4/image.png)
 3. 进入设置运行环境步骤，此教程中选择全新安装，继续【下一步】。
 ![安装3](//mc.qcloudimg.com/static/img/11a44bd86bfdfcd1fe3dcce6e8f200e6/image.png)
-4. 在安装数据库步骤中，为 Discuz! 创建一个数据库，
+4. 在安装数据库步骤中，为 Discuz! 创建一个数据库，使用步骤 2.2 设置的 root 账号和密码连接数据库。
 **注意**：请记住自己的管理员用户和密码。
 ![安装4](//mc.qcloudimg.com/static/img/8aef8e7750a2cba4dfa0a39aacad8023/image.png)
 5. 安装完成后，您可以访问论坛。
