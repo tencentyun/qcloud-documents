@@ -1,4 +1,4 @@
-## 1. Foreword About System Architecture
+## 1. Overview of System Architecture
 ### 1.1 High Availability Architecture
 The production system usually needs a high availability solution to ensure an uninterrupted operation of the system. Database is the core of system data storage and service, so the availability requirements for it is higher than that for computing service resources. Currently, a common high availability solution of databases is to make multiple databases work collaboratively. In this way, when one database fails, other databases can immediately replace it to continue the work, ensuring uninterrupted or shortly interrupted service. Another solution is to make multiple databases provide services simultaneously and allow users to access any database. In this way, when one database fails, users can immediately access another database.
 To switch between multiple databases, the data recorded in them must be synced, so **data synchronization technology is the basis of the database high availability solution**. Currently, the data replication methods include the following:
@@ -23,7 +23,7 @@ To switch between multiple databases, the data recorded in them must be synced, 
 - **Trigger-based synchronization**: use triggers to record data changes and synchronize the changes to another database.
 
 
-- **Middleware-based synchronization**: the system is connected to a middleware instead of the underlying databasess. The middleware sends the database changes to multiple underlying databases for data synchronization. A few years ago, some software developers usually use such an architecture due to factors such as business needs, database performance and synchronization mechanism.
+- **Middleware-based synchronization**: the system is connected to a middleware instead of the underlying databases. The middleware sends the database changes to multiple underlying databases for data synchronization. A few years ago, some software developers usually use such an architecture due to factors such as business needs, database performance and synchronization mechanism.
 
 
 
