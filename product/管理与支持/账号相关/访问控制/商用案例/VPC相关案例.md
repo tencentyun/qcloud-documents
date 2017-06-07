@@ -1,4 +1,4 @@
-**授权子帐号拥有VPC所有权限**
+### 授权子帐号拥有VPC所有权限
 
 企业帐号CompanyExample下有一个子账号Developer，该子账号需要拥有对企业帐号CompanyExample名下所有VPC资源的读写权限。
 
@@ -24,7 +24,7 @@ step1：通过策略语法方式创建以下策略
 
 step2：将该策略授权给子账号。授权方式请参考[授权管](https://www.qcloud.com/document/product/378/8961)理。
 
-**授权子帐号拥有VPC只读权限**
+### 授权子帐号拥有VPC只读权限
 
 企业帐号CompanyExample下有一个子账号Developer，该子账号需要拥有对企业帐号CompanyExample名下所有VPC资源的只读权限。
 
@@ -54,7 +54,7 @@ step1：通过策略语法方式创建以下策略
 
 step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
 
-**授权子帐号管理VPC，但不能操作路由表**
+### 授权子帐号管理VPC，但不能操作路由表
 
 企业帐号CompanyExample下有一个子账号Developer，该子账号需要管理企业帐号CompanyExample名下所有VPC资源，但不能操作CompanyExample名下的路由表。
 
