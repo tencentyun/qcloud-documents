@@ -158,6 +158,6 @@ The configuration is successful if both Slave_IO_Running and Slave_SQL_Running a
 
 - You can mount multiple self-build read-only instances. However, it is recommended to limit the quantity to 4 to ensure the business performance.
 
-- Currently, the feature of self-build read-only instance is provided free of charge.
+- Currently, the feature of self-built read-only instance is provided free of charge.
 
 

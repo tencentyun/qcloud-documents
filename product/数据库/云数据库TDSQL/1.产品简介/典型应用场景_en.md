@@ -2,7 +2,7 @@
 
 Data is indispensable to enterprise operations. Informatization brings convenience while it has drawbacks that electronic data and stored information are easy to damage and lose. Facing natural disasters, system failures, employee misoperation and virus infection, enterprises may suffer operation interruption and even catastrophic losses due to any of the accidents. Therefore, each enterprise must ensure the security and integrity of data, especially the core database.
 
-However, to built a remote data disaster recovery center is usually a great expenditure for enterprises, including huge costs for hardware and software in the data center and annual operating costs for continuous maintenance. Spending so much money for accidents of low probability does not match enterprises' financial needs.
+However, building a remote data disaster recovery center is usually a great expenditure for enterprises, including huge costs for hardware and software in the data center and annual operating costs for continuous maintenance. Spending so much money for accidents of low probability does not match enterprises' financial needs.
 
 Therefore, you can use cloud databases and cloud access products to directly build a cloud data disaster recovery center database. In this way, you can synchronize the data in main data center to the cloud remote backup center through the security private network. It helps you operate and manage massive data in a cost-effective manner.
  
