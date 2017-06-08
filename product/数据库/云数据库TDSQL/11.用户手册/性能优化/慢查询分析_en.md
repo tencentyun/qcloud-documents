@@ -1,12 +1,12 @@
-## 1. Feature description
+## 1. Feature Description
 Slow log indicates that a SQL query statement takes more than defined time to execute, and the corresponding statement refers to "slow log statement". Slow log analysis indicates the process during which a database administrator (DBA) analyzes the slow log statement and finds the reasons for the slow log.
 
 CDB for MariaDB (TDSQL) provides the capacity of slow log analysis under the module "Instance Management" - "Performance Optimization".
 
-## 2. Main parameters
+## 2. Main Parameters
 ### 2.1 Main default settings
 -   Slow log feature: It is enabled by default
--   Slow log time (long_query_time): Default is 1 second, that is, only slow log statement with query time longer than 1 second can be recorded.
+-   Slow log time (long_query_time): Default value is 1 second, that is, only slow log statement with query time longer than 1 second can be recorded.
 -   Delay time of analysis data output: 1-5 minutes.
 -   Log retention period: 30 days, which is determined based on the cycle of backups and logs.
 

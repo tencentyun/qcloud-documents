@@ -1,5 +1,5 @@
 ## 1. Introduction
-Tencent Cloud CDB for MariaDB (TDSQL) is a highly secure enterprise-level cloud database under the OLTP scenario and has been serving Tencent's billing business for more than 10 years. [CDB for MariaDB (TDSQL) is compatible with MySQL syntaxes](https://www.qcloud.com/document/product/237/6988), with advanced features such as thread pool, auditing, cross-region disaster recovery. Like other cloud databases, it is easy to expand, simple and cost-efficient.
+Tencent Cloud CDB for MariaDB (TDSQL) is a highly secure enterprise-level cloud database under the OLTP scenario and has been serving Tencent's billing business for more than 10 years. [CDB for MariaDB (TDSQL) is compatible with MySQL syntaxes](https://www.qcloud.com/document/product/237/6988). With advanced features such as thread pool, auditing, cross-region disaster recovery, TDSQL is expandable, simple and cost-efficient.
 
 ## Development History
 

@@ -10,7 +10,7 @@ Click and select the instance to purchase in the Tencent Cloud Product Purchase 
 - The upgrade process cannot be aborted once it begins
 - Degrade is currently not supported by the console. Submit a ticket if you wish to degrade your instance
 
-1.	Go to "Console" -> "Cloud Database" -> "MariaDB (TDSQL)", select the instance to be upgraded, and then click "Upgrade" to open the upgrade pop-up window
+1.	Go to "Console" -> "Cloud Database" -> "MariaDB (TDSQL)", select the instance to be upgraded, and then click "Upgrade" to open the upgrade pop-up window.
 
 2. In the pop-up window, select the target specification based on your need and make the payment. After the successful payment, the system will automatically upgrade the instance to the specified specification.
 Upgrade interface:

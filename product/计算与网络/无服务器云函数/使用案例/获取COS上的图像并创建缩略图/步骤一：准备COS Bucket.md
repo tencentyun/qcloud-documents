@@ -1,0 +1,15 @@
+请确保您在执行此示例时，已经获得了 SCF 使用权限。申请内测权限请点击[这里](https://www.qcloud.com/act/apply/SCF)
+
+```
+注意：
+源 Bucket、目标 Bucket 和函数必须位于同一个地域下。在本教程中，我们将使用华南（广州）区域。
+```
+1) 登录腾讯云控制台，选择【对象存储服务】。
+
+2) 点击【Bucket列表】选项卡下的【创建Bucket】按钮，新建源 COS Bucket。
+
+3) 设置COS Bucket的名称如`mybucket`，选择地域为`华南`，设置访问权限为默认值`公有读私有写`并设置CDN加速为默认值`关闭`，点击【保存】按钮新建一个COS Bucket。
+
+4) 按照相同的方式创建目标 Bucket `mybucketresized`
+
+5) 在源 Bucket（即mybucket）中，上传一个 .jpg 对象 HappyFace.jpg。（在实际关联 COS 前手动调用函数进行测试验证时，您要将包含该文件的示例数据传递给 SCF 函数，且 SCF 函数将根据该数据寻找相应的文件。因此您需要先创建此示例对象。）

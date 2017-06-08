@@ -10,5 +10,5 @@ Use the following steps:
 ![](//mccdn.qcloud.com/static/img/6745a9fe2877d953d07de00cfaade272/image.png)
 5.	Rollback is successful. Since you choose not to overwrite the source database, so you can see a generated clone database in the Database Management page
 ![](//mccdn.qcloud.com/static/img/5e8c765027e5acea83a52f4b7e8203d2/image.png)
-Note: Currently, only local instances can be rolled back. You can choose to overwrite the source database or generate a clone database. If you generate a clone database, the disk space after rollback cannot exceed that available for instance, otherwise the rollback will fail.
+Note: Currently, only local instances can be rolled back. You can choose to overwrite the source database or generate a clone database. If you generate a clone database, the disk space after rollback cannot exceed available space for instance, otherwise the rollback will fail.
 

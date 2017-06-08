@@ -13,7 +13,7 @@ Enterprises may be faced with the following security risks when using database. 
 
 **Technical risks**
 - Backdoor or bugs left by application system developers; 
-- Backdoor left by a departed employee.
+- Backdoor left by a former employee.
 
 **Policy risks**
 - The requirements of national level protection (level 3) (7.1.3.3) cannot be met;
