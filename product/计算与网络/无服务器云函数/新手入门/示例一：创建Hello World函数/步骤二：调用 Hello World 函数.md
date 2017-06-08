@@ -6,8 +6,7 @@
 ```
 {
   "key1": "test_1",
-  "key2": "test_2",
-  "key3": "test_3"
+  "key2": "test_2"
 }
 ```
 
