@@ -42,12 +42,12 @@ PHP：Web 服务器生成网页的程序。
 ![购买服务器](//mc.qcloudimg.com/static/img/f62666aee21008a0dee3b16422be9bcd/image.png)
 3. 创建云主机
 完成购买后，控制台开始创建一个新的云主机。创建完成后，云主机会自动处于运行中，请耐心等待 2-3 分钟后再进入步骤二。
-![获取Discuz2](//mc.qcloudimg.com/static/img/e8f6ff29add95aaadb09f3401a918093/image.png)
+![获取Discuz2改](//mc.qcloudimg.com/static/img/8c9ac3bbd8464cc9621f95f9a775889e/image.png)
  
 #### 注意：云主机的公网 IP 在后续步骤会使用到，请注意复制保存。
 ### 步骤二：验证 Discuz! 镜像 
 为确保镜像能够正常使用，需要进行镜像验证。镜像安装成功后，等待 3 分钟左右，即可使用浏览器打开网址 `http://云主机的公网 IP`， 访问正常会出现如下页面：
-![安装Discuz1](//mc.qcloudimg.com/static/img/6cc33ab8677f55fd3ae5e26df67a7953/image.png)
+![安装Discuz1改](//mc.qcloudimg.com/static/img/865f57d34c75853887597c361b629eeb/image.png)
 若等待很久都无反应，上图的页面不显示，请按照如下建议依次排除问题：
 - 重启服务器再试。
 - Ping 云主机的公网 IP 地址，查看网络连接是否可用。
@@ -58,7 +58,7 @@ PHP：Web 服务器生成网页的程序。
 
 ### 步骤三：配置域名（可选）
 您可以给自己的 Discuz! 论坛网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建论坛仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
-如果您使用 IP 直接安装，请跳过此步骤，直接进行步骤五。
+如果您使用 IP 直接安装，请跳过此步骤，直接进行步骤四。
 如果您已有域名或者想要通过域名来访问您的论坛，请参考以下步骤。
 1. 请通过腾讯云 [购买域名](https://dnspod.qcloud.com/?from=qcloud)，相关域名注册指南，请参考 [域名注册](https://www.qcloud.com/document/product/242/8582)。
 2. 请进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
