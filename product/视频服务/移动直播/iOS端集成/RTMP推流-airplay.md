@@ -100,8 +100,6 @@ config.customModeType      |= CUSTOM_MODE_AUDIO_CAPTURE; // AirPlay有自己的�
 config.audioSampleRate      = AUDIO_SAMPLE_RATE_44100;
 config.audioChannels        = 1;
 config.autoSampleBufferSize = YES;
-
-self.txLivePublisher = [[TXLivePush alloc] initWithConfig:config]
 ```
 
 customModeType支持TXAirPlayServerManager的两种videoOutputType方式。示例代码如下
@@ -116,6 +114,7 @@ if (version < 10.0) {
     config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE;
 }
 
+self.txLivePublisher = [[TXLivePush alloc] initWithConfig:config]
 ```
 
 iOS 10以下的系统不支持后台硬编，我们推荐TXAirPlayServerManager输出h264数据，然后由TXLivePush提供的CUSTOM_MODE_VIDEO_ENCODE_CONV转码模式进行重新编码，此模式对后台编码做了优化。
