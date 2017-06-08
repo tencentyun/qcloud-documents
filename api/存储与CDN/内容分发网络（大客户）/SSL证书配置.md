@@ -57,7 +57,7 @@ POST请求时，参数填充在HTTP Requestbody中，请求地址：
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
-参数支持 formdata、xwwwformurlencoded 等格式，参数数组如下：
+参数支持 formdata等格式，参数数组如下：
 
 ```
 array (
