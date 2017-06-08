@@ -17,7 +17,7 @@
 
 **注意事项**
 
-+ COS源、FTP源域名暂时无法设置为Https回源；
++ COS源、FTP源域名暂时无法设置为Https回源
 + 证书&私钥传递：请将证书、私钥内容按照base64编码后传输
 + httpsType与forceSwith不可同时为空
 
