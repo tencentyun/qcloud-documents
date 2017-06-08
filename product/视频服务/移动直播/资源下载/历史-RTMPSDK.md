@@ -1,3 +1,9 @@
+### Version 2.0.4
+- iOS：短视频编辑添加滤镜、水印、背景音、字幕、变速等功能。
+- Android：优化短视频裁剪、拼接功能，新增编辑滤镜功能。
+- iOS & Android：UGC录制增加美颜回调预处理接口。
+- iOS & Android：短视频上传增加断点续传能力。
+
 ### Version 2.0.3
 - Android：新增UGC裁剪与拼接功能。
 - Android：优化播放端Player及渲染View，支持动画、悬浮框、大小屏切换等。
