@@ -1,4 +1,6 @@
-##在OpenGL ES环境下的使用示例
+## 在OpenGL ES环境下的使用示例
+
+
 ```
 public class MyGLSurfaceView extends GLSurfaceView implements GLSurfaceView.Renderer, SurfaceTexture.OnFrameAvailableListener {
 	public GlRemoteDisplayView(Context context, AttributeSet attrs) {
