@@ -85,7 +85,7 @@ PHP：Web 服务器生成网页的程序。
 6. 安装完成后，单击【您的论坛已完成安装，点此访问】访问论坛。
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
  
-您还可以参考底部的视频，完成相关
+您还可以参考底部的视频，了解更多有关镜像安装 Discuz! 的信息。（仅供参考，以实际操作为准。）
 镜像安装更多相关问题，请参考 [Discuz! 镜像安装手册](http://www.websoft9.com/xdocs/discuz-image-guide)。
 
 ## 自主安装
@@ -220,4 +220,5 @@ chmod -R 777 /var/www/html
 ![安装4改](//mc.qcloudimg.com/static/img/5d5184cfb34f98d791c243273b910065/image.png)
 5. 安装完成后，单击【您的论坛已完成安装，点此访问】访问论坛。
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
-
+ 
+**观看视频**：
