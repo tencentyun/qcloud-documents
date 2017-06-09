@@ -4,10 +4,10 @@ CDN provides IP access frequency limit configuration which restricts how many ti
 ## Configuration Instructions
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 You can see **IP Access Frequency Limit** in "Access Control":
-![](https://mc.qcloudimg.com/static/img/050cb8156022370a1853090f30f38a06/ip_fre.png)
+![](https://mc.qcloudimg.com/static/img/0784483e76f03a7332d5fff0213351c5/2.png)
 
 ### Default Configuration
 By default, IP Access Frequency Limit configuration is disabled.
@@ -15,7 +15,7 @@ By default, IP Access Frequency Limit configuration is disabled.
 ### Custom Configuration
 Click "On" button to enable IP Access Frequency Limit configuration. The system will suggest a threshold according to the average daily accesses of a single IP in the recent 30 days. You can see the given default threshold in the **Current IP access limit** field:
 
-![](https://mc.qcloudimg.com/static/img/411468ed4240c34101f5007e55d72ba0/ip_fre_check.png)
+![](https://mc.qcloudimg.com/static/img/31400eda65e436b031c64835e377587a/3.png)
 
 **Note**:
 
@@ -24,7 +24,7 @@ Click "On" button to enable IP Access Frequency Limit configuration. The system 
 
 Click **Edit** button to customize the threshold:
 
-![](https://mc.qcloudimg.com/static/img/3f0ec3616983a0ab88edafc097b03c19/set_ip_freq.png)
+![](https://mc.qcloudimg.com/static/img/8409ed363c89690665681d7f63a3693e/4.png)
 
 **Note**:
 

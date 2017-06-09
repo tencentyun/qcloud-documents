@@ -21,6 +21,7 @@
 | 关闭服务器 | [ShutdownDevice](/doc/api/456/6639) | 用于关闭黑石物理服务器。 |
 | 重启服务器 | [RebootDevice](/doc/api/456/6729) | 用于重启黑石物理服务器。 |
 | 查询服务器所在位置 | [DescribeDevicePosition](/document/product/386/9242) | 查询服务器所在位置。 |
+| 修改服务器自动续费标志位 | [ModifyDeviceAutoRenewFlag](/document/product/386/9670) | 修改服务器自动续费标志位。 |
 
 
 ## 3. 带外相关接口

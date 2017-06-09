@@ -4,11 +4,11 @@ When resources have been updated at your origin server, you can use CDN's resour
 
 <font color="red">URL prefetch feature is under a Gray-box release. It will be fully available in the future.</font>
 
-## URL Refreshing
+## Purge URL
 
-Log in to [CDN Console](https://console.qcloud.com/cdn), select "Cache Refresh" menu on the left, and then select "URL Refresh":
+Log in to [CDN Console](https://console.qcloud.com/cdn), select "Purge Cache" menu on the left, and then select "Purge URL":
 
-![](https://mccdn.qcloud.com/static/img/87acfaeaee3fc0f31e5753ad90b776ba/image.png)
+![](https://mc.qcloudimg.com/static/img/95184d6e47c917fddc8ec0ef58a94925/1.png)
 
 Enter the URLs of objects to be refreshed (must contain http:// or https://), one per line, for example: http://www.abc.com/test.html.
 
@@ -19,11 +19,11 @@ Enter the URLs of objects to be refreshed (must contain http:// or https://), on
 + It takes 5 minutes for the file refresh to take effect. If the cache validity period set for the file is less than 5 minutes, it is recommended to wait for the timeout and update, instead of using the refresh tool.
 
 
-## Directory Refresh
+## Purge Directory
 
-Log in to [CDN Console](https://console.qcloud.com/cdn), select the "Cache Refresh" menu on the left, and then select the "Directory Refresh":
+Log in to [CDN Console](https://console.qcloud.com/cdn), select the "Purge Cache" menu on the left, and then select the "Purge Directory":
 
-![](https://mc.qcloudimg.com/static/img/207fbcf44c416b3324e839e47c739c5a/image.png)
+![](https://mc.qcloudimg.com/static/img/02e28f79c50438007c8a4f70c14f8b82/2.png)
 
 Enter the URLs of directories to be refreshed (must contain http:// or https://), one per line, for example: http://www.abc.com/test/.
 
@@ -35,8 +35,8 @@ Enter the URLs of directories to be refreshed (must contain http:// or https://)
 
 ## URL Prefetch
 
-Log in to [CDN Console](https://console.qcloud.com/cdn), select "Cache Refresh" menu on the left, and then select "Prefetch URL":
-![](https://mc.qcloudimg.com/static/img/9382c4263460e6031b757ddb9dc0b2c5/image.png)
+Log in to [CDN Console](https://console.qcloud.com/cdn), select "Purge Cache" menu on the left, and then select "Prefetch URL":
+![](https://mc.qcloudimg.com/static/img/4d2c6fdb38a739a8f1910d68d7067e8b/3.png)
 
 Enter the URLs of objects to be prefetched (must contain http:// or https://), one per line, for example: http://www.abc.com/test.html.
 
@@ -48,14 +48,3 @@ Enter the URLs of objects to be prefetched (must contain http:// or https://), o
 ## Task Query
 
 You can query the status of submitted refresh and prefetch tasks in "History" section.
-
-
-
-
-
-
-
-
-
-
-

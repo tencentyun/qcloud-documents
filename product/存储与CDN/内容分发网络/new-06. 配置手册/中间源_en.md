@@ -10,11 +10,11 @@ Once intermediate node is enabled, access requests to origin from users will be 
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 Go to **Intermediate Node Configuration** under "Origin Configuration" to enable intermediate node:
 
-![](https://mc.qcloudimg.com/static/img/ebf26011eb4c08eec66dae276b935bbf/middle.png)
+![](https://mc.qcloudimg.com/static/img/fc5a1ad63147a184d38ea072484ce0ed/2.png)
 
 The intermediate node configuration is disabled by default.
 

@@ -197,7 +197,7 @@ print (client.face_compare(CIFile('./zhao1.jpg'), CIUrl('http://www.miexue.com/d
 	validate_data = obj['data']['validate_data']
 ```
 
-##### 活体检测-视频与身份证高清照片的比对
+##### 活体检测-视频身份信息核验
 
 ```python	
 	print (client.face_livedetectfour(validate_data, CIFile('../dn.qlv'), False, CIFile('../wxb.jpg')))

@@ -8,11 +8,11 @@ CDN's parameter filtering switch allows you to control whether to filter out par
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
-You can find **Filter Parameter Configuration** in "Access Control" to set parameter filtering:
+You can find **Ignore Parameter** in "Access Control" to set parameter filtering:
 
-![](https://mc.qcloudimg.com/static/img/9f80b7d9aec93bafbe6113f8d9edf0bd/full_url.png)
+![](https://mc.qcloudimg.com/static/img/6d5d13d6de3a11221fb89ad15f545b13/2.png)
 
 
 
