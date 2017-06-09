@@ -201,6 +201,7 @@ identifier | 自己的用户标识
 nickname | 自己的昵称 
 remark | 为空，获取好友资料时有效 
 allowType | 好友验证方式 
+location | 最长16字节
 friendGroups | 为空，获取好友资料时有效
 customInfo | 个人资料的自定义属性
 

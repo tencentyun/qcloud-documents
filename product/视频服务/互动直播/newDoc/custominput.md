@@ -243,6 +243,7 @@ fillExternalCaptureFrame|输入从外部视频捕获设备获取的视频图像�
 :--|:--:
 byte数组|图像数据
 int|图像数据长度
+int|图像的byteperRow。RGB32图像专用，一般为宽度的4倍，特殊分辨率图像需要注意
 int|图像宽度
 int|图像高度
 int|图像渲染角度。角度可以是0,90,180,270
@@ -251,7 +252,7 @@ int|视频源类型。当前仅支持VIDEO_SRC_TYPE_CAMERA
 
 ```java
 // 图像需要旋转90度
-ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.length,
+ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.length, 0,
     mCameraSize.width, mCameraSize.height, 270, AVVideoCtrl.COLOR_FORMAT_I420, AVView.VIDEO_SRC_TYPE_CAMERA);
 ```
 

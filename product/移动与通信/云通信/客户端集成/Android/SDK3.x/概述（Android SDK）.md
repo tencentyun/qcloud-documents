@@ -302,3 +302,42 @@ ImSDK调用API需要遵循以下顺序，其余辅助方法需要在登录成功
 		</tbody>
 	</table>
 
+## 3 从ImSDK2.x升级到ImSDK3.x
+
+### 3.1 包路径调整
+
+ImSDK3.x对包路径进行了调整，由原来的 `com.tencent` 调整为 `com.tencent.imsdk` 。例如，类 `TIMManager` 在2.x版本时类路径为 `com.tencent.TIMManager`，而在3.x版本时类路径为`com.tencent.imsdk.TIMManager`。
+
+### 3.2 模块接口调整
+
+ImSDK3.x对模块的功能及类的接口进行了优化调整。
+
+为了让ImSDK更加的灵活轻便，在3.x的时候对ImSDK进行了模块功能调整。原来的`imsdk.jar`只保留了基本的功能，一些高级功能分离到了相应的扩展包中。调整后原来的`imsdk.jar`变成了如下几个包：
++ 基础功能包 —— `imsdk.jar`
++ 消息扩展包 —— `imsdk_msg_ext.jar`
++ 群组扩展包 —— `imsdk_group_ext.jar`
++ 资料关系链扩展包 —— `imsdk_sns_ext.jar`
+
+同时，配合着模块功能的调整，接口也有相应的优化与调整。
+这里只列出名字变更或者移到其他类的接口，参数变更请参考下载好的SDK包中的API Javadoc文档。具体见下表：
+
+2.x类|2.x接口|3.x类|3.x接口
+---|---|---|---
+**TIMManager**|configOfflinePushSettings|**TIMManager**|setOfflinePushSettings
+**TIMManager**|disableCrashReport<br>setLogPrintEnable<br>setLogLevel<br>setLogListenCallbackLevel<br>setLogListener<br>setSoLibPath|**TIMSdkConfig**|enableCrashReport<br>enableLogPrint<br>setLogLevel<br>setLogCallbackLevel<br>setLogListener<br>setSoLibPath
+**TIMManager**|setConnectionListener<br>initFriendshipSettings<br>setGroupEventListener<br>initGroupSettings<br>setRefreshListener<br>setUploadProgressListener<br>setUserStatusListener |**TIMUserConfig**|setConnectionListener<br>setFriendshipSettings<br>setGroupEventListener<br>setGroupSettings<br>setRefreshListener<br>setUploadProgressListener<br>setUserStatusListener
+**TIMManager**|disableAutoReport<br>enableReadReceipt<br>disableRecentContact<br>disableRecentContactNotify<br>disableStorage<br>setMessageReceiptListener |**TIMUserConfigMsgExt**|enableAutoReport<br>enableReadReceipt<br>enableRecentContact<br>enableRecentContactNotify<br>enableStorage<br>setMessageReceiptListener
+**TIMManager**|enableFriendshipStorage<br>setFriendshipProxyListener|**TIMUserConfigSnsExt**|enableFriendshipStorage<br>setFriendshipProxyListener
+**TIMManager**|enableGroupInfoStorage<br>setGroupAssistantListener|**TIMUserConfigGroupExt**|enableGroupStorage<br>setGroupAssistantListener
+**TIMManager**|initLogSettings<br>setGroupMemberUpdateListener<br>getConversationByIndex|**TIMManager**|已废弃
+**TIMManager**|deleteConversation<br>deleteConversationAndLocalMsgs<br>getConversationCount<br>getConversationList<br>initStorage<br>sendMessageToMultiUsers |**TIMManagerExt**|deleteConversation<br>deleteConversationAndLocalMsgs<br>getConversationCount<br>getConversationList<br>initStorage<br>sendMessageToMultiUsers
+**TIMConversation**|所有接口 |**TIMConversation**|仅保留以下接口，其他接口均由TIMConversationExt提供<br>getType<br>getPeer<br>sendMessage<br>sendOnlineMessage
+**TIMMessage**|getCustomInt<br>getCustomStr<br>hasGap<br>isPeerReaded<br>isRead<br>remove<br>setCustomInt<br>setCustomStr<br>convertToImportedMsg<br>setSender<br>setTimestamp |**TIMMessageExt**|getCustomInt<br>getCustomStr<br>hasGap<br>isPeerReaded<br>isRead<br>remove<br>setCustomInt<br>setCustomStr<br>convertToImportedMsg<br>setSender<br>setTimestamp
+**TIMFileElem**<br>**TIMImageElem**<br>**TIMSoundElem**|所有接口|**TIMFileElem**<br>**TIMImageElem**<br>**TIMSoundElem**|上传下载方式仅保留指定文件路径的方式，废弃byte数组方式
+**TIMFriendshipManager**|所有接口|**TIMFriendshipManager**|仅保留以下接口，其他接口均由TIMFriendshipManagerExt提供<br>getSelfProfile<br>getUsersProfile
+**TIMFriendshipManager**|setAllowType<br>setBirthday<br>setCustomInfo<br>setFaceUrl<br>setGender<br>setLanguage<br>setLocation<br>setNickName<br>setSelfSignature|**TIMFriendshipManager**|modifyProfile
+**TIMFriendshipManager**|setFriendCustom<br>setFriendRemark|**TIMFriendshipManagerExt**|modifySnsProfile
+**TIMFriendshipProxyListener**|所有接口|**TIMFriendshipProxyListener**|所有与好友分组相关回调及OnProxyStatusChange 已废弃
+**TIMGroupManager**|所有接口|**TIMGroupManager**|仅保留以下接口，其他接口均由TIMGroupManagerExt提供<br>applyJoinGroup<br>createGroup<br>deleteGroup<br>quitGroup
+**TIMGroupManager**|modifyGroupAddOpt<br>modifyGroupCustomInfo<br>modifyGroupFaceUrl<br>modifyGroupIntroduction<br>modifyGroupName<br>modifyGroupNotification<br>modifyGroupSearchable<br>modifyGroupVisible|**TIMGroupManagerExt**|modifyGroupInfo
+**TIMGroupManager**|modifyGroupMemberInfoSetCustomInfo<br>modifyGroupMemberInfoSetNameCard<br>modifyGroupMemberInfoSetRole<br>modifyGroupMemberInfoSetSilence<br>ModifyReceiveMessageOpt|**TIMGroupManagerExt**|modifyMemberInfo

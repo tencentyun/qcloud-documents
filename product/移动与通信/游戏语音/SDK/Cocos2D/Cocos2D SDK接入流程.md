@@ -1,14 +1,15 @@
 本文档介绍了GVoice游戏语音C++接口SDK的接入方法，适用于Cocos2D引擎，或iOS、Android平台直接开发的游戏。
 ## 1 下载SDK
-[Cocos SDK包 版本：1.1.5](https://mc.qcloudimg.com/static/archive/09969921cce8036062b5d9c135db7d81/gcloud_voice_1_1_5_143653_20170323_Cocos.zip)  
+[Cocos SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/54f5e553aab5f7036edd32cf4e81f944/gcloud_voice_1_1_7_147406_20170507_Cocos.zip)
+  
 （
-[win64 SDK 版本：1.1.5](https://mc.qcloudimg.com/static/archive/55a8213139039962d7550739ab94a258/gcloud_voice_winx64_1_1_5_143653_20170324.zip)   
+[win64 SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/a3f67e78c9bdf9361ee1b772520c19d3/gcloud_voice_winx64_1_1_7_146969_20170428.zip)   
 
-[win32 SDK 版本：1.1.5](https://mc.qcloudimg.com/static/archive/2b355d5ec4303b90509e893dac31ca4e/gcloud_voice_win_1_1_5_143653_20170324.zip) 
+[win32 SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/a22c317879d787c6157cb89c4f2916eb/gcloud_voice_win_1_1_7_146969_20170428.zip) 
      
-[安卓SDK 版本：1.1.5](https://mc.qcloudimg.com/static/archive/764904b117e135ccddc0e7420b4199ed/gcloud_voice_1_1_5_143653_20170323_Android.zip)  
+[安卓SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/ec6619fbe975d6b332a4e997bd5887c3/gcloud_voice_1_1_7_147406_20170507_Android.zip)  
  
-[IOS SDK 版本：1.1.5](https://mc.qcloudimg.com/static/archive/9b6fdd72a198cb4d5c3ee9b3c87053c0/gcloud_voice_1_1_5_143653_20170323_iOS.zip)  
+[IOS SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/d4b66161559517e19a8386d84538ff17/gcloud_voice_1_1_7_147406_20170507_iOS.zip)  
 ）
 
 下载SDK包解压后，目录结构如下：  
