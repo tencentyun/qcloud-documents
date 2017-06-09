@@ -1,7 +1,7 @@
 ## 如何调整画面尺寸
 
-通过 `TXLivePlayer`的`setSurface(mSurface)`接口将视频数据渲染的 
-`mTextureView`绑定到`TXLivePlayer`
+通过  TXLivePlayer 的 setSurface(mSurface) 接口将视频数据渲染的 
+ mTextureView 绑定到 TXLivePlayer 
 
 ```
 mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
@@ -9,7 +9,7 @@ mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture texture, int width, int height) {
         //创建Surface
-        mSurface = new Surface(texture);``````````
+        mSurface = new Surface(texture);
         //设置Surface，mSurface和mTextureView通过texture关联在了一起，
         //所以调用该接口后，解码数据自动渲染到mTextureView上
         mLivePlayer.setSurface(mSurface);
@@ -36,23 +36,24 @@ mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() 
 
 ```
 ITXLivePlayListener playListener = new ITXLivePlayListener() {
-	    @Override
-	    public void onPlayEvent(int event, Bundle param) {
-	        //...
-	        if (event == TXLiveConstants.PLAY_EVT_CHANGE_RESOLUTION) {
-	            //获取视频的宽高
-	            int width = param.getInt(TXLiveConstants.EVT_PARAM1, 0);
-	            int height = param.getInt(TXLiveConstants.EVT_PARAM2, 0);
-	            //根据视频尺寸，对TextureView进行拉伸和旋转
-	            adjustView(width, height, 0, TXLiveConstants.RENDER_MODE_ADJUST_RESOLUTION);
-	        }
-	    }
-	
-	    @Override
-	    public void onNetStatus(Bundle status) {
-	    }
-	};
-	
+        @Override
+        public void onPlayEvent(int event, Bundle param) {
+            //...
+            if (event == TXLiveConstants.PLAY_EVT_CHANGE_RESOLUTION) {
+                //获取视频的宽高
+                int width = param.getInt(TXLiveConstants.EVT_PARAM1, 0);
+                int height = param.getInt(TXLiveConstants.EVT_PARAM2, 0);
+                //根据视频尺寸，对TextureView进行拉伸和旋转
+                adjustView(width, height, 0, TXLiveConstants.RENDER_MODE_ADJUST_RESOLUTION);
+            }
+        }
+    
+        @Override
+        public void onNetStatus(Bundle status) {
+        }
+    };
+    
+    
 private void adjustView(int videoWidth, int videoHeight, int rotation, int mode) {
     if (0 == videoWidth || 0 == videoHeight) {
         return;
@@ -62,7 +63,7 @@ private void adjustView(int videoWidth, int videoHeight, int rotation, int mode)
     int showWidth;
     int showHeight;
     if (rotation == 90 || rotation == 270) {
-    	 //互换宽高
+         //互换宽高
         viewWidth = viewWidth ^ viewHeight;
         viewHeight = viewWidth ^ viewHeight;
         viewWidth = viewWidth ^ viewHeight;
