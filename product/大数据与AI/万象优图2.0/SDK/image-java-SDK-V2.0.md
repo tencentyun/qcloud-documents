@@ -31,7 +31,7 @@ String bucketName = BUCKET;
 
 ### 3. 调用对应的方法
 
-在创建完对象后，根据实际需求，调用对应的操作方法就可以了。sdk提供的方法包括：图片识别、人脸识别等。
+在创建完对象后，根据实际需求，调用对应的操作方法就可以了。sdk提供的方法包括：图片识别、人脸识别及人脸核身等。
 
 #### 3.1 图片识别
 
@@ -389,4 +389,89 @@ try {
 faceCompareReq = new FaceCompareRequest(bucketName, compareNameList, compareImageList);
 ret = imageClient.faceCompare(faceCompareReq);
 System.out.println("face compare ret:" + ret);
+```
+
+#### 3.3 人脸核身
+##### 用户上传照片与高清身份证照片比对
+
+```java
+	// 1. url方式
+	String  idcardNumber = "330782198802084329";
+	String  idcardName = "季锦锦";       
+	String idcardCompareUrl = "http://docs.ebdoor.com/Image/CompanyCertificate/1/16844.jpg";
+	FaceIdCardCompareRequest idCardCompareReq = new FaceIdCardCompareRequest(bucketName, idcardNumber, idcardName, idcardCompareUrl);
+
+	ret = imageClient.faceIdCardCompare(idCardCompareReq);
+	System.out.println("face idCard Compare ret:" + ret);
+	
+	 //2. 图片内容方式
+	String idcardCompareName  = "";
+	String idcardCompareImage = "";
+	try {
+		idcardCompareName = "idcard.jpg";
+		idcardCompareImage = CommonFileUtils.getFileContent("F:\\pic\\idcard.jpg");
+	} catch (Exception ex) {
+		Logger.getLogger(Demo.class.getName()).log(Level.SEVERE, null, ex);
+	}
+	
+	idCardCompareReq = new FaceIdCardCompareRequest(bucketName, idcardNumber, idcardName, idcardCompareName, idcardCompareImage);
+	ret = imageClient.faceIdCardCompare(idCardCompareReq);
+	System.out.println("face idCard Compare ret:" + ret);
+```
+
+##### 活体检测—获取唇语验证码	
+
+```java
+	String seq = "";
+	FaceLiveGetFourRequest getFaceFourReq = new FaceLiveGetFourRequest(bucketName, seq);        
+	ret = imageClient.faceLiveGetFour(getFaceFourReq);
+	System.out.println("face live get four  ret:" + ret);
+	
+	String validate = "";
+	JSONObject jsonObject = new JSONObject(ret);
+	JSONObject data = jsonObject.getJSONObject("data");
+	if (null != data) {
+		validate = data.getString("validate_data");
+	}
+```
+	
+##### 活体检测-视频与身份证高清照片的比对
+
+```java  
+	//
+	String  liveDetectIdcardNumber = "330782198802084329";
+	String  liveDetectIdcardName = "季锦锦";  
+	String  video = "";
+	try {
+		video = CommonFileUtils.getFileContent("F:\\pic\\ZOE_0171.mp4");
+	} catch (Exception ex) {
+		Logger.getLogger(Demo.class.getName()).log(Level.SEVERE, null, ex);
+	}
+	
+	FaceIdCardLiveDetectFourRequest liveDetectReq = new FaceIdCardLiveDetectFourRequest(bucketName, validate, video, liveDetectIdcardNumber, liveDetectIdcardName, seq);
+	ret = imageClient.faceIdCardLiveDetectFour(liveDetectReq);
+	System.out.println("face idCard live detect four ret:" + ret);
+```
+
+##### 活体检测-视频与用户照片的比对
+
+```java  
+	String  liveDetectVideo = "";
+	String  liveDetectImage = "";
+	String liveDetectVvalidate = "123456";        
+	boolean compareFlag  = true;
+	try {
+		liveDetectVideo = CommonFileUtils.getFileContent("F:\\pic\\ZOE_0171.mp4");
+		liveDetectImage = CommonFileUtils.getFileContent("F:\\pic\\zhao2.jpg");
+	} catch (Exception ex) {
+		Logger.getLogger(Demo.class.getName()).log(Level.SEVERE, null, ex);
+	}
+	
+	FaceLiveDetectFourRequest faceLiveDetectReq = new FaceLiveDetectFourRequest(bucketName, validate, compareFlag, video, liveDetectImage, seq);
+	ret = imageClient.faceLiveDetectFour(faceLiveDetectReq);
+	System.out.println("face  live detect four ret:" + ret);
+	
+	// 关闭释放资源
+	imageClient.shutdown();
+	System.out.println("shutdown!");
 ```
