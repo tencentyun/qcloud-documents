@@ -22,6 +22,7 @@ APNs 证书申请流程可参考文档：[Apple推送证书申请](/doc/product/
 2. 上传证书生效时间为10分钟左右
 3. 上传证书需要设置密码，无密码收不到推送
 4. 注意生产环境的选择，发布AppStore的证书需要设置为生产环境，否则无法收到推送
+5. 上传的p12证书必须是自己申请的真实有效的证书
 
 ### 1.4 客户端实现APNs推送
 
@@ -65,6 +66,7 @@ APNs 证书申请流程可参考文档：[Apple推送证书申请](/doc/product/
     [[TIMManager sharedInstance] log:TIM_LOG_INFO tag:@"SetToken" msg:[NSString stringWithFormat:@"My Token is :%@", token]];
     TIMTokenParam *param = [[TIMTokenParam alloc] init];
 
+/* 用户自己到苹果注册开发者证书，在开发者账号中下载并生成证书(p12文件)，将生成的p12文件传到腾讯证书管理控制台，控制台会自动生成一个证书id，将证书id传入一下busiId参数中。*/
 #if kAppStoreVersion
 
 // AppStore版本
