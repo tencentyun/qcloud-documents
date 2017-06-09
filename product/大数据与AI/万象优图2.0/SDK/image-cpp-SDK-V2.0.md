@@ -60,7 +60,7 @@ ImageAPI image(config);
 
 ### 3. 调用对应的方法
 
-在创建完对象后，根据实际需求，调用对应的操作方法就可以了。sdk提供的方法包括：图片识别、人脸识别等。
+在创建完对象后，根据实际需求，调用对应的操作方法就可以了。sdk提供的方法包括：图片识别、人脸识别及人脸核身等。
 
 #### 3.1 图片识别
 
@@ -305,4 +305,52 @@ fcReq.AddImage("zhao1.jpg");
 fcReq.AddImage("zhao2.jpg");
 ret = image.FaceCompare(fcReq);
 cout<<ret<<endl;  
+```
+
+#### 3.3 人脸核身
+
+##### 身份证识别对比
+
+```
+FaceIdCardCompareReq idCompareReq(BUCKET);
+idCompareReq.SetUrl("http://docs.ebdoor.com/Image/CompanyCertificate/1/16844.jpg");
+idCompareReq.SetIdCardNumber("330782198802084329");
+idCompareReq.SetIdCardName("季锦锦");
+ret = image.FaceIdCardCompare(idCompareReq);
+idCompareReq.SetImage("idcard.jpg");
+ret = image.FaceIdCardCompare(idCompareReq);
+cout<<ret<<endl; 
+```
+
+##### 活体检测—获取唇语验证码
+
+```
+FaceLiveGetFourReq getFourReq(BUCKET);
+ret = image.FaceLiveGetFour(getFourReq);
+cout<<ret<<endl; 
+string validate = "";
+Json::Value obj = StringUtil::StringToJson(ret);
+```
+
+##### 活体检测-视频与用户照片的比对
+
+```
+FaceLiveDetectFourReq detectFourReq(BUCKET);
+detectFourReq.SetValidateData(validate);
+detectFourReq.SetVideo("ZOE_0171.mp4");
+ret = image.FaceLiveDetectFour(detectFourReq);
+cout<<ret<<endl; 
+```
+
+##### 活体检测-视频与身份证高清照片的比对
+
+```
+FaceIdCardLiveDetectFourReq iddetectFourReq(BUCKET);
+iddetectFourReq.SetValidateData(validate);
+iddetectFourReq.SetVideo("ZOE_0171.mp4");
+iddetectFourReq.SetIdCardName("季锦锦");
+iddetectFourReq.SetIdCardNumber("330782198802084329");
+ret = image.FaceIdCardLiveDetectFour(iddetectFourReq);
+cout<<ret<<endl; 
+return 0;
 ```
