@@ -12,7 +12,7 @@ The following concepts will help you get familiar with Tencent Cloud's CCS:
 - A CCS cluster is made up of multiple purchased CVMs in which the containers are running. For more information, please see [Cloud Product Documentation](https://www.qcloud.com/doc/product/213).
 - The cluster can be created under the VPC, and the CVMs in the cluster can be allocated to subnets of different availability zones. For more information, please see [VPC Product Documentation](https://www.qcloud.com/doc/product/215).
 - The load balancer can realize automatic distribution of request traffic from clients across multiple CVM instances. For more information, please see [Load Balance Product Documentation](https://www.qcloud.com/doc/product/214).
-- Cloud Monitor can be used to monitor the operation statistical data for both CCS cluster and container instances. For more information, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/doc/product/248).
+- Cloud Monitor can be used to monitor the operation statistical data for both CCS cluster and container pods. For more information, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/doc/product/248).
 
 ## Pricing
 

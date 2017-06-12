@@ -1,6 +1,6 @@
 ### Logging in to Container via the Web Console (Recommended)
 1. Click and enter the [CCS Console Page](https://console.qcloud.com/ccs).
-2. Select the service to which the container belongs and enter the details page to view the list of instances. Select container and connect to the remote console.
+2. Select the service to which the container belongs and enter the details page to view the list of pods. Select container and connect to the remote console.
 3. For the FAQs on the remote console, please see [Details](https://www.qcloud.com/document/product/457/8638?!preview&lang=zh)
 
 ![Alt text](https://mc.qcloudimg.com/static/img/fd06e590a5e2d109d5489b1df55454e5/20170316160930.png)
