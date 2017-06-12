@@ -8,11 +8,11 @@ Post-paid payment is supported for Tencent Cloud's international products.
 
 ## Go to the Cloud Account Management Page
 
-After entering the "User Center", creator and collaborator in a finance management role can see the cloud account amount and sub-account balance in the "Account Information".
+After entering the "Cost Center", creator and collaborator in a finance management role can see the cloud account amount and sub-account balance in the "Account Information".
 
 For the purpose of protection of sensitive data, only the creator and collaborator with finance permission are allowed to check and manage their cloud account on the "Cost Center" page.
 
-![](//mc.qcloudimg.com/static/img/dd57244d9b70ed8e92970da5c1c2cb27/image.png)
+![](//mc.qcloudimg.com/static/img/93bd5741892964e81bdbc29ad15350c5/%7B6D6378A2-DC89-445F-9867-C71FB8FC2377%7D.png)
 
 The terms about sub-account are as follows:
 <table class="t">
@@ -32,7 +32,7 @@ Frozen amount is generated on the settlement date or when the user applies for c
 <tr>
 <td> Topped-up Balance
 </td><td> Balance of topped-up account.<br>
-<p>Users need to top up the account by means of offline bank transfer in the cloud account top-up page in management center. (Online payment will be available soon)<br>For more information, refer to <a href="/document/product/555/7425" title="Top Up">Top Up</a>.
+<p>Users need to top up the account by means of offline bank transfer in the cloud account top-up page in cost center. (Online payment will be available soon)<br>For more information, refer to <a href="/document/product/555/7425" title="Top Up">Top Up</a>.
 </p>
 </td></tr>
 <tr>
