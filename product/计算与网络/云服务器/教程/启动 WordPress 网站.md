@@ -25,7 +25,7 @@
  1. 点击云主机右侧的 【更多】，选择【重装系统】。
 ![更多1](//mc.qcloudimg.com/static/img/f0a23ee44d129a9e38b86374b5988fab/image.png)
  2. 在出现的**重装系统**提示框中，选择【服务市场】 -> 【建站模板】，安装对应的镜像。本指南中，我们选择的是** WordPress博客平台（CentOS 6.8 64位）**。
-![重装系统1](//mc.qcloudimg.com/static/img/36d24cce5afbececa8637a4d9e97fcb4/image.png)
+![重装系统1](//mc.qcloudimg.com/static/img/c1df8d8c1b8968bb8d357dd5e20ed849/image.png)
  3. **登录设置**选择【密码】，并且为 root 账号设置密码。点击【开始重装】进入重装状态。重装可能需要几分钟的时间。
 4. 云主机状态处于运行中时，就可以测试 WordPress 网站了。在云主机的 **主 IP 地址** 下，复制云主机的公网 IP。
 5. 将该公网 IP 粘贴到浏览器的地址栏中访问，可以看到引导页面。 
