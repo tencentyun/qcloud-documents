@@ -160,13 +160,13 @@ void onFailed(FaceInModelType modelType, FaceInFailedType failedType);
 
 IdCardInfo类包括了身份证上的5个基本信息：
 
-| 类型     | 名称        | 信息     |      |
-| ------ | --------- | ------ | ---- |
-| String | name      | 姓名     |      |
-| String | idNumber  | 公民身份号码 |      |
-| String | address   | 住址     |      |
-| String | authority | 签发机关   |      |
-| String | date      | 有效期限   |      |
+| 类型     | 名称        | 信息     |
+| ------ | --------- | ------ |
+| String | name      | 姓名     |
+| String | idNumber  | 公民身份号码 |
+| String | address   | 住址     |
+| String | authority | 签发机关   |
+| String | date      | 有效期限   |
 
 ##### FaceInFailedType
 
@@ -196,13 +196,13 @@ FaceInConfig.setFaceInResultListener(new FaceInResultListener() {
 
 置信度阈值设置、HTTP超时时间设置、是否打印debug日志
 
-| 类型   | 名称                              | 信息                                       | 默认值     | 范围     |      |
-| ---- | ------------------------------- | ---------------------------------------- | ------- | ------ | ---- |
-| int  | idCardPersonCompareConfidence   | ```OCR_ID_CARD_IMAGE_COMPARE```置信度阈值     | 70      | 0~100  |      |
-| int  | lipVideoPersonCompareConfidence | ```OCR_ID_CARD_LIP_VIDEO_COMPARE``` 置信度阈值 | 70      | 0~100  |      |
-| int  | httpConnectTimeout              | HTTP连接超时时间                               | 10000ms | >500ms |      |
-| int  | httpWriteTimeout                | HTTP写超时时间                                | 20000ms | >500ms |      |
-| int  | httpReadTimeout                 | HTTP读超时时间                                | 20000ms | >500ms |      |
+| 类型   | 名称                              | 信息                                       | 默认值     | 范围     |
+| ---- | ------------------------------- | ---------------------------------------- | ------- | ------ |
+| int  | idCardPersonCompareConfidence   | ```OCR_ID_CARD_IMAGE_COMPARE```置信度阈值     | 70      | 0~100  |
+| int  | lipVideoPersonCompareConfidence | ```OCR_ID_CARD_LIP_VIDEO_COMPARE``` 置信度阈值 | 70      | 0~100  |
+| int  | httpConnectTimeout              | HTTP连接超时时间                               | 10000ms | >500ms |
+| int  | httpWriteTimeout                | HTTP写超时时间                                | 20000ms | >500ms |
+| int  | httpReadTimeout                 | HTTP读超时时间                                | 20000ms | >500ms |
 
 代码示例：
 
