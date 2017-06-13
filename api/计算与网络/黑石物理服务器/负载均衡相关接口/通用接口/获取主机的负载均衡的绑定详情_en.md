@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
  
 This API (DescribeBmBindInfo) is used to acquire the details of BM load balancers bound to CPM IDs and VM IPs.
 
