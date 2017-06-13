@@ -1,4 +1,4 @@
-﻿## 1. How to Perform Push
+## 1. How to Perform Push
 Tencent Cloud's RTMP SDK internal state machine works as shown in the figure below :
 - **Step1 - Start the call**: After TXLivePush object's startPush is called, the push process starts.
 
