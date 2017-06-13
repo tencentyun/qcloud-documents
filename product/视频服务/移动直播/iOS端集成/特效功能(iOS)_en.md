@@ -1,4 +1,4 @@
-﻿# Special Effects (Eye Enlarging, Face Sliming, Dynamic Effect and Green Screen)
+# Special Effects (Eye Enlarging, Face Sliming, Dynamic Effect and Green Screen)
 
 ## Feature Description
 Special effects such as eye enlarging, face sliming, dynamic sticker and green screen, are privileged features developed based on face recognition technology of Tencent YouTu Lab team and makeup technology of Tencent Pitu team. By cooperating with the two teams, Tencent Cloud's Mini LVB team deeply integrates these special effects into the image processing process of RTMP SDK to achieve better video effects.
