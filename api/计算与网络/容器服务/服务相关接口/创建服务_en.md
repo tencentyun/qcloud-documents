@@ -14,7 +14,7 @@ The following request parameter list only provides API request parameters. For o
 | clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
 | serviceName   | Yes | String       | Service name. The first character must be a lowercase letter, the last character must be a lowercase letter or a number, and the middle characters are hyphens, numbers or lowercase letters |
 | serviceDesc   | No | String       | Service description |
-| replicas      | Yes | Int          | Number of instance replicas |
+| replicas      | Yes | Int          | Number of pod replicas |
 | accessType    | No | String | Service access type. <br>LoadBalancer: This creates a public network load balancer for the service. Traffic is forwarded to the service when you access the IP and port of this load balancer. <br>NodePort: This opens a port on every Node in the cluster. Traffic is forwarded to this service when you access the IPs and ports for any of these Nodes. <br>SvcLBTypeInner: This creates a private network load balancer and occupies an IP under the subnet (you need to specify subnetId). <br>ClusterIP: The service does not provide external access. Only the other services within the cluster can access the service. Default is ClusterIP |
 | portMappings.n | No | Object Array | Port mapping information. This is required if the container needs network access | 
 | volumes.n     | No | Object Array | Container volume definition | 
@@ -37,7 +37,7 @@ The following request parameter list only provides API request parameters. For o
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|
 | name   | Yes | string      | Container volume name |
-| volumeType   | Yes | String      | Container volume type. Currently hostPath and cbsDisk are supported. **Note: For cbsDisk, the number of service instances must be 1, because cbs disk does not support mounting multiple nodes at the same time** |
+| volumeType   | Yes | String      | Container volume type. Currently hostPath and cbsDisk are supported. **Note: For cbsDisk, the number of service pods must be 1, because cbs disk does not support mounting multiple nodes at the same time** |
 | hostPath  | No | String   | This is required when volumeType is hostPath. Container volume directory on the host. This directory will be mapped to the container when the container launches. If this field is left empty, a temporary directory will be created on the Node for the container volume and deleted when the container is terminated. This directory and the data in it are retained if hostPath is specified |
 | cbsDiskId | No | String | This is required when volumeType is cbsDisk. This is the ID of cbs network disk. This cbs disk is mounted to the host where the container resides and mapped to the container when the container launches, and unmounted from the host when the container is terminated. Enter the storageId (cloud disk ID) field returned when calling the API [Query Cloud Disk Information](https://www.qcloud.com/document/api/362/2519) |
 

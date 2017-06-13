@@ -20,7 +20,7 @@ Domain for API request: <font style="color:red">monitor.api.qcloud.com</font>
 | Available Value | Type | Description |
 |---------|---------|---------|
 | qce/cvm   | String      | Acquire the utilization of cluster's CPU and memory |
-| qce/docker  | String | Acquire monitoring information about service, instance and container |
+| qce/docker  | String | Acquire monitoring information about service, pod and container |
 
 **Details of "dimensions"**
 1) dimensions.n.name and dimensions.n.value are used to specify a monitoring object. Some objects can only be specified using multiple dimensions.
@@ -159,16 +159,16 @@ dimensions.2.name=namespace
 
 | Monitoring Item | Metric Name | Unit  | Description  |
 |---------|---------|---------|-----|
-| Service CPU usage | service_cpu_used | Core | Total number of CPUs used by all the container instances in the service |
+| Service CPU usage | service_cpu_used | Core | Total number of CPUs used by all the container pods in the service |
 | Service CPU utilization (ratio to cluster) | service_cpu_usage_for_cluster | % | The ratio of service CPU utilization to cluster |
-| Service memory usage | service_mem_used | MiB | Total amount of memory used by all the container instances in the service |
+| Service memory usage | service_mem_used | MiB | Total amount of memory used by all the container pods in the service |
 | Service memory utilization (ratio to cluster) | service_mem_usage_for_cluster | % | The ratio of service memory utilization to cluster |
-| Service network inbound traffic | service_in_flux  | MB | Total inbound traffic of all the instances in the service within the time window |
-| Service network outbound traffic | service_out_flux | MB | Total outbound traffic of all the instances in the service within the time window |
-| Service network inbound bandwidth | service_in_bandwidth | Mbps | Total inbound bandwidth of all the instances in the service |
-| Service network outbound bandwidth | service_out_bandwidth | Mbps | Total outbound bandwidth of all the instances in the service |
-| Service network inbound packets | service_in_packets | pck/sec | Total inbound packets of all the instances in the service |
-| Service network outbound packets | service_out_packets | pck/sec | Total outbound packets of all the instances in the service |
+| Service network inbound traffic | service_in_flux  | MB | Total inbound traffic of all the pods in the service within the time window |
+| Service network outbound traffic | service_out_flux | MB | Total outbound traffic of all the pods in the service within the time window |
+| Service network inbound bandwidth | service_in_bandwidth | Mbps | Total inbound bandwidth of all the pods in the service |
+| Service network outbound bandwidth | service_out_bandwidth | Mbps | Total outbound bandwidth of all the pods in the service |
+| Service network inbound packets | service_in_packets | pck/sec | Total inbound packets of all the pods in the service |
+| Service network outbound packets | service_out_packets | pck/sec | Total outbound packets of all the pods in the service |
 
 **Example of querying monitoring data of service dimension**
 
@@ -209,8 +209,8 @@ Output
 ```
 
 
-## 7. Monitoring Metrics at Instance Dimension
-When you query the monitoring data of instance dimension, the values of input parameters are as follows:
+## 7. Monitoring Metrics at Pod Dimension
+When you query the monitoring data of pod dimension, the values of input parameters are as follows:
 
 Values for dimension name: clusterId, serviceName, namespace, podName
 
@@ -226,7 +226,7 @@ dimensions.2.name=namespace
 "dimensions.2.value" is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 dimensions.3.name=podName
-"dimensions.3.value" is instance name. Enter the name (instance name) field returned via API [Query Service Instance List](https://www.qcloud.com/document/api/457/9433).
+"dimensions.3.value" is pod name. Enter the name (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
 
 
 
@@ -234,14 +234,14 @@ dimensions.3.name=podName
 
 | Monitoring Item | Metric Name | Unit  | Description  |
 |---------|---------|---------|-----|
-| Instance network inbound bandwidth | pod_in_bandwidth | Mbps | Containers in the same instance share a network. It is the network inbound bandwidth of the instance (pod) |
-| Instance network outbound bandwidth | pod_out_bandwidth | Mbps | Containers in the same instance share a network. It is the network outbound bandwidth of the instance (pod) |
-| Instance network inbound traffic | pod_in_flux | MB | Containers in the same instance share a network. It is the network inbound traffic of the instance (pod) |
-| Instance network outbound traffic | pod_out_flux | MB | Containers in the same instance share a network. It is the network outbound traffic of the instance (pod) |
-| Instance network inbound packets | pod_in_packets | pck/sec | Containers in the same instance share a network. It is the network inbound packets of the instance (pod) |
-| Instance network outbound packets | pod_out_packets | pck/sec | Containers in the same instance share a network. It is the network outbound packets of the instance (pod) |
+| Pod network inbound bandwidth | pod_in_bandwidth | Mbps | Containers in the same pod share a network. It is the network inbound bandwidth of the pod |
+| Pod network outbound bandwidth | pod_out_bandwidth | Mbps | Containers in the same pod share a network. It is the network outbound bandwidth of the pod |
+| Pod network inbound traffic | pod_in_flux | MB | Containers in the same pod share a network. It is the network inbound traffic of the pod |
+| Pod network outbound traffic | pod_out_flux | MB | Containers in the same pod share a network. It is the network outbound traffic of the pod) |
+| Pod network inbound packets | pod_in_packets | pck/sec | Containers in the same pod share a network. It is the network inbound packets of the pod |
+| Pod network outbound packets | pod_out_packets | pck/sec | Containers in the same pod share a network. It is the network outbound packets of the pod |
 
-**Example of querying monitoring data of instance dimension**
+**Example of querying monitoring data of pod dimension**
 
 Input
 
@@ -299,11 +299,11 @@ dimensions.2.name=namespace
 "dimensions.2.value" is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 dimensions.3.name=podName
-"dimensions.3.value" is instance name. Enter the name (instance name) field returned via API [Query Service Instance List](https://www.qcloud.com/document/api/457/9433).
+"dimensions.3.value" is pod name. Enter the name (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
 
 
 dimensions.4.name=containerId
-"dimensions.4.value" is container name. Enter the containerId (container ID) field returned via API [Query Service Instance List](https://www.qcloud.com/document/api/457/9433). <font style="color:red"><strong>Note: Container ID only needs to be entered with the first 12 characters</strong></font>
+"dimensions.4.value" is container name. Enter the containerId (container ID) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433). <font style="color:red"><strong>Note: Container ID only needs to be entered with the first 12 characters</strong></font>
 
 
 **Available values of metricName**

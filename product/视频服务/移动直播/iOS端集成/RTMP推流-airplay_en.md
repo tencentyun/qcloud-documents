@@ -1,4 +1,4 @@
-﻿## About AirPlay
+## About AirPlay
 
 AirPlay is a wireless technology developed by Apple Inc. that allows you to stream the screen content (including the system UI) from iPhone to other devices as the AirPlay mirror.
 

@@ -1,8 +1,8 @@
 ### Description
-In the example of Wordpress with single instance, we showed how to install WordPress quickly. 
+In the example of Wordpress with single pod, we showed how to install WordPress quickly. 
 The data in the example is written into MySQL databases that run in the same container. This configuration allows quick launch, but it also brings a problem: if the container stops for any reason, the files in the database or storage will be lost.
 
-In this tutorial, we will show you how to set MySQL database, which will be still available when the instance/container restarts. Persistent storage can be realized by using CDB.
+In this tutorial, we will show you how to set MySQL database, which will be still available when the pod/container restarts. Persistent storage can be realized by using CDB.
 
 ### Steps
 #### Step 1: Create Container Service Cluster

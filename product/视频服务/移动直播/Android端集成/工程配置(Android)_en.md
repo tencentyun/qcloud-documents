@@ -1,4 +1,4 @@
-﻿## Download SDK
+## Download SDK
 You can download the [LVB SDK](https://www.qcloud.com/document/product/454/7873) for mobile devices from Tencent Cloud's official website. Decompress the downloaded file to acquire the libs directory, which mainly includes "so" and "jar" files. Files are listed below:
 
 | File | Description |
