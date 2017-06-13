@@ -248,8 +248,8 @@ mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() 
 });
 ```
 
-如果您在调整画面尺寸遇到问题，可以参考下完整的示例代码 - [调整画面尺寸]()
-如果您在使用 OpenGL ES 对视频数据进行二次处理没有思路，可以参考下示例代码 - [OpenGL ES 处理数据]()
+如果您在调整画面尺寸遇到问题，可以参考下完整的示例代码 - [调整画面尺寸](https://www.qcloud.com/document/product/454/9723)
+如果您在使用 OpenGL ES 对视频数据进行二次处理没有思路，可以参考下示例代码 - [OpenGL ES 处理数据](https://www.qcloud.com/document/product/454/9724)
 
 ## 7.获取解码后的视频数据
 如果您想通过获取 SDK 解码之后的 YUV 类型的视频数据，您可以按如下步骤实现。
