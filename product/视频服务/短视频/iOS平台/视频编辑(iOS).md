@@ -14,7 +14,7 @@
 2. Resource下的VideoEditor与FilterResource.bundle(资源)
 3. Common与Third(整个Demo依赖的公共代码，根据自己的需要再进行删改)
 
-####UI源码说明
+UI源码说明
 源码中各个界面组件比较独立，您可根据自己产品需求再对界面进行修改加工。
 主要界面组件说明：
 1. VideoCutView: 视频裁剪界面，包含了视频裁剪与加速功能，如需定制裁剪界面可对此类进行修改或替换。
