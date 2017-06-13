@@ -1,3 +1,48 @@
+#### IM SDK2.5.5 2017-6-6
+1. 优化内部回包逻辑，减少耗时
+2. LOG时间精度精确到毫秒
+3. 修复了部分Crash和消息同步的问题
+
+#### IM SDKV3 3.0.2 2017-5-22
+1. 修复AVChatRoom可能无法接收到群消息的问题
+2. 接口调整
+    i. 废弃TIMFileElem, TIMSoundElem中的setData接口
+    ii. 修正TIMManagerExt中的接口拼写： getConversionList => getConversationList
+
+#### IM SDKV3 3.0.1 2017-5-15
+1. 修复部分so库无法兼容Android 5.0以下机器的问题
+
+#### IM SDKV3 3.0 2017-5-8
+1. 将ImSDK和IMCore重新组合为ImSDK、IMMessageExt、IMGroupExt和IMFriendExt
+2. 优化ImSDK初始化方法为initSdk：和setUserConfig
+3. 整理ImSDK中接口命名和Protocol回调方法命名，统一小写字母开头
+4. ImSDK功能：基本的登录、收发消息、资料和群组功能
+5. IMMessageExt功能：全量消息功能，包括拉取消息、本地存储、未读计数等
+6. IMGroupExt功能：全量群组功能，包括所有群组类型管理、群成员管理等
+7. IMFriendExt功能：全量资料关系链功能，包括好友列表、黑名单等
+
+#### IM SDK2.5.4 2017-4-28
+1. 修复IMSDK中定时器机制的BUG
+
+#### IM SDK2.5.3 2017-4-17
+iOS:
+1. sendOnlineMessage接口支持群组类型消息，消息不存本地、不存离线、不计入未读
+2. 提供findMessages方法，提供按消息ID获取本地消息
+3. TIMIOSOfflinePushConfig提供设置APNs推送静音选项
+4. 修复高频接收消息时，内存上涨问题
+
+Android:
+1. 增加查找消息接口（详情请查看TIMConversation下的findMessages）
+2. sendOnlineMessage接口支持群组类型消息，消息不存本地、不存离线、不计入未读
+3. APNS推送新增接收端不播放提示音且不振动的配置选项（参见TIMMessageOfflinePushSettings.IOSSettings.NO_SOUND_NO_VIBRATION）
+4. 网络优化，增强SDK对弱网络场景的抗性
+
+windows:
+1. 修复了可能导致crash的问题
+
+接口变更：
+1. TIMMessageOfflinePushSettings.AndroidSettings及TIMMessageOfflinePushSettings.IOSSettings构造方式变更。
+详情请参见官网文档（https://www.qcloud.com/document/product/269/3899）
 
 #### IM Android SDK2.5.2 2017-3-1
 1. 修复偶现发包返回超时的问题（返回码6205）

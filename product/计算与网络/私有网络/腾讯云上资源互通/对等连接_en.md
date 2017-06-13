@@ -33,7 +33,7 @@ The typical applications for cross-region peering connection (cross-region inter
 ### Workflow for Deleting a Peering Connection
 ![](//mccdn.qcloud.com/static/img/0e0ae950ebface4e307cd510de2b885e/image.png)
 
-## Usage Constraints
+## Service Limits
 When using peering connection, you have to note the following:
 - To achieve true communication between both ends of a peering connection, you must configure a routing rules targeting the peer on related routing tables of the originating and receiving ends.
 - Costs for cross-region peering connection are paid by the requester of such connection.
@@ -126,8 +126,6 @@ For more information regarding the prices of VPC services, refer to [VPC Price O
 **Example:**
 If the peering connection initiator is in Shanghai, the receiver is in Guangzhou, outbound peak bandwidth of the day is 20 Mbps, inbound peak bandwidth is 30 Mbps, then the cost of the day is: 30 * 12 = 360 CNY, which shall be paid by the initiator.
 
-
-
 ### Free cross-region interconnection bandwidth campaign **(Key customers are entitled to its benefits by default, but it is closed to common customers)**
 Benefits for VIP customers and common customers during the campaign are as follows:
 
@@ -201,10 +199,10 @@ After the routing table configuration is completed, communication can be perform
 ### Viewing Routing Policy Related to Peering Connection
 1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
 2) Select the region and VPC above the list.
-3) Click the ID of the specified peering connection to enter its details page. You can view in the related routing policy that the next hop is the destination network segment, the associated subnet, and the related routing table of the peering connection.
+3) Click the ID of the specified peering connection to enter its details page. You can view in the related routing policy that the next hop is the destination IP address range, the associated subnet, and the related routing table of the peering connection.
 > Note: If you have established a peering connection but cannot communicate via it, please use this step to check whether the configuration of routing tables on *both ends* are correct.
 
-### Viewing **monitoring** data of network traffic over cross-region peering connection (cross-region interconnection)
+### Viewing monitoring data of network traffic over cross-region peering connection (cross-region interconnection)
 There is no maximum network traffic for regional peering connection.
 Traffic monitoring of peering connection network is only supported for cross-region peering connections.
 1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
@@ -212,7 +210,7 @@ Traffic monitoring of peering connection network is only supported for cross-reg
 3) Click on the Monitoring icon of the specified peering connection to view **inbound and outbound bandwidths, number of inbound and outbound packets and packet loss rate**.
 
 ### Configuring Traffic Control for Cross-region Peering Connection (Cross-region Interconnection)
-Network traffic over regional peering connection is free; no traffic control is applicable, with maximum bandwidth of 5Gbps.
+Network traffic over regional peering connection is free; no traffic control is applicable, with maximum bandwidth of 5 Gbps.
 Traffic control is supported for cross-region peering connection.
 1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
 2) Click on the ID of corresponding peering connection in the list page to enter its details page.
@@ -221,39 +219,23 @@ Traffic control is supported for cross-region peering connection.
 ### Rejecting Peering Connection
 You can reject a "To be Accepted" peering connection request. Except for the accounts you trust, you can reject any unnecessary requests.
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar and select the "Peering Connection" tab in VPC console.
+1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar and select the **Peering Connection** tab in VPC console.
 2) View the peering connection to be accepted in the peering connection list, and click "Reject" button in the Operation Column.
 3) The peering connection is rejected and disappears.
 
 ### Deleting Peering Connection
 Either party can delete the peering connection at any time. The peering connection becomes invalid immediately after being deleted. When the peering connection is deleted, the routing entry containing this connection in the routing table will also be deleted.
 
-1) Log in to [Tencent Cloud Console], and click "Virtual Private Cloud" in the navigation bar.
-2) Select the "Peering Connections" tab in the VPC console to view the established peering connection in the peering connection list, and click "Delete" in the Operation Column.
+1) Log in to Tencent Cloud Console, and click "Virtual Private Cloud" in the navigation bar.
+2) Select the **Peering Connections** to view the established peering connections, and click **Delete** in the Operation Column.
 3) After you confirm the deletion action, the peering connection is deleted.
 
 ### Viewing Peer Account ID
 When you create a cross-account peering connection/shared Direct Connect, you need to enter the peer account ID, which you can check in the following ways:
-1) Log in to "Tencent Cloud Console", and click account name in the right top corner.
+1) Log in to Tencent Cloud Console, and click account name in the right top corner.
 2) View account ID in the personal information.
 ![](https://mc.qcloudimg.com/static/img/8ecbc060325b2fa0face6d875ac4ce41/pic1.png)
-## API Overview
+
+## Related APIs
 You can use API operations to set and manage your peering connection. For more information on additional resources in VPC, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
  
-| Function | Action ID | Description |
-|---------|---------|---------|
-| Create Regional Peering Connection | [CreateVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e5%88%9b%e5%bb%ba%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Create a regional peering connection.   |
-| Delete Regional Peering Connection | [DeleteVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e5%88%a0%e9%99%a4%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Delete a regional peering connection.   |
-| Modify Regional Peering Connection | [ModifyVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e4%bf%ae%e6%94%b9%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5%e5%b1%9e%e6%80%a7) | Modify a regional peering connection.   |
-| Accept Regional Peering Connection | [AcceptVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e6%8e%a5%e5%8f%97%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Accept a regional peering connection.   |
-| Reject Regional Peering Connection | [RejectVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e9%a9%b3%e5%9b%9e%e5%90%8c%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Reject a regional peering connection.   |
-| Enable Expired Regional Peering Connection | [EnableVpcPeeringConnection](https://www.qcloud.com/doc/api/245/%e5%90%af%e7%94%a8%e5%90%8c%e5%9c%b0%e5%9f%9f%e8%bf%87%e6%9c%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Enable an expired regional peering connection.   |
-| Create Cross-region Peering Connection | [CreateVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e5%88%9b%e5%bb%ba%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Create a cross-region peering connection   |
-| Delete Cross-region Peering Connection | [DeleteVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e5%88%a0%e9%99%a4%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Delete a cross-region peering connection.   |
-| Modify Cross-region Peering Connection | [ModifyVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e4%bf%ae%e6%94%b9%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5%e5%b1%9e%e6%80%a7) | Modify a cross-region peering connection.   |
-| Accept Cross-region Peering Connection | [AcceptVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e6%8e%a5%e5%8f%97%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Accept a cross-region peering connection.   |
-| Reject Cross-region Peering Connection | [RejectVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e9%a9%b3%e5%9b%9e%e8%b7%a8%e5%9c%b0%e5%9f%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Reject a cross-region peering connection.   |
-| Enable Expired Cross-region Peering Connection | [EnableVpcPeeringConnectionEx](https://www.qcloud.com/doc/api/245/%e5%90%af%e7%94%a8%e8%b7%a8%e5%9c%b0%e5%9f%9f%e8%bf%87%e6%9c%9f%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Enable an expired cross-region peering connection.   |
-| Query Peering Connection | [DescribeVpcPeeringConnections](https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ad%89%e8%bf%9e%e6%8e%a5) | Query a peering connection.   |
-
-

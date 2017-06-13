@@ -342,7 +342,7 @@ ret = image.FaceLiveDetectFour(detectFourReq);
 cout<<ret<<endl; 
 ```
 
-##### 活体检测-视频与身份证高清照片的比对
+##### 活体检测-视频身份信息核验
 
 ```
 FaceIdCardLiveDetectFourReq iddetectFourReq(BUCKET);

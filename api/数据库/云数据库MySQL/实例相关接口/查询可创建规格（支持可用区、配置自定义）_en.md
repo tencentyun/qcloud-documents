@@ -98,7 +98,7 @@ Output
         "maxGoodsNumPerDeal":"10",
         "goodsDescription":{
             "100002":{
-				"region":"gz",
+                "region":"gz",
                 "isSupportVpc":true,
                 "types":[
                     {
@@ -176,7 +176,7 @@ Output
                 ]
             },
             "100003":{
-				"region":"gz",
+                "region":"gz",
                 "isSupportVpc":true,
                 "types":[
                     {

@@ -4,8 +4,8 @@ You can configure HTTPS certificate for a domain that has been connected to CDN.
 
 ## Configuring Certificate
 
-If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.qcloud.com/cdn), and go to **Certificate Management** page in **Advanced Tools** and click "Configure Certificate":
-![](https://mc.qcloudimg.com/static/img/35b48cda4028ec5c232ebf39542af5a4/1.png)
+If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.qcloud.com/cdn), and go to **Certificates** page in **Advanced** and click "Configure Certificate":
+![](https://mc.qcloudimg.com/static/img/01da37e2a16808ccb23cfec174a08409/1.png)
 
 ### 1. Selecting a Domain
 Select the accelerated domain for which you want to configure a certificate. Note:
@@ -14,14 +14,14 @@ Select the accelerated domain for which you want to configure a certificate. Not
 + When CDN acceleration has been activated for COS or Cloud Image, certificate cannot be deployed for domain .file.myqcloud.com or .image.myqcloud.com by default; 
 + Certificate cannot be deployed for SVN hosted origin currently.
 
-![](https://mc.qcloudimg.com/static/img/973e75c6a0b1672f1a1f11f9667bf6f0/image.png)
+![](https://mc.qcloudimg.com/static/img/ac1c0f73c7a497cb998491672635adee/2.png)
 
 ### 2. Selecting a Certificate
 #### 2.1 Using self-owned certificate
 
 Select "Own Certificate", and paste the certificate content and private key to the corresponding text boxes. You can optionally add a remark for identifying the certificate.
 
-![](https://mc.qcloudimg.com/static/img/fe2edfde614ae5db03c293e0d322b969/image.png)
+![](https://mc.qcloudimg.com/static/img/794ed717eb96076fde27ad9abde38093/3.png)
 
 + The certificate content must take a PEM format. For non-PEM certificates, please refer to the instructions below for format conversion;
 + If your certificate has a certificate chain, please convert its content into PEM format, and upload it with the certificate content. The instructions on the completion of certificate chain is described later in this chapter.
@@ -31,7 +31,7 @@ You can apply for a free third-party certificate from TrustAsia on [SSL Certific
 
 By selecting "Tencent Cloud Hosted Certificate", you can view the list of certificates available for the domain in SSL Certificate Management:
 
-![](https://mc.qcloudimg.com/static/img/8e6c6afcfa701fa4cdd3dc0711780c2b/image.png)
+![](https://mc.qcloudimg.com/static/img/aacbfb543f25cbebb1c7eef984cf42bb/4.png)
 
 + Select the certificate to use from the List of Certificates;
 + The certificates are displayed as Certificate IDs (Remark) in the list . You can learn more about the certificates by going to [SSL Certificate Management](https://console.qcloud.com/ssl).
@@ -39,7 +39,7 @@ By selecting "Tencent Cloud Hosted Certificate", you can view the list of certif
 ### 3. Back-to-origin Method
 After the certificate is configured, you can select the back-to-origin method by which CDN nodes get resources from origin server:
 
-![](https://mc.qcloudimg.com/static/img/ba856a03ab0709f6befaafc7840e1cc9/image.png)
+![](https://mc.qcloudimg.com/static/img/5ea84cece3dbb0d0956b850fa3db71d4/5.png)
 
 + If HTTP is selected, the requests sent from users to CDN nodes support HTTPS/HTTP, and the requests sent from CDN nodes to origin server all use HTTP;
 + If HTTPS is selected, the origin server is required to be already configured with a certificate, otherwise back-to-origin failure may occur. When this is checked, if the requests sent from users to CDN nodes use HTTP, the requests sent from CDN nodes to origin server also use HTTP; if the requests sent from users to CDN nodes use HTTPS, the requests sent from CDN nodes to origin server also use HTTPS;
@@ -50,7 +50,7 @@ After the certificate is configured, you can select the back-to-origin method by
 
 Once the configuration is finished, you can see the domain and certificate that have been configured successfully on "Certificate Management" page:
 
-![](https://mc.qcloudimg.com/static/img/ec3d8d968918cd3e190c4f01194a6236/2.png)
+![](https://mc.qcloudimg.com/static/img/064b82a67639f0b730fd6869f479426d/6.png)
 
 ## Batch Configuration of Certificate
 
@@ -60,14 +60,12 @@ If you have a multi-domain certificate or wildcard-domain certificate applicable
 
 Paste PEM-encoded certificate content and private key to corresponding text boxes. You can modify the Remark to identify the configured certificate, and then click "Next":
 
-![](https://mc.qcloudimg.com/static/img/7727906d2ef60512160c300f1e5fa4eb/image.png)
+![](https://mc.qcloudimg.com/static/img/3b9ee17d804d79b23d045542d26bbd51/7.png)
 
 
 ### 2. Associating with domains
 
 The CDN system can recognize the CDN accelerated domains that can use the uploaded certificate (with a status of Deploying or Activated). You can check the domains in batch:
-
-![]()
 
 + A maximum of 10 accelerated domains are allowed to be checked at a time; 
 + You can configure the certificate for the domains that have been successfully configured with a certificate. Users can switch between the certificates seamlessly without affecting the use of HTTPS;
@@ -78,7 +76,7 @@ The CDN system can recognize the CDN accelerated domains that can use the upload
 
 Once the configuration is submitted, CDN will configure the certificate for the selected domains. It will take about 5 minutes to configure certificate for each domain. Please wait a moment:
 
-![](https://mc.qcloudimg.com/static/img/49b9cf146779f81ab63658a40352420d/image.png)
+![](https://mc.qcloudimg.com/static/img/3e8b51a5718f5cb9c893f71c6d81220c/8.png)
 
 You can check the certificate configuration status on "Certificate Management" page.
 
@@ -89,7 +87,7 @@ You can check the certificate configuration status on "Certificate Management" p
 
 ## Editing Certificate
 For certificates that have been configured successfully, you can seamlessly update the certificates with "Edit" button:
-![](https://mc.qcloudimg.com/static/img/6c9bbe1773ba4d8347827dcf4124fa2e/image.png)
+![](https://mc.qcloudimg.com/static/img/142e7deeae4cfc2178b36382428fbd8a/9.png)
 
 + Seamless switching between self-owned certificate and Tencent Cloud hosted certificate is supported;
 + Once the edited certificate is submitted, it will be deployed by seamlessly overwriting the original one without affecting your use of service.
@@ -191,10 +189,6 @@ openssl pkcs12 -in certname.pfx -nocerts -out key.pem -nodes
 
 ### Completion of Certificate Chain
 
-During the configuration using self-owned certificate, if "Completion of Certificate Chain is Required" appears:
-
-![](https://mc.qcloudimg.com/static/img/1720998f8386c793ced5d58151630f5b/image.png)
-
 CA agency mainly provide the following three certificates:
 
 ![](https://mc.qcloudimg.com/static/img/b6aa91178ad952913f2a797b2f52bc93/cer_type.png)
@@ -206,32 +200,3 @@ CDN uses **Nginx**. Select the certificates with an extension of .crt or .key un
 You can also complete the certificate chain by pasting the content of CA certificate (PEM format) to the bottom of domain certificate (PEM format):
 
 ![](https://mc.qcloudimg.com/static/img/53927ba56ceba5d0a3ed0c5d80257c8a/cer_add.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

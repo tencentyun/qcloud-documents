@@ -16,7 +16,6 @@ The following list only provides API request parameters. For additional paramete
 Different products have different input parameters. Here are the details:
 
 ### 2.1. Query the price of successfully renewed prepaid instances
-**For renewals**
 
 | Parameter Name | Required | Type | Description | Source |
 |---------|---------|---------|---------|---------|
@@ -33,7 +32,7 @@ Different products have different input parameters. Here are the details:
 | instanceType | Yes | Int | Instance type. The value is 1 (for CVM instance purchase). |
 | cpu | Yes | Int | Number of instance cores. For limitations on the ratio of CPU to memory, refer to [CVM Instance Configuration](/document/product/213/2177). |
 | mem | Yes | Int | Memory size (GB) of the instance. For limitations on the ratio of CPU to memory, refer to [CVM Instance Configuration](/document/product/213/2177). |
-| period | Yes | Int | Length of purchase (month). 1 month at least and 36 months at most. |
+| period | Yes | Int | Length of purchase (month). 1 - 36 months. |
 | storageType | No | Int | Hard disk type. 1: Local disk, 2: Cloud Block Storage; the default is local disk. For the selection of different data disk types, refer to [Overview of Hard Disk Products](https://www.qcloud.com/doc/product/213/498). |
 | storageSize | Yes | Int | Data disk size (GB). The increment is 10. The value of 0 means that no data disk is needed. The type of data disk is the same as specified by storageType. For the maximum size of different data disks, refer to [Overview of Hard Disk Products](https://www.qcloud.com/doc/product/213/498). |
 | goodsNum | No | Int | The number of purchased instances. The default is 1 and the maximum is 100. |
@@ -81,7 +80,8 @@ Different products have different input parameters. Here are the details:
 |---------|---------|---------|
 | code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
 | message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| price | Int | The total price of the product (in fen). |
+| price| Int| Discount price (unit: 0.01 CNY)|
+| originalPrice| Int| Original price of the product (unit: 0.01 CNY)|
 
 
 ## 4. Error Codes

@@ -33,7 +33,7 @@
 | data.redisSet.redisId | String | 实例唯一串号| 
 | data.redisSet.appid | Int | appid | 
 | data.redisSet.projectId | Int | 项目id | 
-| data.redisSet.regionId | Int | 地域id | 
+| data.redisSet.regionId | Int | 地域id 1--广州 4--上海 5-- 香港 6--多伦多 7--上海金融 8--北京 9-- 新加坡 11--深圳金融 15--美西（硅谷） | 
 | data.redisSet.zoneId | Int | 区域id | 
 | data.redisSet.vpcId | Int | vpc网络id，不推荐使用 |
 | data.redisSet.unVpcId | String | vpc网络id，推荐使用 |  

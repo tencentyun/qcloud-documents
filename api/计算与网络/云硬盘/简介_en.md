@@ -12,8 +12,10 @@ To allow you to get familiar with CBS and snapshot services more quickly, we pro
 
 | Term | Full Name | Description |
 | --- |  --- | --- |
-| CBS | [Cloud Block Storage](https://www.qcloud.com/doc/product/362/2355) | This refers to distributed block storage independently developed by Tencent Cloud and called Could Storage for short. For more information, please refer to [CBS Product Overview](https://www.qcloud.com/doc/product/362/%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0).It includes cloud disk purchased with CVM and elastic cloud storage purchased separately. |
-| Elastic Cloud Storage | [Elastic Cloud Storage](https://www.qcloud.com/doc/product/362/2355#1.2.-.E5.BC.B9.E6.80.A7.E4.BA.91.E7.A1.AC.E7.9B.98) | This refers to the cloud storage which is purchased separately, instead of being purchased with CVM. It has an independent life cycle (billing cycle), and can be flexibly mounted to or unmounted from different CVMs (being mounted to several CVMs at the same time is not supported). It is also called Elastic Block Storage.  |
+| CBS | [Cloud Block Storage](https://www.qcloud.com/document/product/439/6329
+) | This refers to distributed block storage independently developed by Tencent Cloud and called Could Storage for short. For more information, please refer to [CBS Product Overview](https://www.qcloud.com/doc/product/362/%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0).It includes cloud disk purchased with CVM and elastic cloud storage purchased separately. |
+| Elastic Cloud Storage | [Elastic Cloud Storage](https://www.qcloud.com/document/product/439/6329#1.2.-.E5.BC.B9.E6.80.A7.E4.BA.91.E7.A1.AC.E7.9B.98
+) | This refers to the cloud storage which is purchased separately, instead of being purchased with CVM. It has an independent life cycle (billing cycle), and can be flexibly mounted to or unmounted from different CVMs (being mounted to several CVMs at the same time is not supported). It is also called Elastic Block Storage.  |
 | snapshot |   [Cloud Disk Snapshot](https://www.qcloud.com/doc/product/213/502) | Used to save a copy of cloud disk at a certain point in time. You can use the snapshot to restore the cloud disk to the point when the snapshot was created |
 
 <!--

@@ -6,9 +6,7 @@ By creating a notification, AS will give you complete control over the scaling g
 
 You can create a notification policy by clicking **Notification** on the management page of the scaling group.
 
-## What's Notified
-
-You can know the following in real time:
+## Get notified for followings
 
 - Successful scale up
 - Failed scale up
@@ -18,7 +16,7 @@ You can know the following in real time:
 - Failed unhealthy CVM replacement
 
 
-## How to notify
+## Notification Methods
 
 AS supports notification via the following:
 

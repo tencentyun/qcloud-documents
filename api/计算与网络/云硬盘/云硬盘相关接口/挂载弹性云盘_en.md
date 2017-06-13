@@ -10,7 +10,8 @@ Usage restrictions:
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/364/2745).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976
+).
 
 | Parameter Name | Required | Type | Description |
 | ------- | ------- | ------- | ------- |

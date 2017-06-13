@@ -3,7 +3,7 @@ Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Usage" page 
 ## Query Criteria
 
 The usage statistics page includes the following query criteria:
-![](https://mc.qcloudimg.com/static/img/022ee53238b843a896ce7515b8e6d934/image.png)
+![](https://mc.qcloudimg.com/static/img/cfe4dc604956845bdacbe46566081978/1.png)
 
 **Note:**
 
@@ -14,15 +14,15 @@ The usage statistics page includes the following query criteria:
 + Carrier: Query for usage data based on specified carrier is supported. Currently you cannot select both "Region" and "Carrier", when you select a carrier, the region will need to be "All regions";
 + Network layer: Query for usage data of edge nodes or intermediate nodes is supported;
 + Temporal granularity: This refers to the temporal granularity with which bandwidth and traffic data will be presented. This is related to the selected time span:
-	> If the selected time span is 1 day, you can query data with a temporal granularity of 5 minutes, 15 minutes, 30 minutes, 2 hours or 4 hours;
-	> If the selected time span is 2-3 days, you can query data with a temporal granularity of 15 minutes, 30 minutes, 2 hours or 4 hours;
-	> If the selected time span is 4-7 days, you can query data with a temporal granularity of 2 hours, 4 hours or 1 day;
-	> If the selected time span is more than 30 days, you can only query data with a temporal granularity of 4 hours or 1 day;
+  > If the selected time span is 1 day, you can query data with a temporal granularity of 5 minutes, 15 minutes, 30 minutes, 2 hours or 4 hours;
+  > If the selected time span is 2-3 days, you can query data with a temporal granularity of 15 minutes, 30 minutes, 2 hours or 4 hours;
+  > If the selected time span is 4-7 days, you can query data with a temporal granularity of 2 hours, 4 hours or 1 day;
+  > If the selected time span is more than 30 days, you can only query data with a temporal granularity of 4 hours or 1 day;
 
 ## Data Result Description
 ### Statistics of Traffic and Bandwidth
 Displays the curve graph of traffic and bandwidth statistical data:
-![](https://mc.qcloudimg.com/static/img/fb4f276f2e159643273e2aa8f3757d29/image.png)
+![](https://mc.qcloudimg.com/static/img/223e2d6ab037740b68175291ca124940/2.png)
 
 
 **Note:**
@@ -31,13 +31,13 @@ Displays the curve graph of traffic and bandwidth statistical data:
 + The latency of real-time data is about five minutes, that is, the statistical point of 2016-10-25 15:05:00 will appear around 2016-10-25 15:10:00;
 + Accelerated domains that were once connected and then deleted will be displayed in gray in the "All domains" drop-down box;
 + Note about statistics:
-	> If the domain has not been connected to CDN for the specified time range, it will not be covered in statistics even if it is checked;
-	> If the domain has been deleted for the specified time range, it will not be covered in statistics even if it is checked;
-	> If the domain experienced three stages (not connected, connected and deleted) for the specified time range, the statistical data for unconnected and deleted time period will be filled by 0.
+  > If the domain has not been connected to CDN for the specified time range, it will not be covered in statistics even if it is checked;
+  > If the domain has been deleted for the specified time range, it will not be covered in statistics even if it is checked;
+  > If the domain experienced three stages (not connected, connected and deleted) for the specified time range, the statistical data for unconnected and deleted time period will be filled by 0.
 
 ### Carrier and Province Analysis
 The usage statistics are ranked and analyzed based on provinces and carriers:
-![](https://mc.qcloudimg.com/static/img/70022f296393332c444fc23e60da9209/province_isp.png)
+![](https://mc.qcloudimg.com/static/img/31dc248c29ed74cf371ccc2e27fb0778/3.png)
 
 **Note:**
 
@@ -47,7 +47,7 @@ The usage statistics are ranked and analyzed based on provinces and carriers:
 
 ### Domain Bandwidth/Traffic Usage Details
 Domains and their detailed traffic and bandwidth are displayed according to selected query criteria (sorted from high to low). You can click "Download all data" to download detailed data:
-![](https://mc.qcloudimg.com/static/img/2ccaac4842752598b40f8b124b592667/domain_detail.png)
+![](https://mc.qcloudimg.com/static/img/9d2d4baf4b79049289de2bfa01e55085/4.png)
 
 
 **Note:**
@@ -57,7 +57,7 @@ Domains and their detailed traffic and bandwidth are displayed according to sele
 
 ### TOP100 URL
 TOP100 analysis for traffic usage and bandwidth usage towards individual URL resources is carried out according to the selected query criteria, to help you locate popular resources:
-![](https://mc.qcloudimg.com/static/img/407aeb4e3e3ad3e444350d91861c6d59/top100.png)
+![](https://mc.qcloudimg.com/static/img/5ff67be62cace40eee945ee8775b3f42/5.png)
 
 
 **Note:**

@@ -22,6 +22,7 @@ APNs 证书申请流程可参考文档：[Apple推送证书申请](/doc/product/
 2. 上传证书生效时间为10分钟左右
 3. 上传证书需要设置密码，无密码收不到推送
 4. 注意生产环境的选择，发布AppStore的证书需要设置为生产环境，否则无法收到推送
+5. 上传的p12证书必须是自己申请的真实有效的证书
 
 ### 1.4 客户端实现APNs推送
 
@@ -65,8 +66,8 @@ APNs 证书申请流程可参考文档：[Apple推送证书申请](/doc/product/
     [[TIMManager sharedInstance] log:TIM_LOG_INFO tag:@"SetToken" msg:[NSString stringWithFormat:@"My Token is :%@", token]];
     TIMTokenParam *param = [[TIMTokenParam alloc] init];
 
+/* 用户自己到苹果注册开发者证书，在开发者账号中下载并生成证书(p12文件)，将生成的p12文件传到腾讯证书管理控制台，控制台会自动生成一个证书id，将证书id传入一下busiId参数中。*/
 #if kAppStoreVersion
-
 // AppStore版本
 #if DEBUG
     param.busiId = 2383;
@@ -272,9 +273,14 @@ fail|失败回调
 
 ### 4.3 每条离线推送属性
 
-如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置TIMOfflinePushInfo，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。
+如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置TIMOfflinePushInfo，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。**填入kIOSOfflinePushNoSound到sound属性时接收端强制为静音提示**
 
 ```
+/**
+ 填入sound字段表示接收时不会播放声音
+ */
+extern NSString * const kIOSOfflinePushNoSound;
+
 @interface TIMAndroidOfflinePushConfig : NSObject
 /**
  *  离线推送时展示标签

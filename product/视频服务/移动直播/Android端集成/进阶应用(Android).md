@@ -22,14 +22,14 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 | NET_STATUS_CPU_USAGE     |当前进程的CPU使用率和本机总体的CPU使用率|
 | NET_STATUS_VIDEO_WIDTH  |当前视频的宽度（单位：像素值）    |
 | NET_STATUS_VIDEO_HEIGHT|当前视频的高度（单位：像素值）    |
-|	NET_STATUS_NET_SPEED     | 当前的发送速度（单位：kbps）|
-|	NET_STATUS_VIDEO_BITRATE | 当前视频编码器输出的比特率，也就是编码器每秒生产了多少视频数据，单位： kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前音频编码器输出的比特率，也就是编码器每秒生产了多少音频数据，单位： kbps|
-|	NET_STATUS_VIDEO_FPS     | 当前视频帧率，也就是视频编码器每条生产了多少帧画面|
-|	NET_STATUS_CACHE_SIZE    | 音视频数据堆积情况，这个数字超过个位数，即说明当前上行带宽不足以消费掉已经生产的音视频数据|
-|	NET_STATUS_CODEC_DROP_CNT  |全局丢包次数，为了避免延迟持续恶性堆积，SDK在数据积压超过警戒线以后会主动丢包，丢包次数越多，说明网络问题越严重。|
+|   NET_STATUS_NET_SPEED     | 当前的发送速度（单位：kbps）|
+|   NET_STATUS_VIDEO_BITRATE | 当前视频编码器输出的比特率，也就是编码器每秒生产了多少视频数据，单位： kbps|
+|   NET_STATUS_AUDIO_BITRATE | 当前音频编码器输出的比特率，也就是编码器每秒生产了多少音频数据，单位： kbps|
+|   NET_STATUS_VIDEO_FPS     | 当前视频帧率，也就是视频编码器每条生产了多少帧画面|
+|   NET_STATUS_CACHE_SIZE    | 音视频数据堆积情况，这个数字超过个位数，即说明当前上行带宽不足以消费掉已经生产的音视频数据|
+|   NET_STATUS_CODEC_DROP_CNT  |全局丢包次数，为了避免延迟持续恶性堆积，SDK在数据积压超过警戒线以后会主动丢包，丢包次数越多，说明网络问题越严重。|
 | NET_STATUS_SERVER_IP     | 连接的推流服务器的IP |
-|	NET_STATUS_NET_JITTER    | 网络抖动情况（指导作用很小，不推荐参考）|
+|   NET_STATUS_NET_JITTER    | 网络抖动情况（指导作用很小，不推荐参考）|
 
 ### 2.1 推流质量的判断
 有了上面这些状态信息，但怎么判断推流质量是否OK呢？下面几条是我们常用的质量判断指标，<font color='red'>**强烈推荐您了解一下**</font>：
@@ -211,7 +211,89 @@ public interface VideoCustomProcessListener {
 
 > 对于 texture 数据的操作，需要一定的 OpenGL 基础知识，另外计算量不宜太大，因为 onTextureCustomProcess 的调用频率跟 FPS 相同，过于繁重的处理很容易造成 GPU 过热。
 
-## 6. 替换数据源
+## 6.自定义播放界面
+如果您想自定义播放界面或者使用 OpenGL ES 对视频数据进行二次处理，可以按如下步骤实现：
+
+> 该接口暂时只支持使用 <font color='red'>硬件加速</font> 场景
+
+- 定义 TextureView
+为了能够展示播放器的视频画面，您需要在布局xml文件中使用 `TextureView` 替代 `TXCloudVideoView`
+```xml
+    <TextureView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+```
+
+- 初始化 TextureView
+```
+mTextureView = (TextureView) findViewById(R.id.video_view);
+```
+
+- 关联播放器
+通过 TXLivePlayer 的 setSurface(mSurface) 接口将视频数据渲染的 mTextureView 绑定到 TXLivePlayer
+```Java
+mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
+
+        @Override
+        public void onSurfaceTextureAvailable(SurfaceTexture texture, int width, int height) {
+            //创建 Surface
+            mSurface = new Surface(texture);
+                //设置 Surface，mSurface 和 mTextureView 通过 texture 关联在了一起，
+                //所以调用该接口后，解码数据自动渲染到 mTextureView 上
+            mLivePlayer.setSurface(mSurface);
+        }
+    
+        ......
+});
+```
+
+如果您在调整画面尺寸遇到问题，可以参考下完整的示例代码 - [调整画面尺寸](https://www.qcloud.com/document/product/454/9723)
+如果您在使用 OpenGL ES 对视频数据进行二次处理没有思路，可以参考下示例代码 - [OpenGL ES 处理数据](https://www.qcloud.com/document/product/454/9724)
+
+## 7.获取解码后的视频数据
+如果您想通过获取 SDK 解码之后的 YUV 类型的视频数据，您可以按如下步骤实现。
+
+> 该接口暂时只能在 <font color='red'>软件解码</font> 场景下使用
+
+- 在 onPlayEvent 中监听 PLAY_EVT_CHANGE_RESOLUTION 事件
+
+```Java
+    public void onPlayEvent(int event, Bundle param) {
+        //...
+        if (event == TXLiveConstants.PLAY_EVT_CHANGE_RESOLUTION) {
+            //获取视频的宽高
+            int width = param.getInt(TXLiveConstants.EVT_PARAM1, 0);
+            int height = param.getInt(TXLiveConstants.EVT_PARAM2, 0);
+            if (width != 0 && height != 0 && !mHWDecode) {
+                //创建存储 yuv 数据的 buffer，目前输出的 yuv 格式为 I420
+                byte[] buf = new byte[width * height * 3 / 2];
+                //将 buffer 设置进 mLivePlayer
+                mLivePlayer.addVideoRawData(buf);
+            }
+        }
+    }
+```
+
+- 获取数据
+
+```Java
+TXVideoRawDataObserver.ITXVideoRawDataListener rawDataListener = new
+TXVideoRawDataObserver.ITXVideoRawDataListener() {
+    @Override
+    public void onVideoRawDataAvailable(byte[] buf, int width, int height, int timestamp) {
+        //解码一帧后的数据回调，buf 中存放了 yuv 数据，格式为 I420
+        if (!mHWDecode) {
+            //如果需要继续获取yuv数据，需要重新调用addVideoRawData方法
+            mLivePlayer.addVideoRawData(buf);
+        }
+    }
+};
+
+mLivePlayer.setVideoRawDataListener(rawDataListener);
+```
+
+## 8. 替换数据源
 如果您只希望使用 RTMP SDK 来推流，音视频采集和预处理（即美颜、滤镜这些）全部由自己的代码来控制，可以按如下步骤实现：
 
 - **Step1. 不再调用 TXLivePusher 的 startCameraPreview 接口**

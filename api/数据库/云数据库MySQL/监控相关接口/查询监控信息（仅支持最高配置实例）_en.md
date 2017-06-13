@@ -1,5 +1,5 @@
 ## 1. API Description
-This API (GetCdbDeviceMonitorInfo) is used to query the monitoring information for the day of the cloud database physical machine. <font style="color:red">**Currently you can only query the instance with the highest configuration**</font>.
+This API (GetCdbDeviceMonitorInfo) is used to query the monitoring information for the day of the cloud database physical machine. <font style="color:red">**Currently you can only query the instance with the highest configuration(Memory: 488GB, Volume: 6TB)**</font>.
 Domain for API request: <font style="color:red">cdb.api.qcloud.com</font>
 
 

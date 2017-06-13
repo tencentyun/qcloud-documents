@@ -1,7 +1,7 @@
 SSL certificates can be deployed to the cloud load balancer as follows:
 
 ### 1. Select a Certificate
-Apply for a certificate (refer to [Apply for a Free Domain Certificate](https://www.qcloud.com/doc/product/400/6128) or select a certificate to upload, expand "More" operation, and select "Deploy to Cloud Load Balancer".
+Apply for a certificate (refer to [Apply for a Free Domain Certificate](https://www.qcloud.com/document/product/400/6814) or select a certificate to upload, expand "More" operation, and select "Deploy to Cloud Load Balancer".
 ![](https://mc.qcloudimg.com/static/img/f63593c744fe88e386ce1157526b468f/1.png)
 
 ### 2. Select an LB Instance

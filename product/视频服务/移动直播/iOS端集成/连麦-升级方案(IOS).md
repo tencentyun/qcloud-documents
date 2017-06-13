@@ -2,7 +2,38 @@
 
 -----------------------------------------------------------------------------------------------------------------
 
-本文主要介绍腾讯视频云连麦升级方案的对接方法，连麦旧方案的对接方法可以参数这里[IOS视频连麦（旧方案）](https://www.qcloud.com/document/product/454/8090)，如果您是首次使用视频连麦功能，强制建议您直接使用连麦升级方案。
+本文主要介绍腾讯视频云连麦升级方案的对接方法，连麦旧方案的对接方法可以参数这里[IOS视频连麦（旧方案）](https://www.qcloud.com/document/product/454/8090)，如果您是首次使用视频连麦功能，强烈建议您直接使用连麦升级方案。
+
+### 演示Demo
+在详细介绍连麦升级方案的对接攻略之前，先介绍一下2.0.3版本引入的连麦演示Demo，以便您可以快速地体验一下连麦的效果。
+
+![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/linkmic_demo_step.png)
+
+假设用户A和用户B进行连麦，连麦演示Demo的使用方法是：
+
+1. 用户A、用户B分别生成自己的推流地址和拉流地址；需要特别注意的是，**拉流地址里必须包括防盗链key：即必须包含bizid、txSecret和txTime三个参数**，具体生成方式请参考本文后面[加速拉流链路URL](https://www.qcloud.com/document/product/454/8871#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E4.BA.92.E7.9B.B8.E6.8B.89.E6.B5.818)里的介绍；
+
+```
+推流地址A: rtmp://3891.livepush.myqcloud.com/live/3891_streamA?bizid=3891&txSecret=9d6e1a1ec1dde00dab718e5684ad53a3&txTime=5919D07F
+
+拉流地址A: rtmp://3891.liveplay.myqcloud.com/live/3891_streamA?bizid=3891&txSecret=9d6e1a1ec1dde00dab718e5684ad53a3&txTime=5919D07F
+
+推流地址B：rtmp://3891.livepush.myqcloud.com/live/3891_streamB?bizid=3891&txSecret=d37f5d7c6a3cd426105e57d6eb4900e8&txTime=5919D07F
+
+拉流地址B：rtmp://3891.liveplay.myqcloud.com/live/3891_streamB?bizid=3891&txSecret=d37f5d7c6a3cd426105e57d6eb4900e8&txTime=5919D07F
+```
+
+2. 在连麦演示TAB界面，用户A、用户B分别扫描**自己的推流地址**，启动推流；可以点击右下角的"大主播"或者"小主播"按钮，模拟大主播或者小主播推流；
+3. 在连麦演示TAB界面，用户A、用户B分别点击右上角的+按钮，扫描**对方的拉流地址**，添加一路拉流；
+4. 经过步骤2和步骤3两步操作，用户A和用户B在推流的同时，互相拉取到了对方的视频流，也即在二者之间建立起了双向实时视频对话，具体效果如下图所示。
+
+![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/linkmic_demo_example.png)
+
+【特别说明】
+- 步骤3中“扫描拉流地址，添加一路拉流”，必须保证拉流地址包含防盗链key；因为只有包含防盗链key，演示Demo才会使用本文后面介绍的加速拉流接口进行拉流播放，以降低视频时延，并做音频回声消除；
+- 连麦演示Demo只用于在大、小主播之间建立双向实时视频对话，没有做视频混流，其它第三方观众看到的还是大主播一个人的视频画面；您在实际对接过程中，需要按照本文后面介绍的[视频混流方法](https://www.qcloud.com/document/product/454/8871#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.B7.B7.E6.B5.8111)，对大、小主播做视频混流，才可以达到真正的连麦效果。
+
+### 对接攻略
 
 使用连麦升级方案，需要把SDK的版本更新到2.0.1以上版本；相比旧的连麦方案，升级后的方案能力更为强大，其主要特点有：
 
@@ -10,8 +41,6 @@
 - 可以自定义设置混流后小画面的位置
 - 启动视频混流更加灵活，通过CGI调用的方式，可以把任意两路（最多支持四路）视频流混为一路视频
 
-
-### 连麦步骤
 
 使用升级方案进行视频连麦，需要完成如下三步：
 

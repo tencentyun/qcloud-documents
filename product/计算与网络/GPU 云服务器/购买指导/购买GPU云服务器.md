@@ -1,12 +1,9 @@
-GPU云服务器目前处于**内测**中。
-如您未取得购买权限，请点击 [GPU 产品介绍页](https://www.qcloud.com/product/gpu)进行申请。
-如您已有购买权限，可参照以下步骤进行购买。
 
-1) 登录腾讯云官网，进入[GPU 云服务器购买页面](https://buy.qcloud.com/?regionId=4&zoneId=200001&generation=v2&deviceType=gpu)(如您未取得购买权限，则未能看到 GPU 实例的购买页面，请获取购买权限再进行操作。)
+1) 登录腾讯云官网，进入[GPU 云服务器购买页面](https://buy.qcloud.com/?regionId=4&zoneId=200001&generation=v2&deviceType=gpu)
 
 2) 选择计费模式：包年包月
 
-3) 选择地域和可用区。目前 GPU 云服务器仅支持**上海一区**及**广州三区**。
+> 3) 选择地域和可用区。目前 GPU 云服务器仅支持**上海一区**、**广州三区**和**北京二区**。
 
 4) 选择机型和配置。
 

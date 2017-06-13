@@ -6,17 +6,17 @@ The creation method of cloud disk varies with cloud disk type. For more informat
 
 ### Creating elastic cloud disk in console
 
-1) Log in to "Cloud Block Storage Console"(https://console.qcloud.com/cvm/cbs), click ![](//mccdn.qcloud.com/static/img/acaf7d7ec8c66cd55ab9dd1be3319dfb/image.png) to purchase an elastic cloud disk.
+1) Log in to [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs), click ![](//mccdn.qcloud.com/static/img/acaf7d7ec8c66cd55ab9dd1be3319dfb/image.png) to purchase an elastic cloud disk.
 
-2) In the pop-up box, select a region/availability zone, billing model (only "Annual or Monthly Plan" is supported currently), capacity, quantity and purchase period, and click "OK".
+2) In the pop-up box, select a region/availability zone, billing model (only "Annual or Monthly Plan" is supported currently), capacity, quantity and purchase period, and click **OK**.
 
-3) Click "Payment Completed" in the payment page and complete the purchase. You can check the purchased cloud disk in the [CBS List Page](https://console.qcloud.com/cvm/cbs). The elastic cloud disk you just purchased is unnamed by default, and has a status of <font color="red">Pending mounted</font>.
+3) Click **Payment Completed** in the payment page and complete the purchase. You can check the purchased cloud disk in the [CBS List Page](https://console.qcloud.com/cvm/cbs). The elastic cloud disk you just purchased is unnamed by default, and has a status of **Pending mounted**.
 
 > Note:
 > 
 - An elastic cloud disk can be freely mounted and dismounted among the CVMs within the same availability zone;
-- The capacity of a single disk can be set to 10G-4000G, and a maximum of 10 elastic cloud disks can be created at a time.
-- If you need to keep the data disk snapshot data in the new disk, you can enable "Use snapshot to create disks" and select the snapshot to be used. After selection of snapshot, the default disk capacity equals the snapshot size. You can change the capacity to a value greater than the default value.
+- The capacity of a single disk can be set to 10 G-4000 G, and a maximum of 10 elastic cloud disks can be created at a time.
+- If you need to keep the data disk snapshot data in the new disk, you can enable **Use snapshot to create disks** and select the snapshot to be used. After selection of snapshot, the default disk capacity equals the snapshot size. You can change the capacity to a value greater than the default value.
 ![](//mccdn.qcloud.com/static/img/4fc60b3b41287146e6cbc8768a62f90b/image.png)
 
 ### Creating an Elastic Cloud Disk Using Snapshot
@@ -32,11 +32,11 @@ If you need to keep the data disk snapshots in the newly created disk, you can s
 - The default capacity of a newly purchased cloud disk equals the snapshot size. You can change the capacity to a value greater than the default value.
 - A maximum of 10 elastic cloud disks can be created at a time.
 
-3) Click "Payment Completed" in the payment page and complete the purchase. You can check the purchased cloud disk in the [CBS List Page](https://console.qcloud.com/cvm/cbs). The elastic cloud disk you just purchased is named "From snap-xxxxxxxx" by default, with the status being <font color="red">Pending mounted</font>.
+3) Click "Payment Completed" in the payment page and complete the purchase. You can check the purchased cloud disk in the [CBS List Page](https://console.qcloud.com/cvm/cbs). The elastic cloud disk you just purchased is named "From snap-xxxxxxxx" by default, with the status being **Pending mounted**.
 
 
 ### Creating an Elastic Cloud Disk with API
-Please refer to [API CreateCbsStorage](https://www.qcloud.com/document/api/364/2524).
+Please refer to [API CreateCbsStorage](https://www.qcloud.com/document/api/362/2524).
 
 ## Creating Non-elastic Cloud Disk
 ### Creating a non-elastic cloud disk in console

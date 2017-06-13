@@ -29,7 +29,7 @@ For pay-by-usage resources, fees are deducted on the hour. When your account bal
 
 Within 24 hours after automatic shutdown, if your account balance is not greater than 0, you cannot perform read/write operations; if your balance is greater than 0, billing continues and you can perform read/write operations.
 
-After automatic shutdown, if your negative balance lasts for 24 hours (Point 3 in the figure above), pay-by-usage CBS will be reclaimed, and all data will be cleared and <font color="red">cannot be recovered</font>.
+After automatic shutdown, if your negative balance lasts for 24 hours (Point 3 in the figure above), pay-by-usage CBS will be reclaimed, and all data will be cleared and CANNOT be recovered.
 
 When reclaiming the CBS, we will notify the Tencent Cloud account creator and all the collaborators via email and SMS.
 
