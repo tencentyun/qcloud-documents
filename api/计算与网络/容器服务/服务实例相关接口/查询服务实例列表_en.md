@@ -1,6 +1,6 @@
 ## 1. API Description
  
-This API (DescribeServiceInstance) is used to query the list of service instances.
+This API (DescribeServiceInstance) is used to query the list of service pods.
 
 Domain for API request: ccs.api.qcloud.com
 
@@ -24,45 +24,45 @@ The following request parameter list only provides API request parameters. For o
 |---------|---------|---------|
 | code | Int | Common error code. 0: successful. Other values: failed. |
 | message | String | Module error message description depending on API. |
-| totalCount | Int | Total number of instances |
-| instances | Object Array | Instance list. Details are shown below |
+| totalCount | Int | Total number of pods |
+| instances | Object Array | Pod list. Details are shown below |
 
 "instances" parameter details
 
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| name | String | Instance name (corresponding to the pod name of kubernetes) |
-| status | String| Instance status. See the definitions for instance and container statuses below |
-| reason | String | Reason why the instance is in the current status. For example, container failed to download image |
+| name | String | Pod name (corresponding to the pod name of kubernetes) |
+| status | String| Pod status. See the definitions for pod and container statuses below |
+| reason | String | Reason why the pod is in the current status. For example, container failed to download image |
 | nodeIp | String | Server IP |
 | nodeName | String| Server name |
-| ip | String| Instance IP |
-| restartCount | Int | Number of restarts performed for the container in the instance |
-| readyCount | Int | Number of ready containers in the instance |
-| createdAt | String | Launch time of the instance |
+| ip | String| Pod IP |
+| restartCount | Int | Number of restarts performed for the container in the pod |
+| readyCount | Int | Number of ready containers in the pod |
+| createdAt | String | Launch time of the pod |
 | containers | Object Array | Container array. See the container definition below |
 
 
-container definition (The container fields here are mainly used to describe the current status and status cause for the container. For detailed definitions of containers in instances, see API "Acquire Service", which returns detailed container parameters)
+container definition (The container fields here are mainly used to describe the current status and status cause for the container. For detailed definitions of containers in pods, see API "Acquire Service", which returns detailed container parameters)
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | containerId  | String | Container ID (docker id) |
-| status | String | Container status. See the definitions for instance and container statuses below |
+| status | String | Container status. See the definitions for pod and container statuses below |
 | reason | String | Reason why the container is in the current status. For example, failed to download image |
 | image | String | Container image |
 
 
-Definition of instance and container statuses
+Definition of pod and container statuses
 
 | Status Type | Description |
 |---------|---------|
 | Running | Running |
 | Waiting | Waiting to run, such as downloading image |
-| Terminating | Certain container in the instance is being terminated |
-| Terminated | Certain container in the instance has terminated |
-| NotReady | Certain container in the instance is not ready, such as the container failed to pass health check |
+| Terminating | Certain container in the pod is being terminated |
+| Terminated | Certain container in the pod has terminated |
+| NotReady | Certain container in the pod is not ready, such as the container failed to pass health check |
 
 
 ## 4. Example

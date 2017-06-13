@@ -32,8 +32,8 @@ The following request parameter list only provides API request parameters. For o
 | status | String | Service status. See the table below |
 | reasonMap | map[string]int | A set containing the reasons for why the service is in the current status. The map key is reason, while the map value is the number of containers with the same reason. Suppose a pair of key and value: {"Failed to download image":2}, this means two containers failed to download image |
 | createdAt | String | Creation time of service |
-| currentReplicas | Int | Number of running instance replicas |
-| desiredReplicas | Int | Number of instance replicas that are expected to run. This is specified when creating the service |
+| currentReplicas | Int | Number of running pod replicas |
+| desiredReplicas | Int | Number of pod replicas that are expected to run. This is specified when creating the service |
 | lbId | String | Corresponding public Lb ID of the service. This is only created if the service is specified to access the Internet upon creation |
 | lbStatus | String | Public network load balancer status. Possible values are: None (the service has no public network load balancer), Creating (load balancer is being created) and Running (load balancer is running) |
 | externalIp | String | Corresponding public IP of the service |

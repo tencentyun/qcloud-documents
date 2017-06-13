@@ -26,12 +26,12 @@
 
 
 
-## 3. Service Instance Related APIs
+## 3. Service Pod Related APIs
 | Function | Action ID | Description
 |---------|---------|---------|
-| Query Service Instance List | [DescribeServiceInstance](https://www.qcloud.com/document/api/457/9433)|  Query the list of service instances
-| Modify Service Instance Replica Number | [ModifyServiceReplicas](https://www.qcloud.com/document/api/457/9431) | Modify the number of containers for the service
-| Delete Service Instance | [DeleteInstances](https://www.qcloud.com/document/api/457/9432) | Delete instances
+| Query Service Pod List | [DescribeServiceInstance](https://www.qcloud.com/document/api/457/9433)|  Query the list of service pods
+| Modify Service Pod Replica Number | [ModifyServiceReplicas](https://www.qcloud.com/document/api/457/9431) | Modify the number of containers for the service
+| Delete Service Pod | [DeleteInstances](https://www.qcloud.com/document/api/457/9432) | Delete pods
 
 ## 4. Namespace Related APIs
 | Function | Action ID | Description
