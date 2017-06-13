@@ -13,6 +13,7 @@ The following request parameter list only provides API request parameters. For o
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------
 | clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| name   | Yes    | String |Namespace name |
 
 
 ## 3. Output Parameters
@@ -30,6 +31,7 @@ Input
 ```
   https://domain/v2/index.php?Action=DeleteClusterNamespace
   &clusterId=cls-xxxxx
+  &name=xxxx
   &Other common parameters
 ```
 

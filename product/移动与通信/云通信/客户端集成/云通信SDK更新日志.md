@@ -1,13 +1,18 @@
-#### IM  SDKV3 3.0.2 2017-5-22
+#### IM SDK2.5.5 2017-6-6
+1. 优化内部回包逻辑，减少耗时
+2. LOG时间精度精确到毫秒
+3. 修复了部分Crash和消息同步的问题
+
+#### IM SDKV3 3.0.2 2017-5-22
 1. 修复AVChatRoom可能无法接收到群消息的问题
 2. 接口调整
     i. 废弃TIMFileElem, TIMSoundElem中的setData接口
     ii. 修正TIMManagerExt中的接口拼写： getConversionList => getConversationList
 
-#### IM  SDKV3 3.0.1 2017-5-15
+#### IM SDKV3 3.0.1 2017-5-15
 1. 修复部分so库无法兼容Android 5.0以下机器的问题
 
-#### IM  SDKV3 3.0 2017-5-8
+#### IM SDKV3 3.0 2017-5-8
 1. 将ImSDK和IMCore重新组合为ImSDK、IMMessageExt、IMGroupExt和IMFriendExt
 2. 优化ImSDK初始化方法为initSdk：和setUserConfig
 3. 整理ImSDK中接口命名和Protocol回调方法命名，统一小写字母开头
