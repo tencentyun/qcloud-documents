@@ -25,4 +25,4 @@ Note: Store the conf.json file in "UTF-8 without BOM" format. In Windows, it is 
 | Beijing | bj | 
 | Shenzhen Finance | szjr | 
 
-Note: The parameter is case sensitive
+Note: The parameter is case sensitive.

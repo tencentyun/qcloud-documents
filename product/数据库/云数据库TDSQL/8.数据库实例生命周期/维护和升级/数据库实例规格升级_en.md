@@ -11,5 +11,5 @@ The upgrade switching time can be customized for some instances. So, you can get
 ### Note
 1. You can still use the original instance as usual during upgrade process (for example, import or export data).
 2. The name, access IP and access port of the instance will not change after the instance is upgraded.
-\*\* <font color="#FE4C40">3. When the upgrade process is completed, the database connections will be disconnected within seconds. It is recommended that applications are configured with auto reconnect feature.
-4. During upgrade process, please try to avoid operations such as modifying the global parameters of database, instance name, user password. </font> \*\*
+3. When the upgrade process is completed, the database connections will be disconnected within seconds. It is recommended that applications are configured with auto reconnect feature.
+4. During upgrade process, please try to avoid operations such as modifying the global parameters of database, instance name, user password. 

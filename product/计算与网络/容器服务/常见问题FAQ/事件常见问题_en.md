@@ -10,11 +10,11 @@ Solution: The reason for this error is that the node cannot provide enough compu
 
 ### 3. no nodes available to schedule pods
 Description: Insufficient cluster resource.
-Solution: The reason for this error is that the number of nodes is not sufficient to carry the instances. Modify the number of service instances or CPU limit from the service page.
+Solution: The reason for this error is that the number of nodes is not sufficient to carry the pods. Modify the number of service pods or CPU limit from the service page.
 
 ### 4. pod failed to fit in any node
-Description: No proper node for the instance to use.
-Solution: This error is caused by inappropriate resource limit configuration which leads to a situation where there are no proper nodes to carry the instances. Modify the number of service instances or CPU limit from the service page.
+Description: No proper node for the pods to use.
+Solution: This error is caused by inappropriate resource limit configuration which leads to a situation where there are no proper nodes to carry the pods. Modify the number of service pods or CPU limit from the service page.
 
 ### 5. Liveness probe failed: 
 Description: Container health check failed

@@ -1,4 +1,4 @@
-When you create a service, an image is used to specify the process of the container in the instance. By default, the image runs a routine command. To run a specific command or to rewrite the default value of the image, the following two settings need to be used:
+When you create a service, an image is used to specify the process of the container in the pod. By default, the image runs a routine command. To run a specific command or to rewrite the default value of the image, the following two settings need to be used:
 
 - command: the command for controlling the operation of the image
 - args: the parameter that transferred to the command

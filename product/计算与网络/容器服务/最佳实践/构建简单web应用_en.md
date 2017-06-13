@@ -29,12 +29,12 @@ Step 8: Wait for several minutes for the cluster to be created.
 
 Step 1: Specify service name: redis-master.
 Step 2: Choose the "my-first-cluster" we just created as the cluster.
-Step 3: Configure instance information for the service (an instance may include multiple containers):
+Step 3: Configure pod information for the service (a pod may include multiple containers):
   - Add a container named "master".
   - Specify image "ccr.ccs.tencentyun.com/library/redis" for the master container. Version is "latest".
-Step 4: Configure the number of instances to run for the service. Here, we choose "1", as the redis-master service needs to run one instance.
+Step 4: Configure the number of pods to run for the service. Here, we choose "1", as the redis-master service needs to run one pod.
 Step 5: Select access method for the service. Since our redis service is an internal service which only provides access to other services within the cluster, we choose "Access Within Cluster Only".
-Step 6: Lastly, configure service access port. Our service instance includes 1 redis container which listens the port 6379, so we configure the mapping container port as 6379, and set the service port to the same value as the container port, which is also 6379. When this is done, other services will be able to access our container "master" using its service name (redis-master) and port (6379).
+Step 6: Lastly, configure service access port. Our service pod includes 1 redis container which listens the port 6379, so we configure the mapping container port as 6379, and set the service port to the same value as the container port, which is also 6379. When this is done, other services will be able to access our container "master" using its service name (redis-master) and port (6379).
 
 ![](https://mc.qcloudimg.com/static/img/0205c172fdcc02921087024c0dfda6fa/image.png)
 
@@ -43,15 +43,15 @@ Step 6: Lastly, configure service access port. Our service instance includes 1 r
 
 Step 1: Specify service name: redis-slave.
 Step 2: Choose the "my-first-cluster" we just created as the cluster.
-Step 3: Configure instance information for the service:
+Step 3: Configure pod information for the service:
   - Add a container called "slave".
   - Specify image "ccr.ccs.tencentyun.com/library/gb-redisslave" for the slave container. Version is "latest".
   - Specify maximum CPU and memory (optional) available for the container. You can also configure these limits for the master container mentioned above.
   - For operation commands and launch parameters, you may leave them empty since we can use the default ones in the image.
   - Add an environment variable with the name "GET_HOSTS_FROM" and the value "dns". This is mandatory because the variable is required by programs in the gb-redisslave image.
-Step 4: Configure the number of instances to run for the service. Here, we choose "1", as the redis-slave service needs to run one instance.
+Step 4: Configure the number of pods to run for the service. Here, we choose "1", as the redis-slave service needs to run one pod.
 Step 5: Select access method for the service. Since our redis slave service is an internal service which only provides access to other services within the cluster, we choose "Access Within Cluster Only".
-Step 6: Lastly, configure service access port. Our service instance includes 1 redis slave container which listens the port 6379, so we configure the mapping container port as 6379, and set the service port to the same value as the container port, which is also 6379. When this is done, other services will be able to access our slave container "redis-slave" using its service name (redis-master) and port (6379).
+Step 6: Lastly, configure service access port. Our service pod includes 1 redis slave container which listens the port 6379, so we configure the mapping container port as 6379, and set the service port to the same value as the container port, which is also 6379. When this is done, other services will be able to access our slave container "redis-slave" using its service name (redis-master) and port (6379).
 
 ![](https://mc.qcloudimg.com/static/img/c289316bdb27dbf837cd3cba9de3b9da/image.png)
 
@@ -60,13 +60,13 @@ Step 6: Lastly, configure service access port. Our service instance includes 1 r
 
 1. Specify service name: frontend
 Step 2: Choose the "my-first-cluster" we just created as the cluster.
-Step 3: Configure instance information for the service:
+Step 3: Configure pod information for the service:
   - Add a container called "frontend".
   - Specify image "ccr.ccs.tencentyun.com/library/gb-frontend" for the slave container. Version is "latest".
   - Add an environment variable with the name "GET_HOSTS_FROM" and the value "dns". This is mandatory because the variable is required by programs in the gb-frontend image.
-Step 4: Configure the number of instances to run for the service. Here, we choose "1", as the frontend service needs to run one instance.
+Step 4: Configure the number of pods to run for the service. Here, we choose "1", as the frontend service needs to run one pod.
 Step 5: Select access method for the service. Since our frontend needs to provide access to Internet browsers, we choose "Public Network Load Balancer Access".
-Step 6: Lastly, configure service access port. Our service instance includes 1 frontend container which listens the port 80, so we configure the mapping container port as 80, and set the service port to the same value as the container port, which is also 80. When this is done, users will be able to access our frontend container when they access our load balancer IP through browsers.
+Step 6: Lastly, configure service access port. Our service pod includes 1 frontend container which listens the port 80, so we configure the mapping container port as 80, and set the service port to the same value as the container port, which is also 80. When this is done, users will be able to access our frontend container when they access our load balancer IP through browsers.
 
 ![](https://mc.qcloudimg.com/static/img/fc06f28b107cae9aed975fddc71bf270/image.png)
 
@@ -120,6 +120,6 @@ if (isset($_GET['cmd']) === true) {
 ```
 This is the complete code for the guestbook app frontend service, it's relatively simple. When the frontend service receives an HTTP request, it determines whether the request is a "set" command. If so, the service takes the "key" and "value" from the parameter, connects to redis-master service and set the "key" and "value" into redis master. If the request is not a "set" command, the service connects to redis-slave service and acquire the corresponding "value" of parameter "key" from redis slave, then displays it to the client.
 **There are two points to note from the Web app example**:
-1. frontend connects to the **service name and port** when accessing redis-master and redis-slave services. Our cluster includes DNS service, which resolves the service name into corresponding service IP and performs load balancing according to this IP. Suppose the redis-slave service contains three instances, when we access this service we actually connect to "redis-slave" and "6379", in which case DNS service resolves "redis-slave" as the service IP of the "redis-slave" service (this is a floating IP, similar to a load balancer IP) and automatically performs load balancing based on this IP, then sends the request to a certain redis-slave service instance.
+1. frontend connects to the **service name and port** when accessing redis-master and redis-slave services. Our cluster includes DNS service, which resolves the service name into corresponding service IP and performs load balancing according to this IP. Suppose the redis-slave service contains three pods, when we access this service we actually connect to "redis-slave" and "6379", in which case DNS service resolves "redis-slave" as the service IP of the "redis-slave" service (this is a floating IP, similar to a load balancer IP) and automatically performs load balancing based on this IP, then sends the request to a certain redis-slave service pod.
 2. We can configure environment variables for containers. In this example, when the frontend container runs, it reads the GET_HOSTS_FROM environment variable. If the variable value is "dns", then the connection is made by using service name (recommended), otherwise it acquires the domain of redis-master or redis-slave from another environment variable.
 

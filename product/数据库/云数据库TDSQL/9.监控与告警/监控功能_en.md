@@ -1,5 +1,5 @@
 ## Performance Monitoring
-MariaDB (TDSQL) provides various performance monitoring items to make it easy for users to view and obtain the operation information of instances. You can check it through "Instance Management" - "System Monitoring" in MariaDB (TDSQL) console.
+MariaDB (TDSQL) provides various performance monitoring items to make it easy for users to view and obtain the operation information of instances. You can check it through "Instance Management" -> "System Monitoring" in MariaDB (TDSQL) console.
 
 ## Monitoring of Slave
 MariaDB (TDSQL) supports slave performance monitoring. You can switch to the slave data according to the instructions on the monitoring page.

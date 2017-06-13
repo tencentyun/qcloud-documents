@@ -3,7 +3,7 @@ Database Dedicated Cluster (Dedicated Cluster for short) allows you to purchase 
 
 - Supported databases: MySQL, TDSQL;
 - Supported environments: Deployment of Database Dedicated Cluster is supported in public cloud, finance cloud and finance cloud cage in Beijing, Shanghai, Shenzhen, and Guangzhou;
-- Supported configuration: HIOY5 model (48-core CPU, 512GB memory, 7200GB SSD disk, 10-Gb dual ENI). **Note: The database instance specification used in practice only accounts for 70-90% of actual configuration of the model.**
+- Supported configuration: HIOY5 model (48-core CPU, 512 GB memory, 7200 GB SSD disk, 10-GB dual ENI). **Note: The database instance specification used in practice only accounts for 70-90% of actual configuration of the model.**
 
 ## 2. Architecture of Database Dedicated Cluster
 The schemes of dedicated cluster and multi-tenant public cloud are shown in the following figures:
@@ -53,7 +53,7 @@ Tencent Cloud provides you with the ability to allocate instances to a specified
 The exclusive use of cold backup data and log is not supported for the public cloud currently. For the finance cloud cage solution, please contact your architect.
 
 4. **Device configuration ≠ maximum configuration of instance - why can't I use 100% of the resources?**
-Operating system, disk raid and necessary space occupied by system logs will take up device resources. Tencent Cloud has set a maximum instance specification (this value is subject to adjustment) for a single machine based on years of experience.
+Operating system, disk raid and necessary space occupied by system logs will take up device resources. Tencent Cloud has set a maximum instance specification (this value can be adjusted) for a single machine based on years of experience.
 
 5. **Whether a VPC is supported for dedicated cluster?**
 No, but you can allocate the instances that are allocated on the dedicated cluster to different VPCs.

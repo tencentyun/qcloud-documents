@@ -1,5 +1,5 @@
 Cloud Database (SQL Server) disallows the creation and deletion of database as well as the creation, deletion or modification of account through Microsoft SQL Server Management. Currently, you can create, delete or modify an account in
-"Console -> Cloud Database -> SQL Server -> Management -> Account Management".
+"Console" -> "Cloud Database" -> "SQL Server" -> "Management" -> "Account Management".
 **Permission Management Entry**
 ![](//mccdn.qcloud.com/static/img/1038939dbb7fce584de7fa978d6d0db9/image.png)
 **Account Creation Interface**

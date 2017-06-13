@@ -1,10 +1,10 @@
 ## CDB for MariaDB (TDSQL) Instance Upgrade
 
-> Upgrade operation will upgrade current TDSQL instances to a higher specification. There will be a brief disconnection (several seconds) during the upgrade process, so it is recommended to upgrade your instances during off-peak business hours.
+> Upgrade operation will upgrade current TDSQL instances to a higher specification. There will be a brief disconnection (lasts several seconds) during the upgrade process, so it is recommended to upgrade your instances during off-peak business hours.
 - The upgrade process cannot be aborted
 - Degrade is currently not supported by the console. Submit a ticket if you wish to degrade your instance
 
-1.	Go to "Console" -> "Cloud Database" -> "TDSQL", select the instance to be upgraded and click "Upgrade" to open the upgrade pop-up window
+1.	Go to "Console" -> "Cloud Database" -> "TDSQL", select the instance to be upgraded and click "Upgrade" to open the upgrade pop-up window.
 2. In the pop-up window, select the target specification based on your need and make the payment. After the successful payment, the system will automatically upgrade the instance to the specified specification.
 Upgrade interface:
 ![](//mccdn.qcloud.com/static/img/d5916ce64bd27d051a305476c0191449/image.png)

@@ -22,7 +22,7 @@ Step 1. On the Instance Management interface, click "Performance Optimization" a
 
 Step 2. Select the backup to be downloaded, click "Download" in Operations.
 
-><span style = "color:#F00"> Note: If the backup size is 0 KB and no slow log record is available, the backup cannot be downloaded. </span>
+>** Note: If the backup size is 0 KB and no slow log record is available, the backup cannot be downloaded. **
 
 
 Step 3. You can download via a private network address or locally; select the desired export method.
