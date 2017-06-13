@@ -73,18 +73,19 @@ PHP：Web 服务器生成网页的程序。
 ### 步骤四：安装配置 Discuz! 
 1. 首先通过浏览器访问步骤三中已经配置好的域名，点击  Discuz!【安装配置】进入安装页面。
 ![安装0](//mc.qcloudimg.com/static/img/9c158431b6de083811f5a93d545309ed/image.png)
-单击【我同意】，进入安装步骤第一步：检查安装环境。
+2. 单击【我同意】，进入安装步骤第一步：检查安装环境。
 ![安装1](//mc.qcloudimg.com/static/img/ad97b179b5b4977d86ca09a78ef05a7d/image.png)
-2. 确认当前状态正常，单击 【下一步】，进入设置运行环境步骤。
+3. 确认当前状态正常，单击 【下一步】，进入设置运行环境步骤。
 ![安装2](//mc.qcloudimg.com/static/img/c5a521673ed6f1a3528ba67ca5886ee4/image.png)
-3. 选择全新安装，单击【下一步】，进入创建数据库步骤。
+4. 选择全新安装，单击【下一步】，进入创建数据库步骤。
 ![安装3](//mc.qcloudimg.com/static/img/11a44bd86bfdfcd1fe3dcce6e8f200e6/image.png)
-4. 为 Discuz! 创建一个数据库，使用镜像默认的 MySQL 账号和密码（默认为 root/123456）连接数据库。并设置好系统信箱、管理员账号、密码和 Email。单击【下一步】，开始安装。
+5. 为 Discuz! 创建一个数据库，使用镜像默认的 MySQL 账号和密码（默认为 root/123456）连接数据库。并设置好系统信箱、管理员账号、密码和 Email。单击【下一步】，开始安装。
 **注意**：请记住自己的管理员账号和密码。
 ![安装4改](//mc.qcloudimg.com/static/img/5d5184cfb34f98d791c243273b910065/image.png)
-5. 安装完成后，单击【您的论坛已完成安装，点此访问】访问论坛。
+6. 安装完成后，单击【您的论坛已完成安装，点此访问】访问论坛。
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
  
+您还可以参考底部的视频，了解更多有关镜像安装 Discuz! 的信息。（仅供参考，以实际操作为准。）
 镜像安装更多相关问题，请参考 [Discuz! 镜像安装手册](http://www.websoft9.com/xdocs/discuz-image-guide)。
 
 ## 自主安装
@@ -219,4 +220,5 @@ chmod -R 777 /var/www/html
 ![安装4改](//mc.qcloudimg.com/static/img/5d5184cfb34f98d791c243273b910065/image.png)
 5. 安装完成后，单击【您的论坛已完成安装，点此访问】访问论坛。
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
-
+ 
+**观看视频**：

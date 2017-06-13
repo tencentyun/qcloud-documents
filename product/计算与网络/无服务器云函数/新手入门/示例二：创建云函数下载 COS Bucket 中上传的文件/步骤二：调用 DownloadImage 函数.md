@@ -6,6 +6,7 @@
 2. 导航至【无服务器云函数】，选择刚刚创建的`DownloadImage`。
 
 3. 点击【日志】选项卡，观察是否有刚刚上传图片后的函数运行日志。日志中应有本地下载下来的图片的日志，类似：
+
 ```
 Loading function
 Uri is http://TestBucket-1251111111.cosgz.myqcloud.com/testimage.jpeg?sign=QlEyq+WH8g5RpD+L6sPk05XhVQthPTEyNTE3NjIyMjcmaz1BS0lEWURoMDg1eFFwNDgxNjF1T24yQ0tLVmJlZWJ2RHU2ak8mZT0xNDk2ODM5NDQ3JnQ9MTQ5NjgzOTE0NyZyPTk1NDI3NjgyNCZmPS8xNDcyNjQwNzgwXzg0X3cxNjE0X2g0NDAucG5nJmI9ZG9uZ3l1YW50ZXEE
@@ -45,12 +46,12 @@ testimage.jpeg
             "cosSchemaVersion":"1.0",
             "cosNotificationId":"设置的或返回的 ID",
             "cosBucket":{  
-               "name":"TestBucket",
+               "name":"TestBucket", # Notice Here
                "appid":"1251111111",
                "region":"gz",
             },
             "cosObject":{  
-               "key":"/testimage.jpg",
+               "key":"/testimage.jpg", # Notice Here
                "size":"1024",
                "meta":{
                  "Content-Type": "text/plain",
