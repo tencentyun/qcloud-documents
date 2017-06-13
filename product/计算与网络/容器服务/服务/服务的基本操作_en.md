@@ -19,9 +19,9 @@ Here you need to choose the latest nginx image version. For Service Access Type,
 ![Alt text](https://mc.qcloudimg.com/static/img/2463289d7a47b5a05a03f35b79196bc0/Image+004.png)
 
 
-## Update Number of Instances
+## Update Number of Pods
 
-On the Service List page, click "Update Number of Instances" in the specified service bar, select the new number of instances, and click "OK".
+On the Service List page, click "Update Number of Pods" in the specified service bar, select the new number of pods, and click "OK".
 
 ![Alt text](https://mc.qcloudimg.com/static/img/d98db1671db63d39816ce6f4ac6240ff/Image+005.png)
 
@@ -33,7 +33,7 @@ On the Service List page, click "Update Service" in the specified service bar, a
 
 ## Delete a Service
 On the Service List page, click "Delete" in the specified service bar, and click "OK".
-Note: All instances and public network load balancers under the service will be deleted upon deletion of the service. Please back up the data in advance.
+Note: All pods and public network load balancers under the service will be deleted upon deletion of the service. Please back up the data in advance.
 ![Alt text](https://mc.qcloudimg.com/static/img/1dd519cb73e670d4082751662e5f2d0b/Image+049.png)
 
 
