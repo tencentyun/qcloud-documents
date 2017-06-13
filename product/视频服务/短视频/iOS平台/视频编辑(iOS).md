@@ -188,7 +188,7 @@ videoTextInfos = @[VideoTextInfo1, VideoTextInfo2 ...];
         subtitle.startTime = textInfo.startTime;  //字幕起始时间
         subtitle.endTime = textInfo.endTime;      //字幕结束时间
         [subtitles addObject:subtitle];           //添加字幕列表
-  }   
+  }    
     
  [_ugcEditer setSubtitleList:subtitles];          //设置字幕列表
 ```
