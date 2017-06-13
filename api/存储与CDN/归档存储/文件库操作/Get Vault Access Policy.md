@@ -37,6 +37,14 @@ Authorization: Auth
 
 ```json
 {
+  "Policy":"String"
+}
+```
+
+String值解析
+
+```JSON
+{
     "version": "2.0",
     "statement": [
         {
@@ -66,3 +74,4 @@ Authorization: Auth
     ]
 }
 ```
+

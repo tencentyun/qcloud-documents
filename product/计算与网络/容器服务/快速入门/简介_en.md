@@ -13,9 +13,9 @@ Tencent Cloud's CCS involves the following concepts:
 
 - Cluster: A collection of cloud resources required for the container to run, which contains a few CVMs, load balancers, and other Tencent Cloud resources.
 - Node: A CVM registered in the cluster.
-- Service: A microservice comprised of multiple instances with the same configuration and rules for accessing these instances.
-- Batch task: One-time task which contains several instances. The difference between a task and a service is that a task will no longer provide service when stopped.
-- Instance: An instance consists of one or more relevant containers, which corresponds to the "pod" of Kubernetes. These containers share the same storage and network.
+- Service: A microservice comprised of multiple pods with the same configuration and rules for accessing these pods.
+- Batch task: One-time task which contains several pods. The difference between a task and a service is that a task will no longer provide service when stopped.
+- Pod: A pod consists of one or more relevant containers, which corresponds to the "pod" of Kubernetes. These containers share the same storage and network.
 - Image: Docker image used to deploy CCS. Each image has a unique ID (image's Registry address + image name + image Tag).
 
 Their relationship is shown in the figure below:
@@ -36,6 +36,6 @@ We provide some examples on how to get started with CCS.
 
 - [Create Simple nginx Service](https://www.qcloud.com/document/product/457/7851)
 - [Create Hello World Node.js Service](https://www.qcloud.com/document/product/457/7204)
-- [Create Wordpress with Single Instance](https://www.qcloud.com/document/product/457/7205)
+- [Create Wordpress with Single pod](https://www.qcloud.com/document/product/457/7205)
 - [Create Wordpress Service that Uses CDB](https://www.qcloud.com/document/product/457/7447)
 

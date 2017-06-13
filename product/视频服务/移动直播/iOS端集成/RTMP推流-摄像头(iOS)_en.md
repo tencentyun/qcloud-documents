@@ -1,4 +1,4 @@
-﻿## Basics
+## Basics
 **Push** means to collect, encode audio/video data and push the data to your specified cloud video platform. The process involves a large amount of basic audio/video-related knowledge, you can only achieve desired results after lots of refining and optimizing.
 
 Tencent Video Cloud SDK mainly helps you push videos on smart phones. The SDK comes with easy-to-use APIs and can be driven by using a single push URL:

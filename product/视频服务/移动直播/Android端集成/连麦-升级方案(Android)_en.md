@@ -1,4 +1,4 @@
-﻿# Tencent Video Cloud RTMP SDK Documentation - Joint Broadcasting - Upgraded Solution (Android) #
+# Tencent Video Cloud RTMP SDK Documentation - Joint Broadcasting - Upgraded Solution (Android) #
 
 -----------------------------------------------------------------------------------------------------------------
 

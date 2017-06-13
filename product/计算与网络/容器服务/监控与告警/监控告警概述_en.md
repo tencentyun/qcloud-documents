@@ -3,7 +3,7 @@
 ### Overview
 In order to maintain high reliability, high availability and high performance of Tencent Cloud CCS, it is important to provide a good monitoring environment. Users can collect monitoring data at different dimensions for different resources, to obtain resource usage information and locate errors quickly.
 
-Tencent Cloud's Cloud Monitor provides data collection and presentation features for container clusters, services and instances. With Tencent Cloud's Cloud Monitor, you can view the statistical data of clusters, nodes, services and instances to verify whether the cluster is running normally as well as create relevant alarms. For more information about Cloud Monitor, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/document/product/248).
+Tencent Cloud's Cloud Monitor provides data collection and presentation features for container clusters, services and pods. With Tencent Cloud's Cloud Monitor, you can view the statistical data of clusters, nodes, services and pods to verify whether the cluster is running normally as well as create relevant alarms. For more information about Cloud Monitor, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/document/product/248).
 
 Collecting monitoring data allows users to establish normal standards regarding container cluster performance. By testing the performance of a container cluster and collecting historical monitoring data at different times and under different load conditions, users can better understand the normal performance of a running container cluster and service, and quickly determine whether the running service is exceptional based on the current monitoring data, in order to find out solutions in time. For example, users can monitor the CPU utilization, memory utilization and disk I/O of a service.
 
@@ -29,30 +29,30 @@ View: docker_service
 
 | Monitoring Item | Monitoring Metric | Unit  | Description  |
 |---------|---------|---------|-----|
-| Service CPU usage | service_cpu_used | Core | Total CPU used by all container instances in the service |
+| Service CPU usage | service_cpu_used | Core | Total CPU used by all container pods in the service |
 | Service CPU utilization (ratio to cluster) | service_cpu_usage_for_cluster | % | The ratio of service CPU utilization to the cluster |
-| Service memory usage | service_mem_used | MiB | Total amount of memory used by all the container instances in the service |
+| Service memory usage | service_mem_used | MiB | Total amount of memory used by all the container pods in the service |
 | Service memory utilization (ratio to cluster) | service_mem_usage_for_cluster | % | The ratio of service memory utilization to cluster |
-| Service network inbound traffic | service_in_flux  | MB | Total inbound traffic of all the instances in the service within the time window |
-| Service network outbound traffic | service_out_flux | MB | Total outbound traffic of all the instances in the service within the time window |
-| Service network inbound bandwidth | service_in_bandwidth | Mbps | Total inbound bandwidth of all the instances in the service |
-| Service network outbound bandwidth | service_out_bandwidth | Mbps | Total outbound bandwidth of all the instances in the service |
-| Service network inbound packets | service_in_packets | pck/sec | Total inbound packets of all the instances in the service |
-| Service network outbound packets | service_out_packets | pck/sec | Total outbound packets of all the instances in the service |
+| Service network inbound traffic | service_in_flux  | MB | Total inbound traffic of all the pods in the service within the time window |
+| Service network outbound traffic | service_out_flux | MB | Total outbound traffic of all the pods in the service within the time window |
+| Service network inbound bandwidth | service_in_bandwidth | Mbps | Total inbound bandwidth of all the pods in the service |
+| Service network outbound bandwidth | service_out_bandwidth | Mbps | Total outbound bandwidth of all the pods in the service |
+| Service network inbound packets | service_in_packets | pck/sec | Total inbound packets of all the pods in the service |
+| Service network outbound packets | service_out_packets | pck/sec | Total outbound packets of all the pods in the service |
 
-#### Monitoring Metrics at Instance Dimension
+#### Monitoring Metrics at pod Dimension
 
 namespace:qce/docker
 View: docker_pod
 
 | Monitoring Item | Monitoring Metric | Unit  | Description  |
 |---------|---------|---------|-----|
-| Instance network inbound bandwidth | pod_in_bandwidth | Mbps | Containers in the same instance share the same network. This is the inbound network bandwidth of the instance (pod) |
-| Instance network outbound bandwidth | pod_out_bandwidth | Mbps | Containers in the same instance share the same network. This is the outbound network bandwidth of the instance (pod) |
-| Instance network inbound traffic | pod_in_flux | MB | Containers in the same instance share the same network. This is the inbound network traffic of the instance (pod) |
-| Instance network outbound traffic | pod_out_flux | MB | Containers in the same instance share the same network. This is the outbound network traffic of the instance (pod) |
-| Instance network inbound packets | pod_in_packets | pck/sec | Containers in the same instance share the same network. This is the inbound network packets of the instance (pod) |
-| Instance network outbound packets | pod_out_packets | pck/sec | Containers in the same instance share the same network. This is the outbound network packets of the instance (pod) |
+| Pod network inbound bandwidth | pod_in_bandwidth | Mbps | Containers in the same pod share the same network. This is the inbound network bandwidth of the pod |
+| Pod network outbound bandwidth | pod_out_bandwidth | Mbps | Containers in the same pod share the same network. This is the outbound network bandwidth of the pod |
+| Pod network inbound traffic | pod_in_flux | MB | Containers in the same pod share the same network. This is the inbound network traffic of the pod |
+| Pod network outbound traffic | pod_out_flux | MB | Containers in the same pod share the same network. This is the outbound network traffic of the pod |
+| Pod network inbound packets | pod_in_packets | pck/sec | Containers in the same pod share the same network. This is the inbound network packets of the pod |
+| Pod network outbound packets | pod_out_packets | pck/sec | Containers in the same pod share the same network. This is the outbound network packets of the pod |
 
 #### Monitoring Metrics at Container Dimension
 

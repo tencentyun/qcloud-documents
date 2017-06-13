@@ -1,4 +1,4 @@
-﻿## How to Handle Progress Notifications
+## How to Handle Progress Notifications
 The following codes show the way to handle playback progress notifications of the VOD player of RTMP SDK:
 
 ```objectivec
