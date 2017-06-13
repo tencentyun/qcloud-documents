@@ -296,6 +296,7 @@ It is simple to end a push process, but proper cleaning work is required. Since 
 
 ## Event Handling
 #### 1. Event Listening
+SDK listens to push related events using the TXLivePushListener proxy. Note that the TXLivePushListener only listens to push events with prefix **PUSH_**.
 
 ### 2. Normal Events 
 Events that are always prompted during a successful push. For example, receiving 1003 means that the system will start rendering the camera pictures
