@@ -14,6 +14,6 @@ Set the automatic deployment of image update, to realize persistent integration 
 ## Cross-Cloud Deployment
 Direct deployment across multiple clouds and clusters can be realized based on Kubernetes cluster federation.
 
-## Deployment of Multiple Instances on Single Host, Deployment of New Environment, Configuration Management
-Since different containers run under isolated environments, you can deploy multiple instances on a single host, create new environment through Dockerfile, and deploy Docker image rapidly.
+## Deployment of Multiple Pods on Single Host, Deployment of New Environment, Configuration Management
+Since different containers run under isolated environments, you can deploy multiple pods on a single host, create new environment through Dockerfile, and deploy Docker image rapidly.
 

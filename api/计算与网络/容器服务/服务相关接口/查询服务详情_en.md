@@ -33,8 +33,8 @@ The following request parameter list only provides API request parameters. For o
 | externalIp | String | Public access IP for the service. If the service access type is specified as load balancer upon service creation, a load balancer will be created for the service in which case this IP is the load balancer IP |
 | accessType | String | Service access type. <br>LoadBalancer: this creates a public network load balancer for the service. Traffic is forwarded to the service when you access the IP and port of this load balancer. <br>NodePort: this opens a port on every Node in the cluster. Traffic is forwarded to this service when you access the IPs and ports for any of these Nodes. <br>SvcLBTypeInner: this creates a private network load balancer and occupies an IP under the subnet (you need to specify subnetId). <br>Empty: The service does not provide external access by default. Only other services within the cluster can access the service |
 | createdAt | String | Creation time of service |
-| currentReplicas | Int | Number of running instance replicas |
-| desiredReplicas | Int | Number of instance replicas that are expected to run. This is specified when creating the service |
+| currentReplicas | Int | Number of running pod replicas |
+| desiredReplicas | Int | Number of pod replicas that are expected to run. This is specified when creating the service |
 | lbId | String | Corresponding public Lb ID of the service. This is only created if the service is specified to access the Internet upon creation |
 | lbStatus | String | Public network load balancer status. Possible values are: None (the service has no Internet load balancer), Creating (load balancer is being created) and Running (load balancer is running) |
 | portMappings | Object Array | Port related information. See the following table for details about the fields in the object |
