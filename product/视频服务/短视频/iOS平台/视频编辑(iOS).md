@@ -1,4 +1,4 @@
-### 短视频编辑功能概览
+## 功能概览
 视频编辑包括视频裁剪加速、美颜滤镜、音乐混音及添加字幕等功能，我们在SDK开发包的Demo中实现了一套UI源码供使用参考及体验，各功能的界面如下:
 
 ![](//mc.qcloudimg.com/static/img/c89588c66500984f5ed790a1a25696cc/IOSVideoEditIOS.jpg)
@@ -8,7 +8,7 @@
 
 编译运行Demo体验，从资源下载处下载[SDK开发包](https://www.qcloud.com/document/product/584/9366)，解压出来运行Demo工程RTMPiOSDemo.xcodeproj，在运行起来后的主界面中点选视频编辑即可选择视频进入进行编辑功能体验。
 
-### 复用现有UI
+## 复用现有UI
 视频编辑具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码，使用时从Demo中拷贝以下文件夹到自己的工程: 
 1. VideoEditor(代码)
 2. Resource下的VideoEditor与FilterResource.bundle(资源)
