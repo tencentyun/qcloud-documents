@@ -16,7 +16,7 @@ Host: cas.<Region>.myqcloud.com
 Date: date
 Authorization: Auth
 Content-Length: length
-x-cas-sha256: sha256
+x-cas-content-sha256: sha256
 x-cas-sha256-tree-hash: sha256
 x-cas-archive-description: description
 
@@ -31,16 +31,16 @@ x-cas-archive-description: description
 
 #### 必选头部
 
-| 名称                     | 描述                                    | 类型     | 必选   |
-| ---------------------- | ------------------------------------- | ------ | ---- |
-| x-cas-sha256            | 档案的SHA256 校验和（线性哈希） | String | 是    |
-| Content-Length         | RFC 2616 中定义的 HTTP 请求内容长度（字节）。        | String | 是    |
-| x-cas-sha256-tree-hash | 档案的树形哈希校验和。                            | String | 是    |
+| 名称                     | 描述                             | 类型     | 必选   |
+| ---------------------- | ------------------------------ | ------ | ---- |
+| x-cas-content-sha256   | 档案的SHA256 校验和（线性哈希）            | String | 是    |
+| Content-Length         | RFC 2616 中定义的 HTTP 请求内容长度（字节）。 | String | 是    |
+| x-cas-sha256-tree-hash | 档案的树形哈希校验和。                    | String | 是    |
 
 #### 推荐使用头部
 
-| 名称                        | 描述                          | 类型     | 必选   |
-| ------------------------- | --------------------------- | ------ | ---- |
+| 名称                        | 描述                           | 类型     | 必选   |
+| ------------------------- | ---------------------------- | ------ | ---- |
 | x-cas-archive-description | Archive的描述，会在读取Archive的时候返回。 | String | 否    |
 
 ### 请求内容
@@ -51,12 +51,12 @@ Archive
 
 ### 返回头部
 
-| 名称                     | 描述                                    | 类型     |
-| ---------------------- | ------------------------------------- | ------ |
-| Location               | 创建成功以后，Archive的路径 。                    | String |
-| x-cas-archive-id       | Archive的表示ID   。                       | String |
-| x-cas-sha256             | 档案的SHA256 校验和（线性哈希） | String |
-| x-cas-sha256-tree-hash | 档案的树形哈希校验和  。                          | String |
+| 名称                     | 描述                  | 类型     |
+| ---------------------- | ------------------- | ------ |
+| Location               | 创建成功以后，Archive的路径 。 | String |
+| x-cas-archive-id       | Archive的表示ID   。    | String |
+| x-cas-content-sha256   | 档案的SHA256 校验和（线性哈希） | String |
+| x-cas-sha256-tree-hash | 档案的树形哈希校验和  。       | String |
 
 ### 返回内容
 
