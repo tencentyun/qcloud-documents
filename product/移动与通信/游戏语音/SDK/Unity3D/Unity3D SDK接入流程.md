@@ -1,6 +1,6 @@
 本文档介绍了GVoice游戏语音C#接口SDK的接入方法，适用于Unity3D引擎开发的游戏。
 ## 1 下载SDK
-[下载Unity3D SDK包 版本：1.1.5](https://mc.qcloudimg.com/static/archive/05fdb7aac3b092f4e871a24b6de1e6b6/gcloud_voice_1_1_5_143653_20170323_Unity3D.zip)  
+[下载Unity3D SDK包 版本：1.1.7](https://mc.qcloudimg.com/static/archive/17126619e5aa76a1e764c297036be7bb/gcloud_voice_1_1_7_147406_20170507_Unity3D.zip)  
 
 
 下载SDK包解压后，目录结构如下： 

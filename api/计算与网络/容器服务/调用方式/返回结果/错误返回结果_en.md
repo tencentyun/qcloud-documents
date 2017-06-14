@@ -1,4 +1,4 @@
-﻿If the API call fails, the error code in the returned result is not 0, the message field displays the detailed error information. Users can query detailed error information from the [Error Codes](https://www.qcloud.com/document/api/406/5903) page based on code and message.
+If the API call fails, the error code in the returned result is not 0, the message field displays the detailed error information. 
 Example of returned error:
 
 ```

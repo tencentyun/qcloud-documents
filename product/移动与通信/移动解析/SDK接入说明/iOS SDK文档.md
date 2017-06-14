@@ -134,6 +134,4 @@ MSDKDns::GetInstance()->WGOpenMSDKDnsLog(true);
 ```
 
 ### 6. 线下咨询
-如有其他问题可按以下方式联系咨询：
-QQ：584258402 2202081228
-邮箱：porsche@tencent.com
+如有其他问题可提交工单咨询。

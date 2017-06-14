@@ -25,6 +25,14 @@ Authorization: Auth
 
 ### 请求内容
 
+```JSON
+{
+  "Policy":"String"
+}
+```
+
+为了便于阅读，以下显示了**不带转义符" \ "**的Policy变量值（即上文String部分），实际调用时需要**将引号转义**，同时**消除换行**。
+
 ```json
 {
     "version": "2.0",
@@ -41,8 +49,8 @@ Authorization: Auth
                 "name/cas:<ActionName>"
             ],
             "resource": [
-                "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>",
-                "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>"
+                "qcs::cas:<Region>:uid/<Accout>:vaults/<VaultName>",
+                "qcs::cas:<Region>:uid/<Accout>:vaults/<VaultName>"
             ],
             "condition": {
                 "<ConditionOperator>": {
@@ -56,7 +64,6 @@ Authorization: Auth
     ]
 }
 ```
-
 
 已支持条件操作
 

@@ -27,7 +27,7 @@ The above time may not be exactly when the postpaid resources have a delayed set
 ## How do I check the postpaid (pay by usage) resource statement?
 
 Select **Postpaid** to view the deduction records and the total deduction amount of corresponding postpaid resources. Postpaid resources show monthly deduction records based on instance, and provide statements of usage details. For the expenses in the records: the resources that charges on a monthly basis is used in the last month; the resources that charges on a daily basis is used from the last day of the last month to the last but one day of this month; the resources that charges on an hourly basis is used from the last hour of the last month to the last but one hour of this month. The deduction records and usage statements of postpaid resources are also available for download.
-
+![](https://mc.qcloudimg.com/static/img/4bfe6214cd46b12fb8aa876ce847d236/image.png)
 ![](https://mc.qcloudimg.com/static/img/919e97e8ef317b19fcc4e14c189f89b4/2.png)
 
 Example of usage statement

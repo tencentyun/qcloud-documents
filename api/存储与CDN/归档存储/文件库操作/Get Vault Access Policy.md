@@ -37,6 +37,14 @@ Authorization: Auth
 
 ```json
 {
+  "Policy":"String"
+}
+```
+
+String值解析
+
+```JSON
+{
     "version": "2.0",
     "statement": [
         {
@@ -51,8 +59,8 @@ Authorization: Auth
                 "name/cas:<ActionName>"
             ],
             "resource": [
-                "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>",
-                "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>"
+                "qcs::cas:<Region>:uid/<Accout>:vaults/<VaultName>",
+                "qcs::cas:<Region>:uid/<Accout>:vaults/<VaultName>"
             ],
             "condition": {
                 "<ConditionOperator>": {
@@ -66,3 +74,4 @@ Authorization: Auth
     ]
 }
 ```
+
