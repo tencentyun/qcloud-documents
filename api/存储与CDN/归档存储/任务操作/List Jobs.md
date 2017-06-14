@@ -103,11 +103,11 @@ Authorization: Auth
 | VaultQCS                     | 任务对应Vault的资源名称                           | String   |
 | Marker                       | 字典序，Joblist被截断，下一个Job从该marker开始读取        | String   |
 | InventorySizeInBytes         | 与检索Archive列表任务请求相关联的列表的大小，单位字节           | Number   |
-| Format                       | Archive列表输出格式，枚举值： `CSV` ，`JSON`。        | String   |
-| StartDate                     | 文件库清单检索的开始日期（采用 UTC 格式）。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
-| EndDate                      | 文件库清单检索的结束日期（采用 UTC 格式）。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
-| Limit                        | 指定每个文件库清单检索请求返回的最大清单项目数。 有效值：正整数         | String   |
-| InventorySizeInBytes. Marker | 字典序，从Marker起读取对应Archive列表                | String   |
+| InventoryRetrievalParameters.Format                       | Archive列表输出格式，枚举值： `CSV` ，`JSON`。        | String   |
+| InventoryRetrievalParameters.StartDate                     | 文件库清单检索的开始日期（采用 UTC 格式）。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
+| InventoryRetrievalParameters.EndDate                      | 文件库清单检索的结束日期（采用 UTC 格式）。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
+| InventoryRetrievalParameters.Limit                        | 指定每个文件库清单检索请求返回的最大清单项目数。 有效值：正整数         | String   |
+| InventoryRetrievalParameters.Marker | 字典序，从Marker起读取对应Archive列表                | String   |
 
 ```JSON
 {
