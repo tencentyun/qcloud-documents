@@ -39,6 +39,11 @@
 5. [分区及格式化 >>](https://www.qcloud.com/doc/product/213/2974)
 6. [部署应用环境 >>](https://www.qcloud.com/doc/product/213/2975)
 
+### CVM实验室
+1. [体验 CentOS 系统 CVM ](https://cloud.tencent.com/developer/labs/lab/10078?utm_source=portal&utm_medium=docs&utm_campaign=cvm&utm_term=3687&utm_term=10078)
+2. [体验 Ubuntu 系统 CVM ](https://cloud.tencent.com/developer/labs/lab/10081?utm_source=portal&utm_medium=docs&utm_campaign=cvm&utm_term=3687&utm_term=10081)
+
+
 ## 高阶篇
 
 高阶篇提供更加详细的云服务器管理操作指引，帮助您配置环境和程序安装等，参照本篇，您将完成 Windows 和 Linux 系统云服务器运维部署。
@@ -59,10 +64,6 @@
 5. [代码部署 >>](http://www.qcloud.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E9%80%9A%E8%BF%87WinSCP%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6)
 6. [Linux常用操作及命令 >>](http://www.qcloud.com/doc/product/213/Linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%8F%8A%E5%91%BD%E4%BB%A4)
 7. [无公网IP的云服务器通过带公网IP的机器访问公网 >>](http://www.qcloud.com/doc/product/213/%E6%97%A0%E5%85%AC%E7%BD%91CVM%E9%80%9A%E8%BF%87%E5%B8%A6%E5%85%AC%E7%BD%91CVM%E5%87%BA%E8%AE%BF%E5%85%AC%E7%BD%91)
-
-### CVM实验室
-1. [体验 CentOS 系统 CVM ](https://cloud.tencent.com/developer/labs/lab/10078?utm_source=portal&utm_medium=docs&utm_campaign=cvm&utm_term=3687&utm_term=10078)
-2. [体验 Ubuntu 系统 CVM ](https://cloud.tencent.com/developer/labs/lab/10081?utm_source=portal&utm_medium=docs&utm_campaign=cvm&utm_term=3687&utm_term=10081)
 
 
 若您的云服务器到期，但您仍想继续使用，我们有 [云服务器续费](https://www.qcloud.com/doc/product/213/6143) 指引您进行手动续费或自动续费，以防实例到期后被系统销毁而导致数据丢失或服务中断。
