@@ -1,30 +1,26 @@
 ### 简介
 
-私有网络（VPC）不仅支持基础网络的功能，而且提供更多高级网络特性，包括自定义网段划分、路由策略、创建VPN\专线连接您的IDC等，更多详情查看 [VPC功能简介](https://www.qcloud.com/document/product/215/3075)。
+默认VPC及默认子网功能目前处于**灰度**阶段，只有**2017.6.13后**新注册的部分账号的网络属性为only-vpc，其它均为classic属性，其中：
+- **only-vpc**账号仅支持在VPC下创建实例（如CVM、LB等），无法在 [基础网络](https://www.qcloud.com/document/product/215/535)内创建实例。
+- ** classic**账号可在基础网络 或 VPC下创建实例。
 
-### 账号网络属性
-根据网络属性，腾讯云账号分为两种：
-- **only-vpc**：该类账号仅支持在VPC下创建实例（如CVM、LB等），无法在 [基础网络](https://www.qcloud.com/document/product/215/535)内创建实例。
-- ** classic**：该类账号可在基础网络 或 VPC下创建实例。
-
-仅only-vpc账号支持**默认VPC** 及 **默认子网**特性，即only-vpc账号可在每个地域创建默认 VPC 及 默认子网，该特性给您带来的便利之处是：
-- 您可在没有VPC或子网的情况下完成CVM等实例的生产，系统会帮您创建默认VPC及子网，而您无需了解VPC及子网的功能细节。
-- 您在创建CVM等实例的时，可不指定VPC或子网，系统将在默认VPC默认子网内创建实例。
-
->注
-1) 默认VPC及默认子网功能目前处于**灰度**阶段，只有**2017.6.14后**注册的部分账号的网络属性为only-vpc，其它均为classic属性。
-2) 接口([DescribeAccountVpcAttributes](https://www.qcloud.com/document/api/215/9499))用于查询账号网络属性。
-
+您可以通过接口([DescribeAccountVpcAttributes](https://www.qcloud.com/document/api/215/9499))用于查询账号网络属性。
 
 
 ### 默认VPC 和 默认子网
+仅only-vpc账号支持**默认VPC** 及 **默认子网**特性，only-vpc账号可在每个地域创建默认 VPC 及 默认子网，该特性给您带来的便利之处是：
+- 您可在没有VPC或子网的情况下完成CVM等实例的生产，系统会帮您创建默认VPC及子网，而您无需了解VPC及子网的功能细节。
+- 您在创建CVM等实例的时，可不指定VPC或子网，系统将在默认VPC默认子网内创建实例。
 
-1) 您可如同使用任何其它 VPC 一样使用默认 VPC，可添加子网、修改路由表、添加 VPN 连接等。
+### 默认VPC 基本信息
+
+1) 您可如同使用任何其它非默认 VPC 一样使用默认 VPC，可添加子网、修改路由表、添加 VPN 连接等。
 2) 您可以创建额外 VPC，默认VPC不占用您在某个地域下VPC配额。
 3) 您可如同使用任何其它VPC或子网一样使用默认VPC或默认子网，功能上没有区别。
 4) 默认VPC 和默认子网可被删除。
 
-默认VPC和默认子网的创建逻辑如下：
+
+### 在默认 VPC 内启动 实例（CVM，CDB等）。
 
 #### 1、没有**默认VPC**
 如果您的账号在某地域没有默认VPC，去CVM等产品的购买页生产实例时，私有网络选择是： Default-VPC( 默认)，子网选择是：Default-Subnet( 默认)：
