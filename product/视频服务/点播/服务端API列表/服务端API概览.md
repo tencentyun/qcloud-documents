@@ -19,44 +19,26 @@
         </tr>
         <!--视频上传-->
         <tr>
-            <td rowspan=4>
+            <td rowspan=2>
                 服务端视频上传
             </td>
             <td>
-                初始化上传
+                发起上传
             </td>
             <td>
-                <a href="/document/product/266/7809">
-                    InitUpload
+                <a href="/document/product/266/9756">
+                    ApplyUpload
                 </a>
             </td>
         </tr>
         <tr>
             <td>
-                分片上传
+                确认上传
             </td>
             <td>
-                <a href="/document/product/266/7810">
-                    UploadPart
-            </td>
-        </tr>
-        <tr>
-            <td>
-                结束上传
-            </td>
-            <td>
-                <a href="/document/product/266/7811">
-                    FinishUpload
+                <a href="/document/product/266/9757">
+                    CommitUpload
                 </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                视频封面上传
-            </td>
-            <td>
-                <a href="/document/product/266/8833">
-                    SmallFileUpload
             </td>
         </tr>
         <!--URL拉取视频上传-->
