@@ -9,8 +9,16 @@
 5) 填写函数名称`DownloadImage`，其他配置项保持默认选项即可。
 
 6) 点击【下一步】按钮，进入函数代码编辑页，默认选择【在线编辑】，并在【模版】中选择 `COS Put Object` 模版。此时，执行方法和代码将填入模版的默认值：
-- 执行方法显示`index.main_handler`。表示无服务器云函数控制台会将此段代码自动保存为`index.py`文件，并压缩该文件上传至 SCF 平台以创建云函数。
-- 函数代码显示以下代码片段，本示例中对该代码不做改动
+
+执行方法显示`index.main_handler`。表示无服务器云函数控制台会将此段代码自动保存为`index.py`文件，并压缩该文件上传至 SCF 平台以创建云函数。
+
+函数代码显示以下代码片段，修改其中 `appid, secret_id, secret_key, region`参数字段，改为您的实际数据。其中：
+
+- appid可在控制台【账户信息】中获得
+![](//mc.qcloudimg.com/static/img/8149e0d15b64340c2a2dca5569854af8/image.png)
+- secret_id 和 secret_key可在控制台【云API密钥】中获得
+![](//mc.qcloudimg.com/static/img/e1eecfe7459069d0f453083ff459e30e/image.png)
+- region 为 函数 和 COS Bucket 所在地域，支持 `sh、gz、bj` 三个值。请注意，必须保持和 COS Bucket 在同一个地域。此处第一步中创建的存储桶位于华南（广州），因此代码中的 region 值必须为 `gz`
 
 ```
 import json

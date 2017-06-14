@@ -2,7 +2,7 @@
 CommitUpload
 
 ## 功能说明
-1. 确认视频文件(和视频封面文件)的上传，获取文件的播放地址和文件ID。
+1. 确认视频文件（和视频封面文件）的上传，获取文件的播放地址和文件 ID。
 
 ## 请求方式
 
@@ -62,10 +62,3 @@ https://vod.api.qcloud.com/v2/index.php?Action=CommitUpload
     "fileId": "24820810452266399"
 }
 ```
-
-### 相关接口
-1. [VOD发起上传]()
-2. [查询上传分片](/document/api/436/6070)
-3. [初始化分片上传](/document/api/436/6067)
-4. [逐个上传分片](/document/api/436/6068)
-5. [结束上传分片](/document/api/436/6074)

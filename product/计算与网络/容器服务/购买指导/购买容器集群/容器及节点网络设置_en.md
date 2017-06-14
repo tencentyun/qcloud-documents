@@ -24,6 +24,6 @@ Node network and container network are fundamental attributes of the cluster. Yo
 - Connection between cluster container and such resources as CDB, Redis, and Cloud Memcached
 
 
-Container instance can access resources in VPC or containers in the same cluster. If not, use SNAT.
+Container pod can access resources in VPC or containers in the same cluster. If not, use SNAT.
 ![Alt text](https://mc.qcloudimg.com/static/img/4c0acc784a1d1442432f0100164164fb/%7BE2DCADA4-CCAF-4C81-8CD1-C51EF086978C%7D.png)
 

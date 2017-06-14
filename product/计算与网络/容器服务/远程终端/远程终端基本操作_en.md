@@ -1,5 +1,5 @@
 ## Connecting to Container via Remote Console
-1. Click on the service ID to enter its details page. View the corresponding container in the instance list
+1. Click on the service ID to enter its details page. View the corresponding container in the pod list
 2. Click the remote console button to log in to the container
 ![Alt text](https://mc.qcloudimg.com/static/img/fd06e590a5e2d109d5489b1df55454e5/20170316160930.png)
 

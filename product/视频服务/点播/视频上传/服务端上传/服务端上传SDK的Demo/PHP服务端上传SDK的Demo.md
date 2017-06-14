@@ -4,13 +4,13 @@
 
 ## 下载地址
 
-* [VOD 服务端上传 PHP DEMO](https://github.com/tencentyun/vod-php-sdk-based-demo)
+* [VOD PHP DEMO](https://github.com/tencentyun/vod-php-sdk-based-demo)
 * [COS PHP SDK](https://www.qcloud.com/document/product/436/6274)
 * [云API PHP SDK](https://www.qcloud.com/document/developer-resource/494/7243)
 
 ## 使用方式
 
-1. 下载 VOD 服务端上传 PHP DEMO 并解压，将工作目录切换到 upload_demo.php 所在的目录下。
+1. 下载 VOD PHP DEMO 并解压，将工作目录切换到 upload_demo.php 所在的目录下。
 1. 将 cos-php-sdk-v4-master.zip 解压到工作目录。
 1. 将 qcloudapi-sdk-php-master.zip 解压到工作目录。
 1. 编辑 cos-php-sdk-v4-master/qcloudcos/conf.php，将 APP_ID 设置为  SECRET_ID 设置为 API 密钥中的 secret id，将 SECRET_KEY 设置为 API 密钥中的 secret key。
