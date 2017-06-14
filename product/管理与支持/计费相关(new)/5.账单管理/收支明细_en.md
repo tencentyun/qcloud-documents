@@ -2,11 +2,11 @@
 
 Income & Expense Details is a journal used to record all the incoming and outgoing payments of an account. Incoming payment transactions include top-up, refund and unfreezing funds. While outgoing payment transactions include withdrawal, deduction and freezing funds.
 
-## Go to "Income & Expense Details" Page
+## Go to "Details" Page
 
-Go to Tencent Cloud's "User Center" page, and click "Details" at the upper right corner to enter the "Income & Expense Details" page.
+Go to Tencent Cloud's "Console" page, and click "Cost" and "Details" at the upper right corner to enter the "Details" page.
 
-![](//mc.qcloudimg.com/static/img/28aea7d76bb21e925d19b08221e4be66/image.png)
+![](https://mc.qcloudimg.com/static/img/293ba20457e1c15efaa53a0b8ee90279/image.png)
 
 ## How do I use Income & Expense Details?
 
