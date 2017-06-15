@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
  
-This API (DescribeBmSubnetEx) is used to query the list of BM subnets.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font> 
+This API (DescribeBmSubnetEx) is used to query the list of BM subnets.  
+Domain name for API request: vpc.api.qcloud.com 
 
 
 ## 2. Input Parameters
@@ -9,7 +9,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | No | String | ID of VPC to which the subnet belongs, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-kd7d06of. You can query this through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  | 
+| vpcId | No | String | ID of VPC to which the subnet belongs, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-kd7d06of. You can query this through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
 | subnetId | No | String | Subnet ID assigned by the system. Both subnetId and unSubnetId are supported. unSubnetId is recommended. For example: subnet-3lzrkspo. |
 | subnetName | No | String | Subnet name. Fuzzy query is supported.  |
 | zoneIds | No | Array | Availability zone ID. For more information, please see <a href="https://www.qcloud.com/document/api/386/6633">VPC Availability Zone Overview</a>.  |
@@ -17,7 +17,7 @@ The following request parameter list only provides API request parameters. Commo
 | limit | No | Int | Number of lines per page. Default is 20.  |
 | orderField | No | String | Sort by a certain field. Currently, sorting by createTime (default) and subnetName is supported.  |
 | orderDirection | No | String | Ascending (asc) or descending (desc). Default is asc.  |
-| vlanId | No | Int | Subnet vlanid. Default is .  |
+| vlanId | No | Int | Subnet VLAN ID.  |
 
 ## 3. Output Parameters
 
@@ -27,20 +27,20 @@ The following request parameter list only provides API request parameters. Commo
 | message |  String | Error message.  |
 | totalCount |  Int | Total number of subnets.  |
 | data | Array  | Returned array.  |
-| data.n.vpcId | String | vpcId assigned by the system, e.g. gz_vpc_266. |
-| data.n.unVpcId | String | The new vpcID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new vpcId, for example: vpc-5gu2jxf4. |
+| data.n.vpcId | String | The VPC ID assigned by the system, e.g. gz_vpc_266. |
+| data.n.unVpcId | String | The new VPC ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new VPC ID, for example: vpc-5gu2jxf4. |
 | data.n.subnetId | int | Subnet ID assigned by the system. For example: 23. |
 | data.n.unSubnetId | String | The new subnet ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new subnet ID, for example: subnet-5gu2jxf4. |
 | data.n.subnetName | String | Subnet name. |
 | data.n.cidrBlock | String | Subnet IP address range, for example: 192.168.0.0/25. |
 | data.n.zoneId | String | ID of the availability zone in which the subnet resides. For example: 200001. |
-| data.n.vlanId | Int | Subnet vlanid. |
+| data.n.vlanId | Int | Subnet VLAN ID. |
 
- ## 4. Error Codes
+## 4. Error Codes
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query VPC through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
+| -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query the VPC through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
 | -3030 | InvalidBmSubnet.NotFound | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct. You can query the subnet through API <a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>.  |
 
 ## 5. Example
@@ -48,7 +48,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 ```
   https://vpc.api.qcloud.com/v2/index.php?Action=DescribeBmSubnetEx
-  &<Public Request Parameters>
+  &<Common Request Parameters>
   &subnetName=tttt
 ```
 
