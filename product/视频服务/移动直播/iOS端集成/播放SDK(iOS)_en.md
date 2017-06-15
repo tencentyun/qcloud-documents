@@ -1,4 +1,4 @@
-﻿## Basics
+## Basics
 RTMP SDK includes two features, Push and Playback. Push works at the VJ side, while Playback, including Live Video Broadcasting (LVB) and Video On Demand (VOD), functions at the viewer side. Before getting started with the code interfacing, let's learn some basic facts:
 
 - **LVB and VOD**

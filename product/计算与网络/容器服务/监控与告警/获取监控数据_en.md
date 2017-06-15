@@ -16,11 +16,11 @@ You can view the monitoring data of CCS in the following ways:
 - Log in to [CCS Console](https://console.qcloud.com/ccs), and select "Service".
 - Click the "Monitor" icon under the name of the service whose monitoring data is to be viewed in the service list, to view the service monitoring information.
 
-#### Viewing Instance Monitoring Information
+#### Viewing Pod Monitoring Information
 
 - Log in to [CCS Console](https://console.qcloud.com/ccs), and select "Service".
 - Click the ID of service whose monitoring data is to be viewed in the service list to enter the Service Details page.
-- Click the "Monitor" icon under the name of instance whose monitoring data is to be viewed in the instance list, to view the instance monitoring information.
+- Click the "Monitor" icon under the name of the pod whose monitoring data is to be viewed in the pod list, to view the pod monitoring information.
 
 ### Acquiring Monitoring Data Through API
 Users can use API "GetMonitorData" to acquire the monitoring data of all products. For more information, please see API [Read Monitor Data](https://www.qcloud.com/document/api/248/4667).

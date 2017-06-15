@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
  
 This API (DescribeBmVportInfo) is used to acquire the information on the BM load balancer ports.
 

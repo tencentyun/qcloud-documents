@@ -2,7 +2,7 @@
 ApplyUpload
 
 ## 功能说明
-1. 发起视频文件(和视频封面文件)的上传，获取文件上传到腾讯云对象存储COS的元信息（包括上传路径、上传签名等）。
+1. 发起视频文件（和视频封面文件）的上传，获取文件上传到腾讯云对象存储 COS 的元信息（包括上传路径、上传签名等）。
 
 ## 请求方式
 
@@ -36,18 +36,18 @@ https://vod.api.qcloud.com/v2/index.php?Action=ApplyUpload
 |---------|---------|---------|
 | code | Integer | 错误码, 0: 成功, 其他值: 失败 |
 | message | String | 错误信息 |
-| video | Array | 视频文件的COS上传信息 |
-| cover | Array | 封面文件的COS上传信息 |
-| storageAppid | String | COS上传使用的appid |
-| storageBucket | String | COS上传使用的bucket |
-| storageRegion | String | COS上传的地域 |
-| vodSessionKey | String | VOD确认上传时使用的会话Key |
+| video | Array | 视频文件的 COS 上传信息 |
+| cover | Array | 封面文件的 COS 上传信息 |
+| storageAppid | String | COS 上传使用的 appid |
+| storageBucket | String | COS 上传使用的 bucket |
+| storageRegion | String | COS 上传的地域 |
+| vodSessionKey | String | VOD 确认上传时使用的会话 Key |
 
 #### COS上传信息结果集
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| storageSignature | String | COS上传使用的签名 |
-| storagePath | String | COS上传的目的路径 |
+| storageSignature | String | COS 上传使用的签名 |
+| storagePath | String | COS 上传的目的路径 |
 
 ### 错误码说明
 | 错误码 | 含义说明|
@@ -75,10 +75,3 @@ https://vod.api.qcloud.com/v2/index.php?Action=ApplyUpload
     "vodSessionKey": "3KEGq9DWHl1xF819mM4jVFkGn5WON80NwN/rTrx56UoEFApIV9DQ7t5m1g4hASR11gKWwGxkignB3AmhKOpUnym7wyNEHOwDJPcT5fBu66iCLcW7bhyRfDSsQcVpX0Wt96RKSsZFf62jeAB+e5640U8rMPV3Rf2eR+y1AgI+EC3JZU5iZbjLX4qNVI4RuLvLGcCUkYqWAYeqfHMYjvz0Fzhg6KuxnLicfs4D0gpyoX1X6gcsX8cWS0S0jCaZ+Q/r29IlU/w6E+UDFuk5yZik+whNxaZ/mOrctqr25jQ="
 }
 ```
-
-### 相关接口
-1. [VOD确认上传]()
-2. [查询上传分片](/document/api/436/6070)
-3. [初始化分片上传](/document/api/436/6067)
-4. [逐个上传分片](/document/api/436/6068)
-5. [结束上传分片](/document/api/436/6074)
