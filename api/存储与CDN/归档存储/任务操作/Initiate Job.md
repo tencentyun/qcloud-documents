@@ -62,7 +62,7 @@ Authorization: Auth
 | Format                       | Archive列表输出格式，枚举值： `CSV` ，`JSON`。默认值：`JSON` | String | 否    |
 | InventoryRetrievalParameters | Archive列表检索的相关配置                         | String | 否    |
 | StartDate                    | Archive列表检索的开始日期（采用 UTC 格式），包含当日或之后创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
-| EndDate                      | Archive列表检索的结束日期（采用 UTC 格式），包含当日或之后创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
+| EndDate                      | Archive列表检索的结束日期（采用 UTC 格式），包含当日或之前创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
 | Limit                        | Archive列表检索请求返回的最大条目数。默认值：10000，有效值：1-10000之间的正整数  | String | 否    |
 | Marker                       | 字典序，从Marker起读取对应Archive列表                | String | 否    |
 

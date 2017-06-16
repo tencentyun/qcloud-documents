@@ -22,7 +22,7 @@ step1：通过策略语法方式创建以下策略
 }
 ```
 
-step2：将该策略授权给子账号。授权方式请参考[授权管](https://www.qcloud.com/document/product/378/8961)理。
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
 
 ### 授权子帐号拥有VPC只读权限
 
@@ -87,4 +87,4 @@ step1：通过策略语法方式创建以下策略
 }
 ```
 
-step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。

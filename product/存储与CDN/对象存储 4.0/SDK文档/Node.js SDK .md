@@ -918,7 +918,6 @@ Put Object请求可以将一个文件（Oject）上传至指定Bucket。
 * 调用 Put Object 操作
 
 ```js
-
 var params = {
 	Bucket : 'STRING_VALUE',						/* 必须 */
 	Region : 'STRING_VALUE',						/* 必须 */
@@ -934,10 +933,14 @@ var params = {
 	ACL : 'STRING_VALUE',							/* 非必须 */
 	GrantRead : 'STRING_VALUE',						/* 非必须 */
 	GrantWrite : 'STRING_VALUE',					/* 非必须 */
-	GrantFullControl : 'STRING_VALUE'				/* 非必须 */
-	'x-cos-meta-*' : 'STRING_VALUE'					/* 非必须 */
+	GrantFullControl : 'STRING_VALUE',				/* 非必须 */
+	'x-cos-meta-*' : 'STRING_VALUE',				/* 非必须 */
+	// Body: './a.zip',
+	Body: fs.createReadStream('./a.zip'), // 传文件或者流 /*必须*/ 
+    onProgress: function (progressData) {
+        console.log(progressData);
+    },
 };
-
 cos.putObject(params, function(err, data) {
 	if(err) {
 		console.log(err);
@@ -945,7 +948,6 @@ cos.putObject(params, function(err, data) {
 		console.log(data);
 	}
 });
-
 ```
 
 #### 操作参数说明
@@ -967,6 +969,8 @@ cos.putObject(params, function(err, data) {
   * GrantWrite —— (String) ： 赋予被授权者写的权限，格式x-cos-grant-write: uin=" ",uin=" "，当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID"
   * GrantFullControl —— (String) ： 赋予被授权者读写权限，格式x-cos-grant-full-control: uin=" ",uin=" "，当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID"
   * x-cos-meta-* —— (String) ： 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。
+  * Body —— (String | Stream)  ： 传入文件路径或文件流
+  * onProgress —— (Function)  ： 进度回调函数，回调是一个对象，包含进度信息
 
 
 
@@ -1685,18 +1689,19 @@ Slice Upload File 可用于实现文件的分块上传。
 * 调用 Slice Upload File 操作
 
 ```js
-
 var params = {
-	Bucket : 'STRING_VALUE',	/* 必须 */
-	Region : 'STRING_VALUE',	/* 必须 */
-	Key : 'STRING_VALUE',	/* 必须 */
-	FilePath : 'STRING_VALUE',	/* 必须 */
-	SliceSize : 'STRING_VALUE',	/* 非必须 */
-	AsyncLimit : 'NUMBER_VALUE'	/* 非必须 */
-};
-
-var ProgressCallback = function(progressData) {
-	console.log(progressData);
+	Bucket: 'STRING_VALUE',	/* 必须 */
+	Region: 'STRING_VALUE',	/* 必须 */
+	Key: 'STRING_VALUE',	/* 必须 */
+	FilePath: 'STRING_VALUE',	/* 必须 */
+	SliceSize: 'STRING_VALUE',	/* 非必须 */
+	AsyncLimit: 'NUMBER_VALUE',	/* 非必须 */
+    onHashProgress: function (progressData) {
+        console.log(JSON.stringify(progressData));
+    },
+    onProgress: function (progressData) {
+        console.log(JSON.stringify(progressData));
+    },
 };
 
 cos.sliceUploadFile(params, function(err, data) {
@@ -1705,7 +1710,7 @@ cos.sliceUploadFile(params, function(err, data) {
 	} else {
 		console.log(data);
 	}
-}, ProgressCallback);
+});
 
 ```
 
@@ -1713,11 +1718,13 @@ cos.sliceUploadFile(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称			
-    * Region —— (String) ： 地域名称
+  * Region —— (String) ： 地域名称
   * Key —— (String) ： Object名称
   * FilePath —— (String) ： 本地文件路径
   * SliceSize —— (String) ： 分块大小
   * AsyncLimit —— (String) ： 分块的并发量
+  * onHashProgress —— (Function)  ： 计算文件 sha1 值的进度回调函数，回调是一个对象，包含进度信息
+  * onProgress —— (Function)  ： 进度回调函数，回调是一个对象，包含进度信息
 
 
 #### 回调函数说明

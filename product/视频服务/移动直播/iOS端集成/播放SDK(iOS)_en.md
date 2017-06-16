@@ -2,9 +2,9 @@
 RTMP SDK includes two features, Push and Playback. Push works at the VJ side, while Playback, including Live Video Broadcasting (LVB) and Video On Demand (VOD), functions at the viewer side. Before getting started with the code interfacing, let's learn some basic facts:
 
 - **LVB and VOD**
-<font color='blue'>LVB </font>video source is generated in real time, and only makes sense when someone pushes the LVB stream. Therefore, once the VJ stops broadcasting, the LVB URL will become invalid. Since the video is played in real time, no progress bar is displayed on the player during the LVB.
+LVB video source is generated in real time, and only makes sense when someone pushes the LVB stream. Therefore, once the VJ stops broadcasting, the LVB URL will become invalid. Since the video is played in real time, no progress bar is displayed on the player during the LVB.
 
- <font color='blue'>VOD's </font>video source is a file on cloud, which can be played at any time as long as it has not been deleted by the provider. Since the entire video file is stored on the server, a progress bar will be displayed during playback.
+VOD's video source is a file on cloud, which can be played at any time as long as it has not been deleted by the provider. Since the entire video file is stored on the server, a progress bar will be displayed during playback.
 
 - **Supported Protocols**
 Commonly used LVB protocols are as follows. It is recommended to use LVB URL based on FLV protocol (starting with "http" and ending with ".flv") on APPs:
@@ -14,7 +14,7 @@ Commonly used LVB protocols are as follows. It is recommended to use LVB URL bas
 ![](//mc.qcloudimg.com/static/img/4b42a00bb7ce2f58f362f35397734177/image.jpg)
 
 ## Notes
-Tencent Cloud RTMP SDK <font color='red'>**does not **</font> impose any restrictions on the source of playback URLs, which means you can use the SDK to play videos from both Tencent Cloud and non-Tencent Cloud addresses. But the player in RTMP SDK only supports three LVB video address formats (FLV, RTMP and HLS (m3u8)) and three VOD address formats (MP4, HLS (m3u8) and FLV).
+Tencent Cloud RTMP SDK **DOES NOT ** impose any restrictions on the source of playback URLs, which means you can use the SDK to play videos from both Tencent Cloud and non-Tencent Cloud addresses. But the player in RTMP SDK only supports three LVB video address formats (FLV, RTMP and HLS (m3u8)) and three VOD address formats (MP4, HLS (m3u8) and FLV).
 
 ## Interfacing Guide
 
@@ -28,13 +28,14 @@ _txLivePlayer = [[TXLivePlayer alloc] init];
 Next, we need to look for a place to display the video pictures in a player. In iOS systems, a view is used as the basic picture rendering unit. Therefore you simple need to prepare a view and adjust the layout.
 
 - **Recommended layout**
-> In fact, RTMP SDK player does not directly render the picture to the view you provided. Instead, it creates a subView used for OpenGL rendering upon the view. However, the size of this subView used for rendering will be adjusted automatically according to the size change of the view you provided, which means you do not need to worry about configuring the size.
+> In fact, RTMP SDK player 
+>  directly render the picture to the view you provided. Instead, it creates a subView used for OpenGL rendering upon the view. However, the size of this subView used for rendering will be adjusted automatically according to the size change of the view you provided, which means you do not need to worry about configuring the size.
 >![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
 >
 > If you want to implement UI controls such as live commenting and flower gifting on top of the rendering screen, we recommend that you create another view at the same level. This is a common design style which helps avoid a lot of problems regarding screen overlay.
 
 - **How to make animation?**
-> You can freely make animations for a view. But note that the target attribute modified for animations is <font color='red'>transform</font>, but not frame.
+> You can freely make animations for a view. But note that the target attribute modified for animations is **transform**, but not frame.
 >
 ```objectivec
   [UIView animateWithDuration:0.5 animations:^{
@@ -55,7 +56,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 The parameter "frame" has been deprecated since 1.5.2. The size of the image is change to "always fills up the view provided by user". You can directly adjust the view if you wish to change the size or position of the image.
 
 - **startPlay** 
-Parameter type supports the following options. According to the feedback from some customers, <font color='red'>**"fast forward" sometimes occurs during playback**</font>. This is because they confused LIVE_FLV and VOD_FLV.
+Parameter type supports the following options. According to the feedback from some customers, **"fast forward" sometimes occurs during playback**. This is because they confused LIVE_FLV and VOD_FLV.
 
 | Option | Enumerated Value | Description |
 |---------|---------|---------|
@@ -90,7 +91,7 @@ You can modify the size and position of the view by directly adjusting the size 
 
 
 ### Step 5:  Adjust Progress
-Adjusting playback progress <font color='red'>** is only applicable to VOD**</font>. You cannot adjust the video progress during LVB because the video source is in real-time.
+Adjusting playback progress ** is only applicable to VOD**. You cannot adjust the video progress during LVB because the video source is in real-time.
 ```objectivec
 // Adjust progress
 [_txLivePlayer seek:slider.value];
@@ -111,7 +112,7 @@ For LVB, calling pause function means temporarily stopping stream-pull. The play
 ```
 
 ### Step 7:  End Playback
-At the end of the playback, <font color='red'>**be sure to terminate the View control**</font>, especially before the next startPlay. Otherwise a lot of memory leaks and splash screen issues will occur.
+At the end of the playback, **be sure to terminate the View control**, especially before the next startPlay. Otherwise a lot of memory leaks and splash screen issues will occur.
 
 ```objectivec
 // Stop playback
@@ -176,7 +177,7 @@ If you have no idea about​how to handle the PLAY_EVT_PLAY_PROGRESS event durin
 | PLAY_EVT_PLAY_END      |  2006 |  Video playback ends      | 
 | PUSH_ERR_NET_DISCONNECT          |  -2301  | Network disconnected. Reconnection attempts have failed for multiple times, thus no more retries will be performed. Please restart playback manually | 
 
-- **<font color='red'>How to tell whether the LVB has ended?</font>**
+- How to check whether the LVB has ended?
 For **VOD**, we can check whether the playback has ended through the PLAY_EVT_PLAY_END event.
 
  For **LVB**, we can't determine if the VJ has ended the push only by using the SDK. It is expected that when the VJ stops pushing stream, RTMP SDK will soon find the data stream pull fails (WARNING_RECONNECT), and then retry it again until the PLAY_ERR_NET_DISCONNECT event is thrown after three failed attempts.
@@ -221,8 +222,8 @@ In addition, there are several server connection events used to measure and calc
 | NET_STATUS_NET_SPEED     | Current network data receiving speed |
 | NET_STATUS_NET_JITTER    | Network jitter status. A bigger jitter means a more unstable network |
 | NET_STATUS_VIDEO_FPS     | The video frame rate of the current stream media    |
-| NET_STATUS_VIDEO_BITRATE | Video bit rate of the current stream media (in kbps) |
-| NET_STATUS_AUDIO_BITRATE | Audio bit rate of the current stream media (in kbps) |
+| NET_STATUS_VIDEO_BITRATE | Video bitrate of the current stream media (in kbps) |
+| NET_STATUS_AUDIO_BITRATE | Audio bitrate of the current stream media (in kbps) |
 | NET_STATUS_CACHE_SIZE    | Buffer size (jitterbuffer). A buffer length of 0 means that stutter will occur in all probability |
 | NET_STATUS_SERVER_IP | IP of the connected server | 
 

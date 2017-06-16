@@ -3,8 +3,34 @@
 
 | 文件 | 说明 |
 |---------|---------|
-| txrtmpsdk.jar | SDK java层封装 |
-| libtxrtmpsdk.so| SDK 核心组件|
+| txrtmpsdk.jar | 直播 SDK java层封装 |
+| ugcupload.jar | UGC 上传文件到点播系统 jar 包|
+| sha1utils.jar | UGC 计算上传文件的 SHA 值 jar 包|
+| cos-sdk-android.1.4.3.6.jar |  对象存储 COS 相关的 jar 包|
+| okio-1.6.0.jar | 网络操作 I/O 库 |
+| okhttp-3.2.0.jar | 网络请求库 |
+| libtxrtmpsdk.so| 直播SDK 核心组件|
+| libtraeimp-rtmp-armeabi.so | 连麦功能库 |
+| libstlport_shared.so  | 连麦功能库 |
+| libTXSHA1.so | UGC 计算上传文件的 SHA 值 |
+
+如果您暂时不需要短视频功能，您可以下载完整版，导入以下包即可。
+
+| 文件 | 说明 |
+|---------|---------|
+| txrtmpsdk.jar | 直播 SDK java层封装 |
+| ugcupload.jar | UGC 上传文件到点播系统 jar 包|
+| libtraeimp-rtmp-armeabi.so | 连麦功能库 |
+| libstlport_shared.so  | 连麦功能库 |
+| libtxrtmpsdk.so| 直播SDK 核心组件|
+
+如果您暂时不需要连麦以及短视频功能，您可以下载精简版，导入以下包即可。
+
+| 文件 | 说明 |
+|---------|---------|
+| txrtmpsdk.jar | 直播 SDK java层封装 |
+| ugcupload.jar | UGC 上传文件到点播系统 jar 包|
+| libtxrtmpsdk.so| 直播SDK 核心组件|
 
 ## 支持的平台
 - SDK支持Android 4.0(API 14)及以上系统
@@ -31,7 +57,7 @@
 ![](//mccdn.qcloud.com/static/img/86d98492636122ed9cae898b7bff1920/image.png)
 导入之后，可以看到build.gradle中自动生成以下这一行脚本：
 ![](//mccdn.qcloud.com/static/img/c83f9882d434f7fd51d4ca942f159138/image.png)
-		
+        
 ### 4.配置APP权限
 在AndroidManifest.xml中配置APP的权限，音视频类APP一般需要以下权限：
 
@@ -99,4 +125,4 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
         }
     }
 ```
-**3**.  检查下混淆规则，确认是否将 RTMP SDK 相关的类也给混淆了。
+**3**.  检查下混淆规则，确认是否将 SDK 相关的类也给混淆了。

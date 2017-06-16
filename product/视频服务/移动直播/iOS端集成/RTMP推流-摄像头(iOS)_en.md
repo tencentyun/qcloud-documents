@@ -5,7 +5,7 @@ Tencent Video Cloud SDK mainly helps you push videos on smart phones. The SDK co
 ![](//mc.qcloudimg.com/static/img/ca7f200c31a9323c032e9e000831ea63/image.jpg)
 
 ## Notes
-- **<font color='red'>No restrictions on cloud providers</font>**
+- **No restrictions on cloud providers**
 > The SDK **does not prevent you from pushing to non-Tencent Cloud addresses**. So how do we make such pushes?
 > 
 > To solve the inaccurate DNS mapping problem within China, "Closest route selection" has been introduced starting from SDK 1.5.2. This feature selects the push route nearest to the VJ's location using Tencent Cloud's close route selection server, which significantly improves push quality. However this also means that the route selection results only include Tencent server addresses. In addition, since a large number of customers use dedicated push domain names, SDK cannot determine whether the target is Tencent Cloud simply by using the URL text.
@@ -51,7 +51,7 @@ Next, we need to look for a place to display the images of camera. In iOS system
 > However, if you want to implement UI controls such as live commenting and flower gifting on top of the rendering screen, we recommend that you create another view at the same level, which helps avoid a lot of problems regarding screen overlay.
 
 - **How to make animation?**
-> You can freely make animations for a view. But note that the target attribute modified for animations is <font color='red'>transform</font>, but not frame.
+> You can freely make animations for a view. But note that the target attribute modified for animations is **transform**, but not frame.
 >
 ```objectivec
   [UIView animateWithDuration:0.5 animations:^{
@@ -79,8 +79,8 @@ Configure video definition by using **setVideoQuality**, you can also configure 
 |:-------:|:-------:|:-----:|---------|
 | **High Definition** | VIDEO_QUALITY_HIGH_DEFINITION |  **540P** | This is a recommended definition which allows most mainstream mobile phones to present clear pictures.  |
 | **Standard Definition** | VIDEO_QUALITY_STANDARD_DEFINITION |  **360P** | Choose this definition if you have consideration about bandwidth cost.<br> It brings average video quality but reduces bandwidth cost by 60%, compared to high definition.  |
-| **Dynamic** |  VIDEO_QUALITY_QOS_DEFINITION |  **Dynamic** | This will automatically adjust video resolution among three levels (192 \* 336 - 540 \* 960) based on network condition, in order to cope with network fluctuations. Suitable for scenarios with inconsistent network such as overseas LVB. <br><font color='red'>Note: </font>This type of video streams may be incompatible with certain players.  |
-| **Ultra High Definition** | VIDEO_QUALITY_SUPER_DEFINITION |  **720P** | <font color='red'>Note: </font>This is not recommended for scenarios where videos are mostly viewed in small screens. <br>You can consider using this definition if videos are viewed in large screens and the VJ has a great network.  |
+| **Dynamic** |  VIDEO_QUALITY_QOS_DEFINITION |  **Dynamic** | This will automatically adjust video resolution among three levels (192 \* 336 - 540 \* 960) based on network condition, in order to cope with network fluctuations. Suitable for scenarios with inconsistent network such as overseas LVB. <br>Note: This type of video streams may be incompatible with certain players.  |
+| **Ultra High Definition** | VIDEO_QUALITY_SUPER_DEFINITION |  **720P** | Note: This is not recommended for scenarios where videos are mostly viewed in small screens. <br>You can consider using this definition if videos are viewed in large screens and the VJ has a great network.  |
 
 ### Step 5:  Beauty Filter
 - **Beautify**
@@ -100,7 +100,7 @@ if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
 } 
 ```
 ![](//mc.qcloudimg.com/static/img/ad0711f3c35f2087d3520677bfd64391/image.png)
-> Be sure to use PNG images if you wish to customize the filters. <font color='red'> Do NOT use JPG image.</font>
+> Be sure to use PNG images if you wish to customize the filters.** Do NOT use JPG image.**
 
 
 ### Step 6:  Camera Control
@@ -137,7 +137,7 @@ A setFocusPosition function API is added to the new version of TXLivePush. You c
 Recent policies require that LVB videos must be marked with watermarks. With that in mind, we will focus on this feature that had seemed insignificant before.
 Tencent Video Cloud currently supports two watermark settings. One is to set watermark in the push SDK, where the videos are marked with watermarks in the SDK before being encoded. Another is applying watermarks in the cloud. That is, the cloud resolves videos and adds Logo watermarks to them.
 
-We suggest that you <font color='red'>add watermarks with the SDK</font>, because there are three major problems when watermarking in the cloud:
+We suggest that you **add watermarks with the SDK**, because there are three major problems when watermarking in the cloud:
  (1) This service increases the load on the cloud machine and is not free, which will increase your cost;
  (2) It is not ideally compatible with certain situations such as resolution switching during the push process. This may cause problems like blurred screen.
  (3) It may cause an additional 3-second video delay, which is caused by the transcode service.
@@ -232,7 +232,7 @@ When you receive this WARNING, you can use the UI to remind VJ to change network
 ### Step 11:  Push in landscape mode
 In most cases, VJs push videos in an LVB by holding the screen in a portrait orientation so that the viewers can get portrait images. However, sometimes VJs may need to hold the screen in a landscape orientation to allow the viewers to get landscape images with a wider view. In this case, push in landscape mode is required. The figures below show the difference between landscape mode and portrait mode in terms of the images at the viewer end. 
 ![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
-> <font color='red'>**Note:**</font> The aspect ratios of images at viewer end are different between landscape mode and portrait mode. In portrait mode, the aspect ratio is 9:16, while in landscape mode, 16:9.
+> **Note:** The aspect ratios of images at viewer end are different between landscape mode and portrait mode. In portrait mode, the aspect ratio is 9:16, while in landscape mode, 16:9.
 
 To achieve a push in landscape mode, you need to make two configurations:
 - **Adjust Viewer-end Performance**
@@ -296,7 +296,7 @@ It is simple to end a push process, but proper cleaning work is required. Since 
 
 ## Event Handling
 #### 1. Event Listening
-SDK listens to push related events using the TXLive<font color='red'>Push</font>Listener proxy. Note that the TXLive<font color='red'>Push</font>Listener only listens to push events with prefix <font color='red'>PUSH_</font>.
+SDK listens to push related events using the TXLivePushListener proxy. Note that the TXLivePushListener only listens to push events with prefix **PUSH_**.
 
 ### 2. Normal Events 
 Events that are always prompted during a successful push. For example, receiving 1003 means that the system will start rendering the camera pictures
@@ -326,7 +326,7 @@ SDK detected some reparable problems. Most warning events will trigger protectio
 - **WARNING_NET_BUSY**
 The VJ's network is busy. If you need UI prompts, this warning is relatively more useful (Step 10).
 
-- <font color='red'>**WARNING_SERVER_DISCONNECT**</font>
+- WARNING_SERVER_DISCONNECT
 The push request is rejected by the backend. This is usually caused by miscalculated txSecret in the push address, or because the push address is occupied by others (a push URL can only have one pushing end at a time).
 
 | Event ID                 |    Value  |  Description                    |   
