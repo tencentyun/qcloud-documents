@@ -37,7 +37,7 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.4.3260 @ 2017-06-13 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
-| Android平台  | 2.0.4.3260 @ 2017-06-13 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
+| iOS平台  | 2.0.4.3260 @ 2017-06-16 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
+| Android平台  | 2.0.4.3260 @ 2017-06-16 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
 
 
