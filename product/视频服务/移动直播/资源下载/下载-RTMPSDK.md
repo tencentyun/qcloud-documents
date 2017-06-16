@@ -1,5 +1,5 @@
 ## 版本说明
-- 版本号：2.0.4.3255 @ 2017-06-13
+- 版本号：2.0.4.3260 @ 2017-06-16
 - iOS：短视频编辑添加滤镜、水印、背景音、字幕、变速等功能。
 - Android：优化短视频裁剪、拼接功能，新增编辑滤镜功能。
 - iOS & Android：UGC录制增加美颜回调预处理接口。
@@ -32,22 +32,22 @@ table th:nth-of-type(2) {  width: 550px; }
 table th:nth-of-type(3) {  width: 100px; }
 </style>
 
-- **iOS 平台（2.0.4.3255）**
+- **iOS 平台（2.0.4.3260）**
 
 | 版本类型 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| 完整版  |  包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.4.3255.zip)  |
-| 精简版  |  在完整版的基础上裁剪掉了非核心功能，代码体积增量 <font color='red'>900KB</font> 。播放器的兼容性逊于完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.4.3255.zip)  |
-| rename版  |  在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.4.3255.zip) |
+| 完整版  |  包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOS2.0.4.3260.zip)  |
+| 精简版  |  在完整版的基础上裁剪掉了非核心功能，代码体积增量 <font color='red'>900KB</font> 。播放器的兼容性逊于完整版；不支持iOS 7.0；iOS 10 以下系统不支持后台垫片推流。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSSimple2.0.4.3260.zip)  |
+| rename版  |  在完整版的基础上对 ffmpeg 等开源组件进行了符号重命名。如您的项目原来就包含有 ffmpeg 导致符号冲突，或崩溃在 ffmpeg 的内部函数里，可以使用此版本。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.4.3260.zip) |
 
-- **Android 平台 （2.0.4.3255）**
+- **Android 平台 （2.0.4.3260）**
 
 | 版本类型 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| 完整版  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid2.0.4.3255.zip)  |
-| 精简版  | 在完整版的基础上裁剪掉了连麦功能，适合跟互动直播 iLiveSDK 一起使用。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.4.3255.zip)  |
+| 完整版  | 包含推流、直播、点播、连麦、录屏 等全部特性。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroid2.0.4.3260.zip)  |
+| 精简版  | 在完整版的基础上裁剪掉了连麦功能，适合跟互动直播 iLiveSDK 一起使用。 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.4.3260.zip)  |
 
-- **商用付费版 （2.0.4.3255）**
+- **商用付费版 （2.0.4.3260）**
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
