@@ -1,4 +1,4 @@
-﻿This document mainly describes the interfacing solution of Tencent Cloud's joint broadcasting feature. If you want to learn the principle of the feature, please see [How to Achieve Joint Broadcasting?](https://www.qcloud.com/document/product/454/8092)
+This document mainly describes the interfacing solution of Tencent Cloud's joint broadcasting feature. If you want to learn the principle of the feature, please see [How to Achieve Joint Broadcasting?](https://www.qcloud.com/document/product/454/8092)
 
 ## Version Updating
 The joint broadcasting feature is enabled from RTMP SDK 1.8.2. Go to [Download Page](https://www.qcloud.com/document/product/454/7873) to download the latest RTMP SDK. In addition, the sample codes of this solution have been integrated into the Mini LVB [DEMO](https://www.qcloud.com/document/product/454/6991).
@@ -40,21 +40,21 @@ Note: You need to pay attention to the following points:
 
  **&mix=layer:s;session_id:1234;t_id:1** is used to tell Tencent Cloud that this LVB stream supports joint broadcasting, with the studio ID of joint broadcasting being 1234.
  
- The value of [session_id](#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A) can be any **combination of <font color='red'>numbers</font>** (such as 1234) and cannot contain any letter. Note: session_ids of two different studios cannot be the same, otherwise errors will occur to the background system. Parameters layer and tid are used for mixing streams on the background and are detailed in [Step 5.2](# step5 .-. E5.A4.9A.E8.B7.AF.E6.B7.B7.E6.B5.81).
+ The value of [session_id](#.E5.90.8D.E8.AF.8D.E8.A7.A3.E9.87.8A) can be any **combination of numbers** (such as 1234) and cannot contain any letter. Note: session_ids of two different studios cannot be the same, otherwise errors will occur to the background system. Parameters layer and tid are used for mixing streams on the background and are detailed in [Step 5.2](# step5 .-. E5.A4.9A.E8.B7.AF.E6.B7.B7.E6.B5.81).
  
 - **1.2 TXLivePushConfig**
   + Enable echo cancellation enableAEC 
  + Enable hardware acceleration enableHWAcceleration 
  + Set push resolution to VIDEO_RESOLUTION_360_640 (the most common resolution used for LVB show)
- + Set push bit rate to 800 kbps, which is suitable for 360p. If you want a higher resolution, set the bit rate higher.
- + Set audio sampling rate to <font color='red'>AUDIO_SAMPLE_RATE_48000</font> (do not use other values)
+ + Set push bitrate to 800 kbps, which is suitable for 360p. If you want a higher resolution, set the bitrate higher.
+ + Set audio sampling rate to **AUDIO_SAMPLE_RATE_48000** (do not use other values)
 
  ``` 
  //Set push parameters first
  _txLivePush.config.enableAEC = YES;
  _txLivePush.config.enableHWAcceleration = YES;
  _txLivePush.config.videoResolution = VIDEO_RESOLUTION_360_640; // The most common resolution used for LVB show
- _txLivePush.config.videoBitratePIN = 800; // This bit rate is suitable for 360p. If you want a higher resolution, set the bit rate higher.
+ _txLivePush.config.videoBitratePIN = 800; // This bitrate is suitable for 360p. If you want a higher resolution, set the bitrate higher.
  _txLivePush.config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;  // Do not use other values
  _txLivePush.config.audioChannels   = 1; // Single track
  //Then start push
@@ -84,16 +84,16 @@ The interfacing solution of secondary VJ push is the same as that of the primary
 - **3.2 TXLivePushConfig**
  + Enable echo cancellation enableAEC 
  + Enable hardware acceleration enableHWAcceleration 
- + Set push resolution to <font color='red'>VIDEO_RESOLUTION_320_480</font>. Secondary VJ(s) do not need high resolution because they are shown on secondary screen to viewers
- + Set push bit rate to <font color='red'>300kbps</font>. High bit rate causes waste)
- + Set audio sampling rate to <font color='red'>AUDIO_SAMPLE_RATE_48000</font> (do not use other values)
+ + Set push resolution to VIDEO_RESOLUTION_320_480. Secondary VJ(s) do not need high resolution because they are shown on secondary screen to viewers
+ + Set push bitrate to 300 kbps. High bitrate causes waste)
+ + Set audio sampling rate to AUDIO_SAMPLE_RATE_48000 (do not use other values)
 
  ``` 
  //Set push parameters first
  _txLivePush.config.enableAEC = YES;
  _txLivePush.config.enableHWAcceleration = YES;
  _txLivePush.config.videoResolution = VIDEO_RESOLUTION_320_480; // Secondary VJ(s) do not need high resolution
- _txLivePush.config.videoBitratePIN = 300; // High bit rate causes waste
+ _txLivePush.config.videoBitratePIN = 300; // High bitrate causes waste
  _txLivePush.config.audioSampleRate = AUDIO_SAMPLE_RATE_48000;  // Do not use other values
  _txLivePush.config.audioChannels   = 1; // Single track
  
@@ -145,7 +145,7 @@ For both primary VJ and secondary VJ(s), low-latency playback linkage can be ach
  [_txLivePlay startPlay:rtmpUrl type:PLAY_TYPE_LIVE_RTMP_ACC];
 ```
 
->**<font color='red'>Note</font>**: <font color='black'>The accelerated linkage cannot be used to play videos by viewers.</font>
+>**Note**: <font color='black'>The accelerated linkage cannot be used to play videos by viewers.</font>
 >
 > Since the accelerated linkage uses the bandwidth of core node whose cost is several times higher than that of ordinary CDN bandwidth, it is only applicable for the real-time audio and video linkage among VJs.
 > In audition, Tencent Cloud limits the number of accelerated linkage under a session_id. The current maximum is 3. It will be increased gradually but no more than 8.

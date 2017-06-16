@@ -1,10 +1,10 @@
-﻿# Special Effects (Eye Enlarging, Face Sliming, Dynamic Effect and Green Screen)
+# Special Effects (Eye Enlarging, Face Slimming, Dynamic Effect and Green Screen)
 
 ## Feature Description
-Special effects such as eye enlarging, face sliming, dynamic sticker and green screen, are privileged features developed based on face recognition technology of Tencent YouTu Lab team and makeup technology of Tencent Pitu team. By cooperating with the two teams, Tencent Cloud's Mini LVB team deeply integrates these special effects into the image processing process of RTMP SDK to achieve better video effects.
+Special effects such as eye enlarging, face slimming, dynamic sticker and green screen, are privileged features developed based on face recognition technology of Tencent YouTu Lab team and makeup technology of Tencent Pitu team. By cooperating with the two teams, Tencent Cloud's Mini LVB team deeply integrates these special effects into the image processing process of RTMP SDK to achieve better video effects.
 
 ## Charges
-The special effects use patented technology of Tencent YouTu Lab, with annual licensing fees being about **500K CNY**(currently, the fees of similar image processing products in China are millions of CNY). If you need the feature, submit a ticket or call our customer service at 400-9100-100. Staff of the business department will provide a password for decoding the SDK package and apply to Tencent YouTu Lab for a trial license for you.
+The special effects use patented technology of Tencent YouTu Lab, with annual licensing fees being about **0.5 million CNY**(currently, the fees of similar image processing products in China are millions of CNY). If you need the feature, submit a ticket or call our customer service at 400-9100-100. Staff of the business department will provide a password for decoding the SDK package and apply to Tencent YouTu Lab for a trial license for you.
 
 ## Version Downloading
 You can download the privileged SDK package at the bottom of the [RTMP SDK](https://www.qcloud.com/document/product/454/7873) page. The package is encrypted and you can get the password and the license file from our staff of the business department. After decompressing the package, you need to replace the non-privileged jar and so files in your project with the decompressed `txrtmpsdk.jar`,` libtxrtmpsdk.so` and other so files.
@@ -72,9 +72,9 @@ public void setGreenScreenFile(String path);
 ```
 
 
-### 3. Eye enlarging and face sliming
+### 3. Eye enlarging and face slimming
 
-> Eye enlarging and face sliming features for SDK 2.0.0 are still under tense development and will be released as soon as possible.
+> Eye enlarging and face slimming features for SDK 2.0.0 are still under tense development and will be released as soon as possible.
 
 
 

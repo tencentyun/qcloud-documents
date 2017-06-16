@@ -1,6 +1,6 @@
 ﻿## 版本说明
 
-- 版本号：2.0.4.3253 @ 2017-06-08	
+- 版本号：2.0.4.3255 @ 2017-06-13
 - iOS：支持短视频的裁剪和拼接功能，短视频编辑支持滤镜、水印、背景音、字幕、变速等功能。
 - Android：优化短视频裁剪、拼接功能，支持编辑滤镜功能。
 - iOS & Android：支持短视频录制（暂仅支持摄像头录制）和发布（上传视频到CDN）。
@@ -28,8 +28,8 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.4.3253.zip)   |
-| Android平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.4.3253.zip) |
+| iOS平台  | 2.0.4.3255 @ 2017-06-13 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.4.3255.zip)   |
+| Android平台  | 2.0.4.3255 @ 2017-06-13 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.4.3255.zip) |
 
 - **付费版**
 
@@ -37,7 +37,7 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
-| Android平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
+| iOS平台  | 2.0.4.3255 @ 2017-06-13 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
+| Android平台  | 2.0.4.3255 @ 2017-06-13 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
 
 

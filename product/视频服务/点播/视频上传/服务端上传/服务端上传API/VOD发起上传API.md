@@ -21,6 +21,10 @@ vod.api.qcloud.com
 | coverType | 否 | String | 封面文件类型 |
 | coverName | 否 | String | 封面文件名称 |
 | coverSize | 否 | Integer | 封面文件的大小(单位：字节) |
+| classId | 否 | Integer | 视频文件分类，默认为0 | 
+| isTranscode | 否 | Integer | 视频是否转码，默认为0（0表示不发起转码，1表示发起转码） | 
+| isScreenshot  | 否 | Integer | 视频是否截图，默认为0（0表示不截图，1表示截图） |
+| isWatermark | 否 | Integer | 视频是否打水印，默认为0（0表示不打水印，1表示打水印） |
 | COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
 
 ### 请求示例

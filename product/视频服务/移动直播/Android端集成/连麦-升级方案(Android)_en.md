@@ -1,4 +1,4 @@
-# Tencent Video Cloud RTMP SDK Documentation - Joint Broadcasting - Upgraded Solution (Android) #
+﻿# Tencent Video Cloud RTMP SDK Documentation - Joint Broadcasting - Upgraded Solution (Android) #
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -58,7 +58,7 @@ In the upgraded solution, when enabling push, both primary and secondary VJs **d
 
 For more information on how to enable LVB push feature at the VJ side, please see [Android Push](https://www.qcloud.com/document/product/454/7885). If it is your first time to use RTMP SDK, please be sure to read relevant document about basic push features.
 
-There are two points to note about the push under the joint broadcasting mode: 1. You need to enable echo elimination; 2. You need to control latency using appropriate control policy. Actually, you don't need to worry about these two points. We strongly recommend you to use video quality configuration API "setVideoQuality" provided by SDK with a version of 1.9.2 or above. Each of the following enumerated video qualities corresponds to a set of quality parameters (such as video resolution, bit rate, frame rate, whether to enable echo elimination), and all of them have been optimized, please feel free to use.
+There are two points to note about the push under the joint broadcasting mode: 1. You need to enable echo elimination; 2. You need to control latency using appropriate control policy. Actually, you don't need to worry about these two points. We strongly recommend you to use video quality configuration API "setVideoQuality" provided by SDK with a version of 1.9.2 or above. Each of the following enumerated video qualities corresponds to a set of quality parameters (such as video resolution, bitrate, frame rate, whether to enable echo elimination), and all of them have been optimized, please feel free to use.
 
 ```
 /**
@@ -74,11 +74,11 @@ public static final int VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER     = 5;  //Secondar
 
 Detailed description of the above three video qualities
 
-- VIDEO_QUALITY_STANDARD_DEFINITION: Standard definition - A resolution of 360 * 640 is used, and the bit rate is adaptive within the range of 400 kbps - 800 kbps. If the network environment of VJ is unsatisfactory, the video quality may be lowered during LVB, but the overall stutter rate will stay low. Software encoding is used. Even through software encoding is high in power consumption, it is more applicable for moving images than hardware coding.
-- VIDEO_QUALITY_HIGH_DEFINITION: High definition - A resolution of 540 * 960 is used, and the bit rate is fixed to 1000 kbps. If the network environment of VJ is unsatisfactory, the video quality will remain unchanged during LVB, but stutters and frame skips may occur frequently.  Software encoding is used. Even through software encoding is high in power consumption, it is more applicable for moving images than hardware coding.
-- VIDEO_QUALITY_SUPER_DEFINITION: Ultra high definition - A resolution of 720 * 1280 is used, and the bit rate is fixed to 1500 kbps. It has a high requirement for uplink bandwidth of VJ, and is suitable for business scenarios where videos are viewed in large screens.
+- VIDEO_QUALITY_STANDARD_DEFINITION: Standard definition - A resolution of 360 * 640 is used, and the bitrate is adaptive within the range of 400 kbps - 800 kbps. If the network environment of VJ is unsatisfactory, the video quality may be lowered during LVB, but the overall stutter rate will stay low. Software encoding is used. Even through software encoding is high in power consumption, it is more applicable for moving images than hardware coding.
+- VIDEO_QUALITY_HIGH_DEFINITION: High definition - A resolution of 540 * 960 is used, and the bitrate is fixed to 1000 kbps. If the network environment of VJ is unsatisfactory, the video quality will remain unchanged during LVB, but stutters and frame skips may occur frequently.  Software encoding is used. Even through software encoding is high in power consumption, it is more applicable for moving images than hardware coding.
+- VIDEO_QUALITY_SUPER_DEFINITION: Ultra high definition - A resolution of 720 * 1280 is used, and the bitrate is fixed to 1500 kbps. It has a high requirement for uplink bandwidth of VJ, and is suitable for business scenarios where videos are viewed in large screens.
 - VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER: Primary VJ - It is used by primary VJ in joint broadcasting mode. Since it is the primary screen for viewers, a resolution of 540 * 960 is preferred for clarity.
-- VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER: Secondary VJ - It is used by secondary VJ in joint broadcasting mode. Since it is the secondary screen, a resolution of 320 * 480 and a bit rate of 350 kbps are used for fluency.
+- VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER: Secondary VJ - It is used by secondary VJ in joint broadcasting mode. Since it is the secondary screen, a resolution of 320 * 480 and a bitrate of 350 kbps are used for fluency.
 
 Notes:
 
@@ -115,7 +115,7 @@ mLivePusher.setVideoQuality(TXLiveConstants.VIDEO_QUALITY_HIGH_DEFINITION); //No
 ```
 
 
-By calling API setVideoQuality, SDK will automatically select the optimal video quality parameters, such as resolution, frame rate, bit rate and bit rate control policy. Please note that, if no secondary VJ joins with primary VJ in a broadcasting session, it is strongly recommended not to select VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER. Because this mode is designed to minimize the latency, the fluency may be affected. If echo elimination is enabled at the same time, there may be a compromise on performance.
+By calling API setVideoQuality, SDK will automatically select the optimal video quality parameters, such as resolution, frame rate, bitrate and bitrate control policy. Please note that, if no secondary VJ joins with primary VJ in a broadcasting session, it is strongly recommended not to select VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER. Because this mode is designed to minimize the latency, the fluency may be affected. If echo elimination is enabled at the same time, there may be a compromise on performance.
 
 #### Secondary VJ Push
 Secondary VJ enables push by calling the following APIs:
@@ -132,7 +132,7 @@ mLivePusher.startPusher(pusherUrl);
 ```
 
 
-By calling API setVideoQuality and selecting VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER, SDK will automatically select the optimal video quality parameters, such as resolution, frame rate, bit rate and bit rate control policy, and enable audio echo elimination at the same time.
+By calling API setVideoQuality and selecting VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER, SDK will automatically select the optimal video quality parameters, such as resolution, frame rate, bitrate and bit rate control policy, and enable audio echo elimination at the same time.
 
 Notes:
 

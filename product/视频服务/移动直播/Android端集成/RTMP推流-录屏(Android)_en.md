@@ -1,4 +1,4 @@
-﻿
+
 ## Mobile Phone Screencap
 RTMP SDK 1.6.1 has begun to support screencap LVB on mobile phones, that is, the VJ's mobile phone screen can be used as the LVB source. Meanwhile, camera preview can be overlaid and used for scenarios that require mobile phone screens such as game LVB and mobile APP demo.
 
@@ -81,7 +81,7 @@ public void triggerPrivateMode() {
 Recent policies require that LVB videos must be marked with watermarks. With that in mind, we will focus on this feature that had seemed insignificant before.
 Tencent Video Cloud currently supports two watermark settings. One is to set watermark in the push SDK, where the videos are marked with watermarks in the SDK before being encoded. Another is applying watermarks in the cloud. That is, the cloud resolves videos and adds Logo watermarks to them.
 
-We suggest that you <font color='red'>add watermarks with the SDK</font>, because there are three major problems when watermarking in the cloud:
+We suggest that you **add watermarks with the SDK**, because there are three major problems when watermarking in the cloud:
  (1) This service increases the load on the cloud machine and is not free, which will increase your cost;
  (2) It is not ideally compatible with certain situations such as resolution switching during the push process. This may cause problems like blurred screen.
  (3) It may cause an additional 3-second video delay, which is caused by the transcode service.
@@ -95,20 +95,20 @@ mLivePusher.setConfig(mLivePushConfig);
 ```
 
 ### Step 6:  Recommended Definition
-Three major factors affect video quality: **resolution**, **frame rate** and **bit rate**.
+Three major factors affect video quality: **resolution**, **frame rate** and **bitrate**.
 - **Resolution**
 Screencap LVB on mobile phones provides resolutions at three levels: 360\*640, 540\*960, and 720\*1280. The API for relevant settings is setVideoResolution in TXLivePushConfig.
 - **Frame Rate**
 You will feel significant stutter if FPS <=10. It is recommended to set the frame rate to 20 - 25 FPS for screencap LVB on mobile phones. API for this configuration is setVideoFPS in TXLivePushConfig.
-- **Bit Rate**
-It refers to the size of data encoded by the encoder in each second (in kbps). For example, 800 kbps indicates that the encoder produces 800 kb (or 100 KB) of data per second. The API for this configuration is setVideoBitrate in TXLivePushConfig.
+- **BitRate**
+It refers to the size of data encoded by the encoder in each second (in kbps). For example, 800 kbps indicates that the encoder produces 800 KB (or 100 KB) of data per second. The API for this configuration is setVideoBitrate in TXLivePushConfig.
 
 Compared to camera LVB, screencap LVB has many more uncertainties, the most significant one of which is the screencap scenario.
-(1) At one extreme, the mobile phone screen remains unchanged, e.g., the desktop. In this case, the encoder can complete the task with very low bit rate output.
+(1) At one extreme, the mobile phone screen remains unchanged, e.g., the desktop. In this case, the encoder can complete the task with very low bitrate output.
 
-(2) At the other extreme, the mobile phone screen changes dramatically at all times, e.g., when the VJ is playing Temple Run. In this case, the bit rate must be at least 2 Mbps to ensure that there is no mosaic even for a resolution as ordinary as 540 * 960.
+(2) At the other extreme, the mobile phone screen changes dramatically at all times, e.g., when the VJ is playing Temple Run. In this case, the bitrate must be at least 2 Mbps to ensure that there is no mosaic even for a resolution as ordinary as 540 * 960.
 
-| Level   | Resolution | FPS |  Bit Rate-Game Screencap (Fishing Joy) | Bit Rate-Game Screencap (Temple Run) |
+| Level   | Resolution | FPS |  Bitrate-Game Screencap (Fishing Joy) | Bitrate-Game Screencap (Temple Run) |
 |---------|---------|---------|---------|
 | SD | VIDEO_RESOLUTION_TYPE_360_640 | 20   | 800kbps |  1200kbps|
 | HD | VIDEO_RESOLUTION_TYPE_540_960 | 20   | 1200kbps | 2000kbps|
@@ -136,7 +136,7 @@ Next, call **sendCustomPCMData** to insert your own PCM data to the SDK.
 
 ### Step 10:  Event Handling
 #### Event Listening
-RTMP SDK listens to push related events using the TXLive<font color='red'>Push</font>Listener proxy. Note that the TXLive<font color='red'>Push</font>Listener only listens to push events with prefix <font color='red'>PUSH_</font>.
+RTMP SDK listens to push related events using the TXLivePushListener proxy. Note that the TXLivePushListener only listens to push events with prefix **PUSH_**.
 
 #### Normal Events 
 Events that are always prompted during a successful push. For example, receiving 1003 means that the system will start rendering the camera pictures
