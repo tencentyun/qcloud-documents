@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
  
 This API (ReturnIps) is used to release IPs of subnets in BM VPC.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+Domain name for API request: vpc.api.qcloud.com
 
 
 
@@ -27,7 +27,7 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 
 
-  ## 4. Error Codes
+## 4. Error Codes
  
  | Error Code | Error Message | Description |
 |---------|---------|---------|
@@ -39,7 +39,7 @@ Input
 ```
 
   https://vpc.api.qcloud.com/v2/index.php?Action=ReturnIps
-	&<Public Request Parameters>
+	&<Common Request Parameters>
 	&vpcId=vpc-2ari9m7h
 	&ips.0=1.1.1.1&ips.1=2.2.2.2
 	&count=1
