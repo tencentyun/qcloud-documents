@@ -1,4 +1,4 @@
-﻿## 1.Project Structure
+## 1.Project Structure
 [Download](https://www.qcloud.com/document/product/454/6991) Mini LVB's source code and find the TCLVBIMDemo.xcworkspace file. This is Mini LVB's XCode project workspace to manage Mini LVB's project code and 3rd-party open-source class library dependencies (under the directory Pods). Use this workspace to compile or browse code related to Mini LVB, instead of directly open Mini LVB's project file TCLVBIMDemo.xcodeproj. After opening TCLVBIMDemo.xcworkspace, you will see the following project directory structure:
 ![](//mc.qcloudimg.com/static/img/8673bf53392e34a9f38d8a5a8625e8eb/image.jpg)
 
