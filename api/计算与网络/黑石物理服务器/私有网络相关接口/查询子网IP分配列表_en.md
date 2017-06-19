@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
  
-This API (DescribeBmSubnetIps) is used to query BM VPC subnet IP assignment list.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (DescribeBmSubnetIps) is used to query BM VPC subnet IP assignment list.  
+Domain name for API request: vpc.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -23,12 +23,12 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 | data.vmSet | Array | VM type IP information. |
 | data.tgSet | Array | Hosting machine IP information. |
 
-  ## 4. Error Codes
+## 4. Error Codes
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|
 | -3047  | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query the VPC through API DescribeBmVpcEx.  |
-| -3001  | InvalidInputParams | The format of input parameter is incorrect.  |
+| -3001  | InvalidInputParams | The format of the input parameter is incorrect.  |
 | -3051  | BmVpc.SubnetNotExist | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct. You can query the subnet through API DescribeBmSubnetEx.  |
 
 
@@ -38,7 +38,7 @@ Input
 ```
 
   https://vpc.api.qcloud.com/v2/index.php?Action=DescribeBmSubnetIps
-	&<Public Request Parameters>
+	&<Common Request Parameters>
 	&vpcId=vpc-kd7d06of
     &subnetId=subnet-1so5ae8m
 ```

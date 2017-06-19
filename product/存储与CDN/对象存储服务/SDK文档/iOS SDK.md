@@ -2,9 +2,9 @@
 
 ### SDK 获取
 
-对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
+对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git)
 
-更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git) 
+更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git)
 （本版本SDK基于JSON API封装组成）
 
 ### 开发准备
@@ -18,19 +18,27 @@
 
 #### SDK 导入
 
-COS 的 iOS SDK压缩包组成：
+##### 使用Cocoapods导入
 
-- COSClientSDK.zip
+在Podfile文件中使用：
 
-压缩包中都包含了一个 .a 静态库和一个包含头文件的文件夹 Headers，如下图所示。上传包提供了支持 bitcode 版本，与不支持 bitcode 版本，可根据业务需要进行选择。
+~~~
+pod "QCloudCOSV4"
+~~~
 
-![上传SDK](https://mccdn.qcloud.com/static/img/05f5a1d6768985aa11b23c3808914989/image.png)
+##### 使用静态库导入
+```
+git clone https://github.com/tencentyun/COS_iOS_SDK.git
+```
 
-![下载SDK](https://mccdn.qcloud.com/static/img/190e5c8c4920ba4d7334f7ba64fd3839/image.png)
+将目录**coslib**下面的文件拖入到工程中即可：
 
-将解压后的 COSSDK 拖入工程目录，Xcode 会自动将其加入链接库列表中。
+![](https://ws3.sinaimg.cn/large/006tNc79gy1fgm77ref66j30l0094dgv.jpg)
 
-![导入 SDK 包](https://mccdn.qcloud.com/static/img/96dda4e5f2e4f8fab3fbda3de1cd8e25/image.png)
+
+将目录**coslib**下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
+
+
 
 **注意：**上传/下载SDK包可根据业务需求选择性导入。
 
@@ -537,7 +545,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 #### 示例
 
 ```objective-c
- 
+
     COSObjectMetaCommand *cm = [COSObjectMetaCommand new] ;
 	cm.fileName = file;
 	cm.bucket = bucket;
@@ -690,7 +698,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
     task.insertOnly = YES;
     task.sign = _sign;
     COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];  client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-       
+
         if (rsp.retCode == 0) {
           //sucess
         }else{ }
@@ -746,7 +754,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
     task.insertOnly = YES;
     task.sign = _sign;
     COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];  client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-       
+
         if (rsp.retCode == 0) {
           //sucess
         }else{ }
@@ -756,5 +764,3 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
     };
     [client ObjectResumePutMultipart:task];
 ```
-
-
