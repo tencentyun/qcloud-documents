@@ -23,8 +23,8 @@ All you need to do is providing a **TXLivePushListener** listener for the TXLive
 | NET_STATUS_VIDEO_WIDTH | Width of the current video (in pixels) |
 | NET_STATUS_VIDEO_HEIGHT | Height of the current video (in pixels) |
 | NET_STATUS_NET_SPEED | Current transmission speed (in kbps) |
-| NET_STATUS_VIDEO_BITRATE | The output bit rate of the current video encoder, i.e., the number of video data bits produced by the encoder per second  (in kbps) |
-| NET_STATUS_AUDIO_BITRATE | The output bit rate of the current audio encoder, i.e., the number of audio data bits produced by the encoder per second  (in kbps) |
+| NET_STATUS_VIDEO_BITRATE | The output bitrate of the current video encoder, i.e., the number of video data bits produced by the encoder per second  (in kbps) |
+| NET_STATUS_AUDIO_BITRATE | The output bitrate of the current audio encoder, i.e., the number of audio data bits produced by the encoder per second  (in kbps) |
 | NET_STATUS_VIDEO_FPS | Current video frame rate, that is, the number of frames produced by video encoder per second |
 | NET_STATUS_CACHE_SIZE | Accumulated audio/video data size. A value ≥ 10 indicates the current uplink bandwidth is not enough to consume the audio/video data produced |
 | NET_STATUS_CODEC_DROP_CNT | The number of global packet drops. To avoid a vicious accumulation of delays, the SDK can actively drop packets when the accumulated data exceeds the threshold. A higher number of packet drops means a more severe network problem. |
@@ -32,7 +32,7 @@ All you need to do is providing a **TXLivePushListener** listener for the TXLive
 | NET_STATUS_NET_JITTER    | Network jitter status (not recommended for reference) |
 
 ### 2.1 Determining the Push Quality
-With the above status information, how to verify whether the push quality is OK? The following are the frequently used quality metrics. <font color='red'>**You're recommended to have an understanding of them**</font>:
+With the above status information, how to verify whether the push quality is OK? The following are the frequently used quality metrics. **You're recommended to have an understanding of them**:
 
 **1. Relationship between BITRATE and NET_SPEED**
 > BITRATE (= VIDEO_BITRATE + AUDIO_BITRATE) refers to the number of audio/video data bits produced by the encoder for push per second; NET_SPEED refers to the number of data bits pushed actually per second. A long duration of BITRATE == NET_SPEED means a good push quality.
@@ -72,10 +72,10 @@ You can customize video/audio encoding parameters by setting the Config object. 
 | enableHWAcceleration|   Video hard-coding: When this is enabled, video capture up to 720 p, 30 fps is supported.   |  On   |  
 | videoFPS     |   Video frame rate: Number of frames produced by the video encoder per second. Most of the phones don't support encoding above 30 FPS, so you're recommended to set FPS to 20.           |  20      |
 | videoResolution |   Video resolution: Four types of 16:9 resolutions are available      |  640 * 360 |
-| videoBitratePIN |   Video bit rate: Number of data bits produced by the video encoder per second (in kbps) |  800 |
-| enableAutoBitrate |   Bit rate adaptation: Adjust the video bit rate automatically based on the network condition |   Off |
-| videoBitrateMax | Maximum output bit rate: This option takes effect only when bit rate adaption is enabled. |   1,200 |
-| videoBitrateMin | Minimum output bit rate: This option takes effect only when bit rate adaption is enabled. |   800 |
+| videoBitratePIN |   Video bitrate: Number of data bits produced by the video encoder per second (in kbps) |  800 |
+| enableAutoBitrate |   bitrate adaptation: Adjust the video bitrate automatically based on the network condition |   Off |
+| videoBitrateMax | Maximum output bitrate: This option takes effect only when bitrate adaption is enabled. |   1,200 |
+| videoBitrateMin | Minimum output bitrate: This option takes effect only when bitrate adaption is enabled. |   800 |
 | videoEncodeGop | Keyframe interval (in second): The interval at which one I frame is output | 3 seconds |
 | homeOrientation | Set the rotation angle of video image, e.g., whether to push in a landscape mode  |   0: home is on the right; 1: home is at the bottom; 2: home is on the left; 3: home is at the top   |
 | beautyFilterDepth | Beauty filter level: levels 1 to 9 are supported; the higher the level, the more obvious the effect.  0 means Off  |   Off   |
@@ -91,7 +91,7 @@ You are recommended to set these parameters before enabling push, since most of 
 //Initialize _config
 _config = [[TXLivePushConfig alloc] init];
 
-// Modify the audio sampling rate to 44100 and fixed video bit rate to 800
+// Modify the audio sampling rate to 44100 and fixed video bitrate to 800
 _config.audioSampleRate = 44100;
 _config.enableAutoBitrate = NO;
 _config.videoBitratePIN = 800;
@@ -118,49 +118,49 @@ RTMP SDK has provided solutions for three scenarios since Ver.1.7.0 :
 
 #### [Live Show]
 - **Characteristics**
-Typically, a Live Show scenario uses a resolution of 360\*640 and a bit rate of 800 Kbps. In this mode, we are generally more concerned about the image clarity and sound smoothness. In case of a network condition fluctuation at VJ end, trading off image quality to ensure the smoothness is not a good choice.
+Typically, a Live Show scenario uses a resolution of 360\*640 and a bitrate of 800 Kbps. In this mode, we are generally more concerned about the image clarity and sound smoothness. In case of a network condition fluctuation at VJ end, trading off image quality to ensure the smoothness is not a good choice.
 
- In a Live Show mode which has an already low bit rate, reducing bit rate can bring about a very limited effect. A little decrease of bit rate will not result in substantial improvement, while too much decrease will inevitably lead to localized mosaics and compromise the saturation of image color.
+ In a Live Show mode which has an already low bitrate, reducing bitrate can bring about a very limited effect. A little decrease of bitrate will not result in substantial improvement, while too much decrease will inevitably lead to localized mosaics and compromise the saturation of image color.
 
 - ** Stream Control Solution**
 Given the above characteristics of the scenario, **stream control is not recommended**. In case of a fluctuation of network condition at VJ end, RTMP SDK can notify this to your App through **PUSH_WARNING_NET_BUSY** event. In this case, you can, as instructed by the UI, remind the VJ that the WiFi is not good and suggest sitting closer to the router.
 ```
 TXLivePushConfig* _config;
 _config.videoBitratePIN	  = 700;  // 700kbps
-_config.enableAutoBitrate = NO;   //Push at a fixed bit rate
+_config.enableAutoBitrate = NO;   //Push at a fixed bitrate
 _config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//Set push resolution
 ```
 
 #### [Mobile Game LVB]
 - **Characteristics**
-Unlike the Live Show mode, Mobile Game LVB uses a high resolution and bit rate. A resolution like 540 p or even 720 p is very common, and the bit rate is often greater than 1.5 Mbps. Some games with dramatically changing images (such as TempleRun) even requires an uplink bandwidth of 2.5 Mbps to ensure a smooth playing experience.
+Unlike the Live Show mode, Mobile Game LVB uses a high resolution and bitrate. A resolution like 540 p or even 720 p is very common, and the bitrate is often greater than 1.5 Mbps. Some games with dramatically changing images (such as TempleRun) even requires an uplink bandwidth of 2.5 Mbps to ensure a smooth playing experience.
 
  At the same time, the VJs of Mobile Game LVB are generally more professional and focused, tending to choose the scenes with a better network condition for a longer broadcasting, during which most of the network condition fluctuations are occasional and temporary.
 
 - ** Stream Control Solution**
-Given the above characteristics, we recommend using **AUTO_ADJUST_BITRATE_STRATEGY_2** strategy to automatically adjust the bit rate. Featuring rapid detection and adjustment, this solution is suitable for the mobile game LVB scenarios with a large bit rate.
+Given the above characteristics, we recommend using **AUTO_ADJUST_BITRATE_STRATEGY_2** strategy to automatically adjust the bitrate. Featuring rapid detection and adjustment, this solution is suitable for the mobile game LVB scenarios with a large bitrate.
 ```
 TXLivePushConfig* _config;
-_config.videoBitrateMin   = 500;//Minimum bit rate for dynamic adjustment
-_config.videoBitrateMax   = 1000;//Maximum bit rate for dynamic adjustment
-_config.videoBitratePIN   = 800;//Initial default bit rate
-_config.enableAutoBitrate = YES;//Whether to enable dynamic adjustment of bit rate
+_config.videoBitrateMin   = 500;//Minimum bitrate for dynamic adjustment
+_config.videoBitrateMax   = 1000;//Maximum bitrate for dynamic adjustment
+_config.videoBitratePIN   = 800;//Initial default bitrate
+_config.enableAutoBitrate = YES;//Whether to enable dynamic adjustment of bitrate
 _config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//Default resolution 
 _config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_2;
 ```
 
 - **Advanced Application**
-Each bit rate has a matching resolution. For example, if using a bit rate of 600 Kbps with a resolution of 360 p, you can get a satisfactory effect in terms of both color and clarity. But for a combination of 600 Kbps bit rate and 720 p resolution, the image quality will be reduced greatly, because you need to trade off more image quality for a higher resolution.
+Each bitrate has a matching resolution. For example, if using a bitrate of 600 Kbps with a resolution of 360 p, you can get a satisfactory effect in terms of both color and clarity. But for a combination of 600 Kbps bitrate and 720 p resolution, the image quality will be reduced greatly, because you need to trade off more image quality for a higher resolution.
 
- For this reason, in a 720 p scenario, if the bit rate is simply reduced from 1.5 Mbps to 500 Kbps, a dynamic image will produce more mosaics than in a scenario with a resolution of 360 p and a bit rate of 500 Kbps.
+ For this reason, in a 720 p scenario, if the bitrate is simply reduced from 1.5 Mbps to 500 Kbps, a dynamic image will produce more mosaics than in a scenario with a resolution of 360 p and a bitrate of 500 Kbps.
 
- Therefore, for a high-definition game push, **AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2** is recommended, which will reduce the bit rate while adjusting the resolution accordingly to keep a balance between bit rate and resolution.
+ Therefore, for a high-definition game push, **AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2** is recommended, which will reduce the bitrate while adjusting the resolution accordingly to keep a balance between bitrate and resolution.
  ```
  TXLivePushConfig* _config;
- _config.videoBitrateMin      = 800;//Minimum bit rate for dynamic adjustment
- _config.videoBitrateMax      = 3000;//Maximum bit rate for dynamic adjustment
- _config.videoBitratePIN      = 1800;//Initial default bit rate
- _config.enableAutoBitrate    = YES;//Whether to enable dynamic adjustment of bit rate
+ _config.videoBitrateMin      = 800;//Minimum bitrate for dynamic adjustment
+ _config.videoBitrateMax      = 3000;//Maximum bitrate for dynamic adjustment
+ _config.videoBitratePIN      = 1800;//Initial default bitrate
+ _config.enableAutoBitrate    = YES;//Whether to enable dynamic adjustment of bitrate
  _config.videoResolution      = VIDEO_RESOLUTION_TYPE_720_1280;//Default resolution 
 _ config.autoAdjustStrategy  = AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2;
 ```
@@ -170,13 +170,13 @@ _ config.autoAdjustStrategy  = AUTO_ADJUST_BITRATE_RESOLUTION_STRATEGY_2;
 Mobile Scenario is a very broad concept. All scenarios with inconsistent bandwidth are collectively referred to as "Mobile Scenario" by us. In such a scenario, the uplink network condition at VJ end often changes, varying from 1 Mbps to 300 Kbps at different time periods.
 
 - ** Stream Control Solution**
-For this scenario, **AUTO_ADJUST_BITRATE_STRATEGY_1** is recommended, which allows the bandwidth to adapt to the change of network condition. The benefit of this strategy is an adaptive and elastic push quality in case of unstable bandwidth. The disadvantage is that the variable bit rate causes more fluctuations than a fixed bit rate even in a stable network environment.
+For this scenario, **AUTO_ADJUST_BITRATE_STRATEGY_1** is recommended, which allows the bandwidth to adapt to the change of network condition. The benefit of this strategy is an adaptive and elastic push quality in case of unstable bandwidth. The disadvantage is that the variable bitrate causes more fluctuations than a fixed bitrate even in a stable network environment.
  ```
  TXLivePushConfig* _config;
- _config.videoBitrateMin   = 500;//Minimum bit rate for dynamic adjustment
- _config.videoBitrateMax   = 1000;//Maximum bit rate for dynamic adjustment
- _config.videoBitratePIN   = 800;//Initial default bit rate
- _config.enableAutoBitrate = YES;//Whether to enable dynamic adjustment of bit rate
+ _config.videoBitrateMin   = 500;//Minimum bitrate for dynamic adjustment
+ _config.videoBitrateMax   = 1000;//Maximum bitrate for dynamic adjustment
+ _config.videoBitratePIN   = 800;//Initial default bitrate
+ _config.enableAutoBitrate = YES;//Whether to enable dynamic adjustment of bitrate
  _config.videoResolution   = VIDEO_RESOLUTION_TYPE_360_640;//Default resolution 
  _config.autoAdjustStrategy= AUTO_ADJUST_BITRATE_STRATEGY_1;
 ```
@@ -217,7 +217,7 @@ Implement onTextureCustomProcess function of TXVideoCustomProcessDelegate to ach
 ## 6. Replace the Data Source
 If you only want to use RTMP SDK to push and bring the audio and video capture and preprocessing (such as beauty filter, filter) under the control of your own codes, follow the steps below:
 
-- ** Step1. Do not call TXLivePusher's startPreview API any longer**
+- - **Step1. Do not call TXLivePusher's startPreview API any longer**
 In this way, SDK itself will not capture video and audio data any more, but only start preprocessing, coding, stream control, sending data and other push-related operations.
 
 - - **Step2. Use sendVideoSampleBuffer to populate SDK with Video data**

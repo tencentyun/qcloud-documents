@@ -1,4 +1,4 @@
-﻿
+
 ## Overview 
 As end users have more and more customization demands, simple text interaction and image upload can no longer satisfy their needs for presenting and sharing their messages. This is when UGC (User Generated Content) short videos are born. Currently, RTMP SDK supports recording and publishing UGC short videos (the editing feature is still in development). This document describes how to use this feature.
 
@@ -128,7 +128,7 @@ The upload signature is a one-time string calculated using a standard signature 
 
  To ensure safety, you need to put the signature calculation program in your backend server instead of putting the calculation function into the App, because it's easy to crack an App and acquire the SecretKey used for the signature, while cracking a server is an impossible task for most attackers.
 
- For more information about the method for calculating signature, please see [How to Generate Signature?](https://www.qcloud.com/document/product/266/7835?!preview&lang=zh#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E8.AE.A1.E7.AE.97.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF). You can leave the fields <font color='red'>FileName, FileSha and uid empty when generating the publish signature.</font>
+ For more information about the method for calculating signature, please see [How to Generate Signature?](https://www.qcloud.com/document/product/266/7835?!preview&lang=zh#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E8.AE.A1.E7.AE.97.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF). You can leave the fields FileName, FileSha and uid empty when generating the publish signature.
 
 ### 6. Publish File
 TXUGCPublish (located in TXUGCPublish.java) is used to publish MP4 files onto the Tencent Cloud Video Distribution Platform in order to satisfy video playback demands such as closest location scheduling, instant video launching, dynamic acceleration and overseas access.

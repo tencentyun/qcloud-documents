@@ -1,10 +1,10 @@
-# Special Effects (Eye Enlarging, Face Sliming, Dynamic Effect and Green Screen)
+# Special Effects (Eye Enlarging, Face Slimming, Dynamic Effect and Green Screen)
 
 ## Feature Description
-Special effects such as eye enlarging, face sliming, dynamic sticker and green screen, are privileged features developed based on face recognition technology of Tencent YouTu Lab team and makeup technology of Tencent Pitu team. By cooperating with the two teams, Tencent Cloud's Mini LVB team deeply integrates these special effects into the image processing process of RTMP SDK to achieve better video effects.
+Special effects such as eye enlarging, face slimming, dynamic sticker and green screen, are privileged features developed based on face recognition technology of Tencent YouTu Lab team and makeup technology of Tencent Pitu team. By cooperating with the two teams, Tencent Cloud's Mini LVB team deeply integrates these special effects into the image processing process of RTMP SDK to achieve better video effects.
 
 ## Charges
-The special effects use patented technology of Tencent YouTu Lab, with annual licensing fees being about **500K CNY**(currently, the fees of similar image processing products in China are millions of CNY). If you need the feature, submit a ticket or call our customer service at 400-9100-100. Staff of the business department will provide a password for decoding the SDK package and apply to Tencent YouTu Lab for a trial license for you.
+The special effects use patented technology of Tencent YouTu Lab, with annual licensing fees being about **0.5 million CNY**(currently, the fees of similar image processing products in China are millions of CNY). If you need the feature, submit a ticket or call our customer service at 400-9100-100. Staff of the business department will provide a password for decoding the SDK package and apply to Tencent YouTu Lab for a trial license for you.
 
 ## Version Downloading
 You can download the privileged SDK package at the bottom of the [RTMP SDK](https://www.qcloud.com/document/product/454/7873) page. The package is encrypted and you can get the password and the license file from our staff of the business department. After decompressing the package, you can replace the non-privileged jar and so files of your project with the decompressed `txrtmpsdk.jar`,` libtxrtmpsdk.so` and other so files.
@@ -53,7 +53,7 @@ After getting the license, you need to name it **YTFaceSDK.licence** and place i
 >
 > The name of YTFaceSDK.license file is fixed, can not be modified, and must be placed under the assets directory.
 > 
-> For IOS and Android systems, you need to apply for only one license because one license can authorize the bundleid of an iOS system and the packageName of an Android system at the same time.
+> For iOS and Android systems, you need to apply for only one license because one license can authorize the bundleid of an iOS system and the packageName of an Android system at the same time.
 
 ## Feature Calling
 
@@ -96,9 +96,9 @@ Prepare a mp4 file for playback, and then you can enable the green screen effect
 -(void)setGreenScreenFile:(NSURL *)file;
 ```
 
-### 3. Eye enlarging and face sliming
+### 3. Eye enlarging and face slimming
 
-Eye enlarging and face sliming are set in the following ways
+Eye enlarging and face slimming are set in the following ways
 
 ```objective-c
 /**
@@ -109,9 +109,9 @@ Eye enlarging and face sliming are set in the following ways
 -(void)setEyeScaleLevel:(float)eyeScaleLevel;
 
 /**
- * Set the face sliming level
+ * Set the face slimming level
  *
- *  @param faceScaleLevel:  Range of face sliming level: 0-9. 0 means disabling the feature. For 1-9, the larger value brings more obvious effect.
+ *  @param faceScaleLevel:  Range of face slimming level: 0-9. 0 means disabling the feature. For 1-9, the larger value brings more obvious effect.
  */
 -(void)setFaceScaleLevel:(float)faceScaleLevel;
 ```
