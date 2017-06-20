@@ -1,5 +1,5 @@
 本指南将介绍通过腾讯云云服务器 CVM（以下简称 CVM）上安装的 WordPress 镜像来启动并运行一个网站。您将了解如何配置并启动 CVM 云主机、如何获取 WordPress 用户名和密码，以及如何登录 WordPress 管理页面。
-**注意**：本指南主要针对基本的 WordPress 网站搭建，适用于个人使用或学习。不建议针对具有较高可扩展性需求的业务级网站使用本教程。要获取更高级的教程，请参阅 搭建 [WordPress 个人站点](https://www.qcloud.com/document/product/213/8044)。
+**注意**：本指南主要针对基本的 WordPress 网站搭建，适用于个人使用或学习。不建议针对具有较高可扩展性需求的业务级网站使用本教程。要获取更高级的教程，请参阅 [搭建 WordPress 个人站点](https://www.qcloud.com/document/product/213/8044)。
 
 请保持此指南处于打开状态，同时登录到 [腾讯云管理控制台](https://console.qcloud.com/)。
 ### 步骤一：启动 CVM
