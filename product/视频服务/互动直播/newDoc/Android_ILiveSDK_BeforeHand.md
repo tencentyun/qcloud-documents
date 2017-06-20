@@ -1,15 +1,12 @@
 ## 一 下载Demo
-点击下载[Android Demo](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos)的代码。代码里包含两个示例：<br/>
-
-1. tdemolive目录下是一个最简单的互动直播示例，演示了最关键的几个接口的调用。使用方法可以参考github上的说明。
-2. 随心播代码在suixinbo目录下。演示了包括界面和后台交互的完整的直播流程。
+目前在github上提供了两个示例：<br/>
+* [随心播](https://github.com/zhaoyang21cn/ILiveSDK_Android_Demos) 演示了包括界面和后台交互的完整的直播流程
+* [简单直播](https://github.com/zhaoyang21cn/iLiveSDK_Android_LiveDemo) 最简单的互动直播示例，演示了最关键的几个接口的调用。
 
 ## 二 修改配置
 
-1. 把随心播代码中的appid和accountType修改成开发者自己的。<br/>
+把随心播代码中的appid和accountType修改成开发者自己的。<br/>
 ![](https://mc.qcloudimg.com/static/img/62890dee5794a2ce94404ba762624b94/idntype.png)
-2. 注释maven.oa.com的引用，改成jcenter库地址。<br/>   
-![](https://mc.qcloudimg.com/static/img/8c4c9bf238499dec32aca993d9ff7ad4/respositories.png)
    
    
 ## 三 运行
@@ -39,7 +36,8 @@
 在腾讯云官网[下载音视频库类](https://console.qcloud.com/avc/avSdkDownload)。需要把so文件和jar包文件分别放到对应jnilibs和libs里面。        
 ![](https://mc.qcloudimg.com/static/img/e3cc8175676d647dd657beebb11cc2e3/1.png)
 ### 2 配置服务修改后台server地址
- 目前随心播后台主要用来维护直播房间列表。如果复用随心播客户端代码，需要修改随心播后台地址为业务方自己部署的服务器地址。 <br />     
+ 目前随心播由业务后台(开源可复用，[源码](https://github.com/zhaoyang21cn/SuiXinBoPHPServer))主要用来维护直播房间列表。<br />
+ 如果复用随心播客户端代码，需要修改随心播后台地址为业务方自己部署的服务器地址。 <br />    
       
 | 接口| 说明 |
 |---------|---------|
@@ -74,7 +72,7 @@
 android{
     defaultConfig{
         ndk{
-            abiFilter 'armeabi'
+            abiFilters 'armeabi', 'armeabi-v7a'
         }
     }
 }
