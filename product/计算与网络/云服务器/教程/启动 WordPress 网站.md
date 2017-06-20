@@ -10,7 +10,7 @@
  2. 点击【快速配置】，镜像选择【操作系统+应用】，选购带有 WordPress 开源博客系统应用的镜像。
 ![购买云服务器1](//mc.qcloudimg.com/static/img/49267c2c92a05e171ef44ee44ed32222/image.png)
  3. 购买成功后，系统将会发送一封站内信至您的账户，请打开 [站内信](https://console.qcloud.com/message) 查看您已购买云服务器的信息，请保存好您的云服务器初始账户和密码。
-![站内信1](//mc.qcloudimg.com/static/img/2e1ab9f2401d185f34aa8d945caa7f64/image.png)
+![站内信1](//mc.qcloudimg.com/static/img/987f8b7abeeec1bce54c412ca6d93b97/image.png)
 
 ### 步骤二：配置云主机
 1. 登录 [腾讯云管理控制台](https://console.qcloud.com/)，在顶部导航栏【云产品】下找到【云服务器】，点击打开云服务器控制台。
