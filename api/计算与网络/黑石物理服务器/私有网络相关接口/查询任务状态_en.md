@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
  
-This API (QueryBmTaskResult) is used to query the status of task of adding or removing CMP to or from the subnet.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (QueryBmTaskResult) is used to query the status of task of adding or removing CPM to or from the subnet.  
+Domain name for API request: vpc.api.qcloud.com
 
 
  
@@ -25,11 +25,11 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 | data | Array | Returned status of operations performed on CPM. |
 
 
-  ## 4. Error Codes
+## 4. Error Codes
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|
-| 10001  | BmVpc.InvalidParameterValue | Invalid parameter.  |
+| 10001  | BmVpc.InvalidParameterValue | Invalid parameter  |
 
 ## 5. Example
  
@@ -37,7 +37,7 @@ Input
 ```
 
   https://vpc.api.qcloud.com/v2/index.php?Action=QueryBmTaskResult
-	&<Public Request Parameters>
+	&<Common Request Parameters>
 	&taskId=9999
 ```
 
