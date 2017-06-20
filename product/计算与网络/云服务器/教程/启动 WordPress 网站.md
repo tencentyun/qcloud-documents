@@ -1,15 +1,15 @@
 本指南将介绍通过腾讯云云服务器 CVM（以下简称 CVM）上安装的 WordPress 镜像来启动并运行一个网站。您将了解如何配置并启动 CVM 云主机、如何获取 WordPress 用户名和密码，以及如何登录 WordPress 管理页面。
-**注意**：本指南主要针对基本的 WordPress 网站搭建，适用于个人使用或学习。不建议针对具有较高可扩展性需求的业务级网站使用本教程。要获取更高级的教程，请参阅 [搭建 WordPress 个人站点](https://www.qcloud.com/document/product/213/8044)。
+**注意**：本指南主要针对基本的 WordPress 网站搭建，适用于个人使用或学习。建议对可扩展性需求要求不高的业务级网站使用本教程。要获取更高级的教程，请参阅 [搭建 WordPress 个人站点](https://www.qcloud.com/document/product/213/8044)。
 
 请保持此指南处于打开状态，同时登录到 [腾讯云管理控制台](https://console.qcloud.com/)。
 ### 步骤一：启动 CVM
 通过腾讯云启动 WordPress 网站，前提是拥有一台腾讯云的云服务器。
 - 若您已拥有 CVM，请跳过此步骤，进入步骤二。
-- 若您还未拥有 CVM，请先购买云服务器。请按照如下步骤购买。
- 1. 请点击 [购买云服务器](https://buy.qcloud.com/cvm)，进入购买页面。
- 2. 点击【快速配置】，镜像选择【操作系统+应用】，选购带有 WordPress 开源博客系统应用的镜像。
+- 若您还未拥有 CVM，请先按照如下步骤购买云服务器。。
+ 1. 请单击 [购买云服务器](https://buy.qcloud.com/cvm)，进入购买页面。
+ 2. 单击【快速配置】>【操作系统+应用】>【WordPress 开源博客系统】 ，根据自身需要确定相关配置，单击【立即购买】选购镜像。
 ![购买云服务器1](//mc.qcloudimg.com/static/img/49267c2c92a05e171ef44ee44ed32222/image.png)
- 3. 购买成功后，系统将会发送一封站内信至您的账户，请打开 [站内信](https://console.qcloud.com/message) 查看您已购买云服务器的信息，请保存好您的云服务器初始账户和密码。
+ 3. 购买成功后，系统将会发送一封站内信至您的账户，请打开 [站内信](https://console.qcloud.com/message) 查看您已购买云服务器的信息，并保存好您的云服务器初始账户和密码。
 ![站内信1](//mc.qcloudimg.com/static/img/987f8b7abeeec1bce54c412ca6d93b97/image.png)
 
 ### 步骤二：配置云主机
@@ -17,14 +17,13 @@
 2. 为云主机设置名称，便于区分。
  1. 请点击左侧导航【云主机】，进入云主机页面，选定要使用的云主机。点击云主机的 **ID/主机名**，为云主机修改名称。
 ![改名a](//mc.qcloudimg.com/static/img/18f7dde588d5abbf0f1266897e766c43/image.png)
- 2. 修改为 “WordPress”（可以自定义），点击确定以保存。
+ 2. 自定义云主机名称（如 WordPress），单击【确定】保存。
 ![改名b1](//mc.qcloudimg.com/static/img/982ffd605178fdee45ae0b35d78fe40b/image.png)
 3. 重装系统
- 1. 点击云主机右侧的 【更多】，选择【重装系统】。
+ 1. 单击【更多】，选择【重装系统】。
 ![更多1](//mc.qcloudimg.com/static/img/f0a23ee44d129a9e38b86374b5988fab/image.png)
- 2. 在出现的**重装系统**提示框中，选择【服务市场】 -> 【建站模板】，安装对应的镜像。本指南中，我们选择的是** WordPress博客平台（CentOS 6.8 64位）**。
+ 2. 在出现的**重装系统**提示框中，单击【服务市场】>【建站模板】，安装对应的镜像。本指南中，我们选择的是** WordPress博客平台（CentOS 6.8 64位）**。**登录设置**选择【密码】，并且为 root 账号设置密码。点击【开始重装】进入重装状态。重装可能需要几分钟的时间。
 ![重装系统1](//mc.qcloudimg.com/static/img/c1df8d8c1b8968bb8d357dd5e20ed849/image.png)
- 3. **登录设置**选择【密码】，并且为 root 账号设置密码。点击【开始重装】进入重装状态。重装可能需要几分钟的时间。
 4. 云主机状态处于运行中时，就可以测试 WordPress 网站了。在云主机的 **主 IP 地址** 下，复制云主机的公网 IP。
 5. 将该公网 IP 粘贴到浏览器的地址栏中访问，可以看到引导页面。 
 ![IP页面](//mc.qcloudimg.com/static/img/f7ea8180f0c49be0f422e88140bbafee/image.png)
