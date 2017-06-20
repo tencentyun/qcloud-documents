@@ -7,8 +7,7 @@
 
 把随心播代码中的appid和accountType修改成开发者自己的。<br/>
 ![](https://mc.qcloudimg.com/static/img/62890dee5794a2ce94404ba762624b94/idntype.png)
-   
-   
+
 ## 三 运行
 编译运行工程，在启动界面选择随心播。
 
@@ -67,7 +66,7 @@
 ### 5 配置权限
 ![](https://mc.qcloudimg.com/static/img/55db2326bef2d0270ab17e81d945da22/rights.png)
 ### 6 删除非armeabi架构so 
-* 由于目前只支持armeabi架构，如果工程(或依赖库)中有多架构，需要在build.gradle中添加以下配置<br /> （如果包含子工程子工程也要加）
+* 由于目前只支持armeabi和armeabi-v7a架构，如果工程(或依赖库)中有多架构，需要在build.gradle中添加以下配置<br /> （如果包含子工程子工程也要加）
 <pre>
 android{
     defaultConfig{
