@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
  
-This API (RegisterBatchIp) is used to specify subnet IP for IP application.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (RegisterBatchIp) is used to specify subnet IP for IP application.  
+Domain name for API request: vpc.api.qcloud.com
 
 
 
@@ -15,7 +15,7 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 | vpcId | Yes | String | VPC ID assigned by the system, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-kd7d06of. You can query this through API DescribeBmVpcEx.  |
 | subnetId | Yes | String | VPC Subnet ID assigned by the system. Both subnetId and unSubnetId are supported. unSubnetId is recommended. For example: subnet-k20jbhp0. You can query this through API DescribeBmSubnetEx.  |
 | ipList | Yes | Array | Array of IP applied for. Array value range: 1-20.  |
-| ipClass | No | Int | IP type. 0: CPM IP; 1: VM IP; 2: Hosting machine IP. Default is 1 |
+| ipClass | No | Int | IP type. 0: CPM IP; 1: VM IP; 2: Hosting machine IP. Default is 1. |
 
 
  
@@ -31,7 +31,7 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 | data.n | Array | Array of IPs registered successfully. |
 
 
-  ## 4. Error Codes
+## 4. Error Codes
 
  | Error Code | Error Message | Description |
 |---------|---------|---------|
@@ -46,7 +46,7 @@ Input
 ```
 
   https://vpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
-	&<Public Request Parameters>
+	&<Common Request Parameters>
 	&vpcId=vpc-2ari9m7h
 	&subnetId=subnet-keqt3oty
 	&ipList.0=10.1.1.2&ipList.1=10.1.1.300

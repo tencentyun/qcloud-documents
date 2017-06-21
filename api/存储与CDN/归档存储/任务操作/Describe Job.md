@@ -1,6 +1,6 @@
 ## 功能描述
 
-Describle Job 请求实现获取Vault的具体任务信息
+Describe Job 请求实现获取Vault的具体任务信息
 
 支持跨账户操作。当操作本账户时，UID为"-"
 
