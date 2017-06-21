@@ -1,9 +1,9 @@
 
-1) 登录腾讯云官网，进入[GPU 云服务器购买页面](https://buy.qcloud.com/?regionId=4&zoneId=200001&generation=v2&deviceType=gpu)
+1) 登录腾讯云官网，进入[GPU 云服务器购买页面](https://buy.qcloud.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
 
 2) 选择计费模式：包年包月
 
-> 3) 选择地域和可用区。目前 GPU 云服务器仅支持**上海一区**、**广州三区**和**北京二区**。
+> 3) 选择地域和可用区。目前 GPU 云服务器仅支持**广州三区**、**上海一区**、**上海二区**、**北京二区**和**深圳金融一区**。
 
 4) 选择机型和配置。
 
