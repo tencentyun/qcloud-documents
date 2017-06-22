@@ -18,7 +18,7 @@
 | networkAclEntrySet.n.ipProtocol | 是 | String | 协议，例如tcp。 |
 | networkAclEntrySet.n.cidrIp | 是 | String | 源IP或者源网段，支持IP或者CIDR，例如：10.20.3.0或者10.0.0.2/24。 |
 | networkAclEntrySet.n.portRange | 是 | String | 源端口，支持单个接口或者端口段，例如：80或者90-100。 |
-| networkAclEntrySet.n.action | 是 | Int | 策略，1:允许，0:拒绝。 |
+| networkAclEntrySet.n.action | 是 | Int | 策略，0:允许，1:拒绝。 |
 
  
 
