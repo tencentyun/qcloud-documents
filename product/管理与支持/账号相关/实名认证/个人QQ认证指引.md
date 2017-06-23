@@ -17,4 +17,4 @@ QQ认证是指 ， 腾讯云认可您的QQ号在手机QQ或财付通登记的实
 ![](//mccdn.qcloud.com/static/img/519495235a3fb95f499f6ac1e81e15e7/image.png)
 ![](//mccdn.qcloud.com/static/img/2405cafb7f615fab6fd945ff74febc7b/image.png)
 
-6. 成功绑定银行卡后，您可在电脑上单击【提交审核】，即可实时通过实名认证。
+6. 成功绑定银行卡后，您可在电脑上单击【提交审核】，就可以实时通过实名认证。
