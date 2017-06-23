@@ -75,7 +75,7 @@ action上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
 	"request_id":"request_id", //request_id 为“毫秒级时间戳_随机数”
 	"data_type":2, //1：item，2：action 
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
@@ -85,7 +85,7 @@ action上报JSON数据格式
 	"scene_id":"1001", //推荐展示场景。
 	"action_type":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞 
 	"trace_id":"trace_id", //跟踪点击和曝光的自定义跟踪id
-	"action_time":"1386817569" , ///行为发生时间（秒级时间戳，默认当前时间） 
+	"action_time":"1386817569" , //行为发生时间（秒级时间戳，默认当前时间） 
 	"geo":{
 		"latitude":-90.0~90.0,
 		"longitude":-180.0~180.0,
@@ -121,7 +121,7 @@ Post报文body部分为JSON数据格式，如下所示
 pCTR 请求服务JSON数据格式
 ```
 {
-	"MD5":"40379db889f9124819228947faaeb1f7"， //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
 	"service_type":0, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”
 	"bid":"BID", //腾讯云为该业务分配的业务标识

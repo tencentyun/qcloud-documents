@@ -173,7 +173,7 @@ Post报文body部分为JSON数据格式，如下所示：
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7", ///md5(bid&requestid&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&requestid&TOKEN)
 	"servicetype":3, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"requestid":"requestid", //requestid 为“毫秒级时间戳随机数”
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
