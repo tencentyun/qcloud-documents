@@ -94,7 +94,7 @@ Container节点 Bucket 的内容：
 
 #### 请求：
 ```
-GET / HTTP/1.1
+GET / HTTP 1.1
 Host:service.cos.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1489110340;32468694340&q-key-time=1489110340;32562006340&q-header-list=host&q-url-param-list=&q-signature=cb46d5ce6daed2d3dc0db7130a57193497605620
 ```
