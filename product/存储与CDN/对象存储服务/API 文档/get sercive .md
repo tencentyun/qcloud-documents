@@ -1,7 +1,7 @@
-### 功能描述
+## 功能描述
 Get Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。该 API 接口不支持匿名请求，您需要使用帯 Authorization 签名认证的请求才能获取 Bucket 列表，且只能获取签名中 AccessID 所属账户的 Bucket 列表。
 
-### 请求
+## 请求
 
 语法示例：
 ```
@@ -13,13 +13,13 @@ Authorization: Auth
 
 > Authorization:  Auth (详细参见 [访问控制](http://gggggggg) 章节)
 
-#### 请求行
+### 请求行
 ~~~
 GET / HTTP 1.1
 ~~~
 该 API 接口接受 GET 请求。
 
-#### 请求头
+### 请求头
 
 **公共头部**
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部]()章节。
@@ -28,7 +28,7 @@ GET / HTTP 1.1
 #### 请求体
 该请求的请求体为空。
 
-### 响应
+## 响应
 
 #### 响应头
 **公共响应头** 
@@ -68,19 +68,19 @@ Container 节点  ListAllMyBucketsResult  的内容：
 | Buckets | ListAllMyBucketsResult | 说明本次响应的所有 Bucket 列表信息 | Container |
 
 
-Container节点 Owner 的内容：
+Container 节点 Owner 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
 | UIN  | ListAllMyBucketsResult.Owner | Bucket 所有者的 UIN     | String    |
 
-Container节点 Buckets 的内容：
+Container 节点 Buckets 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
 | Bucket  | ListAllMyBucketsResult.Buckets | 单个Bucket的信息  |Container    |
 
-Container节点 Bucket 的内容：
+Container 节点 Bucket 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
@@ -90,16 +90,16 @@ Container节点 Bucket 的内容：
 
 
 
-### 实际案例
+## 实际案例
 
-#### 请求：
+### 请求
 ```
 GET / HTTP 1.1
 Host:service.cos.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1489110340;32468694340&q-key-time=1489110340;32562006340&q-header-list=host&q-url-param-list=&q-signature=cb46d5ce6daed2d3dc0db7130a57193497605620
 ```
 
-#### 响应：
+### 响应
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
