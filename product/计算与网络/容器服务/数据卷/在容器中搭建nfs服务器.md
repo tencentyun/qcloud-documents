@@ -35,11 +35,11 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 如果出现nfs-server无法启动等错误，可能是因为您正使用的集群里面不含有nfs的工具库。若出现这种情况，可以登录到集群节点上，按照系统的不同执行以下指令：
 
-对于Ubuntu 16.04系统：
+对于Ubuntu 16.04系统：  
 <code>
   apt-get install nfs-kernel-server -y
-</code>
-对于CentOS 7.2 系统：
+</code>  
+对于CentOS 7.2 系统：  
 <code>
   yum install nfs-utils -y
-</code>
+</code>  
