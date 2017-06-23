@@ -16,7 +16,7 @@ Authorization: Auth
 
 #### 请求行
 ~~~
-GET / HTTP/1.1
+GET / HTTP 1.1
 ~~~
 该 API 接口接受 GET 请求。
 
