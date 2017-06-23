@@ -72,21 +72,21 @@ Container节点 Owner 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UIN  | 父节点：ListAllMyBucketsResult.Owner | Bucket 所有者的 UIN     | String    |
+| UIN  | ListAllMyBucketsResult.Owner | Bucket 所有者的 UIN     | String    |
 
 Container节点 Buckets 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Bucket  | 父节点：ListAllMyBucketsResult.Buckets | 单个Bucket的信息  |Container    |
+| Bucket  | ListAllMyBucketsResult.Buckets | 单个Bucket的信息  |Container    |
 
 Container节点 Bucket 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Name      | 父节点：ListAllMyBucketsResult.Buckets.Bucket | Bucket的名称                               | String    |
-| Location        |父节点：ListAllMyBucketsResult.Buckets.Bucket  | Bucket所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
-| CreateDate          | 父节点：ListAllMyBucketsResult.Buckets.Bucket | Bucket创建时间。ISO8601格式，例如 2016-11-09T08:46:32.000Z  | Date   |
+| Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket的名称                               | String    |
+| Location        |ListAllMyBucketsResult.Buckets.Bucket  | Bucket所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
+| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket创建时间。ISO8601格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
 
 
