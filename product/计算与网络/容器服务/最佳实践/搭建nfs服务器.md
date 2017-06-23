@@ -32,6 +32,7 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 #### 第五步：开启容器特权级功能
 ![Alt text](https://mc.qcloudimg.com/static/img/1a739ddd2e4933285af85954c4c59aea/image.png)
+
 如图，开启容器的特权级功能。
 
 #### 第六步：完成创建容器
