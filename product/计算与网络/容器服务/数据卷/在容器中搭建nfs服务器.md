@@ -30,7 +30,9 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 - 第五步：完成创建容器
 
-注意：在使用该方法创建的NFS盘服务时，请在挂载时指定挂载路径为 服务集群IP:/exports，如图所示。
+### 注意事项
+
+在使用该方法创建的NFS盘服务时，请在挂载时指定挂载路径为 服务集群IP:/exports，如图所示。
 ![Alt text](https://mc.qcloudimg.com/static/img/c1f4835904370122094124950cb0df37/image.png)
 
 如果出现nfs-server无法启动等错误，可能是因为您正使用的集群里面不含有nfs的工具库。若出现这种情况，可以登录到集群节点上，按照系统的不同执行以下指令：
