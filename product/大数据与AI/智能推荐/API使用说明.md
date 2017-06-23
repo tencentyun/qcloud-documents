@@ -56,7 +56,7 @@ item上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7", ///md5(bid&requestid&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&requestid&TOKEN)
 	"requestid":"requestid", //requestid 为“毫秒级时间戳随机数”
 	"datatype":1, //1：item，2：action
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
@@ -118,7 +118,7 @@ action上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7", ///md5(bid&requestid&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&requestid&TOKEN)
 	"requestid":"requestid", //requestid 为“毫秒级时间戳随机数”
 	"datatype":2, //1：item，2：action 
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
@@ -229,7 +229,7 @@ Post报文body部分为JSON数据格式，如下所示：
 {
 
    "requestid":"requestid",
-   "code":-3, ///-1：格式错误，-2：系统错误，-3：算法错误
+   "code":-3,
    "msg":"empty result"
 
 }
