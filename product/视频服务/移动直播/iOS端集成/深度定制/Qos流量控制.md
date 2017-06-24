@@ -26,7 +26,6 @@ SDK 提供了六种基础档位，根据我们服务大多数客户的经验进�
 
 ![](//mc.qcloudimg.com/static/img/c14decd87002c77cf13827155338b768/image.png)
 
-## 专业校调
 如果您觉得 setVideoQuality 里的默认参数无法满足您的需求，您可以通过 TXLivePushConfig 进行定制：
 
 - **enableAutoBitrate**
