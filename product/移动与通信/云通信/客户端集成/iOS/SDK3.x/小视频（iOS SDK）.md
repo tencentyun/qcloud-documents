@@ -114,7 +114,9 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
 ### 2.4 文件预览
 使用 [播放SDK](https://www.qcloud.com/document/product/454/7880) 即可预览刚才生成的 MP4 文件，需要在调用 startPlay 时指定播放类型为 [PLAY_TYPE_LOCAL_VIDEO](https://www.qcloud.com/document/product/454/7880#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE6) 。
 
-## 3. 发送小视频消息
+## 3. 小视频消息
+
+### 3.1 发送小视频消息
 
 小视频消息由 TIMUGCElem 定义。它是TIMElem的一个子类，也就是说小视频也是消息的一种内容。 发送小视频的过程，就是将TIMUGCElem加入到TIMMessage中，然后随消息一起发送出去。详细如下：
 
@@ -126,10 +128,6 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
  */
 @interface TIMUGCVideo : NSObject
 /**
- *  视频url，不用设置
- */
-@property(nonatomic,strong) NSString * url;
-/**
  *  视频文件类型，发送消息时设置
  */
 @property(nonatomic,strong) NSString * type;
@@ -137,30 +135,12 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
  *  视频时长，发送消息时设置
  */
 @property(nonatomic,assign) int duration;
-/**
- *  视频大小，不用设置
- */
-@property(nonatomic,assign) int size;
-
-/**
- *  获取视频
- *
- *  @param path 视频保存路径
- *  @param succ 成功回调
- *  @param fail 失败回调，返回错误码和错误描述
- */
-- (void)getVideo:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 
 /**
  *  UGC封面（加载UGC扩展包有效）
  */
 @interface TIMUGCCover : NSObject
-/**
- *  视频url，不用设置
- */
-@property(nonatomic,strong) NSString * url;
 /**
  *  封面图片类型，发送消息时设置
  */
@@ -173,20 +153,6 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
  *  图片高度，发送消息时设置
  */
 @property(nonatomic,assign) int height;
-/**
- *  视频大小，不用设置
- */
-@property(nonatomic,assign) int size;
-
-/**
- *  获取图片
- *
- *  @param path 图片保存路径
- *  @param succ 成功回调，返回图片数据
- *  @param fail 失败回调，返回错误码和错误描述
- */
-- (void)getImage:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 
 /**
@@ -278,3 +244,78 @@ ugc_elem.cover.height = 88;
 
 示例中发送了一个小视频消息。
 
+### 3.2 接收小视频消息
+
+接收方收到消息后，可通过 getElem 从 TIMMessage中获取所有的Elem节点，其中类型为TIMUGCElem的是小视频消息节点。然后通过video和cover对象获取该小视频的视频和封面图片文件。详细如下：
+
+** TIMUGCElem类原型：**
+
+```
+/**
+ *  UGC视频（加载UGC扩展包有效）
+ */
+@interface TIMUGCVideo : NSObject
+/**
+ *  获取视频
+ *
+ *  @param path 视频保存路径
+ *  @param succ 成功回调
+ *  @param fail 失败回调，返回错误码和错误描述
+ */
+- (void)getVideo:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+
+/**
+ *  UGC封面（加载UGC扩展包有效）
+ */
+@interface TIMUGCCover : NSObject
+
+/**
+ *  获取图片
+ *
+ *  @param path 图片保存路径
+ *  @param succ 成功回调，返回图片数据
+ *  @param fail 失败回调，返回错误码和错误描述
+ */
+- (void)getImage:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+```
+
+**小视频解析示例：**
+
+```
+//以收到新消息回调为例，介绍下图片消息的解析过程
+
+//接收到的图片保存的路径
+NSString * video_path = @"/xxx/videoPath.pm4";
+NSString * cover_path = @"/xxx/coverPath.jpg";
+
+[conversation getMessage:10 last:nil succ:^(NSArray * msgList) {  //获取消息成功
+	//遍历所有的消息
+	for (TIMMessage * msg in msgList) {
+		//遍历一条消息的所有元素
+		for (TIMUGCElem * elem in TIMUGCElem) {
+		   //图片元素
+			if ([elem isKindOfClass:[TIMUGCElem class]]) {
+				TIMUGCElem * ugc_elem = (TIMImageElem * )elem;
+
+				[ugc_elem.video getVideo:vieo_path succ^{
+					NSLog(@"SUCC: video store to %@", video_path);
+				} fail:^(int code, NSString *err)｛
+					NSLog(@"ERR: code=%d, err=%@", code, err);
+				｝];
+				[ugc_elem.cover getImage:cover_path succ^{
+					NSLog(@"SUCC: cover store to %@", cover_path);
+				} fail:^:(int code, NSString *err){
+					NSLog(@"ERR: code=%d, err=%@", code, err);
+				}];
+			}
+		}
+	}
+} fail:^(int code, NSString * err) {  //获取消息失败
+	NSLog(@"Get Message Failed:%d->%@", code, err);
+}];
+```
+该示例从会话中取出10条消息，获取小视频消息并下载相应数据。
