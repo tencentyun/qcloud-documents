@@ -18,7 +18,7 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 ![Alt text](https://mc.qcloudimg.com/static/img/89ad7eed50c60acb52c2769f5886e809/image.png)
 
-#####建议打开云硬盘的自动续费功能，防止存储在云硬盘中的数据因欠费造成不必要的损失。
+####建议打开云硬盘的自动续费功能，防止存储在云硬盘中的数据因欠费造成不必要的损失。
 
 #### 第三步：在容器配置中设置挂载路径
 
