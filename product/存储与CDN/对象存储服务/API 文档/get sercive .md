@@ -41,8 +41,8 @@ GET / HTTP 1.1
 ```
 <ListAllMyBucketsResult>
   <Owner>
-  			<ID></ID>
-				<DisplayName></DisplayName>
+   <ID></ID>
+   <DisplayName></DisplayName>
   </Owner>
   <Buckets>
     <Bucket>
@@ -113,8 +113,8 @@ x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
 
 <ListAllMyBucketsResult>
     <Owner>
-				<ID>qcs::cam::uin/1147518609:uin/1147518609</ID>
-				<DisplayName>1147518609</DisplayName>
+	<ID>qcs::cam::uin/1147518609:uin/1147518609</ID>
+	<DisplayName>1147518609</DisplayName>
     </Owner>
     <Buckets>
         <Bucket>
