@@ -24,7 +24,7 @@ SDK 提供了六种基础档位，根据我们服务大多数客户的经验进�
 - **adjustResolution**
 是否允许动态分辨率，开启后 SDK 会根据当前的视频码率选择相匹配的分辨率，这样能获得更好的清晰度。相应的代价就是，动态分辨率的直播流所录制下来的文件，在很多播放器上会有兼容性问题。
 
-![](//mc.qcloudimg.com/static/img/c14decd87002c77cf13827155338b768/image.png)
+![](//mc.qcloudimg.com/static/img/07deb1e7e01daba3227175a0fcec1fa5/image.png)
 
 ## 精细校调
 如果您觉得 setVideoQuality 里的默认参数无法满足您的需求，您可以通过 TXLivePushConfig 进行定制：
