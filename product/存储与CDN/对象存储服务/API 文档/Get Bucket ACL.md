@@ -5,7 +5,7 @@ Get Bucket ACL接口用来获取 Bucket 的 ACL(access control list)， 即用�
 
 语法示例：
 ```
-GET /?acl Http/1.1
+GET /?acl HTTP/1.1
 Host:<BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: Auth
@@ -15,9 +15,12 @@ Authorization: Auth
 
 ### 请求行
 ~~~
-GET /?acl Http / 1.1
+GET /?acl HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
+#### 请求参数
+**命令参数**
+该 API 接口使用到的命令参数为 acl。
 
 ### 请求头
 
@@ -142,4 +145,3 @@ x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
     </AccessControlList>
 </AccessControlPolicy>
 ```
-
