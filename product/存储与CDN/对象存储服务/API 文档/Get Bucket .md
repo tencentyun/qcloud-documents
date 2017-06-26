@@ -17,7 +17,7 @@ Authorization: auth
 ~~~
 GET / HTTP 1.1
 ~~~
-该 API 接口接受 GET 请求，参数如下：
+该 API 接口接受 GET 请求。
 
 ### 请求头
 
@@ -30,7 +30,7 @@ Host 字段内容如下:
 |:---|:-- |
 | prefix |前缀匹配，用来规定返回的文件前缀地址|
 | delimiter |定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为Common Prefix，然后列出所有Common Prefix。如果没有 Prefix，则从路径起点开始 |
-| encoding-type |规定返回值的编码方式|
+| encoding-type |规定返回值的编码方式，可选值：url |
 | marker |默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始|
 | max-keys |单次返回最大的条目数量，默认1000|
 
@@ -148,35 +148,40 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <LastModified>Wed Jan 11 18:57:06 2017</LastModified>
         <ETag>"79f2a852fac7e826c9f4dbe037f8a63b"</ETag>
         <Size>10485760</Size>
-        <StorageClass>Standard</StorageClass>
+        <Owner>
+						<ID>1252375642</ID>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testL1</Key>
         <LastModified>Wed Jan 11 19:02:17 2017</LastModified>
         <ETag>"3f9a5dbff88b25b769fa6304902b5d9d"</ETag>
         <Size>10485760</Size>
-        <StorageClass>Standard</StorageClass>
+        <Owner>
+						<ID>1252375642</ID>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testLLL</Key>
         <LastModified>Wed Jan 11 16:36:08 2017</LastModified>
         <ETag>"39bfb88c11c65ed6424d2e1cd4db1826"</ETag>
         <Size>10485760</Size>
-        <StorageClass>Standard</StorageClass>
+        <Owner>
+						<ID>1252375642</ID>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testLOL</Key>
         <LastModified>Wed Jan 11 17:24:10 2017</LastModified>
         <ETag>"fb31459ad10289ff49327fd91a3e1f6a"</ETag>
         <Size>4</Size>
-        <StorageClass>Standard</StorageClass>
-    </Contents>
-    <Contents>
-        <Key>tet</Key>
-        <LastModified>Wed Jan 11 15:54:02 2017</LastModified>
-        <ETag>"83b3ec25cc19626ac073297eba30fbc4"</ETag>
-        <Size>10485760</Size>
-        <StorageClass>Standard</StorageClass>
+        <Owner>
+						<ID>1252375642</ID>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
     </Contents>
 </ListBucketResult>
 ```
