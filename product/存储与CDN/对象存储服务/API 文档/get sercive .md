@@ -30,18 +30,19 @@ GET / HTTP 1.1
 
 ## 响应
 
-### 响应头
+#### 响应头
 **公共响应头** 
 该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部]()章节。
 **特有响应头**
 该响应无特殊有响应头。
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
 <ListAllMyBucketsResult>
   <Owner>
-    <UIN></UIN>
+  			<ID></ID>
+				<DisplayName></DisplayName>
   </Owner>
   <Buckets>
     <Bucket>
@@ -72,7 +73,8 @@ Container 节点 Owner 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UIN  | ListAllMyBucketsResult.Owner | Bucket 所有者的 UIN     | String    |
+| ID  | ListAllMyBucketsResult.Owner | Bucket 所有者的 ID     | String    |
+| DisplayName  | ListAllMyBucketsResult.Owner | Bucket 所有者的名字信息     | String    |
 
 Container 节点 Buckets 的内容：
 
@@ -86,7 +88,7 @@ Container 节点 Bucket 的内容：
 | ------------ | ------------------------------------- | --------- |:--|
 | Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket 的名称                               | String    |
 | Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
-| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
+| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。I SO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
 
 
@@ -111,7 +113,8 @@ x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
 
 <ListAllMyBucketsResult>
     <Owner>
-        <uin>2779643970</uin>
+				<ID>qcs::cam::uin/1147518609:uin/1147518609</ID>
+				<DisplayName>1147518609</DisplayName>
     </Owner>
     <Buckets>
         <Bucket>
