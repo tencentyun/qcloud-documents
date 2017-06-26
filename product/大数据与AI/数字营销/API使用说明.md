@@ -208,7 +208,7 @@ pCTR 请求服务返回JSON数据格式
 ```
 {
 	"request_id":"request_id",
-	"code":-3, //-1：格式错误，-2：系统错误，-3：算法错误
+	"code":-3,
 	"msg":"empty result"
 }
 ```
@@ -307,7 +307,7 @@ pCVR 请求服务返回JSON数据格式
 ```
 {
 	"request_id":"request_id",
-	"code":-3, //-1：格式错误，-2：系统错误，-3：算法错误
+	"code":-3,
 	"msg":"empty result"
 }
 ```
