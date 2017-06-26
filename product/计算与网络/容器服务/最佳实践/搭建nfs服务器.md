@@ -44,7 +44,7 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 在使用该方法创建的NFS盘服务时，请在挂载时指定挂载路径为 服务集群IP:/exports，如图所示。
 ![Alt text](https://mc.qcloudimg.com/static/img/c1f4835904370122094124950cb0df37/image.png)
 
-如果出现nfs-server无法启动等错误，可能是因为您正使用的较老集群里面不含有nfs的工具库（新建集群不会出现这种情况）。若出现这种情况，可以登录到集群节点上，按照系统的不同执行以下指令：
+如果出现挂载nfs盘时候挂载失败，且提示事件 mount: wrong fs type, bad option, bad superblock on 172.16.255.11:/exports, missing codepage or helper program, or other error (for several filesystems (e.g. nfs, cifs) ，可能是因为您正使用的较老集群里面不含有nfs的工具库（新建集群不会出现这种情况）。若出现这种情况，可以登录到集群节点上，按照系统的不同执行以下指令：
 
 对于Ubuntu 16.04系统：  
 ```shell
