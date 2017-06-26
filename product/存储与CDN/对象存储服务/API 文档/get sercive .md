@@ -25,7 +25,7 @@ GET / HTTP 1.1
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部]()章节。
 **非公共头部**
 该请求操作无特殊的请求头部信息。
-#### 请求体
+### 请求体
 该请求的请求体为空。
 
 ## 响应
@@ -41,7 +41,8 @@ GET / HTTP 1.1
 ```
 <ListAllMyBucketsResult>
   <Owner>
-    <UIN></UIN>
+    <ID></ID>
+    <DisplayName></DisplayName>
   </Owner>
   <Buckets>
     <Bucket>
@@ -72,21 +73,22 @@ Container 节点 Owner 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UIN  | ListAllMyBucketsResult.Owner | Bucket 所有者的 UIN     | String    |
+| ID  | ListAllMyBucketsResult.Owner | Bucket 所有者的 ID     | String    |
+| DisplayName  | ListAllMyBucketsResult.Owner | Bucket 所有者的名字信息     | String    |
 
 Container 节点 Buckets 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Bucket  | ListAllMyBucketsResult.Buckets | 单个Bucket的信息  |Container    |
+| Bucket  | ListAllMyBucketsResult.Buckets | 单个 Bucket 的信息  | Container    |
 
 Container 节点 Bucket 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket的名称                               | String    |
-| Location        |ListAllMyBucketsResult.Buckets.Bucket  | Bucket所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
-| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket创建时间。ISO8601格式，例如 2016-11-09T08:46:32.000Z  | Date   |
+| Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket 的名称                               | String    |
+| Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
+| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。I SO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
 
 
@@ -111,7 +113,8 @@ x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
 
 <ListAllMyBucketsResult>
     <Owner>
-        <uin>2779643970</uin>
+	 <ID>qcs::cam::uin/1147518609:uin/1147518609</ID>
+	 <DisplayName>1147518609</DisplayName>
     </Owner>
     <Buckets>
         <Bucket>
