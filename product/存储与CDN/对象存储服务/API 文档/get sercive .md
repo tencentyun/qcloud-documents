@@ -86,7 +86,7 @@ Container 节点 Bucket 的内容：
 | ------------ | ------------------------------------- | --------- |:--|
 | Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket 的名称                               | String    |
 | Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
-| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。I SO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
+| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
 
 
