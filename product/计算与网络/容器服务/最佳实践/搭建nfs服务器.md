@@ -39,7 +39,7 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 #### 第六步：完成创建容器
 
-若容器创建后，打开服务的日志页面出现 Starting rpcbind ， NFS started等字样，则证明服务创建成功
+若容器创建后，打开服务的日志页面出现 Starting rpcbind ， NFS started等字样，则说明服务创建成功
 
 ### 注意事项
 
