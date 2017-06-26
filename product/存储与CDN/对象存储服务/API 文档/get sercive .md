@@ -25,17 +25,17 @@ GET / HTTP 1.1
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部]()章节。
 **非公共头部**
 该请求操作无特殊的请求头部信息。
-#### 请求体
+### 请求体
 该请求的请求体为空。
 
 ## 响应
 
-#### 响应头
+### 响应头
 **公共响应头** 
 该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部]()章节。
 **特有响应头**
 该响应无特殊有响应头。
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
@@ -78,15 +78,15 @@ Container 节点 Buckets 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Bucket  | ListAllMyBucketsResult.Buckets | 单个Bucket的信息  |Container    |
+| Bucket  | ListAllMyBucketsResult.Buckets | 单个 Bucket 的信息  | Container    |
 
 Container 节点 Bucket 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket的名称                               | String    |
-| Location        |ListAllMyBucketsResult.Buckets.Bucket  | Bucket所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
-| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket创建时间。ISO8601格式，例如 2016-11-09T08:46:32.000Z  | Date   |
+| Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket 的名称                               | String    |
+| Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
+| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。I SO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
 
 
