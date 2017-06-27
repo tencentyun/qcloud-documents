@@ -31,3 +31,7 @@
 
 4.通过域名或负载均衡IP来访问服务。
 ![Alt text](https://mc.qcloudimg.com/static/img/e48f617e80dce415d83aff243d299268/Image+015.png)
+
+#### 更多nginx设置
+
+可查看[使用腾讯云容器服务来构建简单web service](https://www.qcloud.com/community/article/223421)

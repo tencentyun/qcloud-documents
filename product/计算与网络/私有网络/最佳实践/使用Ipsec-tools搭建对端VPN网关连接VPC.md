@@ -7,7 +7,6 @@
 
 首先您需要在腾讯云上建立您的私有网络，并根据您的需求规划子网、购买VPN网关，并设置好到需要互通的IDC网络的VPC路由（注意路由设置中“下一跳”请选择您购买的VPN网关）。具体操作步骤请见[创建私有网络及子网](http://www.qcloud.com/doc/product/215/%E5%88%9B%E5%BB%BA%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%8F%8A%E5%AD%90%E7%BD%91)、[向私有网络中添加云服务](http://www.qcloud.com/doc/product/215/%E5%90%91%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%BA%91%E6%9C%8D%E5%8A%A1)、[关联子网路由](http://www.qcloud.com/doc/product/215/%E5%85%B3%E8%81%94%E5%AD%90%E7%BD%91%E8%B7%AF%E7%94%B1)、[修改默认路由表](http://www.qcloud.com/doc/product/215/%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E8%B7%AF%E7%94%B1%E8%A1%A8)和[创建VPN网关](http://www.qcloud.com/doc/product/215/%E5%88%9B%E5%BB%BAVPN%E7%BD%91%E5%85%B3)，将上图左边部分创建设置完成。
 
-若您需要在IDC内使用VPN硬件设备搭建对端VPN网关，可使用的设备列表请见[这里](http://www.qcloud.com/help/VPN%E9%80%9A%E9%81%93%E5%BB%BA%E7%AB%8B%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AE%BE%E5%A4%87)。
 
 若您暂时不打算使用任何硬件厂家VPN设备，您也可按照本文档下面部分的操作方式，在位于IDC机房的一端使用Ipsec-tools开源工具搭建VPN网关。
 

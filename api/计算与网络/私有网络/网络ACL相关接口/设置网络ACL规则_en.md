@@ -18,7 +18,7 @@ The following request parameter list only provides API request parameters. Commo
 | networkAclEntrySet.n.ipProtocol | Yes | String | Protocol, such as tcp.  |
 | networkAclEntrySet.n.cidrIp | Yes | String | Source IP or source network segment (IP and CIDR are both supported). For example: 10.20.3.0 or 10.0.0.2/24.  |
 | networkAclEntrySet.n.portRange | Yes | String | Source port (or source port range). For example: 80 or 90-100.  |
-| networkAclEntrySet.n.action | Yes | Int | Policy. 1: Allow, 0: Reject.  |
+| networkAclEntrySet.n.action | Yes | Int | Policy. 0: Allow, 1: Reject.  |
 
  
 
