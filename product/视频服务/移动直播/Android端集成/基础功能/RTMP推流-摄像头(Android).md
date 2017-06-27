@@ -5,11 +5,8 @@
 ![](//mc.qcloudimg.com/static/img/ca7f200c31a9323c032e9e000831ea63/image.jpg)
 
 ## 特别说明
-SDK <font color='red'>**不限制您向非腾讯云地址**</font> 推流。
-
-为解决国内 DNS 映射不准确的问题，SDK 1.5.2 版本开始引入就近选路，即通过腾讯云就近选路服务器选择离主播最优的推流线路，这一改进对推流质量提升很大。但相应的，选路结果中只有腾讯云的服务器地址。而且，由于我们大量的客户采用专属推流域名，SDK 无法简单通过 URL 文本分析就辨别出是不是推到腾讯云。
-
-所以，如果您需要推流到其他云商的推流地址，可以通过客服联系我们，我们可以为您的账号关闭就近选路。该项配置通过云控实现，故您不需要发布新的客户端版本来解决这个问题。
+- **<font color='red'>不绑定腾讯云</font>**
+> SDK 不绑定腾讯云，如果要推流到非腾讯云地址，请在推流前设置 TXLivePushConfig 中的 enableNearestIP 设置为 NO。但如果您要推流的地址为腾讯云地址，请务必在推流前将其设置为 YES，否则推流质量可能会因为运营商 DNS 不准确而受到影响。
 
 ## 准备工作
 
@@ -60,14 +57,20 @@ mLivePusher.startCameraPreview(mCaptureView);
 
 ### step 4: 设定清晰度
 
-通过 **setVideoQuality** 可以指定视频画面的清晰度，您也可以通过 TXLivePushConfig 中的画质选项进行设置，但我们更推荐下面的选项：
+使用 setVideoQuality 接口的可以设定推流的画面清晰度：
 
-| 档位   | 设置参数| 分辨率 | 适用场景 | 
-|:-------:|:-------:|:-----:|---------|
-| **高清** | VIDEO_QUALITY_HIGH_DEFINITION |  **540P** | 推荐选择该档位，能确保绝大多数主流手机都能推出很清晰的画面。 |
-| **标清** | VIDEO_QUALITY_STANDARD_DEFINITION |  **360P** | 如果您比较关注带宽成本，推荐选择该档位，<br>画质一般，但带宽成本较高清档要低 60%。 |
-| **动态** |  VIDEO_QUALITY_QOS_DEFINITION |  **动态** | 分辨率会根据网络情况从 192 \* 336 - 540 \* 960 动态调整，从而更好地适应网络波动，比较适合海外直播这类网络环境差异大的场景。<br><font color='red'>特别提醒：</font>并非所有播放器都能兼容这种视频流。 |
-| **超清** | VIDEO_QUALITY_SUPER_DEFINITION |  **720P** | <font color='red'>场景提醒：</font>如果您的场景多是小屏观看不推荐使用。<br>如果是大屏幕观看，且主播网络质量很好可以考虑。 |
+![](//mc.qcloudimg.com/static/img/c52dc506047402db04ac285fa7520e65/image.png)
+
+- **quality**
+SDK 提供了六种基础档位，根据我们服务大多数客户的经验进行积累和配置。其中 STANDARD、HIGH、SUPER 适用于直播模式，MAIN_PUBLISHER 和 SUB_PUBLISHER 适用于连麦直播中的大小画面，VIDEOCHAT 用于实时音视频。
+
+- **adjustBitrate**
+是否开启 Qos 流量控制，开启后SDK 会根据主播上行网络的好坏自动调整视频码率。相应的代价就是，主播如果网络不好，画面会很模糊且有很多马赛克。
+
+- **adjustResolution**
+是否允许动态分辨率，开启后 SDK 会根据当前的视频码率选择相匹配的分辨率，这样能获得更好的清晰度。相应的代价就是，动态分辨率的直播流所录制下来的文件，在很多播放器上会有兼容性问题。
+
+![](//mc.qcloudimg.com/static/img/07deb1e7e01daba3227175a0fcec1fa5/image.png)
 
 ### step 5: 美颜滤镜
 - **美颜**
@@ -171,14 +174,10 @@ Android 手机目前对硬件加速的支持已较前两年有明显的进步，
  - 阶段一（切后台开始 -> 之后的10秒内）- CDN因为没有数据所以无法向观众提供视频流，观众看到画面卡主。
  - 阶段二（10秒 -> 70秒内）- 观众端的播放器因为持续收不到直播流而直接退出，直播间已经人去楼空。
  - 阶段三（70秒以后）- 推流的 RTMP 链路被服务器直接断掉，主播需要重新开启直播才能继续。
+主播可能只是短暂接个紧急电话而已，但各云商的安全保护措施会让主播的直播被迫提前结束。
 
-主播可能只是短暂接个紧急电话而已，但上述的交互体验显然会让观众全部离开直播间，怎么优化呢？
-
-实际上使用一些投机的办法是可以实现的，比如创建一个Service，并使用1\*1像素的 SurfaceView 持续采集Camera数据。但如果您是主播，发现有个App在切后台之后还能访问摄像头，您是否真的敢用这个App呢？
-
-我们需要在保护隐私和照顾观众体验方面求得一个完美的平衡：SDK 1.6.1 开始我们引入了一种解决方案： 
+我们可以采用如下方案规避：
 ![](//mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
-
 
 - **9.1) 设置pauseImg**
 在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
@@ -211,59 +210,25 @@ public void onResume() {
 }
 ```
 
-
 ### step 10: 提醒主播“网络不好”
 step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
 
 当收到此WARNING时，您可以通过UI提醒主播换一下网络出口，或者离WiFi近一点，或者让她吼一嗓子：“领导，我在直播呢，别上淘宝了行不！什么？没上淘宝？那韩剧也是一样的啊。”
 
 ### step 11: 横屏推流
-大多数情况下，用户习惯以“竖屏持握”进行直播拍摄，观看端看到的也是竖屏样式；有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果。
+有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果：
 ![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
-> <font color='red'>**注意：**</font> 横屏推流和竖屏推流，观众端看到的图像的宽高比是不同的，竖屏9:16，横屏16：9。
 
-#### 调整观众端表现
-通过对 LivePushConfig 中的 **setHomeOrientation** 设置项进行配置，它控制的是观众端看到的视频宽高比是 **16:9** 还是 **6:19**，调整后的结果可以用播放器查看以确认是否符合预期。
-
-| 设置项 | 含义 |
-|:---------|---------|
-| VIDEO_ANGLE_HOME_RIGHT     | home键在右 |
-| VIDEO_ANGLE_HOME_DOWN     | home键在下 |
-| VIDEO_ANGLE_HOME_LEFT       | home键在左 |
-| VIDEO_ANGLE_HOME_UP           | home键在上 |
+- **调整观众端表现**
+通过对 LivePushConfig 中的 **setHomeOrientation** 设置项进行配置，它控制的是观众端看到的视频宽高比是 **16:9** 还是 **6:19**，调整后的结果可以用播放器Demo查看以确认是否符合预期。
 
 - **调整主播端表现**
 观众端的画面表现符合预期以后，剩下要做的就是调整主播端的预览画面，这时可以通过 TXLivePusher 中的 setRenderRotation 接口，来旋转主播端看到的画面旋转方向，此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
 
 - **Activity自动旋转**
-Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），如何做到下面这种横竖屏推流跟随重力感应而变换的效果呢？
+Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://www.qcloud.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
-```java
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        // 自动旋转打开，Activity随手机方向旋转之后，只需要改变推流方向
-        int mobileRotation = this.getActivity().getWindowManager().getDefaultDisplay().getRotation();
-        int pushRotation = TXLiveConstants.VIDEO_ANGLE_HOME_DOWN;
-        switch (mobileRotation) {
-            case Surface.ROTATION_0:
-                pushRotation = TXLiveConstants.VIDEO_ANGLE_HOME_DOWN;
-                break;
-            case Surface.ROTATION_90:
-                pushRotation = TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT;
-                break;
-            case Surface.ROTATION_270:、
-                pushRotation = TXLiveConstants.VIDEO_ANGLE_HOME_LEFT;
-                break;
-            default:
-                break;
-        }
-                
-                //通过设置config是设置生效（可以不用重新推流，腾讯云是少数支持直播中热切换分辨率的云商之一）
-        mLivePusher.setRenderRotation(0); 
-        mLivePushConfig.setHomeOrientation(pushRotation);
-        mLivePusher.setConfig(mLivePushConfig);
-    }
-```
+
 
 ### step 12: 背景混音
 SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePusher 中的如下这组接口实现背景混音功能：

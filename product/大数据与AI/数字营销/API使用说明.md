@@ -16,7 +16,7 @@ item上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
 	"request_id":"request_id", //request_id 为“毫秒级时间戳_随机数”
 	"data_type":1, //1：item，2：action
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
@@ -30,7 +30,7 @@ item上报JSON数据格式
 	"free":0, //0：免费（默认），1：付费
 	"score":9.99, //物料打分（默认为0.0）
 	"price":88.88, //物料价格（默认为0.0）
-	"platform":1, ///平台，1：android（默认），2：iphone，3：PC
+	"platform":1, //平台，1：android（默认），2：iphone，3：PC
 	"big_type":"大类",
 	"middle_type":"中类",
 	"small_type ":"小类",
@@ -51,8 +51,9 @@ item上报JSON数据格式
 
 }
 ```
-```
+
 item上报返回JSON数据格式
+```
 {
    "request_id":"request_id", //request_id 原样返回
    "code":0, //-1：格式错误，-2：系统错误，-3：算法错误
@@ -74,7 +75,7 @@ action上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
 	"request_id":"request_id", //request_id 为“毫秒级时间戳_随机数”
 	"data_type":2, //1：item，2：action 
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
@@ -84,7 +85,7 @@ action上报JSON数据格式
 	"scene_id":"1001", //推荐展示场景。
 	"action_type":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞 
 	"trace_id":"trace_id", //跟踪点击和曝光的自定义跟踪id
-	"action_time":"1386817569" , ///行为发生时间（秒级时间戳，默认当前时间） 
+	"action_time":"1386817569" , //行为发生时间（秒级时间戳，默认当前时间） 
 	"geo":{
 		"latitude":-90.0~90.0,
 		"longitude":-180.0~180.0,
@@ -99,8 +100,9 @@ action上报JSON数据格式
 		}
 }
 ```
-```
+
 action上报返回JSON数据格式
+```
 {
    "request_id":"request_id",
    "code":0, //-1：格式错误，-2：系统错误，-3：算法错误
@@ -119,14 +121,14 @@ Post报文body部分为JSON数据格式，如下所示
 pCTR 请求服务JSON数据格式
 ```
 {
-	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
 	"service_type":0, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”
 	"bid":"BID", //腾讯云为该业务分配的业务标识
 	"uid_type":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认）
 	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
 	"scene_id":"1001", //广告展示场景。请求pCTR服务时scene_id与上报数据时保持一致。
-	"cid":"ItemId1;ItemId2;ItemId3;ItemId4;...;ItemId200", ///候选素材集合（不超过200个） 
+	"cid":"ItemId1;ItemId2;ItemId3;ItemId4;...;ItemId200", //候选素材集合（不超过200个） 
 	"site_name":"媒体网站名称或域名",
 	"site_url":"当前页面url",
 	"site_content":"当前页面描述",
@@ -172,8 +174,9 @@ pCTR 请求服务JSON数据格式
 		}
 }
 ```
-```
+
 pCTR 请求服务返回JSON数据格式
+```
 { 
 	"request_id":"request_id",
 	"algid":18,
@@ -200,11 +203,12 @@ pCTR 请求服务返回JSON数据格式
    ]   
 }
 ```
-```
+
 错误返回如下所示
+```
 {
 	"request_id":"request_id",
-	"code":-3, //-1：格式错误，-2：系统错误，-3：算法错误
+	"code":-3,
 	"msg":"empty result"
 }
 ```
@@ -214,14 +218,14 @@ pCTR 请求服务返回JSON数据格式
 pCVR 请求服务JSON数据格式
 ```
 {
-	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"， //md5(bid&request_id&TOKEN)
 	"service_type":2, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选 
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”
 	"bid":"BID", //腾讯云为该业务分配的业务标识
 	"uid_type":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认） 
 	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
 	"scene_id":"1001", //广告展示场景。请求服务时scene_id与上报数据时保持一致。
-	"cid":"ItemId1;ItemId2;ItemId3;ItemId4;..;ItemId200", ///候选素材集合（不超过200个）
+	"cid":"ItemId1;ItemId2;ItemId3;ItemId4;..;ItemId200", //候选素材集合（不超过200个）
 	"site_name":"媒体网站名称或域名",
 	"site_url":"当前页面url",
 	"site_content":"当前页面描述",
@@ -267,8 +271,9 @@ pCVR 请求服务JSON数据格式
 		}
 }
 ```
-```
+
 pCVR 请求服务返回JSON数据格式
+```
 {
 	"request_id":"request_id",
 	"algid":19,
@@ -295,11 +300,14 @@ pCVR 请求服务返回JSON数据格式
    ]   
 }
 ```
-```
+
+
 错误返回如下所示
+
+```
 {
 	"request_id":"request_id",
-	"code":-3, //-1：格式错误，-2：系统错误，-3：算法错误
+	"code":-3,
 	"msg":"empty result"
 }
 ```
@@ -309,7 +317,7 @@ pCVR 请求服务返回JSON数据格式
 物料优选请求服务JSON数据格式
 ```
 {
-	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7"， //md5(bid&request_id&TOKEN)
 	"service_type":4, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”,
 	"bid":"BID", //腾讯云为该业务分配的业务标识
@@ -317,7 +325,7 @@ pCVR 请求服务返回JSON数据格式
 	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
 	"scene_id":"1001", //广告展示场景。请求服务时scene_id与上报数据时保持一致
 	"request_num":50, //物料优选个数。默认每次请求50个
-	"pool_id":"pool_id1;pool_id2", ///物料池，多个池子用 ; 号隔开
+	"pool_id":"pool_id1;pool_id2", //物料池，多个池子用 ; 号隔开
 	"site_name":"媒体网站名称或域名",
 	"site_url":"当前页面url",
 	"site_content":"当前页面描述",
@@ -363,8 +371,9 @@ pCVR 请求服务返回JSON数据格式
    }
 }
 ```
-```
+
 物料优选请求服务返回JSON数据格式
+```
 {
    "request_id":"request_id",
    "algid":17,
@@ -391,11 +400,12 @@ pCVR 请求服务返回JSON数据格式
    ] 
 }
 ```
-```
+
 错误返回如下所示
+```
 {
    "request_id":"request_id",
-   "code":-3, ///-1：格式错误，-2：系统错误，-3：算法错误
+   "code":-3,
    "msg":"empty result"
 }
 ```
@@ -413,8 +423,9 @@ pCVR 请求服务返回JSON数据格式
    "media_id":"媒体ID" //媒体标识
 }
 ```
-```
+
 流量优选服务返回JSON数据格式
+```
 {
    "request_id":"request_id",
    "algid":20,
@@ -427,11 +438,12 @@ pCVR 请求服务返回JSON数据格式
     }
 }
 ```
-```
+
 错误返回如下所示
+```
 {
    "request_id":"request_id",
-   "code":-3,  ///-1：格式错误，-2：系统错误，-3：算法错误
+   "code":-3,
    "msg":"empty result"
 }
 ```
