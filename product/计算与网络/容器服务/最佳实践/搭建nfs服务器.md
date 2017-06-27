@@ -39,7 +39,7 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 #### 第六步：完成创建容器
 
-若容器创建后，打开服务的日志页面出现 Starting rpcbind ， NFS started等字样，则说明服务创建成功
+服务创建完成后，可以在同一集群内创建一个挂载该nfs盘的测试服务，测试服务可以使用任意镜像，只需要在创建测试服务时选择挂载刚创建的nfs盘。若测试服务启动成功，则说明nfs服务搭建完成。挂载nfs盘的细节请参见：   ![Alt_text](https://www.qcloud.com/document/product/457/9112)
 
 ### 注意事项
 
