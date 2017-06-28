@@ -26,8 +26,7 @@
 
 ## 签名流程
 客户通过对HTTP请求进行签名，并将签名后的请求发送至腾讯云进行签名验证，具体流程如下图所示。
-![流程图](//mc.qcloudimg.com/static/img/840056b5d73169f7335e11ef679d26c6/image.png)
-
+![流程图](//mc.qcloudimg.com/static/img/4a1eb29033caa977c648cb84d9398fdd/image.png)
 
 ## 准备工作
 1. 腾讯云访问APPID、密钥ID、密钥Key，即APPID、SecretID 和SecretKey。 
