@@ -1,4 +1,3 @@
-# API请求签名
 
 **注：** 
 > 1. 此文档仅适用于COS V5版本，版本可登陆后在COS控制台首页查看。
@@ -28,6 +27,7 @@
 客户通过对HTTP请求进行签名，并将签名后的请求发送至腾讯云进行签名验证，具体流程如下图所示。
 ![流程图](//mc.qcloudimg.com/static/img/4a1eb29033caa977c648cb84d9398fdd/image.png)
 
+
 ## 准备工作
 1. 腾讯云访问APPID、密钥ID、密钥Key，即APPID、SecretID 和SecretKey。 
 
@@ -53,7 +53,7 @@ q-key-time=[KeyTime]&q-header-list=[SignedHeaderList]&
 q-url-param-list=[SignedParameterList]&q-signature=[Signature]
 ```
 
-<span id="signaturesplit">### 签名内容组成</span>
+### <span id="signaturesplit">键值描述</span>
 其中，组成签名内容的键值(key=value)描述如下：
 
 键（key）|值(value)	|描述
@@ -72,7 +72,7 @@ q-signature|参数[Signature]|必填。HTTP内容签名，请查看 [signature�
 > 2. 结束时间戳需要大于起始时间戳，否则将会导致签名马上过期。
 
 
-<span id="signedheaderlist">### SignedHeaderList 内容组成</span>
+### <span id="signedheaderlist">SignedHeaderList 内容组成</span>
 由HTTP请求中全部或部分头部字段组成。
 HTTP请求头部由一个或多个key:value对组成。
 
@@ -97,7 +97,7 @@ Content-Length:2222
 
 则SignedHeaderList=host;content-length 。
 
-<span id="signedparamlist">### SignedParameterList 内容组成</span>
+### <span id="signedparamlist">SignedParameterList 内容组成</span>
 
 由HTTP请求中URL中的全部或部分查询字符串组成。
 URL中查询字符串可能为空，或者由一个或多个key=value对组成。
@@ -122,7 +122,7 @@ GET /?prefix=abc&max-keys=20
 则 SignedParameterList=prefix;max-keys 或者 SignedParameterList=prefix 。
 
 
-<span id="signature">### Signature 计算</span>
+### <span id="signature">Signature 计算</span>
 
 Signature的计算分为四个步骤：
 1. 对临时密钥的有效起止时间加密计算值SignKey。
