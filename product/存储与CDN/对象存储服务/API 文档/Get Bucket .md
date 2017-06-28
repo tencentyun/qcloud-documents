@@ -11,7 +11,7 @@ Date: date
 Authorization: auth
 ```
 
-> Authorization: Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
@@ -149,9 +149,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"79f2a852fac7e826c9f4dbe037f8a63b"</ETag>
         <Size>10485760</Size>
         <Owner>
-			<ID>1252375641</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	   <ID>1252375641</ID>
+	</Owner>
+	<StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testL1</Key>
@@ -159,9 +159,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"3f9a5dbff88b25b769fa6304902b5d9d"</ETag>
         <Size>10485760</Size>
         <Owner>
-			<ID>1252375642</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	  <ID>1252375642</ID>
+	 </Owner>
+	 <StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testLLL</Key>
@@ -169,9 +169,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"39bfb88c11c65ed6424d2e1cd4db1826"</ETag>
         <Size>10485760</Size>
         <Owner>
-			<ID>1252375643</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	   <ID>1252375643</ID>
+	 </Owner>
+	 <StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testLOL</Key>
@@ -179,9 +179,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"fb31459ad10289ff49327fd91a3e1f6a"</ETag>
         <Size>4</Size>
         <Owner>
-			<ID>1252375644</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	   <ID>1252375644</ID>
+	 </Owner>
+	 <StorageClass>STANDARD</StorageClass>
     </Contents>
 </ListBucketResult>
 ```
