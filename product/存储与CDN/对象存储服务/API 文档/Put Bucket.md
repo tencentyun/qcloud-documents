@@ -25,7 +25,7 @@ PUT / HTTP/1.1
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部]()章节。
 
 **非公共头部**
-该请求操作的实现可以用 Put 请求中的 x-oss-acl 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read和private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+该请求操作的实现可以用 Put 请求中的 x-ocs-acl 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read和private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
