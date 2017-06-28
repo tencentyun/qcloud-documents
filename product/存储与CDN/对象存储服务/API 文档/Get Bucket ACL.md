@@ -50,27 +50,26 @@ GET /?acl HTTP/1.1
 
 ```
 <AccessControlPolicy>
-  <Owner>
-    <uin>ID</uin>
-  </Owner>
-  <AccessControlList>
-    <Grant>
-      <Grantee type="SubAccount">
-        <uin>ID</uin>
-        <Subaccount> SUBID </Subaccount>
-      </Grantee>
-      <Permission>Permission</Permission>
-    </Grant>
-    <Grant>
-      <Grantee type="RootAccount">
-        <uin>ID</uin>
-      </Grantee>
-      <Permission>Permission</Permission>
-    </Grant>
-    <Grant>
-      ...
-    </Grant>
-  </AccessControlList>
+        <Owner>
+                <ID>qcs::cam::uin/ :uin/ </ID>
+                <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+        </Owner>
+        <AccessControlList>
+                <Grant>
+                        <Grantee xmlns:xsi=" " xsi:type="RootAccount">
+                                <ID>qcs::cam::uin/ :uin/ </ID>
+                                <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+                        </Grantee>
+                        <Permission>FULL_CONTROL</Permission>
+                </Grant>
+                <Grant>
+                        <Grantee xmlns:xsi=" " xsi:type="RootAccount">
+                                <ID>qcs::cam::uin/ :uin/ </ID>
+                                <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+                        </Grantee>
+                        <Permission>READ</Permission>
+                </Grant>
+        </AccessControlList>
 </AccessControlPolicy>
 ```
 
@@ -91,7 +90,8 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| uin | AccessControlPolicy.Owner |  Bucket 持有者 ID |  String |
+| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID |  String |
+| DisplayName | AccessControlPolicy.Owner |  Bucket 持有者的名称 |  String |
 
 Container 节点 AccessControlList 的内容：
 
@@ -132,16 +132,25 @@ Server: tencent-cos
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 
 <AccessControlPolicy>
-    <Owner>
-        <uin>2779643970</uin>
-    </Owner>
-    <AccessControlList>
-        <Grant>
-            <Grantee type="RootAccount">
-                <uin>2779643970</uin>
-            </Grantee>
-            <Permission>FULL_CONTROL</Permission>
-        </Grant>
-    </AccessControlList>
+        <Owner>
+                <ID>qcs::cam::uin/12345:uin/12345</ID>
+                <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+        </Owner>
+        <AccessControlList>
+                <Grant>
+                        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+                                <ID>qcs::cam::uin/12345:uin/12345</ID>
+                                <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+                        </Grantee>
+                        <Permission>FULL_CONTROL</Permission>
+                </Grant>
+                <Grant>
+                        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+                                <ID>qcs::cam::uin/54321:uin/54321</ID>
+                                <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
+                        </Grantee>
+                        <Permission>READ</Permission>
+                </Grant>
+        </AccessControlList>
 </AccessControlPolicy>
 ```
