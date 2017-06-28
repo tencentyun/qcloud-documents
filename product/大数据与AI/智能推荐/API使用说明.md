@@ -46,7 +46,7 @@ MD5（BID&request_id&TOKEN）
 
 **接口描述**
 
-上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的itemid可以重复上报， 字段信息以最后一次上报为准。 开发者发送http-post获取服务结果，服务URL：http://data.dm.qcloud.com:8088
+上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的item_id可以重复上报， 字段信息以最后一次上报为准。 开发者发送http-post获取服务结果，服务URL：http://data.dm.qcloud.com:8088
 
 **输入参数**
 
