@@ -60,14 +60,14 @@ GET /?acl HTTP/1.1
               <ID>qcs::cam::uin/onwerUin:uin/subUin</ID>
               <DisplayName>qcs::cam::uin/onwerUin:uin/subUin</DisplayName>
             </Grantee>
-            <Permission>FULL_CONTROL</Permission>
+            <Permission></Permission>
             </Grant>
             <Grant>
                <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
                  <ID>qcs::cam::uin/onwerUin:uin/subUin</ID>
                  <DisplayName>qcs::cam::uin/onwerUin:uin/subUin</DisplayName>
                </Grantee>
-              <Permission>READ</Permission>
+              <Permission></Permission>
           </Grant>
         </AccessControlList>
 </AccessControlPolicy>
