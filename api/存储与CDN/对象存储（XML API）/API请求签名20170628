@@ -54,7 +54,13 @@ q-url-param-list=[SignedParameterList]&q-signature=[Signature]
 ```
 
 ### <span id="signaturesplit">键值描述</span>
+
 其中，组成签名内容的键值(key=value)描述如下：
+<style>
+table th:first-of-type {
+    width: 200px;
+}
+</style>
 
 键（key）|值(value)	|描述
 ---|---|---
@@ -62,9 +68,9 @@ q-sign-algorithm|sha1|必填。签名算法，目前仅支持sha1，即为sha1 �
 q-ak|参数[*SecretID*]|必填。  帐户ID，即SecretID，在控制台 [云API密钥](https://console.qcloud.com/capi) 页面可获取，如AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q 。
 q-sign-time|参数[*SignTime*]|必填。本签名的有效起止时间，通过Unix时间戳描述起始和结束时间<sup>注</sup>，以秒为单位，格式为[*start-seconds*];[*end-seconds*]，如1480932292;1481012298 
 q-key-time|参数[*KeyTime*]|必填。与q-sign-time值相同。
-q-header-list|参数[*SignedHeaderList*]|必填。HTTP头部列表，请查看[SignedHeaderList 内容组成]
-q-url-param-list|参数[*SignedParameterList*]|必填。HTTP参数列表，请查看[SignedParameterList 内容组成](#signature)
-q-signature|参数[Signature]|必填。HTTP内容签名，请查看 [signature内容组成](#signature)
+q-header-list|参数[*SignedHeaderList*]|必填。HTTP头部列表，请查看[SignedHeaderList 内容组成](#signedheaderlist)
+q-url-param-list|参数[*SignedParameterList*]|必填。HTTP参数列表，请查看[SignedParameterList 内容组成](#signedparamlist)
+q-signature|参数[Signature]|必填。HTTP内容签名，请查看 [Signature 计算](#signature)
 
 
 > 注：关于q-sign-time 和 q-key-time
@@ -159,13 +165,13 @@ $Signature = hash_hmac($SignKey,$StringToSign)
 #### 参数说明
 参数|说明
 ---|---
-[q-key-time]| 需与[签名内容](#signaturesplit)中所填写的q-key-time保持一致
-[HttpMethod]| HTTP请求方法。仅支持小写，即可为get，post，put，delete，head，options。**如**HTTP请求 “GET http://bucket1-1254000000.cn-north.myqcloud.com ”，其 HttpMethod 为 get。
-[HttpURI]| HTTP请求URI部分。即从“/”虚拟根路径开始部分。**如**HTTP请求 “GET /testfile”，其 HttpURI 为 /testfile
-[HttpParameters]|HTTP请求参数部分。仅支持小写，即为URI 中“?”之后由“&”连接的部分,此部分由多对key=value组成，key和value均需转为小写，且字典顺序排序。**如**HTTP请求 “GET /?prefix=abc&max-keys=20" ，其 HttpParameters 为 max-keys=20&prefix=abc
-[HttpHeaders]|HTTP请求头部信息。需由key:value转化为key=value格式，且key需转化为小写,value需进行URLEncode转换，并多个key=value对之间以字典顺序排序，如有多组key=value，可用“&”连接。**如** Host: bucket1-1254000000.cn-north.myqcloud.com Content-Type: image/jpeg ，其 HttpHeaders 为 content-type=image%2Fjpeg&host=bucket1-1254000000.cn-north.myqcloud.com
+[q-key-time]| 需与[键值描述](#signaturesplit)中所填写的q-key-time保持一致
+[HttpMethod]| HTTP请求方法。仅支持小写，即可为get，post，put，delete，head，options。<br><br>**如**HTTP请求 “GET http://bucket1-1254000000.cn-north.myqcloud.com ”，其 HttpMethod 为 get。
+[HttpURI]| HTTP请求URI部分。即从“/”虚拟根路径开始部分。<br><br>**如**HTTP请求 GET /testfile ，其 HttpURI 为 /testfile
+[HttpParameters]|HTTP请求参数部分。仅支持小写，即为URI 中“?”之后由“&”连接的部分,此部分由多对key=value组成，key和value均需转为小写，且字典顺序排序。<br><br>**如**HTTP请求   GET /?prefix=abc&max-keys=20 ，其 HttpParameters 为 max-keys=20&prefix=abc
+[HttpHeaders]|HTTP请求头部信息。需由key:value转化为key=value格式，且key需转化为小写,value需进行URLEncode转换，并多个key=value对之间以字典顺序排序，如有多组key=value，可用“&”连接。<br><br>**如** Host: bucket1-1254000000.cn-north.myqcloud.com Content-Type: image/jpeg ，其 HttpHeaders 为 content-type=image%2Fjpeg&host=bucket1-1254000000.cn-north.myqcloud.com
 [q-sign-algorithm]|sha1。目前仅支持sha1加密算法。
-[q-sign-time]|需与[签名内容](#signaturesplit)中所填写的q-sign-time保持一致。
+[q-sign-time]|需与[键值描述](#signaturesplit)中所填写的q-sign-time保持一致。
 
 
 #### 参数实例
