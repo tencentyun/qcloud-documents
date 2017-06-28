@@ -1239,7 +1239,11 @@ conExt.getMessage(10, //获取此会话最近的10条消息
 
 ### 4.5 删除会话
 
-ImSDK的`TIMManagerExt`中提供了两种删除会话的方式，一种只删除会话，但保留了所有消息；另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。另外需要注意的是，如果删除本地消息，对于群组，通过getMessage会拉取到漫游消息，所以存在删除消息成功，但是拉取到消息的情况，取决于是否重新从漫游拉回到本地。如果不需要拉取漫游，可以通过 getLocalMessage 获取消息，或者只通过 getMessage 拉取指定条数（如未读条数数量）的消息。
+ImSDK的`TIMManagerExt`中提供了两种删除会话的方式，一种只删除会话，但保留了所有消息；另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。
+
+> 注意
+> 1. 删除本地消息的情况下，C2C会话将无法获取到删除会话前的历史消息。
+> 2. 删除本地消息的情况下，群组会话通过`getMessage`仍然会拉取到漫游消息，所以存在删除消息成功，但是拉取消息的时候仍然获取到删除会话前的历史消息的情况，取决于是否重新从漫游拉回到本地。如果不需要拉取漫游，可以通过 `getLocalMessage` 获取消息，或者只通过 `getMessage` 拉取指定条数（如未读条数数量）的消息。
 
 **原型：**
 
@@ -1361,8 +1365,24 @@ public void setUserDefinedData(byte[] userDefinedData)
  */
 public long getTimestamp()
 ```
+### 4.9 删除会话本地消息
 
-### 4.9 消息查找
+ImSDK提供了保留会话的情况下，清空会话本地聊天记录的功能。通过调用`TIMConversationExt`的`deleteLocalMessage`接口实现。
+
+> 注意
+> 群组会话在清空本地聊天记录后，仍然会通过漫游拉取到本地删除了的历史消息。
+
+
+**原型：**
+```
+/**
+ * 批量删除本会话的全部本地聊天记录
+ * @param callback 回调
+ */
+public void deleteLocalMessage(@NonNull TIMCallBack callback)
+```
+
+### 4.10 查找本地消息
 
 ImSDK提供了根据提供参数查找相应消息的功能，只能精准查找，暂时不支持模糊查找。开发者可以通过调用`TIMConversationExt`中的`findMessages`方法进行消息查找。
 
@@ -1376,34 +1396,82 @@ ImSDK提供了根据提供参数查找相应消息的功能，只能精准查找
 public void findMessages(@NonNull List<TIMMessageLocator> locators, TIMValueCallBack<List<TIMMessage>> cb)
 ```
 
-其中参数中的`TIMMessageLocator`可以通过消息中的`getMessageLocator`方法来获取，或者自行构造。
+其中参数中的`TIMMessageLocator`可以通过`TIMMessageExt`中的`getMessageLocator`方法来获取，原型如下：
 
-**TIMMessageLocator:**
 ```
 /**
- * 设置要查找的消息的时间戳
- * @param timestamp 消息时间戳
+ * 获取当前消息的消息定位符
+ * @return 当前消息的消息定位符
  */
-public TIMMessageLocator setTimestamp(long timestamp)
+public TIMMessageLocator getMessageLocator()
+```
 
+### 4.11 撤回消息
 
+ImSDK 在3.1.0版本开始提供撤回消息的接口。可以通过调用`TIMConversationExt`的`revokeMessage`接口来撤回自己发送的消息。
+
+> 注意
+> 1. 仅C2C和GROUP会话有效、onlineMessage无效、AVChatRoom和BChatRoom无效
+> 2. 默认只能撤回2分钟内的消息
+
+**原型：**
+
+```
 /**
- * 设置要查找的消息的序列号
- * @param seq 消息的序列号
+ * 消息撤回（仅C2C和GROUP会话有效，其中onlineMessage、AVChatRoom和BChatRoom无效）
+ * @param msg 需要撤回的消息
+ * @param cb 回调
+ * @since 3.1.0
  */
-public TIMMessageLocator setSeq(long seq)
+public void revokeMessage(@NonNull TIMMessage msg, @NonNull TIMCallBack cb)
+```
 
-/**
- * 设置要查找的消息随机码
- * @param rand 消息随机码
- */
-public TIMMessageLocator setRand(long rand)
+成功撤回消息后，群组内其他用户和C2C会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器`TIMMessageRevokeListener`通知到上层应用。消息撤回通知监听器可以在登录前，通过`TIMUserConfigMsgExt`的`setMessageRevokedListener`来进行配置。具体可以参考[用户配置](/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)。
 
+**原型：**
+
+```
 /**
- * 设置要查找的消息的发送者是否是自己
- * @param self true - 发送者是自己， false - 发送者不是自己
+ * 消息被撤回通知监听器
+ * @since 3.1.0
  */
-public TIMMessageLocator setSelf(boolean self)
+public interface TIMMessageRevokedListener extends IMBaseListener {
+    /**
+     * 消息撤回通知
+     * @param locator 被撤回的消息的消息定位符
+     */
+     void onMessageRevoked(TIMMessageLocator locator);
+}
+
+```
+
+收到一条消息撤回通知后，通过 `TIMMessageExt` 中的 `checkEquals` 方法判断当前消息是否是被对方撤回了，然后根据需要对UI进行刷新。
+
+**原型：**
+
+```
+/**
+ * 比较当前消息与提供的消息定位符表示的消息是否是同一条消息
+ * @param locator 消息定位符
+ * @return true - 表示是同一条消息； false - 表示不是同一条消息
+ * @since 3.1.0
+ */
+public boolean checkEquals(@NonNull TIMMessageLocator locator)
+
+```
+
+另外，需要注意的是，**掉线重连的时候，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知**。其他场景不需要主动同步消息撤回通知。
+
+**原型：**
+
+```
+/**
+ * 同步本会话的消息撤回通知（仅GROUP会话有效，同步回来的通知会通过TIMMessageRevokedListener抛出）
+ * @param cb 回调
+ * @since 3.1.0
+ */
+public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
+
 ```
 
 ## 5 系统消息
