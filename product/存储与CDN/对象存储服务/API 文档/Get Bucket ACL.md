@@ -6,12 +6,12 @@ Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用�
 语法示例：
 ```
 GET /?acl HTTP/1.1
-Host:<BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: Auth
 ```
 
-> Authorization:  Auth (详细参见 [访问控制](http://gggggggg) 章节)
+> Authorization:  Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
@@ -25,7 +25,7 @@ GET /?acl HTTP/1.1
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部]()章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部](https://www.qcloud.com/document/product/436/7728)章节。
 
 #### 非公共头部
 **必选头部**
@@ -42,7 +42,7 @@ GET /?acl HTTP/1.1
 
 #### 响应头
 **公共响应头** 
-该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部]()章节。
+该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部](https://www.qcloud.com/document/product/436/7729)章节。
 **特有响应头**
 该响应无特殊有响应头。
 #### 响应体
@@ -103,7 +103,7 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type类型可以为 RootAcount， SubAccount；当 type 类型为 RootAcount 时，可以在 UIN 中填写 QQ，也可以填写 anonymous（指代所有类型用户）。当 type 类型为 RootAcount 时，UIN 代表根账户账号，SubAccount 代表子账户账号  | Container    |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAcount， SubAccount；当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anonymous（指代所有类型用户）。当 type 类型为 RootAcount 时，uin 代表根账户账号，SubAccount 代表子账户账号  | Container    |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |
 
 Container 节点 Grantee 的内容：
@@ -117,8 +117,8 @@ Container 节点 Grantee 的内容：
 ### 请求
 ```
 GET /?acl HTTP/1.1
-Host:zuhaotestnorth-1251668577.cn-north.myqcloud.com
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
+Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
 ```
 
 ### 响应
@@ -127,7 +127,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 266
 Connection: keep-alive
-Date: Thu Jan 12 17:23:49 2017
+Date: Thu Jan 12 17:23:49 2017 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 
