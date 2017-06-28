@@ -79,8 +79,8 @@ action上报JSON数据格式
 	"request_id":"request_id", //request_id 为“毫秒级时间戳_随机数”
 	"data_type":2, //1：item，2：action 
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
-	"uid_type":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认）
-	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
+	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
+	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
 	"item_id":"item_id1;item_id2;item_id3", //物料列表,多个物料用 ; 号隔开
 	"scene_id":"1001", //推荐展示场景。
 	"action_type":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞
