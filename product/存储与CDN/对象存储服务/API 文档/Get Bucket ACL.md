@@ -50,26 +50,26 @@ GET /?acl HTTP/1.1
 
 ```
 <AccessControlPolicy>
-        <Owner>
-           <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-           <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
-        </Owner>
-        <AccessControlList>
-            <Grant>
-            <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-              <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-              <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
-            </Grantee>
-            <Permission></Permission>
-            </Grant>
-            <Grant>
-               <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-                 <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-                 <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
-               </Grantee>
-              <Permission></Permission>
-          </Grant>
-        </AccessControlList>
+  <Owner>
+    <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
+    <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+      <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
+      <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+      </Grantee>
+      <Permission></Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+        <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
+        <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+      </Grantee>
+      <Permission></Permission>
+    </Grant>
+  </AccessControlList>
 </AccessControlPolicy>
 ```
 
@@ -132,25 +132,25 @@ Server: tencent-cos
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 
 <AccessControlPolicy>
-        <Owner>
-           <ID>qcs::cam::uin/12345:uin/12345</ID>
-           <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
-        </Owner>
-        <AccessControlList>
-            <Grant>
-            <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-              <ID>qcs::cam::uin/12345:uin/12345</ID>
-              <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
-            </Grantee>
-            <Permission>FULL_CONTROL</Permission>
-            </Grant>
-            <Grant>
-               <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-                 <ID>qcs::cam::uin/54321:uin/54321</ID>
-                 <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
-               </Grantee>
-              <Permission>READ</Permission>
-          </Grant>
-        </AccessControlList>
+  <Owner>
+    <ID>qcs::cam::uin/12345:uin/12345</ID>
+    <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+        <ID>qcs::cam::uin/12345:uin/12345</ID>
+        <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+        <ID>qcs::cam::uin/54321:uin/54321</ID>
+        <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
+      </Grantee>
+      <Permission>READ</Permission>
+    </Grant>
+  </AccessControlList>
 </AccessControlPolicy>
 ```
