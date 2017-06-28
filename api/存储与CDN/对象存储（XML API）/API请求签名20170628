@@ -1,4 +1,3 @@
-
 <font color="#3300ff">**注：** </font>
 > 1. 此文档仅适用于COS V5版本，版本可登陆后在COS控制台首页查看。
 > 2. 此文档不适用于POST object的HTTP请求。
@@ -191,9 +190,9 @@ q-signature|29b2f454bb9d8a629e7cad61227bd5fd0dd11a2d|通过代码计算所得
 其中，q-signature的计算代码为：
 ```
 $SignKey = hash_hmac("BQYIM75p8x0iWVFSIgqEKwFprpRSVHlz","1417773892;1417853898")
-$HttpString = put\n/testfile\n\nHost= bucket1-1254000000.cn-north.myqcloud.com
-&x-cos-content-sha1= db8ac1c259eb89d4a131b253bacfca5f319d54f2
-&x-cos-stroage-class=nearline\n
+$HttpString = put\n/testfile\n\nhost=bucket1-1254000000.cn-north.myqcloud.com
+&x-cos-content-sha1 = db8ac1c259eb89d4a131b253bacfca5f319d54f2
+&x-cos-stroage-class = nearline\n
 $StringToSign = sha1\n1417773892;1417853898\nsha1($HttpString)\n
 $Signature = hash_hmac($SignKey,$StringToSign)
 ```
@@ -235,8 +234,7 @@ q-signature|29b2f454bb9d8a629e7cad61227bd5fd0dd11a2d|通过代码计算所得
 ```
 $SignKey = hash_hmac("BQYIM75p8x0iWVFSIgqEKwFprpRSVHlz","1417773892;1417853898")
 $HttpString = get\n/testfile\n\nHost= bucket1-1254000000.cn-north.myqcloud.com
-&Range=bytes=0-3\n
+&Range = bytes%3D0-3\n
 $StringToSign = sha1\n1417773892;1417853898\nsha1($HttpString)\n
 $Signature = hash_hmac($SignKey,$StringToSign)
 ```
-
