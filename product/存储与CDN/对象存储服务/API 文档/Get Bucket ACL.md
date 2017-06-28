@@ -51,21 +51,21 @@ GET /?acl HTTP/1.1
 ```
 <AccessControlPolicy>
         <Owner>
-                <ID>qcs::cam::uin/ :uin/ </ID>
-                <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+           <ID>qcs::cam::uin/ :uin/ </ID>
+           <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
         </Owner>
         <AccessControlList>
+             <Grant>
+                 <Grantee xmlns:xsi=" " xsi:type="RootAccount">
+                      <ID>qcs::cam::uin/ :uin/ </ID>
+                      <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+                  </Grantee>
+                  <Permission>FULL_CONTROL</Permission>
+              </Grant>
                 <Grant>
                         <Grantee xmlns:xsi=" " xsi:type="RootAccount">
-                                <ID>qcs::cam::uin/ :uin/ </ID>
-                                <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
-                        </Grantee>
-                        <Permission>FULL_CONTROL</Permission>
-                </Grant>
-                <Grant>
-                        <Grantee xmlns:xsi=" " xsi:type="RootAccount">
-                                <ID>qcs::cam::uin/ :uin/ </ID>
-                                <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+                           <ID>qcs::cam::uin/ :uin/ </ID>
+                           <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
                         </Grantee>
                         <Permission>READ</Permission>
                 </Grant>
