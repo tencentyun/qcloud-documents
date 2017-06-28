@@ -86,7 +86,7 @@ Container 节点   ListBucketResult 的内容：
 | Prefix | ListBucketResult | 前缀匹配，用来规定响应请求返回的文件前缀地址 |  String |
 | Marker | ListBucketResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 |  String |
 | MaxKeys | ListBucketResult | 单次响应请求内返回结果的最大的条目数量 |  String |
-| IsTruncated | ListBucketResult | 响应请求条目是否被截断，布尔值：True，False | Boolean |
+| IsTruncated | ListBucketResult | 响应请求条目是否被截断，布尔值：TRUE，FALSE | Boolean |
 | Contents | ListBucketResult | 元数据信息 | Container |
 | CommonPrefixes | ListBucketResult | 将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix | Container |
 
