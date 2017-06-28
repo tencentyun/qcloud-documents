@@ -50,24 +50,24 @@ GET /?acl HTTP/1.1
 
 ```
 <AccessControlPolicy>
-   <Owner>
-      <ID>qcs::cam::uin/ :uin/ </ID>
-      <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
-    </Owner>
-    <AccessControlList>
-        <Grant>
-           <Grantee xmlns:xsi=" " xsi:type="RootAccount">
-               <ID>qcs::cam::uin/ :uin/ </ID>
-               <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+        <Owner>
+           <ID>qcs::cam::uin/<UIN>:uin/<UIN></ID>
+           <DisplayName>qcs::cam::uin/<UIN>:uin/<UIN></DisplayName>
+        </Owner>
+        <AccessControlList>
+            <Grant>
+            <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+              <ID>qcs::cam::uin/<UIN>:uin/<UIN></ID>
+              <DisplayName>qcs::cam::uin/<UIN>:uin/<UIN></DisplayName>
             </Grantee>
             <Permission>FULL_CONTROL</Permission>
-        </Grant>
-        <Grant>
-            <Grantee xmlns:xsi=" " xsi:type="RootAccount">
-              <ID>qcs::cam::uin/ :uin/ </ID>
-              <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
-            </Grantee>
-            <Permission>READ</Permission>
+            </Grant>
+            <Grant>
+               <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+                 <ID>qcs::cam::uin/<UIN>:uin/<UIN></ID>
+                 <DisplayName>qcs::cam::uin/<UIN>:uin/<UIN></DisplayName>
+               </Grantee>
+              <Permission>READ</Permission>
           </Grant>
         </AccessControlList>
 </AccessControlPolicy>
@@ -90,7 +90,8 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID |  String |
+| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，格式：格式：qcs::cam::uin/onwerUin:uin/subUin
+如果是根帐号，ownerUin 和 subUin 是同一个值 |  String |
 | DisplayName | AccessControlPolicy.Owner |  Bucket 持有者的名称 |  String |
 
 Container 节点 AccessControlList 的内容：
@@ -110,7 +111,8 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | AccessControlPolicy.Owner | 用户的 QQ 号|  String |
+| ID | AccessControlPolicy.Owner | 用户的 ID，格式：qcs::cam::uin/onwerUin:uin/subUin
+如果是根帐号，ownerUin 和 subUin 是同一个值|  String |
 | DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 
