@@ -11,7 +11,7 @@ Date: date
 Authorization: Auth
 ```
 
-> Authorization: Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
