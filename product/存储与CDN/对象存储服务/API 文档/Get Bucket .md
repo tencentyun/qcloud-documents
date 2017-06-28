@@ -11,7 +11,7 @@ Date: date
 Authorization: auth
 ```
 
-> Authorization: Auth (详细参见 [访问控制](http://gggggggg) 章节)
+> Authorization: Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
@@ -96,10 +96,10 @@ Container 节点 Contents 的内容：
 |:---|:-- |:--|:--|
 | Key | ListBucketResult.Contents | Object 的 Key |  String |
 | LastModified | ListBucketResult.Contents | 说明 Object 最后被修改时间 |  Date |
-| ETag | ListBucketResult.Contents | 文件的 SHA-1 算法校验值 |  String |
+| ETag | ListBucketResult.Contents | 文件的 MD-5 算法校验值 |  String |
 | Size | ListBucketResult.Contents | 说明文件大小，单位是 Byte |  String |
 | Owner | ListBucketResult.Contents | Bucket 持有者信息| Container |
-| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
+| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE | String |
 
 Container 节点 CommonPrefixes 的内容：
 
