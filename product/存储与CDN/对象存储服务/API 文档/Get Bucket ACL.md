@@ -25,7 +25,7 @@ GET /?acl HTTP/1.1
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部](https://www.qcloud.com/document/product/436/7728)章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 **必选头部**
@@ -42,7 +42,7 @@ GET /?acl HTTP/1.1
 
 #### 响应头
 **公共响应头** 
-该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部](https://www.qcloud.com/document/product/436/7729)章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 **特有响应头**
 该响应无特殊有响应头。
 #### 响应体
