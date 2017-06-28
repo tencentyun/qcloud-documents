@@ -13,5 +13,5 @@
 1. 下载 VOD PHP DEMO 并解压，将工作目录切换到 upload_demo.php 所在的目录下。
 1. 将 cos-php-sdk-v4-master.zip 解压到工作目录。
 1. 将 qcloudapi-sdk-php-master.zip 解压到工作目录。
-1. 编辑 cos-php-sdk-v4-master/qcloudcos/conf.php，将 APP_ID 设置为  SECRET_ID 设置为 API 密钥中的 secret id，将 SECRET_KEY 设置为 API 密钥中的 secret key。
+1. 编辑 cos-php-sdk-v4-master/qcloudcos/conf.php，将 APP_ID 设置为 '10022853'，SECRET_ID 设置为 API 密钥中的 secret id，将 SECRET_KEY 设置为 API 密钥中的 secret key。
 1. 执行 php upload_demo.php，即可发起文件上传，上传成功后将获取文件的播放地址和 fileid。
