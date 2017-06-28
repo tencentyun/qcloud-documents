@@ -50,25 +50,25 @@ GET /?acl HTTP/1.1
 
 ```
 <AccessControlPolicy>
-        <Owner>
-           <ID>qcs::cam::uin/ :uin/ </ID>
-           <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
-        </Owner>
-        <AccessControlList>
-             <Grant>
-                 <Grantee xmlns:xsi=" " xsi:type="RootAccount">
-                      <ID>qcs::cam::uin/ :uin/ </ID>
-                      <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
-                  </Grantee>
-                  <Permission>FULL_CONTROL</Permission>
-              </Grant>
-                <Grant>
-                        <Grantee xmlns:xsi=" " xsi:type="RootAccount">
-                           <ID>qcs::cam::uin/ :uin/ </ID>
-                           <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
-                        </Grantee>
-                        <Permission>READ</Permission>
-                </Grant>
+   <Owner>
+      <ID>qcs::cam::uin/ :uin/ </ID>
+      <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+    </Owner>
+    <AccessControlList>
+        <Grant>
+           <Grantee xmlns:xsi=" " xsi:type="RootAccount">
+               <ID>qcs::cam::uin/ :uin/ </ID>
+               <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+            </Grantee>
+            <Permission>FULL_CONTROL</Permission>
+        </Grant>
+        <Grant>
+            <Grantee xmlns:xsi=" " xsi:type="RootAccount">
+              <ID>qcs::cam::uin/ :uin/ </ID>
+              <DisplayName>qcs::cam::uin/ :uin/ </DisplayName>
+            </Grantee>
+            <Permission>READ</Permission>
+          </Grant>
         </AccessControlList>
 </AccessControlPolicy>
 ```
@@ -110,8 +110,8 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| uin | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户 QQ 号  | String    |
-| Subaccount | AccessControlPolicy.AccessControlList.Grant.Grantee |  子账户的 QQ 账号  | String    |
+| ID | AccessControlPolicy.Owner | 用户的 QQ 号|  String |
+| DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 
 ### 请求
@@ -133,24 +133,24 @@ x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 
 <AccessControlPolicy>
         <Owner>
-                <ID>qcs::cam::uin/12345:uin/12345</ID>
-                <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+           <ID>qcs::cam::uin/12345:uin/12345</ID>
+           <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
         </Owner>
         <AccessControlList>
-                <Grant>
-                        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-                                <ID>qcs::cam::uin/12345:uin/12345</ID>
-                                <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
-                        </Grantee>
-                        <Permission>FULL_CONTROL</Permission>
-                </Grant>
-                <Grant>
-                        <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-                                <ID>qcs::cam::uin/54321:uin/54321</ID>
-                                <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
-                        </Grantee>
-                        <Permission>READ</Permission>
-                </Grant>
+            <Grant>
+            <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+              <ID>qcs::cam::uin/12345:uin/12345</ID>
+              <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+            </Grantee>
+            <Permission>FULL_CONTROL</Permission>
+            </Grant>
+            <Grant>
+               <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+                 <ID>qcs::cam::uin/54321:uin/54321</ID>
+                 <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
+               </Grantee>
+              <Permission>READ</Permission>
+          </Grant>
         </AccessControlList>
 </AccessControlPolicy>
 ```
