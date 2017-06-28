@@ -5,33 +5,33 @@ Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 
 语法示例：
 ```
-GET / HTTP 1.1
-Host:<BucketName>-<AppID>.<Region>.myqcloud.com
+GET / HTTP/1.1
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: date
 Authorization: auth
 ```
 
-> Authorization:  Auth (详细参见 [访问控制](http://gggggggg) 章节)
+> Authorization: Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
-GET / HTTP 1.1
+GET / HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
 ### 请求头
 
 **公共头部**
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部]()章节。
-发起 Get Bucket（ List Object ）请求时，可以通过 Host 字段参数 prefix，marker，delimiter 和 max-keys 对 list 做限定用以返回部分结果。另外，可以通过 encoding-type 对返回结果中的 Delimiter、Marker、Prefix、NextMarker 和 Key 这些元素进行编码。
-Host 字段内容如下:
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部](https://www.qcloud.com/document/product/436/7728)章节。
+发起 Get Bucket（ List Object ）请求时，可以通过请求头帯参数：prefix，marker，delimiter 和 max-keys 对 list 做限定用以返回部分结果。另外，可以通过 encoding-type 对返回结果中的 Delimiter、Marker、Prefix、NextMarker 和 Key 这些元素进行编码。
+参数具体描述内容如下:
 
-|名称|描述|
+|参数名称|描述|
 |:---|:-- |
 | prefix |前缀匹配，用来规定返回的文件前缀地址|
-| delimiter |定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为Common Prefix，然后列出所有Common Prefix。如果没有 Prefix，则从路径起点开始 |
+| delimiter |定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始 |
 | encoding-type |规定返回值的编码方式，可选值：url |
-| marker |默认以UTF-8二进制顺序列出条目，所有列出条目从marker开始|
+| marker |默认以 UTF-8 二进制顺序列出条目，所有列出条目从marker开始|
 | max-keys |单次返回最大的条目数量，默认1000|
 
 **非公共头部**
@@ -43,7 +43,7 @@ Host 字段内容如下:
 
 #### 响应头
 **公共响应头** 
-该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部]()章节。
+该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部](https://www.qcloud.com/document/product/436/7729)章节。
 **特有响应头**
 该响应无特殊有响应头。
 #### 响应体
@@ -86,7 +86,7 @@ Container 节点   ListBucketResult 的内容：
 | Prefix | ListBucketResult | 前缀匹配，用来规定响应请求返回的文件前缀地址 |  String |
 | Marker | ListBucketResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 |  String |
 | MaxKeys | ListBucketResult | 单次响应请求内返回结果的最大的条目数量 |  String |
-| IsTruncated | ListBucketResult | 响应请求条目是否被截断，布尔值：True，False | Boolean |
+| IsTruncated | ListBucketResult | 响应请求条目是否被截断，布尔值：TRUE，FALSE | Boolean |
 | Contents | ListBucketResult | 元数据信息 | Container |
 | CommonPrefixes | ListBucketResult | 将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix | Container |
 
@@ -96,10 +96,10 @@ Container 节点 Contents 的内容：
 |:---|:-- |:--|:--|
 | Key | ListBucketResult.Contents | Object 的 Key |  String |
 | LastModified | ListBucketResult.Contents | 说明 Object 最后被修改时间 |  Date |
-| ETag | ListBucketResult.Contents | 文件的 SHA-1 算法校验值 |  String |
+| ETag | ListBucketResult.Contents | 文件的 MD-5 算法校验值 |  String |
 | Size | ListBucketResult.Contents | 说明文件大小，单位是 Byte |  String |
 | Owner | ListBucketResult.Contents | Bucket 持有者信息| Container |
-| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：Standard，Standard_IA，Nearline | String |
+| StorageClass | ListBucketResult.Contents | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE | String |
 
 Container 节点 CommonPrefixes 的内容：
 
@@ -119,9 +119,9 @@ Container 节点 Owner 的内容：
 
 ### 请求
 ```
-GET / HTTP 1.1
-Host:zuhaotestnorth-1251668577.cn-north.myqcloud.com
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213451;32557109451&q-key-time=1484213451;32557109451&q-header-list=host&q-url-param-list=&q-signature=0336a1fc8350c74b6c081d4dff8e7a2db9007dce
+GET / HTTP/1.1
+Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213451;32557109451&q-key-time=1484213451;32557109451&q-header-list=host&q-url-param-list=&q-signature=0336a1fc8350c74b6c081d4dff8e7a2db9007dce
 ```
 
 ### 响应
@@ -131,7 +131,7 @@ Content-Type: application/xml
 Content-Length: 1132
 Connection: keep-alive
 Vary: Accept-Encoding
-Date: Thu Jan 12 17:30:54 2017
+Date: Thu Jan 12 17:30:54 2017 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
 

@@ -1,5 +1,5 @@
 ## Introduction
-This document describes how to build a simple Registry environment through Docker Compose. Here, we use official DockerHub image. Registry image version: `registry:2.5.0`; nginx image version: `nginx:1.11.5`. This document focuses on how to build and use Registry environment. For more information on how to build an enterprise-level Registry server, please see open-source [Harbor](https://vmware.github.io/harbor/index_cn.html "Harbor").
+This document describes how to build a simple Registry environment through Docker Compose. Here, we use official DockerHub image. Registry image version: `registry:2.5.0`; nginx image version: `nginx:1.11.5`. This document focuses on how to build and use Registry environment. For more information on how to build an enterprise-level Registry server, please see open-source [Harbor](https://github.com/vmware/harbor "Harbor")。
 
 ## What is Registry?
 Registry is a storage service for Docker images. Registry images on DockerHub can be found in [Official Registry Images](https://hub.docker.com/_/registry/ "Official Registry Images"). For more information, please [go to GitHub to see the latest source codes](https://github.com/docker/distribution "source codes").
