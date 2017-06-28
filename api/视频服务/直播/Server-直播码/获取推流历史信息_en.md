@@ -5,7 +5,7 @@
   - **Get_LivePushStatHistory**: This API is used to obtain the history of push.
 
 - **URL**
-  - URL for calling API: http://tatcgi.video.qcloud.com/common_access
+  - URL for calling API: http://statcgi.video.qcloud.com/common_access
 
 - **Note**
   - Can be used to obtain the push information for specified time period.
@@ -65,7 +65,7 @@ Purpose: To query the list of files recorded during the LVB for the LVB stream w
 
 ```
 // When copying them, remove the invisible line breaks used for improving layout. Otherwise, URL construction errors may occur, such as "cmd is invalid".
-URL = http://tatcgi.video.qcloud.com/common_access?
+URL = http://statcgi.video.qcloud.com/common_access?
 			cmd=1234&interface=Get_LivePushStatHistory
 			&Param.n.start_time =1453279831
 			&Param.n.end_time =1453279835
