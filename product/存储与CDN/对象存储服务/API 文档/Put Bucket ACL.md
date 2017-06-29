@@ -42,9 +42,9 @@ PUT /?acl HTTP/1.1
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
 | x-cos-acl | 定义 Bucket 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
+| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
+| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
 
 ### 请求体
 该请求操作的实现也可以在请求体中帯特定请求参数来设置 Bucket 访问权限，但请求体帯参数方式和请求头帯 acl 子资源方式两者只能选一种。
@@ -87,7 +87,7 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|
-| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：qcs::cam::uin/<OnwerUin>:uin/<SubUin> 如果是根帐号，<OnwerUin> 和 <SubUin> 是同一个值 |  String |是|
+| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：`qcs::cam::uin/<OnwerUin>:uin/<SubUin>` 如果是根帐号，`<OnwerUin>` 和 `<SubUin> `是同一个值 |  String |是|
 
 Container 节点 AccessControlList 的内容：
 
@@ -106,7 +106,7 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，</br>格式：qcs::cam::uin/<OnwerUin>:uin/<SubUin> 如果是根帐号，<OnwerUin> 和 <SubUin> 是同一个值|  String |是|
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，</br>格式：`qcs::cam::uin/<OnwerUin>:uin/<SubUin>` 如果是根帐号，`<OnwerUin>` 和 `<SubUin> `是同一个值|  String |是|
 
 
 ## 响应
