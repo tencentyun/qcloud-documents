@@ -7,7 +7,7 @@ Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用�
 ```
 GET /?acl HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
-Date: date
+Date: GMT Date
 Authorization: Auth
 ```
 
@@ -103,7 +103,7 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAcount， SubAccount；当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anonymous（指代所有类型用户）。当 type 类型为 RootAcount 时，uin 代表根账户账号，SubAccount 代表子账户账号  | Container    |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAcount， Subaccount；当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anonymous（指代所有类型用户）。当 type 类型为 RootAcount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |
 
 Container 节点 Grantee 的内容：
@@ -118,6 +118,7 @@ Container 节点 Grantee 的内容：
 ```
 GET /?acl HTTP/1.1
 Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Date: Fri, 10 Mar 2016 09:45:46 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
 ```
 
@@ -127,7 +128,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 266
 Connection: keep-alive
-Date: Thu Jan 12 17:23:49 2017 GMT
+Date: Fri, 10 Mar 2016 09:45:46 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 
