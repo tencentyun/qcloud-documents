@@ -11,7 +11,7 @@ Date: date
 Authorization: auth
 ```
 
-> Authorization: Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
@@ -22,7 +22,7 @@ GET / HTTP/1.1
 ### 请求头
 
 **公共头部**
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部](https://www.qcloud.com/document/product/436/7728)章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 发起 Get Bucket（ List Object ）请求时，可以通过请求头帯参数：prefix，marker，delimiter 和 max-keys 对 list 做限定用以返回部分结果。另外，可以通过 encoding-type 对返回结果中的 Delimiter、Marker、Prefix、NextMarker 和 Key 这些元素进行编码。
 参数具体描述内容如下:
 
@@ -43,9 +43,9 @@ GET / HTTP/1.1
 
 #### 响应头
 **公共响应头** 
-该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部](https://www.qcloud.com/document/product/436/7729)章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 **特有响应头**
-该响应无特殊有响应头。
+该响应无特殊的响应头。
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
@@ -149,9 +149,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"79f2a852fac7e826c9f4dbe037f8a63b"</ETag>
         <Size>10485760</Size>
         <Owner>
-			<ID>1252375641</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	   <ID>1252375641</ID>
+	</Owner>
+	<StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testL1</Key>
@@ -159,9 +159,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"3f9a5dbff88b25b769fa6304902b5d9d"</ETag>
         <Size>10485760</Size>
         <Owner>
-			<ID>1252375642</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	  <ID>1252375642</ID>
+	 </Owner>
+	 <StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testLLL</Key>
@@ -169,9 +169,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"39bfb88c11c65ed6424d2e1cd4db1826"</ETag>
         <Size>10485760</Size>
         <Owner>
-			<ID>1252375643</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	   <ID>1252375643</ID>
+	 </Owner>
+	 <StorageClass>STANDARD</StorageClass>
     </Contents>
     <Contents>
         <Key>testLOL</Key>
@@ -179,9 +179,9 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
         <ETag>"fb31459ad10289ff49327fd91a3e1f6a"</ETag>
         <Size>4</Size>
         <Owner>
-			<ID>1252375644</ID>
-		</Owner>
-		<StorageClass>STANDARD</StorageClass>
+	   <ID>1252375644</ID>
+	 </Owner>
+	 <StorageClass>STANDARD</StorageClass>
     </Contents>
 </ListBucketResult>
 ```

@@ -11,7 +11,7 @@ Date: date
 Authorization: Auth
 ```
 
-> Authorization: Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
@@ -25,7 +25,7 @@ GET /?acl HTTP/1.1
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部](https://www.qcloud.com/document/product/436/7728)章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 **必选头部**
@@ -42,33 +42,32 @@ GET /?acl HTTP/1.1
 
 #### 响应头
 **公共响应头** 
-该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部](https://www.qcloud.com/document/product/436/7729)章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 **特有响应头**
-该响应无特殊有响应头。
+该响应无特殊的响应头。
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
 <AccessControlPolicy>
   <Owner>
-    <uin>ID</uin>
+    <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
+    <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
-      <Grantee type="SubAccount">
-        <uin>ID</uin>
-        <Subaccount> SUBID </Subaccount>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+      <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
+      <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
       </Grantee>
-      <Permission>Permission</Permission>
+      <Permission></Permission>
     </Grant>
     <Grant>
-      <Grantee type="RootAccount">
-        <uin>ID</uin>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+        <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
+        <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
       </Grantee>
-      <Permission>Permission</Permission>
-    </Grant>
-    <Grant>
-      ...
+      <Permission></Permission>
     </Grant>
   </AccessControlList>
 </AccessControlPolicy>
@@ -91,7 +90,8 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| uin | AccessControlPolicy.Owner |  Bucket 持有者 ID |  String |
+| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：qcs::cam::uin/<OnwerUin>:uin/<SubUin> 如果是根帐号，<OnwerUin> 和 <SubUin> 是同一个值 |  String |
+| DisplayName | AccessControlPolicy.Owner |  Bucket 持有者的名称 |  String |
 
 Container 节点 AccessControlList 的内容：
 
@@ -110,8 +110,8 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| uin | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户 QQ 号  | String    |
-| Subaccount | AccessControlPolicy.AccessControlList.Grant.Grantee |  子账户的 QQ 账号  | String    |
+| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式：qcs::cam::uin/<OnwerUin>:uin/<SubUin> 如果是根帐号，<OnwerUin> 和 <SubUin> 是同一个值|  String |
+| DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 
 ### 请求
@@ -132,16 +132,25 @@ Server: tencent-cos
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
 
 <AccessControlPolicy>
-    <Owner>
-        <uin>2779643970</uin>
-    </Owner>
-    <AccessControlList>
-        <Grant>
-            <Grantee type="RootAccount">
-                <uin>2779643970</uin>
-            </Grantee>
-            <Permission>FULL_CONTROL</Permission>
-        </Grant>
-    </AccessControlList>
+  <Owner>
+    <ID>qcs::cam::uin/12345:uin/12345</ID>
+    <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+        <ID>qcs::cam::uin/12345:uin/12345</ID>
+        <DisplayName>qcs::cam::uin/12345:uin/12345</DisplayName>
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+        <ID>qcs::cam::uin/54321:uin/54321</ID>
+        <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
+      </Grantee>
+      <Permission>READ</Permission>
+    </Grant>
+  </AccessControlList>
 </AccessControlPolicy>
 ```
