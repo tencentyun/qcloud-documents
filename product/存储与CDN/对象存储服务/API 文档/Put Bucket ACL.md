@@ -37,14 +37,14 @@ PUT /?acl HTTP/1.1
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 **非公共头部**
-该请求操作的实现可以用 PUT 请求中的 `x-cos-acl` 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read和private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+该请求操作的实现可以用 PUT 请求中的 `x-cos-acl` 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
 | x-cos-acl | 定义 Bucket 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
+| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
+| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
 
 ### 请求体
 该请求操作的实现也可以在请求体中帯特定请求参数来设置 Bucket 访问权限，但请求体帯参数方式和请求头帯 acl 子资源方式两者只能选一种。
