@@ -7,7 +7,7 @@ Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 ```
 GET / HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
-Date: date
+Date: GMT Date
 Authorization: auth
 ```
 
@@ -121,6 +121,7 @@ Container 节点 Owner 的内容：
 ```
 GET / HTTP/1.1
 Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Date: Wed, 18 Oct 2014 22:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213451;32557109451&q-key-time=1484213451;32557109451&q-header-list=host&q-url-param-list=&q-signature=0336a1fc8350c74b6c081d4dff8e7a2db9007dce
 ```
 
@@ -131,7 +132,7 @@ Content-Type: application/xml
 Content-Length: 1132
 Connection: keep-alive
 Vary: Accept-Encoding
-Date: Thu Jan 12 17:30:54 2017 GMT
+Date: Wed, 18 Oct 2014 22:32:00 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
 
