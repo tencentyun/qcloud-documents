@@ -5,7 +5,7 @@
 对象存储服务的 Android SDK 的下载github地址:[Android SDK](https://github.com/tencentyun/cos_android_sdk)。
 对象存储服务的 [Android SDK 本地下载](https://mc.qcloudimg.com/static/archive/0423c3be84c30d3549cfc45c13b68c7f/cos_android_sdk-master+%281%29.zip)。
 
-更多示例可参考Demo:[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/blob/master/qclouddemo.zip)。 
+更多示例可参考Demo:[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk)。 
 （本版本SDK基于JSON API封装组成）
 
 ### 开发准备
