@@ -18,6 +18,8 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 ![Alt text](https://mc.qcloudimg.com/static/img/89ad7eed50c60acb52c2769f5886e809/image.png)
 
+建议打开云硬盘的自动续费功能，防止存储在云硬盘中的数据因欠费造成不必要的损失。
+
 #### 第三步：在容器配置中设置挂载路径
 
 ![Alt text](https://mc.qcloudimg.com/static/img/a54be48bcbe8e24410361b5a2860c43f/image.png)
@@ -37,12 +39,14 @@ NFS是Network File System的简写,即网络文件系统。NFS允许一个系统
 
 #### 第六步：完成创建容器
 
+服务创建完成后，可以在同一集群内创建一个挂载该nfs盘的测试服务，测试服务可以使用任意镜像，只需要在创建测试服务时选择挂载刚创建的nfs盘。若测试服务启动成功，则说明nfs服务搭建完成。挂载nfs盘的细节请参见：[挂载详情](https://www.qcloud.com/document/product/457/9112)
+
 ### 注意事项
 
 在使用该方法创建的NFS盘服务时，请在挂载时指定挂载路径为 服务集群IP:/exports，如图所示。
 ![Alt text](https://mc.qcloudimg.com/static/img/c1f4835904370122094124950cb0df37/image.png)
 
-如果出现nfs-server无法启动等错误，可能是因为您正使用的较老集群里面不含有nfs的工具库（新建集群不会出现这种情况）。若出现这种情况，可以登录到集群节点上，按照系统的不同执行以下指令：
+如果出现挂载nfs盘时候挂载失败，且提示事件 mount: wrong fs type, bad option, bad superblock on ip:path, missing codepage or helper program, or other error (for several filesystems (e.g. nfs, cifs) ，可能是因为您正使用的较老集群里面不含有nfs的工具库（新建集群不会出现这种情况）。若出现这种情况，可以登录到集群节点上，按照系统的不同执行以下指令：
 
 对于Ubuntu 16.04系统：  
 ```shell
