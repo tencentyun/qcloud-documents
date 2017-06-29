@@ -1599,6 +1599,115 @@ locators | 消息定位符TIMMessageLocator 列表
 succ | 成功回调，返回消息列表
 fail | 失败回调
 
+### 4.11 撤回消息
+
+ImSDK 提供获撤回消息的接口。
+
+**原型： **
+
+```
+
+@interface TIMConversation (MsgExt)
+
+/**
+ *  撤回消息（仅C2C和GROUP会话有效、onlineMessage无效、AVChatRoom和BChatRoom无效）
+ *
+ *  @param msg   被撤回的消息
+ *  @param succ  成功时回调
+ *  @param fail  失败时回调
+ *
+ *  @return 0 本次操作成功
+ */
+- (int)revokeMessage:(TIMMessage*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+locators | 消息定位符TIMMessageLocator 列表
+succ | 成功回调，返回消息列表
+fail | 失败回调
+
+成功撤回消息后，群组内其他用户和C2C会话对端用户会收到一条消息撤回通知。
+
+**原型： **
+
+```
+
+@protocol TIMMessageRevokeListener <NSObject>
+@optional
+/**
+ *  消息撤回通知
+ *
+ *  @param locator 被撤回消息的标识
+ */
+- (void)onRevokeMessage:(TIMMessageLocator*)locator;
+
+@end
+
+```
+
+参数|说明
+---|---
+locator | 消息定位符sessId、sessType、isFromRevokeNotify属性有效<br>请不要使用该定位符进行 findMessage 操作
+
+收到一条消息撤回通知后，可以根据 TIMMessage 中的方法判断是否需要对消息进行撤回操作
+
+**原型： **
+
+```
+
+@interface TIMMessage (MsgExt)
+
+/**
+ *  是否为locator对应的消息
+ *
+ *  @param locator 消息定位符
+ *
+ *  @return YES 是对应的消息
+ */
+- (BOOL)respondsToLocator:(TIMMessageLocator*)locator;
+
+@end
+
+```
+
+断线重连后，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知。其他场景不需要主动同步消息撤回通知。
+
+**原型： **
+
+```
+
+@interface TIMConversation (MsgExt)
+
+/**
+ *  同步本会话的消息撤回通知（仅GROUP会话有效）
+ *
+ *  @param succ  成功时回调，同步的通知会通过TIMMessageRevokeListener抛出
+ *  @param fail  失败时回调
+ *
+ *  @return 0 本次操作成功
+ */
+- (int)syncRevokeNotify:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+
+@implementation TIMRefreshListenerImpl
+
+- (void)onRefresh
+{
+	// 如果用户在群组@"GROUP_ID_001"聊天界面
+	TIMConversation *sess = [[TIMManager sharedInstance] getConversation:TIM_GROUP receiver:@"GROUP_ID_001"];
+	[sess syncRevokeNotify:nil fail:nil];
+}
+
+@end
+
+```
+
 ## 5. 系统消息
 
 会话类型（TIMConversationType）除了C2C单聊和Group群聊以外，还有一种系统消息，系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是关系链系统消息，一种是群系统消息。
