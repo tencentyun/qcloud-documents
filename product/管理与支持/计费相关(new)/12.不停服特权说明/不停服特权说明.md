@@ -12,4 +12,6 @@
 
 ①线下汇款： 腾讯云收到汇款后将优先为您还款，剩余款项充值到您的账户。
 
-②线上充值： 从账户余额中扣费还款，您可联系商务经理或登录 [工单系统](https://console.qcloud.com/workorder/category) 提单申请从账户余额中扣费进行还款。
+②线上充值： 从账户余额中扣费还款，您可前往费用中心-[账户信息](https://console.qcloud.com/account)页，点击立即还款按钮自助进行还款。
+
+![](https://mc.qcloudimg.com/static/img/d2d9a04c8d70fea02d7d7884465f3dc1/image.png)

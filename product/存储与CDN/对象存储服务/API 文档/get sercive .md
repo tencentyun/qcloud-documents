@@ -5,24 +5,24 @@ Get Service 接口是用来获取请求者名下的所有存储空间列表（Bu
 
 语法示例：
 ```
-GET / HTTP 1.1
-Host:service.cos.myqcloud.com
-Date:date
+GET / HTTP/1.1
+Host: service.cos.myqcloud.com
+Date: date
 Authorization: Auth
 ```
 
-> Authorization:  Auth (详细参见 [访问控制](http://gggggggg) 章节)
+> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
-GET / HTTP 1.1
+GET / HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
 ### 请求头
 
 **公共头部**
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部]()章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 **非公共头部**
 该请求操作无特殊的请求头部信息。
 ### 请求体
@@ -32,9 +32,9 @@ GET / HTTP 1.1
 
 #### 响应头
 **公共响应头** 
-该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部]()章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 **特有响应头**
-该响应无特殊有响应头。
+该响应无特殊的响应头。
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
@@ -88,7 +88,7 @@ Container 节点 Bucket 的内容：
 | ------------ | ------------------------------------- | --------- |:--|
 | Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket 的名称                               | String    |
 | Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
-| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。I SO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
+| CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
 
 
@@ -96,9 +96,9 @@ Container 节点 Bucket 的内容：
 
 ### 请求
 ```
-GET / HTTP 1.1
-Host:service.cos.myqcloud.com
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1489110340;32468694340&q-key-time=1489110340;32562006340&q-header-list=host&q-url-param-list=&q-signature=cb46d5ce6daed2d3dc0db7130a57193497605620
+GET / HTTP/1.1
+Host: service.cos.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1489110340;32468694340&q-key-time=1489110340;32562006340&q-header-list=host&q-url-param-list=&q-signature=cb46d5ce6daed2d3dc0db7130a57193497605620
 ```
 
 ### 响应
@@ -107,7 +107,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 19935
 Connection: keep-alive
-Date: Fri Mar 10 09:45:46 2017
+Date: Fri Mar 10 09:45:46 2017 GMT
 Server: tencent-cos
 x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
 
