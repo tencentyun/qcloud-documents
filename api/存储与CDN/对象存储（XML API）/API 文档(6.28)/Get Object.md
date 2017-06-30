@@ -89,6 +89,7 @@ ETag: "9a4802d5c99dafe1c04da0a8e7e166bf"
 Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT
 x-cos-object-type: normal
 x-cos-request-id: NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ==
+x-cos-storage-class: STANDARD
 
 [Object]
 ```
