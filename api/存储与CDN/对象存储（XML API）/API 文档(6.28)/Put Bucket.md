@@ -30,9 +30,9 @@ PUT / HTTP/1.1
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
 | x-cos-acl | 设置 Bucket 访问权限。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubAccountID"，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
+| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，uin="RootAcountID/SubaccountID"，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubaccountID"，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
+| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubaccountID"，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
 
 ### 请求体
 该请求的请求体为空。
@@ -43,7 +43,7 @@ PUT / HTTP/1.1
 **公共响应头** 
 该响应使用公共响应头,了解公共响应头详细请参见[公共响应头部](https://www.qcloud.com/document/product/436/7729)章节。
 **特有响应头**
-该响应无特殊有响应头。
+该响应无特殊的响应头。
 #### 响应体
 该响应体返回为空。
 
