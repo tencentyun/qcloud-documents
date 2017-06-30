@@ -36,9 +36,9 @@
 
 **鉴权**
 
-协议使用MD5字段来包签名，防止竞争对手伪造数据包进行流量攻击。MD5的计算方法为：BID，requestid, TOKEN 三个字符串用&字符链接，然后整个字符串的MD5值。
+协议使用MD5字段来包签名，防止竞争对手伪造数据包进行流量攻击。MD5的计算方法为：BID，request_id, TOKEN 三个字符串用&字符链接，然后整个字符串的MD5值。
 
-MD5（BID&requestid&TOKEN）
+MD5（BID&request_id&TOKEN）
 
 **注**：目前TOKEN验证正在完善，可以先用一个字符串代替，后续再找腾讯云分配。目前接收请求的CGI还没有对这块验证，因此前期数据接入，MD5可以随便填写。
 
@@ -46,7 +46,7 @@ MD5（BID&requestid&TOKEN）
 
 **接口描述**
 
-上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的itemid可以重复上报， 字段信息以最后一次上报为准。 开发者发送http-post获取服务结果，服务URL：http://data.dm.qcloud.com:8088
+上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的item_id可以重复上报， 字段信息以最后一次上报为准。 开发者发送http-post获取服务结果，服务URL：http://data.dm.qcloud.com:8088
 
 **输入参数**
 
@@ -56,24 +56,24 @@ item上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&requestid&TOKEN)
-	"requestid":"requestid", //requestid 为“毫秒级时间戳随机数”
-	"datatype":1, //1：item，2：action
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
+	"request_id":"request_id", //request_id 为“毫秒级时间戳随机数”
+	"data_type":1, //1：item，2：action
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
-	"itemid":"itemid", //物料标识
+	"item_id":"item_id", //物料标识
 	"publish":1, //1：上架（默认），0：下架
 	"describe":"最新款黑色苹果7", //物料描述
-	"poolid":"poolid1;poolid2;poolid3", //物料池，多个池子用 ; 号隔开
+	"pool_id":"pool_id1;pool_id2;pool_id3", //物料池，多个池子用 ; 号隔开
 	"tags":"电器;科技;电子;手机", //物料标签，多个tag用 ; 号隔开
-	"itemtime":"1386817569", //物料生成时间（默认为当前时间）
-	"expiretime":"1386917763", //物料过期时间（默认itemtime + 一个月）
+	"item_time":"1386817569", //物料生成时间（默认为当前时间）
+	"expire_time":"1386917763", //物料过期时间（默认item_time + 一个月）
 	"free":0, //0：免费（默认），1：付费
 	"score":9.99, //物料打分（默认为0.0）
 	"price":88.88, //物料价格（默认为0.0）
 	"platform":1, //平台，1：android（默认），2：iphone，3：PC
-	"bigtype":"大类",
-	"middletype":"中类",
-	"smalltype ":"小类",
+	"big_type":"大类",
+	"middle_type":"中类",
+	"small_type ":"小类",
 	"url":"URL",
 	"vender":"店铺，广告主",
 	"geo":{
@@ -95,7 +95,7 @@ item上报返回JSON数据格式
 ```
 {
 
-	"requestid":"requestid", //requestid 原样返回
+	"request_id":"request_id", //request_id 原样返回
 	"code":0, //-1：格式错误，-2：系统错误，-3：算法错误
 	"msg":"true"
 
@@ -118,17 +118,18 @@ action上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&requestid&TOKEN)
-	"requestid":"requestid", //requestid 为“毫秒级时间戳随机数”
-	"datatype":2, //1：item，2：action 
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
+	"request_id":"request_id", //request_id 为“毫秒级时间戳随机数”
+	"data_type":2, //1：item，2：action 
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
-	"uidtype":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认）
-	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
-	"itemid":"itemid1;itemid2;itemid3", //物料列表,多个物料用 ; 号隔开
-	"sceneid":"1001", //广告展示场景。
-	"actiontype":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞 
-	"traceid":"traceid", //跟踪点击和曝光的自定义跟踪id
-	"actiontime":"1386817569" , //行为发生秒级时间戳（默认当前时间） 
+	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
+	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
+	"item_id":"item_id1;item_id2;item_id3", //物料列表,多个物料用 ; 号隔开
+	"scene_id":"1001", //广告展示场景。
+	"action_type":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞 
+	"source":"tx", //流量标记。tx：腾讯流量, bus：业务流量, def：默认流量
+	"trace_id":"trace_id", //跟踪点击和曝光的自定义跟踪id
+	"action_time":"1386817569" , //行为发生秒级时间戳（默认当前时间） 
 	"geo":{
 		"latitude":-90.0~90.0,
 		"longitude":-180.0~180.0,
@@ -149,7 +150,7 @@ action上报返回JSON数据格式
 ```
 {
 
-	"requestid":"requestid",
+	"request_id":"request_id",
 	"code":0, //-1：格式错误，-2：系统错误，-3：算法错误
 	"msg":"true"
 
@@ -173,16 +174,16 @@ Post报文body部分为JSON数据格式，如下所示：
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&requestid&TOKEN)
-	"servicetype":3, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
-	"requestid":"requestid", //requestid 为“毫秒级时间戳随机数”
+	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
+	"service_type":3, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
+	"request_id":"request_id", //request_id 为“毫秒级时间戳随机数”
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
-	"uidtype":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认）
-	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
-	"sceneid":"1001", //广告展示场景,请求服务时sceneid与上报数据时保持一致
-	"requestnum":50, //物料优选个数。默认每次请求50个
-	"poolid":"poolid1;poolid2", //物料池，多个池子用 ; 号隔开
-	"cid":"itemid", //当前物料（用于详情页推荐中指定当前物料）
+	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
+	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
+	"scene_id":"1001", //广告展示场景,请求服务时scene_id与上报数据时保持一致
+	"request_num":50, //物料优选个数。默认每次请求50个
+	"pool_id":"pool_id1;pool_id2", //物料池，多个池子用 ; 号隔开
+	"cid":"item_id", //当前物料（用于详情页推荐中指定当前物料）
 	"geo":{//当前lbs信息（用于考虑lbs场景的推荐）
 		"latitude":-90.0~90.0,
 		"longitude":-180.0~180.0,
@@ -197,10 +198,10 @@ Post报文body部分为JSON数据格式，如下所示：
 ```
 {
 
-   "requestid":"requestid",
+   "request_id":"request_id",
    "algid":17,
    "code":0, //-1：格式错误，-2：系统错误，-3：算法错误
-   "sceneid":"1001",
+   "scene_id":"1001",
    "data":[
      {
 	   "item":"ItemId10",
@@ -228,7 +229,7 @@ Post报文body部分为JSON数据格式，如下所示：
 ```
 {
 
-   "requestid":"requestid",
+   "request_id":"request_id",
    "code":-3,
    "msg":"empty result"
 

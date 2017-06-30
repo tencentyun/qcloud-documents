@@ -79,11 +79,12 @@ action上报JSON数据格式
 	"request_id":"request_id", //request_id 为“毫秒级时间戳_随机数”
 	"data_type":2, //1：item，2：action 
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
-	"uid_type":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认）
-	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
+	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
+	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
 	"item_id":"item_id1;item_id2;item_id3", //物料列表,多个物料用 ; 号隔开
 	"scene_id":"1001", //推荐展示场景。
-	"action_type":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞 
+	"action_type":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞
+	"source":"tx", //流量标记。tx：腾讯流量, bus：业务流量, def：默认流量 
 	"trace_id":"trace_id", //跟踪点击和曝光的自定义跟踪id
 	"action_time":"1386817569" , //行为发生时间（秒级时间戳，默认当前时间） 
 	"geo":{
@@ -125,8 +126,8 @@ pCTR 请求服务JSON数据格式
 	"service_type":0, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”
 	"bid":"BID", //腾讯云为该业务分配的业务标识
-	"uid_type":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认）
-	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
+	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
+	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
 	"scene_id":"1001", //广告展示场景。请求pCTR服务时scene_id与上报数据时保持一致。
 	"cid":"ItemId1;ItemId2;ItemId3;ItemId4;...;ItemId200", //候选素材集合（不超过200个） 
 	"site_name":"媒体网站名称或域名",
@@ -222,8 +223,8 @@ pCVR 请求服务JSON数据格式
 	"service_type":2, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选 
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”
 	"bid":"BID", //腾讯云为该业务分配的业务标识
-	"uid_type":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认） 
-	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
+	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
+	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
 	"scene_id":"1001", //广告展示场景。请求服务时scene_id与上报数据时保持一致。
 	"cid":"ItemId1;ItemId2;ItemId3;ItemId4;..;ItemId200", //候选素材集合（不超过200个）
 	"site_name":"媒体网站名称或域名",
@@ -321,8 +322,8 @@ pCVR 请求服务返回JSON数据格式
 	"service_type":4, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”,
 	"bid":"BID", //腾讯云为该业务分配的业务标识
-	"uid_type":3, //0：QQ，1：微信号，2：opened，3：设备号imei/idfa或其MD5值（默认）
-	"uid":"userId", //QQ，微信号，openid，imei/idfa或其MD5值
+	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
+	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
 	"scene_id":"1001", //广告展示场景。请求服务时scene_id与上报数据时保持一致
 	"request_num":50, //物料优选个数。默认每次请求50个
 	"pool_id":"pool_id1;pool_id2", //物料池，多个池子用 ; 号隔开
