@@ -33,7 +33,7 @@ GET / HTTP/1.1
 **公共响应头** 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 **特有响应头**
-该响应无特殊有响应头。
+该响应无特殊的响应头。
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
@@ -70,7 +70,7 @@ Container 节点 CORSRule 的内容：
 |:---|:-- |:--|:--|
 | ID | CORSConfiguration.CORSRule | 配置规则的 ID，可选填|  String |
 | AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，支持`' * '`通配符 |  Date |
-| AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作，枚举值：Get，Put，Head，Post，Delete | Enum |
+| AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，QELETE | Enum |
 | AllowedHeader | CORSConfiguration.CORSRule | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部|  String |
 | MaxAgeSeconds | CORSConfiguration.CORSRule | 设置 OPTIONS 请求得到结果的有效期 | Integer |
 | ExposeHeader | CORSConfiguration.CORSRule | 设置浏览器可以接收到的来自服务器端的自定义头部信息 | String |
