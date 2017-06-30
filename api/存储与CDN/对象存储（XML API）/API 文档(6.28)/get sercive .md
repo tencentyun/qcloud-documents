@@ -7,7 +7,7 @@ Get Service 接口是用来获取请求者名下的所有存储空间列表（Bu
 ```
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
-Date: date
+Date: GMT date
 Authorization: Auth
 ```
 
@@ -98,6 +98,7 @@ Container 节点 Bucket 的内容：
 ```
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
+Date: Thu, 12 Jan 2016 19:12:22 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1489110340;32468694340&q-key-time=1489110340;32562006340&q-header-list=host&q-url-param-list=&q-signature=cb46d5ce6daed2d3dc0db7130a57193497605620
 ```
 
@@ -107,7 +108,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 19935
 Connection: keep-alive
-Date: Fri Mar 10 09:45:46 2017 GMT
+Date: Thu, 12 Jan 2016 19:12:22 GMT
 Server: tencent-cos
 x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
 
