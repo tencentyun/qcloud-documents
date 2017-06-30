@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket CORS 接口实现持有者在 Bucket 上配置跨域资源共享的信息。（CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+Get Bucket CORS 接口实现持有者在 Bucket 上配置跨域资源共享的信息。（CORS 是一个 W3C 标准，全称是"跨域资源共享"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
 
