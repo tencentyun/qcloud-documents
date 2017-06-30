@@ -2,16 +2,16 @@
 
 ### SDK 获取
 
-对象存储服务的 iOS SDK 的GitHub下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git) 
+对象存储服务的 iOS SDK 的下载地址：[iOS SDK](https://github.com/tencentyun/COS_iOS_SDK.git)
 
 [iOS SDK 本地下载](https://mc.qcloudimg.com/static/archive/0633ca265fd08f98a260705799b79461/COS_iOS_SDK-master.zip)
 
-更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git) 
+更多示例可参考Demo：[iOS Demo](https://github.com/tencentyun/COS_iOS_SDK.git)
 （本版本SDK基于JSON API封装组成）
 
 ### 开发准备
 
--  iOS 7.0+；
+-  iOS 8.0+；
 -  手机必须要有网络（GPRS、3G或Wifi网络等）；
 -  从控制台获取APP ID、SecretID、SecretKey。
 
@@ -20,21 +20,28 @@
 
 #### SDK 导入
 
-COS 的 iOS SDK压缩包组成：
+##### 使用Cocoapods导入
 
-- COSClientSDK.zip
+在Podfile文件中使用：
 
-压缩包中都包含了一个 .a 静态库和一个包含头文件的文件夹 Headers，如下图所示。上传包提供了支持 bitcode 版本，与不支持 bitcode 版本，可根据业务需要进行选择。
+~~~
+pod "QCloudCOSV4"
+~~~
 
-![上传SDK](https://mccdn.qcloud.com/static/img/05f5a1d6768985aa11b23c3808914989/image.png)
+##### 使用静态库导入
+```
+git clone https://github.com/tencentyun/COS_iOS_SDK.git
+```
 
-![下载SDK](https://mccdn.qcloud.com/static/img/190e5c8c4920ba4d7334f7ba64fd3839/image.png)
+将目录**coslib**下面的文件拖入到工程中即可：
 
-将解压后的 COSSDK 拖入工程目录，Xcode 会自动将其加入链接库列表中。
+![](https://ws3.sinaimg.cn/large/006tNc79gy1fgm77ref66j30l0094dgv.jpg)
 
-![导入 SDK 包](https://mccdn.qcloud.com/static/img/96dda4e5f2e4f8fab3fbda3de1cd8e25/image.png)
 
-**注意：**上传/下载SDK包可根据业务需求选择性导入。
+将目录**coslib**下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
+
+
+
 
 #### 工程配置
 
@@ -46,7 +53,7 @@ COS 的 iOS SDK压缩包组成：
 
 如果想要在程序中使用HTTPS协议，请做如下设置：
 ```objective-c
-COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@"sh";//@“sh”bucket所在机房
 [client openHttpsRequest:YES];
 ```
 
@@ -63,15 +70,15 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称   | 类型          | 是否必填 | 说明                                 |
-| ------ | ----------  | ---- | ---------------------------------- |
-| appId  | NSString *  | 是    | 项目ID，即APP ID。                      |
-| region | NSString *  | 是    | bucket被创建的时候机房区域，比如华东园区：“sh” ，华南园区："gz"，华北园区："tj" |
+| 参数名称   | 类型         | 是否必填 | 说明                                       |
+| ------ | ---------- | ---- | ---------------------------------------- |
+| appId  | NSString * | 是    | 项目ID，即APP ID。                            |
+| region | NSString * | 是    | bucket被创建的时候机房区域，比如华东园区：“sh” ，华南园区："gz"，华北园区："tj" |
 
 #### 示例
 
 ```objective-c
-COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 ```
 
 ## 快速入门
@@ -139,7 +146,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 **签名获取：**
 
-移动端 SDK 中用到的签名，为了保障密钥等信息的安全性，推荐用户自建简单的密钥创建和获取服务，客户端在使用时向服务器先请求合法的签名。
+移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。
 
 ## 目录操作
 
@@ -262,9 +269,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型             | 说明     |
 | ------- | -------------- | ------ |
-| retCode | int            | 正常返回0，错误返回非0，并描述结果状态信息。 |
-| descMsg | NSString    *  | 正常返回OK，错误返回错误描述信息。  |
-| data    | NSDictionary * | 描述结果状态信息 |
+| retCode | int            | 任务描述代码 |
+| descMsg | NSString    *  | 任务描述信息 |
+| data    | NSDictionary * | 任务描述信息 |
 
 
 #### 示例
@@ -367,7 +374,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSListDirCommand *cm = [COSListDirCommand new];
+    COSListDirCommand *cm = [COSListDirCommand new]；
     cm.directory = dir;
     cm.bucket = bucket;
     cm.sign = _sign;
@@ -435,9 +442,8 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 | --------- | ---------- | ---------------------------------- |
 | retCode   | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
 | descMsg   | NSString * | 任务描述信息                             |
-| accessURL | NSString * | 成功后，后台返回文件的 CDN url                |
-| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
-| httpsURL | NSString * | 成功后，后台返回文件的 https url                 |
+| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
+| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
 
 #### 示例
 
@@ -515,7 +521,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 1. 实例化 COSObjectMetaCommand  对象；
 2. 调用 COSClient 的 getObjectInfo 命令，传入 COSObjectMetaCommand   对象；
-3. 通过COSObjectMetaTaskRsp 对象返回结果信息
+3. 通过COSObjectMetaTaskRsp 类返回结果信息
 
 
 #### 参数说明
@@ -540,7 +546,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 #### 示例
 
 ```objective-c
- 
+
     COSObjectMetaCommand *cm = [COSObjectMetaCommand new] ;
 	cm.fileName = file;
 	cm.bucket = bucket;
@@ -589,7 +595,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 ```objective-c
 
-    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new];
+    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
 	cm.fileName = file;
 	cm.bucket = bucket;
     cm.directory = dir;
@@ -693,7 +699,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
     task.insertOnly = YES;
     task.sign = _sign;
     COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];  client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-       
+
         if (rsp.retCode == 0) {
           //sucess
         }else{ }
@@ -709,55 +715,53 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 调用此接口进行文件的下载操作，具体步骤如下：
 
-1. 实例化 COSObjectMultipartResumePutTask  对象；
-2. 调用 COSClient  的 ObjectResumePutMultipart 命令，传入 COSObjectMultipartResumePutTask   对象。
-3. 通过COSObjectUploadTaskRsp  的对象返回结果信息
-4. 当分片上传的任务被中断了，可以进行续传；
+1. 实例化 COSObjectPutTask ；
+2. 调用 COSClient 对象的 putObject 方法，将 之前上传过的COSObjectPutTask  对象传入；
+3. 通过COSObjectUploadTaskRsp的对象返回结果信息
 
 #### 参数说明
 
-| 参数名称            | 类型         | 是否必填 | 说明                                   |
-| --------------- | ---------- | ---- | ------------------------------------ |
-| filePath        | NSString * | 是    | 文件路径                                 |
-| sign            | NSString * | 是    | 签名                                   |
-| bucket          | NSString * | 是    | 目标 Bucket 名称                         |
-| fileName        | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
-| attrs           | NSString * | 否    | 文件自定义属性                              |
-| directory       | NSString * | 是    | 文件上传目录，相对路径 ,举例“/path”               |
-| insertOnly      | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
-
+| 参数名称       | 类型         | 是否必填 | 说明                                   |
+| ---------- | ---------- | ---- | ------------------------------------ |
+| filePath   | NSString * | 是    | 文件路径                                 |
+| sign       | NSString * | 是    | 签名                                   |
+| bucket     | NSString * | 是    | 目标 Bucket 名称                         |
+| fileName   | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
+| attrs      | NSString * | 否    | 文件自定义属性                              |
+| directory  | NSString * | 是    | 文件上传目录，相对路径 ,举例“/path”               |
+| insertOnly | BOOL       | 是    | 上传文件的动作是插入覆盖，举例“YES”  文件不会覆盖之前的上传的文件 |
 
 #### 返回结果说明
 
-通过COSObjectUploadTaskRsp 的对象返回结果信息
+通过COSObjectUploadTaskRsp的对象返回结果信息
 
-| 属性名称    | 类型         | 说明                                 |
-| ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
-| descMsg | NSString * | 任务描述信息                             |
+| 属性名称      | 类型         | 说明                                 |
+| --------- | ---------- | ---------------------------------- |
+| retCode   | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| descMsg   | NSString * | 任务描述信息                             |
+| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
+| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
 
 #### 示例
 
 ```objective-c
 
-    COSObjectMultipartResumePutTask *task = [[COSObjectMultipartResumePutTask alloc] init];
-    task.filePath = path;
-    task.fileName = fileName;
-    task.bucket = bucket;
-    task.attrs = @"customAttribute";
-    task.directory = dir;
-    task.insertOnly = YES;
-    task.sign = _sign;
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];  client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-       
-        if (rsp.retCode == 0) {
-          //sucess
-        }else{ }
-    };
-    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
-      //进度
-    };
-    [client ObjectResumePutMultipart:task];
+COSObjectPutTask *task = [COSObjectPutTask new];
+task.filePath = path;
+task.fileName = fileName;
+task.bucket = bucket;
+task.attrs = @"customAttribute";
+task.directory = dir;
+task.insertOnly = YES;
+task.sign = _sign;
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+if (resp.retCode == 0) {
+//sucess
+}else{}
+};
+client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+//progress
+};
+[client putObject:task];
 ```
-
-
