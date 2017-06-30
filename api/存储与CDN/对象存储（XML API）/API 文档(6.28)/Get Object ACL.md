@@ -1,6 +1,5 @@
 ## 功能描述
-Get Object ACL 接口用来获取某个 Bucket 下的某个 Object 的访问权限。只有 Bucket 的持有者才有权限操作。如果某个 Object 没有设置过 ACL，调用 Get Object ACL 时，响应返回的 Object ACL 会是 default，表明该 Object ACL 遵循 Bucket ACL 。
-
+Get Object ACL 接口用来获取某个 Bucket 下的某个 Object 的访问权限。只有 Bucket 的持有者才有权限操作。
 ## 请求
 
 语法示例：
@@ -103,7 +102,7 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息。type 类型可以为 RootAcount， Subaccount；</br>当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anonymous（指代所有类型用户）。</br>当 type 类型为 RootAcount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息。type 类型可以为 RootAcount， Subaccount；</br>当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anyone（指代所有类型用户）。</br>当 type 类型为 RootAcount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |
 
 Container 节点 Grantee 的内容：
