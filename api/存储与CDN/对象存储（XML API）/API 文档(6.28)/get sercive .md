@@ -7,7 +7,7 @@ Get Service 接口是用来获取请求者名下的所有存储空间列表（Bu
 ```
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
-Date: GMT date
+Date: GMT Date
 Authorization: Auth
 ```
 
