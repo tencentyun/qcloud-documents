@@ -47,6 +47,7 @@ PUT /<ObjectName> HTTP/1.1
 | Expires |RFC 2616 中定义的过期时间，将作为 Object 元数据保存。|String| 否|
 | x-cos-meta-`*`  | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。|String| 否|
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD（目前只支持华南园区）|String| 否|
+
 **权限相关头部**
 该请求操作的实现可以用 Put 请求中的 x-cos-acl 头来设置 Object 访问权限。有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 
