@@ -25,12 +25,12 @@ GET /?uploads HTTP/1.1
 
 | 名称               | 描述                                       | 类型     | 必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
-| delimiter        | 定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有Common Prefix。如果没有Prefix，则从路径起点开始 | String | 否    |
+| delimiter        | 定界符为一个符号，如果有 prefix，则将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
 | encoding-type    | 规定返回值的编码方式                               | String | 否    |
-| Prefix           | 前缀匹配，用来规定返回的文件前缀地址                       | String | 否    |
+| prefix           | 前缀匹配，用来规定返回的文件前缀地址                       | String | 否    |
 | max-uploads      | 单次返回最大的条目数量，默认1000                       | String | 否    |
-| key-marker       | 与upload-id-marker一起使用<Br/>当upload-id-marker未被指定时，ObjectName字母顺序大于key-marker的条目将被列出<Br/>当upload-id-marker被指定时，ObjectName字母顺序大于key-marker的条目被列出，ObjectName字母顺序等于key-marker同时UploadID大于upload-id-marker的条目将被列出。 | String | 否    |
-| upload-id-marker | 与key-marker一起使用<Br/>当key-marker未被指定时，upload-id-marker将被忽略<Br/>当key-marker被指定时，ObjectName字母顺序大于key-marker的条目被列出，ObjectName字母顺序等于key-marker同时UploadID大于upload-id-marker的条目将被列出。 | String | 否    |
+| key-marker       | 与 upload-id-marker 一起使用<Br/>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出<Br/>当upload-id-marker被指定时，ObjectName 字母顺序大于key-marker的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
+| upload-id-marker | 与 key-marker 一起使用<Br/>当 key-marker 未被指定时，upload-id-marker 将被忽略<Br/>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 
 ### 请求头
 
@@ -56,7 +56,7 @@ GET /?uploads HTTP/1.1
 ```
 <ListMultipartUploadsResult>
   <Bucket></Bucket>
-  <Encoding-type></Encoding-type>
+  <Encoding-Type></Encoding-Type>
   <KeyMarker></KeyMarker>
   <UploadIdMarker></UploadIdMarker>
   <NextKeyMarker></NextKeyMarker>
@@ -64,13 +64,13 @@ GET /?uploads HTTP/1.1
   <MaxUploads></MaxUploads>
   <IsTruncated></IsTruncated>
   <Prefix></Prefix>
-  <delimiter></delimiter>
+  <Delimiter></Delimiter>
   <Upload>
     <Key></Key>
     <UploadID></UploadID>
     <StorageClass></StorageClass>
     <Initiator>
-      <UID></UID>
+      <UIN></UIN>
     </Initiator>
     <Owner>
       <UID></UID>
@@ -93,7 +93,7 @@ Container 节点 ListMultipartUploadsResult 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | Bucket | ListMultipartUploadsResult | 分块上传的目标 Bucket |  String |
-| Encoding-type | ListMultipartUploadsResult | 规定返回值的编码方式 |  String |
+| Encoding-Type | ListMultipartUploadsResult | 规定返回值的编码方式 |  String |
 | KeyMarker | ListMultipartUploadsResult| 列出条目从该 key 值开始 |  String |
 | UploadIdMarker | ListMultipartUploadsResult | 列出条目从该 UploadId 值开始 |  String |
 | NextKeyMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回 NextKeyMarker 就是下一个条目的起点 | String |
@@ -101,9 +101,9 @@ Container 节点 ListMultipartUploadsResult 的内容：
 | MaxUploads | ListMultipartUploadsResult | 单次返回最大的条目数量 |  String |
 | IsTruncated | ListMultipartUploadsResult | 返回条目是否被截断，布尔值：TRUE，FALSE |  Boolean |
 | Prefix | ListMultipartUploadsResult | 前缀匹配，用来规定返回的文件前缀地址 |  String |
-| delimiter | ListMultipartUploadsResult | 定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始 |  String |
+| Delimiter | ListMultipartUploadsResult | 定界符为一个符号，如果有 prefix，则将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 prefix，则从路径起点开始 |  String |
 | Upload | ListMultipartUploadsResult  | 每个 Upload 的信息 |  Container |
-| CommonPrefixs | ListMultipartUploadsResult | 将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix |  Container |
+| CommonPrefixs | ListMultipartUploadsResult | 将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix |  Container |
 
 Container 节点 Upload 的内容：
 
@@ -120,7 +120,7 @@ Container 节点 Initiator 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| UID | ListMultipartUploadsResult.Upload.Initiator | 开发商 APPID | String  |
+| UIN | ListMultipartUploadsResult.Upload.Initiator | 开发商 APPID | String  |
 
 Container 节点 Owner 的内容：
 
@@ -167,7 +167,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>Object</Key>
         <UploadID>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadID>
         <Initiator>
-            <UID/>
+           <UIN>14847266009/14847266009<UIN/>
         </Initiator>
         <Owner>
             <UID>1251668577</UID>
@@ -179,7 +179,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>Object</Key>
         <UploadID>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadID>
         <Initiator>
-            <UID/>
+            <UIN>14847266009/14847266009<UIN/>
         </Initiator>
         <Owner>
             <UID>1251668577</UID>
@@ -191,7 +191,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
         <Key>ObjectName</Key>
         <UploadID>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadID>
         <Initiator>
-            <UID/>
+            <UIN>14847266009/14847266009<UIN/>
         </Initiator>
         <Owner>
             <UID>1251668577</UID>
