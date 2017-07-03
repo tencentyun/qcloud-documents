@@ -5,7 +5,7 @@ Put Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 语法示例：
 ```
 PUT /ObjectName HTTP/1.1
-Host:<BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: authorization string
 ```
@@ -29,6 +29,7 @@ PUT /<ObjectName> HTTP/1.1
 **必选头部**
 
 该请求操作需要用到如下必选请求头：
+
 |参数名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。|String| 是|
@@ -45,7 +46,7 @@ PUT /<ObjectName> HTTP/1.1
 | Expect | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容。|String| 否|
 | Expires |RFC 2616 中定义的过期时间，将作为 Object 元数据保存。|String| 否|
 | x-cos-meta-`*`  | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。|String| 否|
-| x-cos-storage-class  | 设置Object的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD（目前只支持华南园区）|String| 否|
+| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD（目前只支持华南园区）|String| 否|
 **权限相关头部**
 该请求操作的实现可以用 Put 请求中的 x-cos-acl 头来设置 Object 访问权限。有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 
