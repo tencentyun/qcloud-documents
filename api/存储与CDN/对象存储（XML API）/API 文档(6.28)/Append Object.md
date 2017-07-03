@@ -35,7 +35,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见[公共请求头部](https://www.qcloud.com/document/product/436/7728)章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 **必选头部**
