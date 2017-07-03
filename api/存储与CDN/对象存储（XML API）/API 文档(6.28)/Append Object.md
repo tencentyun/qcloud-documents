@@ -64,12 +64,12 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 **权限相关头部**
 该请求操作的实现可以用 POST 请求中的 x-cos-acl 头来设置文件访问权限。目前 Object 访问权限有三种：public-read-write，public-read和private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 
-|节点名称（关键字）|描述|类型|必选|
+|名称|描述|类型|必选|
 |:---|:-- |:--|:--|
-| x-cos-acl | 设置 Object 的访问权限。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，uin="RootAcountID/SubaccountID"，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubaccountID"，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，uin="RootAcountID/SubaccountID"，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
+| x-cos-acl | 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
+| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
+| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
 
 ### 请求体
 该请求的请求体为空。
