@@ -1,7 +1,7 @@
 ## 1. 集成小视频功能扩展包
 从 [官网](https://www.qcloud.com/product/im.html#sdk) 下载ImSDK开发包，小视频功能扩展包。
 
-ImSDK包的功能见[概述]()， 小视频功能扩展包各个文件功能如下：
+ImSDK包的功能见[概述](/product/269/9227)， 小视频功能扩展包各个文件功能如下：
 ```
 ugc_ext_libs
 ├── arm64-v8a
@@ -441,7 +441,6 @@ conExt.getMessage(10, null, new TIMValueCallBack<List<TIMMessage>>() {
 	public void onSuccess(List<TIMMessage> timMessages) {
 		Log.i(tag, "get msgs succ, size: " + timMessages.size());
 		for(TIMMessage msg : timMessages) {
-			Log.i(tag, DumpStruct.dumpTIMMessage(msg));
 			for(int i = 0; i < msg.getElementCount(); i++){
 				TIMElem elem = msg.getElement(i);
 				//过滤小视频消息
@@ -457,7 +456,7 @@ conExt.getMessage(10, null, new TIMValueCallBack<List<TIMMessage>>() {
 
 						@Override
 						public void onSuccess() {
-							Log.e(tag, "download cover succ");
+							Log.d(tag, "download cover succ");
 						}
 					});
 
@@ -471,7 +470,7 @@ conExt.getMessage(10, null, new TIMValueCallBack<List<TIMMessage>>() {
 
 						@Override
 						public void onSuccess() {
-							Log.e(tag, "download video succ");
+							Log.d(tag, "download video succ");
 						}
 					});
 				}
