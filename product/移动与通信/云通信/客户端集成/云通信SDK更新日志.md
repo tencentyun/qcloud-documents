@@ -1,3 +1,8 @@
+#### IM SDK3.1.0 2017-7-3
+1、新增IMUGCExt.framework和TXRTMPSDK.framework，提供小视频录制和上传功能
+2、新增消息撤回功能
+
+
 #### IM SDK2.5.5 2017-6-6
 1. 优化内部回包逻辑，减少耗时
 2. LOG时间精度精确到毫秒
