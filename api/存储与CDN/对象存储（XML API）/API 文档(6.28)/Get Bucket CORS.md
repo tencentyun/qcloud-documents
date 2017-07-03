@@ -70,7 +70,7 @@ Container 节点 CORSRule 的内容：
 |:---|:-- |:--|:--|
 | ID | CORSConfiguration.CORSRule | 配置规则的 ID，可选填|  String |
 | AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，支持`' * '`通配符 |  Date |
-| AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，QELETE | Enum |
+| AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE | Enum |
 | AllowedHeader | CORSConfiguration.CORSRule | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部|  String |
 | MaxAgeSeconds | CORSConfiguration.CORSRule | 设置 OPTIONS 请求得到结果的有效期 | Integer |
 | ExposeHeader | CORSConfiguration.CORSRule | 设置浏览器可以接收到的来自服务器端的自定义头部信息 | String |
