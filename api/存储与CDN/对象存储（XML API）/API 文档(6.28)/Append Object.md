@@ -31,7 +31,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 
 |名称|描述|必选|
 |:---|:-- |:--|
-| Position | 追加操作的起始点，单位：字节。首次追加 Position=0，后续追加 Position=当前 Object 的 content-length | 是 |
+| Position | 追加操作的起始点，单位：字节。<br/>首次追加 Position=0，后续追加 Position=当前 Object 的 content-length | 是 |
 
 ### 请求头
 #### 公共头部
