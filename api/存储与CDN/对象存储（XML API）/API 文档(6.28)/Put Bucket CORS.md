@@ -64,19 +64,19 @@ PUT /?cors HTTP/1.1
 具体的数据描述如下：
 
 |节点名称（关键字）|父节点|描述|类型|必选 |
-|:---|:-- |:--|:--|
+|:---|:-- |:--|:--|:--|
 | CORSConfiguration |无| 说明跨域资源共享配置的所有信息，最多可以包含100条 CORSRule | Container | 是 |
 
 Container 节点 CORSConfiguration 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选 |
-|:---|:-- |:--|:--|
+|:---|:-- |:--|:--|:--|
 | CORSRule | CORSConfiguration | 说明单条配置的信息 |  Container | 是 |
 
 Container 节点 CORSRule 的内容：
 
 |节点名称（关键字）|父节点|描述|类型| 必选 |
-|:---|:-- |:--|:--|
+|:---|:-- |:--|:--|:--|
 | ID | CORSConfiguration.CORSRule | 配置规则的 ID，可选填|  String |否 |
 | AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，支持`' * '`通配符 |  Date |是 |
 | AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE | Enum |是 |
