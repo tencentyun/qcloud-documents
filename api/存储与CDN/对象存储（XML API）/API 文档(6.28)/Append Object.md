@@ -42,7 +42,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 该请求操作的实现需要使用 Content-Length 必选头部。
 
 |节点名称（关键字）|描述|类型|必选|
-|:---|:-- |:--|
+|:---|:-- |:--|:--|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。 | String |是 |
 
 
