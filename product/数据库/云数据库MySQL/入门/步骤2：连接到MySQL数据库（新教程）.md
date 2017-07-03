@@ -7,7 +7,7 @@
 1. 登录到与此数据库实例属于同一个可用区的网络可达的CVM主机。
 关于登录CVM主机请查看<a href="https://www.qcloud.com/document/product/213/2783" target="_blank">WIndows CVM入门</a>或<a href="https://www.qcloud.com/document/product/213/2973" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MySQL数据库实例都处于基础网络之中，或者处于同一个VPC中。
 1. 请根据CVM的操作系统选择推荐的连接方式。
-* Windows系统
+* 从Windows系统登录
 1）下载一个标准的SQL客户端。此步骤中我们推荐您下载MySQL Workbench，这是Windows系统下较常见的SQL客户端。在CVM中打开https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
 ![](//mc.qcloudimg.com/static/img/4d7e6c56f02aad86f232e5cdd8c0bb17/image.png)
 2）界面上将提示【Login】, 【Sign Up】和【No, thanks, just start my download.】， 请选择【No, thanks, just start my download.】来快速下载。
@@ -24,7 +24,7 @@
 5）登录成功的界面如图所示，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 	![](//mc.qcloudimg.com/static/img/abd8efce579343d25f534143c19c132e/image.png)
 	
-* Linux系统
+* 从Linux系统登录
 1）以CentOS 7.2 64位系统的CVM为例，利用CentOS自带的包管理软件Yum去腾讯云的镜像源下载安装MySQL客户端。
 	相关命令为：
 	```yum install mysql```
@@ -43,7 +43,7 @@
 # 外网访问
 <font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。
 请根据外网中主机的操作系统选择对应的登录方式。
-**- Windows：**
+**- 从Windows系统登录**
 1. 在[腾讯云控制台](https://console.qcloud.com/)中，依次单击【云产品】-【关系型数据库】-【MySQL】-【实例列表】，选择状态为运行中的目标实例，点击【登录】。
 ![](//mc.qcloudimg.com/static/img/248ca91c3b13e3f249c752f43019ed1a/image.png)
 1. 在数据管理控制台的登录界面，帐号输入root，密码为之前在初始化选项中配置的root账户的密码，点击【登录】来登录。
@@ -53,7 +53,7 @@
 1. 您现在已经通过phpMyAdmin成功连接到MySQL数据库，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/c8f60117f5aec772663d3c7890c96b1e/image.png)
 
-**-Linux：**
+**-从Linux系统登录**
 1）在腾讯云控制台中，选择【云产品】-【关系型数据库】-【MySQL-实例列表】，点击目标实例的ID进入实例详情页。
 ![](//mc.qcloudimg.com/static/img/018350e48f1d535d105c3c6340d36b2d/image.png)
 2）在实例详情页点击外网地址后的【开启】，设置外网访问帐号cdb_outerroot对应的密码，点击【确定】。
