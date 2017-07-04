@@ -2,7 +2,7 @@
 
 开发者使用功能之前，需要先注册腾讯云账号，添加密钥，并在万象优图创建bucket。
 
-## 2. OCR接口
+## 2. 接口概述
 
 OCR接口采用http协议，支持指定图片URL和上传本地图片文件两种方式。
 
@@ -25,8 +25,7 @@ OCR接口采用http协议，支持指定图片URL和上传本地图片文件两�
 | Content-Type   | Application/json  或者  Multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                     | 用于鉴权的签名，使用多次有效签名。[详情](https://www.qcloud.com/doc/product/275/3805) |
 
-
-### 2.1      驾驶证OCR
+## 3.接口描述
 
 1) 接口
 http://recognition.image.myqcloud.com/ocr/drivinglicence
