@@ -47,7 +47,7 @@ POST /?delete HTTP/1.1
 该请求操作需要请求头帯必选头部参数，具体内容如下：
 
 |名称|描述|类型|必选|
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
 | Content-MD5 | RFC 1864 中定义的 128位 内容 MD5 算法校验值| String | 是 |
 
@@ -69,7 +69,7 @@ POST /?delete HTTP/1.1
 具体内容描述如下：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:---|:---|
+|:---|:---|:---|:---|:---|
 | Delete |无| 说明本次删除的返回结果方式和目标 Object | Container | 是 |
 | Quiet | Delete|布尔值，这个值决定了是否启动 Quiet 模式。<br> 值为 True 启动 Quiet 模式，值为 False 则启动 Verbose 模式，默认值为 False | Boolean | 否 |
 | Object |Delete |RFC 1864 中定义的 128位 内容 MD5 算法校验值| Container | 是 |
@@ -102,26 +102,26 @@ POST /?delete HTTP/1.1
 具体内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | DeleteResult |无| 说明本次删除返回结果的方式和目标 Object | Container | 
 
 Container 节点 DeleteResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Deleted | DeleteResult |说明本次删除的成功 Object 信息 | Boolean | 
 | Error| DeleteResult | 说明本次删除的失败 Object 信息 | Container | 
 
 Container 节点 Deleted 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Key | DeleteResult.Deleted | Object 的名称 | String |
 
 Container 节点 Error 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Key | DeleteResult.Error | 删除失败的 Object 的名称 | String |
 | Code  | DeleteResult.Error | 删除失败的错误代码 | String |
 | Message | DeleteResult.Error | 删除失败的错误信息 | String |
