@@ -20,8 +20,8 @@
 | sign | [Security signature](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
 | Param.s.channel_id | Channel ID | string | | Yes |
 | Param.s.start_time  | Start time of task | string  | Standard date_time which needs urlencode, such as: 2017-01-01%2010:10:01 | Y |
-| Param.s.end_time | End time of task | string   | Standard date_time which needs urlencode, such as: 2017-01-01%2010:10:01. <br>The difference between the start time and end time of recording task cannot exceed 30 minutes. When the duration of recording reaches 30 minutes, the recording automatically ends. It is recommended to limit the duration to 5 minutes.   | Y |
-| Param.n.task_sub_type  | Whether to enable real-time recording | int| Default is 0, and 1 means enabling real-time recording. <br>(1) If real-time recording is enabled, the video recording starts at the moment when you call this API. In this case, the input parameter of task start time is invalid. <br>(2) When real-time recording is enabled, if the end time of task is input, the recording ends at this end time. If no end time is input, the recording automatically ends after 30 minutes. <br>(3) When real-time recording is enabled, if the difference between the start time of recording and the input end time of recording exceeds 30 minutes, the recording ends automatically after 30 minutes. It is recommend to limit the duration of real-time recording to 5 minutes on console. | N |
+| Param.s.end_time | End time of task | string   | Standard date_time which needs urlencode, such as: 2017-01-01%2010:10:01. | Y |
+| Param.n.task_sub_type  | Whether to enable real-time recording | int| Default is 0, and 1 means enabling real-time recording. <br>(1) If real-time recording is enabled, the video recording starts at the moment when you call this API. In this case, the input parameter of task start time is invalid. <br>(2) When real-time recording is enabled, if the end time of task is input, the recording ends at this end time. | N |
 
 
 ## 3. Output Parameters
