@@ -25,7 +25,7 @@ CSR生成分两种方式，可任选一种进行CSR生成   在线生成CSR，�
 ![](https://mc.qcloudimg.com/static/img/20dc6aa55cb7bc2c7e925f79f82e7036/image.png)
 
 ##### 2.2.2 多域名证书
-【通用名称】填写绑定证书的域名
+【通用名称】填写绑定证书的域名   
 【域名】填写与通用名称不同的其它域名
 ![](https://mc.qcloudimg.com/static/img/9c82c45ecd4e0822a0bada2178c585a9/image.png)
 
@@ -48,7 +48,8 @@ CSR生成分两种方式，可任选一种进行CSR生成   在线生成CSR，�
 ![](https://mc.qcloudimg.com/static/img/6f6388814fc389df39659f7f1b0c9da1/image.png)
 
 ### 5. 上传审核
-CSR提交后，用户还需提交确认函。点击【下载确认函】，进行确认函信息补充填写。   用户完成确认函填写后，加盖公章进行文件扫描，点击【上传审核】进行确认函上传
+CSR提交后，用户还需提交确认函。点击【下载确认函】，进行确认函信息补充填写。   
+用户完成确认函填写后，加盖公章进行文件扫描，点击【上传审核】进行确认函上传
 ![](https://mc.qcloudimg.com/static/img/7c00a8b91c5b38f8eb4697940ff8b1b4/image.png)
 
 提交后，进行弹窗提示，等待线下亚洲诚信工作人员与CA机对提交材料进行确认与审核
