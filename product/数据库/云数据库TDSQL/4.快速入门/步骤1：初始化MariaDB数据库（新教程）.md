@@ -3,7 +3,7 @@
 ![](//mc.qcloudimg.com/static/img/511cad3621447b36d204b87bf83bb09f/image.png)
 1. 在关系型数据库页面中，单击【TDSQL(MariaDB)】下的【实例列表】，找到目标地域（此例中以广州为例）中要操作的状态为“**未初始化**”的MariaDB数据库实例。
 ![](//mc.qcloudimg.com/static/img/d947b9c5326ae79c36ff283335d56b65/image.png)
-1. 单击【初始化】对要操作的MySQL实例执行初始化。
+1. 单击【初始化】对要操作的MariaDB 数据库实例执行初始化。
 ![](//mc.qcloudimg.com/static/img/038c3fe9ba91793d68023f0fb5ec6df0/image.png)
 
 1. 配置初始化参数，然后单击【确定】开始初始化。
