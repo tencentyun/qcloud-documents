@@ -48,14 +48,15 @@
 本例中hostname为10.30.0.7。
 ![](//mc.qcloudimg.com/static/img/f8dccff34309cfd332f600f1ceb35ff1/image.png)
 3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：<https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html>
-下图中以`show databases；`为例。![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
+下图中以`show databases；`为例。
+![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
 ### 外网访问
 <font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库入侵或攻击。
 1. 获取数据库的外网地址。
 1). 单击运行中的MariaDB数据库实例的ID名，进入详情页。
 ![](//mc.qcloudimg.com/static/img/08e24afbf51b941df4b8c4a893857b31/image.png)
-2). 在**实例详情**页点击外网地址后的打开，开启此数据库实例的外网地址。
+2). 在**实例详情**页点击外网地址后的【打开】，开启此数据库实例的外网地址。
 ![](//mc.qcloudimg.com/static/img/e4793d117939c3f56c5f3d63b0491fe9/image.png)
 3). 查看此数据库实例的外网地址。
 下图中，此数据库的外网域名为：	tdsql-6gy3mopk.gz.cdb.myqcloud.com，端口号为：114
@@ -86,5 +87,6 @@ mysql -h hostname -P port -u username -p
 ![](//mc.qcloudimg.com/static/img/230ca6d65526050e062c3f59186d4e6c/image.png)
 3). 在MySQL>提示符下可以发送SQL语句到要执行的MariaDB服务器，具体命令行请参考此网站：
 <https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html>
-下图中以 `show databases；`为例。![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
+下图中以 `show databases；`为例。
+![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
