@@ -19,7 +19,7 @@ Authorization: Auth
 ```
 PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 ```
-该 API 接口接受PUT 请求。
+该 API 接口接受 PUT 请求。
 
 ### 请求头
 
