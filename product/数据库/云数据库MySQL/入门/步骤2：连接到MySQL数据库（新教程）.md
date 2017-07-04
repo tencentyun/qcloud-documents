@@ -14,12 +14,11 @@
 	![](//mc.qcloudimg.com/static/img/7169ce063b1b41c58c48089bc2a61441/image.png)
 3). 在此台CVM上安装MySQL Workbench。前置条件：此电脑上需要安装Microsoft .NET Framework 4.5和Visual C++ Redistributable for Visual Studio 2015。 您可以点击MySQL Workbench安装向导中的【Download Prerequisites】来安装这两个软件，然后安装MySQL Workbench。
 	![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
-	
-4). 打开MySQL Workbench，选择【Database】-【Connect to Database】，输入MySQL数据库实例的内网地址和用户名，密码，点击【OK】进行登录。
-- Hostname：输入内网地址。在控制台中的MySQL数据库实例详情页可以查看到目标数据库实例的内网地址，此处以10.66.238.24为例。
-- Port：3306，保持为默认端口即可。
-- Username：默认为root。
-- Password：输入您在初始化数据库实例时设置的密码。
+	4). 打开MySQL Workbench，选择【Database】-【Connect to Database】，输入MySQL数据库实例的内网地址和用户名，密码，点击【OK】进行登录。
+ - Hostname：输入内网地址。在控制台中的MySQL数据库实例详情页可以查看到目标数据库实例的内网地址，此处以10.66.238.24为例。
+ - Port：3306，保持为默认端口即可。
+ - Username：默认为root。
+ - Password：输入您在初始化数据库实例时设置的密码。
 	![](//mc.qcloudimg.com/static/img/feb4b95b1038532330e876a605016b87/image.png)
 5). 登录成功的界面如图所示，在此页面上您可以看到MySQL数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 	![](//mc.qcloudimg.com/static/img/abd8efce579343d25f534143c19c132e/image.png)
