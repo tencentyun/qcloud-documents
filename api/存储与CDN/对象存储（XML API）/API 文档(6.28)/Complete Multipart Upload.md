@@ -52,13 +52,13 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 |:---|:-- |:--|:--|:--|
 | CompleteMultipartUpload |无| 用来说明本次分块上传的所有信息 | Container |是|
 
-Container 节点 ListPartsResult 的内容：
+Container 节点 CompleteMultipartUpload 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
 | Part |CompleteMultipartUpload| 用来说明本次分块上传中每个块的信息 | Container |是|
 
-Container 节点 ListPartsResult 的内容：
+Container 节点 Part 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
@@ -75,12 +75,12 @@ Container 节点 ListPartsResult 的内容：
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
-<CompleteMultipartUpload>
+<CompleteMultipartUploadResult>
   <Location></Location>
   <Bucket></Bucket>
   <Key></Key>
   <ETag></ETag>
-</CompleteMultipartUpload>
+</CompleteMultipartUploadResult>
 ```
 具体的数据内容如下：
 
@@ -88,16 +88,16 @@ Container 节点 ListPartsResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| CompleteMultipartUpload |无| 说明所有返回信息 | Container |
+| CompleteMultipartUploadResult |无| 说明所有返回信息 | Container |
 
-Container 节点 CompleteMultipartUpload 的内容：
+Container 节点 CompleteMultipartUploadResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Location |CompleteMultipartUpload| 创建的Object的外网访问域名 | URI |
-| Bucket |CompleteMultipartUpload| 分块上传的目标Bucket | String |
-| Key |CompleteMultipartUpload| Object的名称 | String |
-| ETag |CompleteMultipartUpload| 合并后文件的 MD5 算法校验值| String |
+| Location |CompleteMultipartUploadResult| 创建的Object的外网访问域名 | URI |
+| Bucket |CompleteMultipartUploadResult| 分块上传的目标Bucket | String |
+| Key |CompleteMultipartUploadResult| Object的名称 | String |
+| ETag |CompleteMultipartUploadResult| 合并后文件的 MD5 算法校验值| String |
 
 ## 实际案例
 
@@ -121,11 +121,11 @@ Date: Wed，18 Jan 2017 16:17:03 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 
-<CompleteMultipartUpload>
+<CompleteMultipartUploadResult>
     <Location>arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com/ObjectName</Location>
     <Bucket>arlenhuangtestsgnoversion</Bucket>
     <Key>ObjectName</Key>
     <ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
-</CompleteMultipartUpload>
+</CompleteMultipartUploadResult>
 
 ```
