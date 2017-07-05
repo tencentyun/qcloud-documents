@@ -51,21 +51,21 @@ GET /?acl HTTP/1.1
 ```
 <AccessControlPolicy>
   <Owner>
-    <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-    <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+    <ID>qcs::cam::uin/<OwnerUin>:uin/<SubUin></ID>
+    <DisplayName>qcs::cam::uin/<OwnerUin>:uin/<SubUin></DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-      <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-      <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+      <ID>qcs::cam::uin/<OwnerUin>:uin/<SubUin></ID>
+      <DisplayName>qcs::cam::uin/<OwnerUin>:uin/<SubUin></DisplayName>
       </Grantee>
       <Permission></Permission>
     </Grant>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-        <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-        <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+        <ID>qcs::cam::uin/<OwnerUin>:uin/<SubUin></ID>
+        <DisplayName>qcs::cam::uin/<OwnerUin>:uin/<SubUin></DisplayName>
       </Grantee>
       <Permission></Permission>
     </Grant>
@@ -90,7 +90,7 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：`qcs::cam::uin/<OnwerUin>:uin/<SubUin>` 如果是根帐号，`<OnwerUin>` 和 `<SubUin> `是同一个值 |  String |
+| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>` 如果是根帐号，`<OwnerUin>` 和 `<SubUin> `是同一个值 |  String |
 | DisplayName | AccessControlPolicy.Owner |  Bucket 持有者的名称 |  String |
 
 Container 节点 AccessControlList 的内容：
@@ -103,7 +103,7 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAcount， Subaccount；</br>当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anyone（指代所有类型用户）。</br>当 type 类型为 RootAcount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAcount， Subaccount；</br>当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以用 anyone（指代所有类型用户）带替 `uin/<OwnerUin>`。</br>当 type 类型为 RootAcount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |
 
 Container 节点 Grantee 的内容：
