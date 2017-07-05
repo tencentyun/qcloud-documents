@@ -36,7 +36,7 @@ OPTIONS /ObjectName HTTP/1.1
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| Origin | 模拟跨域访问的请求来源域名| String | 是 |
+| Origin | 模拟跨域访问的请求来源域 | String | 是 |
 | Access-Control-Request-Method | 模拟跨域访问的请求 HTTP 方法| String | 是 |
 
 
@@ -60,11 +60,11 @@ OPTIONS /ObjectName HTTP/1.1
 
 |名称|描述|类型|
 |:---|:---|:---|
-| Access-Control-Allow-Origin | 模拟跨域访问的请求来源域名，当来源不允许的时候，此 Header 不返回。 | String | 否 |
-| Access-Control-Allow-Methods | 模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回。 | String | 否 |
-| Access-Control-Allow-Headers | 模拟跨域访问的请求头部，当模拟任何请求头部不允许的时候，此 Header 不返回该请求头部。| String | 否 |
-| Access-Control-Expose-Headers | 跨域支持返回头部，用逗号区分| String | 否 |
-| Access-Control-Max-Age | 设置 OPTIONS 请求得到结果的有效期 | String | 否 |
+| Access-Control-Allow-Origin | 模拟跨域访问的请求来源域名，当来源不允许的时候，此 Header 不返回。 | String | 
+| Access-Control-Allow-Methods | 模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回。 | String | 
+| Access-Control-Allow-Headers | 模拟跨域访问的请求头部，当模拟任何请求头部不允许的时候，此 Header 不返回该请求头部。| String | 
+| Access-Control-Expose-Headers | 跨域支持返回头部，用逗号区分| String | 
+| Access-Control-Max-Age | 设置 OPTIONS 请求得到结果的有效期 | String | 
 
 #### 响应体
 该请求的响应体为空。
