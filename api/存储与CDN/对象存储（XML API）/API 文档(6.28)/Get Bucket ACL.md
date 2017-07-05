@@ -110,7 +110,7 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式：`qcs::cam::uin/<OnwerUin>:uin/<SubUin> `如果是根帐号，`<OnwerUin>` 和 `<SubUin>` 是同一个值|  String |
+| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式：`qcs::cam::uin/<OwnerUin>:uin/<SubUin> `如果是根帐号，`<OwnerUin>` 和 `<SubUin>` 是同一个值|  String |
 | DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 
