@@ -42,9 +42,9 @@ PUT /ObjectName?acl HTTP/1.1
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
 | x-cos-acl | 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，<br/>当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，<br/>当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"，<br/>当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>" | String|  否 |
+| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br/>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`，<br/>当需要给根账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；<br/>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`，<br/>当需要给根账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>" `|String |  否 |
+| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br/>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`，<br/>当需要给根账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String|  否 |
 
 ### 请求体
 该请求操作的实现也可以在请求体中帯特定请求参数来设置 Object 访问权限，但请求体帯参数方式和请求头帯 ObjectName?acl 子资源方式两者只能选一种。
