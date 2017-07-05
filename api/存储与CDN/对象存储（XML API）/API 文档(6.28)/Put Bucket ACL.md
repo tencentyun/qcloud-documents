@@ -73,39 +73,39 @@ PUT /?acl HTTP/1.1
 具体的数据内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|
+|:---|:-- |:--|:--|:--|
 | AccessControlPolicy |无| 保存 Get Bucket ACL 结果的容器 | Container |是|
 
 Container 节点 AccessControlPolicy 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|
+|:---|:-- |:--|:--|:--|
 | Owner | AccessControlPolicy | Bucket 持有者信息 |  Container |是|
 | AccessControlList | AccessControlPolicy | 被授权者信息与权限信息 |  Container |是|
 
 Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|
+|:---|:-- |:--|:--|:--|
 | ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：`qcs::cam::uin/<OnwerUin>:uin/<SubUin>` 如果是根帐号，`<OnwerUin>` 和 `<SubUin> `是同一个值 |  String |是|
 
 Container 节点 AccessControlList 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
-| ------------ | ------------------------------------- | --------- |:--|
+| ------------ | ------------------------------------- | --------- |:--|:--|
 | Grant | AccessControlPolicy.AccessControlList | 单个 Bucket 的授权信息。一个 AccessControlList 可以拥有 100 条 Grant | Container    |是|
 
 Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
-| ------------ | ------------------------------------- | --------- |:--|
+| ------------ | ------------------------------------- | --------- |:--|:--|
 | Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAcount， SubAccount；</br>当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anonymous（指代所有类型用户）。</br>当 type 类型为 RootAcount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |是|
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |是|
 
 Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
-| ------------ | ------------------------------------- | --------- |:--|
+| ------------ | ------------------------------------- | --------- |:--|:--|
 | ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，</br>格式：`qcs::cam::uin/<OnwerUin>:uin/<SubUin>` 如果是根帐号，`<OnwerUin>` 和 `<SubUin> `是同一个值|  String |是|
 
 
