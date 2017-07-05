@@ -45,7 +45,7 @@ PUT /<ObjectName> HTTP/1.1
 | Content-Type |RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存。|String| 否|
 | Expect | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容。|String| 否|
 | Expires |RFC 2616 中定义的过期时间，将作为 Object 元数据保存。|String| 否|
-| x-cos-meta-`*`  | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。|String| 否|
+| x-cos-meta-`*`  | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K。|String| 否|
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD（目前只支持华南园区）|String| 否|
 
 **权限相关头部**
@@ -54,9 +54,9 @@ PUT /<ObjectName> HTTP/1.1
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
 | x-cos-acl | 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
-| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" | String |  否 |
-| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" |String |  否 |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OnwerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAcountID" | String|  否 |
+| x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: uin=" ",uin=" "；</br> 当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAccountID" | String |  否 |
+| x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAccountID" |String |  否 |
+| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: uin=" ",uin=" "；</br>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`，当需要给根账户授权时，uin="RootAccountID" | String|  否 |
 
 ### 请求体
 该请求的请求体为 Object 文件内容。
