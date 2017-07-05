@@ -3,5 +3,5 @@ The remote console can help users debug their containers quickly and connect to 
 
 ## Help Topics
 - [Basic Operations of Remote Console](https://www.qcloud.com/document/product/457/9120)
-- [Other Container Login Methods](http://panshi.isd.com/helpCenterNew/helpManager/article#/doc/457/9119)
+- [Other Container Login Methods](https://www.qcloud.com/document/product/457/9119)
 

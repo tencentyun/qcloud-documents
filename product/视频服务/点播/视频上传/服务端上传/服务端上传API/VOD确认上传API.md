@@ -3,6 +3,10 @@ CommitUpload
 
 ## 功能说明
 1. 确认视频文件（和视频封面文件）的上传，获取文件的播放地址和文件 ID。
+2. 该 API 在服务端上传位于哪个步骤请参考[服务端上传综述](/document/product/266/9759#.E4.B8.8A.E4.BC.A0.E6.B5.81.E7.A8.8B)。
+
+## SDK
+建议使用[点播服务端 SDK](/document/product/266/7982) 进行 API 的调用。
 
 ## 请求方式
 
@@ -45,7 +49,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=CommitUpload
 |---------|---------|
 | 4000-7000 | 参见[公共错误码](/document/product/266/7783)  |
 | 31001 | VodSessionKey错误  |
-| 32001 | 服务内部错误  |
+| 32001 | 服务内部错误 |
 
 ### 应答示例
 ```javascript
