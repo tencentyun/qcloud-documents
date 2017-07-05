@@ -25,10 +25,10 @@ GET /?uploads HTTP/1.1
 
 | 名称               | 描述                                       | 类型     | 必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
-| delimiter        | 定界符为一个符号，如果有 prefix，则将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
-| encoding-type    | 规定返回值的编码方式                               | String | 否    |
-| prefix           | 前缀匹配，用来规定返回的文件前缀地址                       | String | 否    |
-| max-uploads      | 单次返回最大的条目数量，默认1000                       | String | 否    |
+| delimiter        | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的object作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
+| encoding-type    | 规定返回值的编码格式，合法值：url                               | String | 否    |
+| prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix                       | String | 否    |
+| max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000                       | String | 否    |
 | key-marker       | 与 upload-id-marker 一起使用<Br/>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出<Br/>当upload-id-marker被指定时，ObjectName 字母顺序大于key-marker的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 | upload-id-marker | 与 key-marker 一起使用<Br/>当 key-marker 未被指定时，upload-id-marker 将被忽略<Br/>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 
@@ -93,15 +93,15 @@ Container 节点 ListMultipartUploadsResult 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | Bucket | ListMultipartUploadsResult | 分块上传的目标 Bucket |  String |
-| Encoding-Type | ListMultipartUploadsResult | 规定返回值的编码方式 |  String |
+| Encoding-Type | ListMultipartUploadsResult | 规定返回值的编码格式，合法值：url |  String |
 | KeyMarker | ListMultipartUploadsResult| 列出条目从该 key 值开始 |  String |
 | UploadIdMarker | ListMultipartUploadsResult | 列出条目从该 UploadId 值开始 |  String |
 | NextKeyMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回 NextKeyMarker 就是下一个条目的起点 | String |
 | NextUploadIdMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回 UploadId 就是下一个条目的起点 |  String |
-| MaxUploads | ListMultipartUploadsResult | 单次返回最大的条目数量 |  String |
+| MaxUploads | ListMultipartUploadsResult | 设置最大返回的 multipart 数量，合法取值从 1 到 000 |  String |
 | IsTruncated | ListMultipartUploadsResult | 返回条目是否被截断，布尔值：TRUE，FALSE |  Boolean |
-| Prefix | ListMultipartUploadsResult | 前缀匹配，用来规定返回的文件前缀地址 |  String |
-| Delimiter | ListMultipartUploadsResult | 定界符为一个符号，如果有 prefix，则将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 prefix，则从路径起点开始 |  String |
+| Prefix | ListMultipartUploadsResult | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix |  String |
+| Delimiter | ListMultipartUploadsResult | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的object作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 |  String |
 | Upload | ListMultipartUploadsResult  | 每个 Upload 的信息 |  Container |
 | CommonPrefixs | ListMultipartUploadsResult | 将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix |  Container |
 
@@ -111,9 +111,9 @@ Container 节点 Upload 的内容：
 |:---|:-- |:--|:--|
 | Key | ListMultipartUploadsResult.Upload |  Object 的名称 |  Integer |
 | UploadID | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID | Integer |
-| StorageClass | ListMultipartUploadsResult.Upload |  用来表示分块的存储级别，枚举值：Standard，Standard_IA，Nearline  |  String |
-| Initiator | ListMultipartUploadsResult.Upload |  用来表示本次上传发起者的信息，子节点包括UID |  Container |
-| Owner | ListMultipartUploadsResult.Upload | 用来表示这些分块所有者的信息，子节点包括UID |  Container |
+| StorageClass | ListMultipartUploadsResult.Upload |  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE  |  String |
+| Initiator | ListMultipartUploadsResult.Upload |  用来表示本次上传发起者的信息 |  Container |
+| Owner | ListMultipartUploadsResult.Upload | 用来表示这些分块所有者的信息 |  Container |
 | Initiated | ListMultipartUploadsResult.Upload |  分块上传的起始时间 |  Date |
 
 Container 节点 Initiator 的内容：
