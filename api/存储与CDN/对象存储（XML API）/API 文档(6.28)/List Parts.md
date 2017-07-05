@@ -24,8 +24,8 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
 
 |参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| UploadId | 标示本次分块上传的ID | String | 是 |
-| Encoding-type | 规定返回值的编码方式 | String | 否 |
+| uploadId | 标示本次分块上传的ID | String | 是 |
+| encoding-type | 规定返回值的编码方式 | String | 否 |
 | max-parts | 单次返回最大的条目数量，默认 1000 | String | 否 |
 | part-number-marker | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 | String | 否 |
 
@@ -53,7 +53,7 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 <ListPartsResult>
   <Bucket></Bucket>
-  <Encoding-Type></Encoding-Type>
+  <Encoding-type></Encoding-type>
   <Key></Key>
   <UploadId></UploadId>
   <Initiator>
@@ -70,7 +70,7 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
   <Part>
     <PartNumber></PartNumber>
     <LastModified></LastModified>
-    <Etag></Etag>
+    <ETag></ETag>
     <Size></Size>
   </Part>
 </ListPartsResult>
@@ -86,7 +86,7 @@ Container 节点 ListPartsResult 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | Bucket | ListPartsResult | 分块上传的目标 Bucket | String |
-| Encoding-Type | ListPartsResult | 规定返回值的编码方式 |  String |
+| Encoding-type | ListPartsResult | 规定返回值的编码方式 |  String |
 | Key | ListPartsResult | Object 的名称 |  String |
 | UploadId | ListPartsResult | 标识本次分块上传的 ID |  String |
 | Initiator | ListPartsResult | 用来表示本次上传发起者的信息 | Container |
@@ -116,7 +116,7 @@ Container 节点 Part 的内容：
 |:---|:-- |:--|:--|
 | PartNumber | ListPartsResult.Part |  块的编号 |  String |
 | LastModified |  ListPartsResult.Part  |  块最后修改时间  |  Date |
-| Etag |  ListPartsResult.Part |  Object 块的 SHA-1 算法校验值 |  String |
+| ETag |  ListPartsResult.Part |  Object 块的 SHA-1 算法校验值 |  String |
 | Size |  ListPartsResult.Part  |  块大小，单位 Byte |  String |
 
 ## 实际案例
