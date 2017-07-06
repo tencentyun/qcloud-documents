@@ -19,7 +19,7 @@ DELETE /ObjectName HTTP/1.1
 ```
 #### 请求参数
 **命令参数**
-该 API 接口使用到的命令参数为 &lt;ObjectName&lt;。
+该 API 接口使用到的命令参数为 &lt;ObjectName&gt;。
 
 ### 请求头
 
