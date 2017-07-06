@@ -89,7 +89,7 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| ID | AccessControlPolicy.Owner |  Object 持有者 ID，</br>格式：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>` 如果是根帐号，<OwnerUin> 和 <SubUin> 是同一个值 |  String |
+| ID | AccessControlPolicy.Owner |  Object 持有者 ID，</br>格式：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>` 如果是根帐号，`<OwnerUin>` 和 `<SubUin>` 是同一个值 |  String |
 | DisplayName | AccessControlPolicy.Owner |  Object 持有者的名称 |  String |
 
 Container 节点 AccessControlList 的内容：
@@ -102,7 +102,7 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息。type 类型可以为 RootAccount， Subaccount；</br>当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以用 anyone（指代所有类型用户）代替 `uin/<OwnerUin>`。</br>当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息。type 类型可以为 RootAccount， Subaccount；</br>当 type 类型为 RootAcount 时，可以在 id 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 `uin/<OwnerUin>`。</br>当 type 类型为 Subaccount 时，id 代表根账户账号，Subaccount 代表子账户账号  | Container    |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |
 
 Container 节点 Grantee 的内容：
