@@ -16,7 +16,7 @@ Authorization: auth
 ```
 HEAD / HTTP/1.1
 ```
-该 API 接口接受 DELETE 请求。
+该 API 接口接受 HEAD 请求。
 
 ### 请求头
 
