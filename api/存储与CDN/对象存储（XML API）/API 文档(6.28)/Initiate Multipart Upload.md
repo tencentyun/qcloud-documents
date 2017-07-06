@@ -8,10 +8,10 @@ Initiate Multipart Upload 接口请求实现初始化分片上传，成功执行
 POST /Object?uploads HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: Auth
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
@@ -39,7 +39,7 @@ POST /Object?uploads HTTP/1.1
 | Content-Encoding | RFC 2616 中定义的编码格式，将作为 Object 元数据保存。| String | 否 |
 | Content-Type| RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存。| String | 否 |
 | Expires | RFC 2616 中定义的文件名称，将作为 Object 元数据保存。| String | 否 |
-| x-cos-meta-`*` | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。 | String | 否 |
+| x-cos-meta- * | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。 | String | 否 |
 | x-cos-storage-class | 设置Object的存储级别，枚举值：Standard, Standard_IA, Nearline，默认值：Standard（目前只支持华南园区）| String | 否 |
 
 **权限相关头部**
