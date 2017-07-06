@@ -11,7 +11,6 @@
 /iLiveSDK | SDK的头文件和库文件  | 
 /doc | 接口文档和其他说明文档  | 
 suixinbo_run | 可以直接运行的demo程序 | 
-iLiveSDK_1.3.1.0.zip | 老版本的ilivesdk |
 
 
 ## 运行和体验demo
