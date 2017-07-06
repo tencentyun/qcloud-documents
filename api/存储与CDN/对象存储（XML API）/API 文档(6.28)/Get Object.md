@@ -83,7 +83,7 @@ Content-Type: application/octet-stream
 Content-Length: 16087
 Connection: keep-alive
 Accept-Ranges: bytes
-Content-Disposition: attachment; filename*="UTF-8''123"
+Content-Disposition: attachment; filename="filename.jpg"
 Content-Range: bytes 0-16086/16087
 ETag: "9a4802d5c99dafe1c04da0a8e7e166bf"
 Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT
