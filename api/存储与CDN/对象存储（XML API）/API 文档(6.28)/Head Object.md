@@ -8,11 +8,11 @@ Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head �
 HEAD /ObjectName HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: auth
+Authorization: Auth String
 
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
@@ -49,7 +49,7 @@ HEAD /ObjectName HTTP/1.1
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| x-cos-meta-`*` | 用户自定义的 meta | String | 否 |
+| x-cos-meta- * | 用户自定义的 meta | String | 否 |
 | x-cos-object-type | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String | 否 |
 | x-cos-storage-class | Object 的存储级别，枚举值：Standard, Standard_IA, Nearline| String | 否 |
 
