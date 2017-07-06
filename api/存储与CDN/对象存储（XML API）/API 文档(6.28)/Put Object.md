@@ -7,10 +7,10 @@ Put Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 PUT /ObjectName HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: authorization string
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
