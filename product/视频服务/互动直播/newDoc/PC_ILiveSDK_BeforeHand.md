@@ -31,7 +31,7 @@ suixinbo_run.zip为已经编译好的可执行包，解压后，直接双击suix
 
 ### 直播间操作
 主播和观众可以在直播间内进行设备管理，推流录制，收发消息，连麦互动
-![直播房间](https://mc.qcloudimg.com/static/img/170071f70b13d09af4acd323df351420/3.png)
+![直播房间](https://mc.qcloudimg.com/static/img/aa77c098fe7f2a2885fd817cd2643987/avroom.png)
 
 ## 运行demo工程
 ### 安装Qt环境
