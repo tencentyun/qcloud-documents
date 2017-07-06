@@ -15,10 +15,10 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-length: Size
-Authorization: Auth
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
