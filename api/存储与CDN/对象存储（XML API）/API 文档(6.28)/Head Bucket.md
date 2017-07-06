@@ -7,10 +7,10 @@ Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。
 HEAD / HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: auth
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
@@ -47,9 +47,9 @@ HEAD / HTTP/1.1
 ### 请求
 ```
 HEAD / HTTP/1.1
-Host:zuhaotestsgnoversion-1251668577.sg.myqcloud.com
+Host: zuhaotestsgnoversion-1251668577.sg.myqcloud.com
 Date: Thu, 27 Oct 2015 20:32:00 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484640517;32557536517&q-key-time=1484640517;32557536517&q-header-list=host&q-url-param-list=&q-signature=7bedc2f84a0a3d29df85fe727d0c1e388c410376
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484640517;32557536517&q-key-time=1484640517;32557536517&q-header-list=host&q-url-param-list=&q-signature=7bedc2f84a0a3d29df85fe727d0c1e388c410376
 ```
 
 ### 响应
