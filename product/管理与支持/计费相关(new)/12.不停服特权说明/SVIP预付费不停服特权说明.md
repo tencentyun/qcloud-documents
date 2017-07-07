@@ -1,4 +1,4 @@
-1.不停服保障范围：除设置了到期不再续费以外的其他预付费产品，包括：云服务器，云数据库MySQL，云数据库SQL Server，云数据库TDSQL，云数据库PostgreSQL，云数据库MongoDB，云数据库MongoDB分片，云数据库HBase，云存储Redis，黑石物理服务器，云硬盘，专用宿主机，独享集群数据库，VPN，运维VPN，BGP高防IP。
+1.预付费不停服保障范围：除设置了到期不再续费以外的其他预付费产品，包括：云服务器，云数据库MySQL，云数据库SQL Server，云数据库TDSQL，云数据库PostgreSQL，云数据库MongoDB，云数据库MongoDB分片，云数据库HBase，云存储Redis，黑石物理服务器，云硬盘，专用宿主机，独享集群数据库，VPN，运维VPN，BGP高防IP。
 
 2.续费时间：设备到期前8天系统自动续费，续费时长为1个月。
 
