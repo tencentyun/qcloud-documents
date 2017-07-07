@@ -110,7 +110,7 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式：`qcs::cam::uin/<OwnerUin>:uin/<SubUin> `如果是根帐号，`<OwnerUin>` 和 `<SubUin>` 是同一个值|  String |
+| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式： qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是根帐号，&lt;OwnerUin&gt;  和 &lt;SubUin&gt; 是同一个值|  String |
 | DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 
@@ -148,7 +148,7 @@ x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
         <ID>qcs::cam::uin/54321:uin/54321</ID>
-        <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
+        <DisplayName>qcs::cam::anyone:anyone</DisplayName>
       </Grantee>
       <Permission>READ</Permission>
     </Grant>
