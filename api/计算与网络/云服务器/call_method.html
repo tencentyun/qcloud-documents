@@ -1,0 +1,347 @@
+<div class="sect1">
+<h2 id="_调用方式">调用方式</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_请求方式">请求方式</h3>
+<div class="paragraph">
+<p>调用 API ，实际上就是是对一个指定的 URL 进行 GET 请求</p>
+</div>
+<div class="paragraph">
+<p>其中请求 URL 由以下几部分组成：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>域名: 实际的请求域名根据 Action 实际所属的模块而各异, 以 <code>DescribeInstances</code> 为例，其请求域名为：cvm.api.qcloud.com</p>
+</li>
+<li>
+<p>路径: 目前，云API的请求路径固定为 <code>/v2/index.php</code></p>
+</li>
+<li>
+<p>请求参数串: 包括公共参数和接口参数，注意：一旦缺失<a href="#COMMON_ARGS">公共参数</a>，请求将无法被 Action 处理。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>最终的请求 URL 的拼接规则为:</p>
+</div>
+<div class="paragraph">
+<p>https:// + 请求域名 + 请求路径 + ? + 请求参数串（包括公共参数和接口参数）</p>
+</div>
+<div class="paragraph">
+<p>假设用户想要查询广州地域的云服务器实例列表，则其请求链接的形式可能如下:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">GET https://cvm.api.qcloud.com/v2/index.php? <b class="conum">(1)</b>
+
+Action=DescribeInstances
+&amp;SecretId=xxxxxxx
+&amp;Region=ap-guangzhou
+&amp;Timestamp=1465055529   <b class="conum">(2)</b>
+&amp;Nonce=59485
+&amp;Signature=mysignature
+&amp;SignatureMethod=HmacSHA256
+
+&amp;InstanceIds.0=ins-0hm4gvho <b class="conum">(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>请求域名</p>
+</li>
+<li>
+<p>公共参数</p>
+</li>
+<li>
+<p>接口参数</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="COMMON_ARGS">公共请求参数列表</h3>
+<div class="paragraph">
+<p>公共请求参数是每个接口都需要使用到的请求参数，如非必要, 在各个接口单独的文档中不再对这些参数进行说明, 但每次请求均需要携带这些参数, 才能正常发起请求。</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>参数名称</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>是否必选</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>描述</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Action</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>是</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>具体操作的指令接口名称，例如想要调用查询实例列表接口，则 Action 参数即为 DescribeInstances。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Region</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>否</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>区域参数，用来标识希望操作哪个区域的实例
+* 正常情况下此参数是必须的，如无需传入，则会在相应接口中进行特殊说明
+* 某些区域仅面向部分用户开放</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Timestamp</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>是</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>当前UNIX时间戳，可记录发起 API 请求的时间。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Nonce</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>是</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>随机正整数，与 Timestamp 联合起来, 用于防止重放攻击。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>SecretId</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>是</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>在云API密钥上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey , 而 SecretKey 会用来生成请求签名 Signature。具体可参考 签名方法 页面。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Signature</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>是</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>请求签名，用来验证此次请求的合法性，需要用户根据实际的输入参数计算得出。计算方法可参考 <a href="https://www.qcloud.com/document/api/213/6984">此处</a>。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>SignatureMethod</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>否</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>签名方式，目前支持 SHA256和 SHA1。只有指定此参数为 SHA256 时，才使用 SHA256 算法验证签名，其他情况均使用 SHA1 验证签名。当前建议您使用 SHA256，具体签名计算方法可参考 签名方法 页面。</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Token</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>否</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>临时证书所用的 Token，需要结合临时密钥一起使用。长期密钥不需要 Token。</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_返回值的定义">返回值的定义</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_正常返回">正常返回</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "Response": { <b class="conum">(1)</b>
+        "InstanceSet": [ <b class="conum">(2)</b>
+           "ins-a19qoqqk"
+        ],
+        "RequestId": "22471ac8-24a1-4653-af32-e375fb64ab58" <b class="conum">(3)</b>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Response 的出现代表着腾讯云收到了一个正常请求，正在处理或者已经被处理。</p>
+</li>
+<li>
+<p>典型的数据字段，它被每个 Action 所自定义，其内容根据每个 Action 的不同而所有出入。</p>
+</li>
+<li>
+<p>RequestId 用于一个 API 请求的唯一标识，如果 API 出现异常，可以联系我们，并提供该 ID 来解决问题。</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_异常返回">异常返回</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+
+    "Error": { <b class="conum">(1)</b>
+        "Code": "InvalidParameterCombination", <b class="conum">(2)</b>
+        "Message": "The combination of parameters between InstanceType and .SystemDisk.DiskType in incorrect" <b class="conum">(3)</b>
+    },
+    "RequestId": "edc94b6d-9416-45b6-8cd2-ced02e6cf2ec" <b class="conum">(4)</b>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Error 的出现代表着腾讯云无法处理这个请求。</p>
+</li>
+<li>
+<p>Code 标识了这个错误的大体原因，可能描述的并不明确，但是不会经常发生变更。</p>
+</li>
+<li>
+<p>Message 显示出了这个错误发生的具体原因，随着业务发展或体验优化，此文本可能会经常保持变更或更新，您不应依赖这个返回值。</p>
+</li>
+<li>
+<p>RequestId 用于一个 API 请求的唯一标识，如果 API 出现异常，可以联系我们，并提供该 ID 来解决问题。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_内部文档">内部文档</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_内部业务方调用方式">内部业务方调用方式</h3>
+<div class="paragraph">
+<p>CVM API 对于腾讯云内部业务方单独提供一个调用方式，无需通过API鉴权。</p>
+</div>
+<div class="paragraph">
+<p>具体调用方式为：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">curl -d '{}' http://server:8520/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>返回包的形式为标准JSON，亦完全符合本文档中的 API 返回值定义。</p>
+</div>
+<div class="paragraph">
+<p>每个地域均可访问到 cvmapiv3.tencentyun.com</p>
+</div>
+<div class="paragraph">
+<p>如需跨地域调用，可以通过下列域名：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>bj.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>sh.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>gz.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>shjr.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>szjr.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>gzopen.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>ca.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>hk.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>sg.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>usw.cvmapiv3.tencentyun.com</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>相关IP可参见：
+ <a href="http://yun.isd.com/index.php/package/instances/?path=/cloud/cvm_api">PKG包</a>管理中各地域机房的IP。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_工程实现与实践">工程实现与实践</h3>
+<div class="paragraph">
+<p>本项目基于以下开源项目或标准构建，可以在时间允许的情况下，更多的了解下面的技术。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CPython 3.6  (Python语言的解释器)</p>
+</li>
+<li>
+<p>Gevent（一种基于libevent事件循环的协程实现）
+每次time.sleep 或者 socket.recv 等操作时，隐含了yeild 语义。</p>
+</li>
+<li>
+<p>uWSGI（一个比较完善的易于运维的容器）</p>
+</li>
+<li>
+<p>CBOR：<code>the general-purpose schema-less binary data format</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>也就是说，CBOR可以看成是json的一个二进制版本，非人类可读，但是在各种基准测试中比json实现要快10倍。而且占用空间小。相比于protobuf，cbor不用预先
+定义二进制的struct。与json一样自由。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TOML：<code>是ini的一个超集。我们将其用作MASTER的标准配置文件格式。</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>不同于ini没有一个协议标准，TOML是Github所定义的具有严格标准且同json等价的格式。也就是说toml可以表达json能表达的全部内容，而对人类更加友好。避&gt;免了使用不同解析器对相同ini的不同解读的同时，也获得了更丰富的表达形式。同SPP使用的yaml相比，可读性更好，移植性也更好。</p>
+</div>
+</div>
+</div>
+</div>
