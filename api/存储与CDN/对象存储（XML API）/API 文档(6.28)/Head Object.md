@@ -47,11 +47,11 @@ HEAD /ObjectName HTTP/1.1
 **特有响应头**
 该请求操作的响应头具体数据为：
 
-|名称|描述|类型|必选|
-|:---|:---|:---|:---|
-| x-cos-meta- * | 用户自定义的 meta | String | 否 |
-| x-cos-object-type | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String | 否 |
-| x-cos-storage-class | Object 的存储级别，枚举值：Standard, Standard_IA, Nearline| String | 否 |
+|名称|描述|类型|
+|:---|:---|:---|
+| x-cos-meta- * | 用户自定义的 meta | String | 
+| x-cos-object-type | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String | 
+| x-cos-storage-class | Object 的存储级别，枚举值：Standard, Standard_IA, Nearline| String | 
 
 #### 响应体
 该请求的响应体为空。
