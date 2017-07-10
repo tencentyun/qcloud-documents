@@ -2,7 +2,7 @@
 
 ## 1 下载SDK
 [Cocos2D SDK 下载](https://www.qcloud.com/document/product/556/10041)
-
+[Cocos2D Demo 下载](https://www.qcloud.com/document/product/556/10042)
 
 下载SDK包解压后，目录结构如下：  
 ![](https://mc.qcloudimg.com/static/img/2f7a1f0e63529d18107011635287be2a/ml.png)
