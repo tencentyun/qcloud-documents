@@ -20,7 +20,7 @@
 | DeviceCode | String | 否 | 用户手机设备码，可用于定位具体某一个用户网络状况，非必填项。|
 | Timestamp | int | 是 | 时间戳 |
 | Nonce | int | 是 | 随机整数，如 12345 |
-| Signature | String | 是 | 签名信息，参见 [生成签名信息](/document/api/213/6976) 页面。|
+| Signature | String | 是 | 签名信息，参见 [生成签名信息](/document/product/594/10034) 页面。|
 
 
 ## 3. 输出参数
