@@ -8,6 +8,7 @@ GcloudVoice 客户端SDK目前主要有实时语音(Real-Time)、离线语音(Me
 GcloudVoice 客户端SDK接口主要分成三个部分：基本API、实时语音API以及离线语音API。
 
 ### 1.1 系统配置和基本使用
+[Android SDK 下载](https://www.qcloud.com/document/product/556/10041)
 下载Android SDK包后，导入Jar包和SO文件到android工程后。按如下流程即可接入。 主要是导入包
 ![](https://mc.qcloudimg.com/static/img/6f5adac586a22176e7f27155c2cb095f/1.png) 
 然后通过    
