@@ -1,8 +1,8 @@
 ## 1. 接口描述
 
-本接口 (geturl) 用于获取手机用户的唯一标识查询地址，改地址可以查询手机用户在运营商数据库的唯一标识。
+本接口 (geturl) 用于获取手机用户的唯一标识值查询地址，该地址可以查询手机用户在运营商数据库的唯一标识值。
 
-接口请求域名地址：<font style="color:red">https://qos.api.qcloud.com/qos </font>
+接口请求域名地址：<font style="color:red">https://qos.api.qcloud.com/qos 或 https://qos.api.cloud.tencent.com/qos  </font>
 
 * 请求方式：GET。
 
@@ -10,7 +10,7 @@
 
 | 参数名称| 类型| 是否必选| 描述|
 |---------|---------|---------|---------|
-| Action | String | 是 | 接口方法名。 |
+| Action | String | 是 | 接口方法名，固定值为“geturl”。 |
 | ReqType | int | 是 | 0-客户端发起，1-服务器发起。 |
 | GameId | String | 是 | 游戏ID，可登陆到腾讯云控制台查看，在创建服务时生成的。 |
 | SecretId | String | 是 | 秘钥ID，可登陆到腾讯云控制台查看，在创建服务时生成的。 |
