@@ -30,6 +30,7 @@ GET /?acl HTTP/1.1
 #### 非公共头部
 **必选头部**
 该请求操作的实现使用如下必选头部：
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 150px;	} </style>
 
 |参数名称|描述|类型|必选|
 |:---|:-- |:--|:--|
