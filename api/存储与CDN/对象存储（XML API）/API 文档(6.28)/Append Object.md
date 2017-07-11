@@ -29,7 +29,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 #### 请求参数
 **命令参数**
 该 API 接口使用到的命令参数为 Position。
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 150px;	} </style>
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 180px;	} </style>
 
 |名称|描述|必选|
 |:---|:-- |:--|
