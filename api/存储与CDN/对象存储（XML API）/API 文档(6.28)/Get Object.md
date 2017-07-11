@@ -8,10 +8,10 @@ Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 GET /<ObjectName> HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: auth
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
@@ -70,9 +70,9 @@ Object 的文件内容。
 ### 请求
 ```
 GET /123 HTTP/1.1
-Host:zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
 Date: Wed, 28 Oct 2014 22:32:00 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
 ```
 
 ### 响应
@@ -83,7 +83,7 @@ Content-Type: application/octet-stream
 Content-Length: 16087
 Connection: keep-alive
 Accept-Ranges: bytes
-Content-Disposition: attachment; filename*="UTF-8''123"
+Content-Disposition: attachment; filename="filename.jpg"
 Content-Range: bytes 0-16086/16087
 ETag: "9a4802d5c99dafe1c04da0a8e7e166bf"
 Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT

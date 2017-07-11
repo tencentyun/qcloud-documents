@@ -12,7 +12,7 @@ Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
 Content-MD5: MD5
-Authorization: authorization string
+Authorization: Auth String
 
 <Delete>
   <Quiet></Quiet>
@@ -27,7 +27,7 @@ Authorization: authorization string
 
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
