@@ -59,7 +59,7 @@ GET / HTTP/1.1
 具体的数据内容如下：
 <style rel="stylesheet">
 table th:nth-of-type(1) {
-width: 350px;	
+width: 200px;	
 }
 </style>
 
