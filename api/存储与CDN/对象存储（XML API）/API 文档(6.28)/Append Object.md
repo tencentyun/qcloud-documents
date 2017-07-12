@@ -3,7 +3,8 @@ Append Object 接口请求可以将一个 Object（文件）以分块追加的�
 Object 属性可以在 Head Object 操作中查询到，发起 Head Object 请求时，会返回自定义 Header 的『x-cos-object-type』，该 Header 只有两个枚举值：Normal 或者 Appendable。通过 Append Object 操作创建的 Object 类型为 Appendable 文件；通过 Put Object 上传的 Object 是 Normal 文件。
 当 Appendable 的 Object 被执行 Put Object 的请求操作以后，原 Object 被覆盖，属性改变为 Normal 。
 追加上传的 Object 建议大小 1M-5G。如果 Position 的值和当前 Object 的长度不致，COS 会返回 409 错误。如果 Append 一个 Normal 属性的文件，COS 会返回 409 ObjectNotAppendable。
->**注：Appendable 的文件不可以被复制，不参与版本管理，不参与生命周期管理，不可跨区域复制。**
+>**注意：**
+> Appendable 的文件不可以被复制，不参与版本管理，不参与生命周期管理，不可跨区域复制。
 
 ## 请求
 
@@ -28,6 +29,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 #### 请求参数
 **命令参数**
 该 API 接口使用到的命令参数为 Position。
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 180px;	} </style>
 
 |名称|描述|必选|
 |:---|:-- |:--|

@@ -1,6 +1,7 @@
 ## 功能描述
 Delete Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除 1000 个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
->** 注：此请求必须携带 Content-MD5 用来校验 Body 的完整性。**
+>** 注意：**
+>此请求必须携带 Content-MD5 用来校验 Body 的完整性。
 
 ## 请求
 
@@ -45,6 +46,7 @@ POST /?delete HTTP/1.1
 #### 非公共头部
 **必选头部**
 该请求操作需要请求头帯必选头部参数，具体内容如下：
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 150px;	} </style>
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
