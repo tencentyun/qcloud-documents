@@ -100,7 +100,7 @@ Container 节点 Grant 的内容：
 | Grantee | AccessControlPolicy.AccessControlList.Grant | 说明被授权者的信息。type 类型可以为 RootAccount， Subaccount；</br>当 type 类型为 RootAccount 时，uin 中可以是用户账号，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;。</br>当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |是|
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |是|
 
-Container 节点 Grantee 的内容：
+Container 节点 Grantee 的内容：<style  rel="stylesheet"> table th:nth-of-type(1) {width: 180px;	}</style>
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
