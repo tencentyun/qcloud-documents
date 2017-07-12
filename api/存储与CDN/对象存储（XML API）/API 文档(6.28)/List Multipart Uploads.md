@@ -19,13 +19,11 @@ GET /?uploads HTTP/1.1
 该 API 接口接受 GET 请求。
 
 #### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 uploads。
-在发送该 GET 请求时，可以自定义 COS 响应数据中的一些参数，这些参数包括：
+该 API 接口使用到的一些请求参数用以自定义响应返回的分块信息。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 | 名称               | 描述                                       | 类型     | 必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
-| delimiter        | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的object作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
+| delimiter        | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
 | encoding-type    | 规定返回值的编码格式，合法值：url                               | String | 否    |
 | prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix                       | String | 否    |
 | max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000                       | String | 否    |
@@ -109,8 +107,8 @@ Container 节点 Upload 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Key | ListMultipartUploadsResult.Upload |  Object 的名称 |  Integer |
-| UploadID | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID | Integer |
+| Key | ListMultipartUploadsResult.Upload |  Object 的名称 |  String |
+| UploadID | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID | String |
 | StorageClass | ListMultipartUploadsResult.Upload |  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE  |  String |
 | Initiator | ListMultipartUploadsResult.Upload |  用来表示本次上传发起者的信息 |  Container |
 | Owner | ListMultipartUploadsResult.Upload | 用来表示这些分块所有者的信息 |  Container |
