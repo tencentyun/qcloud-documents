@@ -35,7 +35,7 @@ PUT /ObjectName?acl HTTP/1.1
 
 **非公共头部**
 该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Object 访问权限。目前 Object 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
-<style  rel="stylesheet"> table th:nth-of-type(1) {width: 230px;	}</style>
+<style  rel="stylesheet"> table th:nth-of-type(1) {width: 180px;	}</style>
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
