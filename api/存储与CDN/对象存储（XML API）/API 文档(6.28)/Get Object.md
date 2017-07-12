@@ -17,7 +17,7 @@ Authorization: Auth String
 ```
 GET /<ObjectName> HTTP/1.1
 ```
-
+该 API 接口接受 GET 请求。
 #### 请求参数
 <style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 在发送该 GET 请求时，可以自定义 COS 响应数据中的一些参数，但发送 Get Object 请求时必须携带签名。这些参数包括：
