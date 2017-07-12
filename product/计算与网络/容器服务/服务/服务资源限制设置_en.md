@@ -1,11 +1,11 @@
 Resource Limits on Container Services
 ### About "Request" and "Limit"
 
-Request: The minimum amount of resources used by the container, a criterion for resources allocation when you schedule the container. The container is scheduled to the node only when the amount of resource that can be assigned on the node >= the number of container resources requests. Parameter Request does not limit the maximum available resources for the container.
+``request``: The minimum amount of resources used by the container, a criterion for resources allocation when you schedule the container. The container is scheduled to the node only when the amount of resource that can be assigned on the node >= the number of container resources requests. Parameter Request does not limit the maximum available resources for the container.
 
-Limit: The maximum amount of resources used by the container. A value of 0 indicates no upper limit to the amount of resources.
+``limit``: The maximum amount of resources used by the container. A value of 0 indicates no upper limit to the amount of resources.
 
-> For more information on `Limit' and 'Request', click to view [Details](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
+> For more information on ``limit`` and ``request``, click [here](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/)
 
 ### CPU Limits
 You can set Request and Limit for the amount of CPU, which is measured in cpu units (U) and expressed with decimal points.

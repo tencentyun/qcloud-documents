@@ -14,9 +14,9 @@ All models with postpaid system disks worked as cloud storage are supported.
 Currently, Ubuntu 16.04 is supported. CentOS 7 will become supported soon. Submit a ticket or contact us through QQ group if you wish to use other operating systems.
 
 ### 5. What are the lower storage limit and upper storage limit for system disk?
-The system disk is 20 GB by default (free). Lower and upper limits are 20 GB and 50 GB respectively. Submit a ticket or contact us through QQ group if you wish to use a larger system disk. It is recommended that you use a system disk configuration larger than 50 GB.
+The system disk is 20 GB by default (free). Lower and upper limits are 20 GB and 50 GB respectively. Submit a ticket to rwwish to use a larger system disk. It is recommended that you use a system disk configuration larger than 50 GB.
 
-## FAQ on CVM Expansion
+## FAQ on Adding Nodes
 ### 1. What are the restrictions when expanding CVMs?
 You can only choose a region in which your current cluster resides, but you may choose a different availability zone. Clusters can be deployed across different availability zones.
 

@@ -8,6 +8,6 @@
 ## Image Service Limits
 | Resource     |     Default Value | 
 | -------- |--------|
-| Number of private image warehouses/accounts | 10 | 
-| Number of versions/images | 10 | 
+| Number of private image repositories/account | 10 | 
+| Number of tags/image | 10 | 
 

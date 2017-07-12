@@ -3,7 +3,7 @@
 ### Status Description
 | Status | Description |
 |:--:|:--|
-| Pending | Service is being created, and container pod being created |
+| Launching | Service is being created, and container pod being created |
 | Running | Service is running normally and is available |
 | Updating |Service configuration is being updated|
 | Exception | Exceptional containers exist in the service |

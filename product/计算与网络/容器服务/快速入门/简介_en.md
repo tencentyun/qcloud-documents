@@ -16,7 +16,7 @@ Tencent Cloud's CCS involves the following concepts:
 - Service: A microservice comprised of multiple pods with the same configuration and rules for accessing these pods.
 - Batch task: One-time task which contains several pods. The difference between a task and a service is that a task will no longer provide service when stopped.
 - Pod: A pod consists of one or more relevant containers, which corresponds to the "pod" of Kubernetes. These containers share the same storage and network.
-- Image: Docker image used to deploy CCS. Each image has a unique ID (image's Registry address + image name + image Tag).
+- Image: Docker image used to deploy CCS. Each image has a unique ID (image's repository address + image name + image Tag).
 
 Their relationship is shown in the figure below:
 

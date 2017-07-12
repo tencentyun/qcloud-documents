@@ -1,4 +1,4 @@
-## Common Error Events During Service Creation and Solutions
+## Common Errors and Solutions
 
 ### 1. Back-off restarting failed docker container
 Description: The exceptional Docker container is being restarted.
@@ -25,7 +25,7 @@ Error syncing pod, skipping failed to "StartContainer" for with CrashLoopBackOff
 Description: Contain process crashed or exited.
 Solution: Check if there are frontend processes running in the container. If so, check whether these processes have any exceptional behaviors. For more information, please see Guide on How to Build Docker Image (https://www.qcloud.com/document/product/457/7208).
 
-Contact customer service if the solutions above failed to address your issues.
+Contact customer service if the solutions above cannot solve your issues.
 
 
 

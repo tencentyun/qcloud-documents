@@ -39,7 +39,7 @@ Tencent Cloud Image Warehouse contains Dockerhub official images and private use
 - Accelerated pulling of Dockerhub official images is supported.
 
 ### Private Image Management
-- Secure and reliable private image warehouse is provided.
+- Secure and reliable private image repository is provided.
 - Images can be uploaded and downloaded quickly through private network.
 - Images can be acquired in all regions through public network.
 - On the premise of stable running of service in the cluster, the container allocates host resources in a find-grained way, and runs as many containers as possible, to improve the resources utilization of cluster.

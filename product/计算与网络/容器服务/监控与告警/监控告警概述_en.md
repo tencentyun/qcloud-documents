@@ -3,15 +3,15 @@
 ### Overview
 In order to maintain high reliability, high availability and high performance of Tencent Cloud CCS, it is important to provide a good monitoring environment. Users can collect monitoring data at different dimensions for different resources, to obtain resource usage information and locate errors quickly.
 
-Tencent Cloud's Cloud Monitor provides data collection and presentation features for container clusters, services and pods. With Tencent Cloud's Cloud Monitor, you can view the statistical data of clusters, nodes, services and pods to verify whether the cluster is running normally as well as create relevant alarms. For more information about Cloud Monitor, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/document/product/248).
+Tencent Cloud's Cloud Monitor provides data collection and presentation features for container clusters, services and pods. With Tencent Cloud's Cloud Monitor, you can view the statistical data of clusters, nodes, services and pods to verify whether the cluster is running normally as well as create relevant alarms. For more information about Cloud Monitor, please see [Cloud Monitor Documentation](https://www.qcloud.com/document/product/248).
 
-Collecting monitoring data allows users to establish normal standards regarding container cluster performance. By testing the performance of a container cluster and collecting historical monitoring data at different times and under different load conditions, users can better understand the normal performance of a running container cluster and service, and quickly determine whether the running service is exceptional based on the current monitoring data, in order to find out solutions in time. For example, users can monitor the CPU utilization, memory utilization and disk I/O of a service.
+Collecting monitoring data allows you to establish normal standards regarding container cluster performance. By testing the performance of a container cluster and collecting historical monitoring data at different times and under different load conditions, users can better understand the normal performance of a running container cluster and service, and quickly determine whether the running service is exceptional based on the current monitoring data, in order to find out solutions in time. For example, users can monitor the CPU utilization, memory utilization and disk I/O of a service.
 
 ### Monitoring
 
-Currently, Cloud Monitor provides monitoring metrics at the following dimensions for CCS:
+Cloud Monitor provides monitoring metrics at the following dimensions for CCS:
 
-#### Monitoring Metrics at Cluster Dimension
+#### Cluster Monitoring Metrics
 
 namespace:qce/cvm
 
@@ -22,7 +22,7 @@ namespace:qce/cvm
 
 For more information about the monitor metrics of CVMs in clusters and how to obtain monitoring data, please see [Monitor CVM](https://www.qcloud.com/document/product/213/5178).
 
-#### Monitoring Metrics at Service Dimension
+#### Service Monitoring Metrics
 
 namespace:qce/docker
 View: docker_service
@@ -37,10 +37,10 @@ View: docker_service
 | Service network outbound traffic | service_out_flux | MB | Total outbound traffic of all the pods in the service within the time window |
 | Service network inbound bandwidth | service_in_bandwidth | Mbps | Total inbound bandwidth of all the pods in the service |
 | Service network outbound bandwidth | service_out_bandwidth | Mbps | Total outbound bandwidth of all the pods in the service |
-| Service network inbound packets | service_in_packets | pck/sec | Total inbound packets of all the pods in the service |
-| Service network outbound packets | service_out_packets | pck/sec | Total outbound packets of all the pods in the service |
+| Service network inbound packets | service_in_packets | pps | Total inbound packets of all the pods in the service |
+| Service network outbound packets | service_out_packets | pps | Total outbound packets of all the pods in the service |
 
-#### Monitoring Metrics at pod Dimension
+#### Pod Monitoring Metrics
 
 namespace:qce/docker
 View: docker_pod
@@ -51,10 +51,10 @@ View: docker_pod
 | Pod network outbound bandwidth | pod_out_bandwidth | Mbps | Containers in the same pod share the same network. This is the outbound network bandwidth of the pod |
 | Pod network inbound traffic | pod_in_flux | MB | Containers in the same pod share the same network. This is the inbound network traffic of the pod |
 | Pod network outbound traffic | pod_out_flux | MB | Containers in the same pod share the same network. This is the outbound network traffic of the pod |
-| Pod network inbound packets | pod_in_packets | pck/sec | Containers in the same pod share the same network. This is the inbound network packets of the pod |
-| Pod network outbound packets | pod_out_packets | pck/sec | Containers in the same pod share the same network. This is the outbound network packets of the pod |
+| Pod network inbound packets | pod_in_packets | pps | Containers in the same pod share the same network. This is the inbound network packets of the pod |
+| Pod network outbound packets | pod_out_packets | pps | Containers in the same pod share the same network. This is the outbound network packets of the pod |
 
-#### Monitoring Metrics at Container Dimension
+#### Container Monitoring Metrics
 
 namespace:qce/docker
 View: docker_container
