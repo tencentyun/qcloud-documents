@@ -29,7 +29,7 @@ OCR接口采用http协议，支持指定图片URL和 上传本地图片文件两
 
 | 参数名            | 值                                     | 描述                                       |
 | -------------- | ------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com            | 服务器域名                                    |
+| Host           | recognition.image.myqcloud.com        | 服务器域名                                    |
 | Content-Length | 包体总长度                                 | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | Application/json或者Multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                  | 用于鉴权的签名，使用多次有效签名。[详情](https://www.qcloud.com/document/product/460/6968) |
@@ -38,7 +38,7 @@ OCR接口采用http协议，支持指定图片URL和 上传本地图片文件两
 
 通用OCR识别，根据用户提供的图片，返回识别出的字段信息。
 
-接口：http://service.image.myqcloud.com/ocr/general
+接口：http://recognition.image.myqcloud.com/ocr/general
 
 ## 6. 请求参数
 
@@ -87,7 +87,7 @@ word说明
 ```
 POST /ocr/general HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
-Host: service.image.myqcloud.com
+Host: recognition.image.myqcloud.com
 Content-Length: 187
 Content-Type: application/json
 
@@ -102,7 +102,7 @@ Content-Type: application/json
 ```
 POST /ocr/general HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
-Host: service.image.myqcloud.com
+Host: recognition.image.myqcloud.com
 Content-Length: 735
 Content-Type: multipart/form-data;boundary=--------------acebdf13572468
 
@@ -151,29 +151,29 @@ Content-Type: application/json
 
 ## 9. 返回码
 
-| 错误码 | 含义             |
-| ----------- | ------------------------ |
-| 3           | 错误的请求                    |
-| 4           | 签名为空                     |
-| 5           | 签名串错误                    |
-| 6           | 签名中的appid/bucket与操作目标不匹配 |
-| 9           | 签名过期                     |
-| 10          | appid不存在                 |
-| 11          | secretid不存在              |
-| 12          | appid和secretid不匹配        |
-| 13          | 重放攻击                     |
-| 14          | 签名校验失败                   |
-| 15          | 操作太频繁，触发频控               |
-| 16          | Bucket不存在                |
-| 21          | 无效参数                     |
-| 23          | 请求包体过大                   |
-| 24          | 没有权限                     |
-| 25          | 您购买的资源已用完                |
-| 107         | 鉴权服务不可用                  |
-| 108         | 鉴权服务不可用                  |
-| 213         | 内部错误                     |
-| -1102       | 图片解码失败                   |
-| -1300       | 图片为空                     |
-| -1301       | 参数为空                     |
-| -1304       | 参数过长                     |
-| -9003       | OCR识别失败                  |
+| 错误码   | 含义                       |
+| ----- | ------------------------ |
+| 3     | 错误的请求                    |
+| 4     | 签名为空                     |
+| 5     | 签名串错误                    |
+| 6     | 签名中的appid/bucket与操作目标不匹配 |
+| 9     | 签名过期                     |
+| 10    | appid不存在                 |
+| 11    | secretid不存在              |
+| 12    | appid和secretid不匹配        |
+| 13    | 重放攻击                     |
+| 14    | 签名校验失败                   |
+| 15    | 操作太频繁，触发频控               |
+| 16    | Bucket不存在                |
+| 21    | 无效参数                     |
+| 23    | 请求包体过大                   |
+| 24    | 没有权限                     |
+| 25    | 您购买的资源已用完                |
+| 107   | 鉴权服务不可用                  |
+| 108   | 鉴权服务不可用                  |
+| 213   | 内部错误                     |
+| -1102 | 图片解码失败                   |
+| -1300 | 图片为空                     |
+| -1301 | 参数为空                     |
+| -1304 | 参数过长                     |
+| -9003 | OCR识别失败                  |
