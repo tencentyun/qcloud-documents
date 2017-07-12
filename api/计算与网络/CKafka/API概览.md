@@ -4,22 +4,24 @@
 ### 实例相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
-| [设置实例属性](/doc/api/431/5832) | CreateQueue|用于在用户账户下创建一个新队列。|
-| [获取实例属性](/doc/api/431/5834)  | GetQueueAttributes|用于获取某个已创建队列的属性。|
-| [获取实例列表](/doc/api/431/5835) | SetQueueAttributes | 用于修改消息队列的属性。|
-| [删除日志](/doc/api/431/5841) | BatchDeleteMessage | 用于批量删除已经被消费过的消息。|
+| [设置实例属性](/document/product/597/10095) | SetInstanceAttributes|用于在用户设置实例属性。|
+| [获取实例属性](/document/product/597/10094)  | GetInstanceAttributes|用于获取某个已创建实例属性。|
+| [获取实例列表](/document/product/597/10093) | ListInstance | 用于获取实例列表。|
+| [删除日志](/document/product/597/10092) | CleanLog | 用于用户删除磁盘中的日志。|
 
 
 ### 主题相关接口
 | 接口功能 | Action ID | 功能描述|
 |---------|---------|---------|
-| [创建主题](/doc/api/431/5837) | SendMessage| 用于发送一条消息到指定的队列。|
-| [删除主题](/doc/api/431/5838) | BatchSendMessage | 用于发送批量消息到指定的队列。|
-| [修改主题属性](/doc/api/431/5839)  | ReceiveMessage| 用于消费队列中的一条消息。|
-| [获取主题属性](/doc/api/431/5924) | BatchReceiveMessage | 用于消费队列中的多条消息。|
-| [获取主题列表](/doc/api/431/5840) | DeleteMessage | 用于删除已经被消费过的消息。|
-| [增加分区](/doc/api/431/5841) | BatchDeleteMessage | 用于批量删除已经被消费过的消息。|
+| [创建主题](/document/product/597/10096) | CreateTopic| 用于在CKafka实例下创建主题。|
+| [删除主题](/document/product/597/10099) | DeleteTopic | 用于在CKafka实例下删除主题。|
+| [修改主题属性](/document/product/597/10098)  | SetTopicAttributes| 用于在CKafka实例下修改主题属性。|
+| [获取主题属性](/document/product/597/10102) | GetTopicAttributes | 用于获取CKafka实例的主题属性。|
+| [获取主题列表](/document/product/597/10101) | ListTopic | 用于用户获取CKafka实例的主题列表。|
+| [增加分区](/document/product/597/10100) | AddPartition | 用于用户增加主题中的分区。|
 
 ### 访问控制相关接口
-| [增加主题白名单](/doc/api/431/5841) | BatchDeleteMessage | 用于批量删除已经被消费过的消息。|
-| [删除主题白名单](/doc/api/431/5841) | BatchDeleteMessage | 用于批量删除已经被消费过的消息。|
+| 接口功能 | Action ID | 功能描述|
+|---------|---------|---------|
+| [增加主题白名单](/document/product/597/10103) | AddTopicIpwhitelist | 用于增加主题中的ip白名单。|
+| [删除主题白名单](/document/product/597/10104) | DeleteTopicIpwhitelist | 用于删除主题中的ip白名单。|
