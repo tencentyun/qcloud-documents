@@ -30,6 +30,13 @@ ImSDK.framework 支持iOS 7.0 及以上系统。
 * IMSDKBugly.framework	  Crash上报功能
  * 如无特殊需要，推荐使用，在控制台页面可以查看Crash率等信息
  * 如果不加入此SDK，需要调用 [TIMManager sharedInstance] disableCrashReport]; 禁用功能
+* IMUGCExt.framework		IM小视频UGC消息能力扩展包
+  * 发送小视频消息 TIMUGCElem 功能
+  * 上传小视频功能
+* TXRTMPSDK.framework   小视频录制、编辑能力扩展包
+  * 包含小视频录制功能
+  * 包含小视频编辑功能
+  * 其他能力请参见[移动直播SDK文档](https://www.qcloud.com/document/product/454/7876)
 
 其他SDK：
 

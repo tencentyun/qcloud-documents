@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket CORS 接口实现持有者在 Bucket 上配置跨域资源共享的信息。（CORS 是一个 W3C 标准，全称是"跨域资源共享"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（CORS 是一个 W3C 标准，全称是"跨域资源共享"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
 
@@ -8,14 +8,14 @@ Get Bucket CORS 接口实现持有者在 Bucket 上配置跨域资源共享的�
 GET /?cors HTTP/1.1
 Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: Auth
+Authorization: Auth String
 ```
 
-> Authorization:  Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
-GET / HTTP/1.1
+GET /?cors HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
@@ -52,7 +52,7 @@ GET / HTTP/1.1
   ...
 </CORSConfiguration>
 ```
-具体的数据内容如下：
+具体的数据内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -69,9 +69,9 @@ Container 节点 CORSRule 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | ID | CORSConfiguration.CORSRule | 配置规则的 ID，可选填|  String |
-| AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，支持`' * '`通配符 |  Date |
+| AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，支持通配符 * </br>格式为：协议://域名[:端口]如：`http://www.qq.com` |String |
 | AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE | Enum |
-| AllowedHeader | CORSConfiguration.CORSRule | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部|  String |
+| AllowedHeader | CORSConfiguration.CORSRule | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 * |  String |
 | MaxAgeSeconds | CORSConfiguration.CORSRule | 设置 OPTIONS 请求得到结果的有效期 | Integer |
 | ExposeHeader | CORSConfiguration.CORSRule | 设置浏览器可以接收到的来自服务器端的自定义头部信息 | String |
 

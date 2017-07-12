@@ -8,14 +8,14 @@ Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET �
 GET /?location HTTP/1.1
 Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: Auth
+Authorization: Auth String
 ```
 
-> Authorization:  Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
-GET / HTTP/1.1
+GET /?location HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
@@ -40,6 +40,7 @@ GET / HTTP/1.1
 <LocationConstraint></LocationConstraint>
 ```
 具体的数据内容如下：
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 180px;	} </style>
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -50,9 +51,9 @@ GET / HTTP/1.1
 ### 请求
 ```
 GET /?location HTTP/1.1
-Host:arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
 Date: Wed, 18 Oct 2014 22:32:00 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484817522;32557713522&q-key-time=1484817522;32557713522&q-header-list=host&q-url-param-list=location&q-signature=ceb96fc929663dd4d2e6dc0aeb304cdde6761ed0
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484817522;32557713522&q-key-time=1484817522;32557713522&q-header-list=host&q-url-param-list=location&q-signature=ceb96fc929663dd4d2e6dc0aeb304cdde6761ed0
 ```
 
 ### 响应

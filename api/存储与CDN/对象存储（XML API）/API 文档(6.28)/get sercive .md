@@ -8,10 +8,10 @@ Get Service 接口是用来获取请求者名下的所有存储空间列表（Bu
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
 Date: GMT Date
-Authorization: Auth
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
@@ -55,7 +55,13 @@ GET / HTTP/1.1
 </ListAllMyBucketsResult>
 ```
 
+
 具体的数据内容如下：
+<style rel="stylesheet">
+table th:nth-of-type(1) {
+width: 150px;	
+}
+</style>
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|

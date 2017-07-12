@@ -18,7 +18,7 @@ Common request parameters are listed below:
 <tr>
 <td> Region
 </td><td> No
-</td><td> This parameter indicates the region you want to operate the instances. The values for the region parameter are: <br>Beijing:bj, Guangzhou:gz, Shanghai:sh, Hong Kong:hk, North America:ca, Singapore:sg, Shanghai Finance:shjr, Shenzhen Finance:szjr, Guangzhou open zone: gzopen<br><B> Note: 1. This parameter is required fot most cases. If it is not required, we will state that in the corresponding API doc. <br>2. Some regions are in trial period and only open for authorized users. </B>
+</td><td> This parameter indicates the region you want to operate the instances. The values for the region parameter are: <br>Beijing:ap-beijing, Guangzhou:ap-guangzhou, Shanghai:ap-shanghai, Hong Kong:ap-hongkong, Toronto:na-toronto, Silicon Valley:na-siliconvalley, Singapore:ap-singapore, Shanghai Finance:ap-shanghai-fsi, Shenzhen Finance:ap-shenzhen-fsi, Guangzhou open zone: ap-guangzhou-open<br><B> Note: 1. This parameter is required fot most cases. If it is not required, we will state that in the corresponding API doc. <br>2. Some regions are in trial period and only open for authorized users. </B>
 </td><td> String
 </td></tr>
 <tr>

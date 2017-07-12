@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
+Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间（Bucket）的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
 
 ## 请求
 
@@ -8,19 +8,16 @@ Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用�
 GET /?acl HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
-Authorization: Auth
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~
 GET /?acl HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 acl。
 
 ### 请求头
 
@@ -30,6 +27,7 @@ GET /?acl HTTP/1.1
 #### 非公共头部
 **必选头部**
 该请求操作的实现使用如下必选头部：
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
 |参数名称|描述|类型|必选|
 |:---|:-- |:--|:--|
@@ -51,21 +49,21 @@ GET /?acl HTTP/1.1
 ```
 <AccessControlPolicy>
   <Owner>
-    <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-    <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+    <ID>qcs::cam::uin/<OwnerUin>:uin/<SubUin></ID>
+    <DisplayName>qcs::cam::uin/<OwnerUin>:uin/<SubUin></DisplayName>
   </Owner>
   <AccessControlList>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-      <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-      <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+      <ID>qcs::cam::uin/<OwnerUin>:uin/<SubUin></ID>
+      <DisplayName>qcs::cam::uin/<OwnerUin>:uin/<SubUin></DisplayName>
       </Grantee>
       <Permission></Permission>
     </Grant>
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
-        <ID>qcs::cam::uin/<OnwerUin>:uin/<SubUin></ID>
-        <DisplayName>qcs::cam::uin/<OnwerUin>:uin/<SubUin></DisplayName>
+        <ID>qcs::cam::uin/<OwnerUin>:uin/<SubUin></ID>
+        <DisplayName>qcs::cam::uin/<OwnerUin>:uin/<SubUin></DisplayName>
       </Grantee>
       <Permission></Permission>
     </Grant>
@@ -90,7 +88,7 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：qcs::cam::uin/<OnwerUin>:uin/<SubUin> 如果是根帐号，<OnwerUin> 和 <SubUin> 是同一个值 |  String |
+| ID | AccessControlPolicy.Owner |  Bucket 持有者 ID，</br>格式：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是根帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |
 | DisplayName | AccessControlPolicy.Owner |  Bucket 持有者的名称 |  String |
 
 Container 节点 AccessControlList 的内容：
@@ -103,14 +101,14 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAcount， Subaccount；</br>当 type 类型为 RootAcount 时，可以在 uin 中填写 QQ，也可以填写 anonymous（指代所有类型用户）。</br>当 type 类型为 RootAcount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAccount， Subaccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;，。</br>当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |
 
 Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式：qcs::cam::uin/<OnwerUin>:uin/<SubUin> 如果是根帐号，<OnwerUin> 和 <SubUin> 是同一个值|  String |
+| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式： qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是根帐号，&lt;OwnerUin&gt;  和 &lt;SubUin&gt; 是同一个值|  String |
 | DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 
@@ -148,7 +146,7 @@ x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZmNw==
     <Grant>
       <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
         <ID>qcs::cam::uin/54321:uin/54321</ID>
-        <DisplayName>qcs::cam::uin/54321:uin/54321</DisplayName>
+        <DisplayName>qcs::cam::anyone:anyone</DisplayName>
       </Grantee>
       <Permission>READ</Permission>
     </Grant>
