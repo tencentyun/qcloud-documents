@@ -16,12 +16,12 @@ Date: GMT Date
 Content-Type: application/xml
 Content-MD5: MD5
 x-cos-acl: [对应权限]
-x-cos-grant-read: uin="",uin=""
-x-cos-grant-write: uin="",uin=""
-x-cos-grant-full-control: uin="",uin=""
+x-cos-grant-read: id="",id=""
+x-cos-grant-write: id="",id=""
+x-cos-grant-full-control: id="",id=""
 Authorization: Auth String
 ```
-> Authorization:  Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~

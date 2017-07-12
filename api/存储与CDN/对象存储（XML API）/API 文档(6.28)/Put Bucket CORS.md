@@ -13,11 +13,11 @@ Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
 Content-MD5: MD5
-Authorization: Auth
+Authorization: Auth String
 
 <XML 文件>
 ```
-> Authorization:  Auth (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [访问控制](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ~~~

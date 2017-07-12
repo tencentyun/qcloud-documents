@@ -11,7 +11,6 @@
 /iLiveSDK | SDK的头文件和库文件  | 
 /doc | 接口文档和其他说明文档  | 
 suixinbo_run | 可以直接运行的demo程序 | 
-iLiveSDK_1.3.1.0.zip | 老版本的ilivesdk |
 
 
 ## 运行和体验demo
@@ -32,7 +31,7 @@ suixinbo_run.zip为已经编译好的可执行包，解压后，直接双击suix
 
 ### 直播间操作
 主播和观众可以在直播间内进行设备管理，推流录制，收发消息，连麦互动
-![直播房间](https://mc.qcloudimg.com/static/img/170071f70b13d09af4acd323df351420/3.png)
+![直播房间](https://mc.qcloudimg.com/static/img/aa77c098fe7f2a2885fd817cd2643987/avroom.png)
 
 ## 运行demo工程
 ### 安装Qt环境
