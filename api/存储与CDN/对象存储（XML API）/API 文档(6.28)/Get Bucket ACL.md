@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
+Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间（Bucket）的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
 
 ## 请求
 
@@ -18,9 +18,6 @@ Authorization: Auth String
 GET /?acl HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 acl。
 
 ### 请求头
 
@@ -30,7 +27,7 @@ GET /?acl HTTP/1.1
 #### 非公共头部
 **必选头部**
 该请求操作的实现使用如下必选头部：
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 150px;	} </style>
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
 |参数名称|描述|类型|必选|
 |:---|:-- |:--|:--|
