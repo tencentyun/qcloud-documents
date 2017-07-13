@@ -22,9 +22,6 @@ Authorization: Auth String
 OPTIONS /ObjectName HTTP/1.1
 ```
 该 API 接口接受 OPTIONS 请求。
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 ObjectName。
 
 ### 请求头
 
