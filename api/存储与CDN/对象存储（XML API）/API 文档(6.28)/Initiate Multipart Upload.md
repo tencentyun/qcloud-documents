@@ -26,7 +26,7 @@ POST /Object?uploads HTTP/1.1
 
 #### 非公共头部
 **推荐头部**
-该请求操作推荐请求头使用推荐头部参数，具体内容如下：
+该请求操作推荐请求头使用推荐头部参数，具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
