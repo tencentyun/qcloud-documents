@@ -32,7 +32,7 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 |参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | partNumber | 标识本次分块上传的编号 | String | 是 |
-| uploadId | 标识本次分块上传的ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。| String | 是 |
+| uploadId | 标识本次分块上传的ID；<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置| String | 是 |
 
 ### 请求头
 
@@ -45,15 +45,15 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。| String | 是 |
+| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
 
 **推荐头部**
 该请求操作推荐请求头使用推荐头部参数，具体内容如下：
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| Expect | RFC 2616 中定义的 HTTP 请求内容长度（字节）。| String | 否 |
-| x-cos-content-sha1 | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值。| String | 否 |
+| Expect | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 否 |
+| x-cos-content-sha1 | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值| String | 否 |
 
 ### 请求体
 该请求的操作请求体为空。
