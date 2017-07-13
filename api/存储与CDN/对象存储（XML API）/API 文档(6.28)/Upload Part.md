@@ -20,10 +20,10 @@ Authorization: Auth String
 ```
 PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 ```
-该 API 接口接受 PUT 请求。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+该 API 接口接受 PUT 请求。
 
 #### 请求参数
-包含所有请求参数的请求行示例：
+包含所有请求参数的请求行示例：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 ```
 PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 ```
@@ -43,14 +43,14 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 **必选头部**
 该请求操作需要请求头使用必选头部参数，具体内容如下：
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
 
 **推荐头部**
 该请求操作推荐请求头使用推荐头部参数，具体内容如下：
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Expect | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 否 |
 | x-cos-content-sha1 | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值| String | 否 |
