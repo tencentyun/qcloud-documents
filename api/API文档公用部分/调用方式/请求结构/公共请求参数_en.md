@@ -52,7 +52,7 @@ For example, if you want to query the CVM instance list in Guangzhou, the reques
 https://cvm.api.qcloud.com/v2/index.php?
 Action=DescribeInstances
 &SecretId=xxxxxxx
-&Region=gz
+&Region=ap-guangzhou
 &Timestamp=1465055529
 &Nonce=59485
 &Signature=mysignature
