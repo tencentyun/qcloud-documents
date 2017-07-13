@@ -27,13 +27,11 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 ~~~
 该 API 接口接受 POST 请求。
 #### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 Position。
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 180px;	} </style>
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
-|名称|描述|必选|
-|:---|:-- |:--|
-| position | 追加操作的起始点，单位：字节。<br/>首次追加 position=0，后续追加 position=当前 Object 的 content-length | 是 |
+|名称|描述|类型|必选|
+|:---|:-- |:--|:--|
+| position | 追加操作的起始点，单位：字节。<br/>首次追加 position=0，后续追加 position= 当前 Object 的 content-length| Integer| 是 |
 
 ### 请求头
 #### 公共头部
@@ -65,6 +63,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 
 **权限相关头部**
 该请求操作的实现可以用 POST 请求中的 x-cos-acl 头来设置文件访问权限。目前 Object 访问权限有三种：public-read-write，public-read和private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+>了解更多 ACL 请求可详细请参见 [Put Bucket ACL](https://www.qcloud.com/document/product/436/7737) 文档。
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
