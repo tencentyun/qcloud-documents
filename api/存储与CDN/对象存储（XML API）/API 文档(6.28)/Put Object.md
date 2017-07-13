@@ -16,9 +16,7 @@ Authorization: Auth String
 ```
 PUT /<ObjectName> HTTP/1.1
 ```
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 `<ObjectName> `。
+该 API 接口接受 PUT 请求。
 
 ### 请求头
 
@@ -45,8 +43,8 @@ PUT /<ObjectName> HTTP/1.1
 | Content-Type |RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存。|String| 否|
 | Expect | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容。|String| 否|
 | Expires |RFC 2616 中定义的过期时间，将作为 Object 元数据保存。|String| 否|
-| x-cos-meta-`*`  | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K。|String| 否|
-| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD（目前只支持华南园区）|String| 否|
+| x-cos-meta- * | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K。|String| 否|
+| x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD（目前仅支持华南园区）|String| 否|
 
 **权限相关头部**
 该请求操作的实现可以用 Put 请求中的 x-cos-acl 头来设置 Object 访问权限。有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
@@ -58,6 +56,7 @@ PUT /<ObjectName> HTTP/1.1
 | x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" |String |  否 |
 | x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String|  否 |
 
+>了解更多 ACL 请求可详细请参见 [Put Bucket ACL](https://www.qcloud.com/document/product/436/7737) 文档。
 
 ### 请求体
 该请求的请求体为 Object 文件内容。
