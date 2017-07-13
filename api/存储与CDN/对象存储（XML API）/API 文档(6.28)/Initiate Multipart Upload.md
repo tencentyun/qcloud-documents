@@ -36,10 +36,11 @@ POST /Object?uploads HTTP/1.1
 | Content-Type| RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存。| String | 否 |
 | Expires | RFC 2616 中定义的文件名称，将作为 Object 元数据保存。| String | 否 |
 | x-cos-meta- * | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制2K。 | String | 否 |
-| x-cos-storage-class | 设置Object的存储级别，枚举值：Standard, Standard_IA, Nearline，默认值：Standard（目前只支持华南园区）| String | 否 |
+| x-cos-storage-class | 设置 Object 的存储级别，枚举值：Standard, Standard_IA, Nearline，默认值：Standard（目前只支持华南园区）| String | 否 |
 
 **权限相关头部**
 该请求操作的实现可以用 PUT 请求中的 `x-cos-acl` 头来设置 Object 访问权限。目前 Object 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+>了解更多 ACL 请求可详细请参见 [Put Bucket ACL](https://www.qcloud.com/document/product/436/7737) 文档。
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
