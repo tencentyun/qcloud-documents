@@ -23,6 +23,11 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 该 API 接口接受 PUT 请求。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 #### 请求参数
+包含所有请求参数的请求行示例：
+```
+PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
+```
+具体内容如下：
 
 |参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
