@@ -19,7 +19,6 @@
 CPU 1核 
 内存 2GB 
 公网带宽 1Mbps 
-系统镜像 CentOS 6.8 64位 
 
 之后需要给云主机安装JDK。
 a 下载JDK，可以通过wget命令获取，如果需要其他不同版本也可以在官网进行下载。
@@ -56,7 +55,7 @@ java -version
 #### 2.2 下载Kafka工具包
 
 下载并解压kafka安装包
-Kafka官网地址: http://kafka.apache.org/ 
+Kafka官网地址: http://kafka.apache.org/ 当前CKafka 100%兼容Kafka 0.9版本，建议您下载相应版本的安装包
 ```
 wget "http://mirrors.hust.edu.cn/apache/kafka/0.9.0.1/kafka_2.11-0.9.0.1.tgz"
 tar -xzvf kafka_2.11-0.9.0.1.tgz
