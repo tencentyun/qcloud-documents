@@ -22,14 +22,11 @@ width:550px;
 | [Get Bucket ACL]() | 获取 Bucket 的 ACL 表 | 
 | [Get Bucket CORS]() | 获取 Bucket 的跨域访问配置信息 | 
 | [Get Bucket Location]() | 获取 Bucket 所在的地域信息 | 
-| [Get Buket Lifecycle]() | 获取 Bucket 的生命周期管理的配置 | 
 | [Put Bucket]() | 在指定账号下创建一个 Bucket | 
 | [Put Bucket ACL ]()| 写入 Bucket 的 ACL 表 | 
 | [Put Bucket CORS]() | 配置 Bucket 的跨域访问权限 | 
-| [Put Bucket Lifecycle]() | Bucket 生命周期管理配置和定期删除 | 
 | [Delete Bucket]() | 删除指定账号下的 Bucket  | 
 | [Delete Bucket CORS]() | 删除 Bucket 的跨域访问权限配置  | 
-| [Delete Bucket Lifecycle]() |删除 Bucket 的生命周期配置 | 
 | [Head Bucket]() | 确认指定账号下是否存在指定 Bucket | 
 
 
