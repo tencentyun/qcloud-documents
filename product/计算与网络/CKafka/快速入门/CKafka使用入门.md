@@ -2,12 +2,12 @@
 
 申请通过后，您的CKafka控制台中会展示CKafka实例，点击实例信息可以查看实例详情。包括地域，内网vip，端口等信息。
 
-[](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
-[](https://mc.qcloudimg.com/static/img/a1428709e39e1a6124f7a265e47b6b37/2.png)
+![](https://mc.qcloudimg.com/static/img/fd6e90a028316b0ff8c960a81170dbbe/1.png)
+![](https://mc.qcloudimg.com/static/img/a1428709e39e1a6124f7a265e47b6b37/2.png)
 
 在topic管理页面，您可以创建topic，指定topic的分区个数和副本个数。
 > 注，当前topic名称输入后无法更改。此外，分区个数指定后，只能进行新增分区的操作。副本数指定后无法更改。 
-[](https://mc.qcloudimg.com/static/img/677df5a8c57fc9482867ea4e5ff9f77f/3.png)
+![](https://mc.qcloudimg.com/static/img/677df5a8c57fc9482867ea4e5ff9f77f/3.png)
 创建好topic和分区后，可以通过云主机的kafka客户端对该实例进行生产和消费的操作。
 
 ### 2. 本地下载Kafka工具包
@@ -51,7 +51,7 @@ d 验证
 java -version
 ```
 出现下图则证明jdk安装完成。
-[](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
+![](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
 
 #### 2.2 下载Kafka工具包
 
@@ -67,7 +67,7 @@ mv kafka_2.11-0.9.0.1 /opt/
 ```
 telnet ip 9092
 ```
-[](https://mc.qcloudimg.com/static/img/c30a8d0e2fe57c109d3f7f1fa55b107f/5.png)
+![](https://mc.qcloudimg.com/static/img/c30a8d0e2fe57c109d3f7f1fa55b107f/5.png)
 
 #### 2.3 Kafka API简单测试
 
@@ -87,14 +87,14 @@ This is another message
 ```
 
 查看对应的CKafka监控
-[](https://mc.qcloudimg.com/static/img/12d49f97cc2562be26c16c193cb4297c/6.png)
+![](https://mc.qcloudimg.com/static/img/12d49f97cc2562be26c16c193cb4297c/6.png)
 
 ### 3. 其他功能
 #### 3.1 开启白名单
 CKafka支持在topic维度开启ip白名单的功能，有效保证数据安全。
 在新建topic和编辑topic页面均可以开启ip白名单。
-[](https://mc.qcloudimg.com/static/img/02c8e7d5eeabb7f431b8b9c1f37cc636/7.png)
+![](https://mc.qcloudimg.com/static/img/02c8e7d5eeabb7f431b8b9c1f37cc636/7.png)
 
 #### 3.2 设置消息保留时间
 CKafka支持设置消息保留时间，以分钟为单位，最长保留7天。
-[](https://mc.qcloudimg.com/static/img/a9c9c921134c4a3a987f03b0f2d2f57e/8.png)
+![](https://mc.qcloudimg.com/static/img/a9c9c921134c4a3a987f03b0f2d2f57e/8.png)
