@@ -31,7 +31,7 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 
 |参数名称|描述|类型|必选|
 |:---|:-- |:--|:--|
-| uploadId |标识本次分块上传的ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。| String |是|
+| uploadId |标识本次分块上传的 ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。| String |是|
 
 ### 请求头
 
