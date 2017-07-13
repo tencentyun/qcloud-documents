@@ -45,7 +45,7 @@ width:550px;
 | [Options Object]() | 跨域访问 preflight 请求| 
 
 
-## 关于 Multipart Upload的操作
+## 关于 Multipart Upload 操作
 
 | API | 描述 |
 |---------|---------|
