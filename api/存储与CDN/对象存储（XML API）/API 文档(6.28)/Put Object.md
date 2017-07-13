@@ -4,7 +4,7 @@ Put Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 
 语法示例：
 ```
-PUT /ObjectName HTTP/1.1
+PUT /<ObjectName> HTTP/1.1
 Host: <BucketName>-<AppID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
