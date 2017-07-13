@@ -20,9 +20,7 @@ Authorization: Auth String
 ```
 DELETE /ObjectName?uploadId=UploadId HTTP/1.1
 ```
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 `ObjectName?uploadId=UploadId `。
+该 API 接口接受 DELETE 请求。
 
 ### 请求头
 
