@@ -105,7 +105,7 @@ Container 节点 CompleteMultipartUploadResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Location |CompleteMultipartUploadResult| 创建的Object的外网访问域名 | URI |
+| Location |CompleteMultipartUploadResult| 创建的Object的外网访问域名 | URL |
 | Bucket |CompleteMultipartUploadResult| 分块上传的目标Bucket | String |
 | Key |CompleteMultipartUploadResult| Object的名称 | String |
 | ETag |CompleteMultipartUploadResult| 合并后文件的 MD5 算法校验值| String |
