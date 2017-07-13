@@ -104,7 +104,7 @@ Container 节点 Grantee 的内容：<style  rel="stylesheet"> table th:nth-of-t
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/<OwnerUin>:uin/<OwnerUin> 或 qcs::cam::anyone:anyone （指代所有用户）;如果是子帐号，格式为：qcs::cam::uin/<OwnerUin>:uin/<SubUin>|  String |是|
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt; 或 qcs::cam::anyone:anyone （指代所有用户）;如果是子帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |是|
 
 
 ## 响应
