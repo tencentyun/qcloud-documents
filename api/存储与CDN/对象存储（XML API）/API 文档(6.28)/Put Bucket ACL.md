@@ -1,6 +1,6 @@
 ## 功能描述
 Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
->注：
+>**注意：**
 >Header 和 Body 只能选择其中一种，否则响应返回会冲突。
 >Put Bucket ACL 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
 >只有 Bucket 创建者才有权操作。
