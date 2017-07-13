@@ -13,7 +13,7 @@ iOS 10.0 系统以后开始支持，基于iOS系统的扩展方式实现，即�
 
 ## 功能体验
 我们在小直播Demo中，基于腾讯云 RTMP SDK 实现了两个平台的手机录屏功能，您可以扫描下图中的二维码安装并体验之。
-![](//mc.qcloudimg.com/static/img/3939152d7b9a6fd0812b886ea049dc83/image.png)
+![](//mc.qcloudimg.com/static/img/5cb1860bdcc58b8286a9fb4a421ee1c1/screencapturedemo.jpg)
 
 ## 对接攻略
 

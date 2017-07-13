@@ -16,17 +16,16 @@ Authorization: Auth String
 
 ### 请求行
 ```
-GET /ObjectName?uploadId=UploadId HTTP/1.1
+GET /ObjectName?uploadId=UploadId&encoding-type=EncodingType&max-parts=MaxParts&part-number-marker=PartNumberMarker HTTP/1.1
 ```
 该 API 接口接受 GET 请求。
 #### 请求参数
-该 API 接口使用到的一些请求参数用以自定义响应返回的分块信息。
-
+<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 |参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| uploadId | 标示本次分块上传的ID | String | 是 |
+| uploadId | 标识本次分块上传的ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。 | String | 是 |
 | encoding-type | 规定返回值的编码方式 | String | 否 |
-| max-parts | 单次返回最大的条目数量，默认 1000 | String | 否 |
+| max-parts | 单次返回最大的条目数量，默认 1000 | Integer | 否 |
 | part-number-marker | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 | String | 否 |
 
 ### 请求头
