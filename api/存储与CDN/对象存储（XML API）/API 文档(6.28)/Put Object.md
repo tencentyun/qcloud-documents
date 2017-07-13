@@ -48,6 +48,7 @@ PUT /<ObjectName> HTTP/1.1
 
 **权限相关头部**
 该请求操作的实现可以用 Put 请求中的 x-cos-acl 头来设置 Object 访问权限。有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+>了解更多 ACL 请求可详细请参见 [Put Bucket ACL](https://www.qcloud.com/document/product/436/7737) 文档。
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
@@ -55,8 +56,6 @@ PUT /<ObjectName> HTTP/1.1
 | x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String |  否 |
 | x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" |String |  否 |
 | x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String|  否 |
-
->了解更多 ACL 请求可详细请参见 [Put Bucket ACL](https://www.qcloud.com/document/product/436/7737) 文档。
 
 ### 请求体
 该请求的请求体为 Object 文件内容。
