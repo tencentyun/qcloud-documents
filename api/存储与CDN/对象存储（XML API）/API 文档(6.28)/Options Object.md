@@ -32,7 +32,7 @@ OPTIONS /ObjectName HTTP/1.1
 **必选头部**
 该请求操作需要请求头帯必选头部参数，具体内容如下：
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Origin | 模拟跨域访问的请求来源域 | String | 是 |
 | Access-Control-Request-Method | 模拟跨域访问的请求 HTTP 方法| String | 是 |
@@ -41,7 +41,7 @@ OPTIONS /ObjectName HTTP/1.1
 **推荐头部**
 该请求操作推荐请求头使用推荐头部参数，具体内容如下：
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Access-Control-Request-Headers | 模拟跨域访问的请求头部 | String | 否 |
 
