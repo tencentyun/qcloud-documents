@@ -19,13 +19,17 @@ GET /?uploads HTTP/1.1
 该 API 接口接受 GET 请求。
 
 #### 请求参数
-该 API 接口使用到的一些请求参数用以自定义响应返回的分块信息。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+包含所有请求参数的请求行示例：
+```
+GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-uploads=MaxUploads&key-marker=KeyMarker&upload-id-marker=UploadIdMarker HTTP/1.1
+```
+具体内容如下：
 
 | 名称               | 描述                                       | 类型     | 必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
 | delimiter        | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
 | encoding-type    | 规定返回值的编码格式，合法值：url                               | String | 否    |
-| prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix                       | String | 否    |
+| prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix | String | 否    |
 | max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000                       | String | 否    |
 | key-marker       | 与 upload-id-marker 一起使用<Br/>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出<Br/>当upload-id-marker被指定时，ObjectName 字母顺序大于key-marker的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 | upload-id-marker | 与 key-marker 一起使用<Br/>当 key-marker 未被指定时，upload-id-marker 将被忽略<Br/>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
