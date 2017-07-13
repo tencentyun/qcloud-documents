@@ -26,7 +26,7 @@ PUT /<ObjectName> HTTP/1.1
 #### 非公共头部
 **必选头部**
 
-该请求操作需要用到如下必选请求头：
+该请求操作需要用到如下必选请求头：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 |参数名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
