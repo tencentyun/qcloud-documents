@@ -26,12 +26,16 @@ Authorization: Auth String
 POST /ObjectName?append&position=*position* HTTP/1.1
 ~~~
 该 API 接口接受 POST 请求。
-#### 请求参数
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
+#### 请求参数 <style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
+包含所有请求参数的请求行示例：
+```
+POST /ObjectName?append&position=*position* HTTP/1.1
+```
+具体内容如下：
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:-- |:--|:--|
-| position | 追加操作的起始点，单位：字节。<br/>首次追加 position=0，后续追加 position= 当前 Object 的 content-length| Integer| 是 |
+| position | 追加操作的起始点，单位：字节；<br/>首次追加 position=0，后续追加 position= 当前 Object 的 content-length| Integer| 是 |
 
 ### 请求头
 #### 公共头部
