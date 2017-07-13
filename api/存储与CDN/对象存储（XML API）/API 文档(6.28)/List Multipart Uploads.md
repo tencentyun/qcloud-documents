@@ -23,7 +23,7 @@ GET /?uploads HTTP/1.1
 ```
 GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-uploads=MaxUploads&key-marker=KeyMarker&upload-id-marker=UploadIdMarker HTTP/1.1
 ```
-具体内容如下：
+具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 | 名称               | 描述                                       | 类型     | 必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
