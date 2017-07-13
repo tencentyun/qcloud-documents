@@ -19,10 +19,6 @@ POST /Object?uploads HTTP/1.1
 ```
 该 API 接口接受 POST 请求。
 
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 Object?uploads。
-
 ### 请求头
 
 #### 公共头部
