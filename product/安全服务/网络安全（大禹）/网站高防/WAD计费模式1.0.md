@@ -1,5 +1,3 @@
-# 网站高防WAD如何收费
-<input type="button" value="立即购买" color="blue" href="https://www.qcloud.com/login?s_url=http%3A%2F%2Fbuy.qcloud.com%2Fbgp_sp">
 ### 计费说明
 计费模式：混合计费模式 
 计费单位：人民币（RMB）
