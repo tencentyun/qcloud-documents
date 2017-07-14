@@ -5,7 +5,7 @@
 ## 配置详情
 COS 提供了 5 种对象 HTTP 头部标识供配置：
 
-|       Header        |                  说明                  |                示例                |
+|       HTTP 头部       |                  说明                  |                示例                |
 | :-----------------: | :----------------------------------: | :------------------------------: |
 |    Cache-Control    |            文件的缓存机制           |       no-cache；max-age=200       |
 |    Content-Type     |             文件的 MIME 信息           |            text/html             |
@@ -18,9 +18,9 @@ COS 提供了 5 种对象 HTTP 头部标识供配置：
 1. 登录 [对象存储桶控制台](https://console.qcloud.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要配置回源的存储桶（如 example），进入存储桶。
 ![访问权限1](//mc.qcloudimg.com/static/img/b51d5a77d53c3416324ea3eb283c788c/image.png)
 2. 找到需要设置头部的对象（如 example.exe）,单击对象右侧的【更多】>【设置 Header】，弹出设置 header 对话框。
-![设置HTTP头部1](//mc.qcloudimg.com/static/img/72926952cb4c26c388fea6f26e884ebf/image.png)
+![设置HTTP头部1](//mc.qcloudimg.com/static/img/5edf2ba97d32dd82b9c1be1e59379deb/image.png)
 3. 单击【+添加参数】，选择需要设置的参数类型（自定义内容需输入自定义名称），输入对应的值。单击【确定】保存即可。
-![设置HTTP头部2](//mc.qcloudimg.com/static/img/1a6700654fedc7a3e616490c36b13ce1/image.png)
+![设置HTTP头部2](//mc.qcloudimg.com/static/img/2a2ee4acd84b10baaa4c27a5b3118ebc/image.png)
 
 ## 示例
 
