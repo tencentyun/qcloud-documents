@@ -15,14 +15,14 @@ width:550px;
 
 |名称|	描述|
 |---|---|
-| AppID	|开发者访问 COS 服务时拥有的用户维度唯一资源标识，用以标识资源。|
-| SecretID | 开发者拥有的项目身份识别 ID，用以身份认证。|
-| SecretKey	| 开发者拥有的项目身份密钥。|
-| Bucket|	 COS 中用于存储数据的容器。|
-| Object|	 COS 中存储的具体文件，是存储的基本实体。|
-| Region|	域名中的地域信息。枚举值：cn-east（华东），cn-north（华北），cn-south（华南），sg（新加坡）|
+| AppID	|开发者访问 COS 服务时拥有的用户维度唯一资源标识，用以标识资源|
+| SecretID | 开发者拥有的项目身份识别 ID，用以身份认证|
+| SecretKey	| 开发者拥有的项目身份密钥|
+| Bucket|	 COS 中用于存储数据的容器|
+| Object|	 COS 中存储的具体文件，是存储的基本实体|
+| Region|	域名中的地域信息。详细信息请参见 [可用地域](https://www.qcloud.com/document/product/436/6224) 文档 |
 | ACL |	访问控制列表（Access Control List） <br>是路由器和交换机接口的指令列表，用来控制端口进出的数据包|
-| CORS | 跨域资源共享（Cross-Origin Resource Sharing），<br>指发起请求的资源所在域不同于该请求所指向资源所在的域的 HTTP 请求。|
+| CORS | 跨域资源共享（Cross-Origin Resource Sharing），<br>指发起请求的资源所在域不同于该请求所指向资源所在的域的 HTTP 请求|
 | Multipart Uploads |分块上传，腾讯云 COS 服务为上传文件提供的一种分块上传模式|
 ## 快速入门
 
