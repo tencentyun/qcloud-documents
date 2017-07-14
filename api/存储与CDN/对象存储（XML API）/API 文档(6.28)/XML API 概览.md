@@ -28,7 +28,7 @@ width:550px;
 | [Delete Bucket](https://www.qcloud.com/document/product/436/7732) | 删除指定账号下的 Bucket  | 
 | [Delete Bucket CORS](https://www.qcloud.com/document/product/436/8283) | 删除 Bucket 的跨域访问权限配置  | 
 | [Head Bucket](https://www.qcloud.com/document/product/436/7735) | 确认指定账号下是否存在指定 Bucket | 
-
+| [List Multipart Uploads](https://www.qcloud.com/document/product/436/7736) | 查询正在进行中的分块上传信息 | 
 
 ## 关于 Object 操作
 
@@ -43,15 +43,10 @@ width:550px;
 | [Delete Multiple Object](https://www.qcloud.com/document/product/436/8289) | 在 Bucket 中批量删除 Object （文件/对象） | 
 | [Head Object](https://www.qcloud.com/document/product/436/7745) | 获得 Object 的 meta 信息 | 
 | [Options Object](https://www.qcloud.com/document/product/436/8288) | 跨域访问 preflight 请求| 
-
-
-## 关于 Multipart Upload 操作
-
-| API | 描述 |
-|---------|---------|
 | [Initiate Multipart Upload](https://www.qcloud.com/document/product/436/7746) | 初始化 Multipart Upload 上传操作 | 
 | [Upload Part](https://www.qcloud.com/document/product/436/7750) | 分块上传文件 | 
 | [List Parts](https://www.qcloud.com/document/product/436/7747) | 查询特定分块上传操作中的已上传的块 | 
-| [List Multipart Uploads](https://www.qcloud.com/document/product/436/7736) | 查询正在进行中的分块上传信息 | 
 | [Complete Multipart Upload](https://www.qcloud.com/document/product/436/7742) | 完成整个文件的分块上传 | 
 | [Abort Multipart Upload](https://www.qcloud.com/document/product/436/7740) | 实现舍弃一个分块上传操作并删除已上传的块 | 
+
+
