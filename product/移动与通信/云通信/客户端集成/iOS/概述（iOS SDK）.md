@@ -49,6 +49,7 @@ ImSDK.framework 支持iOS 7.0 及以上系统。
 CoreTelephony.framework
 SystemConfiguration.framework
 libc++.dylib
+libstdc++.6.dylib
 libz.dylib
 libsqlite3.dylib
 ImSDK.framework
@@ -58,7 +59,7 @@ QALSDK.framework
 IMSDKBugly.framework
 ```
 
-其中 ImSDK.framework、IMCore.framework、TLSSDK.framework、QALSDK.framework 为步骤1.1.1下载的SDK，其余均为系统内置库。
+其中 ImSDK.framework、IMCore.framework、TLSSDK.framework、QALSDK.framework 为步骤1.1.1下载的SDK，其余均为系统内置库。另外**需要在Build Setting中Other Linker Flags添加-ObjC**。
 
 ### 1.5 功能开发
 

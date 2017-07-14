@@ -7,10 +7,10 @@
 音频本地处理流程图:
 
 > 观众侧
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/audio_member.jpg)
+![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_member.jpg)
 
 > 主播侧
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/audio_host.jpg)
+![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_host.jpg)
 
 如上图所示，用户可以其中任意环节对数据进行拦截并作相应的处理。
 
@@ -243,16 +243,17 @@ fillExternalCaptureFrame|输入从外部视频捕获设备获取的视频图像�
 :--|:--:
 byte数组|图像数据
 int|图像数据长度
+int|图像的byteperRow。RGB32图像专用，一般为宽度的4倍，特殊分辨率图像需要注意
 int|图像宽度
 int|图像高度
-int|图像渲染角度。角度可以是0,90,180,270
-int|图像颜色格式。当前仅支持COLOR_FORMAT_I420
+int|图像渲染角度。角度可以是0、1、2、3,含义分别为图像需要顺时针旋转0、90、180、270度才能正立
+int|图像颜色格式，具体值参考EXTERNAL_FORMAT_I420、EXTERNAL_FORMAT_RGBA等值
 int|视频源类型。当前仅支持VIDEO_SRC_TYPE_CAMERA
 
 ```java
 // 图像需要旋转90度
-ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.length,
-    mCameraSize.width, mCameraSize.height, 270, AVVideoCtrl.COLOR_FORMAT_I420, AVView.VIDEO_SRC_TYPE_CAMERA);
+ILiveSDK.getInstance().getAvVideoCtrl().fillExternalCaptureFrame(data, data.length, 0,
+    mCameraSize.width, mCameraSize.height, 3, AVVideoCtrl.COLOR_FORMAT_I420, AVView.VIDEO_SRC_TYPE_CAMERA);
 ```
 
 
@@ -294,7 +295,7 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 | **int dataLen** | 视频数据长度|
 | **int width** | 视频宽|
 | **int height** | 视频高|
-| **int rotate** | 视频图像角度。角度可以是0, 1, 2, 3. 0,1,2,3的含义为图像需要分别顺时针旋转0*90 1*90、 2*90、 3*90度才能正立|
+| **int rotate** | 视频图像角度。角度可以是0、1、2、3,含义分别为图像需要顺时针旋转0、90、180、270度才能正立|
 | **int videoFormat** | 视频格式，目前支持I420、NV21、NV12、RGB565、RGB24、ARGB；默认为0|
 | **String identifier** | 房间成员identifie|
 | **int srcType** | 视频采集来源 NONE = 0 CAMERA = 1 SCREEN = 2 MEDIA = 3|

@@ -11,11 +11,11 @@ Origin Host Header refers to the site domain accessed by the CDN node at the ori
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/13b09577cd5047bba5ba53c15f91ead5/1.png)
 
 Go to **Origin Configuration** in "Basic Configuration" to configure hosting source:
 
-![](https://mc.qcloudimg.com/static/img/5440c6887c5120a103601f52167113dd/image.png)
+![](https://mc.qcloudimg.com/static/img/e21f4accc282dc2f030e6b1bf6760186/2.png)
 
 
 
@@ -23,7 +23,7 @@ Go to **Origin Configuration** in "Basic Configuration" to configure hosting sou
 
 By default, the origin host header of a sub-domain is the configured accelerated domain; The origin host header of a wildcard domain is the access domain:
 
-![](https://mc.qcloudimg.com/static/img/df14797663acbdf2924702a4f49c0142/image.png)
+![](https://mc.qcloudimg.com/static/img/ad0a8cdce3c41ab68c0b561356e2032e/3.png)
 
 + If the accelerated domain connected is www.test.com, when the node sends an access request to origin server for the resource under this domain, the host field in the Request HTTP Header will be "www.test.com";
 + If the accelerated domain connected is a wildcard domain such as \*.test.com, and the access domain is abc.test.com, then the origin host header will be abc.test.com.
@@ -33,7 +33,7 @@ By default, the origin host header of a sub-domain is the configured accelerated
 
 You can set custom origin host header according to your business needs.
 
-![](https://mc.qcloudimg.com/static/img/e6e934df080a16422d56f35bab8b312e/image.png)
+![](https://mc.qcloudimg.com/static/img/04736972641d8c6928a66e3a52e3dcf8/4.png)
 
 
 ### Note

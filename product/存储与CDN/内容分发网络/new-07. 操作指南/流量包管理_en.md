@@ -2,24 +2,12 @@ If your billing method is Pay by Traffic, you can purchase a traffic package for
 
 
 
-Log in to [CDN Console](https://console.qcloud.com/cdn) and select **Advanced Tools** page. You'll see the **Traffic Package Management** feature provided by CDN:
+Log in to [CDN Console](https://console.qcloud.com/cdn) and select **Advanced** page. You'll see the **Traffic Package Management** feature provided by CDN:
 
 
 
-![](http://mc.qcloudimg.com/static/img/51c583f17aad80cefec3ff3b70e57fe0/image.png)
+![](https://mc.qcloudimg.com/static/img/11adb0f7ada7a92397a7e78b314965f9/1.png)
 
 
 
 This page provides the history of purchase and usage of traffic packages.
-
-
-
-
-
-
-
-
-
-
-
-

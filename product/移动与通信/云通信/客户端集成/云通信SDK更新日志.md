@@ -1,3 +1,34 @@
+#### IM SDK3.1.0 2017-7-3
+1. 新增IMUGCExt.framework和TXRTMPSDK.framework，提供小视频录制和上传功能
+2. 新增消息撤回功能
+
+
+#### IM SDK2.5.5 2017-6-6
+1. 优化内部回包逻辑，减少耗时
+2. LOG时间精度精确到毫秒
+3. 修复了部分Crash和消息同步的问题
+
+#### IM SDKV3 3.0.2 2017-5-22
+1. 修复AVChatRoom可能无法接收到群消息的问题
+2. 接口调整
+    i. 废弃TIMFileElem, TIMSoundElem中的setData接口
+    ii. 修正TIMManagerExt中的接口拼写： getConversionList => getConversationList
+
+#### IM SDKV3 3.0.1 2017-5-15
+1. 修复部分so库无法兼容Android 5.0以下机器的问题
+
+#### IM SDKV3 3.0 2017-5-8
+1. 将ImSDK和IMCore重新组合为ImSDK、IMMessageExt、IMGroupExt和IMFriendExt
+2. 优化ImSDK初始化方法为initSdk：和setUserConfig
+3. 整理ImSDK中接口命名和Protocol回调方法命名，统一小写字母开头
+4. ImSDK功能：基本的登录、收发消息、资料和群组功能
+5. IMMessageExt功能：全量消息功能，包括拉取消息、本地存储、未读计数等
+6. IMGroupExt功能：全量群组功能，包括所有群组类型管理、群成员管理等
+7. IMFriendExt功能：全量资料关系链功能，包括好友列表、黑名单等
+
+#### IM SDK2.5.4 2017-4-28
+1. 修复IMSDK中定时器机制的BUG
+
 #### IM SDK2.5.3 2017-4-17
 iOS:
 1. sendOnlineMessage接口支持群组类型消息，消息不存本地、不存离线、不计入未读

@@ -216,7 +216,7 @@ $validate_data = $obj['data']['validate_data'];
 var_dump ($client->faceLiveDetectFour($validate_data, array('file'=>'F:\pic\ZOE_0171.mp4'), False, array('F:\pic\idcard.jpg')));
 ```
 
-##### 活体检测-视频与身份证高清照片的比对
+##### 活体检测-视频身份信息核验
 
 ```php
 var_dump ($client->faceIdCardLiveDetectFour($validate_data, array('file'=>'F:\pic\ZOE_0171.mp4'), 'xxxxxxxxxxx', 'xxxxxxxxxxx'));

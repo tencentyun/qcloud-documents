@@ -9,7 +9,7 @@
 
 | 接口名|  接口描述  |
 |---------|---------|
-| **initSDK** | iLiveSDK的部分类的预初始化，是所有行为的第一步，告知身份appId|
+| **initSdk** | iLiveSDK的部分类的预初始化，是所有行为的第一步，告知身份appId|
 
 
 | 参数类型| 说明 |
@@ -128,7 +128,7 @@ ILiveLoginManager.getInstance().iLiveLogin(ILiveSDK.getInstance().getMyUserId(),
 ```            
             
             
-###设置渲染层
+### 设置渲染层
 > 渲染层级示例图 在界面层xml插入一个AVRootView,音视频数据最终是通过AVRootView渲染出来。考虑多屏互动情况，AVRootView实际上不是一层View而是多层AVVideoView的叠加。直播业务默认主播在第0层默认最大，其他互动观众分别在1，2，3层。每层大小都可以动态调节。
 
 

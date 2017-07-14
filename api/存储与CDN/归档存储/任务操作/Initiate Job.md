@@ -10,8 +10,7 @@ Initiate Job 请求实现将 Archive 或者 Archive 列表取出到缓存池，�
 | ------ | --------- | -------- | ------- |
 | 数据访问时间 | 1-5 分钟    | 3-5 小时   | 5-12 小时 |
 
-
-如果没有足够的容量处理 Expedited 类型请求时，则返回503 InsufficientCapacityException。
+ Expedited 类型请求，最大支持256 MB文件。
 
 ## 请求
 
@@ -63,8 +62,8 @@ Authorization: Auth
 | Format                       | Archive列表输出格式，枚举值： `CSV` ，`JSON`。默认值：`JSON` | String | 否    |
 | InventoryRetrievalParameters | Archive列表检索的相关配置                         | String | 否    |
 | StartDate                    | Archive列表检索的开始日期（采用 UTC 格式），包含当日或之后创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
-| EndDate                      | Archive列表检索的结束日期（采用 UTC 格式），包含当日或之后创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
-| Limit                        | Archive列表检索请求返回的最大条目数。默认值：10000，有效值：正整数  | String | 否    |
+| EndDate                      | Archive列表检索的结束日期（采用 UTC 格式），包含当日或之前创建的档案。ISO 8601 日期格式 `YYYY-MM-DDThh:mm:ssTZD`（以秒为单位）的字符串表示 | String | 否    |
+| Limit                        | Archive列表检索请求返回的最大条目数。默认值：10000，有效值：1-10000之间的正整数  | String | 否    |
 | Marker                       | 字典序，从Marker起读取对应Archive列表                | String | 否    |
 
 ```json

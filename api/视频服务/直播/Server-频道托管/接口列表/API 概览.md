@@ -6,7 +6,6 @@
 | 修改直播频道        | [ModifyLVBChannel](https://www.qcloud.com/doc/api/258/4718) |
 | 批量启用直播频道      | [StartLVBChannel](https://www.qcloud.com/doc/api/258/4719) |
 | 批量停止直播频道      | [StopLVBChannel](https://www.qcloud.com/doc/api/258/4720) |
-| 查询直播频道当前并发收看数 | [DescribeLVBOnlineUsers](https://www.qcloud.com/doc/api/258/4721) |
 | 删除直播频道        | [DeleteLVBChannel](https://www.qcloud.com/doc/api/258/4722) |
 | 创建录制任务        | [CreateRecord](https://www.qcloud.com/doc/api/258/4723) |
 | 终止录制任务        | [StopRecord](https://www.qcloud.com/doc/api/258/4724) |
@@ -16,4 +15,6 @@
 | 终止截图任务        | [StopLVBShot](https://www.qcloud.com/doc/api/258/4727) |
 | 查看队列消息        | [DescribeQueueLog](https://www.qcloud.com/doc/api/258/4728) |
 | 删除录制任务        | [DeleteRecord](https://www.qcloud.com/doc/api/258/4729) |
-| 删除截图任务        | [DeleteLVBShot](https://www.qcloud.com/doc/api/258/4730) |
+| 删除截图任务        | [DeleteLVBShot](https://www.qcloud.com/doc/api/258/4730) |
+| 查询录制任务列表 | [DescribeRecordList](https://www.qcloud.com/document/product/267/4731)|
+| 查询截图任务列表 |[DescribeLVBShotList](https://www.qcloud.com/document/product/267/4732)|

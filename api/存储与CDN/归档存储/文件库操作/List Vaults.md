@@ -46,7 +46,7 @@ Authorization: Auth
 | LastInventoryDate | 文件库最新读取档案列表时间， ISO 8601 日期格式的字符串表示，例如，`2017-03-20T17:03:43.221Z` | String |
 | NumberOfArchives  | 截止到上次读取档案列表时间，文件库中的档案数                   | Number |
 | SizeInBytes       | 截止到上次读取档案列表时间，文件库中的总档案大小                 | Number |
-| VaultQCS          | 文件库的Amazon 资源名称 （QCS）                    | String |
+| VaultQCS          | 文件库的资源名称 （QCS）                    | String |
 | VaultName         | 文件库名称                                    | String |
 
 ```JSON

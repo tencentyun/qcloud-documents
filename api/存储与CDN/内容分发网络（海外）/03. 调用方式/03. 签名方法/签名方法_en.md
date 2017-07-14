@@ -14,7 +14,7 @@ To apply for a security credential, please proceed as follows:
 3) Click "New Key" to create a pair of SecretId/SecretKey. Each account can have two pairs of SecretId/SecretKey at most.
 ![](//mccdn.qcloud.com/static/img/939bf79efcc5b8da20e529b0640884d7/image.jpg)
 
-## 2. Generating Signature String
+## 2. Generating Signature
 
 With the Secret ID and Secret Key, signature string can be generated. The following is the detailed process for generating signature string.
 

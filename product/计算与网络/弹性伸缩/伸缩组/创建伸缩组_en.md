@@ -1,12 +1,12 @@
 Open the [Console](https://console.qcloud.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
 
-### a. Select a Region
+### 1. Select a Region
 
 Select the region above the console where the scaling group shall be established. The CVMs which can be added manually and the cloud load balancers which can be bound are restricted by your selected region. For example, if you select Guangzhou as the region of the scaling configuration, the CVM of Guangzhou is automatically added to the scaling group. In a scaling group of Guangzhou region, you cannot add CVMs in other regions (Shanghai, Beijing, Hong Kong, Toronto, etc) manually, nor bind load balancers in other regions (Shanghai, Beijing, Hong Kong, Toronto, etc.)
 
 ![](https://mc.qcloudimg.com/static/img/fc2af25ac2023adb97f427aa68b72ff4/image.jpg)
 
-### b. Define Information
+### 2. Define Information
 Click the "New" button and define attributes of the scaling group:
 
   - **Name of Scaling Group**: labels the scaling group. For example, "Website Logical Layer"

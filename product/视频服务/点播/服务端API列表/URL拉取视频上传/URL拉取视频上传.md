@@ -31,7 +31,7 @@ vod.api.qcloud.com
 ### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
-|pullset.n.url | 是 | String | 需要拉取的视频URL，n为一个整数，第一个视频n填1，第二个视频n填2，依次递增；下同 |
+|pullset.n.url | 是 | String | 需要拉取的第 n 个视频的 URL。n 从0开始，依次递增，下同。 |
 |pullset.n.fileName | 是 | String | 视频文件的名称 |
 |pullset.n.fileMd5 | 否 | string | 视频文件的MD5 |
 |pullset.n.isTranscode | 否 | Integer | 是否转码，0：否，1：是，默认为0；如果不执行转码，可在上传后，在管理控制台视频文件管理进行转码|
@@ -46,13 +46,13 @@ vod.api.qcloud.com
 
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVodFile
-&pullset.1.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.html%3Fvid%3Dc0152uievii
-&pullset.1.fileName=test
-&pullset.1.isTranscode=1
-&pullset.1.priority=1
-&pullset.1.isScreenshot=1
-&pullset.1.isWatermark=1
-&pullset.1.classId=0
+&pullset.0.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.html%3Fvid%3Dc0152uievii
+&pullset.0.fileName=test
+&pullset.0.isTranscode=1
+&pullset.0.priority=1
+&pullset.0.isScreenshot=1
+&pullset.0.isWatermark=1
+&pullset.0.classId=0
 &COMMON_PARAMS
 ```
 

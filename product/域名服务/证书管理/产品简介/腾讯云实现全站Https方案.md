@@ -21,7 +21,7 @@
 
 ### 1.3 DNS验证域名身份
 
-证书默认支持收到DNS验证，验证方法可查看[详情](https://www.qcloud.com/doc/product/400/4142#2.-.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
+证书默认支持手动DNS验证，验证方法可查看[详情](https://www.qcloud.com/doc/product/400/4142#2.-.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
 
 ![](https://mc.qcloudimg.com/static/img/2f90c6cdf51ec98ba0fd7a112a891e13/5.png)
 

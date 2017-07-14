@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | vpcId | Yes | Int | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| sslVpnId | No | Int | SSLvpn gateway ID assigned by the system, for example: vpngw-l2tlvgb9. Can be queried via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2sslVPN?viewType=preview" title="DescribeSSLVpn">DescribeSSLVpn</a>.  |
+| sslVpnId | Yes | Int | SSLvpn gateway ID assigned by the system, for example: vpngw-l2tlvgb9. Can be queried via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2sslVPN?viewType=preview" title="DescribeSSLVpn">DescribeSSLVpn</a>.  |
 
  
 

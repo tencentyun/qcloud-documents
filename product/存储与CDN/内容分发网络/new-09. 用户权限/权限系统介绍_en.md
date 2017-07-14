@@ -58,16 +58,3 @@ CAM achieves permission assignment by associating the configured policies with u
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-

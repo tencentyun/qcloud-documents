@@ -236,7 +236,7 @@ faceIdClient.release();
 > 发送任务示例请参见快速入门
 
 ### 人脸对比
-自带人脸识别数据库，可实时为国内公民提供在线的身份证照片比对。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。
+自带人脸识别数据库，可实时为国内公民提供真实身份信息核验。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。
 1、通过上传本地图像进行对比。人脸对比请求初始化函数：
 
 ```
@@ -330,9 +330,9 @@ public VideoImageIdentityRequest(String bucket, String validateData, String vide
 | photo          | String | 人脸检测中相似度最高的图像 |
 >**人脸核身示例代码请参见*快速入门***
 
-### 人脸核身---活体检测视频与身份证高清照片的比对
+### 人脸核身---活体检测视频身份信息核验
 
-自带人脸识别数据库，可实时为国内公民提供在线的身份证照片比对。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。人脸核身构造函数：
+自带人脸识别数据库，可实时为国内公民提供真实身份信息核验。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。人脸核身构造函数：
 
 ```
 VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath, String idCardNumber, String idCardName, String seq);

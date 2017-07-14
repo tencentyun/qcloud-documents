@@ -12,11 +12,11 @@ A reasonable cache validity period can effectively improve the resource hit rate
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 You can find **Cache Expiration Configuration** in "Cache Configuration":
 
-![](https://mc.qcloudimg.com/static/img/9bcd5a1a260b47e0cc26302734b7db85/cache_config.png)
+![](https://mc.qcloudimg.com/static/img/d325a0b2f444a2887439bfb036b2921a/2.png)
 
 ### Default Configuration
 
@@ -99,11 +99,11 @@ The final cache validity period is subject to the last matching result, 200 seco
 
 You can customize the order of existing cache validity period entries according to your business needs. Click **Adjust priority** above the cache validity period entries:
 
-![](https://mc.qcloudimg.com/static/img/b8c7e87ce5c86dc07e0ed07d4fbc1590/1.png)
+![](https://mc.qcloudimg.com/static/img/281be811139a8da61addd6c39875e54b/3.png)
 
 Use the up and down arrows on the right to change the order of cache validity period entries, then click **Save**:
 
-![](https://mc.qcloudimg.com/static/img/3be0aae1f3c9ba01af4395c9534bc5f7/2.png)
+![](https://mc.qcloudimg.com/static/img/f8efc866186f6c27436465b5208f6afb/4.png)
 
 
 

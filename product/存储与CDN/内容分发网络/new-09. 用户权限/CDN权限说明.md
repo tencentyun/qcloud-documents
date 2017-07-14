@@ -200,7 +200,7 @@ CDN目前已经接入新版的云资源访问管理（Cloud Resource Access Mana
 子用户一旦配置了 CDN 功能权限，则默认可以进行如下操作，**无需进行配置**：
 
 + 使用控制台查询所有刷新记录：
-	![](https://mccdn.qcloud.com/static/img/0592d47b0f65a8271b39a83a684f7c46/image.jpg)
+  ![](https://mccdn.qcloud.com/static/img/0592d47b0f65a8271b39a83a684f7c46/image.jpg)
 + 使用云API [GetCdnRefreshLog](https://www.qcloud.com/doc/api/231/3948) 查询刷新记录。
 
 子用户功能配置案例可参考[子用户配置案例](https://www.qcloud.com/doc/product/228/6693) 。

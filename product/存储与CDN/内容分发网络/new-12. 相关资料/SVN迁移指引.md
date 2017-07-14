@@ -36,7 +36,7 @@ svn checkout https://cdn.yun.qq.com/1251991073
 + 填写所属地域：根据需要选择COS所在园区
 + 访问权限：选择【公有读私有写】
 + CDN加速：选择【开启】
-![](https://mc.qcloudimg.com/static/img/30e118a44492ab71bc026ff503bf6ca7/cos-2.png)
+  ![](https://mc.qcloudimg.com/static/img/30e118a44492ab71bc026ff503bf6ca7/cos-2.png)
 
 此时可以看到该 bucket 对应的域名为：
 
@@ -67,16 +67,4 @@ http://1251991073-1251991073.costj.myqcloud.com/image/1.png
 COS加速域名在CDN控制台上能够进行配置管理、查看统计分析数据、日志下载、刷新预热等功能。
 
 更多COS使用指南可参考：https://www.qcloud.com/document/product/436
-
-
-
-
-
-
-
-
-
-
-
-
 

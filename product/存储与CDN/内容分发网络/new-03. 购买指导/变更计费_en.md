@@ -1,16 +1,16 @@
-﻿If you find that the billing model you selected is not applicable to your actual business during your use (For instructions on how to make the judgment, refer to [Billing Options](https://www.qcloud.com/doc/product/228/2949)), you can change the billing model as follows:
+If you find that the billing model you selected is not applicable to your actual business during your use (For instructions on how to make the judgment, refer to [Billing Options](https://www.qcloud.com/doc/product/228/2949)), you can change the billing model as follows:
 
 1. Log in to Tencent Cloud [CDN Console](https://console.qcloud.com/), and click **Change** at the upper right corner:
-	![](https://mc.qcloudimg.com/static/img/bb622da8a09a20a8e6ba476059c3021c/image.png)
+  ![](https://mc.qcloudimg.com/static/img/59a10afcc90d118720537cddd979e21e/image.png)
 
 2. Change the original billing method **Pay by Traffic** to **Pay by Bandwidth**:
-	 ![](https://mc.qcloudimg.com/static/img/cde7e1d43ee49c02a8779efb990b01ef/image.png)
+   ![](https://mc.qcloudimg.com/static/img/e33ae2ba6d7a744f32c7c42d2af9113e/image.png)
 
 3. After the billing method is changed to **Pay by Bandwidth**, the balance of your traffic package will be frozen:
-	![](https://mc.qcloudimg.com/static/img/afed77d2480b55bff7d21547d9bf22b4/image.png)
+  ![](https://mc.qcloudimg.com/static/img/d6502e9bf1535ff9caa58d479e397241/3.png)
 
 4. Click OK to complete the change. If you want to cancel the change, you can click **Change** again, switching the billing method back to **Pay by Traffic**. 
-	![](https://mc.qcloudimg.com/static/img/c53da71ec963de2d45ed02b05b52a4b3/image.png)
+  ![](https://mc.qcloudimg.com/static/img/e91b058ffa7d2957109f3310f247cce8/image.png)
 
 **Note:**
 

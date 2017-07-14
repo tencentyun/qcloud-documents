@@ -2,10 +2,10 @@
 ### Usage Scenarios
 We hope there is no manual intervention in the whole process of scale-up via auto scaling. Thus, we strongly recommend that you set the service to be activated on boot for the machine for auto scaling. The services include:
 
-- **httpd** service
-- **mysqld** service
-- **php-fpm** service
-- **tomcat** service
+-**httpd** service
+-**mysqld** service
+-**php-fpm** service
+-**tomcat** service
 - etc.
 
 The setting can be done within one minute - Modify the file /etc/rc.d/rc.local!

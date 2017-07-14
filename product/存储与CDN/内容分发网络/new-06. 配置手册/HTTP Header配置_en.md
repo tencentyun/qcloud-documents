@@ -81,25 +81,18 @@ This indicates no more pre-request will be sent for the cross-domain access to t
 ### Configuration Process
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 Go to "Advanced Configuration" and find "HTTP header Configuration", then click "Add HTTP header":
 
-![](https://mccdn.qcloud.com/static/img/96846833b3f6e4830ad3323da43415ea/image.png)
+![](https://mc.qcloudimg.com/static/img/1956e1d87d64a5ca643b1c703f5b9882/2.png)
 
 Select the header to add and complete the configuration for it. You can add multiple headers at a time, **but the same header can only be added once**:
 
-![](https://mccdn.qcloud.com/static/img/e7673fae30256b95d445e134b84de36f/image.png)
+![](https://mc.qcloudimg.com/static/img/8f3061d288e85a45e41b86de84462565/3.png)
 
 Click OK to complete configuration. It will take about 5 minutes for the configuration to take effect:
 
-![](https://mccdn.qcloud.com/static/img/6e8d29c43503eca11650068ea6042744/image.png)
+![](https://mc.qcloudimg.com/static/img/1713012b7cb4c29781f55248996fa2a3/4.png)
 
 You can also modify or delete existing headers.
-
-
-
-
-
-
-

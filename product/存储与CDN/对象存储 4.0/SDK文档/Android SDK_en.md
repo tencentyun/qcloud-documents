@@ -4,7 +4,7 @@
 
 Android SDK for Cloud Object Storage (COS) can be downloaded from [Android SDK](https://github.com/tencentyun/cos_android_sdk).
 
-For more examples, refer to [Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/blob/master/qclouddemo.zip). 
+For more examples, refer to [Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/tree/master/COSDemo). 
 
 ## Preparations for Development
 

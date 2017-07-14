@@ -9,7 +9,7 @@ Get Job Output 请求用来输出缓存池中检索出来的 Archive 或Archive�
 ### 请求语法
 
 ```HTTP
-GET /<UID>/vaults/<VaultName>/jobs/<JobID>/Output HTTP 1.1
+GET /<UID>/vaults/<VaultName>/jobs/<JobID>/output HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date
 Authorization: Auth

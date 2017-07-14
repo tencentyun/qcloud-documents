@@ -5,11 +5,11 @@ Game Voice (GVoice) is a voice service specific provided for game applications. 
 Covers common voice-related features in games, e.g. Voice Chat, Voice Message, Voice-To-Text Convert. All these can be implemented by embedding light SDKs, adding only 2M to the package.
 
 ### Built for Games
-Features: can be used to implement rich game features, like the interactive chatting of Yu Long Zai Tian (御龙在天), and the integration of QQ Music.
+Features: can be used to implement rich game features, like the interactive chatting of Yu Long Zai Tian , and the integration of QQ Music.
 Performances: It helps improve game performance by noise reduction, low traffic, low latency, low power consumption (<3% for single-core 700MHz CPU Android devices) and low bitrate (5 - 8 kbps). Besides, it has been optimized for Unity3D and Cocos2D engines, and is compatible with hundreds of Android devices.
 
 ### Mass Service Ability 
-Developed by Tencent, GVoice now serves many flagship games in China, e.g. Glory of King, Crossfire Mobile, Yu Long Zai Tian (御龙在天) and Zheng Tu (征途). The mass service capability of GVoice is well proven by its 30M+ DAU of Voice Chat, 20M+ DAU of Voice Message and 150M+ voice messages per day.
+Developed by Tencent, GVoice now serves many flagship games in China, e.g. Glory of King, Crossfire Mobile, Yu Long Zai Tian  and Zheng Tu . The mass service capability of GVoice is well proven by its 30M+ DAU of Voice Chat, 20M+ DAU of Voice Message and 150M+ voice messages per day.
 
 
 ### Global Service Ability

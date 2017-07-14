@@ -24,7 +24,7 @@
 <td> disturbLevel
 </td><td> <font color=red>  必选 </font>
 </td><td> UInt
-</td><td><a href="https://www.qcloud.com/doc/api/254/%E9%AA%8C%E8%AF%81%E7%A0%81%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E" target="blank">验证码干扰程度</a>
+</td><td><a href="https://www.qcloud.com/document/product/295/6622#2.2-.E9.AA.8C.E8.AF.81.E7.A0.81.E5.8F.82.E6.95.B0" target="blank">验证码干扰程度</a>
 </td></tr>
 <tr>
 <td> isHttps
@@ -146,7 +146,7 @@
 </tbody></table>
 
 ## 4.示例代码
-代码下载： [java](https://mc.qcloudimg.com/static/archive/91612588f14dd8632dbb044d4a62061c/captcha_iframe_java%281%29.zip)  　　[Python](https://mc.qcloudimg.com/static/archive/81a341051425904e44540a986f1a44a6/captcha_iframe_php.zip) 　　 [php ](https://mc.qcloudimg.com/static/archive/caec2d56c3e4560eda138426bfd36492/captcha_iframe_python.zip)
+代码下载： [java](https://mc.qcloudimg.com/static/archive/91612588f14dd8632dbb044d4a62061c/captcha_iframe_java%281%29.zip)  　　[php](https://mc.qcloudimg.com/static/archive/81a341051425904e44540a986f1a44a6/captcha_iframe_php.zip) 　　 [Python ](https://mc.qcloudimg.com/static/archive/caec2d56c3e4560eda138426bfd36492/captcha_iframe_python.zip)
 <p> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见<a href="https://www.qcloud.com/document/product/295/7279"target="blank">公共请求参数</a>小节。
 ```
 请求示例 ：

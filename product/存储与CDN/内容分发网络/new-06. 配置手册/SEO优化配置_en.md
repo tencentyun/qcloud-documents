@@ -7,16 +7,16 @@ Once SEO optimization configuration feature is enabled, requests from search eng
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 You can find **SEO Optimization** in "Advanced Configuration":
 
-![](https://mccdn.qcloud.com/static/img/d9643dcd9a8d747fc79642cdaf059499/SEO.png)
+![](https://mc.qcloudimg.com/static/img/18bc9019b47152b2e214e1ca6a4296e8/2.png)
 
 + SEO optimization is only available when connection method is **"Own origin"**. Once SEO optimization is enabled, **if the domain has multiple origin server addresses, the default origin address for back-to-origin requests will be the first one added**;
 + If the CNAME of the current domain is an old CNAME (as shown below), you need to update it to a new CNAME to use SEO optimization configuration feature.
 
-![](https://mccdn.qcloud.com/static/img/80afb8cf5a858e91d596f5a3be86f70d/seo.png)
+![](https://mc.qcloudimg.com/static/img/4e2b1880d2da85c39930f713996dd93b/1.png)
 
 How to update CNAME:
 + Submit a ticket to request to change the CNAME of the domain to a new one;

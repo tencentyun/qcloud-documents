@@ -21,7 +21,7 @@ IM云通讯有多种群组类型，其特点以及限制因素可参考[群组�
 
 ### 3.1 创建内置类型群组
 
-CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateChatRoomGroup创建聊天室，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。云通信中内置了私有群、公开群、聊天室和互动直播聊天室四种群组类型，详情请见[群组形态介绍](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)
+CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateChatRoomGroup创建聊天室，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。云通信中内置了私有群、公开群、聊天室、互动直播聊天室和在线成员广播大群五种群组类型，详情请见[群组形态介绍](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)
 
 另外 CreateAVChatRoomGroup 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
  
@@ -546,7 +546,7 @@ fail | 失败回调
 **权限说明：**
  
 此接口可以获取自己所加入的群列表，返回的TIMGroupInfo只包含group\groupName\groupType 信息；
-此接口只能获得加入的部分直播大的列表；
+此接口不能获得加入的直播大群的列表；
  
 **原型：**
 

@@ -1,6 +1,5 @@
 | 接口功能 | Action ID | 
 |---------|---------|
-| 创建专线网关 | [CreateDirectConnectGateway](http://www.qcloud.com/doc/api/259/%E5%88%9B%E5%BB%BA%E4%B8%93%E7%BA%BF%E7%BD%91%E5%85%B3) | 
-| 查询专线网关列表 | [DescribeDirectConnectGateway](http://www.qcloud.com/doc/api/259/%E6%9F%A5%E8%AF%A2%E4%B8%93%E7%BA%BF%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8) | 
-| 删除专线网关 | [DeleteDirectConnectGateway](http://www.qcloud.com/doc/api/259/%E5%88%A0%E9%99%A4%E4%B8%93%E7%BA%BF%E7%BD%91%E5%85%B3) | 
-| 修改专线网关名称 | [ModifyDirectConnectGateway](http://www.qcloud.com/doc/api/259/%E4%BF%AE%E6%94%B9%E4%B8%93%E7%BA%BF%E7%BD%91%E5%85%B3%E5%90%8D%E7%A7%B0) | 
+| 查询物理专线列表 | [DescribeDirectConnects](https://www.qcloud.com/document/api/216/9345) | 
+| 创建专线通道 | [CreateDirectConnectTunnel](https://www.qcloud.com/document/api/216/9343) | 
+| 查询专线通道列表 | [DescribeDirectConnectTunnels](https://www.qcloud.com/document/api/216/9344) |

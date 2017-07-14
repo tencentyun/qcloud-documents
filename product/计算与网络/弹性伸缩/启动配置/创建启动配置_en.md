@@ -4,7 +4,7 @@ Please note that scaling configuration is just a template based on which CVMs ar
 
 Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
 
-### Step 1. Selecting a Region
+### Step 1. Select a Region
 
 In the menu on the top of the screen, select a region you need for the scaling group.
 
@@ -13,7 +13,7 @@ In the menu on the top of the screen, select a region you need for the scaling g
 
 ![](https://mc.qcloudimg.com/static/img/653ebf516d940a90fd79728e5d319cdc/image.png)
 
-### Step 2. Specifying Parameters
+### Step 2. Specify Parameters
 
 Click **Create**, and create scaling configuration as instructed using the same steps as those for purchasing CVM.
 

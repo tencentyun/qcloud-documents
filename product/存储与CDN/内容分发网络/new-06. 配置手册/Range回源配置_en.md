@@ -7,11 +7,11 @@ CDN provides Range GETs Configuration feature which can effectively reduce back-
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 You can find **Range GETs Configuration** in "Origin Configuration":
 
-![](https://mc.qcloudimg.com/static/img/42ee9cf64caf0e5b98467709e14df0c6/range.png)
+![](https://mc.qcloudimg.com/static/img/bed21c4d2061d405f30645b160dcd9a8/2.png)
 
 ### Default Configuration
 By default, Range GETs Configuration is **Enabled**.

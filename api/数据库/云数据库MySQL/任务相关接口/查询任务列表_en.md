@@ -9,7 +9,7 @@ The following request parameter list only provides API request parameters. Commo
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | jobId | No | Int | Task ID, the jobId returned by executing CDB related operations |
-| taskTypeList | No | Int | Task type. All task types are queried if no value is passed. Possible return values include: 2 - SQL operation; 3 - data import; 5 - parameter configuration; 6 - initialization; 7 - restart; 8 - enable GTID; 9 - read-only instance upgrade; 10 - database rollback; 11 - master instance upgrade; 12 - delete database list; 13 - switch to master instance; |
+| taskTypeList | No | Array | Task type. All task types are queried if no value is passed. Possible return values include: 2 - SQL operation; 3 - data import; 5 - parameter configuration; 6 - initialization; 7 - restart; 8 - enable GTID; 9 - read-only instance upgrade; 10 - database rollback; 11 - master instance upgrade; 12 - delete database list; 13 - switch to master instance; |
 | taskStatusList | No | Int | Task status. All task status are queried if no value is passed; possible return values include: 0 - running; 2 - execution succeeded; 3 - execution failed; 4 - terminated; 5 - deleted; 6- terminating |
 | startTimeBegin | No | String | Task start time. Format: Y-m-d |
 | StartTimeEnd | No | String | Task end time. Format: Y-m-d |

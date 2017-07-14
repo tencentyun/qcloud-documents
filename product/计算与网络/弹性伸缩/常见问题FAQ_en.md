@@ -24,12 +24,12 @@ The CLB instance associated with the scaling group must be in the same network e
 ## 8. Does the Auto Scaling automatically scale up and down CVMs?
 Auto Scaling (AS) is a management service that automatically adjusts the computing resources according to user's business needs and policies. It automatically scales up CVM instances during demand spikes and scales down CVM instances during demand lulls. Auto Scaling currently does not provide the option for "vertical scaling", that is, Auto Scaling is temporarily unable to automatically scale up and down the CPU, memory and bandwidth of the CVMs.
 
-# # 9. Does auto scaling have to work with CLB and Cloud Monitor?
+## 9. Does auto scaling have to work with CLB and Cloud Monitor?
 Auto Scaling can separately scale CVM instances up and down. It can both work with CLB or work separately.
 
-# # 10. If I need to scale up a number of CVMs during a certain period of time, how do I set it up?
+## 10. If I need to scale up a number of CVMs during a certain period of time, how do I set it up?
 You can set a pair of scheduled tasks: one defines the scale-up operation, setting the desired number of instances to the number you want to scale up to; the other defines the scale-down operation, setting the desired number of instances to the number you want to scale down to.
-See [Best Practice Examples >>](https://www.qcloud.com/document/product/377/8617#step-5.-.E8.AE.BE.E7.BD.AE.E6.89 .A9.E7.BC.A9.E5.AE.B9.E7.AD.96.E7.95.A5.EF.BC.88.E9.87.8D.E7.82.B9.EF.BC.81. EF.BC.89)
+See [Best Practice Examples >>](https://www.qcloud.com/document/product/377/8617#step-5.-.E8.AE.BE.E7.BD.AE.E6.89.A9.E7.BC.A9.E5.AE.B9.E7.AD.96.E7.95.A5.EF.BC.88.E9.87.8D.E7.82.B9.EF.BC.81.EF.BC.89)
 
 ## 11. What are the specific rules for scaling group removal?
 Tencent Cloud AS provides two types of removal policies:
@@ -50,7 +50,7 @@ The desired number of instances refers to the correct number of instances in a s
 
 ## 14. What should be noted when a data disk snapshot is specified in the scaling configuration?
 If a data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted correctly to allow the scaling group to automatically scale up. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance.
-For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot>>](https://www.qcloud.com/doc/product/362/5564)
+For instructions on how to do this, refer to [here >>](https://www.qcloud.com/doc/product/362/5564)
 
 ## 15. What activity will be paused when the scaling group is disabled?
 After the scaling group is disabled, the auto capacity scaling of the scaling group will not be triggered, but the restrictions on the scaling group remain in effect.
@@ -63,9 +63,9 @@ When the scaling group is disabled, the automatic activities will not performed:
 
 But in order to ensure normal running, the basic restrictions on the scaling group still apply:
 
-- If the instances are manually removed to be less than `min`, the removal will not be allowed;
-- If the instances are manually added to greater than`max`, the addition will not be allowed;
-- Manually raising `min` or` max` will not trigger scaling activity.
+- If the instances are manually removed to be less than  `min`, the removal will not be allowed;
+- If the instances are manually added to greater than `max`, the addition will not be allowed;
+- Manually raising `min` or ` max` will not trigger scaling activity.
 
 ## 16. What stages are involved in the lifecycle of the CVMs that are automatically added to the scaling group?
 - Creating: a submachine is being created

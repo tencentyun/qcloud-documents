@@ -10,7 +10,7 @@ Domain for API access: lb.api.qcloud.com
 | Parameter Name | Required | Type | Description |
 |---|---|---|---|
 | loadBalancerIds.n | No | String | The unique ID of the cloud load balancer instance, which can be loadBalancerId or unLoadBalancerId (recommended). |
-| loadBalancerType | No | Int | Type of the cloud load balancer instance <br>1: public network (without daily rate) 2: public network (with daily rate) 3: private network. |
+| loadBalancerType | No | Int | Type of the cloud load balancer instance <br>2: public network (with daily rate) 3: private network. |
 | loadBalancerName | No | String | Name of the cloud load balancer instance. |
 | domain | No | String | Domain of the cloud load balancer instance assigned by Tencent Cloud. This field is not applicable to application-based cloud load balancers. |
 | loadBalancerVips.n | No | String | VIP address of the cloud load balancer instance. You may enter multiple addresses. |

@@ -77,7 +77,7 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
 
 ## 快速入门
 
-这里演示的对比身份证照片的基本流程，更多细节可以参考demo；在进行这一步之前必须在腾讯云控制台上申请万象业务的appid；
+这里演示的对比用户人脸身份照片的基本流程，更多细节可以参考demo；在进行这一步之前必须在腾讯云控制台上申请万象业务的appid；
 
 ### STEP - 1初始化CIClient
 
@@ -86,7 +86,7 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
 ```objective-c
 CIClient *client= [[CIClient alloc] initWithAppId:appId];
 ```
-### STEP - 2 初始化对比身份证照片的task
+### STEP - 2 初始化对比人脸身份照片的task
 
 在这里我们假设您已经申请了自己业务bucket。SDK所有的任务对应了相应的task，只要把相应的task参数传递给client，就可以完成相应的动作；这里以创建人任务来演示
 
@@ -112,9 +112,9 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
     [client IDCardCompare:task]；
 ```
 
-###  对比身份证照片
+###  对比人脸身份照片
 
-自带人脸识别数据库，可实时为国内公民提供在线的身份证照片比对，具体步骤如下：
+自带人脸识别数据库，可实时为国内公民提供真实身份信息核验，具体步骤如下：
 
 1. 实例化 CIIDCardCompareTask  对象；
 2. 调用 CIClient 的 IDCardCompare 方法，将 CIIDCardCompareTask 对象传入。
@@ -256,9 +256,9 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId];
     [client lipIdentificationCompare:cm];
 ```
 
-### 高清身份证照片比对
+### 真实身份信息核验
 
-调用此接口自可实时为国内公民提供在线的身份证照片比对。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。具体步骤如下：
+调用此接口自可实时为国内公民提供真实身份信息核验。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。具体步骤如下：
 
 1. 实例化 CIIDNumbeVideoComparTask  对象；
 2. 调用 CIClient  的 IDCardCompareVideo 命令，传入 CIIDNumbeVideoComparTask  对象；

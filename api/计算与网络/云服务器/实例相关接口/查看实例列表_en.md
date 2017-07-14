@@ -5,8 +5,8 @@ This API (DescribeInstances) is used to get the details of one or more instances
 Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 * You can query instance list based on instance ID, instance name or instance status.
-* If the parameter is empty, returns the current user a certain number (specified by limit, the default is 20) of instances.
-* The "status" field indicates the status of the instance, including the following status:
+* If the parameter is empty, returns certain number (specified by limit, the default is 20) of instances under the current user account.
+* The `status` field indicates the status of the instance, including the following status:
 
 | Status ID | Status Name |
 |---------|---------|
@@ -76,8 +76,8 @@ instanceSet contains a lot of instance information, and the data structure for e
 | autoRenew | Int | Whether the instance is set to [Auto Renewal](https://www.qcloud.com/doc/api/229/1746). <br>0: Do not auto renew; <br>1: Auto renew; <br>2: Do not renew.
 | projectId | Int | [Project ID](https://www.qcloud.com/doc/api/229/1335).
 | os | String | Operating system name.
-| cvmPayMode | String | Billing mode. <br>0: Monthly postpaid; <br>1: Prepaid package; <br>2: Postpaid
-| networkPayMode | String | Network billing mode. <br> 0: Monthly postpaid; <br>1: Prepaid package; <br> 2: Bill by traffic; <br> 3: Bill by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |
+| cvmPayMode | Int | Billing mode. <br>0: Monthly postpaid; <br>1: Prepaid package; <br>2: Postpaid
+| networkPayMode | Int | Network billing mode. <br> 0: Monthly postpaid; <br>1: Prepaid package; <br> 2: Bill by traffic; <br> 3: Bill by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |
 | zoneId | Int | [Availability Zone](/doc/product/213/6091) ID.
 | zoneName | String | Availability zone name.
 | vpcId | Int | [Virtual Private Cloud](/help/什么是私有网络) ID.
@@ -89,12 +89,12 @@ diskInfo contains a lot of hard disk information, and the data structure for eac
 
 | Parameter name | Type | Description |
 |---------|---------|---------|
-| storageId | String | Hard disk ID.
-| storageType | Int | Hard disk type. <br>1. Local disk <br>2. Cloud HHD Storage <br>3. SSD local disk <br>4. SSD cloud disk
+| storageId | String | Data disk ID.
+| storageType | Int | Data disk type. <br>1. Local disk <br>2. Cloud HDD storage <br>3. SSD local disk <br>4. SSD cloud storage <br>5. Premium cloud storage
 | storageSize | Int | Data disk size (GB).
 | rootId | String | System disk ID.
 | rootSize | Int | System disk size (GB). |
-| rootType | Int | System disk type. <br>1. Local disk <br>2. Cloud HHD Storage <br>3. SSD local disk <br>4. SSD cloud disk
+| rootType | Int | System disk type. <br>1. Local disk <br>2. Cloud HDD storage <br>3. SSD local disk <br>4. SSD cloud storage
 
 
 ## 4. Example

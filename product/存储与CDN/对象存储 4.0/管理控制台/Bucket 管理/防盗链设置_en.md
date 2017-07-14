@@ -28,9 +28,9 @@ The list supports multiple domains and prefix match. Each domain occupies one li
 
 > If www.qq.com is set, the following values of Referer all match the list:
 >
-> http://www.qq.com/123
+> `http://www.qq.com/123`
 >
-> http://www.qq.com.cn
+> `http://www.qq.com.cn`
 
 Domains and IPs with ports are supported, for example:
 
@@ -42,9 +42,9 @@ The asterisk wildcard (*) is supported for secondary domain or multi-level domai
 
 > If *.qq.com is set, the following values of Referer all match the list:
 >
-> http://a.b.qq.com/123
+>` http://a.b.qq.com/123`
 >
-> http://a.qq.com
+> `http://a.qq.com`
 
 If Referer is blank (in the case of access via browser), no matching rule is used by default:
 
@@ -64,24 +64,24 @@ A webmaster who holds www.fake.com wants to put this image in his website, but h
 
 **Before enabled**
 
-> Visit http://www.example.com/index.html, and the image displays normally.
+> Visit `http://www.example.com/index.html`, and the image displays normally.
 >
-> Visit http://www.fake.com/index.html, and the image also displays normally.
+> Visit `http://www.fake.com/index.html`, and the image also displays normally.
 
 **Enabling method 1**
 
 > The user configures Referer to the **blacklist** mode in COS, fills in *.fake.com and saves it to make it effective.
 >
-> Visit http://www.example.com/index.html, and the image displays normally.
+> Visit `http://www.example.com/index.html`, and the image displays normally.
 >
-> Visit http://www.fake.com/index.html, and the image cannot be displayed.
+> Visit `http://www.fake.com/index.html`, and the image cannot be displayed.
 
 **Enabling method 2**
 
 > The user configures Referer to the **whitelist** mode in COS, fills in *.example.com and saves it to make it effective.
 >
-> Visit http://www.example.com/index.html, and the image displays normally.
+> Visit `http://www.example.com/index.html`, and the image displays normally.
 >
-> Visit http://www.fake.com/index.html, and the image cannot be displayed.
+> Visit `http://www.fake.com/index.html`, and the image cannot be displayed.
 
 

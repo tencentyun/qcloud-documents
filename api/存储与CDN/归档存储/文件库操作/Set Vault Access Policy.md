@@ -1,6 +1,6 @@
 ## 功能描述
 
-Set Vault Access Policy 请求实现为一个 Vault 设置权限。
+Set Vault Access Policy 请求实现为一个 Vault 设置权限。具体策略语法参考『认证与鉴权』-『权限管理』
 
 只支持所有者设置权限，对应 UID 值为 "-"。成功后返回 204 No Content。
 
@@ -25,24 +25,32 @@ Authorization: Auth
 
 ### 请求内容
 
+```JSON
+{
+  "Policy":"String"
+}
+```
+
+为了便于阅读，以下显示了**不带转义符" \ "**的Policy变量值（即上文String部分），实际调用时需要**将引号转义**，同时**消除换行**。
+
 ```json
 {
     "version": "2.0",
-    "principal": {
-        "qcs": [
-            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>",
-            "qcs::cam::uin/<RootAccout>:uin/<SubAccount>"
-        ]
-    },
     "statement": [
         {
             "effect": "allow",
+            "principal": {
+              "qcs": [
+                "qcs::cam::uin/<RootAccout>:uin/<SubAccount>",
+                "qcs::cam::uin/<RootAccout>:uin/<SubAccount>"
+              ]
+            },
             "action": [
                 "name/cas:<ActionName>"
             ],
             "resource": [
-                "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>",
-                "qcs::cas:<Region>:uid/<Accout>:vault/<VaultName>"
+                "qcs::cas:<Region>:uid/<Accout>:vaults/<VaultName>",
+                "qcs::cas:<Region>:uid/<Accout>:vaults/<VaultName>"
             ],
             "condition": {
                 "<ConditionOperator>": {
@@ -57,12 +65,11 @@ Authorization: Auth
 }
 ```
 
-
 已支持条件操作
 
 | ConditionOperator       | 含义     | 条件名                    | 举例                                       |
 | ----------------------- | ------ | ---------------------- | ---------------------------------------- |
-| ip_equal                | ip等于   | ip,ip要符合CIDR规范         | {" ip_equal  ":{"qcs:ip":"10.121.2.10/24"}}  |
+| ip_equal                | ip等于   | ip,ip要符合CIDR规范         | {" ip_equal  ":{"qcs:ip":"10.121.2.10/24"}} |
 | ip_not_equal            | ip不等于  | ip，ip要符合CIDR规范         | {" ip_not_equal  ":{"qcs:ip":["10.121.2.10/24",  "10.121.2.20/24"]}} |
 | date_not_equal          | 时间不等于  | qcs:current_time(当前时间) | {"date_not_equal":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |
 | date_greater_than       | 时间大于   | qcs:current_time(当前时间) | {" date_greater_than  ":{"qcs:current_time":"2016-01-01T12:00:11Z"}} |

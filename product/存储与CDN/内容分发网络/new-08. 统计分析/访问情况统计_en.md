@@ -2,7 +2,7 @@ Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Access" page
 
 ## Query Criteria Instruction
 The following criteria are supported when querying access statistics:
-![](https://mc.qcloudimg.com/static/img/9e835338bd4d7de2adb3d93e2da44cc1/request_query_condition.png)
+![](https://mc.qcloudimg.com/static/img/eb533b3ad54a1756a374500c2076aca2/1.png)
 
 **Note:**
 
@@ -12,15 +12,15 @@ The following criteria are supported when querying access statistics:
 + Region: Query for usage data based on specified region is supported. Currently you cannot select both "Region" and "Carrier", when you select regions, the carrier will need to be "All carriers";
 + Carrier: Query for usage data based on specified carrier is supported. Currently you cannot select both "Region" and "Carrier", when you select a carrier, the region will need to be "All regions";
 + Temporal granularity: This refers to the temporal granularity with which bandwidth and traffic data will be presented. This is related to the selected time span:
-	> If the selected time span is 1 day, you can query data with a temporal granularity of 5 minutes, 15 minutes, 30 minutes, 2 hours or 4 hours;
-	> If the selected time span is 2-3 days, you can query data with a temporal granularity of 15 minutes, 30 minutes, 2 hours or 4 hours;
-	> If the selected time span is 4-7 days, you can query data with a temporal granularity of 2 hours, 4 hours or 1 day;
-	> If the selected time span is more than 30 days, you can only query data with a temporal granularity of 4 hours or 1 day;
+  > If the selected time span is 1 day, you can query data with a temporal granularity of 5 minutes, 15 minutes, 30 minutes, 2 hours or 4 hours;
+  > If the selected time span is 2-3 days, you can query data with a temporal granularity of 15 minutes, 30 minutes, 2 hours or 4 hours;
+  > If the selected time span is 4-7 days, you can query data with a temporal granularity of 2 hours, 4 hours or 1 day;
+  > If the selected time span is more than 30 days, you can only query data with a temporal granularity of 4 hours or 1 day;
 
 ## Data Result Description
 ### Access Statistics
 The figure shows the data under the specified query criteria:
-![](https://mc.qcloudimg.com/static/img/a8f0a7d04f6541a3e2ecf7f170d711ab/requests.png)
+![](https://mc.qcloudimg.com/static/img/78ef36b43f083114375482816cad344a/2.png)
 
 + Network-wide statistics for number of requests of OC nodes;
 + Statistics for number of IP visits: This statistic is obtained by calculating all request IPs within 5 minutes after removing duplicates;
@@ -32,13 +32,13 @@ The figure shows the data under the specified query criteria:
 + The latency of real-time data is about five minutes, that is, the statistical point of 2016-10-25 15:05:00 will appear around 2016-10-25 15:10:00;
 + All domains connected within 90 days will be covered in the "All Domains" drop-down box, including those that have been deleted;
 + Note about statistics:
-	> If the domain has not been connected to CDN for the specified time range, it will not be covered in statistics even if it is checked;
-	> If the domain has been deleted for the specified time range, it will not be covered in statistics even if it is checked;
-	> If the domain experienced three stages (not connected, connected and deleted) for the specified time range, the statistical data for unconnected and deleted time period will be filled by 0.
+  > If the domain has not been connected to CDN for the specified time range, it will not be covered in statistics even if it is checked;
+  > If the domain has been deleted for the specified time range, it will not be covered in statistics even if it is checked;
+  > If the domain experienced three stages (not connected, connected and deleted) for the specified time range, the statistical data for unconnected and deleted time period will be filled by 0.
 
 ### Carrier and Province Analysis
 The number of requests are ranked and analyzed based on provinces and carriers:
-![](https://mc.qcloudimg.com/static/img/35beb0fcc742eefdf82ae11f6864db46/request_province.png)
+![](https://mc.qcloudimg.com/static/img/d197993b38c3852be1e8eea08e2bb653/3.png)
 
 **Note:**
 
@@ -48,12 +48,12 @@ The number of requests are ranked and analyzed based on provinces and carriers:
 
 ### Domain Access Status Statistics
 You can click "Download all data" to download detailed data about the domain, number of requests, number of IP visits, hit rate according to the selected query criteria:
-![](https://mc.qcloudimg.com/static/img/612284e7768e4157502e8552d93ad96b/request_donmain_detail.png)
+![](https://mc.qcloudimg.com/static/img/28a7d8df8533e534f1a857fe19679147/4.png)
 
 
 ### TOP100 URL
 TOP100 analysis for requests towards individual URL resources is carried out according to the selected query criteria to help you locate popular resources:
-![](https://mc.qcloudimg.com/static/img/946aa1e57beaf37dd904aebe26a601a0/request_top100.png)
+![](https://mc.qcloudimg.com/static/img/1247373472b655d6a9862705b791d50f/5.png)
 
 
 **Note:**

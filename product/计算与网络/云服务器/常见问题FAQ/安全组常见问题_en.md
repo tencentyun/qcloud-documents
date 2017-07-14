@@ -1,5 +1,5 @@
 ## About the usage of security groups
-### 1. When a security group is not selected correctly, what network problems will there be that interfere with the creation of ECS instances by using the security group? How to resolve them?
+### 1. When a security group is not selected correctly, what network problems will there be that interfere with the creation of CVM instances by using the security group? How to resolve them?
 **Problems**
 - The attempt to remotely connect to a Linux instance (SSH) or perform remote desktop connection to a Windows instance may fail.
 - The attempt to remotely ping the public IP and private IP for the CVM under this security group may fail.

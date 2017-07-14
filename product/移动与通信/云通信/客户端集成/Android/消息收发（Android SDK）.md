@@ -788,7 +788,7 @@ callback| 回调
 
 ### 3.1 消息是否已读
 
-通过`TIMMessage` 的方法 `isRead`可以获取消息是否已读。这里已读与否取决于APP测进行的[已读上报](/doc/product/269/未读消息计数（Android%20SDK）#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
+通过`TIMMessage` 的方法 `isRead`可以获取消息是否已读。这里已读与否取决于APP侧进行的[已读上报](/doc/product/269/未读消息计数（Android%20SDK）#3-.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
 
 **原型：**
 ```

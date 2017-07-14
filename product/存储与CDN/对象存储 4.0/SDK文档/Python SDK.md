@@ -202,6 +202,41 @@ def update_file(self, request)
     update_file_ret = cos_client.update_file(request)
 ```
 
+### 下载文件
+
+#### 方法原型
+
+```python
+def download_file(self, request)
+```
+
+#### 参数说明
+
+|   参数名   |      参数类型      | 默认值  |  参数描述  |
+| :-----: | :------------: | :--: | :----: |
+| request | DownloadFileRequest |  无   | 下载文件请求 |
+
+|  request成员  |   类型    | 默认值  |    设置方法    |                    描述                    |
+| :---------: | :-----: | :--: | :--------: | :--------------------------------------: |
+| bucket_name | unicode |  无   | 构造函数 |                 bucket名称                 |
+|  cos_path   | unicode |  无   | 构造函数 | cos路径, 必须从bucket下的根/开始，文件路径不能以/结尾, 例如 /mytest/demo.txt |
+|  local_filename | unicode | 无 | 构造函数 | 本地文件路径|
+
+
+#### 返回值
+
+| 返回值类型 |                  返回值描述                   |
+| :---: | :--------------------------------------: |
+| dict  | {'code':\$code,  'message':$mess}, code为0表示成功,  message为SUCCESS或者失败原因, 详情请参见返回值模块 |
+
+#### 示例
+
+```python
+    request = DownloadFileRequest(bucket, u'/sample_file_move.txt', u'/tmp/a.txt')
+    download_ret = cos_client.download_file(request)
+```
+
+
 ### 删除文件
 
 #### 方法原型

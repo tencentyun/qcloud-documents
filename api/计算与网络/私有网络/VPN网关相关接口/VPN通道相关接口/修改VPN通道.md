@@ -23,28 +23,28 @@ IKE配置详情
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| IKESet.n.propoEncryAlgorithm | 否 | String | IKE配置，加密算法，可选值：'3des-cbc','aes-cbc-128','aes-cbc-192','aes-cbc-256','des-cbc'，默认为3des-cbc，更多详见产品说明文档。 |
-| IKESet.n.propoAuthenAlgorithm | 否 | String | IKE配置，认证算法：可选值：'md5','sha'，默认为md5，更多详见产品说明文档。 |
-| IKESet.n.exchangeMode | 否 | String | IKE配置，协商模式：可选值：'aggressive','main'，默认为main，更多详见产品说明文档。 |
-| IKESet.n.localIdentity | 否 | String | IKE配置，本端标识类型：可选值：'address','fqdn'，默认为address，更多详见产品说明文档。 |
-| IKESet.n.remoteIdentity | 否 | String | IKE配置，对端标识类型：可选值：'address','fqdn'，默认为address，更多详见产品说明文档。 |
-| IKESet.n.localAddress | 否 | String | IKE配置，本端标识，当localIdentity选为address时，localAddress必填。localAddress默认为vpn网关公网IP，更多详见产品说明文档。 |
-| IKESet.n.remoteAddress | 否 | String | IKE配置，对端标识，当remoteIdentity选为address时，remoteAddress必填，更多详见产品说明文档。 |
-| IKESet.n.localFqdnName | 否 | String | IKE配置，本端标识，当localIdentity选为fqdn时，localFqdnName必填，更多详见产品说明文档。 |
-| IKESet.n.remoteFqdnName | 否 | String | IKE配置，对端标识，当remoteIdentity选为fqdn时，remoteFqdnName必填，更多详见产品说明文档。 |
-| IKESet.n.dhGroupName | 否 | String | IKE配置，DH group，指定IKE交换密钥时使用的DH组，可选值：'group1','group2','group5','group14','group24'，更多详见产品说明文档。 |
-| IKESet.n.ikeSaLifetimeSeconds | 否 | Int | IKE配置，IKE SA Lifetime，单位：秒，设置IKE SA的生存周期，取值范围：60-604800，更多详见产品说明文档。 |
-| encryptAlgorithm | 否 | String | IPsec配置，加密算法，取值：'3des-cbc','aes-cbc-128','aes-cbc-192','aes-cbc-256','des-cbc','null'，默认为3des-cbc，更多详见产品说明文档。 |
+| IKESet.propoEncryAlgorithm | 否 | String | IKE配置，加密算法，可选值：'3des-cbc','aes-cbc-128','aes-cbc-192','aes-cbc-256','des-cbc'，默认为3des-cbc，更多详见产品说明文档。 |
+| IKESet.propoAuthenAlgorithm | 否 | String | IKE配置，认证算法：可选值：'md5','sha'，默认为md5，更多详见产品说明文档。 |
+| IKESet.exchangeMode | 否 | String | IKE配置，协商模式：可选值：'aggressive','main'，默认为main，更多详见产品说明文档。 |
+| IKESet.localIdentity | 否 | String | IKE配置，本端标识类型：可选值：'address','fqdn'，默认为address，更多详见产品说明文档。 |
+| IKESet.remoteIdentity | 否 | String | IKE配置，对端标识类型：可选值：'address','fqdn'，默认为address，更多详见产品说明文档。 |
+| IKESet.localAddress | 否 | String | IKE配置，本端标识，当localIdentity选为address时，localAddress必填。localAddress默认为vpn网关公网IP，更多详见产品说明文档。 |
+| IKESet.remoteAddress | 否 | String | IKE配置，对端标识，当remoteIdentity选为address时，remoteAddress必填，更多详见产品说明文档。 |
+| IKESet.localFqdnName | 否 | String | IKE配置，本端标识，当localIdentity选为fqdn时，localFqdnName必填，更多详见产品说明文档。 |
+| IKESet.remoteFqdnName | 否 | String | IKE配置，对端标识，当remoteIdentity选为fqdn时，remoteFqdnName必填，更多详见产品说明文档。 |
+| IKESet.dhGroupName | 否 | String | IKE配置，DH group，指定IKE交换密钥时使用的DH组，可选值：'group1','group2','group5','group14','group24'，更多详见产品说明文档。 |
+| IKESet.ikeSaLifetimeSeconds | 否 | Int | IKE配置，IKE SA Lifetime，单位：秒，设置IKE SA的生存周期，取值范围：60-604800，更多详见产品说明文档。 |
+| IKESet.encryptAlgorithm | 否 | String | IPsec配置，加密算法，取值：'3des-cbc','aes-cbc-128','aes-cbc-192','aes-cbc-256','des-cbc','null'，默认为3des-cbc，更多详见产品说明文档。 |
 
 
 IPsec配置详情
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| IPsecSet.n.integrityAlgorith | 否 | String | IPsec配置，认证算法：可选值：'md5','sha'，默认为md5，更多详见产品说明文档。 |
-| IPsecSet.n.ipsecSaLifetimeSeconds | 否 | Int | IPsec配置，IPsec SA lifetime(s)：单位秒，取值范围：180-604800，更多详见产品说明文档。 |
-| IPsecSet.n.ipsecSaLifetimeTraffic | 否 | Int | IPsec配置，IPsec SA lifetime(KB)：单位KB，取值范围：2560-604800，更多详见产品说明文档。 |
-| IPsecSet.n.pfsDhGroup | 否 | String | IPsec配置，PFS：可选值：'null','dh-group1','dh-group14','dh-group2','dh-group24','dh-group5'，默认为null，更多详见产品说明文档。 |
+| IPsecSet.integrityAlgorith | 否 | String | IPsec配置，认证算法：可选值：'md5','sha'，默认为md5，更多详见产品说明文档。 |
+| IPsecSet.ipsecSaLifetimeSeconds | 否 | Int | IPsec配置，IPsec SA lifetime(s)：单位秒，取值范围：180-604800，更多详见产品说明文档。 |
+| IPsecSet.ipsecSaLifetimeTraffic | 否 | Int | IPsec配置，IPsec SA lifetime(KB)：单位KB，取值范围：2560-604800，更多详见产品说明文档。 |
+| IPsecSet.pfsDhGroup | 否 | String | IPsec配置，PFS：可选值：'null','dh-group1','dh-group14','dh-group2','dh-group24','dh-group5'，默认为null，更多详见产品说明文档。 |
 
 ## 3. 输出参数
  

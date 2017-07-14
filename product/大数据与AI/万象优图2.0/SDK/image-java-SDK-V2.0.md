@@ -392,7 +392,7 @@ System.out.println("face compare ret:" + ret);
 ```
 
 #### 3.3 人脸核身
-##### 用户上传照片与高清身份证照片比对
+##### 用户上传照片与真实身份信息比对
 
 ```java
 	// 1. url方式
@@ -435,7 +435,7 @@ System.out.println("face compare ret:" + ret);
 	}
 ```
 	
-##### 活体检测-视频与身份证高清照片的比对
+##### 活体检测-视频身份信息核验
 
 ```java  
 	//

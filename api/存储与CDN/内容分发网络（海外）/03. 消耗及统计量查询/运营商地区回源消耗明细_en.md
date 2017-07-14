@@ -1,14 +1,14 @@
 ## 1. API Description
 
-This API (GetCdnOverseaProvIspHyDetailStat) is used to query consumption details of specified domain when region, ISP and date are all specified. Time granularity is 5 minutes, which means 288 statistical points per day. Region/province data needs to be analyzed from logs, thus a latency of 20-30 minutes is expected for the data.** Note: Please restrict the frequency with which this API is called under 100 times per minute.**
+This API (GetCdnOverseaProvIspHyDetailStat) is used to query consumption details of specified domain when region, ISP and date are all specified. Time granularity is 5 minutes, which means 288 statistical points per day. Region/province data needs to be analyzed from logs, thus a latency of 20-30 minutes is expected for the data. **Note: Please restrict the frequency with which this API is called under 100 times per minute.**
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: <font style="color:red">cdn.api.qcloud.com</font>
 
 **Details:**
 
-+ Target domains need to be connected to Tencent Cloud overseas CDN before you can query them using this API;
++ Target domains need to be connected to Tencent Cloud international CDN before you can query them using this API;
 + Due to the great variety of combinations between regions and ISPs, and the fact that this API returns data with a fine granularity in a large volume, you can only query up to 5 domains at a time;
-+ Currently overseas ISPs are not specified, their unified code is -1;
++ Currently international ISPs are not specified, their unified code is -1;
 + If you only specify region but not ISP, the consumption details of every ISP will be returned. You may specify multiple regions;
 + If you specify neither ISP nor region, the consumption retails of every ISP in every region will be returned;
 + Nothing will be returned if there is no data.
@@ -23,23 +23,23 @@ The following request parameter list only provides API request parameters. Commo
 | -------- | ---- | ------ | ---------------------------------------- |
 | date     | Yes    | String | Query date. Format must be yyyy-mm-dd. For example: 2016-11-20                     |
 | hosts.n  | Yes    | String | Domain. You may enter multiple domains, for example: hosts.0=www.test.com&hosts.1=www.test2.com. You can query up to 5 domains at a time |
-| provs.n  | No    | String | Specifies regions. Regions are represented with codes. Please refer to the Overseas CDN Log Region Code Mapping Table below      |
-| isps.n   | No    | String | Specifies ISP. ISPs are represented with codes. Please refer to the Overseas CDN Log Region Code Mapping Table below    |
+| provs.n  | No    | String | Specifies regions. Regions are represented with codes. Please refer to the International CDN Log Region Code Mapping Table below      |
+| isps.n   | No    | String | Specifies ISP. ISPs are represented with codes. Please refer to the International CDN Log Region Code Mapping Table below    |
 | statType | Yes    | String | Specifies query type. You may query data of six types: number of requests (requests); traffic (flux), measured in Byte; number of status codes (statuscode); back-to-origin speed (dlspeed), measured in bit/s; back-to-origin time cost (dltime), measured in seconds; number of failed back-to-origin requests (errorcnt) |
 
-**Overseas CDN Log Region Code Mapping Table**
+**International CDN Log Region Code**
 
 73: India, 1195: Indonesia, 1176: Singapore, 57: Thailand, 144: Vietnam, 3701: Malaysia, 2588: Philippines, 2026: Taiwan, 1044: Japan, 3379: Korea, 1200: Hong Kong, 3839: Canada, 669: United States, -2: Other Overseas Regions, -3: Unknown;
 
-**Overseas CDN Log ISP Code Mapping Table**
+**International CDN Log ISP Code Mapping Table**
 
--1: Overseas ISP;
+-1: International ISP;
 
 ## 3. Output Parameters
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81).  |
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Object | Data result, details are described below                             |
@@ -58,7 +58,7 @@ The following request parameter list only provides API request parameters. Commo
 | id        | Int    | Region code                            |
 | name      | String | Region                              |
 | host           | String | Domain that was specified to be queried                                  |
-| isp_value | Object | ISP information. Every ISP has a corresponding detail array. Currently overseas ISPs are not specified |
+| isp_value | Object | ISP information. Every ISP has a corresponding detail array. Currently international ISPs are not specified |
 
 ## 4. Example
 

@@ -32,7 +32,7 @@ For details about the way in which the APP backend receives the event notificati
     "version": "4.0",
     "eventType": "TranscodeComplete",
     "data": {
-        "status": 2,
+        "status": 0,
         "message": "",
         "vodTaskId": "Transcode-1edb7eb88a599d05abe451cfc541cfbd",
         "fileId": "14508071098244931831",

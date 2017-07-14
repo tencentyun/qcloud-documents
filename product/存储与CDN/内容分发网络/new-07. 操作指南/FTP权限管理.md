@@ -2,8 +2,8 @@
 
 <font style="color:red">注意：目前FTP托管源不再对新用户开放，存量用户可继续使用。</font>
 
-登录[CDN 控制台](https://console.qcloud.com/cdn)，选择左侧 **高级工具** 菜单栏，然后选择 **托管源权限管理**，即进入了托管源权限管理功能页面：
-![](http://mccdn.qcloud.com/static/img/e61cd42218073b9efe883aebf103075b/image.png)
+登录[CDN 控制台](https://console.qcloud.com/cdn)，选择左侧 **托管源管理** 菜单栏，然后选择 **FTP托管源权限管理**，即进入了托管源权限管理功能页面：
+![](https://mc.qcloudimg.com/static/img/394f0b09f9b8a4cf9a705c326c06635e/1.png)
 
 ### 创建子账号
 点击页面上**+添加子账号**按钮，可创建一个新的FTP子账号：

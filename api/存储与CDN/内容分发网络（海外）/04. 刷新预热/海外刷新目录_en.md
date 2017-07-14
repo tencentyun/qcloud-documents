@@ -2,13 +2,13 @@
 
 This API (RefreshCdnOverSeaDir) is used to set resources under the specified directory on a node as expired.
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: cdn.api.qcloud.com
 
-1) The domain must have been connected to overseas CDN before it can be purged using this API;
+1) The domain must have been connected to International CDN
 
-2) Each user is limited to purge 100 directories per day;
+2) Up to 100 directories can be purged per day.
 
-3) You may submit up to 20 directories at a time.
+3) Up to 20 directories can be purged at one time.
 
 [Call Demo](https://www.qcloud.com/document/product/228/1734)
 
@@ -28,7 +28,7 @@ The following request parameter list only provides API request parameters. Commo
     dirs.0=http://www.test.com/abc/&dirs.1=http://www.test.com/def/
     ```
 
-+ Note that URLs must start with "http://" or "https://", otherwise errors will occur.
++ URLs must start with "http://" or "https://".
 
 
 ## 3. Output Parameters
@@ -37,7 +37,7 @@ The following request parameter list only provides API request parameters. Commo
 | -------- | ------ | ---------------------------------------- |
 | code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
 | message  | String | Module error message description depending on API.                           |
-| codeDesc | String | English error message or error code at business side.                           |
+| codeDesc | String | Error message|
 | data     | Array  | Details will be described below                                  |
 
 **data Field Description:**

@@ -8,10 +8,10 @@ If your origin server is located at home, an overseas acceleration often suffers
 
 Log in to CDN Console, switch to international acceleration and go to **Domain Management** page. Then click the **Manage** button to the right of the domain to be configured
 
-![](https://mc.qcloudimg.com/static/img/75bfdfed08f6ffa4e77daea5b2017c75/temp1.png)
+![](https://mc.qcloudimg.com/static/img/30a0b5830e9e5f11d1ab6d1f6b68ed33/1.png)
 
 You can find **International Private Line** in "Advanced Configuration"
 
-![](https://mc.qcloudimg.com/static/img/fc16db38a80dc657a3a7cad9ce843e27/temp2.png)
+![](https://mc.qcloudimg.com/static/img/0a9eced420dad2687c41fca32155d990/2.png)
 
 **Default configuration:** The intermediate node configuration is disabled by default

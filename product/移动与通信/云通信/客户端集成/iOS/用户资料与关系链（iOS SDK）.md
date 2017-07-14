@@ -419,29 +419,70 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
 
 ```
 /**
- *  用户资料
+ *  好友资料
  */
-@interface TIMUserProfile : NSObject
+@interface TIMUserProfile : TIMCodingModel
 
 /**
  *  用户identifier
  */
-@property(nonatomic,retain) NSString* identifier;
+@property(nonatomic,strong) NSString* identifier;
 
 /**
  *  用户昵称
  */
-@property(nonatomic,retain) NSString* nickname;
+@property(nonatomic,strong) NSString* nickname;
 
 /**
- *  用户备注（获取自己的资料时，该字段为空）
+ *  用户备注（最大96字节，获取自己资料时，该字段为空）
  */
-@property(nonatomic,retain) NSString* remark;
+@property(nonatomic,strong) NSString* remark;
 
 /**
  *  好友验证方式
  */
 @property(nonatomic,assign) TIMFriendAllowType allowType;
+
+/**
+ * 用户头像
+ */
+@property(nonatomic,strong) NSString* faceURL;
+
+/**
+ *  用户签名
+ */
+@property(nonatomic,strong) NSData* selfSignature;
+
+/**
+ *  好友性别
+ */
+@property(nonatomic,assign) TIMGender gender;
+
+/**
+ *  好友生日
+ */
+@property(nonatomic,assign) uint32_t birthday;
+
+/**
+ *  好友区域
+ */
+@property(nonatomic,strong) NSData* location;
+
+/**
+ *  好友语言
+ */
+@property(nonatomic,assign) uint32_t language;
+
+/**
+ *  好友分组名称 NSString* 列表
+ */
+@property(nonatomic,strong) NSArray* friendGroups;
+
+/**
+ *  自定义字段集合,key是NSString*类型,value是NSData*类型
+ *  (key值按照后台配置的字符串传入)
+ */
+@property(nonatomic,strong) NSDictionary* customInfo;
 
 @end
 
@@ -480,6 +521,9 @@ identifier | 自己的用户标识
 nickname | 自己的昵称 
 remark | 为空，获取好友资料时有效 
 allowType | 好友验证方式 
+location | 最长16字节
+friendGroups | 为空，获取好友资料时有效
+customInfo | 个人资料的自定义属性
 
 **示例：**
 
@@ -766,7 +810,7 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
 
 ### 5.1 添加好友
  
-通过 TIMFriendshipManager的 AddFriend 方法可以批量添加好友，目前所能支持的最大好友列表为3000个： 
+通过 TIMFriendshipManager的 AddFriend 方法可以批量添加好友，目前所能支持的最大好友列表为1000个： 
 
 **原型：**
 
@@ -1939,48 +1983,5 @@ custom | 自定义字段，如要获取填写
 meta | 请求信息，参见 TIMFriendFutureMeta 定义
 succ | 成功回调
 fail | 失败回调
-
-## 11. 昵称检索 
-
-ImSDK支持使用依照昵称模糊搜索用户，使用SearchUser实现。 
-
-**原型：**
-
-```
-/**
- *  按昵称信息搜索用户资料
- *
- *  @param nickName    用户名称内容
- *  @param pageIndex   分页号
- *  @param pageSize    每页用户数目
- *  @param succ  成功回调，返回 TIMUserProfile* 列表
- *  @param fail  失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SearchUser:(NSString*)nickName pageIndex:(uint64_t)pageIndex pageSize:(uint64_t)pageSize succ:(TIMUserSearchSucc)succ fail:(TIMFail)fail;
-```
-**参数说明：**
-
-参数 | 说明
---- | ---
-nickName  | 要搜索的昵称关键字 
-pageIndex  |  分页号，从0开始 
-pageSize      | 每页的数量 
-succ            | 成功回调，返回搜索结果 
-fail              | 失败回调 
-
-**示例： **
-
-```
-[[TIMFriendshipManager sharedInstance] SearchUser:@"test" pageIndex:0 pageSize:10 succ:^(uint64_t totalNum, NSArray * users) {
-    NSLog(@"total num=%llu", totalNum);
-    NSLog(@"users=%@", users);
-} fail:^(int code, NSString * msg) {
-    NSLog(@"SearchUser failed: code=%d, err=%@", code, msg);
-}];
-```
-
-示例中检索名称中包含@"test"的用户列表。 
 
 

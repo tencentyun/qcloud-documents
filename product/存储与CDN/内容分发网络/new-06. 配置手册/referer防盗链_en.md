@@ -6,11 +6,11 @@ You can use the referer hotlink protection configuration feature provided by CDN
 
 Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
+![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
 You can find **referer Hotlink Protection** in "Access Control":
 
-![](https://mc.qcloudimg.com/static/img/006ecb68063d27ffc28c6becb8b038fc/referer.png)
+![](https://mc.qcloudimg.com/static/img/3ced38a341766341f11a7c2081cddb25/2.png)
 
 
 ### Default Configuration
@@ -23,7 +23,7 @@ By default, hotlink protection is disabled and no blacklist and whitelist exist.
 
 Click **Edit** near the hotlink protection configuration section and select **referer whitelist** to configure the whitelist:
 
-![](https://mccdn.qcloud.com/static/img/9e60a3f0366203a51c5e4a112934c692/image.png)
+![](https://mc.qcloudimg.com/static/img/4ee23690f397cf7d079908a0aa9924fe/3.png)
 
 
 If a user has configured a referer whitelist for domain "www.abc.com" with the following content:
@@ -43,7 +43,7 @@ and **Includes blank referer** is unchecked, only the requests with a referer va
 
 Click **Edit** near the hotlink protection configuration section and select **referer blacklist** to configure the blacklist:
 
-![](https://mccdn.qcloud.com/static/img/73a145bf315304e277e5c5b4c91e15cf/image.png)
+![](https://mc.qcloudimg.com/static/img/61e7384edc25d148b4fa6c2774286102/4.png)
 
 If a user has configured referer blacklist for domain "www.abc.com" with the following content:
 
@@ -63,7 +63,5 @@ and **Includes blank referer** is unchecked, a 403 error will returned for any r
 - You can add a maximum of 400 entries for the hotlink protection feature, separated by line breaks (one entry per line).
 - Hotlink protection supports the "domain name/IP" rule (prefix match). For example, if "www.abc.com" is set in the list, "www.abc.com/123" and "www.abc.com.cn" will be considered to match the list; if "127.0.0.1" is set in the list, "127.0.0.1/123" will be considered to match the list;
 - Hotlink protection supports the use of wildcard. If "*.qq.com" is set in the list, "www.qq.com" and "a.qq.com" will be considered to match the list..
-
-
 
 

@@ -2,7 +2,7 @@
 
 This API (GetCdnOverseaRefreshLog) is used to query purge logs and the number of purge operations of an overseas CDN for the specified time. You may query by specifying URL and/or domain.
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: cdn.api.qcloud.com
 
 **API Instruction**
 

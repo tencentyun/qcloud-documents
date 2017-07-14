@@ -7,7 +7,7 @@ For ease of calling, VOD pre-defines a set of specifications to simplify the inp
 
 ## Standard Output Specifications of Screenshots Captured by Time Offset in VOD System
 
-| Specifications | Screenshot Width | Screenshot Height | Screenshot Filling Method |
+| Template ID | Screenshot Width | Screenshot Height | Screenshot Filling Method |
 |---------|---------|---------|---------|
 | 10 | The same as the original | The same as the original | N/A |
 | 20 | 500 | 281 | Stretch to fill |

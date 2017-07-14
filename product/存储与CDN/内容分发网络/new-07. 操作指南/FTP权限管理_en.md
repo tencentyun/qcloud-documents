@@ -2,12 +2,12 @@ There may be multiple projects running in parallel in the same Tencent Cloud acc
 
 <font style="color:red">Note: Currently, FTP hosting source is no longer available to new users. Existing users can continue to use it.</font>
 
-Log in to [CDN Console](https://console.qcloud.com/cdn), select **Advanced** menu on the left, and then select **Hosting Source Permission Management**. You will be directed to the function page for hosting source permission management:
-![](http://mccdn.qcloud.com/static/img/e61cd42218073b9efe883aebf103075b/image.png)
+Log in to [CDN Console](https://console.qcloud.com/cdn), select **Hosted Sources** menu on the left, and then select **Hosting Source Access Management**. You will be directed to the function page for hosting source access management:
+![](https://mc.qcloudimg.com/static/img/e426374f4f102dd8c976deafd940f4ac/1.png)
 
 ### Create a Sub-account
 Click **+ Add a Sub-account** button to create a new FTP sub-account:
-![](http://mccdn.qcloud.com/static/img/7704551caa3fdc2754adef8db0393d70/image.jpg)
+![](https://mc.qcloudimg.com/static/img/4d861967cfe52d633b01f6d37e321c23/2.png)
 
 You can set the account info, password, authorized projects, and authorized directories of a sub-account.
 
@@ -18,10 +18,10 @@ You can set the account info, password, authorized projects, and authorized dire
 
 ### Change Sub-account Password
 In the sub-account list, click **Reset Password** on the right side of the sub-account to change its login password:
-![](http://mccdn.qcloud.com/static/img/0db10570a7a3941b17ab554092bcaca1/image.jpg)
+![](https://mc.qcloudimg.com/static/img/c31757df490b02e46dea3012c9c176c0/3.png)
 
 ### Delete a Sub-account
 In the sub-account list, click **Delete** on the right side of the sub-account to be deleted. You should enter the password of the sub-account when deleting it:
-![](http://mccdn.qcloud.com/static/img/356e45b89a3330d74ba30647e062ad99/image.jpg)
+![](https://mc.qcloudimg.com/static/img/5046465f5c659d92eab2e0c3b9d2612a/4.png)
 
 

@@ -117,10 +117,10 @@
 | 删除专线网关本端目的IP端口转换 | [DeleteLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/product/215/5196) | 删除专线网关本端目的IP端口转换。 |
 | 修改专线网关本端目的IP端口转换 | [ModifyLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5197) | 修改专线网关本端目的IP端口转换。 |
 | 查询专线网关本端目的IP端口转换 | [DescribeLocalDestinationIPPortTranslationNatRule](https://www.qcloud.com/document/api/215/5198) | 查询专线网关本端目的IP端口转换。 |
-| 添加专线网关对端IP转换 | [CreatePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5190) | 添加专线网关对端IP转换。 |
-| 删除专线网关对端IP转换 | [DeletePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5191) | 删除专线网关对端IP转换。 |
-| 修改专线网关对端IP转换 | [ModifyPeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5192) | 修改专线网关对端IP转换。 |
-| 查询专线网关对端IP转换 | [DescribePeerIPTranslationNatRule](https://www.qcloud.com/doc/api/245/5193) | 查询专线网关对端IP转换。 |
+| 添加专线网关对端IP转换 | [CreatePeerIPTranslationNatRule](https://www.qcloud.com/document/api/215/5201) | 添加专线网关对端IP转换。 |
+| 删除专线网关对端IP转换 | [DeletePeerIPTranslationNatRule](https://www.qcloud.com/document/api/215/5202) | 删除专线网关对端IP转换。 |
+| 修改专线网关对端IP转换 | [ModifyPeerIPTranslationNatRule](https://www.qcloud.com/document/api/215/5203) | 修改专线网关对端IP转换。 |
+| 查询专线网关对端IP转换 | [DescribePeerIPTranslationNatRule](https://www.qcloud.com/document/api/215/5204) | 查询专线网关对端IP转换。 |
 | 添加本端IP转换 acl策略 | [CreateLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/5205) | 添加本端IP转换 acl策略。 |
 | 删除本端IP转换 acl策略 | [DeleteLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/5206) | 删除本端IP转换 acl策略。 |
 | 修改本端IP转换 acl策略 | [ModifyLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/5207) | 修改本端IP转换 acl策略。 |

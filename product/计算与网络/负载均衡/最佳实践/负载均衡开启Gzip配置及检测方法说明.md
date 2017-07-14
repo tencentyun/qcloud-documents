@@ -1,6 +1,6 @@
 在**公网应用型负载均衡、公网有固定IP型负载均衡**实例中，**HTTP/HTTPS协议**支持用户开启gzip压缩功能。开启gzip功能对网页进行压缩，可以有效降低网络传输的数据量，提升客户端浏览器的访问速度。
 
-用户开启gzip压缩后，浏览器端不需要进行配置（主流浏览器都支持gzip功能）。在云服务器端，由于腾讯云内部全网支持HTTP/1.1协议，因此用户也无需配置，使用的是nginx默认配置（HTTP/1.1）即可兼容。下面的例子讲解了gzip模块的语法配置和检测方法。
+用户开启gzip压缩后，浏览器端不需要进行配置（主流浏览器都支持gzip功能）。在云服务器端，由于腾讯云内部全网支持HTTP/1.1协议，因此用户也***无需配置***，使用的是nginx默认配置（HTTP/1.1）即可兼容。下面的例子讲解了gzip模块的语法配置和检测方法。
 
 示例云服务器运行环境：Debian 6
 
@@ -43,7 +43,9 @@ gzip_http_level：代表可以使用gzip功能的HTTP最低版本。由于腾讯
 >   语法: gzip_http_version 1.0 | 1.1;
 >   作用域: http, server, location
 
-gzip_types：匹配MIME类型进行压缩，默认"text/html" 类型是会被压缩的。***如果需要对json格式数据进行压缩，则需要在此语句中添加application/json类型数据***
+gzip_types：匹配MIME类型进行压缩，默认"text/html" 类型是会被压缩的。 此外，Nginx下的gzip默认不压缩javascript、图片等静态资源文件，可以通过gzip_types指定需要压缩的MIME类型,非设置值则不进行压缩 ***例如，如果需要对json格式数据进行压缩，则需要在此语句中添加application/json类型数据***
+支持的类型如下：
+>   text/html text/plain application/x-javascript text/css text/javascript application/xml
 
 >   语法: gzip_types mime-type [mime-type ...]
 >   作用域: http, server, location
