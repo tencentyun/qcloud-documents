@@ -7,9 +7,9 @@ COS 提供了 5 种对象 HTTP 头部标识供配置：
 
 |       HTTP 头部       |                  说明                  |                示例                |
 | :-----------------: | :----------------------------------: | :------------------------------: |
-|    Cache-Control    |            文件的缓存机制           |       no-cache；max-age=200       |
+|    Cache-Control    |            文件的缓存机制           |       no-cache;max-age=200       |
 |    Content-Type     |             文件的 MIME 信息           |            text/html             |
-| Content-Disposition | MIME 协议的扩展 | attachment; filename="fname.ext" |
+| Content-Disposition | MIME 协议的扩展 | attachment;filename="fname.ext" |
 |  Content-Language   |                文件的语言                 |              zh-CN               |
 |  Content-Encoding   |  文件的编码格式   | UTF-8 |
 |  x-cos-meta-[自定义内容]   |   自定义内容    |              自定义内容               |
