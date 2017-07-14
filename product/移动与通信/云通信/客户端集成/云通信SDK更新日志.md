@@ -1,3 +1,7 @@
+#### IM SDK2.5.6 2017-7-14
+1. 修复登陆登出期间可能的crash问题
+2. 修复推流录制中可能的crash问题
+
 #### IM SDK3.1.0 2017-7-3
 1. 新增IMUGCExt.framework和TXRTMPSDK.framework，提供小视频录制和上传功能
 2. 新增消息撤回功能
