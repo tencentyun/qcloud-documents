@@ -6,7 +6,7 @@ Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 语法示例：
 ```
 GET /<ObjectName> HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -18,9 +18,12 @@ Authorization: Auth String
 GET /<ObjectName> HTTP/1.1
 ```
 该 API 接口接受 GET 请求。
-#### 请求参数
-<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
-在发送该 GET 请求时，可以自定义 COS 响应数据中的一些参数，但发送 Get Object 请求时必须携带签名。这些参数包括：
+#### 请求参数<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+包含所有请求参数的请求行示例：
+```
+GET /<ObjectName>&response-content-type=ContentType&response-content-language=ContentLanguage&response-expires=ContentExpires&response-cache-control=CacheControl&response-content-disposition=ContentDisposition&response-content-encoding=ContentEncoding HTTP/1.1
+```
+具体内容如下：
 
 |参数名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
@@ -33,25 +36,27 @@ GET /<ObjectName> HTTP/1.1
 
 ### 请求头
 
-**公共头部**
+#### 公共头部
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
-**非公共头部**
+#### 非公共头部
 该请求操作推荐使用如下推荐请求头：
 
-|参数名称|描述|类型| 必选|
+|名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
 | Range |RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位|String| 否|
 | If-Unmodified-Since |如果文件修改时间晚于指定时间，才返回文件内容。否则返回 412 (not modified)|String| 否|
+
 ### 请求体
 该请求的请求体为空。
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
+该请求操作的响应头具体数据为：
 
 |参数名称|描述|类型|
 |:---|:-- |:-- |
@@ -59,10 +64,8 @@ GET /<ObjectName> HTTP/1.1
 | x-cos-object-type | 用来表示 object 是否可以被追加上传，枚举值：normal 或者 appendable |String|
 | x-cos-storage-class | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE|String|
 
-#### 响应体
+### 响应体
 该响应体返回 Object 的文件内容。
-
-
 
 ## 实际案例
 

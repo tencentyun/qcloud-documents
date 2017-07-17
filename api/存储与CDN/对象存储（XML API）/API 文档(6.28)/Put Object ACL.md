@@ -11,7 +11,7 @@ Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL �
 语法示例：
 ```
 PUT /ObjectName?acl HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-Type: application/xml
 Content-MD5: MD5
@@ -27,7 +27,7 @@ Authorization: Auth String
 ~~~
 PUT /ObjectName?acl HTTP/1.1
 ~~~
-
+该 API 接口接受 PUT 请求。
 ### 请求头
 
 **公共头部**
@@ -91,7 +91,7 @@ Container 节点 AccessControlList 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| Grant | AccessControlPolicy.AccessControlList | 单个Object 资源的授权信息。一个 AccessControlList 可以拥有 100 条 Grant | Container    |是|
+| Grant | AccessControlPolicy.AccessControlList | 单个 Object 资源的授权信息。一个 AccessControlList 可以拥有 100 条 Grant | Container    |是|
 
 Container 节点 Grant 的内容：
 
@@ -109,12 +109,12 @@ Container 节点 Grantee 的内容：<style  rel="stylesheet"> table th:nth-of-t
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
-#### 响应体
+### 响应体
 该响应体返回为空。
 
 ## 实际案例
