@@ -1,17 +1,18 @@
 ## 1. 接口描述
  
-本接口（DeleteVpc）用于删除私有网络。
+本接口（DeleteSecurityGroupPolicy）用于删除安全组规则。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
-1) 删除前请确保 VPC 内已经没有相关资源，例如云主机、云数据库、NoSQL、VPN网关、专线网关、负载均衡、对等连接、与之互通的基础网络设备等。
-2) 删除私有网络是不可逆的操作，请谨慎处理。
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DeleteVpc。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DeleteSecurityGroupPolicy。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 系统分配的私有网络ID，支持升级前的vpcId，也支持升级后的unVpcId。 |
+| sgId | 是 | String | 安全组ID。 |
+| version | 否 | Int | 版本，用户更新安全规则，每次更新安全规则版本会自动加1，防止你更新的路由规则已过期，不填不考虑冲突。 |
+| direction | 是 | String | 规则方向(ingress/egress)。 |
+| indexes | 是 | Array | 规则所在位置，支持删除多条。 |
 
  
 
@@ -27,17 +28,16 @@
 
 | 错误码 | 描述 |
 |---------|---------|
-| InvalidVpc.NotFound | 无效的VPC,VPC资源不存在，请再次核实您输入的资源信息是否正确。 |
-| InvalidVpc.CannotDelete | VPC不能删除，VPC下有资源。|
+
 
 ## 5. 示例
  
 输入
 <pre>
 
-  https://vpc.api.qcloud.com/v2/index.php?Action=DeleteVpc
+  https://vpc.api.qcloud.com/v2/index.php?Action=DeleteSecurityGroupPolicy
 	&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-  &vpcId=vpc-2ari9m7h
+  &sgId=vpc-2ari9m7h
 </pre>
 
 输出
