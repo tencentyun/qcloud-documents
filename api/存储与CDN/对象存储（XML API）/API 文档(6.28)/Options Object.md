@@ -34,7 +34,7 @@ OPTIONS /ObjectName HTTP/1.1
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| Origin | 模拟跨域访问的请求来源域 | String | 是 |
+| Origin | 模拟跨域访问的请求来源域名 | String | 是 |
 | Access-Control-Request-Method | 模拟跨域访问的请求 HTTP 方法| String | 是 |
 
 
