@@ -68,7 +68,7 @@ public void triggerPrivateMode() {
             mTXLivePusher.pausePusher();
         } else {
             Toast.makeText(getApplicationContext(), “隐私模式已关闭”, Toast.LENGTH_SHORT).show();
-                        mTXLivePusher.resumePusher();
+            mTXLivePusher.resumePusher();
             mPrivateBtn.setImageResource(R.mipmap.lock_on);
             mTVPrivateMode.setText(getString(R.string.private_mode_on));
             mTVPrivateMode.setCompoundDrawables(mDrawableLockOff,null,null,null);
