@@ -27,7 +27,7 @@ GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
 
 | 名称               | 描述                                       | 类型     | 必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
-| delimiter        | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
+| delimiter        | 定界符为一个符号，对 Object 名字包含指定前缀且第一次出现 delimiter 字符之间的 Object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
 | encoding-type    | 规定返回值的编码格式，合法值：url                               | String | 否    |
 | prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix | String | 否    |
 | max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000                       | String | 否    |
