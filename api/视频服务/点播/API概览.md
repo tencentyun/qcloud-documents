@@ -1,3 +1,5 @@
+<font color=RED>本页面的 API 已经失效，请参考[新版本服务端 API](/document/product/266/7788)。</font>
+
 | 接口功能 | Action ID | 
 |---------|---------|
 | 创建视频分类 | [CreateClass](http://www.qcloud.com/doc/api/257/%E5%88%9B%E5%BB%BA%E8%A7%86%E9%A2%91%E5%88%86%E7%B1%BB) | 
