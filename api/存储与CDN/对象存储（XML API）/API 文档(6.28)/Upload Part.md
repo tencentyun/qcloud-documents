@@ -8,7 +8,7 @@ Upload Part 接口请求实现在初始化以后的分块上传，支持的块�
 语法示例：
 ```
 PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: Size
 Authorization: Auth String
@@ -32,7 +32,7 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 |参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | partNumber | 标识本次分块上传的编号 | String | 是 |
-| uploadId | 标识本次分块上传的ID；<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置| String | 是 |
+| uploadId | 标识本次分块上传的 ID；<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置| String | 是 |
 
 ### 请求头
 
@@ -60,13 +60,13 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 
 ## 响应
 
-#### 响应头
+### 响应头
 **公共响应头** 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 **特有响应头**
 该响应无特殊的响应头。
 
-#### 响应体
+### 响应体
 该响应的响应体为空。
 
 ## 实际案例
