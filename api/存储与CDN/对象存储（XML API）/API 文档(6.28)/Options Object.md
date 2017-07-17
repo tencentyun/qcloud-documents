@@ -6,7 +6,7 @@ Options Object 接口实现 Object 跨域访问配置的预请求。即在发送
 
 语法示例：
 ```
-OPTIONS /ObjectName HTTP/1.1
+OPTIONS /<ObjectName> HTTP/1.1
 Host: <Bucketname>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Origin: Origin
@@ -19,7 +19,7 @@ Authorization: Auth String
 
 ### 请求行
 ```
-OPTIONS /ObjectName HTTP/1.1
+OPTIONS /<ObjectName> HTTP/1.1
 ```
 该 API 接口接受 OPTIONS 请求。
 
