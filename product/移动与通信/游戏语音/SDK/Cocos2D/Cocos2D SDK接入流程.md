@@ -1,20 +1,13 @@
 本文档介绍了GVoice游戏语音C++接口SDK的接入方法，适用于Cocos2D引擎，或iOS、Android平台直接开发的游戏。
-## 1 下载SDK
-[Cocos SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/54f5e553aab5f7036edd32cf4e81f944/gcloud_voice_1_1_7_147406_20170507_Cocos.zip)
-  
-（
-[win64 SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/a3f67e78c9bdf9361ee1b772520c19d3/gcloud_voice_winx64_1_1_7_146969_20170428.zip)   
 
-[win32 SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/a22c317879d787c6157cb89c4f2916eb/gcloud_voice_win_1_1_7_146969_20170428.zip) 
-     
-[安卓SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/ec6619fbe975d6b332a4e997bd5887c3/gcloud_voice_1_1_7_147406_20170507_Android.zip)  
- 
-[IOS SDK 版本：1.1.7](https://mc.qcloudimg.com/static/archive/d4b66161559517e19a8386d84538ff17/gcloud_voice_1_1_7_147406_20170507_iOS.zip)  
-）
+## 1 下载SDK
+[Cocos2D SDK 下载](https://www.qcloud.com/document/product/556/10041)
+[Cocos2D Demo 下载](https://www.qcloud.com/document/product/556/10042)
 
 下载SDK包解压后，目录结构如下：  
 ![](https://mc.qcloudimg.com/static/img/2f7a1f0e63529d18107011635287be2a/ml.png)
 ## 2 系统配置
+
 ### 2.1 iOS系统配置
 对于iOS的Xcode工程，只要将include目录和libs/iOS目录添加到Xcode工程中并设置头文件引用位置即可。  
 ![](https://mc.qcloudimg.com/static/img/d186e23a1f2db7d43e474be2e0f1ca2e/ios.png)  
