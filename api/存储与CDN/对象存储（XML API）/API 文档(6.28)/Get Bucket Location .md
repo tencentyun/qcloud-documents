@@ -15,7 +15,7 @@ Authorization: Auth String
 
 ### 请求行
 ~~~
-GET / HTTP/1.1
+GET /?location HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
@@ -40,6 +40,7 @@ GET / HTTP/1.1
 <LocationConstraint></LocationConstraint>
 ```
 具体的数据内容如下：
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 180px;	} </style>
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|

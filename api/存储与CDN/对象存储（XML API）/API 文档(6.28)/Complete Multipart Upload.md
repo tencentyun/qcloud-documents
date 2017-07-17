@@ -5,7 +5,8 @@ Complete Multipart Upload 接口请求用来实现完成整个分块上传。当
 当上传块编号不连续的时候，在调用该 API 时，会返回 400 InvalidPart；
 当请求 Body 中的块信息没有按序号从小到大排列的时候，在调用该 API 时，会返回 400 InvalidPartOrder；
 当 UploadId 不存在的时候，在调用该 API 时，会返回 404 NoSuchUpload。
->**注：建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。**
+>**注意：**
+>建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
 
 ## 请求
 
@@ -25,6 +26,16 @@ Authorization: Auth String
 POST /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 该 API 接口接受 POST 请求。
+#### 请求参数 <style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+包含所有请求参数的请求行示例：
+```
+POST /ObjectName?uploadId=UploadId HTTP/1.1
+```
+具体内容如下：
+
+|参数名称|描述|类型|必选|
+|:---|:-- |:--|:--|
+| uploadId |标识本次分块上传的 ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。| String |是|
 
 ### 请求头
 
@@ -94,7 +105,7 @@ Container 节点 CompleteMultipartUploadResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Location |CompleteMultipartUploadResult| 创建的Object的外网访问域名 | URI |
+| Location |CompleteMultipartUploadResult| 创建的Object的外网访问域名 | URL |
 | Bucket |CompleteMultipartUploadResult| 分块上传的目标Bucket | String |
 | Key |CompleteMultipartUploadResult| Object的名称 | String |
 | ETag |CompleteMultipartUploadResult| 合并后文件的 MD5 算法校验值| String |

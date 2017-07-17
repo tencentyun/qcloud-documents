@@ -1,0 +1,12 @@
+== 调用方式
+
+:leveloffset: +1
+
+include::call_method/common_args.adoc[]
+
+include::call_method/return_packge.adoc[]
+
+include::call_method/inner.adoc[]
+
+
+:leveloffset: -1

@@ -1,7 +1,8 @@
 ## 功能描述
 Put Bucket CORS 接口用来请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64 KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
->注：使用 Put Bucket CORS 接口创建的规则权限是覆盖当前的所有规则而不是新增一条权限规则。
+>**注意：**
+>使用 Put Bucket CORS 接口创建的规则权限是覆盖当前的所有规则而不是新增一条权限规则。
 
 ## 请求
 
@@ -23,10 +24,7 @@ Authorization: Auth String
 ~~~
 PUT /?cors HTTP/1.1
 ~~~ 
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 cors。
-
+该 API 接口接受 PUT 请求。
 ### 请求头
 
 **公共头部**
@@ -62,7 +60,7 @@ PUT /?cors HTTP/1.1
 </CORSConfiguration>
 ```
 
-具体的数据描述如下：
+具体的数据描述如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 |节点名称（关键字）|父节点|描述|类型|必选 |
 |:---|:-- |:--|:--|:--|
@@ -81,7 +79,7 @@ Container 节点 CORSRule 的内容：
 | ID | CORSConfiguration.CORSRule | 配置规则的 ID，可选填|  String |否 |
 | AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，支持通配符 *  <br/>格式为：协议://域名[:端口]如：`http://www.qq.com`|  String |是 |
 | AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE | Enum |是 |
-| AllowedHeader | CORSConfiguration.CORSRule | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持 * 通配符|String |否 |
+| AllowedHeader | CORSConfiguration.CORSRule | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 * |String |否 |
 | MaxAgeSeconds | CORSConfiguration.CORSRule | 设置 OPTIONS 请求得到结果的有效期 | Integer |否 |
 | ExposeHeader | CORSConfiguration.CORSRule | 设置浏览器可以接收到的来自服务器端的自定义头部信息 | String |否 |
 

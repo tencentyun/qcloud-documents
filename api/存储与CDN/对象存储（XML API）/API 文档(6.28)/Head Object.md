@@ -19,9 +19,6 @@ Authorization: Auth String
 HEAD /ObjectName HTTP/1.1
 ```
 该 API 接口接受 HEAD 请求。
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 ObjectName。
 
 ### 请求头
 
@@ -32,7 +29,7 @@ HEAD /ObjectName HTTP/1.1
 **推荐头部**
 该请求操作推荐请求头使用推荐头部参数，具体内容如下：
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | If-Modified-Since | 当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304 | String | 否 |
 
@@ -47,11 +44,11 @@ HEAD /ObjectName HTTP/1.1
 **特有响应头**
 该请求操作的响应头具体数据为：
 
-|名称|描述|类型|必选|
-|:---|:---|:---|:---|
-| x-cos-meta- * | 用户自定义的 meta | String | 否 |
-| x-cos-object-type | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String | 否 |
-| x-cos-storage-class | Object 的存储级别，枚举值：Standard, Standard_IA, Nearline| String | 否 |
+|名称|描述|类型|
+|:---|:---|:---|
+| x-cos-meta- * | 用户自定义的 meta | String | 
+| x-cos-object-type | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String | 
+| x-cos-storage-class | Object 的存储级别，枚举值：Standard, Standard_IA, Nearline| String | 
 
 #### 响应体
 该请求的响应体为空。

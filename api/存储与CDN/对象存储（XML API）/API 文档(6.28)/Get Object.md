@@ -17,11 +17,10 @@ Authorization: Auth String
 ```
 GET /<ObjectName> HTTP/1.1
 ```
-
+该 API 接口接受 GET 请求。
 #### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 ObjectName。
-在发送该 GET 请求时，可以自定义 COS 响应数据中的一些参数，但 发送 Get Object 请求时必须携带签名。这些参数包括：
+<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+在发送该 GET 请求时，可以自定义 COS 响应数据中的一些参数，但发送 Get Object 请求时必须携带签名。这些参数包括：
 
 |参数名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
@@ -42,8 +41,8 @@ GET /<ObjectName> HTTP/1.1
 
 |参数名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
-| Range |RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位。|String| 否|
-| If-Modified-Since |如果文件修改时间晚于指定时间，才返回文件内容。否则返回 304 (not modified)。|String| 否|
+| Range |RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位|String| 否|
+| If-Unmodified-Since |如果文件修改时间晚于指定时间，才返回文件内容。否则返回 412 (not modified)|String| 否|
 ### 请求体
 该请求的请求体为空。
 
@@ -56,12 +55,12 @@ GET /<ObjectName> HTTP/1.1
 
 |参数名称|描述|类型|
 |:---|:-- |:-- |
-| x-cos-meta-`*` | 用户自定义的元数据|String|
+| x-cos-meta- * | 用户自定义的元数据|String|
 | x-cos-object-type | 用来表示 object 是否可以被追加上传，枚举值：normal 或者 appendable |String|
 | x-cos-storage-class | Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE|String|
 
 #### 响应体
-Object 的文件内容。
+该响应体返回 Object 的文件内容。
 
 
 

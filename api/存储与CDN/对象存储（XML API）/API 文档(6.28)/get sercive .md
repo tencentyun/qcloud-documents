@@ -55,7 +55,13 @@ GET / HTTP/1.1
 </ListAllMyBucketsResult>
 ```
 
+
 具体的数据内容如下：
+<style rel="stylesheet">
+table th:nth-of-type(1) {
+width: 150px;	
+}
+</style>
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
