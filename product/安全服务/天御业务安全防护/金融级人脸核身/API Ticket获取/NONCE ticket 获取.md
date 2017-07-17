@@ -20,7 +20,7 @@ ticket用于对请求数据签名或加密。
 请求示例：
 https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=NONCE&version=1.0.0&user_id=xxx
 
-``
+```
 响应：
 {
 "code":"0",
@@ -32,7 +32,7 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 "expire_time":"20151022044027"}
 ]
  ｝
- ``
+ ```
  
 **注**：
 1.code不是0是表示获取失败，可以根据code和msg字段定位和调试。
