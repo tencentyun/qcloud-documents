@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
+Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间（Bucket）的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
 
 ## 请求
 
@@ -18,9 +18,6 @@ Authorization: Auth String
 GET /?acl HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 acl。
 
 ### 请求头
 
@@ -30,7 +27,7 @@ GET /?acl HTTP/1.1
 #### 非公共头部
 **必选头部**
 该请求操作的实现使用如下必选头部：
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 150px;	} </style>
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
 |参数名称|描述|类型|必选|
 |:---|:-- |:--|:--|
@@ -104,14 +101,14 @@ Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者资源信息。type 类型可以为 RootAccount， Subaccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;，。</br>当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 说明被授权者的信息。type 类型可以为 RootAccount， Subaccount；当 type 类型为 RootAccount 时，ID 中指定的是根帐号;当 type 类型为 Subaccount 时，ID 中指定的是子帐号  | Container    |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |
 
 Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | AccessControlPolicy.Owner | 用户的 ID，</br>格式： qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; 如果是根帐号，&lt;OwnerUin&gt;  和 &lt;SubUin&gt; 是同一个值|  String |
+| ID | AccessControlPolicy.Owner | 用用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt; 或  qcs::cam::anyone:anyone （指代所有用户）如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |
 | DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 

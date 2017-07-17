@@ -20,9 +20,17 @@ Authorization: Auth String
 ```
 DELETE /ObjectName?uploadId=UploadId HTTP/1.1
 ```
+该 API 接口接受 DELETE 请求。
 #### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 `ObjectName?uploadId=UploadId `。
+包含所有请求参数的请求行示例：
+```
+DELETE /ObjectName?uploadId=UploadId HTTP/1.1
+```
+具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+
+|参数名称|描述|类型|必选|
+|---|---|---|---|
+|uploadId|标识本次分块上传的ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。|String|是|
 
 ### 请求头
 
@@ -47,7 +55,6 @@ DELETE /ObjectName?uploadId=UploadId HTTP/1.1
 
 #### 响应体
 该请求的响应体为空
-
 
 
 ## 实际案例

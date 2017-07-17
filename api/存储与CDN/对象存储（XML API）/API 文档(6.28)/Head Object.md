@@ -19,9 +19,6 @@ Authorization: Auth String
 HEAD /ObjectName HTTP/1.1
 ```
 该 API 接口接受 HEAD 请求。
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 ObjectName。
 
 ### 请求头
 
@@ -32,7 +29,7 @@ HEAD /ObjectName HTTP/1.1
 **推荐头部**
 该请求操作推荐请求头使用推荐头部参数，具体内容如下：
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | If-Modified-Since | 当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304 | String | 否 |
 
