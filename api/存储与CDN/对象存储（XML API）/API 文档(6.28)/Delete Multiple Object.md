@@ -34,9 +34,7 @@ Authorization: Auth String
 ```
 POST /?delete HTTP/1.1
 ```
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 `delete`。
+该 API 接口接受 POST 请求。
 
 ### 请求头
 
@@ -46,9 +44,9 @@ POST /?delete HTTP/1.1
 #### 非公共头部
 **必选头部**
 该请求操作需要请求头帯必选头部参数，具体内容如下：
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 150px;	} </style>
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
-|名称|描述|类型|必选|
+|参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
 | Content-MD5 | RFC 1864 中定义的 128 位内容 MD5 算法校验值| String | 是 |
