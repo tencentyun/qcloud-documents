@@ -1,4 +1,4 @@
-﻿### Common Problems 
+### Common Problems 
 +  [Basics You Need to Know About LVB](https://www.qcloud.com/document/product/454/7937)
 +  [How to Deal with Stutter](https://www.qcloud.com/document/product/454/7946)
 +  [How to Achieve Instant Broadcasting](https://www.qcloud.com/document/product/454/7950)
