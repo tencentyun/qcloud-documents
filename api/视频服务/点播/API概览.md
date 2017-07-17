@@ -1,4 +1,4 @@
-<font color=RED>本页面的 API 已经失效，请参考[新版本服务端 API](/document/product/266/7788)。</font>
+<font color=RED>本页面的 API 已经失效，请参考</font>[新版本服务端 API](/document/product/266/7788)
 
 | 接口功能 | Action ID | 
 |---------|---------|
