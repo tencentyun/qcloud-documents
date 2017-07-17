@@ -1,7 +1,7 @@
 ## 1. 接口描述
  
 本接口（DeleteSecurityGroupPolicy）用于删除安全组规则。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">dfw.api.qcloud.com</font>
 
 
 ## 2. 输入参数
@@ -24,10 +24,10 @@
 | message | String | 模块错误信息描述，与接口相关。|
  
  ## 4. 错误码表
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
-
+ 
 | 错误码 | 描述 |
 |---------|---------|
+| 7000 | 安全组后台异常 |
 
 
 ## 5. 示例
@@ -37,7 +37,7 @@
 
   https://vpc.api.qcloud.com/v2/index.php?Action=DeleteSecurityGroupPolicy
 	&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-  &sgId=vpc-2ari9m7h
+  &sgId=sg-2ari9m7h
 </pre>
 
 输出
