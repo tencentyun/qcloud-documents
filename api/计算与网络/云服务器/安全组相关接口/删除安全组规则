@@ -6,22 +6,13 @@
 ## 2. 输入参数
  
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见公共请求参数页面。其中，此接口的Action字段为DeleteSecurityGroupPolicy。
-<table class="t">
-<tbody>
-<tr>
-<th><b>参数名称</b></th>
-<th><b>必选</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> sgId <td> 是 <td> String <td> 安全组id
-<tr>
-<td> version <td> 否 <td> Int <td> 版本，用户更新安全规则，每次更新安全规则版本会自动加1，防止你更新的路由规则已过期，不填不考虑冲突
-<tr>
-<td> direction <td> 是 <td> String <td> 方向(ingress/egress)
-<tr>
-<td> indexes <td> 是 <td> Array <td> 规则所在位置，可以一次删除多条
-</tbody></table>
+| 参数名称 | 是否必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| sgId | 是 | String | 安全组id。 |
+| version | 否 | Int | 版本，用户更新安全规则，每次更新安全规则版本会自动加1，防止你更新的路由规则已过期，不填不考虑冲突。 |
+| direction | 是 | String | 规则方向(ingress/egress)。|
+| indexes | 是 | Array | 规则所在位置，可以一次删除多条。|
+
 
 ## 3. 输出参数
  
