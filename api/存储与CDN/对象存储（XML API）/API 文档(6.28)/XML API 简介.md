@@ -15,8 +15,8 @@ width:550px;
 
 |名称|	描述|
 |---|---|
-| AppID	|开发者访问 COS 服务时拥有的用户维度唯一资源标识，用以标识资源|
-| SecretID | 开发者拥有的项目身份识别 ID，用以身份认证|
+| APPID	|开发者访问 COS 服务时拥有的用户维度唯一资源标识，用以标识资源|
+| SecretId | 开发者拥有的项目身份识别 ID，用以身份认证|
 | SecretKey	| 开发者拥有的项目身份密钥|
 | Bucket|	 COS 中用于存储数据的容器|
 | Object|	 COS 中存储的具体文件，是存储的基本实体|
@@ -30,7 +30,7 @@ width:550px;
 
 1. 购买腾讯云对象存储（COS）服务
 2. 在腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos4/index) 里创建一个 Bucket
-2. 在控制台 [个人 API 密钥](https://console.cloud.tencent.com/capi) 页面里获取 AppID、SecretID、SecretKey 内容
+2. 在控制台 [个人 API 密钥](https://console.cloud.tencent.com/capi) 页面里获取 APPID、SecretId、SecretKey 内容
 2. 编写一个请求签名算法程序（或使用任何一种服务端 SDK）
 3. 计算签名，调用 API 执行操作
 
