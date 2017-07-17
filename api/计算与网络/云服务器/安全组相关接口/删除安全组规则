@@ -6,7 +6,9 @@
 ## 2. 输入参数
  
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见公共请求参数页面。其中，此接口的Action字段为DeleteSecurityGroupPolicy。
-<table class="t"><tbody><tr>
+<table class="t">
+<tbody>
+<tr>
 <th><b>参数名称</b></th>
 <th><b>必选</b></th>
 <th><b>类型</b></th>
