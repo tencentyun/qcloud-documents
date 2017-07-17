@@ -7,10 +7,10 @@
 音频本地处理流程图:
 
 > 观众侧
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/audio_member.jpg)
+![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_member.jpg)
 
 > 主播侧
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/audio_host.jpg)
+![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_host.jpg)
 
 如上图所示，用户可以其中任意环节对数据进行拦截并作相应的处理。
 

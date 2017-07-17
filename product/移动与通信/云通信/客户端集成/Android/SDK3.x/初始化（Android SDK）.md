@@ -433,6 +433,20 @@ public TIMUserConfigMsgExt enableStorage(boolean storageEnabled)
 public TIMUserConfig setRefreshListener(TIMRefreshListener listener)
 ```
 
+### 4.5 消息撤回通知监听
+
+ImSDK 3.1.0开始提供了 [消息撤回]() 功能。通过`TIMUserConfigMsgExt`的`setMessageRevokedListener`可以设置消息撤回通知监听器。
+
+**原型：**
+```
+/**
+ * 设置消息撤回通知监听器
+ * @param listener 消息撤回通知监听器
+ * @since 3.1.0
+ */
+public TIMUserConfigMsgExt setMessageRevokedListener(@NonNull TIMMessageRevokedListener listener)
+```
+
 ## 5 新消息通知
 
 在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，在用户登录的时候，会拉取C2C离线消息和最近联系人，为了不漏掉消息通知，建议在登录之前注册新消息通知。

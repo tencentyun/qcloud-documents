@@ -1,30 +1,29 @@
 ## 功能介绍
-CDN 为您提供了IP访问限频配置，通过对每一个 IP 在每一个节点每一秒钟访问次数进行限制，进行 CC 攻击的抵御。
+CDN 为您提供了 IP 访问限频配置，通过对每一个 IP 在每一个节点每一秒钟访问次数进行限制，进行 CC 攻击的抵御。
 
 ## 配置说明
-登录[CDN控制台](https://console.qcloud.com/cdn)，进入 【域名管理】 页面，点击域名右侧 **管理** 按钮，进入管理页面：
+登录 [CDN 控制台](https://console.qcloud.com/cdn)，进入【域名管理】页面，单击域名右侧【管理】按钮，进入管理页面：
+![](https://mc.qcloudimg.com/static/img/334d64d46949c142160ddf9e06ea7d6d/manage.png)
 
-![](https://mc.qcloudimg.com/static/img/70a01c53cfaa997013da2cb4b699bbf1/donmai_management.png)
-
-您可以在 【访问控制】 中找到 **IP访问限频配置** 配置项：
-![](https://mc.qcloudimg.com/static/img/050cb8156022370a1853090f30f38a06/ip_fre.png)
+您可以在【访问控制】中找到 **IP 访问限频配置** 模块：
+![](https://mc.qcloudimg.com/static/img/4959b4865a7655490bbd698070444588/iplimit.png)
 
 ### 默认配置
 默认情况下，IP 访问限频配置为关闭状态。
 
 ### 自定义配置
-点击开启按钮，打开 IP 访问限频配置，此时系统会根据您最近30天的单IP平均访问量给出一个建议阈值，您可以在下方 **当前单IP访问阈值** 看到给定的默认阈值：
-
-![](https://mc.qcloudimg.com/static/img/411468ed4240c34101f5007e55d72ba0/ip_fre_check.png)
-
-**注意事项**：
-+ 默认阈值的算法为：计算区间为最近30天，每一天有288统计点（五分钟一个），每一个统计点计算单IP平均访问频次，取每天的最大值计算平均，为默认阈值；
-+ 默认阈值最小为10QPS，仅供参考，建议您根据业务波动合理设置阈值。
-
-点击 **编辑** 按钮，可以自定义设置阈值：
-
-![](https://mc.qcloudimg.com/static/img/3f0ec3616983a0ab88edafc097b03c19/set_ip_freq.png)
+单击按钮打开 IP 访问限频，此时系统会根据您最近30天的单 IP 平均访问量给出一个建议阈值，您可以在下方 **当前单 IP 访问阈值** 看到给定的默认阈值：
+![](https://mc.qcloudimg.com/static/img/1e84f30c3e9e9d151e297a21ac47c72b/iplimit-QPS.png)
 
 **注意事项**：
-+ IP限频设置针对单IP单节点每秒访问次数进行了限制，若超出限制，则会直接返回514；
+
++ 默认阈值的算法为：计算区间为最近30天，每一天有288统计点（五分钟一个），每一个统计点计算单 IP 平均访问频次，取每天的最大值计算平均，为默认阈值；
++ 默认阈值最小为10 QPS，仅供参考，建议您根据业务波动合理设置阈值。
+
+单击【编辑】按钮，可以设置单 IP 访问阈值：
+![](https://mc.qcloudimg.com/static/img/425dc2fa5e49750cbcb5b26824d3f167/iplimit-QPSset.png)
+
+**注意事项**：
+
++ IP 访问限频设置针对单 IP 单节点每秒访问次数进行了限制，若超出限制，则会直接返回514；
 + 设置较低频次限制可能会影响您的正常高频用户的使用，因此请合理设置阈值。

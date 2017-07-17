@@ -23,4 +23,4 @@ SVN上的文件变更会自动同步到各CDN服务器节点，不需要每次�
 
 例如：
 您的云服务帐号为1251000013。通过SVN客户端，在 https://cdn.yun.qq.com/1251000013 下创建文件目录img，在img目录下上传文件CVM.png。生效后，就可以通过如下CDN公网访问地址，访问到CVM.png这个图片了。
-http://1251000013.cdn.myqcloud.com/1251000013/img/CVM.png
+`http://1251000013.cdn.myqcloud.com/1251000013/img/CVM.png`

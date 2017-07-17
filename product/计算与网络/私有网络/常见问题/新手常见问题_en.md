@@ -27,7 +27,7 @@ Tencent Cloud VPC consists of various services which should appear very similar 
 
 ## 2. How to start using VPC?
 You can start using VPC either from the Tencent Cloud Console, or by using cloud APIs.
-- [**Console** Quick Guide](https://www.qcloud.com/doc/product/215/5168)
+- [**Console** Quick Guide](https://www.qcloud.com/document/product/215/8119)
 - [**API** Quick Guide](https://www.qcloud.com/doc/api/245/5157)
 
 ## 3. Is the VPC able to communicate with basic network/public network/other VPCs (of different accounts and regions)/my data center?

@@ -1,0 +1,102 @@
+<div class="sect1">
+<h2 id="_内部业务方调用方式">内部业务方调用方式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>CVM API 对于腾讯云内部业务方单独提供一个调用方式，无需通过API鉴权。</p>
+</div>
+<div class="paragraph">
+<p>具体调用方式为：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">curl -d '{}' http://server:8520/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>返回包的形式为标准JSON，亦完全符合本文档中的 API 返回值定义。</p>
+</div>
+<div class="paragraph">
+<p>每个地域均可访问到 cvmapiv3.tencentyun.com</p>
+</div>
+<div class="paragraph">
+<p>如需跨地域调用，可以通过下列域名：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>bj.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>sh.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>gz.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>shjr.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>szjr.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>gzopen.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>ca.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>hk.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>sg.cvmapiv3.tencentyun.com</p>
+</li>
+<li>
+<p>usw.cvmapiv3.tencentyun.com</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>相关IP可参见：
+ <a href="http://yun.isd.com/index.php/package/instances/?path=/cloud/cvm_api">PKG包</a>管理中各地域机房的IP。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_工程实现与实践">工程实现与实践</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>本项目基于以下开源项目或标准构建，可以在时间允许的情况下，更多的了解下面的技术。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CPython 3.6  (Python语言的解释器)</p>
+</li>
+<li>
+<p>Gevent（一种基于libevent事件循环的协程实现）
+每次time.sleep 或者 socket.recv 等操作时，隐含了yeild 语义。</p>
+</li>
+<li>
+<p>uWSGI（一个比较完善的易于运维的容器）</p>
+</li>
+<li>
+<p>CBOR：<code>the general-purpose schema-less binary data format</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>也就是说，CBOR可以看成是json的一个二进制版本，非人类可读，但是在各种基准测试中比json实现要快10倍。而且占用空间小。相比于protobuf，cbor不用预先
+定义二进制的struct。与json一样自由。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TOML：<code>是ini的一个超集。我们将其用作MASTER的标准配置文件格式。</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>不同于ini没有一个协议标准，TOML是Github所定义的具有严格标准且同json等价的格式。也就是说toml可以表达json能表达的全部内容，而对人类更加友好。避&gt;免了使用不同解析器对相同ini的不同解读的同时，也获得了更丰富的表达形式。同SPP使用的yaml相比，可读性更好，移植性也更好。</p>
+</div>
+</div>
+</div>

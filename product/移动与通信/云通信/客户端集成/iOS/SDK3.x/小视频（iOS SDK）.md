@@ -23,7 +23,7 @@
 > 9. libiconv.tbd
 > 10. libresolv.tbd
 
-如果不需要使用小视频功能，可以在集成时移除 IMUGCExt.framework 和 TXRTMPSDK.framework 。
+如果不需要使用小视频功能，可以在集成时移除 IMUGCExt.framework 和 TXRTMPSDK.framework 。Demo中美颜和P图效果需要额外添加beauty_libs中的framework和资源。
 
 ## 2. 录制小视频
 

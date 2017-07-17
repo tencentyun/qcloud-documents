@@ -935,8 +935,7 @@ var params = {
 	GrantWrite : 'STRING_VALUE',					/* 非必须 */
 	GrantFullControl : 'STRING_VALUE',				/* 非必须 */
 	'x-cos-meta-*' : 'STRING_VALUE',				/* 非必须 */
-	// Body: './a.zip',
-	Body: fs.createReadStream('./a.zip'), // 传文件或者流 /*必须*/ 
+	Body: fs.createReadStream('./a.zip'),           /* 必须 */
     onProgress: function (progressData) {
         console.log(progressData);
     },
@@ -1170,7 +1169,7 @@ Put Object ACL使用 API 写入 Object 的 ACL 表
 var params = {
 	Bucket : 'STRING_VALUE',			/* 必须 */
 	Region : 'STRING_VALUE',			/* 必须 */
-	Key : 'STRING_VALUE'				/* 必须 */
+	Key : 'STRING_VALUE',				/* 必须 */
 	ACL : 'STRING_VALUE',				/* 非必须 */
 	GrantRead : 'STRING_VALUE', 		/* 非必须 */
 	GrantWrite : 'STRING_VALUE',		/* 非必须 */

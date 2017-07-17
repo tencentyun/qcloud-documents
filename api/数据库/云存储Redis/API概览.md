@@ -20,6 +20,7 @@
 | [修改CRS实例密码](/document/product/239/8405) | ModfiyRedisPassword | 修改实例密码|
 | [重置CRS实例密码](/document/product/239/1390) | ResetRedisPassword | 重置实例密码|
 | [修改Redis实例项目](http://www.qcloud.com/doc/api/260/1385) | ModifyRedisProject |  修改实例所属项目 |
+| [修改CRS实例名称](https://www.qcloud.com/document/api/239/8431) | ModifyRedisName |  修改CRS实例名称 | 
 | [清空CRS实例](http://www.qcloud.com/doc/api/260/1386) | ClearRedis |  清空实例数据 | 
 | [CRS查询任务结果](http://www.qcloud.com/doc/api/260/1387) | DescribeTaskInfo | 查询任务执行结果 |
 | [手动备份 CRS 实例](/document/product/239/8402) | ManualBackupInstance | 手动备份 CRS 实例 |
