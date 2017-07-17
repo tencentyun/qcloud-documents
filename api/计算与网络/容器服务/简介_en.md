@@ -14,7 +14,7 @@ The following concepts will help you get familiar with Tencent Cloud's CCS:
 - The load balancer can realize automatic distribution of request traffic from clients across multiple CVM instances. For more information, please see [Load Balance Product Documentation](https://www.qcloud.com/doc/product/214).
 - Cloud Monitor can be used to monitor the operation statistical data for both CCS cluster and container pods. For more information, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/doc/product/248).
 
-## Tencent Cloud's CCS Pricing
+## CCS Pricing
 
 CCS is provided free of charge now, and users are only charged for the resources they actually used. For more information about billing modes and prices, please see [CCS Pricing](https://www.qcloud.com/doc/product/457/6770).
 

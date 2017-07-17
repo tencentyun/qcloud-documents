@@ -2,9 +2,7 @@
  
 This API (DescribeClusterServiceInfo) is used to query the details of a single service.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
-
-
+Domain for API request: ccs.api.qcloud.com
 
 ## 2. Input Parameters
 
@@ -12,7 +10,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters". |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | serviceName   | Yes    | String | Service name |
 | namespace      | No | String      | Namespace. Default is "default" |
 
@@ -22,9 +20,9 @@ The following request parameter list only provides API request parameters. For o
 |---------|---------|---------|
 | code | Int | Common error code. 0: Successful. Other values: Failed |
 | message | String | Module error message description depending on API |
-| services | Object Array | Service list. Details are shown below |
+| service | Object Array | Service list. Details are shown below |
 
-"service" parameter details
+``service`` parameter details
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -47,7 +45,7 @@ The following request parameter list only provides API request parameters. For o
 | namespace | String | Namespace |
 
 
-Service status
+``status`` details
 
 | Status Type | Description |
 |---------|---------|
@@ -58,7 +56,7 @@ Service status
 | Updating | Service updating |
 | RollingBack | Service rolling back |
 
-"portMappings" parameter details
+``portMappings`` parameter details
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -90,14 +88,14 @@ Container information
 | liveProbe | Object | Container liveness check information. For more information, please see the table below |
 | readyProbe | Object | Container readiness check information. Definition is the same with liveProbe, see the table below |
 
-"envs" parameter details
+``envs`` parameter details
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | name | String | Environment variable name |
 | value | String | Environment variable value |
 
-"volumeMounts" parameter details. For more information, please see [Data Volume Mounting Instruction](https://www.qcloud.com/document/product/457/9112).
+``volumeMounts`` parameter details. For more information, please see [Data Volume Mounting Instruction](https://www.qcloud.com/document/product/457/9112).
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -105,39 +103,39 @@ Container information
 | mountPath | String | Path to which the volume is to be mounted in the container |
 | mode | String | Indicates how container accesses the volume. ro: read only. rw: read and write |
 
-Details of "liveProbe" and "readyProbe" parameters. For more information, please see [Service Health Check Configurations](https://www.qcloud.com/document/product/457/9094)
+Details of ``liveProbe`` and ``readyProbe`` parameters. For more information, please see [Service Health Check Configurations](https://www.qcloud.com/document/product/457/9094)
 
 | Parameter Name       | Type   |Description                                                                                                                                                                                                                                                                                                   |
 |-------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | checkMethod    | String  | Type of the check (methodTcp, methodHttp, methodCmd) |
-| healthNum    | Int     | Success threshold for the check, default is 3. it means the container is considered to be alive if the check succeeds for this number of times consecutively. For example, if "type" is "liveCheck", "healthNum" is 3, then the container is considered alive if the check returns successful result for 3 times in a row   |
-| unhealthNum  | Int    | Failure threshold for the check, default is 3. It means the container is considered to be dead if the check fails for this number of times consecutively. For example, if "type" is "liveCheck", "unhealthNum" is 3, then the container is considered dead if the check returns failed result for 3 times in a row |
+| healthNum    | Int     | Success threshold for the check, default is 3. it means the container is considered to be alive if the check succeeds for this number of times consecutively. For example, if ``type`` is ``liveCheck``, ``healthNum`` is 3, then the container is considered alive if the check returns successful result for 3 times in a row   |
+| unhealthNum  | Int    | Failure threshold for the check, default is 3. It means the container is considered to be dead if the check fails for this number of times consecutively. For example, if ``type`` is ``liveCheck``, ``unhealthNum`` is 3, then the container is considered dead if the check returns failed result for 3 times in a row |
 | intervalTime | Int    | Interval time between health checks, that is, the time until the next health check. Unit: second |
 | timeOut      | Int    | Operation timeout for health checks. Unit: second  |
-| delayTime    | Int    | After the container starts up, the time to wait before enabling health check (in second). Default is 0 (enable immediately). Note: If "type" is "readyCheck", the container is considered unready within the delayTime period after it launches, during which requests are not forwarded to this container when you access the corresponding service  |
-| methodTcp      | Object  | Valid when "checkMethod" is "methodTcp". For more information, please see the table below |
-| methodHttp     | Object  | Valid when "checkMethod" is "methodHttp". For more information, please see the table below |
-| methodCmd     | Object  | Valid when "checkMethod" is "methodCmd". For more information, please see the table below |
+| delayTime    | Int    | After the container starts up, the time to wait before enabling health check (in second). Default is 0 (enable immediately). Note: If ``type`` is ``readyCheck``, the container is considered unready within the delayTime period after it launches, during which requests are not forwarded to this container when you access the corresponding service  |
+| methodTcp      | Object  | Valid when ``checkMethod`` is ``methodTcp``. For more information, please see the table below |
+| methodHttp     | Object  | Valid when ``checkMethod`` is ``methodHttp``. For more information, please see the table below |
+| methodCmd     | Object  | Valid when ``checkMethod`` is ``methodCmd``. For more information, please see the table below |
 
-"methodTcp" parameter details
+``methodTcp`` parameter details
 
 | Parameter Name        | Type   |Description                                                                                                                                                                                                                                                                                                   |
 |-------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | port    | Int  | Connection probe will be performed towards this container port during check operation. The probe is considered successful if connection is successful, or considered as failed otherwise.  |
 
-"methodHttp" parameter details
+``methodHttp`` parameter details
 
 | Parameter Name       | Type   |Description                                                                                                                                                                                                                                                                                                   |
 |-------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | port         | Int     | HTTP service port of the container. When sending HTTP or HTTPS requests to this port, the probe is considered successful if the returned httpcode falls within 200-399, or considered as failed otherwise |
 | protocol     | String | Protocol used when performing HTTP probe against the container. Only HTTP and HTTPS are supported |
-| path         | String | A URL is created when performing HTTP probe against the container: protocol://containerIp:port/path, the probe is then executed by initiating a GET operation towards this URL. "protocol" and "port" are the parameters specified above |
+| path         | String | A URL is created when performing HTTP probe against the container: protocol://containerIp:port/path, the probe is then executed by initiating a GET operation towards this URL. ``protocol`` and ``port` are the parameters specified above |
 
-"methodCmd" parameter details
+``methodCmd`` parameter details
 
 | Parameter Name        | Type   |Description                                                                                                                                                                                                                                                                                                   |
 |-------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| cmd          | String | Valid when "checkMethod" is "methodCmd". The probe operation is performed by executing the command "cmd" against the container. The probe is then considered successful if the returned result is 0, or considered as failed otherwise.    |
+| cmd          | String | Valid when ``checkMethod`` is ``methodCmd``. The probe operation is performed by executing the command ``cmd`` against the container. The probe is then considered successful if the returned result is 0, or considered as failed otherwise.    |
 
 
 ## 4. Example
