@@ -5,7 +5,7 @@ List Multipart Uploads 用来查询正在进行中的分块上传。单次请求
 语法示例：
 ```
 GET /?uploads HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -47,13 +47,13 @@ GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
 
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <ListMultipartUploadsResult>
