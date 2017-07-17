@@ -56,6 +56,7 @@ GET /<ObjectName>&response-content-type=ContentType&response-content-language=Co
 #### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 #### 特有响应头
+该请求操作的响应头具体数据为：
 
 |参数名称|描述|类型|
 |:---|:-- |:-- |
