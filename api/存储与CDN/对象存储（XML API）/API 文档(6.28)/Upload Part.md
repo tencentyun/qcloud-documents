@@ -41,16 +41,16 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 
 #### 非公共头部
 **必选头部**
-该请求操作需要请求头使用必选头部参数，具体内容如下：
+该请求操作需要请求头使用必选头部，具体内容如下：
 
-|参数名称|描述|类型|必选|
+|名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
 
 **推荐头部**
-该请求操作推荐请求头使用推荐头部参数，具体内容如下：
+该请求操作推荐请求头使用推荐头部，具体内容如下：
 
-|参数名称|描述|类型|必选|
+|名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Expect | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 否 |
 | x-cos-content-sha1 | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值| String | 否 |
@@ -61,9 +61,9 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 ## 响应
 
 ### 响应头
-**公共响应头** 
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
 
 ### 响应体
