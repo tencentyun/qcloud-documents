@@ -1,7 +1,7 @@
 ## 1. 接口描述
  
 本接口（DeleteSecurityGroupPolicy）用于删除安全组规则。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">dfw.api.qcloud.com</font>
 
 
 ## 2. 输入参数
