@@ -19,7 +19,8 @@ GET / HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
-### 请求头<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style> 
+### 请求头
+<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style> 
 
 #### 公共头部
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
