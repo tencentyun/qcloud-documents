@@ -53,19 +53,15 @@ server {
 或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx http页面重定向到https页面：
 
 ```
-server {
-  	
+server { 	
   	listen	  80;
   	server_name    example.qcloud.com;
   	return	  301 https://$server_name$request_uri;
-
 }
 
 server {
-  	
   	listen	  443 ssl;
  	server_name    example.qcloud.com;
 	[....]
-
 }
 ```
