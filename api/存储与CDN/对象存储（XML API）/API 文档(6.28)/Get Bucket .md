@@ -6,7 +6,7 @@ Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 语法示例：
 ```
 GET / HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -19,9 +19,9 @@ GET / HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
-### 请求头
+### 请求头<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style> 
 
-**公共头部**
+#### 公共头部
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 发起 Get Bucket（ List Object ）请求时，可以通过请求头帯参数：prefix，marker，delimiter 和 max-keys 对 list 做限定用以返回部分结果。另外，可以通过 encoding-type 对返回结果中的 Delimiter、Marker、Prefix、NextMarker 和 Key 这些元素进行编码。
 参数具体描述内容如下:
@@ -34,19 +34,20 @@ GET / HTTP/1.1
 | marker |默认以 UTF-8 二进制顺序列出条目，所有列出条目从marker开始|
 | max-keys |单次返回最大的条目数量，默认1000|
 
-**非公共头部**
+#### 非公共头部
 该请求操作无特殊的请求头部信息。
+
 ### 请求体
 该请求的请求体为空。
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
