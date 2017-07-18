@@ -5,7 +5,7 @@ Put Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 语法示例：
 ```
 PUT /<ObjectName> HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -28,14 +28,14 @@ PUT /<ObjectName> HTTP/1.1
 
 该请求操作需要用到如下必选请求头：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
-|参数名称|描述|类型| 必选|
+|名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。|String| 是|
 
 **推荐头部**
 该请求操作推荐使用如下推荐请求头：
 
-|参数名称|描述|类型| 必选|
+|名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
 | Cache-Control |RFC 2616 中定义的缓存策略，将作为 Object 元数据保存。|String| 否|
 | Content-Disposition |RFC 2616 中定义的文件名称，将作为 Object 元数据保存。|String| 否|
@@ -62,20 +62,17 @@ PUT /<ObjectName> HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 
 |参数名称|描述|类型|
 |:---|:-- |:-- |
 | ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏。|String|
 
-
-#### 响应体
+### 响应体
 该请求的响应体为空
-
-
 
 ## 实际案例
 

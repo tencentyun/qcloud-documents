@@ -6,7 +6,7 @@ Initiate Multipart Upload 接口请求实现初始化分片上传，成功执行
 语法示例：
 ```
 POST /Object?uploads HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -26,7 +26,7 @@ POST /Object?uploads HTTP/1.1
 
 #### 非公共头部
 **推荐头部**
-该请求操作推荐请求头使用推荐头部参数，具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+该请求操作的实现使用如下推荐请求头部信息：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
@@ -54,13 +54,13 @@ POST /Object?uploads HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
 
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <InitiateMultipartUploadResult>

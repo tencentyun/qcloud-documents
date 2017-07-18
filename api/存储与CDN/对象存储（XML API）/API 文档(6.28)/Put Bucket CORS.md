@@ -9,7 +9,7 @@ Put Bucket CORS 接口用来请求设置 Bucket 的跨域资源共享权限，�
 语法示例：
 ```
 PUT /?cors HTTP/1.1
-Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
+Host: <Bucketname>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
@@ -31,9 +31,9 @@ PUT /?cors HTTP/1.1
 该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 **非公共头部**
-该请求操作的实现需要用帯 Content-MD5 参数的请求头来验证消息的完整性，具体内容如下：
+该请求操作的实现需要用帯 Content-MD5 的请求头来验证消息的完整性，具体内容如下：
 
-|参数名称|描述|类型|必选 |
+|名称|描述|类型|必选 |
 |:---|:-- |:--|:--|
 | Content-MD5 | RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏。 | String| 是 |
 
@@ -86,12 +86,12 @@ Container 节点 CORSRule 的内容：
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
-#### 响应体
+### 响应体
 该响应体返回为空。
 
 ## 实际案例
