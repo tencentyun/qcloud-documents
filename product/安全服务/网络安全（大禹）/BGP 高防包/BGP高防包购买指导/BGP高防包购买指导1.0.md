@@ -2,7 +2,7 @@
 客户可在控制台上直接购买。该产品为预付费产品，可按月按年购买。
 客户可以购买腾讯云华南地区（广州）、华东地区（上海）、华北地区（北京）的服务。
 ### 购买步骤
-1. 进入BGP高防服务包购买页面：<a href="https://buy.qcloud.com/buy/bgp_sp" target="_blank">https://buy.qcloud.com/buy/bgp_sp</a>
+1. 进入 BGP 高防服务包购买页面：<a href="https://buy.qcloud.com/buy/bgp_sp" target="_blank">https://buy.qcloud.com/buy/bgp_sp</a>
 2. 选择高防服务包所在的地域<br>![](https://mc.qcloudimg.com/static/img/8e4a5ee79d0a21916c6b560eb838b302/image.png)
 3. 选择高防服务包的防护阈值，当前支持10-50Gbps<br>![](https://mc.qcloudimg.com/static/img/5e6cc16d0566161467833c240bf6bba2/image.png)
 4. 选择购买个数和购买时长，是否选择自动续费<br>![](https://mc.qcloudimg.com/static/img/927e1fdaa99b04f14f5e3dcaa678bcec/image.png)
