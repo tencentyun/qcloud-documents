@@ -24,6 +24,6 @@ Cloud Kafka通过如下安全特性确保安全性：
 
 ### CKafka的产品限制有哪些？
 产品形态限制：
-1.每个实例最多可以创建50个partition 20个group。
-2.每个topic当前最多可以创建8个partition，3个副本。
-3.consumer group空闲存活时间1个月
+1. 每个实例最多可以创建50个partition 20个group。
+2. 每个topic当前最多可以创建8个partition，3个副本。
+3. consumer group空闲存活时间1个月
