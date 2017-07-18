@@ -1,5 +1,5 @@
 ## 功能描述
-Put Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对 Bucket 有 WRITE 权限。
+Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。
 ## 请求
 
 语法示例：
