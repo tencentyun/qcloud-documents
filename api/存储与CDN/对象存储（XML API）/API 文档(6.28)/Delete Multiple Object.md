@@ -1,6 +1,6 @@
 ## 功能描述
 Delete Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除 1000 个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
->** 注意：**
+><font color="#0000cc">**注意：** </font>
 >此请求必须携带 Content-MD5 用来校验 Body 的完整性。
 
 ## 请求
@@ -43,10 +43,10 @@ POST /?delete HTTP/1.1
 
 #### 非公共头部
 **必选头部**
-该请求操作需要请求头帯必选头部参数，具体内容如下：
+该请求操作的实现使用如下必选头部：
 <style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
-|参数名称|描述|类型|必选|
+|名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
 | Content-MD5 | RFC 1864 中定义的 128 位内容 MD5 算法校验值| String | 是 |
@@ -78,14 +78,13 @@ POST /?delete HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该请求操作无特殊的响应头。
 
-
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <DeleteResult>
