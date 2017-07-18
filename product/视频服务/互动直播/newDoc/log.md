@@ -29,8 +29,9 @@ AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 
 * 任何需要从手机上收集互动直播日志的场景
 
+<img src="https://mc.qcloudimg.com/static/img/44e81e1af5db4fd10e2324216f271a68/image.png" width = "360" height = "480" alt="图片名称" align=center />
 
-<img src="https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/log_report.png" width = "360" height = "480" alt="图片名称" align=center />
+
 
 ### 使用方法
 
@@ -70,7 +71,7 @@ ILiveSDK.getInstance().uploadLog(String desc, int data ILiveCallBack callback);
 4. 开发者可以在[日志查询平台](http://vip.avc.qcloud.com/SdkLog/home)查询用户和下载用户上传的日志。
 
 
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/iLiveSDK_Log.png)
+![](https://mc.qcloudimg.com/static/img/deec9b5df4e0ae801f49854bb48da0b4/image.png)
 
 
 5. 当需要进一步分析问题的时候，可以提供日志id给腾讯云技术支持人员。
