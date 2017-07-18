@@ -20,7 +20,7 @@
 https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_type=client_credential&version=1.0.0
 
 响应：
-``
+```
 {
 "code":"0","msg":"请求成功",
 "transactionTime":"20151022043831",
@@ -28,7 +28,7 @@ https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_typ
 "expire_time":"20151022043831",
 "expire_in":"7200"
 }
-``
+```
 
 注：
 1．code不是0是表示获取失败，可以根据code和msg字段定位和调试。

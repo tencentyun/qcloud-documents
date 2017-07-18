@@ -18,7 +18,7 @@
 请求示例：
 https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=SIGN&version=1.0.0
 响应：
-``
+```
 {
 "code":"0",
 "msg":"请求成功",
@@ -29,7 +29,7 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 "expire_time":"20151022044027"}
 ]
  ｝
- ``
+ ```
  
 **注**:
 1.code不是0是表示获取失败，可以根据code和msg字段定位和调试。

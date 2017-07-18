@@ -5,7 +5,7 @@ List Multipart Uploads 用来查询正在进行中的分块上传。单次请求
 语法示例：
 ```
 GET /?uploads HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -27,7 +27,7 @@ GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
 
 | 名称               | 描述                                       | 类型     | 必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
-| delimiter        | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
+| delimiter        | 定界符为一个符号，对 Object 名字包含指定前缀且第一次出现 delimiter 字符之间的 Object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | String | 否    |
 | encoding-type    | 规定返回值的编码格式，合法值：url                               | String | 否    |
 | prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix | String | 否    |
 | max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000                       | String | 否    |
@@ -47,13 +47,13 @@ GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
 
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <ListMultipartUploadsResult>

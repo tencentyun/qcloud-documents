@@ -51,7 +51,7 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 |---------|---------|---------|
 | PLAY_TYPE_LIVE_RTMP | 0 | 传入的URL为RTMP直播地址 |
 | PLAY_TYPE_LIVE_FLV | 1 | 传入的URL为FLV直播地址 |
-| PLAY_TYPE_VOD_FLV | 2 | 传入的URL为RTMP点播地址 |
+| PLAY_TYPE_VOD_FLV | 2 | 传入的URL为FLV点播地址 |
 | PLAY_TYPE_VOD_HLS | 3 | 传入的URL为HLS(m3u8)点播地址 |
 | PLAY_TYPE_VOD_MP4 | 4 | 传入的URL为MP4点播地址 |
 | PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟连麦链路直播地址（仅适合于连麦场景） |
