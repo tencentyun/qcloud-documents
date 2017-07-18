@@ -18,11 +18,7 @@ Kubernetes集群在启动时会默认创建`default`和`kube-system`这两个命
 
 ### 创建Namespace
 
-(1) 在控制台容器集群页面，在集群页面，选择对应的集群，点击创建namespace按钮直接创建。
-
-待补充图片
-
-(2) 在控制台容器集群页面，点击进入集群信息查看页面。在集群信息查看页面中，选择集群namespace，在集群namespace页面中创建新的namespace。
+(1) 在控制台容器集群页面，点击进入集群信息查看页面。在集群信息查看页面中，选择集群namespace，在集群namespace页面中创建新的namespace。
 
 ![创建Namespace:2][4]
 
