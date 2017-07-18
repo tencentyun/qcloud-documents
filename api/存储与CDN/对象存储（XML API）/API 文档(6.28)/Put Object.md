@@ -70,7 +70,7 @@ PUT /<ObjectName> HTTP/1.1
 
 |名称|描述|类型|
 |:---|:-- |:-- |
-| ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏。|String|
+| ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏 |String|
 
 ### 响应体
 该响应体返回为空。
