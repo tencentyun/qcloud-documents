@@ -29,7 +29,8 @@ AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 
 * 任何需要从手机上收集互动直播日志的场景
 
-![](https://mc.qcloudimg.com/static/img/44e81e1af5db4fd10e2324216f271a68/image.png)
+<img src="https://mc.qcloudimg.com/static/img/44e81e1af5db4fd10e2324216f271a68/image.png" width = "360" height = "480" alt="图片名称" align=center />
+
 
 
 ### 使用方法
