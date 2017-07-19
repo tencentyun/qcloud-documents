@@ -13,7 +13,7 @@ iOS 10.0 系统以后开始支持，基于iOS系统的扩展方式实现，即�
 
 ## 功能体验
 我们在小直播Demo中，基于腾讯云 RTMP SDK 实现了两个平台的手机录屏功能，您可以扫描下图中的二维码安装并体验之。
-![](//mc.qcloudimg.com/static/img/3939152d7b9a6fd0812b886ea049dc83/image.png)
+![](//mc.qcloudimg.com/static/img/5cb1860bdcc58b8286a9fb4a421ee1c1/screencapturedemo.jpg)
 
 ## 对接攻略
 
@@ -65,10 +65,10 @@ public void triggerPrivateMode() {
             mTVPrivateMode.setText(getString(R.string.private_mode_off));
             mTVPrivateMode.setCompoundDrawables(mDrawableLockOn,null,null,null);
             mPrivateBtn.setImageResource(R.mipmap.lock_off);
-            mTXLivePusher.resumePusher();
+            mTXLivePusher.pausePusher();
         } else {
             Toast.makeText(getApplicationContext(), “隐私模式已关闭”, Toast.LENGTH_SHORT).show();
-            mTXLivePusher.pausePusher();
+            mTXLivePusher.resumePusher();
             mPrivateBtn.setImageResource(R.mipmap.lock_on);
             mTVPrivateMode.setText(getString(R.string.private_mode_on));
             mTVPrivateMode.setCompoundDrawables(mDrawableLockOff,null,null,null);
@@ -145,7 +145,7 @@ RTMP SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推�
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器|
 |PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
-|PUSH_EVT_OPEN_CAMERA_SUCC	  | 1003	| 推流器已成功打开摄像头（Android部分手机这个过程需要1-2秒）| 
+|PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（Android部分手机这个过程需要1-2秒）| 
 
 ####  错误通知 
 SDK发现了一些严重问题，推流无法继续了，比如用户禁用了APP的Camera权限导致摄像头打不开。
@@ -174,7 +174,7 @@ SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻|
 |PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码|
-|PUSH_WARNING_DNS_FAIL			  |  3001 |  RTMP -DNS解析失败（会触发重试流程）        |
+|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP -DNS解析失败（会触发重试流程）        |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP服务器连接失败（会触发重试流程）  |
 |PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP服务器握手失败（会触发重试流程）  |
 |PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP服务器主动断开连接（会触发重试流程）  |

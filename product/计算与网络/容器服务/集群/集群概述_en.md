@@ -1,4 +1,4 @@
-A cluster is a collection of cloud resources required by containers to run, including several CVMs, load balancers and other Tencent Cloud resources.
+A cluster is a collection of cloud resources required for container running, including several CVMs, load balancers and other Tencent Cloud resources.
 
 ## Cluster Information
 
@@ -6,7 +6,7 @@ A cluster is a collection of cloud resources required by containers to run, incl
 
 **Cluster Configuration**: When creating the cluster, you can configure CVM model, operating system, system disk and data disk size, login password, etc.
 
-**Cluster Structure**: Currently, prepaid CVMs and postpaid CVMs are supported.
+**Cluster Structure**: Supports prepaid and postpaid CVMs.
 
 ## Cluster Management
 You can create clusters, expand/reduce nodes, delete clusters and operate clusters directly by using kubernetes APIs.
