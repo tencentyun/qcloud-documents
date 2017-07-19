@@ -64,7 +64,7 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 }
 #######################云ocr混淆规则 ocr-END#############################
 ```
-2.您可以将如上代码拷贝到您的混淆文件中，也可以将SDK中的webank-cloud-ocr-proguard-rules.pro拷贝到主工程根目录下,然后通过"-include webank-cloud-ocr-rules.pro" 加入到您的混淆文件中。
+**2**.您可以将如上代码拷贝到您的混淆文件中，也可以将SDK中的webank-cloud-ocr-proguard-rules.pro拷贝到主工程根目录下,然后通过"-include webank-cloud-ocr-rules.pro" 加入到您的混淆文件中。
 **3. 云公共组件的混淆规则**
 ```
 #############webank normal混淆规则-BEGIN###################
