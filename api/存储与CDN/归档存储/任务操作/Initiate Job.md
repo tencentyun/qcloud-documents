@@ -96,7 +96,7 @@ Authorization: Auth
 {
   "Type": "push-to-cos",
   "Description": String,
-  "ArchiveId": String，
+  "ArchiveId": String,
   "RetrievalByteRange":String,
   "Tier":String,
   "Bucket":String,
