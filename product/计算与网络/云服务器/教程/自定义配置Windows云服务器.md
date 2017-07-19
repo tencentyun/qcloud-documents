@@ -4,8 +4,8 @@
 ## 前提条件
 
  1. 开始自定义配置前，您需完成[【快速入门 Windows 云服务器】](https://www.qcloud.com/document/product/213/10071?!preview=&lang=cn)文档中的步骤一。
- 2. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，点击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm)。
- 3. 点击【自定义配置】，进入自定义配置界面。
+ 2. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm) 。
+ 3. 单击【自定义配置】，进入自定义配置界面。
 
 ## 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
@@ -18,11 +18,10 @@
   - 上一代实例类型：标准型S1，高IO型I1，内存型M1
   - 当前一代实例类型：[标准型S2](https://www.qcloud.com/doc/product/213/7154)，[高IO型I2](https://www.qcloud.com/doc/product/213/7155)，[内存型M2](https://www.qcloud.com/doc/product/213/7156)，[计算型C2](https://www.qcloud.com/doc/product/213/7157)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为获得最佳性能，我们建议您在新建实例时使用当前一代实例类型。实例类型详细说明，请参见 [实例类型概述](https://www.qcloud.com/document/product/213/7153) 。
-
 >注意：
 >不同的地域与可用区下的系列、机型会有所不同。
 
-点击【下一步：选择镜像】按钮，进入选择镜像页面。
+单击【下一步：选择镜像】按钮，进入选择镜像页面。
 
 ## 选择镜像
 ![](//mc.qcloudimg.com/static/img/be83f1c6052ad0f3aaf31b45203fa551/image.png)
@@ -36,7 +35,7 @@
 -  适合于运行 Windows 下开发的程序，如.NET。 
 -  支持 SQL Server 和其他更多数据库（需自行安装）。 
 
-点击【下一步：选择存储与网络】按钮，进入选择存储与网络页面。
+单击【下一步：选择存储与网络】按钮，进入选择存储与网络页面。
 
 ## 选择存储与网络
 ![](//mc.qcloudimg.com/static/img/e95a5bf7bf47c60f43dd0ee62946b67a/image.png)
@@ -51,7 +50,7 @@
 - 私有网络：适合更高阶的用户，不同私有网络间逻辑隔离。
 
 	>**注意：**
-	> Windows 云服务器无法作为 [公网网关](http://www.qcloud.com/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 Linux 云服务器快速入门。
+	> Windows 云服务器无法作为 [公网网关](http://www.qcloud.com/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 [Linux 云服务器快速入门](https://www.qcloud.com/document/product/213/10133?!preview=&lang=cn)。
 
  3. 选择公网带宽。
 腾讯云提供  按带宽计费  或  按使用流量计费  两种可选。
@@ -62,7 +61,7 @@
 
  5. 选择购买时长与续费方式（仅限包年包月云服务器）。
 
-点击【下一步：设置信息】按钮，进入设置信息页面。
+单击【下一步：设置信息】按钮，进入设置信息页面。
 
 ## 设置信息
 ![](//mc.qcloudimg.com/static/img/fbc4230b5e6a19ef6ec60ffebfc62aaa/image.png)
@@ -72,8 +71,8 @@
 
  3. 选择安全组（<font color="red">确保登录端口3389开放</font>，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
 
-点击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.qcloud.com/cvm) 查收您的云服务器。
+单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.qcloud.com/cvm) 查收您的云服务器。
 
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的 Windows 登录密码保障主机安全性。
 
-点击 [这里](https://www.qcloud.com/document/product/213/10071?!preview=&lang=cn/#continue-page)，继续 Windows 云服务器的后续配置。
+单击 [这里](https://www.qcloud.com/document/product/213/10071?!preview=&lang=cn/#continue-page) ，继续 Windows 云服务器的后续配置。

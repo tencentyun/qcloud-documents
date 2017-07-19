@@ -3,7 +3,7 @@
 
 ## 步骤一：准备与选型
 ### 注册腾讯云账号
-新用户需在腾讯云官网进行[【注册】](https://www.qcloud.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)，注册指引可参考[如何注册腾讯云](https://www.qcloud.com/document/product/378/9603)。
+新用户需在腾讯云官网进行[【注册】](https://www.qcloud.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](https://www.qcloud.com/document/product/378/9603) 。
 
 ### 确定云服务器所在地域
 地域选择原则：
@@ -28,14 +28,14 @@
 腾讯云提供 包年包月 和 按量付费 两种付费模式。详见 [计费模式说明](https://www.qcloud.com/document/product/213/2180) 。
 若您选择按量付费，则需先完成 [资质认证](https://console.qcloud.com/developer/infomation) 。
 
-## 步骤二：创建 Windows云服务器
+## 步骤二：创建 Windows 云服务器
 本步骤介绍 Windows 云服务器的创建，腾讯云提供 快速配置 和 自定义配置 两种方式。本部分以 快速配置 为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置Windows云服务器](www.qcloud.com/document/product/213/10134?!preview&lang=cn) 文档进行配置。
 > 注意：
  > 初次购买的账户默认进入【快速配置】页面，购买过的用户默认进入【自定义配置】页面。
 
 ![](//mc.qcloudimg.com/static/img/377368de9e85b21bf90632480dad903c/image.png)
 
- 1. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，点击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm)。
+ 1. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm)。
 
  2. 选择镜像。选择符合需求的 Windows 操作系统。
  
@@ -69,16 +69,16 @@
 ![](//mc.qcloudimg.com/static/img/1385695211763c620c31d603136c3128/image.png)
  1. 登录 [云服务器控制台](https://console.qcloud.com/cvm) 。登录后即可看到公网 IP 地址、内网 IP 地址等信息。
 
- 2. 点击右上角【站内信】。
+ 2. 单击右上角【站内信】。
 
  3. 站内信页面即可查看新创建的云服务器，及登录名与密码等信息。
 
 
 ### 控制台登录云服务器
- 1. 在云服务器列表的操作列，点击【登录】按钮即可通过VNC连接至Windows云服务器：
+ 1. 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Windows 云服务器：
 	![](//mccdn.qcloud.com/img56b1a6cb7b3e8.png)
 
- 2. 通过在左上角发送Ctrl+Alt+Del命令进入系统登录界面：
+ 2. 通过在左上角发送 Ctrl+Alt+Del 命令进入系统登录界面：
 	![](//mc.qcloudimg.com/static/img/e4dbc02ca9ae2a7cb9ada5316effd31a/image.png)
 	
  3. 输入帐号（Administrator）和站内信中的初始密码（或您修改后的密码）即可登录。
@@ -91,25 +91,24 @@
 这里以 Windows 2012 R2 为例进行格式化说明。
 
 ### 前提条件
- - 购买了数据盘的用户，需要格式化才可使用。未购买数据盘的用户可以跳过此步骤。
+ - 已购买数据盘的用户，需要格式化数据盘才可使用。未购买数据盘的用户可以跳过此步骤。
  - 请确保您已完成步骤三操作，登录到云服务器。
 
 ### 格式化数据盘
 
  1. 通过步骤三介绍的方法登录 Windows 云服务器。
 
- 2. 点击【开始】-【服务器管理器】-【工具】-【计算机管理】-【存储】-【磁盘管理】。
+ 2. 单击【开始】-【服务器管理器】-【工具】-【计算机管理】-【存储】-【磁盘管理】。
 
- 3. 在磁盘1上右键点击，选择【联机】：
+ 3. 在磁盘1上右键单击，选择【联机】：
 	![](//mc.qcloudimg.com/static/img/1217193557509925a622dcdb81aa2e35/image.png)
 
- 4. 右键点击，选择【初始化磁盘】：
+ 4. 右键单击，选择【初始化磁盘】：
 	![](//mc.qcloudimg.com/static/img/94ab92867d77ea69bc803a0b20f2b941/image.png)
 
- 5. 根据分区方式的不同，选择【GPT】或【MBR】，点击【确定】按钮：
+ 5. 根据分区方式的不同，选择【GPT】或【MBR】，单击【确定】按钮：
  > **注意：**
  > 磁盘大于2TB，一定要选择GPT分区形式。
- 
 	![](//mc.qcloudimg.com/static/img/1f7b0f72767193cfa662e188c86cf31b/image.png)
 
 ### 磁盘分区（可选）
@@ -117,19 +116,19 @@
  1. 在未分配的空间处右击，选择【新建简单卷】：
 	![](//mc.qcloudimg.com/static/img/a6ca720af2082d7a470ece17a8e13f5d/image.png)
 
- 2. 在弹出的“新建简单卷向导”窗口中，点击【下一步】：
+ 2. 在弹出的“新建简单卷向导”窗口中，单击【下一步】：
 	![](//mc.qcloudimg.com/static/img/10fdcd70b510a57919c6a40cf43452a7/image.png)
 
- 3. 输入分区所需磁盘大小，点击【下一步】：
+ 3. 输入分区所需磁盘大小，单击【下一步】：
 	![](//mc.qcloudimg.com/static/img/05c8d1425a0208597b1d2c75a9c811b6/image.png)
 
- 4. 输入驱动器号，点击【下一步】：
+ 4. 输入驱动器号，单击【下一步】：
 	![](//mc.qcloudimg.com/static/img/737ed569049ad617715efb06fe44e7b2/image.png)
 
- 5. 选择文件系统，格式化分区，点击【下一步】：
+ 5. 选择文件系统，格式化分区，单击【下一步】：
 	![](//mc.qcloudimg.com/static/img/896cb3f2705fb9fcd04c236b8fb9ec59/image.png)
 
- 6. 完成新建简单卷，点击【完成】：
+ 6. 完成新建简单卷，单击【完成】：
 	![](//mc.qcloudimg.com/static/img/1e257b9c76d80f30b34f612496b8007b/image.png)
 
  7. 在【开始】中打开【这台电脑】，查看新分区：
