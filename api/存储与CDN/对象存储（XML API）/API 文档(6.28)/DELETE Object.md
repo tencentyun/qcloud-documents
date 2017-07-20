@@ -5,21 +5,19 @@ Delete Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object�
 语法示例：
 ```
 DELETE /ObjectName HTTP/1.1
-Host:<BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
-Authorization: auth
+Authorization: Auth String
 ```
 
-> Authorization: Auth (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
 ```
 DELETE /ObjectName HTTP/1.1
 ```
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 `<ObjectName> `。
+该 API 接口接受 DELETE 请求。
 
 ### 请求头
 
@@ -35,17 +33,14 @@ DELETE /ObjectName HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该请求操作无特殊的响应头。
 
-
-#### 响应体
+### 响应体
 该请求的响应体为空
-
-
 
 ## 实际案例
 

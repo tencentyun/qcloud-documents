@@ -3,11 +3,11 @@
 ![](//mc.qcloudimg.com/static/img/511cad3621447b36d204b87bf83bb09f/image.png)
 1. 在关系型数据库页面中，单击【TDSQL(MariaDB)】下的【实例列表】，找到目标地域（此例中以广州为例）中要操作的状态为“**未初始化**”的MariaDB数据库实例。
 ![](//mc.qcloudimg.com/static/img/d947b9c5326ae79c36ff283335d56b65/image.png)
-1. 单击【初始化】对要操作的MySQL实例执行初始化。
+1. 单击【初始化】对要操作的MariaDB 数据库实例执行初始化。
 ![](//mc.qcloudimg.com/static/img/038c3fe9ba91793d68023f0fb5ec6df0/image.png)
 
 1. 配置初始化参数，然后单击【确定】开始初始化。
- - ** 支持的字符集**：选择MySQL数据库支持的字符集。
+ - ** 支持的字符集**：选择MariaDB数据库支持的字符集。
  - **表名大小写敏感**：表名是否大小写敏感，默认为是。
  - **开启强同步**：开启强同步可以保证在主机故障时备机数据的一致性。默认为不开启，即同步方式为异步同步。
  - **innodb_page_size**：该数值为Innodb索引数据页长度，MariaDB默认值为16K。修改该值将影响索引创建，该值越小，性能越好。

@@ -36,6 +36,37 @@
 }
 ```
 
+#### 只允许某子账号管理某VPC A及部署在A的网络资源,但不允许该用户管理其它VPC
+
+以下策略允许用户看到所有VPC，但只能操作VPC A（假设A的Id是vpc-d08sl2zr）及 A下的网络资源（如子网、路由表等，不包括云主机、数据库等）。
+该版本不支持***只让用户看到A***,后续版本会支持
+
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": "name/vpc:*",
+            "resource": "*",
+            "effect": "allow",
+            "condition": {
+                "string_equal_if_exist": {
+                    "vpc:vpc": [
+                    "vpc-d08sl2zr"
+                    ],
+                    "vpc:accepter_vpc": [
+                     "vpc-d08sl2zr"
+                    ],
+                     "vpc:requester_vpc": [
+                     "vpc-d08sl2zr"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 #### 允许用户管理VPC,但是不允许用户操作路由表
 
 以下策略允许用户读写VPC及其相关资源，但是不允许用户对路由表进行相关操作。
