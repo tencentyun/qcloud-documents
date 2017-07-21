@@ -20,7 +20,7 @@
 
 - 正确的做法是在您的服务器上用  SecretID 和 SecretKey 生成一次性的上传签名然后将签名交给 APP。因为服务器一般很难被攻陷，所以安全性是可以保证的。
 
-- 发布短视频时，请务必保证正确传递 SecretID 和 Signature 字段，否则会发布失败；
+- 发布短视频时，请务必保证正确传递 Signature 字段，否则会发布失败；
 
 - 对短视频录制接口 startRecord 和 stopRecord 的调用必须保证配对；
 
@@ -125,7 +125,6 @@ TXUGCPublish（位于 TXUGCPublish.java）负责将 MP4 文件发布到腾讯云
 
 ```java
 TXRecordCommon.TXPublishParam param = new TXRecordCommon.TXPublishParam();
-param.secretId = "sdIDeqtlGihED4oqjRP2324seJn1313MLnxx"; // 需要填写您的 SecretId
 param.signature = mCosSignature;						// 需要填写第四步中计算的上传签名
 // 录制生成的视频文件路径, ITXVideoRecordListener 的 onRecordComplete 回调中可以获取
 param.videoPath = mVideoPath;
@@ -145,3 +144,6 @@ void onPublishProgress(long uploadBytes, long totalBytes);
 ```java 
 void onPublishComplete(TXPublishResult result);
 ```
+
+### 7.发布结果
+通过 [错误码表](https://www.qcloud.com/document/product/584/10176) 来确认短视频发布的结果。

@@ -1,5 +1,5 @@
 ## 功能描述
-Put Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对 Bucket 有 WRITE 权限。
+Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。
 ## 请求
 
 语法示例：
@@ -30,20 +30,20 @@ PUT /<ObjectName> HTTP/1.1
 
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
-| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。|String| 是|
+| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）|String| 是|
 
 **推荐头部**
 该请求操作推荐使用如下推荐请求头：
 
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
-| Cache-Control |RFC 2616 中定义的缓存策略，将作为 Object 元数据保存。|String| 否|
-| Content-Disposition |RFC 2616 中定义的文件名称，将作为 Object 元数据保存。|String| 否|
-| Content-Encoding|RFC 2616 中定义的编码格式，将作为 Object 元数据保存。|String| 否|
-| Content-Type |RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存。|String| 否|
-| Expect | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容。|String| 否|
-| Expires |RFC 2616 中定义的过期时间，将作为 Object 元数据保存。|String| 否|
-| x-cos-meta- * | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K。|String| 否|
+| Cache-Control |RFC 2616 中定义的缓存策略，将作为 Object 元数据保存 |String| 否|
+| Content-Disposition |RFC 2616 中定义的文件名称，将作为 Object 元数据保存 |String| 否|
+| Content-Encoding|RFC 2616 中定义的编码格式，将作为 Object 元数据保存 |String| 否|
+| Content-Type |RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存 |String| 否|
+| Expect | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容 |String| 否|
+| Expires |RFC 2616 中定义的过期时间，将作为 Object 元数据保存 |String| 否|
+| x-cos-meta- * | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K |String| 否|
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD（目前仅支持华南园区）|String| 否|
 
 **权限相关头部**
@@ -66,13 +66,14 @@ PUT /<ObjectName> HTTP/1.1
 #### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 #### 特有响应头
+该请求操作的响应头具体数据为：
 
-|参数名称|描述|类型|
+|名称|描述|类型|
 |:---|:-- |:-- |
-| ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏。|String|
+| ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏 |String|
 
 ### 响应体
-该请求的响应体为空
+该响应体返回为空。
 
 ## 实际案例
 

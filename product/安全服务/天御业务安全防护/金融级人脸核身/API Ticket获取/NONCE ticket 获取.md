@@ -12,7 +12,7 @@ ticket用于对请求数据签名或加密。
 | 参数 | 说明 |类型 |长度 | 是否必输 |
 |---------|---------|---------|---------|---------|
 | app_id | 腾讯服务分配的app_id | 字符串 |腾讯服务分配 |必输，腾讯服务分配的app_id |
-| access_token | 根据章节4获取access token | 字符串 |腾讯服务分配 |根据章节4获取access token |
+| access_token | 根据[《整体登录鉴权流程》](https://www.qcloud.com/document/product/295/10117?!preview&lang=cn)获取access token | 字符串 |腾讯服务分配 |根据[《整体登录鉴权流程》](https://www.qcloud.com/document/product/295/10117?!preview&lang=cn)获取access token |
 |type | ticket类型 | 字符串 |20 |必输，默认值：**NONCE(必须大写)** |
 | version | 版本号 | 字符串 |20 |必输，默认值：1.0.0|
 | user_id | 当前使用用户的唯一标识。<br>**注意合作伙伴必须保证user_id的全局唯一。** | 字符串 |20 |必输|

@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger,WBFaceVerifyType){
 | nonce | 32位随机字符串| NSString |32 |必输(生成方式参考后台文档) |
 | sign    | 合作方后台服务器通过ticket计算出来的签名信息 | NSString |40 |必输(生成方式参考后台文档)|
 | appid | 腾讯服务分配的app_id | NSString |腾讯服务分配 |必输|
-| apiVersion | 接口版本号 | NSString |默认填1.0.0 |必输，腾讯服务分配的app_id |
+| apiVersion | 接口版本号 | NSString |默认填1.0.0 |必输|
 | licence | 腾讯给合作方派发的licence | NSString |绑定bundleid |必输 |
 | userInfo | 用户信息 | WBFaceUserInfo |Class类型 |必输 |
 | orderNo | 订单号 |  NSString |32位 |必输(参考后台文档)|
