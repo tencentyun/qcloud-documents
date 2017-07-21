@@ -13,7 +13,7 @@ github地址如下：
 - [php sdk](https://github.com/tencentyun/kms-php-sdk)
 
 
-- [c++ sdk](https://github.com/tencentyun/kms-c++-sdk)
+- [c++ sdk](https://github.com/tencentyun/kms-cpp-sdk)
 
 下载地址如下(敬请期待)：
 

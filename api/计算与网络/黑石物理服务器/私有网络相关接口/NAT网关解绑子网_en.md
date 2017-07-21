@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
 
-This API (SubnetUnBindBmNatGateway) is used to unbind subnet from BM NAT gateway
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (SubnetUnBindBmNatGateway) is used to unbind subnet from BM NAT gateway.  
+Domain name for API request: vpc.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -18,18 +18,18 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Error code. 0: Successful; other values: Failed |
+| code | int | Error code. 0: Successful; other values: Failed |
 | message | string | Error message |
-| data | Array | Returned operation task ID. You can query the creation result by calling API <a href="" title="Query Task Status of Binding EIP to BM NAT Gateway">Query Task Status of Binding EIP to BM NAT Gateway</a> |
+| data | Array | Returned operation task ID. You can query the creation result by calling API <a href="" title="QueryBmNatGatewayProductionStatus">QueryBmNatGatewayProductionStatus</a>. |
 
- ## 4. Error Codes
+## 4. Error Codes
  The following error codes only include the business logic error codes for this API. For additional common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error Code | Error Message | Error Description |
 |---------|---------|---------|
 | -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query VPC through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
 | -3030 | InvalidBmSubnet.NotFound | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct. You can query the subnet through API <a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>.  |
-| 13014 | BmVpcNat.NotFound | Invalid NAT gateway. NAT gateway resource does not exist. Please verify whether the resource information entered is correct. You can query the NAT gateway through API DescribeBmNatGateway |  |
+| 13014 | BmVpcNat.NotFound | Invalid NAT gateway. NAT gateway resource does not exist. Please verify whether the resource information entered is correct. You can query the NAT gateway through API DescribeBmNatGateway |
 
 
 
@@ -37,7 +37,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=SubnetUnBindBmNatGateway
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &natId=nat-8pbrkzh6
 &vpcId=vpc-ddf411
 &assignedEipSet.0=183.60.249.122

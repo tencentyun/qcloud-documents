@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
 
-This interface (UpgradeBmNatGateway) is used to upgrade the BM NAT gateway specification.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (UpgradeBmNatGateway) is used to upgrade the BM NAT gateway specification.  
+Domain name for API request: vpc.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -20,11 +20,11 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Error code. 0: Successful; other values: Failed |
 | message | String | Error message |
-| data | Array | Returned operation task ID. You can query the creation result by calling API <a href="" title="Query Upgrade Status of NAT Gateway">Query Upgrade Status of NAT Gateway</a> |
+| data | Array | Returned operation task ID. You can query the creation result by calling API <a href="" title="QueryBmNatGatewayProductionStatus">QueryBmNatGatewayProductionStatus</a>. |
 
 
- ## 4. Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+## 4. Error Codes
+The following error codes only include the business logic error codes for this API. For common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Error Message | Error Description |
 |---------|---------|---------|

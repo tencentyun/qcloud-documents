@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
  This API (CreateBmLoadBalancer) is used to create BM load balancer instances. To use BM load balance service, you must create one or more BM load balancer instances. When the API is successfully called, the unique ID of the BM load balancer instance will be returned. You can purchase two types of BM load balancer instances: public network-based and private network-based. Public network-based load balancer has a BGP VIP which is used to quickly access the CPM bound to the load balancer. Private network-based load balancer has a Tencent Cloud internal VIP which is used to quickly access the CPM bound to the load balancer, but cannot be accessed via Internet.
 
 Domain for API access: lb.api.qcloud.com

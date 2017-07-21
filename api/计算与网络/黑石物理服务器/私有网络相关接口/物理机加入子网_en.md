@@ -1,10 +1,10 @@
-﻿## 1. API Description
+## 1. API Description
  
-This API (CreateBmInterface) is used to add an CPM to the subnet whose VLANID is not 5.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (CreateBmInterface) is used to add an CPM to the subnet whose VLANID is not 5.  
+Domain name for API request: vpc.api.qcloud.com
 
-1) You cannot add a CPM to a subnet whose VLANID is 5.
-2) Each CPM can be added to at most 30 subnets.
+1) You cannot add a CPM to a subnet whose VLANID is 5.  
+2) Each CPM can be added to at most 30 subnets.  
 3) A maximum of 10 CPMs are allowed to be passed each time the API is called.
 
  
@@ -29,13 +29,13 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 | data | Array | Returned operation task ID. |
 
 
-  ## 4. Error Codes
+## 4. Error Codes
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|
 | -3047  | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct.  |
 | 17001  | BmVpc.InvalidSubnet | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct.  |
-| 17003  | BmVpc.InvalidVlanId | Invalid subnet VLANID.  |
+| 17003  | BmVpc.InvalidVlanId | Invalid subnet VLAN ID.  |
 | 17002  | BmVpc.InterfaceLimitExceeded | The number of CPMs added to the subnet has reached the limit.  |
 | 11041  | BmVpc.InvalidInstanceId | Invalid CPM. The CPM does not exist.  |
 
@@ -45,7 +45,7 @@ Input
 ```
 
   https://vpc.api.qcloud.com/v2/index.php?Action=CreateBmInterface
-	&<Public Request Parameters>
+	&<Common Request Parameters>
 	&vpcId=vpc-34cxlz7z
     &subnetId=subnet-pohv7d8w
     &instanceIds.0=tcpm-rewhxuo7

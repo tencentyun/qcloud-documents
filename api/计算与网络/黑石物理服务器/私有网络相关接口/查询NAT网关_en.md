@@ -1,7 +1,7 @@
-﻿## 1. API Description
+## 1. API Description
 
-This API (DescribeBmNatGateway) is used to query BM NAT gateway
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (DescribeBmNatGateway) is used to query BM NAT gateway.  
+Domain name for API request: vpc.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -44,19 +44,19 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.subnetAll | int | Whether the option of "New subnet (including the subsequent ones)" is selected |
 | data.n.subnets | array | List of subnets bound to NAT gateway |
 
- ## 4. Error Codes
- The following error codes only include the business logic error codes for this API. For additional common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+## 4. Error Codes
+ The following error codes only include the business logic error codes for this API. For common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error Code | Error Message | Error Description |
 |---------|---------|---------|
 | -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query VPC through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
-| 13014 | BmVpcNat.NotFound | Invalid NAT gateway. NAT gateway resource does not exist. Please verify whether the resource information entered is correct. You can query the NAT gateway through API DescribeBmNatGateway |  |
+| 13014 | BmVpcNat.NotFound | Invalid NAT gateway. NAT gateway resource does not exist. Please verify whether the resource information entered is correct. You can query the NAT gateway through API DescribeBmNatGateway |
 
 ## 5. Example
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeBmNatGateway
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>>
+&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
 &vpcId=vpc-8e0ypm3z
 </pre>
 Output

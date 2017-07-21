@@ -1,9 +1,9 @@
-﻿## 1. API Description
+## 1. API Description
  
 This API (DelBmInterface) is used to remove an CPM from the subnet whose VLANID is not 5.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+Domain name for API request: vpc.api.qcloud.com
 
-1) You cannot remove a CPM from a subnet whose VLANID is 5.
+1) You cannot remove a CPM from a subnet whose VLANID is 5.  
 2) A maximum of 10 CPMs are allowed to be passed each time the API is called.
 
  
@@ -28,7 +28,7 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 | data | Array | Returned operation task ID. |
 
 
-  ## 4. Error Codes
+## 4. Error Codes
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|
@@ -43,7 +43,7 @@ Input
 ```
 
   https://vpc.api.qcloud.com/v2/index.php?Action=DelBmInterface
-	&<Public Request Parameters>
+	&<Common Request Parameters>
 	&vpcId=vpc-34cxlz7z
     &subnetId=subnet-pohv7d8w
     &instanceIds.0=tcpm-rewhxuo7

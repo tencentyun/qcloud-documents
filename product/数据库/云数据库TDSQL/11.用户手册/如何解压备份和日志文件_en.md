@@ -1,4 +1,4 @@
-In consideration of compression performance and compression ratio, the backup files and BINLOG files are compressed using [LZ4 (Extremely Fast Compression algorithm)](http://cyan4973.github.io/lz4/) tool. You can also use LZ4 tool for decompression. Since common decompression tools are not supported for the above files, this document provides a decompression tool and instructions.
+In consideration of compression performance and compression ratio, the backup files and BINLOG files are compressed using LZ4 (Extremely Fast Compression algorithm) tool. You can also use LZ4 tool for decompression. Since common decompression tools are not supported for the above files, this document provides a decompression tool and instructions.
 
 ## Windows
 ### Downloading Tool
