@@ -1,7 +1,7 @@
 ### 1.前置条件
-**1.相机/录音/读取手机信息权限检测**
+**1.1 相机/录音/读取手机信息权限检测**
 SDK需要用到相机/录音/读取手机信息权限，在android6.0以上系统，sdk对其做了权限的运行时检测。但是由于android 6.0以下系统android并没有运行时权限，检测权限只能靠开关相机/麦克风进行。考虑到sdk的使用时间很短，快速频繁开关相机/麦克风可能会导致手机抛出异常，故sdk内对android 6.0以下手机没有做权限的检测。为了进一步提高用户体验，在android6.0以下系统上，我们建议合作方在拉起sdk前，帮助sdk做相机/麦克风/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行刷脸，可以使整个刷脸体验更快更好。
-**2.CPU平台设置**
+**1.2 CPU平台设置**
 目前SDK只支持armeabi-v7a平台，为了防止在其他cpu平台上sdk crash，我们建议在您的app的build.gradle里加上abiFilter，如下图8-2-1-2-1中红框所示：
 ![](https://mc.qcloudimg.com/static/img/61fab389aae7630adf751ec997dbdb16/image.png)
 
@@ -35,7 +35,7 @@ compile(name:’WbCloudNormal’,ext:’aar’)
  
 ### 3.混淆配置
 云刷脸产品的混淆规则分为三部分，分别是云刷脸sdk的混淆规则，云公共组件的混淆规则及依赖的第三方库混淆规则。
-**1.云刷脸sdk的混淆规则**
+#### 3.1 云刷脸sdk的混淆规则
  ```
 ###############云刷脸混淆规则 faceverify-BEGIN##################
 #不混淆内部类
@@ -73,7 +73,7 @@ compile(name:’WbCloudNormal’,ext:’aar’)
  
 您可以将如上代码拷贝到您的混淆文件中，也可以将SDK中的webank-cloud-face-verify-proguard-rules.pro拷贝到主工程根目录下,然后通过"-include webank-cloud-face-verify-rules.pro" 加入到您的混淆文件中。
 
-**2.云公共组件的混淆规则**
+#### 3.2 云公共组件的混淆规则
  ```
 #############webank normal混淆规则-BEGIN###################
 #不混淆内部类
@@ -119,7 +119,7 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 
 您可以将如上代码拷贝到您的混淆文件中，也可以将SDK中的webank-cloud-normal-proguard-rules.pro拷贝到主工程根目录下,然后通过"-include webank-cloud-normal-rules.pro" 加入到您的混淆文件中。
 
-**3.云刷脸依赖的第三方库的混淆规则**
+#### 3.3 云刷脸依赖的第三方库的混淆规则
  ```
 ########云产品依赖的第三方库 混淆规则-BEGIN############
 
@@ -258,13 +258,13 @@ String keyLicence;   //给合作方派发的licence
 | 参数 | 说明 |类型 |长度 | 是否必输 |
 |---------|---------|---------|---------|---------|
 | userName | 用户姓名| String |20 |必输 |
-| idType | 用户证件类型| String |2 |必输 |
+| idType | 用户证件类型| String |2 |必输，01为身份证 |
 | userId | 用户证件号码| String |18 |必输，18位身份证号 |
 | agreementNo | 订单号| String |32 |必输，合作方订单的唯一标识 |
 | clientIp | 用户ip信息| String |30 |必输,格式为”ip=xxx.xxx.xxx.xxx;”；示例：”ip=58.60.124.0”。 |
 | gps | 用户gps信息| String |30 |必输,格式为”lgt= xxx;lat=xxx;”；示例：“lgt=22.5044;lat=113.9537“ |
 | openApiAppId | 腾讯服务分配的app_id| String |腾讯服务分配 |必输，腾讯服务分配的app_id |
-| openApiAppVersion | 接口版本号| String |20 |必输，每次请求需要的一次性nonce |
+| openApiAppVersion | 接口版本号| String |20 |必输，默认填1.0.0|
 | openApiNonce | 32位随机字符串| String |32 |必输，每次请求需要的一次性nonce |
 | openApiUserId | User Id| String |30 |必输，每个用户唯一的标识 |
 | openApiSign | 合作方后台服务器通过ticket计算出来的签名信息| String |40 |必输 |

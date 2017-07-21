@@ -7,5 +7,5 @@
 3. 选择高防服务包的防护阈值，当前支持10-50Gbps<br>![](https://mc.qcloudimg.com/static/img/3a7abe865da6792de39c7797372e8191/image.png)
 4. 选择购买个数和购买时长，是否选择自动续费<br>![](https://mc.qcloudimg.com/static/img/54e9fd1f5ee6940807b8cca6fa3662e4/image.png)
 5. 选择开启弹性防护峰值<br>![](https://mc.qcloudimg.com/static/img/4425c6e99812caf2c00ea9ee8c1e58c2/image.png)
-6. 立即支付”按钮，进入支付页面<br>![](https://mc.qcloudimg.com/static/img/353008065266c64ae570df9e2309ffb0/image.png)<br>
-7. 核对信息无误后选择确认支付即可<br>![](https://mc.qcloudimg.com/static/img/63561f619d0f7a409c2e07dafafd6f78/image.png)
+6. 单击“立即支付”按钮，进入支付页面<br>![](https://mc.qcloudimg.com/static/img/353008065266c64ae570df9e2309ffb0/image.png)<br>
+7. 核对信息无误后单击确认购买即可<br>![](https://mc.qcloudimg.com/static/img/63561f619d0f7a409c2e07dafafd6f78/image.png)
