@@ -8,7 +8,7 @@
 ### 基础防护(按月预付费)
 
 <style rel="stylesheet">
-table th:nth-of type(1){
+table th:nth-of-type(1){
 width:200px;
 }</style>
 
@@ -30,7 +30,7 @@ width:200px;
 ### 弹性防护(按天后付费)
 
 <style rel="stylesheet">
-table th:nth-of type(1){
+table th:nth-of-type(1){
 width:200px;
 }</style>
 
@@ -62,7 +62,7 @@ width:200px;
 ### 其他说明
 
 <style rel="stylesheet">
-table th:nth-of type(1){
+table th:nth-of-type(1){
 width:200px;
 }</style>
 
