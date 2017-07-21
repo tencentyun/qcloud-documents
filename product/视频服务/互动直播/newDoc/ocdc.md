@@ -2,11 +2,11 @@
 - DC（Data Center）：核心机房，用于互动直播业务中需要上行音视频数据或实时交互的用户角色（如主播、讲师、参与实时互动的角色等）接入
 - OC（Outer Center）：边缘节点，用于互动直播业务中不需要上行音视频数据、仅观看的用户角色（如普通观众、不需要与老师互动的学生等）接入
 
-二者的计费价格是不同的的，详情请见[计费](https://www.qcloud.com/doc/product/268/5128#2..E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E8.B4.B9.E7.94.A8.E8.AE.A1.E7.AE.97.E5.85.AC.E5.BC.8F)。
+二者的计费价格是不同的的。关于价格详情和分配策略请见[计费](https://www.qcloud.com/doc/product/268/5128#2..E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E8.B4.B9.E7.94.A8.E8.AE.A1.E7.AE.97.E5.85.AC.E5.BC.8F)。
 
 ## 2、关于DC和OC的分配原则
 对于一个App的用户来说，什么情况下会接入DC、什么情况下会接入OC呢？<br/>
-分配原则简单来说只有一句话：“有上行音视频数据权限的实例会分配DC、没有上行音视频数据权限的实例分配OC”。<br/>
+代码层面需要关心的分配原则简单来说只有一句话：“有上行音视频数据权限的实例会分配DC、没有上行音视频数据权限的实例分配OC”。<br/>
 具体地，在调用SDK进入房间接口ILiveRoomManager.getInstance().createRoom()的时候，其参数ILiveRoomOption.authBits()用于设置该实例在房间内的权限，具体权限字段如下图所示：
 
 ![用户权限位说明](https://mccdn.qcloud.com/img56cdd6a958dff.png)
