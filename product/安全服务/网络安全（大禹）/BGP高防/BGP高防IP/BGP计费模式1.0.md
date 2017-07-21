@@ -1,7 +1,7 @@
 ### 基础防护（按月预付费）
 
 <style rel="stylesheet">
-table th:nth-of type(1){
+table th:nth-of-type(1){
 width:200px;
 }</style>
 
@@ -20,7 +20,7 @@ width:200px;
 弹性防护免费开启，未发生弹性防护不收费。发生弹性防护后，取当天弹性防护峰值按区间收费，账单次日生成。
 
 <style rel="stylesheet">
-table th:nth-of type(1){
+table th:nth-of-type(1){
 width:200px;
 }</style>
 
