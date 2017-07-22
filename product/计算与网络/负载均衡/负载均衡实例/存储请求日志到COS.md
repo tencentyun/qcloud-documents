@@ -11,7 +11,9 @@
 
 ### 产品限制和费用计算
 - 当前日志聚合粒度为1小时
+
 - 当前负载均衡仅支持七层日志的存储和下载。
+
 - 日志数据的传输会有一定的延迟。
 
 - 当前负载均衡日志服务`免费`，COS存储的免费额度按照[文档](https://www.qcloud.com/document/product/436/6240)中所示，提供50G免费存储空间。如您的日志量级较大，请及时清理数据。
@@ -20,8 +22,8 @@
 #### 日志格式
 
 ```
-[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port] [$server_name] [$remote_addr:$remote_port] [$status] [$upstream_addr] [$upstream_status] [$proxy_host][$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer] 
-[$request_time] [$upstream_response_time] [$upstream_connect_time] [$upstream_header_time][$tcpinfo_rtt] [$connection] [$connection_requests][$ssl_handshake_time] [$ssl_cipher] [$ssl_protocol] [$ssl_session_reused]
+[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port] [$server_name] [$remote_addr:$remote_port] [$status] [$upstream_addr] [$upstream_status] [$proxy_host] [$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer] 
+[$request_time] [$upstream_response_time] [$upstream_connect_time] [$upstream_header_time] [$tcpinfo_rtt] [$connection] [$connection_requests] [$ssl_handshake_time] [$ssl_cipher] [$ssl_protocol] [$ssl_session_reused]
 ```
 
 #### 日志变量说明
