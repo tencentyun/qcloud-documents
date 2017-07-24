@@ -11,7 +11,7 @@ Object 属性可以在 Head Object 操作中查询到，发起 Head Object 请�
 语法示例：
 ```
 POST /ObjectName?append&position=*position* HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Content-Length: size
 Content-Type: ContentType
 Date: GMT Date
@@ -43,30 +43,30 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 
 #### 非公共头部
 **必选头部**
-该请求操作的实现需要使用 Content-Length 必选头部。
+该请求操作的实现使用如下必选头部：
 
-|节点名称（关键字）|描述|类型|必选|
+|名称|描述|类型|必选|
 |:---|:-- |:--|:--|
-| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）。 | String |是 |
+| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节） | String |是 |
 
 
 **推荐头部**
-该请求操作的实现可以用一些推荐使用的请求头来自定义通过 Append Object 操作创建的 Object，推荐请求头内容如下：
+该请求操作的实现使用如下推荐请求头部信息：
 
 |节点名称（关键字）|描述|类型|必选|
 |:---|:-- |:--|:--|
-| Cache-Control       | RFC 2616 中定义的缓存策略，将作为 Object 元数据返回。      | String | 否    |
-| Content-Disposition | RFC 2616 中定义的文件名称，将作为 Object 元数据返回。      | String | 否    |
-| Content-Encoding    | RFC 2616 中定义的编码格式，将作为 Object 元数据返回。      | String | 否    |
-| Content-MD5          | RFC 1864 中定义的 128-bit 内容 MD5 算法校验值。      | String | 否    |
-| Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据返回。 | String | 否    |
-| Expect              | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容。 | String | 否    |
-| Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据返回。      | String | 否    |
-| x-cos-content-sha1  | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值。    | String | 否    |
-| x-cos-meta- *         | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K。    | String | 否    |
+| Cache-Control       | RFC 2616 中定义的缓存策略，将作为 Object 元数据返回      | String | 否    |
+| Content-Disposition | RFC 2616 中定义的文件名称，将作为 Object 元数据返回      | String | 否    |
+| Content-Encoding    | RFC 2616 中定义的编码格式，将作为 Object 元数据返回      | String | 否    |
+| Content-MD5          | RFC 1864 中定义的 128-bit 内容 MD5 算法校验值      | String | 否    |
+| Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据返回 | String | 否    |
+| Expect              | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容 | String | 否    |
+| Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据返回      | String | 否    |
+| x-cos-content-sha1  | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值   | String | 否    |
+| x-cos-meta- *         | 允许用户自定义的头部信息，将作为 Object 元数据返回，大小限制 2K    | String | 否    |
 
 **权限相关头部**
-该请求操作的实现可以用 POST 请求中的 x-cos-acl 头来设置文件访问权限。目前 Object 访问权限有三种：public-read-write，public-read和private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+该请求操作的实现可以用 POST 请求中的 x-cos-acl 头来设置文件访问权限。目前 Object 访问权限有三种：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 >了解更多 ACL 请求可详细请参见 [Put Bucket ACL](https://www.qcloud.com/document/product/436/7737) 文档。
 
 |名称|描述|类型|必选|
@@ -81,11 +81,11 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
-该响应包含如下响应头。
+#### 特有响应头
+该请求操作的响应头具体数据为：
 
 | 节点名称（关键字）                       | 描述                | 类型     |
 | -------------------------- | ----------------- | ------ |
@@ -93,7 +93,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 | x-cos-content-sha1         | 分段的校验值            | String |
 | ETag                       | 文件的唯一标识           | String |
 
-#### 响应体
+### 响应体
 该响应体返回为空。
 
 ## 实际案例
