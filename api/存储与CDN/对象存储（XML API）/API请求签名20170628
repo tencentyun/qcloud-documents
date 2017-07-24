@@ -157,7 +157,7 @@ APPID|SecretID | SecretKey |开发语言
 ```
 PUT /testfile2 HTTP/1.1
 Host: bucket1-1254000000.cn-north.myqcloud.com
-x-cos-content-sha1: db8ac1c259eb89d4a131b253bacfca5f319d54f2
+x-cos-content-sha1: 7b502c3a1f48c8609ae212cdfb639dee39673f5e
 x-cos-storage-class: nearline
 
 Hello world
@@ -168,9 +168,9 @@ Hello world
 ```
 PUT /testfile2 HTTP/1.1
 Host: bucket1-1254000000.cn-north.myqcloud.com
-x-cos-content-sha1: db8ac1c259eb89d4a131b253bacfca5f319d54f2
+x-cos-content-sha1: 7b502c3a1f48c8609ae212cdfb639dee39673f5e
 x-cos-storage-class: nearline
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q&q-sign-time=1417773892;1417853898&q-key-time=1417773892;1417853898&q-header-list=host;x-cos-content-sha1;x-cos-storage-class&q-url-param-list=&q-signature=263a95cfd1daaa1453af2a1f322ee60d15529f5f
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q&q-sign-time=1417773892;1417853898&q-key-time=1417773892;1417853898&q-header-list=host;x-cos-content-sha1;x-cos-storage-class&q-url-param-list=&q-signature=2d760892766d1fda4867a7c3408517957928794d
 
 Hello world
 ```
@@ -185,12 +185,12 @@ q-sign-time|1417773892;1417853898|2014/12/5 18:04:52 到 2014/12/6 16:18:18
 q-key-time|1417773892;1417853898|2014/12/5 18:04:52 到 2014/12/6 16:18:18 
 q-header-list|host;x-cos-content-sha1;x-cos-storage-class| HTTP头部key的字典顺序排序列表
 q-url-param-list|| HTTP参数列表为空
-q-signature|263a95cfd1daaa1453af2a1f322ee60d15529f5f|通过代码计算所得
+q-signature|2d760892766d1fda4867a7c3408517957928794d|通过代码计算所得
 
 其中，q-signature的计算代码为：
 ```
 $SignKey = hash_hmac("BQYIM75p8x0iWVFSIgqEKwFprpRSVHlz","1417773892;1417853898")
-$HttpString = put\n/testfile2\n\nhost=bucket1-1254000000.cn-north.myqcloud.com&x-cos-content-sha1=db8ac1c259eb89d4a131b253bacfca5f319d54f2&x-cos-storage-classnearline\n
+$HttpString = put\n/testfile2\n\nhost=bucket1-1254000000.cn-north.myqcloud.com&x-cos-content-sha1=7b502c3a1f48c8609ae212cdfb639dee39673f5e&x-cos-storage-class=nearline\n
 $StringToSign = sha1\n1417773892;1417853898\nsha1($HttpString)\n
 $Signature = hash_hmac($SignKey,$StringToSign)
 ```
