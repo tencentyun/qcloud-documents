@@ -10,7 +10,7 @@ DNS 修改会实时提交注册局生效，各地运营商递归解析服务器�
 在**使用中的云产品**栏目内，单击【域名】进入域名管理页面，即可看到您购买的所有域名信息列表。
 ![](//mc.qcloudimg.com/static/img/da4ba43894682972815e6deb5f040e50/image.png)
 ### 步骤二：修改 DNS
-域名管理页面右侧，单击**操作栏**内【更多】选项，在下拉框内单击【DNS 修改】进入域名管理页面。
+域名管理页面右侧，单击**操作**栏内的【更多】，在下拉框内单击【DNS 修改】进入域名管理页面。
 ![](//mc.qcloudimg.com/static/img/517619e780c730c147b4ad3708c8f7e7/image.png)
 点击【修改】按钮，进入 DNS 修改页面。
 ![](//mc.qcloudimg.com/static/img/c8deac17998bf68b016bb1ea2d52d980/image.png)
