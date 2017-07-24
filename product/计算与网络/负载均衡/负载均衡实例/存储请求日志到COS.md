@@ -22,7 +22,7 @@
 #### 日志格式
 
 ```
-[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port] [$server_name] [$remote_addr:$remote_port] [$status] [$upstream_addr] [$upstream_status] [$proxy_host] [$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer] 
+[$stgw_request_id] [$time_local] [$protocol_type] [$server_addr:$server_port] [$server_name] [$remote_addr:$remote_port] [$status]  [$upstream_status] [$proxy_host] [$request] [$request_length] [$bytes_sent] [$http_host] [$http_user_agent] [$http_referer] 
 [$request_time] [$upstream_response_time] [$upstream_connect_time] [$upstream_header_time] [$tcpinfo_rtt] [$connection] [$connection_requests] [$ssl_handshake_time] [$ssl_cipher] [$ssl_protocol] [$ssl_session_reused]
 ```
 
@@ -30,25 +30,24 @@
 
 | 序号 | 变量名 |   说明 |
 | :-------- | :-------- | :------ |
-| 1 |   time_local	|  时间戳 |
-| 2 |   protocol_type |  协议类型（http/https/spdy/http2/ws/wss） |
+| 1 | time_local	|  时间戳 |
+| 2 | protocol_type |  协议类型（http/https/spdy/http2/ws/wss） |
 | 3 | server_addr:server_port  | 请求的目的ip和目的端口 |
 | 4 | server_name | 规则的server_name |
 | 5 | remote_addr:remote_port	| client ip：port |
 | 6 | status | LB返回给client的状态码 |
-| 7 | upstream_addr | RS ip:port |
-| 8 | upstream_status | RS返回给LB的状态码 |
-| 9 | proxy_host | upstream id |
-| 10 | request | 请求行 |
-| 11 | request_length | 从客户端收到的请求字节数 |
-| 12 | request_time| 请求处理时间 |
-| 17 | upstream_response_time | 从rs接收应答所花费时间 |
-| 18 | upstream_connect_time	 | 和rs建立tcp连接所花费时间 |
-| 19 | upstream_header_time	 | 从rs接收完http头部所花费时间 |
-| 20 | tcpinfo_rtt | tcp连接的rtt |
-| 21 | connection | 连接id |
-| 22 | connection_requests | 连接上的请求个数 |
-| 23 | ssl_handshake_time	|ssl握手所花费时间 |
-| 24 | ssl_cipher| 加密套件|
-| 25 | ssl_protocol	| ssl协议版本 |
-| 26 | ssl_session_reused | ssl session复用|	
+| 7 | upstream_status | RS返回给LB的状态码 |
+| 8 | proxy_host | upstream id |
+| 9 | request | 请求行 |
+| 10 | request_length | 从客户端收到的请求字节数 |
+| 11 | request_time| 请求处理时间 |
+| 12 | upstream_response_time | 从rs接收应答所花费时间 |
+| 13 | upstream_connect_time	 | 和rs建立tcp连接所花费时间 |
+| 14 | upstream_header_time	 | 从rs接收完http头部所花费时间 |
+| 15 | tcpinfo_rtt | tcp连接的rtt |
+| 16 | connection | 连接id |
+| 17 | connection_requests | 连接上的请求个数 |
+| 18 | ssl_handshake_time	|ssl握手所花费时间 |
+| 19 | ssl_cipher| 加密套件|
+| 20 | ssl_protocol	| ssl协议版本 |
+| 21 | ssl_session_reused | ssl session复用|	
