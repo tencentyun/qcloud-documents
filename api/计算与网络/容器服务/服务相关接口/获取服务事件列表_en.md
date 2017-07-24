@@ -2,7 +2,7 @@
  
 This API (DescribeServiceEvent) is used to query the list of events occurred for the service within the last hour.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 
@@ -12,9 +12,9 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
-| serviceName   | Yes    | String | Service name |
-| namespace | No | String      | Namespace. Default is "default" |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
+| serviceName   | Yes    | String | Service name. Please enter the *serviceName* returned by the [DescribeClusterService](https://www.qcloud.com/document/api/457/9440) API.|
+| namespace | No | String      | Namespace. Please enter the *namespace* returned by the [DescribeClusterService](https://www.qcloud.com/document/api/457/9440) API. Default is "default" |
 
 
 ## 3. Output Parameters
@@ -25,7 +25,7 @@ The following request parameter list only provides API request parameters. For o
 | message | String | Module error message description depending on API |
 | eventList | Object Array | Event list. Details are shown below |
 
-"eventList" parameter details
+``eventList`` parameter details
 
 
 | Parameter Name | Type | Description |
