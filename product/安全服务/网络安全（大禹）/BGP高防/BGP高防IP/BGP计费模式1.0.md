@@ -1,13 +1,7 @@
 <style rel="stylesheet">
-table th:nth-of-type(1){
+table th{
 width:200px;
-}table th:nth-of-type(2){
-width:200px;
-}table th:nth-of-type(3){
-width:200px;
-}table th:nth-of-type(4){
-width:200px;
-}table td{
+}table tr{
 text-align:center;
 }</style>
 
