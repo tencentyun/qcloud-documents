@@ -1,6 +1,4 @@
 <style rel="stylesheet">
-table{
-width:80%;
 }table th:nth-of-type(1){
 width:200px;
 }table th:nth-of-type(2){
@@ -11,8 +9,6 @@ width:200px;
 width:200px;
 }table tr:hover {
     background: #efefef; 
-}table tbody tr:nth-child(n) {
-    background: rgba(158,188,226,0.12); 
 }</style>
 
 ### 基础防护（按月预付费）
