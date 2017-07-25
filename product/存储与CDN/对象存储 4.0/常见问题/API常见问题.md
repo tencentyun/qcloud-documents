@@ -1,18 +1,16 @@
+## XML API 与 JSON API
 - [通过 JSON API 创建的存储桶和上传的对象，是否可以使用 XML API 管理？](#Q1)
 - [XML API 与 JSON API 之间的关系？](#Q2)
 - [XML API 和 JSON API 是否有性能差异？](#Q3)
 - [XML API 与 JSON API 的密钥是否通用？](#Q4)
 - [XML API 与 JSON API 的签名是否通用？](#Q5)
-- [XML API 与 JSON API 设置的 ACL 权限是否通用？](#Q6)
-- [XML API 与 控制台设置的 ACL 权限是否通用？](#Q7)
-- [不小心通过云 API 密钥控制台修改了密钥，会有什么影响？](#Q8)
-- [XML API 的签名鉴权和 JSON API 相比有什么区别？](#Q9)
-- [目前 XML API 有哪些功能？](#Q10)
-- [V5 版本的 XML API 有什么新的功能？](#Q11)
+- [XML API 与 JSON API 的签名鉴权相比有何区别？](#Q6)
+- [XML API 与 JSON API 设置的 ACL 权限是否通用？](#Q7)
 
+## XML API
+- [XML API 与 控制台设置的 ACL 权限是否通用？](#Q8)
+- [XML API 有哪些功能？](#Q9)
 -----
-
-
 <span id="Q1"></span>
 #### 1. 通过 JSON API 创建的存储桶和上传的对象，是否可以使用 XML API 管理？
 可以，XML API 是基于 COS V4 的架构，可以通过 XML API 操作由 JSON API 产生的数据。
@@ -32,21 +30,19 @@ V4 版本的 JSON API 接口即从 2016 年 9 月起用户接入 COS 使用的 A
 - [XML API 签名](https://www.qcloud.com/document/product/436/7778)
 
 <span id="Q6"></span>
-#### 6. XML API 与 JSON API 设置的 ACL 权限是否通用？
-相互不通用，XML API 和 JSON API 各自有各自的 ACL 权限。
-<span id="Q7"></span> 
-#### 7. XML API 与 控制台设置的 ACL 权限是否通用？
-相互不通用，控制台的 ACL 与 JSON API 设置的 ACL 权限一致，目前控制台和 XML API 各自有各自的 ACL 权限。
-<span id="Q8"></span>
-#### 8. 不小心通过 [云 API 密钥控制台](https://console.qcloud.com/capi) 修改了密钥，会有什么影响？
-密钥修改后，可能导致数据侧和 CDN 侧密钥不同步。如果遇到问题暂时无法解决，CDN 相关问题可通过重新绑定 CDN 加速域名，数据侧无法访问的问题可通过重新创建存储桶解决。
-<span id="Q9"></span>
-#### 9. XML API 的签名鉴权和 JSON API 相比有什么区别？
+#### 6. XML API 与 JSON API 的签名鉴权相比有何区别？
 与 JSON API 相比，XML API 增加了对跨账户授权，根账户之间以及根账户与子账户之间的相互授权操作的支持。
-<span id="Q10"></span>
-#### 10. 目前 XML API 有哪些功能？
-存储桶级别：创建、删除、查询、列出；
+<span id="Q7"></span>
+#### 7. XML API 与 JSON API 设置的 ACL 权限是否通用？
+相互不通用，XML API 和 JSON API 各自有各自的 ACL 权限。
+<span id="Q8"></span> 
+#### 8. XML API 与 控制台设置的 ACL 权限是否通用？
+相互不通用，控制台的 ACL 与 JSON API 设置的 ACL 权限一致，目前控制台和 XML API 各自有各自的 ACL 权限。
+<span id="Q9"></span>
+#### 9. XML API 有哪些功能？
+**目前：**
+存储桶级别：创建、删除、查询、列出。
 对象级别：创建、分块上传、追加上传、下载、查询、修改属性、删除。
-<span id="Q11"></span>
-#### 11. V5 版本的 XML API 有什么新的功能？
-批量删除，跨域操作，生命周期管理，手动复制，跨区域自动复制，静态网站，表单上传，版本管理，回调，日志记录。
+**待上线：**
+存储桶级别：跨域操作、生命周期管理、静态网站、版本管理、回调、日志记录。
+对象级别：批量删除、手动复制、跨区域自动复制、表单上传。
