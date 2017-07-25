@@ -349,6 +349,23 @@ pCVR 请求服务JSON数据格式
 		}
 }
 ```
+**字段含义**
+各个字段的含义如下：
+
+| 参数名称 | 类型 | 必传 | 含义 |
+|---------|---------|---------|---------|
+| MD5  | string | Y | MD5(bid&request_id&TOKEN)  | 
+| request_id   | string | Y | 请求标识，格式：毫秒级时间戳_随机数，随机数建议三位以上  |
+| service_type  | integer | Y | 服务场景： 0 - pCtr 1 - 流量优选 2 - pCvr 3 - 智能推荐（默认） 4 物料优选 | 
+| bid  | string | Y | 业务id，腾讯云分配的业务ID，可以在控制台查询  | 
+| uid_type  | integer | N | 0 - qq, 1 - 微信号， 3 - imei/icfa或其他md5（默认），4 - 手机号  | 
+| uid  | string | Y | qq，微信号，imei/icfa，手机号，如果是imei号，则是15位数字字符串；如果是IFA号，则是8-4-4-4-12，32个字符串；如果是MD5（uid），则是32位的0-f的字符串，且需要是大写的IDFA进行的MD5 | 
+| scene_id  | string | Y | 推荐场景ID，请求服务的场景Id，需要跟行为上报时的ID一致  | 
+| cid  | string | Y | 当前页面的物料id， 用于详情页面 | 
+| geo.latitude  | float | N | 用户发生行为的经纬度地理位置  | 
+| geo.longitude | float | N | 用户发生行为的经纬度地理位置  | 
+| geo.country  | string | N | 用户行为相关的国家信息  | 
+| geo.city  | string | N | 用户行为相关的城市信息  | 
 
 pCVR 请求服务返回JSON数据格式
 ```
@@ -449,6 +466,24 @@ pCVR 请求服务返回JSON数据格式
    }
 }
 ```
+**字段含义**
+各个字段的含义如下：
+
+| 参数名称 | 类型 | 必传 | 含义 |
+|---------|---------|---------|---------|
+| MD5  | string | Y | MD5(bid&request_id&TOKEN)  | 
+| request_id   | string | Y | 请求标识，格式：毫秒级时间戳_随机数，随机数建议三位以上  |
+| service_type  | integer | Y | 服务场景： 0 - pCtr 1 - 流量优选 2 - pCvr 3 - 智能推荐（默认） 4 物料优选 | 
+| bid  | string | Y | 业务id，腾讯云分配的业务ID，可以在控制台查询  | 
+| uid_type  | integer | N | 0 - qq, 1 - 微信号， 3 - imei/icfa或其他md5（默认），4 - 手机号  | 
+| uid  | string | Y | qq，微信号，imei/icfa，手机号，如果是imei号，则是15位数字字符串；如果是IFA号，则是8-4-4-4-12，32个字符串；如果是MD5（uid），则是32位的0-f的字符串，且需要是大写的IDFA进行的MD5 | 
+| scene_id  | string | Y | 推荐场景ID，请求服务的场景Id，需要跟行为上报时的ID一致  | 
+| request_num  | integer | N | 物料优选的结果， 默认50个，目前最多支持200个的item返回，如果返回个数更多，会影响性能，容易超时  | 
+| pool_id  | string | Y | 物料池，需要展示哪个pool_id下的商品，要跟上报的item的pool_id一致  | 
+| geo.latitude  | float | N | 用户发生行为的经纬度地理位置  | 
+| geo.longitude | float | N | 用户发生行为的经纬度地理位置  | 
+| geo.country  | string | N | 用户行为相关的国家信息  | 
+| geo.city  | string | N | 用户行为相关的城市信息  | 
 
 物料优选请求服务返回JSON数据格式
 ```
@@ -501,6 +536,17 @@ pCVR 请求服务返回JSON数据格式
    "media_id":"媒体ID" //媒体标识
 }
 ```
+**字段含义**
+各个字段的含义如下：
+
+| 参数名称 | 类型 | 必传 | 含义 |
+|---------|---------|---------|---------|
+| MD5  | string | Y | MD5(bid&request_id&TOKEN)  | 
+| request_id   | string | Y | 请求标识，格式：毫秒级时间戳_随机数，随机数建议三位以上  |
+| service_type  | integer | Y | 服务场景： 0 - pCtr 1 - 流量优选 2 - pCvr 3 - 智能推荐（默认） 4 物料优选 | 
+| bid  | string | Y | 业务id，腾讯云分配的业务ID，可以在控制台查询  | 
+| scene_id  | string | Y | 推荐场景ID，请求服务的场景Id，需要跟行为上报时的ID一致  | 
+| media.id  | string | N | 媒体标识  | 
 
 流量优选服务返回JSON数据格式
 ```
