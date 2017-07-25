@@ -7,14 +7,16 @@ width:200px;
 width:200px;
 }table th:nth-of-type(4){
 width:200px;
-}table td{
-text-align:center;
+}table tr:hover {
+    background: #efefef; 
+}table tbody tr:nth-child(2n) {
+    background: rgba(158,188,226,0.12); 
 }</style>
 
 ### 基础防护（按月预付费）
 
 |DDoS 防护 | CC 防护 | 线路 | 费用|
-|---------|---------|---------|---------------|
+|:---------:|:---------:|:---------:|:---------------:|
 | 10 Gbps| 20,000 QPS | BGP| 8,600 元/月|
 | 20 Gbps| 40,000 QPS | BGP| 16,600 元/月|
 | 30 Gbps| 70,000 QPS | BGP| 25,600 元/月|
@@ -29,7 +31,7 @@ text-align:center;
 弹性防护免费开启，未发生弹性防护不收费。发生弹性防护后，取当天弹性防护峰值按区间收费，账单次日生成。
 
 | DDoS 防护 | 费用 |
-|---------|---------|
+|:---------:|:---------:|
 | 0 Gbps <弹性峰值≤ 10 Gbps | 1000 元/天 |
 | 10 Gbps <弹性峰值≤ 20 Gbps | 2200 元/天 |
 | 20 Gbps <弹性峰值≤ 30 Gbps | 3500 元/天 |
