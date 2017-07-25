@@ -7,6 +7,8 @@ width:200px;
 width:200px;
 }table th:nth-of-type(4){
 width:200px;
+}table td{
+text-align:center;
 }</style>
 ### 计费说明
 计费模式：混合计费模式。
