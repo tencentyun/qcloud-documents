@@ -18,16 +18,19 @@
 mysql -h IP -P 端口号 -u root -p 云数据库密码
 ```
 下面是出现的问题类型及解决方案：
+1.
 ```
 ERROR 1045(28000)：Access denied for user...
 ```
 当出现 `Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)` 的提示语时，表明密码不正确。
 请确认你输入的云数据库密码是否正确，如果重复输入正确信息后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。 
+2.
 ```
 ERROR 1040(00000):Too many connections
 ```
 当出现 `ERROR 1040(00000):Too many connections` 的提示语时，表明云数据库实例当前最大连接数超过了限制。
 请检查程序，适当减少数据库的连接数。如果减少连接数后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。 
+3.
 ```
 ERROR 2003 (HY000): Can't connect to MySQL server...
 ```
@@ -62,14 +65,14 @@ MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭�
 可通过命令行或者云数据库管理台登录云数据库，详见：[访问MySQL数据库](https://www.qcloud.com/document/product/236/3130)。
 
 ## 12. 是否可以自助修改 MySQL 实例的配置？
-MySQL 实例的配置由云数据库统一管理，并支持部分参数的自助修改，详细请参考下面的问题 [如何修改云数据库配置参数](#change_parameter_21)。
+MySQL 实例的配置由云数据库统一管理，并支持部分参数的自助修改，详细请参考下面的问题[如何修改云数据库配置参数](#change_parameter_21)
 
 ## 13. 云数据库如何对MySQL进行管理？
 开发者不需要对 MySQL 进行日常管理，日常的维护和调整由云数据库运维系统完成。
 当 MySQL 出现异常时，运维系统会及时发现并通知运维人员处理，开发者不需要做任何变更操作。
 
 ## 14. 云数据库中运行的MySQL版本是多少？
-云数据库中使用的 MySQL 版本为 5.5.45、5.6.28。
+云数据库中使用的 MySQL 版本为5.5.45、5.6.28
 
 ## 15. 云数据库后面是否是实体机？
 云数据库后面是实体机。
@@ -88,11 +91,11 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见手动备份与恢复云数据库,或者通过 mysqldump 工具自己备份数据。
 
 ## 20. 如何申请云数据库实例 slave 只读权限开放/关闭？
-如果需要开放或关闭 slave 只读实例，请按照模版提交工单申请。
+如果需要开放/关闭 slave 只读，请按照模版提交工单申请。
+<span id="change_parameter_21"></span>
+## 21. 如何修改云数据库配置参数？
 
-## 21.<span id="change_parameter_21"></span> 如何修改云数据库配置参数？
-
-开发者可通过命令行和 phpMyAdmin 控制台，修改云数据库配置参数：
+开发者可通过命令行和 phpMyAdmin控制台，修改云数据库配置参数：
 
 1. 命令行方式
 以下变量可以通过执行 `set global var_name=var_value` 语法运行时动态修改，10 分钟左右将自动同步到本机文件，迁移或重启将保持设置后的值。其中常见的 var\_name 包括如下变量：
@@ -137,7 +140,7 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 2. phpMyAdmin 控制台方式
 通过 phpMyAdmin 登录云数据库后，单击上面菜单中的【变量】，在下面的变量列表中，单击需要修改的变量对应的【编辑】按钮，对其进行修改后单击【保存】。
 ![](//mc.qcloudimg.com/static/img/dbe6b04b221424dc11fedd1507e03f09/image.png)
-更多请参考 [云数据库可以修改的配置](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/cdb_user_modify_var.xls)。
+更多请参考 [云数据库可以修改的配置.](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/cdb_user_modify_var.xls)
 
 ## 22. 云数据库的连接数有限制吗？
 详见：[云数据库链接数限制](https://www.qcloud.com/document/product/236/7259#2-.E8.BF.9E.E6.8E.A5.E6.95.B0.E9.99.90.E5.88.B62)
@@ -150,7 +153,7 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 ```
 set global long_query_time = 1;
 ```
-详情请参考 [MySQL官方手册](http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_long_query_time)。
+详情请参考[MySQL官方手册](http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_long_query_time)
 
 ## 25. 为什么查看云数据库中的中文数据时出现乱码？
 开发者将数据存储到云数据库中时，请先到管理中心云数据库的【管理视图】页面查看该实例的默认字符集，在编写程序时，将 character\_set\_client、character\_set\_results、character\_set\_connection 设置为和云数据库实例相同的字符集。否则，如果存储的数据中有中文，会出现中文数据乱码的现象。
