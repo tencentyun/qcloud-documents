@@ -9,7 +9,7 @@ width:200px;
 width:200px;
 }table tr:hover {
     background: #efefef; 
-}table tbody tr:nth-child(2n) {
+}table tbody tr:nth-child(n) {
     background: rgba(158,188,226,0.12); 
 }</style>
 
