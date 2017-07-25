@@ -1,11 +1,11 @@
 <style rel="stylesheet">
 table th:nth-of-type(1){
 width:200px;
-table th:nth-of-type(2){
+}table th:nth-of-type(2){
 width:200px;
-table th:nth-of-type(3){
+}table th:nth-of-type(3){
 width:200px;
-table th:nth-of-type(4){
+}table th:nth-of-type(4){
 width:200px;
 }</style>
 
