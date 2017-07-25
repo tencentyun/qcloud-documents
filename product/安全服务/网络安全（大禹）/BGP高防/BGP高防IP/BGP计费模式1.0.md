@@ -7,7 +7,7 @@ width:200px;
 width:200px;
 }table th:nth-of-type(4){
 width:200px;
-}table tr{
+}table td{
 text-align:center;
 }</style>
 
