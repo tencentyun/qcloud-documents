@@ -1,4 +1,3 @@
-## 域名账号间过户
 两个账号间，您需要将您账户下的域名转到另一个帐号 ID 名下时，您需要进行 [账号间过户](https://console.qcloud.com/domain/account/transfer?domain=2example.cn)。
 >**注意：**
 >过户完成后，新的账号所有人将对域名享有一切管理权限，包括修改域名信息、过户等。
