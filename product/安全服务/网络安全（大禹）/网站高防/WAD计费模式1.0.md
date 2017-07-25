@@ -1,6 +1,12 @@
 <style rel="stylesheet">
 table th:nth-of-type(1){
 width:200px;
+}table th:nth-of-type(2){
+width:200px;
+}table th:nth-of-type(3){
+width:200px;
+}table th:nth-of-type(4){
+width:200px;
 }</style>
 ### 计费说明
 计费模式：混合计费模式 
