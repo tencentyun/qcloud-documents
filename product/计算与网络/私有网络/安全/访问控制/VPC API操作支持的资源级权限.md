@@ -127,7 +127,8 @@ none'>eVip</span></td>
     qcs::vpc:$region:$account:vpc/*<br>
     qcs::vpc:$region:$account:vpc/$vpcId</td>
   <td>vpc:regi<span style=3D'display:none'>on</span></td>
-  <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region表示vpc所在地域。</td>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
+    vpc:region</td>
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
   <td height=3D216 style=3D'height:162.0pt'>Associat<span style=3D'display:=
@@ -676,7 +677,9 @@ none'>erGw</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc资源<br>
     qcs::vpc:$region:$account:vpc/*<br>
     qcs::vpc:$region:$account:vpc/$vpcId</td>
-  <td>vpc:regi<span style=3D'display:none'>on</span></td>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:region<br>
+    vpc:vpc<br>
+    </td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region表示vpc所在地域。</td>
  </tr>
  <tr height=3D324 style=3D'height:243.0pt'>
@@ -733,7 +736,9 @@ none'>assicLinkVpc</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc资源<br>
     qcs::vpc:$region:$account:vpc/*<br>
     qcs::vpc:$region:$account:vpc/$vpcId</td>
-  <td>vpc:regi<span style=3D'display:none'>on</span></td>
+    <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:region<br>
+    vpc:vpc<br>
+    </td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region表示vpc所在地域。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>

@@ -1,7 +1,7 @@
 ## 功能描述
-Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header：`"x-cos-acl"`，`"x-cos-grant-read"`，`"x-cos-grant-write"`，`"x-cos-grant-full-control"` 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
->注：
-> `Header`和 `Body` 只能选择其中一种，否则响应返回会冲突。
+Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+>**注意：**
+>Header 和 Body 只能选择其中一种，否则响应返回会冲突。
 >Put Object ACL 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
 >只有 Bucket 持有者才有权操作。
 
@@ -11,7 +11,7 @@ Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL �
 语法示例：
 ```
 PUT /ObjectName?acl HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-Type: application/xml
 Content-MD5: MD5
@@ -27,17 +27,15 @@ Authorization: Auth String
 ~~~
 PUT /ObjectName?acl HTTP/1.1
 ~~~
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 ObjectName?acl。
-
+该 API 接口接受 PUT 请求。
 ### 请求头
 
 **公共头部**
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 **非公共头部**
-该请求操作的实现可以用 PUT 请求中的 `x-cos-acl` 头来设置 Object 访问权限。目前 Object 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Object 访问权限。目前 Object 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+<style  rel="stylesheet"> table th:nth-of-type(1) {width: 200px;	}</style>
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
@@ -93,30 +91,30 @@ Container 节点 AccessControlList 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| Grant | AccessControlPolicy.AccessControlList | 单个Object 资源的授权信息。一个 AccessControlList 可以拥有 100 条 Grant | Container    |是|
+| Grant | AccessControlPolicy.AccessControlList | 单个 Object 资源的授权信息。一个 AccessControlList 可以拥有 100 条 Grant | Container    |是|
 
 Container 节点 Grant 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 说明被授权者信息。type 类型可以为 RootAccount， Subaccount；</br>当 type 类型为 RootAccount 时，可以在 uin 中填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/&lt;OwnerUin&gt; 和 uin/&lt;SubUin&gt;。</br>当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号  | Container    |是|
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 说明被授权者的信息。type 类型可以为 RootAccount， Subaccount；</br>当 type 类型为 RootAccount 时，在 ID 中指定根帐号;</br>当 type 类型为 Subaccount 时，在 ID 中指定子帐号  | Container    |是|
 | Permission | AccessControlPolicy.AccessControlList.Grant | 指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL  | String    |是|
 
-Container 节点 Grantee 的内容：
+Container 节点 Grantee 的内容：<style  rel="stylesheet"> table th:nth-of-type(1) {width: 200px;	}</style>
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |必选|
 | ------------ | ------------------------------------- | --------- |:--|:--|
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，</br>格式：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;  如果是根帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值|  String |是|
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt; 或 qcs::cam::anyone:anyone （指代所有用户）;如果是子帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |是|
 
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
-#### 响应体
+### 响应体
 该响应体返回为空。
 
 ## 实际案例
@@ -162,4 +160,3 @@ Server: tencent-cos
 x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
 
 ```
-

@@ -1,6 +1,6 @@
 ## 版本说明
 
-- 版本号：2.0.5.3454 @ 2017-06-30
+- 版本号：2.0.5.3469 @ 2017-07-12
 - Android：短视频编辑添加水印功能。
 - Android：短视频录制新增分段录制功能。
 - iOS & Android：修复若干bug。
@@ -26,8 +26,8 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.5.3454 @ 2017-06-30 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.5.3454.zip)   |
-| Android平台  | 2.0.5.3454 @ 2017-06-30 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.5.3454.zip) |
+| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.5.3469.zip)   |
+| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.5.3469.zip) |
 
 - **付费版**
 
@@ -35,7 +35,7 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.5.3454 @ 2017-06-30 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
-| Android平台  | 2.0.5.3454 @ 2017-06-30 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
+| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
+| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
 
 

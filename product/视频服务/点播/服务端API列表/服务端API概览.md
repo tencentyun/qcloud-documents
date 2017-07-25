@@ -151,9 +151,19 @@
         </tr>
         <!--视频处理-->
         <tr>
-            <td rowspan=5>
+            <td rowspan=7>
                 视频处理
             </td>
+            <td>
+                对视频文件进行处理
+            </td>
+            <td>
+                <a href="/document/product/266/9642">
+                    ProcessFile
+                </a>
+            </td>
+        </tr>
+        <tr>
             <td>
                 视频转码
             </td>
@@ -170,6 +180,16 @@
             <td>
                 <a href="/document/product/266/7821">
                     ConcatVideo
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                视频剪辑
+            </td>
+            <td>
+                <a href="/document/product/266/10156">
+                    ClipVideo
                 </a>
             </td>
         </tr>
