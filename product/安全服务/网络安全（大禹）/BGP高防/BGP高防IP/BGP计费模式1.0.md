@@ -13,8 +13,8 @@ width:200px;
 text-align:center;
 }</style>
 
- DDoS 防护 | CC 防护 | 线路 | 费用 
----------|---------|---------|---------------
+| DDoS 防护 | CC 防护 | 线路 | 费用 |
+|---------|---------|---------|---------------|
 | 10 Gbps| 20,000 QPS | BGP| 8,600 元/月|
 | 20 Gbps| 40,000 QPS | BGP| 16,600 元/月|
 | 30 Gbps| 70,000 QPS | BGP| 25,600 元/月|
@@ -32,10 +32,6 @@ text-align:center;
 table th:nth-of-type(1){
 width:200px;
 }table th:nth-of-type(2){
-width:200px;
-}table th:nth-of-type(3){
-width:200px;
-}table th:nth-of-type(4){
 width:200px;
 }table tr{
 text-align:center;
