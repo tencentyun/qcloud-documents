@@ -8,7 +8,9 @@ width:200px;
 }table th:nth-of-type(4){
 width:200px;
 }table tr:hover {
-    background: #efefef; 
+background: #efefef; 
+}table{
+width:80%;
 }</style>
 
 ### 基础防护（按月预付费）
