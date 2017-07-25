@@ -24,15 +24,6 @@ width:200px;
 | 80 Gbps| 250,000 QPS | BGP| 156,600  元 / 月|
 | 100 Gbps| 300,000 QPS | BGP| 186,800  元 / 月|
 
-<style rel="stylesheet">
-table th:nth-of-type(1){
-width:200px;
-}table th:nth-of-type(2){
-width:200px;
-}table tr:hover {
-    background: #efefef; 
-}</style>
-
 ### 弹性防护（按天后付费）
 弹性防护免费开启，未发生弹性防护不收费。发生弹性防护后，取当天弹性防护峰值按区间收费，账单次日生成。
 
