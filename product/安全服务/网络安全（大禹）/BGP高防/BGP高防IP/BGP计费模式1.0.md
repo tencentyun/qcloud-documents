@@ -1,5 +1,5 @@
 <style rel="stylesheet">
-}table th:nth-of-type(1){
+table th:nth-of-type(1){
 width:200px;
 }table th:nth-of-type(2){
 width:200px;
@@ -25,7 +25,7 @@ width:200px;
 | 100 Gbps| 300,000 QPS | BGP| 186,800  元 / 月|
 
 <style rel="stylesheet">
-}table th:nth-of-type(1){
+table th:nth-of-type(1){
 width:200px;
 }table th:nth-of-type(2){
 width:200px;
