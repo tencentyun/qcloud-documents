@@ -1,17 +1,23 @@
 <style rel="stylesheet">
 table th:nth-of-type(1){
 width:200px;
-}table th:nth-of-type(2){
-width:200px;
-}table th:nth-of-type(3){
-width:200px;
-}table th:nth-of-type(4){
-width:200px;
-}table tr:hover {
-background: #efefef; 
-}table{
-width:80%;
 }</style>
+<style rel="stylesheet">
+table th:nth-of-type(2){
+width:200px;
+}</style>
+<style rel="stylesheet">
+table th:nth-of-type(3){
+width:200px;
+}</style>
+<style rel="stylesheet">
+table th:nth-of-type(4){
+width:200px;
+}</style>
+<style rel="stylesheet">
+table tr:hover {
+background: #efefef; 
+</style>
 
 ### 计费说明
 计费模式：混合计费模式。
@@ -33,7 +39,7 @@ width:80%;
 | 80 Gbps| 250,000 QPS | BGP| 156,600 元/月|
 | 100 Gbps| 300,000 QPS | BGP| 186,800 元/月|
 
-><strong>注意:</strong>
+>注意:
 >1. BGP 线路不支持弹性防护，防护能力最高支持 100 Gbps / 300,000 QPS；
 >2. CC 防护能力是指的应对突发 CC 攻击的能力，如果您的正常业务本身就很大，请参考实例规格，目前每组实例最多能跑 300,000 QPS (http/https)。
 
@@ -56,7 +62,7 @@ width:80%;
 | 120 Gbps <弹性峰值≤ 150 Gbps | 14300 元/天 |
 | 150 Gbps <弹性峰值≤ 200 Gbps | 18550 元/天 |
 
-><strong>注意:</strong>
+>注意:
 >1. 弹性防护免费开启，未发生弹性防护不收费。发生弹性防护后，取当天弹性防护峰值按区间收费，账单次日生成。
 >2. 每个开启弹性防护能力的独立高防 IP，按天付费时分别计费，如 2 个 IP 都被攻击，则都需要付费。
 >3. 攻击防护弹性计费以计费周期内，实际产生的 DDoS 攻击和 CC 攻击计费较高区间为准。
@@ -77,6 +83,6 @@ width:80%;
 | 新建连接 | 50000 /单VIP | 单 VIP 的新建连接规格 |
 | 并发连接 | 200000 /单VIP | 单 VIP 的并发连接 |
 
-><strong>注意:</strong>
+>注意:
 >1. 业务带宽限制是针对 IN 或者 OUT 方向，如果您出现持续的超过规格，可能会丢包或者影响业务，在这种情况下请及时升级业务带宽；
 >2. 如上规格仅针对线上售卖，如您的业务规模较大，此配置不满足需求，请联系 4009-100-100 进行定制。
