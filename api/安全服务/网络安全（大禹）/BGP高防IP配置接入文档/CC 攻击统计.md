@@ -29,7 +29,7 @@ background: #efefef;
 <br> 其中，此接口的 Action 字段为 NS.BGPIP.Protection.CC.GetStatistics  。
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
-|---------|---------|---------|---------|
+|:---------:|:---------:|:---------:|:---------:|
 | id | <font color=red> 必选 </font color=red> | String | BGP 高防 IP 的资源 ID |
 | beginDate|<font color=red> 必选 </font color=red>| String | 统计的开始时间，格式是 YYYY-MM-DD，如 2016-11-10 |
 | endDate|<font color=red> 必选 </font color=red>| String | 统计的结束时间，格式是 YYYY-MM-DD，如 2016-11-11 |
@@ -37,5 +37,5 @@ background: #efefef;
 
 ### 3.输出参数
 | 参数名称 | 例子| 类型 | 描述 |
-|---------|---------|---------|---------|
+|:---------:|:---------:|:---------:|:---------:|
 |points| <font color=red> [1000次,…] </font color=red> |Array | 在该时间粒度内的 CC 攻击拦截次数的总和 |
