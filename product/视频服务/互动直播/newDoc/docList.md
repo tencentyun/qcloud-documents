@@ -28,6 +28,11 @@
 2. [直播接口](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/iOS_ILiveSDK_Live.md)
 3. [互动消息和上麦接口](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/iOS_ILiveSDK_Interactive.md)
 
+### Mac端集成
+1. [下载代码](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/Mac_ILiveSDK_BeforeHand.md)
+2. [直播接口](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/Mac_ILiveSDK_Live.md)
+3. [互动消息和上麦接口](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/Mac_ILiveSDK_Interactive.md)
+
 ### PC端集成
 1. [Windows C++集成](https://www.qcloud.com/document/product/268/5451)
 2. [PC Demo使用说明](https://www.qcloud.com/document/product/268/5453)
