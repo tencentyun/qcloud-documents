@@ -10,9 +10,8 @@ Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
-
 > Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
-<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style> 
+
 ### 请求行
 ~~~
 GET / HTTP/1.1
