@@ -2,7 +2,7 @@
  
 This API (DescribeClusterNameSpaces) is used to query the namespace of cluster.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -10,7 +10,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Query nameSpaces under the cluster |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 
 
 ## 3. Output Parameters
@@ -18,10 +18,18 @@ The following request parameter list only provides API request parameters. For o
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | code | Int | Common error code. 0: Successful; other values: Failed |
+| codeDesc | String |Service error code. Returns *Success* for successful operation, and detailed reason for failed operation.|
 | message | String | Module error message description depending on API. For more information, please see Module Error Codes on Error Codes page. |
 | namespaces | Obj Array |namespaces|
 
+Details of *namespaces* 
 
+| Field | Type | Description |
+|---------|---------|---------|
+| name | String | Name of the namespace |
+| status | String| Status of the namespace ["Active","Terminating"] |
+| description | string |  |
+| createdAt | String | Creation time of the namespace |
 
 ## 4. Example
 Input

@@ -46,7 +46,7 @@
 | data.redisSet.createtime | String | 实例创建时间 | 
 | data.redisSet.size | Int | 实例容量大小，单位：MB| 
 | data.redisSet.sizeUsed | Int | 实例当前已使用容量，单位：MB | 
-| data.redisSet.typeId | Int | 实例类型，1：集群版；2：单机版| 
+| data.redisSet.typeId | Int | 实例类型，1：集群版；2：主从版| 
 | data.redisSet.typeIddesc | String | 实例类型描述 |
 | data.redisSet.autoRenewFlag | Int | 实例是否设置自动续费标识，1：设置自动续费；0：未设置自动续费 |  
 | data.redisSet.deadlineTime | String | 实例到期时间 |
