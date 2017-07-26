@@ -40,7 +40,7 @@ background: #efefef;
 
 ### 3.输出参数
 | 参数名称 | 例子 / 单位| 类型 | 描述 |
-|---------|---------|---------|---------|
+|:---------:|:---------:|:---------:|:---------:|
 |total| <font color=red> 123 </font color=red> |Integer | 共有多少个高防 IP |
 | servicePacks|<font color=red> [obj,…]</font color=red>| Array | 攻击详情数组，数组元素如下：<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "bgp-00000001",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "服务包 1",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"region": "gz / sh / bj",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"boundIP": "1.2.3.4",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bandwidth": 10000, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"elasticLimit" : 100000, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"overloadCount" : 100, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"status":"idle/attacking/blocking/creating",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"expire": "2016-03-02 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"locked": "yes / no"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"transTarget":"qcloud/nqcloud/blackstone/finance",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"transRules": "12"<br>}|
 |id|bgpip-000001| String | 高防 IP 的资源 ID |
