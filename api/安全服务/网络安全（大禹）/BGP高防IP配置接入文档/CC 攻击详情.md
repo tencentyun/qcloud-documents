@@ -29,7 +29,7 @@ background: #efefef;
 <br> 其中，此接口的 Action 字段为 NS.BGPIP. Protection.DDoS.GetDetails。
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
-|---------|---------|---------|---------|
+|:---------:|:---------:|:---------:|:---------:|
 | id | <font color=red> 必选 </font color=red> | String | BGP 高防 IP 的资源 ID |
 | beginDate|<font color=red> 必选 </font color=red>| String | 统计的开始时间，格式是 YYYY-MM-DD，如 2016-11-10 |
 | endDate|<font color=red> 必选 </font color=red>| String | 统计的结束时间，格式是 YYYY-MM-DD，如 2016-11-11 |
@@ -40,7 +40,7 @@ background: #efefef;
 
 ### 3.输出参数
 | 参数名称 | 例子| 类型 | 描述 |
-|---------|---------|---------|---------|
+|:---------:|:---------:|:---------:|:---------:|
 |total| <font color=red> 123 </font color=red> |Integer | 共有多少条攻击详情 |
 |records |<font color=red> [obj,…] </font color=red>| Array | 攻击详情数组，数组元素如下：<br>{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"startTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "endTime" : "2013-03-01 01:23:45",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "count" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 1234<br>} |
 |startTime|2013-03-01 01:23:45| Time | 攻击开始时间|
