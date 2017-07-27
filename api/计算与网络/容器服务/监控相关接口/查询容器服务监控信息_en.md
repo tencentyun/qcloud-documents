@@ -2,8 +2,8 @@
  
 This API (GetMonitorData) is used to query CCS-related monitoring information.
 
-Domain for API request: <font style="color:red">monitor.api.qcloud.com</font>
-<font style="color:red">Note: This domain is different from other APIs of CCS.</font>
+Domain for API request: monitor.api.qcloud.com
+**Note: This domain is different from other APIs of CCS.**
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
@@ -15,16 +15,17 @@ Domain for API request: <font style="color:red">monitor.api.qcloud.com</font>
 | startTime | No | Datetime | Start time, such as "2016-01-01 10:25:00".  The default is "00:00:00" of the current day |
 | endTime | No | Datetime | End time. The default is the current time.  endTime cannot be earlier than startTime |
 
-**Details of "namespace"**
+**Details of `namespace`**
 
 | Available Value | Type | Description |
 |---------|---------|---------|
 | qce/cvm   | String      | Acquire the utilization of cluster's CPU and memory |
 | qce/docker  | String | Acquire monitoring information about service, pod and container |
 
-**Details of "dimensions"**
-1) dimensions.n.name and dimensions.n.value are used to specify a monitoring object. Some objects can only be specified using multiple dimensions.
-If you want to acquire service_cpu_used (service CPU utilization) when using CCS, you need to specify the following dimensions: clusterId, serviceName, namespace.
+**Details of `dimensions`**
+1) `dimensions.n.name` and `dimensions.n.value` are used to specify a monitoring object. Some objects can only be specified using multiple dimensions.
+If you want to acquire `service_cpu_used` (service CPU utilization) when using CCS, you need to specify the following dimensions: `clusterId`, `serviceName`, `namespace`.
+
 ```
 dimensions.0.name=clusterId
 dimensions.0.value=cls-xxxxx
@@ -35,7 +36,7 @@ dimensions.2.value=default
 
 ```
 
-2) The returned result, dataPoints, is an array. Each element in this array is data of a monitoring point. In the output result below, the three sets of data in dataPoints indicate the statistical data result in two time periods, 14:00-14:05 and 14:05-14:10. The returned data is a closed interval containing three points.
+2) The returned result, `dataPoints`, is an array. Each element in this array is data of a monitoring point. In the output result below, the three sets of data in `dataPoints` indicate the statistical data result in two time periods, 14:00-14:05 and 14:05-14:10. The returned data is a closed interval containing three points.
 ```
 {
     "code": 0,
@@ -52,7 +53,7 @@ dimensions.2.value=default
 }
 ```
 
-**Details of "period"**
+**Details of `period`**
 
 | Available Value | Type | Description |
 |---------|---------|---------|
@@ -85,9 +86,9 @@ dimensions.2.value=default
 
 
 ## 5. Monitoring Metrics at Cluster Dimension
-When you query the monitoring data of cluster dimension, the values of input parameters are as follows:
+When you query the monitoring data of cluster, the values of input parameters are as follows:
 
-Value for dimension name: docker_clusterid
+Value for dimension name: `docker_clusterid`
 
 namespace: qce/cvm
 
@@ -95,7 +96,7 @@ dimensions.0.name=docker_clusterid
 "dimensions.0.value" is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
 
 
-**Available values of metricName**
+**Available values of `metricName`**
 
 | Monitoring Item | Metric Name | Unit  | Description  |
 |---------|---------|---------|-----|
@@ -141,21 +142,21 @@ Output
 ## 6. Monitoring Metrics at Service Dimension
 When you query the monitoring data of service dimension, the values of input parameters are as follows:
 
-Values for dimension name: clusterId, serviceName, namespace
+Values for dimension name: `clusterId`, `serviceName`, `namespace`
 
 namespace: qce/docker
 
 dimensions.0.name=clusterId
-"dimensions.0.value" is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
+`dimensions.0.value` is cluster ID. Enter the `clusterId` (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
 
 dimensions.1.name=serviceName
-"dimensions.1.value" is service name. Enter the serviceName (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.1.value` is service name. Enter the `serviceName` (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 dimensions.2.name=namespace
-"dimensions.2.value" is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.2.value` is namespace name. Enter the `namespace` (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 
-**Available values of metricName**
+**Available values of `metricName`**
 
 | Monitoring Item | Metric Name | Unit  | Description  |
 |---------|---------|---------|-----|
@@ -167,8 +168,8 @@ dimensions.2.name=namespace
 | Service network outbound traffic | service_out_flux | MB | Total outbound traffic of all the pods in the service within the time window |
 | Service network inbound bandwidth | service_in_bandwidth | Mbps | Total inbound bandwidth of all the pods in the service |
 | Service network outbound bandwidth | service_out_bandwidth | Mbps | Total outbound bandwidth of all the pods in the service |
-| Service network inbound packets | service_in_packets | pck/sec | Total inbound packets of all the pods in the service |
-| Service network outbound packets | service_out_packets | pck/sec | Total outbound packets of all the pods in the service |
+| Service network inbound packets | service_in_packets | pps | Total inbound packets of all the pods in the service |
+| Service network outbound packets | service_out_packets | pps | Total outbound packets of all the pods in the service |
 
 **Example of querying monitoring data of service dimension**
 
@@ -217,20 +218,20 @@ Values for dimension name: clusterId, serviceName, namespace, podName
 namespace: qce/docker
 
 dimensions.0.name=clusterId
-"dimensions.0.value" is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
+`dimensions.0.value` is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
 
 dimensions.1.name=serviceName
-"dimensions.1.value" is service name. Enter the serviceName (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.1.value` is service name. Enter the serviceName (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 dimensions.2.name=namespace
-"dimensions.2.value" is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.2.value` is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 dimensions.3.name=podName
-"dimensions.3.value" is pod name. Enter the name (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
+`dimensions.3.value` is pod name. Enter the name (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
 
 
 
-**Available values of metricName**
+**Available values of `metricName`**
 
 | Monitoring Item | Metric Name | Unit  | Description  |
 |---------|---------|---------|-----|
@@ -238,8 +239,8 @@ dimensions.3.name=podName
 | Pod network outbound bandwidth | pod_out_bandwidth | Mbps | Containers in the same pod share a network. It is the network outbound bandwidth of the pod |
 | Pod network inbound traffic | pod_in_flux | MB | Containers in the same pod share a network. It is the network inbound traffic of the pod |
 | Pod network outbound traffic | pod_out_flux | MB | Containers in the same pod share a network. It is the network outbound traffic of the pod) |
-| Pod network inbound packets | pod_in_packets | pck/sec | Containers in the same pod share a network. It is the network inbound packets of the pod |
-| Pod network outbound packets | pod_out_packets | pck/sec | Containers in the same pod share a network. It is the network outbound packets of the pod |
+| Pod network inbound packets | pod_in_packets | pps | Containers in the same pod share a network. It is the network inbound packets of the pod |
+| Pod network outbound packets | pod_out_packets | pps | Containers in the same pod share a network. It is the network outbound packets of the pod |
 
 **Example of querying monitoring data of pod dimension**
 
@@ -285,28 +286,28 @@ Output
 ## 8. Monitoring Metrics at Container Dimension
 When you query the monitoring data of container dimension, the values of input parameters are as follows:
 
-Values for dimension name: clusterId, serviceName, namespace, podName, containerId
+Values for dimension name: `clusterId`, `serviceName`, `namespace`, `podName`, `containerId`
 
 namespace: qce/docker
 
 dimensions.0.name=clusterId
-"dimensions.0.value" is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
+`dimensions.0.value` is cluster ID. Enter the `clusterId` (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
 
 dimensions.1.name=serviceName
-"dimensions.1.value" is service name. Enter the serviceName (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.1.value` is service name. Enter the `serviceName` (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 dimensions.2.name=namespace
-"dimensions.2.value" is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.2.value` is namespace name. Enter the `namespace` (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
 
 dimensions.3.name=podName
-"dimensions.3.value" is pod name. Enter the name (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
+`dimensions.3.value` is pod name. Enter the `name` (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
 
 
 dimensions.4.name=containerId
-"dimensions.4.value" is container name. Enter the containerId (container ID) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433). <font style="color:red"><strong>Note: Container ID only needs to be entered with the first 12 characters</strong></font>
+`dimensions.4.value` is container name. Enter the containerId (container ID) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433). **Note: Container ID only needs to be entered with the first 12 characters**
 
 
-**Available values of metricName**
+**Available values of `metricName`**
 
 | Monitoring Item | Metric Name | Unit  | Description  |
 |---------|---------|---------|-----|

@@ -1,8 +1,8 @@
 ## 1. API Description
  
-This API (DeleteInstances) is used to delete pod
+This API (DeleteInstances) is used to delete pods.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId | Yes| String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | instances.n | Yes | String | Array containing pod names. Use the "name" field returned when querying service pod list |
 | namespace | No | String      | Namespace. Default is "default" |
 
