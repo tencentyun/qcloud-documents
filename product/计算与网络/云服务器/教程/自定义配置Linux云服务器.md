@@ -17,7 +17,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据底层硬件的不同，腾讯云目前提供了 *系列 1* 和 *系列 2* （下文也称为 *上一代实例* 和 *当前一代实例* ）两种不同的实例系列，不同的实例系列提供如下实例类型：
  
 - 上一代实例类型：标准型S1，高IO型I1，内存型M1
-- 当前一代实例类型：[标准型S2](https://www.qcloud.com/doc/product/213/7154)，[高IO型I2](https://www.qcloud.com/doc/product/213/7155)，[内存型M2](https://www.qcloud.com/doc/product/213/7156)，[计算型C2](https://www.qcloud.com/doc/product/213/7157)
+- 当前一代实例类型：[标准型S2](https://www.qcloud.com/doc/product/213/7154)，[高IO型I2](https://www.qcloud.com/doc/product/213/7155)，[内存型M2](https://www.qcloud.com/doc/product/213/7156)，[计算型C2](https://www.qcloud.com/doc/product/213/7157)，[GPU型G2](https://www.qcloud.com/document/product/560)，[FPGA型FX2](https://www.qcloud.com/document/product/565) 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为获得最佳性能，我们建议您在新建实例时使用当前一代实例类型。实例类型详细说明，请参见 [实例类型概述](https://www.qcloud.com/document/product/213/7153) 。
 
 >注意：
@@ -71,7 +71,7 @@
 - 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](http://www.qcloud.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [这里](http://www.qcloud.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
 - 自动生成密码：自动生成的密码将会以站内信方式发送。
 
- 3. 选择安全组（<font color="red">确保登录端口 3389 开放</font>，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
+ 3. 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
 
 单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.qcloud.com/cvm) 查收您的云服务器。
 

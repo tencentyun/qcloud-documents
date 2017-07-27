@@ -2,15 +2,15 @@
  
 This API (CreateCluster) is used to create a cluster.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 * When creating a cluster, you need to specify the number and configuration of nodes (CVMs) in the cluster.
 * All the nodes in the cluster are HDD cloud disks.
-* The maximum number of clusters to be created under an account is 5 by default. You can [Submit a Ticket](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) to increase the number.
-* The number of nodes in a cluster is limited to 20. You can [Submit a Ticket](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) to increase the number, and the nodes should also be subject to the number limit described in the [Restrictions on CVM Instance Purchase](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E8%B4%AD%E4%B9%B0%E9%99%90%E5%88%B6) document.
+* Up to 5 clusters can be created per region by default. You can [submit a ticket](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) to raise your quota.
+* Up to 20 nodes are allowed per cluster by default. You can [submit a ticket](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) to raise your quota. The quota of nodes is also subject to [Restrictions on CVM Instance Purchase](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E8%B4%AD%E4%B9%B0%E9%99%90%E5%88%B6).
 * **Limitations on the ratio** of CPU to memory can be found [here](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE).
-* If you need to change the bandwidth, change it using the API [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) after the instance is created successfully. <font style="color:red">**The bandwidth of public network is 0 by default if not specified**</font>.
-* Supported instance types <font style="color:red">**(the types of CVMs purchased in each availability zone are different)**</font> can be found [here](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE):
+* If you need to change the bandwidth, change it using the API [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345). The bandwidth of public network is 0 by default if not specified</font>.
+* Supported instance types **(the types of CVMs purchased in each availability zone are different)** can be found [here](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE):
 
 | CVM Type | Series 1 | Series 2 |
 |---------|---------|---------|
@@ -33,7 +33,7 @@ The following request parameter list only provides API request parameters. For o
 | goodsNum | Yes | Int | Number of purchased instances. The maximum value is 100 |
 | cpu | Yes | Int | The number of CPU cores, see above for specific limits.  |
 | mem | Yes | Int | Memory size (GB), see above for specific limits.  |
-| OsName | Yes | String | System name (centos7.2x86_64 or ubuntu16.04.1 LTSx86_64). The system is used by all the nodes in the cluster, and also used during node scaling automatically. |
+| osName | Yes | String | System name (centos7.2x86_64 or ubuntu16.04.1 LTSx86_64). The system is used by all the nodes in the cluster, and also used during node scaling automatically. |
 | instanceType | No | String | Instance type (e.g. High IO). Default is CVM.S1. For more instance types, see the "Instance types" section above. |
 | cvmType | No | String | CVM type. <br>PayByHour: Postpaid (default)<br>PayByMonth: Prepaid<br><br> |
 | bandwidthType | Yes | String | Bandwidth type. <br>CVM with Prepaid mode: PayByMonth: Bill-by-bandwidth usage period; PayByTraffic: Bill-by-traffic. <br> CVM with Postpaid mode: PayByHour: Bill-by-bandwidth usage period; PayByTraffic: Bill-by-traffic.<br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |

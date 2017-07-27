@@ -5,7 +5,7 @@ Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。
 语法示例：
 ```
 HEAD / HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -31,14 +31,14 @@ HEAD / HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头  
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头 
 该响应无特殊的响应头。
 
-#### 响应体
-该请求的响应体为空
+### 响应体
+该响应体返回为空。
 
 ## 实际案例
 
