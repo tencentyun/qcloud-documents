@@ -22,7 +22,7 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
 #### 请求参数
 包含所有请求参数的请求行示例：
 ```
-GET / uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-uploads=MaxUploads&key-marker=KeyMarker&upload-id-marker=UploadIdMarker HTTP/1.1
+GET /ObjectName?uploadId=UploadId&encoding-type=EncodingType&max-parts=MaxParts&part-number-marker=PartNumberMarker HTTP/1.1
 ```
 具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
@@ -48,7 +48,7 @@ GET / uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 
