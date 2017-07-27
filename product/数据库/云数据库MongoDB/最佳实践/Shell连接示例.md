@@ -34,7 +34,7 @@ mongo 10.66.187.127:27017/admin -u rwuser -p thepasswordA1 --authenticationMecha
 ![MONGODB-CR认证截图示例](https://mc.qcloudimg.com/static/img/ff200b49c3fa5c70812027dd89e3ebc3/cr_default.png)
 特殊的，如果您希望连接MongoDB服务后直接进入到某一个db，比如“singer”，请按示例操作：
 ```
-mongo 10.66.187.127:27017/admin -u rwuser -p thepasswordA1 --authenticationMechanism=MONGODB-CR --authenticationDatabase admin
+mongo 10.66.187.127:27017/singer -u rwuser -p thepasswordA1 --authenticationMechanism=MONGODB-CR --authenticationDatabase admin
 ```
 如图：
 ![直入某个db的连接命令截图示例](https://mc.qcloudimg.com/static/img/d31bfa612a295fd070ea5dd09c7ce6a3/cr_somedb.png)

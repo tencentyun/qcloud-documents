@@ -172,11 +172,6 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 ![](//mc.qcloudimg.com/static/img/3da33f8c62b9339a365faddd2635faa2/image.png)
 
 #### 相关代码 
-- Logic:
-	- TCPusherMgr.java： 直播管理类，和后台进行通信，拉取直播地址、通知后台退出直播
-- UI:
-	- TCLivePublisherActivity.java:  推流模块Activity，所有的推流管理、消息管理、动画特效都在该类进行
-
 
 | 类名      |    描述  |
 | :--------: | :--------:| 
@@ -217,6 +212,62 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 | TCPlayerMgr.java |  播放管理类,和后台进行通信，通知后台进入房间、退出房间、点赞事件 |
 | TCLivePlayerActivity.java | 播放模块Activity，包括点播和直播，所有的播放管理、消息管理、动画特效都在该类进行 |
 
+------------------------------------
+### 连麦模块
+#### 模块简介
+
+- 连麦功能提供了主播和观众视频互动聊天的功能，目前支持 1 主播和 3 个观众视频互动。
+-  在集成连麦功能之前，建议先了解下 [连麦的原理](https://www.qcloud.com/document/product/454/9855) ，再按照 [对接攻略](https://www.qcloud.com/document/product/454/9858) 来集成。
+- 连麦具体流程：观众通过 IM 向主播发起连麦申请，主播也是通过 IM 回复观众。如果主播同意观众的连麦申请，观众就荣升为小主播。主播和小主播各自先推流，然再互相拉取对方的低延时流。
+
+#### 相关代码
+| 类名      |    描述  |
+| :--------: | :--------:| 
+| TCLinkMicLivePushActivity.java |  连麦之主播推流界面，它以普通推流界面为基础，新增播放小主播低延时流的逻辑 |
+| TCLinkMicLivePlayActivity.java |  连麦之播放界面，它基于普通播放界面，增加推流功能 |
+| TCLinkMicMgr.java |  连麦管理类，负责处发送和接受连麦的 IM 消息  |
+| TCStreamMergeMgr.java |  连麦之云端混流管理类，将云端混流所需的参数发送给小直播后台业务服务器 |
+| TCLinkMicPlayItem.java |  连麦之小窗口播放类 |
+| TCLivePushListenerImpl.java |  推流状态监听接口的实现类 |
+| TCLivePlayListenerImpl.java |  播放状态监听接口的实现类 |
+
+------------------------------------
+### 短视频录制模块
+#### 模块简介
+- 小直播提供录制 一分钟的 [短视频](https://www.qcloud.com/document/product/584/9453) 功能，但 SDK 本身不显示录制时长。
+
+
+#### 相关代码
+| 类名      |    描述  |
+| :--------: | :--------:| 
+| TCVideoRecordActivity.java| 短视频录制界面 |
+
+------------------------------------
+
+### 短视频发布模块
+#### 模块简介
+- 将录制的文件发布到腾讯云视频分发平台（点播系统）中。
+
+#### 相关代码
+| 类名      |    描述  |
+| :--------: | :--------:| 
+| TCVideoPublisherActivity.java| 短视频发布界面 |
+
+------------------------------------
+### 短视频编辑模块
+#### 模块简介
+- [视频编辑](https://www.qcloud.com/document/product/584/9502) 包括视频裁剪加速、美颜滤镜、音乐混音及添加字幕等功能
+
+#### 相关代码
+| 类名      |    描述  |
+| :--------: | :--------:| 
+| EditPannel.java| 短视频时长裁剪显示框 |
+| RangeSlider.java| 短视频时长裁剪左右拖动框 |
+| TCHorizontalScrollView.java| 存放短视频每帧画面滚动列表 |
+| TCVideoEditerActivity.java| 短视频编辑主界面 |
+| TCVideoEditerAdapter.java| 存放短视频每帧画面列表的设配器 |
+| TCVideoEditView.java| 短视频裁剪界面 |
+| ThumbView.java| 短视频专辑显示界面，扫描本地所有 MP4 文件并显示 |
 
 ------------------------------------
 
