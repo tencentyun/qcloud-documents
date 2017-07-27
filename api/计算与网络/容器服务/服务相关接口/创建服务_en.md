@@ -2,7 +2,7 @@
  
 This API (CreateClusterService) is used to create a service.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | serviceName   | Yes | String       | Service name. The first character must be a lowercase letter, the last character must be a lowercase letter or a number, and the middle characters are hyphens, numbers or lowercase letters |
 | serviceDesc   | No | String       | Service description |
 | replicas      | Yes | Int          | Number of pod replicas |
@@ -23,7 +23,7 @@ The following request parameter list only provides API request parameters. For o
 | namespace      | No | String      | Namespace. Default is "default" |
 | subnetId     | No | String      | Subnet ID. Enter the unSubnetId (unified subnet ID) returned when calling the API [Query Subnet List](https://www.qcloud.com/document/api/215/1371). This is mandatory if "accessType" is "SvcLBTypeInner" |
 
-"portMappings" parameter details
+``portMappings`` parameter details
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -32,7 +32,7 @@ The following request parameter list only provides API request parameters. For o
 | nodePort | No | Int | Port opened on the node when accessType is NodePort, LoadBalancer or SvcLBTypeInner. The system assigns a nodePort by default if this is left empty |
 | protocol | Yes | String | Protocol (TCP or UDP) |
 
-"volumes" parameter details. For more information, please see [Mounting Data Volumes](https://www.qcloud.com/document/product/457/9112).
+``volumes`` parameter details. For more information, please see [Mounting Data Volumes](https://www.qcloud.com/document/product/457/9112).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|
@@ -41,14 +41,14 @@ The following request parameter list only provides API request parameters. For o
 | hostPath  | No | String   | This is required when volumeType is hostPath. Container volume directory on the host. This directory will be mapped to the container when the container launches. If this field is left empty, a temporary directory will be created on the Node for the container volume and deleted when the container is terminated. This directory and the data in it are retained if hostPath is specified |
 | cbsDiskId | No | String | This is required when volumeType is cbsDisk. This is the ID of cbs network disk. This cbs disk is mounted to the host where the container resides and mapped to the container when the container launches, and unmounted from the host when the container is terminated. Enter the storageId (cloud disk ID) field returned when calling the API [Query Cloud Disk Information](https://www.qcloud.com/document/api/362/2519) |
 
-"labels" parameter details
+``labels`` parameter details
 
 | Parameter Name | Type | Description       |
 |------|------|-----------|
 | key   | String | Tag key  |
 | value | String | Tag value |
 
-"Containers" parameter details
+``containers`` parameter details
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------
@@ -63,14 +63,14 @@ The following request parameter list only provides API request parameters. For o
 | command | No | String | Startup command for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://www.qcloud.com/document/product/457/9100) |
 | arguments.n | No | String Array | Startup parameter for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://www.qcloud.com/document/product/457/9100) |
 
-"envs" parameters details
+``envs`` parameters details
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | name | String | Environment variable name |
 | value | String | Environment variable value |
 
-"volumeMounts" parameter details. For more information, please see [Data Volume Mounting Instruction](https://www.qcloud.com/document/product/457/9112).
+``volumeMounts`` parameter details. For more information, please see [Data Volume Mounting Instruction](https://www.qcloud.com/document/product/457/9112).
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -78,7 +78,7 @@ The following request parameter list only provides API request parameters. For o
 | mountPath | String | Volume mounting point in the container |
 | mode | String | Indicates how container accesses the volume. ro: read only. rw: read and write |
 
-"healthCheck" parameter details. For more information, please see [Service Health Check Settings](https://www.qcloud.com/document/product/457/9094).
+``healthCheck`` parameter details. For more information, please see [Service Health Check Settings](https://www.qcloud.com/document/product/457/9094).
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|

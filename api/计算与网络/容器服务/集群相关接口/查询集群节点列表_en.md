@@ -2,7 +2,7 @@
  
 This API (DescribeClusterInstances) is used to query the cluster nodes and return the information of nodes in the cluster.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 
@@ -12,10 +12,10 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters". |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | offset | No | Int | Offset. Default is 0 |
 | limit | No | Int| Maximum displayed entries. Default is 20 |
-| namespace   | No | String      | Namespace. Default is "default" |
+| namespace | No | String      | Namespace. Please enter the *namespace* returned by the [DescribeClusterService](https://www.qcloud.com/document/api/457/9440) API. Default is "default" |
 
 
 ## 3. Output Parameters
@@ -27,7 +27,7 @@ The following request parameter list only provides API request parameters. For o
 | totalCount | Int | Total number of cluster nodes |
 | nodes | Object Array | Node list. Details are shown below |
 
-Detailed description of "nodes" field
+Detailed description of ``nodes`` field
 
 | Field | Type | Description |
 |---------|---------|---------|
@@ -48,7 +48,7 @@ Detailed description of "nodes" field
 | instanceDeadlineTime | String | Expiration time of node with Prepaid mode |
 | abnormalReason | String | The reason for node exception. There can be several reasons, please see the table below |
 
-Details of "abnormalReason" parameter
+Details of ``abnormalReason`` parameter
 
 | Exception Type | Description |
 |---------|---------|

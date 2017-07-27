@@ -2,11 +2,11 @@
  
 This API (DeleteCluster) is used to delete cluster.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
-* <font style="color:red">This API can be called only when "status" of cluster is "Running", "Isolated" or "Abnormal".</font>
+* This API can be called only when *status* of cluster is "Running", "Isolated" or "Abnormal".
 * All the services in the cluster will be deleted if the cluster is deleted.
-* When the cluster is deleted, CVMs with Prepaid mode can only be removed, not returned.
+* When the cluster is deleted, CVMs with Prepaid mode can ONLY be removed, not returned.
 
 
 ## 2. Input Parameters
@@ -14,7 +14,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId | Yes| String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | nodeDeleteMode | No | String| The method to delete cluster nodes, which is mainly used for CVMs with Postpaid mode. CVMs with Prepaid mode can only be removed. <br>RemoveOnly (Only remove)<br>Return (return). <br>By default, CVMs with Postpaid mode are terminated, and those with Prepaid mode are removed |
 
 

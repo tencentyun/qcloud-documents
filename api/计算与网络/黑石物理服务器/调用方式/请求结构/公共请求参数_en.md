@@ -5,7 +5,7 @@ Here's a list of common request parameters:
 | Name | Type | Description | Required |
 |---|---|---|---|
 | Action | String | The name of the API for the desired operation. For example, if you want to call the API of Query EIP List [DescribeEipBm](/doc/api/456/6671), the Action parameter is DescribeEipBm. | Yes |
-| Region | String | Region parameter, used to identify the region to which the instance you want to operate belongs. The parameter values for regions are as follows:<br>Beijing: bj, Guangzhou: gz, Shanghai: sh, Hong Kong: hk, North America: ca. <br><B>Note: Generally, this parameter is required, unless otherwise indicated in the relevant API. </B>| No |
+| Region | String | Region parameter, used to identify the region to which the instance you want to operate belongs. The parameter values for regions are as follows:<br>Beijing: ap-beijing-bls, Guangzhou: ap-guangzhou-bls, Shanghai: ap-shanghai-bls. <br><B>Note: Generally, this parameter is required, unless otherwise indicated in the relevant API. </B>| No |
 | Timestamp | UInt | The current UNIX timestamp that records the time at which the API request was initiated. | Yes |
 | Nonce | UInt | A random positive integer that is used in conjunction with Timestamp to prevent replay attacks. | Yes |
 | SecretId | String | SecretId for identifying identity that is applied for on [Cloud API Key](https://console.qcloud.com/capi). A SecretId corresponds to a unique SecretKey, which is used to generate the request Signature. For more information, please see [Signature Method](/document/product/386/6714). | Yes |
@@ -17,7 +17,7 @@ For example, if a user wants to query the CVM instance list for Guangzhou, the r
 https://eip.api.qcloud.com/v2/index.php?
 Action=DescribeInstances
 &SecretId=xxxxxxx
-&Region=gz
+&Region=ap-shanghai-bls
 &Timestamp=1465055529
 &Nonce=59485
 &Signature=mysignature

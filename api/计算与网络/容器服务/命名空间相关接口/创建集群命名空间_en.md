@@ -2,7 +2,7 @@
  
 This API (CreateClusterNamespace) is used to create namespace.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 
@@ -12,8 +12,10 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | name   | Yes | String       | Namespace name |
+| description   | Yes | String |Description of the namespace|
+
 
 
 ## 3. Output Parameters
@@ -21,6 +23,7 @@ The following request parameter list only provides API request parameters. For o
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | code | Int | Common error code. 0: Successful; other values: Failed |
+| codeDesc | String |Service error code. Returns *Success* for successful operation, and detailed reason for failed operation.|
 | message | String | Module error message description depending on API|
 
 
