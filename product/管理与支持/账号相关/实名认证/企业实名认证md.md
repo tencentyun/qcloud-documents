@@ -34,6 +34,7 @@
   [6]: https://mc.qcloudimg.com/static/img/6a0c0dc6cbbd0a66b89a944e56351378/3-1.png
   [7]: https://mc.qcloudimg.com/static/img/f28781dfeb7bdde7427f0995456128a2/3-2.png
   [8]: https://mc.qcloudimg.com/static/img/3d93ee998f9b3d8e969b2b9f288da0a1/3-3.png
+
 <span id="yhkrz"></span>
 ## 银行卡认证
 1. 登录腾讯云控制台，进入 [账号信息](https://console.qcloud.com/developer)，单击【实名认证】。
