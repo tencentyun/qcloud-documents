@@ -6,7 +6,7 @@
 
 ## 2 连接数限制
 云数据库的连接数上限为 MySQL 的系统变量 max_connections，当云数据库实例连接数量超过 max_connections 时，新的连接将无法建立。
-云数据库最大连接数默认值为实例内存 1/5，且最大不超过 10240, 最小不低于 800。例如实例规格为 8000 MB 内存，默认最大连接数为 8000/5=1600。用户可以根据需要自行调整 max_connections 的值。
+云数据库最大连接数默认值为实例内存 1/5，且最大不超过 10240, 最小不低于 800。例如实例规格为 8000 MB 内存时，默认最大连接数为 8000/5=1600。用户可以根据需要自行调整 max_connections 的值。
 云数据库控制台可修改的 max_connections 最大为 10000，如需更大连接数，请提交工单申请，腾讯云会根据实例内存的使用情况审批。
 但是，连接数越多，消耗系统资源也越多。如果连接数超过实际系统的负载承受能力范围，必然影响系统服务质量。
 关于 max_connections 可以参考 [MySQL官方手册](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections)。 
