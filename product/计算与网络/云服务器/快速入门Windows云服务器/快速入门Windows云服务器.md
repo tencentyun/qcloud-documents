@@ -55,7 +55,7 @@
 
 查看站内信请见下一步骤。
  
-<div id="page3"></div>
+<div id="Inter-Page">  </div>
 ## 步骤三：登录 Windows 云服务器
 本部分操作介绍登录 Windows 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见   [登录 Windows 实例](https://www.qcloud.com/document/product/213/5435) 。
 
