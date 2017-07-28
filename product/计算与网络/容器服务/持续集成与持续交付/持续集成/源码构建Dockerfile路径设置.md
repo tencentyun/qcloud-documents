@@ -4,7 +4,7 @@
 
 ## 源码构建功能 Dockerfile路径该怎么填 ?
 
-![](./ci-config-demo-1.png)
+![](https://mc.qcloudimg.com/static/img/f6e42dc6f8cbf2ad75e66d31e841ea38/ci-config-demo-1.png)
 
 答案: **填写以项目为根路径的相对路径**
 
