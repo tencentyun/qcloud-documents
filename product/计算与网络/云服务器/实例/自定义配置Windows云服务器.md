@@ -83,4 +83,4 @@
 
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的 Windows 登录密码保障主机安全性。
 
-单击 [这里](https://www.qcloud.com/document/product/213/2764/#page3) ，继续 Windows 云服务器的登录、格式化与分区数据盘等后续配置。
+单击 [这里](https://www.qcloud.com/document/product/213/2764/#Inter-Page) ，继续 Windows 云服务器的登录、格式化与分区数据盘等后续配置。
