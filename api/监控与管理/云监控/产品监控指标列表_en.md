@@ -1,183 +1,4 @@
-## 1. API Description
-
-This API (GetMonitorData) is used to acquire monitoring data of cloud products. Obtain corresponding monitoring data based on the namespace of the product, object dimension description and monitoring metrics specified by the user.
-
-Domain: monitor.api.qcloud.com
-
-Note: The new API for acquiring monitoring data (GetMonitorData) can be used to obtain data with a granularity of 1 minute. This API can also be used to acquire monitoring data of more products with a higher granularity in the future. We will no longer update the old version (GetMetricStatistics). It is recommended to use this new API.
-
-
-
-## 2. Input Parameters
-
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/405/公共请求参数" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is GetMonitorData.
-
-
-<table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
-<th><b>Required</b></th>
-<th><b>Type</b></th>
-<th><b>Description</b></th>
-<tr>
-<td> namespace
-<td> Yes
-<td> String
-<td> Namespace. Every cloud product has a namespace. For more information about the namespaces of products, please see Section 5.
-<tr>
-<td> metricName
-<td> Yes
-<td> String
-<td> Metric name. For more information, please see Section 5
-<tr>
-<td> dimensions.n.name
-<td> Yes
-<td> String
-<td> Dimension name. This is used in combination with dimensions.n.value. For more information, please see the List of Product Monitoring Metrics in Section 5.
-<tr>
-<td> dimensions.n.value
-<td> Yes
-<td> String
-<td> Value of the corresponding dimension. This is used in combination with dimensions.n.name. For more information, please see the List of Product Monitoring Metrics in Section 5.
-<tr>
-<td> period
-<td> No
-<td> Int
-<td> Statistical period for monitoring. Default is 300 (in seconds). Currently, CVM and cloud load balancer support granularity of 60s and 300s. The other products only support 300s. More products will be supported in the future.
-<tr>
-<td> startTime
-<td> No
-<td> Datetime
-<td> Start time, such as "2016-01-01 10:25:00". The default is "00:00:00" of the current day
-<tr>
-<td> endTime
-<td> No
-<td> Datetime
-<td> End time. The default is the current time. endTime cannot be earlier than startTime
-</tbody></table>
-
-
-
-## 3. Output Parameters
-
-<table class="t"><tbody><tr>
-<th><b>Parameter Name</b></th>
-<th><b>Type</b></th>
-<th><b>Description</b></th>
-<tr>
-<td> code
-<td> Int
-<td> Error code. 0: Success. Other values indicate failure
-<tr>
-<td> message
-<td> String
-<td> Returned information
-<tr>
-<td> startTime
-<td> Datetime
-<td> Start time
-<tr>
-<td> endTime
-<td> Datetime
-<td> End Time
-<tr>
-<td> metricName
-<td> String
-<td> Metric Name
-<tr>
-<td> period
-<td> Int
-<td> Statistical period for monitoring
-<tr>
-<td> dataPoints
-<td> Array
-<td> Monitoring data list
-</tbody></table>
-
-
-
-## 4. Error Codes
-
-| Error Code | Error Description    | Description                                 |
-| ---- | ------- | ------------------------------------ |
-| -502 | Resource does not exist   | OperationDenied.SourceNotExists      |
-| -503 | Invalid request parameter  | InvalidParameter                     |
-| -505 | Parameter missing    | InvalidParameter.MissingParameter    |
-| -507 | Limit exceeded    | OperationDenied.ExceedLimit          |
-| -509 | Invalid dimension combination | InvalidParameter.DimensionGroupError |
-| -513 | DB operation failed  | InternalError.DBoperationFail        |
-
-
-
-## 5. Example
-
-Input
-<pre>
-https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
-&namespace=qce/lb
-&metricName=pvv_outtraffic
-&dimensions.0.name=protocol
-&dimensions.0.value=tcp
-&dimensions.1.name=vip
-&dimensions.1.value=123.206.201.134
-&dimensions.2.name=vport
-&dimensions.2.value=80
-&startTime=2016-06-28 14:10:00
-&endTime=2016-06-28 14:20:00
-</pre>
-
-Output
-```
-{
-    "code": 0,
-    "message": "",
-    "metricName": "pvv_outtraffic",
-    "startTime": "2016-06-28 14:10:00",
-    "endTime": "2016-06-28 14:20:00",
-    "period": 300,
-    "dataPoints": [
-        5.6,
-        6.4,
-        7.7
-    ]
-}
-```
-
-Notes:
-1) dimensions.n.name and dimensions.n.value are used to specify a monitoring object. Some objects can only be specified using multiple dimensions.
-For example, in 5.5 Cloud Load Balance, you need to specify three dimensions (protocol, vip, vport) to acquire pvv_outtraffic (outbound traffic).
-```
-dimensions.0.name=protocol
-dimensions.0.value=tcp
-dimensions.1.name=vip
-dimensions.1.value=123.206.201.134
-dimensions.2.name=vport
-dimensions.2.value=80
-
-```
-
-2) The returned result, dataPoints, is an array. Each element in this array is data of a monitoring point. In the output result below, the three sets of data in dataPoints indicate the statistical data result in two time periods, 14:00-14:05 and 14:05-14:10. The returned data is a closed interval containing three points.
-```
-{
-    "code": 0,
-    "message": "",
-    "metricName": "pvv_outtraffic",
-    "startTime": "2016-06-28 14:10:00",
-    "endTime": "2016-06-28 14:20:00",
-    "period": 300,
-    "dataPoints": [
-        5.6,
-        6.4,
-        7.7
-    ]
-}
-```
-
-
-
-## 6. List of Product Monitoring Metrics
-
-### 6.1 CVM
+## 1 CVM
 Tencent Cloud Virtual Machine (CVM) is a server which runs in the Tencent Cloud Data Center. For detailed introductions, please see the <a href="/document/product/213" title="CVM Introduction">CVM Introduction</a> page.
 When querying monitoring data of CVMs, the values of input parameters are as follows:
 namespace: qce/cvm
@@ -186,7 +7,7 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 
 
 **Available values of metricName**
-#### 6.1.1 Data Monitoring Metrics That Can be Acquired without Installing Monitor Agent
+### 1.1 Data Monitoring Metrics That Can be Acquired without Installing Monitor Agent
 
 <table class="t">
 <tbody><tr>
@@ -251,7 +72,7 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 </td></tr>
 </td></tr></tbody></table>
 
-#### 6.1.2 Data Monitoring Metrics That Can Only be Acquired after Installing Monitor Agent
+### 1.2 Data Monitoring Metrics That Can Only be Acquired after Installing Monitor Agent
 
 <table class="t">
 <tbody><tr>
@@ -304,7 +125,7 @@ dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained whe
 </td><td> unInstanceId CVM ID
 </td></tr></tbody></table>
 
-#### 6.1.3 Example: How to read CVM monitoring metrics
+### 1.3 Example: How to read CVM monitoring metrics
 
 Input
 
@@ -338,11 +159,11 @@ Output
 
 
 
-### 6.2 Direct Connect
+## 2 Direct Connect
 Direct Connect provides a fast approach to connect Tencent Cloud with local data centers. You can have access to Tencent Cloud computing resources in multiple regions in one go using a single physical direct connection line, to achieve a flexible and reliable hybrid cloud deployment. For detailed introductions, please see the <a href="/doc/product/216/产品概述" title="Product Overview">Direct Connect Introduction</a> page.
 When querying monitoring data of direct connect products, the values of input parameters are as follows:
 
-#### 6.2.1 Physical Direct Connect
+### 2.1 Physical Direct Connect
 Physical Direct Connect refers to a physical line used to connect Tencent Cloud with local data centers.
 namespace: qce/dc_line
 dimensions.0.name=directconnectid
@@ -399,7 +220,7 @@ Output
 }
 ```
 
-#### 6.2.2 Direct Connect Tunnel
+### 2.2 Direct Connect Tunnel
 Direct Connect Tunnel is the network link segmentation of physical direct connection.
 namespace: qce/dc_channel
 dimensions.0.name=directconnectconnid
@@ -476,7 +297,7 @@ Output
 }
 ```
 
-### 6.3 Cloud Load Balancer
+## 3 Cloud Load Balancer
 
 Cloud Load Balancer is a service used to deliver traffic to multiple CVMs. For detailed introductions, please see the <a href="/doc/product/214/概述" title="Overview">Cloud Load Balancer Introduction</a> page.
 Here's a list of cloud load balancer metrics (metricName) that can be displayed currently:
@@ -492,7 +313,7 @@ Here's a list of cloud load balancer metrics (metricName) that can be displayed 
 
 Currently, cloud load balancer supports three types of namespaces: qce/lb_public, qce/lb_private and qce/lb_rs_private. qce/lb_public is the namespace for public network cloud load balancers, it includes the cloud load balancer dimension and the backend machine dimension. qce/lb_private and qce/lb_rs_private are both namespaces for private network cloud load balancers. The difference is that qce/lb_private is for the monitoring data of the cloud load balancer dimension, while qce/lb_rs_private is for the monitoring data of the backend machine dimension. Here are the descriptions of each monitoring dimension:
 
-#### 6.3.1 Public Network Cloud Load Balancer Namespace qce/lb_public
+### 3.1 Public Network Cloud Load Balancer Namespace qce/lb_public
 qce/lb_public is a namespace for public network cloud load balancers. You can query all monitoring data of public network cloud load balancers here.
 qce/lb_public supports the following four dimension combinations:
 
@@ -600,7 +421,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 &dimensions.5.value=80
 </pre>
 
-#### 6.3.2 Private Network Cloud Load Balancer Dimension Namespace qce/lb_private
+### 3.2 Private Network Cloud Load Balancer Dimension Namespace qce/lb_private
 qce/lb_private is a namespace for the private network cloud load balancer dimension. You can query relevant monitoring data of the private network cloud load balancer dimension here.
 qce/lb_private supports the following two dimension combinations:
 
@@ -652,7 +473,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 &dimensions.3.value=http
 </pre>
 
-#### 6.3.3 Private Network Cloud Load Balancer Backend Server Dimension Namespace qce/lb_rs_private
+### 3.3 Private Network Cloud Load Balancer Backend Server Dimension Namespace qce/lb_rs_private
 qce/lb_private is a namespace for the private network cloud load balancer dimension. You can query relevant monitoring data of the private network cloud load balancer dimension here.
 qce/lb_private supports the following two dimension combinations:
 
@@ -720,7 +541,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 </pre>
 
 
-### 6.4 Content Delivery Network
+## 4 Content Delivery Network
 The CDN (Content Delivery Network) works by creating a new network layer in the existing Internet and delivering contents of websites to the network that is closest to users. For detailed introductions, please see the <a href="/doc/product/228/产品概述" title="Product Overview">CDN Introduction</a> page.
 When querying monitoring data of CDN products, the values of input parameters are as follows:
 namespace: qce/cdn
@@ -769,7 +590,7 @@ Output
 }
 ```
 
-### 6.5 Cloud Database MySQL
+## 5 Cloud Database MySQL
 
 Cloud Database for MySQL is a high-performance distributed data storage service created by Tencent Cloud in a professional manner based on the world's most popular open source database MySQL. For detailed introductions, please see the <a href="/doc/product/236/简介" title="Overview">Cloud Database for MySQL</a> page.
 When querying monitoring data of Cloud Database for MySQL products, the values of input parameters are as follows:
@@ -847,7 +668,7 @@ Output
 }
 ```
 
-### 6.6 Cloud Database TDSQL
+## 6 Cloud Database TDSQL
 
 Tencent Cloud Database TDSQL is a highly secure enterprise-level cloud database under the OLTP scenario and has been serving for Tencent's billing services for more than 10 years. TDSQL is compatible with MySQL syntaxes, with advanced features such as thread pool, auditing, cross-region disaster recovery. This cloud database service is simple to expand, easy to use and cost-efficient. For detailed introductions, please see the <a href="/doc/product/237/产品概述" title="Product Overview">Cloud Database TDSQL Introduction</a> page.
 When querying monitoring data of Cloud Database TDSQL products, the values of input parameters are as follows:
@@ -908,7 +729,7 @@ Output
 }
 ```
 
-### 6.7 Cloud Database SQL Server
+## 7 Cloud Database SQL Server
 
 Cloud Database SQL Server is a cloud database service developed by Tencent Cloud in a professional manner, based on the SQL Server published by Microsoft. For detailed introductions, please see the <a href="/doc/product/238/产品概述" title="Product Overview">Cloud Database SQL Server</a> page.
 When querying monitoring data of Cloud Database SQL Server products, the values of input parameters are as follows:
@@ -979,7 +800,7 @@ Output
 }
 ```
 
-### 6.8 Cloud Redis Store
+## 8 Cloud Redis Store
 
 Cloud Redis Store (CRS) is a highly available, highly reliable Redis service platform based on Tencent Cloud's years of technical experience in distributed cache and demand for Redis-related business operations. For detailed introductions, please see the <a href="/doc/product/239/产品介绍" title="Product Introduction">Cloud Redis Introduction</a> page.
 When querying monitoring data of Cloud Redis products, the values of input parameters are as follows:
@@ -1055,7 +876,7 @@ Output
 ```
 
 
-### 6.9 Cloud Database MongoDB
+## 9 Cloud Database MongoDB
 
 When querying monitoring data of Document Database MongoDB products, the values of input parameters are as follows:
 namespace: qce/cmongo
@@ -1203,7 +1024,7 @@ When querying the number of connections of a certain node, the output is:
 }
 ```
 
-### 6.10 Cloud Physical Machine Load Balancers
+## 10 Cloud Physical Machine Load Balancers
 
 Cloud Physical Machines provide load balancing features.
 Parameters for querying Cloud Physical Machine Load Balancer product monitoring data
@@ -1284,12 +1105,12 @@ Output
 }
 ```
 
-### 6.11 Cloud Message Queue (CMQ)
+## 11 Cloud Message Queue (CMQ)
 
 Tencent Cloud Message Queue (CMQ) is a distributed message queue service used to provide a reliable, message-based asynchronous communication mechanism for different applications that are deployed distributively, or different components of one application. Messages are stored in a highly reliable, highly available Cloud Message Queue, while multiple processes are able to perform read/write operations at the same time, without affecting each other.
 There are two CMQ models, queue and topic. The methods for monitoring them are as follows
 
-#### 6.11.1 Querying Monitoring Data of CMQ Queue
+### 11.1 Querying Monitoring Data of CMQ Queue
 
 When querying monitoring data of message service CMQ products, the values of input parameters are as follows:
 
@@ -1357,7 +1178,7 @@ Output
 }
 ```
 
-#### 6.11.2 Querying Monitoring Data of CMQ Topic
+### 11.2 Querying Monitoring Data of CMQ Topic
 
 When querying monitoring data of message service CMQ Topic products, the values of input parameters are as follows:
 
@@ -1415,11 +1236,11 @@ Output
 }
 ```
 
-### 6.12 VPC
+## 12 VPC
 Tencent Cloud Virtual Private Cloud (VPC) is a customized network space on Tencent Cloud that is logically isolated, which is similar to the traditional network you run in the data center. The service resources hosted in Tencent Cloud VPC include Cloud Virtual Machine, Cloud Load Balance, Cloud Database and other resources of Cloud Services in your Tencent Cloud. You can fully control your VPC environment, including customizing network segmentation, IP address and routing policy, and achieve multi-layer security protections through network ACL and security group and so on. At the same time, you can also use IPsec VPN/Direct Connect to connect the VPC with your data center, to deploy hybrid cloud in a flexible manner. For detailed introductions, please see the <a href="https://www.qcloud.com/document/product/215/535" title="Product Overview">VPC Product Overview</a> page.
 When querying monitoring data of VPC products, the values of input parameters are as follows:
 
-#### 6.12.1 Peering Connection
+### 12.1 Peering Connection
 VPC peering connection is a service used to connect two VPCs, which allows VPC IPs to route traffic between the peer VPCs as if they belong to the same network.
 
 When querying monitoring data of peering connection products, the values of input parameters are as follows:
@@ -1478,7 +1299,7 @@ Output
 }
 ```
 
-#### 6.12.2 Basic Network Cross-region Interconnection
+### 12.2 Basic Network Cross-region Interconnection
 VPC basic network cross-region interconnection means the capability for basic network CVMs in different regions to communicate with each other as if they belong to the same network.
 
 When querying the monitoring data of basic network cross-region interconnection product, the values for input parameters are as follows:
