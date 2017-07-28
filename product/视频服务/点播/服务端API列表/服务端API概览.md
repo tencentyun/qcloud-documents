@@ -289,6 +289,60 @@
                 </a>
             </td>
         </tr>
+        <!--自定义转码模板管理-->
+        <tr>
+            <td rowspan=5>
+                自定义转码模板管理
+            </td>
+            <td>
+                创建转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9910">
+                    CreateTranscodeTemplate
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                更新转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9911">
+                    UpdateTranscodeTemplate
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                查询转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9912">
+                    QueryTranscodeTemplate
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                查询转码模板列表
+            </td>
+            <td>
+                <a href="/document/product/266/9913">
+                    QueryTranscodeTemplateList
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                删除转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9914">
+                    DeleteTranscodeTemplate
+                </a>
+            </td>
+        </tr>
         <!--可靠事件通知-->
         <tr>
             <td rowspan=2>
