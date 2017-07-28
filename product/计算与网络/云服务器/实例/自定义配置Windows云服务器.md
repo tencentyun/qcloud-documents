@@ -4,7 +4,7 @@
 <div id="page1"></div>
 ## 前提条件
 
- 1. 开始自定义配置前，您需完成[【快速入门 Windows 云服务器】](https://www.qcloud.com/document/product/213/2764/#page1)文档中的步骤一。
+ 1. 开始自定义配置前，您需完成[【快速入门 Windows 云服务器】](https://www.qcloud.com/document/product/213/2764#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.87.86.E5.A4.87.E4.B8.8E.E9.80.89.E5.9E.8B)文档中的步骤一。
  2. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm) 。
  3. 单击【自定义配置】，进入自定义配置界面。
 
@@ -83,4 +83,4 @@
 
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的 Windows 登录密码保障主机安全性。
 
-单击 [这里](https://www.qcloud.com/document/product/213/2764/#Inter-Page) ，继续 Windows 云服务器的登录、格式化与分区数据盘等后续配置。
+单击 [这里](https://www.qcloud.com/document/product/213/2764#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E7.99.BB.E5.BD.95-windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) ，继续 Windows 云服务器的登录、格式化与分区数据盘等后续配置。
