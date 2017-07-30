@@ -133,7 +133,7 @@ qcloudcli cvm DescribeAvailabilityZones --filter totalCount
 
 在 --filter 后加上需要保留的字段名称，即可只看该字段的值。
 
-## 3.指定某个数组类型对象的某个子对象的信息
+## 3.指定某个数组类型对象的第N个子对象的信息
 
 以查看可用区信息列表的第一个子对象为例，
 
