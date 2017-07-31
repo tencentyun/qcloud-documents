@@ -13,6 +13,10 @@
 ```
 直播码=BIZID_MD5(房间号_用户名_数据类型)
 
+摄像头数据类型是main
+屏幕分享的数据类型是aux
+
+
 播放地址=传输协议://BIZID.liveplay.myqcloud.com/live/直播码[.格式]
 ```
 详见[直播码模式下旁路直播](https://www.qcloud.com/document/product/268/8560)
