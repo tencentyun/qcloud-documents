@@ -4,14 +4,14 @@
 <div id="page1"></div>
 ## 前提条件
 
- 1. 开始自定义配置前，您需完成[【快速入门 Linux 云服务器】](https://www.qcloud.com/document/product/213/2936/#page1)文档中的步骤一。
+ 1. 开始自定义配置前，您需完成[【快速入门 Linux 云服务器】](https://www.qcloud.com/document/product/213/2936#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.87.86.E5.A4.87.E4.B8.8E.E9.80.89.E5.9E.8B)文档中的步骤一。
  2. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm) 。
  3. 单击【自定义配置】，进入自定义配置界面。
 
 <div id="page2"></div>
 ## 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
- 1. 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.qcloud.com/developer/infomation) ）。计费模式更多信息请看 [这里](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
+ 1. 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.qcloud.com/developer/infomation) ）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
 
  2. 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
 
@@ -47,7 +47,7 @@
  1. 选择硬盘类型和数据盘大小。
 腾讯云提供云硬盘和本地硬盘两种类型。（均默认 50GB 系统盘，系统盘大小任选）
   - 云硬盘：采用一盘三备的分布式存储方式，数据可靠性高
-  - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [这里](https://www.qcloud.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
+  - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](https://www.qcloud.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
 
  2. 选择网络类型。
 腾讯云提供 基础网络  或  私有网络  两种可选。
@@ -74,7 +74,7 @@
 
  2. 登录信息设置：
 - 设置密码：输入主机密码设置。
-- 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](http://www.qcloud.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [这里](http://www.qcloud.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
+- 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](http://www.qcloud.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [SSH密钥](http://www.qcloud.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
 - 自动生成密码：自动生成的密码将会以站内信方式发送。
 
  3. 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
@@ -83,4 +83,4 @@
 
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的 Linux 登录密码保障主机安全性。
 
-单击 [这里](https://www.qcloud.com/document/product/213/2936/#page3) ，继续 Linux 云服务器的登录、格式化与分区数据盘等后续配置。
+单击 [这里](https://www.qcloud.com/document/product/213/2936#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E7.99.BB.E5.BD.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) ，继续 Linux 云服务器的登录、格式化与分区数据盘等后续配置。
