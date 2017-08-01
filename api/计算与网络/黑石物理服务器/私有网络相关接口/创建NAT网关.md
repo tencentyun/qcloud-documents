@@ -12,18 +12,15 @@
 | vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 |
 | maxConcurrent | 是 | int | 网关并发连接上限，例如：1000000、3000000、10000000。 |
 | assignedEipSet.n | 否 | Array | 绑定网关的弹性IP数组, assignedEipSet和autoAllocEipNum至少传一个，例如：assignedEipSet.0=10.0.0.1 ，更多关于弹性IP的信息请参考弹性IP。|
+| subnetAll | 否 | int | 是否包含vpc下的所有子网包括后续新建子网的IP。subnetAll为0时必须传入subnetIds子网或ips信息|
+| autoAllocEipNum | 否 | int | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考弹性IP。 |
 | subnetIds.n | 否 | Array | 绑定全部IP的子网唯一ID数组, 例如：subnet-k20jbhp0。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。|
-| ips.n | 否 | Array | 绑定部分IP的子网信息数组, ips包含字段如下
+| ips.n | 否 | Array | 绑定部分IP的子网信息数组, ips包含字段如下：
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |ips.n.subnetId|是|Int|子网ID标识|
 |ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表|
-
-| subnetAll | 否 | int | 是否包含vpc下的所有子网包括后续新建子网的IP。subnetAll为0时必须传入subnetIds子网或ips信息|
-| autoAllocEipNum | 否 | int | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考弹性IP。 |
-
-
 
 ## 3. 输出参数
 
