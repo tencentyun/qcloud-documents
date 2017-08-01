@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. For a
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| regionId | No | Int | Region ID. CPM availability zones currently include: 8 - Beijing, 4 - Shanghai, 1-广州 |
+| regionId | No | Int | Region ID. CPM availability zones currently include: 8 - Beijing, 4 - Shanghai, 1-Guangzhou |
 
 
 
