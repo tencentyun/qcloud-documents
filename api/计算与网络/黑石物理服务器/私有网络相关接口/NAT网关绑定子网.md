@@ -1,6 +1,5 @@
 ## 1. 接口描述
 
-本接口(SubnetBindBmNatGateway)用于黑石NAT网关绑定子网
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 ## 2. 输入参数
@@ -10,7 +9,7 @@
 |---------|---------|---------|---------|
 | natId | 是 | string | 黑石网关统一ID，例如：nat-df5dfd |
 | vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| subnetIds.n | 否 | array | 子网唯一ID。subnetIds 和 subnetAll 这两个入参需至少传一个，例如：subnetIds.0=	subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+| subnetIds.n | 是 | array | 需要绑定全部IP的子网唯一ID数组。例如：subnetIds.0=	subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 
 
 
@@ -39,7 +38,8 @@ https://vpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
 &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &natId=nat-8pbrkzh6
 &vpcId=vpc-ddf411
-&autoAllocEipNum=1
+&subnetIds.0=subnet-11111
+&subnetIds.1=subnet-22222
 </pre>
 输出
 ```
