@@ -35,6 +35,7 @@
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
+| 10001 | BmVpc.InvalidParameterValue | 参数设置错误，具体错误信息可查看返回的message信息 |
 | -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
 | -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 | 13006 | InvalidBmVpc.NatGatewayLimitExceeded |创建的 NAT 网关数量超过上限。如果需要更多资源，请联系客服申请。每个vpc最多允许创建5个NAT网关 |
