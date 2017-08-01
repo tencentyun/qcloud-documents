@@ -10,7 +10,7 @@
 |---------|---------|---------|---------|
 | natId | 是 | string | 黑石网关统一ID，例如：nat-df5dfd |
 | vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| ips.n | 否 | Array | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下：
+| ips.n | 是 | Array | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下：
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
