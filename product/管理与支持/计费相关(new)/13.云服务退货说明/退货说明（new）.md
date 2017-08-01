@@ -41,7 +41,7 @@
 2.进入【提交工单】页面，根据要退还的问题类型进行选择。
 
 
-![](https://mc.qcloudimg.com/static/img/a99cc1bddd9f85492f10d0495af5106b/image.png)、
+![](https://mc.qcloudimg.com/static/img/a99cc1bddd9f85492f10d0495af5106b/image.png)
 
 3.以云服务 CVM 为示例，申请退货，找到云服务器 CVM，点击【提交工单】选择退还原因，填写问题描述，提交工单。
 
