@@ -1,5 +1,6 @@
 ## 1. 接口描述
 
+本接口(SubnetBindBmNatGateway)用于黑石NAT网关绑定子网的全部IP；
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 ## 2. 输入参数
