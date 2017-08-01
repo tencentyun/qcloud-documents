@@ -1,93 +1,98 @@
-## 功能说明
+## 功能说明 
+COS-Fuse 能让您将腾讯云对象存储 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储。
 
-### 简介
+COS-Fuse 基于 s3fs 构建，具有 s3fs 的全部功能。主要包括：
+- 支持 POSIX 文件系统的大部分功能，如：文件读写，目录操作，链接操作，权限管理，uid/gid 管理等功能；
+- 大文件传输功能；
+- MD5 数据校验功能。
 
-COS-Fuse 能让您在 Linux 系统中把 Tencent COS bucket 挂载到本地文件 系统中，您能够便捷的通过本地文件系统操作 COS 上的对象，实现数据的共享。
-
-### 功能
-
-COS-Fuse 基于s3fs 构建，具有 s3fs 的全部功能。主要功能包括：
-
-- 支持 POSIX 文件系统的大部分功能，包括文件读写，目录，链接操作，权限，uid/gid。
-- 通过 COS 的 multipart 功能上传大文件。
-- MD5 校验保证数据完整性。
-
-## 使用环境
-
-### 系统环境
-
-Linux
+## 使用限制 
+本工具可以支持对 V4、V5 版本存储的访问，但是域名均需使用 V5 域名。
 
 
-## 使用方法
-### 获取程序包  
-当前版本：COSFS-V4.2.1  
-[GitHub下载地址](https://github.com/tencentyun/cosfs-v4.2.1)  
-[本地下载地址](https://mc.qcloudimg.com/static/archive/144302cd3e6afb2bf2758a8c0c1d9bb9/cosfs-v4.2.1-master.zip)
+## 使用环境 
+### 系统环境 
+主流 Linux 系统
 
-### 编译安装
-#### 安装依赖库
-如果没有找到对应的安装包，您也可以自行编译安装。编译前请先安装下列依赖库：  
-Ubuntu 14.04:
-
+### 软件环境 
+本工具编译需要 C++ 编译环境。依赖于 automake、git 、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件，安装方法参考 [环境安装](#环境安装)。
+<span id="环境安装"></span>
+### 环境安装 
+#### Ubuntu 系统下安装环境依赖包方法：
 ```
-sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev \
-                     libfuse-dev libssl-dev libxml2-dev make pkg-config
+sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config
 ```
 
-CentOS 7.0:
+#### CentOS 系统下安装环境依赖包方法：
 ```
-sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel \
-                 fuse-devel make openssl-devel
+sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
-#### 安装源码
 
-然后您可以在github上下载源码并编译安装：
+## 使用方法 
+### 获取工具 
+Github 获取地址： [COS-Fuse 工具](https://github.com/tencentyun/cosfs-v4.2.1)
+
+### 安装工具 
+您可以直接将下载的源码上传至指定目录，也可以使用 GitHub 下载到指定目录，下面以使用 GitHub 将源码目录下载到 `/usr/cosfs` 为例：
 ```
-git clone https://github.com/XXX/cosfs.git
-cd cosfs
+git clone https://github.com/tencentyun/cosfs-v4.2.1 /usr/cosfs
+```
+进入到该目录，编译安装：
+```
+cd /usr/cosfs
 ./autogen.sh
 ./configure
 make
 sudo make install
 ```
-
-### 配置运行
-
-设置 bucket name, access key/id 信息，将其存放在/etc/passwd-cosfs 文件中， 注意这个文件的权限必须正确设置，建议设为640。
+### 配置文件
+在 `/etc/passwd-cosfs`文件中，配置您的存储桶的名称，以及该存储桶对应的 SecretId 和 SecretKey，相关概念参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。使用冒号隔开，注意冒号为半角符号。 并为 `/etc/passwd-cosfs` 设置可读权限。命令格式如下：
 ```
-echo my-bucket:my-access-key-id:my-access-key-secret > /etc/passwd-cosfs
+echo <bucketname>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
-将 cos bucket mount 到指定目录,注意 需要在 bucke 前面指定 appid。
+其中：
+bucketname/ SecretId/ SecretKey 需要替换为用户的真实信息。
+#### 示例：
 ```
-cosfs my-appid:my-bucket my-mount-point -ourl=my-cos-endpoint
-```
-#### 示例
-
-将 my-bucket 这个 bucket 挂载到 /tmp/cosfs 目录下，AccessKeyId 是 faint， AccessKeySecret 是 123，cos endpoint 是 http://cn-south.myqcloud.com cn-south 对应华南广州地域 cn-north 对应华北天津地域 cn-east 对应华东上海地域。
-```
-echo my-bucket:faint:123 > /etc/passwd-cosfs
+echo buckettest:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
-mkdir /tmp/cosfs
-cosfs appid:my-bucket /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
 ```
-**说明：**-ouse_cache 指定了使用本地cache来缓存临时文件，进一步提高性能，如果不需要本地cache或者本地磁盘容量有限，可不指定该选项。
-
-### 卸载
-卸载 bucket:
+### 运行工具 
+将配置好的存储桶挂载到指定目录，命令行如下：
 ```
-fusermount -u /tmp/cosfs # non-root user
+cosfs your-APPID:your-bucketname your mount-point -ourl=cos-domain-name -odbglevel=info
 ```
+其中：
+your-APPID/ your-bucketname 需要替换为用户真实的信息；
+your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
+cos-domain-name 为存储桶所属地域对应域名，根据您的存储桶所在地域的不同而不同，具体对应如下：
 
-## 常见问题
-### 局限性
+| 存储桶所属地域 | 对应域名 | 
+|---------|---------|
+| 华南 | http://cn-south.myqcloud.com | 
+| 华北 | http://cn-north.myqcloud.com |
+| 华东 | http://cn-east.myqcloud.com |
+| 西南 | http://cn-southwest.myqcloud.com |
+| 新加坡 | http://sg.myqcloud.com |
+-odbglevel 参数表示信息级别，照写即可。
+#### 示例：
+```
+cosfs 1253972369:buckettest /mnt -ourl=http://cn-south.myqcloud.com -odbglevel=info 
+```
+另外，如果对性能有要求，可以使用本地磁盘缓存文件，命令中加入 -ouse_cache 参数，示例如下：
+```
+mkdir /local_cache_dir
+cosfs 1253972369:buckettest /mnt -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/local_cache_dir
+```
+`/local_cache_dir`为本地缓存目录，如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
-COS-Fuse 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：
-
-- 随机或者追加写文件会导致整个文件的重写。
-- 元数据操作，例如 list directory ，性能较差，因为需要远程访问COS服务器。
-- 文件/文件夹的 rename 操作不是原子的。
-- 多个客户端挂载同一个 COS bucket 时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等等。
-- 不支持 hard link 。
-- 不适合用在高并发读/写的场景，这样会让系统的load升高。
+卸载存储桶：
+```
+fusermount -u /mnt
+```
+## 注意事项 
+- COS-Fuse 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
+- 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
+- 不支持 hard link 。不适合高并发读/写的场景。
+- 挂载、卸载文件时，不要同时在挂载点上。可以先 cd 到其他目录，再对挂载点进行挂载、卸载操作。

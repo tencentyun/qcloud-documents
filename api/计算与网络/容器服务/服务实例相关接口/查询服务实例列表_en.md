@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | serviceName   | Yes    | String | Service name |
 | offset | No | Int | Offset. Default is 0 |
 | limit | No | Int| Maximum displayed entries. Default is 20 |
@@ -27,7 +27,7 @@ The following request parameter list only provides API request parameters. For o
 | totalCount | Int | Total number of pods |
 | instances | Object Array | Pod list. Details are shown below |
 
-"instances" parameter details
+*instances* parameter details
 
 
 | Parameter Name | Type | Description |
@@ -44,7 +44,7 @@ The following request parameter list only provides API request parameters. For o
 | containers | Object Array | Container array. See the container definition below |
 
 
-container definition (The container fields here are mainly used to describe the current status and status cause for the container. For detailed definitions of containers in pods, see API "Acquire Service", which returns detailed container parameters)
+*containers* definition (The container fields here are mainly used to describe the current status and status cause for the container. For detailed definitions of containers in pods, see API "Acquire Service", which returns detailed container parameters)
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|

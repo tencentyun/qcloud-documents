@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. For a
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| regionId | No | Int | Region ID. CPM availability zones currently include: 8 - Beijing, 4 - Shanghai |
+| regionId | No | Int | Region ID. CPM availability zones currently include: 8 - Beijing, 4 - Shanghai, 1-广州 |
 
 
 
@@ -38,6 +38,7 @@ The following request parameter list only provides API request parameters. For a
 |---------|---------|---------|
 | zoneId| Int| Availability zone ID |
 | zoneName | String | Availability zone name |
+| zoneEname | String | Availability zone English name |
 
 
 ## 4. Example
@@ -53,17 +54,51 @@ Output
 
 ```
 {
-    "code": 0,
-    "message": "",
+    "version": "1.0",
+    "eventId": 121,
+    "timestamp": 1352121016,
+    "componentName": "bmApi",
+    "returnCode": 0,
+    "returnMessage": "OK",
     "data": {
+        "1": {
+            "regionId": "1",
+            "regionName": "华南地区（广州）",
+            "setName": "ap-guangzhou-bls",
+            "zones": {
+                "1000100003": {
+                    "zoneId": "1000100003",
+                    "zoneName": "广州物理机一区 ",
+                    "zoneEname": "ap-guangzhou-bls-1"
+                }
+            }
+        },
+        "4": {
+            "regionId": "4",
+            "regionName": "华东地区（上海）",
+            "setName": "ap-shanghai-bls",
+            "zones": {
+                "1000400001": {
+                    "zoneId": "1000400001",
+                    "zoneName": "上海物理机一区",
+                    "zoneEname": "ap-shanghai-bls-1"
+                }
+            }
+        },
         "8": {
             "regionId": "8",
-            "regionName": "North China (Beijing)",
-            "setName": "bj",
+            "regionName": "华北地区（北京）",
+            "setName": "ap-beijing-bls",
             "zones": {
                 "1000800001": {
                     "zoneId": "1000800001",
-                    "zoneName": "CPM Beijing Zone 1"
+                    "zoneName": "北京物理机一区",
+                    "zoneEname": "ap-beijing-bls-1"
+                },
+                "1000800002": {
+                    "zoneId": "1000800002",
+                    "zoneName": "北京物理机二区",
+                    "zoneEname": "ap-beijing-bls-2"
                 }
             }
         }

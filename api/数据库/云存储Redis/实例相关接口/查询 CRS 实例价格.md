@@ -10,7 +10,7 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | zoneId | 是 | UInt | 实例所属可用区, 取值以[查询售卖可用区](http://www.qcloud.com/doc/api/260/4951)返回值为准 |
-| typeId | 是 | UInt | 实例类型：1 – 集群版，2 – 单机版|
+| typeId | 是 | UInt | 实例类型：1 – 集群版，2 – 主从版|
 | memSize | 是 | UInt | 容量大小, 1024的整数倍，单位：MB， 大小限制以[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口返回为准 |
 | goodsNum | 是 | UInt | 实例数量，数量限制以[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口返回为准 |
 | period | 是 | UInt | 购买或续费时长, 单位：月， 取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]|
@@ -38,7 +38,7 @@
 |11052|UserNotInWhiteList|用户不在白名单中|
 |10000|NoRedisService|请求的区域暂时不提供redis服务|
 |11062|NoTypeIdRedisService|请求的区域暂时不提供请求类型的redis服务|
-|11053|InvalidInstanceTypeId|请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原单机版)|
+|11053|InvalidInstanceTypeId|请求购买的实例类型错误（TypeId 1:集群版；2:主从版,即原主从版)|
 |10703|InvalidMemSize| 请求的容量不在售卖规格中（memSize应为1024的整数倍，单位：MB）|
 |11063|MemSizeNotInRange|请求的容量不在售卖容量范围内（请用[查询售卖规格](http://www.qcloud.com/doc/api/260/4974)接口查询售卖容量限制）|
 |11065|PeriodExceedMaxLimit|购买时长超过最大时长限制|

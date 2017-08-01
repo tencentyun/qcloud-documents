@@ -6,11 +6,10 @@ Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 语法示例：
 ```
 GET / HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
-
 > Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
 
 ### 请求行
@@ -19,34 +18,38 @@ GET / HTTP/1.1
 ~~~
 该 API 接口接受 GET 请求。
 
+#### 请求参数
+包含所有请求参数的请求行示例：
+```
+GET /?prefix=Prefix&delimiter=Delimiter&encoding-type=EncodingType&marker=Marker&max-keys=MaxKeys HTTP/1.1
+```
+具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+
+|参数名称|描述|必选|
+|:---|:-- |:--|
+| prefix |前缀匹配，用来规定返回的文件前缀地址|否|
+| delimiter |定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始 |否|
+| encoding-type |规定返回值的编码方式，可选值：url |否|
+| marker |默认以 UTF-8 二进制顺序列出条目，所有列出条目从marker开始|否|
+| max-keys |单次返回最大的条目数量，默认1000|否|
+
 ### 请求头
-
-**公共头部**
+#### 公共头部
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
-发起 Get Bucket（ List Object ）请求时，可以通过请求头帯参数：prefix，marker，delimiter 和 max-keys 对 list 做限定用以返回部分结果。另外，可以通过 encoding-type 对返回结果中的 Delimiter、Marker、Prefix、NextMarker 和 Key 这些元素进行编码。
-参数具体描述内容如下:
-
-|参数名称|描述|
-|:---|:-- |
-| prefix |前缀匹配，用来规定返回的文件前缀地址|
-| delimiter |定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始 |
-| encoding-type |规定返回值的编码方式，可选值：url |
-| marker |默认以 UTF-8 二进制顺序列出条目，所有列出条目从marker开始|
-| max-keys |单次返回最大的条目数量，默认1000|
-
-**非公共头部**
+#### 非公共头部
 该请求操作无特殊的请求头部信息。
+
 ### 请求体
 该请求的请求体为空。
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```

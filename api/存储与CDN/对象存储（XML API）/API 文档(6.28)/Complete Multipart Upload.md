@@ -5,7 +5,7 @@ Complete Multipart Upload 接口请求用来实现完成整个分块上传。当
 当上传块编号不连续的时候，在调用该 API 时，会返回 400 InvalidPart；
 当请求 Body 中的块信息没有按序号从小到大排列的时候，在调用该 API 时，会返回 400 InvalidPartOrder；
 当 UploadId 不存在的时候，在调用该 API 时，会返回 404 NoSuchUpload。
->**注意：**
+><font color="#0000cc">**注意：** </font>
 >建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
 
 ## 请求
@@ -13,7 +13,7 @@ Complete Multipart Upload 接口请求用来实现完成整个分块上传。当
 语法示例：
 ```
 POST /ObjectName?uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-length: Size
 Authorization: Auth String
@@ -35,7 +35,7 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 
 |参数名称|描述|类型|必选|
 |:---|:-- |:--|:--|
-| uploadId |标识本次分块上传的 ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。| String |是|
+| uploadId |标识本次分块上传的 ID 。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 | String |是|
 
 ### 请求头
 
@@ -43,10 +43,10 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 #### 非公共头部
-该请求操作的实现没有使用特殊的请求头部。
+该请求操作无特殊的请求头部信息。
 
 ### 请求体
-该请求的请求体具体节点内容为：
+该 API 接口请求的请求体具体节点内容为：
 ```
 <CompleteMultipartUpload>
   <Part>
@@ -77,13 +77,13 @@ Container 节点 Part 的内容：
 | ETag | CompleteMultipartUpload.Part | 每个块文件的 MD5 算法校验值 | String |是|
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
 
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <CompleteMultipartUploadResult>
@@ -93,8 +93,6 @@ Container 节点 Part 的内容：
   <ETag></ETag>
 </CompleteMultipartUploadResult>
 ```
-具体的数据内容如下：
-
 具体的数据内容如下：
 
 |节点名称（关键字）|父节点|描述|类型|

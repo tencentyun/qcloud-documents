@@ -151,9 +151,19 @@
         </tr>
         <!--视频处理-->
         <tr>
-            <td rowspan=5>
+            <td rowspan=7>
                 视频处理
             </td>
+            <td>
+                对视频文件进行处理
+            </td>
+            <td>
+                <a href="/document/product/266/9642">
+                    ProcessFile
+                </a>
+            </td>
+        </tr>
+        <tr>
             <td>
                 视频转码
             </td>
@@ -170,6 +180,16 @@
             <td>
                 <a href="/document/product/266/7821">
                     ConcatVideo
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                视频剪辑
+            </td>
+            <td>
+                <a href="/document/product/266/10156">
+                    ClipVideo
                 </a>
             </td>
         </tr>
@@ -266,6 +286,60 @@
             <td>
                 <a href="/document/product/266/7816">
                     DeleteClass
+                </a>
+            </td>
+        </tr>
+        <!--自定义转码模板管理-->
+        <tr>
+            <td rowspan=5>
+                自定义转码模板管理
+            </td>
+            <td>
+                创建转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9910">
+                    CreateTranscodeTemplate
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                更新转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9911">
+                    UpdateTranscodeTemplate
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                查询转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9912">
+                    QueryTranscodeTemplate
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                查询转码模板列表
+            </td>
+            <td>
+                <a href="/document/product/266/9913">
+                    QueryTranscodeTemplateList
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                删除转码模板
+            </td>
+            <td>
+                <a href="/document/product/266/9914">
+                    DeleteTranscodeTemplate
                 </a>
             </td>
         </tr>
