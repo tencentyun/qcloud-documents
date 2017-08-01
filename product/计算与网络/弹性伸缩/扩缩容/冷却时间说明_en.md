@@ -26,5 +26,5 @@ Use the following steps if you need to modify the cooldown period:
 
 - Open the details page of the scaling group;
 
-- Click **Alarm Trigger Policy**, select an appropriate alarm scaling policy, and then select "Modify" to specify the cooldown duration below the modification box (value range: 0-999,999 seconds)
+- Click **Alarm Trigger Policy**, select an appropriate alarm scaling policy, and then select **Modify** to specify the cooldown duration below the modification box (value range: 0-999,999 seconds)
 

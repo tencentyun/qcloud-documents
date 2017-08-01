@@ -1,4 +1,4 @@
-You can create a complete auto scaling solution by performing the following 3 steps:
+You can create a complete auto scaling solution by performing the following three steps:
 ![](https://mc.qcloudimg.com/static/img/3c1cc8d6a0bcab10fb527ed941635287/1.png)
 
 > Note: The example below are performed in the console. If you want to use API, refer to [API Usage Examples](https://www.qcloud.com/document/product/377/4232).
@@ -19,14 +19,14 @@ The CVMs which can be added manually and the cloud load balancers which can be b
 
 Click ![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png), and fill in the basic scaling configuration information in the pop-up page.
 
-## Selecting a Model
+## Select a Model
 - Name the configuration.
 - Select the same CVM model to which the scaling group is going to bind.
 
 ![](https://mc.qcloudimg.com/static/img/4cecf25e8ad9caa67271159c67d0b770/image.png)
 
 
-### Selecting an Image
+### Select an Image
 You can use a public image or a custom image to create the scaling configuration.
 
 It is strongly recommended that you use the custom image of which the environment has been deployed. The reasons include the following:
@@ -36,11 +36,11 @@ It is strongly recommended that you use the custom image of which the environmen
 
 Therefore, it is recommended to select a custom image here.
 Bind the image of the **CVM to which the scaling group is going to bind**.
-[How to create the image for the "CVM to which the scaling group is going to bind"?] (https://www.qcloud.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
+[How to create the image for the "CVM to which the scaling group is going to bind"?](https://www.qcloud.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
 ![](https://mc.qcloudimg.com/static/img/c9a614fedaccf6a5ab2c1a16634989cc/image.png)
 
 
-### Selecting a Storage and a Network
+### Select a Storage and a Network
 
 Set storage and network in this page.
 
@@ -58,9 +58,9 @@ If the data disk snapshot is specified in the scaling configuration, you need to
 >-  Customers who create a data disk based on a data disk snapshot should [submit a ticket for application](https://console.qcloud.com/workorder/category).
 >-  Auto Scaling service is free of charge, and newly added servers, hard disks and networks will be charged by the traffic of CVM instances, hard disks and networks. This page will display prices based on your settings.
 
-### Setting Information
+### Set Information
 ![](https://mc.qcloudimg.com/static/img/bd8a3a728126fc866ccf0c17d15a5d27/image.png)
-Select the login method and security group in the page of Set Information. The CVM instances added via the Auto Scaling service have free use of Cloud Security and Cloud Monitor services by default.
+Select the login method and security group in the **Set Information** page. The CVM instances added via the Auto Scaling service use Cloud Security and Cloud Monitor services for free by default.
 
 After configuration, this entry will be displayed in the scaling configuration list, as shown in the figure below:
 ![](https://mc.qcloudimg.com/static/img/67ba31fd6c1f12485bb8f96220aaf6af/image.png)
@@ -70,7 +70,7 @@ After configuration, this entry will be displayed in the scaling configuration l
 A scaling group is a collection of CVM instances following the same rules and serving the same scenario.
 Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Group** in the navigation bar.
 
-### Creating a Scaling Group
+### Create a Scaling Group
 Click ![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png), and fill in the basic information on scaling group in the pop-up page. Items with ![](//mccdn.qcloud.com/static/img/f9df27a1d1e0d42a7ff08dd884bfa34c/image.png) are required.
 
 - The current number of CVM instances in the scaling group will be kept between the minimum and the maximum scaling group sizes.
@@ -86,7 +86,7 @@ Click ![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.p
 After configuration, this entry will be displayed in the scaling group list, as shown in the figure below:
 ![](https://mc.qcloudimg.com/static/img/c1c64cdb16c11aaa6d31bc4781db62c4/image.png)
 
-### (Optional) Adding a CVM
+### Add a CVM (Optional) 
 Now, let's bind a CVM.
 
 Add the CVM instance to be bound in the CVM list. After configuration, this entry will be displayed in the scaling configuration list, as shown in the figure below:
@@ -100,7 +100,7 @@ The scaling group can adjust the number of CVMs based on the scaling policy:
 - Create a **scheduled task** to perform scaling activities as scheduled, and you can also set to execute the scheduled task periodically;
 - Create an **alarm trigger policy** to perform scaling activities according to cloud monitoring indicators (such as CPU utilization and memory usage).
 
-### Creating a Scheduled Task
+### Create a Scheduled Task
 If your load changes are predictable, you can set a scheduled task to plan your scaling activities. You can use this feature to automatically increase or decrease CVM instances on a scheduled and periodical basis to flexibly deal with traffic load changes and improve device utilization while saving deployment and instance costs.
 
 In the **Scaling Group** page, click the scaling group ID to enter the scaling group management page.
@@ -109,27 +109,27 @@ In the **Scaling Group** page, click the scaling group ID to enter the scaling g
 Select the **Scheduled Task** tab, and click **New**.
 ![](https://mc.qcloudimg.com/static/img/7220116ccd32f605cd95eb22b3ad4917/image.png)
 
-Specify information such as the scheduled task name, execution time, and activities to be executed in the New page. You can also check "Repeat" to define the interval for the execution of a scheduled task.
+Specify information such as the scheduled task name, execution time, and activities to be executed in the New page. You can also check **Repeat** to define the interval for the execution of a scheduled task.
 ![](https://mc.qcloudimg.com/static/img/08db19c1a8385f99481151f1555671f3/image.png)
 
 After setting, the scheduled task will be displayed in the list on the page, as shown in the figure below:
 ![](https://mc.qcloudimg.com/static/img/2ca03a7a966ff4c735894d23ccd434c8/image.png)
 
-## Creating an Alarm Trigger Policy
+## Create an Alarm Trigger Policy
 If you wish to adjust business deployment based on CVM metrics, you can customize the alarm trigger policy, which will automatically increase or decrease the number of CVM instances when business load pushes the metrics to the threshold. This flexibly deals with traffic load changes, improves device utilization, and saves deployment and instance costs.
 
-> - When a scaling group is created, a ping unreachable alarm trigger policy is created by default to replace the unhealthy sub-machine.
+> - When a scaling group is created, a ping unreachable alarm trigger policy is created by default to replace the unhealthy machine.
 > - Before using the alarm trigger policy, you need to install a new version of Cloud Monitor Agent in the CVM image. For the installation method, refer to [Install Monitoring Components](/doc/product/248/安装监控组件)
 
-In the "Scaling Group" page, click the scaling group ID to enter the scaling group management page.
+In the **Scaling Group** page, click the scaling group ID to enter the scaling group management page.
 ![](https://mc.qcloudimg.com/static/img/ed6f655bf432ef76e6621d1bd83185d5/image.png)
 
-Select the **Alarm Trigger Policy** tab, and click "New".
+Select the **Alarm Trigger Policy** tab, and click **New**.
 ![](https://mc.qcloudimg.com/static/img/918a9b5b2ca2c7c050ac34170a16a4cb/image.png)
 
 Set the alarm policy in the New page to automatically increase or decrease CVM instances by a specified number or percentage for the scaling group based on cloud monitoring performance metrics (such as CPU, memory, and bandwidth).
 
-You can also copy the existing policy of an existing scaling group to the current scaling group by setting in the Copy Policy (Optional).
+You can also copy the existing policy of an existing scaling group to the current scaling group by setting in the **Copy Policy (Optional)**.
 ![](https://mc.qcloudimg.com/static/img/1b026efe9c6e27b2db0ae70d37b6dcc1/image.png)
 
 After setting, the alarm trigger policy will be displayed in the list on the page, as shown in the figure below:

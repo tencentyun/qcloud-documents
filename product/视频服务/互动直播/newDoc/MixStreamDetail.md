@@ -9,7 +9,18 @@
 对于在使用腾讯视频云业务(包括直播、互动直播)的用户，都可以通过[接口](https://www.qcloud.com/document/product/267/8832)实现在云端混流
 
 ### 流ID
-混流的基础为视频流，对互动直播来说，直播码就是视频流id，具体参考[直播码模式下旁路直播](https://www.qcloud.com/document/product/268/8560)
+混流的基础为视频流，对互动直播来说，直播码就是视频流id。
+
+在自动开启旁路直播的情况下，房间内所有视频(主播及上麦观众)都会产生对应的直播视频流。
+```
+直播码=BIZID_MD5(房间号_用户名_数据类型)
+
+摄像头数据类型是main
+屏幕分享的数据类型是aux
+
+播放地址=传输协议://BIZID.liveplay.myqcloud.com/live/直播码[.格式]
+```
+详见[直播码模式下旁路直播](https://www.qcloud.com/document/product/268/8560)
 
 ### 混流接口
 混流接口实际是一个基于HTTP协议的Post请求
@@ -41,12 +52,15 @@ output_stream_type|混流输出流类型|int|指定输出流类型。当输出�
 mix_stream_template_id|混流模版|int|输入模版ID。目前两输入源支持10、20、30、40；三输入源支持310、390、391；四输入源支持410；五输入源支持510、590；六输入源支持610。不填默认为0。|N
 
 #### 混流配置示例
-
+##### 将两路视频混合成一路新的视频
+新视频的流id为自定义字符串(唯一)
 ```
 将A和B混成新一路流C
 output_stream_id  C
 output_stream_type 0
-
+```
+##### 将两路视频混合后替换原视频
+```
 将A和B混成流替换A
 output_stream_id  A
 output_stream_type 1
