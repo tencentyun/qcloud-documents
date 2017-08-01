@@ -21,6 +21,8 @@ Kubernetes 集群在启动时会默认创建 `default` 和 `kube-system` 这两�
 2. 点击 **Namespace列表** ，单击【新建Namespace】。
  ![Alt text](https://mc.qcloudimg.com/static/img/56c29533e95348e62e1129ebf1c310d0/r.png)
 3. 填写信息并点击【提交】。
+ - **名称**：输入 Namespace 的名称。
+ - **描述**：创建 Namespace 的相关信息。该信息将显示在 **Namespace列表** 页面。
 ![](https://mc.qcloudimg.com/static/img/4abaa7a0be188a3832c6878d1a86c043/t.png)
 
 ### 查看Namespace列表
