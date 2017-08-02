@@ -82,11 +82,6 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
  */
 @property (nonatomic)WBOCRSDKType SDKType;
 /**
- * @brief debug开关，default NO，表示生产环境
- */
-@property (nonatomic)BOOL isDubug;
-
-/**
  * @brief 设置身份证照片预览页面上的水印信息，default @"仅供本次业务使用"
  */
 @property (nonatomic,copy)NSString * _Nullable waterMarking;
