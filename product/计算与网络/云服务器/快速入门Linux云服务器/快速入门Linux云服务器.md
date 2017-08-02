@@ -21,7 +21,7 @@
 - 普及型：适合常使用云计算等一定计算量的需求。如：门户网站、SaaS 软件、小型 App 。
 - 应用型：适用于并发要求较高的应用及适合对云服务器网络及计算性能有一定要求的应用场景。如：大型门户、电商网站、游戏 App 。
 
-若推荐的配置不能满足您的需求，您可以在[【更多机型】](https://buy.qcloud.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级)  或  [配置降级](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) 。
+若推荐的配置不能满足您的需求，您可以在[【更多机型】](https://buy.qcloud.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级)  或  [配置降级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) 。
 
 ### 确定付费方式
 腾讯云提供 包年包月 和 按量付费 两种付费模式。详见 [计费模式说明](https://www.qcloud.com/document/product/213/2180) 。
