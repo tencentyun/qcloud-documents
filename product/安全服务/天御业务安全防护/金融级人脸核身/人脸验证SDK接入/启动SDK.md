@@ -1,5 +1,5 @@
 ### 生成签名
-1.**前置条件**：必须按照章节5.2获取NONCE ticket.
+1.**前置条件**：必须按照[获取NONCE ticket](https://www.qcloud.com/document/product/295/10136?!preview&lang=cn).
 2.合作方根据本次人脸验证的如下参数生成签名,需要签名的参数信息如下：
 
 | 参数 | 说明 | 

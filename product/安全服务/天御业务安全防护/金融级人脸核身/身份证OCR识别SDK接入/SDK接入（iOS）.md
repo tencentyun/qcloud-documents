@@ -1,4 +1,4 @@
-### 1. SDK导入&&配置
+### 1. SDK导入&配置
 1. 将WBOCRService.framework以及WBWallet.bundle添加到项目中
 2. Build Setting --> Linking --> other linker flag 设置 增加 -ObjC和-lzlinker flag
 3. SDK中需要使用camera，需要在 Info.plist中添加 NSCameraUsageDescription为key的键值对
