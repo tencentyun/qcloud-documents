@@ -19,7 +19,6 @@ It is required to learn about the following basic knowledge before docking the p
  This situation looks better on PC, because PC browsers still use flash controls, which supports various video source formats. Besides, the flash controls for different browsers are all developed by Adobe itself, thus they have good compatibility. (Just a reminder for you: Google has recently disabled Flash in Chrome.)
 ![](https://mc.qcloudimg.com/static/img/e59d010141e8fb6b063c180cb16bae65/image.png)
 
-![](http://mc.qcloudimg.com/static/img/ea4a95c7a0c8d88c7b6557277510efea/image.png)
 
 ## Docking
 
@@ -169,7 +168,7 @@ This is an online sample code segment which uses multi-definition selection and 
 [http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true)
 
 You will see this under normal circumstances:
-![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
+![](https://mc.qcloudimg.com/static/img/bc4c39cd88f1c17bec28fe1796fb691a/image.png)
 
 **PC now supports video playback in multiple definitions as well as definition switching. This is currently not supported on mobile devices.**
 
