@@ -15,7 +15,7 @@ AS sends a notification on a **user group** basis, rather than **recipient**.
 
 **Scenario example:**
 
-- If you wish you are the only person to receive the notification, you can create a user group with your contact info only.
+- If you want you are the only person to receive the notification, you can create a user group with your contact information only.
 
 - You have defined a number of notification recipients, who may be in the same or different departments. You may wish that a certain type of notifications to be sent to the recipients of department A, and another type to the recipients of department B. Then you can define a user group, and put the different notification recipients to this particular user group.
 

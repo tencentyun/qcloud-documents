@@ -1,8 +1,7 @@
-以下为通过MySQL命令行连接DCDB的相关操作流程。
-## 准备步骤
-### 新建用户权限
-1. 在 [DCDB控制台](https://console.cloud.tencent.com/dcdb) 中，单击需要操作的实例最右方的【管理】，进入实例详情页面。
-![](https://mc.qcloudimg.com/static/img/e1220243ef39496cd62c0f5982fc87fe/r1.png)
+以下为通过 MySQL 命令行连接 DCDB 的相关操作流程。
+## 新建用户权限
+1. 在 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb) 中，单击需要操作的实例最右方的【管理】，进入实例详情页面。
+![](https://mc.qcloudimg.com/static/img/b6b5f755a5fef7d716558abf151892d3/image.png)
 2. 在实例详情页面单击【账号管理】，进入帐号管理页面。
 ![](https://mc.qcloudimg.com/static/img/4e60badccaa63bf1632dbe1ed948793f/r2.png)
 3. 单击创建帐号，依次输入用户名、主机、密码、备注，检查无误后单击【确定】，进入设置权限页面。
@@ -23,15 +22,12 @@
 	![](https://mc.qcloudimg.com/static/img/fc3d50322e3547722a8d3e29e479b2e5/r6.png)	
 
 2. 稍等片刻后，即可获得外网地址以及端口号。
-	> DCDB 提供了唯一的 IP，端口供用户访问和使用。
+	> DCDB提供了唯一的IP，端口供用户访问和使用。
 
 	![](https://mc.qcloudimg.com/static/img/234c21d6897515b6623055301771dd24/r7.png)
 
-## 连接步骤
-- 在创建用户权限和获取外网地址后，DCDB 可通过第三方工具和程序驱动进行连接，在 WINDOWS 端，以命令行连接、客户端连接和JDBC驱动连接三种方式为示例。在LINUX端，以命令行连接为示例。
-
-### WINDOWS 命令行连接
-1. 打开 WINDOWS 命令行，在 mysql 的正确路径下输入以下命令。
+### 完成连接命令
+- 在创建用户和获取外网地址后，可通过第三方工具进行连接，这里以 MySQL 命令行连接为例。
 
 		mysql -h外网地址 -P端口号 -u用户名  -p
 		Enter password: **********（输入密码）
@@ -39,38 +35,3 @@
 - 将相关代码正确输入后，显示如下信息，成功连接数据库，下一步即可进行数据库内相关操作。
 
 		Welcome to the MySQL monitor.  Commands end with ; or \g.
-
-### WINDOWS 客户端连接
-1. 下载一个标准的 SQL 客户端，例如 MySQL Workbench 、SQLyog等。这里我们以SQLyog为示例。
-2. 打开 SQLyog 选择【文件】>【新连接】，输入对应的主机地址、端口、用户名和密码，单击【连接】，进行登录。
-> 我的SQL主机地址：输入前面获得的外网地址。
-> 用户名：输入前面创建用户的用户名。
-> 密码：输入前面创建用户的密码。
-> 端口：输入获取外网地址所分配的端口。
-
-	![](//mc.qcloudimg.com/static/img/ee0a9b423103292797873f78637e960b/image.png)
-3. 成功连接后的界面如图所示，在此页面即可进行数据库内相关操作。![](//mc.qcloudimg.com/static/img/93ecf636452505760086db5972d5fc6b/image.png)
-
-### WINDOWS JDBC驱动连接
-> DCDB支持程序驱动连接，这里我们以JAVA使用 JDBC Driver for MySQL (Connector/J)连接DCDB为示例。
-
-1. 首先在 MySQL 官网下载一个JDBC的jar包，将其导入 JAVA 引用的 Library 中。
-2. 调用JDBC代码如下：
-		public static final String url = "外网地址";
-		public static final String name = "com.mysql.jdbc.Driver";//调用JDBC驱动
-		public static final String user = "用户名";
-		public static final String password = "密码";
-		//JDBC
-		Class.forName("com.mysql.jdbc.Driver"); 
-				Connection conn=DriverManager.getConnection("url, user, password");
-		//
-		conn.close();
-3. 连接成功后，下一步即可进行其他数据库内操作。
-> 注意：因为DCDB在分表和插入数据时需要标记Shardkey，所以无法用JDBC调用这些操作。 
-
-### LINUX 命令行连接
-> 我们以腾讯云服务器中 CentOS 7.2 64位系统的CVM为例，关于腾讯云服务器的购买详情，可以参考[云服务器选购](https://buy.qcloud.com/cvm)。
-
-1. 登录Linux后，输入命令 `yum install mysql` ,利用 CentOS 自带的包管理软件Yum在腾讯云的镜像源中下载安装 MySQL 客户端。
-![](//mc.qcloudimg.com/static/img/7f6a1f7a953cc38809fa069182481a22/image.png)
-2. 命令行显示 complete 后，MySQL 客户端安装完成。我们输入命令`mysql -h外网地址 -P端口 -u用户名 -p密码`连接DCDB。下一步即可进行数据库内相关操作。下图中以`show databases;`为例。![](//mc.qcloudimg.com/static/img/b3fba8f8ace315e5eba05fdd252bd4c0/image.png)
