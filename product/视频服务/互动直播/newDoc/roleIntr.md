@@ -44,6 +44,20 @@ option.controlRole = @"LiveMaster";//角色字符串来自腾讯云控制台spea
 }];
 ```
 
+PC
+```c++
+iLiveRoomOption roomOption;
+roomOption.controlRole = "LiveMaster"; // 使用LiveMaster角色
+```
+
+IE
+```js
+sdk.createRoom(roomid, "LiveMaster", // 使用LiveMaster角色
+    function () {
+    }, function (errMsg) {
+    }, false);
+```
+
 ### 如何切换角色
 用户在进进入房间后，仍然可以根据需求调整角色
 
@@ -51,16 +65,16 @@ Android:
 ```
 // 切换角色为 LiveGuest
 ILiveRoomManager.getInstance().changeRole("LiveGuest", new ILiveCallBack() {
-            @Override
-            public void onSuccess(Object data) {
-                //...
-            }
+    @Override
+    public void onSuccess(Object data) {
+        //...
+    }
 
-            @Override
-            public void onError(String module, int errCode, String errMsg) {
-                //...
-            }
-        });
+    @Override
+    public void onError(String module, int errCode, String errMsg) {
+        //...
+    }
+});
 ```
 
 
@@ -69,10 +83,10 @@ IOS:
 // 切换角色为 LiveGuest
 ILiveRoomManager *manager = [ILiveRoomManager getInstance];
 [manager changeRole:@"LiveGuest" succ:^ {
-        NSLog(@"角色改变成功");
-    } failed:^(NSString *module, int errId, NSString *errMsg) {
-        NSLog(@"角色改变失败");
-    }];
+    NSLog(@"角色改变成功");
+} failed:^(NSString *module, int errId, NSString *errMsg) {
+    NSLog(@"角色改变失败");
+}];
 ```
 
 MacOS
@@ -115,5 +129,7 @@ function(err){
 
 ### 角色的高阶应用
 根据网络状态调整动态当前的视频质量：
+
 用户可以在腾讯云针对主播，观众分别配置多个角色(高清，标清，流畅)，用户可以检测当前的网络状态，动态调整当前使用的角色，以达到动态修改视频质量的效果
-可以参照随心播。
+
+*可以参照[随心播](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo)*

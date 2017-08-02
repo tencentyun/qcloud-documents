@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口(SubnetUnBindBmNatGateway)用黑石于NAT网关解绑子网
+本接口(SubnetUnBindBmNatGateway)用黑石于NAT网关解绑子网，可解绑全部IP的子网和部分IP的子网
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
@@ -11,7 +11,7 @@
 |---------|---------|---------|---------|
 | natId | 是 | String | NAT网关统一ID，例如：nat-8pbrkzh6|
 | vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| subnetIds.n | 是 | array | 子网唯一ID。例如：subnetIds.0=subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+| subnetIds.n | 是 | array | 需要解绑的子网唯一ID数组。例如：subnetIds.0=subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 
 
 ## 3. 输出参数
@@ -27,6 +27,7 @@
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
+| 10001 | BmVpc.InvalidParameterValue | 参数设置错误，具体错误信息可查看返回的message信息 |
 | -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
 | -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 | 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
@@ -40,7 +41,8 @@ https://vpc.api.qcloud.com/v2/index.php?Action=SubnetUnBindBmNatGateway
 &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 &natId=nat-8pbrkzh6
 &vpcId=vpc-ddf411
-&assignedEipSet.0=183.60.249.122
+&subnetIds.0=subnet-11111
+&subnetIds.1=subnet-22222
 </pre>
 输出
 ```
