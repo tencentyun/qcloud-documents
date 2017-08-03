@@ -1,11 +1,12 @@
 ### 1. 准备工作
+接入安全SDK，开发者需要完成以下步骤： 
 ```
 （1）根据游戏运行平台和支持的CPU架构将SDK动态库拷贝到指定工程目录 
 （2）根据用户登录信息调用SDK接口函数 
 （3）验证SDK接入是否正确
 ```
 
-接入安全SDK，开发者需要完成以下步骤： 
+安全SDK在开发语言为C/C++的Android系统下接入需要的相关文件有以下:
 ```
 tp2.jar
 tp2_sdk.h
@@ -13,7 +14,7 @@ tss_sdt.h,tss_sdt_ex.h（安全数据类型选接，接入教程见《SDK安全�
 libtersafe2.so
 ```
 
-安全SDK在开发语言为C/C++的Android系统下接入需要的相关文件有以下:
+需要申请的权限：
 ```
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> 
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
@@ -21,7 +22,6 @@ libtersafe2.so
 <uses-permission android:name="android.permission.GET_TASKS" /> 
 <uses-permission android:name="android.permission.INTERNET" />
 ```
-需要申请的权限
 
 SDK接口函数：
 ```
@@ -29,7 +29,6 @@ SDK接口函数：
 用户登录接口 tp2_setuserinfo
 前后台切换接口 tp2_setgamestatus
 ```
-
 
 ### 2. 添加SDK文件到工程
 #### 2.1 添加文件
