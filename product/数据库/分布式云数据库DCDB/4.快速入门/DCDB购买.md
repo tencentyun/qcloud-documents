@@ -10,10 +10,9 @@
 - 登录 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb)，单击 [新建](https://buy.cloud.tencent.com/dcdb) 进入购买界面。
 	![](https://mc.qcloudimg.com/static/img/0f6bc721d0d1f5afa480b3933def8ae5/r3.png)
 	
-## 购买界面
+## 购买步骤
 > 注意：处在不同地域的云产品内网不通。实例版本请参考 [实例版本文档](https://cloud.tencent.com/document/product/237/6918)。分片配置请参考 [分片配置文档](https://cloud.tencent.com/document/product/557/9347)。计费详情请参考 [产品价格文档](https://cloud.tencent.com/document/product/237/2034)。
 
-### 购买步骤
 1. 在购买界面根据需求选择对应的地域、网络类型及分片配置，单击立即购买。
 	![](https://mc.qcloudimg.com/static/img/276167a188a20485323856cf5062ca04/r4.png)
 2. 核对信息无误后，单击确认购买进行支付。
