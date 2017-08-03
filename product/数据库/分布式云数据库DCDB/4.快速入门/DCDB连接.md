@@ -35,7 +35,7 @@
 		mysql -h外网地址 -P端口号 -u用户名  -p
 		Enter password: **********（输入密码）
 ```
-- 将相关代码正确输入后，显示如下信息，成功连接数据库，下一步即可进行DCDB分表操作。
+- 将相关代码正确输入后，显示如下信息，成功连接数据库，下一步即可进行 DCDB 分表操作。
 ```
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 ```
