@@ -1,15 +1,17 @@
 以下为通过 MySQL 命令行连接 DCDB 的相关操作流程。
-## 新建用户权限
-1. 在 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb) 中，单击需要操作的实例最右方的【管理】，进入实例详情页面。
+### 新建用户权限
+1. 在 [ DCDB 控制台](https://console.cloud.tencent.com/dcdb) 中，单击需要操作的实例的【管理】，进入实例详情页面。
 ![](https://mc.qcloudimg.com/static/img/b6b5f755a5fef7d716558abf151892d3/image.png)
 2. 在实例详情页面单击【账号管理】，进入帐号管理页面。
 ![](https://mc.qcloudimg.com/static/img/4e60badccaa63bf1632dbe1ed948793f/r2.png)
 3. 单击创建帐号，依次输入用户名、主机、密码、备注，检查无误后单击【确定】，进入设置权限页面。
-	> 主机名实际是网络出口地址。这里支持%这样的匹配方式，代表所有IP均可访问。
+	> **注意：**
+	> 主机名实际是网络出口地址，支持填入 % 的匹配方式，代表所有 IP 均可访问。
 	
 	![](https://mc.qcloudimg.com/static/img/00f4abaa96562c16f0aa3a3af0e30c00/r3.png)
 4. 在设置权限页面，根据需求分配权限后，单击【保存设置】即可完成权限分配。若需要稍后设置权限，单击【之后设置】即可。
-	> 通过左边的导航栏，我们提供了完全兼容MySQL管理方式的图形化界面，权限管理可以细化到列级。
+  >**注意**：
+	> 通过左边的导航栏，我们提供了完全兼容 MySQL 管理方式的图形化界面，权限管理可以细化到列级。
 
 	![](https://mc.qcloudimg.com/static/img/9029ee57e3892fe92ac0c3a5ead80dbb/r4.png)
 
@@ -21,17 +23,19 @@
 
 	![](https://mc.qcloudimg.com/static/img/fc3d50322e3547722a8d3e29e479b2e5/r6.png)	
 
-2. 稍等片刻后，即可获得外网地址以及端口号。
-	> DCDB提供了唯一的IP，端口供用户访问和使用。
+2. 稍等约一分钟后，即可获得外网地址以及端口号。
+	> **注意：**
+	> DCDB 提供了唯一的 IP，端口供用户访问和使用。
 
 	![](https://mc.qcloudimg.com/static/img/234c21d6897515b6623055301771dd24/r7.png)
 
 ### 完成连接命令
 - 在创建用户和获取外网地址后，可通过第三方工具进行连接，这里以 MySQL 命令行连接为例。
-
+```
 		mysql -h外网地址 -P端口号 -u用户名  -p
 		Enter password: **********（输入密码）
-
-- 将相关代码正确输入后，显示如下信息，成功连接数据库，下一步即可进行数据库内相关操作。
-
-		Welcome to the MySQL monitor.  Commands end with ; or \g.
+```
+- 将相关代码正确输入后，显示如下信息，成功连接数据库，下一步即可进行DCDB分表操作。
+```
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+```
