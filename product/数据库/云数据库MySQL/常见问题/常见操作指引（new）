@@ -9,7 +9,7 @@
 ```
  set global long_query_time = 1
 ```
-详细请参考 [MySQL官方手册](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time)。
+详情请参考 [MySQL官方手册](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time)。
 
 ## 3. 如何授权其他用户操作云数据库
 
@@ -24,7 +24,7 @@ by 'mypasswd';
 
 国内地域的云数据库外网访问已正式发布，香港与北美地域暂不支持外网访问。
 如果您需要通过外网访问，可以通过在有外网 IP 的云服务器上搭建 MySQL Proxy 的方式，利用 MySQL Proxy 进行访问。
-详细请参考 [MySQL Proxy官方手册](http://dev.mysql.com/downloads/mysql-proxy/)。
+详情请参考 [MySQL Proxy官方手册](http://dev.mysql.com/downloads/mysql-proxy/)。
 搭建方法参考如下：
 1. 下载 mysql-proxy 安装包到云服务器。
 ```
@@ -79,4 +79,4 @@ cd mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit/bin
 
 ## 7. 云数据库如何做读写分离
 
-可通过购买只读实例做读写分离。详情请参考 [只读实例](https://www.qcloud.com/document/product/236/7270)。
+可通过购买只读实例做读写分离。详情请参考 <a href="https://www.qcloud.com/document/product/236/7270" target="_blank">只读实例</a>。
