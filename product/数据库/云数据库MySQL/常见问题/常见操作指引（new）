@@ -1,10 +1,10 @@
 ## 1. 如何备份数据
 
-云数据库实例每天会进行全量备份，开发者可以在控制台外网或者内网下载备份数据，也可以在 phpMyAdmin 控制台中手动备份数据库。
+云数据库实例每天会进行全量备份，开发者可以在控制台外网或者内网下载备份数据（详情请参考 <a href="https://www.qcloud.com/document/product/236/7274?!preview=true&lang=zh" target="_blank">下载备份文件</a>），也可以在 phpMyAdmin 控制台中手动备份数据库。
 
 ## 2. 如何查看云数据库慢查询日志
 
-可在云数据库控制台导出并查看并慢查询日志。
+可在 [云数据库控制台](https://console.qcloud.com/cdb) 导出并查看慢查询日志。
 云数据库的慢查询时间参数 `long_query_time` 的默认值是 10 秒，用户可以自行修改，命令如下：
 ```
  set global long_query_time = 1
@@ -20,29 +20,29 @@ grant SELECT,INSERT, UPDATE, DELETE, CREATE, DROP, ALTER on *.* to 'myuser'@'%' 
 by 'mypasswd';
 ```
  
-## 4. 如何通过公网访问云数据库
+## 4. 如何通过外网访问云数据库
 
 国内地域的云数据库外网访问已正式发布，香港与北美地域暂不支持外网访问。
-如果您需要通过公网访问，可以通过在有公网 IP 的云服务器上搭建 MySQL Proxy 的方式，利用 MySQL Proxy 进行访问。
+如果您需要通过外网访问，可以通过在有外网 IP 的云服务器上搭建 MySQL Proxy 的方式，利用 MySQL Proxy 进行访问。
 详细请参考 [MySQL Proxy官方手册](http://dev.mysql.com/downloads/mysql-proxy/)。
 搭建方法参考如下：
-1. 下载 mysql-proxy 安装包到云服务器
+1. 下载 mysql-proxy 安装包到云服务器。
 ```
 wget http://cdn.mysql.com/Downloads/MySQL-Proxy/mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit.tar.gz
 ```
 
-2. 解压上述安装包
+2. 解压上述安装包。
 ```
 tar -xzf mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit.tar.gz 
 ```
 
-3. 查看解压出来的目录
+3. 查看解压出来的目录。
 ```
 ls mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit
 ```
-目录下包含有 bin、lib、libexec 等目录： bin、libexec 目录包含 mysql proxy 等程序，lib 目录带有程序依赖的库，如 glibc、pcre 等。 请保持 bin、lib、libexec 目录的相对路径关系，避免找不到依赖的库。
+目录下包含有 bin、libexec、lib 等目录： bin、libexec 目录包含 mysql proxy 等程序，lib 目录带有程序依赖的库，如 glibc、pcre 等。 请保持 bin、libexec、lib 目录的相对路径关系，避免找不到依赖的库。
 
-4. <span id="document_access_step4"></span>进入 mysql proxy 所在目录并运行
+4. <span id="document_access_step4"></span>进入 mysql proxy 所在目录并运行。
 ```
 cd mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit/bin 
 ./mysql-proxy --proxy-backend-addresses=10.**.**.17:3306 --proxy-address=:4040 
@@ -51,8 +51,8 @@ cd mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit/bin
 --proxy-backend-addresses=10.\*\*.\*\*.17:3306， 云数据库的 ip 和端口,您需要把其中的 10.\*\*.\*\*.17:3306 换成您的云数据库的 ip 和端口。
 --proxy-address=:4040，代理的监听地址和端口。默认是":4040"，表示本机所有 4040 端口的所有 ip。 
 还可以在命令后面添加一些参数：
---daemon，让代理处于后台运行
---keepalive，代理崩溃后尝试重启代理
+--daemon，让代理处于后台运行。
+--keepalive，代理崩溃后尝试重启代理。
 运行命令后，会显示如下信息，提示代理搭建成功：
 ```
 2014-09-01 11:56:38: (critical) plugin proxy 0.8.4 started 
