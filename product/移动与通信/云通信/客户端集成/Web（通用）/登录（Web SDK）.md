@@ -39,6 +39,8 @@ function tlsLogin() {
 ```
 
 如果已经拿到了临时凭证，则继续调用`TLSHelper.fetchUserSig()`获取正式身份凭证，成功之后会回调`tlsGetUserSig(res)`函数。 
+	
+注：独立模式可直接用已生成的usersig与usersig对应的帐号放入loginInfo中，然后进行下一步去登录sdk。详情可参考demo。
 
 **示例： **
 

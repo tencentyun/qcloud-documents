@@ -33,12 +33,12 @@ The computing cluster to be urgently scaled up is deployed in the following way:
 
 ![Alt text](https://mc.qcloudimg.com/static/img/d7208378accfb11c320668ee5089a0c3/02.png)
  
-Here, you can see that by placing the Compute Node urgently requiring massive scalability into AS, iCarbonX can create HPC clusters with 1,000+ cores and 100+ TB in minutes,  and greatly improve the stability and real-timeness of the computing cluster while reducing human input, thus greatly saving the cost.
+Here, you can see that by placing the Compute Node urgently requiring massive scalability into AS, iCarbonX can create HPC clusters with 1,000+ cores and 100+ TB in minutes, and greatly improve the stability and real-timeness of the computing cluster while reducing human input, thus greatly saving the cost.
 
 > Note:
 > Tencent Cloud has completed the deployment of cloud disks with 60,000+ cores and 10,000+ TB for HPC customers, all of which are delivered in minutes.
 
-## Values for Customer Success
+## Customer Value
 
 - Ultra-high computing capability and high scalability of Tencent Cloud enables customers to run high-performance computing on the cloud to improve research speed. With AS, iCarbonX has easily achieved the scale-out deployment of 1,000+ cores and 100+ TB.
 - By combining the flexible cloud platform with Tencent Cloud pay-by-usage mode (in seconds), customers can receive quality computing services with the lowest investment for cost saving.
