@@ -6,8 +6,8 @@
 
 ## 3. 使用云数据库前要做什么准备
 需要考虑：
-1. 您的应用是否适合使用 DB？比如数据量小、访问量高、key-value 存储的场景就应该考虑使用内存级持久化存储服务[【云缓存Memcached】](https://www.qcloud.com/product/cmem)。
-2. 考虑一下您的数据库设计是否合理？比如有明显访问热点或者数据量过大的表，则应该考虑拆分成多个表。 
+1. 您的应用是否适合使用 DB？比如数据量小、访问量高、key-value 存储的场景就应该考虑使用内存级持久化存储服务 [【云缓存Memcached】](https://www.qcloud.com/product/cmem)。
+2. 您的数据库设计是否合理？比如有明显访问热点或者数据量过大的表，则应该考虑拆分成多个表。 
 
 ## 4. 云数据库的binlog保存时间是多久
 由于 MySQL binlog 会占用大量的存储空间，所以云数据库只保存最近 3 天的 binlog。另外，如果 binlog 数据量增加太快，服务器磁盘存储不下 3 天的 binlog，会人工删除 binlog，释放空间。
@@ -48,18 +48,18 @@ MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭�
 如果连接数 max_connections 到达极限值，那么该实例基本上已经无法正常提供服务，一般是由以下原因造成的：
 - 业务程序 bug 导致的空连接过多；
 - 前端过来的访问远远超出实例的处理能力；
-- 某个连接执行了太久地占用了 MySQL 的独占资源，导致大量的访问请求被阻塞。
+- 某个连接执行了太久，独占了 MySQL 的资源，导致大量的访问请求被阻塞。
 
 ## 9. 云数据库对数据量有什么限制？
 
-详见：[云数据库数量限制](https://www.qcloud.com/document/product/236/7259#1-.E6.95.B0.E6.8D.AE.E9.87.8F.E9.99.90.E5.88.B61)
+详见 <a href="https://www.qcloud.com/document/product/236/7259#1-.E6.95.B0.E6.8D.AE.E9.87.8F.E9.99.90.E5.88.B61" target="_blank">云数据库数量限制</a>。
 
 ## 10. 使用云数据库的注意事项？
-详见：[云数据库操作限制](https://www.qcloud.com/document/product/236/7259#7-.E6.93.8D.E4.BD.9C.E9.99.90.E5.88.B67)
+详见 <a href="https://www.qcloud.com/document/product/236/7259#7-.E6.93.8D.E4.BD.9C.E9.99.90.E5.88.B67" target="_blank">云数据库操作限制</a>。
 
 ## 11. 如何登录云数据库？
 开发人员通过 IP/Port 的方式就可以完全控制和管理 MySQL 实例，无需登录到服务器进行操作。
-可通过命令行或者云数据库管理台登录云数据库，详见：[访问MySQL数据库](https://www.qcloud.com/document/product/236/3130)。
+可通过命令行或者云数据库管理台登录云数据库，详见 <a href="https://www.qcloud.com/document/product/236/3130" target="_blank">访问MySQL数据库</a>。
 
 ## 12. 是否可以自助修改 MySQL 实例的配置？
 MySQL 实例的配置由云数据库统一管理，并支持部分参数的自助修改，详细请参考下面的问题 [如何修改云数据库配置参数](#change_parameter_21)。
