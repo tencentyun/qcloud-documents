@@ -79,10 +79,10 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 
 ## 17. 云数据库的默认字符集编码能修改么？
 可以修改。
-默认字符集说明以及修改方法详见：[云数据库使用限制](https://www.qcloud.com/document/product/236/7259#6-.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E6)。 
+默认字符集说明以及修改方法详见 <a href=https://www.qcloud.com/document/product/236/7259#6-.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E6"" target="_blank">云数据库使用限制</a>。
 
 ## 18. 如何查看云数据库慢查询日志？
-可通过云数据库数据导出工具获取慢查询日志，详见：[下载备份文件](https://www.qcloud.com/document/product/236/7274)。
+可通过云数据库数据导出工具获取慢查询日志，详见 <a href="https://www.qcloud.com/document/product/236/7274" target="_blank">下载备份文件</a>。
 
 ## 19. 开发者自己如何备份数据？
 云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见手动备份与恢复云数据库，或者通过 mysqldump 工具自己备份数据。
@@ -140,10 +140,10 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 更多请参考 [云数据库可以修改的配置](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/cdb_user_modify_var.xls)。
 
 ## 22. 云数据库的连接数有限制吗？
-详见：[云数据库链接数限制](https://www.qcloud.com/document/product/236/7259#2-.E8.BF.9E.E6.8E.A5.E6.95.B0.E9.99.90.E5.88.B62)
+详见 <a href="https://www.qcloud.com/document/product/236/7259#2-.E8.BF.9E.E6.8E.A5.E6.95.B0.E9.99.90.E5.88.B62" target="_blank">云数据库链接数限制</a>。
 
 ## 23. 云数据库的binlog保存时间是多久？
-详见：[云数据库的binlog保存时间说明](https://www.qcloud.com/document/product/236/7269#5-.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E7.9A.84binlog.E4.BF.9D.E5.AD.98.E6.97.B6.E9.97.B4.E8.AF.B4.E6.98.8E5)
+详见 <a href="https://www.qcloud.com/document/product/236/7269#5-.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E7.9A.84binlog.E4.BF.9D.E5.AD.98.E6.97.B6.E9.97.B4.E8.AF.B4.E6.98.8E5" target="_blank">云数据库的binlog保存时间说明</a>。
 
 ## 24. 云数据库的慢查询时间是多久？
 云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令如下：
