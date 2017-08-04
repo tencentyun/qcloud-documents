@@ -20,7 +20,7 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |ips.n.subnetId|是|int|子网ID标识|
-|ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于subnetId子网下|
+|ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于该subnetId子网|
 
 ## 3. 输出参数
 

@@ -15,7 +15,7 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |ips.n.subnetId|是|int|子网ID标识|
-|ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于subnetId子网下|
+|ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于该subnetId子网|
 
 
 
@@ -25,7 +25,7 @@
 |---------|---------|---------|
 | code | int | 错误码。0: 成功, 其他值: 失败|
 | message | string | 错误信息|
-| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关绑定子网的部分IP的任务状态">查询黑石NAT网关绑定子网的部分IP的任务状态</a>查询 |
+| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关绑定子网部分IP的任务状态">查询黑石NAT网关绑定子网部分IP的任务状态</a>查询 |
 
  ## 4. 错误码表
  以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
