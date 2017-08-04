@@ -10,7 +10,7 @@
 |---------|---------|---------|---------|
 | natId | 是 | string | 黑石网关统一ID，例如：nat-df5dfd |
 | vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| subnetIds.n | 是 | array | 需要绑定全部IP的子网唯一ID数组。例如：subnetIds.0=	subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+| subnetIds.n | 是 | Array | 需要绑定全部IP的子网唯一ID数组。例如：subnetIds.0=	subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 
 
 
