@@ -23,8 +23,8 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 错误码。0: 成功, 其他值: 失败|
-| message | String | 错误信息|
+| code | int | 错误码。0: 成功, 其他值: 失败|
+| message | string | 错误信息|
 | data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关绑定子网的部分IP的任务状态">查询黑石NAT网关绑定子网的部分IP的任务状态</a>查询 |
 
  ## 4. 错误码表
