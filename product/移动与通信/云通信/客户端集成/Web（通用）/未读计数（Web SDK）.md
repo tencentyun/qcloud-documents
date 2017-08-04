@@ -8,6 +8,7 @@
 //获取全局的sessMap
 var sessMap = webim.MsgStore.sessMap();
 //这里的GROUPID为"GROUP"+群id
+//C2CID为"C2C"+identifier
 sessMap["GROUPID"].unread();
 sessMap["C2CID"].unread();
 ```
