@@ -5,6 +5,7 @@
 
 下载kubectl（腾讯云主机内网下载）:
 >注：腾讯云容器服务创建的云主机，默认已安装kubectl工具。
+
 ```shell
 # Linux
 curl -LO http://mirrors.tencentyun.com/install/ccs/v1.4.6/linux/amd64/kubectl 
