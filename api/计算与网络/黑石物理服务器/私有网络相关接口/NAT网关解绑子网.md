@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口(SubnetUnBindBmNatGateway)用黑石于NAT网关解绑子网，可解绑全部IP的子网和部分IP的子网
+本接口(SubnetUnBindBmNatGateway)用黑石于NAT网关解绑子网，可解绑全部IP的子网和部分IP的子网。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
@@ -9,8 +9,8 @@
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| natId | 是 | String | NAT网关统一ID，例如：nat-8pbrkzh6|
-| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| natId | 是 | string | NAT网关统一ID，例如：nat-8pbrkzh6|
+| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | subnetIds.n | 是 | array | 需要解绑的子网唯一ID数组。例如：subnetIds.0=subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 
 
@@ -20,7 +20,7 @@
 |---------|---------|---------|
 | code | int | 错误码。0：成功，其他值：失败|
 | message | string | 错误信息|
-| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关绑定EIP的任务状态">查询黑石NAT网关绑定EIP的任务状态</a>查询 |
+| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关解绑子网的任务状态">查询NAT网关解绑子网的任务状态</a>查询 |
 
  ## 4. 错误码表
  以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
