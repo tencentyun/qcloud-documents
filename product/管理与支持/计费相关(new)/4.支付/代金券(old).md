@@ -49,13 +49,29 @@
 
 ## 6. 代金券兑换帮助
 
-**注：仅纸质代金券需要进行兑换，另外，已在代金券页面列表里的券无需再进行兑换，可在订单支付时使用。**
+**需要兑换的代金券类型有：
+（1）通过微信卡券领取的腾讯云代金券
+（2）通过其他方式领取的纸质代金券
+备注：另外，已在代金券页面列表里的券无需再进行兑换，可在订单支付时使用。**
+
+
+**兑换流程**
 
 （1）登录腾讯云官网，在费用中心-[代金券管理](https://console.cloud.tencent.com/account/voucher)页面中点击“兑换代金券”。
 ![](https://mc.qcloudimg.com/static/img/eeca08b8ba05d430af5773592729149f/image.png)
 
-（2）弹出兑换代金券窗口，输入正确的18位代金券兑换码。
-![](https://mc.qcloudimg.com/static/img/3c5f150a0325ae8c028185d150b263d9/3.png)
+（2）弹出兑换代金券窗口
+![enter description here][1]
 
-（3）输入完毕后点击确认即可成功兑换代金券，可在待使用的代金券里查看具体情况。
+（3）若是通过微信卡券领取的代金券，则输入详情中的8为字母进行兑换
+![enter description here][2]
+
+（4）若是通过其他途径领取的纸质券，则输入18位兑换码进行兑换
+
+（5）输入完毕后点击确认即可成功兑换代金券，可在待使用的代金券里查看具体情况。
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/daijinquan-4.png)
+
+
+
+  [1]: https://mc.qcloudimg.com/static/img/2d3e38050920a2fa55fbefb7af1c9011/WX20170731-151451@2x.png
+  [2]: https://mc.qcloudimg.com/static/img/1c41d2b1e7474e0f0b4c340d6d08a46e/image.png
