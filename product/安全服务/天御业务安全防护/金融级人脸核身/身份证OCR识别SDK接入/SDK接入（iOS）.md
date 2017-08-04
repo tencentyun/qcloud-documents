@@ -1,4 +1,4 @@
-### 1. SDK导入&&配置
+### 1. SDK导入&配置
 1. 将WBOCRService.framework以及WBWallet.bundle添加到项目中
 2. Build Setting --> Linking --> other linker flag 设置 增加 -ObjC和-lzlinker flag
 3. SDK中需要使用camera，需要在 Info.plist中添加 NSCameraUsageDescription为key的键值对
@@ -81,11 +81,6 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
  * @brief 选择SDK接入模式，default WBOCRSDKTypeNoraml
  */
 @property (nonatomic)WBOCRSDKType SDKType;
-/**
- * @brief debug开关，default NO，表示生产环境
- */
-@property (nonatomic)BOOL isDubug;
-
 /**
  * @brief 设置身份证照片预览页面上的水印信息，default @"仅供本次业务使用"
  */

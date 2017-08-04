@@ -17,8 +17,8 @@ It is required to learn about the following basic knowledge before docking the p
  The most common video source addresses used to play videos on web pages are addresses ending with "m3u8". We call them HLS (HTTP Live Streaming), a standard created by Apple. Currently, this format has the best compatibility with various mobile phone browser products thanks to Apple's influence. However, this format has a drawback: a big delay of 20-30 seconds. Even so, we don't have any other choices for mobile phone browsers.
 
  This situation looks better on PC, because PC browsers still use flash controls, which supports various video source formats. Besides, the flash controls for different browsers are all developed by Adobe itself, thus they have good compatibility. (Just a reminder for you: Google has recently disabled Flash in Chrome.)
+![](https://mc.qcloudimg.com/static/img/e59d010141e8fb6b063c180cb16bae65/image.png)
 
-![](http://mc.qcloudimg.com/static/img/ea4a95c7a0c8d88c7b6557277510efea/image.png)
 
 ## Docking
 
@@ -168,7 +168,7 @@ This is an online sample code segment which uses multi-definition selection and 
 [http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true)
 
 You will see this under normal circumstances:
-![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
+![](https://mc.qcloudimg.com/static/img/bc4c39cd88f1c17bec28fe1796fb691a/image.png)
 
 **PC now supports video playback in multiple definitions as well as definition switching. This is currently not supported on mobile devices.**
 

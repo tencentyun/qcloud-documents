@@ -1,34 +1,21 @@
-
-目前腾讯云提供的硬件MFA设备为“腾讯云安全令牌”，也叫动态口令卡或token卡，首批token卡采用内测的形式发放给客户，照片如图所示（不同版本可能在外观上有差异）
-
-
-![](https://mc.qcloudimg.com/static/img/e5fd0f764b6a40626557beb032a4d6b2/image.png)
-
-### 1.绑定MFA设备
-
-主要有以下几个步骤：
-
-1）进入用户中心-->账户信息-->安全设置 点击“绑定”按钮
-
-![](https://mc.qcloudimg.com/static/img/b0c34237e3eb039c08b8694693ef4f62/image.png)
-
-2）弹出身份验证框，输入手机中收到的6位数验证码，点击“确定”按钮
-
-![](https://mc.qcloudimg.com/static/img/4e7970d5974b2eb9ee58ea00464082f8/image.png)
-
-3）绑定MFA设备页中选择“硬件MFA设备”，根据提示输入token卡背面的序列码（SN码），和token卡正面的6位数动态安全码
-
-    启用范围可勾选也可以不勾选：
-    - 不勾选则默认您的账户不开启安全保护；
-    - 勾选登陆保护则登陆后需要验证token卡上的安全码；
-    - 勾选操作保护则在账户中进行删除云主机，修改安全资料，查看云api密钥等敏感操作前需要验证token卡上的安全码;
-
-![](https://mc.qcloudimg.com/static/img/ec0977f94c498f7d9b6e5f6ff301ba44/image.png)
-
-信息输入无误后，点击确认则绑定完成，绑定成功，并开启登录保护和操作保护的状态如下图所示：
-
-![](https://mc.qcloudimg.com/static/img/987b808159aef64c0cfdb14be3a4669c/image.png)
+## 绑定硬件 MFA 设备
+1. 登录腾讯云控制台，进入[安全设置](https://console.qcloud.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】。
+![](https://mc.qcloudimg.com/static/img/63c17fdf2fc1913927ad669c86dcafcd/image.png)
+2. 在弹出来的页面中，单击【发送验证码】，收到验证码后，将6位数字验证码输入框内。
+![](https://mc.qcloudimg.com/static/img/b96da083ba830fdaeab02785fdcd7625/image.png)
+3. 在序列号那一栏填写上 MFA 设备 背面的系列号。
+![](https://mc.qcloudimg.com/static/img/ca226004b24b2aeefd24a18bfa04bad0/image.png)
+4. 在安全码那一栏填写上 MFA 设备正面上动态变化的6位数字。
+![](https://mc.qcloudimg.com/static/img/3b0acf08008730d46e57e2150fac9059/image.png)
+5. 选择您想启用的范围，您可以选择登录保护，也可以选择操作保护，只需要在你想选择的范围前面勾选出来即可，可多选。选择完之后，单击【提交】。
+![](https://mc.qcloudimg.com/static/img/c9992d92e521e804a51075ca1414ef43/image.png)
 
 
+## 解绑硬件 MFA 设备
+
+1. 登录腾讯云控制台，进入[账号中心](https://console.qcloud.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】。
+![](https://mc.qcloudimg.com/static/img/5a6fbe99163c47d960f5481d2d29bf09/%7BD096D4A6-7497-42C8-9968-66EC048E870B%7D.png)
+2. 单击【确定解绑】。
+![](https://mc.qcloudimg.com/static/img/41e8f092c9710d0cbda8d96b3ac4c08b/image.png)
 
 

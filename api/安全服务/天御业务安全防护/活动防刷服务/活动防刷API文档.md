@@ -41,7 +41,7 @@
 <td> postTime
 </td><td><font color=red> 必选 </font color=red>
 </td><td> UInt
-</td><td> 用户操作时间戳，单位秒
+</td><td> 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）
 </td></tr>
 <tr>
 <td> appId
@@ -65,7 +65,7 @@
 <td> phoneNumber
 </td><td> 可选
 </td><td> String
-</td><td> 手机号；国家代码-手机号，如0086-15912345687. 注0086前不需要+号
+</td><td> 手机号。若accoutType 选4（手机号）、或10004（手机号MD5），则无需重复填写。否则填入对应的手机号（如 15912345687）
 </td></tr>
 <tr>
 <td> emailAddress

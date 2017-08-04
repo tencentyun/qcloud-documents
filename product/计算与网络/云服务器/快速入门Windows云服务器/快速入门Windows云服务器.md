@@ -4,7 +4,7 @@
 <div id="page1"></div>
 ## 步骤一：准备与选型
 ### 注册腾讯云账号
-新用户需在腾讯云官网进行[【注册】](https://www.qcloud.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](https://www.qcloud.com/document/product/378/9603) 。
+新用户需在腾讯云官网进行[【注册】](https://www.qcloud.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
 
 ### 确定云服务器所在地域及可用区
 地域选择原则：
@@ -22,17 +22,17 @@
 - 普及型：适合常使用云计算等一定计算量的需求。如：门户网站、SaaS 软件、小型 App 。
 - 应用型：适用于并发要求较高的应用及适合对云服务器网络及计算性能有一定要求的应用场景。如：大型门户、电商网站、游戏 App 。
 
-若推荐的配置不能满足您的需求，您可以在[【更多机型】](https://buy.qcloud.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) 或 [配置降级](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) 。
+若推荐的配置不能满足您的需求，您可以在[【更多机型】](https://buy.qcloud.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) 或 [配置降级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) 。
 >**注意：**
-> Windows 云服务器无法作为 [公网网关](http://www.qcloud.com/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 [快速入门 Linux 云服务器](https://www.qcloud.com/document/product/213/2936) 。
+> Windows 云服务器无法作为 [公网网关](/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 [快速入门 Linux 云服务器](/doc/product/213/2936) 。
 
 ### 确定付费方式
-腾讯云提供 包年包月 和 按量付费 两种付费模式。详见 [计费模式说明](https://www.qcloud.com/document/product/213/2180) 。
+腾讯云提供 包年包月 和 按量付费 两种付费模式。详见 [计费模式说明](/doc/product/213/2180) 。
 若您选择按量付费，则需先完成 [实名认证](https://console.qcloud.com/developer/infomation) 。
 
 <div id="page2"></div>
 ## 步骤二：创建 Windows 云服务器
-本步骤介绍 Windows 云服务器的创建，腾讯云提供快速配置 和自定义配置两种方式。本部分以快速配置为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置 Windows 云服务器](https://www.qcloud.com/document/product/213/10516) 文档进行配置。
+本步骤介绍 Windows 云服务器的创建，腾讯云提供快速配置 和自定义配置两种方式。本部分以快速配置为例说明，若快速配置不能满足您的需求，您可参考 [自定义配置 Windows 云服务器](/doc/product/213/10516) 文档进行配置。
 > 注意：
  > 初次购买的账户默认进入【快速配置】页面，购买过的用户默认进入【自定义配置】页面。
 
@@ -57,7 +57,7 @@
  
 <div id="Inter-Page">  </div>
 ## 步骤三：登录 Windows 云服务器
-本部分操作介绍登录 Windows 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见   [登录 Windows 实例](https://www.qcloud.com/document/product/213/5435) 。
+本部分操作介绍登录 Windows 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见   [登录 Windows 实例](/doc/product/213/5435) 。
 
 ### 前提条件
 登录到云服务器时，需要使用管理员帐号和对应的密码。
@@ -112,7 +112,7 @@
 
  5. 根据分区方式的不同，选择【GPT】或【MBR】，单击【确定】按钮：
  > **注意：**
- > 磁盘大于2TB，一定要选择GPT分区形式。
+ > 磁盘大于 2TB ，一定要选择 GPT 分区形式。
 	![](//mc.qcloudimg.com/static/img/1f7b0f72767193cfa662e188c86cf31b/image.png)
 
 ### 磁盘分区（可选）
