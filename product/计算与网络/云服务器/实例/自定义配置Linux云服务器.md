@@ -18,8 +18,8 @@
  3. 选择机型和配置。
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据底层硬件的不同，腾讯云目前提供了 **系列 1** 和 **系列 2** （下文也称为 **上一代实例** 和 **当前一代实例** ）两种不同的实例系列，不同的实例系列提供如下实例类型：
  
-- 上一代实例类型：标准型S1，高IO型I1，内存型M1
-- 当前一代实例类型：[标准型S2](https://www.qcloud.com/doc/product/213/7154)，[高IO型I2](https://www.qcloud.com/doc/product/213/7155)，[内存型M2](https://www.qcloud.com/doc/product/213/7156)，[计算型C2](https://www.qcloud.com/doc/product/213/7157)，[GPU型G2](https://www.qcloud.com/document/product/560)，[FPGA型FX2](https://www.qcloud.com/document/product/565) 
+ - 上一代实例类型：标准型S1，高IO型I1，内存型M1
+ - 当前一代实例类型：[标准型S2](https://www.qcloud.com/doc/product/213/7154)，[高IO型I2](https://www.qcloud.com/doc/product/213/7155)，[内存型M2](https://www.qcloud.com/doc/product/213/7156)，[计算型C2](https://www.qcloud.com/doc/product/213/7157)，[GPU型G2](https://www.qcloud.com/document/product/560)，[FPGA型FX2](https://www.qcloud.com/document/product/565) 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为获得最佳性能，我们建议您在新建实例时使用当前一代实例类型。实例类型详细说明，请参见 [实例类型概述](https://www.qcloud.com/document/product/213/7153) 。
 
 >注意：
