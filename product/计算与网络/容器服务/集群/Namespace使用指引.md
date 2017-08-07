@@ -1,5 +1,6 @@
 命名空间 ( Namespace ) 是对一组资源和对象的抽象集合。例如可以将开发环境，联调环境，测试环境的服务分别放到不同的 Namespace 中。
 ## Namespace 类别
+Namespace 按创建类型分为两大类：集群默认创建的 Namespace 的和用户创建的 Namespace 。
 ### 集群默认创建的 Namespace 
 Kubernetes 集群在启动时会默认创建 `default` 和 `kube-system` 这两个命名空间，这两个命令空间不可以删除。
  - 在不指定命名空间时，默认使用 `default namespace` 。
