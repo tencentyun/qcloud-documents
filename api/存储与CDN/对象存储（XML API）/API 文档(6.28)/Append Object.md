@@ -62,7 +62,6 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 | Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据返回 | String | 否    |
 | Expect              | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容 | String | 否    |
 | Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据返回      | String | 否    |
-| x-cos-content-sha1  | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值   | String | 否    |
 | x-cos-meta- *         | 允许用户自定义的头部信息，将作为 Object 元数据返回，大小限制 2K    | String | 否    |
 
 **权限相关头部**
@@ -90,7 +89,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 | 节点名称（关键字）                       | 描述                | 类型     |
 | -------------------------- | ----------------- | ------ |
 | x-cos-next-append-position | 下一次追加操作的起始点，单位：字节 | String |
-| x-cos-content-sha1         | 分段的校验值            | String |
+| Content-MD5        | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值            | String |
 | ETag                       | 文件的唯一标识           | String |
 
 ### 响应体
