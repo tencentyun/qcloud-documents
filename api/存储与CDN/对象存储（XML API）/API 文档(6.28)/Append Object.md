@@ -89,7 +89,6 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 | 节点名称（关键字）                       | 描述                | 类型     |
 | -------------------------- | ----------------- | ------ |
 | x-cos-next-append-position | 下一次追加操作的起始点，单位：字节 | String |
-| Content-MD5        | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值            | String |
 | ETag                       | 文件的唯一标识           | String |
 
 ### 响应体
