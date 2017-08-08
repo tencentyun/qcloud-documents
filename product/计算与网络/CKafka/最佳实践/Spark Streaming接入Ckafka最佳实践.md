@@ -32,7 +32,7 @@ Spark Streaming将连续数据抽象成DStream(Discretized Stream)，而DStream�
 ### 创建topic
 ![Alt text](https://mc.qcloudimg.com/static/img/2d07bc5d5cac3be1ff03e7da099783f1/1501596195835.png)
 
-这里创建了一个名为test的topic，接下来将以该topic为例子介绍如何生产消费
+这里创建了一个名为spark_test的topic，接下来将以该topic为例子介绍如何生产消费
 [内网IP与端口]即为生产消费需要用到的bootstrap-server
 ### 云主机环境
 **Centos6.8系统**
