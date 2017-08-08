@@ -1,26 +1,51 @@
-#Spark Streaming with Ckafka
 [TOC]
+## Spark Streaming简介
+Spark Streaming是Spark Core的一个扩展，用于高吞吐且容错地处理持续性的数据，目前支持的外部输入有Kafka，Flume，HDFS/S3，Kinesis，Twitter和TCP socket。
+ 
+![Alt text](https://mc.qcloudimg.com/static/img/b95ad071d2273bde7b9d8b64894c7ce6/111.png)
 
-##申请Ckafka实例
-![Alt text](./1501596501359.png)
+Spark Streaming将连续数据抽象成DStream(Discretized Stream)，而DStream由一系列连续的RDD(弹性分布式数据集)组成，每个RDD是一定时间间隔内产生的数据。使用函数对DStream进行处理其实即为对这些RDD进行处理。
+
+![Alt text](https://mc.qcloudimg.com/static/img/f6f2869bc18bffc9a8e4e807276dd5a6/222.png)
+
+目前Spark Streaming对kafka作为数据输入的支持分为稳定版本与实验版本：
+
+| Kafka Version | spark-streaming-kafka-0.8 |   spark-streaming-kafka-0.10   |
+| :-------- | :--------| :------|
+| Broker Version	| 0.8.2.1 or higher |	0.10.0 or higher |
+| Api Stability	| Stable |	Experimental |
+| Language Support	| Scala, Java, Python |	Scala, Java |
+| Receiver DStream	| Yes	| No |
+| Direct DStream	| Yes	| Yes |
+| SSL / TLS Support	| No	| Yes |
+| Offset Commit Api	| No |	Yes |
+| Dynamic Topic Subscription |	No|	Yes|
+
+
+目前ckafka支持0.9.0.x，0.10.0.x，0.10.1.x，0.10.2.x版本，本次实践使用0.10.2.1版本的kafka依赖
+
+## Spark Streaming接入CKafka
+
+## 申请Ckafka实例
+![Alt text](https://mc.qcloudimg.com/static/img/d7ee601da4d342cb2651d6a39db99e45/1501596501359.png)
 
 确认网络类型是否与当前使用网络相符
-##创建topic
-![Alt text](./1501596195835.png)
+## 创建topic
+![Alt text](https://mc.qcloudimg.com/static/img/2d07bc5d5cac3be1ff03e7da099783f1/1501596195835.png)
 
 这里创建了一个名为test的topic，接下来将以该topic为例子介绍如何生产消费
 [内网IP与端口]即为生产消费需要用到的bootstrap-server
-##本机环境
+## 云主机环境
 **Centos6.8系统**
-|package| version|
-|---|--- |
-|sbt |0.13.16|
-|hadoop|2.7.3|
-|spark|2.1.0|
-|protobuf|2.5.0|
-|root权限|
-|ssh|CentOS默认安装|
-|Java|1.8|
+
+| package  | version | 
+| :-------- | :--------| 
+| sbt    |   0.13.16 |  
+| hadoop | 2.7.3 |
+| spark | 2.1.0 |
+| protobuf | 2.5.0 |
+| ssh | CentOS默认安装 |
+| Java | 1.8 |
 
 [如何生产](#jump1)
 
@@ -28,7 +53,7 @@
 
 [配置环境](#jump3)
 
-##<span id="jump1">向Ckafka中生产</span>
+## <span id="jump1">向Ckafka中生产</span>
 目前ckafka支持0.9.0.x，0.10.0.x，0.10.1.x，0.10.2.x版本
 这里使用0.10.2.1版本的kafka依赖
 `build.sbt`
@@ -63,8 +88,8 @@ object ProducerExample extends App {
 ```
 有关更多ProducerRecord的用法可以查阅
 https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html
-##<span id="jump2">从Ckafka消费</span>
-###DirectStream
+## <span id="jump2">从Ckafka消费</span>
+### DirectStream
 在`build.sbt`添加依赖
 ```scala
 name := "Consumer Example"
@@ -140,7 +165,7 @@ object Kafka {
     }
 }
 ```
-###RDD
+### RDD
 `build.sbt`配置同上
 `RDD_example`
 ```scala
@@ -189,8 +214,8 @@ object Kafka {
 ```
 更多`kafkaParams`用法参考http://kafka.apache.org/documentation.html#newconsumerconfigs
 
-##<span id="jump3">配置环境</span>
-###安装sbt
+## <span id="jump3">配置环境</span>
+### 安装sbt
 1. 在[sbt官网](http://www.scala-sbt.org/download.html)上下载sbt包
 2. 解压后在sbt的目录下创建一个sbt_run.sh脚本并增加可执行权限
 脚本内容如下：
@@ -208,7 +233,7 @@ chmod u+x ./sbt_run.sh
 ./sbt-run.sh sbt-version
 ```
 若能看到sbt版本说明可以正常运行
-###安装protobuf
+### 安装protobuf
 1. 下载[protobuf](https://github.com/google/protobuf/releases)相应版本
 2. 解压后进入目录
 ```bash
@@ -222,7 +247,7 @@ protoc --version
 ```
 4. 若能看到protobuf版本说明可以正常运行
 
-###安装hadoop
+### 安装hadoop
 1. 访问[hadoop官网](http://hadoop.apache.org/releases.html)下载所需要的版本
 2. 增加hadoop用户
 ```bash
@@ -320,7 +345,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jr
 ./sbin/start-dfs.sh
 ```
 成功启动会存在`NameNode`进程，`DataNode`进程，`SecondaryNameNode`进程
-###安装spark
+### 安装spark
 访问[spark官网](http://spark.apache.org/downloads.html)下载所需要的版本
 这里因为之前安装了hadoop选择使用*Pre-build with user-provided Apache Hadoop*
 **这里同样使用`hadoop`用户进行操作**
@@ -341,7 +366,3 @@ bin/run-example SparkPi
 ```
 若成功安装可以看到程序输出π的近似值
 
-
-
-本文参考网址
-http://dblab.xmu.edu.cn/blog/
