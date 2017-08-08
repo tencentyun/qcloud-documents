@@ -1,6 +1,6 @@
 ## 版本说明 
 + **版本相关信息**
-  3.0.3469 @ 2017-08-08
+  - 版本号：3.0.1185 @ 2017-08-09
 
 + **直播相关优化**
   - iOS & Android：引入推流加速技术，当您推流到腾讯云的 rtmp 地址时，可以开启 <font color='purple'>TXLivePushConfig::enableNearestIP</font> 开关，此时SDK会使用 **推流+** 加速后的推流通道传输主播的音视频数据，使推流质量获得较大提升，如下是 SDK 和 其他直播软件的对比效果。（推其他云商请关闭 enableNearestIP 开关）
@@ -29,14 +29,15 @@
 
 ## 下载地址
 <style>
-table th:nth-of-type(1) {  width: 150px; height: 40px; }
-table th:nth-of-type(2) {  width: 150px; height: 40px; }
-table th:nth-of-type(3) {  width: 150px; height: 40px; }
-table th:nth-of-type(4) {  width: 150px; height: 40px; }
-table th:nth-of-type(5) {  width: 150px; height: 40px; }
-table th:nth-of-type(6) {  width: 150px; height: 40px; }
+table th:nth-of-type(1) {  width: 150px; }
+table th:nth-of-type(2) {  width: 150px; }
+table th:nth-of-type(3) {  width: 150px; }
+table th:nth-of-type(4) {  width: 150px; }
+table th:nth-of-type(5) {  width: 150px; }
+table th:nth-of-type(6) {  width: 150px; }
 table td { height: 35px; }
-.markdown-text-box img  { box-shadow: 0 0 0px #ccc; }
+
+.markdown-text-box img { box-shadow: 0 0 0px #ccc;}
 </style>
 
 - **iOS 平台**
