@@ -13,7 +13,7 @@
   - iOS & Android：对点播播放器进行了内部重构，支持 x2 x4 等多倍速播放，使用 <font color='purple'>TXLivePlayer::setRate</font> 接口设置播放倍速（此功能仅适用于点播）。
   - iOS & Android：对点播播放器进行了内部重构，可以使用 <font color='purple'>TXLivePlayer::setAutoPlay</font> 设置手动播放，用于播放视频前插入广告之用。
 
-+ **短视频优化**
++ **短视频相关优化**
   - iOS & Android：为 TXUGCRecord 增加了 pauseRecord 和 resumeRecord 接口，用于支持多段录制。
   - iOS：提供了快速裁剪和编辑接口，1s 内完成视频裁剪和视频拼接。由 <font color='purple'>quickGenerateVideo</font> 接口 和 <font color='purple'>quickJoinVideo</font> 接口提供。
   - Android : 为编辑器增加了滤镜功能。
