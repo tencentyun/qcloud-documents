@@ -35,6 +35,9 @@ table th:nth-of-type(3) {  width: 150px; height: 40px; }
 table th:nth-of-type(4) {  width: 150px; height: 40px; }
 table th:nth-of-type(5) {  width: 150px; height: 40px; }
 table th:nth-of-type(6) {  width: 150px; height: 40px; }
+
+.markdown-text-box img { box-shadow: 0 0 0px #ccc;
+}
 </style>
 
 - **iOS 平台**
