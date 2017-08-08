@@ -47,12 +47,6 @@ Spark Streaming将连续数据抽象成DStream(Discretized Stream)，而DStream�
 | ssh | CentOS默认安装 |
 | Java | 1.8 |
 
-[如何生产](#jump1)
-
-[如何消费](#jump2)
-
-[配置环境](#jump3)
-
 ## <span id="jump1">向Ckafka中生产</span>
 目前ckafka支持0.9.0.x，0.10.0.x，0.10.1.x，0.10.2.x版本
 这里使用0.10.2.1版本的kafka依赖
