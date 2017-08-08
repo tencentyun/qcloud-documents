@@ -29,12 +29,12 @@
 
 ## 下载地址
 <style>
-table th:nth-of-type(1) {  width: 150px; }
-table th:nth-of-type(2) {  width: 150px; }
-table th:nth-of-type(3) {  width: 150px; }
-table th:nth-of-type(4) {  width: 150px; }
-table th:nth-of-type(5) {  width: 150px; }
-table th:nth-of-type(6) {  width: 150px; }
+table th:nth-of-type(1) {  width: 150px; height: 40px; }
+table th:nth-of-type(2) {  width: 150px; height: 40px; }
+table th:nth-of-type(3) {  width: 150px; height: 40px; }
+table th:nth-of-type(4) {  width: 150px; height: 40px; }
+table th:nth-of-type(5) {  width: 150px; height: 40px; }
+table th:nth-of-type(6) {  width: 150px; height: 40px; }
 </style>
 
 - **iOS 平台**
