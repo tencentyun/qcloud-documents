@@ -21,6 +21,21 @@ iLiveSDK|Library/Caches/imsdk_YYYMMDD.log
 IMSDK|Library/Caches/imsdk_YYYMMDD.log
 AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 
+### PC
+
+SDK|目录
+:--:|:--:
+iLiveSDK|程序运行目录/txsdklog/ilivesdk_YYYMMDD.log
+IMSDK|程序运行目录/txsdklog/imsdk_YYYMMDD.log
+AVSDK|程序运行目录/txsdklog/QAVSDK_YYYMMDD.log
+
+### Web
+
+SDK|目录
+:--:|:--:
+iLiveSDK|%appdata%/Tencent/iLiveSDK/ilivesdk_YYYMMDD.log<br/>(在开始菜单的运行中执行%appdata%可打开appdata目录)
+IMSDK|%appdata%/Tencent/iLiveSDK/imsdk_YYYMMDD.log
+AVSDK|%appdata%/Tencent/iLiveSDK/QAVSDK_YYYMMDD.log
 
 
 ## 日志收集接口
@@ -66,6 +81,18 @@ ILiveSDK.getInstance().uploadLog(String desc, int data ILiveCallBack callback);
  @param uploadResult 上报回调
  */
 (void)uploadLog:(NSString *)logDesc logDayOffset:(int)dayOffset uploadResult:(ILiveLogUploadResultBlock)uploadResult;
+```
+
+**PC接口**
+
+```c++
+//暂未暴露接口
+```
+
+**Web接口**
+
+```js
+//暂未暴露接口
 ```
 
 4. 开发者可以在[日志查询平台](http://vip.avc.qcloud.com/SdkLog/home)查询用户和下载用户上传的日志。
@@ -300,4 +327,80 @@ ILiveRoom:Key_Procedure|quitIMGroup|start:groupId:9878
 ILiveRoom:Key_Procedure|quitIMGroup|succ
 ```
 
+### PC
+
+#### 创建房间流程正确LOG如下
+
+![创建房间](https://mc.qcloudimg.com/static/img/0c6fdd58abeadb5250685e56d0192b3d/1.png)
+
+* 具体包括以下几个步骤
+
+```C
+1. 设置各个回调接口
+Key_Procedure|iLiveRoomMgr|setMessageCallBack()         //设置接收消息回调
+Key_Procedure|iLiveLoginMgr|setForceOfflineCallback()   //设置被踢下线的回调
+Key_Procedure|iLiveRoomMgr|setLocalVideoCallBack()      //设置本地视频处理函数
+Key_Procedure|iLiveRoomMgr|setRemoteVideoCallBack()     //设置远程视频处理函数 
+Key_Procedure|iLiveRoomMgr|setDeviceOperationCallback() //设置设备操作回调
+
+2. 初始化SDK
+Key_Procedure|iLiveSDK|initSdk(). version: 1.5.0.0 appid: 1400027849 accoutType: 11656
+
+3. 登录
+Key_Procedure|iLiveLoginMgr|iLiveLogin() succeed. userId: yjp
+
+4. 创建直播间
+Key_Procedure|iLiveRoomMgr|createRoom(). roomid: 51544
+
+5. 打开摄像头
+Key_Procedure|iLiveRoomMgr|openCamera(\\摄像头id)
+
+6. 退出直播间
+Key_Procedure|iLiveRoomMgr|quitRoom()
+
+7. 登出
+Key_Procedure|iLiveLoginMgr|iLiveLogout()
+
+8. 清理
+Key_Procedure|iLiveSDK|destroy()
+```
+
+#### 加入房间流程正确LOG如下
+
+![加入房间](https://mc.qcloudimg.com/static/img/1a4cfb66f38094baf7d0b72824512603/2.png)
+
+* 具体包括以下几个步骤
+
+```C
+1. 设置各个回调接口
+Key_Procedure|iLiveRoomMgr|setMessageCallBack()         //设置接收消息回调
+Key_Procedure|iLiveLoginMgr|setForceOfflineCallback()   //设置被踢下线的回调
+Key_Procedure|iLiveRoomMgr|setLocalVideoCallBack()      //设置本地视频处理函数
+Key_Procedure|iLiveRoomMgr|setRemoteVideoCallBack()     //设置远程视频处理函数 
+Key_Procedure|iLiveRoomMgr|setDeviceOperationCallback() //设置设备操作回调
+
+2. 初始化SDK
+Key_Procedure|iLiveSDK|initSdk(). version: 1.5.0.0 appid: 1400027849 accoutType: 11656
+
+3. 登录
+Key_Procedure|iLiveLoginMgr|iLiveLogin() succeed. userId: yjp
+
+4. 加入直播间
+Key_Procedure|iLiveRoomMgr|joinRoom(). roomid: 51552
+
+5. 请求画面
+Key_Procedure|iLiveRoomMgr|requestViewList(yjp1)
+
+6. 退出直播间
+Key_Procedure|iLiveRoomMgr|quitRoom()
+
+7. 登出
+Key_Procedure|iLiveLoginMgr|iLiveLogout()
+
+8. 清理
+Key_Procedure|iLiveSDK|destroy()
+```
+
+### WEB
+与PC端一致
 

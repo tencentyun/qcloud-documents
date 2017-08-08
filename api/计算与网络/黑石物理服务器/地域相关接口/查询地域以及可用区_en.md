@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. For a
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| regionId | No | Int | Region ID. CPM availability zones currently include: 8 - Beijing, 4 - Shanghai, 1-广州 |
+| regionId | No | Int | Region ID. CPM availability zones currently include: 8 - Beijing, 4 - Shanghai, 1-Guangzhou |
 
 
 
@@ -54,17 +54,14 @@ Output
 
 ```
 {
-    "version": "1.0",
-    "eventId": 121,
-    "timestamp": 1352121016,
-    "componentName": "bmApi",
-    "returnCode": 0,
-    "returnMessage": "OK",
+    "code": 0,
+    "message": "OK",
+    "codeDesc" : "Success",
     "data": {
         "1": {
             "regionId": "1",
             "regionName": "华南地区（广州）",
-            "setName": "ap-guangzhou-bls",
+            "setName": "ap-guangzhou",
             "zones": {
                 "1000100003": {
                     "zoneId": "1000100003",
@@ -76,7 +73,7 @@ Output
         "4": {
             "regionId": "4",
             "regionName": "华东地区（上海）",
-            "setName": "ap-shanghai-bls",
+            "setName": "ap-shanghai",
             "zones": {
                 "1000400001": {
                     "zoneId": "1000400001",
@@ -88,7 +85,7 @@ Output
         "8": {
             "regionId": "8",
             "regionName": "华北地区（北京）",
-            "setName": "ap-beijing-bls",
+            "setName": "ap-beijing",
             "zones": {
                 "1000800001": {
                     "zoneId": "1000800001",
