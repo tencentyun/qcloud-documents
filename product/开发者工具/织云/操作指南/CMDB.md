@@ -59,7 +59,7 @@
 
 ![](http://i.imgur.com/toDv6w9.png)
 
-然后在织云页面导入该excel.
+然后在织云页面导入该excel。
 
 ![](http://i.imgur.com/I1TyFpi.png)
 
