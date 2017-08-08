@@ -1,8 +1,8 @@
 
-With the cloud monitoring capabilities of Tencent Cloud, you can retrieve statistical data by a set of ordered time series data (called indicators). You can use these indicators to verify whether your system is running as expected, and if the threshold is exceeded, scaling will be involved.
+With the cloud monitoring capabilities of Tencent Cloud, you can retrieve statistical data by a set of ordered time series data (called "Metrics"). You can use these metrics to verify whether your system is running as expected, and if the threshold is exceeded, scaling will be involved.
 
-## AS Monitoring Indicators
-AS currently supports the following indicators:
+## AS Monitoring Metrics
+AS supports the following metrics:
 
 - CPU utilization
 - Memory utilization
@@ -11,14 +11,14 @@ AS currently supports the following indicators:
 - Private network outbound bandwidth
 - Public network outbound bandwidth
 
-Each indicator supports the following dimensions:
+Each metric supports the following dimensions:
 
 - Maximum value
 - Minimum value
 - Average value
 
 
-## Indicator Aggregation Method
+## Metric Aggregation Method
 
 Tencent Cloud AS currently only provides the statistics of the "Maximum" value of the monitoring items.
 
