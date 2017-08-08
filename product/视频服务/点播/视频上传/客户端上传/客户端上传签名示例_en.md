@@ -131,7 +131,7 @@ var signature = Buffer.concat([hmac_buffer, orignal_buffer]).toString("base64");
 console.log(signature);
 ```
 
-## C #
+##  C#
 ```csharp
 using System;
 using System.Security.Cryptography;
