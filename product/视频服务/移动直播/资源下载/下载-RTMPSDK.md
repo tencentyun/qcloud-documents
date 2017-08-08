@@ -36,8 +36,14 @@ table th:nth-of-type(4) {  width: 150px; }
 table th:nth-of-type(5) {  width: 150px; }
 table th:nth-of-type(6) {  width: 150px; }
 table td { height: 35px; }
-
-.markdown-text-box img { box-shadow: 0 0 0px #ccc;}
+.markdown-text-box img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    box-sizing: content-box;
+    box-shadow: 0 0 0px #ccc;
+    margin: 0px 0;
+}
 </style>
 
 - **iOS 平台**
