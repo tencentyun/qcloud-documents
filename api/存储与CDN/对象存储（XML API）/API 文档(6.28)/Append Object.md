@@ -58,7 +58,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 | Cache-Control       | RFC 2616 中定义的缓存策略，将作为 Object 元数据返回      | String | 否    |
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为 Object 元数据返回      | String | 否    |
 | Content-Encoding    | RFC 2616 中定义的编码格式，将作为 Object 元数据返回      | String | 否    |
-| Content-MD5          | RFC 1864 中定义的 128-bit 内容 MD5 算法校验值      | String | 否    |
+| Content-MD5          | RFC 1864 中定义的经过 *Base64* 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化 | String | 否    |
 | Content-Type        | RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据返回 | String | 否    |
 | Expect              | 当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容 | String | 否    |
 | Expires             | RFC 2616 中定义的过期时间，将作为 Object 元数据返回      | String | 否    |
