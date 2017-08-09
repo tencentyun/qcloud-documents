@@ -33,11 +33,11 @@ NFS 是 Network File System 的简写，即网络文件系统。 通过使用 NF
 ![Alt text](https://mc.qcloudimg.com/static/img/6238482728fbffc531c9b029bcf78eff/image.png)
 
 **第五步**：设置服务访问方式为 **集群内访问**。
-![](//mc.qcloudimg.com/static/img/b33610a809d2eb036b053a84a76203e0/image.gif)
+![](https://mc.qcloudimg.com/static/img/b33610a809d2eb036b053a84a76203e0/image.gif)
 
 **第六步**：添加端口映射
 添加 111 , 2049 , 20048 三个端口映射。
-![](//mc.qcloudimg.com/static/img/422f5cb9570b9674450cd8ea4d4a4a10/image.gif)
+![](https://mc.qcloudimg.com/static/img/422f5cb9570b9674450cd8ea4d4a4a10/image.gif)
 
 **第七步**：开启容器特权级功能
 ![Alt text](https://mc.qcloudimg.com/static/img/1a739ddd2e4933285af85954c4c59aea/image.png)
