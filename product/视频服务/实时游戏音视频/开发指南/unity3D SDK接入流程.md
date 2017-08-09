@@ -1,8 +1,8 @@
 ## unity3D SDK接入流程
-> 本文档介绍了 OpenSDK 游戏语音C#接口SDK的接入方法，适用于 Unity3D 引擎开发的游戏。
+> 本文档介绍了 OpenSDK 游戏语音 C# 接口 SDK 的接入方法，适用于 Unity3D 引擎开发的游戏。
 
 ### 1. 下载SDK
-SDK 以 unitypackage 的格式提供，双击导入到 unity 工程中即可。导入后，目录结构如下：
+SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。导入后，目录结构如下：
 
 ![目录结构](https://mc.qcloudimg.com/static/img/ec0d5e296afdffbb9b376aa74fba8409/image.png)
 

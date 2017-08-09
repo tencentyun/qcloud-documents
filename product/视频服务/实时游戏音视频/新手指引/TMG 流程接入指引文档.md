@@ -60,7 +60,7 @@
 #### 2.1 密文内容
 
 #### 2.2 加密方法
-1. 点击下载[google protobuf](//github.com/google/protobuf)使用，序列化后，输出二进制字符串；
+1. 点击下载 [google protobuf](//github.com/google/protobuf) 使用，序列化后，输出二进制字符串；
 2. 密文中的数字转换成网络字节序（大端字节序）,把加密串转换成16进制字符串，大小写均可；
 3. 3.用 tea 加密对二进制字符串加密，symmetry_encrypt 函数输出的字符串即为加密串（authBuf）；
 
