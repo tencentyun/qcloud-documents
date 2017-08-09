@@ -54,6 +54,7 @@ tier1.sources.source1.kafka.consumer.group.id = custom.g.id
 配置kafka作为内容接收方，即将自己作为生产者，推到Kafka Server中等待后续操作
 
 主要配置选项：
+
 | 配置项 |  说明  |  
 | :-------- | :--------| 
 | channel |   自己配置的channel | 
