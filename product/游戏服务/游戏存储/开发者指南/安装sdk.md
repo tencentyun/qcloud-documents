@@ -1,13 +1,13 @@
 #### 运行环境
 Linux 2.6、Suse 32位 / 64位。
 #### SDK下载
-- 单击进入[ SDK 下载页面](http://gcloud.qq.com/sdkdownload)。
+单击进入[ SDK 下载页面](http://gcloud.qq.com/sdkdownload)。
 ![](//mc.qcloudimg.com/static/img/d76d7c83635674c6b5df73fefa53dcbb/image.png)
 
 #### 安装
 ``` tar –xzf<安装包路径> -C <安装目录> ```
 #### 校验
-- 安装完成后，根目录结构如下表所示：
+安装完成后，根目录结构如下表所示：
 
 | 目录及文件 | 说明 |
 |---------|---------|
