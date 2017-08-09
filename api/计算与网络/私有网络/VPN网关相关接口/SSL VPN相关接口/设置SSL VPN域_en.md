@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (SetSSLVpnDomain) is used to set sslVPN domain.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font> 
+Domain for API request: vpc.api.qcloud.com
 
  
 

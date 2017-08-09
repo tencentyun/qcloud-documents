@@ -1,12 +1,12 @@
 ## 1. API Description
 
 This API (AddVpnConnEx) is used to create VPN tunnel.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request: vpc.api.qcloud.com
 
  
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is AddVpnConnEx.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. 
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -16,11 +16,11 @@ The following request parameter list only provides API request parameters. Commo
 | vpnConnName | Yes | String | Tunnel name; you can specify any name you like, but its length should be limited to 60 characters.  |
 | preSharedKey | Yes | String | Pre-shared private key.  |
 | userGwCidrBlock.n | No | Array | CIDR address of the peer IP address range, multiple values can be entered. Specifies the IDC IP address range with which the VPC can communicate, later upgraded to spdAcl (finer granularity). Either userGwCidrBlock or spdAcl must be entered.  |
-| spdAcl | No | String | SPD rule group, json format. For example: {"10.0.0.5/24":["172.123.10.5/16"]}, 10.0.0.5/24 is a VPC private IP address range, and 172.123.10.5/16 is an IDC IP address range. You can specify which IP address range in the VPC can communicate with which IP address range in your IDC, upgraded from userGwCidrBlock. Either userGwCidrBlock or spdAcl must be entered.  |
+| spdAcl | No | String | SPD rule group, json format. For example: `{"10.0.0.5/24":["172.123.10.5/16"]}`, `10.0.0.5/24` is a VPC private IP address range, and `172.123.10.5/16` is an IDC IP address range. You can specify which IP address range in the VPC can communicate with which IP address range in your IDC, upgraded from `userGwCidrBlock`. Either `userGwCidrBlock` or `spdAcl` must be entered.  |
 | IKESet | No | Array | IKE configuration (Internet Key Exchange). IKE is provided with a self-protection mechanism. The network security protocol is configured by the user. See <a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN Connection-IKE Configuration">VPN Connection-IKE Configuration</a> for details.  |
 | IPsecSet | No | Array | IPSec configuration. The IPSec secure session configuration is provided by Tencent Cloud. See <a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.4-ipsec-.E4.BF.A1.E6.81.AF" title="VPN Connection-IPsec Configuration">VPN Connection-IPsec Configuration</a> for details. |
 
-IKE configuration details
+**Details of `IKESet`**
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -38,7 +38,7 @@ IKE configuration details
 | IKESet.encryptAlgorithm | No | String | IPsec configuration, encryption algorithm. Available values include 3des-cbc, aes-cbc-128, aes-cbc-192, aes-cbc-256, des-cbc and null. The default is 3des-cbc. See the product instruction for more details.  |
 
 
-IPsec configuration details
+**Details of `IPsec`**
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

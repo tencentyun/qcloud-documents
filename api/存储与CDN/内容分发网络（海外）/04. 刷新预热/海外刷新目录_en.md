@@ -4,7 +4,7 @@ This API (RefreshCdnOverSeaDir) is used to set resources under the specified dir
 
 Domain name for API request: cdn.api.qcloud.com
 
-1) The domain must have been connected to International CDN
+1) The domain must have been connected to International CDN.
 
 2) Up to 100 directories can be purged per day.
 
@@ -13,7 +13,7 @@ Domain name for API request: cdn.api.qcloud.com
 [Call Demo](https://www.qcloud.com/document/product/228/1734)
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details. The Action field for this API is RefreshCdnOverSeaDir.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details.
 
 | Parameter Name   | Required | Type     | Description                  |
 | ------ | ---- | ------ | ------------------- |
@@ -40,7 +40,7 @@ The following request parameter list only provides API request parameters. Commo
 | codeDesc | String | Error message|
 | data     | Array  | Details will be described below                                  |
 
-**data Field Description:**
+**`data` Field Description:**
 
 | Parameter Name  | Type   | Description           |
 | ----- | ---- | ------------ |
