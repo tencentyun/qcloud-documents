@@ -172,7 +172,7 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
     }
 ```
 **7.3**.  检查下混淆规则，确认是否将 SDK 相关的类也给混淆了。
-**7.4**   通过输出 SDK 上报的 log 排查问题
+**7.4**   在集成过程中，通过输出 SDK 上报的日志来排查问题
 建议在 Application 中实现 ITXLiveBaseListener 接口并实现 OnLog() 方法，具体代码如下：
 ```Java
 public class DemoApplication extends Application implements ITXLiveBaseListener {
