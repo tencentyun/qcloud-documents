@@ -89,6 +89,7 @@ https://flume.apache.org/FlumeUserGuide.html
 ![](https://mc.qcloudimg.com/static/img/3841d4eb19ad992d35e60196b38498ce/33.png)
 3）	点击topic管理，创建topic，此处名字为flume_test
  ![](https://mc.qcloudimg.com/static/img/9f069263c59539be5dcf845bba0b0455/44.png)
+
 至此，Ckafka相关的工作环境完成。
 
 ### Flume
@@ -99,11 +100,15 @@ a)	编写配置文件，此处重点放在flume 与ckafka作为Sink结合上，�
  ![](https://mc.qcloudimg.com/static/img/daf5063d3c2c74eddb93f729eb6feb5b/55.png)
 b)	此处使用的source为tail -F flume-test ，即文件中新增的信息
 c)	启动flume ：
+```
 ./bin/flume-ng agent -n agentckafka -c conf -f conf/flume-kafka-sink.properties
+```
 d)	写入消息到flume-test文件中，此时消息将由flume写入到ckafka
 ![](https://mc.qcloudimg.com/static/img/c9dc1f539e00f21fca1ead546f4e007e/66.png)
 e)	启动ckafka客户端进行消费：
+```
 ./kafka-console-consumer.sh --bootstrap-server 172.16.16.12:9092 --topic flume_test --from-beginning --new-consumer
+```
 可以看到刚刚的消息被消费出来了
  ![](https://mc.qcloudimg.com/static/img/ee394af9d8280bfef988d71ccc30f805/77.png)
 
@@ -113,7 +118,9 @@ a)	编写配置文件，此处重点放在flume 与ckafka作为Source结合上�
 
 b)	此处使用的sink为logger
 c)	启动flume ：
+```
 ./bin/flume-ng agent -n agentckafka -c conf -f conf/flume-kafka-source.properties
+```
 d)	查看logger输出信息（默认路径 logs/flume.log）
 ![](https://mc.qcloudimg.com/static/img/d6b51f8de1a063e51171b2996764f40d/99.png)
  
