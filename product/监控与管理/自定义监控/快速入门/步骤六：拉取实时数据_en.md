@@ -19,7 +19,7 @@ You can use the API GetMonitorData to view the data for a specified time range, 
 ```
 
 
-You will get the latest real-time data as follows. The updateTime is the time stamp.
+You will get the latest real-time data as follows. The updateTime is the timestamp.
 
 ```
 # {
