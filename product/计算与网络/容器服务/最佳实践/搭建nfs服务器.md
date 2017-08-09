@@ -56,7 +56,7 @@ NFS 是 Network File System 的简写，即网络文件系统。 通过使用 NF
 
 >- 对于 Ubuntu 16.04 系统：  
 ```shell
-apt-get install nfs-kernel-server -y
+apt-get install nfs-common -y
 ``` 
 - 对于 CentOS 7.2 系统：  
 ```shell
