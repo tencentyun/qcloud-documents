@@ -16,6 +16,7 @@
 ![](//mc.qcloudimg.com/static/img/60fcf4621caccb709d2a6d07822a2114/image.png)
 >**注意：**
 >如果无可添加网络，您需要去控制台 [新建私有网络](https://www.qcloud.com/document/product/215/8113) 或者 [新建子网](https://www.qcloud.com/document/product/215/8114)
+
 #### 3. 基础配置
 ![](//mc.qcloudimg.com/static/img/c83c44f139683db1312697a79aea21a7/image.png)
 以上信息配置完成后，单击【开通】，完成集群创建。
