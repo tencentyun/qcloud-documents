@@ -17,9 +17,9 @@ Note:
 1. You can change the public outboud fee billing mode. The new billing mode takes effect by the next clock hour.</br>
 2. For bandwidth cap changes within one clock hour (in the same billing mode), the changes take effect immediately, and the latest bandwidth cap is used for billing of public outbound fee. 
 
-###Bill by traffic: 
+### Bill by traffic: 
 Unit price: 0.8 CNY/GB, without cap on peak bandwidth (no speed limit). Pay by actual traffic on an hourly basis (post-paid) </li>
-###Bill by bandwidth cap: 
+### Bill by bandwidth cap: 
 Pay by the bandwidth cap you set. Public network egress speed is limited to the specified peak bandwidth. Tiered prices are adopted.</li>
 <table>
 <tr>
