@@ -37,12 +37,12 @@ NFS 是 Network File System 的简写，即网络文件系统。 通过使用 NF
 ![Alt text](https://mc.qcloudimg.com/static/img/1a739ddd2e4933285af85954c4c59aea/image.png)
 **第八步**：完成创建容器
 服务创建完成后，可以在同一集群内创建一个挂载该 NFS 盘的测试服务。测试服务可以使用任意镜像，只需要在创建测试服务时选择挂载刚创建的 NFS 盘。
-在创建测试服务的时候，NFS盘挂载参数示例如下图：
-**类型**：选择NFS盘。
-**名称**：数据卷的名称。此处以nnnfs为例。
-**路径**：请填写 **服务IP:/exports**。
+在创建测试服务的时候，NFS 盘挂载参数示例如下图：
+**类型**：选择 NFS 盘。
+**名称**：数据卷的名称。此处以 nnnfs 为例。
+**路径**：请填写 **服务 IP:/exports**。
 >**注意：**
->服务IP为刚创建成功的 NFS 盘服务的IP。
+>服务 IP 为刚创建成功的 NFS 盘服务的 IP。
 
 ![](https://mc.qcloudimg.com/static/img/9ce501057b5cad2a2271716725be0606/1212.png)
 若测试服务启动成功，则说明 NFS 服务搭建完成。挂载 NFS 盘的细节请参见：[挂载详情](/doc/product/457/9112)。
