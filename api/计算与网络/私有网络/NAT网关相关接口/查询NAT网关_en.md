@@ -1,11 +1,11 @@
 ## 1. API Description
 
 This API (DescribeNatGateway) is used to query NAT gateway
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request:vpc.api.qcloud.com
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeNatGateway
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>.
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
@@ -27,7 +27,7 @@ The following request parameter list only provides API request parameters. Commo
 | totalCount | int | Total number of queried NAT gateways |
 | data.n | array | Information array of queried NAT gateways |
 
-**The data structure is as follows:**
+**Details of `data.n`:**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -42,7 +42,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.createTime | string | Creation time of NAT gateway, for example: 2016-06-21 12:01:23 |
 | data.n.productionStatus | int | Production status of NAT gateway, 0:  Creating, 1:  Created successfully, 2:  Failed to create, 3:  Changing, 4:  Failed to change, 5:  Deleting, 6:  Failed to delete |
 
- ## 4. Error Code List
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error Code | Description |

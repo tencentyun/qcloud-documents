@@ -1,9 +1,9 @@
 ## 功能描述
-Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header：`"x-cos-acl"`，`"x-cos-grant-read"`，`"x-cos-grant-write"`，`"x-cos-grant-full-control"` 传入ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
->注：
-> `Header`和 `Body` 只能选择其中一种，否则响应返回会冲突。
->Put Bucket ACL 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
->只有 Bucket 创建者才有权操作。
+Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+><font color="#0000cc">**注意：** </font>
+- Header 和 Body 只能选择其中一种，否则响应返回会冲突。
+- Put Bucket ACL 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
+- 只有 Bucket 创建者才有权操作。
 
 
 ## 请求
@@ -11,7 +11,7 @@ Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header：
 语法示例：
 ```
 PUT /?acl HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Content-Type: application/xml
 Content-MD5: MD5
@@ -27,17 +27,14 @@ Authorization: Auth String
 ~~~
 PUT /?acl HTTP/1.1
 ~~~
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 acl。
 
 ### 请求头
 
 **公共头部**
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
-**非公共头部**
-该请求操作的实现可以用 PUT 请求中的 `x-cos-acl` 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+**非公共头部** <style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Bucket 访问权限。目前 Bucket 有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
@@ -111,12 +108,12 @@ Container 节点 Grantee 的内容：
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
-#### 响应体
+### 响应体
 该响应体返回为空。
 
 ## 实际案例

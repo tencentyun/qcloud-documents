@@ -2,16 +2,16 @@
  
 This API (AddClusterInstances) is used to scale the node for the cluster.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request:ccs.api.qcloud.com
 
-* <font style="color:red">This API can be called only when "status" of cluster is "Running".</font>
-* You need to input "vpcId" when creating a cluster, and only input "subnetId" when adding nodes (CVMs).
+* This API can be called only when "status" of cluster is "Running".
+* You need to input `vpcId` when creating a cluster, and only input `subnetId` when adding nodes (CVMs).
 * Because all the nodes under the same cluster use a same name (osName), you do not need to rename.
 * All the nodes in the cluster are HDD cloud disks.
 * The number of nodes in a cluster is limited to 20. You can [Submit a Ticket](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) to increase the number, and the nodes should also be subject to the number limit described in the [Restrictions on CVM Instance Purchase](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E8%B4%AD%E4%B9%B0%E9%99%90%E5%88%B6) document.
 * **Limitations on the ratio** of CPU to memory can be found [here](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE).
-* If you need to change the bandwidth, change it using the API [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) after the instance is created successfully. <font style="color:red">**The bandwidth of public network is 0 by default if not specified**</font>.
-* Supported instance types <font style="color:red">**(the types of CVMs purchased in each availability zone are different)**</font> can be found [here](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE):
+* If you need to change the bandwidth, change it using the API [UpdateInstanceBandwidthHour](https://www.qcloud.com/doc/api/229/1345) after the instance is created successfully. **The bandwidth of public network is 0 by default if not specified**.
+* Supported instance types **(the types of CVMs purchased in each availability zone are different)** can be found [here](https://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE):
 
 | CVM Type | Series 1 | Series 2 |
 |---------|---------|---------|
@@ -28,7 +28,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId | Yes | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters". |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | clusterDesc | No | String | Cluster description |
 | zoneId | Yes | Int | [Availability Zone](https://www.qcloud.com/document/api/213/1286) ID. |
 | cpu | Yes | Int | The number of CPU cores, see above for specific limits.  |

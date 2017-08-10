@@ -1,11 +1,11 @@
 ## 1. API Description
 
 This API (UpgradeNatGateway) is used to upgrade the NAT gateway specification.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request: vpc.api.qcloud.com
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is UpgradeNatGateway
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. 
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -23,7 +23,7 @@ The following request parameter list only provides API request parameters. Commo
 | billId | string | Order ID. You can query the upgrade result by calling <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2NAT%e7%bd%91%e5%85%b3%e7%9a%84%e7%94%9f%e4%ba%a7%e7%8a%b6%e6%80%81?viewType=preview" title="Query Upgrade Status of NAT Gateway">Query Upgrade Status of NAT Gateway</a> |
 
 
-## 4. Error Code List
+## 4. Error Codes
 The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |

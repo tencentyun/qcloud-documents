@@ -1,4 +1,81 @@
-## Sdk登录
+## 1 TLS登录（托管模式）
+
+Demo集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于TLS账号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://www.qcloud.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在demo中如何集成托管模式下的web 版TLS SDK。
+
+在index.html引入web 版TLS sdk，如： 
+
+```
+<script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
+```
+
+然后在页面中调用`TLSHelper.getQuery('tmpsig')`，判断是否获取到了临时身份凭证，没有，则调用`TLSHelper.goLogin({sdkappid: loginInfo.sdkAppID,acctype: loginInfo.accountType,url: callBackUrl})`，跳转到tls登录页面，登录成功会跳转到回调地址callBackUrl。
+
+**示例： **
+
+```
+//判断是否已经拿到临时身份凭证
+if (TLSHelper.getQuery('tmpsig')) {
+    if (loginInfo.identifier == null) {
+        console.info('start fetchUserSig');
+        //获取正式身份凭证，成功后会回调tlsGetUserSig(res)函数
+        TLSHelper.fetchUserSig();
+    }
+} else {//未登录
+    if (loginInfo.identifier == null) {
+        //弹出选择应用类型对话框
+        $('#select_app_dialog').modal('show');
+        $("body").css("background-color", 'white');
+    }
+}
+//tls登录
+function tlsLogin() {
+    //跳转到TLS登录页面
+    TLSHelper.goLogin({
+        sdkappid: loginInfo.sdkAppID,
+        acctype: loginInfo.accountType,
+        url: callBackUrl
+    });
+}
+```
+
+如果已经拿到了临时凭证，则继续调用`TLSHelper.fetchUserSig()`获取正式身份凭证，成功之后会回调`tlsGetUserSig(res)`函数。 
+	
+注：独立模式可直接用已生成的usersig与usersig对应的帐号放入loginInfo中，然后进行下一步去登录sdk。详情可参考demo。
+
+**示例： **
+
+```
+//第三方应用需要实现这个函数，并在这里拿到UserSig
+function tlsGetUserSig(res) {
+    //成功拿到凭证
+    if (res.ErrorCode == TlsErrorCode.OK) {
+        //从当前URL中获取参数为identifier的值
+        loginInfo.identifier = TLSHelper.getQuery("identifier");
+        //拿到正式身份凭证
+        loginInfo.userSig = res.UserSig;
+        //从当前URL中获取参数为sdkappid的值
+        loginInfo.sdkAppID = loginInfo.appIDAt3rd = Number(TLSHelper.getQuery("sdkappid"));
+        //从cookie获取accountType
+        var accountType = webim.Tool.getCookie('accountType');
+        if (accountType) {
+            loginInfo.accountType = accountType;
+            initDemoApp();
+        } else {
+            alert('accountType非法');
+        }
+    } else {
+        //签名过期，需要重新登录
+        if (res.ErrorCode == TlsErrorCode.SIGNATURE_EXPIRATION) {
+            tlsLogin();
+        } else {
+            alert("[" + res.ErrorCode + "]" + res.ErrorInfo);
+        }
+    }
+}
+```
+
+
+## 2 Sdk登录
 
 本节主要介绍sdk 登录login api。
 

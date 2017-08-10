@@ -6,7 +6,7 @@ List Parts 用来查询特定分块上传中的已上传的块，即罗列出指
 语法示例：
 ```
 GET /ObjectName?uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 
@@ -20,13 +20,17 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 该 API 接口接受 GET 请求。
 #### 请求参数
-该 API 接口使用到的一些请求参数用以自定义响应返回的分块信息。
+包含所有请求参数的请求行示例：
+```
+GET /ObjectName?uploadId=UploadId&encoding-type=EncodingType&max-parts=MaxParts&part-number-marker=PartNumberMarker HTTP/1.1
+```
+具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 |参数名称|描述|类型|必选|
 |:---|:---|:---|:---|
-| uploadId | 标示本次分块上传的ID | String | 是 |
+| uploadId | 标识本次分块上传的 ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。 | String | 是 |
 | encoding-type | 规定返回值的编码方式 | String | 否 |
-| max-parts | 单次返回最大的条目数量，默认 1000 | String | 否 |
+| max-parts | 单次返回最大的条目数量，默认 1000 | Integer | 否 |
 | part-number-marker | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 | String | 否 |
 
 ### 请求头
@@ -35,20 +39,20 @@ GET /ObjectName?uploadId=UploadId HTTP/1.1
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
 
 #### 非公共头部
-该请求操作的实现没有使用特殊的请求头部。
+该请求操作无特殊的请求头部信息。
 
 ### 请求体
-该请求的操作请求体为空。
+该请求的请求体为空。
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+### 响应头
+#### 公共响应头 
+该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
+#### 特有响应头
 该响应无特殊的响应头。
 
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <ListPartsResult>

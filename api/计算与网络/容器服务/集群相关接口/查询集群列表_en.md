@@ -2,7 +2,7 @@
  
 This API (DescribeCluster) is used to query the list of clusters.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 
@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterIds.n| No | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters". |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | clusterName | No | String| Filter criteria: cluster name |
 | status| No | String| Cluster status |
 | orderField | No | String| Sorting field. Supported values: clusterId, clusterName, createdAt, updatedAt. Default is createdAt |
@@ -30,7 +30,7 @@ The following request parameter list only provides API request parameters. For o
 | totalCount | Int | Number of clusters |
 | clusterSet | Array | Cluster information array |
 
-"clusterSet" contains a lot of instance information, and the data structure for each instance information is as follows:
+``clusterSet`` contains a lot of instance information, and the data structure for each instance information is as follows:
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -53,7 +53,7 @@ The following request parameter list only provides API request parameters. For o
 | clusterExternalEndpoint |String | URL for accessing kubernetesAPI, which is used to work with cluster by using kubernetesAPI directly |
 
 
-Details of cluster status (status)
+Details of ``status``
 
 | Type | Description |
 |---------|---------|
@@ -65,7 +65,7 @@ Details of cluster status (status)
 | Isolated | Isolating cluster due to arrears |
 | Abnormal | Cluster exception |
 
-Details of cluster node status (nodeStatus)
+Details of ``nodeStatus``
 
 | Type | Description |
 |---------|---------|

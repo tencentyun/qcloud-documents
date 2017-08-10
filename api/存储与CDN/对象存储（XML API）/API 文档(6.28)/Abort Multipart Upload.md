@@ -1,7 +1,7 @@
 ## 功能描述
-Abort Multipart Upload 用来实现舍弃一个分块上传并删除已上传的块。当您调用 Abort Multipart Upload 时，如果有正在使用这个 Upload Parts 上传块的请求，则 Upload Parts 会返回失败。当该 UploadID 不存在时，会返回 404 NoSuchUpload。
+Abort Multipart Upload 用来实现舍弃一个分块上传并删除已上传的块。当您调用 Abort Multipart Upload 时，如果有正在使用这个 Upload Parts 上传块的请求，则 Upload Parts 会返回失败。当该 UploadId 不存在时，会返回 404 NoSuchUpload。
 
->**注意：**
+><font color="#0000cc">**注意：** </font>
 >建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
 
 ## 请求
@@ -9,7 +9,7 @@ Abort Multipart Upload 用来实现舍弃一个分块上传并删除已上传的
 语法示例：
 ```
 DELETE /ObjectName?uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<AppID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -20,9 +20,17 @@ Authorization: Auth String
 ```
 DELETE /ObjectName?uploadId=UploadId HTTP/1.1
 ```
+该 API 接口接受 DELETE 请求。
 #### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 `ObjectName?uploadId=UploadId `。
+包含所有请求参数的请求行示例：
+```
+DELETE /ObjectName?uploadId=UploadId HTTP/1.1
+```
+具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+
+|参数名称|描述|类型|必选|
+|---|---|---|---|
+|uploadId|标识本次分块上传的 ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 |String|是|
 
 ### 请求头
 
@@ -38,16 +46,15 @@ DELETE /ObjectName?uploadId=UploadId HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该请求操作无特殊的响应头。
 
 
-#### 响应体
+### 响应体
 该请求的响应体为空
-
 
 
 ## 实际案例

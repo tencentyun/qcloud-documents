@@ -6,7 +6,7 @@ Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET �
 语法示例：
 ```
 GET /?location HTTP/1.1
-Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
+Host: <Bucketname>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -20,27 +20,27 @@ GET /?location HTTP/1.1
 该 API 接口接受 GET 请求。
 
 ### 请求头
-**公共头部**
+#### 公共头部
 该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
-**非公共头部**
+#### 非公共头部
 该请求操作无特殊的请求头部信息。
 ### 请求体
 该请求的请求体为空。
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊有响应头。
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <LocationConstraint></LocationConstraint>
 ```
 具体的数据内容如下：
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 180px;	} </style>
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
