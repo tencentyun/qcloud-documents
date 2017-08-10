@@ -19,7 +19,7 @@ The functional differences between the private network and the basic network are
 | Intercommunication Rules | Supports cross-domain, cross-account intercommunication | Interoperable among renters in the same geographical area |
 | Security control | [Security group](/doc/product/213/5221) and [Network ACL](https://www.qcloud.com/doc/product/215/5132) | [Security group](/doc/product/213/5221) |
 
-##Advantages of VPC
+## Advantages of VPC
 
 By starting the instance within the VPC, you can:
 
