@@ -90,7 +90,7 @@ When the master/slave switchover occurs, the new master device is switched by ca
 ```
 vrrp_sync_group G1 {
     group {
-        E1
+        VI_1
     }
     notify_master "/etc/keepalived/vip.py"
 }
