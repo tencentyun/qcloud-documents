@@ -8,6 +8,7 @@
 
 ##SDK获取与安装##
 
+可以通过以下方式获取JAVA SDK，开发者可以结合自身的情况，选择SDK源码、添加maven依赖项或者使用jar包。
 
 1. 获取源码
 [从 Github 访问 >>](https://github.com/QcloudApi/qcloudapi-sdk-java)
