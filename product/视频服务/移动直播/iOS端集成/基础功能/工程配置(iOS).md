@@ -101,7 +101,7 @@
 ## LOG打印
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及log的级别，具体代码如下：
 - **setConsoleEnabled**
-设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
+设置是否在 xcode 的控制台打印 SDK 的相关输出。
 
 - **setLogLevel**
 设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到当前App的 **Documents/logs** 文件夹下。
