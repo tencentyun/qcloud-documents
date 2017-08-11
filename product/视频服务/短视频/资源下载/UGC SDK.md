@@ -1,12 +1,9 @@
 ## 版本说明
 
-- 版本号：2.0.5.3469 @ 2017-07-12
-- Android：短视频编辑添加水印功能。
-- Android：短视频录制新增分段录制功能。
-- iOS & Android：修复若干bug。
+- 版本号：3.0.1190 @ 2017-08-11
 
 ## 版本预告
-- 2.0.6 版本预计 7 月发布
+- 3.1 版本预计 9 月发布
 - 预计Android增加变速编辑功能，可以将本地视频加速到原来的 2x, 4x 等倍速。
 - 预计Android增加音轨编辑功能，可以将本地视频的音轨进行替换和修改。
 - 预计Android增加字幕编辑功能，可以对本地视频添加字幕。
@@ -26,8 +23,8 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.5.3469.zip)   |
-| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.5.3469.zip) |
+| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_UGC_iOS_3.0.1190.zip)   |
+| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1190.zip) |
 
 - **付费版**
 
@@ -35,7 +32,7 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
-| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
+| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Enterprise_iOS_Enc_3.0.1190.zip) |
+| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_Enc_3.0.1190.zip) |
 
 
