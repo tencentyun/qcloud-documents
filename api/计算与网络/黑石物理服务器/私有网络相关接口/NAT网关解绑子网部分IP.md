@@ -9,14 +9,14 @@
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| natId | 是 | String | NAT网关统一ID，例如：nat-8pbrkzh6|
-| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| natId | 是 | string | NAT网关统一ID，例如：nat-8pbrkzh6|
+| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | ips.n | 是 | Array | 需要解绑部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下：
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-|ips.n.subnetId|是|int|子网ID标识|
-|ips.n.ipList|是|Array|子网下需要解绑NAT的IP列表，IP需要属于subnetId子网下|
+|ips.n.subnetId|是|string|子网ID标识|
+|ips.n.ipList|是|Array|子网下需要解绑NAT的IP列表，IP需要属于该subnetId子网|
 
 
 ## 3. 输出参数
@@ -25,7 +25,7 @@
 |---------|---------|---------|
 | code | int | 错误码。0：成功，其他值：失败|
 | message | string | 错误信息|
-| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关解绑子网的部分IP的任务状态">查询黑石NAT网关解绑子网的部分IP的任务状态</a>查询 |
+| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关解绑子网部分IP的任务状态">查询黑石NAT网关解绑子网部分IP的任务状态</a>查询 |
 
  ## 4. 错误码表
  以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。

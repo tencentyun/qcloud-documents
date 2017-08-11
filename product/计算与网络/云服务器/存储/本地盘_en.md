@@ -1,6 +1,6 @@
 Local disk is a storage device located on the same physical server as the CVM instance and is featured by high read/write IO and low latency. Local disk comes from the local storage of the physical machine where the CVM resides. It is a storage area reserved on the physical machine where the CVM resides. It is advised to choose local disk for both system disk and data disk. In addition, in case of the purchase of a High IO model, only SSD local disk is recommended. However, a CVM for which local disk is selected DOES NOT support the upgrade of hardware (CPU, memory) and only supports upgrade of bandwidth.
 
-## The life cycle of local disk
+## Lifecycle of local disk
 Since the local disk can only be created following CVM instances,  it will be started and stopped with the life cycle of CVM.
 
 ## Types of local disks
@@ -14,7 +14,7 @@ The local HDD is a local storage located on the physical machine where the CVM i
 
 | Specifications | Performance | Price |
 |---------|---------|---------|
-| System disk: a fee-free capacity of 20 GB. You can choose to buy disks of a larger capacity. It supports a maximum of 50GB (Linux)<br><br> A fee-free non-expandable capacity of 50GB (Windows).<br><br> Data disk: the local HDD supports the capacity from 10GB up to 1000GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Reading and writing speed of more than 80 MB/S | Prepaid plan: 0.3 CNY/GB/month <br>Postpaid: 0.042 CNY/100 GB/hour |
+| System disk: a fee-free capacity of 20 GB. You can choose to buy disks of a larger capacity. It supports a maximum of 50 GB (Linux)<br><br> A fee-free non-expandable capacity of 50 GB (Windows).<br><br> Data disk: the local HDD supports the capacity from 10 GB up to 1,000 GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Reading and writing speed of more than 80 MB/S | Prepaid plan: 0.3 CNY/GB/month <br>Postpaid: 0.042 CNY/100 GB/hour |
 
 ### SSD local disk
 The SSD local disk is a local storage located on the physical machine where the CVM resides, providing instances with block-level data access with low latency, high random IOPS, and high I/O throughput.

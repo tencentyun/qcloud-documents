@@ -1,14 +1,14 @@
 ## 1. API Description
 
 This API (QueryNatGatewayProductionStatus) is used to query the production status of the NAT gateway
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request: vpc.api.qcloud.com
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is QueryNatGatewayProductionStatus.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. 
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
-| billId | Yes | String | The order ID returned when creating, you can use this ID to query the final result |
+| billId | Yes | String | The order ID returned when creating the gateway.|
 
 
 ## 3. Output Parameters
@@ -20,7 +20,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.status | int | Production result: 0: Succeeded; 1: Failed; 2: In progress |
 | data.errorCode | string | Error code |
 
- ## 4. Error Code List
+## 4. Error Codes
  The API does not have a business error code. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
 
 

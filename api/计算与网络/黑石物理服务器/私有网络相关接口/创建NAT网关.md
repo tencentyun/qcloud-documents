@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口(CreateBmNatGateway)用于创建黑石NAT网关，可分别从全部子网、子网全部IP，子网部分IP创建Nat网关
+本接口(CreateBmNatGateway)用于创建黑石NAT网关，可针对全部子网、子网全部IP、子网部分IP创建Nat网关。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
@@ -19,8 +19,8 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-|ips.n.subnetId|是|int|子网ID标识|
-|ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于subnetId子网下|
+|ips.n.subnetId|是|string|子网ID标识|
+|ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于该subnetId子网|
 
 ## 3. 输出参数
 
