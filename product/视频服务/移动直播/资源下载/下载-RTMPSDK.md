@@ -1,6 +1,6 @@
 ## 版本说明 
 + **版本相关信息**
-  - 版本号：3.0.1185 @ 2017-08-09
+  - 版本号：3.0.1190 @ 2017-08-11
 
 + **直播相关优化**
   - iOS & Android：引入推流加速技术，当您推流到腾讯云的 rtmp 地址时，可以开启 <font color='purple'>TXLivePushConfig::enableNearestIP</font> 开关，此时SDK会使用 **推流+** 加速后的推流通道传输主播的音视频数据，使推流质量获得较大提升，如下是 SDK 和 其他直播软件的对比效果。（推其他云商请关闭 enableNearestIP 开关）
@@ -80,7 +80,7 @@ table td { height: 35px; }
 | 动效贴纸 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 美瞳瘦脸 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 绿幕抠图 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| |[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Smart_Android_3.0.1185.zip)| WAITING | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1185.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Professional_Android_3.0.1185.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_Enc_3.0.1185.zip) | 
+| |[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Smart_Android_3.0.1190.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Play_Android_3.0.1190.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1190.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Professional_Android_3.0.1190.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_Enc_3.0.1190.zip) | 
 
 - **版本说明**
 
