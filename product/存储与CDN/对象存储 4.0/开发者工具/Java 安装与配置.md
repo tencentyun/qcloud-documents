@@ -23,38 +23,6 @@ JDK 是 Java 软件开发工具包，本文以 JDK 1.7 和 1.8 版本为例，�
 测试配置是否成功：【开始】（或快捷键：Win+R）>【运行】（输入 `cmd`）>【确定】（或按 Enter 键），输入命令 `javac` 并回车。出现如下图所示信息，则说明环境变量配置成功。
 ![本地同步工具5](//mc.qcloudimg.com/static/img/83f8417d6f540c20182267acba29f2ad/image.png)
 ## Linux
-### CentOS yum 安装 JDK
-#### 1. 查看 yum 库中的 Java 安装包
-```
-yum -y list java*
-```
-![115032](//mc.qcloudimg.com/static/img/33f0d3fb25afa842a4ced99acebeb050/image.png)
-#### 2. 使用 yum 安装 Java 环境
-```
-//选择1.7版本进行安装 
-yum install java-1.7.0-openjdk 
-//安装完之后，默认的安装目录是在: /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.75.x86_64 
-```
-#### 3. 设置环境变量
-```
-vi /etc/profile 
-```
-在打开的 profile 文件中添加如下内容：
-```
-set java environment
-JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.75.x86_64
-JRE_HOME=$JAVA_HOME/jre
-CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
-PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
-export JAVA_HOME JRE_HOME CLASS_PATH PATH
-```
-让修改生效：
-```
-source /etc/profile 
-```
-#### 4. 测试配置是否成功
-输入`java -version`可查看 Java 版本；输入`javac`可查看 Java 的编辑器命令用法。
-![120405](//mc.qcloudimg.com/static/img/5c989198e9145596436e6f1d63c57f71/image.png)
 ### 手动解压安装 JDK 
 #### 1. 在`/usr/`目录下创建`java`目录
 ```
@@ -114,5 +82,6 @@ export JAVA_HOME JRE_HOME CLASS_PATH PATH
 ```
 source /etc/profile 
 ```
-#### 4. 测试配置是否成功（同 CentOS yum 方法）
+#### 4. 测试配置是否成功
 输入`java -version`可查看 Java 版本；输入`javac`可查看 Java 的编辑器命令用法。
+![120405](//mc.qcloudimg.com/static/img/5c989198e9145596436e6f1d63c57f71/image.png)
