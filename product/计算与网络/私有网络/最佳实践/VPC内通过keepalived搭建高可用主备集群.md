@@ -5,7 +5,6 @@
 ![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 
 </div>
-<p style="text-align:center">图1：高可用主备集群原理示意图</p>
 ## 与物理网络的区别
 在传统的物理网络中可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 的迁移到主设备上。腾讯云 VPC 内支持部署 keepalived 来搭建主备高可用集群，与物理网络相比，主要有两个区别：
 1)  暂不支持 VRRP 组播报文，需要将 keepalived 的 VRRP Instance 配置为单播 VRRP 报文。
