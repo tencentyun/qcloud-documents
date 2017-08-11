@@ -60,10 +60,6 @@
 
 ![](//mc.qcloudimg.com/static/img/0e012a7ab67e833eb33aec1e02f5d86b/image.jpg)
 
-关闭工程Bitcode选项。
-
-![](//mccdn.qcloud.com/static/img/4298f90507a749625d7e92cc9004c1b1/image.png)
-
 ### 3、添加头文件
 在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_Professional的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_Professional/"，如下所示：
 ```
@@ -113,7 +109,6 @@
 
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
-
 
 ```
 [TXLiveBase setConsoleEnabled:YES];
