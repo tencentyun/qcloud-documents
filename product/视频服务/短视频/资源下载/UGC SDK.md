@@ -23,8 +23,8 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_UGC_iOS_3.0.1190.zip)   |
-| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1190.zip) |
+| iOS平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_UGC_iOS_3.0.1190.zip)   |
+| Android平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1190.zip) |
 
 - **付费版**
 
@@ -32,7 +32,7 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Enterprise_iOS_Enc_3.0.1190.zip) |
-| Android平台  | 2.0.5.3469 @ 2017-07-12 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_Enc_3.0.1190.zip) |
+| iOS平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Enterprise_iOS_Enc_3.0.1190.zip) |
+| Android平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_Enc_3.0.1190.zip) |
 
 
