@@ -1,8 +1,10 @@
 Here we will show you how to build a highly available master/slave cluster through keepalived in Tencent Cloud VPC.
 ## Basic Principle
 Typically, the highly available master/slave cluster consists of two servers, the master server in the active state of a service (Active state) and the slave server in the standby state of the service (Standby state). Both servers share the same VIP (Virtual IP). The VIP can only be valid in one master device at a time. When the master server fails, the slave server will take over the VIP to continue providing services. Highly available master/slave mode has a wide range of applications, such as mysql master/slave switchover and Ngnix web access.
+<div style="text-align:center">
 ![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 
+</div>
 ## The Difference from the Physical Network
 In the traditional physical network, you can negotiate the master/slave state through the keepalived VRRP protocol. Principle: The master device periodically sends gratuitous ARP message to purge the MAC table or terminal ARP table of the uplink switch, triggering the VIP migration to the master device. Tencent Cloud VPC supports the deployment of keepalived to build a highly available master/slave cluster. Compared with the physical network, there are two main differences:
 1) VRRP multicast message is currently not supported. You need to configure keepalived vrrp instance to unicast VRRP message.
@@ -102,8 +104,14 @@ Vip.py: Develop the master/slave switchover program through Cloud API, and switc
 Please read README.md carefully and download SDK to the directory `/etc/keepalived`:
 
 2) Get Cloud API key:
+<div style="text-align:center">
 ![](//mc.qcloudimg.com/static/img/ffd379c9e886d0ae3de4fba34539aac7/2.png)
+
+</div>
+<div style="text-align:center">
 ![](//mc.qcloudimg.com/static/img/900df050c3d619566a482ff4e1bd5433/4.png)
+
+</div>
 3) Develop vip.py switchover program for calling the Cloud API based on the SDK, save `vip.py` to the directory `/etc/keepalived`. The Cloud API of private IP migration:
 
 ```
