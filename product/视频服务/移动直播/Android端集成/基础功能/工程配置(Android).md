@@ -69,9 +69,17 @@ allprojects {
 
 - 在工程目录下的build.gradle的defaultConfig里面，指定ndk兼容的架构：
 ```
- ndk {
-      abiFilters "armeabi"
-  }
+   defaultConfig {
+        applicationId "com.tencent.liteav.demo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "2.0"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"
+        }
+    }
 ```
 
 - 最后编译一下工程 Rebuild Project。
@@ -210,10 +218,17 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 
 - 如果您使用aar集成方式的完整版本，在工程目录下的build.gradle的defaultConfig里面确认下是否将 x64 架构的 so 库过滤掉。因为完整版本中连麦功能所使用的声学组件库暂时不支持 x64 架构的手机。
 ```
-ndk {
-	// 需要将 armeabi-x64 架构过滤掉
-    abiFilters "armeabi"
-}
+ defaultConfig {
+        applicationId "com.tencent.liteav.demo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "2.0"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"
+        }
+  }
 ```
 
 - 检查下混淆规则，确认已将 SDK 的相关包名加入了不混淆名单。
