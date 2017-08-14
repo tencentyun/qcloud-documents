@@ -52,9 +52,13 @@ https://vpc.api.qcloud.com/v2/index.php?Action=ModifyLocalIPTranslationNatRule
 </pre>
 输出
 ```
-{
+{ 
     "code":"0",
-    "message":""
+    "message":"",
+    "data":{
+        "taskId":"17922"
+    },
+    "codeDesc":"Success"
 }
 ```
 

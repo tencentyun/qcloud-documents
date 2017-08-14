@@ -1,6 +1,6 @@
 You can configure HTTPS certificate for a domain that has been connected to CDN. You can upload your existing certificate for deployment, or directly deploy the certificate hosted or issued by [SSL Certificate Management](https://console.qcloud.com/ssl) platform.
 
-<font color="red">You can apply for a free third party certificate from TrustAsia on SSL Certificate Management page.</font>
+You can apply for a free third party certificate from TrustAsia on SSL Certificate Management page.
 
 ## Configuring Certificate
 
@@ -11,15 +11,15 @@ If you already have a certificate, you can upload it directly to the CDN page fo
 Select the accelerated domain for which you want to configure a certificate. Note:
 
 + The domain is required to be connected to CDN with a status of **Deploying** or **Activated**. For a deactivated domain, certificate deployment is not allowed; 
-+ When CDN acceleration has been activated for COS or Cloud Image, certificate cannot be deployed for domain .file.myqcloud.com or .image.myqcloud.com by default; 
++ When CDN acceleration has been activated for COS or Cloud Image, certificate cannot be deployed for domain `.file.myqcloud.com` or `.image.myqcloud.com` by default; 
 + Certificate cannot be deployed for SVN hosted origin currently.
 
 ![](https://mc.qcloudimg.com/static/img/ac1c0f73c7a497cb998491672635adee/2.png)
 
 ### 2. Selecting a Certificate
-#### 2.1 Using self-owned certificate
+#### 2.1 Using external certificate
 
-Select "Own Certificate", and paste the certificate content and private key to the corresponding text boxes. You can optionally add a remark for identifying the certificate.
+Select "External Certificate", and paste the certificate content and private key to the corresponding text boxes. You can optionally add a remark for identifying the certificate.
 
 ![](https://mc.qcloudimg.com/static/img/794ed717eb96076fde27ad9abde38093/3.png)
 
@@ -36,7 +36,7 @@ By selecting "Tencent Cloud Hosted Certificate", you can view the list of certif
 + Select the certificate to use from the List of Certificates;
 + The certificates are displayed as Certificate IDs (Remark) in the list . You can learn more about the certificates by going to [SSL Certificate Management](https://console.qcloud.com/ssl).
 
-### 3. Back-to-origin Method
+### 3. Origin-Pull Method
 After the certificate is configured, you can select the back-to-origin method by which CDN nodes get resources from origin server:
 
 ![](https://mc.qcloudimg.com/static/img/5ea84cece3dbb0d0956b850fa3db71d4/5.png)
@@ -58,7 +58,7 @@ If you have a multi-domain certificate or wildcard-domain certificate applicable
 
 ### 1. Uploading certificate
 
-Paste PEM-encoded certificate content and private key to corresponding text boxes. You can modify the Remark to identify the configured certificate, and then click "Next":
+Paste PEM-encoded certificate content and private key to corresponding text boxes. You can modify the Remark to identify the configured certificate, and then click **Next**:
 
 ![](https://mc.qcloudimg.com/static/img/3b9ee17d804d79b23d045542d26bbd51/7.png)
 

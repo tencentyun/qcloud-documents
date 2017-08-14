@@ -31,14 +31,14 @@ The following request parameter list only provides API request parameters. Commo
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Array  | Returned data result                                   |
 
-#### data Field Description
+#### `data` field Description
 
 | Parameter Name  | Type    | Description   |
 | ----- | ----- | ---- |
 | logs  | Array | Log details |
 | total | Int   | Number of purges |
 
-#### logs Field Description
+#### `logs` field Description
 
 | Parameter Name       | Type     | Description                           |
 | ---------- | ------ | ---------------------------- |
