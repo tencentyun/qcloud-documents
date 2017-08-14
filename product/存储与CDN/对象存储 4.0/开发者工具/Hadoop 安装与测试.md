@@ -204,9 +204,9 @@ slave3
 ```
 #### 8. 各个主机之间复制 Hadoop
 ```
-# scp -r /usr/ hadoop-2.7.4 slave1:/usr
-# scp -r /usr/ hadoop-2.7.4 slave2:/usr
-# scp -r /usr/ hadoop-2.7.4 slave3:/usr
+scp -r /usr/ hadoop-2.7.4 slave1:/usr
+scp -r /usr/ hadoop-2.7.4 slave2:/usr
+scp -r /usr/ hadoop-2.7.4 slave3:/usr
 ```
 #### 9. 各个主机配置 Hadoop 环境变量
 ```
