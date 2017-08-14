@@ -1,23 +1,23 @@
 ## 1. API Description
 
 This API (DescribeVpnConn) is used to query VPN tunnel list.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request: vpc.api.qcloud.com
 
  
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeVpnConn.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. 
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | No | string | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-03vihbk9. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  | 
-| vpnGwId | No  | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>.  |
-| vpnConnId | No  | String | VPN tunnel ID assigned by the system, which can be vpnConnId or unVpnConnId. unVpnConnId is recommended. For example: vpnx-ol6bcqp0.  |  
+| vpcId | No | string | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-03vihbk9. It can be queried via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API.  | 
+| vpnGwId | No  | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv. It can be queried via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a> API.  |
+| vpnConnId | No  | String | VPN tunnel ID assigned by the system, which can be `vpnConnId` or `unVpnConnId`. `unVpnConnId` is recommended. For example: `vpnx-ol6bcqp0`.  |  
 | vpnConnName | No  | String | VPN tunnel name, fuzzy query is supported.  |  
 | offset | No | Int | Offset of initial line. Default is 0.  |
 | limit | No | Int | Number of rows per page. Default is 20. Supports up to 50.  |
-| orderField | No | String | Sort by a certain field. Currently, the sorting can be performed only by createTime (default) and vpnConnName.  |
-| orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc.  |
+| orderField | No | String | Sort by a certain field. Currently, the sorting can be performed only by `createTime` (default) and `vpnConnName`.  |
+| orderDirection | No | String | Ascending (`asc`) or descending (`desc`). Default is `desc`.  |
 
 
 ## 3. Output Parameters
@@ -45,7 +45,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.IKEArr.n | Array | Information array of IKE configurations.  |
 | data.n.IPSECArr.n | Array | Information array of IPsec configurations.  |
 
-Content of IKE configuration information array
+**Details of `data.n.IKEArr.n`**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -61,7 +61,7 @@ Content of IKE configuration information array
 | IKEArr.n.dhGroupName | String | IKE configuration, DH group, specifies the DH group used for exchanging the private key. For example: group1. See the product instruction for details.  |
 | IKEArr.n.ikeSaLifetimeSeconds | Int | IKE configuration, IKE SA Lifetime, unit: second, sets the SA lifetime of IKE security proposal. For example: 3600. See the product instruction for details.  |
 
-Content of IPsec configuration information array
+**Details of `data.n.IPSECArr.n`**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|

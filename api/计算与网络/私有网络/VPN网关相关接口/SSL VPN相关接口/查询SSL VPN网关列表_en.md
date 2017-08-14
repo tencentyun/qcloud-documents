@@ -1,22 +1,22 @@
 ## 1. API Description
 
 This API (DescribeSSLVpn) is used to query sslVPN.
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font> 
+Domain for API request: vpc.api.qcloud.com 
 
  
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeSSLVpn.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. 
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------| 
-| vpcId | No | String | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-amhnnao5; optional. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| sslVpnId | No | String | SSL VPN gateway ID assigned by the system, for example: vpngw-dystbrkv; optional.  |
+| vpcId | No | String | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-amhnnao5. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| sslVpnId | No | String | SSL VPN gateway ID assigned by the system, for example: vpngw-dystbrkv.  |
 | sslVpnName | No | String | SSL VPN gateway name. Fuzzy search is supported. |
 | offset | No | Int | Offset of initial line. Default is 0.  |
 | limit | No | Int | Number of rows per page. Default is 20. Supports up to 50.  |
-| orderField | No | String | Sort by a certain field. Currently, the sorting can be performed only by createTime (default) and sslVpnName.  |
-| orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc.  |
+| orderField | No | String | Sort by a certain field. Currently, the sorting can be performed only by `createTime` (default) and `sslVpnName`.  |
+| orderDirection | No | String | Ascending (`asc`) or descending (`desc`). Default is desc.  |
  
 
 ## 3. Output Parameters
@@ -39,7 +39,7 @@ The following request parameter list only provides API request parameters. Commo
 | sslVpnSet.n.createTime | String | Creation time of VPN gateway, for example: 2015-11-06 20:55:12.  |
 
 ## 4. Error Codes
-The API does not have a business error code. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
+This API does not have service error codes. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
 
 ## 5. Example
  

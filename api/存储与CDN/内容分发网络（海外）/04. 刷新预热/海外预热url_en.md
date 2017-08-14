@@ -5,12 +5,12 @@ Domain name for API request: cdn.api.qcloud.com
 
 **Note**
 + Up to 1,000 URLs can be prefetched per day, and up to 20 URLs for one time.
-+ Contact Tencent Cloud sales representatives if you need to increase the quota
++ Contact Tencent Cloud sales representatives if you need to increase the quota.
 
 [Call Demo](https://www.qcloud.com/document/product/228/1734)
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details. The Action field for this API is CdnOverseaPushser.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details.
 
 | Parameter Name   | Required | Type     | Description                        |
 | ------ | ---- | ------ | ------------------------- |

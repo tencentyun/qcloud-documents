@@ -1,10 +1,13 @@
+
+
+
 ## 1. API Description
 This API (CreateScalingPolicy) is used to create an alarm trigger policy.
 Domain for API request: <font style="color:red">scaling.api.qcloud.com</font>
 
 1) When adjustmentType is TotalCapacity, it means adjusting the number of CVM instances in the current scaling group to the number specified by adjustmentValue. The value of adjustmentValue must be greater than or equal to 0.
 
-2) When adjustmentType is QuantityChangeInCapacity or PercentChangeInCapacity, if the value of adjustmentValue is positive, it means increasing instances, and if negative, it means reducing instances.
+2) When adjustmentType is `QuantityChangeInCapacity` or `PercentChangeInCapacity`, if the value of adjustmentValue is positive, it means increasing instances, and if negative, it means reducing instances.
 
 3) When adjustmentType is PercentChangeInCapacity, adjustmentValue indicates the percentage of current instances.
 

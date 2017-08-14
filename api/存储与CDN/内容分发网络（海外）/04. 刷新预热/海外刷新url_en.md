@@ -7,7 +7,7 @@ Domain name for API request: cdn.api.qcloud.com
 [Call Demo](https://www.qcloud.com/document/product/228/1734)
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details. The Action field for this API is RefreshCdnOverSeaUrl.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details.
 
 | Parameter Name   | Required | Type     | Description                     |
 | ------ | ---- | ------ | ---------------------- |
@@ -36,7 +36,7 @@ The following request parameter list only provides API request parameters. Commo
 | codeDesc | String |Error message                     |
 | data     | Array  | Details will be described below                                  |
 
-**data Field Description:**
+**`data` Field Description:**
 
 | Parameter Name  | Type   | Description           |
 | ----- | ---- | ------------ |

@@ -18,9 +18,9 @@ Tencent Cloud provides the following types of images:
 - Custom images: Only the creators and shared objects can use them, which are created from existing running instances, or imported externally.
 - Shared images: Shared by other users and used only to create instances.
 
-## Image lifetime
+## Image lifecycle
 
-The following figure summarizes the lifetime of custom images. After you create or import a new custom image, you can use it to start a new instance (you can also start an instance from an existing common image or a service market image). A custom image can be synchronized to the same accounts in another region, and becomes an independent image in that region. You can also share custom images to other users.
+The following figure summarizes the lifecycle of custom images. After you create or import a new custom image, you can use it to start a new instance (you can also start an instance from an existing common image or a service market image). A custom image can be synchronized to the same accounts in another region, and becomes an independent image in that region. You can also share custom images to other users.
 
 ![](//mccdn.qcloud.com/static/img/d773034279721f814f9451e17e45c21c/image.png)
 
@@ -28,9 +28,9 @@ The following figure summarizes the lifetime of custom images. After you create 
 Common images: No usage restrictions.
 
 Custom images:
-1) Cross-regional synchronization of custom images is free currently.
+1) Cross-regional synchronization of custom images is free.
 
-2) At present, each region supports 10 custom images.
+2) Each region supports 10 custom images.
 
 3) Each user can only carry out five operations every day (including cloud API operations, counted by region).
 
