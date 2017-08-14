@@ -30,7 +30,7 @@ sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel mak
 
 ## 使用方法 
 ### 获取工具 
-Github 获取地址： [COS-Fuse 工具](https://github.com/tencentyun/cosfs-v4.2.1)
+Github 获取地址： [COSFS 工具](https://github.com/tencentyun/cosfs-v4.2.1)
 
 ### 安装工具 
 您可以直接将下载的源码上传至指定目录，也可以使用 GitHub 下载到指定目录，下面以使用 GitHub 将源码目录下载到 `/usr/cosfs` 为例：
@@ -92,7 +92,7 @@ cosfs 1253972369:buckettest /mnt -ourl=http://cn-south.myqcloud.com -odbglevel=i
 fusermount -u /mnt
 ```
 ## 注意事项 
-- COS-Fuse 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
+- COSFS 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
 - 不支持 hard link 。不适合高并发读/写的场景。
 - 挂载、卸载文件时，不要同时在挂载点上。可以先 cd 到其他目录，再对挂载点进行挂载、卸载操作。
