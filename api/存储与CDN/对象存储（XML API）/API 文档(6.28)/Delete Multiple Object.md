@@ -49,7 +49,7 @@ POST /?delete HTTP/1.1
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
-| Content-MD5 | RFC 1864 中定义的 128 位内容 MD5 算法校验值| String | 是 |
+| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化| String | 是 |
 
 ### 请求体
 该请求的请求体具体节点内容为：
