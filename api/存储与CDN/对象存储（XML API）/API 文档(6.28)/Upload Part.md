@@ -53,7 +53,7 @@ PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Expect | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 否 |
-| x-cos-content-sha1 | RFC 3174 中定义的 160-bit 内容 SHA-1 算法校验值| String | 否 |
+| Content-MD5 | RFC 1864 中定义的经过Base64编码的128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化| String | 否 |
 
 ### 请求体
 该请求的操作请求体为空。

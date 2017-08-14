@@ -1,11 +1,11 @@
 ## 1. API Description
 
-This API (EipUnBindNatGateway) is used to unbind EIP for NAT gateway
-Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
+This API (EipUnBindNatGateway) is used to unbind EIP from NAT gateway.
+Domain for API request: vpc.api.qcloud.com
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is EipUnBindNatGateway.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>.
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
@@ -20,7 +20,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Error code. 0: Succeeded; other values: Failed |
 | message | string | Error message |
-| taskId | int | Task ID. The operation result can be queried with taskId. For more information, refer to <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">API for Querying Task Execution Result</a>.  |
+| taskId | int | Task ID. The operation result can be queried with taskId. For more information, refer to <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">DescribeVpcTaskResult</a> API.  |
 
 ## 4. Error Code List
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.

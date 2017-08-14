@@ -16,13 +16,13 @@
 ![](https://mc.qcloudimg.com/static/img/283437e5e3833bd4258e40de562abfc4/login_check.png)
 - **支付类接口**  
 &radic;&nbsp;&nbsp;&nbsp;刷卡支付，接口定义如下，返回0表示受理支付成功，-1表示受理失败。   需要注意的是，支付受理成功并不代表支付成功，需要通过查单接口去查询是否支付成功。
-![](https://mc.qcloudimg.com/static/img/9dda0e7a882f0edb8828a76b75022d32/image.png)    
+![](https://mc.qcloudimg.com/static/img/8ac5ac3e8e0b844fc8be1e8677594005/image.png)    
 &radic;&nbsp;&nbsp;&nbsp;构造刷卡支付请求参数的例子：
 ![](https://mc.qcloudimg.com/static/img/444dedddf935fbc4d2b7c1c5704f6b91/image.png)    
 &radic;&nbsp;&nbsp;&nbsp;调用 SDK 刷卡支付接口的例子：
 ![](https://mc.qcloudimg.com/static/img/b422837b1b5f809ae7e8176a87347f61/image.png)    
 &radic;&nbsp;&nbsp;&nbsp;查询订单，可以查询一个订单的支付结果，支付成功则返回具体的订单信息，接口定义如下：
-![](https://mc.qcloudimg.com/static/img/ba6032f3c843d5c1e0da7bf3fbc44556/image.png)    
+![](https://mc.qcloudimg.com/static/img/b84d49e28dc0c715596f441150b1fdc3/image.png)    
 &radic;&nbsp;&nbsp;&nbsp;构造查询订单请求参数的例子：
 ![](https://mc.qcloudimg.com/static/img/4b178e73fe2b6e56ca49b6812448c36f/image.png)     
 &radic;&nbsp;&nbsp;&nbsp;刷卡支付调用SDK查单接口例子：

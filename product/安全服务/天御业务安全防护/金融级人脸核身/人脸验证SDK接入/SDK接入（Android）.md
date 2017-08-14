@@ -2,12 +2,14 @@
 **1.1 相机/录音/读取手机信息权限检测**
 SDK需要用到相机/录音/读取手机信息权限，在android6.0以上系统，sdk对其做了权限的运行时检测。但是由于android 6.0以下系统android并没有运行时权限，检测权限只能靠开关相机/麦克风进行。考虑到sdk的使用时间很短，快速频繁开关相机/麦克风可能会导致手机抛出异常，故sdk内对android 6.0以下手机没有做权限的检测。为了进一步提高用户体验，在android6.0以下系统上，我们建议合作方在拉起sdk前，帮助sdk做相机/麦克风/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行刷脸，可以使整个刷脸体验更快更好。
 **1.2 CPU平台设置**
-目前SDK只支持armeabi-v7a平台，为了防止在其他cpu平台上sdk crash，我们建议在您的app的build.gradle里加上abiFilter，如下图8-2-1-2-1中红框所示：
+目前SDK只支持armeabi-v7a平台，为了防止在其他cpu平台上sdk crash，我们建议在您的app的build.gradle里加上abiFilter，如下图中红框所示：
 ![](https://mc.qcloudimg.com/static/img/61fab389aae7630adf751ec997dbdb16/image.png)
 
 ### 2.接入配置
 云刷脸SDK（WbCloudFaceVerify）最低支持到** Android API 14: Android 4.0(ICS)**，请在构建项目时注意。
-WbCloudFaceVerify将以AAR文件的形式提供，同时需要依赖云公共组件WbCloudNormal，同样也是以AAR文件的形式提供。
+刷脸SDK将以AAR文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤(sdk皮肤的设定，除了接入对应的aar，还需要设定相关代码。默认黑色皮肤，无需格外设置)，接入方可自由选择组合四个模式。
+![](https://mc.qcloudimg.com/static/img/0d1fb1b5512b25f4efda0cd89fb33ddb/image.png)
+另外刷脸SDK同时需要依赖**云公共组件WbCloudNormal**，同样也是以AAR文件的形式提供。
 需要添加下面文档中所示的依赖(将提供的aar文件加入到app工程的'libs'文件夹下面,
 并且在**build.gradle**中添加下面的配置:
 ```
@@ -23,16 +25,20 @@ android{
 dependencies {
      //0. appcompat-v7
  compile 'com.android.support:appcompat-v7:23.0.1'
-  //1. 云刷脸SDK
+ //1. 云刷脸SDK
  compile(name: 'WbCloudFaceVerifySdk', ext: 'aar')
-  //2.云公共组件
-compile(name:’WbCloudNormal’,ext:’aar’)
-      // 3. 依赖的第三方jar包
-   compile 'com.google.code.gson:gson:2.3.1' //网络请求json解析
-   compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0' //网络请求
+ //2. 云normal SDK
+ compile(name: 'WbCloudNormal', ext: 'aar')
+ //3. 云刷脸皮肤资源包-可选择黑色/白色 默认黑色
+ compile(name: 'WbCloudFaceResBlack', ext: 'aar')
+ //compile(name: 'WbCloudFaceResWhite', ext: 'aar')
+ // 4. 依赖的第三方jar包
+ compile 'com.google.code.gson:gson:2.3.1' //网络请求json解析
+ compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0' //网络请求
+}
     }
- ```
- 
+```
+
 ### 3.混淆配置
 云刷脸产品的混淆规则分为三部分，分别是云刷脸sdk的混淆规则，云公共组件的混淆规则及依赖的第三方库混淆规则。
 #### 3.1 云刷脸sdk的混淆规则
@@ -167,7 +173,6 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 -dontwarn java.nio.file.*
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
-
 #########云产品依赖的第三方库 混淆规则-END#############
  ```
 
@@ -175,7 +180,7 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 
 ### 4.调用SDK接口
 SDK代码调用的入口为：
-com.webank.WbCloudFaceVerify.tools.WbCloudFaceVerifySdk这个类。
+**com.webank.wbcloudfaceverify2.tools.WbCloudFaceVerifySdk**这个类。
  ```
 public class WbCloudFaceVeirfySdk {
 
@@ -223,7 +228,7 @@ public interface FaceVerifyResultForSecureListener {
     }
  ```
 
-WbCloudFaceVerifySdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括(参数要求见下一节描述):
+WbCloudFaceVerifySdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括:
 
  ```
 //这些都是WbCloudFaceVerifySdk.InputData对象里的字段，是需要传入的数据信息
@@ -244,9 +249,8 @@ String openApiSign; //签名信息
 
 //是否需要显示刷脸指引
 boolean isShowGuide;      
-//刷脸类别：简单FaceVerifyStatus.Mode.EASY  
-//          中级FaceVerifyStatus.Mode.MIDDLE
-//          高级 FaceVerifyStatus.Mode.ADVANCED
+//刷脸类别：动作活体 FaceVerifyStatus.Mode.MIDDLE
+//          数字活体 FaceVerifyStatus.Mode.ADVANCED
 FaceVerifyStatus.Mode verifyMode;
 String keyLicence;   //给合作方派发的licence
  ```
@@ -269,7 +273,7 @@ String keyLicence;   //给合作方派发的licence
 | openApiUserId | User Id| String |30 |必输，每个用户唯一的标识 |
 | openApiSign | 合作方后台服务器通过ticket计算出来的签名信息| String |40 |必输 |
 | isShowGuide | 是否需要显示刷脸指引，sdk每次会返回这个结果，由app端存储，下次拉起时再传入| boolean |1 |必输 |
-| verifyMode | 刷脸类型：<br>简单<br>FaceVerifyStatus.Mode.EASY  <br>中级<br>FaceVerifyStatus.Mode.MIDDLE<br>高级<br>FaceVerifyStatus.Mode.ADVANCED| FaceVerifyStatus.Mode | |必输 |
+| verifyMode | 刷脸类型：<br>动作活体<br>FaceVerifyStatus.Mode.MIDDLE<br>数字活体<br>FaceVerifyStatus.Mode.ADVANCED| FaceVerifyStatus.Mode | |必输 |
 | keyLicence | 腾讯给合作方派发的licence| String | |必输 |
 
 ### 6.个性化参数设置
@@ -298,17 +302,30 @@ WbCloudFaceVerifySdk.init()里Bundle data，除了必须要传的InputData对象
 ```
 
 #### 6.3 SDK样式选择
-合作方可以选择sdk样式。目前sdk有明亮模式和暗黑模式两种，默认显示暗黑模式。设置代码如下:
+合作方可以选择sdk样式,需要和sdk资源包一起加载显示。目前sdk有黑色模式和白色模式两种，默认显示黑色模式。设置代码如下:
 ```
 # 在MainActivity中点击某个按钮的代码逻辑：
   //先将必填的InputData放入Bundle中
   data.putSerializable(WbCloudFaceVerifySdk.INPUT_DATA, inputData);
-  //对sdk样式进行设置，默认为暗黑模式
-  //此处设置为明亮模式
+  //对sdk样式进行设置，默认为黑色模式
+  //此处设置为白色模式（需要与白色资源包一起配合使用）
   data.putString(WbCloudFaceVerifySdk.COLOR_MODE, WbCloudFaceVerifySdk.WHITE);
 ```
 
-#### 6.4 是否对录制视频进行检查
+#### 6.4 是否自带对比源数据
+合作方可以选择给sdk送上自带的对比源数据进行对比。合作方可以上送两类照片，一类是水纹照，一类是高清照；照片需要转化为经过base64编码后的String来上送。图片大小不可超过2M，经过编码后的图片String大小不可超过3M。上送照片类型与上送照片String两者缺一不可，否则将不使用上送的数据源。不自带对比源的合作方可以不上送此两个字段。上送的代码设置如下：
+```
+# 在MainActivity中点击某个按钮的代码逻辑：
+  //先将必填的InputData放入Bundle中
+  data.putSerializable(WbCloudFaceVerifySdk.INPUT_DATA, inputData);
+  //上送自带的数据源信息，照片类型与照片string缺一不可
+//上送照片类型，1是水纹照  2是高清照
+  data.putString(WbCloudFaceVerifySdk.SRC_PHOTO_TYPE, srcPhotoType);  
+//比对源照片的BASE64 string
+data.putString(WbCloudFaceVerifySdk.SRC_PHOTO_STRING, srcPhotoString);  
+```
+
+#### 6.5 是否对录制视频进行检查
 
 SDK为了进一步确保刷脸的安全性，不论是简单还是中级模式都有录制用户刷脸视频做存证。但其实在简单/中级模式中，起到识别作用的并不是视频文件。在sdk使用过程中，发现视频录制在性能不太好的手机上可能会报错，导致刷脸中断，影响用户体验。
     为了减少因为录制视频原因导致的刷脸中断问题，sdk默认设置对录制的视频不作检测。如果合作方对刷脸安全有进一步的更加严格的要求，可以考虑打开这一选项。但打开这个字段可能导致某些低性能手机上用户刷脸不能进行，请慎重考虑。设置代码如下：
@@ -322,7 +339,7 @@ SDK为了进一步确保刷脸的安全性，不论是简单还是中级模式�
   data.putBoolean(WbCloudFaceVerifySdk.VIDEO_CHECK, true);
 ```
 
-#### 6.5 接入示例
+#### 6.7 接入示例
 ```
 # 在MainActivity中点击某个按钮的代码逻辑：
   //先将必填的InputData放入Bundle中
