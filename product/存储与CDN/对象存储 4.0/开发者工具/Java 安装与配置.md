@@ -23,18 +23,19 @@ JDK 是 Java 软件开发工具包，本文以 JDK 1.7 和 1.8 版本为例，�
 测试配置是否成功：【开始】（或快捷键：Win+R）>【运行】（输入 `cmd`）>【确定】（或按 Enter 键），输入命令 `javac` 并回车。出现如下图所示信息，则说明环境变量配置成功。
 ![本地同步工具5](//mc.qcloudimg.com/static/img/83f8417d6f540c20182267acba29f2ad/image.png)
 ## Linux
-### 手动解压安装 JDK 
-#### 1. 在`/usr/`目录下创建`java`目录
+由于使用 yum 或者 apt-get 命令 安装 openjdk 可能存在类库不全，从而导致用户在安装后运行相关工具时可能报错的问题，所以此处我们推荐采用手动解压安装的方式来安装 JDK。具体步骤如下：
+### 1. 创建目录 
+在`/usr/`目录下创建`java`目录
 ```
 mkdir /usr/java
 cd /usr/java 
 ```
-#### 2. 下载 JDK，然后解压
+### 2. 下载并解压 JDK
 ```
 curl -O http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
 tar -zxvf jdk-7u79-linux-x64.tar.gz 
 ```
-#### 3. 设置环境变量
+### 3. 设置环境变量
 ```
 vi /etc/profile 
 ```
@@ -51,37 +52,11 @@ export JAVA_HOME JRE_HOME CLASS_PATH PATH
 ```
 source /etc/profile 
 ```
-#### 4. 测试配置是否成功
+### 4. 测试
 ```
-java -version java version "1.7.0_79" Java(TM) SE Runtime Environment (build 1.7.0_79-b15) Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode) 
+java -version
 ```
-
-### Ubuntu 上使用 apt-get 安装 JDK
-#### 1. 查看 apt 库的 JDK 版本
+显示如下信息，则说明配置成功：
 ```
-apt-cache search java|grep jdk 
+java version "1.7.0_79" Java(TM) SE Runtime Environment (build 1.7.0_79-b15) Java HotSpot(TM) 64-Bit Server VM (build 24.79-b02, mixed mode) 
 ```
-#### 2. 选择版本进行安装
-```
-apt-get install openjdk-7-jdk 
-```
-#### 3. 设置环境变量
-```
-vi /etc/profile 
-```
-在打开的 profile 文件中添加如下内容：
-```
-set java environment
-JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-amd64
-JRE_HOME=$JAVA_HOME/jre
-CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
-PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
-export JAVA_HOME JRE_HOME CLASS_PATH PATH 
-```
-让修改生效：
-```
-source /etc/profile 
-```
-#### 4. 测试配置是否成功
-输入`java -version`可查看 Java 版本；输入`javac`可查看 Java 的编辑器命令用法。
-![120405](//mc.qcloudimg.com/static/img/5c989198e9145596436e6f1d63c57f71/image.png)
