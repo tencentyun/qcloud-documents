@@ -12,21 +12,9 @@ Put Object Copy  请求实现将一个文件从源路径复制到目标路径。
 PUT /destinationObject HTTP/1.1
 Host: <Bucketname>-<APPID>.<Region>.myqcloud.com
 Date: GMT Date
-Cache-Control:
-Content-Disposition: disposition
-Content-Encoding: encoding
-Content-Length: length
-Content-Type: application/xml
-Expect:
-Expires:
 Authorization: Auth String
-X-cos-copy-source: Bucketname-UID.ce.myqcloud.com/filepath
-x-cos-metadata-directive:
-x-cos-copy-source-If-Modified-Since:
-x-cos-copy-source-If-Unmodified-Since:
-x-cos-copy-source-If-Match:
-x-cos-copy-source-If-None-Match:
-x-cos-storage-class:
+x-cos-copy-source: <Bucketname>-<APPID>.<Region>.myqcloud.com/filepath
+
 ```
 
 > Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
@@ -102,6 +90,7 @@ PUT /destinationObject HTTP/1.1
 
 ## 实际案例
 若需要跨帐号复制则需要先设置被复制帐号的 ACL，了解 ACL 详细请参见 [Put Object ACL](https://www.qcloud.com/document/product/436/7748) 章节。
+### 请求
 ```
 PUT /222.txt HTTP/1.1
 Host: bucket1-1252443703.cn-north.myqcloud.com 
@@ -122,6 +111,7 @@ Connection: keep-alive
 Date: Fri, 04 Aug 2017 02:41:45 GMT
 Server: tencent-cos
 x-cos-request-id: NTk4M2RlZTlfZDRiMDM1MGFfYTA1ZV8xMzNlYw==
+
 <CopyObjectResult>
 <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
 <LastModified>2017-08-04T02:41:45</LastModified>
