@@ -33,7 +33,7 @@ x-cos-storage-class:
 ```
 PUT /destinationObject HTTP/1.1
 ```
-该 API 接口接受 PUT请求。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+该 API 接口接受 PUT 请求。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
 ### 请求头
 
