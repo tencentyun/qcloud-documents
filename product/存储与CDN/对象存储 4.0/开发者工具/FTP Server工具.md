@@ -2,7 +2,7 @@
 COS FTP Server 工具是依赖 COS V4 的 FTP 服务端工具。使用 FTP Server 工具可以通过 FTP 协议从 COS 上传和下载文件。
 ### 实现机制
 #### 上传机制
-上传先落地 FTP 的本地磁盘, 上传 COS 后删除，返回给客户端成功（后期版本流式上传COS，不落本地磁盘）。
+上传先落地 FTP 的本地磁盘, 上传 COS 后删除，返回给客户端成功（后期版本流式上传 COS，不落本地磁盘）。
 #### 下载机制
 下载直接流式返回给客户端
 ### 支持的 FTP 命令
@@ -74,26 +74,26 @@ cos_download_domain=cos
 cos_user_home_dir=/home/test/cosftp_data/                                                  
 // 此项不用设置, build.sh 脚本会自动设置。                                           
 ```
-2. FTP 账户配置。
-（配置格式为“用户名:密码:读写权限”，多个账户用分号分割。）
+2. FTP 账户配置。配置格式为“用户名:密码:读写权限”，多个账户用分号分割，示例如下：
 ```
 login_users=user1:pass1:RW;user2:pass2:RW 
 ```
 3. 外网 IP 设置，把外网 IP 设置为服务器的外网 IP。
-（仅针对通过外网 IP 访问 FTP 服务的用户，如客户机和 FTP 服务器均在腾讯云 CVM 机器上，通过内网 IP 访问，可跳过本设置）
 ```
 pasv_address=115.xxx.xxx.xxx
 ```
-4. 控制端口与数据端口设置，可使用默认设置。
-（建议端口在 1025 ~ 65535， 并保证未被防火墙 iptables 过滤）
+> <font color="#0000cc">**注意：** </font>
+> 本步骤仅针对通过外网 IP 访问 FTP 服务的用户，如客户机和 FTP 服务器均在腾讯云 CVM 机器上，通过内网 IP 访问，可跳过本步骤，进行第 4 步。
+4. 控制端口与数据端口设置，可使用默认设置。建议端口在 1025 ~ 65535，并保证未被防火墙 iptables 过滤。
 ```
 listen_port=2121
 ```
 
 ### 编译
-1. FTP 需要使用本地磁盘，因此请将 FTP 源码程序放在一个存储空间较大的盘（腾讯云初始的机器购买的数据盘需要手动格式化并挂载, 请参考 [分区与格式化数据盘](https://www.qcloud.com/document/product/213/2936#.E6.AD.A5.E9.AA.A4.E5.9B.9B.EF.BC.9A.E5.88.86.E5.8C.BA.E4.B8.8E.E6.A0.BC.E5.BC.8F.E5.8C.96.E6.95.B0.E6.8D.AE.E7.9B.98)）。
-2. 以 **root 身份运行 build.sh**。
-（build.sh 里会调用 yum 自动安装依赖库，推荐使用腾讯云主流的 CentOS 系列系统，如果是其他系列系统，如 Ubuntu，请修改`opbin/env_init.sh`）
+> <font color="#0000cc">**注意：** </font>
+>  FTP 需要使用本地磁盘，因此请将 FTP 源码程序放在一个存储空间较大的盘。腾讯云初始的机器购买的数据盘需要手动格式化并挂载，请参考 [分区与格式化数据盘](/doc/product/213/2936#.E6.AD.A5.E9.AA.A4.E5.9B.9B.EF.BC.9A.E5.88.86.E5.8C.BA.E4.B8.8E.E6.A0.BC.E5.BC.8F.E5.8C.96.E6.95.B0.E6.8D.AE.E7.9B.98)。
+
+以 root 身份运行 build.sh 脚本。build.sh 会调用 yum 自动安装依赖库，推荐使用腾讯云主流的 CentOS 系列系统。如果是其他系列系统，如 Ubuntu，请修改`opbin/env_init.sh`。
 
 ### 运行
 1. 切换到 cos_ftp 账户（该账户是在 build.sh 脚本里建立的）。

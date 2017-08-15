@@ -99,6 +99,6 @@
 ![](//mc.qcloudimg.com/static/img/07c697f52454ea7ed439653702a32750/image.png)
 
 ## 更多
-恭喜您！您已经了解如何在腾讯云容器服务 CSS 中配置、部署和删除服务。使用腾讯云容器服务 CSS，您将无需安装、运维、扩展您的集群管理基础设施，只需进行简单的API调用，便可启动和停止 Docker 应用程序，查询集群的完整状态，以及使用各种云服务。
+通过本教程，您已经了解如何在腾讯云容器服务 CSS 中配置、部署和删除服务。使用腾讯云容器服务 CSS，您将无需安装、运维、扩展您的集群管理基础设施，只需进行简单的API调用，便可启动和停止 Docker 应用程序，查询集群的完整状态，以及使用各种云服务。
 
 您可以进入下一个教程，了解 [负载均衡](https://cloud.tencent.com/document/product/457/9110) 和 [镜像仓库](https://cloud.tencent.com/document/product/457/9118) 的基本概念和操作。您还可以通过 [快速入门](https://cloud.tencent.com/document/product/457/7851) 里的入门实例快速入门构建服务。
