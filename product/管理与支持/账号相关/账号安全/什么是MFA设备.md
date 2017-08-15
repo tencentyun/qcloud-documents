@@ -56,6 +56,6 @@ MFA (Multi-FactorAuthentication)即多因子认证，是一种简单有效的安
 
 | 手机类型      | 应用程序 |
 | --------- | -----:|
-| ios  / Android    | 微信小程序--腾讯云+|
+| ios  / Android    | 微信小程序-腾讯云助手小程序|
 
 
