@@ -18,7 +18,7 @@ Tcaplus 化 API 是应用访问游戏存储服务集群的入口，是应用存�
 | FIELDGET | 获取指定字段(单个或多个)的值 |
 
 ### Protobuf API 约定
-Tcaplus 需要定义表的 primarykey 等信息，扩展 tcaplusservice.optionv1.proto 存在于 Tcaplus 系统中，用户只引用，建表时不用上传，具体内容如下：
+Tcaplus 需要定义表的 primarykey 等信息，扩展 tcaplusservice.optionv1.proto 存在于 Tcaplus 系统中，用户只需引用，建表时不用上传，具体内容如下：
 ```
 extend google.protobuf.MessageOptions
 {
@@ -31,7 +31,7 @@ extend google.protobuf.FieldOptions
     optional string tcaplus_desc = 60001; // Tcaplus description
 }
 ```
-完整文件可以从发布中的release\x86_64\include\tcaplus_service\tcaplusservice.optionv1.proto 中找到。
+完整文件可在目录 release\x86_64\include\tcaplus_service\tcaplusservice.optionv1.proto 中找到。
 1. 表名要以字母或下载线开头，不能超过 31 个字段，不能有除数字，字母，下划线之外的特殊字段。
 2. 各字段的名称要以字母或下划线，protobuf 已经限制。
 3. 主键最多 4 个字段，必须是 required 类型，打包后长度不能超过 1022 字节。
