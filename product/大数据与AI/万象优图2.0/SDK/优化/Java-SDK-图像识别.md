@@ -1,29 +1,23 @@
-# SDK获取
-万象优图的java SDK下载地址：[image-java-sdk-v2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
-# 简介
+## 开发准备
+### SDK获取
+万象优图的 java SDK 下载地址：[image-java-sdk-v2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
+### 简介
 java sdk for picture service of tencentyun.
-# 快速入门
-## 在腾讯云申请业务的授权
-授权包括：
-```
-APP_ID 
-SECRET_ID
-SECRET_KEY
-BUCKET
-```
-可参考 [域名管理](https://www.qcloud.com/document/product/460/6937?!preview=true&lang=zh)。
-## 创建对应操作类的对象
+## 快速入门
+### 在腾讯云申请业务的授权
+授权包括：APPID，SecretId，SecretKey，以及存储桶名。可参考 [域名管理](https://www.qcloud.com/document/product/460/6937?!preview=true&lang=zh)。
+### 创建对应操作类的对象
 如果要使用图片，需要创建图片操作类对象
 ```
 ImageClient imageClient = new ImageClient(APP_ID, SECRET_ID, SECRET_KEY);
 String bucketName = BUCKET;
 ```
 
-## 调用对应的方法
+### 调用对应的方法
 在创建完对象后，根据实际需求，调用对应的操作方法就可以了。sdk 提供的方法包括：图片识别、人脸识别及人脸核身等。
-
+### 图片识别
 图片识别包括：图片鉴黄、图片标签、OCR - 身份证识别及 OCR - 名片识别。
-### 图片识别 - 图片鉴黄
+####  图片鉴黄
 ```
 // 1. url方式
 String[] pornUrlList = new String[3];
@@ -51,7 +45,7 @@ pornReq = new PornDetectRequest(bucketName, pornNameList, pornImageList);
 ret = imageClient.pornDetect(pornReq);
 System.out.println("porn detect ret:" + ret);
 ```
-### 图片识别 - 图片标签
+#### 图片标签
 
 ```
 // 1. url方式
@@ -70,7 +64,7 @@ tagReq = new TagDetectRequest(bucketName, tagImage);
 ret = imageClient.tagDetect(tagReq);
 System.out.println("tag detect ret:" + ret);
 ```
-### 图片识别 - OCR-身份证识别
+#### OCR - 身份证识别
 ```
 // 1. url方式,识别身份证正面
 String[] idcardUrlList = new String[2];
@@ -117,7 +111,7 @@ idReq = new IdcardDetectRequest(bucketName, idcardNameList, idcardImageList, 1);
 ret = imageClient.idcardDetect(idReq);
 System.out.println("idcard detect ret:" + ret);
 ```
-### 图片识别 - OCR-名片识别
+#### OCR - 名片识别
 ```
 // 1. url方式
 String[] namecardUrlList = new String[2];
@@ -141,9 +135,9 @@ nameReq = new NamecardDetectRequest(bucketName, namecardNameList, namecardImageL
 ret = imageClient.namecardDetect(nameReq);
 System.out.println("namecard detect ret:" + ret);;
 ```
-
-****
-### 人脸识别 - 人脸检测
+### 人脸识别
+人脸识别包括：人脸检测、五官定位、个体信息管理、人脸验证、人脸检索及人脸对比。
+#### 人脸检测
 ```
 // 1. url方式
 String faceDetectUrl = "http://ent.cctv.com/20071217/images/1197849230623_8325711678927688064.jpg";
@@ -163,9 +157,7 @@ faceDetectReq = new FaceDetectRequest(bucketName, faceDetectName, faceDetectImag
 ret = imageClient.faceDetect(faceDetectReq);
 System.out.println("face detect ret:" + ret);
 ```
-
-### 人脸识别 - 五官定位
-
+#### 五官定位
 ```
 // 1. url方式
 String faceShapeUrl = "http://ent.cctv.com/20071217/images/1197849230623_8325711678927688064.jpg";
@@ -185,9 +177,7 @@ faceShapeReq = new FaceShapeRequest(bucketName, faceShapeName, faceShapeImage, 1
 ret = imageClient.faceShape(faceShapeReq);
 System.out.println("face shape ret:" + ret);   
 ```
-
-### 人脸识别 - 个体信息管理
-
+#### 个体信息管理
 ```
  //个体创建,创建一个Person，并将Person放置到group_ids指定的组当中，不存在的group_id会自动创建。
  // 1. url方式
@@ -289,7 +279,7 @@ FaceDelPersonRequest delPersonReq = new FaceDelPersonRequest(bucketName, personI
 ret = imageClient.faceDelPerson(delPersonReq);
 System.out.println("face del  person ret:" + ret);
 ```
-### 人脸识别 - 人脸验证
+#### 人脸验证
 给定一个 Face 和一个 Person ，返回是否是同一个人的判断以及置信度
 ```
 // 1. url方式
@@ -312,7 +302,7 @@ faceVerifyReq = new FaceVerifyRequest(bucketName, faceVerifyPersonId, faceVerify
 ret = imageClient.faceVerify(faceVerifyReq);
 System.out.println("face verify ret:" + ret);
 ```
-### 人脸识别 - 人脸检索
+#### 人脸检索
 对于一个待识别的人脸图片，在一个 Group 中识别出最相似的 Top5 Person 作为其身份返回，返回的 Top5 中按照相似度从大到小排列。
 ```
 String  faceIdentifyGroupId = "group1";
@@ -333,7 +323,7 @@ faceIdentifyReq = new FaceIdentifyRequest(bucketName, faceIdentifyGroupId, faceI
 ret = imageClient.faceIdentify(faceIdentifyReq);
 System.out.println("face identify ret:" + ret);
 ```
-### 人脸识别 - 人脸对比
+#### 人脸对比
 ```
 // 1. url方式
 String urlA = "http://imgsrc.baidu.com/baike/pic/item/5fdf8db1cb134954a4d833a0534e9258d0094a34.jpg";
@@ -356,7 +346,9 @@ faceCompareReq = new FaceCompareRequest(bucketName, compareNameList, compareImag
 ret = imageClient.faceCompare(faceCompareReq);
 System.out.println("face compare ret:" + ret);
 ```
-### 人脸核身 - 用户上传照片与真实身份信息比对
+### 人脸核身
+人脸核身包括用户上传照片与真实身份信息比对以及活体检测中的获取唇语验证码、视频身份信息核验以及视频与用户照片的比对。
+#### 用户上传照片与真实身份信息比对
 
 ```java
 	// 1. url方式
@@ -383,7 +375,7 @@ System.out.println("face compare ret:" + ret);
 	System.out.println("face idCard Compare ret:" + ret);
 ```
 
-### 人脸核身 - 活体检测 - 获取唇语验证码	
+#### 活体检测 - 获取唇语验证码	
 
 ```java
 	String seq = "";
@@ -399,7 +391,7 @@ System.out.println("face compare ret:" + ret);
 	}
 ```
 	
-### 人脸核身 - 活体检测 - 视频身份信息核验
+#### 活体检测 - 视频身份信息核验
 
 ```java  
 	//
@@ -417,7 +409,7 @@ System.out.println("face compare ret:" + ret);
 	System.out.println("face idCard live detect four ret:" + ret);
 ```
 
-### 人脸核身 - 活体检测 - 视频与用户照片的比对
+#### 活体检测 - 视频与用户照片的比对
 
 ```java  
 	String  liveDetectVideo = "";
