@@ -36,7 +36,7 @@ Open VPN client, and set the VPN gateway IP, user name, password and domain you 
 Click "Connect" to establish a VPN connection.  
 ![](http:////mc.qcloudimg.com/static/img/a37d604c4324595effbf6146d8e69540/image.png)
 
-*Note: All the CPMs under your Tencent Cloud account share a VPN gateway, username and password*
+*Note: All CPMs under your Tencent Cloud account share one VPN gateway, username and password*
 
 ## Logging in to CPM from out-of-band network
 
@@ -70,8 +70,8 @@ If you are using a Windows system, please locate [JRE] in the "Start" menu
 Open the Java control panel and set all of the out-of-band IPs under your account in the "Exception Sites" list.
 ![](http://mc.qcloudimg.com/static/img/4678086a40776453153066fb7aa72881/image.png)
 
-### Logging in to remote KVM
-The following shows how to log in to a remote KVM by taking Inspur server as an example. Locate "Remote Control" options and download the JNLP file
+### Logging in to Remote Terminal
+The following shows how to log in to a remote terminal by taking Inspur server as an example. Select "Remote Terminal" and download the JNLP file
 ![](http://mc.qcloudimg.com/static/img/a0f8ea92860599ee84cef64d5424c4fb/image.png)
 
 When JRE has been installed, run the JNLP file. When receiving a security warning, select "Accept Risk" and click "Run".
@@ -79,7 +79,7 @@ When JRE has been installed, run the JNLP file. When receiving a security warnin
 
 Open the KVM console to log in to the server.
 ![](http://mc.qcloudimg.com/static/img/621d8581d874366d0cb4576cab579a9f/image.png)
-* The way of logging in to remote KVM varies with different server manufactures. Please locate the options related to "Remote Control" on the out-of-band page and log in to remote KVM as instructed by the page*
+* The way of logging in to remote terminal varies with different server manufactures. Please locate the options related to "Remote Terminal" on the out-of-band page and log in to remote terminal as instructed by the page*
 
 
 

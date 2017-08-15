@@ -165,7 +165,23 @@ var accountType = 792; //开发者改成自己的业务帐号类型
 https://www.qcloud.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C
  ![](//mccdn.qcloud.com/static/img/8ae083b639696feec038a69861464e46/image.png)
 
-点击确定，登录成功，这样就可以进行查找好友，建群，聊天等操作了。
+点击确定，拿到登录用户信息identifier和userSig放入loginInfo去登录sdk：
+
+```
+//当前用户身份
+var loginInfo = {
+     'sdkAppID': sdkAppID, //用户所属应用id,必填
+     'appIDAt3rd': sdkAppID, //用户所属应用id，必填
+     'accountType': accountType, //用户所属应用帐号类型，必填
+      'identifier': ‘xxxxxx’, //当前用户ID，需要开发者填写
+      'identifierNick': null, //当前用户昵称，选填
+      'userSig': 'xxxxxxx', //当前用户身份凭证，需要开发者填写
+      'headurl': 'img/2016.gif'//当前用户默认头像，选填
+ };
+
+```
+
+登录成功，这样就可以进行查找好友，建群，聊天等操作了。
  ![](//mccdn.qcloud.com/static/img/fd864c05877f3d2d7229041a0e33ca9d/image.png)
 
 和好友聊天：

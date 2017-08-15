@@ -14,7 +14,7 @@
 1. 创建 TXLivePlayer 对象（该对象支持多例，但每个 Player 都要有自己独立的 View）。
 2. 使用 setupVideoWidget 接口函数指定渲染视频画面用的 UIView。
 3. 使用 startPlay 开启播放即可。 具体采用什么播放协议，由 startPlay 来支持，LIVE\_ 打头的是直播协议， VOD\_ 打头的是点播地址，LOCAL_VIDEO 是用来播放本地视频的。
-4. 截图、截视频（把视频一部分截取下来压成 MP4）等高级特性，推荐关注我们的 [官方文档](https://www.qcloud.com/document/product/454/7880)。
+4. 截图、截视频（把视频一部分截取下来压成 MP4）等高级特性，可以参考完整的接入文档 [DOC](https://www.qcloud.com/document/product/454/7880#step-9.3A-.E6.88.AA.E6.B5.81.E5.BD.95.E5.88.B6.EF.BC.88.E4.BB.85.E7.9B.B4.E6.92.AD.EF.BC.89)。
 
 ## 主播连麦
 连麦指的是直播观众（或者其它房间的主播）可以跟当前主播进行 **实时音视频通话**，同时服务端可以进行 **多路混流**，让观众看到多路画面。
@@ -29,10 +29,10 @@
  + 实时通话场景中，每一个人都是一路上行（将自己的声音和画面推到云端）和多路下行（从云端拉取其他人的声音和画面）。
  + 上行使用 TXLivePush 模块实现，但需要开启回音消除 （TXLivePushConfig::enableAEC），下行亦使用 TXLivePlayer 模块实现，同样需要开启回音消除.
  + 上下行协议均使用 rtmp 协议，但跟普通 CDN 拉取的音视频流有所不同，连麦中的大小主播使用的均是核心 IDC 机房的超级链路，从服务器到手机的延迟大约平均只有几十毫秒。
- + 超级链路的 URL 拼装方式不同于普通的 CDN 播放地址，需要参考 [官方文档](https://www.qcloud.com/document/product/454/8871) 进行拼装。
+ + 超级链路的 URL 拼装方式不同于普通的 CDN 播放地址，需要参考 [官方文档](https://www.qcloud.com/document/product/454/9849) 进行拼装。
 
 - **多路混流**
- + 可以使用腾讯云端 [API](https://www.qcloud.com/document/product/454/8871#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.B7.B7.E6.B5.8110) 指定将几条视频流混合起来，API 可以指定混流的各种参数，比如小画面的位置等等。
+ + 可以使用腾讯云端 [API](https://www.qcloud.com/document/product/454/9850) 指定将几条视频流混合起来，API 可以指定混流的各种参数，比如小画面的位置等等。
 
 ## 视频录制
 解压 SDK 开发包，进入 VideoRecord 目录了解视频录制功能的用法：

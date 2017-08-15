@@ -15,8 +15,8 @@ Android SDK
 参数名/函数名  |说明  |默认值  
 :-----: | :-----: | :-----: 
 setRotate  |主播画面是否旋转  |true（旋转） 
-setSameDirectionRenderMode  |方向一致渲染模式  |ILiveRenderMode.SCALE_TO_FIT（全屏适应）  
-setDiffDirectionRenderMode  |方向不一致渲染模式  |ILiveRenderMode.BLACK_TO_FILL（黑边）  
+setSameDirectionRenderMode  |方向一致渲染模式  |	BaseVideoView.BaseRenderMode.SCALE_TO_FIT（全屏适应）  
+setDiffDirectionRenderMode  |方向不一致渲染模式  |BaseVideoView.BaseRenderMode.BLACK_TO_FILL（黑边）  
 
 IOS SDK
 
@@ -42,8 +42,8 @@ Android SDK 接口:
 ```java
 //设定需要旋转画面
 AVVideoView.setRotate(true);
-//设定是铺满屏幕还是留黑边
-AVVideoView.setSameDirectionRenderMode(ILiveRenderMode sameDirectionRenderMode);
+//设定是铺满屏幕还是留黑边(下为全屏)
+AVVideoView.setSameDirectionRenderMode(BaseVideoView.BaseRenderMode.BLACK_TO_FILL);
 ```
 
 IOS SDK接口：
@@ -71,10 +71,10 @@ Android SDK 接口:
 ```java
 //设定不需要旋转画面
 AVVideoView.setRotate(false);
-//设定在方向不一致情况下，是铺满屏幕还是留黑边
-AVVideoView.setDiffDirectionRenderMode(ILiveRenderMode diffDirectionRenderMode);
-//设定在方向一致情况下，是铺满屏幕还是留黑边
-AVVideoView.setSameDirectionRenderMode(ILiveRenderMode sameDirectionRenderMode);
+//设定在方向不一致情况下，是铺满屏幕还是留黑边(下为全屏)
+AVVideoView.setDiffDirectionRenderMode(BaseVideoView.BaseRenderMode.BLACK_TO_FILL);
+//设定在方向一致情况下，是铺满屏幕还是留黑边(下为黑边)
+AVVideoView.setSameDirectionRenderMode(BaseVideoView.BaseRenderMode.SCALE_TO_FIT);
 ```
 
 IOS SDK接口：

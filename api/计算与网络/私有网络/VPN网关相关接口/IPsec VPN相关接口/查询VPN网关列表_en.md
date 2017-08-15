@@ -1,23 +1,23 @@
 ## 1. API Description
 
 This API (DescribeVpnGw) is used to query VPN gateway list.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font> 
+Domain for API request: vpc.api.qcloud.com  
 
  
 
 ## 2. Input Parameters
  
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeVpnGw.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | No | String | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-amhnnao5; optional. You can query this through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| vpnGwId | No | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv; optional.  |
+| vpcId | No | String | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-amhnnao5. You can query this through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| vpnGwId | No | String |VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv.  |
 | vpnGwName | No | String | VPN gateway name. Fuzzy search is supported. |
 | dealId | No | String | Order number of purchased VPN gateway. You can query the details of purchased VPN gateway via the order number. |
 | offset | No | Int | Offset of initial line. Default is 0.  |
 | limit | No | Int | Number of lines per page. Default is 20. Maximum is 50.  |
-| orderField | No | String | Sort by a certain field. Currently, sorting by createTime (default) and directConnectGatewayName is supported.  |
+| orderField | No | String | Sort by a certain field. Sorting by `createTime` (default) and `directConnectGatewayName` is supported.  |
 | orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc.  |
 
  
@@ -43,7 +43,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.expireTime | String | The expiry time of VPN gateway, for example: 2015-11-06 20:55:12. The VPN gateway will be terminated by the system when the expiry time is due, so timely renewal is necessary.  |
 | data.n.createTime | String | Creation time of VPN gateway, for example: 2015-11-06 20:55:12.  |
 
-## 4. Error Code Table
+## 4. Error Codes
  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error code | Description |

@@ -171,7 +171,25 @@ var accountType = 884; //开发者改成自己的业务帐号类型
 var avChatRoomId = '@TGS#aJIPTVAEE'; 
 ```
 
-填写登录用户信息identifier和userSig：
+访问demo，这里拿谷歌浏览器举例。
+
+打开浏览器输入地址：
+http://localhost:8080/webim/biggroup/mobile/index.html
+
+效果如下：
+
+![](http://cs-1253400008.coscd.myqcloud.com/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F%E4%B8%80%E5%BC%80%E5%A7%8B%E6%95%88%E6%9E%9C.png)
+
+模拟手机访问，按F12，点击下图箭头所指的手机图标：
+
+![](http://cs-1253400008.coscd.myqcloud.com/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F%E7%99%BB%E5%BD%95demo.png)
+
+填写登录用户信息identifier和userSig，userSig需要开发者在自己的服务器调用tls api生成。
+独立模式生成usersig，请参考链接：
+https://www.qcloud.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C
+ ![](http://cs-1253400008.coscd.myqcloud.com/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F%E7%99%BB%E5%BD%95%E5%B7%B2%E8%BE%93%E5%85%A5%E5%B8%90%E5%8F%B7.png)
+
+点击确定，拿到登录用户信息identifier和userSig放入loginInfo去登录sdk：
 
 ```
 //当前用户身份
@@ -186,17 +204,7 @@ var loginInfo = {
  };
 
 ```
-
-访问demo，这里拿谷歌浏览器举例。
-
-打开浏览器输入地址：
-http://localhost:8080/webim/biggroup/mobile/index.html
-
-效果如下：
-![](//mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
-
-模拟手机访问，按F12，点击下图箭头所指的手机图标：
-![](//mccdn.qcloud.com/static/img/e71c925af3ea9d2e04ca0dbbea86fcee/image.png)
-
+登录成功：
 评论，点赞：
-![](//mccdn.qcloud.com/static/img/aa37dcc2c32aa47c57f107bd0ea8785c/image.png)
+
+![](http://cs-1253400008.coscd.myqcloud.com/%E7%82%B9%E8%B5%9E%E3%80%81%E8%AF%84%E8%AE%BA.png)

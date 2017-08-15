@@ -35,8 +35,8 @@ For example, you have an e-commerce web application that currently runs on five 
 ![](//mccdn.qcloud.com/static/img/7b4b02c3f0aa3fe5921029b6471d3ada/image.png)
 
 
-## Specifying a Server to Be Not Affected by the Alarm Scaling Policy
-Before using auto scaling, your system may have a server that is regularly used. Given the following considerations, you do not want the server to be removed by the alarm scaling policy:
+## Exclude a Server from the Alarm Scaling Policy
+Before using auto scaling, your system may have a server that is regularly used. Given the following considerations, you may not want the server to be removed by the alarm scaling policy:
 
 - **One server for multiple uses**: Apart from the tasks specified by the cluster, a server in the cluster is also used for other purposes. For example, in the early stage of website construction, one of your servers is used as both a cache server and a file server. You don't want the server to be removed by the alarm scaling policy when placing the cluster of cache servers into a scaling group.
 

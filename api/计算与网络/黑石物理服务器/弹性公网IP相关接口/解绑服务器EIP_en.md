@@ -1,5 +1,5 @@
 ## 1. API Description
-This API (bmUnBindRs) is used to unbind an EIP from a CPM. After the EIP is unbound, inactivity fee will still be charged for it, so please [release and clean up](/document/product/386/6676) it in a timely manner .
+This API (EipBmUnbindRs) is used to unbind an EIP from a CPM. After the EIP is unbound, inactivity fee will still be charged for it, so please [release and clean up](/document/product/386/6676) it in a timely manner .
  
 Domain: <font style="color:red">eip.api.qcloud.com</font>
  
@@ -40,7 +40,7 @@ Input
 
   https://eip.api.qcloud.com/v2/index.php?
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
-  &Action=bmUnBindRs
+  &Action=EipBmUnbindRs
   &instanceId=cpm-xxxxxx&eipId=eip-vvvvvvv
 
 </pre>
