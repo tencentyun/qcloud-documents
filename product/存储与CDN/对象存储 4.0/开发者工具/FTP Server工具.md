@@ -91,7 +91,7 @@ listen_port=2121
 
 ### 编译
 > <font color="#0000cc">**注意：** </font>
->  FTP 需要使用本地磁盘，因此请将 FTP 源码程序放在一个存储空间较大的盘。腾讯云初始的机器购买的数据盘需要手动格式化并挂载，请参考 [分区与格式化数据盘](https://www.qcloud.com/document/product/213/2936#.E6.AD.A5.E9.AA.A4.E5.9B.9B.EF.BC.9A.E5.88.86.E5.8C.BA.E4.B8.8E.E6.A0.BC.E5.BC.8F.E5.8C.96.E6.95.B0.E6.8D.AE.E7.9B.98)。
+>  FTP 需要使用本地磁盘，因此请将 FTP 源码程序放在一个存储空间较大的盘。腾讯云初始的机器购买的数据盘需要手动格式化并挂载，请参考 [分区与格式化数据盘](/doc/product/213/2936#.E6.AD.A5.E9.AA.A4.E5.9B.9B.EF.BC.9A.E5.88.86.E5.8C.BA.E4.B8.8E.E6.A0.BC.E5.BC.8F.E5.8C.96.E6.95.B0.E6.8D.AE.E7.9B.98)。
 
 以 root 身份运行 build.sh 脚本。build.sh 会调用 yum 自动安装依赖库，推荐使用腾讯云主流的 CentOS 系列系统。如果是其他系列系统，如 Ubuntu，请修改`opbin/env_init.sh`。
 
