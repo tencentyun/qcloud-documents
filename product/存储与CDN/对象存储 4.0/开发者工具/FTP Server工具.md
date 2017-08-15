@@ -5,7 +5,7 @@ COS FTP Server 工具是依赖 COS V4 的 FTP 服务端工具。使用 FTP Serve
 上传先落地 FTP 的本地磁盘, 上传 COS 后删除，返回给客户端成功（后期版本流式上传COS，不落本地磁盘）。
 #### 下载机制
 下载直接流式返回给客户端
-### 支持 FTP 命令
+### 支持的 FTP 命令
 <table>
     <tr>
         <th>put</th> 
