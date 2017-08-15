@@ -1,25 +1,35 @@
-> 本文档介绍了 OpenSDK 游戏语音 C# 接口 SDK 的接入方法，适用于 Unity3D 引擎开发的游戏。
-
+本文档介绍了 OpenSDK 游戏语音 C# 接口 SDK 的接入方法，适用于 Unity3D 引擎开发的游戏。
 ### 1. 下载SDK
 SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。导入后，目录结构如下：
-
 ![目录结构](https://mc.qcloudimg.com/static/img/ec0d5e296afdffbb9b376aa74fba8409/image.png)
-
 ### 2. 接入代码实例：
-
-![代码](https://mc.qcloudimg.com/static/img/b66a5d5c633c6697b48be6e59ab9bba3/image.png)
-
+```
+public class MainScene : MonoBehaviour{
+	void onClickStartContextBtn()
+	{
+		IQAVVoiceEngine engine = IQAVVoiceEngine.GetEngine ();
+		//AppID 和 AccountType 在腾讯云上申请
+		//OpenID 由 APP 自行生成，保证每个用户 OpenID 不同就行，目前必须是数字
+		engine.SetAppInfo("AppID","AccountType","OpenID");
+		
+		engine.Init(delegate(int result, string error_info){
+			if(result == QAVContext.AV_OK){
+				int roomID = 0;       //RoomID 由 APP 自行分配，进入同一个 RoomID 中的用户可以互相说话
+				string role = "user"; //角色由 APP 开发者在腾讯云中的 Spear 引擎配置页面中自行预设
+				engine.JoinRoom(roomID, role);
+			}
+		});
+	}
+}
+```
 ### 3. 接口调用流程
-#### 3.1 基本 API：无论语音消息功能，还是实时语音，都需要的基本API。
+#### 3.1 基本 API：无论语音消息功能还是实时语音都需要的基本API。
 
 **接口说明：**获取语音引擎句柄
-
-**函数原型：**IQAVVoiceEngine GetEngine();
-
+**函数原型：**`IQAVVoiceEngine GetEngine();`
 #### 3.2 实时语音API：实时语音功能调用；
 **接口说明：**设置业务信息
-
-**函数原型：**int SetAppInfo(string appID, string accountType, string openID)；
+**函数原型：**`int SetAppInfo(string appID, string accountType, string openID);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
@@ -29,17 +39,15 @@ SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。�
 | 返回值 | int | 成功时返回QAVError.AV_OK |
 
 **接口说明：**初始化 QAVVoiceEngine，必须在SetAppInfo之后调用
-
-**函数原型：**int Init(InitCompleteHandler initHandler)；
+**函数原型：**`int Init(InitCompleteHandler initHandler);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
 | initHandler | InitCompleteHandler | Callback |
 | 返回值 | int | 成功时返回QAVError.AV_OK |
 
-**接口说明：**加入语音房间 
-
-**函数原型：**int JoinRoom(int roomID, String role)；
+**接口说明：**加入语音房间
+**函数原型：**`int JoinRoom(int roomID, String role);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
@@ -49,44 +57,37 @@ SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。�
 #### 3.3 语音消息API：消息语音功能调用；
 
 **接口说明：**语音转文字 ,为了避免过大的游戏音效影响识别效果，建议游戏业务层在启用录制时关闭背景音效或进行压低的操作，来实现更好的语音识别效果。
-
-**函数原型：**int SpeechToText(string fileID)；
+**函数原型：**`int SpeechToText(string fileID);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
 | fileID | string | 需要转文字的语音文件标识 |
 
-**接口说明：**设置最大语音录音时长 ；
-
-**函数原型：**int SetMaxMessageLength(int msTime)；
+**接口说明：**设置最大语音录音时长
+**函数原型：**`int SetMaxMessageLength(int msTime);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
 | msTime | int | 设置语音消息时长，单位s |
 
-**接口说明：**启动录音；
-
-**函数原型：**int StartRecording(string filePath)；
+**接口说明：**启动录音
+**函数原型：**`int StartRecording(string filePath);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
 | filePath | string | 播放的语音路径，可以为NULL |
 
-**接口说明：**停止录音；
-
-**函数原型：**int StopRecording ()； 
-
-**接口说明：**上传语音文件； 
-
-**函数原型：**int UploadRecordedFile (string filePath)；
+**接口说明：**停止录音
+**函数原型：**`int StopRecording ();`
+**接口说明：**上传语音文件
+**函数原型：**`int UploadRecordedFile (string filePath);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
 | filePath | string | 上传语音的文件路径 |
 
 **接口说明：**下载语音文件 
-
-**函数原型：**int DownloadRecordedFile (string fileID, string downloadFilePath)； 
+**函数原型：**`int DownloadRecordedFile (string fileID, string downloadFilePath);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
@@ -94,22 +95,18 @@ SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。�
 | downloadFilePath | string |文件存储路径，可以为NULL |
 
 **接口说明：**播放语音文件 
-
-**函数原型：**int PlayRecordedFile (string downloadFilePath)；
+**函数原型：**`int PlayRecordedFile (string downloadFilePath);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
 | downloadFilePath | string | 播放语音的文件路径 |
 
 **接口说明：**停止播放语音文件  
-
-**函数原型：**int StopPlayFile ()；
+**函数原型：**`int StopPlayFile ();`
 
 #### 3.4 实时语音API：实时语音功能调用；
-
 **接口说明：**设置业务信息
-
-**函数原型：**int SetAppInfo(string appID, string accountType, string openID)；
+**函数原型：**`int SetAppInfo(string appID, string accountType, string openID);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
@@ -119,8 +116,7 @@ SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。�
 | 返回值 | int | 成功时返回QAVError.AV_OK |
 
 **接口说明：**初始化 QAVVoiceEngine，必须在SetAppInfo之后调用
-
-**函数原型：**int Init(InitCompleteHandler initHandler)；
+**函数原型：**`int Init(InitCompleteHandler initHandler);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
@@ -128,8 +124,7 @@ SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。�
 | 返回值 | int | 成功时返回QAVError.AV_OK |
 
 **接口说明：**加入语音房间 
-
-**函数原型：**int JoinRoom(int roomID, String role)； 
+**函数原型：**`int JoinRoom(int roomID, String role);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|
@@ -137,9 +132,8 @@ SDK 以 unitypackage 的格式提供，双击导入到 Unity 工程中即可。�
 | role | string | 角色由APP开发者在腾讯云中的spear引擎配置页面中预设的 |
 
 **接口说明：**注册音频回调，用于叠加音频回调，用于伴奏场景
-
-**函数原型：**int RegistAudioDataCallback(int srcType, 
-QAVAudioCtrl.QAVAudioDataCallback audioDataCallback)； 
+**函数原型：**`int RegistAudioDataCallback(int srcType, 
+QAVAudioCtrl.QAVAudioDataCallback audioDataCallback);`
 
 | 参数 | 类型 | 意义 |
 |---------|---------|---------|

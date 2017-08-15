@@ -1,6 +1,6 @@
 Local disk is a storage device located on the same physical server as the CVM instance and is featured by high read/write IO and low latency. Local disk comes from the local storage of the physical machine where the CVM resides. It is a storage area reserved on the physical machine where the CVM resides. It is advised to choose local disk for both system disk and data disk. In addition, in case of the purchase of a High IO model, only SSD local disk is recommended. However, a CVM for which local disk is selected DOES NOT support the upgrade of hardware (CPU, memory) and only supports upgrade of bandwidth.
 
-##Lifecycle of local disk
+## Lifecycle of local disk
 Since the local disk can only be created following CVM instances,  it will be started and stopped with the life cycle of CVM.
 
 ## Types of local disks

@@ -249,9 +249,8 @@ String openApiSign; //签名信息
 
 //是否需要显示刷脸指引
 boolean isShowGuide;      
-//刷脸类别：简单FaceVerifyStatus.Mode.EASY  
-//          中级FaceVerifyStatus.Mode.MIDDLE
-//          高级 FaceVerifyStatus.Mode.ADVANCED
+//刷脸类别：动作活体 FaceVerifyStatus.Mode.MIDDLE
+//          数字活体 FaceVerifyStatus.Mode.ADVANCED
 FaceVerifyStatus.Mode verifyMode;
 String keyLicence;   //给合作方派发的licence
  ```
@@ -274,7 +273,7 @@ String keyLicence;   //给合作方派发的licence
 | openApiUserId | User Id| String |30 |必输，每个用户唯一的标识 |
 | openApiSign | 合作方后台服务器通过ticket计算出来的签名信息| String |40 |必输 |
 | isShowGuide | 是否需要显示刷脸指引，sdk每次会返回这个结果，由app端存储，下次拉起时再传入| boolean |1 |必输 |
-| verifyMode | 刷脸类型：<br>简单<br>FaceVerifyStatus.Mode.EASY  <br>中级<br>FaceVerifyStatus.Mode.MIDDLE<br>高级<br>FaceVerifyStatus.Mode.ADVANCED| FaceVerifyStatus.Mode | |必输 |
+| verifyMode | 刷脸类型：<br>动作活体<br>FaceVerifyStatus.Mode.MIDDLE<br>数字活体<br>FaceVerifyStatus.Mode.ADVANCED| FaceVerifyStatus.Mode | |必输 |
 | keyLicence | 腾讯给合作方派发的licence| String | |必输 |
 
 ### 6.个性化参数设置

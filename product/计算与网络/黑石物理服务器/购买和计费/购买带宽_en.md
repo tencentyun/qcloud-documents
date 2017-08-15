@@ -13,12 +13,13 @@ BM load balancer can automatically spread access traffic of applications among m
 ## Public Network Egress Charges
 Public network egress fee can be billed by **traffic**, **bandwidth cap** and **actual bandwidth**.
 
-*允许更改公网出口计费模式。更改后，将在下一自然小时生效。</br>*
-*同一自然小时内，在相同计费模式下修改带宽峰值实时生效，但按最后一次修改的带宽峰值作为当前计费周期的公出出口费用*
+Note: 
+1. You can change the public outboud fee billing mode. The new billing mode takes effect by the next clock hour.</br>
+2. For bandwidth cap changes within one clock hour (in the same billing mode), the changes take effect immediately, and the latest bandwidth cap is used for billing of public outbound fee. 
 
-###Bill by traffic: 
+### Bill by traffic: 
 Unit price: 0.8 CNY/GB, without cap on peak bandwidth (no speed limit). Pay by actual traffic on an hourly basis (post-paid) </li>
-###Bill by bandwidth cap: 
+### Bill by bandwidth cap: 
 Pay by the bandwidth cap you set. Public network egress speed is limited to the specified peak bandwidth. Tiered prices are adopted.</li>
 <table>
 <tr>
