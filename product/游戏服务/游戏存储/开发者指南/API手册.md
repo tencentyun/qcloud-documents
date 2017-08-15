@@ -14,6 +14,31 @@ Tcaplus 化 API 是应用访问游戏存储服务集群的入口，是应用存�
 | SET | Key 对应记录存在则更新数据，否则插入数据请求 |
 | DEL| 根据 Key 删除对应的记录 |
 | INC | 指定字段的值（整数型）增加指定值 |
+| FIELDSET | 更新指定字段(单个或多个)的值 |
+| FIELDGET | 获取指定字段(单个或多个)的值 |
+
+### Protobuf API 约定
+Tcaplus 需要定义表的 primarykey 等信息，扩展 tcaplusservice.optionv1.proto 存在于 Tcaplus 系统中，用户只引用，建表时不用上传，具体内容如下：
+```
+extend google.protobuf.MessageOptions
+{
+    optional string tcaplus_primary_key = 60000; //Tcaplus Primary Key
+    repeated string tcaplus_index = 60001; //Tcaplus Index
+}
+extend google.protobuf.FieldOptions
+{
+    optional uint32 tcaplus_size = 60000; // Tcaplus field size
+    optional string tcaplus_desc = 60001; // Tcaplus description
+}
+```
+完整文件可以从发布中的release\x86_64\include\tcaplus_service\tcaplusservice.optionv1.proto 中找到。
+1. 表名要以字母或下载线开头，不能超过 31 个字段，不能有除数字，字母，下划线之外的特殊字段。
+2. 各字段的名称要以字母或下划线，protobuf 已经限制。
+3. 主键最多 4 个字段，必须是 required 类型，打包后长度不能超过 1022 字节。
+4. value 打包后不能超过 256 KB, 同时整个记录打包不能超过 256 KB。
+5. 除了 key 字段，至少有一个 value 字段。value 字段上限以 protobuf 为准。
+6. 表默认是 generic 类型。但对外不显示 generic 类型。
+7. key 字段当前只能是 protobuf 规定的标量类型（Scalar Value Type）,不能包括其它复合类型，自定义类型等。
 
 ### API 常用接口
 **int Get(::google::protobuf::Message &msg);**
