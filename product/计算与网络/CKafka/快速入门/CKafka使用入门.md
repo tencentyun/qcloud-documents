@@ -84,6 +84,11 @@ This is another message
 This is a message
 This is another message
 ```
+上述命令中，由于没有指定consumer group进行消费，系统会随机生成一个group进行消费。这样做容易达到group上限。因此推荐如下方式接收消息：
+**指定Group**
+```
+./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
+```
 
 查看对应的CKafka监控
 ![](https://mc.qcloudimg.com/static/img/12d49f97cc2562be26c16c193cb4297c/6.png)
