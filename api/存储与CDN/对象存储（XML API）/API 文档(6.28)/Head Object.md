@@ -48,7 +48,7 @@ HEAD /<ObjectName> HTTP/1.1
 |:---|:---|:---|
 | x-cos-meta- * | 用户自定义的 meta | String | 
 | x-cos-object-type | 用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable | String | 
-| x-cos-storage-class | Object 的存储级别，枚举值：Standard, Standard_IA, Nearline| String | 
+| x-cos-storage-class | Object 的存储级别，枚举值：STANDARD,STANDARD_IA, NEARLINE| String | 
 
 ### 响应体
 该请求的响应体为空。
@@ -75,6 +75,6 @@ Last-Modified: Wed, 11 Jan 2017 07:30:07 GMT
 Server: tencent-cos
 x-cos-object-type: normal
 x-cos-request-id: NTg3NzRiZGRfYmRjMzVfM2Y2OF81N2YzNA==
-x-cos-storage-class: Standard
+x-cos-storage-class: STANDARD
 
 ```
