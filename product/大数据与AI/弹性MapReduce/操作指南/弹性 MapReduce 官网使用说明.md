@@ -1,7 +1,7 @@
 ### 1. 登录弹性 MapReduce 官网控制台
-登录 [官网](https://www.qcloud.com/product/emr) 后访问 https://emr.qcloud.com 进入弹性 MapReduce 管理控制台
+登录 [官网](https://www.qcloud.com/product/emr) 后访问 https://emr.qcloud.com 进入弹性 MapReduce 管理控制台。
 ### 2. 集群创建
-集群创建可参考 [创建弹性 MapReduce]( https://www.qcloud.com/document/product/589/10841?!preview&lang=cn)
+集群创建可参考 [创建弹性 MapReduce](https://www.qcloud.com/document/product/589/10928?!preview&lang=cn)。
 ### 3. 集群管理
 登录后进入弹性 MapReduce [管理控制台](https://www.qcloud.com/login?s_url=https%3A%2F%2Femr.qcloud.com%2Findex), 如下图。
 ![](//mc.qcloudimg.com/static/img/82b888deb0e7e8c47590956227234816/image.png)
