@@ -3,10 +3,10 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 本文档旨在介绍如何使用 `tutum/wordpress` 镜像来创建一个公开访问的 WordPress 网站。
 
 >**注意：**
->创建单实例版的 WordPress 仅供测试使用，该镜像中包含了 WordPress 所有的运行环境，直接拉取创建服务即可，但使用单实例版的 WordPress 不能保证数据的持久化存储，建议您使用自建的 MySQL 或使用腾讯云数据库 CDB 来保存您的数据。详情请参考 [使用CDB的WordPress](https://www.qcloud.com/document/product/457/7447)。
+>创建单实例版的 WordPress 仅供测试使用，该镜像中包含了 WordPress 所有的运行环境，直接拉取创建服务即可，但使用单实例版的 WordPress 不能保证数据的持久化存储，建议您使用自建的 MySQL 或使用腾讯云数据库 CDB 来保存您的数据。详情请参考 [使用 CDB 的 WordPress](/doc/product/457/7447)。
 
 ## 前提条件
-如果您还未创建集群，您需要先创建集群。有关如何创建集群的详细信息，参见 [集群的基本操作](https://cloud.tencent.com/document/product/457/9091)。
+如果您还未创建集群，您需要先创建集群。有关如何创建集群的详细信息，参见 [集群的基本操作](/doc/product/457/9091)。
 
 ## 操作步骤
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
