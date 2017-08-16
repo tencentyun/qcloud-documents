@@ -20,8 +20,8 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 ![](//mc.qcloudimg.com/static/img/9254649a08d86761bcb8287fe5a45141/image.png)
 4. 镜像配置。
  - **名称**：输入运行容器的名称，此处以 wordpress 为例。
- -**镜像**：填写 `tutum/wordpress` 。
- -**版本（Tag）**：填写 latest。
+ - **镜像**：填写 `tutum/wordpress` 。
+ - **版本（Tag）**：填写 latest。
 ![](//mc.qcloudimg.com/static/img/b5c035081625c15a1dcbdf0a3cabf6a7/image.png)
 5. 设置端口映射。将容器端口和服务端口都设置为 80 。
 ![](//mc.qcloudimg.com/static/img/a86f50da339892896871ab9408514433/image.png)
