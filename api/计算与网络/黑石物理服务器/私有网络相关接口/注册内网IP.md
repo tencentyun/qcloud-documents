@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口（RegisterBatchIp）用于当指定子网IP进行IP申请。
+本接口（RegisterBatchIp）用于指定子网IP进行IP注册。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
@@ -14,7 +14,7 @@
 |---------|---------|---------|---------|
 | vpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
 | subnetId | 是 | String | 系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 |
-| ipList | 是 | Array | 申请IP数组，数组个数范围为1-20。 |
+| ipList | 是 | Array | 注册IP数组，数组个数范围为1-20。 |
 | ipClass | 否 | Int | IP类型，0为物理机IP，1为虚拟机类型IP，2为托管类型IP。默认传1 |
 
 
@@ -37,7 +37,7 @@
 |---------|---------|---------|
 | -3047 |InvalidBmVpc.NotFound| 无效的VPC,VPC资源不存在，请再次核实您输入的资源信息是否正确。 |
 | -3030  |InvalidBmSubnet.NotFound| 无效的子网,子网资源不存在，请再次核实您输入的资源信息是否正确。 |
-| -3031 |AvailableIpUseUp| 没有可用的IP可以分配。 |
+| -3031 |AvailableIpUseUp| IP已被注册或者IP不在子网所属范围内。详细错误信息请参考extramsg字段内容 |
 | -3001| InvalidInputParams|参数不合法
 
 ## 5. 示例
