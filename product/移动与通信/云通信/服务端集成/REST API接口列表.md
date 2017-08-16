@@ -70,7 +70,8 @@
 
 | 功能说明 | 接口 | 
 |---------|---------|
-| 添加好友  | [v4/sns/friend_import](/doc/product/269/添加好友)|
+| 添加好友  | [v4/sns/friend_add](/doc/product/269/添加好友)|
+| 导入好友  | [v4/sns/friend_import](/doc/product/269/导入好友)|
 | 删除好友   | [v4/sns/friend_delete](/doc/product/269/删除好友) |
 | 删除所有好友  | [v4/sns/friend_delete_all](/doc/product/269/删除所有好友) |
 | 校验好友  | [v4/sns/friend_check](/doc/product/269/校验好友) |
