@@ -49,7 +49,7 @@
 	&<公共请求参数>
 	&vpcId=vpc-2ari9m7h
 	&subnetId=subnet-keqt3oty
-	&ipList.0=10.1.1.2&ipList.1=10.1.1.300
+	&ipList.0=10.1.1.2&ipList.1=10.1.1.130
 ```
 
 输出
@@ -60,9 +60,9 @@
     "message": "",
     "codeDesc": "Success",
     "data": [
-        "10.6.100.40"
+        "10.1.1.2"
     ],
-    "extramsg":"10.1.1.300 is invalid ip."
+    "extramsg":"10.1.1.2 ip冲突,10.1.1.130 ip不在子网范围内"
     "count": 1
 }
 
