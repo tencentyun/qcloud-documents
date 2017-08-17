@@ -12,11 +12,11 @@
 下面会详细介绍这两种数据准备的方式。
 
 * 数据存放在 HDFS，首先准备要统计的文本文件，然后通过如下命令拷贝到 HDFS 集群
- 
-    bin/hadoop fs -put README.txt /user/hadoop/
+ ```
+    bin/hadoop fs -put README.txt /user/hadoop/
     [hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/README.txt
     -rw-r--r-- 3 hadoop supergroup 1366 2017-03-15 19:00 /user/hadoop/README.txt
-
+```
 * 数据存放 COS，数据存放 COS 有两种方式
 * 通过 COS 的控制台上传, 如果数据文件已经在 COS 可以通过如下命令查看
 
