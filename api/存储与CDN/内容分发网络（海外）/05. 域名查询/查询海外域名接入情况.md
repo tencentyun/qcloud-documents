@@ -4,7 +4,7 @@
 
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
-[调用Demo待补充](https://www.qcloud.com/document/product/228/1734)
+[调用Demo](https://www.qcloud.com/document/product/228/1734)
 
 ## 2. 输入参数
 

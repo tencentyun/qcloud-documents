@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于查询弹性公网IP异步任务的状态，主要用于绑定，解绑等操作的进度状态查询。
  
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: EipBmQueryTask
 
 
@@ -36,7 +36,7 @@ Data结构
 输入
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmQueryTask
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&requestId=2383049
 </pre>

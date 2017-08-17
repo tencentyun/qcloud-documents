@@ -1,8 +1,11 @@
-说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
-## 接口描述
+## 简介
+OCR - 身份证识别可识别身份证上的姓名、证件号、地址等信息。OCR 接口采用 http 协议，支持多 url 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
+## 接口形式
 OCR 接口采用 http 协议，支持多 url 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
 接口：`http://service.image.myqcloud.com/ocr/idcard`
-方法：POST
+请求方式：POST
+
+说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
 
 ## 身份证 OCR - 图片 url
 ### 请求
