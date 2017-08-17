@@ -78,7 +78,7 @@
 进入任务调度创建页面，入口如下图。
 ![](//mc.qcloudimg.com/static/img/d333b5cd8d97e15949e7a66695ba89ba/image.png)
 进入创建页面后单击 Create 按钮，进入下图。
-![](//mc.qcloudimg.com/static/img/963ea13f2cec0ee870df4902582607be/image.png)
+![](//mc.qcloudimg.com/static/img/1e29bd049015dafbc9c3ddfa6606780e/image.png)
 选定好流程后，设置调度时间，如下图。
 ![](//mc.qcloudimg.com/static/img/9950c76deba69b21e9c8f61b49d8c1c7/image.png)
 【hour】可以选择小时里某些分钟
