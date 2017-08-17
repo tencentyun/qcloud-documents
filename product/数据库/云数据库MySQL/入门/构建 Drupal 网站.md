@@ -26,6 +26,7 @@ mysql> FLUSH PRIVILEGES;
 mysql> exit
 ```
 其中，username 为 Drupal 服务使用的数据库用户名，password 为 Drupal 服务使用的数据库密码。
+
 ### 安装 Apache 服务
 1. 在云服务器实例中使用 `yum` 安装 Apache。
 ```
@@ -87,10 +88,10 @@ service httpd restart
 7. 选择安装语言，单击 Save and continue。
 ![](//mc.qcloudimg.com/static/img/9ab7121915a685816504a80d347be29c/image.png)
 8. 设置数据库，输入您之前配置的数据库信息。
-![](//mc.qcloudimg.com/static/img/643adfcda9f2c44dd5f149b1d8924fb0/image.png)
+![](//mc.qcloudimg.com/static/img/a4d53a2d9421be3d223862585cf1c61e/image.png)
 9. 输入站点信息。
  ![](//mc.qcloudimg.com/static/img/c124ba56012c3a3bd8023a65cdb87b52/image.png)
 10. 完成 Drupal 的安装。
 ![](//mc.qcloudimg.com/static/img/ed4795e8c6cb3183c56aeb8e18ef5d4a/image.png)
 11. 后续可以访问云服务器的外网 IP 网站进行个性化设置。
-![](//mc.qcloudimg.com/static/img/e339ab731665cffdf2b335422606869c/image.png)
+12. ![](//mc.qcloudimg.com/static/img/1c27ddd5419452fb92b8348d03586101/image.png)
