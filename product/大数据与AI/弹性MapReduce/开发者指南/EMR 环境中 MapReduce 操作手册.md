@@ -49,10 +49,8 @@
     -rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:55 /user/hadoop/cosoutput/part-r-00000
 ```
 ### 1.3 查看任务日志
-查看任务状态
-    bin/mapred job -status jobid
-查看任务日志
-    bin/mapred job -logs jobid
+查看任务状态 `bin/mapred job -status jobid`
+查看任务日志 `bin/mapred job -logs jobid`
 ## 2. 基于 HUE 的 MR 任务操作
 ### 2.1 数据准备
 数据准备同通过命令行准备数据一致。
