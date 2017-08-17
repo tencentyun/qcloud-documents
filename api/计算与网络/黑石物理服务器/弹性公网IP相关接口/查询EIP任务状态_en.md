@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (EipBmQueryTask) is used to query the asynchronous task status of EIP, with the focus on the progress of such operations as binding and unbinding.
  
-Domain: eip.api.qcloud.com
+Domain: bmeip.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -34,7 +34,7 @@ Parameter data is composed as follows:
 Input
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmQueryTask
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&requestId=2383049
 </pre>

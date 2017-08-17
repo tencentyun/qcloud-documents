@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (EipBmBindRs) is used to bind BM EIP to a CPM.
 
-Domain: eip.api.qcloud.com
+Domain: bmeip.api.qcloud.com
 
 
 
@@ -43,7 +43,7 @@ Parameter data is composed as follows:
 Input
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmBindRs
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
   &instanceId=cpm-xxxxxx&eipId=eip-vvvvvvv
