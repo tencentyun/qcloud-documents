@@ -37,10 +37,10 @@
 |---------|---------|---------|
 | -3047 |InvalidBmVpc.NotFound| 无效的VPC,VPC资源不存在，请再次核实您输入的资源信息是否正确。 |
 | -3030  |InvalidBmSubnet.NotFound| 无效的子网,子网资源不存在，请再次核实您输入的资源信息是否正确。 |
-| -3031 |AvailableIpUseUp| IP已被注册或者IP不在子网所属范围内。详细错误信息请参考extramsg字段内容 |
+| -3031 |AvailableIpUseUp| IP已被注册或者IP不在子网所属范围内。请仔细查看详细错误信息 |
 | -3001| InvalidInputParams|参数不合法
 
-## 5. 示例
+## 5. 示例一
  
 输入
 ```
@@ -60,9 +60,11 @@
     "message": "",
     "codeDesc": "Success",
     "data": [
-        "10.1.1.10"
+        "10.1.1.10",
+		"10.1.1.2",
+		"10.1.1.130"
     ],
-    "extramsg":"10.1.1.2 ip冲突,10.1.1.130 ip不在子网范围内"
+    "extramsg":""
     "count": 1
 }
 
@@ -76,3 +78,18 @@
   https://vpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 	&<公共请求参数>
 	&vpcId=vpc-2ari9m7h
+	&subnetId=subnet-keqt3oty
+	&ipList.0=10.1.1.4&ipList.1=10.1.1.200&10.1.1.6
+```
+
+输出
+```
+
+{
+    "code": 4000,
+    "message": "(-3031)没有可用的IP地址 10.1.1.4 ip冲突，10.1.1.200 ip不在子网范围内，剩余ip注册成功",
+    "codeDesc": "AvailableIpUseUp"
+}
+
+```
+
