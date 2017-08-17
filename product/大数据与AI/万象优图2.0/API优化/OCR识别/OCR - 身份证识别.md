@@ -1,10 +1,13 @@
-说明：该接口的费用可查看[购买指南](/document/product/460/6970)，按使用量进行月结。
-## 接口描述
-OCR接口采用 http 协议，支持多 URL 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
+## 简介
+OCR - 身份证识别可识别身份证上的姓名、证件号、地址等信息。OCR 接口采用 http 协议，支持多 url 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
+## 接口形式
+OCR 接口采用 http 协议，支持多 url 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
 接口：`http://service.image.myqcloud.com/ocr/idcard`
-方法：POST
+请求方式：POST
 
-## 身份证 OCR- 图片 URL
+说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
+
+## 身份证 OCR - 图片 url
 ### 请求
 请求语法:
 ```
@@ -182,7 +185,7 @@ Content-Type: "application/json"
 }
 ```
 
-## 身份证 OCR -图片文件
+## 身份证 OCR - 图片文件
 
 图片文件 OCR 使用 HTML 表单上传一个或多个文件，文件内容通过多重表单格式（ multipart/form-data ）编码。
 ### 请求
@@ -280,11 +283,11 @@ data 字段具体内容（身份证反面）：
 | valid_date_confidence_all | array(int) | 证件有效期置信度 |
 
 ><font color="#0000cc">**注意：** </font>
-置信度的值为区间在 [0,100] 的整数
+置信度的值为区间在 [0,100] 的整数。
 
 ### 示例
 
-http请求：
+http 请求：
 ```
 POST /ocr/idcard HTTP/1.1
 Content-Type:multipart/form-data;boundary=-------------------------acebdf13572468
@@ -317,7 +320,7 @@ Content-Type: image/jpeg
 ---------------------------acebdf13572468
 ```
 
-响应httpbody（application/json格式）：
+响应 httpbody（application/json 格式）：
 
 ```
 {

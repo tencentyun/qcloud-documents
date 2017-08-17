@@ -1,7 +1,7 @@
 本文档介绍 Windows 云服务器的 PHP 配置。介绍 [PHP 5.3之后版本安装](#jump) 与 [PHP 5.3 及之前版本安装](#jump1) ，您可以根据需求查看相关内容。
 ## 前提条件
 在Windows 云服务器中进行 PHP 配置，需要完成 IIS 角色的添加和安装，详细请见文档 [安装配置 IIS](
-//www.qcloud.com/document/product/213/10180?!preview&lang=cn) 。
+/doc/product/213/2755) 。
 
 ## PHP 5.3 之后版本安装
 <span id="jump">  </span>
