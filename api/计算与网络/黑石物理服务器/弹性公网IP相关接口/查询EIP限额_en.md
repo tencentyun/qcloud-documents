@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (DescribeEipBmQuota) is used to query the quota of EIPs in use. By default, a single customer can request a maximum of 100 EIPs.
  
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: <font style="color:red">bmeip.api.qcloud.com</font>
 
 
 ## 2. Input Parameters
@@ -37,7 +37,7 @@ Parameter data is composed as follows:
 Input
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=DescribeEipBmQuota
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
