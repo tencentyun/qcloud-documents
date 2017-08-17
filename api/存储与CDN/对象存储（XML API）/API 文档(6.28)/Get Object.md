@@ -46,6 +46,9 @@ GET /<ObjectName>&response-content-type=ContentType&response-content-language=Co
 |:---|:-- |:---|:-- |
 | Range |RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位|String| 否|
 | If-Unmodified-Since |如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed)|String| 否|
+| If-Modified-Since |当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304 |String| 否|
+| If-Match |当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed)|String| 否|
+| If-None-Match |当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified)|String| 否|
 
 ### 请求体
 该请求的请求体为空。

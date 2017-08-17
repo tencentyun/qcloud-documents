@@ -1,9 +1,11 @@
-说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
-## 描述
-OCR接口采用 http 协议，支持多 url 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
-接口：`http://service.image.myqcloud.com/ocr/namecard`
-方法： POST
+## 简介
+OCR - 名片识别可识别名片上的姓名、手机号、地址等信息。OCR 接口采用 http 协议，支持多 url 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
 
+## 接口形式
+接口：`http://service.image.myqcloud.com/ocr/namecard`
+请求方式： POST
+
+说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
 ## 使用图片 url
 ### 请求
 **请求语法:**
@@ -39,7 +41,7 @@ Content-Type: "application/json"
 | --------- | ---- | ------ | ------------ |
 | appid     | 是    | string | 业务 id         |
 | bucket    | 是    | string | 图片空间         |
-| ret_image | 是    | int    | 0 不返回图片，1返回图片 |
+| ret_image | 是    | int    | 0 不返回图片，1 返回图片 |
 | url_list  | 是    | string | 图片 url 列表      |
 
 ### 返回内容
