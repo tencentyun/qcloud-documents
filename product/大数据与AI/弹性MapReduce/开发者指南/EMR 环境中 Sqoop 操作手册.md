@@ -16,10 +16,11 @@
     sqoop:000> set server --host 10.0.1.182 --port 11000 --webapp sqoop
     Server is set successfully
 Server 的端口信息可在 sqoop-sys.sh 中查看:
-    export SQOOP\_HTTP_PORT=11000 # 服务端口
+   ` export SQOOP\_HTTP_PORT=11000 // 服务端口`
 
 查看 server 信息
 连接成功后，server version 会显示服务端的版本，API 版本等相关信息
+```
     sqoop:000> show version -all
     client version:
     Sqoop 1.99.5-cdh5.10.0 source revision bbb5e2eeed75bf80cdfd3122fe6b05da4175dcc6
@@ -32,6 +33,7 @@ Server 的端口信息可在 sqoop-sys.sh 中查看:
     Compiled by jenkins on Fri Jan 20 11:58:45 PST 2017
     API versions:
     [v1]
+```
 ### 1.2 connector
 执行 show connector 可以看到支持的 connector
     sqoop:000> show connector
@@ -47,6 +49,7 @@ Server 的端口信息可在 sqoop-sys.sh 中查看:
 link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数据导入到 link2 中
 
 创建 mysql 的 link
+```
     // 创建一个link，-c connetorid（connector 的Id，show connector 可以查到）
     sqoop:000> create link -c 1
     Creating link for connector with id 1
@@ -77,7 +80,7 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
 
     HDFS URI: hdfs://10.0.1.182:4007 #hdfs URI
     New link was successfully created with validation status OK and persistent id 2
-
+```
 查看创建的 link
 sqoop:000> show link
 +----+------------+--------------+------------------------+---------+
@@ -89,7 +92,7 @@ sqoop:000> show link
 ### 1.4 job
 把 mysql 的数据导入到 hdfs
 参数 -f linkId (from-link Id) -t linkId (to-link Id)
-
+```
     sqoop:000> create job -f 1 -t 2 // 创建一个job
     Creating job for links with from id 1 and to id 2
     Please fill following values to create new job object
@@ -132,13 +135,14 @@ sqoop:000> show link
     Extractors: 100 // map 个数
     Loaders: 10 // reduce 个数
     New job was successfully created with validation status OK and persistent id 1
-
+```
 查看 job
     sqoop:000> show job
 | Id |Name | From Connector | To Connector | Enabled |
 |---------|---------|---------|
 | 1 | mysql-hdfs | 1 | 3 | true |
 启动 job
+```
     sqoop:000> start job -j 1 //-j jobid
     Submission details
     Job ID: 1
@@ -149,7 +153,9 @@ sqoop:000> show link
     External ID: job_1489050296063_0036
     http://10.0.1.182:5004/proxy/application_1489050296063_0036/
     2017-03-09 19:06:27 CST: BOOTING - Progress is not available
+```
 查看 job 进度
+```
     sqoop:000> status job -j 1 #-j jobid
     Submission details
     Job ID: 1
@@ -160,7 +166,9 @@ sqoop:000> show link
     External ID: job_1489050296063_0036
     http://10.0.1.182:5004/proxy/application_1489050296063_0036/
     2017-03-09 19:08:04 CST: RUNNING - 11.50 %
+```
 终止 job
+```
     sqoop:000> stop job -j 1 //-j jobid
     Submission details
     Job ID: 1
@@ -171,7 +179,9 @@ sqoop:000> show link
     External ID: job_1489050296063_0041
     http://10.0.1.182:5004/proxy/application_1489050296063_0041/
     2017-03-09 19:24:55 CST: SUCCEEDED
+```
 根据 sql 语句导出 mysql 数据的 job 参数
+```
     sqoop:000> show job -all
     1 job(s) to show:
     Job with id 1 and name mysql-hdfs (Enabled: true,
@@ -196,6 +206,7 @@ sqoop:000> show link
     Compression format: NONE
     Custom compression format:
     Output directory: /sqoop_test/mysql-sqoop
+```
 ## 2. 基于 Hue 的 Sqoop 数据传输
 ### 2.1 link
 创建 link

@@ -1,6 +1,7 @@
 ## 1. 管理员类操作
 登录 Hbase 的 shell 环境，登录方式为登录任意一台EMR 集群机器（Common 类型的节点除外）
 * 登录后进入到目录 `/usr/local/service/hbase` 下, 执行如下命令:
+```
     [hadoop@10 hbase]$ bin/hbase shell
     hbase(main):001:0> list
     TABLE
@@ -23,16 +24,20 @@
     0 row(s) in 2.2760 seconds
     hbase(main):009:0> enable 'test'
     0 row(s) in 1.2560 seconds
+```
 * 更多资料可以参考 [这里](http://hbase.apache.org/book.html#shell) 。
 ## 2. 查询数据
 * 如管理员操作，进入 shell 控制台后可以通过 scan 或者 get 查询数据
+```
     hbase(main):010:0> scan 'test'
     ROW COLUMN+CELL
     row1 column=cf:a, timestamp=1489644953264, value=value1
     1 row(s) in 0.1020 seconds
+```
 更多相关命令请参考 [这里](http://hbase.apache.org/book.html#shell) 。
 ## 3. 通过 API 方式访问 Hbase 集群
 * 通过 Hbase 提供的标准 API 访问 Hbase 集群，可参考如下代码:
+```
     public static void createTable(String tableName, String[] familys) throws IOException {
     Admin admin = null;
     Connection con = null;
@@ -62,11 +67,13 @@
     con.close();
     }
     }
+```
 * 更多资料请参考 [这里](https://hbase.apache.org/book.html#_examples)
 ## 4. Hbase 和 MapReduce
 * 请参考 [这里](https://hbase.apache.org/book.html#mapreduce)
 ## 5. 通过 Phoenix 以SQL 的形式访问 Hbase 集群
 * 下载 Phoenix 安装包, 并解压安装包
+```
     wget https://mirrors.tuna.tsinghua.edu.cn/apache/phoenix/
     apache-phoenix-4.8.2-HBase-1.2/bin/
     apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
@@ -74,7 +81,9 @@
     tar -xvf apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
 
     cd apache-phoenix-4.8.2-HBase-1.2/bin
+```
 * SQL 控制台操作
+```
     ./sqlline.py 10.0.1.5:2181
     // 10.0.1.5:2181 为zookeeper 地址
 
@@ -89,6 +98,7 @@
     // 查询
     0: jdbc:phoenix:10.0.1.5:2181>
     select TABLE_SCHEM,TABLE_NAME,COLUMN_NAME from SYSTEM.CATALOG limit 10;
+```
     +--------------+----------------+---------------------+
     | TABLE_SCHEM | TABLE_NAME | COLUMN_NAME |
     +--------------+----------------+---------------------+
