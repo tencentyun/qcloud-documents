@@ -41,4 +41,4 @@
 3. 目前企业实名认证地区只支持【大陆】，认证方式选择【普通认证】，然后依次正确填写下面所需信息，并单击【下一步】。
 ![](https://mc.qcloudimg.com/static/img/b73e576a46215edf04f009fb52620655/image.png)
 4. 输入收到的打款金额，并单击【提交认证】，完成认证。关于银行卡验证相关问题的详情可以在[银行卡验证](https://www.qcloud.com/document/product/378/3631)了解。
-![](https://mc.qcloudimg.com/static/img/c4047152649a35850f07be4b7663c76b/image.png)
+![](https://mc.qcloudimg.com/static/img/c4047152649a35850f07be4b7663c76b/image.png) 
