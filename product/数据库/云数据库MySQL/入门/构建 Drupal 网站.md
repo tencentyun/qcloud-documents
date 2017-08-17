@@ -93,5 +93,5 @@ service httpd restart
  ![](//mc.qcloudimg.com/static/img/c124ba56012c3a3bd8023a65cdb87b52/image.png)
 10. 完成 Drupal 的安装。
 ![](//mc.qcloudimg.com/static/img/ed4795e8c6cb3183c56aeb8e18ef5d4a/image.png)
-11. 后续可以访问云服务器的外网 IP 网站进行个性化设置。
-12. ![](//mc.qcloudimg.com/static/img/1c27ddd5419452fb92b8348d03586101/image.png)
+11. 后续可以访问 `http://云服务器外网 IP` 对网站进行个性化设置。
+![](//mc.qcloudimg.com/static/img/1c27ddd5419452fb92b8348d03586101/image.png)
