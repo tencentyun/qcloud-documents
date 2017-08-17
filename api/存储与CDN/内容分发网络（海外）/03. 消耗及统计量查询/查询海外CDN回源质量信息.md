@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口（GetOvCdnHyStat）用于查询海外CDN回源详细信息，包括流量，带宽，速度，回源失败明细，4xx次数明细，每五分钟一个统计点，一天共有288个统计点。
+本接口（GetOvCdnHyStat）用于查询海外CDN回源质量详细信息，包括流量，带宽，速度，回源失败明细，4xx次数明细，每五分钟一个统计点，一天共有288个统计点。
 
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
