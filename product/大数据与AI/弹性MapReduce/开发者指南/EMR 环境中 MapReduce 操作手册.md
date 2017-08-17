@@ -12,23 +12,26 @@
 下面会详细介绍这两种数据准备的方式。
 
 * 数据存放在 HDFS，首先准备要统计的文本文件，然后通过如下命令拷贝到 HDFS 集群
- 
+```
     bin/hadoop fs -put README.txt /user/hadoop/
     [hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/README.txt
     -rw-r--r-- 3 hadoop supergroup 1366 2017-03-15 19:00 /user/hadoop/README.txt
-
+```
 * 数据存放 COS，数据存放 COS 有两种方式
 * 通过 COS 的控制台上传, 如果数据文件已经在 COS 可以通过如下命令查看
-
+```
     [hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
     -rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://emrtest/README.txt
-
+```
 * 通过 hadoop 的命令上传 COS
+```
     bin/hadoop fs -put README.txt cosn://emrtest/
     [hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
    	-rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://emrtest/README.txt
+```
 ### 1.2 提交 MR 计算任务
 通过如下命令提交任务
+```
     bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar
     wordcount /user/hadoop/README.txt /user/hadoop/output
     //查看执行结果
@@ -44,6 +47,7 @@
     Found 2 items
     -rw-r--r-- 3 hadoop supergroup 0 2017-03-15 19:55 /user/hadoop/cosoutput/_SUCCESS
     -rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:55 /user/hadoop/cosoutput/part-r-00000
+```
 ### 1.3 查看任务日志
 查看任务状态
     bin/mapred job -status jobid
