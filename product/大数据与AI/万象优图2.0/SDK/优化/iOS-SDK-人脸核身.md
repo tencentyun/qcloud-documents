@@ -7,7 +7,7 @@
 ### 开发准备
 -  iOS 8.0+ ；
 -  手机必须要有网络（ GPRS 、3G 或 Wifi 网络等）；
--  开发者使用人脸识别功能前，需要先进行 [腾讯云账号注册](https://www.qcloud.com/register)（详细指引请参考 [注册腾讯云](https://www.qcloud.com/document/product/378/9603)），并 [创建存储桶](https://www.qcloud.com/document/product/460/10637?!preview&lang=cn)，从而获得 APPID 、SecretId 和 SecretKey 等（可参考 [域名管理](https://www.qcloud.com/document/product/460/6937?!preview=true&lang=zh)）；
+-  开发者使用人脸识别功能前，需要先进行 [腾讯云账号注册](https://www.qcloud.com/register)（详细指引请参考 [注册腾讯云](https://www.qcloud.com/document/product/378/9603)），并 [创建存储桶](https://www.qcloud.com/document/product/460/10637?!preview&lang=cn)，从而获得 APPID 、SecretId 和 SecretKey 等（获取 APPID 可参考 [域名管理](https://www.qcloud.com/document/product/460/6937?!preview=true&lang=zh)）；
 ### SDK 配置
 #### SDK 导入
 
@@ -31,7 +31,7 @@
 | 单次有效 | 与资源 URL 绑定，一次有效 |
 
 **签名获取：**
-移动端 SDK 中用到的签名，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [签名与鉴权](/document/product/460/6968) 。
+移动端 SDK 中用到的签名，推荐使用服务器端 SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [签名与鉴权](/document/product/460/6968) 。
 
 ## 初始化
 引入上传 SDK 的头文件 ‘CIClient .h’，使用目录操作时，需要先实例化 CIClient  对象。
