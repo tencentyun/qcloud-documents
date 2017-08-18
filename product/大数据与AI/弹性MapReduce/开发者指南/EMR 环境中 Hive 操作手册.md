@@ -2,8 +2,8 @@
 ### 1.1 数据准备
 * 如下代码可以生成指定行数的测试数据
 ```
-    #!/bin/bash
-    MAXROW=1000000 # 指定生成数据行数
+    //!/bin/bash
+    MAXROW=1000000 // 指定生成数据行数
     for((i = 0; i < $MAXROW; i++))
     do
     echo $RANDOM, \"$RANDOM\"
@@ -67,6 +67,7 @@ COS 的文件全路径为: `cosn://hivecos/hivetest/hive_test.data`
 ```
 * 将数据导入表中
 从 HDFS 导入数据文件在 hdfs 上的路径为: `/user/hadoop/hive-test/hive_test.data`
+
 ```
     hive> load data inpath "/user/hadoop/hive-test/hive\_test.data" into table hive\_test;
 ```
