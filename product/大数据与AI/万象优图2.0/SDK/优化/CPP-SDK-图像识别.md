@@ -8,9 +8,7 @@
 依赖静态库: curl jsoncpp (在 lib 文件夹下)；
 依赖动态库: ssl crypto rtz (需要安装)；
 (1)安装 openssl 的库和头文件 [http://www.openssl.org/source/](http://www.openssl.org/source/) ；
-
 (2)安装 curl 的库和头文件 [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) ；
-
 (3)安装 jsoncpp 的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) ；
 (4)安装 cmake 工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) ；
 
