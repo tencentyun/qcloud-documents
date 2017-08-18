@@ -1,7 +1,7 @@
 Drupal 是使用 PHP 语言编写的开源内容管理框架（CMF），它由内容管理系统（CMS）和 PHP  开发框架（Framework）共同构成。它用于构造提供多种功能和服务的动态网站，能支持从个人博客到大型社区等各种不同应用的网站项目。
 本教程说明如何在腾讯云服务器 CVM 上搭建 Drupal 电子商务网站。使用的软件环境为：centos7.2 | Drupal7.56  | PHP5.4.16。
-### 初始化云数据库实例
-云数据库的购买和初始化请参考 [购买与续费](https://www.qcloud.com/document/product/236/5160) 和 [初始化 MySQL 数据库](https://www.qcloud.com/document/product/236/3128)。
+### 登录到云服务器实例
+云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://www.qcloud.com/document/product/213/2936)。
 ### 安装 MySQL 服务
 1. 在云服务器实例中使用 `yum` 安装 MySQL 服务。
 ```
