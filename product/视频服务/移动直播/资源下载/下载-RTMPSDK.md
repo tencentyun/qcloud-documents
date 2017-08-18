@@ -35,6 +35,7 @@ table th:nth-of-type(3) {  width: 150px; }
 table th:nth-of-type(4) {  width: 150px; }
 table th:nth-of-type(5) {  width: 150px; }
 table th:nth-of-type(6) {  width: 150px; }
+table th:nth-of-type(7) {  width: 150px; }
 table td { height: 35px; }
 .markdown-text-box img {
     border: 0;
@@ -53,7 +54,7 @@ table td { height: 35px; }
 | RTMP推流  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) | | | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 直播播放  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 点播播放  |![](//mc.qcloudimg.com/static/img/2e00c5e35962f177efb87c8ed2c037dd/image.jpg) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/2e00c5e35962f177efb87c8ed2c037dd/image.jpg)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 视频通话  ||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频通话  ||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 短视频录制  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 短视频编辑  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 多视频合并  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
