@@ -167,20 +167,20 @@ hive工作流还需要一个hive-site.xml配置文件，这个配置文件可以
 复制一个hive-site.xml文件，将其中对应配置修改为如下值:
 ```
     <property>
-    <name>hive.exec.local.scratchdir</name>
-    <value>/tmp/hive</value>
+     <name>hive.exec.local.scratchdir</name>
+     <value>/tmp/hive</value>
     </property>
     <property>
-    <name>hive.downloaded.resources.dir</name>
-    <value>/tmp/hive/${hive.session.id}\_resources</value>
+     <name>hive.downloaded.resources.dir</name>
+     <value>/tmp/hive/${hive.session.id}\_resources</value>
     </property>
     <property>
-    <name>hive.querylog.location</name>
-    <value>/tmp/hive</value>
+     <name>hive.querylog.location</name>
+     <value>/tmp/hive</value>
     </property>
     <property>
-    <name>hive.server2.logging.operation.log.location</name>
-    <value>/tmp/hive/tmp/operation\_logs</value>
+     <name>hive.server2.logging.operation.log.location</name>
+     <value>/tmp/hive/tmp/operation\_logs</value>
     </property>
 ```
 * 创建工作流

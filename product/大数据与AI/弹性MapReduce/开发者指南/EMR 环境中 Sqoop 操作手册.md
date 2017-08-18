@@ -1,6 +1,7 @@
 ## 1. 命令行模式
 ### 1.1 连接  Sqoop Server
 运行 Client Shell
+```
     ./sqoop.sh client
     Sqoop home directory: /usr/local/service/sqoop
     Mar 09, 2017 5:11:06 PM java.util.prefs.FileSystemPreferences$1 run
@@ -8,13 +9,15 @@
     Sqoop Shell: Type 'help' or '\h' f or help.
 
     sqoop:000>
-
-    连接server
+```
+连接 server
+```
      --host (sqoop server 地址)
      --port (sqoop server 服务端口)
      -webapp sqoop (服务名称)
     sqoop:000> set server --host 10.0.1.182 --port 11000 --webapp sqoop
     Server is set successfully
+```
 Server 的端口信息可在 sqoop-sys.sh 中查看:
    ` export SQOOP\_HTTP_PORT=11000 // 服务端口`
 
@@ -23,28 +26,26 @@ Server 的端口信息可在 sqoop-sys.sh 中查看:
 ```
     sqoop:000> show version -all
     client version:
-    Sqoop 1.99.5-cdh5.10.0 source revision bbb5e2eeed75bf80cdfd3122fe6b05da4175dcc6
-    Compiled by jenkins on Fri Jan 20 11:58:45 PST 2017
+      Sqoop 1.99.5-cdh5.10.0 source revision bbb5e2eeed75bf80cdfd3122fe6b05da4175dcc6
+      Compiled by jenkins on Fri Jan 20 11:58:45 PST 2017
     0 [main] WARN org.apache.hadoop.util.NativeCodeLoader -
-    Unable to load native-hadoop library for your platform...
-    using builtin-java classes where applicable
+      Unable to load native-hadoop library for your platform...
+      using builtin-java classes where applicable
     server version: # 服务器版本信息
-    Sqoop 1.99.5-cdh5.10.0 source revision bbb5e2eeed75bf80cdfd3122fe6b05da4175dcc6
-    Compiled by jenkins on Fri Jan 20 11:58:45 PST 2017
+      Sqoop 1.99.5-cdh5.10.0 source revision bbb5e2eeed75bf80cdfd3122fe6b05da4175dcc6
+      Compiled by jenkins on Fri Jan 20 11:58:45 PST 2017
     API versions:
-    [v1]
+      [v1]
 ```
 ### 1.2 connector
 执行 show connector 可以看到支持的 connector
     sqoop:000> show connector
-+------------------------+------------------------------------------------------+
-| Name | Class |
-+------------------------+------------------------------------------------------+
-| generic-jdbc-connector | org.apache.sqoop.connector.jdbc.GenericJdbcConnector |
+| Name | Class | 
+|---------|---------|
+| generic-jdbc-connector | org.apache.sqoop.connector.jdbc.GenericJdbcConnector | 
 | kite-connector | org.apache.sqoop.connector.kite.KiteConnector |
 | hdfs-connector | org.apache.sqoop.connector.hdfs.HdfsConnector |
 | kafka-connector | org.apache.sqoop.connector.kafka.KafkaConnector |
-+------------------------+------------------------------------------------------+
 ### 1.3 link
 link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数据导入到 link2 中
 
@@ -69,8 +70,9 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
     protocol = tcp
     entry#
     New link was successfully created with validation status OK and persistent id 1
-
+```
 创建一个 hdfs 的 link
+```
     sqoop:000> create link -c 3
     Creating link for connector with id 3
     Please fill following values to create new link object
@@ -83,12 +85,10 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
 ```
 查看创建的 link
 sqoop:000> show link
-+----+------------+--------------+------------------------+---------+
 | Id | Name | Connector Id | Connector Name | Enabled |
-+----+------------+--------------+------------------------+---------+
+|---------|---------|---------|
 | 1 | mysql-link | 1 | generic-jdbc-connector | true |
 | 2 | hdfs-link | 3 | hdfs-connector | true |
-+----+------------+--------------+------------------------+---------+
 ### 1.4 job
 把 mysql 的数据导入到 hdfs
 参数 -f linkId (from-link Id) -t linkId (to-link Id)
@@ -137,7 +137,7 @@ sqoop:000> show link
     New job was successfully created with validation status OK and persistent id 1
 ```
 查看 job
-    sqoop:000> show job
+sqoop:000> show job
 | Id |Name | From Connector | To Connector | Enabled |
 |---------|---------|---------|
 | 1 | mysql-hdfs | 1 | 3 | true |
@@ -151,7 +151,7 @@ sqoop:000> show link
     Creation date: 2017-03-09 19:06:27 CST
     Lastly updated by: root
     External ID: job_1489050296063_0036
-    http://10.0.1.182:5004/proxy/application_1489050296063_0036/
+        http://10.0.1.182:5004/proxy/application_1489050296063_0036/
     2017-03-09 19:06:27 CST: BOOTING - Progress is not available
 ```
 查看 job 进度
@@ -164,7 +164,7 @@ sqoop:000> show link
     Creation date: 2017-03-09 19:06:27 CST
     Lastly updated by: root
     External ID: job_1489050296063_0036
-    http://10.0.1.182:5004/proxy/application_1489050296063_0036/
+        http://10.0.1.182:5004/proxy/application_1489050296063_0036/
     2017-03-09 19:08:04 CST: RUNNING - 11.50 %
 ```
 终止 job
@@ -177,7 +177,7 @@ sqoop:000> show link
     Creation date: 2017-03-09 19:24:13 CST
     Lastly updated by: root
     External ID: job_1489050296063_0041
-    http://10.0.1.182:5004/proxy/application_1489050296063_0041/
+        http://10.0.1.182:5004/proxy/application_1489050296063_0041/
     2017-03-09 19:24:55 CST: SUCCEEDED
 ```
 根据 sql 语句导出 mysql 数据的 job 参数
@@ -185,27 +185,27 @@ sqoop:000> show link
     sqoop:000> show job -all
     1 job(s) to show:
     Job with id 1 and name mysql-hdfs (Enabled: true,
-    Created by root at 3/9/17 6:48 PM, Updated by root at 3/9/17 7:24 PM)
+      Created by root at 3/9/17 6:48 PM, Updated by root at 3/9/17 7:24 PM)
     Using link id 1 and Connector id 1
-    From database configuration
-    Schema name: // 不填
-    Table name: // 不填
-    Table SQL statement:
-    select a,b from sqoop_test.test where a>1 and a<1 and ${CONDITIONS} #sql 语句
-    Table column names:
-    Partition column name: a // 分区的column
-    Null value allowed for the partition column:
-    Boundary query:
-    Throttling resources
-    Extractors: 100
-    Loaders: 10
-    ToJob configuration
-    Override null value:
-    Null value:
-    Output format: TEXT_FILE
-    Compression format: NONE
-    Custom compression format:
-    Output directory: /sqoop_test/mysql-sqoop
+      From database configuration
+        Schema name: // 不填
+        Table name: // 不填
+        Table SQL statement:
+         select a,b from sqoop_test.test where a>1 and a<1 and ${CONDITIONS} #sql 语句
+        Table column names:
+        Partition column name: a // 分区的column
+        Null value allowed for the partition column:
+        Boundary query:
+      Throttling resources
+        Extractors: 100
+        Loaders: 10
+      ToJob configuration
+        Override null value:
+        Null value:
+        Output format: TEXT_FILE
+        Compression format: NONE
+        Custom compression format:
+        Output directory: /sqoop_test/mysql-sqoop
 ```
 ## 2. 基于 Hue 的 Sqoop 数据传输
 ### 2.1 link
