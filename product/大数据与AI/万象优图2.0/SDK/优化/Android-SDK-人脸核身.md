@@ -5,7 +5,7 @@
 更多示例可以参考Demo：[Android SDK Demo](https://mc.qcloudimg.com/static/archive/6e5c11cd423409f50804410e47b04e9a/FaceIdDemo+.zip)。
 
 ### 开发准备
-1. 开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得 APPID、SecretId和SecretKey等；
+1. 开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得 APPID、SecretId 和 SecretKey 等；
 2. 手机必须要有网络（GPRS、3G 或 Wifi 等）；
 3. 支持Android 4.0及其以上版本；
 
@@ -236,7 +236,7 @@ boolean success = faceIdClient.cancel(requestId); // 通过请求ID号取消任�
 faceIdClient.release();
 ```
 ><font color="#0000cc">**注意：** </font>
-发送任务示例请参见[快速入门](#1)。
+发送任务示例请参见 [快速入门](#1)。
 
 ### 人脸对比
 自带人脸识别数据库，可实时为国内公民提供真实身份信息核验。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。
@@ -267,7 +267,7 @@ public static ImageIdCardCompareRequest getInstanceByUrl(String bucket, String i
 | bucket       | String | 是    | 用户创建的存储桶名称 |
 | idCardNumber | String | 是    | 身份证号码         |
 | idCardName   | String | 是    | 身份证名称         |
-| url          | String | 是    | 图片的url路径      |
+| url          | String | 是    | 图片的 url 路径      |
 | seq          | String | 否    | 用于日志查询        |
 
 返回结果 ImageIdCardCompareResult ：
@@ -279,7 +279,7 @@ public static ImageIdCardCompareRequest getInstanceByUrl(String bucket, String i
 | similarity | float  | 图像和身份证的相似度 |
 | seq        | String | 用于日志查询     |
 ><font color="#0000cc">**注意：** </font>
-人脸对比示例代码请参见[快速入门](#1)。
+人脸对比示例代码请参见 [快速入门](#1)。
 
 ### 获取唇语
 获取一个唇语验证字符串，用于用户录制视频时使用。获取唇语构造函数：
@@ -301,7 +301,7 @@ public GetLipLanguageRequest(String bucket, String seq);
 | message      | String | 结果信息 |
 | validateData | String | 唇语   |
 ><font color="#0000cc">**注意：** </font>
-获取唇语示例代码请参见[快速入门](#2)。
+获取唇语示例代码请参见 [快速入门](#2)。
 
 ### 人脸核身---活体检测视频与用户照片的比对
 根据用户提前上传的照片与在线录制的活体视频，通过人脸识别进行匹配验证。人脸核身构造函数：
@@ -333,7 +333,7 @@ public VideoImageIdentityRequest(String bucket, String validateData, String vide
 | photo          | String | 人脸检测中相似度最高的图像 |
 
 ><font color="#0000cc">**注意：** </font>
-人脸核身示例代码请参见[快速入门](#3)。
+人脸核身示例代码请参见 [快速入门](#3)。
 
 ### 人脸核身---活体检测视频身份信息核验
 
@@ -367,5 +367,5 @@ VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath,
 | photo          | String | 人脸检测中相似度最高的图像 |
 
 ><font color="#0000cc">**注意：** </font>
-人脸核身示例代码请参见[快速入门](#3)。
+人脸核身示例代码请参见 [快速入门](#3)。
 
