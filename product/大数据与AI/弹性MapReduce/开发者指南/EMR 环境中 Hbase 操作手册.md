@@ -1,6 +1,6 @@
 ## 1. 管理员类操作
-登录 Hbase 的 shell 环境，登录方式为登录任意一台EMR 集群机器（Common 类型的节点除外）
-* 登录后进入到目录 `/usr/local/service/hbase` 下, 执行如下命令:
+登录 Hbase 的 shell 环境，登录方式为登录任意一台 EMR 集群机器（Common 类型的节点除外）
+* 登录后进入到目录 `/usr/local/service/hbase` 下, 执行如下命令：
 ```
     [hadoop@10 hbase]$ bin/hbase shell
     hbase(main):001:0> list
@@ -39,33 +39,33 @@
 * 通过 Hbase 提供的标准 API 访问 Hbase 集群，可参考如下代码:
 ```
     public static void createTable(String tableName, String[] familys) throws IOException {
-    Admin admin = null;
-    Connection con = null;
-    try{
-    Configuration config = HBaseConfiguration.create();
+      Admin admin = null;
+      Connection con = null;
+      try{
+        Configuration config = HBaseConfiguration.create();
     // 填写zookeeper 地址，多个地址用英文逗号隔开
-    config.set("hbase.zookeeper.quorum", "10.66.133.178:2181");
+        config.set("hbase.zookeeper.quorum", "10.66.133.178:2181");
     // 设置重试参数
-    config.setInt("hbase.client.retries.number", 1);
-    TableName TABLE = TableName.valueOf(tableName);
-    con = ConnectionFactory.createConnection(config);
-    admin = con.getAdmin();
-    if (admin.tableExists(TABLE)){
-    System.out.println("table already exists!");
-    } else {
-    HTableDescriptor tableDesc = new HTableDescriptor(TABLE);
-    for (int i = 0; i < familys.length; i++) {
-    tableDesc.addFamily(new HColumnDescriptor(familys[i]));
-    }
-    admin.createTable(tableDesc);
-    System.out.println("create table " + tableName + " ok.");
-    }
-    }catch(IOException e){
-    e.printStackTrace();
-    }finally{
-    admin.close();
-    con.close();
-    }
+        config.setInt("hbase.client.retries.number", 1);
+        TableName TABLE = TableName.valueOf(tableName);
+        con = ConnectionFactory.createConnection(config);
+        admin = con.getAdmin();
+        if (admin.tableExists(TABLE)){
+          System.out.println("table already exists!");
+        } else {
+          HTableDescriptor tableDesc = new HTableDescriptor(TABLE);
+          for (int i = 0; i < familys.length; i++) {
+           tableDesc.addFamily(new HColumnDescriptor(familys[i]));
+          }
+          admin.createTable(tableDesc);
+          System.out.println("create table " + tableName + " ok.");
+        }
+      }catch(IOException e){
+        e.printStackTrace();
+      }finally{
+        admin.close();
+        con.close();
+      }
     }
 ```
 * 更多资料请参考 [这里](https://hbase.apache.org/book.html#_examples)
@@ -74,9 +74,9 @@
 ## 5. 通过 Phoenix 以SQL 的形式访问 Hbase 集群
 * 下载 Phoenix 安装包, 并解压安装包
 ```
-    wget https://mirrors.tuna.tsinghua.edu.cn/apache/phoenix/
-    apache-phoenix-4.8.2-HBase-1.2/bin/
-    apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
+    wget https://mirrors.tuna.tsinghua.edu.cn/apache/      phoenix/
+          apache-phoenix-4.8.2-HBase-1.2/bin/
+          apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
 
     tar -xvf apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
 
@@ -99,63 +99,63 @@
     0: jdbc:phoenix:10.0.1.5:2181>
     select TABLE_SCHEM,TABLE_NAME,COLUMN_NAME from SYSTEM.CATALOG limit 10;
 ```
-    <table>
-   <tr>
-      <td>TABLE_SCHEM</td>
-      <td>TABLE_NAME</td>
-      <td>COLUMN_NAME</td>
-   </tr>
-   <tr>
-      <td></td>
-      <td>US_POPULATION</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td></td>
-      <td>US_POPULATION</td>
-      <td>CITY</td>
-   </tr>
-   <tr>
-      <td></td>
-      <td>US_POPULATION</td>
-      <td>POPULATION</td>
-   </tr>
-   <tr>
-      <td></td>
-      <td>US_POPULATION</td>
-      <td>STATE</td>
-   </tr>
-   <tr>
-      <td>SYSTEM</td>
-      <td>CATALOG</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>SYSTEM</td>
-      <td>CATALOG</td>
-      <td>APPEND_ONLY_SCHEMA</td>
-   </tr>
-   <tr>
-      <td>SYSTEM</td>
-      <td>CATALOG</td>
-      <td>ARRAY_SIZE</td>
-   </tr>
-   <tr>
-      <td>SYSTEM</td>
-      <td>CATALOG</td>
-      <td>AUTO_PARTITION_SEQ</td>
-   </tr>
-   <tr>
-      <td>SYSTEM</td>
-      <td>CATALOG</td>
-      <td>BASE_COLUMN_COUNT</td>
-   </tr>
-   <tr>
-      <td>SYSTEM</td>
-      <td>CATALOG</td>
-      <td>BUFFER_LENGTH</td>
-   </tr>
-  </table>
+<table>
+ <tr>
+  <td>TABLE_SCHEM</td>
+  <td>TABLE_NAME</td>
+   <td>COLUMN_NAME</td>
+ </tr>
+ <tr>
+   <td></td>
+   <td>US_POPULATION</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td>US_POPULATION</td>
+   <td>CITY</td>
+ </tr>
+ <tr>
+   <td></td>
+   <td>US_POPULATION</td>
+   <td>POPULATION</td>
+ </tr>
+ <tr>
+   <td></td>
+   <td>US_POPULATION</td>
+   <td>STATE</td>
+ </tr>
+ <tr>
+   <td>SYSTEM</td>
+   <td>CATALOG</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>SYSTEM</td>
+   <td>CATALOG</td>
+   <td>APPEND_ONLY_SCHEMA</td>
+ </tr>
+ <tr>
+   <td>SYSTEM</td>
+   <td>CATALOG</td>
+   <td>ARRAY_SIZE</td>
+ </tr>
+ <tr>
+   <td>SYSTEM</td>
+   <td>CATALOG</td>
+   <td>AUTO_PARTITION_SEQ</td>
+ </tr>
+ <tr>
+   <td>SYSTEM</td>
+   <td>CATALOG</td>
+   <td>BASE_COLUMN_COUNT</td>
+ </tr>
+ <tr>
+   <td>SYSTEM</td>
+   <td>CATALOG</td>
+   <td>BUFFER_LENGTH</td>
+ </tr>
+</table>
 	10 rows selected (0.305 seconds)
 * 更多 Phoenix 相关资料请参考 [这里](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) 。
 ## 6. 通过 HUE 操作 Hbase
