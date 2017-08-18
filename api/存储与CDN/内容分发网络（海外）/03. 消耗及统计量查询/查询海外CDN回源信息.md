@@ -34,7 +34,7 @@
 | period         | String | 统计周期，默认5分钟                          |
 | time_date      | Array  | 结果数据，详细说明见下文 |
 
-####time_date 字段说明
+#### time_date 字段说明
 
 **参数view为usage时**：
 
