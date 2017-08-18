@@ -40,6 +40,7 @@ Server 的端口信息可在 sqoop-sys.sh 中查看:
 ### 1.2 connector
 执行 show connector 可以看到支持的 connector
     sqoop:000> show connector
+
 | Name | Class | 
 |---------|---------|
 | generic-jdbc-connector | org.apache.sqoop.connector.jdbc.GenericJdbcConnector | 
