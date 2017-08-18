@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (bmUnBindVpcIp) is used to unbind BM EIP from BM VPC IP (other than CPM IP). After the EIP is unbound, inactivity fee will still be charged for it, so please [release and clean up](/document/product/386/6676) it in a timely manner .
  
-Domain: eip.api.qcloud.com
+Domain: bmeip.api.qcloud.com
 
  
 
@@ -47,7 +47,7 @@ Parameter data is composed as follows:
 Input
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
   &Action=bmUnBindRs
   &vpcIp=10.10.x.x&eipId=eip-vvvvvvv&vpcId=1000

@@ -1,10 +1,12 @@
-说明：该接口的费用可查看[购买指南](/document/product/460/6970)，按使用量进行月结。
-## 描述
-OCR接口采用 http 协议，支持多 UR L和多本地图片文件,每个请求最多支持 20 张图片或 url 。
-接口：`http://service.image.myqcloud.com/ocr/namecard`
-方法： POST
+## 简介
+OCR - 名片识别可识别名片上的姓名、手机号、地址等信息。OCR 接口采用 http 协议，支持多 url 和多本地图片文件,每个请求最多支持 20 张图片或 url 。
 
-## 使用图片 URL
+## 接口形式
+接口：`http://service.image.myqcloud.com/ocr/namecard`
+请求方式： POST
+
+说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
+## 使用图片 url
 ### 请求
 **请求语法:**
 ```
@@ -39,7 +41,7 @@ Content-Type: "application/json"
 | --------- | ---- | ------ | ------------ |
 | appid     | 是    | string | 业务 id         |
 | bucket    | 是    | string | 图片空间         |
-| ret_image | 是    | int    | 0 不返回图片，1返回图片 |
+| ret_image | 是    | int    | 0 不返回图片，1 返回图片 |
 | url_list  | 是    | string | 图片 url 列表      |
 
 ### 返回内容
@@ -70,7 +72,7 @@ data 字段具体内容：
 | phone_confidence | double | 手机号置信度 |
 
 ><font color="#0000cc">**注意：** </font>
-如未识别出某字段（如 name），则该字段对应的置信度（如 name_confidence）为-1。
+如未识别出某字段（如 name），则该字段对应的置信度（如 name_confidence）为 -1。
 
 ### 示例
 
@@ -169,7 +171,7 @@ image_content
 | -------------- | ---- | ------------------------------------ |
 | Host           | 是    | 访问域名，service.image.myqcloud.com      |
 | Authorization  | 是    | 鉴权签名，详见 [签名与鉴权](/doc/product/460/6968) |
-| Content-Type   | 是    | 标准的multipart/form-data               |
+| Content-Type   | 是    | 标准的 multipart/form-data               |
 | Content-Length | 是    | http body 总长度                         |
 
 **表单域:**
@@ -281,7 +283,7 @@ Content-Type: image/jpeg
 }
 ```
 
-## 4 错误码说明
+## 错误码说明
 
 | **错误码** | **含义**                              |
 | ------- | ----------------------------------- |
@@ -293,7 +295,7 @@ Content-Type: image/jpeg
 | 8       | 签名解码失败（内部错误）                        |
 | 9       | 签名过期                                |
 | 10      |  APPID 不存在                            |
-| 11      | SecretID不存在                         |
+| 11      | SecreId 不存在                         |
 | 12      |  APPID 不匹配                            |
 | 13      | 重放攻击                                |
 | 14      | 签名失败                                |
@@ -311,7 +313,7 @@ Content-Type: image/jpeg
 | -1102   | 图片解码失败                              |
 | -1300   | 图片为空                                |
 | -1301   | 请求的参数为空                             |
-| -1308   | url图片下载失败                           |
+| -1308   | url 图片下载失败                           |
 | -1400   | 非法的图片格式                             |
 | -1403   | 图片下载失败                              |
 | -1404   | 图片无法识别                              |

@@ -10,7 +10,15 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| deviceClass | 是 | String | 设备类型。腾讯的设备类型deviceClass，通过接口[查询设备型号(DescribeDeviceClass)](/doc/api/456/6636) 获得设备类型 |
+| deviceClass | 否 | String | 设备类型。腾讯的设备类型deviceClass，通过接口[查询设备型号(DescribeDeviceClass)](/doc/api/456/6636) 获得设备类型。标准机型需要传入此参数 |
+|cpuId|否|Int|cpuId类型。自定义机型需要传入此参数。 1: E5-2620v3 (6核)  * 2; 2: E5-2680v4 (14核)  * 2|
+|mem|否|Int|内存大小，单位G。 自定义机型需要传入此参数。取值范围[64,128,256,384,512]|
+|haveRaidCard|否|Int|是否需要RAID卡。自定义机型需要传入此参数。 0: 不需要RAID卡; 1: 需要RAID卡|
+|diskTypeId1|否|Int|第一种规格硬盘类型。自定义机型需要传入此参数。取值通过接口获得[DescribeDeviceClassPartition](/document/product/386/10968)|
+|diskNum1|否|Int|第一种规格硬盘的盘个数。自定义机型需要传入此参数。取值1~12。如果是有RAID卡的，盘数为偶数|
+|diskTypeId2|否|Int|第二种规格硬盘类型。自定义机型需要传入此参数。取值通过接口获得[DescribeDeviceClassPartition](/document/product/386/10968)|
+|diskNum2|否|Int|第二种规格硬盘的盘个数。自定义机型需要传入此参数。取值1~12。如果是有RAID卡的，盘数为偶数。且diskNum1+diskNum2不大于12|
+
 
 
 

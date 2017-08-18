@@ -335,12 +335,13 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 |参数类型|参数名|说明|
 |---|---|---|
 |BOOL|isEnableExternalCapture|是否打开外部视频捕获设备，自定义采集时传YES|
+|BOOL|shouldRender|SDK是否渲染输入流视频数据，YES表示会，NO表示不会|
 
 * 示例：
 
 ```
-    QAVVideoCtrl *videoCtrl = [[ILiveSDK getInstance] getAvVideoCtrl].videoCtrl;
-    [videoCtrl enableExternalCapture:YES];
+    QAVContext *context = [[ILiveSDK getInstance] getAVContext];
+    [context.videoCtrl enableExternalCapture:YES shouldRender:NO];
 ```
 
 3、自定义采集
