@@ -116,6 +116,7 @@ Spark 任务以如下格式提交：
 ```
 ### 1.6 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）
+
 | age | name | 
 |---------|---------|
 | null | Michael | 
@@ -170,7 +171,6 @@ Spark 任务以如下格式提交：
 | 409 |  val_409 |
 | 255 |  val_255 |
 | 278 |  val_278 |
-...以下省略...
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务ID）
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10549
@@ -218,7 +218,7 @@ Spark 任务以如下格式提交：
 数据准备同通过命令行准备数据一致
 ### 2.2 登录 Hue 进行操作
 * 通过 EMR 控制的快捷入口可以找到 Hue 的登录页面，找到如下入口, 如下图。
-![](//mc.qcloudimg.com/static/img/49e90bb12682e481b7550e255fc33eeb/image.png)
+![](//mc.qcloudimg.com/static/img/2f848ec4ffc6eaf6abea00d8dafdd282/image.png)
 * 进入页面后单击 Create 按钮，并拖拽 SparkProgram，如下图
 ![](//mc.qcloudimg.com/static/img/fccdfc197136f95c320b83f4017b9bba/image.png)
 >**注意：**

@@ -12,9 +12,9 @@
 ```
 连接 server
 ```
-     --host (sqoop server 地址)
-     --port (sqoop server 服务端口)
-     -webapp sqoop (服务名称)
+    --host (sqoop server 地址)
+    --port (sqoop server 服务端口)
+    -webapp sqoop (服务名称)
     sqoop:000> set server --host 10.0.1.182 --port 11000 --webapp sqoop
     Server is set successfully
 ```
@@ -85,6 +85,7 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
 ```
 查看创建的 link
 sqoop:000> show link
+
 | Id | Name | Connector Id | Connector Name | Enabled |
 |---------|---------|---------|
 | 1 | mysql-link | 1 | generic-jdbc-connector | true |
@@ -138,6 +139,7 @@ sqoop:000> show link
 ```
 查看 job
 sqoop:000> show job
+
 | Id |Name | From Connector | To Connector | Enabled |
 |---------|---------|---------|
 | 1 | mysql-hdfs | 1 | 3 | true |
@@ -209,37 +211,36 @@ sqoop:000> show job
 ```
 ## 2. 基于 Hue 的 Sqoop 数据传输
 ### 2.1 link
-创建 link
+**创建 link**
 【Data Browsers】 > 【Sqoop Transfer】 > 【Manager links】
 ![](//mc.qcloudimg.com/static/img/6588cdd6245e108ff93e1df00812bbbe/image.png)
-在这里可以看到已经创建好的 link，新建 link 的话，单击【New link】
+在这里可以看到已经创建好的 link，新建 link 的话，单击【New link】。
 ![](//mc.qcloudimg.com/static/img/d5d00304ff277a8d3fb7e818de347d8c/image.png)
-创建 mysql link
-这里我们创建一个 mysql 的 link 
+**创建 mysql link**
+这里我们创建一个 mysql 的 link 。
 ![](//mc.qcloudimg.com/static/img/9fa643e7ba18c00760898d99931d37f0/image.png)
-保存后，可以看到创建的 mysql-link
+保存后，可以看到创建的 mysql-link。
 ![](//mc.qcloudimg.com/static/img/cdc5de8c64a6aa106030bdfc88c05374/image.png)
-单击 【mysql-link】，可以看到 link 的详细信息，并可以修改
+单击 【mysql-link】，可以看到 link 的详细信息，并可以修改。
 ![](//mc.qcloudimg.com/static/img/703816355a90c7db83d73ba53d3075a1/image.png)
-创建 hdfs link
-创建一个 hdfs link，注意：HDFS URI，需要填对应 HDFS 集群的 fs.defaultFS 名称
+**创建 hdfs link**
+创建一个 hdfs link，注意：HDFS URI，需要填对应 HDFS 集群的 fs.defaultFS 名称。
 ![](//mc.qcloudimg.com/static/img/9eb85396a15da82c815da90b4597840f/image.png)
-保存后，检查一下是否正确
+保存后，检查一下是否正确。
 ![](//mc.qcloudimg.com/static/img/d2a282409b5ecd668c5bd0fafa4a83e2/image.png)
 ### 2.2 job
-创建 job
-【Data Browsers】 > 【Sqoop Transfer】 > 【New job】 选择创建好的 link。From link 表示源数据。To link 表示目标数据。我们这里是将数据从 mysql 导入到 HDFS
+**创建 job**
+【Data Browsers】 > 【Sqoop Transfer】 > 【New job】 选择创建好的 link。From link 表示源数据。To link 表示目标数据。我们这里是将数据从 mysql 导入到 HDFS。
 ![](//mc.qcloudimg.com/static/img/2e002a74e6a0b012bd69a97ff2d9ec4e/image.png)
-“Next”后，填写 from link的 源数据相关信息，我们这里是 mysql 数据，需要填导出的数据库名，
-表名，导出 sql 语句，分区的字段值，map 个数，reduce 个数等信息
+“Next”后，填写 from link 的 源数据相关信息，我们这里是 mysql 数据、需要填导出的数据库名、表名、导出的 sql 语句、分区的字段值、map 个数、reduce 个数等信息。
 ![](//mc.qcloudimg.com/static/img/61346dafb51d3da8fd702593c2f5c1be/image.png)
-“Next” 后，填写 to link 的目的数据相关信息，我们这里是导出到 hdfs，需要填写导出的文件格式，文件压缩方式，导出到 hdfs 上的文件路径等信息
+“Next” 后，填写 to link 的目的数据相关信息，我们这里是导出到 hdfs，需要填写导出的文件格式、文件压缩方式、导出到 hdfs 上的文件路径等信息。
 ![](//mc.qcloudimg.com/static/img/eab360c624968210af3145c3ad845072/image.png)
-执行 job
-选择创建 job，单击 “run” 执行
+**执行 job**
+选择创建 job，单击 “run” 执行。
 ![](//mc.qcloudimg.com/static/img/bed6bc1ccbe45fb76cf9664425c23717/image.png)
-job 提交后，可以看到 job 的执行相关信息
+job 提交后，可以看到 job 的执行相关信息。
 ![](//mc.qcloudimg.com/static/img/6eaaeb6e6f65deaadafd525f62862dec/image.png)
 ![](//mc.qcloudimg.com/static/img/bc1e8f987f5dec6acd3e989cfffd8bdd/image.png)
-在 hdfs 的导出目录中，可以看到导出的数据文件
+在 hdfs 的导出目录中，可以看到导出的数据文件。
 ![](//mc.qcloudimg.com/static/img/07be510f0733e91fa3b95c4f00486663/image.png)

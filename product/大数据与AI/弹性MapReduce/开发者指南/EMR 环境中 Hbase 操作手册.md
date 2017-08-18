@@ -27,7 +27,7 @@
 ```
 * 更多资料可以参考 [这里](http://hbase.apache.org/book.html#shell) 。
 ## 2. 查询数据
-* 如管理员操作，进入 shell 控制台后可以通过 scan 或者 get 查询数据
+* 如管理员操作，进入 shell 控制台后可以通过 scan 或者 get 查询数据。
 ```
     hbase(main):010:0> scan 'test'
     ROW COLUMN+CELL
@@ -72,7 +72,7 @@
 ## 4. Hbase 和 MapReduce
 * 请参考 [这里](https://hbase.apache.org/book.html#mapreduce)
 ## 5. 通过 Phoenix 以SQL 的形式访问 Hbase 集群
-* 下载 Phoenix 安装包, 并解压安装包
+* 下载 Phoenix 安装包, 并解压安装包。
 ```
     wget https://mirrors.tuna.tsinghua.edu.cn/apache/      phoenix/
           apache-phoenix-4.8.2-HBase-1.2/bin/
@@ -99,63 +99,19 @@
     0: jdbc:phoenix:10.0.1.5:2181>
     select TABLE_SCHEM,TABLE_NAME,COLUMN_NAME from SYSTEM.CATALOG limit 10;
 ```
-<table>
- <tr>
-  <td>TABLE_SCHEM</td>
-  <td>TABLE_NAME</td>
-   <td>COLUMN_NAME</td>
- </tr>
- <tr>
-   <td></td>
-   <td>US_POPULATION</td>
-   <td></td>
- </tr>
- <tr>
-   <td></td>
-   <td>US_POPULATION</td>
-   <td>CITY</td>
- </tr>
- <tr>
-   <td></td>
-   <td>US_POPULATION</td>
-   <td>POPULATION</td>
- </tr>
- <tr>
-   <td></td>
-   <td>US_POPULATION</td>
-   <td>STATE</td>
- </tr>
- <tr>
-   <td>SYSTEM</td>
-   <td>CATALOG</td>
-   <td></td>
- </tr>
- <tr>
-   <td>SYSTEM</td>
-   <td>CATALOG</td>
-   <td>APPEND_ONLY_SCHEMA</td>
- </tr>
- <tr>
-   <td>SYSTEM</td>
-   <td>CATALOG</td>
-   <td>ARRAY_SIZE</td>
- </tr>
- <tr>
-   <td>SYSTEM</td>
-   <td>CATALOG</td>
-   <td>AUTO_PARTITION_SEQ</td>
- </tr>
- <tr>
-   <td>SYSTEM</td>
-   <td>CATALOG</td>
-   <td>BASE_COLUMN_COUNT</td>
- </tr>
- <tr>
-   <td>SYSTEM</td>
-   <td>CATALOG</td>
-   <td>BUFFER_LENGTH</td>
- </tr>
-</table>
+
+| TABLE_SCHEM | TABLE_NAME | COLUMN_NAME |
+|---------|---------|---------|
+|  | US_POPULATION |  |
+|  | US_POPULATION | CITY |
+|  | US_POPULATION | POPULATION |
+|  | US_POPULATION | STATE |
+| SYSTEM | CATALOG |  |
+|SYSTEM | CATALOG | APPEND_ONLY_SCHEMA |
+| SYSTEM | CATALOG | ARRAY_SIZE |
+| SYSTEM | CATALOG | AUTO_PARTITION_SEQ |
+| SYSTEM | CATALOG | BASE_COLUMN_COUNT |
+| SYSTEM | CATALOG | BUFFER_LENGTH |
 	10 rows selected (0.305 seconds)
 * 更多 Phoenix 相关资料请参考 [这里](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) 。
 ## 6. 通过 HUE 操作 Hbase
