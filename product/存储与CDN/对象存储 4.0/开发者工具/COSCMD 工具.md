@@ -12,9 +12,9 @@ Python 2.7.x
 #### 安装及配置
 环境安装与配置详细操作请参考 [Python 安装与配置](/doc/product/436/10866)。
 ## 下载与安装
-- **Windows**
+- **手动安装**
 [GitHub 链接](https://github.com/tencentyun/coscmd.git)
-- **Linux**
+- **pip 安装**
 在该项目根目录下执行`pip`命令进行安装：
 ```
 sudo pip install coscmd
