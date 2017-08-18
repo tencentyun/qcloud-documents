@@ -1,6 +1,13 @@
 # 数据订阅SDK下载
 [点击下载][1]
 
+## 发布日志
+### Version 2.4.0
+1、配合后台优化了订阅的逻辑，可以精确显示SDK当前的消费时间点
+2、修复了后台的少数特殊字符的编码问题
+
+3、**修复了多项兼容性问题，建议更老版本用户尽快升级至此版本**
+
 # 数据订阅SDK示例代码简介
 ---
 使用腾讯云Binlog订阅示例代码如下：
@@ -626,4 +633,4 @@ public Boolean isPrimary()
 ##### 抛出异常
 无
 
-[1]:	//mc.qcloudimg.com/static/archive/376dde7c54ff6cf025465008ea08e47f/binlogsdk-2.1.0.jar.zip
+[1]:	//mc.qcloudimg.com/static/archive/dcb2cb495ad8984e7286db369ea7ff0a/binlogsdk-2.4.0.jar.zip

@@ -61,21 +61,115 @@
 
 ## 5 资料管理 
 
-| 功能说明 | 接口 | 
-|---------|---------|
-| 拉取资料 | [v4/profile/portrait_get ](/doc/product/269/拉取资料)| 
-| 设置资料  | [v4/profile/portrait_set](/doc/product/269/设置资料) | 
+<table style="display:table;width:100%">
+	<tbody>
+		<tr style="background:#C2D3FC;border:1px solid blue;">
+			<td>功能说明</td>
+			<td>接口</td>
+		</tr>
+		<tr>
+			<td>拉取资料</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/1639">v4/profile/portrait_get</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>设置资料</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/1640">v4/profile/portrait_set</a><br />
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 ## 6 关系链管理 
 
-| 功能说明 | 接口 | 
-|---------|---------|
-| 添加好友  | [v4/sns/friend_add](/doc/product/269/添加好友)|
-| 导入好友  | [v4/sns/friend_import](/doc/product/269/导入好友)|
-| 删除好友   | [v4/sns/friend_delete](/doc/product/269/删除好友) |
-| 删除所有好友  | [v4/sns/friend_delete_all](/doc/product/269/删除所有好友) |
-| 校验好友  | [v4/sns/friend_check](/doc/product/269/校验好友) |
-| 拉取好友   | [v4/sns/friend_get_all](/doc/product/269/拉取好友) |
+<table style="display:table;width:100%">
+	<tbody>
+		<tr style="background:#C2D3FC;border:1px solid blue;">
+			<td>功能说明</td>
+			<td>接口</td>
+		</tr>
+		<tr>
+			<td>添加好友</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/1643">v4/sns/friend_add</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>导入好友</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/8301">v4/sns/friend_import</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>删除好友</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/1644">v4/sns/friend_delete</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>删除所有好友</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/1645">v4/sns/friend_delete_all</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>校验好友</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/1646">v4/sns/friend_check</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>拉取好友</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/1647">v4/sns/friend_get_all</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>拉取指定好友</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/8609">v4/sns/friend_get_list</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>添加黑名单</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/3718">v4/sns/black_list_add</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>删除黑名单</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/3719">v4/sns/black_list_delete</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>拉取黑名单</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/3722">v4/sns/black_list_get</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>校验黑名单</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/3725">v4/sns/black_list_check</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>添加分组</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/10107">v4/sns/group_add</a><br />
+			</td>
+		</tr>
+		<tr>
+			<td>删除分组</td>
+			<td>
+				<a href="https://www.qcloud.com/document/product/269/10108">v4/sns/group_delete</a><br />
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 ## 7 脏字管理
 

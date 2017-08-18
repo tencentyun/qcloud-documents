@@ -5,7 +5,8 @@
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
 1）接入的域名为海外CDN加速域名；
-3）使用此接口，一次仅可添加一个域名至腾讯云海外CDN。
+
+2) 单次最多查询100个证书信息。
 
 [调用Demo](https://www.qcloud.com/document/product/228/1734)
 

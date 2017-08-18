@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于绑定黑石弹性公网IP到黑石物理服务器。
 
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: EipBmBindRs
 
 
@@ -43,7 +43,7 @@ Data结构
 输入
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmBindRs
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &instanceId=cpm-xxxxxx&eipId=eip-vvvvvvv

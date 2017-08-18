@@ -1,12 +1,12 @@
 为方便 PHP 开发者调试和接入云 API， 我们提供了基于 PHP 的 SDK。
 
-##环境准备##
+## 环境准备
 
 1. 腾讯云PHP SDK适用于PHP 5.3及以上版本。
 2. [获取安全凭证](https://console.qcloud.com/capi)。在第一次使用云API之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 3. 到[腾讯云控制台](https://console.qcloud.com/)开通相应产品。
 
-##SDK获取与安装##
+## SDK获取与安装
 
 可以通过以下方式获取PHP SDK:
 
@@ -21,7 +21,7 @@
 
 
 
-##示例##
+## 示例
 
 ### 公共说明
 见不同模块API的公共参数、API概览、错误码。如[云服务器API公共参数](http://www.qcloud.com/document/api/213/6976)、[云服务器API概览](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88)、[云服务器API错误码](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81)。
