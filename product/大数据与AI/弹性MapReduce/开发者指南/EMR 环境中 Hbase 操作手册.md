@@ -99,7 +99,6 @@
     0: jdbc:phoenix:10.0.1.5:2181>
     select TABLE_SCHEM,TABLE_NAME,COLUMN_NAME from SYSTEM.CATALOG limit 10;
 ```
-```
     <table>
    <tr>
       <td>TABLE_SCHEM</td>
@@ -157,7 +156,6 @@
       <td>BUFFER_LENGTH</td>
    </tr>
   </table>
-```
 	10 rows selected (0.305 seconds)
 * 更多 Phoenix 相关资料请参考 [这里](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) 。
 ## 6. 通过 HUE 操作 Hbase
