@@ -20,7 +20,7 @@ Python 2.7.x
 sudo pip install coscmd
 ```
 安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。如下图所示：
-![微信图片_20170817111542](//mc.qcloudimg.com/static/img/6dd63497011ff489a27fff1a9f2ba441/image.png)
+![微信图片_20170817111542](//mc.qcloudimg.com/static/img/3ba7db584152f03ad5d1848058c35743/image.png)
 
 ## 使用方法
 ### 查看 help
