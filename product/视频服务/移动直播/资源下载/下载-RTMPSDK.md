@@ -49,10 +49,10 @@ table td { height: 35px; }
 
 - **iOS 平台**
 
-|     iOS        | 直播精简版 | 独立播放器版 | 短视频功能版 | 全功能专业版 | 全功能Rename版 | 商用企业版  |
-| :------------: | :------------: | :--------------: | :--------------: | :---------------: | :-----------: |
-| RTMP推流  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) | | | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 直播播放  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+|     iOS        | 直播精简版 | 独立播放器版 | 短视频功能版 | 全功能专业版 | 符号重命名版 | 商用企业版 |
+| :------------: | :------------: | :--------------: | :--------------: | :---------------: | :-----------: | :-----------: |
+| RTMP推流  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) | | | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 直播播放  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 点播播放  |![](//mc.qcloudimg.com/static/img/2e00c5e35962f177efb87c8ed2c037dd/image.jpg) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/2e00c5e35962f177efb87c8ed2c037dd/image.jpg)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 视频通话  ||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 短视频录制  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
@@ -62,9 +62,9 @@ table td { height: 35px; }
 | 动效贴纸 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 美瞳瘦脸 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 绿幕抠图 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| BitCode |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|||
-| |[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Smart_iOS_3.0.1201.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Player_iOS_3.0.1201.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_UGC_iOS_3.0.1201.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Professional_iOS_3.0.1201.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Professional_Rename_iOS_3.0.1201.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Enterprise_iOS_3.0.1201.zip) | 
-
+| 符号重命名 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)||
+| 支持BitCode |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|||
+||[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Smart_iOS_3.0.1201.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Player_iOS_3.0.1201.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_UGC_iOS_3.0.1201.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Professional_iOS_3.0.1201.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Professional_Rename_iOS_3.0.1201.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Enterprise_iOS_3.0.1201.zip)|
 
 - **Android 平台**
 
@@ -85,13 +85,14 @@ table td { height: 35px; }
 
 - **版本说明**
 
-> 1. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://www.qcloud.com/document/product/454/9018)。
+> 1. 除精简版之外，SDK 各功能版本均打包有 ijkplayer，如果您的工程中已使用 ffmpeg，可能会导致符号冲突。为解决这个问题，您可以使用我们经过符号处理的 rename 版 SDK。
+
+> 2. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://www.qcloud.com/document/product/454/9018)。
 >  
-> 2. iOS 直播精简版中没有包含软实现的编解码器，SDK 被压缩至最小（安装包体积增量 1M 左右），但此版本不支持 iOS 7.0 及以下系统。
+> 3. iOS 直播精简版中没有包含软实现的编解码器，SDK 被压缩至最小（安装包体积增量 1M 左右），但此版本不支持 iOS 7.0 及以下系统。
 >  
-> 3. iOS 直播精简版和短视频功能版中所包含的点播播放器，主要基于系统原生接口实现，所以兼容性略逊于完整版，如果您的视频源中包含用于自己上传的视频，会遭遇部分编码制式的视频无法播放的情况。
+> 4. iOS 直播精简版和短视频功能版中所包含的点播播放器，主要基于系统原生接口实现，所以兼容性略逊于完整版，如果您的视频源中包含用于自己上传的视频，会遭遇部分编码制式的视频无法播放的情况。
 
 
 ## 联系我们
 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://www.qcloud.com/document/product/454/7998)。
-
