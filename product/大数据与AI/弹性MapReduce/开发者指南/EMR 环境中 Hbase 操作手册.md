@@ -104,6 +104,7 @@ table th:first-of-type {
     width: 100px;
 }
 </style>
+
 | TABLE_SCHEM | TABLE_NAME | COLUMN_NAME |
 |---------|---------|---------|
 |  | US_POPULATION |  |
