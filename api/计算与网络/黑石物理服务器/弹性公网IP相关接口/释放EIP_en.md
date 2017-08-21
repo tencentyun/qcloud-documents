@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (EipBmDelete) is used to release EPIs make it easier for users to clean up unused EIP resources.
 
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: <font style="color:red">bmeip.api.qcloud.com</font>
 
 
 ## 2. Input Parameters
@@ -40,7 +40,7 @@ Parameter data is composed as follows:
 Input
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmDelete
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&eipIds.0=eip-iiiii
 </pre>

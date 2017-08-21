@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于申请创建黑石弹性公网IP。
  
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: EipBmApply
 
  
@@ -46,7 +46,7 @@ data结构
 输入
 ```
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmApply
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&goodsNum=2&payMode=flow&vpcId=1
 ```

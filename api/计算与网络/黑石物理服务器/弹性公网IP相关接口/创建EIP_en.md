@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (EipBmApply) is used to apply for the creation of BM EIP.
  
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: <font style="color:red">bmeip.api.qcloud.com</font>
 
 
 ## 2. Input Parameters
@@ -44,7 +44,7 @@ Parameter data is composed as follows:
 Input
 ```
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmApply
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&goodsNum=2&payMode=flow&vpcId=1
 ```

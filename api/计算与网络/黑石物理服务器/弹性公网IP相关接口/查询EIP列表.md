@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于查询当前使用中的弹性公网IP列表。
 
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: DescribeEipBm
 
 ## 2. 输入参数
@@ -63,7 +63,7 @@
 输入
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=DescribeEipBm
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&startNum=0&endNum=20
 </pre>

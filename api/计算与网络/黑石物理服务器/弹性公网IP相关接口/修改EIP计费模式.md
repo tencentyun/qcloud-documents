@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于修改弹性公网IP的计费模式，目前有两种计费模式，用户可以根据自己的业务场景，使用该接口进行修改。修改后，变更计费模式的请求将在下个计费周期（每个自然小时为一计费周期）生效。
  
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: EipBmModifyCharge
  
 
@@ -39,7 +39,7 @@ Data结构
 输入
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmModifyCharge
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
 </pre>
