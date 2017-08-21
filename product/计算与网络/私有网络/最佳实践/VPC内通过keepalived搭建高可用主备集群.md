@@ -95,7 +95,7 @@ vrrp_instance VI_1 {
 ```
 
 ### 步骤 4.（可选）给 VIP 分配外网 IP
-先在控制台申请 EIP，再通过云 API 绑定到**步骤 1** 中申请的内网 IP，Python 代码与步骤 1 类似。[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)。
+先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)。
 
 ### 步骤 5.   keepalived.conf 配置切换脚本
 主备切换时，新切换为主的设备通过 notify 调用 vip.py 进行切换。
