@@ -5,7 +5,7 @@
 
 云数据库SQL Server是腾讯云基于微软公司推出的SQL Server专业打造的云数据库。具体介绍请参考<a href="/doc/product/238/产品概述" title="产品概述">云数据库SQL Server</a>页面。
 
-查询云数据库TDSQL产品监控数据，入参取值如下：
+查询云数据库SQL Server产品监控数据，入参取值如下：
 namespace：qce/sqlserver
 dimensions.0.name=resourceId 
 dimensions.0.value为实例的资源 Id
