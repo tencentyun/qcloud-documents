@@ -17,7 +17,11 @@
 
 ## 详细步骤
 ### 步骤1.    申请VIP
-在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），暂时仅支持云API，云API代码开发指引请参考第6步。由于VIP绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而VPC内每台CVM在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请VIP。
+在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），**控制台 或 云API**均可申请:
+
+- 控制台：点击查看[分配内网IP（Qcloud控制台）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910)，注意：**内网IP还需在云服务器内配置后才正式生效**. 点击查看[分配内网IP（云服务器系统内）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911)
+
+- 云API：云API代码开发指引请参考第6步。由于VIP绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而VPC内每台CVM在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请VIP。
 **具体操作：** 
 1) 通过云`API:DescribeNetworkInterfaces`[点击查看API详情](https://www.qcloud.com/doc/api/245/4814)得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络ID**和**云服务器的ID**即可）。
 2) 通过云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)在弹性网卡上申请内网VIP的，申请VIP操作可参考以下python代码：
@@ -39,7 +43,7 @@ config = {
 }
 params = {
     'vpcId': '您的vpcID',
-    'networkInterfaceId': '您需要初次见ip绑定的弹性网卡ID',
+    'networkInterfaceId': '您的主服务器的主网卡ID',
     'secondaryPrivateIpAddressCount': '您需要申请IP地址的个数'
 }
 
