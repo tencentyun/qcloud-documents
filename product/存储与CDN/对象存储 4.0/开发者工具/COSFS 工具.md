@@ -1,15 +1,11 @@
 ## 功能说明 
-COS-Fuse 能让您将腾讯云对象存储 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储。
-
-COS-Fuse 基于 s3fs 构建，具有 s3fs 的全部功能。主要包括：
-- 支持 POSIX 文件系统的大部分功能，如：文件读写，目录操作，链接操作，权限管理，uid/gid 管理等功能；
+COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储。COSFS 的主要功能包括：
+- 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能；
 - 大文件传输功能；
 - MD5 数据校验功能。
 
 ## 使用限制 
-本工具可以支持对 V4、V5 版本存储的访问，但是域名均需使用 V5 域名。
-
-
+本工具可以支持对COS V4、V5 版本存储的访问，但是域名均需使用 COS V5 域名。
 ## 使用环境 
 ### 系统环境 
 主流 Linux 系统
@@ -46,7 +42,7 @@ make
 sudo make install
 ```
 ### 配置文件
-在 `/etc/passwd-cosfs`文件中，配置您的存储桶的名称，以及该存储桶对应的 SecretId 和 SecretKey，相关概念参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。使用冒号隔开，注意冒号为半角符号。 并为 `/etc/passwd-cosfs` 设置可读权限。命令格式如下：
+在 `/etc/passwd-cosfs`文件中，配置您的存储桶的名称，以及该存储桶对应的 SecretId 和 SecretKey，相关概念参见 [对象存储基本概念](/doc/product/436/6225)。使用冒号隔开，注意冒号为半角符号。 并为 `/etc/passwd-cosfs` 设置可读权限。命令格式如下：
 ```
 echo <bucketname>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs

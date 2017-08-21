@@ -27,21 +27,21 @@ dimensions.0.value为实例的uuid
 | endTime            | 否    | Datetime | 结束时间      | 结束时间，默认为当前时间。 endTime不能小于startTime       |
 ### 2.2 指标名称
 
-| 指标名称                  | 含义           | 单位   | 统计粒度（period） |
-| --------------------- | ------------ | ---- | ------------ |
-| data_disk_available   | 数据磁盘可用大小     | GB   |              |
-| binlog_disk_available | BINLOG磁盘可用大小 | GB   |              |
-| select_total          | SELECT请求总数   | 次/秒  |              |
-| long_query            | SELECT慢查询数   | 次/秒  |              |
-| update_total          | UPDATE请求总数   | 次/秒  |              |
-| insert_total          | INSERT请求总数   | 次/秒  |              |
-| delete_total          | DELETE请求总数   | 次/秒  |              |
-| mem_available         | 内存可用大小       | GB   |              |
-| disk_iops             | 磁盘IOPS       | 次/秒  |              |
-| conn_active           | 活跃连接数        | 次/秒  |              |
-| conn_running          | 连接数          | 次/秒  |              |
-| is_mater_switched     | 监控是否主备切换     | 无    |              |
-| cpu_usage_rate        | CPU使用率       | %    |              |
+| 指标名称                  | 含义           | 单位   |
+| --------------------- | ------------ | ---- |
+| data_disk_available   | 数据磁盘可用大小     | GB   |
+| binlog_disk_available | BINLOG磁盘可用大小 | GB   |
+| select_total          | SELECT请求总数   | 次/秒  |
+| long_query            | SELECT慢查询数   | 次/秒  |
+| update_total          | UPDATE请求总数   | 次/秒  |
+| insert_total          | INSERT请求总数   | 次/秒  |
+| delete_total          | DELETE请求总数   | 次/秒  |
+| mem_available         | 内存可用大小       | GB   |
+| disk_iops             | 磁盘IOPS       | 次/秒  |
+| conn_active           | 活跃连接数        | 次/秒  |
+| conn_running          | 连接数          | 次/秒  |
+| is_mater_switched     | 监控是否主备切换     | 无    |
+| cpu_usage_rate        | CPU使用率       | %    |
 
 
 ## 3. 输出参数
