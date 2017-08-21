@@ -28,7 +28,7 @@
 - 云API：**通过云 API 分配 申请VIP 具体操作(云API代码开发指引请参考第6步)：** 
 
 
-> 注意：**分配内网IP后，还需在云服务器内配置后才正式生效**. 点击查看[分配内网IP（云服务器系统内）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911)
+> 注意：您在执行 `/etc/init.d/keepalived start` 或 `service network restart`执行后** 可在主服务器内看到该内网IP（参见第三步）.或者，您在分配内网IP后，在云服务器内配置即可正式生效**. 点击查看[分配内网IP（云服务器系统内）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911)
 
 1) 通过云`API:DescribeNetworkInterfaces`得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络 ID**和**云服务器的 ID**即可）。[点击查看 API 详情](https://www.qcloud.com/doc/api/245/4814)
 2) 通过云`API:AssignPrivateIpAddresses`在弹性网卡上申请内网 VIP 的，申请 VIP 操作可参考以下  Python 代码：[点击查看 API 详情](https://www.qcloud.com/doc/api/245/4817)
