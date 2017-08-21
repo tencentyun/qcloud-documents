@@ -116,17 +116,24 @@ Spark 任务以如下格式提交：
 ```
 ### 1.6 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）
-<style>
-table th:first-of-type {
-    width: 100px;
-}
-</style>
-
-| age | name | 
-|---------|---------|
-| null | Michael | 
-| 30 | Andy |
-| 19 | Justin |
+<table>
+   <tr>
+      <th style="width: 80px;">age</th>
+      <th style="width: 80px;">name</th>
+   </tr>
+   <tr>
+      <td>null</td>
+      <td>Michael</td>
+   </tr>
+   <tr>
+      <td>30</td>
+      <td>Andy</td>
+   </tr>
+   <tr>
+      <td>19</td>
+      <td>Justin</td>
+   </tr>
+</table>
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务ID）
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10548
@@ -165,22 +172,44 @@ table th:first-of-type {
 ```
 ### 1.8 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）
-<style>
-table th:first-of-type {
-    width: 100px;
-}
-</style>
-
-| key | value | 
-|---------|---------|
-| 238 | val_238 | 
-| 86 |  val_86 |
-| 311 |  val_311 |
-| 27 |  val_27 |
-| 165 |  val_165 |
-| 409 |  val_409 |
-| 255 |  val_255 |
-| 278 |  val_278 |
+<table>
+   <tr>
+      <th style="width: 80px;">key</th>
+      <th style="width: 80px;">value</th>
+   </tr>
+   <tr>
+      <td>238</td>
+      <td>val_238</td>
+   </tr>
+   <tr>
+      <td>86</td>
+      <td>val_86</td>
+   </tr>
+   <tr>
+      <td>311</td>
+      <td>val_311</td>
+   </tr>
+   <tr>
+      <td>27</td>
+      <td>val_27</td>
+   </tr>
+   <tr>
+      <td>165</td>
+      <td>val_165</td>
+   </tr>
+   <tr>
+      <td>409</td>
+      <td>val_409</td>
+   </tr>
+   <tr>
+      <td>255</td>
+      <td>val_255</td>
+   </tr>
+   <tr>
+      <td>278</td>
+      <td>val-278</td>
+   </tr>
+</table>
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务ID）
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10549
