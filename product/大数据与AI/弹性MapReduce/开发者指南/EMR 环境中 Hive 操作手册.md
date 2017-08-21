@@ -160,7 +160,7 @@ hue 的任务调度基于工作流，先创建一个包含 hive script 脚本的
 将以上内容保存为 hive_sample.sql 文件
 hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 hive 组件的节点上找到。
 具体的路径在：`/usr/local/service/hive/conf/hive-site.xml`
-复制一个hive-site.xml文件，将其中对应配置修改为如下值:
+复制一个 hive-site.xml 文件，将其中对应配置修改为如下值:
 ```
     <property>
      <name>hive.exec.local.scratchdir</name>
