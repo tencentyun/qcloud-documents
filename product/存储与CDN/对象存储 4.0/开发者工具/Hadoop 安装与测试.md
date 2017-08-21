@@ -8,7 +8,7 @@ Hadoop 工具依赖 Hadoop-2.7.2 及以上版本，实现了以腾讯云 COS 作
 #### 4. 安装 Hadoop-2.7.4 包：[hadoop-2.7.4.tar.gz](http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz)。 
 
 ### 网络配置
-使用`ipconfig -a`查看各台机器的 IP，相互 ping 一下，看是否可以 ping 通，同时记录每台机器的 IP。
+使用`ifconfig -a`查看各台机器的 IP，相互 ping 一下，看是否可以 ping 通，同时记录每台机器的 IP。
 
 ## 配置 CentOS
 ### 配置 hosts
