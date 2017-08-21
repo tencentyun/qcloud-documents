@@ -45,7 +45,6 @@ typedef NS_ENUM(NSInteger, WBFaceVerifySDKErrorCode) {
 };
 
 typedef NS_ENUM(NSInteger,WBFaceVerifyType){
-    WBFaceVerifyTypeSimple, // 暂时不要使用Simple模式
     WBFaceVerifyTypeMiddle,
     WBFaceVerifyTypeAdvanced,
 };

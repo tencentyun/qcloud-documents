@@ -10,38 +10,8 @@ Linux 或 Windows 系统
 
 ### 软件依赖
 Hadoop-2.7.2 及以上版本
-
 #### 安装及配置
-- **Linux （以 CentOS 为例）：**
- 1. 必须具有 JavaTM1.5.x 以上版本，SSH 必须安装并且保证 sshd 一直运行，以便用 Hadoop 脚本管理远端 Hadoop 守护进程。
- 2. 下载：为了获取 Hadoop 的发行版，从  [Apache 官网](http://hadoop.apache.org/core/releases.html) 下载最新的稳定发行版。
- 3. 运行 Hadoop 集群的准备工作：解压所下载的 Hadoop 发行版。编辑 conf/hadoop-env.sh 文件，至少需要将 JAVA_HOME 设置为 Java 安装根路径。
- 4. 输入`$ bin/hadoop` ，将会显示 Hadoop 脚本的使用文档。
- 5. 您可以通过选择单机模式、伪分布式模式和完全分布式模式中的一种启动 Hadoop 集群。
-
-详细过程请参考 Apache 官网 [Hadoop 快速入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html)。
-
-- **Windows：**
- 1. 到 [Apache 官网](http://hadoop.apache.org/releases.html) 选择 2.7.3 版本的 tar.gz 包下载。
- 2. 确保操作系统是 64 位，已安装 `.netframework`（一般都自带）。
- 3. 配置 Java 环境，请参考 [本地同步工具](https://cloud.tencent.com/document/product/436/7133) 中的配置方法。
- 4. 下载 Windows 下运行的链接库，点击 [下载地址](http://download.csdn.NET/detail/kokjuis/9706480) 下载。
- 5. 解压下载好的 hadoop-2.7.3.tar.gz  到某个盘下，注意路径里不要带空格，否则可能会无法正确识别。
- 6. 解压 hadooponwindows-master.zip，直接覆盖到 hadoop-2.7.3 根目录。
- 7. 配置 Hadoop 环境变量（与配置 Java 类似），创建 HADOOP_HOME：
-![Hadoop工具1](//mc.qcloudimg.com/static/img/68dce2c58c989fe5de2e774f506731d9/image.png)
-   另外在 Path 下添加 `%HADOOP_HOME%\bin`。
- 8. 到 Hadoop 根目录，新建 data 文件夹，然后在 data 下分别创建 datanode、namenode 两个文件夹。
- 9. 用记事本打开 `\hadoop-2.7.3\etc\hadoop\hadoop-env.cmd`文件，修改 JAVA_HOME 为你自己 JDK 路径。
->   <font color="#0000cc">**注意：** </font>
-	 如果你的 JDK 安装在 Program Files 目录下，名称建议用 \PROGRA~1\Java ，否则空格可能会识别失败。<br>
- 10. 最后，点击命令提示符（管理员）运行命令提示符，切换到 Hadoop 的安装目录。进行以下操作：
-     1）切换到 `etc/hadoop` 目录，运行`hadoop-env.cmd`；
-  2）格式化 HDFS 文件系统，切换到 bin 目录然后执行命令：`hdfs namenode -format`；
-3）输入：`hadoop version`，可以查看版本：
-![Hadoop工具2](//mc.qcloudimg.com/static/img/4830e7422665394160bda8145ef39608/image.png)
- 11. 启动：切换到 sbin 目录 执行：`start-dfs.cmd` 。
-
+具体 Hadoop 安装与配置 请参考 [Hadoop 安装与测试](/doc/product/436/10867)。
 ## 使用方法
 ### 安装 Maven
 - **Linux ：**

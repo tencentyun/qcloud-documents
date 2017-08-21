@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (DescribeEipBm) is used to query the list of EIPs in use.
 
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: <font style="color:red">bmeip.api.qcloud.com</font>
 
 ## 2. Input Parameters
 | Parameter Name | Required | Type | Description |
@@ -62,7 +62,7 @@ Domain: <font style="color:red">eip.api.qcloud.com</font>
 Input
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=DescribeEipBm
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&startNum=0&endNum=20
 </pre>

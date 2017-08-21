@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (EipBmModifyCharge) is used to modify the billing mode of EIPs. There are two available billing modes. You can use this API to modify your billing mode based on your business scenario. After the modification, the request for changing billing mode will take effect in the next billing period (each hour is counted as a billing period).
  
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: <font style="color:red">bmeip.api.qcloud.com</font>
 
 
 ## 2. Input Parameters
@@ -38,7 +38,7 @@ Parameter data is composed as follows:
 Input
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmModifyCharge
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
 </pre>

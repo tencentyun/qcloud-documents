@@ -1,12 +1,12 @@
-The update mechanism for the resources cached on the nodes in CDN is generally controlled by the cache expiration time. Configuring a reasonable cache expiration time policy can effectively reduce back-to-origin rate. For more details, please refer to [Cache Expiration](https: //www.qcloud.com/doc/product/228/6290) in CDN Configuration Manual. When resources have been updated at your origin server, you can use the cache refresh feature if you want users to directly get new resources, instead of old ones, during access.
+The update mechanism for the resources cached on the nodes in CDN is generally controlled by the cache expiration time. Configuring a reasonable cache expiration time policy can effectively reduce origin-pull rate. For more details, please refer to [Cache Expiration](https://www.qcloud.com/doc/product/228/6290) in CDN Configuration Manual. When resources have been updated at your origin server, you can use the cache refresh feature if you want users to directly get new resources, instead of old ones, during access.
 
 When resources have been updated at your origin server, you can use CDN's resource prefetch feature to cache the resources at the origin server to all CDN nodes.
 
-<font color="red">URL prefetch feature is under a Gray-box release. It will be fully available in the future.</font>
+URL prefetch feature is under a Gray-box release. It will be fully available in the future.
 
 ## Purge URL
 
-Log in to [CDN Console](https://console.qcloud.com/cdn), select "Purge Cache" menu on the left, and then select "Purge URL":
+Log in to [CDN Console](https://console.qcloud.com/cdn), select **Purge Cache** menu on the left, and then select **Purge URL**:
 
 ![](https://mc.qcloudimg.com/static/img/95184d6e47c917fddc8ec0ef58a94925/1.png)
 

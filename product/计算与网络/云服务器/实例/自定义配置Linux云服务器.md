@@ -16,7 +16,7 @@
  2. 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
 
  3. 选择机型和配置。
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据底层硬件的不同，腾讯云目前提供了 *系列 1* 和 *系列 2* （下文也称为 *上一代实例* 和 *当前一代实例* ）两种不同的实例系列，不同的实例系列提供如下实例类型：
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据底层硬件的不同，腾讯云目前提供了 **系列 1** 和 **系列 2** （下文也称为 **上一代实例** 和 **当前一代实例** ）两种不同的实例系列，不同的实例系列提供如下实例类型：
  
 - 上一代实例类型：标准型S1，高IO型I1，内存型M1
 - 当前一代实例类型：[标准型S2](https://www.qcloud.com/doc/product/213/7154)，[高IO型I2](https://www.qcloud.com/doc/product/213/7155)，[内存型M2](https://www.qcloud.com/doc/product/213/7156)，[计算型C2](https://www.qcloud.com/doc/product/213/7157)，[GPU型G2](https://www.qcloud.com/document/product/560)，[FPGA型FX2](https://www.qcloud.com/document/product/565) 
@@ -35,7 +35,7 @@
 对于刚开始使用腾讯云的用户，推荐选择公共镜像。
 
  2. 选择操作系统。
-腾讯云提供了 CentOS、CoreOS、Debian、FreeBSD、OpenSUSE、SUSE、Ubuntu 等操作系统，后续运行环境请您自行搭建。
+腾讯云提供了 CentOS、 CoreOS、 Debian、 FreeBSD、 OpenSUSE、 SUSE、 Ubuntu 等操作系统，后续运行环境请您自行搭建。
  
  3. 选择系统版本。 
 
@@ -50,7 +50,7 @@
   - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](https://www.qcloud.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
 
  2. 选择网络类型。
-腾讯云提供 基础网络  或  私有网络  两种可选。
+腾讯云提供基础网络或私有网络两种可选。
 - 基础网络：适合新手用户，同一用户的云服务器内网互通。
 - 私有网络：适合更高阶的用户，不同私有网络间逻辑隔离。
 	>**注意：**

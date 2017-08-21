@@ -124,7 +124,10 @@ void onRecordComplete(TXRecordResult result);
 TXUGCPublish（位于 TXUGCPublish.java）负责将 MP4 文件发布到腾讯云视频分发平台上，以确保视频观看的就近调度、秒开播放、动态加速 以及海外接入等需求。
 
 ```java
-TXRecordCommon.TXPublishParam param = new TXRecordCommon.TXPublishParam();
+mVideoPublish = new TXUGCPublish(TCVideoPublisherActivity.this.getApplicationContext());
+// 如果需要使用断点续传功能，需要传入一个字符串类型的 userId 作为唯一标识, 建议使用登录帐号
+// mVideoPublish = new TXUGCPublish(TCVideoPublisherActivity.this.getApplicationContext(), userId);
+TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
 param.signature = mCosSignature;						// 需要填写第四步中计算的上传签名
 // 录制生成的视频文件路径, ITXVideoRecordListener 的 onRecordComplete 回调中可以获取
 param.videoPath = mVideoPath;

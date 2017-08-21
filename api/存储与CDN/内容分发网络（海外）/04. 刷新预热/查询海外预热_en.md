@@ -11,7 +11,7 @@ Domain name for API request: cdn.api.qcloud.com
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details. The Action field for this API is GetCdnOverseaPushLogs.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details.
 
 | Parameter Name    | Required | Type     | Description                                       |
 | ------- | ---- | ------ | ---------------------------------------- |
@@ -28,7 +28,7 @@ The following request parameter list only provides API request parameters. Commo
 | codeDesc | String | English error message or error code at business side                           |
 | data     | Array  | Returned data result; details are described below                           |
 
-#### data Field Description
+#### `data` Field Description
 
 When type is "task" and a user queries based on prefetch task:
 
@@ -40,7 +40,7 @@ When type is "task" and a user queries based on prefetch task:
 | status           | String | Status of the prefetch task. If query is based on tasks, pending means prefetch task is waiting to be processed, in-process means the task is being processed and done means prefetch task has been finished |
 | task_create_time | String | Time when the prefetch task was created                                 |
 
-When type is "url" and a user queries based on URL
+When type is `url` and a user queries based on URL
 
 | Parameter Name             | Type     | Description                                       |
 | ---------------- | ------ | ---------------------------------------- |
