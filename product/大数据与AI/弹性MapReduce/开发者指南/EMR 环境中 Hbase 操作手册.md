@@ -1,5 +1,5 @@
 ## 1. 管理员类操作
-登录 Hbase 的 shell 环境，登录方式为登录任意一台 EMR 集群机器（Common 类型的节点除外）
+登录 Hbase 的 shell 环境，登录方式为登录任意一台 EMR 集群机器（Common 类型的节点除外）。
 * 登录后进入到目录 `/usr/local/service/hbase` 下, 执行如下命令：
 ```
     [hadoop@10 hbase]$ bin/hbase shell
@@ -99,7 +99,11 @@
     0: jdbc:phoenix:10.0.1.5:2181>
     select TABLE_SCHEM,TABLE_NAME,COLUMN_NAME from SYSTEM.CATALOG limit 10;
 ```
-
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
 | TABLE_SCHEM | TABLE_NAME | COLUMN_NAME |
 |---------|---------|---------|
 |  | US_POPULATION |  |
