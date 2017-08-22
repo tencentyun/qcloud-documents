@@ -111,7 +111,8 @@
 ``` shell
 https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxUCsd01oB7BxxxxxxFihD8hlRhftKmXr&Nonce=44207&Timestamp=1480384094&Region=gz&vid=000628c22a4cfa9daac321c31d496393&Signature=njTouxSxxxxxxPjeGKr0ZG%2Fi%2FE%3D
 ```
-###　回包示例
+###回包示例
+
 ```
 {
     "code": 0,
@@ -520,7 +521,7 @@ https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxUCsd01oB
 ``` shell
 https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsaudioInfo&SecretId=AKIDxUCsd01oB7BxxxxxxFihD8hlRhftKmXr&Nonce=44207&Timestamp=1480384094&Region=gz&vid=000628c22a4cfa9daac321c31d496393&Signature=njTouxSxxxxxxPjeGKr0ZG%2Fi%2FE%3D
 ```
-###　回包示例
+###回包示例
 
 ```
 {
