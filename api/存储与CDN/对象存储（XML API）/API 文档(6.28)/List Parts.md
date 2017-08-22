@@ -110,7 +110,7 @@ Container 节点 Initiator 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | ID | ListPartsResult.Initiator  |  创建者的一个唯一标识 |  String |
-| DisplayName | ListPartsResult.Owner |  创建者的用户名描述 |  String |
+| DisplayName | ListPartsResult.Initiator |  创建者的用户名描述 |  String |
 
 Container 节点 Owner 的内容：
 
