@@ -47,16 +47,50 @@ PUT /?lifecycle HTTP/1.1
 该 API 接口请求的请求体具体节点内容为：
 ```
 <LifecycleConfiguration>
-    <Rule>
-      ...
-    </Rule>
-    <Rule>
-      ...
-    </Rule>
-    …
+  <Rule>
+    <ID></ID>
+    <Filter>
+      <Prefix></Prefix>
+    </Filter>
+    <Status></Status>
+    <Transition>
+      <Days></Days>
+      <StorageClass></StorageClass>
+    </Transition>
+    <NoncurrentVersionExpiration>
+      <NoncurrentDays></NoncurrentDays>
+    </NoncurrentVersionExpiration>
+  </Rule>
+  <Rule>
+    <ID></ID>
+    <Filter>
+      <Prefix></Prefix>
+    </Filter>
+    <Status></Status>
+    <Transition>
+      <Days></Days>
+      <StorageClass></StorageClass>
+    </Transition>
+    <NoncurrentVersionTransition>
+      <NoncurrentDays></NoncurrentDays>
+      <StorageClass></StorageClass>
+    </NoncurrentVersionTransition>
+  </Rule>
+  <Rule>
+    <ID></ID>
+    <Filter>
+      <Prefix></Prefix>
+    </Filter>
+    <Status></Status>
+    <Expiration>
+      <ExpiredObjectDeleteMarker></ExpiredObjectDeleteMarker>
+    </Expiration>
+    <NoncurrentVersionExpiration>
+      <NoncurrentDays></NoncurrentDays>
+    </NoncurrentVersionExpiration>
+  </Rule>
 </LifecycleConfiguration>
 ```
-
 具体内容描述如下：
 
 
