@@ -1135,27 +1135,27 @@ https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxUCsd01oB
 
 #### 转码失败
 
-- 参数说明
++ 参数说明
 
-  | 名称            | 类型     | 说明                        |
-  | ------------- | ------ | ------------------------- |
-  | status        | String | success 表示转码成功，fail表示转码失败 |
-  | vid           | String | 视频ID                      |
-  | detail        | Array  | 详情                        |
-  | bucket_name   | String | cos bucket名               |
-  | bucket_region | String | cos地区                     |
-  | create_time   | String | 转码任务创建时间                  |
-  | app_id        | Int    | 用户app_id                  |
-  | url           | String | 视频文件的原始URL                |
-  | url_f0        | String | 视频文件的原始路径                 |
-  | v_type        | String | 视频文件类型                    |
+| 名称            | 类型     | 说明                        |
+| ------------- | ------ | ------------------------- |
+| status        | String | success 表示转码成功，fail表示转码失败 |
+| vid           | String | 视频ID                      |
+| detail        | Array  | 详情                        |
+| bucket_name   | String | cos bucket名               |
+| bucket_region | String | cos地区                     |
+| create_time   | String | 转码任务创建时间                  |
+| app_id        | Int    | 用户app_id                  |
+| url           | String | 视频文件的原始URL                |
+| url_f0        | String | 视频文件的原始路径                 |
+| v_type        | String | 视频文件类型                    |
 
-- detail 说明
++ detail 说明
 
-  | 名称         | 类型    | 说明                   |
-  | ---------- | ----- | -------------------- |
-  | error_code | Array | 转码错误码                |
-  | error_msg  | Array | 错误码描述与error_code一一对应 |
+| 名称         | 类型    | 说明                   |
+| ---------- | ----- | -------------------- |
+| error_code | Array | 转码错误码                |
+| error_msg  | Array | 错误码描述与error_code一一对应 |
 
 - 示例
 
