@@ -120,7 +120,7 @@ Container 节点 Part 的内容：
 |:---|:-- |:--|:--|
 | PartNumber | ListPartsResult.Part |  块的编号 |  String |
 | LastModified |  ListPartsResult.Part  |  块最后修改时间  |  Date |
-| ETag |  ListPartsResult.Part |  Object 块的 SHA-1 算法校验值 |  String |
+| ETag |  ListPartsResult.Part |  Object 块的 MD5 算法校验值 |  String |
 | Size |  ListPartsResult.Part  |  块大小，单位 Byte |  String |
 
 ## 实际案例
