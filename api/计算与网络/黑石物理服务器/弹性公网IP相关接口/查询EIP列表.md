@@ -16,7 +16,7 @@
 | limit | 否 | Int | 返回EIP数量，默认 20, 最大值 100|
 | orderBy | 否 | String | 排序字段，支持这些字段名：eipId, eip, status, unInstanceId, arrears, createdAt。[查看说明](#datastruct)|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
-|vpcId|否|Int|EIP所属vpcId，会筛选出指定vpc的EIP|
+|vpcId|否|Int|EIP所属vpcId，会筛选出指定vpc的EIP，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
 |payMode|否|字符串型|计费模式，流量计费：flow，带宽计费：bandwidth|
 
  > 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；比如我想查询第110~149 这40条记录，则可以设置 offset=110，limit=40。

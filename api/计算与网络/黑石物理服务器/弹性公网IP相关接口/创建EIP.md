@@ -13,7 +13,7 @@
 | goodsNum | 否 | Int | 创建的EIP数量，默认为1，最大20 |
 | payMode | 否 | String | 创建的EIP计费模式，"flow"：流量计费；"bandwidth"：带宽计费（单位：MB）|
 | bandwidth | 否 | Int | EIP为带宽计费时，选择的带宽上线（单位：MB，当前最大为1000MB）|
-| vpcId | 是 | Int | 申请的EIP归属的VPC的ID |
+| vpcId | 是 | Int | 申请的EIP归属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得 |
 
  > 平台对用户每地域能申请的EIP最大配额有所限制。上述配额可通过[DescribeEipBmQuota](/doc/api/456/6668)接口获取。
 
