@@ -37,7 +37,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from src.QcloudApi.qcloudapi import QcloudApi
+#以下两行根据SDK的安装方式选一
+#     具体参考步骤6第3点中的代码注释
+#from QcloudApi.qcloudapi import QcloudApi 
+from src.QcloudApi.qcloudapi import QcloudApi 
+
 
 module = 'vpc'
 action = 'AssignPrivateIpAddresses'
@@ -73,7 +77,9 @@ except Exception, e:
 
 ```
 vrrp_instance VI_1 {
-    state BACKUP
+    #注意主备参数选择
+    state MASTER  #主
+	#state BACKUP  #备
     interface eth0
     virtual_router_id 51
     priority 100
@@ -95,7 +101,9 @@ vrrp_instance VI_1 {
 ```
 
 ### 步骤 4.（可选）给 VIP 分配外网 IP
-先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)。
+有两种控制台操作和云API操作两种方式：
+- 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。
+- 云API：[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)。
 
 ### 步骤 5.   keepalived.conf 配置切换脚本
 主备切换时，新切换为主的设备通过 notify 调用 vip.py 进行切换。
@@ -116,7 +124,7 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 - [转到 github 查看 Python SDK >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
 - [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
 
-请仔细阅读其中 ```README.md```，并将 SDK 下载到```/etc/keepalived```目录中，如：
+请仔细阅读其中 ```README.md```，并将 SDK 下载到```/etc/keepalived```目录中.
 
 2) 云 API 密钥获取：
 
@@ -135,11 +143,30 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 # -*- coding: utf-8 -*-
 
 """
-step1: 下载python-sdk: https://github.com/QcloudApi/qcloudapi-sdk-python
-step2: 将以下python代码保存成vip.py放到sdk的src同级目录,  具体参数参考: https://www.qcloud.com/doc/api/245/1361
+pip安装使用方式：
+	安装好python后执行如下步骤：
+step1: yum install python-pip
+step2: pip install qcloudapi-sdk-python
+step3: 将代码中“from src.QcloudApi.qcloudapi import QcloudApi”改为“from QcloudApi.qcloudapi import QcloudApi”
+step4: 编辑好代码并保存在/etc/keepalived试用
+
+下载SDK源码直接使用方式：
+	安装好python后执行如下步骤：
+step1: 下载python-sdk: 网页操作https://github.com/QcloudApi/qcloudapi-sdk-python 
+	或 linux执行"wget https://github.com/QcloudApi/qcloudapi-sdk-python/archive/master.zip"
+step2: 将下载的sdk包放在/etc/keepalived并解压。修改解压后的文件夹名称为src，并在src文件夹下创建名为__init__.py的空白文件
+step3: 将以下python代码保存成vip.py放到sdk的src同级目录, 编辑好内容试用 
+
+具体参数参考: https://www.qcloud.com/doc/api/245/1361
 """
 
-from src.QcloudApi.qcloudapi import QcloudApi
+
+#pip安装使用方式使用
+from QcloudApi.qcloudapi import QcloudApi 
+
+#SDK源码直接使用方式使用
+#from src.QcloudApi.qcloudapi import QcloudApi
+
 
 module = 'vpc'
 action = 'MigratePrivateIpAddress'
@@ -189,7 +216,9 @@ vrrp_sync_group G1 {
     notify_master "/etc/keepalived/vip.py"
 }
 vrrp_instance VI_1 {
-    state BACKUP
+    #注意主备参数选择
+    state MASTER #主
+	#state BACKUP #备
     interface eth0
     virtual_router_id 51
     priority 100
@@ -202,7 +231,7 @@ vrrp_instance VI_1 {
         10.0.0.1    #对端设备的IP地址，例如：10.0.0.1
     }
     virtual_ipaddress {
-        10.100.0.27
+        10.100.0.27  #第一步申请的 VIP
     }
     nopreempt
     garp_master_delay 1
