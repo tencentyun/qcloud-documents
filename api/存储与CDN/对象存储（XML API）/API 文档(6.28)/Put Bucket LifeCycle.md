@@ -30,11 +30,11 @@ PUT /?lifecycle HTTP/1.1
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 180px; }</style>
 
 #### 非公共头部
 
-**必选头部**<!-- 如果实际 API 中没有，可以不用出现 -->
+**必选头部**
 该请求操作的实现使用如下必选头部：
 
 | 名称               | 描述      | 类型     | 必选   |
@@ -112,10 +112,10 @@ PUT /?lifecycle HTTP/1.1
 |Date    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在何时操作    |String    |否|
 |ExpiredObjectDeleteMarker    |LifecycleConfiguration.Rule.Expiration    |删除过期对象删除标记，枚举值 true，false    |String    |否|
 |AbortIncompleteMultipartUpload    |LifecycleConfiguration.Rule    |设置允许分片上传保持运行的最长时间    |Container    |否|
-|DaysAfterInitiation    |LifecycleConfiguration.Rule.AbortIncompleteMultipartUpload    |指明分片上传开始后多少天内必须完成上传    |Integer    |是|
+|DaysAfterInitiation    |LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload    |指明分片上传开始后多少天内必须完成上传    |Integer    |是|
 |NoncurrentVersionExpiration    |LifecycleConfiguration.Rule    |指明非当前版本对象何时过期    |Container    |否|
 |NoncurrentVersionTransition    |LifecycleConfiguration.Rule    |指明非当前版本对象何时转换被转换为 Standard_IA或 Nearline    |Container    |否|
-|NoncurrentDays    |LifecycleConfiguration.Rule.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition    |指明规则对应的动作在对象变成非当前版本多少天后执行，如果是 Transition，该字段有效值是非负整数；如果是Expiration，该字段有效值为正整数    |Integer    |否|
+|NoncurrentDays    |LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition    |指明规则对应的动作在对象变成非当前版本多少天后执行，如果是 Transition，该字段有效值是非负整数；如果是Expiration，该字段有效值为正整数    |Integer    |否|
 |StorageClass    |LifecycleConfiguration.Rule.Transition<br>或 NoncurrentVersionTransition    |指定 Object 转储到的目标存储类型，枚举值： Standard_IA, Nearline    |String    |是|
 
 
