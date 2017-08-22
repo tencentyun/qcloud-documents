@@ -60,14 +60,17 @@ GET /ObjectName?uploadId=UploadId&encoding-type=EncodingType&max-parts=MaxParts&
   <Encoding-type></Encoding-type>
   <Key></Key>
   <UploadId></UploadId>
-  <Initiator>
-    <UIN></UIN>
-  </Initiator>
   <Owner>
-    <UID></UID>
+    <ID></ID>
+    <DisplayName></DisplayName>
   </Owner>
-  <StorageClass></StorageClass>
   <PartNumberMarker></PartNumberMarker>
+  <Initiator>
+    <ID></ID>
+    <DisplayName></DisplayName>
+  </Initiator>
+  <StorageClass></StorageClass>
+  
   <NextPartNumberMarker></NextPartNumberMarker>
   <MaxParts></MaxParts>
   <IsTruncated></IsTruncated>
@@ -95,7 +98,7 @@ Container 节点 ListPartsResult 的内容：
 | UploadId | ListPartsResult | 标识本次分块上传的 ID |  String |
 | Initiator | ListPartsResult | 用来表示本次上传发起者的信息 | Container |
 | Owner | ListPartsResult | 用来表示这些分块所有者的信息 | Container |
-| StorageClass | ListPartsResult | 用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE |  String |
+| StorageClass | ListPartsResult | 用来表示这些分块的存储级别，枚举值：Standard，Standard_IA，nearline |  String |
 | PartNumberMarker | ListPartsResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 |  String |
 | NextPartNumberMarker | ListPartsResult | 假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点 |  String |
 | MaxParts | ListPartsResult | 单次返回最大的条目数量 |  String |
@@ -106,13 +109,15 @@ Container 节点 Initiator 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| UIN | ListPartsResult.Initiator  |  开发商APPID |  String |
+| ID | ListPartsResult.Initiator  |  创建者的一个唯一标识 |  String |
+| DisplayName | ListPartsResult.Owner |  创建者的用户名描述 |  String |
 
 Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| UID | ListPartsResult.Owner |  用户 ID |  String |
+| ID | ListPartsResult.Owner |  用户的一个唯一标识 |  String |
+| DisplayName | ListPartsResult.Owner |  用户名描述 |  String |
 
 Container 节点 Part 的内容：
 
@@ -148,10 +153,12 @@ x-cos-request-id: NTg3ZGRiMzhfMmM4OGY3XzdhY2NfYw==
     <Key>test10M_2</Key>
     <UploadId>14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0</UploadId>
     <Initiator>
-        <UIN/>
+        <ID>123456789</ID>
+        <DisplyName>123456789</DisplyName>
     </Initiator>
     <Owner>
-        <UID>1251668577</UID>
+        <ID>qcs::cam::uin/156545789:uin/156545789</ID>
+        <DisplyName>156545789</DisplyName>
     </Owner>
     <PartNumberMarker>0</PartNumberMarker>
     <Part>
