@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (DescribeBmVpcEx) is used to query BM VPC list.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 When no parameter is passed for calling the API, the information of the first 20 VPCs in the default sort order will be returned.
 

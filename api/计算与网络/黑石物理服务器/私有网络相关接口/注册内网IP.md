@@ -1,7 +1,7 @@
 ## 1. 接口描述
  
 本接口（RegisterBatchIp）用于指定子网IP进行IP注册。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
 
 
 

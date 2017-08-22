@@ -1,7 +1,7 @@
 ## 1. 接口描述
 
 本接口(EipUnBindBmNatGateway)用黑石于NAT网关解绑EIP
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
 
 
 ## 2. 输入参数

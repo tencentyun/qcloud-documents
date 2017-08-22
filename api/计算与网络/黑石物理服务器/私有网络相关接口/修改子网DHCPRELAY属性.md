@@ -1,7 +1,7 @@
 ## 1. 接口描述
  
 本接口（ModifySubnetDhcpRelayFlag）用于修改子网的DHCP RELAY属性。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
 
 
 
