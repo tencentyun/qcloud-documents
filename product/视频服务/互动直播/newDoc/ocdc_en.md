@@ -1,8 +1,8 @@
 ## 1. Key Concepts
-- DC (Data Center): Core node accessed by the user roles who need to send upstream audio/video data or need real-time interactions in ILVB business (such as VJ, lecturer, or roles participating in real-time interaction).
-- OC (Outer Center): Outer nodes accessed by the user roles who need not to send upstream audio/video data and only need to receive such data (such as ordinary viewers, students who need not to interact with their teachers).
+- DC (Data Center): Core node accessed by the user roles who need to send upstream audio/video data or need real-time interactions in ILVB business (such as VJ, lecturer and roles participating in real-time interaction).
+- OC (Outer Center): Outer nodes accessed by the user roles who need not to send upstream audio/video data and only need to receive such data (such as ordinary viewers and students who need not to interact with their teachers).
 
-The two features are priced differently. For more information, please see [Billing Method](https://www.qcloud.com/doc/product/268/5128#2..E5.9F.BA.E7.A1. 80.E7.BD.91.E7.BB.9C.E8.B4.B9.E7.94.A8.E8.AE.A1.E7.AE.97.E5.85.AC.E5.BC.8F).
+The two features are priced differently. For more information, please see [Billing Method](https://www.qcloud.com/doc/product/268/5128#2..E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E8.B4.B9.E7.94.A8.E8.AE.A1.E7.AE.97.E5.85.AC.E5.BC.8F).
 
 ## 2. Assignment to DC and OC
 When to access DC or OC for an App user?<br/>

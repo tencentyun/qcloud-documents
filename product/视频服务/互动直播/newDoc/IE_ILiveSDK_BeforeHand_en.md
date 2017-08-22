@@ -12,9 +12,9 @@ You can [try it online](https://sxb.qcloud.com/webdemo/index.html).
 You can also download ILiveSDK (IE) and its demo at [github](https://github.com/zhaoyang21cn/ILiveSDK_Web_Demos). In addition to ILiveSDK (IE), API document, js API file and API call samples as shown below are also included:
   
 
-| File | Description | 
+File | Description | 
 ----|------|
-/suixinbo | FreeShow demo project. You can open the index.html with IE. | 
+/suixinbo | FreeShow demo project. You can open the index.html with IE.| 
 iLiveSDK/iLiveSDK.cab | ILVB component. Business layer does not interact directly with this file | 
 iLiveSDK/iLiveSDK.js | ILVB API, in which iLiveSDK.cab is wrapped to be called by business layer | 
 /doc | Related documents  | 
@@ -41,5 +41,5 @@ Only javastript is required for integrating ILiveSDK (IE). To introduce SDK to y
  4. Call the APIs in iLiveSDK to implement the business requirements.
 
 ## SDK log location
-The log is located at: %appdata%\Tencent\iLiveSDK (executed in the Start menu)
+The log is located at: %appdata%\Tencent\iLiveSDK (executed in the **Start** menu)
 

@@ -10,7 +10,7 @@ Creating context requires two steps:
 **API Description:**
 ![API Description](//mccdn.qcloud.com/static/img/fbd0e60943c197de706da2c622008df9/image.png)
 
-**Sample Code**(The parameters are for simulation only. You need to acquire the actual parameters from the Server end):
+**Sample Code** (The parameters are for simulation only. You need to acquire the actual parameters from the Server end):
 ![Sample Code](//mccdn.qcloud.com/static/img/bf6b0411b3cccc11cb73e58604ac4237/image.png)
 ### 2. Terminate AVContext
 (1) Terminating the current AVContext is only available after createContext is called. It is recommended to call this API after asynchronous callback of stop() is performed.
@@ -36,7 +36,7 @@ Configuration parameters needed for login are the same as those used to create A
 **Sample Code:**
  ![Sample Code](//mccdn.qcloud.com/static/img/6ae61b457e50813914adac4435190aab/image.png)
 ### 2. Stop AVContext
-When the current AVContext object is stopped, you must call "destroy" to terminate the AVContext object manually and set it too "null".
+When the current AVContext object is stopped, you must call "destroy" to terminate the AVContext object manually and set it to "null".
 
 **API Description:**
  ![API Description](//mccdn.qcloud.com/static/img/3fd19b52486e51581b2bf29152ae99b6/image.png) 
