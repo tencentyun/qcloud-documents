@@ -1,6 +1,7 @@
 ## 1. 管理员类操作
-登录 Hbase 的 shell 环境，登录方式为登录任意一台EMR 集群机器（Common 类型的节点除外）
-* 登录后进入到目录 `/usr/local/service/hbase` 下, 执行如下命令:
+登录 Hbase 的 shell 环境，登录方式为登录任意一台 EMR 集群机器（Common 类型的节点除外）。
+* 登录后进入到目录 `/usr/local/service/hbase` 下, 执行如下命令：
+```
     [hadoop@10 hbase]$ bin/hbase shell
     hbase(main):001:0> list
     TABLE
@@ -23,58 +24,66 @@
     0 row(s) in 2.2760 seconds
     hbase(main):009:0> enable 'test'
     0 row(s) in 1.2560 seconds
+```
 * 更多资料可以参考 [这里](http://hbase.apache.org/book.html#shell) 。
 ## 2. 查询数据
-* 如管理员操作，进入 shell 控制台后可以通过 scan 或者 get 查询数据
+* 如管理员操作，进入 shell 控制台后可以通过 scan 或者 get 查询数据。
+```
     hbase(main):010:0> scan 'test'
     ROW COLUMN+CELL
     row1 column=cf:a, timestamp=1489644953264, value=value1
     1 row(s) in 0.1020 seconds
+```
 更多相关命令请参考 [这里](http://hbase.apache.org/book.html#shell) 。
 ## 3. 通过 API 方式访问 Hbase 集群
 * 通过 Hbase 提供的标准 API 访问 Hbase 集群，可参考如下代码:
+```
     public static void createTable(String tableName, String[] familys) throws IOException {
-    Admin admin = null;
-    Connection con = null;
-    try{
-    Configuration config = HBaseConfiguration.create();
+      Admin admin = null;
+      Connection con = null;
+      try{
+        Configuration config = HBaseConfiguration.create();
     // 填写zookeeper 地址，多个地址用英文逗号隔开
-    config.set("hbase.zookeeper.quorum", "10.66.133.178:2181");
+        config.set("hbase.zookeeper.quorum", "10.66.133.178:2181");
     // 设置重试参数
-    config.setInt("hbase.client.retries.number", 1);
-    TableName TABLE = TableName.valueOf(tableName);
-    con = ConnectionFactory.createConnection(config);
-    admin = con.getAdmin();
-    if (admin.tableExists(TABLE)){
-    System.out.println("table already exists!");
-    } else {
-    HTableDescriptor tableDesc = new HTableDescriptor(TABLE);
-    for (int i = 0; i < familys.length; i++) {
-    tableDesc.addFamily(new HColumnDescriptor(familys[i]));
+        config.setInt("hbase.client.retries.number", 1);
+        TableName TABLE = TableName.valueOf(tableName);
+        con = ConnectionFactory.createConnection(config);
+        admin = con.getAdmin();
+        if (admin.tableExists(TABLE)){
+          System.out.println("table already exists!");
+        } else {
+          HTableDescriptor tableDesc = new HTableDescriptor(TABLE);
+          for (int i = 0; i < familys.length; i++) {
+           tableDesc.addFamily(new HColumnDescriptor(familys[i]));
+          }
+          admin.createTable(tableDesc);
+          System.out.println("create table " + tableName + " ok.");
+        }
+      }catch(IOException e){
+        e.printStackTrace();
+      }finally{
+        admin.close();
+        con.close();
+      }
     }
-    admin.createTable(tableDesc);
-    System.out.println("create table " + tableName + " ok.");
-    }
-    }catch(IOException e){
-    e.printStackTrace();
-    }finally{
-    admin.close();
-    con.close();
-    }
-    }
+```
 * 更多资料请参考 [这里](https://hbase.apache.org/book.html#_examples)
 ## 4. Hbase 和 MapReduce
 * 请参考 [这里](https://hbase.apache.org/book.html#mapreduce)
 ## 5. 通过 Phoenix 以SQL 的形式访问 Hbase 集群
-* 下载 Phoenix 安装包, 并解压安装包
-    wget https://mirrors.tuna.tsinghua.edu.cn/apache/phoenix/
-    apache-phoenix-4.8.2-HBase-1.2/bin/
-    apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
+* 下载 Phoenix 安装包, 并解压安装包。
+```
+    wget https://mirrors.tuna.tsinghua.edu.cn/apache/      phoenix/
+          apache-phoenix-4.8.2-HBase-1.2/bin/
+          apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
 
     tar -xvf apache-phoenix-4.8.2-HBase-1.2-bin.tar.gz
 
     cd apache-phoenix-4.8.2-HBase-1.2/bin
+```
 * SQL 控制台操作
+```
     ./sqlline.py 10.0.1.5:2181
     // 10.0.1.5:2181 为zookeeper 地址
 
@@ -89,20 +98,25 @@
     // 查询
     0: jdbc:phoenix:10.0.1.5:2181>
     select TABLE_SCHEM,TABLE_NAME,COLUMN_NAME from SYSTEM.CATALOG limit 10;
-    +--------------+----------------+---------------------+
-    | TABLE_SCHEM | TABLE_NAME | COLUMN_NAME |
-    +--------------+----------------+---------------------+
-    | | US_POPULATION | |
-    | | US_POPULATION | CITY |
-    | | US_POPULATION | POPULATION |
-    | | US_POPULATION | STATE |
-    | SYSTEM | CATALOG | |
-    | SYSTEM | CATALOG | APPEND_ONLY_SCHEMA |
-    | SYSTEM | CATALOG | ARRAY_SIZE |
-    | SYSTEM | CATALOG | AUTO_PARTITION_SEQ |
-    | SYSTEM | CATALOG | BASE_COLUMN_COUNT |
-    | SYSTEM | CATALOG | BUFFER_LENGTH |
-    +--------------+----------------+---------------------+
+```
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
+
+| TABLE_SCHEM | TABLE_NAME | COLUMN_NAME |
+|---------|---------|---------|
+|  | US_POPULATION |  |
+|  | US_POPULATION | CITY |
+|  | US_POPULATION | POPULATION |
+|  | US_POPULATION | STATE |
+| SYSTEM | CATALOG |  |
+|SYSTEM | CATALOG | APPEND_ONLY_SCHEMA |
+| SYSTEM | CATALOG | ARRAY_SIZE |
+| SYSTEM | CATALOG | AUTO_PARTITION_SEQ |
+| SYSTEM | CATALOG | BASE_COLUMN_COUNT |
+| SYSTEM | CATALOG | BUFFER_LENGTH |
 	10 rows selected (0.305 seconds)
 * 更多 Phoenix 相关资料请参考 [这里](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html) 。
 ## 6. 通过 HUE 操作 Hbase

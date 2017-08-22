@@ -113,7 +113,7 @@ array (
   'Nonce' => 123456789,
   'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXX',
   'host' => 'www.test.com',
-  'view' => usage,
+  'view' => 'usage',
   'date' => 2017-08-09
 )
 ```

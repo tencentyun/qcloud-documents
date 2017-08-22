@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (ApplyIps) is used to apply for IPs of subnets in BM VPC.
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 

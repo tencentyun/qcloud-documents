@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (CreateBmInterface) is used to add an CPM to the subnet whose VLANID is not 5.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 1) You cannot add a CPM to a subnet whose VLANID is 5.  
 2) Each CPM can be added to at most 30 subnets.  

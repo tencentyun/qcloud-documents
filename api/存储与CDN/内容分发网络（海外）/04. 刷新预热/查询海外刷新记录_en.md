@@ -16,7 +16,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type     | Description              |
 | ---- | ---- | ------ | --------------- |
-| Date | Yes    | String | Query date (day)         |
+| date | Yes    | String | Query date (day)         |
 | url  | No    | String | Purged URL to be queried (can be blank) |
 | host | No    | String | Purged domain to be queried (can be blank)  |
 

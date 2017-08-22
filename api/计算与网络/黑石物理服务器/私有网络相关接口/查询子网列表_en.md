@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (DescribeBmSubnetEx) is used to query the list of BM subnets.  
-Domain name for API request: vpc.api.qcloud.com 
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters

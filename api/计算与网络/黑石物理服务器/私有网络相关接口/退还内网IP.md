@@ -1,7 +1,7 @@
 ## 1. 接口描述
  
 本接口（ReturnIps）用于释放黑石私有网络子网IP。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
 
 
 
