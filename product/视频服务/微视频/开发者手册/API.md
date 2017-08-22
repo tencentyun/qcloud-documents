@@ -720,7 +720,6 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 - SDK： https://github.com/QCloudCDN/CDN_API_SDK/tree/master/Qcloud_CDN_API
 - secretKey和secretId：https://console.qcloud.com/capi
 
-### 4.1	视频转码结果查询接口(GetCtsInfo)
 
 ### 功能描述
 
@@ -1161,7 +1160,8 @@ https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxUCsd01oB
 
 ```
 {
-    "status":"fail",   			  "url_f0":"/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
+    "status":"fail",   			 		   
+"url_f0":"/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
  "name":"/10032344/cts/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
     "vid":"7d70b89fdf72ee6b98dcc0b0211",
     "url":"http://cts-10032344.cossh.myqcloud.com/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
