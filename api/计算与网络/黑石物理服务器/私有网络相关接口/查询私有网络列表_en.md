@@ -31,7 +31,7 @@ When no parameter is passed for calling the API, the information of the first 20
 | message | String | Module error message description depending on API. |
 | totalCount | Int | Total number of VPCs of the developer. |
 | data.n | Array | VPC information array. |
-| data.n.vpcId | String | vpcId assigned by the system, e.g. gz_vpc_266 |
+| data.n.vpcId | String | vpcId assigned by the system, e.g. 10001 |
 | data.n.unVpcId | String | Unique VPC ID assigned by the system, e.g. vpc-8e0ypm3z |
 | data.n.vpcName | String | VPC name. |
 | data.n.cidrBlock | String | VPC IP address range, for example: 192.168.0.1/24. |
