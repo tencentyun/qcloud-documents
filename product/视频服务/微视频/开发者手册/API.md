@@ -996,8 +996,6 @@ https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxUCsd01oB
 | url_f0        | String | 视频文件的原始路径                 |
 | v_type        | String | 视频文件类型                    |
 
-
-
 - detail 说明
 
 | 名称       | 类型    | 说明                   |
@@ -1137,25 +1135,89 @@ https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxUCsd01oB
 
 + 参数说明
 
-| 名称            | 类型     | 说明                        |
-| ------------- | ------ | ------------------------- |
-| status        | String | success 表示转码成功，fail表示转码失败 |
-| vid           | String | 视频ID                      |
-| detail        | Array  | 详情                        |
-| bucket_name   | String | cos bucket名               |
-| bucket_region | String | cos地区                     |
-| create_time   | String | 转码任务创建时间                  |
-| app_id        | Int    | 用户app_id                  |
-| url           | String | 视频文件的原始URL                |
-| url_f0        | String | 视频文件的原始路径                 |
-| v_type        | String | 视频文件类型                    |
+<table style="display:table;width:80%;">
+
+    <tbody>
+      <tr>
+        <th align="left"><strong>名称</strong></th>
+        <th align="left"><strong>类型</strong></th>
+        <th align="left"><strong>说明</strong></th>
+      </tr>
+      <tr>
+        <td>status</td>
+        <td>String</td>
+        <td>success 表示转码成功，fail表示转码失败</td>
+      </tr>
+      <tr>
+        <td>vid</td>
+        <td>String</td>
+        <td>视频ID</td>
+      </tr>
+      <tr>
+        <td>detail</td>
+        <td>Array</td>
+        <td>详情</td>
+      </tr>
+      <tr>
+        <td>bucket_name</td>
+        <td>String</td>
+        <td>cos bucket名</td>
+      </tr>
+      <tr>
+        <td>bucket_region</td>
+        <td>String</td>
+        <td>cos地区</td>
+      </tr>
+      <tr>
+        <td>create_time</td>
+        <td>String</td>
+        <td>转码任务创建时间</td>
+      </tr>
+            <tr>
+        <td>app_id</td>
+        <td>Int</td>
+        <td>用户app_id</td>
+      </tr>
+      <tr>
+        <td>url</td>
+        <td>String</td>
+        <td>视频文件的原始URL</td>
+      </tr>
+      <tr>
+        <td>url_f0</td>
+        <td>String</td>
+        <td>视频文件的原始路径</td>
+      </tr>
+      <tr>
+        <td>v_type</td>
+        <td>String</td>
+        <td>视频文件类型</td>
+      </tr>
+    </tbody>
+</table>
 
 + detail 说明
 
-| 名称         | 类型    | 说明                   |
-| ---------- | ----- | -------------------- |
-| error_code | Array | 转码错误码                |
-| error_msg  | Array | 错误码描述与error_code一一对应 |
+<table style="display:table;width:80%;">
+
+    <tbody>
+      <tr>
+        <th align="left"><strong>名称</strong></th>
+        <th align="left"><strong>类型</strong></th>
+        <th align="left"><strong>说明</strong></th>
+      </tr>
+      <tr>
+        <td>error_code</td>
+        <td>Array</td>
+        <td>转码错误码</td>
+      </tr>
+      <tr>
+        <td>error_msg</td>
+        <td>Array</td>
+        <td>错误码描述与error_code一一对应</td>
+      </tr>
+    </tbody>
+</table>
 
 - 示例
 
