@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (DeleteBmSubnet) is used to delete a BM VPC subnet.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 You need to remove all resources (including CPMs, load balancers, BM databases, EIPs, NAT gateways, etc.) under the subnet before you can delete it.
 

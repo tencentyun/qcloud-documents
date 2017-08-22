@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (CreateBmSubnet) is used to create a BM VPC subnet.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 1) You must create a VPC before you can create subnets.  
 2) After a subnet is created, you cannot change its IP address range. The subnet IP address range must fall within the VPC IP address range, and they can be the same (on condition that the VPC only has one subnet). It is recommended to keep subnet IP address range within VPC IP address range in order to reserve IP address range for other subnets.  

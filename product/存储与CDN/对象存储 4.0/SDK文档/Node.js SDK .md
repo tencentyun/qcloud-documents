@@ -26,9 +26,9 @@ npm i cos-nodejs-sdk-v5 --save
 ```js
 var COS = require('cos-nodejs-sdk-v5');
 var cos = new COS({
-    AppId: '1250000000',
-    SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  AppId: '1250000000',
+  SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+  SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 });
 ```
 
@@ -48,11 +48,11 @@ Get Service 接口是用来获取请求者名下的所有存储空间列表（Bu
 ```js
 
 cos.getService(function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -68,14 +68,14 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。 
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。 
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Buckets —— (Array) ：说明本次返回的Bucket列表的所有信息
-      * Name —— (String) ：Bucket 的名称
-      * CreateDate —— (String) ：Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z
-      * Location —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+    * Name —— (String) ：Bucket 的名称
+    * CreateDate —— (String) ：Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z
+    * Location —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -95,16 +95,16 @@ Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',	/* 必须 */
-	Region : 'STRING_VALUE'		/* 必须 */
+  Bucket : 'STRING_VALUE',    /* 必须 */
+  Region : 'STRING_VALUE'     /* 必须 */
 };
 
 cos.headBucket(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -112,7 +112,7 @@ cos.headBucket(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 的名称			
+  * Bucket —— (String) ： Bucket 的名称         
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
 
 #### 回调函数说明
@@ -122,12 +122,12 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * BucketExist —— (Boolean)  ：  Bucket 是否存在
   * BucketAuth —— (Boolean)  ： 是否拥有该 Bucket 的权限
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 ###  Get Bucket
 
@@ -142,21 +142,21 @@ Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',	/* 必须 */
-	Region : 'STRING_VALUE',	/* 必须 */
-	Prefix : 'STRING_VALUE',	/* 非必须 */
-	Delimiter : 'STRING_VALUE', /* 非必须 */
-	Marker : 'STRING_VALUE',	/* 非必须 */
-	MaxKeys : 'STRING_VALUE',	/* 非必须 */
-	EncodingType : 'STRING_VALUE',	/* 非必须 */
+  Bucket : 'STRING_VALUE',    /* 必须 */
+  Region : 'STRING_VALUE',    /* 必须 */
+  Prefix : 'STRING_VALUE',    /* 非必须 */
+  Delimiter : 'STRING_VALUE', /* 非必须 */
+  Marker : 'STRING_VALUE',    /* 非必须 */
+  MaxKeys : 'STRING_VALUE',   /* 非必须 */
+  EncodingType : 'STRING_VALUE',  /* 非必须 */
 };
 
 cos.getBucket(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -164,7 +164,7 @@ cos.getBucket(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 的名称		
+  * Bucket —— (String) ： Bucket 的名称     
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Prefix —— (String) : 前缀匹配，用来规定返回的文件前缀地址
   * Delimiter —— (String) ：定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始
@@ -179,10 +179,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * CommonPrefixes —— (Array)  ：  将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix
-    * Prefix —— (String) ：单条 Common 的前缀
+  * Prefix —— (String) ：单条 Common 的前缀
   * Name —— (String)   ：  说明 Bucket 的信息
   * Prefix —— (String)  ： 前缀匹配，用来规定返回的文件前缀地址
   * Marker —— (String)  ： 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始
@@ -191,15 +191,15 @@ function(err, data) { ... }
   * NextMarker —— (String)   ： 假如返回条目被截断，则返回NextMarker就是下一个条目的起点
   * Encoding-Type —— (String)  ： 返回值的编码方式，作用于Delimiter，Marker，Prefix，NextMarker，Key
   * Contents —— (Array)  ： 元数据信息
-    * ETag —— (String)  ： 文件的 MD-5 算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
-    * Size —— (String)  ： 说明文件大小，单位是 Byte
-    * Key —— (String)  ： Object名称
-    * LastModified —— (String)  ： 说明 Object 最后被修改时间，如 2017-06-23T12:33:27.000Z
-    * Owner —— (Object)  ： Bucket 持有者信息
-      * ID —— (String)  ： Bucket 的 AppID
-    * StorageClass —— (String)  ： Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * ETag —— (String)  ： 文件的 MD-5 算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
+  * Size —— (String)  ： 说明文件大小，单位是 Byte
+  * Key —— (String)  ： Object名称
+  * LastModified —— (String)  ： 说明 Object 最后被修改时间，如 2017-06-23T12:33:27.000Z
+  * Owner —— (Object)  ： Bucket 持有者信息
+    * ID —— (String)  ： Bucket 的 AppID
+  * StorageClass —— (String)  ： Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -216,20 +216,20 @@ Put Bucket 接口请求可以在指定账号下创建一个 Bucket。该 API 接
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',	/* 必须 */
-	Region : 'STRING_VALUE',	/* 必须 */
-	ACL : 'STRING_VALUE',	/* 非必须 */
-	GrantRead : 'STRING_VALUE', /* 非必须 */
-	GrantWrite : 'STRING_VALUE',	/* 非必须 */
-	GrantFullControl : 'STRING_VALUE'	/* 非必须 */
+  Bucket : 'STRING_VALUE',    /* 必须 */
+  Region : 'STRING_VALUE',    /* 必须 */
+  ACL : 'STRING_VALUE',   /* 非必须 */
+  GrantRead : 'STRING_VALUE', /* 非必须 */
+  GrantWrite : 'STRING_VALUE',    /* 非必须 */
+  GrantFullControl : 'STRING_VALUE'   /* 非必须 */
 };
 
 cos.putBucket(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -237,7 +237,7 @@ cos.putBucket(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * ACL —— (String)  ： 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
   * GrantRead —— (String)  ： 赋予被授权者读的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'
@@ -251,11 +251,11 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Location —— (String)  ：  创建成功后，Bucket 的操作地址
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404 等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404 等
 
 
 
@@ -272,16 +272,16 @@ Delete Bucket 接口请求可以在指定账号下删除 Bucket，删除之前�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',	/* 必须 */
-	Region : 'STRING_VALUE'		/* 必须 */
+  Bucket : 'STRING_VALUE',    /* 必须 */
+  Region : 'STRING_VALUE'     /* 必须 */
 };
 
 cos.deleteBucket(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -289,7 +289,7 @@ cos.deleteBucket(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
 
 #### 回调函数说明
@@ -299,10 +299,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，204，403，404等
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，204，403，404等
 
 
 ###  Get Bucket ACL
@@ -318,16 +318,16 @@ Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',	/* 必须 */
-	Region : 'STRING_VALUE'		/* 必须 */
+  Bucket : 'STRING_VALUE',    /* 必须 */
+  Region : 'STRING_VALUE'     /* 必须 */
 };
 
 cos.getBucketAcl(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -335,7 +335,7 @@ cos.getBucketAcl(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
 
 #### 回调函数说明
@@ -345,18 +345,18 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Owner —— (Object)  ：  Bucket 持有者信息
-    * DisplayName —— (String)  ：  Bucket 持有者的名称
-    * ID —— (String)  ：  Bucket 持有者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
+  * DisplayName —— (String)  ：  Bucket 持有者的名称
+  * ID —— (String)  ：  Bucket 持有者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
   * Grants —— (Array)  ：  被授权者信息与权限信息列表
-  	* Permission —— (String)  ：  指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL
-  	* Grantee —— (Object)  ：  说明被授权者的信息。type 类型可以为 RootAccount， Subaccount；当 type 类型为 RootAccount 时，ID 中指定的是根帐号;当 type 类型为 Subaccount 时，ID 中指定的是子帐号
-     * DisplayName —— (String)  ：  用户的名称
-     * ID —— (String)  ： 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin> 或 qcs::cam::anyone:anyone （指代所有用户）如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * Permission —— (String)  ：  指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL
+  * Grantee —— (Object)  ：  说明被授权者的信息。type 类型可以为 RootAccount， Subaccount；当 type 类型为 RootAccount 时，ID 中指定的是根帐号;当 type 类型为 Subaccount 时，ID 中指定的是子帐号
+   * DisplayName —— (String)  ：  用户的名称
+   * ID —— (String)  ： 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin> 或 qcs::cam::anyone:anyone （指代所有用户）如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -374,20 +374,20 @@ Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header：
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',			/* 必须 */
-	Region : 'STRING_VALUE',			/* 必须 */
-	ACL : 'STRING_VALUE',				/* 非必须 */
-	GrantRead : 'STRING_VALUE', 		/* 非必须 */
-	GrantWrite : 'STRING_VALUE',		/* 非必须 */
-	GrantFullControl : 'STRING_VALUE'	/* 非必须 */
+  Bucket : 'STRING_VALUE',            /* 必须 */
+  Region : 'STRING_VALUE',            /* 必须 */
+  ACL : 'STRING_VALUE',               /* 非必须 */
+  GrantRead : 'STRING_VALUE',         /* 非必须 */
+  GrantWrite : 'STRING_VALUE',        /* 非必须 */
+  GrantFullControl : 'STRING_VALUE'   /* 非必须 */
 };
 
 cos.putBucketAcl(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -395,7 +395,7 @@ cos.putBucketAcl(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： 地域名称
   * ACL —— (String)  ： 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
   * GrantRead —— (String)  ： 赋予被授权者读的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'
@@ -409,10 +409,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -430,16 +430,16 @@ Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',	/* 必须 */
-	Region : 'STRING_VALUE'		/* 必须 */
+  Bucket : 'STRING_VALUE',    /* 必须 */
+  Region : 'STRING_VALUE'     /* 必须 */
 };
 
 cos.getBucketCors(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -447,7 +447,7 @@ cos.getBucketCors(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
 
 #### 回调函数说明
@@ -457,15 +457,15 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * CORSRules —— (Array)  ： 说明跨域资源共享配置的所有信息列表
-    * AllowedMethods —— (Array)  ：  允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE
-    * AllowedOrigins —— (Array)  ：  允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com
-    * AllowedHeaders —— (Array)  ：  在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 * 
-    * ExposeHeaders —— (Array)  ：  设置浏览器可以接收到的来自服务器端的自定义头部信息
-    * MaxAgeSeconds —— (String)  ：  设置 OPTIONS 请求得到结果的有效期
-    * ID —— (String)  ：  配置规则的 ID
+  * AllowedMethods —— (Array)  ：  允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE
+  * AllowedOrigins —— (Array)  ：  允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com
+  * AllowedHeaders —— (Array)  ：  在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 * 
+  * ExposeHeaders —— (Array)  ：  设置浏览器可以接收到的来自服务器端的自定义头部信息
+  * MaxAgeSeconds —— (String)  ：  设置 OPTIONS 请求得到结果的有效期
+  * ID —— (String)  ：  配置规则的 ID
 
 
 ### Put Bucket CORS
@@ -481,39 +481,39 @@ Put Bucket CORS 接口用来请求设置 Bucket 的跨域资源共享权限，�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',		/* 必须 */
-	Region : 'STRING_VALUE',		/* 必须 */
-	CORSRules : [
-		{
-			ID : 'STRING_VALUE',	/* 非必须 */
-			AllowedMethods: [ 		/* 必须 */
-			  'STRING_VALUE',
-			  ...
-			],
-			AllowedOrigins: [		 /* 必须 */
-			  'STRING_VALUE',
-			  ...
-			],
-			AllowedHeaders: [		/* 非必须 */
-			  'STRING_VALUE',
-			  ...
-			],
-			ExposeHeaders: [		/* 非必须 */
-				'STRING_VALUE',
-				...
-			],
-			MaxAgeSeconds: 'STRING_VALUE'	/* 非必须 */
-		  },
-		  ....
-	]
+  Bucket : 'STRING_VALUE',        /* 必须 */
+  Region : 'STRING_VALUE',        /* 必须 */
+  CORSRules : [
+    {
+      ID : 'STRING_VALUE',    /* 非必须 */
+      AllowedMethods: [       /* 必须 */
+        'STRING_VALUE',
+        ...
+      ],
+      AllowedOrigins: [        /* 必须 */
+        'STRING_VALUE',
+        ...
+      ],
+      AllowedHeaders: [       /* 非必须 */
+        'STRING_VALUE',
+        ...
+      ],
+      ExposeHeaders: [        /* 非必须 */
+        'STRING_VALUE',
+        ...
+      ],
+      MaxAgeSeconds: 'STRING_VALUE'   /* 非必须 */
+      },
+      ....
+  ]
 };
 
 cos.putBucketCors(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -521,15 +521,15 @@ cos.putBucketCors(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * CORSRules —— (Array) ：说明跨域资源共享配置的所有信息列表
-    * ID —— (String) ： 配置规则的 ID，可选填
-    * AllowedMethods —— (Array) ： 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE
-    * AllowedOrigins —— (Array) ： 允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com
-    * AllowedHeaders —— (Array) ： 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 * 
-    * ExposeHeaders —— (Array) ：  设置浏览器可以接收到的来自服务器端的自定义头部信息
-    * MaxAgeSeconds —— (String) ： 设置 OPTIONS 请求得到结果的有效期
+  * ID —— (String) ： 配置规则的 ID，可选填
+  * AllowedMethods —— (Array) ： 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE
+  * AllowedOrigins —— (Array) ： 允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com
+  * AllowedHeaders —— (Array) ： 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 * 
+  * ExposeHeaders —— (Array) ：  设置浏览器可以接收到的来自服务器端的自定义头部信息
+  * MaxAgeSeconds —— (String) ： 设置 OPTIONS 请求得到结果的有效期
 
 #### 回调函数说明
 
@@ -538,10 +538,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 ###  Delete Bucket CORS
@@ -557,16 +557,16 @@ Delete Bucket CORS 接口请求实现删除跨域访问配置信息。
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',		/* 必须 */
-	Region : 'STRING_VALUE'			/* 必须 */
+  Bucket : 'STRING_VALUE',        /* 必须 */
+  Region : 'STRING_VALUE'         /* 必须 */
 };
 
 cos.deleteBucketCors(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -574,7 +574,7 @@ cos.deleteBucketCors(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
 
 #### 回调函数说明
@@ -584,10 +584,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，204，403，404等
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，204，403，404等
 
 
 
@@ -604,16 +604,16 @@ Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET �
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',		/* 必须 */
-	Region : 'STRING_VALUE'			/* 必须 */
+  Bucket : 'STRING_VALUE',        /* 必须 */
+  Region : 'STRING_VALUE'         /* 必须 */
 };
 
 cos.getBucketLocation(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -621,7 +621,7 @@ cos.getBucketLocation(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
 
 #### 回调函数说明
@@ -631,11 +631,11 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * LocationConstraint —— (String)  ：  说明 Bucket 所在区域，枚举值：cn-north，cn-east，sg，cn-southwest，cn-south
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -653,18 +653,18 @@ Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head �
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',		/* 必须 */
-	Region : 'STRING_VALUE',		/* 必须 */
-	Key : 'STRING_VALUE',			/* 必须 */
-	IfModifiedSince : 'STRING_VALUE'	/* 非必须 */
+  Bucket : 'STRING_VALUE',        /* 必须 */
+  Region : 'STRING_VALUE',        /* 必须 */
+  Key : 'STRING_VALUE',           /* 必须 */
+  IfModifiedSince : 'STRING_VALUE'    /* 非必须 */
 };
 
 cos.headObject(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -672,7 +672,7 @@ cos.headObject(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Key —— (String) ： 文件名称
   * IfModifiedSince —— (String) ： 当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304
@@ -684,13 +684,13 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-    * x-cos-object-type —— (String) ：	用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable
-    * x-cos-storage-class —— (String) ：Object 的存储级别，枚举值：STANDARD, STANDARD_IA, NEARLINE
-    * x-cos-meta-* —— (String) ：用户自定义的 meta
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，304 等，如果在指定时间后未被修改，则返回 304
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * x-cos-object-type —— (String) ：   用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable
+  * x-cos-storage-class —— (String) ：Object 的存储级别，枚举值：STANDARD, STANDARD_IA, NEARLINE
+  * x-cos-meta-* —— (String) ：用户自定义的 meta
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，304 等，如果在指定时间后未被修改，则返回 304
   * NotModified —— (Boolean) ：Object 是否在指定时间后未被修改
 
 
@@ -708,30 +708,30 @@ Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	ResponseContentType : 'STRING_VALUE',			/* 非必须 */
-	ResponseContentLanguage : 'STRING_VALUE',		/* 非必须 */
-	ResponseExpires : 'STRING_VALUE',				/* 非必须 */
-	ResponseCacheControl : 'STRING_VALUE',			/* 非必须 */
-	ResponseContentDisposition : 'STRING_VALUE',	/* 非必须 */
-	ResponseContentEncoding : 'STRING_VALUE',		/* 非必须 */
-	Range : 'STRING_VALUE',							/* 非必须 */
-    IfModifiedSince : 'STRING_VALUE',				/* 非必须 */
-    IfUnmodifiedSince : 'STRING_VALUE',				/* 非必须 */
-    IfMatch : 'STRING_VALUE',						/* 非必须 */
-	IfNoneMatch : 'STRING_VALUE',					/* 非必须 */
-	Output : 'WRITE_STREAM'							/* 必须 */
-    onProgress : 'FUNCTION'							/* 非必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  ResponseContentType : 'STRING_VALUE',           /* 非必须 */
+  ResponseContentLanguage : 'STRING_VALUE',       /* 非必须 */
+  ResponseExpires : 'STRING_VALUE',               /* 非必须 */
+  ResponseCacheControl : 'STRING_VALUE',          /* 非必须 */
+  ResponseContentDisposition : 'STRING_VALUE',    /* 非必须 */
+  ResponseContentEncoding : 'STRING_VALUE',       /* 非必须 */
+  Range : 'STRING_VALUE',                         /* 非必须 */
+  IfModifiedSince : 'STRING_VALUE',               /* 非必须 */
+  IfUnmodifiedSince : 'STRING_VALUE',             /* 非必须 */
+  IfMatch : 'STRING_VALUE',                       /* 非必须 */
+  IfNoneMatch : 'STRING_VALUE',                   /* 非必须 */
+  Output : 'WRITE_STREAM'                         /* 必须 */
+  onProgress : 'FUNCTION'                         /* 非必须 */
 };
 
 cos.getObject(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -739,7 +739,7 @@ cos.getObject(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Key —— (String) ： 文件名称
   * ResponseContentType —— (String) ： 设置响应头部中的 Content-Type 参数
@@ -755,10 +755,10 @@ cos.getObject(params, function(err, data) {
   * IfNoneMatch —— (String) ： 当 ETag 与指定的内容不一致，才返回文件。否则返回304 (not modified)
   * Output —— (WriteStream) ： 需要输出文件的写流
   * onProgress —— (Function) ： 进度的回调函数，进度回调响应对象（obj）属性如下
-  	* obj.loaded —— (Number) ： 已经下载的文件部分大小，以字节（bytes）为单位
-  	* obj.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
-  	* obj.speed —— (Number) ： 文件的下载速度，以字节/秒（bytes/s）为单位
-  	* obj.percent —— (Number) ： 文件下载的百分比，以小数形式呈现，例如：下载 50% 即为 0.5
+  * obj.loaded —— (Number) ： 已经下载的文件部分大小，以字节（bytes）为单位
+  * obj.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
+  * obj.speed —— (Number) ： 文件的下载速度，以字节/秒（bytes/s）为单位
+  * obj.percent —— (Number) ： 文件下载的百分比，以小数形式呈现，例如：下载 50% 即为 0.5
 
 #### 回调函数说明
 
@@ -767,14 +767,14 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-    * x-cos-object-type —— (String) ：	用来表示 object 是否可以被追加上传，枚举值：normal 或者 appendable
-    * x-cos-storage-class —— (String) ：Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，**注意：如果没有返回该头部，则说明文件存储级别为 STANDARD （标准存储）**
-    * x-cos-meta-* —— (String) ：用户自定义的元数据
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * x-cos-object-type —— (String) ：   用来表示 object 是否可以被追加上传，枚举值：normal 或者 appendable
+  * x-cos-storage-class —— (String) ：Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，**注意：如果没有返回该头部，则说明文件存储级别为 STANDARD （标准存储）**
+  * x-cos-meta-* —— (String) ：用户自定义的元数据
   * NotModified —— (Boolean) ：如果请求时带有 IfModifiedSince 则返回该属性，如果文件未被修改，则为 true，否则为 false
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，304，403，404等
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，304，403，404等
 
 
 ### Put Object
@@ -791,40 +791,40 @@ Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucke
 
 ```js
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	ContentLength : 'STRING_VALUE',					/* 必须 */
-	CacheControl : 'STRING_VALUE',					/* 非必须 */
-	ContentDisposition : 'STRING_VALUE',			/* 非必须 */
-	ContentEncoding : 'STRING_VALUE',				/* 非必须 */
-	ContentType : 'STRING_VALUE',					/* 非必须 */
-	Expect : 'STRING_VALUE',						/* 非必须 */
-	Expires : 'STRING_VALUE',						/* 非必须 */
-	ACL : 'STRING_VALUE',							/* 非必须 */
-	GrantRead : 'STRING_VALUE',						/* 非必须 */
-	GrantWrite : 'STRING_VALUE',					/* 非必须 */
-	GrantFullControl : 'STRING_VALUE',				/* 非必须 */
-	StorageClass : 'STRING_VALUE',					/* 非必须 */
-	'x-cos-meta-*' : 'STRING_VALUE',				/* 非必须 */
-	Body: 'Buffer || ReadStream || File || Blob',   /* 必须 */
-    onProgress: function (progressData) {
-        console.log(progressData);
-    },
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  ContentLength : 'STRING_VALUE',                 /* 必须 */
+  CacheControl : 'STRING_VALUE',                  /* 非必须 */
+  ContentDisposition : 'STRING_VALUE',            /* 非必须 */
+  ContentEncoding : 'STRING_VALUE',               /* 非必须 */
+  ContentType : 'STRING_VALUE',                   /* 非必须 */
+  Expect : 'STRING_VALUE',                        /* 非必须 */
+  Expires : 'STRING_VALUE',                       /* 非必须 */
+  ACL : 'STRING_VALUE',                           /* 非必须 */
+  GrantRead : 'STRING_VALUE',                     /* 非必须 */
+  GrantWrite : 'STRING_VALUE',                    /* 非必须 */
+  GrantFullControl : 'STRING_VALUE',              /* 非必须 */
+  StorageClass : 'STRING_VALUE',                  /* 非必须 */
+  'x-cos-meta-*' : 'STRING_VALUE',                /* 非必须 */
+  Body: 'Buffer || ReadStream || File || Blob',   /* 必须 */
+  onProgress: function (progressData) {
+    console.log(progressData);
+  },
 };
 cos.putObject(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 ```
 
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Key —— (String) ： 文件名称
   * CacheControl —— (String) ： RFC 2616 中定义的缓存策略，将作为 Object 元数据保存
@@ -842,10 +842,10 @@ cos.putObject(params, function(err, data) {
   * x-cos-meta-* —— (String) ： 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K
   * Body —— (Buffer || ReadStream || File || Blob)  ： 上传文件的内容或者流
   * onProgress —— (Function) ： 进度的回调函数，进度回调响应对象（obj）属性如下
-  	* obj.loaded —— (Number) ： 已经下载的文件部分大小，以字节（bytes）为单位
-  	* obj.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
-  	* obj.speed —— (Number) ： 文件的下载速度，以字节/秒（bytes/s）为单位
-  	* obj.percent —— (Number) ： 文件下载的百分比，以小数形式呈现，例如：下载 50% 即为 0.5
+  * obj.loaded —— (Number) ： 已经下载的文件部分大小，以字节（bytes）为单位
+  * obj.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
+  * obj.speed —— (Number) ： 文件的下载速度，以字节/秒（bytes/s）为单位
+  * obj.percent —— (Number) ： 文件下载的百分比，以小数形式呈现，例如：下载 50% 即为 0.5
 
 
 
@@ -856,11 +856,11 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
-  * ETag —— (String) ：	返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏，**注意：这里的 ETag 值字符串前后带有双引号，例如 `"09cba091df696af91549de27b8e7d0f6"`**
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
+  * ETag —— (String) ：  返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏，**注意：这里的 ETag 值字符串前后带有双引号，例如 `"09cba091df696af91549de27b8e7d0f6"`**
 
 
 
@@ -877,17 +877,17 @@ Delete Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE'							/* 必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE'                            /* 必须 */
 };
 
 cos.deleteObject(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -895,7 +895,7 @@ cos.deleteObject(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Key —— (String) ： 文件名称
 
@@ -907,10 +907,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，204，403，404等，**如果删除成功或者文件不存在则返回 204 或 200，如果找不到指定的 Bucket，则返回 404**
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，204，403，404等，**如果删除成功或者文件不存在则返回 204 或 200，如果找不到指定的 Bucket，则返回 404**
   * BucketNotFound —— (Boolean) ：如果找不到指定的 Bucket，则为 true
 
 
@@ -932,20 +932,20 @@ Options Object 接口实现 Object 跨域访问配置的预请求。即在发送
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',		/* 必须 */
-	Region : 'STRING_VALUE',		/* 必须 */
-	Key : 'STRING_VALUE',			/* 必须 */
-	Origin : 'STRING_VALUE', 		/* 必须 */
-	AccessControlRequestMethod : 'STRING_VALUE', 		/* 必须 */
-	AccessControlRequestHeaders : 'STRING_VALUE'		/* 非必须 */
+  Bucket : 'STRING_VALUE',        /* 必须 */
+  Region : 'STRING_VALUE',        /* 必须 */
+  Key : 'STRING_VALUE',           /* 必须 */
+  Origin : 'STRING_VALUE',        /* 必须 */
+  AccessControlRequestMethod : 'STRING_VALUE',        /* 必须 */
+  AccessControlRequestHeaders : 'STRING_VALUE'        /* 非必须 */
 };
 
 cos.optionsObject(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -967,16 +967,16 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * AccessControlAllowOrigin —— (String) ：	模拟跨域访问的请求来源域名，中间用逗号间隔，当来源不允许的时候，此Header不返回。例如：\*
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * AccessControlAllowOrigin —— (String) ：  模拟跨域访问的请求来源域名，中间用逗号间隔，当来源不允许的时候，此Header不返回。例如：\*
   * AccessControlAllowMethods —— (String) ：模拟跨域访问的请求HTTP方法，中间用逗号间隔，当请求方法不允许的时候，此Header不返回。例如：PUT,GET,POST,DELETE,HEAD
   * AccessControlAllowHeaders —— (String) ：模拟跨域访问的请求头部，中间用逗号间隔，当模拟任何请求头部不允许的时候，此Header不返回该请求头部。例如：accept,content-type,origin,authorization
   * AccessControlExposeHeaders —— (String) ：跨域支持返回头部，中间用逗号间隔。例如：ETag
   * AccessControlMaxAge —— (String) ：设置 OPTIONS 请求得到结果的有效期。例如：3600
   * OptionsForbidden —— (Boolean) ：OPTIONS 请求是否被禁止，如果返回的 HTTP 状态码为 403，则为 true
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -995,17 +995,17 @@ Get Object ACL 接口用来获取某个 Bucket 下的某个 Object 的访问权�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE'							/* 必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE'                            /* 必须 */
 };
 
 cos.getObjectAcl(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1025,18 +1025,18 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Owner —— (Object)  ：  标识资源的所有者
-    * ID —— (String)  ：  Object 持有者 ID，格式：qcs::cam::uin/<OwnerUin>:uin/<SubUin> 如果是根帐号，&lt;OwnerUin> 和&lt;SubUin> 是同一个值
-    * DisplayName —— (String)  ：  Object 持有者的名称
+  * ID —— (String)  ：  Object 持有者 ID，格式：qcs::cam::uin/<OwnerUin>:uin/<SubUin> 如果是根帐号，&lt;OwnerUin> 和&lt;SubUin> 是同一个值
+  * DisplayName —— (String)  ：  Object 持有者的名称
   * Grants —— (Array)  ：  被授权者信息与权限信息列表
-  	* Permission —— (String)  ：  指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL
-  	* Grantee —— (Object)  ：  说明被授权者的信息。type 类型可以为 RootAccount， Subaccount；当 type 类型为 RootAccount 时，ID 中指定的是根帐号;当 type 类型为 Subaccount 时，ID 中指定的是子帐号
-     * DisplayName —— (String)  ：  用户的名称
-     * ID —— (String)  ： 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin> 或 qcs::cam::anyone:anyone （指代所有用户）如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * Permission —— (String)  ：  指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL
+  * Grantee —— (Object)  ：  说明被授权者的信息。type 类型可以为 RootAccount， Subaccount；当 type 类型为 RootAccount 时，ID 中指定的是根帐号;当 type 类型为 Subaccount 时，ID 中指定的是子帐号
+   * DisplayName —— (String)  ：  用户的名称
+   * ID —— (String)  ： 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin> 或 qcs::cam::anyone:anyone （指代所有用户）如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1053,21 +1053,21 @@ Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL �
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',			/* 必须 */
-	Region : 'STRING_VALUE',			/* 必须 */
-	Key : 'STRING_VALUE',				/* 必须 */
-	ACL : 'STRING_VALUE',				/* 非必须 */
-	GrantRead : 'STRING_VALUE', 		/* 非必须 */
-	GrantWrite : 'STRING_VALUE',		/* 非必须 */
-	GrantFullControl : 'STRING_VALUE'	/* 非必须 */
+  Bucket : 'STRING_VALUE',            /* 必须 */
+  Region : 'STRING_VALUE',            /* 必须 */
+  Key : 'STRING_VALUE',               /* 必须 */
+  ACL : 'STRING_VALUE',               /* 非必须 */
+  GrantRead : 'STRING_VALUE',         /* 非必须 */
+  GrantWrite : 'STRING_VALUE',        /* 非必须 */
+  GrantFullControl : 'STRING_VALUE'   /* 非必须 */
 };
 
 cos.putObjectAcl(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1091,10 +1091,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1112,23 +1112,23 @@ Delete Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Quiet : 'BOOLEAN_VALUE',						/* 非必须 */
-	Objects :  [									/* 必须 */
-	    {
-	        Key : 'STRING_VALUE'					/* 必须 */
-        },
-        ...
-    ]
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Quiet : 'BOOLEAN_VALUE',                        /* 非必须 */
+  Objects :  [                                    /* 必须 */
+    {
+      Key : 'STRING_VALUE'                    /* 必须 */
+    },
+    ...
+  ]
 };
 
 cos.deleteMultipleObject(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1136,11 +1136,11 @@ cos.deleteMultipleObject(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
-  * Quiet —— (Boolean)  ： 	布尔值，这个值决定了是否启动 Quiet 模式。值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 false
+  * Quiet —— (Boolean)  ：   布尔值，这个值决定了是否启动 Quiet 模式。值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 false
   * Objects —— (Array) ： 要删除的文件列表
-    * Key —— (String) ： 要删除的文件名
+  * Key —— (String) ： 要删除的文件名
 
 
 #### 回调函数说明
@@ -1150,16 +1150,16 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Deleted —— (Array)  ： 说明本次删除的成功Object信息
-    * Key —— (String)  ： Object的名称
+  * Key —— (String)  ： Object的名称
   * Error —— (Array)  ： 说明本次删除的失败Object信息
-    * Key —— (String)  ： Object的名称
-    * Code —— (String)  ： 删除失败的错误码
-    * Message —— (String)  ： 删除错误信息
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * Key —— (String)  ： Object的名称
+  * Code —— (String)  ： 删除失败的错误码
+  * Message —— (String)  ： 删除错误信息
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1179,37 +1179,37 @@ Put Object Copy 请求实现将一个文件从源路径复制到目标路径。�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	CopySource : 'STRING_VALUE',					/* 必须 */
-	ACL : 'STRING_VALUE',							/* 非必须 */
-    GrantRead : 'STRING_VALUE',						/* 非必须 */
-    GrantWrite : 'STRING_VALUE',					/* 非必须 */
-    GrantFullControl : 'STRING_VALUE',				/* 非必须 */
-    MetadataDirective : 'STRING_VALUE',				/* 非必须 */
-    CopySourceIfModifiedSince : 'STRING_VALUE',		/* 非必须 */
-    CopySourceIfUnmodifiedSince : 'STRING_VALUE',	/* 非必须 */
-    CopySourceIfMatch : 'STRING_VALUE',				/* 非必须 */
-    CopySourceIfNoneMatch : 'STRING_VALUE',			/* 非必须 */
-    StorageClass : 'STRING_VALUE',					/* 非必须 */
-    CacheControl : 'STRING_VALUE',					/* 非必须 */
-    ContentDisposition : 'STRING_VALUE',			/* 非必须 */
-    ContentEncoding : 'STRING_VALUE',				/* 非必须 */
-    ContentLength : 'STRING_VALUE',					/* 非必须 */
-    ContentType : 'STRING_VALUE',					/* 非必须 */
-    Expect : 'STRING_VALUE',						/* 非必须 */
-    Expires : 'STRING_VALUE',						/* 非必须 */
-    ContentLanguage : 'STRING_VALUE',				/* 非必须 */
-    'x-cos-meta-*' : 'STRING_VALUE',				/* 非必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  CopySource : 'STRING_VALUE',                    /* 必须 */
+  ACL : 'STRING_VALUE',                           /* 非必须 */
+  GrantRead : 'STRING_VALUE',                     /* 非必须 */
+  GrantWrite : 'STRING_VALUE',                    /* 非必须 */
+  GrantFullControl : 'STRING_VALUE',              /* 非必须 */
+  MetadataDirective : 'STRING_VALUE',             /* 非必须 */
+  CopySourceIfModifiedSince : 'STRING_VALUE',     /* 非必须 */
+  CopySourceIfUnmodifiedSince : 'STRING_VALUE',   /* 非必须 */
+  CopySourceIfMatch : 'STRING_VALUE',             /* 非必须 */
+  CopySourceIfNoneMatch : 'STRING_VALUE',         /* 非必须 */
+  StorageClass : 'STRING_VALUE',                  /* 非必须 */
+  CacheControl : 'STRING_VALUE',                  /* 非必须 */
+  ContentDisposition : 'STRING_VALUE',            /* 非必须 */
+  ContentEncoding : 'STRING_VALUE',               /* 非必须 */
+  ContentLength : 'STRING_VALUE',                 /* 非必须 */
+  ContentType : 'STRING_VALUE',                   /* 非必须 */
+  Expect : 'STRING_VALUE',                        /* 非必须 */
+  Expires : 'STRING_VALUE',                       /* 非必须 */
+  ContentLanguage : 'STRING_VALUE',               /* 非必须 */
+  'x-cos-meta-*' : 'STRING_VALUE',                /* 非必须 */
 };
 
 cos.putObjectCopy(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1219,7 +1219,7 @@ cos.putObjectCopy(params, function(err, data) {
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
-  * Key —— (String) ： 	 文件名称
+  * Key —— (String) ：    文件名称
   * CopySource —— (String) ： 源文件 URL 路径，可以通过 versionid 子资源指定历史版本
   * ACL —— (String)  ： 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
   * GrantRead —— (String)  ： 赋予被授权者读的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'
@@ -1241,12 +1241,12 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * ETag —— (String)  ： 文件的 MD-5 算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
   * LastModified —— (String)  ： 说明 Object 最后被修改时间，如 2017-06-23T12:33:27.000Z
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1264,28 +1264,28 @@ Initiate Multipart Upload请求实现初始化分片上传，成功执行此请�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	CacheControl : 'STRING_VALUE',					/* 非必须 */
-	ContentDisposition : 'STRING_VALUE',			/* 非必须 */
-	ContentEncoding : 'STRING_VALUE',				/* 非必须 */
-	ContentType : 'STRING_VALUE',					/* 非必须 */
-	Expires : 'STRING_VALUE',						/* 非必须 */
-	ACL : 'STRING_VALUE',							/* 非必须 */
-	GrantRead : 'STRING_VALUE',						/* 非必须 */
-	GrantWrite : 'STRING_VALUE',					/* 非必须 */
-	GrantFullControl : 'STRING_VALUE',				/* 非必须 */
-	StorageClass : 'STRING_VALUE',					/* 非必须 */
-	'x-cos-meta-*' : 'STRING_VALUE'					/* 非必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  CacheControl : 'STRING_VALUE',                  /* 非必须 */
+  ContentDisposition : 'STRING_VALUE',            /* 非必须 */
+  ContentEncoding : 'STRING_VALUE',               /* 非必须 */
+  ContentType : 'STRING_VALUE',                   /* 非必须 */
+  Expires : 'STRING_VALUE',                       /* 非必须 */
+  ACL : 'STRING_VALUE',                           /* 非必须 */
+  GrantRead : 'STRING_VALUE',                     /* 非必须 */
+  GrantWrite : 'STRING_VALUE',                    /* 非必须 */
+  GrantFullControl : 'STRING_VALUE',              /* 非必须 */
+  StorageClass : 'STRING_VALUE',                  /* 非必须 */
+  'x-cos-meta-*' : 'STRING_VALUE'                 /* 非必须 */
 };
 
 cos.multipartInit(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1316,10 +1316,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Bucket —— (String)  ：  分片上传的目标 Bucket
-  * Key —— (String)  ： 	Object 的名称
+  * Key —— (String)  ：  Object 的名称
   * UploadId —— (String)  ：  在后续上传中使用的 ID
 
 
@@ -1341,22 +1341,22 @@ Upload Part 接口请求实现在初始化以后的分块上传，支持的块�
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	ContentLength : 'STRING_VALUE',					/* 必须 */
-	PartNumber : 'STRING_VALUE',					/* 必须 */
-	UploadId : 'STRING_VALUE',						/* 必须 */
-	Expect : 'STRING_VALUE',						/* 非必须 */
-	ContentMD5 : 'STRING_VALUE',					/* 非必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  ContentLength : 'STRING_VALUE',                 /* 必须 */
+  PartNumber : 'STRING_VALUE',                    /* 必须 */
+  UploadId : 'STRING_VALUE',                      /* 必须 */
+  Expect : 'STRING_VALUE',                        /* 非必须 */
+  ContentMD5 : 'STRING_VALUE',                    /* 非必须 */
 };
 
 cos.multipartUpload(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1381,11 +1381,11 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * ETag —— (String)  ：  文件的 MD-5 算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1407,25 +1407,25 @@ Complete Multipart Upload 接口请求用来实现完成整个分块上传。当
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	UploadId : 'STRING_VALUE',						/* 必须 */
-	Parts : [
-		{
-			PartNumber : 'STRING_VALUE',			/* 必须 */
-			ETag : 'STRING_VALUE'					/* 必须 */
-		},
-		...
-	]
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  UploadId : 'STRING_VALUE',                      /* 必须 */
+  Parts : [
+    {
+      PartNumber : 'STRING_VALUE',            /* 必须 */
+      ETag : 'STRING_VALUE'                   /* 必须 */
+    },
+    ...
+  ]
 };
 
 cos.multipartComplete(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1438,8 +1438,8 @@ cos.multipartComplete(params, function(err, data) {
   * Key —— (String) ： 文件名称
   * UploadId —— (String) ： 上传任务编号
   * Parts —— (Array) ： 用来说明本次分块上传中块的信息列表
-    * PartNumber —— (String) ： 分块的编号
-    * ETag —— (String) ： 每个块文件的 MD5 算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
+  * PartNumber —— (String) ： 分块的编号
+  * ETag —— (String) ： 每个块文件的 MD5 算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
 
 #### 回调函数说明
 
@@ -1448,14 +1448,14 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Location —— (String)  ：  创建的Object的外网访问域名
   * Bucket —— (String)  ：  分块上传的目标Bucket
   * Key —— (String)  ：  Object的名称
   * ETag —— (String)  ：  合并后文件的 MD5算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1472,21 +1472,21 @@ List Parts 用来查询特定分块上传中的已上传的块，即罗列出指
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	UploadId : 'STRING_VALUE',						/* 必须 */
-	EncodingType : 'STRING_VALUE',					/* 非必须 */
-	MaxParts : 'STRING_VALUE',						/* 非必须 */
-	PartNumberMarker : 'STRING_VALUE'				/* 非必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  UploadId : 'STRING_VALUE',                      /* 必须 */
+  EncodingType : 'STRING_VALUE',                  /* 非必须 */
+  MaxParts : 'STRING_VALUE',                      /* 非必须 */
+  PartNumberMarker : 'STRING_VALUE'               /* 非必须 */
 };
 
 cos.multipartListPart(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1510,30 +1510,30 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Bucket —— (String)  ：  分块上传的目标 Bucket
   * Encoding-type —— (String)  ：  规定返回值的编码方式
   * Key —— (String)  ：  Object 的名称
   * UploadId —— (String)  ：  标识本次分块上传的 ID
-  * Initiator —— (Object)  ：  	用来表示本次上传发起者的信息
-    * DisplayName —— (String)  ：  上传发起者的名称
-    * ID —— (String)  ：  上传发起者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
+  * Initiator —— (Object)  ：    用来表示本次上传发起者的信息
+  * DisplayName —— (String)  ：  上传发起者的名称
+  * ID —— (String)  ：  上传发起者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
   * Owner —— (Object)  ：  用来表示这些分块所有者的信息
-    * DisplayName —— (String)  ：  Bucket 持有者的名称
-    * ID —— (String)  ：  Bucket 持有者 ID，一般为用户的 UIN
+  * DisplayName —— (String)  ：  Bucket 持有者的名称
+  * ID —— (String)  ：  Bucket 持有者 ID，一般为用户的 UIN
   * StorageClass —— (String)  ：  用来表示这些分块的存储级别，枚举值：Standard，Standard_IA，Nearline
   * PartNumberMarker —— (String)  ： 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始
   * NextPartNumberMarker —— (String)  ：  假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点
   * MaxParts —— (String)  ：  单次返回最大的条目数量
   * IsTruncated —— (String)  ：  返回条目是否被截断，'true' 或者 'false'
   * Part —— (Array)  ： 分块信息列表
-    * PartNumber —— (String)  ： 块的编号
-    * LastModified —— (String)  ： 块最后修改时间
-    * ETag —— (String)  ： 块的MD5算法校验值
-    * Size —— (String)  ： 块大小，单位 Byte
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * PartNumber —— (String)  ： 块的编号
+  * LastModified —— (String)  ： 块最后修改时间
+  * ETag —— (String)  ： 块的MD5算法校验值
+  * Size —— (String)  ： 块大小，单位 Byte
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 ### Abort Multipart Upload
@@ -1551,18 +1551,18 @@ Abort Multipart Upload 用来实现舍弃一个分块上传并删除已上传的
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Key : 'STRING_VALUE',							/* 必须 */
-	UploadId : 'STRING_VALUE'						/* 必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Key : 'STRING_VALUE',                           /* 必须 */
+  UploadId : 'STRING_VALUE'                       /* 必须 */
 };
 
 cos.multipartAbort(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1570,7 +1570,7 @@ cos.multipartAbort(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Key —— (String) ： 文件名称
   * UploadId —— (String) ： 标识本次分块上传的 ID。使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置
@@ -1583,10 +1583,10 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 ### List Multipart Uploads
@@ -1602,22 +1602,22 @@ List Multiparts Uploads用来查询正在进行中的分块上传。单次最多
 ```js
 
 var params = {
-	Bucket : 'STRING_VALUE',						/* 必须 */
-	Region : 'STRING_VALUE',						/* 必须 */
-	Delimiter : 'STRING_VALUE',						/* 非必须 */
-	EncodingType : 'STRING_VALUE',					/* 非必须 */
-	Prefix : 'STRING_VALUE',						/* 非必须 */
-	MaxUploads : 'STRING_VALUE',					/* 非必须 */
-	KeyMarker : 'STRING_VALUE',						/* 非必须 */
-	UploadIdMarker : 'STRING_VALUE'					/* 非必须 */
+  Bucket : 'STRING_VALUE',                        /* 必须 */
+  Region : 'STRING_VALUE',                        /* 必须 */
+  Delimiter : 'STRING_VALUE',                     /* 非必须 */
+  EncodingType : 'STRING_VALUE',                  /* 非必须 */
+  Prefix : 'STRING_VALUE',                        /* 非必须 */
+  MaxUploads : 'STRING_VALUE',                    /* 非必须 */
+  KeyMarker : 'STRING_VALUE',                     /* 非必须 */
+  UploadIdMarker : 'STRING_VALUE'                 /* 非必须 */
 };
 
 cos.multipartList(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1625,7 +1625,7 @@ cos.multipartList(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称		
+  * Bucket —— (String) ： Bucket 名称      
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Delimiter —— (String) ： 定界符为一个符号，对 Object 名字包含指定前缀且第一次出现 delimiter 字符之间的 Object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始
   * EncodingType —— (String) ： 规定返回值的编码格式，合法值：url
@@ -1642,8 +1642,8 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Bucket —— (String)  ：  分块上传的目标 Bucket
   * Encoding-Type —— (String)  ：  规定返回值的编码格式，合法值：url
   * KeyMarker —— (String)  ：  列出条目从该 key 值开始
@@ -1655,20 +1655,20 @@ function(err, data) { ... }
   * Delimiter —— (String)  ：  定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的object作为一组元素：common prefix。如果没有 prefix，则从路径起点开始
   * Prefix —— (String)  ：  限定返回的 Object key 必须以 Prefix 作为前缀。注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix
   * CommonPrefixs —— (Array)  ：  将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix
-    * Prefix —— (String)  ：  显示具体的CommonPrefixs
+  * Prefix —— (String)  ：  显示具体的CommonPrefixs
   * Upload —— (Array)  ：  Upload的信息集合
-    * Key —— (String)  ：  Object的名称
-    * UploadId —— (String)  ： 标示本次分块上传的 ID
-    * StorageClass —— (String)  ：  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE
-   * Initiator —— (Object)  ：  	用来表示本次上传发起者的信息
-      * DisplayName —— (String)  ：  上传发起者的名称
-      * ID —— (String)  ：  上传发起者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
+  * Key —— (String)  ：  Object的名称
+  * UploadId —— (String)  ： 标示本次分块上传的 ID
+  * StorageClass —— (String)  ：  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE
+   * Initiator —— (Object)  ：   用来表示本次上传发起者的信息
+    * DisplayName —— (String)  ：  上传发起者的名称
+    * ID —— (String)  ：  上传发起者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
    * Owner —— (Object)  ：  用来表示这些分块所有者的信息
-      * DisplayName —— (String)  ：  Bucket 持有者的名称
-      * ID —— (String)  ：  Bucket 持有者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
-    * Initiated —— (String)  ：  分块上传的起始时间
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+    * DisplayName —— (String)  ：  Bucket 持有者的名称
+    * ID —— (String)  ：  Bucket 持有者 ID，格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> 如果是根帐号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值
+  * Initiated —— (String)  ：  分块上传的起始时间
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1688,30 +1688,30 @@ Slice Upload File 可用于实现文件的分块上传。
 
 ```js
 var params = {
-	Bucket: 'STRING_VALUE',	/* 必须 */
-	Region: 'STRING_VALUE',	/* 必须 */
-	Key: 'STRING_VALUE',	/* 必须 */
-	FilePath: 'STRING_VALUE',	/* 必须 */
-	SliceSize: 'STRING_VALUE',	/* 非必须 */
-	StorageClass: 'STRING_VALUE',	/* 非必须 */
-	AsyncLimit: 'NUMBER_VALUE',	/* 非必须 */
-    TaskReady: function(TaskId) {		/* 非必须 */
-    	console.log(TaskId);
-    },
-    onHashProgress: function (progressData) {		/* 非必须 */
-        console.log(JSON.stringify(progressData));
-    },
-    onProgress: function (progressData) {			/* 非必须 */
-        console.log(JSON.stringify(progressData));
-    }
+  Bucket: 'STRING_VALUE', /* 必须 */
+  Region: 'STRING_VALUE', /* 必须 */
+  Key: 'STRING_VALUE',    /* 必须 */
+  FilePath: 'STRING_VALUE',   /* 必须 */
+  SliceSize: 'STRING_VALUE',  /* 非必须 */
+  StorageClass: 'STRING_VALUE',   /* 非必须 */
+  AsyncLimit: 'NUMBER_VALUE', /* 非必须 */
+  TaskReady: function(TaskId) {       /* 非必须 */
+    console.log(TaskId);
+  },
+  onHashProgress: function (progressData) {       /* 非必须 */
+    console.log(JSON.stringify(progressData));
+  },
+  onProgress: function (progressData) {           /* 非必须 */
+    console.log(JSON.stringify(progressData));
+  }
 };
 
 cos.sliceUploadFile(params, function(err, data) {
-	if(err) {
-		console.log(err);
-	} else {
-		console.log(data);
-	}
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
 });
 
 ```
@@ -1719,7 +1719,7 @@ cos.sliceUploadFile(params, function(err, data) {
 #### 操作参数说明
 
 * **params** (Object) ： 参数列表
-  * Bucket —— (String) ： Bucket 名称			
+  * Bucket —— (String) ： Bucket 名称          
   * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
   * Key —— (String) ： Object名称
   * FilePath —— (String) ： 本地文件路径
@@ -1727,17 +1727,17 @@ cos.sliceUploadFile(params, function(err, data) {
   * AsyncLimit —— (String) ： 分块的并发量
   * StorageClass —— (String) ： Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE
   * TaskReady —— (Function)  ： 上传任务创建时的回调函数，返回一个TaskId，唯一标识上传任务，可用于上传任务的取消（cancelTask），停止（pauseTask）和重新开始（restartTask）
-    * taskId —— (String) ： 上传任务的编号
+  * taskId —— (String) ： 上传任务的编号
   * onHashProgress —— (Function)  ： 计算文件MD5值的进度回调函数，回调参数为进度对象 progressData
-    * progressData.loaded —— (Number) ： 已经校验的文件部分大小，以字节（bytes）为单位
-    * progressData.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
-    * progressData.speed —— (Number) ： 文件的校验速度，以字节/秒（bytes/s）为单位
-    * progressData.percent —— (Number) ： 文件的校验百分比，以小数形式呈现，例如：下载 50% 即为 0.5
+  * progressData.loaded —— (Number) ： 已经校验的文件部分大小，以字节（bytes）为单位
+  * progressData.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
+  * progressData.speed —— (Number) ： 文件的校验速度，以字节/秒（bytes/s）为单位
+  * progressData.percent —— (Number) ： 文件的校验百分比，以小数形式呈现，例如：下载 50% 即为 0.5
   * onProgress —— (Function)  ： 上传文件的进度回调函数，回调参数为进度对象 progressData
-    * progressData.loaded —— (Number) ： 已经上传的文件部分大小，以字节（bytes）为单位
-    * progressData.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
-    * progressData.speed —— (Number) ： 文件的上传速度，以字节/秒（bytes/s）为单位
-    * progressData.percent —— (Number) ： 文件的上传百分比，以小数形式呈现，例如：下载 50% 即为 0.5
+  * progressData.loaded —— (Number) ： 已经上传的文件部分大小，以字节（bytes）为单位
+  * progressData.total —— (Number) ： 整个文件的大小，以字节（bytes）为单位
+  * progressData.speed —— (Number) ： 文件的上传速度，以字节/秒（bytes/s）为单位
+  * progressData.percent —— (Number) ： 文件的上传百分比，以小数形式呈现，例如：下载 50% 即为 0.5
 
 #### 回调函数说明
 
@@ -1746,14 +1746,14 @@ function(err, data) { ... }
 ```
 #### 回调参数说明
 
-* **err** —— (Object) 	：	请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
-* **data** —— (Object)：	请求成功时返回的对象，如果请求发生错误，则为空。
+* **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
+* **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
   * Location —— (String)  ：  创建的Object的外网访问域名
   * Bucket —— (String)  ：  分块上传的目标Bucket
   * Key —— (String)  ：  Object的名称
   * ETag —— (String)  ：  合并后文件的 MD5算法校验值，如 "22ca88419e2ed4721c23807c678adbe4c08a7880"，注意前后携带双引号
-  * headers —— (Object)：	请求返回的头部信息
-  * statusCode —— (Number)：	请求返回的 HTTP 状态码，如 200，403，404等
+  * headers —— (Object)：    请求返回的头部信息
+  * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
 
 
@@ -1771,7 +1771,7 @@ function(err, data) { ... }
 
 ```js
 
-var TaskId = 'xxxxx'; 					/* 必须 */
+var TaskId = 'xxxxx';                   /* 必须 */
 
 cos.cancelTask(TaskId);
 
@@ -1797,7 +1797,7 @@ cos.cancelTask(TaskId);
 
 ```js
 
-var TaskId = 'xxxxx'; 					/* 必须 */
+var TaskId = 'xxxxx';                   /* 必须 */
 
 cos.pauseTask(TaskId);
 
@@ -1823,7 +1823,7 @@ cos.pauseTask(TaskId);
 
 ```js
 
-var TaskId = 'xxxxx'; 					/* 必须 */
+var TaskId = 'xxxxx';                   /* 必须 */
 
 cos.restartTask(TaskId);
 

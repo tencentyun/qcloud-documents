@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (UpgradeBmNatGateway) is used to upgrade the BM NAT gateway specification.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters
