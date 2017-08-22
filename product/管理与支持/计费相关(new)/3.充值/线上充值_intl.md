@@ -4,9 +4,9 @@ To top up their account, the users can choose to pay with PayPal or Bank Transfe
 
 For data security, only creator and collaborator with authorized finance permission are allowed to enter the "Top-up" page.
 
-### Top-up Process
+## Top-up Process
 
-#### Enter the "Top-up" page
+### Enter the "Top-up" page
 
 After logging in to Tencent Cloud, go to "**Console**" and click "**Top-up Now**", or go to "**Billing Center**" and click "**Top-up Now**" to enter the "**Top-up**" page.
 
@@ -19,9 +19,9 @@ On the Top-up page, choose "**PayPal**" (recommended) or "**Bank Transfer Top-Up
 ![](https://mc.qcloudimg.com/static/img/4fa6cf2137e5dbd0cd2b22cd1c1e68ee/image.png)
 
 
-### Top-up Methods
+## Top-up Methods
 
-#### PayPal
+### PayPal
 
 1.On the PayPal page, manually enter a top-up amount (an integer between 1 and 9999999), or use last top-up amount, and then click "**Pay Now**"
 
@@ -69,7 +69,6 @@ Remarks:  Cloud service fee + developer account (unique ID)
 
 4.Please note that bank transfer may incur bank charges. As we cannot retrieve bank data, all bank charges will be borne by users.
 
-
-#### Notes
+** Notes**
 
 If you choose Bank Transfer as payment option, please make sure payments are made in USD.
