@@ -12,11 +12,11 @@ GCC instances are reclaimed in the same way as CVM instances. For more informati
 
 You can go to the Recycle Bin to recover a GCC instance by renewing it within 7 days upon its expiration:
 
-**Recovering a single instance: **
-Open the [CVM Recycle Bin Console](https://console.qcloud.com/cvm/recycle), select the GCC instance you want to recover in the list, and then click *Recovery*. After you make payment for renewal, you can find the recovered resource in the [CVM Console](https://console.qcloud.com/cvm).
+**Recovering a single instance:**
+Go to [CVM Recycle Bin Console](https://console.qcloud.com/cvm/recycle), select the GCC instance you want to recover in the list, and then click **Recover**. After you make payment for renewal, you can find the recovered resource in the [CVM Console](https://console.qcloud.com/cvm).
 
-**Recovering multiple instances: **
-Open the [CVM Recycle Bin](https://console.qcloud.com/cvm/recycle), select the GCC instances you want to recover in the list, and then click "Batch Recovery". After you make payment for renewal, you can find the recovered resources in the [CVM Console](https://console.qcloud.com/cvm).
+**Recovering multiple instances:**
+Go to [CVM Recycle Bin](https://console.qcloud.com/cvm/recycle), select the GCC instances you want to recover in the list, and then click **Batch Recover**. After you make payment for renewal, you can find the recovered resources in the [CVM Console](https://console.qcloud.com/cvm).
 
 
 
