@@ -61,7 +61,7 @@ Output
     "totalCount": 1,
     "data": [
         {
-            "vpcId": "gz_vpc_64",
+            "vpcId": 10001,
             "unVpcId": "vpc-kd7d06of",
             "vpcName": "panpan-vpc1",
             "vpcCidrBlock": "10.0.0.0\/16",
