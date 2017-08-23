@@ -27,7 +27,7 @@ The following request parameter list only provides API request parameters. Commo
 | message |  String | Error message.  |
 | totalCount |  Int | Total number of subnets.  |
 | data | Array  | Returned array.  |
-| data.n.vpcId | String | The VPC ID assigned by the system, e.g. gz_vpc_266. |
+| data.n.vpcId | Int | The VPC ID assigned by the system, e.g. 10001. |
 | data.n.unVpcId | String | The new VPC ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new VPC ID, for example: vpc-5gu2jxf4. |
 | data.n.subnetId | int | Subnet ID assigned by the system. For example: 23. |
 | data.n.unSubnetId | String | The new subnet ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new subnet ID, for example: subnet-5gu2jxf4. |
