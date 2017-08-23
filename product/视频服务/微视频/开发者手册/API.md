@@ -1569,8 +1569,6 @@ https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsaudioInfo&SecretId=AKIDxUCs
 
 ### 请求示例
 
-json
-
 ```
 https://cdn.api.qcloud.com/v2/index.php?Action=AddCtsAudioTask&SecretId=1&Nonce=47825&Timestamp=1503372336&Region=sh&Uin=2418826573&AppId=1253125191&url=http%3A%2F%2Fonlinemusic-1253125191.cosgz.myqcloud.com%2F20170717%2FMaid.mp3&bucketName=onlinemusic&bucketRegion=gz&Signature=LXe8bGz%2BSULUuCo1XF8PjzxT1fI%3D
 ```
