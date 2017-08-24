@@ -24,7 +24,7 @@
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
 | iOS平台  | 3.0.1201 @ 2017-08-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_UGC_iOS_3.0.1201.zip)   |
-| Android平台  | 3.0.1201 @ 2017-08-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1201.zip) |
+| Android平台  | 3.0.1203 @ 2017-08-24 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1203.zip) |
 
 - **付费版**
 
@@ -33,6 +33,6 @@
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
 | iOS平台  | 3.0.1201 @ 2017-08-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Enterprise_iOS_3.0.1201.zip) |
-| Android平台  | 3.0.1201 @ 2017-08-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_3.0.1201.zip) |
+| Android平台  | 3.0.1203 @ 2017-08-24 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_3.0.1203.zip) |
 
 

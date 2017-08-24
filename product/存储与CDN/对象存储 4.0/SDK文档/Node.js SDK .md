@@ -26,7 +26,7 @@ npm i cos-nodejs-sdk-v5 --save
 ```js
 var COS = require('cos-nodejs-sdk-v5');
 
-var parmas = {
+var params = {
   AppId: 'STRING_VALUE',                                /* 必须 */
   SecretId: 'STRING_VALUE',                             /* 必须 */
   SecretKey: 'STRING_VALUE',                            /* 必须 */
@@ -50,7 +50,7 @@ var cos = new COS(params);
   * ChunkParallelLimit —— (Number) ： 控制单个文件下分片上传并发数，默认为 3 
   * ChunkSize —— (Number) ： 控制分片大小，单位 Byte，默认为 1 * 1024 * 1024 ，即 1 MB
   * ProgressInterval —— (Number) ： 控制 onProgress 回调的间隔，单位为 ms，用于防止 onProgress 频繁触发造成的抖动，默认为 1000
-  * Domain —— (String) ： 用户的自定义域名，如果设置了自定义域名，则所有对 Bucket 和 Object 的操作请求将发送到自定义域名。默认对 Bucket 的操作域名为 {{Bucket}}-{{AppId}}.{{Region}}.myqcloud.com，例如 annexwu-123456789.cn-north.myqcloud.com
+  * Domain —— (String) ： 用户的自定义域名，如果设置了自定义域名，则所有对 Bucket 和 Object 的操作请求将发送到自定义域名。默认对 Bucket 的操作域名为 {{Bucket}}-{{AppId}}.cos.{{Region}}.myqcloud.com，例如 annexwu-123456789.cos.ap-beijing-1.myqcloud.com
 
 
 ## 鉴权操作
@@ -67,7 +67,7 @@ Get Auth 用于计算鉴权信息（Authorization）， 用以验证请求合法
 
 ```js
 
-var parmas = {
+var params = {
   Method: 'STRING_VALUE',                          /* 必须 */
   Key: 'STRING_VALUE',                             /* 非必须 */
   SecretId: 'STRING_VALUE',                        /* 非必须 */
@@ -131,7 +131,7 @@ function(err, data) { ... }
   * Buckets —— (Array) ：说明本次返回的Bucket列表的所有信息
     * Name —— (String) ：Bucket 的名称
     * CreateDate —— (String) ：Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z
-    * Location —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+    * Location —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * headers —— (Object)：    请求返回的头部信息
   * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
@@ -171,7 +171,7 @@ cos.headBucket(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 的名称         
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
 
 #### 回调函数说明
 
@@ -223,7 +223,7 @@ cos.getBucket(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 的名称     
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Prefix —— (String) : 前缀匹配，用来规定返回的文件前缀地址
   * Delimiter —— (String) ：定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始
   * Marker —— (String) ：默认以 UTF-8 二进制顺序列出条目，所有列出条目从marker开始
@@ -296,7 +296,7 @@ cos.putBucket(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * ACL —— (String)  ： 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
   * GrantRead —— (String)  ： 赋予被授权者读的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'
   * GrantWrite —— (String)  ： 赋予被授权者写的权限。格式：id=" ",id=" "；当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"，例如：'id="qcs::cam::uin/123:uin/123", id="qcs::cam::uin/123:uin/456"'
@@ -348,7 +348,7 @@ cos.deleteBucket(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
 
 #### 回调函数说明
 
@@ -394,7 +394,7 @@ cos.getBucketAcl(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
 
 #### 回调函数说明
 
@@ -506,7 +506,7 @@ cos.getBucketCors(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
 
 #### 回调函数说明
 
@@ -580,7 +580,7 @@ cos.putBucketCors(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * CORSRules —— (Array) ：说明跨域资源共享配置的所有信息列表
     * ID —— (String) ： 配置规则的 ID，可选填
     * AllowedMethods —— (Array) ： 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE
@@ -633,7 +633,7 @@ cos.deleteBucketCors(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
 
 #### 回调函数说明
 
@@ -680,7 +680,7 @@ cos.getBucketLocation(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
 
 #### 回调函数说明
 
@@ -691,7 +691,7 @@ function(err, data) { ... }
 
 * **err** —— (Object)   ：   请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功，则为空。
 * **data** —— (Object)： 请求成功时返回的对象，如果请求发生错误，则为空。
-  * LocationConstraint —— (String)  ：  说明 Bucket 所在区域，枚举值：cn-north，cn-east，sg，cn-southwest，cn-south
+  * LocationConstraint —— (String)  ：  Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * headers —— (Object)：    请求返回的头部信息
   * statusCode —— (Number)： 请求返回的 HTTP 状态码，如 200，403，404等
 
@@ -731,7 +731,7 @@ cos.headObject(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * IfModifiedSince —— (String) ： 当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304
 
@@ -800,7 +800,7 @@ cos.getObject(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * ResponseContentType —— (String) ： 设置响应头部中的 Content-Type 参数
   * ResponseContentLanguage —— (String) ： 设置返回头部中的 Content-Language 参数
@@ -887,7 +887,7 @@ cos.putObject(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * CacheControl —— (String) ： RFC 2616 中定义的缓存策略，将作为 Object 元数据保存
   * ContentDisposition —— (String) ： RFC 2616 中定义的文件名称，将作为 Object 元数据保存
@@ -958,7 +958,7 @@ cos.deleteObject(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
 
 
@@ -1016,7 +1016,7 @@ cos.optionsObject(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * Origin —— (String) ： 模拟跨域访问的请求来源域名
   * AccessControlRequestMethod —— (String) ： 模拟跨域访问的请求 HTTP 方法
@@ -1076,7 +1076,7 @@ cos.getObjectAcl(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
 
 
@@ -1201,7 +1201,7 @@ cos.deleteMultipleObject(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Quiet —— (Boolean)  ：   布尔值，这个值决定了是否启动 Quiet 模式。值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 false
   * Objects —— (Array) ： 要删除的文件列表
     * Key —— (String) ： 要删除的文件名
@@ -1280,7 +1280,7 @@ cos.putObjectCopy(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ：    文件名称
   * CopySource —— (String) ： 源文件 URL 路径，可以通过 versionid 子资源指定历史版本
   * ACL —— (String)  ： 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private
@@ -1362,7 +1362,7 @@ cos.multipartInit(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * CacheControl —— (String) ： RFC 2616 中定义的缓存策略，将作为 Object 元数据保存
   * ContentDisposition —— (String) ： RFC 2616 中定义的文件名称，将作为 Object 元数据保存
@@ -1433,7 +1433,7 @@ cos.multipartUpload(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * ContentLength —— (String) ： RFC 2616 中定义的 HTTP 请求内容长度（字节）
   * PartNumber —— (String) ： 分块的编号
@@ -1502,7 +1502,7 @@ cos.multipartComplete(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * UploadId —— (String) ： 上传任务编号
   * Parts —— (Array) ： 用来说明本次分块上传中块的信息列表
@@ -1563,7 +1563,7 @@ cos.multipartListPart(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * UploadId —— (String) ： 标识本次分块上传的 ID。使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。
   * EncodingType —— (String) ： 规定返回值的编码方式
@@ -1639,7 +1639,7 @@ cos.multipartAbort(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： 文件名称
   * UploadId —— (String) ： 标识本次分块上传的 ID。使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置
 
@@ -1694,7 +1694,7 @@ cos.multipartList(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称      
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Delimiter —— (String) ： 定界符为一个符号，对 Object 名字包含指定前缀且第一次出现 delimiter 字符之间的 Object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始
   * EncodingType —— (String) ： 规定返回值的编码格式，合法值：url
   * Prefix —— (String) ： 限定返回的 Object key 必须以 Prefix 作为前缀。注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix
@@ -1788,7 +1788,7 @@ cos.sliceUploadFile(params, function(err, data) {
 
 * **params** (Object) ： 参数列表
   * Bucket —— (String) ： Bucket 名称          
-  * Region —— (String) ： Bucket 所在区域。枚举值：cn-east，cn-south，cn-north，cn-southwest，sg
+  * Region —— (String) ： Bucket 所在区域。枚举值请见：[Bucket 地域信息](https://www.qcloud.com/document/product/436/6224)
   * Key —— (String) ： Object名称
   * FilePath —— (String) ： 本地文件路径
   * SliceSize —— (String) ： 分块大小
