@@ -1,7 +1,7 @@
 ## Key Modules
 1. AVContext: Context module whose object represents a running instance of the SDK. The application only needs to create a QAVContext object to use all the features of the SDK.
 
-2.AVRoom: Room module that provides the callback API for joining and exiting a room.
+2. AVRoom: Room module that provides the callback API for joining and exiting a room.
 
 3. AVRoomMulti:  Multi-member room module that inherits the features from QAVRoom and provides the operation API for obtaining attributes of multi-member room, such as member list.
 
@@ -53,6 +53,7 @@ App users are divided into VJs and viewers, who use different steps to open a vi
 
 
 **Close video:**
+
 1. Stop video rendering (video rendering module)
 
 2. Exit the room (AVContext)

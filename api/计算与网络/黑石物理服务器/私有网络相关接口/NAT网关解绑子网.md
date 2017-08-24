@@ -1,7 +1,7 @@
 ## 1. 接口描述
 
 本接口(SubnetUnBindBmNatGateway)用黑石于NAT网关解绑子网，可解绑全部IP的子网和部分IP的子网。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
 
 
 ## 2. 输入参数

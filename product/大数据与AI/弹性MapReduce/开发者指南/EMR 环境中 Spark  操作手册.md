@@ -42,17 +42,17 @@ Spark 任务以如下格式提交：
 在 Spark 安装目录下通过如下命令提交任务：
 ```
     ./bin/spark-submit
-     --class tencent.emr.spark.tspark_example.WordCount
-    examples/jars/tspark-example*.jar
-    hdfs:///example/source/people.txt
+      --class tencent.emr.spark.tspark_example.WordCount
+      examples/jars/tspark-example*.jar
+      hdfs:///example/source/people.txt
 ```
 **jar 包任务读取 COS 文件**
 在 Spark 安装目录下通过如下命令提交任务（注意替换 bucketname）：
 ```
     ./bin/spark-submit
-     --class tencent.emr.spark.tspark_example.WordCount
-    examples/jars/tspark-example*.jar
-    cosn://bucketname/example/source/people.txt
+      --class tencent.emr.spark.tspark_example.WordCount
+      examples/jars/tspark-example*.jar
+      cosn://bucketname/example/source/people.txt
 ```
 **Python 任务读取 HDFS 文件**
 在 Spark 安装目录下通过如下命令提交任务：
@@ -84,19 +84,19 @@ Spark 任务以如下格式提交：
 在 Spark 安装目录下通过如下命令提交任务：
 ```
     ./bin/spark-submit
-     --class encent.emr.spark.tspark_example.SparkSQLExample
-    examples/jars/tspark-example*.jar
-    hdfs:///example/source/people.json
-    hdfs:///example/source/people.txt
+      --class encent.emr.spark.tspark_example.SparkSQLExample
+      examples/jars/tspark-example*.jar
+      hdfs:///example/source/people.json
+      hdfs:///example/source/people.txt
 ```
 **jar 包任务访问 COS 文件**
 在 Spark 安装目录下通过如下命令提交任务（注意替换 bucketname）：
 ```
     ./bin/spark-submit
-     --class tencent.emr.spark.tspark_example.SparkSQLExample
-    examples/jars/tspark-example*.jar
-    cosn://bucketname/example/source/people.json
-    cosn://bucketname/example/source/people.txt
+      --class tencent.emr.spark.tspark_example.SparkSQLExample
+      examples/jars/tspark-example*.jar
+      cosn://bucketname/example/source/people.json
+      cosn://bucketname/example/source/people.txt
 ```
 **Python 任务访问 HDFS 文件**
 在 Spark 安装目录下通过如下命令提交任务：
@@ -115,13 +115,25 @@ Spark 任务以如下格式提交：
     cosn://bucketname/example/source/people.txt
 ```
 ### 1.6 查看任务日志
-* 任务运行结果会直接打印到控制台
-|age | name | 
-|---------|---------|
-| null | Michael | 
-| 30 | Andy |
-| 19 | Justin |
- ... 以下省略...
+* 任务运行结果会直接打印到控制台（此处示例为部分数据）
+<table>
+   <tr>
+      <th style="width: 80px;">age</th>
+      <th style="width: 80px;">name</th>
+   </tr>
+   <tr>
+      <td>null</td>
+      <td>Michael</td>
+   </tr>
+   <tr>
+      <td>30</td>
+      <td>Andy</td>
+   </tr>
+   <tr>
+      <td>19</td>
+      <td>Justin</td>
+   </tr>
+</table>
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务ID）
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10548
@@ -136,17 +148,17 @@ Spark 任务以如下格式提交：
 在 Spark 安装目录下通过如下命令提交任务：
 ```
     ./bin/spark-submit
-     --class tencent.emr.spark.tspark_example.SparkHiveExample
-    examples/jars/tspark-example*.jar
-    hdfs:///example/source/kv1.txt
+      --class tencent.emr.spark.tspark_example.SparkHiveExample
+      examples/jars/tspark-example*.jar
+      hdfs:///example/source/kv1.txt
 ```
 **jar 包任务访问 COS 文件**
 在 Spark 安装目录下通过如下命令提交任务（注意替换 bucketname）：
 ```
     ./bin/spark-submit
-     --class tencent.emr.spark.tspark_example.SparkHiveExample
-    examples/jars/tspark-example*.jar
-    cosn://emrtest/example/source/kv1.txt
+      --class tencent.emr.spark.tspark_example.SparkHiveExample
+      examples/jars/tspark-example*.jar
+      cosn://emrtest/example/source/kv1.txt
 ```
 **Python 任务访问 HDFS 文件**
 在 Spark 安装目录下通过如下命令提交任务：
@@ -159,18 +171,45 @@ Spark 任务以如下格式提交：
     ./bin/spark-submit examples/demo/hive.py cosn://bucketname/example/source/kv1.txt
 ```
 ### 1.8 查看任务日志
-* 任务运行结果会直接打印到控制台
-| key | value | 
-|---------|---------|
-| 238 | val_238 | 
-| 86 |  val_86 |
-| 311 |  val_311 |
-| 27 |  val_27 |
-| 165 |  val_165 |
-| 409 |  val_409 |
-| 255 |  val_255 |
-| 278 |  val_278 |
-...以下省略...
+* 任务运行结果会直接打印到控制台（此处示例为部分数据）
+<table>
+   <tr>
+      <th style="width: 80px;">key</th>
+      <th style="width: 80px;">value</th>
+   </tr>
+   <tr>
+      <td>238</td>
+      <td>val_238</td>
+   </tr>
+   <tr>
+      <td>86</td>
+      <td>val_86</td>
+   </tr>
+   <tr>
+      <td>311</td>
+      <td>val_311</td>
+   </tr>
+   <tr>
+      <td>27</td>
+      <td>val_27</td>
+   </tr>
+   <tr>
+      <td>165</td>
+      <td>val_165</td>
+   </tr>
+   <tr>
+      <td>409</td>
+      <td>val_409</td>
+   </tr>
+   <tr>
+      <td>255</td>
+      <td>val_255</td>
+   </tr>
+   <tr>
+      <td>278</td>
+      <td>val-278</td>
+   </tr>
+</table>
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务ID）
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10549
@@ -181,8 +220,8 @@ Spark 任务以如下格式提交：
 在 Spark 安装目录下通过如下命令提交任务，等待数据：
 ```
     ./bin/spark-submit
-     --class tencent.emr.spark.tspark_example.NetworkWordCount
-    examples/jars/tspark-example*.jar localhost 9999
+      --class tencent.emr.spark.tspark_example.NetworkWordCount
+      examples/jars/tspark-example*.jar localhost 9999
 ```
 **Python 方式**
 在 Spark 安装目录下通过如下命令提交任务，等待数据：
@@ -218,7 +257,7 @@ Spark 任务以如下格式提交：
 数据准备同通过命令行准备数据一致
 ### 2.2 登录 Hue 进行操作
 * 通过 EMR 控制的快捷入口可以找到 Hue 的登录页面，找到如下入口, 如下图。
-![](//mc.qcloudimg.com/static/img/49e90bb12682e481b7550e255fc33eeb/image.png)
+![](//mc.qcloudimg.com/static/img/2f848ec4ffc6eaf6abea00d8dafdd282/image.png)
 * 进入页面后单击 Create 按钮，并拖拽 SparkProgram，如下图
 ![](//mc.qcloudimg.com/static/img/fccdfc197136f95c320b83f4017b9bba/image.png)
 >**注意：**

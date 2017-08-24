@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (DescribeBmSubnetByCpmId) is used to query the list of subnets to which CPMs are added.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters

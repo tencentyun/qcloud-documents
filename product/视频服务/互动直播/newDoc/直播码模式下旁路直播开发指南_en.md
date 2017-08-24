@@ -203,7 +203,7 @@ Example: Tencent Cloud notifies that a stream interruption (event_type=0) occurr
 ## Message Organizing Format
 
 Notification information is organized in JSON format and then placed in the HTTP POST protocol body.<br/>
-Please note that the ContentType of the POST format here is application/json instead of multipart/form-data. Therefore, <font color='red'>do not use the function for reading form fields in PHP or Java</font> to read information.
+Please note that the ContentType of the POST format here is application/json instead of multipart/form-data. Therefore, do not use the function for reading form fields in PHP or Java to read information.
 
 #### Common Header Information
 
@@ -235,7 +235,7 @@ Many customers are worried about message loss. For example, if a customer's serv
 The message reliability guarantee mechanism in Tencent Cloud backend is implemented based on **simple retransmission**, that is, <br/>
 <font color='blue'>if a notification is not successfully sent to the specified callback URL, Tencent Cloud may retry many times.</font>
 
-So how to tell if the message has been sent to your server successfully? This requires your assistance: <font color='red'>When your server receives an HTTP event notification successfully, please make a reply as follows: </font> Status code 200, indicating that the message is received successfully, so as to prevent Tencent Cloud from sending the notification repeatedly.
+So how to tell if the message has been sent to your server successfully? This requires your assistance: When your server receives an HTTP event notification successfully, please make a reply as follows: Status code 200, indicating that the message is received successfully, so as to prevent Tencent Cloud from sending the notification repeatedly.
 
 This indicates: "I (customer server) have received your notification. You (Tencent Cloud) should not keep sending the message to me."
 

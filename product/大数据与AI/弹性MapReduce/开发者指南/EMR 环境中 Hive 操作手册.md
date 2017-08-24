@@ -2,21 +2,20 @@
 ### 1.1 数据准备
 * 如下代码可以生成指定行数的测试数据
 ```
-    #!/bin/bash
-    MAXROW=1000000 # 指定生成数据行数
+    //!/bin/bash
+    MAXROW=1000000 // 指定生成数据行数
     for((i = 0; i < $MAXROW; i++))
     do
     echo $RANDOM, \"$RANDOM\"
     done
 ```
-将以上代码保存为 gen\_data.sh 的 bash 脚本文件，并按如下方式执行:
+* 将以上代码保存为 gen\_data.sh 的 bash 脚本文件，并按如下方式执行:
     ./gen\_data.sh > hive\_test.data
 生成 hive_test.data 数据文件
-* 数据在 HDFS, 将生成的数据文件放入 hdfs 上，如:
-    hdfs dfs -put ./hive\_test.data /user/hadoop/hive-test/
+* 数据在 HDFS, 将生成的数据文件放入 hdfs 上，如：    `hdfs dfs -put ./hive\_test.data /user/hadoop/hive-test/`
 将 hive_test.data 放入 hdfs 的 `/user/hadoop/hive-test` 目录中
 * 数据在 COS
-在 COS 上创建一个 bucket，如：hivecos，并在 hivecos 中创建文件夹，如：hivetest，将数据文件上传到 hivetest 中，如图所示:
+在 COS 上创建一个 bucket，如：hivecos，并在 hivecos 中创建文件夹，如：hivetest，将数据文件上传到 hivetest 中，如图所示：
 ![](//mc.qcloudimg.com/static/img/16acafa53d968e1ec88c6f085e8bd0a3/image.png)
 COS 的文件全路径为: `cosn://hivecos/hivetest/hive_test.data`
 ## 2. Hive 模式连接数据库
@@ -26,8 +25,7 @@ COS 的文件全路径为: `cosn://hivecos/hivetest/hive_test.data`
     ./hive
 ```
 ## 3. beeline 模式连接数据库
-* 登录 master 机器, 进入 hive 目录
-    cd /usr/local/service/hive
+* 登录 master 机器, 进入 hive 目录`cd /usr/local/service/hive`
 在 conf/hive-site.xml 配置文件中, 获得 hive server2 的连接端口
 ```
     <property>
@@ -66,25 +64,25 @@ COS 的文件全路径为: `cosn://hivecos/hivetest/hive_test.data`
     Time taken: 0.204 seconds
 ```
 * 将数据导入表中
-从 HDFS 导入数据文件在 hdfs 上的路径为: `/user/hadoop/hive-test/hive_test.data`
+从 HDFS 导入数据,文件在 hdfs 上的路径为: `/user/hadoop/hive-test/hive_test.data`
+
 ```
     hive> load data inpath "/user/hadoop/hive-test/hive\_test.data" into table hive\_test;
 ```
-导入完成后，hdfs 上导入路径上的源数据文件将会被删除
-从 COS 导入
-数据文件在 COS 上的路径为: `cosn://hivecos/hivetest/hive_test.data`
+导入完成后，hdfs 上导入路径上的源数据文件将会被删除。
+从 COS 导入数据，文件在 COS 上的路径为: `cosn://hivecos/hivetest/hive_test.data`
 ```
     hive> load data inpath "cosn://hivecos/hivetest/hive\_test.data" into table hive\_test;
 ```
-导入完成后，COS 上的源数据将会被删除
-从本地导入
-本地数据文件路径在: `/usr/local/service/hadoop/bin/hive_test.data`
+导入完成后，COS 上的源数据将会被删除。
+从本地导入数据，文件路径在: `/usr/local/service/hadoop/bin/hive_test.data`
 ```
     hive>load data local inpath "/usr/local/service/hadoop/bin/hive_test.data"
 	into table hive_test;
 ```
 * 执行 SQL 查询
 查询表记录条数: `select count(*) from hive_test`
+
 ```
     hive> select count(*) from hive_test;
     Query ID = hadoop_20170316142922_967b5f0e-1f89-4464-bfa3-b6ed53273fc2
@@ -141,15 +139,14 @@ COS 的文件全路径为: `cosn://hivecos/hivetest/hive_test.data`
 ![](//mc.qcloudimg.com/static/img/bd546d039bdf2c3a487d792bea54389d/image.png)
 ```
 ### 5.2 基于 hue 查询数据报表展示
-hue 可以将查询结果以图表的方式展示，我们执行这个 SQL:
-    select * from hive_test limit 10;
+hue 可以将查询结果以图表的方式展示，执行 SQL 语句:` select * from hive_test limit 10;`
 执行完成后，结果数据如图所示:
 ![](//mc.qcloudimg.com/static/img/dbbc7ffa153a9c09409e802e2f4cb9d3/image.png)
-选择图例模式，我们选择了 “pie”，可以看到结果图
+选择图例模式，我们选择了 “pie”，可以看到结果图。
 ![](//mc.qcloudimg.com/static/img/8b543e198d369c1935cbe98b66f0b231/image.png)
 ### 5.3 基于 hue 的任务调度
 * 准备工作流数据
-hue 的任务调度基于工作流，我们先创建一个包含 hive script 脚本的工作流。hive script 脚本的内容如下:
+hue 的任务调度基于工作流，先创建一个包含 hive script 脚本的工作流。hive script 脚本的内容如下:
 ```
     create database if not exists hive\_sample;
     show databases;
@@ -160,26 +157,26 @@ hue 的任务调度基于工作流，我们先创建一个包含 hive script 脚
     insert into hive\_sample select 1, "a";
     select * from hive\_sample;
 ```
-将以上内容保存为hive_sample.sql 文件
-hive工作流还需要一个hive-site.xml配置文件，这个配置文件可以在集群中安装了hive组件的节点上找到。
-具体的路径在：/usr/local/service/hive/conf/hive-site.xml
-复制一个hive-site.xml文件，将其中对应配置修改为如下值:
+将以上内容保存为 hive_sample.sql 文件
+hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 hive 组件的节点上找到。
+具体的路径在：`/usr/local/service/hive/conf/hive-site.xml`
+复制一个 hive-site.xml 文件，将其中对应配置修改为如下值:
 ```
     <property>
-    <name>hive.exec.local.scratchdir</name>
-    <value>/tmp/hive</value>
+     <name>hive.exec.local.scratchdir</name>
+     <value>/tmp/hive</value>
     </property>
     <property>
-    <name>hive.downloaded.resources.dir</name>
-    <value>/tmp/hive/${hive.session.id}\_resources</value>
+     <name>hive.downloaded.resources.dir</name>
+     <value>/tmp/hive/${hive.session.id}\_resources</value>
     </property>
     <property>
-    <name>hive.querylog.location</name>
-    <value>/tmp/hive</value>
+     <name>hive.querylog.location</name>
+     <value>/tmp/hive</value>
     </property>
     <property>
-    <name>hive.server2.logging.operation.log.location</name>
-    <value>/tmp/hive/tmp/operation\_logs</value>
+     <name>hive.server2.logging.operation.log.location</name>
+     <value>/tmp/hive/tmp/operation\_logs</value>
     </property>
 ```
 * 创建工作流
@@ -187,24 +184,24 @@ hive工作流还需要一个hive-site.xml配置文件，这个配置文件可以
 ![](//mc.qcloudimg.com/static/img/4a57aaba3f6a3d95f4cad15e45b5d5a8/image.png)
 单击 “create”  
 ![](//mc.qcloudimg.com/static/img/120400512a20320938933925311f8779/image.png)
-进入当前 workflow 的 hdfs 空间
+进入当前 workflow 的 hdfs 空间。
 ![](//mc.qcloudimg.com/static/img/4012fa21197ad31b610eec79ca321ea3/image.png)
-上传 hive script 文件和 hive-site.xml,并在 lib 目录中加入 mysql 的 jdbc jar 包
+上传 hive script 文件和 hive-site.xml,并在 lib 目录中加入 mysql 的 jdbc jar 包。
 ![](//mc.qcloudimg.com/static/img/878f20da0df4fd426c8173caffd9fd64/image.png)
-在工作流编辑页面中拖一个 hive
+在工作流编辑页面中拖一个 hive。
 ![](//mc.qcloudimg.com/static/img/d1a5306cf83a299be4c9937b116a93a9/image.png)
-选择刚刚上传的 hive scipt 文件和 hive-site.xml 文件
+选择刚刚上传的 hive scipt 文件和 hive-site.xml 文件。
 ![](//mc.qcloudimg.com/static/img/b48bf7c47ee1f3553ea77844864f91fc/image.png)
 * 创建定时任务
-hue 的定时任务是 coordinator, 类似于 Linux 的 crontab，支持的调度粒度可以到分钟级别。选择 “Workflows->Editors->Coordinator->Create”，创建 coordinator
+hue 的定时任务是 coordinator, 类似于 Linux 的 crontab，支持的调度粒度可以到分钟级别。选择 “Workflows->Editors->Coordinator->Create”，创建 coordinator。
 ![](//mc.qcloudimg.com/static/img/eea286d55aa9d7a7fd70f04174410525/image.png)
-单击 “choose a workflow...”， 选择一个创建好的流程
+单击 “choose a workflow...”， 选择一个创建好的流程。
 ![](//mc.qcloudimg.com/static/img/c7cdefa232325bcc29599819fbd377a0/image.png)
-选择需要调度的粒度和时间间隔，可以多选，用于支持多个时间间隔
+选择需要调度的粒度和时间间隔，可以多选，用于支持多个时间间隔。
 ![](//mc.qcloudimg.com/static/img/90d903f7e9fcce240cd279da337d6e29/image.png)
-* 执行定时任务
-选择 coordinator 的执行时间区间，然后单击【submit】
+* 执行定时任务。
+选择 coordinator 的执行时间区间，然后单击【submit】。
 ![](//mc.qcloudimg.com/static/img/0888e25e6a1ed10843c4b6d1d4e62484/image.png)
-在 coordinator 的监控页面可以看到 coordinator 的调度情况
+在 coordinator 的监控页面可以看到 coordinator 的调度情况。
 ![](//mc.qcloudimg.com/static/img/b26649ef261e536f0ebb797a6e86d73a/image.png)
 

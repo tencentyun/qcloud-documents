@@ -10,7 +10,7 @@
 |参数名称|必选|类型|描述|
 |-------|----|---|----|----|
 | eipId | 是 | String | EIP实例ID |
-| vpcId | 是 | Int | IP所属的VPC的ID|
+| vpcId | 是 | Int | IP所属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
 | vpcIp | 是 | String | VPC内IP，可通过[申请内网IP接口](/document/product/386/7337)获得|
 
 

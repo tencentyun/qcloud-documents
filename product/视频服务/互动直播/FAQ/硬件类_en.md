@@ -14,7 +14,7 @@ You can solve this problem by adding a delay of 1s before enabling the microphon
 
 #### How to solve the problem of being unable to adjust the volume to 0?
 Android  
-By simply setting enableSpeaker to false, you can go into a mute mode.
+By simply setting enableSpeaker to false, you can go into mute mode.
 
 iOS  
-At VJ end. the volume of VJ cannot be adjusted to 0; at viewer end, you can go into a mute mode by setting the `Audio Scenario` to `Watch` in audio parameter settings of console Spear engine, or by referring to the usage of the "Mute" button in sample 2.
+At VJ end, the volume of VJ cannot be adjusted to 0; at viewer end, you can go into mute mode by setting the `Audio Scenario` to `Watch` in audio parameter settings of console Spear engine, or by referring to the usage of the Mute button in sample 2.

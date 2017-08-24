@@ -2,14 +2,14 @@ Drupal 是使用 PHP 语言编写的开源内容管理框架（CMF），它由�
 本教程说明如何在腾讯云服务器 CVM 上搭建 Drupal 电子商务网站。使用的软件环境为：centos7.2 | Drupal7.56  | PHP5.4.16。
 ### 登录到云服务器实例
 云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://www.qcloud.com/document/product/213/2936)。
-### 安装 MySQL 服务
-1. 在云服务器实例中使用 `yum` 安装 MySQL 服务。
+### 安装 MariaDB 服务
+1. centos7 以上版本默认支持 MariaDB 数据库，因此我们将使用 MariaDB 数据库。在云服务器实例中使用 `yum` 安装 MariaDB 服务。
 ```
-yum install mysql mysql-server mysql-devel -y
+yum install mariadb-server mariadb -y
 ```
-2. 启动 MySQL 服务。
+2. 启动 MariaDB 服务。
 ```
-service mysqld start
+systemctl start mariadb
 ```
 3. 创建 Drupal 数据库。
 ```
@@ -21,9 +21,9 @@ mysqladmin -u root -p create drupal
 mysql -u root -p
 ```
 ```
-mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON drupal.* TO 'username'@'localhost' IDENTIFIED BY 'password';
-mysql> FLUSH PRIVILEGES;
-mysql> exit
+MariaDB > GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON drupal.* TO 'username'@'localhost' IDENTIFIED BY 'password';
+MariaDB > FLUSH PRIVILEGES;
+MariaDB > exit
 ```
 其中，username 为 Drupal 服务使用的数据库用户名，password 为 Drupal 服务使用的数据库密码。
 

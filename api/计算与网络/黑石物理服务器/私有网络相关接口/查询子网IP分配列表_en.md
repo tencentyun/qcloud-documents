@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (DescribeBmSubnetIps) is used to query BM VPC subnet IP assignment list.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters

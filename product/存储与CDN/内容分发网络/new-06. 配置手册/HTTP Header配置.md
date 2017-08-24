@@ -6,7 +6,7 @@ HTTP 的消息通常包括以下两种：
 ![](https://mc.qcloudimg.com/static/img/3e5f42e1cb78ef015967dda5f790f98c/http.png)
 其中 HTTP 头部分为四种类型：通用头、请求头、响应头、实体头。每一个头部由域名、冒号（:）、域值组成，如： ```Connection:keep-alive```。
 
-使用腾讯云提供的 HTTP header 配置功能，当您的用户请求业务资源时，可以在返回的 **响应消息** 添加您配置的头部，以实现跨域访问等目的。
+使用腾讯云提供的 HTTP header 配置功能，当您的用户请求业务资源时，可以在返回的 **响应消息** 中添加您配置的头部，以实现跨域访问等目的。
 > **注意**：
 > + 当资源在节点未命中时会进行回源，此时源站返回的头部信息会一起返回给用户。当资源在节点命中缓存时，CDN 默认会将缓存的源站的 Access-Control-Allow-Origin、Timing-Allow-Origin、Content-Disposition、Accept-Ranges 头部信息返回给用户，如需缓存所有源站返回头部，可提交工单进行人工配置支持。
 > + 由于 HTTP header 配置是针对域名，因此一旦配置生效，用户对该域名下任意一个资源的响应消息中均会加入所配置头部。
@@ -50,8 +50,8 @@ Access-Control-Allow-Methods 用于设置跨域允许的 HTTP 请求方法，可
 
 #### Access-Control-Max-Age
 Access-Control-Max-Age 用于指定预请求的有效时间。
-非简单的跨域请求，在正式通信之前，需要增加一次 HTTP 查询请求，称为“预请求”，用来查明这个跨域请求是不是安全可以接受的，如下情况会被当成预请求：
-+ 以GET、HEAD 或者 POST 以外的方式发起，或者使用 POST，但是请求数据类型为 application/x-www-form-urlencoded、 multipart/form-data、text/plain 以外的数据类型，如 application/xml 或者 text/xml。
+非简单的跨域请求，在正式通信之前，需要增加一次 HTTP 查询请求，称为“预请求”，用来查明这个跨域请求是不是安全可以接受的，如下请求会被视为非简单的跨域请求：
++ 以 GET、HEAD 或者 POST 以外的方式发起，或者使用 POST，但是请求数据类型为 application/x-www-form-urlencoded、 multipart/form-data、text/plain 以外的数据类型，如 application/xml 或者 text/xml。
 + 使用自定义请求头。
 
 Access-Control-Max-Age 的单位为秒，设置示例如下：
