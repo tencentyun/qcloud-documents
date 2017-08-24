@@ -110,6 +110,10 @@ mkdir /usr/hadoop-2.7.4/hdf/name
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_144 
 ```
+若 SSH 端口不是默认的 22，可在`hadoop-env.sh`文件里修改：
+```
+export HADOOP_SSH_OPTS="-p 1234"
+```
 #### 2. 修改 `yarn-env.sh`
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_144
@@ -209,14 +213,20 @@ scp -r /usr/ hadoop-2.7.4 slave2:/usr
 scp -r /usr/ hadoop-2.7.4 slave3:/usr
 ```
 #### 9. 各个主机配置 Hadoop 环境变量
+打开配置文件：
 ```
 vi /etc/profile
+```
 编辑内容：
-export HADOOP_HOME=/usr/ hadoop-2.7.4
+```
+export HADOOP_HOME=/usr/hadoop-2.7.4
 export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
 export HADOOP_LOG_DIR=/usr/hadoop-2.7.4/logs
 export YARN_LOG_DIR=$HADOOP_LOG_DIR
-source /etc/profile  //使配置文件生效
+```
+使配置文件生效：
+```
+source /etc/profile
 ```
 ### 启动 Hadoop
 #### 1. 格式化 namenode
