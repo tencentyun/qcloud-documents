@@ -5,7 +5,7 @@ Get Object ACL 接口用来获取某个 Bucket 下的某个 Object 的访问权�
 语法示例：
 ```
 GET /ObjectName?acl HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -114,7 +114,7 @@ Container 节点 Grantee 的内容：
 ### 请求
 ```
 GET /ObjectName?acl HTTP/1.1
-Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2016 09:45:46 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
 ```

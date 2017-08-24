@@ -11,7 +11,7 @@ Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header：
 语法示例：
 ```
 PUT /?acl HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Type: application/xml
 Content-MD5: MD5
@@ -121,7 +121,7 @@ Container 节点 Grantee 的内容：
 ### 请求
 ```
 PUT /?acl HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT 
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484724784;32557620784&q-key-time=1484724784;32557620784&q-header-list=host&q-url-param-list=acl&q-signature=785d9075b8154119e6a075713c1b9e56ff0bddfc
 Content-Length: 229

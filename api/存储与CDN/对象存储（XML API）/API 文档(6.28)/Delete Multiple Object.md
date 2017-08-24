@@ -8,7 +8,7 @@ Delete Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object
 语法示例：
 ```
 POST /?delete HTTP/1.1
-Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
+Host: <Bucketname>-<AppID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
@@ -130,7 +130,7 @@ Container 节点 Error 的内容：
 ### 请求
 ```
 POST /coss3/?delete HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed, 23 Oct 2016 21:32:00 GMT
 Content-MD5: 35385efb5ba5134bffb192bfa17c3d5e
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487065662;32466649662&q-key-time=1487065662;32559961662&q-header-list=host&q-url-param-list=delete&q-signature=286ef48c81f1652c37c635f0fb7db7a2150aa5ba

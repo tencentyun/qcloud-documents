@@ -11,7 +11,7 @@ Object 属性可以在 Head Object 操作中查询到，发起 Head Object 请�
 语法示例：
 ```
 POST /ObjectName?append&position=*position* HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Content-Length: size
 Content-Type: ContentType
 Date: GMT Date
@@ -99,7 +99,7 @@ POST /ObjectName?append&position=*position* HTTP/1.1
 ### 请求
 ```
 POST /coss3/app?append&position=0 HTTP/1.1
-Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
 Date: Tue, 16 Jan 2016 21:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484208848;32557104848&q-key-time=1484208848;32557104848&q-header-list=host&q-url-param-list=append;position&q-signature=855fe6b833fadf20570f7f650e2120e17ce8a2fe
 Content-Length: 4096
