@@ -479,6 +479,13 @@ public String getFaceUrl()
  * @return 自己在这个群内的简单群内资料，详见{@see TIMGroupBasicSelfInfo}
  */
 public TIMGroupBasicSelfInfo getSelfInfo()
+
+/**
+ * 获取当前群组是否设置了全员禁言
+ * @return true - 设置了全员禁言
+ * @since 3.1.1
+ */
+public boolean isSilenceAll()
 ```
 
 **示例：**
@@ -779,6 +786,13 @@ public Map<String, byte[]> getCustom()
  * @return  在线群成员数
  */
 public long getOnlineMemberNum() 
+
+/**
+ * 获取此群组是否被设置了全员禁言
+ * @return true - 群组被设置了全员禁言
+ * @since 3.1.1
+ */
+public boolean isSilenceAll()
 ```
 
 **示例：**
@@ -979,6 +993,13 @@ public ModifyGroupInfoParam setSearchable(boolean searchable)
  * @param customInfos 群组自定义字段字典
  */
 public ModifyGroupInfoParam setCustomInfo(@NonNull Map<String, byte[]> customInfos) 
+
+/**
+ * 设置群组全员禁言
+ * @param silenceAll true - 设置全员禁言， false - 解除全员禁言
+ * @since 3.1.1
+ */
+public ModifyGroupInfoParam setSilenceAll(boolean silenceAll)
 ```
 
 ### 5.1 修改群名
@@ -1136,6 +1157,32 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	}
 });
 ```
+
+### 5.7 全员禁言
+
+**权限说明：**
+
+只有群主和管理员才有权限进行全员禁言的操作；
+所有群组类型都支持全员禁言的操作；
+
+**示例：**
+```
+TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(groupId);
+param.setSilenceAll(true);
+TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+	@Override
+	public void onError(int code, String desc) {
+		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
+	}
+
+	@Override
+	public void onSuccess() {
+		Log.e(tag, "modify group info succ");
+	}
+});
+
+```
+
 
 ## 6 修改群成员资料
 
