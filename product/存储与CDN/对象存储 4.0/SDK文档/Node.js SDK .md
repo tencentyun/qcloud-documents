@@ -30,10 +30,10 @@ var parmas = {
   AppId: 'STRING_VALUE',                                /* 必须 */
   SecretId: 'STRING_VALUE',                             /* 必须 */
   SecretKey: 'STRING_VALUE',                            /* 必须 */
-  FileParallelLimit: 'NUMBER_VALUE',                    /* 非必须 */
-  ChunkParallelLimit: 'NUMBER_VALUE',                   /* 非必须 */
-  ChunkSize: 'NUMBER_VALUE',                            /* 非必须 */
-  ProgressInterval: 'NUMBER_VALUE',                     /* 非必须 */
+  FileParallelLimit: 'NUMBER',                          /* 非必须 */
+  ChunkParallelLimit: 'NUMBER',                         /* 非必须 */
+  ChunkSize: 'NUMBER',                                  /* 非必须 */
+  ProgressInterval: 'NUMBER',                           /* 非必须 */
   Domain: 'STRING_VALUE',                               /* 非必须 */
 };
 
@@ -1762,7 +1762,7 @@ var params = {
   FilePath: 'STRING_VALUE',                       /* 必须 */
   SliceSize: 'STRING_VALUE',                      /* 非必须 */
   StorageClass: 'STRING_VALUE',                   /* 非必须 */
-  AsyncLimit: 'NUMBER_VALUE',                     /* 非必须 */
+  AsyncLimit: 'NUMBER',                           /* 非必须 */
   TaskReady: function(taskId) {                   /* 非必须 */
     console.log(taskId);
   },
