@@ -1,9 +1,10 @@
 ### 步骤一：注册腾讯云账号
 在申请弹性 MapReduce 集群之前，您需要一个腾讯云的账号。单击进入 [腾讯云注册页面](https://www.qcloud.com/register)，详细指引请参考 [注册腾讯云](https://www.qcloud.com/document/product/378/9603)。
 ### 步骤二：登录弹性 MapReduce 购买页
-在成功注册账号后，登录 [弹性 MapReduc](https://buy.qcloud.com/emr) 购买页。
+在成功注册账号后，登录 [弹性 MapReduce](https://buy.qcloud.com/emr) 购买页。
 ### 步骤三：创建弹性 MapReduce 集群
 在官网自助购买页面中，仅支持依赖于云主机（CVM）的 EMR 集群创建。如果您需要独享物理机的黑石 EMR 集群，请通过 [提交工单](https://console.qcloud.com/workorder/category/create?level1_id=16&level2_id=200&level1_name=%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1&level2_name=%E5%85%B6%E4%BB%96%E4%BA%91%E6%9C%8D%E5%8A%A1) 的方式联系我们。
+请按照以下指引填写集群创建信息：
 #### 1. 选择计费模式
 **包年包月：**提前预付 N 个月的产品费用，相比按量付费价格更低。
 **按量付费：**按照使用时长付费，需对账户进行实名认证，在开通时需冻结 1 小时的费用，销毁时退还。
@@ -24,4 +25,4 @@ EMR 推荐了一些常用的 Hadoop 软件搭配，您也可以根据自身需�
 #### 9. 创建集群
 完成以上步骤后，单击【开通】，EMR 集群进入创建过程中，在 5~8 分钟后您即可在 EMR 控制台中找到刚刚创建的集群（集群生产需要一定的时间）。
 >**注意：**
->您可以在 CVM 控制台中看到各节点的实例信息，为保证 EMR 集群的正常运行，请不要在 CVM 控制台中更改这些实例的配置信息。
+>您可以在 [CVM 控制台](https://console.qcloud.com/vpc/vpc?rid=1)中看到各节点的实例信息，为保证 EMR 集群的正常运行，请不要在 CVM 控制台中更改这些实例的配置信息。
