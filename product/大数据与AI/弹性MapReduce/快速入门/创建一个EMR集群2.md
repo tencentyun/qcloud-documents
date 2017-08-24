@@ -1,5 +1,5 @@
 ### 步骤一：注册腾讯云账号
-在申请弹性 MapReduce 集群之前，您需要一个腾讯云的账号。点击进入 [腾讯云注册页面](https://www.qcloud.com/register)，详细指引请参考 [注册腾讯云](https://www.qcloud.com/document/product/378/9603)。
+在申请弹性 MapReduce 集群之前，您需要一个腾讯云的账号。单击进入 [腾讯云注册页面](https://www.qcloud.com/register)，详细指引请参考 [注册腾讯云](https://www.qcloud.com/document/product/378/9603)。
 ### 步骤二：登录弹性 MapReduce 购买页
 在成功注册账号后，登录 [弹性 MapReduc](https://buy.qcloud.com/emr) 购买页。
 ### 步骤三：创建弹性 MapReduce 集群
