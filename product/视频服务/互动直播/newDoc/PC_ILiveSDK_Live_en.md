@@ -53,7 +53,7 @@ if (nRet != NO_ERR)
 ```
 
 ## Login
-You can use messaging, interactive video and other features only after login. User ID and signature are required for login. Signature is provided by [Tencent Login Service]https://www.qcloud.com/document/product/269/1507).
+You can use messaging, interactive video and other features only after login. User ID and signature are required for login. Signature is provided by [Tencent Login Service](https://www.qcloud.com/document/product/269/1507).
 
 | API | Description |
 |---|---|

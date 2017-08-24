@@ -1,4 +1,4 @@
-## iLiveSDK Video Rotation and Scaling Solution
+## iLiveSDK Video Rotation and Scaling Solutions
 
 ### Problem
 

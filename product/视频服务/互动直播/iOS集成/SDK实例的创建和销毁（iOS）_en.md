@@ -104,7 +104,7 @@ Then, you can call it in the corresponding ViewController.
 Launching context requires two steps:
 
 #### (1) Log in to ImSDK
-The simulation　parameters of LoginParam entered below are the same as above
+The simulation parameters of LoginParam entered below are the same as above
 
 ```
     [[TIMManager sharedInstance]setEnv:0];//Set to the formal environment

@@ -82,7 +82,7 @@ We assume that the SDK is stored under D:\QAVSDK, and the new VS2010 project is 
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/WindowsC++kehuduanjicheng-2.png)
 
-**1. Create VS2010 project**
+**a) Create VS2010 project**
 
 Open VS2010 and create an MFC Application project named "QAVSDKDemo", which is placed under the D:\QAVSDKDemoProj\ directory, as shown below.
 
@@ -110,7 +110,7 @@ as shown below.
 
 
 
-**3. Write code**
+**c) Write code**
 
 To use the APIs provided by the SDK, you need to reference SDK header files and namespaces in the code, as shown below:
 

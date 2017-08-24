@@ -1,5 +1,5 @@
 ## Handling LVB Interruptions
-An LVB could be interrupted by many events. Following are some common interruptive events and their handling for developers' reference:
+An LVB could be interrupted by many events. Following are some common interruptive events and their handling methods for developers' reference:
 >* Incoming call
 >* Audio interruption
 >* Switching to background

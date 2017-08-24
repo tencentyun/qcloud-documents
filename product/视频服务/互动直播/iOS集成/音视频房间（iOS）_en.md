@@ -81,7 +81,7 @@ Asynchronous callback indicating whether you have successfully exited the room:
 ```
 
 ## Room Listening Callback 
-Apart from callback for joining and exiting rooms, the room delegation protocol QAVRoomDelegate also defines 3 notification callback APIs:
+Apart from callback for joining and exiting rooms, the room delegation protocol QAVRoomDelegate also defines three notification callback APIs:
 
 ### 1. Room member status update notification
 

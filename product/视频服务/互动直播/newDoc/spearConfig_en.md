@@ -2,10 +2,10 @@
 ### **Before commencing development, you need to configure stream control parameters in Tencent Cloud ILVB in order to acquire better video quality.**
 
 # Entrance
-Log in to Tencent Cloud and go to the configuration page from "Cloud Product" -> "ILVB".
+Log in to Tencent Cloud and go to the configuration page from **Cloud Product** -> **ILVB**.
 ![](https://mc.qcloudimg.com/static/img/243044a017149d82e7cc10a1a81a7c80/image001.png)
 
-You can see the corresponding configurations of your created APPIDs in the "ILVB" configuration page. Hover your cursor on "More" and select "SPEAR Engine Configuration".
+You can see the corresponding configurations of your created APPIDs in the **ILVB** configuration page. Hover your cursor on **More** and select **SPEAR Engine Configuration**.
 
 ![](https://mc.qcloudimg.com/static/img/864d6de4bf6a052e3c3fb420be59713b/image002.png)
 
@@ -77,8 +77,8 @@ Definition	| Bitrate	| Frame Rate
 
 ![](https://mc.qcloudimg.com/static/img/28a7f98d8d139042e5c9372e998333d3/image020.png)
 
-* Configuration Mode: You don't need to configure the other parameters in "Default" mode, while you can configure them in "Custom" mode.
-* Audio Scenario: The "Broadcast" mode can be used to capture, encode and send audios, which is suitable for VJs. The "View" mode does not enable audio device or send audio data, which is suitable for viewers.
+* Configuration Mode: You don't need to configure the other parameters in "Default" mode, while you can configure them in **Custom** mode.
+* Audio Scenario: The **Broadcast** mode can be used to capture, encode and send audios, which is suitable for VJs. The **View** mode does not enable audio device or send audio data, which is suitable for viewers.
 * Encoding Bitrate: Used to configure audio bitrate. Value range is 0-64.
 * Anti-Packet Loss Redundancy: Increase redundancy by means such as FEC, to compensate for lost packet. It is recommended to disable this option in ILVB scenarios and enable it in instant messaging scenarios.
 * aec: Acoustic echo cancellation. It is recommended to disable this option in ILVB scenarios without joint broadcasting, and enable this option when joint broadcasting is expected, and for instant messaging scenarios.
