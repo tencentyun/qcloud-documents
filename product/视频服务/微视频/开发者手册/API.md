@@ -720,7 +720,7 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 - SDK： https://github.com/QCloudCDN/CDN_API_SDK/tree/master/Qcloud_CDN_API
 - secretKey和secretId：https://console.qcloud.com/capi
 
-###4.1  视频转码结果查询接口(GetCtsInfo)
+### 4.1	视频转码结果查询接口(GetCtsInfo)
 
 ### 功能描述
 
