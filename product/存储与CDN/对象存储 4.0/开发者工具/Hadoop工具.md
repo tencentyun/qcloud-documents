@@ -49,7 +49,7 @@ for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
 done
 ```
 将获取的 cos_api-4.2.jar 和 hadoop-cos-2.7.2.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下，同时将本地 Maven 仓库下的 `/org/json/json/20140107`目录下的 json-20140107.jar 和 `/org/apache/httpcomponents/httpmime/4.2.5`目录下的 httpmime-4.2.5.jar 拷贝到该目录。
-一般本地 Maven 仓库的位置默认在 `${user.home}/.m2/repository`目录下，由 Maven 的配置文件${MAVEN_HOME}/conf/settings.xml 里的 localRepository 变量控制。
+一般本地 Maven 仓库的位置默认在 `${user.home}/.m2/repository`目录下，由 Maven 的配置文件 ${MAVEN_HOME}/conf/settings.xml 里的 localRepository 变量控制。
 #### 修改配置文件使用插件
 修改 $HADOOP_HOME/etc/hadoop/core-site.xml，增加 COS 相关用户和实现类信息，例如：
 ```
@@ -118,6 +118,7 @@ drwxrwxrwx   - example example          0 1970-01-01 08:00 cosn://example/xx1
 #### 运行 MapReduce 自带的 wordcount
 > <font color="#0000cc">**注意：** </font>
 以下命令中 hadoop-mapreduce-examples-2.7.2.jar 是以 2.7.2 版本为例，如版本不同，请修改成对应的版本号。
+
 ```
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordcount cosn://example/mr/input cosn://example/mr/output3
 ```
