@@ -48,8 +48,8 @@ for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
   fi
 done
 ```
-将获取的 cos_api-4.2.jar 和 hadoop-cos-2.7.2.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下，同时将本地 `Maven/maven-Repository/org/json/json/20140107`目录下的 json-20140107.jar 和 `Maven/maven-Repository/org/apache/httpcomponents/httpmime/4.2.5`目录下的 httpmime-4.2.5.jar 拷贝到该目录。
-
+将获取的 cos_api-4.2.jar 和 hadoop-cos-2.7.2.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下，同时将本地 Maven 仓库下的 `/org/json/json/20140107`目录下的 json-20140107.jar 和 `/org/apache/httpcomponents/httpmime/4.2.5`目录下的 httpmime-4.2.5.jar 拷贝到该目录。
+一般本地 Maven 仓库的位置默认在 `${user.home}/.m2/repository`目录下，由 Maven 的配置文件${MAVEN_HOME}/conf/settings.xml 里的 localRepository 变量控制。
 #### 修改配置文件使用插件
 修改 $HADOOP_HOME/etc/hadoop/core-site.xml，增加 COS 相关用户和实现类信息，例如：
 ```
@@ -103,24 +103,24 @@ done
 
 ### 使用软件（以 Linux 为例）
 #### 使用 hadoop fs 常用命令
+命令格式为：`hadoop fs- -ls cosn://Object 路径`，下例中以名称为 example 的 Bucket 为例，可在其后面加上具体路径。
 ```
-[rabbitliu@VM_83_1_centos bin]$ hadoop fs -ls  cosn://rabbitliu/
+hadoop fs -ls  cosn://example/
 Found 7 items
--rw-rw-rw-   1 rabbitliu rabbitliu       3669 2016-10-25 21:23 cosn://rabbitliu/b.txt
-drwxrwxrwx   - rabbitliu rabbitliu          0 1970-01-01 08:00 cosn://rabbitliu/dir1
-drwxrwxrwx   - rabbitliu rabbitliu          0 1970-01-01 08:00 cosn://rabbitliu/mr
--rw-rw-rw-   1 rabbitliu rabbitliu      16952 2016-10-25 21:37 cosn://rabbitliu/qcloud_sign.proto
--rw-rw-rw-   1 rabbitliu rabbitliu       2048 2016-10-25 21:48 cosn://rabbitliu/rabbit_test2K.txt
--rw-rw-rw-   1 rabbitliu rabbitliu   52428800 2016-10-27 16:40 cosn://rabbitliu/rabbit_test50MB.txt
-drwxrwxrwx   - rabbitliu rabbitliu          0 1970-01-01 08:00 cosn://rabbitliu/xx1
-
+-rw-rw-rw-   1 example example       3669 2016-10-25 21:23 cosn://example/b.txt
+drwxrwxrwx   - example example          0 1970-01-01 08:00 cosn://example/dir1
+drwxrwxrwx   - example example         0 1970-01-01 08:00 cosn://example/mr
+-rw-rw-rw-   1 example example      16952 2016-10-25 21:37 cosn://example/qcloud_sign.proto
+-rw-rw-rw-   1 example example       2048 2016-10-25 21:48 cosn://example/test2K.txt
+-rw-rw-rw-   1 example example   52428800 2016-10-27 16:40 cosn://example/test50MB.txt
+drwxrwxrwx   - example example          0 1970-01-01 08:00 cosn://example/xx1
 ```
-
 #### 运行 MapReduce 自带的 wordcount
+> <font color="#0000cc">**注意：** </font>
+以下命令中 hadoop-mapreduce-examples-2.7.2.jar 是以 2.7.2 版本为例，如版本不同，请修改成对应的版本号。
 ```
-bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordcount cosn://rabbitliu/mr/input cosn://rabbitliu/mr/output3
+bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordcount cosn://example/mr/input cosn://example/mr/output3
 ```
-
 执行成功会返回统计信息，示例如下：
 ```
 File System Counters
