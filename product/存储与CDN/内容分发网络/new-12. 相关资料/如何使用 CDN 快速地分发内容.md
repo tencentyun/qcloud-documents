@@ -71,7 +71,7 @@
 6. 开启静态网站功能，单击【保存】。
 ![](https://mc.qcloudimg.com/static/img/cc3a70001267a80581c162ecb83f2d96/static_site.png)
 7. 通过浏览器访问您的内容，在浏览器地址栏输入 ```xxxxxx/cdntest.html``` 进行访问，请将“xxxxxx”替换成您的 **域名**。浏览器将显示下图展示的页面。如果访问失败，请确认您是否完成了前面的所有操作。
-![](https://mc.qcloudimg.com/static/img/5999b90864b87484cc609e9b0f389489/test_ok.png)
+![](https://mc.qcloudimg.com/static/img/3b1dc8791ca7540f1f3e119f0f31e741/test_ok.png)
 
 ## 五、关闭 CDN
 您可以在 CDN 控制台中关闭域名加速服务。若您决定不再使用某些内容，最好关闭他们对应的 CDN 服务，以免产生不必要的消耗。关闭本教程中对应的 CDN 服务后，用户将不能再通过您的域名访问您 COS 源中的内容。
