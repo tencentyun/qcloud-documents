@@ -720,7 +720,7 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 - SDK： https://github.com/QCloudCDN/CDN_API_SDK/tree/master/Qcloud_CDN_API
 - secretKey和secretId：https://console.qcloud.com/capi
 
-###4.1  视频转码结果查询接口(GetCtsInfo)
+### 4.1	视频转码结果查询接口(GetCtsInfo)
 
 ### 功能描述
 
@@ -1568,8 +1568,6 @@ https://cdn.api.qcloud.com/v2/index.php?Action=GetCtsaudioInfo&SecretId=AKIDxUCs
 | vid  | String | 音频唯一ID |
 
 ### 请求示例
-
-json
 
 ```
 https://cdn.api.qcloud.com/v2/index.php?Action=AddCtsAudioTask&SecretId=1&Nonce=47825&Timestamp=1503372336&Region=sh&Uin=2418826573&AppId=1253125191&url=http%3A%2F%2Fonlinemusic-1253125191.cosgz.myqcloud.com%2F20170717%2FMaid.mp3&bucketName=onlinemusic&bucketRegion=gz&Signature=LXe8bGz%2BSULUuCo1XF8PjzxT1fI%3D

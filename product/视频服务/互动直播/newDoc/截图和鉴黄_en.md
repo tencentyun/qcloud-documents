@@ -13,20 +13,20 @@ This service calls the Tencent Cloud Image service to detect porn content from s
 
 ![](https://mc.qcloudimg.com/static/img/5f583de77788f98af47b60a9553c14b5/1.png)
 
-From the ILVB console, find the sdkappid for which you want to enable screenshot porn detection service and click "Application Configuration" to go to "Porn Detection Configuration" page.<br/>
-The service is disabled by default. Click "Edit" to see the enable switch. When the service is enabled, the system automatically creates a pair of keys (secretId and secretKey) used for generating signature.
+From the ILVB console, find the sdkappid for which you want to enable screenshot porn detection service and click **Application Configuration** to go to **Porn Detection Configuration** page.<br/>
+The service is disabled by default. Click **Edit** to see the enable switch. When the service is enabled, the system automatically creates a pair of keys (secretId and secretKey) used for generating signature.
 
 ##### 1.1 Enable Screenshot Feature
 
 ![](https://mc.qcloudimg.com/static/img/b70f58eba309927a1c27e823f53e8bcc/2.png)
 
-By default, a user must provide screenshot callback address when enabling screenshot feature only. For more information on how to use screenshot callback, please see section 2.1. Default screenshot capture frequency is 10 seconds. Four options will because available in the future (5s/10s/30s/60s). After you have entered the information, check the "I agree to the 'Tencent Cloud Terms of Service'" and click "OK" to enable screenshot feature.
+By default, a user must provide screenshot callback address when enabling screenshot feature only. For more information on how to use screenshot callback, please see section 2.1. Default screenshot capture frequency is 10 seconds. Four options will because available in the future (5s/10s/30s/60s). After you have entered the information, check the **I agree to the 'Tencent Cloud Terms of Service'** and click **OK** to enable screenshot feature.
 
 ##### 1.2 Enable Screenshot and Porn Detection
 
 By default, a user must provide porn detection callback address when enabling porn detection feature. For more information on how to use porn detection callback, please see section 3.1.<br/>
 The user can determine whether screenshot callback and operation callback (used to ban rooms) are required. You can leave the corresponding address empty if it is not needed.<br/>
-After you have entered the information, check the "I agree to the 'Tencent Cloud Terms of Service'" and click "OK" to enable screenshot and porn detection feature.
+After you have entered the information, check the **I agree to the 'Tencent Cloud Terms of Service'** and click **OK** to enable screenshot and porn detection feature.
 
 #### 2. Acquire Screenshots
 Currently, screenshots can only be acquired via screenshot callback.
@@ -187,11 +187,11 @@ Big screen monitor feature is enabled by default when user enables porn detectio
 
 ##### 4.1 View Images
 
-Select "Image View" as viewing method.
+Select **Image View** as viewing method.
 
 ##### 4.2 View Videos
 
-Select "Video View" as viewing method.
+Select **Video View** as viewing method.
 
 #### 5. Price
 

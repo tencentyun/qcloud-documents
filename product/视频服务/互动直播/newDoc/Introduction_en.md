@@ -3,7 +3,7 @@ ILVB (Interactive Live Video Broadcasting) is the live video broadcasting incorp
 Ordinary LVB is like a television station transmitting program signals to the audience before the TV set, <br/>
 while ILVB is like the Spring Festival Gala stage, where performers and audience can interact with each other  and the programmes are recorded and broadcast live to audience for watching.<br/>
 An ILVB room supports playback of up to 8 audio and video streams in parallel, with a concurrency of a maximum of 100 million people. This makes ILVB very suitable for such applications as large live show, social video, online education, remote consultation and multi-camera online media rebroadcasting.
-! [Comparison between LVB and ILVB](https://mccdn.qcloud.com/static/img/684a6a66a62cb830c9cfb29848987210/image.png)
+![直播和互动直播的比较](https://mccdn.qcloud.com/static/img/684a6a66a62cb830c9cfb29848987210/image.png)
 ### Capabilities of ILVB
 | Name | Description | Typical Scenarios |
 | ------------- |:-------------:| :-----:|

@@ -20,6 +20,7 @@
 - Several Crash issues have been fixed.
 
 **4. API Changes**
+
 (1) QAVAudioCtrl
 - Added pauseAudio method which is used to stop the audio engine.
 - Added resumeAudio method which is used to restart the audio engine.
@@ -39,21 +40,21 @@
 - Deleted cancelView method which is used to modify the cancelAllView method.
 
 ## API Changes for SDK1.8.0 and 1.7
-(1) QAVAudioCtrl
+1. QAVAudioCtrl
 	- Added audioDataDispose method which is used for audio data preprocessing callback;
 	- Added enableHighQuality method which is used to enhance the call quality of broadcast mode in the VJ scenario.
-(2) QAVContext
+2. QAVContext
  - Added getVersion method which is used to acquire the SDK version information.
-(3) QAVRoomDelegate
+3. QAVRoomDelegate
  - Added OnPrivilegeDiffNotify method which is used to show the exception notification caused by the room member who used the certain call capacity without relavant permission;
  - Added OnSemiAutoRecvCameraVideo method which is used to automatically receive camera video event notifications.
-(4) QAVRoomParam
+4. QAVRoomParam
  - Added videoRecvMode parameter which is used to control video receive mode.
-(5) QAVMultiRoom
+5. QAVMultiRoom
  - Added ChangeAVControlRole method which is used to switch the user roles without re-joining the room.
-(6) QAVVideoCtrl
+6. QAVVideoCtrl
  - Added isEnableBeauty method which is used to query (externally) whether Beauty Filter is supported for the model;
  - Added OnLocalVideoPreProcess method which is used for local view preprocessing video callback.
-(7) QAVEndpoint 
+7. QAVEndpoint 
  - Added lastAudioStampSend attribute which is used to acquire the uplink time stamp of current audio;
  - Added lastAudioStampRecv attribute which is used to acquire the downlink time stamp of current audio.                       

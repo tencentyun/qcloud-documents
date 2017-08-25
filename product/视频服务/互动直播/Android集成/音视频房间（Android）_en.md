@@ -24,7 +24,9 @@ The enumerated values for all room parameters are listed below:
  
 ### 2. Exit the Room 
 (1) The exitRoom() method internally and asynchronously executes process for exiting a room. You can only create new room once the asynchronous room exit process is completed.
+
 (2) The result of the asynchronous process is returned by onExitRoomComplete(). This method is defined in roomDelegate, which is passed when calling the enterRoom() method.
+
 (3) The room on the server is not terminated immediately after a user exits it. It is terminated by the server only after all the members exit it. Currently, the SDK does not provide method for terminating server rooms explicitly.
 
 **API Description:**
@@ -58,6 +60,7 @@ First, use the room attribute of the AVContext instance to acquire room and forc
 ## Member Permissions
 We already explained about room member permissions. Apart from managing permissions by configuring authBit or authBuffer in the EnterRoomParam for joining rooms, you can also modify permissions for members in the room dynamically. All permission definitions are located in QAVCommon.h.
 To modify an individual's permissions, follow the steps below:
+
 (1) Call the ChangeAuthority() method to modify permissions for room members. Pass plaintext permission bit for the first parameter, pass ciphertext permission bit for the second parameter. Permissions are determined by the permission bit you entered (the ciphertext prevails if you enter both). Plaintext permission bit types are explained in detail in 2.1. Ciphertext permission bit strings are provided by Tencent Cloud.
 (2) The result of permission modification operations is returned through callback ChangeAuthorityCallback.
 

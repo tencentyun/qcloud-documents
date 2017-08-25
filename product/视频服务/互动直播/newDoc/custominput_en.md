@@ -55,7 +55,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 #### iOS
 
-**Audio pass-through** is mainly used to reprocess data captured by microphone in an LVB. Usually it's used to mix background sound in a live room. Audio data passed-through can only be of specific formats, and the default one is QAVAudioFrameDesc = {48000, 2, 16}. It usually is used in the following two ways:<br>
+**Audio pass-through** is mainly used to reprocess data captured by microphone in an LVB. Usually it's used to mix background sound in a live room. Audio data passed-through can only be of specific formats, and the default one is QAVAudioFrameDesc = {48000, 2, 16}. It is  usually used in the following two ways:<br>
 1. Microphone pass-through: both the broadcasting side (the side capable of inputting upstream audio data) and the others receive the audio stream. Following code illustrates how to setup microphone pass-through:
 
 ```
@@ -320,12 +320,12 @@ Customizing video capture is mainly used to pre-process raw data, such as when y
 
 **Note: Dynamic effects are implemented by developers and are not related to this documentation. Besides dynamic effects, you can pre-process the raw data in any way you want.**
 
-1. Process description
+1 Process description
 Note that in customizing video capture, the capture process is independent of iLiveSDK and is not related to the SDK in any way. During the process, iLiveSDK's role is to pass-through data and render remote data. The process introduced here is: ***Customizing video capture -> Video data is passed to iLiveSDK -> Remote end receives the video frames and starts rendering***
 ![](http://mc.qcloudimg.com/static/img/5311e0e74ef71db124c291be01f8b5da/image.png)
 
 
-2. Preparation for capture
+2 Preparation for capture
 ***After joining the room and before capture starts***
 
 | API | Description |
@@ -343,7 +343,8 @@ Note that in customizing video capture, the capture process is independent of iL
     [videoCtrl enableExternalCapture:YES];
 ```
 
-3. Custom capture
+3 Custom capture
+
 Custom capture uses system level APIs, which are unrelated to iLiveSDK. Here we only briefly introduce relevant system classes and methods.
 
 | System Class or Method | Description |
@@ -353,10 +354,10 @@ Custom capture uses system level APIs, which are unrelated to iLiveSDK. Here we 
 | AVCaptureVideoDataOutput | Video output stream |
 | captureOutput:  didOutputSampleBuffer:  fromConnection: | Callback function for captured video. The captured video data are passed to this interface for you to pre-process. |
 
-4. Processing after Capture 
+4 Processing after Capture 
 Having obtained the raw data (of type `CMSampleBufferRef`) from the system, you can now pre-process them, such as applying whitening, beauty filters, or performing face recognition. The video data after pre-process need to be rendered by the developers and are unrelated to iLiveSDK.
 
-5. iLiveSDK Pass-through
+5 iLiveSDK Pass-through
 
 | API | Description |
 |---|---|
@@ -372,17 +373,17 @@ Having obtained the raw data (of type `CMSampleBufferRef`) from the system, you 
     QAVResult result = [videoCtrl fillExternalCaptureFrame:frame];
 ```
 
-6. Remote Rendering
+6 Remote Rendering
 
 | API | Description |
 |---|---|
-| OnVideoPreview: | Callback for remote video data. It receives remote frame data, and renders them with iLiveSDK's rendering APIs. Developers only need to specify the rendering area. | For more information about rendering, please see [the new version of FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master) |
+| OnVideoPreview: | Callback for remote video data. It receives remote frame data, and renders them with iLiveSDK's rendering APIs. Developers only need to specify the rendering area.  For more information about rendering, please see [the new version of FreeShow](https://github.com/zhaoyang21cn/ILiveSDK_iOS_Demos/tree/master) |
 
 | Parameter Type | Parameter Name | Description |
 |---|---|---|
 | QAVVideoFrame | frameData | A type of AVSDK video frame |
 
-7. Notes
+7 Notes
 > *1 OpenGL and iLiveSDK should not be used together to render custom-captured video data. Otherwise, the App may crash. In other words, there should be two views on the interface: one to render custom-captured video data, and the other to render QAVVideoFrame objects.
 
 > *2 When converting to QAVVideoFrame, color_format attribute should be AVCOLOR_FORMAT_NV12.

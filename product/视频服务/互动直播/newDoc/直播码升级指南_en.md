@@ -17,12 +17,12 @@ In Tencent Cloud console, select `"LVB" -> "LVB Code Access (Recommended)"`. If 
 
 ![](https://mc.qcloudimg.com/static/img/488c132a42470912ec4c49091a041cb9/4.png)<br/>
 
-#### <font color='red'>If it is still channel mode, you must submit a ticket according to the flow chart, and do not change the mode to LVB code mode directly in the console, nor to create a new SDKAppID for the test.</font>
+#### If it is still channel mode, you must submit a ticket according to the flow chart, and do not change the mode to LVB code mode directly in the console, nor to create a new SDKAppID for the test.
 
 ## How to Submit a Ticket to Apply for Compatible LVB Code Mode
 
-1. In the console, select "Submit Ticket" to create a ILVB ticket.
-2. Select "Other Problems" for problem type. Write the following information in "Problem Description":
+1. In the console, select **Submit Ticket** to create a ILVB ticket.
+2. Select **Other Problems** for problem type. Write the following information in **Problem Description**:
 
 * Title: Apply to activate compatible LVB code mode
 * Content 1: Company's appid (not SDKAppID, developers can find it in LVB console or ILVB console)
@@ -34,7 +34,7 @@ In Tencent Cloud console, select `"LVB" -> "LVB Code Access (Recommended)"`. If 
 
 [Select `LVB` tab in Tencent Cloud console](https://console.qcloud.com/live). If the service has not been activated yet, the following page appears:<br/>
 ![](https://mc.qcloudimg.com/static/img/c40ff3b85b3ad9c0cb03170948d93555/image.png)<br/>
-Click "Request for Activation", then go to Tencent Cloud's manual review stage. Upon the approval of Tencent Cloud, the service is activated.
+Click **Request for Activation**, then go to Tencent Cloud's manual review stage. Upon the approval of Tencent Cloud, the service is activated.
 
 2. After the LVB service is activated, select `LVB Code Access` in `Access Management` of `LVB` tab in the console. The following options is shown in the page at the right side:<br/>
 

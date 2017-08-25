@@ -35,6 +35,7 @@ result = avVideoCtrl.enableCamera(FRONT_CAMERA, isEnable, mEnableCameraCompleteC
 ```
 
 iOS
+
 For iOS, switching to background requires disabling the opengl rendering at higher layer. To switch to foreground, VJ is recommended to disable the camera, if it is enabled. The modified sample code is as follows:
 
 ![iOS Sample Code](//mccdn.qcloud.com/static/img/b2401839764de55d9a3f8f5a67a4e49b/image.png)
@@ -73,7 +74,7 @@ The API for Android is at com.tencent.av.sdk.AVVideoCtr
 #### How to deal with the problem that the number of methods for Android exceeds the limit of 65535?
 Please refer to the related articles by clicking [here](http://tech.meituan.com/mt-android-auto-split-dex.html)
 
-#### java signature generation error getlicense code:-1 
+#### Java signature generation error getlicense code:-1 
 sig expired. Please re-generate it. If it expires immediately after its generation, please check if you've entered a short validity period or 0.
 
 #### How to listen at viewer end for the fact that no upstream video data is transmitted from VJ ?
