@@ -27,36 +27,36 @@ dimensions.0.value为实例的uuid
 | endTime            | 否    | Datetime | 结束时间       | 结束时间，默认为当前时间。 endTime不能小于startTime       |
 ### 2.2 指标名称
 
-| 指标名称             | 含义          | 单位   | 统计粒度（period） |
-| ---------------- | ----------- | ---- | ------------ |
-| cache_hit_ratio  | cache命中率    | %    |              |
-| cmdstat_get      | get命令数      | 次/分钟 |              |
-| cmdstat_getbit   | getbit命令数   | 次/分钟 |              |
-| cmdstat_getrange | getrange命令数 | 次/分钟 |              |
-| cmdstat_hget     | hget命令数     | 次/分钟 |              |
-| cmdstat_hgetall  | hgetall命令数  | 次/分钟 |              |
-| cmdstat_hmget    | hmget命令数    | 次/分钟 |              |
-| cmdstat_hmset    | hmset命令数    | 次/分钟 |              |
-| cmdstat_hset     | hset命令数     | 次/分钟 |              |
-| cmdstat_hsetnx   | hsetnx命令数   | 次/分钟 |              |
-| cmdstat_lset     | lset命令数     | 次/分钟 |              |
-| cmdstat_mget     | mget命令数     | 次/分钟 |              |
-| cmdstat_mset     | mset命令数     | 次/分钟 |              |
-| cmdstat_msetnx   | msetnx命令数   | 次/分钟 |              |
-| cmdstat_set      | set命令数      | 次/分钟 |              |
-| cmdstat_setbit   | setbit命令数   | 次/分钟 |              |
-| cmdstat_setex    | setex命令数    | 次/分钟 |              |
-| cmdstat_setnx    | setnx命令数    | 次/分钟 |              |
-| cmdstat_setrange | setrange命令数 | 次/分钟 |              |
-| connections      | 外部链接数       | 个    |              |
-| cpu_us           | 处理请求数       | 微秒   |              |
-| in_flow          | 外部请求包长度     | Mb   |              |
-| keys             | 主key量       | 个    |              |
-| out_flow         | 外部返回包长度     | Mb   |              |
-| stat_get         | 所有get命令数    | 次/分钟 |              |
-| stat_set         | 所有set命令数    | 次/分钟 |              |
-| storage          | 占用空间        | Mb   |              |
-| storage_us       | 占用空间占比      | %    |              |
+| 指标名称             | 含义          | 单位   |
+| ---------------- | ----------- | ---- |
+| cache_hit_ratio  | cache命中率    | %    |
+| cmdstat_get      | get命令数      | 次/分钟 |
+| cmdstat_getbit   | getbit命令数   | 次/分钟 |
+| cmdstat_getrange | getrange命令数 | 次/分钟 |
+| cmdstat_hget     | hget命令数     | 次/分钟 |
+| cmdstat_hgetall  | hgetall命令数  | 次/分钟 |
+| cmdstat_hmget    | hmget命令数    | 次/分钟 |
+| cmdstat_hmset    | hmset命令数    | 次/分钟 |
+| cmdstat_hset     | hset命令数     | 次/分钟 |
+| cmdstat_hsetnx   | hsetnx命令数   | 次/分钟 |
+| cmdstat_lset     | lset命令数     | 次/分钟 |
+| cmdstat_mget     | mget命令数     | 次/分钟 |
+| cmdstat_mset     | mset命令数     | 次/分钟 |
+| cmdstat_msetnx   | msetnx命令数   | 次/分钟 |
+| cmdstat_set      | set命令数      | 次/分钟 |
+| cmdstat_setbit   | setbit命令数   | 次/分钟 |
+| cmdstat_setex    | setex命令数    | 次/分钟 |
+| cmdstat_setnx    | setnx命令数    | 次/分钟 |
+| cmdstat_setrange | setrange命令数 | 次/分钟 |
+| connections      | 外部链接数       | 个    |
+| cpu_us           | 处理请求数       | 微秒   |
+| in_flow          | 外部请求包长度     | Mb   |
+| keys             | 主key量       | 个    |
+| out_flow         | 外部返回包长度     | Mb   |
+| stat_get         | 所有get命令数    | 次/分钟 |
+| stat_set         | 所有set命令数    | 次/分钟 |
+| storage          | 占用空间        | Mb   |
+| storage_us       | 占用空间占比      | %    |
 
 
 ## 3. 输出参数

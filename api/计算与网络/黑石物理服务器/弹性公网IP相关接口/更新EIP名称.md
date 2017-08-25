@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于更改弹性公网EIP的别名。用户通过该接口自定义申请到的EIP的别名，方便管理。
  
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: ModifyEipAlias
 
 
@@ -33,7 +33,7 @@
 输入
 ```
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=ModifyEipAlias
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&eipId=eip-test&eipName=test
 ```

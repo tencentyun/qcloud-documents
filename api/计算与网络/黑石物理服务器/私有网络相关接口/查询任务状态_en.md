@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (QueryBmTaskResult) is used to query the status of task of adding or removing CPM to or from the subnet.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
  
