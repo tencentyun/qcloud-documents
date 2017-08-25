@@ -6,7 +6,7 @@ Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET �
 语法示例：
 ```
 GET /?location HTTP/1.1
-Host: <Bucketname>-<APPID>.<Region>.myqcloud.com
+Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -44,14 +44,14 @@ GET /?location HTTP/1.1
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| LocationConstraint |无| 说明 Bucket 所在区域，枚举值：cn-north，cn-east，sg，cn-southwest，cn-south  | String |
+| LocationConstraint |无| 说明 Bucket 所在地域，枚举值参见 [可用地域](https://www.qcloud.com/document/product/436/6224) 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等 | String |
 
 ## 实际案例
 
 ### 请求
 ```
 GET /?location HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed, 18 Oct 2014 22:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484817522;32557713522&q-key-time=1484817522;32557713522&q-header-list=host&q-url-param-list=location&q-signature=ceb96fc929663dd4d2e6dc0aeb304cdde6761ed0
 ```
@@ -66,6 +66,6 @@ Date: Wed, 18 Oct 2014 22:32:00 GMT
 Server: tencent-cos
 x-cos-request-id: NTg4MDg0NzlfNDYyMDRlXzM0OWFfZjFk
 
-<LocationConstraint>sg</LocationConstraint>
+<LocationConstraint>cos.ap-beijing</LocationConstraint>
 ```
 

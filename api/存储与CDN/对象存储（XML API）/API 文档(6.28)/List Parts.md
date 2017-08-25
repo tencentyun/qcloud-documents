@@ -6,7 +6,7 @@ List Parts 用来查询特定分块上传中的已上传的块，即罗列出指
 语法示例：
 ```
 GET /ObjectName?uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 
@@ -133,7 +133,7 @@ Container 节点 Part 的内容：
 ### 请求
 ```
 GET /coss3/test10M_2?uploadId=14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0&max-parts=1 HTTP/1.1
-Host:burning-1251668577.cn-east.myqcloud.com
+Host:burning-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484643123;1484646723&q-key-time=1484643123;1484646723&q-header-list=host&q-url-param-list=max-parts;uploadId&q-signature=b8b4055724e64c9ad848190a2f7625fd3f9d3e87
 ```

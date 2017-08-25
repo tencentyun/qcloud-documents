@@ -6,7 +6,7 @@ List Multipart Uploads 用来查询正在进行中的分块上传。单次请求
 语法示例：
 ```
 GET /?uploads&delimiter=Delimiter HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
