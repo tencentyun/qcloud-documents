@@ -7,6 +7,7 @@
 ![](//mc.qcloudimg.com/static/img/12e966a39dc5eba5701cb2e310b16ccb/image.jpg)
   - iOS & Android：大幅优化连麦时的底层网络组件的抗抖动能力，并对AEC回音消除组件进行了更好的机型适配，使连麦场景的体验更加流畅和易用。
   - iOS & Android：对美颜模块进行了彻底重构，将原有的磨皮和滤镜进行了大幅的优化和归并，在提升美颜效果的同时进一步降低了GPU使用率，缓解了发热问题。
+  ![](//mc.qcloudimg.com/static/img/aac647073cf0641141900e775e929418/image.png)
   - iOS & Android：对内部音视频引擎进行了模块化重构，用于降低后续的版本的维护成本，进一步提升版本迭代速度。
   
 + **点播相关优化**
@@ -21,6 +22,8 @@
 ![](//mc.qcloudimg.com/static/img/f2820e0ee0c5116b97f120a02203092f/image.png)
 
 + **接口变更**
+  - iOS：TXLivePush 的 setBeautyFilterDepth 接口修改为 setBeautyStyle，并增加了两个参数。
+  - Android：TXLivePusher 的 setBeautyFilter 接口增加了两个参数。
   - Android：TXUGCRecord、TXVideoEditer、TXVideoJoiner、TXUGCPublish 从原来的 <font color='purple'>com.tencent.rtmp</font> 移到了 <font color='purple'>com.tencent.ugc</font> 下。
 
 + **历史版本**
