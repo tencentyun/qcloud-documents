@@ -15,7 +15,6 @@ IPsec VPN 可以在控制台实现全自助配置，您需要完成以下几步�
 ![](//mc.qcloudimg.com/static/img/0cfc46cf11e4d53164219b1c386509a1/1.png)
 
 </div>
-<p style="text-align:center">图1：IPsec VPN  接入私有网络</p>
 您需要完成以下几个步骤：
 #### 第一步：创建 VPN 网关
 1)	登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>。
