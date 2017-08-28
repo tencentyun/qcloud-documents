@@ -7,7 +7,7 @@
 ### 一、绑定自定义域名
 将存储桶绑定到您的自有域名，开启 CDN 加速。操作指引参考 [域名管理--自定义域名](/doc/product/436/6252#开启 CDN 加速)。
 ### 二、配置 HTTPS 访问
-在 CDN 控制台进行 HTTPS 配置，操作指引参考 [HTTPS 配置](/doc/product/228/6295)
+在 CDN 控制台进行 HTTPS 配置，操作指引参考 [HTTPS 配置](/doc/product/228/6295)。
 <span id="关闭 CDN"></span>
 ## 关闭 CDN 加速
 本章节主要以示例的形式介绍在 COS 中通过反向代理配置自定义域名（关闭 CDN 加速）支持 https 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问用户 APPID 为 12345678 、所属地域为华南、名称为 testhttps 的存储桶，具体操作步骤如下：
