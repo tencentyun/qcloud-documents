@@ -45,7 +45,7 @@ Note: Hot plug detection. Device detects hot-plugging behaviors during messaging
 ## 3. Remote Room Member Voice Device (Virtual Device)
 ### Enable
 Supported systems: Windows/iOS/Android
-Note: The backend supports sending voices in 6 channels at most. If there are more than 6 channels, the backend will select 6 of them based on a certain strategy and forward them to the receiving members.
+Note: The backend supports sending voices in six channels at most. If there are more than six channels, the backend will select six of them based on a certain strategy and forward them to the receiving members.
 
 ### Disable
 Supported systems: Windows/iOS/Android

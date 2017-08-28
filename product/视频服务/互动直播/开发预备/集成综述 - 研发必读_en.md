@@ -1,4 +1,4 @@
-﻿# Integration Overview
+# Integration Overview
 
 Built on Tencent's more than a decade of experience in QQ audio/video development, ILVB (Interactive Live Video Broadcasting) provides a complete set of solutions for live audio or video broadcasting, multiuser audio/video interaction and IM text interaction.
 
@@ -78,7 +78,7 @@ If any viewer wants to perform billed operations like giving flowers or gifts, t
 ![IM and other message interactions](//mccdn.qcloud.com/static/img/85ec89b3af73dfad66491abdd75f3f8a/image.png)
 
 ## Interaction Logic for Viewer to Quit the Room
-When a viewer exits the room, a notification also needs to be sent to VJ and other viewers. For more information about the process, please see [Interaction Logic for Viewer to Join the Room]
+When a viewer exits the room, a notification also needs to be sent to VJ and other viewers. For more information about the process, please see [Interaction Logic for Viewer to Join the Room]()
 
 ## Interaction Logic for VJ to Exit the Room
 When a VJ exits the room, the following should be done:
@@ -115,7 +115,7 @@ The implementation process for quitting broadcasting is as follows:
 ILVB SDK can directly transcode the private protocol to RTMP and HLS, which are then shared by service end to Apps such as WeChat, QQ, Moment and QZone.
 
 **``Tips``**
-**You can simply set the parameter TIMAvManage.StreamParam to recording without the need to call the API for recording (recording has the same lifecycle as push and is finished with the ending of push)**
+**You can simply set the parameter TIMAvManage.StreamParam to record without calling the API for recording (recording has the same lifecycle as push and is finished with the ending of push)**
 
 **Note**
 - ILVB uses CDN for LVB, so it is very important to apply for the LVB permission at service end.
@@ -141,6 +141,6 @@ To be added
 
 ## Must-read: Considerations for Development
 * In case of a large number of viewers, an dramatic increase of message volume will happen. In this case, **pay close attention to the performance at VJ end** to avoid stutters caused by soaring CPU usage resulting from too much rendering codes.
-*A VJ may get disconnected for some reason (CRASH, network interruption), so heartbeat test for VJ should be added on the service-end live broadcasting platform to ensure the real-time update of live broadcasting list.
+*A VJ may get disconnected for some reasons (CRASH, network interruption and so on), so heartbeat test for VJ should be added on the service-end live broadcasting platform to ensure the real-time update of live broadcasting list.
 * ILVB does not support such operations as management of room members, which need to be implemented on the service-end live broadcasting platform or by using [IMSDK Solution](/doc/product/269/%E7%9B%B4%E6%92%AD%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84IM%E9%9B%86%E6%88%90%E6%96%B9%E6%A1%88).
 

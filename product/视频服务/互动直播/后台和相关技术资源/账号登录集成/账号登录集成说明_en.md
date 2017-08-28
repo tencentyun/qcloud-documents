@@ -5,11 +5,11 @@ Tencent Login Service (TLS) is a set of generic account login components provide
 ### 1.1 Introduction
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151117034741_42845.png)
-The integration of account system is the fourth step of cloud service access procedure. Before integration of account system, you first need to register a Tencent Cloud account, activate service and create an App. For specific method, click "[App Access Guide](/doc/product/269/应用接入指引)". Account integration is described later in this document. Besides, we made a video about what we discussed here. Click [here](https://www.qcloud.com/course/detail/133) to watch.
+The integration of account system is the fourth step of cloud service access procedure. Before integration of account system, you first need to register a Tencent Cloud account, activate service and create an App. For specific method, click **[App Access Guide](/doc/product/269/应用接入指引)**. Account integration is described later in this document. Besides, we made a video about what we discussed here. Click [here](https://www.qcloud.com/course/detail/133) to watch.
 
 ## 2 Overview of Two Modes
 
-(1) If your App has been launched and has many users, [Standalone Mode](/doc/product/269/独立模式) can help you quickly integrate cloud service (**Note: Standalone mode of account does not affect the hosting of data, relation chain and group).
+(1) If your App has been launched and has many users, [Standalone Mode](/doc/product/269/独立模式) can help you quickly integrate cloud service (**Note: Standalone mode of account does not affect the hosting of data, relation chain and group**).
 (2) If you don't want to maintain complex user account system, [Hosted Mode](/doc/product/269/托管模式) can help you quickly build a secure App self-owned account system.
 
 ## 3 Appendix
@@ -48,7 +48,7 @@ When App implements server-side integration by calling REST API, App admin accou
 
 When a developer chooses hosted mode for integration of self-owned account, Tencent provides the registration and login services of the account for the developer. During the development of registration service and features, developer can allow users to register and log in by way of [SMS Verification](/doc/product/269/添加短信签名). The format of verification SMS is as follows:
 1234 (XXXX is SMS verification code), please do not forward this code to anyone, otherwise the account may be hacked. "Tencent Cloud"
-"Note"
+**Note**
 (1) Developers can only modify "XXXX" of the SMS, which can be company name or App name, with a length limited to 30 characters.
 (2) "1234" is a random 4-digit number. This number can be generated randomly in practice.
 (3) "Tencent Cloud" is a default SMS signature (this signature must be attached when sending SMS as required by ISP). If the number of messages is more than 10,000 each month, you can contact the customer service to customize the SMS signature.

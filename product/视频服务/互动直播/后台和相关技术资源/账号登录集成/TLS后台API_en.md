@@ -96,7 +96,7 @@ The following screenshot shows the command line for compiling tls_licence_tools 
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126141059_97182.png)
 
-[Note]
+**Note**
 If your program uses multiple threads to call the TLS backend APIs, call the following APIs respectively when initializing and ending the program:
 
 ```
@@ -129,7 +129,7 @@ This can be illustrated by the following screenshot:
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126141635_23603.png)
 
-[**Multi-thread**] If usersig is generated on a multi-thread basis in Java code, please see [here](http://bbs.qcloud.com/thread-22323-1-1.html).
+**Multi-thread** If usersig is generated on a multi-thread basis in Java code, please see [here](http://bbs.qcloud.com/thread-22323-1-1.html).
 
 ### 2.4 Java native APIs
 
@@ -171,7 +171,7 @@ Developers should pay attention to the path for executing the command and execut
 ### 2.6 PHP native APIs
 Both source code package and binary package come with the file php/TLSSig.php, which contains the APIs for generating sig (genSig) and for verifying sig (verifySig). Please note that PHP environment needs openssl extension, otherwise an error will occur while using the APIs. In addition, only PHP 5.3 and above are supported. 
 
-If the above PHP implementation does not meet the requirement, for example, in a case where Red Hat operating system (fedora, centos and rel, etc.) is used, you can refer to [here](http://bbs.qcloud.com/thread-22519-1- 1.html) for another implementation independent of openssl and system.
+If the above PHP implementation does not meet the requirement, for example, in a case where Red Hat operating system (fedora, centos and rel, etc.) is used, you can refer to [here](http://bbs.qcloud.com/thread-22519-1-1.html) for another implementation independent of openssl and system.
 
 ## 3. Windows Platform
 
@@ -274,7 +274,7 @@ The static libraries to be linked are libeay.lib and libtlsignature.lib under di
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151013124511_24769.png)
 
-[Note]
+**Note**
 
 If your program uses multiple threads to call the TLS backend APIs, call the following APIs respectively when initializing and ending the program:
 
@@ -311,7 +311,7 @@ The execution results is as follows:
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142954_16596.png)
 
-[**Multi-thread**] If usersig is generated on a multi-thread basis in Java code, please see [here](http://bbs.qcloud.com/thread-22323-1-1.html).
+**Multi-thread** If usersig is generated on a multi-thread basis in Java code, please see [here](http://bbs.qcloud.com/thread-22323-1-1.html).
 
 ### 3.4 Java native APIs
 
@@ -324,9 +324,9 @@ Java native APIs are dependent on five jar packages. Under the directory tls_sig
 ├── json.jar
 └── tls_signature.jar
 
-[Note]
+**Note**
 
-For the public and private keys [downloaded](/doc/product/269/下载公私钥) from console, the public key content is assigned to the parameter publicBase64Key in the API, and the private key content to the parameter privateBase64Key.
+For the public and private keys [downloaded](/doc/product/269/下载公私钥) from console, the public key content is assigned to the parameter publicBase64Key in the API, and the private key content to the parameter `privateBase64Key`.
 
 ### 3.5 C# APIs
 
@@ -404,7 +404,7 @@ Developers should pay attention to the path for executing the command. In case o
 ### 3.7 PHP native APIs
 Both source code package and binary package come with the file php/TLSSig.php, which contains the APIs for generating sig (genSig) and for verifying sig (verifySig). Please note that PHP environment needs openssl extension, otherwise an error will occur while using the APIs. In addition, only PHP 5.3 and above are supported.
 
-If the above PHP implementation does not meet the requirement, for example, in a case where Red Hat operating system (fedora, centos and rel, etc.) is used, you can refer to [here](http://bbs.qcloud.com/thread-22519-1- 1.html) for another implementation independent of openssl and system.
+If the above PHP implementation does not meet the requirement, for example, in a case where Red Hat operating system (fedora, centos and rel, etc.) is used, you can refer to [here](http://bbs.qcloud.com/thread-22519-1-1.html) for another implementation independent of openssl and system.
 
 ## 4. APIs of Other Platforms
 - javascript http://bbs.qcloud.com/thread-17311-1-1.html
