@@ -1,4 +1,4 @@
-**<style rel="stylesheet">
+<style rel="stylesheet">
 table th:nth-of-type(1){
 width:200px;
 }</style>
@@ -30,4 +30,4 @@ background: #efefef;
 |50 |4880 |	5330|
 |100 |9880 |10330|
 
-关于私有网络服务的更多价格，可以参考 <a href="https://www.qcloud.com/doc/product/215/3079" target="_blank">私有网络价格总览</a>。**
+关于私有网络服务的更多价格，可以参考 <a href="https://www.qcloud.com/doc/product/215/3079" target="_blank">私有网络价格总览</a>。
