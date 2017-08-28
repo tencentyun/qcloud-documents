@@ -75,6 +75,7 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了Old Consumer两种Consume
 
 **Old Consumer 转成 New Consumer**
 1. New Consumer
+
 ```
 /* config中主要变化是 zookeeper参数被替换了 */
 Properties props = new Properties();
@@ -94,7 +95,9 @@ while (true) {
     for (ConsumerRecord<String, String> record : records)
        System.out.printf("offset = %d, key = %s, value = %s", record.offset(), record.key(), record.value());}
 ```
+
 2. Old Consumer （High Level）
+
 ```
 /* old consumer 需要 zookeeper */
 Properties props = new Properties();
@@ -123,6 +126,7 @@ while (iterator.hasNext()) {
              new String(msg.message()));
 }}
 ```
+
 对比可以看到，改造成New Consumer编写更加简单，最主要的变化是隐藏了Zookeeper的参数的输入替代成了Kafka地址输入。同时，New Consumer也增加了与Coodinator交互的参数配置，一般情况下使用默认配置就足够。
 ### Ckafka版本推荐
 Ckafka与社区新版本Kafka一致支持New Consumer方式，屏蔽了Consumer客户端与Zookeeper的交互（Zookeeper不再向用户暴露）。使用New Consumer解决原有与Zookeeper直接交互的 Herd Effect和Split Brain 问题，以及融合了原有Old Consumer的特性，使消费环节更加可靠。
