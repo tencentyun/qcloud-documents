@@ -7,10 +7,10 @@
 音频本地处理流程图:
 
 > 观众侧
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/audio_member.jpg)
+![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_member.jpg)
 
 > 主播侧
-![](https://zhaoyang21cn.github.io/ilivesdk_help/readme_img/audio_host.jpg)
+![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audio_host.jpg)
 
 如上图所示，用户可以其中任意环节对数据进行拦截并作相应的处理。
 
@@ -335,12 +335,13 @@ boolean bRet = ILiveSDK.getInstance().getAvVideoCtrl().setLocalVideoPreProcessCa
 |参数类型|参数名|说明|
 |---|---|---|
 |BOOL|isEnableExternalCapture|是否打开外部视频捕获设备，自定义采集时传YES|
+|BOOL|shouldRender|SDK是否渲染输入流视频数据，YES表示会，NO表示不会|
 
 * 示例：
 
 ```
-    QAVVideoCtrl *videoCtrl = [[ILiveSDK getInstance] getAvVideoCtrl].videoCtrl;
-    [videoCtrl enableExternalCapture:YES];
+    QAVContext *context = [[ILiveSDK getInstance] getAVContext];
+    [context.videoCtrl enableExternalCapture:YES shouldRender:NO];
 ```
 
 3、自定义采集

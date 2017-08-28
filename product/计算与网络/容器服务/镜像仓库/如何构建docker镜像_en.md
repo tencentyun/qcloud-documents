@@ -10,7 +10,7 @@ Given the diversity of enterprise environment, not all applications have corresp
 Currently, Docker generates images using the following two methods:
 
 - Build images automatically using Dockerfile;
-- Use container and execute "Commit" to generate image.
+- Use container and execute `Commit` to generate image.
 
 
 ## Compile and Generate Image Automatically through Dockerfile (Recommended)
@@ -82,7 +82,7 @@ docker.io/php                                  5.6-apache          eb8333e24502 
 
 When building an image using Dockerfile, follow these suggestions:
 1. Keep the image simple and avoid installing redundant software packages.
-2. Choose official Docker image as the base version, to reduce image size.
+2. Choose official Docker image as the base tag, to reduce image size.
 3. The commands in the first few lines of Dockerfile should be fixed. Avoid modifying these commands frequently to make efficient use of cache.
 4. Multiple RUN commands are connected using "\" for better understanding and easy maintenance.
 5. Build images using the "-t" flag, to help manage newly created images.

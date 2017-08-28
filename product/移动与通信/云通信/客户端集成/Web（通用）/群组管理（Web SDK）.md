@@ -219,6 +219,68 @@ var applyJoinGroup = function () {
 };
 ```
 
+## 获取群组未决请求列表(申请加群与邀请加群) 
+
+有用户加群或者群成员邀请好友进群时的未决列表 
+
+```
+/* function getPendencyGroup
+*   获取群组未决列表
+* params:
+*   options    - 请求参数，详见api文档
+*   cbOk   - function()类型, 成功时回调函数
+*   cbErr  - function(err)类型, 失败时回调函数, err为错误对象
+* return:
+*   (无)
+*/
+getPendencyGroup: function(options, cbOk, cbErr) {},
+```
+
+**示例代码： **
+
+```
+//删除已处理的加群未决消息
+var pendencyGroupList = function () {
+  webim.getPendencyGroup({
+    	 'StartTime': 0,//开始时间
+         'Limit': 10 //一次最多获取十条
+     }, function(resp) {
+   
+   })
+};
+```
+
+## 群组未决已读上报(申请加群与邀请加群) 
+
+处理从接口获取的未决需要在处理时做一次已读上报
+
+```
+/* function getPendencyGroupRead
+*   群组未决已读上报
+* params:
+*   options    - 请求参数，详见api文档
+*   cbOk   - function()类型, 成功时回调函数
+*   cbErr  - function(err)类型, 失败时回调函数, err为错误对象
+* return:
+*   (无)
+*/
+getPendencyGroupRead: function(options, cbOk, cbErr) {},
+```
+
+**示例代码： **
+
+```
+//群组未决已读上报
+var pendencyGroupListRead = function () {
+  webim.getPendencyGroupRead({
+    	 'ReportTime': 0,//处理时间
+         'From_Account': ctx.identifier //当前登录用户
+     }, function(resp) {
+   
+   })
+};
+```
+
 ## 处理申请加群（同意或拒绝） 
 
 ```
@@ -484,7 +546,8 @@ var getMyGroup = function () {
             'NextMsgSeq',
             'MemberNum',
             'MaxMemberNum',
-            'ApplyJoinOption'
+            'ApplyJoinOption',
+            'ShutUpAllMember'
         ],
         'SelfInfoFilter': [
             'Role',
@@ -518,6 +581,7 @@ var getMyGroup = function () {
                     resp.GroupIdList[i].Notification);
                     var introduction = webim.Tool.formatText2Html(
                     resp.GroupIdList[i].Introduction);
+					var ShutUpAllMember = resp.GroupIdList[i].ShutUpAllMember;
                     data.push({
                         'GroupId': group_id,
                         'Name': name,
@@ -530,7 +594,8 @@ var getMyGroup = function () {
                         'MemberNum': member_num,
                         'Notification': notification,
                         'Introduction': introduction,
-                        'JoinTime': join_time
+                        'JoinTime': join_time,
+                    	'ShutUpAllMember': ShutUpAllMember
                     });
                 }
                 //打开我的群组列表对话框
@@ -650,7 +715,8 @@ var modifyGroup = function () {
         'Name': $('#mg_name').val(),
         //'FaceUrl': $('#mg_face_url').val(),
         'Notification': $('#mg_notification').val(),
-        'Introduction': $('#mg_introduction').val()
+        'Introduction': $('#mg_introduction').val(),
+        'ShutUpAllMember': $('#shut_up_all_member').val()//新增群组全局禁言。参数为：On和Off
     };
     webim.modifyGroupBaseInfo(
             options,

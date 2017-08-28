@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (GetDeviceOutBandInfo) is used to get the out-of-band information of CPMs.
-Domain for API request:<font style="color:red">bm.api.qcloud.com</font>
+Domain for API request: bm.api.qcloud.com
 
 Get the out-of-band information of CPMs: Out-of-band user name, password, and out-of-band IP information. This information is used for the out-of-band system for logging into CPMs.
 

@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于绑定黑石弹性公网IP到黑石私有网络的IP（非黑石物理机IP）。
 
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: EipBmBindVpcIp
 
 
@@ -10,7 +10,7 @@
 |参数名称|必选|类型|描述|
 |-------|----|---|----|----|
 | eipId | 是 | String | EIP实例ID |
-| vpcId | 是 | Int | IP所属的VPC的ID|
+| vpcId | 是 | Int | IP所属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
 | vpcIp | 是 | String | VPC内IP，可通过[申请内网IP接口](/document/product/386/7337)获得|
 
 
@@ -48,7 +48,7 @@ Data结构
 输入
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmBindVpcIp
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcIp=10.10.x.x&eipId=eip-vvvvvvv&vpcId=1000

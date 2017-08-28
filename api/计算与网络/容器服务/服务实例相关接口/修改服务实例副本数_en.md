@@ -2,7 +2,7 @@
  
 This API (ModifyServiceReplicas) is used to modify the number of service containers
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId | Yes| String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
 | serviceName | Yes | String | Service name |
 | scaleTo | Yes | Int| Number of service replicas |
 | namespace | No | String      | Namespace. Default is "default" |

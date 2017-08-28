@@ -1,7 +1,7 @@
 ## 1. 接口描述
  
 本接口（ApplyIps）用于申请黑石私有网络子网IP。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
 
 
 
@@ -12,8 +12,8 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 系统分配的私有网络ID，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
-| subnetId | 是 | String | 系统分配的私有网络子网ID，可使用subnetId或unSubnetId，建议使用unsubnetId，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 |
+| vpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
+| subnetId | 是 | String | 系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 |
 | count | 否 | Int | 申请IP个数，默认为1，取值范围1-20。 |
 | ipClass | 否 | Int | IP类型，0为物理机IP，1为虚拟机类型IP，2为托管类型IP。默认传1 |
 

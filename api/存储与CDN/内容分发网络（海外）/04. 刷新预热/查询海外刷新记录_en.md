@@ -16,7 +16,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type     | Description              |
 | ---- | ---- | ------ | --------------- |
-| Date | Yes    | String | Query date (day)         |
+| date | Yes    | String | Query date (day)         |
 | url  | No    | String | Purged URL to be queried (can be blank) |
 | host | No    | String | Purged domain to be queried (can be blank)  |
 
@@ -31,14 +31,14 @@ The following request parameter list only provides API request parameters. Commo
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Array  | Returned data result                                   |
 
-#### data Field Description
+#### `data` field Description
 
 | Parameter Name  | Type    | Description   |
 | ----- | ----- | ---- |
 | logs  | Array | Log details |
 | total | Int   | Number of purges |
 
-#### logs Field Description
+#### `logs` field Description
 
 | Parameter Name       | Type     | Description                           |
 | ---------- | ------ | ---------------------------- |

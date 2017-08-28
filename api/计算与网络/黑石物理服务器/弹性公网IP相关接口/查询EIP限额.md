@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于查询当前已使用的EIP限额状况，默认同一个客户可以申请的EIP的总数量上限为100个。
  
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: DescribeEipBmQuota
 
 ## 2. 输入参数
@@ -37,7 +37,7 @@ Data结构
 输入
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=DescribeEipBmQuota
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
 </pre>

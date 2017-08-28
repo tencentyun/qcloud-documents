@@ -18,20 +18,18 @@
 </td><td><font color=red> 必选 </font color=red>
 </td><td> UInt
 </td><td> 用户账号类型
-<br> 4：手机号
-<br> 0：其他账号
 <br> 1：QQ开放帐号
-<br> 2：微信开放帐号
-<br> 6：手机动态码
-<br> 7：邮箱
-<br> 10004：MD5加密手机号
+<br> 2：微信开放账号
+<br> 4：手机号
+<br> 0：其他
+<br> 10004： 手机号MD5
 </td></tr>
 <tr>
 <td> uid
 </td><td><font color=red> 必选 </font color=red>
 </td><td> String
 </td><td> 用户ID
-<br> accountType不同对应不同的用户ID。如果是QQ或微信用户则填入对应的openId
+<br>accountType不同对应不同的用户ID。如果是QQ或微信用户，则填入对应的openid；若是手机号，则填入对应的手机号（如 15912345687）
 </td></tr>
 <tr>
 <td> userIp
@@ -43,7 +41,7 @@
 <td> postTime
 </td><td><font color=red> 必选 </font color=red>
 </td><td> UInt
-</td><td> 用户操作时间戳，单位秒
+</td><td> 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）
 </td></tr>
 <tr>
 <td> appId
@@ -67,7 +65,7 @@
 <td> phoneNumber
 </td><td> 可选
 </td><td> String
-</td><td> 手机号；国家代码-手机号，如0086-15912345687. 注0086前不需要+号
+</td><td> 手机号。若accoutType 选4（手机号）、或10004（手机号MD5），则无需重复填写。否则填入对应的手机号（如 15912345687）
 </td></tr>
 <tr>
 <td> emailAddress

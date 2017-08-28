@@ -2,7 +2,7 @@
  
 This API (DescribeClusterService) is used to query the list of services. The list returned only contains general information about the services, call the API "DescribeClusterServiceInfo" if you need detailed service information.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 
@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [DescribeCluster](https://www.qcloud.com/document/api/457/9448) API.  |
 | namespace      | No | String      | Namespace. Default is "default" |
 | allnamespace      | No | Int      | Indicates whether to show services under all namespaces. 1: Yes. 0 (or leave blank): No |
 

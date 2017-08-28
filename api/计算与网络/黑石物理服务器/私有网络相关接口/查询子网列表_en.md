@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (DescribeBmSubnetEx) is used to query the list of BM subnets.  
-Domain name for API request: vpc.api.qcloud.com 
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -27,7 +27,7 @@ The following request parameter list only provides API request parameters. Commo
 | message |  String | Error message.  |
 | totalCount |  Int | Total number of subnets.  |
 | data | Array  | Returned array.  |
-| data.n.vpcId | String | The VPC ID assigned by the system, e.g. gz_vpc_266. |
+| data.n.vpcId | Int | The VPC ID assigned by the system, e.g. 10001. |
 | data.n.unVpcId | String | The new VPC ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new VPC ID, for example: vpc-5gu2jxf4. |
 | data.n.subnetId | int | Subnet ID assigned by the system. For example: 23. |
 | data.n.unSubnetId | String | The new subnet ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new subnet ID, for example: subnet-5gu2jxf4. |
@@ -61,7 +61,7 @@ Output
     "totalCount": 1,
     "data": [
         {
-            "vpcId": "gz_vpc_64",
+            "vpcId": 10001,
             "unVpcId": "vpc-kd7d06of",
             "vpcName": "panpan-vpc1",
             "vpcCidrBlock": "10.0.0.0\/16",

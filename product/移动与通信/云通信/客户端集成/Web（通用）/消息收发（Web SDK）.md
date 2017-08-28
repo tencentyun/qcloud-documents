@@ -1,5 +1,8 @@
 ## 监听新消息
 
+
+>注意：现托管模式下的群聊消息体中，会带有包含用户头像在内的基本信息。
+
 示例：
 
 ```
@@ -474,7 +477,7 @@ function onSendMsg() {
         subType = webim.GROUP_MSG_SUB_TYPE.COMMON;
     }
     var msg = new webim.Msg(selSess, isSend, seq, random, msgTime, loginInfo.identifier, subType, loginInfo.identifierNick);
-    
+
     var text_obj, face_obj, tmsg, emotionIndex, emotion, restMsgIndex;
     //解析文本和表情
     var expr = /\[[^[\]]{1,3}\]/mg;
@@ -492,7 +495,7 @@ function onSendMsg() {
             }
             emotionIndex = webim.EmotionDataIndexs[emotions[i]];
             emotion = webim.Emotions[emotionIndex];
-            
+
             if (emotion) {
                 face_obj = new webim.Msg.Elem.Face(emotionIndex, emotions[i]);
                 msg.addFace(face_obj);
@@ -529,7 +532,7 @@ function onSendMsg() {
 目前demo采用了H5 FileAPI读取图片，并将图片二进制数据转换成base64编码进行分片上传，理论上没有大小限制。
 
 ```
-/* function uploadPic  
+/* function uploadPic
  *   上传图片
  * params:
  *   cbOk	- function()类型, 成功时回调函数
@@ -581,7 +584,7 @@ function uploadPic() {
 在低版本浏览器（IE8、9）中，demo采用了表单来上传图片，最大支持10M图片的上传。
 
 ```
-/* function submitUploadFileForm  
+/* function submitUploadFileForm
  *   上传图片(低版本ie)
  * params:
  *   cbOk	- function()类型, 成功时回调函数
@@ -614,7 +617,7 @@ function uploadPicLowIE() {
                         function (resp) {
                             $('#upload_pic_low_ie_dialog').modal('hide');
                             //发送图片
-                            sendPic(resp); 
+                            sendPic(resp);
                         },
                         function (err) {
                             $('#upload_pic_low_ie_dialog').modal('hide');
@@ -624,7 +627,7 @@ function uploadPicLowIE() {
 }
 ```
 
-## 发送消息（图片） 
+## 发送消息（图片）
 
 在IE9（含）以下浏览器，sdk采用了jsonp方法解决ajax跨域问题，由于jsonp是采用get方法传递数据的，且get存在数据大小限制（不同浏览器不一样），所以暂不支持异步发送图片。
 
@@ -651,7 +654,7 @@ function sendPic(images) {
         return;
     }
     if (!selSess) {
-        selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl, 
+        selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl,
         Math.round(new Date().getTime() / 1000));
     }
     var msg = new webim.Msg(selSess, true);
@@ -671,7 +674,7 @@ function sendPic(images) {
                 type = 2;//大图
                 break;
         }
-        newImg = new webim.Msg.Elem.Images.Image(type, img.PIC_Size, img.PIC_Width, 
+        newImg = new webim.Msg.Elem.Images.Image(type, img.PIC_Size, img.PIC_Width,
         img.PIC_Height, img.DownUrl);
         images_obj.addImage(newImg);
     }
@@ -686,16 +689,16 @@ function sendPic(images) {
 }
 ```
 
-## 播放语音 
+## 播放语音
 
 目前web端只支持显示并播放android或ios im demo发的语音消息，暂不支持上传并发送语音消息。使用audio控件来播放语音，注意，确保其他终端上传的语音格式是mp3格式（所有主流浏览器下的audio控件都兼容mp3，除了IE8下不支持使用audio标签播放语音）。
 
 解析语音消息请参考第7节。
 
 
-## 下载文件 
+## 下载文件
 
-目前web端只支持显示并下载android或ios im demo发的文件消息，暂不支持上传并发送文件消息。 
+目前web端只支持显示并下载android或ios im demo发的文件消息，暂不支持上传并发送文件消息。
 
 解析文本消息请参考第8节。
 
@@ -772,7 +775,7 @@ function sendCustomMsg() {
 }
 ```
 
-## 获取未读c2c消息 
+## 获取未读c2c消息
 
 ```
 /* function syncMsgs
@@ -780,7 +783,7 @@ function sendCustomMsg() {
  *   一般不需要使用方直接调用, SDK底层会自动同步最新消息并通知使用方,
  *   一种有用的调用场景是用户手动触发刷新消息
  * params:
- *   cbOk	- function(notifyInfo)类型, 当同步消息成功时的回调函数, 
+ *   cbOk	- function(notifyInfo)类型, 当同步消息成功时的回调函数,
 *     notifyInfo同上面cbNotify中的说明,
  *    如果此参数为null或undefined则同步消息成功后会像自动同步那样回调cbNotify
  *   cbErr	- function(err)类型, 当同步消息失败时的回调函数, err为错误对象
@@ -909,11 +912,11 @@ var getLastGroupHistoryMsgs = function (cbOk, cbError) {
 };
 ```
 
-## 获取所有会话 
+## 获取所有会话
 
 webim.Session对象,简单理解为最近会话列表的一个条目 .
 
-webim.MsgStore是消息数据的Model对象,它提供接口访问当前存储的会话和消息数据。 
+webim.MsgStore是消息数据的Model对象,它提供接口访问当前存储的会话和消息数据。
 
 **示例： **
 
@@ -927,20 +930,20 @@ for (var i in sessMap) {
 }
 ```
 
-## 获取会话 
+## 获取会话
 
-可以根据会话类型和会话ID取得相应会话。 
+可以根据会话类型和会话ID取得相应会话。
 
-**示例：** 
+**示例：**
 
 ```
 selSess = webim.MsgStore.sessByTypeId(selType, selToID);
 ```
 ## 获取最近联系人
 
-可以拉取最近联系人的会话列表。 
+可以拉取最近联系人的会话列表。
 
-**示例：** 
+**示例：**
 
 ```
 webim.getRecentContactList({

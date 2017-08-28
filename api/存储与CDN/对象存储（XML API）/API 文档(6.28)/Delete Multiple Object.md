@@ -1,13 +1,14 @@
 ## 功能描述
 Delete Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除 1000 个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
->** 注：此请求必须携带 Content-MD5 用来校验 Body 的完整性。**
+><font color="#0000cc">**注意：** </font>
+>此请求必须携带 Content-MD5 用来校验 Body 的完整性。
 
 ## 请求
 
 语法示例：
 ```
 POST /?delete HTTP/1.1
-Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
+Host: <Bucketname>-<AppID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
@@ -33,9 +34,7 @@ Authorization: Auth String
 ```
 POST /?delete HTTP/1.1
 ```
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 `delete`。
+该 API 接口接受 POST 请求。
 
 ### 请求头
 
@@ -44,12 +43,13 @@ POST /?delete HTTP/1.1
 
 #### 非公共头部
 **必选头部**
-该请求操作需要请求头帯必选头部参数，具体内容如下：
+该请求操作的实现使用如下必选头部：
+<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
 
 |名称|描述|类型|必选|
 |:---|:---|:---|:---|
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
-| Content-MD5 | RFC 1864 中定义的 128 位内容 MD5 算法校验值| String | 是 |
+| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化| String | 是 |
 
 ### 请求体
 该请求的请求体具体节点内容为：
@@ -78,14 +78,13 @@ POST /?delete HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该请求操作无特殊的响应头。
 
-
-#### 响应体
+### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
 <DeleteResult>
@@ -130,13 +129,26 @@ Container 节点 Error 的内容：
 
 ### 请求
 ```
-POST /coss3/?delete HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+POST /?delete HTTP/1.1
+Host: lelu06-1252400000.cn-north.myqcloud.com
 Date: Wed, 23 Oct 2016 21:32:00 GMT
-Content-MD5: 35385efb5ba5134bffb192bfa17c3d5e
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487065662;32466649662&q-key-time=1487065662;32559961662&q-header-list=host&q-url-param-list=delete&q-signature=286ef48c81f1652c37c635f0fb7db7a2150aa5ba
-Content-Length: 75
-Content-Type: application/x-www-form-urlencoded
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.12.4
+Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=delete&q-header-list=host&q-signature=c54f22fd92232a76972ba599cba25a8a733d2fef
+Content-MD5: yoLiNjQuvB7lu8cEmPafrQ==
+Content-Length: 125
+
+<Delete>
+  <Quiet>true</Quiet>
+  <Object>
+    <Key>aa</Key>
+  </Object>
+  <Object>
+    <Key>aaa</Key>
+  </Object>
+</Delete>
 
 ```
 
@@ -144,16 +156,58 @@ Content-Type: application/x-www-form-urlencoded
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 79
+Content-Length: 17
 Connection: keep-alive
-Date: Wed, 23 Oct 2016 21:32:00 GMT
+Date: Tue, 22 Aug 2017 12:00:48 GMT
 Server: tencent-cos
-x-cos-request-id: NThhMmQyOTdfMmM4OGY3XzZjZGFfY2Mx
+x-cos-request-id: NTk5YzFjZjBfZWFhZDM1MGFfMjkwZV9lZGM3ZQ==
+
+<DeleteResult/>
+```
+
+### 请求
+```
+POST /?delete HTTP/1.1
+Host: lelu06-1252440000.cn-north.myqcloud.com
+Date: Tue, 22 Aug 2017 12:16:35 GMT
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.12.4
+Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=delete&q-header-list=host&q-signature=c54f22fd92232a76972ba599cba25a8a733d2fef
+Content-MD5: V0XuU8V7aqMYeWyD3BC2nQ==
+Content-Length: 126
+
+<Delete>
+  <Quiet>false</Quiet>
+  <Object>
+    <Key>aa</Key>
+  </Object>
+  <Object>
+    <Key>aaa</Key>
+  </Object>
+</Delete>
+
+```
+
+### 响应
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 111
+Connection: keep-alive
+Date: Tue, 22 Aug 2017 12:16:35 GMT
+Server: tencent-cos
+x-cos-request-id: NTk5YzIwYTNfMzFhYzM1MGFfMmNmOWZfZWVhNjQ=
 
 <DeleteResult>
-    <Deleted>
-        <Key>ObjectName</Key>
-    </Deleted>
+ <Deleted>
+  <Key>aa</Key>
+ </Deleted>
+ <Deleted>
+  <Key>aaa</Key>
+ </Deleted>
 </DeleteResult>
 
 ```
+

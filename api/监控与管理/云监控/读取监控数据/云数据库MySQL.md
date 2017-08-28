@@ -27,39 +27,39 @@ dimensions.0.value为cdb实例id
 | endTime            | 否    | Datetime | 结束时间         | 结束时间，默认为当前时间。 endTime不能小于startTime       |
 ### 2.2 指标名称
 
-| 指标名称                  | 含义             | 单位     | 统计粒度（period） |
-| --------------------- | -------------- | ------ | ------------ |
-| slow_queries          | 慢查询数           | 次/秒    |              |
-| max_connections       | 最大连接数          | 个      |              |
-| select_scan           | 全表扫描数          | 次/秒    |              |
-| select_count          | 查询数            | 次/秒    |              |
-| com_update            | 更新数            | 次/秒    |              |
-| com_delete            | 删除数            | 次/秒    |              |
-| com_insert            | 插入数            | 次/秒    |              |
-| com_replace           | 覆盖数            | 次/秒    |              |
-| queries               | 总请求数           | 次/秒    |              |
-| threads_connected     | 当前打开连接数        | 个      |              |
-| real_capacity         | 磁盘使用空间         | MB     |              |
-| capacity              | 磁盘占用空间         | MB     |              |
-| bytes_sent            | 内网出流量          | Byte/秒 |              |
-| bytes_received        | 内网入流量          | Byte/秒 |              |
-| qcache_use_rate       | 缓存使用率          | %      |              |
-| qcache_hit_rate       | 缓存命中率          | %      |              |
-| table_locks_waited    | 等待表锁次数         | 次/秒    |              |
-| created_tmp_tables    | 临时表数量          | 次/秒    |              |
-| innodb_cache_use_rate | innodb缓存使用率    | %      |              |
-| innodb_cache_hit_rate | innodb缓存命中率    | %      |              |
-| innodb_os_file_reads  | innodb读磁盘数量    | 次/秒    |              |
-| innodb_os_file_writes | innodb写磁盘数量    | 次/秒    |              |
-| innodb_os_fsyncs      | innodb fsync数量 | 次/秒    |              |
-| key_cache_use_rate    | myisam缓存使用率    | %      |              |
-| key_cache_hit_rate    | myisam缓存命中率    | %      |              |
-| volume_rate           | 容量使用率          | %      |              |
-| query_rate            | 查询使用率          | %      |              |
-| qps                   | 每秒执行操作数        | 次/秒    |              |
-| tps                   | 每秒执行事务数        | 次/秒    |              |
-| cpu_use_rate          | CPU占比          | %      |              |
-| memory_use            | 内存占用           | MB     |              |
+| 指标名称                  | 含义             | 单位     |
+| --------------------- | -------------- | ------ |
+| slow_queries          | 慢查询数           | 次/秒    |
+| max_connections       | 最大连接数          | 个      |
+| select_scan           | 全表扫描数          | 次/秒    |
+| select_count          | 查询数            | 次/秒    |
+| com_update            | 更新数            | 次/秒    |
+| com_delete            | 删除数            | 次/秒    |
+| com_insert            | 插入数            | 次/秒    |
+| com_replace           | 覆盖数            | 次/秒    |
+| queries               | 总请求数           | 次/秒    |
+| threads_connected     | 当前打开连接数        | 个      |
+| real_capacity         | 磁盘使用空间         | MB     |
+| capacity              | 磁盘占用空间         | MB     |
+| bytes_sent            | 内网出流量          | Byte/秒 |
+| bytes_received        | 内网入流量          | Byte/秒 |
+| qcache_use_rate       | 缓存使用率          | %      |
+| qcache_hit_rate       | 缓存命中率          | %      |
+| table_locks_waited    | 等待表锁次数         | 次/秒    |
+| created_tmp_tables    | 临时表数量          | 次/秒    |
+| innodb_cache_use_rate | innodb缓存使用率    | %      |
+| innodb_cache_hit_rate | innodb缓存命中率    | %      |
+| innodb_os_file_reads  | innodb读磁盘数量    | 次/秒    |
+| innodb_os_file_writes | innodb写磁盘数量    | 次/秒    |
+| innodb_os_fsyncs      | innodb fsync数量 | 次/秒    |
+| key_cache_use_rate    | myisam缓存使用率    | %      |
+| key_cache_hit_rate    | myisam缓存命中率    | %      |
+| volume_rate           | 容量使用率          | %      |
+| query_rate            | 查询使用率          | %      |
+| qps                   | 每秒执行操作数        | 次/秒    |
+| tps                   | 每秒执行事务数        | 次/秒    |
+| cpu_use_rate          | CPU占比          | %      |
+| memory_use            | 内存占用           | MB     |
 
 
 ## 3. 输出参数

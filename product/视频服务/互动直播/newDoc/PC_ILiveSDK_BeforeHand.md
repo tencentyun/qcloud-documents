@@ -2,15 +2,15 @@
 互动直播SDK for Windows，下文称为ILiveSDK(Windows)，是互动直播在Windows平台上的SDK。通过几个简单的接口调用即可实现互动直播、上麦和基础IM等功能。
 
 ## 下载SDK和Demo
-在[github](https://github.com/zhaoyang21cn/iLiveSDK_PC_Demos)上将项目clone下来。代其中包含了ILiveSDK(IE)，接口文档，js接口文件和接口调用示例等，具体如下：
+在[github](https://github.com/zhaoyang21cn/iLiveSDK_PC_Demos)上将项目clone下来。代其中包含了ILiveSDK(Windows)，接口文档，头文件和接口调用示例等，具体如下：
 
 
-文件 | 说明 | 
-----|------|
-/suixinbo | demo随心播工程源码，可以和其他平台随心播互通  | 
-/iLiveSDK | SDK的头文件和库文件  | 
-/doc | 接口文档和其他说明文档  | 
-suixinbo_run | 可以直接运行的demo程序 | 
+| 文件 | 说明 | 
+|----|------|
+| /suixinbo | demo随心播工程源码，可以和其他平台随心播互通  | 
+| /iLiveSDK | SDK的头文件和库文件  | 
+| /doc | 接口文档和其他说明文档  | 
+| suixinbo_run | 可以直接运行的demo程序 | 
 
 
 ## 运行和体验demo

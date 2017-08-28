@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (ModifyEipAlias) is used to rename EIP. You can customize the requested EIP alias through this API for an easier management.
  
-Domain: eip.api.qcloud.com
+Domain: bmeip.api.qcloud.com
 
 
 
@@ -33,7 +33,7 @@ Domain: eip.api.qcloud.com
 Input
 ```
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=ModifyEipAlias
   &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&eipId=eip-test&eipName=test
 ```

@@ -2,40 +2,34 @@
 
 ### 相关资源
 
-[cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)
-（本版本SDK基于JSON API封装组成）
+[cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)（本版本SDK基于JSON API封装组成）
 
-[PHP SDK 本地下载](https://mc.qcloudimg.com/static/archive/5ac534d6c4af2462b3996c8a4d9c3b06/cos-php-sdk-v4-master.zip)
+[PHP SDK 本地下载](https://github.com/tencentyun/cos-php-sdk-v4/archive/master.zip)
 
 ### 开发环境
 
-1. 依赖环境：PHP 5.3.0 版本及以上
-2. 从控制台获取APP ID、SecretID、SecretKey，并修改 cos-php-sdk-v4/qcloudcos/conf.php 文件里的相关配置。
-
-
+依赖环境：PHP 5.3.0 版本及以上
+<style  rel="stylesheet"> table th:nth-of-type(1) { width: 100px; }</style>
 
 ### SDK 配置
 
-下载 SDK 后，在使用 SDK 时，加载 cos-php-sdk-v4/include.php 并设置全局的超时时间及COS所在的区域即可。
+下载 SDK 后，在使用 SDK 时，加载 cos-php-sdk-v4/include.php 并设置全局的超时时间及 COS 所在的区域即可。
 
 ``` php
 require('cos-php-sdk-v4/include.php'); 
-use qcloudcos\Cosapi;
+use Qcloud\Cos\Api;
 
-Cosapi::setTimeout(180);
+$config = array(
+    'app_id' => '',
+    'secret_id' => '',
+    'secret_key' => '',
+    'region' => 'gz',
+    'timeout' => 60
+);
 
-// 设置COS所在的区域，对应关系如下：
-//     华南  -> gz
-//     华东  -> sh
-//     华北  -> tj
-Cosapi::setRegion('gz');
+$cosApi = new Api($config);
 ```
 
-若需要支持 HTTPS ，修改 conf.php 中的 API_COSAPI_END_POINT 的值为如下：
-
-``` php
-const API_COSAPI_END_POINT = 'https://region.file.myqcloud.com/files/v2/';
-```
 
 ## 生成签名
 
@@ -44,23 +38,25 @@ const API_COSAPI_END_POINT = 'https://region.file.myqcloud.com/files/v2/';
 #### 方法原型
 
 ``` php
-public static function createReusableSignature($expiration, $bucket, $filepath);
+public function createReusableSignature($expiration, $bucket, $filepath);
 ```
 
 #### 参数说明
 
-| 参数名        | 类型     | 必填   | 参数描述         |
+| 参数名        |  参数描述         |类型     | 必填   |
 | ---------- | ------ | ---- | ------------ |
-| expiration | long   | 是    | 过期时间，Unix时间戳 |
-| bucket     | String | 是    | bucket 名称    |
-| filepath   | String | 否    | 文件路径         |
+| expiration | 过期时间，Unix 时间戳 | long   | 是    |
+| bucket     | Bucket 名称    |String | 是    | 
+| filepath   | 文件路径         |String | 否    | 
 
 #### 示例
 
 ``` php
+$auth = new Auth($appId = '',$secretId ='',$secretKey = '');
 $expiration = time() + 60;	
 $bucket = 'testbucket';
-$sign = Auth::appSign($expiration, $bucket);
+$filepath = "/myFloder/myFile.rar";
+$sign = $auth->createReusableSignature($expiration, $bucket, $filepath);
 ```
 
 ### 单次有效签名
@@ -68,57 +64,58 @@ $sign = Auth::appSign($expiration, $bucket);
 #### 方法原型
 
 ``` php
-public static function createNonreusableSignature($bucket, $filepath);
+public function createNonreusableSignature($bucket, $filepath);
 ```
 
 #### 参数说明
 
-| 参数名      | 类型     | 必填   | 参数描述                                     |
+| 参数名      | 参数描述                                     |类型     | 必填   | 
 | -------- | ------ | ---- | ---------------------------------------- |
-| bucket   | String | 是    | bucket 名称                                |
-| filepath | String | 是    | 文件路径，以斜杠开头，例如 /filepath/filename，为文件在此 bucketname 下的全路径 |
+| bucket   |  Bucket 名称                                |String | 是    |
+| filepath | 文件路径，以斜杠开头。<br>例如 `/filepath/filename`为文件在此 bucketname 下的全路径 |String | 是    | 
 
 #### 示例
 
 ``` php
+$auth = new Auth($appId = '',$secretId ='',$secretKey = '');
 $bucket = 'testbucket';
 $filepath = "/myFloder/myFile.rar";
-$sign = Auth::createNonreusableSignature($bucket, $path);
+$sign = $auth->createNonreusableSignature($bucket, $filepath);
 ```
 
 ## 目录操作
 
 ### 创建目录
 
-接口说明：用于目录的创建，可通过此接口在指定 bucket 下创建目录。
+接口说明：用于目录的创建，可通过此接口在指定 Bucket 下创建目录。
 
 #### 方法原型
 
 ``` php
-public static function createFolder($bucketName, $path, $bizAttr = null);
+public function createFolder($bucketName, $path, $bizAttr = null);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**      |
+|参数名    | 参数描述      |类型 | 必填 | 
 | ---------- | ------ | ------ | ------------- |
-| bucketName | String | 是      | bucket 名称     |
-| path       | String | 是      | 目录全路径         |
-| bizAttr    | String | 否      | 目录属性信息，业务自行维护 |
+| bucketName | Bucket 名称     |String | 是      | 
+| path       | 目录全路径         |String | 是      | 
+| bizAttr    | 目录属性信息，业务自行维护 |String | 否      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | 必带   | **参数描述**                                 |
+| 参数名 | 参数描述                                 |类型 | 必带   | 
 | ------- | ------ | ---- | ---------------------------------------- |
-| code    | Int    | 是    | 错误码，成功时为0                                |
-| message | String | 是    | 错误信息                                     |
-| data    | Array  | 否    | 返回数据，请参考[《Restful API 创建目录》](/document/product/436/6061) |
+| code    | 错误码，成功时为 0                                |Int    | 是    | 
+| message | 错误信息                                     |String | 是    | 
+| data    | 返回数据，请参考[《Restful API 创建目录》](/document/product/436/6061) |Array  | 否    | 
 
 #### 示例
 
 ``` php
 $bizAttr = "attr_folder";
-$result  = Cosapi::createFolder($bucketName, $path,$bizAttr)
+$result  = $cosApi->createFolder($bucketName, $path,$bizAttr)
 ```
 
 ### 目录更新
@@ -128,29 +125,29 @@ $result  = Cosapi::createFolder($bucketName, $path,$bizAttr)
 #### 方法原型
 
 ``` php
-public static function updateFolder($bucketName, $path, $bizAttr = null);
+public function updateFolder($bucketName, $path, $bizAttr = null);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**  |
+| 参数名    | 参数描述  |类型 | 必填 | 
 | ---------- | ------ | ------ | --------- |
-| bucketName | String | 是      | bucket 名称 |
-| path       | String | 是      | 目录路径      |
-| bizAttr    | String | 否      | 目录属性信息    |
+| bucketName | Bucket 名称 |String | 是      | 
+| path       | 目录路径      |String | 是      | 
+| bizAttr    | 目录属性信息    |String | 否      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | 必带   | **参数描述**  |
+|参数名 |参数描述  | 类型 | 必带   | 
 | ------- | ------ | ---- | --------- |
-| code    | Int    | 是    | 错误码，成功时为0 |
-| message | String | 是    | 错误信息      |
+| code    | 错误码，成功时为 0 |Int    | 是    | 
+| message | 错误信息      |String | 是    | 
 
 #### 示例
 
 ``` php
 $bizAttr = "folder new attribute";
-$result  = Cosapi::updateFolder($bucketName, $path, $bizAttr)
+$result  = $cosApi->updateFolder($bucketName, $path, $bizAttr)
 ```
 
 ### 目录查询
@@ -160,28 +157,28 @@ $result  = Cosapi::updateFolder($bucketName, $path, $bizAttr)
 #### 原型方法
 
 ``` php
-public static function statFolder($bucketName, $path);
+public function statFolder($bucketName, $path);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**  |
+| 参数名    | 参数描述  |类型 | 必填 | 
 | ---------- | ------ | ------ | --------- |
-| bucketName | String | 是      | bucket 名称 |
-| path       | String | 是      | 目录路径      |
+| bucketName | Bucket 名称 |String | 是      | 
+| path       | 目录路径      |String | 是      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | 必带   | **参数描述**                                 |
+| 参数名|参数描述                                 | 类型 | 必带   | 
 | ------- | ------ | ---- | ---------------------------------------- |
-| code    | Int    | 是    | 错误码，成功时为0                                |
-| message | String | 是    | 错误信息                                     |
-| data    | Array  | 否    | 目录属性数据，请参考[《Restful API 目录查询》](/document/product/436/6063) |
+| code    |错误码，成功时为 0                                | Int    | 是    | 
+| message | 错误信息                                     | String | 是    |
+| data    |  目录属性数据，请参考[《Restful API 目录查询》](/document/product/436/6063) |Array  | 否    |
 
 #### 示例
 
 ``` php
-$result = Cosapi::statFolder($bucketName, $path);
+$result = $cosApi->statFolder($bucketName, $path);
 ```
 
 ### 删除目录
@@ -191,27 +188,27 @@ $result = Cosapi::statFolder($bucketName, $path);
 #### 方法原型
 
 ``` php
-public static function delFolder($bucketName, $path);
+public function delFolder($bucketName, $path);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**  |
+|参数名    |  参数描述  |类型 | 必填 |
 | ---------- | ------ | ------ | --------- |
-| bucketName | String | 是      | bucket 名称 |
-| path       | String | 是      | 目录全路径     |
+| bucketName | Bucket 名称 |String | 是      |
+| path       | 目录全路径     |String | 是      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | 必带   | **参数描述**  |
+| 参数名 |参数描述  | 类型 | 必带   |
 | ------- | ------ | ---- | --------- |
-| code    | Int    | 是    | 错误码，成功时为0 |
-| message | String | 是    | 错误信息      |
+| code    | 错误码，成功时为 0 |Int    | 是    | 
+| message | 错误信息      |String | 是    | 
 
 #### 示例
 
 ``` php
-$result = Cosapi::delFolder($bucketName, $path);
+$result = $cosApi->delFolder($bucketName, $path);
 ```
 
 ### 列举目录中的文件和目录
@@ -221,32 +218,31 @@ $result = Cosapi::delFolder($bucketName, $path);
 #### 方法原型
 
 ``` php
-public static function listFolder($bucketName, $path, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null);
+public function listFolder($bucketName, $path, $num = 20, $pattern = 'eListBoth', $context = null);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**                                 |
+| 参数名    | 参数描述                                |类型 |必填 | 
 | ---------- | ------ | ------ | ---------------------------------------- |
-| bucketName | String | 是      | bucket名称                                 |
-| path       | String | 是      | 目录的全路径                                   |
-| num        | int    | 否      | 要查询的目录/文件数量                              |
-| context    | String | 否      | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中。order用于指定翻页顺序。若order填0，则从当前页正序/往下翻页；若order填1，则从当前页倒序/往上翻页 |
-| order      | int    | 否      | 默认正序(=0), 填1为反序                          |
-| pattern    | String | 否      | eListBoth：列举文件和目录；eListDirOnly：仅列举目录；eListFileOnly：仅列举文件 |
+| bucketName |Bucket名称                                 | String | 是      | 
+| path       |目录的全路径                                   | String | 是      | 
+| num        |  要查询的目录/文件数量                              |int    | 否      |
+| context    | 透传字段，查看第一页，则传空字符串。<br>若需要翻页，需要将前一页返回值中的 context 透传到参数中|String | 否      | 
+| pattern    | eListBoth：列举文件和目录；eListDirOnly：仅列举目录；eListFileOnly：仅列举文件 |String | 否      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | **必带** | **参数描述**                                 |
+| 参数名 | 参数描述                                 |类型 | 必带 | 
 | ------- | ------ | ------ | ---------------------------------------- |
-| code    | Int    | 是      | API 错误码，成功时为0                            |
-| message | String | 是      | 错误信息                                     |
-| data    | Array  | 是      | 返回数据，请参考[《Restful API 目录列表》](/document/product/436/6062) |
+| code    |  API 错误码，成功时为 0                            |Int    | 是      |
+| message | 错误信息                                     |String | 是      | 
+| data    | 返回数据，请参考 [《Restful API 目录列表》](/document/product/436/6062) |Array  | 是      | 
 
 #### 示例
 
 ``` php
-$result = Cosapi::listFolder($bucketName, $path, 20, 'eListBoth',0);
+$result = $cosApi->listFolder($bucketName, $path, 20, 'eListBoth',0);
 ```
 
 ### 列举目录下指定前缀文件&目录
@@ -256,66 +252,66 @@ $result = Cosapi::listFolder($bucketName, $path, 20, 'eListBoth',0);
 #### 原型方法
 
 ``` php
-public static function prefixSearch($bucketName, $prefix, $num = 20, $pattern = 'eListBoth', $order = 0, $context = null);
+public function prefixSearch($bucketName, $prefix, $num = 20, $pattern = 'eListBoth', 
+$context = null);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**                                 |
+| 参数名    |  参数描述                                 |类型 | 必填 |
 | ---------- | ------ | ------ | ---------------------------------------- |
-| bucketName | String | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/436/6245) |
-| prefix     | String | 是      | 列出含此前缀的所有文件(带全路径)                        |
-| num        | int    | 否      | 要查询的目录/文件数量                              |
-| context    | String | 否      | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中。order用于指定翻页顺序。若order填0，则从当前页正序/往下翻页；若order填1，则从当前页倒序/往上翻页 |
-| order      | int    | 否      | 默认正序(=0), 填1为反序                          |
-| pattern    | String | 否      | eListBoth：列举文件和目录；eListDirOnly：仅列举目录；eListFileOnly：仅列举文件 |
+| bucketName | Bucket 名称，Bucket 创建参见 [创建Bucket](/document/product/436/6245) |String | 是      | 
+| prefix     | 列出含此前缀的所有文件(带全路径)                        |String | 是      | 
+| num        | 要查询的目录/文件数量                              |int    | 否      | 
+| context    | 透传字段，查看第一页，则传空字符串。<br>若需要翻页，需要将前一页返回值中的context透传到参数中|String | 否      | 
+| pattern    | eListBoth：列举文件和目录；eListDirOnly：仅列举目录；eListFileOnly：仅列举文件 |String | 否      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | **必带** | **参数描述**                                 |
+| 参数名 | 参数描述                                 |类型 | 必带 | 
 | ------- | ------ | ------ | ---------------------------------------- |
-| code    | Int    | 是      | 错误码，成功时为0                                |
-| message | String | 是      | API 错误信息                                 |
-| data    | Array  | 是      | 返回数据，请参考[《Restful API 目录列表》](/document/product/436/6062) |
+| code    | 错误码，成功时为 0                                |Int    | 是      | 
+| message |API 错误信息                                 | String | 是      | 
+| data    |  返回数据，请参考 [《Restful API 目录列表》](/document/product/436/6062) |Array  | 是      |
 
 #### 示例
 
 ``` php
 $prefix= "/myFolder/2015-";
-$result = Cosapi::prefixSearch($bucketName, $prefix, 20, 'eListBoth',0);
+$result = $cosApi->prefixSearch($bucketName, $prefix, 20, 'eListBoth',0);
 ```
 
 ## 文件操作
 
 ### 文件上传
 
-接口说明：文件上传的统一接口，对于大于20M的文件，内部会通过多次分片的方式进行文件上传。
+接口说明：文件上传的统一接口，对于大于 20M 的文件，内部会通过多次分片的方式进行文件上传。
 
 #### 原型方法
 
 ``` php
-public static function upload($bucketName, $srcPath, $dstPath, 
+public function upload($bucketName, $srcPath, $dstPath, 
                $bizAttr = null, $slicesize = null, $insertOnly = null);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**                                 |
+| 参数名    |参数描述                                 | 类型 | 必填 | 
 | ---------- | ------ | ------ | ---------------------------------------- |
-| bucketName | String | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/436/6245) |
-| srcPath    | String | 是      | 本地要上传文件的全路径                              |
-| dstPath    | String | 是      | 文件在COS服务端的全路径，不包括/appid/bucketname       |
-| bizAttr    | String | 否      | 文件属性，业务端维护                               |
-| slicesize  | int    | 否      | 文件分片大小，当文件大于20M时，SDK内部会通过多次分片的方式进行上传，默认分片大小为1M，支持的最大分片大小为3M |
-| insertOnly | int    | 否      | 同名文件是否进行覆盖。0：覆盖；1：不覆盖                    |
+| bucketName | Bucket 名称，Bucket 创建参见 [创建 Bucket](/document/product/436/6245) |String | 是      | 
+| srcPath    | 本地要上传文件的全路径                              |String | 是      | 
+| dstPath    | 文件在 COS 服务端的全路径，不包括`/appid/bucketname`      |String | 是      | 
+| bizAttr    | 文件属性，业务端维护                               |String | 否      | 
+| slicesize  |文件分片大小，当文件大于 20M 时，SDK 内部会通过多次分片的方式进行上传；<br>默认分片大小为 1M，支持的最大分片大小为 3M | int    | 否      | 
+| insertOnly | 同名文件是否进行覆盖。0：覆盖；1：不覆盖                    | int    | 否      |
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | 必带   | **参数描述**                                 |
+| 参数名 | 参数描述                                 |类型 | 必带   | 
 | ------- | ------ | ---- | ---------------------------------------- |
-| code    | Int    | 是    | 错误码，成功时为0                                |
-| message | String | 是    | 错误信息                                     |
-| data    | Array  | 是    | 返回数据，请参考[《Restful API 创建文件》](/document/product/436/6066) |
+| code    | 错误码，成功时为 0                                |Int    | 是    | 
+| message |  错误信息                                     |String | 是    |
+| data    | 返回数据，请参考 [《Restful API 创建文件》](/document/product/436/6066) |Array  | 是    | 
 
 #### 示例
 
@@ -324,7 +320,7 @@ $dstPath = "/myFolder/test.mp4";
 $bizAttr = "";
 $insertOnly = 0;
 $sliceSize = 3 * 1024 * 1024;
-$result = Cosapi::upload($srcPath,$bucketName,dstPath ,"biz_attr");
+$result = $cosApi->upload($srcPath,$bucketName,dstPath ,"biz_attr");
 ```
 
 ### 文件属性更新
@@ -334,26 +330,26 @@ $result = Cosapi::upload($srcPath,$bucketName,dstPath ,"biz_attr");
 #### 原型方法
 
 ``` php
-public static function update($bucketName, $path, 
+public function update($bucketName, $path, 
                   $bizAttr = null, $authority=null,$customer_headers_array=null);
 ```
 
 #### 参数说明
 
-| **参数名**                | **类型** | **必填** | **参数描述**                                 |
+| 参数名                |  参数描述                                 |类型 | 必填 |
 | ---------------------- | ------ | ------ | ---------------------------------------- |
-| bucketName             | String | 是      | bucket 名称                                |
-| path                   | String | 是      | 文件在文件服务端的全路径，不包括/appid/bucketname        |
-| bizAttr                | String | 否      | 待更新的文件属性信息                               |
-| authority              | String | 否      | eInvalid(继承Bucket的读写权限)；eWRPrivate(私有读写)；eWPrivateRPublic(公有读私有写) |
-| customer_headers_array | String | 否      | 用户自定义头域。可携带参数名分别为：'Cache-Control'、'Content-Type'、'Content-Disposition'、'Content-Language'、以及以'x-cos-meta-'为前缀的参数名称 |
+| bucketName             | Bucket 名称                                |String | 是      | 
+| path                   |文件在文件服务端的全路径，不包括`/appid/bucketname`        | String | 是      | 
+| bizAttr                |待更新的文件属性信息                               | String | 否      | 
+| authority              | eInvalid(继承Bucket的读写权限)；eWRPrivate(私有读写)；eWPrivateRPublic(公有读私有写) |String | 否      | 
+| customer_headers_array |用户自定义头域。可携带参数名分别为：`Cache-Control`、`Content-Type`、`Content-Disposition`、`Content-Language`、以及以`x-cos-meta-`为前缀的参数名称 | String | 否      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | **必带** | **参数描述**  |
+| 参数名 |  参数描述  |类型 | 必带 |
 | ------- | ------ | ------ | --------- |
-| code    | Int    | 是      | 错误码，成功时为0 |
-| message | String | 是      | 错误信息      |
+| code    | 错误码，成功时为 0 |Int    | 是      | 
+| message |错误信息      | String | 是      | 
 
 #### 示例
 
@@ -364,7 +360,7 @@ $customer_headers_array = array(
     'Cache-Control' => "no",
     'Content-Language' => "ch",
 );
-$result = Cosapi::update($bucketName, $dstPath, $bizAttr,$authority, $customer_headers_array);
+$result = $cosApi->update($bucketName, $dstPath, $bizAttr,$authority, $customer_headers_array);
 ```
 
 ### 文件查询
@@ -374,28 +370,28 @@ $result = Cosapi::update($bucketName, $dstPath, $bizAttr,$authority, $customer_h
 #### 原型方法
 
 ``` php
- public static function stat($bucketName, $path); 
+ public function stat($bucketName, $path); 
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**     |
+| 参数名    | 参数描述     |类型 | 必填 | 
 | ---------- | ------ | ------ | ------------ |
-| bucketName | String | 是      | bucket 名称    |
-| path       | String | 是      | 文件在文件服务端的全路径 |
+| bucketName | Bucket 名称    |String | 是      | 
+| path       | 文件在文件服务端的全路径 |String | 是      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | **必带** | **参数描述**                                 |
+| 参数名 |参数描述                                 | 类型 | 必带 | 
 | ------- | ------ | ------ | ---------------------------------------- |
-| code    | Int    | 是      | 错误码，成功时为0                                |
-| message | String | 是      | 错误信息                                     |
-| data    | Array  | 是      | 文件属性数据，请参考[《Restful API 文件查询》](/document/product/436/6069) |
+| code    |错误码，成功时为 0                                | Int    | 是      | 
+| message | 错误信息                                     |String | 是      | 
+| data    | 文件属性数据，请参考 [《Restful API 文件查询》](/document/product/436/6069) |Array  | 是      | 
 
 #### 示例
 
 ``` php
-$result = Cosapi::stat($bucketName, $path);
+$result = $cosApi->stat($bucketName, $path);
 ```
 
 ### 文件删除
@@ -405,25 +401,25 @@ $result = Cosapi::stat($bucketName, $path);
 #### 原型方法
 
 ``` php
-public static function delFile($bucketName, $path);
+public function delFile($bucketName, $path);
 ```
 
 #### 参数说明
 
-| **参数名**    | **类型** | **必填** | **参数描述**  |
+| 参数名    | 参数描述  |类型 | 必填 | 
 | ---------- | ------ | ------ | --------- |
-| bucketName | String | 是      | bucket 名称 |
-| path       | String | 是      | 文件的全路径    |
+| bucketName | Bucket 名称 |String | 是      | 
+| path       | 文件的全路径    |String | 是      | 
 
 #### 返回值说明(json)
 
-| **参数名** | **类型** | **必带** | **参数描述**  |
+| 参数名 | 参数描述  |类型 | 必带 | 
 | ------- | ------ | ------ | --------- |
-| code    | Int    | 是      | 错误码，成功时为0 |
-| message | String | 是      | 错误信息      |
+| code    | 错误码，成功时为 0 |Int    | 是      | 
+| message | 错误信息      |String | 是      | 
 
 #### 示例
 
 ``` php
-$result = Cosapi::delFile($bucketName, $path);
+$result = $cosApi->delFile($bucketName, $path);
 ```

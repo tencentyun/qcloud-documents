@@ -5,7 +5,7 @@ Delete Bucket CORS 接口请求实现删除跨域访问配置信息。
 语法示例：
 ```
 DELETE /?cors HTTP/1.1
-Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
+Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -18,9 +18,6 @@ DELETE /?cors HTTP/1.1
 ```
 该 API 接口接受 DELETE 请求。
 
-#### 请求参数
-**命令参数**
-该 API 接口使用到的命令参数为 cors。
 
 ### 请求头
 
@@ -35,23 +32,21 @@ DELETE /?cors HTTP/1.1
 
 ## 响应
 
-#### 响应头
-**公共响应头** 
+### 响应头
+#### 公共响应头
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
-**特有响应头**
+#### 特有响应头
 该响应无特殊的响应头。
 
-#### 响应体
-该请求的响应体为空
-
-
+### 响应体
+该响应体返回为空。
 
 ## 实际案例
 
 ### 请求
 ```
 DELETE /?cors HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Tue, 23 Oct 2016 21:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484816036;32557712036&q-key-time=1484816036;32557712036&q-header-list=host&q-url-param-list=cors&q-signature=e92eecbf0022fe7e5fd39b2c500b22da062be50a
 ```

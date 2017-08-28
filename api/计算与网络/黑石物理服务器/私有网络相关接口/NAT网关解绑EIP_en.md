@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (EipUnBindBmNatGateway) is used to unbind EIP from BM NAT gateway.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters
