@@ -43,7 +43,7 @@ producer.close();
 2）如果Partition个数大于线程数目，某些线程会消费多个Partition
 3）Partition和消费者变动会影响Rebalance
 
-![参考DEMO](https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example)
+[参考DEMO](https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example)
 
 - Low Level Consumer API
 如果使用者关心消息的offset并且希望进行重复消费或者跳读等功能、又或者希望指定某些partition进行消费时和确保更多消费语义时推荐使用Low Level Consumer API。但是使用者需要自己处理Offset以及Broker的异常情况。
@@ -51,7 +51,7 @@ producer.close();
 1）	自行跟踪维护Offset，控制消费进度
 2）	查找Topic相应Partition的Leader，以及处理Partition变更情况
 
-![参考DEMO](https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+SimpleConsumer+Example)
+[参考DEMO](https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+SimpleConsumer+Example)
 - New Consumer （After 0.9.x）
 **为什么使用 New Consumer**
 Kafka 0.9.x 版本引入了 New Consumer，其融合了Old Consumer两种Consumer API的特性,同时提供消费者的协调(高级API)和lower-level的访问,来构建自定义的消费策略。New Consumer还简化了消费者客户端并且引入了中心Coordinator解决分别连接Zookeeper产生的 Herd Effect和Split Brain 问题同时还减轻了Zookeeper的负载。
