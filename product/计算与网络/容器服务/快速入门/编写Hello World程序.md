@@ -110,4 +110,3 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
  
 3. 在浏览器中输入 IP 地址，即可看到 Hello World！
 ![](//mc.qcloudimg.com/static/img/ef9e2067f34004f49f7fe1360f20c3a5/image.png)
-
