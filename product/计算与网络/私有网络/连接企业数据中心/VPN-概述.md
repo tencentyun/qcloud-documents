@@ -27,7 +27,6 @@ VPN 连接是一种通过公网加密通道连接您的对端 IDC 和私有网�
 ![](//mccdn.qcloud.com/static/img/a654d376b4e4e13ae2bb65b13239cef2/image.png)
 
 </div>
-<p style="text-align:center">图1：VPN 连接示意图</p>
 私有网络内可以建立 VPN 网关，每个 VPN 网关可以建立多个 VPN 通道，每个 VPN 通道可以打通一个本地 IDC。
 >**注意:**
 >在建立 VPN 连接之后，您需要在路由表中配置相关路由策略，才能真正实现通信。
@@ -75,7 +74,6 @@ SPD 策略 3 本端网段 ```10.0.2.0/24```，对端网段为 ```192.168.2.0/24`
 ![](//mccdn.qcloud.com/static/img/5b32174d312e31c5b5a9162a50456de8/image.png)
  
  </div>
- <p style="text-align:center">图2：SPD 策略示意图</p>
 ### IKE 配置
 
 |配置项|说明|
