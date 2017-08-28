@@ -14,7 +14,7 @@
 ## 1 复用现有UI
 视频编辑具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码，使用时从Demo中拷贝以下文件夹到自己的工程:
 
-1. shortview/editor下的代码
+1. shortvideo/editor下的代码
 2. res/下的VideoEditor资源
 3. jniLibs/下的jar和so
 4. 在AndroidManifest.xml中声明这几个Activity，并声明权限
