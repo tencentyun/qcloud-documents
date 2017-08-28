@@ -12,6 +12,10 @@
 返回：MediaProperty对象。
 开发者可以通过该对象设置的视频属性信息，主要是媒资相关信息。-->
 
+#### File.aiReviewActionSet
+
+#### File.manualReviewActionSet
+
 #### File.processActionSet
 
 返回：ActionSet对象。

@@ -5,7 +5,7 @@ Delete Bucket Lifecycle 用来删除 Bucket 的生命周期配置。如果该 Bu
 语法示例：
 ```
 DELETE /?lifecycle HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -43,7 +43,7 @@ DELETE /?lifecycle HTTP/1.1
 ### 请求
 ```
 DELETE /?lifecycle HTTP/1.1
-Host:lifecycletest-73196696.cn-north.myqcloud.com
+Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 12:59:09 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502859472;1502939472&q-key-time=1502859472;1502939472&q-header-list=host&q-url-param-list=lifecycle&q-signature=49c1414c700643f11139219384332a3ec4e9485b
 

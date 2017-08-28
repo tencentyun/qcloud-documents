@@ -546,7 +546,8 @@ var getMyGroup = function () {
             'NextMsgSeq',
             'MemberNum',
             'MaxMemberNum',
-            'ApplyJoinOption'
+            'ApplyJoinOption',
+            'ShutUpAllMember'
         ],
         'SelfInfoFilter': [
             'Role',
@@ -580,6 +581,7 @@ var getMyGroup = function () {
                     resp.GroupIdList[i].Notification);
                     var introduction = webim.Tool.formatText2Html(
                     resp.GroupIdList[i].Introduction);
+					var ShutUpAllMember = resp.GroupIdList[i].ShutUpAllMember;
                     data.push({
                         'GroupId': group_id,
                         'Name': name,
@@ -592,7 +594,8 @@ var getMyGroup = function () {
                         'MemberNum': member_num,
                         'Notification': notification,
                         'Introduction': introduction,
-                        'JoinTime': join_time
+                        'JoinTime': join_time,
+                    	'ShutUpAllMember': ShutUpAllMember
                     });
                 }
                 //打开我的群组列表对话框
@@ -712,7 +715,8 @@ var modifyGroup = function () {
         'Name': $('#mg_name').val(),
         //'FaceUrl': $('#mg_face_url').val(),
         'Notification': $('#mg_notification').val(),
-        'Introduction': $('#mg_introduction').val()
+        'Introduction': $('#mg_introduction').val(),
+        'ShutUpAllMember': $('#shut_up_all_member').val()//新增群组全局禁言。参数为：On和Off
     };
     webim.modifyGroupBaseInfo(
             options,

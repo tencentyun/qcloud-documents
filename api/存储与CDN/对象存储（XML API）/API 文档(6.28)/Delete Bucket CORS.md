@@ -5,7 +5,7 @@ Delete Bucket CORS 接口请求实现删除跨域访问配置信息。
 语法示例：
 ```
 DELETE /?cors HTTP/1.1
-Host: <Bucketname>-<APPID>.<Region>.myqcloud.com
+Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -46,7 +46,7 @@ DELETE /?cors HTTP/1.1
 ### 请求
 ```
 DELETE /?cors HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Tue, 23 Oct 2016 21:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484816036;32557712036&q-key-time=1484816036;32557712036&q-header-list=host&q-url-param-list=cors&q-signature=e92eecbf0022fe7e5fd39b2c500b22da062be50a
 ```

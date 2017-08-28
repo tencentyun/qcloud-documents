@@ -13,7 +13,7 @@ Complete Multipart Upload 接口请求用来实现完成整个分块上传。当
 语法示例：
 ```
 POST /ObjectName?uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-length: Size
 Authorization: Auth String
@@ -113,7 +113,7 @@ Container 节点 CompleteMultipartUploadResult 的内容：
 ### 请求
 ```
 POST /ObjectName?uploadId=1484728886e63106e87d8207536ae8521c89c42a436fe23bb58854a7bb5e87b7d77d4ddc48 HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484729794;32557625794&q-key-time=1484729794;32557625794&q-header-list=host&q-url-param-list=uploadId&q-signature=23627c8fddb3823cce4257b33c663fd83f9f820d
 Content-Length: 155
@@ -131,7 +131,7 @@ Server: tencent-cos
 x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 
 <CompleteMultipartUploadResult>
-    <Location>arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com/ObjectName</Location>
+    <Location>arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com/ObjectName</Location>
     <Bucket>arlenhuangtestsgnoversion</Bucket>
     <Key>ObjectName</Key>
     <ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
