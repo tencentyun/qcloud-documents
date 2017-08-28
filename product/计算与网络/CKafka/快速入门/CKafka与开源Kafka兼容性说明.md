@@ -77,7 +77,7 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了Old Consumer两种Consume
 1. New Consumer
 
 ```
-/\* config中主要变化是 zookeeper参数被替换了 \*/
+//config中主要变化是 zookeeper参数被替换了
 Properties props = new Properties();
 props.put("bootstrap.servers", "localhost:9092");
 props.put("group.id", "test");
@@ -86,7 +86,7 @@ props.put("auto.commit.interval.ms", "1000");
 props.put("session.timeout.ms", "30000");
 props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-/\* 相比old consumer 而言，这里创建消费者更加简单 \*/
+// 相比old consumer 而言，这里创建消费者更加简单 
 KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 consumer.subscribe(Arrays.asList("foo", "bar"));
 
@@ -99,7 +99,7 @@ while (true) {
 2. Old Consumer （High Level）
 
 ```
-/\* old consumer 需要 zookeeper \*/
+//  old consumer 需要 zookeeper
 Properties props = new Properties();
 props.put("zookeeper.connect", "localhsot:2181");
 props.put("group.id", "test");
@@ -107,14 +107,14 @@ props.put("auto.commit.enable", "true");
 props.put("auto.commit.interval.ms", "1000");
 props.put("auto.offset.reset", "smallest");
 ConsumerConfig config = new ConsumerConfig(props);
-/\* 需要创建connector \*/
+// 需要创建connector 
 ConsumerConnector connector = Consumer.createJavaConsumerConnector(config);
-/\* 创建message stream \*/
+// 创建message stream
 Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
 topicCountMap.put("foo", 1);
 Map<String, List<KafkaStream<byte[], byte[]>>> streams =
  connector.createMessageStreams(topicCountMap);
-/\* 获取数据 \*/
+// 获取数据 
 KafkaStream<byte[], byte[]> stream = streams.get("foo").get(0);
 ConsumerIterator<byte[], byte[]> iterator = stream.iterator();
 MessageAndMetadata<byte[], byte[]> msg = null;
