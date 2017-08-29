@@ -11,10 +11,10 @@
 ### 集群详情查看
 在集群列表页面，单击相应集群的【详情】按钮后进入集群管理页。
 用户可以在实例详情页查看集群的基本信息、软件以及硬件信息。
-**基本信息：**
+基本信息：
 ![](//mc.qcloudimg.com/static/img/7ee2d62da259f6fc05c8dfdcced0be2f/image.png)
-Master 公网 IP 是快捷入口页面的地址入口 IP。
-**软件以及节点信息：**
+*Master 公网 IP 是快捷入口页面的地址入口 IP。
+软件以及节点信息：
 ![](//mc.qcloudimg.com/static/img/d82d45bbfdeb37d72c0b62996a5b3169/image.png)
 * 软件信息显示了本集群安装的软件。
 * 硬件信息展示了各节点硬件配置详细信息。
