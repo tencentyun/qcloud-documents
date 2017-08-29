@@ -17,9 +17,9 @@
 <tr>
 <td> addressGroupName <td> 否 <td> String <td> IP地址组名称，支持模糊搜索
 <tr>
-<td> offset <td> 否 <td> int <td> 初始行的偏移量，默认为0。
+<td> offset <td> 否 <td> Int <td> 初始行的偏移量，默认为0。
 <tr>
-<td> limit <td> 否 <td> int <td> 每页行数，默认为20。
+<td> limit <td> 否 <td> Int <td> 每页行数，默认为20。
 </tbody></table>
 
 注：addressGroupId 和 addressGroupName 作为查询条件为逻辑与关系
