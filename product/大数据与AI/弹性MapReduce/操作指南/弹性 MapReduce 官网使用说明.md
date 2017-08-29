@@ -14,6 +14,7 @@
 **基本信息：**
 ![](//mc.qcloudimg.com/static/img/7ee2d62da259f6fc05c8dfdcced0be2f/image.png)
 Master 公网 IP 是快捷入口页面的地址入口 IP。
+
 **软件以及节点信息：**
 ![](//mc.qcloudimg.com/static/img/d82d45bbfdeb37d72c0b62996a5b3169/image.png)
 * 软件信息显示了本集群安装的软件。
