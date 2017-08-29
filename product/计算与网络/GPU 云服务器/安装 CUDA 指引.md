@@ -17,10 +17,8 @@ GPU 云服务器采用 NVIDIA 显卡，需要安装 CUDA 开发运行环境。�
 `sudo rpm -i cuda-repo-rhel7-7.5-18.x86_64.rpm`
 `sudo yum clean all`
 `sudo yum install cuda`
-
-根据上述步骤下载安装 CUDA 驱动，验证步骤如下：
-1. 在	` /usr/local/cuda-7.5/samples/1_Utilities/deviceQuery ` 目录下，执行 `make` 命令，可以编译出 deviceQuery 程序。
-2. 执行 deviceQuery 正常显示如下设备信息，此刻认为 CUDA 安装正确。
+6. 在	` /usr/local/cuda-7.5/samples/1_Utilities/deviceQuery ` 目录下，执行 `make` 命令，可以编译出 deviceQuery 程序。
+7. 执行 deviceQuery 正常显示如下设备信息，此刻认为 CUDA 安装正确。
 ![](//mc.qcloudimg.com/static/img/d545951dc869591d83bf23e27831287a/image.jpg)
 
 ## Windows 系统指引
