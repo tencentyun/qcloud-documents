@@ -56,7 +56,7 @@ Content-Type: "application/json"
 | ------ | ---- | ------ | ------- |
 | appid  | 是    | Uint   | 业务 ID    |
 | bucket | 是    | String | 图片空间    |
-| url    | 是    | String | 图片 URL 列表 |
+| url    | 是    | String | 图片 url 列表 |
 
 ### 3.2 返回内容
 
@@ -75,7 +75,7 @@ Content-Type: "application/json"
 | url     | String | 当前图片的 url     |
 | data    |        | 具体查询数据，具体见下表 |
 
-**data字段具体内容：**
+**data 字段具体内容：**
 
 | 参数            | 类型     | 描述                                       |
 | ------------- | ------ | ---------------------------------------- |
@@ -95,7 +95,7 @@ Content-Type: "application/json"
 
 ### 3.3 示例
 
-**http请求：**
+**http 请求：**
 
 ```
 POST /detection/porn_detect HTTP/1.1
@@ -114,7 +114,7 @@ Content-Type: "application/json"
 }
 ```
 
-**响应http body（application/json格式）：**
+**响应 http body（application/json格式）：**
 
 ```
 {
@@ -202,7 +202,7 @@ image_content
 
 ### 4.2 返回内容
 
-**响应http body (json 格式)：**
+**响应 http body (json 格式)：**
 
 | 参数          | 类型     | 描述           |
 | ----------- | ------ | ------------ |
@@ -217,7 +217,7 @@ image_content
 | filename | String | 当前图片的 filename，与请求包中 filename 一致 |
 | data     |        | 具体查询数据，内容见下表                  |
 
-**data字段具体内容：**
+**data 字段具体内容：**
 
 | 参数            | 类型     | 描述                                       |
 | ------------- | ------ | ---------------------------------------- |
