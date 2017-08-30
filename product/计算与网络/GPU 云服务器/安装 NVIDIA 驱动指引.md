@@ -1,6 +1,6 @@
-GPU 云服务器必须具备相应的 NVIDIA 驱动，必须针对您的编译您安装的 NVIDIA 驱动程序。
+GPU 云服务器必须具备相应的 NVIDIA 驱动，必须针对您的编译环境安装合适的 NVIDIA 驱动程序。
 ## Linux 安装驱动
-1. 登录 [NVIDIA 驱动下载](http://www.nvidia.com/Download/Find.aspx) 或复制链接 http://www.nvidia.com/Download/Find.aspx 。
+1. 登录 [NVIDIA 驱动下载](http://www.nvidia.com/Download/Find.aspx) 或打开链接 http://www.nvidia.com/Download/Find.aspx 。
 2. 选择操作系统和安装包。以 M40 为例，选择要下载的驱动版本：
 ![](//mc.qcloudimg.com/static/img/70da79038a0220191adc012fa8133b1b/image.png)
 ![](//mc.qcloudimg.com/static/img/8255f9b4f32528399fc4616df6feec68/image.png)
