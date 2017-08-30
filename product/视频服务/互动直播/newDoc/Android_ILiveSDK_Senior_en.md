@@ -10,7 +10,7 @@
 
 | Parameter | Description |
 |---------|---------|
-| ILVText | Text message class. You can specify message types (broadcast messages or C2C message), message content, message receiver (group ID or user ID) |
+| ILVText | Text message class. You can specify message types (broadcast messages or C2C message), message content and message receiver (group ID or user ID) |
 | ILiveCallBack | API for message sending callback |
 
 * Example of sending text

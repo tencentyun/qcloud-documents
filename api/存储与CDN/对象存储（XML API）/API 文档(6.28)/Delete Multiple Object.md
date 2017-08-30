@@ -8,7 +8,7 @@ Delete Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object
 语法示例：
 ```
 POST /?delete HTTP/1.1
-Host: <Bucketname>-<AppID>.<Region>.myqcloud.com
+Host: <Bucketname>-<AppID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
@@ -129,13 +129,26 @@ Container 节点 Error 的内容：
 
 ### 请求
 ```
-POST /coss3/?delete HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+POST /?delete HTTP/1.1
+Host: lelu06-1252400000.cn-north.myqcloud.com
 Date: Wed, 23 Oct 2016 21:32:00 GMT
-Content-MD5: 35385efb5ba5134bffb192bfa17c3d5e
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487065662;32466649662&q-key-time=1487065662;32559961662&q-header-list=host&q-url-param-list=delete&q-signature=286ef48c81f1652c37c635f0fb7db7a2150aa5ba
-Content-Length: 75
-Content-Type: application/x-www-form-urlencoded
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.12.4
+Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=delete&q-header-list=host&q-signature=c54f22fd92232a76972ba599cba25a8a733d2fef
+Content-MD5: yoLiNjQuvB7lu8cEmPafrQ==
+Content-Length: 125
+
+<Delete>
+  <Quiet>true</Quiet>
+  <Object>
+    <Key>aa</Key>
+  </Object>
+  <Object>
+    <Key>aaa</Key>
+  </Object>
+</Delete>
 
 ```
 
@@ -143,16 +156,58 @@ Content-Type: application/x-www-form-urlencoded
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 79
+Content-Length: 17
 Connection: keep-alive
-Date: Wed, 23 Oct 2016 21:32:00 GMT
+Date: Tue, 22 Aug 2017 12:00:48 GMT
 Server: tencent-cos
-x-cos-request-id: NThhMmQyOTdfMmM4OGY3XzZjZGFfY2Mx
+x-cos-request-id: NTk5YzFjZjBfZWFhZDM1MGFfMjkwZV9lZGM3ZQ==
+
+<DeleteResult/>
+```
+
+### 请求
+```
+POST /?delete HTTP/1.1
+Host: lelu06-1252440000.cn-north.myqcloud.com
+Date: Tue, 22 Aug 2017 12:16:35 GMT
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: python-requests/2.12.4
+Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=delete&q-header-list=host&q-signature=c54f22fd92232a76972ba599cba25a8a733d2fef
+Content-MD5: V0XuU8V7aqMYeWyD3BC2nQ==
+Content-Length: 126
+
+<Delete>
+  <Quiet>false</Quiet>
+  <Object>
+    <Key>aa</Key>
+  </Object>
+  <Object>
+    <Key>aaa</Key>
+  </Object>
+</Delete>
+
+```
+
+### 响应
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 111
+Connection: keep-alive
+Date: Tue, 22 Aug 2017 12:16:35 GMT
+Server: tencent-cos
+x-cos-request-id: NTk5YzIwYTNfMzFhYzM1MGFfMmNmOWZfZWVhNjQ=
 
 <DeleteResult>
-    <Deleted>
-        <Key>ObjectName</Key>
-    </Deleted>
+ <Deleted>
+  <Key>aa</Key>
+ </Deleted>
+ <Deleted>
+  <Key>aaa</Key>
+ </Deleted>
 </DeleteResult>
 
 ```
+

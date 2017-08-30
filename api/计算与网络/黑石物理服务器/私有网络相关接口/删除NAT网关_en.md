@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (DeleteBmNatGateway) is used to delete a BM NAT gateway.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters

@@ -1,6 +1,6 @@
 ## Non-interactive broadcasting
 Non-interactive broadcasting feature can transcode the uplink ILVB data to a general format for pushing and distributing, to help users watch videos through Web or streaming media players.<br/><br/>
-** You can use the non-interactive broadcasting feature only after the Tencent Cloud LVB service is activated in the console.
+**You can use the non-interactive broadcasting feature only after the Tencent Cloud LVB service is activated in the console.**
 
 ### 1. Client SDK APIs
 #### Android

@@ -6,7 +6,7 @@ Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head �
 语法示例：
 ```
 HEAD /<ObjectName> HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 
@@ -57,7 +57,7 @@ HEAD /<ObjectName> HTTP/1.1
 ### 请求
 ```
 HEAD /123 HTTP/1.1
-Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
 Date: Thu, 12 Jan 2017 17:26:53 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213210;32557109210&q-key-time=1484213210;32557109210&q-header-list=host&q-url-param-list=&q-signature=ac61b8eb61964e7e6b935e89de163a479a25c210
 

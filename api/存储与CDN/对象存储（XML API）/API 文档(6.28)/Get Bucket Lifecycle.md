@@ -6,7 +6,7 @@ Get Bucket Lifecycle 用来查询 Bucket 的生命周期配置。如果该 Bucke
 语法示例：
 ```
 GET /?lifecycle HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -46,7 +46,7 @@ GET /?lifecycle HTTP/1.1
 ### 请求
 ```
 GET /?lifecycle HTTP/1.1
-Host: lifecycletest-73196696.cn-north.myqcloud.com
+Host: lifecycletest-73196696.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 12:23:54 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502857357;1502937357&q-key-time=1502857357;1502937357&q-header-list=host&q-url-param-list=lifecycle&q-signature=da155cda3461bee7422ee95367ac8013ef847e02
 

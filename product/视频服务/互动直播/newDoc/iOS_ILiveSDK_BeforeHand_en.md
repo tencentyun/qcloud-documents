@@ -37,13 +37,13 @@ Compile and run the project (If xcode8 compiler fails, modify the Bundle Identif
 Refer to Step 2 above 
 
 ### 2. Modify the project configuration
-* Copy the downloaded SDKs to the project directory by right-clicking the project directory and clicking " Add Files to 'your projectname'", as shown below:
+* Copy the downloaded SDKs to the project directory by right-clicking the project directory and clicking **Add Files to 'your projectname'**, as shown below:
 
-(1) Go to "Build Settings"->"Linking"-> "Other Linker Flags", and then add -ObjC configuration, as shown below:
+(1) Go to **Build Settings** -> **Linking** -> **Other Linker Flags**, and then add -ObjC configuration, as shown below:
 ![](http://mc.qcloudimg.com/static/img/9e48e62964428b6b12e11c262ff29178/image.png)
 
 
-(2) Go to "Build Settings"-> "Linking" -> "Bitcode", add Bitcode configuration, and then set it to NO, as shown below:
+(2) Go to **Build Settings** -> **Linking** -> **Bitcode**, add Bitcode configuration, and then set it to NO, as shown below:
 ![](http://mc.qcloudimg.com/static/img/f473f6c580a4196af7d3d33edf140bdb/image.png)
 
 (3) For iOS10 and above, you need to add device access configuration in the Info.plist.
@@ -96,7 +96,7 @@ You can add the following system libraries by simply dragging the SystemLibrarys
 | ILiveSDK | ILiveSDK and TILLiveSDK |
 
 ### Library class list
-| No | Name | Folder | Description |
+| No. | Name | Folder | Description |
 |---|---|---|---|
 | 1 | QAVSDK.framework | Frameworks/AVSDK/ | Audio/video SDK |
 | 2 | xplatform.framework | Frameworks/AVSDK/ | SDKs for audio/video SDKs |

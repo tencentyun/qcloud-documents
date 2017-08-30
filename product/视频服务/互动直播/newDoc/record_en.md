@@ -127,7 +127,7 @@ Videos recorded through audio/video communication SDK are stored in VOD service.
 (3) DescribeVodPlayInfo obtains the download address of the recorded file based on the file name entered in the recording parameters of the API "Start Recording".
  For more information, please see [relevant document](https://www.qcloud.com/document/product/266/8586).
 
-### 3. Prices and billing method
+### 3 Prices and billing method
 
 The charge is billed based on the maximum concurrent channels for the recording month, with a price of 30 CNY/channel/month.
 In addition, recording involves VOD features, which give rise to charges for storage and traffic. [Billing Rules](https://www.qcloud.com/doc/product/268/5129#2..E5.BD.95.E5.88.B6.E7.9B.B8.E5.85.B3.E8.AE.A1.E8.B4.B9):
@@ -135,7 +135,7 @@ In addition, recording involves VOD features, which give rise to charges for sto
 
 Please note that, if you have activated the VOD service and selected a billing method from package and postpaid mode, the selected billing method is adopted. If you have not activated the VOD service, the billing method of pay-by-traffic (postpaid) is used by default.
 
-### 4. Notes
+### 4 Notes
 
 (1) Recording feature is not supported for one-on-one audio/video room
 (2) Type of recorded file defaults to MP4.
@@ -143,7 +143,7 @@ Please note that, if you have activated the VOD service and selected a billing m
 (4) When App crashes or exits due to exception in the running process, the recording ends automatically if no data is received within 1 minute. The audio/video before the exit is recorded at the backend.
 (5) The current version does not support the merging or mixing of multi-channel upstream videos.
 
-### 5. Error Codes
+### 5 Error Codes
 
 
 | Error Code | Description | Solution |

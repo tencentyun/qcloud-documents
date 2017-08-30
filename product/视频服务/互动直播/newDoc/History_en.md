@@ -14,7 +14,7 @@
 * Added support for recording and non-interactive push
 
 ## `AVSDK 1.8.5  2017-03-022`
-** New Features of SDK  
+**New Features of SDK**  
 * 1. Optimized loading time when joining a room in LVB scenarios. 
 * 2. Added VJ voice changer feature.
 * 3. Beside IMSDK channel, AVSDK implemented a new channel internally. Android can use the HTTP channel implemented by AVSDK, and iOS can use HTTPS channel.
@@ -128,7 +128,7 @@ Tencent Video Cloud provides powerful screenshot and porn detection features for
 * Fixed a bug that after "Join room - Start screen sharing - Exit room - Join room again - Request screen sharing from other people" operations, the shared screen may not be rendered
 
 ## `AV_iOS_SDK1.8.1    2016-06-06`
-** 1. New SDK features **
+**1. New SDK features**
 
 * Video hardware encoding
 * The aspect ratio of 16:9 is supported when capturing videos

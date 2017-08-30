@@ -3,7 +3,7 @@
 ![](http://mc.qcloudimg.com/static/img/06d2fb5027be53492249d4b81bd2f5a5/image.png)
 
 
-# 1. Initialize ILiveSDK
+# 1 Initialize ILiveSDK
 Initialize ILiveSDK when the application starts.
 
 | API | Description |
@@ -23,7 +23,7 @@ Initialize ILiveSDK when the application starts.
 # 2 Account login
 
 ## 2.1 Hosting mode
-Hosted mode: user account system is hosted to Tencent Cloud. [For more information, please see](https://www.qcloud.com/doc/product/269/1509)
+Hosted mode: user account system is hosted to Tencent Cloud. [More Details](https://www.qcloud.com/doc/product/269/1509)
 
 | API | Description |
 |---|---|
@@ -46,7 +46,7 @@ Hosted mode: user account system is hosted to Tencent Cloud. [For more informati
 ```
 
 ## 2.2 Standalone mode
-Standalone mode: The user account system is maintained by the user's own server. In standalone mode, Signature needs to be generated at business backend. The client cannot log in to the Tencent Cloud backend until it obtains the Signature. [For more information, please see](https://www.qcloud.com/doc/product/269/1508)
+Standalone mode: The user account system is maintained by the user's own server. In standalone mode, Signature needs to be generated at business backend. The client cannot log in to the Tencent Cloud backend until it obtains the Signature. [More Details](https://www.qcloud.com/doc/product/269/1508)
 
 | API | Description |
 |---|---|

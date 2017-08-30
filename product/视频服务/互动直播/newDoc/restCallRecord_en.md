@@ -57,7 +57,7 @@
 | str_errorinfo | string | Error information | Error string information |
 | str_fileID | [String] | Video file ID list; string array.  | Returned only at the end of the recording |
 
-***Note: Recording can only be successfully enabled after the user joins the audio/video room.
+***Note: Recording can only be successfully enabled after the user joins the audio/video room.***
 
 # Error Codes
 

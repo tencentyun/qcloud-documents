@@ -1,4 +1,4 @@
-本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅  [如何构建docker镜像](/doc/product/457/9115) 。
+本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅  [如何构建 Docker镜像](/doc/product/457/9115) 。
 
 ## 第一步：编写代码制作镜像
 ### 编写应用程序
@@ -21,7 +21,7 @@ var handleRequest = function(request, response) {
 var www = http.createServer(handleRequest);
 www.listen(8080);
 ```
-2. 测试 Hello world 程序。
+2. 测试 Hello World 程序。
 ```shell
 [root@VM_88_88_centos ~]# node server.js
 ```
@@ -32,7 +32,7 @@ Hello World!
 ```
 
 ### 创建 Docker 镜像
-构建 Docker 镜像更多详情见：[如何构建docker镜像](/doc/product/457/9115) 。
+构建 Docker 镜像更多详情见：[如何构建 Docker 镜像](/doc/product/457/9115) 。
 1. 在 hellonode 文件夹下，创建 Dockerfile 文件：
 ```shell
 FROM node:4.4
@@ -77,11 +77,11 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 
 ## 第二步：通过该镜像创建服务
 ### 前提条件
-如果您还未创建集群，您需要先创建集群。有关如何创建集群的详细信息，参见 [新建集群](/doc/product/457/9091) 。
+如果之前没有创建过集群，您需要先创建集群。有关如何创建集群的详细信息，参见 [新建集群](/doc/product/457/9091) 。
 
 ### 操作步骤
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 。
-2. 单击左侧导航栏中的 **服务**，在服务列表页单击【新建】。
+2. 单击左侧导航栏中的【服务】，在服务列表页单击【+新建】。
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3. 填写服务的基本信息。
  - **服务名称**：要创建的服务的名称。本例中，服务名称为 helloworld。
@@ -89,28 +89,24 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
  - **运行集群**：选择合适的集群和 Namespace。
  - **服务描述**：服务的相关信息。该信息将显示在 **服务信息** 页面。
 ![](//mc.qcloudimg.com/static/img/a09e01f2f54a5d68720d4078d21e7c46/image.png)
-4. 选择镜像。输入运行容器的名称，此处以 helloworld 为例。单击 **选择镜像** 。
+4. 选择镜像。输入运行容器的名称，此处以 helloworld 为例。单击【选择镜像】 。
 ![](//mc.qcloudimg.com/static/img/abb29fc594b5d87d7c475585b1dbe143/image.png)
 在 **我的镜像** 下，在搜索框中输入 helloworld，单击搜索。在搜索结果中选择 helloworld，单击 【确定】。
 ![](//mc.qcloudimg.com/static/img/3f4e4dada565b815788720fb6436a6c6/image.png)
-
 5. 设置端口映射。将容器端口设置为 8080 。
 ![](//mc.qcloudimg.com/static/img/6e2110856cd51efe51431a4a3977e3ea/image.png)
-
-6. 单击 **创建服务**。完成 helloworld 服务的创建。
+6. 单击【创建服务】。完成 helloworld 服务的创建。
 >**注意：**
 >其他选项保持为默认设置。
 
 ## 访问 helloworld 服务
-1. 单击服务页面的 **服务信息** 查看负载均衡 ID 和负载均衡 IP 。 
+1. 单击服务页面的【服务信息】查看负载均衡 ID 和负载均衡 IP 。 
 ![](//mc.qcloudimg.com/static/img/7891c817f167f7726b67615696cfff08/image.png)
-
 2. 提供两种种方式访问  helloworld 服务。
  - 通过负载均衡 IP 来访问  helloworld 服务。
  - 通过 **域名** 来访问  helloworld 服务。
- 在容器服务控制台左侧导航栏中，单击 **负载均衡** ，单击 **TCP/UDP**，复制域名访问服务。
+ 在容器服务控制台左侧导航栏中，单击【负载均衡】，单击【TCP/UDP】，复制域名访问服务。
 ![](//mc.qcloudimg.com/static/img/a1bd366e0154dff0a15c7d062c500699/image.png)
  
 3. 在浏览器中输入 IP 地址，即可看到 Hello World！
 ![](//mc.qcloudimg.com/static/img/ef9e2067f34004f49f7fe1360f20c3a5/image.png)
-

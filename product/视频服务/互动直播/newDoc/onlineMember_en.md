@@ -1,4 +1,4 @@
-# Online Member Statistics Solution
+# Online Member Statistics Solutions
 
 > * Solution 1: Use business server for management (recommended)
 > Solution 2: Use IMSDK API

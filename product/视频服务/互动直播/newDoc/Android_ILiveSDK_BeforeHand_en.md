@@ -9,7 +9,7 @@ Change appid and accountType in the code of FreeShow to that of developer.<br/>
 ![](https://mc.qcloudimg.com/static/img/62890dee5794a2ce94404ba762624b94/idntype.png)
 
 ## Run the project
-Compile and run project, and select FreeShow in startup interface.
+Compile and run project, and select **FreeShow** in startup interface.
 
 * ![Main Interface](https://mc.qcloudimg.com/static/img/1be6185cdb0f61756c85e230a9fc0514/2.png)
 * ![LVB Interface](https://mc.qcloudimg.com/static/img/ccf7ca496a22ec0aed9d4446f30ba85f/1.png)
@@ -18,7 +18,7 @@ Compile and run project, and select FreeShow in startup interface.
 ## Integrate into developer's code project
 ### 1. Introduce SDK
 * **aar-type integration** (strongly recommended)<br/>
-	If you use Android Studio for development, it is very easy to import iliveSDK. This can be done by writing simple code. 
+	If you use Android Studio for development, it is very easy to import iliveSDK. This can be done by writing simple codes. 
 
 
 	LVB Business Feature       
