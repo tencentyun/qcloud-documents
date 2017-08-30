@@ -1,7 +1,7 @@
 ## 集群创建
 集群创建参见 [创建一个 EMR 集群](https://www.qcloud.com/document/product/589/10981)。
 ## 集群管理
-集群创建成功后，登录弹性 MapReduce [控制台](https://www.qcloud.com/login?s_url=https%3A%2F%2Femr.qcloud.com%2Findex)，进入集群列表页面。
+集群创建成功后，登录弹性 MapReduce [控制台](https://console.qcloud.com/emr)，进入集群列表页面。
 ![](//mc.qcloudimg.com/static/img/82b888deb0e7e8c47590956227234816/image.png)
 * 勾选【实例 ID】可以分配集群至项目。
 * 单击【项目下拉列表】可以切换项目。
