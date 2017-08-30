@@ -64,6 +64,7 @@ uint32_expire_time|是|签名过期时间，建议设置为创建时间+300秒
 ##### b）、用tea加密对二进制字符串加密，symmetry_encrypt函数输出的字符串即为加密串；
 ##### c）、把加密串转换成16进制字符串，大小写均可，如：
 ```
-bytes_conn_room_sig: "00A47C7E5FD0471A6D90CBE6FAAC2D862A114EFC6337D8F0BD1161BB53250F4EE46DB0244E8515D58BA7DAED23190484"
+bytes_conn_room_sig: 
+"00A47C7E5FD0471A6D90CBE6FAAC2D862A114EFC6337D8F0BD1161BB53250F4EE46DB0244E8515D58BA7DAED23190484"
 ```
 google protobuf官网：[https://github.com/google/protobuf](https://github.com/google/protobuf)
