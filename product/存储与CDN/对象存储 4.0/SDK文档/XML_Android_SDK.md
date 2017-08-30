@@ -15,19 +15,12 @@
 ### SDK 配置
 
 配置工程导入下列 jar 包：
-
 - cos-xml-android-sdk-1.0.jar
-
 - qcloud-network-android-sdk-1.0.jar
- 
 - okhttp-3.8.1.jar
-
 - okio-1.13.0.jar
- 
 - slf4j-android-1.6.1-RC1.jar
-
 - xstream-1.4.7.jar
-
 - fastjson-1.1.60.android.jar
 
 SDK 需要网络访问相关的一些权限，需要在 AndroidManifest.xml 中增加如下权限声明：
@@ -37,71 +30,6 @@ SDK 需要网络访问相关的一些权限，需要在 AndroidManifest.xml 中�
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-```
-
-## 初始化
-进行操作之前需要实例化 CosXmlService 和 CosXmlServiceConfig.
-
-#### 实例化 CosXmlServiceConfig
-调用 `CosXmlServiceConfig(String appid, String region)`构造方法，实例化 CosXmlServiceConfig 对象.
-
-#### 参数说明
-| 参数名称   | 类型 | 是否必填 | 参数描述   |
-| :-------------- | :-------------- | :-- | :----------- |
-| appid           | String          | 是  | 对象存储 的服务APPID |
-| region          | String          | 是  | 存储桶 所在的地域 |
-
-
-#### 其它配置设置方法
-|   方法   |     方法描述   |
-|:----------:|:-----------:|
-|   setHttpProtocol(boolean)  | true: https请求； false: http请求； 默认http请求|
-|   setConnectionTimeout(int) |     连接超时设置   |
-|  setSocketTimeout(int)   |     读写超时设置   |
-|   setMaxRetryCount(int)  |     失败请求重试次数   |
-
-
-#### 示例
-```java
-String appid = "对象存储 的服务APPID";
-String region = "存储桶 所在的地域"; //所属地域：在创建好存储桶后，可通过对象存储控制台查看
-CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig(appid,region);
-```
-
-#### 实例化 CosXmlService
-调用 `CosXmlService(Context context, CosXmlServiceConfig serviceConfig, CosXmlCredentialProvider cloudCredentialProvider)` 构造方法，实例化 CosXmlService 对象.
-
-#### 参数说明
-| 参数名称   | 类型 | 是否必填 | 参数描述   |
-| :-------------- | :-------------- | :-- | :----------- |
-| context         | Context         | 是  | 上下文 |
-| serviceConfig   | CosXmlServiceConfig    | 是  | SDK 的配置设置类 |
-| cloudCredentialProvider   | CosXmlCredentialProvider    | 是  | 服务请求的签名获取类 |
-
-#### 示例
-```java
-String appid = "对象存储 的服务APPID";
-String region = "存储桶 所在的地域"; 
-
-//创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
-CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig(appid,region);
-
-/**
-* 
-* 创建 CosXmlCredentialProvider 签名获取类对象，用于使用对象存储服务时计算签名. 
-* 参考SDK提供签名格式，可实现自己的签名方法.
-* 此处使用SDK提供的默认签名计算方法.
-*
-*/
-String secretId = "云 API 密钥 secretId";
-String secretKey ="云 API 密钥 secretKey";
-long keyDuration = 600; //secretKey的有效时间,单位秒
-CosXmlCredentialProvider cosXmlCredentialProvider = new CosXmlLocalCredentialProvider(secretId, secretKey, keyDuration);
-
-//创建 CosXmlService 对象，实现对象存储服务各项操作.
-Context context = getApplicationContext()； //应用的上下文
-CosXmlService cosXmlService = new CosXmlService(context,cosXmlServiceConfig, cosXmlCredentialProvider);
-
 ```
 
 ## 快速入门 
@@ -295,6 +223,69 @@ catch (QCloudException e) {
 	   //抛出异常
        Log.w("TEST","exception =" + e.getExceptionType() + "; " + e.getDetailMessage());
 }
+```
+## 初始化
+进行操作之前需要实例化 CosXmlService 和 CosXmlServiceConfig.
+
+#### 实例化 CosXmlServiceConfig
+调用 `CosXmlServiceConfig(String appid, String region)`构造方法，实例化 CosXmlServiceConfig 对象.
+
+#### 参数说明
+| 参数名称   | 类型 | 是否必填 | 参数描述   |
+| :-------------- | :-------------- | :-- | :----------- |
+| appid           | String          | 是  | 对象存储 的服务APPID |
+| region          | String          | 是  | 存储桶 所在的地域 |
+
+
+#### 其它配置设置方法
+|   方法   |     方法描述   |
+|:----------:|:-----------:|
+|   setHttpProtocol(boolean)  | true: https请求； false: http请求； 默认http请求|
+|   setConnectionTimeout(int) |     连接超时设置   |
+|  setSocketTimeout(int)   |     读写超时设置   |
+|   setMaxRetryCount(int)  |     失败请求重试次数   |
+
+#### 示例
+```java
+String appid = "对象存储 的服务APPID";
+String region = "存储桶 所在的地域"; //所属地域：在创建好存储桶后，可通过对象存储控制台查看
+CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig(appid,region);
+```
+
+#### 实例化 CosXmlService
+调用 `CosXmlService(Context context, CosXmlServiceConfig serviceConfig, CosXmlCredentialProvider cloudCredentialProvider)` 构造方法，实例化 CosXmlService 对象.
+
+#### 参数说明
+| 参数名称   | 类型 | 是否必填 | 参数描述   |
+| :-------------- | :-------------- | :-- | :----------- |
+| context         | Context         | 是  | 上下文 |
+| serviceConfig   | CosXmlServiceConfig    | 是  | SDK 的配置设置类 |
+| cloudCredentialProvider   | CosXmlCredentialProvider    | 是  | 服务请求的签名获取类 |
+
+#### 示例
+```java
+String appid = "对象存储 的服务APPID";
+String region = "存储桶 所在的地域"; 
+
+//创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
+CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig(appid,region);
+
+/**
+* 
+* 创建 CosXmlCredentialProvider 签名获取类对象，用于使用对象存储服务时计算签名. 
+* 参考SDK提供签名格式，可实现自己的签名方法.
+* 此处使用SDK提供的默认签名计算方法.
+*
+*/
+String secretId = "云 API 密钥 secretId";
+String secretKey ="云 API 密钥 secretKey";
+long keyDuration = 600; //secretKey的有效时间,单位秒
+CosXmlCredentialProvider cosXmlCredentialProvider = new CosXmlLocalCredentialProvider(secretId, secretKey, keyDuration);
+
+//创建 CosXmlService 对象，实现对象存储服务各项操作.
+Context context = getApplicationContext()； //应用的上下文
+CosXmlService cosXmlService = new CosXmlService(context,cosXmlServiceConfig, cosXmlCredentialProvider);
+
 ```
 
 ## 生成签名
