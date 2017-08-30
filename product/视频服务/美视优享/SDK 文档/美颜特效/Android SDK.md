@@ -9,11 +9,13 @@
 ### 1. 添加 SDK
 拷贝 SDK 里的 txrtmpsdk.jar 和 libtxrtmpsdk.so 等 so 到工程对应位置，如 libs 下。
 > **注意：**
+>
 > 特权版只支持 armeabi 架构的 so，请删除 app 里面的其余架构 so，避免 so 加载失败。
 
 ### 2. 添加资源
 将 zip 包中的 `camera` 文件夹拷贝到工程的 assets 目录下。
 > **注意：**
+>
 > camera 目录包含了切换动效需要的资源等文件，必须正确放到 assets 目录下，否则会发生异常。
 
 ### 3. 导入 licence 文件
