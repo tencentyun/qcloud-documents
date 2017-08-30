@@ -5,8 +5,7 @@
 可以到 [RTMP SDK 开发包](https://www.qcloud.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so，替换工程中的非特权版 jar 和 so 即可。
 
 > 区分特权版与非特权版，可以查看 SDK 的 bundler id。bundler id 为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
->
-> 也可以通过体积直观判断，特权版 SDK 的体积也比非特权版大很多。
+
 
 
 ## Xcode 工程设置
