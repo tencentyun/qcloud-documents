@@ -12,7 +12,7 @@
 
 ### 1. 添加 framework
 
-特权版需要额外链接一些系统 framework:
+特权版需要额外链接一些系统 framework：
 > 1. AssetsLibrary.framwork
 > 2. CoreMedia.framework
 > 3. Accelerate.framework
