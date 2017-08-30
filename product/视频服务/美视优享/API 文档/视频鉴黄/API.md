@@ -39,7 +39,7 @@ Content-Type: "application/json"
 }
 ```
 
-**请求包的http header**
+**请求包的http header：**
 
 | 参数             | 是否必须 | 描述                              |
 | -------------- | ---- | ------------------------------- |
@@ -48,7 +48,7 @@ Content-Type: "application/json"
 | Content-Type   | 是    | 标准的 application/json             |
 | Content-Length | 是    | http body 总长度                    |
 
-**请求包http body**
+**请求包http body：**
 
 | 参数     | 是否必须 | 类型     | 描述      |
 | ------ | ---- | ------ | ------- |
@@ -58,13 +58,13 @@ Content-Type: "application/json"
 
 ### 3.2 返回内容
 
-**响应http body(json格式)**
+**响应http body(json格式)：**
 
 | 参数          | 是否必须   | 类型           |
 | ----------- | ------ | ------------ |
 | result_list | json数组 | 具体查询数据，内容见下表 |
 
-**result_list（json数组）中每一项的具体内容**
+**result_list（json数组）中每一项的具体内容：**
 
 | 参数      | 类型     | 描述           |
 | ------- | ------ | ------------ |
@@ -84,14 +84,14 @@ Content-Type: "application/json"
 | porn_score    | double | 图片为色情图片的评分                               |
 | forbid_status | int    | 封禁状态，0表示正常，1表示图片已被封禁（只有存储在万象优图的图片才会被封禁）  |
 
-> **说明**
+> **说明：**
 > 1、当result=0时，表明图片为正常图片；
 > 2、当result=1时，表明该图片是系统判定的100%为违禁的图片；如果该图片存储在万象优图，则会直接被封禁掉；
 > 3、当result=2时，表明该图片是疑似图片，即为黄图的可能性很大（目前confidence大于等于83小于91定为疑似图片）。
 
 ### 3.3 示例
 
-**http请求**
+**http请求：**
 
 ```
 POST /detection/porn_detect HTTP/1.1
@@ -110,7 +110,7 @@ Content-Type: "application/json"
 }
 ```
 
-**响应http body（application/json格式）**
+**响应http body（application/json格式）：**
 
 ```
 {
@@ -179,7 +179,7 @@ image_content
 ---------------------------acebdf13572468--
 ```
 
-**请求包http header:**
+**请求包http header：**
 
 | 参数             | 是否必须 | 描述                              |
 | -------------- | ---- | ------------------------------- |
@@ -188,7 +188,7 @@ image_content
 | Content-Type   | 是    | 标准的application/json             |
 | Content-Length | 是    | http body总长度                    |
 
-**表单域**
+**表单域：**
 
 | 参数     | 是否必须 | 类型         | 描述                                       |
 | ------ | ---- | ---------- | ---------------------------------------- |
@@ -198,13 +198,13 @@ image_content
 
 ### 4.2 返回内容
 
-**响应http body (json 格式)**
+**响应http body (json 格式)：**
 
 | 参数          | 类型     | 描述           |
 | ----------- | ------ | ------------ |
 | result_list | json数组 | 具体查询数据，内容见下表 |
 
-**result_list（json数组）中每一项的具体内容**
+**result_list（json数组）中每一项的具体内容：**
 
 | 参数       | 类型     | 描述                            |
 | -------- | ------ | ----------------------------- |
@@ -213,7 +213,7 @@ image_content
 | filename | string | 当前图片的filename，与请求包中filename一致 |
 | data     |        | 具体查询数据，内容见下表                  |
 
-**data字段具体内容**
+**data字段具体内容：**
 
 | 参数            | 类型     | 描述                                       |
 | ------------- | ------ | ---------------------------------------- |
@@ -231,7 +231,7 @@ image_content
 
 ### 4.3 示例
 
-**http请求**
+**http请求：**
 
 ```
 POST /detection/ porn_detect HTTP/1.1
@@ -261,7 +261,7 @@ Content-Type: image/jpeg
 ---------------------------acebdf13572468
 ```
 
-** 响应http body(application/json格式)**
+** 响应http body(application/json格式)：**
 
 ```
 {
