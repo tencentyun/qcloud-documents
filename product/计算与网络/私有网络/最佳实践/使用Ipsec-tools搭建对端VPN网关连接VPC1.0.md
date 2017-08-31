@@ -70,6 +70,7 @@ vi /etc/racoon/setkey.conf
 vi /etc/racoon/psk.txt
 ```
 仍然假设您 VPC 上 VPN 网关的 IP 地址为 `112.\*.\*.251`，预共享密钥为 tes t，则 psk.txt 配置内容如下：
+
 <div style="text-align:center'>
 ![](//mccdn.qcloud.com/img56c68ca34b349.png)
 
@@ -89,6 +90,7 @@ vi /etc/racoon/racoon.conf
 ```
 
 仍然假设您 VPC 上 VPN 网关的 IP 地址为 `112.\*.\*.251`，您本地 VPN 设备的 IP 地址为 `112.\*.\*.152`，则 racoon.conf 配置内容如下：
+
 <div style="text-align:center'>
 ![](//mccdn.qcloud.com/img56c68dc067617.png)
 
