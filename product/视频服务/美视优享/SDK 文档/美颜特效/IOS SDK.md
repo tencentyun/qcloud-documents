@@ -54,7 +54,6 @@
 小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
 
 > https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip
->
 > https://st1.xiangji.qq.com/yunmaterials/{动效名}.png
 >
 
