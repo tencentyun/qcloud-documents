@@ -1,10 +1,10 @@
-在选购云服务器时若选择了 0Mbps 带宽，该服务器将无法访问公网。此类云服务器必须通过一个带公网 IP 的 CVM 才能访问公网。
-### 概述
+在选购 CVM 时若选择了 0Mbps 带宽，该服务器将无法访问公网。此类 CVM 必须通过一个带公网 IP 的 CVM 才能访问公网。
+## 概述
 无公网 IP 的 CVM 欲通过带公网 IP 的 CVM 访问公网，可以使用 PPTP VPN 来实现这一目标。即无公网 IP 的 CVM，通过 PPTP 协议与带公网 IP 的 CVM 连接起来，并且在 PPTP 网络中，将带公网 IP 的 CVM 设置为网关。
 
-### 配置
+## 配置
 
-#### 步骤一：对带公网 IP 的 CVM 进行配置
+### 步骤一：对带公网 IP 的 CVM 进行配置
 1.  安装 pptpd。以 CentOS 为例（其它 Linux 发行版类似），执行以下命令：
 ```
 yum install pptpd
@@ -33,7 +33,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.0/24 -j MASQUERADE
 ```
 
-#### 步骤二：对无公网 IP 的 CVM 进行配置
+### 步骤二：对无公网 IP 的 CVM 进行配置
 1. 安装客户端。以 CentOS 为例（其它 Linux 发行版类似），执行以下命令：
 ```
 yum install pptp pptp-setup
@@ -59,9 +59,9 @@ route add -net 192.168.0.0/16 dev eth0
 route add -net 0.0.0.0 dev ppp0
 ```
 
-#### 步骤三：确认配置成功
+### 步骤三：确认配置成功
 完成以上步骤之后，使用无公网 IP 的 CVM 去 PING 任意一个外网地址，若能 PING 通，说明配置成功。
 
-### 说明
+## 说明
 无公网 IP 的 CVM，通过带公网 IP 的 CVM 访问公网，除了使用 PPTP VPN 方式外，还可以通过在带公网 IP 的 CVM 上开通代理来实现。
 代理方式配置简单，但使用起来较复杂，建议使用上述 PPTP VPN 方法来实现这一目标。 

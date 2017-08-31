@@ -5,7 +5,6 @@
 ![](https://mc.qcloudimg.com/static/img/b127c404a42371721b7cc4c08b8ce7e0/image.png)
 
 </div>
-<p  style="text-align:center">图 1： 多层 Web 应用的隔离部署示意图</p>
 ## 解决方案
 **私有网络**：CIDR (10.0.0.0/16)，并在私有网络内创建三个子网。
 **Web 层子网**：CIDR (10.0.0.0/24)，将部署了 Web 层应用的云主机单独放于该子网，该子网可与 Internet 通信以响应用户请求。同时，面对海量请求时，您可以使用负载均衡服务。
