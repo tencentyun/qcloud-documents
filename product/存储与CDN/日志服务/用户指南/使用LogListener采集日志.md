@@ -1,12 +1,8 @@
-LogListener是腾讯云日志服务提供的日志采集Agent，您可以在您的CVM云服务器上安装LogListener实时采集日志
+LogListener是腾讯云日志服务提供的日志采集Agent，您可以在您的安装LogListener实时采集日志
 
 ##LogListener的系统支持
 
 目前LogListener支持如下版本的Linux 64位操作系统
-
-tlinux1.2
-
-tlinux2.2
 
 centos6.0
 
