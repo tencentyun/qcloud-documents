@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (RegisterBatchIp) is used to specify subnet IP for IP application.  
-Domain name for API request: vpc.api.qcloud.com
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 

@@ -35,9 +35,9 @@ Content-Language 是用于定义页面所使用的语言代码，常用配置如
 跨域是指某一个域名，如 ```www.abc.com``` 下的某资源，向另一个域名 ```www.def.com``` 下的某资源发起请求，此时由于资源所属域名不同，即出现 **跨域**，不同的协议、不同的端口均会造成跨域访问的出现。此时必须在 Response Header 中增加跨域相关配置，才能让前者成功拿到数据。
 
 #### Access-Control-Allow-Origin
-Access-Control-Allow-Origin 用于解决资源的跨域权限问题，域值定义了允许访问该资源的域，也可以设置通配符“*” ，允许被所有域请求。常用配置如下：
+Access-Control-Allow-Origin 用于解决资源的跨域权限问题，域值定义了允许访问该资源的域，也可以设置通配符“*”，允许被所有域请求。常用配置如下：
 > Access-Control-Allow-Origin: *
-> Access-Control-Allow-Origin: http://www.test.com
+> Access-Control-Allow-Origin: ```http://www.test.com```
 
 配置 Access-Control-Allow-Origin，有以下限制条件：
 + 不支持泛域名，如 ```*.qq.com```
@@ -50,8 +50,8 @@ Access-Control-Allow-Methods 用于设置跨域允许的 HTTP 请求方法，可
 
 #### Access-Control-Max-Age
 Access-Control-Max-Age 用于指定预请求的有效时间。
-非简单的跨域请求，在正式通信之前，需要增加一次 HTTP 查询请求，称为“预请求”，用来查明这个跨域请求是不是安全可以接受的，如下情况会被当成预请求：
-+ 以GET、HEAD 或者 POST 以外的方式发起，或者使用 POST，但是请求数据类型为 application/x-www-form-urlencoded、 multipart/form-data、text/plain 以外的数据类型，如 application/xml 或者 text/xml。
+非简单的跨域请求，在正式通信之前，需要增加一次 HTTP 查询请求，称为“预请求”，用来查明这个跨域请求是不是安全可以接受的，如下请求会被视为非简单的跨域请求：
++ 以 GET、HEAD 或者 POST 以外的方式发起，或者使用 POST，但是请求数据类型为 application/x-www-form-urlencoded、 multipart/form-data、text/plain 以外的数据类型，如 application/xml 或者 text/xml。
 + 使用自定义请求头。
 
 Access-Control-Max-Age 的单位为秒，设置示例如下：

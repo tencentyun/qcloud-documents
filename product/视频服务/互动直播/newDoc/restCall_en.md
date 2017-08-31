@@ -63,7 +63,7 @@ https://openapi.tim.qq.com/v3/openim/videorelay?usersig=xxxx&apn=1&identifier=xx
 
 | Parameter Name | Type | Description | Note |
 | --- | --- | --- | --- |
-| reqhead | GVCommOprHead | Common header for audio/video services |   |
+| reqhead | GVCommOprHead | Common header for audio/video services |  |
 | reqbody | Determined by the subcommand in GVCommOprHead |   |   |    |
 ### Response content consists of common header (GVCommOprHead) and specific packet,  as shown below:
 [Response Format]

@@ -1,12 +1,6 @@
 ## 版本说明
 
-- 版本号：3.0.1190 @ 2017-08-11
-
-## 版本预告
-- 3.1 版本预计 9 月发布
-- 预计Android增加变速编辑功能，可以将本地视频加速到原来的 2x, 4x 等倍速。
-- 预计Android增加音轨编辑功能，可以将本地视频的音轨进行替换和修改。
-- 预计Android增加字幕编辑功能，可以对本地视频添加字幕。
+- 版本号：3.1.1412 @ 2017-08-28
 
 ## 文档索引
 
@@ -23,8 +17,8 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_UGC_iOS_3.0.1190.zip)   |
-| Android平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_UGC_Android_3.0.1190.zip) |
+| iOS平台  | 3.1.1412 @ 2017-08-28 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.1/TXLiteAVSDK_UGC_iOS_3.1.1412.zip)   |
+| Android平台  | 3.1.1412 @ 2017-08-28 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.1/LiteAVSDK_UGC_Android_3.1.1412.zip) |
 
 - **付费版**
 
@@ -32,7 +26,7 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/TXLiteAVSDK_Enterprise_iOS_Enc_3.0.1190.zip) |
-| Android平台  | 3.0.1190 @ 2017-08-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.0/LiteAVSDK_Enterprise_Android_Enc_3.0.1190.zip) |
+| iOS平台  | 3.1.1412 @ 2017-08-28 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.1/TXLiteAVSDK_Enterprise_iOS_3.1.1412.zip) |
+| Android平台  | 3.1.1412 @ 2017-08-28 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.1/LiteAVSDK_Enterprise_Android_3.1.1412.zip) |
 
 

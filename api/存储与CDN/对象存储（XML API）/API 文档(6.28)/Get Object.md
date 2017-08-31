@@ -6,7 +6,7 @@ Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 语法示例：
 ```
 GET /<ObjectName> HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -45,7 +45,10 @@ GET /<ObjectName>&response-content-type=ContentType&response-content-language=Co
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
 | Range |RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位|String| 否|
-| If-Unmodified-Since |如果文件修改时间晚于指定时间，才返回文件内容。否则返回 412 (not modified)|String| 否|
+| If-Unmodified-Since |如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed)|String| 否|
+| If-Modified-Since |当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304 |String| 否|
+| If-Match |当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed)|String| 否|
+| If-None-Match |当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified)|String| 否|
 
 ### 请求体
 该请求的请求体为空。
@@ -72,7 +75,7 @@ GET /<ObjectName>&response-content-type=ContentType&response-content-language=Co
 ### 请求
 ```
 GET /123 HTTP/1.1
-Host: zuhaotestnorth-1251668577.cn-north.myqcloud.com
+Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed, 28 Oct 2014 22:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
 ```

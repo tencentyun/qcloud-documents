@@ -5,7 +5,7 @@ List Multipart Uploads 用来查询正在进行中的分块上传。单次请求
 语法示例：
 ```
 GET /?uploads HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -141,7 +141,7 @@ Container 节点 CommonPrefixs 的内容：
 ### 请求
 ```
 GET /?uploads HTTP/1.1
-Host: arlenhuangtestsgnoversion-1251668577.sg.myqcloud.com
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed, 18 Jan 2015 21:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727508;32557623508&q-key-time=1484727508;32557623508&q-header-list=host&q-url-param-list=uploads&q-signature=5bd4759a7309f7da9a0550c224d8c61589c9dbbf
 

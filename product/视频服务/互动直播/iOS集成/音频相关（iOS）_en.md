@@ -114,7 +114,7 @@ Sample code:
  
 
 ## Audio Statistics
-Obtain the information about real-time call quality for audio and video calls. This method is mainly used to check the quality of real-time calls and troubleshooting problems. At business side, it can be used to improve the user experience, such as indicating a poor network condition or a poor call quality.
+Obtain the information about real-time call quality for audio and video calls. This method is mainly used to check the quality of real-time calls and troubleshoot problems. At business side, it can be used to improve the user experience, such as indicating a poor network condition or a poor call quality.
 
 The method for obtaining the audio statistics is in QAVRoom, so first you need to obtain the current room using [AVUtil sharedContext].room, and then call getStatParam method to obtain the statistics, with the returned value taking a form of dictionary. The API is as follows:
 ```

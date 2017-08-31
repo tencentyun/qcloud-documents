@@ -18,9 +18,18 @@
 5.  验证主备倒换时 VIP 及外网 IP 是否正常切换。
 
 ## 详细步骤
-### 步骤1. 申请 VIP
-在某个子网内申请 VIP（VPC 内用户主动申请的 IP 都可作为 VIP），暂时仅支持云 API，云 API 代码开发指引请参考第6步。由于 VIP 绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而 VPC 内每台 CVM 在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请 VIP。
-**具体操作：** 
+
+### 步骤1.    申请VIP
+在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），**控制台 或 云API**均可申请，由于VIP绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而VPC内每台CVM在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请VIP :
+
+
+- 控制台：点击查看[在弹性网卡上  分配内网IP（Qcloud控制台）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910)
+
+- 云API：**通过云 API 分配 申请VIP 具体操作(云API代码开发指引请参考第6步)：** 
+
+
+> 注意：您在 `/etc/init.d/keepalived start` 或 `service network restart`执行后** 可在主服务器内看到该内网IP（参见第三步）.或者，您在分配内网IP后，在云服务器内配置该内网IP，**点击查看[分配内网IP（云服务器系统内）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911)
+
 1) 通过云`API:DescribeNetworkInterfaces`得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络 ID**和**云服务器的 ID**即可）。[点击查看 API 详情](https://www.qcloud.com/doc/api/245/4814)
 2) 通过云`API:AssignPrivateIpAddresses`在弹性网卡上申请内网 VIP 的，申请 VIP 操作可参考以下  Python 代码：[点击查看 API 详情](https://www.qcloud.com/doc/api/245/4817)
 ```
@@ -28,7 +37,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from src.QcloudApi.qcloudapi import QcloudApi
+#以下两行根据SDK的安装方式选一
+#     具体参考步骤6第3点中的代码注释
+#from QcloudApi.qcloudapi import QcloudApi 
+from src.QcloudApi.qcloudapi import QcloudApi 
+
 
 module = 'vpc'
 action = 'AssignPrivateIpAddresses'
@@ -39,9 +52,11 @@ config = {
     'method': 'post'
 }
 params = {
-    'vpcId': '您的 vpcId',
-    'networkInterfaceId': '您需要初次见 IP 绑定的弹性网卡 ID',
-    'secondaryPrivateIpAddressCount': '您需要申请 IP 地址的个数'
+
+    'vpcId': '您的vpcID',
+    'networkInterfaceId': '您的主服务器的主网卡ID',
+    'secondaryPrivateIpAddressCount': '您需要申请IP地址的个数'
+
 }
 
 try:
@@ -62,7 +77,9 @@ except Exception, e:
 
 ```
 vrrp_instance VI_1 {
-    state BACKUP
+    #注意主备参数选择
+    state MASTER  #主
+	#state BACKUP  #备
     interface eth0
     virtual_router_id 51
     priority 100
@@ -84,7 +101,9 @@ vrrp_instance VI_1 {
 ```
 
 ### 步骤 4.（可选）给 VIP 分配外网 IP
-先在控制台申请 EIP，再通过云 API 绑定到**步骤 1** 中申请的内网 IP，Python 代码与步骤 1 类似。[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)。
+有两种控制台操作和云API操作两种方式：
+- 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。
+- 云API：[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)。
 
 ### 步骤 5.   keepalived.conf 配置切换脚本
 主备切换时，新切换为主的设备通过 notify 调用 vip.py 进行切换。
@@ -105,7 +124,7 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 - [转到 github 查看 Python SDK >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
 - [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
 
-请仔细阅读其中 ```README.md```，并将 SDK 下载到```/etc/keepalived```目录中，如：
+请仔细阅读其中 ```README.md```，并将 SDK 下载到```/etc/keepalived```目录中.
 
 2) 云 API 密钥获取：
 
@@ -124,11 +143,30 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 # -*- coding: utf-8 -*-
 
 """
-step1: 下载python-sdk: https://github.com/QcloudApi/qcloudapi-sdk-python
-step2: 将以下python代码保存成vip.py放到sdk的src同级目录,  具体参数参考: https://www.qcloud.com/doc/api/245/1361
+pip安装使用方式：
+	安装好python后执行如下步骤：
+step1: yum install python-pip
+step2: pip install qcloudapi-sdk-python
+step3: 将代码中“from src.QcloudApi.qcloudapi import QcloudApi”改为“from QcloudApi.qcloudapi import QcloudApi”
+step4: 编辑好代码并保存在/etc/keepalived试用
+
+下载SDK源码直接使用方式：
+	安装好python后执行如下步骤：
+step1: 下载python-sdk: 网页操作https://github.com/QcloudApi/qcloudapi-sdk-python 
+	或 linux执行"wget https://github.com/QcloudApi/qcloudapi-sdk-python/archive/master.zip"
+step2: 将下载的sdk包放在/etc/keepalived并解压。修改解压后的文件夹名称为src，并在src文件夹下创建名为__init__.py的空白文件
+step3: 将以下python代码保存成vip.py放到sdk的src同级目录, 编辑好内容试用 
+
+具体参数参考: https://www.qcloud.com/doc/api/245/1361
 """
 
-from src.QcloudApi.qcloudapi import QcloudApi
+
+#pip安装使用方式使用
+from QcloudApi.qcloudapi import QcloudApi 
+
+#SDK源码直接使用方式使用
+#from src.QcloudApi.qcloudapi import QcloudApi
+
 
 module = 'vpc'
 action = 'MigratePrivateIpAddress'
@@ -178,7 +216,9 @@ vrrp_sync_group G1 {
     notify_master "/etc/keepalived/vip.py"
 }
 vrrp_instance VI_1 {
-    state BACKUP
+    #注意主备参数选择
+    state MASTER #主
+	#state BACKUP #备
     interface eth0
     virtual_router_id 51
     priority 100
@@ -191,7 +231,7 @@ vrrp_instance VI_1 {
         10.0.0.1    #对端设备的IP地址，例如：10.0.0.1
     }
     virtual_ipaddress {
-        10.100.0.27
+        10.100.0.27  #第一步申请的 VIP
     }
     nopreempt
     garp_master_delay 1

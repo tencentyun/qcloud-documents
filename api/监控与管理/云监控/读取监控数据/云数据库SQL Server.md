@@ -5,7 +5,7 @@
 
 云数据库SQL Server是腾讯云基于微软公司推出的SQL Server专业打造的云数据库。具体介绍请参考<a href="/doc/product/238/产品概述" title="产品概述">云数据库SQL Server</a>页面。
 
-查询云数据库TDSQL产品监控数据，入参取值如下：
+查询云数据库SQL Server产品监控数据，入参取值如下：
 namespace：qce/sqlserver
 dimensions.0.name=resourceId 
 dimensions.0.value为实例的资源 Id
@@ -27,32 +27,32 @@ dimensions.0.value为实例的资源 Id
 | endTime            | 否    | Datetime | 结束时间       | 结束时间，默认为当前时间。 endTime不能小于startTime       |
 ### 2.2 指标名称
 
-| 指标名称                   | 含义                    | 单位   | 统计粒度（period） |
-| ---------------------- | --------------------- | ---- | ------------ |
-| cpu                    | 实例CPU消耗的百分比           | %    |              |
-| transactions           | 平均每秒的事务数              | 次/秒  |              |
-| connections            | 平均每秒用户连接数据库的个数        | 个    |              |
-| requests               | 每秒请求次数                | 次/秒  |              |
-| logins                 | 每秒登录次数                | 次/秒  |              |
-| logouts                | 每秒登出次数                | 次/秒  |              |
-| storage                | 实例数据库文件和日志文件占用的空间总和   | GB   |              |
-| in_flow                | 所有连接输入包大小总和           | MB/s |              |
-| out_flow               | 所有连接输出包大小总和           | MB/s |              |
-| iops                   | 磁盘读写次数                | 次/秒  |              |
-| disk_reads             | 每秒读取磁盘次数              | 次/秒  |              |
-| disk_writes            | 每秒写入磁盘次数              | 次/秒  |              |
-| slow_queries           | 运行时间超过1秒的查询数量         | 个    |              |
-| blocks_processes       | 当前阻塞数量                | 个    |              |
-| lock_requests          | 平均每秒锁请求的次数            | 次/秒  |              |
-| user_errors            | 平均每秒错误数               | 次/秒  |              |
-| sql_compilations       | 平均每秒SQL编译次数           | 次/秒  |              |
-| sql_recompilations     | 平均每秒SQL重编译次数          | 次/秒  |              |
-| full_scans             | 每秒不受限制的完全扫描数          | 次/秒  |              |
-| buffer_cache_hit_ratio | 数据缓存（内存）命中率           | %    |              |
-| latch_waits            | 每秒闩锁等待数量              | 次/秒  |              |
-| lock_waits             | 每个导致等待的锁请求的平均等待时间     | ms   |              |
-| network_io_waits       | 平局网络IO延迟时间            | ms   |              |
-| plan_cache_hit_ratio   | 每个SQL有一个执行计划，执行计划的命中率 | %    |              |
+| 指标名称                   | 含义                    | 单位   |
+| ---------------------- | --------------------- | ---- |
+| cpu                    | 实例CPU消耗的百分比           | %    |
+| transactions           | 平均每秒的事务数              | 次/秒  |
+| connections            | 平均每秒用户连接数据库的个数        | 个    |
+| requests               | 每秒请求次数                | 次/秒  |
+| logins                 | 每秒登录次数                | 次/秒  |
+| logouts                | 每秒登出次数                | 次/秒  |
+| storage                | 实例数据库文件和日志文件占用的空间总和   | GB   |
+| in_flow                | 所有连接输入包大小总和           | MB/s |
+| out_flow               | 所有连接输出包大小总和           | MB/s |
+| iops                   | 磁盘读写次数                | 次/秒  |
+| disk_reads             | 每秒读取磁盘次数              | 次/秒  |
+| disk_writes            | 每秒写入磁盘次数              | 次/秒  |
+| slow_queries           | 运行时间超过1秒的查询数量         | 个    |
+| blocks_processes       | 当前阻塞数量                | 个    |
+| lock_requests          | 平均每秒锁请求的次数            | 次/秒  |
+| user_errors            | 平均每秒错误数               | 次/秒  |
+| sql_compilations       | 平均每秒SQL编译次数           | 次/秒  |
+| sql_recompilations     | 平均每秒SQL重编译次数          | 次/秒  |
+| full_scans             | 每秒不受限制的完全扫描数          | 次/秒  |
+| buffer_cache_hit_ratio | 数据缓存（内存）命中率           | %    |
+| latch_waits            | 每秒闩锁等待数量              | 次/秒  |
+| lock_waits             | 每个导致等待的锁请求的平均等待时间     | ms   |
+| network_io_waits       | 平局网络IO延迟时间            | ms   |
+| plan_cache_hit_ratio   | 每个SQL有一个执行计划，执行计划的命中率 | %    |
 
 
 ## 3. 输出参数

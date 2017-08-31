@@ -4,7 +4,7 @@ CDN 为您提供了 IP 黑白名单配置功能，您可以根据业务需要对
 登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【访问控制】，您可以看到 **IP 黑白名单配置** 模块。
-![]https://mc.qcloudimg.com/static/img/9168d32358c157569309e2e84fbcbf2f/iplist.png)
+![](https://mc.qcloudimg.com/static/img/9168d32358c157569309e2e84fbcbf2f/iplist.png)
 
 ### 默认配置
 默认情况下，IP 黑白名单未启用，无黑/白名单。

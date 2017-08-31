@@ -6,7 +6,7 @@
 ![](https://mc.qcloudimg.com/static/img/394f0b09f9b8a4cf9a705c326c06635e/1.png)
 ### 创建子账号
 单击【添加子账号】按钮，可创建一个新的 FTP 子账号。
-![](http://mccdn.qcloud.com/static/img/7704551caa3fdc2754adef8db0393d70/image.jpg)
+![](https://mc.qcloudimg.com/static/img/e364f6d1831d4bd662f97640b3a7517b/create_account.png)
 可进行子账号的账号、密码、授权项目、授权目录设置。
 > **注意**：
 > + 账号为用户自定义的账号名称，前缀数字统一固定为云服务账号。
@@ -15,8 +15,8 @@
 
 ### 修改子账号密码
 在子账号列表中，单击需要修改的子账号右侧的【重置密码】，可对其登录密码进行修改。
-![](http://mccdn.qcloud.com/static/img/0db10570a7a3941b17ab554092bcaca1/image.jpg)
+![](https://mc.qcloudimg.com/static/img/6abef77ccfe2bbc1934d7644473087cb/reset_password.png)
 
 ### 删除子账号
 在子账号列表中，单击需要删除的子账号右侧的【删除】，可删除子账号，删除操作需要填充该子账号对应密码。
-![](http://mccdn.qcloud.com/static/img/356e45b89a3330d74ba30647e062ad99/image.jpg)
+![](https://mc.qcloudimg.com/static/img/45a1090cbfcf19879b2321a1393bdd5e/del_account.png)

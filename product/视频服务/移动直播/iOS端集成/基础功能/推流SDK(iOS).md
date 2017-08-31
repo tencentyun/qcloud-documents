@@ -86,14 +86,23 @@ SDK 提供了六种基础档位，根据我们服务大多数客户的经验进�
 ![](//mc.qcloudimg.com/static/img/a19a839bd528ccce59db80006b23ce5d/image.png)
 
 ### step 5: 美颜滤镜
+
+![](//mc.qcloudimg.com/static/img/aac647073cf0641141900e775e929418/image.png)
 - **美颜**
-setBeautyFilterDepth 接口可以设置美颜和美白级别，两者的调整级别都是 0 至 9，0 表示不启用美颜，1.9.1 版本开始美颜效果做了明显的优化，配合 540 * 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
+setBeautyStyle 接口可以设置美颜风格、磨皮程度、美白级别和红润级别，配合 540 * 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
 ```objectivec
-[_txLivePush setBeautyFilterDepth:7 setWhiteningFilterDepth:3];
+//     beautyStyle     : 磨皮风格，目前支持 自然 和 光滑 两种。
+//     beautyLevel     : 磨皮级别，取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+//     whitenessLevel  : 美白级别，取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+//     ruddinessLevel  : 红润级别，取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+(void)setBeautyStyle:(int)beautyStyle beautyLevel:(float)beautyLevel 
+          whitenessLevel:(float)whitenessLevel ruddinessLevel:(float)ruddinessLevel;
 ```
 
 - **滤镜**
 setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了Demo中，您可以随意使用，不用担心版权问题。
+
+ setSpecialRatio 接口则可以设置滤镜的程度，从0到1，越大滤镜效果越明显，默认取值0.5。
 ```objectivec
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
 if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
@@ -102,7 +111,6 @@ if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
         [_txLivePublisher setFilter:image];
 } 
 ```
-![](//mc.qcloudimg.com/static/img/ad0711f3c35f2087d3520677bfd64391/image.png)
 > 如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG，不要用 JPG，不要用 JPG...</font>
 
 

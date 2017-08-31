@@ -1,7 +1,7 @@
 ## 1. 接口描述
 该接口用于释放弹性公网IP，以方便用户清理不使用的EIP资源。
 
-域名: <font style="color:red">eip.api.qcloud.com</font>
+域名: <font style="color:red">bmeip.api.qcloud.com</font>
 接口名: EipBmDelete
 
 
@@ -44,7 +44,7 @@ Data结构
 输入
 <pre>
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmDelete
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&eipIds.0=eip-iiiii
 </pre>

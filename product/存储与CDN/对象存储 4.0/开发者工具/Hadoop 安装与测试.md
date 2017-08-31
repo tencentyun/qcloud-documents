@@ -4,11 +4,11 @@ Hadoop 工具依赖 Hadoop-2.7.2 及以上版本，实现了以腾讯云 COS 作
 ### 安装
 #### 1. 准备若干台机器。
 #### 2. 安装配置系统：[CentOS-7-x86_64-DVD-1611.iso](http://mirrors.tuna.tsinghua.edu.cn/centos/7/isos/x8664/CentOS-7-x86_64-DVD-1611.iso)。
-#### 3. 安装 Java 环境：[jdk-8u144-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz)，具体操作请参见 [Java 安装与配置]()。
+#### 3. 安装 Java 环境：[jdk-8u144-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u144-b01/090f390dda5b47b9b721c7dfaa008135/jdk-8u144-linux-x64.tar.gz)，具体操作请参见 [Java 安装与配置](/doc/product/436/10865)。
 #### 4. 安装 Hadoop-2.7.4 包：[hadoop-2.7.4.tar.gz](http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz)。 
 
 ### 网络配置
-使用`ipconfig -a`查看各台机器的 IP，相互 ping 一下，看是否可以 ping 通，同时记录每台机器的 IP。
+使用`ifconfig -a`查看各台机器的 IP，相互 ping 一下，看是否可以 ping 通，同时记录每台机器的 IP。
 
 ## 配置 CentOS
 ### 配置 hosts
@@ -110,6 +110,10 @@ mkdir /usr/hadoop-2.7.4/hdf/name
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_144 
 ```
+若 SSH 端口不是默认的 22，可在`hadoop-env.sh`文件里修改：
+```
+export HADOOP_SSH_OPTS="-p 1234"
+```
 #### 2. 修改 `yarn-env.sh`
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_144
@@ -204,19 +208,25 @@ slave3
 ```
 #### 8. 各个主机之间复制 Hadoop
 ```
-# scp -r /usr/ hadoop-2.7.4 slave1:/usr
-# scp -r /usr/ hadoop-2.7.4 slave2:/usr
-# scp -r /usr/ hadoop-2.7.4 slave3:/usr
+scp -r /usr/ hadoop-2.7.4 slave1:/usr
+scp -r /usr/ hadoop-2.7.4 slave2:/usr
+scp -r /usr/ hadoop-2.7.4 slave3:/usr
 ```
 #### 9. 各个主机配置 Hadoop 环境变量
+打开配置文件：
 ```
 vi /etc/profile
+```
 编辑内容：
-export HADOOP_HOME=/usr/ hadoop-2.7.4
+```
+export HADOOP_HOME=/usr/hadoop-2.7.4
 export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
 export HADOOP_LOG_DIR=/usr/hadoop-2.7.4/logs
 export YARN_LOG_DIR=$HADOOP_LOG_DIR
-source /etc/profile  //使配置文件生效
+```
+使配置文件生效：
+```
+source /etc/profile
 ```
 ### 启动 Hadoop
 #### 1. 格式化 namenode

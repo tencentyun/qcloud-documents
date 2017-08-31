@@ -49,7 +49,7 @@ Overall downlink bitrate=Download video bitrate+Download audio bitrate (their FE
 
 ### Download Audio Bitrate
 
-Please note that, the FEC of audios may be as high as 100%, so the bitrate could be twice the normal bitrate in case of poor network conditions.
+Please note that the FEC of audios may be as high as 100%, so the bitrate could be twice the normal bitrate in case of poor network conditions.
 
 #### Other Downlink Charts
 

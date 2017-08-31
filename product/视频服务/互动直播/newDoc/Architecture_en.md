@@ -1,5 +1,5 @@
 ## ILVB System Architecture
-With years of experience in audio/video area, Tencent Video Cloud has designed this powerful, low-latency ILVB product to cope with complex and ever-changing network environment.
+With years of experience in audio/video area, Tencent Video Cloud has designed this powerful low-latency ILVB product to cope with complex and ever-changing network environment.
 ### Architecture
 1. Low Latency. Custom protocol based on UDP or UDT ensures minimum latency.
 2. High Level of Privacy. Custom protocol can perfectly protect the high-valued videos from being monitored by hotlink.

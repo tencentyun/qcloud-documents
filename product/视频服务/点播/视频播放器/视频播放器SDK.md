@@ -14,5 +14,5 @@
 
 ## Web SDK
 
-> [视频播放](/document/product/454/7503)
+> [视频播放](/document/product/454/7479)
 > Web SDK不需要下载，直接在页面中引入js即可，详情请见以上链接

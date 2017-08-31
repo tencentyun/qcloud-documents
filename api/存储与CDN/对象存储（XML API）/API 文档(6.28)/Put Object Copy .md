@@ -10,10 +10,10 @@ Put Object Copy  请求实现将一个文件从源路径复制到目标路径。
 语法示例：
 ```
 PUT /destinationObject HTTP/1.1
-Host: <Bucketname>-<APPID>.<Region>.myqcloud.com
+Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
-x-cos-copy-source: <Bucketname>-<APPID>.<Region>.myqcloud.com/filepath
+x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
 
 ```
 
@@ -53,8 +53,8 @@ PUT /destinationObject HTTP/1.1
 | x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-storage-class                   | 存储级别，枚举值：存储级别，枚举值：Standard, Standard_IA，Nearline；默认值：Standard | String | 否    |
 | x-cos-acl                             | 允许用户自定义文件权限。<br />有效值：private , public-read，默认值：private。 | String | 否    |
-| X-cos-grant-read                      |   赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
-| X-cos-grant-write                     | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;"  | String | 否    |
+| x-cos-grant-read                      |   赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
+| x-cos-grant-write                     | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;"  | String | 否    |
 | X-cos-grant-full-control              | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;"  | String | 否    |
 | x-cos-meta-*                          | 其他自定义的文件头部                               | String | 否    |
 
@@ -93,12 +93,12 @@ PUT /destinationObject HTTP/1.1
 ### 请求
 ```
 PUT /222.txt HTTP/1.1
-Host: bucket1-1252443703.cn-north.myqcloud.com 
+Host: bucket1-1252443703.cos.ap-beijing.myqcloud.com 
 Date: Fri, 04 Aug 2017 02:41:45 GMT
 Connection: keep-alive Accept-Encoding: gzip, deflate Accept: */* 
 User-Agent: python-requests/2.12.4 
 Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=&q-header-list=host&q-signature=eacefe8e2a0dc8a18741d9a29707b1dfa5aa47cc
-x-cos-copy-source: bucket2-1252443704.cn-north.myqcloud.com/1.txt 
+x-cos-copy-source: bucket2-1252443704.cos.ap-beijing.myqcloud.com/1.txt 
 Content-Length: 0  
 ```
 

@@ -6,7 +6,7 @@ List Parts 用来查询特定分块上传中的已上传的块，即罗列出指
 语法示例：
 ```
 GET /ObjectName?uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<APPID>.<Region>.myqcloud.com
+Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 
@@ -60,14 +60,17 @@ GET /ObjectName?uploadId=UploadId&encoding-type=EncodingType&max-parts=MaxParts&
   <Encoding-type></Encoding-type>
   <Key></Key>
   <UploadId></UploadId>
-  <Initiator>
-    <UIN></UIN>
-  </Initiator>
   <Owner>
-    <UID></UID>
+    <ID></ID>
+    <DisplayName></DisplayName>
   </Owner>
-  <StorageClass></StorageClass>
   <PartNumberMarker></PartNumberMarker>
+  <Initiator>
+    <ID></ID>
+    <DisplayName></DisplayName>
+  </Initiator>
+  <StorageClass></StorageClass>
+  
   <NextPartNumberMarker></NextPartNumberMarker>
   <MaxParts></MaxParts>
   <IsTruncated></IsTruncated>
@@ -95,7 +98,7 @@ Container 节点 ListPartsResult 的内容：
 | UploadId | ListPartsResult | 标识本次分块上传的 ID |  String |
 | Initiator | ListPartsResult | 用来表示本次上传发起者的信息 | Container |
 | Owner | ListPartsResult | 用来表示这些分块所有者的信息 | Container |
-| StorageClass | ListPartsResult | 用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE |  String |
+| StorageClass | ListPartsResult | 用来表示这些分块的存储级别，枚举值：Standard，Standard_IA，nearline |  String |
 | PartNumberMarker | ListPartsResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 |  String |
 | NextPartNumberMarker | ListPartsResult | 假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点 |  String |
 | MaxParts | ListPartsResult | 单次返回最大的条目数量 |  String |
@@ -106,13 +109,15 @@ Container 节点 Initiator 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| UIN | ListPartsResult.Initiator  |  开发商APPID |  String |
+| ID | ListPartsResult.Initiator  |  创建者的一个唯一标识 |  String |
+| DisplayName | ListPartsResult.Initiator |  创建者的用户名描述 |  String |
 
 Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| UID | ListPartsResult.Owner |  用户 ID |  String |
+| ID | ListPartsResult.Owner |  用户的一个唯一标识 |  String |
+| DisplayName | ListPartsResult.Owner |  用户名描述 |  String |
 
 Container 节点 Part 的内容：
 
@@ -120,7 +125,7 @@ Container 节点 Part 的内容：
 |:---|:-- |:--|:--|
 | PartNumber | ListPartsResult.Part |  块的编号 |  String |
 | LastModified |  ListPartsResult.Part  |  块最后修改时间  |  Date |
-| ETag |  ListPartsResult.Part |  Object 块的 SHA-1 算法校验值 |  String |
+| ETag |  ListPartsResult.Part |  Object 块的 MD5 算法校验值 |  String |
 | Size |  ListPartsResult.Part  |  块大小，单位 Byte |  String |
 
 ## 实际案例
@@ -128,7 +133,7 @@ Container 节点 Part 的内容：
 ### 请求
 ```
 GET /coss3/test10M_2?uploadId=14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0&max-parts=1 HTTP/1.1
-Host:burning-1251668577.cn-east.myqcloud.com
+Host:burning-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484643123;1484646723&q-key-time=1484643123;1484646723&q-header-list=host&q-url-param-list=max-parts;uploadId&q-signature=b8b4055724e64c9ad848190a2f7625fd3f9d3e87
 ```
@@ -148,10 +153,12 @@ x-cos-request-id: NTg3ZGRiMzhfMmM4OGY3XzdhY2NfYw==
     <Key>test10M_2</Key>
     <UploadId>14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0</UploadId>
     <Initiator>
-        <UIN/>
+        <ID>123456789</ID>
+        <DisplyName>123456789</DisplyName>
     </Initiator>
     <Owner>
-        <UID>1251668577</UID>
+        <ID>qcs::cam::uin/156545789:uin/156545789</ID>
+        <DisplyName>156545789</DisplyName>
     </Owner>
     <PartNumberMarker>0</PartNumberMarker>
     <Part>

@@ -93,7 +93,7 @@ Container 节点 Bucket 的内容：
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
 | Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket 的名称                               | String    |
-| Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在区域。枚举值：china-east，china-south，china-north，china-southwest                             | String    |
+| Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在地域。枚举值参见 [可用地域](https://www.qcloud.com/document/product/436/6224) 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等 | String    |
 | CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
 
@@ -126,17 +126,17 @@ x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
     <Buckets>
         <Bucket>
             <Name>01</Name>
-            <Location>china-south</Location>
+            <Location>ap-beijing</Location>
             <CreateDate>2016-09-13 15:20:15</CreateDate>
         </Bucket>
         <Bucket>
             <Name>0111</Name>
-            <Location>china-south</Location>
+            <Location>ap-hongkong</Location>
             <CreateDate>2017-01-11 17:23:51</CreateDate>
         </Bucket>
         <Bucket>
             <Name>1201new</Name>
-            <Location>china-south</Location>
+            <Location>eu-frankfurt</Location>
             <CreateDate>2016-12-01 09:45:02</CreateDate>
         </Bucket>
    </Buckets>
