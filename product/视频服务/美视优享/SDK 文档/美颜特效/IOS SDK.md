@@ -7,8 +7,6 @@
 > **说明：**
 > 区分特权版与非特权版，可以查看 SDK 的 bundler id。bundler id 为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
 
-
-
 ## Xcode 工程设置
 
 ### 1. 添加 framework
@@ -20,7 +18,7 @@
 
 ### 2. 添加链接参数
 
-在工程  Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
+在工程 Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
 
 ### 3. 添加资源 bundle
 
@@ -50,14 +48,10 @@
 ### 1. 动效贴纸
 
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
-
 小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
-
 > https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip
 > https://st1.xiangji.qq.com/yunmaterials/{动效名}.png
-
 强烈建议客户将动效资源放在自己的服务器上，以防小直播变动造成不必要的影响。
-
 当解压完成后，即可通过以下接口开启动效效果。
 
 ```objective-c
