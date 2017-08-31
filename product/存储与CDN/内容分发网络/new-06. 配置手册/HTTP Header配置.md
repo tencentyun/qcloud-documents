@@ -6,7 +6,7 @@ HTTP 的消息通常包括以下两种：
 ![](https://mc.qcloudimg.com/static/img/3e5f42e1cb78ef015967dda5f790f98c/http.png)
 其中 HTTP 头部分为四种类型：通用头、请求头、响应头、实体头。每一个头部由域名、冒号（:）、域值组成，如： ```Connection:keep-alive```。
 
-使用腾讯云提供的 HTTP header 配置功能，当您的用户请求业务资源时，可以在返回的 **响应消息** 中添加您配置的头部，以实现跨域访问等目的。
+使用腾讯云提供的 HTTP header 配置功能，当您的用户请求业务资源时，可以在返回的 **响应消息** 添加您配置的头部，以实现跨域访问等目的。
 > **注意**：
 > + 当资源在节点未命中时会进行回源，此时源站返回的头部信息会一起返回给用户。当资源在节点命中缓存时，CDN 默认会将缓存的源站的 Access-Control-Allow-Origin、Timing-Allow-Origin、Content-Disposition、Accept-Ranges 头部信息返回给用户，如需缓存所有源站返回头部，可提交工单进行人工配置支持。
 > + 由于 HTTP header 配置是针对域名，因此一旦配置生效，用户对该域名下任意一个资源的响应消息中均会加入所配置头部。
@@ -35,9 +35,9 @@ Content-Language 是用于定义页面所使用的语言代码，常用配置如
 跨域是指某一个域名，如 ```www.abc.com``` 下的某资源，向另一个域名 ```www.def.com``` 下的某资源发起请求，此时由于资源所属域名不同，即出现 **跨域**，不同的协议、不同的端口均会造成跨域访问的出现。此时必须在 Response Header 中增加跨域相关配置，才能让前者成功拿到数据。
 
 #### Access-Control-Allow-Origin
-Access-Control-Allow-Origin 用于解决资源的跨域权限问题，域值定义了允许访问该资源的域，也可以设置通配符“*” ，允许被所有域请求。常用配置如下：
+Access-Control-Allow-Origin 用于解决资源的跨域权限问题，域值定义了允许访问该资源的域，也可以设置通配符“*”，允许被所有域请求。常用配置如下：
 > Access-Control-Allow-Origin: *
-> Access-Control-Allow-Origin: http://www.test.com
+> Access-Control-Allow-Origin: ```http://www.test.com```
 
 配置 Access-Control-Allow-Origin，有以下限制条件：
 + 不支持泛域名，如 ```*.qq.com```
