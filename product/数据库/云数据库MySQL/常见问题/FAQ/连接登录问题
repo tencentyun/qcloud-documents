@@ -1,0 +1,20 @@
+### 1. 云服务器与云数据库部署在相同区域上，如何连接 MySQL？
+云服务器与云数据库部署在相同区域上时，请使用内网访问，连接方式请参考 [访问MySQL数据库](https://cloud.tencent.com/document/product/236/3130)。
+
+### 2. 云服务器与云数据库部署在不同区域上，如何连接MySQL？
+云服务器与云数据库部署在不同区域上时，请使用外网访问，连接方式请参考 [外网访问](https://cloud.tencent.com/document/product/236/9038)。
+
+### 3. 同一账号CDB数据库在上海一区，云服务器也在上海一区内网无法PING通？
+CDB 是默认禁 ping 的，可以使用 telnet 来检测连通性。
+
+### 4. 设置普通用户，MySQL登录不了。提示： ERROR 1045 (28000): Access denied for user xxx (using password: YES)？
+1045密码不对。查看下设置的用户是否可以所有的IP用户进行登录，在 [MySQL控制台](https://console.cloud.tencent.com/) --对应实例--用户管理 。
+
+### 5. 如何使用外网访问数据库 CDB for MySQL？
+外网访问请参考 [外网访问](https://cloud.tencent.com/document/product/236/9038)。
+
+### 6. 如何使用内网访问数据库CDB for MySQL？
+内网访问请参考 [访问 MySQL 数据库](https://cloud.tencent.com/document/product/236/3130)。
+
+### 7. 如何使用命令行方式登录MySQL的实例？
+命令行访问请参考 [访问 MySQL 数据库](https://cloud.tencent.com/document/product/236/3130)。
