@@ -1,4 +1,4 @@
-LogListener是腾讯云日志服务提供的日志采集Agent，您可以在您的安装LogListener实时采集日志
+LogListener是腾讯云日志服务提供的日志采集Agent，您可以在安装LogListener实时采集日志文件。
 
 ##LogListener的系统支持
 
@@ -19,7 +19,7 @@ cd loglistener/tools/op;
 ./install ($uin)($region)
 ```
 
-注：uin为您的腾讯云帐号ID，而非APPID，您可登录腾讯云控制台，在帐号中查看您的帐号ID。region为您所使用的日志服务区域。服务区域编码如下
+注：uin为您的腾讯云帐号ID，而非APPID，您可登录腾讯云控制台，在帐号中查看您的帐号ID。region为您所使用的日志服务区域。服务区域编码如下：
 
 ```
 sh - 上海
