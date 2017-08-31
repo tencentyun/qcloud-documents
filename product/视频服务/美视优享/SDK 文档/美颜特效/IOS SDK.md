@@ -4,6 +4,7 @@
 ## 版本下载
 可以到 [RTMP SDK 开发包](https://www.qcloud.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so，替换工程中的非特权版 jar 和 so 即可。
 
+> **说明：**
 > 区分特权版与非特权版，可以查看 SDK 的 bundler id。bundler id 为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
 
 
@@ -39,11 +40,10 @@
 特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 license。
 得到 licence 后，将其命名为 **YTFaceSDK.licence**，并添加到工程的 assets 目录下。
 
-> 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
->
-> YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
-> 
-> iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+> **说明：**
+> 1. 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+> 2. YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
+> 3. iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 ## 功能调用
 
