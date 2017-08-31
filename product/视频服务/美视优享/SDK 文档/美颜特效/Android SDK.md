@@ -16,7 +16,7 @@
 > **注意：**
 > camera 目录包含了切换动效需要的资源等文件，必须正确放到 assets 目录下，否则会发生异常。
 
-### 3. 导入 licence 文件
+### 3.3 导入 licence 文件
 特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 license。得到 licence 后，将其命名为 **YTFaceSDK.licence** ，并添加到工程的 assets 目录下。
 
 > **说明：**
@@ -24,9 +24,9 @@
 > 2. YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
 > 3. iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
-## 功能调用
+## 4. 功能调用
 
-### 1. 动效功能
+### 4.1 动效功能
 
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
@@ -47,7 +47,7 @@ public void setMotionTmpl(String tmplPath);
 ```
 
 
-### 2. 绿幕功能
+### 4.2 绿幕功能
 
 使用绿幕需要先准备一个用于播放的 mp4 文件，通过调用以下接口即可开启绿幕效果：
 
@@ -64,7 +64,7 @@ public void setGreenScreenFile(String path);
 ```
 
 
-### 3. 大眼瘦脸
+### 4.3 大眼瘦脸
 
 2.0.0 版 SDK 的大眼和瘦脸功能还在紧张开发中，我们会尽快 release.
 
