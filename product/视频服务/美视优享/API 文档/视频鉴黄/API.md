@@ -9,7 +9,7 @@
 | appid  | 项目 ID , 用于唯一标识接入项目 |
 | bucket | 开发者添加的空间名称       |
 
-> **说明：**
+> **注意：**
 > 如果开发者使用的是 V1 版本，appid 为其当时生成的 appid
 
 ## 2. 描述
@@ -59,7 +59,7 @@ Content-Type: "application/json"
 
 ### 3.2 返回内容
 
-**响应 http body(json格式)：**
+**响应 http body(json 格式)：**
 
 | 参数          | 是否必须   | 类型           |
 | ----------- | ------ | ------------ |
@@ -111,7 +111,7 @@ Content-Type: "application/json"
 }
 ```
 
-**响应 http body（application/json格式）：**
+**响应 http body（application/json 格式）：**
 
 ```
 {
