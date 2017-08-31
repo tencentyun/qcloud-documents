@@ -52,6 +52,7 @@
 > https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip
 > https://st1.xiangji.qq.com/yunmaterials/{动效名}.png
 
+
 强烈建议客户将动效资源放在自己的服务器上，以防小直播变动造成不必要的影响。
 当解压完成后，即可通过以下接口开启动效效果。
 
