@@ -1,4 +1,4 @@
-﻿# Fees of ILVB are composed of three parts
+# Fees of ILVB are composed of three parts
 <div style="width:auto;text-align:center">
 ![](//mccdn.qcloud.com/static/img/aea550d02a5c604b234e165137101e26/image.png)
 </div>

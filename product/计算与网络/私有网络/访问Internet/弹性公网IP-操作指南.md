@@ -7,7 +7,6 @@
 ![](//mccdn.qcloud.com/static/img/ba977c383635c2eca9b826d7a9520194/image.png)
 
 </div>
-<p style="text-align:center">图1：申请 EIP 操作示意图</p>
 
 ### 修改 EIP 名称
 1) 打开云服务器 CVM 控制台。

@@ -5,7 +5,7 @@
 ## 下载地址
 
 * [VOD PHP DEMO](https://github.com/tencentyun/vod-php-sdk-based-demo)
-* [COS PHP SDK](https://www.qcloud.com/document/product/436/6274)
+* [COS PHP SDK](https://github.com/tencentyun/cos-php-sdk-v4/archive/v4.2.4.zip)
 * [云API PHP SDK](https://www.qcloud.com/document/developer-resource/494/7243)
 
 ## 使用方式
