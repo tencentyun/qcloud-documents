@@ -1,4 +1,4 @@
-﻿**1. Login**
+**1. Login**
 
 Log in to IM cloud service. Before initiating an audio/video session, the App should log in to the service.
 
@@ -384,7 +384,7 @@ None
 
 Return the microphone volume.
 
-**23. GetPlayerList **
+**23. GetPlayerList**
 
 Obtain the speaker list.
 

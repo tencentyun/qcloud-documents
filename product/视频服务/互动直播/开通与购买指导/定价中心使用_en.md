@@ -1,8 +1,8 @@
-﻿# Charges of ILVB
+# Charges of ILVB
 ## Part 1: [Required] Basic Network Fee
 Fee for the bandwidth consumed by basic audio/video business implemented through ILVB (excluding the consumptions of non-interactive broadcasting, recording and other additional features)
 
-Monthly fee for the bandwidth that is actually used (Z)=Monthly peak bandwidth of data center (DC) (X)*Unit price+Monthly peak bandwidth of outer center (OC) (Y)*Tiered unit price
+Monthly fee for the bandwidth that is actually used (Z)=Monthly peak bandwidth of data center (DC) (X) x Unit price+Monthly peak bandwidth of outer center (OC) (Y) x Tiered unit price
 
 The unit price of DC bandwidth is 120 CNY/Mbps/month. The unit price of OC changes in tiers according to corresponding monthly peak bandwidth:
 
@@ -56,21 +56,21 @@ The unit price of DC bandwidth is 120 CNY/Mbps/month. The unit price of OC chang
 
  
  Example of estimation of bandwidth consumption:<br />
-If the playback bitrate of customer's ILVB business at viewer end is set to 1 MB, when 100 viewers watch video at a certain time at the same time, the bandwidth consumed at this point of time is 1*100=100 MB, and so on. The bandwidth usage is collected every 5 minutes, and the peak bandwidth of the month can be used to calculate the monthly fee.<br />
+If the playback bitrate of customer's ILVB business at viewer end is set to 1 MB, when 100 viewers watch video at a certain time at the same time, the bandwidth consumed at this point of time is 1*100=100 MB, and so on. The bandwidth usage is collected every five minutes, and the peak bandwidth of the month can be used to calculate the monthly fee.<br />
 
 Note: If you have a high volume of business, contact your Tencent Cloud key client manager to negotiate for a lower price.<br />
 Note:<br />
 a. Monthly peak bandwidth:<br />
-• DC and OC collect a peak bandwidth every 5 minutes (in Mbps). The highest value of the month is used as the monthly peak bandwidth of DC for billing.<br />
+• DC and OC collect a peak bandwidth every five minutes (in Mbps). The highest value of the month is used as the monthly peak bandwidth of DC for billing.<br />
 b. DC<br />
 •	It can send upstream/downstream audio and video data, being suitable for multi-person audio/video interaction.<br />
 Scenarios where DC is largely used:<br />
 (1) When viewers have upstream audio and video permission<br />
-"Note": Whether viewer joins the broadcasting is configured and switched by developer. Wrong configuration may cause large-scale burst of traffic to flow through DC.<br />
-(2) If no upstream audio/video traffic is generated, when the number of room members is small (for example, not more than 5), the traffic flows following a path of VJ -> DC -> OC -> viewer, but the use of OC can cause a waste of traffic from DC to OC. Therefore, in this case, DC is directly used to send downstream traffic.<br />
+**Note**: Whether viewer joins the broadcasting is configured and switched by developer. Wrong configuration may cause large-scale burst of traffic to flow through DC.<br />
+(2) If no upstream audio/video traffic is generated, when the number of room members is small (for example, not more than five), the traffic flows following a path of VJ -> DC -> OC -> viewer, but the use of OC can cause a waste of traffic from DC to OC. Therefore, in this case, DC is directly used to send downstream traffic.<br />
 c. OC<br />
 •	It can only send downstream audio/video data, being suitable for scenarios where viewers only watch the video.<br />
-(As shown in the figure, if no viewer sends upstream video data, and the number of online members in the room is more than 5, most of traffic is generated from OC. But a certain proportion of bandwidth comes from DC-->OC, which accounts for almost 10%)<br />
+(As shown in the figure, if no viewer sends upstream video data, and the number of online members in the room is more than five, most of traffic is generated from OC. But a certain proportion of bandwidth comes from DC-->OC, which accounts for almost 10%)<br />
 
 # Part 2: [Optional] Additional Capacity Fee
 Charges may be incurred only when additional capacity is activated and put into use, such as recording, non-interactive broadcasting, etc.<br />
@@ -110,4 +110,4 @@ The activation, service mode, billing method of technical support service are co
 
 If you are interested, please add QQ: 3358225043<br />
 
-Please indicate your company name, connected service (ILVB/cloud LVB) when adding QQ number<br />
+Please indicate your company name and connected service (ILVB/cloud LVB) when adding QQ number<br />

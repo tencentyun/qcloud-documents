@@ -1,4 +1,4 @@
-﻿Video recording feature is available as of ILVB SDK1.3. Users can use this feature by calling relevant APIs. Recorded files are stored in VOD service provided by Tencent Cloud. Users can perform operations such as management, transcoding and distribution on these files using VOD console and APIs.
+Video recording feature is available as of ILVB SDK1.3. Users can use this feature by calling relevant APIs. Recorded files are stored in VOD service provided by Tencent Cloud. Users can perform operations such as management, transcoding and distribution on these files using VOD console and APIs.
 
 You can use the recording feature only after the Tencent Cloud VOD service is activated.
 
@@ -446,8 +446,8 @@ Please note that, if you have activated the VOD service and selected a billing m
 
 (1) Recording feature is not supported for one-on-one audio/video room
 (2) Type of recorded file defaults to MP4.
-(3) During recording, one MP4 file is generated every 1 hour, and more than one MP4 files are generated for a recording length of more than 1 hour. If the entire recording length is less than 1 hour, one MP4 file is generated.
-(4) When App crashes or exits due to exception in the running process, the recording ends automatically if no data is received within 1 minute. The audio/video before the exit is recorded at the backend.
+(3) During recording, one MP4 file is generated every one hour, and more than one MP4 files are generated for a recording length of more than one hour. If the entire recording length is less than one hour, one MP4 file is generated.
+(4) When App crashes or exits due to exception in the running process, the recording ends automatically if no data is received within one minute. The audio/video before the exit is recorded at the backend.
 (5) The current version does not support the merging or mixing of multi-channel upstream videos
 
 ## 7 Error Codes

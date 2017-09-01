@@ -1,4 +1,4 @@
-﻿
+
 
 ## 1. Register, log in and pass the developer identity verification
 Before using audio/video IM service, you need to register a Tencent Cloud account and submit relevant information.
@@ -10,7 +10,7 @@ After registration, you first need to pass **developer identity verification**, 
 
 ### 2. Activate the service
 
-Go to Tencent Cloud video [solution overview page](http://www.qcloud.com/solution_video.html), and click "Free Activation" button at the bottom, as shown below:
+Go to Tencent Cloud video [solution overview page](http://www.qcloud.com/solution_video.html), and click **Free Activation** button at the bottom, as shown below:
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/jianjie-2.png)
 
@@ -18,9 +18,9 @@ Then, you are directed to the "Application for Activation of Video Solution" pag
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/jianjie-3.png)
 
-Enter required information correctly in this page, so that we can provide better service based on your business status. Complete the video service application process by clicking "Submit for Application" at the bottom, and go to the next step: create App.
+Enter required information correctly in this page, so that we can provide better service based on your business status. Complete the video service application process by clicking **Submit for Application** at the bottom, and go to the next step: create App.
 
-> We will handle the application within 5 working days, and notify you upon approval of your application via email, SMS message.
+> We will handle the application within five business days, and notify you upon approval of your application via email and SMS message.
 
 ## 3. Create App
 
@@ -35,7 +35,7 @@ Before developing App, you first need to create an App in audio/video IM console
 
 ### 3.2 Configure App
 
-After the App is created, you can obtain App's SDKAPPID for access. You can also click "App Configuration" button in the App list page to enter the details page of App and modify App information.
+After the App is created, you can obtain App's SDKAPPID for access. You can also click **App Configuration** button in the App list page to enter the details page of App and modify App information.
 ![](//mccdn.qcloud.com/static/img/c83d68fa6bf4e86ca0024a952d78f23d/image.jpg)
 
 
