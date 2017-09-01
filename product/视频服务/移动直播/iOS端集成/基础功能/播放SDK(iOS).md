@@ -167,13 +167,13 @@ _txLivePlayerConfig.maxCacheItems = 2;
 [_txLivePlayer startPlay:playUrl type:_playType];                            
 ```
 
-### step 11: 倍速播放（仅点播）
-点播播放器支持倍速播放，通过接口`setRate`设置点播播放速率来完成。
+### step 11: 变速播放（仅点播）
+点播播放器支持变速播放，通过接口`setRate`设置点播播放速率来完成，支持快速与慢速播放，如0.5X、1.0X、1.2X、2X等。
 
  ```objectivec
 //如下代码用于展示点播倍速播放
-//设置2倍速播放
-[_txLivePlayer setRate:2]; 
+//设置1.2倍速播放
+[_txLivePlayer setRate:1.2]; 
 // ...
 //开始播放
 [_txLivePlayer startPlay:playUrl type:_playType];
