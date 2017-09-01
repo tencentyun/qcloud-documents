@@ -41,7 +41,7 @@ service httpd start
 >**注意：**
 此步骤需要您的云主机在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://www.qcloud.com/document/product/213/5221)。
 
-在您本地的浏览器中输入您服务器的外网地址，出现下列画面表示 Apache 启动成功。
+在您本地的浏览器中输入`http://115.xxx.xxx.xxx/info.php`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](//mc.qcloudimg.com/static/img/3cde70e76a386b81f96ea9919280269d/image.png)
 
 ### 安装 PHP 
