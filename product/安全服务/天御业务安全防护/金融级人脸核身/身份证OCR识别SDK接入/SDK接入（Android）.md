@@ -465,7 +465,8 @@ WbCloudOcrSdk.init()里Bundle data，除了必须要传的InputData对象(详情
 IDOCR_USER_CANCEL="200101";    //用户取消操作
 IDOCRERROR_USER_NO_NET="100101";    //无网络
 IDOCR_USER_2G="100102";   //不支持2G网络
-IDOCR_ERROR_PERMISSION_CAMERA="100103";  //无相机权限 IDOCR_LOGINERROR="-10000";  //登录错误
+IDOCR_ERROR_PERMISSION_CAMERA="100103";  //无相机权限
+IDOCR_LOGINERROR="-10000";  //登录错误
 SERVER_FAIL="-30000";    //内部服务错误**
 
 #### 8.2 后台返回错误码
