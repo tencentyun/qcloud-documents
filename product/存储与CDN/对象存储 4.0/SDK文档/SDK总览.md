@@ -21,6 +21,6 @@
 | C++ SDK        | [C++ SDK 接入说明](/document/product/436/6272)    |
 | iOS SDK        | [iOS SDK 接入说明](/document/product/436/6530)    |
 | Java SDK       | [Java SDK 接入说明](/document/product/436/6273)   |
+| JavaScript SDK | [JavaScript SDK 接入说明](/document/product/436/8095) |
 | PHP SDK        | [PHP SDK 接入说明](/document/product/436/6274)    |
 | Python SDK     | [Python SDK 接入说明](/document/product/436/6275) |
-| JavaScript SDK | [JavaScript SDK 接入说明](/document/product/436/8095) |
