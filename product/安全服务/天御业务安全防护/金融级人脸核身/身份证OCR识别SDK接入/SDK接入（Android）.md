@@ -25,9 +25,9 @@ dependencies {
      //0. appcompat-v4
  compile 'com.android.support:appcompat-v4:23.1.1'
   //1. 云Ocr SDK
- compile(name: WbCloudOcr', ext: 'aar')
+ compile(name: 'WbCloudOcrSdk-proRelease-v0.1.0-773abc2', ext: 'aar')
   //2.云公共组件
-compile(name:’WbCloudNormal’,ext:’aar’)
+compile(name: 'WbCloudNormal-release-v3.0.1-917d1de', ext: 'aar')
       // 3. 依赖的第三方jar包
       compile 'com.google.code.gson:gson:2.3.1' //网络请求json解析
       compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0' //网络请求
@@ -40,34 +40,30 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 ```
 ######################云ocr混淆规则 ocr-BEGIN###########################
 -keepattributes InnerClasses
--keep public class com.webank.mbank.ocr.utils.WbCloudOcrSDK{
+-keep public class com.webank.mbank.ocr.WbCloudOcrSDK{
     public <methods>;
     public static final *;
 }
--keep public class com.webank.mbank.ocr.utils.WbCloudOcrSDK$*{
+-keep public class com.webank.mbank.ocr.WbCloudOcrSDK$*{
     *;
 }
 
--keep public class com.webank.mbank.ocr.utils.ErrorCode{
-   public static final *;
+-keep public class com.webank.mbank.ocr.tools.ErrorCode{
+    *;
 }
 
+-keep public class com.webank.mbank.ocr.net.*$*{
+    *;
+}
 -keep public class com.webank.mbank.ocr.net.*{
-       public  *;
-}
--keep public class com.webank.mbank.ocr.utils.EXIDCardResult{
-   *;
-}
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
+    *;
 }
 #######################云ocr混淆规则 ocr-END#############################
 ```
 **2**.您可以将如上代码拷贝到您的混淆文件中，也可以将SDK中的webank-cloud-ocr-proguard-rules.pro拷贝到主工程根目录下,然后通过"-include webank-cloud-ocr-rules.pro" 加入到您的混淆文件中。
 **3. 云公共组件的混淆规则**
 ```
-#############webank normal混淆规则-BEGIN###################
+#######################webank normal混淆规则-BEGIN#############################
 #不混淆内部类
 -keepattributes InnerClasses
 -keepattributes *Annotation*
@@ -89,14 +85,11 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 -keep public class com.webank.normal.net.*{
     *;
 }
--keep public class com.webank.normal.thread.ThreadOperate{
+-keep public class com.webank.normal.thread.*{
    *;
 }
--keep public class com.webank.normal.thread.ThreadOperate$*{
+-keep public class com.webank.normal.thread.*$*{
    *;
-}
--keep public class com.webank.normal.net.RequestParam$ParamType{
-    *;
 }
 -keep public class com.webank.normal.tools.WLogger{
     *;
@@ -106,11 +99,29 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 -keep class com.tencent.bugly.webank.**{
     *;
 }
-###########webank normal混淆规则-END#######################
+
+#wehttp混淆规则
+-dontwarn com.webank.mbank.okio.**
+
+-keep class com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep interface com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep public class com.webank.mbank.wehttp.WeLog$Level{
+    *;
+}
+-keep class com.webank.mbank.wejson.WeJson{
+    public <methods>;
+}
+
+
+#######################webank normal混淆规则-END#############################
 ```
 您可以将如上代码拷贝到您的混淆文件中，也可以将SDK中的webank-cloud-normal-proguard-rules.pro拷贝到主工程根目录下,然后通过"-include webank-cloud-normal-rules.pro" 加入到您的混淆文件中。
 
-**4. 云刷脸依赖的第三方库的混淆规则**
+**4. 云OCR依赖的第三方库的混淆规则**
 ```
 ########云产品依赖的第三方库 混淆规则-BEGIN############
 ## support:appcompat-v7
@@ -121,7 +132,44 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 -keep public class * extends android.support.v4.view.ActionProvider {
     public <init>(android.content.Context);
 }
+######################云OCR依赖的第三方库 混淆规则-BEGIN###########################
 
+## support:appcompat-v7
+-keep public class android.support.v7.widget.** { *; }
+-keep public class android.support.v7.internal.widget.** { *; }
+-keep public class android.support.v7.internal.view.menu.** { *; }
+
+-keep public class * extends android.support.v4.view.ActionProvider {
+    public <init>(android.content.Context);
+}
+
+-keepattributes Signature
+
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+-keepattributes Exceptions
+
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+
+-keep class com.google.gson.examples.android.model.** { *; }
+
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# OkHttp
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+-dontwarn com.squareup.okhttp.**
+
+# Okio
+-keep class sun.misc.Unsafe { *; }
+-dontwarn java.nio.file.*
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+-dontwarn okio.**
+
+##########################云OCR依赖的第三方库 混淆规则-END##############################
 ## Gson
 # Gson uses generic type information stored in a class file when working with fields. Proguard
 # removes such information by default, so configure it to keep all of it.
@@ -163,7 +211,7 @@ compile(name:’WbCloudNormal’,ext:’aar’)
 
 ### 4. 调用SDK接口
 SDK代码调用的入口为
-**com.webank.mbank.ocr.utils.WbCloudOcrSDK**这个类。
+**com.webank.mbank.ocr.WbCloudOcrSDK**这个类。
 ```
 public class WbCloudOcrSDK{
 
@@ -181,14 +229,15 @@ public class WbCloudOcrSDK{
 public void init(Context context,Bundle data,OcrLoginListener loginListerner){
 //	...
 }
-    /**
+   /**
      * 登录成功后，调用此函数拉起sdk页面
-     * @param idCardScanResultListener  返回到第三方的接口
-     * @param recyclePictureListener    回收识别成功返回对象的身份证人像面和国徽面图片的接口
-     * @param type  进入SDK的模式，参数是枚举类型
+     * @param context                  拉起SDK的上下文
+     * @param idCardScanResultListener 返回到第三方的接口
+     * @param type                     进入SDK的模式，参数是枚举类型
      */
-    public void startActivityForOcr(IDCardScanResultListener idCardScanResultListener,RecyclePictureListener recyclePictureListener,WBOCRTYPEMODE type) {
-}
+    public void startActivityForOcr(Context context,IDCardScanResultListener,WBOCRTYPEMODE type){
+  // ...
+ }
 /**
   * 登录回调接口
   */
@@ -207,16 +256,6 @@ public interface IDCardScanResultListener{
         void onFinish(EXIDCardResult exidCardResult, 
                   String errorCode, String errorMsg);
 }
-/**
- * 回收图片的接口，建议第三方在这里对识别成功的图片进行回收，防止内存溢出
- */
-    public interface RecyclePictureListener{
-        /**
-         * SDK返回的识别成功的对象
-         * @param exidCardResult
-         */
-        void recycle(EXIDCardResult exidCardResult);
-    }
 ```
 
 WbCloudOcrSdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括:
@@ -234,21 +273,23 @@ EXIDCardResult 代表SDK返回的识别结果，该类属性如下所示：
 ```
 public int type;//拉起SDK的模式所对应的int 值，也就是startActivityForOcr 方法中WBOCRTYPEMODE type的枚举值value
 	// 识别人像面返回的信息
-    public String cardnum;  //身份证号码
+    public String cardNum;  //身份证号码
 	public String name;//姓名
 	public String sex;//性别
 	public String address;//住址
 	public String nation;//民族
 	public String birth;//出生年月日
-	public  Bitmap frontFullImage;// 人像面图片
+	public String frontFullImageSrc;// 人像面图片存放路径
+
     //识别国徽面返回的信息
     public String office;//签发机关
-	public String validdate;//有效期限
-	public  Bitmap backFullImage;//国徽面图片
+	public String validDate;//有效期限
+	public String backFullImageSrc;//国徽面图片存放路径
 //每次网络请求都会返回的信息
 public String sign;//签名
 public  String orderNo; //订单号
 public String ocrId;//识别的唯一标识
+public String warning;//识别的警告码
 ```
 
 #### 4.1 登录接口
@@ -283,8 +324,8 @@ public interface IDCardScanResultListener{
 }
 ```
 
-#### 4.3 回收图片资源接口
-**注意**： 强烈建议第三方用完识别成功返回对象中的图片后回收图片，即exidCardResult的Bitmap对象(如果有），否则易引起OOM
+#### 4.3 第三方进入SDK的模式
+ 第三方调用startActivityForOcr方法进入SDK时，WBOCRTYPEMODE type参数表示进入SDK的模式类型。总共有三种模式，当type==WBOCRSDKTypeNormal，进入标准模式(进入扫描身份证界面前有个准备界面）;当type==WBOCRSDKTypeFrontSide时，直接进入扫描身份证人像面界面，进行人像面识别;当type==WBOCRSDKTypeBackSide时，直接进入扫描身份证国徽面界面，进行国徽面识别。
 ```
 /**
  * 回收图片的接口，建议第三方在这里对exidCardResult的frontFullImage和backFullImage（如果不为空）进行回收，防止内存溢出
@@ -354,8 +395,8 @@ WbCloudOcrSdk.init()里Bundle data，除了必须要传的InputData对象(详情
   //先将必填的InputData放入Bundle中
   data.putSerializable(WbCloudFaceVerifySdk.INPUT_DATA, inputData);
   //设置SDK扫描识别身份证的时间上限，如果不设置则默认20秒；设置了则以设置为准
-  //此处设置SDK的扫描识别时间的上限为18秒
-   data.putLong(WbCloudOcrSDK.SCAN_TIME, 18000);
+  //此处设置SDK的扫描识别时间的上限为20秒
+   data.putLong(WbCloudOcrSDK.SCAN_TIME, 20000);
 ```
   
 #### 6.5 接入示例
@@ -368,8 +409,8 @@ WbCloudOcrSdk.init()里Bundle data，除了必须要传的InputData对象(详情
   //设置sdk标题栏文字内容，默认展示身份证识别,此处设置为居民身份证识别   data.putString(WbCloudOcrSDK.TITLE_BAR_CONTENT, "居民身份证识别");
   //设置sdk水印文字内容，默认仅供内部业务使用，此处设置为仅供本次业务使用
   data.putString(WbCloudOcrSDK.WATER_MASK_TEXT, "仅供本次业务使用");
-  //设置扫描识别的时间上限,默认20秒，此处设置为18秒
-  data.putLong(WbCloudOcrSDK.SCAN_TIME, 18000);
+  //设置扫描识别的时间上限,默认20秒，此处设置为20秒
+  data.putLong(WbCloudOcrSDK.SCAN_TIME, 20000);
 ```
 
 ### 7. 接入示例
@@ -396,25 +437,20 @@ WbCloudOcrSdk.init()里Bundle data，除了必须要传的InputData对象(详情
 //初始化sdk，得到是否登录sdk成功的结果 
         WbCloudOcrSDK.getInstance().init(MainActivity.this, data, new WbCloudOcrSDK.OcrLoginListener() {
             @Override
-            public void onLoginSuccess() {  //登录成功,拉起SDL页面                              WbCloudOcrSDK.getInstance().startActivityForOcr(
+            public void onLoginSuccess() {  //登录成功,拉起SDL页面                              WbCloudOcrSDK.getInstance().startActivityForOcr(MainActivity.this,
       new  WbCloudOcrSDK.IDCardScanResultListener() {  //返退出SDK回调接口
                     @Override
                     public void onFinish(EXIDCardResult exidCardResult, String resultCode, String resultMsg) {
-                        // resultCode为0，则刷脸成功；否则刷脸失败
+                        // resultCode为0，则识别成功；否则识别失败
                         if ("0"== resultCode) {
                             WLogger.d(TAG, "识别成功");
-                            // 登录成功  第三方应用对扫描的结果进行操作
+                            // 识别成功  第三方应用对扫描的结果进行操作
                         } else {
                             WLogger.d(TAG, "识别失败");
                         }
 
                     }
-                }, new WbCloudOcrSDK.RecyclePictureListener() {
-                    @Override
-                    public void recycle(EXIDCardResult exidCardResult) {
-                   //回收Bitmap资源
-                                                  }
-                },WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeNoraml);
+                },,WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeNormal);
             }
             @Override
             public void onLoginFailed(String errorCode, String errorMsg) {
@@ -425,11 +461,13 @@ WbCloudOcrSdk.init()里Bundle data，除了必须要传的InputData对象(详情
 				
 ### 8. 错误码描述
 #### 8.1 终端返回错误码
-    IDOCR_LOGIN_PARAMETER_ERROR = "-20000";     //传入参数有误
+ IDOCR_LOGIN_PARAMETER_ERROR = "-20000";     //传入参数有误
 IDOCR_USER_CANCEL="200101";    //用户取消操作
-IDOCR__ERROR_USER_NO_NET="100101";    //无网络
+IDOCRERROR_USER_NO_NET="100101";    //无网络
 IDOCR_USER_2G="100102";   //不支持2G网络
-IDOCR_ERROR_PERMISSION_CAMERA="100103";  //无相机权限
+IDOCR_ERROR_PERMISSION_CAMERA="100103";  //无相机权限 IDOCR_LOGINERROR="-10000";  //登录错误
+SERVER_FAIL="-30000";    //内部服务错误**
+
 #### 8.2 后台返回错误码
 INTERNAL_SERVER_ERROR="999999"      //网络不给力,请稍后再试
 FRONT_INTERNAL_SERVER_ERROR="999998"  //网络不给力，请您稍后再试
