@@ -13,7 +13,7 @@
 -  iOS 8.0+；
 -  手机必须要有网络（GPRS、3G 或 Wifi 网络等）；
 
-<style  rel="stylesheet"> table th:nth-of-type(1) { width: 130px; }</style>
+<style  rel="stylesheet"> table th:nth-of-type(1) { width: 130px; }table th:nth-of-type(2) { width: 200px; }</style>
 ### SDK 配置
 
 #### SDK 导入
