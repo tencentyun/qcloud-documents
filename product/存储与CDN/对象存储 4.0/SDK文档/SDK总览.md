@@ -8,13 +8,13 @@
 
 | SDK            | 接入文档                                     |
 | :------------- | :--------------------------------------- |
-| PHP SDK        | [PHP SDK 接入说明](/doc/product/436/6274)    |
-| Python SDK     | [Python SDK 接入说明](/doc/product/436/6275) |
-| Java SDK       | [Java SDK 接入说明](/doc/product/436/6273)   |
-| C++ SDK        | [C++ SDK 接入说明](/doc/product/436/6272)    |
-| C sharp SDK    | [C sharp SDK 接入说明](/doc/product/436/6271) |
 | Android SDK    | [Android SDK 接入说明](/doc/product/436/6517) |
+| C# SDK    | [C sharp SDK 接入说明](/doc/product/436/6271) |
+| C++ SDK        | [C++ SDK 接入说明](/doc/product/436/6272)    |
+| Java SDK       | [Java SDK 接入说明](/doc/product/436/6273)   |
+| PHP SDK        | [PHP SDK 接入说明](/doc/product/436/6274)    |
 | iOS SDK        | [iOS SDK 接入说明](/doc/product/436/6530)    |
+| Python SDK     | [Python SDK 接入说明](/doc/product/436/6275) |
 | JavaScript SDK | [JavaScript SDK 接入说明](/document/product/436/8095) |
 
 
