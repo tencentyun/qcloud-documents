@@ -1,5 +1,3 @@
-Balance
-
 # What is account balance?
 The service automatically charges the account balance At the end of a billing cycle. Billing cycle varies by product, most Tencent Cloud services are billed by hour.
 
