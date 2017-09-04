@@ -221,7 +221,7 @@ $result = $cosApi->delFolder($bucketName, $path);
 #### 方法原型
 
 ``` php
-public function listFolder($bucketName, $path, $num = 20, $pattern = 'eListBoth', $context = null);
+public function listFolder($bucketName, $path, $num = 20, $context = null);
 ```
 
 #### 参数说明
