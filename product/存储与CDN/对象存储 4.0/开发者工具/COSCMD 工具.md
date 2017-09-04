@@ -10,7 +10,7 @@ Windows 或 Linux 系统
 ### 软件依赖
 Python 2.7.x
 #### 安装及配置
-环境安装与配置详细操作请参考 [Python 安装与配置](/doc/product/436/10866)。
+环境安装与配置详细操作请参考 [Python 安装与配置](https://www.qcloud.com/document/product/436/10866)。
 ## 下载与安装
 - **手动安装**
 下载链接：[GitHub 链接](https://github.com/tencentyun/coscmd.git)
@@ -42,12 +42,12 @@ coscmd config -a <access_id> -s <secret_key> -u <appid> -b <bucketname> -r <regi
 上述示例中使用"<>"的字段为必选参数，使用"[]"的字段为可选参数。其中：
 
 | 名称         | 描述                                       | 有效值  |
-| :---------: | :----------------------------------------: | :----: |
-| access_id  | 必选参数，APPID 对应的密钥 ID，可从控制台获取，参考 [基本概念](/doc/product/436/6225)。 | 字符串  |
-| secret_key | 必选参数，APPID 对应的密钥 Key，可从控制台获取，参考 [基本概念](/doc/product/436/6225)。 | 字符串  |
-| appid      | 必选参数，需要进行操作的 APPID，可从控制台获取，参考 [基本概念](/doc/product/436/6225)。 | 数字   |
-| bucketname     | 必选参数，指定的存储桶名称， 需要提前在控制台建立，参考 [创建存储桶](/doc/product/436/6232)。 | 字符串  |
-| region     | 必选参数，存储桶所在地域。有效值：cn-south（华南）、 cn-north（华北）、cn-east（华东）、cn-southwest（西南）、sg（新加坡），参考 [可用地域](/doc/product/436/6224)。 | 字符串  |
+| --------- | ---------------------------------------- | ---- |
+| access_id  | 必选参数，APPID 对应的密钥 ID，可从控制台获取，参考 [基本概念](https://www.qcloud.com/document/product/436/6225)。 | 字符串  |
+| secret_key | 必选参数，APPID 对应的密钥 Key，可从控制台获取，参考 [基本概念](https://www.qcloud.com/document/product/436/6225)。 | 字符串  |
+| appid      | 必选参数，需要进行操作的 APPID，可从控制台获取，参考 [基本概念](https://www.qcloud.com/document/product/436/6225)。 | 数字   |
+| bucketname     | 必选参数，指定的存储桶名称， 需要提前在控制台建立，参考 [创建存储桶](https://www.qcloud.com/document/product/436/6232)。 | 字符串  |
+| region     | 必选参数，存储桶所在地域，枚举值为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：ap-guangzhou 、eu-frankfurt 等。 | 字符串  |
 | max_thread | 可选参数，多线程上传时的最大线程数（默认为 5），有效值：1~10         | 数字   |
 | parts_size | 可选参数，分块上传的单块大小（单位为 M，默认为 1M），有效值：1~10     | 数字   |
 
@@ -58,7 +58,7 @@ access_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
 secret_key = WE54wreefvds3462refgwewerewr
 appid = 1234567890
 bucket = ABC
-region = cn-south
+region = ap-guangzhou
 max_thread = 5
 part_size = 1
 ```

@@ -78,13 +78,7 @@ cos_user_home_dir=/home/test/cosftp_data/
 ```
 login_users=user1:pass1:RW;user2:pass2:RW 
 ```
-3. 外网 IP 设置，把外网 IP 设置为服务器的外网 IP。
-```
-pasv_address=115.xxx.xxx.xxx
-```
-> <font color="#0000cc">**注意：** </font>
-> 本步骤仅针对通过外网 IP 访问 FTP 服务的用户，如客户机和 FTP 服务器均在腾讯云 CVM 机器上，通过内网 IP 访问，可跳过本步骤，进行第 4 步。
-4. 控制端口与数据端口设置，可使用默认设置。建议端口在 1025 ~ 65535，并保证未被防火墙 iptables 过滤。
+3. 控制端口与数据端口设置，可使用默认设置。建议端口在 1025 ~ 65535，并保证未被防火墙 iptables 过滤。
 ```
 listen_port=2121
 ```
