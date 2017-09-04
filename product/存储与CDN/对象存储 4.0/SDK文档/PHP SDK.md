@@ -218,8 +218,9 @@ $result = $cosApi->delFolder($bucketName, $path);
 #### 方法原型
 
 ``` php
-public function listFolder($bucketName, $path, $num = 20, $pattern = 'eListBoth', $context = null);
+public function listFolder($bucketName, $path, $num = 20, $context = null);
 ```
+注意： v4.3.7及之后的sdk版本不再包含pattern和order这两个参数。
 
 #### 参数说明
 
@@ -229,7 +230,6 @@ public function listFolder($bucketName, $path, $num = 20, $pattern = 'eListBoth'
 | path       |目录的全路径                                   | String | 是      | 
 | num        |  要查询的目录/文件数量                              |int    | 否      |
 | context    | 透传字段，查看第一页，则传空字符串。<br>若需要翻页，需要将前一页返回值中的 context 透传到参数中|String | 否      | 
-| pattern    | eListBoth：列举文件和目录；eListDirOnly：仅列举目录；eListFileOnly：仅列举文件 |String | 否      | 
 
 #### 返回值说明(json)
 
@@ -252,10 +252,10 @@ $result = $cosApi->listFolder($bucketName, $path, 20, 'eListBoth',0);
 #### 原型方法
 
 ``` php
-public function prefixSearch($bucketName, $prefix, $num = 20, $pattern = 'eListBoth', 
+public function prefixSearch($bucketName, $prefix, $num = 20, 
 $context = null);
 ```
-
+注意： v4.3.7及之后的sdk版本不再包含pattern和order这两个参数。
 #### 参数说明
 
 | 参数名    |  参数描述                                 |类型 | 必填 |
@@ -264,7 +264,6 @@ $context = null);
 | prefix     | 列出含此前缀的所有文件(带全路径)                        |String | 是      | 
 | num        | 要查询的目录/文件数量                              |int    | 否      | 
 | context    | 透传字段，查看第一页，则传空字符串。<br>若需要翻页，需要将前一页返回值中的context透传到参数中|String | 否      | 
-| pattern    | eListBoth：列举文件和目录；eListDirOnly：仅列举目录；eListFileOnly：仅列举文件 |String | 否      | 
 
 #### 返回值说明(json)
 

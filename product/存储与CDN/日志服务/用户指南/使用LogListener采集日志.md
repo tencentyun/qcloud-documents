@@ -12,7 +12,7 @@ centos7.2
 
 ### 安装LogListener
 
-[点击此处下载安装包](https://mc.qcloudimg.com/static/archive/a4aaa61126e2008ebd1ec9db0eb3ac6d/loglistener.1.0.0.tar.gz)，将安装包解压至指定的目标目录中，在root下执行
+[点击此处下载安装包](https://mc.qcloudimg.com/static/archive/459ba2c47177051c7d85c2d258244142/loglistener.1.0.0.tar.gz)，将安装包解压至指定的目标目录中，在root下执行
 
 ```
 cd loglistener/tools/op;
@@ -22,7 +22,7 @@ cd loglistener/tools/op;
 注：uin为您的腾讯云帐号ID，而非APPID，您可登录腾讯云控制台，在账号信息中中查看您的帐号ID。region为您所使用的日志服务区域。服务区域编码如下：
 
 ```
-sh - 上海
+shanghai - 上海
 ```
 
 安装脚本会注册`crontab`，以保证机器重起后，客户端正常拉起
