@@ -10,13 +10,13 @@ ssh-keygen -t rsa -C "您的账号ID@git.cloud.tencent.com"
 ![](https://mc.qcloudimg.com/static/img/171eecae63ecd839c349bca6d682952c/2017-08-28_114309.png)
 
 > 注意：
-> 以上操作在Windows平台下进行，Linux下命令不变，操作类似。
+> 以上操作在 Windows 平台下进行，Linux 下命令不变，操作类似。
 
-### 2. 添加SSH Keys
+### 2. 添加 SSH Keys
 1. 首先，在 TGit 主页面里点击【Profile Setting】。
 ![](https://mc.qcloudimg.com/static/img/5522c138370e7c60d07018c345be3177/image.png)
 
-2. 点击左边的【SSH Keys】，然后在点击【Add SSH key】。
+2. 点击左边的【SSH Keys】，然后在点击【Add SSH Key】。
 ![](https://mc.qcloudimg.com/static/img/b6df9f8393daac0b65a32e8c37ac2140/2017-08-28_140330.png)
 
 3. 填写好【Key】和【Title】， 点击【Add key】按钮即可。
