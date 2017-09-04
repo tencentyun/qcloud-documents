@@ -1,5 +1,3 @@
-Automatically Charge & Top Up
-
 # How does automatically charge work?
 If you are using cloud services and your account balance is less than the amount you need to be charged, we will automatically charges the cost of the cloud services you have used from PayPal you signed, and if your account balance is less than $ 1, We will also top up $ 30 to your account balance for the further use.
 For example, If your are owed $ 3 at the end of a charge cycle, we will charge you $ 3 and top up $ 30 automatically to your account balance.
