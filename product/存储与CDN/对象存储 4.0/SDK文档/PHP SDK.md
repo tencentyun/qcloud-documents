@@ -1,8 +1,5 @@
 ## 开发准备
 
-### 注意
-最新的版本的sdk删除了order和pattern这两个参数。
-
 ### 相关资源
 
 [cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)（本版本SDK基于JSON API封装组成）
@@ -223,6 +220,7 @@ $result = $cosApi->delFolder($bucketName, $path);
 ``` php
 public function listFolder($bucketName, $path, $num = 20, $context = null);
 ```
+注意：最新的版本的sdk删除了order和pattern这两个参数。
 
 #### 参数说明
 
@@ -257,7 +255,7 @@ $result = $cosApi->listFolder($bucketName, $path, 20, 'eListBoth',0);
 public function prefixSearch($bucketName, $prefix, $num = 20, 
 $context = null);
 ```
-
+注意：最新的版本的sdk删除了order和pattern这两个参数。
 #### 参数说明
 
 | 参数名    |  参数描述                                 |类型 | 必填 |
