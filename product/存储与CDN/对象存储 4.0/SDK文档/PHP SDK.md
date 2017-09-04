@@ -220,7 +220,7 @@ $result = $cosApi->delFolder($bucketName, $path);
 ``` php
 public function listFolder($bucketName, $path, $num = 20, $context = null);
 ```
-注意：最新的版本的sdk删除了order和pattern这两个参数。
+注意： v4.3.7及之后的sdk版本不再包含pattern和order这两个参数。
 
 #### 参数说明
 
@@ -255,7 +255,7 @@ $result = $cosApi->listFolder($bucketName, $path, 20, 'eListBoth',0);
 public function prefixSearch($bucketName, $prefix, $num = 20, 
 $context = null);
 ```
-注意：最新的版本的sdk删除了order和pattern这两个参数。
+注意： v4.3.7及之后的sdk版本不再包含pattern和order这两个参数。
 #### 参数说明
 
 | 参数名    |  参数描述                                 |类型 | 必填 |
