@@ -7,7 +7,7 @@
 2. 到 TGit 产品介绍页上点击【立即申请】，然后跳转到 TGit 产品申请页
 ![](https://mc.qcloudimg.com/static/img/c9f10ff0f08f1ef06e50c0608980742c/image.png)
 
-3. 填写用户信息和业务信息，点击【申请】
+3. 填写好用户信息和业务信息，点击【提交申请】
 ![](https://mc.qcloudimg.com/static/img/ab8ec75b13f13dbf021253c99dfe154c/image.png)
 
 ## 步骤二：设置TGit账号
