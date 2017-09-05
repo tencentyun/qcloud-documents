@@ -60,10 +60,10 @@ chmod 640 /etc/passwd-cosfs
 cosfs your-APPID:your-bucketname your mount-point -ourl=cos-domain-name -odbglevel=info
 ```
 其中：
-your-APPID/ your-bucketname 需要替换为用户真实的信息；
-your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
-cos-domain-name 为存储桶所属地域对应域名，形式为 http:\/\/cos.&lt;Region&gt;.myqcloud.com ，其中 Region 为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：http:\/\/cos.ap-guangzhou.myqcloud.com 、http:\/\/cos.eu-frankfurt.myqcloud.com 等。
--odbglevel 参数表示信息级别，照写即可。
+- your-APPID/ your-bucketname 需要替换为用户真实的信息；
+- your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
+- cos-domain-name 为存储桶所属地域对应域名，形式为 `http://cos.&lt;Region&gt;.myqcloud.com` ，其中 Region 为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：`http://cos.ap-guangzhou.myqcloud.com` 、`http://cos.eu-frankfurt.myqcloud.com` 等。
+- -odbglevel 参数表示信息级别，照写即可。
 #### 示例：
 ```
 cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info 
