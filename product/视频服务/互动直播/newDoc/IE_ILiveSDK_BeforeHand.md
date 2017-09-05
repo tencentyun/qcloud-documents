@@ -41,4 +41,4 @@ iLiveSDK/iLiveSDK.js | 互动直播接口，封装了iLiveSDK.cab的接口供业
  4. 调用iLiveSDK中的接口实现业务需求
 
 ## SDK日志位置
-日志地址：%appdata%\Tencent\iLiveSDK（在开始菜单运行中执行）
+日志地址：%appdata%\Tencent\iLiveSDK\txsdklog（在开始菜单运行中执行）
