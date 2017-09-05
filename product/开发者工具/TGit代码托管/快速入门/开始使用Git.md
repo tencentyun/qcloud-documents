@@ -10,7 +10,7 @@
 3. 填写好用户信息和业务信息，点击【提交申请】
 ![](https://mc.qcloudimg.com/static/img/ab8ec75b13f13dbf021253c99dfe154c/image.png)
 
-## 步骤二：设置TGit账号
+## 步骤二：设置 TGit 账号
 1. 在登录了腾讯云账号后，输入链接 [http://git.qcloud.com](http://git.qcloud.com)
 ![](https://mc.qcloudimg.com/static/img/652782802a37a32dd8fa151cb5b6d387/image.png)
 ![](https://mc.qcloudimg.com/static/img/141e536aa5429f9604a776be2af0ee60/image.png)
