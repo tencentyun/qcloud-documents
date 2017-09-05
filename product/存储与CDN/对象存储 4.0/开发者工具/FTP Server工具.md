@@ -67,7 +67,7 @@ cos_secretkey=xxxxxxxxxxxxxxxxxx
 // 设置 APPID、API 密钥信息。                                                   
 cos_bucket=test                                                     
 cos_region=gz     
-// bucket 信息，包括bucket 的名字，以及 bucket 所在的区域。所在地域枚举值为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。
+// bucket 信息，包括 bucket 的名字，以及 bucket 所在的区域。所在地域枚举值为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。
 cos_download_domain=cos    
 // domain 设置为 cos 表示通过 COS 源站下载(推荐服务器为腾讯云机器用户设置)。
 // domain 设置为 cdn 表示通过 CDN 下载(推荐服务器为非腾讯云机器用户设置)。
