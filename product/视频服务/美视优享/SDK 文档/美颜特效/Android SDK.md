@@ -17,7 +17,7 @@
 > camera 目录包含了切换动效需要的资源等文件，必须正确放到 assets 目录下，否则会发生异常。
 
 ### 3. 导入 licence 文件
-特权版需要 licence 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的 30 天的调试用 licence。获得 licence 后，将其命名为 **YTFaceSDK.licence** ，并添加到工程的 assets 目录下。
+特权版需要 licence 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期 30 天的调试用 licence。获得 licence 后，将其命名为 **YTFaceSDK.licence** ，并添加到工程的 assets 目录下。
 
 > **说明：**
 > - 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
