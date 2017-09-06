@@ -13,7 +13,7 @@ In this Policy:
 (c)"we", "our" or "us" refers to: (a) Aceville Pte Ltd, a Singaporean company located at 16 Collyer Quay, No. 1829, Level 18, Singapore 049318; and (b) Aceville Pte Ltd's affiliate companies across the world (including any entities that Aceville Pte Ltd acquires in the future).
 Please note that where you submit any Personal Information (other than Customer Personal Information) to us in your use of Tencent Cloud, we will use, process and store such Personal Information in accordance with the Tencent Privacy Policy. 
 
-PARTIES' RESPONSIBILITIES FOR COMPLIANCE
+## PARTIES' RESPONSIBILITIES FOR COMPLIANCE
 
 By using Tencent Cloud:
 
@@ -78,7 +78,9 @@ You represent, warrant and undertake that the processing by us of your Customer 
 
 Please note that, regardless of your Data Location Selection (and subject to the terms of the Tencent Cloud Terms of Service), we do not control or limit the locations from whi
 ch you or your End Users may access Your Content.
-RETENTION OR DISCLOSURE OF YOUR CONTENT FOR LEGAL PURPOSES 
+
+##RETENTION OR DISCLOSURE OF YOUR CONTENT FOR LEGAL PURPOSES 
+
 As set out in Section 7.3 of the Tencent Cloud Terms of Service, you agree that we and our affiliate companies (subject to the Tencent Cloud Terms of Service (including this Policy) and applicable laws and regulations):
 
 (a)may be required to retain or disclose Your Content in order to: 
@@ -97,7 +99,9 @@ and, for each of the above sub-paragraphs, whether the relevant applicable law o
 (c)may retain or disclose Your Content in association with the consideration, negotiation, or completion of a corporate transaction in which we or our affiliates acquire or are acquired by or merged with another company or we sell, liquidate, or transfer all or a portion of our assets; and 
 
 (d)may be required to retain or disclose Your Content in order to enforce the Tencent Cloud Terms of Service or to protect any rights, property or safety of ours, of our affiliate companies or of other users of Tencent Cloud. 
-RETENTION AND DELETION OF YOUR CONTENT AND CUSTOMER PERSONAL INFORMATION
+
+## RETENTION AND DELETION OF YOUR CONTENT AND CUSTOMER PERSONAL INFORMATION
+
 Subject to Section 9 above, we will store Your Content (and any Customer Personal Information forming part of Your Content) until the earlier of the following: 
 
 (a)the time at which you choose to delete Your Content from Tencent Cloud, in which case we will (except where it is not technically feasible to do so) delete Your Content from Tencent Cloud within 30 days; or 
