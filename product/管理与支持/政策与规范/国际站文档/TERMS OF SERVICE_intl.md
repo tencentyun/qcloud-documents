@@ -6,7 +6,7 @@ Welcome to Tencent Cloud! Your use of Tencent Cloud is subject to these Terms of
 
 (a)Please review these Terms and our policies and instructions to understand how you can and cannot use Tencent Cloud. You must comply with these Terms in your use of Tencent Cloud and only use Tencent Cloud as permitted by (and in compliance with) applicable laws and regulations (including laws related to data privacy and protection), wherever you may be when you use Tencent Cloud. By using Tencent Cloud, you agree to these Terms. If you do not agree to these Terms, you must not use Tencent Cloud.
 
-(b)These Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud Service Region located outside of the People's Republic of China. If you choose to use Tencent Cloud via a Tencent Cloud Service Region located inside the People's Republic of China, your use of Tencent Cloud will be governed by (and you will be contracting with the Tencent entity set out in) the terms set out at [here](https://www.qcloud.com/document/product/301/1967](https://www.qcloud.com/document/product/301/1967). Further details about how you select a Service Region for your use of Tencent Cloud is set out under Section 8 of the Privacy and Data Processing Policy. For the purposes of these Terms, "People's Republic of China" does not include Hong Kong Special Administrative Region of the People's Republic of China or Macau Special Administrative Region of the People's Republic of China. 
+(b)These Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud Service Region located outside of the People's Republic of China. If you choose to use Tencent Cloud via a Tencent Cloud Service Region located inside the People's Republic of China, your use of Tencent Cloud will be governed by (and you will be contracting with the Tencent entity set out in) the terms set out at [https://www.qcloud.com/document/product/301/1967](https://www.qcloud.com/document/product/301/1967). Further details about how you select a Service Region for your use of Tencent Cloud is set out under Section 8 of the Privacy and Data Processing Policy. For the purposes of these Terms, "People's Republic of China" does not include Hong Kong Special Administrative Region of the People's Republic of China or Macau Special Administrative Region of the People's Republic of China. 
 
 (c)In some countries, there are restrictions on your use of Tencent Cloud – it is your responsibility to ensure that you are legally allowed to use Tencent Cloud where you are located and that the data you wish to process and store in Tencent Cloud can legally and appropriately be processed and stored in Tencent Cloud. Please note that certain Tencent Cloud functionalities and features may not be available in some countries. 
 
@@ -121,6 +121,7 @@ You agree that we may take any such actions at any time.
 (b)all use of Tencent Cloud under your account, including any purchases made and/or payment obligations arising under your account. 
 
 You must promptly notify us (by contacting our Customer Support team) if you know or suspect that your password or account has been compromised. We will regard all use of your account on Tencent Cloud as being by you, except where we have received and acknowledged your notification to us regarding your account or password being compromised.
+
 5.4We may allow you to register for and login to Tencent Cloud using sign-on functionalities provided by third party platforms, such as Facebook or Google. You agree to comply with the relevant third party platform's terms and conditions applicable to your use of such functionalities (in addition to these Terms). 
 
 ## 6.PAYMENTS 
@@ -250,6 +251,7 @@ If you have a copyright-related complaint about any content posted within Tencen
 (a)we may integrate, display and otherwise communicate advertising or commercial content in Tencent Cloud and that (where reasonably practicable) we will identify the commercial nature of such advertising or commercial content; and 
 
 (b)we may use targeted advertising to try to make advertising more relevant and valuable to you. 
+
 11.2All advertising or commercial content within Tencent Cloud will be provided in accordance with the Tencent Privacy Policy. 
 
 ## 12.OUR INTELLECTUAL PROPERTY RIGHTS
@@ -270,6 +272,7 @@ If you have a copyright-related complaint about any content posted within Tencen
 13.1 We will provide Tencent Cloud:
 
 (a)in accordance with any technical specifications (including, if applicable, any Service Level Agreements that are applicable to the Tencent Cloud service you have procured), as expressly set out within Tencent Cloud; and
+
 (b)otherwise, using reasonable care and skill.
 
 13.2We will not provide any technical support for Tencent Cloud, unless separately agreed with you in writing. 
@@ -437,7 +440,7 @@ You may use any Confidential Information we provide to you for the sole purpose 
 
 22.2No person other than you and us will have any right to enforce these Terms, whether pursuant to the Contracts (Rights of Third Parties) Ordinance, any other statutory rights in your jurisdiction or otherwise. You may not delegate, assign or transfer these Terms or any rights or obligations under these Terms without our prior written consent. We may freely assign or transfer these Terms or our rights and obligations under these Terms, in whole or in part, without your prior consent or prior notice to you. We may freely sub-contract any part of our performance of these Terms at any time, without your consent or any notice to you. 
 
-23.GOVERNING LAW AND DISPUTE RESOLUTION
+## 23.GOVERNING LAW AND DISPUTE RESOLUTION
 
 Except to the extent that:
  
