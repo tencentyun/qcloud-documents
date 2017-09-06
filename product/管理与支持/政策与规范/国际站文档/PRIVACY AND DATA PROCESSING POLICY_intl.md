@@ -79,7 +79,7 @@ You represent, warrant and undertake that the processing by us of your Customer 
 Please note that, regardless of your Data Location Selection (and subject to the terms of the Tencent Cloud Terms of Service), we do not control or limit the locations from whi
 ch you or your End Users may access Your Content.
 
-##RETENTION OR DISCLOSURE OF YOUR CONTENT FOR LEGAL PURPOSES 
+## RETENTION OR DISCLOSURE OF YOUR CONTENT FOR LEGAL PURPOSES 
 
 As set out in Section 7.3 of the Tencent Cloud Terms of Service, you agree that we and our affiliate companies (subject to the Tencent Cloud Terms of Service (including this Policy) and applicable laws and regulations):
 
