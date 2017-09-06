@@ -31,8 +31,8 @@
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
 
-> https://st1.xiangji.qq.com/yunmaterials/{动效id}Android.zip
-> https://st1.xiangji.qq.com/yunmaterials/{动效id}.png
+> `https://st1.xiangji.qq.com/yunmaterials/{动效id}Android.zip`
+> `https://st1.xiangji.qq.com/yunmaterials/{动效id}.png`
 >
 
 强烈建议客户将动效资源放在自己的服务器上，以防小直播变动造成不必要的影响。
