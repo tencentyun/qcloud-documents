@@ -20,9 +20,9 @@
 特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务申请一个免费 30 天的调试用 licence。得到 licence 后，将其命名为 **YTFaceSDK.licence** ，并添加到工程的 assets 目录下。
 
 > **说明：**
-> · 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
-> · YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
-> · iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+> - 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+> - YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
+> - iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 ## 4. 功能调用
 
