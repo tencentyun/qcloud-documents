@@ -54,7 +54,7 @@ reboot
 ### 4. 挂载目录
 将 CDM-L80 中 nfs 服务的共享目录`/dataseal`挂载到本地目录，在存储挂载点执行挂载命令， 命令格式为：
 ```
-mount <nfs服务器IP>：/dataseal 本地挂载点目录
+mount <nfs服务器IP>：/dataseal <本地挂载点目录>
 ```
 例如，编号为 ABC123 的迁移设备对应的 IP 地址是 192.168.1.100，挂载该设备中 nfs 共享目录`/dataseal`到存储挂载点上的`/mydata`目录下，存储挂载点需执行命令： 
 ```
