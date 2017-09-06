@@ -2,7 +2,7 @@
 大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天P图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和P图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
 ## 2. 版本下载
-可以到 [RTMP SDK 开发包](https://www.qcloud.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license文件 可以联系商务获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换您工程中的非特权版 jar 文件和 so 文件即可。
+可以到 [RTMP SDK 开发包](https://www.qcloud.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 文件可以联系商务获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换您工程中的非特权版 jar 文件和 so 文件即可。
 
 ## 3. 工程设置
 
