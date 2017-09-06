@@ -27,7 +27,7 @@
 通过 SSH 远程登录到 CDM-L80，用户名为 admin，密码为 admin。
 ![4](//mc.qcloudimg.com/static/img/2d50b992c088aeaf5d4746f23820b7fc/image.png)
 ### 3. 配置 IP
-如已预设 IP 无变故，可跳过此步骤，进入步骤 4：[挂载目录](#挂载目录)
+如已预设 IP 无变故，可跳过此步骤，进入步骤 4：[挂载目录](#挂载目录)。
 #### 3.1 切换用户目录
 执行以下命令切换到 admin 对应的用户目录下（`/data/home/admin`）：
 ```
