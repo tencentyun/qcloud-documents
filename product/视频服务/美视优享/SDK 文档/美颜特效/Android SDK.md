@@ -7,7 +7,7 @@
 ## 3. 工程设置
 
 ### 3.1 添加 SDK
-拷贝 SDK 里的 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等 so 文件到工程对应位置，如 libs 下。
+拷贝 SDK 里的 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等文件到工程对应位置，如 libs 下。
 > **注意：**
 > 特权版只支持 armeabi 架构的 so 文件，请删除 app 里面的其余架构 so 文件，避免 so 文件加载失败。
 
