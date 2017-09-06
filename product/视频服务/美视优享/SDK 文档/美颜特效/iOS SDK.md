@@ -31,12 +31,12 @@
 > ufa.bundle
 > youtubeauty.bundle
 
-### 3.4 添加动效资源
+### 4. 添加动效资源
 
 将 zip 包中 Resource 目录以 folder refrence 形式添加到工程中。这些资源非常重要，如果没有添加切换到换脸类素材时会发生 crash。
 ![](https://mc.qcloudimg.com/static/img/b7fac6b5e08b0ff245b17d29f7296b18/AAE85661-7601-4473-A338-747FB9A6981C.png)
 
-### 3.5 导入 licence 文件
+### 5. 导入 licence 文件
 特权版需要 licence 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期 30 天的调试用 license。
 得到 licence 后，将其命名为 **YTFaceSDK.licence**，并添加到工程的 assets 目录下。
 
@@ -45,9 +45,9 @@
 > - YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
 > - iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
-## 4. 功能调用
+## 功能调用
 
-### 4.1 动效贴纸
+### 动效贴纸
 
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
@@ -70,7 +70,7 @@
 ```
 
 
-### 4.2 绿幕功能
+### 绿幕功能
 
 使用绿幕需要先准备一个用于播放的 mp4 文件，通过调用以下接口即可开启绿幕效果：
 
@@ -83,7 +83,7 @@
 -(void)setGreenScreenFile:(NSURL *)file;
 ```
 
-### 4.3 大眼瘦脸
+### 大眼瘦脸
 
 大眼和瘦脸通过以下方法设置：
 
