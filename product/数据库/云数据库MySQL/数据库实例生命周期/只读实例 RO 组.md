@@ -13,8 +13,7 @@
 - 选择数据库实例所属的项目，缺省设置为默认项目。
 - 选择购买数量和时长，核对无误后单击【立即购买】。
 - 费用详情请参见 <a href="https://www.qcloud.com/document/product/236/5158" target="_blank">费用总览</a>。
-![](//mc.qcloudimg.com/static/img/46a1db4d929f685efbb40f7b745aca56/image.png)
-![](//mc.qcloudimg.com/static/img/6e303d52e52a72e1b72ba558a54c8046/image.png)
+![](//mc.qcloudimg.com/static/img/e1401535799aeb1204707da530d37f89/image.png)
 > **注意：**
 > 目前只读实例仅支持高IO版4000MB内存、100GB容量及以上规格的主实例。
 
@@ -64,8 +63,7 @@
   </tr>
 </table>
 - 选择实例规格和所需的硬盘。
-![](//mc.qcloudimg.com/static/img/8f0c9b54c7c06f1f6496030beef1bb66/image.png)
-![](//mc.qcloudimg.com/static/img/789bd3721801be93f8fa321fd7467447/image.png)
+![](//mc.qcloudimg.com/static/img/e12c53af50e5da4717971c835f6b7c52/image.png)
 如果指定 RO 组选项配置为“**新建 RO 组**”，则需要在购买界面中填写新建的 RO 组的基本信息。
 - 设置 RO 组名称：RO 名称不要求唯一。支持长度小于60的中文/英文/数字/"-"/"_"/"." 。
 - 延时超限剔除：是否启动剔除策略。被剔除的实例权重自动设置为0，且新增实例状态：停服同步中。只读实例延迟超过阀值被剔除会向用户发出警告。
