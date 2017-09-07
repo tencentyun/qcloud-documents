@@ -1,11 +1,10 @@
 本文档主要介绍基本的 MR 任务操作（计算、查看任务日志等）、以及 MR 计算任务如何访问腾讯云对象存储上的数据，详细资料可以参考 [Apache Software Foundation](https://hadoop.apache.org/docs/r2.7.3/)。
 
 ## 命令行模式提交 MR 任务
-* 本次提交的任务为 wordcount 任务即统计单词个数，提前需要在集群中上传需要统计的文件
-* 在做相关操作前需要登录到 EMR 集群中的任意一个机器（Master 节点、或者 Core、Task 节点）
-* 登录后切换到 Hadoop 用户
-* Hadoop 等相关软件路径在 `/usr/local/service/` 下
-* 相关日志路径在 `/data/emr` 下
+本次提交的任务为 wordcount 任务即统计单词个数，提前需要在集群中上传需要统计的文件。
+在做相关操作前需要登录到 EMR 集群中的任意一个机器（Master 节点、或者 Core、Task 节点），登录后切换到 Hadoop 用户。
+Hadoop 等相关软件路径在 `/usr/local/service/` 下
+相关日志路径在 `/data/emr` 下
 <span id="ALL">
 ### 1. 数据准备 
 </span>
@@ -22,12 +21,12 @@
 ```
 **数据存放在 COS**
 数据存放在 COS 的可通过两种方式进行数据准备：通过 COS 控制台上传数据或通过 Hadoop 命令上传数据。具体方法如下：
-* 已经存储在 COS 的数据文件可通过如下命令查看：
+已经存储在 COS 的数据文件可通过如下命令查看：
 ```
     [hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
     -rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://emrtest/README.txt
 ```
-* 通过 Hadoop 的命令上传 COS：
+通过 Hadoop 的命令上传 COS：
 ```
     bin/hadoop fs -put README.txt cosn://emrtest/
     [hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
