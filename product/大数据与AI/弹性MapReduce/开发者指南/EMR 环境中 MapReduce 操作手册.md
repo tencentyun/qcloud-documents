@@ -6,8 +6,9 @@
 * 登录后切换到 Hadoop 用户
 * Hadoop 等相关软件路径在 `/usr/local/service/` 下
 * 相关日志路径在 `/data/emr` 下
-<a name="我想跳到这个地方"/>
+<span id="ALL">
 ### 1. 数据准备 
+</span>
 数据准备根据数据的存储位置不同，分为两种情况：
 * 数据存放在 HDFS 集群
 * 数据存放在 COS
@@ -64,7 +65,7 @@
 `bin/mapred job -logs jobid`
 ## 基于 HUE 的 MR 任务操作
 ### 1. 数据准备
-数据准备同通过命令行准备数据一致，请参考 [通过命令行准备数据](#我想跳到这个地方)。
+数据准备同通过命令行准备数据一致，请参考 [通过命令行准备数据](#ALL)。
 ### 2. 登录 HUE 进行操作
 通过 EMR 控制的快捷入口可以找到 HUE 的登录页面，找到如下入口。
 ![](//mc.qcloudimg.com/static/img/240c3ebccb81246dddf53aa5c6dde4b3/image.png)
