@@ -150,9 +150,8 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 详见 <a href="https://www.qcloud.com/document/product/236/7269#5-.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E7.9A.84binlog.E4.BF.9D.E5.AD.98.E6.97.B6.E9.97.B4.E8.AF.B4.E6.98.8E5" target="_blank">云数据库的binlog保存时间说明</a>。
 
 ## 24. 云数据库的慢查询时间是多久？
-云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令跟配置参数的命令行方式一样,详见[数据库MySQL](https://cloud.tencent.com/document/product/236)。
+云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令跟配置参数的命令行方式一样,详见[数据库MySQL](https://cloud.tencent.com/document/product/236)，在参数配置里可修改。
 
-详情请参考 [MySQL官方手册](http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_long_query_time)。
 
 ## 25. 为什么查看云数据库中的中文数据时出现乱码？
 开发者将数据存储到云数据库中时，请先到 [云数据库的管理控制台](https://console.qcloud.com/cdb) 进入相应实例的【管理视图】页面查看该实例的默认字符集，在编写程序时，将 character\_set\_client、character\_set\_results、character\_set\_connection 设置为和云数据库实例相同的字符集。否则，如果存储的数据中有中文，会出现中文数据乱码的现象。
