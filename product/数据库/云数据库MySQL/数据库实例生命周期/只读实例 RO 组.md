@@ -31,8 +31,8 @@
 - **自定义端口：**数据库的访问端口，默认为 3306。
 - **root 账户密码：**新创建的 MySQL 数据库的用户名默认为 root，此处用来设置此 root 账户的密码。
 - **确认密码：**再次输入密码。
-![](//mc.qcloudimg.com/static/img/a1b69801dc18d284ef8b0f3ea777265b/image.png)
 
+![](//mc.qcloudimg.com/static/img/a1b69801dc18d284ef8b0f3ea777265b/image.png)
 2.5 目标 MySQL 主实例的状态变为“**运行中**”，说明已初始化成功。
 ![](//mc.qcloudimg.com/static/img/5bc58fa06377190a29ef23d3784b9006/image.png)
 
@@ -70,6 +70,7 @@
 - 延时超限剔除：是否启动剔除策略。被剔除的实例权重自动设置为0，且新增实例状态：停服同步中。只读实例延迟超过阀值被剔除会向用户发出警告。
 - 延迟阀值：为只读实例设置延迟超限阀值，超过阀值可设置剔除。此项必须设置。无论是否启用剔除策略，延迟超限都会告警。
 - 最少保留实例数：组内需要保证的实例下限。若现有只读实例数低于此下限则超限不再自动设置权重为0。此项必须设置，且最小为0。
+
 ![](//mc.qcloudimg.com/static/img/3afb117591392e4e7e1d69a10b7976c2/image.png)
 3.5 进入 [云数据库控制台](https://console.qcloud.com/cdb)，找到刚才创建的实例类型为“**只读实例**”的实例，则表示只读实例创建成功。
 ![](//mc.qcloudimg.com/static/img/c9785571ba892afe730f45a9ed7dd48c/image.png)
