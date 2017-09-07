@@ -77,16 +77,21 @@ coscmd upload -r /home/aaa/ bbb/  //操作示例
 <font color="#0000cc">**注意：** </font>
 COSCMD 支持大文件断点上传功能。当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 
-### 下载文件
-下载文件命令如下：
+### 下载文件或文件夹
+- 下载文件命令如下：
 ```
 coscmd download <cospath> <localpath>  //命令格式
 coscmd download bbb/123.txt /home/aaa/111.txt  //操作示例
 ```
+- 下载文件夹命令如下：
+```
+coscmd download -r <cospath> <localpath>  //命令格式
+coscmd download -r bbb/ /home/aaa/  //操作示例
+```
 
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
 <font color="#0000cc">**注意：** </font>
-COSCMD 工具暂不支持文件夹下载功能。
+COSCMD 使用-f覆盖本地的同名文件。
 
 ### 删除文件或文件夹
 - 删除文命令如下：
