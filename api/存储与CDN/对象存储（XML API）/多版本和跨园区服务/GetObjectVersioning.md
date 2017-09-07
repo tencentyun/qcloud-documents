@@ -1,4 +1,4 @@
-#Get Bucket Versioning
+
 ## 功能描述
 <!-- 描述该 API 的功能、背景、条件等-->
 Get Bucket Versioning 获得版本控制信息。
