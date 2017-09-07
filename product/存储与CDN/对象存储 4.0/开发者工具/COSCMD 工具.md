@@ -25,7 +25,7 @@ sudo pip install coscmd
 ### 查看 help
 用户可通过`-h`或`--help`命令来查看工具的 help 信息。
 ```
-coscmd -h  //查看当面版本信息
+coscmd -h  //查看当前版本信息
 ```
 help 信息如下图所示：
 ![微信图片_20170817111432](//mc.qcloudimg.com/static/img/d7d49135c1f3064e4d1be3c210192143/image.png)
