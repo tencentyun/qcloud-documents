@@ -32,6 +32,7 @@
 - **root 账户密码：**新创建的 MySQL 数据库的用户名默认为 root，此处用来设置此 root 账户的密码。
 - **确认密码：**再次输入密码。
 ![](//mc.qcloudimg.com/static/img/a1b69801dc18d284ef8b0f3ea777265b/image.png)
+
 2.5 目标 MySQL 主实例的状态变为“**运行中**”，说明已初始化成功。
 ![](//mc.qcloudimg.com/static/img/5bc58fa06377190a29ef23d3784b9006/image.png)
 
