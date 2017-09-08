@@ -5,15 +5,15 @@
 监控中心对云数据库的磁盘空间进行了监控，当云数据库的使用空间超过 90% 的时候就会触发短信和邮件告警，这里只需要在云监控中配置好对应的告警接收人（如何配置请参考[告警功能](https://www.qcloud.com/document/product/236/8457)），当空间不足的时候就能收到告警。
 
 ## 3. 使用云数据库前要做什么准备
-需要考虑：
+在使用云数据库前您需要考虑以下两个问题：
 1. 您的应用是否适合使用 DB？比如数据量小、访问量高、key-value 存储的场景就应该考虑使用内存级持久化存储服务 [【云缓存Memcached】](https://www.qcloud.com/product/cmem)。
 2. 您的数据库设计是否合理？比如有明显访问热点或者数据量过大的表，则应该考虑拆分成多个表。 
 
 ## 4. 云数据库的binlog保存时间是多久
-由于 MySQL binlog 会占用大量的存储空间，所以云数据库只保存最近 3 天的 binlog。另外，如果 binlog 数据量增加太快，服务器磁盘存储不下 3 天的 binlog，会人工删除 binlog，释放空间。
+由于 MySQL binlog 会占用大量的存储空间，所以云数据库只保存最近 5 天的 binlog。另外，如果 binlog 数据量增加太快，服务器磁盘存储不下 5 天的 binlog，会人工删除 binlog，释放空间。
 
 ## 5. 云数据库连接故障诊断及解决方案
-当使用云数据库出现连接故障时，首先确认你的云数据库实例的 IP、端口、用户、密码，然后在你的应用机器上通过命令行登录云数据库：
+当使用云数据库出现连接故障时，首先您需要确认您的云数据库实例的 IP、端口、用户、密码，然后在您的应用机器上通过命令行登录云数据库：
 ```
 mysql -h IP -P 端口号 -u root -p 云数据库密码
 ```
@@ -21,8 +21,7 @@ mysql -h IP -P 端口号 -u root -p 云数据库密码
 ```
 ERROR 1045(28000)：Access denied for user...
 ```
-当出现 `Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)` 的提示语时，表明密码不正确。
-请确认你输入的云数据库密码是否正确，如果重复输入正确信息后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。 
+当出现 `Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)` 的提示语时，表明密码不正确。请确认你输入的云数据库密码是否正确，如果重复输入正确密码后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。 
 ```
 ERROR 1040(00000):Too many connections
 ```
@@ -31,19 +30,19 @@ ERROR 1040(00000):Too many connections
 ```
 ERROR 2003 (HY000): Can't connect to MySQL server...
 ```
-当出现 `ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)` 的提示语时，表明云数据库地址不能连通，请确认你输入的云数据库的 IP、端口信息是否正确。如果重复输入正确信息后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。
+当出现 `ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)` 的提示语时，表明云数据库地址不能连通，请确认您输入的云数据库的 IP、端口信息是否正确。如果重复输入正确信息后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。
 
 ## 6. 云数据库适用于哪些业务场景
 MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭建 MySQL，使用云数据库更加方便和可靠。
 云数据库完全兼容 MySQL 协议，同时提供 master-slave 热备和定时冷备服务，此外支持实例无缝升级，可最大程度减少开发者在部署、监控、扩容和故障恢复等方面的投入，使开发者可以集中精力进行产品开发和运营。
 
 ## 7. 云数据库占用空间与使用空间的区别
-目前云数据库用户实际使用空间与 binlog 等日志数据已分开统计，开发者云数据库控制台看到的占用空间即等于使用空间。
+目前云数据库用户实际使用空间与 binlog 等日志数据已分开统计，开发者在云数据库控制台看到的占用空间即等于使用空间。
 
 ## 8. 云数据库执行任务是否有缓冲
-问题描述：
+**问题描述：**
 在很短的时间，送入了 N 条 SQL 语句给云数据库执行，此时云数据库会逐条执行，还是卡死？如果会卡死，那么同时的连接并发数限制是多少？
-问题解答：
+**问题解答：**
 云数据库提供的 MySQL 实例与平时我们自己安装的 MySQL 实例是一样的。并发执行的语句是否会卡死跟系统资源和 SQL 语句本身有关。
 如果连接数 max_connections 到达极限值，那么该实例基本上已经无法正常提供服务，一般是由以下原因造成的：
 - 业务程序 bug 导致的空连接过多；
@@ -58,15 +57,13 @@ MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭�
 详见 <a href="https://www.qcloud.com/document/product/236/7259#7-.E6.93.8D.E4.BD.9C.E9.99.90.E5.88.B67" target="_blank">云数据库操作限制</a>。
 
 ## 11. 如何登录云数据库？
-开发人员通过 IP/Port 的方式就可以完全控制和管理 MySQL 实例，无需登录到服务器进行操作。
-可通过命令行或者云数据库管理台登录云数据库，详见 <a href="https://www.qcloud.com/document/product/236/3130" target="_blank">访问MySQL数据库</a>。
+开发人员通过 IP/Port 的方式就可以完全控制和管理 MySQL 实例，无需登录到服务器进行操作。可通过命令行或者云数据库管理台登录云数据库，详见 <a href="https://www.qcloud.com/document/product/236/3130" target="_blank">访问MySQL数据库</a>。
 
 ## 12. 是否可以自助修改 MySQL 实例的配置？
 MySQL 实例的配置由云数据库统一管理，并支持部分参数的自助修改，详细请参考下面的问题 [如何修改云数据库配置参数](#change_parameter_21)。
 
 ## 13. 云数据库如何对MySQL进行管理？
-开发者不需要对 MySQL 进行日常管理，日常的维护和调整由云数据库运维系统完成。
-当 MySQL 出现异常时，运维系统会及时发现并通知运维人员处理，开发者不需要做任何变更操作。
+开发者不需要对 MySQL 进行日常管理，日常的维护和调整由云数据库运维系统完成。当 MySQL 出现异常时，运维系统会及时发现并通知运维人员处理，开发者不需要做任何变更操作。
 
 ## 14. 云数据库中运行的MySQL版本是多少？
 云数据库中使用的 MySQL 版本为 5.5.45、5.6.28。
@@ -85,7 +82,7 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 可通过云数据库数据导出工具获取慢查询日志，详见 <a href="https://www.qcloud.com/document/product/236/7274" target="_blank">下载备份文件</a>。
 
 ## 19. 开发者自己如何备份数据？
-云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见手动备份与恢复云数据库，或者通过 mysqldump 工具自己备份数据。
+云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见[手动备份与恢复云数据库](https://www.qcloud.com/document/product/236/7275?!preview&lang=cn)，或者通过 mysqldump 工具自己备份数据。
 
 ## 20. 如何申请云数据库实例 slave 只读权限开放/关闭？
 如果需要开放或关闭 slave 只读实例，请按照模版提交工单申请。
@@ -95,11 +92,11 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 开发者可通过命令行和 phpMyAdmin 控制台，修改云数据库配置参数：
 
 1. 命令行方式
-以下变量可以点击“进入管理中心”，进入“总览页面”：
+以下变量可以单击“进入管理中心”，进入[总览页面](https://console.cloud.tencent.com/)：
 ![总览](//mc.qcloudimg.com/static/img/e3b4a1474b5d47ded82b5f2c3b534caf/image.png)
-点击“云数据库”，进入“MySQL-实例列表”：
+在”使用中的云产品“下拉菜单下单击“云数据库”，进入[MySQL-实例列表](https://console.cloud.tencent.com/cdb)：
 ![管理](//mc.qcloudimg.com/static/img/ca4c7858bcf89a2d0fe97fdcd4754e42/image.png)
-进入管理列表下的参数设置，其中常见的 var\_name 包括如下变量：
+单击管理列表下的参数设置，其中常见的 var\_name 包括如下变量：
 <table class="t">
 <tbody><tr>
 <th>  变量
@@ -150,14 +147,14 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 
 ## 24. 云数据库的慢查询时间是多久？
 云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令跟配置参数的命令行方式一样,详见[数据库MySQL](https://cloud.tencent.com/document/product/236)，在参数配置里可修改。
-点击“进入管理中心”，进入“总览页面”：
+点击“进入管理中心”，进入[总览页面](https://console.cloud.tencent.com/)：
 
-![总览](//mc.qcloudimg.com/static/img/e6145efb50f172aaafe16d640e923e5e/image.png)
-点击“云数据库”，进入“MySQL-实例列表”：
+![总览](//mc.qcloudimg.com/static/img/33ad26ed6b2fde8caad10566c7e21206/image.png)
+在”使用中的云产品“下拉菜单下单击“云数据库”，进入[MySQL-实例列表](https://console.cloud.tencent.com/cdb)：
 
 ![管理](//mc.qcloudimg.com/static/img/0513c3baad993254f80fbd0be0825f96/image.png)
 
-进入管理列表下的参数设置，修改的变量如下：
+单击管理列表下的参数设置，修改的变量如下：
 <table>
 <tbody><tr>
 <th>  变量
