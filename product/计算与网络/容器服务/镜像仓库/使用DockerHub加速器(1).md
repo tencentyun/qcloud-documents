@@ -18,7 +18,7 @@ REGISTRY_MIRROR="--registry-mirror=https://mirror.ccs.tencentyun.com"
 ```shell
 DOCKER_OPTS="--registry-mirror=https://mirror.ccs.tencentyun.com"
 ```
-- 适用于 Centos7版本。
+- 适用于 Centos7 版本。
 修改 Docker 配置文件 `vi /etc/sysconfig/docker`，如下：
 ```shell
 OPTIONS='--registry-mirror=https://mirror.ccs.tencentyun.com'

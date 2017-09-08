@@ -68,3 +68,6 @@ bytes_conn_room_sig:
 "00A47C7E5FD0471A6D90CBE6FAAC2D862A114EFC6337D8F0BD1161BB53250F4EE46DB0244E8515D58BA7DAED23190484"
 ```
 google protobuf官网：[https://github.com/google/protobuf](https://github.com/google/protobuf)
+
+
+[加密代码下载](http://dldir1.qq.com/hudongzhibo/ILiveSDK/tea_3.zip)

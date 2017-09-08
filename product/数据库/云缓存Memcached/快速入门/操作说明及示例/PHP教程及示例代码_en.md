@@ -34,7 +34,7 @@ $cache->close();
 <?php
 $memcached = new Memcached;//Create a memcache connection instance
 $memcached->setOption(Memcached::OPT_COMPRESSION, false); //Disable the compression feature
-$memcached->setOption(Memcached::OPT_BINARY_PROTOCOL, true); //Binary protocol is used
+$memcached->setOption(Memcached::OPT_BINARY_PROTOCOL, false); //Disable Binary protocol
 $memcached->addServer("***.***.***.***", ****);//Add cmem server, and specify cmem server IP and port
 $key = "php-key";
 $memcached->set($key, "value-1-".time());//Write a key into cmem

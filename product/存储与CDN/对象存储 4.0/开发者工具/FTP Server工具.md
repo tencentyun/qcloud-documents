@@ -23,7 +23,7 @@ COS FTP Server 工具是依赖 COS V4 的 FTP 服务端工具。使用 FTP Serve
 </table>
 
 > <font color="#0000cc">**注意：** </font>
-暂不支持 append 命令。
+暂不支持 append、rename 等命令。
 
 ## 使用限制
 适用于 COS V4 版本
@@ -67,7 +67,7 @@ cos_secretkey=xxxxxxxxxxxxxxxxxx
 // 设置 APPID、API 密钥信息。                                                   
 cos_bucket=test                                                     
 cos_region=gz     
-// bucket 信息，包括bucket 的名字，以及 bucket 所在的区域。目前有效值华南广州(gz), 华东上海(sh), 华北天津(tj)。
+// bucket 信息，包括 bucket 的名字，以及 bucket 所在的区域。所在地域枚举值为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。
 cos_download_domain=cos    
 // domain 设置为 cos 表示通过 COS 源站下载(推荐服务器为腾讯云机器用户设置)。
 // domain 设置为 cdn 表示通过 CDN 下载(推荐服务器为非腾讯云机器用户设置)。
@@ -78,13 +78,7 @@ cos_user_home_dir=/home/test/cosftp_data/
 ```
 login_users=user1:pass1:RW;user2:pass2:RW 
 ```
-3. 外网 IP 设置，把外网 IP 设置为服务器的外网 IP。
-```
-pasv_address=115.xxx.xxx.xxx
-```
-> <font color="#0000cc">**注意：** </font>
-> 本步骤仅针对通过外网 IP 访问 FTP 服务的用户，如客户机和 FTP 服务器均在腾讯云 CVM 机器上，通过内网 IP 访问，可跳过本步骤，进行第 4 步。
-4. 控制端口与数据端口设置，可使用默认设置。建议端口在 1025 ~ 65535，并保证未被防火墙 iptables 过滤。
+3. 控制端口与数据端口设置，可使用默认设置。建议端口在 1025 ~ 65535，并保证未被防火墙 iptables 过滤。
 ```
 listen_port=2121
 ```

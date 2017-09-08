@@ -1,0 +1,31 @@
+### 1. 如何查看数据库CDB for MySQL的参数列表？
+您可以通过离线迁移到本地来备份 MySQL 数据，请参考 [离线迁移数据](https://cloud.tencent.com/document/product/236/8464)。
+
+### 2. 数据库CDB for MySQL怎么设置中文查询？
+数据库 CDB 目前不支持中文字符。
+
+### 3. 如何设置开启 MySQL 的定时器功能？
+进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到需要修改的实例单击【管理】按钮，进入数据库管理页面，接着单击【参数设置】。在控制台参数设置中修改将event 开启 。
+![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59830b371dcb1.png)
+   
+### 4. MySQL 超时连接设置太短，如何增加时间？
+进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到需要修改的实例单击【管理】按钮，进入数据库管理页面，接着单击【参数设置】。在控制台参数设置中修改 wait_timeout 参数 。
+![](https://mc.qcloudimg.com/static/img/e70e9a76b6651794552bd5253099c285/2017-09-01_094218.png)
+
+### 5. 数据库CDB for MySQL怎样调整group_concat参数？
+进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到需要修改的实例单击【管理】按钮，进入数据库管理页面，接着单击【参数设置】。在控制台参数设置中修改参数 。
+![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59830f85a8714.png)
+
+### 6. 如何查看云数据库慢查询日志？
+您可以在控制台中的操作日志下载慢查询日志，详情请参考 [日志文件](https://cloud.tencent.com/document/product/236/8456)。
+
+### 7. MySQL全表扫描的SQL语句有什么方法可以找到吗？
+默认是不记录全表扫描的语句，可在云数据库控制台参数设置中开启log_queries_not_using_indexes参数。注意：不要开太久。
+
+### 8. 云数据库的默认字符集编码如何修改
+云数据库与 MySQL 数据库一样，默认字符集编码格式是：latin1，即 ISO-8859-1 编码格式。
+开发者可以在云数据库的管理控制台修改 Server 端的数据库字符集，目前支持 latin1,gbk,utf8，utf8mb4 四种字符集设置。
+虽然云数据库支持默认字符集编码的设置，但我们还是建议您在创建表时，显式的指定表的编码，并在连接建立时指定连接的编码。
+这样，您的应用将会有更好的移植性。
+关于 MySQL 字符集的相关资源请参考 [MySQL官方手册](https://dev.mysql.com/doc/refman/5.7/en/charset.html)。
+可通过 CDB 管理控制台修改字符集。

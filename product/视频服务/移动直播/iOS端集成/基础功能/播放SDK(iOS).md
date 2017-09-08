@@ -150,7 +150,35 @@ _txLivePlayer.recordDelegate = recordListener;
 - 录制的进度以时间为单位，由 TXVideoRecordListener 的 onRecordProgress 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 onRecordComplete 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://www.qcloud.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
- 
+
+### step 10: mp4本地缓存播放（仅点播）
+点播播放器支持对mp4的本地缓存，在观看同一个视频的时候可以节省流量，默认没有开启，开启此功能需要配置两个参数：本地缓存目录及需要缓存的视频个数。
+
+```objectivec
+//如下代码用于展示点播场景下mp4本地缓存播放
+//指定一个本地mp4缓存目录
+_txLivePlayerConfig.cacheFolderPath = 
+    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//指定本地最多缓存多少文件，避免缓存太多数据
+_txLivePlayerConfig.maxCacheItems = 2;
+[_txLivePlayer setConfig: _txLivePlayerConfig]; 
+// ...
+//开始播放
+[_txLivePlayer startPlay:playUrl type:_playType];                            
+```
+
+### step 11: 变速播放（仅点播）
+点播播放器支持变速播放，通过接口`setRate`设置点播播放速率来完成，支持快速与慢速播放，如0.5X、1.0X、1.2X、2X等。
+
+ ```objectivec
+//如下代码用于展示点播倍速播放
+//设置1.2倍速播放
+[_txLivePlayer setRate:1.2]; 
+// ...
+//开始播放
+[_txLivePlayer startPlay:playUrl type:_playType];
+```
+
 ## 状态监听
 腾讯云 RTMP SDK 一直坚持白盒化设计原则，你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（质量反馈）通知给您。
 

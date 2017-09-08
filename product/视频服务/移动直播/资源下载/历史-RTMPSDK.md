@@ -1,3 +1,23 @@
+### Version 3.2
+- iOS&Android 点播支持 mp4 视频本地缓存播放。
+- 解决异常情况下后台录制花屏问题。
+- 解决BGM低采样率不支持的问题。
+- 修复过去一周客户提出的部分bug。
+
+### Version 3.1
+- iOS & Android：美颜算法优化，新增红润效果及多套美颜风格。
+- iOS：新增光滑与自然两种美颜风格。
+- Android：新增光滑、自然、朦胧三种美颜风格。
+- Android：短视频编辑新增变速、背景音、字幕功能。
+- 商用企业版新增V脸、瘦鼻、瘦下巴等特性。
+
+### Version 3.0
+- iOS&Android：重构美颜模块，提升美颜效果同时降低GPU使用率。
+- iOS & Android：对点播播放器进行了内部重构，支持 x2 x4 等多倍速播放。
+- iOS & Android：优化连麦底层网络组件抗抖动能力，并对AEC回音消除组件进行了更好的机型适配。
+- iOS & Android：TXUGCRecord 增加了 pauseRecord 和 resumeRecord 接口，用于支持多段录制。
+- iOS：提供了快速裁剪和编辑接口。
+
 ### Version 2.0.5
 - Android：短视频编辑添加水印功能。
 - Android：短视频录制新增多段录制功能。

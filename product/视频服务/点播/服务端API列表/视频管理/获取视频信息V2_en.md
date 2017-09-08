@@ -86,7 +86,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetVideoInfo
 | transcodeList | Array | A list of transcoding information for all specifications. Each element represents the transcoding result of a specification |
 | transcodeList.url | String | Video file URL after transcoding |
 | transcodeList.definition | Integer | Refer to [Transcoding Specifications](/document/product/266/8098) |
-| transcodeList.bitrate | Integer | Bit rate. Unit: kbps |
+| transcodeList.bitrate | Integer | Bit rate. Unit: bps |
 | transcodeList.height | Integer | Height. Unit: px |
 | transcodeList.width | Integer | Width. Unit: px |
 

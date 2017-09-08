@@ -713,11 +713,11 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 方法原型
 
-调用此接口进行文件的下载操作，具体步骤如下：
+调用此接口进行文件的上传操作，具体步骤如下：
 
 1. 实例化 COSObjectPutTask ；
-2. 调用 COSClient 对象的 putObject 方法，将 之前上传过的COSObjectPutTask  对象传入；
-3. 通过COSObjectUploadTaskRsp的对象返回结果信息
+2. 调用 COSClient 对象的 putObject 方法，将 之前上传过的 COSObjectPutTask 对象传入；
+3. 通过 COSObjectUploadTaskRsp 的对象返回结果信息
 
 #### 参数说明
 
