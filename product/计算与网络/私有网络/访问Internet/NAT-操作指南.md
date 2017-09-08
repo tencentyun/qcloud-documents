@@ -63,3 +63,22 @@ NAT 网关创建后，可以对其属性进行修改：
 1) 	登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a>，点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>，选择【NAT网关】。
 
 2) 选中需要删除的 NAT 网关，点击【删除】按钮并确认即可完成删除。
+
+
+### 开启网关流控明细
+开启后，可限制某个IP流向该NAT网关的出带宽。
+1)	登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)，选择【NAT网关】。
+2) 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
+3) 点击监控tab，开启右上角 开启网关流控明细 开关
+开启网关流控名称，需要5-6采集数据、发布数据，一段时间您可在监控图表下方查看监控明细表格。
+
+### 设置网关流控明细
+您在开启网关流控明细，可设置某个IP待改NAT网关的出带宽。
+1)	登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)，选择【NAT网关】。
+2) 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
+3) 点击监控tab，找到需要设置监控明细的IP，设置其出带宽限制。
+
+### 查看网关流控明细
+1)	登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)，选择【NAT网关】。
+2) 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
+3) 点击监控tab，在网关流控明细表右上方，点击“查看已限制IP”
