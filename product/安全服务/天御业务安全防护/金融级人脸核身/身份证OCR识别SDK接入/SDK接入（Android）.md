@@ -25,13 +25,9 @@ dependencies {
      //0. appcompat-v4
  compile 'com.android.support:appcompat-v4:23.1.1'
   //1. 云Ocr SDK
- compile(name: 'WbCloudOcrSdk-proRelease-v0.1.0-773abc2', ext: 'aar')
+ compile(name: 'WbCloudOcrSdk-proRelease-v0.1.0-8319e1a', ext: 'aar')
   //2.云公共组件
 compile(name: 'WbCloudNormal-release-v3.0.1-917d1de', ext: 'aar')
-      // 3. 依赖的第三方jar包
-      compile 'com.google.code.gson:gson:2.3.1' //网络请求json解析
-      compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0' //网络请求
-    }
 ```
 
 ### 3. 混淆配置
@@ -123,89 +119,20 @@ compile(name: 'WbCloudNormal-release-v3.0.1-917d1de', ext: 'aar')
 
 **4. 云OCR依赖的第三方库的混淆规则**
 ```
-########云产品依赖的第三方库 混淆规则-BEGIN############
-## support:appcompat-v7
--keep public class android.support.v7.widget.** { *; }
--keep public class android.support.v7.internal.widget.** { *; }
--keep public class android.support.v7.internal.view.menu.** { *; }
-
--keep public class * extends android.support.v4.view.ActionProvider {
-    public <init>(android.content.Context);
-}
+云OCR依赖的第三方库的混淆规则全部内容变更为：
 ######################云OCR依赖的第三方库 混淆规则-BEGIN###########################
-
+ 
 ## support:appcompat-v7
 -keep public class android.support.v7.widget.** { *; }
 -keep public class android.support.v7.internal.widget.** { *; }
 -keep public class android.support.v7.internal.view.menu.** { *; }
-
+ 
 -keep public class * extends android.support.v4.view.ActionProvider {
-    public <init>(android.content.Context);
+	public <init>(android.content.Context);
 }
-
--keepattributes Signature
-
--keepattributes *Annotation*
--keepattributes EnclosingMethod
--keepattributes Exceptions
-
--keep class sun.misc.Unsafe { *; }
--keep class com.google.gson.stream.** { *; }
-
--keep class com.google.gson.examples.android.model.** { *; }
-
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-
-# OkHttp
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
--dontwarn com.squareup.okhttp.**
-
-# Okio
--keep class sun.misc.Unsafe { *; }
--dontwarn java.nio.file.*
--dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
--dontwarn okio.**
-
 ##########################云OCR依赖的第三方库 混淆规则-END##############################
-## Gson
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
 
-# For using GSON @Expose annotation
--keepattributes *Annotation*
--keepattributes EnclosingMethod
-# If in your rest service interface you use methods with Callback argument.
--keepattributes Exceptions
 
-# Gson specific classes
--keep class sun.misc.Unsafe { *; }
--keep class com.google.gson.stream.** { *; }
-
-# Application classes that will be serialized/deserialized over Gson
--keep class com.google.gson.examples.android.model.** { *; }
-
-# Prevent proguard from stripping interface information from TypeAdapterFactory,
-# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-##---------------End: proguard configuration for Gson  ----------
-
-# OkHttp
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
--dontwarn com.squareup.okhttp.**
-
-# Okio
--keep class sun.misc.Unsafe { *; }
--dontwarn java.nio.file.*
--dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
--dontwarn okio.**
-#########云产品依赖的第三方库 混淆规则-END#############
 ```
 您可以根据您现有的混淆规则，将缺少的第三库混淆规则拷贝到您的混淆文件中。
 

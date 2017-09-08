@@ -95,7 +95,11 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 开发者可通过命令行和 phpMyAdmin 控制台，修改云数据库配置参数：
 
 1. 命令行方式
-以下变量可以通过执行 `set global var_name=var_value` 语法运行时动态修改，10 分钟左右将自动同步到本机文件，迁移或重启将保持设置后的值。其中常见的 var\_name 包括如下变量：
+以下变量可以点击“进入管理中心”，进入“总览页面”：
+![总览](//mc.qcloudimg.com/static/img/e3b4a1474b5d47ded82b5f2c3b534caf/image.png)
+点击“云数据库”，进入“MySQL-实例列表”：
+![管理](//mc.qcloudimg.com/static/img/ca4c7858bcf89a2d0fe97fdcd4754e42/image.png)
+进入管理列表下的参数设置，其中常见的 var\_name 包括如下变量：
 <table class="t">
 <tbody><tr>
 <th>  变量
@@ -133,7 +137,6 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 <td> wait_timeout
 </td><td> 非交互连接超时时间
 </td></tr></tbody></table>
-
 2. phpMyAdmin 控制台方式
 通过 phpMyAdmin 登录云数据库后，单击上面菜单中的【变量】，在下面的变量列表中，单击需要修改的变量对应的【编辑】按钮，对其进行修改后单击【保存】。
 ![](//mc.qcloudimg.com/static/img/dbe6b04b221424dc11fedd1507e03f09/image.png)
@@ -146,11 +149,25 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 详见 <a href="https://www.qcloud.com/document/product/236/7269#5-.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E7.9A.84binlog.E4.BF.9D.E5.AD.98.E6.97.B6.E9.97.B4.E8.AF.B4.E6.98.8E5" target="_blank">云数据库的binlog保存时间说明</a>。
 
 ## 24. 云数据库的慢查询时间是多久？
-云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令如下：
-```
-set global long_query_time = 1;
-```
-详情请参考 [MySQL官方手册](http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_long_query_time)。
+云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令跟配置参数的命令行方式一样,详见[数据库MySQL](https://cloud.tencent.com/document/product/236)，在参数配置里可修改。
+点击“进入管理中心”，进入“总览页面”：
+
+![总览](//mc.qcloudimg.com/static/img/e6145efb50f172aaafe16d640e923e5e/image.png)
+点击“云数据库”，进入“MySQL-实例列表”：
+
+![管理](//mc.qcloudimg.com/static/img/0513c3baad993254f80fbd0be0825f96/image.png)
+
+进入管理列表下的参数设置，修改的变量如下：
+<table>
+<tbody><tr>
+<th>  变量
+</th><th>  说明
+</th></tr>
+<tr>
+<td> long_query_time
+</td><td> 超过该时间的查询为慢查询
+</td></tr>
+</tr></tbody></table>
 
 ## 25. 为什么查看云数据库中的中文数据时出现乱码？
 开发者将数据存储到云数据库中时，请先到 [云数据库的管理控制台](https://console.qcloud.com/cdb) 进入相应实例的【管理视图】页面查看该实例的默认字符集，在编写程序时，将 character\_set\_client、character\_set\_results、character\_set\_connection 设置为和云数据库实例相同的字符集。否则，如果存储的数据中有中文，会出现中文数据乱码的现象。
