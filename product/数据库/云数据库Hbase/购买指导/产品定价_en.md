@@ -29,7 +29,7 @@ Pricing for storage nodes
 |256|8192|1000|9000|
 
 
-Hard drive price
+Pricing for Hard drive 
 
 | Hard Drive (unit: GB) | Monthly price (unit: CNY) |
 |:--:|:--:|

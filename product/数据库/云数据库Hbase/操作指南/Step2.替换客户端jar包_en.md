@@ -340,5 +340,5 @@ hbase-common-1.1.3.jar
 hbase-protocol-1.1.3.jar
 hbase-server-1.1.3.jar
 
-2).If not use mvn to get dependencies, you can also directly click here to [download](http://hbase-10010986.cos.myqcloud.com/%E6%89%80%E6%9C%89jar%E5%8C%85.zip) all client jar packages.
+2) If you don't use mvn to get dependencies, you can also directly click here to [download](http://hbase-10010986.cos.myqcloud.com/%E6%89%80%E6%9C%89jar%E5%8C%85.zip) all client jar packages.
 
