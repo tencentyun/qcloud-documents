@@ -17,3 +17,6 @@ NAT网关，点击查看[路由规则优先级说明](https://www.qcloud.com/doc
 ![](https://mc.qcloudimg.com/static/img/9c08d3a7ead4707abd6315e2a092184b/A%7D%257Q%25R3C5QDOR%24JM%25I3U%28D.png)
 
 您也可以在弹性网卡详情页修改主内网IP，点击查看[操作详情。](https://www.qcloud.com/doc/product/215/6513#.E4.BF.AE.E6.94.B9.E4.B8.BB.E5.86.85.E7.BD.91ip)
+
+## 5. 广播包或组播包部分丢失？
+为了保证子机业务正常通信，在子网/私有网络内子机量较大、 发包频率较高的情况下，平台会随机丢弃部分广播包或组播包。

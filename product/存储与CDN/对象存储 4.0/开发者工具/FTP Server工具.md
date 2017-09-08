@@ -23,7 +23,7 @@ COS FTP Server 工具是依赖 COS V4 的 FTP 服务端工具。使用 FTP Serve
 </table>
 
 > <font color="#0000cc">**注意：** </font>
-暂不支持 append 命令。
+暂不支持 append、rename 等命令。
 
 ## 使用限制
 适用于 COS V4 版本

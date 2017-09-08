@@ -32,9 +32,6 @@ dependencies {
  //3. 云刷脸皮肤资源包-可选择黑色/白色 默认黑色
  compile(name: 'WbCloudFaceResBlack', ext: 'aar')
  //compile(name: 'WbCloudFaceResWhite', ext: 'aar')
- // 4. 依赖的第三方jar包
- compile 'com.google.code.gson:gson:2.3.1' //网络请求json解析
- compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0' //网络请求
 }
     }
 ```
@@ -102,18 +99,30 @@ dependencies {
 }
 -keep public class com.webank.normal.net.*{
     *;
-}
--keep public class com.webank.normal.thread.ThreadOperate{
+-keep public class com.webank.normal.thread.*$*{
    *;
 }
--keep public class com.webank.normal.thread.ThreadOperate$*{
+-keep public class com.webank.normal.thread. *{
    *;
-}
--keep public class com.webank.normal.net.RequestParam$ParamType{
-    *;
 }
 -keep public class com.webank.normal.tools.WLogger{
     *;
+}
+
+#wehttp混淆规则
+-dontwarn com.webank.mbank.okio.**
+
+-keep class com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep interface com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep public class com.webank.mbank.wehttp.WeLog$Level{
+    *;
+}
+-keep class com.webank.mbank.wejson.WeJson{
+    public <methods>;
 }
 
 #webank normal包含的第三方库bugly
@@ -127,53 +136,40 @@ dependencies {
 
 #### 3.3 云刷脸依赖的第三方库的混淆规则
  ```
-########云产品依赖的第三方库 混淆规则-BEGIN############
-
-## support:appcompat-v7
--keep public class android.support.v7.widget.** { *; }
--keep public class android.support.v7.internal.widget.** { *; }
--keep public class android.support.v7.internal.view.menu.** { *; }
-
--keep public class * extends android.support.v4.view.ActionProvider {
-    public <init>(android.content.Context);
+-keep public class com.webank.normal.thread.*$*{
+   *;
+}
+-keep public class com.webank.normal.thread. *{
+   *;
 }
 
-## Gson
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
 
-# For using GSON @Expose annotation
--keepattributes *Annotation*
--keepattributes EnclosingMethod
-# If in your rest service interface you use methods with Callback argument.
--keepattributes Exceptions
 
-# Gson specific classes
--keep class sun.misc.Unsafe { *; }
--keep class com.google.gson.stream.** { *; }
+-keep public class com.webank.normal.tools.WLogger{
+    *;
+}
 
-# Application classes that will be serialized/deserialized over Gson
--keep class com.google.gson.examples.android.model.** { *; }
+#wehttp混淆规则
+-dontwarn com.webank.mbank.okio.**
 
-# Prevent proguard from stripping interface information from TypeAdapterFactory,
-# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-##---------------End: proguard configuration for Gson  ----------
+-keep class com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep interface com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep public class com.webank.mbank.wehttp.WeLog$Level{
+    *;
+}
+-keep class com.webank.mbank.wejson.WeJson{
+    public <methods>;
+}
 
-# OkHttp
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
--dontwarn com.squareup.okhttp.**
-
-# Okio
--keep class sun.misc.Unsafe { *; }
--dontwarn java.nio.file.*
--dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
--dontwarn okio.**
-#########云产品依赖的第三方库 混淆规则-END#############
+#webank normal包含的第三方库bugly
+-keep class com.tencent.bugly.webank.**{
+    *;
+}
+###########webank normal混淆规则-END#######################
  ```
 
 您可以根据您现有的混淆规则，将缺少的第三库混淆规则拷贝到您的混淆文件中。

@@ -47,7 +47,7 @@ service httpd start
 >**注意：**
 此步骤需要您的云主机在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://www.qcloud.com/document/product/213/5221)。
 
-在您本地的浏览器中输入您服务器的外网地址，出现下列画面表示 Apache 启动成功。
+在您本地的浏览器中输入`http://115.xxx.xxx.xxx/`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](//mc.qcloudimg.com/static/img/3cde70e76a386b81f96ea9919280269d/image.png)
 
 ### 安装 apache 的 mod_wsgi 拓展作为 Django 的应用容器
@@ -106,9 +106,9 @@ urlpatterns = [
 ```
 service httpd restart
 ```
-8. 在本地浏览器中输入 `http://云主机IP/python/hello`，页面出现 “Hello world !” 表示项目环境搭建成功。
+8. 在您本地的浏览器中输入`http://115.xxx.xxx.xxx/python/hello`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），页面出现 “Hello world !” 表示项目环境搭建成功。
 
-### 在 Django 中配置云数据库 CDB
+### 在 Django 中配置云数据库 CDB（可选）
 1. 配置项目目录下的 settings.py 文件。
 ```
 DATABASES = {
