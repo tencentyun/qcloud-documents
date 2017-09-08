@@ -1,3 +1,10 @@
+### Version 3.3
+- IOS&Android：点播HLS支持EXT-X-DISCONTINUITY标签。
+- Android：支持后台采集推流。
+- 解决Android在某些机型上录制绿屏及播放黑屏的问题。
+- 解决Android BGM部分机型播放异常及进度回调不精确的问题。
+- 修复过去一周客户提出的部分bug。
+
 ### Version 3.2
 - iOS&Android 点播支持 mp4 视频本地缓存播放。
 - 解决异常情况下后台录制花屏问题。
