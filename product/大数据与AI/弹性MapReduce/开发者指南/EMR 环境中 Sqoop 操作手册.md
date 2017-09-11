@@ -212,7 +212,7 @@ sqoop:000> show job
 单击 【mysql-link】，可以看到 link 的详细信息，并可以修改。
 ![](//mc.qcloudimg.com/static/img/703816355a90c7db83d73ba53d3075a1/image.png)
 #### 创建 HDFS link
-创建一个 HDFS link，注意：HDFS URI，需要填对应 HDFS 集群的 fs.defaultFS 名称。
+创建一个 HDFS link，请注意，HDFS URI内容需要填对应 HDFS 集群的 fs.defaultFS 名称。
 ![](//mc.qcloudimg.com/static/img/9eb85396a15da82c815da90b4597840f/image.png)
 保存后，检查一下是否正确。
 ![](//mc.qcloudimg.com/static/img/d2a282409b5ecd668c5bd0fafa4a83e2/image.png)
