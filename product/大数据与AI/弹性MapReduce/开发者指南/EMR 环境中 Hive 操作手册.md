@@ -1,6 +1,6 @@
-## 1. Hive 创建表
-### 1.1 数据准备
-* 如下代码可以生成指定行数的测试数据
+## 1.Hive 创建表
+### 数据准备
+如下代码可以生成指定行数的测试数据。
 ```
     //!/bin/bash
     MAXROW=1000000 // 指定生成数据行数
@@ -9,11 +9,11 @@
     echo $RANDOM, \"$RANDOM\"
     done
 ```
-* 将以上代码保存为 gen\_data.sh 的 bash 脚本文件，并按如下方式执行:
-    ./gen\_data.sh > hive\_test.data
-生成 hive_test.data 数据文件
-* 数据在 HDFS, 将生成的数据文件放入 hdfs 上，如：    `hdfs dfs -put ./hive\_test.data /user/hadoop/hive-test/`
-将 hive_test.data 放入 hdfs 的 `/user/hadoop/hive-test` 目录中
+将以上代码保存为 gen\_data.sh 的 bash 脚本文件，并按如下方式执行:
+`./gen\_data.sh > hive\_test.data`
+生成 hive_test.data 数据文件。
+数据在 HDFS, 将生成的数据文件放入 HDFS 上，如： `hdfs dfs -put ./hive\_test.data /user/hadoop/hive-test/`
+将 hive_test.data 放入 HDFS 的 `/user/hadoop/hive-test` 目录中。
 * 数据在 COS
 在 COS 上创建一个 bucket，如：hivecos，并在 hivecos 中创建文件夹，如：hivetest，将数据文件上传到 hivetest 中，如图所示：
 ![](//mc.qcloudimg.com/static/img/16acafa53d968e1ec88c6f085e8bd0a3/image.png)
@@ -25,7 +25,7 @@ COS 的文件全路径为: `cosn://hivecos/hivetest/hive_test.data`
     ./hive
 ```
 ## 3. beeline 模式连接数据库
-* 登录 master 机器, 进入 hive 目录`cd /usr/local/service/hive`
+* 登录 master 机器, 进入 Hive 目录`cd /usr/local/service/hive`
 在 conf/hive-site.xml 配置文件中, 获得 hive server2 的连接端口
 ```
     <property>

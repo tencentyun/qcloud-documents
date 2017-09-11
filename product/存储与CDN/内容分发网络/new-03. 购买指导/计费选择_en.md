@@ -9,7 +9,7 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 		<tr>
 			<th scope="col" style="width: 145px;">Billing Model</th>
 			<th scope="col" style="width: 154px;">Bandwidth Tiers</th>
-			<th scope="col" style="width: 180px;">Unit Price (RMB/Mbps/Day)</th>
+			<th scope="col" style="width: 180px;">Unit Price (USD/Mbps/Day)</th>
 		</tr>
 	</thead>
 	<tbody>

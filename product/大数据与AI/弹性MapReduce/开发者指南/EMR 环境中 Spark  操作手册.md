@@ -119,24 +119,7 @@ Spark 任务以如下格式提交：
 ```
 ### 6. 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）。
-<table>
-   <tr>
-      <th style="width: 80px;">age</th>
-      <th style="width: 80px;">name</th>
-   </tr>
-   <tr>
-      <td>null</td>
-      <td>Michael</td>
-   </tr>
-   <tr>
-      <td>30</td>
-      <td>Andy</td>
-   </tr>
-   <tr>
-      <td>19</td>
-      <td>Justin</td>
-   </tr>
-</table>
+![](//mc.qcloudimg.com/static/img/627c35182d0a86ec72ce880cbe8bd6f9/image.png)
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）：
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10548
@@ -175,44 +158,7 @@ Spark 任务以如下格式提交：
 ```
 ### 8. 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）：
-<table>
-   <tr>
-      <th style="width: 80px;">key</th>
-      <th style="width: 80px;">value</th>
-   </tr>
-   <tr>
-      <td>238</td>
-      <td>val_238</td>
-   </tr>
-   <tr>
-      <td>86</td>
-      <td>val_86</td>
-   </tr>
-   <tr>
-      <td>311</td>
-      <td>val_311</td>
-   </tr>
-   <tr>
-      <td>27</td>
-      <td>val_27</td>
-   </tr>
-   <tr>
-      <td>165</td>
-      <td>val_165</td>
-   </tr>
-   <tr>
-      <td>409</td>
-      <td>val_409</td>
-   </tr>
-   <tr>
-      <td>255</td>
-      <td>val_255</td>
-   </tr>
-   <tr>
-      <td>278</td>
-      <td>val-278</td>
-   </tr>
-</table>
+![](//mc.qcloudimg.com/static/img/79582b3b4d6a3f56584360522b28c469/image.png)
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）。
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10549
