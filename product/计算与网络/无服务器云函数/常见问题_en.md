@@ -26,8 +26,8 @@ No. SCF runs and manages computing infrastructure on your behalf.
 
 Each function that is running in a unique environment has its own resources and file system. SCF uses the same technology as CVM to provide security and isolation at infrastructure and execution level.
 
-## serverless cloud function
-### What is serverless cloud function?
+## Serverless Cloud Function
+### What is Serverless Cloud Function?
 
 The code running on SCF is uploaded in the form of "serverless cloud function". Each function has corresponding configuration information, such as name, description, resource requirements, and so on. The code must be written in a "stateless" format, that is, it should be assumed that there is no close relationship with the underlying computing infrastructure. Local file system access, sub-processes are strictly controlled within the lifecycle of the cloud function. Any persistent statuses should be stored in an available external storage, such as COS or CDB. SCF can include an external library or even a local host library.
 

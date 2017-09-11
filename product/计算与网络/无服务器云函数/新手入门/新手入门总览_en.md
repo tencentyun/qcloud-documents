@@ -5,7 +5,7 @@ This chapter provides some examples for users who use Serverless Cloud Function 
 
 With these two examples, users can perform some operations in SCF console, including:
 
-- Use templates. Each template provides sample code and code configuration to implement certain logics. You only need to choose required template to easily create cloud function that comes with sample code. "Hello World" primary practice uses Hello World template. "Download File" primary practice uses `COS Put Object` template.
+- Use templates. Each template provides sample code and code configuration to implement certain logics. You only need to choose required template to easily create cloud function that comes with sample code. "Hello World" primary practice uses `Hello World` template. "Download File" primary practice uses `COS Put Object` template.
 - Create and update the configuration information of cloud function.
 - Call the cloud function manually and check the function execution result.
 
