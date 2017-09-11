@@ -1,11 +1,11 @@
 In this section, you will create a function to implement thumbnail program, and test the function through the console or by calling API.
 
 ## Creating CreateThumbnailDemo SCF
-1) Log in to [SCF Console](https://console.qcloud.com/scf), and click [New] button under [Guangzhou] region.
+1) Log in to [SCF Console](https://console.qcloud.com/scf). Select **Guangzhou** from the region list, and click **New**.
 
-2) In function configuration section, enter the function name as `CreateThumbnailDemo`, leave all other configuration options unchanged, and then click "Next".
+2) In function configuration section, enter the function name as `CreateThumbnailDemo`, leave all other configuration options unchanged, and then click **Next**.
 
-3) Go to the function code section, and click "Upload local zip file". Enter the execution method as `CreateThumbnail.main_handler`, select `CreateThumbnailDemo.zip` created in "Step 2: Create Deployment Package", and click "Next".
+3) Go to the function code section, and click **Upload local zip file**. Enter the execution method as `CreateThumbnail.main_handler`, select `CreateThumbnailDemo.zip` created in "Step 2: Create Deployment Package", and click "Next".
 
 4) Go to the trigger method section. Now you need to manually test the function, so no trigger method is added currently. Click "Complete" button.
 
