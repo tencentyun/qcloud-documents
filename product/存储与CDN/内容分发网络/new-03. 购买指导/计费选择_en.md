@@ -9,26 +9,26 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 		<tr>
 			<th scope="col" style="width: 145px;">Billing Model</th>
 			<th scope="col" style="width: 154px;">Bandwidth Tiers</th>
-			<th scope="col" style="width: 180px;">Unit Price (USD/Mbps/Day)</th>
+			<th scope="col" style="width: 180px;">Unit Price (USD/Mbps/Month)</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td colspan="1" rowspan="4" style="text-align: center; width: 145px;">Bandwidth Peak</td>
 			<td style="text-align: center; width: 154px;">0 - 500Mbps</td>
-			<td style="text-align: center; width: 180px;">1.1</td>
+			<td style="text-align: center; width: 180px;">4.80</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">500Mbps - 5Gbps</td>
-			<td style="text-align: center; width: 180px;">1</td>
+			<td style="text-align: center; width: 180px;">4.20</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">5Gbps - 50Gbps</td>
-			<td style="text-align: center; width: 180px;">0.9</td>
+			<td style="text-align: center; width: 180px;">3.90</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">>= 50Gbps</td>
-			<td style="text-align: center; width: 180px;">< 0.74, subject to the contract price</td>
+			<td style="text-align: center; width: 180px;"><3.30, subject to the contract price</td>
 		</tr>
 	</tbody>
 </table>
@@ -36,9 +36,9 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 ### Calculation Method
 Assume that the CDN peak bandwidth for the previous day is X, the tiered calculation is performed as follows:
 
-> If X < 500 Mbps, the charge billed is X  &times; 1.1;
-> If 500Mbps <= X < 5000Mbps, the charge billed is X  &times; 1.0;
-> If 5000Mbps <= X < 50000Mbps, the charge billed is X &times; 0.9;
+> If X < 500 Mbps, the charge billed is X  &times; 4.80;
+> If 500Mbps <= X < 5000Mbps, the charge billed is X  &times; 4.20;
+> If 5000Mbps <= X < 50000Mbps, the charge billed is X &times; 3.90;
 > If X >= 50000Mbps, please contact us for off-line contracting. We have more discount options available for you.
 
 You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for a charge estimation.
@@ -58,23 +58,23 @@ CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with 
 		<tr>
 			<td colspan="1" rowspan="5" style="text-align:center; width:98px">Monthly Traffic</td>
 			<td style="text-align: center; width: 170px;">0GB - 2TB</td>
-			<td style="text-align: center; width: 189px;">0.34</td>
+			<td style="text-align: center; width: 189px;">0.055</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">2TB - 10TB</td>
-			<td style="text-align: center; width: 189px;">0.32</td>
+			<td style="text-align: center; width: 189px;">0.053</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">10TB - 50TB</td>
-			<td style="text-align: center; width: 189px;">0.3</td>
+			<td style="text-align: center; width: 189px;">0.049</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">50TB - 100TB</td>
-			<td style="text-align: center; width: 189px;">0.28</td>
+			<td style="text-align: center; width: 189px;">0.046</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">>= 100TB</td>
-			<td style="text-align: center; width: 189px;">< 0.25, subject to the contract price</td>
+			<td style="text-align: center; width: 189px;">< 0.040, subject to the contract price</td>
 		</tr>
 	</tbody>
 </table>
