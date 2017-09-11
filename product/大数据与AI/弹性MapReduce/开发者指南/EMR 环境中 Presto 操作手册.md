@@ -24,5 +24,6 @@ Presto 在 emr-master.1 节点上部署了 coordinator 进程，core 和 task �
       --user hadoop
       --execute "show tables"
 ```
+
 ### 4. 更多连接器
 您可以通过访问 [Presto 官方文档](https://prestodb.io/docs/current/connector.html) 获取更多连接器的设置方法。
