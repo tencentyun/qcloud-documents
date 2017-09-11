@@ -1,5 +1,5 @@
-## 1. 命令行模式
-### 1.1 连接  Sqoop Server
+## 命令行模式
+### 1. 连接  Sqoop Server
 * 运行 Client Shell
 ```
     ./sqoop.sh client
@@ -10,7 +10,7 @@
 
     sqoop:000>
 ```
-* 连接 server
+* 连接 Server
 ```
     --host (sqoop server 地址)
     --port (sqoop server 服务端口)
@@ -21,7 +21,7 @@
 Server 的端口信息可在 sqoop-sys.sh 中查看:
    ` export SQOOP\_HTTP_PORT=11000 // 服务端口`
 
-* 查看 server 信息
+* 查看 Server 信息
 连接成功后，server version 会显示服务端的版本，API 版本等相关信息
 ```
     sqoop:000> show version -all
@@ -37,25 +37,14 @@ Server 的端口信息可在 sqoop-sys.sh 中查看:
     API versions:
       [v1]
 ```
-### 1.2 connector
-执行 show connector 可以看到支持的 connector
-    sqoop:000> show connector
-<style>
-table th:first-of-type {
-    width: 300px;
-}
-</style>
+### 2. connector
+执行 `show connector` 可以看到支持的 connector：
+    sqoop:000> show connector
+![](//mc.qcloudimg.com/static/img/cd98270de7e88c0fce09c6033f6760e8/image.png)
+### 3. link
+link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数据导入到 link2 中。
 
-| Name | Class | 
-|---------|---------|
-| generic-jdbc-connector | org.apache.sqoop.connector.jdbc.GenericJdbcConnector | 
-| kite-connector | org.apache.sqoop.connector.kite.KiteConnector |
-| hdfs-connector | org.apache.sqoop.connector.hdfs.HdfsConnector |
-| kafka-connector | org.apache.sqoop.connector.kafka.KafkaConnector |
-### 1.3 link
-link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数据导入到 link2 中
-
-* 创建 mysql 的 link
+* 创建 MySql 的 link
 ```
     // 创建一个link，-c connetorid（connector 的Id，show connector 可以查到）
     sqoop:000> create link -c 1
@@ -77,7 +66,7 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
     entry#
     New link was successfully created with validation status OK and persistent id 1
 ```
-* 创建一个 hdfs 的 link
+* 创建一个 HDFS 的 link：
 ```
     sqoop:000> create link -c 3
     Creating link for connector with id 3
@@ -90,18 +79,8 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
     New link was successfully created with validation status OK and persistent id 2
 ```
 * 查看创建的 link
-sqoop:000> show link
-<style>
-table th:first-of-type {
-    width: 300px;
-}
-</style>
-
-
-| Id | Name | Connector Id | Connector Name | Enabled |
-|---------|---------|---------|
-| 1 | mysql-link | 1 | generic-jdbc-connector | true |
-| 2 | hdfs-link | 3 | hdfs-connector | true |
+`sqoop:000> show link`
+![](//mc.qcloudimg.com/static/img/41c305963794e2b99752dc127e3fb207/image.png)
 ### 1.4 job
 * 把 mysql 的数据导入到 hdfs
 参数 `-f linkId (from-link Id) -t linkId (to-link Id)`
@@ -151,15 +130,7 @@ table th:first-of-type {
 ```
 * 查看 job
 sqoop:000> show job
-<style>
-table th:first-of-type {
-    width: 300px;
-}
-</style>
-
-| Id |Name | From Connector | To Connector | Enabled |
-|---------|---------|---------|
-| 1 | mysql-hdfs | 1 | 3 | true |
+![](//mc.qcloudimg.com/static/img/e00c0a69e526abbe2dba5d20f9b23af5/image.png)
 * 启动 job
 ```
     sqoop:000> start job -j 1 //-j jobid
