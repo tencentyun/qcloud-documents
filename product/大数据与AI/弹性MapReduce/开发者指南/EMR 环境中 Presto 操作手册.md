@@ -1,6 +1,6 @@
 ### 1. 登录 Master 机器
 您可以通过访问 [腾讯云控制台>云主机列表](https://console.qcloud.com/cvm/index)，找到以 emr-master.1 开头的云主机（也就是带外网 IP 的那一台云主机）登录到 Master 节点。
->**注意：**此操作只能在 emr-master.1 开头的云主机上进行。
+>**注意：**您只能在以 emr-master.1 开头的云主机上进行此操作。
 
 ### 2. 部署信息
 Presto 在 emr-master.1 节点上部署了 coordinator 进程，core 和 task 节点上部署了 worker 进程。软件安装在：
