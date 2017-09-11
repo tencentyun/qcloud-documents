@@ -81,7 +81,7 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
 * 查看创建的 link
 `sqoop:000> show link`
 ![](//mc.qcloudimg.com/static/img/41c305963794e2b99752dc127e3fb207/image.png)
-### 1.4 job
+### 4. job
 * 把 mysql 的数据导入到 hdfs
 参数 `-f linkId (from-link Id) -t linkId (to-link Id)`
 ```
@@ -197,8 +197,8 @@ sqoop:000> show job
         Custom compression format:
         Output directory: /sqoop_test/mysql-sqoop
 ```
-## 2. 基于 Hue 的 Sqoop 数据传输
-### 2.1 link
+## 基于 Hue 的 Sqoop 数据传输
+### 1. link
 * 创建 link
 【Data Browsers】 > 【Sqoop Transfer】 > 【Manager links】
 ![](//mc.qcloudimg.com/static/img/6588cdd6245e108ff93e1df00812bbbe/image.png)
@@ -216,7 +216,7 @@ sqoop:000> show job
 ![](//mc.qcloudimg.com/static/img/9eb85396a15da82c815da90b4597840f/image.png)
 保存后，检查一下是否正确。
 ![](//mc.qcloudimg.com/static/img/d2a282409b5ecd668c5bd0fafa4a83e2/image.png)
-### 2.2 job
+### 2. job
 * 创建 job
 【Data Browsers】 > 【Sqoop Transfer】 > 【New job】 选择创建好的 link。From link 表示源数据。To link 表示目标数据。我们这里是将数据从 mysql 导入到 HDFS。
 ![](//mc.qcloudimg.com/static/img/2e002a74e6a0b012bd69a97ff2d9ec4e/image.png)
