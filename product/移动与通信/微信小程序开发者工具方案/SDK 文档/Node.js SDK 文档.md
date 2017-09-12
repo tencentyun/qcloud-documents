@@ -1,5 +1,3 @@
-# Wafer2 Node.js 服务端 SDK 文档
-
 ## 介绍
 
 Wafer 服务端 SDK 是腾讯云为微信小程序开发者提供的快速开发库，SDK 封装了以下功能供小程序开发者快速调用：
@@ -10,7 +8,7 @@ Wafer 服务端 SDK 是腾讯云为微信小程序开发者提供的快速开发
 - 数据库
 - 客服消息
 
-开发者只需要根据文档对 SDK 进行初始化配置，就可以获得以上能力。你还可以直接到[腾讯云小程序控制台](https://console.qcloud.com/la)购买小程序解决方案，可以得到运行本示例所需的资源和服务，其中包括已部署好的相关程序、示例代码及自动下发的 SDK 配置文件 `/etc/qcloud/sdk.config`。
+开发者只需要根据文档对 SDK 进行初始化配置，就可以获得以上能力。你还可以直接到[腾讯云小程序控制台](https://console.qcloud.com/la)购买小程序解决方案，可以得到运行本示例所需的资源和服务，其中包括已部署好的相关程序、示例代码及自动下发的 SDK 配置文件。
 
 ## 安装
 
@@ -52,7 +50,7 @@ npm install wafer-node-sdk --save
 
 **如果购买了腾讯云小程序解决方案，配置项中 `serverHost`, `tunnelServerUrl`, `tunnelSignatureKey`, `qcloudAppId`, `qcloudSecretId`, `qcloudSecretKey`, `wxMessageToken` 由腾讯云自动下发到您的服务器上。**
 
-自动下发的 SDK 配置文件地址： `/etc/qcloud/sdk.config`
+自动下发的 SDK 配置文件地址： `/data/release/sdk.config`
 
 ##### 返回值
 
