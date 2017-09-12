@@ -64,6 +64,7 @@ Authorization: Auth
 {
   "Type": "archive-retrieval",
   "ArchiveId": String,
+  "CallBackUrl":String,
   "Description": String,
   "RetrievalByteRange": String,
   "Tier": String 
@@ -87,6 +88,7 @@ Authorization: Auth
 ```json
 {
   "Type":"inventory-retrieval",
+  "CallBackUrl":String,
   "Description": String,
   "Format": String,  
   "InventoryRetrievalParameters": { 
@@ -116,6 +118,7 @@ Authorization: Auth
   "Type": "push-to-cos",
   "Description": String,
   "ArchiveId": String,
+  "CallBackUrl":String,
   "RetrievalByteRange":String,
   "Tier":String,
   "Bucket":String,
@@ -143,6 +146,7 @@ Authorization: Auth
 ```json
 {
   "Type": "pull-from-cos",
+  "CallBackUrl":String,
   "Description":String,
   "Bucket":String,
   "Object":String,
