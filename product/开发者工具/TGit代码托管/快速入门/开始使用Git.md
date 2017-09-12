@@ -1,7 +1,7 @@
 本文档主要介绍如何快速使用 TGit 。
 
 ## 步骤一：申请产品
-1. 登录腾讯云账号
+1. 登录腾讯云账号。
 若是新用户需在腾讯云官网进行[【注册】](https://www.qcloud.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
 
 2. 到 TGit 产品介绍页上单击【立即申请】，然后跳转到 TGit 产品申请页。
