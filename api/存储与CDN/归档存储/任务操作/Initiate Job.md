@@ -55,7 +55,7 @@ Authorization: Auth
 | ------------------ | ---------------------------------------- | ------ | ---- |
 | Type               | 任务类型，当检索Archive时，此处填写`archive-retrieval` | String | 是    |
 | ArchiveId          | 检索的档案的 ID                                | String | 是    |
-| CallBackUrl        | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头   | String | 是    |
+| CallBackUrl        | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头   | String | 否    |
 | Description        | 任务的描述                                    | String | 否    |
 | RetrievalByteRange | 档案检索操作要检索的字节范围。其格式为“*StartByteValue*-*EndByteValue*”。如果未指定，则检索整个档案。如果指定了字节范围，则字节范围必须以兆字节 (1 024\*1 024) 对齐，这意味着，*StartByteValue* 必须可被 1MB 整除，并且 *EndByteValue* 加 1 必须可被 1MB 整除，或者等于指定为档案字节大小值减 1 的结束值。如果 RetrievalByteRange 没有以兆字节对齐，则此操作会返回 `400` 响应。 | String | 否    |
 | Tier               | Archive检索的检索类型。枚举值： `Expedited` ，`Standard` ，`Bulk`。默认值：`Standard` | String | 否    |
@@ -76,7 +76,7 @@ Authorization: Auth
 | 名称                           | 描述                                       | 类型     | 必选   |
 | ---------------------------- | ---------------------------------------- | ------ | ---- |
 | Type                         | 任务类型，`inventory-retrieval`，当检索Archive列表时，此处填写`inventory-retrieval` | String | 是    |
-| CallBackUrl                  | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头   | String | 是    |
+| CallBackUrl                  | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头   | String | 否    |
 | Description                  | 任务的描述                                    | String | 否    |
 | Format                       | Archive列表输出格式，枚举值： `CSV` ，`JSON`。默认值：`JSON` | String | 否    |
 | InventoryRetrievalParameters | Archive列表检索的相关配置                         | String | 否    |
@@ -106,7 +106,7 @@ Authorization: Auth
 | ------------------ | ---------------------------------------- | ------ | ---- |
 | Type               | 任务类型，将档案导入COS时，此处填写` push-to-cos`        | String | 是    |
 | ArchiveId          | 检索的档案的 ID                                | String | 是    |
-| CallBackUrl        | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头   | String | 是    |
+| CallBackUrl        | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头   | String | 否    |
 | Description        | 任务的描述                                    | String | 否    |
 | RetrievalByteRange | 档案检索操作要检索的字节范围。其格式为“*StartByteValue*-*EndByteValue*”。如果未指定，则检索整个档案。如果指定了字节范围，则字节范围必须以兆字节 (1 024\*1 024) 对齐，这意味着，*StartByteValue* 必须可被 1MB 整除，并且 *EndByteValue* 加 1 必须可被 1MB 整除，或者等于指定为档案字节大小值减 1 的结束值。如果 RetrievalByteRange 没有以兆字节对齐，则此操作会返回 `400` 响应。 | String | 否    |
 | Tier               | Archive检索的检索类型。枚举值： `Expedited` ，`Standard` ，`Bulk`。默认值：`Standard` | String | 否    |
@@ -131,7 +131,7 @@ Authorization: Auth
 | 名称                 | 描述                                     | 类型     | 必选   |
 | ------------------ | -------------------------------------- | ------ | ---- |
 | Type               | 任务类型，从COS中拉取对象文件，此处填写` pull-from-cos`  | String | 是    |
-| CallBackUrl        | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头 | String | 是    |
+| CallBackUrl        | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头 | String | 否    |
 | Description        | 任务的描述                                  | String | 否    |
 | Bucket             | COS中源Bucket的域名                         | String | 是    |
 | Object             | COS中源Bucket的Object地址                   | String | 是    |
