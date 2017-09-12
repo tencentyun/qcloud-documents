@@ -1,4 +1,4 @@
-For the sake of compression performance and compression ratio, TDSQL's backup files and log files (binlogs) are compressed using [LZ4 (Extremely Fast Compression algorithm)] (http://cyan4973.github.io/lz4/). You can use LZ4 tool to decompress these files. Since common decompression tools are not supported for the above file formats, the decompression tool and the operation guide are provided here for your reference.
+For the sake of compression performance and compression ratio, TDSQL's backup files and log files (binlogs) are compressed using [LZ4 (Extremely Fast Compression algorithm)](http://cyan4973.github.io/lz4/). You can use LZ4 tool to decompress these files. Since common decompression tools are not supported for the above file formats, the decompression tool and the operation guide are provided here for your reference.
 
 ## Windows
 ### Downloading Tool

@@ -1,6 +1,6 @@
 
 > According to test, the database audit feature supports most SQL statements. If you encounter any problems, contact Tencent Cloud personnel or send an email to vitosu@tencent.com to provide feedback.
-1. Resolution of DCL, DDL, DML statements is supported.
+1. Resolution of DCL, DDL and DML statements is supported.
 ```
 Insert,Replace,Select,Union,Update,Delete,CreateDatabase:,CreateEvent,CreateFunction,CreateIndex,CreateLog,
 CreateTable,CreateServer,CreateProcedure,CreateTablespace,CreateTrigger,CreateView,CreateUDF,CreateUser,

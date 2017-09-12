@@ -132,7 +132,7 @@ mysql> select * from test1 join test2 on test1.a=test2.a where test1.a=1;
 
 > Note: The statement `mysql> select * from test1 join test2 on test1.a=test2.a;` will be supported in subsequent versions, but with the following preconditions:
 > 1. Must be inner join
-> 2.The "where" condition of inner join must be that the "shardkey" of 2 tables are equal
+> 2.The "where" condition of inner join must be that the "shardkey" of two tables are equal
 
 #### 2.2.4 Transactions
 
@@ -226,7 +226,7 @@ Currently, DCDB supports the sql commands as follows:
 
 #### 2.2.7 Restrictions on User Permission
 
-You cannot use sql command to configure user permission through the proxy, please go to "Tencent Cloud Console -> Cloud Database -> DCDB -> Management" to operate.
+You cannot use sql command to configure user permission through the proxy, please go to **Tencent Cloud Console** -> **Cloud Database** -> **DCDB** -> **Management** to operate.
 
 #### 2.2.8 Other Unsupported MySQL features
 1. Cross-node join and transaction (Note that join and transaction can be supported when they are not cross-code and use same shardkey in data operation)

@@ -5,7 +5,7 @@ DCDB for Percona, MariaDB supports sub-tables, which means horizontally dividing
 
 A shardkey cannot be easily changed once it is determined, so it is necessary for developers to evaluate the selected shardkey beforehand. Consider two points when selecting a shardkey:
 
-- Whether the shardkey is helpful for achieving balanced data storage and access;
+- Whether the shardkey is helpful to achieve balanced data storage and access;
 - Whether the shardkey can be used by multiple associated tables. (Data with the same shardkey is stored in the same physical set. Most business logics can directly perform join operation in single node without going through distributed transaction logic, which greatly improves efficiency)
 
 >Suppose a business contains two tables, one is used to store basic user information, the other stores user order information. If user ID is selected as shardkey, theoretically, data distribution and access will be balanced. In this case, basic information and order information of an individual user will be stored in the same backend database, making subsequent operations easier (such as join).
@@ -47,7 +47,7 @@ Example: the following two SQL statements are directly sent to the corresponding
 	mysql> select a,b,c from test.test1 where a=2 order by b;
 	mysql> select a,b,c from test.test1 where a in (2) order by b;
 ```
-Example: the following SQL statements are sent to all backend databases, then additional data collection and sorting are required, which usually takes 5 - 20 ms.
+Example: the following SQL statements are sent to all backend databases, then additional data collection and sorting are required, which usually takes 5 to 20 ms.
 ```
 	mysql> select a,b,c from test.test1 where a>2 order by b;
 	mysql> select a,b,c from test.test1 where c=2 order by b;

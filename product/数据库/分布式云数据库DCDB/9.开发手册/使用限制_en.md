@@ -58,7 +58,7 @@ KILL is not supported
 
 ### Supported Type of SQL
 
-DDL syntax is compatible, please see < DDL statement>
+DDL syntax is compatible, please see <DDL statement>
 ```
 	CREATE TABLE Syntax
 	CREATE INDEX Syntax
@@ -67,7 +67,7 @@ DDL syntax is compatible, please see < DDL statement>
 	ALTER TABLE Syntax
 	TRUNCATE TABLE Syntax
 ```
-DML syntax is compatible, please see < sub-table>
+DML syntax is compatible, please see <sub-table>
 ```
 	INSERT Syntax
 	REPLACE Syntax

@@ -1,5 +1,5 @@
 
-TDSQL console provides various performance monitoring options to make it easy for users to view and obtain the operation information of instances. You can check the information in "Instance Management" -> "System Monitoring" in the TDSQL console.
+TDSQL console provides various performance monitoring options to make it easy for users to view and obtain the operation information of instances. You can check the information in **Instance Management** -> **System Monitoring** in the TDSQL console.
 
 ![](//mccdn.qcloud.com/img568a311664126.jpg)
 
