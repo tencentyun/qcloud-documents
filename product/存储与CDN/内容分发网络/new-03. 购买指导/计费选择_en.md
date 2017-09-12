@@ -51,7 +51,7 @@ CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with 
 		<tr>
 			<th scope="col" style="width:98px">Billing Model</th>
 			<th scope="col" style="width: 170px;">Traffic Tiers</th>
-			<th scope="col" style="width: 189px;">Unit Price (RMB/GB)</th>
+			<th scope="col" style="width: 189px;">Unit Price (USD/GB)</th>
 		</tr>
 	</thead>
 	<tbody>
