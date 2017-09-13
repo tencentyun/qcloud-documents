@@ -2,46 +2,48 @@
 登录 Hbase 的 shell 环境，登录方式为登录任意一台 EMR 集群机器（Common 类型的节点除外）。
 登录后进入到目录 `/usr/local/service/hbase` 下, 执行`bin/hbase shell`,进入 shell ，可以执行以下命令：
 列出 HBase 中的所有表：
- hbase(main):001:0> list
- TABLE
- SYSTEM.CATALOG
- SYSTEM.FUNCTION
- SYSTEM.SEQUENCE
- SYSTEM.STATS
- 4 row(s) in 0.1870 seconds
+```
+hbase(main):001:0> list
+TABLE
+SYSTEM.CATALOG
+SYSTEM.FUNCTION
+SYSTEM.SEQUENCE
+SYSTEM.STATS
+4 row(s) in 0.1870 seconds
+```
  创建表：
- ```
- hbase(main):005:0* create 'test', 'cf'
- 0 row(s) in 1.2600 seconds
- => Hbase::Table - test
- ```
+```
+hbase(main):005:0* create 'test', 'cf'
+0 row(s) in 1.2600 seconds
+=> Hbase::Table - test
+```
  插入数据：
- ```
- hbase(main):006:0> put 'test', 'row1', 'cf:a', 'value1'
- 0 row(s) in 0.1730 seconds
- ```
+```
+hbase(main):006:0> put 'test', 'row1', 'cf:a', 'value1'
+0 row(s) in 0.1730 seconds
+```
  获取一条数据：
- ```
- hbase(main):007:0> get 'test', 'row1'
- COLUMN           CELL
- cf:a             timestamp=1489644953264, value=value1
- 1 row(s) in 0.0320 seconds
- ```
+```
+hbase(main):007:0> get 'test', 'row1'
+COLUMN           CELL
+cf:a             timestamp=1489644953264, value=value1
+1 row(s) in 0.0320 seconds
+```
  禁用表和启用表
- ```
- hbase(main):008:0> disable 'test'
- 0 row(s) in 2.2760 seconds
- hbase(main):009:0> enable 'test'
- 0 row(s) in 1.2560 seconds
+```
+hbase(main):008:0> disable 'test'
+0 row(s) in 2.2760 seconds
+hbase(main):009:0> enable 'test'
+0 row(s) in 1.2560 seconds
 ```
 更多资料可以参考 [Apache Hbase Shell](http://hbase.apache.org/book.html#shell) 。
 ### 查询数据
 管理员操作情况下，进入 shell 控制台后可以通过 scan 或者 get 查询 “test” 集群的数据。
 ```
-    hbase(main):010:0> scan 'test'
-    ROW COLUMN+CELL
-    row1 column=cf:a, timestamp=1489644953264, value=value1
-    1 row(s) in 0.1020 seconds
+hbase(main):010:0> scan 'test'
+ROW COLUMN+CELL
+row1 column=cf:a, timestamp=1489644953264, value=value1
+1 row(s) in 0.1020 seconds
 ```
 更多相关命令请参考 [Apache Hbase Shell](http://hbase.apache.org/book.html#shell) 。
 ### 通过 API 方式访问 Hbase 集群
