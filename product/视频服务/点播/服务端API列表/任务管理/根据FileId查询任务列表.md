@@ -19,7 +19,7 @@ vod.api.qcloud.com
 |---------|---------|---------|---------|
 | fileId | 是 | String | 文件ID |
 | order       | 否    | String | 结果排序，asc：按创建时间升序 desc：按创建时间降序。 不填默认为asc             |
-| next        | 否    | Integer | 从该数据开始查找，如果order是asc，则查找创建时间大于该值的，否则，查找创建时间小于该值的                                |
+| next        | 否    | String | 分批拉取时使用： 当列表比较多时，单次接口调用无法拉取全部列表，这时会返回拉取到的最后一个数据的id，下次请求携带该id，将会从该id下一个开始拉取                              |
 | startTime        | 否    | Integer | 查询创建时间大于该时间的任务，目前任务信息只保存3天，所以该值必须大于三天前的时间戳                                    |
 | endTime        | 否    | Integer | 查询创建小于该时间的任务，目前任务信息只保存3天，所以该值必须大于三天前的时间戳                                     |
 | size      | 否    | Integer | 查找个数，范围在10-100之间。 不填默认为10                         |
@@ -30,6 +30,10 @@ vod.api.qcloud.com
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=GetTaskListByFileId
 &fileId=9031868223218623494
+&next=59b61160f78939626efd644b
+&startTime=1505294672
+&endTime=1505295672
+&status=Processing
 &COMMON_PARAMS
 ```
 ## 接口应答
