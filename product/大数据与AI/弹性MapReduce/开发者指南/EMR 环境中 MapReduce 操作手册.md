@@ -15,56 +15,56 @@ Hadoop 等相关软件路径在 `/usr/local/service/` 下
 **数据存放在 HDFS**
 首先准备要统计的文本文件，然后通过如下命令拷贝到 HDFS 集群：
 ```
-    bin/hadoop fs -put README.txt /user/hadoop/
-    [hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/README.txt
-    -rw-r--r-- 3 hadoop supergroup 1366 2017-03-15 19:00 /user/hadoop/README.txt
+bin/hadoop fs -put README.txt /user/hadoop/
+[hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/README.txt
+-rw-r--r-- 3 hadoop supergroup 1366 2017-03-15 19:00 /user/hadoop/README.txt
 ```
 **数据存放在 COS**
 数据存放在 COS 的可通过两种方式进行数据准备：通过 COS 控制台上传数据或通过 Hadoop 命令上传数据。具体方法如下：
 已经存储在 COS 的数据文件可通过如下命令查看：
 ```
-    [hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
-    -rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://emrtest/README.txt
+[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
+-rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://emrtest/README.txt
 ```
 通过 Hadoop 的命令上传 COS：
 ```
-    bin/hadoop fs -put README.txt cosn://emrtest/
-    [hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
-   	-rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://emrtest/README.txt
+bin/hadoop fs -put README.txt cosn://emrtest/
+[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/README.txt
+-rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://emrtest/README.txt
 ```
 ### 2. 提交 MR 计算任务
 通过如下命令提交任务
 ```
-    bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar
-    wordcount /user/hadoop/README.txt /user/hadoop/output
+bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar
+wordcount /user/hadoop/README.txt /user/hadoop/output
 ```
 查看执行结果
 ```
-    hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/output
-    Found 2 items
-    -rw-r--r-- 3 hadoop supergroup 0 2017-03-15 19:52 /user/hadoop/output/_SUCCESS
-    -rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:52 /user/hadoop/output/part-r-00000
+hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/output
+Found 2 items
+-rw-r--r-- 3 hadoop supergroup 0 2017-03-15 19:52 /user/hadoop/output/_SUCCESS
+-rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:52 /user/hadoop/output/part-r-00000
 ```
 基于 COS 的任务提交
 ```
-    bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar
-    ^^Iwordcount cosn://emrtest/README.txt /user/hadoop/output
+bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar
+^^Iwordcount cosn://emrtest/README.txt /user/hadoop/output
 ```
 查看任务结果
 ```
-    [hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/cosoutput
-    Found 2 items
-    -rw-r--r-- 3 hadoop supergroup 0 2017-03-15 19:55 /user/hadoop/cosoutput/_SUCCESS
-    -rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:55 /user/hadoop/cosoutput/part-r-00000
+[hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/cosoutput
+Found 2 items
+-rw-r--r-- 3 hadoop supergroup 0 2017-03-15 19:55 /user/hadoop/cosoutput/_SUCCESS
+-rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:55 /user/hadoop/cosoutput/part-r-00000
 ```
 ### 3. 查看任务日志
 查看任务状态
 ```
-    bin/mapred job -status jobid
+bin/mapred job -status jobid
 ```
 查看任务日志 
 ```
-    bin/mapred job -logs jobid
+bin/mapred job -logs jobid
 ```
 ## 基于 HUE 的 MR 任务操作
 ### 1. 数据准备
