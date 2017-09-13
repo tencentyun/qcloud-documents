@@ -11,4 +11,3 @@ After verification, select the billing method to activate the CDN service:
 ![](//mc.qcloudimg.com/static/img/1c03a50e58d3f7081ed4f7ef77f88a99/image.png)
 
 If you choose "Pay by Traffic", you can purchase a traffic package from which the traffic consumed will be deducted, [Click to Purchase](http://manage.qcloud.com/shoppingcart/shop.php?tab=cdn).
-
