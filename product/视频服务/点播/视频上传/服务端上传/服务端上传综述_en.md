@@ -30,11 +30,11 @@ Once the App server successfully uploads files to COS, it needs to initiate a co
 * [API for App Server to Upload Files to COS](/document/product/266/9758)
 * [API for App Server to Confirm Upload Process with VOD](/document/product/266/9757)
 
-### Demo
+### SDK
 
-Cloud VOD service provides Demos based on SDKs of different language platforms to make it easier for users to develop their client upload features:
+Cloud VOD service provides SDKs of different language platforms to make it easier for users to develop their client upload features:
 
-* [PHP SDK Demo](/document/product/266/9725)
-* [Java SDK Demo](/document/product/266/10276)
+* [PHP SDK](/document/product/266/9725)
+* [Java SDK](/document/product/266/10276)
 
-Based on Cloud Image APIs and COS, the Demo SDKs encapsulate detailed elements used for servers to interact with VOD and COS. You can simply call a single API in the Demo to complete everything in step 1 - step 3 in the upload process. Thus ***it is strongly recommended*** that users realize server upload features for their Apps while referring to the Demo provided by VOD service.
+Based on Cloud Image APIs and COS, the SDKs encapsulate detailed elements used for servers to interact with VOD and COS. You can simply call a single API in the SDK to complete everything in step 1 - step 3 in the upload process. Thus ***it is strongly recommended*** that users realize server upload features for their Apps while referring to the SDK provided by VOD service.
