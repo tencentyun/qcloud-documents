@@ -63,3 +63,4 @@ ticket=01.0.0FxlAe3HFtEy73Um0pJNzIUriwtfnS3KRcPXiesd5ulS4XRAIcT0FbfaP52dwZf5Saab
 |idcard|身份证识别结果：身份证号|字符串|
 |address|身份证识别结果：住址（如果用户没有正确上传身份证反面，则没有该字段）|字符串|
 |authority|身份证识别结果：签发机关（如果用户没有正确上传身份证反面，则没有该字段）|字符串|
+|validDate|身份证识别结果：有效日期（如果用户没有正确上传身份证反面，则没有该字段）|字符串|
