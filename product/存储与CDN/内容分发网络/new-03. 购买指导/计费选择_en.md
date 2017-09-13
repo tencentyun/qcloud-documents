@@ -96,21 +96,6 @@ By such a way, the charge for each day in January can be calculated. From Februa
 
 You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for calculating the charge.
 
-## Traffic Package
-The customer who uses **Pay by Traffic** method can purchase a traffic package from which the traffic consumed will be deducted. Traffic consumed is deducted preferably from the traffic package, and the traffic beyond the package quota is billed based on tiered prices.
-### Traffic Package Price
-
-| Traffic Package Size | Price (RMB/Each) | Validity Period |
-| -------------------- | ---------------- | --------------- |
-| 100GB                | 34               | 6 Months        |
-| 200GB                | 68               | 6 Months        |
-| 500GB                | 170              | 6 Months        |
-| 1TB                  | 340              | 6 Months        |
-| 2TB                  | 680              | 6 Months        |
-| 5TB                  | 1640             | 6 Months        |
-
-Traffic package special offer is underway, please click [Buy Now](http://manage.qcloud.com/shoppingcart/shop.php?tab=cdn).
-
 ### Note on Traffic Package Deduction
 + The traffic package takes effect on the day of purchase. The validity period of ordinary traffic package is 6 months from the date of purchase. The validity period of special traffic package provided during special offer campaign varies according to campaign policies, which is generally one month. Your traffic package is only valid during the validity period. Any unused traffic expires as the traffic package expires.
 
