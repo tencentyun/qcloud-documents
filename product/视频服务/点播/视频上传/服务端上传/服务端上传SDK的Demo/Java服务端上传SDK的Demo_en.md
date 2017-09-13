@@ -19,7 +19,7 @@ JAVA SDK can be obtained in the following ways, developers can combine their own
 </dependency>
 ```
 
-## 3. Example
+## Example
 **Upload API**
 ```
 public static void main(String[] args) {
