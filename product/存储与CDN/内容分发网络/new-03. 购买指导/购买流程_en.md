@@ -8,7 +8,7 @@ CDN is a postpaid product which requires identity verification:
 If you have already passed the identity verification, skip this step.
 
 After verification, select the billing method to activate the CDN service:
-https://intl.cloud.tencent.com/document/product/228/2951
+![](//mc.qcloudimg.com/static/img/1c03a50e58d3f7081ed4f7ef77f88a99/image.png)
 
 If you choose "Pay by Traffic", you can purchase a traffic package from which the traffic consumed will be deducted, [Click to Purchase](http://manage.qcloud.com/shoppingcart/shop.php?tab=cdn).
-![](//mc.qcloudimg.com/static/img/1c03a50e58d3f7081ed4f7ef77f88a99/image.png)
+
