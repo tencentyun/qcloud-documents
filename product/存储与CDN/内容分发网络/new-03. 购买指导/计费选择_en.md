@@ -125,4 +125,3 @@ The bandwidth utilization during this time period is: 200GB/432GB * 100% = 46%.
 + If your bandwidth utilization is less than 30%, which means your business curve has substantial fluctuations, you're recommended to select "Pay by Traffic".
 
 
-
