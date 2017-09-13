@@ -7,21 +7,22 @@
 ### 基于 XML API 封装的 SDK
 
 | SDK            | 接入文档                                     |
-| :------------- | :--------------------------------------- |
-| Android SDK    | [Android SDK 接入说明](/document/product/436/11238) |
-| iOS SDK        | [iOS SDK 接入说明](/document/product/436/11280)    |
-| Java SDK       | [Java SDK 接入说明](/document/product/436/10199)   |
-| Node.js SDK | [Node.js SDK 接入说明](/document/product/436/8629) |
+| :-------------: | :---------------------------------------: |
+| Android SDK    | [Android SDK 接入说明](/doc/product/436/11238) |
+| iOS SDK        | [iOS SDK 接入说明](/doc/product/436/11280)    |
+| Java SDK       | [Java SDK 接入说明](/doc/product/436/10199)   |
+| Node.js SDK    | [Node.js SDK 接入说明](/doc/product/436/8629) |
+| JavaScript SDK | [JavaScript SDK 接入说明](/doc/product/436/11459) |
 
 ### 基于 JSON API 封装的 SDK
 
 | SDK            | 接入文档                                     |
-| :------------- | :--------------------------------------- |
-| Android SDK    | [Android SDK 接入说明](/document/product/436/6517) |
-| C# SDK    | [C# SDK 接入说明](/document/product/436/6271) |
-| C++ SDK        | [C++ SDK 接入说明](/document/product/436/6272)    |
-| iOS SDK        | [iOS SDK 接入说明](/document/product/436/6530)    |
-| Java SDK       | [Java SDK 接入说明](/document/product/436/6273)   |
-| JavaScript SDK | [JavaScript SDK 接入说明](/document/product/436/8095) |
-| PHP SDK        | [PHP SDK 接入说明](/document/product/436/6274)    |
-| Python SDK     | [Python SDK 接入说明](/document/product/436/6275) |
+| :-------------: | :---------------------------------------: |
+| Android SDK    | [Android SDK 接入说明](/doc/product/436/6517) |
+| C# SDK    | [C# SDK 接入说明](/doc/product/436/6271) |
+| C++ SDK        | [C++ SDK 接入说明](/doc/product/436/6272)    |
+| iOS SDK        | [iOS SDK 接入说明](/doc/product/436/6530)    |
+| Java SDK       | [Java SDK 接入说明](/doc/product/436/6273)   |
+| JavaScript SDK | [JavaScript SDK 接入说明](/doc/product/436/8095) |
+| PHP SDK        | [PHP SDK 接入说明](/doc/product/436/6274)    |
+| Python SDK     | [Python SDK 接入说明](/doc/product/436/6275) |
