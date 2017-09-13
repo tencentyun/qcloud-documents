@@ -5,36 +5,36 @@ MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB se
 <table class="t" style="text-align: center;">
 <tbody><tr>
 <th width=250> Package List
-</th><th width=250> LVB Traffic (downstream)
-</th><th width=250> Price (CNY)
+</th><th width=250> LVB Traffic (downlink)
+</th><th width=250> Price (USD)
 </th></tr>
 <tr>
-<td> 19 CNY Package
+<td> 2.9 USD Package
 </td><td> 10 GB
-</td><td> Free
+</td><td> 2.9
 </td></tr>
 <tr>
-<td> 49 CNY Package
+<td> 7.5 USD Package
 </td><td> 50 GB
-</td><td> 49
+</td><td> 7.5
 </td></tr>
 <tr>
-<td> 95 CNY Package
+<td> 14.5 USD Package
 </td><td> 100 GB
-</td><td> 95
+</td><td> 14.5
 </td></tr>
 <tr>
-<td> 470 CNY Package
+<td> 72.0 USD Package
 </td><td> 500 GB
-</td><td> 470
+</td><td> 72.0
 </td></tr>
 <tr>
-<td> 939 CNY Package
+<td> 143.8 CNY Package
 </td><td> 1 TB
-</td><td> 939
+</td><td> 143.8
 </td></tr>
 <tr>
-<td colspan="3" style="text-align: center;"> Note: Packages are valid for one year, and 1.1 CNY/GB will be charged for the traffic beyond the package quota which can be offset if you renew the package during the period of service billed based on a monthly basis.
+<td colspan="3" style="text-align: center;"> Note: Packages are valid for one year, and 0.17 USD/GB will be charged for the traffic beyond the package quota which can be offset if you renew the package during the period of service billed based on a monthly basis.
 </td></tr>
 </tbody></table>
 
