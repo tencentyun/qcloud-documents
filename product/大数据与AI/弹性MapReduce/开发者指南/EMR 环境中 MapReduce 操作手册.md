@@ -41,7 +41,7 @@ wordcount /user/hadoop/README.txt /user/hadoop/output
 查看执行结果
 ```
 hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/output
-Found 2 items
+Found 2 items     
 -rw-r--r-- 3 hadoop supergroup 0 2017-03-15 19:52 /user/hadoop/output/_SUCCESS
 -rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:52 /user/hadoop/output/part-r-00000
 ```
@@ -53,7 +53,7 @@ bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar
 查看任务结果
 ```
 [hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/cosoutput
-Found 2 items
+Found 2 items    
 -rw-r--r-- 3 hadoop supergroup 0 2017-03-15 19:55 /user/hadoop/cosoutput/_SUCCESS
 -rw-r--r-- 3 hadoop supergroup 1306 2017-03-15 19:55 /user/hadoop/cosoutput/part-r-00000
 ```
