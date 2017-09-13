@@ -19,8 +19,7 @@
 
 **step 3 激活邮箱**
 
-![](https://mc.qcloudimg.com/static/img/9582590fada155fed2544080962a5e42/9.png)
-
+![激活邮箱](//mc.qcloudimg.com/static/img/8d2cf2b8725b4e2d7a00da54332995e4/image.png)
 
 **step 4 填写行业信息**
 
@@ -54,12 +53,9 @@
 
 ![完善信息](//mc.qcloudimg.com/static/img/171940de3430748142311d5b12585393/image.png)
 
-
-
  **step 4 登录**
  
 登录成功，开启您的腾讯云之旅吧~
-
 
 ### 3 使用微信公众号注册
 
