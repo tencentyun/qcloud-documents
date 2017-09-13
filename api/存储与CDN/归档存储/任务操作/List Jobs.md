@@ -210,10 +210,10 @@ Authorization: Auth
 | Object             | COS中源Bucket的Object地址                     | String   |
 | Range              | COS中源Object的Range范围， 以字节（bytes）为单位       | String   |
 | Condition          | 从COS获取数据的前置条件                            | Array    |
-| If-Modified-Since  | 如果文件修改时间晚于指定时间，返回文件内容。否则返回 304           | String   |
-| If-Umodified-Since | 如果文件修改时间早于指定时间，返回文件内容。否则返回 412           | String   |
-| If-Match           | 如果文件ETag与指定的一致，返回文件内容。否则返回 412           | String   |
-| If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。否则返回 412          | String   |
+| If-Modified-Since  | 如果文件修改时间晚于指定时间，返回文件内容。          | String   |
+| If-Umodified-Since | 如果文件修改时间早于指定时间，返回文件内容。           | String   |
+| If-Match           | 如果文件ETag与指定的一致，返回文件内容。         | String   |
+| If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。         | String   |
 | ArchiveDescription | 档案文件描述                                   | String   |
 ```JSON
 {
