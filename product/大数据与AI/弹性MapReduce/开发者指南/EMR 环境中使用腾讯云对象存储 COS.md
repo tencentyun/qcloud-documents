@@ -1,8 +1,9 @@
 腾讯云 EMR 已经无缝集成了腾讯云对象存储，可以直接在 EMR 集群中对 COS 中的数据进行运算。如果需要使用对象存储，在创建 EMR 集群的时候填写 COS 的相关信息即可。
 
 在 Hadoop 中访问 COS 上的文件可以通过如下命令进行：
+`bin/hadoop fs -ls cosn://emrtest/data/`
+运行结果如下：
 ```
-	[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://emrtest/data/
 	Found 4 items
 	-rw-rw-rw- 1 hadoop hadoop 5262 2017-03-10 10:21 cosn://emrtest/data/201408_station_data.csv
 	-rw-rw-rw- 1 hadoop hadoop 653037596 2017-03-10 10:43 cosn://emrtest/data/201408_status_data.csv
