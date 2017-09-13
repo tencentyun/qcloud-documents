@@ -64,7 +64,7 @@ In addition to the package mode, postpaid mode is also available for LVB, that i
  4) Billing cycle: A calendar month 
  5) Measurement rules: The system takes 5 minutes as the time granularity, and collects overall bandwidth data of streaming media across network-wide nodes.
 **2. Traffic postpaid mode**
- 1) Traffic price: 1.1 CNY/GB/month
+ 1) Traffic price: 0.17 USD/GB/month
  2) Billing items: traffic (overall traffic amount used in the current month) 
  3) Billing mode: Postpaid
  4) Billing cycle: A calendar month
