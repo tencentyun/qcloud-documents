@@ -5,13 +5,13 @@
 在做相关操作前需要登录到 EMR 集群中的任意一个机器（Master 节点、或者 Core、Task 节点），登录后切换到 Hadoop 用户。
 Hadoop 等相关软件路径在 `/usr/local/service/` 下
 相关日志路径在 `/data/emr` 下
-<span id="ALL">
+<span id="jump">
 ### 1. 数据准备 
 </span>
-数据准备根据数据的存储位置不同，分为两种情况：
+数据准备根据数据的存储位置不同，分为两种方式：
 * 数据存放在 HDFS 集群
 * 数据存放在 COS
-数据准备分为两种方式，第一种方式是在 HDFS 集群，第二种方式是数据存储在 COS，下面会详细介绍这两种数据准备的方式。
+下面会详细介绍这两种数据准备的方式。
 **数据存放在 HDFS**
 首先准备要统计的文本文件，然后通过如下命令拷贝到 HDFS 集群：
 ```
@@ -59,21 +59,25 @@ Hadoop 等相关软件路径在 `/usr/local/service/` 下
 ```
 ### 3. 查看任务日志
 查看任务状态
-`bin/mapred job -status jobid`
+```
+    bin/mapred job -status jobid
+```
 查看任务日志 
-`bin/mapred job -logs jobid`
+```
+    bin/mapred job -logs jobid
+```
 ## 基于 HUE 的 MR 任务操作
 ### 1. 数据准备
-数据准备同通过命令行准备数据一致，请参考 [通过命令行准备数据](#ALL)。
+数据准备同通过命令行准备数据一致，请参考 [通过命令行准备数据](#jump)。
 ### 2. 登录 HUE 进行操作
 通过 EMR 控制的快捷入口可以找到 HUE 的登录页面，找到如下入口。
 ![](//mc.qcloudimg.com/static/img/240c3ebccb81246dddf53aa5c6dde4b3/image.png)
-进入页面后单击 Create 按钮，并拖拽 Java program，如下图。
+进入页面后单击【Create】按钮，在弹出的对话框中拖拽 Java program。
 ![](//mc.qcloudimg.com/static/img/f7a68bfc035bc041a0dceefe22a7e763/image.png)
 >**注意：**
 >箭头处的 jar 文件需要提前放到 HDFS 以供选择。
 
-单击 Add 后给任务添加参数，如下图。
+单击【Add】后给任务添加参数，如下图。
 ![](//mc.qcloudimg.com/static/img/b6e0cbecde6e8813dafc19d99121e97a/image.png)
 >**注意：**
 >箭头处如果是 COS 上的文件，直接填写 COS 上的路径即可。
@@ -86,7 +90,7 @@ Hadoop 等相关软件路径在 `/usr/local/service/` 下
 ### 3. 在 HUE 中调度 MR 任务
 通过【Workflows】>【Editors】>【Coordinatiors】进入任务调度创建页面。
 ![](//mc.qcloudimg.com/static/img/6b7b35b1f356ba677d798db774227ed1/image.png)
-进入创建页面后单击 Create 按钮，进入下图。
+进入创建页面后单击【Create】按钮，进入下图。
 ![](//mc.qcloudimg.com/static/img/1e29bd049015dafbc9c3ddfa6606780e/image.png)
 选定好流程后，设置调度时间，如下图。
 ![](//mc.qcloudimg.com/static/img/9950c76deba69b21e9c8f61b49d8c1c7/image.png)
@@ -95,7 +99,7 @@ Hadoop 等相关软件路径在 `/usr/local/service/` 下
 【week】可以选择周一到周日的小时和分钟
 【month】可以选择当前月下的天、小时、分钟
 【year】选择当前年下的月、日、小时、分钟
-选择好调度时间后单击提交即可，可以通过【Workflows】>【Editors】>【Coordinatiors】查看已经存在的调度任务：
+选择好调度时间后单击提交即可，可以通过【Workflows】>【Editors】>【Coordinatiors】查看已经存在的调度任务。
 ![](//mc.qcloudimg.com/static/img/c45ff0b7f6b7d674eb53a88264c367d7/image.png)
 下图为已经存在的任务列表。
 ![](//mc.qcloudimg.com/static/img/0a650ab00663087053918f113eaeff47/image.png)
