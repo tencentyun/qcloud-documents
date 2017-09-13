@@ -1,12 +1,13 @@
 本文档只描述了基本的 Spark 任务提交以及 Spark 计算任务如何访问腾讯云对象存储上的数据，详细资料可以参考 [Spark 官方文档](http://spark.apache.org/docs/2.0.2/)。
 ## 命令行模式提交 Spark 任务
-* 在做相关操作前需要登录到 EMR 集群中的 Master 节点机器
-* 登录机器后使用命令 `su hadoop` 切换到 hadoop 用户
-* Spark 软件路径在 `/usr/local/service/spark` 下
-* 相关日志路径在 `/data/emr` 下
-* 提供了必要的测试用例，分为 jar 包和 python 两种
-* jar 包位于 Spark 目录的 `examples/jars/` 下，python 文件位于 `examples/demo` 下
-* 提供测试用到的数据文件，需要提前在集群中上传
+### 事前说明
+* 在做相关操作前需要登录到 EMR 集群中的 Master 节点机器；
+* 登录机器后使用命令 `su hadoop` 切换到 hadoop 用户；
+* Spark 软件路径在 `/usr/local/service/spark` 下；
+* 相关日志路径在 `/data/emr` 下；
+* 提供了必要的测试用例，分为 jar 包和 python 两种；
+* jar 包位于 Spark 目录的 `examples/jars/` 下，python 文件位于 `examples/demo` 下；
+* 提供测试用到的数据文件，需要提前在集群中上传。
 <span id ="jump">
     
 ### 1. 数据准备
@@ -33,8 +34,9 @@
     /usr/local/service/spark/examples/src/main/resources/*
     cosn://bucketname/example/source
 ```
+
 ### 2. 任务提交模式
-Spark 任务以如下格式提交：
+您可使用如下格式提交 Spark 任务：
 ```
     ./bin/spark-submit [options] <app jar | python file> [app options]
 ```
@@ -120,7 +122,7 @@ Spark 任务以如下格式提交：
 ### 6. 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）。
 ![](//mc.qcloudimg.com/static/img/627c35182d0a86ec72ce880cbe8bd6f9/image.png)
-* 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）：
+* 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）。
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10548
 ```
@@ -157,7 +159,7 @@ Spark 任务以如下格式提交：
     ./bin/spark-submit examples/demo/hive.py cosn://bucketname/example/source/kv1.txt
 ```
 ### 8. 查看任务日志
-* 任务运行结果会直接打印到控制台（此处示例为部分数据）：
+* 任务运行结果会直接打印到控制台（此处示例为部分数据）。
 ![](//mc.qcloudimg.com/static/img/79582b3b4d6a3f56584360522b28c469/image.png)
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）。
 ```
@@ -208,11 +210,11 @@ iii. 在原来的窗口可以看到类似如下的单词计数输出：
 ### 2. 登录 HUE 进行操作
 通过 EMR 控制的快捷入口可以找到 HUE 的登录页面，找到如下入口， 如下图。
 ![](//mc.qcloudimg.com/static/img/0c216d3f9dac1c9daa8935d4b688ba50/image.png)
-进入页面后单击 Create 按钮，并拖拽 SparkProgram，如下图：
+进入页面后单击【Create】按钮，弹出如下对话框，拖拽 SparkProgram。
 ![](//mc.qcloudimg.com/static/img/fccdfc197136f95c320b83f4017b9bba/image.png)
 >**注意：**文件需要提前上传到 HDFS。
 
-单击 add 后给任务添加参数，如下图：
+单击【Add】后给任务添加参数，如下图：
 ![](//mc.qcloudimg.com/static/img/13c1069522b048b429ea51efebe545ca/image.png)
 >**注意：**
 >如果文件位于 COS，可以直接填写 COS 路径如：`cosn://buckname/example/source/people.txt`
@@ -229,11 +231,11 @@ iii. 在原来的窗口可以看到类似如下的单词计数输出：
 ![](//mc.qcloudimg.com/static/img/6ec89b776e767d09ac569dce384377d1/image.png)
 选定好流程后，设置调度时间，如下图：
 ![](//mc.qcloudimg.com/static/img/6125e6b4b9cb39d78d8397c78945743b/image.png)
-【hour】可以选择小时里某些分钟
-【day】可以选择某天的小时和分钟
-【week】可以选择周一到周天的小时和分钟
-【month】可以选择当前月下的天、小时、分钟
-【year】选择当前年下的月、日、小时、分钟
+【hour】可以选择小时里某些分钟；
+【day】可以选择某天的小时和分钟；
+【week】可以选择周一到周天的小时和分钟；
+【month】可以选择当前月下的天、小时、分钟；
+【year】选择当前年下的月、日、小时、分钟。
 选择好调度时间后单击提交即可，可以通过【Workflows】>【Dashboards】>【Coordinators】查看已经存储在调度任务。
 ![](//mc.qcloudimg.com/static/img/e47a806bd2b9228784b7b9c5834882b3/image.png)
 下图为经存在的任务列表。
