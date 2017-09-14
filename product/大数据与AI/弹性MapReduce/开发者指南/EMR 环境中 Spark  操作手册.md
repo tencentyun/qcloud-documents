@@ -130,7 +130,6 @@
        19         Justin
     ----------------------------
 ```
-![](//mc.qcloudimg.com/static/img/627c35182d0a86ec72ce880cbe8bd6f9/image.png)
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）。
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10548
