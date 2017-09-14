@@ -5,7 +5,7 @@
 * 登录机器后使用命令 `su hadoop` 切换到 hadoop 用户；
 * Spark 软件路径在 `/usr/local/service/spark` 下；
 * 相关日志路径在 `/data/emr` 下；
-* 提供了必要的测试用例，分为 jar 包和 python 两种；
+* 提供了必要的测试用例，分为 jar 包和 python 两种； 
 * jar 包位于 Spark 目录的 `examples/jars/` 下，python 文件位于 `examples/demo` 下；
 * 提供测试用到的数据文件，需要提前在集群中上传。
 <span id ="jump">
@@ -85,7 +85,7 @@
 ```
 ### 5. Spark SQL
 本任务演示从文本文件和 json 文件中读取数据，进行一些简单的 SQL 操作。
-**jar 包任务读取 HDFS 文件**
+**jar 包任务访问 HDFS 文件**
 在 Spark 安装目录下通过如下命令提交任务：
 ```
     ./bin/spark-submit
@@ -126,6 +126,7 @@
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10548
 ```
+
 ### 7. Spark SQL 操作 Hive 表
 本任务演示在文件中读取 kv 数据，然后在 Hive 中创建和操作表。
 >**注意：**
@@ -181,13 +182,13 @@
     ./bin/spark-submit examples/demo/network_wordcount.py localhost 9999
 ```
 **运行和查看输出**
-i. 新开一个窗口，依次执行以下命令：
+ 1. 新开一个窗口，依次执行以下命令：
 ```
     yum -y install nc
     nc -lk 9999
 ```
-ii. 然后输入任意单词，单词以空格分割，回车结束一行输入。
-iii. 在原来的窗口可以看到类似如下的单词计数输出：
+ 2. 然后输入任意单词，单词以空格分割，回车结束一行输入。
+ 3. 在原来的窗口可以看到类似如下的单词计数输出：
 ```
     ----------------------------
     Time:2017-03-16 20:18:15
