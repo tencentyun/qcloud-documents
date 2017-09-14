@@ -108,10 +108,9 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
 setkey -D
 ```
-<div style="text-align/center">
 ![](//mccdn.qcloud.com/img56c68edfa569d.png)
 
-</div>
+
 在您的 IDC 网络中需要将目的 IP 为 VPC 的 CIDR 的报文路由到您的对端 VPN 网关，即前面介绍的配置 Ipsec-tools 的机器。
 
 在 IDC 中的机器上 ping 您在 VPC 里的子机 IP，检测通信是否顺利建立。
