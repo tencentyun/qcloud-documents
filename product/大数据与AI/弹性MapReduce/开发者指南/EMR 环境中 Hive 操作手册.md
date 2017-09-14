@@ -62,7 +62,7 @@ COS 的文件全路径为：`cosn://hivecos/hivetest/hive_test.data`。
 
 ### 3. 执行 Hive-SQL
 以 Hive 模式或 beeline 模式成功连接到 Hive 数据库后，Hive-SQL 的执行语句同。现在以 Hive 模式为例执行 Hive-SQL。
-#### 3.1 创建 Hive 表（代码和信息建议说明）
+#### 3.1 创建 Hive 表
 查看数据库：
 ```
     hive> show databases; // 查看数据库
@@ -83,10 +83,10 @@ COS 的文件全路径为：`cosn://hivecos/hivetest/hive_test.data`。
     OK
     Time taken: 0.204 seconds
 ```
-#### 3.2 将数据导入表中（代码前的 hive 建议删除）
+#### 3.2 将数据导入表中
  - 从 HDFS 导入数据，文件在 HDFS 上的路径为：`/user/hadoop/hive-test/hive_test.data`
 ```
-    hive> load data inpath "/user/hadoop/hive-test/hive\_test.data" into table hive\_test;
+ load data inpath "/user/hadoop/hive-test/hive\_test.data" into table hive\_test;
 ```
 导入完成后，HDFS 上导入路径上的源数据文件将会被删除。
  - 从 COS 导入数据，文件在 COS 上的路径为：`cosn://hivecos/hivetest/hive_test.data`
