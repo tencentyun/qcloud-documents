@@ -1,6 +1,6 @@
 SSH 密钥允许您在您的电脑和 GitLab 之间建立一个安全连接。
 
-### 1. 生成 SSH 公钥
+### 生成 SSH 公钥
 您可以按照如下命令生成 SSH Keys：
 ```
 ssh-keygen -t rsa -C "您的账号ID@git.cloud.tencent.com"
@@ -10,13 +10,13 @@ ssh-keygen -t rsa -C "您的账号ID@git.cloud.tencent.com"
 ![](https://mc.qcloudimg.com/static/img/171eecae63ecd839c349bca6d682952c/2017-08-28_114309.png)
 
 > 注意：
-> 以上操作在 Windows 平台下进行，Linux 下命令不变，操作类似。
+> 以上操作以 Windows 平台为例，Linux 下命令不变，操作类似。
 
-### 2. 添加 SSH Keys
-1. 首先，在 TGit 主页面里单击【Profile Setting】。
+### 添加 SSH Keys
+1. 在 TGit 主页上单击【Profile Settings】。
 ![](https://mc.qcloudimg.com/static/img/5522c138370e7c60d07018c345be3177/image.png)
 
-2. 单击左边的【SSH Keys】，然后在单击【Add SSH Key】。
+2. 单击左边的【SSH Keys】，然后再单击【Add SSH Key】。
 ![](https://mc.qcloudimg.com/static/img/b6df9f8393daac0b65a32e8c37ac2140/2017-08-28_140330.png)
 
 3. 填写好【Key】和【Title】， 单击【Add key】按钮即可。
