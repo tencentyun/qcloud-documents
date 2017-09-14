@@ -100,7 +100,7 @@ Id   Name         Connector Id    Connector Name          Enabled
 ```
 ### 4. job
 #### 把 MySQL 的数据导入到 hdfs
-参数: -f linkId (from-link Id) ，-t linkId (to-link Id)。
+参数： -f linkId (from-link Id) ，-t linkId (to-link Id)。
 ```
     sqoop:000> create job -f 1 -t 2 // 创建一个job
     Creating job for links with from id 1 and to id 2
