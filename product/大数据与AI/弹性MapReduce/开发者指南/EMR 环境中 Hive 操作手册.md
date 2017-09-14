@@ -175,9 +175,9 @@ HUE 可以将查询结果以图表的方式展示。
 select * from hive_test limit 10；
 ```
 执行完成后，结果数据如下图所示：
-![](//mc.qcloudimg.com/static/img/dbbc7ffa153a9c09409e802e2f4cb9d3/image.png)
+![](//mc.qcloudimg.com/static/img/78dcf17b84cf4e6800a7eb9088fffdf2/image.png)
 2. 选择图例模式，查看结果图（本示例中选择【Pie】）。
-![](//mc.qcloudimg.com/static/img/8b543e198d369c1935cbe98b66f0b231/image.png)
+![](//mc.qcloudimg.com/static/img/235f2081a255cd4a787ac145855d5587/image.png)
 
 ### 基于 HUE 的任务调度
 #### 1. 准备工作流数据
