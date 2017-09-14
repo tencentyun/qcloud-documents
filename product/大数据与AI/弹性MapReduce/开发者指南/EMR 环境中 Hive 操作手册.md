@@ -14,12 +14,12 @@
  ./gen\_data.sh > hive\_test.data
 ```
 1.3 上传数据。请根据您的数据存储位置进行相应操作。
- - 数据存储在 HDFS 上
+ - 数据存储在 HDFS 
 将生成的数据文件放入 HDFS，如：将`hive_test.data`放入 HDFS 的 `/user/hadoop/hive-test` 目录中。
 ```
 hdfs dfs -put ./hive\_test.data /user/hadoop/hive-test/
 ```
- - 数据存储在 COS
+ - 数据存储在 COS 
 在 COS 上创建一个存储桶（Bucket），如：hivecos，并在 hivecos 中创建文件夹，如：hivetest，将数据文件上传到 hivetest 中，如图所示：
 ![](//mc.qcloudimg.com/static/img/16acafa53d968e1ec88c6f085e8bd0a3/image.png)
 COS 的文件全路径为：`cosn://hivecos/hivetest/hive_test.data`。
@@ -77,7 +77,7 @@ COS 的文件全路径为：`cosn://hivecos/hivetest/hive_test.data`。
     Time taken: 0.176 seconds
     hive> create table hive_test (a int, b string)
 ```
-创建数据表
+创建数据表:
 ```
     hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ','; // 创建数据表 hive\_test,并指定列分割符为','
     OK
