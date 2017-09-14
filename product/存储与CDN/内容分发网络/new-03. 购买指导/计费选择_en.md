@@ -100,13 +100,13 @@ You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for calcul
 + The traffic package takes effect on the day of purchase. The validity period of ordinary traffic package is 6 months from the date of purchase. The validity period of special traffic package provided during special offer campaign varies according to campaign policies, which is generally one month. Your traffic package is only valid during the validity period. Any unused traffic expires as the traffic package expires.
 
 ## Billing for Key Customers
-If your monthly consumption amount in Tencent Cloud is or will be more than RMB 100,000, you can be granted more favorable prices and more flexible billing options (such as payment on a monthly basis) through negotiations.
+If your monthly consumption amount in Tencent Cloud is or will be more than USD 20,000, you can be granted more favorable prices and more flexible billing options (such as payment on a monthly basis) through negotiations.
 
 + **Pay by monthly average value of daily bandwidth peaks**: There are 288 CDN bandwidth statistical points each day. Divide the sum of peaks on each effective day (generating consumption) by the number of effective days to get the monthly average value of daily bandwidth peaks to use as billing bandwidth. Then calculate the charge based on contract price;
 + **Pay by 95% of bandwidths in a month**: There are 288 CDN bandwidth statistical points each day. Sort all statistical points for all effective days from the first day of current month (generating consumption) by bandwidth value and eliminate the first 5% statistical points. Then take the largest bandwidth among the remaining 95% of statistical points as the billing bandwidth. Then calculate the charge based on contract price;
 + **Pay by monthly traffic**: Calculate the total traffic consumed on a monthly basis. Then calculate the charge based on contract price.
 
-For more details, please call 4009-100-100 or submit a ticket.
+For more details, please submit a ticket.
 
 
 ## Billing Model Options
