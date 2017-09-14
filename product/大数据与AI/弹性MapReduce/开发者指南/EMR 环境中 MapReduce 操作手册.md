@@ -11,6 +11,7 @@ Hadoop 等相关软件路径在 `/usr/local/service/` 下
 数据准备根据数据的存储位置不同，分为两种方式：
 * 数据存放在 HDFS 集群
 * 数据存放在 COS
+
 下面会详细介绍这两种数据准备的方式。
 **数据存放在 HDFS**
 首先准备要统计的文本文件，然后通过如下命令拷贝到 HDFS 集群：
@@ -41,7 +42,7 @@ wordcount /user/hadoop/README.txt /user/hadoop/output
 ```
 查看执行结果:
 ```
-hadoop@10 hadoop]$ bin/hadoop fs -ls /user/hadoop/output
+bin/hadoop fs -ls /user/hadoop/output
 ```
 基于 COS 的任务提交:
 ```
