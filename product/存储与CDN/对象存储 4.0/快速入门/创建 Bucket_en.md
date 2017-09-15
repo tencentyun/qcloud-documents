@@ -3,7 +3,7 @@ After logging in to the console, you can create a Bucket through the COS console
 
 Enter the COS console. Click **Create a Bucket**, then the console will pop up "Create a Bucket" dialog box:
 
-![](https://mc.qcloudimg.com/static/img/eb79b292988425981082ff2c3fbdac91/Free-Converter.com-qq20161117-1-48840304.jpg)
+![](//mc.qcloudimg.com/static/img/81ad8abf16cddb1c8615a7987918dbcb/image.png)
 
 **Note**
 
@@ -18,7 +18,7 @@ Enter the COS console. Click **Create a Bucket**, then the console will pop up "
 
 Click **Create** and you can see the created Bucket in the Bucket list page:
 
-![](https://mc.qcloudimg.com/static/img/61d5969c7ef5a2e96fa28a56811c6582/image.png)
+![](//mc.qcloudimg.com/static/img/bcac14ee35b1307afb5839798998bf66/image.png)
 
 ## Multi-region and Access Domain
 COS supports multi-region storage which is currently available in three regions including North China, South China, and East China. Different regions have different default access domains. We recommend users to choose the nearest storage region according to their own business scenarios to improve the upload and download speed.
