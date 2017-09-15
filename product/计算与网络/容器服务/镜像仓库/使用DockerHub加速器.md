@@ -1,4 +1,4 @@
-Docker软件源地址：`https://mirror.ccs.tencentyun.com`。
+Docker 软件源地址：`https://mirror.ccs.tencentyun.com`。
 
 ## CCS 集群 CVM 主机
 无需手动配置，在创建节点时会自动安装 Docker 服务，配置 Mirror 镜像。配置项如下：
