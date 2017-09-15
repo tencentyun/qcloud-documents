@@ -19,5 +19,5 @@ ssh-keygen -t rsa -C "您的账号ID@git.cloud.tencent.com"
 2. 单击左边的【SSH Keys】，然后再单击【Add SSH Key】。
 ![](https://mc.qcloudimg.com/static/img/b6df9f8393daac0b65a32e8c37ac2140/2017-08-28_140330.png)
 
-3. 填写好【Key】和【Title】， 单击【Add key】按钮即可。
+3. 复制公钥后粘贴到【Key】中，命名【Title】， 单击【Add key】按钮即可。
 ![](https://mc.qcloudimg.com/static/img/bd256c462aa81aa43a43627b12bdb26c/2017-08-28_114606.png)
