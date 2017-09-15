@@ -2,11 +2,11 @@ Files that have been uploaded to the resource space Bucket can be accessed via t
 
 Enter the COS console, click the Bucket of the Object, and click **File Information** on the right side of the Object list:
 
-![](https://mc.qcloudimg.com/static/img/e26cf2de168ba9dc1de75dc775e5f480/image.png)
+![](//mc.qcloudimg.com/static/img/49772b997b618a9ff1e6c3bd9d609c36/image.png)
 
 Click the Copy Link button and paste the link to the browser address bar to download, or directly click the Download button:
 
-![](https://mc.qcloudimg.com/static/img/7325519a5253375d117cc779ce4f8d04/image.png)
+![](//mc.qcloudimg.com/static/img/b22047d5ea8e67bbd25477e36381fc9d/image.png)
 
 
 
