@@ -5,13 +5,13 @@ Tencent Cloud Bucket provides two types of access permission by default: public 
 
 Users can modify Bucket access permission through the console and API
 
-Users can set the access permission of Bucket when creating the Bucket, and modify the permission at any time Enter the COS console, and click the bucket of which you need to modify the permission. Enter the Bucket, and click **Basic Configuration**:
+Users can set the access permission of Bucket when creating the Bucket, and modify the permission at any time Enter the COS console, and click the bucket of which you need to modify the permission. Enter the Bucket, and click **Permission**:
 
-![](https://mc.qcloudimg.com/static/img/e2532927eb0ba207eb7838fe76e39797/image.png)
+![](//mc.qcloudimg.com/static/img/e8099435d4e13da487db227fa08499c9/image.png)
 
-Find **Access Permission**, and click **Edit** button to modify the Bucket access permission:
+Find **Public Permission**, and click **Edit** button to modify the Bucket access permission:
 
-![](https://mc.qcloudimg.com/static/img/2c6e7ac571068ac9a332a1eaac81ccad/image.png)
+![](//mc.qcloudimg.com/static/img/983340044795356c1bd2182ba40a3621/image.png)
 
 
 
