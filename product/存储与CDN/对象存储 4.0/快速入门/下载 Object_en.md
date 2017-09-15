@@ -7,4 +7,3 @@ Enter the COS console, click the Bucket of the Object, and click **File Informat
 Click the Copy Link button and paste the link to the browser address bar to download, or directly click the Download button:
 
 ![](//mc.qcloudimg.com/static/img/8e5d5b0d36b9105cecfceb8fc110c7a5/image.png)
-
