@@ -13,5 +13,3 @@ Find **Public Permission**, and click **Edit** button to modify the Bucket acces
 
 ![](//mc.qcloudimg.com/static/img/983340044795356c1bd2182ba40a3621/image.png)
 
-
-
