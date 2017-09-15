@@ -52,7 +52,7 @@
 
 #### 1.2.1 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
-- 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.qcloud.com/developer/infomation) ）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
+- 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.qcloud.com/developer/infomation)）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
 - 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
 - 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](https://www.qcloud.com/document/product/213/7153) 。
 
