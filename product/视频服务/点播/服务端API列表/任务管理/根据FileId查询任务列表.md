@@ -2,7 +2,7 @@
 GetTaskListByFileId
 
 ## 功能说明
-1. 根据FileId查询任务列表。
+根据FileId查询任务列表。
 
 注意：只会查找到三天内的任务
 
@@ -66,14 +66,14 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetTaskListByFileId
     "procedureList": [
         {
             "vodTaskId": "1251132654-Procedure-d7c9631c15ecf653b1ff67e34cb04692",
-			"type":"procedure",
-			"status": "PROCESSING",
+            "type": "procedure",
+            "status": "PROCESSING",
             "createTime": 1485156352,
             "updateTime": 1485156352
         },
         {
-			"type":"transcode"
-			"status": "PROCESSING",
+            "type": "transcode",
+            "status": "PROCESSING",
             "vodTaskId": "1251132654-Procedure-d7c9631c15ecf653b1ff67e34cb04692",
             "createTime": 1485156352,
             "updateTime": 1485156352
