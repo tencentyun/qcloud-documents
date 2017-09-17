@@ -45,7 +45,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetTaskListByFileId
 | vodTaskList | Array | 转码模板信息列表 |
 | vodTaskList.vodTaskId | String | 任务ID |
 | vodTaskList.type | String | 任务类型 |
-| vodTaskList.status | String | 任务状态，取值 PROCESSING/FINISH |
+| vodTaskList.status | String | 任务状态，取值 QUEUE/PROCESSING/FINISH |
 | vodTaskList.createTime | Integer | 任务创建时间（Unix时间戳） |
 | vodTaskList.updateTime | Integer | 任务信息最近更新时间（Unix时间戳） |
                  |
