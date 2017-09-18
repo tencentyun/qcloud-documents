@@ -19,7 +19,7 @@
 <tr>
 <td> offset <td> 否 <td> Int <td> 初始行的偏移量，默认为 0。
 <tr>
-<td> limit <td> 否 <td> Int <td> 每页行数，默认为2 0。
+<td> limit <td> 否 <td> Int <td> 每页行数，默认为 20。
 </tbody></table>
 
 注：addressId 和 addressName 作为查询条件为逻辑与关系
