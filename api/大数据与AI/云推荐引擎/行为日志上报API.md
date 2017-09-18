@@ -1,7 +1,7 @@
 ## 1. 接口描述
 
 功能：单条或者批量提交用户行为数据  
-接口：`https://sdtj.y.qq.com:8008/upload)`   
+接口：`https://sdtj.y.qq.com:8008/upload`   
 方法：POST  
 
 ## 2. 输入参数  
