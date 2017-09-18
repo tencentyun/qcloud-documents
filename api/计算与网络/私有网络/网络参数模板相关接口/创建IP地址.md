@@ -24,7 +24,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
+| code | Int | 数字错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 字符串错误码 |
 | data | Object | 返回信息。 |

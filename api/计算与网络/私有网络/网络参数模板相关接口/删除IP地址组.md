@@ -1,19 +1,17 @@
 ## 1. 接口描述
 
-本接口(ModifyAddress)用于编辑IP地址。
+本接口(DeleteAddressGroup)用于删除IP地址组。
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
 
 ## 2. 请求参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为 ModifyAddress
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为 DeleteAddressGroup
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| addressId | 是 | String | IP地址ID |
-| address | 是 | Array| IP地址列表 |
-| address.n | 是 | String | IP地址列表成员 |
+| addressGroupId | 是 | String | IP地址组ID |
 
 
 ## 3. 输出参数
@@ -23,8 +21,8 @@
 | code | Int | 数字错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 字符串错误码 |
-| data | Object | 返回信息。 |
-| data.taskId | Int | 请求任务ID，由具体的异步操作接口提供，例如15454。 | 
+| data | Object | 返回信息|
+| data.taskId | String | 请求任务ID，由具体的异步操作接口提供，例如15454。 | 
 
 ## 4. 任务查询输出参数
 通过DescribeNetTaskResult接口可以查询任务结果
@@ -44,6 +42,7 @@ data.output 结构
 |---------|---------|---------|
 |code | Int | 数字错误码|
 |message | String | 结果描述|
+
 
 ## 5. 错误码表
 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4781" title="公共错误码">公共错误码</a>。
@@ -75,9 +74,9 @@ data.output 结构
 
 输入
 <pre>
-https://vpc.api.qcloud.com/v2/index.php?Action=ModifyAddress
+https://vpc.api.qcloud.com/v2/index.php?Action=DeleteAddressGroup
 &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-&addressId=ipm-52ut9887&address.0=192.168.1.1&address.1=10.53.0.1-10.53.0.66&address.2=172.66.0.0/16
+&addressGroupId=ipmg-f5n688da
 </pre>
 输出
 ```
@@ -113,5 +112,7 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetTaskResult
     }
 }
 ```
+
+
 
  

@@ -19,14 +19,43 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
+| code | Int | 数字错误码, 0表示查询调用成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 字符串错误码 |
 | data | Object | 返回信息。 |
 | data.taskId | Int | 请求任务ID，由具体的异步操作接口提供，例如15454。 | 
 
+## 4. 任务查询输出参数
+通过DescribeNetTaskResult接口可以查询任务结果
 
-## 4. 错误码表
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 公共错误码, 0表示任务查询成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
+| message | String | 模块错误信息描述，与接口相关。|
+| codeDesc | String | 字符串错误码 |
+| data | Object | 返回信息。 |
+| data.status | Int | 任务的当前状态。0：成功，1：失败，2：进行中。 | 
+| data.output | Object| 任务执行中间状况详情。任务的最终成败以data.status为准。|
+| data.data | Object/Array | 仅用于任务为查询类任务时的结果数据或中间结果数据。| 
+
+data.output 结构
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+|code | Int | 数字错误码|
+|message | String | 结果描述|
+
+data.data 结构
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| total  | Int  |  云资源个数 |
+| detail  | Array  |  云资源详情 |
+| detail.n.region  | String  |  云资源地域 |
+| detail.n.type  | String  |  云资源类型|
+| detail.n.id  | String  |  云资源Id |
+| detail.n.name  | String  |  云资源名称 |
+
+
+## 5. 错误码表
 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4781" title="公共错误码">公共错误码</a>。
 
 
@@ -49,7 +78,7 @@
 <td> 9005 <td> 系统忙或有相关资源正在被编辑
 </tbody></table>
 
-## 5. 示例
+## 6. 示例
 	执行一个参数模板的异步调用，然后使用DescribeNetTaskResult查询结果。
 例如查询一个参数模板是否被云资源引用：
 ### 步骤1：
@@ -89,8 +118,7 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetTaskResult
         "status": 0,
         "output": {
             "code": 0,
-            "message": "OK",
-            "total": 4
+            "message": "OK"
         },
         "data": {
             "total": 4,
