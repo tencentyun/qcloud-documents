@@ -175,7 +175,7 @@ void onRecordEvent(final int event, final Bundle param);
 
 
 
-### 4.多段视频录制及回删
+### 4.多段录制与回删
 
 ```java
 // pauseRecord 后会生成一段视频，视频可以在 TXUGCPartsManager 里面获取 
