@@ -29,7 +29,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败 |
+| code | Int | 数字错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
 | message |   String | 错误信息 |
 | codeDesc |   String | 英文错误码 |
 | data |   Object |返回的数据结构 |
