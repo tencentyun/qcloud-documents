@@ -184,7 +184,7 @@ action：`ccr:GetUserRepositoryList`。
 资源： `qcs::ccr:::tag/${tag}`。
 ### 删除 Tag
 action： `ccr:DeleteTag`。
-允许删除 `namespace1/foo` 镜像仓库下的所有Tag：
+允许删除 `namespace1/foo` 镜像仓库下的所有 Tag：
 ```
 {
     "version": "2.0",
