@@ -32,61 +32,86 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import sun.misc.BASE64Encoder;
 
-public class Signature {
-	public String m_strSecId;
-	public String m_strSecKey;
-	public long m_qwNowTime;
-	public int m_iRandom;
-	public int m_iSignValidDuration;
+class Signature {
+    private String secretId;
+    private String secretKey;
+    private long currentTime;
+    private int random;
+    private int signValidDuration;
 
-	private static final String HMAC_ALGORITHM = "HmacSHA1";
-	private static final String CONTENT_CHARSET = "UTF-8";
+    private static final String HMAC_ALGORITHM = "HmacSHA1";
+    private static final String CONTENT_CHARSET = "UTF-8";
 
-	public static byte[] byteMerger(byte[] byte_1, byte[] byte_2) {
-		byte[] byte_3 = new byte[byte_1.length + byte_2.length];
-		System.arraycopy(byte_1, 0, byte_3, 0, byte_1.length);
-		System.arraycopy(byte_2, 0, byte_3, byte_1.length, byte_2.length);
-		return byte_3;
-	}
+    public static byte[] byteMerger(byte[] byte1, byte[] byte2) {
+        byte[] byte3 = new byte[byte1.length + byte2.length];
+        System.arraycopy(byte1, 0, byte3, 0, byte1.length);
+        System.arraycopy(byte2, 0, byte3, byte1.length, byte2.length);
+        return byte3;
+    }
 
-	String GetUploadSignature() {
-		String strSign = "";
-		String contextStr = "";
-		long endTime = (m_qwNowTime + m_iSignValidDuration);
-		try {
-			contextStr += "secretId=" + java.net.URLEncoder.encode(this.m_strSecId, "utf8");
-			contextStr += "&currentTimeStamp=" + this.m_qwNowTime;
-			contextStr += "&expireTime=" + endTime;
-			contextStr += "&random=" + this.m_iRandom;
+    public String getUploadSignature() throws Exception {
+        String strSign = "";
+        String contextStr = "";
 
-			String s = contextStr;
-			String sig = null;
-			Mac mac = Mac.getInstance(HMAC_ALGORITHM);
-			SecretKeySpec secretKey = new SecretKeySpec(m_strSecKey.getBytes(CONTENT_CHARSET), mac.getAlgorithm());
-			mac.init(secretKey);
-			byte[] hash = mac.doFinal(contextStr.getBytes(CONTENT_CHARSET));
-			byte[] sigBuf = byteMerger(hash, contextStr.getBytes("utf8"));
-			strSign = new String(new BASE64Encoder().encode(sigBuf).getBytes());
-			strSign = strSign.replace(" ", "").replace("\n", "").replace("\r", "");
-		} catch (Exception e) {
-			System.out.print(e.toString());
-			return "";
-		}
-		return strSign;
-	}
+        long endTime = (currentTime + signValidDuration);
+        contextStr += "secretId=" + java.net.URLEncoder.encode(secretId, "utf8");
+        contextStr += "&currentTimeStamp=" + currentTime;
+        contextStr += "&expireTime=" + endTime;
+        contextStr += "&random=" + random;
+
+        try {
+            Mac mac = Mac.getInstance(HMAC_ALGORITHM);
+            SecretKeySpec secretKey = new SecretKeySpec(this.secretKey.getBytes(CONTENT_CHARSET), mac.getAlgorithm());
+            mac.init(secretKey);
+
+            byte[] hash = mac.doFinal(contextStr.getBytes(CONTENT_CHARSET));
+            byte[] sigBuf = byteMerger(hash, contextStr.getBytes("utf8"));
+            strSign = new String(new BASE64Encoder().encode(sigBuf).getBytes());
+            strSign = strSign.replace(" ", "").replace("\n", "").replace("\r", "");
+        } catch (Exception e) {
+            throw e;
+        }
+        return strSign;
+    }
+
+    public void setSecretId(String secretId) {
+        this.secretId = secretId;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
+
+    public void setCurrentTime(long currentTime) {
+        this.currentTime = currentTime;
+    }
+
+    public void setRandom(int random) {
+        this.random = random;
+    }
+
+    public void setSignValidDuration(int signValidDuration) {
+        this.signValidDuration = signValidDuration;
+    }
 }
 
-class Test {
-	public static void main(String[] args) {
-		Signature sign = new Signature();
-		sign.m_strSecId = "Secret Id in the personal API secret key";
-		sign.m_strSecKey = "Secret Key in the personal API secret key";
-		sign.m_qwNowTime = System.currentTimeMillis() / 1000;
-		sign.m_iRandom = new Random().nextInt(java.lang.Integer.MAX_VALUE);
-		sign.m_iSignValidDuration = 3600 * 24 * 2;
-		
-		System.out.print(sign.GetUploadSignature());
-	}
+public class Test {
+    public static void main(String[] args) {
+        Signature sign = new Signature();
+        sign.setSecretId("个人API密钥中的Secret Id");
+        sign.setSecretKey("个人API密钥中的Secret Key");
+        sign.setCurrentTime(System.currentTimeMillis() / 1000);
+        sign.setRandom(new Random().nextInt(java.lang.Integer.MAX_VALUE));
+        sign.setSignValidDuration(3600 * 24 * 2);
+
+        try {
+            String signature = sign.getUploadSignature();
+            System.out.println("signature : " + signature);
+        } catch (Exception e) {
+            System.out.print("获取签名失败");
+            e.printStackTrace();
+        }
+    }
 }
 ```
 
