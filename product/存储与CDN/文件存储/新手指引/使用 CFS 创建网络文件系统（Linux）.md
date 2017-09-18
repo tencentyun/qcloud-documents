@@ -87,7 +87,7 @@
 ## 四、挂载文件系统
 
 #### 1. 启动 NFS 客户端
-挂载前，请确保系统中已经安装了`nfs-utils`或`nfs-common`,安装方法如下：
+挂载前，请确保系统中已经安装了`nfs-utils`或`nfs-common`，安装方法如下：
 - CentOS：
 ```
 sudo yum install nfs-utils
