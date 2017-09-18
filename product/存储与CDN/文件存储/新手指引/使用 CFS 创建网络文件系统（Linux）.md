@@ -50,10 +50,10 @@
 ## 二、创建文件系统及挂载点
 
 1. 进入腾讯云 [控制台](https://console.cloud.tencent.com/)，单击【云产品】>【存储】>【文件存储】，即可进入 CFS 控制台。
-![](//mc.qcloudimg.com/static/img/2985f36369578c2f0662735748532620/image.png)
+![](//mc.qcloudimg.com/static/img/4fee6ea61cfba11927f6891527237610/image.png)
 
 2. 在腾讯云 CFS 控制台，单击【新建】，弹出创建文件系统弹窗。在创建文件系统弹窗中填写相关信息，确认无误后，单击【确定】即可创建文件系统。
-![](//mc.qcloudimg.com/static/img/8702bd75495c4f372a33f02bbaa865ff/image.png)
+![](//mc.qcloudimg.com/static/img/3152947067c8897d3b609e1f6cd2ccae/image.png)
  - 名称：您可以为创建的文件系统进行命名。
  - 地域和可用区：靠近您客户的地域可降低访问延迟，提高下载速度。
  - 网络类型：腾讯云提供基础网络或私有网络两种可选。基础网络适合新手用户，同一用户的云服务器内网互通。私有网络适合更高阶的用户，不同私有网络间逻辑隔离。
@@ -65,7 +65,7 @@
  > - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](https://www.qcloud.com/document/product/582/9764)。
 
 3. 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Linux 下的挂载命令。
-![](//mc.qcloudimg.com/static/img/1009d4e7eb33ca89eda92f3beba6fb4b/image.png)
+![](//mc.qcloudimg.com/static/img/b5d0794e84311c37a2543686abc51be1/image.png)
 
 ## 三、连接实例
 本部分操作介绍登录 Linux 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见 [登录 Linux 实例](/doc/product/213/5436) 。
@@ -184,6 +184,6 @@ umount /local/test
 ## 五、终止资源
 您可以从腾讯云控制台轻松终止 CVM 实例和文件系统。事实上，最好终止不再使用的资源，以免继续为其付费。
 1. 终止腾讯云实例。进入腾讯云云服务器 [控制台](https://console.cloud.tencent.com/cvm/index)，选中需要终止的实例，单击【更多】>【云主机状态】，可以选中【销毁】以终止 CVM 实例。
-![](//mc.qcloudimg.com/static/img/0b0d631ceb9c94433d9302ca62b59e87/image.png)
+![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. 终止文件系统。进入腾讯云文件存储 [控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
-![](//mc.qcloudimg.com/static/img/506fd3cb3b4ed7cf8cb0cbff4715a2ee/image.png)
+![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
