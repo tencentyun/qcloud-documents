@@ -37,7 +37,7 @@
 
 ## 2 自己实现UI
 如果您不考虑复用我们开发包中的 UI 代码，决心自己实现 UI 部分，则可以参考如下的攻略进行对接：
-### 1. 预览图片组
+### 1 预览图片组
 **TXVideoInfoReader** 的 **getVideoFileInfo** 方法可以获取指定视频文件的一些基本信息，**getSampleImages** 则可以获取指定数量的预览图：
 
 ```objective-c
@@ -76,7 +76,7 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_540P, mVideoO
 ```
 输出时指定文件压缩质量和输出路径，输出的进度和结果会通过`TXVideoEditer.TXVideoGenerateListener`以回调的形式通知用户。
 
-### 4. 滤镜特效
+### 4 滤镜特效
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo提供了9种滤镜选择，同时也可以设置自定义的滤镜。
 设置滤镜调用 **TXVideoEditer** 的 **setFilter** 方法：
 
@@ -85,7 +85,7 @@ void setFilter(Bitmap bmp)
 ```
 其中 image 为滤镜映射图，image 设置为nil，会清除滤镜效果。
 
-### 5. 音轨处理
+### 5 音轨处理
 您可以为视频添加自己喜欢的背景音乐，并且可以选择音乐播放的起始时间和结束时间，如果音乐的播放时间段小于视频的时间段，音乐会循环播放至视频结束。除此之外，您也可以设置视频声音和背景声音的大小，来达到自己想要声音合成效果。
 
 设置背景音乐的方法为：
@@ -113,7 +113,7 @@ mTXVideoEditer.setBGMStartTime(startTime, endTime);
 mTXVideoEditer.setBGMVolume(0.5f);
 mTXVideoEditer.setVideoVolume(0.5f);
 ```
-### 6. 视频加速
+### 6 视频加速
 您可以设置视频加速播放，实现快播的效果。
 
 设置视频加速播放的方法为：
@@ -127,7 +127,7 @@ Demo示例：
 ```
 mTXVideoEditer.setSpeedLevel(2.0f);
 ```
-### 7. 设置水印
+### 7 设置水印
 您可以为视频设置水印图片，并且可以指定图片的位置
 
 设置水印的方法为：
@@ -145,7 +145,7 @@ rect.y = 0.5f;
 rect.width = 0.5f;
 mTXVideoEditer.setWaterMark(mWaterMarkLogo, rect);
 ```
-### 8.设置片尾水印
+### 8 设置片尾水印
 
 您可以为视频设置片尾水印，并且可以指定片尾水印的位置
 
@@ -168,7 +168,7 @@ txRect.width = tailWaterMarkBitmap.getWidth() / (float) mTXVideoInfo.width;
 mTXVideoEditer.setTailWaterMark(tailWaterMarkBitmap, txRect, 3);
 ```
 
-### 9. 字幕叠加
+### 9 字幕叠加
 
 您可以为视频添加字幕，我们支持对每一帧视频添加字幕，每个字幕你也可以设置视频作用的起始时间和结束时间。所有的字幕组成了一个字幕列表， 你可以把字幕列表传给SDK内部，SDK会自动在合适的时间对视频和字幕做叠加。
 
