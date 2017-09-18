@@ -4,7 +4,7 @@
 接口：   
 
 1. 测试： `https://sdtj.y.qq.com:8008/test-query`    
-2. 正式： `https://sdtj.y.qq.com:8008/query](https://sdtj.y.qq.com:8008/query`  
+2. 正式： `https://sdtj.y.qq.com:8008/query`  
 
 方法：POST  
 
