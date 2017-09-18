@@ -92,7 +92,7 @@
 ```
 sudo yum install nfs-utils
 ```
-- Ubuntu 或 Debian
+- Ubuntu 或 Debian：
 ```
 sudo apt-get install nfs-common
 ```
