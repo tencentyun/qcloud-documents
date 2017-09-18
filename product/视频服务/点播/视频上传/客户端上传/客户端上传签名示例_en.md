@@ -98,8 +98,8 @@ class Signature {
 public class Test {
     public static void main(String[] args) {
         Signature sign = new Signature();
-        sign.setSecretId("个人API密钥中的Secret Id");
-        sign.setSecretKey("个人API密钥中的Secret Key");
+        sign.setSecretId("your secretId");
+        sign.setSecretKey("your SecretKey");
         sign.setCurrentTime(System.currentTimeMillis() / 1000);
         sign.setRandom(new Random().nextInt(java.lang.Integer.MAX_VALUE));
         sign.setSignValidDuration(3600 * 24 * 2);
@@ -108,7 +108,7 @@ public class Test {
             String signature = sign.getUploadSignature();
             System.out.println("signature : " + signature);
         } catch (Exception e) {
-            System.out.print("获取签名失败");
+            System.out.print("get signature fail");
             e.printStackTrace();
         }
     }
