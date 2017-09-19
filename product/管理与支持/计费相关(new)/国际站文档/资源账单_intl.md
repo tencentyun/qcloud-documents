@@ -1,5 +1,3 @@
-Bill
-
 # What is Bill?
 The Bill reports your spending on Tencent Cloud. It reflects the corresponding resource details in “Transactions”. 
 
