@@ -1,5 +1,3 @@
-Balance
-
 # What is account balance?
 Your account balance reflects your remaining cash balance and remaining free credits. The service automatically charges the account balance at the end of a billing cycle. The billing cycle varies by product and most Tencent Cloud services are billed by the hour.
 
