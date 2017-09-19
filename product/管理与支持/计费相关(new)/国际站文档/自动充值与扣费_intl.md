@@ -1,5 +1,3 @@
-Automatic Charge & Top Up
-
 # Why do we automatically charge and top up your account?
 Most of our cloud services are billed by the hour and therefore your account will be automatically charged by the hour. When your account balance runs negative, it is very likely that your cloud services will be interrupted. We strongly suggest that you top up before purchasing any services. To make sure you have a better experience with our cloud services, we will automatically top up your Tencent Cloud account when your account balance runs less than $1. If the top up amount is larger than the amount you currently owe, it will be reduced automatically the next time you are charged. 
 
