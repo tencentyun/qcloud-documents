@@ -32,13 +32,13 @@
 
 ## 下载地址
 <style>
-table th:nth-of-type(1) {  width: 150px; }
-table th:nth-of-type(2) {  width: 150px; }
-table th:nth-of-type(3) {  width: 150px; }
-table th:nth-of-type(4) {  width: 150px; }
-table th:nth-of-type(5) {  width: 150px; }
-table th:nth-of-type(6) {  width: 150px; }
-table th:nth-of-type(7) {  width: 150px; }
+table th:nth-of-type(1) {  width: 145px; }
+table th:nth-of-type(2) {  width: 145px; }
+table th:nth-of-type(3) {  width: 145px; }
+table th:nth-of-type(4) {  width: 145px; }
+table th:nth-of-type(5) {  width: 145px; }
+table th:nth-of-type(6) {  width: 145px; }
+table th:nth-of-type(7) {  width: 145px; }
 table td { height: 35px; }
 .markdown-text-box img {
     border: 0;
@@ -67,7 +67,7 @@ table td { height: 35px; }
 | 绿幕抠图 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 符号重命名 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 支持BitCode |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)||||
-||[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Smart_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Player_iOS_3.4.1757.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_UGC_iOS_3.4.1757.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_Rename_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_Rename_iOS_3.4.1757.zip)|
+||[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Smart_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Player_iOS_3.4.1757.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_UGC_iOS_3.4.1757.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_Rename_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_Rename_iOS_3.4.1757)|
 
 - **Android 平台**
 
