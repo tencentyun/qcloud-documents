@@ -1,6 +1,6 @@
-开发者可以在 [用户体验平台](http://www.qcloud.com/event/pd) 体验智能鉴黄的效果(用户体验平台不需要注册账号)。
+开发者可以在 [用户体验平台](http://www.qcloud.com/event/pd) 体验智能鉴黄的效果（用户体验平台不需要注册账号）。
 
-## 1. 基本概念
+## 基本概念
 
 | 概念     | 解释               |
 | ------ | ---------------- |
@@ -8,17 +8,17 @@
 | bucket | 开发者添加的空间名称       |
 
 > **注意：**
-> 如果开发者使用的是 V1 版本，appid 为其当时生成的 appid
+> 如果开发者使用的是 V1 版本，appid 为其当时生成的 APPID
 
-## 2. 描述
+## 描述
 
 智能鉴黄接口采用 http 协议，支持多 url 和多本地图片文件，每个请求最多支持 20 张图片或 url 。
 **接口：**  http://service.image.myqcloud.com/detection/porn_detect
 **方法：**  POST
 
-## 3. 图片 url 鉴黄
+## 图片 url 鉴黄
 
-### 3.1 请求语法
+### 请求语法
 
 
 ```
@@ -43,7 +43,7 @@ Content-Type: "application/json"
 | 参数             | 是否必须 | 描述                              |
 | -------------- | ---- | ------------------------------- |
 | Host           | 是    | 访问域名，service.image.myqcloud.com |
-| Authorization  | 是    | 鉴权签名，详见下面鉴权章节                   |
+| Authorization  | 是    | 鉴权签名，详见 [鉴权](https://cloud.tencent.com/document/product/275/3805)                  |
 | Content-Type   | 是    | 标准的 application/json             |
 | Content-Length | 是    | http body 总长度                    |
 
@@ -55,9 +55,9 @@ Content-Type: "application/json"
 | bucket | 是    | String | 图片空间    |
 | url    | 是    | String | 图片 url 列表 |
 
-### 3.2 返回内容
+### 返回内容
 
-**响应 http body(json 格式)：**
+**响应 http body（json 格式）：**
 
 | 参数          | 是否必须   | 类型           |
 | ----------- | ------ | ------------ |
@@ -86,9 +86,9 @@ Content-Type: "application/json"
 > **说明：**
 > 1、当 result=0 时，表明图片为正常图片；
 > 2、当 result=1 时，表明该图片是系统判定的 100% 为违禁的图片；如果该图片存储在万象优图，则会直接被封禁掉；
-> 3、当 result=2 时，表明该图片是疑似图片，即为黄图的可能性很大（目前 confidence 大于等于 83 小于 91 定为疑似图片）。
+> 3、当 result=2 时，表明该图片是疑似图片，即为黄图的可能性很大（目前 83 ≤ confidence ≤ 91 定为疑似图片）。
 
-### 3.3 示例
+### 示例
 
 **http 请求：**
 
@@ -144,11 +144,11 @@ Content-Type: "application/json"
 }
 ```
 
-## 4. 图片文件鉴黄
+## 图片文件鉴黄
 
 **描述：**图片文件鉴黄使用 HTML 表单上传一个或多个文件，文件内容通过多重表单格式（multipart/form-data）编码。
 
-### 4.1 请求语法
+### 请求语法
 
 ```
 POST /detection/porn_detect HTTP/1.1
@@ -183,7 +183,7 @@ image_content
 | 参数             | 是否必须 | 描述                              |
 | -------------- | ---- | ------------------------------- |
 | Host           | 是    | 访问域名，service.image.myqcloud.com |
-| Authorization  | 是    | 鉴权签名，详见下面鉴权章节                   |
+| Authorization  | 是    | 鉴权签名，详见 [鉴权](https://cloud.tencent.com/document/product/275/3805)    |
 | Content-Type   | 是    | 标准的 application/json             |
 | Content-Length | 是    | http body 总长度                    |
 
@@ -193,11 +193,11 @@ image_content
 | ------ | ---- | ---------- | ---------------------------------------- |
 | appidt | 是    | Uint       | 业务 ID |
 | bucket | 是    | String     | 图片空间                                     |
-| image  | 是    | Image/Jpeg | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]” 等，每张图片需指定 filename |
+| image  | 是    | Image/Jpeg | 图片文件，支持多个。参数名须为 `image[0]`、`image[1]`等，每张图片需指定 filename |
 
-### 4.2 返回内容
+### 返回内容
 
-**响应 http body (json 格式)：**
+**响应 http body（json 格式）：**
 
 | 参数          | 类型     | 描述           |
 | ----------- | ------ | ------------ |
@@ -226,9 +226,9 @@ image_content
 > ** 说明：**
 > 1、 当 result=0 时，表明图片为正常图片；
 > 2、 当 result=1 时，表明该图片是系统判定的违禁的图片；
-> 3、 当 result=2 时，表明该图片是疑似图片，即为黄图的可能性很大（目前 confidence 大于等于 83 小于 91 定为疑似图片）。
+> 3、 当 result=2 时，表明该图片是疑似图片，即为黄图的可能性很大（目前  83 ≤ confidence ≤ 91  定为疑似图片）。
 
-### 4.3 示例
+### 示例
 
 **http 请求：**
 
@@ -260,7 +260,7 @@ Content-Type: image/jpeg
 ---------------------------acebdf13572468
 ```
 
-** 响应 http body(application/json 格式)：**
+** 响应 http body（application/json 格式）：**
 
 ```
 {
@@ -295,22 +295,20 @@ Content-Type: image/jpeg
 }
 ```
 
-
-
-## 5 错误码
+## 错误码
 
 | 错误码   | 含义                                  |
 | ----- | ----------------------------------- |
 | 3     | 错误的请求                               |
 | 4     | 签名为空                                |
 | 5     | 签名串错误                               |
-| 6     | appid/bucket/url 不匹配                 |
+| 6     | APPID/bucket/url 不匹配                 |
 | 7     | 签名编码失败（内部错误）                        |
 | 8     | 签名解码失败（内部错误）                        |
 | 9     | 签名过期                                |
-| 10    | appid 不存在                            |
-| 11    | secretid 不存在                         |
-| 12    | appid 不匹配                            |
+| 10    | APPID 不存在                            |
+| 11    | SecretId 不存在                         |
+| 12    | APPID 不匹配                            |
 | 13    | 重放攻击                                |
 | 14    | 签名失败                                |
 | 15    | 操作太频繁，触发频控                          |
