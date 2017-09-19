@@ -9,13 +9,13 @@
 2. 单击右侧【Add reviewer】按钮并在下拉框中找到需要参与评审的人员来添加 Reviewer。  
 ![](https://mc.qcloudimg.com/static/img/9816d1f662a1e2f360208103aa9c4bae/2017-09-15_093630.png)
 
-3. Merge Request 将会提示 “Merging is blocked. Review required.”，Review 改变为锁定状态，即需要通过评审才可提交。
+3. 页面将会提示 “Merging is blocked. Review required.”，Review 改变为锁定状态，即需要通过评审才可提交。
 ![](https://mc.qcloudimg.com/static/img/c4ec0da3d825aec2a856a76adcaab63c/2017-09-15_094738.png)
 
-4. Reviewer 收到之后可以在 “Changes” 查看内容，并进行相关评论。
+4. Reviewer 收到之后可以在【Changes】查看内容，并进行相关评论。
 ![](https://mc.qcloudimg.com/static/img/cc0bb1c28dfa11760caef2a4e6822343/2017-09-18_103955.png)
 
-5. Reviewer 确认没有问题后，可在 “Review Changes” 进行是否通过的操作。
+5. Reviewer 确认没有问题后，可在 【Review Changes】进行是否通过的操作。
 ![](https://mc.qcloudimg.com/static/img/4d249876e6e8ea4d5cd51a11710d2302/2017-09-15_095345.png)
 
 6. 当 Review 评审已经通过后，Merge Request 将改变为可合并状态。
@@ -42,13 +42,13 @@
 【Necessary reviewers】添加人员后创建 Review 会自动成为 Reviewer，但是不能被移除。
 
 - Branch setting：  
-All approve 是所有 Reviewer 成员 Approve 后该 Review 的评审才算通过；
+All approve 是所有 Reviewer 成员 Approve 后该 Review 的评审才算通过；  
 Single approve 是 Reviewer 中一个成员 Approve 后该 Review 的评审就算通过（不设置的情况下默认为 Single approve）。
 
 ## Code Review 状态
-- **Approving：** Review 创建后的初始状态，当有成员将该 Review 的状态改为 Change 或 Deny 时状态后再次 Reopen 该 Review 会重新回到 Approving 状态。
-- **Change required：** 每一位 Reviewer 成员都可以将 Approving 状态更改为 Change required，状态改为 Change required 后再次 Reopen Review 后状态会变为 Approving。
-- **Deny：** 每一位 Reviewer 成员都可以将 Approving 状态更改为 Deny，状态改为 Deny 后再次 Reopen Review 后状态会变为Approving。
-- **OK：** 当 Review 的状态变更为 OK 后即该 Review 通过评审（注意关注 Review 设置是 All approve 还是 Single approve）。
+- **Approving：** Review 创建后的初始状态，当有成员将该 Review 的状态改为 Change 或 Deny 状态后，再次 Reopen 该 Review ，状态将会重新回到 Approving。
+- **Change required：** 每一位 Reviewer 成员都可以将 Approving 状态更改为 Change required，再次 Reopen 该 Review 后状态将会变为 Approving。
+- **Deny：** 每一位 Reviewer 成员都可以将 Approving 状态更改为 Deny，再次 Reopen Review 后状态将会变为 Approving。
+- **OK：** Review 的状态变更为 OK 时，即意味着该 Review 通过评审（注意关注 Review 设置是 All approve 还是 Single approve）。
 
   
