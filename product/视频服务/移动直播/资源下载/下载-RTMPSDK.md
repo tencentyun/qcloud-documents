@@ -32,13 +32,13 @@
 
 ## 下载地址
 <style>
-table th:nth-of-type(1) {  width: 145px; }
-table th:nth-of-type(2) {  width: 145px; }
-table th:nth-of-type(3) {  width: 145px; }
-table th:nth-of-type(4) {  width: 145px; }
-table th:nth-of-type(5) {  width: 145px; }
-table th:nth-of-type(6) {  width: 145px; }
-table th:nth-of-type(7) {  width: 145px; }
+table th:nth-of-type(1) {  width: 150px; }
+table th:nth-of-type(2) {  width: 150px; }
+table th:nth-of-type(3) {  width: 150px; }
+table th:nth-of-type(4) {  width: 150px; }
+table th:nth-of-type(5) {  width: 150px; }
+table th:nth-of-type(6) {  width: 150px; }
+table th:nth-of-type(7) {  width: 150px; }
 table td { height: 35px; }
 .markdown-text-box img {
     border: 0;
