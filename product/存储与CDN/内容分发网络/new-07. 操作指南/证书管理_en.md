@@ -5,7 +5,7 @@ You can apply for a free third party certificate from TrustAsia on SSL Certifica
 ## Configuring Certificate
 
 If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.qcloud.com/cdn), and go to **Certificates** page and click "Configure Certificate":
-![](//mc.qcloudimg.com/static/img/cb0eb0e74190b860dec59bab57415cf5/image.png)
+![](//mc.qcloudimg.com/static/img/4b6dc524595e3ac1c605676210901659/image.png)
 
 ### 1. Selecting a Domain
 Select the accelerated domain for which you want to configure a certificate. Note:
