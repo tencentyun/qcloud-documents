@@ -1,6 +1,6 @@
 
 CDN provides two billing methods:  **Pay by Bandwidth** and **Pay by Traffic**. Both methods use a <font color="red">post-payment policy and charged on a daily basis</font>. The charge for total consumption generated during 00:00:00 - 23:59:59 on the current date will be billed the next day.
-Tencent Cloud CDN provides Standard and Premium plans. The Premium plan provides more service nodes and advanced features. To learn more about pricing of the Premium plan, please contact Tencent Cloud sales representatives.
+Tencent Cloud CDN provides **Standard** and **Premium** plans.The Premium plan provides more service nodes and advanced features. To learn more about pricing of the Premium plan, please contact Tencent Cloud sales representatives.
 
 ## The Standard Plan Pay by Bandwidth
 ### Tiered Prices
