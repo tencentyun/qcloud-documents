@@ -1,3 +1,10 @@
+### Version 3.4
+- IOS&Android：短视频录制新增回删、多比例切换、焦距调节等功能。
+- IOS&Android：短视频编辑新增片尾水印功能。
+- IOS&Android：修复第三方推流FLV直播兼容性问题。
+- IOS：解决IOS11兼容性问题。
+- Android：解决点播回调不精确问题。
+
 ### Version 3.3
 - IOS&Android：点播HLS支持EXT-X-DISCONTINUITY标签。
 - Android：支持后台采集推流。
