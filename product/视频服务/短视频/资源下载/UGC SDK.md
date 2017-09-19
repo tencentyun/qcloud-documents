@@ -27,6 +27,6 @@
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
 | iOS平台  | 3.4.1757 @ 2017-09-18| [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_iOS_3.4.1757.zip) |
-| Android平台  | 3.4.1757 @ 2017-09-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/LiteAVSDK_Enterprise_Android_3.4.1757.zip) |
+| Android平台  | 3.4.1757 @ 2017-09-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/LiteAVSDK_Enterprise_Android_3.4.1757.zip) | 
 
 
