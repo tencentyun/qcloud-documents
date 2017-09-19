@@ -4,8 +4,8 @@ You can apply for a free third party certificate from TrustAsia on SSL Certifica
 
 ## Configuring Certificate
 
-If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.qcloud.com/cdn), and go to **Certificates** page in **Advanced** and click "Configure Certificate":
-![](https://mc.qcloudimg.com/static/img/01da37e2a16808ccb23cfec174a08409/1.png)
+If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.qcloud.com/cdn), and go to **Certificates** page and click "Configure Certificate":
+![](//mc.qcloudimg.com/static/img/cb0eb0e74190b860dec59bab57415cf5/image.png)
 
 ### 1. Selecting a Domain
 Select the accelerated domain for which you want to configure a certificate. Note:
@@ -21,7 +21,7 @@ Select the accelerated domain for which you want to configure a certificate. Not
 
 Select "External Certificate", and paste the certificate content and private key to the corresponding text boxes. You can optionally add a remark for identifying the certificate.
 
-![](https://mc.qcloudimg.com/static/img/794ed717eb96076fde27ad9abde38093/3.png)
+![](//mc.qcloudimg.com/static/img/4b6dc524595e3ac1c605676210901659/image.png)
 
 + The certificate content must take a PEM format. For non-PEM certificates, please refer to the instructions below for format conversion;
 + If your certificate has a certificate chain, please convert its content into PEM format, and upload it with the certificate content. The instructions on the completion of certificate chain is described later in this chapter.
