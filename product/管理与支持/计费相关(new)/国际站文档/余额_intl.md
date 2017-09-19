@@ -1,13 +1,17 @@
+Balance
+
 # What is account balance?
-The service automatically charges the account balance At the end of a billing cycle. Billing cycle varies by product, most Tencent Cloud services are billed by hour.
+Your account balance reflects your remaining cash balance and remaining free credits. The service automatically charges the account balance at the end of a billing cycle. The billing cycle varies by product and most Tencent Cloud services are billed by the hour.
 
 # What happens when the balance is negative?
-If you are using cloud services and your account balance is less than the amount you need to be charged, we will automatically charges the cost of the cloud services you have used from PayPal you signed, and if your account balance is less than $ 1, We will also top up $ 30 to your account balance for the further use.
-For example, If your are owed $ 3 at the end of a charge cycle, we will charge you $ 3 and top up $ 30 automatically to your account balance.
-If your balance is negative, and we fail to charge from your PayPal, your cloud services will be interrupted. Please ensure that PayPal is valid to prevent this from happening.
+When your account balance is negative, it is very likely that your cloud services will be interrupted. Most of our hourly billed products will be stopped if your account remains negative for two hours consecutively. Therefore, to make sure you have a better experience with our products, we will automatically charge you using your designated PayPal account if your account balance is less than the service fee you spent. We will also automatically top up your account once your account balance is less than $1. Normally the top up amount will be no more than $30. For example, if you are owed $3 at the end of a charge cycle, we will charge you $3 and top up your account balance to $30 automatically.
 
-# How to Top up the balance
+If your balance remains negative and we fail to charge you using PayPal, your cloud services will be interrupted. Please ensure that your PayPal is valid to prevent this from happening.
+
+If the top up amount is larger than the amount you currently owe, your next payment will be reduced. 
+
+# How to top up the balance
 Please refer to “Top up"
 
-# How to refund
-You can start a ticket to return your account balance to your payment source.
+# How to withdraw
+You can submit a ticket for your cash account balance to be returned to your payment source. Please note that only your cash balance can be withdrawn. Credits granted by Tencent Cloud can only apply to future bills.
