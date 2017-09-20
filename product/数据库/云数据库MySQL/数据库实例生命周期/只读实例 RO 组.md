@@ -9,6 +9,7 @@
 1.1 在 [关系型数据库](https://console.cloud.tencent.com/cdb) 页面中，选择需要创建只读实例 RO 组的云数据库，单击【管理】，进入云数据库主实例管理界面。
 ![](//mc.qcloudimg.com/static/img/09c0db073e75d30c287de0f10ffed935/image.png)
 ![](//mc.qcloudimg.com/static/img/8310ec591eaf21747ef6f688c9b7b78c/image.png)
+![](//mc.qcloudimg.com/static/img/25d709a6fd7e66a904c7d7a9470c405a/image.png)
 ![](//mc.qcloudimg.com/static/img/3dbe474e9d30c4191d8e287784517370/image.png)
 1.2 在管理界面中，点击【添加只读实例】，进入只读实例管理界面。
 ![](//mc.qcloudimg.com/static/img/caf451dd27d3dc6227618e3f7af3a55d/image.png)
