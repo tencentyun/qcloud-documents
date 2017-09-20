@@ -34,7 +34,7 @@
   </tr>
 </table>
 
-![](//mc.qcloudimg.com/static/img/dc2fbfdc059a1aa6e460be4f683fdd4c/image.png)
+![](//mc.qcloudimg.com/static/img/823c698e49c613958ba74fb4bfb9bda6/image.png)
 - 选择实例规格和所需的硬盘。
 ![](//mc.qcloudimg.com/static/img/ab288476b0ad541d6064d7ef42209836/image.png)
 如果指定 RO 组选项配置为 **新建 RO 组**，则需要在购买界面中填写新建的 RO 组的以下基本信息。
