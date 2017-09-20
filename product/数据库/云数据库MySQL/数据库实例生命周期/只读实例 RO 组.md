@@ -7,17 +7,11 @@
 ## 操作说明
 ### 1. 创建只读实例
 1.1 在 [关系型数据库](https://console.cloud.tencent.com/cdb) 页面中，选择需要创建只读实例 RO 组的云数据库，单击【管理】，进入云数据库主实例管理界面。
-
 ![](//mc.qcloudimg.com/static/img/6e4685a58eb06de6a601b439b32c48e5/image.png)
-
 1.2 在管理界面中，点击【添加只读实例】，进入只读实例管理界面。
-
 ![](//mc.qcloudimg.com/static/img/e18c9c353d84fdb33a839058d50606a0/image.png)
-
 1.3 在只读实例管理界面中，单击【新建】，创建只读实例。
-
 ![](//mc.qcloudimg.com/static/img/da729793da40cbb3a93224199b463dcb/image.png)
-
 1.4 在弹出的购买页面中，选择云数据库只读实例的相应配置。核对无误后单击【立即购买】购买只读实例。
 - 指定 RO 组。
 <table>
@@ -39,37 +33,25 @@
   </tr>
 </table>
 - 选择实例规格和所需的硬盘。
-
 ![](//mc.qcloudimg.com/static/img/da900febc38d8e18e965282fd21712ee/image.png)
-
 如果指定 RO 组选项配置为 **新建 RO 组**，则需要在购买界面中填写新建的 RO 组的以下基本信息。
 - 设置 RO 组名称：RO 组名称不要求唯一。支持长度小于 60 的中文、英文、数字、`-`、`_`、`.` 。
 - 延时超限剔除：是否启动剔除策略。被剔除的实例权重自动设置为 0，且新增实例状态：停服同步中。只读实例延迟超过阀值被剔除会向用户发出警告。
 - 延迟阀值：为只读实例设置延迟超限阀值，超过阀值可设置剔除。此项必须设置。无论是否启用剔除策略，延迟超限都会告警。
 - 最少保留实例数：组内需要保证的实例下限。若现有只读实例数低于此下限则超限不再自动设置权重为 0。此项必须设置，且最小为 0。
-
 ![](//mc.qcloudimg.com/static/img/97f03a1c5fb6fa4933c5ad8fb6ee9e90/image.png)
-
 1.5 进入 [云数据库控制台](https://console.qcloud.com/cdb)，找到刚才创建的实例类型为 **只读实例** 的实例，则表示只读实例创建成功。
-
 ![](//mc.qcloudimg.com/static/img/5cedde6a1bcd0bbb1b224e4cf5e7b8b7/image.png)
 
 ### 2. 配置只读实例 RO 组
 在只读实例 RO 组的配置界面，可以配置只读实例 RO 组的名称、延时超限策略、延时阈值、最少保留实例、读权重等基本信息，具体的操作步骤如下。
 2.1 在 [云数据库控制台](https://console.qcloud.com/cdb)，选择需要设置只读实例 RO 组的云数据库主实例，单击【管理】，进入云数据库主实例管理界面。
-
 ![](//mc.qcloudimg.com/static/img/f535a952f8493a97c0a3658446ab1274/image.png)
-
 2.2 在云数据库主实例管理界面，单击【只读实例】，进入只读实例 RO 组管理界面。 
-
 ![](//mc.qcloudimg.com/static/img/eb53463cc9e59174552d5fb0c15c3bef/image.png)
-
 2.3 在只读实例 RO 组管理页面，单击【配置】，进入只读实例 RO 组配置界面。
-
 ![](//mc.qcloudimg.com/static/img/2725ce8c45087efd179b68c6a82ec86b/image.png)
-
 2.4 在只读实例 RO 组配置界面，可以对只读实例 RO 组进行详细配置。
-
 ![](//mc.qcloudimg.com/static/img/f19f30e33db0d35a4e6c3a1d71559afd/image.png)
 - RO 组名称：RO 组名称不要求唯一。支持长度小于 60 的中文、英文、数字、`-`、`_`、`.` 。
 - 实例延时超限剔除：是否启动剔除策略。被剔除的实例权重自动设置为 0，且新增实例状态：停服同步中。只读实例延迟超过阀值被剔除会给用户提供警告。
