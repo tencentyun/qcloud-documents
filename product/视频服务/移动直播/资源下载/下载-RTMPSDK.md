@@ -1,6 +1,6 @@
 ## 版本说明 
 + **版本相关信息**
-  - 版本号：3.4.1757 @ 2017-09-18
+  - 版本号：3.4.1761 @ 2017-09-20
 
 + **直播相关优化**
   - iOS & Android：引入推流加速技术，当您推流到腾讯云的 rtmp 地址时，可以开启 <font color='purple'>TXLivePushConfig::enableNearestIP</font> 开关，此时SDK会使用 **推流+** 加速后的推流通道传输主播的音视频数据，使推流质量获得较大提升，如下是 SDK 和 其他直播软件的对比效果。（推其他云商请关闭 enableNearestIP 开关）
@@ -67,7 +67,7 @@ table td { height: 35px; }
 | 绿幕抠图 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 符号重命名 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 支持BitCode |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)||||
-||[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Smart_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Player_iOS_3.4.1757.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_UGC_iOS_3.4.1757.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_Rename_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_iOS_3.4.1757.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_Rename_iOS_3.4.1757)|
+||[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Smart_iOS_3.4.1761.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Player_iOS_3.4.1761.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_UGC_iOS_3.4.1761.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_iOS_3.4.1761.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_Rename_iOS_3.4.1761.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_iOS_3.4.1761.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_Rename_iOS_3.4.1761.zip)|
 
 - **Android 平台**
 
