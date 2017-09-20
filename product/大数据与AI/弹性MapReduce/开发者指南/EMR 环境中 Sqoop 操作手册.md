@@ -18,11 +18,11 @@
     sqoop:000> set server --host 10.0.1.182 --port 11000 --webapp sqoop
     Server is set successfully
 ```
-Server 的端口信息可在 sqoop-sys.sh 中查看:
-   ` export SQOOP\_HTTP_PORT=11000 // 服务端口`
+Server 的端口信息可在 sqoop-sys.sh 中查看：
+   ` export SQOOP\_HTTP_PORT=11000 // 服务端口`
 
 #### 查看 Server 信息
-连接成功后，Server version 会显示服务端的版本，API 版本等相关信息
+连接成功后，执行`show version -all`命令，Server version 会显示服务端的版本，API 版本等相关信息。
 ```
     sqoop:000> show version -all
     client version:
@@ -39,8 +39,17 @@ Server 的端口信息可在 sqoop-sys.sh 中查看:
 ```
 ### 2. connector
 执行 `show connector` 可以看到支持的 connector：
+```
     sqoop:000> show connector
-![](//mc.qcloudimg.com/static/img/cd98270de7e88c0fce09c6033f6760e8/image.png)
+    ---------------------------------------------------------------------------------
+    Name                        Class
+    ---------------------------------------------------------------------------------
+    generic-jdbc-connector      org.apache.sqoop.connector.jdbc.GenericJdbcConnector
+    kite-connector              org.apache.sqoop.connector.kite.KiteConnector
+    hdfs-connector              org.apache.sqoop.connector.hdfs.HdfsConnector
+    kafka-connector             org.apache.sqoop.connector.kafka.KafkaConnector
+    ---------------------------------------------------------------------------------
+```
 ### 3. link
 link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数据导入到 link2 中。
 
@@ -79,11 +88,19 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
     New link was successfully created with validation status OK and persistent id 2
 ```
 #### 查看创建的 link
-`sqoop:000> show link`
-![](//mc.qcloudimg.com/static/img/41c305963794e2b99752dc127e3fb207/image.png)
+执行`show link`命令，查看创建的 link，结果如下：
+```
+sqoop:000> show link
+--------------------------------------------------------------------
+Id   Name         Connector Id    Connector Name          Enabled
+--------------------------------------------------------------------
+1    mysql-link   1               generic-jdbc-connector  true
+2    hdfs-link    3               hdfs-connector          true
+--------------------------------------------------------------------
+```
 ### 4. job
 #### 把 MySQL 的数据导入到 hdfs
-参数 `-f linkId (from-link Id) -t linkId (to-link Id)`
+参数： -f linkId (from-link Id) ，-t linkId (to-link Id)。
 ```
     sqoop:000> create job -f 1 -t 2 // 创建一个job
     Creating job for links with from id 1 and to id 2
@@ -129,8 +146,15 @@ link 表示一个数据通道，`from link1 to link2` 意味着将 link1 的数�
     New job was successfully created with validation status OK and persistent id 1
 ```
 #### 查看 job
+执行`show job`命令，查看job：
+```
 sqoop:000> show job
-![](//mc.qcloudimg.com/static/img/e00c0a69e526abbe2dba5d20f9b23af5/image.png)
+------------------------------------------------------------
+Id  Name         From Connector   To Connector    Enabled
+------------------------------------------------------------
+1   mysql-hdfs   1                3               true
+------------------------------------------------------------
+```
 #### 启动 job
 ```
     sqoop:000> start job -j 1 //-j jobid

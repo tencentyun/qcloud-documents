@@ -1,0 +1,1 @@
+After the VPN gateway and the peer gateway are established, the VPN tunnel can be established. Currently, VPN tunnels support IPsec encryption protocol, which can meet the needs of most VPN connections.

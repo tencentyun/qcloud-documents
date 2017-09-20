@@ -11,38 +11,38 @@ After applying for video service, enter "Tencent Cloud Console" -> "Live Video B
 <tbody><tr>
 <th> Package List
 </th><th> LVB Traffic (downlink)
-</th><th> Price (CNY)
+</th><th> Price (USD)
 </th></tr>
 <tr>
-<td style="text-align: center;"> 19 CNY Package
+<td style="text-align: center;"> 2.9 USD Package
 </td><td style="text-align: center;"> 10 GB
-</td><td style="text-align: center;"> 19
+</td><td style="text-align: center;"> 2.9
 </td></tr>
 <tr>
-<td colspan="3" style="text-align: center;"> Note: New user can get a 19 CNY package for free.
+<td colspan="3" style="text-align: center;"> Note: New user can get a 2.9 USD package for free.
 </td></tr>
 <tr>
-<td style="text-align: center;"> 49 CNY Package
+<td style="text-align: center;"> 7.5 USD Package
 </td><td style="text-align: center;"> 50 GB
-</td><td style="text-align: center;"> 49
+</td><td style="text-align: center;"> 7.5
 </td></tr>
 <tr>
-<td style="text-align: center;"> 95 CNY Package
+<td style="text-align: center;"> 14.5 USD Package
 </td><td style="text-align: center;"> 100 GB
-</td><td style="text-align: center;"> 95
+</td><td style="text-align: center;"> 14.5
 </td></tr>
 <tr>
-<td style="text-align: center;"> 470 CNY Package
+<td style="text-align: center;"> 72.0 USD Package
 </td><td style="text-align: center;"> 500 GB
-</td><td style="text-align: center;"> 470
+</td><td style="text-align: center;"> 72.0
 </td></tr>
 <tr>
-<td style="text-align: center;"> 939 CNY Package
+<td style="text-align: center;"> 143.8 USD Package
 </td><td style="text-align: center;"> 1 TB
-</td><td style="text-align: center;"> 939
+</td><td style="text-align: center;"> 143.8
 </td></tr>
 <tr>
-<td colspan="3" style="text-align: center;"> Note: Packages are valid for one year, and 1.1 CNY/GB will be charged for the traffic beyond the package quota which can be offset if you renew the package during a calendar month.
+<td colspan="3" style="text-align: center;"> Note: Packages are valid for one year, and 0.17 USD/GB will be charged for the traffic beyond the package quota which can be offset if you renew the package during a calendar month.
 </td></tr></tbody></table>
 
 Notes:
@@ -58,13 +58,13 @@ In addition to the package mode, postpaid mode is also available for LVB, that i
 **For consultation on or application for postpaid mode, contact Tencent commercial personnel. Tel: 4009-100-100**
 
 **1. Bandwidth postpaid mode**
- 1) Bandwidth price: 23 CNY/Mbps/month (the default price). Bandwidth supports tiered prices. For more information, contact Tencent commercial personnel. Tel: 4009-100-100.
+ 1) Bandwidth price: 3.5 USD/Mbps/month (the default price). Bandwidth supports tiered prices. For more information, contact Tencent commercial personnel. Tel: 4009-100-100.
  2) Billing items: Peak bandwidth (the maximum bandwidth consumption) 
  3) Billing mode: Postpaid 
  4) Billing cycle: A calendar month 
  5) Measurement rules: The system takes 5 minutes as the time granularity, and collects overall bandwidth data of streaming media across network-wide nodes.
 **2. Traffic postpaid mode**
- 1) Traffic price: 1.1 CNY/GB/month
+ 1) Traffic price: 0.17 USD/GB/month
  2) Billing items: traffic (overall traffic amount used in the current month) 
  3) Billing mode: Postpaid
  4) Billing cycle: A calendar month
@@ -85,7 +85,7 @@ It is calculated as follows: 500*100 = 50000 Kbps, 50000/1000=50 Mbps
 
 
 ## 1.2 Channel Billing
-Tencent Cloud LVB service provides each account with 5 free channels for debugging. If you need more channels for your product, the extra channel will be charged 60 CNY/channel/month. The overall channels equal the maximum concurrent actual push channels in a month. For more information, contact QQ: 3358225043.
+Tencent Cloud LVB service provides each account with 5 free channels for debugging. If you need more channels for your product, the extra channel will be charged 9.2 USD/channel/month. The overall channels equal the maximum concurrent actual push channels in a month. For more information, contact QQ: 3358225043.
 
 Notes:
 1. Each 50 MB of concurrent bandwidth can deduct the cost of one channel. This takes effect only when the billing is based on bandwidth.
@@ -98,15 +98,15 @@ For example, if the bandwidth billed is 100 MB, the maximum concurrent actual ch
 Using value-added LVB services can produce related costs. Currently, the billed value-added LVB services include recording, screencap and porn detection.
 
 ## 2.1 Recording Costs
-The price of recording in Tencent Cloud LVB service: 30 CNY/channel/month. The overall channels equal the maximum concurrent recording channels in a month.
+The price of recording in Tencent Cloud LVB service: 4.6 USD/channel/month. The overall channels equal the maximum concurrent recording channels in a month.
 The recorded files are stored in the Tencent Cloud VOD system and can produce VOD and storage costs. It can also produce VOD traffic/bandwidth costs during video playback. For information on VOD billing, please see [Product Price](https://www.qcloud.com/product/vod#price)
 
 ## 2.2 Screencap and Porn Detection Costs
 
 1. Billing items: LVB screenshot and picture porn detection.
 2. Price: 
-  1) Screenshot price: 0.1 CNY/1,000 screenshots. The first 999 are free of charge, and the extra quantity will be billed. The screenshots less than 1,000 will be counted as 1,000. For example, 3600 will be counted as 4000. 
-  2) Picture porn detection: 1.3 CNY/1,000 screenshots. The first 999 are free of charge, and the extra quantity will be billed. The screenshots less than 1,000 will be counted as 1,000. For example, 3600 will be counted as 4000. 
+  1) Screenshot price: 0.015 USD/1,000 screenshots. The first 999 are free of charge, and the extra quantity will be billed. The screenshots less than 1,000 will be counted as 1,000. For example, 3600 will be counted as 4000. 
+  2) Picture porn detection: 0.20 USD/1,000 screenshots. The first 999 are free of charge, and the extra quantity will be billed. The screenshots less than 1,000 will be counted as 1,000. For example, 3600 will be counted as 4000. 
 3. Notes
 The screenshot feature only produces screenshot costs. However, to enable picture porn detection, you must enable screenshot so that two costs will be produced.
 

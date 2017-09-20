@@ -35,7 +35,9 @@
 | `TXUGCRecord.h` |实现小视频的录制功能|
 | `TXUGCPublish.h` | 实现小视频的上传发布 |
 | `TXUGCRecordListener.h` | 小视频录制回调及发布回调 |
+| `TXUGCRecordEventDef.h` | 小视频录制事件回调 |
 | `TXUGCRecordTypeDef.h` | 基本参数定义 |
+| `TXUGCPartsManager.h` | 视频片段管理类，用于视频的多段录制，回删等 |
 
 ## 对接攻略
 
@@ -51,9 +53,9 @@ TXUGCSimpleConfig *config = [[TXUGCSimpleConfig alloc] init];
 //config.videoQuality = VIDEO_QUALITY_LOW;       // 360p, 10秒钟视频大约0.75M
 config.videoQuality   = VIDEO_QUALITY_MEDIUM;    // 540p, 10秒钟视频大约 1.5M （编码参数同微信iOS版小视频）
 //config.videoQuality = VIDEO_QUALITY_HIGH;      // 720p, 10秒钟视频大约   3M
-config.watermark      = image;                   // 水印图片(要用背景透明的 PNG 图片)
-config.watermarkPos   = pos;                     // 水印图片的位置
 config.frontCamera    = YES;                     //是否前置摄像头，使用 switchCamera 可以切换
+config.minDuration    = 5;                       //视频录制的最小时长
+config.maxDuration    = 60;                      //视频录制的最大时长
 [TXUGCRecord shareInstance].delegate = self;     //self 实现了 TXVideoPublishListener 接口
 [[TXUGCRecord shareInstance] startCamera:param preview:preViewContainer];
 ```
@@ -63,37 +65,86 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
 
 ```ObjectiveC
 //////////////////////////////////////////////////////////////////////////
-//                      以下为 1.9.1 版本后均支持的特效
+                        以下为 1.9.1 版本后均支持的特效
 //////////////////////////////////////////////////////////////////////////
-//
-// 切换前后摄像头 参数 isFront 代表是否前置摄像头 默认前置
-[[TXUGCRecord shareInstance] switchCamera YES];
+
+// 设置视频录制比例：3：4  9：16  1：1
+[[TXUGCRecord shareInstance] setAspectRatio:videoRatio];
+
+// 设置全局水印
+// waterMark            全局水印图片
+// normalizationFrame   水印相对于视频图像的归一化frame
+[[TXUGCRecord shareInstance] setWaterMark:waterMark  normalizationFrame:normalizationFrame];
+
+// 切换前后摄像头 isFront:是否前置摄像头(默认前置)
+[[TXUGCRecord shareInstance] switchCamera:YES];
 
 // 设置美颜 和 美白 效果级别
 // beautyDepth     : 美颜级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
 // whiteningDepth  : 美白级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
 [[TXUGCRecord shareInstance] setBeautyDepth: 7 WhiteningDepth: 1];
 
-// 设置颜色滤镜：浪漫、清新、唯美、粉嫩、怀旧...
-// image     : 指定滤镜用的颜色查找表。注意：一定要用png格式！！！
-// demo用到的滤镜查找表图片位于 RTMPiOSDemo/RTMPiOSDemo/resource／FilterResource.bundle 中
-// setSpecialRatio : 用于设置滤镜的效果程度，从0到1，越大滤镜效果越明显，默认取值0.5
+// 设置颜色滤镜:浪漫、清新、唯美、粉嫩、怀旧...
+// image: 指定滤镜用的颜色查找表。注意：一定要用png格式！！！
+// demo用到的滤镜查找表图片位于 RTMPiOSDemo/RTMPiOSDemo/resource/FilterResource.bundle中
+   setSpecialRatio : 用于设置滤镜的效果程度，从0到1，越大滤镜效果越明显，默认取值0.5
 [[TXUGCRecord shareInstance] setFilter: filterImage];
 [[TXUGCRecord shareInstance] setSpecialRatio: 0.5];
 
 // 是否打开闪光灯
 [[TXUGCRecord shareInstance] toggleTorch: YES];
 
+// 调整焦距 distance 1~5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清
+[[TXUGCRecord shareInstance]setZoom:1.0];
+
+//////////////////////////////////////////////////////////////////////////
+//                             背景音相关
+//////////////////////////////////////////////////////////////////////////
+// 播放背景音
+[[TXUGCRecord shareInstance] playBGM:path
+    withBeginNotify:beginNotify
+ withProgressNotify:progressNotify
+  andCompleteNotify:completeNotify];
+
+// 停止播放背景音乐
+[[TXUGCRecord shareInstance] stopBGM];
+
+// 暂停播放背景音乐
+[[TXUGCRecord shareInstance] pauseBGM];
+
+// 继续播放背景音乐
+[[TXUGCRecord shareInstance] resumeBGM];
+
+// 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小
+// volume: 音量大小，1为正常音量，建议值为0~2，如果需要调大音量可以设置更大的值
+[[TXUGCRecord shareInstance] setMicVolume:1.0];
+
+// setBGMVolume 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小
+// volume: 音量大小，1为正常音量，建议值为0~2，如果需要调大背景音量可以设置更大的值
+[[TXUGCRecord shareInstance]setBGMVolume:1.0];
+
 //////////////////////////////////////////////////////////////////////////
 //                       以下为仅特权版才支持的特效
 // （由于采用优图团队的知识产权，我们无法对外免费提供，需要使用特权版 SDK 才能支持）
 //////////////////////////////////////////////////////////////////////////
 
-// 设置大眼级别 0 ~ 9； ----- 推荐让主播自己选择特效程度，不同人的喜好不一样
+// 设置大眼级别 0 ~ 9
 [[TXUGCRecord shareInstance] setEyeScaleLevel: 0];
 
-// 设置瘦脸级别 0 ~ 9； ----- 推荐让主播自己选择特效程度，不同人的喜好不一样
+// 设置瘦脸级别 0 ~ 9
 [[TXUGCRecord shareInstance] setFaceScaleLevel: 0];
+
+// 设置V脸级别 0 ~ 9
+[[TXUGCRecord shareInstance] setFaceVLevel:0];
+
+// 设置下巴拉伸或收缩 -9 ~ 9 
+[[TXUGCRecord shareInstance] setChinLevel:0];
+
+// 设置短脸 0 ~ 9
+[[TXUGCRecord shareInstance] setFaceShortLevel:0];
+
+// 设置瘦鼻 0 ~ 9
+[[TXUGCRecord shareInstance] setNoseSlimLevel:0];
 
 // 设置动效贴纸 tmplName - 素材的名字   tmplDir - 素材包的路径
 [[TXUGCRecord shareInstance] selectMotionTmpl: tmplName inDir：tmplDir];
@@ -103,8 +154,9 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
 ```
 
 
-### 3. 文件录制
+### 3. 视频录制
 调用 TXUGCRecord 的 startRecord 函数即可开始录制，调用 stopRecord 函数即可结束录制，startRecord 和 stopRecord 的调用一定要配对。
+
 ```ObjectiveC
 [[TXUGCRecord shareInstance] startRecord];
 [[TXUGCRecord shareInstance] stopRecord];
@@ -113,24 +165,53 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
 录制的过程和结果是通过 TXVideoRecordListener（位于 TXUGCRecordListener.h 头文件中定义）接口反馈出来的：
 
 - onRecordProgress 用于反馈录制的进度，参数millisecond表示录制时长，单位毫秒:
+
 ```ObjectiveC
 @optional
 -(void) onRecordProgress:(NSInteger)milliSecond;
 ``` 
 
 - onRecordComplete 反馈录制的结果，TXRecordResult 的 retCode 和 descMsg 字段分别表示错误码和错误描述信息，videoPath 表示录制完成的小视频文件路径，coverImage 为自动截取的小视频第一帧画面，便于在视频发布阶段使用。
+
 ```ObjectiveC   
 @optional
 -(void) onRecordComplete:(TXRecordResult*)result;
-```     
+``` 
+    
+### 4. 多段视频录制及回删  
+```ObjectiveC
+ // pauseRecord 后会生成一段视频，视频可以在 TXUGCPartsManager 里面获取 
+[[TXUGCRecord shareInstance] pauseRecord];
 
-### 4. 文件预览
+ // resumeRecord 会继续录制视频
+[[TXUGCRecord shareInstance] resumeRecord];
+
+//获取片段管理对象
+@property (nonatomic, strong, readonly) TXUGCPartsManager *partsManager; 
+
+//获取当前所有视频片段的总时长
+[_partsManager getDuration];
+
+//获取所有视频片段路径
+[_partsManager getVideoPathList];
+
+// 删除最后一段视频
+[_partsManager deleteLastPart];
+
+// 删除指定片段视频
+[_partsManager deletePart:1];
+
+// 删除所有片段视频
+[_partsManager deleteAllParts];
+```
+
+### 5. 文件预览
 使用 [视频播放](https://www.qcloud.com/document/product/584/9372) 即可预览刚才生成的 MP4 文件，需要在调用 startPlay 时指定播放类型为 [PLAY_TYPE_LOCAL_VIDEO](https://www.qcloud.com/document/product/584/9372#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE6) 。
 
-### 5. 获取签名
+### 6. 获取签名
 要把刚才生成的 MP4 文件发布到腾讯云上，App 需要拿到上传文件用的短期有效上传签名，这部分有独立的文档介绍，详情请参考 [Server端集成 - 签名派发](https://www.qcloud.com/document/product/584/9371)。
 
-### 6. 文件发布
+### 7. 文件发布
 TXUGCPublish（位于 TXUGCPublish.h）负责将 MP4 文件发布到腾讯云视频分发平台上，以确保视频观看的就近调度、秒开播放、动态加速 以及海外接入等需求。
 
 ```ObjectiveC
@@ -164,5 +245,5 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 -(void) onPublishComplete:(TXPublishResult*)result;
 ```
 
-### 7.发布结果
+### 8.发布结果
 通过 [错误码表](https://www.qcloud.com/document/product/584/10176) 来确认短视频发布的结果。
