@@ -19,4 +19,4 @@ Wiki 保留了每个页面的版本历史记录，因此可以标识每个人的
 ![](//mc.qcloudimg.com/static/img/40d736bfd0f3b0bfd28acd267cd07a55/image.png)
 
 如果项目中没有启用任务板怎么办？
-请参阅 [应用设置](http://www.tapd.cn/20003271/markdown_wikis/view/#1120003271001000180)。
+请参阅 [应用设置](/doc/product/624/11425?!preview=true&lang=zh)。
