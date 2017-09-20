@@ -12,6 +12,9 @@
 ![](//mc.qcloudimg.com/static/img/ac1a151fe0079fac79b2901a5f9283bc/image.png)
 1.3 在只读实例管理界面中，单击【新建】，创建只读实例。
 ![](//mc.qcloudimg.com/static/img/fa84be50d87cd09d0c7f25f16b31ffca/image.png)
+
+![](//mc.qcloudimg.com/static/img/dc2fbfdc059a1aa6e460be4f683fdd4c/image.png)
+![](//mc.qcloudimg.com/static/img/ab288476b0ad541d6064d7ef42209836/image.png)
 1.4 在弹出的购买页面中，选择云数据库只读实例的相应配置。核对无误后单击【立即购买】购买只读实例。
 - 指定 RO 组。
 <table>
