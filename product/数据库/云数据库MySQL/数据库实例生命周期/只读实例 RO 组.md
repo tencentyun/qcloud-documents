@@ -32,7 +32,7 @@
     <td>指定一个 RO 组，若一次购买多个实例，将都分配至这个 RO 组。权重分配方式与 RO 组设置相同：如果 RO 组设置为系统自动分配，则根据购买规格自动添加 RO 组；如果为自定义分配，则默认权重为零。<b>由于同一 RO 组内网地址相同，因此若是 VPC 网络将共享同一个安全组设置。若指定 RO 组，则在购买时无法再自定义安全组。</b></td>
   </tr>
 </table>
-![](//mc.qcloudimg.com/static/img/823c698e49c613958ba74fb4bfb9bda6/image.png)
+![](//mc.qcloudimg.com/static/img/5db6834345e4087bff22e6c0715eb033/image.png)
 - 选择实例规格和所需的硬盘。
 ![](//mc.qcloudimg.com/static/img/ab288476b0ad541d6064d7ef42209836/image.png)
 如果指定 RO 组选项配置为 **新建 RO 组**，则需要在购买界面中填写新建的 RO 组的以下基本信息。
