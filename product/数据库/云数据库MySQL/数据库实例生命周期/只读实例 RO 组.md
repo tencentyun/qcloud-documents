@@ -14,6 +14,7 @@
 ![](//mc.qcloudimg.com/static/img/fa84be50d87cd09d0c7f25f16b31ffca/image.png)
 1.4 在弹出的购买页面中，选择云数据库只读实例的相应配置。核对无误后单击【立即购买】购买只读实例。
 - 指定 RO 组。
+
 <table>
   <tr>
     <th width="25%">指定 RO 组</th>
