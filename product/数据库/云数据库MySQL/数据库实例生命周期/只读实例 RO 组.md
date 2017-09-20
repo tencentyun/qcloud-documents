@@ -64,10 +64,10 @@
 
  <table>
   <tr>
-    <th>配置类型</th>
-    <th>数据库类型</th>
-		<th>实例规格</th>
-		<th>权重</th>
+    <th align="center">配置类型</th>
+    <th align="center">数据库类型</th>
+    <th align="center">实例规格</th>
+    <th align="center" >权重</th>
   </tr>
   <tr>
     <td>高 IO 版</td>
