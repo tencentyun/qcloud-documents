@@ -22,7 +22,7 @@
 - 选择硬盘类型和数据盘大小。
 腾讯云提供云硬盘和本地硬盘两种类型（均默认 50GB 系统盘，系统盘大小任选）。
  - 云硬盘：采用一盘三备的分布式存储方式，数据可靠性高。
- - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](https://www.qcloud.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
+ - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](/doc/product/362/2353) 。
 - 选择网络类型。
 腾讯云提供基础网络或私有网络两种可选。
  - 基础网络：适合新手用户，同一用户的云服务器内网互通。
@@ -76,7 +76,7 @@
 **控制台登录云服务器**
 1. 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Windows 云服务器。
 ![](//mccdn.qcloud.com/img56b1a6cb7b3e8.png)
-2. 通过单击左上角发送 Ctrl-Alt-Delete 命令进入系统登录界面。
+2. 通过单击左上角发送【Ctrl-Alt-Delete】命令进入系统登录界面。
 ![](//mc.qcloudimg.com/static/img/e4dbc02ca9ae2a7cb9ada5316effd31a/image.png)
 3. 输入帐号（Administrator）和密码即可登录。
 
@@ -110,7 +110,7 @@ mount -h
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ```
-在右边空白处右键点击，弹出【new】, 在菜单中选择【DWORD(32-bit) Value】 或者【QWORD(64-bit) Value】（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的0。
+在右边空白处右键点击，弹出【new】, 在菜单中选择【DWORD(32-bit) Value】 或者【QWORD(64-bit) Value】（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
 ![](https://mc.qcloudimg.com/static/img/381cdc3b68fb35be5dcceb2a4c962e33/image.png)
 ![](https://mc.qcloudimg.com/static/img/80bb0cfbffbed939522459a830df3eac/image.png)
 
