@@ -62,12 +62,12 @@
 - 读权重分配：RO 组支持系统自动分配权重和自定义权重两种权重设置方式。权重输入范围为 0-100，且必须是整数。
 系统自动设置实例的读权重值列表：
 
- <table>
+ <table style="text-align:center">
   <tr>
-    <th align="center">配置类型</th>
-    <th align="center">数据库类型</th>
-    <th align="center">实例规格</th>
-    <th align="center" >权重</th>
+    <th>配置类型</th>
+    <th>数据库类型</th>
+    <th>实例规格</th>
+    <th>权重</th>
   </tr>
   <tr>
     <td>高 IO 版</td>
