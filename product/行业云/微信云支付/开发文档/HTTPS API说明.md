@@ -49,6 +49,7 @@
         curl_easy_cleanup(hnd);
         return true;
     }
+
 ## 数据包格式说明
 - 请求包含两个字段：authen\_info和request\_content，前者表示签名或认证信息，后者表示请求具体内容，均为json结构。
 - 响应包含两个字段：authen\_info和response\_content，前者表示认证信息，后者表示响应具体内容，均为json结构。
@@ -86,6 +87,7 @@
         transform(hmac->begin(), hmac->end(), hmac->begin(), ::toupper);
         return true;
     }
+
 ## 计算签名举例（使用OpenSSL实现）
     /*
     对计算得到的签名进行base64编码之后输出
@@ -134,6 +136,7 @@
         *sign_base64encode = base64_encode(sign, sizeof(sign));
         return true;
     }
+
 ## 请求举例（以刷卡支付为例）
 - 构造request\_content结构，具体如下：
 
@@ -499,6 +502,7 @@ content\_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/micro_pay", &response);
+
 ## 扫码支付
 ### 接口地址
 >https://pay.qcloud.com/cpay/scan\_code\_pay
@@ -712,6 +716,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/scan_code_pay", &response);
+
 ## 撤销订单
 ### 特别说明
 - **微信支付只能撤销刷卡支付的订单**
@@ -917,6 +922,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/reverse", &response);
+
 ## 申请退款
 ### 接口地址
 >https://pay.qcloud.com/cpay/refund
@@ -1140,6 +1146,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/refund", &response);
+
 ## 关闭订单
 ### 接口地址
 >https://pay.qcloud.com/cpay/close_order
@@ -1349,6 +1356,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/reverse", &response);
+
 ## 查询订单
 ### 接口地址
 >https://pay.qcloud.com/cpay/query_order
@@ -1570,6 +1578,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/query_order", &response);
+
 ## 查询退款单
 ### 接口地址
 >https://pay.qcloud.com/cpay/query\_refund\_order
@@ -1791,6 +1800,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/query_refund_order", &response);
+
 ## 支付成功回调
 ### 接口地址
 服务商在云支付管理后台配置的回调地址（https）  
@@ -2305,6 +2315,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/set_sub_mch_shop_info", &response);
+
 ## 查询门店信息
 ### 接口地址
 >https://pay.qcloud.com/cpay/query\_sub\_mch\_shop\_info
@@ -2507,6 +2518,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/query_sub_mch_shop_info", &response);
+
 # 监控上报接口
 ## 上报客户端接口监控信息
 ### 接口地址
@@ -2835,6 +2847,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/upload_client_monitor_info", &response);
+
 ## 上报客户端机器配置信息
 ### 接口地址
 >https://pay.qcloud.com/cpay/upload\_client\_conf\_info
@@ -3045,6 +3058,7 @@ content_type：application/json
     */
     std::string response;
     post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
+    
 # 公共数据结构
 ## 认证签名信息
 ### AuthenInfo结构
