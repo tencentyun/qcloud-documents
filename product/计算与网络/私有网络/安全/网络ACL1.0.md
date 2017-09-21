@@ -20,8 +20,10 @@ background: #efefef;
 </style>
 ## 基本概念
 网络访问控制列表（Access Control List，ACL）是一个子网级别无状态的可选安全层，用于控制进出子网的数据流，可以精确到协议和端口粒度。如下图所示，其规则与 <a href="https://www.qcloud.com/doc/product/213/500" target="_blank">安全组</a> 相似。但由于网络 ACL 无状态的特性，即使设置入站规则允许某些访问，如果没有设置相应的出站规则会导致无法响应访问。
+<div style="text-align:center">
 ![](//mccdn.qcloud.com/static/img/04de33187d40d6891f7e5c8da120fdc7/image.png)
 
+</div>
 ## 使用场景
 用户可以为具有相同网络流量控制的子网关联同一个网络 ACL，通过设置出站和入站允许规则，对进出子网的流量进行精确控制。例如，您在腾讯云私有网关内托管多层 Web 应用，创建了不同子网分别部署 Web 层、逻辑层和数据层服务，通过网络 ACL 您可以控制这三个子网之间的访问：Web 层子网和数据库层子网无法相互访问，只有逻辑层可以访问 Web 层和数据层子网。
 
@@ -54,8 +56,8 @@ ACL 规则是网络 ACL 的组成部分。当您在网络 ACL 中添加或删除
 
 因此，如果一项来自 Internet 上的 Windows XP 客户端的请求访问您的 VPC 内某子网的 Web 服务器，该子网关联了网络 ACL，则您的网络 ACL 必须有相应的出站规则，允许目标端口为 `25-5000`的数据流通过。
 
-## 安全组与网络ACL的区别
-| 安全组 | 网络ACL | 
+## 安全组与网络 ACL 的区别
+| 安全组 | 网络 ACL | 
 |---------|---------|
 |  CVM 实例级别的流量控制（第一防御层） | 子网级别的流量控制（第二防御层） | 
 | 支持允许规则和拒绝规则 | 支持允许规则和拒绝规则 | 
@@ -72,10 +74,10 @@ ACL 规则是网络 ACL 的组成部分。当您在网络 ACL 中添加或删除
 
 | 资源| 限制（个） | 
 |---------|---------|
-| 每个私有网络内网络ACL数 | 50|
-| 每个网络ACL中规则数 | 入站方向：20条，出站方向：20条|
-| 每个子网关联的网络ACL个数 | 1 |
-|每个网络ACL关联的子网个数|无限制|
+| 每个私有网络内网络 ACL 数 | 50|
+| 每个网络 ACL 中规则数 | 入站方向：20 条，出站方向：20 条|
+| 每个子网关联的网络 ACL 个数 | 1 |
+|每个网络 ACL 关联的子网个数|无限制|
 
 ## 计费方式
 网络 ACL 服务免费。有关私有网络的其他服务费用，可以参考 <a href="https://www.qcloud.com/doc/product/215/3079" target="_blank">VPC 所有服务计费总览</a>
@@ -93,7 +95,7 @@ ACL 规则是网络 ACL 的组成部分。当您在网络 ACL 中添加或删除
 1) 登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>，左侧选择【安全】-【网络 ACL】选项卡。
 2) 在列表中点击要修改的网络 ACL 的 ID，进入网络 ACL 详情页。
 3) 点击【入站规则】或【出站规则】选项卡，在规则列表旁点击【编辑】按钮，在编辑状态下点击【新增一行】按钮。
-4) 新增的规则会默认加入规则列表的 **首行**，选择协议类型并输入端口、源 IP/目的 IP和策略，点击【保存】按钮。新增的规则即会显示在 ACL 规则列表中。
+4) 新增的规则会默认加入规则列表的 **首行**，选择协议类型并输入端口、源 IP/目的 IP 和策略，点击【保存】按钮。新增的规则即会显示在 ACL 规则列表中。
 
 ### 删除网络 ACL 规则
 1) 登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>，左侧选择【安全】-【网络 ACL】选项卡。
@@ -104,7 +106,7 @@ ACL 规则是网络 ACL 的组成部分。当您在网络 ACL 中添加或删除
 >注：ACL规则的删除必须保存后才会生效。
 
 ### 子网关联网络 ACL
-1) 登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>，左侧选择【安全】-【网络ACL】选项卡。
+1) 登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>，左侧选择【安全】-【网络 ACL】选项卡。
 2) 点击需要关联的网络 ACL 的 ID，进入网络 ACL 详情页。
 3) 点击【基本信息】选项卡，在关联子网部分点击【新增关联】按钮。
 4) 在关联子网弹出框中，选择需要关联的本私有网络下的子网，点击【确定】按钮，即可成功关联网络 ACL 与子网。
@@ -115,12 +117,12 @@ ACL 规则是网络 ACL 的组成部分。当您在网络 ACL 中添加或删除
 3) 点击【基本信息】选项卡，在关联子网列表中需要解关联的子网项后点击【解绑】按钮；或勾选所有需要解绑的子网，点击【批量解绑】按钮，即可解绑该子网与网络 ACL。
 
 ###  删除网络 ACL
-1) 登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>，左侧选择【安全】-【网络ACL】选项卡。
+1) 登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>，左侧选择【安全】-【网络 ACL】选项卡。
 2) 点击需要删除的网络 ACL 的【删除】按钮，在确认删除弹出框中点击【确定】，即可删除本网络 ACL 及本网络 ACL 的所有规则。
 3)	若【删除】按钮置灰，则表示本网络 ACL 正与子网相关联，您需要先解除这些关联后才能进行删除操作。
  
 ## API 概览
-您可以使用 API 操作来设置和管理网络 ACL 相关接口，有关 VPC API的更多功能可以查看 <a href="https://www.qcloud.com/doc/api/245/909" target="_blank">VPC 所有 API 概览</a>。
+您可以使用 API 操作来设置和管理网络 ACL 相关接口，有关 VPC API 的更多功能可以查看 <a href="https://www.qcloud.com/doc/api/245/909" target="_blank">VPC 所有 API 概览</a>。
 
 | 接口功能 | Action ID | 功能描述 |
 |:---------:|:---------:|:---------:|

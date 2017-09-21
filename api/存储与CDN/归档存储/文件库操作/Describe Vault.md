@@ -1,6 +1,6 @@
 ## 功能描述
 
-Describe Vault 请求实现读取一个 Vault 的属性。成功后返回 200 OK。
+Describe Vault 请求实现读取一个 Vault 的属性。档案数与档案总大小，每日盘点更新，非实时数据。请求成功后返回 200 OK。
 
 支持跨账户操作。当操作本账户下 valut 时，UID值为"-"。
 

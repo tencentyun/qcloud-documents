@@ -4,7 +4,7 @@
 - 分表键 (shardkey) 选择的限制请参考 [分表键详情文档](https://www.qcloud.com/document/product/557/8767#shardkey.E9.80.89.E6.8B.A9.E7.9A.84.E9.99.90.E5.88.B6)
 - 建分表时，需指明分表键 (shardkey) ，代码示例如下：
 ```
-mysql> create table test1(id int primary key,name varchar(20)，addr varchar(20))shardkey=id;
+mysql> create table test1(id int primary key,name varchar(20),addr varchar(20))shardkey=id;
 Query OK,0 rows affected(0.15 sec)
 ```
 		

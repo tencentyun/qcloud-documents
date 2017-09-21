@@ -17,7 +17,7 @@ AVSDK|tencent/imsdklogs/包名/QAVSDK_YYYYMMDD.log
 
 SDK|目录
 :--:|:--:
-iLiveSDK|Library/Caches/imsdk_YYYMMDD.log
+iLiveSDK|Library/Caches/ilivesdk_YYYMMDD.log
 IMSDK|Library/Caches/imsdk_YYYMMDD.log
 AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 
@@ -33,9 +33,9 @@ AVSDK|程序运行目录/txsdklog/QAVSDK_YYYMMDD.log
 
 SDK|目录
 :--:|:--:
-iLiveSDK|%appdata%/Tencent/iLiveSDK/ilivesdk_YYYMMDD.log<br/>(在开始菜单的运行中执行%appdata%可打开appdata目录)
-IMSDK|%appdata%/Tencent/iLiveSDK/imsdk_YYYMMDD.log
-AVSDK|%appdata%/Tencent/iLiveSDK/QAVSDK_YYYMMDD.log
+iLiveSDK|%appdata%/Tencent/iLiveSDK/txsdklog/ilivesdk_YYYMMDD.log<br/>(在开始菜单的运行中执行%appdata%可打开appdata目录)
+IMSDK|%appdata%/Tencent/iLiveSDK/txsdklog/imsdk_YYYMMDD.log
+AVSDK|%appdata%/Tencent/iLiveSDK/txsdklog/QAVSDK_YYYMMDD.log
 
 
 ## 日志收集接口

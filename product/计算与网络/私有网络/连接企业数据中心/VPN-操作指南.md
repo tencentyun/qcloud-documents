@@ -1,21 +1,18 @@
-## 操作指南
-
 ### 快速入门
 IPsec VPN 可以在控制台实现全自助配置，您需要完成以下几步才能实现使 VPN 连接生效：
-1)	创建 VPN 网关
-2)	创建对端网关
-3)	创建 VPN 通道
-4)	在自有 IPsec VPN 网关中加载配置文件
-5)	**设置路由表**
-6)	**VPN 通道激活**
+1. 创建 VPN 网关
+2. 创建对端网关
+3. 创建 VPN 通道
+4. 在自有 IPsec VPN 网关中加载配置文件
+5. 设置路由表
+6. VPN 通道激活
 
 **示例：**
-通过 IPsec VPN 连接打通您在**广州**的私有网络 TomVPC 中子网 A `192.168.1.0/24` 与您的 IDC 中子网 `10.0.1.0/24`，而您IDC 中 VPN 网关的公网 IP 是 `202.108.22.5`。
+通过 IPsec VPN 连接打通您在 广州 的私有网络 TomVPC 中子网 A `192.168.1.0/24` 与您的 IDC 中子网 `10.0.1.0/24`，而您 IDC 中 VPN 网关的公网 IP 是 `202.108.22.5`。
 <div style="text-align:center">
 ![](//mc.qcloudimg.com/static/img/0cfc46cf11e4d53164219b1c386509a1/1.png)
 
 </div>
-<p style="text-align:center">图1：IPsec VPN  接入私有网络</p>
 您需要完成以下几个步骤：
 #### 第一步：创建 VPN 网关
 1)	登录 <a href="https://console.qcloud.com/" target="_blank">腾讯云控制台</a> 点击导航条【私有网络】，进入 <a href="https://console.qcloud.com/vpc/vpc?rid=8" target="_blank">私有网络控制台</a>。

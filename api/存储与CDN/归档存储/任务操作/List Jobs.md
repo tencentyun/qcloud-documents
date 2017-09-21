@@ -47,6 +47,7 @@ Authorization: Auth
 | Action                | Job类型， 对于档案取回任务，此值为 `ArchiveRetrieval`   | String   |
 | JobId                 | 任务的ID                                    | String   |
 | JobDescription        | 任务的描述                                    | String   |
+| CallBackUrl           | 回调的HTTP地址                                | String   |
 | CreationDate          | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
 | CompletionDate        | 任务完成时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
 | Completed             | 如果任务已完成，则为 `true`；否则为 `false`            | Boolen   |
@@ -68,6 +69,7 @@ Authorization: Auth
       "Action": String,
       "JobId": String,
       "JobDescription": String,
+      "CallBackUrl":String,
       "CreationDate": String,
       "CompletionDate": String,
       "Completed": Boolean,
@@ -94,6 +96,7 @@ Authorization: Auth
 | Action                                 | Job类型， 对于档案取回任务，此值为 `ArchiveRetrieval`   | String   |
 | JobId                                  | 任务的ID                                    | String   |
 | JobDescription                         | 任务的描述                                    | String   |
+| CallBackUrl                            | 回调的HTTP地址                                | String   |
 | CreationDate                           | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
 | CompletionDate                         | 任务完成时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z` | ISO 8601 |
 | Completed                              | 如果任务已完成，则为 `true`；否则为 `false`            | Boolen   |
@@ -115,6 +118,7 @@ Authorization: Auth
       "Action": String,
       "JobId": String,
       "JobDescription": String,
+      "CallBackUrl":String,
       "CreationDate": String,
       "CompletionDate": String,
       "Completed": Boolean,
@@ -143,6 +147,7 @@ Authorization: Auth
 | Action             | Job类型， 对于将档案导入COS，此值为 `PushToCOS`        | String   |
 | JobId              | 任务的ID                                    | String   |
 | JobDescription     | 任务的描述                                    | String   |
+| CallBackUrl        | 回调的HTTP地址                                | String   |
 | CreationDate       | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z`。 | ISO 8601 |
 | CompletionDate     | 任务完成时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z`。 | ISO 8601 |
 | Completed          | 如果任务已完成，则为 `true`；否则为 `false`            | Boolen   |
@@ -164,6 +169,7 @@ Authorization: Auth
       "Action": String,
       "JobId": String,
       "JobDescription": String,
+      "CallBackUrl":String,
       "CreationDate": String,
       "CompletionDate": String,
       "Completed": Boolean,
@@ -190,6 +196,7 @@ Authorization: Auth
 | Action             | Job类型， 对于从COS中拉取对象文件，此值为 `PullFromCOS`   | String   |
 | JobId              | 任务的ID                                    | String   |
 | JobDescription     | 任务的描述                                    | String   |
+| CallBackUrl        | 回调的HTTP地址                                | String   |
 | CreationDate       | 任务启动时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z`。 | ISO 8601 |
 | CompletionDate     | 任务完成时的通用协调时间 (UTC) 日期。ISO 8601 日期格式的字符串表示，例如，`2013-03-20T17:03:43.221Z`。 | ISO 8601 |
 | Completed          | 如果任务已完成，则为 `true`；否则为 `false`            | Boolen   |
@@ -203,10 +210,10 @@ Authorization: Auth
 | Object             | COS中源Bucket的Object地址                     | String   |
 | Range              | COS中源Object的Range范围， 以字节（bytes）为单位       | String   |
 | Condition          | 从COS获取数据的前置条件                            | Array    |
-| If-Modified-Since  | 如果文件修改时间晚于指定时间，返回文件内容。否则返回 304           | String   |
-| If-Umodified-Since | 如果文件修改时间早于指定时间，返回文件内容。否则返回 412           | String   |
-| If-Match           | 如果文件ETag与指定的一致，返回文件内容。否则返回 412           | String   |
-| If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。否则返回 412          | String   |
+| If-Modified-Since  | 如果文件修改时间晚于指定时间，返回文件内容。          | String   |
+| If-Umodified-Since | 如果文件修改时间早于指定时间，返回文件内容。           | String   |
+| If-Match           | 如果文件ETag与指定的一致，返回文件内容。         | String   |
+| If-None-Match      | 如果文件ETag与指定的不一致，返回文件内容。         | String   |
 | ArchiveDescription | 档案文件描述                                   | String   |
 ```JSON
 {
@@ -215,6 +222,7 @@ Authorization: Auth
       "Action": String,
       "JobId": String,
       "JobDescription": String,
+      "CallBackUrl":String,
       "CreationDate": String,
       "CompletionDate": String,
       "Completed": Boolean,

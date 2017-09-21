@@ -5,7 +5,7 @@ Java格式类程序文件需要使用jarsigner进行数字签名。签名工具j
 
 ### 2. 证书格式转换
 
-代码签名证书会以pem格式颁发，而利用jarsigner签名需要使用jks格式转换，可以利用在线证书转换格式工具（如亚洲诚信在线格式转换工具：https://www.trustasia.com/tools-cert-converter）转换成需要的jks文件格式
+代码签名证书会以pem格式颁发，而利用jarsigner签名需要使用jks格式转换，可以利用在线证书转换格式工具（如亚洲诚信在线格式转换工具：https://www.trustasia.com/tools-cert-converter ） 转换成需要的jks文件格式
 
 >注意：由于用户没有上传pem私钥，因此在亚洲诚信证书格式转换中，“PEM私钥密码”不用填写。
 

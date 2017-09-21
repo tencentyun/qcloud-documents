@@ -48,6 +48,5 @@ background: #efefef;
 | 查询本端 IP 转换 ACL 策略 | [DescribeLocalIPTranslationAclRule](https://www.qcloud.com/doc/api/245/5208) | 查询本端 IP 转换  ACL 策略。 |
 | 添加本端IP端口转换 ACL 策略 | [CreateLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/5211) | 添加本端 IP 端口转换  ACL 策略。 |
 | 删除本端 IP 端口转换 ACL 策略 | [DeleteLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/5212) | 删除本端 IP 端口转换  ACL 策略。 |
-| 修改本端 IP 端口转换 ACL 策略 | [ModifyLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/5213) | 修改本端 IP 端口转换 
-ACL 策略。 |
+| 修改本端 IP 端口转换 ACL 策略 | [ModifyLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/5213) | 修改本端 IP 端口转换|
 | 查询本端 IP 端口转换 ACL 策略 | [DescribeLocalSourceIPPortTranslationAclRule](https://www.qcloud.com/doc/api/245/5214) | 查询本端 IP 端口转换  ACL 策略。 |

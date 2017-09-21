@@ -1,7 +1,8 @@
 
 CDN provides two billing methods:  **Pay by Bandwidth** and **Pay by Traffic**. Both methods use a <font color="red">post-payment policy and charged on a daily basis</font>. The charge for total consumption generated during 00:00:00 - 23:59:59 on the current date will be billed the next day.
+Tencent Cloud CDN provides **Standard** and **Premium** plans.The Premium plan provides more service nodes and advanced features. To learn more about pricing of the Premium plan, please contact Tencent Cloud sales representatives.
 
-## Pay by Bandwidth
+## The Standard Plan Pay by Bandwidth
 ### Tiered Prices
 CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered prices shown as below:
 <table  style="width:494px">
@@ -9,26 +10,26 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 		<tr>
 			<th scope="col" style="width: 145px;">Billing Model</th>
 			<th scope="col" style="width: 154px;">Bandwidth Tiers</th>
-			<th scope="col" style="width: 180px;">Unit Price (RMB/Mbps/Day)</th>
+			<th scope="col" style="width: 180px;">Unit Price (USD/Mbps/Month)</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td colspan="1" rowspan="4" style="text-align: center; width: 145px;">Bandwidth Peak</td>
 			<td style="text-align: center; width: 154px;">0 - 500Mbps</td>
-			<td style="text-align: center; width: 180px;">1.1</td>
+			<td style="text-align: center; width: 180px;">4.80</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">500Mbps - 5Gbps</td>
-			<td style="text-align: center; width: 180px;">1</td>
+			<td style="text-align: center; width: 180px;">4.20</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">5Gbps - 50Gbps</td>
-			<td style="text-align: center; width: 180px;">0.9</td>
+			<td style="text-align: center; width: 180px;">3.90</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">>= 50Gbps</td>
-			<td style="text-align: center; width: 180px;">< 0.74, subject to the contract price</td>
+			<td style="text-align: center; width: 180px;"><3.30, subject to the contract price</td>
 		</tr>
 	</tbody>
 </table>
@@ -36,14 +37,14 @@ CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered pri
 ### Calculation Method
 Assume that the CDN peak bandwidth for the previous day is X, the tiered calculation is performed as follows:
 
-> If X < 500 Mbps, the charge billed is X  &times; 1.1;
-> If 500Mbps <= X < 5000Mbps, the charge billed is X  &times; 1.0;
-> If 5000Mbps <= X < 50000Mbps, the charge billed is X &times; 0.9;
+> If X < 500 Mbps, the charge billed is X  &times; 4.80;
+> If 500Mbps <= X < 5000Mbps, the charge billed is X  &times; 4.20;
+> If 5000Mbps <= X < 50000Mbps, the charge billed is X &times; 3.90;
 > If X >= 50000Mbps, please contact us for off-line contracting. We have more discount options available for you.
 
 You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for a charge estimation.
 
-## Pay by Traffic
+## The Standard Plan Pay by Traffic
 ### Tiered Prices
 CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with the tiered prices shown as below:
 <table  style="width:494px">
@@ -51,30 +52,30 @@ CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with 
 		<tr>
 			<th scope="col" style="width:98px">Billing Model</th>
 			<th scope="col" style="width: 170px;">Traffic Tiers</th>
-			<th scope="col" style="width: 189px;">Unit Price (RMB/GB)</th>
+			<th scope="col" style="width: 189px;">Unit Price (USD/GB)</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td colspan="1" rowspan="5" style="text-align:center; width:98px">Monthly Traffic</td>
 			<td style="text-align: center; width: 170px;">0GB - 2TB</td>
-			<td style="text-align: center; width: 189px;">0.34</td>
+			<td style="text-align: center; width: 189px;">0.055</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">2TB - 10TB</td>
-			<td style="text-align: center; width: 189px;">0.32</td>
+			<td style="text-align: center; width: 189px;">0.053</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">10TB - 50TB</td>
-			<td style="text-align: center; width: 189px;">0.3</td>
+			<td style="text-align: center; width: 189px;">0.049</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">50TB - 100TB</td>
-			<td style="text-align: center; width: 189px;">0.28</td>
+			<td style="text-align: center; width: 189px;">0.046</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">>= 100TB</td>
-			<td style="text-align: center; width: 189px;">< 0.25, subject to the contract price</td>
+			<td style="text-align: center; width: 189px;">< 0.040, subject to the contract price</td>
 		</tr>
 	</tbody>
 </table>
@@ -96,32 +97,17 @@ By such a way, the charge for each day in January can be calculated. From Februa
 
 You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for calculating the charge.
 
-## Traffic Package
-The customer who uses **Pay by Traffic** method can purchase a traffic package from which the traffic consumed will be deducted. Traffic consumed is deducted preferably from the traffic package, and the traffic beyond the package quota is billed based on tiered prices.
-### Traffic Package Price
-
-| Traffic Package Size | Price (RMB/Each) | Validity Period |
-| -------------------- | ---------------- | --------------- |
-| 100GB                | 34               | 6 Months        |
-| 200GB                | 68               | 6 Months        |
-| 500GB                | 170              | 6 Months        |
-| 1TB                  | 340              | 6 Months        |
-| 2TB                  | 680              | 6 Months        |
-| 5TB                  | 1640             | 6 Months        |
-
-Traffic package special offer is underway, please click [Buy Now](http://manage.qcloud.com/shoppingcart/shop.php?tab=cdn).
-
 ### Note on Traffic Package Deduction
 + The traffic package takes effect on the day of purchase. The validity period of ordinary traffic package is 6 months from the date of purchase. The validity period of special traffic package provided during special offer campaign varies according to campaign policies, which is generally one month. Your traffic package is only valid during the validity period. Any unused traffic expires as the traffic package expires.
 
-## Billing for Key Customers
-If your monthly consumption amount in Tencent Cloud is or will be more than RMB 100,000, you can be granted more favorable prices and more flexible billing options (such as payment on a monthly basis) through negotiations.
+## The Premium Plan Billing for Key Customers
+If your monthly consumption amount in Tencent Cloud is or will be more than USD 20,000, you can be granted more favorable prices and more flexible billing options (such as payment on a monthly basis) through negotiations.
 
 + **Pay by monthly average value of daily bandwidth peaks**: There are 288 CDN bandwidth statistical points each day. Divide the sum of peaks on each effective day (generating consumption) by the number of effective days to get the monthly average value of daily bandwidth peaks to use as billing bandwidth. Then calculate the charge based on contract price;
 + **Pay by 95% of bandwidths in a month**: There are 288 CDN bandwidth statistical points each day. Sort all statistical points for all effective days from the first day of current month (generating consumption) by bandwidth value and eliminate the first 5% statistical points. Then take the largest bandwidth among the remaining 95% of statistical points as the billing bandwidth. Then calculate the charge based on contract price;
 + **Pay by monthly traffic**: Calculate the total traffic consumed on a monthly basis. Then calculate the charge based on contract price.
 
-For more details, please call 4009-100-100 or submit a ticket.
+For more details, please submit a ticket.
 
 
 ## Billing Model Options
@@ -138,6 +124,5 @@ The bandwidth utilization during this time period is: 200GB/432GB * 100% = 46%.
 **Guidelines on how to select the billing method:**
 + If your bandwidth utilization is more than 30%, which means your business curve is flat, you're recommended to select "Pay by Bandwidth"; 
 + If your bandwidth utilization is less than 30%, which means your business curve has substantial fluctuations, you're recommended to select "Pay by Traffic".
-
 
 

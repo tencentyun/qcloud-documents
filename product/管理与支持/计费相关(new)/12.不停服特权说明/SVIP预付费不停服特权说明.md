@@ -1,4 +1,4 @@
-1.预付费不停服保障范围：除设置了到期不再续费以外的其他预付费产品，包括：云服务器，云数据库MySQL，云数据库SQL Server，云数据库TDSQL，云数据库PostgreSQL，云数据库MongoDB，云数据库MongoDB分片，云数据库HBase，云存储Redis，黑石物理服务器，云硬盘，专用宿主机，独享集群数据库，VPN，运维VPN，BGP高防IP。
+1.预付费不停服保障范围：除设置了到期不再续费以外的其他预付费产品，包括：云服务器，云数据库MySQL，云数据库SQL Server，云数据库TDSQL，云数据库PostgreSQL，云数据库MongoDB，云数据库MongoDB分片，云数据库HBase，云存储Redis，黑石物理服务器，云硬盘CBS，专用宿主机，独享集群数据库，分布式数据库DCDB，VPN，BGP高防IP，腾讯云搜TCS，乐固MS，移动解析HttpDNS。
 
 2.续费时间：设备到期前8天系统自动续费，续费时长为1个月。
 
@@ -15,3 +15,11 @@
 ②线上充值： 从账户余额中扣费还款，您可前往费用中心-[账户信息](https://console.qcloud.com/account)页，点击立即还款按钮自助进行还款。
 
 ![](https://mc.qcloudimg.com/static/img/d2d9a04c8d70fea02d7d7884465f3dc1/image.png)
+
+
+7.特权关闭风险
+
+- 关闭SVIP预付费不停服特权后，系统将停止提前8天自动续费和停止自动垫付
+- 预付费资源到期时，若您没有及时手动续费或您设置了自动续费但账户余额不足时，资源到期后会停服回收
+
+

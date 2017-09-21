@@ -1,8 +1,7 @@
 ### 1.注意事项
 1.所有场景默认采用UTF-8编码。
 2.access token必须缓存在磁盘，并定时刷新,建议每1小时50分钟请新的access token,原access token 2小时(7200S)失效，期间两个token都能使用。
-3.同一个合作伙伴，10分钟内access token只能成功请求一次。
-4.每次用户登录时必须重新获取ticket。
+3.每次用户登录时必须重新获取ticket。
 
 ### 2.Access Token获取
 请求URL：**https://idasc.webank.com/api/oauth2/access_token**

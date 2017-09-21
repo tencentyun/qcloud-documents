@@ -7,7 +7,7 @@ SDK需要用到相机/录音/读取手机信息权限，在android6.0以上系�
 
 ### 2.接入配置
 云刷脸SDK（WbCloudFaceVerify）最低支持到** Android API 14: Android 4.0(ICS)**，请在构建项目时注意。
-刷脸SDK将以AAR文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤(sdk皮肤的设定，除了接入对应的aar，还需要设定相关代码。默认黑色皮肤，无需格外设置)，接入方可自由选择组合四个模式。
+刷脸SDK将以AAR文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤(sdk皮肤的设定，除了接入对应的aar，还需要设定相关代码。详见[SDK样式选择](https://www.qcloud.com/document/product/295/10140#6..E4.B8.AA.E6.80.A7.E5.8C.96.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE)。默认黑色皮肤，无需格外设置)，接入方可自由选择组合四个模式。
 ![](https://mc.qcloudimg.com/static/img/0d1fb1b5512b25f4efda0cd89fb33ddb/image.png)
 另外刷脸SDK同时需要依赖**云公共组件WbCloudNormal**，同样也是以AAR文件的形式提供。
 需要添加下面文档中所示的依赖(将提供的aar文件加入到app工程的'libs'文件夹下面,
@@ -32,9 +32,6 @@ dependencies {
  //3. 云刷脸皮肤资源包-可选择黑色/白色 默认黑色
  compile(name: 'WbCloudFaceResBlack', ext: 'aar')
  //compile(name: 'WbCloudFaceResWhite', ext: 'aar')
- // 4. 依赖的第三方jar包
- compile 'com.google.code.gson:gson:2.3.1' //网络请求json解析
- compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0' //网络请求
 }
     }
 ```
@@ -102,18 +99,30 @@ dependencies {
 }
 -keep public class com.webank.normal.net.*{
     *;
-}
--keep public class com.webank.normal.thread.ThreadOperate{
+-keep public class com.webank.normal.thread.*$*{
    *;
 }
--keep public class com.webank.normal.thread.ThreadOperate$*{
+-keep public class com.webank.normal.thread. *{
    *;
-}
--keep public class com.webank.normal.net.RequestParam$ParamType{
-    *;
 }
 -keep public class com.webank.normal.tools.WLogger{
     *;
+}
+
+#wehttp混淆规则
+-dontwarn com.webank.mbank.okio.**
+
+-keep class com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep interface com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep public class com.webank.mbank.wehttp.WeLog$Level{
+    *;
+}
+-keep class com.webank.mbank.wejson.WeJson{
+    public <methods>;
 }
 
 #webank normal包含的第三方库bugly
@@ -127,53 +136,40 @@ dependencies {
 
 #### 3.3 云刷脸依赖的第三方库的混淆规则
  ```
-########云产品依赖的第三方库 混淆规则-BEGIN############
-
-## support:appcompat-v7
--keep public class android.support.v7.widget.** { *; }
--keep public class android.support.v7.internal.widget.** { *; }
--keep public class android.support.v7.internal.view.menu.** { *; }
-
--keep public class * extends android.support.v4.view.ActionProvider {
-    public <init>(android.content.Context);
+-keep public class com.webank.normal.thread.*$*{
+   *;
+}
+-keep public class com.webank.normal.thread. *{
+   *;
 }
 
-## Gson
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
 
-# For using GSON @Expose annotation
--keepattributes *Annotation*
--keepattributes EnclosingMethod
-# If in your rest service interface you use methods with Callback argument.
--keepattributes Exceptions
 
-# Gson specific classes
--keep class sun.misc.Unsafe { *; }
--keep class com.google.gson.stream.** { *; }
+-keep public class com.webank.normal.tools.WLogger{
+    *;
+}
 
-# Application classes that will be serialized/deserialized over Gson
--keep class com.google.gson.examples.android.model.** { *; }
+#wehttp混淆规则
+-dontwarn com.webank.mbank.okio.**
 
-# Prevent proguard from stripping interface information from TypeAdapterFactory,
-# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-##---------------End: proguard configuration for Gson  ----------
+-keep class com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep interface com.webank.mbank.wehttp.**{
+    public <methods>;
+}
+-keep public class com.webank.mbank.wehttp.WeLog$Level{
+    *;
+}
+-keep class com.webank.mbank.wejson.WeJson{
+    public <methods>;
+}
 
-# OkHttp
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
--dontwarn com.squareup.okhttp.**
-
-# Okio
--keep class sun.misc.Unsafe { *; }
--dontwarn java.nio.file.*
--dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
--dontwarn okio.**
-#########云产品依赖的第三方库 混淆规则-END#############
+#webank normal包含的第三方库bugly
+-keep class com.tencent.bugly.webank.**{
+    *;
+}
+###########webank normal混淆规则-END#######################
  ```
 
 您可以根据您现有的混淆规则，将缺少的第三库混淆规则拷贝到您的混淆文件中。
@@ -228,7 +224,7 @@ public interface FaceVerifyResultForSecureListener {
     }
  ```
 
-WbCloudFaceVerifySdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括:
+WbCloudFaceVerifySdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括（参考要求详见下一节描述）:
 
  ```
 //这些都是WbCloudFaceVerifySdk.InputData对象里的字段，是需要传入的数据信息
@@ -446,4 +442,4 @@ FACEVERIFY_ERROR_PERMISSION_READ_PHONE=43000; //READ_PHONE未授权
     FACEVERIFY_ERROR_MEDIARECORD = 60000;      //视频录制出错
     FACEVERIFY_ERROR_OUT_OF_TIME = 70000;   //验证超时
     FACEVERIFY_ERROR_OUT_OF_TIME_FACE_DETECT = 71000;   //扫脸验证超时
-    FACEVERIFY_ERROR_OUT_OF_TIME_ACTIVE_DETECT = 72000; //活体验证超时
+    FACEVERIFY_ERROR_OUT_OF_TIME_ACTIVE_DETECT = 72000; //活体验证超时FACEVERIFY_ERROR_ACTIVE_DETECT_NOFACE=80000;    //活体检测时人脸曾移出框外

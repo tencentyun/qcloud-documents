@@ -114,6 +114,7 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
  - orderNo       订单号，和本次业务相关
  - ocrId         ocr Id，每次识别的唯一标识，和本次业务相关
  - sign	           返回的签名信息
+ - warning         识别结果警告
  
  */
 
@@ -140,6 +141,9 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 /// 正反面识别结果截图信息
 @property (nonnull,strong,nonatomic) UIImage* frontFullImg;
 @property (nonnull,strong,nonatomic) UIImage* backFullImg;
+
+/// warning，识别结果警告
+@property (nonnull,strong,nonatomic) NSString *warning;
 
 @end
 ```
