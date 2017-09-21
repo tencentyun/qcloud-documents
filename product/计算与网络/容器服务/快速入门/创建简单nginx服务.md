@@ -6,7 +6,7 @@
 ## 操作步骤
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的【服务】，在服务列表页单击【+新建】。
-![](//mc.qcloudimg.com/static/img/52d71cfbf911db7a6b6d4f58548b0fe8/image.gif)
+![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3. 填写服务的基本信息。
  - **服务名称**：要新建的服务名称，服务名称由小写字母、数字和 - 组成，且由小写字母开头，小写字母或数字结尾。本例中，服务名称为 nginx 。
  - **所在地域**：建议您根据所在地理位置选择靠近的地域。
