@@ -67,4 +67,3 @@ There are different quotas for different types of alarms, therefore you need to 
 Note: If a user configured repetitive alarm feature, there are 10 users in the recipient group of a certain alarm, and the alarm is configured to be sent repeatedly every hour. If the alarm lasts for 24 hours, the amount deducted from message quota will be 10*24=240. Please be aware of your SMS quota usage when you use the repetitive alarm feature.
 
 3.When alarm messages are sent, the quota will be deducted from the user's free quota first, then from the additional quota if the free quota has been used up.
-
