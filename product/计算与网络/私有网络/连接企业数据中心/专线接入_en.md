@@ -162,7 +162,7 @@ These steps are described in detail below:
 
 The payment may be different depending on the establishment mode, the region where the local data center is located, and the bandwidth of Direct Connect. Once the payment is confirmed and paid, Tencent Cloud will carry out the Direct Connect construction based on the information you submitted, and if there is any parameter error found during its construction, you should bear the full cost incurred therefrom. The physical Direct Connect cannot be deleted during construction. After construction is completed, its status will change to "Running" on its console.
 
-![](//mccdn.qcloud.com/img567fa85e57aa3.png)
+![](//mc.qcloudimg.com/static/img/dd2c8735c408ba1d8de8034be3e70b50/image.png)
 
 ### Step 2: Creating the Direct Connect Tunnel
 1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and then click "Direct Connect Gateway" tab.

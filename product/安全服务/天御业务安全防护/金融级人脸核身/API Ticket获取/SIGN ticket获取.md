@@ -1,5 +1,5 @@
 ### 1.注意事项
-1.**前置条件**：确保Access Token已经正常获取，获取规则见章节4。
+1.**前置条件**：确保Access Token已经正常获取，获取规则见[登录鉴权流程](https://www.qcloud.com/document/product/295/10117)。
 2.主要用于合作方**后台服务端业务请求**生成签名鉴权参数之一，用于后台查询验证结果、调用其他业务服务等。
 3.api ticket为SIGN类型，有效期为最长为3600S, 此处api ticket的必须缓存在磁盘，并定时刷新,刷新的机制如下：
 由于api ticket的生命周期依赖于Access Token。最长为3600S,故为了简单方便，建议api ticket的刷新机制与Access Token定时机制原理一致，严格按照每50分钟请求新的api ticket,原api ticket 1小时(3600S)失效，期间两个api ticket都能使用。

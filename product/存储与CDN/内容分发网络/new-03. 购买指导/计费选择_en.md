@@ -1,7 +1,8 @@
 
 CDN provides two billing methods:  **Pay by Bandwidth** and **Pay by Traffic**. Both methods use a <font color="red">post-payment policy and charged on a daily basis</font>. The charge for total consumption generated during 00:00:00 - 23:59:59 on the current date will be billed the next day.
+Tencent Cloud CDN provides **Standard** and **Premium** plans.The Premium plan provides more service nodes and advanced features. To learn more about pricing of the Premium plan, please contact Tencent Cloud sales representatives.
 
-## Pay by Bandwidth
+## The Standard Plan Pay by Bandwidth
 ### Tiered Prices
 CDN's "Pay by Bandwidth" method uses a tiered pricing model, with the tiered prices shown as below:
 <table  style="width:494px">
@@ -43,7 +44,7 @@ Assume that the CDN peak bandwidth for the previous day is X, the tiered calcula
 
 You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for a charge estimation.
 
-## Pay by Traffic
+## The Standard Plan Pay by Traffic
 ### Tiered Prices
 CDN's "Pay by Traffic" method takes a monthly tiered progressive approach, with the tiered prices shown as below:
 <table  style="width:494px">
@@ -99,7 +100,7 @@ You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for calcul
 ### Note on Traffic Package Deduction
 + The traffic package takes effect on the day of purchase. The validity period of ordinary traffic package is 6 months from the date of purchase. The validity period of special traffic package provided during special offer campaign varies according to campaign policies, which is generally one month. Your traffic package is only valid during the validity period. Any unused traffic expires as the traffic package expires.
 
-## Billing for Key Customers
+## The Premium Plan Billing for Key Customers
 If your monthly consumption amount in Tencent Cloud is or will be more than USD 20,000, you can be granted more favorable prices and more flexible billing options (such as payment on a monthly basis) through negotiations.
 
 + **Pay by monthly average value of daily bandwidth peaks**: There are 288 CDN bandwidth statistical points each day. Divide the sum of peaks on each effective day (generating consumption) by the number of effective days to get the monthly average value of daily bandwidth peaks to use as billing bandwidth. Then calculate the charge based on contract price;

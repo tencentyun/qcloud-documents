@@ -1,4 +1,4 @@
-本文档只描述了基本的 Spark 任务提交以及 Spark 计算任务如何访问腾讯云对象存储上的数据，详细资料可以参考 [Spark 官方文档](http://spark.apache.org/docs/2.0.2/)。
+本文档只描述了基本的 Spark 任务提交以及 Spark 计算任务如何访问腾讯云对象存储上的数据，详细资料可以参考 [Spark 官方文档](http://spark.apache.org/docs/2.0.2/) 。
 ## 命令行模式提交 Spark 任务
 ### 事前说明
 * 在做相关操作前需要登录到 EMR 集群中的 Master 节点机器；
@@ -22,11 +22,11 @@
     /example/source
 ```
 * 数据存放在 COS，数据存放在 COS 有两种数据准备方式：
-**方式一：**通过 COS 的控制台上传，如果数据文件已经在 COS 可以通过如下命令查看（注意替换文件路径）
+**方式一：**通过 COS 的控制台上传，如果数据文件已经在 COS 可以通过如下命令查看（注意替换文件路径）：
 ```
     /usr/local/service/hadoop/bin/hdfs dfs -ls cosn://bucketname/example/source
 ```
-**方式二：**通过命令上传 COS（注意替换文件路径）
+**方式二：**通过命令上传 COS（注意替换文件路径）：
 ```
     /usr/local/service/hadoop/bin/hdfs dfs -mkdir cosn://bucketname/example
     /usr/local/service/hadoop/bin/hdfs dfs -mkdir cosn://bucketname/example/source
@@ -40,7 +40,7 @@
 ```
     ./bin/spark-submit [options] <app jar | python file> [app options]
 ```
-详细参数说明可以参考 [Spark 官方文档](http://spark.apache.org/docs/2.0.2/submitting-applications.html)。
+详细参数说明可以参考 [Spark 官方文档](http://spark.apache.org/docs/2.0.2/submitting-applications.html) 。
 ### 3. 提交 Spark 计算任务
 本任务实现一个单词统计任务，统计输入文件的单词计数。
 **jar 包任务读取 HDFS 文件**
@@ -64,8 +64,8 @@
 ```
     ./bin/spark-submit examples/demo/wordcount.py hdfs:///example/source/people.txt
 ```
-**Python 任务读取 COS 文件**（注意替换文件路径）
-在 Spark 安装目录下通过如下命令提交任务：
+**Python 任务读取 COS 文件**
+在 Spark 安装目录下通过如下命令提交任务（注意替换文件路径）：
 ```
     ./bin/spark-submit examples/demo/wordcount.py cosn://bucketname/example/source/people.txt
 ```
@@ -119,15 +119,23 @@
     cosn://bucketname/example/source/people.json
     cosn://bucketname/example/source/people.txt
 ```
-### 6. 查看任务日志
+#### 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）。
-![](//mc.qcloudimg.com/static/img/627c35182d0a86ec72ce880cbe8bd6f9/image.png)
+```
+    ----------------------------
+      age         name
+    ----------------------------
+      null        Michael
+       30         Andy
+       19         Justin
+    ----------------------------
+```
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）。
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10548
 ```
 
-### 7. Spark SQL 操作 Hive 表
+#### Spark SQL 操作 Hive 表
 本任务演示在文件中读取 kv 数据，然后在 Hive 中创建和操作表。
 >**注意：**
 >1. 该任务会移动原数据文件，如要重复测试请重新准备相应数据。
@@ -159,28 +167,28 @@
 ```
     ./bin/spark-submit examples/demo/hive.py cosn://bucketname/example/source/kv1.txt
 ```
-### 8. 查看任务日志
+#### 查看任务日志
 * 任务运行结果会直接打印到控制台（此处示例为部分数据）。
 ```
-----------------------------
-   key         value
-----------------------------
-   238         val_238
-   86          val_86
-   311         val_311
-   27          val_27
-   165         val_165
-   409         val_400
-   255         val_255
-   278         val_278
-----------------------------
+    ----------------------------
+      key         value
+    ----------------------------
+      238         val_238
+       86         val_86
+      311         val_311
+       27         val_27
+      165         val_165
+      409         val_400
+      255         val_255
+      278         val_278
+    ----------------------------
 ```
 * 任务结束后，可以通过如下命令看到 Spark 运行日志（注意替换您的任务 ID）。
 ```
     /usr/localrvice/hadoop/bin/yarn logs -applicationId application_1489458311206_10549
 ```
 
-### 9. Spark Streaming
+### 6. Spark Streaming
 本任务演示从 net 中实时读取流式数据进行单词计数。
 **jar 包方式**
 在 Spark 安装目录下通过如下命令提交任务，等待数据：

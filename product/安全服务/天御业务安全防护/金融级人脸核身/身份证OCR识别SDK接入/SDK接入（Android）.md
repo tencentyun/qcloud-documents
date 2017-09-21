@@ -185,7 +185,7 @@ public interface IDCardScanResultListener{
 }
 ```
 
-WbCloudOcrSdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括:
+WbCloudOcrSdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括，参加要求见下一章节描述：
 ```
 //这些都是WbCloudOcrSdk.InputData对象里的字段，是需要传入的数据信息
 String orderNo;  //订单号
@@ -253,21 +253,6 @@ public interface IDCardScanResultListener{
 
 #### 4.3 第三方进入SDK的模式
  第三方调用startActivityForOcr方法进入SDK时，WBOCRTYPEMODE type参数表示进入SDK的模式类型。总共有三种模式，当type==WBOCRSDKTypeNormal，进入标准模式(进入扫描身份证界面前有个准备界面）;当type==WBOCRSDKTypeFrontSide时，直接进入扫描身份证人像面界面，进行人像面识别;当type==WBOCRSDKTypeBackSide时，直接进入扫描身份证国徽面界面，进行国徽面识别。
-```
-/**
- * 回收图片的接口，建议第三方在这里对exidCardResult的frontFullImage和backFullImage（如果不为空）进行回收，防止内存溢出
- */
-    public interface RecyclePictureListener{
-        /**
-         * SDK返回的识别对象
-         * @param exidCardResult
-         */
-        void recycle(EXIDCardResult exidCardResult);
-    }
-```
-		
-#### 4.4 第三方进入SDK的模式
-第三方调用startActivityForOcr方法进入SDK时，WBOCRTYPEMODE type参数表示进入SDK的模式类型。总共有三种模式，当type==WBOCRSDKTypeNoraml，进入标准模式(进入扫描身份证界面前有个准备界面）;当type==WBOCRSDKTypeFrontSide时，直接进入扫描身份证人像面界面，进行人像面识别;当type==WBOCRSDKTypeBackSide时，直接进入扫描身份证国徽面界面，进行国徽面识别。
 		
 ### 5.接口参数说明
 

@@ -41,7 +41,11 @@
 | data.eipSet.ispId | Int | 运营商ID 0：电信； 1：联通； 2：移动； 3：教育网； 4：盈科； 5：BGP； 6：香港|
 | data.eipSet.status | Int | 状态 0：创建中； 1：绑定中； 2：已绑定； 3：解绑中； 4：未绑定； 6：下线中； 9：创建失败|
 | data.eipSet.arrears | Int | 是否欠费隔离 1： 欠费隔离； 0： 正常。处在欠费隔离情况下的EIP不能进行任何管理操作。|
+| data.eipSet.type | Int | EIP所绑定的资源类型，-1：未绑定资源；0：黑石物理机，字段对应unInstanceId；1：Nat网关，字段对应natUid；2：虚拟机or托管资源IP，字段对应vpcIp|
 | data.eipSet.unInstanceId | String | EIP所绑定的服务器实例ID，未绑定则为空|
+| data.eipSet.vpcIp | String | EIP所绑定的虚拟机IP(托管或者虚拟机的IP），形如："10.1.1.3"。 注意：IP资源需要通过bmvpc模块注册或者申请后才可以绑定eip，接口使用[申请子网IP](/document/product/386/7337)和[注册子网IP](/document/product/386/7925)：,未绑定则为空|
+| data.eipSet.natId | Int | EIP所绑定的NAT网关的数字ID，形如：1001,，未绑定则为空|
+| data.eipSet.natUid | String | EIP所绑定的NAT网关实例ID，形如："nat-n47xxxxx"，未绑定则为空|
 | data.eipSet.freeAt | String | EIP解绑时间|
 | data.eipSet.createdAt | String | EIP创建时间|
 | data.eipSet.updatedAt | String | EIP更新时间|
