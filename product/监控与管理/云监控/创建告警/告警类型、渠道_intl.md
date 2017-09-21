@@ -14,3 +14,4 @@ There are four types of Tencent Cloud Monitor alarms: basic monitor alarms, clou
 Currently, Tencent Cloud supports sending alarm messages via SMS and email.
 
 All alarms are sent via these two channels by default. If you just want to receive alarms from one channel, you can go to the Tencent Cloud console and check if your email/mobile phone has been correctly configured and verified.
+
