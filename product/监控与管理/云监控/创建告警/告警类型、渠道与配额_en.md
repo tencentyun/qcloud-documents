@@ -56,7 +56,7 @@ There are different quotas for different types of alarms, therefore you need to 
 
 >Deduction rule: When alarm messages are sent, the quota will be deducted from the free quota first, then from the additional quota if the free quota has been exhausted
 
-Quota validity: Alarm quota has a long-term validity. There is no time limit for purchased quota.
+>Quota validity: Alarm quota has a long-term validity. There is no time limit for purchased quota.
 
 ### Quota Calculation
 
