@@ -29,7 +29,7 @@ COS FTP Server 工具是依赖 COS V4 的 FTP 服务端工具。使用 FTP Serve
 适用于 COS V4 版本
 ## 使用环境
 ### 系统环境
-Linux 系统 (推荐腾讯云 CentOS 系列 CVM)
+Linux 系统 (推荐腾讯云 CentOS7 系列 CVM)
 ### 依赖库
 针对 CentOS 等使用 yum 安装的系统，build.sh 会自动下载以下依赖。其他系统请自行安装。
 ```
