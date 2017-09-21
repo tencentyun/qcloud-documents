@@ -304,6 +304,7 @@ content\_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -337,6 +338,7 @@ content\_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -358,6 +360,7 @@ content\_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -397,6 +400,7 @@ content\_type：application/json
       <td>authen_info存在时必填。详见MicroPayResponse</td>
    </tr>
 </table>
+
 ### MicroPayResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -424,6 +428,7 @@ content\_type：application/json
       <td>订单信息，status为0时必填。详见OrderContent</td>
    </tr>
 </table>
+
 ### 构造刷卡支付请求例子
 	/*
 	构造请求字符串
@@ -520,6 +525,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -553,6 +559,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -574,6 +581,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -613,6 +621,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见ScanCodePayResponse</td>
    </tr>
 </table>
+
 ### ScanCodePayResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -634,6 +643,7 @@ content_type：application/json
       <td>status为0时必填。用于扫码支付时转换成支付二维码 </td>
    </tr>
 </table>
+
 ### 构造扫码支付请求例子
 	/*
 	构造请求字符串
@@ -732,6 +742,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -765,6 +776,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -786,6 +798,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -825,6 +838,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见ReverseResponse</td>
    </tr>
 </table>
+
 ### ReverseResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -840,6 +854,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 构造撤销订单请求例子
 	/*
 	构造请求字符串
@@ -928,6 +943,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -961,6 +977,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -982,6 +999,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1021,6 +1039,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见RefundResponse</td>
    </tr>
 </table>
+
 ### RefundResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1048,6 +1067,7 @@ content_type：application/json
       <td>订单信息，status为0时必填。详见RefundOrderContent</td>
    </tr>
 </table>
+
 ### 构造申请退款请求例子
 	/*
 	构造请求字符串
@@ -1146,6 +1166,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1185,6 +1206,7 @@ content_type：application/json
       <td>交易类型，枚举值详见TradeType</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1206,6 +1228,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1245,6 +1268,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见CloseOrderResponse</td>
    </tr>
 </table>
+
 ### CloseOrderResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1260,6 +1284,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 构造关闭订单请求例子
 	/*
 	构造请求字符串
@@ -1350,6 +1375,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1389,6 +1415,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1410,6 +1437,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1449,6 +1477,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见QueryOrderResponse</td>
    </tr>
 </table>
+
 ### QueryOrderResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1476,6 +1505,7 @@ content_type：application/json
       <td>订单信息，status为0时必填。详见OrderContent</td>
    </tr>
 </table>
+
 ### 构造查询订单请求例子
 	/*
 	构造请求字符串
@@ -1566,6 +1596,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1605,6 +1636,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1626,6 +1658,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1665,6 +1698,7 @@ content_type：application/json
       <td>authen_info存在时，必填。详见QueryRefundOrderResponse</td>
    </tr>
 </table>
+
 ### QueryRefundOrderResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1692,6 +1726,7 @@ content_type：application/json
       <td>订单信息，status为0时必填。详见RefundOrderContent</td>
    </tr>
 </table>
+
 ### 构造查询退款单请求例子
 	/*
 	构造请求字符串
@@ -1781,6 +1816,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1808,6 +1844,7 @@ content_type：application/json
       <td>订单信息，详见OrderContent</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1829,6 +1866,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1850,6 +1888,7 @@ content_type：application/json
       <td>错误描述</td>
    </tr>
 </table>
+
 ## 撤单成功回调
 ### 接口地址
 服务商在云支付管理后台配置的回调地址（https）  
@@ -1875,6 +1914,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1896,6 +1936,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1917,6 +1958,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1938,6 +1980,7 @@ content_type：application/json
       <td>错误描述</td>
    </tr>
 </table>
+
 ## 退款成功回调
 ### 接口地址
 服务商在云支付管理后台配置的回调地址（https）  
@@ -1963,6 +2006,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -1990,6 +2034,7 @@ content_type：application/json
       <td>订单信息。详见RefundOrderContent</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2011,6 +2056,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2032,6 +2078,7 @@ content_type：application/json
       <td>错误描述</td>
    </tr>
 </table>
+
 # 门店接口
 ## 设置门店信息
 ### 特别说明
@@ -2061,6 +2108,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2101,6 +2149,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2122,6 +2171,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2161,6 +2211,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见SetShopInfoResponse</td>
    </tr>
 </table>
+
 ### SetShopInfoResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2182,6 +2233,7 @@ content_type：application/json
       <td>设置门店完成功后，所有的门店信息列表。详见ShopInfo </td>
    </tr>
 </table>
+
 ### 构造设置门店请求例子
 	/*
 	构造请求字符串
@@ -2279,6 +2331,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2318,6 +2371,7 @@ content_type：application/json
       <td>单页条数</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2339,6 +2393,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2378,6 +2433,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见QueryShopInfoResponse</td>
    </tr>
 </table>
+
 ### QueryShopInfoResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2408,6 +2464,7 @@ content_type：application/json
       <td>数据总数</td>
    </tr>
 </table>
+
 ### 构造查询门店信息请求例子
 	/*
 	构造请求字符串
@@ -2477,6 +2534,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2540,6 +2598,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### UncompressedMonitorInfo结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2561,6 +2620,7 @@ content_type：application/json
       <td>cpu使用率，内存使用率，磁盘使用情况等，json结构</td>
    </tr>
 </table>
+
 ### ClientIntResult结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2618,6 +2678,7 @@ content_type：application/json
       <td>服务端域名</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2639,6 +2700,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2678,6 +2740,7 @@ content_type：application/json
       <td>authen_info存在时，必填。详见UploadClientMonitorInfoResponse</td>
    </tr>
 </table>
+
 ### UploadClientMonitorInfoResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2699,6 +2762,7 @@ content_type：application/json
       <td>status为0时必填。期望上报间隔，单位：s。<br>0表示不用改变当前上报间隔</td>
    </tr>
 </table>
+
 ### 构造上报客户端接口监控信息请求例子
 	/*
 	构造请求字符串
@@ -2797,6 +2861,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### RequestContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2842,6 +2907,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 返回参数
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2863,6 +2929,7 @@ content_type：application/json
       <td>认证信息，详见AuthenInfo</td>
    </tr>
 </table>
+
 ### ResponseContent结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2902,6 +2969,7 @@ content_type：application/json
       <td>authen_info存在时必填。详见UploadClientConfInfoResponse</td>
    </tr>
 </table>
+
 ### UploadClientConfInfoResponse结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -2917,6 +2985,7 @@ content_type：application/json
       <td>随机字符串</td>
    </tr>
 </table>
+
 ### 构造上报客户端机器配置信息请求例子
 	/*
 	构造请求字符串
@@ -2993,6 +3062,7 @@ content_type：application/json
       <td>认证信息，详见Authen<br><br>签名信息，详见Signature</td>
    </tr>
 </table>
+
 ### Authen结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3014,6 +3084,7 @@ content_type：application/json
       <td>认证码</td>
    </tr>
 </table>
+
 ### Signature结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3035,6 +3106,7 @@ content_type：application/json
       <td>签名内容</td>
    </tr>
 </table>
+
 ## 订单信息
 ### OrderContent结构（仅作为返回参数）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3171,6 +3243,7 @@ content_type：application/json
       <td>支付宝扩展信息，详见AlipayOrderContentExt</td>
    </tr>
 </table>
+
 ### WxpayOrderContentExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3246,6 +3319,7 @@ content_type：application/json
       <td>非刷卡支付时，指定支付方式，目前只能是：no_credit，指定不能使用信用卡支付</td>
    </tr>
 </table>
+
 ### WxpayCouponInfo结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3279,6 +3353,7 @@ content_type：application/json
       <td>代金券类型，CASH--充值代金券<br>NO_CASH---非充值代金券<br>订单使用代金券时有返回</td>
    </tr>
 </table>
+
 ### AlipayOrderContentExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3437,6 +3512,7 @@ content_type：application/json
       <td>商户业务号，回包的内容</td>
    </tr>
 </table>
+
 ### AlipayVoucherDetail结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3488,6 +3564,7 @@ content_type：application/json
       <td>备注</td>
    </tr>
 </table>
+
 ### AlipayFundBill结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3603,6 +3680,7 @@ content_type：application/json
       <td>微信支付扩展信息，详见WxpayRefundOrderContentExt</td>
    </tr>
 </table>
+
 ### WxpayRefundOrderContentExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3666,6 +3744,7 @@ content_type：application/json
       <td>取当前退款单的退款入账方<br>1、退回银行卡：{银行名称}{卡类型}{卡尾号}<br>2、退回支付用户零钱:支付用户零钱</td>
    </tr>
 </table>
+
 ## 交易请求时的商户信息
 ### PayMchKey结构
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3718,6 +3797,7 @@ content_type：application/json
       <td>支付宝扩展信息</td>
    </tr>
 </table>
+
 ### WxpayPayMchKeyExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3733,6 +3813,7 @@ content_type：application/json
       <td>用户在服务商微信公众号下的唯一标识</td>
    </tr>
 </table>
+
 ### AlipayPayMchKeyExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3748,6 +3829,7 @@ content_type：application/json
       <td>用户在支付宝下的唯一标识</td>
    </tr>
 </table>
+
 ## 交易请求时的支付订单信息
 ### PayContent结构（仅交易请求使用）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3812,6 +3894,7 @@ content_type：application/json
       <td>支付宝扩展信息，详见AlipayPayContentExt</td>
    </tr>
 </table>
+
 ### Detail结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3839,6 +3922,7 @@ content_type：application/json
       <td>商品详情，详见GoodsDetail</td>
    </tr>
 </table>
+
 ### GoodsDetail结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3872,6 +3956,7 @@ content_type：application/json
       <td>商品单价，如果商户有优惠，需传输商户优惠后的单价<br>单品总金额应<=订单总金额total_fee，否则会无法享受优惠</td>
    </tr>
 </table>
+
 ### WxpayPayContentExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3905,6 +3990,7 @@ content_type：application/json
       <td>定支付方式，目前只能是：no_credit，指定不能使用信用卡支付</td>
    </tr>
 </table>
+
 ### AlipayPayContentExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -3950,6 +4036,7 @@ content_type：application/json
       <td>不可用渠道</td>
    </tr>
 </table>
+
 ## 退款请求时的退款单信息
 ### RefundContent结构（仅退款请求使用）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -4002,6 +4089,7 @@ content_type：application/json
       <td>支付宝扩展信息，详见AlipayRefundOrderContentExt</td>
    </tr>
 </table>
+
 ### WxpayRefundOrderContentExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4017,6 +4105,7 @@ content_type：application/json
       <td>退款资金来源，仅针对老资金流子商户使用。默认使用未结算资金退款<br>REFUND_SOURCE_UNSETTLED_FUNDS：未结算资金退款<br>REFUND_SOURCE_RECHARGE_FUNDS：可用余额退款</td>
    </tr>
 </table>
+
 ### AlipayRefundOrderContentExt结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4050,6 +4139,7 @@ content_type：application/json
       <td>退款状态，详见 AlipayRefundOrderState</td>
    </tr>
 </table>
+
 ## 客户端信息
 ### OrderClient结构
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -4096,6 +4186,7 @@ content_type：application/json
       <td>调用云支付API的机器IP</td>
    </tr>
 </table>
+
 ## 门店信息
 ### ShopInfo结构
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -4196,6 +4287,7 @@ content_type：application/json
       <td>门店店员信息列表，详见StaffInfo</td>
    </tr>
 </table>
+
 ### DeviceInfo结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4223,6 +4315,7 @@ content_type：application/json
       <td>子商户自定义备注信息</td>
    </tr>
 </table>
+
 ### StaffInfo结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4262,6 +4355,7 @@ content_type：application/json
       <td>是否接收一码支付的成功消息通知</td>
    </tr>
 </table>
+
 # 枚举值定义
 ## 交易相关信息
 ### PayPlatform枚举变量
@@ -4279,6 +4373,7 @@ content_type：application/json
       <td>支付宝</td>
    </tr>
 </table>
+
 ### TradeType枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4314,6 +4409,7 @@ content_type：application/json
       <td>一码支付</td>
    </tr>
 </table>
+
 ### WxpayOrderState枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4365,6 +4461,7 @@ content_type：application/json
       <td>作废状态，表示本地有，第三方支付平台没有的订单</td>
    </tr>
 </table>
+
 ### AlipayOrderState枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4396,6 +4493,7 @@ content_type：application/json
       <td>订单不存在</td>
    </tr>
 </table>
+
 ### WxpayRefundOrderState枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4427,6 +4525,7 @@ content_type：application/json
       <td>作废状态，表示本地有，第三方支付平台没有的订单</td>
    </tr>
 </table>
+
 ### AlipayRefundOrderState枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4446,6 +4545,7 @@ content_type：application/json
       <td>申请退款失败</td>
    </tr>
 </table>
+
 ## 认证加密信息
 ### AuthenType枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -4462,6 +4562,7 @@ content_type：application/json
       <td>MD5</td>
    </tr>
 </table>
+
 ### SignType枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4473,6 +4574,7 @@ content_type：application/json
       <td>RSASSA-PSS-2048-SHA256</td>
    </tr>
 </table>
+
 ### EncrytType枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4484,6 +4586,7 @@ content_type：application/json
       <td>AES-128-GCM</td>
    </tr>
 </table>
+
 ## 接口相关信息
 ### Status枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -4516,6 +4619,7 @@ content_type：application/json
       <td>操作失败，且不建议重试. 带认证码，调用者需要验证认证码是否正确<br><b>特别提示：在刷卡支付响应包里出现该错误码时，需要判断internal_status字段的值是否是407，如是，则说明说明客户端发生异常，支付时单号重复，但金额等其他信息不重复，被云支付的防重入挡住，此时，请一定不要撤单，否则会造成已支付的订单退款，给商户造成损失。</b></td>
    </tr>
 </table>
+
 ### Interface枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4567,6 +4671,7 @@ content_type：application/json
       <td>客户端机器配置上报</td>
    </tr>
 </table>
+
 ## 其他信息
 ### CompressType
 <table  border="0" cellspacing="0" cellpadding="0">
