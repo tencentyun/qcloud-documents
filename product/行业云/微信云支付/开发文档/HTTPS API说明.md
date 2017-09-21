@@ -16,7 +16,7 @@
         return length;
     }
     /*
-    将request_str用POST方式发送到url，响应包填充到response指向的string中
+    将request用POST方式发送到url，响应包填充到response指向的string中
     返回是否POST请求是否成功
     */
     bool post(const std::string &request, const std::string &url, std::string *response)
