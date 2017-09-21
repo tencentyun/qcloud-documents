@@ -230,7 +230,7 @@ public static void QueryKartin(string tag)
 网络诊断是一个耗时的过程，大概有 4~8 秒钟，因此 GSDK 使用异步返回来实现。调用此函数后，查询结果会通过回调`KartinObserver`返回。
 ## 4 附录
 
-### 4.1 <span id="appendix1">附录1  接入步骤注意事项</span>
+### 4.1 附录1 接入步骤注意事项
 #### 4.1.1 如果游戏过程中客户端 IP 发生改变
 由于客户端 IP 改变了（可能是由于用户切换网络等操作导致） ，需要再调用`StartSpeed`，且传入参数中`stopMNA`设为 1 。启动对局时调用`StartSpeed`，如果超时未收到回调，可以调用`StopMNA`接口结束加速功能。
 #### 4.1.2 使用`connect->send`方式进行 UDP 通信的注意事项
@@ -243,7 +243,7 @@ public static void QueryKartin(string tag)
 2) 如果网络重连，且`vip:vport`改变，重新`connect`时，必须再次调用`StartSpeed`；如果此时不希望进行加速（等待加速回调耗时较长，为减少玩家重连等待时间），则`StartSpeed`的`stopMNA`参数填为 1 即可；如果此时仍希望进行加速，则按照正常流程进行调用。
 3) 如果网络重连时，`vip:vport`没有改变，则不需进行操作。
 
-### 4.2 附录2  参数 GSDKKartinObserver 类型定义
+### 4.2 附录2 参数 GSDKKartinObserver 类型定义
 ```
 public delegate void GSDKKartinObserver(KartinRet ret);
 public class KartinRet {
@@ -281,7 +281,7 @@ public class KartinRet {
 }
 ```
 
-### 4.3 附录3  KartinRet 关键参数取值及其说明如下
+### 4.3 附录3 KartinRet 关键参数取值及其说明如下
 #### 字段：flag；关键名称：查询结果标识
 | 取值 | 含义 | 
 |---------|---------|
