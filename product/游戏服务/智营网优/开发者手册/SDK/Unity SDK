@@ -79,7 +79,7 @@ MyMNAObserver *observer = MyMNAObserver::GetInstance();
 3. 游戏对局开始时，获取到对局中所使用到的域名或 IP 后，尽可能早的调用`StartSpeed`，玩家因网络或者其他异常无法连接到游戏，重新进行连接时，为保证加速效果，需要再次调用`StartSpeed`；当游戏切换到前台时，调用`GoFront`; 当游戏切换到后台时，调用`GoBack`；当游戏不想进行加速，但依然想保留 SDK 的网络探测功能时可调用`StopMNA`函数。
 4. 游戏退出对局时，先调用`IsQosWork`函数获取 QoS 保障标识，再调用`EndSpeed`结束当局加速，并上报游戏网络质量数据。
 5. 进入游戏大厅后可通过调用QueryKartin函数来对网络进行诊断。
-接入步骤注意事项：见<a href="#appendix1">附录1</a>。
+接入步骤注意事项：见附录1。
 
 ## 3  API 介绍
 API 接口由 com.tencent.mna 包下的 MNA 类提供，该类将所有方法都设计为静态函数，开发者可用类名直接进行调用。
