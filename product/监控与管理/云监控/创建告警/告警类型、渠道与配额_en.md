@@ -48,11 +48,11 @@ Users can purchase additional SMS quota if the free amount is not enough to sati
 There are different quotas for different types of alarms, therefore you need to purchase quotas for basic alarms, cloud automated testing alarms, custom message alarms and custom monitor alarms separately.
 
 |Additional Quota Purchase |	Additional Quota Price|
-|---------|---------|---------|
-|< 100 messages| 0.055
-|≥ 100 messages, < 500 messages	|0.052
-|≥ 500 messages, < 1000 messages|	0.050
-|≥ 1000 messages|	0.045
+|---------|---------|
+|< 100 messages| 0.055|
+|≥ 100 messages, < 500 messages	|0.052|
+|≥ 500 messages, < 1000 messages|	0.050|
+|≥ 1000 messages|	0.045|
 
 Deduction rule: When alarm messages are sent, the quota will be deducted from the free quota first, then from the additional quota if the free quota has been exhausted
 
