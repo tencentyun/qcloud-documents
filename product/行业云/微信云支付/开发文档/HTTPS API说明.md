@@ -35,7 +35,7 @@
 		// 设置云支付根证书
 		curl_easy_setopt(curl,CURLOPT_SSL_VERIFYPEER,1);   
 		curl_easy_setopt(curl,CURLOPT_SSL_VERIFYHOST,2);
-	    curl_easy_setopt(curl,CURLOPT_CAINFO,"./cloudpayrootca.pem");  
+		curl_easy_setopt(curl,CURLOPT_CAINFO,"./cloudpayrootca.pem");  
 	    
 		curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, recv_data);
 		std::string rc;
