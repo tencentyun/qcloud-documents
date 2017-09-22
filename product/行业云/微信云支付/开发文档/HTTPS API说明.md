@@ -527,7 +527,7 @@ post(request, "https://pay.qcloud.com/cpay/micro_pay", &response);
 ```
 ## 扫码支付
 ### 接口地址
->https://pay.qcloud.com/cpay/scan\_code\_pay
+>https://pay.qcloud.com/cpay/scan_code_pay
 
 content_type：application/json
 ### 输入参数
@@ -1623,7 +1623,7 @@ post(request, "https://pay.qcloud.com/cpay/query_order", &response);
 ```
 ## 查询退款单
 ### 接口地址
->https://pay.qcloud.com/cpay/query\_refund\_order
+>https://pay.qcloud.com/cpay/query_refund_order
 
 content_type：application/json
 ### 输入参数
@@ -2140,7 +2140,7 @@ content_type：application/json
 ### 特别说明
 - 如使用接口配置门店信息，则不要再使用云支付提供的商户管理后台页面配置门店信息，否则会造成云支付和服务商系统的门店信息不一致。
 ### 接口地址
->https://pay.qcloud.com/cpay/set\_sub\_mch\_shop\_info
+>https://pay.qcloud.com/cpay/set_sub_mch_shop_info
 
 content_type：application/json
 ### 输入参数
@@ -2368,7 +2368,7 @@ post(request, "https://pay.qcloud.com/cpay/set_sub_mch_shop_info", &response);
 ```
 ## 查询门店信息
 ### 接口地址
->https://pay.qcloud.com/cpay/query\_sub\_mch\_shop\_info
+>https://pay.qcloud.com/cpay/query_sub_mch_shop_info
 
 content_type：application/json
 ### 输入参数
@@ -2576,7 +2576,7 @@ post(request, "https://pay.qcloud.com/cpay/query_sub_mch_shop_info", &response);
 # 监控上报接口
 ## 上报客户端接口监控信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload\_client\_monitor\_info
+>https://pay.qcloud.com/cpay/upload_client_monitor_info
 
 content_type：application/json
 ### 输入参数
@@ -2908,7 +2908,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_monitor_info", &respons
 ```
 ## 上报客户端机器配置信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload\_client\_conf\_info
+>https://pay.qcloud.com/cpay/upload_client_conf_info
 
 content_type：application/json
 ### 输入参数
