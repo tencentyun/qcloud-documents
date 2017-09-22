@@ -138,7 +138,7 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
     }
 
     status = RSA_private_encrypt(sizeof(em), em, sign, rsa.get(), RSA_NO_PADDING);
-    if (status == -1) {
+    if (-1 == status) {
         return false;
     }
 
@@ -505,7 +505,10 @@ std::string gen_cloud_pay_micropay(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -720,7 +723,10 @@ std::string gen_cloud_pay_scan_code_pay(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -927,7 +933,10 @@ std::string gen_cloud_pay_reverse(
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
     std::string signature;
-    calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature);
+    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature)) {
+        // 计算失败
+        return "";
+    }
     s["signature"] = signature;
     authen_info["s"] = s;
 
@@ -1152,7 +1161,10 @@ std::string gen_cloud_pay_refund(
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
     std::string signature;
-    calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature);
+    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature)) {
+        // 计算失败
+        return "";
+    }
     s["signature"] = signature;
     authen_info["s"] = s;
 
@@ -1363,7 +1375,10 @@ std::string gen_cloud_pay_close_order(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -1586,7 +1601,10 @@ std::string gen_cloud_pay_query_order(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -1809,7 +1827,10 @@ std::string gen_cloud_pay_query_refund_order(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -2325,7 +2346,10 @@ std::string gen_cloud_pay_set_sub_mch_shop_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -2529,7 +2553,10 @@ std::string gen_cloud_pay_query_sub_mch_shop_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -2859,7 +2886,10 @@ std::string gen_cloud_pay_upload_client_monitor_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -3071,7 +3101,10 @@ std::string gen_cloud_pay_upload_client_conf_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
