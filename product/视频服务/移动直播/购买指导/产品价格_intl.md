@@ -29,7 +29,7 @@ MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB se
 </td><td> 72.0
 </td></tr>
 <tr>
-<td> 143.8 CNY Package
+<td> 143.8 USD Package
 </td><td> 1 TB
 </td><td> 143.8
 </td></tr>
@@ -102,6 +102,8 @@ COS is used to upload, store and download files. You don't need to activate this
 COS is a postpaid service. The bill for the current month will be generated and processed between the 3rd and 5th day of the next month. It provides users with 50 GB of free storage space, 10 GB of free IDC traffic, 10 GB of free CDN origin-pull traffic, 100,000 PUT requests and 1,000,000 GET requests.
 
 The extra amount is charged in a tiered progressive method based on actual usage. For more information, [please click here to view relevant document>>](https://www.qcloud.com/document/product/430/5871).
+
+
 
 
 
