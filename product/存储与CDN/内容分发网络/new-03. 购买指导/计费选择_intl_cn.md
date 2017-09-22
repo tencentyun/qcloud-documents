@@ -8,35 +8,35 @@ CDN 带宽计费采用阶梯到达模式，价格阶梯如下所示：
 		<tr>
 			<th scope="col" style="width: 145px;">计费模式</th>
 			<th scope="col" style="width: 154px;">带宽阶梯</th>
-			<th scope="col" style="width: 180px;">单价（元/Mbps/天）</th>
+			<th scope="col" style="width: 180px;">单价（美元/Mbps/月）</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td colspan="1" rowspan="4" style="text-align: center; width: 145px;">带宽峰值</td>
 			<td style="text-align: center; width: 154px;">0-500Mbps</td>
-			<td style="text-align: center; width: 180px;">1.1</td>
+			<td style="text-align: center; width: 180px;">4.80</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">500Mbps-5Gbps</td>
-			<td style="text-align: center; width: 180px;">1</td>
+			<td style="text-align: center; width: 180px;">4.20</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">5Gbps-50Gbps</td>
-			<td style="text-align: center; width: 180px;">0.9</td>
+			<td style="text-align: center; width: 180px;">3.90</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 154px;">大于等于 50Gbps</td>
-			<td style="text-align: center; width: 180px;">低于 0.74，线下谈判，以合同价为准</td>
+			<td style="text-align: center; width: 180px;">低于 3.30，线下谈判，以合同价为准</td>
 		</tr>
 	</tbody>
 </table>
 
 ### 计算方式
 假设前一日 CDN 的峰值带宽为 X，阶梯计算方式如下：
-1. 若 X < 500 Mbps，则账单费用为 X \* 1.1。
-2. 若 500 Mbps <= X < 5000 Mbps，则账单费用为 X \* 1.0。
-3. 若 5000 Mbps <= X < 50000Mbps，则账单费用为 X \* 0.9。
+1. 若 X < 500 Mbps，则账单费用为 X \* 4.80。
+2. 若 500 Mbps <= X < 5000 Mbps，则账单费用为 X \* 4.20。
+3. 若 5000 Mbps <= X < 50000Mbps，则账单费用为 X \* 3.90。
 4. 若 X >= 50000Mbps，请联系我们进行线下签约，更多优惠方式供您选择。
 
 您可以使用 [价格计算器](https://buy.qcloud.com/calculator/cdn) 进行费用估算。
@@ -49,30 +49,30 @@ CDN 流量计费采用月度阶梯累进结算，计费阶梯如表所示：
 		<tr>
 			<th scope="col" style="width:98px">计费模式</th>
 			<th scope="col" style="width: 170px;">流量阶梯</th>
-			<th scope="col" style="width: 189px;">单价（元/GB）</th>
+			<th scope="col" style="width: 189px;">单价（美元/GB）</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td colspan="1" rowspan="5" style="text-align:center; width:98px">月流量</td>
 			<td style="text-align: center; width: 170px;">0GB-2TB</td>
-			<td style="text-align: center; width: 189px;">0.34</td>
+			<td style="text-align: center; width: 189px;">0.055</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">2TB-10TB</td>
-			<td style="text-align: center; width: 189px;">0.32</td>
+			<td style="text-align: center; width: 189px;">0.053</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">10TB-50TB</td>
-			<td style="text-align: center; width: 189px;">0.30</td>
+			<td style="text-align: center; width: 189px;">0.049</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">50TB-100TB</td>
-			<td style="text-align: center; width: 189px;">0.28</td>
+			<td style="text-align: center; width: 189px;">0.046</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; width: 170px;">大于等于 100TB</td>
-			<td style="text-align: center; width: 189px;">低于 0.25，线下谈判，以合同价为准</td>
+			<td style="text-align: center; width: 189px;">低于 0.040，线下谈判，以合同价为准</td>
 		</tr>
 	</tbody>
 </table>
