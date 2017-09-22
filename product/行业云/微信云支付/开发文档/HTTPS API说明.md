@@ -119,9 +119,15 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
 
     EVP_MD_CTX md_ctx; //当前使用1.0.2e版本
     EVP_MD_CTX_init   (&md_ctx);
-    EVP_DigestInit    (&md_ctx, EVP_sha256());
-    EVP_DigestUpdate  (&md_ctx, (const void*)content.c_str(), content.length());
-    EVP_DigestFinal   (&md_ctx, digest, (unsigned int *)&digest_len);
+
+    if (!EVP_DigestInit(&md_ctx, EVP_sha256())                                     ||
+        !EVP_DigestUpdate(&md_ctx, (const void*)content.c_str(), content.length()) ||
+        !EVP_DigestFinal(&md_ctx, digest, (unsigned int *)&digest_len)) {
+
+        EVP_MD_CTX_cleanup(&md_ctx);
+        return false;
+    }
+    
     EVP_MD_CTX_cleanup(&md_ctx);
 
     unsigned char em[256] = {0};
