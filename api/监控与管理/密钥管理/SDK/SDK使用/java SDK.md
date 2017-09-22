@@ -153,10 +153,14 @@ JDK1.7
 |KeyId|string|None|主密钥Id。|
 |KeySpec|string|None|生成数据密钥算法。|
 |NumberOfBytes|int|None|生成指定长度的数据密钥。|
+|EncryptionContext|string|None|生成数据密钥时提供的额外的json key-value。|
 |Plaintext|string|无|生成的数据密钥明文。|
 
-返回值 CiphertextBlob 生成的数据密钥密文。
-
+返回值 
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|plaintext|string| 表示生成的数据密钥明文(输入参数返回)|
+|ciphertextBlob|string|表示生成的数据密钥密文|
 #### 使用示例
 
 ```
@@ -222,8 +226,10 @@ JDK1.7
 |Plaintext|string|空字符串|明文|
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
-返回值 ciphertextBlob 密文：
-
+返回值 
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|ciphertextBlob|string|表示生成的密文|
 #### 使用示例
 
 ```
@@ -244,7 +250,10 @@ JDK1.7
 |CiphertextBlob|string|空字符串|密文|
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
-返回值  plaintext 明文：
+返回值  
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|plaintext|string|表示通过密文解密得到的明文|
 
 #### 使用示例
 
