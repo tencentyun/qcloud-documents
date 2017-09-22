@@ -13,6 +13,7 @@ MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB se
 </td><td> 10 GB
 </td><td> 2.9
 </td></tr>
+<td colspan="3" style="text-align: center;"> Note: New user can get a 2.9 USD package for free.
 <tr>
 <td> 7.5 USD Package
 </td><td> 50 GB
