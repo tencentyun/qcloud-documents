@@ -13,6 +13,7 @@ MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB se
 </td><td> 10 GB
 </td><td> 2.9
 </td></tr>
+<td colspan="3" style="text-align: center;"> Note: New user can get a 2.9 USD package for free.
 <tr>
 <td> 7.5 USD Package
 </td><td> 50 GB
@@ -29,53 +30,12 @@ MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB se
 </td><td> 72.0
 </td></tr>
 <tr>
-<td> 143.8 CNY Package
+<td> 143.8 USD Package
 </td><td> 1 TB
 </td><td> 143.8
 </td></tr>
 <tr>
 <td colspan="3" style="text-align: center;"> Note: Packages are valid for one year, and 0.17 USD/GB will be charged for the traffic beyond the package quota which can be offset if you renew the package during the period of service billed based on a monthly basis.
-</td></tr>
-</tbody></table>
-
-### Video On-demand (VOD)
-If you wish to record the LVB content and provide playback feature, this service is indispensable:
-<table class="t" style="text-align: center;">
-<tbody><tr>
-<th width=150> Editions
-</th><th width=100> Trial edition
-</th><th width=100> Startup edition
-</th><th width=100> Enterprise edition
-</th><th width=100> Ultimate edition-I
-</th><th width=100> Ultimate edition-II
-</th><th width=100> Ultimate edition-III
-</th></tr>
-<tr>
-<td> Price
-</td><td> 7 days for free trial
-</td><td> 399 CNY/year
-</td><td> 3,899 CNY/year
-</td><td> 7,899 CNY/year
-</td><td> 28,999 CNY/year
-</td><td> 38,999 CNY/year
-</td></tr>
-<tr>
-<td> Storage
-</td><td> 5 GB
-</td><td> 20 GB
-</td><td> 100 GB
-</td><td> 500 GB
-</td><td> 1.5 TB
-</td><td> 3 TB
-</td></tr>
-<tr>
-<td> Traffic
-</td><td> 1 GB
-</td><td> 60 GB/month
-</td><td> 500 GB/month
-</td><td> 1,000 GB/month
-</td><td> 3,000 GB/month
-</td><td> 5,000 GB/month
 </td></tr>
 </tbody></table>
 

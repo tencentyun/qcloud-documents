@@ -14,7 +14,7 @@ size_t recv_data(char *ptr, size_t size, size_t nmemb, void *parm)
 {
     size_t length = size * nmemb;
     std::string *data = (std::string*)parm;
-    data.append(ptr, length);
+    data->append(ptr, length);
     return length;
 }
 /*
@@ -28,27 +28,26 @@ bool post(const std::string &request, const std::string &url, std::string *respo
     curl_easy_setopt(hnd, CURLOPT_CUSTOMREQUEST, "POST");
     curl_easy_setopt(hnd, CURLOPT_URL, url);
     
-    struct curl_slist *headers = NULL;
-    headers = curl_slist_append(headers, "content-type: application/json");
+    struct curl_slist *headers = curl_slist_append(NULL, "content-type: application/json");
     curl_easy_setopt(hnd, CURLOPT_HTTPHEADER, headers);
     
     curl_easy_setopt(hnd, CURLOPT_POSTFIELDS, request);
     
     // 设置云支付根证书
-    curl_easy_setopt(curl,CURLOPT_SSL_VERIFYPEER,1);   
-    curl_easy_setopt(curl,CURLOPT_SSL_VERIFYHOST,2);
-    curl_easy_setopt(curl,CURLOPT_CAINFO,"./cloudpayrootca.pem");  
+    curl_easy_setopt(hnd, CURLOPT_SSL_VERIFYPEER, 1);   
+    curl_easy_setopt(hnd, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_easy_setopt(hnd, CURLOPT_CAINFO, "./cloudpayrootca.pem");  
     
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, recv_data);
+    curl_easy_setopt(hnd, CURLOPT_WRITEFUNCTION, recv_data);
     std::string rc;
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, (void *)&rc);      
+    curl_easy_setopt(hnd, CURLOPT_WRITEDATA, (void *)&rc);      
 
     CURLcode ret = curl_easy_perform(hnd);
     if (CURLE_OK != ret) {
         return false;
     }
     *response = rc;
-    if(NULL != headers){
+    if (NULL != headers) {
         curl_slist_free_all(headers);
     }
     curl_easy_cleanup(hnd);
@@ -69,14 +68,14 @@ bool post(const std::string &request, const std::string &url, std::string *respo
 */
 bool calc_HMAC_SHA256(const std::string &key, const std::string &input, std::string *hmac)
 {
-    unsigned char md[SHA256_DIGEST_LENGTH];//32 bytes
+    unsigned char md[SHA256_DIGEST_LENGTH] = {0};//32 bytes
     char format_md[65] = {0};
 
     unsigned int md_len = sizeof(md);
 
     HMAC_CTX ctx;
     HMAC_CTX_init(&ctx);
-    if (!HMAC_Init_ex(&ctx, key.data(), (int)key.length(), EVP_sha256(), NULL)       ||
+    if (!HMAC_Init_ex(&ctx, key.data(), (int)key.length(), EVP_sha256(), NULL)  ||
         !HMAC_Update(&ctx, (const unsigned char *)input.data(), input.length()) ||
         !HMAC_Final(&ctx, md, &md_len)) {
 
@@ -105,39 +104,41 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
                                  const std::string &content, 
                                  std::string *sign_base64encode)
 {
-    unsigned char digest[SHA256_DIGEST_LENGTH]; //32 bytes
+    unsigned char digest[SHA256_DIGEST_LENGTH] = {0}; //32 bytes
     int digest_len = sizeof(digest);
 
-    BIO *p_key_bio = BIO_new_mem_buf((void *)key.c_str(), (int)key.length());
-    std::shared_ptr<BIO> shared_ptr_bio(p_key_bio, BIO_free);
-    if (!p_key_bio) {
+    std::shared_ptr<BIO> bio(BIO_new_mem_buf((void *)key.c_str(), (int)key.length()), BIO_free);
+    if (!bio) {
         return false;
     }
 
-    RSA *p_rsa = PEM_read_bio_RSAPrivateKey(p_key_bio, NULL, NULL, NULL);
-    std::shared_ptr<RSA> shared_ptr_rsa(p_rsa, RSA_free);
-    if (!p_rsa) {
+    std::shared_ptr<RSA> rsa(PEM_read_bio_RSAPrivateKey(bio.get(), NULL, NULL, NULL);, RSA_free);
+    if (!rsa) {
         return false;
     }
 
     EVP_MD_CTX md_ctx; //当前使用1.0.2e版本
     EVP_MD_CTX_init   (&md_ctx);
-    EVP_DigestInit    (&md_ctx, EVP_sha256());
-    EVP_DigestUpdate  (&md_ctx, (const void*)content.c_str(), content.length());
-    EVP_DigestFinal   (&md_ctx, digest, (unsigned int *)&digest_len);
+
+    if (!EVP_DigestInit(&md_ctx, EVP_sha256())                                     ||
+        !EVP_DigestUpdate(&md_ctx, (const void*)content.c_str(), content.length()) ||
+        !EVP_DigestFinal(&md_ctx, digest, (unsigned int *)&digest_len)) {
+
+        EVP_MD_CTX_cleanup(&md_ctx);
+        return false;
+    }
+    
     EVP_MD_CTX_cleanup(&md_ctx);
 
-    unsigned char em[256];
-    unsigned char sign[256];
-    int status;
-
-    status = RSA_padding_add_PKCS1_PSS(p_rsa, em, digest, EVP_sha256(), -2 /* maximum salt length*/);
+    unsigned char em[256] = {0};
+    unsigned char sign[256] = {0};
+    int status = RSA_padding_add_PKCS1_PSS(rsa.get(), em, digest, EVP_sha256(), -2 /* maximum salt length*/);
     if (!status) {
         return false;
     }
 
-    status = RSA_private_encrypt(sizeof(em), em, sign, p_rsa, RSA_NO_PADDING);
-    if (status == -1) {
+    status = RSA_private_encrypt(sizeof(em), em, sign, rsa.get(), RSA_NO_PADDING);
+    if (-1 == status) {
         return false;
     }
 
@@ -469,7 +470,7 @@ std::string gen_cloud_pay_micropay(
     const std::string &machine_no,
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
-    const std::string &authen_key,
+    const std::string &authen_key
 )
 {
     Json::Value request_content;
@@ -504,7 +505,10 @@ std::string gen_cloud_pay_micropay(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -523,7 +527,7 @@ post(request, "https://pay.qcloud.com/cpay/micro_pay", &response);
 ```
 ## 扫码支付
 ### 接口地址
->https://pay.qcloud.com/cpay/scan\_code\_pay
+>https://pay.qcloud.com/cpay/scan_code_pay
 
 content_type：application/json
 ### 输入参数
@@ -685,7 +689,7 @@ std::string gen_cloud_pay_scan_code_pay(
     const std::string &machine_no,
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
-    const std::string &authen_key,
+    const std::string &authen_key
 )
 {
     Json::Value request_content;
@@ -719,7 +723,10 @@ std::string gen_cloud_pay_scan_code_pay(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -896,7 +903,7 @@ std::string gen_cloud_pay_reverse(
     const std::string &machine_no,
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
-    const std::string &signing_key,
+    const std::string &signing_key
 )
 {
     Json::Value request_content;
@@ -926,7 +933,10 @@ std::string gen_cloud_pay_reverse(
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
     std::string signature;
-    calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature);
+    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature)) {
+        // 计算失败
+        return "";
+    }
     s["signature"] = signature;
     authen_info["s"] = s;
 
@@ -1115,7 +1125,7 @@ std::string gen_cloud_pay_refund(
     const std::string &machine_no,
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
-    const std::string &signing_key,
+    const std::string &signing_key
 )
 {
     Json::Value request_content;
@@ -1151,7 +1161,10 @@ std::string gen_cloud_pay_refund(
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
     std::string signature;
-    calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature);
+    if (!calc_RSASSA_PSS_2048_SHA256(signing_key, rc, &signature)) {
+        // 计算失败
+        return "";
+    }
     s["signature"] = signature;
     authen_info["s"] = s;
 
@@ -1331,7 +1344,7 @@ std::string gen_cloud_pay_close_order(
     const std::string &machine_no,
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
-    const std::string &authen_key,
+    const std::string &authen_key
 )
 {
     Json::Value request_content;
@@ -1362,7 +1375,10 @@ std::string gen_cloud_pay_close_order(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -1554,7 +1570,7 @@ std::string gen_cloud_pay_query_order(
     const std::string &machine_no,
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
-    const std::string &authen_key,
+    const std::string &authen_key
 )
 {
     Json::Value request_content;
@@ -1585,7 +1601,10 @@ std::string gen_cloud_pay_query_order(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -1604,7 +1623,7 @@ post(request, "https://pay.qcloud.com/cpay/query_order", &response);
 ```
 ## 查询退款单
 ### 接口地址
->https://pay.qcloud.com/cpay/query\_refund\_order
+>https://pay.qcloud.com/cpay/query_refund_order
 
 content_type：application/json
 ### 输入参数
@@ -1777,7 +1796,7 @@ std::string gen_cloud_pay_query_refund_order(
     const std::string &machine_no,
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
-    const std::string &authen_key,
+    const std::string &authen_key
 )
 {
     Json::Value request_content;
@@ -1808,7 +1827,10 @@ std::string gen_cloud_pay_query_refund_order(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -2118,7 +2140,7 @@ content_type：application/json
 ### 特别说明
 - 如使用接口配置门店信息，则不要再使用云支付提供的商户管理后台页面配置门店信息，否则会造成云支付和服务商系统的门店信息不一致。
 ### 接口地址
->https://pay.qcloud.com/cpay/set\_sub\_mch\_shop\_info
+>https://pay.qcloud.com/cpay/set_sub_mch_shop_info
 
 content_type：application/json
 ### 输入参数
@@ -2324,7 +2346,10 @@ std::string gen_cloud_pay_set_sub_mch_shop_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -2343,7 +2368,7 @@ post(request, "https://pay.qcloud.com/cpay/set_sub_mch_shop_info", &response);
 ```
 ## 查询门店信息
 ### 接口地址
->https://pay.qcloud.com/cpay/query\_sub\_mch\_shop\_info
+>https://pay.qcloud.com/cpay/query_sub_mch_shop_info
 
 content_type：application/json
 ### 输入参数
@@ -2528,7 +2553,10 @@ std::string gen_cloud_pay_query_sub_mch_shop_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -2548,7 +2576,7 @@ post(request, "https://pay.qcloud.com/cpay/query_sub_mch_shop_info", &response);
 # 监控上报接口
 ## 上报客户端接口监控信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload\_client\_monitor\_info
+>https://pay.qcloud.com/cpay/upload_client_monitor_info
 
 content_type：application/json
 ### 输入参数
@@ -2818,7 +2846,7 @@ std::string gen_cloud_pay_upload_client_monitor_info(
     const std::string &spbill_create_ip,
     const int          interval,
     const std::string &machine_info,
-    const std::string &authen_key,
+    const std::string &authen_key
 )
 {
     Json::Value request_content;
@@ -2858,7 +2886,10 @@ std::string gen_cloud_pay_upload_client_monitor_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 
@@ -2877,7 +2908,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_monitor_info", &respons
 ```
 ## 上报客户端机器配置信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload\_client\_conf\_info
+>https://pay.qcloud.com/cpay/upload_client_conf_info
 
 content_type：application/json
 ### 输入参数
@@ -3042,7 +3073,7 @@ std::string gen_cloud_pay_upload_client_conf_info(
     const std::string &sdk_version,
     const std::string &spbill_create_ip,
     const std::string &machine_info,
-    const std::string &authen_key,
+    const std::string &authen_key
 )
 {
     Json::Value request_content;
@@ -3070,7 +3101,10 @@ std::string gen_cloud_pay_upload_client_conf_info(
     a["authen_type"] = 1;
     // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
     std::string authen_code;
-    calc_HMAC_SHA256(authen_key, rc, &authen_code);
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        // 计算失败
+        return "";
+    }
     a["authen_code"] = authen_code;
     authen_info["a"] = a;
 

@@ -1,66 +1,41 @@
 移动直播本身不是一项独立的云服务，所以费用全部源自其依赖的如下几项基础云服务，自身不产生额外费用：
 
 ### 直播云服务（LVB）
-直播可以选择**带宽**计费（默认计费方案，适合直播平台）或者**流量**计费（适合直播活动）两种计费方式。
-- 按带宽计费的日结价格如下：
+移动直播是腾讯云直播服务在手机直播方向的延伸，所以您必须激活直播云服务。
 
-| 带宽阶梯 | 价格 |
-|---------|---------|
-| 0Mbps-500Mbps(含) | 1.0元Mbps/天 | 
-| 500Mbps-5Gbps(含)	 | 0.9元Mbps/天 | 
-| >5Gbps | 0.76元Mbps/天 | 
-
-- 按流量计费的日结价格如下：
-
-| 带宽阶梯 | 价格 |
-|---------|---------|
-| 0-50GB(含)	  | 0.29元/GB/天  |
-| 50-500G(含)	| 0.27元/GB/天 |
-| 500G-1T(含)	| 0.26元/GB/天 |
-| 1T-5T(含)	    | 0.24元/GB/天 |
-| >5T(含)	       | 0.23元/GB/天 |
-
-您可以选择月结等其它计费方式，更多信息可以关注 [直播价格总览](https://www.qcloud.com/document/product/267/2818)。
-
-
-### 点播云服务（VOD）
-如果您的希望将直播内容录制并提供回放能力，那么该项服务是必不可少的：
 <table class="t" style="text-align: center;">
 <tbody><tr>
-<th width=150> 功能版本
-</th><th width=100> 测试体验版
-</th><th width=100> 创业版
-</th><th width=100> 企业版
-</th><th width=100> 旗舰版-Ⅰ
-</th><th width=100> 旗舰版-Ⅱ
-</th><th width=100> 旗舰版-Ⅲ
+<th width=250> Package List
+</th><th width=250> LVB Traffic (downlink)
+</th><th width=250> Price (USD)
 </th></tr>
 <tr>
-<td> 价格
-</td><td> 免费七天
-</td><td> 399元/年
-</td><td> 3899元/年
-</td><td> 7899元/年
-</td><td> 28999元/年
-</td><td> 38999元/年
+<td> 2.9 USD Package
+</td><td> 10 GB
+</td><td> 2.9
 </td></tr>
 <tr>
-<td> 空间
-</td><td> 5G
-</td><td> 20G
-</td><td> 100G
-</td><td> 500G
-</td><td> 1.5T
-</td><td> 3T
+<td> 7.5 USD Package
+</td><td> 50 GB
+</td><td> 7.5
 </td></tr>
 <tr>
-<td> 流量
-</td><td> 1G
-</td><td> 60G/月
-</td><td> 500G/月
-</td><td> 1000G/月
-</td><td> 3000G/月
-</td><td> 5000G/月
+<td> 14.5 USD Package
+</td><td> 100 GB
+</td><td> 14.5
+</td></tr>
+<tr>
+<td> 72.0 USD Package
+</td><td> 500 GB
+</td><td> 72.0
+</td></tr>
+<tr>
+<td> 143.8 USD Package
+</td><td> 1 TB
+</td><td> 143.8
+</td></tr>
+<tr>
+<td colspan="3" style="text-align: center;"> Note: Packages are valid for one year, and 0.17 USD/GB will be charged for the traffic beyond the package quota which can be offset if you renew the package during the period of service billed based on a monthly basis.
 </td></tr>
 </tbody></table>
 
@@ -68,16 +43,16 @@
 主要用于构建高并发和无人数限制的聊天室功能，同时也能够用来做可靠的 1V1 私信消息：
 <table class="t" style="text-align: center;">
 <tbody><tr>
-<th width=150> 日活用户数
-</th><th width=200> X &lt; 10万
-</th><th width=200> 10万 ≤ X &lt; 80万
-</th><th width=200> X ≥ 80万
+<th width=150> Daily active users
+</th><th width=200> X < 100,000 DAUs
+</th><th width=200> 100,000 DAUs ≤ X < 800,000 DAUs
+</th><th width=200> X ≥ 800,000 DAUs
 </th></tr>
 <tr>
-<td> 收费标准
-</td><td> 免费
-</td><td> 10000元/月/10万DAU
-</td><td> 咨询客服
+<td> Billing method
+</td><td> Free
+</td><td> 10,000 CNY/month/100,000 DAUs
+</td><td> Contact customer service
 </td></tr>
 </tbody></table>
 
