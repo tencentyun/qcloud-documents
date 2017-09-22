@@ -2,7 +2,7 @@
 为了让开发者便捷地使用云点播服务，云点播除了提供控制台操作界面，还提供了一整套基于 HTTP 的 服务端 API。通过这些 API，开发者后台可以和云点播后台交互，使用包括视频上传、媒资管理、视频处理在内的几乎所有云点播功能。 
 
 ## 服务端 API 使用
-云点播服务端 API 的具体使用方法和腾讯云的[云 API][云 API] 相同。
+云点播服务端 API 的具体使用方法和腾讯云的[云 API][云 API] 相同。为了方便用户调用，云点播提供了 [服务端 API SDK][SDK] 供开发者使用。
 
 ### 请求结构
 * [请求结构简介](https://www.qcloud.com/document/api/213/6975)
@@ -142,4 +142,5 @@
 
 [云 API]: https://www.qcloud.com/product/api "云 API"
 [公共错误码]: https://www.qcloud.com/document/api/213/10146 "公共错误码"
+[SDK]: https://cloud.tencent.com/document/product/266/7982 "SDK"
 
