@@ -43,16 +43,16 @@
 主要用于构建高并发和无人数限制的聊天室功能，同时也能够用来做可靠的 1V1 私信消息：
 <table class="t" style="text-align: center;">
 <tbody><tr>
-<th width=150> 日活用户数
-</th><th width=200> X &lt; 10万
-</th><th width=200> 10万 ≤ X &lt; 80万
-</th><th width=200> X ≥ 80万
+<th width=150> Daily active users
+</th><th width=200> X < 100,000 DAUs
+</th><th width=200> 100,000 DAUs ≤ X < 800,000 DAUs
+</th><th width=200> X ≥ 800,000 DAUs
 </th></tr>
 <tr>
-<td> 收费标准
-</td><td> 免费
-</td><td> 10000元/月/10万DAU
-</td><td> 咨询客服
+<td> Billing method
+</td><td> Free
+</td><td> 10,000 CNY/month/100,000 DAUs
+</td><td> Contact customer service
 </td></tr>
 </tbody></table>
 
