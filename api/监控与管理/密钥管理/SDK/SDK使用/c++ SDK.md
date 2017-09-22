@@ -177,7 +177,8 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 |Plaintext|string|无|生成的数据密钥明文|
 |CiphertextBlob|string|无|生成的数据密钥密文|
 
-返回值 入参中：  
+返回值(入参中)
+
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |plaintext|string| 表示生成的数据密钥明文|
@@ -248,7 +249,8 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 |Plaintext|string|空字符串|明文|
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数|
 
-返回值 
+返回值  
+
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |ciphertextBlob|string|表示生成的密文|
@@ -277,6 +279,7 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
 返回值  
+
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |plaintext|string|表示通过密文解密得到的明文|
