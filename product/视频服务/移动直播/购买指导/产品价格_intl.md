@@ -38,47 +38,6 @@ MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB se
 </td></tr>
 </tbody></table>
 
-### Video On-demand (VOD)
-If you wish to record the LVB content and provide playback feature, this service is indispensable:
-<table class="t" style="text-align: center;">
-<tbody><tr>
-<th width=150> Editions
-</th><th width=100> Trial edition
-</th><th width=100> Startup edition
-</th><th width=100> Enterprise edition
-</th><th width=100> Ultimate edition-I
-</th><th width=100> Ultimate edition-II
-</th><th width=100> Ultimate edition-III
-</th></tr>
-<tr>
-<td> Price
-</td><td> 7 days for free trial
-</td><td> 399 CNY/year
-</td><td> 3,899 CNY/year
-</td><td> 7,899 CNY/year
-</td><td> 28,999 CNY/year
-</td><td> 38,999 CNY/year
-</td></tr>
-<tr>
-<td> Storage
-</td><td> 5 GB
-</td><td> 20 GB
-</td><td> 100 GB
-</td><td> 500 GB
-</td><td> 1.5 TB
-</td><td> 3 TB
-</td></tr>
-<tr>
-<td> Traffic
-</td><td> 1 GB
-</td><td> 60 GB/month
-</td><td> 500 GB/month
-</td><td> 1,000 GB/month
-</td><td> 3,000 GB/month
-</td><td> 5,000 GB/month
-</td></tr>
-</tbody></table>
-
 ## Instant Messaging (IM)
 It is used to build a chat room with high concurrency and unlimited number of users. A user can use this service to send private messages to another user in a reliable manner:
 <table class="t" style="text-align: center;">
@@ -102,6 +61,7 @@ COS is used to upload, store and download files. You don't need to activate this
 COS is a postpaid service. The bill for the current month will be generated and processed between the 3rd and 5th day of the next month. It provides users with 50 GB of free storage space, 10 GB of free IDC traffic, 10 GB of free CDN origin-pull traffic, 100,000 PUT requests and 1,000,000 GET requests.
 
 The extra amount is charged in a tiered progressive method based on actual usage. For more information, [please click here to view relevant document>>](https://www.qcloud.com/document/product/430/5871).
+
 
 
 
