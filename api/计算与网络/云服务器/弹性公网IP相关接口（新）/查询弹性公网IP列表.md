@@ -15,7 +15,7 @@
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
 | Version | String | 是 | 表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
-| AddressIds | array of String | 是 | 标识 EIP 的唯一 ID 列表。|
+| AddressIds | array of String | 否 | 标识 EIP 的唯一 ID 列表。|
 | Filters.N | array of [Filter](/document/api/213/9451#filter) objects | 否 | 过滤条件，详见下表： EIP 过滤条件表。每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。|
 | Offset| Integer| 否| 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](/document/api/213/568)中的相关小节。|
 | Limit| Integer| 否| 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](/document/api/213/568)中的相关小节。|

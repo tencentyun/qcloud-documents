@@ -6,8 +6,8 @@
 
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
 
->注：
-平台对用户每地域每日解绑 EIP 重新分配普通公网 IP 次数有所限制（可参见<a href="/doc/product/213/1941" title="/doc/product/213/1941">EIP产品简介</a>）。上述配额可通过 <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E9%85%8D%E9%A2%9D" title="DescribeAddressQuota">DescribeAddressQuota</a> 接口获取。
+
+* 平台对用户每地域每日解绑 EIP 重新分配普通公网 IP 次数有所限制（可参见 [EIP 产品简介](/document/product/213/1941)）。上述配额可通过 [DescribeAddressQuota](/document/api/213/1378) 接口获取。
 
 
 ## 2. 输入参数
@@ -31,8 +31,8 @@
 |AddressQuotaLimitExceeded|账户配额不足，每个腾讯云账户每个地域下最多可创建 20 个 EIP。|
 |AddressQuotaLimitExceeded.DailyAllocate|申购次数不足，每个腾讯云账户每个地域每天申购次数为配额数*2 次。|
 |InvalidInstanceId.NotFound|实例 ID 不存在。|
-|InvalidInstanceState|实例处于无效的状态。|
-|InvalidInstance.NotSupported|该实例不支持将普通公网IP转换为 EIP 。|
+|InvalidInstanceState|指定实例当前状态不能进行普通公网 IP 转换 EIP 操作。|
+|InvalidInstance.NotSupported|指定实例不支持将普通公网 IP 转换为 EIP。|
 
 ## 5. 示例代码
 
