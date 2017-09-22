@@ -46,3 +46,17 @@ callback(Error error, Object result);
 * console.info()
 
 输出内容您可以在函数日志中的 `log` 位置查看。
+
+## 已包含的库及使用方法
+
+### COS SDK
+
+云函数的运行环境内已包含 [COS 的 Node.js SDK](https://www.qcloud.com/document/product/436/8629)，具体版本为 `cos-nodejs-sdk-v5`。
+
+可在代码内通过如下方式引入 COS SDK 并使用：
+
+```
+var COS = require('cos-nodejs-sdk-v5');
+```
+
+更详细的 COS SDK 使用说明见[COS Node.js SDK](https://www.qcloud.com/document/product/436/8629)。
