@@ -29,7 +29,7 @@ MLVB is a mobile phone LVB solution focusing on LVB, so you must activate LVB se
 </td><td> 72.0
 </td></tr>
 <tr>
-<td> 143.8 CNY Package
+<td> 143.8 USD Package
 </td><td> 1 TB
 </td><td> 143.8
 </td></tr>
