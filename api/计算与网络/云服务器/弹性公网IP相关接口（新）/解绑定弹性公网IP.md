@@ -8,7 +8,7 @@
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
 
 * 只有状态为 BIND 和 BIND_ENI 的 EIP 才能进行解绑定操作。
-* EIP 如果被封堵，则不能被解绑定。
+* EIP 如果被封堵，则不能进行解绑定操作。
 
 
 ## 2. 输入参数
@@ -19,7 +19,7 @@
 |---------|---------|---------|---------|
 | Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
 | AddressId | String| 是| 标识 EIP 的唯一ID。|
-| ReallocateNormalPublicIp | String| 否| 表示解绑 EIP 之后是否分配普通公网 IP。取值范围：<br><li>TRUE：表示解绑 EIP 之后分配普通公网 IP。<br><li>FALSE：表示解绑 EIP 之后不分配普通公网 IP。<br>默认取值：FALSE。<br><br>只有满足以下条件时才能指定该参数：<br><li> 只有在解绑主网卡的主内网 IP 上的 EIP 时才能指定该参数。<br><li>解绑 EIP 后重新分配普通公网 IP 操作一个账号每天最多操作 10 次；详情可以通过查询 EIP 配额接口获取。 |
+| ReallocateNormalPublicIp | String| 否| 表示解绑 EIP 之后是否分配普通公网 IP。取值范围：<br><li>TRUE：表示解绑 EIP 之后分配普通公网 IP。<br><li>FALSE：表示解绑 EIP 之后不分配普通公网 IP。<br>默认取值：FALSE。<br><br>只有满足以下条件时才能指定该参数：<br><li> 只有在解绑主网卡的主内网 IP 上的 EIP 时才能指定该参数。<br><li>解绑 EIP 后重新分配普通公网 IP 操作一个账号每天最多操作 10 次；详情可通过 [DescribeAddressQuota](/document/api/213/1378) 接口获取。 |
 
 
 ## 3. 输出参数
@@ -36,10 +36,10 @@
 | 错误码 | 描述 |
 |---------|---------|
 |InvalidAddressId.NotFound|指定的 EIP 不存在。|
-|InvalidAddressId.Blocked|指定 EIP 处于被封堵状态。当 EIP 处于封堵状态的时候是不能够进行绑定操作的，需要先进行解封。|
-|InvalidAddressIdStatus.NotPermit|指定 EIP 的状态不能允许进行绑定操作。只有 EIP 的状态处于 BIND 或 BIND_ENI 状态时才能进行绑定操作。|
+|InvalidAddressId.Blocked|指定 EIP 处于被封堵状态。当 EIP 处于封堵状态的时候是不能够进行解绑定操作的，需要先进行解封。|
+|InvalidAddressIdStatus.NotPermit|指定 EIP 当前状态不能进行解绑定操作。只有 EIP 的状态处于 BIND 或 BIND_ENI 状态时才能进行解绑定操作。|
 |InvalidInstanceId.NotFound|指定实例 ID 不存在。|
-|InvalidInstance.NotSupported|指定实例的状态不能进行解绑 EIP 操作。|
+|InvalidInstance.NotSupported|指定实例当前状态不能进行解绑定 EIP 操作。|
 |InvalidParameter|参数取值不合法。|
 |AddressQuotaLimitExceeded.DailyAllocate| 重新分配普通公网 IP 配额已经到达当日配额上线。配额详情可通过 [DescribeAddressQuota](/document/api/213/1378) API 获取。|
 
