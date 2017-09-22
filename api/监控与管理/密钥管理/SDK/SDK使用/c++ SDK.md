@@ -178,10 +178,10 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 |CiphertextBlob|string|无|生成的数据密钥密文|
 
 返回值 入参中：  
-|参数名|类型|参数描述|  
-|---------|---------|---------|  
-|plaintext|string| 表示生成的数据密钥明文|  
-|ciphertextBlob|string|表示生成的数据密钥密文|  
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|plaintext|string| 表示生成的数据密钥明文|
+|ciphertextBlob|string|表示生成的数据密钥密文|
 
 #### 使用示例
 
