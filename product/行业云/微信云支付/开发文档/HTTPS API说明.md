@@ -48,6 +48,9 @@ bool post(const std::string &request, const std::string &url, std::string *respo
         return false;
     }
     *response = rc;
+    if(NULL != headers){
+        curl_slist_free_all(headers);
+    }
     curl_easy_cleanup(hnd);
     return true;
 }
