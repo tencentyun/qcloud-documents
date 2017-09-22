@@ -1,6 +1,6 @@
 
 在本文档中，您可以创建 SQL Server 云数据库实例。然后在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到该数据库实例并运行简单的查询。最后，您将删除该数据库实例。
-如果您想要在本地使用 SQL Server Management Studio（SSMS） 连接到 SQL Server 云数据库，请参考入门教程 [创建并连接 SQL Server 云数据库（本地端）]()。
+如果您想要在本地使用 SQL Server Management Studio（SSMS） 连接到 SQL Server 云数据库，请参考入门教程 [创建并连接 SQL Server 云数据库（本地端）](/doc/product/238/11627)。
 
 > **注意：**
 > 在创建 SQL Server 云数据库实例之前，您必须拥有一个腾讯云账户。如果您没有腾讯云账户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
