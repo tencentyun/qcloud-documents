@@ -181,6 +181,7 @@ windows cmd
 |EncryptionContext|string|None|生成数据密钥时提供的额外的json key-value。|
 
 返回值 
+
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |plaintext|string| 表示生成的数据密钥明文|
@@ -251,6 +252,7 @@ windows cmd
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
 返回值：
+
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |ciphertextBlob|string|表示生成的密文|
@@ -276,6 +278,7 @@ windows cmd
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
 返回值 ：
+
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |plaintext|string|表示通过密文解密得到的明文|
