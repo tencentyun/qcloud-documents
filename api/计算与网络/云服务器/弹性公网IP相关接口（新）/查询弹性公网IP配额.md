@@ -2,7 +2,7 @@
 
 注：本接口为改版后的 API 接口。如需了解旧接口相关信息，请参考：[查询弹性公网IP配额](/document/api/213/1378)。
 
-本接口 (DescribeAddressQuota) 用于指定地域[弹性公网IP](/document/product/213/1941)（简称 EIP）配额。
+本接口 (DescribeAddressQuota) 用于查询您账户的[弹性公网IP](/document/product/213/1941)（简称 EIP）配额信息。配额详情可参见 [EIP 产品简介](/document/product/213/5733)。
 
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
 
