@@ -53,21 +53,21 @@
 
 
 #### 请求参数
-```
+<pre>
   https://cvm.api.qcloud.com/v2/index.php?Action=AssociateAddress
   &Version=2017-03-12
   &AddressId=eip-ek0cdz1g
   &<<a href="/doc/api/229/6976">公共请求参数</a>>
-```
+</pre>
 
 #### 返回参数
-```
+<pre>
 {
     "Response": {
         "RequestID": "3c140219-cfe9-470e-b241-907877d6fb03"
     }
 }
-```
+</pre>
 
 
 ### 示例2
@@ -77,19 +77,19 @@
 
 
 #### 请求参数
-```
+<pre>
   https://cvm.api.qcloud.com/v2/index.php?Action=AssociateAddress
   &Version=2017-03-12
   &AddressId=eip-ek0cdz1g
   &ReallocateNormalPublicIp=TRUE
   &<<a href="/doc/api/229/6976">公共请求参数</a>>
-```
+</pre>
 
 #### 返回参数
-```
+<pre>
 {
     "Response": {
         "RequestID": "3c140219-cfe9-470e-b241-907877d6fb03"
     }
 }
-```
+</pre>

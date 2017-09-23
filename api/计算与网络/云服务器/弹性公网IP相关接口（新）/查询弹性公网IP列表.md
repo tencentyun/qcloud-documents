@@ -47,14 +47,14 @@ EIP 过滤条件表
 ## 4. 示例代码
 
 #### 请求参数
-```
+<pre>
 https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
 &AddressIds.0=eip-hxlqja90
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
-```
+</pre>
 
 #### 返回参数
-```
+<pre>
 {
   "Response": {
     "TotalCount": 1,
@@ -74,4 +74,4 @@ https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
     ]
   }
 }
-```
+</pre>

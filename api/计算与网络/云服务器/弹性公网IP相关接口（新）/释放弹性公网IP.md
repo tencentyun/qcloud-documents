@@ -36,17 +36,17 @@
 ## 5. 示例代码
 
 #### 请求参数
-```
+<pre>
 https://eip.api.qcloud.com/v2/index.php?Action=ReleaseAddresses
 &AddressId.0=eip-gzc5rgr2
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
-```
+</pre>
 
 #### 返回参数
-```
+<pre>
 {
     "Response": {
         "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
     }
 }
-```
+</pre>
