@@ -38,16 +38,15 @@
 
 #### 请求参数
 
-```
+<pre>
 https://eip.api.qcloud.com/v2/index.php?Action=AllocateAddresses
 &Version=2017-03-12
 &AddressCount=1
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
-```
+</pre>
 
 #### 返回参数
-
-```
+<pre>
 {
     "Response": {
         "AddressSet": [
@@ -56,4 +55,4 @@ https://eip.api.qcloud.com/v2/index.php?Action=AllocateAddresses
         "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
     }
 }
-```
+</pre>
