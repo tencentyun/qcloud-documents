@@ -27,7 +27,7 @@ SSH key is used to log into Linux CVM and is more secure than password login. Fo
 With VPC, you can customize a network environment that is logically isolated and start the cloud resources of Tencent Cloud within it. For more information about VPC, see [here](https://www.qcloud.com/doc/product/215/535).
 
 A VPC contains at least one subnet. The resources of Cloud Services can only be added in the subnet.
-![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
+![![](//mc.qcloudimg.com/static/img/1ebc65bc58bed092c41a12cde8f19452/image.png)]
 
 1. Log in to [VPC Console](https://console.qcloud.com/vpc).
 
@@ -36,7 +36,7 @@ A VPC contains at least one subnet. The resources of Cloud Services can only be 
 3. Enter the VPC and subnet name, [CIDR](https://www.qcloud.com/doc/product/215/4925#cidr) and select the AZ. 
 
 4. Click **Create** to complete. 
-![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
+![![](//mc.qcloudimg.com/static/img/1ebc65bc58bed092c41a12cde8f19452/image.png)]
 
 ## (Optional) Creating a Security Group
 
