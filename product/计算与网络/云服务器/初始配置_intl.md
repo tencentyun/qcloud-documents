@@ -3,17 +3,16 @@ To start using a CVM, please do the following:
 ## Signing Up for a Tencent Cloud Account
 
 If you already have a Tencent Cloud account, just skip this step.
-![](//mccdn.qcloud.com/static/img/b95541efd781757035eef96d73088513/image.png)
-![](//mccdn.qcloud.com/static/img/f5ad4b5f92a32060ed1122114388226b/image.png)
-![](//mccdn.qcloud.com/static/img/0665bd87d4759d39dc9cb0bb048a9485/image.png)
+![](//mc.qcloudimg.com/static/img/323529f3a9239acde216b5689bd6849f/image.png)
+![](//mc.qcloudimg.com/static/img/d3695860b17f7dc4d9447d5782cac5d2/image.png)
+![](//mc.qcloudimg.com/static/img/5646fdd83971eefa821e21025d788939/image.png)
 
 Please set a strong password for your account and keep all the login information safe.
 
 ## Verifying Identity
 
 Identity verification is required for some Tencent Cloud products (such as the postpaid CVMs, COS, CDN, etc.). 
-![](//mccdn.qcloud.com/static/img/61e2b15b057ef2508656e1972c422c1c/image.jpg)
-![](//mccdn.qcloud.com/static/img/2e668e7e607ea863f1d2b4540397334d/image.png)
+![](//mc.qcloudimg.com/static/img/dc9771468866bc768a7a9f7039799f06/image.png)
 
 ## (Optional) Creating an SSH key
 SSH key is used to log into Linux CVM and is more secure than password login. For more information about SSH keys, see [here](/doc/product/213/6092).
