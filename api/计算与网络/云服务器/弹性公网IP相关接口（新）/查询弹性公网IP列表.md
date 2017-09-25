@@ -77,7 +77,7 @@ https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
         "CreatedTime": "2017-09-12T07:52:00Z"
       }
     ],
-    "RequestID": "3c140219-cfe9-470e-b241-907877d6fb03"
+    "RequestId": "3c140219-cfe9-470e-b241-907877d6fb03"
   }
 }
 </pre>
@@ -114,7 +114,7 @@ https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
         "CreatedTime": "2017-09-12T07:52:00Z"
       }
     ],
-    "RequestID": "3c140219-cfe9-470e-b241-907877d6fb03"
+    "RequestId": "3c140219-cfe9-470e-b241-907877d6fb03"
   }
 }
 </pre>
