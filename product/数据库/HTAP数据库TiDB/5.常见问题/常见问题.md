@@ -4,7 +4,7 @@
 
 ## 2、用起来简单吗？
 
-是的，HTAP Database for TiDB 用起来很简单。启动整套服务后，就可以将 HTAP Database for TiDB 当做一个普通的 MySQL Server 来用，你可以将 HTAP Database for TiDB 用在任何以 MySQL 作为后台存储服务的应用中，并且基本上不需要修改应用代码，并且兼容大部分 MySQL 管理工具。
+是的，HTAP Database for TiDB 用起来很简单。启动整套服务后，就可以将 HTAP Database for TiDB 当做一个普通的 MySQL Server 来用，您可以将 HTAP Database for TiDB 用在任何以 MySQL 作为后台存储服务的应用中，基本上不需要修改应用代码，并且兼容大部分 MySQL 管理工具。
 
 ## 3、适用的场景？
 
