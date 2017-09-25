@@ -7,7 +7,6 @@
 | [设置实例属性](/document/product/597/10095) | SetInstanceAttributes|用于在用户设置实例属性。|
 | [获取实例属性](/document/product/597/10094)  | GetInstanceAttributes|用于获取某个已创建实例属性。|
 | [获取实例列表](/document/product/597/10093) | ListInstance | 用于获取实例列表。|
-| [删除日志](/document/product/597/10092) | CleanLog | 用于用户删除磁盘中的日志。|
 
 
 ### 主题相关接口

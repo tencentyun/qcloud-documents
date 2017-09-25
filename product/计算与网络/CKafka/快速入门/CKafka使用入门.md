@@ -104,5 +104,5 @@ CKafka支持在topic维度开启ip白名单的功能，有效保证数据安全�
 ![](https://mc.qcloudimg.com/static/img/02c8e7d5eeabb7f431b8b9c1f37cc636/7.png)
 
 #### 3.2 设置消息保留时间
-CKafka支持设置消息保留时间，以分钟为单位，最短1分钟，最长保留7天。
+CKafka支持设置消息保留时间，以分钟为单位，最短1分钟，最长保留30天。
 ![](https://mc.qcloudimg.com/static/img/a9c9c921134c4a3a987f03b0f2d2f57e/8.png)

@@ -6,7 +6,6 @@
 | [购买负载均衡](/doc/api/244/1254)  | CreateLoadBalancer | 根据用户输入的参数，返回负载均衡实例的唯一ID，即 *LoadBalancerId*。|
 | [查询负载均衡实例列表](/doc/api/244/1261) | DescribeLoadBalancers | 根据用户的输入返回符合条件的负载均衡实例列表。|
 | [修改负载均衡属性信息](/doc/api/244/修改负载均衡属性信息) | ModifyLoadBalancerAttributes |  修改用户指定的负载均衡实例的属性信息，包括负载均衡实例的名字等。|
-| [查询云服务器关联的负载均衡实例](/doc/api/244/查询云服务器关联的负载均衡实例) | DescribeLoadBalancersByInstances | 根据用户输入的一组云服务器，返回这组云服务器关联的负载均衡实例列表。|
 | [删除负载均衡实例](/doc/api/244/删除负载均衡)| DeleteLoadBalancers | 删除用户指定的负载均衡实例列表。|
 
 ## 2. 负载均衡监听器相关接口
@@ -28,9 +27,8 @@
 ## 4. 负载均衡健康检查相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|---------|
-| [查询负载均衡健康检查阈值](https://www.qcloud.com/document/product/214/1325) | DescribeLBHealth | 查询负载均衡实例默认的健康检查参数。|
-| [查询负载均衡健康检查状态](https://www.qcloud.com/document/product/214/1326) | DescribeLBHealthStatus | 查询负载均衡实例默认的健康状态。|
-| [修改负载均衡健康检查属性](https://www.qcloud.com/document/product/214/1327) | ModifyLBHealth | 修改负载均衡实例默认的健康检查属性信息。|
+| [查询负载均衡健康检查状态](https://www.qcloud.com/document/product/214/1326) | DescribeLBHealthStatus | 查询负载均衡实例健康状态。|
+
 
 ## 5. 负载均衡监控相关接口
 | 接口名 | Action ID | 功能描述 |

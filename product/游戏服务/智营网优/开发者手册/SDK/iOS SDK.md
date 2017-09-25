@@ -142,7 +142,6 @@
 
 ### 3.3 网络诊断
 ####  设置实时网络诊断
-第一步：需要在初始化后设置`GSDKKartinObserver`
 ```
 -(void)MNARealTimeQuery:(NSString *)tag withGhCompletionHandler:(void (^)(MNAKartinRet *))handler;
 ```
