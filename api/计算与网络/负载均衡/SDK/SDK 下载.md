@@ -10,7 +10,7 @@ github地址如下：
 下载地址如下：
 
 
-- [python sdk](http://clbsdk-1251740579.cossh.myqcloud.com/CLB_PYTHON_SDK_0.0.1.zip)
+- [python sdk](http://clbsdk-1251740579.cossh.myqcloud.com/CLB_PYTHON_SDK_0.0.2.zip)
 
 
 ## SDK使用注意事项

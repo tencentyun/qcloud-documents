@@ -32,7 +32,7 @@ linux shell
 
 
 #### CLB PYTHON SDK下载
-下载最新版[CLB PYTHON SDK](http://clbsdk-1251740579.cossh.myqcloud.com/CLB_PYTHON_SDK_0.0.1.zip)
+下载最新版[CLB PYTHON SDK](http://clbsdk-1251740579.cossh.myqcloud.com/CLB_PYTHON_SDK_0.0.2.zip)
 
 
 ### 使用 CLB PYTHON SDK
