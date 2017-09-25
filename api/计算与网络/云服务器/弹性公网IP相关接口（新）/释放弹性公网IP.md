@@ -38,6 +38,7 @@
 #### 请求参数
 <pre>
 https://eip.api.qcloud.com/v2/index.php?Action=ReleaseAddresses
+&Version=2017-03-12
 &AddressId.0=eip-gzc5rgr2
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
 </pre>
