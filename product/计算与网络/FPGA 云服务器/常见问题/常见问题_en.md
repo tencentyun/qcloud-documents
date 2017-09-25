@@ -33,7 +33,7 @@ We will provide a framework later. Together with the operating system support pr
 
 
 **Q: Can I add an FPGA to any CVM instance type?**
-** A:** No, you can't. FPGA is a hardware instance customized by the Tencent Cloud. Currently, FCC instance has one instance specification and does not support FPGA elastic mounting to the CVM.
+**A:** No, you can't. FPGA is a hardware instance customized by the Tencent Cloud. Currently, FCC instance has one instance specification and does not support FPGA elastic mounting to the CVM.
 
 **Q: How can I get the internal trial qualification of FCC instance?**
 **A:** Currently, FCC instance is under internal trial. Only the user whose application for internal trial is approved can use it. You can apply for internal trial by completing the [Internal Trial Application](https://www.qcloud.com/act/apply/fpga). If your application is approved, our pre-sales engineer will contact you for internal trial use. The distribution date of FCC instance across the network is subject to the notice by Tencent Cloud.
