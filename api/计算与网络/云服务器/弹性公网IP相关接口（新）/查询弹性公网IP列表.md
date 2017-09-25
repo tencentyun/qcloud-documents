@@ -7,6 +7,7 @@
 
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
 
+* 如果参数为空，返回当前用户一定数量（Limit所指定的数量，默认为20）的 EIP。
 
 ## 2. 输入参数
 
@@ -45,11 +46,51 @@ EIP 过滤条件表
 
 
 ## 4. 示例代码
+### 示例1
+
+> **使用`AddressIds`查询 EIP：**<br>
 
 #### 请求参数
 <pre>
 https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
+&Version=2017-03-12
 &AddressIds.0=eip-hxlqja90
+&<<a href="/doc/api/229/6976">公共请求参数</a>>
+</pre>
+
+#### 返回参数
+<pre>
+{
+  "Response": {
+    "TotalCount": 1,
+    "AddressSet": [
+      {
+        "AddressId": "eip-hxlqja90",
+        "AddressName": "test",
+        "AddressIp": "123.121.34.33",
+        "AddressStatus": "BINDED",
+        "InstanceId": "ins-m2j0thu6",
+        "NetworkInterfaceId": null,
+        "PrivateAddressIp": null,
+        "IsArrears": False,
+        "IsBlocked": False,
+        "CreatedTime": "2017-09-12T07:52:00Z"
+      }
+    ]
+  }
+}
+</pre>
+
+### 示例2
+
+> **使用`Filters`查询 EIP：**<br>
+
+#### 请求参数
+<pre>
+https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
+&Version=2017-03-12
+&Filters.0.Name=address-id
+&Filters.0.Values.0=eip-hxlqja90
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
