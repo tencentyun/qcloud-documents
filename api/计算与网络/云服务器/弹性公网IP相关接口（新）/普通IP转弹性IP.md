@@ -15,7 +15,7 @@
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
 | Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
-|InstanceId|String|是|待操作有普通公网 IP 的服务器实例 ID，可通过 [DescribeInstances](/document/api/213/9388) 接口返回字段中的`InstanceId`获取。|
+|InstanceId|String|是|待操作有普通公网 IP 的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录[控制台](https://console.cloud.tencent.com/cvm)查询，也可通过 [DescribeInstances](/document/api/213/9389) 接口返回值中的`InstanceId`获取。|
 
 
 ## 3. 输出参数

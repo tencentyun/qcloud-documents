@@ -22,10 +22,10 @@
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
 | Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
-| AddressId | String| 是| 标识 EIP 的唯一 ID。|
-| InstanceId| String| 否| 要绑定的实例 ID。可通过 [DescribeInstances](/document/api/213/9389) 接口返回值中的`InstanceId`获取。
-| NetworkInterfaceId | String| 否| 要绑定的弹性网卡 ID。 `NetworkInterfaceId` 与 `InstanceId` 不可同时指定。|
-| PrivateIpAddress | String| 否| 要绑定的内网 IP。如果指定了 `NetworkInterfaceId` 则也必须指定 `PrivateIpAddress` ，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上。同时要确保指定的 `PrivateIpAddress` 是指定的 `NetworkInterfaceId` 上的一个内网 IP。|
+| AddressId | String| 是| 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。|
+| InstanceId| String| 否| 要绑定的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录[控制台](https://console.cloud.tencent.com/cvm)查询，也可通过 [DescribeInstances](/document/api/213/9389) 接口返回值中的`InstanceId`获取。
+| NetworkInterfaceId | String| 否| 要绑定的弹性网卡 ID。 弹性网卡 ID 形如：`eni-11112222`。`NetworkInterfaceId` 与 `InstanceId` 不可同时指定。弹性网卡 ID 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](/document/api/215/4814)接口返回值中的`networkInterfaceId`获取。|
+| PrivateIpAddress | String| 否| 要绑定的内网 IP。如果指定了 `NetworkInterfaceId` 则也必须指定 `PrivateIpAddress` ，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上。同时要确保指定的 `PrivateIpAddress` 是指定的 `NetworkInterfaceId` 上的一个内网 IP。指定弹性网卡的内网 IP 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](/document/api/215/4814)接口返回值中的`privateIpAddress`获取。|
 
 
 ## 3. 输出参数
