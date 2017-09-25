@@ -40,6 +40,7 @@
 
 <pre>
 https://eip.api.qcloud.com/v2/index.php?Action=TransformAddress
+&Version=2017-03-12
 &InstanceId=ins-3ea0qeu6
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
 </pre>
