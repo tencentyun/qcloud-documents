@@ -1,4 +1,3 @@
-请确保您在执行此示例时，已经获得了 SCF 使用权限。申请内测权限请点击[这里](https://www.qcloud.com/act/apply/SCF)
 
 ```
 注意：
