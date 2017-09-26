@@ -54,7 +54,7 @@ EIP 过滤条件表
 <pre>
 https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
 &Version=2017-03-12
-&AddressIds.0=eip-hxlqja90
+&AddressIds.1=eip-hxlqja90
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
@@ -90,8 +90,8 @@ https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
 <pre>
 https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
 &Version=2017-03-12
-&Filters.0.Name=address-id
-&Filters.0.Values.0=eip-hxlqja90
+&Filters.1.Name=address-id
+&Filters.1.Values.1=eip-hxlqja90
 &<<a href="/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
