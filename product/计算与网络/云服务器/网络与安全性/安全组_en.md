@@ -124,7 +124,7 @@ or
 3) Select the security group to be associated and click the [Manage Cloud Host] button in the action bar.
 
 4) In the Add/Remove Cloud Hosts pop-up, add or remove the cloud hosts that need to be associated with the security group and click [OK].
-![](//mccdn.qcloud.com/img568cc2f621ea8.png)
+![](//mc.qcloudimg.com/static/img/227e7dbd8ba1fb26c40e190cf8b4b71d/image.png)
 
 ## Import and export security group rules
 
