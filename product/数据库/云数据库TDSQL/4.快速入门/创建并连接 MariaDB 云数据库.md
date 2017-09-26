@@ -17,7 +17,8 @@
  - 数据库版本。提供 MariaDB 10.0.10 和 MariaDB 10.1.9 两个版本。不同可用区可能有所不同，具体以实际情况为准。
  - 实例规格和所需的硬盘。
  - 购买数量和购买时长。
-![](//mc.qcloudimg.com/static/img/90a3065265c7be9af4151c97c9ee4658/image.png)
+
+ ![](//mc.qcloudimg.com/static/img/90a3065265c7be9af4151c97c9ee4658/image.png)
 4. 再次进入腾讯云云数据库 [控制台](https://console.cloud.tencent.com/cdb)，选择【TDSQL（MariaDB）】，查看刚才创建的云数据库实例。状态显示是 **未初始化**。
 ![](//mc.qcloudimg.com/static/img/a5f1f71b222633d6290287c0ab5b62b9/image.png)
 5. 单击【初始化】，进行云数据库初始化操作。
