@@ -22,7 +22,7 @@
 
 ### 2、添加Framework
 
-在工程中添加`TXLiteAVSDK_Professional.framework`，同时还要添加以下系统依赖库
+在工程中添加`TXLiteAVSDK_UGC.framework`，同时还要添加以下系统依赖库
 
 > 1. VideoToolbox.framework
 > 2. SystemConfiguration.framework
@@ -40,9 +40,9 @@
 ![](//mc.qcloudimg.com/static/img/0e012a7ab67e833eb33aec1e02f5d86b/image.jpg)
 
 ### 3、添加头文件
-在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_Professional的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_Professional/"，如下所示：
+在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_UGC的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_UGC/"，如下所示：
 ```
-#import "TXLiteAVSDK_Professional/TXLivePush.h"
+#import "TXLiteAVSDK_UGC/TXLivePush.h"
 ```
 
 ### 四、验证
@@ -54,7 +54,7 @@
 在ViewController.m开头引用SDK的头文件：
 
 ```
-#import "TXLiteAVSDK_Professional/TXLiveBase.h"
+#import "TXLiteAVSDK_UGC/TXLiveBase.h"
 ```
 
 ### 2、添加调用代码

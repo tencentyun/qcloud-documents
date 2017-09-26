@@ -1,12 +1,9 @@
 ## 1. 接口描述
 
-功能：获取推荐结果  
-接口：   
-
-1. 测试： `https://sdtj.y.qq.com:8008/test-query`    
-2. 正式： `https://sdtj.y.qq.com:8008/query`  
-
-方法：POST  
+功能：获取推荐结果   
+测试接口： `https://sdtj.y.qq.com:8008/test-query`    
+正式接口： `https://sdtj.y.qq.com:8008/query`  
+请求方式：POST  
 
 ## 2. 输入参数  
 <table>
@@ -44,7 +41,7 @@
 		<td colspan="2">uid_type</td>
 		<td>是</td>
 		<td>String</td>
-		<td>"0" - QQ, "1" - 微信号， "2" - openid, "3" - IMEI/IDFA， "4" –
+		<td>"0" - QQ， "1" - 微信号， "2" - openid， "3" - IMEI/IDFA， "4" –
 			手机号，"5" - APP 唯一用户</td>
 	</tr>
 	<tr>
@@ -57,21 +54,20 @@
 		<td colspan="2">pool_id</td>
 		<td>否</td>
 		<td>String</td>
-		<td>推荐池子 ID。多个池子以;分割，例如 “pool_id1； pool_id2；
-			pool_id3”。当传入带排序物品列表（带 pool 字段）时忽略该字段</td>
+		<td>推荐池子 ID。不填时默认为全局池子 ID "0"。多个池子以;分割，例如 "pool_id1;pool_id2;pool_id3"。当传入带排序物品列表（带 pool 字段）时忽略该字段</td>
 	</tr>
 	<tr>
 		<td rowspan="2">pool</td>
 		<td>item_type</td>
 		<td>否</td>
 		<td>String</td>
-		<td>物品 ID 类型。“0” - 整数，“1” - 字符串。当传入物品列表时必填</td>
+		<td>物品 ID 类型。"0" - 整数，"1" - 字符串。当传入物品列表时必填</td>
 	</tr>
 	<tr>
 		<td>items</td>
 		<td>否</td>
 		<td>Array</td>
-		<td>待排序物品列表，例如"[“1”, “2”, “3”]"。此时忽略 pool_id</td>
+		<td>待排序物品列表，例如"["1"， "2"， "3"]"。此时忽略 pool_id</td>
 	</tr>
 	<tr>
 		<td colspan="2">request_num</td>
@@ -84,25 +80,25 @@
 		<td>latitude</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的经度，例如 "22.558220"</td>
 	</tr>
 	<tr>
 		<td>longitude</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的纬度，例如 "114.084778"</td>
 	</tr>
 	<tr>
 		<td>country</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的国家，ISO 3166-1 alpha-3 编码，例如 "CHN" （中国）</td>
 	</tr>
 	<tr>
 		<td>city</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的城市，例如"深圳"</td>
 	</tr>
 	<tr>
 		<td rowspan="2">extend</td>
@@ -184,21 +180,6 @@
 ## 4. 示例
 
 输入： 
-示例一：输出池子 ID
-```
-{
-  "seq_no":"987654321",
-  "token":"61f6b4db-e680-4765-941c-39ad004e12fd",
-  "proj_id":"100001",
-  "scn_id":"123456789",
-  "uid_type":"2",
-  "user_id":"000000000000000000000000401EEEC1",
-  "pool_id":"11016775",
-  "request_num":"500"
-}
-```
-
-示例二：输出物品列表
 ```
 {
   "seq_no":"987654321",
@@ -212,7 +193,17 @@
     "item_type":"1",
     "items":["100", "101", "102"]
   },
-  "request_num":"500"
+  "request_num":"500",
+ "geo":{
+    "latitude":"22.558220",
+    "longitude":"114.084778",
+    "country":"CHN",
+    "city":"深圳"
+  },
+  "extend":{
+    "key1":"val1",
+    "key2":"val2"
+  }
 }
 ```
 
