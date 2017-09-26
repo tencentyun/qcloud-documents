@@ -1,6 +1,6 @@
-```
-The version of image used in SCF underlying container environment is CentOS 7.2. Therefore, in this example, the Linux example is partially implemented under the CentOS 7.2 environment. Please make proper adjustment if your local environment is one of other Linux release versions.
-```
+
+*The version of image used in SCF underlying container environment is CentOS 7.2. Therefore, in this example, the Linux example is partially implemented under the CentOS 7.2 environment. Please make proper adjustment if your local environment is one of other Linux release versions.*
+
 ## Creating Picture Processing Code
 1) Create a category
 If the local environment is Windows, you can create a new folder named CreateThumbnail in any location, as shown below:
@@ -105,7 +105,7 @@ def main_handler(event, context):
 ![](//mc.qcloudimg.com/static/img/609faa717c1eefb5dd1c6747dfb99ab1/image.png)
 ![](//mc.qcloudimg.com/static/img/66d8a074d8577257880c4713bb8a4c86/image.png)
 ## Creating Deployment Package
-### If your local environment is Windows
+### For Windows-based environment
 Because the sample program is dependent on Pillow dependent library of Python, to avoid the dependent library installed under your local Windows environment conflicts with platform, we recommend that you:
 
 Click the link to download [Pillow Library](https://mc.qcloudimg.com/static/archive/66534c4192eefc53af8ce3b319c521c9/PIL.zip) directly, and decompress the zip file to the folder CreateThumbnail you just created:
@@ -116,7 +116,7 @@ Compress all the files in this folder into a zip file named CreateThumbnailDemo.
 ![](//mc.qcloudimg.com/static/img/4b542a9ddd8c464f3cee28a2368b63b3/image.png)
 
 
-### If your local environment is Linux
+###For Linux-based environment 
 ```
 Note: Assuming that the following steps are performed under CentOS 7.2 environment, if your environment is one of other Linux release versions, modify the instruction according to relevant method of this version, and ensure the version of Python is 2.7.
 ```
@@ -125,7 +125,7 @@ Note: Assuming that the following steps are performed under CentOS 7.2 environme
 ```
 sudo yum install python
 ```
-2) Make sure that you have installed a necessary dependant library in the current Linux environment
+2) Make sure that you have installed a necessary dependent library in the current Linux environment
 ```
 sudo yum install python-devel python-pip gcc libjpeg-devel zlib-devel python-virtualenv
 ```

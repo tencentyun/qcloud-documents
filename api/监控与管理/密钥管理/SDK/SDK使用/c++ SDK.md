@@ -31,7 +31,7 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 ## 生成客户端对象
 
 ``` 
-    string secretId="xxxxxx;    #替换为用户的secretId
+    string secretId="xxxxxx";    #替换为用户的secretId
     string secretKey = "xxxxxx"; #替换为用户的secretKey
     string endpoint = "https://kms-region.api.tencentyun.com"; # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
     KMSAccount account(endpoint,secretId,secretKey);
@@ -177,9 +177,12 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 |Plaintext|string|无|生成的数据密钥明文|
 |CiphertextBlob|string|无|生成的数据密钥密文|
 
-返回值 入参中：
-plaintext 表示生成的数据密钥明文
-ciphertextBlob：表示生成的数据密钥密文
+返回值(入参中)
+
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|plaintext|string| 表示生成的数据密钥明文|
+|ciphertextBlob|string|表示生成的数据密钥密文|
 
 #### 使用示例
 
@@ -246,7 +249,13 @@ ciphertextBlob：表示生成的数据密钥密文
 |Plaintext|string|空字符串|明文|
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数|
 
-返回值 ciphertextBlob 密文：
+返回值  
+
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|ciphertextBlob|string|表示生成的密文|
+
+
 
 #### 使用示例
 
@@ -269,7 +278,11 @@ ciphertextBlob：表示生成的数据密钥密文
 |CiphertextBlob|string|空字符串|密文|
 |EncryptionContext|string|None|key/value对的json字符串，如果指定了该参数，则在调用Decrypt API时需要提供同样的参数。|
 
-返回值  plaintext 明文：
+返回值  
+
+|参数名|类型|参数描述|
+|---------|---------|---------|
+|plaintext|string|表示通过密文解密得到的明文|
 
 #### 使用示例
 

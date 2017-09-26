@@ -71,11 +71,11 @@ mix_stream_template_id|混流模版|int|输入模版ID。目前两输入源支�
 ```
 将A和B混成新一路流C
 output_stream_id  C
-output_stream_type 0
+output_stream_type 1
 ```
 ##### 将两路视频混合后替换原视频
 ```
 将A和B混成流替换A
 output_stream_id  A
-output_stream_type 1
+output_stream_type 0
 ```

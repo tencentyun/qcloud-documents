@@ -52,7 +52,7 @@ coscmd config -a <access_id> -s <secret_key> -u <appid> -b <bucketname> -r <regi
 
 配置完成之后的`.cos.conf`文件内容示例如下所示：
 ```
- [common]
+[common]
 access_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
 secret_key = WE54wreefvds3462refgwewerewr
 appid = 1234567890

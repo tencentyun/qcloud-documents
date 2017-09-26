@@ -1,0 +1,1 @@
+[快速对接](http://www.qcloud.com/doc/product/267/4698)章节我们介绍了如何使用移动端SDK进行推流和播放，除此之外移动端SDK还提供了更丰富的定制功能，具体使用方法详见[移动端SDK介绍](http://www.qcloud.com/doc/api/258/4734)

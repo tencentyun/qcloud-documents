@@ -99,7 +99,7 @@ var accountMode=1;
 ```
 //默认业务id
 var sdkAppID = 1400001533;//开发者改成自己的业务id
-var accountType = 792; //开发者改成自己的业务帐号类型
+
 ```
 
 
@@ -151,7 +151,7 @@ var accountMode=0;
 ```
 //demo appid 
 var sdkAppID = 1400001533;//开发者改成自己的业务id
-var accountType = 792; //开发者改成自己的业务帐号类型
+
 ```
 
 访问demo，这里拿谷歌浏览器举例。
@@ -172,7 +172,6 @@ https://www.qcloud.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A
 var loginInfo = {
      'sdkAppID': sdkAppID, //用户所属应用id,必填
      'appIDAt3rd': sdkAppID, //用户所属应用id，必填
-     'accountType': accountType, //用户所属应用帐号类型，必填
       'identifier': ‘xxxxxx’, //当前用户ID，需要开发者填写
       'identifierNick': null, //当前用户昵称，选填
       'userSig': 'xxxxxxx', //当前用户身份凭证，需要开发者填写

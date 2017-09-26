@@ -1,7 +1,7 @@
 ## 1. 接口描述
 
 本接口(UpdateInstanceVpcConfig)用于修改实例vpc属性，如私有网络ip。
- 
+
 接口请求域名：<font style="color:red">cvm.api.qcloud.com</font>
 
 
@@ -17,11 +17,11 @@
 |---------|---------|---------|---------|
 |Version|String|是|表示API版本号，主要用于标识请求的不同API版本。 本接口第一版本可传：2017-03-12。|
 |InstanceId |String|是|待操作的实例ID。可通过[`DescribeInstances`](document/api/213/9388)接口返回值中的`InstanceId`获取。|
-|VirtualPrivateCloud |[ VirtualPrivateCloud object](https://www.qcloud.com/document/api/213/9451#virtualprivatecloud)| 是 |私有网络相关信息配置。通过该参数指定私有网络的ID，子网ID，私有网络ip等信息。|
+|VirtualPrivateCloud|[VirtualPrivateCloud](/document/api/213/9451#virtualprivatecloud) object| 是 |私有网络相关信息配置。通过该参数指定私有网络的ID，子网ID，私有网络ip等信息。|
 |ForceStop| Boolean| 否 |是否对运行中的实例选择强制关机。默认为TRUE。|
 
 ## 3. 输出参数
- 
+
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 |RequestId|String| 唯一请求ID。每次请求都会返回一个唯一的requestId，当客户调用接口失败找后台研发人员处理时需提供该requestId具体值。|
@@ -37,7 +37,7 @@
 ```
 ## 4. 错误码
 
-以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](https://www.qcloud.com/document/api/213/10146)。
+以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](/document/api/213/10146)。
 
 | 错误码 | 描述 |
 |---------|---------|

@@ -31,6 +31,7 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
 | code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](/document/product/386/6725)。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 返回码信息描述。|
+| requestId | Int | 任务ID。该接口为异步任务，可根据本参数调用[DescribeBmLoadBalancersTaskResult](/document/product/386/9308)接口来查询任务操作结果|
 
 
 模块错误码
@@ -73,6 +74,7 @@ https://domain/v2/index.php?Action=BindBmL4ListenerVmIp
     "code": 0,
     "message": "",
     "codeDesc": "Success",
+    "requestId" : 1234
 }
 
 ```

@@ -8,7 +8,7 @@ Demo集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS�
 <script type="text/javascript" src="https://tls.qcloud.com/libs/api.min.js"></script>
 ```
 
-然后在页面中调用`TLSHelper.getQuery('tmpsig')`，判断是否获取到了临时身份凭证，没有，则调用`TLSHelper.goLogin({sdkappid: loginInfo.sdkAppID,acctype: loginInfo.accountType,url: callBackUrl})`，跳转到tls登录页面，登录成功会跳转到回调地址callBackUrl。
+然后在页面中调用`TLSHelper.getQuery('tmpsig')`，判断是否获取到了临时身份凭证，没有，则调用`TLSHelper.goLogin({sdkappid: loginInfo.sdkAppID,url: callBackUrl})`，跳转到tls登录页面，登录成功会跳转到回调地址callBackUrl。
 
 **示例： **
 
@@ -32,7 +32,6 @@ function tlsLogin() {
     //跳转到TLS登录页面
     TLSHelper.goLogin({
         sdkappid: loginInfo.sdkAppID,
-        acctype: loginInfo.accountType,
         url: callBackUrl
     });
 }
@@ -56,13 +55,9 @@ function tlsGetUserSig(res) {
         //从当前URL中获取参数为sdkappid的值
         loginInfo.sdkAppID = loginInfo.appIDAt3rd = Number(TLSHelper.getQuery("sdkappid"));
         //从cookie获取accountType
-        var accountType = webim.Tool.getCookie('accountType');
-        if (accountType) {
-            loginInfo.accountType = accountType;
-            initDemoApp();
-        } else {
-            alert('accountType非法');
-        }
+       
+        initDemoApp();
+        
     } else {
         //签名过期，需要重新登录
         if (res.ErrorCode == TlsErrorCode.SIGNATURE_EXPIRATION) {
@@ -122,8 +117,7 @@ function webimLogin() {
 | -------------- | --------------------------------------- | ------- |
 | sdkAppID       | 用户标识接入SDK的应用ID，必填                       | String  |
 | appIDAt3rd     | App用户使用OAuth授权体系分配的Appid，和sdkAppID一样，必填 | String  |
-| accountType    | 账号类型，必填                                 | Integer |
-| identifier     | 用户帐号，选填                                 | String  |
+| identifier     | 用户帐号，必填                                 | String  |
 | identifierNick | 用户昵称，选填                                 | String  |
 | userSig        | 鉴权Token，identifier不为空时，userSig必填        | String  |
 

@@ -7,7 +7,7 @@ SDK需要用到相机/录音/读取手机信息权限，在android6.0以上系�
 
 ### 2.接入配置
 云刷脸SDK（WbCloudFaceVerify）最低支持到** Android API 14: Android 4.0(ICS)**，请在构建项目时注意。
-刷脸SDK将以AAR文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤(sdk皮肤的设定，除了接入对应的aar，还需要设定相关代码。默认黑色皮肤，无需格外设置)，接入方可自由选择组合四个模式。
+刷脸SDK将以AAR文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤(sdk皮肤的设定，除了接入对应的aar，还需要设定相关代码。详见[SDK样式选择](https://www.qcloud.com/document/product/295/10140#6..E4.B8.AA.E6.80.A7.E5.8C.96.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE)。默认黑色皮肤，无需格外设置)，接入方可自由选择组合四个模式。
 ![](https://mc.qcloudimg.com/static/img/0d1fb1b5512b25f4efda0cd89fb33ddb/image.png)
 另外刷脸SDK同时需要依赖**云公共组件WbCloudNormal**，同样也是以AAR文件的形式提供。
 需要添加下面文档中所示的依赖(将提供的aar文件加入到app工程的'libs'文件夹下面,
@@ -224,7 +224,7 @@ public interface FaceVerifyResultForSecureListener {
     }
  ```
 
-WbCloudFaceVerifySdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括:
+WbCloudFaceVerifySdk.init()的第二个参数用来传递数据.可以将参数打包到data(Bundle)中，必须传递的参数包括（参考要求详见下一节描述）:
 
  ```
 //这些都是WbCloudFaceVerifySdk.InputData对象里的字段，是需要传入的数据信息
@@ -442,4 +442,4 @@ FACEVERIFY_ERROR_PERMISSION_READ_PHONE=43000; //READ_PHONE未授权
     FACEVERIFY_ERROR_MEDIARECORD = 60000;      //视频录制出错
     FACEVERIFY_ERROR_OUT_OF_TIME = 70000;   //验证超时
     FACEVERIFY_ERROR_OUT_OF_TIME_FACE_DETECT = 71000;   //扫脸验证超时
-    FACEVERIFY_ERROR_OUT_OF_TIME_ACTIVE_DETECT = 72000; //活体验证超时
+    FACEVERIFY_ERROR_OUT_OF_TIME_ACTIVE_DETECT = 72000; //活体验证超时FACEVERIFY_ERROR_ACTIVE_DETECT_NOFACE=80000;    //活体检测时人脸曾移出框外

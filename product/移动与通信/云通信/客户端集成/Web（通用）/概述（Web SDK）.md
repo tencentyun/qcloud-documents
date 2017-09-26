@@ -117,7 +117,6 @@ Demo 主要JS文件功能说明如下：
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 |sdkappid	|业务id|	Integer|
-|acctype|	业务帐号类型accountType|	Integer|
 |url	|TLS登录成功回调地址，一般为业务网站首页地址|	String|
 
 当帐号模式为[独立模式](https://www.qcloud.com/doc/product/269/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F)时，则不需要上面的操作，直接进行下面的操作（当然这些步骤托管模式下也是需要的）。

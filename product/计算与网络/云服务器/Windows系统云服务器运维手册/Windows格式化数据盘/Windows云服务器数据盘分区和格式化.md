@@ -1,129 +1,57 @@
-用户在云服务器购买页购买数据盘时默认是脱机状态不自动挂载，数据盘未做分区和格式化时无法使用。本教程将引导您进行Windows系统挂载数据盘，分区以及格式化。
 
-虽然不同的Windows版本（win2012,win2008,win2003等）在进入“磁盘管理”界面的路径不同，但进入磁盘管理界面后对于磁盘分区格式化的操作基本一致。
+云服务器购买或重装后，需要进行数据盘的分区与格式化。本文档介绍 Windows 系统云服务器进行数据盘分区与格式化操作。
+不同 Windows 系统版本（如 Windows 2012、Windows 2008、Windows 2003等）仅在进入“磁盘管理”界面路径不同，其他格式化与分区操作基本一致。本文档以 Windows 2012 R2 为例进行格式化与分区操作说明。
 
-本文将从Windows2012，Windows2008两种系统来引导用户进行数据盘挂载、分区和格式化。
+## 前提条件
+ - 已购买数据盘的用户，需要格式化数据盘才可使用。未购买数据盘的用户可以跳过此步骤。
+ - 请确保您已完成步骤三操作，登录到云服务器。
 
->注：
+## 格式化数据盘
 
-> <font color="red">格式化后，数据盘中的数据将被全部清空。请在格式化之前，确保数据盘中没有数据或对重要数据已进行备份。为避免服务发生异常，格式化前请确保云服务器已停止对外服务。</font>
+ 1. 登录 Windows 云服务器。
 
-## 1. Windows2012磁盘分区和格式化
+ 2. 单击【开始】-【服务器管理器】-【工具】-【计算机管理】-【存储】-【磁盘管理】。
 
-Win2012进入磁盘管理的路径为：【开始】-【服务器管理】-【工具】-【计算机管理】-【磁盘管理】。
+ 3. 在磁盘 1 上右键单击，选择【联机】：
+	![](//mc.qcloudimg.com/static/img/1217193557509925a622dcdb81aa2e35/image.png)
 
-点击【开始】按钮：
+ 4. 右键单击，选择【初始化磁盘】：
+	![](//mc.qcloudimg.com/static/img/94ab92867d77ea69bc803a0b20f2b941/image.png)
 
-![](//mccdn.qcloud.com/img56b1ae00cc2f5.jpg)
+ 5. 根据分区方式的不同，选择【GPT】或【MBR】，单击【确定】按钮：
+ > **注意：**
+ > 磁盘大于 2TB ，一定要选择 GPT 分区形式。
+	![](//mc.qcloudimg.com/static/img/1f7b0f72767193cfa662e188c86cf31b/image.png)
 
-点击【服务器管理】：
+## 磁盘分区
 
-![](//mccdn.qcloud.com/img56b1ae17e6f48.jpg)
+ 1. 在未分配的空间处右击，选择【新建简单卷】：
+	![](//mc.qcloudimg.com/static/img/a6ca720af2082d7a470ece17a8e13f5d/image.png)
+	
+ 2. 在弹出的“新建简单卷向导”窗口中，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/10fdcd70b510a57919c6a40cf43452a7/image.png)
+	
+ 3. 输入分区所需磁盘大小，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/05c8d1425a0208597b1d2c75a9c811b6/image.png)
+	
+ 4. 输入驱动器号，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/737ed569049ad617715efb06fe44e7b2/image.png)
+	
+ 5. 选择文件系统，格式化分区，单击【下一步】：
+	![](//mc.qcloudimg.com/static/img/896cb3f2705fb9fcd04c236b8fb9ec59/image.png)
+	
+ 6. 完成新建简单卷，单击【完成】：
+	![](//mc.qcloudimg.com/static/img/1e257b9c76d80f30b34f612496b8007b/image.png)
+	
+ 7. 在【开始】中打开【这台电脑】，查看新分区：
+	![](//mc.qcloudimg.com/static/img/1cbb4ad1c3c01852a00a1415526a3e12/image.png)
 
-点击【工具】-【计算机管理】：
+## 联机设置
+在 Windows 操作系统下，常需要在磁盘管理中设置联机。为更方便使用弹性云硬盘，建议您对操作系统执行修改。
+ 1. 登录 Windows 云服务器。
+ 2. 键盘快捷键【Windows + R】，在弹出框中输入【cmd】，单击【确定】进入命令行。
+ 3. 输入命令`diskpart`回车。
+ 4. 输入命令`san policy=onlineall`回车
+ ![](//mc.qcloudimg.com/static/img/d0b5082e73aad74d104980fbe74fe6dd/image.png)
 
-![](//mccdn.qcloud.com/img56b1aed3a67b3.jpg)
-
-点击【磁盘管理】：
-
-![](//mccdn.qcloud.com/img56b1af025f7e1.jpg)
-
-如下图所示，”磁盘1”为未分区的磁盘，这里以对”磁盘1”进行1个分区为例进行说明。在磁盘1上右键点击，选择【联机】：
-
-![](//mccdn.qcloud.com/img56b1b00b8935c.jpg)
-
-再一次右键点击，选择【初始化磁盘】：
-
-![](//mccdn.qcloud.com/img56b1b057ada88.jpg)
-
-根据分区方式的不同，选择【GPT】或【MBR】，点击【确定】按钮：
-
-![](//mccdn.qcloud.com/img56b1b0a1cd741.jpg)
-
->注：磁盘大于2TB，一定要选择GPT分区形式。
-
-在未分配的空间处右击，选择【新建简单卷】：
-
-![](//mccdn.qcloud.com/img56b1b0bead71b.jpg)
-
-在弹出的“新建简单卷向导”窗口中，点击【下一步】：
-
-![](//mccdn.qcloud.com/img56b1b0fae959f.jpg)
-
-输入分区所需磁盘大小，点击【下一步】：
-
-![](//mccdn.qcloud.com/img56b1b1de673fb.jpg)
-
-输入驱动器号，点击【下一步】：
-
-![](//mccdn.qcloud.com/img56b1b2f078870.jpg)
-
-选择文件系统，格式化分区，点击【下一步】：
-
-![](//mccdn.qcloud.com/img56b1b32b1846e.jpg)
-
-完成新建简单卷，点击【完成】：
-
-![](//mccdn.qcloud.com/img56b1b37e6e5f2.jpg)
-
-查看新分区：
-
-![](//mccdn.qcloud.com/img56b1b39fb404d.jpg)
-
-![](//mccdn.qcloud.com/img56b1b3a3e4dd4.jpg)
-
-
-## 2. Windows2008磁盘分区和格式化
-Windows2008进入磁盘管理方法与win2012不同，通过【服务器管理】-【存储】-【磁盘管理】的路径进入磁盘管理。
-
-点击【服务器管理】：
-![](//mccdn.qcloud.com/img56b1b5c4cd2ad.jpg)
-
-点击【存储】-【磁盘管理】：
-
-![](//mccdn.qcloud.com/img56b1b6b60f2fd.jpg)
-
-如上图所示，”磁盘1”为未分配的磁盘，这里以对”磁盘1”进行1个分区为例进行说明。
-
-“磁盘1”初始情况下未联机，右键点击”磁盘1”, 在弹出的菜单里点击【联机】：
-
-![](//mccdn.qcloud.com/img56b1b71f7e7d4.jpg)
-
-再次右键点击”磁盘1”, 在弹出的菜单里点击”初始化磁盘”：
-
-![](//mccdn.qcloud.com/img56b1b75941a79.jpg)
-
-选择GPT的初始化方式，点击【确定】按钮：
-![](//mccdn.qcloud.com/img56b1b89cb0675.jpg)
-注：磁盘大于2TB时一定要选择GPT分区形式。
-
-右键点击“磁盘1”后未分配的区域，在弹出的快捷菜单中选择【新建简单卷】：
-![](//mccdn.qcloud.com/img56b1b91f2445b.jpg)
-
-根据向导提示进行操作，输入分区磁盘的大小，点击【下一步】：
-![](//mccdn.qcloud.com/img56b1b93ab1e4a.jpg)
-
-选择文件系统，格式化分区，点击【下一步】：
-![](//mccdn.qcloud.com/img56b1b95a7f09a.jpg)
-
-完成新建简单卷，点击【完成】按钮：
-![](//mccdn.qcloud.com/img56b1b9829f98e.jpg)
-
-显示正在格式化：
-![](//mccdn.qcloud.com/img56b1b99be5831.jpg)
-
-在计算机界面可以看到新分区的数据盘：
-![](//mccdn.qcloud.com/img56b1b9b953e21.jpg)
-
->注：请勿将基本硬盘转换到动态硬盘，倘若因此操作造成数据丢失，我们将不承担责任。
-
-## 3. 联机设置
-在Windows操作系统下，常需要在磁盘管理中设置联机。为了方便您更好的使用弹性云硬盘，建议您对操作系统执行以下修改：
-进入cmd命令行，执行以下命令
-```
-diskpart
-san policy=onlineall
-```
-
-![](//mccdn.qcloud.com/static/img/cfb2f1d6d9b99c6786db612f343df525/image.png)
-操作后，当此弹性云硬盘重新挂载到Windows云服务器上后，如果弹性云硬盘包含有效的文件系统，用户则可以无需操作直接使用此弹性云硬盘了。
+执行操作后，弹性云硬盘重新挂载到 Windows 云服务器上，如已包含有效的文件系统，则可以直接开始使用。

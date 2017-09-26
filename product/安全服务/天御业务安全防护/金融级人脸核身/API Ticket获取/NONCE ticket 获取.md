@@ -1,5 +1,5 @@
 ### 1.注意事项
-1.**前置条件**：确保Access Token已经正常获取，获取规则见章节4。
+1.**前置条件**：确保Access Token已经正常获取，获取规则见[登录鉴权流程](https://www.qcloud.com/document/product/295/10117)。
 2.主要用于合作方**前端包含APP和H5等**生成签名鉴权参数之一，启动H5或SDK人脸验证。
 3.api ticket为NONCE类型，有效期为120S,且一次性有效, 即每次启动SDK刷脸都要重新请求NONCE ticket。
 
