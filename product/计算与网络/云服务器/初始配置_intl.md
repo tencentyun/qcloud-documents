@@ -3,17 +3,16 @@ To start using a CVM, please do the following:
 ## Signing Up for a Tencent Cloud Account
 
 If you already have a Tencent Cloud account, just skip this step.
-![](//mccdn.qcloud.com/static/img/b95541efd781757035eef96d73088513/image.png)
-![](//mccdn.qcloud.com/static/img/f5ad4b5f92a32060ed1122114388226b/image.png)
-![](//mccdn.qcloud.com/static/img/0665bd87d4759d39dc9cb0bb048a9485/image.png)
+![](//mc.qcloudimg.com/static/img/323529f3a9239acde216b5689bd6849f/image.png)
+![](//mc.qcloudimg.com/static/img/d3695860b17f7dc4d9447d5782cac5d2/image.png)
+![](//mc.qcloudimg.com/static/img/5646fdd83971eefa821e21025d788939/image.png)
 
 Please set a strong password for your account and keep all the login information safe.
 
 ## Verifying Identity
 
 Identity verification is required for some Tencent Cloud products (such as the postpaid CVMs, COS, CDN, etc.). 
-![](//mccdn.qcloud.com/static/img/61e2b15b057ef2508656e1972c422c1c/image.jpg)
-![](//mccdn.qcloud.com/static/img/2e668e7e607ea863f1d2b4540397334d/image.png)
+![](//mc.qcloudimg.com/static/img/dc9771468866bc768a7a9f7039799f06/image.png)
 
 ## (Optional) Creating an SSH key
 SSH key is used to log into Linux CVM and is more secure than password login. For more information about SSH keys, see [here](/doc/product/213/6092).
@@ -27,7 +26,7 @@ SSH key is used to log into Linux CVM and is more secure than password login. Fo
 With VPC, you can customize a network environment that is logically isolated and start the cloud resources of Tencent Cloud within it. For more information about VPC, see [here](https://www.qcloud.com/doc/product/215/535).
 
 A VPC contains at least one subnet. The resources of Cloud Services can only be added in the subnet.
-![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
+![](//mc.qcloudimg.com/static/img/1ebc65bc58bed092c41a12cde8f19452/image.png)
 
 1. Log in to [VPC Console](https://console.qcloud.com/vpc).
 
@@ -36,7 +35,7 @@ A VPC contains at least one subnet. The resources of Cloud Services can only be 
 3. Enter the VPC and subnet name, [CIDR](https://www.qcloud.com/doc/product/215/4925#cidr) and select the AZ. 
 
 4. Click **Create** to complete. 
-![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
+![](//mc.qcloudimg.com/static/img/1ebc65bc58bed092c41a12cde8f19452/image.png)
 
 ## (Optional) Creating a Security Group
 

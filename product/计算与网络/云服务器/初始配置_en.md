@@ -28,7 +28,6 @@ With VPC, you can customize a network environment that is logically isolated and
 
 A VPC contains at least one subnet. The resources of Cloud Services can only be added in the subnet.
 ![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
-
 1. Log in to [VPC Console](https://console.qcloud.com/vpc).
 
 2. Select a region from the drop-down list and click **New**.
@@ -62,4 +61,3 @@ Tencent Cloud provides rich [Cloud APIs](https://www.qcloud.com/product/api.html
 
 2. Open **API Keys** and click **New Key**.
 > Note: Each user can generate up to 2 Cloud API keys.
-

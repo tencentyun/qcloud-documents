@@ -13,7 +13,7 @@
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
 | Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
-|AddressId | String| 是|标识 EIP 的唯一 ID。|
+|AddressId | String| 是|标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。|
 |AddressName | String| 是|修改后的 EIP 名称。长度上限为20个字符。|
 
 

@@ -29,7 +29,8 @@
 #### 请求参数
 <pre>
   https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddressQuota
-  &<<a href="/doc/api/229/6976">公共请求参数</a>>
+  &Version=2017-03-12
+  &<<a href="/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
 #### 返回参数
