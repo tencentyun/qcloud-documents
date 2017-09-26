@@ -31,7 +31,7 @@ sample/kms_sample.cpp里面有常见的api例子，生成的kms_sample可以直�
 ## 生成客户端对象
 
 ``` 
-    string secretId="xxxxxx;    #替换为用户的secretId
+    string secretId="xxxxxx";    #替换为用户的secretId
     string secretKey = "xxxxxx"; #替换为用户的secretKey
     string endpoint = "https://kms-region.api.tencentyun.com"; # 替换为用户的region , 例如 sh 表示上海， gz表示广州，bj表示北京
     KMSAccount account(endpoint,secretId,secretKey);
