@@ -2,7 +2,7 @@
 
 注：本接口为改版后的 API 接口。如需了解旧接口相关信息，请参考：[修改弹性公网IP名称](/document/api/213/1375)。
 
-本接口 (DescribeAddresses) 用于修改[弹性公网IP](/document/product/213/1941)（简称 EIP）的名称。
+本接口 (ModifyAddressAttribute) 用于修改[弹性公网IP](/document/product/213/1941)（简称 EIP）的名称。
 
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
 
