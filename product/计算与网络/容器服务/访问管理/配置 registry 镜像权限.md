@@ -158,7 +158,7 @@ action：
 
 #### 命名空间权限
 
-resource： `qcs::ccr:::namespace/${namespace}`  
+resource： `qcs::ccr:::repo/${namespace}`  
 action:
 * `ccr:CreateCCRNamespace`     新建镜像仓库命名空间
 * `ccr:DeleteUserNamespace`    删除镜像仓库命名空间
