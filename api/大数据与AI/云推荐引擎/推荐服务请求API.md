@@ -42,7 +42,7 @@
 		<td>是</td>
 		<td>String</td>
 		<td>"0" - QQ， "1" - 微信号， "2" - openid， "3" - IMEI/IDFA， "4" –
-			手机号，"5" - APP 唯一用户</td>
+			手机号，"5" - App 唯一用户</td>
 	</tr>
 	<tr>
 		<td colspan="2">user_id</td>
@@ -54,7 +54,7 @@
 		<td colspan="2">pool_id</td>
 		<td>否</td>
 		<td>String</td>
-		<td>推荐池子 ID。不填时默认为全局池子 ID "0"。多个池子以;分割，例如 "pool_id1;pool_id2;pool_id3"。当传入带排序物品列表（带 pool 字段）时忽略该字段</td>
+		<td>推荐池子 ID。不填时默认为全局池子 ID "0"。多个池子以，分割，例如 "pool_id1，pool_id2，pool_id3"。当传入带排序物品列表（带 pool 字段）时忽略该字段</td>
 	</tr>
 	<tr>
 		<td rowspan="2">pool</td>
