@@ -10,4 +10,4 @@ Start WinSCP after installation. The interface is as follows. Fill in the inform
 - Password: the password corresponding to the username of CVM
 - Port: 22 by default
 
-Click on Log In after completing the information. 
+Click on Log In after completing the information. After successful login, select a local file and drag it to the remote site on the right, and then you can upload the file to the Linux CVM.
