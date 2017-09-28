@@ -10,7 +10,7 @@
 在 CDN 控制台进行 HTTPS 配置，操作指引参考 [HTTPS 配置](/doc/product/228/6295)。
 <span id="关闭 CDN 加速"></span>
 ## 关闭 CDN 加速
-本章节主要以示例的形式介绍在 COS 中通过反向代理配置自定义域名（关闭 CDN 加速）支持 https 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问用户 APPID 为 12345678 、所属地域为华南、名称为 testhttps 的存储桶，具体操作步骤如下：
+本章节主要以示例的形式介绍在 COS 中通过反向代理配置自定义域名（关闭 CDN 加速）支持 https 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问所属地域为华南、名称为 testhttps-12345678 的存储桶，具体操作步骤如下：
 
 ### 一、绑定自定义域名
 将存储桶 testhttps 绑定到域名`https://test.cos.com`，关闭 CDN 加速。操作指引参考 [域名管理--自定义域名](/doc/product/436/6252#关闭 CDN 加速)。
@@ -29,7 +29,7 @@ server_name  test.cos.com ;
     access_log logs/test.cos.com.access_log;
     location / {
         root /data/www/;
-        proxy_pass  http://testhttps-12345678.cosgz.myqcloud.com; //配置存储桶（Bucket）的默认下载域名 
+        proxy_pass  http://testhttps-12345678.cos.ap-guangzhou.myqcloud.com; //配置存储桶（Bucket）的默认下载域名 
     }
         
 }
