@@ -35,6 +35,7 @@ iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一�
 在工程中添加依赖库，在 build Phases  Link Binary Whith Libraries 中添加以下库：
 	- libstdc++.6.0.9.tbd
 	- libc++.tdb
+
 ## 签名获取
 
 移动端 SDK 中用到的签名，建议由业务服务器来生成，并由移动端向业务服务器请求。业务侧服务器需要进行签名的生成，具体生成和使用请参照 [签名鉴权](https://www.qcloud.com/document/product/441/6203) 。识别 SDK 签名必须实现 QCloudAAIClient 的 QCloudAAIGetSignDelegate 的协议，对由 SDK 提供(NSString*)param，进行加密处理；
