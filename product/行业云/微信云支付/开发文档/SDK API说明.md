@@ -440,6 +440,7 @@
 	std::string gen_cloud_pay_detail(
 		int pay_platform,
 		int query_order_type,
+		int query_cashier_type,
 		uint32_t page_num,
 		uint32_t page_size,
 		std::string out_shop_id,
@@ -450,12 +451,13 @@
 	{
 		Json::Value root;
 
-		root["page_num"] 		 = page_num;
-		root["page_size"]        = page_size;
-		root["pay_platform"]     = pay_platform;
-		root["query_order_type"] = query_order_type;
-		root["start_time"] 		 = start_time;
-		root["end_time"] 		 = end_time;
+		root["page_num"] 		   = page_num;
+		root["page_size"]          = page_size;
+		root["pay_platform"]       = pay_platform;
+		root["query_order_type"]   = query_order_type;
+		root["query_cashier_type"] = query_cashier_type;
+		root["start_time"] 		   = start_time;
+		root["end_time"] 		   = end_time;
 
 		if (!out_shop_id.empty())
 			root["out_shop_id"]  = out_shop_id;
