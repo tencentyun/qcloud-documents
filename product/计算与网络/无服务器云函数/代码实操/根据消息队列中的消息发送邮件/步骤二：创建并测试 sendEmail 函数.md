@@ -1,11 +1,11 @@
 在此部分中，用户将创建一个函数来实现发送邮件程序，并通过控制台/API调用来测试函数。
 
 ## 创建 sendEmail 云函数
-1) 登录[无服务器云函数控制台](https://console.qcloud.com/scf)，在【广州】地域下点击【新建】按钮；
+1. 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮。
 
-2) 进入函数配置部分，函数名称填写`sendEmail`，剩余项保持默认，点击【下一步】；
+2. 进入函数配置部分，函数名称填写`sendEmail`，剩余项保持默认，点击【下一步】。
 
-3）进入函数代码部分，执行方法填写`index.main_handler`，代码窗口内贴入如下代码，点击【下一步】；
+3. 进入函数代码部分，执行方法填写`index.main_handler`，代码窗口内贴入如下代码，点击【下一步】。
 
 ```
 # -*- coding: utf8 -*-
@@ -58,7 +58,7 @@ def main_handler(event, context):
 - mail_host SMTP服务器地址为 "smtp.qq.com"
 - mail_user 登录用户名为您的邮箱地址，例如 `3473058547@qq.com`
 - mail_pass 为您在开启 SMTP 功能时设置的密码
-- mail_port 为服务器登录端口，由于 QQ 邮箱强制要求SSL登录，端口固定为 465，同时代码中使用 `smtplib.SMTP_SSL` 创建 SSL 的 SMTP 连接。
+- mail_port 为服务器登录端口，由于 QQ 邮箱强制要求SSL登录，端口固定为 465，同时代码中使用 `smtplib.SMTP_SSL` 创建 SSL 的 SMTP 连接
 
 
 ## 测试 sendEmail 云函数
@@ -91,8 +91,8 @@ def main_handler(event, context):
 
 其中 `msgBody` 字段内， `fromAddr`，`toAddr`内的字段，可以根据您自身邮箱地址进行修改，建议可以修改为相同地址，自身邮箱向自身邮箱内发送邮件，以便测试邮件发送的正确性。我们在这里使用了 `3473058547@qq.com` 这个邮箱来进行测试。
 
-3) 点击【运行】按钮，观察运行结果。如果在结果中发现返回值和日志中均显示`邮件发送成功`，则此程序运行正常。
+3) 点击【运行】按钮，观察运行结果。如果在结果中发现返回值和日志中均显示 "send email success"，则此程序运行正常。
 ![](https://mc.qcloudimg.com/static/img/2f660ce173162212ac1fc1bf4aaf1b09/function+test.png)
 
-4) 前往个人配置的接受邮箱，观察是否有邮件收取到。打开邮件，查看邮件内容是否为配置的内容。
+4) 前往个人配置的接收邮箱，查收是否收取到邮件。打开邮件，查看邮件内容是否为配置的内容。
 ![](https://mc.qcloudimg.com/static/img/a6f6b9c368e208f795e0700f597363c6/email+confirm.png)
