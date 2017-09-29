@@ -2,7 +2,7 @@
 
 本接口 (geturl) 用于获取手机用户的唯一标识值查询地址，该地址可以查询手机用户在运营商数据库的唯一标识值。
 
-接口请求域名地址：`https://qos.api.cloud.tencent.com/qos`
+接口请求域名：`https://qos.api.cloud.tencent.com/qos`
 
 * 请求方式：GET。
 
