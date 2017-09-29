@@ -47,6 +47,7 @@ echo "upload to vod result: " . json_encode($result) . "\n";
 
 * 复制src文件下的源码和test/non-composer文件的cos-sdk-v5、qcloudapi-sdk-php到同级目录
 * 调用示例
+
 ```php
 <?php
 require './cos-sdk-v5/cos-autoloader.php';

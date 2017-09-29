@@ -47,6 +47,7 @@ After the upload is successful, the file's play address and fileid will be obtai
 
 * copy the src file under the source code and test/non-composer file cos-sdk-v5, qcloudapi-sdk-php to the same level directory
 * example
+
 ```php
 <?php
 require './cos-sdk-v5/cos-autoloader.php';
