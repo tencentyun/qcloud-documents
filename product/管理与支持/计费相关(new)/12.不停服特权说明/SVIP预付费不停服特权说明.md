@@ -4,15 +4,15 @@
 
 3.账户余额充足时，扣除余额进行续费，账户余额不足时，则系统自动垫付足够款项以保证续费成功。
 
-4.自动垫付的款项计入您的垫付未回款，回款后续由商务经理跟进，自动垫付充值记录您可前往 [收支明细页面](https://console.qcloud.tencent.com/account/fee) 查看。
+4.自动垫付的款项计入您的垫付未回款，回款后续由商务经理跟进，自动垫付充值记录您可前往 [收支明细页面](https://console.cloud.tencent.com/account/fee) 查看。
 
-5.若您决定资源到期后不再续费，请您提前将其设置为【到期不续费】。现有部分预付费产品支持在用户中心-[续费管理页面](https://console.qcloud.tencent.com/account/renewal) 设置为【到期不续费】。没有设置为【到期不续费】的资源和暂不支持设置的产品都会启动上述默认自动续费流程。
+5.若您决定资源到期后不再续费，请您提前将其设置为【到期不续费】。现有部分预付费产品支持在用户中心-[续费管理页面](https://console.cloud.tencent.com/account/renewal) 设置为【到期不续费】。没有设置为【到期不续费】的资源和暂不支持设置的产品都会启动上述默认自动续费流程。
 
 6.垫付还款途经
 
 ①线下汇款： 腾讯云收到汇款后将优先为您还款，剩余款项充值到您的账户。
 
-②线上充值： 从账户余额中扣费还款，您可前往费用中心-[账户信息](https://console.qcloud.tencent.com/account)页，点击立即还款按钮自助进行还款。
+②线上充值： 从账户余额中扣费还款，您可前往费用中心-[账户信息](https://console.cloud.tencent.com/account)页，点击立即还款按钮自助进行还款。
 
 ![](https://mc.qcloudimg.com/static/img/d2d9a04c8d70fea02d7d7884465f3dc1/image.png)
 
