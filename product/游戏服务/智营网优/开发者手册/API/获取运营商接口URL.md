@@ -2,7 +2,7 @@
 
 本接口 (geturl) 用于获取手机用户的唯一标识值查询地址，该地址可以查询手机用户在运营商数据库的唯一标识值。
 
-接口请求域名地址：<font style="color:red">https://qos.api.qcloud.com/qos 或 https://qos.api.cloud.tencent.com/qos  </font>
+接口请求域名地址：`https://qos.api.cloud.tencent.com/qos`
 
 * 请求方式：GET。
 
@@ -32,13 +32,10 @@
 | isQos | int | 1 为正处于加速状态，其他为未加速 |
 | mobileUrl | String | 唯一标识查询地址，如用户无法查询则返回 "unknown" |
 
-
 ### 4 错误码
 | 错误码 | 描述 |
 |---------|---------|
 | 1 | 获取唯一标识地址失败 |
-
-
 
 ### 5 示例
 
