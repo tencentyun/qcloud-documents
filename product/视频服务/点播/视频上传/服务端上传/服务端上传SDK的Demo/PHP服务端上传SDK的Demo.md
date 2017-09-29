@@ -9,5 +9,65 @@
 
 ## 使用方式
 
-1. 下载本 SDK 后，编辑 conf.php，将SECRET_ID 设置为 API 密钥中的 secret id，将 SECRET_KEY 设置为 API 密钥中的 secret key。
-2. 执行 php upload_demo.php，即可发起文件上传，上传成功后将获取文件的播放地址和 fileid。
+### With Composer
+* 引入依赖
+
+```json
+{
+    "require": {
+        "qcloud/vod-sdk-v5": "v1.2.1"
+    }
+}
+```
+* 调用示例
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodApi;
+
+VodApi::initConf("your secretId", "your secretKey");
+
+$result = VodApi::upload(
+    array (
+        'videoPath' => './test/Wildlife.wmv',
+    ),
+    array (
+        'videoName' => 'WildAnimals',
+//        'procedure' => 'myProcedure',
+//        'sourceContext' => 'test',
+    )
+);
+echo "upload to vod result: " . json_encode($result) . "\n";
+```
+上传成功后将获取文件的播放地址和 fileid
+
+### Without Composer
+
+* 复制src文件下的源码和test/non-composer文件的cos-sdk-v5、qcloudapi-sdk-php到同级目录
+* 调用示例
+```php
+<?php
+require './cos-sdk-v5/cos-autoloader.php';
+require './qcloudapi-sdk-php/src/QcloudApi/QcloudApi.php';
+require './src/Vod/VodApi.php';
+require './src/Vod/Conf.php';
+
+use Vod\VodApi;
+
+VodApi::initConf("your secretId", "your secretKey");
+
+$result = VodApi::upload(
+    array (
+        'videoPath' => '../Wildlife.wmv',
+    ),
+    array (
+        'videoName' => 'WildAnimals',
+//        'procedure' => 'myProcedure',
+//        'sourceContext' => 'test',
+    )
+);
+echo "upload to vod result: " . json_encode($result) . "\n";
+```
+上传成功后将获取文件的播放地址和 fileid
