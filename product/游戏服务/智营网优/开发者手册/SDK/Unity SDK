@@ -69,7 +69,10 @@ MyMNAObserver *observer = MyMNAObserver::GetInstance();
 	<true/>
 </dict>
 ```
-**注意：在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。**
+
+> **注意:**
+> 在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
+
 6) 完成，按照所需在 Unity 调用相应接口即可。
 
 ## 2 API 接口接入步骤
@@ -165,7 +168,7 @@ public static void StartSpeed(string vip, int vport, int htype, string hookModul
 | hookModules | 指定要 HOOK 的动态链接库，多个库名用英文（半角）逗号分开。若使用 Apollo 的网络通信模块，则填`libapollo.so`；若使用 C# 的网络通信模块，则填`libmono.so`。| 
 | stopMNA | 默认值为 0 ； 1 表示强制关闭加速功能，保留网络诊断功能 | 
 | pvpid | 游戏对局唯一 ID，用来定位对局的网络问题 | 
-| timeout | 默认值为 0；设置启动阶段超时时间，单位为毫秒，当`timeout<=0`时，表示不设置启动超时 | 
+| timeout | 默认值为 0 ；设置启动阶段超时时间，单位为毫秒，当`timeout<=0`时，表示不设置启动超时 | 
 
 功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要 5~6 秒。完成后会回调`GSDKObserver`函数。
 

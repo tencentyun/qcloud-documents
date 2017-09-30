@@ -2,7 +2,7 @@
 
 功能：单条或者批量提交用户行为数据  
 接口：`https://sdtj.y.qq.com:8008/upload`   
-方法：POST  
+请求方式：POST  
 
 ## 2. 输入参数  
 
@@ -34,7 +34,7 @@
 		<td>data_type</td>
 		<td>是</td>
 		<td>String</td>
-		<td>协议类型： "1" - item, "2" – action，行为上报传 "2"</td>
+		<td>协议类型： "1" - item， "2" – action，行为上报传 "2"</td>
 	</tr>
 	<tr>
 		<td>token</td>
@@ -62,8 +62,7 @@
 		<td colspan="2">uid_type</td>
 		<td>是</td>
 		<td>String</td>
-		<td>"0":QQ, "1":微信号，"2":openid, "3":IMEI/IDFA，
-			"4":手机号，"5":app 唯一用户</td>
+		<td>"0" - qq， "1" - 微信号， "2" - qq-openid， "3" - imei/idfa， "4" – 手机号，"5" - App 唯一用户，"6" – 微信-openid</td>
 	</tr>
 	<tr>
 		<td colspan="2">uid</td>
@@ -75,7 +74,7 @@
 		<td colspan="2">oper_time</td>
 		<td>是</td>
 		<td>String</td>
-		<td>操作时间，UTC时间，例如 "1483200000"（2017年01月01日 00:00:00）</td>
+		<td>操作时间，UTC 时间，例如 "1483200000"（2017年01月01日 00:00:00）</td>
 	</tr>
 	<tr>
 		<td colspan="2">source</td>
@@ -87,7 +86,7 @@
 		<td colspan="2">test_id</td>
 		<td>否</td>
 		<td>String</td>
-		<td>推荐场景 ID ，比如对于“猜你喜欢”、“首页推荐”等推荐场景，云推荐引擎会分配一个 ID 标识。推荐场景必须填写，此时该字段由推荐引擎的请求接口返回，业务上报时原样拷贝即可，例如 “1000190”</td>
+		<td>推荐场景 ID ，比如对于 "猜你喜欢"、"首页推荐"等推荐场景，云推荐引擎会分配一个 ID 标识。推荐场景必须填写，此时该字段由推荐引擎的请求接口返回，业务上报时原样拷贝即可，例如 "1000190"</td>
 	</tr>
 	<tr>
 		<td colspan="2">rule_id</td>
@@ -96,25 +95,19 @@
 		<td>算法 ID ，推荐场景必须填写；通常一个推荐场景下会有多个算法 ID ，用于算法迭代</td>
 	</tr>
 	<tr>
-		<td colspan="2">trace_id</td>
-		<td>是</td>
-		<td>String</td>
-		<td>跟踪点击和曝光的自定义会话  ID ，为了保证点击跟曝光是同一个用户，对同一个 item 的操作行为，强烈建议每次曝光分配一个 trace_id</td>
-	</tr>
-	<tr>
 		<td colspan="2">item_type</td>
 		<td>否</td>
 		<td>String</td>
-		<td>物品类型，例如 APP 、商品等</td>
+		<td>物品类型，例如 App 、商品等</td>
 	</tr>
 	<tr>
 		<td colspan="2">action_id</td>
 		<td>是</td>
 		<td>String</td>
-		<td>曝光:101, 点击:102, 下载:103, 阅读:104, 播放:105, 转发/分享:106, 点赞:107,
-			评论:108, 支付:109, 收藏:110, 搜索:111, 关注:112, 回复:113, 安装:114, 打开:115,
-			取消收藏:116, 加入购物车:117, 从购物车删除:118, 收藏, 铺:119, 取消收藏店铺:120, 关注:121,
-			取消关注:122, 购买:123, 取消购买:124, 播放快进:125, 播放快退:126, 播放下一个:127, 重播:128</td>
+		<td>曝光:101， 点击:102， 下载:103， 阅读:104， 播放:105， 转发/分享:106， 点赞:107，
+			评论:108， 支付:109， 收藏:110， 搜索:111， 关注:112， 回复:113， 安装:114， 打开:115，
+			取消收藏:116， 加入购物车:117， 从购物车删除:118， 收藏店铺:119，取消收藏店铺:120， 关注:121，
+			取消关注:122， 购买:123， 取消购买:124， 播放快进:125， 播放快退:126， 播放下一个:127， 重播:128</td>
 	</tr>
 	<tr>
 		<td colspan="2">busi_id</td>
@@ -162,7 +155,7 @@
 		<td colspan="2">app_version</td>
 		<td>否</td>
 		<td>String</td>
-		<td>APP 的版本</td>
+		<td>App 的版本</td>
 	</tr>
 	<tr>
 		<td colspan="2">report_source</td>
@@ -175,53 +168,41 @@
 		<td>latitude</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的经度，例如"22.558220"</td>
 	</tr>
 	<tr>
 		<td>longtitude</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的纬度，例如"114.084778"</td>
 	</tr>
 	<tr>
 		<td>country</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的国家，ISO 3166-1 alpha-3编码，例如"CHN"（中国）</td>
 	</tr>
 	<tr>
 		<td>city</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户发生行为的经纬度地理位置</td>
+		<td>用户发生行为的城市，例如 "深圳"</td>
 	</tr>
 	<tr>
-		<td rowspan="4">extend（多个扩展字段，类型为JSONArray）</td>
+		<td rowspan="2">extend（多个扩展字段，类型为JSONArray）</td>
 		<td>key1</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户自定义数据参数名称，例如用户发生行为的经纬度地理位置，latitude</td>
+		<td>自定义字段1</td>
 	</tr>
 	<tr>
 		<td>key2</td>
 		<td>否</td>
 		<td>String</td>
-		<td>用户自定义数据参数名称，用户发生行为的经纬度地理位置，longtitude</td>
+		<td>自定义字段2，业务自行扩充</td>
 	</tr>
 	<tr>
-		<td>key3</td>
-		<td>否</td>
-		<td>String</td>
-		<td>用户自定义数据参数名称，用户发生行为的经纬度地理位置，country</td>
-	</tr>
-	<tr>
-		<td>...</td>
-		<td>否</td>
-		<td>String</td>
-		<td>用户自定义数据参数名称，用户发生行为的经纬度地理位置，city</td>
-	</tr>
-	<tr>
-		<td rowspan="5">item_action（多个item行为，类型为JSONArray）</td>
+		<td rowspan="6">item_action（多个item行为，类型为JSONArray）</td>
 	 	<td>item_id</td>
 		<td>是</td>
 		<td>String</td>
@@ -244,6 +225,12 @@
 		<td>否</td>
 		<td>String</td>
 		<td>物品在列表中的位置</td>
+	</tr>
+	<tr>
+		<td>trace_id</td>
+		<td>否</td>
+		<td>String</td>
+		<td>跟踪点击和曝光的自定义会话 ID，为了保证点击跟曝光是同一个用户，对同一个 item 的操作行为，强烈建议每次曝光分配一个 trace_id</td>
 	</tr>
 	<tr>
 		<td>item_info（多个具体的 item 信息，类型为 JSONObject）</td>
@@ -278,26 +265,27 @@
      "uid":"00000000adfec3",
      "oper_time":"1483200000",
      "source":"0", 
-     "test_id":"1000190",
+     "test_id":"201008",
      "rule_id":"200723",
-     "trace_id":"345",
      "action_id":"101",
-     "busi_id":"10034002",
+     "busi_id":"1000191",
      "item_action":[
        {
          "item_id": "item1",
          "position_id":"2",
+         "trace_id":"345",
          "item_info": {
-           "price":"99", // 价格
-           "group_id1":"1111", // 广告位
+           "price":"99",
+           "group_id1":"1111"
          }
        },
        {
          "item_id": "item2",
          "position_id":"5",
+         "trace_id":"346",
          "item_info": {
-           "price":"99", // 价格
-           "group_id2":"1111", // 广告位
+           "price":"99",
+           "group_id2":"1111"
          }
        }     
       ],
@@ -314,10 +302,10 @@
 ```
 
 输出：  
-```{
+```
 {
-	 "seq_no":"1",
-	 "code":"0",
-	 "message":null
+  "seq_no":"1",
+  "code":"0",
+  "message":null
 }
 ```

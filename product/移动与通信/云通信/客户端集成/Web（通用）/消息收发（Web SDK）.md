@@ -982,4 +982,4 @@ sess_type == 'C2C' ? 1 : 2;
 	}
 ```
 
-请参考demo代码 recentcontact/recent_contact_list_manager.js
+请参考demo代码 switch_chat_obj.js

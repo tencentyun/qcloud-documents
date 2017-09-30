@@ -1,7 +1,11 @@
 # 数据订阅SDK下载
 [点击下载][1]
 
-## 发布日志
+## SDK发布日志
+### Version 2.5.0
+1、修复高并发情况下小概率出现的bug
+2、支持事务中记录的全局唯一自增的ID
+
 ### Version 2.4.0
 1、配合后台优化了订阅的逻辑，可以精确显示SDK当前的消费时间点
 2、修复了后台的少数特殊字符的编码问题
@@ -633,4 +637,4 @@ public Boolean isPrimary()
 ##### 抛出异常
 无
 
-[1]:	//mc.qcloudimg.com/static/archive/dcb2cb495ad8984e7286db369ea7ff0a/binlogsdk-2.4.0.jar.zip
+[1]:	//mc.qcloudimg.com/static/archive/5e8ccc5e8c2edce6c60b576d0d4fee00/binlogsdk-2.5.0.jar.zip
