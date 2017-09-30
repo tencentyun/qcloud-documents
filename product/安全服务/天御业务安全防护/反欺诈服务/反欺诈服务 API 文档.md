@@ -192,6 +192,11 @@ RiskDetail类型说明
   <td>失信名单</td>
 </tr>
 <tr>
+  <td>异常支付行为 </td>
+  <td>8</td>
+  <td>支付行为异常包括支付频次、额度、场景等方面有过异常的</td>
+</tr>
+<tr>
 <td rowspan="4"> 区域风险
 </td><td> 手机号归属地高风险聚集
 <br></td><td> 100
@@ -337,6 +342,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 ```
 
 ## 5.响应示例
+样例代码
 ```
 {
 "code": 0,
@@ -353,3 +359,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 　]
 }
 ```
+【如何使用】
+	反欺诈服务通过API的方式灵活使用，不受客户IT部署的物理限制，最快捷的支持客户使用。
+【客户价值】
+	天御反欺诈服务提供8大纬度的恶意数据模型，覆盖IP地址、手机号、手机设备、银行卡、身份信息、邮箱、QQ号、微信号等数据，最大程度的帮助客户发现欺诈风险，对VIP客户支持线下场景的VIP版服务
