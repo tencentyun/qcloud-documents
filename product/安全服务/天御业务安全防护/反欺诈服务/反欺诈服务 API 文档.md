@@ -154,7 +154,7 @@ RiskDetail类型说明
 </th><th> <b>说明</b>
 </th></tr>
 <tr>
-<td rowspan="7"> 帐号风险
+<td rowspan="8"> 帐号风险
 </td>
 <td> 信贷中介
 </td>
