@@ -13,47 +13,96 @@ Tencent Cloud supports distribution of cloud resources in different locations by
 			<th>Availability Zone</th>
 		</tr>
 		<tr>
-			<td rowspan="7">Mainland China</td>
-			<td rowspan="3">South China (Guangzhou)</td>
-			<td>Guangzhou Zone 1 (Sold out)</td>
+			<td rowspan="16">Mainland China</td>
+			<td rowspan="4">South China (Guangzhou) <br> ap-guangzhou</td>
+			<td>Guangzhou Zone 1 (Sold out)<br> ap-guangzhou-1</td>
+		</tr>	
+		<tr>
+			<td>Guangzhou Zone 2<br> ap-guangzhou-2</td>
 		</tr>
 		<tr>
-			<td>Guangzhou Zone 2</td>
+			<td>Guangzhou Zone 3<br> ap-guangzhou-3</td>
 		</tr>
 		<tr>
-			<td>Guangzhou Zone 3</td>
+			<td>Guangzhou Zone 4<br> ap-guangzhou-4</td>
 		</tr>
 		<tr>
-			<td>South China (Shenzhen Finance)</td>
-			<td>Shenzhen Finance Zone 1<span style="background-color: rgb(249, 249, 249);"> (only for financial institutions and enterprises; requires applications via tickets)</span></td>
+			<td rowspan="2">South China (Shenzhen Finance) <br>ap-shenzhen-fsi
+</td>
+			<td>Shenzhen Finance Zone 1<span style="background-color: rgb(249, 249, 249);">（only for financial institutions and enterprises; requires applications via tickets）<br>ap-shenzhen-fsi-1</span></td>
+			</tr>
+			<tr>
+			<td>Shenzhen Finance Zone 2<span style="background-color: rgb(249, 249, 249);">（only for financial institutions and enterprises; requires applications via tickets）<br>ap-shenzhen-fsi-2</span></td>
+			<tr>
+		
+		<tr>
+			<td rowspan="2">East China (Shanghai)<br>ap-shanghai</td>
+			<td>Shanghai Zone 1<br>ap-shanghai-1</td>
+		</tr>
+			<tr>
+			<td>Shanghai Zone 2<br>ap-shanghai-2</td>
+		   </tr>
+		
+			
 		</tr>
 		<tr>
-			<td>East China (Shanghai)</td>
-			<td>Shanghai Zone 1</td>
+			<td rowspan="2">East China (Shanghai Finance)<br>ap-shanghai-fsi</td>
+			<td>Shanghai Finance Zone 1 (only for financial institutions and enterprises; requires applications via tickets)<br>ap-shanghai-fsi-1</td>
 		</tr>
 		<tr>
-			<td>East China (Shanghai Finance)</td>
-			<td>Shanghai Finance Zone 1 (only for financial institutions and enterprises; requires applications via tickets)</td>
+			<td>Shanghai Finance Zone 2 (only for financial institutions and enterprises; requires applications via tickets)<br>ap-shanghai-fsi-2</td>
+		   </tr>
+		<tr>
+			<td rowspan="3">North China (Beijing)<br>ap-beijing</td>
+			<td>Beijing Zone 1<br>ap-beijing-1</td>
+		</tr>
+			<tr>
+			<td>Beijing Zone 2<br>ap-beijing-2</td>
+		   </tr>
+		   <tr>
+			<td>Beijing Zone 3<br>ap-beijing-3</td>
+		   </tr>
 		</tr>
 		<tr>
-			<td>North China (Beijing)</td>
-			<td>Beijing Zone 1</td>
+			<td rowspan="2">Southeast China (Chengdu)<br>ap-chengdu</td>
+			<td>Chengdu Zone 1<br>ap-chengdu-1</td>
+		</tr>
+			<tr>
+			<td>Chengdu Zone 2<br>ap-chengdu-2</td>
+		   </tr>
 		</tr>
 		<tr>
-			<td rowspan="3">International</td>
-			<td>Southeast Asia (Hong Kong)</td>
-			<td>Hong Kong Zone 1</td>
+			<td rowspan="6">International</td>
+			<td>Southeast Asia (Hong Kong)<br>ap-hongkong</td>
+			<td>Hong Kong Zone 1（Hong Kong nodes can be used to cover Southeast Asia）<br>ap-hongkong-1</td>
 		</tr>
 		<tr>
-			<td>Southeast Asia (Singapore)</td>
-			<td>Singapore Zone 1</td>
+			<td>outheast Asia (Singapore)<br>ap-singapore</td>
+			<td>Singapore Zone 1（Singapore nodes can be used to cover Southeast Asia）<br>ap-singapore-1</td>
 		</tr>
 		<tr>
-			<td>North America (Toronto)</td>
-			<td>Toronto Zone 1</td>
+			<td>Asia Pacific (Seoul)<br>ap-seoul</td>
+			<td>Seoul Zone 1（Seoul nodes can be used to cover Northeast Asia）<br>ap-seoul-1</td>
+		</tr>
+		<tr>
+			<td>North America (Toronto)<br>na-toronto</td>
+			<td>Toronto Zone 1（Toronto nodes can be used to cover North America）<br>na-toronto-1</td>
+		</tr>
+		<tr>
+			<td>WestAmerica（Silicon Valley）<br>na-siliconvalley</td>
+			<td>Silicon Valley Zone 1（Silicon Valley nodes can be used to cover the western United States）<br>na-siliconvalley-1</td>
+		</tr>
+		<tr>
+			<td>Europe (Frankfurt)<br>eu-frankfurt</td>
+			<td>Frankfurt Zone 1（The Frankfurt node can be used to cover the European region）<br>eu-frankfurt-1</td>
 		</tr>
 	</tbody>
 </table>
+
+
+
+
+
 
 
 
@@ -71,24 +120,16 @@ Region attribute is differentiated for all behaviors such as enabling and viewin
 - Regions are named by Coverage + City, and availability zones are named by city + serial number.  
 - Only resources under the same account can communicate via private network. 
 
-**Notes for Hong Kong region:**
 
-- The following cloud services are temporarily unavailable: Cloud Memcached, elastic web engine, Cloud Object Storage, Cloud Block Storage, one-click opening of server and domain binding with separated regions and servers.
-- When you need to log in to CVMs in Hong Kong region, log in via jump server is recommended for better operation and maintenance experience.
 
-**Notes for North America region:**
+**Notes for Shenzhen/Shanghai Finance Zone:**
 
-- The following cloud services are temporarily unavailable: Cloud Memcached, elastic web engine, Cloud Object Storage, mobile acceleration, Cloud Automated Testing, one-click opening of server and domain binding with separated regions and servers.
-- Due to the considerable latency between North America and China, when you need to log in to CVMs in North America region, login via jump server is recommended for better operation and maintenance experience.
-
-**Notes for Shanghai Finance Zone:**
-
-Compliance zone customized according to regulatory requirements of finance industry characterized by high level of safety and isolation; currently provide CVM, finance database, Redis storage, face recognition and other services. Verified clients in finance industry can apply for using the zone with initiating tickets. For details, see [Introduction of finance zone](http://www.qcloud.com/doc/product/304/%E9%87%91%E8%9E%8D%E4%BA%91%E7%AE%80%E4%BB%8B).
+Compliance zone customized according to regulatory requirements of finance industry characterized by high level of safety and isolation; currently provide CVM, finance database, Redis storage, face recognition and other services. Verified clients in finance industry can apply for using the zone with initiating tickets. For details, see [Introduction of finance zone](https://cloud.tencent.com/document/product/304/2766).
 
 ## Availability Zone
 Availability zones (Zone) refer to Tencent Cloud's physical data centers whose power and network are independent from each other within the same region. They are designed to ensure that the failures within an availability zones can be isolated (except for large-scale disaster or major power failure) without spreading to and affecting other zones so that users' businesses can provide continuous online services. By starting an instance in an independent availability zone, users can protect their applications from being affected by the failures occurring in a single location.
 
-When starting an instance, users can choose any availability zone within the specified region. If a user needs to ensure the high reliability of application systems so that the services are still available even when a failure occurs in an instance, the user can use cross-zone deployment scheme (e.g. [Cloud Load Balance](https://www.qcloud.com/doc/product/214), [Elastic IP](/doc/product/213/5733), etc.) to allow the instance in another availability zone to handle the relevant requests in replace of the failed instance.
+When starting an instance, users can choose any availability zone within the specified region. If a user needs to ensure the high reliability of application systems so that the services are still available even when a failure occurs in an instance, the user can use cross-zone deployment scheme (e.g. [Cloud Load Balance](https://cloud.tencent.com/document/product/214), [Elastic IP](/doc/product/213/5733), etc.) to allow the instance in another availability zone to handle the relevant requests in replace of the failed instance.
 
 ### Migrating an instance to another availability zone
 
