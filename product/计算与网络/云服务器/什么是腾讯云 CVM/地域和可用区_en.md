@@ -77,7 +77,7 @@ Tencent Cloud supports distribution of cloud resources in different locations by
 			<td>Hong Kong Zone 1（Hong Kong nodes can be used to cover Southeast Asia）<br>ap-hongkong-1</td>
 		</tr>
 		<tr>
-			<td>outheast Asia (Singapore)<br>ap-singapore</td>
+			<td>Southeast Asia (Singapore)<br>ap-singapore</td>
 			<td>Singapore Zone 1（Singapore nodes can be used to cover Southeast Asia）<br>ap-singapore-1</td>
 		</tr>
 		<tr>
