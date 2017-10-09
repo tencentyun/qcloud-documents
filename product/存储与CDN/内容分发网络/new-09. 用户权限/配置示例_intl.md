@@ -32,7 +32,7 @@ Project administrator can manage all cloud resources under the specified project
 **Step 5**: Check "Manage Cloud Resources in CDN Business Projects" and "Manage Cloud Resources in Other Business Projects":
 ![](https://mc.qcloudimg.com/static/img/a80a478ce2eabd8c3d6f392c03b912d4/9.png)
 
-**Step 6**: Click "Associated with Objects"and set projects individually. Note: there is a mapping between features and projects. You can set Project A for "Manage Cloud Resources in CDN Business Projects" and Project B for "Manage Cloud Resources in Other Business Projects":
+**Step 6**: Click "Associated Objects"and set projects individually. Note: there is a mapping between features and projects. You can set Project A for "Manage Cloud Resources in CDN Business Projects" and Project B for "Manage Cloud Resources in Other Business Projects":
 ![](https://mc.qcloudimg.com/static/img/f79aa7aea974c3f4585701177ba44554/11.png)
 ![](https://mc.qcloudimg.com/static/img/730ff9aeb329d2d615833bdfabd3510c/12.png)
 
