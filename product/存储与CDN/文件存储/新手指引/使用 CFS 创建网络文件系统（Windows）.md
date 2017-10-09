@@ -2,11 +2,11 @@
 ## 一、创建和配置 CVM 实例
 要访问文件系统，您需要将文件系统挂载在基于 Linux 或者 Windows 的腾讯云云服务器实例上。在此步骤中，您将创建和配置一个基于 Windows 的腾讯云 CVM 实例。如果您想要使用基于 Linux 的云服务器，请参考文档 [使用 CFS 创建网络文件系统（Linux）](/doc/product/582/11523)。如果已经创建 CVM 实例，请跳转至步骤二 [创建文件系统及挂载点](#1)。
 
-登录腾讯云官网，选择【云产品】>【计算与网络】>【云服务器】，单击【立即选购】，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm)。
+登录腾讯云官网，选择【云产品】>【计算与网络】>【云服务器】，单击【立即选购】，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm)。
 
 ### 1. 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
-- 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.qcloud.com/developer/infomation)）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
+- 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.cloud.tencent.com/developer/infomation)）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
 - 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
 - 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](/doc/product/213/7153) 。
 
@@ -40,7 +40,7 @@
 - 登录信息设置：您可设置密码，也可自动生成。设置的密码可在创建后修改，自动生成的密码将会以站内信方式发送。
 - 选择安全组（**确保登录端口 3389 开放**，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
 
-单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.qcloud.com/cvm) 查收您的云服务器。
+单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例。
  
 
