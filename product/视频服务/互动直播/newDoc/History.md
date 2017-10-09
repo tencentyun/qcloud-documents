@@ -4,6 +4,7 @@
 * 优化旋转切换前后置闪屏问题
 * 添加进房前摄像头预览分辨率及FPS设置
 * 添加进房后摄像头预览接口
+
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
 ## iLiveSDK iOS V1.7.0.11812(2017－9-25)
@@ -11,11 +12,13 @@
 * 增加预览接口
 * 增加预览分辨率设置
 * 增加OpenAL.framework
+
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo/blob/master/doc/ILiveSDK_ChangeList.md)
 
 ## iLiveSDK PC V1.7.0.0(2017-09-25)
 * 升级到avsdk 1.9.5;
 * 支持大咖模式(先创建房间，主播和观众不分先后顺序加入房间
+
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
 ## iLiveSDK mac V1.7.0.11812(2017-9-25)
@@ -23,17 +26,14 @@
 * 房间失去连接时，释放内部资源
 * 增加内部关键日志打印
 * 增加极速模式
+
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
 ## `AVSDK 1.8.5  2017-03-022`
-** 一、SDK新增功能  
-* 1. 直播场景进房速度优化。 
-* 2. 主播变声功能。
-* 3. 除了imsdk通道以外，AVSDK内部实现了一套通道。安卓可以使用AVSDK里面自己实现的http通道，iOS可以使用https通道。
-* 4. 可以自动请求屏幕分享视频。
-
-** 二、SDK修改bug
-* 解决历史BUG，提高SDK稳定性。
+* 直播场景进房速度优化。 
+* 主播变声功能。
+* 除了imsdk通道以外，AVSDK内部实现了一套通道。安卓可以使用AVSDK里面自己实现的http通道，iOS可以使用https通道。
+* 可以自动请求屏幕分享视频。
 
 ## `常见问题更新    2017-01-18`
 
