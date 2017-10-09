@@ -69,7 +69,6 @@ Assume that a sub-user is allowed to query the consumption statistics of "Test P
 ![](https://mc.qcloudimg.com/static/img/efa67584c3c026f0cbbeb20c6e94e384/20.png)
 
 **Step 6**: Associate each feature with corresponding objects, and select the specified project and domain:
-![](https://mc.qcloudimg.com/static/img/91b968c9ea07206bb42de5ecb3ca1946/21.png)
 
 **Step 7**: The policy is created. You can see it in the List of Custom Policies:
 ![](https://mc.qcloudimg.com/static/img/8481a549ca9fba4831973476273596d4/22.png)
