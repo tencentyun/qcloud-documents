@@ -75,7 +75,7 @@
    
 **控制台登录云服务器**
 1. 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Windows 云服务器。
-![](//mccdn.qcloud.com/img56b1a6cb7b3e8.png)
+![](//mc.qcloudimg.com/static/img/d017c67c9f447c1441cf74ed4ac2b279/image.png)
 2. 通过单击左上角发送【Ctrl-Alt-Delete】命令进入系统登录界面。
 ![](//mc.qcloudimg.com/static/img/e4dbc02ca9ae2a7cb9ada5316effd31a/image.png)
 3. 输入帐号（Administrator）和密码即可登录。
