@@ -10,6 +10,8 @@ Debian
 
 SUSE
 
+OpenSUSE
+
 Ubuntu
 
 ## LogListener使用指南
