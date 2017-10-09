@@ -21,6 +21,12 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
+## iLiveSDK IE V1.3.0.0(2017-09-25)
+* SDK内部升级到avsdk 1.9.5;
+* 增加房间内直播质量回调接口;
+
+[更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Web_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
+
 ## iLiveSDK mac V1.7.0.11812(2017-09-25)
 * 修复 被踢下线，再次登录时出现1003错误的问题
 * 房间失去连接时，释放内部资源
