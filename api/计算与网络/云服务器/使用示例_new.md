@@ -15,7 +15,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstanceTypeConfigs
 &Filters.1.Values.1=ap-guangzhou-2
 &Filters.1.Name=instance-family
 &Filters.1.Values.1=S2
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 <br>根据如上请求可以得到返回结果如下，找到对应 CPU 和 Memory 值里面对应的InstanceType字段对应的值就是我们要查找的机型参数，本例需求想查找的机型值为： S2.MEDIUM4 。
@@ -63,7 +63,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=RunInstances
 &EnhancedService.SecurityService.Enabled=TRUE
 &EnhancedService.MonitorService.Enabled=TRUE
 &InstanceCount=1
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 <br>根据如上请求可以得到返回结果如下，返回结果中的 InstanceId 字段即为所创建实例的 ID，本例创建出来的实例ID值为： ins-32kcaqoa。
@@ -91,7 +91,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=RunInstances
 https://cvm.api.qcloud.com/v2/index.php?Action=TerminateInstances
 &Version=2017-03-12
 &InstanceIds.0=ins-32kcaqoa
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 <br>根据如上请求可以得到返回结果如下。
