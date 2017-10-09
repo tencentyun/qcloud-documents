@@ -8,7 +8,7 @@ Enter the COS console, click the name of the Bucket to which you want to upload 
 
 Click **Upload File** on the page, then the dialog box for file uploading will pop up:
 
-![](//mc.qcloudimg.com/static/img/3fed8a0633510034dc722baa10fcfa9e/image.png)
+![](//mc.qcloudimg.com/static/img/30db79a56efd0c3e9bb5099c907c9849/image.png)
 
 You can click **Upload File** or **Upload Folder** button to upload multiple local files or a folder. Dragging multiple files or folders for uploading is supported by some browsers. After the file has been selected to the list of files to be uploaded, you can still drag the file to the list area to upload it (the area below with a red frame):
 
