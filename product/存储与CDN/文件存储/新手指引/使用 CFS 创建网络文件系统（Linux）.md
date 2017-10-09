@@ -77,7 +77,7 @@
 
 **控制台登录云服务器**
 - 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Linux 云服务器。
-![](//mccdn.qcloud.com/img56b1a6cb7b3e8.png)
+![](//mc.qcloudimg.com/static/img/73cc4f9f702f80d95717c7a35063ab41/image.png)
 - 输入帐号（root ，Ubuntu 系统用户为 ubuntu）和密码即可登录。
 
 >**注意：**
