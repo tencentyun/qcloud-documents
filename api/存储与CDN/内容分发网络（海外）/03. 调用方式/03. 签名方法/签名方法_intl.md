@@ -8,11 +8,12 @@ To apply for a security credential, please proceed as follows:
 
 1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/).
 
-2) Click "Cloud Products", and choose "Cloud API Key" under "Monitor & Management" to access the Cloud API key management page.
-![](//mccdn.qcloud.com/static/img/d9ee6db6ea3736d5aa04b9f161242b27/image.jpg)
+2) Click "Products", and choose "Cloud Access Management" under "Management Tools". Then, select "Security Credentials" to access API Key Management page.
+![](//mc.qcloudimg.com/static/img/0fa5e6b4cfc9f55d7da2d4d429069dbe/image.png)
 
-3) Click "New Key" to create a pair of SecretId/SecretKey. Each account can have two pairs of SecretId/SecretKey at most.
-![](//mccdn.qcloud.com/static/img/939bf79efcc5b8da20e529b0640884d7/image.jpg)
+3) Click "Create Key" to create a pair of SecretId/SecretKey. Each account can have two pairs of SecretId/SecretKey at most.
+![](//mc.qcloudimg.com/static/img/44b679c934bf32e0146317d827b21f8e/image.png)
+
 
 ## 2. Generating Signature
 
