@@ -4,7 +4,7 @@ Once you have created the Bucket, you can upload local files of any types to the
 
 Enter the COS console, click the name of the Bucket to which you want to upload files, and go to the "File List" page of the Bucket:
 
-!![](//mc.qcloudimg.com/static/img/1da0d31afb1dec548d9fec02774f9db7/image.png)
+![](//mc.qcloudimg.com/static/img/79367fa2a4fe4234ccba86de6fb821cf/image.png)
 
 Click **Upload File** on the page, then the dialog box for file uploading will pop up:
 
