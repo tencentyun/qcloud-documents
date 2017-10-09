@@ -43,13 +43,13 @@
 
 ## `常见问题更新    2017-01-18`
 
-* [适应更多旋转裁剪场景](https://www.qcloud.com/document/product/268/7647)
-* [直播时支持背景音乐](https://www.qcloud.com/document/product/268/8297)
+* [适应更多旋转裁剪场景](https://cloud.tencent.com/document/product/268/7647)
+* [直播时支持背景音乐](https://cloud.tencent.com/document/product/268/8297)
 
 ## `随心播后台 2.0.0    2017-01-18`
 
 * 独立账户模式的随心播后台终于来了，需要iLive SDK1.2.0配合使用。
-* [QuickStart文档](https://www.qcloud.com/document/product/268/7603)
+* [QuickStart文档](https://cloud.tencent.com/document/product/268/7603)
 * 账号集成采用独立模式
 * 支持录制文件的查询
 * 支持旁路推流和录制回调
@@ -59,7 +59,7 @@
 
 大家都知道，直播行业里截图鉴黄是绕不过的功能。
 
-腾讯视频云为客户提供了强大的截图和鉴黄功能。具体使用方法请参考[文档](https://www.qcloud.com/document/product/268/8109)。
+腾讯视频云为客户提供了强大的截图和鉴黄功能。具体使用方法请参考[文档](https://cloud.tencent.com/document/product/268/8109)。
 
 ## `AV_iOS_SDK1.8.4    2016-12-28`
 * 直播场景进房速度优化
