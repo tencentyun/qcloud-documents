@@ -7,7 +7,7 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
-## iLiveSDK iOS V1.7.0.11812(2017－9-25)
+## iLiveSDK iOS V1.7.0.11812(2017-09-25)
 * 增加极速模式
 * 增加预览接口
 * 增加预览分辨率设置
@@ -21,7 +21,7 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## iLiveSDK mac V1.7.0.11812(2017-9-25)
+## iLiveSDK mac V1.7.0.11812(2017-09-25)
 * 修复 被踢下线，再次登录时出现1003错误的问题
 * 房间失去连接时，释放内部资源
 * 增加内部关键日志打印
