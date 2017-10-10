@@ -1,8 +1,5 @@
 ## 1. 接口描述
 
-注：本接口为改版后的 API 接口。如需了解旧接口相关信息，请参考：[查询弹性公网IP列表](/document/api/213/1379)。
-
-
 本接口 (DescribeAddresses) 用于查询一个或多个[弹性公网IP](/document/product/213/1941)（简称 EIP）的详细信息。
 
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
@@ -11,15 +8,15 @@
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/6976)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
 
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
 | Version | String | 是 | 表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
 | AddressIds.N | array of String | 否 | 标识 EIP 的唯一 ID 列表。EIP 唯一 ID 形如：`eip-11112222`。参数不支持同时指定`AddressIds`和`Filters`。|
 | Filters.N | array of [Filter](/document/api/213/9451#filter) objects | 否 | 过滤条件，详见下表： EIP 过滤条件表。每次请求的`Filters`的上限为10，`Filter.Values`的上限为5。参数不支持同时指定`AddressIds`和`Filters`。|
-| Offset| Integer| 否| 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](/document/api/213/568)中的相关小节。|
-| Limit| Integer| 否| 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](/document/api/213/568)中的相关小节。|
+| Offset| Integer| 否| 偏移量，默认为0。关于`Offset`的更进一步介绍请参考 API [简介](/document/api/213/11646)中的相关小节。|
+| Limit| Integer| 否| 返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](/document/api/213/11646)中的相关小节。|
 
 
 EIP 过滤条件表
@@ -55,7 +52,7 @@ EIP 过滤条件表
 https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
 &Version=2017-03-12
 &AddressIds.1=eip-hxlqja90
-&<<a href="/doc/api/229/6976">公共请求参数</a>>
+&<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数
@@ -92,7 +89,7 @@ https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddresses
 &Version=2017-03-12
 &Filters.1.Name=address-id
 &Filters.1.Values.1=eip-hxlqja90
-&<<a href="/doc/api/229/6976">公共请求参数</a>>
+&<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数
