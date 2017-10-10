@@ -57,7 +57,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstanceTypeConfigs
 &Filters.1.Values.1=ap-guangzhou-2
 &Filters.1.Name=instance-family
 &Filters.1.Values.1=I1
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
 Output

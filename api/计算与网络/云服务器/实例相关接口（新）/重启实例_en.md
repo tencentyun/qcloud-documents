@@ -24,7 +24,7 @@ The following request parameter list only provides API request parameters. Other
 
 
 ## 3. Output Parameters
- 
+
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | RequestId | String | Unique request `ID`. `RequestId` is returned for each request. `RequestId` should be provided to the backend developer for a help when the user fails to call the API. |
@@ -55,7 +55,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=RebootInstances
 &InstanceIds.1=ins-r8hr2upy
 &InstanceIds.2=ins-5d8a23rs
 &ForceReboot=FALSE
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
 Output
@@ -66,5 +66,3 @@ Output
     }
 }
 </pre>
-
-

@@ -111,7 +111,7 @@ The following error codes only include the business logic error codes for this A
   &Version=2017-03-12
   &Placement.Zone=ap-guangzhou-2
   &ImageId=img-pmqg1cw7
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://www.qcloud.com/document/api/213/11650">Common request parameters</a>>
 ```
 
 #### Response Parameters

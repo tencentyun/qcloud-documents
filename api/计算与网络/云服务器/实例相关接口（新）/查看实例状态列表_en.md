@@ -51,7 +51,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstancesStatus
 &InstanceIds.2=ins-5d8a23rs
 &Offset=0
 &Limit=2
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
 Output
