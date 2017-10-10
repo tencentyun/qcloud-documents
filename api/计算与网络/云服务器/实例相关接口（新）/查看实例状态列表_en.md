@@ -9,7 +9,7 @@ Domain name for API request: cvm.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/6976).
+The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/11650).
 
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
@@ -30,7 +30,7 @@ The following request parameter list only provides API request parameters. Other
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/10146).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/11657).
 
 | Error code | Description |
 |---------|---------|
@@ -74,4 +74,3 @@ Output
     }
 }
 </pre>
-

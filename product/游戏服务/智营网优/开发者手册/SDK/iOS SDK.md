@@ -40,7 +40,9 @@
 	<true/>
 </dict>
 ```
-注意：在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
+> **注意:**
+> 在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
+
 5) 完成，按照所需调用相应接口即可。
 
 ## 2 API 接口接入步骤

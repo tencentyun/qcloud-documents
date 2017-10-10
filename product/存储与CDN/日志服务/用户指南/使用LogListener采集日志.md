@@ -4,22 +4,28 @@ LogListener是腾讯云日志服务提供的日志采集Agent，您可以安装L
 
 目前LogListener支持如下版本的Linux 64位操作系统
 
-centos6.0
+CentOS
 
-centos7.2
+Debian
+
+SUSE
+
+OpenSUSE
+
+Ubuntu
 
 ## LogListener使用指南
 
 ### 安装LogListener
 
-[点击此处下载安装包](https://mc.qcloudimg.com/static/archive/459ba2c47177051c7d85c2d258244142/loglistener.1.0.0.tar.gz)，将安装包解压至指定的目标目录中，在root下执行
+[点击下载 LogListener 1.1.1](https://mc.qcloudimg.com/static/archive/e6d17700f45bd2fa1b3cb99f0424461e/loglistener.1.1.1.tar.gz)，将安装包解压至指定的目标目录中，在root下执行
 
 ```
 cd loglistener/tools/op;
-./install ($uin)($region)
+./install ($SecretId)($SecretKey)($region)
 ```
 
-注：uin为您的腾讯云帐号ID，而非APPID，您可登录腾讯云控制台，在账号信息中中查看您的帐号ID。region为您所使用的日志服务区域。服务区域编码如下：
+注：这里的SecretId与SecretKey为您云api秘钥中的SecretId与SecretKey。region为您所使用的日志服务区域。服务区域编码如下：
 
 ```
 shanghai - 上海

@@ -44,7 +44,7 @@ mLivePusher.setConfig(mLivePushConfig);
 ```
 
 ### step 3: 启动推流
-经过step1 和 step2 的准备之后，用下面这段代码就可以启动推流了：
+经过 step1 和 step2 的准备之后，用下面这段代码就可以启动推流了：
 ```java
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
@@ -54,6 +54,21 @@ mLivePusher.startCameraPreview(mCaptureView);
 ```
 - **startPusher** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
 - **startCameraPreview** 则是将界面元素和Pusher对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
+
+
+### step 3+: 启动纯音频推流
+如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
+
+```java
+// 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
+mLivePushConfig.enablePureAudioPush(true);   // true 为启动纯音频推流，而默认值是 false；
+mLivePusher.setConfig(mLivePushConfig);      // 重新设置 config
+
+String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
+mLivePusher.startPusher(rtmpUrl);
+```
+如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
+
 
 ### step 4: 设定清晰度
 
@@ -187,6 +202,16 @@ Android 手机目前对硬件加速的支持已较前两年有明显的进步，
 
 - **9.1) 设置pauseImg**
 在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
+```java
+    mLivePushConfig.setPauseImg(300,5);
+    // 300 为后台播放暂停图片的最长持续时间,单位是秒
+    // 10 为后台播放暂停图片的帧率,最小值为5,最大值为20
+    Bitmap bitmap = decodeResource(getResources(),R.drawable.pause_publish);
+    mLivePushConfig.setPauseImg(bitmap);
+    // 设置推流暂停时,后台播放的暂停图片, 图片最大尺寸不能超过1920*1920.
+    mLivePusher.setConfig(mLivePushConfig);  
+```
+
 - **9.2) 设置setPauseFlag**
 在开始推流前，使用 TXLivePushConfig 的 setPauseFlag 接口设置切后台pause推流时需要停止哪些采集，停止视频采集则会推送pauseImg设置的默认图，停止音频采集则会推送静音数据。
 >  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示同时停止视频和音频采集，并且推送填充用的音视频流；
@@ -215,6 +240,14 @@ public void onResume() {
     mLivePusher.resumePusher();  // 通知 SDK 重回前台推流
 }
 ```
+
+### step 9+: 后台推摄像头采集数据
+如果主播希望在切后台或者跳转其他界面还能看到摄像头采集的画面， 按照以下配置即可。
+ （1） step 9.1 和 step 9.2 无需设置。
+ （2） 在 step 9.3 中，注释 mLivePusher.pausePusher() 该方法。
+ （3） 在 step 9.4 中，注释 mLivePusher.resumePusher() 该方法。
+
+**<font color='red'>注意</font>**：使用该功能注意保护主播隐私。
 
 ### step 10: 提醒主播“网络不好”
 step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>

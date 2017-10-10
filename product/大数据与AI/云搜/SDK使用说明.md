@@ -8,3 +8,4 @@
 | Python | https://github.com/QcloudApi/qcloudapi-sdk-python | [点击下载](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip) |
 | Java | https://github.com/QcloudApi/qcloudapi-sdk-java | [点击下载](https://mc.qcloudimg.com/static/archive/72dbc1a82ad8e18dead2e6dc07acd5d7/qcloudapi-sdk-java-master.zip) |
 | .Net | https://github.com/QcloudApi/qcloudapi-sdk-dotnet | [点击下载](https://mc.qcloudimg.com/static/archive/b55098d83c78db530c53fb10f44c3fef/qcloudapi-sdk-dotnet-master.zip) |
+| Node.js | https://github.com/CFETeam/qcloudapi-sdk | [点击下载](https://mc.qcloudimg.com/static/archive/0903b39539c6759cb61c797ae06da259/qcloudapi-sdk-master.zip) |
