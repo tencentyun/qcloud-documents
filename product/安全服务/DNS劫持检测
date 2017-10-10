@@ -13,7 +13,7 @@ DNS劫持检测功能可以检测域名是否被劫持，并且能实时监测�
 
 ![DNS](https://mc.qcloudimg.com/static/img/bfdea24d12433439b3de57cb88b44728/dns_01.png)
 
-2、点击【添加域名】，在【域名】输入框里输入待检测的域名，在【权威IP】中输入域名对应的权威IP地址，如果有多个ip点击【添加一行】进行添加。
+2、点击【添加域名】，在【域名】输入框里输入待检测的域名，在【权威IP】中输入域名对应的权威IP地址，如果有多个IP点击【添加一行】进行添加。
 
 ![DNS](https://mc.qcloudimg.com/static/img/be0f66895e0216ad7ea9b7fcd92f5659/dns_02.png)
 
