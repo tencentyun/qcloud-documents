@@ -3,20 +3,20 @@
 要访问文件系统，您需要将文件系统挂载在基于 Linux 或者 Windows 的腾讯云云服务器实例上。在此步骤中，您将创建和配置一个基于 Linux 的腾讯云 CVM 实例。如果您想要使用基于 Windows 的云服务器，请参考文档 [使用 CFS 创建网络文件系统（Windows）](/doc/product/582/11524)。如果已经创建 CVM 实例，请跳转至步骤二 [创建文件系统及挂载点](#1)。
 
 登录腾讯云官网，选择【云产品】>【计算与网络】>【云服务器】，单击【立即选购】，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm)。
-#### 1. 选择地域与机型
+### 1. 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
 - 选择计费模式。包年包月或按量付费（无法购买按量付费云服务器的用户请先进行  [实名认证](https://console.cloud.tencent.com/developer/auth)。更多信息请看 [计费模式说明](/doc/product/213/2180) 。
 - 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
 - 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](/doc/product/213/7153) 。
 
 
-#### 2. 选择镜像
+### 2. 选择镜像
 ![](//mc.qcloudimg.com/static/img/fd40922e47525453a58de73d0ffa266c/image.png)
 - 选择镜像提供方。腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](/doc/product/213/4941) 进行选择。对于刚开始使用腾讯云的用户，推荐选择公共镜像。
 - 选择操作系统。腾讯云提供了 CentOS、 CoreOS、 Debian、 FreeBSD、 OpenSUSE、 SUSE、 Ubuntu 等操作系统，后续运行环境请您自行搭建。
 - 选择系统版本。 
 
-#### 3. 选择存储与网络
+### 3. 选择存储与网络
 ![](//mc.qcloudimg.com/static/img/e95a5bf7bf47c60f43dd0ee62946b67a/image.png)
 - 选择硬盘类型和数据盘大小。
 腾讯云提供云硬盘和本地硬盘两种类型（均默认 50GB 系统盘，系统盘大小任选）。
@@ -33,7 +33,7 @@
 - 选择服务器数量。
 - 选择购买时长与续费方式（仅限包年包月云服务器）。
 
-#### 4. 设置信息
+### 4. 设置信息
 ![](//mc.qcloudimg.com/static/img/1c463db6e3b31abd6c1d3163f1c3108f/image.png)
 - 命名主机：您可选择创建后命名，也可立即命名。
 - 登录信息设置：
@@ -86,7 +86,7 @@
 
 ## 四、挂载文件系统
 
-#### 1. 启动 NFS 客户端
+### 1. 启动 NFS 客户端
 挂载前，请确保系统中已经安装了`nfs-utils`或`nfs-common`，安装方法如下：
 - CentOS：
 ```
@@ -97,7 +97,7 @@ sudo yum install nfs-utils
 sudo apt-get install nfs-common
 ```
 
-#### 2. 创建待挂载目标目录
+### 2. 创建待挂载目标目录
 使用下列命令创建待挂载目标目录。
 ```
 mkdir <待挂载目标目录>
@@ -108,7 +108,7 @@ mkdir /local/
 mkdir /local/test
 ```
 
-#### 3. NFS 挂载
+### 3. NFS 挂载
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```
@@ -159,7 +159,7 @@ mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/nfs /local/test
 ```
 ![](https://mc.qcloudimg.com/static/img/4ce4a81c90b9ecdc19a4396720a46330/image.png)
 
-#### 4. 查看挂载点信息
+### 4. 查看挂载点信息
 挂载完成后，请使用如下命令查看已挂载的文件系统：
 ```
 mount -l
@@ -169,7 +169,7 @@ mount -l
 df -h
 ```
 
-#### 5. 卸载共享目录
+### 5. 卸载共享目录
 当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
 ```
 umount <目录名称>
