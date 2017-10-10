@@ -1,5 +1,6 @@
+# iLiveSDK版本更新
 
-## iLiveSDK Android V1.7.0(2017-09-25)
+## `iLiveSDK Android V1.7.0(2017-09-25)`
 * 更新AVSDK 1.9.5.9
 * 优化旋转切换前后置闪屏问题
 * 添加进房前摄像头预览分辨率及FPS设置
@@ -7,7 +8,7 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
-## iLiveSDK iOS V1.7.0.11812(2017-09-25)
+## `iLiveSDK iOS V1.7.0.11812(2017-09-25)`
 * 增加极速模式
 * 增加预览接口
 * 增加预览分辨率设置
@@ -15,19 +16,19 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo/blob/master/doc/ILiveSDK_ChangeList.md)
 
-## iLiveSDK PC V1.7.0.0(2017-09-25)
+## `iLiveSDK PC V1.7.0.0(2017-09-25)`
 * 升级到avsdk 1.9.5;
 * 支持大咖模式(先创建房间，主播和观众不分先后顺序加入房间
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## iLiveSDK IE V1.3.0.0(2017-09-25)
+## `iLiveSDK IE V1.3.0.0(2017-09-25)`
 * SDK内部升级到avsdk 1.9.5;
 * 增加房间内直播质量回调接口;
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Web_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## iLiveSDK mac V1.7.0.11812(2017-09-25)
+## `iLiveSDK mac V1.7.0.11812(2017-09-25)`
 * 修复 被踢下线，再次登录时出现1003错误的问题
 * 房间失去连接时，释放内部资源
 * 增加内部关键日志打印
@@ -35,11 +36,45 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## `AVSDK 1.8.5  2017-03-022`
-* 直播场景进房速度优化。 
-* 主播变声功能。
-* 除了imsdk通道以外，AVSDK内部实现了一套通道。安卓可以使用AVSDK里面自己实现的http通道，iOS可以使用https通道。
-* 可以自动请求屏幕分享视频。
+# AVSDK 版本更新记录
+## `AVSDK 1.9.5  2017-09-15`
+* 新增极速模式，支持1V1，1V多音视频通话，满足实时音视频沟通场景。
+* iOS/Android端支持啸叫抑制。
+* iOS/android端支持通话前进行麦克风采集测试。
+* PC端支持高性能视频渲染，可有效降低系统消耗、提升渲染效果，降低接入成本。
+* xplatform私有化，避免与APP，其他SDK中使用的xplatform版本冲突。
+* MAC端，检测插入有线耳机时候，切换使用高音质的采集播放，提升音质体验。
+
+## `AVSDK 1.9.2  2017-07-24`
+* 新增视频编解码硬件加速能力(PC)。
+* 新增屏幕分享能力(MAC)。
+* 针对实时通信场景和游戏场景，优化音视频质量(PC/android/iOS)。
+* 进房间首帧时间优化(PC/android/iOS)。
+* 新增通话中快速切换房间的能力PC/android/iOS)。
+* 优化观看和反复连麦的内存占用(PC/android/iOS)。
+* 进一步完善质量监控和上报能力(PC/android/iOS)。
+* 系统性解决native多线程安全问题(PC/android/iOS)。
+
+## `AVSDK 1.9.1  2017-05-27`
+* 本地录制MP4视频(PC)
+* 进房前开预览(android/iOS)
+* 滤镜+挂件 性能优化(android/iOS)
+* 变声API用法简化(android/iOS)
+* 高音质AEC功能优化(android)
+
+
+## `AVSDK 1.9.0  2017-03-21`
+* 跨房间连麦，主播和主播之间可以互动。
+* 滤镜+挂件的趣味聊法，SDK内置，方便客户集成。
+* 支持Mac平台。
+* PC端 支持3D音效。
+
+## `AVSDK 1.8.5  2017-01-18`
+* 直播场景进房速度优化
+* 新增主播变声功能(android/iOS)
+* 除了imsdk通道以外，AVSDK内部实现了一套通道。安卓可以使用AVSDK里面自己实现的http通道，iOS可以使用https通道(android/iOS)
+* 可以自动请求屏幕分享视频
+* 可以动态改变屏幕分享区域(Windows)
 
 ## `常见问题更新    2017-01-18`
 
