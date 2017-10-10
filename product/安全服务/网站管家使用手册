@@ -7,13 +7,13 @@
 
 (2) 单击【添加域名】按钮，在域名输入框中添加需要防护的域名 www.qqtester.com 。协议和端口可以按实际情况选择，比如可以勾选 HTTP，选择 80 端口。源站 IP 输入框需要输入需要防护网站的真实 IP 源站地址，也就是源站的公网 IP 地址。
 
-![域名添加](domain_add_01.png)
+![域名添加](https://mc.qcloudimg.com/static/img/f1a9f6e80f56d9bf17d319f228e3084d/domain_add_01.png)
 
 点击添加按钮完成配置。
 
 (3) 此时在防护设置页面可以看到刚刚添加的域名，双击域名进入详情页，可以看到网站管家给站点分配的 CNAME 。
 
-![域名添加](domain_add_02.png)
+![域名添加](https://mc.qcloudimg.com/static/img/d0cc2aa33cc48458c5a218cf86177eb6/domain_add_02.png)
 
 此时，添加防护域名配置完成。
 
@@ -22,33 +22,33 @@
 
 (1) 在本地的 hosts 文件中添加“ IP 域名 ”形式的记录,这里的 IP 来源于 ping 网站管家分配的 CNAME 得到的 IP 地址。
 
-![本地测试](local_test_01.png)
+![本地测试](https://mc.qcloudimg.com/static/img/e4f961fc46724e01b7c2530baf2ecbdd/local_test_01.png)
 
 在 Windows 下修改“C:\Windows\System32\drivers\etc\hosts”，增加条目。如图：
 
-![本地测试](local_test_02.png)
+![本地测试](https://mc.qcloudimg.com/static/img/786df96a80f335217c4e8fd6a9e2f00b/local_test_02.png)
 
 在 Linux下 修改“/etc/hosts”，增加条目。如图：
 
-![本地测试](local_test_03.png)
+![本地测试](https://mc.qcloudimg.com/static/img/8658570d2c63b1bc2c4505080d84ec49/local_test_03.png)
 
 (2) 在本地电脑上访问WEB站点，站点能够正常打开说明通过网站管家访问WEB源站的线路连通性正常。同时在浏览器中输入  
 ```
 http://www.qqtester.com/?test=alert(123)  
 ```
 浏览器返回预期的阻断页面，说明网站管家防护功能正常。
-![本地测试](local_test_04.png)
+![本地测试](https://mc.qcloudimg.com/static/img/d7cc0f6ddf36d2d565cccae57f3c8d32/local_test_04.png)
 
 
 ### 三，修改 DNS 解析 ###
 为了使公网用户访问网站的流量经过网站管家进行防护，需要修改 DNS 的解析记录。下面以在腾讯云上修改测试站点 www.qqtester.com 的 DNS 解析为例，说明配置步骤。
 (1) 登录腾讯云控制台，点击导航条【云解析】选项卡，右侧域名列表中，选择需要接入网站管家的域名 qqtester.com ，单击【解析】进入解析配置界面。
 
-![本地测试](domain_exp_01.png)
+![本地测试](https://mc.qcloudimg.com/static/img/19e7342d2eea6d4d943ce0d2e7464d4f/domain_exp_01.png)
 
 (2) 单击【添加记录】，在弹出的配置页面中，记录类型选择 CNAME ，主机记录填对应网站的主机记录，这里需要防护的是 www.qqtester.com ，那就是填写 www 。记录值填写网站管家分配的 cname 域名 ```***************d416feb2214fc62a3.qcloudwzgj.com ```。
 
-![本地测试](domain_exp_02.png)
+![本地测试](https://mc.qcloudimg.com/static/img/8a12c2aabf297c8e99e878a839b6657a/domain_exp_02.png)
 
 (3) 修改完成之后，待 DNS 记录生效，互联网上所有用户访问网站的流量就被迁引到网站管家进行防护了。
 同时，网站管家检测到被防护域名解析正常之后在控制台上将提示“正常防护”。
@@ -60,15 +60,15 @@ http://www.qqtester.com/?test=alert(123)
 
 (1) 登录腾讯云控制台，点击导航条【云服务器】选项卡，在左导航窗格中，单击【安全组】。
 
-![本地测试](sec_group_01.png)
+![本地测试](https://mc.qcloudimg.com/static/img/e974185bedefc9071d4ce8ea639af578/sec_group_01.png)
 
 (2) 单击【新建】按钮，输入安全组的名称（例如 my-security-group），选择 模板 为 自定义 ，填写相关备注。
 
-![本地测试](sec_group_02.png)
+![本地测试](https://mc.qcloudimg.com/static/img/7bd416c6d5df549fbdd1489ca2616944/sec_group_02.png)
 
 (3) 在入站规则列表中点击 新增一行 ，在新增的配置行中，规则协议 选择 HTTP ，来源中填写需要放行的回源网段 123.207.88.0/24 。
 
-![本地测试](sec_group_03.png)
+![本地测试](https://mc.qcloudimg.com/static/img/2326cd7793602227e0115ea4db7d373b/sec_group_03.png)
 
 点击新建完成配置。
 
