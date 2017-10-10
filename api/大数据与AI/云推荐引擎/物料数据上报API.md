@@ -84,7 +84,7 @@
 		<td>tags2</td>
 		<td>否</td>
 		<td>String</td>
-		<td>更多tags请自行扩充</td>
+		<td>更多 tags 请自行扩充</td>
 	</tr>
 	<tr>
 		<td colspan="2">item_time</td>
