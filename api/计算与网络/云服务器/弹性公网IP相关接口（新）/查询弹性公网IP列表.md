@@ -26,7 +26,7 @@ EIP 过滤条件表
 | address-id | String| 否| （过滤条件）按照 EIP 的唯一 ID 过滤。EIP 唯一 ID 形如：`eip-11112222`。|
 | address-name | String | 否| （过滤条件）按照 EIP 名称过滤。不支持模糊过滤。|
 | address-ip| String| 否| （过滤条件）按照 EIP 的 IP 地址过滤。|
-| address-status| String| 否| （过滤条件）按照 EIP 的状态过滤。取值范围：详见 [EIP 状态列表](/document/api/213/9452#eip_status)。|
+| address-status| String| 否| （过滤条件）按照 EIP 的状态过滤。取值范围：详见 [EIP 状态列表](/document/api/213/9452#eip_state)。|
 | instance-id| String| 否| （过滤条件）按照 EIP 绑定的实例 ID 过滤。实例 ID 形如：`ins-11112222`。|
 | private-ip-address| String| 否|（过滤条件）按照 EIP 绑定的内网 IP 过滤。|
 | network-interface-id| String| 否|（过滤条件）按照 EIP 绑定的弹性网卡 ID 过滤。弹性网卡 ID 形如：`eni-11112222`。|

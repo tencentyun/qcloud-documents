@@ -2,21 +2,21 @@
 ## 一、创建和配置 CVM 实例
 要访问文件系统，您需要将文件系统挂载在基于 Linux 或者 Windows 的腾讯云云服务器实例上。在此步骤中，您将创建和配置一个基于 Linux 的腾讯云 CVM 实例。如果您想要使用基于 Windows 的云服务器，请参考文档 [使用 CFS 创建网络文件系统（Windows）](/doc/product/582/11524)。如果已经创建 CVM 实例，请跳转至步骤二 [创建文件系统及挂载点](#1)。
 
-登录腾讯云官网，选择【云产品】>【计算与网络】>【云服务器】，单击【立即选购】，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm)。
-#### 1. 选择地域与机型
+登录腾讯云官网，选择【云产品】>【计算与网络】>【云服务器】，单击【立即选购】，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm)。
+### 1. 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
-- 选择计费模式。包年包月或按量付费（无法购买按量付费云服务器的用户请先进行  [实名认证](https://console.qcloud.com/developer/infomation)）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
+- 选择计费模式。包年包月或按量付费（无法购买按量付费云服务器的用户请先进行  [实名认证](https://console.cloud.tencent.com/developer/auth)）。更多信息请看 [计费模式说明](/doc/product/213/2180) 。
 - 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
 - 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](/doc/product/213/7153) 。
 
 
-#### 2. 选择镜像
+### 2. 选择镜像
 ![](//mc.qcloudimg.com/static/img/fd40922e47525453a58de73d0ffa266c/image.png)
 - 选择镜像提供方。腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](/doc/product/213/4941) 进行选择。对于刚开始使用腾讯云的用户，推荐选择公共镜像。
 - 选择操作系统。腾讯云提供了 CentOS、 CoreOS、 Debian、 FreeBSD、 OpenSUSE、 SUSE、 Ubuntu 等操作系统，后续运行环境请您自行搭建。
 - 选择系统版本。 
 
-#### 3. 选择存储与网络
+### 3. 选择存储与网络
 ![](//mc.qcloudimg.com/static/img/e95a5bf7bf47c60f43dd0ee62946b67a/image.png)
 - 选择硬盘类型和数据盘大小。
 腾讯云提供云硬盘和本地硬盘两种类型（均默认 50GB 系统盘，系统盘大小任选）。
@@ -33,16 +33,16 @@
 - 选择服务器数量。
 - 选择购买时长与续费方式（仅限包年包月云服务器）。
 
-#### 4. 设置信息
+### 4. 设置信息
 ![](//mc.qcloudimg.com/static/img/1c463db6e3b31abd6c1d3163f1c3108f/image.png)
 - 命名主机：您可选择创建后命名，也可立即命名。
 - 登录信息设置：
  - 设置密码：输入主机密码设置。
- - 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](http://www.qcloud.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [SSH密钥](http://www.qcloud.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
+ - 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](/doc/product/213/516#1) 指南。更多 SSH 密钥请见 [SSH密钥](/doc/product/213/503) 。
  - 自动生成密码：自动生成的密码将会以站内信方式发送。
-- 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
+- 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](/doc/product/213/5221)） 。
 
-单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.qcloud.com/cvm) 查收您的云服务器。
+单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.cloud.tencent.com/cvm/) 查收您的云服务器。
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例。
  
 
@@ -77,7 +77,7 @@
 
 **控制台登录云服务器**
 - 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Linux 云服务器。
-![](//mccdn.qcloud.com/img56b1a6cb7b3e8.png)
+![](//mc.qcloudimg.com/static/img/73cc4f9f702f80d95717c7a35063ab41/image.png)
 - 输入帐号（root ，Ubuntu 系统用户为 ubuntu）和密码即可登录。
 
 >**注意：**
@@ -86,7 +86,7 @@
 
 ## 四、挂载文件系统
 
-#### 1. 启动 NFS 客户端
+### 1. 启动 NFS 客户端
 挂载前，请确保系统中已经安装了`nfs-utils`或`nfs-common`，安装方法如下：
 - CentOS：
 ```
@@ -97,7 +97,7 @@ sudo yum install nfs-utils
 sudo apt-get install nfs-common
 ```
 
-#### 2. 创建待挂载目标目录
+### 2. 创建待挂载目标目录
 使用下列命令创建待挂载目标目录。
 ```
 mkdir <待挂载目标目录>
@@ -108,7 +108,7 @@ mkdir /local/
 mkdir /local/test
 ```
 
-#### 3. NFS 挂载
+### 3. NFS 挂载
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```
@@ -159,7 +159,7 @@ mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/nfs /local/test
 ```
 ![](https://mc.qcloudimg.com/static/img/4ce4a81c90b9ecdc19a4396720a46330/image.png)
 
-#### 4. 查看挂载点信息
+### 4. 查看挂载点信息
 挂载完成后，请使用如下命令查看已挂载的文件系统：
 ```
 mount -l
@@ -169,7 +169,7 @@ mount -l
 df -h
 ```
 
-#### 5. 卸载共享目录
+### 5. 卸载共享目录
 当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
 ```
 umount <目录名称>

@@ -1,85 +1,65 @@
-## `iLive SDK MAC 1.5.1    2017-07-27`
 
-* 补齐MAC平台ILiveSDK，简化MAC平台互动直播操作；
-* 对齐iOS平台绝大部分功能;
-* 不支持屏幕分享功能;
-* 仅支持Mac自带摄像头;
+## iLiveSDK Android V1.7.0(2017-09-25)
+* 更新AVSDK 1.9.5.9
+* 优化旋转切换前后置闪屏问题
+* 添加进房前摄像头预览分辨率及FPS设置
+* 添加进房后摄像头预览接口
 
-## `iLive SDK PC 1.4.0    2017-07-07`
+[更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
-* 优化了接口，接入更简单;
-* 支持VS的各个版本接入;
-* 所有接口在主线程中进行回调;
-* 用户不再需要手动请求画面,sdk可以自动请求画面;
-* 美颜功能优化，效果更好;
+## iLiveSDK iOS V1.7.0.11812(2017-09-25)
+* 增加极速模式
+* 增加预览接口
+* 增加预览分辨率设置
+* 增加OpenAL.framework
 
+[更多版本](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo/blob/master/doc/ILiveSDK_ChangeList.md)
 
-## `iLive SDK IE 1.0.0    2017-05-11`
+## iLiveSDK PC V1.7.0.0(2017-09-25)
+* 升级到avsdk 1.9.5;
+* 支持大咖模式(先创建房间，主播和观众不分先后顺序加入房间
 
-* 支持和Android ios的房间直播、消息互通
-* 美颜和美白功能
-* 支持录制和旁路推流
+[更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
+
+## iLiveSDK IE V1.3.0.0(2017-09-25)
+* SDK内部升级到avsdk 1.9.5;
+* 增加房间内直播质量回调接口;
+
+[更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Web_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
+
+## iLiveSDK mac V1.7.0.11812(2017-09-25)
+* 修复 被踢下线，再次登录时出现1003错误的问题
+* 房间失去连接时，释放内部资源
+* 增加内部关键日志打印
+* 增加极速模式
+
+[更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
 ## `AVSDK 1.8.5  2017-03-022`
-** 一、SDK新增功能  
-* 1. 直播场景进房速度优化。 
-* 2. 主播变声功能。
-* 3. 除了imsdk通道以外，AVSDK内部实现了一套通道。安卓可以使用AVSDK里面自己实现的http通道，iOS可以使用https通道。
-* 4. 可以自动请求屏幕分享视频。
-
-** 二、SDK修改bug
-* 解决历史BUG，提高SDK稳定性。
-
-## `iLive SDK 1.3  2017-03-06`
-* 集成AVSDK 1.8.5.44
-* 直播场景进房速度优化
-* 可以自动请求屏幕分享视频
-* 可以动态改变屏幕分享区域(Windows)
-* 支持直播码模式的旁路直播和录制
-* android修正快速进房问题，状态异常问题
-* 新增Android进房可以配置是否开启AVSDK房间
-* 修正Android 7.0重复打LOG问题
-* Android版本修复OPPO R9S黑屏问题
-* IOS修复死锁问题
-* 随心播升级封面上传
-* 随心播新增微信分享功能
+* 直播场景进房速度优化。 
+* 主播变声功能。
+* 除了imsdk通道以外，AVSDK内部实现了一套通道。安卓可以使用AVSDK里面自己实现的http通道，iOS可以使用https通道。
+* 可以自动请求屏幕分享视频。
 
 ## `常见问题更新    2017-01-18`
 
-* [适应更多旋转裁剪场景](https://www.qcloud.com/document/product/268/7647)
-* [直播时支持背景音乐](https://www.qcloud.com/document/product/268/8297)
+* [适应更多旋转裁剪场景](https://cloud.tencent.com/document/product/268/7647)
+* [直播时支持背景音乐](https://cloud.tencent.com/document/product/268/8297)
 
 ## `随心播后台 2.0.0    2017-01-18`
 
 * 独立账户模式的随心播后台终于来了，需要iLive SDK1.2.0配合使用。
-* [QuickStart文档](https://www.qcloud.com/document/product/268/7603)
+* [QuickStart文档](https://cloud.tencent.com/document/product/268/7603)
 * 账号集成采用独立模式
 * 支持录制文件的查询
 * 支持旁路推流和录制回调
 * 完善了和随心播的交互协议，可以作为业务流程设计的参考
 
-## `iLive SDK PC 1.0.0    2017-01-18`
-
-* 集成AVSDK 1.8.4版本和IMSDK 2.5.0，优化进房速度和屏幕分享速度
-* 支持和Android ios的房间直播、消息互通
-* 支持屏幕分享和摄像头切换
-* 切换账号集成方式为独立模式，需要iLive SDK1.2.0配合使用。
-
-## `iLive SDK Android ios 1.2.0    2017-01-18`
-
-* 集成AVSDK 1.8.4版本和IMSDK 2.5.0，优化进房速度和屏幕分享速度
-* 支持PC iLiveSDK的屏幕分享内容的直播
-* 优化了横屏旋转的处理模式
-* 支持拉取旁路直播列表
-* 支持拉取录制列表和本地播放
-* 支持封面上传到COS、点赞动画、消息动画
-* 切换账号集成方式为独立模式，需要iLive SDK1.2.0配合使用。
-
 ## `截图鉴黄功能发布 2017-01-05`
 
 大家都知道，直播行业里截图鉴黄是绕不过的功能。
 
-腾讯视频云为客户提供了强大的截图和鉴黄功能。具体使用方法请参考[文档](https://www.qcloud.com/document/product/268/8109)。
+腾讯视频云为客户提供了强大的截图和鉴黄功能。具体使用方法请参考[文档](https://cloud.tencent.com/document/product/268/8109)。
 
 ## `AV_iOS_SDK1.8.4    2016-12-28`
 * 直播场景进房速度优化
