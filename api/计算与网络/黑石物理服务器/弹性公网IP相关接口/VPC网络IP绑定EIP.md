@@ -20,8 +20,8 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmBindVpcIp。
 
-|参数名称|必选|类型|描述|
-|----|----|----|----|----|
+| 参数名称 | 必选 | 类型 | 描述 |
+|---------|---------|---------|---------|---------|
 | eipId | 是 | String | EIP实例ID，格式形如：eip-testid |
 | vpcId | 是 | Int | IP所属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
 | vpcIp | 是 | String | VPC内IP，此IP地址必须通过[申请内网IP接口](/document/product/386/7337)申请获得，否则无法绑定EIP|
