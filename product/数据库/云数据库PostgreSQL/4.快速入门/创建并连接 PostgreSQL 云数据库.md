@@ -44,7 +44,7 @@
 ### 2. 新建数据库连接
 安装好 pgAdmin4 后，打开客户端。右键单击【Servers】>【Create】>【Server】。
 ![](//mc.qcloudimg.com/static/img/d858eff4877223e5e8749a0a0e3aa193/image.png)
-在弹出的 **Create-Server** 对话框的【General】和【Connection】子菜单项填写名称、主机 IP 地址、端口号、用户名和密码，新建数据库连接并单击【Save】保存。
+在弹出的 **Create-Server** 对话框的【General】和【Connection】子菜单项中填写名称、主机 IP 地址、端口号、用户名和密码，新建数据库连接并单击【Save】保存。
 - Name。数据库连接名称。
 - Host name/address。云数据库的 IP 地址。分为内网地址和外网地址。如果在外网访问云数据库，请使用外网地址和端口号；如果在内网访问云数据库，请使用内网地址和端口号。
 - Port。云数据库的端口号。
