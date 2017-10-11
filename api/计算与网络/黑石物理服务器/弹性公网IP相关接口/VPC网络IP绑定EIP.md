@@ -5,15 +5,19 @@ EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非�
 
 
 ## 请求
+
 ### 请求示例
+
 ```
-  GET https://bmeip.api.qcloud.com/v2/index.php?
+GET https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmBindVpcIp
   &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
   &vpcIp=<内网IP>&eipId=<EIP实例ID>&vpcId=<vpc数字ID>
 
 ```
+
 ### 请求参数
+
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmBindVpcIp。
 
 |参数名称|必选|类型|描述|
@@ -23,7 +27,9 @@ EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非�
 | vpcIp | 是 | String | VPC内IP，此IP地址必须通过[申请内网IP接口](/document/product/386/7337)申请获得，否则无法绑定EIP|
 
 ## 响应
+
 ### 响应示例
+
 ```
 
 {
@@ -52,6 +58,7 @@ Data结构
 | data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[查询EIP任务状态](/doc/api/456/6670)查询任务状态|
 
 ## 错误码
+
 |错误代码|英文提示|错误描述|
 |---|---|---|
 |9003|ParamInvalid|请求参数不正确|
@@ -68,8 +75,9 @@ Data结构
 |-49994|VpcIpNotApplyed|操作的VpcIp未申请|
 
 ## 实际案例
- 
+
 ###输入
+
 ```
 
 GET https://bmeip.api.qcloud.com/v2/index.php?
@@ -86,6 +94,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ```
 
 ###输出
+
 ```
 
 {
