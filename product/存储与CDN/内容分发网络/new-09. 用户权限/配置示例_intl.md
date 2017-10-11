@@ -2,7 +2,7 @@
 
 Super Administrator can only be set by **Creator** or other **Super Administrators**.
 
-**Step 1**: Enter [Cloud Access Management](https://console.qcloud.com/cam) page and click "Create User":
+**Step 1**: Enter [Cloud Access Management](https://console.cloud.tencent.com/cam) page and click "Create User":
 ![](//mc.qcloudimg.com/static/img/d0fe6bee5904c659d7e0d701b69e4f65/image.png)
 
 **Step 2**: Enter the administrator name, select "Yes" for **Allow Login to Tencent Cloud**, and enter Login Account
