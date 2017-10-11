@@ -1,5 +1,5 @@
 
-在本文档中，您可以创建 SQL Server 云数据库实例。然后在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到该数据库实例并运行简单的查询。最后，您将删除该数据库实例。
+在本教程中，您可以创建 SQL Server 云数据库实例。然后在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到该数据库实例并运行简单的查询。最后，您将删除该数据库实例。
 如果您想要在本地使用 SQL Server Management Studio（SSMS） 连接到 SQL Server 云数据库，请参考入门教程 [创建并连接 SQL Server 云数据库（本地端）](/doc/product/238/11627)。
 
 > **注意：**
@@ -23,7 +23,7 @@
 ![](//mc.qcloudimg.com/static/img/eedd98d6992bdb6e06d25d8380365e89/image.png)
 5. 在 SQL Server 云数据库管理界面，单击【管理】，进入 SQL Server 云数据库实例详情页。
 ![](//mc.qcloudimg.com/static/img/aeb4d8c1b053c4ea9dbb6f5a9a48fc4d/image.png)
-6. 在 SQL Server 云数据库实例详情页，单击【帐号管理】>【创建帐号】，弹出创建帐号页面。填写相关信息创建账号，确认无误后，单击【确定】。**此步骤填写的账号名和密码将在连接 SQL Server 云数据库时使用，请妥善保管。**本教程以“test”为例。
+6. 在 SQL Server 云数据库实例详情页，单击【帐号管理】>【创建帐号】，弹出创建帐号页面。填写相关信息创建帐号，确认无误后，单击【确定】。**此步骤填写的帐号名和密码将在连接 SQL Server 云数据库时使用，请妥善保管。**本教程以“test”为例。
 ![](//mc.qcloudimg.com/static/img/1cac253d8eb9029bbaf10aa385b4c0bd/image.png)
 7. 在 SQL Server 云数据库实例详情页，单击【数据库管理】>【创建数据库】，弹出创建数据库页面。填写相关信息创建数据库，确认无误后，单击【确定】。本步骤将数据库的 **读写权限** 或者 **只读权限** 授权给第 6 步中创建的帐号。
 ![](//mc.qcloudimg.com/static/img/8db9f2aaa65978c0e0005739c7861aad/image.png)
@@ -38,7 +38,7 @@
  - Server type。选择 Database Engine。
  - Server name。键入或黏贴数据库实例的内网 IP 和端口号，注意要用 **逗号** 隔开。例如在第 3 步中查看得到的内网 IP 和端口号为：`10.10.10.10：1433`，那么在此填入：`10.10.10.10，1433`。注意使用 **英文标点符号**。
  -  Authentication。选择 SQL Server Authentication。
- -  Login 和 Password。第一章第 6 步中创建账号时填写的账号名和密码。本教程以“test”为例。
+ -  Login 和 Password。第一章第 6 步中创建帐号时填写的帐号名和密码。本教程以“test”为例。
 5. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](//mc.qcloudimg.com/static/img/a39d9db6f6a4050d1fa4285a53b55157/image.png)
 6. 现在您可以开始创建您自己的数据库并对数据库运行查询。单击【File】>【New】>【Query with Current Connection】，键入以下 SQL 查询：
