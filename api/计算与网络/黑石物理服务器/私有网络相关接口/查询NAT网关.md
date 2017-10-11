@@ -1,5 +1,5 @@
 ## 功能描述
-DescribeBmNatGateway 用于查询租户创建的NAT网关列表信息，包括网关名称、网关并发连接上限、绑定eip数目、以及nat网关绑定的子网列表等
+DescribeBmNatGateway 用于查询租户创建的NAT网关列表信息，包括网关统一ID、网关名称、网关并发连接上限、绑定eip列表、以及nat网关绑定的子网列表等
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -23,13 +23,13 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| natId | 否 | String | NAT网关统一ID，例如：nat-xx454|
-| natName | 否 | String | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | int | 私有网络ID值，可使用vpcId，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| natId | 否 | string | NAT网关统一ID，例如：nat-xx454|
+| natName | 否 | string | NAT网关名称 (支持模糊查找) |
+| vpcId | 否 | int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | offset | 否 | Int | 初始行的偏移量，默认为0|
 | limit | 否 | Int | 每页行数，默认为20，最大支持50。|
-| orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId。|
-| orderDirection | 否 | String | 升序（asc）或降序（desc），默认：desc。|
+| orderField | 否 | string | 按某个字段排序，默认不排序。<br>支持字段：natId。|
+| orderDirection | 否 | string | 升序（asc）或降序（desc），默认：desc。|
 
 ## 响应
 响应示例：
@@ -86,7 +86,7 @@ data数据结构如下：
 | data.n.natId | string | NAT网关统一ID，例如：nat-xx454 |
 | data.n.natName | string | NAT网关名称 |
 | data.n.unVpcId | string | 私有网络统一ID，例如：vpc-xgfd55d |
-| data.n.vpcId | Int | 私有网络ID |
+| data.n.vpcId | int | 私有网络ID |
 | data.n.vpcName | string | vpc网络名称 |
 | data.n.state | int | NAT网关状态，1:运行中, 0:不可用 |
 | data.n.productionStatus | int | NAT网关的生产状态, 0: 创建中, 1: 创建成功, 2: 创建失败 |
@@ -101,13 +101,13 @@ subnets包含的数据结构如下：
 
 |参数名称|类型|描述|
 |-------|---|---------------|
-|name|String|子网名称|
-|unSubnetId|String|子网统一ID|
+|name|string|子网名称|
+|unSubnetId|string|子网统一ID|
 |subnetId|int|子网ID|
 |subnetNatType|int|绑定的子网类型，0表示子网部分IP，1表示子网全部IP|
-|cidrBlock|String|子网网段|
+|cidrBlock|string|子网网段|
 
-code和message描述如下：
+code和message对应的描述如下：
  以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
@@ -123,7 +123,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=DescribeBmNatGateway
 	&SecretId=AKID1ub7R1JoyBF7nHqjk7IH8nGWaR6Yezwd
 	&Nonce=4557
-	&Timestamp=1507692902&Region=gz
+	&Timestamp=1507692902QueryBmNatGatewayProductionStatus
+	&Region=gz
 	&vpcId=300006
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
@@ -172,4 +173,3 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
     ]
 }
 ```
-
