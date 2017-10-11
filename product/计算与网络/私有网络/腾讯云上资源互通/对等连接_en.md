@@ -2,7 +2,7 @@
 ## Introduction
 VPC peering connection is a cross-VPC network interconnection service for office data synchronization that allows VPC IPs to route traffic between peer VPCs as if they belong to the same network. You can achieve VPC interconnection between the same or different users for the same or different regions. Traffic interconnection between VPCs can be achieved through setting up routing policies on the two sides. Peering connections do not depend on a single piece of hardware, so there is no single point of failure or bandwidth bottleneck.
 
-> Note: Click to view [Cross-region Connection Service Agreement](https://www.qcloud.com/document/product/215/7682). If you have violated any of the provisions of the agreement, Tencent Cloud may at any time restrict, suspend or terminate services to you under the agreement as appropriate, and retain the right to pursue related liability.
+> Note: Click to view [Cross-region Connection Service Agreement](https://cloud.tencent.com/document/product/215/7682). If you have violated any of the provisions of the agreement, Tencent Cloud may at any time restrict, suspend or terminate services to you under the agreement as appropriate, and retain the right to pursue related liability.
 
 ## Interconnectivity of Peering Connection Is Not Transitive
 Peering connection allows interconnections between VPCs, but this interconnection is not transitive. As shown in the following figure, peering connection is established between VPC 1 and VPC 2, as is done between VPC 1 and VPC 3. However, due to the non-transitive nature of peering connection, VPC 2 and VPC 3 cannot readily interconnect.
@@ -17,7 +17,7 @@ VPC supports both regional and cross-region peering connections (i.e., cross-reg
 |---------|---------|---------|
 | Underlying architecture | Local private network within a single region based on Tencent Cloud | Cross-region internal MPLS network based on Tencent Cloud |
 | Bandwidth | No bandwidth limit | Maximum 1 GB, bandwidth upper limit can be set |
-| Billing Rule | 	Free of charge | 	Daily rate is applicable depending on the regions where both sides of the peering connection are located and the actually used network bandwidth. For details, please refer to [Price Overview](https://www.qcloud.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88) |	
+| Billing Rule | 	Free of charge | 	Daily rate is applicable depending on the regions where both sides of the peering connection are located and the actually used network bandwidth. For details, please refer to [Price Overview](https://cloud.tencent.com/document/product/215/3079) |	
 | Availability | Above 99.95%, no single point of failure | 	Above 99.95%, no single point of failure |	
 | Cross-account connection | Support | Support |	
 | Access Permission | CVMs on both ends of a peering connection can access all resources of its peer including peer CVM, database, cloud load balancer and so on | CVMs on both ends of a peering connection can access all resources of its peer including peer CVM, database, cloud load balancer and so on |	
@@ -52,7 +52,7 @@ When using peering connection, you have to note the following:
 
 > Note: For peering connection services in other region, please submit a ticket for the request.
 
-For additional VPC service restrictions, refer to [Additional VPC Service Restrictions](https://www.qcloud.com/document/product/215/537).
+For additional VPC service restrictions, refer to [Additional VPC Service Restrictions](https://cloud.tencent.com/document/product/215/537).
 
 ## Billing Model
 ### Billing Method Description
@@ -118,7 +118,7 @@ For details, please refer to the following table:
 
 > Contact business department to consult more about prices.
 
-For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://www.qcloud.com/doc/product/215/3079).
+For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/document/product/215/3079).
 
 > Note: In order for you to view the cost, the billing system describes peering connections as:  bill for cross-region interconnection (mainland) and bill for peering connection of which both ends are in mainland China
 
@@ -139,7 +139,7 @@ Benefits for VIP customers and common customers during the campaign are as follo
 - It takes effect on the day the bandwidth remission is approved upon review. The extra amount is applicable to the tiered price. This is valid until Dec. 31, 2017. You can view the remission details in the peering connection creation pop-up or in the details page.
 
 
-- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer, entitled to the supreme service and related benefits, [Apply Now >>](https://www.qcloud.com/service/vip. Html)
+- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer, entitled to the supreme service and related benefits, [Apply Now >>](https://cloud.tencent.com/service/vip)
 
 ## Operating Instructions
 
@@ -237,5 +237,5 @@ When you create a cross-account peering connection/shared Direct Connect, you ne
 ![](https://mc.qcloudimg.com/static/img/8ecbc060325b2fa0face6d875ac4ce41/pic1.png)
 
 ## Related APIs
-You can use API operations to set and manage your peering connection. For more information on additional resources in VPC, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
+You can use API operations to set and manage your peering connection. For more information on additional resources in VPC, please refer to [Overview of All VPC APIs](https://cloud.tencent.com/document/api/215/909).
  
