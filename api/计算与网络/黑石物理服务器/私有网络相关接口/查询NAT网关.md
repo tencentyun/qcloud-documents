@@ -1,5 +1,5 @@
 ## 功能描述
-DescribeBmNatGateway 用于查询租户创建的NAT网关列表信息，包括网关名称、网关并发连接上线、绑定eip数目、以及nat网关绑定的子网列表等
+DescribeBmNatGateway 用于查询租户创建的NAT网关列表信息，包括网关名称、网关并发连接上限、绑定eip数目、以及nat网关绑定的子网列表等
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -118,6 +118,7 @@ code和message描述如下：
 ## 实际案例
 
 ### 请求
+```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=DescribeBmNatGateway
 	&SecretId=AKID1ub7R1JoyBF7nHqjk7IH8nGWaR6Yezwd
@@ -125,6 +126,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Timestamp=1507692902&Region=gz
 	&vpcId=300006
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
+```
 
 ### 响应
 ```
