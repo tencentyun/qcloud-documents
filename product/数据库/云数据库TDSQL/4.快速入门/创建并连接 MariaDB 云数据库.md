@@ -1,7 +1,7 @@
 在本文档中，您可以创建 MariaDB 云数据库实例并连接到该数据库实例。最后，您将删除该数据库实例。
 
 > **注意：**
-> 在创建 MariaDB 云数据库实例之前，您必须拥有一个腾讯云账户。如果您没有腾讯云账户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
+> 在创建 MariaDB 云数据库实例之前，您必须拥有一个腾讯云帐户。如果您没有腾讯云帐户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云帐户。
 
 ## 一、创建 MariaDB 云数据库实例
 在此步骤中，您会使用腾讯云控制台创建 MariaDB 云数据库实例。
@@ -32,7 +32,7 @@
  ![](//mc.qcloudimg.com/static/img/0bf59af9ccab51409e076915e8da6548/image.png)
 7. 在 MariaDB 云数据库管理界面，单击【管理】，进入  MariaDB 云数据库实例详情页。
 ![](//mc.qcloudimg.com/static/img/f78e56bf13c5238c3bb793c3fd0367fa/image.png)
-8. 在 MariaDB 云数据库实例详情页，单击【账号管理】>【创建账号】，弹出创建账号页面。填写相关信息创建账号，确认无误后，单击【确定】。**此步骤填写的帐号名和密码将在连接 MariaDB 云数据库时使用，请妥善保管。**
+8. 在 MariaDB 云数据库实例详情页，单击【帐号管理】>【创建帐号】，弹出创建帐号页面。填写相关信息创建帐号，确认无误后，单击【确定】。**此步骤填写的帐号名和密码将在连接 MariaDB 云数据库时使用，请妥善保管。**
  - 帐号名。由字母、数字、下划线组成，字母开头，字母或数字结尾，最长 16 个字符组成。本教程以“test123”为例。
  - 主机。也可以理解为 HOST，支持 IP、IP 段、% 三种形式；% 代表结尾符，例如我们要支持 10.10.10.1~10.10.10.254 的所有主机 IP，可以输入 10.10.10.%；不输入代表 %。
  - 是否只读帐号。选中表示该帐号只能使用读请求（select）。
@@ -84,7 +84,7 @@ b. 使用 MySQL 命令行工具登录到 MariaDB 数据库。
 ```
 mysql -h hostname -u username -p
 ```
-请将`hostname`替换为目标 MariaDB 数据库实例的内网 IP 地址，将`username`替换为之前创建的用户`test123`，并在提示 **Enter password：** 后输入账户 test123 对应的密码。本例中`hostname`为`10.30.0.7`。
+请将`hostname`替换为目标 MariaDB 数据库实例的内网 IP 地址，将`username`替换为本教程创建的用户`test123`，并在提示 **Enter password：** 后输入帐户 test123 对应的密码。本例中`hostname`为`10.30.0.7`。
 ![](//mc.qcloudimg.com/static/img/f8dccff34309cfd332f600f1ceb35ff1/image.png)
 c. 在 **MySQL>** 提示符下可以发送 SQL 语句到要执行的 MariaDB 服务器。关于 SQL 语句的更多信息请参考 [MySQL 官方文档](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 例如执行以下命令，查看数据库基本信息。
@@ -107,10 +107,10 @@ c. 查看此数据库实例的外网地址。此例中，数据库的外网域�
 **从Windows系统登录**
 a. 下载 MariaDB 客户端并安装。此步骤中我们推荐您使用 SQLyog，查看 [SQLyog 官网](https://www.webyog.com/) 以获得更多信息。
 b. 打开 SQLyog，输入 MariaDB 数据库实例的外网域名和端口号，数据库帐号以及密码。
-  - 我的 SQL 主机地址：此例中输入 tdsql-6gy3mopk.gz.cdb.myqcloud.com。
-  - 用户名：用前文中创建的用户名 test123。
+  - 我的 SQL 主机地址：本教程中输入 tdsql-6gy3mopk.gz.cdb.myqcloud.com。
+  - 用户名：本教程中创建的用户名 test123。
   - 密码：用户 test123 对应的密码。
-  - 端口：此例中输入 114。
+  - 端口：本教程中输入 114。
 ![](//mc.qcloudimg.com/static/img/1924e51d3519bab0ab9705217466fec2/image.png)
 c. 登录成功的界面如图所示，在此页面上您可以看到 MariaDB 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/d050b1917e7ccfea62a9ec7c8992c313/image.png)
@@ -124,7 +124,7 @@ b. 使用 MySQL 命令行工具登录到 MariaDB 数据库。相关命令为：
 ```
 mysql -h hostname -P port -u username -p
 ```
-请将`hostname`替换为目标 MariaDB 数据库实例的外网 IP 地址，将`username`替换为之前创建的用户`test123`，并在提示 **Enter password：** 后输入账户 test123 对应的密码。本例中`hostname`为`tdsql-6gy3mopk.gz.cdb.myqcloud.com`，`port` 为 114。
+请将`hostname`替换为目标 MariaDB 数据库实例的外网 IP 地址，将`username`替换为本教程创建的用户`test123`，并在提示 **Enter password：** 后输入帐户 test123 对应的密码。本例中`hostname`为`tdsql-6gy3mopk.gz.cdb.myqcloud.com`，`port` 为 114。
 ![](//mc.qcloudimg.com/static/img/230ca6d65526050e062c3f59186d4e6c/image.png)
 c. 在 **MySQL>** 提示符下可以发送 SQL 语句到要执行的 MariaDB 服务器。关于 SQL 语句的更多信息请参考 [MySQL 官方文档](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 例如执行以下命令，查看数据库基本信息。
@@ -134,6 +134,6 @@ show databases;
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
 ## 三、删除 MariaDB 云数据库实例
-1. 在 MariaDB 云数据库实例详情页，单击【账号管理】>【删除账号】。删除账号需要一定的时间，请耐心等待。
+1. 在 MariaDB 云数据库实例详情页，单击【帐号管理】>【删除帐号】。删除帐号需要一定的时间，请耐心等待。
 ![](//mc.qcloudimg.com/static/img/43cd5692d7a07ad2e5c6bf26cf134090/image.png)
 2. MariaDB 云数据库实例不需要手动删除，到期后没有续费将会自动停止。
