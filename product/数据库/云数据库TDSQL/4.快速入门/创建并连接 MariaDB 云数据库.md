@@ -43,7 +43,7 @@
 ![](//mc.qcloudimg.com/static/img/38297ac6bb2bde4a085cddd53ba8dcd7/image.png)
 查看帐号权限的配置是否正确，然后单击【关闭】完成配置。
 ![](//mc.qcloudimg.com/static/img/385bfb7ab899da5266a56242601a4c62/image.png)
-9. 在 MariaDB 云数据库实例详情页，开通外网地址。（此步骤不是必须。如果需要从外网访问云数据库必须开通外网地址。）
+9. 在 MariaDB 云数据库实例详情页，开通外网地址。当您需要从外网访问云数据库时，本步骤必选。其他情况下，本步骤可选。
 ![](//mc.qcloudimg.com/static/img/ed14405f61e54fe5225ae6ccfd3936f9/image.png)
 > **注意：**
 > 长期开放数据库外网 IP 可能存在安全风险，建议您在不需使用时及时关闭。
@@ -136,4 +136,4 @@ show databases;
 ## 三、删除 MariaDB 云数据库实例
 1. 在 MariaDB 云数据库实例详情页，单击【帐号管理】>【删除帐号】。删除帐号需要一定的时间，请耐心等待。
 ![](//mc.qcloudimg.com/static/img/43cd5692d7a07ad2e5c6bf26cf134090/image.png)
-2. MariaDB 云数据库实例不需要手动删除，到期后没有续费将会自动停止。
+2. MariaDB 云数据库实例暂时不支持手动删除，到期后没有续费将会自动停止。
