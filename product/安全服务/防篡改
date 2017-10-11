@@ -1,37 +1,16 @@
-
-## 网站管家-防篡改 ##
-
-
-### 功能简介 ###
-
-
-
+## 功能简介
 防篡改功能可以防止指定的页面由于被篡改而显示异常。
 
+## 注意事项 
+
+- 指定的页面仅限于`.html`、`.js`、`.txt`等静态资源。
 
 
-### 注意事项 ###
+## 配置举例 
 
-- 指定的页面仅限于.html、.js、.txt等静态资源。
+### 功能配置案例1：保护网站主页不被篡改
 
-
-
-### 配置举例 ###
-
-#### 功能配置案例1：保护网站主页不被篡改 ####
-
-（1）进入网站管家主界面，点击【防护设置】，点击需要防护的站点域名，点击【防篡改】选项卡进入到防篡改配置界面。
-
-![防篡改](https://mc.qcloudimg.com/static/img/c9106a237b587095888e7fcbe122925f/fangcuangai_01.png)
-
-（2）点击【添加规则】，在【规则名称】输入框里面输入具体的规则名称，在【URL】中输入主页的完整URL路径。
-
-![防篡改](https://mc.qcloudimg.com/static/img/68308add45699fe70de824009d582495/fangcuangai_02.png)
-
-
-（3）点击【添加】保存规则，此时规则将会生效。
-
-![防篡改](https://mc.qcloudimg.com/static/img/2d06fd9d70dc242cb9e047bf31b86fd2/fangcuangai_03.png)
-
-
-（4）如果主页有更新，则可点击【刷新缓存】来更新缓存内容；
+1. 进入网站管家主界面，单击【防护设置】，单击需要防护的站点域名，单击【防篡改】选项卡进入到防篡改配置界面。![防篡改](https://mc.qcloudimg.com/static/img/c9106a237b587095888e7fcbe122925f/fangcuangai_01.png)
+2. 单击【添加规则】，在规则名称输入框里面输入具体的规则名称，输入主页完整的URL路径。![防篡改](https://mc.qcloudimg.com/static/img/68308add45699fe70de824009d582495/fangcuangai_02.png)
+3. 单击【添加】保存规则，此时规则将会生效。![防篡改](https://mc.qcloudimg.com/static/img/2d06fd9d70dc242cb9e047bf31b86fd2/fangcuangai_03.png)
+4. 如果主页有更新，则可单击【刷新缓存】来更新缓存内容。
