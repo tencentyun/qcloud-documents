@@ -2,7 +2,7 @@
 ## Introduction
 VPC peering connection is a cross-VPC network interconnection service for office data synchronization that allows VPC IPs to route traffic between peer VPCs as if they belong to the same network. You can achieve VPC interconnection between the same or different users for the same or different regions. Traffic interconnection between VPCs can be achieved through setting up routing policies on the two sides. Peering connections do not depend on a single piece of hardware, so there is no single point of failure or bandwidth bottleneck.
 
-> Note: Click to view [Cross-region Connection Service Agreement](https://www.qcloud.com/document/product/215/7682). If you have violated any of the provisions of the agreement, Tencent Cloud may at any time restrict, suspend or terminate services to you under the agreement as appropriate, and retain the right to pursue related liability.
+> Note: Click to view [Cross-region Connection Service Agreement](https://cloud.tencent.com/document/product/215/7682). If you have violated any of the provisions of the agreement, Tencent Cloud may at any time restrict, suspend or terminate services to you under the agreement as appropriate, and retain the right to pursue related liability.
 
 ## Interconnectivity of Peering Connection Is Not Transitive
 Peering connection allows interconnections between VPCs, but this interconnection is not transitive. As shown in the following figure, peering connection is established between VPC 1 and VPC 2, as is done between VPC 1 and VPC 3. However, due to the non-transitive nature of peering connection, VPC 2 and VPC 3 cannot readily interconnect.
@@ -17,7 +17,7 @@ VPC supports both regional and cross-region peering connections (i.e., cross-reg
 |---------|---------|---------|
 | Underlying architecture | Local private network within a single region based on Tencent Cloud | Cross-region internal MPLS network based on Tencent Cloud |
 | Bandwidth | No bandwidth limit | Maximum 1 GB, bandwidth upper limit can be set |
-| Billing Rule | 	Free of charge | 	Daily rate is applicable depending on the regions where both sides of the peering connection are located and the actually used network bandwidth. For details, please refer to [Price Overview](https://www.qcloud.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88) |	
+| Billing Rule | 	Free of charge | 	Daily rate is applicable depending on the regions where both sides of the peering connection are located and the actually used network bandwidth. For details, please refer to [Price Overview](https://cloud.tencent.com/document/product/215/3079) |	
 | Availability | Above 99.95%, no single point of failure | 	Above 99.95%, no single point of failure |	
 | Cross-account connection | Support | Support |	
 | Access Permission | CVMs on both ends of a peering connection can access all resources of its peer including peer CVM, database, cloud load balancer and so on | CVMs on both ends of a peering connection can access all resources of its peer including peer CVM, database, cloud load balancer and so on |	
@@ -52,7 +52,7 @@ When using peering connection, you have to note the following:
 
 > Note: For peering connection services in other region, please submit a ticket for the request.
 
-For additional VPC service restrictions, refer to [Additional VPC Service Restrictions](https://www.qcloud.com/document/product/215/537).
+For additional VPC service restrictions, refer to [Additional VPC Service Restrictions](https://cloud.tencent.com/document/product/215/537).
 
 ## Billing Model
 ### Billing Method Description
@@ -118,7 +118,7 @@ For details, please refer to the following table:
 
 > Contact business department to consult more about prices.
 
-For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://www.qcloud.com/doc/product/215/3079).
+For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/document/product/215/3079).
 
 > Note: In order for you to view the cost, the billing system describes peering connections as:  bill for cross-region interconnection (mainland) and bill for peering connection of which both ends are in mainland China
 
@@ -139,7 +139,7 @@ Benefits for VIP customers and common customers during the campaign are as follo
 - It takes effect on the day the bandwidth remission is approved upon review. The extra amount is applicable to the tiered price. This is valid until Dec. 31, 2017. You can view the remission details in the peering connection creation pop-up or in the details page.
 
 
-- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer, entitled to the supreme service and related benefits, [Apply Now >>](https://www.qcloud.com/service/vip. Html)
+- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer, entitled to the supreme service and related benefits, [Apply Now >>](https://cloud.tencent.com/service/vip)
 
 ## Operating Instructions
 
@@ -161,7 +161,7 @@ Network segment 2:   VPC2 subnet B `10.0.1.0/24` in **Beijing**.
 The following steps are required to achieve interconnection between segment 1 and segment 2 via peering connection:
 ![](//mc.qcloudimg.com/static/img/4817a68077ccf82022ea167476871c41/3.jpg)
 #### Step 1: Creating a peering connection
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), and click "Virtual Private Cloud" in the navigation bar.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click "Virtual Private Cloud" in the navigation bar.
 2) Select the "Peering Connection" tab in the VPC console, and select **Region: Guangzhou**, VPC `VPC1` above the list, and then click "New" to create a peering connection.
 3) Enter a name (e.g., `PeerConn`), select the peer **Region: Beijing**, "Peer account type" and Peer network `VPC2`.
 
@@ -179,13 +179,13 @@ The following steps are required to achieve interconnection between segment 1 an
 
 #### (Optional) Step 2: Accepting request for peering connection
 If VPC2 belongs to other user, you need to notify the user to accept your request for peering connection.
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
 2) Select the corresponding *Region: Beijing* above the list, locate the peering connection to be accepted in the peering connection list: `PeerConn`, and click "Accept".
 3) This complete the creation of the peering connection
 > Note: After the peering connection is created, you need to add the route that points to the peering connection in the VPCs of both sides to allow local VPC and the peer VPC to interconnect with each other, which otherwise cannot be realized.
 
 #### Step 3: Configuring routing tables on both sides for the peering connection
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar and select the "Subnet" tab in VPC console.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar and select the "Subnet" tab in VPC console.
 2) Click the ID of the associated routing table (routing table A) with the specified subnet (subnet A) on local end of the peering connection, to enter the details page of the routing table.
 3) Click to edit the routing policy. For the destination, enter the peer CIDR (`10.0.1.0/24`); for next hop type, select "peering connections"; and for next hop, select the created peering connection (PeerConn).
 4) Save the routing table.
@@ -197,7 +197,7 @@ If VPC2 belongs to other user, you need to notify the user to accept your reques
 After the routing table configuration is completed, communication can be performed between different network segments of the two VPCs.
 
 ### Viewing Routing Policy Related to Peering Connection
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
 2) Select the region and VPC above the list.
 3) Click the ID of the specified peering connection to enter its details page. You can view in the related routing policy that the next hop is the destination IP address range, the associated subnet, and the related routing table of the peering connection.
 > Note: If you have established a peering connection but cannot communicate via it, please use this step to check whether the configuration of routing tables on *both ends* are correct.
@@ -205,21 +205,21 @@ After the routing table configuration is completed, communication can be perform
 ### Viewing monitoring data of network traffic over cross-region peering connection (cross-region interconnection)
 There is no maximum network traffic for regional peering connection.
 Traffic monitoring of peering connection network is only supported for cross-region peering connections.
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
 2) Select the region and VPC above the list.
 3) Click on the Monitoring icon of the specified peering connection to view **inbound and outbound bandwidths, number of inbound and outbound packets and packet loss rate**.
 
 ### Configuring Traffic Control for Cross-region Peering Connection (Cross-region Interconnection)
 Network traffic over regional peering connection is free; no traffic control is applicable, with maximum bandwidth of 5 Gbps.
 Traffic control is supported for cross-region peering connection.
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
 2) Click on the ID of corresponding peering connection in the list page to enter its details page.
 3) In the basic information section, click "Change Bandwidth", select the corresponding bandwidth, and save it to take effect.
 
 ### Rejecting Peering Connection
 You can reject a "To be Accepted" peering connection request. Except for the accounts you trust, you can reject any unnecessary requests.
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar and select the **Peering Connection** tab in VPC console.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar and select the **Peering Connection** tab in VPC console.
 2) View the peering connection to be accepted in the peering connection list, and click "Reject" button in the Operation Column.
 3) The peering connection is rejected and disappears.
 
@@ -237,5 +237,5 @@ When you create a cross-account peering connection/shared Direct Connect, you ne
 ![](https://mc.qcloudimg.com/static/img/8ecbc060325b2fa0face6d875ac4ce41/pic1.png)
 
 ## Related APIs
-You can use API operations to set and manage your peering connection. For more information on additional resources in VPC, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
+You can use API operations to set and manage your peering connection. For more information on additional resources in VPC, please refer to [Overview of All VPC APIs](https://cloud.tencent.com/document/api/215/909).
  
