@@ -12,7 +12,7 @@ Common request parameters are listed below:
 <tr>
 <td> Action
 </td><td> Yes
-</td> <td> The API name to be called. For example, if you want to call the <a href="/doc/api/229/831" title="DescribeInstances">DescribeInstances</a> API, then the Action parameter is DescribeInstances.
+</td> <td> The API name to be called. For example, if you want to call the <a href="/document/product/236/1266" title="DescribeInstances">DescribeCdbInstances</a> API, then the Action parameter is DescribeInstances.
 </td><td> String
 </td></tr>
 <tr>
@@ -36,7 +36,7 @@ Common request parameters are listed below:
 <tr>
 <td> SecretId
 </td><td> Yes
-</td><td> The SecretId that indicates the identity requested on the <a href="https://console.qcloud.com/capi">Cloud API key</a>. A SecretId corresponds to a unique SecretKey, which is used to generate a request signature. For details, refer to the <a href="/doc/api/372/4214" title="签名方法">Signature Mode</a> page.
+</td><td> The SecretId that indicates the identity requested on the <a href="https://console.cloud.tencent.com/capi">Cloud API key</a>. A SecretId corresponds to a unique SecretKey, which is used to generate a request signature. For details, refer to the <a href="/doc/api/372/4214" title="签名方法">Signature Mode</a> page.
 </td><td> String
 </td></tr>
 <tr>

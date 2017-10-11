@@ -1,7 +1,7 @@
 The scaling configuration defines the configuration information of CVM instances used for auto scaling, including the image, storage, network, security group, login method of the CVM.
 > Note: The creation of a scaling configuration is free of charge.
 
-Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
+Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
 
 ## Select a Region
 ![](https://mc.qcloudimg.com/static/img/653ebf516d940a90fd79728e5d319cdc/image.png)
@@ -25,7 +25,7 @@ The difference is that, if you select a public image, the scaled CVM instance is
 
 Therefore, it is recommended to select a custom image here. Bind the image of the "CVM to which the scaling group is going to bind".
 
-> Note: [How to create the image for the "CVM to which the scaling group is going to bind"?](https://www.qcloud.com/doc/product/213/4942)
+> Note: [How to create the image for the "CVM to which the scaling group is going to bind"?](https://cloud.tencent.com/doc/product/213/4942)
 
 ## Select a Storage and a Network
 ![](https://mc.qcloudimg.com/static/img/8e9c2fc896959e14364a2e17ce277e28/image.png)
@@ -37,9 +37,8 @@ For users with large amount of data, they often use data disks to store data. Wh
 
 When the auto scaling automatically adds a new CVM instance, if the data disk snapshot is specified in scaling configuration, Tencent Cloud's cloud disk can allow the automatic mounting of the data disk containing the set data after the CVM instance is activated, so as to meet the needs of automatic data copy.
 
-If the data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted automatically and correctly for the successful automatic scale-up of the scaling group. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance. For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot](https://www.qcloud.com/doc/product/362/5564)
+If the data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted automatically and correctly for the successful automatic scale-up of the scaling group. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance. For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot](https://cloud.tencent.com/doc/product/362/5564)
 > Note:
--  Customers who create a data disk based on a data disk snapshot should [submit a ticket for application](https://console.qcloud.com/workorder/category).
 -  Auto Scaling service is free of charge, and newly added servers, hard disks and networks will be charged by the traffic of CVM instances, hard disks and networks. This page will display prices based on your settings.
 
 ## Set Information

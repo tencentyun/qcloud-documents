@@ -133,6 +133,18 @@
 </td><td> 模块错误信息描述，与接口相关
 </td></tr>
 <tr>
+<tr>
+<td> idfound
+</td><td> int
+</td><td>  表示该条记录中的身份证能否查到,1为能查到，-1为查不到
+</td></tr>
+<tr>
+<tr>
+<td> found
+</td><td> int
+</td><td>表示该条记录能否查到,1为能查到，-1为查不到
+</td></tr>
+<tr>
 <td> riskScore
 </td><td> UInt
 </td><td> 0-100:欺诈分值。值越高欺诈可能性越大；-1:查询不到数据
@@ -154,7 +166,7 @@ RiskDetail类型说明
 </th><th> <b>说明</b>
 </th></tr>
 <tr>
-<td rowspan="7"> 帐号风险
+<td rowspan="8"> 帐号风险
 </td>
 <td> 信贷中介
 </td>
@@ -190,6 +202,11 @@ RiskDetail类型说明
   <td>失信名单 </td>
   <td>7</td>
   <td>失信名单</td>
+</tr>
+<tr>
+  <td>异常支付行为 </td>
+  <td>8</td>
+  <td>支付行为异常包括支付频次、额度、场景等方面有过异常的</td>
 </tr>
 <tr>
 <td rowspan="4"> 区域风险
