@@ -35,9 +35,9 @@
 2. 准备一台  **具有外网 IP** 的 Linux 云服务器。如果您还没有腾讯云 Linux 云服务器，请参考 [快速入门 Linux 云服务器](/doc/product/213/2936)。
 3. 在本地使用 SSH 工具（如 SecureCRT 或 Putty 等）登录 Linux 云服务器。登录方法请参考 [登录 Linux 实例](/doc/product/213/5436)。
 4. 在 SecureCRT 菜单栏单击【Options】>【Session Options】，进入会话属性设置。
-![](//mc.qcloudimg.com/static/img/956287ecd7363c0628c461d14fdf4513/image.png)
+![](//mc.qcloudimg.com/static/img/6f48c98d69986fd497535ec8760a0a49/image.png)
 5. 在会话属性设置页面，单击【Connection】>【PortForwarding】>【Add】，进入配置端口映射页面。
-![](//mc.qcloudimg.com/static/img/3f498097b53574731bf74219c05e7a3f/image.png)
+![](//mc.qcloudimg.com/static/img/8a489ede3e8ae598a6530e77b9481eab/image.png)
 6. 在配置端口映射页面，配置相应参数。
 ![](//mc.qcloudimg.com/static/img/9f28013e62ccce956710eaca0c8fb699/image.png)
 7. 在本地下载并安装 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)。更多有关 SQL Server Management Studio 的文档请参考微软官方文档 [使用 SQL Server Management Studio][1]。
