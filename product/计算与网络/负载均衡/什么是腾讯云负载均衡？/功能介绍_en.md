@@ -32,7 +32,7 @@ Layer-4 forwarding uses Weighted Round-Robin Scheduling to allocate traffic, and
 ### 1.4. Session Persistence
 Session persistence allows the requests from the same IP (network segment) to be forwarded to the same back-end CVM.
 
-Layer-4 forwarding scenario supports simple session persistence. The session persistence duration can be set to any integer value within the range of 0-3600 seconds. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected. For more information on simple session persistence, refer to [here](http://www.qcloud.com/doc/product/214/%E4%BC%9A%E8%AF%9D%E4%BF%9D%E6%8C%81%E5%8E%9F%E7%90%86#3.1.-.E7.AE.80.E5.8D.95.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.88.E5.9B.9B.E5.B1.82.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.89).
+Layer-4 forwarding scenario supports simple session persistence. The session persistence duration can be set to any integer value within the range of 0-3600 seconds. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected. For more information on simple session persistence, refer to [here](http://cloud.tencent.com/doc/product/214/%E4%BC%9A%E8%AF%9D%E4%BF%9D%E6%8C%81%E5%8E%9F%E7%90%86#3.1.-.E7.AE.80.E5.8D.95.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.88.E5.9B.9B.E5.B1.82.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.89).
 
 ## 2. Layer-7 Forwarding
 The cloud load balancer listener listens to Layer-7 requests (the 7th layer of OSI network protocol, the application layer) on the cloud load balancer instance and distributes these requests to backend servers for processing. Layer 7 forwarding is achieved by the following configurations:
@@ -69,6 +69,6 @@ Session persistence allows the requests from the same IP (network segment) to be
 
 Layer-7 forwarding scenario supports session persistence based on cookie insertion (the cookie is embedded into the client by cloud load balancer).
 
-Session persistence duration is not adjustable currently and the default is 75s. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected. For more information on session persistence based on cookie insertion, refer to [here](http://www.qcloud.com/doc/product/214/%E4%BC%9A%E8%AF%9D%E4%BF%9D%E6%8C%81%E5%8E%9F%E7%90%86#3.3.-.E5.9F.BA.E4.BA.8Ecookie.E7.9A.84.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.88.E4.B8.83.E5.B1.82.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.89).
+Session persistence duration is not adjustable currently and the default is 75s. If the time threshold is exceeded and there is no new request in the session, the session will be disconnected. For more information on session persistence based on cookie insertion, refer to [here](http://cloud.tencent.com/doc/product/214/%E4%BC%9A%E8%AF%9D%E4%BF%9D%E6%8C%81%E5%8E%9F%E7%90%86#3.3.-.E5.9F.BA.E4.BA.8Ecookie.E7.9A.84.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.88.E4.B8.83.E5.B1.82.E4.BC.9A.E8.AF.9D.E4.BF.9D.E6.8C.81.EF.BC.89).
 
 

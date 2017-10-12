@@ -30,12 +30,12 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | natName | 是 | string | NAT网关名称，支持1-25个中文、英文大小写的字母、数字和下划线分隔符。 |
-| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 |
+| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 |
 | maxConcurrent | 是 | int | 网关并发连接上限，例如：1000000、3000000、10000000。 |
 | assignedEipSet.n | 否 | array | 绑定网关的弹性IP数组, assignedEipSet和autoAllocEipNum至少传一个，例如：assignedEipSet.0=10.0.0.1 ，更多关于弹性IP的信息请参考弹性IP。|
 | subnetAll | 否 | int | 是否包含vpc下的所有子网包括后续新建子网的IP。当subnetAll为1时，subnetIds和ips的参数传入将忽略；当subnetAll为0时，需至少传入subnetIds子网或ips信息一个。|
 | autoAllocEipNum | 否 | int | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考弹性IP。 |
-| subnetIds.n | 否 | array | 需要绑定全部IP的子网唯一ID数组, 子网Id如：subnet-k20jbhp0。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。|
+| subnetIds.n | 否 | array | 需要绑定全部IP的子网唯一ID数组, 子网Id如：subnet-k20jbhp0。可通过<a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。|
 | ips.n | 否 | array | 需要绑定部分IP的子网信息数组，ips和subnetIds中的子网ID标识不能重复。ips包含字段如下：
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
@@ -59,16 +59,16 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 |---------|---------|---------|
 | code | int | 错误码。0：成功, 其他值：失败|
 | message | string | 错误信息|
-| data | array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+| data | array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
 
 ## 错误码
-以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
 | 10001 | BmVpc.InvalidParameterValue | 参数设置错误，具体错误信息可查看返回的message信息 |
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
-| -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
+| -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 | 13006 | InvalidBmVpc.NatGatewayLimitExceeded |创建的 NAT 网关数量超过上限。如果需要更多资源，请联系客服申请。每个vpc最多允许创建5个NAT网关 |
 | 13010 | BmVpcNat.InvalidEip | 绑定NAT网关的弹性IP不存在。 |
 | 13011 | BmVpcNat.InvalidEipVpcId | 弹性IP所属VPC与NAT网关不一致。 |

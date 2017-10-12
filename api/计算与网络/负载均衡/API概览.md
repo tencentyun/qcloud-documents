@@ -21,19 +21,19 @@
 |---------|---------|
 | [绑定后端服务器到负载均衡](/doc/api/244/绑定后端服务器到负载均衡) | RegisterInstancesWithLoadBalancer | 将用户指定的一组云服务器关联到用户指定的负载均衡实例上。|
 | [获取负载均衡绑定的后端服务器列表](/doc/api/244/获取负载均衡绑定的后端服务器列表) | DescribeLoadBalancerBackends | 获取用户输入的 *LoadBalanceId* 这个负载均衡实例上关联的云服务器列表。| 
-|  [修改负载均衡后端服务器权重](/doc/api/244/修改负载均衡器后端服务器权重) | ModifyLoadBalancerBackends | 修改关联到负载均衡实例的一组[云服务器的权重](https://www.qcloud.com/doc/product/214/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE)。
+|  [修改负载均衡后端服务器权重](/doc/api/244/修改负载均衡器后端服务器权重) | ModifyLoadBalancerBackends | 修改关联到负载均衡实例的一组[云服务器的权重](https://cloud.tencent.com/doc/product/214/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE)。
 |  [解绑后端服务器](/doc/api/244/解绑后端服务器) | DeregisterInstancesFromLoadBalancer | 将关联到负载均衡实例的云服务器进行解绑操作。|
 
 ## 4. 负载均衡健康检查相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|---------|
-| [查询负载均衡健康检查状态](https://www.qcloud.com/document/product/214/1326) | DescribeLBHealthStatus | 查询负载均衡实例健康状态。|
+| [查询负载均衡健康检查状态](https://cloud.tencent.com/document/product/214/1326) | DescribeLBHealthStatus | 查询负载均衡实例健康状态。|
 
 
 ## 5. 负载均衡监控相关接口
 | 接口名 | Action ID | 功能描述 |
 |---------|---------|
-| [监控负载均衡](https://www.qcloud.com/doc/api/244/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9B%91%E6%8E%A7%E6%8E%A5%E5%8F%A3) | GetMonitorData | 获取负载均衡实例关于流量以及带宽的相关信息。| 
+| [监控负载均衡](https://cloud.tencent.com/doc/api/244/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9B%91%E6%8E%A7%E6%8E%A5%E5%8F%A3) | GetMonitorData | 获取负载均衡实例关于流量以及带宽的相关信息。| 
 
 
 ## 6. 负载均衡通用接口

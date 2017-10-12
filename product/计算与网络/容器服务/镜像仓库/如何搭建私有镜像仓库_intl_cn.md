@@ -287,5 +287,5 @@ layers 表示了镜像的层次关系，可以通过 layers 中的 digest 来拉
         depends_on:
           - registry
 
-  [1]: https://www.qcloud.com/
+  [1]: https://cloud.tencent.com/
   [2]: https://github.com/docker/compose

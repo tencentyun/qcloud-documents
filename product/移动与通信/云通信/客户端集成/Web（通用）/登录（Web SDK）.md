@@ -1,6 +1,6 @@
 ## 1 TLS登录（托管模式）
 
-Demo集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于TLS账号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://www.qcloud.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在demo中如何集成托管模式下的web 版TLS SDK。
+Demo集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于TLS账号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://cloud.tencent.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在demo中如何集成托管模式下的web 版TLS SDK。
 
 在index.html引入web 版TLS sdk，如： 
 
@@ -121,9 +121,9 @@ function webimLogin() {
 | identifierNick | 用户昵称，选填                                 | String  |
 | userSig        | 鉴权Token，identifier不为空时，userSig必填        | String  |
 
-**特别注意**，identifierNick的值只在初始化的登录时有效（第一次登录某identifier)，初始化账号后的昵称修改，需要调用setProfilePortrait接口。[接口文档](https://www.qcloud.com/document/product/269/1599)
+**特别注意**，identifierNick的值只在初始化的登录时有效（第一次登录某identifier)，初始化账号后的昵称修改，需要调用setProfilePortrait接口。[接口文档](https://cloud.tencent.com/document/product/269/1599)
 
-Web端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一账号），需要联系商务经理提[需求工单](https://www.qcloud.com/document/product/269/3916#2.18)。
+Web端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一账号），需要联系商务经理提[需求工单](https://cloud.tencent.com/document/product/269/3916#2.18)。
 
 
 

@@ -4,7 +4,7 @@
 截至 2017 年 7 月，回源设置支持源站为电信、移动、联通、长城宽带的 IP 段，其他运营商支持持续新增中。
 ![回源设置1](//mc.qcloudimg.com/static/img/c6e4e6281c47210b8dd97ba3a2a7cb9f/image.png)
 ## 设置步骤
-1. 登录 [对象存储桶控制台](https://console.qcloud.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要配置回源的存储桶（如 example），进入存储桶。
+1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要配置回源的存储桶（如 example），进入存储桶。
 ![访问权限1](//mc.qcloudimg.com/static/img/b51d5a77d53c3416324ea3eb283c788c/image.png)
 2. 单击【基础配置】，进入存储桶的基础配置页，找到回源设置，单击【编辑】进入可编辑模式。
 ![回源设置2](//mc.qcloudimg.com/static/img/5cd4e9d94d871eb4b58714c0d993fe52/image.png)

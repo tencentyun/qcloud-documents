@@ -1,6 +1,6 @@
 CDN is a <font col or="red">post-paid product</font>, which means you can pay for it after use, and don't need to pay for it in advance.
 
-Log in to [Tencent Cloud CDN Official Webpage](https://www.qcloud.com/product/cdn.html), and click "Experience":
+Log in to [Tencent Cloud CDN Official Webpage](https://cloud.tencent.com/product/cdn.html), and click "Experience":
 ![](https://mc.qcloudimg.com/static/img/bcea61432dc4ca66f5287a42264c4a59/1.png)
 
 CDN is a postpaid product which requires identity verification:

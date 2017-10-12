@@ -57,12 +57,12 @@ clientB ip+port drop
 安全组是有状态的，因此上述配置均为***出站规则***的配置，入站规则无需特殊配置。
 
 ## 使用控制台管理后端服务器安全组
-1) 登录[负载均衡控制台](https://console.qcloud.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
+1) 登录[负载均衡控制台](https://console.cloud.tencent.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
 
 2) 在【后端服务器】选项卡中，点击相应的后端服务器ID进入云服务器详情页。
 
 3) 点击【安全组】选项卡，在【已加入安全组】下点击【编辑】按钮，即可编辑当前关联的安全组；点击【配置安全组】可以添加新的安全组关联。
 
 ## 使用 API 管理后端服务器安全组
-请参考 [ModifySecurityGroupsOfInstance 接口](https://www.qcloud.com/doc/api/229/1367) 和 [ModifySecurityGroupPolicy 接口](https://www.qcloud.com/doc/api/229/1365)
+请参考 [ModifySecurityGroupsOfInstance 接口](https://cloud.tencent.com/doc/api/229/1367) 和 [ModifySecurityGroupPolicy 接口](https://cloud.tencent.com/doc/api/229/1365)
 

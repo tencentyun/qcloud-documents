@@ -61,7 +61,7 @@
 ### 快速入门
 [安全组](/doc/product/213/500) 是腾讯云提供的实例级别防火墙，可以对任意云服务器进行入/出流量控制。
 
- 1. 登录 [控制台-云主机](https://console.qcloud.com/cvm/index) ，在左导航窗格中单击【安全组】。
+ 1. 登录 [控制台-云主机](https://console.cloud.tencent.com/cvm/index) ，在左导航窗格中单击【安全组】。
 
  2. 单击【新建】按钮，输入安全组的名称（例如 my-security-group），选择**模板**创建或**自定义**创建，确认出入站规则后，单击【确定】。
 
@@ -75,7 +75,7 @@
 
 ### 创建安全组
 
- 1. 打开 [控制台-安全组](https://console.qcloud.com/cvm/securitygroup) 。
+ 1. 打开 [控制台-安全组](https://console.cloud.tencent.com/cvm/securitygroup) 。
 
  2. 在左侧导航窗格中，单击【安全组】。
 
@@ -87,7 +87,7 @@
 
 ### 向安全组中添加规则
 
- 1. 打开 [控制台-安全组](https://console.qcloud.com/cvm/securitygroup) 。
+ 1. 打开 [控制台-安全组](https://console.cloud.tencent.com/cvm/securitygroup) 。
 
  2. 在左侧导航窗格中，单击【安全组】。
 
@@ -97,7 +97,7 @@
 
 ### 配置 CVM 实例关联安全组
 
- 1. 打开 [控制台-云主机](https://console.qcloud.com/cvm/) 。
+ 1. 打开 [控制台-云主机](https://console.cloud.tencent.com/cvm/) 。
 
  2. 在左侧导航窗格中，单击【云主机】。
 
@@ -107,7 +107,7 @@
 
 **或者**
 
- 1. 打开 [控制台-安全组](https://console.qcloud.com/cvm/securitygroup)。
+ 1. 打开 [控制台-安全组](https://console.cloud.tencent.com/cvm/securitygroup)。
 
  2. 单击左侧导航窗格中的【安全组】。
 
@@ -117,7 +117,7 @@
  ![](//mc.qcloudimg.com/static/img/064ce4c28658b8fdc2015bcb58deafdd/image.png)
 
 ### 导入导出安全组规则
- 1. 打开 [控制台-安全组](https://console.qcloud.com/cvm/securitygroup)。
+ 1. 打开 [控制台-安全组](https://console.cloud.tencent.com/cvm/securitygroup)。
 
  2. 在左侧导航窗格中，单击【安全组】。
 
@@ -127,7 +127,7 @@
 
 ### 克隆安全组
 
- 1. 打开 [控制台-安全组](https://console.qcloud.com/cvm/securitygroup)。
+ 1. 打开 [控制台-安全组](https://console.cloud.tencent.com/cvm/securitygroup)。
 
  2. 在左侧导航窗格中，单击【安全组】。
 
@@ -137,7 +137,7 @@
 
 ### 删除安全组
 
- 1. 打开 [控制台-安全组](https://console.qcloud.com/cvm/securitygroup)。
+ 1. 打开 [控制台-安全组](https://console.cloud.tencent.com/cvm/securitygroup)。
 
  2. 在左侧导航窗格中，单击【安全组】。
 

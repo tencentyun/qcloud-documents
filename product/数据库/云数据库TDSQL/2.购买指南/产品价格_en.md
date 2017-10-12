@@ -4,7 +4,7 @@
 Currently, prepaid billing method is supported for Tencent Cloud Database MariaDB (TDSQL).
 
 ## Isolation upon Expiration
-For more information about isolation upon expiration, please see [Details](https://www.qcloud.com/doc/product/237/3257).
+For more information about isolation upon expiration, please see [Details](https://cloud.tencent.com/doc/product/237/3257).
 
 ## Prices for Different Regions
 
@@ -108,9 +108,9 @@ Apart from standard database services, Cloud Database MariaDB (TDSQL) provides v
 
 - Operation Audit: Also called Operation Log. It records operations performed by users when they access the MariaDB (TDSQL) Console web page, according to relevant information security regulations. Recorded information includes (but not limited to) account login, access IP, time of access, operations and so on. The logs are kept inside the independent, non-modifiable databases with higher security levels, in accordance with national information security regulations. **This service is currently free of charge.**
 
-- Proxy Gateway: Each MariaDB (TDSQL) instance includes a set of independent [Proxy Gateways](https://www.qcloud.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84) **which is currently free of charge**.
+- Proxy Gateway: Each MariaDB (TDSQL) instance includes a set of independent [Proxy Gateways](https://cloud.tencent.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84) **which is currently free of charge**.
 
-- Scheduling Cluster: Each MariaDB (TDSQL) instance is directly managed and monitored by [Scheduling Cluster](https://www.qcloud.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84) **which is currently free of charge**.
+- Scheduling Cluster: Each MariaDB (TDSQL) instance is directly managed and monitored by [Scheduling Cluster](https://cloud.tencent.com/doc/product/237/1057#2.2-tdsql.E9.9B.86.E7.BE.A4.E6.9E.B6.E6.9E.84) **which is currently free of charge**.
 
 - 1-minute Granular Monitoring: The service is only provided for Finance Zone instances, and is currently free of charge.
 

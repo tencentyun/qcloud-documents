@@ -42,10 +42,10 @@ In such case, you can set the scaling configuration of CVM template, and configu
 1. Create a custom image.
 An instance that is scaled up subsequently will deploy the environment based on this image.
 Suggested steps to create a custom image: You can deploy your services on an existing CVM or a newly-created CVM, set the services to be activated upon the boot of operating system, and export the services as a custom image.
-For any question, refer to [Create Custom Images](https://www.qcloud.com/document/product/213/4942).
+For any question, refer to [Create Custom Images](https://cloud.tencent.com/document/product/213/4942).
 
 2. Create a scaling configuration based on the custom image.
-For more information about creating scaling configuration, refer to [Create Scaling Configuration](https://www.qcloud.com/document/product/377/8544).
+For more information about creating scaling configuration, refer to [Create Scaling Configuration](https://cloud.tencent.com/document/product/377/8544).
 
 3. Create a scaling group.
 During the creation process, select the created scaling configurations. For the minimum group size, maximum group size and initial number of instances, you should fill in these fields based on the upper and lower limits of the required number of servers as well as the current number. After finishing this step, you can scale up at any time.

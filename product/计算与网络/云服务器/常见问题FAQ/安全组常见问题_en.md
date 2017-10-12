@@ -8,7 +8,7 @@
 
 **Solutions**
 - In case any of the above problems happens, you can go to "Security Group Management" in the CVM console and reset the rule for the security group, for example, to "only bind all-pass security groups by default".
-- For how to set up security group rules, please see [Security Group Guidelines](https://www.qcloud.com/doc/product/213/5221).
+- For how to set up security group rules, please see [Security Group Guidelines](https://cloud.tencent.com/doc/product/213/5221).
 
 ### 2. In what order does the security group policy go into effect?
 From top to bottom. The policy matching is in a top-to-bottom order when the traffic goes through the security group, and the policy goes into effect once the matching is successful.

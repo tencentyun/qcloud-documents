@@ -97,9 +97,9 @@
 
 ## 4. 录制
 
-用户通过API对直播频道进行录制。详细方法请阅读[直播API介绍](http://www.qcloud.com/doc/api/258/API%E6%A6%82%E8%A7%88)。
+用户通过API对直播频道进行录制。详细方法请阅读[直播API介绍](http://cloud.tencent.com/doc/api/258/API%E6%A6%82%E8%A7%88)。
 
-录制后，文件自动存放于点播平台。故用户需在使用录制功能前，提前开通点播服务，并购买相关空间和流量用于存放和播放录制后的视频文件。详细方法请阅读[点播产品介绍](http://www.qcloud.com/product/vod.html)。
+录制后，文件自动存放于点播平台。故用户需在使用录制功能前，提前开通点播服务，并购买相关空间和流量用于存放和播放录制后的视频文件。详细方法请阅读[点播产品介绍](http://cloud.tencent.com/product/vod.html)。
 
 基本步骤：
 1. 开通点播服务；
@@ -108,20 +108,20 @@
 4. 查询已录制分片API，获取fileID；
 5. 在点播平台根据fileID获取播放地址或进行转码等操作（可选）。
 
-对应点播平台文件操作API参考如下[点播API使用指南](https://www.qcloud.com/document/product/266/7788)。
+对应点播平台文件操作API参考如下[点播API使用指南](https://cloud.tencent.com/document/product/266/7788)。
 
 规格说明：
 1. 录制视频针对直播原始码率录制，输出格式为FLV；
 2. 录制格式最长单个文件为30分钟，如果超出则新建文件继续录制；
 3. 单个录制任务最大长度为24小时；
 4. 直播过程中，预计在录制结束5分钟左右可获取对应文件。例如，某直播从12:00开始录制，则12:35左右可获取12:00~12:30的对应片段；以此类推；
-5. 提醒：录制后的文件会在点播平台产生对应费用，请根据实际情况留意相关成本支出。详细计费方法请参考[点播产品介绍](http://www.qcloud.com/product/vod.html)。
+5. 提醒：录制后的文件会在点播平台产生对应费用，请根据实际情况留意相关成本支出。详细计费方法请参考[点播产品介绍](http://cloud.tencent.com/product/vod.html)。
 
 ## 5. 截图
 
 **开通方式**
-1. 用户可通过API对直播频道进行截图。创建截图任务API使用方式请阅读[创建截图任务](https://www.qcloud.com/document/product/267/4726)。
-   如要及时终止截图任务，可使用终止截图任务API，请参考[终止截图任务](https://www.qcloud.com/document/product/267/4727)
+1. 用户可通过API对直播频道进行截图。创建截图任务API使用方式请阅读[创建截图任务](https://cloud.tencent.com/document/product/267/4726)。
+   如要及时终止截图任务，可使用终止截图任务API，请参考[终止截图任务](https://cloud.tencent.com/document/product/267/4727)
 2. 也可在控制台上开启截图任务（推荐）
 ![](//mc.qcloudimg.com/static/img/b3f3257b8f13e4b0be956ccceb0a916f/image.png)
 
@@ -136,7 +136,7 @@
 1. 截图视频针对直播原始码率截取，频率为每10秒一张，该频率固定不可修改；
 2. 输出格式为JPG；
 3. 在启动任务后，预计在直播时间20秒后，可获得对应文件；
-4. 提醒：截图后的文件会在COS平台产生对应费用，请根据实际情况留意相关成本支出，详细计费方式请参考[COS产品介绍](http://www.qcloud.com/product/cos.html)。
+4. 提醒：截图后的文件会在COS平台产生对应费用，请根据实际情况留意相关成本支出，详细计费方式请参考[COS产品介绍](http://cloud.tencent.com/product/cos.html)。
 
 ## 6. 全局水印配置
 

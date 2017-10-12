@@ -15,11 +15,11 @@ For Elastic Cloud Disk in the Recycle Bin, users can only apply **renew to recov
 
 Within 7 days after the expiration of elastic cloud disk, you can go to the Recycle Bin to recover this Cloud Block Storage by renewing it:
 
-Open the [Recycle Bin Console](https://console.qcloud.com/cvm/recycle), locate the elastic cloud disk that you want to recover in the list, and then click on "Recovery". After you've paid for renewal, you can find the recovered resources in the [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs).
+Open the [Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle), locate the elastic cloud disk that you want to recover in the list, and then click on "Recovery". After you've paid for renewal, you can find the recovered resources in the [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs).
 
 Or you can renew multiple expired elastic Cloud Disks:
 
-Open the [Recycle Bin Console](https://console.qcloud.com/cvm/recycle), locate the elastic cloud disk that you want to recover in the list, and then select the resources to be recovered, click on "Batch Recovery". After you've paid for renewal, you can find the recovered resources in the [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs).
+Open the [Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle), locate the elastic cloud disk that you want to recover in the list, and then select the resources to be recovered, click on "Batch Recovery". After you've paid for renewal, you can find the recovered resources in the [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs).
 
 ## Deleting Non-elastic cloud disk
 The life cycle of non-elastic cloud disk is subject to the created CVM instance, so the non-elastic cloud disk will be terminated when its mounted instance is terminated. For more information about instance termination, refer to [Expiration of Instance with an Annual or Monthly Plan](/doc/product/213/4931) and [Terminate Instance with Bill-by-Traffic Plan](/doc/product/213/4930).

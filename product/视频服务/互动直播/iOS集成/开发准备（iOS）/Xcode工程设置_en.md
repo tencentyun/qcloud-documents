@@ -8,7 +8,7 @@
 ## Xcode Project Settings
 Below, we use a simple project of "Single View Application" to show you how to integrate SDK into the Xcode project.
 ### 1. Copy SDK file
-In this example, the name of project is called HelloSDK, as shown below, and you copy the "libs" folder that contains all Frameworks (shown in "[Download SDK](http://www.qcloud.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88iOS%EF%BC%89)") to the project folder:
+In this example, the name of project is called HelloSDK, as shown below, and you copy the "libs" folder that contains all Frameworks (shown in "[Download SDK](http://cloud.tencent.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88iOS%EF%BC%89)") to the project folder:
 ![](//mccdn.qcloud.com/static/img/7a8b064e23365eeffefa67626d476147/image.png)
 
 ### 2. Set Framework Search Paths

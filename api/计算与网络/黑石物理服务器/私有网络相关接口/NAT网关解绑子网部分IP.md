@@ -23,7 +23,7 @@ GET https://vpc.api.qcloud.com/v2/index.php?Action=UnbindIpsToBmNatGateway
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | natId | 是 | string | NAT网关统一ID，例如：nat-8pbrkzh6|
-| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | ips.n | 是 | array | 需要解绑部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下：
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
@@ -49,16 +49,16 @@ GET https://vpc.api.qcloud.com/v2/index.php?Action=UnbindIpsToBmNatGateway
 |---------|---------|---------|
 | code | int | 错误码。0：成功，其他值：失败|
 | message | string | 错误信息|
-| data | array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关解绑子网部分IP的任务状态">查询黑石NAT网关解绑子网部分IP的任务状态</a>查询 |
+| data | array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询黑石NAT网关解绑子网部分IP的任务状态">查询黑石NAT网关解绑子网部分IP的任务状态</a>查询 |
 
 ## 错误码
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+ 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
 | 10001 | BmVpc.InvalidParameterValue | 参数设置错误，具体错误信息可查看返回的message信息 |
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
-| -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
+| -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
 | 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
 
 ## 实际案例

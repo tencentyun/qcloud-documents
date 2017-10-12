@@ -20,6 +20,6 @@ COS 通过控制台、 API、SDK 等多样化方式简单、快速地接入，�
 **适用场景**：网盘数据、大数据分析、政企业务数据、低频档案、监控数据
 
 您可以参阅以下内容，获得关于腾讯云 COS 的更多信息：
-[快速入门](https://www.qcloud.com/document/product/436/6225)
-[存储桶管理](https://www.qcloud.com/document/product/436/6244)
-[对象管理](https://www.qcloud.com/document/product/436/6254)
+[快速入门](https://cloud.tencent.com/document/product/436/6225)
+[存储桶管理](https://cloud.tencent.com/document/product/436/6244)
+[对象管理](https://cloud.tencent.com/document/product/436/6254)

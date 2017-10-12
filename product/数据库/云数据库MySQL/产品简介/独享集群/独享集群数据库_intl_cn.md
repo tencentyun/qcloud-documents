@@ -20,10 +20,10 @@
 >备注，独享集群（金融围拢方案）与公有云独享集群方案在隔离性上有一定不同，详情请咨询对应架构师。
 
 ## 3.独享集群数据库的使用步骤
-1. （以集群设备维度）[购买独享集群](https://buy.qcloud.com/excluster)，购买时请注意
+1. （以集群设备维度）[购买独享集群](https://buy.cloud.tencent.com/excluster)，购买时请注意
 	
 	- 选择与您服务器相同的地域和可用区，以为您提供最佳体验
-	- 选择数据库内核，详情请参见[TDSQL与MySQL兼容性说明](https://www.qcloud.com/document/product/237/6988)。
+	- 选择数据库内核，详情请参见[TDSQL与MySQL兼容性说明](https://cloud.tencent.com/document/product/237/6988)。
 	- 选择机型与主从架构。目前支持一主多从架构，不同从机数量代表可用性的不同，一主一从理论可用性为99.95%，一主二从理论可用性为99.99%以上。
 	- 选择购买组数，多组设备可以组成一个集群，进而为集群提供更多冗余资源池已确保可用性。
 
@@ -32,7 +32,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/1a0829726ad5e7662e394c11c1604519/image.png)
 
-3. 进入MySQL/TDSQL实例列表页，查看刚分配的数据库实例，将[实例初始化](https://www.qcloud.com/document/product/236/3128)后即可正常使用。
+3. 进入MySQL/TDSQL实例列表页，查看刚分配的数据库实例，将[实例初始化](https://cloud.tencent.com/document/product/236/3128)后即可正常使用。
 >如下图所示，标志为`主实例（独享）`均为独享集群分配的实例：
 
 ![](https://mc.qcloudimg.com/static/img/33ff4d302883b8d5f450f7ec9ddda2e2/image.png)

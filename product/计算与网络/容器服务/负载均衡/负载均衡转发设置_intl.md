@@ -1,7 +1,7 @@
 ## Forwarding Configuration of Load Balancer
 
 ## About Load Balancer
-The container services support Layer-4 and Layer-7 forwarding load balancers to forward traffic to the container. The Layer-4 supports public network-based and private network-based load balancers. For more information, please see [Load Balancer Introduction](https://www.qcloud.com/document/product/214/524). This document focuses on how container services use Layer-7 load balancer.
+The container services support Layer-4 and Layer-7 forwarding load balancers to forward traffic to the container. The Layer-4 supports public network-based and private network-based load balancers. For more information, please see [Load Balancer Introduction](https://cloud.tencent.com/document/product/214/524). This document focuses on how container services use Layer-7 load balancer.
 
 ### Preconditions for Application-based Load Balancer
 You can create services by the following 4 access options:
@@ -27,7 +27,7 @@ Backend service:
 Create an application-based load balancer on the load balancer page. You can skip this step if you already have the load balancer.
 ![Alt text](https://mc.qcloudimg.com/static/img/a3b194503971f8bdd1147852496abeba/%7B946ED9B7-80DA-4FCC-80B9-AF02897B1BD1%7D.png)
 
-For more information on how to resolve proprietary domain to the VIP of the load balancer, please see [Domain Resolution Help](https://www.qcloud.com/document/product/302/3446).
+For more information on how to resolve proprietary domain to the VIP of the load balancer, please see [Domain Resolution Help](https://cloud.tencent.com/document/product/302/3446).
 In the example below, www.qcloudccs.com is resolved to sample load balancer.
 
 Configuring the forwarding rules of application-based load balancer

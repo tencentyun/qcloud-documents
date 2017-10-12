@@ -32,7 +32,7 @@ Enter the COS Console, click the Bucket name to enter the management page, then 
 
 ![](https://mc.qcloudimg.com/static/img/4fd194c09b5a2c994867238878649d77/image.png)
 
-**Default domain - cross-region access in private network: Default domain can be used for the access among different Tencent Cloud products in the same region. However, to achieve cross-region access in private network, for example, if a CVM in Guangzhou needs to use the data on the Singapore COS, you need to use a VPC to deploy a dedicated network tunnel to achieve high-speed access.  [Click to view information on VPC](https://www.qcloud.com/product/vpc.html)**
+**Default domain - cross-region access in private network: Default domain can be used for the access among different Tencent Cloud products in the same region. However, to achieve cross-region access in private network, for example, if a CVM in Guangzhou needs to use the data on the Singapore COS, you need to use a VPC to deploy a dedicated network tunnel to achieve high-speed access.  [Click to view information on VPC](https://cloud.tencent.com/product/vpc.html)**
 
 
 ## CDN Accelerated Domain

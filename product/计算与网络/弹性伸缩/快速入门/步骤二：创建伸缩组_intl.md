@@ -1,7 +1,7 @@
 A scaling group is a collection of CVM instances following the same rules and serving the same scenario.
 
 ## Create a Scaling Group
-Enter the [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Group** in the navigation bar. Click ![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png), and fill in the basic information on scaling group in the pop-up page. Items with ![](//mccdn.qcloud.com/static/img/f9df27a1d1e0d42a7ff08dd884bfa34c/image.png) are required.
+Enter the [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click **Scaling Group** in the navigation bar. Click ![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png), and fill in the basic information on scaling group in the pop-up page. Items with ![](//mccdn.qcloud.com/static/img/f9df27a1d1e0d42a7ff08dd884bfa34c/image.png) are required.
 
 - The current number of CVM instances in the scaling group will be kept between the minimum and the maximum scaling group sizes.
 - The initial number of instances defines the number of CVM instances in the scaling group when created;

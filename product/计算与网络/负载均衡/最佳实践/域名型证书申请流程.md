@@ -14,18 +14,18 @@
 
 ### 2. 填写申请
 
-填写申请域名，注意不支持一级域名申请（例如qcloud.com），请填写例如www.qcloud.com，demo.test.qlcoud.com形式二级、三级等域名。
+填写申请域名，注意不支持一级域名申请（例如qcloud.com），请填写例如cloud.tencent.com，demo.test.qlcoud.com形式二级、三级等域名。
 ![](https://mc.qcloudimg.com/static/img/4961164252cd488c9695475e173c0b8c/4.png)
 
 ## 3. DNS验证
 ### 3.1 手动DNS验证方式
 
-证书默认支持收到DNS验证，验证方法可查看[详情](https://www.qcloud.com/doc/product/400/4142#2.-.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
+证书默认支持收到DNS验证，验证方法可查看[详情](https://cloud.tencent.com/doc/product/400/4142#2.-.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
 ![](https://mc.qcloudimg.com/static/img/2f90c6cdf51ec98ba0fd7a112a891e13/5.png)
 
 ### 3.2 选择自动DNS验证方式
 
-如果所申请域名成功添加[云解析平台](https://console.qcloud.com/cns/domains)，可以支持自动DNS验证，验证方法可查看[详情](https://www.qcloud.com/doc/product/400/4142#1.-.E8.87.AA.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
+如果所申请域名成功添加[云解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动DNS验证，验证方法可查看[详情](https://cloud.tencent.com/doc/product/400/4142#1.-.E8.87.AA.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
 ![](https://mc.qcloudimg.com/static/img/8c10bfb9fa50a520e0b8b45f3b7a9f74/6.png)
 
 ## 4. 提交申请
@@ -39,5 +39,5 @@
 
 ### 4.2 提交申请失败
 
-如遇到下图所示弹窗，是提交域名未通过CA机构安全审核，具体原因参考[安全审核失败原因](https://www.qcloud.com/doc/product/400/5439)。
+如遇到下图所示弹窗，是提交域名未通过CA机构安全审核，具体原因参考[安全审核失败原因](https://cloud.tencent.com/doc/product/400/5439)。
 ![](https://mc.qcloudimg.com/static/img/25451d24cf3c717454830a44925642ec/1.png)

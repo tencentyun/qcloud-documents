@@ -64,7 +64,7 @@
   ![](//mc.qcloudimg.com/static/img/f0ae825b082dac847640eb7b931eb927/image.png)
 
 开启录制功能时，您需要**配置录制文件类型为hls文件**才可使用自动拼接功能。
-通过控制台配置开启录制功能(当前仅使用于直播码模式)。需要了解详情请参考[云端录制](https://www.qcloud.com/document/product/267/7963)
+通过控制台配置开启录制功能(当前仅使用于直播码模式)。需要了解详情请参考[云端录制](https://cloud.tencent.com/document/product/267/7963)
 
 2.**配置回调地址**
 

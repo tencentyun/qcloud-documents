@@ -44,7 +44,7 @@ Click the ID/Node Name of the cluster in the cluster list and select "Node List"
 ![Alt text](https://mc.qcloudimg.com/static/img/dce49afd7da5acf8e16ff2dff5faf4d2/Image+046.png)
 
 ## Logging in to Node
-Currently, Tencent Cloud CVM is support by the nodes. For more information, please see [Log in to CVM](https://www.qcloud.com/doc/product/213/5436).
+Currently, Tencent Cloud CVM is support by the nodes. For more information, please see [Log in to CVM](https://cloud.tencent.com/doc/product/213/5436).
 
 ##Creating Cluster Namespaces
 

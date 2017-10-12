@@ -15,7 +15,7 @@ COS 提供了 5 种对象 HTTP 头部标识供配置：
 |  x-cos-meta-[自定义内容]   |   自定义内容    |              自定义内容               |
 
 ## 配置步骤
-1. 登录 [对象存储桶控制台](https://console.qcloud.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要配置回源的存储桶（如 example），进入存储桶。
+1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要配置回源的存储桶（如 example），进入存储桶。
 ![访问权限1](//mc.qcloudimg.com/static/img/b51d5a77d53c3416324ea3eb283c788c/image.png)
 2. 找到需要设置头部的对象（如 example.exe）,单击对象右侧的【更多】>【设置 Header】，弹出设置 header 对话框。
 ![设置HTTP头部1](//mc.qcloudimg.com/static/img/5edf2ba97d32dd82b9c1be1e59379deb/image.png)

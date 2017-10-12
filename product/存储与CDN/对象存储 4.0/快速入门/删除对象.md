@@ -8,5 +8,5 @@
 
 
 
-[上一步：下载对象](https://www.qcloud.com/document/product/436/6234)
-[下一步：删除存储桶](https://www.qcloud.com/document/product/436/6236)
+[上一步：下载对象](https://cloud.tencent.com/document/product/436/6234)
+[下一步：删除存储桶](https://cloud.tencent.com/document/product/436/6236)

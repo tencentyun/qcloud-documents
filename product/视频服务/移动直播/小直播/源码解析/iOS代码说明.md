@@ -1,5 +1,5 @@
 ## 1.工程结构
-[下载](https://www.qcloud.com/document/product/454/6991)小直播代码后，您将看到TCLVBIMDemo.xcworkspace文件，这是小直播的Xcode工程工作区，用于管理小直播的代码工程和依赖的第三方开源类库（位于Pods目录下），如果您需要编译或浏览小直播相关代码，请打开此文件，请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj。打开TCLVBIMDemo.xcworkspace后，您将看到如下的工程目录结构：
+[下载](https://cloud.tencent.com/document/product/454/6991)小直播代码后，您将看到TCLVBIMDemo.xcworkspace文件，这是小直播的Xcode工程工作区，用于管理小直播的代码工程和依赖的第三方开源类库（位于Pods目录下），如果您需要编译或浏览小直播相关代码，请打开此文件，请勿直接打开小直播的工程文件TCLVBIMDemo.xcodeproj。打开TCLVBIMDemo.xcworkspace后，您将看到如下的工程目录结构：
 ![](//mc.qcloudimg.com/static/img/8673bf53392e34a9f38d8a5a8625e8eb/image.jpg)
 
 |工程目录 | 说明 | 
@@ -21,7 +21,7 @@
 **Step3:配置其他TARGETS**
 按照Step1和Step2配置另外2个targets：TCLVBIMDemoUpload和TCLVBIMDemoUploadUI，这2个targets是用于replaykit方式的录屏推流，如果您不需要这个功能，可以删除这2个targets
 
-配置完成后，工程就可以在真机上运行，但是如果要真正体验小直播的功能，还需要修改TCConstants.h中的配置，如何配置，请参考[终端集成](https://www.qcloud.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90.E5.8F.8A.E5.9B.9E.E8.B0.83.E8.AE.BE.E7.BD.AE)
+配置完成后，工程就可以在真机上运行，但是如果要真正体验小直播的功能，还需要修改TCConstants.h中的配置，如何配置，请参考[终端集成](https://cloud.tencent.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90.E5.8F.8A.E5.9B.9E.E8.B0.83.E8.AE.BE.E7.BD.AE)
 
 ## 3.模块介绍
 小直播按照功能不同划分了7个模块，分别为：帐号、列表管理、推流、播放、消息、资料以及连麦，代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
@@ -29,8 +29,8 @@
 ### 帐号模块
 #### 模块简介
 - 帐号模块负责处理用户登录/注册以及登录缓存的逻辑
-- 登录注册功能使用[TLSSDK托管](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)登录实现
-- 如果您已经有自己的帐号体系，可以直接替换该模块，并调用TCIMPlatform的guestLogin接口以游客身份使用IM通道，详情请参考[替换帐号](https://www.qcloud.com/doc/api/258/6441)
+- 登录注册功能使用[TLSSDK托管](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)登录实现
+- 如果您已经有自己的帐号体系，可以直接替换该模块，并调用TCIMPlatform的guestLogin接口以游客身份使用IM通道，详情请参考[替换帐号](https://cloud.tencent.com/doc/api/258/6441)
 - 在TLSSDK登录鉴权成功后，可以通过鉴权返回的UserId与UserSig调用ImSDK的login接口完成IM模块的登录
 - 用户可以通过帐号密码/手机验证码两种方式进行注册与登录
 - 帐号模块会缓存最后登录的用户基本信息（UserId与UserSig）在本地，通过接口调用可以获取最近登录的用户信息并判断是否需要重新登录
@@ -106,7 +106,7 @@
 
 ### 消息
 #### 模块介绍
-- 小直播的互动消息功能主要基于[ImSDK](https://www.qcloud.com/doc/product/269/1569)的群聊功能实现，需要在IMSDK登录后才能调用
+- 小直播的互动消息功能主要基于[ImSDK](https://cloud.tencent.com/doc/product/269/1569)的群聊功能实现，需要在IMSDK登录后才能调用
 - 每个直播间都是一个直播大群，推流端在推流之前需要创建直播大群，结束推流时，解散该群；播放端在进入该直播间时，加入该群，退出直播间时，则退出该群
 - 通过实现消息收发的监听类，可以在监听接口中获取相应的消息通知，目前实现的消息类型：文本消息、弹幕消息、点赞消息、用户加入/退出消息、群组解散消息
 - 各种类型的消息都是以文本消息形式发送，采用统一的JSON格式，在JSON中携带消息类型、发送者id、昵称、头像、消息文本的信息，接收端收到消息后解析JSON格式，向上层回调各种类型的消息

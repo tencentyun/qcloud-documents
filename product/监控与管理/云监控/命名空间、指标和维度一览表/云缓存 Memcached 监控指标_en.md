@@ -11,5 +11,5 @@ Tencent Cloud Cloud Monitor provides the following monitoring metrics for Cloud 
 | Total counts	| When the time granularity of query is 5 minutes, it indicates the number of GET/SET/DELETE visits in the last 5 minutes. When the time granularity of query is 1 day, the value should be the peak of the day (counts per second) |
 | Timeout counts	| When the time granularity of query is 5 minutes, it indicates the number of GET/SET/DELETE timeout in the last 5 minutes. When the time granularity of query is 1 day, the value should be the peak of the day (counts per second) |
 
-For more information about the monitoring metrics of Cloud Cache Service, please see [Read Monitoring Data API](https://www.qcloud.com/doc/api/405/4667) in the Cloud Monitor API.
+For more information about the monitoring metrics of Cloud Cache Service, please see [Read Monitoring Data API](https://cloud.tencent.com/doc/api/405/4667) in the Cloud Monitor API.
 

@@ -45,7 +45,7 @@ Input
 
   https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmBindRs
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &instanceId=cpm-xxxxxx&eipId=eip-vvvvvvv
 
 </pre>

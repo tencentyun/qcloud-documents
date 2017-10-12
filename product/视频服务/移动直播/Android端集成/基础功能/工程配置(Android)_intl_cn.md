@@ -1,6 +1,6 @@
 ## 1 SDK信息
 
-您可以在腾讯云官网更新 [小直播SDK](https://www.qcloud.com/document/product/454/7873)，目前小直播SDK有如下几下版本：
+您可以在腾讯云官网更新 [小直播SDK](https://cloud.tencent.com/document/product/454/7873)，目前小直播SDK有如下几下版本：
 
 | 版本类型   | 功能                           |
 | ------ | ---------------------------- |

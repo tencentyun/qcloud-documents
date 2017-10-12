@@ -12,7 +12,7 @@
 * C2C沟通功能：收发文字，图片，表情，文件，语音，双人音视频
 * 群沟通功能：收发文字，图片，表情，文件，语音
 
-请点击[即时通信SDK下载体验](http://www.qcloud.com/product/im.html#sdk)，包括ImSDK以及Demo的源码。
+请点击[即时通信SDK下载体验](http://cloud.tencent.com/product/im.html#sdk)，包括ImSDK以及Demo的源码。
 或者点击[Demo GitHub](https://github.com/zhaoyang21cn/iOS_Suixinliao)，参考Demo的源码。
 
 ## 2 iOS Demo使用说明

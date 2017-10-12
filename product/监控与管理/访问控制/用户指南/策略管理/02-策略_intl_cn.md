@@ -20,7 +20,7 @@
 ## 创建自定义策略
 ### 按策略生成器创建
 
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)>单击右上角帐号名称>单击【访问管理】，进入 [访问管理](https://console.qcloud.com/cam)页面。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)>单击右上角帐号名称>单击【访问管理】，进入 [访问管理](https://console.cloud.tencent.com/cam)页面。
 ![](https://mc.qcloudimg.com/static/img/70f40a3945e8491f98bad1e86bb13add/ff+%281%29.png)
 
 2. 单击【策略管理】>【自定义策略】>【按策略生成器创建】，进入创建页面。
@@ -38,7 +38,7 @@
 
 ### 按业务权限创建
 
-1. 登录腾讯云控制台，进入 [策略管理](https://console.qcloud.com/cam/policy)页面，单击【自定义策略】>【按业务权限创建】，进入创建页面。
+1. 登录腾讯云控制台，进入 [策略管理](https://console.cloud.tencent.com/cam/policy)页面，单击【自定义策略】>【按业务权限创建】，进入创建页面。
 ![](https://mc.qcloudimg.com/static/img/33495c7cc0cf33b0c1c63784b0ab475b/image.png)
 
 2. 勾选出需要的业务至策略中并命名，单击【下一步】。
@@ -52,7 +52,7 @@
 
 ### 按策略语法创建
 
-1. 登录腾讯云控制台，进入 [策略管理](https://console.qcloud.com/cam/policy)页面，单击【自定义策略】>并单击【按策略语法创建】，进入创建页面。
+1. 登录腾讯云控制台，进入 [策略管理](https://console.cloud.tencent.com/cam/policy)页面，单击【自定义策略】>并单击【按策略语法创建】，进入创建页面。
 ![](https://mc.qcloudimg.com/static/img/e44addd7134cb52966ece2ba9e66c0b2/image.png)
 
 2. 选择模版类型，并输入关键字进行搜索（如模版类型为全部模版，关键字为 a ），选择AdministratorAccess模版。

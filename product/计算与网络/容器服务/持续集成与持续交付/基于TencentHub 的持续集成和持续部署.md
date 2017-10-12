@@ -10,8 +10,8 @@
 
 #### 说明
 1. 源码构建和触发器设置均是独立模块，可以只使用其中任意环节。
-2. 源码构建&Dockerfile构建镜像可查看[源码构建概述](https://www.qcloud.com/document/product/457/10151)。
-3. 触发器可支持多种触发动作，详情查看[镜像触发器概述](https://www.qcloud.com/document/product/457/10155)。
+2. 源码构建&Dockerfile构建镜像可查看[源码构建概述](https://cloud.tencent.com/document/product/457/10151)。
+3. 触发器可支持多种触发动作，详情查看[镜像触发器概述](https://cloud.tencent.com/document/product/457/10155)。
 
 ### 操作步骤
 #### 第一步：设置源码持续构建镜像
@@ -20,7 +20,7 @@
 2. 设置镜像构建设置需要关心以下几点：
 
  - 代码源：当前支持GitHub和Gitlab
- - 源码Repository：需要包含Dockerfile文件，Dockerfile文件是构建镜像的步骤描述；还需要包含所需代码, 同时在Dockerfile中添加代码。详情可见[如何编写Dockerfile](https://www.qcloud.com/document/product/457/9115#dockerfile-.E8.87.AA.E5.8A.A8.E7.BC.96.E8.AF.91.E7.94.9F.E6.88.90.EF.BC.88.E6.8E.A8.E8.8D.90.E4.BD.BF.E7.94.A8.EF.BC.89)
+ - 源码Repository：需要包含Dockerfile文件，Dockerfile文件是构建镜像的步骤描述；还需要包含所需代码, 同时在Dockerfile中添加代码。详情可见[如何编写Dockerfile](https://cloud.tencent.com/document/product/457/9115#dockerfile-.E8.87.AA.E5.8A.A8.E7.BC.96.E8.AF.91.E7.94.9F.E6.88.90.EF.BC.88.E6.8E.A8.E8.8D.90.E4.BD.BF.E7.94.A8.EF.BC.89)
  - 下述提供了本次测试Helloworld的Dockerfile和index文件, 将Dockerfile和index.html放在同一个根目录下。
  **Dockerfile文件**：
 ```shell
@@ -34,14 +34,14 @@ ADD ./ /usr/share/nginx/html
 hello world
 ```
 - 触发方式：设置提交代码到分支触发
-- Dockerfile路径：由于Dockerfile和index.html都根目录下，所以直接填写Dockerfile即可。更多见[源码构建Dockerfile路径设置](https://www.qcloud.com/document/product/457/10618)
+- Dockerfile路径：由于Dockerfile和index.html都根目录下，所以直接填写Dockerfile即可。更多见[源码构建Dockerfile路径设置](https://cloud.tencent.com/document/product/457/10618)
 ![Alt text][step2]
 
 第一步设置完成后，即可实现每次提交代码，自动生成容器镜像功能。可提交代码进行测试，也可以手动执行立即构建。
 ![Alt text][step3]
 
 #### 第二步：设置镜像仓库触发器持续部署服务
-1. 首先需要一个目标服务，用户持续部署，如无，则需创建一个。这里我们创建一个[ginx服务](https://www.qcloud.com/document/product/457/7851). 
+1. 首先需要一个目标服务，用户持续部署，如无，则需创建一个。这里我们创建一个[ginx服务](https://cloud.tencent.com/document/product/457/7851). 
 2. 进入上述设置好源码构建的helloworld镜像仓库详情页，进入触发器设置
 ![Alt text][step4]
 3. 添加完成一个触发器，需要关注以下几点：

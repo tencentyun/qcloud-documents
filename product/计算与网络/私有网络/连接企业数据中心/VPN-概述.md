@@ -42,7 +42,7 @@ VPN 网关根据带宽上限分为 5 种设置，分别为：5M、10M、20M、50
 ## VPN 通道
 VPN 网关和对端网关建立后，即可建立 VPN 通道，用于私有网络和外部 IDC 之间的加密通信。当前 VPN 通道支持 IPsec 加密协议，可满足绝大多数 VPN 连接的需求。
 
-VPN 通道在运营商公网中运行，公网的网络阻塞、抖动会对 VPN 网络质量有影响，因此也无法提供 SLA 服务协议保障。如果业务对延时、抖动敏感，建议通过专线接入私有网络，更多内容可以查看 <a href="https://www.qcloud.com/product/dc.html" target="_blank">专线接入服务</a>。
+VPN 通道在运营商公网中运行，公网的网络阻塞、抖动会对 VPN 网络质量有影响，因此也无法提供 SLA 服务协议保障。如果业务对延时、抖动敏感，建议通过专线接入私有网络，更多内容可以查看 <a href="https://cloud.tencent.com/product/dc.html" target="_blank">专线接入服务</a>。
 
 腾讯云上的 VPN 通道在实现 IPsec 中使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。
 

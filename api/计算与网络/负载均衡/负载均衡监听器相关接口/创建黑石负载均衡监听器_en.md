@@ -14,7 +14,7 @@ Create BM load balancer listener
 <td> loadBalancerId
 <td> Yes
 <td> String
-<td> The ID of the cloud load balancer, which can be loadBalancerId or unLoadBalancerId (recommended). You can query it via the API <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E9%A1%B9%E7%9B%AE%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>
+<td> The ID of the cloud load balancer, which can be loadBalancerId or unLoadBalancerId (recommended). You can query it via the API <a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E9%A1%B9%E7%9B%AE%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>
 <tr>
 <td> listeners.n.loadBalancerPort
 <td> Yes
@@ -94,7 +94,7 @@ https://lb.api.qcloud.com/v2/index.php?Action=CreateBmLoadBalancerListeners
 &listeners.0.healthNum=8
 &listeners.0.unhealthNum=8
 &listeners.0.sessionExpire=900
-&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 Output
 ```

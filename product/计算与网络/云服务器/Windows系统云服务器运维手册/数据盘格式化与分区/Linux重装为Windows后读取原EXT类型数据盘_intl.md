@@ -15,7 +15,7 @@ Log into Tencent Cloud console, enter "Cloud Virtual Machine" - "Cloud Block Sto
 5) Click to enter /root/mnt, and right-click the file you want to copy, and select Save to save the file.
 ![](//mccdn.qcloud.com/static/img/9d95772257f0c000c47dbd5dfdf5d8ed/image.png)
 
-6) Please note that the Linux data disk is read-only at this time. If you need to perform read and write operations on the data disk as Windows data disk, please first back up the files you need and then re-format it into a standard type supported by Windows operating system. For specific operations, please see [here](http://www.qcloud.com/doc/product/213/Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E6%8D%AE%E7%9B%98%E5%88%86%E5%8C%BA%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96).
+6) Please note that the Linux data disk is read-only at this time. If you need to perform read and write operations on the data disk as Windows data disk, please first back up the files you need and then re-format it into a standard type supported by Windows operating system. For specific operations, please see [here](http://cloud.tencent.com/doc/product/213/Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E6%8D%AE%E7%9B%98%E5%88%86%E5%8C%BA%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96).
 
 
 

@@ -22,19 +22,19 @@
 | MasterNodes | 是 | uint | master节点个数 | 
 | CoreNodes | 是 | uint | core节点个数 |
 | TaskNodes | 否 | uint | task节点个数 |
-| MasterSpec | 是 | string | master节点机器规格，参见[cvm实例配置](https://www.qcloud.com/document/product/213/2177)|
+| MasterSpec | 是 | string | master节点机器规格，参见[cvm实例配置](https://cloud.tencent.com/document/product/213/2177)|
 | MasterStorageType| 否 | uint | master节点存储类型，1：本地盘，2：云盘，3：SSD本地盘，默认1 |
 | MasterRootSize | 否 | uint | 单位GB，master节点系统盘容量，默认20G |
 | MasterMemory | 是 | uint | 单位MB, master节点内存容量 |
 | MasterCpuCores | 是 | uint | master节点cpu核数 |
 | MasterVolume | 是 | uint | 单位GB,master节点数据盘容量 |
-| CoreSpec | 是 | string | core节点机器规格，参见[cvm实例配置](https://www.qcloud.com/document/product/213/2177)|
+| CoreSpec | 是 | string | core节点机器规格，参见[cvm实例配置](https://cloud.tencent.com/document/product/213/2177)|
 | CoreStorageType| 否 | uint | core节点存储类型，1：本地盘，2：云盘，3：SSD本地盘，默认1 |
 | CoreRootSize | 否 | uint | 单位GB，core节点系统盘容量，默认20G |
 | CoreMemory | 是 | uint | 单位MB, core节点内存容量 |
 | CoreCpuCores | 是 | uint | core节点cpu核数 |
 | CoreVolume | 是 | uint | 单位GB,core节点数据盘容量 |
-| TaskSpec | 否 | string | 若TaskNodes不为0，该字段有效。task节点机器规格，参见[cvm实例配置](https://www.qcloud.com/document/product/213/2177)|
+| TaskSpec | 否 | string | 若TaskNodes不为0，该字段有效。task节点机器规格，参见[cvm实例配置](https://cloud.tencent.com/document/product/213/2177)|
 | TaskStorageType| 否 | uint | 若TaskNodes不为0，该字段有效。task节点存储类型，1：本地盘，2：云盘，3：SSD本地盘，默认1 |
 | TaskRootSize | 否 | uint | 若TaskNodes不为0，该字段有效。单位GB，task节点系统盘容量，默认20G |
 | TaskMemory | 否 | uint | 若TaskNodes不为0，该字段有效。单位MB, task节点内存容量 |
@@ -43,8 +43,8 @@
 | Password | 是 | string | 初始密码，用于cvm,cdb的初始root密码 |
 | VisitCos | 是 | uint | 是否集成cos。0：不集成,非0：集成 |
 | LogOnCosPath | 否 | string | 集成cos后，存储软件运行日志的cos路径地址|
-| CosSecretId | 否 | string | 访问cos的SecretId,参见[COS基本概念-SecretId/SecretKey](https://www.qcloud.com/document/product/436/6225) |
-| CosSecretKey | 否 | string | 访问cos的SecretKey,参见[COS基本概念-SecretId/SecretKey](https://www.qcloud.com/document/product/436/6225) |
+| CosSecretId | 否 | string | 访问cos的SecretId,参见[COS基本概念-SecretId/SecretKey](https://cloud.tencent.com/document/product/436/6225) |
+| CosSecretKey | 否 | string | 访问cos的SecretKey,参见[COS基本概念-SecretId/SecretKey](https://cloud.tencent.com/document/product/436/6225) |
 | SupportHA | 是 | uint | 是否支持高可用 |
 
 ## 3.输出参数
@@ -53,7 +53,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | data.clusterId | string | 集群ID，emr-xxxx格式 |
 
@@ -63,7 +63,7 @@
 
 <pre>
   https://emr.api.qcloud.com/index.php?Action=EmrCreateCluster
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
   &ZoneId=100002
   &SoftInfo.0=hadoop-2.7.3
   &VpcId=vpc-lgfidqdd

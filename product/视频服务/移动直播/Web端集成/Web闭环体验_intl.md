@@ -71,7 +71,7 @@ On the iOS platform, only Safari kernel can be used. However, WeChat can control
 ### Step 3: Make a web page
 This can be finished by web **frontend engineers** in your team. Certainly, it need some experience to create from scratch a web page that supports online LVB and features chat room. Therefore, we provide you with some quick reference as much as possible:
 
-Source codes of Mini LVB contain [DEMO source codes](https://www.qcloud.com/document/product/454/6991) for sharing web page, and achieve features such as **LVB**, **sending text messages** and **giving likes**.
+Source codes of Mini LVB contain [DEMO source codes](https://cloud.tencent.com/document/product/454/6991) for sharing web page, and achieve features such as **LVB**, **sending text messages** and **giving likes**.
 
 | File Name | Folder | Feature Description |
 |:-------: |:--------------:|-------------|
@@ -89,24 +89,24 @@ Source codes of Mini LVB contain [DEMO source codes](https://www.qcloud.com/docu
 
 | Configuration Item | Description | References |
 |:-------: |:--------------|:----------:|
-| SERVER | Business server that provides video playback information for this web page.  | [DOC](https://www.qcloud.com/document/product/454/8046#step4.3A-web.E5.90.8E.E5.8F.B0.E6.90.AD.E5.BB.BA) |
-| accountMode | Account integration mode of IM SDK. Its configuration should be consistent with that in Mini LVB.  | [DOC](https://www.qcloud.com/document/product/454/7980) | 
-| sdkAppID | An ID assigned after the IM service is activated, which requires no configuration if parameters in the shared URL contain the ID.  | [DOC](https://www.qcloud.com/document/product/454/7953#3.2-im-sdk-appid) |
-| accountType | A type assigned after the IM service is activated, which requires no configuration if parameters in the shared URL contain the type.  | [DOC](https://www.qcloud.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
+| SERVER | Business server that provides video playback information for this web page.  | [DOC](https://cloud.tencent.com/document/product/454/8046#step4.3A-web.E5.90.8E.E5.8F.B0.E6.90.AD.E5.BB.BA) |
+| accountMode | Account integration mode of IM SDK. Its configuration should be consistent with that in Mini LVB.  | [DOC](https://cloud.tencent.com/document/product/454/7980) | 
+| sdkAppID | An ID assigned after the IM service is activated, which requires no configuration if parameters in the shared URL contain the ID.  | [DOC](https://cloud.tencent.com/document/product/454/7953#3.2-im-sdk-appid) |
+| accountType | A type assigned after the IM service is activated, which requires no configuration if parameters in the shared URL contain the type.  | [DOC](https://cloud.tencent.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
 
 #### 3.2 Debug & deploy the page
 - To debug the page, you should not open the xiaozhibo.html with a browser on Windows. Instead, upload it to an accessible server. If you have no server, deploy one by referring to the readme.pdf in the source code package.
  
-- To deploy static web pages, it is recommended to use [CDN Delivery Network](https://www.qcloud.com/product/cdn). CDN can help quickly open an page, enhancing user experience.
+- To deploy static web pages, it is recommended to use [CDN Delivery Network](https://cloud.tencent.com/product/cdn). CDN can help quickly open an page, enhancing user experience.
 
 ### Step 4: Build the web background
 This can be finished by web **backend frontend engineers** in your team. The main job is to provide a **information query API** for your business server.
 
 The web page in Step 3 is static, but information on each LVB is different. For example, who is the VJ? What is the profile photo of the VJ? What is the title of the room? Is there a recorded playback video?
 
-These information needs to be queried in your business backend server by the xzb.js in the web page through the Ajax async request method. In Mini LVB, we define this query protocol as [GetUserInfo](https://www.qcloud.com/document/product/454/7895#9..E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E4.B8.BB.E6.92.AD.E7.9A.84.E8.AF.A6.E7.BB.86.E4.BF.A1.E6.81.AF).
+These information needs to be queried in your business backend server by the xzb.js in the web page through the Ajax async request method. In Mini LVB, we define this query protocol as [GetUserInfo](https://cloud.tencent.com/document/product/454/7895#9..E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E4.B8.BB.E6.92.AD.E7.9A.84.E8.AF.A6.E7.BB.86.E4.BF.A1.E6.81.AF).
 
-The source codes of Mini LVB contain [DEMO source codes](https://www.qcloud.com/document/product/454/6991) of the PHP backend server, in which GetUserInfo protocol is achieved in GetUserInfo.php.
+The source codes of Mini LVB contain [DEMO source codes](https://cloud.tencent.com/document/product/454/6991) of the PHP backend server, in which GetUserInfo protocol is achieved in GetUserInfo.php.
 
 ### Step 5: What has the page done
 After Step 4, you have finished interfacing with features in this document, but you may wonder:
@@ -132,8 +132,8 @@ The parameters following xiaozhibo.html are used to tell the web page the chat r
 
 | Parameter Name | Description | Note |
 |---------|---------|---------|
-| sdkappi | ID assigned after IM service is activated, which is the necessary information to enter the chat room.  [References](https://www.qcloud.com/document/product/454/7953#3.2-im-sdk-appid) |
-| acctype | type assigned after the IM service is activated, which is used with sdkappi.  | [References](https://www.qcloud.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
+| sdkappi | ID assigned after IM service is activated, which is the necessary information to enter the chat room.  [References](https://cloud.tencent.com/document/product/454/7953#3.2-im-sdk-appid) |
+| acctype | type assigned after the IM service is activated, which is used with sdkappi.  | [References](https://cloud.tencent.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
 | userid | User ID of the VJ. In Mini LVB, the VJ ID is room ID |
 | type | video type | 0 means LV; 1 means VOD, that is, playback video | 
 

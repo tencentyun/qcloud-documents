@@ -5,17 +5,17 @@
 云点播服务端 API 的具体使用方法和腾讯云的[云 API][云 API] 相同。为了方便用户调用，云点播提供了 [服务端 API SDK][SDK] 供开发者使用。
 
 ### 请求结构
-* [请求结构简介](https://www.qcloud.com/document/api/213/6975)
-* [公共请求参数](https://www.qcloud.com/document/api/213/6976)
-* [接口请求参数](https://www.qcloud.com/document/api/213/6977)
-* [最终请求形式](https://www.qcloud.com/document/api/213/6978)
+* [请求结构简介](https://cloud.tencent.com/document/api/213/6975)
+* [公共请求参数](https://cloud.tencent.com/document/api/213/6976)
+* [接口请求参数](https://cloud.tencent.com/document/api/213/6977)
+* [最终请求形式](https://cloud.tencent.com/document/api/213/6978)
 
 ### 签名方法
-* [签名方法](https://www.qcloud.com/document/api/213/6984)
+* [签名方法](https://cloud.tencent.com/document/api/213/6984)
 
 ### 返回结果
-* [正确返回结果](https://www.qcloud.com/document/api/213/6980)
-* [错误返回结果](https://www.qcloud.com/document/api/213/6981)
+* [正确返回结果](https://cloud.tencent.com/document/api/213/6980)
+* [错误返回结果](https://cloud.tencent.com/document/api/213/6981)
 * [公共错误码][公共错误码]
 
 ### 云点播业务错误码
@@ -140,7 +140,7 @@
 |-49198 | 音视频转码，校验转码后文件: End of file|
 |-49199 | 音视频转码，校验转码后文件: seeking outside actual filesize|
 
-[云 API]: https://www.qcloud.com/product/api "云 API"
-[公共错误码]: https://www.qcloud.com/document/api/213/10146 "公共错误码"
+[云 API]: https://cloud.tencent.com/product/api "云 API"
+[公共错误码]: https://cloud.tencent.com/document/api/213/10146 "公共错误码"
 [SDK]: https://cloud.tencent.com/document/product/266/7982 "SDK"
 

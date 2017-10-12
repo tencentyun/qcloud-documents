@@ -27,7 +27,7 @@ PHP：Web 服务器生成网页的程序。
 - 需要购买腾讯云云服务器。
 
 #### 已有腾讯云服务器，只安装镜像
-1. 请登录 [云服务器控制台](https://console.qcloud.com/cvm)，点击左侧导航【云主机】，找到您想要搭建 Discuz! 的云主机。
+1. 请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，点击左侧导航【云主机】，找到您想要搭建 Discuz! 的云主机。
 点击右侧菜单的【更多】，选择【重装系统】
 ![云主机](//mc.qcloudimg.com/static/img/5abc4a177ce635a8357b03ee7061c57e/image.png)
 2. 在服务市场的建站模板中找到 Discuz! 相关的镜像后，重装系统。本教程统一使用的是 “Discuz! X3.2官方正式版（CentOS 7.2 64位 Webmin |LAMP）”，您可以根据你的需要进行选择。
@@ -35,10 +35,10 @@ PHP：Web 服务器生成网页的程序。
 
 #### 需要购买云服务器
 1. 获取 Discuz! 镜像
-请 [登录腾讯云](https://www.qcloud.com/login?s_ur=https://console.qcloud.com)，通过首页顶部导航进入 [云市场](http://market.qcloud.com/categories?q=discuz)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
+请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](http://market.qcloud.com/categories?q=discuz)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
 ![获取Discuz1](//mc.qcloudimg.com/static/img/54021a861602cdf6560306848cdcef0f/image.png)
 2. 购买云服务器
-购买镜像的过程同时会配套购买云服务器，云服务器的配置可以根据网站自身访问量来确定，相关指南请参考 [创建 Linux 服务器指引](https://www.qcloud.com/document/product/213/2972)。
+购买镜像的过程同时会配套购买云服务器，云服务器的配置可以根据网站自身访问量来确定，相关指南请参考 [创建 Linux 服务器指引](https://cloud.tencent.com/document/product/213/2972)。
 ![购买服务器](//mc.qcloudimg.com/static/img/f62666aee21008a0dee3b16422be9bcd/image.png)
 3. 创建云主机
 完成购买后，控制台开始创建一个新的云主机。创建完成后，云主机会自动处于运行中，请耐心等待 2-3 分钟后再进入步骤二。
@@ -52,7 +52,7 @@ PHP：Web 服务器生成网页的程序。
 - 重启服务器再试。
 - Ping 云主机的公网 IP 地址，查看网络连接是否可用。
 - 重装系统，如步骤一所指示。
-- 查看服务器的 [安全组配置](https://www.qcloud.com/document/product/213/5221)，排除是否禁止了 HTTP 的默认端口。
+- 查看服务器的 [安全组配置](https://cloud.tencent.com/document/product/213/5221)，排除是否禁止了 HTTP 的默认端口。
 
 以上四个建议都正确尝试，却还打不开初始化页面的情况我们还没有碰到。
 
@@ -60,11 +60,11 @@ PHP：Web 服务器生成网页的程序。
 您可以给自己的 Discuz! 论坛网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建论坛仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
 如果您使用 IP 直接安装，请跳过此步骤，直接进行步骤四。
 如果您已有域名或者想要通过域名来访问您的论坛，请参考以下步骤。
-1. 请通过腾讯云 [购买域名](https://dnspod.qcloud.com/?from=qcloud)，相关域名注册指南，请参考 [域名注册](https://www.qcloud.com/document/product/242/8582)。
-2. 请进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
+1. 请通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，相关域名注册指南，请参考 [域名注册](https://cloud.tencent.com/document/product/242/8582)。
+2. 请进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，一般审核时间为20天左右。
-3. 通过腾讯云 [云解析](https://www.qcloud.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。
- 1. 登录 [云解析控制台](https://console.qcloud.com/cns/domains)，选择域名或添加您已有的域名。
+3. 通过腾讯云 [云解析](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。
+ 1. 登录 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，选择域名或添加您已有的域名。
  2. 点击【解析】，进入该域名的域名记录管理界面。
 ![配置域名1](//mc.qcloudimg.com/static/img/c2e3da7449cf42697a15f5c2bf9e80cf/image.png)
  3. 点击【添加记录】，添加需要解析的记录。
@@ -99,8 +99,8 @@ PHP：Web 服务器生成网页的程序。
 自主安装流程图如下：
 ![流程图2](//mc.qcloudimg.com/static/img/6b60f627a0f72093c39bf0fb34b35724/image.png)
 ### 步骤一：创建云服务器 
-1. 请根据您的需要 [购买云服务器](https://buy.qcloud.com/cvm?regionId=8&projectId=8)。购买指南请参考 [创建 Linux 云服务器](https://www.qcloud.com/document/product/213/2972)
-2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.qcloud.com/cvm)  查看或编辑云主机状态。
+1. 请根据您的需要 [购买云服务器](https://buy.cloud.tencent.com/cvm?regionId=8&projectId=8)。购买指南请参考 [创建 Linux 云服务器](https://cloud.tencent.com/document/product/213/2972)
+2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看或编辑云主机状态。
 ![云主机1](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
 
 本教程中云主机的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
@@ -176,11 +176,11 @@ http://云主机的公网 IP/test.php
 您可以给自己的 Discuz! 论坛网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建论坛仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
 如果您使用 IP 直接安装，请跳过此步骤，直接进行步骤四。
 如果您已有域名或者想要通过域名来访问您的论坛，请参考以下步骤。
-1. 请通过腾讯云 [购买域名](https://dnspod.qcloud.com/?from=qcloud)，相关域名注册指南，请参考 [域名注册](https://www.qcloud.com/document/product/242/8582)。
-2. 请进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
+1. 请通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，相关域名注册指南，请参考 [域名注册](https://cloud.tencent.com/document/product/242/8582)。
+2. 请进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，一般审核时间为20天左右。
-3. 通过腾讯云 [云解析](https://www.qcloud.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。
- 1. 登录 [云解析控制台](https://console.qcloud.com/cns/domains)，选择域名或添加您已有的域名。
+3. 通过腾讯云 [云解析](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。
+ 1. 登录 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，选择域名或添加您已有的域名。
  2. 点击【解析】，进入该域名的域名记录管理界面。
 ![配置域名1](//mc.qcloudimg.com/static/img/c2e3da7449cf42697a15f5c2bf9e80cf/image.png)
  3. 点击【添加记录】，添加需要解析的记录。

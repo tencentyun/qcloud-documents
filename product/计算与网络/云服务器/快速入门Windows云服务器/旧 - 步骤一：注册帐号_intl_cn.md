@@ -2,6 +2,6 @@
 
 
 新用户需在腾讯云官网进行【注册】，注册指引可参考[如何注册腾讯云
-](https://www.qcloud.com/document/product/378/8415)
+](https://cloud.tencent.com/document/product/378/8415)
 
 

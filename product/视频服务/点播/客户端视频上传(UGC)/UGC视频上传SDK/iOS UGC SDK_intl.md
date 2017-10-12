@@ -1,7 +1,7 @@
 ## SDK Integration
 
 ### Download SDK
-Download [TVCClientSDK.framework](https://www.qcloud.com/doc/product/266/6965).
+Download [TVCClientSDK.framework](https://cloud.tencent.com/doc/product/266/6965).
 
 ### Import Dependent Packages
 

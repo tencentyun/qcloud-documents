@@ -11,7 +11,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | Yes | String | ID of VPC to which the subnet belongs. It can be vpcId or unVpcId. unVpcId is recommended. For example, vpc-rqndayhs. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| vpcId | Yes | String | ID of VPC to which the subnet belongs. It can be vpcId or unVpcId. unVpcId is recommended. For example, vpc-rqndayhs. It can be queried through API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | routeTableName | Yes|  String| Routing table name. You can specify any name you like, but its length should be limited to 60 characters.   |
 | routeSet.n | No | array | (Optional) Content of routing table.|
 | routeSet.n.destinationCidrBlock | Yes | String | Destination network segment, which cannot be within the VPC network segment. For example: 112.20.51.0/24. |
@@ -36,15 +36,15 @@ The following request parameter list only provides API request parameters. Commo
 | routeTableSet.n.description | String  | Route description.   |
 
 ## 4. Error Codes
- The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>. 
+ The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>. 
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC.  VPC resource does not exist. Please verify that you have entered resource information correctly. You can query VPC through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| InvalidVpc.NotFound | Invalid VPC.  VPC resource does not exist. Please verify that you have entered resource information correctly. You can query VPC through API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | InvalidRouteTableName | Invalid routing table name.  You can specify any name you like, but its length should be limited to 60 characters.   |
 | InvalidDestinationCidr | Invalid destination network segment.   |
-| RouteTableLimitExceeded | Number of routing tables allowed to be created has been exceeded.  Please contact customer service for more resources.  For more information on VPC resource restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.   |
-| RouteLimitExceeded | The upper limit of number of routing table policies has been exceeded.  Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
+| RouteTableLimitExceeded | Number of routing tables allowed to be created has been exceeded.  Please contact customer service for more resources.  For more information on VPC resource restrictions, refer to <a href="https://cloud.tencent.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.   |
+| RouteLimitExceeded | The upper limit of number of routing table policies has been exceeded.  Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://cloud.tencent.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>.  |
 | RouteAlreadyExists | The destination network segment already exists in the routing table policy.  No conflict between destination network segments is allowed in the same routing table.  |
 | InvalidRouteNextType | Invalid next hop type.  For supported types, refer to the descriptions of input parameters.  |
 | InvalidRouteNextHub.NotFound | The next hop address does not exist.  Please verify that you have entered next hop address resource ID correctly.  |
@@ -55,7 +55,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=CreateRouteTable
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &vpcId=vpc-amhnnao5
   &routeTableName=tttt111
   &routeSet.0.destinationCidrBlock=121.0.23.51/16

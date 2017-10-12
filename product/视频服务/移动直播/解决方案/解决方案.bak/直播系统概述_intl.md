@@ -2,7 +2,7 @@
 ## System Overview
 A complete MLVB solution consists of three aspects: device, backend and web page. These three aspects need to work together to construct a close-loop solution.
 
-Mini LVB App is a demonstration prototype created by Tencent Cloud video terminal development team, aiming to provide a whole set of reference source codes that include basic features such as VJ stream push, viewing, recorded video playback, interactive messaging, "liking", on-screen commenting and so on. You can [Obtain the Service](https://console.qcloud.com/live/mlvbsdkdownload) for free as long as you are a verified user of Tencent Cloud and have activated LVB service.
+Mini LVB App is a demonstration prototype created by Tencent Cloud video terminal development team, aiming to provide a whole set of reference source codes that include basic features such as VJ stream push, viewing, recorded video playback, interactive messaging, "liking", on-screen commenting and so on. You can [Obtain the Service](https://console.cloud.tencent.com/live/mlvbsdkdownload) for free as long as you are a verified user of Tencent Cloud and have activated LVB service.
 
 ![](//mc.qcloudimg.com/static/img/a3511a5130d71605d62dd613cfceeca8/image.png)
 

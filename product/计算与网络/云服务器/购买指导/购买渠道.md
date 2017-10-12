@@ -1,8 +1,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;云服务器提供两种方式购买，官网购买和API购买，本小节将详细介绍两种购买方式的使用方法。
 ## 官网购买
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有用户均可通过腾讯云官方网站进行云服务的购买。根据计费模式的不同，用户可以购买包年包月（按月/年购买）和按量计费（按秒计费，小时结算）两种不同类型的云服务器，详见[计费模式说明](https://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;官网购买说明可点击[这里](https://www.qcloud.com/doc/product/213/6998)查看,下面分别介绍两种不同类型云服务器的官网购买方式。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有用户均可通过腾讯云官方网站进行云服务的购买。根据计费模式的不同，用户可以购买包年包月（按月/年购买）和按量计费（按秒计费，小时结算）两种不同类型的云服务器，详见[计费模式说明](https://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;官网购买说明可点击[这里](https://cloud.tencent.com/doc/product/213/6998)查看,下面分别介绍两种不同类型云服务器的官网购买方式。
 
 ### 包年包月
 
@@ -38,5 +38,5 @@
 5) 订单支付后立即开通服务器，10分钟左右即可看到IP地址，进行登录管理。（开通按量云服务器后，请确保您的账户余额充足）
 
 ## API购买
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API 购买云服务器,请参见API文档[创建实例（包年包月）](https://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89)和[创建实例（按量计费）](https://www.qcloud.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;API 购买云服务器,请参见API文档[创建实例（包年包月）](https://cloud.tencent.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E5%8C%85%E5%B9%B4%E5%8C%85%E6%9C%88%EF%BC%89)和[创建实例（按量计费）](https://cloud.tencent.com/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%8C%89%E9%87%8F%E8%AE%A1%E8%B4%B9%EF%BC%89)
 

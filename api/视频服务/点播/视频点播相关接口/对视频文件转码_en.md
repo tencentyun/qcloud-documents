@@ -62,7 +62,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ConvertVodFile
 &fileId=96000077184630899
 &isScreenshot=1
 &isWatermark=1
-&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 
 </pre>
 Output 1
@@ -89,7 +89,7 @@ You can configure transcoding call-back for file upload operations to notify the
 　　"duration":0,//Duration
 　　"imgUrl":{
   "id": 3213,
-　　"url":"www.qcloud.com/templurl.png", //Image link
+　　"url":"cloud.tencent.com/templurl.png", //Image link
 　　"vheight":21,
 　　"width":32, 
 　　}

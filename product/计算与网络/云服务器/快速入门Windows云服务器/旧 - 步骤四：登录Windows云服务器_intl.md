@@ -2,7 +2,7 @@
 
 On the local Windows machine, click "Start" - "Run", enter "mstsc" command to open the Remote Desktop Connection dialog box.
 
-In the input box, input the public IP of Windows Server (Log in to [CVM Console](https://console.qcloud.com/cvm) to check the public IP of CVM), as shown below:
+In the input box, input the public IP of Windows Server (Log in to [CVM Console](https://console.cloud.tencent.com/cvm) to check the public IP of CVM), as shown below:
 ![](//mccdn.qcloud.com/img56b1a11a3c31f.png)
 
 Click "Connect", then enter the account ID (Administrator) and the initial password from the internal message (or the password modified by you) in the opened page to log in.

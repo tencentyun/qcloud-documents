@@ -42,7 +42,7 @@
 </table>
 
 > **说明：**
-**[免费额度](https://www.qcloud.com/document/product/436/6240)：10 GB CDN 回源流量，100 万次读/写请求。**
+**[免费额度](https://cloud.tencent.com/document/product/436/6240)：10 GB CDN 回源流量，100 万次读/写请求。**
 
 **此案例中，小明每月预计需要支付对象存储费用 20 元。**
 
@@ -89,8 +89,8 @@
 </table>
 
 > **说明：**
- **[免费额度](https://www.qcloud.com/document/product/436/6240)：10 GB CDN 回源流量，100 万次读/写请求。**
+ **[免费额度](https://cloud.tencent.com/document/product/436/6240)：10 GB CDN 回源流量，100 万次读/写请求。**
  
 **此案例中，小明每月预计需要支付对象存储费用 266.1 元。**
 
-*若您仍存疑惑，欢迎通过 [提交工单](https://console.qcloud.com/workorder/category) 咨询，获得更多技术支持或进行价格商议等。*
+*若您仍存疑惑，欢迎通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询，获得更多技术支持或进行价格商议等。*

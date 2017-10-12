@@ -1,7 +1,7 @@
-本文档主要介绍腾讯云连麦功能的对接方案，如果您想要了解连麦的原理，欢迎阅读 [如何实现连麦功能？](https://www.qcloud.com/document/product/454/8092)
+本文档主要介绍腾讯云连麦功能的对接方案，如果您想要了解连麦的原理，欢迎阅读 [如何实现连麦功能？](https://cloud.tencent.com/document/product/454/8092)
 
 ## 更新版本
-RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qcloud.com/document/product/454/7873) 更新最新版本的 RTMP SDK。同时，我们的 小直播 [DEMO](https://www.qcloud.com/document/product/454/6991) 也已经集成了这套解决方案的示例代码。
+RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://cloud.tencent.com/document/product/454/7873) 更新最新版本的 RTMP SDK。同时，我们的 小直播 [DEMO](https://cloud.tencent.com/document/product/454/6991) 也已经集成了这套解决方案的示例代码。
 
 ## 名词解释
 - **session_id ？**
@@ -36,14 +36,14 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 
 ## 同房连麦
 ### step1. “大主播”推流
-我们在 [Android 推流](https://www.qcloud.com/document/product/454/7885) 中有详细介绍如何在主播端开启直播功能，这里您可以直接参考，流程上都是一样的。所以，如果您是第一次接触RTMP SDK，务必要先阅读一下基础推流功能的文档。
+我们在 [Android 推流](https://cloud.tencent.com/document/product/454/7885) 中有详细介绍如何在主播端开启直播功能，这里您可以直接参考，流程上都是一样的。所以，如果您是第一次接触RTMP SDK，务必要先阅读一下基础推流功能的文档。
 
 ![](//mc.qcloudimg.com/static/img/779bb742c46a415b505cb8b21c6b2c59/image.png)
 
 需要您注意的是，在连麦场景中有三处差异需要您关注：
 
 - **1.1 推流URL加连麦参数**
-在[如何获取推流地址](https://www.qcloud.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8.E6.8B.BC.E8.A3.85.EF.BC.9F)中，我们详细介绍了推流地址的拼装规则，如果要做连麦，推流地址里面还要额外加一段参数：
+在[如何获取推流地址](https://cloud.tencent.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8.E6.8B.BC.E8.A3.85.EF.BC.9F)中，我们详细介绍了推流地址的拼装规则，如果要做连麦，推流地址里面还要额外加一段参数：
 ![](//mc.qcloudimg.com/static/img/a066ac2f6caf1764b69477a9aa031d0e/image.png)
 
  **&mix=layer:s;session_id:1234;t_id:1** 的作用是告诉腾讯云：这条直播流是支持连麦的，连麦房间号为 1234。
@@ -76,7 +76,7 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 
 如上图所示：观众 A 向主播请求 “我想跟你连麦”，主播回应同意或者拒绝。如果同意，主播的回应消息中一定要把 Step1.1 中的 session_id 带给 A。
 
-在实现上，这里可以采用 C2C（Client To Client）消息通道，腾讯云 IM 通讯服务提供了 C2C 解决方案，您可以参考 [如何搭建聊天室](https://www.qcloud.com/document/product/454/7980) 了解 IM 服务的使用方案。
+在实现上，这里可以采用 C2C（Client To Client）消息通道，腾讯云 IM 通讯服务提供了 C2C 解决方案，您可以参考 [如何搭建聊天室](https://cloud.tencent.com/document/product/454/7980) 了解 IM 服务的使用方案。
 
 ### step3. “小主播”推流
 观众 A 如果得到“大主播”的恩准，就跃身成为“小主播”，接下来“小主播”要开始推流，否则“大主播”看不到“小主播”的影像。
@@ -114,7 +114,7 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 ### step4. 低延时播放链路
 经过 Step1 - Step3 之后，“大主播”和“小主播（们）”就已经都在推流了，所以在观众端已经可以同时看到两路（及以上）的画面。但这样还远远不够，因为主播们还无法看到彼此。
 
-我们在 [Android播放](https://www.qcloud.com/document/product/454/7886) 中有详细介绍如何在观众端使用播放功能，如果主播们之间也像普通观众一样，采用 CDN 分发的[播放地址](https://www.qcloud.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8.E6.8B.BC.E8.A3.85.EF.BC.9F)，当然是可以看到画面听到声音的。
+我们在 [Android播放](https://cloud.tencent.com/document/product/454/7886) 中有详细介绍如何在观众端使用播放功能，如果主播们之间也像普通观众一样，采用 CDN 分发的[播放地址](https://cloud.tencent.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8.E6.8B.BC.E8.A3.85.EF.BC.9F)，当然是可以看到画面听到声音的。
 
 然而，问题出在 **延迟** 上，CDN 播放地址的延迟对于需要实时沟通的主播间通讯而言肯定无法接受。所以，我们需要调整 TXLivePlayer 的参数，目的是将大小主播间延迟控制在一秒以内：
 
@@ -133,7 +133,7 @@ RTMP SDK 1.8.2 开始才支持连麦功能，请到 [下载页](https://www.qclo
 ![](//mc.qcloudimg.com/static/img/59c492abef77cddaf026cfd7509de678/image.png)
  + URL 必须选用 **rtmp** 播放协议 ，flv 是没有办法做到秒级延迟的。
  + session_id 必须是对方的，简言之，如果是“小主播（们）”这边拼装播放地址，session_id 就是“大主播”的。同房连麦场景，大小主播都共用一个session_id，我们就不用操心这事儿了。
- + 播放地址必须要加防盗链签名，签名方法参考 [推流防盗链的计算](https://www.qcloud.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F)。因为几乎所有腾讯云的客户都配置了推流防盗链KEY，为了减少您的接入成本，可以直接使用推流防盗链KEY。
+ + 播放地址必须要加防盗链签名，签名方法参考 [推流防盗链的计算](https://cloud.tencent.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F)。因为几乎所有腾讯云的客户都配置了推流防盗链KEY，为了减少您的接入成本，可以直接使用推流防盗链KEY。
 
 - **4.3.2 修改播放器参数**
  + startPlay 的 type 参数需要选用 1.8.2 新增的 **PLAY_TYPE_LIVE_RTMP_ACC**
@@ -234,7 +234,7 @@ Step1 和 Step3 中有介绍如何让“大主播”和“小主播”使用自�
 - **跨房连麦**：“小主播” 和 “大主播” 的 session_id 是不一样，所以在拼装低延迟播放URL时，一定要使用对方的session_id，不要用自己的，否则视频卡到崩溃也是很正常的。
 
 ### step5. 多路混流
-- **跨房连麦**：目前不支持服务端混流，只支持客户端混流。我们会在春节后启用新的commen cgi 风格接口，届时大家会在 [腾讯云服务端API](https://www.qcloud.com/document/product/454/7920) 中查到该接口的定义。
+- **跨房连麦**：目前不支持服务端混流，只支持客户端混流。我们会在春节后启用新的commen cgi 风格接口，届时大家会在 [腾讯云服务端API](https://cloud.tencent.com/document/product/454/7920) 中查到该接口的定义。
 
 
 

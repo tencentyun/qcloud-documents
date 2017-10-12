@@ -1,6 +1,6 @@
 ## 下载SDK
 您可以在腾讯云官网下载移动端点播播放器SDK：
-> [https://www.qcloud.com/doc/product/267/4821](https://www.qcloud.com/doc/product/267/4821)
+> [https://cloud.tencent.com/doc/product/267/4821](https://cloud.tencent.com/doc/product/267/4821)
 
 解压后得到libs目录，里面主要包含so文件和jar文件，文件清单如下：
 

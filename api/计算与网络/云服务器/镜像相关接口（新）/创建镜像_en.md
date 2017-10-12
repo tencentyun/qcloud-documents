@@ -3,7 +3,7 @@
 This API (CreateImage) is used to make the current status of the instance system disk into a new image, which can be used to quickly create instances.
 
 
-Note: This API is the updated API. For information on the old API, please see [CreateImage (old)](https://www.qcloud.com/document/api/213/1273)
+Note: This API is the updated API. For information on the old API, please see [CreateImage (old)](https://cloud.tencent.com/document/api/213/1273)
 
 
 Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
@@ -35,7 +35,7 @@ The following request parameter list only provides API request parameters. Other
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/10146).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://cloud.tencent.com/document/api/213/10146).
 
 
 > Tencent Cloud may decrease or increase error codes in rare cases. Developers need to prepare robust applications.

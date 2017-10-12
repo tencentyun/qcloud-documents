@@ -4,8 +4,8 @@ Continuous integration for container enables a container image to be built autom
 ### Auto Building
 The auto building of container images based on github or gitlab code repository requires that **the code repository must contain Dockerfile**. You need to register the token of github/gitlab server first. The **gitlab server used for the code repository must be accessed through public network**. You can configure an auto building rule for a specific code repository. When you push code to the code repository, if the auto building rule is matched, an container image is automatically built on Tencent CCS Platform and then automatically pushed into Tencent CCS image repository.
 You need to follow these steps for auto building:
-- Step 1: [Source Code Repository Authorization](https://www.qcloud.com/document/product/457/10153)
-- Step 2: [Building Rule Configuration](https://www.qcloud.com/document/product/457/10152)
+- Step 1: [Source Code Repository Authorization](https://cloud.tencent.com/document/product/457/10153)
+- Step 2: [Building Rule Configuration](https://cloud.tencent.com/document/product/457/10152)
 - Step 3: Submit the code for auto building.
 
 ### Manual Building

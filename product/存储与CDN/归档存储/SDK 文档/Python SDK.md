@@ -25,7 +25,7 @@ Python 2.7
     python setup.py install
 ### SDK配置
 
-要使用归档存储的API服务，首先需要获取到：appid、secret_id, secret_key，[获取地址](https://console.qcloud.com/capi)
+要使用归档存储的API服务，首先需要获取到：appid、secret_id, secret_key，[获取地址](https://console.cloud.tencent.com/capi)
 
 ```Python
 

@@ -14,7 +14,7 @@ step1：通过策略语法方式创建以下策略
      }
 }
 ```
-step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
 注：子账号Developer在CDB的查询列表页同样仅能查看到实例id为cdb-1和cdb-2的资源。
 

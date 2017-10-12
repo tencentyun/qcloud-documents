@@ -34,7 +34,7 @@ Docker是其中一种容器平台。基于官方的定义，Docker以Docker容�
 
 我们提供了些入门示例来供大家初次试用容器服务。
 
-- [创建简单的nginx服务](https://www.qcloud.com/document/product/457/7851)
-- [创建Hello World Node.js服务](https://www.qcloud.com/document/product/457/7204)
-- [创建单实例版wordpress服务](https://www.qcloud.com/document/product/457/7205)
-- [创建使用云数据库CDB的wordpress服务](https://www.qcloud.com/document/product/457/7447)
+- [创建简单的nginx服务](https://cloud.tencent.com/document/product/457/7851)
+- [创建Hello World Node.js服务](https://cloud.tencent.com/document/product/457/7204)
+- [创建单实例版wordpress服务](https://cloud.tencent.com/document/product/457/7205)
+- [创建使用云数据库CDB的wordpress服务](https://cloud.tencent.com/document/product/457/7447)

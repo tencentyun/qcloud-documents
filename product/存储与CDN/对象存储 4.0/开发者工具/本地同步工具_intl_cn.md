@@ -62,7 +62,7 @@ unzip cos_sync.zip && cd cos_sync
 | daemon_mode     | 后台进程模式运行。1：循环运行同步工具； 0：运行一次后退出          | 数字       |
 | daemon_interval | 后台进程模式下，检查本地文件变化的时间间隔。单位：秒               | 数字       |
 | enable_https    | 启用 https 进行传输。1：使用 https；0：使用 http    | 数字       |
-| region          | 存储桶所属地域。枚举值为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。 | 字符串      |
+| region          | 存储桶所属地域。枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。 | 字符串      |
 | local_path      | 需要同步的本地绝对路径。Windows 路径需用双斜线 “\\\” 分割。<br>Linux 范例：/home/user/dir；Windows 范例：C:\\\document\\\dir | 字符串      |
 | cos_path        | 同步到 COS 的目的路径，需以 / 为结尾以表示目录，根目录为 /      | 字符串      |
 > <font color="#0000cc">**注意：** </font>
@@ -106,4 +106,4 @@ sh start_cos_sync.sh
 通常发生在 Windows 环境下，请注意 Windows 系统中对路径`local_path`的描述，需用双斜线 \\\ 分割，范例：C:\\\document\\\dir 。
 
 ### 其他错误
-请 [提交工单](https://console.qcloud.com/workorder/category)。并告知同步工具的 config.json 相关配置(不用提供密钥) 以及打包的 log 目录。
+请 [提交工单](https://console.cloud.tencent.com/workorder/category)。并告知同步工具的 config.json 相关配置(不用提供密钥) 以及打包的 log 目录。

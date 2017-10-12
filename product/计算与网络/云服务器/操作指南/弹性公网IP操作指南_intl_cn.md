@@ -1,6 +1,6 @@
 ## 1.	申请EIP
 
-1)	打开 云服务器 [CVM 控制台](https://console.qcloud.com/cvm) 。
+1)	打开 云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 	
 2)	在导航窗格中，单击弹性公网IP。
 
@@ -10,7 +10,7 @@
 
 ## 2. 修改EIP名称
 
-1)	打开 云服务器 [CVM 控制台](https://console.qcloud.com/cvm) 。
+1)	打开 云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 	
 2)	在导航窗格中，单击弹性公网IP。
 
@@ -20,7 +20,7 @@
 
 ## 3.	云服务器绑定EIP
 
-1)	打开云服务器 [CVM 控制台](https://console.qcloud.com/cvm)。
+1)	打开云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm)。
 
 2)	在导航窗格中，单击弹性公网IP。
 
@@ -30,7 +30,7 @@
 
 5)	点击【绑定】。
 或
-1)	打开 云服务器 [CVM 控制台](https://console.qcloud.com/cvm) ，进入CVM实例列表。
+1)	打开 云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) ，进入CVM实例列表。
 
 2)	在您需要绑定弹性IP的云主机右侧操作栏中，点击【绑定弹性IP】。
 
@@ -38,7 +38,7 @@
 
 ## 4.	云服务器解绑EIP
 
-1)	打开云服务器 [CVM 控制台](https://console.qcloud.com/cvm) 。
+1)	打开云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 
 2)	在导航窗格中，单击弹性公网IP。
 
@@ -46,7 +46,7 @@
 
 4)	点击【确定】。
 或
-1)	打开云服务器[ CVM 控制台](https://console.qcloud.com/cvm) 。
+1)	打开云服务器[ CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 	
 2)	在您需要解绑弹性IP的云主机右侧操作栏中，点击【解绑弹性IP】。
 
@@ -54,7 +54,7 @@
 
 ## 5.	释放EIP
 
-1)	打开云服务器 [CVM 控制台](https://console.qcloud.com/cvm) 。
+1)	打开云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 
 2)	在导航窗格中，单击弹性公网IP。
 

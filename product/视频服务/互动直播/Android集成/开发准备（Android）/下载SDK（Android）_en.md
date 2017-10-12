@@ -1,6 +1,6 @@
 ## Download SDK
-You can download the ILVB SDK from [Tencent Cloud Official Website](http://www.qcloud.com/product/ilvb.html).
-> http://www.qcloud.com/product/ilvb.html
+You can download the ILVB SDK from [Tencent Cloud Official Website](http://cloud.tencent.com/product/ilvb.html).
+> http://cloud.tencent.com/product/ilvb.html
 
 ## Directory Description
 The SDK you downloaded from the official website mainly contains the following folders:
@@ -20,7 +20,7 @@ The libs folder contains "jar" and "so" files for two major SDKs:
 **Note:** There are certain dependencies between the files for these two major SDKs when compiling (the files call each other during operations), thus App developers must make sure that all files listed below are complete when updating and replacing SDKs. Replacing only some of the files may introduce exceptions.
 
 For more information about IMSDK, please see the link below:
-> http://www.qcloud.com/product/im.html
+> http://cloud.tencent.com/product/im.html
 
 ## SDK File List
 ### 1. AVSDK file list

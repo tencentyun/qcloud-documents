@@ -1,7 +1,7 @@
 ## Description
-This document shows how to quickly create an Node.js "hello world" service in a container cluster. For more information about how to build a Docker image, please see [Build a Docker Image](https://www.qcloud.com/document/product/457/7208).
+This document shows how to quickly create an Node.js "hello world" service in a container cluster. For more information about how to build a Docker image, please see [Build a Docker Image](https://cloud.tencent.com/document/product/457/7208).
 
-You can view [Instructions](https://www.qcloud.com/document/product/457/6781#.E6.8E.A8.E9.80.81.E9.95.9C.E5.83.8F.E5.88.B0.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93) in "My Image" to learn about how to upload images to Tencent Cloud image warehouse.
+You can view [Instructions](https://cloud.tencent.com/document/product/457/6781#.E6.8E.A8.E9.80.81.E9.95.9C.E5.83.8F.E5.88.B0.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93) in "My Image" to learn about how to upload images to Tencent Cloud image warehouse.
 
 ## Step 1: Write Code to Create an Image
 ### Write Application
@@ -39,7 +39,7 @@ Hello World!
 Here, you have completed the "helloworld" application.
 
 ### Create Docker Image
-For more information about how to create a Docker image, please see [Build Docker Image](https://www.qcloud.com/document/product/457/7208).
+For more information about how to create a Docker image, please see [Build Docker Image](https://cloud.tencent.com/document/product/457/7208).
 Create file "Dockerfile" under the "hellonode" folder:
 ```shell
 FROM node:4.4
@@ -68,7 +68,7 @@ hello-node                                     v1                  027232e62e3f 
 ```
 
 ### Upload Image to Tencent Cloud Image Warehouse
-For more information about image operations, please see [Image Warehouse Basic Instruction](https://www.qcloud.com/document/product/457/6781).
+For more information about image operations, please see [Image Warehouse Basic Instruction](https://cloud.tencent.com/document/product/457/6781).
 ```shell
 [root@VM_3_224_centos hellonode]# sudo docker tag 027232e62e3f ccr.ccs.tencentyun.com/test/helloworld:v1
 [root@VM_3_224_centos hellonode]# sudo docker push ccr.ccs.tencentyun.com/test/helloworld:v1
@@ -84,7 +84,7 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 ```
 
 ## Step 2: Create Cluster
-1. First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://www.qcloud.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
+1. First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://cloud.tencent.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
 
 ## Step 3: Create a Service with the Image
 Click the "Create Service" button, choose the cluster to run the service, enter port configuration and click "Create":

@@ -29,14 +29,14 @@ We will provide a framework later. Together with the operating system support pr
 
 
 **Q: How to start using FCC instance if I am not an FPGA developer?**
-**A:** We provide an EPGA-based Alexnet API for image classification which can be called by users to implement apps. For more information, please see [Overview of Getting Started](https://www.qcloud.com/document/product/565/8220)
+**A:** We provide an EPGA-based Alexnet API for image classification which can be called by users to implement apps. For more information, please see [Overview of Getting Started](https://cloud.tencent.com/document/product/565/8220)
 
 
 **Q: Can I add an FPGA to any CVM instance type?**
 **A:** No, you can't. FPGA is a hardware instance customized by the Tencent Cloud. Currently, FCC instance has one instance specification and does not support FPGA elastic mounting to the CVM.
 
 **Q: How can I get the internal trial qualification of FCC instance?**
-**A:** Currently, FCC instance is under internal trial. Only the user whose application for internal trial is approved can use it. You can apply for internal trial by completing the [Internal Trial Application](https://www.qcloud.com/act/apply/fpga). If your application is approved, our pre-sales engineer will contact you for internal trial use. The distribution date of FCC instance across the network is subject to the notice by Tencent Cloud.
+**A:** Currently, FCC instance is under internal trial. Only the user whose application for internal trial is approved can use it. You can apply for internal trial by completing the [Internal Trial Application](https://cloud.tencent.com/act/apply/fpga). If your application is approved, our pre-sales engineer will contact you for internal trial use. The distribution date of FCC instance across the network is subject to the notice by Tencent Cloud.
 
 
 

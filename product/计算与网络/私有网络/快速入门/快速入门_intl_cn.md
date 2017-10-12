@@ -3,14 +3,14 @@
 
 您需要完成以下步骤：
 
-[第一步：创建私有网络、初始化子网和路由表](https://www.qcloud.com/document/product/215/8113)
+[第一步：创建私有网络、初始化子网和路由表](https://cloud.tencent.com/document/product/215/8113)
 
-[第二步：创建子网](https://www.qcloud.com/document/product/215/8114)
+[第二步：创建子网](https://cloud.tencent.com/document/product/215/8114)
 
-[第三步：新建路由表关联子网](https://www.qcloud.com/document/product/215/8115)
+[第三步：新建路由表关联子网](https://cloud.tencent.com/document/product/215/8115)
 
-[第四步：向子网中添加云主机](https://www.qcloud.com/document/product/215/8116)
+[第四步：向子网中添加云主机](https://cloud.tencent.com/document/product/215/8116)
 
-[第五步：为云主机绑定弹性 IP 访问公网](https://www.qcloud.com/document/product/215/8118)
+[第五步：为云主机绑定弹性 IP 访问公网](https://cloud.tencent.com/document/product/215/8118)
 
-[（可选）第六步：创建安全组进行网络流量控制](https://www.qcloud.com/document/product/215/8117)
+[（可选）第六步：创建安全组进行网络流量控制](https://cloud.tencent.com/document/product/215/8117)

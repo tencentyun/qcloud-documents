@@ -19,7 +19,7 @@ The following request parameter list only provides API request parameters. Commo
 | message | String | Error message. |
 
 ## 4. Error Codes
-  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 	
 | Error Code | Description |
 |---------|---------|
@@ -30,7 +30,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=RejectVpcPeeringConnection
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &peeringConnectionId=pcx-8g675gr8
 </pre>
 Output

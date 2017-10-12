@@ -43,7 +43,7 @@
  如果当前系统的整体 CPU 使用率超过 80%，那么视频的采集和编码都会受到影响，无法正常发挥作用；如果 CPU 使用率达到 100%，那么主播端本身就已经卡的一塌糊涂了，观众端要有流畅的观看体验显然是不可能的。
 
 - **3.2.2 确认谁在消耗CPU**
-一款直播 APP 中使用CPU的不可能只有RTMP SDK，弹幕、飘星、文本消息互动等等，都有可能会消耗一定的CPU，这些都是不可避免的。如果单纯要测试推流 SDK 的 CPU 占用情况，可以使用我们的 [简单版 DEMO](https://www.qcloud.com/document/product/454/6555) 来观察和评估。
+一款直播 APP 中使用CPU的不可能只有RTMP SDK，弹幕、飘星、文本消息互动等等，都有可能会消耗一定的CPU，这些都是不可避免的。如果单纯要测试推流 SDK 的 CPU 占用情况，可以使用我们的 [简单版 DEMO](https://cloud.tencent.com/document/product/454/6555) 来观察和评估。
 
 - **3.2.3 不盲目追高分辨率**
 过高的视频分辨率并不一定能带来清晰的画质：首先，较高的分辨率要配合较高的码率才能发挥效果，低码率高分辨的清晰度很多时候比不上高码率低分辨率。其次，像1280 * 720 这样的分辨率，在平均 5寸 左右的手机屏幕上并不能看出优势，要像跟 960 * 540 的分辨率拉开差距，只有在 PC 上全屏观看才能有明显的感官差异。
@@ -71,7 +71,7 @@ BITRATE >= NET_SPEED 的情况一旦出现，编码器产生的音视频数据�
 ![](//mc.qcloudimg.com/static/img/319d6197da603ca15ffc6e2afd778e48/image.png)
 
 ![](//mc.qcloudimg.com/static/img/e241222c0591e6b5ffa41738a8a35d62/image.png)
- > PS: 您可以在[直播控制台>>质量监控](https://console.qcloud.com/live/livesdk) 里看到类似上图的图表。
+ > PS: 您可以在[直播控制台>>质量监控](https://console.cloud.tencent.com/live/livesdk) 里看到类似上图的图表。
 
 
 ### 4.2 针对性优化方案
@@ -81,7 +81,7 @@ BITRATE >= NET_SPEED 的情况一旦出现，编码器产生的音视频数据�
  RTMP SDK 的推流功能文档中有涉及 **事件处理** 的介绍，您可以利用它来做到这一点。推荐的做法是：如果 App 在短时间内连续收到  RTMP SDK  的多个 **PUSH_WARNING_NET_BUSY** 事件，则提示主播网络关注一下当前网络质量，因为对于上行阻塞这种情况而言，主播本人是没办法通过视频的表现感知到的，只能通过观众的提醒或者 APP 的提醒来了解。
 
 - **4.2.2 合理的编码设置**
-如下是我们推荐的编码设置（适合美女秀场，更多信息请参考 [如何实现更好的画质？](https://www.qcloud.com/document/product/454/7955)），可以通过 TXLivePush 里的 setVideoQuality 接口进行相应档位的设置：
+如下是我们推荐的编码设置（适合美女秀场，更多信息请参考 [如何实现更好的画质？](https://cloud.tencent.com/document/product/454/7955)），可以通过 TXLivePush 里的 setVideoQuality 接口进行相应档位的设置：
 
 | 档位   | 分辨率| FPS| 码率 | 使用场景 | 
 |:-------:|---------|---------|:-------:|---------|
@@ -92,7 +92,7 @@ BITRATE >= NET_SPEED 的情况一旦出现，编码器产生的音视频数据�
 - **4.2.3 启用流控辅助**
 有些客户会说：“我们的 APP 任何用户都有可能使用，让我去决定他们的网速不现实。”
 
- 如果主播的上传网速的不确定性确实很大，推荐开启网络自适应，参考文档见 [iOS平台](https://www.qcloud.com/document/product/454/7884#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F) &  [Android平台](https://www.qcloud.com/document/product/454/7890#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F) 。
+ 如果主播的上传网速的不确定性确实很大，推荐开启网络自适应，参考文档见 [iOS平台](https://cloud.tencent.com/document/product/454/7884#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F) &  [Android平台](https://cloud.tencent.com/document/product/454/7890#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F) 。
 
  不过我们依然建议优先参考 **4.2.1 主动提示主播** 中的方案，毕竟既要高清流畅，又不能保证上传网速，本身就是 **即要马儿跑得快，又要马儿不吃草** 的事情。
 

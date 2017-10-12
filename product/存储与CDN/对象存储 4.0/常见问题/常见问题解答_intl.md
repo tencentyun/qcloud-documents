@@ -11,7 +11,7 @@
   Check whether there are omissions in the signature you entered, and ensure that there is no unnecessary character between sign and the signature.
 
 - What can I do if a message indicates that appid/userid does not match the signature when creating Bucket on the page?
-  It may be caused by the occasional system error due to key application failure. Click on https://console.qcloud.com/cos/project to assign the key automatically or contact developers to resolve the problem.
+  It may be caused by the occasional system error due to key application failure. Click on https://console.cloud.tencent.com/cos/project to assign the key automatically or contact developers to resolve the problem.
 
 - When I upload files to COS, will folders contained in the full path of the specified files on COS server be created automatically?
   No. You need to create folders in advance.

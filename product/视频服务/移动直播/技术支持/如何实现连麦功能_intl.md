@@ -77,5 +77,5 @@ Server stream mixing is a new solution developed recently. It is currently suppo
 | Server stream mixing | Only one stream in the downlink data, effectively reducing bandwidth usage in LVB scenarios with high concurrency. | Currently, 1v3 stream mixing can be achieved at best.  | Need to call the stream mixing CGI and configure stream mixing parameters correctly | 
 
 ## Interfacing Guide
-- [Joint Video Broadcasting (iOS)](https://www.qcloud.com/document/product/454/8871)
-- [Joint Video Broadcasting (Android)](https://www.qcloud.com/document/product/454/8872)
+- [Joint Video Broadcasting (iOS)](https://cloud.tencent.com/document/product/454/8871)
+- [Joint Video Broadcasting (Android)](https://cloud.tencent.com/document/product/454/8872)

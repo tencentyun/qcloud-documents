@@ -1,7 +1,7 @@
 Alarm receiver group determines alarm receivers. You can gather users who pay attention to the same alarm into one group. When the alarm is triggered, the group members will receive the corresponding alarm. Users can create and manage alarm receiver groups through the following configurations.
 
 ## Managing the Alarm Receiver Group
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click "Alarm Policy" button.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click "Alarm Policy" button.
 
 2) Click the alarm policy ID that needs to be associated with objects in the alarm policy list to enter the details page.
 

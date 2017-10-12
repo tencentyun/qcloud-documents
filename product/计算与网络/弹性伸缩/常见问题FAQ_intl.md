@@ -29,7 +29,7 @@ Auto Scaling can separately scale CVM instances up and down. It can both work wi
 
 ## 10. If I need to scale up a number of CVMs during a certain period of time, how do I set it up?
 You can set a pair of scheduled tasks: one defines the scale-up operation, setting the desired number of instances to the number you want to scale up to; the other defines the scale-down operation, setting the desired number of instances to the number you want to scale down to.
-See [Best Practice Examples >>](https://www.qcloud.com/document/product/377/8617#step-5.-.E8.AE.BE.E7.BD.AE.E6.89.A9.E7.BC.A9.E5.AE.B9.E7.AD.96.E7.95.A5.EF.BC.88.E9.87.8D.E7.82.B9.EF.BC.81.EF.BC.89)
+See [Best Practice Examples >>](https://cloud.tencent.com/document/product/377/8617#step-5.-.E8.AE.BE.E7.BD.AE.E6.89.A9.E7.BC.A9.E5.AE.B9.E7.AD.96.E7.95.A5.EF.BC.88.E9.87.8D.E7.82.B9.EF.BC.81.EF.BC.89)
 
 ## 11. What are the specific rules for scaling group removal?
 Tencent Cloud AS provides two types of removal policies:
@@ -50,7 +50,7 @@ The desired number of instances refers to the correct number of instances in a s
 
 ## 14. What should be noted when a data disk snapshot is specified in the scaling configuration?
 If a data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted correctly to allow the scaling group to automatically scale up. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance.
-For instructions on how to do this, refer to [here >>](https://www.qcloud.com/doc/product/362/5564)
+For instructions on how to do this, refer to [here >>](https://cloud.tencent.com/doc/product/362/5564)
 
 ## 15. What activity will be paused when the scaling group is disabled?
 After the scaling group is disabled, the auto capacity scaling of the scaling group will not be triggered, but the restrictions on the scaling group remain in effect.

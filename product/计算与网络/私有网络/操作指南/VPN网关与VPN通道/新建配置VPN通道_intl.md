@@ -1,6 +1,6 @@
 You can create a new VPN tunnel in VPN tunnel page or in the peer gateway creation page.
 
-Log in to [CVM Console](https://console.qcloud.com/), click **Virtual Private Cloud** in the navigation bar, select **VPN Connection - VPN Tunnel** tab in the VPC console, and click **New** to create a VPN tunnel.
+Log in to [CVM Console](https://console.cloud.tencent.com/), click **Virtual Private Cloud** in the navigation bar, select **VPN Connection - VPN Tunnel** tab in the VPC console, and click **New** to create a VPN tunnel.
 
 2) Enter the basic information, select the VPN gateway and peer gateway, and enter the pre-shared key.
 ![](//mccdn.qcloud.com/img567fa26c5d9e1.png) 

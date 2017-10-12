@@ -1,4 +1,4 @@
-腾讯云提供托管腾讯云 CDB 数据库的平台：腾讯云 VPC。利用腾讯云 VPC ，您可以在 VPC 中启动腾讯云资源，如腾讯云 CDB 数据库实例。VPC 产品详细说明请参照 [私有网络](https://www.qcloud.com/document/product/215/535)。  
+腾讯云提供托管腾讯云 CDB 数据库的平台：腾讯云 VPC。利用腾讯云 VPC ，您可以在 VPC 中启动腾讯云资源，如腾讯云 CDB 数据库实例。VPC 产品详细说明请参照 [私有网络](https://cloud.tencent.com/document/product/215/535)。  
 一种常见的方案是运行在同一 VPC 的腾讯云 CDB 数据库实例和 Web 服务器共享数据。在本教程中，针对此方案创建 VPC，并将云数据库添加进 VPC 以配合使用。
 
 ### 步骤一：创建私有网络、初始化子网和路由表
@@ -42,18 +42,18 @@
 
 ### 步骤五：添加云服务器
 新购的云服务器支持在私有网络中使用，需要注意的是，**网络一旦选定将不可更改。**
-进入云服务器 [产品介绍页](https://www.qcloud.com/product/cvm)，单击【立即选购】后，在产品购买页的【网络类型】选择【私有网络】，选择与之前数据库相同的 VPC，将新购的云服务器添加到与云数据库相同的 VPC 内。
+进入云服务器 [产品介绍页](https://cloud.tencent.com/product/cvm)，单击【立即选购】后，在产品购买页的【网络类型】选择【私有网络】，选择与之前数据库相同的 VPC，将新购的云服务器添加到与云数据库相同的 VPC 内。
 ![](https://mc.qcloudimg.com/static/img/ede1b30456b4fe9f46e6f0ea954f8c22/step11.png)
 
 
-[1]:	https://console.qcloud.com/
-[2]:	https://www.qcloud.com/product/vpc.html
-[3]:	https://console.qcloud.com/vpc/
-[4]:	https://console.qcloud.com/
-[5]:	https://www.qcloud.com/product/vpc.html
-[6]:	https://console.qcloud.com/vpc/
-[7]:	https://console.qcloud.com/
-[8]:	https://www.qcloud.com/product/vpc.html
-[9]:	https://console.qcloud.com/vpc/
-[10]:	https://console.qcloud.com/
-[11]:	https://console.qcloud.com/cdb/ 
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://cloud.tencent.com/product/vpc.html
+[3]:	https://console.cloud.tencent.com/vpc/
+[4]:	https://console.cloud.tencent.com/
+[5]:	https://cloud.tencent.com/product/vpc.html
+[6]:	https://console.cloud.tencent.com/vpc/
+[7]:	https://console.cloud.tencent.com/
+[8]:	https://cloud.tencent.com/product/vpc.html
+[9]:	https://console.cloud.tencent.com/vpc/
+[10]:	https://console.cloud.tencent.com/
+[11]:	https://console.cloud.tencent.com/cdb/ 

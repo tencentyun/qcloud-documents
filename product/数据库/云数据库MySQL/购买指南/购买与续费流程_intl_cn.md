@@ -4,14 +4,14 @@
 ![][image-1]
 ![][image-2]
 2. 选择配置属性：       
-	* 选择所需的计费模式，支持包年包月和按量计费两种模式。（按量计费购买前需要实名认证，详见 <a href="https://www.qcloud.com/document/product/378/3629" target="_blank">实名认证指引</a>）
-	* 选择地域和可用区。地域说明请参见 <a href="https://www.qcloud.com/document/product/236/8458" target="_blank">地域和可用区</a>。
-	* 选择网络环境，支持基础网络和私有网络。基础网络和私有网络的区别请参见 <a href="https://www.qcloud.com/document/product/213/5227" target="_blank">网络环境</a>。
+	* 选择所需的计费模式，支持包年包月和按量计费两种模式。（按量计费购买前需要实名认证，详见 <a href="https://cloud.tencent.com/document/product/378/3629" target="_blank">实名认证指引</a>）
+	* 选择地域和可用区。地域说明请参见 <a href="https://cloud.tencent.com/document/product/236/8458" target="_blank">地域和可用区</a>。
+	* 选择网络环境，支持基础网络和私有网络。基础网络和私有网络的区别请参见 <a href="https://cloud.tencent.com/document/product/213/5227" target="_blank">网络环境</a>。
 	* 选择实例规格和所需的硬盘。
-	* 选择数据复制方式。关于数据库实例复制方式的区别可参见 <a href="https://www.qcloud.com/document/product/236/7913" target="_blank">数据库实例复制</a>。
+	* 选择数据复制方式。关于数据库实例复制方式的区别可参见 <a href="https://cloud.tencent.com/document/product/236/7913" target="_blank">数据库实例复制</a>。
 	* 选择数据库实例所属的项目，缺省设置为默认项目。
 	* 选择购买数量和时长，核对无误后单击【立即购买】。
-	* 费用详情请参见 <a href="https://www.qcloud.com/document/product/236/5158" target="_blank">费用总览</a>。
+	* 费用详情请参见 <a href="https://cloud.tencent.com/document/product/236/5158" target="_blank">费用总览</a>。
 ![][image-3]
 
 ## 续费
@@ -29,14 +29,14 @@ CDB for MySQL 数据库支持控制台续费和续费管理中心续费两种方
 ![实例详情页续费][image-6]
 
 ### 续费管理中心续费
- 在 <a href="https://console.qcloud.com/account/renewal" target="_blank">续费管理页面</a> 提供实例的【批量资源续费】、【设置自动续费】、【设置统一到期日】、【取消不续费】等功能 ，详见 <a href="https://www.qcloud.com/document/product/555/7454" target="_blank">续费管理</a>。
+ 在 <a href="https://console.cloud.tencent.com/account/renewal" target="_blank">续费管理页面</a> 提供实例的【批量资源续费】、【设置自动续费】、【设置统一到期日】、【取消不续费】等功能 ，详见 <a href="https://cloud.tencent.com/document/product/555/7454" target="_blank">续费管理</a>。
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb
-[3]:	https://www.qcloud.com/document/product/378/3629
-[4]:	https://www.qcloud.com/document/product/236/8458
-[5]:    https://www.qcloud.com/document/product/213/5227
-[6]:    https://www.qcloud.com/document/product/236/7913
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb
+[3]:	https://cloud.tencent.com/document/product/378/3629
+[4]:	https://cloud.tencent.com/document/product/236/8458
+[5]:    https://cloud.tencent.com/document/product/213/5227
+[6]:    https://cloud.tencent.com/document/product/236/7913
 
 
 [image-1]:  https://mc.qcloudimg.com/static/img/c5a7e2e50a04631d861d899c1e71598b/step1.png

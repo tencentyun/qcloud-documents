@@ -8,7 +8,7 @@
 
 ## 云服务器无监控数据
 
-无监控数据可能由于云服务器未安装[监控组件 Agent](https://www.qcloud.com/doc/product/248/2258)导致，具体原因可通过以下步骤排查：
+无监控数据可能由于云服务器未安装[监控组件 Agent](https://cloud.tencent.com/doc/product/248/2258)导致，具体原因可通过以下步骤排查：
 
 1. 判断是否安装barad_agent
 

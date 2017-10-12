@@ -30,11 +30,11 @@
 
 为了简化容器镜像服务权限管理，容器镜像服务内置了两个预设策略:
 
-* [镜像仓库（CCR）全读写访问权限](https://console.qcloud.com/cam/policy/detail/419082&QcloudCCRFullAccess&2)
+* [镜像仓库（CCR）全读写访问权限](https://console.cloud.tencent.com/cam/policy/detail/419082&QcloudCCRFullAccess&2)
 
     该预设策略配置了容器镜像服务所有权限，如果协作者关联该预设策略后，将与开发商拥有相同的镜像仓库权限。 详情请查看[权限列表](#权限列表)。
 
-* [镜像仓库（CCR）只读访问权限](https://console.qcloud.com/cam/policy/detail/419084&QcloudCCRReadOnlyAccess&2)
+* [镜像仓库（CCR）只读访问权限](https://console.cloud.tencent.com/cam/policy/detail/419084&QcloudCCRReadOnlyAccess&2)
 
     该预设策略包含了容器镜像服务只读操作的权限，如果协作者在容器镜像服务中 **只** 关联了该预设策略，则以下操作将被禁止：
     * `docker push` 推送镜像
@@ -61,7 +61,7 @@
 1. 创建自定义策略（[CAM文档](https://cloud.tencent.com/document/product/598/10601#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.AD.96.E7.95.A5))，
 
     * 使用开发商账号登录腾云讯-控制台
-    * 进入[CAM自定义策略管理页面](https://console.qcloud.com/cam/policy/custom)，点击“新建自定义策略”按钮打开“选择策略创建方式”对话框
+    * 进入[CAM自定义策略管理页面](https://console.cloud.tencent.com/cam/policy/custom)，点击“新建自定义策略”按钮打开“选择策略创建方式”对话框
 
         ![选择创建策略方式][6]
 

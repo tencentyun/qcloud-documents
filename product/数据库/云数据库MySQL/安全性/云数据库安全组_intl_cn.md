@@ -56,13 +56,13 @@
 ## 操作指南
 
 ### 快速入门
-[安全组](https://www.qcloud.com/doc/product/213/500)是腾讯云提供的实例级别防火墙，可以对云数据库进行入/出流量控制。
+[安全组](https://cloud.tencent.com/doc/product/213/500)是腾讯云提供的实例级别防火墙，可以对云数据库进行入/出流量控制。
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)，点击导航条【云服务器】选项卡，在左导航窗格中，单击【安全组】。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击导航条【云服务器】选项卡，在左导航窗格中，单击【安全组】。
 
 2) 单击【新建】按钮，输入安全组的名称（例如 my-security-group），选择 模板 创建或 自定义 创建，确认出入站规则后，点击创建。
 
-3) 进入[云数据库控制台](https://console.qcloud.com/cdb),在实例列表选中需要的实例-点击【管理】，选择【安全组】标签页-点击【配置安全组】，选择需要绑定的安全组，即可完成安全组绑定云数据库的操作。 
+3) 进入[云数据库控制台](https://console.cloud.tencent.com/cdb),在实例列表选中需要的实例-点击【管理】，选择【安全组】标签页-点击【配置安全组】，选择需要绑定的安全组，即可完成安全组绑定云数据库的操作。 
 
 或
 4）您还可以在新购实例时，选择安全组绑定。
@@ -72,7 +72,7 @@
 
 ### 创建安全组
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -82,7 +82,7 @@
 
 ### 删除安全组
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -92,7 +92,7 @@
 
 ### 克隆安全组
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -102,7 +102,7 @@
 
 ### 向安全组中添加规则
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -114,7 +114,7 @@
 
 ### 导入导出安全组规则
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 

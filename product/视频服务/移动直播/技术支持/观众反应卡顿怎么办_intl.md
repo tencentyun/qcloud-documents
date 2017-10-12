@@ -43,7 +43,7 @@ You can obtain the **CPU utilization for the current push SDK** and **overall CP
  If the overall CPU utilization for the system exceeds 80%, video capture and encoding may be affected; if the CPU utilization reaches 100%, the VJ end may be terribly stuck and it is impossible for the viewers to have a smooth viewing experience.
 
 - **3.2.2 Identify the high CPU consumers**
-On an LVB App, in addition to RTMP SDK, many other features such as on-screen comments, floating stars, and interactive text messages can consume some CPU resources. To test and evaluate the CPU utilization for just push SDK, use this [simple DEMO](https://www.qcloud.com/document/product/454/6555).
+On an LVB App, in addition to RTMP SDK, many other features such as on-screen comments, floating stars, and interactive text messages can consume some CPU resources. To test and evaluate the CPU utilization for just push SDK, use this [simple DEMO](https://cloud.tencent.com/document/product/454/6555).
 
 - **3.2.3 Choose a reasonable resolution**
 A higher resolution doesn't always come with better video quality: firstly, a high resolution needs a higher bit-rate to work; a definition with a low bit rate and high resolution is often inferior to that with a high bit rate and a low resolution. Secondly, a high resolution such as 1280*720 does not have an obvious advantage on a 5'' phone screen. Only when the LVB is played full-screen on a PC can the resolution of 1280*720 make a significant difference than 960 * 540.
@@ -71,7 +71,7 @@ Once BITRATE >= NET_SPEED, the audio/video data produced by the encoder will bui
 ![](//mc.qcloudimg.com/static/img/319d6197da603ca15ffc6e2afd778e48/image.png)
 
 ![](//mc.qcloudimg.com/static/img/e241222c0591e6b5ffa41738a8a35d62/image.png)
- > PS: The figure similar to the above can be found in ["LVB Console" -> "Quality Monitor"](https://console.qcloud.com/live/livesdk).
+ > PS: The figure similar to the above can be found in ["LVB Console" -> "Quality Monitor"](https://console.cloud.tencent.com/live/livesdk).
 
 
 ### 4.2 Solutions
@@ -81,7 +81,7 @@ In a scenario where video quality is important, it's the best practice to notify
  For more information on how to do this, please see the **Event Handling** section in RTMP SDK's documentation about push. VJs generally are not aware of the upstream clog until receiving a notification from the App or a viewer. Therefore, it is recommended to remind the VJ about the network condition if the App receives multiple **PUSH_WARNING_NET_BUSY** events from RTMP SDK in a short time.
 
 - **4.2.2 Proper encoding settings**
-The following shows the recommended encoding settings (suitable for Beauty Show LVB. For more information, please see [How to Improve Video Quality?](https://www.qcloud.com/document/product/454/7955)). You can set deferent video quality options using API setVideoQuality of TXLivePush.
+The following shows the recommended encoding settings (suitable for Beauty Show LVB. For more information, please see [How to Improve Video Quality?](https://cloud.tencent.com/document/product/454/7955)). You can set deferent video quality options using API setVideoQuality of TXLivePush.
 
 | Option  | Resolution | FPS | Bit Rate | Scenario | 
 |:-------:|---------|---------|:-------:|---------|
@@ -92,7 +92,7 @@ The following shows the recommended encoding settings (suitable for Beauty Show 
 - **4.2.3 Enable traffic control**
 Some clients may complain: "Any user can use our App. It's impossible to control their network conditions."
 
- If VJs' upstream bandwidth varies significantly, it's recommended to enable network adaption by referring to the documentation for [iOS](https://www.qcloud.com/document/product/454/7884#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F) and [Android](https://www.qcloud.com/document/product/454/7890#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F).
+ If VJs' upstream bandwidth varies significantly, it's recommended to enable network adaption by referring to the documentation for [iOS](https://cloud.tencent.com/document/product/454/7884#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F) and [Android](https://cloud.tencent.com/document/product/454/7890#4.-.E6.99.BA.E8.83.BD.E6.8E.A7.E9.80.9F).
 
  However, the solution described in **4.2.1 Notify VJ of network condition** is the preferred one. After all, it's unrealistic to ensure the smoothness and high definition while achieving a high upstream bandwidth.
 

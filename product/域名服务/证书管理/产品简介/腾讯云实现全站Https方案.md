@@ -8,24 +8,24 @@
 腾讯云SSL证书服务支持域名型（DV）SSL证书的免费申请，**企业型（OV）、企业增强型（EV）等付费证书目前支持线下选购申请**。
 
 ### 1.1 域名型证书申请入口
-进入 [SSL证书管理控制台](https://console.qcloud.com/ssl) ，点击【申请证书】
+进入 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl) ，点击【申请证书】
 
 ![](https://mc.qcloudimg.com/static/img/4efe78b416cc29cacba1cbc2ba475bb6/2.png)
 
 ### 1.2 填写提交申请
 
-填写申请域名，注意免费证书目前不支持一级域名申请（例如qcloud.com），请填写例如www.qcloud.com，demo.test.qlcoud.com形式二级、三级等域名。
+填写申请域名，注意免费证书目前不支持一级域名申请（例如qcloud.com），请填写例如cloud.tencent.com，demo.test.qlcoud.com形式二级、三级等域名。
 如果需要部署到
 
 ![](https://mc.qcloudimg.com/static/img/4961164252cd488c9695475e173c0b8c/4.png)
 
 ### 1.3 DNS验证域名身份
 
-证书默认支持手动DNS验证，验证方法可查看[详情](https://www.qcloud.com/doc/product/400/4142#2.-.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
+证书默认支持手动DNS验证，验证方法可查看[详情](https://cloud.tencent.com/doc/product/400/4142#2.-.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
 
 ![](https://mc.qcloudimg.com/static/img/2f90c6cdf51ec98ba0fd7a112a891e13/5.png)
 
-如果所申请域名已成功在 [云解析平台](https://console.qcloud.com/cns/domains) 进行解析，可以支持自动DNS验证，验证方法可查看[详情](https://www.qcloud.com/doc/product/400/4142#1.-.E8.87.AA.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
+如果所申请域名已成功在 [云解析平台](https://console.cloud.tencent.com/cns/domains) 进行解析，可以支持自动DNS验证，验证方法可查看[详情](https://cloud.tencent.com/doc/product/400/4142#1.-.E8.87.AA.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
 
 ![](https://mc.qcloudimg.com/static/img/8c10bfb9fa50a520e0b8b45f3b7a9f74/6.png)
 
@@ -35,13 +35,13 @@
 
 ### 1.4 提交申请失败
 
-如遇到下图所示弹窗，是提交域名未通过CA机构安全审核，具体原因参考[安全审核失败原因](https://www.qcloud.com/doc/product/400/5439)。
+如遇到下图所示弹窗，是提交域名未通过CA机构安全审核，具体原因参考[安全审核失败原因](https://cloud.tencent.com/doc/product/400/5439)。
 
 ![](https://mc.qcloudimg.com/static/img/25451d24cf3c717454830a44925642ec/1.png)
 
 ## 2. 部署证书到负载均衡
 ### 2.1 选择证书
-首先成功申请获取证书（参考[如何免费申请域名型证书](https://www.qcloud.com/document/product/400/6814)），或者选择上传的证书，展开【更多】操作，选择【部署到负载均衡】。
+首先成功申请获取证书（参考[如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)），或者选择上传的证书，展开【更多】操作，选择【部署到负载均衡】。
 ![](https://mc.qcloudimg.com/static/img/f63593c744fe88e386ce1157526b468f/1.png)
 
 ### 2.2 选择LB实例
@@ -66,12 +66,12 @@
 ![](https://mc.qcloudimg.com/static/img/973e75c6a0b1672f1a1f11f9667bf6f0/image.png)
 
 ### 3.2 使用腾讯云托管证书
-可以在 [SSL 证书管理](https://console.qcloud.com/ssl) 页面申请证书成功颁发后，选择【腾讯云托管证书】，即可看到SSL证书管理中对该域名可用的证书列表：
+可以在 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 页面申请证书成功颁发后，选择【腾讯云托管证书】，即可看到SSL证书管理中对该域名可用的证书列表：
 
 ![](https://mc.qcloudimg.com/static/img/8e6c6afcfa701fa4cdd3dc0711780c2b/image.png)
 
 + 从证书列表中选择要使用的证书；
-+ 证书列表中展示格式为 证书ID（备注），可前往 [SSL 证书管理](https://console.qcloud.com/ssl) 查看更多证书详情。
++ 证书列表中展示格式为 证书ID（备注），可前往 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 查看更多证书详情。
 
 ### 3.3 回源方式
 配置证书后，您可以选择 CDN 节点回源站获取资源时的回源方式：

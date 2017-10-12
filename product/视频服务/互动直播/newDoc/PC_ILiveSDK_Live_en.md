@@ -53,7 +53,7 @@ if (nRet != NO_ERR)
 ```
 
 ## Login
-You can use messaging, interactive video and other features only after login. User ID and signature are required for login. Signature is provided by [Tencent Login Service](https://www.qcloud.com/document/product/269/1507).
+You can use messaging, interactive video and other features only after login. User ID and signature are required for login. Signature is provided by [Tencent Login Service](https://cloud.tencent.com/document/product/269/1507).
 
 | API | Description |
 |---|---|
@@ -83,7 +83,7 @@ GetILive()->login(userId, userSig, OniLiveLoginSuccess, OniLiveLoginError, NULL)
 ## Audio/Video Permission Management
 
 At business layer, the focus is placed on the audio/video permissions of room members. Only VJs or the viewers who need to join the broadcasting are granted the permission to send upstream audio and video. Before joining or creating a room, you need to enter the correct permission (see "Join/Create a Room" below). Members are allowed to change their permissions in the room.
-You can go to [Tencent Cloud Console](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/SPEARConfig.md) to configure the roles and relevant permissions to meet your business needs. Tencent CVMs assign different [access machines](https://www.qcloud.com/document/product/268/7651) based on the permissions of room members. Incorrectly configured permissions can cause unnecessary bandwidth costs and abnormal upstream data at viewer end.
+You can go to [Tencent Cloud Console](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/SPEARConfig.md) to configure the roles and relevant permissions to meet your business needs. Tencent CVMs assign different [access machines](https://cloud.tencent.com/document/product/268/7651) based on the permissions of room members. Incorrectly configured permissions can cause unnecessary bandwidth costs and abnormal upstream data at viewer end.
 
 ## Create a Room
 

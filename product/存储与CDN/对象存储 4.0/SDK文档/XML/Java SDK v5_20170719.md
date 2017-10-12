@@ -30,7 +30,7 @@ v5 版本 COS Java SDK 适用于 JDK 1.7 及以上版本。
 ```java
 // 1 初始化身份信息
 COSCredentials cred = new BasicCOSCredentials("1250000", "AKIDXXXXXXXX", "1A2Z3YYYYYYYYYY");
-// 2 设置bucket的区域, COS地域的简称请参照 https://www.qcloud.com/document/product/436/6224
+// 2 设置bucket的区域, COS地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 // 3 生成cos客户端
 COSClient cosClient = new COSClient(cred, clientConfig);

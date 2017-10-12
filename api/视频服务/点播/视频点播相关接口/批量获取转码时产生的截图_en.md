@@ -51,7 +51,7 @@ Input
 <pre>
   https://domain/v2/index.php?Action=DescribeAutoScreenShot
   &fileId=8782277315343726561
-  &<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+  &<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 
 Output

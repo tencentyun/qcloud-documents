@@ -15,7 +15,7 @@ Glossary:
 - [Virtual Private Cloud](/doc/product/215/4927): Customized virtual cyberspace, logically isolated from other resources
 - [Elastic IP](/doc/product/213/5733): Static public IP designed specifically for dynamic network to meet demands for fast troubleshooting
 - [Metadata](/doc/product/213/4934): Tag for identifying instance sources within the instances
-- [Console](https://console.qcloud.com/): Web-based user interface
+- [Console](https://console.cloud.tencent.com/): Web-based user interface
 
 
 If you're new to Tencent Cloud CVM, please refer to [Quick start for Windows CVM](/doc/product/213/2764) and [Quick start for Linux CVM](/doc/product/213/2936).
@@ -24,12 +24,12 @@ If you're new to Tencent Cloud CVM, please refer to [Quick start for Windows CVM
 ## Related Services
 
 - [Service Market](http://market.qcloud.com/): You may use a template to enable new CVM. The preset template may include any environment or application that you want to be included in the CVM during initialization. Tencent Cloud provides a large number of approved vendor templates to help users quickly build environment.
-- [Cloud Load Balance](https://www.qcloud.com/doc/product/214): may realize automatic distribution of request traffic from clients across multiple CVM instances. 
-- [Auto Scaling](https://www.qcloud.com/doc/product/377): may automatically increase or decrease the quantity of server clusters at regular time or based on specific conditions. 
-- [Cloud Monitor](https://www.qcloud.com/doc/product/248): can be used to monitor operation statistical data for CVM instances.
-- [Cloud Database](https://www.qcloud.com/doc/product/236): can be used to deploy your relational database on the cloud. 
+- [Cloud Load Balance](https://cloud.tencent.com/doc/product/214): may realize automatic distribution of request traffic from clients across multiple CVM instances. 
+- [Auto Scaling](https://cloud.tencent.com/doc/product/377): may automatically increase or decrease the quantity of server clusters at regular time or based on specific conditions. 
+- [Cloud Monitor](https://cloud.tencent.com/doc/product/248): can be used to monitor operation statistical data for CVM instances.
+- [Cloud Database](https://cloud.tencent.com/doc/product/236): can be used to deploy your relational database on the cloud. 
 
 
 ## Pricing of CVM
 
-For pricing details of CVMs, see [here](https://www.qcloud.com/doc/product/213/2176).
+For pricing details of CVMs, see [here](https://cloud.tencent.com/doc/product/213/2176).

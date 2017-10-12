@@ -26,5 +26,5 @@ gzip_comp_level 2;
 ```
 4. 使用curl命令测试Gzip是否成功开启
 ```
-curl -I -H "Accept-Encoding: gzip, deflate" "http://www.qcloud.com/example/"
+curl -I -H "Accept-Encoding: gzip, deflate" "http://cloud.tencent.com/example/"
 ```

@@ -77,7 +77,7 @@ phpinfo();
 ## PHP 5.3 及之前版本安装
 <span id="jump1">  </span>
 >注意：
-> http://windows.php.net/download/ 官方下载地址已不再提供 PHP 5.3 及之前版本的下载，若仍需使用 PHP 5.3 及之前版本，请在本地下载后上传文件至云服务器或在云服务器网络上搜索。上传文件详见 [这里](https://www.qcloud.com/document/product/213/2761) 。
+> http://windows.php.net/download/ 官方下载地址已不再提供 PHP 5.3 及之前版本的下载，若仍需使用 PHP 5.3 及之前版本，请在本地下载后上传文件至云服务器或在云服务器网络上搜索。上传文件详见 [这里](https://cloud.tencent.com/document/product/213/2761) 。
 
  1. 在云服务器中打开 PHP 安装包。
 

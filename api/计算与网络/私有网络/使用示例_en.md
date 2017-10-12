@@ -17,7 +17,7 @@ The final request should be:
 
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=CreateVpc
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &vpcName=bbbtest
   &cidrBlock=192.168.0.0/16
   &subnetSet.0.subnetName=wikitest

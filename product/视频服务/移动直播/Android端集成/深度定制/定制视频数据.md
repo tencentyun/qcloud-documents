@@ -80,8 +80,8 @@ mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() 
 ```
 
 - **OpenGL 相关参考代码**
-如果您在调整画面尺寸遇到问题，可以参考下完整的示例代码 - [调整画面尺寸](https://www.qcloud.com/document/product/454/9723)
-如果您在使用 OpenGL ES 对视频数据进行二次处理没有思路，可以参考下示例代码 - [OpenGL ES 处理数据](https://www.qcloud.com/document/product/454/9724)
+如果您在调整画面尺寸遇到问题，可以参考下完整的示例代码 - [调整画面尺寸](https://cloud.tencent.com/document/product/454/9723)
+如果您在使用 OpenGL ES 对视频数据进行二次处理没有思路，可以参考下示例代码 - [OpenGL ES 处理数据](https://cloud.tencent.com/document/product/454/9724)
 
 ### 方案二：获取 YUV 数据（仅适用软解码播放）
 

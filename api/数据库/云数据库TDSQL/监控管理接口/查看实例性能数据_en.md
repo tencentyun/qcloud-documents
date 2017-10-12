@@ -4,7 +4,7 @@ This API (CdbTdsqlGetPerformanceInfo) is used to view the current performance da
 Domain for API request: tdsql.api.qcloud.com
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see [Common Request Parameters](https://www.qcloud.com/document/api/213/6976
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976
 ). The Action field for this API is CdbTdsqlGetPerformanceInfo.
 
 | Parameter Name | Required | Type | Description |
@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 | endTime | Yes | date | End date. Format: yyyy-mm-dd |
 
 ## 3. Output Parameters
-The composition of returned values for common parameters can be found in [Returned Values](https://www.qcloud.com/document/api/213/6976). The following only provides the formats of returned values for the "data" field.
+The composition of returned values for common parameters can be found in [Returned Values](https://cloud.tencent.com/document/api/213/6976). The following only provides the formats of returned values for the "data" field.
 
 Returned values are in the form of array of performance data.
 Data values for different time periods are returned in chronological order. If a value is same over consecutive time periods, the value is returned in the form of [number of periods, value]. For example, [2,3] indicates the value is 3 over two continuous time periods. The length of each time period depends on the difference between the start time and end time of the request. The length of time period is 5 minutes for requests shorter than a day, 30 minutes for requests longer than a day but shorter than 7 days, and 2 hours for those longer than 7 days.
@@ -60,7 +60,7 @@ The following are the common error codes for this API. Other error codes not lis
 Input
 <pre>
 https://tdsql.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &Action=CdbTdsqlGetPerformanceInfo
 &cdbInstanceId=40732
 &startTime=2016-07-17

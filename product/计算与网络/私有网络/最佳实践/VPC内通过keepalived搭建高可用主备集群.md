@@ -30,8 +30,8 @@
 
 > 注意：您在 `/etc/init.d/keepalived start` 或 `service network restart`执行后** 可在主服务器内看到该内网IP（参见第三步）.或者，您在分配内网IP后，在云服务器内配置该内网IP，**点击查看[分配内网IP（云服务器系统内）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911)
 
-1) 通过云`API:DescribeNetworkInterfaces`得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络 ID**和**云服务器的 ID**即可）。[点击查看 API 详情](https://www.qcloud.com/doc/api/245/4814)
-2) 通过云`API:AssignPrivateIpAddresses`在弹性网卡上申请内网 VIP 的，申请 VIP 操作可参考以下  Python 代码：[点击查看 API 详情](https://www.qcloud.com/doc/api/245/4817)
+1) 通过云`API:DescribeNetworkInterfaces`得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络 ID**和**云服务器的 ID**即可）。[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4814)
+2) 通过云`API:AssignPrivateIpAddresses`在弹性网卡上申请内网 VIP 的，申请 VIP 操作可参考以下  Python 代码：[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4817)
 ```
         
 #!/usr/bin/python
@@ -103,7 +103,7 @@ vrrp_instance VI_1 {
 ### 步骤 4.（可选）给 VIP 分配外网 IP
 有两种控制台操作和云API操作两种方式：
 - 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。
-- 云API：[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)。
+- 云API：[点击查看具体调用方式](https://cloud.tencent.com/doc/api/229/1377)。
 
 ### 步骤 5.   keepalived.conf 配置切换脚本
 主备切换时，新切换为主的设备通过 notify 调用 vip.py 进行切换。
@@ -157,7 +157,7 @@ step1: 下载python-sdk: 网页操作https://github.com/QcloudApi/qcloudapi-sdk-
 step2: 将下载的sdk包放在/etc/keepalived并解压。修改解压后的文件夹名称为src，并在src文件夹下创建名为__init__.py的空白文件
 step3: 将以下python代码保存成vip.py放到sdk的src同级目录, 编辑好内容试用 
 
-具体参数参考: https://www.qcloud.com/doc/api/245/1361
+具体参数参考: https://cloud.tencent.com/doc/api/245/1361
 """
 
 

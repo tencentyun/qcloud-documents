@@ -1,4 +1,4 @@
-Elastic public IP addresses are static IPs designed for dynamic cloud computing. It is a fixed public IP of a certain area. With flexible public IP addresses, you can quickly remap addresses to another CVM instance in your account (or [NAT Gateway](https://www.qcloud.com/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) instance), thereby blocking instance failures.
+Elastic public IP addresses are static IPs designed for dynamic cloud computing. It is a fixed public IP of a certain area. With flexible public IP addresses, you can quickly remap addresses to another CVM instance in your account (or [NAT Gateway](https://cloud.tencent.com/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) instance), thereby blocking instance failures.
 
 Your elastic IP address is associated with a Tencent Cloud account, not with a CVM instance, and it remains associated with your Tencent Cloud account until you choose to explicitly release it or if you owe fees for more than 7 days.
 
@@ -45,7 +45,7 @@ When an elastic IP has been purchased, but <font color="red">is not yet bound to
 
 ## Apply for elastic public IP
 
-1) Open CVM [CVM console](https://console.qcloud.com/cvm).
+1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
 	
 2) In the navigation pane, click Elastic Public IP.
 
@@ -55,7 +55,7 @@ When an elastic IP has been purchased, but <font color="red">is not yet bound to
 
 ## Binding elastic public IP to cloud product
 
-1) Open CVM [CVM console](https://console.qcloud.com/cvm).
+1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) In the navigation pane, click Elastic Public IP.
 
@@ -65,7 +65,7 @@ When an elastic IP has been purchased, but <font color="red">is not yet bound to
 
 ## Unbind elastic public IP to cloud product
 
-1) Open CVM [CVM console](https://console.qcloud.com/cvm).
+1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) In the navigation pane, click Elastic Public IP.
 
@@ -76,7 +76,7 @@ When an elastic IP has been purchased, but <font color="red">is not yet bound to
 At this point, the cloud product instance may be assigned a new public IP, and the specific details will be based on differences in cloud resources, with the actual situation being the correct one.
 
 ## Release for elastic public IP
-1) Open CVM [CVM console](https://console.qcloud.com/cvm).
+1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) In the navigation pane, click Elastic Public IP.
 

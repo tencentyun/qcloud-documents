@@ -15,7 +15,7 @@ Domain for private network API request: <font style="color:red">cmq-topic-region
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/431/5883).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/431/5883).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -25,7 +25,7 @@ The following request parameter list only provides API request parameters. For o
 | endpoint | No | String | endpoint used to receive notification. It varies with the protocol: for HTTP, endpoint must start with "http://", and host can be either domain or IP; for queue, queueName is entered here. |
 | notifyStrategy | No | String | Retry policy for the CMQ push server in case of errors when pushing messages to the endpoint. Available values are: 1) BACKOFF_RETRY (backoff retry). Re-push the message at regular intervals. Discard the message after a certain number of reties have been committed, then continue pushing the next message; 2) EXPONENTIAL_DECAY_RETRY (exponential decay retry). The interval between retries is increased exponentially, for example, retry in 1s first, then 2s, 4s, 8s...Since the cycle of a Topic message is one day, the retry operations will last for at most one day before the message is discarded. Default is EXPONENTIAL_DECAY_RETRY. |
 | notifyContentFormat | No | String | Notification content format. Available values are: 1) JSON; 2) SIMPLIFIED, i.e. raw format. If the protocol is queue, the value must be SIMPLIFIED. If the protocol is HTTP, both values are available. Default is JSON. |
-| filterTag.n | No | String | Message body. Message tag (used to filter message). There can be up to 5 tags, each containing no more than 16 characters. It is used in combination with the msgTag parameter of [(Batch)PublishMessage](https://www.qcloud.com/document/api/406/7411). Rules: 1) If filterTag is not configured, the subscribers will receive all the messages published on Topic no matter whether msgTag is configured or not; 2) If filterTag array is configured with values, the subscribers will receive messages published on Topic only if at lease one of the values in the array exists in the msgTag array as well (that is, filterTag and msgTag intersect with each other); 3) If filterTag array is configured with values but msgTag is not configured, the subscribers will not receive any messages published on Topic. This can be considered a special case of 2), when there is no intersection between filterTag and msgTag. The design concept of the rules is based on the wills of the subscribers. |
+| filterTag.n | No | String | Message body. Message tag (used to filter message). There can be up to 5 tags, each containing no more than 16 characters. It is used in combination with the msgTag parameter of [(Batch)PublishMessage](https://cloud.tencent.com/document/api/406/7411). Rules: 1) If filterTag is not configured, the subscribers will receive all the messages published on Topic no matter whether msgTag is configured or not; 2) If filterTag array is configured with values, the subscribers will receive messages published on Topic only if at lease one of the values in the array exists in the msgTag array as well (that is, filterTag and msgTag intersect with each other); 3) If filterTag array is configured with values but msgTag is not configured, the subscribers will not receive any messages published on Topic. This can be considered a special case of 2), when there is no intersection between filterTag and msgTag. The design concept of the rules is based on the wills of the subscribers. |
 | bindingKey.n | Yes | String Array | There can be up to 5 bindingKeys, each with a length limit of 64 Bytes. This field indicates the filtering policy used for the subscribers to receive messages. Each bindingKey may contain up to 15 ".", i.e. 16 phrases at most. |
 ## 3. Output Parameters
 
@@ -63,7 +63,7 @@ The following request parameter list only provides API request parameters. For o
 
 </tbody></table>
 
-Note: The error codes listed in the above table are specific to the API. If the error code you are looking for is not here, you may find it in the [Common Error Codes](https://www.qcloud.com/document/product/406/5903).
+Note: The error codes listed in the above table are specific to the API. If the error code you are looking for is not here, you may find it in the [Common Error Codes](https://cloud.tencent.com/document/product/406/5903).
 
 ## 4. Example
 

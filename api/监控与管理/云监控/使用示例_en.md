@@ -4,7 +4,7 @@ In order to help you get started with Cloud Monitor APIs quickly, we provide an 
 
 To query the CPU utilization of a CVM, the values of namespace and metricName are qce/cvm and cpu_usage respectively.
 The Action field of common request parameters is GetMetricStatistics. The request parameters of this API are shown in the following table:
-The metric dimensions.n.name for querying a CVM is always instanceId. The value of dimensions.n.value can be queried by calling the API <a href=https://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8>View List of Instances</a>(DescribeInstances).
+The metric dimensions.n.name for querying a CVM is always instanceId. The value of dimensions.n.value can be queried by calling the API <a href=https://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8>View List of Instances</a>(DescribeInstances).
 In the input parameters, period is 300 s and statistics is avg by default, which means getting the average CPU utilization within 5 minutes.
 The startTime and endTime by default are 00:00:00 and the current time of that day respectively.
 

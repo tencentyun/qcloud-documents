@@ -11,7 +11,7 @@
 3. 获取 URL。
 ![](//mc.qcloudimg.com/static/img/ddf7f77cdd088087228f5da010146e3e/image.png)
 
-#### 方式二：通过API获取下载链接，[点击查看API文档说明](https://www.qcloud.com/doc/api/253/5125)
+#### 方式二：通过API获取下载链接，[点击查看API文档说明](https://cloud.tencent.com/doc/api/253/5125)
 获取到的URL格式如下（以下是样例）：
 ```
 http://gz.dl.cdb.qcloud.com/c85be5fa579da84af33f0efd49b1b7cd?appid=8888888888&time=1478778522&sign=ZDxBCfRuFXDITwXY4C7%2BkTDAlDE%3D

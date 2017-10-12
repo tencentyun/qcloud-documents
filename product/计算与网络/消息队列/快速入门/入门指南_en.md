@@ -14,7 +14,7 @@ For ease of use, CMQ classifies users' actions, queue operations, and topic oper
 Please note that all the categories are non-thread-safe. If you want to use it for multi-threading, you'd better instantiate your object for each thread.
 
 
-**[Click to download SDK>>](https://www.qcloud.com/document/product/406/6107)**
+**[Click to download SDK>>](https://cloud.tencent.com/document/product/406/6107)**
 
 
 ## 2. Queue Model

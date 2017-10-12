@@ -2,7 +2,7 @@ In addition to monitoring data collection, Cloud Monitor also provides an intuit
 
 ## Viewing the Monitoring Charts of a Single Resource
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "Cloud Product Monitoring", and then select the type of the product you wish to view.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "Cloud Product Monitoring", and then select the type of the product you wish to view.
 > Note: If there is no desired product, you can check whether there is a monitoring tab in the corresponding product console and obtain relevant data there.
 
 2) Select a specific object to be monitored, and click object ID to enter the details page of monitor.

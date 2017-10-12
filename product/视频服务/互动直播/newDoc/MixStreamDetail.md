@@ -9,7 +9,7 @@
 ![](https://mc.qcloudimg.com/static/img/20dcad307192885fca4fd604b1fafad0/t610.png)
 
 ### 如何混流
-对于在使用腾讯视频云业务(包括直播、互动直播)的用户，都可以通过[接口](https://www.qcloud.com/document/product/267/8832)实现在云端混流
+对于在使用腾讯视频云业务(包括直播、互动直播)的用户，都可以通过[接口](https://cloud.tencent.com/document/product/267/8832)实现在云端混流
 
 ### 流ID
 混流的基础为视频流，对互动直播来说，直播码就是视频流id。
@@ -23,7 +23,7 @@
 
 播放地址=传输协议://BIZID.liveplay.myqcloud.com/live/直播码[.格式]
 ```
-详见[直播码模式下旁路直播](https://www.qcloud.com/document/product/268/8560)
+详见[直播码模式下旁路直播](https://cloud.tencent.com/document/product/268/8560)
 
 ### 混流接口
 混流接口实际是一个基于HTTP协议的Post请求
@@ -44,7 +44,7 @@ sign|安全签名|string|sign = MD5(key + t) ，即把加密key 和 t 进行字�
 
 #### Post内容
 
-Post内部为Json格式的混流参数,详见[接口](https://www.qcloud.com/document/product/267/8832)
+Post内部为Json格式的混流参数,详见[接口](https://cloud.tencent.com/document/product/267/8832)
 
 其中比较重要参数：
 
@@ -63,7 +63,7 @@ mix_stream_template_id|混流模版|int|输入模版ID。目前两输入源支�
 [BIZID]_MIX_[底流id]_[混流数量]_[时间戳]
 ```
 说明:
-- BIZID: 业务id(可以腾讯云后台[直播管理](https://console.qcloud.com/live/livecodemanage)查看)
+- BIZID: 业务id(可以腾讯云后台[直播管理](https://console.cloud.tencent.com/live/livecodemanage)查看)
 - MIX: 固定前缀，表明该流为混流产生
 - 底流id: 作为混流底流(背景主流)的流id(如果超过80字节，取前80字节)
 - 混流数量: 若该视频流为两路视频流混合产生则为2，以此类推

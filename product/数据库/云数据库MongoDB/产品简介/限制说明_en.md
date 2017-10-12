@@ -22,7 +22,7 @@ You can set up a priority to read from Secondary first in your driver after conn
 
 ### 2.2 Sharding Cluster
 
-[Sharding Introduction](https://www.qcloud.com/document/product/240/8333)
+[Sharding Introduction](https://cloud.tencent.com/document/product/240/8333)
 
 
 

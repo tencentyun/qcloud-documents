@@ -10,7 +10,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------| 
-| vpcId | No | String | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-amhnnao5. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| vpcId | No | String | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-amhnnao5. Can be queried via the API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
 | sslVpnId | No | String | SSL VPN gateway ID assigned by the system, for example: vpngw-dystbrkv.  |
 | sslVpnName | No | String | SSL VPN gateway name. Fuzzy search is supported. |
 | offset | No | Int | Offset of initial line. Default is 0.  |
@@ -39,14 +39,14 @@ The following request parameter list only provides API request parameters. Commo
 | sslVpnSet.n.createTime | String | Creation time of VPN gateway, for example: 2015-11-06 20:55:12.  |
 
 ## 4. Error Codes
-This API does not have service error codes. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
+This API does not have service error codes. For common error codes, see <a href="https://cloud.tencent.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
 
 ## 5. Example
  
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeSSLVpn
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &openid=12345
 &openkey=12345
 &pf=qzone

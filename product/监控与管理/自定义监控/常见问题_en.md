@@ -1,6 +1,6 @@
 ## 1. There is no data when I check the monitoring object view in CCM.
 If there is no data on a specific CCM object, please follow the steps below for troubleshooting:
-- Check whether you have reported the data. If not, you can report the data by referring to the API [User Data Reporting](https://www.qcloud.com/doc/product/397/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E4%B8%8A%E6%8A%A5).
+- Check whether you have reported the data. If not, you can report the data by referring to the API [User Data Reporting](https://cloud.tencent.com/doc/product/397/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E4%B8%8A%E6%8A%A5).
 - If so, please check whether the data is successfully reported.
 - If there is no problem in the above steps, please submit a ticket.
 

@@ -36,7 +36,7 @@ The following description is based on Redis instance on CVM. The same is applica
 | Port | Port number of source instance | The migration task will access the source instance service | Yes |
 | Password | Source instance password | Used for authentication when accessing the source instance service | Yes |
 | Instance ID | Destination instance ID | Data is synchronized to the destination instance | Yes |
-Note: If your source instance doesn't have a password, please [Contact Us](https://console.qcloud.com/workorder/category/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS) to configure password-free access
+Note: If your source instance doesn't have a password, please [Contact Us](https://console.cloud.tencent.com/workorder/category/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS) to configure password-free access
 ![](https://mc.qcloudimg.com/static/img/e237dfb8238ed627026185359cccf781/2.png)
 
 #### 2.3 Parameter Configuration

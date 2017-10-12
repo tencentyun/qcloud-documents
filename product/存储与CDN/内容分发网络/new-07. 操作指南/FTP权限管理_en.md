@@ -2,7 +2,7 @@ There may be multiple projects running in parallel in the same Tencent Cloud acc
 
 <font style="color:red">Note: Currently, FTP hosting source is no longer available to new users. Existing users can continue to use it.</font>
 
-Log in to [CDN Console](https://console.qcloud.com/cdn), select **Hosted Sources** menu on the left, and then select **Hosting Source Access Management**. You will be directed to the function page for hosting source access management:
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn), select **Hosted Sources** menu on the left, and then select **Hosting Source Access Management**. You will be directed to the function page for hosting source access management:
 ![](https://mc.qcloudimg.com/static/img/e426374f4f102dd8c976deafd940f4ac/1.png)
 
 ### Create a Sub-account

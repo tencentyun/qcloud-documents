@@ -11,7 +11,7 @@ you can use the APIs of IMSDK and AVSDK to customize signaling, groups and audio
 TIMManager imManager = ILiveSDK.getTIMManager();
 ```
 
-For detailed information about Android IMSDK APIs, please click [here](https://www.qcloud.com/document/product/269/1557).
+For detailed information about Android IMSDK APIs, please click [here](https://cloud.tencent.com/document/product/269/1557).
 
 ##### Get AV Context Instance
 
@@ -19,7 +19,7 @@ For detailed information about Android IMSDK APIs, please click [here](https://w
 AVContext avContext = ILiveSDK.getAVContext();
 ```
 
-For detailed information about Android AVSDK APIs, please click [here](https://www.qcloud.com/document/product/268/7685).
+For detailed information about Android AVSDK APIs, please click [here](https://cloud.tencent.com/document/product/268/7685).
 
 * iOS
 
@@ -30,7 +30,7 @@ For detailed information about Android AVSDK APIs, please click [here](https://w
 TIMManager *imManager = [[ILiveSDK getInstance] getTIMManager];
 ```
 
-For detailed information about iOS IMSDK APIs, please click [here](https://www.qcloud.com/document/product/269/1565).
+For detailed information about iOS IMSDK APIs, please click [here](https://cloud.tencent.com/document/product/269/1565).
 
 ##### Get AV Context Instance
 
@@ -38,7 +38,7 @@ For detailed information about iOS IMSDK APIs, please click [here](https://www.q
 QAVContext *avContext = [[ILiveSDK getInstance] getAVContext];
 ```
 
-For detailed information about iOS AVSDK APIs, please click [here](https://www.qcloud.com/document/product/268/7661).
+For detailed information about iOS AVSDK APIs, please click [here](https://cloud.tencent.com/document/product/268/7661).
 
 
 **Notes:** Use above APIs after iLiveSDK has been initialized and logged in.

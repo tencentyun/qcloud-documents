@@ -97,7 +97,7 @@ YourActivity.this.startActivity(intent);
 - 本地签名：SDK中提供了LocalCredentialProvider类来进行本地签名，但是需要用户提供secret_key，这会使得用户将自己的机密信息硬编码到代码中，存在泄漏的风险，因此在您的发布版本中我们强烈建议您不要使用这种方式进行签名。
 - 远程服务器签名：用户需要自己子类化AbsCredentialProvider这个抽象类，实现该类的encrypt方法（实现方式可以参考LocalCredentialProvider），将对secret_key和加密原始串的过程放在远程服务器中，来保证secret_key的安全性。
 
-[签名算法](https://www.qcloud.com/document/product/460/6968)主要包括拼凑原始串和利用secret_key将原始串加密为签名两个步骤，使用本地签名时SDK帮用户实现了这两个步骤，而在远程服务器中签名方式下，SDK帮用户实现了第一步，用户只需要将拼凑好的原始串利用secret_key进行加密即可。
+[签名算法](https://cloud.tencent.com/document/product/460/6968)主要包括拼凑原始串和利用secret_key将原始串加密为签名两个步骤，使用本地签名时SDK帮用户实现了这两个步骤，而在远程服务器中签名方式下，SDK帮用户实现了第一步，用户只需要将拼凑好的原始串利用secret_key进行加密即可。
 代码示例：
 
 ```

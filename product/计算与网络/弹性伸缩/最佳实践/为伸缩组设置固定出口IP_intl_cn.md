@@ -26,7 +26,7 @@
 
 #### **1. 创建VPC**
 
-1. 登录[腾讯云控制台](https://console.qcloud.com/)，点击导航条【私有网络】，或者进入腾讯云[私有网络介绍页中](https://www.qcloud.com/product/vpc.html)的【立即体验】按钮，进入[私有网络控制台](https://console.qcloud.com/vpc/)。
+1. 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击导航条【私有网络】，或者进入腾讯云[私有网络介绍页中](https://cloud.tencent.com/product/vpc.html)的【立即体验】按钮，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/)。
 
 2. 选择列表上方下拉框中的地域，点击【新建】创建私有网络，例如，选择地域“华北地区（北京）”。
 
@@ -37,7 +37,7 @@
 
 #### **2. 创建子网**
 
-1. 登录[腾讯云控制台](https://console.qcloud.com/)，点击导航条【私有网络】，点击左导航栏中的【子网】。选择下拉框中的地域和私有网络。
+1. 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击导航条【私有网络】，点击左导航栏中的【子网】。选择下拉框中的地域和私有网络。
 ![](https://mc.qcloudimg.com/static/img/02c52c44678a56597b4d7053f8f8c467/3.jpg)
 
 2. 点击【新建】，填写子网络名称、CIDR、可用区和关联路由表。然后点击【创建】确认。
@@ -47,7 +47,7 @@
 
 ### 第二步：创建 NAT 网关
 #### **1. 购买**
-1. 登录[腾讯云控制台](https://console.qcloud.com/)，选择【私有网络】选项卡，选择【NAT网关】。
+1. 登录[腾讯云控制台](https://console.cloud.tencent.com/)，选择【私有网络】选项卡，选择【NAT网关】。
 
 2. 点击左上角【新建】按钮，在弹出框中依次输入或确定以下参数：
 	- 网关名称
@@ -60,7 +60,7 @@
 4. 创建完 NAT 网关，您需要在私有网络控制台路由表页配置路由规则，以将子网流量指向 NAT 网关。
 
 #### **2. 设置路由表(重点)**
-1. 登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)，选择【路由表】。
+1. 登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【路由表】。
 
 2. 在路由表列表中，点击需要访问 Internet 的子网所关联的路由表 ID 进入路由表详情页，在路由策略中点击【编辑】按钮。
 
@@ -77,7 +77,7 @@
 这个步骤的目的是将子网信息指向伸缩组，伸缩组就会把新扩容的机器开在这个子网中。
 **这样，扩容的机器会自动地用NAT网关的IP地址外访，达到固定出口IP的效果。**
 
-在[弹性伸缩控制台](console.qcloud.com/autoscaling)，点击新建：
+在[弹性伸缩控制台](console.cloud.tencent.com/autoscaling)，点击新建：
 
 - 填写好伸缩组名字、启动配置（启动配置需事先设置好）、最大伸缩数、最小伸缩数、起始实例数等信息
 - 选择“网络”和“子网”，指向刚才设置好的VPC和子网**（重要）**。

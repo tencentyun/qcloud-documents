@@ -12,7 +12,7 @@ The App server needs to determine 4 required parameters (and any number of optio
 
 | Parameter Name | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| secretId | Yes | String | Secret ID of the [Cloud API Secret Key](https://console.qcloud.com/capi), a parameter used to construct plaintext signature string. |  |
+| secretId | Yes | String | Secret ID of the [Cloud API Secret Key](https://console.cloud.tencent.com/capi), a parameter used to construct plaintext signature string. |  |
 | currentTimeStamp | Yes | Integer | Current UNIX time, a parameter used to construct plaintext signature string.  |
 | expireTime | Yes | Integer| Signature expiration time (UNIX), a parameter used to construct plaintext signature string. <br/>```expireTime = currentTimeStamp + Signature validity```<br/>The maximum value for signature validity is 7776000 (90 days).  |
 | random | Yes | Integer | 32-digit unsigned random integer, a parameter used to construct plaintext signature string.  |
@@ -32,7 +32,7 @@ The following steps are required for App server to generate an upload signature.
 
 ### Step 1: Acquire API Secret Key
 
-Obtain or create a SecretID in the management section of [Cloud API Key](https://console.qcloud.com/capi), and acquire its corresponding SecretKey.
+Obtain or create a SecretID in the management section of [Cloud API Key](https://console.cloud.tencent.com/capi), and acquire its corresponding SecretKey.
 
 ![](//mc.qcloudimg.com/static/img/23f95aaa97adf3eeae3bf90470fe5122/image.png)
 

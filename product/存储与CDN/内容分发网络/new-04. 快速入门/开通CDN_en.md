@@ -1,4 +1,4 @@
-CDN is a postpaid product requiring identity verification. New users can follow the instructions of identity verification by logging in to [CDN Console](https://console.qcloud.com/cdn) and click "Verify":
+CDN is a postpaid product requiring identity verification. New users can follow the instructions of identity verification by logging in to [CDN Console](https://console.cloud.tencent.com/cdn) and click "Verify":
 ![](https://mc.qcloudimg.com/static/img/9edd00a6dc99368b1a4c1bbe1b111dcc/2.png)
 
 You can check the identity verification progress by submitting tickets.
@@ -15,14 +15,14 @@ Various methods can be used for individual identity verification:
 There are also many ways to proceed with enterprise identity verification:
 ![](https://mc.qcloudimg.com/static/img/de26731f001e402b72ef1cecbbbdc4c8/4.png)
 
-You can also go to [User Center](https://console.qcloud.com/developer) and click "Identity Verification":
+You can also go to [User Center](https://console.cloud.tencent.com/developer) and click "Identity Verification":
 ![](https://mc.qcloudimg.com/static/img/ed407e9edb7f85613b557fe93e7c2a55/5.png)
 
 
 ## Select Billing Mode
 After the qualification verification, you can go to the CDN Console to select the billing mode:
 ![](https://mc.qcloudimg.com/static/img/a0c584bfb2c056b95c32ced2fb87f5a9/3.png)
-For detailed information on billing price calculation, please refer to [Price Overview](https://www.qcloud.com/document/product/439/6732).
+For detailed information on billing price calculation, please refer to [Price Overview](https://cloud.tencent.com/document/product/439/6732).
 
 
 

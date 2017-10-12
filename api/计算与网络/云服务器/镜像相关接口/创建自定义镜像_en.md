@@ -15,7 +15,7 @@ The following list only provides API request parameters. For additional paramete
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| instanceId | Yes | String | The instance ID to be operated. It can be obtained from unInstanceId in the returned value of  [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API.
+| instanceId | Yes | String | The instance ID to be operated. It can be obtained from unInstanceId in the returned value of  [DescribeInstances](https://cloud.tencent.com/doc/api/229/831) API.
 | imageName | Yes | String |Image name, which cannot be identical to an existing image name. Naming rule: Contain 1-16 characters, including English letters, numbers, "-".
 | imageDescription | No | String | Image description information. Naming rule: Limited to 0-64 characters, including Chinese characters, English letters, numbers, "-", and "_".
 
@@ -26,8 +26,8 @@ The following list only provides API request parameters. For additional paramete
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
 | requestId | Int | Task ID.
 
  
@@ -40,7 +40,7 @@ Input
   &instanceId=ins-12345678
   &imageName=test
   &imageDescription=desc
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

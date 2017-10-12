@@ -2,7 +2,7 @@
 为了避免恶意程序使用资源 URL 盗刷公网流量或使用恶意手法盗用资源，给用户带来不必要的损失。腾讯云对象存储支持防盗链配置，建议您通过控制台的防盗链设置配置黑/白名单，来进行安全防护。
 
 ## 设置步骤
-1. 登录 [对象存储控制台](https://console.qcloud.com/cos4/index)，进入左侧菜单栏【Bucket 列表】，选择需要设置防盗链的存储桶（如 example），进入存储桶。 
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos4/index)，进入左侧菜单栏【Bucket 列表】，选择需要设置防盗链的存储桶（如 example），进入存储桶。 
 ![访问权限1](//mc.qcloudimg.com/static/img/b51d5a77d53c3416324ea3eb283c788c/image.png)
 2. 单击【基础配置】，找到防盗链设置，单击【编辑】按钮进入可编辑状态。
 ![防盗链设置1](//mc.qcloudimg.com/static/img/3d76b7e130d8917a41c4b2b7e8b1a730/image.png)

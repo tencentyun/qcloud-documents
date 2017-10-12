@@ -54,7 +54,7 @@ Module Error Codes
 Input
 <pre>
 https://lb.api.qcloud.com/v2/index.php?Action=InquiryBmLBPrice
-&<<a href="https://www.qcloud.com/document/product/386/6718">Public Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">Public Request Parameters</a>>
 &loadBalancerType=open
 </pre>
 

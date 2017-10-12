@@ -10,7 +10,7 @@ Download the Mini LVB source code from Github and open the project with Android 
 | ui/customviews | Custom widgets used by Mini LVB's UI |
 | jniLibs | Tencent SDKs relied by Mini LVB, mainly Bugly SDK, TLS SDK, IM SDK and RTMP SDK |
 ### Library Instructions
-#### [LVB SDK](https://www.qcloud.com/document/product/454/7873) (required)
+#### [LVB SDK](https://cloud.tencent.com/document/product/454/7873) (required)
 The main SDK used by MLVB, providing features such as push, LVB, VOD, joint broadcasting and screencap.
 - JAR package
 txrtmpsdk.jar
@@ -43,7 +43,7 @@ MLVB currently integrates only the armeabi architecture.
 	- libqalmsfboot.so
   - libwtcrypto.so
 
-#### [UGC Short Videos](https://www.qcloud.com/document/product/454/8843) (Optional)
+#### [UGC Short Videos](https://cloud.tencent.com/document/product/454/8843) (Optional)
 Recording, editing and publishing UGC videos.
 - JAR package
 
@@ -91,8 +91,8 @@ Mini LVB is divided into 6 modules by their functions. They are: account, LVB/Re
 ### Account Module
 #### Module Introduction
 - Account module handles the logics of user login/registration and login cache.
-- Login and registration are implemented by login via [TLS SDK Delegate](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F).
-- If you already have your own account system, you can simply replace this module and call guestLogin function in TCLoginMgr to use IM channel as a guest. For more information, please see [Replace Account](https://www.qcloud.com/doc/api/258/6441).
+- Login and registration are implemented by login via [TLS SDK Delegate](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F).
+- If you already have your own account system, you can simply replace this module and call guestLogin function in TCLoginMgr to use IM channel as a guest. For more information, please see [Replace Account](https://cloud.tencent.com/doc/api/258/6441).
 - After the TLS SDK login authentication is successful, you can login to the IM module by passing UserId and UserSig returned by the authentication to the login interface of the ImSDK.
 - Users can register and login by either username and password or mobile verification code.
 - Account module caches locally the basic information (UserId and UserSig) of the last logged-in user. It will get the information of recently logged-in users from the interface and determine if re-login is required.
@@ -161,7 +161,7 @@ Please see the UI hierarchy of the push module.
 
 ### Message
 #### Module Introduction
-- Mini LVB's interactive message feature is mainly based on the group chat feature of [ImSDK](https://www.qcloud.com/doc/product/269/1561). It's available when IMSDK is logged-in.
+- Mini LVB's interactive message feature is mainly based on the group chat feature of [ImSDK](https://cloud.tencent.com/doc/product/269/1561). It's available when IMSDK is logged-in.
 - Every live room is a large LVB group, which needs to be created before actually pushing occurs on the push end and disbanded after the pushing ends. Player ends join the group when they join the live room, and exit the group when they exit the room.
 - To listen for desired messages, implement a messaging listener class. Currently supported message types include text message, "Like" message, user joining/leaving message and group disband message.
 - All messages are sent as text messages in a uniform JSON format. The JSON carries information about message type, sender ID, nickname, profile photo and message text. The receivers receive and parse the JSON, and accordingly use the callbacks to pass all kinds of messages to the upper levels.

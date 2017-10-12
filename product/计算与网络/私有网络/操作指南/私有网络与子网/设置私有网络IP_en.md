@@ -11,7 +11,7 @@ When you purchase resources in VPC, private IPs will be randomly assigned based 
 
 You can customize the assignment of private IPs in the VPC details page. Currently, customization of private IPs is only supported for CVM.
 
-Log in to [CVM Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar, select the VPC that needs to be configured with IP, and click "IP Address Assignment" in details page to perform the custom assignment of IP address for resources.
+Log in to [CVM Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar, select the VPC that needs to be configured with IP, and click "IP Address Assignment" in details page to perform the custom assignment of IP address for resources.
 
  ![](//mccdn.qcloud.com/img567fa3aadabb8.png)
  

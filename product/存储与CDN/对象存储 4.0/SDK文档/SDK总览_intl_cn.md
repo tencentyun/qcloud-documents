@@ -2,7 +2,7 @@
 
 除了直接使用 API 接口外，COS 提供了丰富多样的 SDK 供开发者使用，SDK由JSON API和XML API封装组成。
 >**注意**
->目前 COS 的可用地域（Region）根据 XML API和 JSON API 有不同的取值，在使用不同的 API 和对应的 SDK 时要求使用对应的地域字段，详细信息请参见 [可用地域](https://www.qcloud.com/document/product/436/6224) 文档。 
+>目前 COS 的可用地域（Region）根据 XML API和 JSON API 有不同的取值，在使用不同的 API 和对应的 SDK 时要求使用对应的地域字段，详细信息请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档。 
 
 ### 基于 XML API 封装的 SDK
 

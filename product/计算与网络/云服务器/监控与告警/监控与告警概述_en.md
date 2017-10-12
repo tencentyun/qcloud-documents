@@ -15,7 +15,7 @@ To establish a normal performance baseline for a CVM instance, you should monito
 | Disk usage | disk_usage |
 | Disk IO waiting time |disk_io_await	|
 
-For more details on monitoring indicators, refer to [Cloud Monitoring Product Documentation](https://www.qcloud.com/doc/product/248).
+For more details on monitoring indicators, refer to [Cloud Monitoring Product Documentation](https://cloud.tencent.com/doc/product/248).
 
 Cloud monitoring collects raw data from running CVM instances and presents the data as easy-to-read tables. By default, the statistics are saved for one month. You can view the operation status of an instance for one month to get a better understanding of the application service. By default, cloud monitoring collects operating data of an instance every 5 minutes. Some of Tencent Cloud services support a more detailed 1 minute granular monitoring.
 

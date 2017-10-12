@@ -27,10 +27,10 @@ If there's no problem with the video stream, then you need to check whether the 
 
 - **HLS (m3u8)**: Tencent Cloud HLS protocol is based on Lazy Start. In short, Tencent Cloud only launch the transcoding for HLS format when viewers request for playback URL in an HLS format. The purpose of Lazy Start is to prevent wasting resources. But it also creates a problem: **the playback URL in an HLS format cannot be played until 30 seconds after the first user in the world initiates a request**.
 
-- [**Tencent Cloud Web player: **](https://www.qcloud.com/document/product/454/7503) Support playback URLs based on multiple protocols, and adopt the best playback strategy based on the current platform (PC, Android or iOS?). Meanwhile, the internal selective retry logic can also deal with the Lazy Start of HLS (m3u8).
+- [**Tencent Cloud Web player: **](https://cloud.tencent.com/document/product/454/7503) Support playback URLs based on multiple protocols, and adopt the best playback strategy based on the current platform (PC, Android or iOS?). Meanwhile, the internal selective retry logic can also deal with the Lazy Start of HLS (m3u8).
 
 ### 3.2 RTMP SDK (B)
-If [RTMP SDK DEMO](https://www.qcloud.com/document/product/454/6555) works normally for playback, it's recommended to check whether the interfacing logic is incorrect by referring to RTMP SDK playback document ([iOS](https://www.qcloud.com/document/product/454/7880) & [Android](https://www.qcloud.com/document/product/454/7886)).
+If [RTMP SDK DEMO](https://cloud.tencent.com/document/product/454/6555) works normally for playback, it's recommended to check whether the interfacing logic is incorrect by referring to RTMP SDK playback document ([iOS](https://cloud.tencent.com/document/product/454/7880) & [Android](https://cloud.tencent.com/document/product/454/7886)).
 
 ## Step 4. Firewall Blocking (C)
 It is common that the corporate network environments of many customers restrict video playback through firewalls that detect whether the resources requested by HTTP are streaming media resources (After all, no boss wants his employees to watch videos during working hours).
@@ -38,7 +38,7 @@ It is common that the corporate network environments of many customers restrict 
 The fact that you can watch the LVB normally via 4G network but cannot watch it in your company's Wi-Fi network indicates your company has imposed restrictions on the network strategy. In this case, you can contact the administrator for a special handling on your IP.
 
 ## Step 5. Check the pusher end (D)
-If the LVB URL does not work and there is no possibility of firewall limitation described in Step 4, it is likely that the push is unsuccessful. Go to [Why the Push is Unsuccessful](https://www.qcloud.com/document/product/454/7951) for a further troubleshooting.
+If the LVB URL does not work and there is no possibility of firewall limitation described in Step 4, it is likely that the push is unsuccessful. Go to [Why the Push is Unsuccessful](https://cloud.tencent.com/document/product/454/7951) for a further troubleshooting.
 
 
 

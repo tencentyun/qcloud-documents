@@ -7,8 +7,8 @@ COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencenty
 ### 开发环境
 
 1. 使用SDK需要浏览器支持HTML 5
-2. 请您到https://console.qcloud.com/cos 获取您的项目ID(appid)，bucket，secret_id和secret_key。
-3. 请您到https://console.qcloud.com/cos 针对您要操作的bucket进行跨域（CORS）设置
+2. 请您到https://console.cloud.tencent.com/cos 获取您的项目ID(appid)，bucket，secret_id和secret_key。
+3. 请您到https://console.cloud.tencent.com/cos 针对您要操作的bucket进行跨域（CORS）设置
 （本版本SDK基于JSON API封装组成）
 
 ### SDK 配置
@@ -25,7 +25,7 @@ COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencenty
 ```js
 
 	//初始化逻辑
-	//特别注意: JS-SDK使用之前请先到console.qcloud.com/cos 对相应的Bucket进行跨域设置
+	//特别注意: JS-SDK使用之前请先到console.cloud.tencent.com/cos 对相应的Bucket进行跨域设置
 	var cos = new CosCloud({
 		appid: appid,// APPID 必填参数
 		bucket: bucket,//bucketName 必填参数
@@ -69,7 +69,7 @@ COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencenty
 | **参数名**        | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------------- | -------- | -------- | ------- | ---------------------------------------- |
 | appid          | int      | 是        | 无       | appid                                    |
-| bucket         | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](https://www.qcloud.com/document/product/436/6232) |
+| bucket         | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](https://cloud.tencent.com/document/product/436/6232) |
 | region         | String   | 是        | 'gz'    | 地域信息，必填参数 华南地区填gz 华东填sh 华北填tj            |
 | getAppSign     | Function | 是        | 无       | 获取多次签名的函数，建议从服务器端获取签名字符串                 |
 | getAppSignOnce | Function | 是        | 无       | 获取单次签名的函数，建议从服务器端获取签名字符串                 |

@@ -34,7 +34,7 @@ For each user, fixed quotas are allocated for Tencent Cloud prepaid CVMs in each
 
 
 ## 2. Purchase restrictions for postpaid CVM instances
-1) Before purchasing postpaid CVMs, you need to go to <a href="https://console.qcloud.com/developer"> User Center </a> for identity verification. </font>
+1) Before purchasing postpaid CVMs, you need to go to <a href="https://console.cloud.tencent.com/developer"> User Center </a> for identity verification. </font>
 
 
 2) When purchasing postpaid CVM instances, note that the following features are <font color="red">not supported</font>:

@@ -2,10 +2,10 @@
 用户可通过以下方式购买任何腾讯云提供的负载均衡实例类型：
 
 ### 官网购买
-登录腾讯云 [负载均衡服务购买页](https://buy.qcloud.com/lb)，可购买负载均衡产品。
+登录腾讯云 [负载均衡服务购买页](https://buy.cloud.tencent.com/lb)，可购买负载均衡产品。
 
 ### API购买
-具体请见[负载均衡API](http://www.qcloud.com/doc/api/244/%E7%AE%80%E4%BB%8B)。
+具体请见[负载均衡API](http://cloud.tencent.com/doc/api/244/%E7%AE%80%E4%BB%8B)。
 
 ## 计费说明
 负载均衡服务的费用，包括实例租用费，以及后端服务器的带宽流量费。例如1台CLB实例纳管了3台CVM服务器，将计算CLB实例的费用，以及3台CVM实例的费用（实例费用计入网络计费部分）。
@@ -35,4 +35,4 @@
 2) 云服务器按流量计费：用户使用公网负载均衡会产生出流量，需支付对应的流量费用。 
 ​
 #### 带宽费用付费标准
-在上述场景2) 下CLB负载均衡器的带宽费用，收取的是后端CVM云主机产生的网络费用。具体计费模式参见[网络计费](http://www.qcloud.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD)。
+在上述场景2) 下CLB负载均衡器的带宽费用，收取的是后端CVM云主机产生的网络费用。具体计费模式参见[网络计费](http://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD)。

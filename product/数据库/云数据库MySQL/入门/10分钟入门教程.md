@@ -7,12 +7,12 @@
 2. 单击【新建】按钮，进入云数据库 MySQL 购买界面。
 ![][image-2]
 3. 您现在可配置数据库实例。下面的列表显示了可在本教程中使用的示例设置：
-	* 计费模式：选择按量计费。有关计费模式的更多信息，请参阅 [按量计费说明](https://www.qcloud.com/document/product/555/9617) 和 [预付费计费说明](https://www.qcloud.com/document/product/555/9618)。
-	* 地域和可用区：建议选择最靠近您客户的地域。有关地域和可用区的更多信息，请参阅 [地域和可用区](https://www.qcloud.com/document/product/236/8458)。
-	* 网络：本例中选择基础网络。有关网络环境的更多信息请参阅 [网络环境](https://www.qcloud.com/document/product/213/5227)。
+	* 计费模式：选择按量计费。有关计费模式的更多信息，请参阅 [按量计费说明](https://cloud.tencent.com/document/product/555/9617) 和 [预付费计费说明](https://cloud.tencent.com/document/product/555/9618)。
+	* 地域和可用区：建议选择最靠近您客户的地域。有关地域和可用区的更多信息，请参阅 [地域和可用区](https://cloud.tencent.com/document/product/236/8458)。
+	* 网络：本例中选择基础网络。有关网络环境的更多信息请参阅 [网络环境](https://cloud.tencent.com/document/product/213/5227)。
 	* 数据库版本：本例中选择 MySQL5.6。
 	* 实例规格和硬盘：本例中选择 内存 1,000 MB 和 硬盘 50GB。您最多可以扩展至内存 488,000 MB 和硬盘 6,000 GB。
-	* 数据复制方式：本例中选择异步复制。有关数据复制方式的更多信息，请参阅 [数据实例复制](https://www.qcloud.com/document/product/236/7913)。
+	* 数据复制方式：本例中选择异步复制。有关数据复制方式的更多信息，请参阅 [数据实例复制](https://cloud.tencent.com/document/product/236/7913)。
 	* 指定项目：本例中选择默认项目。
 单击 【开通】。
 ![](//mc.qcloudimg.com/static/img/fe92ec47b00bf083295a9079acf09d87/image.png)
@@ -54,14 +54,14 @@
 
 ### 后续步骤
 您已通过 CDB for MySQL 创建、连接和删除 MySQL 数据库实例。借助 CDB for MySQL，您能够在云中轻松设置、操作和扩展关系型数据库。
-现在，您已经了解了如何通过 CDB 创建和连接 MySQL 数据库，您可以继续学习下一个教程，以了解如何在 phpMyAdmin 上创建数据库和数据表。[建立数据库和表](https://www.qcloud.com/document/product/236/8465)。
+现在，您已经了解了如何通过 CDB 创建和连接 MySQL 数据库，您可以继续学习下一个教程，以了解如何在 phpMyAdmin 上创建数据库和数据表。[建立数据库和表](https://cloud.tencent.com/document/product/236/8465)。
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb
-[3]:	https://www.qcloud.com/document/product/378/3629
-[4]:	https://www.qcloud.com/document/product/236/8458
-[5]:    https://www.qcloud.com/document/product/213/5227
-[6]:    https://www.qcloud.com/document/product/236/7913
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb
+[3]:	https://cloud.tencent.com/document/product/378/3629
+[4]:	https://cloud.tencent.com/document/product/236/8458
+[5]:    https://cloud.tencent.com/document/product/213/5227
+[6]:    https://cloud.tencent.com/document/product/236/7913
 
 [image-1]:  https://mc.qcloudimg.com/static/img/c5a7e2e50a04631d861d899c1e71598b/step1.png
 [image-2]:  https://mc.qcloudimg.com/static/img/c8d25b4002230535f28dbc59ae58318b/step2.png

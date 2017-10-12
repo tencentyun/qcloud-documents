@@ -31,7 +31,7 @@
 4. 带宽包账户使用不满 1 个月时，首先根据步骤 2 计算得来的日均带宽峰值计算步骤 3 的带宽包费用，实收费用 =带宽包费用 * 实际使用天数 / 30。
 
 #### 购买流程
-欲开通此计费模式，需先提交 [工单申请](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=7&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%20CVM)。待工单申请通过后，[点击此处](http://manage.qcloud.com/shoppingcart/shop.php?tab=broadband) 前往购买页面。
+欲开通此计费模式，需先提交 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=7&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%20CVM)。待工单申请通过后，[点击此处](http://manage.qcloud.com/shoppingcart/shop.php?tab=broadband) 前往购买页面。
 
 #### 计费说明
 - 当账户开通了分项目结算功能后，账户将整体根据上述规则计算带宽包的总费用，然后根据各个项目独立计算日均带宽峰值（根据步骤 2 计算得来），按比例计算各个项目所需支付费用。

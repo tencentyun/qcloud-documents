@@ -3,7 +3,7 @@
 Domain name: live.api.qcloud.com
 API name: CreateRecord
 
-Note: Recording files are stored on the VOD platform. If you want to use the recording function, you need to activate a VOD account first and then ensure that the account is available. When recording files are stored, the charges (including charges for storage and downstream playback traffic) are calculated with VOD billing method. For more information, refer to [Relevant Document](https://www.qcloud.com/doc/product/266/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88).
+Note: Recording files are stored on the VOD platform. If you want to use the recording function, you need to activate a VOD account first and then ensure that the account is available. When recording files are stored, the charges (including charges for storage and downstream playback traffic) are calculated with VOD billing method. For more information, refer to [Relevant Document](https://cloud.tencent.com/doc/product/266/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88).
 
 Recording rules
 1) The recording task starts at the preset time and ends when the LVB ends
@@ -69,7 +69,7 @@ Or view the fragment on the VOD page
 Input 1
 <pre>
 
-http://domain/v2/index.php?Action=CreateRecord&channelId=123&start_time=2016-01-21 12:00:00&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+http://domain/v2/index.php?Action=CreateRecord&channelId=123&start_time=2016-01-21 12:00:00&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 
 </pre>
 

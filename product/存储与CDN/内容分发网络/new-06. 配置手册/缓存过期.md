@@ -5,7 +5,7 @@ CDN 节点上缓存的用户资源都面临“过期”问题。若资源处于�
 腾讯云 CDN 支持各维度的缓存时间设置、支持自定义优先级调整、支持 cache 继承策略（高级缓存配置）。合理的配置缓存时间，能够有效的提升命中率，降低回源率，节省您的带宽。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【缓存配置】，您可以看到 **缓存过期配置** 模块。
 ![](https://mc.qcloudimg.com/static/img/920146d5571474dd223d2daa8578e2d5/cache.png)

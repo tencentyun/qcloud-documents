@@ -10,5 +10,5 @@
 
 ## 使用说明
 
-- [负载均衡的基本操作](https://www.qcloud.com/document/product/457/9109)
-- [Ingress的转发设置](https://www.qcloud.com/document/product/457/9111)
+- [负载均衡的基本操作](https://cloud.tencent.com/document/product/457/9109)
+- [Ingress的转发设置](https://cloud.tencent.com/document/product/457/9111)

@@ -15,4 +15,4 @@ github地址如下：
 
 ## SDK使用注意事项
 
-使用SDK前至少要获取[secret id](https://console.qcloud.com/capi)， [secret key](https://console.qcloud.com/capi)作为请求合法性的唯一条件。
+使用SDK前至少要获取[secret id](https://console.cloud.tencent.com/capi)， [secret key](https://console.cloud.tencent.com/capi)作为请求合法性的唯一条件。

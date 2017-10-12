@@ -145,4 +145,4 @@ http://203.195.194.28/python/?type=download&fileid=sample123
  http://203.195.194.28/python/?type=del&fileid=sample123
  http://203.195.194.28/python/?type=stat&fileid=sample123
 ```
-2 通过web端js或者移动端程序请求以上http接口获取签名，上传图片。Web端js示例请参考[web端部署与SDK集成](http://www.qcloud.com/doc/product/275/web%E7%AB%AF%E9%83%A8%E7%BD%B2%E7%A4%BA%E4%BE%8B)；移动端程序示例请分别参考[移动端部署与SDK集成-Android](http://www.qcloud.com/doc/product/275/Android%E9%83%A8%E7%BD%B2%E7%A4%BA%E4%BE%8B)和[移动端部署与SDK集成-iOS](http://www.qcloud.com/doc/product/275/iOS%E9%83%A8%E7%BD%B2%E7%A4%BA%E4%BE%8B)。
+2 通过web端js或者移动端程序请求以上http接口获取签名，上传图片。Web端js示例请参考[web端部署与SDK集成](http://cloud.tencent.com/doc/product/275/web%E7%AB%AF%E9%83%A8%E7%BD%B2%E7%A4%BA%E4%BE%8B)；移动端程序示例请分别参考[移动端部署与SDK集成-Android](http://cloud.tencent.com/doc/product/275/Android%E9%83%A8%E7%BD%B2%E7%A4%BA%E4%BE%8B)和[移动端部署与SDK集成-iOS](http://cloud.tencent.com/doc/product/275/iOS%E9%83%A8%E7%BD%B2%E7%A4%BA%E4%BE%8B)。

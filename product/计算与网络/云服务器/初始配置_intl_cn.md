@@ -4,7 +4,7 @@
 
 若您已有一个腾讯云帐号，您可以跳过本注册步骤进行下面的设置。
 
-如需在腾讯云官网进行【注册】，注册指引可参考 [注册腾讯云](https://www.qcloud.com/document/product/378/9603)。
+如需在腾讯云官网进行【注册】，注册指引可参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)。
  
 ## 进行资质认证
 
@@ -19,20 +19,20 @@
 ## （可选）创建 SSH 密钥
 SSH 密钥是一种<font color="red">应用于 Linux 类型 CVM上的</font>、相较于普通密码登录更安全的实例登录方式。有关 SSH 密钥的更多信息，可以参考 [SSH 密钥](/doc/product/213/6092)。
 
-1. 登录[腾讯云控制台](https://console.qcloud.com/)，点击导航条【云服务器】，选择【SSH 密钥】选项卡。
+1. 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击导航条【云服务器】，选择【SSH 密钥】选项卡。
 2. 点击上方【创建密钥】按钮，选择【创建新密钥对】，输入一个方便您识别的名称，点击【确定】按钮。在限定时间内下载腾讯云下发的私钥。
 
 ## （可选）创建私有网络VPC
 
-腾讯云私有网络允许您在自定义定义一个逻辑隔离的网络环境，并在其中启动腾讯云云资源。有关私有网络的更多信息，可以参考[私有网络产品文档](https://www.qcloud.com/doc/product/215/535)。
+腾讯云私有网络允许您在自定义定义一个逻辑隔离的网络环境，并在其中启动腾讯云云资源。有关私有网络的更多信息，可以参考[私有网络产品文档](https://cloud.tencent.com/doc/product/215/535)。
 
 私有网络至少包含一个子网，只有在子网中才可以添加云服务资源。
 
-1. 登录[腾讯云控制台](https://console.qcloud.com/)，点击导航条【私有网络】，或者进入腾讯云[私有网络介绍页中](https://www.qcloud.com/product/vpc.html)的【立即体验】按钮，进入[私有网络控制台](https://console.qcloud.com/vpc/)。
+1. 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击导航条【私有网络】，或者进入腾讯云[私有网络介绍页中](https://cloud.tencent.com/product/vpc.html)的【立即体验】按钮，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/)。
 
 2. 选择列表上方下拉框中的地域，点击【新建】创建私有网络。
 
-3. 填写私有网络和子网的名称和 [CIDR](https://www.qcloud.com/doc/product/215/4925#cidr)，并选择子网的可用区。
+3. 填写私有网络和子网的名称和 [CIDR](https://cloud.tencent.com/doc/product/215/4925#cidr)，并选择子网的可用区。
 
 4. 点击【创建】按钮。
 ![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
@@ -43,7 +43,7 @@ SSH 密钥是一种<font color="red">应用于 Linux 类型 CVM上的</font>、�
 
 > 需要注意的是，如果您需要在多个 [地域](/doc/product/213/6091) 下启动实例，则需要在每个地域中创建安全组。腾讯云在每个地域下都预先创建好了几个安全组，用以允许用户远程登录实例，更多内容可以参考 [安全组](/doc/product/213/5221)。
 
-1. 打开[腾讯云控制台](https://console.qcloud.com/) 。选择【云服务器】，在导航窗格中，单击【安全组】。
+1. 打开[腾讯云控制台](https://console.cloud.tencent.com/) 。选择【云服务器】，在导航窗格中，单击【安全组】。
 
 2. 单击【新建】按钮，在弹出框中输入安全组的名称（例如，my-security-group）并提供说明。
 
@@ -53,9 +53,9 @@ SSH 密钥是一种<font color="red">应用于 Linux 类型 CVM上的</font>、�
 
 ## （可选）创建云 API 密钥
 
-腾讯云[云 API](https://www.qcloud.com/product/api.html) 为开发者提供了简单高效的调用接口，以便用户在开发环境中使用与管理腾讯云云服务。云 API 密钥是使用云 API 的先决条件，每一次调用云 API 时都必须使用云 API 密钥进行身份验证。关于使用云 API 密钥进行身份验证的更多信息，可以参考[签名方法](https://www.qcloud.com/document/product/213/6984)。如果您尚未创建云 API 密钥，则可以按照以下步骤通过控制台自行创建。
+腾讯云[云 API](https://cloud.tencent.com/product/api.html) 为开发者提供了简单高效的调用接口，以便用户在开发环境中使用与管理腾讯云云服务。云 API 密钥是使用云 API 的先决条件，每一次调用云 API 时都必须使用云 API 密钥进行身份验证。关于使用云 API 密钥进行身份验证的更多信息，可以参考[签名方法](https://cloud.tencent.com/document/product/213/6984)。如果您尚未创建云 API 密钥，则可以按照以下步骤通过控制台自行创建。
 
-1. 使用上述步骤创建的帐号，登录[腾讯云控制台](https://console.qcloud.com/),在上方云产品下拉菜单中选择【云 API 密钥】。
+1. 使用上述步骤创建的帐号，登录[腾讯云控制台](https://console.cloud.tencent.com/),在上方云产品下拉菜单中选择【云 API 密钥】。
 
 2. 在【API 密钥】选项卡中，点击【新建密钥】按钮，即可完成密钥的创建。
 > 注：每个帐号可以创建的云 API 密钥有数量限制，目前最多可以创建 2 个。

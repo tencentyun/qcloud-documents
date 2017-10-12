@@ -18,8 +18,8 @@
 |---------|---------|---------|---------|---------|
 | appid                       | Customer ID     | int       | LVB APPID used for identifying customers |  Y          | 
 | interface                 | API name   | string |  such as: Get_LivePushStat  |  Y          | 
-| t | [Validity period](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
-| sign | [Security signature](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
+| t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
+| sign | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
 | Param.s.channel_id | LVB Code      | string | A single LVB stream can be queried at one time      | Y           |
 
 > For historical reasons, the LVB Code parameter was defined as channel_id in some earlier APIs, and is defined as stream_id in new APIs.
