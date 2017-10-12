@@ -4,10 +4,10 @@ This API (GenerateLogList) is used to query the log download links of specified 
 
 Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
 
-[Call Demo](https://www.qcloud.com/document/product/228/1734)
+[Call Demo](https://cloud.tencent.com/document/product/228/1734)
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473). The Action field for this API is GenerateLogList.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473). The Action field for this API is GenerateLogList.
 
 | Parameter Name      | Required | Type     | Description     |
 | --------- | ---- | ------ | ------ |
@@ -19,9 +19,9 @@ The following request parameter list only provides API request parameters. Commo
 
 #### Note
 
-+ You can use APIs [Query Domain Information by Domain Name](https://www.qcloud.com/doc/api/231/3938) and [Query Domain Information](https://www.qcloud.com/doc/api/231/3937) to obtain the ID of the host;
++ You can use APIs [Query Domain Information by Domain Name](https://cloud.tencent.com/doc/api/231/3938) and [Query Domain Information](https://cloud.tencent.com/doc/api/231/3937) to obtain the ID of the host;
 + StartDate and endDate shall be no later than or equal to the current date;
-+ If the startDate and endDate are empty, the default query range is 30 days before the current time. One log download link is provided per hour. For more log description, refer to [Log Download](https://www.qcloud.com/doc/product/228/6316);
++ If the startDate and endDate are empty, the default query range is 30 days before the current time. One log download link is provided per hour. For more log description, refer to [Log Download](https://cloud.tencent.com/doc/product/228/6316);
 + startDate indicates the start date of the query, and endDate indicates the end date of the query. Assuming startDate=20160813 and endDate=20160815, the log download links of three days (8-13, 8-14, and 8-15) are actually queried, 24 links per day;
 + The log download link is valid for 24 hours.
 
@@ -32,7 +32,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Array  | Result data, as described below                             |

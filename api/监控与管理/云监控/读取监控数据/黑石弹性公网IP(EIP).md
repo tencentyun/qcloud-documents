@@ -10,7 +10,7 @@ dimensions.0.value为要查询的EIP的地址信息
 
 | 英文   | 中文含义                                     |
 | ---- | ---------------------------------------- |
-| vip  | 弹性公网IP地址，可以通过查询EIP列表接口[DescribeEipBm](https://www.qcloud.com/document/product/386/6671)查看自己账户已申请的EIP列表 |
+| vip  | 弹性公网IP地址，可以通过查询EIP列表接口[DescribeEipBm](https://cloud.tencent.com/document/product/386/6671)查看自己账户已申请的EIP列表 |
 
 ## 2. 输入参数
 
@@ -69,7 +69,7 @@ dimensions.0.value为要查询的EIP的地址信息
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/bm_lb
 &metricName=eip_outpkg
 &dimensions.0.name=vip

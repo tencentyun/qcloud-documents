@@ -1,7 +1,7 @@
 本文档介绍了GVoice游戏语音C#接口SDK的接入方法，适用于Unity3D引擎开发的游戏。
 ## 1 下载SDK
-[Unity3D SDK 下载](https://www.qcloud.com/document/product/556/10041)
-[Unity3D Demo 下载](https://www.qcloud.com/document/product/556/10042)
+[Unity3D SDK 下载](https://cloud.tencent.com/document/product/556/10041)
+[Unity3D Demo 下载](https://cloud.tencent.com/document/product/556/10042)
 
 下载SDK包解压后，目录结构如下： 
 ![](https://mc.qcloudimg.com/static/img/ef63d54941048e51fdaf9c023fa8be2f/image.jpg)
@@ -22,9 +22,9 @@
 
 ## 3 接口调用流程
 1.基本API：无论实时语音，还是消息语音功能，都需要调用基本API,在开始时进行语音的初始化，结束时进行反初始化，以及中间调用API时，需要调用poll触发处理相关回调，
-[基本API调用 ](https://www.qcloud.com/document/product/556/7675)。  
+[基本API调用 ](https://cloud.tencent.com/document/product/556/7675)。  
 2.实时语音API：实时语音功能调用，
-[实时语音API调用](https://www.qcloud.com/document/product/556/7676)。   
+[实时语音API调用](https://cloud.tencent.com/document/product/556/7676)。   
 3.语音消息API：消息语音功能调用，
-[语音消息API调用](https://www.qcloud.com/document/product/556/7677)。    
+[语音消息API调用](https://cloud.tencent.com/document/product/556/7677)。    
 ![](https://mc.qcloudimg.com/static/img/c2055b982fda95b416144c907dfceed0/1.png) 

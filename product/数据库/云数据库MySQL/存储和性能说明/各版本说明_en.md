@@ -10,7 +10,7 @@ The page for purchasing high-IO cloud database is shown below:
 
 ### 1.2 Performance of High-IO Cloud Database
 
-For details, see:  [Performance of High-IO Version](http://www.qcloud.com/doc/product/236/%E5%90%84%E7%89%88%E6%9C%AC%E6%80%A7%E8%83%BD%E8%AF%B4%E6%98%8E#2-高io版性能说明)
+For details, see:  [Performance of High-IO Version](http://cloud.tencent.com/doc/product/236/%E5%90%84%E7%89%88%E6%9C%AC%E6%80%A7%E8%83%BD%E8%AF%B4%E6%98%8E#2-高io版性能说明)
 
 ##  2. High-performance Version
 High-performance cloud database is a MySQL service platform with high performance level and high reliability. It is newly developed by Tencent Cloud, aimed to satisfy the operation demands for MySQL businesses.

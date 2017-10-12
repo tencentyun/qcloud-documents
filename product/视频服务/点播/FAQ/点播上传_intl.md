@@ -21,9 +21,9 @@ Currently, breakpoint resume is supported for uploading through Web. (You can co
 
 Upload through APIs:
 
-For local file uploading, please refer to the description of API [MultipartUploadVodFile](http://www.qcloud.com/doc/api/257/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0)
-and [related Python/Java/PHP/JS examples](http://www.qcloud.com/doc/api/257/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0#5.其他代码示例) 
-For URL pulling, please refer to the description of API [MultiPullVodFile](http://www.qcloud.com/doc/api/257/URL%E6%8B%89%E5%8F%96%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0)
+For local file uploading, please refer to the description of API [MultipartUploadVodFile](http://cloud.tencent.com/doc/api/257/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0)
+and [related Python/Java/PHP/JS examples](http://cloud.tencent.com/doc/api/257/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0#5.其他代码示例) 
+For URL pulling, please refer to the description of API [MultiPullVodFile](http://cloud.tencent.com/doc/api/257/URL%E6%8B%89%E5%8F%96%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0)
 
 **How do I upload a massive number of videos?**
 

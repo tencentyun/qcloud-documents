@@ -24,8 +24,8 @@
 | :---------------: | ---------------------------------------- | ------ | ---------------------------------------- | :--: |
 |        cmd        | Customer ID                                     | int    | LVB APPID used for identifying customers                     |  Y   |
 |     interface     | API name                                     | string | Such as: Get_LivePushStat                       |  Y   |
-|         t         | [Validity period](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int    | UNIX time stamp (decimal)                             |  Y   |
-|       sign        | [Security signature](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t)                               |  Y   |
+|         t         | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int    | UNIX time stamp (decimal)                             |  Y   |
+|       sign        | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t)                               |  Y   |
 |  Param.n.page_no  | Page number                                     | int    | The value starts from 1 and the default value is 1                                |  N   |
 | Param.n.page_size | Page size                                     | int    | 1-300. Default value is 300                             |  N   |
 | Param.s.stream_id | LVB code                                      | string | If stream_id is not set, all streams that are in LVB will be queried |  N   |

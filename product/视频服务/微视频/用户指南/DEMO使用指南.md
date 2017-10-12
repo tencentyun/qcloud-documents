@@ -1,6 +1,6 @@
 <font color="red">以下 Demo 均为旧版微视频 Demo ，只适用于从微视频升级至视频处理的用户！</font>
 
-新用户请直接参考COS [iOS Demo](https://www.qcloud.com/document/product/436/6530) 和 [Android Demo](https://www.qcloud.com/document/product/436/6517)。
+新用户请直接参考COS [iOS Demo](https://cloud.tencent.com/document/product/436/6530) 和 [Android Demo](https://cloud.tencent.com/document/product/436/6517)。
 
 ## 1	视频处理DemoAPP简介及下载
 
@@ -21,7 +21,7 @@ http://v.qcloud.com/src/css/images/android.png
 DemoAPP本身自带了官网内置的APP应用信息，可以直接使用上传、暂停、删除、查询、复制等操作来体验视频处理服务。如果开发者希望验证自己的视频处理服务是否开通，可以在DemoAPP上注册自己的APP，如下图所示，其中
 (1). APPID为开发者在[移动服务控制台——应用管理](http://app.qcloud.com/)创建应用时获取的AppID；
 (2). USERID是开发者自己业务体系中的userid，用户可以自己设置也可以使用DemoAPP自带的123456；
-(3). SIGN为签名。签名是开发者客户端向其业务服务器请求得到的，验证自己的移动是否开通时，开发者可以参考[服务器端SDK](http://www.qcloud.com/doc/product/314/SDK%E4%B8%8B%E8%BD%BD)，选择熟悉的语言SDK，根据其提供的接口生成签名。
+(3). SIGN为签名。签名是开发者客户端向其业务服务器请求得到的，验证自己的移动是否开通时，开发者可以参考[服务器端SDK](http://cloud.tencent.com/doc/product/314/SDK%E4%B8%8B%E8%BD%BD)，选择熟悉的语言SDK，根据其提供的接口生成签名。
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/demo-1.jpg)
 

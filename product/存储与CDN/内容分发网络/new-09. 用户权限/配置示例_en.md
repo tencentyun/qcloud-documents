@@ -2,7 +2,7 @@
 
 Super Administrator can only be set by **Creator** or other **Super Administrators**.
 
-**Step 1**: Enter [Users and Permissions](https://console.qcloud.com/cam) page and click "Create User":
+**Step 1**: Enter [Users and Permissions](https://console.cloud.tencent.com/cam) page and click "Create User":
 ![](https://mc.qcloudimg.com/static/img/e868c7d73a299e9cc02aa274ca0f5ed5/1.png)
 
 **Step 2**: Enter the administrator name, select "Yes" for **Allow Login to Tencent Cloud**, and enter QQ ID, mobile number, E-mail, and other information:
@@ -17,7 +17,7 @@ The setting of Super Administrator is completed now. You can log in to Tencent C
 
 Project administrator can manage all cloud resources under the specified projects.
 ### Creating project administrator policy
-**Step 1**: Enter [Users and Permissions](https://console.qcloud.com/cam) page and click the "Policy Management" menu on the left:
+**Step 1**: Enter [Users and Permissions](https://console.cloud.tencent.com/cam) page and click the "Policy Management" menu on the left:
 ![](https://mc.qcloudimg.com/static/img/bf0e1f00266712c8f0511f0869485fd8/4.png)
 
 **Step 2**: Select "Custom Policy":
@@ -52,7 +52,7 @@ Project administrator can manage all cloud resources under the specified project
 Assume that a sub-user is allowed to query the consumption statistics of "Test Project", manage the configuration information of a domain in "Test Project 2", and refresh a domain in "Test Project 3".
 
 ### Creating sub-user CDN policy
-**Step 1**: Enter [Users and Permissions](https://console.qcloud.com/cam) page and click the "Policy Management" menu on the left:
+**Step 1**: Enter [Users and Permissions](https://console.cloud.tencent.com/cam) page and click the "Policy Management" menu on the left:
 ![](https://mc.qcloudimg.com/static/img/05d4985be69ba747fa8df03a95c8eb28/16.png)
 
 **Step 2**: Select "Custom Policy":

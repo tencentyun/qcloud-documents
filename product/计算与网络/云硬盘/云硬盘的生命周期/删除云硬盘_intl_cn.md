@@ -15,11 +15,11 @@
 
 弹性云盘到期后的七天内，您可进入回收站对其续费恢复：
 
-打开[回收站控制台](https://console.qcloud.com/cvm/recycle) ，找到列表内，您要恢复的弹性云盘，单击操作按钮【恢复】，完成续费支付即可到 [云硬盘控制台](https://console.qcloud.com/cvm/cbs) 找到刚刚恢复的资源。
+打开[回收站控制台](https://console.cloud.tencent.com/cvm/recycle) ，找到列表内，您要恢复的弹性云盘，单击操作按钮【恢复】，完成续费支付即可到 [云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs) 找到刚刚恢复的资源。
 
 或对多块已经过期的弹性云盘续费：
 
-打开[回收站控制台](https://console.qcloud.com/cvm/recycle) ，找到列表内，您要恢复的弹性云盘，勾选您要恢复的资源，单击【批量恢复】操作按钮，完成续费支付即可到  [云硬盘控制台](https://console.qcloud.com/cvm/cbs) 找到刚刚恢复的资源。
+打开[回收站控制台](https://console.cloud.tencent.com/cvm/recycle) ，找到列表内，您要恢复的弹性云盘，勾选您要恢复的资源，单击【批量恢复】操作按钮，完成续费支付即可到  [云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs) 找到刚刚恢复的资源。
 
 ## 删除非弹性云盘
 非弹性云盘的生命周期跟随创建的云服务器实例，因此非弹性云盘在挂载的实例销毁时随之销毁，有关实例销毁的更多内容，可以参考 [包年包月实例到期](/doc/product/213/4931) 和 [销毁按量计费实例](/doc/product/213/4930)。

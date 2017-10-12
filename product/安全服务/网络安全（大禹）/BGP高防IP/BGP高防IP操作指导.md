@@ -2,7 +2,7 @@
 
 **第一步** 登录控制台高防IP配置页面
 
-登录“[大禹网络安全](https://console.qcloud.com/dayu/bgpip)”控制台，在“BGP高防IP”控制页中找到您已经开通的业务部署在非腾讯云的高防IP实例，点击实例ID，进入配置页面
+登录“[大禹网络安全](https://console.cloud.tencent.com/dayu/bgpip)”控制台，在“BGP高防IP”控制页中找到您已经开通的业务部署在非腾讯云的高防IP实例，点击实例ID，进入配置页面
 ![](https://mc.qcloudimg.com/static/img/6085ef927caa91a65c6b1ba4db92fd0d/image.png)
 ![](https://mc.qcloudimg.com/static/img/d696aa7a51b0ba6da9cfd89c256430dd/image.png)
 
@@ -35,7 +35,7 @@
 ## BGP高防IP快速接入（业务部署在腾讯云）
 **第一步** 登录控制台高防IP配置页面
 
-登录“[大禹网络安全](https://console.qcloud.com/dayu/bgpip)”控制台，在“BGP高防IP”控制页中找到您已经开通的业务部署在腾讯云的高防IP实例，点击实例ID，进入配置页面
+登录“[大禹网络安全](https://console.cloud.tencent.com/dayu/bgpip)”控制台，在“BGP高防IP”控制页中找到您已经开通的业务部署在腾讯云的高防IP实例，点击实例ID，进入配置页面
 ![](https://mc.qcloudimg.com/static/img/deea9548b99e7fe4a8858bd0b448588f/image.png)
 
 **第二步** 创建监听器

@@ -42,7 +42,7 @@
 | 华东   | picsh | [bucketname]-[appid].picsh.myqcloud.com | 部署中  |
 | 新加坡  | -     | -                                       | 敬请期待 |
 
-内网跨区域访问： 不同区域的不同腾讯云产品之间无法直接进行访问。若需要实现内网跨区域的访问， 例如，所在区域为广州的 CVM 需要使用新加坡的 存储服务 上的数据，则需要使用 VPC 部署专属网络通道，实现高速访问体验。 [点击查看 VPC 相关信息](https://www.qcloud.com/product/vpc.html)
+内网跨区域访问： 不同区域的不同腾讯云产品之间无法直接进行访问。若需要实现内网跨区域的访问， 例如，所在区域为广州的 CVM 需要使用新加坡的 存储服务 上的数据，则需要使用 VPC 部署专属网络通道，实现高速访问体验。 [点击查看 VPC 相关信息](https://cloud.tencent.com/product/vpc.html)
 
 ## Bucket删除
 

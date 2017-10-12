@@ -7,7 +7,7 @@ This depends on optimized cloud services and player. In an LVB, a combination of
 
 ## How to Achieve Instant Broadcasting?
 ### Apps
-To achieve instant broadcasting, you can use FLV playback protocol, which has a more stable structure than RTMP protocol, and [RTMP SDK](https://www.qcloud.com/document/product/454/7873), which can help avoid:
+To achieve instant broadcasting, you can use FLV playback protocol, which has a more stable structure than RTMP protocol, and [RTMP SDK](https://cloud.tencent.com/document/product/454/7873), which can help avoid:
 
 **"Side effect" of instant broadcasting**.
 

@@ -5,7 +5,7 @@
 ## 扩容弹性云盘
 ### 通过控制台扩容弹性云盘
 
-1) 打开云服务器 [CVM控制台](https://console.qcloud.com/cvm)。
+1) 打开云服务器 [CVM控制台](https://console.cloud.tencent.com/cvm)。
 
 2) 单击导航窗格中的【云硬盘】。
 
@@ -14,11 +14,11 @@
 > 对于已经连接到了实例的弹性云盘请先执行 [卸载云硬盘](/doc/product/362/6740) 操作
 
 ### 通过API扩容弹性云盘
-请参考 [ResizeCbsStorage 接口](https://www.qcloud.com/doc/api/364/2527)。
+请参考 [ResizeCbsStorage 接口](https://cloud.tencent.com/doc/api/364/2527)。
 
 ## 扩容非弹性云硬盘
 ### 通过控制台扩容非弹性云盘
-1) 打开云服务器 [CVM控制台](https://console.qcloud.com/cvm)。
+1) 打开云服务器 [CVM控制台](https://console.cloud.tencent.com/cvm)。
 
 2) 单击导航窗格中的【云主机】。
 
@@ -27,4 +27,4 @@
 > 对于正在运行的系统盘、数据盘均为云硬盘的实例，需要扩容请先执行 [实例关机](/doc/product/213/4929) 操作。
 
 ### 通过API扩容非弹性云盘
-请参考 [ResizeInstance 接口](https://www.qcloud.com/doc/api/229/1306) 和 [ResizeInstanceHour 接口](https://www.qcloud.com/doc/api/229/1344)。
+请参考 [ResizeInstance 接口](https://cloud.tencent.com/doc/api/229/1306) 和 [ResizeInstanceHour 接口](https://cloud.tencent.com/doc/api/229/1344)。

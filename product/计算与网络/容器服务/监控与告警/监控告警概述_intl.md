@@ -3,7 +3,7 @@
 ### Overview
 In order to maintain high reliability, high availability and high performance of Tencent Cloud CCS, it is important to provide a good monitoring environment. Users can collect monitoring data at different dimensions for different resources, to obtain resource usage information and locate errors quickly.
 
-Tencent Cloud's Cloud Monitor provides data collection and presentation features for container clusters, services and pods. With Tencent Cloud's Cloud Monitor, you can view the statistical data of clusters, nodes, services and pods to verify whether the cluster is running normally as well as create relevant alarms. For more information about Cloud Monitor, please see [Cloud Monitor Documentation](https://www.qcloud.com/document/product/248).
+Tencent Cloud's Cloud Monitor provides data collection and presentation features for container clusters, services and pods. With Tencent Cloud's Cloud Monitor, you can view the statistical data of clusters, nodes, services and pods to verify whether the cluster is running normally as well as create relevant alarms. For more information about Cloud Monitor, please see [Cloud Monitor Documentation](https://cloud.tencent.com/document/product/248).
 
 Collecting monitoring data allows you to establish normal standards regarding container cluster performance. By testing the performance of a container cluster and collecting historical monitoring data at different times and under different load conditions, users can better understand the normal performance of a running container cluster and service, and quickly determine whether the running service is exceptional based on the current monitoring data, in order to find out solutions in time. For example, users can monitor the CPU utilization, memory utilization and disk I/O of a service.
 
@@ -20,7 +20,7 @@ namespace:qce/cvm
 | Cluster CPU utilization |  dc_cpu_usage | % | Average CPU utilization of the nodes in the cluster |
 | Cluster memory utilization |  dc_mem_usage | % | Average memory utilization of the nodes in the cluster |
 
-For more information about the monitor metrics of CVMs in clusters and how to obtain monitoring data, please see [Monitor CVM](https://www.qcloud.com/document/product/213/5178).
+For more information about the monitor metrics of CVMs in clusters and how to obtain monitoring data, please see [Monitor CVM](https://cloud.tencent.com/document/product/213/5178).
 
 #### Service Monitoring Metrics
 
@@ -74,7 +74,7 @@ View: docker_container
 | Container disk read IOPS | container_disk_read | count | Read IOPS when container reads from the disk |
 | Container disk write IOPS | container_disk_write | count | Write IOPS when container writes to the disk |
 
-For more information about monitoring metrics, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/document/product/248).
+For more information about monitoring metrics, please see [Cloud Monitor Product Documentation](https://cloud.tencent.com/document/product/248).
 
 ### Alarm
 Available soon

@@ -20,13 +20,13 @@
 
 | Link to Activation Method | Short Name | Description | Availability for Trail| Replaceable |
 |:--------:|:---------:|---------|:-----: |:----:|
-| [LVB](https://www.qcloud.com/document/product/454/7953#1.1-.E5.A6.82.E4.BD.95.E5.BC.80.E9.80.9A.E8.A7.86.E9.A2.91.E7.9B.B4.E6.92.AD.E6.9C.8D.E5.8A.A1) | LVB | A service required for both push and viewing videos. It is the only service that requires users to go through Tencent Cloud's **manual audit**.  | 10 GB for free trial | Yes |
-| [Video on-demand](https://www.qcloud.com/document/product/454/7953#2.1-.E5.A6.82.E4.BD.95.E5.BC.80.E9.80.9A.E8.A7.86.E9.A2.91.E7.82.B9.E6.92.AD.E6.9C.8D.E5.8A.A1) | VOD | Mini LVB allows the LVB content to be recorded and presented in the form of playback list, and the storage of video files is achieved through Tencent Cloud's VOD service. | Free trial for 7 days | Yes |
-| [Instant Messaging](https://www.qcloud.com/document/product/454/7953#3.-.E4.BA.91.E9.80.9A.E8.AE.AF.E6.9C.8D.E5.8A.A1.EF.BC.88im.EF.BC.89) | IM | Provide basic messaging services such as sending and receipt of messages, online and offline status display, offline message caching, chatroom, etc. Such features as interactive messages, on-screen comment and giving a like in Mini LVB are built on these basic messaging services. | Free of charge if number of daily active users is below 100K | Yes |
-| [Cloud Object Storage](https://www.qcloud.com/document/product/454/7953#4.-.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1.EF.BC.88cos.EF.BC.89) | COS | Used to upload and download images in Mini LVB such as LVB covers and user profile photos. You can also use your own file server instead. | 50 GB of free space | Yes |
+| [LVB](https://cloud.tencent.com/document/product/454/7953#1.1-.E5.A6.82.E4.BD.95.E5.BC.80.E9.80.9A.E8.A7.86.E9.A2.91.E7.9B.B4.E6.92.AD.E6.9C.8D.E5.8A.A1) | LVB | A service required for both push and viewing videos. It is the only service that requires users to go through Tencent Cloud's **manual audit**.  | 10 GB for free trial | Yes |
+| [Video on-demand](https://cloud.tencent.com/document/product/454/7953#2.1-.E5.A6.82.E4.BD.95.E5.BC.80.E9.80.9A.E8.A7.86.E9.A2.91.E7.82.B9.E6.92.AD.E6.9C.8D.E5.8A.A1) | VOD | Mini LVB allows the LVB content to be recorded and presented in the form of playback list, and the storage of video files is achieved through Tencent Cloud's VOD service. | Free trial for 7 days | Yes |
+| [Instant Messaging](https://cloud.tencent.com/document/product/454/7953#3.-.E4.BA.91.E9.80.9A.E8.AE.AF.E6.9C.8D.E5.8A.A1.EF.BC.88im.EF.BC.89) | IM | Provide basic messaging services such as sending and receipt of messages, online and offline status display, offline message caching, chatroom, etc. Such features as interactive messages, on-screen comment and giving a like in Mini LVB are built on these basic messaging services. | Free of charge if number of daily active users is below 100K | Yes |
+| [Cloud Object Storage](https://cloud.tencent.com/document/product/454/7953#4.-.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1.EF.BC.88cos.EF.BC.89) | COS | Used to upload and download images in Mini LVB such as LVB covers and user profile photos. You can also use your own file server instead. | 50 GB of free space | Yes |
 
 ### 2.2 Activating Cloud Services
-Please see [How to Activate Cloud Services?](https://www.qcloud.com/document/product/454/7953)
+Please see [How to Activate Cloud Services?](https://cloud.tencent.com/document/product/454/7953)
 
 
 	Notes:
@@ -70,21 +70,21 @@ We provide a set of **Nginx + PHP + MySQL** backend source codes, which are reco
 
 | Service | Parameter | Description | How to Acquire |
 |--| :-------------------------- |: ----------------- | ---- |
-| LVB | bizid | Identify Cloud LVB businesses. The ID generally contains 4 digits | [DOC](https://www.qcloud.com/document/product/454/7953#1.4-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84.E7.9B.B4.E6.92.ADbizid) |
-| LVB | appid | Identify Cloud LVB applications. The ID generally contains 10 digits | [DOC](https://www.qcloud.com/document/product/454/7953#1.3-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84.E7.9B.B4.E6.92.ADappid) |
-| LVB | Push hotlink protection KEY | Used to ensure the validity and legality of the source of push URL | [DOC](https://www.qcloud.com/document/product/454/7953#1.5-.E6.9F.A5.E8.AF.A2.E6.8E.A8.E6.B5.81.E9.98.B2.E7.9B.97.E9.93.BEkey) |
-| LVB | API Authentication KEY | Used by backend to authenticate the legality of URL callback | [DOC](https://www.qcloud.com/document/product/454/7953#1.6-.E6.9F.A5.E8.AF.A2api.E8.AE.BF.E9.97.AE.E9.89.B4.E6.9D.83key) |
-| COS | APPID | Identify COS applications | [DOC](https://www.qcloud.com/document/product/454/7953#4.4-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84cos-appid) |
-| COS | Bucket Name | Specify the location for storing the files in COS | [DOC](https://www.qcloud.com/document/product/454/7953#4.3-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84bucketname) |
-| COS | SecretId | COS API. This is a Keychain ID, which is generally available in a pair | [DOC](https://www.qcloud.com/document/product/454/7953#4.5-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84cos-secretid-.E5.92.8C-secretkey) |
-| COS | SecretKey | COS API. This is a Keychain Key used with the Keychain ID to ensure the legality of API call requests | [DOC](https://www.qcloud.com/document/product/454/7953#4.5-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84cos-secretid-.E5.92.8C-secretkey) |
+| LVB | bizid | Identify Cloud LVB businesses. The ID generally contains 4 digits | [DOC](https://cloud.tencent.com/document/product/454/7953#1.4-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84.E7.9B.B4.E6.92.ADbizid) |
+| LVB | appid | Identify Cloud LVB applications. The ID generally contains 10 digits | [DOC](https://cloud.tencent.com/document/product/454/7953#1.3-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84.E7.9B.B4.E6.92.ADappid) |
+| LVB | Push hotlink protection KEY | Used to ensure the validity and legality of the source of push URL | [DOC](https://cloud.tencent.com/document/product/454/7953#1.5-.E6.9F.A5.E8.AF.A2.E6.8E.A8.E6.B5.81.E9.98.B2.E7.9B.97.E9.93.BEkey) |
+| LVB | API Authentication KEY | Used by backend to authenticate the legality of URL callback | [DOC](https://cloud.tencent.com/document/product/454/7953#1.6-.E6.9F.A5.E8.AF.A2api.E8.AE.BF.E9.97.AE.E9.89.B4.E6.9D.83key) |
+| COS | APPID | Identify COS applications | [DOC](https://cloud.tencent.com/document/product/454/7953#4.4-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84cos-appid) |
+| COS | Bucket Name | Specify the location for storing the files in COS | [DOC](https://cloud.tencent.com/document/product/454/7953#4.3-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84bucketname) |
+| COS | SecretId | COS API. This is a Keychain ID, which is generally available in a pair | [DOC](https://cloud.tencent.com/document/product/454/7953#4.5-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84cos-secretid-.E5.92.8C-secretkey) |
+| COS | SecretKey | COS API. This is a Keychain Key used with the Keychain ID to ensure the legality of API call requests | [DOC](https://cloud.tencent.com/document/product/454/7953#4.5-.E6.9F.A5.E8.AF.A2.E6.88.91.E7.9A.84cos-secretid-.E5.92.8C-secretkey) |
 
 ### 3.4. Self-owned server - Integration-based Deployment
 - **Step 1. Get the server and network ready**
 > When the recording or LVB is finished, Tencent Cloud will notify your business server using the callback URL parameter you specified on LVB Console. Therefore, it is necessary to ensure the server has a public IP that **can be accessed from the public network**.
 - **Step 2. Deploy an environment**
 > - Download and install the software such as Nginx, PHP and MySQL as well as the software they are dependent on, and then start MySQL.
-> - Download [PHP source code for Mini LVB](https://www.qcloud.com/document/product/454/6991), and upload it to the business server.
+> - Download [PHP source code for Mini LVB](https://cloud.tencent.com/document/product/454/6991), and upload it to the business server.
 > - Decompress the source code, and then execute createDB.sh to create a database. Ensure MySQL service is running before the execution.
 > ![](//mc.qcloudimg.com/static/img/c35c3ddb8c1204cba4d4cfa1e4870a88/image.png)
 - **Step 3. Configure Tencent Cloud service parameters**
@@ -98,14 +98,14 @@ We provide a set of **Nginx + PHP + MySQL** backend source codes, which are reco
 > 
 - **Step 4. Verify deployment completion**
 > Enter http://your server IP/interface.php on your browser. The returned result of "{"returnValue":4001,"returnMsg":"json format error","returnData":[]}" indicates PHP is in a running status and the API can be accessed from the public network. Now, the deployment at backend is completed.
-> The reason for receiving **"json format error"** is that the request is initiated without parameter. After being wrapped by the terminal source code for Mini LVB, the API request becomes normal. For more information about the APIs, please see "Analysis of Frontend and Backend Protocols for Mini LVB" (https://www.qcloud.com/document/product/454/7895).
+> The reason for receiving **"json format error"** is that the request is initiated without parameter. After being wrapped by the terminal source code for Mini LVB, the API request becomes normal. For more information about the APIs, please see "Analysis of Frontend and Backend Protocols for Mini LVB" (https://cloud.tencent.com/document/product/454/7895).
 
 
 ### 3.5. Tencent Cloud CVM - Quick Deployment
-The same last steps of this deployment method are same as those of **Self-owned server - Integration-based deployment**. But this method simplifies the first two steps. Combined with **Image Marketplace** service, [Tencent Cloud CVM](https://www.qcloud.com/document/product/213/495) allows you to achieve a quick deployment with ease.
+The same last steps of this deployment method are same as those of **Self-owned server - Integration-based deployment**. But this method simplifies the first two steps. Combined with **Image Marketplace** service, [Tencent Cloud CVM](https://cloud.tencent.com/document/product/213/495) allows you to achieve a quick deployment with ease.
 
 **Prepare a CVM:**
-- **Step 1**: [Create a new CVM](https://console.qcloud.com/cvm) 
+- **Step 1**: [Create a new CVM](https://console.cloud.tencent.com/cvm) 
 > ![](//mc.qcloudimg.com/static/img/53d7df9e5a8bc5141e55231076cbfd74/image.png)
 
 - **Step 2**: Go to the service marketplace to select images. The **PHP running environment (CentOS 64-bit PHP5.4 Niginx)** shown in the figure is recommended.
@@ -124,7 +124,7 @@ The remaining steps are same as those of **Self-owned Server - Integration-based
 
 The integration on mobile device mainly refers to the integration of Mini LVB source code and involves the following steps:
 ### 4.1. Download Mini LVB source code
-For download links for **Mini LVB iOS** and **Mini LVB Android** source codes, click [Mini LVB source code download](https://www.qcloud.com/document/product/454/6991).
+For download links for **Mini LVB iOS** and **Mini LVB Android** source codes, click [Mini LVB source code download](https://cloud.tencent.com/document/product/454/6991).
 
 ### 4.2. Overview of Mobile Device Parameters
 **Parameters and their definitions** 
@@ -132,7 +132,7 @@ For download links for **Mini LVB iOS** and **Mini LVB Android** source codes, c
 | Parameter Name | Android Variable Name | iOS Variable Name | Definition |
 |------------|----------|----------|----------|
 | **SdkAppId**| IMSDK_APPID | kTCIMSDKAppId | Identify an IM application |
-| **AccountType** | IMSDK_ACCOUNT_TYPE | kTCIMSDKAccountType | Account type related to IM. Mini LVB uses the [Hosted Mode](https://www.qcloud.com/document/product/269/1509), which should be selected upon the creation of an IM application. Another mode is [Standalone Mode](https://www.qcloud.com/document/product/269/1508), which is used for the integration with your exist account system. |
+| **AccountType** | IMSDK_ACCOUNT_TYPE | kTCIMSDKAccountType | Account type related to IM. Mini LVB uses the [Hosted Mode](https://cloud.tencent.com/document/product/269/1509), which should be selected upon the creation of an IM application. Another mode is [Standalone Mode](https://cloud.tencent.com/document/product/269/1508), which is used for the integration with your exist account system. |
 | **APPID** | COS_APPID | kTCCOSAppId | Identify COS applications |
 | **Bucket Name** | COS_BUCKET | kTCCOSBucket | Specify the location where the file is stored on COS |
 | **Region Code** | COS_REGION | kTCCOSRegion | Related to COS and used to specify the region where the Bucket resides in, the actual DC of COS. Currently, three regions are available, East China (sh), North China (tj) and South China (gz). |
@@ -141,17 +141,17 @@ For download links for **Mini LVB iOS** and **Mini LVB Android** source codes, c
 ### 4.3. Replacement of Mobile Device Parameters 
 After the Android source code package is decompressed, there is a **TCConstants.java** file under the directory app/src/main/java/com/tencent/qcloud/xiaozhibo/base. Similarly, after the iOS source code package is decompressed, there is a **TCConstants.h** file under the directory TCLVBIMDemo/Classes/LVB/Base. Replace the default field values in source code (**null or 0**) with the relevant field values.
 **Parameter acquisition:**
-[SdkAppId acquisition](https://www.qcloud.com/document/product/454/7953#3.2-im-sdk-appid), [AccountType acquisition](https://www.qcloud.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B), [COS Region acquisition](https://www.qcloud.com/document/product/454/7953#4.-.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1.EF.BC.88cos.EF.BC.89).
+[SdkAppId acquisition](https://cloud.tencent.com/document/product/454/7953#3.2-im-sdk-appid), [AccountType acquisition](https://cloud.tencent.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B), [COS Region acquisition](https://cloud.tencent.com/document/product/454/7953#4.-.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.E6.9C.8D.E5.8A.A1.EF.BC.88cos.EF.BC.89).
 
 ### 4.4. Set callback address
-Set a callback address on the LVB management console. When such event as stream status change, video recording completion, screenshot completion occurs, Tencent Cloud backend gives a callback to the business server via this address for handling the event. For more information, please see [Event Notification Messages](https://www.qcloud.com/document/product/267/5957).
+Set a callback address on the LVB management console. When such event as stream status change, video recording completion, screenshot completion occurs, Tencent Cloud backend gives a callback to the business server via this address for handling the event. For more information, please see [Event Notification Messages](https://cloud.tencent.com/document/product/267/5957).
 Configuration method:
-Go to ["LVB Console" -> "LVB Code Access" -> "Access Configuration"](https://console.qcloud.com/live/livecodemanage) to configure the callback URL. If you does not modify the code of Mini LVB business server, the callback URL format is: `http://your server IP or domain name/callback/Live_callback.php`
+Go to ["LVB Console" -> "LVB Code Access" -> "Access Configuration"](https://console.cloud.tencent.com/live/livecodemanage) to configure the callback URL. If you does not modify the code of Mini LVB business server, the callback URL format is: `http://your server IP or domain name/callback/Live_callback.php`
 ![](//mc.qcloudimg.com/static/img/b0a78a4b974824940abe811d42fb0561/image.jpg)
 
 ### 4.5. Prepared execution on physical machine
 For Android, **Android Studio 2.2** is recommended. For iOS, **XCode8.1** is recommended.
-For more information on source code structure, please see [Android Code Description](https://www.qcloud.com/document/product/454/7892) and [iOS Code Description](https://www.qcloud.com/document/product/454/7894).
+For more information on source code structure, please see [Android Code Description](https://cloud.tencent.com/document/product/454/7892) and [iOS Code Description](https://cloud.tencent.com/document/product/454/7894).
 
 ### 4.6. Verify Features
 - Log in
@@ -161,7 +161,7 @@ For more information on source code structure, please see [Android Code Descript
 	> 
 	> **Note: The replay feature of Mini LVB uses transcoded recording, with the fee for each channel being 30 CNY per month. The number of channels refers to the number of concurrent pushes. For example, if your maximum number of concurrent pushes within a month is 2, the recording fee billed for this month is 30*2=60 CNY.
 	> 
-	During the test period, you're recommended to use a single channel to save cost. If you want to achieve multi-channel debugging while saving the recording cost as can as possible, modify the **RequestLVBAddr.php** file at the Mini LVB backend by removing the joined URL parameter **record=flv|hls**. Alternatively, you can remove the parameter **record=flv|hls** in the push address requested in the mobile device code so as to temporarily disable the recording feature, and then enable it after going online. For more information on how to use push address with parameters to start recording, please see [Recording and Replay](https://www.qcloud.com/document/product/454/6852).
+	During the test period, you're recommended to use a single channel to save cost. If you want to achieve multi-channel debugging while saving the recording cost as can as possible, modify the **RequestLVBAddr.php** file at the Mini LVB backend by removing the joined URL parameter **record=flv|hls**. Alternatively, you can remove the parameter **record=flv|hls** in the push address requested in the mobile device code so as to temporarily disable the recording feature, and then enable it after going online. For more information on how to use push address with parameters to start recording, please see [Recording and Replay](https://cloud.tencent.com/document/product/454/6852).
  
 
 - Modify profile photo
@@ -170,7 +170,7 @@ For more information on source code structure, please see [Android Code Descript
 - On-screen Comment
 - Giving "Like"
 - Beauty Filter
-- **Joint Broadcasting**: supported by Mini LVB 1.8.2. ([How to Achieve Joint Broadcasting](https://www.qcloud.com/document/product/454/8092).
+- **Joint Broadcasting**: supported by Mini LVB 1.8.2. ([How to Achieve Joint Broadcasting](https://cloud.tencent.com/document/product/454/8092).
 - **Dynamic Effect**: Not included in source code. An agreement is needed for the paid use of this feature.
 
 **Now, the frontend and backend integration of Mini LVB is completed. For any problems encountered during the verification process, please refer to the problems and solutions during the integration.**
@@ -180,7 +180,7 @@ For more information on source code structure, please see [Android Code Descript
 Apple's new policy requires the use of ATS for iOS applications. The original implementation date is January 1, 2017, but it has been put off. ATS could affect the communication between iOS Mini LVB and business server at backend.
 To support ATS, two preconditions should be met:
 - The backend server supports **HTTPS**.
-> HTTPS requires that the business server has a DV certificate issued by CA for domain name verification. If you do not have a certificate, you can [apply for a free certificate of Tencent Cloud](https://console.qcloud.com/ssl), of which the validity period is 1 year. Before applying for the certificate, you need to get your domain name ready. You can [buy a domain name](https://buy.qcloud.com/domain?tlds=.cn) from Tencent Cloud in advance. The domain name purchased in this example is tcmlvb.cn (25 CNY/year). You need to bind cgi.tcmlvb.cn to the certificate. Make sure that the domain name cgi.tcmlvb.cn points to the public IP of the CVM you purchased.
+> HTTPS requires that the business server has a DV certificate issued by CA for domain name verification. If you do not have a certificate, you can [apply for a free certificate of Tencent Cloud](https://console.cloud.tencent.com/ssl), of which the validity period is 1 year. Before applying for the certificate, you need to get your domain name ready. You can [buy a domain name](https://buy.cloud.tencent.com/domain?tlds=.cn) from Tencent Cloud in advance. The domain name purchased in this example is tcmlvb.cn (25 CNY/year). You need to bind cgi.tcmlvb.cn to the certificate. Make sure that the domain name cgi.tcmlvb.cn points to the public IP of the CVM you purchased.
 > **Step 1. Apply for a free certificate:**
 > ![](//mc.qcloudimg.com/static/img/603afe4ae7fa1aba61f2aad11e8d2fbc/image.png)
 > 
@@ -188,7 +188,7 @@ To support ATS, two preconditions should be met:
 > 
 > ![](//mc.qcloudimg.com/static/img/7274fefc07fe6b16bbb9eb61a944ca4f/image.png)
 > **Step 2. Deploy the certificate on the backend server after your application is approved:**
-> First, [download the certificate](https://console.qcloud.com/ssl). Find the certificate and click the "Download" button, and then upload it to the business server using WinScp or other tools. Next, modify the configuration of live_demo.nginx by referring to [Certificate Deployment](https://www.qcloud.com/document/product/400/4143#2.-nginx-.E8.AF.81.E4.B9.A6.E9.83.A8.E7.BD.B2). Save the modification and restart (Shell command: **nginx -s reload**)
+> First, [download the certificate](https://console.cloud.tencent.com/ssl). Find the certificate and click the "Download" button, and then upload it to the business server using WinScp or other tools. Next, modify the configuration of live_demo.nginx by referring to [Certificate Deployment](https://cloud.tencent.com/document/product/400/4143#2.-nginx-.E8.AF.81.E4.B9.A6.E9.83.A8.E7.BD.B2). Save the modification and restart (Shell command: **nginx -s reload**)
 > **Step 3. Verify the completion of certificate deployment:**
 > Enter https://cgi.tcmlvb.cn/interface.php in the browser's address bar. A returned result indicates the successful deployment of HTTPS.
 > 
@@ -196,13 +196,13 @@ To support ATS, two preconditions should be met:
 - **kHttpServerAddr ** switches to HTTPS protocol: https://business server domain name/interface.php.
 
 ### 5.2. How to Use your Own Account System?
-Please see [How to Use your Own Account System?](https://www.qcloud.com/document/product/454/7981)
+Please see [How to Use your Own Account System?](https://cloud.tencent.com/document/product/454/7981)
 
 ### 5.3. How to Strengthen Login Authentication Check?
-Please see [How to Strengthen Login Authentication Check?](https://www.qcloud.com/document/product/454/6562)
+Please see [How to Strengthen Login Authentication Check?](https://cloud.tencent.com/document/product/454/6562)
 
 ### 5.4. Other Problems
-Please see [Troubleshooting](https://www.qcloud.com/document/product/454/8110)
+Please see [Troubleshooting](https://cloud.tencent.com/document/product/454/8110)
 
 
 

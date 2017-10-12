@@ -12,7 +12,7 @@ Authorization: Auth String
 
 ```
 
-> Authorization: Auth String (For more information, please see [Request Signature](https://www.qcloud.com/document/product/436/7778) chapter)
+> Authorization: Auth String (For more information, please see [Request Signature](https://cloud.tencent.com/document/product/436/7778) chapter)
 
 ### Request Line
 ```
@@ -36,7 +36,7 @@ See the details below: <style rel="stylesheet"> table th:nth-of-type(1) { width:
 ### Request Header
 
 #### Common Header
-This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://www.qcloud.com/document/product/436/7728) chapter.
+This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://cloud.tencent.com/document/product/436/7728) chapter.
 
 #### Non-common Header
 No particular request header information for this request operation.
@@ -48,7 +48,7 @@ The request body of this request is null.
 
 ### Response Header
 #### Common Response Header 
-This response uses common response header. For more information, please see [Common Response Headers](https://www.qcloud.com/document/product/436/7729) chapter.
+This response uses common response header. For more information, please see [Common Response Headers](https://cloud.tencent.com/document/product/436/7729) chapter.
 #### Specific Response Header
 No particular response header for this response.
 

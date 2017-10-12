@@ -27,7 +27,7 @@
   - Android：TXUGCRecord、TXVideoEditer、TXVideoJoiner、TXUGCPublish 从原来的 <font color='purple'>com.tencent.rtmp</font> 移到了 <font color='purple'>com.tencent.ugc</font> 下。
 
 + **历史版本**
-  - 上一版 SDK 下载地址为 [SDK Ver.2.0.5](https://www.qcloud.com/document/product/454/10776)，历史版本功能说明详见 [变更历史](https://www.qcloud.com/document/product/454/7878)。
+  - 上一版 SDK 下载地址为 [SDK Ver.2.0.5](https://cloud.tencent.com/document/product/454/10776)，历史版本功能说明详见 [变更历史](https://cloud.tencent.com/document/product/454/7878)。
 
 
 ## 下载地址
@@ -90,7 +90,7 @@ table td { height: 35px; }
 
 > 1. 除精简版之外，SDK 各功能版本均打包有 ijkplayer，如果您的工程中已使用 ffmpeg，可能会导致符号冲突。为解决这个问题，您可以使用我们经过符号处理的 rename 版 SDK。
 
-> 2. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://www.qcloud.com/document/product/454/9018)。
+> 2. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
 >  
 > 3. iOS 直播精简版中没有包含软实现的编解码器，SDK 被压缩至最小（安装包体积增量 1M 左右），但此版本不支持 iOS 7.0 及以下系统。
 >  
@@ -98,4 +98,4 @@ table td { height: 35px; }
 
 
 ## 联系我们
-我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://www.qcloud.com/document/product/454/7998)。
+我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://cloud.tencent.com/document/product/454/7998)。

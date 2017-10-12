@@ -4,7 +4,7 @@ Domain name: live.api.qcloud.com
 
 API name:  DescribeRecord
 
-Note: Recorded files are stored on the VOD platform. If you want to use the recording feature, you need to activate a VOD account first and ensure that the account is available. When recorded files are stored, the charges (including charges for storage and downlink playback traffic) are calculated with VOD billing method. For more information, please see [relevant document](https://www.qcloud.com/document/product/267/2818).
+Note: Recorded files are stored on the VOD platform. If you want to use the recording feature, you need to activate a VOD account first and ensure that the account is available. When recorded files are stored, the charges (including charges for storage and downlink playback traffic) are calculated with VOD billing method. For more information, please see [relevant document](https://cloud.tencent.com/document/product/267/2818).
 
 
 
@@ -103,7 +103,7 @@ The file information is composed as follows:
 Input 1
 <pre>
 
-http://domain/v2/index.php?Action=DescribeRecord&channelId=16093104850681751595&taskId=10&pageSize=10&pageNo=1&<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>
+http://domain/v2/index.php?Action=DescribeRecord&channelId=16093104850681751595&taskId=10&pageSize=10&pageNo=1&<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>
 
 
 
@@ -136,5 +136,5 @@ Output 1
 ```
 After the recording, the VOD platform will generate a file, for example:
 http://2527.vod.myqcloud.com/2527_000007d0b18*****bd98f9125ed6569ee9a90001.f0.mp4
-Complete information on access methods can be found via fileId and API [VOD API](https://www.qcloud.com/document/product/266/8586)
+Complete information on access methods can be found via fileId and API [VOD API](https://cloud.tencent.com/document/product/266/8586)
 

@@ -16,7 +16,7 @@ Domain for private network API request:<font style="color:red">cmq-queue-region.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -44,7 +44,7 @@ The following request parameter list only provides API request parameters. For o
 <td> 4430
 </td><td> 10260
 </td><td> receipt handle is invalid
-</td><td> Receipt handle is invalid. Refer to <a href="https://www.qcloud.com/doc/api/431/5840">Delete Messages</a> for the reasons for why handles become invalid.
+</td><td> Receipt handle is invalid. Refer to <a href="https://cloud.tencent.com/doc/api/431/5840">Delete Messages</a> for the reasons for why handles become invalid.
 </td></tr>
 <tr>
 <td> 4000
@@ -55,7 +55,7 @@ The following request parameter list only provides API request parameters. For o
 
 </tbody></table>
 
-Note: The error codes listed in the above table are specific to the API. If the error code you are looking for is not here, you may find it in the [Common Error Codes](https://www.qcloud.com/document/product/406/5903).
+Note: The error codes listed in the above table are specific to the API. If the error code you are looking for is not here, you may find it in the [Common Error Codes](https://cloud.tencent.com/document/product/406/5903).
 
 ## 4. Example
 
@@ -65,7 +65,7 @@ Input:
  https://domain/v2/index.php?Action=DeleteMessage
  &queueName=test-queue-123
  &receiptHandle=3423452345
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+ &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output:

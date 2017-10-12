@@ -7,8 +7,10 @@
 - High performance computing (HPC) 
 
 and other compute-intensive applications. 
-A computational C2 machine features **3.2** GHz Intel E5-2667 Broadwell (v4) processor and DDR4 memory, and offers the options of SSD local and cloud disks for the system and data disks. It supports network boost and up to 300,000 packets per second (PPS). Disk IO and network IO are specially optimized to deliver superior performance.
-For the available configurations when you purchase a C2 computational instance, refer to [CVM Instance Configurations](https://www.qcloud.com/doc/product/213/2177).
+
+A computational C2 machine features **3.2** GHz Intel E5-2667 Broadwell (v4) processor and DDR4 memory, and offers the options of SSD local and cloud disks for the system and data disks. It supports network boost and up to 300,000 packets per second (PPS). Disk IO and network IO are specially optimized to deliver superior performance.
+
+For the available configurations when you purchase a C2 computational instance, refer to [CVM Instance Configurations](https://cloud.tencent.com/doc/product/213/2177).
 
 ## Hardware Specification
 The hardware specification for a computational C2 instance is as follows:
@@ -36,9 +38,9 @@ The hardware specification for a computational C2 instance is as follows:
 
 ## Requirements for computational C2 instance
 
-- A C2 instance can be used on the basis of [prepaid](https://www.qcloud.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) or [postpaid](https://www.qcloud.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), or as the production instance of computational host HC20 in dedicated hosts;
-- Support C2 instance startup in basic network and [Virtual Private Cloud](https://www.qcloud.com/doc/product/215/535#.E8.85.BE.E8.AE.AF.E4.BA.91.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F);
-- For the available configurations when you purchase a C2 computational instance, refer to [CVM Instance Configurations](https://www.qcloud.com/doc/product/213/2177).
+- A C2 instance can be used on the basis of [prepaid](https://cloud.tencent.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) or [postpaid](https://cloud.tencent.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), or as the production instance of computational host HC20 in dedicated hosts;
+- Support C2 instance startup in basic network and [Virtual Private Cloud](https://cloud.tencent.com/doc/product/215/535#.E8.85.BE.E8.AE.AF.E4.BA.91.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F);
+- For the available configurations when you purchase a C2 computational instance, refer to [CVM Instance Configurations](https://cloud.tencent.com/doc/product/213/2177).
 
 
 

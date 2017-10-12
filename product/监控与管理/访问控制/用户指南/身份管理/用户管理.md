@@ -17,21 +17,21 @@
 
 ### 添加用户到组
 
-1. 登录腾讯云控制台，进入 [访问管理](https://console.qcloud.com/cam)，选择您想要操作的用户，单击【添加到组】。
+1. 登录腾讯云控制台，进入 [访问管理](https://console.cloud.tencent.com/cam)，选择您想要操作的用户，单击【添加到组】。
 ![](https://mc.qcloudimg.com/static/img/ffdf76e09c92921e2e0d2260bb7fb8bb/image.png)
 2. 选择您想要的用户组，选择完毕后，单击【确定】。
 ![](https://mc.qcloudimg.com/static/img/44f2434d246cadf5a9f142a6897d73bf/image.png)
 
 ### 删除子用户
 
-1. 登录腾讯云控制台，进入 [访问管理](https://console.qcloud.com/cam)，勾选您想要操作的用户，单击【删除】。
+1. 登录腾讯云控制台，进入 [访问管理](https://console.cloud.tencent.com/cam)，勾选您想要操作的用户，单击【删除】。
 ![](https://mc.qcloudimg.com/static/img/511f2fe37ea64b578b09eea236e72658/image.png)
 2. 在弹出的提示框中，单击【确认删除】。
 
 
 ### 开启子用户订阅消息功能
 
-1. 登录腾讯云控制台，进入 [访问管理](https://console.qcloud.com/cam)，选择您想要操作的用户，单击【订阅消息】。
+1. 登录腾讯云控制台，进入 [访问管理](https://console.cloud.tencent.com/cam)，选择您想要操作的用户，单击【订阅消息】。
 ![](https://mc.qcloudimg.com/static/img/45e15b318fe44dece46aadc1226ca60d/image.png)
 2. 选择您想要订阅消息的类型，单击下拉栏，您还可以看到具体的消息，选择完毕后，单击【确定】。
 ![](https://mc.qcloudimg.com/static/img/8f8a4c72f0e62a6fd641a74befa448f9/image.png)

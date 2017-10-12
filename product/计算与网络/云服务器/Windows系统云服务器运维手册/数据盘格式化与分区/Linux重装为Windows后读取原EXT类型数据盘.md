@@ -13,7 +13,7 @@ Windows 文件系统格式通常是 NTFS 或 FAT32 ，而 Linux 文件系统格�
  ```
 
  3. 原 Linux 下数据盘挂载至 Windows 云服务器（若数据盘已挂载则可跳过此步骤）。
-登录 [腾讯云 CVM 控制台](https://console.qcloud.com/cvm/) ，单击左侧【云硬盘】选项卡，单击原 Linux 数据盘右侧【更多】-【挂载到云主机】按钮。在弹出框中选择重装后的 Windows 云服务器，单击【确定】。
+登录 [腾讯云 CVM 控制台](https://console.cloud.tencent.com/cvm/) ，单击左侧【云硬盘】选项卡，单击原 Linux 数据盘右侧【更多】-【挂载到云主机】按钮。在弹出框中选择重装后的 Windows 云服务器，单击【确定】。
 
  4. 运行 DiskInternals Linux Reader 软件，即可查看刚挂载的数据盘信息。本例中，`/root/mnt`和`/root/mnt1`分别对应分区 vdb1 和 vdb2 。
 ![](//mccdn.qcloud.com/static/img/de1d02ddf0793da5911e0bece70a4993/image.png)

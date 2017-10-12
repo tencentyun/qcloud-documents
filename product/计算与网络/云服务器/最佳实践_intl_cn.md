@@ -6,18 +6,18 @@
 - 创建不同的安全组规则应用于不同安全级别的实例组上，确保运行重要业务的实例无法轻易从外部触达。
 - 定期更新和保护实例上的应用程序。
 - 选择使用 [私有网络](/doc/product/213/5227) 进行逻辑区的划分。
-- 当对同一组云资源需要多个不同账户控制时，用户可以使用 [策略机制](https://www.qcloud.com/doc/product/378/4513) 控制其对云资源的访问权限。
+- 当对同一组云资源需要多个不同账户控制时，用户可以使用 [策略机制](https://cloud.tencent.com/doc/product/378/4513) 控制其对云资源的访问权限。
 - 尽量使用 [SSH 密钥](/doc/product/213/6092) 方式登录用户的 Linux 类型实例。使用 [密码登录](/doc/product/213/6093) 的实例需要不定期修改密码。
 
 ## 存储
 
-- 对于可靠性要求极高的数据，请使用腾讯云云硬盘保证数据的持久存储可靠性，尽量不要选择[本地盘](/doc/product/213/5798)来存储。有关更多信息，请参阅 [云硬盘产品文档](https://www.qcloud.com/doc/product/362)。
-- 对于访问频繁、容量不稳定的数据库，可使用[腾讯云云数据库](https://www.qcloud.com/product/cdb-overview.html)。
+- 对于可靠性要求极高的数据，请使用腾讯云云硬盘保证数据的持久存储可靠性，尽量不要选择[本地盘](/doc/product/213/5798)来存储。有关更多信息，请参阅 [云硬盘产品文档](https://cloud.tencent.com/doc/product/362)。
+- 对于访问频繁、容量不稳定的数据库，可使用[腾讯云云数据库](https://cloud.tencent.com/product/cdb-overview.html)。
 
 ## 备份和恢复
 
 - 定期使用 [CBS 快照](/doc/product/362/5754)功能备份实例。
 - 跨多个可用区部署应用程序的关键组件，并适当地复制数据。
 - 使用[弹性 IP](/doc/product/213/5733) 进行域名映射，保证在服务器不可用时能快速将服务 IP 重新指向另一台 CVM 实例。
-- 定期查看监控数据并设置好适当的告警。有关更多信息，请参阅 [云监控产品文档](https://www.qcloud.com/doc/product/248)。
-- 使用弹性伸缩处理突发请求。有关更多信息，请参阅 [弹性伸缩产品文档](https://www.qcloud.com/doc/product/377)。
+- 定期查看监控数据并设置好适当的告警。有关更多信息，请参阅 [云监控产品文档](https://cloud.tencent.com/doc/product/248)。
+- 使用弹性伸缩处理突发请求。有关更多信息，请参阅 [弹性伸缩产品文档](https://cloud.tencent.com/doc/product/377)。

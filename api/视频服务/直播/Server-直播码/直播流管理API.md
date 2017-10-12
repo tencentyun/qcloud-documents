@@ -13,21 +13,21 @@
 
 | API                                | 功能介绍                                                   |
 |---------------------------------|--------------------------------------------------------------|
-| [Get_LiveStat](https://www.qcloud.com/doc/api/258/6110)  | 统计信息查询 - 查询推流和播放相关信息|
-| [Get_LivePushStat](https://www.qcloud.com/doc/api/258/6110) | 统计信息查询 - 查询推流相关信息|
-| [Get_LivePlayStat](https://www.qcloud.com/doc/api/258/6110)  |  统计信息查询 - 查询播放相关信息 |
-| [Get_LivePushStatHistory](https://www.qcloud.com/document/product/267/9579)|获取推流历史信息|
-| [Get_LivePlayStatHistory](https://www.qcloud.com/document/product/267/9580)|获取播放统计历史信息|
-| [Live_Channel_GetStatus](https://www.qcloud.com/doc/api/258/5958) |  仅查询某条流的状态信息（旧版本接口） | 
-| [Live_Channel_SetStatus](https://www.qcloud.com/doc/api/258/5959) | 对某条流实行**禁播**操作，主要用于鉴黄场景 | 
-| [Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960)| 查询某条流在直播过程中的**录制**文件列表 | 
-| [Live_Queue_Get](https://www.qcloud.com/doc/api/258/5961)| 查询某条流在直播过程中的**截图**文件列表 |
-| [Live_Channel_GetChannelList](https://www.qcloud.com/document/product/267/7997)|查询频道列表|
-| [Live_Channel_GetLiveChannelList](https://www.qcloud.com/document/product/267/8862)|查询直播中频道列表|
-| [mix_streamv2.start_mix_stream_advanced](https://www.qcloud.com/document/product/267/8832)|云端混流操作接口|
-| [channel_manager](https://www.qcloud.com/document/product/267/9500)|暂停并延迟恢复——可针对某路流禁止推流|
-| [Live_Tape_Start](https://www.qcloud.com/document/product/267/9567)|创建录制任务——可实现定时录制任务或者实时视频录制|
-| [Live_Tape_Stop](https://www.qcloud.com/document/product/267/9568)|结束录制任务|
+| [Get_LiveStat](https://cloud.tencent.com/doc/api/258/6110)  | 统计信息查询 - 查询推流和播放相关信息|
+| [Get_LivePushStat](https://cloud.tencent.com/doc/api/258/6110) | 统计信息查询 - 查询推流相关信息|
+| [Get_LivePlayStat](https://cloud.tencent.com/doc/api/258/6110)  |  统计信息查询 - 查询播放相关信息 |
+| [Get_LivePushStatHistory](https://cloud.tencent.com/document/product/267/9579)|获取推流历史信息|
+| [Get_LivePlayStatHistory](https://cloud.tencent.com/document/product/267/9580)|获取播放统计历史信息|
+| [Live_Channel_GetStatus](https://cloud.tencent.com/doc/api/258/5958) |  仅查询某条流的状态信息（旧版本接口） | 
+| [Live_Channel_SetStatus](https://cloud.tencent.com/doc/api/258/5959) | 对某条流实行**禁播**操作，主要用于鉴黄场景 | 
+| [Live_Tape_GetFilelist](https://cloud.tencent.com/doc/api/258/5960)| 查询某条流在直播过程中的**录制**文件列表 | 
+| [Live_Queue_Get](https://cloud.tencent.com/doc/api/258/5961)| 查询某条流在直播过程中的**截图**文件列表 |
+| [Live_Channel_GetChannelList](https://cloud.tencent.com/document/product/267/7997)|查询频道列表|
+| [Live_Channel_GetLiveChannelList](https://cloud.tencent.com/document/product/267/8862)|查询直播中频道列表|
+| [mix_streamv2.start_mix_stream_advanced](https://cloud.tencent.com/document/product/267/8832)|云端混流操作接口|
+| [channel_manager](https://cloud.tencent.com/document/product/267/9500)|暂停并延迟恢复——可针对某路流禁止推流|
+| [Live_Tape_Start](https://cloud.tencent.com/document/product/267/9567)|创建录制任务——可实现定时录制任务或者实时视频录制|
+| [Live_Tape_Stop](https://cloud.tencent.com/document/product/267/9568)|结束录制任务|
 
 ### 2. 调用方法
 
@@ -39,7 +39,7 @@
 所有直播码相关的云端 API 都采用了同一种安全检查机制， **t + sign 校验**：
 - **t（过期时间）**：如果一个API请求或者通知中的 t 值所规定的时间已经过期，则可以判定这个请求或者通知为无效的，这样做可以防止网络重放攻击。t 的格式为UNIX时间戳，即从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。
 
-- **sign（安全签名）**:  <font color='blue'>sign = MD5(key + t) </font>，即把加密key 和 t 进行字符串拼接后，计算一下md5值。这里的key即CGI调用key，您在腾讯云直播管理[控制台](https://console.qcloud.com/live/livecodemanage) 中可以进行设置：
+- **sign（安全签名）**:  <font color='blue'>sign = MD5(key + t) </font>，即把加密key 和 t 进行字符串拼接后，计算一下md5值。这里的key即CGI调用key，您在腾讯云直播管理[控制台](https://console.cloud.tencent.com/live/livecodemanage) 中可以进行设置：
 
 ![](//mc.qcloudimg.com/static/img/e5034b47cead66be46b1f81a1fea8274/image.png)
 
@@ -70,7 +70,7 @@
 |---------|---------|---------|
 | appid is invalid | appid不合法，表示未开通该功能 ||
 
-**注：以上错误码针对本文1.API列表中的API。不包括[消息事件通知](https://www.qcloud.com/document/product/267/5957)**
+**注：以上错误码针对本文1.API列表中的API。不包括[消息事件通知](https://cloud.tencent.com/document/product/267/5957)**
 
 ## 消息通知
-详情参考腾讯云事件[消息通知](https://www.qcloud.com/document/product/267/5957)服务。 
+详情参考腾讯云事件[消息通知](https://cloud.tencent.com/document/product/267/5957)服务。 

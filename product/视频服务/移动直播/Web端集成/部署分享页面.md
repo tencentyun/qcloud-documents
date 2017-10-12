@@ -33,7 +33,7 @@ http://imgcache.qq.com/open/qcloud/video/share/xiaozhibo.html?sdkappid=140001234
 
 <font color="red">欢迎使用腾讯云一站式解决方案，免去各种繁琐配置操作，包括云服务器、域名服务等解决方案，详情请点击</font>
 
-[https://www.qcloud.com/product/cvm](https://www.qcloud.com/product/cvm)
+[https://cloud.tencent.com/product/cvm](https://cloud.tencent.com/product/cvm)
 
 
 ### 3.2安装apache

@@ -1,4 +1,4 @@
-Make sure that you have followed the steps in [Installing Software via YAST in SUSE Environment](http://www.qcloud.com/doc/product/213/SUSE%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%80%9A%E8%BF%87YaST%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) install the necessary software.
+Make sure that you have followed the steps in [Installing Software via YAST in SUSE Environment](http://cloud.tencent.com/doc/product/213/SUSE%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%80%9A%E8%BF%87YaST%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) install the necessary software.
 ## 1. Configuration of nginx
 1) Start nginx service
 

@@ -10,7 +10,7 @@ mongo 10.66.187.127:27017/admin -u mongouser -p thepasswordA1
 ![典型的连接命令截图示例](https://mc.qcloudimg.com/static/img/ce6b26f8cd6b1cc2981bc0cd44f9d09d/shell_default.png)
 
 ### 多种认证方式的连接说明
-在[连接示例](https://www.qcloud.com/doc/product/240/3563)一文有说明，腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式。
+在[连接示例](https://cloud.tencent.com/doc/product/240/3563)一文有说明，腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式。
 对于这两种认证方式，shell命令的参数是不一样的，具体请看下文。
 
 ### SCRAM-SHA-1 认证（mongouser）
@@ -40,4 +40,4 @@ mongo 10.66.187.127:27017/singer -u rwuser -p thepasswordA1 --authenticationMech
 ![直入某个db的连接命令截图示例](https://mc.qcloudimg.com/static/img/d31bfa612a295fd070ea5dd09c7ce6a3/cr_somedb.png)
 
 ### 使用shell进行数据导入和导出
-上文所述的两种认证方式都可以在shell里进行数据导入和导出，[参见这里](https://www.qcloud.com/doc/product/240/5321)。
+上文所述的两种认证方式都可以在shell里进行数据导入和导出，[参见这里](https://cloud.tencent.com/doc/product/240/5321)。

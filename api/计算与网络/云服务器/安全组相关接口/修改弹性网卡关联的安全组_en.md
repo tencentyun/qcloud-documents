@@ -58,7 +58,7 @@ Input
   &networkInterfaceSet.0.networkInterfaceId=eni-3056glfn
   &networkInterfaceSet.0.sgIds.0=sg-1sdj39df
   &networkInterfaceSet.0.sgIds.1=sg-o8sk37is
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 
 </pre>
 

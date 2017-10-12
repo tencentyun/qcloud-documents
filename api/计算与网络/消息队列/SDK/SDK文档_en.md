@@ -16,7 +16,7 @@ Please ensure that JDK environment has been installed. If not, please download [
 
 ### Downloading and Configuring CMQ Java SDK
 #### Instructions for Cloud API Key
-When using a Java SDK, the user's Cloud API key is required to verify the validity of the user's identity. Users can log in to [Tencent Cloud Console](https://console.qcloud.com/), and select "Cloud Services" - "Cloud API Key" to get the Cloud API key, as shown in the figure below:
+When using a Java SDK, the user's Cloud API key is required to verify the validity of the user's identity. Users can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and select "Cloud Services" - "Cloud API Key" to get the Cloud API key, as shown in the figure below:
 ![](https://mc.qcloudimg.com/static/img/b04d51df61bc4e9259dcee293981b644/5.png)
 
 Users can create a new Cloud API key or use an existing key. Click the key ID to enter the details page in order to get the secretId of the key and its corresponding secretKey.
@@ -51,7 +51,7 @@ If the jar package is used, please add cmq.jar package through "property" dialog
 After the jar package is added, the directory will be as follows:
 ![](https://mc.qcloudimg.com/static/img/a025253000b587bc35eca6bc1904d81c/6.png)
 
-Then you can run the program. If an error code is returned, please refer to the [Error Codes](https://www.qcloud.com/doc/api/431/5903) for troubleshooting.
+Then you can run the program. If an error code is returned, please refer to the [Error Codes](https://cloud.tencent.com/doc/api/431/5903) for troubleshooting.
 
 ### Using CMQ JAVA SDK
 

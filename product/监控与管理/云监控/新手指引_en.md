@@ -5,18 +5,18 @@ If you want to check the public network outbound bandwidth (the bandwidth sent b
 ## Starting Setup
 To enable Tencent Cloud Monitor, you need to use Tencent Cloud services (such as CVMs) under your Tencent cloud account, so that the metric data can be automatically generated in the Cloud Monitor Console.
 
-Log in to [Tencent Cloud Console](https://console.qcloud.com). On the top of the console, select "Cloud Monitoring" to enter Cloud Monitoring Console, and then you can check the monitoring data of your services, and use Monitor Overview, My Alarms, Cloud Product Monitoring and Data Usage Monitoring in the left navigation pane.
+Log in to [Tencent Cloud Console](https://console.cloud.tencent.com). On the top of the console, select "Cloud Monitoring" to enter Cloud Monitoring Console, and then you can check the monitoring data of your services, and use Monitor Overview, My Alarms, Cloud Product Monitoring and Data Usage Monitoring in the left navigation pane.
 
 ### Viewing Monitor Overview
 Monitor Overview shows the overall monitoring information under your account, including core exceptions, custom monitoring views, and monitoring statistics. You can get basic information about the cloud services in this module.
 
 ## Viewing Monitoring Views of Cloud Products
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "Cloud Product Monitoring" - "Cloud Virtual Machine" tab, and the right list will display all the CVM instances and their current <font color="red"> real-time data </font>.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "Cloud Product Monitoring" - "Cloud Virtual Machine" tab, and the right list will display all the CVM instances and their current <font color="red"> real-time data </font>.
 
 2) Select "East China (Shanghai)" region, and click the CVM (ID: `ins-1234578`) to enter the instance monitoring details page. Click "Public Network Outbound Bandwidth" on the left, select "Last 7 Days" in the time range above, or use the time picker to select a specific time period, and then you can see the trend of the public network outbound bandwidth over the past 7 days.
 
 ## Setting the Alarm
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click "Alarm Policy" button.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click "Alarm Policy" button.
 
 2) Click "Add Alarm Policy" button on the alarm policy list page. In the "Add Alarm Policy" pop-up box, enter:
 - Policy Name: Bandwidth alarm
@@ -33,4 +33,4 @@ Monitor Overview shows the overall monitoring information under your account, in
 
 7) In the User Group Management tab, click the "Create New User Group" button to create a new user group. Click OK. Click "Add User" to add the user you just created to this user group.
 
-8) Back to [Cloud Monitoring Console](https://console.qcloud.com/monitor/overview), click "Cloud Monitoring" - "My Alarms" tab, and then click the "Alarm Policy" menu; In the Alarm Policy List page, click on the just created `Bandwidth alarm`; in the details page, click the "Manage Alarm Receiver Group" button, and check the user group you just created.
+8) Back to [Cloud Monitoring Console](https://console.cloud.tencent.com/monitor/overview), click "Cloud Monitoring" - "My Alarms" tab, and then click the "Alarm Policy" menu; In the Alarm Policy List page, click on the just created `Bandwidth alarm`; in the details page, click the "Manage Alarm Receiver Group" button, and check the user group you just created.

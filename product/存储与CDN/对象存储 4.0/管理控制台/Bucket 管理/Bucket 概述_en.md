@@ -6,10 +6,10 @@ Tencent Cloud COS supports the configuration of various bucket attributes. For e
 
 For more information on attribute configurations, refer to the following documents:
 
-[Hosting a Static Website in a Bucket](https://www.qcloud.com/document/product/436/6249)
-[Configuring Bucket Access Permissions](https://www.qcloud.com/document/product/436/6247)
-[Enabling Cross-Origin Resource Sharing](https://www.qcloud.com/document/product/436/6251)
-[Management of Domains Accessing a Bucket](https://www.qcloud.com/document/product/436/6252)
+[Hosting a Static Website in a Bucket](https://cloud.tencent.com/document/product/436/6249)
+[Configuring Bucket Access Permissions](https://cloud.tencent.com/document/product/436/6247)
+[Enabling Cross-Origin Resource Sharing](https://cloud.tencent.com/document/product/436/6251)
+[Management of Domains Accessing a Bucket](https://cloud.tencent.com/document/product/436/6252)
 
 
 ## Multi-region Storage and Access Domains
@@ -22,7 +22,7 @@ COS supports multi-region storage. Currently, South China, North China, and East
 | East China   | sh   | bucketname-APPID.cossh.myqcloud.com | sh.file.myqcloud.com | Available  |
 | Singapore  | -    | -                                   | -                    | Coming soon |
 
-**Private network cross-region access: Different Tencent Cloud products in different regions cannot be accessed directly. To achieve private network cross-region access, for example, a CVM in Guangzhou needs to use data on the Singapore COS, you need to use a VPC to deploy exclusive network tunnels to achieve high-speed access.  [Click to view VPC related information](https://www.qcloud.com/product/vpc.html)**
+**Private network cross-region access: Different Tencent Cloud products in different regions cannot be accessed directly. To achieve private network cross-region access, for example, a CVM in Guangzhou needs to use data on the Singapore COS, you need to use a VPC to deploy exclusive network tunnels to achieve high-speed access.  [Click to view VPC related information](https://cloud.tencent.com/product/vpc.html)**
 
 
 ## Access Permissions

@@ -1,11 +1,11 @@
 ## 1. Viewing Scaling Group List
 
-1. Open the [Console](https://console.qcloud.com/autoscaling), and click **Scaling Group** in the navigation bar to view the list.
+1. Open the [Console](https://console.cloud.tencent.com/autoscaling), and click **Scaling Group** in the navigation bar to view the list.
 ![](//mccdn.qcloud.com/static/img/ff713a0ff792e49e5e8e099e59251b5a/image.png)
 
 ## 2. Creating a Scaling Group
 
-Open the [Console](https://console.qcloud.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
+Open the [Console](https://console.cloud.tencent.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
 
 ### 2.1. Select a Region
 
@@ -23,7 +23,7 @@ Click the **New** button and define attributes of the scaling group:
   - **Scaling configuration**: defines the scaling configuration. Machines will be created according to this configuration when performing scaling operations
   - **Supported network**: the network attribute of the scale-up machines, i.e., whether the scale-up machines are in the basic network or a VPC. Choose "Basic Network", unless your cluster has already been using VPC
   - **Supported availability zone**: defines in which availability zone the machine will be automatically created during scaling operations. You can select multiple availability zones. The scale-up machines will be automatically created randomly in the selected availability zones, allowing cross-availability zone disaster recovery
-  - **Remove policy**: when removing instances from the scaling group and there are multiple choices, which CVMs shall be removed will be based on this policy. Usually, you can select "Remove Oldest Machine". Check the [Details](https://www.qcloud.com/document/product/377/4166#13.-.E4.BC.B8.E7.BC.A9.E7.BB.84.E7.A7.BB.E5.87.BA.E7.AD.96.E7.95.A5.E7.9A.84.E5.85.B7.E4.BD.93.E8.A7.84.E5.88.99.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F) of the two policies.
+  - **Remove policy**: when removing instances from the scaling group and there are multiple choices, which CVMs shall be removed will be based on this policy. Usually, you can select "Remove Oldest Machine". Check the [Details](https://cloud.tencent.com/document/product/377/4166#13.-.E4.BC.B8.E7.BC.A9.E7.BB.84.E7.A7.BB.E5.87.BA.E7.AD.96.E7.95.A5.E7.9A.84.E5.85.B7.E4.BD.93.E8.A7.84.E5.88.99.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F) of the two policies.
   - **Load balancer**: specifies a load balancer. Created scale-up machines will be automatically mounted to this load balancer.
 
 The scaling group is now created. Currently the scaling group can accommodate machines, but cannot perform intelligent capacity scaling. We strongly recommend you to proceed with the following 3 operations:
@@ -33,7 +33,7 @@ The scaling group is now created. Currently the scaling group can accommodate ma
 
 
 ## 3. Modifying CVMs Bound to the Scaling Group
-Open the [Console](https://console.qcloud.com/autoscaling), and select **Scaling Group** in the navigation bar.
+Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page of the scaling group.
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -47,7 +47,7 @@ Automatically created machines will be terminated when removed.
 Manually added machines will not be terminated upon removal. They will only be removed from the scaling group, and the load balancer will be unbound.
 
 ## 4. Defining the Availability Zone Where Scale-up Machine will be Automatically Created
-Open the [Console](https://console.qcloud.com/autoscaling), and select **Scaling Group** in the navigation bar.
+Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -56,7 +56,7 @@ Click "Edit" to increase or decrease availability zones.
 
 
 ## 5. Modifying Scaling Group
-Open the [Console](https://console.qcloud.com/autoscaling), and select **Scaling Group** in the navigation bar.
+Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -65,7 +65,7 @@ Click **Edit** to modify the scaling group name, adjust the minimum and maximum 
 ![](//mccdn.qcloud.com/static/img/19a6f7cc708a4288974a98d8a78263bd/image.png)
 
 ## 6. Deleting Scaling Group
-Open the [Console](https://console.qcloud.com/autoscaling), and select **Scaling Group** in the navigation bar.
+Open the [Console](https://console.cloud.tencent.com/autoscaling), and select **Scaling Group** in the navigation bar.
 
 There is a **Delete** button behind each scaling group in the scaling group list. Note: you need to delete the instances in the scaling group before your can delete the scaling group itself.
 
@@ -77,7 +77,7 @@ When adding and deleting CVM instances in an AS, you need to ensure that the tra
 
 Integrate scaling group and CLB so that you can attach the CLB to the existing scaling group. Once the CLB is attached, it will automatically register the instances in the group and distribute inbound traffic to these instances.
 
-In the AS [Console](https://console.qcloud.com/autoscaling), click "New" and select the load balancer you need from the "Load Balance" option at the bottom of the page. If you did not create it in advance, click the "New" link below the option to create a new load balancer.
+In the AS [Console](https://console.cloud.tencent.com/autoscaling), click "New" and select the load balancer you need from the "Load Balance" option at the bottom of the page. If you did not create it in advance, click the "New" link below the option to create a new load balancer.
 
 > Note:
 > The load balancer instance associated with the scaling group must be in the same network environment (VPC or the basic network of the same region) as the scaling group.

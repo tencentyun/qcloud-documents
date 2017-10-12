@@ -1,6 +1,6 @@
 ## 1 Log in with the Command Line
 
-1. Log in to [www.qcloud.com][1], go to the "Console", and click "Cloud Database" in "Cloud Services" module to enter the cloud database's "Management View" page.
+1. Log in to [cloud.tencent.com][1], go to the "Console", and click "Cloud Database" in "Cloud Services" module to enter the cloud database's "Management View" page.
 
 ![][image-1]
 
@@ -37,7 +37,7 @@ Example:
 
 ## 2 Log in with the Cloud Database Management Interface
 
-1. Log in to [www.qcloud.com][5], go to the "Console", and click "Cloud Database" in "Cloud Services" module to enter the cloud database's "Management View" page.
+1. Log in to [cloud.tencent.com][5], go to the "Console", and click "Cloud Database" in "Cloud Services" module to enter the cloud database's "Management View" page.
 
 ![][image-6]
 
@@ -59,11 +59,11 @@ If you forget the cloud database password, you can reset it. For details, see [R
 
 ![][image-10]
 
-[1]:	http://www.qcloud.com
+[1]:	http://cloud.tencent.com
 [2]:	/doc/product/236/%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE
 [3]:	https://dev.mysql.com/downloads/installer/
 [4]:	http://dev.mysql.com/doc/
-[5]:	http://www.qcloud.com
+[5]:	http://cloud.tencent.com
 [6]:	/doc/product/236/%E5%AF%86%E7%A0%81%E9%87%8D%E7%BD%AE
 
 [image-1]:	//mc.qcloudimg.com/static/img/313d5fd529bfe4898651efa2b3b08dc6/1.png

@@ -58,7 +58,7 @@ vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
 
 <pre>
 https://domain/v2/index.php?Action=BindBmL7LocationVmIp
-&<<a href="https://www.qcloud.com/document/product/386/6718">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">公共请求参数</a>>
 &loadBalancerId=lb-abcdefgh
 &listenerId=lbl-abcdefgh
 &domainId=dm-abcdefgh

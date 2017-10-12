@@ -2,4 +2,4 @@
 
 您可以使用 [云数据库控制台][1]，在【管理】-【操作日志】模块下，提供慢查询日志。同时，您也可以在命令行界面 (CLI) 或者 使用云数据库 API 查看、下载和观看数据库日志。
 
-[1]:	https://console.qcloud.com/cdb/
+[1]:	https://console.cloud.tencent.com/cdb/

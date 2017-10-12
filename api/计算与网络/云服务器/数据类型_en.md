@@ -4,8 +4,8 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| Zone | String | Yes | ID of the availability zone to which the instance belongs This parameter can be obtained by calling the Zone field in the returned value of [DescribeZones](https://www.qcloud.com/document/api/213/9455). |
-| ProjectId | Integer | No | ID of project to which the instance belongs. This parameter can be obtained by calling the projectId field in the returned value of [DescribeProject](https://www.qcloud.com/document/api/378/4400). If this is left empty, default project is used. |
+| Zone | String | Yes | ID of the availability zone to which the instance belongs This parameter can be obtained by calling the Zone field in the returned value of [DescribeZones](https://cloud.tencent.com/document/api/213/9455). |
+| ProjectId | Integer | No | ID of project to which the instance belongs. This parameter can be obtained by calling the projectId field in the returned value of [DescribeProject](https://cloud.tencent.com/document/api/378/4400). If this is left empty, default project is used. |
 | HostIds.N | array of Strings | No | The list of IDs of CDHs to which the instance belongs. If you have purchased CDHs and have specified this parameter, the instance you purchased will be randomly deployed on these CDHs. Currently, it is not supported. |
 
 ### SystemDisk
@@ -14,7 +14,7 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| DiskType | String | No | System disk type. For information on limits of system disk type, please see [CVM Instance Configuration](https://www.qcloud.com/document/product/213/2177). Value range: <br><li>LOCAL_BASIC: local HDD<br><li>LOCAL_SSD: local SSD disk<br><li>CLOUD_BASIC: HDD cloud disk<br><br>Default value: LOCAL_BASIC. |
+| DiskType | String | No | System disk type. For information on limits of system disk type, please see [CVM Instance Configuration](https://cloud.tencent.com/document/product/213/2177). Value range: <br><li>LOCAL_BASIC: local HDD<br><li>LOCAL_SSD: local SSD disk<br><li>CLOUD_BASIC: HDD cloud disk<br><br>Default value: LOCAL_BASIC. |
 | DiskId | String | No | System disk ID. LOCAL_BASIC and LOCAL_SSD do not have an ID. This parameter is not supported currently. |
 | DiskSize | Integer | No | System disk size, in GB. Default is 50 |
 
@@ -24,9 +24,9 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| DiskType | String | No | Data disk type. For information on limits of data disk type, please see [CVM Instance Configuration](https://www.qcloud.com/document/product/213/2177). Value range: <br><li>LOCAL_BASIC: local HDD<br><li>LOCAL_SSD: local SSD disk<br><li>CLOUD_BASIC: HDD cloud disk<br><li>CLOUD_PREMIUM: premium cloud disk<br><li>CLOUD_SSD: SSD cloud disk<br><li>Default value: LOCAL_BASIC. <br><br>This parameter is invalid for the `ResizeInstanceDisk` API. |
+| DiskType | String | No | Data disk type. For information on limits of data disk type, please see [CVM Instance Configuration](https://cloud.tencent.com/document/product/213/2177). Value range: <br><li>LOCAL_BASIC: local HDD<br><li>LOCAL_SSD: local SSD disk<br><li>CLOUD_BASIC: HDD cloud disk<br><li>CLOUD_PREMIUM: premium cloud disk<br><li>CLOUD_SSD: SSD cloud disk<br><li>Default value: LOCAL_BASIC. <br><br>This parameter is invalid for the `ResizeInstanceDisk` API. |
 | DiskId | String | No | System disk ID. LOCAL_BASIC and LOCAL_SSD do not have an ID. This parameter is not supported currently. |
-| DiskSize | Integer | No | Data disk size, in GB. The minimum adjustment increment is 10 GB. Different types of data disks have different value ranges. For information on limits, please see [CVM Instance Configuration](https://www.qcloud.com/document/product/213/2177). Default is 0, indicating that no data disk is purchased. For more information on limit, please see the product documentation. |
+| DiskSize | Integer | No | Data disk size, in GB. The minimum adjustment increment is 10 GB. Different types of data disks have different value ranges. For information on limits, please see [CVM Instance Configuration](https://cloud.tencent.com/document/product/213/2177). Default is 0, indicating that no data disk is purchased. For more information on limit, please see the product documentation. |
 
 ### VirtualPrivateCloud
 
@@ -34,8 +34,8 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| VpcId | String | Yes | VPC ID. This parameter can be obtained by calling the unVpcId field in the returned value of [DescribeVpcEx](https://www.qcloud.com/document/api/215/1372). |
-| SubnetId | String | Yes | VPC Subnet ID. This parameter can be obtained by calling the unSubnetId field in the returned value of [DescribeSubnetEx](https://www.qcloud.com/document/api/215/1371). |
+| VpcId | String | Yes | VPC ID. This parameter can be obtained by calling the unVpcId field in the returned value of [DescribeVpcEx](https://cloud.tencent.com/document/api/215/1372). |
+| SubnetId | String | Yes | VPC Subnet ID. This parameter can be obtained by calling the unSubnetId field in the returned value of [DescribeSubnetEx](https://cloud.tencent.com/document/api/215/1371). |
 | AsVpcGateway | Boolean | No | Whether used as a public gateway. The public gateway can be used only when the instance has a Public IP and is in VPC. Value range:<br><li>TRUE: used as public gateway<br><li>FALSE: not used as public gateway<br><br>Default: FALSE. |
 | PrivateIpAddresses.N | array of Strings | No | VPC subnet IP array. Currently only one IP is supported. This parameter can be used to create instances and modify VPC properties for instances. |
 
@@ -47,7 +47,7 @@
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
 | InternetChargeType | String | No | Network billing type. Value range:<br><li>BANDWIDTH_PREPAID: Prepaid by bandwidth <br><li>TRAFFIC_POSTPAID_BY_HOUR: Traffic postpaid by hour <br><li>BANDWIDTH_POSTPAID_BY_HOUR: Bandwidth postpaid by hour <br><li>BANDWIDTH_PACKAGE: Bandwidth package <br>Default: TRAFFIC_POSTPAID_BY_HOUR. |
-| InternetMaxBandwidthOut | Integer | No | Upper limit of Outbound bandwidth of Public network, in Mbps. Default: 0 Mbps. Upper limit of bandwidth varies among different models. For details, please see [Purchase Network Bandwidth](https://www.qcloud.com/document/product/213/509). |
+| InternetMaxBandwidthOut | Integer | No | Upper limit of Outbound bandwidth of Public network, in Mbps. Default: 0 Mbps. Upper limit of bandwidth varies among different models. For details, please see [Purchase Network Bandwidth](https://cloud.tencent.com/document/product/213/509). |
 | PublicIpAssigned | Boolean | No | Whether to assign public network IP. Value range<br><li>TRUE: assign public network IP<br><li>FALSE: not assign public network IP<br><br>If the public network bandwidth is greater than 0 Mbps, you're free to choose whether to enable the public network IP ("Enable" by default). If the public network bandwidth is 0 Mbps, the public network IP will not be assigned. |
 
 ### InstanceChargePrepaid
@@ -77,7 +77,7 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| Enabled | Boolean | No | Whether to enable [Cloud Security](https://www.qcloud.com/document/product/296) service. Value range: <br><li>TRUE: enable Cloud Security<br><li>FALSE: not enable Cloud Security<br><br>Default: TRUE. |
+| Enabled | Boolean | No | Whether to enable [Cloud Security](https://cloud.tencent.com/document/product/296) service. Value range: <br><li>TRUE: enable Cloud Security<br><li>FALSE: not enable Cloud Security<br><br>Default: TRUE. |
 
 ### RunMonitorServiceEnabled
 
@@ -85,7 +85,7 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| Enabled | Boolean | No | Whether to enable [Cloud Monitoring](https://www.qcloud.com/document/product/296) service. Value range: <br><li>TRUE: enable Cloud Monitoring<br><li>FALSE: not enable Cloud Monitoring<br><br>Default: TRUE. |
+| Enabled | Boolean | No | Whether to enable [Cloud Monitoring](https://cloud.tencent.com/document/product/296) service. Value range: <br><li>TRUE: enable Cloud Monitoring<br><li>FALSE: not enable Cloud Monitoring<br><br>Default: TRUE. |
 
 ### EnhancedService
 

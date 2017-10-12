@@ -6,7 +6,7 @@ In this tutorial, we will show you how to set MySQL database, which will be stil
 
 ### Steps
 #### Step 1: Create Container Service Cluster
-First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://www.qcloud.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
+First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://cloud.tencent.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
 
 #### Step 2: Create CDB
 Select a network to which the cluster belongs, and add MySQL database. (The cluster can be located outside the VPC, in which case it can only be accessed through public network)

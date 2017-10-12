@@ -26,6 +26,6 @@ Line 5: compression level, 1-10. The greater the number, the better the compress
 ```
 4. Use the curl command to test whether Gzip was successfully enabled
 ```
-curl -I -H "Accept-Encoding: gzip, deflate" "http://www.qcloud.com/example/"
+curl -I -H "Accept-Encoding: gzip, deflate" "http://cloud.tencent.com/example/"
 ```
 

@@ -65,7 +65,7 @@ The following should be noted about the usage of the NAT gateway:
 - You cannot use the network ACL to control the traffic that goes in and out of the NAT gateway, but you can use it to control the traffic of the associated subnet that goes in and out of the NAT gateway.
 - You cannot use VPC Peering Connection, VPN Connection or Direct Connect to route the traffic to the NAT gateway. The NAT gateway cannot be used for these resources that are connected to the other end. For example, the moving of all the traffic from VPC 1 to the Internet can be enabled by the NAT gateway. Now, as a peering connection has been established between VPC 1 and VPC 2, all the resources within VPC 2 can access all the resources within VPC 1, but no resources within VPC 2 can access the Internet through the NAT gateway.
 - Supported protocols for the NAT gateway include TCP, UDP and ICMP, while ESP and AH for the GRE tunnel and IPSec cannot be used for the NAT gateway. This is a result of the characteristics of the NAT gateway itself, and has nothing to do with the service provider. Luckily, TCP is a dominant type of application in the Internet world, and, together with UDP, accounting for 99% of all Internet applications.
-- For the restrictions on the supported resources for the NAT gateway, refer to [Usage Constraints of Other VPC Products](https://www.qcloud.com/doc/product/215/537).
+- For the restrictions on the supported resources for the NAT gateway, refer to [Usage Constraints of Other VPC Products](https://cloud.tencent.com/doc/product/215/537).
 
 | Resources | Limit | 
 |---------|---------|
@@ -83,8 +83,8 @@ Charges for a NAT gateway device include two parts: Gateway rental fee (by hour)
 | Large | RMB 5/h | RMB 7.5/h | RMB 7.5/h | RMB 8/h |
 
  >Note:
- For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the RMB 0.8/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth. Click to view the [Bandwidth Package billing details](https://www.qcloud.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
- - Arrear logic: be consistent with the Bill by Traffic method for CVM. [Click to obtain the VPC Price Overview](https://www.qcloud.com/doc/product/215/3079)
+ For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the RMB 0.8/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth. Click to view the [Bandwidth Package billing details](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
+ - Arrear logic: be consistent with the Bill by Traffic method for CVM. [Click to obtain the VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079)
  - As the NAT gateway features master/slave hot backup, the system will send a 5KB check packet to the master and slave servers of the NAT gateway every three seconds. This will result in a traffic of 0.2747GB each day, incurring a daily charge of RMB 0.2197, RMB 0.2747 and RMB　0.1373 for Mainland China, Hong Kong and North America, respectively.
 
 
@@ -101,7 +101,7 @@ If you want to allow the resources within the subnet of a VPC to access the Inte
 ### Quick Start
 You need to complete the following two steps to allow accessing the Internet through a NAT gateway:
 #### Step 1: Create a NAT gateway
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), select "Virtual Private Cloud" tab, and select "NAT Gateway".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" tab, and select "NAT Gateway".
 2) Click the "New" button at the upper left corner, and enter or specify the following parameters in the pop-up box:
 - Gateway name
 - Gateway type (It can be changed after creation)
@@ -113,40 +113,40 @@ After the creation of a NAT gateway, you need to configure the routing rules in 
 > Note: The rental fee will be frozen for 1 hour during the creation of NAT Gateway.
 
 #### Step 2: Configure the routing table associated with the subnet
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8). Select "Routing Tables".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8). Select "Routing Tables".
 2) In the routing table list, click the routing table ID with which the subnet that needs to access the Internet is associated to enter its details page, and click "Edit" button in the "Routing Rules".
 3) Click "New line", fill in the "Destination" field, select "NAT Gateway" in "Next hop type", and select the created NAT gateway ID
 4) Click "OK". After the above configuration is made, the traffic generated when the CVM in the subnet associated with the routing table accesses the Internet will be directed to the NAT gateway.
 
 ### Modify NAT gateway configuration
 After the creation of a NAT gateway, you can modify its attributes.
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8). Select "NAT Gateway".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8). Select "NAT Gateway".
 2) In the NAT gateway list page, click the NAT gateway ID to be modified to enter its details page, where you can make modifications to the following attributes:
 - Change the custom name of NAT gateway
 - Change the NAT gateway specifications. Specification changes take effect immediately (the network connection will not be broken)
 
 ### Manage the elastic IPs bound to the NAT gateway
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and select "NAT Gateway".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and select "NAT Gateway".
 2) In the NAT gateway list page, click the NAT gateway ID to enter its details page.
 3) In the associated elastic IP list, you can select "Add" to add an elastic IP, or "Unbind" to unbind an elastic IP.
 
 ### View NAT gateway monitoring information
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and select "NAT Gateway".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and select "NAT Gateway".
 2) In the NAT gateway list page, click the "Monitor" button in a NAT gateway entry to view its monitoring information.
 (Alternatively) In the NAT gateway list page, click the ID of a NAT gateway to enter its details page, and then click "Monitoring" tab to view its monitoring information.
 
 ### Setting the Alarm
-1)	Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.qcloud.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
 2) Fill in the Alarm Policy Name, select "NAT Gateway" in Policy Type, and then add the Condition of alarm trigger.
 3)	**Associate alarm objects**: select the alarm receiver group. You can view the set alarm policy in the policy list after you click "Complete".
-4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://www.qcloud.com/doc/product/248/1073).
+4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).
 
 ### Delete NAT gateway
 NAT Gateway can be deleted when it is not needed. The routing table and routing rules containing the NAT gateway will be deleted with the NAT gateway. Upon the deletion, the request forwarded over Internet will be interrupted immediately. Please provide for the network interruption in advance.
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.qcloud.com/vpc/vpc?rid=8), and select "NAT Gateway".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to enter the [Virtual Private Cloud Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and select "NAT Gateway".
 2) Select the NAT gateway to be deleted, click "Delete" button. After you confirm the deletion action, the NAT gateway will be deleted.
 
 ## API Overview
-You can use API operations to set and manage your NAT gateway. For more information about other resources in a VPC, please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
+You can use API operations to set and manage your NAT gateway. For more information about other resources in a VPC, please refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
 
 

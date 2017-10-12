@@ -9,7 +9,7 @@ Origin Host Header refers to the site domain accessed by the CDN node at the ori
 
 ## Configuration Instructions
 
-Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
 ![](https://mc.qcloudimg.com/static/img/13b09577cd5047bba5ba53c15f91ead5/1.png)
 

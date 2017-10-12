@@ -23,7 +23,7 @@ Usage limit for private network cloud load balancers:
 
 | Parameter Name | Required | Type | Description |
 |-----------|--------|----------|----------|
-| loadBalancerId | Yes | String | The ID of the cloud load balancer instance, which can be loadBalancerId or unLoadBalancerId (recommended). You can query it via the API <a href="https://www.qcloud.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
+| loadBalancerId | Yes | String | The ID of the cloud load balancer instance, which can be loadBalancerId or unLoadBalancerId (recommended). You can query it via the API <a href="https://cloud.tencent.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
 | listeners.n.loadBalancerPort | Yes | Int | Listening API of the cloud load balancer listener. Value range: 1-65535. "listeners" is an array, you may create multiple listeners. n is subscript. |
 | listeners.n.instancePort | Yes | Int | Listening port of the cloud load balancer instance listener backend CVM. Value range: 1-65535. |
 | listeners.n.protocol | Yes | Int | Protocol type of the cloud load balancer instance listener. 1: HTTP, 2: TCP, 3:UDP, 4: HTTPS. <br>Public network (with daily rate) cloud load balancer instances support HTTP, UDP, TCP, HTTPS protocols; <br>Private network cloud load balancer instances support TCP and UDP protocols. |
@@ -64,7 +64,7 @@ Usage limit for private network cloud load balancers:
 Input
 <pre>
 https://lb.api.qcloud.com/v2/index.php?Action=CreateLoadBalancerListeners
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &loadBalancerId=lb-abcdefgh
 &listeners.1.loadBalancerPort=443
 &listeners.1.instancePort=443

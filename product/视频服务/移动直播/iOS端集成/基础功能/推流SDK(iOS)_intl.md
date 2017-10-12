@@ -18,10 +18,10 @@ Tencent Video Cloud SDK mainly helps you push videos on smart phones. The SDK co
 ## Preparation
 
 - **Acquiring SDK**
-[Download](https://www.qcloud.com/document/product/454/7873) SDK and follow the instructions in [Project Configuration](https://www.qcloud.com/document/product/454/7876) to add the SDK into your APP development project.
+[Download](https://cloud.tencent.com/document/product/454/7873) SDK and follow the instructions in [Project Configuration](https://cloud.tencent.com/document/product/454/7876) to add the SDK into your APP development project.
 
 - **Acquiring Test URL**
-After [Activating](https://console.qcloud.com/live) the LVB service, use the ["LVB Console" -> "LVB Code Access" -> "Push Generator"](https://console.qcloud.com/live/livecodemanage) to generate push address. For more information, please see [Acquiring Push Playback URL](https://www.qcloud.com/document/product/454/7915).
+After [Activating](https://console.cloud.tencent.com/live) the LVB service, use the ["LVB Console" -> "LVB Code Access" -> "Push Generator"](https://console.cloud.tencent.com/live/livecodemanage) to generate push address. For more information, please see [Acquiring Push Playback URL](https://cloud.tencent.com/document/product/454/7915).
 
 
 #### Code Interfacing
@@ -253,7 +253,7 @@ Background music mixing is supported starting from SDK 1.6.1. The VJ can choose 
 
 | API | Description |
 |:-------:|---------|
-| playBGM | Send a music via path. In [Mini LVB Demo](https://www.qcloud.com/doc/api/258/6164), we obtain music files from the iOS local media library |
+| playBGM | Send a music via path. In [Mini LVB Demo](https://cloud.tencent.com/doc/api/258/6164), we obtain music files from the iOS local media library |
 | stopBGM | Stop background music |
 | pauseBGM | Pause background music |
 | resumeBGM | Resume background music |

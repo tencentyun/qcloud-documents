@@ -71,7 +71,7 @@ Obtain all LVB channel information of a user, including channel ID, current stat
 
 Input 1
 <pre>
-https://domain/v2/index.php?Action=DescribeLVBChannelList&channelStatus=0&ascDesc=1&pageNo=1&pageSize=10&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+https://domain/v2/index.php?Action=DescribeLVBChannelList&channelStatus=0&ascDesc=1&pageNo=1&pageSize=10&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 
 </pre>
 

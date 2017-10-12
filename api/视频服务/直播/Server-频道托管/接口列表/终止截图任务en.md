@@ -3,7 +3,7 @@
 Domain name: live.api.qcloud.com
 API name: StopLVBShot
 
-Note: The screenshot files are stored on COS for long-term storage. You need to activate the service before you can use this feature, and you will be charged a fee (for the storage and etc.) based on the billing mode for COS. For more information, refer to [Relevant Document](http://www.qcloud.com/product/cos.html).
+Note: The screenshot files are stored on COS for long-term storage. You need to activate the service before you can use this feature, and you will be charged a fee (for the storage and etc.) based on the billing mode for COS. For more information, refer to [Relevant Document](http://cloud.tencent.com/product/cos.html).
 
 
 
@@ -57,7 +57,7 @@ Note: The screenshot files are stored on COS for long-term storage. You need to 
 Input 1
 <pre>
 
-http://domain/v2/index.php?Action=StopLVBShot&channelId=123&taskId=1&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+http://domain/v2/index.php?Action=StopLVBShot&channelId=123&taskId=1&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 
 </pre>
 

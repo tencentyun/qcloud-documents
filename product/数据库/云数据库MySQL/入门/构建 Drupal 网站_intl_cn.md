@@ -2,7 +2,7 @@ Drupal 是使用 PHP 语言编写的开源内容管理框架（Content Managemen
 您可以通过本教程了解如何在腾讯云服务器 CVM 上搭建 Drupal 电子商务网站。使用的软件环境为：centos7.2 | Drupal7.56  | PHP5.4.16。
 
 ### 登录到云服务器实例
-云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://www.qcloud.com/document/product/213/2936)。
+云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ### 安装 MariaDB 服务
 1. CentOS7 以上版本默认支持 MariaDB 数据库，因此我们将使用 MariaDB 数据库。在云服务器实例中使用 `yum` 安装 MariaDB 服务。
@@ -41,7 +41,7 @@ service httpd start
 ```
 3. 测试 Apache 。
 >**注意：**
-此步骤需要您的云主机在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://www.qcloud.com/document/product/213/5221)。
+此步骤需要您的云主机在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://cloud.tencent.com/document/product/213/5221)。
 
 在您本地的浏览器中输入`http://115.xxx.xxx.xxx/`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](//mc.qcloudimg.com/static/img/3cde70e76a386b81f96ea9919280269d/image.png)

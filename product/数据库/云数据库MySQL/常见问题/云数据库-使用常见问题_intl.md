@@ -30,17 +30,17 @@ Different types of errors and their solutions are shown below:
 
 The message "Access denied for user 'xxx'@'x.x.x.x' (using password:YES)" indicates the password is incorrect.
 
-Please check that the cloud database password you entered is correct. If this error is still shown when the correct information is entered, please [Submit a Ticket](https://console.qcloud.com/workorder) for technical support. 
+Please check that the cloud database password you entered is correct. If this error is still shown when the correct information is entered, please [Submit a Ticket](https://console.cloud.tencent.com/workorder) for technical support. 
 
 
 **(2) ERROR 1040(00000):Too many connections**
 The message "ERROR 1040(00000):Too many connections" indicates that the current number of connections to the cloud database instance has exceeded the limit.
 
-Please check the program and properly reduce the number of connections for the database. If this error is still shown after you have reduced the number of connections, please [Submit a Ticket](https://console.qcloud.com/workorder) for technical support. 
+Please check the program and properly reduce the number of connections for the database. If this error is still shown after you have reduced the number of connections, please [Submit a Ticket](https://console.cloud.tencent.com/workorder) for technical support. 
 
 **(3) ERROR 2003 (HY000): Can't connect to MySQL server...**
 
-The message "ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)" indicates that the connection to cloud database address has failed. Please check whether the cloud database IP and port information you entered is correct. If this error is still shown after the correct information is entered, please [Submit a Ticket](https://console.qcloud.com/workorder) for technical support.
+The message "ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)" indicates that the connection to cloud database address has failed. Please check whether the cloud database IP and port information you entered is correct. If this error is still shown after the correct information is entered, please [Submit a Ticket](https://console.cloud.tencent.com/workorder) for technical support.
 
 ## 6. Business Scenarios that are Suitable for Cloud Database
 

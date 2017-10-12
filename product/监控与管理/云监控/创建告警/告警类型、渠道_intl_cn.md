@@ -5,9 +5,9 @@
 | 告警类型    | 含义                                       |
 | ------- | ---------------------------------------- |
 | 基础告警    | 包括云服务器CPU使用率、磁盘使用率等等腾讯云开放的基础监控指标的告警。     |
-| 云拨测告警   | 即用户在[云拨测](https://www.qcloud.com/document/product/280)控制台配置的拨测任务产生的告警。 |
-| 自定义消息   | 即用户使用云监控的[自定义消息](https://www.qcloud.com/document/product/248/6218)服务产生的告警。 |
-| 自定义监控告警 | 即用户使用云监控的[自定义监控](https://www.qcloud.com/document/product/248/6214) |
+| 云拨测告警   | 即用户在[云拨测](https://cloud.tencent.com/document/product/280)控制台配置的拨测任务产生的告警。 |
+| 自定义消息   | 即用户使用云监控的[自定义消息](https://cloud.tencent.com/document/product/248/6218)服务产生的告警。 |
+| 自定义监控告警 | 即用户使用云监控的[自定义监控](https://cloud.tencent.com/document/product/248/6214) |
 
 ## 告警渠道
 

@@ -1,6 +1,6 @@
 ## 云数据库 MySQL 定价
 
-您可以点击 [云数据库 MySQL价格计算器](https://buy.qcloud.com/calculator/cdb) 来查看产品价格，估算资源成本，加入购买预算清单，更可实现一键购买。
+您可以点击 [云数据库 MySQL价格计算器](https://buy.cloud.tencent.com/calculator/cdb) 来查看产品价格，估算资源成本，加入购买预算清单，更可实现一键购买。
 
 >**注意：**
 >为保证您获取价格准确性，请登录后查看。
@@ -43,7 +43,7 @@ CDB for MySQL 数据库支持控制台续费和续费管理中心续费两种方
 ![实例详情页续费][image-6]
 
 ### 续费管理中心续费
- 在 [续费管理页面][10] 提供实例的【批量资源续费】、【设置自动续费】、【设置统一到期日】、【取消不续费】等功能 ，详见 [续费管理](https://www.qcloud.com/document/product/555/7454)。
+ 在 [续费管理页面][10] 提供实例的【批量资源续费】、【设置自动续费】、【设置统一到期日】、【取消不续费】等功能 ，详见 [续费管理](https://cloud.tencent.com/document/product/555/7454)。
 
 ## 到期提醒
 
@@ -89,15 +89,15 @@ CDB for MySQL 数据库支持控制台续费和续费管理中心续费两种方
 [image-5]:	https://mc.qcloudimg.com/static/img/1f4c68979c718e4a75734ca91f37c4ac/step5.png
 [image-6]:	https://mc.qcloudimg.com/static/img/a4403f63257ebe96b62867f22417d356/step6.png
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb
-[3]:	https://www.qcloud.com/document/product/378/3629
-[4]:	https://www.qcloud.com/document/product/236/8458
-[5]:    https://www.qcloud.com/document/product/213/5227
-[6]:    https://www.qcloud.com/document/product/236/7913
-[7]:	https://www.qcloud.com/document/product/555/9618
-[8]:	https://www.qcloud.com/document/product/555/9617
-[9]:    https://www.qcloud.com/document/product/555/7437
-[10]:   https://console.qcloud.com/account/renewal
-[11]:   https://www.qcloud.com/document/product/236/5158
-[12]:   https://buy.qcloud.com/calculator/cdb
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb
+[3]:	https://cloud.tencent.com/document/product/378/3629
+[4]:	https://cloud.tencent.com/document/product/236/8458
+[5]:    https://cloud.tencent.com/document/product/213/5227
+[6]:    https://cloud.tencent.com/document/product/236/7913
+[7]:	https://cloud.tencent.com/document/product/555/9618
+[8]:	https://cloud.tencent.com/document/product/555/9617
+[9]:    https://cloud.tencent.com/document/product/555/7437
+[10]:   https://console.cloud.tencent.com/account/renewal
+[11]:   https://cloud.tencent.com/document/product/236/5158
+[12]:   https://buy.cloud.tencent.com/calculator/cdb

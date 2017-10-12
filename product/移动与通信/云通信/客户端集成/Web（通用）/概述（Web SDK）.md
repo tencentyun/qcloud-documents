@@ -4,7 +4,7 @@
 
 官网体验demo请直接访问：[云通信web demo](http://avc.qcloud.com/demo/webim/index.html)
 
-demo运行指引请访问：[demo指引](https://www.qcloud.com/doc/product/269/DEMO%E6%8C%87%E5%BC%95)
+demo运行指引请访问：[demo指引](https://cloud.tencent.com/doc/product/269/DEMO%E6%8C%87%E5%BC%95)
 
 ### 1.1 下载ImSDK
 
@@ -104,7 +104,7 @@ Demo 主要JS文件功能说明如下：
 
 ### 1.3 sdk函数调用顺序
 
-如果帐号是[托管模式](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，在调用sdk登录api之前，需要先进行以下操作：
+如果帐号是[托管模式](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，在调用sdk登录api之前，需要先进行以下操作：
 
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
@@ -119,7 +119,7 @@ Demo 主要JS文件功能说明如下：
 |sdkappid	|业务id|	Integer|
 |url	|TLS登录成功回调地址，一般为业务网站首页地址|	String|
 
-当帐号模式为[独立模式](https://www.qcloud.com/doc/product/269/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F)时，则不需要上面的操作，直接进行下面的操作（当然这些步骤托管模式下也是需要的）。
+当帐号模式为[独立模式](https://cloud.tencent.com/doc/product/269/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F)时，则不需要上面的操作，直接进行下面的操作（当然这些步骤托管模式下也是需要的）。
 
 Sdk函数使用顺序，如下：
 

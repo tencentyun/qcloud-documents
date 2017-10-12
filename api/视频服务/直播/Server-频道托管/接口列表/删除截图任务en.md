@@ -50,7 +50,7 @@ API name: DeleteLVBShot
 Input 1
 <pre>
 
-http://domain/v2/index.php?Action=DeleteLVBShot&channelId=123&taskId=1&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+http://domain/v2/index.php?Action=DeleteLVBShot&channelId=123&taskId=1&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 
 </pre>
 

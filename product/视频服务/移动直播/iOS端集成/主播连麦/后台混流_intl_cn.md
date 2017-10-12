@@ -17,7 +17,7 @@ http://fcgi.video.qcloud.com/common_access?cmd=appid&interface=Mix_StreamV2&t=t&
 - **cmd**：填写直播APPID，用于区分不同客户的身份
 - **interface**：固定填写Mix_StreamV2
 - **t（过期时间）**：UNIX时间戳，即从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数；这个字段表示的是请求过期时间，请您在获取当前时间（秒）的基础上加60秒偏移
-- **sign（安全签名）**： sign = MD5(key + t) ，即把加密key 和 t 进行字符串拼接后，计算一下md5值。这里的key是您在腾讯云直播管理[控制台](https://console.qcloud.com/live/livecodemanage)中设置的API鉴权key
+- **sign（安全签名）**： sign = MD5(key + t) ，即把加密key 和 t 进行字符串拼接后，计算一下md5值。这里的key是您在腾讯云直播管理[控制台](https://console.cloud.tencent.com/live/livecodemanage)中设置的API鉴权key
 
 举例说明安全签名**sign**的计算方法 
 

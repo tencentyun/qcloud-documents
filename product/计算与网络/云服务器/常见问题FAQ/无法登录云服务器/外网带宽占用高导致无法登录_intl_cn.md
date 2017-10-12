@@ -1,7 +1,7 @@
 本文档介绍云服务器因外网带宽占用高导致无法远程连接的排查方法和解决方案。
 
 ## Windows 服务器
-建议使用 [控制台](https://console.qcloud.com/cvm) 登录云服务器。
+建议使用 [控制台](https://console.cloud.tencent.com/cvm) 登录云服务器。
 1. 使用系统自带资源管理器查看带宽使用情况。
   直接打开任务管理器，或者在桌面执行【开始】，在搜索框中输入 `taskmgr` 语句。
 	![](https://mc.qcloudimg.com/static/img/73e33e7e59e266929791f1836b845476/16.png)
@@ -16,7 +16,7 @@
 
 ## Linux 服务器
 由于外网带宽使用率会影响 SSH 连接，当外网带宽占用过高时，SSH 登录服务器时可能会出现速度缓慢、卡顿等情况。
-建议使用 [控制台](https://console.qcloud.com/cvm) 登录云服务器。
+建议使用 [控制台](https://console.cloud.tencent.com/cvm) 登录云服务器。
 1. 执行  ` yum install iftop -y ` 语句安装 iftop 工具（iftop 工具为 Linux 下服务器流量监控小工具）。
 	>如果是 Ubuntu 系统，请执行 `apt-get install iftop -y` 语句。
 2. 安装完毕后，运行 iftop ，会展示消耗流量的 IP 。

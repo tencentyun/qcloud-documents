@@ -1,6 +1,6 @@
 ## View Scaling Activities
 
-Open the Console, and select [**Scaling Group**](https://console.qcloud.com/autoscaling) in the navigation bar.
+Open the Console, and select [**Scaling Group**](https://console.cloud.tencent.com/autoscaling) in the navigation bar.
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
 

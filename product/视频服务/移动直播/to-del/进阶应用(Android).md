@@ -59,7 +59,7 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 
 ### 2.2 SDK推流质量专区
 
-您在 2.1 中所看到的图表是源于我们实验测试用的内部数据分析系统，如果您有同样的分析需求，可以在[直播控制台](https://console.qcloud.com/live)的质量监控系统里看到类似的图表，这里的图表的格式更加简明，对其理解不需要太多专业的音视频基础知识。
+您在 2.1 中所看到的图表是源于我们实验测试用的内部数据分析系统，如果您有同样的分析需求，可以在[直播控制台](https://console.cloud.tencent.com/live)的质量监控系统里看到类似的图表，这里的图表的格式更加简明，对其理解不需要太多专业的音视频基础知识。
 ![](//mc.qcloudimg.com/static/img/4bf231da79ec8e45bdc4c16c927da47f/image.png)
 
 ## 3. 参数校调
@@ -248,8 +248,8 @@ mTextureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() 
 });
 ```
 
-如果您在调整画面尺寸遇到问题，可以参考下完整的示例代码 - [调整画面尺寸](https://www.qcloud.com/document/product/454/9723)
-如果您在使用 OpenGL ES 对视频数据进行二次处理没有思路，可以参考下示例代码 - [OpenGL ES 处理数据](https://www.qcloud.com/document/product/454/9724)
+如果您在调整画面尺寸遇到问题，可以参考下完整的示例代码 - [调整画面尺寸](https://cloud.tencent.com/document/product/454/9723)
+如果您在使用 OpenGL ES 对视频数据进行二次处理没有思路，可以参考下示例代码 - [OpenGL ES 处理数据](https://cloud.tencent.com/document/product/454/9724)
 
 ## 7.获取解码后的视频数据
 如果您想通过获取 SDK 解码之后的 YUV 类型的视频数据，您可以按如下步骤实现。

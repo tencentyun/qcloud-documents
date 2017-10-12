@@ -32,7 +32,7 @@
 
 ### step 1. 创建集群机器的自定义镜像
 
-这步非常简单，基于一台现成的集群机器中制作即可。如有疑问可查看 [制作自定义镜像 >>](https://www.qcloud.com/document/product/213/4942)
+这步非常简单，基于一台现成的集群机器中制作即可。如有疑问可查看 [制作自定义镜像 >>](https://cloud.tencent.com/document/product/213/4942)
 
 >注：
 >您需要提前部署好镜像中的环境，保证镜像里的应用能随操作系统启动，这样扩容出来的机器就能直接工作，无需人工介入。
@@ -41,7 +41,7 @@
 
 扩容时 AS 以启动配置为模板创建机器，因此我们事先通过启动配置指定地域、机型、镜像。
 
-1. 登录 [弹性伸缩控制台](https://console.qcloud.com/autoscaling/config)，点击导航条中的【启动配置】。
+1. 登录 [弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling/config)，点击导航条中的【启动配置】。
 
 2. 选择项目和地域，这里要注意选择 Web 应用 所在的项目和地域。
 ![](https://mc.qcloudimg.com/static/img/653ebf516d940a90fd79728e5d319cdc/image.png)
@@ -52,7 +52,7 @@
 
 ### step 3. 为机器创建伸缩组
 
-在 [弹性伸缩控制台](https://console.qcloud.com/autoscaling)，点击【新建】，按如下填写集群的管理信息：
+在 [弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling)，点击【新建】，按如下填写集群的管理信息：
 
 - **名称**：按需起一个名字。比如这里填“应用服务器集群”
 - **最小伸缩数**：集群服务器数量的下限。示例这里填 0 即可。
@@ -69,7 +69,7 @@
 
 ### step 4. 添加现有机器进伸缩组
 
-1. 在 [控制台](https://console.qcloud.com/autoscaling) 点击伸缩组名字，进入管理页，在页面下方点击【添加云主机】。
+1. 在 [控制台](https://console.cloud.tencent.com/autoscaling) 点击伸缩组名字，进入管理页，在页面下方点击【添加云主机】。
 ![](https://mc.qcloudimg.com/static/img/d940c118ffa3e443543ffbc5a7b71daf/image.jpg)
 
 2. 在弹出的对话框中，选择集群已有的服务器加入伸缩组。如果现在是非高峰时期，集群中未充分利用的服务器可以退还，节约成本。

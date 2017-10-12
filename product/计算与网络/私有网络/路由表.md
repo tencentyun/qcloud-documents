@@ -46,14 +46,14 @@
 | 每个路由表的路由策略数 | 50	|
 
 ## 计费方式
-路由表的创建和使用完全免费。有关私有网络的其他价格信息，可以参考[私有网络价格总览](https://www.qcloud.com/doc/product/215/3079)。
+路由表的创建和使用完全免费。有关私有网络的其他价格信息，可以参考[私有网络价格总览](https://cloud.tencent.com/doc/product/215/3079)。
 
 ## 操作指南
 
 ### 修改默认路由表
 在创建私有网络时系统会自动创建一个默认路由表，新建子网默认与默认路由表相关联。
 
-1)	登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)。
+1)	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。
 2)	点击左导航栏中【路由表】，在路由表列表中点击路由表 ID 进入路由表详情页。
 3)	点击路由策略的【编辑】按钮，即可开始修改路由规则。
 4)	（可选）点击【新增一行】即可新增路由规则。输入目的端网段，选择下一跳类型（公网网关、VPN网关、专线网关等），再选择下一跳 ID。
@@ -63,31 +63,31 @@
 ### 创建自定义路由表 
 除了系统自动生成的默认路由表，用户还可以自定义新的路由表。
 
-1)	登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)。
+1)	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。
 2) 点击左导航栏中【路由表】，点击列表上方【新建】按钮，在创建路由表弹出框中输入路由表名称、所属私有网络及新建路由策略。
 3) 点击【创建】按钮，即可在路由表列表中看到您新建的路由表。
 
 ### 删除自定义路由表
 系统自动生成的默认路由表无法删除，但自定义路由表可以任意创建、修改和删除。
 
-1)	登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)。
+1)	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。
 2) 点击左导航栏中【路由表】，点击要删除的路由表所在行的【删除】按钮。
 3) 点击确认弹窗中的【删除】按钮即可删除所选的自定义路由表。
 
 ### 更改子网关联路由表
-1)	登录[腾讯云控制台](https://console.qcloud.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.qcloud.com/vpc/vpc?rid=8)。
+1)	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。
 2)	点击左导航栏中【子网】选项卡，鼠标移动到需要修改的子网路由表编辑按钮即会出现在【关联路由表】列中。
 3)	点击【编辑】按钮，在下拉框中选择关联路由表。
 4)	点击【保存】即完成子网与路由表的关联。
 
 ## API概览
 
-您可以使用API操作来设置和管理您的路由表，点击查看[私有网络所有API概览](https://www.qcloud.com/doc/product/215/4954)。
+您可以使用API操作来设置和管理您的路由表，点击查看[私有网络所有API概览](https://cloud.tencent.com/doc/product/215/4954)。
 
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 创建路由表 | [CreateRouteTable](http://www.qcloud.com/doc/api/245/%E5%88%9B%E5%BB%BA%E8%B7%AF%E7%94%B1%E8%A1%A8) | 创建一个路由表。 |
-| 删除路由表 | [DeleteRouteTable](http://www.qcloud.com/doc/api/245/%E5%88%A0%E9%99%A4%E8%B7%AF%E7%94%B1%E8%A1%A8) | 删除指定路由表，删除后该路由表内路由策略都失效。 |
-| 修改路由表 | [ModifyRouteTableAttribute](http://www.qcloud.com/doc/api/245/%E4%BF%AE%E6%94%B9%E8%B7%AF%E7%94%B1%E8%A1%A8) | 修改指定路由表名称。 |
-| 查询路由表 | [DescribeRouteTable](http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8) | 根据用户输入信息，如routeTableId、路由表名称等，查询对应路由表的详细信息。|
-| 修改子网关联的路由表 | [AssociateRouteTable](http://www.qcloud.com/document/product/215/1416) | 修改子网关联的路由表。 |
+| 创建路由表 | [CreateRouteTable](http://cloud.tencent.com/doc/api/245/%E5%88%9B%E5%BB%BA%E8%B7%AF%E7%94%B1%E8%A1%A8) | 创建一个路由表。 |
+| 删除路由表 | [DeleteRouteTable](http://cloud.tencent.com/doc/api/245/%E5%88%A0%E9%99%A4%E8%B7%AF%E7%94%B1%E8%A1%A8) | 删除指定路由表，删除后该路由表内路由策略都失效。 |
+| 修改路由表 | [ModifyRouteTableAttribute](http://cloud.tencent.com/doc/api/245/%E4%BF%AE%E6%94%B9%E8%B7%AF%E7%94%B1%E8%A1%A8) | 修改指定路由表名称。 |
+| 查询路由表 | [DescribeRouteTable](http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E8%B7%AF%E7%94%B1%E8%A1%A8) | 根据用户输入信息，如routeTableId、路由表名称等，查询对应路由表的详细信息。|
+| 修改子网关联的路由表 | [AssociateRouteTable](http://cloud.tencent.com/document/product/215/1416) | 修改子网关联的路由表。 |

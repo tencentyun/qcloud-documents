@@ -24,7 +24,7 @@ iLiveSDK/iLiveSDK.js | ILVB API, in which iLiveSDK.cab is wrapped to be called b
 ## How to run the demo
 Running the demo allows you to have an intuitive picture of the capabilities of ILiveSDK (IE). To run the demo, follow the steps below:
 
- 1. Modify the appid and accountType in the FreeShow code to those of the developer. Find OnInit method in demo.js, locate `sdk = new ILiveSDK(1400027849, 11656, "iLiveSDKCom")` statement, and then replace the first two parameters with your own `SDKAppID` and` accountType`. For more information on how to obtain the two parameters, please see [Quick Configuration of Parameters]https://www.qcloud.com/document/product/268/7599).
+ 1. Modify the appid and accountType in the FreeShow code to those of the developer. Find OnInit method in demo.js, locate `sdk = new ILiveSDK(1400027849, 11656, "iLiveSDKCom")` statement, and then replace the first two parameters with your own `SDKAppID` and` accountType`. For more information on how to obtain the two parameters, please see [Quick Configuration of Parameters]https://cloud.tencent.com/document/product/268/7599).
  2. Deploy the [FreeShow background code](https://github.com/zhaoyang21cn/SuiXinBoPHPServer) to your own server and modify the background key as described in the document.
  3. Open the index.html with IE and allow the usage of activeX control to go to the registration and login page.
  ! [Login Page](http://mc.qcloudimg.com/static/img/cf9dec67f37159dc9fec9d529dcf47f1/image.png)

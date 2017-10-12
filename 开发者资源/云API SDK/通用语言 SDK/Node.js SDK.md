@@ -3,8 +3,8 @@
 欢迎使用腾讯云开发者工具套件（SDK）。为方便 Node.js 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 Node.js 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 Node.js SDK 并开始调用。
 
 ## 依赖环境
-1. 从 [腾讯云控制台](https://console.qcloud.com) 开通相应产品，
-2. [获取 SecretID、SecretKey](https://console.qcloud.com/capi) 具体参考各产品说明。
+1. 从 [腾讯云控制台](https://console.cloud.tencent.com) 开通相应产品，
+2. [获取 SecretID、SecretKey](https://console.cloud.tencent.com/capi) 具体参考各产品说明。
 3. 下载相关资料并做好相关文件配置。
 
 ## 获取安装

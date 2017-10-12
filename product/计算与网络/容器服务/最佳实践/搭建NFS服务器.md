@@ -11,7 +11,7 @@ NFS 是 Network File System 的简写，即网络文件系统。 通过使用 NF
 **第二步**：添加数据卷
 ![](//mc.qcloudimg.com/static/img/ae63d74d7b78d2b74ad2590606c24cd7/image.gif)
 >**注意**：
-> -  如果提示“**无可用云盘**”，请跳转至 [云硬盘控制台](https://console.qcloud.com/cvm/cbs) 单击【新建】购买云硬盘。
+> -  如果提示“**无可用云盘**”，请跳转至 [云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs) 单击【新建】购买云硬盘。
 > - 建议打开云硬盘的自动续费功能，防止存储在云硬盘中的数据因欠费造成不必要的损失。
 
 **第三步**：在容器配置中设置挂载点

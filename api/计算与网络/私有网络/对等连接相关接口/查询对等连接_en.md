@@ -8,7 +8,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | No | String | Initiator's VPC ID, which can be vpcId or unVpcId. unVpcId is recommended. It can be queried through API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>. |
+| vpcId | No | String | Initiator's VPC ID, which can be vpcId or unVpcId. unVpcId is recommended. It can be queried through API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>. |
 | peeringConnectionId | No | string | ID of VPC peering connection, e.g. pcx-dt8c7fa0. |
 | peeringConnectionName | No | String | Peering connection name. |
 | state | No | Int | Connection status<br>0: Requesting; 1: Connected; 2: Expired; 3: Rejected; 4: Deleted. |
@@ -35,11 +35,11 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.peeringConnectionName | String | Peering connection name | 
 | data.n.state | Int | Connection status<br>0: Requesting; 1: Connected; 2: Expired; 3: Rejected; 4: Deleted | 
 | data.n.createTime | String | Creation time of peering connection | 
-| data.n.uin | String | Your unique account ID on Tencent Cloud. You can check this on Tencent Cloud User Center. <a href="https://www.qcloud.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Learn more</a>. | 
-| data.n.peerUin | String | Receiver's unique account ID on Tencent Cloud. The receivers can check this by themselves on Tencent Cloud User Center. <a href="https://www.qcloud.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Learn more</a>. | 
+| data.n.uin | String | Your unique account ID on Tencent Cloud. You can check this on Tencent Cloud User Center. <a href="https://cloud.tencent.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Learn more</a>. | 
+| data.n.peerUin | String | Receiver's unique account ID on Tencent Cloud. The receivers can check this by themselves on Tencent Cloud User Center. <a href="https://cloud.tencent.com/doc/product/215/5000#.E6.9F.A5.E7.9C.8B.E5.AF.B9.E7.AB.AF.E8.B4.A6.E5.8F.B7id">Learn more</a>. | 
 
 ## 4. Error Codes
-The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
@@ -50,7 +50,7 @@ The following error code list only provides the business logic error codes for t
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeVpcPeeringConnections
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &peeringConnectionId=pcx-dt8c7fa0
 </pre>
 Output

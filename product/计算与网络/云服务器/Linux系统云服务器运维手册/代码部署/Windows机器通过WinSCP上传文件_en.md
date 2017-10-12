@@ -6,7 +6,7 @@ Start WinSCP after installation. The interface is as follows. Fill in the inform
 
 > How to fill in the fields:
 - Protocol: either SFTP or SCP is OK
-- Host Name: Public IP of CVM (Log into [CVM Console](https://console.qcloud.com/cvm) to view the Public IP of CVM)
+- Host Name: Public IP of CVM (Log into [CVM Console](https://console.cloud.tencent.com/cvm) to view the Public IP of CVM)
 - Username: the system username for CVM (SUSE/CentOS/Debian: root, Windows: Administrator, Ubuntu: ubuntu)
 - Password: the password corresponding to the username of CVM
 - Port: 22 by default

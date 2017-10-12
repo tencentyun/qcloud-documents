@@ -7,9 +7,9 @@ After purchasing and launching a GCC instance, you can log in to it. The login m
  
 ## Logging into GCC Instances
 
-For Linux-based GCC instances, please see [here](https://www.qcloud.com/document/product/213/5436).
+For Linux-based GCC instances, please see [here](https://cloud.tencent.com/document/product/213/5436).
 
-For Windows-based GCC instances, please see [here](https://www.qcloud.com/document/product/213/5435).
+For Windows-based GCC instances, please see [here](https://cloud.tencent.com/document/product/213/5435).
 
 
 

@@ -202,7 +202,7 @@ ClientConfiguration.setHttpReadTimeout(100 * 1000);
 ClientConfiguration.setHttpWriteTimeout(100 * 1000);
 ```
 ### 签名获取
-所有请求均需要多次有效签名。为了方便用户测试，SDK 中提供了本地生成签名的方法，调用 CredentialProvider 对象的getMultipleSign方法即可获得有效签名。但是为了不暴露用户的 SecretKey，正式环境下请在第三方服务器上进行签名。具体签名算法可参考 [签名与鉴权](https://www.qcloud.com/document/product/460/6968)。
+所有请求均需要多次有效签名。为了方便用户测试，SDK 中提供了本地生成签名的方法，调用 CredentialProvider 对象的getMultipleSign方法即可获得有效签名。但是为了不暴露用户的 SecretKey，正式环境下请在第三方服务器上进行签名。具体签名算法可参考 [签名与鉴权](https://cloud.tencent.com/document/product/460/6968)。
 本地生成签名示例：
 ```
 String appid = "your appid"; 

@@ -30,17 +30,17 @@
 
 当出现“Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)”的提示语时，表明密码不正确。
 
-请确认你输入的云数据库密码是否正确，如果重复输入正确信息后仍然报该错，则请通过[提交工单](https://console.qcloud.com/workorder)联系技术支持。 
+请确认你输入的云数据库密码是否正确，如果重复输入正确信息后仍然报该错，则请通过[提交工单](https://console.cloud.tencent.com/workorder)联系技术支持。 
 
 
 **(2) ERROR 1040(00000):Too many connections**
 当出现“ERROR 1040(00000):Too many connections”的提示语时，表明云数据库实例当前最大连接数超过了限制。
 
-请检查程序，适当减少数据库的连接数。如果减少连接数后仍然报该错，则请通过[提交工单](https://console.qcloud.com/workorder)联系技术支持。 
+请检查程序，适当减少数据库的连接数。如果减少连接数后仍然报该错，则请通过[提交工单](https://console.cloud.tencent.com/workorder)联系技术支持。 
 
 **(3) ERROR 2003 (HY000): Can't connect to MySQL server...**
 
-当出现“ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)”的提示语时，表明云数据库地址不能连通，请确认你输入的云数据库的IP、端口信息是否正确。如果重复输入正确信息后仍然报该错，则请通过[提交工单](https://console.qcloud.com/workorder)联系技术支持。
+当出现“ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)”的提示语时，表明云数据库地址不能连通，请确认你输入的云数据库的IP、端口信息是否正确。如果重复输入正确信息后仍然报该错，则请通过[提交工单](https://console.cloud.tencent.com/workorder)联系技术支持。
 
 ## 6、云数据库适用于哪些业务场景
 

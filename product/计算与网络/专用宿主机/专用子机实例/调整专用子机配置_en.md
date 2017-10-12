@@ -7,6 +7,6 @@ The configurations of dedicated CVM instances can be adjusted easily and quickly
 
 ### Adjust the instance configuration through the CVM console
 
-> 1. Log in to [CVM Console](https://console.qcloud.com/cvm).
+> 1. Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 > 2. Locate the dedicated CVM instance and shut it down.
 > 3. In the right pane, click "More" -> "CVM Settings" -> "Adjust Configuration".

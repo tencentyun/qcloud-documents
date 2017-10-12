@@ -21,7 +21,7 @@ x-cos-grant-write: id="",id=""
 x-cos-grant-full-control: id="",id=""
 Authorization: Auth String
 ```
-> Authorization:  Auth String (For more information, please see [Request Signature](https://www.qcloud.com/document/product/436/7778) chapter)
+> Authorization:  Auth String (For more information, please see [Request Signature](https://cloud.tencent.com/document/product/436/7778) chapter)
 
 ### Request Line
 ~~~
@@ -31,7 +31,7 @@ PUT /?acl HTTP/1.1
 ### Request Header
 
 **Common Header**
-This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://www.qcloud.com/document/product/436/7728) chapter.
+This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://cloud.tencent.com/document/product/436/7728) chapter.
 
 **Non-common Header** <style  rel="stylesheet"> table th:nth-of-type(1) { width:  200px; }</style>
 This request operation is implemented using header x-cos-acl in request PUT to set the access permission of Bucket. Bucket supports three access permissions: public-read-write, public-read and private. The default permission is private if not set. Users can also be clearly granted with permission of read, write or read-write separately. See the details below:
@@ -110,7 +110,7 @@ Content of Container node Grantee:
 
 ### Response Header
 #### Common Response Header
-This response uses common response header. For more information, please see [Common Response Headers](https://www.qcloud.com/document/product/436/7729) chapter.
+This response uses common response header. For more information, please see [Common Response Headers](https://cloud.tencent.com/document/product/436/7729) chapter.
 #### Specific Response Header
 No particular response header for this response.
 ### Response Body

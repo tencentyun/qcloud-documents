@@ -44,7 +44,7 @@ Enter the ID of an LVB channel to delete the channel (channels can be deleted in
 
 Input 1
 <pre>
-https://domain/v2/index.php?Action=DeleteLVBChannel&channelIds.1=96171715553394807&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+https://domain/v2/index.php?Action=DeleteLVBChannel&channelIds.1=96171715553394807&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 
 </pre>
 

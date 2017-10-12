@@ -23,7 +23,7 @@ For example, you have an e-commerce web application that currently runs on five 
 
 ## Steps
 
-1. Open the [Console](https://console.qcloud.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
+1. Open the [Console](https://console.cloud.tencent.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
 
 2. Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -48,7 +48,7 @@ Before using auto scaling, your system may have a server that is regularly used.
 **How to configure:**
 
 
-**Step 1**: In the [Scaling Group List](https://console.qcloud.com/autoscaling), click the scaling group in which the server resides to enter the management page;
+**Step 1**: In the [Scaling Group List](https://console.cloud.tencent.com/autoscaling), click the scaling group in which the server resides to enter the management page;
 
 **Step 2**: In the **CVM List** at the bottom of the management page, click **Set Removal Protection** for the appropriate CVM.
 

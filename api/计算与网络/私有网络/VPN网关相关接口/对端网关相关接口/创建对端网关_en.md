@@ -23,20 +23,20 @@ The following request parameter list only provides API request parameters. Commo
 | userGwId | String | Peer gateway ID assigned by the system. For example: cgw-e098slul |
 
 ## 4. Error Codes
- The following list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+ The following list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error code | Description |
 |---------|---------|
 | InvalidUserGwName | Invalid peer gateway name. It should be within 60 characters.  |
 | InvalidUserGw.InUse | Peer gateway public IP already in use. The peer gateway public IP must be unique under the same account.  |
-| UserGwLimitExceeded | Reached the upper limit of requested peer gateways for the specific region. Please contact customer service for more resources. For more information, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits"> VPC Service Limits</a>.  |
+| UserGwLimitExceeded | Reached the upper limit of requested peer gateways for the specific region. Please contact customer service for more resources. For more information, see <a href="https://cloud.tencent.com/doc/product/215/537" title="VPC Service Limits"> VPC Service Limits</a>.  |
 
 ## 5. Example
  
 Input
 <pre>
   https://domain/v2/index.php?Action=AddUserGw
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &userGwName=ddtest
   &userGwAddr=183.30.0.1
 </pre>

@@ -2,14 +2,14 @@
 
 ## 前提条件
 - 负载均衡只负责转发流量，不具备处理请求的能力。因此，您首先需要有用以处理用户请求的运行中的云服务器实例。本示例要求您只要具有两台云服务器实例，您也可以自行规划需要向多少云服务器转发请求。本例中已经在北京地域下创建了云服务器实例 `rs-1` 和 `rs-2`。有关如何创建云服务器实例，请参考 [购买并启动云服务器实例](/doc/product/213/4855)。
-- 本例以 HTTP 转发为例，云服务器上必须部署相应的 Web 服务器，如 Apache、Nginx、IIS等。为了验证结果，示例在 `rs-1` 上部署了Apache 并返回一个带有 “This is rs-1” 的 HTML，在 `rs-2` 上部署了Apache 并返回一个带有 “This is rs-2” 的 HTML。有关如何在云服务器上部署服务的更多内容，请参考 [Windows 安装配置 IIS 和 PHP](https://www.qcloud.com/doc/product/213/2755) 及 [Linux 系统环境配置（CentOS）](https://www.qcloud.com/doc/product/213/2125)。
+- 本例以 HTTP 转发为例，云服务器上必须部署相应的 Web 服务器，如 Apache、Nginx、IIS等。为了验证结果，示例在 `rs-1` 上部署了Apache 并返回一个带有 “This is rs-1” 的 HTML，在 `rs-2` 上部署了Apache 并返回一个带有 “This is rs-2” 的 HTML。有关如何在云服务器上部署服务的更多内容，请参考 [Windows 安装配置 IIS 和 PHP](https://cloud.tencent.com/doc/product/213/2755) 及 [Linux 系统环境配置（CentOS）](https://cloud.tencent.com/doc/product/213/2125)。
 
 > 注：示例中后端服务器部署的服务返回值不同，实际情况下，为保持所有用户均有一致体验，后端服务器上一般是部署完全相同的服务。
 
 ## 购买并创建负载均衡实例
 > 请注意，负载均衡只能将流量转发至同一地域下的云服务器实例。因此，请在前提条件下的云服务器同个地域下创建负载均衡实例。
 
-1) 登录腾讯云，前往 [负载均衡购买页面](https://buy.qcloud.com/lb)。
+1) 登录腾讯云，前往 [负载均衡购买页面](https://buy.cloud.tencent.com/lb)。
 
 2) 本例地域选择与云服务器相同的【华北地区（北京）】，实例类型选择【公网固定IP】，网络环境选择【基础网络】
 
@@ -20,7 +20,7 @@
 ## 创建负载均衡监听器
 负载均衡监听器通过指定协议及端口来负责实际转发。本例以转发客户端的 HTTP 请求设置为例。
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)，点击【云产品】-【负载均衡】进入负载均衡控制台。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击【云产品】-【负载均衡】进入负载均衡控制台。
 
 2) 在负载均衡实例列表中找到刚才创建的公网固定IP类型的负载均衡实例，点击 ID 进入负载均衡详情页。
 
@@ -43,7 +43,7 @@
 
 ## 绑定后端云服务器
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)，点击【云产品】-【负载均衡】进入负载均衡控制台。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击【云产品】-【负载均衡】进入负载均衡控制台。
 
 2) 在负载均衡实例列表中找到刚才创建的 `clb-test`，点击 ID 进入负载均衡详情页。
 
@@ -52,11 +52,11 @@
 4) 点击【确定】按钮。
 
 ## 购买域名并解析到负载均衡实例
-1) 打开[腾讯云域名注册页面](https://www.qcloud.com/product/dm.html) 进行域名查询和注册。本例以 qcloudtest.com 为例。
+1) 打开[腾讯云域名注册页面](https://cloud.tencent.com/product/dm.html) 进行域名查询和注册。本例以 qcloudtest.com 为例。
 
-相关文档可以参考[如何注册域名](https://www.qcloud.com/doc/product/242/3717)
+相关文档可以参考[如何注册域名](https://cloud.tencent.com/doc/product/242/3717)
 
-2) 登录[腾讯云控制台](https://console.qcloud.com/)，点击【云产品】-【域名管理】-【解析】。
+2) 登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击【云产品】-【域名管理】-【解析】。
 
 
 3) 点击【添加记录】按钮添加 CNAME 记录，输入以下内容：

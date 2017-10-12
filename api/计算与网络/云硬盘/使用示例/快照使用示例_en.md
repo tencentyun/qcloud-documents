@@ -4,7 +4,7 @@ In this example, we first create a snapshot for the specified cloud disk, and th
 
 ## 1. Create Cloud Disk Snapshot
 
-First, create a snapshot for the specified cloud disk using the [Create Snapshot (CreateSnapshot)](https://www.qcloud.com/doc/api/364/2529) API. Here, we create a snapshot named `sanp_test` for a cloud disk with an ID of `disk-nmnaafrh`. The specific API request parameters are as follows:
+First, create a snapshot for the specified cloud disk using the [Create Snapshot (CreateSnapshot)](https://cloud.tencent.com/doc/api/364/2529) API. Here, we create a snapshot named `sanp_test` for a cloud disk with an ID of `disk-nmnaafrh`. The specific API request parameters are as follows:
 
 | Parameter Name | Description | Value |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ Action=CreateSnapshot
 &Timestamp=1466076669
 ```
 
-The returned result of the above request is as follows. It shows that the ID of the snapshot created is `snap-i70k7y2i`. Then, you can query the progress of snapshot creation through [DescribeSnapshots (Query Snapshot List)](https://www.qcloud.com/doc/api/364/2530) API.
+The returned result of the above request is as follows. It shows that the ID of the snapshot created is `snap-i70k7y2i`. Then, you can query the progress of snapshot creation through [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API.
 ```json
 {
 	"code": 0,
@@ -35,7 +35,7 @@ The returned result of the above request is as follows. It shows that the ID of 
 
 ## 2. Roll Back Snapshot
 
-You can roll back snapshots through the [ApplySnapshot (Roll Back Snapshot)](https://www.qcloud.com/doc/api/364/2533) API. Here, we roll back the snapshot created earlier to the original cloud disk. The specific API request parameters are as follows:
+You can roll back snapshots through the [ApplySnapshot (Roll Back Snapshot)](https://cloud.tencent.com/doc/api/364/2533) API. Here, we roll back the snapshot created earlier to the original cloud disk. The specific API request parameters are as follows:
 
 | Parameter Name | Description | Value |
 | --- | --- | --- |

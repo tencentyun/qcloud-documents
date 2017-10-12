@@ -1,4 +1,4 @@
-Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Global Status" page under "Statistics" to review the real-time status of carriers of the entire CDN network.
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and click "Global Status" page under "Statistics" to review the real-time status of carriers of the entire CDN network.
 
 CDN keeps sending requests to monitor files according to monitor points from provinces and carriers across the country, to collect the response data of these requests and obtains latency and availability information of carriers in various provinces across the entire network.
 

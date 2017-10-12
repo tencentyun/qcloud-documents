@@ -1,5 +1,5 @@
 ## 1 Overview
-To use Voice Messages, you need to call [Basic APIs](https://www.qcloud.com/document/product/556/7675).
+To use Voice Messages, you need to call [Basic APIs](https://cloud.tencent.com/document/product/556/7675).
 
 ## 2 Call APIs for Voice Message 
  

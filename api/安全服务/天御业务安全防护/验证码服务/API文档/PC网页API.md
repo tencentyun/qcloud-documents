@@ -6,7 +6,7 @@
 ```
 <script type="text/javascript" src="xxx"></script>
 ```
-[JS地址的获取方法](https://www.qcloud.com/doc/product/295/6620)
+[JS地址的获取方法](https://cloud.tencent.com/doc/product/295/6620)
 ### 2.2 添加验证码展示控件
 ```
 <!--显示验证码的地方预留的最小空间，小于该值会导致显示异常-->

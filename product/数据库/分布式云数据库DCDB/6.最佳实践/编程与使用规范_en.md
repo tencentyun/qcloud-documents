@@ -47,7 +47,7 @@ create table test(a int, b int, …) shardkey=b
 - View, storage procedure, trigger
 -	Self-built partition
 - It does not support the version below MySQL 3.4.0, SSL, and compression protocol.
-- Compatibility: [Compatibility Description](https://www.qcloud.com/doc/product/237/%E5%85%BC%E5%AE%B9%E6%80%A7%E8%AF%B4%E6%98%8E).
+- Compatibility: [Compatibility Description](https://cloud.tencent.com/doc/product/237/%E5%85%BC%E5%AE%B9%E6%80%A7%E8%AF%B4%E6%98%8E).
 
 #### 2.2.1 Creating a Table
 

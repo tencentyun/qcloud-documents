@@ -5,7 +5,7 @@ Domain name: live.api.qcloud.com
 API name: DescribeQueueLog
 
 Note: This API is used to query the queue of generated screenshots and can also be used for other message queuing services.
-The screenshot feature is chargeable. For more information about the billing methods, please see LVB [Price Overview](https://www.qcloud.com/document/product/267/2818).
+The screenshot feature is chargeable. For more information about the billing methods, please see LVB [Price Overview](https://cloud.tencent.com/document/product/267/2818).
 
 **Note: This service must be enabled separately for the queue query API**. You can submit a request through the after-sales QQ number 514025596 to enable the service. You can send the request by simply indicating that "Request to enable the LVB screenshot queue query API service" as well as the account information in the message. The service will be enabled within one business day.
 
@@ -63,7 +63,7 @@ The screenshot feature is chargeable. For more information about the billing met
 
 Input 1
 <pre>
-http://domain/v2/index.php?Action=DescribeQueueLog&bid=100&count=5&<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>
+http://domain/v2/index.php?Action=DescribeQueueLog&bid=100&count=5&<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>
 
 </pre>
 

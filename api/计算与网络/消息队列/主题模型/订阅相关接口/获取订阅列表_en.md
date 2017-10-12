@@ -16,7 +16,7 @@ Domain for private network API request: <font style="color:red">cmq-topic-region
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/431/5883).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/431/5883).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

@@ -16,7 +16,7 @@
 
 ### CMQ Java SDK 下载与配置
 #### 云 API 密钥使用说明
-使用 Java SDK 时，首先需要用户的云 API 密钥，云 API 密钥是对用户身份的合法性验证。获取云 API 密钥的方法如下：登录[腾讯云控制台](https://console.qcloud.com/)，选择【云产品】-【云 API 密钥】选项
+使用 Java SDK 时，首先需要用户的云 API 密钥，云 API 密钥是对用户身份的合法性验证。获取云 API 密钥的方法如下：登录[腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】-【云 API 密钥】选项
 ![](https://mc.qcloudimg.com/static/img/b04d51df61bc4e9259dcee293981b644/5.png)
 
 用户可在此新建新的云 API 密钥或使用现有密钥。点击密钥 ID 进入详情页获取使用的密钥 secretId 和对应的 secretKey。
@@ -51,7 +51,7 @@ region 需要使用具体地域进行替换，有如下三个地区：gz(广州)
 添加jar包之后，目录如下：
 ![](https://mc.qcloudimg.com/static/img/a025253000b587bc35eca6bc1904d81c/6.png)
 
-添加完毕后，就可以运行程序了。如果有错误返回，请参考官网[错误码说明](https://www.qcloud.com/doc/api/431/5903)排查问题。
+添加完毕后，就可以运行程序了。如果有错误返回，请参考官网[错误码说明](https://cloud.tencent.com/doc/api/431/5903)排查问题。
 
 ### 使用 CMQ JAVA SDK
 

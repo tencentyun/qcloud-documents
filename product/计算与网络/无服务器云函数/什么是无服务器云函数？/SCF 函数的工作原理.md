@@ -5,7 +5,7 @@ SCF 将在事件触发时代表您执行 SCF 函数，根据您的配置信息�
 
 容器重用机制的意义在于：
 
-- 用户代码中位于[执行方法](https://www.qcloud.com/document/product/583/9210#.E6.89.A7.E8.A1.8C.E6.96.B9.E6.B3.95)外部的任何声明保持已初始化的状态，再次调用函数时可以直接重用。例如，如果您的函数代码中建立了数据库连接，容器重用时可以直接使用原始连接。您可以在代码中添加逻辑，在创建新连接之前检查是否已存在连接。
+- 用户代码中位于[执行方法](https://cloud.tencent.com/document/product/583/9210#.E6.89.A7.E8.A1.8C.E6.96.B9.E6.B3.95)外部的任何声明保持已初始化的状态，再次调用函数时可以直接重用。例如，如果您的函数代码中建立了数据库连接，容器重用时可以直接使用原始连接。您可以在代码中添加逻辑，在创建新连接之前检查是否已存在连接。
 - 每个容器在 `/tmp` 目录中提供部分磁盘空间。容器存留时该目录内容会保留，提供可用于多次调用的暂时性缓存。再次调用函数时有可能可以直接使用该磁盘内容，您可以添加额外的代码来检查缓存中是否有您存储的数据。
 
 ```
@@ -41,7 +41,7 @@ SCF 平台支持`同步`和`异步`两种调用方式来调用云函数。调用
 |临时磁盘容量（/tmp）|512MB|
 |最大执行时长|300 秒|
 |控制台上传的代码包大小|5MB|
-|最大并发容器数|20，用户可以[联系我们](https://www.qcloud.com/document/product/583/9712)提高该限制|
+|最大并发容器数|20，用户可以[联系我们](https://cloud.tencent.com/document/product/583/9712)提高该限制|
 
 ## 函数并发量
 函数的并发数量是指在任意指定时间对函数代码的执行数量。对于当前的 SCF 函数来说，每个发布的事件请求就会执行一次。因此，这些触发器发布的事件数（即请求量）会影响函数的并发数。您可以使用以下公式来估算并发的函数实例总数目。
@@ -53,7 +53,7 @@ SCF 平台支持`同步`和`异步`两种调用方式来调用云函数。调用
 
 ## 并发限制
 
-默认情况下，SCF 将会对每个函数的并发量限制为 20。您可以通过[联系我们](https://www.qcloud.com/document/product/583/9712)来调高此数值。
+默认情况下，SCF 将会对每个函数的并发量限制为 20。您可以通过[联系我们](https://cloud.tencent.com/document/product/583/9712)来调高此数值。
 
 如果调用导致函数的并发数目超过了默认限制，则该调用会被阻塞，SCF 将不会执行这次调用。根据函数的调用方式，受限制的调用的处理方式会有所不同：
 
@@ -74,7 +74,7 @@ SCF 平台支持`同步`和`异步`两种调用方式来调用云函数。调用
 以下库和依赖包在 SCF 执行环境下直接可用，您可以直接使用 `import`语句导入它们：
 
 - [Python标准库](http://usyiyi.cn/translate/python_278/library/index.html)
-- [Qcloud COS SDK](https://www.qcloud.com/document/product/436/6275)
-- [Qcloud API SDK](https://www.qcloud.com/document/developer-resource/494/7244)
+- [Qcloud COS SDK](https://cloud.tencent.com/document/product/436/6275)
+- [Qcloud API SDK](https://cloud.tencent.com/document/developer-resource/494/7244)
 
 

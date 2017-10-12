@@ -23,7 +23,7 @@ Note: After you finish learning this tutorial, your account will contain the fol
 
 - Two SCFs: Mapper and Reducer
 - Three COS Buckets: srcmr, middlestagebucket and destmr
-- Notification configuration on source Bucket: Bind SCF and COS Bucket to the notification configuration of the Bucket, and add new option to identify the type of event to be triggered by COS (file creation/deletion) and the name of the function to be called. For more information about COS notification feature, please see API [PutBucketNotification](https://www.qcloud.com/document/product/436/8588).
+- Notification configuration on source Bucket: Bind SCF and COS Bucket to the notification configuration of the Bucket, and add new option to identify the type of event to be triggered by COS (file creation/deletion) and the name of the function to be called. For more information about COS notification feature, please see API [PutBucketNotification](https://cloud.tencent.com/document/product/436/8588).
 
 This tutorial is divided into two parts:
 

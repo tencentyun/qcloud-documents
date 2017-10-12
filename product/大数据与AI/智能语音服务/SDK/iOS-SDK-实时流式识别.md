@@ -10,7 +10,7 @@
 
 -  只支持 iOS 8.0 及以上版本，不支持 bitcode 版本；
 -  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 WiFi 网络等）；
--  从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://www.qcloud.com/document/product/441/6194)。
+-  从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
 
 
 ### SDK 配置
@@ -38,7 +38,7 @@ iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一�
 
 ## 签名获取
 
-移动端 SDK 中用到的签名，建议由业务服务器来生成，并由移动端向业务服务器请求。业务侧服务器需要进行签名的生成，具体生成和使用请参照 [签名鉴权](https://www.qcloud.com/document/product/441/6203) 。识别 SDK 签名必须实现 QCloudAAIClient 的 QCloudAAIGetSignDelegate 的协议，对由 SDK 提供(NSString*)param，进行加密处理；
+移动端 SDK 中用到的签名，建议由业务服务器来生成，并由移动端向业务服务器请求。业务侧服务器需要进行签名的生成，具体生成和使用请参照 [签名鉴权](https://cloud.tencent.com/document/product/441/6203) 。识别 SDK 签名必须实现 QCloudAAIClient 的 QCloudAAIGetSignDelegate 的协议，对由 SDK 提供(NSString*)param，进行加密处理；
 
 ```objective-c
 // 获取请求的签名

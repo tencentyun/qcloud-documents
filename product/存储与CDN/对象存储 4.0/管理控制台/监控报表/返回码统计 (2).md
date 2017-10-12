@@ -1,4 +1,4 @@
-- 登录 [对象存储桶控制台](https://console.qcloud.com/cos4/index)，单击左侧菜单【监控报表】>【返回码统计】，即可进入返回码统计页面。
+- 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos4/index)，单击左侧菜单【监控报表】>【返回码统计】，即可进入返回码统计页面。
 ![返回码统计1](//mc.qcloudimg.com/static/img/a81aa7be11deef5d071c65680a47bc9c/image.png)
 - 返回码统计页面以对应时间段趋势图和列表的形式，可切换项目和存储桶，查看当天、昨天、近 7 天、近 15 天、近 30 天的数据：
  - HTTP 请求成功率统计

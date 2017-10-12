@@ -18,10 +18,10 @@
 购买云服务扣除的金额 = 申请的云服务数量 × 云服务单价。
 因此，用户在购买云服务前，可先查看云费用账户中的可用余额，如果余额小于系统将扣除的金额，请先充值后再购买。
 
-包年包月云服务器具体价格，[详见>](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#1.-包年包月) 
-包年包月云服务器实例配置，[详见>](http://www.qcloud.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
-包年包月云服务器到期提醒，[详见>](http://www.qcloud.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#1.-包年包月云服务器到期提醒)
-调整包年包月云服务器实例配置，[详见>](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
+包年包月云服务器具体价格，[详见>](http://cloud.tencent.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#1.-包年包月) 
+包年包月云服务器实例配置，[详见>](http://cloud.tencent.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+包年包月云服务器到期提醒，[详见>](http://cloud.tencent.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#1.-包年包月云服务器到期提醒)
+调整包年包月云服务器实例配置，[详见>](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
 
 ## 按量计费
 

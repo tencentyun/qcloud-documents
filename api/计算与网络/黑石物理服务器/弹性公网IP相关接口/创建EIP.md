@@ -48,7 +48,7 @@ data结构
 
   https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmApply
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&goodsNum=2&payMode=flow&vpcId=1
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>&goodsNum=2&payMode=flow&vpcId=1
 ```
 
 输出

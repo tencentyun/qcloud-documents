@@ -45,7 +45,7 @@ mysqldump -c -t -utest -ptest1234 -S /data/4003/prod/mysql.scok caccts t_acct_wa
 > Note: Data must be exported through mysqldump with parameter -c in order to get data with column name field. Sql without column name field will not be accepted by DCDB for Percona and MariaDB. Parameter -t specifies that only table data will be exported and table structure will not.
 
 ### 3.3 Upload files to a directory on CVM
-Before uploading, you need to enable CVM public IP and read the CVM file upload guideline: [File Upload from Linux Machine Using SCP](https://www.qcloud.com/document/product/213/2133). You should upload at least the following exported contents:
+Before uploading, you need to enable CVM public IP and read the CVM file upload guideline: [File Upload from Linux Machine Using SCP](https://cloud.tencent.com/document/product/213/2133). You should upload at least the following exported contents:
 - Table structure sql: table.sql
 - Data sql: data.sql
 

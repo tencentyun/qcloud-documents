@@ -48,7 +48,7 @@ Input
 <pre>
 
   https://bmeip.api.qcloud.com/v2/index.php?
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &Action=bmUnBindRs
   &vpcIp=10.10.x.x&eipId=eip-vvvvvvv&vpcId=1000
 

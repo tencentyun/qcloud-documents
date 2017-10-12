@@ -6,7 +6,7 @@ Tencent mobile service makes use of the signature to verify the legitimacy of th
 
 **One-time signature**: The signature will bind the fileid of the file. The valid period must be set to 0. This signature can only be used once, and can only be applied to the bound file.
 
-For specific applicable scenario, refer to [Applicable Scenarios for Signatures](http://www.qcloud.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景).
+For specific applicable scenario, refer to [Applicable Scenarios for Signatures](http://cloud.tencent.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景).
 
 
 
@@ -18,7 +18,7 @@ For specific applicable scenario, refer to [Applicable Scenarios for Signatures]
 
 The information required to generate the signature includes the project ID (appid), space name (bucket, the organization management unit of file resources), and the Secret ID and Secret Key of the project. The above information can be obtained as follows:
 
-1) Login [Cloud Object Storage](http://console.qcloud.com/cos), and enter the cloud object storage space;
+1) Login [Cloud Object Storage](http://console.cloud.tencent.com/cos), and enter the cloud object storage space;
 
 2) If the developer does not create such a space, you can add a space on your own. Space name (bucket) can be inputted by the user;
 
@@ -58,7 +58,7 @@ The meanings of fields in signature strings are as follows:
 
 **The multiple-time signature must be used when uploading a file;**
 
-For specific applicable scenario, refer to [Applicable Scenarios for Signatures](http://www.qcloud.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景).
+For specific applicable scenario, refer to [Applicable Scenarios for Signatures](http://cloud.tencent.com/doc/product/227/%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95#4-签名适用场景).
 
 
 ### 2.3	Generating Signature

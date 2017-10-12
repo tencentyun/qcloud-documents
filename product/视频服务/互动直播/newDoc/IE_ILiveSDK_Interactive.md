@@ -24,7 +24,7 @@ sdk.init(function () {
 ```
 
 ## 登录
-用户在登录后才能使用消息通讯，互动视频等功能。登录需要填写用户id和签名。其中签名是由[腾讯登录服务](https://www.qcloud.com/document/product/269/1507)提供的。
+用户在登录后才能使用消息通讯，互动视频等功能。登录需要填写用户id和签名。其中签名是由[腾讯登录服务](https://cloud.tencent.com/document/product/269/1507)提供的。
 
 ```
 sdk.login(id, sig, function () {
@@ -37,7 +37,7 @@ sdk.login(id, sig, function () {
 ## 音视频权限管理
 
 **业务层需重点关注房间成员的音视频权限**。 只有主播或者需要上麦的观众才能拥有音视频上行的权限。在进入或者创建房间时需要填写正确的权限（详见下文进入房间）。另外成员允许在房间内改变自己的权限。   
-您可以在腾讯云[控制台配置](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/SPEARConfig.md)自身业务需要的角色及其权限，腾讯云服务器会根据房间成员不同的权限分配不同的[接入机](https://www.qcloud.com/document/product/268/7651)。错误配置权限可能导致不必要的带宽支出和观众异常上行数据等问题。
+您可以在腾讯云[控制台配置](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/SPEARConfig.md)自身业务需要的角色及其权限，腾讯云服务器会根据房间成员不同的权限分配不同的[接入机](https://cloud.tencent.com/document/product/268/7651)。错误配置权限可能导致不必要的带宽支出和观众异常上行数据等问题。
 
 
 

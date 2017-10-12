@@ -1,4 +1,4 @@
-存储桶的相关说明，请参考 [基本概念](https://www.qcloud.com/document/product/436/6225) 。您可以通过对象存储控制台概览页或 Bucket 列表创建存储桶：
+存储桶的相关说明，请参考 [基本概念](https://cloud.tencent.com/document/product/436/6225) 。您可以通过对象存储控制台概览页或 Bucket 列表创建存储桶：
 ### 通过概览页
  1. 登录对象存储控制台后，当您首次创建存储桶时，请单击概览页上的【创建 Bucket】，弹出创建 Bucket 对话框。
 ![概览页](//mc.qcloudimg.com/static/img/94a92b09d6dd58e9de2e9a3c8a3c3586/image.png)
@@ -21,9 +21,9 @@
 
 <span id="所属地域"></span>
 #### 所属地域
-创建存储桶时可选择存储桶所属地域，一旦设置不可更改。为提高访问速度，建议选择离您的用户近的可用地域。更多信息请参阅 [可用地域](https://www.qcloud.com/document/product/436/6224)。
+创建存储桶时可选择存储桶所属地域，一旦设置不可更改。为提高访问速度，建议选择离您的用户近的可用地域。更多信息请参阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 #### 访问权限
-存储桶默认提供两种访问权限：公有读私有写和私有读写。存储桶权限可通过对象存储控制台存储桶的基本配置修改，具体信息请参阅 [访问权限](https://www.qcloud.com/document/product/436/6247)。
+存储桶默认提供两种访问权限：公有读私有写和私有读写。存储桶权限可通过对象存储控制台存储桶的基本配置修改，具体信息请参阅 [访问权限](https://cloud.tencent.com/document/product/436/6247)。
 - 公有读私有写：任何人（包括匿名访问者）都对该存储桶中的文件有读权限，但只有存储桶创建者及有相应权限的账号才对该存储桶中的对象有写权限。 
 - 私有读写：只有该存储桶的创建者及有相应权限的账号才对该存储桶中的文件有读写权限，其他任何人对该存储桶中的文件都没有读写权限。
 
@@ -33,5 +33,5 @@ CDN 加速默认关闭，您可以根据自身业务需求选择开启或关闭�
 - 同一 APPID 下，存储桶数量上限是 200 个（不区分地域）。
 
  
-[上一步：注册与登录](https://www.qcloud.com/document/product/436/6231)
-[下一步：上传对象](https://www.qcloud.com/document/product/436/6233)
+[上一步：注册与登录](https://cloud.tencent.com/document/product/436/6231)
+[下一步：上传对象](https://cloud.tencent.com/document/product/436/6233)

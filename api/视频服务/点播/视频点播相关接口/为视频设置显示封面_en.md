@@ -50,7 +50,7 @@ Input
 	&para=D:/image/123.jpg
   &type=2
   &imageData=8d451afe8b1611e4919815f8b80b7a9a
-  &<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+  &<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 The cover is a network file
 https://domain/v2/index.php?Action=DescribeVodCover

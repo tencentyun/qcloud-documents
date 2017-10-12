@@ -1,7 +1,7 @@
 CDN 为您提供了 IP 访问限频配置，通过对每一个 IP 在每一个节点每一秒钟访问次数进行限制，进行 CC 攻击的抵御。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【访问控制】，您可以看到 **IP 访问限频配置** 模块。
 ![](https://mc.qcloudimg.com/static/img/eb166fb8f636d737f488d13c89325bca/iplimit.png)

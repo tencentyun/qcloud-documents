@@ -1,6 +1,6 @@
 ## Prerequisite: Key of Sub-user
 
-Log in to the console using the account and password of sub-account, and you can find the key of sub-user in the "Cloud Products" - "[Cloud API Key](https://console.qcloud.com/capi)". The key is used to generate the signature, and you can have access to relevant Tencent Cloud resources after passing the verification.
+Log in to the console using the account and password of sub-account, and you can find the key of sub-user in the "Cloud Products" - "[Cloud API Key](https://console.cloud.tencent.com/capi)". The key is used to generate the signature, and you can have access to relevant Tencent Cloud resources after passing the verification.
 
 Function of Signature:
 - **Verify the identity of request user:** Identify it based on user key.

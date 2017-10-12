@@ -45,7 +45,7 @@ Traffic fee is charged in a tiered method. Fee for traffic that exceeds the curr
 | CDN back-to-origin traffic | Back-to-origin traffic generated when </br>accessing COS CDN via Tencent Cloud CDN | 0 GB - 10 GB -- 0 CNY/GB </br>  Above 10 GB -- 0.15 CNY/GB |  0.15 CNY/GB  |     0.15 CNY/GB    |  
 | Public network outbound traffic   | IDC traffic generated when</br> accessing COS through public network        | 0 GB - 10 GB -- 0 CNY/GB </br>  10 GB - 500 GB -- 0.64 CNY/GB </br>  Above 500 GB -- 0.6 CNY/GB | 0 GB - 500 GB -- 0.64 CNY/GB </br>  Above 500 GB -- 0.6 CNY/GB | 0 GB - 500 GB -- 0.64 CNY/GB </br>  Above 500 GB -- 0.6 yuan/GB |
 
-*Note: Traffic delivered to user terminals through CDN is not accounted as COS fee. Such charges are calculated according to CDN pricing standard. Refer to [CDN Pricing](http://www.qcloud.com/doc/product/228/%E8%AE%A1%E8%B4%B9%E8%AF%B4%E6%98%8E) for details.*
+*Note: Traffic delivered to user terminals through CDN is not accounted as COS fee. Such charges are calculated according to CDN pricing standard. Refer to [CDN Pricing](http://cloud.tencent.com/doc/product/228/%E8%AE%A1%E8%B4%B9%E8%AF%B4%E6%98%8E) for details.*
 
 **Comparison between the prices of the two COS data transmission methods**
 

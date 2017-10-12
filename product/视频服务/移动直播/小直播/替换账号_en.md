@@ -14,12 +14,12 @@ If you wish to strong-bind every individual in the chat room with an ID in your 
 ### 1. Simple Replacement
 With Simple Replacement mode, you simply need to modify several lines of code to replace the participants in the Mini LVB chat room into individuals of your current account system. This mode imposes few security restrictions on the participants.
 
-[Guest Mode](https://www.qcloud.com/document/product/454/7980#3.2-.E8.AE.BF.E5.AE.A2.EF.BC.88.E6.89.98.E7.AE.A1.EF.BC.89.E6.A8.A1.E5.BC.8F): This is one of the Tencent Cloud IM service operation modes. In this mode, Tencent Cloud assigns a "guest account" for each of the message senders/receivers in the backend, avoiding the need for the IM service to be strongly coupled with your current account system, while also satisfying the restriction where IM service must have an account to send or receive messages.
+[Guest Mode](https://cloud.tencent.com/document/product/454/7980#3.2-.E8.AE.BF.E5.AE.A2.EF.BC.88.E6.89.98.E7.AE.A1.EF.BC.89.E6.A8.A1.E5.BC.8F): This is one of the Tencent Cloud IM service operation modes. In this mode, Tencent Cloud assigns a "guest account" for each of the message senders/receivers in the backend, avoiding the need for the IM service to be strongly coupled with your current account system, while also satisfying the restriction where IM service must have an account to send or receive messages.
 
 Each message sender in the chat room sends his or her user information (nickname, profile photo and so on) in the message body as a package, while other receivers in the chat room also resolve the user information from the message body.
 
 - **Step 1: Choose Host Mode**
-> Make sure the integration mode in Tencent Cloud [IM Console](https://console.qcloud.com/avc) is **Host Mode**. This mode allows Tencent Cloud to provide backend support to guest accounts in guest mode.
+> Make sure the integration mode in Tencent Cloud [IM Console](https://console.cloud.tencent.com/avc) is **Host Mode**. This mode allows Tencent Cloud to provide backend support to guest accounts in guest mode.
 > ![](//mc.qcloudimg.com/static/img/d52ac3662d5310673a5d6c6a78f50da4/image.png)
 
 - **Step 2: Block TLS regular login logic**
@@ -31,7 +31,7 @@ Each message sender in the chat room sends his or her user information (nickname
 > Android platform: The code used to launch IM SDK in guest mode is located in the guestLogin function in TCLoginMgr.java.
 
 ### 2. Secure Interface
-Choose this mode if you need to strong-bind every individual in the chat room with an ID in your account system to ensure that the identity of each participant is confirmed by your server. For more information about the interface method of this mode, please see [How to Bind IM Identity](https://www.qcloud.com/document/product/454/6562#.E7.BB.91.E5.AE.9Aim.E8.BA.AB.E4.BB.BD).
+Choose this mode if you need to strong-bind every individual in the chat room with an ID in your account system to ensure that the identity of each participant is confirmed by your server. For more information about the interface method of this mode, please see [How to Bind IM Identity](https://cloud.tencent.com/document/product/454/6562#.E7.BB.91.E5.AE.9Aim.E8.BA.AB.E4.BB.BD).
 
 ## UserInfo Module
 The "user information" we mentioned here refers to information of the VJ (such as nickname, profile photo), that is, information of the current App user. The VJ information seen by the viewers is already obtained when pulling the list of LVB rooms.

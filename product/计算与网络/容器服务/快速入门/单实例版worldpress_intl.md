@@ -3,11 +3,11 @@ WordPress is a personal information publishing platform focusing on aesthetics, 
 
 The following shows how to use Docker image "tutum/wordpress" to create a Wordpress website which allows public access.
 
-The created Wordpress with single pod is for testing purposes only. The image includes all operating environments for Wordpress, thus you can simply pull and create the service. However, using Wordpress with single pod cannot ensure persistent data storage, so it is recommended that you use self-built MySQL or Tencent Cloud CDB to store your data. For more information, please see [Create Wordpress with CDB](https://www.qcloud.com/document/product/457/7447).
+The created Wordpress with single pod is for testing purposes only. The image includes all operating environments for Wordpress, thus you can simply pull and create the service. However, using Wordpress with single pod cannot ensure persistent data storage, so it is recommended that you use self-built MySQL or Tencent Cloud CDB to store your data. For more information, please see [Create Wordpress with CDB](https://cloud.tencent.com/document/product/457/7447).
 
 ### Steps
 #### Step 1: Create Cluster
-1. First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://www.qcloud.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
+1. First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://cloud.tencent.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
 
 
 #### Step 2. Create Wordpress Service

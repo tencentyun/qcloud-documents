@@ -2,7 +2,7 @@ To allow the private IPs at the two sides of a peering connection to send traffi
 
 At the same time, the owner of the peer VPC needs to add a route that points to the local VPC in the routing table associated with the peer VPC.
 
-1) Log in to [CVM Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar, select "Routing Tables" tab in the VPC console.
+1) Log in to [CVM Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, select "Routing Tables" tab in the VPC console.
 
 2) Select the routing table associated with the specified local subnet in the peering connection, and click the ID of the associated routing table to enter the routing table details page.
 

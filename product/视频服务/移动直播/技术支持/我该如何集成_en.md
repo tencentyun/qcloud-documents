@@ -4,7 +4,7 @@
 MLVB is not a specific service, but a set of solutions that **allow you to achieve LVB on your smart phone**. As a technical extension of Tencent Cloud's LVB service, it is designed to cater for the needs of mobile devices. You can choose the most suitable solution based on your needs:
 
 - **If you have a proven mobile device solution**
-If you already have a proven mobile device solution and want a better LVB service, go to [Live Video Broadcasting (LVB)](https://www.qcloud.com/product/LVB) to learn about cloud interfacing solution.
+If you already have a proven mobile device solution and want a better LVB service, go to [Live Video Broadcasting (LVB)](https://cloud.tencent.com/product/LVB) to learn about cloud interfacing solution.
 
 - **If you just want to integrate push and playback features**
 If you want to integrate LVB push and playback features into your own App, choose [Quick Integration Solution](#.E5.BF.AB.E9.80.9F.E7.89.88.E9.9B.86.E6.88.90.E6.96.B9.E6.A1.88) to realize the integration of LVB feature in a straightforward way within as short as one day.
@@ -26,29 +26,29 @@ If you want to integrate LVB push and playback features into your own App, just 
 <tr>
 <td style="text-align: center;"> Step 1
 </td><td style="text-align: center;"> Activate LVB service
-</td><td style="text-align: center;"> <a href="https://console.qcloud.com/live" target="_blank"> Activate LVB console </a>
+</td><td style="text-align: center;"> <a href="https://console.cloud.tencent.com/live" target="_blank"> Activate LVB console </a>
 </td><td style="text-align: center;"> No requirement
 </td></tr>
 <tr>
 <td rowspan="4" style="text-align: center;"> Step 2
 </td><td rowspan="4" style="text-align: center;"> Integrate RTMP SDK
-</td><td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7879" target="_blank"> RTMP SDK - push on iOS platform  </a>
+</td><td style="text-align: center;"> <a href="https://cloud.tencent.com/document/product/454/7879" target="_blank"> RTMP SDK - push on iOS platform  </a>
 </td><td rowspan="4" style="text-align: center;"> Terminal R&D Engineer
 </td></tr>
-</td><td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7880" target="_blank"> RTMP SDK - playback on iOS platform </a>
+</td><td style="text-align: center;"> <a href="https://cloud.tencent.com/document/product/454/7880" target="_blank"> RTMP SDK - playback on iOS platform </a>
 </td></tr>
-</td><td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7885" target="_blank"> RTMP SDK - push on Android platform </a>
+</td><td style="text-align: center;"> <a href="https://cloud.tencent.com/document/product/454/7885" target="_blank"> RTMP SDK - push on Android platform </a>
 </td></tr>
-</td><td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7886" target="_blank"> RTMP SDK - playback on Android platform </a>
+</td><td style="text-align: center;"> <a href="https://cloud.tencent.com/document/product/454/7886" target="_blank"> RTMP SDK - playback on Android platform </a>
 </td></tr>
 <td rowspan="3" style="text-align: center;"> Step 3
 </td><td rowspan="3" style="text-align: center;"> Manage LVB streams
-</td><td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7915" target="_blank">Cloud API - How to obtain the push URL</a>
+</td><td style="text-align: center;"> <a href="https://cloud.tencent.com/document/product/454/7915" target="_blank">Cloud API - How to obtain the push URL</a>
 </td><td rowspan="3" style="text-align: center;"> Backend R&D Engineer
 </td></tr>
-<td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7916" target="_blank">Cloud API - How to build room list</a>
+<td style="text-align: center;"> <a href="https://cloud.tencent.com/document/product/454/7916" target="_blank">Cloud API - How to build room list</a>
 </td></tr>
-<td style="text-align: center;"> <a href="https://www.qcloud.com/document/product/454/7920" target="_blank">Cloud API - How to manage LVB streams</a>
+<td style="text-align: center;"> <a href="https://cloud.tencent.com/document/product/454/7920" target="_blank">Cloud API - How to manage LVB streams</a>
 </td></tr>
 </tbody></table>
 
@@ -58,4 +58,4 @@ If you want to integrate the complete set of LVB capabilities into your App, suc
 
 Mini LVB is a set of open-source source codes provided by Tencent Cloud's development team. Presented in a DEMO form, it aims to show you how to utilize Tencent Cloud services such as LVB, VOD, IM and COS to build an LVB solution suitable for you.
 
-By referring to [How to set up Mini LVB quickly](https://www.qcloud.com/document/product/454/7999), you can quickly set up a debugging environment for your "Mini LVB" that can provide as many code references as possible for your project as well as a secondary development environment.
+By referring to [How to set up Mini LVB quickly](https://cloud.tencent.com/document/product/454/7999), you can quickly set up a debugging environment for your "Mini LVB" that can provide as many code references as possible for your project as well as a secondary development environment.

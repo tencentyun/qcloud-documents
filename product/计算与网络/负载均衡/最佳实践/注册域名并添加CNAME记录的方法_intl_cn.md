@@ -2,9 +2,9 @@
 
 ## 1. 域名注册
 
-注册域名可以通过打开[域名注册页面](https://www.qcloud.com/product/dm.html) 进行域名查询和注册。
+注册域名可以通过打开[域名注册页面](https://cloud.tencent.com/product/dm.html) 进行域名查询和注册。
 
-相关文档可以参考[如何注册域名](https://www.qcloud.com/doc/product/242/3717)
+相关文档可以参考[如何注册域名](https://cloud.tencent.com/doc/product/242/3717)
 
 ## 2. 添加CNAME记录
 
@@ -49,8 +49,8 @@ d. CNAME记录值主要填写空间商给您提供的域名
 - CNAME记录：填写空间商给您提供的域名，***例如：负载均衡中LB实例的域名1b16c9-0.ap-guangzhou.12345678.clb.myqcloud.com*** 
 - MX记录：填写您邮件服务器的IP地址或企业邮局给您提供的域名，如果您不知道，请咨询您的邮件服务提供商
 - TXT记录：一般用于 Google、QQ等企业邮箱的反垃圾邮件设置
-- 显性URL记录：填写要跳转到的网址，例如：http://www.qcloud.com
-- 隐性URL记录：填写要引用内容的网址，例如：http://www.qcloud.com
+- 显性URL记录：填写要跳转到的网址，例如：http://cloud.tencent.com
+- 隐性URL记录：填写要引用内容的网址，例如：http://cloud.tencent.com
 - AAAA：不常用。解析到 IPv6 的地址。
 - NS记录：不常用。系统默认添加的两个NS记录请不要修改。NS向下授权，填写dns域名，例如：f1g1ns1.dnspod.net
 - SRV记录：不常用。格式为：优先级、空格、权重、空格、端口、空格、主机名，记录生成后会自动在域名后面补一个“.”，这是正常现象。例如：5 0 5269 xmpp-server.l.google.com.

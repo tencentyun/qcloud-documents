@@ -1,4 +1,4 @@
-下面将按可用区分别介绍各可用区内云服务器的配置。有关每种实例类型相关介绍可参考 [实例类型](https://www.qcloud.com/document/product/213/7153)
+下面将按可用区分别介绍各可用区内云服务器的配置。有关每种实例类型相关介绍可参考 [实例类型](https://cloud.tencent.com/document/product/213/7153)
 根据底层硬件的不同，腾讯云目前提供了 *系列 1* 和 *系列 2* 两种不同的实例系列，不同的实例系列提供如下实例类型：
 
 **当前一代实例类型**：标准型S2，高IO型I2，内存型M2，计算型C2
@@ -11,7 +11,7 @@
 
 ### 1.	华南地区(广州)－广州二区
 #### 1.1. **标准型S2** 
-[点击购买](https://buy.qcloud.com/?regionId=1&zoneId=100002&generation=v2)
+[点击购买](https://buy.cloud.tencent.com/?regionId=1&zoneId=100002&generation=v2)
 
 | CPU（核）  | 内存（GB） | 本地硬盘（GB）| 云硬盘（GB）|SSD云硬盘（GB）|高性能云硬盘（GB）|
 |---------|---------|-----|------|-----|-----|
@@ -61,7 +61,7 @@
 
 
 ### 2. 华南地区(广州)-广州三区
-[点击购买](https://buy.qcloud.com/?regionId=1&zoneId=100003&generation=v2)
+[点击购买](https://buy.cloud.tencent.com/?regionId=1&zoneId=100003&generation=v2)
 
 
 #### 2.1. **标准型S2**  
@@ -113,7 +113,7 @@
 | 32 | 120 |1000|－ |
 
 ### 3.	华东地区(上海)-上海一区
-[点击购买](https://buy.qcloud.com/?regionId=4&zoneId=200001&generation=v2)
+[点击购买](https://buy.cloud.tencent.com/?regionId=4&zoneId=200001&generation=v2)
 
 
 #### 3.1. **标准型S2**  
@@ -168,7 +168,7 @@
 
 
 ### 4.	华东地区(上海)-上海二区
-[点击购买](https://buy.qcloud.com/?regionId=4&zoneId=200002)
+[点击购买](https://buy.cloud.tencent.com/?regionId=4&zoneId=200002)
 
 #### 4.1. **标准型S2**  
 
@@ -220,7 +220,7 @@
 
 
 ### 5.	华北地区(北京)-北京二区
-[点击购买](https://buy.qcloud.com/cvm?regionId=8&zoneId=800002&generation=v2)
+[点击购买](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2)
 
 
 #### 5.1. **标准型S2**  

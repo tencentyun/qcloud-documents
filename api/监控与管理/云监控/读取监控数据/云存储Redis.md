@@ -89,7 +89,7 @@ dimensions.0.value为实例的uuid
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/redis
 &metricName=cache_hit_ratio
 &dimensions.0.name=redis_uuid

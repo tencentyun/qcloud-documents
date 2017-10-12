@@ -1,6 +1,6 @@
 After the creation of a NAT gateway, you need to configure the routing table in the Routing Tables page in the Virtual Private Cloud console to direct the subnet traffic to the NAT gateway.
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), select "Virtual Private Cloud" tab, and select "NAT Gateway".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" tab, and select "NAT Gateway".
 
 2) In the routing table list, click a routing table ID to enter its details page, and click "Edit" button in the "Routing Rules".
 

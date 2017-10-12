@@ -7,7 +7,7 @@
 
 **step 1 进入注册流程**
 
-在导航处点击“[注册有礼](https://www.qcloud.com/register)”，或在登录页面底部点击“[注册](https://www.qcloud.com/register)”，即可进入注册流程。
+在导航处点击“[注册有礼](https://cloud.tencent.com/register)”，或在登录页面底部点击“[注册](https://cloud.tencent.com/register)”，即可进入注册流程。
 
 ![](https://mc.qcloudimg.com/static/img/583b467beb32817cafd46fe49eb5c05c/zhucerukou2.png)
 ![ ](https://mc.qcloudimg.com/static/img/1c8efeeb1d71317efcdd6e5b3e0159ba/image.png)
@@ -105,7 +105,7 @@
 
 ### 4 使用QQ注册
 
-点击[登录](https://www.qcloud.com/login)，输入您的QQ号及密码，点击登录
+点击[登录](https://cloud.tencent.com/login)，输入您的QQ号及密码，点击登录
 
 ![QQ登录](https://mc.qcloudimg.com/static/img/4d6fa1d1f7681721e3d0bf91dc74989d/dengluqq.png)
 
