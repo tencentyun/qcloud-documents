@@ -9,9 +9,9 @@ UpgradeBmNatGateway 用于修改黑石NAT网关规格，可修改为小型NAT网
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
     &<公共请求参数>
-    &natId=<natId>
-    &vpcId=<vpcId>
-    &maxConcurrent=<3000000>
+    &natId=<NAT网关ID>
+    &vpcId=<vpc网络ID>
+    &maxConcurrent=<网关并发连接上限>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为UpgradeBmNatGateway
@@ -43,7 +43,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
 | data | array | 返回操作的任务ID，操作结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
 
 
-code和message对应的描述如下：
+## 错误码
 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
 
 | 错误代码 | 英文提示 | 错误描述 |
@@ -60,7 +60,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=UpgradeBmNatGateway
 	&SecretId=AKID1ub7R1JoyBF7nHqjk7IH8nGWaR6Yezwd
 	&Nonce=4557
-	&Timestamp=1507692902QueryBmNatGatewayProductionStatus
+	&Timestamp=1507692902
 	&Region=gz
 	&vpcId=300006
 	&natId=nat-et8e970y
