@@ -5,7 +5,7 @@
 密码是每台云服务器实例专有的登录凭据。任何拥有实例登录密码的人都可以通过被安全组允许的公网地址远程登录云服务器实例。因此，建议您使用较为安全的密码，有效保管并不定期修改。
 
 ## 设置初始密码
- - 选择【自动生成密码】的用户，会在控制台 [站内信](https://console.qcloud.com/message) 中收到初始密码。
+ - 选择【自动生成密码】的用户，会在控制台 [站内信](https://console.cloud.tencent.com/message) 中收到初始密码。
  - 选择【设置密码】的用户，自定义的密码即为初始密码。
  
 1. 选择自定义配置云服务器的用户，在设置主机名及登录方式部分可以选择登录方式，默认为【设置密码】。
@@ -17,15 +17,15 @@
  > - Windows 云服务器密码需 12 到 16 位， ```a-z 和 A-Z 和 0-9 和 ( ) ` ~ ! @ # $ % ^ & * - + = _ | { } [ ] : ; ' < > , . ? / ``` 中至少包括三项。
 
 ## 查看密码
-  自动生成密码，会发送到控制台 [站内信](https://console.qcloud.com/message) 中。单击需要查看的信件即可查看到初始密码。
-  登录 [云服务器控制台](https://console.qcloud.com/cvm/) ，单击右上方 信封样式 [站内信](https://console.qcloud.com/message) 图标。
+  自动生成密码，会发送到控制台 [站内信](https://console.cloud.tencent.com/message) 中。单击需要查看的信件即可查看到初始密码。
+  登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/) ，单击右上方 信封样式 [站内信](https://console.cloud.tencent.com/message) 图标。
   ![](//mc.qcloudimg.com/static/img/9c289677e1d79bafb13bd3692ec4f363/image.png)
 
 ## 重置密码
 > **注意：**
 > 只有关机状态下才可以对云服务器进行重置密码。如果云服务器处于运行中重置密码，将强制关机，可能会导致数据丢失或文件系统损坏。
 
- 1. 登录 [云服务器控制台]( https://console.qcloud.com/cvm/) 。
+ 1. 登录 [云服务器控制台]( https://console.cloud.tencent.com/cvm/) 。
 
  2. 关机需要重置密码的云服务器。
 
@@ -35,4 +35,4 @@
 
  4. 在重置密码弹出框中输入新密码、确认密码，单击【下一步】。
 
- 5. 等待重置成功，您将收到重置成功的 [站内信](https://console.qcloud.com/message) 消息，即可使用新密码开机使用云服务器。
+ 5. 等待重置成功，您将收到重置成功的 [站内信](https://console.cloud.tencent.com/message) 消息，即可使用新密码开机使用云服务器。

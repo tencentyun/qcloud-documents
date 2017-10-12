@@ -69,7 +69,7 @@
 
   https://bmeip.api.qcloud.com/v2/index.php?
   &Action=DescribeEipBm
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&startNum=0&endNum=20
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>&startNum=0&endNum=20
 </pre>
 
 输出

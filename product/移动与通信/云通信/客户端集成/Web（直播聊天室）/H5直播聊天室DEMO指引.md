@@ -1,7 +1,7 @@
 ## 1 官网sdk和demo
 
 SDK包下载地址：
-https://www.qcloud.com/product/im.html
+https://cloud.tencent.com/product/im.html
 
 直播聊天室demo体验地址：
 http://avc.qcloud.com/demo/webim/biggroup/mobile/index.html
@@ -13,7 +13,7 @@ http://avc.qcloud.com/demo/webim/biggroup/mobile/index.html
 http://avc.qcloud.com/demo/webim/index.html
 
 通用demo运行指引地址：
-https://www.qcloud.com/doc/product/269/4196
+https://cloud.tencent.com/doc/product/269/4196
 
 
 ## 2 准备环境
@@ -92,7 +92,7 @@ D:\Program Files\Apache24\htdocs
 运行Demo之前，需要创建一个AVChatRoom类型（直播聊天室）的群组id。
 
 可以通过restapi 创建，参考连接：
-https://www.qcloud.com/doc/product/269/%E5%88%9B%E5%BB%BA%E7%BE%A4%E7%BB%84
+https://cloud.tencent.com/doc/product/269/%E5%88%9B%E5%BB%BA%E7%BE%A4%E7%BB%84
 
 也可以使用在其他平台（android或者ios）上创建的直播聊天室id。
 
@@ -186,7 +186,7 @@ http://localhost:8080/webim/biggroup/mobile/index.html
 
 填写登录用户信息identifier和userSig，userSig需要开发者在自己的服务器调用tls api生成。
 独立模式生成usersig，请参考链接：
-https://www.qcloud.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C
+https://cloud.tencent.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C
  ![](http://cs-1253400008.coscd.myqcloud.com/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F%E7%99%BB%E5%BD%95%E5%B7%B2%E8%BE%93%E5%85%A5%E5%B8%90%E5%8F%B7.png)
 
 点击确定，拿到登录用户信息identifier和userSig放入loginInfo去登录sdk：

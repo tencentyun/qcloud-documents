@@ -21,7 +21,7 @@ An ENI has the following major relevant information:
 
 ## Usage Constraints
 
-The number of ENIs that may bind to a CVM, and the number of private IPs that can bind to each ENI will greatly vary according to CPU and RAM configuration. These allowed numbers are shown in the following table. Also, refer to [Usage Constraints of Other VPC Products](https://www.qcloud.com/doc/product/215/537).
+The number of ENIs that may bind to a CVM, and the number of private IPs that can bind to each ENI will greatly vary according to CPU and RAM configuration. These allowed numbers are shown in the following table. Also, refer to [Usage Constraints of Other VPC Products](https://cloud.tencent.com/doc/product/215/537).
 
 | CVM Configuration               | Number of ENIs | Number of IPs for Each ENI |
 | ------------------- | :---- | :------ |
@@ -34,13 +34,13 @@ The number of ENIs that may bind to a CVM, and the number of private IPs that ca
 | CPU:  >12-core           | 8     | 30      |
 
 ## Billing Method
-Free. For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://www.qcloud.com/doc/product/215/3079).
+Free. For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
 ## Instructions
 
 ### Viewing ENI
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
@@ -48,7 +48,7 @@ Free. For more information regarding the prices of VPC services, refer to [VPC P
 
 ### Creating ENI
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click "ENI" in the left panel to go to the page with a list of ENIs.
 
@@ -58,7 +58,7 @@ Free. For more information regarding the prices of VPC services, refer to [VPC P
 
 ### Binding CVM
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click "ENI" in the left panel to go to the page with a list of ENIs.
 
@@ -68,7 +68,7 @@ Free. For more information regarding the prices of VPC services, refer to [VPC P
 
 ### Unbinding CVM
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
@@ -80,7 +80,7 @@ Tips: Once you unbind an ENI, information such as its associated private IPs, el
 
 ### Deleting ENI
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
@@ -96,7 +96,7 @@ Note 3: The primary ENI will be deleted as the CVM is deleted.
 
 ### Assigning Private IP (Tencent Cloud Console)
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
@@ -194,7 +194,7 @@ Note: Private IPs configured in this way will still be in effect after the CVM r
 
 ### Releasing Private IP
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click "ENI" in the left panel to go to the page with a list of ENIs.
 
@@ -212,7 +212,7 @@ Note 2: Once the private IP is unbound, the elastic public IP will be automatica
 
 ### Binding Elastic Public IP
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
@@ -228,7 +228,7 @@ Note 2: Once the private IP is unbound, the elastic public IP will be automatica
 
 ### Unbinding Elastic Public IP
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click "ENI" in the left panel to go to the page with a list of ENIs.
 
@@ -242,7 +242,7 @@ Note 2: Once the private IP is unbound, the elastic public IP will be automatica
 
 ### Modifying the Primary Private IP
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click "ENI" in the left panel to go to the page with a list of ENIs.
 
@@ -256,7 +256,7 @@ Note 2: Once the private IP is unbound, the elastic public IP will be automatica
 
 ### Modifying ENI's Subnet
 
-1) Open the [VPC Console](https://console.qcloud.com/vpc).
+1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click "ENI" in the left panel to go to the page with a list of ENIs.
 
@@ -275,5 +275,5 @@ Note 2: You must unbind all secondary IPs before you can change subnet for the E
 Note 3: When changing subnet for the ENI, you can only choose another subnet under the same availability zone.
 
 ## API Overview
-Refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909) for more information about other VPC resources.
+Refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909) for more information about other VPC resources.
 

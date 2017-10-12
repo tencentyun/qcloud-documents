@@ -4,4 +4,4 @@ CAM服务不需要开通，仅需要申请注册一个腾讯云帐号即可。�
 
 ## 2、开通方法
 
-开通CAM服务需要申请注册一个腾讯云帐号。申请方法请参考[相关文档](https://www.qcloud.com/document/product/378/8415)。
+开通CAM服务需要申请注册一个腾讯云帐号。申请方法请参考[相关文档](https://cloud.tencent.com/document/product/378/8415)。

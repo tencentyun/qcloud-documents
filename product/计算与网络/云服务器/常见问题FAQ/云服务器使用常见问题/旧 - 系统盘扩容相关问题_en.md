@@ -26,7 +26,7 @@ For a Linux CVM that comes with a local disk of 8GB, the system disk can be scal
 
 
 ### 5. Can the system disk of an old user's CVM that comes with a Cloud Block Storage be scaled out to a capacity larger than 20GB? 
-If an old user's CVM comes with a Cloud Block Storage, the system disk can be scaled out by reinstalling the Linux system, with the fee being calculated by the corresponding unit price of hard disk.  See [Hard Disk Prices](http://www.qcloud.com/doc/product/213/%E7%A1%AC%E7%9B%98%E4%BB%B7%E6%A0%BC) for details.
+If an old user's CVM comes with a Cloud Block Storage, the system disk can be scaled out by reinstalling the Linux system, with the fee being calculated by the corresponding unit price of hard disk.  See [Hard Disk Prices](http://cloud.tencent.com/doc/product/213/%E7%A1%AC%E7%9B%98%E4%BB%B7%E6%A0%BC) for details.
 
 
 ### 6. A user has purchased a Linux CVM that comes with an over-20GB Cloud Block Storage. How the charges are calculated if the user reinstalls the operating system and changes it to Windows? 
@@ -35,7 +35,7 @@ If a user purchases a Linux CVM that comes with an over-20GB Cloud Block Storage
 - If the CVM is based on charge-by-quantity, the calculation of configuration charge for the part exceeding 20GB of the system disk will be stopped (i.e. the system disk will be free of charge afterwards) after the operating system is changed to Windows;
 
 ### 7. A user has purchased a Windows CVM that comes with a Cloud Block Storage. How the charges are calculated if the user reinstalls the operating system and changes it to Linux?
-Since the current system disk does not support capacity reduction, when a 50GB Windows Cloud Block Storage is changed to Linux, the capacity shall be kept and corresponding fees for the Cloud Block Storage shall be paid. (The first 20GB is free of charge, and fees for another 30GB shall be paid). See [Hard Disk Prices](http://www.qcloud.com/doc/product/213/%E7%A1%AC%E7%9B%98%E4%BB%B7%E6%A0%BC) for details.
+Since the current system disk does not support capacity reduction, when a 50GB Windows Cloud Block Storage is changed to Linux, the capacity shall be kept and corresponding fees for the Cloud Block Storage shall be paid. (The first 20GB is free of charge, and fees for another 30GB shall be paid). See [Hard Disk Prices](http://cloud.tencent.com/doc/product/213/%E7%A1%AC%E7%9B%98%E4%BB%B7%E6%A0%BC) for details.
 
 ### 8. Can a system disk that has been scaled out be scaled in by reinstalling the system?
 System disks cannot be scaled in.

@@ -1,6 +1,6 @@
 You can select your images type based on the following characteristics:
 
-- Location (see [Regions and Availability Zones](https://www.qcloud.com/doc/product/213/6091))
+- Location (see [Regions and Availability Zones](https://cloud.tencent.com/doc/product/213/6091))
 - Operating system type
 - Architecture (32-bit or 64-bit)
 

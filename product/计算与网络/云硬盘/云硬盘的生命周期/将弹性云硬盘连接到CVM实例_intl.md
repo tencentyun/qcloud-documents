@@ -1,9 +1,9 @@
-After being created, a non-elastic cloud disk (a cloud disk whose lifecyle is same as that of CVM instance) is automatically connected to the created CVM instance and cannot be changed. You can also manually mount an elastic cloud disk to any instance within the same availability zone and check how many additional cloud disks can be mounted for each instance. For more information on the maximum number of cloud disks allowed to be mounted, refer to [Usage Restrictions](/doc/product/362/5145). For more information on elastic cloud disk and non-elastic cloud disk, refer to [Categories of Cloud Block Storage](https://www.qcloud.com/document/product/362/2353).
+After being created, a non-elastic cloud disk (a cloud disk whose lifecyle is same as that of CVM instance) is automatically connected to the created CVM instance and cannot be changed. You can also manually mount an elastic cloud disk to any instance within the same availability zone and check how many additional cloud disks can be mounted for each instance. For more information on the maximum number of cloud disks allowed to be mounted, refer to [Usage Restrictions](/doc/product/362/5145). For more information on elastic cloud disk and non-elastic cloud disk, refer to [Categories of Cloud Block Storage](https://cloud.tencent.com/document/product/362/2353).
 
 ## Connecting an elastic cloud disk to CVM instance in console
 Currently, only elastic HDD cloud storages used as data disks can be mounted, and system disks are not allowed to be mounted.
 
-1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/).
+1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
 2) Go to "Cloud Virtual Machine" - "Cloud Block Storage" tab.
 
@@ -12,11 +12,11 @@ You can also check the cloud disks with a status of **Pending mounted, Mounting/
 
 4) In the pop-up box, select the CVM to which the cloud disk to be mounted, and click "OK". After the mounting, log in to the CVM to check the mounting status of the cloud disks.
 
-After being mounted, a cloud disk must go through a series operations such as partitioning and formatting to be put into use. For instructions on how to perform such operations, please refer to [Partitioning, Formatting and File System Creation on Windows System](https://www.qcloud.com/document/product/362/6734
-) and [Partitioning, Formatting, Mouting and File System Creation on Linux System](https://www.qcloud.com/document/product/362/6735).
+After being mounted, a cloud disk must go through a series operations such as partitioning and formatting to be put into use. For instructions on how to perform such operations, please refer to [Partitioning, Formatting and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734
+) and [Partitioning, Formatting, Mouting and File System Creation on Linux System](https://cloud.tencent.com/document/product/362/6735).
 
 ## Connecting an elastic cloud disk to CVM instance with API
-Please refer to [API AttachCbsStorages](https://www.qcloud.com/doc/api/364/2520).
+Please refer to [API AttachCbsStorages](https://cloud.tencent.com/doc/api/364/2520).
 
 ## How to solve the problem that some of the created CVM instances cannot recognize elastic cloud disks
 

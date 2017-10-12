@@ -37,5 +37,5 @@ Local SSD is suitable for the following scenarios:
 Local disk can only be enabled with the enabling of CVM, which means you can specify a local disk only when purchasing a CVM instance. For more information about purchasing a CVM, please see [Purchase and Enable an Instance](/doc/product/213/4855).
 
 ## Formatting, Partitioning and File System Creation
-Like a cloud disk mounted to an instance, the local disk is used by CVM instance as a hard disk. For more information on formatting, partitioning and file system creation, please see [Partitioning, Formatting, Mounting and File System Creation on Linux](https://www.qcloud.com/doc/product/362/5448) and [Partitioning, Formatting and File System Creation on Windows](https://www.qcloud.com/doc/product/362/5450) in Cloud Block Storage product documentation.
+Like a cloud disk mounted to an instance, the local disk is used by CVM instance as a hard disk. For more information on formatting, partitioning and file system creation, please see [Partitioning, Formatting, Mounting and File System Creation on Linux](https://cloud.tencent.com/doc/product/362/5448) and [Partitioning, Formatting and File System Creation on Windows](https://cloud.tencent.com/doc/product/362/5450) in Cloud Block Storage product documentation.
 

@@ -53,7 +53,7 @@ vmList描述待解绑的虚机信息，n为下标，vmList包含字段如下
 
 <pre>
 https://domain/v2/index.php?Action=UnbindBmL4ListenerVmIp
-&<<a href="https://www.qcloud.com/document/product/386/6718">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">公共请求参数</a>>
 &loadBalancerId=lb-abcdefgh
 &listenerId=lbl-abcdefgh
 &vmList.1.port=1234

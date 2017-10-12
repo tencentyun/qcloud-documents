@@ -14,4 +14,4 @@ Default backup rules:
 - The relevant backup rules comply with the applicable regulations for backup of regulators such as Bank of China.
 
 ## 3. Data Recovery
-Data recovery can be achieved through rollback. For more information, please see [CDB Rollback](http://www.qcloud.com/doc/product/237/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9B%9E%E6%A1%A3).
+Data recovery can be achieved through rollback. For more information, please see [CDB Rollback](http://cloud.tencent.com/doc/product/237/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9B%9E%E6%A1%A3).

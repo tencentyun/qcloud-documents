@@ -32,7 +32,7 @@ Demo在AppStore上名为“随心聊IM”，下载地址：https://itunes.apple.
 ## 2. 从源码下载并构建
 
 ### 2.1 从官网下载
-从[官网](https://www.qcloud.com/product/im.html)下载IM iOS SDK压缩包，并解压。
+从[官网](https://cloud.tencent.com/product/im.html)下载IM iOS SDK压缩包，并解压。
 工程路径：IM_iOS_SDK_x.x.x/samples/sample , 其中x.x.x是版本号。eg：IM_iOS_SDK_1.9.1/samples/sample
 使用最新版本的Xcode打开工程文件 TIMChat.xcodeproj 即可运行
 ### 2.1 从github下载

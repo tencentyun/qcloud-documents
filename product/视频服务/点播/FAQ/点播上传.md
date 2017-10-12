@@ -17,4 +17,4 @@ MPEG格式：MPG，MPEG，MPE，VOB，DAT；
 
 **能允许使用我APP或访问网页的客户自行上传视频么？**
 
-点播提供服务端上传支持终端使用者直接上传文件。如果您需要使用该功能，详情可参考[这里](https://www.qcloud.com/document/product/266/9219)。
+点播提供服务端上传支持终端使用者直接上传文件。如果您需要使用该功能，详情可参考[这里](https://cloud.tencent.com/document/product/266/9219)。

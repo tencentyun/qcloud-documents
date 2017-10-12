@@ -1,6 +1,6 @@
 
 ## 1. 使用准备
-登陆[腾讯云官网](https://www.qcloud.com/)，在云产品 >>> 存储与 CDN 中找到 CDN：
+登陆[腾讯云官网](https://cloud.tencent.com/)，在云产品 >>> 存储与 CDN 中找到 CDN：
 ![](https://mc.qcloudimg.com/static/img/90297063d74230439127ed3e7125347f/image.png)
 
 点击页面【立即使用】按钮：
@@ -27,7 +27,7 @@
 完成实名认证后，进入 CDN 控制台，选择您的计费方式：
 ![](https://mccdn.qcloud.com/static/img/f5d3235f86db2992ad6d01d1e3d07d04/image.png)
 
-CDN 提供了两种计费方式： **带宽计费**  和 **流量计费**，以上两种方式均为 **阶梯计费**，具体价格请参考[价格总览](https://www.qcloud.com/document/product/439/6732)。
+CDN 提供了两种计费方式： **带宽计费**  和 **流量计费**，以上两种方式均为 **阶梯计费**，具体价格请参考[价格总览](https://cloud.tencent.com/document/product/439/6732)。
 
 
 ## 4. 开始使用

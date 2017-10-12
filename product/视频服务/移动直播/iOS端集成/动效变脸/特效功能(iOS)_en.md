@@ -7,7 +7,7 @@ Special effects such as eye enlarging, face slimming, dynamic sticker and green 
 The special effects use patented technology of Tencent YouTu Lab, with annual licensing fees being about **0.5 million CNY**(currently, the fees of similar image processing products in China are millions of CNY). If you need the feature, submit a ticket or call our customer service at 400-9100-100. Staff of the business department will provide a password for decoding the SDK package and apply to Tencent YouTu Lab for a trial license for you.
 
 ## Version Downloading
-You can download the privileged SDK package at the bottom of the [RTMP SDK](https://www.qcloud.com/document/product/454/7873) page. The package is encrypted and you can get the password and the license file from our staff of the business department. After decompressing the package, you can replace the non-privileged jar and so files of your project with the decompressed `txrtmpsdk.jar`,` libtxrtmpsdk.so` and other so files.
+You can download the privileged SDK package at the bottom of the [RTMP SDK](https://cloud.tencent.com/document/product/454/7873) page. The package is encrypted and you can get the password and the license file from our staff of the business department. After decompressing the package, you can replace the non-privileged jar and so files of your project with the decompressed `txrtmpsdk.jar`,` libtxrtmpsdk.so` and other so files.
 
 > To distinguish the privileged and non-privileged versions, you can view the bundler id of the SDK. bundler id being com.tencent.TXRTMPSDK means the non-privileged version and being com.tencent.TXRTMPSDK.pitu, the privileged version.
 >

@@ -1,5 +1,5 @@
 ### 说明
-备份设置功能目前正在公测中，[申请地址](https://www.qcloud.com/act/apply/cdbpb)
+备份设置功能目前正在公测中，[申请地址](https://cloud.tencent.com/act/apply/cdbpb)
 非物理备份测试用户仅支持逻辑备份，因此无法通过【设置自动备份】功能设置备份方式。
 
 #### 1 物理备份和逻辑备份

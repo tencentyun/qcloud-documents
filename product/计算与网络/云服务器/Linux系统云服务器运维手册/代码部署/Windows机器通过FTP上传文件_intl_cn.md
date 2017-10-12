@@ -141,7 +141,7 @@ Starting vsftpd for vsftpd: [ OK ]
 ![](//mccdn.qcloud.com/img56b0593f99e17.png)
 
 >配置信息说明：
-- 主机：云服务器的公网IP（登录[云服务器控制台](https://console.qcloud.com/cvm)页面可查看云服务器的公网IP）。
+- 主机：云服务器的公网IP（登录[云服务器控制台](https://console.cloud.tencent.com/cvm)页面可查看云服务器的公网IP）。
 - 用户名：在上一步骤中设置的FTP用户的账号，这里以“ftpuser1”为例。
 - 密码：在上一步骤中设置的FTP用户账号对应的密码，这里以“ftpuser1”为例。
 - 端口：FTP监听端口，默认为“21”。

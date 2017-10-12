@@ -133,7 +133,7 @@ Note: If you have a large business volume or need to access service separately, 
 ### Data Center (DC)
 •	It can send upstream/downstream audio and video data, being suitable for multi-person audio/video interaction.
 #### Scenarios where DC is largely used:
-(1) When viewers have permission to send upstream audio/video ([Note] Whether viewers join the broadcasting is set and switched by developer. A wrong setting may cause large traffic to flow through DC. Be sure to carefully read the setting method: [Click here to view](https://www.qcloud.com/doc/product/268/3227))
+(1) When viewers have permission to send upstream audio/video ([Note] Whether viewers join the broadcasting is set and switched by developer. A wrong setting may cause large traffic to flow through DC. Be sure to carefully read the setting method: [Click here to view](https://cloud.tencent.com/doc/product/268/3227))
 (2) If no upstream audio/video traffic is generated, when the number of room members is small (for example, not more than 5), the traffic flows following a path of VJ -> DC -> OC -> viewer, but the use of OC can cause a waste of traffic from DC to OC. Therefore, in this case, DC is directly used to send downstream traffic.
 
 ### Outer Center (OC)

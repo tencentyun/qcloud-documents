@@ -3,7 +3,7 @@
 >1.该认证方式，仅适用于已在微信公众平台完成实名认证的用户。
 >2.暂不支持微信小程序进行认证。
 
-1. 登录腾讯云控制台，进入 [账号信息](https://console.qcloud.com/developer)，单击【实名认证】。
+1. 登录腾讯云控制台，进入 [账号信息](https://console.cloud.tencent.com/developer)，单击【实名认证】。
 ![](https://mc.qcloudimg.com/static/img/9f089e2ddfbbe531f28ccebd8225d05b/image.png)
 2. 选择【企业认证】。
 ![](https://mc.qcloudimg.com/static/img/b82f599f01b86c013c12cd07c0300c18/image.png)
@@ -34,11 +34,11 @@
   [7]: https://mc.qcloudimg.com/static/img/f28781dfeb7bdde7427f0995456128a2/3-2.png
   [8]: https://mc.qcloudimg.com/static/img/3d93ee998f9b3d8e969b2b9f288da0a1/3-3.png
 ## 企业银行卡认证
-1. 登录腾讯云控制台，进入 [账号信息](https://console.qcloud.com/developer)，单击【实名认证】。
+1. 登录腾讯云控制台，进入 [账号信息](https://console.cloud.tencent.com/developer)，单击【实名认证】。
 ![](https://mc.qcloudimg.com/static/img/9f089e2ddfbbe531f28ccebd8225d05b/image.png)
 2. 选择【企业认证】。
 ![](https://mc.qcloudimg.com/static/img/b82f599f01b86c013c12cd07c0300c18/image.png)
 3. 目前企业实名认证地区只支持【大陆】，认证方式选择【普通认证】，然后依次正确填写下面所需信息，并单击【下一步】。
 ![](https://mc.qcloudimg.com/static/img/c4047152649a35850f07be4b7663c76b/image.png)
-4. 输入收到的打款金额，并单击【提交认证】，完成认证。关于银行卡验证相关问题的详情可以在[银行卡验证](https://www.qcloud.com/document/product/378/3631)了解。
+4. 输入收到的打款金额，并单击【提交认证】，完成认证。关于银行卡验证相关问题的详情可以在[银行卡验证](https://cloud.tencent.com/document/product/378/3631)了解。
 ![](https://mc.qcloudimg.com/static/img/b73e576a46215edf04f009fb52620655/image.png) 

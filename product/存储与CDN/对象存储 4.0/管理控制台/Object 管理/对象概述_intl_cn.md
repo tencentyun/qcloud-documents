@@ -27,7 +27,7 @@
 - my.great_photos-2016/01/me.jpg
 - videos/2016/birthday/video1.wmv
  
-为方便用户管理存储对象，控制台可以创建文件夹，存储和管理对象。具体请参阅 [创建文件夹](https://www.qcloud.com/document/product/436/6263)。
+为方便用户管理存储对象，控制台可以创建文件夹，存储和管理对象。具体请参阅 [创建文件夹](https://cloud.tencent.com/document/product/436/6263)。
 ## 访问地址
 对象的访问地址都是基于存储桶的访问地址和对象名称的，腾讯云的对象访问地址构成为`[存储桶域名]/[对象名称]`。
 例如：
@@ -37,4 +37,4 @@ APPID 为1234567890 的用户创建了名为 example，所属地域为广州（�
 JSON API：example-1234567890.cosgz.myqcloud.com/example.exe
 XML API：example-1234567890.cos.ap-guangzhou.myqcloud.com/example.exe
 ```
-有关存储桶的域名管理请参阅 [域名管理](https://www.qcloud.com/document/product/436/6252)。
+有关存储桶的域名管理请参阅 [域名管理](https://cloud.tencent.com/document/product/436/6252)。

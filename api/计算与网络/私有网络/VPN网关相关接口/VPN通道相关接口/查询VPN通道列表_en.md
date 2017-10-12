@@ -10,8 +10,8 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | No | string | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-03vihbk9. It can be queried via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API.  | 
-| vpnGwId | No  | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv. It can be queried via the <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a> API.  |
+| vpcId | No | string | Virtual private cloud ID, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-03vihbk9. It can be queried via the <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a> API.  | 
+| vpnGwId | No  | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv. It can be queried via the <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a> API.  |
 | vpnConnId | No  | String | VPN tunnel ID assigned by the system, which can be `vpnConnId` or `unVpnConnId`. `unVpnConnId` is recommended. For example: `vpnx-ol6bcqp0`.  |  
 | vpnConnName | No  | String | VPN tunnel name, fuzzy query is supported.  |  
 | offset | No | Int | Offset of initial line. Default is 0.  |
@@ -73,13 +73,13 @@ The following request parameter list only provides API request parameters. Commo
 
 
 ## 4. Error Codes
- The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+ The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please check the information you entered. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| InvalidVpnGw.NotFound | Invalid VPN gateway. VPN gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN gateway via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>.  |
-| InvalidVpnGw.NotFound | Invalid VPN tunnel. VPN tunnel resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN tunnel via the API <a href="https://www.qcloud.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>.  |
+| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please check the information you entered. You can query the VPC via the API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| InvalidVpnGw.NotFound | Invalid VPN gateway. VPN gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN gateway via the API <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>.  |
+| InvalidVpnGw.NotFound | Invalid VPN tunnel. VPN tunnel resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN tunnel via the API <a href="https://cloud.tencent.com/document/product/215/5113" title="DescribeVpnConn">DescribeVpnConn</a>.  |
 
 
 ## 5. Example
@@ -87,7 +87,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=DescribeVpnConn
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &vpcId=vpc-erxok83l
 
 </pre>

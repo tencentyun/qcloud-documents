@@ -95,7 +95,7 @@ The file information is composed as follows:
 Input 1
 <pre>
 
-http://domain/v2/index.php?Action=DescribeRecordList&channelId=16093104850681751595&pageSize=10&pageNo=1&<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>
+http://domain/v2/index.php?Action=DescribeRecordList&channelId=16093104850681751595&pageSize=10&pageNo=1&<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>
 
 
 

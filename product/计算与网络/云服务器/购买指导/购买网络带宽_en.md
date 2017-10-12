@@ -61,7 +61,7 @@ Network bandwidth adjustment (upgrade, but not downgrade) is supported. You can 
 
 Annual/Monthly Package + Pay by Bandwidth users need to purchase the maximum outbound bandwidth (QoS), and pay fees of one or more months or even several years in advance. Packets are discarded when the peak bandwidth exceeds the QoS limit.
 
-The CVM billing mode is: **prepaid**. See [Billing Instructions - Prepaid](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#1.-包年包月)
+The CVM billing mode is: **prepaid**. See [Billing Instructions - Prepaid](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#1.-包年包月)
 
 
 ### Postpaid CVM + Pay by Bandwidth
@@ -95,7 +95,7 @@ In the Pay by Traffic + Pay by Bandwidth mode, network bandwidth adjustment (bot
 #### Billing instructions
 Pay per use + Pay by Bandwidth users need to set the maximum outbound public network bandwidth (QoS), and pay as they go, billing accuracy to seconds, settled every hour. Packets are discarded when the peak bandwidth exceeds the QoS limit.
 
-The CVM billing mode is: **Pay per use**. [See Billing Instructions - Postipaid](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#2.-Pay by Traffic)
+The CVM billing mode is: **Pay per use**. [See Billing Instructions - Postipaid](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#2.-Pay by Traffic)
 
 
 ### Pay by Traffic
@@ -128,7 +128,7 @@ Pay-by-Traffic is based on your actual outbound traffic. You can set the maximum
 | 8 < Number of cores <24 | 0-400 | 
 | Number of cores  24 | 0-400, or no upper limit | 
 
-CVM billing mode: **Prepaid ** and **Postpaid**. [See Billing Instructions](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)
+CVM billing mode: **Prepaid ** and **Postpaid**. [See Billing Instructions](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)
 
 Pay-by-Traffic is featured by simple rules and paying as you go. Costs entirely depend on your actual outbound traffic per unit time. Suitable for those users with highly fluctuating network, to reduce their costs.
 
@@ -158,7 +158,7 @@ Suppose for 2.4 hours each day (24 hours), you can use the full 5 Mbps = 0.625 M
 ## Shared network
 
 Shared network means that the network service is shared among multiple CVMs, which affect each other. Tencent Cloud provides a shared network mode: bandwidth package billing.
-**To use this feature, please [submit a ticket](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=7&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%20CVM). 
+**To use this feature, please [submit a ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=7&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%20CVM). 
 [Click here to purchase](http://manage.qcloud.com/shoppingcart/shop.php?tab=broadband) once your application is approved.**
 
 ### Bandwidth package billing

@@ -21,8 +21,8 @@ In the traditional physical network, you can negotiate the master/slave state th
 ### Step 1. Apply for VIP
 Apply for a VIP in a subnet (any IP applied by users within the VPC can be used as VIP). Currently only Cloud API is supported. Please refer to Step 6 for the development instruction of Cloud API codes. VIP is bound on ENI (including the primary ENI and secondary ENI). A primary ENI will be assigned to each CVM in VPC by default when it's created, so you can apply for VIP on the primary ENI bound to the master server.
 **The specific procedure is as follows:** 
-1) Get the `networkInterfaceId` of CVM primary ENI (enter the input parameters: **VPC ID** and **CVM ID**) through the Cloud `API: DescribeNetworkInterfaces` [click to view the API details](https://www.qcloud.com/doc/api/245/4814).
-2) When applying for Private IP in the ENI through the Cloud `API: AssignPrivateIpAddresses` [Click to view API details](https://www.qcloud.com/doc/api/245/4817), please refer to the following Python code for VIP application:
+1) Get the `networkInterfaceId` of CVM primary ENI (enter the input parameters: **VPC ID** and **CVM ID**) through the Cloud `API: DescribeNetworkInterfaces` [click to view the API details](https://cloud.tencent.com/doc/api/245/4814).
+2) When applying for Private IP in the ENI through the Cloud `API: AssignPrivateIpAddresses` [Click to view API details](https://cloud.tencent.com/doc/api/245/4817), please refer to the following Python code for VIP application:
 
 ```
         
@@ -84,7 +84,7 @@ vrrp_instance VI_1 {
 ```
 
 ### Step 4. (Optional) Assign a public IP to the VIP
-Apply for EIP on the console, and then bind it to the private IP applied in Step 1 through Cloud API, [click to view the specific call method](https://www.qcloud.com/doc/api/229/1377). The python code is similar to that of Step 1.
+Apply for EIP on the console, and then bind it to the private IP applied in Step 1 through Cloud API, [click to view the specific call method](https://cloud.tencent.com/doc/api/229/1377). The python code is similar to that of Step 1.
 
 ### Step 5. Use keepalived.conf to configure the switch script
 When the master/slave switchover occurs, the new master device is switched by calling `vip.py` with "notify".
@@ -120,7 +120,7 @@ Please read README.md carefully and download SDK to the directory `/etc/keepaliv
 
 """
 Step 1: Download python-sdk:`https://github.com/QcloudApi/qcloudapi-sdk-python`
-Step 2: Save the following python code as vip.py to the same level directory of sdk src. Please refer to the following for specific parameters: https://www.qcloud.com/doc/api/245/1361
+Step 2: Save the following python code as vip.py to the same level directory of sdk src. Please refer to the following for specific parameters: https://cloud.tencent.com/doc/api/245/1361
 """
 
 from src.QcloudApi.qcloudapi import QcloudApi

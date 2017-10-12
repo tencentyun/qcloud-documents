@@ -93,7 +93,7 @@ Value for dimension name: `docker_clusterid`
 namespace: qce/cvm
 
 dimensions.0.name=docker_clusterid
-"dimensions.0.value" is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
+"dimensions.0.value" is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://cloud.tencent.com/document/api/457/9448).
 
 
 **Available values of `metricName`**
@@ -109,7 +109,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=qce/cvm
 &metricName=dc_cpu_usage
 &dimensions.0.name=docker_clusterid
@@ -147,13 +147,13 @@ Values for dimension name: `clusterId`, `serviceName`, `namespace`
 namespace: qce/docker
 
 dimensions.0.name=clusterId
-`dimensions.0.value` is cluster ID. Enter the `clusterId` (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
+`dimensions.0.value` is cluster ID. Enter the `clusterId` (cluster ID) field returned via API [Query Cluster List](https://cloud.tencent.com/document/api/457/9448).
 
 dimensions.1.name=serviceName
-`dimensions.1.value` is service name. Enter the `serviceName` (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.1.value` is service name. Enter the `serviceName` (service name) field returned via API [Query Service List](https://cloud.tencent.com/document/api/457/9440).
 
 dimensions.2.name=namespace
-`dimensions.2.value` is namespace name. Enter the `namespace` (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.2.value` is namespace name. Enter the `namespace` (namespace) field returned via API [Query Service List](https://cloud.tencent.com/document/api/457/9440).
 
 
 **Available values of `metricName`**
@@ -177,7 +177,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=qce/docker
 &metricName=service_cpu_used
 &dimensions.0.name=clusterId
@@ -218,16 +218,16 @@ Values for dimension name: clusterId, serviceName, namespace, podName
 namespace: qce/docker
 
 dimensions.0.name=clusterId
-`dimensions.0.value` is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
+`dimensions.0.value` is cluster ID. Enter the clusterId (cluster ID) field returned via API [Query Cluster List](https://cloud.tencent.com/document/api/457/9448).
 
 dimensions.1.name=serviceName
-`dimensions.1.value` is service name. Enter the serviceName (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.1.value` is service name. Enter the serviceName (service name) field returned via API [Query Service List](https://cloud.tencent.com/document/api/457/9440).
 
 dimensions.2.name=namespace
-`dimensions.2.value` is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.2.value` is namespace name. Enter the namespace (namespace) field returned via API [Query Service List](https://cloud.tencent.com/document/api/457/9440).
 
 dimensions.3.name=podName
-`dimensions.3.value` is pod name. Enter the name (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
+`dimensions.3.value` is pod name. Enter the name (pod name) field returned via API [Query Service Pod List](https://cloud.tencent.com/document/api/457/9433).
 
 
 
@@ -248,7 +248,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=qce/docker
 &metricName=pod_in_bandwidth
 &dimensions.0.name=clusterId
@@ -291,20 +291,20 @@ Values for dimension name: `clusterId`, `serviceName`, `namespace`, `podName`, `
 namespace: qce/docker
 
 dimensions.0.name=clusterId
-`dimensions.0.value` is cluster ID. Enter the `clusterId` (cluster ID) field returned via API [Query Cluster List](https://www.qcloud.com/document/api/457/9448).
+`dimensions.0.value` is cluster ID. Enter the `clusterId` (cluster ID) field returned via API [Query Cluster List](https://cloud.tencent.com/document/api/457/9448).
 
 dimensions.1.name=serviceName
-`dimensions.1.value` is service name. Enter the `serviceName` (service name) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.1.value` is service name. Enter the `serviceName` (service name) field returned via API [Query Service List](https://cloud.tencent.com/document/api/457/9440).
 
 dimensions.2.name=namespace
-`dimensions.2.value` is namespace name. Enter the `namespace` (namespace) field returned via API [Query Service List](https://www.qcloud.com/document/api/457/9440).
+`dimensions.2.value` is namespace name. Enter the `namespace` (namespace) field returned via API [Query Service List](https://cloud.tencent.com/document/api/457/9440).
 
 dimensions.3.name=podName
-`dimensions.3.value` is pod name. Enter the `name` (pod name) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433).
+`dimensions.3.value` is pod name. Enter the `name` (pod name) field returned via API [Query Service Pod List](https://cloud.tencent.com/document/api/457/9433).
 
 
 dimensions.4.name=containerId
-`dimensions.4.value` is container name. Enter the containerId (container ID) field returned via API [Query Service Pod List](https://www.qcloud.com/document/api/457/9433). **Note: Container ID only needs to be entered with the first 12 characters**
+`dimensions.4.value` is container name. Enter the containerId (container ID) field returned via API [Query Service Pod List](https://cloud.tencent.com/document/api/457/9433). **Note: Container ID only needs to be entered with the first 12 characters**
 
 
 **Available values of `metricName`**
@@ -330,7 +330,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=qce/docker
 &metricName=container_cpu_used
 &dimensions.0.name=clusterId

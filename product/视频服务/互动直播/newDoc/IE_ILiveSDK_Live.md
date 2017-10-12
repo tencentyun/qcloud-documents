@@ -62,7 +62,7 @@ sdk.setC2CListener(function (msg) {
 
 > 切换角色 --> 关闭摄像头 -->结束渲染
 
-您可以在控制台[配置场景和角色](https://www.qcloud.com/document/product/268/7599)，然后调用接口切换角色：
+您可以在控制台[配置场景和角色](https://cloud.tencent.com/document/product/268/7599)，然后调用接口切换角色：
 
 ```js
 //其中liveMaster是控制台配置的角色

@@ -6,7 +6,7 @@
 
 ## 2. Linux 下如何安装云监控 Agent？
 
-[登录 Linux 实例](https://www.qcloud.com/document/product/213/5436) 后，执行命令进行安装，操作如下：
+[登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 后，执行命令进行安装，操作如下：
 
 ```
 1.  wget http://update2.agent.tencentyun.com/update/linux_stargate_installer
@@ -24,7 +24,7 @@
 
 ## 3. Windows 下如何安装云监控 Agent？
 
-1. [登录到Windows 实例](https://www.qcloud.com/document/product/213/5435) 后，从`http://update2.agent.tencentyun.com/update/windows-stargate-installer.exe` ， 下载安装包 `windows-stargate-installer.exe`。请注意：  
+1. [登录到Windows 实例](https://cloud.tencent.com/document/product/213/5435) 后，从`http://update2.agent.tencentyun.com/update/windows-stargate-installer.exe` ， 下载安装包 `windows-stargate-installer.exe`。请注意：  
    内网，可直接下载使用；  
    外网，进入虚拟机后才能使用。  
 

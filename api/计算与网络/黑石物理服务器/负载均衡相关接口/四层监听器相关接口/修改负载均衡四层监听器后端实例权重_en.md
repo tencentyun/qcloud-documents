@@ -44,7 +44,7 @@ Input
 
 <pre>
 https://domain/v2/index.php?Action=ModifyBmL4ListenerBackendWeight
-&<<a href="https://www.qcloud.com/document/product/386/6718">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">Common request parameters</a>>
 &loadBalancerId=lb-abcdefgh
 &listenerId=lbl-abcdefgh
 &instanceId=cpm-abcdefgh

@@ -6,7 +6,7 @@ CDN 为您提供了自助故障诊断工具，当您发现您的某资源 URL �
 ## 使用说明
 ### 本机接入诊断
 当您发现您的某个资源访问存在异常，您可以通过 **本机接入诊断** 发起检测。步骤如下：
-1. 登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧【诊断工具】菜单中的【自助故障诊断】。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧【诊断工具】菜单中的【自助故障诊断】。
 2. 进入【本机接入诊断】页面，输入您需要诊断的异常 URL，URL 需输入 ```http://``` 前缀，目前暂不支持 https 诊断。
 3. 正确输入 URL 后，单击【获取检测地址】，页面中将会生成检测地址。单击地址链接打开检测页面，开始收集诊断信息。请不要在诊断过程中关闭检测页面，诊断结束后该页面将会自动关闭。
 4. 检测完毕后，可以前往【诊断报告】页面中查看本次诊断的结果。
@@ -14,14 +14,14 @@ CDN 为您提供了自助故障诊断工具，当您发现您的某资源 URL �
 ![本机诊断](https://mc.qcloudimg.com/static/img/0ca0998f99eb34b0518c0d2bec8a3723/self_diagnose.png)
 ### 用户接入诊断 
 当您的用户向您反应资源访问存在异常，您可以通过 **用户接入诊断** 定位问题，并通过腾讯云提供的建议操作解决问题。步骤如下：
-1. 登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧【诊断工具】菜单中的【自助故障诊断】。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧【诊断工具】菜单中的【自助故障诊断】。
 2. 进入【用户接入诊断】页面，输入您需要诊断的异常 URL，URL 需输入 ```http://``` 前缀，目前暂不支持 https 诊断。
 3. 正确输入 URL 后，单击【获取检测地址】，页面中将会生成检测地址。请您将该检测地址发送至您的用户，诊断信息将在用户打开检测网址时收集，请告知用户不要在诊断过程中关闭该页面。
 4. 检测完毕后，可以前往【诊断报告】页面中查看从您用户处收集到的诊断结果。
 
 ![用户诊断](https://mc.qcloudimg.com/static/img/bbf78690bdf0427185c262f2bebc1131/client_diagnose.png)
 ### 查看诊断报告
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧【诊断工具】菜单中的【自助故障诊断】。进入【诊断报告】页面，您将看到已经产生的诊断报告按时间顺序展示在表格中。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧【诊断工具】菜单中的【自助故障诊断】。进入【诊断报告】页面，您将看到已经产生的诊断报告按时间顺序展示在表格中。
 ![诊断报告列表](https://mc.qcloudimg.com/static/img/e7f20ed2db1f3189fa76f52e7eab8405/diagnose_report.png)
 单击诊断报告右侧的【查看】，您可以浏览诊断报告详情。 
 ![报告详情](https://mc.qcloudimg.com/static/img/a20eec7d8f810d8351bd5438d51bde36/diagnose_details.png)

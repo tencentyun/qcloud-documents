@@ -1,6 +1,6 @@
 ﻿## 1. API Description
 
-Note: This API is the updated API. For information on the old API, please see [Restart Instance](https://www.qcloud.com/document/api/213/1247)
+Note: This API is the updated API. For information on the old API, please see [Restart Instance](https://cloud.tencent.com/document/api/213/1247)
 
 This API (RebootInstances) is used to restart the instance.
 
@@ -32,7 +32,7 @@ The following request parameter list only provides API request parameters. Other
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/11657).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://cloud.tencent.com/document/api/213/11657).
 
 
 | Error code | Description |

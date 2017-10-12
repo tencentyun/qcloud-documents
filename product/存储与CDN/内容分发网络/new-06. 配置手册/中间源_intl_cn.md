@@ -1,7 +1,7 @@
 中间源是位于业务服务器（即源站）和 CDN 节点（海外 CDN 用户则为海外 CDN 节点）的一个中间层的回源服务器。当用户发起请求时，请求会先到达 CDN 边缘节点，若节点无所需资源，则会向中间源发起资源请求，若仍未在中间源命中，中间源会向源站发起请求。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【回源配置】，您可以看到 **中间源配置** 模块。默认情况下中间源配置为开启状态。
 ![](https://mc.qcloudimg.com/static/img/ba537613413627132c317329b5211fe1/mid_host.png)

@@ -80,7 +80,7 @@ When consuming messages in batch, you need to fill in the number of messages to 
 
 - **In the queue attributes, by setting invisibility time > message retention period, you can consume each message once.**
 When the invisibility time > message retention period, the message consumed will become invisible and removed from the queue after the timeout of the retention period. In this way, the message is only consumed once and will not be consumed again. 
-However, there may be duplicate generation and failed consumption in the process of generation and consumption. It is impossible to ensure that the queue is only consumed once by modifying the queue attributes. The service end need to involve in duplicate removal and fault tolerance for message consumption. Please see [Duplicate Message Removal](https://www.qcloud.com/document/product/406/8303)
+However, there may be duplicate generation and failed consumption in the process of generation and consumption. It is impossible to ensure that the queue is only consumed once by modifying the queue attributes. The service end need to involve in duplicate removal and fault tolerance for message consumption. Please see [Duplicate Message Removal](https://cloud.tencent.com/document/product/406/8303)
 
 
 
@@ -95,7 +95,7 @@ To prevent this situation, A service needs to interfere in the processing of B s
 
 In this case, you can use **message rewind** function. The developer will repair B service and rewind the message to the latest point in time with normal consumption. Then, B service will acquire messages from such point in time. Thus, A service don't need to interfere in the exception of B service. Please note B need to perform idempotent operations for the consumption.
 
-[Learn more about Message Rewind >>](https://www.qcloud.com/document/product/406/8129)
+[Learn more about Message Rewind >>](https://cloud.tencent.com/document/product/406/8129)
 
 
 ### Enabling Message Rewind

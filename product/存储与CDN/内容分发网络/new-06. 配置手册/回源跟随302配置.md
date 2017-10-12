@@ -1,7 +1,7 @@
 CDN 为您提供回源跟随 302 配置功能。当节点回源请求返回 302 状态码时，CDN 节点会直接向跳转地址请求资源而不返回 302 给用户。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【回源配置】，您可以看到 **回源跟随 302 配置** 模块。
 ![](https://mc.qcloudimg.com/static/img/0bd71ed96690e639d7700bb9c4e60417/302.png)

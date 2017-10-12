@@ -77,7 +77,7 @@
 
 包年包月按带宽计费的用户需要购买最大外网出带宽（QoS），提前一次支付一个月或多个月甚至几年的费用。当峰值带宽超过QoS时将丢包。
 
-此种方式支持的CVM计费方式为：**包年包月**。[见计费模式说明-包年包月](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#1.-包年包月)
+此种方式支持的CVM计费方式为：**包年包月**。[见计费模式说明-包年包月](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#1.-包年包月)
 
 
 ### 按量计费按带宽计费
@@ -111,7 +111,7 @@
 #### 计费说明
 按量计费按带宽计费的用户需要设定最大外网出带宽（QoS），按照实际使用时长付费，精确到秒，按时结算。当峰值带宽超过QoS时将丢包。
 
-此种方式支持的CVM计费方式为：**按量计费**。[见计费模式说明-按量计费](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#2.-按量计费)
+此种方式支持的CVM计费方式为：**按量计费**。[见计费模式说明-按量计费](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E#2.-按量计费)
 
 
 ### 按流量计费
@@ -144,7 +144,7 @@
 | 8<核数<24 | 0-400 | 
 | 核数=>24 | 0-400；或不设上限 | 
 
-此种方式支持的CVM计费方式为：**包年包月**和**按量计费**。[见计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)
+此种方式支持的CVM计费方式为：**包年包月**和**按量计费**。[见计费模式说明](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)
 
 按流量计费的计费规则简单明了，按需付费，费用完全取决于单位时间出网流量。适合网络波动型的客户以降低其使用成本。
 
@@ -174,7 +174,7 @@
 ## 共享网络
 
 共享网络是指多台云服务器共享网络服务的一种模式，多台云服务器之间互相影响。腾讯云提供一种共享网络服务模式：带宽包计费。
-**该功能的开通需提[工单申请](https://console.qcloud.com/workorder/category/create?level1_id=6&level2_id=7&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%20CVM)，工单申请通过后，可[点击前往购买](http://manage.qcloud.com/shoppingcart/shop.php?tab=broadband)。**
+**该功能的开通需提[工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=7&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%20CVM)，工单申请通过后，可[点击前往购买](http://manage.qcloud.com/shoppingcart/shop.php?tab=broadband)。**
 
 ### 带宽包计费
 带宽包是一种按月计费的共享网络计费方式，开通带宽包服务后系统将根据用户账户内云主机的共享带宽<font color="red">月峰值</font>计费。此种计费方式的收费分成了两部分：<font color="red">带宽包内带宽费用</font>和<font color="red">超出带宽包的带宽费用</font>两部分。

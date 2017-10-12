@@ -1,4 +1,4 @@
-<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传SDK，请查看[新版文档](https://www.qcloud.com/doc/product/436/6474)。
+<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传SDK，请查看[新版文档](https://cloud.tencent.com/doc/product/436/6474)。
 
 ## 1. Android SDK
 

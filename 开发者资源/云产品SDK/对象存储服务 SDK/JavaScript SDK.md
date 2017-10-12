@@ -8,7 +8,7 @@
 
 1. SDK需要浏览器支持HTML 5；
 2. SDK需要浏览器支持Flash；
-3. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](https://www.qcloud.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) ；
+3. 从控制台获取APP ID、SecretID、SecretKey，详情参考[权限控制](https://cloud.tencent.com/doc/product/227/1897#2.1-.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) ；
 
 ### SDK 配置
 
@@ -37,7 +37,7 @@ public static function appSign($expired, $bucketName)
 | **参数名**    | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------ | -------- | ------- | ---------------------------------------- |
 | expired    | long   | 否        | 无       | 过期时间，Unix时间戳                             |
-| bucketName | String | 否        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 否        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 
 #### 返回结果说明
 
@@ -55,7 +55,7 @@ public static function appSign_once($path, $bucketName)
 
 | **参数名**    | **类型** | **是否必填** | **默认值** | **参数描述**                                 |
 | ---------- | ------ | -------- | ------- | ---------------------------------------- |
-| bucketName | String | 否        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.qcloud.com/cos) |
+| bucketName | String | 否        | 无       | bucket名称，bucket创建参见[创建Bucket](http://console.cloud.tencent.com/cos) |
 | path       | String | 是        | 无       | 文件路径，以斜杠开头，例如/filepath/filename，为文件在此bucketname下的全路径 |
 
 #### 返回结果说明

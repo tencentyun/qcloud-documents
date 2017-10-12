@@ -23,18 +23,18 @@ These users can receive text messages and e-mails pushed by Tencent Cloud by jus
 
 These users need to provide QQ ID, mobile number and e-mail address. After being added as sub-users, they can log in to Tencent Cloud official website using QQ ID to perform operations with specified permissions.
 
-For more sub-user-related operations, refer to [Sub-user Management](https://www.qcloud.com/doc/product/228/6691).
+For more sub-user-related operations, refer to [Sub-user Management](https://cloud.tencent.com/doc/product/228/6691).
 
 #### User Group
 
-User group is a group of sub-users with same or similar permissions and is used for centralized batch permission assignment and management. For more user-group-related operations, refer to [User Group Management](https://www.qcloud.com/doc/product/228/6692).
+User group is a group of sub-users with same or similar permissions and is used for centralized batch permission assignment and management. For more user-group-related operations, refer to [User Group Management](https://cloud.tencent.com/doc/product/228/6692).
 
 #### Policy
 
 A policy involves three factors: service type, feature, and object:
 
 + Service Type: Select the permission type to set, such as CDN;
-+ Feature: Select the allowed CDN operations, such as query for consumption, configuration management, etc. For more information, refer to [CDN Permissions](https://www.qcloud.com/doc/product/228/6689).
++ Feature: Select the allowed CDN operations, such as query for consumption, configuration management, etc. For more information, refer to [CDN Permissions](https://cloud.tencent.com/doc/product/228/6689).
 + Object: Specify for each feature the objects for which the feature is allowed. Take CDN as example, the object could be CDN project, CDN domain.
 
 There are two types of policies:
@@ -42,7 +42,7 @@ There are two types of policies:
 + Default policy: The collaborator types in old version;
 + Custom policy: The policy customized by the creator.
 
-CAM achieves permission assignment by associating the configured policies with user/user group. For more policy-related operations, refer to [Policy Management](https://www.qcloud.com/doc/product/228/6690).
+CAM achieves permission assignment by associating the configured policies with user/user group. For more policy-related operations, refer to [Policy Management](https://cloud.tencent.com/doc/product/228/6690).
 
 
 
@@ -52,9 +52,9 @@ CAM achieves permission assignment by associating the configured policies with u
 
 + **All collaborator sub-users** in old version will smoothly transition to the new CAM system with their permissions remaining unchanged. Creator **needs not to assign permissions** for them;
 
-+ The permissions corresponding to the global collaborator types will make a smooth transition to the default policies. The creator can create a type of global collaborator in old version by directly associating with the default policy. For more details, refer to [Policy Management](https://www.qcloud.com/doc/product/228/6690);
++ The permissions corresponding to the global collaborator types will make a smooth transition to the default policies. The creator can create a type of global collaborator in old version by directly associating with the default policy. For more details, refer to [Policy Management](https://cloud.tencent.com/doc/product/228/6690);
 
-+ The project collaborator sub-users will make a smooth transition to the corresponding policies based on the projects for which they were assigned permissions. The users can add, modify or delete projects that are visible to them as described in the CAM Policy Management section. For more details, refer to [Policy Management](https://www.qcloud.com/doc/product/228/6690).
++ The project collaborator sub-users will make a smooth transition to the corresponding policies based on the projects for which they were assigned permissions. The users can add, modify or delete projects that are visible to them as described in the CAM Policy Management section. For more details, refer to [Policy Management](https://cloud.tencent.com/doc/product/228/6690).
 
 
 

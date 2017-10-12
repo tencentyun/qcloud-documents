@@ -10,15 +10,15 @@
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | string | 网络ID或者统一ID，建议使用统一ID,可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 | 
-| vpnGwId | 是 | String | 系统分配的VPN网关ID，可使用vpnGwId或unVpnGwId，建议unVpnGwId，例如：vpngw-dystbrkv。可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>接口查询。 |
-| userGwId | 是 | String | 对端网关ID值，可使用userGwId或unUserGwId，建议使用unUserGwId，例如：cgw-e098slul。可通过<a href="http://www.qcloud.com/document/api/215/5119" title=" DescribeUserGw"> DescribeUserGw</a>接口查询。 |
+| vpcId | 是 | string | 网络ID或者统一ID，建议使用统一ID,可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询。 | 
+| vpnGwId | 是 | String | 系统分配的VPN网关ID，可使用vpnGwId或unVpnGwId，建议unVpnGwId，例如：vpngw-dystbrkv。可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>接口查询。 |
+| userGwId | 是 | String | 对端网关ID值，可使用userGwId或unUserGwId，建议使用unUserGwId，例如：cgw-e098slul。可通过<a href="http://cloud.tencent.com/document/api/215/5119" title=" DescribeUserGw"> DescribeUserGw</a>接口查询。 |
 | vpnConnName | 否 | String | 通道名称，取值：1-25个中文、英文大小写的字母、数字和下划线分隔符，同一个VPC下名称不可重复。 |
 | preSharedKey | 否 | String | 预共享密钥。 |
 | userGwCidrBlock.n | 否 | Array | 对端网段CIDR地址，可写多个，指定vpc可以和哪些IDC网段通信，后面升级为spdAcl（粒度更细），userGwCidrBlock和spdAcl必须填一项。 |
 | spdAcl.n | 否 | Array | SPD策略组，用户指定VPC内哪些网段可以和您IDC中哪些网段通信，由userGwCidrBlock升级而来，userGwCidrBlock和spdAcl必须填一项，更多详见产品说明文档。 |
-| ikeSet.n | 否 | Array | IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自保护机制，用户配置网络安全协议，详见<a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN连接-IKE配置">VPN连接-IKE配置</a>。 |
-| ipsecSet.n | 否 | Array | IPSec配置，腾讯云提供IPSec安全会话设置，详见<a href="https://www.qcloud.com/document/product/215/4956#ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPSec配置">VPN连接-IPSec配置</a>。|
+| ikeSet.n | 否 | Array | IKE配置（Internet Key Exchange，因特网密钥交换），IKE具有一套自保护机制，用户配置网络安全协议，详见<a href="https://cloud.tencent.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN连接-IKE配置">VPN连接-IKE配置</a>。 |
+| ipsecSet.n | 否 | Array | IPSec配置，腾讯云提供IPSec安全会话设置，详见<a href="https://cloud.tencent.com/document/product/215/4956#ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPSec配置">VPN连接-IPSec配置</a>。|
 
 IKE配置详情
 
@@ -50,24 +50,24 @@ IPsec配置详情
  
 
 ## 3. 输出参数
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+ 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
 
 | 参数名称 | 类型 | 描述|
 |---------|---------|---------|
 | code| Int | 错误码，0：成功，其他值：失败 |
 | message |  String | 错误信息 |
-| data.taskId | Int  | 任务ID，操作结果可以用taskId查询，详见<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">查询任务执行结果接口</a>。 |
+| data.taskId | Int  | 任务ID，操作结果可以用taskId查询，详见<a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">查询任务执行结果接口</a>。 |
 
 ## 4. 错误码表
 
 | 错误码 | 描述 |
 |---------|---------|
-| InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询VPC。 |
-| InvalidVpnGw.NotFound | 无效的vpn网关。vpn网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>接口查询vpn网关。 |
-| InvalidUserGw.NotFound | 无效的对端网关。对端网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a>接口查询对端网关。 |
+| InvalidVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>接口查询VPC。 |
+| InvalidVpnGw.NotFound | 无效的vpn网关。vpn网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>接口查询vpn网关。 |
+| InvalidUserGw.NotFound | 无效的对端网关。对端网关资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a>接口查询对端网关。 |
 | InvalidVpnConnName | VPN 名称不合法。VPN名称取值范围：1-60个中文、英文大小写的字母、数字和下划线分隔符。 |
 | InvalidVpnConnName.InUse | vpn通道名称已被使用。同一个VPC内vpn通道名称不能重复。 |
-| VpnConnLimitExceeded | 您已经达到指定区域vpn通道资源申请数量上限。如果需要更多资源，请联系客服申请。更多vpc资源限制信息详见<a href="https://www.qcloud.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a>。 |
+| VpnConnLimitExceeded | 您已经达到指定区域vpn通道资源申请数量上限。如果需要更多资源，请联系客服申请。更多vpc资源限制信息详见<a href="https://cloud.tencent.com/doc/product/215/537" title="VPC使用限制">VPC使用限制</a>。 |
 
 
 

@@ -11,7 +11,7 @@
 
 2) 对于有购买公网带宽/流量的Linux云服务器，这里介绍一种使用密码从本地Windows登录的方法：
 
-购买云服务器成功后，登录[腾讯云控制台](https://console.qcloud.com/)，点击右侧站内信按钮，查收新购买的服务器页面中将包含云主机登录管理员帐号及初始密码，如下图所示。
+购买云服务器成功后，登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击右侧站内信按钮，查收新购买的服务器页面中将包含云主机登录管理员帐号及初始密码，如下图所示。
 ![](//mccdn.qcloud.com/img56a20f10a373a.png)
 
 下载远程链接软件Putty，参考下载地址：http://www.chiark.greenend.org.uk/~sgtatham/putty/

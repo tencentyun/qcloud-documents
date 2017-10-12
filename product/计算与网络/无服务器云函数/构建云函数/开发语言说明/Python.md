@@ -53,7 +53,7 @@ def main_handler(event, context):
 
 ### COS SDK
 
-云函数的运行环境内已包含 [COS 的 Python SDK](https://www.qcloud.com/document/product/436/6275)，具体版本为 `cos_sdk_v4`。
+云函数的运行环境内已包含 [COS 的 Python SDK](https://cloud.tencent.com/document/product/436/6275)，具体版本为 `cos_sdk_v4`。
 
 可在代码内通过如下方式引入 COS SDK 并使用：
 ```
@@ -66,7 +66,7 @@ from qcloud_cos import DownloadFileRequest
 from qcloud_cos import UploadFileRequest
 ```
 
-更详细的 COS SDK 使用说明见[COS Python SDK 说明](https://www.qcloud.com/document/product/436/6275)。
+更详细的 COS SDK 使用说明见[COS Python SDK 说明](https://cloud.tencent.com/document/product/436/6275)。
 
 ## Python 2 或 3？
 您可以在函数创建时，通过选择运行环境中的 `Python 2.7` 或 `Python 3.6` 选择您所期望使用的运行环境。

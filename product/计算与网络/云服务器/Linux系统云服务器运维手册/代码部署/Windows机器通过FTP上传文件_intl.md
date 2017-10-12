@@ -141,7 +141,7 @@ Run FileZilla, make settings as shown below, and then click "Quick Links".
 ![](//mccdn.qcloud.com/img56b0593f99e17.png)
 
 >Description of the settings:
-- Host: Public network IP of CVM (Log in to [CVM Console](https://console.qcloud.com/cvm) page to view the public network IP of CVM).
+- Host: Public network IP of CVM (Log in to [CVM Console](https://console.cloud.tencent.com/cvm) page to view the public network IP of CVM).
 - User Name: ID of the FTP user account set in the previous step (here “ftpuser1” is used as example).
 - Password: Password of the FTP user account set in the previous step (here “ftpuser1” is used as example).
 - Port: FTP listener port, default is "21".

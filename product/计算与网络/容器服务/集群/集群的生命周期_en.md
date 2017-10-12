@@ -23,4 +23,4 @@
 |:--:|:--|
 | Healthy | The node is running and is connected with the cluster |
 | Exception | The node encountered exceptions and is not connected with the cluster |
-| Other Status | Please see [CVM Lifecycle](https://www.qcloud.com/document/product/213/4856) |
+| Other Status | Please see [CVM Lifecycle](https://cloud.tencent.com/document/product/213/4856) |

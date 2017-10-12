@@ -7,7 +7,7 @@ The configuration upgrade and downgrade mentioned below are in the case where th
 ## 1. Configuration upgrade
 When your need to upgrade the CVM hardware configuration as your business expands, you can adjust the configuration on console. For all CVM types, configuration upgrade becomes effective immediately. That is, when you upgrade the configuration and pay for the possible costs, the CVM runs immediately with the new configuration. Unlimited number of configuration upgrades.
 
-For details, refer to [Adjust CVM Instance Configuration](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+For details, refer to [Adjust CVM Instance Configuration](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
 
 ## 2. Configuration downgrade
 When your need to downgrade the CVM hardware configuration as your business shrink, you can adjust the configuration on console. For different types of CVMs, specific downgrade modes vary:
@@ -22,9 +22,9 @@ Upon configuration downgrade, if the residual value of your actual payment is gr
 - Within these limits, you can still apply for configuration upgrade after configuration downgrade. 
 - In case of suspected abnormal/malicious configuration downgrade, Tencent Cloud the right to veto configuration downgrade processes. Tencent Cloud reserves the right of final interpretation to the extent permitted by law. 
 
-For details, refer to [Adjust CVM Instance Configuration](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+For details, refer to [Adjust CVM Instance Configuration](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
 
 ### 2.2. Postpaid CVMs
 Postpaid CVM instances can be degraded any time without limits.
 
-For details, refer to [Adjust CVM Instance Configuration](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+For details, refer to [Adjust CVM Instance Configuration](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)

@@ -6,7 +6,7 @@
 
 ## 预设管理员配置示例
 超级管理员设置步骤如下。
-1. 登录 [访问管理](https://console.qcloud.com/cam) 控制台，单击左侧【用户管理】，在页面内单击【新建用户】。
+1. 登录 [访问管理](https://console.cloud.tencent.com/cam) 控制台，单击左侧【用户管理】，在页面内单击【新建用户】。
 ![](https://mc.qcloudimg.com/static/img/3d8ddebadc422c6a19be0f0a04ee2f21/create_user.png)
 2. 输入管理员姓名、设置 **允许登录腾讯云**，输入 QQ 号、联系手机、联系邮箱等信息,单击【下一步】。
 ![](https://mc.qcloudimg.com/static/img/7aa429ae0459a5103278cc4921f6e759/create_child.png)
@@ -17,7 +17,7 @@
 ## 项目管理员配置示例
 项目管理员能够管理指定项目下所有云资源。
 ### 创建项目管理员策略
-1. 登录 [访问管理](https://console.qcloud.com/cam) 控制台，单击左侧【策略管理】。
+1. 登录 [访问管理](https://console.cloud.tencent.com/cam) 控制台，单击左侧【策略管理】。
 ![](https://mc.qcloudimg.com/static/img/6f3cd3c38bdf918931010a4a9d12a3d8/policy_manage.png)
 2. 进入【自定义策略】页面，单击【新建自定义策略】。
 ![](https://mc.qcloudimg.com/static/img/a29b5becbaec002762acb0a304712fc4/create_policy.png)
@@ -35,7 +35,7 @@
 ![](https://mc.qcloudimg.com/static/img/bb1b980a2048e775d55b924112b6fdbf/create_policy_done.png)
 
 ### 创建项目管理员
-1. 登录 [访问管理](https://console.qcloud.com/cam) 控制台，单击左侧【用户管理】，在页面内单击【新建用户】。
+1. 登录 [访问管理](https://console.cloud.tencent.com/cam) 控制台，单击左侧【用户管理】，在页面内单击【新建用户】。
 ![](https://mc.qcloudimg.com/static/img/3d8ddebadc422c6a19be0f0a04ee2f21/create_user.png)
 2. 输入管理员姓名、设置 **允许登录腾讯云**，输入 QQ 号、联系手机、联系邮箱等信息，单击【下一步】。
 ![](https://mc.qcloudimg.com/static/img/c75f0ccb3c9ce66b65931332f239894b/create_projecet_manager.png)
@@ -45,7 +45,7 @@
 ## 子用户配置示例
 假设您要配置某子用户，允许其查询【测试项目】中域名的消耗统计信息、管理【测试二项目】中域名的配置信息、刷新【测试项目三】中的 URL 资源。
 ### 创建子用户 CDN 策略
-1. 登录 [访问管理](https://console.qcloud.com/cam) 控制台，单击左侧【策略管理】。
+1. 登录 [访问管理](https://console.cloud.tencent.com/cam) 控制台，单击左侧【策略管理】。
 ![](https://mc.qcloudimg.com/static/img/6f3cd3c38bdf918931010a4a9d12a3d8/policy_manage.png)
 2. 进入【自定义策略】页面，单击【新建自定义策略】。
 ![](https://mc.qcloudimg.com/static/img/a29b5becbaec002762acb0a304712fc4/create_policy.png)
@@ -63,7 +63,7 @@
 ![](https://mc.qcloudimg.com/static/img/7488f8fe1eda8d8c8d135b6938699697/cdn_policy_done.png)
 
 ### 创建子用户
-1. 登录 [访问管理](https://console.qcloud.com/cam) 控制台，单击左侧【用户管理】，在页面内单击【新建用户】。
+1. 登录 [访问管理](https://console.cloud.tencent.com/cam) 控制台，单击左侧【用户管理】，在页面内单击【新建用户】。
 ![](https://mc.qcloudimg.com/static/img/3d8ddebadc422c6a19be0f0a04ee2f21/create_user.png)
 2. 输入管理员姓名、设置 **允许登录腾讯云**，输入 QQ 号、联系手机、联系邮箱等信息,单击【下一步】。
 ![](https://mc.qcloudimg.com/static/img/338c331b34378f9de8b38f8afc0c9554/subuser_info.png)

@@ -159,7 +159,7 @@ $ ./CdbRollbackTools start 125000000 16_test_2011_10_31 rb_database rb_table rb_
 		<tr>
 			<td style="width: 92px;">token</td>
 			<td style="width: 395px;">Key for rollback. Please enter: <span style="color:#FF0000">rollback-tencent-cloud-token</span>.
-			<p>If the rollback is not allowed, please contact us and <a href="http://console.qcloud.com/ticket" target="_blank">submit a ticket</a>.</p>
+			<p>If the rollback is not allowed, please contact us and <a href="http://console.cloud.tencent.com/ticket" target="_blank">submit a ticket</a>.</p>
 			</td>
 		</tr>
 	</tbody>

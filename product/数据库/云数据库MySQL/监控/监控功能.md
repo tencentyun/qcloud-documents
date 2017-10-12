@@ -81,11 +81,11 @@
 |主从差距时间|seconds_behind_master|秒|实例维度|[查看MySQL官方指导][3]|
 
 
-有关更多如何使用云数据库监控指标的内容，可以查看云监控 API 中的[读取监控数据接口](https://www.qcloud.com/doc/api/405/4667)。
+有关更多如何使用云数据库监控指标的内容，可以查看云监控 API 中的[读取监控数据接口](https://cloud.tencent.com/doc/api/405/4667)。
 
 > 更多监控指标，敬请期待。
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb/ "云数据库控制台"
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb/ "云数据库控制台"
 [3]:	https://dev.mysql.com/doc/refman/5.6/en/ "查看MySQL官方指导"
 

@@ -4,7 +4,7 @@
 
 ## 负载均衡控制台
 
-1) 登录 [负载均衡控制台](https://console.qcloud.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
+1) 登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
 
 2) 点击【监听器监控】选项卡，即可查看当前负载均衡实例的监控数据。
 
@@ -12,8 +12,8 @@
 
 ## 云监控控制台
 
-打开 [云监控控制台](https://console.qcloud.com/monitor/overview)，点击【云产品监控】-【负载均衡】，点击相应的**公网有应用型/公网固定IP型/内网型**负载均衡实例 ID 进入监控详情页，即可查看该负载均衡实例的监控数据。
+打开 [云监控控制台](https://console.cloud.tencent.com/monitor/overview)，点击【云产品监控】-【负载均衡】，点击相应的**公网有应用型/公网固定IP型/内网型**负载均衡实例 ID 进入监控详情页，即可查看该负载均衡实例的监控数据。
 
 ## API 方式
 
-请参考 [GetMonitorData 接口](https://www.qcloud.com/doc/api/405/4667#5.3-.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1)。
+请参考 [GetMonitorData 接口](https://cloud.tencent.com/doc/api/405/4667#5.3-.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1)。

@@ -9,14 +9,14 @@ A private IP address is an IP that cannot access via the Internet; this is an im
 - Public network cards: Unanimously configured on the TGW interface layer, without CVM perception. When an instance is assigned a [Public IP address](/doc/product/213/5224), TGW automatically configures a public network interface for it.
 - Private network card: Managed by Tencent Cloud, supports user configurations.
 
-Therefore, when the user uses commands such as 'ifconfig' to view network interface information on the CVM, only the IP information of the private network can be viewed. For public network information, users need to log onto the [Tencent Cloud Console](https://console.qcloud.com/) CVM list/details page to view. Please note that if you change the private network IP within an operating system, it will lead to an interruption of network communications.
+Therefore, when the user uses commands such as 'ifconfig' to view network interface information on the CVM, only the IP information of the private network can be viewed. For public network information, users need to log onto the [Tencent Cloud Console](https://console.cloud.tencent.com/) CVM list/details page to view. Please note that if you change the private network IP within an operating system, it will lead to an interruption of network communications.
 
 Private IPs can be used for CLB load balancing, inter-network visits between CVM instances and between CVM instances and other cloud services, such as CDN and CDB.
 
 ## How to obtain a private IP address
 Each CVM instance is assigned a default private IP at startup. For different [Network Environments](/doc/product/213/5227), the private IP is also different:
  - Basic network: private IPs within the network are automatically assigned by Tencent Cloud, and cannot be changed.
- - Private network: the initial private IP assigned by Tencent Cloud is done automatically within the VPC network segment of an arbitrary address allocation; the user can be in the '10.[0 - 255].0.0/8', '172.[0 - 31].0.0/16' and '192.168.0.0/16' to define the private IP address for the CVM instance. The specific value range is determined by the private network of the instance. For more information, refer to [Private Network and Subnet](https://www.qcloud.com/doc/product/215/4927).
+ - Private network: the initial private IP assigned by Tencent Cloud is done automatically within the VPC network segment of an arbitrary address allocation; the user can be in the '10.[0 - 255].0.0/8', '172.[0 - 31].0.0/16' and '192.168.0.0/16' to define the private IP address for the CVM instance. The specific value range is determined by the private network of the instance. For more information, refer to [Private Network and Subnet](https://cloud.tencent.com/doc/product/215/4927).
 
 ## Private network DNS 
 Private network DNS services are responsible for domain name resolutions; if a DNS configuration is wrong, the domain name cannot be accessed. Therefore, Tencent Cloud provides reliable private DNS servers in different regions. The specific configuration is as follows:
@@ -48,7 +48,7 @@ You can use the Tencent Cloud console and API to determine the private IP of the
 
 ### Use console to obtain private IP of instance
 
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) CVM list shows the names of your instances; move the mouse over the CVM private IP, click on the copy button that appears, and copy the IP.
 
@@ -57,7 +57,7 @@ You can use the Tencent Cloud console and API to determine the private IP of the
 > The public IP is mapped to the private network IP through NAT. Therefore, if you view the properties of the network interface within the instance (for example, through ifconfig (Linux) or ipconfig (Windows)), the public IP is not displayed.
 
 ### Use API to obtain private IP of instance
-Refer to [DescribeInstances interface](https://www.qcloud.com/doc/api/229/831).
+Refer to [DescribeInstances interface](https://cloud.tencent.com/doc/api/229/831).
 
 ### Use instance metadata to obtain private IP of instance
 

@@ -36,7 +36,7 @@ According to CPU and memory configurations, the number of ENIs and IPs per ENI t
 ## Operation Guide
 ### Check ENIs
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM instance ID to access the CVM details page.
 
@@ -48,7 +48,7 @@ A primary ENI will be created automatically when you create a CVM. The primary E
 
 To create a new ENI, please do the followings:
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Find the desired CVM via the ID
 
@@ -62,7 +62,7 @@ To create a new ENI, please do the followings:
 
 Method 1:
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM instance ID to access the CVM details page.
 
@@ -73,7 +73,7 @@ Method 1:
 
 Method 2:
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Find the desired CVM via the ID
 
@@ -91,7 +91,7 @@ Tip 2: There're upper limits for bound ENIs. Please check the Usage Restriction 
 
 Method 1:
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM instance ID to access the CVM details page.
 
@@ -101,7 +101,7 @@ Method 1:
 
 Method 2:
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Find the desired CVM via the ID
 
@@ -111,7 +111,7 @@ Method 2:
 
 ### Assign private IP (Tencent Cloud console)
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM [Instance ID] to access the CVM details page.
 
@@ -205,7 +205,7 @@ Note: The private network IP configured in this way will still take effect after
 
 ### Release private IP
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM [Instance ID] to access the CVM details page.
 
@@ -221,7 +221,7 @@ Note 2: After the private IP is unbound, it will automatically disassociate from
 
 ### Bind EIP
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM [Instance ID] to access the CVM details page.
 
@@ -235,7 +235,7 @@ Note 2: After the private IP is unbound, it will automatically disassociate from
 
 ### Unbind EIP
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM [Instance ID] to access the CVM details page.
 
@@ -247,7 +247,7 @@ Note 2: After the private IP is unbound, it will automatically disassociate from
 
 ### Change primary private IP
 
-1) Open [CVM console](https://console.qcloud.com/cvm).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm).
 
 2) Click the CVM [Instance ID] to access the CVM details page.
 
@@ -259,7 +259,7 @@ Note 2: After the private IP is unbound, it will automatically disassociate from
 
 ### Change subnet of ENI
 
-1) Open [Private network VPC console](https://console.qcloud.com/vpc).
+1) Open [Private network VPC console](https://console.cloud.tencent.com/vpc).
 
 2) Click [Elastic Network Card] in the left column to enter the Elastic Network Card List page.
 

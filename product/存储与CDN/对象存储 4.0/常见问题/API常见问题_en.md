@@ -4,15 +4,15 @@
 
 **Q: Do XML API and JSON API share one key?**
 
-A: Yes. For a 9-digit APPID starting with 125, please use the API key provided by Tencent Cloud. You can check your individual API key via COS console or at https://console.qcloud.com/capi.
+A: Yes. For a 9-digit APPID starting with 125, please use the API key provided by Tencent Cloud. You can check your individual API key via COS console or at https://console.cloud.tencent.com/capi.
 
 **Q: Do XML API and JSON API share one signature?**
 
 A: No. They have separate signatures.
 
-JSON API signature: https://www.qcloud.com/document/product/436/6054
+JSON API signature: https://cloud.tencent.com/document/product/436/6054
 
-XML API signature: https://www.qcloud.com/document/product/436/7778.
+XML API signature: https://cloud.tencent.com/document/product/436/7778.
 
 **Q: Do XML API and JSON API share the same ACL permissions?**
 
@@ -52,7 +52,7 @@ A: For example, to upload a file Put, refer to API documentation at http://Bucke
 
 **Q: How do I find the key position?**
 
-A: You can view your key at https://console.qcloud.com/cos4/secret. The available key is the APPID corresponding to the number string in the download address of the bucket you created.
+A: You can view your key at https://console.cloud.tencent.com/cos4/secret. The available key is the APPID corresponding to the number string in the download address of the bucket you created.
 
 **Q: How do I change the key? **
 
@@ -60,7 +60,7 @@ A: You cannot change the key currently. This function will be available in the f
 
 **Q: I accidently changed the key via "Cloud API Key". Does it affect anything?**
 
-A: You can view the changes at https://console.qcloud.com/capi. Note that such changes may lead to inconsistency between the keys at data side and CDN side. To solve CDN-related problems, you should rebind the CDN domain (including the default domain offered for free, which also needs to be closed and reopen); To solve the problems at data side, you should re-create the Bucket.
+A: You can view the changes at https://console.cloud.tencent.com/capi. Note that such changes may lead to inconsistency between the keys at data side and CDN side. To solve CDN-related problems, you should rebind the CDN domain (including the default domain offered for free, which also needs to be closed and reopen); To solve the problems at data side, you should re-create the Bucket.
 
 ## Historical Versions and Data
 
@@ -91,7 +91,7 @@ A: You can use upload and download domains of the bucket to check your API versi
 
 **Q: Where can I find XML API documentation?**
 
-A: You can find the API documentation at https://www.qcloud.com/document/product/436/7751.
+A: You can find the API documentation at https://cloud.tencent.com/document/product/436/7751.
 
 ## Historical Version Data 
 

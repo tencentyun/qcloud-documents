@@ -5,13 +5,13 @@ Starting an instance does not change any of its physical attributes, so the publ
 
 ## Restarting instance using console
 
-1) Open [CVM Console](https://console.qcloud.com/cvm/).
+1) Open [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) To restart a single running GCC instance, select and click **Restart** from the right menu. 
 
 3) To restart multiple running GCC instances in batch, check all the GCC instances you want to restart, and then click **More -> Restart** on the top of the list. For the GCC instances which cannot be restarted, the reason will be displayed.
 
 ## Restarting instance using API
-Please see [RestartInstances API](https://www.qcloud.com/doc/api/229/1247).
+Please see [RestartInstances API](https://cloud.tencent.com/doc/api/229/1247).
 
 

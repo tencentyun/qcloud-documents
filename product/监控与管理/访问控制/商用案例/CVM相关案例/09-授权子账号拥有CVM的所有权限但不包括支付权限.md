@@ -4,7 +4,7 @@
 
 方案A：
 
-企业帐号CompanyExample直接将预设策略QcloudCVMFullAccess授权给子账号Developer。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+企业帐号CompanyExample直接将预设策略QcloudCVMFullAccess授权给子账号Developer。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
 方案B：
 
@@ -21,5 +21,5 @@ step1：通过策略语法方式创建以下策略
     ]
 }
 ```
-step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
 

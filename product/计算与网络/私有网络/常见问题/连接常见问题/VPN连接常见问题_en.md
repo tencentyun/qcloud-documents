@@ -1,5 +1,5 @@
 ## 1. What VPN connections support the use of VPCs by customer gateway devices?
-Click to view [peer devices that support VPN tunnels](https://www.qcloud.com/help/VPN%E9%80%9A%E9%81%93%E5%BB%BA%E7%AB%8B%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AE%BE%E5%A4%87). If your device is not in the list, please contact our technicians for VPN tunnel creation.
+Click to view [peer devices that support VPN tunnels](https://cloud.tencent.com/help/VPN%E9%80%9A%E9%81%93%E5%BB%BA%E7%AB%8B%E7%9B%AE%E5%89%8D%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E8%AE%BE%E5%A4%87). If your device is not in the list, please contact our technicians for VPN tunnel creation.
 
 ## 2. Can a VPC connect to multiple IDCs through VPN connections?
 Yes. Currently, a VPC can establish VPN gateways and set up multiple VPN tunnels on each VPN gateway. Each VPN tunnel can connect with one local IDC.

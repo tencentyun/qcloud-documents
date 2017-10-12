@@ -32,7 +32,7 @@
 	
 		
 * **传统库类方式集成**，<br/>
-在腾讯云官网[下载音视频库类](https://console.qcloud.com/avc/avSdkDownload)。需要把so文件和jar包文件分别放到对应jnilibs和libs里面。        
+在腾讯云官网[下载音视频库类](https://console.cloud.tencent.com/avc/avSdkDownload)。需要把so文件和jar包文件分别放到对应jnilibs和libs里面。        
 ![](https://mc.qcloudimg.com/static/img/e3cc8175676d647dd657beebb11cc2e3/1.png)
 ### 2 配置服务修改后台server地址
  目前随心播由业务后台(开源可复用，[源码](https://github.com/zhaoyang21cn/SuiXinBoPHPServer))主要用来维护直播房间列表。<br />

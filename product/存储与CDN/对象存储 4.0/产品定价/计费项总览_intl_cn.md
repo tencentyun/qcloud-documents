@@ -45,7 +45,7 @@ COS 按照实际使用付费，采用后付费方式，次月 3-5 日会出上�
 | CDN回源流量 | 通过腾讯云 CDN 访问 COS </br> CDN 回源产生的流量 | 0 GB - 10 GB -- 0 元/GB </br>  10 GB 以上 -- 0.15 元/GB |  0.15 元/GB  |     0.15 元/GB    |  
 | 外网出流量   | 通过外网直接访问COS，</br> 产生的 IDC 流量        | 0 GB - 10 GB -- 0 元/GB </br>  10 GB - 500 GB -- 0.64 元/GB </br>  500 GB 以上 -- 0.6 元/GB | 0 GB - 500 GB -- 0.64 元/GB </br>  500 GB 以上 -- 0.6 元/GB | 0 GB - 500 GB -- 0.64 元/GB </br>  500 GB 以上 -- 0.6 元/GB |
 
-*注：通过CDN下发到用户终端产生的流量不在COS计费范畴，按CDN计费标准收取，[详见CDN计费](http://www.qcloud.com/doc/product/228/%E8%AE%A1%E8%B4%B9%E8%AF%B4%E6%98%8E)。*
+*注：通过CDN下发到用户终端产生的流量不在COS计费范畴，按CDN计费标准收取，[详见CDN计费](http://cloud.tencent.com/doc/product/228/%E8%AE%A1%E8%B4%B9%E8%AF%B4%E6%98%8E)。*
 
 **COS 两种数据传输方式价格比较**
 

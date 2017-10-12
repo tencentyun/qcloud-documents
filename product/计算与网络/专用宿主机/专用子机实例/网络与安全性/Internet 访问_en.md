@@ -5,12 +5,12 @@ If your CVM instance is to provide service over the Internet, it must have an IP
 ## Public IP
 A public IP is an IP address that can be accessed from the Internet and be used for communication between instances and the Internet. The public IP is mapped to the instance's [Private IP](/doc/product/213/5225) through Network Address Translation (NAT). All the public network APIs of Tencent Cloud are processed by Tencent Gateway (TGW). TGW provides more efficient and secure network access, it features high reliability, high extensibility, high performance and strong anti-attack abilities. Therefore, Tencent Cloud CVM instance public network ENIs are configured on the uniform TGW API layer with the CVM unaffected.
 
-When the user uses commands such as 'ifconfig' to view network API information on the CVM, this feature caused users to only see information about the [Private Network](/doc/product/213/5225). Users have to log in to [Tencent Cloud Console](https://console.qcloud.com/), and view Public network information on CVM list/details page.
+When the user uses commands such as 'ifconfig' to view network API information on the CVM, this feature caused users to only see information about the [Private Network](/doc/product/213/5225). Users have to log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and view Public network information on CVM list/details page.
 
-Instances providing services through public network IPs need to pay the corresponding fees; for specifics, please see [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9).
+Instances providing services through public network IPs need to pay the corresponding fees; for specifics, please see [Purchase Network Bandwidth](https://cloud.tencent.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9).
 
 ## How to Obtain a Public IP
-Tencent Cloud network (public network) billing has three methods: pay-by-bandwidth, pay-by-traffic and bandwidth packages (for more information on network billing methods, please see [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)). At the [Purchase and Start CVM Instance](/doc/product/213/4855), users in the Network Settings can:
+Tencent Cloud network (public network) billing has three methods: pay-by-bandwidth, pay-by-traffic and bandwidth packages (for more information on network billing methods, please see [Purchase Network Bandwidth](https://cloud.tencent.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)). At the [Purchase and Start CVM Instance](/doc/product/213/4855), users in the Network Settings can:
 
 - Select pay-by-bandwidth, and set the bandwidth to a value greater than 0 Mbps.
 - Select pay-by-traffic, and set the bandwidth upper limit to a value greater than 0 Mbps (including unlimited).
@@ -31,7 +31,7 @@ You can use the Tencent Cloud console and API to determine the public IP of the 
 
 ### Use console to obtain public IP of the instance
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 
 2) CVM list shows your instances, move the mouse over the CVM public IP, and click on the appeared copy button to copy the IP.
 
@@ -40,7 +40,7 @@ You can use the Tencent Cloud console and API to determine the public IP of the 
 > The public IP is mapped to the private IP through NAT. Therefore, if you check the attributes of the network interface within the instance (for example, through ifconfig (Linux) or ipconfig (Windows)), the public IP is not displayed. To determine the public IP of an instance from within, you can use the instance's metadata.
 
 ### Use API to obtain public IP of the instance
-Please see [DescribeInstances API](https://www.qcloud.com/doc/api/229/831).
+Please see [DescribeInstances API](https://cloud.tencent.com/doc/api/229/831).
 
 ### Use instance's metadata to obtain public IP of the instance
 

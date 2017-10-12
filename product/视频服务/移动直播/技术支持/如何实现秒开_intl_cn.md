@@ -7,7 +7,7 @@
 
 ## 如何实现“秒开” ？
 ### APP 端
-使用 [腾讯云音视频 SDK](https://www.qcloud.com/document/product/454/7873) + FLV 播放协议即可实现秒开：
+使用 [腾讯云音视频 SDK](https://cloud.tencent.com/document/product/454/7873) + FLV 播放协议即可实现秒开：
 
 - **HTTP + FLV 播放协议**
 HTTP + FLV 协议是目前直播行业使用最普遍的播放协议，它的数据组织格式比较简单，可以做到一旦连通服务器就能获取到音视频数据。相比之下，RTMP 协议由于连接初期不可避免的几次协商握手过程，导致在首帧速度方面略逊于 FLV 协议。
@@ -17,7 +17,7 @@ HTTP + FLV 协议是目前直播行业使用最普遍的播放协议，它的数
 
  但这种云端的缓存也会带来负作用：播放器在连通服务器后，通常会一口气被塞过来几秒钟的音视频数据，从而产生不小的播放端延迟，我们称之为 —— “秒开后遗症”。
 
- 一款好的播放器，除了具备秒开能力，还要具备优秀的**延迟修正**能力，能够在无损观看体验的情况下，自动修正播放端延迟到一个合理的范围内（比如 1 秒以内），而腾讯云音视频 SDK 在这方面就做的非常优秀，您甚至可以指定播放器的延迟修正模式（[iOS](https://www.qcloud.com/document/product/454/7880#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) &  [Android](https://www.qcloud.com/document/product/454/7886#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) ）。
+ 一款好的播放器，除了具备秒开能力，还要具备优秀的**延迟修正**能力，能够在无损观看体验的情况下，自动修正播放端延迟到一个合理的范围内（比如 1 秒以内），而腾讯云音视频 SDK 在这方面就做的非常优秀，您甚至可以指定播放器的延迟修正模式（[iOS](https://cloud.tencent.com/document/product/454/7880#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) &  [Android](https://cloud.tencent.com/document/product/454/7886#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) ）。
 
 
 ### PC 浏览器

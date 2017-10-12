@@ -51,7 +51,7 @@ callback(Error error, Object result);
 
 ### COS SDK
 
-云函数的运行环境内已包含 [COS 的 Node.js SDK](https://www.qcloud.com/document/product/436/8629)，具体版本为 `cos-nodejs-sdk-v5`。
+云函数的运行环境内已包含 [COS 的 Node.js SDK](https://cloud.tencent.com/document/product/436/8629)，具体版本为 `cos-nodejs-sdk-v5`。
 
 可在代码内通过如下方式引入 COS SDK 并使用：
 
@@ -59,4 +59,4 @@ callback(Error error, Object result);
 var COS = require('cos-nodejs-sdk-v5');
 ```
 
-更详细的 COS SDK 使用说明见[COS Node.js SDK](https://www.qcloud.com/document/product/436/8629)。
+更详细的 COS SDK 使用说明见[COS Node.js SDK](https://cloud.tencent.com/document/product/436/8629)。

@@ -8,10 +8,10 @@
 
 ### 3. 接入 CDN 之后网站打不开，如何排查？
 请先检查接入域名的 CDN 状态是否为“已关闭”，若为“已关闭”状态则对应网页无法打开。若非“已关闭”状态时，可按照下列步骤进一步检查：
-+ 通过 ping 或 nslookup 检查该域名的 CNAME 解析是否已生效。若未绑定 CNAME，您可以参考 [CNAME 配置](https://www.qcloud.com/doc/product/228/3121) 文档中的操作说明，在您的 DNS 服务商处绑定 CNAME。
++ 通过 ping 或 nslookup 检查该域名的 CNAME 解析是否已生效。若未绑定 CNAME，您可以参考 [CNAME 配置](https://cloud.tencent.com/doc/product/228/3121) 文档中的操作说明，在您的 DNS 服务商处绑定 CNAME。
 + 待 CNAME 生效后，检查源站是否能正常访问。
 
-若您无法通过上述步骤解决该问题，请 [提交工单](https://console.qcloud.com/workorder/category) 联系我们帮您处理。
+若您无法通过上述步骤解决该问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们帮您处理。
 
 ### 4. 如何判断用户访问的是哪个 CDN 节点？
 您可通过 nslookup 和 ping 命令可以获取用户访问的 CDN 节点的 IP 和延时丢包等基本的排错信息。
@@ -25,7 +25,7 @@
 
 ### 6. 用户感觉 CDN 访问慢？
 大文件关注下载速度，小文件关注延时。首先得到用户访问慢的 URL，通过测速网站判断是否访问慢（推荐工具： 17ce http://www.17ce.com ）：
-+  如果测速确实慢，源站是 FTP 托管源，请 [提交工单](https://console.qcloud.com/workorder/category) 联系我们帮您处理。
++  如果测速确实慢，源站是 FTP 托管源，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们帮您处理。
 +  如果测速确实慢，源站属于自有源，协助用户排查源站机器负载和带宽是否受限。
 
 ### 7. 如何判断用户访问是否命中 CDN Cache？
@@ -40,4 +40,4 @@
 + 带上版本号，例如： ```http://www.xxx.com/xxx.js?version=1```。
 + 更换其它文件名，不使用同名文件。
 
-若您无法通过上述步骤解决该问题，请 [提交工单](https://console.qcloud.com/workorder/category) 联系我们帮您处理。
+若您无法通过上述步骤解决该问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们帮您处理。

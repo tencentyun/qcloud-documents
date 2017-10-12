@@ -4,7 +4,7 @@
 
 AirPlay 是苹果开发的一种无线技术，能把 iPhone 上的屏幕内容（包括系统 UI）直接投影到其它设备，因此也成为 AirPlay 镜像。
 
-相比于 [ReplayKit](https://www.qcloud.com/document/product/454/7883) , Airplay 的优势就是不要求目标 App 的支持，因为它可以在任何情况下获取到当前屏幕的内容，不管是一款游戏，还是系统界面。
+相比于 [ReplayKit](https://cloud.tencent.com/document/product/454/7883) , Airplay 的优势就是不要求目标 App 的支持，因为它可以在任何情况下获取到当前屏幕的内容，不管是一款游戏，还是系统界面。
 
 有得必有失，如此强大的能力必然受到苹果的限制，所以使用此套方案的 APP 有可能** <font color='red'>无法通过 </font>** AppStore 的审核，如无法上架应用商店，可以考虑使用企业证书签名的方式签发 ipa 安装包。
 
@@ -28,7 +28,7 @@ _server.qualityWidth = 720;
 _server.qualityHeight = 1280;
 ```
 
-> 如果您是初次使用直播SDK，可参考 [iOS端集成](https://www.qcloud.com/document/product/454/7876) 
+> 如果您是初次使用直播SDK，可参考 [iOS端集成](https://cloud.tencent.com/document/product/454/7876) 
 >
 > appid 您需要联系商务来获取；serverName 为系统AirPlay里显示的名字，可随意修改。
 
@@ -132,7 +132,7 @@ iOS 10以下的系统不支持后台硬编，我们推荐TXAirPlayServerManager�
 }
 ```
 
-> 推流事件部分参考 [推流事件监听](https://www.qcloud.com/document/product/454/7879#1.-.E4.BA.8B.E4.BB.B6.E7.9B.91.E5.90.AC)
+> 推流事件部分参考 [推流事件监听](https://cloud.tencent.com/document/product/454/7879#1.-.E4.BA.8B.E4.BB.B6.E7.9B.91.E5.90.AC)
 
 #### H264推流
 
@@ -234,7 +234,7 @@ YUV推流需要上层将YUV420转成CMSampleBuffer格式，再通过TXLivePush�
     if (dstSampleBuffer) { CFRelease(dstSampleBuffer); }
 ```
 
-这种推流模式可参考[游戏录屏（ReplayKit）](https://www.qcloud.com/document/product/454/7883)。
+这种推流模式可参考[游戏录屏（ReplayKit）](https://cloud.tencent.com/document/product/454/7883)。
 
 #### 声音
 
@@ -265,7 +265,7 @@ AirPlay是苹果的私有协议，因而无法通过审核，强行上架有一�
 
 ### 3. 码率选择
 
-录屏画面变化波动比摄像头要大，相同分辨率和帧率下，达到同样的清晰度往往需要更高的码率，关于码率的选择请参考[如何实现好的画质](https://www.qcloud.com/document/product/454/7955)。
+录屏画面变化波动比摄像头要大，相同分辨率和帧率下，达到同样的清晰度往往需要更高的码率，关于码率的选择请参考[如何实现好的画质](https://cloud.tencent.com/document/product/454/7955)。
 
 ### 4. 直播出现帧率降低
 

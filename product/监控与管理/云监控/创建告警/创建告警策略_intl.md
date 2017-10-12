@@ -1,6 +1,6 @@
 A user need to create an alarm policy first before sending an alarm for a certain status of a product. An alarm policy consists of three essential components: name, type, and trigger condition. You can create an alarm policy by following the steps below:
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click "Alarm Policy" button.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click "Alarm Policy" button.
 
 2) Click "Add Alarm Policy" button on the alarm policy list page. Note that the "Applied" field in the alarm policy list indicates the number of [associated alarm objects](/doc/product/248/6216) with this alarm policy. If the value of Applied is not 0, the policy cannot be deleted, unless the association between alarm objects and the policy has been canceled.
 

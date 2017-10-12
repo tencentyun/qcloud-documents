@@ -33,7 +33,7 @@ The source code provides a series of static files for deployment to the static f
 
 Welcome to Tencent Cloud's one-stop solution. It covers a range of solutions such as CVM and DNS, eliminating your efforts in a variety of configurations. For more information, please see
 
-[https://www.qcloud.com/product/cvm](https://www.qcloud.com/product/cvm)
+[https://cloud.tencent.com/product/cvm](https://cloud.tencent.com/product/cvm)
 
 
 ### 3.2 Install Apache

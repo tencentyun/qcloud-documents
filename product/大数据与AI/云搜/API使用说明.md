@@ -2,7 +2,7 @@
 
 ### 1.1 通信协议和规则
 		
-详见[《腾讯云通信协议和规则》](//www.qcloud.com/doc/api/256/%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9E%84)
+详见[《腾讯云通信协议和规则》](//cloud.tencent.com/doc/api/256/%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9E%84)
 
 ### 1.2 公共参数
 
@@ -42,32 +42,32 @@
 <tr>
 <td> SecretId
 </td><td> String
-</td><td> 由腾讯云平台上申请的标识身份的SecretId和SecretKey, 其中SecretKey会用来生成Signature<br />具体参考<a href="http://www.qcloud.com/doc/api/256/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83" title="接口鉴权">接口鉴权</a>页面
+</td><td> 由腾讯云平台上申请的标识身份的SecretId和SecretKey, 其中SecretKey会用来生成Signature<br />具体参考<a href="http://cloud.tencent.com/doc/api/256/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83" title="接口鉴权">接口鉴权</a>页面
 </td><td> 是
 </td></tr>
 <tr>
 <td> Signature
 </td><td> String
-</td><td> 请求签名，用来验证此次请求的合法性, <br />具体参考<a href="http://www.qcloud.com/doc/api/256/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83" title="接口鉴权">接口鉴权</a>页面
+</td><td> 请求签名，用来验证此次请求的合法性, <br />具体参考<a href="http://cloud.tencent.com/doc/api/256/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83" title="接口鉴权">接口鉴权</a>页面
 </td><td> 是
 </td></tr></table>
 
-公共参数详见[《腾讯云公共参数》](//www.qcloud.com/doc/api/256/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
+公共参数详见[《腾讯云公共参数》](//cloud.tencent.com/doc/api/256/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
 
 
 ### 1.3 接口鉴权
 
-接口鉴权方法详见[《腾讯云接口鉴权》](//www.qcloud.com/doc/api/256/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83)
+接口鉴权方法详见[《腾讯云接口鉴权》](//cloud.tencent.com/doc/api/256/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83)
 
 注意：在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名。
 
 ### 1.4 异步任务接口返回格式
 
-详见[《腾讯云异步任务接口返回格式》](//www.qcloud.com/doc/api/256/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F)
+详见[《腾讯云异步任务接口返回格式》](//cloud.tencent.com/doc/api/256/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F)
 
 ### 1.5 错误码
 
-详见[《腾讯云错误码》](//www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81)
+详见[《腾讯云错误码》](//cloud.tencent.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81)
 
 ## 2. 数据操作（更新/删除）
 
@@ -121,7 +121,7 @@
 <tr>
 <td> message
 </td><td> String
-</td><td> 错误信息，错误码详情参见<a href="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="//www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
+</td><td> 错误信息，错误码详情参见<a href="http://cloud.tencent.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="//cloud.tencent.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
 </td></tr>
 <tr>
 <td> data
@@ -592,7 +592,7 @@ Type=1：当前属性越大，排序越靠前；
 <tr>
 <td> message
 </td><td> String
-</td><td> 错误信息，错误码详情参见<a href="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="http://www.qcloud.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
+</td><td> 错误信息，错误码详情参见<a href="http://cloud.tencent.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" class="external text" title="http://cloud.tencent.com/doc/api/256/%E9%94%99%E8%AF%AF%E7%A0%81" target="_blank" rel="nofollow">错误码说明</a>
 </td></tr>
 <tr>
 <td> echo

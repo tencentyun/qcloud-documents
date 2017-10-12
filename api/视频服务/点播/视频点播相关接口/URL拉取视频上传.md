@@ -130,7 +130,7 @@
  &pullset.1.notifyUrl=http%3A%2F%2Ftest.com%2Ftest
  &pullset.1.classId=0
  &pullset.1.isReport=1
- &<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+ &<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 
 输出1
@@ -182,7 +182,7 @@
 <td>扩展部分，各接口的详细数据
 </tbody></table>
 
-注：如果开发商调用api时，指定了需要转码，则回调会包括两次，一次是上传成功，一次是转码成功，[转码结果回调说明](http://www.qcloud.com/wiki/v2/MultipartUploadVodFile#8..E8.AE.BE.E7.BD.AE.E8.BD.AC.E7.A0.81.E5.9B.9E.E8.B0.83)
+注：如果开发商调用api时，指定了需要转码，则回调会包括两次，一次是上传成功，一次是转码成功，[转码结果回调说明](http://cloud.tencent.com/wiki/v2/MultipartUploadVodFile#8..E8.AE.BE.E7.BD.AE.E8.BD.AC.E7.A0.81.E5.9B.9E.E8.B0.83)
 
 ● 输出参数说明
 回调接口需要按json格式返回数据，必要字段如下：

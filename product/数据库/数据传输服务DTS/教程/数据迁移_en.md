@@ -185,11 +185,11 @@ During migration, if you need to terminate the process, click the "Terminate" bu
 > 1. Restarting the task may cause verification or task to fail. You may need to manually clear all conflicting databases or tables in the target database to start the migration task again.
 > 2. When migrating a single table, it is necessary to ensure that tables relied on by foreign keys of all tables are also migrated.
 
-[1]:	https://www.qcloud.com/product/dc
-[2]:	https://www.qcloud.com/document/product/216/549
-[3]:	https://www.qcloud.com/product/vpn
-[3]:	https://www.qcloud.com/product/vpn
-[4]:	https://www.qcloud.com/document/product/215/4956
+[1]:	https://cloud.tencent.com/product/dc
+[2]:	https://cloud.tencent.com/document/product/216/549
+[3]:	https://cloud.tencent.com/product/vpn
+[3]:	https://cloud.tencent.com/product/vpn
+[4]:	https://cloud.tencent.com/document/product/215/4956
 
 [img-creat0]: //mc.qcloudimg.com/static/img/d782322e94fc253a41f95e642f794b32/create0.png
 [img-creat1]: //mc.qcloudimg.com/static/img/123cd23d3449cd5497502d8572f4b0a0/creat1.png

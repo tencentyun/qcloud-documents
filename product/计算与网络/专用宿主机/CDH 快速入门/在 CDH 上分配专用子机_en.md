@@ -1,6 +1,6 @@
 ## 1. Go to CVM assignment page
 
-1. Log in to [CDH Console](https://console.qcloud.com/cvm/cdh).
+1. Log in to [CDH Console](https://console.cloud.tencent.com/cvm/cdh).
 2. Select the CDH in the list, and click **Assign CVM** on the top.
 
 ## 2. Select a CDH
@@ -28,7 +28,7 @@ The configurations determine the number of CVMs that can be created.
 
 You can select image, disk and network configurations for a dedicated CVM and launch the dedicated CVM in exactly the same way as for an ordinary CVM instance.
 
-For more information, please see [Purchase and Launch CVMs >](https://www.qcloud.com/doc/product/213/4855)
+For more information, please see [Purchase and Launch CVMs >](https://cloud.tencent.com/doc/product/213/4855)
 
 - **Billing mode and purchase period**. The billing mode for dedicated CVMs is default to Prepaid and CANNOT be changed. The available usage period of the dedicated CVM is same as that of the CDH where the CVM resides.
 - **Network billing mode**. The dedicated CVM network billing mode is default to bill-by-traffic and CANNOT be changed. You only need to select the bandwidth cap of CVM network when configuring the CVM network.

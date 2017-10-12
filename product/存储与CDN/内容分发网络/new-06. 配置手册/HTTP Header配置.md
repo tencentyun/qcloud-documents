@@ -73,7 +73,7 @@ Access-Control-Expose-Headers 用于指定哪些头部可以作为响应的一�
 
 表明客户端可以访问到 Content-Length 和 X-My-Header 这两个头部信息。
 ### 配置流程
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【高级配置】，您可以看到 **HTTP header 配置** 模块，单击【添加 HTTP header】。
 ![](https://mc.qcloudimg.com/static/img/d65c06e0e68518fd406f37773c540b6b/header.png)

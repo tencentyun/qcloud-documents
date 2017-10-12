@@ -1,7 +1,7 @@
 本页面为万象优图V2加强版的Restful API文档。
 
 1. 旧版本（V1和V2版本）的Restful API参见[万象优图Restful API文档-V1](/doc/product/275/RESTful API_V1)和[万象优图Restful API文档-V2](/doc/product/275/RESTful API_V2)。
-2. 如果您使用的是万象优图2.0，则APPID是以125为前三位的的，请查看[新版文档](https://www.qcloud.com/doc/product/460/6818)。
+2. 如果您使用的是万象优图2.0，则APPID是以125为前三位的的，请查看[新版文档](https://cloud.tencent.com/doc/product/460/6818)。
 
 注意：各版本只能使用属于其的CGI，请不要混用。具体版本说明请参照[版本说明](/doc/product/275/版本说明)。
 
@@ -9,8 +9,8 @@
 
 | 概念     | 解释                                       |
 | ------ | ---------------------------------------- |
-| appid  | 接入万象优图创建空间时,系统生成的唯一项目ID, 用于唯一标识接入项目, 申请链接: [图片空间](http://console.qcloud.com/image/bucket) |
-| bucket | 开发者添加的空间名称，参见[图片空间](http://console.qcloud.com/image/bucket) |
+| appid  | 接入万象优图创建空间时,系统生成的唯一项目ID, 用于唯一标识接入项目, 申请链接: [图片空间](http://console.cloud.tencent.com/image/bucket) |
+| bucket | 开发者添加的空间名称，参见[图片空间](http://console.cloud.tencent.com/image/bucket) |
 | userid | 即将废弃字段，请使用默认值“0”                         |
 | fileid | 资源存储的唯一标识                                |
 
@@ -19,11 +19,11 @@
 签名分为单次签名和多次签名, 区别为（可参见[签名适用场景](/doc/product/275/签名与鉴权文档#4-.E7.AD.BE.E5.90.8D.E9.80.82.E7.94.A8.E5.9C.BA.E6.99.AF)）: 
 如果针对资源进行写操作(资源删除和资源复制), 那么这个签名必须是单次有效的，重复使用该签名则会返回签名失败；
 如果是上传一个新的资源，那么这个签名可以是多次有效的。有效时长最多为三个月。
-开发者可以通过[服务器SDK文档](http://www.qcloud.com/doc/product/275/SDK%E4%B8%8B%E8%BD%BD)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](/doc/product/275/3805)。
+开发者可以通过[服务器SDK文档](http://cloud.tencent.com/doc/product/275/SDK%E4%B8%8B%E8%BD%BD)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](/doc/product/275/3805)。
 
 ## 3	图片上传
 
-<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传接口，请查看[新版文档](https://www.qcloud.com/doc/api/264/6005)。
+<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传接口，请查看[新版文档](https://cloud.tencent.com/doc/api/264/6005)。
 
 ### 3.1 直接上传
 功能: 直接上传单张图片, 只支持POST表单(multipart/form-data)方式, 目前只支持20M以内的图片。
@@ -105,7 +105,7 @@ Content-Type: image/jpeg
 
 ### 3.2 分片上传
 
-<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传接口，请查看[新版文档](https://www.qcloud.com/doc/api/264/6006)。
+<font color=red>说明</font>：如果您使用的是万象优图2.0，则APPID是以125为前三位的的，您需要使用COS的上传接口，请查看[新版文档](https://cloud.tencent.com/doc/api/264/6006)。
 
 功能: 将文件分成固定大小片段上传, 适用于图片文件偏大的情况(如大于5MB)。目前单张图片大小限制为20MB。
 接口:http://web.image.myqcloud.com/photos/v2/[appid]/[bucket]/[userid]/[fileid] (自定义fileid)

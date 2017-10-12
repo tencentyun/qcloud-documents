@@ -25,4 +25,4 @@
 4、**可扩展分布式**：提供无限空间扩展能力，分布式存储保障数据高可靠、高效能，仅按实际使用量付费。
 
 ## 详细了解
-[金融云COS](http://www.qcloud.com/product/cos.html)
+[金融云COS](http://cloud.tencent.com/product/cos.html)

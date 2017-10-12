@@ -122,15 +122,15 @@ For more information on how to implement recording feature on iOS, please see [N
 
 Videos recorded through audio/video communication SDK are stored in VOD service.
 
-(1) You can manage recorded files by logging in to [Management Console](http://console.qcloud.com/video).<br/>
-(2) You can also manage recorded filed through APIs provided by VOD. For more information, please see [API Overview](https://www.qcloud.com/document/product/266/7788).<br/>
+(1) You can manage recorded files by logging in to [Management Console](http://console.cloud.tencent.com/video).<br/>
+(2) You can also manage recorded filed through APIs provided by VOD. For more information, please see [API Overview](https://cloud.tencent.com/document/product/266/7788).<br/>
 (3) DescribeVodPlayInfo obtains the download address of the recorded file based on the file name entered in the recording parameters of the API "Start Recording".
- For more information, please see [relevant document](https://www.qcloud.com/document/product/266/8586).
+ For more information, please see [relevant document](https://cloud.tencent.com/document/product/266/8586).
 
 ### 3 Prices and billing method
 
 The charge is billed based on the maximum concurrent channels for the recording month, with a price of 30 CNY/channel/month.
-In addition, recording involves VOD features, which give rise to charges for storage and traffic. [Billing Rules](https://www.qcloud.com/doc/product/268/5129#2..E5.BD.95.E5.88.B6.E7.9B.B8.E5.85.B3.E8.AE.A1.E8.B4.B9):
+In addition, recording involves VOD features, which give rise to charges for storage and traffic. [Billing Rules](https://cloud.tencent.com/doc/product/268/5129#2..E5.BD.95.E5.88.B6.E7.9B.B8.E5.85.B3.E8.AE.A1.E8.B4.B9):
 
 
 Please note that, if you have activated the VOD service and selected a billing method from package and postpaid mode, the selected billing method is adopted. If you have not activated the VOD service, the billing method of pay-by-traffic (postpaid) is used by default.

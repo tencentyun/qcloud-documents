@@ -1,7 +1,7 @@
 # 使用物理备份文件在本地恢复数据库
 **如需使用下载到本地的物理备份文件在其他主机上恢复数据库，可参考此文档**
 #### 1 下载备份文件
-具体步骤请参考：[具体的下载说明](https://www.qcloud.com/document/product/236/7358)
+具体步骤请参考：[具体的下载说明](https://cloud.tencent.com/document/product/236/7358)
 下载文件成功后，如下图：
 ![](https://mc.qcloudimg.com/static/img/d02b20501dd1c42a95f2b7a74c266b98/1.png)
 

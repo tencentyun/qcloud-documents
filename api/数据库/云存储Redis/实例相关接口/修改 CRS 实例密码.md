@@ -25,7 +25,7 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> code <td> Int <td> 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。
+<td> code <td> Int <td> 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。
 <tr>
 <td> message <td> String <td> 错误信息
 <tr>
@@ -59,7 +59,7 @@
 ## 5. 示例
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=ModfiyRedisPassword
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &redisId=crs-ifmymj41
 &oldPassword=49A2d!e@f12e
 &password=12D3E@!r5ed

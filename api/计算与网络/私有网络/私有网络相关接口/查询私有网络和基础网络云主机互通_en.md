@@ -24,7 +24,7 @@ Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a>. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a>. |
 | message | String | Module error message description depending on API. |
 | totalCount | Int | Returned total number of links. |
 | data.n | Array | Returned details. |
@@ -37,11 +37,11 @@ Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
 | data.n.instanceName | String | CVM name. |
 
 ## 4. Error Codes
- The following error code list only provides error codes for this API. For common error codes, please see <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+ The following error code list only provides error codes for this API. For common error codes, please see <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Error Code | Description |
 |---------|---------|
-| InvalidLanIp.NotFound | The CVM does not exist. Please verify that the lanIP you entered is correct. To query the CVMs under the VPC, please see <a href="https://www.qcloud.com/doc/api/229/831" title="Query CVM Instance List">Query CVM Instance List</a>.  |
+| InvalidLanIp.NotFound | The CVM does not exist. Please verify that the lanIP you entered is correct. To query the CVMs under the VPC, please see <a href="https://cloud.tencent.com/doc/api/229/831" title="Query CVM Instance List">Query CVM Instance List</a>.  |
 | InvalidVpc.NotFound | The VPC does not exist. Please check the information you entered.  |
 
 ## 5. Example
@@ -50,7 +50,7 @@ Input
 <pre>
 
   https://vpc.api.qcloud.com/v2/index.php?Action=DescribeVpcClassicLink
-	&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 	&vpcId=vpc-2ari9m7h
 	&classicLinkId=vcx-df454d
 </pre>

@@ -5,7 +5,7 @@
 >若要挂载子目录，需要在挂载前创建好对应的子目录，容器服务挂载 CFS 盘不会自动创建不存在的目录。
 
 ## 查看文件系统
-1. 登录 [文件存储控制台](https://console.qcloud.com/cfs)。
+1. 登录 [文件存储控制台](https://console.cloud.tencent.com/cfs)。
 2. 查看文件系统的可用区，本文档以北京一区为例。单击 ID/名称（如 cf-xxxxv0z），进入文件系统详情页。
 ![](//mc.qcloudimg.com/static/img/50dbda0d284e1e428bedcbf157af69ae/image.png)
 3. 单击【挂载点信息】获取网络信息和挂载路径，这些信息将在后续步骤创建服务中使用。本例信息如下：

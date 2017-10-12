@@ -8,7 +8,7 @@ The number of alarms with the policy type of "CVM", the alarm status of "Not Rec
 
 ## CVM Failed to Be Monitored
 
-Such exception may occur if you did not install [Agent](https://www.qcloud.com/doc/product/248/2258) in your CVM. To find the reason, do the followings:
+Such exception may occur if you did not install [Agent](https://cloud.tencent.com/doc/product/248/2258) in your CVM. To find the reason, do the followings:
 
 1. Check if barad_agent is installed
 

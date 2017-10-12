@@ -5,7 +5,7 @@ DNS 是计算机域名系统 (Domain Name System 或Domain Name Service) 的缩�
 DNS 修改会实时提交注册局生效，各地运营商递归解析服务器约需要24-72小时方可完全刷新同步，请耐心等待。
 
 ### 步骤一：登录管理控制台
-打开 [腾讯云官网](https://www.qcloud.com/)，在顶部导航条右侧单击【管理中心】，登录到管理中心首页。
+打开 [腾讯云官网](https://cloud.tencent.com/)，在顶部导航条右侧单击【管理中心】，登录到管理中心首页。
 ![](//mc.qcloudimg.com/static/img/93b74a8e306f5f05dfcaf89abeef523d/image.png)
 在**使用中的云产品**栏目内，单击【域名管理】进入域名管理页面，即可看到您购买的所有域名信息列表。
 ![](//mc.qcloudimg.com/static/img/da4ba43894682972815e6deb5f040e50/image.png)

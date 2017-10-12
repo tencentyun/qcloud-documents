@@ -14,7 +14,7 @@ Currently, a rollback operation can generate a new database or table. After the 
 ** To restore a database instance to the specified time, please proceed as follows:**
 
 ### Performing Rollback on a Single Instance:
-1. Log in to Tencent Cloud CDB Management Console and open CDB Console via the URL [https://console.qcloud.com/cdb](https://console.qcloud.com/cdb)
+1. Log in to Tencent Cloud CDB Management Console and open CDB Console via the URL [https://console.cloud.tencent.com/cdb](https://console.cloud.tencent.com/cdb)
 2. In the instance list, select the instance to be rolled back, and select "Manage" in "Operation".
 3. Click "Rollback" at the upper right corner of instance details page, and the rollback operation page will be displayed.
 4. Select the database table to be rolled back. You can select some of the database tables or all the database tables, and set the time to roll back to. To specify the name of new database table created after the rollback, enter the custom name in "Set name of the new database table" column. After finishing the setting, click "Batch Rollback".
@@ -23,4 +23,4 @@ Currently, a rollback operation can generate a new database or table. After the 
 ![](https://mc.qcloudimg.com/static/img/eae743ae57be74cc901b398ceea75665/image.png)
 
 ### Batch Rollback:
-For more information on batch rollback, refer to "Batch Operation": [Click to view "Batch Rollback"](https://www.qcloud.com/document/product/236/7262#2.E6.89.B9.E9 .87.8F.E5.9B.9E.E6.A1.A3 "点击查看【批量回档】")
+For more information on batch rollback, refer to "Batch Operation": [Click to view "Batch Rollback"](https://cloud.tencent.com/document/product/236/7262#2.E6.89.B9.E9 .87.8F.E5.9B.9E.E6.A1.A3 "点击查看【批量回档】")

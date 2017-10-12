@@ -1,7 +1,7 @@
 您可以在 CDN 控制台中查看回源带宽、回源流量、回源速度等统计数据。
 
 ## 查询条件说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，左侧菜单栏单击【统计分析】下的【源站统计】进入 **源站统计** 页面。页面查询条件如下。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，左侧菜单栏单击【统计分析】下的【源站统计】进入 **源站统计** 页面。页面查询条件如下。
 ![](https://mc.qcloudimg.com/static/img/9713491fff774fa25cb7dd00e9b29d2b/hoststatistics.png)
 > **注意**：
 > + 时间区间：支持最近 30 天访问情况统计查询，查询跨度最大为 30 天。
@@ -42,7 +42,7 @@
 ![](https://mc.qcloudimg.com/static/img/e7387607bc028f8b9c9071c3926c3619/image.png)
 > **注**： 
 > + 回源失败率 = 回源失败次数/回源总次数，判断为回源失败的情况有 TCP 连接超时、源站断开连接、HTTP 协议不兼容、5XX 服务器错误。
-> + 您可以前往 [云监控](https://console.qcloud.com/monitor/policylist) 针对 CDN 域名、CDN 项目的回源失败率配置告警策略，详情请查看 [创建告警策略](https://cloud.tencent.com/document/product/248/6215)。
+> + 您可以前往 [云监控](https://console.cloud.tencent.com/monitor/policylist) 针对 CDN 域名、CDN 项目的回源失败率配置告警策略，详情请查看 [创建告警策略](https://cloud.tencent.com/document/product/248/6215)。
 
 ### 404 状态码统计
 选择查询条件后，单击【查询】，在下方选择【404 状态码统计】，您可以查看回源产生的 404 状态码统计情况。

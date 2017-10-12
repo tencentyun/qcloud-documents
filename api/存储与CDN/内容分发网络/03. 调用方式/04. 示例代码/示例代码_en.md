@@ -11,10 +11,10 @@ The sample codes are for reference only. Please use the codes based on your actu
 
 ## Sample Code (PHP)
 
-Take [DescribeCdnHosts](https://www.qcloud.com/doc/api/231/查询域名信息) as an example:
+Take [DescribeCdnHosts](https://cloud.tencent.com/doc/api/231/查询域名信息) as an example:
 ```
 <?php
-/*Your key is required. You can obtain SecretId and $secretKey from https://console.qcloud.com/capi*/
+/*Your key is required. You can obtain SecretId and $secretKey from https://console.cloud.tencent.com/capi*/
 $secretKey='YOUR_SECRET_KEY';
 $secretId='YOUR_SECRET_ID';
 $action='DescribeCdnHosts';

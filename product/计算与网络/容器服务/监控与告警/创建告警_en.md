@@ -1,11 +1,11 @@
 You can create an alarm to warn you of the status change of a cloud product and send related messages. The created alarm determines whether an alarm-related notification needs to be triggered according to the comparison results between a monitored metric and a specific threshold at every interval.
 
-You can take precautionary or remedial measures in a timely manner when an alarm is set off by status changes. Therefore, creating a reasonable alarm can help you improve your application's robustness and reliability. For more information about alarms, please see [Creating Alarms](https://www.qcloud.com/doc/product/248/1073).
+You can take precautionary or remedial measures in a timely manner when an alarm is set off by status changes. Therefore, creating a reasonable alarm can help you improve your application's robustness and reliability. For more information about alarms, please see [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).
 
 You can set up an alarm by following steps below.
 
 ## Creating an Alarm Policy
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click **Cloud Monitoring -> My Alarms** tab, and then click **Alarm Policy** menu.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click **Cloud Monitoring -> My Alarms** tab, and then click **Alarm Policy** menu.
 
 2) Click "Add Alarm Policy" button on the alarm policy list page.
 
@@ -19,12 +19,12 @@ You can set up an alarm by following steps below.
  - Containers within container clusters
 
 ## Associate with an Object
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click **Cloud Monitoring** -> **My Alarms** tab, and then click **Alarm Policy** menu.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click **Cloud Monitoring** -> **My Alarms** tab, and then click **Alarm Policy** menu.
 
 2) On the alarm policy list page, click the newly created alarm policy to enter the detail page, click **Add Association** button and select the product you want to monitor, then click **Apply** button.
 
 ## Setting an Alarm Receiver
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click **Cloud Monitoring** -> **My Alarms** tab, and then click **Alarm Policy** menu.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click **Cloud Monitoring** -> **My Alarms** tab, and then click **Alarm Policy** menu.
 
 2) Click the created alarm policy to enter the detail page, then click **Manage alarm receiving group** button, and check the user groups that need to be notified.
 

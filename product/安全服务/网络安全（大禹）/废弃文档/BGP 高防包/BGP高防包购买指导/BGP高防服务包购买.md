@@ -3,7 +3,7 @@
 ### 可购买区域
 腾讯云华南地区（广州）、华东地区（上海）、华北地区（北京）
 ### 购买步骤
-1.进入BGP高防服务包购买页面 https://buy.qcloud.com/buy/bgp_sp
+1.进入BGP高防服务包购买页面 https://buy.cloud.tencent.com/buy/bgp_sp
 2.选择高防服务包所在的地域
 ![](https://mc.qcloudimg.com/static/img/ab91f77998537c28a0950258e38c9f8e/1.png)
 3.选择高防服务包的防护阈值，当前支持10-50G

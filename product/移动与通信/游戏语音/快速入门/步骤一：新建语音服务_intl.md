@@ -9,7 +9,7 @@ Go to the Console, open Game Voice and enable the service.
 Free trial is available to 1,000 users every day.  
 
 2. Create a GVoice Instance 
-Newly created Game Voices are all charged and integrated with SDK. And the fee will be charged after the voice service has actually been used. [view the price] (https://www.qcloud.com/document/product/556/7637).
+Newly created Game Voices are all charged and integrated with SDK. And the fee will be charged after the voice service has actually been used. [view the price] (https://cloud.tencent.com/document/product/556/7637).
 ![](https://mc.qcloudimg.com/static/img/7067b0caf6af0a79abc55cf5977459bd/image.png)
 
 3. Game ID and Game KEY  

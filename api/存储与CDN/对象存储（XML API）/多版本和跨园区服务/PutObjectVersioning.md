@@ -16,7 +16,7 @@ Authorization: Auth
        2. 每一个冒号后面都有一个空格；
        3. Dete 格式是 GMT Date；
        4. Authorization 统一为 Auth String -->
-> Authorization: Auth String (详细参见 [请求签名](https://www.qcloud.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
 <!-- 将以上完整结构的请求语法示例中的请求行单独描述说明-->
@@ -28,7 +28,7 @@ PUT /?versioning HTTP 1.1
 ### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://www.qcloud.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头,了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 <!-- 如果实际 API 中没有非公共头部内容，表述的语句为：该请求操作无特殊的请求头部信息。
@@ -53,7 +53,7 @@ PUT /?versioning HTTP 1.1
 
 ### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://www.qcloud.com/document/product/436/7729) 章节。
+该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 

@@ -59,7 +59,7 @@ With the above status information, how to verify whether the push quality is OK?
 
 ### 2.2 SDK Push Quality
 
-The charts shown in 2.1 are derived from our internal data analysis system for experimental testing. If you want to perform the same analysis, you can refer to the similar charts in the quality control system of [LVB Console](https://console.qcloud.com/live). Those charts are more simple and accessible, allowing you to understand without the need of having much professional knowledge about audio/video.
+The charts shown in 2.1 are derived from our internal data analysis system for experimental testing. If you want to perform the same analysis, you can refer to the similar charts in the quality control system of [LVB Console](https://console.cloud.tencent.com/live). Those charts are more simple and accessible, allowing you to understand without the need of having much professional knowledge about audio/video.
 ![](//mc.qcloudimg.com/static/img/4bf231da79ec8e45bdc4c16c927da47f/image.png)
 
 ## 3. Parameter Tuning

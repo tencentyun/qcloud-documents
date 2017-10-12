@@ -22,7 +22,7 @@
 3. 请不要修改、停止 master-slave 关系，这个操作可能会令热备失效。
 
 ## 5. 关于慢查询的说明
-1. 对于使用 Linux 云服务器的开发者，可以通过云数据库导出工具获取慢查询日志，详情请参考 <a href="https://www.qcloud.com/document/product/236/8464" target="_blank">数据离线迁移</a>。
+1. 对于使用 Linux 云服务器的开发者，可以通过云数据库导出工具获取慢查询日志，详情请参考 <a href="https://cloud.tencent.com/document/product/236/8464" target="_blank">数据离线迁移</a>。
 2. 对于使用 Windows 云服务器的开发者，暂时不能直接获取慢查询日志。如果有需要，请提交工单联系我们获取慢查询日志文件。 
 
 ## 6. 云数据库的 binlog 保存时间说明

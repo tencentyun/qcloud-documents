@@ -126,4 +126,4 @@ QAVSDKDemo.exe的存放目录。其中的ConfigInfo.ini文件存放了demo所使
 
 ## 3 开发者文档
 
-详情参考[音视频通信开发指南](http://www.qcloud.com/wiki/%E9%9F%B3%E8%A7%86%E9%A2%91%E9%80%9A%E4%BF%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97)
+详情参考[音视频通信开发指南](http://cloud.tencent.com/wiki/%E9%9F%B3%E8%A7%86%E9%A2%91%E9%80%9A%E4%BF%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97)

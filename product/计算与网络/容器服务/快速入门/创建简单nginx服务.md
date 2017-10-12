@@ -38,4 +38,4 @@
 
 #### 更多 nginx 设置
 
-可查看 [使用腾讯云容器服务来构建简单 web service ](https://www.qcloud.com/community/article/223421)。
+可查看 [使用腾讯云容器服务来构建简单 web service ](https://cloud.tencent.com/community/article/223421)。

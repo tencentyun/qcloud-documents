@@ -1,7 +1,7 @@
 ## 1	Working with Cloud Redis Store (CRS)
 
   You can purchase CRS directly in the product purchase page.
-  [Click to Purchase](https://buy.qcloud.com/redis)
+  [Click to Purchase](https://buy.cloud.tencent.com/redis)
 ## 2	Managing Instances
 
 ### 2.1	Creating an Instance

@@ -8,7 +8,7 @@ This document provides the guide on how to mount, partition and format data disk
 - Please make sure that you have performed [Connect Cloud Block Storage to CVM Instance](/doc/product/362/5745), and [Log in to Windows Instance](/doc/product/213/5435) operations.
 - <font color="red">After formatting, all data in the data disk will be erased. Before formatting, please make sure that there is no data in the data disk, or that important data has been backed up. In order to avoid service errors, please make sure that CVM has already stopped external service before formatting.</font>
 - If you have purchased multiple cloud disks, it is suggested that you set a custom name for the elastic cloud disk with important data in it and configure automatic renewal, to prevent any impact on your business caused by expired elastic cloud disk when the disk is not renewed in time. 
-- Users can locate a cloud disk quickly by using the custom name or the private IP of an associated CVM in the [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs).
+- Users can locate a cloud disk quickly by using the custom name or the private IP of an associated CVM in the [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs).
 
 ## Making Disk Online, Disk Partitioning and Formatting in Windows 2012
 ### Making Disk Online

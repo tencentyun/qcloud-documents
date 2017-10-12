@@ -1,7 +1,7 @@
 ## Ingress转发设置
 
 ### Ingress说明
-容器服务支持4层负载均衡器来转发流量到容器上，4层支持公网型和内网型负载均衡器，更多负载均衡器介绍可查看[负载均衡简介](https://www.qcloud.com/document/product/214/524)。本文主要讲解容器服务如何使用Ingress实现7层的HTTP和HTTPS的转发。
+容器服务支持4层负载均衡器来转发流量到容器上，4层支持公网型和内网型负载均衡器，更多负载均衡器介绍可查看[负载均衡简介](https://cloud.tencent.com/document/product/214/524)。本文主要讲解容器服务如何使用Ingress实现7层的HTTP和HTTPS的转发。
 
 ### 使用Ingress前置条件
 创建服务提供以下4种访问方式选择：
@@ -27,7 +27,7 @@
 在Ingress页面创建应用型负载均衡，(已有Ingress可跳过该步骤)
 ![Alt text](https://mc.qcloudimg.com/static/img/a3b194503971f8bdd1147852496abeba/%7B946ED9B7-80DA-4FCC-80B9-AF02897B1BD1%7D.png)
 
-将自有域名解析到该负载均衡器的VIP，详细见[域名解析帮助文档](https://www.qcloud.com/document/product/302/3446)。
+将自有域名解析到该负载均衡器的VIP，详细见[域名解析帮助文档](https://cloud.tencent.com/document/product/302/3446)。
 本示例www.qcloudccs.com解析到示例负载均衡。
 
 设置Ingress转发规则:

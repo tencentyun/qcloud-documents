@@ -6,8 +6,8 @@
 
 | 手机平台 | 文档索引 |
 |:-------:|---------|
-| iOS 平台 | [【录制+发布】](https://www.qcloud.com/document/product/584/9367) &nbsp; [【视频编辑】](https://www.qcloud.com/document/product/584/9375) &nbsp; [【视频拼接】](https://www.qcloud.com/document/product/584/9370) &nbsp; [【视频播放】](https://www.qcloud.com/document/product/584/9372) | 
-| Android 平台 | [【录制+发布】](/document/product/584/9367) &nbsp; [【视频编辑】](https://www.qcloud.com/document/product/584/9502) &nbsp; [【视频拼接】](https://www.qcloud.com/document/product/584/9503) &nbsp; [【视频播放】](https://www.qcloud.com/document/product/584/9373) | 
+| iOS 平台 | [【录制+发布】](https://cloud.tencent.com/document/product/584/9367) &nbsp; [【视频编辑】](https://cloud.tencent.com/document/product/584/9375) &nbsp; [【视频拼接】](https://cloud.tencent.com/document/product/584/9370) &nbsp; [【视频播放】](https://cloud.tencent.com/document/product/584/9372) | 
+| Android 平台 | [【录制+发布】](/document/product/584/9367) &nbsp; [【视频编辑】](https://cloud.tencent.com/document/product/584/9502) &nbsp; [【视频拼接】](https://cloud.tencent.com/document/product/584/9503) &nbsp; [【视频播放】](https://cloud.tencent.com/document/product/584/9373) | 
 
 ## 下载地址
 

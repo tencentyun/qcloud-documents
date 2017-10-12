@@ -6,7 +6,7 @@
 方式一：通过页面控制台下载URL
 ![](https://mc.qcloudimg.com/static/img/92773c7d8ce9498440c7c7d280926e57/url.png)
 
-方式二：通过API获取下载链接,[点击查看API文档说明](https://www.qcloud.com/doc/api/253/5125)
+方式二：通过API获取下载链接,[点击查看API文档说明](https://cloud.tencent.com/doc/api/253/5125)
 
 获取到的URL格式如下(以下是样例)：
 ```

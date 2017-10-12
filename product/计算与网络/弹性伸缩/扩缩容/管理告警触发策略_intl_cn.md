@@ -23,7 +23,7 @@ AS 支持根据监控的指标动态扩展伸缩组中的实例数量，您需�
 
 ## 操作步骤
 
-1. 打开[控制台](https://console.qcloud.com/autoscaling/config)，选择导航条中的【伸缩组】。
+1. 打开[控制台](https://console.cloud.tencent.com/autoscaling/config)，选择导航条中的【伸缩组】。
 
 2. 选择要修改的伸缩组，点击伸缩组ID进入伸缩组基本信息页面。
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -48,6 +48,6 @@ AS 支持根据监控的指标动态扩展伸缩组中的实例数量，您需�
 **设置方法：**
 
 
-**step 1** :您可以在[伸缩组列表](https://console.qcloud.com/autoscaling)里点击服务器所在的伸缩组，进入管理页面；
+**step 1** :您可以在[伸缩组列表](https://console.cloud.tencent.com/autoscaling)里点击服务器所在的伸缩组，进入管理页面；
 
 **step 2**：在管理页面下方的“云主机列表”，对所要设置的云主机点击“设置移出保护”；

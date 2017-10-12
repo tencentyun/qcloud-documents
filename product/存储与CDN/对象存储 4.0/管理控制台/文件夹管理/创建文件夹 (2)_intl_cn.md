@@ -13,7 +13,7 @@
 字符左(←)：ESC (27) 
 
 ## 步骤
-1. 登录 [对象存储桶控制台](https://console.qcloud.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要创建文件夹的存储桶（如 example），进入存储桶。
+1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要创建文件夹的存储桶（如 example），进入存储桶。
 ![访问权限1](//mc.qcloudimg.com/static/img/b51d5a77d53c3416324ea3eb283c788c/image.png)
 2. 单击【创建文件夹】，弹出创建文件夹对话框。
 ![创建文件夹1](//mc.qcloudimg.com/static/img/9edfa5747741bada149d507994d332ca/image.png)

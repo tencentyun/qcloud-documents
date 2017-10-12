@@ -1,5 +1,5 @@
 ## 1.工程结构
-从 [官网](https://www.qcloud.com/document/product/454/6991) 下载小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
+从 [官网](https://cloud.tencent.com/document/product/454/6991) 下载小直播代码，使用Android Studio打开工程后，您将看到如下的目录结构：
 ![](//mc.qcloudimg.com/static/img/5e39b905d134114aeb752f614313123d/image.png)
 
 |文件/目录 | 说明 | 
@@ -21,7 +21,7 @@
 
 
 ## 2.库使用说明
-#### [直播 SDK](https://www.qcloud.com/document/product/454/7873)  (必选)
+#### [直播 SDK](https://cloud.tencent.com/document/product/454/7873)  (必选)
 移动直播最主要的 SDK，其提供了推流、直播、点播、连麦、录屏等功能。
 - jar 包
 txrtmpsdk.jar
@@ -54,7 +54,7 @@ txrtmpsdk.jar
 	- libqalmsfboot.so
   - libwtcrypto.so
 
-#### [短视频](https://www.qcloud.com/document/product/584/9369)（非必选）
+#### [短视频](https://cloud.tencent.com/document/product/584/9369)（非必选）
 UGC 小视频的录制和发布以及编辑功能。
 - jar 包
 
@@ -101,8 +101,8 @@ Bilibili 弹幕库。如果您希望在聊天中有弹幕效果，建议保留�
 ### 帐号模块
 #### 模块简介
 - 帐号模块负责处理用户登录/注册以及登录缓存的逻辑
-- 登录注册功能使用[TLSSDK托管](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)登录实现
-- 如果您已经有自己的帐号体系，可以直接替换该模块，并调用TCLoginMgr的guestLogin接口以游客身份使用IM通道，详情请参考[替换帐号](https://www.qcloud.com/doc/api/258/6441)
+- 登录注册功能使用[TLSSDK托管](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)登录实现
+- 如果您已经有自己的帐号体系，可以直接替换该模块，并调用TCLoginMgr的guestLogin接口以游客身份使用IM通道，详情请参考[替换帐号](https://cloud.tencent.com/doc/api/258/6441)
 - 在TLSSDK登录鉴权成功后，可以通过鉴权返回的UserId与UserSig调用ImSDK的login接口完成IM模块的登录
 - 用户可以通过帐号密码/手机验证码两种方式进行注册与登录
 - 帐号模块会缓存最后登录的用户基本信息（UserId与UserSig）在本地，通过接口调用可以获取最近登录的用户信息并判断是否需要重新登录
@@ -122,7 +122,7 @@ Bilibili 弹幕库。如果您希望在聊天中有弹幕效果，建议保留�
 
 ### 互动消息
 #### 模块简介
-- 小直播的互动消息功能主要基于[ImSDK](https://www.qcloud.com/doc/product/269/1561)的群聊功能实现，需要在IMSDK登录后才能调用
+- 小直播的互动消息功能主要基于[ImSDK](https://cloud.tencent.com/doc/product/269/1561)的群聊功能实现，需要在IMSDK登录后才能调用
 - 每个直播间都是一个直播大群，推流端在推流之前需要创建直播大群，结束推流时，解散该群；播放端在进入该直播间时，加入该群，退出直播间时，则退出该群
 - 通过实现消息收发的监听类，可以在监听接口中获取相应的消息通知，目前实现的消息类型：文本消息、弹幕消息、点赞消息、用户加入/退出消息、群组解散消息
 - 各种类型的消息都是以文本消息形式发送，采用统一的JSON格式，在JSON中携带消息类型、发送者id、昵称、头像、消息文本的信息，接收端收到消息后解析JSON格式，向上层回调各种类型的消息
@@ -217,7 +217,7 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 #### 模块简介
 
 - 连麦功能提供了主播和观众视频互动聊天的功能，目前支持 1 主播和 3 个观众视频互动。
--  在集成连麦功能之前，建议先了解下 [连麦的原理](https://www.qcloud.com/document/product/454/9855) ，再按照 [对接攻略](https://www.qcloud.com/document/product/454/9858) 来集成。
+-  在集成连麦功能之前，建议先了解下 [连麦的原理](https://cloud.tencent.com/document/product/454/9855) ，再按照 [对接攻略](https://cloud.tencent.com/document/product/454/9858) 来集成。
 - 连麦具体流程：观众通过 IM 向主播发起连麦申请，主播也是通过 IM 回复观众。如果主播同意观众的连麦申请，观众就荣升为小主播。主播和小主播各自先推流，然再互相拉取对方的低延时流。
 
 #### 相关代码
@@ -234,7 +234,7 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 ------------------------------------
 ### 短视频录制模块
 #### 模块简介
-- 小直播提供录制 一分钟的 [短视频](https://www.qcloud.com/document/product/584/9453) 功能，但 SDK 本身不显示录制时长。
+- 小直播提供录制 一分钟的 [短视频](https://cloud.tencent.com/document/product/584/9453) 功能，但 SDK 本身不显示录制时长。
 
 
 #### 相关代码
@@ -256,7 +256,7 @@ SDK渲染视频时，startCameraPreview的参数View（即videoParentView）是�
 ------------------------------------
 ### 短视频编辑模块
 #### 模块简介
-- [视频编辑](https://www.qcloud.com/document/product/584/9502) 包括视频裁剪加速、美颜滤镜、音乐混音及添加字幕等功能
+- [视频编辑](https://cloud.tencent.com/document/product/584/9502) 包括视频裁剪加速、美颜滤镜、音乐混音及添加字幕等功能
 
 #### 相关代码
 | 类名      |    描述  |

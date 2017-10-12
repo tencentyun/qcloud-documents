@@ -121,7 +121,7 @@ Input 1
  &dataSize=512
  &offset=0
  &fileType=avi
- &<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a> 
+ &<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a> 
 [The binary content data of the uploaded video file]
 </pre>
 Note:
@@ -148,7 +148,7 @@ Input 2
  &dataSize=512
  &offset=512
  &fileType=avi
- &<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+ &<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 [The binary content data of the uploaded video file]
 </pre>
 Note:
@@ -214,7 +214,7 @@ If there is an error code in the response returned, troubleshooting can be perfo
 <td> 10003
 </td><td> key agent secret id is not exist
 </td><td> The secret id does not exist or invalid id
-</td><td> Check whether the account activates Cloud Video on Demand service or whether the account has expired, or check whether the SecRetId and SecRetKey are correct in <a href="https://console.qcloud.com/capi" class="external free" title="https://console.qcloud.com/capi" target="_blank" rel="nofollow">https://console.qcloud.com/capi</a>
+</td><td> Check whether the account activates Cloud Video on Demand service or whether the account has expired, or check whether the SecRetId and SecRetKey are correct in <a href="https://console.cloud.tencent.com/capi" class="external free" title="https://console.cloud.tencent.com/capi" target="_blank" rel="nofollow">https://console.cloud.tencent.com/capi</a>
 </td></tr>
 <tr>
 <td> 10004
@@ -226,7 +226,7 @@ If there is an error code in the response returned, troubleshooting can be perfo
 <td> -25997
 </td><td> invalid SecretId param
 </td><td> Invalid secret id
-</td><td> Obtain the secret id correctly, and check whether SecRetId and SecRetKey are correct in <a href="https://console.qcloud.com/capi" class="external free" title="https://console.qcloud.com/capi" target="_blank" rel="nofollow">https://console.qcloud.com/capi</a>
+</td><td> Obtain the secret id correctly, and check whether SecRetId and SecRetKey are correct in <a href="https://console.cloud.tencent.com/capi" class="external free" title="https://console.cloud.tencent.com/capi" target="_blank" rel="nofollow">https://console.cloud.tencent.com/capi</a>
 </td></tr>
 <tr>
 <td> -25976
@@ -323,7 +323,7 @@ After the file is successfully transcoded, perform call-back,
 　　"duration":0,//Duration
 　　"imgUrl":{
 		 "id": 3213,
-　　"url":"www.qcloud.com/templurl.png", //Image link
+　　"url":"cloud.tencent.com/templurl.png", //Image link
 　　"vheight":21,
 　　"width":32, 
 　　}

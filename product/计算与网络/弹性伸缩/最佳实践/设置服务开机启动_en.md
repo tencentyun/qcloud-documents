@@ -49,9 +49,9 @@ Reboot the server (Input reboot, or reboot the server in the console). After the
 #### Step 4: Create an image based on this machine and use this image when creating scaling configurations
 This step is simple. Refer to the guides below if you have problems with the operation:
 
-[Create Custom Image](https://www.qcloud.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
+[Create Custom Image](https://cloud.tencent.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
 
-[Create Scaling Configurations](https://www.qcloud.com/document/product/377/8544)
+[Create Scaling Configurations](https://cloud.tencent.com/document/product/377/8544)
 
 
 

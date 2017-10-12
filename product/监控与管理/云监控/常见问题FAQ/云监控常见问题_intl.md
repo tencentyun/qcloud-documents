@@ -1,7 +1,7 @@
 ## 1. Why is there no data in monitoring views?
 1) There is no data in the monitoring views of all CVM metrics
 
-It is likely that you have not installed the Monitor Agent. Please follow the instructions in [Install Monitoring Components](http://www.qcloud.com/doc/product/248/%E5%AE%89%E8%A3%85%E7%9B%91%E6%8E%A7%E7%BB%84%E4%BB%B6) to install Monitor Agent.
+It is likely that you have not installed the Monitor Agent. Please follow the instructions in [Install Monitoring Components](http://cloud.tencent.com/doc/product/248/%E5%AE%89%E8%A3%85%E7%9B%91%E6%8E%A7%E7%BB%84%E4%BB%B6) to install Monitor Agent.
 Note:
 
 - Only when all two processes in Monitor Agent are installed normally can the monitoring data be submitted.
@@ -11,13 +11,13 @@ Log in to Tencent Cloud Console, click "Cloud Products" - "Cloud Monitor" to and
 
 If you have installed Monitor Agent, but there is still no monitoring data, please check whether the CVM has just been created. If so, it is normal for certain latency of data submission. Generally, the data will be displayed in about 10 minutes. But if the CVM has been created for a period of time, please check whether the CVM is shut down. The CVM in the shutdown status cannot submit data normally.
 
-If you still cannot view the data, please check whether the CVM's private network DNS is set correctly. If the DNS is not set as required by Tencent Cloud, data cannot be submitted normally, thus leading to no monitoring data in the console. [Private network DNS configuration of basic network](https://www.qcloud.com/doc/product/213/499#3.2.-.E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E7.9A.84.E5.86.85.E7.BD.91-dns).
+If you still cannot view the data, please check whether the CVM's private network DNS is set correctly. If the DNS is not set as required by Tencent Cloud, data cannot be submitted normally, thus leading to no monitoring data in the console. [Private network DNS configuration of basic network](https://cloud.tencent.com/doc/product/213/499#3.2.-.E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E7.9A.84.E5.86.85.E7.BD.91-dns).
 
 If the data still cannot be displayed normally, please submit a ticket and contact us for resolution.
 
 2) There is no public network bandwidth data in CVM
 
-When the CVM has no public network IP and hasn't been bound with a [Cloud Load Balancer](https://www.qcloud.com/document/product/214/524), there is no public network bandwidth traffic in the CVM, so it will not generate public network bandwidth data.
+When the CVM has no public network IP and hasn't been bound with a [Cloud Load Balancer](https://cloud.tencent.com/document/product/214/524), there is no public network bandwidth traffic in the CVM, so it will not generate public network bandwidth data.
 
 ## 2. Why does the monitoring view still indicate that a monitoring component has not been installed after installation?
 

@@ -8,7 +8,7 @@ The lifecycle of CDH instance refers to the period ranging from its being purcha
 
 All users can purchase CDHs on Tencent Cloud's official website.
 
-1. Log in to [Tencent Cloud CDH Purchase Page](https://buy.qcloud.com/cdh).
+1. Log in to [Tencent Cloud CDH Purchase Page](https://buy.cloud.tencent.com/cdh).
 2. Select region, availability zone, model, quantity and purchased usage period, and then confirm your order.
 3. You can pay with your balance, Tenpay, Wechat Pay or QQ Wallet.
 4. The CDH you purchased is assigned immediately after the order is paid. You can log in to the console to assign CVM instances.
@@ -34,7 +34,7 @@ On the day when prepaid CDHs expire and every two days after that, we will send 
 
 ### Renewal of CDH instances
 
-- Log in to [CDH Console](https://console.qcloud.com/cvm/cdh).
+- Log in to [CDH Console](https://console.cloud.tencent.com/cvm/cdh).
 - For prepaid CDH instances to be renewed, click on "Renew" in the operation column on the right side.
 - In the pop-up box of CVM renewal, select the time for renewal, and click "OK".
 - Make the payment to finish the renewal of CDH instances.

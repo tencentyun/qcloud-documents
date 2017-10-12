@@ -30,7 +30,7 @@
 有了防盗链保护，攻击者就无法轻易构造出 livepush 推流地址，从而保证只有通过您服务器鉴权的 App 才能推流。有了防盗链保护，攻击者亦无法轻易构造出 livepush 播放地址，从而保证您的超级链路不会被攻击者盗用流量。
 
 - **推流防盗链（livepush）**
-推流防盗链的生成办法可以参考 [DOC](https://www.qcloud.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F5)， 简单描述即：
+推流防盗链的生成办法可以参考 [DOC](https://cloud.tencent.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F5)， 简单描述即：
 ```
 直播码 = 8888_streamA
 加密KEY = f3313e36c611150119f5d04ff1225b3e

@@ -46,7 +46,7 @@ rtmp://5000.livepush.myqcloud.com/live/5000_test2016011415?txSecret=9661a47f85a4
 
 **txTime** 为有效的截止时间戳，如上所述
 
-推流软件首选第三方软件 [**obs**](http://www.qcloud.com/doc/product/267/OBS%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89) 。
+推流软件首选第三方软件 [**obs**](http://cloud.tencent.com/doc/product/267/OBS%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89) 。
 
 ## **第二步：生成加密播放地址**
 

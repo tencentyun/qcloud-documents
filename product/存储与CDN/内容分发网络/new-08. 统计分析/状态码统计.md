@@ -1,7 +1,7 @@
 您可以在 CDN 控制台中查看 2XX、3XX、4XX、5XX 状态码统计情况。
 
 ## 查询条件说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，左侧菜单栏单击【统计分析】下的【状态码统计】进入 **状态码统计** 页面。页面查询条件如下。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，左侧菜单栏单击【统计分析】下的【状态码统计】进入 **状态码统计** 页面。页面查询条件如下。
 ![](https://mc.qcloudimg.com/static/img/7c984a5279ee4ceaaa9f03679af1cf1c/statuscode.png)
 > **注意**：
 > + 时间区间：支持最近 90 天访问情况统计查询，查询跨度最大为 90 天。

@@ -5,7 +5,7 @@ A file system is required for mounting CFS. If you don't have one, create a file
 >You need to create a subdirectory before mounting one, because directories that do not exist cannot be automatically created during the process of CFS disk mounting in CCS.
 
 ## Viewing a File System
-1. Log in to [File Storage Console](https://console.qcloud.com/cfs).
+1. Log in to [File Storage Console](https://console.cloud.tencent.com/cfs).
 2. View the availability zones in​the file system. Take Beijing Zone 1 as an example. Click ID/Name (e.g. cf-xxxxv0z) to go to the file system details page.
 ![](//mc.qcloudimg.com/static/img/50dbda0d284e1e428bedcbf157af69ae/image.png)
 3. Click "Mount Point Information" to obtain the network information and the mount path (used for subsequent service creation),  as shown below:

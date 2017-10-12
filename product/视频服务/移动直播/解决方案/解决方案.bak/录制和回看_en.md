@@ -6,15 +6,15 @@ The number of VJs is often small at the early stage of introduction of an App. A
 
 ## Interfacing Guide
 ## 1 Enable VOD service
-Recording & Replay is built on the backend clusters of Tencent Cloud's **VOD service**. To use this feature, you need to [Activate VOD Service](http://console.qcloud.com/video) first on Tencent Cloud console.
+Recording & Replay is built on the backend clusters of Tencent Cloud's **VOD service**. To use this feature, you need to [Activate VOD Service](http://console.cloud.tencent.com/video) first on Tencent Cloud console.
 
-After the VOD service is enabled, you can find the new recorded files in [Video Management](http://console.qcloud.com/video/videolist) on the VOD console.
+After the VOD service is enabled, you can find the new recorded files in [Video Management](http://console.cloud.tencent.com/video/videolist) on the VOD console.
 
 ### 2 Enable LVB recording
 Tencent Cloud supports recording the entire LVB. There are two ways of enabling recording:
 
 #### 2.1. Global enabling
-You can enable or disable recording for all LVB streams on [LVB Console](https://console.qcloud.com/live), as shown below:
+You can enable or disable recording for all LVB streams on [LVB Console](https://console.cloud.tencent.com/live), as shown below:
 ![](//mc.qcloudimg.com/static/img/89c0a7e2b64527afae86e304635300b3/image.png)
 
 This method has been used so long since Tencent Cloud's first version of LVB Code where global recording feature was available. Currently, only FLV format is supported. 
@@ -31,7 +31,7 @@ Notes:
  
  - the specified recording format is FLV or MP4, you can specify the recording length for a single video fragment using parameter record_interval (in seconds). The maximum length is 90 minutes (i.e. 5,400 seconds). If no value is specified, the default is 30 minutes (i.e. 1,800 seconds).
  
- - HLS (m3u8) file is on a fragmentation basis in essence, so you can always get a single m3u8 file as long as no push interruption occurs during LVB. But in case of a push interruption during LVB, fragmentation will occur in the process of recording (you will get multiple m3u3 files). One of the common problems would be switching of App to the background. To solve this problem, you're recommended to use background push solution ([iOS](https://www.qcloud.com/doc/product/454/6946#step-8.3A-.E5.90.8E.E5.8F.B0.E6.8E.A8.E6.B5.81) & Android](https://www.qcloud.com/doc/product/454/6947)).
+ - HLS (m3u8) file is on a fragmentation basis in essence, so you can always get a single m3u8 file as long as no push interruption occurs during LVB. But in case of a push interruption during LVB, fragmentation will occur in the process of recording (you will get multiple m3u3 files). One of the common problems would be switching of App to the background. To solve this problem, you're recommended to use background push solution ([iOS](https://cloud.tencent.com/doc/product/454/6946#step-8.3A-.E5.90.8E.E5.8F.B0.E6.8E.A8.E6.B5.81) & Android](https://cloud.tencent.com/doc/product/454/6947)).
  
  - record_name can be used to specify the recorded file's name, but is not recommended unless in special cases to avoid a too long URL.
  
@@ -45,7 +45,7 @@ You can implement many extensions based on your business scenarios. For example,
 You can get the URL of the recorded file by the following two ways:
 
 #### 3.1 Notification message
-You can use Tencent Cloud's **[Event Notification Service](https://www.qcloud.com/doc/api/258/5957)**: Register a **callback URL** for your server on Tencent Cloud, which will notify you of the generation of a new recorded file via this URL.
+You can use Tencent Cloud's **[Event Notification Service](https://cloud.tencent.com/doc/api/258/5957)**: Register a **callback URL** for your server on Tencent Cloud, which will notify you of the generation of a new recorded file via this URL.
 
 ![](//mc.qcloudimg.com/static/img/b50c901fb4d529daf3405e78bc69908d/image.png)
 
@@ -68,10 +68,10 @@ The following is a typical notification message, which indicates: a new FLV reco
 ```
 
 #### 3.2. Active query
-You can check if any new recorded file is generated on a regular basis using Tencent Cloud's query API (**[Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960)**). However, this method is not recommended for frequent use due to its unsatisfactory real-timeness and reliability since it has a slow response in case of a query for a large number of channels and cannot be called at a high frequency (only suitable for the channels that have just finished). 
+You can check if any new recorded file is generated on a regular basis using Tencent Cloud's query API (**[Live_Tape_GetFilelist](https://cloud.tencent.com/doc/api/258/5960)**). However, this method is not recommended for frequent use due to its unsatisfactory real-timeness and reliability since it has a slow response in case of a query for a large number of channels and cannot be called at a high frequency (only suitable for the channels that have just finished). 
 
 ### 4 Playback on mobile devices
 After obtaining the recorded file, your server can generate a playback URL, which the App obtains and delivers to the VOD playback module of the RTMP SDK. Then, the recorded file is available for playback:
-- [Documentation for iOS Platform](https://www.qcloud.com/doc/api/258/4738)
-- [Documentation for Android Platform](https://www.qcloud.com/doc/api/258/4739)
-- [Documentation for Web Platform](https://www.qcloud.com/doc/api/258/5706)
+- [Documentation for iOS Platform](https://cloud.tencent.com/doc/api/258/4738)
+- [Documentation for Android Platform](https://cloud.tencent.com/doc/api/258/4739)
+- [Documentation for Web Platform](https://cloud.tencent.com/doc/api/258/5706)

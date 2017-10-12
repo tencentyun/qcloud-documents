@@ -17,7 +17,7 @@
  不合理的参数设置会导致画质损失严重，比较典型的一个错误配置就是 “高分辨率配低码率”，这样的配置会导致画面模糊，并且画面马赛克严重。怎么办？
 	 
 - **setVideoQuality**
-我在 1.9.1 版本的 TXLivePusher 中新加入的 setVideoQuality 函数，并给出了几个级别的设置，您选择 **高清** 模式即可达到最佳的美女直播效果。详情请关注 [iOS平台](https://www.qcloud.com/document/product/454/7879#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6) & [Android平台](https://www.qcloud.com/document/product/454/7885#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6)。
+我在 1.9.1 版本的 TXLivePusher 中新加入的 setVideoQuality 函数，并给出了几个级别的设置，您选择 **高清** 模式即可达到最佳的美女直播效果。详情请关注 [iOS平台](https://cloud.tencent.com/document/product/454/7879#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6) & [Android平台](https://cloud.tencent.com/document/product/454/7885#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6)。
 
 ### Step3: Android 增加手动曝光
 同样美颜算法，在不同的 Android 手机上差异可能很大，究其原因，主要是曝光的差异产生了视觉感受的大不同。
@@ -42,7 +42,7 @@ Android 版 RTMP SDK 中的 TXLivePush::**setExposureCompensation** 接口提供
 如果您比较关注APP耗电情况，那么可以考虑直接调大推流的码率，或者使用 setVideoQuality 的 **高清** 档位（如果设定的码率比较低，Android 的硬编码模块会通过大幅降低画质来确保码率稳定）
 
 - **我比较关注带宽！**
- 如果您比较关注带宽成本，那么直接调高码率可能并不适合您的需求，这时您可以通过关闭硬件加速解决问题（关闭方法见  [setHardwareAcceleration](https://www.qcloud.com/document/product/454/7885#step-7.3A-.E7.A1.AC.E4.BB.B6.E7.BC.96.E7.A0.81)）。
+ 如果您比较关注带宽成本，那么直接调高码率可能并不适合您的需求，这时您可以通过关闭硬件加速解决问题（关闭方法见  [setHardwareAcceleration](https://cloud.tencent.com/document/product/454/7885#step-7.3A-.E7.A1.AC.E4.BB.B6.E7.BC.96.E7.A0.81)）。
 
 ### Step6: 关闭网络自适应
 **TXLivePushConfig** 中的 **AutoAdjustBitrate** 选项是网络自适应开关，开启后，当主播网络变差时，会通过降低画质来保证流畅性，但这一点 <font color='red'>并不适合</font> 美女秀场模式。
@@ -51,7 +51,7 @@ Android 版 RTMP SDK 中的 TXLivePush::**setExposureCompensation** 接口提供
 
 但美女秀场场景中，清晰度更加重要，不少客户反馈有些直播间画质很好，有些直播间画质很差，导致这个现象的一个高概率原因就是开启了网络自适应。
 
-我们推荐关闭网络自适应，对于出现网络波动的情况，改用 [主动提示](https://www.qcloud.com/document/product/454/7946#4.2-.E9.92.88.E5.AF.B9.E6.80.A7.E4.BC.98.E5.8C.96.E6.96.B9.E6.A1.888) 的方式进行优化，这种方式更加釜底抽薪。
+我们推荐关闭网络自适应，对于出现网络波动的情况，改用 [主动提示](https://cloud.tencent.com/document/product/454/7946#4.2-.E9.92.88.E5.AF.B9.E6.80.A7.E4.BC.98.E5.8C.96.E6.96.B9.E6.A1.888) 的方式进行优化，这种方式更加釜底抽薪。
 
 
 ## 场景二：游戏直播

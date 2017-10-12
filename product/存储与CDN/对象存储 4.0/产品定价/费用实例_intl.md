@@ -68,7 +68,7 @@ In this case, Tom's monthly cost: storage fee 60,000 CNY + traffic fee 0.64 CNY 
 
 ## Price Calculator
 
-You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for a rapid price estimation.
+You can use [Price Calculator](https://buy.cloud.tencent.com/calculator/cdn) for a rapid price estimation.
 
 ![](https://mc.qcloudimg.com/static/img/3e0c746f012f8ab31ee4ef8e9b854206/Free-Converter.com-qq20161104-1-8511018.jpg)
 

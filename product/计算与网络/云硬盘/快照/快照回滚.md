@@ -8,11 +8,11 @@
 - 使用快照回滚随云主机一块购买的非弹性云盘时,云服务器实例必须处于关机状态。
 
 ## 使用控制台回滚快照
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【快照】。
 
 3) 在快照列表中选中磁盘想要回滚的快照，点击【回滚】。
 
 ## 使用 API 回滚快照
-请参考 [ApplySnapshot 接口](https://www.qcloud.com/doc/api/364/2533)。
+请参考 [ApplySnapshot 接口](https://cloud.tencent.com/doc/api/364/2533)。

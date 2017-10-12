@@ -150,7 +150,7 @@ _txLivePlayer.recordDelegate = recordListener;
 ```
 - The progress of recording process is indicated as a time value by the onRecordProgress of TXVideoRecordListener.
 - The recorded file is in the format of MP4, and is informed by onRecordComplete of TXVideoRecordListener.
-- TXUGCPublish is used to upload and publish videos. For details on how to use TXUGCPublish, refer to [Short Video-Publish Files](https://www.qcloud.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310).
+- TXUGCPublish is used to upload and publish videos. For details on how to use TXUGCPublish, refer to [Short Video-Publish Files](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310).
  
 ## Status Monitor
 Tencent Cloud RTMP SDK is always designed on a basis of White Box. You can bind a **TXLivePlayListener** for the TXLivePlayer object so that you can receive notifications regarding the internal status of SDK through onPlayEvent (Event Notification) and onNetStatus (Quality Feedback).
@@ -169,7 +169,7 @@ The time length between PLAY_LOADING and PLAY_BEGIN can be different (sometimes 
 You can configure the player's cacheTime attribute in TXLivePlayConfig. A small cacheTime value can cause a high LOADING frequency. If this happens, please make adjustments while referring to [Stutter & Latency](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F).
 
 - **Work with PLAY_PROGRESS playback progress**
-If you have no idea about​how to handle the PLAY_EVT_PLAY_PROGRESS event during VOD, refer to the sample code - [Work with Playback Progress](https://www.qcloud.com/document/product/454/7896).
+If you have no idea about​how to handle the PLAY_EVT_PLAY_PROGRESS event during VOD, refer to the sample code - [Work with Playback Progress](https://cloud.tencent.com/document/product/454/7896).
 
 ### 2. Ending Events
 | Event ID                 |    Value  |  Description                    |   
@@ -232,7 +232,7 @@ In LVB scenarios, the occurrence frequency of stutters and latency level are cri
 
 **The player itself plays an important role in these measurements**. With the same network environment and playback address, different players may yield completely different latency and stutter occurrence. (For example, commonly used flash players on PC browsers may have increasing latency because the playback policies are too simple)
 
-Therefore, once you have finished the functional code interfacing listed in previous sections of this document, make sure you read the [Stutter Optimization-Player Optimization](https://www.qcloud.com/document/product/454/7946#5.-.E6.92.AD.E6.94.BE.E7.AB.AF.E7.9A.84.E4.BC.98.E5.8C.969) and make adjustments until you've achieved the best playback mode for your business scenario.
+Therefore, once you have finished the functional code interfacing listed in previous sections of this document, make sure you read the [Stutter Optimization-Player Optimization](https://cloud.tencent.com/document/product/454/7946#5.-.E6.92.AD.E6.94.BE.E7.AB.AF.E7.9A.84.E4.BC.98.E5.8C.969) and make adjustments until you've achieved the best playback mode for your business scenario.
 
 - **Performance comparison among the three modes**
 

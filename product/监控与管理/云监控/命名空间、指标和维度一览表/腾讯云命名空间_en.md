@@ -13,4 +13,4 @@ Namespace is a metric container specific to a product. For more information, ple
 | CDB for SQL Server	| qce/sqlserver |
 | Cloud Redis	| qce/redis |
 
-For more information about the namespaces of Cloud Monitor, please see [Read Monitoring Data API](https://www.qcloud.com/doc/api/405/4667) in the Cloud Monitor API.
+For more information about the namespaces of Cloud Monitor, please see [Read Monitoring Data API](https://cloud.tencent.com/doc/api/405/4667) in the Cloud Monitor API.

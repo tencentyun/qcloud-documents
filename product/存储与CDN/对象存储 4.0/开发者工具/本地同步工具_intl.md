@@ -51,7 +51,7 @@ Configuration file is located at /conf/config.json in the tool package directory
 | app_id          | APPID that needs to perform the operation (you can acquire it from the console)                     | APPID number |
 | secret_id       | The private key ID that corresponds to the APPID (you can acquire it from the console)                    | String      |
 | secret_key      | The private key that corresponds to the APPID (you can acquire it from the console)                  | String      |
-| bucket          | Name of the bucket to be synchronized. You need to create the bucket in the console beforehand. Refer to [Create Bucket](https://www.qcloud.com/doc/api/436/6232).  | String      |
+| bucket          | Name of the bucket to be synchronized. You need to create the bucket in the console beforehand. Refer to [Create Bucket](https://cloud.tencent.com/doc/api/436/6232).  | String      |
 | timeout         | Timeout for COS connections. You can increase this value when the network is poor. <br />Unit: second | Number       |
 | thread_num      | Number of concurrent threads. Increase this value for a higher concurrent level and upload speed. Lowering this value will reduce upload speed.  | Number       |
 | delete_sync     | Delete COS file in sync when deleting local file.  <br />1: Delete remote file when deleting local file; 0: Ignore deleted local file | Number       |
