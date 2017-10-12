@@ -10,7 +10,7 @@ EipBmDelete 接口用于释放弹性公网EIP，以清理不再使用的EIP资�
 GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Action=EipBmDelete
 	&<公共请求参数>
-	&eipIds.0=eip-iiiii
+	&eipIds.0=<EIP实例ID>
 ```
 
 ### 请求参数
@@ -31,7 +31,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "requestId": 2383049
+        "requestId": <异步任务ID>
     }
 }
 ```
