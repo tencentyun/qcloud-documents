@@ -50,7 +50,7 @@ vod.api.qcloud.com
 | drm | 否 | Object | 视频加密控制参数，参见[视频加密解决方案](/document/product/266/9638)。 | 
 | drm.definition | 是 | Integer | 加密方式，参见[视频加密参数模板](/document/product/266/9645)。 |
 
-任务流执行完毕之后，转码结果可以从[GetVideoInfo](https://www.qcloud.com/document/product/266/8586)接口应答包体中的[transcodeInfo](/document/product/266/8586#transcodeinfo.EF.BC.88.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81.E7.BB.93.E6.9E.9C.E4.BF.A1.E6.81.AF.EF.BC.89)对象获取到。
+任务流执行完毕之后，转码结果可以从[GetVideoInfo](https://cloud.tencent.com/document/product/266/8586)接口应答包体中的[transcodeInfo](/document/product/266/8586#transcodeinfo.EF.BC.88.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81.E7.BB.93.E6.9E.9C.E4.BF.A1.E6.81.AF.EF.BC.89)对象获取到。
 
 > 注1：
 > 将低码率视频文件转为高码率视频，会导致无谓的带宽浪费。如果启用该选项，则当目标转码模板的码率高于源视频的码率时，该目标模板将被忽略。例如，假设原始视频的码率为800kbps，目标转码输出模板号为10、20、30、40，码率分别为256kbps，512kbps，1024kbps，2500kbps，则30、40两个转码模板将被忽略，只会转出10和20两个模板。

@@ -58,7 +58,7 @@ windows:
 
 接口变更：
 1. TIMMessageOfflinePushSettings.AndroidSettings及TIMMessageOfflinePushSettings.IOSSettings构造方式变更。
-详情请参见官网文档（https://www.qcloud.com/document/product/269/3899）
+详情请参见官网文档（https://cloud.tencent.com/document/product/269/3899）
 
 #### IM Android SDK2.5.2 2017-3-1
 1. 修复偶现发包返回超时的问题（返回码6205）

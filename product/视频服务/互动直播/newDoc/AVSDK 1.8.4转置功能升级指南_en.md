@@ -29,9 +29,9 @@ It's recommended to upgrade to 1.8.2 before upgrading to 1.8.4, instead of upgra
 2. Refer to the upgrade guide of iOS OpenGL rendering code in appendix.
 3. Perform joint debugging the new App with previously released Apps that use AVSDK 1.8.1. Debug rendering logic and fix compatibility issues between iOS and Android.
 4. After the App that uses AVSDK 1.8.2 has become mainstream, upgrade to AVSDK 1.8.4.
-5. Submit a [ticket](https://console.qcloud.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB) in Tencent Cloud's console, choose `Other Problems` for problem type, and in problem description, write `Application for adding rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to apply whitelist (XXXXXXX)`.
+5. Submit a [ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB) in Tencent Cloud's console, choose `Other Problems` for problem type, and in problem description, write `Application for adding rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to apply whitelist (XXXXXXX)`.
 6. After the ticket has been handled, upgrade to AVSDK 1.8.4 and fix compatibility issues between iOS and Android, and run compatibility tests with previously released versions.
-7. After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.qcloud.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`；
+7. After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`；
 
 
 
@@ -39,20 +39,20 @@ It's recommended to upgrade to 1.8.2 before upgrading to 1.8.4, instead of upgra
 
 If rotation is disabled on clients (on iOS, autoRotateVideo of QAVMultiParam is set to NO; on Android, AVRoomMulti.EnterParam.Builder.isDegreeFixed is set to false), follow these steps:
 
-1. Submit a [ticket](https://console.qcloud.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB) in Tencent Cloud's console, choose `Other Problems` for problem type, and in problem description, write `Application for adding rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to apply whitelist (XXXXXXX)`.
+1. Submit a [ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB) in Tencent Cloud's console, choose `Other Problems` for problem type, and in problem description, write `Application for adding rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to apply whitelist (XXXXXXX)`.
 2. After the ticket has been handled, upgrade to AVSDK 1.8.4, and refer to the upgrade guide of iOS OpenGL rendering code in appendix.
 3. Fix compatibility issues between iOS and Android, and run compatibility tests with previously released versions.
-5. After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.qcloud.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`；
+5. After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`；
 
 
 Otherwise:
 
 1. Upgrade to AVSDK 1.8.4, and refer to the upgrade guide of iOS OpenGL rendering code in appendix.
-2. After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.qcloud.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`；
+2. After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`；
 
 ### Upgrade from Version 1.8.3
 
-1. Submit a [ticket](https://console.qcloud.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB) in Tencent Cloud's console, choose `Other Problems` for problem type, and in problem description, write `Query about rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to apply whitelist (XXXXXXX)`.
+1. Submit a [ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB) in Tencent Cloud's console, choose `Other Problems` for problem type, and in problem description, write `Query about rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to apply whitelist (XXXXXXX)`.
 2. After the ticket has been replied,
 
 **If rotation is enabled**
@@ -65,7 +65,7 @@ Otherwise:
 
 * Ensure compatibility between iOS and Android, and run compatibility tests with previously released versions.
 * After the tests, release the new version of App that uses AVSDK 1.8.4.
-* After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.qcloud.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`;
+* After the App that uses AVSDK 1.8.4 has become mainstream, submit a [ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=29&level2_id=37&level1_name=%E8%A7%86%E9%A2%91%E4%B8%8E%E9%80%9A%E4%BF%A1%E6%9C%8D%E5%8A%A1&level2_name=%E4%BA%92%E5%8A%A8%E7%9B%B4%E6%92%AD%20%20ILVB), choose `Other Problems` for problem type, and write in problem description, write `Application for removing rotation whitelist-company name-Tencent Cloud account (XXXXXXX)-sdkappid to remove whitelist status (XXXXXXX)`;
 
 ### Custom Capture and Rendering
 

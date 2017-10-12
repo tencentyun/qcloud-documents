@@ -1,7 +1,7 @@
 After the alarm policy is created, it is essential for you to associate some alarm objects to it to determine which instance objects will send alarms if the alarm trigger conditions are reached.
 
 ## Adding Associated Objects
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click the "Alarm Policy" button.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click the "Alarm Policy" button.
 
 2) Click the alarm policy ID that needs to be associated with objects in the alarm policy list to enter the details page.
 

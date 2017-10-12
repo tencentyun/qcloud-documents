@@ -262,7 +262,7 @@ NAT 网关提供按网关租用和按流量使用两种计费模式，其中流�
 
 ### API 购买
 
-详情请参见 [私有网络API](http://www.qcloud.com/doc/api/245/%E7%AE%80%E4%BB%8B)
+详情请参见 [私有网络API](http://cloud.tencent.com/doc/api/245/%E7%AE%80%E4%BB%8B)
 
 ## 到期提醒
 

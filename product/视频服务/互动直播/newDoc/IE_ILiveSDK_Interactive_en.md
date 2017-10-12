@@ -24,7 +24,7 @@ sdk.init(function () {
 ```
 
 ## Login
-You can use messaging, interactive video and other features only after login. User ID and signature are required for login. Signature is provided by [Tencent Login Service]https://www.qcloud.com/document/product/269/1507).
+You can use messaging, interactive video and other features only after login. User ID and signature are required for login. Signature is provided by [Tencent Login Service]https://cloud.tencent.com/document/product/269/1507).
 
 ```
 sdk.login(id, sig, function () {
@@ -37,7 +37,7 @@ sdk.login(id, sig, function () {
 ## Audio/Video Permission Management
 
 **At business layer, the focus is placed on the audio and video permissions of room members**.  Only VJs or the viewers who need to join the broadcasting are granted the permission to send upstream audio and video. Before joining or creating a room, you need to enter the correct permissions (see "Join/Create a Room" below). Members are allowed to change their permissions in the room.   
-You can go to Tencent Cloud [console to configure](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/SPEARConfig.md) the roles and relevant permissions to meet your business needs. Tencent CVMs assign different [access machines](https://www.qcloud.com/document/product/268/7651) based on the permissions of room members. Incorrectly configured permissions can cause unnecessary bandwidth costs and abnormal upstream data at viewer end.
+You can go to Tencent Cloud [console to configure](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/SPEARConfig.md) the roles and relevant permissions to meet your business needs. Tencent CVMs assign different [access machines](https://cloud.tencent.com/document/product/268/7651) based on the permissions of room members. Incorrectly configured permissions can cause unnecessary bandwidth costs and abnormal upstream data at viewer end.
 
 
 

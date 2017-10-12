@@ -6,7 +6,7 @@
 
 
 
-接口请求域名：<font style="color:red">{'instance_buy_limit': 'https://www.qcloud.com/document/product/213/2664'}</font>
+接口请求域名：<font style="color:red">{'instance_buy_limit': 'https://cloud.tencent.com/document/product/213/2664'}</font>
 
 
 
@@ -43,7 +43,7 @@
 
 ## 示例 
 
->**GET** `https://{'instance_buy_limit': 'https://www.qcloud.com/document/product/213/2664'}/?Action=`
+>**GET** `https://{'instance_buy_limit': 'https://cloud.tencent.com/document/product/213/2664'}/?Action=`
 >>&[公共请求参数](/doc/api/229/6976)
 
 

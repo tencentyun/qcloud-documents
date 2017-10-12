@@ -7,11 +7,11 @@ Domain for API request: ccs.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/457/9463) page.
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/457/9463) page.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://cloud.tencent.com/document/api/457/9448) API.  |
 | serviceName   | Yes | String       | Service name. The first character must be a lowercase letter, the last character must be a lowercase letter or a number, and the middle characters are hyphens, numbers or lowercase letters |
 | serviceDesc   | No | String       | Service description |
 | replicas      | Yes | Int          | Number of pod replicas |
@@ -21,7 +21,7 @@ The following request parameter list only provides API request parameters. For o
 | labels.n      | No | Object Array | Service tag |
 | containers.n  | Yes | Object Array | Container array. You need to define at least one container for a service, the defined containers are launched upon service creation |
 | namespace      | No | String      | Namespace. Default is "default" |
-| subnetId     | No | String      | Subnet ID. Enter the unSubnetId (unified subnet ID) returned when calling the API [Query Subnet List](https://www.qcloud.com/document/api/215/1371). This is mandatory if "accessType" is "SvcLBTypeInner" |
+| subnetId     | No | String      | Subnet ID. Enter the unSubnetId (unified subnet ID) returned when calling the API [Query Subnet List](https://cloud.tencent.com/document/api/215/1371). This is mandatory if "accessType" is "SvcLBTypeInner" |
 
 ``portMappings`` parameter details
 
@@ -32,14 +32,14 @@ The following request parameter list only provides API request parameters. For o
 | nodePort | No | Int | Port opened on the node when accessType is NodePort, LoadBalancer or SvcLBTypeInner. The system assigns a nodePort by default if this is left empty |
 | protocol | Yes | String | Protocol (TCP or UDP) |
 
-``volumes`` parameter details. For more information, please see [Mounting Data Volumes](https://www.qcloud.com/document/product/457/9112).
+``volumes`` parameter details. For more information, please see [Mounting Data Volumes](https://cloud.tencent.com/document/product/457/9112).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|
 | name   | Yes | string      | Container volume name |
 | volumeType   | Yes | String      | Container volume type. Currently hostPath and cbsDisk are supported. **Note: For cbsDisk, the number of service pods must be 1, because cbs disk does not support mounting multiple nodes at the same time** |
 | hostPath  | No | String   | This is required when volumeType is hostPath. Container volume directory on the host. This directory will be mapped to the container when the container launches. If this field is left empty, a temporary directory will be created on the Node for the container volume and deleted when the container is terminated. This directory and the data in it are retained if hostPath is specified |
-| cbsDiskId | No | String | This is required when volumeType is cbsDisk. This is the ID of cbs network disk. This cbs disk is mounted to the host where the container resides and mapped to the container when the container launches, and unmounted from the host when the container is terminated. Enter the storageId (cloud disk ID) field returned when calling the API [Query Cloud Disk Information](https://www.qcloud.com/document/api/362/2519) |
+| cbsDiskId | No | String | This is required when volumeType is cbsDisk. This is the ID of cbs network disk. This cbs disk is mounted to the host where the container resides and mapped to the container when the container launches, and unmounted from the host when the container is terminated. Enter the storageId (cloud disk ID) field returned when calling the API [Query Cloud Disk Information](https://cloud.tencent.com/document/api/362/2519) |
 
 ``labels`` parameter details
 
@@ -57,11 +57,11 @@ The following request parameter list only provides API request parameters. For o
 | envs.n | No | Object Array | Container environment variable array. For more information, please see the definition of envs |
 | volumeMounts.n | No | Object Array | Container volume mount path. For more information, please see the definition of volumeMounts |
 | healthCheck.n | No | Object Array | Container health check. For more information, please see the definition of healthCheck |
-| cpu | No | Int | CPU resource required for the container. Unit: mU (0.001 core), minimum is 100 (0.1 core).<br>0 or empty value means no restriction<br>For more information, please see [Configuring Service Resource Limits](https://www.qcloud.com/document/product/457/9099) |
-| cpuLimits  | No | Int | Maximum CPU resource available for the container. Unit: mU (0.001 core). minimum is 100 (0.1 core).<br>0 or empty value means no restriction, and a value greater than 0 must be no less than the value of "cpu"<br>For more information, please see [Configuring Service Resource Limits](https://www.qcloud.com/document/product/457/9099) |
-| memory | No | Int |Maximum memory available for the container (in MiB). It is recommended to choose a value no less than 4 MiB. <br>0 or empty value means no restriction, and the required memory equals to maximum available memory by default<br>For more information, please see [Configuring Service Resource Limits](https://www.qcloud.com/document/product/457/9099) |
-| command | No | String | Startup command for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://www.qcloud.com/document/product/457/9100) |
-| arguments.n | No | String Array | Startup parameter for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://www.qcloud.com/document/product/457/9100) |
+| cpu | No | Int | CPU resource required for the container. Unit: mU (0.001 core), minimum is 100 (0.1 core).<br>0 or empty value means no restriction<br>For more information, please see [Configuring Service Resource Limits](https://cloud.tencent.com/document/product/457/9099) |
+| cpuLimits  | No | Int | Maximum CPU resource available for the container. Unit: mU (0.001 core). minimum is 100 (0.1 core).<br>0 or empty value means no restriction, and a value greater than 0 must be no less than the value of "cpu"<br>For more information, please see [Configuring Service Resource Limits](https://cloud.tencent.com/document/product/457/9099) |
+| memory | No | Int |Maximum memory available for the container (in MiB). It is recommended to choose a value no less than 4 MiB. <br>0 or empty value means no restriction, and the required memory equals to maximum available memory by default<br>For more information, please see [Configuring Service Resource Limits](https://cloud.tencent.com/document/product/457/9099) |
+| command | No | String | Startup command for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://cloud.tencent.com/document/product/457/9100) |
+| arguments.n | No | String Array | Startup parameter for the container. <br>For more information, please see [Service Operation Commands and Parameter Configurations](https://cloud.tencent.com/document/product/457/9100) |
 
 ``envs`` parameters details
 
@@ -70,7 +70,7 @@ The following request parameter list only provides API request parameters. For o
 | name | String | Environment variable name |
 | value | String | Environment variable value |
 
-``volumeMounts`` parameter details. For more information, please see [Data Volume Mounting Instruction](https://www.qcloud.com/document/product/457/9112).
+``volumeMounts`` parameter details. For more information, please see [Data Volume Mounting Instruction](https://cloud.tencent.com/document/product/457/9112).
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -78,7 +78,7 @@ The following request parameter list only provides API request parameters. For o
 | mountPath | String | Volume mounting point in the container |
 | mode | String | Indicates how container accesses the volume. ro: read only. rw: read and write |
 
-``healthCheck`` parameter details. For more information, please see [Service Health Check Settings](https://www.qcloud.com/document/product/457/9094).
+``healthCheck`` parameter details. For more information, please see [Service Health Check Settings](https://cloud.tencent.com/document/product/457/9094).
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|

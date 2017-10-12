@@ -5,8 +5,8 @@
 
 概念|	解释
 ---------|---------
-appid|	接入万象优图创建空间时,系统生成的唯一项目ID, 用于唯一标识接入项目, 申请链接: [图片空间](http://console.qcloud.com/image/bucket)；如果空间名称前面有“APP”字样的小图标，表明是V1版本的，只能使用V1版本接口
-bucket|	开发者添加的空间名称，参见[图片空间](http://console.qcloud.com/image/bucket)
+appid|	接入万象优图创建空间时,系统生成的唯一项目ID, 用于唯一标识接入项目, 申请链接: [图片空间](http://console.cloud.tencent.com/image/bucket)；如果空间名称前面有“APP”字样的小图标，表明是V1版本的，只能使用V1版本接口
+bucket|	开发者添加的空间名称，参见[图片空间](http://console.cloud.tencent.com/image/bucket)
 userid|	为即将废弃字段，请使用默认值“0”
 fileid|	资源存储的唯一标识
 
@@ -243,7 +243,7 @@ domain: [bucket]-[appid].image.myqcloud.com
 
 参数名称|	参数含义|	说明
 ---------|---------|---------
-appid|	开发者创建[图片空间](http://console.qcloud.com/image/bucket)时，系统返回的项目ID|	可在图片空间中查看；如果空间名称签名有“APP”字样小图标的，表明是V1版本的，只能使用V1版本接口
+appid|	开发者创建[图片空间](http://console.cloud.tencent.com/image/bucket)时，系统返回的项目ID|	可在图片空间中查看；如果空间名称签名有“APP”字样小图标的，表明是V1版本的，只能使用V1版本接口
 userid|	同个id下每个用户的唯一编号|	开发者用户体系同的userid若没有可填0
 fileid|	上传图片后返回的文件id|	开发者用户体系同的userid若没有可填0
 pattern|	用户针对每个缩略图样式定义的名字|	取代一些以数字标记规格的方式，增强灵活性和解决相同规格不同压缩方式的冲突；当pattern为original表示原图，其他为用户自定义的样式名

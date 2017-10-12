@@ -5,12 +5,12 @@
 
 申请安全凭证的具体步骤如下：
 
-1) 登录[腾讯云管理中心控制台](https://console.qcloud.com/)。
+1) 登录[腾讯云管理中心控制台](https://console.cloud.tencent.com/)。
 
 2) 点击【云产品】，选择【监控与管理】栏下的【云API密钥】，进入云API密钥管理页面。
 ![](//mccdn.qcloud.com/img568f5fb824757.png)
 
-3) 在[云API访问密钥管理](https://console.qcloud.com/capi)页面，点击【新建】即可以创建一对SecretId/SecretKey，每个帐号最多可以拥有两对SecretId/SecretKey。
+3) 在[云API访问密钥管理](https://console.cloud.tencent.com/capi)页面，点击【新建】即可以创建一对SecretId/SecretKey，每个帐号最多可以拥有两对SecretId/SecretKey。
 
 ## 生成签名串
 有了安全凭证SecretId 和 SecretKey后，就可以生成签名串了。下面给出了一个生成签名串的详细过程。

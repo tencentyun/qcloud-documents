@@ -1,6 +1,6 @@
 下文中CVM实例即包括专用子机。
 
-弹性公网 IP 地址是专为动态云计算设计的静态 IP 地址。它是某地域下一个固定不变的公网 IP 地址。借助弹性公网 IP 地址，您可以快速将地址重新映射到账户中的另一个 CVM 实例（或 [NAT 网关](https://www.qcloud.com/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3)实例），从而屏蔽实例故障。
+弹性公网 IP 地址是专为动态云计算设计的静态 IP 地址。它是某地域下一个固定不变的公网 IP 地址。借助弹性公网 IP 地址，您可以快速将地址重新映射到账户中的另一个 CVM 实例（或 [NAT 网关](https://cloud.tencent.com/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3)实例），从而屏蔽实例故障。
 
 您的弹性 IP 地址与腾讯云账户相关联，而不是与某个 CVM 实例相关联，而且在您选择显式释放该地址，或欠费超过 7 天之前，它会一直与您的腾讯云账户保持关联。
 
@@ -47,7 +47,7 @@
 
 ## 申请弹性公网 IP
 
-1) 打开云服务器 [CVM 控制台](https://console.qcloud.com/cvm) 。
+1) 打开云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 ​	
 2) 在导航窗格中，单击弹性公网 IP。
 
@@ -57,7 +57,7 @@
 
 ## 弹性公网 IP 绑定云产品
 
-1) 打开云服务器 [CVM 控制台](https://console.qcloud.com/cvm)。
+1) 打开云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm)。
 
 2) 在导航窗格中，单击弹性公网 IP。
 
@@ -67,7 +67,7 @@
 
 ## 弹性公网 IP 解绑云产品
 
-1) 打开云服务器 [CVM 控制台](https://console.qcloud.com/cvm) 。
+1) 打开云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 
 2) 在导航窗格中，单击弹性公网IP。
 
@@ -78,7 +78,7 @@
 此时云产品实例可能会被分配新的公网 IP，具体细节将依据云资源的不同产生差异，以实际情况为准。
 
 ## 释放弹性公网 IP
-1) 打开云服务器 [CVM 控制台](https://console.qcloud.com/cvm) 。
+1) 打开云服务器 [CVM 控制台](https://console.cloud.tencent.com/cvm) 。
 
 2) 在导航窗格中，单击弹性公网 IP。
 

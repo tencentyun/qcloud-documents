@@ -7,7 +7,7 @@ NAT网关和公网网关类似，是私有网络内云主机访问公网的另�
 
 NAT网关提供了三种配置类型，最大满足5Gbps突增流量和1000w并发连接数。
 
-NAT网关设备共收取两项服务费用：网关租用费（按小时计费）和访问Internet产生的流量费用，详细的计费规则可见[价格总览](https://www.qcloud.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88)。
+NAT网关设备共收取两项服务费用：网关租用费（按小时计费）和访问Internet产生的流量费用，详细的计费规则可见[价格总览](https://cloud.tencent.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88)。
 
 NAT网关与公网网关都用于私有网络内云主机访问Internet，但二者也存在一些差异，如下表所示：
 

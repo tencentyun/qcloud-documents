@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (DeleteNamespace) is used to delete a custom namespace. A namespace with metrics cannot be deleted. Please delete the <a href="https://www.qcloud.com/document/api/397/4241">metrics before deleting the namespace.</a>
+This API (DeleteNamespace) is used to delete a custom namespace. A namespace with metrics cannot be deleted. Please delete the <a href="https://cloud.tencent.com/document/api/397/4241">metrics before deleting the namespace.</a>
 
 Domain name: monitor.api.qcloud.com
  
@@ -59,7 +59,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=DeleteNamespace
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=cvm
 </pre>
 

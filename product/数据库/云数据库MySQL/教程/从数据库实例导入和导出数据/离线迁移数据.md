@@ -1,5 +1,5 @@
 ## 1. 控制台导出
-1.<span></span> 使用云数据库数据控制台导出功能（详见：[下载备份文件](https://www.qcloud.com/document/product/236/7274)），下载备份文件。  
+1.<span></span> 使用云数据库数据控制台导出功能（详见：[下载备份文件](https://cloud.tencent.com/document/product/236/7274)），下载备份文件。  
 2.<span></span> 还原数据库时，可以通过 MySQL 命令行工具进行还原，方式如下：
 ```
 shell > mysql -h hostname -P port -u username -p < bak_pathname
@@ -65,7 +65,7 @@ shell > mysql -h hostname -P port -u username -p < bak_pathname
 其中，hostname 为还原数据的目标主机，port 为目标主机的端口，username 为目标主机的数据库用户名，bak_pathname 为备份文件的完整路径。
 
 ### 2.1. 通过 CVM 主机 Linux 系统导出数据
-CVM 主机访问数据库请参见[访问MySQL数据库](https://www.qcloud.com/document/product/236/3130)。
+CVM 主机访问数据库请参见[访问MySQL数据库](https://cloud.tencent.com/document/product/236/3130)。
 1.<span></span> 以云数据库上的 db_blog 数据库为例。登录 CVM 主机，使用 MySQL 命令行工具 mysqldump 生成待导入的 SQL 文件。
 
 ![][image-5]
@@ -80,7 +80,7 @@ CVM 主机访问数据库请参见[访问MySQL数据库](https://www.qcloud.com/
 2. 如果导入数据文件中有指定的字符集编码，则以指定的字符集编码执行。
 
 3. 如果导入的数据文件的字符集编码与云数据库当前字符集编码不同，会造成乱码。
-更多字符集编码问题，请参考[使用限制](https://www.qcloud.com/document/product/236/7259#document_charset_6)，字符集说明。
+更多字符集编码问题，请参考[使用限制](https://cloud.tencent.com/document/product/236/7259#document_charset_6)，字符集说明。
 
 [image-1]:  https://mc.qcloudimg.com/static/img/ec1530d76dab094cfc76a49e05e34d3c/step11.png
 [image-2]:  https://mc.qcloudimg.com/static/img/6974d27bab6a539dd001ea9d58d59a30/step12.png

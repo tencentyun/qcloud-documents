@@ -11,7 +11,7 @@ You need to use the administrator account ID and the corresponding password to l
 
 - Administrator account ID: it is ***Administrator*** for all Windows instances 
 - Password:
-  - If you select "Auto Generate Password" when starting the instance, then the initial password will be randomly assigned by the system. You can log in to [Tencent Cloud Console](https://console.qcloud.com/), and click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
+  - If you select "Auto Generate Password" when starting the instance, then the initial password will be randomly assigned by the system. You can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
   ![](//mccdn.qcloud.com/img56a20f10a373a.png)
 
   - If you select "Custom Password" when starting the instance, then the password will be the one you specified when purchasing the CVM instance. To learn more about password, for example, what to do if I forget the login password, refer to [Login Password](/doc/product/213/6093).
@@ -19,7 +19,7 @@ You need to use the administrator account ID and the corresponding password to l
 ## Windows system: use Remote Desktop Connection to log in to Windows instance
 On the local Windows machine, click "Start" - "Run", enter `mstsc` command to open the Remote Desktop Connection dialog box.
 
-In the input box, input the public IP of Windows Server (Log in to [CVM Console](https://console.qcloud.com/cvm) to check the public IP of CVM), as shown below:
+In the input box, input the public IP of Windows Server (Log in to [CVM Console](https://console.cloud.tencent.com/cvm) to check the public IP of CVM), as shown below:
 ![](//mccdn.qcloud.com/img56b1a11a3c31f.png)
 
 Click "Connect", and, in the screen that opens, enter the administrator account ID and corresponding password obtained from the Prerequisites step as shown below:

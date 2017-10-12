@@ -17,7 +17,7 @@ The picture seen by the VJ is the collected video which is directly rendered ont
  Incorrect parameter configurations will lead to more picture quality loss. A typical mistake is to configure a high resolution with a low bit rate, which will cause a blurred display and serious mosaic. How should we configure?
 	 
 - **setVideoQuality**
-In 1.9.1, we introduced the setVideoQuality function into TXlivePusher with several configuration levels. You can simply choose **High Definition** mode to achieve best quality in beauty LVB. For more information, please see [iOS Platform](https://www.qcloud.com/document/product/454/7879#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6) and [Android Platform](https://www.qcloud.com/document/product/454/7885#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6).
+In 1.9.1, we introduced the setVideoQuality function into TXlivePusher with several configuration levels. You can simply choose **High Definition** mode to achieve best quality in beauty LVB. For more information, please see [iOS Platform](https://cloud.tencent.com/document/product/454/7879#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6) and [Android Platform](https://cloud.tencent.com/document/product/454/7885#step-9.3A-.E6.8E.A8.E8.8D.90.E7.9A.84.E6.B8.85.E6.99.B0.E5.BA.A6).
 
 ### Step 3: Add Manual Focus to Android
 The same beauty filter algorithm may yield different result on different Android phones. The main reason is that the difference between the exposure effects on various devices may cause completely different visual experiences.
@@ -42,7 +42,7 @@ Some customers find out that pictures pushed by the Android RTMP SDK have seriou
 If you're concerned about the App's power consumption, you can consider increasing the bit rate of the pushed stream or use **High Definition** level in setVideoQuality (if you configure a low bit rate, the Android hardware encoding module will ensure a stable bit rate by greatly lowering picture quality)
 
 - **If bandwidth is your main concern**
- Increasing bit rate may not satisfy your demand properly if you're concerned about bandwidth cost. In this case, you can solve the problem by disabling hardware acceleration. Refer to [setHardwareAcceleration](https://www.qcloud.com/document/product/454/7885#step-7.3A-.E7.A1.AC.E4.BB.B6.E7.BC.96.E7.A0.81) for instructions.
+ Increasing bit rate may not satisfy your demand properly if you're concerned about bandwidth cost. In this case, you can solve the problem by disabling hardware acceleration. Refer to [setHardwareAcceleration](https://cloud.tencent.com/document/product/454/7885#step-7.3A-.E7.A1.AC.E4.BB.B6.E7.BC.96.E7.A0.81) for instructions.
 
 ### Step 6: Disable Network Adaption
 The **AutoAdjustBitrate** option in **TXLivePushConfig** is the switch for network adaption. If it is enabled, when the VJ's network condition declines, the video quality will be lowered to ensure the smoothness. But this feature is not suitable for Beauty Show LVB.
@@ -51,7 +51,7 @@ Network adaption technology is suitable for game LVB scenarios, where viewers co
 
 However, picture quality is more critical in beauty show scenarios. A number of customers report that picture quality varies greatly in different LVB rooms, and enabling network adaption is a possible reason for this.
 
-We recommend that you disable network adaption in these scenarios and use [Active Notification](https://www.qcloud.com/document/product/454/7946#4.2-.E9.92.88.E5.AF.B9.E6.80.A7.E4.BC.98.E5.8C.96.E6.96.B9.E6.A1.888) to deal with network fluctuations, as this is the fundamental solution.
+We recommend that you disable network adaption in these scenarios and use [Active Notification](https://cloud.tencent.com/document/product/454/7946#4.2-.E9.92.88.E5.AF.B9.E6.80.A7.E4.BC.98.E5.8C.96.E6.96.B9.E6.A1.888) to deal with network fluctuations, as this is the fundamental solution.
 
 
 ## Scenario 2: Game LVB

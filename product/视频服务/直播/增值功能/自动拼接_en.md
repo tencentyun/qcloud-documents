@@ -61,7 +61,7 @@ After accessing Tencent LVB service, you need to enable recording feature before
   ![](//mc.qcloudimg.com/static/img/f0ae825b082dac847640eb7b931eb927/image.png)
 
 When enabling the recording feature, you need **configure the recording file type to HLS** to use the automatic stitching feature.
-Configure and enable the recording feature on the console. Currently, this is available only in LVB code mode. For more information, please see [Cloud Recording](https://www.qcloud.com/document/product/267/7963)
+Configure and enable the recording feature on the console. Currently, this is available only in LVB code mode. For more information, please see [Cloud Recording](https://cloud.tencent.com/document/product/267/7963)
 
 2. **Configure the callback URL**
 

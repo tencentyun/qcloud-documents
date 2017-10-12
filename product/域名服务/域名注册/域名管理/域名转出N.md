@@ -5,7 +5,7 @@
 - 请认真核对域名资料，转出密码将发送到您的域名信息邮箱里，请注意查收。
 
 ### 步骤一：登录管理控制台
-打开 [腾讯云官网](https://www.qcloud.com/)，在顶部导航条右侧单击【管理中心】，登录到管理中心首页。
+打开 [腾讯云官网](https://cloud.tencent.com/)，在顶部导航条右侧单击【管理中心】，登录到管理中心首页。
 ![登录管理控制台](//mc.qcloudimg.com/static/img/93b74a8e306f5f05dfcaf89abeef523d/image.png)
 在**使用中的云产品**栏目内，单击【域名管理】进入域名管理页面，即可看到您购买的所有域名信息列表。
 ![打开域名管理中心](//mc.qcloudimg.com/static/img/da4ba43894682972815e6deb5f040e50/image.png)

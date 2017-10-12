@@ -8,7 +8,7 @@
 接口名：RegisterProtection
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/document/product/295/7279)页面。其中，此接口的Action字段为RegisterProtection。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)页面。其中，此接口的Action字段为RegisterProtection。
 <table class="t">
 <tbody><tr>
 <th> <b>参数名称</b>
@@ -199,7 +199,7 @@
 </th></tr>
 <td> code
 </td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/document/product/295/7285"target="black">公共错误码</a>
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/document/product/295/7285"target="black">公共错误码</a>
 </td></tr>
 <tr><td> codeDesc
 </td><td> String
@@ -274,7 +274,7 @@ riskType详细说明
 
 ## 4.示例代码
 代码下载： [Python示例](https://mc.qcloudimg.com/static/archive/96f7d86723aebd2cd824a93bc405f5aa/RegisterProtection.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/316eacff388775f02eabf769cced222a/RegisterProtection.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/1d4853fb7b41fc405adf20a9aed47f24/RegisterProtection.java.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/c699e43c486a75fadb12dd146a3820c4/RegisterProtection.cs.zip)
-<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/document/product/295/7279)小节。
+<br> 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)小节。
 ```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?

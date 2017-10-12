@@ -2,22 +2,22 @@
 
 本节要介绍的是移动端的纯推流和纯播放功能，要借助腾讯云RTMP SDK来实现，消息、弹幕、点赞、飘星等业务逻辑在后续的文章中再做介绍。
 
-1. 首先在 [直播控制台](https://www.qcloud.com/doc/api/258/6445) 上生成一对推流和播放地址，用来测试推流和直播观看。
+1. 首先在 [直播控制台](https://cloud.tencent.com/doc/api/258/6445) 上生成一对推流和播放地址，用来测试推流和直播观看。
 2. 对接 RTMP 推流功能，一般需要0.5d - 1d 时间。
 3. 对接 LIVE 在线直播功能，一般需要0.5d - 1d 时间。
-4. 对接 VOD 视频点播功能（视需要而定）：先[开通点播服务](https://www.qcloud.com/doc/api/258/6208#2.1-.E5.A6.82.E4.BD.95.E5.BC.80.E9.80.9A.E8.A7.86.E9.A2.91.E7.82.B9.E6.92.AD.E6.9C.8D.E5.8A.A1)，开通之后在推流URL后面拼接 &record=flv (或者mp4) 就可以将推流的视频录制下来，之后在[点播控制台](http://console.qcloud.com/video/videolist) 可以看到相关的视频。
-5. 剩下的就是等 [直播后台](https://www.qcloud.com/doc/api/258/6447) 对接好后，把测试URL换成正式的推拉流地址了。
+4. 对接 VOD 视频点播功能（视需要而定）：先[开通点播服务](https://cloud.tencent.com/doc/api/258/6208#2.1-.E5.A6.82.E4.BD.95.E5.BC.80.E9.80.9A.E8.A7.86.E9.A2.91.E7.82.B9.E6.92.AD.E6.9C.8D.E5.8A.A1)，开通之后在推流URL后面拼接 &record=flv (或者mp4) 就可以将推流的视频录制下来，之后在[点播控制台](http://console.cloud.tencent.com/video/videolist) 可以看到相关的视频。
+5. 剩下的就是等 [直播后台](https://cloud.tencent.com/doc/api/258/6447) 对接好后，把测试URL换成正式的推拉流地址了。
 
 ## RTMP推流
 RTMP 推流即由SDK完成音视频采集和编码，然后使用标准 rtmp 协议将音视频流推送到指定的推流URL上去。
 
-- **摄像头直播（[iOS平台](https://www.qcloud.com/doc/product/454/6946) &  [Android 平台](https://www.qcloud.com/doc/product/454/6947)）**
+- **摄像头直播（[iOS平台](https://cloud.tencent.com/doc/product/454/6946) &  [Android 平台](https://cloud.tencent.com/doc/product/454/6947)）**
 摄像头直播即由SDK采集摄像头的影响和麦克风的声音，之后完成编码和推流工作，支持 iOS 7 和 Android 4.2 及更高版本的操作系统。
 
-- **手机录屏直播（[iOS平台](https://www.qcloud.com/doc/product/454/6948) & [ Android 平台](https://www.qcloud.com/doc/product/454/6949)）**
+- **手机录屏直播（[iOS平台](https://cloud.tencent.com/doc/product/454/6948) & [ Android 平台](https://cloud.tencent.com/doc/product/454/6949)）**
 手机录屏直播即由SDK采集手机的屏幕画面和麦克风的声音，之后完成编码和推流工作，支持 iOS 10 和 Android 5.0 及更高版本的操作系统。
 
-- **进阶应用（[参考文档](https://www.qcloud.com/doc/product/454/6955)）**
+- **进阶应用（[参考文档](https://cloud.tencent.com/doc/product/454/6955)）**
   + 对于想要了解 RTMP SDK 内部原理的客户
   + 有音视频相关开发经验，需要结合自身场景对参数进行定制的客户
   + 想要只拿 RTMP SDK 进行推流的客户
@@ -36,8 +36,8 @@ RTMP 推流即由SDK完成音视频采集和编码，然后使用标准 rtmp 协
 
 目前腾讯云 RTMP SDK 在上述三个方面的表现均得到了客户的一致认可，对接的成本也很低，一般 1d 都能搞定。
 
-- [iOS平台参考文档](https://www.qcloud.com/doc/product/454/6950) 
-- [Android 平台参考文档](https://www.qcloud.com/doc/product/454/6952) 
+- [iOS平台参考文档](https://cloud.tencent.com/doc/product/454/6950) 
+- [Android 平台参考文档](https://cloud.tencent.com/doc/product/454/6952) 
 
 ## 视频点播(VOD)
 VOD 视频点播的内部原理和优化方案跟 Live 在线直播有很大差异，但是接口上跟Live直播播放基本保持一致，使用上注意两点区别：
@@ -47,8 +47,8 @@ VOD 视频点播的内部原理和优化方案跟 Live 在线直播有很大差�
 RTMP SDK 的点播播放器主要面向的是视频直播客户的录制回放需求，所以在格式支持上我们并不追求大而全，仅提供了 FLV(支持分辨率切换和横竖屏切换)、 HLS 和 MP4 三种点播格式的支持。
 
 如果已经接过直播了，分分钟就可以实现点播功能：
-- [iOS平台参考文档](https://www.qcloud.com/doc/product/454/6953) 
-- [Android 平台参考文档](https://www.qcloud.com/doc/product/454/6954) 
+- [iOS平台参考文档](https://cloud.tencent.com/doc/product/454/6953) 
+- [Android 平台参考文档](https://cloud.tencent.com/doc/product/454/6954) 
 
 ## 源码参考
 下面是小直播源码中 RTMP SDK 对接部分的代码位置：

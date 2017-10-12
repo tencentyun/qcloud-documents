@@ -8,7 +8,7 @@ ImSDK.framework 支持iOS 7.0 及以上系统。
 
 ### 1.2 下载ImSDK
 
-从 [官网](https://www.qcloud.com/product/im.html#sdk) 下载ImSDK开发包，主要包括：ImSDK.framework、IMMessageExt.framework、IMGroupExt.framework、IMFriendshipExt.framework、TLSSDK.framework、QALSDK.framework。各个包的说明如下：
+从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载ImSDK开发包，主要包括：ImSDK.framework、IMMessageExt.framework、IMGroupExt.framework、IMFriendshipExt.framework、TLSSDK.framework、QALSDK.framework。各个包的说明如下：
 
 必选SDK：**必须是一个版本成套使用，不同版本不可混用**
 
@@ -36,7 +36,7 @@ ImSDK.framework 支持iOS 7.0 及以上系统。
 * TXRTMPSDK.framework   小视频录制、编辑能力扩展包
   * 包含小视频录制功能
   * 包含小视频编辑功能
-  * 其他能力请参见[移动直播SDK文档](https://www.qcloud.com/document/product/454/7876)
+  * 其他能力请参见[移动直播SDK文档](https://cloud.tencent.com/document/product/454/7876)
 
 其他SDK：
 

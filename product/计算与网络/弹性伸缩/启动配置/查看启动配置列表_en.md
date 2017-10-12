@@ -3,7 +3,7 @@ Scaling configuration is a template for automatic creation of CVM. It contains i
 >Scaling configuration must be specified when the scaling group is created.
 >Once the scaling configuration is created, its attributes cannot be edited.
 
-Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar to view the list.
+Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar to view the list.
 - To check the details of a scaling configuration, please click the corresponding scaling configuration ID.
 - To delete a scaling configuration, please click **Delete** in the corresponding scaling configuration entry.
 

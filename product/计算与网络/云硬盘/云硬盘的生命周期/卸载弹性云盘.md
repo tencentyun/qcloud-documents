@@ -15,7 +15,7 @@
 ![](//mccdn.qcloud.com/static/img/9939fccce6e6d9ead64b5703455d4403/image.png)
 ![](//mccdn.qcloud.com/static/img/9939fccce6e6d9ead64b5703455d4403/image.png)
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)。
 
 2) 进入【云服务器】-【云硬盘】选项卡。
 
@@ -25,4 +25,4 @@
 4) 在弹出的对话框中确认警告事项，点击【确认】按钮。
 
 ## 使用 API 卸载弹性云盘
-用户可以使用 DetachCbsStorages 接口卸载弹性云盘，具体内容请参考 [解挂弹性云盘接口](https://www.qcloud.com/doc/api/364/2521)。
+用户可以使用 DetachCbsStorages 接口卸载弹性云盘，具体内容请参考 [解挂弹性云盘接口](https://cloud.tencent.com/doc/api/364/2521)。

@@ -80,7 +80,7 @@ public class UgcSign {
 class Test {
 	public static void main(String[] args) {
 		UgcSign sign = new UgcSign();
-		//从https://console.qcloud.com/capi获取，分别对应SecretId和SecretKey
+		//从https://console.cloud.tencent.com/capi获取，分别对应SecretId和SecretKey
 		sign.m_strSecId = "AKIDR20GpXsc4fixxxxxxxbuWQCeTpw9ljzt";
 		sign.m_strSecKey = "wGxKo4cu6WFBWxxxxxxxbH7BTTiUn4bV";
 		

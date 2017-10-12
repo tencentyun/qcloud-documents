@@ -18,10 +18,10 @@
 
 	 
 
-[1]:	https://www.qcloud.com/document/product/363
-[2]:	https://www.qcloud.com/document/product/363/2408
-[3]:	https://www.qcloud.com/document/product/363/2409
-[4]:	https://www.qcloud.com/document/product/363/2410
-[5]:	https://www.qcloud.com/document/product/363/2411
-[6]:	https://www.qcloud.com/document/product/363/2487
-[7]:	https://www.qcloud.com/document/product/363/7249
+[1]:	https://cloud.tencent.com/document/product/363
+[2]:	https://cloud.tencent.com/document/product/363/2408
+[3]:	https://cloud.tencent.com/document/product/363/2409
+[4]:	https://cloud.tencent.com/document/product/363/2410
+[5]:	https://cloud.tencent.com/document/product/363/2411
+[6]:	https://cloud.tencent.com/document/product/363/2487
+[7]:	https://cloud.tencent.com/document/product/363/7249

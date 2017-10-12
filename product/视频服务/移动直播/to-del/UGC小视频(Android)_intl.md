@@ -114,13 +114,13 @@ void onRecordComplete(TXRecordResult result);
 ```     
 
 ### 4. Preview File
-Use the [Playback SDK](https://www.qcloud.com/document/product/454/7886) to preview the generated MP4 file. When calling startPlay, you need to specify playback type as [PLAY_TYPE_LOCAL_VIDEO](https://www.qcloud.com/document/product/454/7886#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE.E5.99.A86).
+Use the [Playback SDK](https://cloud.tencent.com/document/product/454/7886) to preview the generated MP4 file. When calling startPlay, you need to specify playback type as [PLAY_TYPE_LOCAL_VIDEO](https://cloud.tencent.com/document/product/454/7886#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE.E5.99.A86).
 
 ### 5. Acquire Signature
 To publish the generated MP4 file onto Tencent Cloud Video Distribution CDN, you need **SecretID** and **Signature**. Similar to user name and password, they are used to ensure the safety of your cloud storage service and prevent attackers from stealing your traffic and storage.
 
 - **SecretID (Key ID)**
-You can obtain or create a SecretID in the management section of [Cloud API Key](https://console.qcloud.com/capi), as shown in the figure below (marked in red box):
+You can obtain or create a SecretID in the management section of [Cloud API Key](https://console.cloud.tencent.com/capi), as shown in the figure below (marked in red box):
 ![](http://mc.qcloudimg.com/static/img/23f95aaa97adf3eeae3bf90470fe5122/image.png)
 
 - **Signature (Upload Signature)**
@@ -128,7 +128,7 @@ The upload signature is a one-time string calculated using a standard signature 
 
  To ensure safety, you need to put the signature calculation program in your backend server instead of putting the calculation function into the App, because it's easy to crack an App and acquire the SecretKey used for the signature, while cracking a server is an impossible task for most attackers.
 
- For more information about the method for calculating signature, please see [How to Generate Signature?](https://www.qcloud.com/document/product/266/7835?!preview&lang=zh#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E8.AE.A1.E7.AE.97.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF). You can leave the fields FileName, FileSha and uid empty when generating the publish signature.
+ For more information about the method for calculating signature, please see [How to Generate Signature?](https://cloud.tencent.com/document/product/266/7835). You can leave the fields FileName, FileSha and uid empty when generating the publish signature.
 
 ### 6. Publish File
 TXUGCPublish (located in TXUGCPublish.java) is used to publish MP4 files onto the Tencent Cloud Video Distribution Platform in order to satisfy video playback demands such as closest location scheduling, instant video launching, dynamic acceleration and overseas access.
@@ -152,7 +152,7 @@ The feedback of the publishing process and result is provided by the TXRecordCom
 void onPublishProgress(long uploadBytes, long totalBytes);
 ```
 
-- onPublishComplete provides feedback of publishing result. The fields errCode and descMsg of TXPublishResult indicate error code and error message. videoURL is the playback address of the short video. coverURL is the cloud storage address of the video cover image. videoId is the cloud storage ID of the video file, you can use this ID to call VOD [Server APIs](https://www.qcloud.com/document/product/266/1965).
+- onPublishComplete provides feedback of publishing result. The fields errCode and descMsg of TXPublishResult indicate error code and error message. videoURL is the playback address of the short video. coverURL is the cloud storage address of the video cover image. videoId is the cloud storage ID of the video file, you can use this ID to call VOD [Server APIs](https://cloud.tencent.com/document/product/266/1965).
 ```java 
 void onPublishComplete(TXPublishResult result);
 ```

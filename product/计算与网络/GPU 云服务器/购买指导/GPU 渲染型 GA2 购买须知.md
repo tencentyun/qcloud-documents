@@ -6,10 +6,10 @@
 ##  GPU 渲染型 GA2 实例购买步骤
 
 用户依据以下操作可以快速购买一台  GPU 渲染型 GA2 实例
->GPU 渲染型 GA2 现处于内测阶段，如需申请，请点击[这里](https://www.qcloud.com/act/apply/ga2)
+>GPU 渲染型 GA2 现处于内测阶段，如需申请，请点击[这里](https://cloud.tencent.com/act/apply/ga2)
 
 ### 1. 登录购买页面
-[点击进入购买页面>>](https://buy.qcloud.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=ga&tabIndex=1)
+[点击进入购买页面>>](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=ga&tabIndex=1)
 
 ### 2. 选择地域与机型
 在这个步骤需要选择：
@@ -54,7 +54,7 @@ GA2 搭载 AMD S7150 GPU， 主机内需要安装对应的驱动程序才能正�
 
 设置完成后单击【立即购买】。
 ### 6. 查收服务器
-核实信息后完成支付，即可进入 [控制台](https://console.qcloud.com/cvm) 的邮箱中查收云服务器。
+核实信息后完成支付，即可进入 [控制台](https://console.cloud.tencent.com/cvm) 的邮箱中查收云服务器。
 GA2 实例购买完成后，将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。可以使用这些信息登录和管理实例，也请尽快更改登录密码保障主机安全性。
 
 

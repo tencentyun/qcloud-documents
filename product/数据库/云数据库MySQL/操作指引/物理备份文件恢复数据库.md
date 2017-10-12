@@ -1,47 +1,47 @@
-## ÎïÀí±¸·İ»Ö¸´Êı¾İ¿â
-#### 1 ÏÂÔØ±¸·İÎÄ¼ş
-¾ßÌå²½ÖèÇë²Î¿¼£º[¾ßÌåµÄÏÂÔØËµÃ÷](https://www.qcloud.com/doc/product/236/7123)
-ÏÂÔØÎÄ¼ş³É¹¦ºó£¬ÈçÏÂÍ¼£º
+## ï¿½ï¿½ï¿½ï¿½ï¿½İ»Ö¸ï¿½ï¿½ï¿½ï¿½İ¿ï¿½
+#### 1 ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+ï¿½ï¿½ï¿½å²½ï¿½ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½](https://cloud.tencent.com/doc/product/236/7123)
+ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 ![](https://mc.qcloudimg.com/static/img/d02b20501dd1c42a95f2b7a74c266b98/1.png)
 
-#### 2 ½âÑ¹±¸·İÎÄ¼ş
-½âÑ¹±¸·İÎÄ¼ş£º
+#### 2 ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 ```
 tar   xfv  backup.tgz
 ```
-²éÑ¯½âÑ¹ºóÉú³ÉµÄÎÄ¼ş£¬ÆäÖĞÀ¶É«×ÖÌåµÄÄ¿Â¼ÎÄ¼şÎª±¸·İÉú³ÉÊ± CDB ´æÔÚµÄÊı¾İ¿â
+ï¿½ï¿½Ñ¯ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Ä¼ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê± CDB ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½İ¿ï¿½
 ![](https://mc.qcloudimg.com/static/img/62a64dc648edb040b9bbd9f2bbd65491/2.png)
 
 
-#### 3 ÅäÖÃÎÄ¼şĞŞ¸Ä
-ÓÉÓÚ´æÔÚµÄ°æ±¾ÎÊÌâ£¬Çë½«½âÑ¹ÎÄ¼ş backup-my.cnf ÖĞµÄ
-innodb_checksum_algorithm¡¢
-innodb_log_checksum_algorithm¡¢
-innodb_fast_checksum¡¢
-innodb_page_size ¡¢
-innodb_log_block_size¡¢
-redo_log_version ×¢ÊÍµô£¬ÈçÏÂÍ¼£º
+#### 3 ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ş¸ï¿½
+ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ÚµÄ°æ±¾ï¿½ï¿½ï¿½â£¬ï¿½ë½«ï¿½ï¿½Ñ¹ï¿½Ä¼ï¿½ backup-my.cnf ï¿½Ğµï¿½
+innodb_checksum_algorithmï¿½ï¿½
+innodb_log_checksum_algorithmï¿½ï¿½
+innodb_fast_checksumï¿½ï¿½
+innodb_page_size ï¿½ï¿½
+innodb_log_block_sizeï¿½ï¿½
+redo_log_version ×¢ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 ![](https://mc.qcloudimg.com/static/img/10113311b33e398ce0df96ca419f7f45/3.png)
 
-#### 4 ĞŞ¸ÄÎÄ¼şÊôÖ÷
-ĞŞ¸ÄÎÄ¼şÊôÖ÷£¬²¢¼ì²éÎÄ¼şËùÊôÎªmysqlÓÃ»§
+#### 4 ï¿½Ş¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½Ş¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Îªmysqlï¿½Ã»ï¿½
 ```
 chown -R mysql:mysql /home/mysql/backup/data
 ```
 ![](https://mc.qcloudimg.com/static/img/efbdeb20e1b699295c6a4321943908b2/4.png)
 
-#### 5 Æô¶¯mysqld½ø³Ì²¢ÇÒµÇÂ¼ÑéÖ¤
-Æô¶¯mysqld½ø³Ì£¬²¢ÑéÖ¤Æô¶¯³É¹¦
+#### 5 ï¿½ï¿½ï¿½ï¿½mysqldï¿½ï¿½ï¿½Ì²ï¿½ï¿½Òµï¿½Â¼ï¿½ï¿½Ö¤
+ï¿½ï¿½ï¿½ï¿½mysqldï¿½ï¿½ï¿½Ì£ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
 ```
 mysqld_safe --defaults-file=/home/mysql/backup/data/backup-my.cnf --user=mysql --datadir=/home/mysql/backup/data &
 ```
-¿Í»§¶ËµÇÂ¼mysqlÑéÖ¤
+ï¿½Í»ï¿½ï¿½Ëµï¿½Â¼mysqlï¿½ï¿½Ö¤
 mysql  -uroot
 ![](https://mc.qcloudimg.com/static/img/346346626997b85385408ac728bf82ff/5.png)
 
-×¢Òâ£º
-?	 »Ö¸´Íê³Éºó£¬±í mysql.user ÖĞÊÇ²»°üº¬ CDB ÖĞ´´½¨µÄÓÃ»§£¬ĞèÒªĞÂ½¨¡£
-?	 ĞÂ½¨ÓÃ»§Ç°ÇëÖ´ĞĞÈçÏÂ SQL£º
+×¢ï¿½â£º
+?	 ï¿½Ö¸ï¿½ï¿½ï¿½Éºó£¬±ï¿½ mysql.user ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½ï¿½ CDB ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Â½ï¿½ï¿½ï¿½
+?	 ï¿½Â½ï¿½ï¿½Ã»ï¿½Ç°ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½
 ```
 delete from mysql.db where user<>'root' and char_length(user)>0;
 delete from mysql.tables_priv where user<>'root' and char_length(user)>0;

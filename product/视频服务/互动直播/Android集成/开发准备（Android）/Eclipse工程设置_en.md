@@ -18,7 +18,7 @@ The App development environment does not need to be completely consistent with t
 ![](//mccdn.qcloud.com/static/img/29a545171c4479c8f255c25ef0629b8e/image.png)
 
 ### 2. Copy SDK files
-As shown in the figure below, copy all "jar" and "so" files in "libs" folder (shown in "[Download SDK](http://www.qcloud.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88Android%EF%BC%89)") to the project folder:
+As shown in the figure below, copy all "jar" and "so" files in "libs" folder (shown in "[Download SDK](http://cloud.tencent.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88Android%EF%BC%89)") to the project folder:
 - "jar" files are placed in "libs" folder;
 - "so" files are placed in "libs\armeabi" folder.
 ![](//mccdn.qcloud.com/static/img/ba16e54bac3a2d284c81eaefe006621e/image.png)

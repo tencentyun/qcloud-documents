@@ -23,14 +23,14 @@ The following request parameter list only provides API request parameters. Commo
 | price | Int | Price.  |
 
 ## 4. Error Codes
- The API does not have a business error code. For common error codes, see <a href="https://www.qcloud.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
+ The API does not have a business error code. For common error codes, see <a href="https://cloud.tencent.com/doc/api/245/%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c%e9%94%99%e8%af%af%e7%a0%81?viewType=preview" title="VPC Error Codes for details">VPC Error Codes for details</a>
 
 ## 5. Example
  
 Input
 <pre>
   https://domain/v2/index.php?Action=InquiryVpnPrice
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &period=1
   &bandwidth=5
 </pre>

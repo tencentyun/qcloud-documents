@@ -42,7 +42,7 @@ make
 sudo make install
 ```
 ### 配置文件
-在 `/etc/passwd-cosfs`文件中，配置您的存储桶的名称，以及该存储桶对应的 SecretId 和 SecretKey，相关概念参见 [对象存储基本概念](https://www.qcloud.com/document/product/436/6225)。使用冒号隔开，注意冒号为半角符号。 并为 `/etc/passwd-cosfs` 设置可读权限。命令格式如下：
+在 `/etc/passwd-cosfs`文件中，配置您的存储桶的名称，以及该存储桶对应的 SecretId 和 SecretKey，相关概念参见 [对象存储基本概念](https://cloud.tencent.com/document/product/436/6225)。使用冒号隔开，注意冒号为半角符号。 并为 `/etc/passwd-cosfs` 设置可读权限。命令格式如下：
 ```
 echo <bucketname>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
@@ -62,7 +62,7 @@ cosfs your-APPID:your-bucketname your mount-point -ourl=cos-domain-name -odbglev
 其中：
 - your-APPID/ your-bucketname 需要替换为用户真实的信息；
 - your-mount-point 替换为本地需要挂载的目录（如 /mnt）；
-- cos-domain-name 为存储桶所属地域对应域名，形式为 `http://cos.<Region>.myqcloud.com` ，其中 Region 为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：`http://cos.ap-guangzhou.myqcloud.com` 、`http://cos.eu-frankfurt.myqcloud.com` 等。
+- cos-domain-name 为存储桶所属地域对应域名，形式为 `http://cos.<Region>.myqcloud.com` ，其中 Region 为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中适用于 XML API 的地域简称，如：`http://cos.ap-guangzhou.myqcloud.com` 、`http://cos.eu-frankfurt.myqcloud.com` 等。
 - -odbglevel 参数表示信息级别，照写即可。
 #### 示例：
 ```

@@ -27,10 +27,10 @@
 
 - **HLS（m3u8）**：腾讯云 HLS 协议是懒启动的，简言之，只有当有观众请求 HLS 格式的观看地址后，腾讯云才会启动 HLS 格式的转码，这种懒启动策略的目的是规避资源浪费。但也就产生一个问题：**HLS 格式的播放地址要在全球首个用户发起请求后30 秒才能观看**。
 
-- [**腾讯云Web播放器：**](https://www.qcloud.com/document/product/454/7503) 支持同时指定多种协议的播放地址，能够根据所在的平台 （PC? Android? iOS?）采用最佳的播放策略。同时，内部的选择性重试逻辑也能针对性解决 HLS(m3u8) 懒启动的问题。
+- [**腾讯云Web播放器：**](https://cloud.tencent.com/document/product/454/7503) 支持同时指定多种协议的播放地址，能够根据所在的平台 （PC? Android? iOS?）采用最佳的播放策略。同时，内部的选择性重试逻辑也能针对性解决 HLS(m3u8) 懒启动的问题。
 
 ### 3.2 RTMP SDK（B）
-如果 [RTMP SDK DEMO](https://www.qcloud.com/document/product/454/6555) 本身播放没有问题，推荐你参考RTMP SDK 的播放文档（[iOS](https://www.qcloud.com/document/product/454/7880) & [Android](https://www.qcloud.com/document/product/454/7886)）检查一下对接逻辑是否错误？
+如果 [RTMP SDK DEMO](https://cloud.tencent.com/document/product/454/6555) 本身播放没有问题，推荐你参考RTMP SDK 的播放文档（[iOS](https://cloud.tencent.com/document/product/454/7880) & [Android](https://cloud.tencent.com/document/product/454/7886)）检查一下对接逻辑是否错误？
 
 ## step 4. 防火墙拦截（C）
 这是常见的一种情况，不少客户的公司网络环境会限制视频播放，限制的原理是由防火墙侦测http请求的是否是流媒体资源（公司老板都不希望员工上班看视频吗）。
@@ -38,6 +38,6 @@
 如果您使用 4G 进行直播观看没有问题，而是用公司的WiFi网络无法观看，即说明公司的网络策略有所限制，您可以尝试跟网管沟通，让TA给您的IP做一下特殊处理。
 
 ## step 5. 检查推流端（D）
-如果是直播 URL 根本不能播放，而且没有 Step4 中防火墙限制的可能，那么很大概率是推流不成功，可以到 [为何推流不成功](https://www.qcloud.com/document/product/454/7951) 继续问题的排查。
+如果是直播 URL 根本不能播放，而且没有 Step4 中防火墙限制的可能，那么很大概率是推流不成功，可以到 [为何推流不成功](https://cloud.tencent.com/document/product/454/7951) 继续问题的排查。
 
 

@@ -122,15 +122,15 @@ IOS录制功能的详细实现见[新随心播](https://github.com/zhaoyang21cn/
 
 通过音视频通信SDK录制的视频将存储在点播服务中
 
-1. 用户访问点播的[管理控制台](http://console.qcloud.com/video)可以对录制的文件进行相应的管理操作<br/>
-2. 用户也可以通过点播提供的API进行管理操作，[API手册](https://www.qcloud.com/document/product/266/7788)<br/>
+1. 用户访问点播的[管理控制台](http://console.cloud.tencent.com/video)可以对录制的文件进行相应的管理操作<br/>
+2. 用户也可以通过点播提供的API进行管理操作，[API手册](https://cloud.tencent.com/document/product/266/7788)<br/>
 3. DescribeVodPlayInfo能根据文件名（开始录制Api中，录制参数所填文件名）获取到录制
-文件下载地址。详见[参考文档](https://www.qcloud.com/document/product/266/8586)
+文件下载地址。详见[参考文档](https://cloud.tencent.com/document/product/266/8586)
 
 ### 3 价格和计费说明
 
 按照录制月并发最高路数收费，价格：30元/路/月。
-此外，录制功能会使用点播服务的能力，在云点播中会产生存储、流量的费用。[计费规则](https://www.qcloud.com/doc/product/268/5129#2..E5.BD.95.E5.88.B6.E7.9B.B8.E5.85.B3.E8.AE.A1.E8.B4.B9)：
+此外，录制功能会使用点播服务的能力，在云点播中会产生存储、流量的费用。[计费规则](https://cloud.tencent.com/doc/product/268/5129#2..E5.BD.95.E5.88.B6.E7.9B.B8.E5.85.B3.E8.AE.A1.E8.B4.B9)：
 
 
 需要说明的是，如果你已开通点播服务，并选定套餐或后付费中的一种计费模式，将沿用你已选定的计费模式，如果你未开通点播服务，将默认选择后付费按流量的计费模式。

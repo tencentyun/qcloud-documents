@@ -53,7 +53,7 @@ Input
   https://domain/v2/index.php?Action=DeleteVodTags
   &fileId=2721945854681023354
   &tags.1=testTag1
-  &<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>
+  &<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>
 </pre>
 Output
 ```

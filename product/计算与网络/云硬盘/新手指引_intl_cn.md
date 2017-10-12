@@ -6,14 +6,14 @@
 ## 购买云硬盘
 本例通过控制台购买一块弹性普通云盘，有关如何创建云硬盘的更多内容，可以参考 [创建云硬盘](/doc/product/362/5744)。
 
-1) 登录[云硬盘控制台](https://console.qcloud.com/cvm/cbs)，点击![](//mccdn.qcloud.com/static/img/acaf7d7ec8c66cd55ab9dd1be3319dfb/image.png)开始购买。
+1) 登录[云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs)，点击![](//mccdn.qcloud.com/static/img/acaf7d7ec8c66cd55ab9dd1be3319dfb/image.png)开始购买。
 
 2) 在弹出框中选择【华北地区（北京）】-【北京一区】、【包年包月】、【云硬盘】、【20GB】，并选择购买一个月，点击【确定】按钮。
 
-3) 在支付页面点击【确认支付】完成购买。您可在[云硬盘列表页](https://console.qcloud.com/cvm/cbs)查看已购买的云硬盘，您刚刚购买的弹性云盘默认未命名，并显示为<font color="red">待挂载</font>状态。点击编辑小图标，将它命名为“cbs-test”。
+3) 在支付页面点击【确认支付】完成购买。您可在[云硬盘列表页](https://console.cloud.tencent.com/cvm/cbs)查看已购买的云硬盘，您刚刚购买的弹性云盘默认未命名，并显示为<font color="red">待挂载</font>状态。点击编辑小图标，将它命名为“cbs-test”。
 
 ## 连接到云服务器实例
-1) 登录[腾讯云控制台](https://console.qcloud.com/)。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)。
 
 2) 进入【云服务器】-【云硬盘】选项卡。
 
@@ -54,5 +54,5 @@ vi qcloud.txt
 
 5) 进入创建的盘中，新建一个名为 `qcloud.txt`的文件，输入您需要的内容，点击【保存】按钮。即完成写入文件操作。
 
-有关 Windows 系统下Windows系统分区、格式化、联机及创建文件系统的更多内容，请参考 [Windows系统分区、格式化、联机及创建文件系统](https://www.qcloud.com/document/product/362/6734
+有关 Windows 系统下Windows系统分区、格式化、联机及创建文件系统的更多内容，请参考 [Windows系统分区、格式化、联机及创建文件系统](https://cloud.tencent.com/document/product/362/6734
 )。

@@ -4,7 +4,7 @@ PostgreSQL is currently still free of charge. It is estimated to be sold at a pr
 Currently, prepaid billing method is supported for Tencent Cloud Database PostgreSQL.
 
 ## Isolation upon Expiration
-See [Details](https://www.qcloud.com/doc/product/409/6865)
+See [Details](https://cloud.tencent.com/doc/product/409/6865)
 
 ## Prices for Different Regions
 

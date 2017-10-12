@@ -11,7 +11,7 @@ On [CCS Console](https://console.cloud.tencent.com/ccs) page, click **Services**
 **Step 2**: Add data volume
 ![](//mc.qcloudimg.com/static/img/ae63d74d7b78d2b74ad2590606c24cd7/image.gif)
 >**Note**:
-> -  If you are prompted that"**No cloud disk available**", go to [Cloud Disk Console](https://console.qcloud.com/cvm/cbs), and click "New" to buy a cloud disk.
+> -  If you are prompted that"**No cloud disk available**", go to [Cloud Disk Console](https://console.cloud.tencent.com/cvm/cbs), and click "New" to buy a cloud disk.
 > - It is recommended to enable "Auto Renewal" for the cloud disk to avoid unnecessary data loss due to arrears.
 
 **Step 3**: Set a mount point in the container configuration

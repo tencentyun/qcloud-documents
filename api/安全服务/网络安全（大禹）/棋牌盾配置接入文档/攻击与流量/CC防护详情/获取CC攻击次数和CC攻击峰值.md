@@ -4,7 +4,7 @@
 接口名：ShieldCCGetCounter
 
 ### 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详见[公共参数说明](https://www.qcloud.com/document/product/295/7279)页面其中，此接口的Action字段为ShieldCCGetCounter。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详见[公共参数说明](https://cloud.tencent.com/document/product/295/7279)页面其中，此接口的Action字段为ShieldCCGetCounter。
 
 | 参数名称 | 是否必须 | 类型 | 描述 |
 |---------|---------|---------|---------|

@@ -10,8 +10,8 @@
 
 #### Notes
 1. "Build with Source Code" and trigger are two modules configured independently, so you can choose any steps from one of them.
-2. For more information about "Build with Source Code" and "Build with Dockerfile", please see [Overview of Building with Source Code](https://www.qcloud.com/document/product/457/10151)
-3. Trigger supports multiple trigger actions. For more information, please see [Overview of Image Trigger](https://www.qcloud.com/document/product/457/10155)
+2. For more information about "Build with Source Code" and "Build with Dockerfile", please see [Overview of Building with Source Code](https://cloud.tencent.com/document/product/457/10151)
+3. Trigger supports multiple trigger actions. For more information, please see [Overview of Image Trigger](https://cloud.tencent.com/document/product/457/10155)
 
 ### Steps
 #### Step 1: Configure continuous building of image with source code
@@ -20,7 +20,7 @@
 2. Note the following when configuring image building:
 
  - Code source: GitHub and Gitlab are supported currently
- - Source code Repository: Dockerfile file needs to be included. It is a description of steps for building image. Code is also required. Add code into Dockerfile. For more information, please see [How to Write Dockerfile](https://www.qcloud.com/document/product/457/9115#dockerfile-.E8.87.AA.E5.8A.A8.E7.BC.96.E8.AF.91.E7.94.9F.E6.88.90.EF.BC.88.E6.8E.A8.E8.8D.90.E4.BD.BF.E7.94.A8.EF.BC.89)
+ - Source code Repository: Dockerfile file needs to be included. It is a description of steps for building image. Code is also required. Add code into Dockerfile. For more information, please see [How to Write Dockerfile](https://cloud.tencent.com/document/product/457/9115#dockerfile-.E8.87.AA.E5.8A.A8.E7.BC.96.E8.AF.91.E7.94.9F.E6.88.90.EF.BC.88.E6.8E.A8.E8.8D.90.E4.BD.BF.E7.94.A8.EF.BC.89)
  - The following provides Dockerfile and index files required to test Helloworld. Place Dockerfile and index.html in one root directory.
  **Dockerfile file**:
 ```shell
@@ -34,14 +34,14 @@ ADD ./ /usr/share/nginx/html
 hello world
 ```
 - Trigger method: Configure to submit code to branch
-- Dockerfile path: Since both Dockerfile and index.html locate in the same root directory, you can directly enter the path of Dockerfile. For more information, please see [Configuration of Dockerfile Path in Building with Source Code Feature](https://www.qcloud.com/document/product/457/10618)
+- Dockerfile path: Since both Dockerfile and index.html locate in the same root directory, you can directly enter the path of Dockerfile. For more information, please see [Configuration of Dockerfile Path in Building with Source Code Feature](https://cloud.tencent.com/document/product/457/10618)
 ![Alt text][step2]
 
 After the configuration for step 1 is complete, the container image feature is generated automatically every time you submit code. You can submit code for testing, or directly build an image manually.
 ![Alt text][step3]
 
 #### Step 2: Configure continuous deployment for image registry trigger
-1. First, you need a target service for the continuous deployment. Create one if no service exists. In this exmaple, we create a [ginx service](https://www.qcloud.com/document/product/457/7851). 
+1. First, you need a target service for the continuous deployment. Create one if no service exists. In this exmaple, we create a [ginx service](https://cloud.tencent.com/document/product/457/7851). 
 2. Go to the details page of helloworld image registry that has been configured with "Build with Source Code", to configure a trigger
 ![Alt text][step4]
 3. After a trigger is added, you should note that:

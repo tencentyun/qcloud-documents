@@ -11,7 +11,7 @@ You can use a security group to have the backend instance only receive traffics 
 | Cloud Load Balancer Health Check | Private network: There is no need for special configuration as the cloud automated testing machine has already been added to the whitelist for private network health check.  <br>Public network: According to the rules of the previous step, VIP access can be allowed, without special configuration.   | 
 
 ## Use the Console to Manage Backend Server Security Groups 
-1) Login to [Cloud Load Balance Console](https://console.qcloud.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for load balancer details. 
+1) Login to [Cloud Load Balance Console](https://console.cloud.tencent.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for load balancer details. 
 
 2) In the "Backend Server" tab, click the corresponding backend server ID to enter the CVM details page. 
 
@@ -24,5 +24,5 @@ You can use a security group to have the backend instance only receive traffics 
 - For some malicious IPs, you can add them to the front rules of the security group, prohibiting them from accessing the backend server.  And then allow all the IP (0.0.0.0) to the local service port, so that the normal client can access to it.  According to the security group effective rule, you can block the front IPs. 
 
 ## Use API to Manage Backend Server Security Groups 
-Refer to [ModifySecurityGroupsOfInstance API](https://www.qcloud.com/doc/api/229/1367) and [ModifySecurityGroupPolicy API](https://www.qcloud.com/doc/api/229/1365) 
+Refer to [ModifySecurityGroupsOfInstance API](https://cloud.tencent.com/doc/api/229/1367) and [ModifySecurityGroupPolicy API](https://cloud.tencent.com/doc/api/229/1365) 
 

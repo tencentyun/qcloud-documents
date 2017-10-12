@@ -11,6 +11,6 @@ Currently, the following functions are supported by parameter template. Log in t
 - You can save parameter configurations as templates
 - You can import configuration from template when configuring parameters for one or more instances
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb/ "Cloud Database Console"
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb/ "Cloud Database Console"
 

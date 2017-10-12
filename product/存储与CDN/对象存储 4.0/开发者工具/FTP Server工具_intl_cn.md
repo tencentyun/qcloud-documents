@@ -67,7 +67,7 @@ cos_secretkey=xxxxxxxxxxxxxxxxxx
 // 设置 APPID、API 密钥信息。                                                   
 cos_bucket=test                                                     
 cos_region=gz     
-// bucket 信息，包括 bucket 的名字，以及 bucket 所在的区域。所在地域枚举值为 [可用地域](https://www.qcloud.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。
+// bucket 信息，包括 bucket 的名字，以及 bucket 所在的区域。所在地域枚举值为 [可用地域](https://cloud.tencent.com/document/product/436/6224) 中适用于 JSON API 的地域简称，如 sh, gz, sgp 等。
 cos_download_domain=cos    
 // domain 设置为 cos 表示通过 COS 源站下载(推荐服务器为腾讯云机器用户设置)。
 // domain 设置为 cdn 表示通过 CDN 下载(推荐服务器为非腾讯云机器用户设置)。
@@ -116,4 +116,4 @@ FTP 不支持并发上传文件，会对文件进行加锁，导致只有一个�
 #### 为什么使用 FileZilla 等客户端上传大文件会失败？
 当前版本的 FTP Server 工具不支持 append 模式，而 FileZilla 等客户端在上传一些大文件时，会通过 append 操作。
 ### 其他错误
-请 [提交工单](https://console.qcloud.com/workorder/category)，腾讯云技术支持将协助您解决问题。
+请 [提交工单](https://console.cloud.tencent.com/workorder/category)，腾讯云技术支持将协助您解决问题。

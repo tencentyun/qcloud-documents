@@ -3,7 +3,7 @@
 
 You can check the details of your CDN bills in **Details** menu of **Billing Center** on Tencent Cloud official website. With relevant permission, you can check the detailed data by following the steps below:
 
-1. Log in to [Billing Center](https://console.qcloud.com/account) on Tencent Cloud official website, and select **Transactions** menu in **Bill Management** on the left: 
+1. Log in to [Billing Center](https://console.cloud.tencent.com/account) on Tencent Cloud official website, and select **Transactions** menu in **Bill Management** on the left: 
 ![](//mc.qcloudimg.com/static/img/4c06a609c63cdf1f4691a9e3e34ba0eb/image.png)
 
 2. Select the date or time range for query: 

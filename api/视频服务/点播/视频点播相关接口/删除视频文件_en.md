@@ -49,7 +49,7 @@ Domain: vod.api.qcloud.com
  
 Input 1
 <pre>
-  https://domain/v2/index.php?Action=DeleteVodFile&fileId=16092504232103571364&priority=0&<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>
+  https://domain/v2/index.php?Action=DeleteVodFile&fileId=16092504232103571364&priority=0&<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>
 </pre>
 Output 1
 ```

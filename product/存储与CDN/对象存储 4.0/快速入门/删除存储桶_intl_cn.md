@@ -7,5 +7,5 @@
 > **说明：删除存储桶时，需保证其中没有任何文件、目录，否则将无法删除。**
 
 
-[上一步:删除对象](https://www.qcloud.com/document/product/436/6235)
-[下一步：后续步骤](https://www.qcloud.com/document/product/436/9898)
+[上一步:删除对象](https://cloud.tencent.com/document/product/436/6235)
+[下一步：后续步骤](https://cloud.tencent.com/document/product/436/9898)

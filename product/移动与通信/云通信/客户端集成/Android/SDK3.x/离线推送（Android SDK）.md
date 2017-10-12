@@ -596,7 +596,7 @@ public void doNotify(Context context, int iconID)
 
 ### 4.1 添加小米离线推送证书
 
-从腾讯云管理中心的 [云通信-应用列表](https://console.qcloud.com/avc) 进入相应应用的`应用配置`页面，在基本配置中根据指引添加`Android推送证书`。如何获得相应的推送证书可以参考 [Android推送证书申请](/doc/product/269/5331) 。
+从腾讯云管理中心的 [云通信-应用列表](https://console.cloud.tencent.com/avc) 进入相应应用的`应用配置`页面，在基本配置中根据指引添加`Android推送证书`。如何获得相应的推送证书可以参考 [Android推送证书申请](/doc/product/269/5331) 。
 
 添加证书成功后，可以得到一个证书ID，这里可以把这个ID记录下来，后边有用。
 
@@ -837,7 +837,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 ### 5.1 添加华为离线推送证书
 
-从腾讯云管理中心的 [云通信-应用列表](https://console.qcloud.com/avc) 进入相应应用的`应用配置`页面，在基本配置中根据指引添加`Android推送证书`。如何获得相应的推送证书可以参考 [Android推送证书申请](/doc/product/269/5331)。
+从腾讯云管理中心的 [云通信-应用列表](https://console.cloud.tencent.com/avc) 进入相应应用的`应用配置`页面，在基本配置中根据指引添加`Android推送证书`。如何获得相应的推送证书可以参考 [Android推送证书申请](/doc/product/269/5331)。
 
 添加证书成功后，可以得到一个证书ID，这里可以把这个ID记录下来，后边有用。
 

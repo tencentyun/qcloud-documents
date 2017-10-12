@@ -6,7 +6,7 @@
  1. 登录云服务器。
 	- 通过第三方软件远程登录 Linux 云服务器（ Linux 云服务器处于 CPU 高负荷状态时，可能出现无法登录状态）。
 
-	- 通过 [控制台](https://console.qcloud.com/cvm) 登录云服务器（ Linux 云服务器处于 CPU 高负荷状态时，控制台能正常登录）。
+	- 通过 [控制台](https://console.cloud.tencent.com/cvm) 登录云服务器（ Linux 云服务器处于 CPU 高负荷状态时，控制台能正常登录）。
 
  2. 查看系统负载。
  输入 ` top ` 命令，查看 `%CPU` 列与 `%MEM` 列，确定占用较多资源的进程。

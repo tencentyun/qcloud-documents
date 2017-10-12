@@ -1,5 +1,5 @@
 ### 相关说明
-腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式，对于这两种认证方式，连接URI需要做不同的处理，具体参见[连接示例](https://www.qcloud.com/doc/product/240/3563)一文。
+腾讯云MongoDB默认提供了“rwuser”和“mongouser”两个用户名分别支持“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式，对于这两种认证方式，连接URI需要做不同的处理，具体参见[连接示例](https://cloud.tencent.com/doc/product/240/3563)一文。
 
 在PHP里，有[两套驱动](https://docs.mongodb.com/ecosystem/drivers/php/)可用于连接操作MongoDB数据库，它们分别是：
 - mongodb([PHP官网文档](http://php.net/manual/en/set.mongodb.php))  - MongoDB官方推荐mongodb驱动，但需要PHP 5.4及以上版本。
@@ -9,7 +9,7 @@
  
 ### 使用mongodb驱动
 mongodb安装方法参考[这里](http://php.net/manual/zh/mongodb.installation.php)。
-**mongodb驱动可以用“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式**，具体参见[连接示例](https://www.qcloud.com/doc/product/240/3563)。
+**mongodb驱动可以用“MONGODB-CR”和“SCRAM-SHA-1”两种认证方式**，具体参见[连接示例](https://cloud.tencent.com/doc/product/240/3563)。
 
 示例代码:
 ```
@@ -62,7 +62,7 @@ stdClass Object
 
 
 ### 使用mongo驱动
-**mongo驱动只支持“MONGODB-CR”认证**，对应的只能用“rwuser”进行连接，具体参见[连接示例](https://www.qcloud.com/doc/product/240/3563)。
+**mongo驱动只支持“MONGODB-CR”认证**，对应的只能用“rwuser”进行连接，具体参见[连接示例](https://cloud.tencent.com/doc/product/240/3563)。
 
 示例代码:
 

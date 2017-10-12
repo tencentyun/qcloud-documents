@@ -12,14 +12,14 @@ Private IPs are IPs that cannot be accessed through Internet. Tencent Cloud's pr
 - Public network ENI: it is configured on the uniform API layer TGW, with the CVM unaffected. When a [public IP](/doc/product/213/5224) is assigned to an instance, TGW will automatically configure a public network API for it.
 - Private network ENI: it is managed by Tencent Cloud, and supports user-defined configuration.
 
-Therefore, when you use such commands as `ifconfig` in the CVM to view the network interface information, only the information of private IP will display. You can log in to the [Tencent Cloud Console](https://console.qcloud.com/), and view the public network information in the CVM List/Details page. Please note that, if you change the private IP by yourself within the operating system, the communication via the private network will be interrupted.
+Therefore, when you use such commands as `ifconfig` in the CVM to view the network interface information, only the information of private IP will display. You can log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/), and view the public network information in the CVM List/Details page. Please note that, if you change the private IP by yourself within the operating system, the communication via the private network will be interrupted.
 
 A private IP can be used for CLB load balancing, or used for CVMs to access each other through a private network, and also used for CVM instances and other cloud services to access each other via a private network, such as CDN and CDB.
 
 ## How to obtain a private IP
 Each CVM instance will be given a default private IP when activated. The private IP varies with [Network Environment](/doc/product/213/5227):
 - Basic network: the private IP is assigned by Tencent Cloud automatically and cannot be changed.
-- VPC: the initial private IP is assigned by Tencent Cloud randomly in VPC IP address range, and users can define the private IP for the CVM instance within the `10.[0 - 255].0.0/8`, `172.[0 - 31].0.0/16` and `192.168.0.0/16` IP address ranges. The specific value range is determined by the VPC where the instance locates. For more information, please see [VPC and Subnet](https://www.qcloud.com/doc/product/215/4927).
+- VPC: the initial private IP is assigned by Tencent Cloud randomly in VPC IP address range, and users can define the private IP for the CVM instance within the `10.[0 - 255].0.0/8`, `172.[0 - 31].0.0/16` and `192.168.0.0/16` IP address ranges. The specific value range is determined by the VPC where the instance locates. For more information, please see [VPC and Subnet](https://cloud.tencent.com/doc/product/215/4927).
 
 ## Private network DNS 
 Private network DNS service is used for domain name resolution. If DNS configuration is incorrect, the domain name will become inaccessible. Therefore, Tencent Cloud provides reliable private network DNS servers in different regions. Specific configurations are shown below:
@@ -51,7 +51,7 @@ You can use Tencent Cloud Console and API to obtain the private IP of an instanc
 
 ### Obtain the private IP of an instance in console
 
-1) Open [CVM Console](https://console.qcloud.com/cvm/).
+1) Open [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) The CVM list displays the instances under your account. Move the mouse over the private IP of the CVM, and the "Copy" button will appear; click the button to copy this IP.
 
@@ -60,7 +60,7 @@ You can use Tencent Cloud Console and API to obtain the private IP of an instanc
 > The public IP is mapped to the private IP through NAT. Therefore, if you check the attributes of the network interface in the instance (for example, through ifconfig (Linux) or ipconfig (Windows)), the public IP is not displayed.
 
 ### Obtain the private IP of an instance using API
-Please see [DescribeInstances API](https://www.qcloud.com/doc/api/229/831).
+Please see [DescribeInstances API](https://cloud.tencent.com/doc/api/229/831).
 
 ### Obtain the private IP of an instance using instance metadata
 

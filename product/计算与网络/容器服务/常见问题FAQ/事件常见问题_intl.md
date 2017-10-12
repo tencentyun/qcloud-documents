@@ -23,7 +23,7 @@ Solution: Check if the container processes in the image are normal, and whether 
 ### 6. Error syncing pod, skipping 
 Error syncing pod, skipping failed to "StartContainer" for with CrashLoopBackOff: "Back-off 5m0s restarting failed container
 Description: Contain process crashed or exited.
-Solution: Check if there are frontend processes running in the container. If so, check whether these processes have any exceptional behaviors. For more information, please see Guide on How to Build Docker Image (https://www.qcloud.com/document/product/457/7208).
+Solution: Check if there are frontend processes running in the container. If so, check whether these processes have any exceptional behaviors. For more information, please see Guide on How to Build Docker Image (https://cloud.tencent.com/document/product/457/7208).
 
 Contact customer service if the solutions above cannot solve your issues.
 

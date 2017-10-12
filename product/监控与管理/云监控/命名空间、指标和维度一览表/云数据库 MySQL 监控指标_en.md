@@ -29,5 +29,5 @@ Tencent Cloud Cloud Monitor provides the following monitoring metrics for Cloud 
 | Key Cache Hit Rate | key_cache_hit_rate | % | uInstanceId |
 | Key Cache Use Rate | key_cache_use_rate | % | uInstanceId |
 
-For more information about the monitoring metrics of Cloud Database, please see [Read Monitoring Data API](https://www.qcloud.com/doc/api/405/4667) in the Cloud Monitor API.
+For more information about the monitoring metrics of Cloud Database, please see [Read Monitoring Data API](https://cloud.tencent.com/doc/api/405/4667) in the Cloud Monitor API.
 

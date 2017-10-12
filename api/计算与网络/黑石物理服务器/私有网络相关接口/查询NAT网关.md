@@ -10,13 +10,13 @@ DescribeBmNatGateway 用于查询租户创建的NAT网关列表信息，包括�
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
     &<公共请求参数>
-    &natId=<natId>
-    &natName=<natName>
-    &vpcId=<vpcId>
-    &offset=<0>
-    &limit=<20>
-    &orderField=<natId>
-	&orderDirection=<asc>
+    &natId=<NAT网关ID>
+    &natName=<NAT网关名称>
+    &vpcId=<vpc网络ID>
+    &offset=<初始行的偏移量>
+    &limit=<每页行数>
+    &orderField=<排序字段>
+	&orderDirection=<排序类型>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeNatGateway
@@ -25,9 +25,9 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 |---------|---------|---------|---------|
 | natId | 否 | string | NAT网关统一ID，例如：nat-xx454|
 | natName | 否 | string | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| offset | 否 | Int | 初始行的偏移量，默认为0|
-| limit | 否 | Int | 每页行数，默认为20，最大支持50。|
+| vpcId | 否 | int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| offset | 否 | int | 初始行的偏移量，默认为0|
+| limit | 否 | int | 每页行数，默认为20，最大支持50。|
 | orderField | 否 | string | 按某个字段排序，默认不排序。<br>支持字段：natId。|
 | orderDirection | 否 | string | 升序（asc）或降序（desc），默认：desc。|
 
@@ -107,12 +107,12 @@ subnets包含的数据结构如下：
 |subnetNatType|int|绑定的子网类型，0表示子网部分IP，1表示子网全部IP|
 |cidrBlock|string|子网网段|
 
-code和message对应的描述如下：
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://www.qcloud.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
+## 错误码
+ 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
+| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
 | 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
 
 ## 实际案例
@@ -123,7 +123,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=DescribeBmNatGateway
 	&SecretId=AKID1ub7R1JoyBF7nHqjk7IH8nGWaR6Yezwd
 	&Nonce=4557
-	&Timestamp=1507692902QueryBmNatGatewayProductionStatus
+	&Timestamp=1507692902
 	&Region=gz
 	&vpcId=300006
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D

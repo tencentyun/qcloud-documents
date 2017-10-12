@@ -48,7 +48,7 @@
 >**注意：**
 >源路径不指定时将默认分配临时路径。
 
- - **类型**： 支持使用本地硬盘、云硬盘、NFS 盘、配置文件四种类型的数据卷。相关详细介绍请参阅 [容器服务数据卷使用说明](https://www.qcloud.com/document/product/457/9112#.E5.AE.B9.E5.99.A8.E6.9C.8D.E5.8A.A1.E6.95.B0.E6.8D.AE.E5.8D.B7.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E)。
+ - **类型**： 支持使用本地硬盘、云硬盘、NFS 盘、配置文件四种类型的数据卷。相关详细介绍请参阅 [容器服务数据卷使用说明](https://cloud.tencent.com/document/product/457/9112#.E5.AE.B9.E5.99.A8.E6.9C.8D.E5.8A.A1.E6.95.B0.E6.8D.AE.E5.8D.B7.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E)。
  - **名称**：数据卷的名称。
  - **路径**：指定容器要挂载的路径。
  ![](//mc.qcloudimg.com/static/img/2f3c75de6cb710e4163ff8c468a7e287/image.png)
@@ -59,7 +59,7 @@
  ![](//mc.qcloudimg.com/static/img/647899fd3bb0fccd34bdbbc2e32fbad0/image.png)
 5. 其他设置。
  -  **实例数量**：一个实例由相关的一个或多个容器构成。可单击 + 或 - 控制实例数量。
- -  **服务访问方式**：服务的访问方式决定了这个服务的网络属性，不同访问方式的服务可以提供不同网络能力。提供的四种访问方式详细介绍请参阅 [服务访问方式设置](https://www.qcloud.com/document/product/457/9098)。
+ -  **服务访问方式**：服务的访问方式决定了这个服务的网络属性，不同访问方式的服务可以提供不同网络能力。提供的四种访问方式详细介绍请参阅 [服务访问方式设置](https://cloud.tencent.com/document/product/457/9098)。
  ![](//mc.qcloudimg.com/static/img/709ab652384bb5905718dc0ff01903f4/image.png)
 6. 单击【创建服务】完成服务创建。创建完成的服务将出现在服务列表中。
 

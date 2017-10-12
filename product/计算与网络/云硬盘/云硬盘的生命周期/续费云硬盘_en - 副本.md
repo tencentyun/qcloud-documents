@@ -6,7 +6,7 @@ Timely renewal of Cloud Block Storage can effectively avoid data loss due to exp
 
 Before the expiration of elastic cloud disk, you can renew it to prevent the hard disk being unmounted and unable to read and write after the expiration:
 
-1) Open [Cloud Block Storage Console](https://console.qcloud.com/cvm/cbs).
+1) Open [Cloud Block Storage Console](https://console.cloud.tencent.com/cvm/cbs).
 
 2) For elastic cloud disk to be renewed, click on **Renew** on the operation column to the right side.
 
@@ -15,7 +15,7 @@ Before the expiration of elastic cloud disk, you can renew it to prevent the har
 4) After making the payment, you can renew the elastic cloud disk.
 
 ### Renew with API
-Users can use the DetachCbsStorages API to renew the elastic cloud disk. For more information, refer to [API to Renew Elastic Cloud Disk](https://www.qcloud.com/doc/api/364/2521).
+Users can use the DetachCbsStorages API to renew the elastic cloud disk. For more information, refer to [API to Renew Elastic Cloud Disk](https://cloud.tencent.com/doc/api/364/2521).
 
 ## Renewing Non-elastic cloud disk
 
@@ -23,4 +23,4 @@ Users can use the DetachCbsStorages API to renew the elastic cloud disk. For mor
 The life cycle of non-elastic cloud disk is subject to the life cycle of CVM instance. If you need to renew it, go directly to the [Renew CVM instance](/doc/product/213/6143).
 
 ### Renew with API
-The life cycle of non-elastic cloud disk is subject to the life cycle of CVM instance. Users can use RenewInstance API to renew the elastic cloud disk. For more information, refer to [API to Renew Instance (annual or monthly plan)](https://www.qcloud.com/doc/api/229/1348).
+The life cycle of non-elastic cloud disk is subject to the life cycle of CVM instance. Users can use RenewInstance API to renew the elastic cloud disk. For more information, refer to [API to Renew Instance (annual or monthly plan)](https://cloud.tencent.com/doc/api/229/1348).

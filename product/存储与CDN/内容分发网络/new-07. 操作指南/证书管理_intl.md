@@ -1,10 +1,10 @@
-You can configure HTTPS certificate for a domain that has been connected to CDN. You can upload your existing certificate for deployment, or directly deploy the certificate hosted or issued by [SSL Certificate Management](https://console.qcloud.com/ssl) platform.
+You can configure HTTPS certificate for a domain that has been connected to CDN. You can upload your existing certificate for deployment, or directly deploy the certificate hosted or issued by [SSL Certificate Management](https://console.cloud.tencent.com/ssl) platform.
 
 You can apply for a free third party certificate from TrustAsia on SSL Certificate Management page.
 
 ## Configuring Certificate
 
-If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.qcloud.com/cdn), and go to **Certificates** page in **Advanced** and click "Configure Certificate":
+If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and go to **Certificates** page in **Advanced** and click "Configure Certificate":
 ![](//mc.qcloudimg.com/static/img/2ee4c1d3e538986546ccbc7c167fd772/image.png)
 
 ### 1. Selecting a Domain

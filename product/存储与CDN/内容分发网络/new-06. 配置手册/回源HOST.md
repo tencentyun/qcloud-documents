@@ -2,7 +2,7 @@
 
 源站与回源 HOST：源站配置的 IP/域名能够指引 CDN 节点回源时找到对应的源站服务器，服务器上可能存在若干 WEB 站点，回源 HOST 指明了资源所在的站点。
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【基本配置】，您可以看到 **回源配置** 模块，配置回源 HOST。
 ![](https://mc.qcloudimg.com/static/img/5d584b6331baccd578f6e81edcf4bb71/backtosource.png)

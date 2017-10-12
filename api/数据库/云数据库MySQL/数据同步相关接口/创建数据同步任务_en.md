@@ -41,7 +41,7 @@ Parameter dstInfo is composed of the following parameters:
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Code page.  |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Code page.  |
 | message | String | Module error message description depending on API.  |
 | codeDesc | String | Error description |
 | data | Object | Task details |
@@ -79,7 +79,7 @@ The following error codes only include the business logic error codes for this A
 Input
 <pre>
 https://cdb.api.qcloud.com/v2/index.php?Action=CreateCdbDataSyncTask
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &jobName=myJobName
 &srcInfo.0.cdbUInstanceId=cdb-c1nl9rpv
 &srcInfo.0.dbInfo.0.database=myDB

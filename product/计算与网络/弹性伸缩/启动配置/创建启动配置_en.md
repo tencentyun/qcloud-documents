@@ -2,7 +2,7 @@ In case of scale-up, AS needs to know beforehand what kind of configuration is r
 
 Please note that scaling configuration is just a template based on which CVMs are produced during auto-scaling. **The creation of scaling configuration is free of charge since it will not lead to the production of CVM, please don't worry about the cost.**
 
-Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
+Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
 
 ### Step 1. Select a Region
 
@@ -28,7 +28,7 @@ To make CVM become available directly after its creation, it is strongly recomme
 If you want the data disk to come with data after the CVMs are activated, you can specify a data disk snapshot so that the CVMs produced will come with the data in the snapshot.
 > Note:
 > - Generally, the CVMs in the scaling group are stateless. You're recommended to place the data native to CVMs into the custom image. If the system disk has not enough space, you can submit a ticket for a larger one.
-> - If you want to store the data in the data disk, you need to set auto mount for the data disk to eliminate the need of manual intervention. Please refer to the [details on the procedure](https://www.qcloud.com/document/product/377/4166#16.-.E5.90.AF.E5.8A.A8.E9.85.8D.E7.BD.AE.E4.B8.AD.E6.8C.87.E5.AE.9A.E4.BA.86.E6.95.B0.E6.8D.AE.E7.9B.98.E5.BF.AB.E7.85.A7.E8.A6.81.E6.B3.A8.E6.84.8F.E4.BB.80.E4.B9.88.EF.BC.9F).
+> - If you want to store the data in the data disk, you need to set auto mount for the data disk to eliminate the need of manual intervention. Please refer to the [details on the procedure](https://cloud.tencent.com/document/product/377/4166#16.-.E5.90.AF.E5.8A.A8.E9.85.8D.E7.BD.AE.E4.B8.AD.E6.8C.87.E5.AE.9A.E4.BA.86.E6.95.B0.E6.8D.AE.E7.9B.98.E5.BF.AB.E7.85.A7.E8.A6.81.E6.B3.A8.E6.84.8F.E4.BB.80.E4.B9.88.EF.BC.9F).
 
 5. Select the bandwidth by following the procedure similar to that for purchasing CVM.
 

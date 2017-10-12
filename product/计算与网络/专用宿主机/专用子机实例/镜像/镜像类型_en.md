@@ -2,7 +2,7 @@ The CVM instance described below also refers to dedicated CVM.
 
 Users can choose the images to be used based on following features:
 
-- Location (please see [Region and Availability Zone](https://www.qcloud.com/doc/product/213/6091))
+- Location (please see [Region and Availability Zone](https://cloud.tencent.com/doc/product/213/6091))
 - Operating system type
 - Architecture (32-bit or 64-bit)
 

@@ -1,5 +1,5 @@
 ## 1 Overview
-To use Voice Chat, you need to call [Basic API](https://www.qcloud.com/document/product/556/7665) at first.
+To use Voice Chat, you need to call [Basic API](https://cloud.tencent.com/document/product/556/7665) at first.
 
 ## 2 Call APIs for Voice Chat 
  

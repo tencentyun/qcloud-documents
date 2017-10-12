@@ -1,6 +1,6 @@
 ### 1.合作方生成签名
 
-1.**前置条件**：必须按照文档[获取SIGN ticket](https://www.qcloud.com/document/product/295/10118#1..E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9).
+1.**前置条件**：必须按照文档[获取SIGN ticket](https://cloud.tencent.com/document/product/295/10118#1..E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9).
 2.合作方根据本次OCR识别的如下参数生成签名,需要签名的参数信息如下：
 
 
@@ -10,7 +10,7 @@
 | orderNo | 订单号，本次服务上送的订单号，唯一标识。 | 
 | nonce | 随机数  32位随机串（字母+数字组成的随机数） | 
 | version | 1.0.0 | 
-| api ticket | 合作伙伴服务端缓存的tikcet,注意是SIGN 类型，具体见[获取SIGN ticket](https://www.qcloud.com/document/product/295/10118#1..E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9) | 
+| api ticket | 合作伙伴服务端缓存的tikcet,注意是SIGN 类型，具体见[获取SIGN ticket](https://cloud.tencent.com/document/product/295/10118#1..E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9) | 
 
 3.生成一个 32 位的随机字符串(字母和数字) nonce(登录时也要用到)，将webankAppId、orderNo,version、连同ticket、nonce 共5个参数的值进行字典序排序。
 将排序后的所有参数字符串拼接成一个字符串进行SHA1编码
@@ -52,7 +52,7 @@ ticket=01.0.0FxlAe3HFtEy73Um0pJNzIUriwtfnS3KRcPXiesd5ulS4XRAIcT0FbfaP52dwZf5Saab
 | 参数 | 说明 |类型 |
 |---------|---------|---------|
 | code | 身份证ocr识别结果的返回码，0表示识别成功，其他错误码标识失败。 | 字符串|
-| warning | Code=0是有值，姓名和身份证外的非关键信息有误会提示，合作方可以根据warning来确定。Warning明细请查看[身份证识别响应码。](https://www.qcloud.com/document/product/295/10194#3.-.E8.BA.AB.E4.BB.BD.E8.AF.81.E8.AF.86.E5.88.AB.E5.93.8D.E5.BA.94.E7.A0.81)| 字符串 |
+| warning | Code=0是有值，姓名和身份证外的非关键信息有误会提示，合作方可以根据warning来确定。Warning明细请查看[身份证识别响应码。](https://cloud.tencent.com/document/product/295/10194#3.-.E8.BA.AB.E4.BB.BD.E8.AF.81.E8.AF.86.E5.88.AB.E5.93.8D.E5.BA.94.E7.A0.81)| 字符串 |
 | msgstring |请求结果描述 | 字符串 |
 |ocrId|保留字段，内部标识|字符串|
 |orderNo|订单号，由合作方上送，每次唯一，此信息为本次身份证ocr识别上送的信息。|字符串|

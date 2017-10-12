@@ -2,7 +2,7 @@ In this section, you will create two functions to implement simple WordCount, an
 
 ## Creating Mapper Function
 ### Creating Function Through Console
-1) Log in to [SCF Console](https://console.qcloud.com/scf), and click [New] button under [Guangzhou] region.
+1) Log in to [SCF Console](https://console.cloud.tencent.com/scf), and click [New] button under [Guangzhou] region.
 
 2) In the function configuration section, enter the function name as `Mapper`, leave all other configuration options unchanged, and then click "Next".
 
@@ -15,7 +15,7 @@ For more information, please see API CreateFunction.
 
 ## Creating Reducer Function
 ### Creating Function Through Console
-1) Log in to [SCF Console](https://console.qcloud.com/scf), and click [New] button under [Guangzhou] region.
+1) Log in to [SCF Console](https://console.cloud.tencent.com/scf), and click [New] button under [Guangzhou] region.
 
 2) In function configuration section, enter the function name as `Reducer`, leave all other configuration options unchanged, and then click "Next".
 
@@ -79,7 +79,7 @@ When a function is created, it is generally tested through the console or API, t
 
 4) Click "Run" button to observe the result.
 
-5) Go to [COS Console](https://console.qcloud.com/cos4/index), and click `destmr` created in "Step 1: Prepare COS Bucket", to check whether a file named `result_middle_serverless.txt` is generated in COS Bucket. The file collects the number of times each word appears in the uploaded text file:
+5) Go to [COS Console](https://console.cloud.tencent.com/cos4/index), and click `destmr` created in "Step 1: Prepare COS Bucket", to check whether a file named `result_middle_serverless.txt` is generated in COS Bucket. The file collects the number of times each word appears in the uploaded text file:
 
 6) Download this file, and you can see the content similar to the following:
 ```

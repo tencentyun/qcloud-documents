@@ -1,4 +1,4 @@
-Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Usage" page under "Statistics" to review the curve graph of detailed real-time bandwidth and traffic consumption as well as other data including the analysis of ISPs, provinces and popular URLs. You can also query for historical data. Details will be described below.
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and click "Usage" page under "Statistics" to review the curve graph of detailed real-time bandwidth and traffic consumption as well as other data including the analysis of ISPs, provinces and popular URLs. You can also query for historical data. Details will be described below.
 
 ## Query Criteria
 

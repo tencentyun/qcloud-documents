@@ -14,10 +14,10 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 **PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。点击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
 
 ## 步骤 一：创建并运行云服务器
-1. 请根据您的需要 [购买云服务器](https://buy.qcloud.com/cvm?regionId=8&projectId=8)。
+1. 请根据您的需要 [购买云服务器](https://buy.cloud.tencent.com/cvm?regionId=8&projectId=8)。
 以下创建指引供您参考：
-[创建 Linux 云服务器](https://www.qcloud.com/document/product/213/2972)
-2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.qcloud.com/cvm)  查看或编辑云主机状态。
+[创建 Linux 云服务器](https://cloud.tencent.com/document/product/213/2972)
+2. 服务器创建成功后，您可登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看或编辑云主机状态。
 ![云主机1](//mc.qcloudimg.com/static/img/cbd7d2717a9d162df28b4d517ab1d815/image.png)
 
 本教程中云主机的操作系统版本为 CentOS 6.8。后续步骤将会用到以下信息，请注意保存：
@@ -62,7 +62,7 @@ chkconfig mysqld on
 chkconfig php-fpm on
 ```
 
-更多详细操作，可参考 [CentOS 环境下通过 Yum 安装软件](https://www.qcloud.com/document/product/213/2046)。
+更多详细操作，可参考 [CentOS 环境下通过 Yum 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 ### 2.3 软件配置
 将 Nginx、MySQL、PHP 等各软件安装好之后，还需要对各软件分别进行配置。以下是详细步骤：
@@ -275,17 +275,17 @@ mv * /usr/share/nginx/html/
 
 ## 后续步骤
 1. 您可以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
-您可以通过 [腾讯云购买域名](https://dnspod.qcloud.com/?from=qcloud)。 
+您可以通过 [腾讯云购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)。 
 
-2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://www.qcloud.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，一般审核时间为20天左右。
-3. 您需要在腾讯云 [云解析](https://console.qcloud.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://www.qcloud.com/document/product/302/3446)。
+2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，一般审核时间为20天左右。
+3. 您需要在腾讯云 [云解析](https://console.cloud.tencent.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://cloud.tencent.com/document/product/302/3446)。
 
 
 此外，您还可以在腾讯云平台横向和纵向扩展服务容量，例如：
-- 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://www.qcloud.com/document/product/213/5730)
-- 增加多台 CVM 实例，并利用 [负载均衡](https://www.qcloud.com/document/product/214)，在多个实例中进行负载的均衡分配。
-- 利用 [弹性伸缩](https://www.qcloud.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
-- 利用 [对象存储](https://www.qcloud.com/document/product/436)，存储静态网页和海量图片、视频等。
+- 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/5730)
+- 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
+- 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
+- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。
 
 您还可以参考以下视频，完成 WordPress 在 Ubuntu 上的搭建。
 > 注：视频中演示操作界面仅为参考，请以实际操作界面为准。

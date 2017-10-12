@@ -1,4 +1,4 @@
-Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Origin" page under "Statistics" to review statistical data such as back-to-origin bandwidth, back-to-origin traffic and back-to-origin speed.
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and click "Origin" page under "Statistics" to review statistical data such as back-to-origin bandwidth, back-to-origin traffic and back-to-origin speed.
 
 ## Query Criteria Instruction
 The following query criteria are supported when querying back-to-origin statistic data:
@@ -55,7 +55,7 @@ Displays the statistical curve graph of real-time back-to-origin failure rate:
 
 + Back-to-origin failure rate = number of failed back-to-origin requests / total number of back-to-origin requests. Situations when a request is considered failed include TCP connection timeout, origin server disconnection, incompatible HTTP protocols and 5XX server error. For more details, please refer to the following "Details of Back-to-origin Failure";
 + Statistical data regarding back-to-origin failure rate is provided starting from 2016-10-15. Currently you cannot query for data before this date;
-+ You can configure real-time alarms against back-to-origin failure rate for CDN domains and projects in [Cloud Monitoring](https://console.qcloud.com/monitor/policylist).
++ You can configure real-time alarms against back-to-origin failure rate for CDN domains and projects in [Cloud Monitoring](https://console.cloud.tencent.com/monitor/policylist).
 
 
 ### Details of Back-to-origin Failure Types

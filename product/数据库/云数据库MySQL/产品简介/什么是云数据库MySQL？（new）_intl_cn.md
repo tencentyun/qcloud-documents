@@ -5,6 +5,6 @@ CDB for MySQL（Cloud Database for MySQL）是腾讯云基于全球最受欢迎�
 3. 提供了高性能、高可靠、易用、便捷的 MySQL 集群服务。
 4. 整合了备份、扩容、迁移等功能，同时提供 phpMyAdmin 管理后台，用户可以方便的进行数据库的管理。
 
-有关产品费用和计算器，请参考 [费用总览](https://www.qcloud.com/document/product/236/5158) 和 [价格计算器](https://buy.qcloud.com/calculator/cdb)。
-如何购买一个云数据库实例，请参考 [购买与续费流程](https://www.qcloud.com/document/product/236/5160)。
-如何开始使用 CDB for MySQL，请参考 [快速入门](https://www.qcloud.com/document/product/236/3128)。
+有关产品费用和计算器，请参考 [费用总览](https://cloud.tencent.com/document/product/236/5158) 和 [价格计算器](https://buy.cloud.tencent.com/calculator/cdb)。
+如何购买一个云数据库实例，请参考 [购买与续费流程](https://cloud.tencent.com/document/product/236/5160)。
+如何开始使用 CDB for MySQL，请参考 [快速入门](https://cloud.tencent.com/document/product/236/3128)。

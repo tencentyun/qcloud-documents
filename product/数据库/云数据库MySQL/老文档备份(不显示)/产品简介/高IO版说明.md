@@ -10,4 +10,4 @@
 
 ## 2 高IO云数据库性能说明
 
-详见： [高IO版性能说明](http://www.qcloud.com/doc/product/236/%E5%90%84%E7%89%88%E6%9C%AC%E6%80%A7%E8%83%BD%E8%AF%B4%E6%98%8E#2-高io版性能说明)
+详见： [高IO版性能说明](http://cloud.tencent.com/doc/product/236/%E5%90%84%E7%89%88%E6%9C%AC%E6%80%A7%E8%83%BD%E8%AF%B4%E6%98%8E#2-高io版性能说明)

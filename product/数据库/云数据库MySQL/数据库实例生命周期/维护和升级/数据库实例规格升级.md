@@ -1,5 +1,5 @@
 ## 如何自助升级云数据库实例规格
-1. 登录云数据库的 [管理控制台](https://console.qcloud.com/cdb) 后，在需要升级的实例的 **操作** 栏单击【更多】 > 【升级配置】。
+1. 登录云数据库的 [管理控制台](https://console.cloud.tencent.com/cdb) 后，在需要升级的实例的 **操作** 栏单击【更多】 > 【升级配置】。
 ![](//mc.qcloudimg.com/static/img/0e6485cbc2e0ebe62e1f32e66595f861/image.png)
 2. 选择升级规格、硬盘、数据复制方式、切换时间（了解切换时间请参考 [升级切换时间设置](#change_upgrade_time)）等信息后，单击【升级】即可完成云数据库实例规格升级。
 ![](//mc.qcloudimg.com/static/img/e3eababa27cfaedfed2b677cd71ba35b/image.png)

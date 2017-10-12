@@ -1,5 +1,5 @@
 ## 控制台迁移数据
-1. 通过 [云数据库数据控制台](https://console.qcloud.com/cdb) 下载备份文件。（详见：<a href="https://www.qcloud.com/document/product/236/7274" target="_blank">下载备份文件<a/>）
+1. 通过 [云数据库数据控制台](https://console.cloud.tencent.com/cdb) 下载备份文件。（详见：<a href="https://cloud.tencent.com/document/product/236/7274" target="_blank">下载备份文件<a/>）
 2. 还原数据库时，可以通过 MySQL 命令行工具进行还原，方式如下：
 ```
 shell > mysql -h hostname -P port -u username -p < bak_pathname
@@ -9,7 +9,7 @@ shell > mysql -h hostname -P port -u username -p < bak_pathname
 其中，bak_pathname 为备份文件的完整路径名。
 
 ### Windows 迁移数据库
-1. 以 db_blog 这个数据库为例。进入 [云数据库数据控制台](https://console.qcloud.com/cdb) 找到需要导出数据的实例，单击【管理】 > 【备份管理】进入备份管理页面，在【备份列表】中找到需要下载的备份文件，单击【下载】 > 【部分下载】。
+1. 以 db_blog 这个数据库为例。进入 [云数据库数据控制台](https://console.cloud.tencent.com/cdb) 找到需要导出数据的实例，单击【管理】 > 【备份管理】进入备份管理页面，在【备份列表】中找到需要下载的备份文件，单击【下载】 > 【部分下载】。
 ![](//mc.qcloudimg.com/static/img/067a823712584842fc983ab34fa79b55/image.png)
 ![][image-7]
 2. 选中需要导出的数据库，单击【下一步】。
@@ -52,7 +52,7 @@ shell > mysql -h hostname -P port -u username -p < bak_pathname
 其中，hostname 为还原数据的目标主机，port 为目标主机的端口，username 为目标主机的数据库用户名，bak_pathname 为备份文件的完整路径。
 
 ### 通过 CVM 主机 Linux 系统迁移数据
-CVM 主机访问数据库请参考 <a href="https://www.qcloud.com/document/product/236/3130" target="_blank">访问MySQL数据库</a>。
+CVM 主机访问数据库请参考 <a href="https://cloud.tencent.com/document/product/236/3130" target="_blank">访问MySQL数据库</a>。
 1. 以云数据库上的 db_blog 数据库为例。登录 CVM 主机，使用 MySQL 命令行工具 mysqldump 生成待导入的 SQL 文件。
 ![][image-5]
 2. 通过 MySQL 命令行工具进行还原，本例将数据还原到 CVM 服务器上。可以查看到备份的数据库已导入到目标服务器对应的数据库中。
@@ -63,7 +63,7 @@ CVM 主机访问数据库请参考 <a href="https://www.qcloud.com/document/prod
 2. 如果导入数据文件中有指定的字符集编码，则以指定的字符集编码执行。
 3. 如果导入的数据文件的字符集编码与云数据库当前字符集编码不同，会造成乱码。
 
-更多字符集编码问题，请参考 <a href="https://www.qcloud.com/document/product/236/7259#6-.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E6" target="_blank">使用限制</a>，字符集说明。
+更多字符集编码问题，请参考 <a href="https://cloud.tencent.com/document/product/236/7259#6-.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E6" target="_blank">使用限制</a>，字符集说明。
 
 [image-1]:  https://mc.qcloudimg.com/static/img/ec1530d76dab094cfc76a49e05e34d3c/step11.png
 [image-2]:  https://mc.qcloudimg.com/static/img/bb37805c3fa523664ea427923f79c747/step12.png

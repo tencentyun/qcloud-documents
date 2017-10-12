@@ -24,8 +24,8 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|---------|
 | scalingConfigurationName | Yes | String | Scaling configuration name defined by the user. |
 | imageId | Yes | String | Image ID. Please fill in the unImgId (unified ID of image) field returned by <a href="/doc/api/229/查询可用的镜像列表" title="/doc/api/229/查询可用的镜像列表">Query Image</a> (DescribeImages) API. |
-| cpu |Yes | Int | The number of CPU cores, whose optional number may vary in different regions. For more information, refer to [CVM Instance Configuration](https://www.qcloud.com/doc/product/213/2177). |
-| mem |Yes | Int | The size of memory (in GB), whose optional size may vary in different regions. For more information, refer to [CVM Instance Configuration](https://www.qcloud.com/doc/product/213/2177). |
+| cpu |Yes | Int | The number of CPU cores, whose optional number may vary in different regions. For more information, refer to [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177). |
+| mem |Yes | Int | The size of memory (in GB), whose optional size may vary in different regions. For more information, refer to [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177). |
 | storageType | Yes | Int | Data disk type. Only three values are available: 1 means local disk; 2 means cloud disk; 3 means local SSD; 5 means cloud SSD. |
 | storageSize | Yes | Int | Data disk size (GB). The increment is 10 GB. For local disks, the optional range is 0-500 G; for cloud disks, the optional range is 0-4000 G. |
 | bandwidthType | Yes | String | Bandwidth type. Only two values are available: PayByHour indicating charge by bandwidth usage time and PayByTraffic indicating charge by traffic. |
@@ -42,14 +42,14 @@ The following request parameter list only provides API request parameters. Commo
 | dataSnapshotId | No | String | Data disk snapshot ID. If you want to use the data disk snapshot function, the data disk type (storageType) must be cloud disk, and the capacity of data disk snapshot must be less than that of the data disk (storageSize). |
 | cvmType | No | String | Select CVM type. Only three values are available: 11 means Standard CVM; 21 means High IO CVM; 31 means Memory CVM. If not specified, the default of this field is 11 (Standard CVM). |
 
-Currently, the scaling configurations support three CVMs, including Standard CVM, High IO CVM and Memory CVM (subject to the actual available types in each region). For more information about the CPUs and memories sizes supported by scaling configurations, refer to [CVM Instance Configuration](https://www.qcloud.com/doc/product/213/2177).
+Currently, the scaling configurations support three CVMs, including Standard CVM, High IO CVM and Memory CVM (subject to the actual available types in each region). For more information about the CPUs and memories sizes supported by scaling configurations, refer to [CVM Instance Configuration](https://cloud.tencent.com/doc/product/213/2177).
 
 
 
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | codeDesc | String | Error code at business side. If the task succeeds, it will return "Success"; if the task fails, the specific business error reason will be returned. |
 | message | String | Module error message description depending on API. |
 | data | Array | Output results. It contains the scaling configuration list information that was created successfully. |
@@ -61,7 +61,7 @@ Parameter data is composed of only one element: scalingConfigurationIdSet.
 | scalingConfigurationIdSet | Array | Each scaling configuration ID created.  |
 
 ## 4. Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, refer to [AS Error Code](https://www.qcloud.com/doc/api/372/4173).
+The following error codes only include the business logic error codes for this API. For additional common error codes, refer to [AS Error Code](https://cloud.tencent.com/doc/api/372/4173).
 
 | Error Code | Description |
 |----|------|

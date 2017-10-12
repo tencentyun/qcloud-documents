@@ -2,7 +2,7 @@
 
 以下均使用Windows Server 2008示例。
 ## 1. 安装配置IIS和ASP
-本例为Windows Server 2008环境，Windows Server 2012的配置可以参考[这里](http://www.qcloud.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#1.1.-windows2012r2.E7.89.88.E6.9C.AC.E7.A4.BA.E4.BE.8B)。
+本例为Windows Server 2008环境，Windows Server 2012的配置可以参考[这里](http://cloud.tencent.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#1.1.-windows2012r2.E7.89.88.E6.9C.AC.E7.A4.BA.E4.BE.8B)。
 
 点击底部栏【服务器管理器】-【角色】，点击【添加角色】按钮。（此时系统可能会要求重启，请按系统指示进行操作）
 ![](//mccdn.qcloud.com/static/img/d09bb74a5baa87e31c184ec6d75cb57d/image.png)
@@ -25,7 +25,7 @@
 ![](//mccdn.qcloud.com/static/img/bda072e406546f9954168c8724fcd5d1/image.png)
 
 ## 2. 搭建MySQL
-通常情况下Windows系统经常使用SQL Server数据库，但由于SQL Server属于收费产品需要您自行授权（也可购买[腾讯云SQL Server数据库CDB实例](http://www.qcloud.com/product/sqlserver.html)）。本文档主要介绍搭建MySQL 5.5的具体步骤。
+通常情况下Windows系统经常使用SQL Server数据库，但由于SQL Server属于收费产品需要您自行授权（也可购买[腾讯云SQL Server数据库CDB实例](http://cloud.tencent.com/product/sqlserver.html)）。本文档主要介绍搭建MySQL 5.5的具体步骤。
 
 下载MySQL 5.5安装包（下载地址：http://dev.mysql.com/downloads/mysql/ )，运行安装程序，选择典型安装方式（Typical）
 ![](//mccdn.qcloud.com/static/img/96039d46303894a81b161e73a5e53f08/image.png)
@@ -55,7 +55,7 @@
 
 
 ## 3. 安装PHP
-本例为PHP 5.3版本安装，更高版本的安装可以参考[这里](http://www.qcloud.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#2.2.-php-5.3.E4.B9.8B.E5.90.8E.E7.89.88.E6.9C.AC.E5.AE.89.E8.A3.85)。
+本例为PHP 5.3版本安装，更高版本的安装可以参考[这里](http://cloud.tencent.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#2.2.-php-5.3.E4.B9.8B.E5.90.8E.E7.89.88.E6.9C.AC.E5.AE.89.E8.A3.85)。
 
 下载PHP安装包（下载地址： http://windows.php.net/download/ ），本文档以5.3版本为例，选择如下图对应的安装包：
 ![](//mccdn.qcloud.com/static/img/fbfdc56c240c227bd9e79d23ca3f6539/image.png)

@@ -1,4 +1,4 @@
-1) Log in to [CVM Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar, select "Peering Connections" tab in the VPC console, and click "New"to create a peering connection.
+1) Log in to [CVM Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, select "Peering Connections" tab in the VPC console, and click "New"to create a peering connection.
 
 2) In the pop-up box, enter the name, and select the local region, local network, peer region, peer account type and peer network.
 - If the peer account type is "My Account", select the peer network from the drop-down list.

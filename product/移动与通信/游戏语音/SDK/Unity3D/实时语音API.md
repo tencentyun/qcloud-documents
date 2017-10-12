@@ -1,5 +1,5 @@
 ## 1 概述
-使用实时语音，需要先调用[基本API](https://www.qcloud.com/document/product/556/7675)。
+使用实时语音，需要先调用[基本API](https://cloud.tencent.com/document/product/556/7675)。
 
 ## 2 实时语音API调用流程 
 ![](https://mc.qcloudimg.com/static/img/69e8fafb64190a5ddc1f18a954d977ce/j2.png)

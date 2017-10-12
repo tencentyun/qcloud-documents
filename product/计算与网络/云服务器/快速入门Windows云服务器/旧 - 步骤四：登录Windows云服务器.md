@@ -2,7 +2,7 @@
 
 在本地Windows机器上，点击【开始】- 【运行】，输入"mstsc"命令，即可打开远程桌面连接对话框。
 
-在输入框输入Windows服务器的公网IP（登录[云服务器控制台](https://console.qcloud.com/cvm)可查看云服务器的公网IP），如下图所示：
+在输入框输入Windows服务器的公网IP（登录[云服务器控制台](https://console.cloud.tencent.com/cvm)可查看云服务器的公网IP），如下图所示：
 ![](//mccdn.qcloud.com/img56b1a11a3c31f.png)
 
 点击【连接】，在新打开的界面中输入帐号（Administrator）和站内信中的初始密码（或您修改后的密码）即可登录。

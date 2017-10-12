@@ -3,7 +3,7 @@
 >创建伸缩组时必须指定启动配置；
 > 启动配置一经创建后其属性将不能编辑。
 
-打开 [弹性伸缩控制台](https://console.qcloud.com/autoscaling/config)，选择导航条的【启动配置】即可查看列表。
+打开 [弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling/config)，选择导航条的【启动配置】即可查看列表。
 - 如需查看启动配置详情，请点击相应启动配置ID。
 - 如需删除启动配置，请点击相应启动配置条目的【删除】。
 

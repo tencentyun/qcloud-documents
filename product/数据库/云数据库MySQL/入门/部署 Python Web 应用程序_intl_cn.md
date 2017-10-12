@@ -5,7 +5,7 @@ Django是一个开放源代码的Web应用框架，由Python写成。
 
 
 ### 登录到云服务器实例
-云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://www.qcloud.com/document/product/213/2936)。
+云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ### 安装 Python
 在 CentOS 中会会默认安装 python，您可通过 `python --version` 查看 python 版本。
@@ -45,7 +45,7 @@ service httpd start
 ```
 3. 测试 Apache 。
 >**注意：**
-此步骤需要您的云主机在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://www.qcloud.com/document/product/213/5221)。
+此步骤需要您的云主机在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://cloud.tencent.com/document/product/213/5221)。
 
 在您本地的浏览器中输入`http://115.xxx.xxx.xxx/`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](//mc.qcloudimg.com/static/img/3cde70e76a386b81f96ea9919280269d/image.png)

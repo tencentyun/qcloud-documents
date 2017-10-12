@@ -11,5 +11,5 @@
 - 支持从参数设置保存为模板
 - 单个或多个实例进行参数设置时，支持从模板导入
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb/ "云数据库控制台"
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb/ "云数据库控制台"

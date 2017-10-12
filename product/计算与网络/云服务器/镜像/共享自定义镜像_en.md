@@ -14,7 +14,7 @@ To share an image with another user, you need to obtain his/er unique account ID
 
 ### Sharing Images on Console
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com).
 
 2) Click **CVM** – **Image** in the navigation pane.
 
@@ -22,12 +22,12 @@ To share an image with another user, you need to obtain his/er unique account ID
 
 4) Click the **Share** button, enter the unique Tencent Cloud account ID of the counterpart, and click **OK**.
 
-5) Inform him of logging in to [Tencent Cloud Console](https://console.qcloud.com) and select "CVM" - "Image" - "Share Image", to view the image that you has shared with him.
+5) Inform him of logging in to [Tencent Cloud Console](https://console.cloud.tencent.com) and select "CVM" - "Image" - "Share Image", to view the image that you has shared with him.
 
 6) To share this image with multiple users, repeat the above steps until you have added all users.
 
 ### Sharing Images via API
-You can use the [ShareImage API](https://www.qcloud.com/doc/api/229/2361) to share images.
+You can use the [ShareImage API](https://cloud.tencent.com/doc/api/229/2361) to share images.
 
 ## Using Shared Images
 Shared images can only be used to launch CVM instances. For details, refer to [Purchase and Start Instances](/doc/product/213/4855).

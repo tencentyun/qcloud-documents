@@ -2,24 +2,24 @@
 
 ## 1. 创建主实例
 创建只读实例之前需要先创建云数据库主实例。如果已经创建云数据库主实例并初始化，请跳转至步骤 3 创建只读实例。
-1.1 登录腾讯云 [管理控制台](https://console.qcloud.com/)，将鼠标移至导航条中的【云产品】>【基础产品】>【数据库】单击【关系型数据库】，进入 [云数据库控制台](https://console.qcloud.com/cdb)，单击【新建】按钮，进入云数据库 MySQL 购买界面。
+1.1 登录腾讯云 [管理控制台](https://console.cloud.tencent.com/)，将鼠标移至导航条中的【云产品】>【基础产品】>【数据库】单击【关系型数据库】，进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，单击【新建】按钮，进入云数据库 MySQL 购买界面。
 ![](//mc.qcloudimg.com/static/img/30ad113b94de202c67769b08128523dd/image.png)
 1.2 在弹出的购买页面中，选择云数据库主实例的相应配置。       
-- 选择所需的计费模式，支持包年包月和按量计费两种模式。（按量计费购买前需要实名认证，详见 <a href="https://www.qcloud.com/document/product/378/3629" target="_blank">实名认证指引</a>）
-- 选择地域和可用区。地域说明请参见 <a href="https://www.qcloud.com/document/product/236/8458" target="_blank">地域和可用区</a>。
-- 选择网络环境，支持基础网络和私有网络。基础网络和私有网络的区别请参见 <a href="https://www.qcloud.com/document/product/213/5227" target="_blank">网络环境</a>。
+- 选择所需的计费模式，支持包年包月和按量计费两种模式。（按量计费购买前需要实名认证，详见 <a href="https://cloud.tencent.com/document/product/378/3629" target="_blank">实名认证指引</a>）
+- 选择地域和可用区。地域说明请参见 <a href="https://cloud.tencent.com/document/product/236/8458" target="_blank">地域和可用区</a>。
+- 选择网络环境，支持基础网络和私有网络。基础网络和私有网络的区别请参见 <a href="https://cloud.tencent.com/document/product/213/5227" target="_blank">网络环境</a>。
 - 选择实例规格和所需的硬盘。
-- 选择数据复制方式。关于数据库实例复制方式的区别可参见 <a href="https://www.qcloud.com/document/product/236/7913" target="_blank">数据库实例复制</a>。
+- 选择数据复制方式。关于数据库实例复制方式的区别可参见 <a href="https://cloud.tencent.com/document/product/236/7913" target="_blank">数据库实例复制</a>。
 - 选择数据库实例所属的项目，缺省设置为默认项目。
 - 选择购买数量和时长，核对无误后单击【立即购买】。
-- 费用详情请参见 <a href="https://www.qcloud.com/document/product/236/5158" target="_blank">费用总览</a>。
+- 费用详情请参见 <a href="https://cloud.tencent.com/document/product/236/5158" target="_blank">费用总览</a>。
 ![](//mc.qcloudimg.com/static/img/e1401535799aeb1204707da530d37f89/image.png)
 > **注意：**
 > 目前只读实例仅支持高IO版4000MB内存、100GB容量及以上规格的主实例。
 
 ## 2.  初始化主实例
 通过此步骤对已经购买的 MySQL 数据库执行初始化操作。
-2.1 在 [腾讯云控制台](https://console.qcloud.com/) 的左上角，单击【云产品】菜单下的【关系型数据库】，进入数据库产品页面。
+2.1 在 [腾讯云控制台](https://console.cloud.tencent.com/) 的左上角，单击【云产品】菜单下的【关系型数据库】，进入数据库产品页面。
 ![](//mc.qcloudimg.com/static/img/511cad3621447b36d204b87bf83bb09f/image.png)
 2.2 在关系型数据库页面中，单击【MySQL】下的【实例列表】，找到目标地域（此例中以广州为例）中要操作的状态为“**未初始化**” 的 MySQL 数据库实例。
 ![](//mc.qcloudimg.com/static/img/2256d49a17e08e5243f95c1804097c6c/image.png)
@@ -72,11 +72,11 @@
 - 最少保留实例数：组内需要保证的实例下限。若现有只读实例数低于此下限则超限不再自动设置权重为0。此项必须设置，且最小为0。
 
 ![](//mc.qcloudimg.com/static/img/3afb117591392e4e7e1d69a10b7976c2/image.png)
-3.5 进入 [云数据库控制台](https://console.qcloud.com/cdb)，找到刚才创建的实例类型为“**只读实例**”的实例，则表示只读实例创建成功。
+3.5 进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到刚才创建的实例类型为“**只读实例**”的实例，则表示只读实例创建成功。
 ![](//mc.qcloudimg.com/static/img/c9785571ba892afe730f45a9ed7dd48c/image.png)
 
 ## 4. 配置只读实例 RO 组
-4.1 在 [云数据库控制台](https://console.qcloud.com/cdb)，选择需要设置只读实例 RO 组的云数据库主实例，单击【管理】，进入云数据库主实例管理界面。
+4.1 在 [云数据库控制台](https://console.cloud.tencent.com/cdb)，选择需要设置只读实例 RO 组的云数据库主实例，单击【管理】，进入云数据库主实例管理界面。
 ![](//mc.qcloudimg.com/static/img/6617bf48cdc9a3de82342543e05ee03f/image.png)
 4.2 在云数据库主实例管理界面，单击【只读实例】，进入只读实例 RO 组管理界面。 
 ![](//mc.qcloudimg.com/static/img/83730fa97348eb5a11beaaf7ec4c8f5b/image.png)

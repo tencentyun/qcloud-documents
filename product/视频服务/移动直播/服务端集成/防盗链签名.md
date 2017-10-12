@@ -10,9 +10,9 @@
 
 ## 防盗链签名的计算
 ### step1 ： 交换秘钥
-首先，您需要在 [直播控制台](https://console.qcloud.com/live/livecodemanage) 设置一个**加密密钥**，该密钥用于在您的服务器上计算防盗链签名，由于腾讯云跟您持有同样的密钥，所以您生成的防盗链签名，腾讯云可以进行合法性确认。
+首先，您需要在 [直播控制台](https://console.cloud.tencent.com/live/livecodemanage) 设置一个**加密密钥**，该密钥用于在您的服务器上计算防盗链签名，由于腾讯云跟您持有同样的密钥，所以您生成的防盗链签名，腾讯云可以进行合法性确认。
 
-密钥分为**推流防盗链KEY**和**播放防盗链KEY**，前者用于生成推流防盗链URL，后者用于生成播放防盗链URL。目前在  [直播控制台](https://console.qcloud.com/live/livecodemanage) 上可以自助配置推流防盗链KEY，如下图：
+密钥分为**推流防盗链KEY**和**播放防盗链KEY**，前者用于生成推流防盗链URL，后者用于生成播放防盗链URL。目前在  [直播控制台](https://console.cloud.tencent.com/live/livecodemanage) 上可以自助配置推流防盗链KEY，如下图：
 ![](//mc.qcloudimg.com/static/img/6be1d875f1120a16d3692c60bb4485a9/image.png)
  >  **默认不开播放防盗链**
  >   
@@ -40,7 +40,7 @@
 rtmp://8888.livepush.myqcloud.com/live/8888_test001?txSecret=xxx&txTime=5C2A3CFF
 </td></tr></table>
 	
-> [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 页面下半部分有示例代码（PHP和Java两个版本）演示如何生成防盗链地址。
+> [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 页面下半部分有示例代码（PHP和Java两个版本）演示如何生成防盗链地址。
 
 
 

@@ -4,8 +4,8 @@
 ### 自动构建
 容器镜像自动构建基于github或者gitlab代码仓库，要求**代码仓库里面必须包含Dockerfile文件**。用户需要先注册github或者gitlab服务器的token，如果代码仓库使用的是gitlab，**gitlab服务器要求必须能够公网访问**。用户可以针对代码仓库设置自动构建规则，当用户往代码仓库发起push操作时，如果符合自动构建规则，那么就会在腾讯云容器平台上进行容器镜像的自动构建，并将构建出来的容器镜像自动推送到腾讯云容器镜像仓库中。
 自动构建需要执行以下步骤：
-- 第一步：[源代码仓库授权](https://www.qcloud.com/document/product/457/10153)
-- 第二步：[构建规则设置](https://www.qcloud.com/document/product/457/10152)
+- 第一步：[源代码仓库授权](https://cloud.tencent.com/document/product/457/10153)
+- 第二步：[构建规则设置](https://cloud.tencent.com/document/product/457/10152)
 - 第三步：提交代码自动执行构建
 
 ### 手动构建

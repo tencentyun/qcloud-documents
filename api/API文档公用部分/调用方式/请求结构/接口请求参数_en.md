@@ -38,7 +38,7 @@ If you want to query the auto scaling group list, the request should be:
 
 <pre>
 https://cvm.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &instanceIds.0=ins-0hm4gvho
 &instanceIds.1=ins-8oby8q00
 &offset=0

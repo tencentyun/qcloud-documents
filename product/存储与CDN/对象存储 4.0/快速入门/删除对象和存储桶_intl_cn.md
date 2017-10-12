@@ -9,7 +9,7 @@
 
 - 点击**确认**，即可删除文件，删除后的文件原有的URL将立即失效。
 
-> 注：目前Bucket管理控制台暂未支持批量删除功能，如需批量删除，请转到[开发者工具](https://www.qcloud.com/document/product/436/7212)下载相关工具。
+> 注：目前Bucket管理控制台暂未支持批量删除功能，如需批量删除，请转到[开发者工具](https://cloud.tencent.com/document/product/436/7212)下载相关工具。
 
 
 ### 2.删除 Bucket

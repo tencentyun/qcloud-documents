@@ -17,4 +17,4 @@
 • 异地容灾数据库节点组部署在主节点100km以外的异地机房，异地机房处于实时运行状态，且至少拥有主节点50%的性能
 
 ## 详细了解
-[金融云TDSQL](http://www.qcloud.com/product/tdsql.html)
+[金融云TDSQL](http://cloud.tencent.com/product/tdsql.html)

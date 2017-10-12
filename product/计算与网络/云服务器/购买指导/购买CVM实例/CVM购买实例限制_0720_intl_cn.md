@@ -26,9 +26,9 @@
 ## 购买按量计费 CVM 实例限制
 - 购买按量计费 CVM 实例之前，腾讯云帐号需要进行实名认证。未进行实名认证的用户无法购买按量计费 CVM 实例。
 **实名认证方法：**
-前往 [用户中心](https://console.qcloud.com/developer)，在【业务信息】一栏单击【实名认证】进行认证操作。
+前往 [用户中心](https://console.cloud.tencent.com/developer)，在【业务信息】一栏单击【实名认证】进行认证操作。
 ![](https://mc.qcloudimg.com/static/img/bfaa7958ea8f41573e40b8ce3ef920ad/2.png)。
-具体认证步骤可参考 [实名认证操作指引](https://www.qcloud.com/document/product/378/3629)。
+具体认证步骤可参考 [实名认证操作指引](https://cloud.tencent.com/document/product/378/3629)。
 - 以下特性 **不适用于** 购买按量计费 CVM 实例：
  - 代理商代付
  - 代金券消费

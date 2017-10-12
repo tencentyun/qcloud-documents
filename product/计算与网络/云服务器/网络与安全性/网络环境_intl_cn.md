@@ -1,4 +1,4 @@
-腾讯云的网络环境可以分为基础网络和 [私有网络](https://www.qcloud.com/product/vpc?idx=2)（VPC）两种。
+腾讯云的网络环境可以分为基础网络和 [私有网络](https://cloud.tencent.com/product/vpc?idx=2)（VPC）两种。
 
 ## 基础网络与私有网络
 **基础网络**：

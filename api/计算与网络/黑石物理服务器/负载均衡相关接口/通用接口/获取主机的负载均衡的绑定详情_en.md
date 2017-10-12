@@ -104,7 +104,7 @@ Input
 
 <pre>
 https://domain/v2/index.php?Action=DescribeBmBindInfo
-&<<a href="https://www.qcloud.com/document/product/386/6718">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">Common request parameters</a>>
 &vpcId=XXX
 &instanceIds.1=1.1.1.1
 &instanceIds.2=cpm-abcdefgh

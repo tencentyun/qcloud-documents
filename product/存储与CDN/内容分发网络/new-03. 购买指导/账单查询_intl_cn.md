@@ -1,7 +1,7 @@
 ## 查询账单
 您可以按照以下步骤查询您的账单：
 1. 进入费用中心查看收支明细，有两种方式：
-a. 登录腾讯云 [费用中心](https://console.qcloud.com/account)，在左侧【账单管理】菜单中选择【收支明细】。
+a. 登录腾讯云 [费用中心](https://console.cloud.tencent.com/account)，在左侧【账单管理】菜单中选择【收支明细】。
 ![](https://mc.qcloudimg.com/static/img/fccad8aa988fc42090081840fb7759bf/accountcenter.png)
 b. 您可以在腾讯云官网顶部导航栏中单击【管理中心】>【费用】>【收支明细】，查看您的 CDN 账单详情。
 ![](https://mc.qcloudimg.com/static/img/4c4e187f9f8552ecc38a4fc12d7be70c/console.png)

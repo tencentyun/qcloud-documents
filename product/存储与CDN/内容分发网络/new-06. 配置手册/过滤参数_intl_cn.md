@@ -1,7 +1,7 @@
 CDN 为您提供了过滤参数开关，您可以根据业务需要，控制是否对用户请求 URL 中 **“?”** 之后的参数进行过滤。您可以利用过滤参数灵活的进行版本控制，或对资源进行带有 Token 的鉴权。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【访问控制】，您可以看到 **过滤参数配置** 模块，设置是否过滤参数。
 ![](https://mc.qcloudimg.com/static/img/7599154d615d6c1132fd749bfdefe38e/filter.png)

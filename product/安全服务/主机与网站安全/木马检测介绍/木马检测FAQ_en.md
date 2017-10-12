@@ -4,7 +4,7 @@ A: If the password has been cracked, the hacker may have already broke into the 
 (2) It is recommended to reset your server if necessary. Next, configure a complex password which includes letters, numbers and special characters, with a length of no less than 15 characters.
 
 Q: How do I install Tencent CVM security component? 
-A: You can download and install at https://console.qcloud.com/yunjing/index/addMachine
+A: You can download and install at https://console.cloud.tencent.com/yunjing/index/addMachine
 
 Q: What should I do if there are abnormal login behaviors?
 A: Abnormal logins are determined based on common login locations used by the administrator. Please check the login records, if you find any logins attempted by someone other than administrator, the password may have already been disclosed. In such case, you need to perform an overall security check for your server.

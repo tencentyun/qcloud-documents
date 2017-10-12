@@ -1,5 +1,5 @@
 ## 1 新建游戏
-进入控制台：https://console.qcloud.com/gameservice  
+进入控制台：https://console.cloud.tencent.com/gameservice  
 首页是游戏管理，使用流程是：先创建游戏，再开通服务。
 ![](https://mc.qcloudimg.com/static/img/07db2948dc8aff9a7807c28029f7a752/image.png)
 

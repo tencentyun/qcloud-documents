@@ -1,7 +1,7 @@
 您可以下载用户对您接入域名访问情况的详细日志进行分析，CDN 为您提供小时维度的域名日志，您可以下载最近 30 天内的 CDN 日志。
 
 ## 日志下载
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【日志管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【日志管理】。
 ![](https://mc.qcloudimg.com/static/img/32a9db3c12cd53b24d1daa289ccaac3b/logs_manage.png)
 选择要获取日志的时间及域名，单击【确定】，即可获取日志下载链接。
 ![](https://mc.qcloudimg.com/static/img/123ef1899acc4613effb3b11d4a28f75/logs_manage2.png)

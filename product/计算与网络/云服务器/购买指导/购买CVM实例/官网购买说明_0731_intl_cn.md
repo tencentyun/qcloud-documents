@@ -1,7 +1,7 @@
 本小节主要对官网购买云服务器及注意事项等进行说明。
 如需购买云服务器，请参考云服务器购买指引：
-- [创建 Windows 云服务器](https://www.qcloud.com/document/product/213/2764#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E5.88.9B.E5.BB.BA-windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)
-- [创建 Linux 云服务器](https://www.qcloud.com/document/product/213/2936#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E5.88.9B.E5.BB.BA-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)
+- [创建 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E5.88.9B.E5.BB.BA-windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)
+- [创建 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E5.88.9B.E5.BB.BA-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)
 
 ## 购买记录
 >**注意：**
@@ -11,7 +11,7 @@
 **购买记录**支持展示您的**最近 10 条**历史购买记录。您可从历史购买记录中一键购买同种配置，简化购买路径。
 
 **操作步骤**
-1. 登录 [云服务器产品页](https://www.qcloud.com/product/cvm)，单击【立即选购】。
+1. 登录 [云服务器产品页](https://cloud.tencent.com/product/cvm)，单击【立即选购】。
 2. 在选购界面的标题处单击【购买记录】。
  ![](https://mc.qcloudimg.com/static/img/86662e548fba98e8291b263fc952fb6e/14.png) 
 悬浮页面会展示您最近 10 条购买记录。您可从每条记录中查看到对应的详细配置。
@@ -26,7 +26,7 @@
 **固定到期日**支持用户将预付费设备到期时间统一至每月同一日期，方便用户对云服务器进行统一管理和续费。
 
 - 如您从未使用过**固定到期日**功能，购买页不显示固定到期日勾选框。
- 点击了解 [设置固定到期日](https://www.qcloud.com/document/product/555/7454#.E8.AE.BE.E7.BD.AE.E7.BB.9F.E4.B8.80.E5.88.B0.E6.9C.9F.E6.97.A5) 操作指引。
+ 点击了解 [设置固定到期日](https://cloud.tencent.com/document/product/555/7454#.E8.AE.BE.E7.BD.AE.E7.BB.9F.E4.B8.80.E5.88.B0.E6.9C.9F.E6.97.A5) 操作指引。
 - 如您已经使用过**固定到期日**功能，购买页将显示固定到期日勾选框。勾选过该字段的云服务器购买时长须大于一个月，不足整月的部分，系统将按照月价折算成天数的价格为您计费。
  例如，11 月 12 日购买且勾选固定到期日的云服务器，月价格为 60 元/月，固定到期日为每月 20 日，则该云服务器到期时间为 12 月 20 日，您需要支付的金额为 76 元（60+60÷30×8）。
 

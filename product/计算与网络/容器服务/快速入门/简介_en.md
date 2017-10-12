@@ -34,8 +34,8 @@ See the following figure. After creating a cluster, you only need to use the ima
 
 We provide some examples on how to get started with CCS.
 
-- [Create Simple nginx Service](https://www.qcloud.com/document/product/457/7851)
-- [Create Hello World Node.js Service](https://www.qcloud.com/document/product/457/7204)
-- [Create Wordpress with Single pod](https://www.qcloud.com/document/product/457/7205)
-- [Create Wordpress Service that Uses CDB](https://www.qcloud.com/document/product/457/7447)
+- [Create Simple nginx Service](https://cloud.tencent.com/document/product/457/7851)
+- [Create Hello World Node.js Service](https://cloud.tencent.com/document/product/457/7204)
+- [Create Wordpress with Single pod](https://cloud.tencent.com/document/product/457/7205)
+- [Create Wordpress Service that Uses CDB](https://cloud.tencent.com/document/product/457/7447)
 

@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (RewindQueue) is used for message rewind. For more information, please see [Message Rewind](https://www.qcloud.com/document/product/406/8129).
+This API (RewindQueue) is used for message rewind. For more information, please see [Message Rewind](https://cloud.tencent.com/document/product/406/8129).
 Domain for public network API request: cmq-queue-region.api.qcloud.com
 
 Domain for private network API request: cmq-queue-region.api.tencentyun.com
@@ -14,7 +14,7 @@ Domain for private network API request: cmq-queue-region.api.tencentyun.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/431/5883).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/431/5883).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -59,7 +59,7 @@ The following request parameter list only provides API request parameters. For o
 
 </tbody></table>
 
-Note: The error codes listed in the above table are specific to this API. If the error code you are looking for is not in the table, you may find it in the [Common Error Codes](https://www.qcloud.com/document/product/406/5903).
+Note: The error codes listed in the above table are specific to this API. If the error code you are looking for is not in the table, you may find it in the [Common Error Codes](https://cloud.tencent.com/document/product/406/5903).
 
 
 ## 4. Example
@@ -69,7 +69,7 @@ Input:
 <pre>
  https://domain/v2/index.php?Action=RewindQueue
  &queueName=test-queue-123&startConsumeTime=unix timestamp
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+ &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output:

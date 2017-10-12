@@ -75,7 +75,7 @@ Playback password is a security mechanism used to ensure that the video is only 
 
 **What are Blacklist & Whitelist?**
 
-You can use Blacklist/Whitelist to allow or restrict requests from accessing a video from a player code of a specific web page. This list is effective to videos published by a player code. Users can enable this feature globally, and specify whether to use blacklist or whitelist. Each list can contain 10 URLs. Blacklist & Whitelist function by checking the source referer of access requests. To protect the video file URL, refer to [URL Hotlink Protection Feature](http://www.qcloud.com/doc/product/266/URL%E9%98%B2%E7%9B%97%E9%93%BE).
+You can use Blacklist/Whitelist to allow or restrict requests from accessing a video from a player code of a specific web page. This list is effective to videos published by a player code. Users can enable this feature globally, and specify whether to use blacklist or whitelist. Each list can contain 10 URLs. Blacklist & Whitelist function by checking the source referer of access requests. To protect the video file URL, refer to [URL Hotlink Protection Feature](http://cloud.tencent.com/doc/product/266/URL%E9%98%B2%E7%9B%97%E9%93%BE).
 
 **What is the difference between watermark and Logo?**
 

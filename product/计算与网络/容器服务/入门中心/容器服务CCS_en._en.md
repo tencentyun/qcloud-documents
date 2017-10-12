@@ -48,7 +48,7 @@ Click "Add Data Volume" when you specify a specific path to which a container is
 >**Note:**
 >If no source path is specified, a temporary path is assigned by default.
 
- - **Type**: Four types of data volumes are supported: local disk, cloud disk, NFS disk, and configuration file. For more information, please see [How to Use CCS Data Volume](https://www.qcloud.com/document/product/457/9112#.E5.AE.B9.E5.99.A8.E6.9C.8D.E5.8A.A1.E6.95.B0.E6.8D.AE.E5.8D.B7.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E).
+ - **Type**: Four types of data volumes are supported: local disk, cloud disk, NFS disk, and configuration file. For more information, please see [How to Use CCS Data Volume](https://cloud.tencent.com/document/product/457/9112#.E5.AE.B9.E5.99.A8.E6.9C.8D.E5.8A.A1.E6.95.B0.E6.8D.AE.E5.8D.B7.E4.BD.BF.E7.94.A8.E8.AF.B4.E6.98.8E).
  - **Name**: The name of data volume.
  - **Path**: Specify the path to which a container is mounted.
  ![](//mc.qcloudimg.com/static/img/2f3c75de6cb710e4163ff8c468a7e287/image.png)
@@ -59,7 +59,7 @@ Click "Add Data Volume" when you specify a specific path to which a container is
  ![](//mc.qcloudimg.com/static/img/647899fd3bb0fccd34bdbbc2e32fbad0/image.png)
 5. Other configurations.
  -  **Number of pods**: A pod is composed of one or more relevant containers. You can specify the number of pods by clicking + or -.
- -  **Service access method**: The method for accessing a service determines the network attribute of this service. Different access methods offer different network capabilities. For more information about the four access methods, please see [Configuration of Service Access Methods](https://www.qcloud.com/document/product/457/9098).
+ -  **Service access method**: The method for accessing a service determines the network attribute of this service. Different access methods offer different network capabilities. For more information about the four access methods, please see [Configuration of Service Access Methods](https://cloud.tencent.com/document/product/457/9098).
  ![](//mc.qcloudimg.com/static/img/709ab652384bb5905718dc0ff01903f4/image.png)
 6. Click "Create Service" to complete the creation of service. A created service is displayed in service list.
 

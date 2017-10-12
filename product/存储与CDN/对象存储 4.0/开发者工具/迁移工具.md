@@ -8,7 +8,7 @@ Linux 或 Mac 系统
 ### 软件依赖
 Python 2.7.x，同时应该安装 pip，gcc 与 python-dev。
 #### 安装及配置
-1. Python 2.7.x 安装请参考 [Python 安装与配置](https://www.qcloud.com/document/product/436/10866)。
+1. Python 2.7.x 安装请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
 2. 安装 pip，gcc 与 python-dev：
 ```
 sudo yum install python-pip python-devel gcc

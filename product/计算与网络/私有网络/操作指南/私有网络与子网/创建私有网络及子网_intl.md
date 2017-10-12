@@ -3,7 +3,7 @@ A VPC may contain multiple subnets. You need to create a VPC and subnets at the 
 
 You can create a VPC in the console, and need to create initial subnets at the same time, so as to add cloud service resources to the VPC.
 
-Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar, select the region in which you want to create the VPC in the VPC console, and click "New" to create a VPC.
+Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, select the region in which you want to create the VPC in the VPC console, and click "New" to create a VPC.
 ![](//mccdn.qcloud.com/img567f9faf86cdc.png)
 
 To create a VPC, you need to specify the CIDR network segment of VPC and subnet, and determine the availability zone of the subnet. When creating VPC, you're recommended to reserve enough IP resources for VPC and subnets to avoid insufficient network resources caused by business expansion.
@@ -19,7 +19,7 @@ VPC supports private IPs within three network segments: "10.a.0.0/8" (a is betwe
 ## 2. Adding Subnet
 Subnet is a logical subdivision of VPC. You need to create VPC first, and then divide the VPC into subnets.
 
-Log in to [CVM Console](https://console.qcloud.com/), click "Virtual Private Cloud" in the navigation bar, then select "Subnets" tab in the VPC console, and click "New" to create a subnet.
+Log in to [CVM Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, then select "Subnets" tab in the VPC console, and click "New" to create a subnet.
 
 ![](//mccdn.qcloud.com/img567fa0e851555.png)
 

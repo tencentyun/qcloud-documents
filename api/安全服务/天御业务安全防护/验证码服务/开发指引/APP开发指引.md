@@ -6,9 +6,9 @@
 <a href="/doc/product/295/6620"target="blank">后台获取验证码API</a>
 
 ## 3.客户端加载验证码和获取票据接口 ##
-[IOS客户端API](https://www.qcloud.com/document/product/295/2898)
+[IOS客户端API](https://cloud.tencent.com/document/product/295/2898)
 
-[Android客户端API](https://www.qcloud.com/document/product/295/2897)
+[Android客户端API](https://cloud.tencent.com/document/product/295/2897)
 
 ## 4.获取验证码票据
 用户依据第3步获取的用户验证票据，提交到后台。
@@ -16,7 +16,7 @@
 ## 5.后台校验验证码票据
 后台依据第三步获取的用户票据，提交天御验证
 
-[后台验证票据API](https://www.qcloud.com/document/product/295/6706)
+[后台验证票据API](https://cloud.tencent.com/document/product/295/6706)
 
 ## 6.使用注意
 手机验证码页面要全屏显示，否则验证码页面会显示异常影响用户使用。

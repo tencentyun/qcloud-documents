@@ -6,7 +6,7 @@ You can download the detailed log containing the information about users' access
 
 
 
-Log in to [CDN Console](https://console.qcloud.com/cdn) and select **Logs** page. You'll see the **Log Management** feature provided by CDN.
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn) and select **Logs** page. You'll see the **Log Management** feature provided by CDN.
 
 
 ![](https://mc.qcloudimg.com/static/img/043e70b6829ce67d6af125b51736b249/1.png)

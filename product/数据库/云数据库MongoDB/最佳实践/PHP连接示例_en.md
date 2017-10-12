@@ -1,5 +1,5 @@
 ### Notes
-Tencent Cloud MongoDB provides two user names "rwuser" and "mongouser" by default to support the "MONGODB-CR" and "SCRAM - SHA - 1" authentication respectively. The connecting URI for the two types of authentication are formed differently. For more information, please see [Connection Examples](https://www.qcloud.com/doc/product/240/3563).
+Tencent Cloud MongoDB provides two user names "rwuser" and "mongouser" by default to support the "MONGODB-CR" and "SCRAM - SHA - 1" authentication respectively. The connecting URI for the two types of authentication are formed differently. For more information, please see [Connection Examples](https://cloud.tencent.com/doc/product/240/3563).
 
 In PHP, [Two Series of Drivers](https://docs.mongodb.com/ecosystem/drivers/php/) can be used to connect with and operate MongoDB. They are:
 - "mongodb"([PHP Official Document](http://php.net/manual/en/set.mongodb.php))  - MongoDB recommends "mongodb" officially, but PHP version 5.4 or above is required.
@@ -9,7 +9,7 @@ Both drivers are used below to demonstrate the process of connecting with Tencen
  
 ### Using the Driver "mongodb"
 Please see [Here](http://php.net/manual/zh/mongodb.installation.php) for how to install "mongodb".
-**Driver "mongodb" support "MONGODB-CR" and "SCRAM-SHA-1" authentication**. For more information, please see[Connection Examples](https://www.qcloud.com/doc/product/240/3563).
+**Driver "mongodb" support "MONGODB-CR" and "SCRAM-SHA-1" authentication**. For more information, please see[Connection Examples](https://cloud.tencent.com/doc/product/240/3563).
 
 Sample codes:
 ```
@@ -62,7 +62,7 @@ stdClass Object
 
 
 ### Using driver "mongo"
-**Driver "mongo" only support "MONGODB-CR" authentication**, and thus connect the database through "rwuser". Please see[Connection Examples](https://www.qcloud.com/doc/product/240/3563).
+**Driver "mongo" only support "MONGODB-CR" authentication**, and thus connect the database through "rwuser". Please see[Connection Examples](https://cloud.tencent.com/doc/product/240/3563).
 
 Sample codes:
 

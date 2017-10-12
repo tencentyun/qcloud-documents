@@ -13,16 +13,16 @@ A: Temporarily not, the feature is under alpha test and will be available in the
 A: Temporarily not, the feature is under alpha test and will be available in the future
 
 **Q: What is the difference between Cloud Database MongoDB and self-built MongoDB?**
-A: Please see [Advantage of Cloud Database MongoDB over Self-built MongoDB](http://www.qcloud.com/doc/product/240/%E4%BA%A7%E5%93%81%E4%BC%98%E5%8A%BF)
+A: Please see [Advantage of Cloud Database MongoDB over Self-built MongoDB](http://cloud.tencent.com/doc/product/240/%E4%BA%A7%E5%93%81%E4%BC%98%E5%8A%BF)
 
 **Q: Which languages of the clients are supported by Cloud Database MongoDB?**
 A: All connections between Cloud Database MongoDB and clients are compatible with MongoDB. The Cloud Database supports any client that is supported by official MongeDB. For example: C, C++, c#, java, node.js, python, php, perl, etc., please see official website at [https://docs.mongodb.org/ecosystem/drivers/](https://docs.mongodb.org/ecosystem/drivers/) for more information
 
 **Q: How to connect to Tencent Cloud MongoDB in shell?**
-A: Please see [Shell Connection Example](https://www.qcloud.com/doc/product/240/3978)
+A: Please see [Shell Connection Example](https://cloud.tencent.com/doc/product/240/3978)
 
 **Q: What does the URIs in service applications look like, that are used to connect to MongoDB?**
-A: Please see [Connection Examples] (https://www.qcloud.com/doc/product/240/3563)
+A: Please see [Connection Examples] (https://cloud.tencent.com/doc/product/240/3563)
 
 **Q: Which version of the driver should I choose?**
 A: Use the latest version if you can, for example, use mongo-1.6 or above for PHP
@@ -66,5 +66,5 @@ A: [See BBS](http://bbs.qcloud.com/thread-17852-1-1.html)
 A: At this point the instance will banned, in which case it will become read-only, any connections for write attempt will be closed. Please pay attention to your business development and instance usage, expand capacity as appropriate when capacity usage reaches a certain level.
 
 **Q: What should I do if I lose disconnection or encounter the "Remote server has closed the connection" message?**
-A: First of all, see [Connection Examples](https://www.qcloud.com/doc/product/240/3563) to eliminate authentication issues; if you can connect but still encounter this problem, you may need reconnection mechanism. See [Reconnection](https://www.qcloud.com/doc/product/240/4980)
+A: First of all, see [Connection Examples](https://cloud.tencent.com/doc/product/240/3563) to eliminate authentication issues; if you can connect but still encounter this problem, you may need reconnection mechanism. See [Reconnection](https://cloud.tencent.com/doc/product/240/4980)
 

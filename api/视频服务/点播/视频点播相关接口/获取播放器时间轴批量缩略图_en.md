@@ -2,7 +2,7 @@
 
 This API ( DescribeScreenShot) is used to acquire thumbnails on the player time line. Once size is specified, thumbnails will be acquired according to specified height/width with a frequency of 1 thumbnail per 10 seconds. Every 100 acquired images will be grouped into one large image, with a corresponding address in a fixed format. Users may acquire these images in sequence according to the fixed format after performing certain actions.
 
-Note: This API is only available to users who have purchased certain service packages. For details, see [Product Introduction](http://www.qcloud.com/product/vod.html#price) for details.
+Note: This API is only available to users who have purchased certain service packages. For details, see [Product Introduction](http://cloud.tencent.com/product/vod.html#price) for details.
 
 Domain:  vod.api.qcloud.com
 
@@ -63,7 +63,7 @@ Input
  &fileId=11324759161874546895
   &width=200
   &height=200
- &<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+ &<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 
 </pre>
 Output

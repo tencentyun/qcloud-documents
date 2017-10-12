@@ -52,7 +52,7 @@
 输入
 
 ```
-taskId=126395&period=5&date=2017-05-24&dimentions.0.province=&dimentions.0.isp=&metricName=totalTime AخA offset=0&limit=5 AخA https://catapi.api.qcloud.com/v2/index.php?& <<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>&Action=GetCatRespTimeTrend
+taskId=126395&period=5&date=2017-05-24&dimentions.0.province=&dimentions.0.isp=&metricName=totalTime AخA offset=0&limit=5 AخA https://catapi.api.qcloud.com/v2/index.php?& <<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>&Action=GetCatRespTimeTrend
 &taskId=126395
 &period=5
 &date=2017-05-24

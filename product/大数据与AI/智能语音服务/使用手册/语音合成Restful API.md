@@ -199,7 +199,7 @@ $serverIp = "aai.qcloud.com";
 $serverPort = 80;
 
 $appid = YOUR_APPID;
-// 获取secretId 和 secretKey -> https://console.qcloud.com/capi
+// 获取secretId 和 secretKey -> https://console.cloud.tencent.com/capi
 $secret_id = 'YOUR_SECRET_ID';
 $secret_key = 'YOUR_SECRET_KEY';
 

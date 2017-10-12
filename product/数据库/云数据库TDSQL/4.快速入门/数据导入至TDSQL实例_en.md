@@ -1,5 +1,5 @@
 You can use Tencent Cloud Database migration tool to migrate business data to CDB for MariaDB (TDSQL). The migration tool migrates data from different types of source databases within the same region to MariaDB (TDSQL). The supported source databases are:
-1. Source database from MySQL instance self-built by the Cloud Service in the basic network of Tencent Cloud ([VPC Network](http://www.qcloud.com/doc/product/215/%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0) to be supported);
+1. Source database from MySQL instance self-built by the Cloud Service in the basic network of Tencent Cloud ([VPC Network](http://cloud.tencent.com/doc/product/215/%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0) to be supported);
 2. Source database from CDB for MySQL instance of Tencent Cloud;
 3. Source database from another CDB for MySQL (TDSQL) instance;
 

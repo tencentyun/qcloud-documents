@@ -1,5 +1,5 @@
 点播系统可应用在各种丰富的场景，并可搭配腾讯云视频解决方案的其他产品，实现视频门户、在线教育、企业视频发布等各种场景。
-详细内容可查看[解决方案页面](http://www.qcloud.com/solution/video.html)
+详细内容可查看[解决方案页面](http://cloud.tencent.com/solution/video.html)
 
 ## 视频门户
 

@@ -12,4 +12,4 @@
 ![](https://mccdn.qcloud.com/static/img/a7229f0620132aff8e2e81d5f28fd6b4/image.png)
 
 ## 详细了解
-[金融云CDN](http://www.qcloud.com/product/cdn.html)
+[金融云CDN](http://cloud.tencent.com/product/cdn.html)

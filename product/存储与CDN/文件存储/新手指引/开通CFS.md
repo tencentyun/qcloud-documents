@@ -4,7 +4,7 @@
 ## 注册腾讯云账号
 
 
-打开 [腾讯云官网](http://www.qcloud.com) ，点击右上角 **注册** ：
+打开 [腾讯云官网](http://cloud.tencent.com) ，点击右上角 **注册** ：
 
 ![](//mccdn.qcloud.com/static/img/94eb60bfc4b0cd7995b261100ebbd894/image.png)
 

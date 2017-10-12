@@ -9,7 +9,7 @@
 >**注意：**
 >只有系统盘和数据盘均为云硬盘的关机状态下的 CVM 实例可以进行磁盘调整。
 
-1. 登录 [腾讯云云服务器控制台](https://console.qcloud.com/cvm/index)，对要进行硬盘配置调整的 CVM 实例进行关机操作。
+1. 登录 [腾讯云云服务器控制台](https://console.cloud.tencent.com/cvm/index)，对要进行硬盘配置调整的 CVM 实例进行关机操作。
 2. 在对应关机 CVM 实例的右侧操作栏中，单击【更多】>【云主机设置】>【调整磁盘】。
 ![](https://mc.qcloudimg.com/static/img/bc276965d6dd59a5eacaf89bcdaccb87/17.png)
 3. 在调整磁盘弹出框中，选择要进行调整的磁盘，单击【下一步】。

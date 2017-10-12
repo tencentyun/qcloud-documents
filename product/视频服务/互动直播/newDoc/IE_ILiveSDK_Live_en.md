@@ -62,7 +62,7 @@ The process for quitting broadcasting is:
 
 > Switch Role -> Disable Camera -> Finish Rendering
 
-You can go to console to [configure scenario and roles](https://www.qcloud.com/document/product/268/7599), and then call the API to switch role.
+You can go to console to [configure scenario and roles](https://cloud.tencent.com/document/product/268/7599), and then call the API to switch role.
 
 ```js
 //liveMaster is the role configured in the console.

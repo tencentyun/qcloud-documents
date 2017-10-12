@@ -67,7 +67,7 @@ Starting vsftpd for vsftpd: [ OK ]
 运行 FileZilla，进行主机、用户名、密码和端口配置，配置完成后单击 **快速链接**。
 ![](https://mc.qcloudimg.com/static/img/dc603f912adf94a33749155c69ddddd2/24.png)
 **配置信息说明：**
- - 主机：云服务器的公网 IP（登录 [云服务器控制台](https://console.qcloud.com/cvm) 页面即可查看对应云服务器的公网 IP）。
+ - 主机：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com/cvm) 页面即可查看对应云服务器的公网 IP）。
  - 用户名：在步骤一中设置的 FTP 用户的账号。图中以 “ftpuser1” 为例。
  - 密码：在步骤一中设置的 FTP 用户账号对应的密码。
  - 端口：FTP 监听端口，默认为 **21**。

@@ -1,4 +1,4 @@
-本章节提供视频直播/点播DEMO下载，直播和点播为同一份DEMO和SDK，接口使用方式基本相同。直播DEMO使用方式请参考[快速体验](https://www.qcloud.com/doc/product/267/快速体验)章节。
+本章节提供视频直播/点播DEMO下载，直播和点播为同一份DEMO和SDK，接口使用方式基本相同。直播DEMO使用方式请参考[快速体验](https://cloud.tencent.com/doc/product/267/快速体验)章节。
 ## 下载地址
 
 **注：以下为直播/点播 SDK DEMO的下载地址，欢迎安装体验。**

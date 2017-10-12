@@ -1,6 +1,6 @@
 You can use the API GetMonitorData to view the data for a specified time range, or use the API GetMonitorRealTimeData to view the latest data of an object. For example, the real-time aggregation data in the previous step. In this example, we use API for creation. Users can also create in CCM console:
 
->Note: For more information on how to generate Signature parameter, please see API [Authentication](https://www.qcloud.com/doc/api/255/4278)
+>Note: For more information on how to generate Signature parameter, please see API [Authentication](https://cloud.tencent.com/doc/api/255/4278)
 
 
 ```

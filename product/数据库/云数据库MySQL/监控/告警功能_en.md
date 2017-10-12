@@ -24,8 +24,8 @@ The hit condition is a semantic condition consisting of metric, comparison relat
 
 Each alarm policy is a collection of hit conditions. As long as one of the conditions is satisfied, an alarm will be triggered. The alarm will be sent to all users associated with the alarm policy. After receiving the alarm, the user can timely view the alarm and take appropriate actions.
 
-[1]:	https://www.qcloud.com/doc/product/248/1073
-[2]:	https://console.qcloud.com/
-[3]:	https://console.qcloud.com/
-[4]:	https://console.qcloud.com/
+[1]:	https://cloud.tencent.com/doc/product/248/1073
+[2]:	https://console.cloud.tencent.com/
+[3]:	https://console.cloud.tencent.com/
+[4]:	https://console.cloud.tencent.com/
 

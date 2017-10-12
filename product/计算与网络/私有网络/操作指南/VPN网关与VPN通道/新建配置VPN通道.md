@@ -1,6 +1,6 @@
 您可以在VPN通道页或者对端网关创建页建立新的VPN通道。
 
-1) 登录[云服务器CVM控制台](https://console.qcloud.com/)，点击导航条【私有网络】，在私有网络控制台选择【VPN连接】-【VPN通道】选项卡，点击【新建】创建VPN通道。
+1) 登录[云服务器CVM控制台](https://console.cloud.tencent.com/)，点击导航条【私有网络】，在私有网络控制台选择【VPN连接】-【VPN通道】选项卡，点击【新建】创建VPN通道。
 
 2) 输入基本信息，选择VPN网关与对端网关并输入预共享密钥。
 ![](//mccdn.qcloud.com/img567fa26c5d9e1.png) 

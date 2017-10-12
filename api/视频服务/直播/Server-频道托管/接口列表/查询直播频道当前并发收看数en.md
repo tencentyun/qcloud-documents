@@ -59,7 +59,7 @@ If the value of channel ID is -1, the number of online users for all channels is
 Query based on a video ID
 Input
 <pre>
-https://domain/v2/index.php?Action=DescribeLVBOnlineUsers&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+https://domain/v2/index.php?Action=DescribeLVBOnlineUsers&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 </pre>
 Output
 ```

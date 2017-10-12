@@ -7,5 +7,5 @@ Tencent Cloud currently offers a number of available regions: **North China (Bei
 
 
 **Special Note About Finance Zones, Hong Kong, North America, and Singapore**
-You need to submit a [ticket for application](https://console.qcloud.com/workorder/category/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS)
+You need to submit a [ticket for application](https://console.cloud.tencent.com/workorder/category/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS)
 

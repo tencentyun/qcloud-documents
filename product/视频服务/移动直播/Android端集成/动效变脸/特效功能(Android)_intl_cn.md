@@ -7,7 +7,7 @@
 由于采用了优图实验室的专利技术，授权费用约 **50W/年**（目前国内同类图像处理产品授权均在百万左右）。如有需要可以提工单或客服电话（400-9100-100）联系我们，商务同学会提供压缩包解码密码，并替您向优图实验室申请试用 License。
 
 ## 版本下载
-可以到 [RTMP SDK 开发包](https://www.qcloud.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license文件 可以跟我们的商务同学获取）, 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个so，替换你工程中的非特权版jar和so即可。
+可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license文件 可以跟我们的商务同学获取）, 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个so，替换你工程中的非特权版jar和so即可。
 
 ## 工程设置
 

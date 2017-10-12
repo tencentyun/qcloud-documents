@@ -74,7 +74,7 @@ qce/lb_public支持以下4种维度组合：
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -93,7 +93,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -118,7 +118,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -148,7 +148,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -179,7 +179,7 @@ qce/lb_private支持以下2种维度组合：
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -202,7 +202,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -232,7 +232,7 @@ qce/lb_private支持以下2种维度组合：
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_rs_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -262,7 +262,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 此维度调用方式示例：
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_rs_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -288,7 +288,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 <tr>
 <td> code
 <td> Int
-<td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。
+<td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。
 <tr>
 <td> codeDesc
 <td> String
@@ -324,7 +324,7 @@ https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
 <pre>
  
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=protocol

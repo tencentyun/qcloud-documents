@@ -349,13 +349,13 @@ void DemoRequestMutli()
 
 Non-interactive broadcasting is initiated through ILVB SDK. The distribution of LVB is implemented using Tencent Cloud LVB service.
 
-(1) Users can directly access LVB console http://console.qcloud.com/live for management
+(1) Users can directly access LVB console http://console.cloud.tencent.com/live for management
 (2) Users can also manage files using LVB API. Here is how to use API:
-https://www.qcloud.com/doc/api/258/4703
+https://cloud.tencent.com/doc/api/258/4703
 
 ## 5 Price and Billing
 Non-interactive broadcasting is not a free service. The specific billing rules are the same with that of Tencent Cloud LVB service. For more information, please see:
-https://www.qcloud.com/doc/product/268/5129#1..E6.97.81.E8.B7.AF.E7.9B.B4.E6.92.AD.E8.AE.A1.E8.B4.B9
+https://cloud.tencent.com/doc/product/268/5129#1..E6.97.81.E8.B7.AF.E7.9B.B4.E6.92.AD.E8.AE.A1.E8.B4.B9
 
 Please note that, if you have activated the LVB service and selected the package and one of the postpaid billing methods, the selected billing method is adopted. If you have not activated the LVB service, the pay-by-traffic billing method (postpaid) is used by default.
 

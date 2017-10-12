@@ -1,4 +1,4 @@
-﻿Tencent Cloud's Cloud Monitor provides data collection and presentation features for the cloud load balancer and backend instances. With Tencent Cloud's Cloud Monitor, you can view the statistical data of cloud load balancer, verify whether the system is running normally and create relevant alarms. For more information on Cloud Monitor, refer to [Cloud Monitor Product Documentation](https://www.qcloud.com/doc/product/248).
+﻿Tencent Cloud's Cloud Monitor provides data collection and presentation features for the cloud load balancer and backend instances. With Tencent Cloud's Cloud Monitor, you can view the statistical data of cloud load balancer, verify whether the system is running normally and create relevant alarms. For more information on Cloud Monitor, refer to [Cloud Monitor Product Documentation](https://cloud.tencent.com/doc/product/248).
 
 Public network-based (with daily rate) cloud load balancer supports monitoring the operation status using Cloud Monitor. You check the status by clicking the monitor icon in the list page of cloud load balancer instances or clicking "Listener Monitor" in the details page of a cloud load balancer instance.
 
@@ -16,13 +16,13 @@ Number of new public network connections | count/s  | Number of TCP connections 
 For more information on monitor metrics and how to obtain the monitoring data of backend CVMs, refer to [Monitor Cloud CVM](/doc/product/213/5178).
 
 ## Check the monitoring data of cloud load balancer instance in the Cloud Load Balance console
-1) Log in to [Cloud Load Balance Console](https://console.qcloud.com/loadbalance) and click relevant cloud load balancer instance ID to enter the details page of cloud load balancer.
+1) Log in to [Cloud Load Balance Console](https://console.cloud.tencent.com/loadbalance) and click relevant cloud load balancer instance ID to enter the details page of cloud load balancer.
 
 2) Click "Listener Monitor" tab to check the monitoring data of current cloud load balancer instance.
 
 ## Check the monitoring data of cloud load balancer instance in the Cloud Monitor console
 
-Open [Cloud Monitor Console](https://console.qcloud.com/monitor/overview), click "Cloud Product Monitoring" - "Cloud Load Balance", click the ID of <font color="red>public network-based (with daily rate)</font> cloud load balancer instance to enter the details page of monitor to check the monitoring data of the cloud load balancer instance.
+Open [Cloud Monitor Console](https://console.cloud.tencent.com/monitor/overview), click "Cloud Product Monitoring" - "Cloud Load Balance", click the ID of <font color="red>public network-based (with daily rate)</font> cloud load balancer instance to enter the details page of monitor to check the monitoring data of the cloud load balancer instance.
 
 ## Check the monitoring data of cloud load balancer instance through API
-Please refer to [API GetMonitorData](https://www.qcloud.com/doc/api/405/4667#5.3-.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1).
+Please refer to [API GetMonitorData](https://cloud.tencent.com/doc/api/405/4667#5.3-.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1).
