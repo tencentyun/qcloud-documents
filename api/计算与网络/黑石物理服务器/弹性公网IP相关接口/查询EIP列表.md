@@ -4,7 +4,7 @@ DescribeEipBm 接口用于查询当前账号下的弹性公网IP列表，包括�
 接口访问域名: bmeip.api.qcloud.com
 
 ## 请求
-## 请求示例
+### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Action=DescribeEipBm
