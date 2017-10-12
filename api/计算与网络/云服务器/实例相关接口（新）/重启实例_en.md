@@ -14,7 +14,7 @@ Domain name for API request: <font style="color:red">cvm.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/6976).
+The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/11650).
 
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
@@ -24,7 +24,7 @@ The following request parameter list only provides API request parameters. Other
 
 
 ## 3. Output Parameters
- 
+
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | RequestId | String | Unique request `ID`. `RequestId` is returned for each request. `RequestId` should be provided to the backend developer for a help when the user fails to call the API. |
@@ -32,7 +32,7 @@ The following request parameter list only provides API request parameters. Other
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/10146).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/11657).
 
 
 | Error code | Description |
@@ -55,7 +55,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=RebootInstances
 &InstanceIds.1=ins-r8hr2upy
 &InstanceIds.2=ins-5d8a23rs
 &ForceReboot=FALSE
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
 Output
@@ -66,5 +66,3 @@ Output
     }
 }
 </pre>
-
-

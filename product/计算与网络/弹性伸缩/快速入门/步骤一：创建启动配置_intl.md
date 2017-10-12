@@ -39,7 +39,6 @@ When the auto scaling automatically adds a new CVM instance, if the data disk sn
 
 If the data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted automatically and correctly for the successful automatic scale-up of the scaling group. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance. For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot](https://www.qcloud.com/doc/product/362/5564)
 > Note:
--  Customers who create a data disk based on a data disk snapshot should [submit a ticket for application](https://console.qcloud.com/workorder/category).
 -  Auto Scaling service is free of charge, and newly added servers, hard disks and networks will be charged by the traffic of CVM instances, hard disks and networks. This page will display prices based on your settings.
 
 ## Set Information

@@ -10,7 +10,7 @@ Domain name for API request: cvm.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/6976).
+The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/11650).
 
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
@@ -35,7 +35,7 @@ InstanceTypeConfigSet | array of [InstanceTypeConfig](https://www.qcloud.com/doc
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/10146).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/11657).
 
 | Error code | Description |
 |---------|---------|
@@ -57,7 +57,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstanceTypeConfigs
 &Filters.1.Values.1=ap-guangzhou-2
 &Filters.1.Name=instance-family
 &Filters.1.Values.1=I1
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
 Output
@@ -100,4 +100,3 @@ Output
     }
 }
 </pre>
-

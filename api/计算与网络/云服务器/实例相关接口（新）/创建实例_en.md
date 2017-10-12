@@ -4,7 +4,7 @@ Note: This API is the updated API. For information on the old API, please see [C
 
 
 This API (RunInstances) is used to create one or more instances with specified configuration.
- 
+
 Domain name for API request: cvm.api.qcloud.com
 
 
@@ -16,7 +16,7 @@ Domain name for API request: cvm.api.qcloud.com
 
 ## 2. Output Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/213/11650).
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
@@ -39,7 +39,7 @@ The following request parameter list only provides API request parameters. For o
 
 
 ## 3. Output Parameters
- 
+
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | InstanceIdSet | array of Strings | This parameter is returned when an instance is created via this API, representing one or more instance `IDs`. The return of the instance `ID` list does not mean that the instance is created successfully. You can find out whether the instance is created by querying the status of the instance `ID` in the returned InstancesSet via API [DescribeInstancesStatus](https://www.qcloud.com/document/api/213/9389). If the status of the instance changes from "creating" to "running", the instance is created successfully. |
@@ -75,7 +75,7 @@ The following request parameter list only provides API request parameters. For o
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/10146).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/11657).
 
 | Error code | Description |
 |---------|---------|
@@ -111,7 +111,7 @@ The following error codes only include the business logic error codes for this A
   &Version=2017-03-12
   &Placement.Zone=ap-guangzhou-2
   &ImageId=img-pmqg1cw7
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://www.qcloud.com/document/api/213/11650">Common request parameters</a>>
 ```
 
 #### Response Parameters
@@ -209,4 +209,3 @@ The following error codes only include the business logic error codes for this A
     }
 }
 ```
-
