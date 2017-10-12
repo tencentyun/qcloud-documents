@@ -10,10 +10,11 @@ EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非�
 
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-  &Action=EipBmBindVpcIp
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
-  &vpcIp=<内网IP>&eipId=<EIP实例ID>&vpcId=<vpc数字ID>
-
+	&Action=EipBmBindVpcIp
+	&<公共请求参数>
+	&eipId=<EIP实例ID>
+	&vpcId=<vpc数字ID>
+	&vpcIp=<内网IP>
 ```
 
 ### 请求参数
@@ -24,31 +25,29 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 |---------|---------|---------|---------|
 | eipId | 是 | String | EIP实例ID，格式形如：eip-testid |
 | vpcId | 是 | Int | IP所属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
-| vpcIp | 是 | String | VPC内IP，此IP地址必须通过[申请内网IP接口](/document/product/386/7337)申请获得，否则无法绑定EIP|
+| vpcIp | 是 | String | VPC内IP，此IP地址必须通过[申请内网IP接口](/document/product/386/7337)申请获得或者通过[注册子网IP](/document/product/386/7925)接口注册，否则无法绑定EIP|
 
 ## 响应
 
 ### 响应示例
 
 ```
-
 {
     "code": 0,
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "requestId": 100000
+        "requestId": <EIP异步任务ID>
     }
 }
-
 ```
 ### 响应参数
 
-响应结构部分包含两层，外层展示接口的响应接口，内层展示具体的接口内容（此接口中为异步任务ID）
+响应参数部分包含两层结构，外层展示接口的响应结果，内层展示具体的接口内容（此接口中为异步任务ID）
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/document/product/386/6670)。 |
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/document/product/386/6725)。 |
 | message |   String | 错误信息 |
 | data |   Array | 返回异步任务信息 |
 
@@ -56,7 +55,7 @@ Data结构
 
 |参数名称|类型|描述|
 |---|---|---|
-| data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[查询EIP任务状态](/doc/api/456/6670)查询任务状态|
+| data.requestId | Int | EIP绑定VPC网络IP异步任务ID，可以通过[查询EIP任务状态](/document/product/386/6670)查询任务状态|
 
 ## 错误码
 
@@ -80,24 +79,21 @@ Data结构
 ### 输入
 
 ```
-
 GET https://bmeip.api.qcloud.com/v2/index.php?
 	Action=EipBmBindVpcIp
 	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
-	&Nonce=24763
-	&Timestamp=1507714922
+	&Nonce=61431
+	&Timestamp=1507728683
 	&Region=bj
+	&eipId=eip-kpge33wo
 	&vpcId=1025
 	&vpcIp=10.1.1.2
-	&eipId=eip-kpge33wo
-	&Signature=AySJsE6Zq3knXwPSzxlYUl%2FrM90%3D
-
+	&Signature=ohpWkOBXHyE11XgK2KIH%2F14bMrc%3D
 ```
 
 ### 输出
 
 ```
-
 {
     "code": 0,
     "message": "",
@@ -106,6 +102,5 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
         "requestId": 100000
     }
 }
-
 ```
 

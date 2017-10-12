@@ -1,59 +1,35 @@
-## 1. 接口描述
-该接口用于申请创建黑石弹性公网IP。
+## 功能描述
+EipBmApply 接口用于创建黑石弹性公网IP。创建成功后，便可以绑定黑石服务器等相关资源。需注意的是：如果申请成功的EIP不进行绑定资源的操作，会收取相应的闲置费。
  
-域名: <font style="color:red">bmeip.api.qcloud.com</font>
-接口名: EipBmApply
-
+接口访问域名: bmeip.api.qcloud.com
  
 
-## 2. 输入参数
- 
+## 请求
+### 请求示例
+```
+GET https://bmeip.api.qcloud.com/v2/index.php?
+	&Action=EipBmApply
+	&<公共请求参数>
+	&goodsNum=<创建的EIP数量>
+	&payMode=<计费模式>
+	&vpcId=<VPC的ID>
+```
+### 请求参数
+
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmApply。
+
 |参数名称|必选|类型|描述|
-|-------|----|---|----|----|
+|-------|----|---|----|
 | goodsNum | 否 | Int | 创建的EIP数量，默认为1，最大20 |
 | payMode | 否 | String | 创建的EIP计费模式，"flow"：流量计费；"bandwidth"：带宽计费（单位：MB）|
-| bandwidth | 否 | Int | EIP为带宽计费时，选择的带宽上线（单位：MB，当前最大为1000MB）|
+| bandwidth | 否 | Int | EIP为带宽计费时，此参数才有效。表示EIP最大带宽（单位：MB，当前最大为1000MB）|
 | vpcId | 是 | Int | 申请的EIP归属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得 |
 
- > 平台对用户每地域能申请的EIP最大配额有所限制。上述配额可通过[DescribeEipBmQuota](/doc/api/456/6668)接口获取。
+ > 平台对用户每地域能申请的EIP最大配额有所限制。上述配额可通过[查询EIP限额](/document/product/386/6668)接口获取。
 
-## 3. 输出参数
-| 参数名称 | 类型 | 描述 |
-|---------|---------|---------|
-| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/doc/api/456/6725)。 |
-| message |   String | 错误信息 |
-| data |   Array | 返回申请的eip实例对应的异步任务信息，具体结构描述如下 |
-
-data结构
-
-|参数名称|类型|描述|
-|---|---|---|
-| data.eipIds | Array | 返回申请中的EIP实例ID列表|
-| data.requestId | Int | 绑定黑石物理机异步任务ID，可以通过[EipBmQueryTask](/doc/api/456/6670)查询任务状态|
-
-## 4. 错误码
-|错误代码|英文提示|错误描述|
-|---|---|---|
-|9003|ParamInvalid|请求参数不正确|
-|9006|InternalErr|内部数据操作异常|
-|30001|ExceedTheLimit|申请总数超过限额|
-|30003|ExceedDailyLimit|当日申请数超限额|
-|30016|ISPInvalid|ISP非法|
-
-
-## 5. 示例
- 
-输入
+## 响应
+### 响应示例
 ```
-
-  https://bmeip.api.qcloud.com/v2/index.php?
-  &Action=EipBmApply
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>&goodsNum=2&payMode=flow&vpcId=1
-```
-
-输出
-```
-
 {
     "code": 0,
     "message": "",
@@ -63,6 +39,63 @@ data结构
             "eip-qcloudv5"
         ],
         "requestId": 2382031
+    }
+}
+```
+### 响应参数
+
+响应参数部分包含两层结构，外层展示接口的响应结果，内层展示具体的接口内容，包括申请到的EIP实例ID列表以及异步任务ID。
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/document/product/386/6725)。 |
+| message |   String | 错误信息 |
+| data |   Array | 返回申请的eip实例对应的异步任务信息，具体结构描述如下 |
+
+data结构
+
+|参数名称|类型|描述|
+|---|---|---|
+| data.eipIds | Array | 返回申请中的EIP实例ID列表|
+| data.requestId | Int | 申请EIP的异步任务ID，可以通过[查询EIP任务状态](/document/product/386/6670)查询任务状态|
+
+## 错误码
+|错误代码|英文提示|错误描述|
+|---|---|---|
+|9003|ParamInvalid|请求参数不正确|
+|9006|InternalErr|内部数据操作异常|
+|30001|ExceedTheLimit|申请总数超过限额|
+|30003|ExceedDailyLimit|当日申请数超限额|
+|30016|ISPInvalid|ISP非法|
+
+
+## 实际案例
+ 
+###输入
+```
+GET https://bmeip.api.qcloud.com/v2/index.php?
+	Action=EipBmApply
+	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+	&Nonce=13716
+	&Timestamp=1507781567
+	&Region=bj
+	&goodsNum=1
+	&payMode=flow
+	&vpcId=1025
+	&Signature=TX6qOTgRhljuPI%2BqHdfo6O%2FunlE%3D
+```
+
+###输出
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "eipIds": [
+            "eip-e791epal"
+        ],
+        "requestId": 2388137
     }
 }
 
