@@ -17,6 +17,6 @@
 - You can access the service within a cluster using service name or service IP +access port.
 - Access flow: Front pod > DNS > Front pod > ServiceIP:Port > Kube-proxy (iptables) > Backend pod
 
-The above three types can also be configured with Layer-7 LB (HTTP/HTTPS) to forward to the service. For more information, please see [How to Use Layer-7 LB for Container Services](https://cloud.tencent.com/document/product/457/8841?!preview=true&lang=zh).
+The above three types can also be configured with Layer-7 LB (HTTP/HTTPS) to forward to the service. For more information, please see [How to Use Layer-7 LB for Container Services](https://cloud.tencent.com/document/product/457/9111).
 
 
