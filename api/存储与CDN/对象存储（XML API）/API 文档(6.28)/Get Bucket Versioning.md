@@ -5,7 +5,7 @@ Get Bucket Versioning 接口实现获得存储桶的版本控制信息。
 语法示例：
 ```
 GET /?versioning HTTP 1.1
-Host:<Bucketname>-<APPID>.<Region>.myqcloud.com
+Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```
@@ -53,7 +53,7 @@ GET /?versioning HTTP 1.1
 ## 实际案例
 ```
 GET /?versioning HTTP/1.1
-Host: testbucket-1352548703.cn-north.myqcloud.com
+Host: testbucket-1352548703.cos.cn-north.myqcloud.com
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
 Accept: */*
