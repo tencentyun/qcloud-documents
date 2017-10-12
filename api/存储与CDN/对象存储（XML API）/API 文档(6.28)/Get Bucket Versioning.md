@@ -9,15 +9,6 @@ Host:<Bucketname>-<APPID>.<Region>.myqcloud.com
 Date:date
 Authorization: Auth
 ```
-<<<<<<< HEAD:api/存储与CDN/对象存储（XML API）/API 文档(6.28)/Get Bucket Versioning.md
-
-=======
-<!-- 代码块中注意：
-       1. HTTP 是全大写；
-       2. 每一个冒号后面都有一个空格；
-       3. Dete 格式是 GMT Date；
-       4. Authorization 统一为 Auth String -->
->>>>>>> origin/master:api/存储与CDN/对象存储（XML API）/多版本和跨园区服务/GetObjectVersioning.md
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
