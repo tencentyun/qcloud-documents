@@ -50,6 +50,7 @@ GET /?replication HTTP/1.1
         <Prefix></Prefix>
         <Destination>
             <Bucket>qcs:id/0:cos:[Region]:appid/[AppId]:[Bucketname]</Bucket>
+            <StorageClass></StorageClass>
         </Destination>
     </Rule>
     <Rule>
@@ -93,15 +94,15 @@ Date: Mon, 28 Aug 2017 02:53:38 GMT
 Server: tencent-cos
 x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF84Y2M
 
-<ReplicationConfiguration
-    <Roleqcs::cam::uin/491107630:uin/491107630/Role>
-    <Rule
-        <IDRuleId_01/ID>
-        <StatusEnabled/Status>
-        <Prefixsevenyou_10m/Prefix>
-        <Destination
-            <Bucketqcs:id/0:cos:cn-south:appid/7319456:sevenyousouthtest/Bucket>
-            <StorageClass>
+<ReplicationConfiguration>
+    <Role>qcs::cam::uin/491107630:uin/491107630</Role>
+    <Rule>
+        <ID>RuleId_01</ID>
+        <Status>Enabled</Status>
+        <Prefix>sevenyou_10m</Prefix>
+        <Destination>
+            <Bucket>qcs:id/0:cos:cn-south:appid/7319456:sevenyousouthtest</Bucket>
+            <StorageClass></StorageClass>
         </Destination>
     </Rule>
 </ReplicationConfiguration>
