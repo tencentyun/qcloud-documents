@@ -128,7 +128,7 @@ void onRecordComplete(TXRecordResult result);
 
  为了确保安全，需要您将计算签名的程序放在您的后台服务器上，而不是把计算函数写在 APP 里，因为破解 APP 并获取签名用的 SecretKey 是比较容易的事情，而要攻破您的服务器则并非是一般能力的攻击者能做得到的。
 
- 签名计算方法参考：[如何生成签名？](https://cloud.tencent.com/document/product/266/7835?!preview&lang=zh#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E8.AE.A1.E7.AE.97.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF) 生成发布签名时，<font color='red'>FileName、FileSha 以及 uid 字段都可以留空不填写。</font>
+ 签名计算方法参考：[如何生成签名？](https://cloud.tencent.com/document/product/266/7835) 生成发布签名时，<font color='red'>FileName、FileSha 以及 uid 字段都可以留空不填写。</font>
 
 ### 6. 文件发布
 TXUGCPublish（位于 TXUGCPublish.java）负责将 MP4 文件发布到腾讯云视频分发平台上，以确保视频观看的就近调度、秒开播放、动态加速 以及海外接入等需求。
