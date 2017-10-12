@@ -73,7 +73,7 @@ Data结构
 
 ## 实际案例
  
-###输入
+### 输入
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
 	Action=EipBmUnBindVpcIp
@@ -87,7 +87,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Signature=ndChNl391MRIo%2Fb14VBlwxNQ1wQ%3D
 ```
 
-###输出
+### 输出
 ```
 {
     "code": 0,

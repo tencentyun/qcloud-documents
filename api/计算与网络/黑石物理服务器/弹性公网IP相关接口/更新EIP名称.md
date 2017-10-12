@@ -50,7 +50,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 ## 实际案例
  
-###输入
+### 输入
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
 	Action=ModifyEipAlias
@@ -63,7 +63,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Signature=pULUe%2F9yFF8Y87tA4%2Fs6WjwoX5c%3D
 ```
 
-###输出
+### 输出
 ```
 {
     "code": 0,

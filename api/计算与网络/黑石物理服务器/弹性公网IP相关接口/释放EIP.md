@@ -62,7 +62,7 @@ Data结构
 
 ## 实际案例
  
-###输入
+### 输入
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
 	Action=EipBmDelete
@@ -74,7 +74,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Signature=TS0574U%2FWHrXwIq217X6b%2FOxZyA%3D
 ```
 
-###输出
+### 输出
 ```
 {
     "code": 0,
