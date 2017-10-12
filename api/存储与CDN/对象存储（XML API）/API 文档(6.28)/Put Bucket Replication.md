@@ -2,6 +2,9 @@
 ## 功能描述
 Put Bucket Replication 请求用于向开启版本管理的存储桶添加 replication 配置。如果存储桶已经拥有 replication 配置，那么该请求会替换现有配置。
 
+>**注意：**
+>使用该接口存储桶必须已经开启版本管理，版本管理详细请参见 [Put Bucket Versioning](https://cloud.tencent.com/document/product/436/8591)。
+
 ## 请求
 
 语法示例：
