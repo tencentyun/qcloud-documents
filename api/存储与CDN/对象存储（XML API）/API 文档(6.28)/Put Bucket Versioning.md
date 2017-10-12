@@ -8,7 +8,7 @@ Put Bucket Versioning 接口实现启用或者暂停存储桶的版本控制功�
 ```
 PUT /?versioning HTTP 1.1
 Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
-Date: date
+Date: GMT date
 Authorization: Auth String
 ```
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
@@ -18,7 +18,7 @@ Authorization: Auth String
 ```
 PUT /?versioning HTTP 1.1
 ```
-该 API 接口接受 PUT请求。
+该 API 接口接受 PUT 请求。
 
 ### 请求头
 
