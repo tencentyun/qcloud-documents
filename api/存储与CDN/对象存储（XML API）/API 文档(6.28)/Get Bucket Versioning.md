@@ -6,8 +6,8 @@ Get Bucket Versioning 接口实现获得存储桶的版本控制信息。
 ```
 GET /?versioning HTTP 1.1
 Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
-Date:date
-Authorization: Auth
+Date: GMT date
+Authorization: Auth String
 ```
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
