@@ -7,19 +7,10 @@ Put Bucket Versioning 接口实现启用或者暂停存储桶的版本控制功�
 语法示例：
 ```
 PUT /?versioning HTTP 1.1
-Host:<Bucketname>-<APPID>.<Region>.myqcloud.com
-Date:date
-Authorization: Auth
+Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Date: date
+Authorization: Auth String
 ```
-<<<<<<< HEAD:api/存储与CDN/对象存储（XML API）/API 文档(6.28)/Put Bucket Versioning.md
-
-=======
-<!-- 代码块中注意：
-       1. HTTP 是全大写；
-       2. 每一个冒号后面都有一个空格；
-       3. Dete 格式是 GMT Date；
-       4. Authorization 统一为 Auth String -->
->>>>>>> origin/master:api/存储与CDN/对象存储（XML API）/多版本和跨园区服务/PutObjectVersioning.md
 > Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
 
 ### 请求行
@@ -65,7 +56,7 @@ PUT /?versioning HTTP 1.1
 ## 实际案例
 ```
 PUT /?versioning HTTP/1.1
-Host: testbucket-1322448703.cn-north.myqcloud.com
+Host: testbucket-1322448703.cos.cn-north.myqcloud.com
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
 Accept: */*
