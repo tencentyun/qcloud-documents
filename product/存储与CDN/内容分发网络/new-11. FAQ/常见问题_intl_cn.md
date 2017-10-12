@@ -6,13 +6,13 @@
 基本不需要。但是为了能够达到更好的加速效果，我们建议您先做动静分离，动态文件和静态文件分配在不同域名下，仅需要对静态资源做加速。
 
 **3. 腾讯 CDN 支持跨域访问吗？**
-腾讯云 CDN 在处理跨域访问时，是不做跨域限制的。如果用户网站需要跨域访问，在自身网站中配置 Access-Control-Allow-Origin 字段即可，您也可以选择在 CDN 对域名配置跨域头来实现跨域访问，详情请参考 [HTTP Header 配置](https://www.qcloud.com/doc/product/228/6296)。
+腾讯云 CDN 在处理跨域访问时，是不做跨域限制的。如果用户网站需要跨域访问，在自身网站中配置 Access-Control-Allow-Origin 字段即可，您也可以选择在 CDN 对域名配置跨域头来实现跨域访问，详情请参考 [HTTP Header 配置](https://cloud.tencent.com/doc/product/228/6296)。
 
 **4. 哪里可以下载 CDN 访问日志？**
-您可以在 CDN 控制台中下载 CDN 访问日志，具体操作步骤请查阅 [日志下载](https://www.qcloud.com/document/product/228/6316#.E6.97.A5.E5.BF.97.E4.B8.8B.E8.BD.BD)。
+您可以在 CDN 控制台中下载 CDN 访问日志，具体操作步骤请查阅 [日志下载](https://cloud.tencent.com/document/product/228/6316#.E6.97.A5.E5.BF.97.E4.B8.8B.E8.BD.BD)。
 
 **5. 如何使用自助故障诊断工具？**
-自助故障诊断工具能够检测接入域名的 DNS 解析、链路质量、站点可用性、数据访问一致性等一系列诊断项，具体操作步骤请参阅 [自助故障诊断](https://www.qcloud.com/document/product/228/6304)。
+自助故障诊断工具能够检测接入域名的 DNS 解析、链路质量、站点可用性、数据访问一致性等一系列诊断项，具体操作步骤请参阅 [自助故障诊断](https://cloud.tencent.com/document/product/228/6304)。
 
 **6. 本机接入诊断跟用户接入诊断的区别？**
 本机接入诊断：当您发现您的某个资源访问存在异常，您可以通过“本机接入诊断”发起检测。
@@ -36,7 +36,7 @@ CDN 中间源即中间源服务器，是位于业务服务器与 CDN 节点之�
 
 ### 计费相关问题
 **1. CDN 如何收费？**
-CDN 为您提供了两种计费方式：**带宽计费** 和**流量计费**，均为后付费按日结算，前一天 00:00:00 - 23:59:59 产生的总消耗，会在第二天进行计算扣费。请参阅 [计费说明](https://www.qcloud.com/document/product/228/2949) 了解如何选择计费模式。
+CDN 为您提供了两种计费方式：**带宽计费** 和**流量计费**，均为后付费按日结算，前一天 00:00:00 - 23:59:59 产生的总消耗，会在第二天进行计算扣费。请参阅 [计费说明](https://cloud.tencent.com/document/product/228/2949) 了解如何选择计费模式。
 
 **2. CDN 是否能够免费体验？**
 CDN 针对所有客户，提供每月 10GB 的流量包。您可以选择流量计费模式，利用此 10GB 流量包进行产品体验。
@@ -46,7 +46,7 @@ CDN 属于后付费结算模式（先使用后付费）。第二日结算时的�
 - 当日查看计费方式为带宽计费，未产生消耗时切换为流量计费,则第二天结算时，若中途未再修改计费方式，按照流量计费方式结算。
 - 当日查看计费方式为带宽计费，切换为流量计费时已经产生了消耗，则第二天结算时，按照带宽计费方式结算，若中途未再次修改计费方式，第三天结算第二天消耗时，按照流量计费方式结算。
 
-若您为签有合同的腾讯云大客户，可通过联系为您服务的大客户经理、拨打 4009-100-100、 [提交工单](https://console.qcloud.com/workorder/category) 等方式变更计费方式。
+若您为签有合同的腾讯云大客户，可通过联系为您服务的大客户经理、拨打 4009-100-100、 [提交工单](https://console.cloud.tencent.com/workorder/category) 等方式变更计费方式。
 
 **4. 什么是月 95 带宽计费？**
 带宽计费以带宽的峰值来作为计费值。
@@ -56,19 +56,19 @@ CDN 属于后付费结算模式（先使用后付费）。第二日结算时的�
 > 假设客户 2 月份有 14 天产生的消耗大于 0，则计费带宽为这 14 天的所有统计点 14 * 288 个，去掉最高的 5% 的点，剩余统计点中最高的> 为 Max95，Max95 即为计费带宽，2 月的费用为：Max95 x P x 14 / 28
 
 **5. 怎么查询 CDN 账单？**
-您可以在腾讯云 [费用中心](https://console.qcloud.com/account) 查询您的账单。具体操作步骤请参阅 [账单查询](https://www.qcloud.com/document/product/228/6071)。
+您可以在腾讯云 [费用中心](https://console.cloud.tencent.com/account) 查询您的账单。具体操作步骤请参阅 [账单查询](https://cloud.tencent.com/document/product/228/6071)。
 
 **6. 买了 CDN 流量包不想用了，能否能退货？**
 不能。CDN 流量包购买后会立即下发给您的账号，无法返还。
 
 **7. CDN 的价格计算器在哪里？**
-请单击 [CDN 价格计算器](https://buy.qcloud.com/calculator/cdn) 进入价格计算页面。
+请单击 [CDN 价格计算器](https://buy.cloud.tencent.com/calculator/cdn) 进入价格计算页面。
 
 **8. CDN 是否支持按照请求数计费？**
 目前 CDN 不支持按照请求次数计费。
 
 **9. CDN 如果欠费了，有什么影响吗？**
-请参阅 [欠费说明](https://www.qcloud.com/document/product/228/2954) 文档中的相关说明。
+请参阅 [欠费说明](https://cloud.tencent.com/document/product/228/2954) 文档中的相关说明。
 
 **10. 源站使用的是 COS，CDN 回源至 COS 产生的流量收费吗？**
 CDN 回源至 COS 产生的流量不进行收费。
@@ -79,7 +79,7 @@ CDN 回源至 COS 产生的流量不进行收费。
 
 ### 域名相关问题
 **1. 如何接入域名？**
-您可以在 CDN 控制台中接入域名，详情请参阅 [域名接入](https://www.qcloud.com/document/product/228/5734)。
+您可以在 CDN 控制台中接入域名，详情请参阅 [域名接入](https://cloud.tencent.com/document/product/228/5734)。
 
 **2. CDN 是否支持泛域名接入？**
 CDN 目前已经支持泛域名接入,但需要通过认证。将腾讯云提供的验证文件上传至网站的根目录，验证成功后即可接入泛域名。
@@ -94,7 +94,7 @@ CDN 配置时间一般不超过 30 分钟，若您设置后等待时间超过 30
 您可配置多个源站 IP。当您配置了多个 IP 后，CDN 在回源请求时会随机访问所填 IP 中的某一个。当某一个 IP 回源失败次数超出阈值，该 IP 默认会隔离 300 秒，不再向此源站回源。
 
 **6. 域名接入 CDN 之后，如何绑定 CNAME？**
-您可以参考 [CNAME配置](https://www.qcloud.com/doc/product/228/3121) 文档中的操作说明，在您的 DNS 服务商处绑定 CNAME。
+您可以参考 [CNAME配置](https://cloud.tencent.com/doc/product/228/3121) 文档中的操作说明，在您的 DNS 服务商处绑定 CNAME。
 
 **7. 域名只能关闭，不能删除是什么原因？**
 请检查用户是否是协作者身份，协作者的操作权限由 CDN 服务的创建者配置，若创建者未分配对应权限，则协作者无法进行操作。
@@ -106,13 +106,13 @@ CDN 配置时间一般不超过 30 分钟，若您设置后等待时间超过 30
 删除域名后，其配置将不会保留。
 
 **10. 如何关闭加速服务？**
-您可以在 CDN 控制台中关闭加速服务，具体操作步骤请参阅 [关闭加速服务](https://www.qcloud.com/document/product/228/5736#.E5.85.B3.E9.97.AD.E5.8A.A0.E9.80.9F.E6.9C.8D.E5.8A.A1)。
+您可以在 CDN 控制台中关闭加速服务，具体操作步骤请参阅 [关闭加速服务](https://cloud.tencent.com/document/product/228/5736#.E5.85.B3.E9.97.AD.E5.8A.A0.E9.80.9F.E6.9C.8D.E5.8A.A1)。
 
 **11. 如何删除加速域名？**
-您可以在 CDN 控制台中删除加速域名，具体操作步骤请参阅 [删除加速域名](https://www.qcloud.com/document/product/228/5736#.E5.88.A0.E9.99.A4.E5.8A.A0.E9.80.9F.E5.9F.9F.E5.90.8D)。
+您可以在 CDN 控制台中删除加速域名，具体操作步骤请参阅 [删除加速域名](https://cloud.tencent.com/document/product/228/5736#.E5.88.A0.E9.99.A4.E5.8A.A0.E9.80.9F.E5.9F.9F.E5.90.8D)。
 
 **12. 域名被封禁如何解封？**
-需要 [提交工单](https://console.qcloud.com/workorder/category)，由专门的运维人员处理。
+需要 [提交工单](https://console.cloud.tencent.com/workorder/category)，由专门的运维人员处理。
 
 ### 缓存配置问题
 **1. 什么是缓存过期配置？**
@@ -133,10 +133,10 @@ CDN 节点上缓存的用户资源都面临“过期”问题。若资源处于�
 腾讯云 CDN 默认支持源站的 Cache-Control 设置。目前暂不支持配置 Cache-Control 头部，因此无法在 CDN 节点上配置 max-age，但 CDN 节点会继承源站的 max-age，因此只需要在源站的服务器上配好即可。
 
 **4. 如何调整缓存配置的优先级？**
-请参阅 [优先级调整](https://www.qcloud.com/document/product/228/6290#.E4.BC.98.E5.85.88.E7.BA.A7) 文档中的操作说明。
+请参阅 [优先级调整](https://cloud.tencent.com/document/product/228/6290#.E4.BC.98.E5.85.88.E7.BA.A7) 文档中的操作说明。
 
 **5. CDN 自有源可以设置不缓存某种文件吗？缓存时间设置成 0，是否就是不缓存？**
-您可以按照目录和文件类型设置对应的缓存时间。若缓存时间设置为 0，即 CDN 节点不缓存该资源，用户每次发送访问请求至 CDN 节点时，CDN 节点都需回源站拉取相应资源。相关缓存设置可参照 [缓存过期配置](https://www.qcloud.com/doc/product/228/6290)。
+您可以按照目录和文件类型设置对应的缓存时间。若缓存时间设置为 0，即 CDN 节点不缓存该资源，用户每次发送访问请求至 CDN 节点时，CDN 节点都需回源站拉取相应资源。相关缓存设置可参照 [缓存过期配置](https://cloud.tencent.com/doc/product/228/6290)。
 
 **6. 腾讯云支持哪些缓存过期配置？**
 腾讯云 CDN 支持各维度的缓存时间设置、支持自定义优先级调整、支持 cache 继承策略（高级缓存配置）。合理的配置缓存时间，能够有效的提升命中率，降低回源率，节省您的带宽。
@@ -195,7 +195,7 @@ URL 预热：URL 预热功能暂时仅对 CDN 大客户开放。若节点上已�
 方法2：通过调用 API 方式进行刷新，详情请参考 [URL 刷新](https://cloud.tencent.com/document/product/228/3946)。
 
 **5. 怎么查看缓存刷新的记录？**
-您可以在 CDN 控制台中查看缓存刷新的记录，详情请参阅 [操作记录](https://www.qcloud.com/document/product/228/6299#.E6.93.8D.E4.BD.9C.E8.AE.B0.E5.BD.95)。
+您可以在 CDN 控制台中查看缓存刷新的记录，详情请参阅 [操作记录](https://cloud.tencent.com/document/product/228/6299#.E6.93.8D.E4.BD.9C.E8.AE.B0.E5.BD.95)。
 
 **6. 为什么预热或刷机目录不生效？**
 请检查源站 Last-Modified 是否变动，Last-Modified 若有变动会导致回源失败。
@@ -220,17 +220,17 @@ URL 预热：URL 预热功能暂时仅对 CDN 大客户开放。若节点上已�
 运营月报提供月度 CDN 消耗分析报表。
 
 **7. 如何查看带宽使用情况？**
-您可以在控制台中查看流量及带宽使用详情，具体操作步骤请参阅 [使用量统计](https://www.qcloud.com/document/product/228/6307#.E4.BD.BF.E7.94.A8.E9.87.8F.E7.BB.9F.E8.AE.A1)。
+您可以在控制台中查看流量及带宽使用详情，具体操作步骤请参阅 [使用量统计](https://cloud.tencent.com/document/product/228/6307#.E4.BD.BF.E7.94.A8.E9.87.8F.E7.BB.9F.E8.AE.A1)。
 
 ### HTTPS 配置问题
 **1. 什么是 HTTPS？**
 HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure），是一种在 HTTP 协议基础上进行传输加密的安全协议，能够有效保障数据传输安全。配置 HTTPS 时，需要您提供域名对应的证书，将其部署在全网 CDN 节点，实现全网数据加密传输功能。
 
 **2. CDN 是否支持 HTTPS 配置？**
-腾讯云 CDN 目前已经全面支持 HTTPS 配置。您可以上传自有证书进行部署，或前往 [证书管理](https://console.qcloud.com/ssl ) 控制台申请由亚洲诚信免费提供的第三方证书。
+腾讯云 CDN 目前已经全面支持 HTTPS 配置。您可以上传自有证书进行部署，或前往 [证书管理](https://console.cloud.tencent.com/ssl ) 控制台申请由亚洲诚信免费提供的第三方证书。
 
 **3. 如何配置 HTTPS 证书？**
-您可以在 CDN 控制台中配置 HTTPS 证书，详情请参阅 [HTTPS 配置](https://www.qcloud.com/document/product/228/6295)。
+您可以在 CDN 控制台中配置 HTTPS 证书，详情请参阅 [HTTPS 配置](https://cloud.tencent.com/document/product/228/6295)。
 
 **4. 源站的 HTTPS 证书更新了，CDN 上需要同步更新吗？**
 由您的回源方式决定：

@@ -16,11 +16,11 @@ PC LVB has a simple procedure, including the following steps:
 
 ## 1. Before LVB
 - Activate cloud LVB service on Tencent Cloud.
-If you have not activate this service, click here to [apply for activation](https://console.qcloud.com/live) of cloud LVB service.
+If you have not activate this service, click here to [apply for activation](https://console.cloud.tencent.com/live) of cloud LVB service.
 ![](//mc.qcloudimg.com/static/img/f45715687e787ee9a8e18154d1e13b92/image.png)
 
 ### 1.2 Generate push URL
-If you don't have a **push URL**, you can generate a **push URL** and 3 playback URLs by clicking ["Access Management" -> "LVB Code Access" -> "Access Configuration"](https://console.qcloud.com/live).
+If you don't have a **push URL**, you can generate a **push URL** and 3 playback URLs by clicking ["Access Management" -> "LVB Code Access" -> "Access Configuration"](https://console.cloud.tencent.com/live).
 
 The one whose domain name is **livepush.myqcloud.com** is the push URL:
 ![](//mc.qcloudimg.com/static/img/98b9b659be67a9ac32384b606ace943f/image.png)
@@ -104,7 +104,7 @@ Then the playback URL (liveplay) is:
 
 
 ### 3.2 RTMP DEMO playback verification
-[Download](https://www.qcloud.com/document/product/454/6555) RTMP DEMO, and generate a QR by putting the playback URL into the online QR [generator](http://cli.im/), and then you can scan the QR for playback.
+[Download](https://cloud.tencent.com/document/product/454/6555) RTMP DEMO, and generate a QR by putting the playback URL into the online QR [generator](http://cli.im/), and then you can scan the QR for playback.
 
 ### 3.3 VLC playback verification
 Click here for [VLC Download URL](http://www.videolan.org/vlc/). You can install according to the default settings. Open the software, click **Media Menu**, select **Open Network Stream**, enter the playback URL, and click **Play**.

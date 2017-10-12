@@ -24,7 +24,7 @@
 
 每个告警策略是一系列告警触发条件的集合，告警触发条件是“或”关系，即一个条件满足，就会发送告警。告警将发送至告警策略关联的所有人，用户接收到告警后可以及时查看并采取相应措施。
 
-[1]:	https://www.qcloud.com/doc/product/248/1073
-[2]:	https://console.qcloud.com/
-[3]:	https://console.qcloud.com/
-[4]:	https://console.qcloud.com/
+[1]:	https://cloud.tencent.com/doc/product/248/1073
+[2]:	https://console.cloud.tencent.com/
+[3]:	https://console.cloud.tencent.com/
+[4]:	https://console.cloud.tencent.com/

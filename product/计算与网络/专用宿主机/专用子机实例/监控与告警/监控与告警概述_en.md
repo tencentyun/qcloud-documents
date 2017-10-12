@@ -17,7 +17,7 @@ To establish normal performance standard for CVM instances, the following metric
 | Disk utilization    | disk_usage     |
 | Disk IO waiting time | disk_io_await  |
 
-For more information about monitoring metrics, please see [Cloud Monitor Product Documentation](https://www.qcloud.com/doc/product/248).
+For more information about monitoring metrics, please see [Cloud Monitor Product Documentation](https://cloud.tencent.com/doc/product/248).
 
 Cloud Monitoring collects original data from a running CVM instance and displays the data in the form of readable icon. Statistics are retained for a month by default so that you can observe the running status of your instances during the month, and have a better understanding of the running status of your applications and services. By default, cloud monitor collects the status data of running instances every 5 minutes. Some Tencent Cloud products also support more detailed monitor which collects data at a granularity of 1 minute.
 

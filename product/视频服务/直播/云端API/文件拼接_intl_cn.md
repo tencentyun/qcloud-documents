@@ -14,8 +14,8 @@
 |---------|---------|---------|---------|---------|
 | cmd                        | 客户ID     | int       | 即直播APPID，用于区分不同客户的身份 |  Y          | 
 | interface                 | 接口名称   | string |  如：Get_LivePushStat  |  Y          | 
-| t | [有效时间](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | int  | UNIX时间戳(十进制) |  Y | 
-| sign | [安全签名](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | string | MD5(key+t) | Y | 
+| t | [有效时间](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | int  | UNIX时间戳(十进制) |  Y | 
+| sign | [安全签名](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | string | MD5(key+t) | Y | 
 | Param.s.channel_id | 频道id | string | | Y|
 | Param.a.file_id_list.s.n  | 要拼接的file_id  | string  | n从1开始取值 | Y |
 

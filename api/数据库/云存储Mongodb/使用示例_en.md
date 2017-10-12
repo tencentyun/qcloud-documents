@@ -27,7 +27,7 @@ Returned values of API [Query Supported Instance Specifications (supporting cust
 
 | Parameter Name | Type | Description |
 |:---------|---------|---------|
-| region | String | Region ID. For more information, please see <a href='https://www.qcloud.com/document/product/213/6976'>Common Request Parameters</a> | 
+| region | String | Region ID. For more information, please see <a href='https://cloud.tencent.com/document/product/213/6976'>Common Request Parameters</a> | 
 | isSupportVpc | Bool | Whether VPC is supported. Values: True and False | 
 | types | Object | Content of supported instance specification |
 
@@ -437,9 +437,9 @@ Next, we will call the API [Create Instance (Annual or Monthly Plan](/document/p
 | goodsNum | Yes | Int | Number of instances purchased at a time | 1 |
 | period | Yes | Int | Purchased usage period (in month). Value range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 24, 36] | 1 |
 | password | Yes | String | Password for the instance. Rule: It should be a combination of 8-16 characters comprised of at least two of the following types: letters, numbers, special characters (!, @, #, %, ^, ()) | 49A2d!e@f12e |
-| vpcId | No | Int | VPC ID. In case of basic network, vpcId=0. Under VPC, the value is subject to the vpcid returned by the API [Query VPC List](https://www.qcloud.com/doc/api/245/1372) | 0 |
-| subnetId | No | Int | subnetId is invalid under basic network; Under VPC, the value is subject to the subnetid returned by the API [Query VPC List](https://www.qcloud.com/doc/api/245/1372) | 0 |
-| projectId | No | Int | Project ID. The value is subject to the projectId returned via User Account > User Account-related APIs > [Query Project List](https://www.qcloud.com/doc/api/403/4400) | 0 |
+| vpcId | No | Int | VPC ID. In case of basic network, vpcId=0. Under VPC, the value is subject to the vpcid returned by the API [Query VPC List](https://cloud.tencent.com/doc/api/245/1372) | 0 |
+| subnetId | No | Int | subnetId is invalid under basic network; Under VPC, the value is subject to the subnetid returned by the API [Query VPC List](https://cloud.tencent.com/doc/api/245/1372) | 0 |
+| projectId | No | Int | Project ID. The value is subject to the projectId returned via User Account > User Account-related APIs > [Query Project List](https://cloud.tencent.com/doc/api/403/4400) | 0 |
 
 By combining common request parameters and API request parameters, you can get the final request as follows:
 	

@@ -3,10 +3,10 @@
 Users may purchase any types of cloud load balancer instances provided by Tencent Cloud in the following ways:
 
 ### Purchase on Console
-Log in to Tencent Cloud [Cloud Load Balance Service Purchase Page](https://buy.qcloud.com/lb) to purchase cloud load balance products.
+Log in to Tencent Cloud [Cloud Load Balance Service Purchase Page](https://buy.cloud.tencent.com/lb) to purchase cloud load balance products.
 
 ### Purchae via API
-Refer to [Cloud Load Balance API](http://www.qcloud.com/doc/api/244/%E7%AE%80%E4%BB%8B) for details.
+Refer to [Cloud Load Balance API](http://cloud.tencent.com/doc/api/244/%E7%AE%80%E4%BB%8B) for details.
 
 ## Billing
 The charges for cloud load balance service include instance rental fee and bandwidth traffic fee of backend servers. For example, if there is a CLB instance managing 3 CVMs, then the actual charges will include cost for the CLB instance and the cost for the 3 CVM instances (cost for instances will be accounted into network charges).
@@ -36,5 +36,5 @@ When purchasing public network application-based instances and public network in
 2) CVM is paid by traffic: Public network cloud load balancer used by the user will cause traffic, which will incur a corresponding cost. 
 ​
 #### Bandwidth Fee Billing Standard
-In the above mentioned scenario 2), the actual bandwidth fee for using CLB refers to the network fee incurred by backend CVMs. Please refer to [Network Billing](http://www.qcloud.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD) for detailed billing methods.
+In the above mentioned scenario 2), the actual bandwidth fee for using CLB refers to the network fee incurred by backend CVMs. Please refer to [Network Billing](http://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD) for detailed billing methods.
 

@@ -6,7 +6,7 @@
 
 在弹性云盘到期前，您可对其进行续费，以防止到期后硬盘卸载、无法读写的情况：
 
-1) 打开[云硬盘控制台](https://console.qcloud.com/cvm/cbs)。
+1) 打开[云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs)。
 
 2) 对需要续费的弹性云盘，在右侧操作栏中，点击【续费】。
 
@@ -15,7 +15,7 @@
 4) 进行支付后即可对弹性云盘续费。
 
 ## 使用 API 续费弹性云盘
-用户可以使用 RenewCbsStorages 接口续费弹性云盘，具体内容请参考 [续费弹性云盘接口](https://www.qcloud.com/doc/api/364/2521)。
+用户可以使用 RenewCbsStorages 接口续费弹性云盘，具体内容请参考 [续费弹性云盘接口](https://cloud.tencent.com/doc/api/364/2521)。
 
 ## 续费非弹性云硬盘
 
@@ -23,4 +23,4 @@
 非弹性云硬盘跟随云服务器实例的生命周期，如果您需要对其进行续费，请直接 [续费云服务器实例](/doc/product/213/6143)。
 
 ### 使用 API 续费非弹性云硬盘
-非弹性云硬盘跟随云服务器实例的生命周期，用户可以使用 RenewInstance 接口续费弹性云盘，具体内容请参考 [续费实例（包年包月）接口](https://www.qcloud.com/doc/api/229/1348)。
+非弹性云硬盘跟随云服务器实例的生命周期，用户可以使用 RenewInstance 接口续费弹性云盘，具体内容请参考 [续费实例（包年包月）接口](https://cloud.tencent.com/doc/api/229/1348)。

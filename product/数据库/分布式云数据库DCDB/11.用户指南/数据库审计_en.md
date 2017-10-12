@@ -38,7 +38,7 @@ Please note the following when enabling audit feature:
 
 - .You must have at least one active CDB for TDSQL instance that is not isolated, or the system will cancel your auditing feature automatically.
 - .TDSQL instances purchased prior to June 5th, 2016, need to be restarted and upgraded to support auditing feature. Since this process may cause interruption of your business for 1-5 seconds, you can contact Tencent Cloud personnel to make an appointment about the upgrade.
-- .Database audit logs are presented in plaintext, thus it is recommended to enable [Two-Factor Authentication]( [https://www.qcloud.com/help/page/erciyanzheng](https://www.qcloud.com/help/page/erciyanzheng). This is optional.
+- .Database audit logs are presented in plaintext, thus it is recommended to enable [Two-Factor Authentication]( [https://cloud.tencent.com/help/page/erciyanzheng](https://cloud.tencent.com/help/page/erciyanzheng). This is optional.
 ![](//mccdn.qcloud.com/static/img/89e47d9466f5d5b2db1d9e6602eb94b7/image.png)
 Page for activating auditing feature
 ![](//mccdn.qcloud.com/static/img/ac6fc0157833324ac398228c1a1415f0/image.png)
@@ -82,7 +82,7 @@ An audit policy is a complete auditing plan which consists of "audit rule", "aud
 
 SQL statements that match with audit policies are presented in the Audit Log page. You can click to view them, or search for logs. Note:
 
-- Due to design requirements, audit logs are presented in plaintext. Again, we recommend that you enable [Two-factor Authentication]( [https://www.qcloud.com/help/page/erciyanzheng](https://www.qcloud.com/help/page/erciyanzheng) to maintain control of the logs.
+- Due to design requirements, audit logs are presented in plaintext. Again, we recommend that you enable [Two-factor Authentication]( [https://cloud.tencent.com/help/page/erciyanzheng](https://cloud.tencent.com/help/page/erciyanzheng) to maintain control of the logs.
 - Logs are recorded starting from when an audit policy is created. History data is not recorded.
-- Transactions and storage processes may be recorded as single statements. For more information, please see [Syntax Currently Supported by Database Auditing](https://www.qcloud.com/doc/product/237/4847).
+- Transactions and storage processes may be recorded as single statements. For more information, please see [Syntax Currently Supported by Database Auditing](https://cloud.tencent.com/doc/product/237/4847).
 - The maximum length supported for a single SQL statement is 1 KB. Excessive content will be truncated.

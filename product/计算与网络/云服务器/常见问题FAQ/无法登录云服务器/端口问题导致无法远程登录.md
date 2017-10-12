@@ -33,7 +33,7 @@
 > - 请关闭防火墙或安全软件，再进行检查测试。
 > - 请勿在 Windows 云服务器上安装个人 PC 类的杀毒软件，此类软件可能会封云服务器的远程登录端口，导致云服务器无法登录。
 
- 1. 通过 [控制台](https://console.qcloud.com/cvm) 登录云服务器。
+ 1. 通过 [控制台](https://console.cloud.tencent.com/cvm) 登录云服务器。
 
  2. 在云服务器中，右键单击【我的电脑】- 单击【属性】-【高级系统设置】-【远程】，在 “远程桌面”功能块中点选【允许远程连接带此计算机】，单击【确定】。
 ![](//mc.qcloudimg.com/static/img/9d9e587e02ee10fbdffe861efd9bf3fd/image.png)

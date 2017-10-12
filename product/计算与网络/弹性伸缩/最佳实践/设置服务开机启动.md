@@ -49,8 +49,8 @@
 #### step 4：基于这台的机器制作镜像，在制作启动配置时使用该镜像
 此步骤比较简单，如果操作遇到困难可再参考以下教程：
 
-[制作自定义镜像](https://www.qcloud.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
+[制作自定义镜像](https://cloud.tencent.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
 
-[制作启动配置](https://www.qcloud.com/document/product/377/8544)
+[制作启动配置](https://cloud.tencent.com/document/product/377/8544)
 
 

@@ -5,10 +5,10 @@ Download from: https://github.com/QcloudApi/qcloudapi-sdk-java
 The qcloudapi-sdk-java SDK is designed to make it easy for java developers to use Tencent Cloud API in their codes.
 
 ## 1. Resources
-For details, refer to API common parameters, overview and error codes in different modules. For instance, [CVM API Common Parameters](http://www.qcloud.com/document/api/213/6976), [CVM API Overview](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88) and [CVM API Error Codes](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81).
+For details, refer to API common parameters, overview and error codes in different modules. For instance, [CVM API Common Parameters](http://cloud.tencent.com/document/api/213/6976), [CVM API Overview](http://cloud.tencent.com/doc/api/229/API%E6%A6%82%E8%A7%88) and [CVM API Error Codes](http://cloud.tencent.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81).
 
 ## 2. Quick Start
-1) [Get Security Credential](https://console.qcloud.com/capi). Before calling the Cloud API for the first time, you need to apply for a security credential on the Tencent Cloud console. A security credential consists of a SecretId, which is used to identify an API caller, and a SecretKey, which is used to encrypt the signature string and verify the string on the server. You must keep your SecretKey strictly confidential to avoid disclosure.
+1) [Get Security Credential](https://console.cloud.tencent.com/capi). Before calling the Cloud API for the first time, you need to apply for a security credential on the Tencent Cloud console. A security credential consists of a SecretId, which is used to identify an API caller, and a SecretKey, which is used to encrypt the signature string and verify the string on the server. You must keep your SecretKey strictly confidential to avoid disclosure.
 
 2) [Download SDK](https://github.com/QcloudApi/qcloudapi-sdk-java), and put it in your program directory. For details, refer to the example below.
 
@@ -32,7 +32,7 @@ public static void main(String[] args) {
      */
     /*
      *API documentation address of DescribeInstances
-     *: http://www.qcloud.com/wiki/v2/DescribeInstances
+     *: http://cloud.tencent.com/wiki/v2/DescribeInstances
      */
     QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Cvm(),config);
     TreeMap<String, Object> params = new TreeMap<String, Object>();

@@ -7,10 +7,10 @@
 ### 七层会话保持
 七层转发情境支持基于 cookie 插入的会话保持能力（由负载均衡器向客户端植入 cookie）
 
-会话保持时间可以设置为 `30-3600` 秒中的任意整数值。超过该时间阀值，会话中无新请求则断开连接。关于插入 cookie 会话保持的更多信息可以参考[这里](https://www.qcloud.com/document/product/214/2736)。
+会话保持时间可以设置为 `30-3600` 秒中的任意整数值。超过该时间阀值，会话中无新请求则断开连接。关于插入 cookie 会话保持的更多信息可以参考[这里](https://cloud.tencent.com/document/product/214/2736)。
 
 ### 配置会话保持
-1. 打开[负载均衡控制台](https://console.qcloud.com/loadbalance)，点击需要配置会话保持的负载均衡实例 ID，进入负载均衡详情页。
+1. 打开[负载均衡控制台](https://console.cloud.tencent.com/loadbalance)，点击需要配置会话保持的负载均衡实例 ID，进入负载均衡详情页。
 
 2. 点击需要配置会话保持的负载均衡监听器后的【修改】按钮。
 

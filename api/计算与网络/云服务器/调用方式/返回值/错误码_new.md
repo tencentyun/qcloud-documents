@@ -1,6 +1,6 @@
 ## 1、公共错误码
 
-注：本页展示的是改版后接口的错误码。如需查看旧接口对应的错误码，请参考[公共错误码](https://www.qcloud.com/document/api/213/6982)信息。
+注：本页展示的是改版后接口的错误码。如需查看旧接口对应的错误码，请参考[公共错误码](https://cloud.tencent.com/document/api/213/6982)信息。
 
 返回结果中如果存在Error这个key，则表示调用API接口失败。Error底下的Code字段表示错误码，当调用失败后，用户可以根据下表确定公共错误原因并采取相应措施。
 
@@ -18,7 +18,7 @@
 <tr>
 <td> InvalidParameter.SignatureFailure
 </td><td> 身份认证失败
-</td><td> 身份认证失败，一般是由于签名计算错误导致的，请参考文档中<a href="https://www.qcloud.com/document/api/213/6984" title="签名方法">签名方法</a>部分。
+</td><td> 身份认证失败，一般是由于签名计算错误导致的，请参考文档中<a href="https://cloud.tencent.com/document/api/213/6984" title="签名方法">签名方法</a>部分。
 </td></tr>
 <tr>
 <td> AuthFailure

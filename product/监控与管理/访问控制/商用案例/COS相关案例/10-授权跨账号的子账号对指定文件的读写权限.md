@@ -16,6 +16,6 @@ step1：企业帐号 CompanyGrantee 通过策略语法方式创建以下策略
      }
 }
 ```
-step2：将该策略授权给子账号。授权方式请参考[授权管理](https://www.qcloud.com/document/product/378/8961)。
+step2：将该策略授权给子账号。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
 step3：企业帐号 CompanyGranter 通过 COS 控制台进行 Policy 和 ACL 设置，将对象 Object1 授权给企业帐号 CompanyGrantee，具体请参考 COS 文档。

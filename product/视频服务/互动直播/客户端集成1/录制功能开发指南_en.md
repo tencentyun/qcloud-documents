@@ -428,17 +428,17 @@ function stopRecordVideo(){
 
 Videos recorded through audio/video messaging SDK are stored in VOD service
 
-(1) Log in to VOD console (http://console.qcloud.com/video) to manage recorded files
+(1) Log in to VOD console (http://console.cloud.tencent.com/video) to manage recorded files
 (2) Users can also manage files using VOD APIs. For more information on how to use the APIs, please see:
-http://www.qcloud.com/wiki/云点播API
+http://cloud.tencent.com/wiki/云点播API
 (3) DescribeVodPlayInfo can obtain the download address of the recorded file based on the file name entered in the recording parameters of the API "Start Recording".
-For more information, please see http://www.qcloud.com/wiki/v2/DescribeVodPlayInfo
+For more information, please see http://cloud.tencent.com/wiki/v2/DescribeVodPlayInfo
 (4) Query video address using FileId returned when the recording ends, and configure the callback API DescribeRecordPlayInfo (it is generally called by the third party backend of customer). For more information, please see:
-http://www.qcloud.com/doc/api/257/获取录播视频播放信息-互动直播用户专用
+http://cloud.tencent.com/doc/api/257/获取录播视频播放信息-互动直播用户专用
 ## 5 Price and Billing
 
 Recording feature is provided free of charge. However, storage and traffic consumed in VOD are billable. For more information on the billing method, please see:
-http://www.qcloud.com/wiki/音视频云通信价格与计费说明
+http://cloud.tencent.com/wiki/音视频云通信价格与计费说明
 
 Please note that, if you have activated the VOD service and selected a billing method from package and postpaid mode, the selected billing method is adopted. If you have not activated the VOD service, the billing method of pay-by-traffic (postpaid) is used by default.
 

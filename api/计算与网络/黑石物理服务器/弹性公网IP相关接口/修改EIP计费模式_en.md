@@ -40,7 +40,7 @@ Input
 
   https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmModifyCharge
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>&eipIds.0=eip-test&payMode=bandwidth&bandwidth=40
 </pre>
 
 Output

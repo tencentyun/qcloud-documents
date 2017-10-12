@@ -2,7 +2,7 @@
 This API (DescribeRedisZones) is used to query supported availability zones.
 Domain name for API request: <font style='color:red'>redis.api.qcloud.com </font>
 
-This API can be used to create the list of availability zones where the Redis can be created. An availability zone where the CRS instance is not available for the user will not be included in the returned list. You can apply for the purchase of the whitelist of a region by submitting a [Ticket](https://console.qcloud.com/workorder/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS).
+This API can be used to create the list of availability zones where the Redis can be created. An availability zone where the CRS instance is not available for the user will not be included in the returned list. You can apply for the purchase of the whitelist of a region by submitting a [Ticket](https://console.cloud.tencent.com/workorder/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS).
 
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='/doc/api/260/1753' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is DescribeRedisZones.
@@ -14,7 +14,7 @@ The following request parameter list only provides API request parameters. Commo
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
 | message | String | Error message description. A null value indicates a success |
 | codeDesc | String | Description of error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned.  |
 | data | Array |  |
@@ -32,7 +32,7 @@ The following error codes include the business logic error codes for this API.
 Input
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedisZones
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 </pre>
 Output
 ```

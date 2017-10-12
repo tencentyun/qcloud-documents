@@ -1,6 +1,6 @@
 According to your different connection needs, Tencent Cloud provides two services respectively to connect your enterprise data center and VPC: VPN connection and Direct Connect. The main differences are as follows:
-- [VPN Connections](https://www.qcloud.com/product/vpn.html) uses the public network and IPsec protocol to establish an encrypted network connection between your data center and VPC. You can purchase, enable and configure the VPN gateway in a few minutes. But the VPN connection may be interrupted due to Internet jitter, block or other public network quality problems. If users' services have low requirement for the network connection quality, it is a highly cost-effective choice for fast deployment.
-- [Direct Connect](https://www.qcloud.com/product/dc.html) provides a dedicated direct network connection method. It has relatively long construction duration, but can provide high-quality, highly reliable network connection service. If your business has high requirements on network quality and network security, you can choose to deploy this program.
+- [VPN Connections](https://cloud.tencent.com/product/vpn.html) uses the public network and IPsec protocol to establish an encrypted network connection between your data center and VPC. You can purchase, enable and configure the VPN gateway in a few minutes. But the VPN connection may be interrupted due to Internet jitter, block or other public network quality problems. If users' services have low requirement for the network connection quality, it is a highly cost-effective choice for fast deployment.
+- [Direct Connect](https://cloud.tencent.com/product/dc.html) provides a dedicated direct network connection method. It has relatively long construction duration, but can provide high-quality, highly reliable network connection service. If your business has high requirements on network quality and network security, you can choose to deploy this program.
 
 The following describes how to deploy a hybrid cloud using **Direct Connect**.
 
@@ -14,7 +14,7 @@ There are two ways to set up a slave for Direct Connect
 - **VPN connection** serves as Direct Connect slave (master/slave).
 
 >Note:
-> Your **network segment** between VPC and data center does not affect their communication, for Tencent Cloud Direct Connect gateway supports NAT. [Click here to view details](https://www.qcloud.com/doc/product/215/4976#.E4.B8.93.E7.BA.BFnat).
+> Your **network segment** between VPC and data center does not affect their communication, for Tencent Cloud Direct Connect gateway supports NAT. [Click here to view details](https://cloud.tencent.com/doc/product/215/4976#.E4.B8.93.E7.BA.BFnat).
 
 ## Solutions:
 **Cloud data center**: Use CVM and Cloud Database to deploy cloud data center in a VPC created on Tencent Cloud.
@@ -30,5 +30,5 @@ Step 3: Creating the Direct Connect tunnel for Direct Connect gateway, thus conn
 (Optional) Step 4: Configuring the Direct Connect NAT
 Step 5: Configuring the routing table associated with the subnets requiring communication.
 Step 6: You can set up slaves for a Direct Connect by creating multiple physical Direct Connect or VPN connections.
-[Click here to view details](https://www.qcloud.com/doc/product/215/4976#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)
+[Click here to view details](https://cloud.tencent.com/doc/product/215/4976#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)
 

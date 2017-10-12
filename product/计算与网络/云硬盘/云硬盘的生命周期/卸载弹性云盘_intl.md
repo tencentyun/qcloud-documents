@@ -13,7 +13,7 @@ When you unmount the data disk, please make sure that you understand the followi
 ![](//mccdn.qcloud.com/static/img/9939fccce6e6d9ead64b5703455d4403/image.png)
 ![](//mccdn.qcloud.com/static/img/9939fccce6e6d9ead64b5703455d4403/image.png)
 
-1) Log in to the [Tencent Cloud Console](https://console.qcloud.com/).
+1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
 2) Enter "Cloud Virtual Machine" - "Cloud Block Storage" tab.
 
@@ -23,4 +23,4 @@ Or in the Cloud Block Storage list page, check the Cloud Block Storage with the 
 4) Confirm warnings in the pop-up dialog box, and click "Confirm" button.
 
 ### Unmounting an elastic cloud disk with API
-Users can use the DetachCbsStorages API to unmount the elastic cloud disk. For more information, refer to [API to Unmount Elastic Cloud Disk](https://www.qcloud.com/doc/api/364/2521).
+Users can use the DetachCbsStorages API to unmount the elastic cloud disk. For more information, refer to [API to Unmount Elastic Cloud Disk](https://cloud.tencent.com/doc/api/364/2521).

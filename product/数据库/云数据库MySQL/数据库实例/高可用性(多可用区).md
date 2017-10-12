@@ -18,5 +18,5 @@
 * 数据库实例的操作系统在进行软件修补  
 
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb/ "云数据库控制台"
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb/ "云数据库控制台"

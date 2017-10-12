@@ -59,7 +59,7 @@ Domain: vod.api.qcloud.com
  
 Input 1
 <pre>
-  https://domain/v2/index.php?Action=ModifyVodInfo&fileId=16092504232103571137&fileName=NEW_NAME&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+  https://domain/v2/index.php?Action=ModifyVodInfo&fileId=16092504232103571137&fileName=NEW_NAME&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 Output 1
 ```

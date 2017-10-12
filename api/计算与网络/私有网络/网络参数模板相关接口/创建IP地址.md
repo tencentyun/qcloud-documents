@@ -13,7 +13,7 @@
 |---------|---------|---------|---------|
 | addressName | 是 | String | IP 地址名称 。|
 | address | 是 | Array| IP 地址列表。 |
-| address.n | 是 | String | IP 地址，支持多种格式，详见 <a href='https://www.qcloud.com/document/product/215/9882#.E7.AE.80.E4.BB.8B' title='参数模板产品文档'>参数模板产品文档</a>。|
+| address.n | 是 | String | IP 地址，支持多种格式，详见 <a href='https://cloud.tencent.com/document/product/215/9882#.E7.AE.80.E4.BB.8B' title='参数模板产品文档'>参数模板产品文档</a>。|
 
 
 
@@ -24,14 +24,14 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 数字错误码, 0 表示成功，其他值表示失败。详见错误码页面的 <a href='https://www.qcloud.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
+| code | Int | 数字错误码, 0 表示成功，其他值表示失败。详见错误码页面的 <a href='https://cloud.tencent.com/document/api/215/4781' title='公共错误码'>公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 字符串错误码。 |
 | data | Object | 返回信息。 |
 | data.addressId | String | IP 地址 ID。| 
 
 ## 4. 错误码表
-以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见 <a href="https://www.qcloud.com/doc/api/245/4781" title="公共错误码">公共错误码</a>。
+以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见 <a href="https://cloud.tencent.com/doc/api/245/4781" title="公共错误码">公共错误码</a>。
 
 
  <table class="t"><tbody><tr>
@@ -57,7 +57,7 @@
 输入
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=CreateAddress
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &addressName=CreateAddressTest&address.0=10.0.0.6&address.1=10.0.0.2/16&address.2=10.0.0.1-10.0.0.20
 </pre>
 输出

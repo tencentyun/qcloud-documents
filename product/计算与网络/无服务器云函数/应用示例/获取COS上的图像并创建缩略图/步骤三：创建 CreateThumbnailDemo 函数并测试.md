@@ -1,7 +1,7 @@
 在此部分中，用户将创建一个函数来实现缩略图程序，并通过控制台/API调用来测试函数。
 
 ## 创建 CreateThumbnailDemo SCF 函数
-1) 登录[无服务器云函数控制台](https://console.qcloud.com/scf)，在【广州】地域下点击【新建】按钮；
+1) 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮；
 
 2) 进入函数配置部分，函数名称填写`CreateThumbnailDemo`，剩余项保持默认，点击【下一步】；
 
@@ -61,7 +61,7 @@
 4) 点击【运行】按钮，观察运行结果。如果在结果中发现下载和上传均成功，则此程序运行正常：
 ![](//mc.qcloudimg.com/static/img/aec9243fd45a41e562b9c17d530740a0/image.png)
 
-5) 前往[对象存储控制台](https://console.qcloud.com/cos4/index)，点击步骤一：准备 COS Bucket 中创建的`mybucketresized`，观察是否有名为`HappyFace.png`的缩略图产生。
+5) 前往[对象存储控制台](https://console.cloud.tencent.com/cos4/index)，点击步骤一：准备 COS Bucket 中创建的`mybucketresized`，观察是否有名为`HappyFace.png`的缩略图产生。
 ![](//mc.qcloudimg.com/static/img/5c4224adcef4231f1469956107f000aa/image.png)
 
 6) 下载该图片，对比观察它和原图片的大小。

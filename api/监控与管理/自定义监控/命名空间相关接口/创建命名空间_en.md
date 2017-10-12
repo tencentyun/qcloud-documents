@@ -3,7 +3,7 @@
 Namespace is a container of metrics. Metrics in different namespaces are independent from each other. So the metrics from different applications will not be mistakenly aggregated into the same statistical information. CCM allows you to customize namespace and store data across multiple regions. For example, proc_monitor, i.e. monitoring A process in Guangzhou region. This API provides capacity to create a custom namespace.
 
 This API (CreateNamespace) is used to create a custom namespace.
-For more information on how many namespaces a user can create, please see <a href="https://www.qcloud.com/doc/product/397/4002">Product Limitation</a> page. 
+For more information on how many namespaces a user can create, please see <a href="https://cloud.tencent.com/doc/product/397/4002">Product Limitation</a> page. 
 
 Domain name: monitor.api.qcloud.com
 
@@ -62,7 +62,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=CreateNamespace
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=cvm
 ​	
 </pre>

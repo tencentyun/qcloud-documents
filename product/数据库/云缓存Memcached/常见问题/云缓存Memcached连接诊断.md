@@ -1,7 +1,7 @@
 ## 1 通用说明
 客户端连接云缓存Memcached服务失败或者成功率低，可能与客户端所在的服务器环境有关。
 本工具用于诊断客户端服务器的tcp连接环境状态。
-如有任何疑问，请通过腾讯云[工单系统]( http://console.qcloud.com/ticket )  联系我们。
+如有任何疑问，请通过腾讯云[工单系统]( http://console.cloud.tencent.com/ticket )  联系我们。
 
 ## 2 工具说明
 ### 2.1 安装说明

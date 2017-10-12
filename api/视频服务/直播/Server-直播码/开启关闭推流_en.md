@@ -20,8 +20,8 @@
 |---------|---------|---------|---------|---------|
 | appid                        | Customer ID     | int       | LVB APPID used for identifying customers |  Y          | 
 | interface                 | API name   | string |  Live_Channel_SetStatus |  Y          | 
-| t | [Validity period](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
-| sign | [Security signature](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
+| t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
+| sign | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
 | Param.s.channel_id | LVB code | string | | Y |
 | Param.n.status | Status | int | 0: Disabled; 1: Enabled for push; 2: Interrupted | Y |
 

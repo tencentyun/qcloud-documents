@@ -2,10 +2,10 @@
 ![](//mc.qcloudimg.com/static/img/b7f0fb7d7115c87e2748ada5fdaf971b/image.png)
 
 ## txSecret 不正确
-腾讯云目前要求推流地址都要加防盗链以确保安全，防盗链计算错误或者已经过了有效期的推流URL，都会被腾讯云**踢掉**，这种情况下 RTMP SDK 会抛出 **PUSH_WARNING_SERVER_DISCONNECT** 事件， [RTMP SDK DEMO](https://www.qcloud.com/document/product/454/6555) 此时的表现如下：
+腾讯云目前要求推流地址都要加防盗链以确保安全，防盗链计算错误或者已经过了有效期的推流URL，都会被腾讯云**踢掉**，这种情况下 RTMP SDK 会抛出 **PUSH_WARNING_SERVER_DISCONNECT** 事件， [RTMP SDK DEMO](https://cloud.tencent.com/document/product/454/6555) 此时的表现如下：
 ![](//mc.qcloudimg.com/static/img/83e5c2dce6707f5c0c5e6dfc8fc548e5/image.png)
 
-阅读 [如何获取推流URL？](https://www.qcloud.com/document/product/454/7915) 了解如何获取可靠的推流URL。
+阅读 [如何获取推流URL？](https://cloud.tencent.com/document/product/454/7915) 了解如何获取可靠的推流URL。
 
 ## txTime 已过期
 有些客户担心自己的直播流量被人盗用，会将 txTime 设置的过于保守，比如从当前时间开始往后推 5 分钟。其实由于有 txSercet 签名的存在，txTime 的有效期不用设置的太短。相反，如果有效期设置的太短，当主播在直播过程中遭遇网络闪断时，会因为推流 URL 过期而无法恢复推流。

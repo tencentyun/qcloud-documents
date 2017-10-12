@@ -1,16 +1,16 @@
 本指南将介绍通过腾讯云云服务器 CVM（以下简称 CVM）上安装的 Discuz! 镜像来启动并运行一个论坛网站。您将了解如何配置并启动 CVM 云主机、如何获取 WordPress 用户名和密码，以及如何登录 WordPress 管理页面。
-**注意**：本指南主要针对基本的 Discuz! 论坛搭建，适用于个人使用或学习。建议针对具有较高可扩展性需求要求不高的业务级网站使用本教程。要获取更高级的教程，请参阅 [搭建 Discuz! 论坛](https://www.qcloud.com/document/product/213/8044)。
+**注意**：本指南主要针对基本的 Discuz! 论坛搭建，适用于个人使用或学习。建议针对具有较高可扩展性需求要求不高的业务级网站使用本教程。要获取更高级的教程，请参阅 [搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/8044)。
 
-请保持此指南处于打开状态，同时登录到 [腾讯云管理控制台](https://console.qcloud.com/)。
+请保持此指南处于打开状态，同时登录到 [腾讯云管理控制台](https://console.cloud.tencent.com/)。
 ### 步骤一：启动 CVM
 通过腾讯云启动 Discuz! 论坛，前提是拥有一台腾讯云的云服务器。
 - 若您已拥有 CVM，请跳过此步骤，进入步骤二。
-- 若您还未拥有 CVM，请先购买云服务器。请参考 [创建 Linux 云服务器](https://www.qcloud.com/document/product/213/2972) 进行购买。
-购买成功后，系统将会发送一封站内信至您的账户，请打开 [站内信](https://console.qcloud.com/message) 查看您已购买云服务器的信息，并保存好您的云服务器初始账户和密码。
+- 若您还未拥有 CVM，请先购买云服务器。请参考 [创建 Linux 云服务器](https://cloud.tencent.com/document/product/213/2972) 进行购买。
+购买成功后，系统将会发送一封站内信至您的账户，请打开 [站内信](https://console.cloud.tencent.com/message) 查看您已购买云服务器的信息，并保存好您的云服务器初始账户和密码。
 ![站内信1](//mc.qcloudimg.com/static/img/2e1ab9f2401d185f34aa8d945caa7f64/image.png)
 
 ### 步骤二：配置云主机
-1. 登录 [腾讯云管理控制台](https://console.qcloud.com/)，在【云产品】下找到【云服务器】，点击打开云服务器控制台。
+1. 登录 [腾讯云管理控制台](https://console.cloud.tencent.com/)，在【云产品】下找到【云服务器】，点击打开云服务器控制台。
 2. 为云主机设置名称，便于区分。
  1. 请点击左侧导航【云主机】，进入云主机页面，选定要使用的云主机。点击云主机的 **ID/主机名**，为云主机修改名称。
 ![改名a1](//mc.qcloudimg.com/static/img/d4774ae98db54049949bdf31a728cbb3/image.png)

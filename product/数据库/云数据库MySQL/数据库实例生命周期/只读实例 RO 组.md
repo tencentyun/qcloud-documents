@@ -45,12 +45,12 @@
 - 最少保留实例数：组内需要保证的实例下限。若现有只读实例数低于此下限则超限不再自动设置权重为 0。此项必须设置，且最小为 0。
 ![](//mc.qcloudimg.com/static/img/06cf1b511761c3fb35fd08a504af3750/image.png)
 
-1.5 进入 [云数据库控制台](https://console.qcloud.com/cdb)，找到刚才创建的实例类型为 **只读实例** 的实例，则表示只读实例创建成功。
+1.5 进入 [云数据库控制台](https://console.cloud.tencent.com/cdb)，找到刚才创建的实例类型为 **只读实例** 的实例，则表示只读实例创建成功。
 ![](//mc.qcloudimg.com/static/img/c43acd917b990016bb418220ee5e18e3/image.png)
 
 ### 2. 配置只读实例 RO 组
 在只读实例 RO 组的配置界面，可以配置只读实例 RO 组的名称、延时超限策略、延时阈值、最少保留实例、读权重等基本信息，具体的操作步骤如下。
-2.1 在 [云数据库控制台](https://console.qcloud.com/cdb)，选择需要设置只读实例 RO 组的云数据库主实例，单击【管理】，进入云数据库主实例管理界面。
+2.1 在 [云数据库控制台](https://console.cloud.tencent.com/cdb)，选择需要设置只读实例 RO 组的云数据库主实例，单击【管理】，进入云数据库主实例管理界面。
 ![](//mc.qcloudimg.com/static/img/a4c91d09c83f1e9d6738610ba4d81933/image.png)
 2.2 在云数据库主实例管理界面，单击【只读实例】，进入只读实例 RO 组管理界面。 
 ![](//mc.qcloudimg.com/static/img/edfc8913abe2154244edbb36d01b6fe0/image.png)

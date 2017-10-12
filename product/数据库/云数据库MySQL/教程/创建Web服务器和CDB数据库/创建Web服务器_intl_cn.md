@@ -12,8 +12,8 @@ To access CDB for MySQL service, you can directly connect the instance's private
 For detailed MySQL statements, refer to [MySQL Manual][4].
 ![][image-1]
 
-[1]:	https://www.qcloud.com/document/product/213/2936
-[2]:	https://www.qcloud.com/document/product/213/2975
+[1]:	https://cloud.tencent.com/document/product/213/2936
+[2]:	https://cloud.tencent.com/document/product/213/2975
 [3]:	https://dev.mysql.com/downloads/installer/
 [4]:	http://dev.mysql.com/doc/
 

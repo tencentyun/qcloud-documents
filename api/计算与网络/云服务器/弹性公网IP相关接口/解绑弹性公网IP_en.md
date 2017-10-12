@@ -5,7 +5,7 @@ API name: EipUnBindInstance
 
 Unbind the binding between EIP and server.
 >Note:
-The platform imposes a quota on the number of attempts to unbind an EIP and reallocate an ordinary public IP per day for each region (refer to <a href="/doc/product/213/1941" title="/doc/product/213/1941">Overview of EIP Products</a>). The above quota can be obtained through <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E9%85%8D%E9%A2%9D" title="DescribeEipQuota">DescribeEipQuota</a> API.
+The platform imposes a quota on the number of attempts to unbind an EIP and reallocate an ordinary public IP per day for each region (refer to <a href="/doc/product/213/1941" title="/doc/product/213/1941">Overview of EIP Products</a>). The above quota can be obtained through <a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E9%85%8D%E9%A2%9D" title="DescribeEipQuota">DescribeEipQuota</a> API.
 
  
 
@@ -18,7 +18,7 @@ The platform imposes a quota on the number of attempts to unbind an EIP and real
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
-<td> eipId <td> No <td> String <td> Instance ID of EIP, which can be obtained from eipId in the returned field of <a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEipQuota">DescribeEip</a> API
+<td> eipId <td> No <td> String <td> Instance ID of EIP, which can be obtained from eipId in the returned field of <a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEipQuota">DescribeEip</a> API
 <tr>
 <td> allocWanIp <td> No <td> Int <td> Whether to a reallocate a new ordinary public IP for the primary IP of the server's primary ENI after the EIP is unbound from the server. The ordinary public IP will be released upon the release of the server and is not elastic. <br>0: Do not allocate; 1: Allocate (The default is 0).
 <tr>
@@ -36,8 +36,8 @@ The platform imposes a quota on the number of attempts to unbind an EIP and real
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
 
 
  
@@ -48,7 +48,7 @@ Input
 <pre>
 
   https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &eipId=eip-mksy14ay
   &allocWanIp=0
 

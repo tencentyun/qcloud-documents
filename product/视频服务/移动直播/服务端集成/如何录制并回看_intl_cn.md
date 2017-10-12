@@ -9,12 +9,12 @@
 ![](//mc.qcloudimg.com/static/img/504f32f7112d7dd9ab6c4ec10cb20099/image.png)
 
 ## 开启录制
-录制回看功能依托于腾讯云的**点播服务**支撑，如果您想要对接这个功能，首先需要在腾讯云的管理控制台[开通点播服务](http://console.qcloud.com/video)。服务开通之后，新录制的文件就可以在点播控制台的 [视频管理](http://console.qcloud.com/video/videolist) 里找到它们。
+录制回看功能依托于腾讯云的**点播服务**支撑，如果您想要对接这个功能，首先需要在腾讯云的管理控制台[开通点播服务](http://console.cloud.tencent.com/video)。服务开通之后，新录制的文件就可以在点播控制台的 [视频管理](http://console.cloud.tencent.com/video/videolist) 里找到它们。
 
 那么怎么开启录制呢？这里有两个办法：
 
 ### 1. 全局开启录制
-即指定所有直播的视频流全部开启或者关闭录制，在 [直播管理控制台 >> 接入管理 >> 直播码接入 >> 接入配置](https://console.qcloud.com/live/livecodemanage) 中可以对其进行设置，见下图：
+即指定所有直播的视频流全部开启或者关闭录制，在 [直播管理控制台 >> 接入管理 >> 直播码接入 >> 接入配置](https://console.cloud.tencent.com/live/livecodemanage) 中可以对其进行设置，见下图：
 
 ![](//mc.qcloudimg.com/static/img/302dd405148cb9ccd016c3deafc6027d/image.png)
 
@@ -24,7 +24,7 @@
 rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&record=mp4&record_interval=5400
 ```
 这里有几点要特别说明：
-- 目前录制功能支持的视频封装格式有 mp4、 hls 和 flv 三种，关于点播格式的差异，您可以参考这里 [DOC](https://www.qcloud.com/document/product/454/7937#3.-.E5.B8.B8.E8.A7.81.E7.9A.84.E7.82.B9.E6.92.AD.E5.8D.8F.E8.AE.AE.E6.9C.89.E5.93.AA.E4.BA.9B.EF.BC.9F)。
+- 目前录制功能支持的视频封装格式有 mp4、 hls 和 flv 三种，关于点播格式的差异，您可以参考这里 [DOC](https://cloud.tencent.com/document/product/454/7937#3.-.E5.B8.B8.E8.A7.81.E7.9A.84.E7.82.B9.E6.92.AD.E5.8D.8F.E8.AE.AE.E6.9C.89.E5.93.AA.E4.BA.9B.EF.BC.9F)。
 
 - record=mp4|hls|flv 分隔符格式用于指定同时录制一种以上的视频格式（只有 MP4 和 HLS 支持手机浏览器播放）。
 
@@ -42,7 +42,7 @@ rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&
 那么怎样才能拿到文件的地址呢？有如下两种解决方案：
 
 ### 1. 被动监听通知
-您可以使用腾讯云的**[事件通知服务](https://www.qcloud.com/doc/api/258/5957)**：您的服务器注册一个自己的**回调URL**给腾讯云，腾讯云会在一个新的录制文件生成时通过这个URL通知给您。
+您可以使用腾讯云的**[事件通知服务](https://cloud.tencent.com/doc/api/258/5957)**：您的服务器注册一个自己的**回调URL**给腾讯云，腾讯云会在一个新的录制文件生成时通过这个URL通知给您。
 
 ![](//mc.qcloudimg.com/static/img/b50c901fb4d529daf3405e78bc69908d/image.png)
 
@@ -65,7 +65,7 @@ rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&
 ```
 
 ### 2. 主动查询文件
-您可以通过腾讯云的文件查询接口（**[Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960)**）定时地查看是否有新的录制文件生成，不过这种方案在要查询的频道数特别多的时候，响应速度不理想，同时调用频率也不能太快（仅对刚结束的频道进行调用为宜），这种方案的实时性和可靠性不高，并不推荐频繁使用。
+您可以通过腾讯云的文件查询接口（**[Live_Tape_GetFilelist](https://cloud.tencent.com/doc/api/258/5960)**）定时地查看是否有新的录制文件生成，不过这种方案在要查询的频道数特别多的时候，响应速度不理想，同时调用频率也不能太快（仅对刚结束的频道进行调用为宜），这种方案的实时性和可靠性不高，并不推荐频繁使用。
 
 ## 常见问题
 ### 1. 直播录制的原理是什么？
@@ -98,5 +98,5 @@ rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&
 
 
 ### 4. 如何把碎片拼接起来？
-目前腾讯云支持使用云端 API 接口拼接视频分片，API 详细用法可以参考 [视频拼接](https://www.qcloud.com/document/product/266/7821) 。
+目前腾讯云支持使用云端 API 接口拼接视频分片，API 详细用法可以参考 [视频拼接](https://cloud.tencent.com/document/product/266/7821) 。
  

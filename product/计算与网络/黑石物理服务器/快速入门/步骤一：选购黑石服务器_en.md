@@ -2,7 +2,7 @@
 This section describes how to access the purchase page of CPM and select the appropriate CPM based on your business needs.
 
 ## Accessing the Purchase Page
-Access the [CPM Purchase Page](https://buy.qcloud.com/cpm "CPM Purchase Page")
+Access the [CPM Purchase Page](https://buy.cloud.tencent.com/cpm "CPM Purchase Page")
 
 ## Selecting a Region
 Select a data center that is closest to your users</br>

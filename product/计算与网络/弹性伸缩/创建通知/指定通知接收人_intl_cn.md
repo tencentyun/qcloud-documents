@@ -2,7 +2,7 @@ When the notification rule is set and recipient is specified, AS sends the notif
 
 ### Step 1:  Specify the recipient of the notification
 
-Go to [User Management Console](https://console.qcloud.com/cam) and you will see the contact information of the account registrant.
+Go to [User Management Console](https://console.cloud.tencent.com/cam) and you will see the contact information of the account registrant.
 
 To send the notification to other people (such as other members from the operation and maintenance team), please click **New**.
 
@@ -20,7 +20,7 @@ AS sends a notification on a **user group** basis, rather than **recipient**.
 - You have defined a number of notification recipients, who may be in the same or different departments. You may wish that a certain type of notifications to be sent to the recipients of department A, and another type to the recipients of department B. Then you can define a user group, and put the different notification recipients to this particular user group.
 
 **Setting Up:**
-1. Go to [User Group Management](https://console.qcloud.com/cam/groups), click **New User Group**, enter the group name and click **OK**.
+1. Go to [User Group Management](https://console.cloud.tencent.com/cam/groups), click **New User Group**, enter the group name and click **OK**.
 2. Then click **Add User** to add the relevant notification recipients.
 
 ### Step 3: Apply user groups

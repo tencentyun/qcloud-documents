@@ -53,7 +53,7 @@ TCP是面向连接的协议，在正式收发数据前，必须和对方建立�
 负载均衡不收取任何的流量或带宽费用。负载均衡服务产生的公网流量费用，由后端的CVM收取。建议购买后端CVM时，公网带宽选择按使用流量计费。并设定合理的最高的带宽峰值上线，这样就无需关注CLB出口的总流量的涨跌。互联网Web业务的流量起伏较大，无法准确预测。若按带宽计费，带宽买多了不划算，买得太少，业务高峰期会出现丢包的情况。
 
 ## 11. 负载转发中的 HTTP 重定向问题
-当浏览器访问网站 `http://example.com` 时，对服务器而言需要进行一次重定向，判断需要定向至根目录。而当浏览器访问网站 `http://example.com/` 时服务器会直接返回网站设置的根目录默认页面。同样的，假设 `http://www.qcloud.com/movie` 被URL重写跳转到 `http://www.qcloud.com/movie/` 上的话，则输入 `http://www.qcloud.com/movie` 就会多一次URL重写的过程，在性能和时间上都有微小的损耗。 但在结果上没有差别。但若 `http://www.qcloud.com/product` 被URL重写转跳到非 `http://www.qcloud.com/product/` 同一页面上，则需要考虑是否在二级页面后添加“/”。
+当浏览器访问网站 `http://example.com` 时，对服务器而言需要进行一次重定向，判断需要定向至根目录。而当浏览器访问网站 `http://example.com/` 时服务器会直接返回网站设置的根目录默认页面。同样的，假设 `http://cloud.tencent.com/movie` 被URL重写跳转到 `http://cloud.tencent.com/movie/` 上的话，则输入 `http://cloud.tencent.com/movie` 就会多一次URL重写的过程，在性能和时间上都有微小的损耗。 但在结果上没有差别。但若 `http://cloud.tencent.com/product` 被URL重写转跳到非 `http://cloud.tencent.com/product/` 同一页面上，则需要考虑是否在二级页面后添加“/”。
 
 在腾讯云负载均衡中，如果前后端端口号不一致时，为了避免 HTTP 重定向后导致端口号更改，访问二级页面需要加”/”保证页面的正常访问。
 
@@ -96,7 +96,7 @@ clientB ip+port drop
 ```
 注意，***上述配置步骤有顺序要求，顺序相反会导致黑名单配置失效。***
 
-关于安全组的更多说明，可见[后端云服务器的访问控制](https://www.qcloud.com/doc/product/214/6157#.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.89.E5.85.A8.E7.BB.84.E7.9A.84.E6.8E.A8.E8.8D.90.E8.A7.84.E5.88.99)
+关于安全组的更多说明，可见[后端云服务器的访问控制](https://cloud.tencent.com/doc/product/214/6157#.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.89.E5.85.A8.E7.BB.84.E7.9A.84.E6.8E.A8.E8.8D.90.E8.A7.84.E5.88.99)
 
 ## 14. 关于内网型CLB可直接获取client端ip的说明
 

@@ -8,7 +8,7 @@
 
 ## 2 申请视频服务以及资质信息认证
 
-1.访问腾讯云产品介绍页http://www.qcloud.com/product/vod.html ,点击页面的“立即选购”按钮，如下图：
+1.访问腾讯云产品介绍页http://cloud.tencent.com/product/vod.html ,点击页面的“立即选购”按钮，如下图：
  
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tapd_10080061_base64_1442393790_10.png)
 

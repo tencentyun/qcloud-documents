@@ -1,4 +1,4 @@
-CDN 为后付费产品，需要通过实名认证。新用户登陆 [CDN 控制台](https://console.qcloud.com/cdn) 可以看到实名认证指引，点击【前往认证】：
+CDN 为后付费产品，需要通过实名认证。新用户登陆 [CDN 控制台](https://console.cloud.tencent.com/cdn) 可以看到实名认证指引，点击【前往认证】：
 ![](https://mccdn.qcloud.com/static/img/f3f533ced611121c7cbe90d2117dd4c9/image.jpg)
 
 您可以提交工单咨询实名认证进度。
@@ -15,14 +15,14 @@ CDN 为后付费产品，需要通过实名认证。新用户登陆 [CDN 控制�
 您也可以选择多种方式进行企业实名认证：
 ![](https://mccdn.qcloud.com/static/img/904675155e5a64ce42c0884587f57d8d/image.jpg)
 
-您也可以通过进入 [个人中心](https://console.qcloud.com/developer) ，点击【实名认证】进行：
+您也可以通过进入 [个人中心](https://console.cloud.tencent.com/developer) ，点击【实名认证】进行：
 ![](https://mccdn.qcloud.com/static/img/94ba2e042edfedaab33e4e655da3d60d/image.png)
 
 
 ## 选择计费方式
 完成资质认证后，进入 CDN 控制台，可对计费方式进行选择：
 ![](https://mccdn.qcloud.com/static/img/f5d3235f86db2992ad6d01d1e3d07d04/image.png)
-详细计费价格计算说明可以参考[价格总览](https://www.qcloud.com/document/product/228/562)。
+详细计费价格计算说明可以参考[价格总览](https://cloud.tencent.com/document/product/228/562)。
 
 
 

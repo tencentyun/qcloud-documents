@@ -95,7 +95,7 @@ When purchasing Cloud Services, it is recommended to choose the region that is c
 [2]:	/doc/product/213/5225
 [3]:	/doc/product/213/5224
 [4]:	/doc/product/215/5000
-[5]:	https://www.qcloud.com/doc/product/214
-[6]:	http://www.qcloud.com/doc/product/304/%E9%87%91%E8%9E%8D%E4%BA%91%E7%AE%80%E4%BB%8B
-[7]:	https://www.qcloud.com/doc/product/214
+[5]:	https://cloud.tencent.com/doc/product/214
+[6]:	http://cloud.tencent.com/doc/product/304/%E9%87%91%E8%9E%8D%E4%BA%91%E7%AE%80%E4%BB%8B
+[7]:	https://cloud.tencent.com/doc/product/214
 [8]:	/doc/product/213/5733

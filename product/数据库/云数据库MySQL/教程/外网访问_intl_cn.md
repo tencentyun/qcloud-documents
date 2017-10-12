@@ -2,7 +2,7 @@
 
 ## 开启外网访问地址
 
-1. 登录 [云数据库控制台](https://console.qcloud.com/cdb/ )，实例列表中，找到需要修改的实例，单击操作里的【管理】。
+1. 登录 [云数据库控制台](https://console.cloud.tencent.com/cdb/ )，实例列表中，找到需要修改的实例，单击操作里的【管理】。
 ![](https://mc.qcloudimg.com/static/img/067a823712584842fc983ab34fa79b55/step1.png)
 2. 在实例信息里找到【外网地址】，单击【开启】。
 ![](https://mc.qcloudimg.com/static/img/320b345a398b918c1d3a103c3accdef7/step2.png)

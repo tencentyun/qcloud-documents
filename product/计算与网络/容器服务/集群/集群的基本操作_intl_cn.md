@@ -58,7 +58,7 @@
 ![](//mc.qcloudimg.com/static/img/ad5db6f3a9071235e614f856c3ef7083/image.png)
 
 ## 登录到节点
-当前节点支持腾讯云云主机，如何登录请查看 [登录到云主机](https://www.qcloud.com/doc/product/213/5436) 。
+当前节点支持腾讯云云主机，如何登录请查看 [登录到云主机](https://cloud.tencent.com/doc/product/213/5436) 。
 
 ## 创建集群 Namespace
 

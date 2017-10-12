@@ -290,7 +290,7 @@ CosXmlService cosXmlService = new CosXmlService(context,cosXmlServiceConfig, cos
 
 ## 生成签名
 
-签名具体的生成和使用请参照[签名流程](https://www.qcloud.com/document/product/436/7778).
+签名具体的生成和使用请参照[签名流程](https://cloud.tencent.com/document/product/436/7778).
 
 SDK 中已提供了签名获取类，用户只需要继承 CosXmlCredentialProvider 类，并重写 `signaturePair()` 方法.
 
@@ -368,7 +368,7 @@ public class CosXmlLocalCredentialProvider extends CosXmlCredentialProvider{
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
 | accessUrl   | String          | 请求成功时，返回访问文件的地址|
 
 #### 示例
@@ -467,8 +467,8 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
-| initMultipartUpload   | InitMultipartUpload          | [请求成功的返回结果](https://www.qcloud.com/document/product/436/7746)|
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
+| initMultipartUpload   | InitMultipartUpload          | [请求成功的返回结果](https://cloud.tencent.com/document/product/436/7746)|
 
 #### 示例
 ```java
@@ -563,7 +563,7 @@ cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest, new CosXmlRes
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
 | eTag   | String          | 请求成功,返回分片文件的MD5值，用于最后完成分片|
 
 #### 示例
@@ -665,8 +665,8 @@ cosXmlService.uploadPartAsync(uploadPartRequest, new CosXmlResultListener() {
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
-| completeMultipartUpload   | CompleteMultipartResult          | [请求成功的返回结果](https://www.qcloud.com/document/product/436/7742)|
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
+| completeMultipartUpload   | CompleteMultipartResult          | [请求成功的返回结果](https://cloud.tencent.com/document/product/436/7742)|
 | accessUrl   | String          | 请求成功时，返回访问文件的地址|
 
 #### 示例
@@ -757,8 +757,8 @@ cosXmlService.completeMultiUploadAsync(completeMultiUploadRequest, new CosXmlRes
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
-| listParts  | ListParts             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7747)     |
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
+| listParts  | ListParts             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7747)     |
 
 
 #### 示例
@@ -847,8 +847,8 @@ cosXmlService.listPartsAsync(listPartsRequest, new CosXmlResultListener() {
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
-| httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7740)     |
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
+| httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7740)     |
 
 
 #### 示例
@@ -939,8 +939,8 @@ cosXmlService.abortMultiUploadAsync(abortMultiUploadRequest, new CosXmlResultLis
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
-| httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7743)     |
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
+| httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7743)     |
 
 
 #### 示例
@@ -1028,8 +1028,8 @@ cosXmlService.deleteObjectAsync(deleteObjectRequest, new CosXmlResultListener() 
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
-| httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7743)     |
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
+| httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7743)     |
 
 
 #### 示例
@@ -1122,8 +1122,8 @@ cosXmlService.deleteMultiObjectAsync(DeleteMultiObjectResult, new CosXmlResultLi
 
 | 成员变量名称 | 类型     | 变量说明    |
 | :---- | :-------------- | :-- | :----------- |
-| error  | COSXMLError             | [请求失败的返回结果](https://www.qcloud.com/document/product/436/7730)     |
-| httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7753)     |
+| error  | COSXMLError             | [请求失败的返回结果](https://cloud.tencent.com/document/product/436/7730)     |
+| httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7753)     |
 
 
 #### 示例

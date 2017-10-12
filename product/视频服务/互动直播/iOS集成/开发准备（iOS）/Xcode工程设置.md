@@ -8,7 +8,7 @@
 ## 三、Xcode工程设置
 下面通过一个简单的Single View Application工程，说明如何在Xcode工程中集成SDK。
 ### 1、拷贝SDK文件
-在本例中，工程的名字叫做HelloSDK，如下图所示，将《[下载SDK](http://www.qcloud.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88iOS%EF%BC%89)》中那个包含所有Framework的libs文件夹拷贝到工程文件夹：
+在本例中，工程的名字叫做HelloSDK，如下图所示，将《[下载SDK](http://cloud.tencent.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88iOS%EF%BC%89)》中那个包含所有Framework的libs文件夹拷贝到工程文件夹：
 ![](//mccdn.qcloud.com/static/img/7a8b064e23365eeffefa67626d476147/image.png)
 
 ### 2、设置Framework Search Paths

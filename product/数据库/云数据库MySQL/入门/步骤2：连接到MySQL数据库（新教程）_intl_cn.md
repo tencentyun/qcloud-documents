@@ -1,11 +1,11 @@
 连接到MySQL数据库的方式有两种：
-- 内网访问：使用在同一个可用区的CVM来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台CVM需要与数据库同时处于基础网络中，或者属于同一个VPC，关于VPC的更多信息请查看<a href="https://www.qcloud.com/document/product/215/535" target="_blank">VPC概述</a>。）
+- 内网访问：使用在同一个可用区的CVM来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台CVM需要与数据库同时处于基础网络中，或者属于同一个VPC，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC概述</a>。）
 - 外网访问：借助外网账号，通过腾讯云控制台中的登录入口，登录到phpMyAdmin界面对数据库进行操作。
 
 <font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。
 # 内网访问
 1. 登录到与此数据库实例属于同一个可用区的网络可达的CVM主机。
-关于登录CVM主机请查看<a href="https://www.qcloud.com/document/product/213/2783" target="_blank">WIndows CVM入门</a>或<a href="https://www.qcloud.com/document/product/213/2973" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MySQL数据库实例都处于基础网络之中，或者处于同一个VPC中。
+关于登录CVM主机请查看<a href="https://cloud.tencent.com/document/product/213/2783" target="_blank">WIndows CVM入门</a>或<a href="https://cloud.tencent.com/document/product/213/2973" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MySQL数据库实例都处于基础网络之中，或者处于同一个VPC中。
 1. 请根据CVM的操作系统选择推荐的连接方式。
 **-从Windows系统登录**
 1). 下载一个标准的SQL客户端。此步骤中我们推荐您下载MySQL Workbench，这是Windows系统下较常见的SQL客户端。在CVM中打开https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
@@ -42,7 +42,7 @@
 <font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。
 请根据外网中主机的操作系统选择对应的登录方式。
 **- 从Windows系统登录**
-1. 在[腾讯云控制台](https://console.qcloud.com/)中，依次单击【云产品】-【关系型数据库】-【MySQL】-【实例列表】，选择状态为运行中的目标实例，点击【登录】。
+1. 在[腾讯云控制台](https://console.cloud.tencent.com/)中，依次单击【云产品】-【关系型数据库】-【MySQL】-【实例列表】，选择状态为运行中的目标实例，点击【登录】。
 ![](//mc.qcloudimg.com/static/img/248ca91c3b13e3f249c752f43019ed1a/image.png)
 1. 在数据管理控制台的登录界面，帐号输入root，密码为之前在初始化选项中配置的root账户的密码，点击【登录】来登录。
 ![](//mc.qcloudimg.com/static/img/b5538d93dc27d99af6fed9f0e5c9b798/image.png)

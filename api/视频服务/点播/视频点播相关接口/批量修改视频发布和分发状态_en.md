@@ -56,7 +56,7 @@ Input 1
 <pre>
   https://domain/v2/index.php?Action=MultiSetVodPlayStatus&pullset.0.fi
  leId=16092504232103511902&pullset.0.playStatu=s0&pullset.0.isPush=CDN
- 0&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+ 0&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 Output 1
 ```

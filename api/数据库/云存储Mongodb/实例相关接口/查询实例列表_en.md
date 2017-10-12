@@ -4,7 +4,7 @@ This API (DescribeMongoDBInstances) is used to query the list of replica set ins
 Domain for API request: <font style='color:red'>mongodb.api.qcloud.com </font>
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://www.qcloud.com/document/product/213/6976' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is DescribeMongoDBInstances.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://cloud.tencent.com/document/product/213/6976' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is DescribeMongoDBInstances.
 
 | Parameter Name | Required | Type | Description |
 |:---------|---------|---------|---------|
@@ -17,14 +17,14 @@ The following request parameter list only provides API request parameters. Commo
 | instanceNames | No | Array | One or more instance names (n represents array subscript starting with 0).  |
 | vpcId | No | Int | This parameter is retained for historical reasons. It is recommended to use the following parameter unVpcId (VPC ID) .
 | subnetId | No | Int | This parameter is retained for historical reasons. It is recommended to use the following parameter unSubnetId (Subnet ID under VPC).  |
-| unVpcId | No | String | VPC ID. If it is left empty, the default is basic network. This value is subject to the unVpcId returned by API [Query VPC List](https://www.qcloud.com/doc/api/245/1372), such as: vpc-kd7d06of |
-| unSubnetId | No | String | Subnet ID. Under VPC, the value is subject to the unSubnetId returned by the API [Query Subnet List](https://www.qcloud.com/document/product/215/1371), such as subnet-3lzrkspo |
+| unVpcId | No | String | VPC ID. If it is left empty, the default is basic network. This value is subject to the unVpcId returned by API [Query VPC List](https://cloud.tencent.com/doc/api/245/1372), such as: vpc-kd7d06of |
+| unSubnetId | No | String | Subnet ID. Under VPC, the value is subject to the unSubnetId returned by the API [Query Subnet List](https://cloud.tencent.com/document/product/215/1371), such as subnet-3lzrkspo |
 
 ## 3. Output Parameters
 
 | Parameter Name | Type | Description |
 |:---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
 | message | String | Error message description. A null value indicates a success |
 | codeDesc | String | Description of error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned.  |
 | totalCount | Int | Total number of instances |
@@ -73,7 +73,7 @@ The following error codes include the business logic error codes for this API.
 ## 5. Example
 <pre>
 https://mongodb.api.qcloud.com/v2/index.php?Action=DescribeMongoDBInstances
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &limit=10
 &offset=0
 </pre>

@@ -18,7 +18,7 @@ When no parameter is passed for calling the API, the information of the first 20
 | limit | No | Int | Number of lines per page. Default is 20.  |
 | orderField | No | String | Sort by a certain field. Currently, sorting by createTime (default) and vpcName is supported.  |
 | orderDirection | No | String | Ascending (asc) or descending (desc). Default is asc.  |
-| zoneIds | No | Array | Availability zone array, which can be searched according to availability zones. For more information, please see API <a href="https://www.qcloud.com/document/api/386/6634" title="DescribeRegions">DescribeRegions</a>. For example: 1000800001 |
+| zoneIds | No | Array | Availability zone array, which can be searched according to availability zones. For more information, please see API <a href="https://cloud.tencent.com/document/api/386/6634" title="DescribeRegions">DescribeRegions</a>. For example: 1000800001 |
 | vpcStatus | No | Int | Current status of VPC. 0: Running; 1: Creation failed; 2: Creating; 3: Deleting.  |
 
  
@@ -27,7 +27,7 @@ When no parameter is passed for calling the API, the information of the first 20
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Codes page. |
+| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Codes page. |
 | message | String | Module error message description depending on API. |
 | totalCount | Int | Total number of VPCs of the developer. |
 | data.n | Array | VPC information array. |

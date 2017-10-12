@@ -5,4 +5,4 @@
 ![](https://mccdn.qcloud.com/static/img/e6eb23e413fa02f2f592b765d7171a81/image.png)
 
 ## 详细了解
-[金融云CVM](http://www.qcloud.com/product/cvm.html)
+[金融云CVM](http://cloud.tencent.com/product/cvm.html)

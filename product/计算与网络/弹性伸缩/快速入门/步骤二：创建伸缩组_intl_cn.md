@@ -1,7 +1,7 @@
 伸缩组是遵循相同规则、面向同一场景的云服务器实例的集合。
 
 ## 新建伸缩组
-登录[弹性伸缩控制台](https://console.qcloud.com/autoscaling/config)，点击导航条中的【伸缩组】。点击![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png)，在弹出页面填写伸缩组基本信息。其中![](//mccdn.qcloud.com/static/img/f9df27a1d1e0d42a7ff08dd884bfa34c/image.png)为必填项。
+登录[弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling/config)，点击导航条中的【伸缩组】。点击![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png)，在弹出页面填写伸缩组基本信息。其中![](//mccdn.qcloud.com/static/img/f9df27a1d1e0d42a7ff08dd884bfa34c/image.png)为必填项。
 
 - 伸缩组的当前CVM实例数将维持在最小伸缩数与最大伸缩数之间。
 - 起始实例数定义了伸缩组一开始CVM实例的数量；

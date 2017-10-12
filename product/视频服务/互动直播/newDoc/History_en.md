@@ -39,13 +39,13 @@
 
 ## `Updates on Common Issues    2017-01-18`
 
-* [Adapt to more rotating and cropping scenarios](https://www.qcloud.com/document/product/268/7647)
-* [Support background music in LVB](https://www.qcloud.com/document/product/268/8297)
+* [Adapt to more rotating and cropping scenarios](https://cloud.tencent.com/document/product/268/7647)
+* [Support background music in LVB](https://cloud.tencent.com/document/product/268/8297)
 
 ## `Suixinbo Backend 2.0.0    2017-01-18`
 
 * FreeShow backend in standalone account mode has finally been released. It needs to be used along with iLive SDK 1.2.0.
-* [QuickStart documentation](https://www.qcloud.com/document/product/268/7603)
+* [QuickStart documentation](https://cloud.tencent.com/document/product/268/7603)
 * Account integration uses standalone mode
 * Added support for querying recording files
 * Added callbacks for non-interactive push and recording
@@ -72,7 +72,7 @@
 
 It's common knowledge that screenshot porn detection is a must in LVB industry.
 
-Tencent Video Cloud provides powerful screenshot and porn detection features for our clients. For usage details, please see the [documentation](https://www.qcloud.com/document/product/268/8109).
+Tencent Video Cloud provides powerful screenshot and porn detection features for our clients. For usage details, please see the [documentation](https://cloud.tencent.com/document/product/268/8109).
 
 ## `AV_iOS_SDK1.8.4    2016-12-28`
 * Optimized loading time when joining a room in LVB scenarios

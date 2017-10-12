@@ -1,6 +1,6 @@
 Welcome to Tencent Cloud Database TDSQL. You can call the APIs discussed in this document to work with CDB for TDSQL. Before the use of these APIs, make sure you have a thorough understanding of the product as well as its usage and billing methods.
 
-The product documentation of TDSQL can be found in [TDSQL Product Documentation](https://www.qcloud.com/doc/product/237).
+The product documentation of TDSQL can be found in [TDSQL Product Documentation](https://cloud.tencent.com/doc/product/237).
 ## 1. Glossary
 | Term | Full Name | Description |
 |---------|---------|---------|

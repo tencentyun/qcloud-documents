@@ -49,7 +49,7 @@
 
 ### 使用控制台获取
 
- 1. 登录 [云服务器控制台]( https://console.qcloud.com/cvm/) 。
+ 1. 登录 [云服务器控制台]( https://console.cloud.tencent.com/cvm/) 。
 
  2. 云服务器列表中列出了您名下的实例，鼠标移动到云服务器的内网 IP 后，出现复制按钮，单击即可复制内网 IP 。
 

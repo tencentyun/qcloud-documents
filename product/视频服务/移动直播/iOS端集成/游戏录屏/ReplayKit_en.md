@@ -45,7 +45,7 @@ The first mode has high latency and poor flexibility but the extension App doesn
 
 ### Import RTMP SDK
 
-You need to import TXRTMPSDK.framework for the LVB extension. Importing framework to extension is the same as importing framework to main App, and dependent system libraries for the SDK are also the same. For more information, please see "[Project Configuration (iOS)](https://www.qcloud.com/document/product/454/7876)" on the official Tencent Cloud website.
+You need to import TXRTMPSDK.framework for the LVB extension. Importing framework to extension is the same as importing framework to main App, and dependent system libraries for the SDK are also the same. For more information, please see "[Project Configuration (iOS)](https://cloud.tencent.com/document/product/454/7876)" on the official Tencent Cloud website.
 
 
 ## Interfacing Process
@@ -112,7 +112,7 @@ s_txLivePublisher is the object we use for the push. The best location for insta
 }
 ```
 
-You cannot use default configuration for the "config" of s_txLivePublisher. You need to customize video and audio capture configuration. For more information on how to set custom capture and how it works, please see the "[RTMP Push - Advanced Operation](https://www.qcloud.com/document/product/454/7884)" section in Tencent Cloud documentation.
+You cannot use default configuration for the "config" of s_txLivePublisher. You need to customize video and audio capture configuration. For more information on how to set custom capture and how it works, please see the "[RTMP Push - Advanced Operation](https://cloud.tencent.com/document/product/454/7884)" section in Tencent Cloud documentation.
 
 Enable autoSampleBufferSize for videos. Once this option is enabled, you will not need to worry about the resolution of the push, and the SDK will set the encoder automatically based on the input resolution. If you disable this option, you will need to customize the resolution
 

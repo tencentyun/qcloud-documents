@@ -27,7 +27,7 @@
 ## 解决方法
  Windows 进入到了恢复模式，可尝试继续启动运行，或自动修复。轻微问题 Windows 可自行修复。执行以下操作：
  
- 1. 从 [控制台](https://console.qcloud.com/cvm) 登录云服务器。
+ 1. 从 [控制台](https://console.cloud.tencent.com/cvm) 登录云服务器。
  2. 出现恢复模式界面，单击【Next】。
 	![](//mc.qcloudimg.com/static/img/94a1cf0f55d2c449a9d026bbbad5e4cd/image.png)
  3. 出现系统恢复选项，单击【Next】，使用默认方案。

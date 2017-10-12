@@ -3,7 +3,7 @@
 ![](//mc.qcloudimg.com/static/img/83d9e9a82474f771e6cc223ce71972f5/image.png)
 
 ### 1.1 准备云服务器
-如果没有购买过腾讯云主机，[点击购买](https://console.qcloud.com/cvm)。按照流程指引，根据自身需求，设定带宽、存储、区域、内存、cpu等机器硬件参数并购买。
+如果没有购买过腾讯云主机，[点击购买](https://console.cloud.tencent.com/cvm)。按照流程指引，根据自身需求，设定带宽、存储、区域、内存、cpu等机器硬件参数并购买。
 注意三点：
 - 1 镜像环节需要选取** 服务市场** 中的 **小直播业务后台专用** 镜像。
 - 2 记住主机的**root密码**。
@@ -26,7 +26,7 @@
 ![](//mc.qcloudimg.com/static/img/fbdcf5e6938f0e72c9705a28e6f55163/image.png)
 
 ### 1.2 Web配置云服务器
-云服务器参数配置，通过直播控制台的[一键部署页面](https://console.qcloud.com/live/onestep/onestep)来完成操作。
+云服务器参数配置，通过直播控制台的[一键部署页面](https://console.cloud.tencent.com/live/onestep/onestep)来完成操作。
 - 确认直播，点播，云通信，对象存储等服务已开通。
 - 填写 对象存储参数。
 - 填写 云主机的**外网IP**，以及**root密码**。
@@ -58,7 +58,7 @@ nginx配置文件是云主机的 /etc/nginx/nginx.conf 文件。
 要开启详细log，请在 /data/live_demo_service/ 目录下创建 名为 log的目录。
 ## 3. 一键部署完成后
 ### 3.1 如何对接终端小直播？
-详情请参见 [如何快速搭建小直播-终端集成](https://www.qcloud.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90)
+详情请参见 [如何快速搭建小直播-终端集成](https://cloud.tencent.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90)
 
 ### 3.2 如何手动配置UGC小视频上传功能
 一键部署暂时还未实现配置UGC需要用到的配置项，所以需要手动配置。
@@ -69,8 +69,8 @@ b、**unzip xiaozhibo_business_svr_2.0.3.3033.zip**
 c、**cp live_demo_service/interface/GetVodSignatureV2.php  /data/live_demo_service/interface/**
 d、**cd /data/live_demo_service/conf/ && vim OutDefine.php**
 e、按下"**I**"键进入vim的Insert模式，加上如下加粗的部分。
-   &emsp;** define('CLOUD_API_SECRETID','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //云API个人SecretId，用于UGC上传并落地到点播系统[云API密钥](https://console.qcloud.com/capi)
-   &emsp;** define('CLOUD_API_SECRETKEY','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //云API个人SecrectKey，用于UGC上传并落地到点播系统[云API密钥](https://console.qcloud.com/capi) 
+   &emsp;** define('CLOUD_API_SECRETID','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //云API个人SecretId，用于UGC上传并落地到点播系统[云API密钥](https://console.cloud.tencent.com/capi)
+   &emsp;** define('CLOUD_API_SECRETKEY','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //云API个人SecrectKey，用于UGC上传并落地到点播系统[云API密钥](https://console.cloud.tencent.com/capi) 
 f、按下"**Esc**"，按下"**:wq!**"，然后回车，将修改保存到配置文件中。
 g、运行 **service nginx reload**，重启nginx服务即可。
 

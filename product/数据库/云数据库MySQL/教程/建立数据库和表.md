@@ -1,5 +1,5 @@
 ## 创建数据库
-1. 进入 phpMyAdmin 控制台后（如何进入 phpMyAdmin 控制台请参见 <a href="https://www.qcloud.com/document/product/236/3130#.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE" target="_blank">访问MySQL数据库</a>）,单击【新建】或者【数据库】，进入创建数据库页面。如下图所示：
+1. 进入 phpMyAdmin 控制台后（如何进入 phpMyAdmin 控制台请参见 <a href="https://cloud.tencent.com/document/product/236/3130#.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE" target="_blank">访问MySQL数据库</a>）,单击【新建】或者【数据库】，进入创建数据库页面。如下图所示：
 ![][image-1]
 2. 输入数据库名称，选择排序规则（默认为 utf8_general_ci），单击【创建】即完成了数据库的创建。如下图所示：
 ![][image-2] 
@@ -12,7 +12,7 @@
 2. 进入数据表创建页面后，若需要添加字段，请在【添加】处输入所需添加的字段数，然后单击【执行】。【结构】栏为各字段信息的填写。【PARTITION definition】栏为分区信息（详见 [MySQL分区章节][2]）。请在填写完信息后单击【保存】按钮，即完成数据表的创建。如下图所示：
 ![][image-5]
 
-[1]:    https://www.qcloud.com/document/product/236/3130#.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE
+[1]:    https://cloud.tencent.com/document/product/236/3130#.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE
 [2]:    https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
 
 [image-1]:  https://mc.qcloudimg.com/static/img/d3861e2f034d0fb80e5c9f31d7cdf40f/step1.png

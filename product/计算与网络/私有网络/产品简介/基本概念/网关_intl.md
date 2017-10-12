@@ -7,7 +7,7 @@ Similar to public network gateway, NAT gateway is another way by which a CVM in 
 
 NAT gateway is available in three configuration types, and supports a maximum of 5Gbps traffic surge and 10,000,000 concurrent connections.
 
-Charges for a NAT gateway device include two parts: Gateway rental fee (by hour) and the fee for traffic generated during the access to the Internet. For more information on billing rules, refer to [Price Overview](https://www.qcloud.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88).
+Charges for a NAT gateway device include two parts: Gateway rental fee (by hour) and the fee for traffic generated during the access to the Internet. For more information on billing rules, refer to [Price Overview](https://cloud.tencent.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88).
 
 Both NAT gateway and public network gateway are used by the CVM in the VPC to access the Internet. Differences between these two gateways are shown below:
 

@@ -20,7 +20,7 @@ Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,/;q=0.8
 Accept-Encoding:gzip, deflate, sdch 
 Accept-Language:en,zh-CN;q=0.8,zh;q=0.6 
 Connection:keep-alive 
-Host:www.qcloud.com
+Host:cloud.tencent.com
 ```
 
 2) After the request reaches Tencent Cloud server, Tencent Cloud server will generate a response, and write cookie information in the response header:
@@ -41,7 +41,7 @@ Accept-Encoding:gzip, deflate, sdch
 Accept-Language:en,zh-CN;q=0.8,zh;q=0.6 
 Connection:keep-alive 
 Cookie:BD_HOME=1; BDSVRTM=0; BD_LAST_QID=1507196234531915875957057 
-Host:www.qcloud.com
+Host:cloud.tencent.com
 ```
 
 5) After receiving the request, the server will get the cookie information from the request header, analyze the cookie data and then return a response to the client.
@@ -85,7 +85,7 @@ The Tencent Cloud server creates a cookie by sending an HTTP message response he
 
 ```
 // Create a cookie object 
-Cookie co = new Cookie("site", "http://www.qcloud.com"); 
+Cookie co = new Cookie("site", "http://cloud.tencent.com"); 
 co.setDomain("test.com"); 
 // Send the cookie to the client via the response header 
 response.addCookie(co);

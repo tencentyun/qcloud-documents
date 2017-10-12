@@ -27,7 +27,7 @@
 
 ## 设置步骤
 控制台提供了响应 OPTIONS 请求的配置，支持多条规则。
-1. 登录 [对象存储桶控制台](https://console.qcloud.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要配置回源的存储桶（如 example），进入存储桶。
+1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos4/index)，选择左侧菜单栏【 Bucket 列表】，进入 Bucket 列表页面。单击需要配置回源的存储桶（如 example），进入存储桶。
 ![访问权限1](//mc.qcloudimg.com/static/img/b51d5a77d53c3416324ea3eb283c788c/image.png)
 2. 单击【基础配置】，进入存储桶的基础配置页，找到跨域访问 CORS 设置，单击【编辑】进入可编辑状态。
 ![跨域访问1](//mc.qcloudimg.com/static/img/bed8cadfb4bc6b9f0571227844d8cd32/image.png)

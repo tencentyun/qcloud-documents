@@ -9,7 +9,7 @@
 ##  GPU 计算型 GN2 实例购买步骤
 用户依据以下操作可以快速购买一台 GPU 计算型 GN2 实例
 ### 1. 登录购买页面
-[点击进入购买页面>>](https://buy.qcloud.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
+[点击进入购买页面>>](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
 ### 2. 选择地域与机型
 在这个步骤需要选择：
 1. 计费模式：包年包月计费或者按量计费。
@@ -60,7 +60,7 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 
 设置完成后单击【立即购买】。
 ### 6. 查收服务器
-核实信息后完成支付，即可进入 [控制台](https://console.qcloud.com/cvm) 的邮箱中查收云服务器。
+核实信息后完成支付，即可进入 [控制台](https://console.cloud.tencent.com/cvm) 的邮箱中查收云服务器。
 GPU 云服务器购买完成后，将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。可以使用这些信息登录和管理实例，也请尽快更改登录密码保障主机安全性。
 ![](//mc.qcloudimg.com/static/img/2003b614e24ea973f9c03a9c084380ce/image.png)
 

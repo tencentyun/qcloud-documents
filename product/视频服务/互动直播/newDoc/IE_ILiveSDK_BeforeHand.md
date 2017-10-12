@@ -24,7 +24,7 @@ iLiveSDK/iLiveSDK.js | 互动直播接口，封装了iLiveSDK.cab的接口供业
 ## demo运行及其注意事项
 运行demo可以对ILiveSDK(IE)具备的能力有个直观的印象。您可以参照如下步骤运行demo：
 
- 1. 把随心播代码中的appid和accountType修改成开发者自己的。即在demo.js中找到OnInit方法，找到`sdk = new ILiveSDK(1400027849, 11656, "iLiveSDKCom")`语句，用自己的`SDKAppID`和`accountType`替换前两个参数。如何获取这两个参数，可以参考[快速参数配置](https://www.qcloud.com/document/product/268/7599)。
+ 1. 把随心播代码中的appid和accountType修改成开发者自己的。即在demo.js中找到OnInit方法，找到`sdk = new ILiveSDK(1400027849, 11656, "iLiveSDKCom")`语句，用自己的`SDKAppID`和`accountType`替换前两个参数。如何获取这两个参数，可以参考[快速参数配置](https://cloud.tencent.com/document/product/268/7599)。
  2. 将[随心播后台代码](https://github.com/zhaoyang21cn/SuiXinBoPHPServer)部署到自己服务器上，并按照文档修改后台的秘钥。
  2. 用IE打开index.html，并允许activeX控件，可以看到注册和登录界面。
  ![登录界面](http://mc.qcloudimg.com/static/img/cf9dec67f37159dc9fec9d529dcf47f1/image.png)

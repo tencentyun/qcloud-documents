@@ -35,4 +35,4 @@ The certificate configuration is as follows:
 
 ## 5. Developer Document
 
-For more information, please see [Audio/Video Messaging Development Guide](http://www.qcloud.com/wiki/%E9%9F%B3%E8%A7%86%E9%A2%91%E9%80%9A%E4%BF%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97)
+For more information, please see [Audio/Video Messaging Development Guide](http://cloud.tencent.com/wiki/%E9%9F%B3%E8%A7%86%E9%A2%91%E9%80%9A%E4%BF%A1%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97)

@@ -128,7 +128,7 @@ Input
     &lanIps.1=10.1.1.1
     &lanIps.2=10.1.2.2
 	&alias=Instance name
-	&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 Output
 

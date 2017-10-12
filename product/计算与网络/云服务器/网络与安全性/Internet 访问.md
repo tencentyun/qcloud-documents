@@ -7,7 +7,7 @@
  - **获取：**在创建云服务器时，在网络中设置带宽大于 0 Mbps ，完成后腾讯云系统会自动从腾讯云公有 IP 地址池中为该实例分配一个公有 IP 地址，此地址不可更改，并且不与您的腾讯云帐号关联。
  - **配置：**您可以在 Internet 上登录有公网 IP 地址的云服务器实例对其进行相应配置，有关登录云服务器实例的更多内容，请参考 [登录 Linux 实例](/doc/product/213/5436) 和 [登录 Windows 实例](/doc/product/213/5435) 。
  - **转换：**公有 IP 地址通过网络地址转换( NAT )映射到实例的 [私有 IP 地址](/doc/product/213/5225) 。
- - **维护：**腾讯云的所有公网接口统一由 Tencent Gateway( TGW )进行处理。腾讯云云服务器实例的公网网卡在统一接口层 TGW 上配置，云服务器无感知。所以，用户在云服务器中通过 `ifconfig (Linux)` 或 `ipconfig (Windows)` 命令查看网络接口信息时，只能查看到 [内网](/doc/product/213/5225) 的信息。公网信息需要由用户自行登录 [云服务器控制台](https://console.qcloud.com/cvm) 云服务器列表/详情页进行查看。
+ - **维护：**腾讯云的所有公网接口统一由 Tencent Gateway( TGW )进行处理。腾讯云云服务器实例的公网网卡在统一接口层 TGW 上配置，云服务器无感知。所以，用户在云服务器中通过 `ifconfig (Linux)` 或 `ipconfig (Windows)` 命令查看网络接口信息时，只能查看到 [内网](/doc/product/213/5225) 的信息。公网信息需要由用户自行登录 [云服务器控制台](https://console.cloud.tencent.com/cvm) 云服务器列表/详情页进行查看。
  - **费用：**实例通过公网 IP 地址提供服务需要支付相应的费用，具体内容可以参考 [购买网络带宽](/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9) 。
 
 ## 公网 IP 地址释放
@@ -22,7 +22,7 @@
 
 ### 使用控制台获取
 
- 1. 登录 [云服务器控制台](https://console.qcloud.com/cvm/) 。
+ 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/) 。
 
  2. 云服务器列表中列出了您名下的实例，鼠标移动到云服务器的公网 IP 后，出现复制按钮，单击即可复制该 IP 地址。
 ![](//mc.qcloudimg.com/static/img/be0c50402332ca78c347f372f7c54eef/image.png)

@@ -11,7 +11,7 @@ CDB for MySQL 不支持 MyISAM 引擎的主要原因有如下几个：
 1000 次/秒是每秒执行操作数，是增删改查的总数。 
 
 ### 4. 为什么查看云数据库中的中文数据时出现乱码？
-开发者将数据存储到云数据库中时，请先到 [云数据库的管理控制台](https://console.qcloud.com/cdb) 进入相应实例的【管理视图】页面查看该实例的默认字符集。在编写程序时，将 `character_set_client`、`character_set_results`、`character_set_connection` 设置为和云数据库实例相同的字符集。否则，如果存储的数据中有中文，会出现中文数据乱码的现象。
+开发者将数据存储到云数据库中时，请先到 [云数据库的管理控制台](https://console.cloud.tencent.com/cdb) 进入相应实例的【管理视图】页面查看该实例的默认字符集。在编写程序时，将 `character_set_client`、`character_set_results`、`character_set_connection` 设置为和云数据库实例相同的字符集。否则，如果存储的数据中有中文，会出现中文数据乱码的现象。
 例如：云数据库实例的默认字符集为 utf8，在编写程序连接数据库时，需要先执行以下语句，再将中文数据存储到云数据库。
 ```
 SET NAMES 'utf8';
@@ -19,7 +19,7 @@ SET NAMES 'utf8';
 ### 5. 如何查看云数据库慢查询日志？
 可在云数据库控制台导出并查看并慢查询日志。
 云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改。
-登录腾讯云 [管理控制台](https://console.qcloud.com/) ，进入管理中心后，在【云产品】模块单击【云数据库】，进入关系型数据库页面。
+登录腾讯云 [管理控制台](https://console.cloud.tencent.com/) ，进入管理中心后，在【云产品】模块单击【云数据库】，进入关系型数据库页面。
 ![总览](//mc.qcloudimg.com/static/img/d274cc926a10f2b4741d114264f927d5/image.png)
 在关系型数据库页面，单击【MySQL】下的【实例列表】，找到目标地域（此例中以广州为例）中待重置密码的 MySQL 数据库实例，单击【管理】按钮，进入 MySQL 数据库管理页面。
 ![管理](//mc.qcloudimg.com/static/img/8216d33e2c5063b13c92e6010a7219d9/image.png)

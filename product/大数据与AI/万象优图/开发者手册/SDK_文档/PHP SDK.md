@@ -121,7 +121,7 @@ data.info.0.0.height	|int|	图片高度
 示例代码：
 
 ```
- $bucket = 'test1'; // 自定义空间名称，在http://console.qcloud.com/image/bucket创建
+ $bucket = 'test1'; // 自定义空间名称，在http://console.cloud.tencent.com/image/bucket创建
  $fileid = 'sample'.time();  // 自定义文件名
  $uploadRet = ImageV2::upload('/tmp/tencentyun.jpg', $bucket, $fileid);
  var_dump($uploadRet);

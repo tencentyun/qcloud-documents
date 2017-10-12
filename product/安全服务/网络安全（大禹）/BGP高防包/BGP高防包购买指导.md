@@ -12,7 +12,7 @@
 其中上海地区通过白名单形式可提供最大310G的防护能力，如有需要，请联系您的商务经理开通白名单。
 
 ### 购买步骤
-1.进入BGP高防服务包[购买页面](https://buy.qcloud.com/buy/bgp_sp) 
+1.进入BGP高防服务包[购买页面](https://buy.cloud.tencent.com/buy/bgp_sp) 
 2.选择高防服务包所在的地域
 ![](https://mc.qcloudimg.com/static/img/ab91f77998537c28a0950258e38c9f8e/1.png)
 3.选择高防服务包的防护阈值，当前支持10-50G

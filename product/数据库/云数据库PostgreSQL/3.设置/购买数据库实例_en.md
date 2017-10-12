@@ -1,5 +1,5 @@
 ## Create PostgreSQL Database Instance
-1. Log in to Tencent Cloud Console and open the Console via the URL [https://console.qcloud.com/pgsql](https://console.qcloud.com/pgsql)
+1. Log in to Tencent Cloud Console and open the Console via the URL [https://console.cloud.tencent.com/pgsql](https://console.cloud.tencent.com/pgsql)
 
 2. On the upper-right corner of the console, click "New Instance" and choose from the pop-up window.
 >**According to product operation strategy, you can apply to use PostgreSQL for free before December 31, 2016. There's no need to purchase in the purchase page.**

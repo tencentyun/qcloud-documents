@@ -7,10 +7,10 @@ http://avc.qcloud.com/demo/webim/index.html
 http://avc.qcloud.com/demo/webim/biggroup/mobile/index.html
 
 直播聊天室demo运行指引地址：
-https://www.qcloud.com/doc/product/269/4105
+https://cloud.tencent.com/doc/product/269/4105
 
 SDK包下载地址：
-https://www.qcloud.com/product/im.html
+https://cloud.tencent.com/product/im.html
 
 ## 2 准备环境
 
@@ -162,7 +162,7 @@ var sdkAppID = 1400001533;//开发者改成自己的业务id
 
 填写登录用户信息identifier和userSig，userSig需要开发者在自己的服务器调用tls api生成。
 独立模式生成usersig，请参考链接：
-https://www.qcloud.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C
+https://cloud.tencent.com/doc/product/269/TLS%E5%90%8E%E5%8F%B0API%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C
  ![](//mccdn.qcloud.com/static/img/8ae083b639696feec038a69861464e46/image.png)
 
 点击确定，拿到登录用户信息identifier和userSig放入loginInfo去登录sdk：

@@ -1,6 +1,6 @@
 ## Recovering Database Using Physical Backup
 #### 1. Downloading Backup File
-For detailed steps, refer to the [download instructions](https://www.qcloud.com/doc/product/236/7123)
+For detailed steps, refer to the [download instructions](https://cloud.tencent.com/doc/product/236/7123)
 After the file is downloaded, the result will be shown as follows:
 ![](https://mc.qcloudimg.com/static/img/d02b20501dd1c42a95f2b7a74c266b98/1.png)
 

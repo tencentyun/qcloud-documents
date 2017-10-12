@@ -5,7 +5,7 @@
 java sdk for picture service of tencentyun.
 ## 快速入门
 ### 在腾讯云申请业务的授权
-授权包括：APPID，SecretId，SecretKey，以及存储桶名。可参考 [域名管理](https://www.qcloud.com/document/product/460/6937?!preview=true&lang=zh)。
+授权包括：APPID，SecretId，SecretKey，以及存储桶名。可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937?!preview=true&lang=zh)。
 ### 创建对应操作类的对象
 如果要使用图片，需要创建图片操作类对象
 ```

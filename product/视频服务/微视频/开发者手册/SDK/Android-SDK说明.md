@@ -560,7 +560,7 @@ Downloader.uploadLog(APPID, beginDate, endDate);
 
 ## 5 文件SDK
 ### 5.1 初始化
-见[3.1初始化](http://www.qcloud.com/doc/product/314/Android-SDK%E8%AF%B4%E6%98%8E#3.1-.E5.88.9D.E5.A7.8B.E5.8C.96)章节
+见[3.1初始化](http://cloud.tencent.com/doc/product/314/Android-SDK%E8%AF%B4%E6%98%8E#3.1-.E5.88.9D.E5.A7.8B.E5.8C.96)章节
 -   示例
 
 ```
@@ -948,7 +948,7 @@ videoUploadMgr.upload(task);  // 开始上传
 ```
 
 ### 5.7 暂停、恢复、取消上传
-见[3.3暂停、恢复、取消上传](http://www.qcloud.com/doc/product/314/Android-SDK%E8%AF%B4%E6%98%8E#3.3-暂停、恢复、取消上传)章节
+见[3.3暂停、恢复、取消上传](http://cloud.tencent.com/doc/product/314/Android-SDK%E8%AF%B4%E6%98%8E#3.3-暂停、恢复、取消上传)章节
 ### 5.8 对象查询
 查询Bucket、目录、文件等对像的详细信息，步骤如下:
 1. 通过path和ObjectType创建ObjectStatTask对象

@@ -1,7 +1,7 @@
 您可以在 CDN 控制台中查看域名的基本信息，包括加速域名、CNAME、创建时间，及其所属项目、业务类型。您可以根据需要对域名 **所属项目** 或 **业务类型** 进行修改。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【基本配置】，您可以看到 **基本信息** 模块，查看域名的基本信息。
 ![](https://mc.qcloudimg.com/static/img/da199bf07c4bc72e4c4f3c27969d16d8/basic.png)

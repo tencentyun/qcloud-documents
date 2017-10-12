@@ -7,7 +7,7 @@
 ## 添加负载均衡后端实例
 ### 使用控制台添加负载均衡后端实例
 
-1) 登录[负载均衡控制台](https://console.qcloud.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
+1) 登录[负载均衡控制台](https://console.cloud.tencent.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
 
 2) 在绑定云主机选项卡中，点击【绑定云主机】按钮。
 
@@ -17,24 +17,24 @@
 
 ### 使用 API 添加负载均衡后端实例
 
-请参考 [RegisterInstancesWithLoadBalancer 接口](https://www.qcloud.com/doc/api/244/1265)。
+请参考 [RegisterInstancesWithLoadBalancer 接口](https://cloud.tencent.com/doc/api/244/1265)。
 
 ## 修改负载均衡后端服务器权重
 后端服务器权重决定了云服务器被转发的请求相对数量。有关负载均衡后端服务器权重的更多信息，可以参考 [负载均衡轮询方式](/doc/product/214/6153)。
 
 ### 使用控制台修改负载均衡后端服务器权重
 
-1) 登录 [负载均衡控制台](https://console.qcloud.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
+1) 登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
 
 2) 在绑定云主机选项卡中，点击相应云主机权重栏的【修改】按钮，即可修改相应后端云服务器的权重。
 
 ### 使用 API 修改负载均衡后端服务器权重
-请参考 [ModifyLoadBalancerBackends 接口](https://www.qcloud.com/doc/api/244/1264)。
+请参考 [ModifyLoadBalancerBackends 接口](https://cloud.tencent.com/doc/api/244/1264)。
 
 ## 解绑负载均衡后端服务器
 
 ### 使用控制台解绑负载均衡后端服务器
 
-1) 登录 [负载均衡控制台](https://console.qcloud.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
+1) 登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance)，点击相应的负载均衡实例 ID 进入负载均衡详情页。
 
 2) 在绑定云主机选项卡中，点击相应云主机后的【解绑】按钮，即可解除相应后端云服务器与负载均衡的绑定关系。

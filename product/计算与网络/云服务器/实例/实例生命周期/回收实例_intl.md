@@ -15,19 +15,21 @@ For objects in the Recycle Bin, users can only **renew to recover** the recycled
 
 Within 7 days after the expiration of CVM, you can go to the Recycle Bin to recover the CVM by renewing it:
 
-Open the [CVM Recycle Bin Console](https://console.qcloud.com/cvm/recycle), locate the CVM that you want to recover in the list, and then select the resources that need to be restored, click on "Recovery". After you've paid for renewal, you can find the recovered resources in the [CVM Console](https://console.qcloud.com/cvm).
+Open the [CVM Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle), locate the CVM that you want to recover in the list, and then select the resources that need to be restored, click on "Recovery". After you've paid for renewal, you can find the recovered resources in the [CVM Console](https://console.cloud.tencent.com/cvm).
 
 ## Batch Renew Instances
 
-Open the [CVM Recycle Bin Console](https://console.qcloud.com/cvm/recycle/cvm), locate the CVM that you want to recover in the list, and then select the resources to be recovered, click on "Batch Recovery". After you've paid for renewal, you can find the recovered resources in the [CVM Console](https://console.qcloud.com/cvm).
+Open the [CVM Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle/cvm), locate the CVM that you want to recover in the list, and then select the resources to be recovered, click on "Batch Recovery". After you've paid for renewal, you can find the recovered resources in the [CVM Console](https://console.cloud.tencent.com/cvm).
 
 ## Terminate an Instance
-Within 7 days after the expiration of CVM, you can go to the Recycle Bin to terminate the CVM completely:
-Open the [CVM Recycle Bin Console](https://console.qcloud.com/cvm/recycle/cvm), select the the CVM that you want to terminate, and click "Terminate" and confirm the operation. The selected item will be **terminated and cannot be recovered**.
+
+Within 7 days after the expiration of CVM, you can go to the Recycle Bin to terminate the CVM completely:
+
+Open the [CVM Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle/cvm), select the the CVM that you want to terminate, and click "Terminate" and confirm the operation. The selected item will be **terminated and cannot be recovered**.
 
 ## Batch Terminate Instances
 
-Open the [CVM Recycle Bin Console](https://console.qcloud.com/cvm/recycle/cvm), select the the CVMs you want to terminate, and click "Batch Terminate" and confirm the operation. The selected items will be **terminated and cannot be recovered**.
+Open the [CVM Recycle Bin Console](https://console.cloud.tencent.com/cvm/recycle/cvm), select the the CVMs you want to terminate, and click "Batch Terminate" and confirm the operation. The selected items will be **terminated and cannot be recovered**.
 
 Note:
 

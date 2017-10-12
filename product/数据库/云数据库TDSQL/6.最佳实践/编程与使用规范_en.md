@@ -337,7 +337,7 @@ You can select "distributed (horizontal sharding)" when the following conditions
 - High volume of read and write is performed on the table, exceeding the maximum throughput of stand-alone
 - Fully considered various limits to table design and use caused by database and table splitting
 
-For information about service limits on "distributed (horizontal sharding)" version, please see  [Distributed Version Development Instruction](https://www.qcloud.com/document/product/557)
+For information about service limits on "distributed (horizontal sharding)" version, please see  [Distributed Version Development Instruction](https://cloud.tencent.com/document/product/557)
 
 ### 4.3. Master/Slave Configuration and Disaster Recovery
 > Currently, CDB for MariaDB (TDSQL) features the following:

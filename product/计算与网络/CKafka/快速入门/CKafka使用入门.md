@@ -13,7 +13,7 @@
 ### 2. 本地下载Kafka工具包
 
 #### 2.1 安装JDK环境
-本教程在腾讯云主机上搭建CKafka环境，首先可以在购买页[选购云主机](https://buy.qcloud.com/cvm)，并登入。本次测试机器配置如下：
+本教程在腾讯云主机上搭建CKafka环境，首先可以在购买页[选购云主机](https://buy.cloud.tencent.com/cvm)，并登入。本次测试机器配置如下：
 > 机器配置 
 操作系统 CentOS 6.8 64位 
 CPU 1核 

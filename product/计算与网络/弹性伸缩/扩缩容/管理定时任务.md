@@ -10,7 +10,7 @@
 
 
 ## 管理定时任务
-1. 打开[控制台](https://console.qcloud.com/autoscaling/config)，选择导航条中的【伸缩组】。
+1. 打开[控制台](https://console.cloud.tencent.com/autoscaling/config)，选择导航条中的【伸缩组】。
 
 2. 选择要修改的伸缩组，点击伸缩组ID进入伸缩组基本信息页面。
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)

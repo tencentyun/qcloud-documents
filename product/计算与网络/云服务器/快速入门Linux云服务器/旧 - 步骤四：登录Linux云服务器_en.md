@@ -11,7 +11,7 @@ Enter the account ID ("ubuntu" for Ubuntu system users and "root" for all other 
 
 2) For the Linux CVM for which you have purchased public bandwidth/traffic, the following shows how to log in to Linux CVM from local Windows with password:
 
-After you have purchased CVM successfully, log in to [Tencent Cloud Console](https://console.qcloud.com/), click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
+After you have purchased CVM successfully, log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
 ![](//mccdn.qcloud.com/img56a20f10a373a.png)
 
 Download remote link software Putty by referring to the download link: http://www.putty.nl/download.html

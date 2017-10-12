@@ -4,16 +4,16 @@
 
 ### 1.1 Linux 云服务器
 本步骤引导新手快速了解腾讯云 Linux 云服务器的创建和配置。如果需要使用 Windows 系统的云服务器，请参考步骤 1.2 Windows 云服务器。
-登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm)。
+登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm)。
 #### 1.1.1 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
-- 选择计费模式。包年包月或按量付费（无法购买按量付费云服务器的用户请先进行  [实名认证](https://console.qcloud.com/developer/infomation)）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
+- 选择计费模式。包年包月或按量付费（无法购买按量付费云服务器的用户请先进行  [实名认证](https://console.cloud.tencent.com/developer/infomation)）。更多信息请看 [计费模式说明](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
 - 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
-- 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](https://www.qcloud.com/document/product/213/7153) 。
+- 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](https://cloud.tencent.com/document/product/213/7153) 。
 
 #### 1.1.2 选择镜像
 ![](//mc.qcloudimg.com/static/img/fd40922e47525453a58de73d0ffa266c/image.png)
-- 选择镜像提供方。腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](https://www.qcloud.com/document/product/213/4941) 进行选择。对于刚开始使用腾讯云的用户，推荐选择公共镜像。
+- 选择镜像提供方。腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](https://cloud.tencent.com/document/product/213/4941) 进行选择。对于刚开始使用腾讯云的用户，推荐选择公共镜像。
 - 选择操作系统。腾讯云提供了 CentOS、 CoreOS、 Debian、 FreeBSD、 OpenSUSE、 SUSE、 Ubuntu 等操作系统，后续运行环境请您自行搭建。
 - 选择系统版本。 
 
@@ -22,7 +22,7 @@
 - 选择硬盘类型和数据盘大小。
 腾讯云提供云硬盘和本地硬盘两种类型。（均默认 50GB 系统盘，系统盘大小任选）
   - 云硬盘：采用一盘三备的分布式存储方式，数据可靠性高
-  - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](https://www.qcloud.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
+  - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](https://cloud.tencent.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
 - 选择网络类型。
 腾讯云提供基础网络或私有网络两种可选。
  - 基础网络：适合新手用户，同一用户的云服务器内网互通。
@@ -39,27 +39,27 @@
 - 命名主机：您可选择创建后命名，也可立即命名。
 - 登录信息设置：
  - 设置密码：输入主机密码设置。
- - 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](http://www.qcloud.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [SSH密钥](http://www.qcloud.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
+ - 立即关联密钥：关联 SSH 密钥。如您没有密钥或现有的密钥不合适，可以单击【现在创建】按钮创建，参考 [创建密钥](http://cloud.tencent.com/doc/product/213/%E5%AF%86%E9%92%A5%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-创建密钥) 指南。更多 SSH 密钥请见 [SSH密钥](http://cloud.tencent.com/doc/product/213/SSH%E5%AF%86%E9%92%A5) 。
  - 自动生成密码：自动生成的密码将会以站内信方式发送。
-- 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
+- 选择安全组（**确保登录端口 22 开放**，更多信息见 [安全组](http://cloud.tencent.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
 
-单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.qcloud.com/cvm) 查收您的云服务器。
+单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的 Linux 登录密码保障主机安全性。
  
 ### 1.2 Windows 云服务器
 本步骤引导新手快速了解腾讯云 Windows 云服务器的创建和配置。如果需要使用 Linux 系统的云服务器，请参考步骤 1.1 Linux 云服务器。
-登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm) 。
+登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
 
 #### 1.2.1 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
-- 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.qcloud.com/developer/infomation)）。更多信息请看 [计费模式说明](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
+- 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.cloud.tencent.com/developer/infomation)）。更多信息请看 [计费模式说明](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E)。
 - 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
-- 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](https://www.qcloud.com/document/product/213/7153) 。
+- 选择机型和配置。实例类型详细说明，请参见 [实例类型概述](https://cloud.tencent.com/document/product/213/7153) 。
 
 #### 1.2.2 选择镜像
 ![](//mc.qcloudimg.com/static/img/56c4ecbdb12dd0a366ecf701153fce1d/image.png)
 - 选择镜像提供方。
-腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](https://www.qcloud.com/document/product/213/4941) 文档进行选择。对于刚开始使用腾讯云的用户，推荐选择公共镜像，其中包含了正版 Windows 操作系统，后续运行环境自行搭建。
+腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 [镜像类型](https://cloud.tencent.com/document/product/213/4941) 文档进行选择。对于刚开始使用腾讯云的用户，推荐选择公共镜像，其中包含了正版 Windows 操作系统，后续运行环境自行搭建。
 - 选择操作系统：选择 Windows Server 。
 - 选择系统版本。
 
@@ -68,7 +68,7 @@
 - 选择硬盘类型和数据盘大小。
 腾讯云提供云硬盘和本地硬盘两种类型。（均默认 50GB 系统盘，系统盘大小任选）
  - 云硬盘：采用一盘三备的分布式存储方式，数据可靠性高
- - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](https://www.qcloud.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
+ - 本地硬盘：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。具体对比可以参考 [产品分类](https://cloud.tencent.com/document/product/362/2353#.E5.90.84.E7.A7.8D.E5.9D.97.E5.AD.98.E5.82.A8.E8.AE.BE.E5.A4.87.E7.9A.84.E5.AF.B9.E6.AF.94) 。
 - 选择网络类型。
 腾讯云提供基础网络或私有网络两种可选。
  - 基础网络：适合新手用户，同一用户的云服务器内网互通。
@@ -84,9 +84,9 @@
 ![](//mc.qcloudimg.com/static/img/fbc4230b5e6a19ef6ec60ffebfc62aaa/image.png)
 - 命名主机：您可选择创建后命名，也可立即命名。
 - 登录信息设置：您可设置密码，也可自动生成。设置的密码可在创建后修改，自动生成的密码将会以站内信方式发送。
-- 选择安全组（**确保登录端口 3389 开放**，更多信息见 [安全组](http://www.qcloud.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
+- 选择安全组（**确保登录端口 3389 开放**，更多信息见 [安全组](http://cloud.tencent.com/doc/product/213/%E5%AE%89%E5%85%A8%E7%BB%84)） 。
 
-单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.qcloud.com/cvm) 查收您的云服务器。
+单击【立即购买】按钮，完成支付后即可进入 [控制台](https://console.cloud.tencent.com/cvm) 查收您的云服务器。
 云服务器创建好后将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。您可以使用这些信息登录和管理实例，也请尽快更改您的 Windows 登录密码保障主机安全性。
 
 ## 2. 创建文件系统及挂载点
@@ -100,7 +100,7 @@
 > 请根据您的 CVM 实例所在网络来创建并挂载文件系统。
 > - 若您要实现私有网络（VPC）下 CVM 对文件系统的共享，您需要在创建文件系统时选择私有网络。当文件系统属于私有网络时，如果未进行特殊网络设置，则只有同一私有网络内的 CVM 实例能够挂载。
 > - 若您要实现基础网络下 CVM 对文件系统的共享，您需要在创建文件系统时选择基础网络。当文件系统属于基础网络时，如果未进行特殊网络设置，则只有同在基础网路内的 CVM 实例能够挂载。
-> - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](https://www.qcloud.com/document/product/582/9764)
+> - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](https://cloud.tencent.com/document/product/582/9764)
 
 2.3 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Linux 下的挂载命令及 Windows 下的挂载命令。
 ![](//mc.qcloudimg.com/static/img/1009d4e7eb33ca89eda92f3beba6fb4b/image.png)
@@ -115,8 +115,8 @@
  - 密码：快速配置中，初始密码由系统随机分配。在下一环节（查看站内信及云服务器信息）中，介绍具体查看操作。更多内容请参考 [登录密码](/doc/product/213/6093) 。
    
 **查看站内信及云服务器信息**
-完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.qcloud.com/message) 的方式发送到账户上。
-- 登录 [云服务器控制台](https://console.qcloud.com/cvm)。登录后即可看到公网 IP 地址、内网 IP 地址等信息。
+完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
+- 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。登录后即可看到公网 IP 地址、内网 IP 地址等信息。
 - 单击右上角【站内信】。
 - 站内信页面即可查看新创建的云服务器，及登录名与密码等信息。
 ![](//mc.qcloudimg.com/static/img/d2d6900e58fc4f7b141b770de23cd3d8/image.png)
@@ -138,8 +138,8 @@
 - 密码：快速配置中，初始密码由系统随机分配。在下一环节（查看站内信及云服务器信息）中，介绍具体查看操作。更多内容请参考 [登录密码](/doc/product/213/6093) 。
    
 **查看站内信及云服务器信息**
-完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.qcloud.com/message) 的方式发送到账户上。
-- 登录 [云服务器控制台](https://console.qcloud.com/cvm) 。登录后即可看到公网 IP 地址、内网 IP 地址等信息。
+完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
+- 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm) 。登录后即可看到公网 IP 地址、内网 IP 地址等信息。
 - 单击右上角【站内信】。
 - 站内信页面即可查看新创建的云服务器，及登录名与密码等信息。
 ![](//mc.qcloudimg.com/static/img/1385695211763c620c31d603136c3128/image.png)

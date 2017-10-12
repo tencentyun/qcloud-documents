@@ -11,7 +11,7 @@ HTTPS configuration is only available to domains which meet the following condit
 - It is not a COS-synchronized domain with ".file.myqcloud.com" as suffix;
 - Domain's connection method is **Self-owned origin**, **COS origin** or **FTP origin**;
 
-Log in to [CDN Console](https://console.qcloud.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
 
 ![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
 
@@ -24,12 +24,12 @@ Go to "Advanced Configuration" and find "HTTPS Configuration"
 Tencent Cloud currently supports two certificate deployment methods:
 
 - Self-owned certificate: Upload self-owned certificate and private key to CDN for deployment. Transmission is encrypted throughout the process to ensure security of your certificate;
-- Tencent Cloud-hosted certificate: You can go to [SSL Certificate Management](https://console.qcloud.com/ssl) and trust your certificate to Tencent Cloud to use it for multiple cloud products. You can also apply for a **Free Certificate** provided by TrustAsia through this platform and deploy it directly to CDN;
+- Tencent Cloud-hosted certificate: You can go to [SSL Certificate Management](https://console.cloud.tencent.com/ssl) and trust your certificate to Tencent Cloud to use it for multiple cloud products. You can also apply for a **Free Certificate** provided by TrustAsia through this platform and deploy it directly to CDN;
 - Tencent Cloud certificate: The original ".qcloudcdn.com" domain suffix belongs to Tencent Cloud and uses Tencent Cloud certificate. The entrance for adding this certificate has been closed.
 
 ## Certificate Management
 
-Go to [Certificate Management](https://console.qcloud.com/cdn/tools/certificate) page to add, modify or delete certificates. For more information, refer to [Certificate Management Instructions](https://www.qcloud.com/doc/product/228/6303).
+Go to [Certificate Management](https://console.cloud.tencent.com/cdn/tools/certificate) page to add, modify or delete certificates. For more information, refer to [Certificate Management Instructions](https://cloud.tencent.com/doc/product/228/6303).
 
 
 ## Forced HTTPS

@@ -6,7 +6,7 @@ If you need to troubleshoot any problems related to configurations or Web applic
 
 ### Action
 
-Open the [Console](https://console.qcloud.com/autoscaling/config), select "Scaling Group" in the navigation bar, and click "Disable" at the right side of the scaling group list.
+Open the [Console](https://console.cloud.tencent.com/autoscaling/config), select "Scaling Group" in the navigation bar, and click "Disable" at the right side of the scaling group list.
 
 ![](https://mc.qcloudimg.com/static/img/ba3bfe7ebc1d21be86f8947b4ed51df9/8.jpg)
 
@@ -32,7 +32,7 @@ Restrictions on the scaling group include:
 
 If you have finished troubleshooting or performed operations when the scaling group activity is suspended, you can resume the auto scaling configuration for your service.
 
-Open the [Console](https://console.qcloud.com/autoscaling/config), select **Scaling Group** in the navigation bar, and click **Enable** at the right side of the scaling group list.
+Open the [Console](https://console.cloud.tencent.com/autoscaling/config), select **Scaling Group** in the navigation bar, and click **Enable** at the right side of the scaling group list.
 
 ![](//mc.qcloudimg.com/static/img/2a2d2d5704b53b4705a39798b53f8425/image.jpg)
 

@@ -1,7 +1,7 @@
 您可以在 CDN 控制台中查看实时请求数量、请求数命中率和 IP 访问次数统计，支持 90 天内历史数据查询。
 
 ## 查询条件说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，左侧菜单栏单击【统计分析】下的【访问情况统计】进入 **访问情况统计** 页面。页面查询条件如下。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，左侧菜单栏单击【统计分析】下的【访问情况统计】进入 **访问情况统计** 页面。页面查询条件如下。
 ![](https://mc.qcloudimg.com/static/img/6537d5e84cb118048e9ef9ee7365e805/requestsearch.png)
 > **注意**：
 > + 时间区间：支持最近 90 天访问情况统计查询，查询跨度最大为 90 天。

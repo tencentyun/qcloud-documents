@@ -2,11 +2,11 @@
 云数据库目前可以通过 phpMyAdmin 导入/导出 sql 数据文件。在导入上传的文件时，文件必须是 sql 文件或者压缩（tar、bz2、zip）后的 sql 文件，而且文件的大小不能超过 2 M。
 
 ## 2. 如何获知磁盘空间不足
-监控中心对云数据库的磁盘空间进行了监控，当云数据库的使用空间超过 90% 的时候就会触发短信和邮件告警，这里只需要在云监控中配置好对应的告警接收人（如何配置请参考[告警功能](https://www.qcloud.com/document/product/236/8457)），当空间不足的时候就能收到告警。
+监控中心对云数据库的磁盘空间进行了监控，当云数据库的使用空间超过 90% 的时候就会触发短信和邮件告警，这里只需要在云监控中配置好对应的告警接收人（如何配置请参考[告警功能](https://cloud.tencent.com/document/product/236/8457)），当空间不足的时候就能收到告警。
 
 ## 3. 使用云数据库前要做什么准备
 在使用云数据库前您需要考虑以下两个问题：
-1. 您的应用是否适合使用 DB？比如数据量小、访问量高、key-value 存储的场景就应该考虑使用内存级持久化存储服务 [【云缓存Memcached】](https://www.qcloud.com/product/cmem)。
+1. 您的应用是否适合使用 DB？比如数据量小、访问量高、key-value 存储的场景就应该考虑使用内存级持久化存储服务 [【云缓存Memcached】](https://cloud.tencent.com/product/cmem)。
 2. 您的数据库设计是否合理？比如有明显访问热点或者数据量过大的表，则应该考虑拆分成多个表。 
 
 ## 4. 云数据库的binlog保存时间是多久
@@ -21,16 +21,16 @@ mysql -h IP -P 端口号 -u root -p 云数据库密码
 ```
 ERROR 1045(28000)：Access denied for user...
 ```
-当出现 `Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)` 的提示语时，表明密码不正确。请确认你输入的云数据库密码是否正确，如果重复输入正确密码后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。 
+当出现 `Access denied for user ‘xxx’@‘x.x.x.x’(using password:YES)` 的提示语时，表明密码不正确。请确认你输入的云数据库密码是否正确，如果重复输入正确密码后仍然报该错，则请通过 [提交工单](https://console.cloud.tencent.com/workorder) 联系技术支持。 
 ```
 ERROR 1040(00000):Too many connections
 ```
 当出现 `ERROR 1040(00000):Too many connections` 的提示语时，表明云数据库实例当前最大连接数超过了限制。
-请检查程序，适当减少数据库的连接数。如果减少连接数后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。 
+请检查程序，适当减少数据库的连接数。如果减少连接数后仍然报该错，则请通过 [提交工单](https://console.cloud.tencent.com/workorder) 联系技术支持。 
 ```
 ERROR 2003 (HY000): Can't connect to MySQL server...
 ```
-当出现 `ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)` 的提示语时，表明云数据库地址不能连通，请确认您输入的云数据库的 IP、端口信息是否正确。如果重复输入正确信息后仍然报该错，则请通过 [提交工单](https://console.qcloud.com/workorder) 联系技术支持。
+当出现 `ERROR 2003 (HY000): Can't connect to MySQL server on 'x.x.x.x' (111)` 的提示语时，表明云数据库地址不能连通，请确认您输入的云数据库的 IP、端口信息是否正确。如果重复输入正确信息后仍然报该错，则请通过 [提交工单](https://console.cloud.tencent.com/workorder) 联系技术支持。
 
 ## 6. 云数据库适用于哪些业务场景
 MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭建 MySQL，使用云数据库更加方便和可靠。
@@ -51,13 +51,13 @@ MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭�
 
 ## 9. 云数据库对数据量有什么限制？
 
-详见 <a href="https://www.qcloud.com/document/product/236/7259#1-.E6.95.B0.E6.8D.AE.E9.87.8F.E9.99.90.E5.88.B61" target="_blank">云数据库数量限制</a>。
+详见 <a href="https://cloud.tencent.com/document/product/236/7259#1-.E6.95.B0.E6.8D.AE.E9.87.8F.E9.99.90.E5.88.B61" target="_blank">云数据库数量限制</a>。
 
 ## 10. 使用云数据库的注意事项？
-详见 <a href="https://www.qcloud.com/document/product/236/7259#7-.E6.93.8D.E4.BD.9C.E9.99.90.E5.88.B67" target="_blank">云数据库操作限制</a>。
+详见 <a href="https://cloud.tencent.com/document/product/236/7259#7-.E6.93.8D.E4.BD.9C.E9.99.90.E5.88.B67" target="_blank">云数据库操作限制</a>。
 
 ## 11. 如何登录云数据库？
-开发人员通过 IP/Port 的方式就可以完全控制和管理 MySQL 实例，无需登录到服务器进行操作。可通过命令行或者云数据库管理台登录云数据库，详见 <a href="https://www.qcloud.com/document/product/236/3130" target="_blank">访问MySQL数据库</a>。
+开发人员通过 IP/Port 的方式就可以完全控制和管理 MySQL 实例，无需登录到服务器进行操作。可通过命令行或者云数据库管理台登录云数据库，详见 <a href="https://cloud.tencent.com/document/product/236/3130" target="_blank">访问MySQL数据库</a>。
 
 ## 12. 是否可以自助修改 MySQL 实例的配置？
 MySQL 实例的配置由云数据库统一管理，并支持部分参数的自助修改，详细请参考下面的问题 [如何修改云数据库配置参数](#change_parameter_21)。
@@ -76,13 +76,13 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 
 ## 17. 云数据库的默认字符集编码能修改么？
 可以修改。
-默认字符集说明以及修改方法详见 <a href=https://www.qcloud.com/document/product/236/7259#6-.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E6"" target="_blank">云数据库使用限制</a>。
+默认字符集说明以及修改方法详见 <a href=https://cloud.tencent.com/document/product/236/7259#6-.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E6"" target="_blank">云数据库使用限制</a>。
 
 ## 18. 如何查看云数据库慢查询日志？
-可通过云数据库数据导出工具获取慢查询日志，详见 <a href="https://www.qcloud.com/document/product/236/7274" target="_blank">下载备份文件</a>。
+可通过云数据库数据导出工具获取慢查询日志，详见 <a href="https://cloud.tencent.com/document/product/236/7274" target="_blank">下载备份文件</a>。
 
 ## 19. 开发者自己如何备份数据？
-云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见[手动备份与恢复云数据库](https://www.qcloud.com/document/product/236/7275?!preview&lang=cn)，或者通过 mysqldump 工具自己备份数据。
+云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见[手动备份与恢复云数据库](https://cloud.tencent.com/document/product/236/7275?!preview&lang=cn)，或者通过 mysqldump 工具自己备份数据。
 
 ## 20. 如何申请云数据库实例 slave 只读权限开放/关闭？
 如果需要开放或关闭 slave 只读实例，请按照模版提交工单申请。
@@ -140,10 +140,10 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 更多请参考 [云数据库可以修改的配置](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/cdb_user_modify_var.xls)。
 
 ## 22. 云数据库的连接数有限制吗？
-详见 <a href="https://www.qcloud.com/document/product/236/7259#2-.E8.BF.9E.E6.8E.A5.E6.95.B0.E9.99.90.E5.88.B62" target="_blank">云数据库链接数限制</a>。
+详见 <a href="https://cloud.tencent.com/document/product/236/7259#2-.E8.BF.9E.E6.8E.A5.E6.95.B0.E9.99.90.E5.88.B62" target="_blank">云数据库链接数限制</a>。
 
 ## 23. 云数据库的binlog保存时间是多久？
-详见 <a href="https://www.qcloud.com/document/product/236/7269#5-.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E7.9A.84binlog.E4.BF.9D.E5.AD.98.E6.97.B6.E9.97.B4.E8.AF.B4.E6.98.8E5" target="_blank">云数据库的binlog保存时间说明</a>。
+详见 <a href="https://cloud.tencent.com/document/product/236/7269#5-.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E7.9A.84binlog.E4.BF.9D.E5.AD.98.E6.97.B6.E9.97.B4.E8.AF.B4.E6.98.8E5" target="_blank">云数据库的binlog保存时间说明</a>。
 
 ## 24. 云数据库的慢查询时间是多久？
 云数据库的慢查询时间（long\_query\_time）的默认值是 10 秒，用户可以自行修改，命令跟配置参数的命令行方式一样,详见[数据库MySQL](https://cloud.tencent.com/document/product/236)，在参数配置里可修改。
@@ -167,7 +167,7 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 </tr></tbody></table>
 
 ## 25. 为什么查看云数据库中的中文数据时出现乱码？
-开发者将数据存储到云数据库中时，请先到 [云数据库的管理控制台](https://console.qcloud.com/cdb) 进入相应实例的【管理视图】页面查看该实例的默认字符集，在编写程序时，将 character\_set\_client、character\_set\_results、character\_set\_connection 设置为和云数据库实例相同的字符集。否则，如果存储的数据中有中文，会出现中文数据乱码的现象。
+开发者将数据存储到云数据库中时，请先到 [云数据库的管理控制台](https://console.cloud.tencent.com/cdb) 进入相应实例的【管理视图】页面查看该实例的默认字符集，在编写程序时，将 character\_set\_client、character\_set\_results、character\_set\_connection 设置为和云数据库实例相同的字符集。否则，如果存储的数据中有中文，会出现中文数据乱码的现象。
 例如：云数据库实例的默认字符集为 utf8，在编写程序连接数据库时，需要先执行以下语句，再将中文数据存储到云数据库。
 ```
 SET NAMES 'utf8';

@@ -1,6 +1,6 @@
 ## 1. Import Through Tencent Cloud Migration Tool
 You can use Tencent Cloud Database migration tool to migrate business data to CDB for TDSQL. The migration tool migrates data from different types of source databases within the same region to TDSQL. The supported source databases are:
-1. Source databases from MySQL instances built by cloud services within Tencent Cloud basic network ([VPC Network](http://www.qcloud.com/doc/product/215/%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0) will become supported soon);
+1. Source databases from MySQL instances built by cloud services within Tencent Cloud basic network ([VPC Network](http://cloud.tencent.com/doc/product/215/%E4%BA%A7%E5%93%81%E6%A6%82%E8%BF%B0) will become supported soon);
 2. Source databases from CDB for MySQL instances in Tencent Cloud;
 3. Source databases from another CDB for TDSQL instance;
 

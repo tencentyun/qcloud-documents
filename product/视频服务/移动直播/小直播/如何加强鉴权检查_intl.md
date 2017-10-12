@@ -46,7 +46,7 @@ It's not difficult to add login session check for backend protocols if the curre
 ### 1. What to Bind?
 The default messaging solution for Mini LVB places identity information of the sender (such as user name, nickname and profile photo) inside the message body in JSON format. This solution is relatively simple and is suitable for chat rooms with low security demands.
 
-If you require higher security, such as strong-bind the identity of the message sender to your account system, which is to say, to make sure the sender's identity corresponds to an existing ID in your account system, you will need to interface with the [**Independent Mode**](https://www.qcloud.com/document/product/454/7980#3.3-.E7.8B.AC.E7.AB.8B.EF.BC.88.E9.89.B4.E6.9D.83.EF.BC.89.E6.A8.A1.E5.BC.8F) of the IM service.
+If you require higher security, such as strong-bind the identity of the message sender to your account system, which is to say, to make sure the sender's identity corresponds to an existing ID in your account system, you will need to interface with the [**Independent Mode**](https://cloud.tencent.com/document/product/454/7980#3.3-.E7.8B.AC.E7.AB.8B.EF.BC.88.E9.89.B4.E6.9D.83.EF.BC.89.E6.A8.A1.E5.BC.8F) of the IM service.
 
 ### 2. Independent Mode 
 In independent mode, when an App user successfully logs in, your login server needs to assign a UserSig signature (the signature is calculated using a non-symmetric key agreed on with Tencent Cloud backend) required for imLogin (the first operation step for IM SDK). The user is allowed to send and receive messages after Tencent Cloud confirms the validity of UserSig signature.
@@ -67,12 +67,12 @@ UserSig signature is used for mutual authentication between Tencent Cloud IM ser
 
 This is how interfacing process goes behind message authentication. The core is to prevent users not accepted by your backend server from sending and receiving messages. However, it would be inappropriate to let your server check each one of the messages, so this solution is developed.
 
-UserSig signature uses the most commonly used non-symmetric key encryption technique. When enabling independent mode, you will receive a public and private key pair from Tencent Cloud. You can simply [Encrypt](https://www.qcloud.com/doc/product/269/1510) specified messages with the private key.
+UserSig signature uses the most commonly used non-symmetric key encryption technique. When enabling independent mode, you will receive a public and private key pair from Tencent Cloud. You can simply [Encrypt](https://cloud.tencent.com/doc/product/269/1510) specified messages with the private key.
 
 
 ### 4. Interfacing Process
 - **Step 1: Select independent mode**
-> Ensure the integration mode in Tencent Cloud [IM Console](https://console.qcloud.com/avc) is **Independent Mode**, and download the public and private keys required to calculate signatures.
+> Ensure the integration mode in Tencent Cloud [IM Console](https://console.cloud.tencent.com/avc) is **Independent Mode**, and download the public and private keys required to calculate signatures.
 > ![](//mc.qcloudimg.com/static/img/4e79ff175d8053f8998e02732468e398/image.png)
 
 - **Step 2: Complete interfacing with the backend**

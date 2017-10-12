@@ -1,6 +1,6 @@
 ﻿## 物理备份恢复数据库
 #### 1 下载备份文件
-具体步骤请参考：[具体的下载说明](https://www.qcloud.com/doc/product/236/7123)
+具体步骤请参考：[具体的下载说明](https://cloud.tencent.com/doc/product/236/7123)
 下载文件成功后，如下图：
 ![](https://mc.qcloudimg.com/static/img/d02b20501dd1c42a95f2b7a74c266b98/1.png)
 

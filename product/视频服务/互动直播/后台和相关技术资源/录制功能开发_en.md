@@ -428,19 +428,19 @@ function stopRecordVideo(){
 
 Videos recorded through audio/video communication SDK are stored in VOD service
 
-(1) Log in to VOD console (http://console.qcloud.com/video) to manage recorded files
+(1) Log in to VOD console (http://console.cloud.tencent.com/video) to manage recorded files
 (2) Users can also manage files using VOD API. Here is how to use API:
-https://www.qcloud.com/doc/api/257/API%E6%A6%82%E8%A7%88
+https://cloud.tencent.com/doc/api/257/API%E6%A6%82%E8%A7%88
 (3) DescribeVodPlayInfo can obtain the download address of the recorded file based on the file name entered in the recording parameters of the API "Start Recording".
-For more information, please see https://www.qcloud.com/doc/api/257/%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E4%BF%A1%E6%81%AF%E5%88%97%E8%A1%A8
+For more information, please see https://cloud.tencent.com/doc/api/257/%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E4%BF%A1%E6%81%AF%E5%88%97%E8%A1%A8
 (4) Query video address using FileId returned when the recording ends, and configure the callback API DescribeRecordPlayInfo (it is generally called by the third party backend of customer). For more information, please see:
-http://www.qcloud.com/doc/api/257/获取录播视频播放信息-互动直播用户专用
+http://cloud.tencent.com/doc/api/257/获取录播视频播放信息-互动直播用户专用
 
 
 ## 5 Price and Billing
 
 Recording feature is provided free of charge. However, since it uses VOD service capacity, fees for storage and traffic are generated in cloud VOD. For more information about the billing rules, please see:
-https://www.qcloud.com/doc/product/268/5129#2..E5.BD.95.E5.88.B6.E7.9B.B8.E5.85.B3.E8.AE.A1.E8.B4.B9
+https://cloud.tencent.com/doc/product/268/5129#2..E5.BD.95.E5.88.B6.E7.9B.B8.E5.85.B3.E8.AE.A1.E8.B4.B9
 
 Please note that, if you have activated the VOD service and selected the package and one of the postpaid billing methods, the selected billing method is adopted. If you have not activated the VOD service, the pay-by-traffic billing method (postpaid) is used by default.
 

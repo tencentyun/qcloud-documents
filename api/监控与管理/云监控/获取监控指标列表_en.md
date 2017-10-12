@@ -9,12 +9,12 @@ Domain: monitor.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, please see [Common Request Parameters](https://www.qcloud.com/doc/api/405/%E5%85%AC%E5%85%B1%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0).
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/doc/api/405/%E5%85%AC%E5%85%B1%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0).
 The Action field for this API is DescribeBaseMetrics.
 
 | Parameter Name       | Required   | Type     | Description                                       |
 | ---------- | ---- | ------ | ---------------------------------------- |
-| namespace  | Yes    | String | Namespace. A namespace refers to a category of resources. After specifying a namespace, you can obtain all types of monitoring metrics under the specified category of resource. Currently, the namespaces supported by this API are consistent with those provided in [Read Monitoring Data (New)](https://www.qcloud.com/document/api/248/4667), namely, all the namespaces under which the monitoring data can be pulled via API GetMonitorData |
+| namespace  | Yes    | String | Namespace. A namespace refers to a category of resources. After specifying a namespace, you can obtain all types of monitoring metrics under the specified category of resource. Currently, the namespaces supported by this API are consistent with those provided in [Read Monitoring Data (New)](https://cloud.tencent.com/document/api/248/4667), namely, all the namespaces under which the monitoring data can be pulled via API GetMonitorData |
 | metricName | No    | String | Monitoring metric name, such as "cpu_usage" and "mem_usage", which should contain 1-64 characters. If it is not specified, the list of all the metrics under the namespace will be returned |
 
  

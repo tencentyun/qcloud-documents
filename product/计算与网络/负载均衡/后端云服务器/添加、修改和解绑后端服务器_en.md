@@ -7,7 +7,7 @@ If a cloud load balancer instance is associated with an auto scaling group, the 
 ## Adding a Cloud Load Balancing Backend Instance 
 ### Use the Console to Add a Cloud Load Balancing Backend Instance 
 
-1) Login to [Cloud Load Balance Console](https://console.qcloud.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for cloud load balancer details.
+1) Login to [Cloud Load Balance Console](https://console.cloud.tencent.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for cloud load balancer details.
 
 2) In the "Bind Cloud Virtual Machine" tab, click the "Bind Cloud Virtual Machine" button. 
 
@@ -17,28 +17,28 @@ Thus, You have completed the association between the CVM and the cloud load bala
 
 ### Use API to Add a Cloud Load Balancing Backend Instance 
 
-Please refer to the [RegisterInstancesWithLoadBalancer API](https://www.qcloud.com/doc/api/244/1265). 
+Please refer to the [RegisterInstancesWithLoadBalancer API](https://cloud.tencent.com/doc/api/244/1265). 
 
 ## Modifying the Weights of Load Balancing Backend Servers 
 The weight of a backend server determines the relative number of forwarded requests to the CVM.  For more information on weight of the load balancing backend server, refer to [Cloud Load Balancer Round-robin Method](/doc/product/214/6153). 
 
 ### Use the Console to Modify the Cloud Load Balancing Backend Server Weights
 
-1) Login to [Cloud Load Balance Console](https://console.qcloud.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for cloud load balancer details.
+1) Login to [Cloud Load Balance Console](https://console.cloud.tencent.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for cloud load balancer details.
 
 2) In the "Bind Cloud Virtual Machine" tab, click the "Modify" button on the corresponding CVM weight bar to modify the weight of the corresponding backend CVM. 
 
 ### Use API to Modify the Cloud Load Balancing Backend Server Weights 
-Please refer to the [ModifyLoadBalancerBackends API](https://www.qcloud.com/doc/api/244/1264). 
+Please refer to the [ModifyLoadBalancerBackends API](https://cloud.tencent.com/doc/api/244/1264). 
 
 ## Unbinding Cloud Load Balancing Backend Servers
 
 ### Use the Console to Unbind the Cloud Load Balancing Backend Server 
 
-1) Login to [Cloud Load Balance Console](https://console.qcloud.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for cloud load balancer details.
+1) Login to [Cloud Load Balance Console](https://console.cloud.tencent.com/loadbalance) and click on the corresponding cloud load balancer instance ID to enter the page for cloud load balancer details.
 
 2) In the "Bind Cloud Virtual Machine" tab, click the "Unbind" button behind the corresponding CVM to end the binding of the corresponding backend CVM and the cloud load balancer. 
 
 ### Use API to Modify the Cloud Load Balancing Backend Server Weights 
-Please refer to [DeregisterInstancesFromLoadBalancer API](https://www.qcloud.com/doc/api/244/1258). 
+Please refer to [DeregisterInstancesFromLoadBalancer API](https://cloud.tencent.com/doc/api/244/1258). 
 

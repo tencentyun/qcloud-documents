@@ -13,13 +13,13 @@ Specifications of CVM instances can be adjusted easily and quickly. In the initi
 ![](//mccdn.qcloud.com/static/img/81b7faa667692506b4ee7f58e7480445/image.png)
 
 ### Upgrading via API
-You can use the ResizeInstance and ResizeInstanceHour APIs to upgrade the instance configuration. For details, see [Adjust Prepaid Instance Configuration API](https://www.qcloud.com/doc/api/229/1306) and [Adjust Postpaid  Instance Configuration API](https://www.qcloud.com/doc/api/229/1306).
+You can use the ResizeInstance and ResizeInstanceHour APIs to upgrade the instance configuration. For details, see [Adjust Prepaid Instance Configuration API](https://cloud.tencent.com/doc/api/229/1306) and [Adjust Postpaid  Instance Configuration API](https://cloud.tencent.com/doc/api/229/1306).
 
 ## Degrading Configuration
 ### Degrading Prepaid Instances
 >The adjustment can only be made to CVM instances that are **shut down** and **both the system and data disks of which are cloud disks**.
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm), and select **CVM** from the left. 
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm), and select **CVM** from the left. 
 
 2) Select the desired prepaid CVM instance，click **More - Adjust Configuration** to its right.
 
@@ -29,7 +29,7 @@ You can use the ResizeInstance and ResizeInstanceHour APIs to upgrade the instan
 ### Degrading Postpaid Instances
 >The adjustment can only be made to CVM instances that are **shut down** and **both the system and data disks of which are cloud disks**.
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm), and select **CVM** from the left. 
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm), and select **CVM** from the left. 
 
 2) Select the desired postpaid CVM instance, click **More - Adjust Configuration** to its right.
 

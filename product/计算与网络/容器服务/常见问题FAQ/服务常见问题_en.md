@@ -10,7 +10,7 @@ Yes. You can log in to your CVM and execute the command "docker login" to log in
 Ensure that CVMs in the cluster have Internet bandwidth.
 
 ### 4. How to configure memory and CPU limits?
-For more information, please see [Limits on CCS Resources](https://www.qcloud.com/document/product/457/6767).
+For more information, please see [Limits on CCS Resources](https://cloud.tencent.com/document/product/457/6767).
 
 ## FAQ on Updating the Number of Service Containers
 ### 1. Anything should I take note of when I update the number of containers?

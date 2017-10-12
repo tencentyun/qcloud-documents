@@ -8,14 +8,14 @@ Domain for API request: ccs.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/457/9463).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/457/9463).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://www.qcloud.com/document/api/457/9448) API.  |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://cloud.tencent.com/document/api/457/9448) API.  |
 | offset | No | Int | Offset. Default is 0 |
 | limit | No | Int| Maximum displayed entries. Default is 20 |
-| namespace | No | String      | Namespace. Please enter the *namespace* returned by the [DescribeClusterService](https://www.qcloud.com/document/api/457/9440) API. Default is "default" |
+| namespace | No | String      | Namespace. Please enter the *namespace* returned by the [DescribeClusterService](https://cloud.tencent.com/document/api/457/9440) API. Default is "default" |
 
 
 ## 3. Output Parameters
@@ -40,9 +40,9 @@ Detailed description of ``nodes`` field
 | wanIp | String | Public IP of node |
 | lanIp | String | Private IP of node |
 | isNormal | Int | Status of node in the cluster. 0: Exceptional ; 1: Normal |
-| cvmState | Int | Node status. For more information, please see the list of instance statuses in [View Instance List](https://www.qcloud.com/document/api/213/831) page |
+| cvmState | Int | Node status. For more information, please see the list of instance statuses in [View Instance List](https://cloud.tencent.com/document/api/213/831) page |
 | cvmPayMode | Int | Node billing modes. <br>0: Postpaid on a Monthly Basis; <br>1: Prepaid; <br>2: Postpaid |
-| networkPayMode | Int | Network billing modes. <br>0: Postpaid on a Monthly Basis; <br>1: Prepaid; <br> 2: Bill-by-traffic; <br> 3: Bill-by-bandwidth. <br>The difference between the network billing modes can be found in API [Purchase Network Bandwidth](https://www.qcloud.com/document/product/213/509). |
+| networkPayMode | Int | Network billing modes. <br>0: Postpaid on a Monthly Basis; <br>1: Prepaid; <br> 2: Bill-by-traffic; <br> 3: Bill-by-bandwidth. <br>The difference between the network billing modes can be found in API [Purchase Network Bandwidth](https://cloud.tencent.com/document/product/213/509). |
 | createdAt | String | Time when a node is added to the cluster |
 | instanceCreateTime | String | Creation time of node |
 | instanceDeadlineTime | String | Expiration time of node with Prepaid mode |

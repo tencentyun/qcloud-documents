@@ -1,9 +1,9 @@
-Users can write SCF to handle the object creation and deletion events in COS Bucket. COS can publish the events to SCF and call the function by using the event data as parameters. Users can add bucket notification configuration in COS Bucket. This configuration can identify the event type that can trigger a function, the name of a function to be called, and other information. For more information, please see API [PutBucketNotification](https://www.qcloud.com/document/product/436/8588).
+Users can write SCF to handle the object creation and deletion events in COS Bucket. COS can publish the events to SCF and call the function by using the event data as parameters. Users can add bucket notification configuration in COS Bucket. This configuration can identify the event type that can trigger a function, the name of a function to be called, and other information. For more information, please see API [PutBucketNotification](https://cloud.tencent.com/document/product/436/8588).
 
 COS trigger has the following features:
 
 - Push model: COS monitors specified Bucket action (event type) and call relevant function to push event data to SCF. Use Bucket notification in push model to store the event source mapping of COS.
-- Asynchronous call: COS always uses asynchronous call type to call the function, and the result is not returned to the caller. For more information about the call type, please see [Call Type](https://www.qcloud.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B).
+- Asynchronous call: COS always uses asynchronous call type to call the function, and the result is not returned to the caller. For more information about the call type, please see [Call Type](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B).
 
 ## COS Trigger Attribute
 

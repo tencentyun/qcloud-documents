@@ -1,6 +1,6 @@
 ## 1.	创建安全组
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -10,7 +10,7 @@
 
 ## 2.	删除安全组
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -20,7 +20,7 @@
 
 ## 3.	克隆安全组
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -30,7 +30,7 @@
 
 ## 4.	向安全组中添加规则
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 
@@ -42,7 +42,7 @@
 
 ## 5.	配置CVM实例关联安全组
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2)	单击导航窗格中的【云主机】。
 
@@ -51,7 +51,7 @@
 4)	在配置安全组对话框中，从列表中选择一个或多个安全组，点击【确定】。
 
 或
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2)	单击导航窗格中的【安全组】。
 
@@ -62,7 +62,7 @@
 
 ## 6.	安全组规则的导入导出
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/)。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/)。
 
 2) 在导航窗格中，单击【安全组】。
 

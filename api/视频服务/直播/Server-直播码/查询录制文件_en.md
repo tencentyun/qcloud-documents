@@ -8,7 +8,7 @@
   - URL for calling API: http://fcgi.video.qcloud.com/common_access
 
 - **Note**
-  - You are unaware of the exact file generation time so you cannot properly determine when to call such active query APIs. Therefore, it is recommended that you use [Passive Event Notification](https://www.qcloud.com/doc/api/258/5957) (event_type = 100) mechanism.
+  - You are unaware of the exact file generation time so you cannot properly determine when to call such active query APIs. Therefore, it is recommended that you use [Passive Event Notification](https://cloud.tencent.com/doc/api/258/5957) (event_type = 100) mechanism.
 
 ## 2. Input Parameters
 
@@ -16,8 +16,8 @@
 |---------|---------|---------|---------|---------|
 | appid                        | Customer ID     | int       | LVB APPID used for identifying customers |  Y          | 
 | interface                 | API name   | string |  such as: Get_LivePushStat  |  Y          | 
-| t | [Validity period](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
-| sign | [Security signature](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
+| t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
+| sign | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
 | Param.s.channel_id | LVB code | string | | Y |
 | Param.n.page_no   | Page number  | int  | The value starts from 1. Default value is 1 | N |
 | Param.n.page_size | Page size | int   | 1-100. Default value is 10  | N |

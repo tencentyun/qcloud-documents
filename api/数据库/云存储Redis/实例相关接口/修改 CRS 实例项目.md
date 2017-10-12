@@ -7,8 +7,8 @@
 
 | 参数名称 | 是否必选 | 类型 | 描述 |
 |---------|---------|---------|
-| redisIds.n | 是 | String | 可通过[DescribeRedis](http://www.qcloud.com/doc/api/260/1384)接口查询实例Id组成的数组，数组下标从0开始|
-| projectId | 是 | UInt | 项目ID,取值以用户账户>用户账户相关接口查询>[项目列表](https://www.qcloud.com/doc/api/403/4400)返回的projectId为准|
+| redisIds.n | 是 | String | 可通过[DescribeRedis](http://cloud.tencent.com/doc/api/260/1384)接口查询实例Id组成的数组，数组下标从0开始|
+| projectId | 是 | UInt | 项目ID,取值以用户账户>用户账户相关接口查询>[项目列表](https://cloud.tencent.com/doc/api/403/4400)返回的projectId为准|
 
 ## 3. 输出参数
 <table class="t"><tbody><tr>
@@ -16,7 +16,7 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> code <td> Int <td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。
+<td> code <td> Int <td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。
 <tr>
 <td> message <td> String <td> 错误信息
 <tr>
@@ -34,7 +34,7 @@
 ## 5. 示例
 <pre>
   https://redis.api.qcloud.com/v2/index.php?Action=ModifyRedisProject
-	&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+	&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 	&redisIds.0=crs-ifmymj41
 	&projectId=1004306
 </pre>

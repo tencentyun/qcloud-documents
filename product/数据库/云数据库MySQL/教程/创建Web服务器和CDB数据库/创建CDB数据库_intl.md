@@ -10,9 +10,9 @@
 8. Select quantity and purchased usage period and confirm them. Then click "Buy Now".
 
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb/ "Cloud Database Console"
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb/ "Cloud Database Console"
 [3]:	/doc/product/285/%E9%A2%84%E4%BB%98%E8%B4%B9%E8%AE%A1%E8%B4%B9%E6%B5%81%E7%A8%8B
 [4]:	/doc/product/285/%E8%AE%A1%E8%B4%B9%E6%B5%81%E7%A8%8B
-[5]:	https://www.qcloud.com/document/product/236/7913
+[5]:	https://cloud.tencent.com/document/product/236/7913
 

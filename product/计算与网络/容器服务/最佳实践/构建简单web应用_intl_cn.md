@@ -11,9 +11,9 @@
 
 ### 一、创建容器集群
 
-1、进入创建集群页面，创建[容器集群](https://console.qcloud.com/ccs/cluster)：
+1、进入创建集群页面，创建[容器集群](https://console.cloud.tencent.com/ccs/cluster)：
 2、填写集群名、指定集群的位置(广州、上海、北京等)。
-3、指定集群的节点网络，节点网络必须位于某个VPC内，如果您当前没有vpc，请先[创建一个vpc](https://console.qcloud.com/vpc)，并在该vpc下创建一个子网。
+3、指定集群的节点网络，节点网络必须位于某个VPC内，如果您当前没有vpc，请先[创建一个vpc](https://console.cloud.tencent.com/vpc)，并在该vpc下创建一个子网。
 4、指定容器网络。
 5、为集群节点选择机型(cpu和内存)。
 6、为集群节点选择磁盘、带宽等配置，并设置密码和安全组。

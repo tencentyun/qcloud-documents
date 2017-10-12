@@ -38,8 +38,8 @@ The following list only provides API request parameters. For common parameters, 
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| instanceIds.n | No | String | IDs of instances you want to query. It can be obtained from the unInstanceId in the returned value of [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API. (This API allows passing multiple IDs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)).
-| lanIps.n | No | String | (Filter condition) Filter by the Private IP or Public IP (including IP and Elastic IP automatically assigned when the instance is created) of one or more instance(s)(This API allows passing multiple IPs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)).
+| instanceIds.n | No | String | IDs of instances you want to query. It can be obtained from the unInstanceId in the returned value of [DescribeInstances](https://cloud.tencent.com/doc/api/229/831) API. (This API allows passing multiple IDs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://cloud.tencent.com/doc/api/229/568)).
+| lanIps.n | No | String | (Filter condition) Filter by the Private IP or Public IP (including IP and Elastic IP automatically assigned when the instance is created) of one or more instance(s)(This API allows passing multiple IPs at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://cloud.tencent.com/doc/api/229/568)).
 | searchWord | No | String | (Filter condition) Filter by instance name, support fuzzy query. |
 | status | No | Int | (Filter condition) The status of the instances, which are listed above.
 | projectId | No | Int | (Filter condition) [Project ID](/document/api/378/4398). |
@@ -52,8 +52,8 @@ The following list only provides API request parameters. For common parameters, 
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, please refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| message | String | Module error message description depending on API. For more information, please refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
 | totalCount | Int | Number of instances that meet the condition. |
 | instanceSet | Array | Instance information list. |
 
@@ -73,16 +73,16 @@ instanceSet contains a lot of instance information, and the data structure for e
 | Region | String | The region. Specific meaning can be queried through the [DescribeProductRegionList](/document/api/213/2849) API.
 | createTime | String | Time of creation.
 | deadlineTime | String | Expiry time. For postpaid instances, it will be"0000-00-00 00:00".
-| autoRenew | Int | Whether the instance is set to [Auto Renewal](https://www.qcloud.com/doc/api/229/1746). <br>0: Do not auto renew; <br>1: Auto renew; <br>2: Do not renew.
-| projectId | Int | [Project ID](https://www.qcloud.com/doc/api/229/1335).
+| autoRenew | Int | Whether the instance is set to [Auto Renewal](https://cloud.tencent.com/doc/api/229/1746). <br>0: Do not auto renew; <br>1: Auto renew; <br>2: Do not renew.
+| projectId | Int | [Project ID](https://cloud.tencent.com/doc/api/229/1335).
 | os | String | Operating system name.
 | cvmPayMode | Int | Billing mode. <br>0: Monthly postpaid; <br>1: Prepaid package; <br>2: Postpaid
-| networkPayMode | Int | Network billing mode. <br> 0: Monthly postpaid; <br>1: Prepaid package; <br> 2: Bill by traffic; <br> 3: Bill by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://www.qcloud.com/doc/product/213/509). |
+| networkPayMode | Int | Network billing mode. <br> 0: Monthly postpaid; <br>1: Prepaid package; <br> 2: Bill by traffic; <br> 3: Bill by bandwidth. <br>The difference between the network billing modes can be found in [Purchase Network Bandwidth](https://cloud.tencent.com/doc/product/213/509). |
 | zoneId | Int | [Availability Zone](/doc/product/213/6091) ID.
 | zoneName | String | Availability zone name.
 | vpcId | Int | [Virtual Private Cloud](/help/什么是私有网络) ID.
 | subnetId | Int | Subnet ID.
-| isVpcGateway | Int | Whether a VPC [gateway](https://www.qcloud.com/doc/product/215/1682). <br>0: No; <br>1: Yes
+| isVpcGateway | Int | Whether a VPC [gateway](https://cloud.tencent.com/doc/product/215/1682). <br>0: No; <br>1: Yes
 | diskInfo | Array | The object that contains the hard disk information.
 
 diskInfo contains a lot of hard disk information, and the data structure for each single hard disk information is as follows:
@@ -105,7 +105,7 @@ Input:
  https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstances
  &instanceIds.0=ins-r8hr2upy
  &instanceIds.1=ins-5d8a23rs
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+ &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 </pre>
 
 Output:

@@ -10,7 +10,7 @@
   + Currently, CDN supports the connection of wildcard domains.
 
 + Will the cached content at CDN acceleration nodes be updated in real time?
-  + The content will not be updated in real time. CDN nodes will update cache according to the cache expiration time that you have configured in the console. You can update the cache of a certain file in real time by refreshing or prefetching. Please see [Refresh and Prefetch](https://www.qcloud.com/document/product/228/6299).
+  + The content will not be updated in real time. CDN nodes will update cache according to the cache expiration time that you have configured in the console. You can update the cache of a certain file in real time by refreshing or prefetching. Please see [Refresh and Prefetch](https://cloud.tencent.com/document/product/228/6299).
 
 + What is a CDN intermediate node?
   + CDN intermediate node refers to an intermediate node server, it's a middle-tier server located between the business server and CDN node. The intermediate node will converge back-to-origin requests from nodes, reducing pressure caused by such requests on your origin server.
@@ -28,7 +28,7 @@
   + Usually, it will take less than 30 minutes to configure CDN. If it is still not ready after you have completed the setup and waited for 30 minutes, please submit a ticket to us in time for assistance.
 
 + For CDN self-owned origin, can I configure that a certain file is not cached? Does it mean "do not cache" if I set the cache validity period to 0?
-  + You may configure the corresponding cache validity period for directories and file types. If it is configured as 0, the CDN node will not cache the resource, in which case the CDN node will need to pull related resources from the origin server every time the users send access request to the node. For relevant cache configurations, please refer to [Cache Expiration Configuration](https://www.qcloud.com/document/product/228/6290).
+  + You may configure the corresponding cache validity period for directories and file types. If it is configured as 0, the CDN node will not cache the resource, in which case the CDN node will need to pull related resources from the origin server every time the users send access request to the node. For relevant cache configurations, please refer to [Cache Expiration Configuration](https://cloud.tencent.com/document/product/228/6290).
 
 + What will happen to the files on the CDN node if I close the connected domain from CDN management?
   + If you close the CDN service of a domain which has already been connected to CDN, the CDN node will retain the connection configurations of the domain, no further CDN traffic will be generated, and requests towards this domain will all go back to the origin server. Before this operation, please make sure that you have configured the CNAME of this domain to point to the A record, otherwise the domain will be unavailable for access. You should also make sure that your origin server has enough bandwidth processing capabilities, or problems will occur when accessing your domain.
@@ -43,16 +43,16 @@
   + Some customers may be unable to upload their relevant data in time due to insufficient capacity when using hosted origin, which will prevent their business from going live as planned. In order to prevent such situation, we have implemented the following automatic rules regarding bandwidth usage and capacity. The capacity of the hosted origin will be automatically increased when the corresponding bandwidth usage is reached. When the monitored capacity for a user who has increased his or her capacity to the corresponding level exceeds 80%, the system will calculate the average bandwidth in the past 30 days. When the average bandwidth meets the upgrade requirement, the corresponding policy will be commenced to increase the current capacity by 50%. The limit of the capacity increment will not go above the corresponding capacity volume listed in the table below. If the user's domain has been in the network for less than 30 days, the current average bandwidth will be calculated; When a user has already increased capacity beyond the corresponding volume, the capacity will be kept but not further increased. If you wish to apply for additional capacity for special needs, please submit a ticket and tell us the reason for the application.
 
 + How do I bind my CNAME after I have connected to CDN?
-  + Please refer to the document in this link [CNAME Configuration](https://www.qcloud.com/document/product/228/3121).
+  + Please refer to the document in this link [CNAME Configuration](https://cloud.tencent.com/document/product/228/3121).
 
 + Can I configure multiple origin server IPs?
   + Yes, you can. And if you do so, CDN will randomly access one of them upon a back-to-origin request. CDN will skip any unavailable origin server IPs.
 
 + Is directory refresh supported by CDN?
-  + Currently CDN supports directory refresh to refresh URLs. You can perform URL refresh either in Tencent Cloud CDN Console or by calling API. [Click Here](https://www.qcloud.com/document/product/228/3946).
+  + Currently CDN supports directory refresh to refresh URLs. You can perform URL refresh either in Tencent Cloud CDN Console or by calling API. [Click Here](https://cloud.tencent.com/document/product/228/3946).
 
 + Does Tencent Cloud CDN support cross-region access?
-  + Tencent Cloud CDN does not restrict regions when processing cross-region accesses. If a user website requires cross-region access, the user will need to configure Access-Control-Allow-Origin field in his or her own website. You can also choose to configure a cross-region header in CDN for the domain to achieve cross-region access. Please refer to [HTTP Header Configuration](https://www.qcloud.com/document/product/228/6296) for details.
+  + Tencent Cloud CDN does not restrict regions when processing cross-region accesses. If a user website requires cross-region access, the user will need to configure Access-Control-Allow-Origin field in his or her own website. You can also choose to configure a cross-region header in CDN for the domain to achieve cross-region access. Please refer to [HTTP Header Configuration](https://cloud.tencent.com/document/product/228/6296) for details.
 
 ## Troubleshooting
 

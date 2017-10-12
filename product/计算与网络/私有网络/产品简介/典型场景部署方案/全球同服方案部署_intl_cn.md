@@ -16,6 +16,6 @@
 3) **多地网络高速互联**。多地同服最大的难点在于如何解决玩家跨服PVP等同服玩法网络延迟高问题，为了减少游戏接入服到全局中心服之间的时延，腾讯云可通过跨地域对等连接实现各大区私有网络之间高速数据同步，大大降低跨区间数据访问的网络时延。 
 
 ## 操作步骤
-1) 集中部署数据库,在靠近用户地域创建私有网络，在[私有网络内部署数据库和云主机](https://www.qcloud.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA)。
-2) 利用DNSPod云解析智能调度功能实现玩家的就近访问，查看[DNSPod云解操作指南](https://www.qcloud.com/document/product/302/3446)。
-3) 利用腾讯云跨地域对等连接实现不同地域的私有网络高速互联，点击查看[对等连接操作指南](https://www.qcloud.com/document/product/215/5000#.E5.BF.AB.E9.80.9F.E5.85.A5.E9.97.A8)
+1) 集中部署数据库,在靠近用户地域创建私有网络，在[私有网络内部署数据库和云主机](https://cloud.tencent.com/document/product/215/4927#.E5.90.91.E5.AD.90.E7.BD.91.E4.B8.AD.E6.B7.BB.E5.8A.A0.E4.BA.91.E4.B8.BB.E6.9C.BA)。
+2) 利用DNSPod云解析智能调度功能实现玩家的就近访问，查看[DNSPod云解操作指南](https://cloud.tencent.com/document/product/302/3446)。
+3) 利用腾讯云跨地域对等连接实现不同地域的私有网络高速互联，点击查看[对等连接操作指南](https://cloud.tencent.com/document/product/215/5000#.E5.BF.AB.E9.80.9F.E5.85.A5.E9.97.A8)

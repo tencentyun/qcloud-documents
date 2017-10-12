@@ -6,7 +6,7 @@ WinSCP是一个Windows环境下使用SSH的开源图形化SFTP客户端，同时
 
 >字段填写说明：
 - 协议：SFTP或者SCP均可
-- 主机名：云服务器的公网IP（登录[云服务器控制台](https://console.qcloud.com/cvm)可查看云服务器的公网IP）
+- 主机名：云服务器的公网IP（登录[云服务器控制台](https://console.cloud.tencent.com/cvm)可查看云服务器的公网IP）
 - 用户名：云服务器的系统用户名（SUSE/CentOS/Debian：root，Windows：Administrator，Ubuntu：ubuntu）
 - 密码：云服务器的用户名对应的密码
 - 端口：默认22

@@ -5,7 +5,7 @@
 ![](//mccdn.qcloud.com/static/img/45317b09510d34fc92eb1cf3f0ac9568/image.png)
 
 ## 解决办法
- 1. 购买香港地域的 Windows 云服务器，在自定义配置页中 [选购](https://buy.qcloud.com/cvm?tabIndex=1)，（ Windows 操作系统可以支持登录北美 Windows 和 Linux 这两类云服务器，推荐选购）作为“跳板机”。
+ 1. 购买香港地域的 Windows 云服务器，在自定义配置页中 [选购](https://buy.cloud.tencent.com/cvm?tabIndex=1)，（ Windows 操作系统可以支持登录北美 Windows 和 Linux 这两类云服务器，推荐选购）作为“跳板机”。
 	>**注意：**
 	>您需要购买至少 1 Mbps 的带宽，否则跳板机无法登录。
 

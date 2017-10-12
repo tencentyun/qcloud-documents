@@ -15,7 +15,7 @@
 当用户的业务扩大，需要提升云服务器的硬件配置时，可以通过配置调整实现。对于所有云服务器类型，配置升级的生效时间均为即时生效，即当用户升级配置并支付可能产生的费用后，云服务器将立即按新的配置运行。升级次数无限制。
 ### 升级方法
 #### 通过控制台升级实例配置
-1. 登录 [腾讯云](https://console.qcloud.com/cvm/overview)，单击左侧【云主机】。
+1. 登录 [腾讯云](https://console.cloud.tencent.com/cvm/overview)，单击左侧【云主机】。
 2. 对于要调整配置的 CVM 实例，在右侧操作栏，单击【更多】->【云主机设置】->【调整配置】。
    ![](https://mc.qcloudimg.com/static/img/2ae36c378c7215ccbff6c06d5cabd1e5/6.png)
 3. 在调整配置弹出框中，选定升级后的 **目标 CPU 核数** 和 **目标内存容量** 后，单击 **确定**。核对订单无误后确认支付，完成支付即可即时调整实例配置。
@@ -26,7 +26,7 @@
 
 
 #### 通过 API 升级实例配置
-用户可以使用 ResizeInstance 和 ResizeInstanceHour 接口升级实例配置。具体内容可以参考 [调整实例配置（包年包月）API](https://www.qcloud.com/doc/api/229/1306) 和 [调整实例配置（按量计费） API](https://www.qcloud.com/doc/api/229/1306)。
+用户可以使用 ResizeInstance 和 ResizeInstanceHour 接口升级实例配置。具体内容可以参考 [调整实例配置（包年包月）API](https://cloud.tencent.com/doc/api/229/1306) 和 [调整实例配置（按量计费） API](https://cloud.tencent.com/doc/api/229/1306)。
 
  ## 配置降级
 当用户的业务缩减，需要降低云服务器的硬件配置时，可以在控制台通过配置调整实现。
@@ -42,7 +42,7 @@
 >- 如出现疑似异常/恶意配置降级，腾讯云有权否决配置降级流程，腾讯云在法律范围保持最终解释权。 
 
 #### 降级方法：
-1. 登录 [腾讯云](https://console.qcloud.com/cvm/overview)，单击左侧【云主机】。
+1. 登录 [腾讯云](https://console.cloud.tencent.com/cvm/overview)，单击左侧【云主机】。
 2. 对于要调整配置的 **包年包月** CVM 实例，在右侧操作栏，单击【更多】->【云主机设置】->【调整配置】。 
     ![](https://mc.qcloudimg.com/static/img/2ae36c378c7215ccbff6c06d5cabd1e5/6.png)
 3. 在调整配置弹出框中，选择降级后的 **目标 CPU 核数** 和 **目标内存容量** 后，单击确定，将即时降低主机配置并延长实例到期时间。
@@ -55,7 +55,7 @@
 
 购买了按量计费的云服务器实例后，用户随时可以降配。降级次数无限制。
 #### 降级方法：
-1. 登录 [腾讯云](https://console.qcloud.com/cvm/overview)，单击左侧【云主机】。
+1. 登录 [腾讯云](https://console.cloud.tencent.com/cvm/overview)，单击左侧【云主机】。
 2. 对于要调整配置的 **按量计费** CVM 实例，在右侧操作栏，单击【更多】->【云主机配置】->【调整配置】。
    ![](https://mc.qcloudimg.com/static/img/b99a4499cd783965e58a3a701aa74cd5/10.png)
 3. 在调整配置弹出框中，选择降级后的 **目标 CPU 核数** 和 **目标内存容量** 后，单击确定，即时降级云服务器配置。

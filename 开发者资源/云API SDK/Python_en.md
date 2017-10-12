@@ -6,7 +6,7 @@ With the qcloudapi-sdk-python tool kit, Python developers can use Tencent Cloud 
 
 
 ## 1. Resources
-You can find common parameters, API overviews and error codes for each Tencent Cloud products from their documents, like [CVM API Common Request Parameters](http://www.qcloud.com/doc/api/229/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0), [CVM API Overview](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88), [CVM API Error Codes](http://www.qcloud.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81).
+You can find common parameters, API overviews and error codes for each Tencent Cloud products from their documents, like [CVM API Common Request Parameters](http://cloud.tencent.com/doc/api/229/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0), [CVM API Overview](http://cloud.tencent.com/doc/api/229/API%E6%A6%82%E8%A7%88), [CVM API Error Codes](http://cloud.tencent.com/doc/api/229/%E9%94%99%E8%AF%AF%E7%A0%81).
 
 ## 2. Installation
 Install Python environment. (Skip this step if your environment is ready)
@@ -19,7 +19,7 @@ $ make
 $ sudo make install
 ```
 ## 3. Getting Started
-1) Obtain the security credential on the [Console](https://console.qcloud.com/capi). Before using Tencent Cloud APIs, you need to apply for security credential on the Console. The security credential includes SecretId (indicating the identity of API calling entity) and SecretKey (used for signature encryption, must be kept safe).
+1) Obtain the security credential on the [Console](https://console.cloud.tencent.com/capi). Before using Tencent Cloud APIs, you need to apply for security credential on the Console. The security credential includes SecretId (indicating the identity of API calling entity) and SecretKey (used for signature encryption, must be kept safe).
 
 
 2) [Download SDK](https://github.com/QcloudApi/qcloudapi-sdk-python) and add it to your program directory. See the sample codes below:

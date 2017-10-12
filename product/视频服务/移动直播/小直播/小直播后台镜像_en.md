@@ -3,7 +3,7 @@ One-click deployment is designed to help you quickly complete the deployment at 
 ![](//mc.qcloudimg.com/static/img/83d9e9a82474f771e6cc223ce71972f5/image.png)
 
 ### 1.1 Prepare a CVM
-If you have not purchased a Tencent Cloud CVM, you can [click here to purchase one](https://console.qcloud.com/cvm). According to procedure, configure bandwidth, storage capacity, region, memory, CPU and other CVM hardware parameters based on your demands and make a purchase.
+If you have not purchased a Tencent Cloud CVM, you can [click here to purchase one](https://console.cloud.tencent.com/cvm). According to procedure, configure bandwidth, storage capacity, region, memory, CPU and other CVM hardware parameters based on your demands and make a purchase.
 Note:
 - 1. For mirror, you need to select **Mini LVB Backend Dedicated** mirror in **Service Market**.
 - 2. Remember the **root password** of CVM.
@@ -26,7 +26,7 @@ Note:
 ![](//mc.qcloudimg.com/static/img/fbdcf5e6938f0e72c9705a28e6f55163/image.png)
 
 ### 1.2 Configure a CVM through Web
-You can configure the CVM parameters on [one-click deployment page](https://console.qcloud.com/live/onestep/onestep) in the Tencent Cloud console.
+You can configure the CVM parameters on [one-click deployment page](https://console.cloud.tencent.com/live/onestep/onestep) in the Tencent Cloud console.
 - Check whether the services, such as LVB, VOD, IM and COS, are all activated.
 - Enter the COS parameter.
 - Enter the **public IP** and **root password** of the CVM.
@@ -58,7 +58,7 @@ Nginx configuration file is the file /etc/nginx/nginx.conf of the CVM.
 To enable detailed log, you can create a directory named log under the directory /data/live_demo_service/.
 ## 3. After one-click deployment is completed
 ###3.1 How to interface with terminal Mini LVB?
-For more information, please see [How to quickly set up Mini LVB - terminal integration](https://www.qcloud.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90)
+For more information, please see [How to quickly set up Mini LVB - terminal integration](https://cloud.tencent.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90)
 
 ### 3.2 How to configure uploading feature of UGC Mini LVB manually?
 Currently, one-click deployment does not support the configuration item required to configure UGC, so you need to configure it manually.
@@ -69,8 +69,8 @@ b. **unzip xiaozhibo_business_svr_2.0.3.3033.zip**
 c. **cp live_demo_service/interface/GetVodSignatureV2.php  /data/live_demo_service/interface/**
 d **cd /data/live_demo_service/conf/ && vim OutDefine.php**
 e. Press "**I**" button to enter the Insert mode of vim, and add the following texts in bold.
-   &emsp;** define('CLOUD_API_SECRETID','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //Personal SecretId of cloud API, used to upload the UGC and implement it to VOD system [Cloud API Key](https://console.qcloud.com/capi)
-   &emsp;** define('CLOUD_API_SECRETKEY','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //Personal SecrectKey of cloud API, used to upload the UGC and implement it to VOD system [Cloud API Key](https://console.qcloud.com/capi) 
+   &emsp;** define('CLOUD_API_SECRETID','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //Personal SecretId of cloud API, used to upload the UGC and implement it to VOD system [Cloud API Key](https://console.cloud.tencent.com/capi)
+   &emsp;** define('CLOUD_API_SECRETKEY','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //Personal SecrectKey of cloud API, used to upload the UGC and implement it to VOD system [Cloud API Key](https://console.cloud.tencent.com/capi) 
 f. Press "**Esc**" and "**:wq!**", and then press "Enter", to save the modification into configuration file.
 g. Execute **service nginx reload**, and restart Nginx service.
 

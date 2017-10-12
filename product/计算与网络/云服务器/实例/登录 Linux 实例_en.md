@@ -18,7 +18,7 @@ With password login, you need to use the administrator account ID and the corres
 |Ubuntu|ubuntu|
 
 - Password:
-  - If you select "Auto Generate Password" when starting the instance, then the initial password will be randomly assigned by the system. You can log in to [Tencent Cloud Console](https://console.qcloud.com/), and click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
+  - If you select "Auto Generate Password" when starting the instance, then the initial password will be randomly assigned by the system. You can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
   ![](//mccdn.qcloud.com/img56a20f10a373a.png)
   - If you select "Custom Password" when starting the instance, then the password will be the one you specified when purchasing the CVM instance. To learn more about password, for example, what to do if I forget the login password, refer to [Login Password](/doc/product/213/6093).
 
@@ -27,7 +27,7 @@ With password login, you need to use the administrator account ID and the corres
 To log in with an SSH key, first you need to create an SSH key, download the private key and bind it to Linux CVM. To learn more about key operations, refer to [SSH Key](/doc/product/213/6092).
 ![](//mccdn.qcloud.com/img56a5d553bddcf.png)
 
-Log in to [Tencent Cloud Console](https://console.qcloud.com), click "Cloud Virtual Machine" - "SSH Key" to enter the key window. Click "Create Key" button, and type a key name to create a new key. After the key is created, click "Download" button to download a private key.
+Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), click "Cloud Virtual Machine" - "SSH Key" to enter the key window. Click "Create Key" button, and type a key name to create a new key. After the key is created, click "Download" button to download a private key.
 
 Then right click on the newly created key ID, and select "Bind the Linux server to log in" to bind it. Key login is only available for CVM instances that have been bound with an SSH key.
 
@@ -40,7 +40,7 @@ To log in to the Linux CVM from a local Windows computer, you need to use client
 ### Use PUTTY to connect to Linux CVM
 Open the Putty client, enter the following information in the "PuTTY Configuration" window:
 
-- Host Name: Public IP of the CVM (Go to the ["Cloud Virtual Machine" page under Tencent Cloud Console](https://console.qcloud.com/cvm), and you can get the public IP of the CVM on the list and detail pages).
+- Host Name: Public IP of the CVM (Go to the ["Cloud Virtual Machine" page under Tencent Cloud Console](https://console.cloud.tencent.com/cvm), and you can get the public IP of the CVM on the list and detail pages).
 - Port: port of the CVM, which must be 22. (Make sure port 22 of the CVM is open. See [Security Group](/doc/product/213/5221) and [Network ACL](/doc/product/215/5132) for details.)
 - Connect type: select "SSH".
 
@@ -76,7 +76,7 @@ Click the "Browse" button. In the window that pops up, go to the path where the 
 
 Configure an IP address, port and connection type on the Session configuration page.
 
-- IP: Public IP of the CVM. Go to the ["Cloud Virtual Machine" page under Tencent Cloud Console](https://console.qcloud.com/cvm), and you can get the public IP of the CVM on the list and detail pages.
+- IP: Public IP of the CVM. Go to the ["Cloud Virtual Machine" page under Tencent Cloud Console](https://console.cloud.tencent.com/cvm), and you can get the public IP of the CVM on the list and detail pages.
 - Port: port of the CVM, which must be 22. (Make sure port 22 of the CVM is open. See [Security Group](/doc/product/213/5221) and [Network ACL](/doc/product/215/5132) for details.)
 
 Enter a session name in the "Saved Sessions" input box (it is test in this case), then click the "Save" button, and double click the session name or click the "Open" button to issue a login request.

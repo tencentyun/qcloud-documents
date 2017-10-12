@@ -1,4 +1,4 @@
-CDN provides monthly report feature which displays your business status in the form of a multi-dimensional report, to help you analyze business status in a month. Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Monthly Report" under "Statistics".
+CDN provides monthly report feature which displays your business status in the form of a multi-dimensional report, to help you analyze business status in a month. Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and click "Monthly Report" under "Statistics".
 
 You can query the monthly operating report of a specific month (up till 2016-01):
 

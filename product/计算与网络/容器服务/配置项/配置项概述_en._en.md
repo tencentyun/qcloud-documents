@@ -33,9 +33,9 @@ Configuration item supports only new versions instead of modified versions.
 2. You can delete a configuration file in configuration file list page and delete all versions under this file
 
 ## Usage of Configuration File
-Method 1:  Mount the configurations in the configuration file to a container in the form of data volume. [View details](https://www.qcloud.com/document/product/457/11034)
-Method 2:  Deploy multiple environments using configuration file and application template. [View details](https://www.qcloud.com/document/product/457/11033)
-Method 3:  When you create a service, import configurations to environment variable using configuration file. [View details](https://www.qcloud.com/document/product/457/11034)
+Method 1:  Mount the configurations in the configuration file to a container in the form of data volume. [View details](https://cloud.tencent.com/document/product/457/11034)
+Method 2:  Deploy multiple environments using configuration file and application template. [View details](https://cloud.tencent.com/document/product/457/11033)
+Method 3:  When you create a service, import configurations to environment variable using configuration file. [View details](https://cloud.tencent.com/document/product/457/11034)
 
 
 

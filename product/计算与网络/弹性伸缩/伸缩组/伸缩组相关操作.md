@@ -1,11 +1,11 @@
 ## 1. 查看伸缩组列表
 
-打开[控制台](https://console.qcloud.com/autoscaling)，单击导航条中的【伸缩组】即可查看列表。
+打开[控制台](https://console.cloud.tencent.com/autoscaling)，单击导航条中的【伸缩组】即可查看列表。
 ![](//mccdn.qcloud.com/static/img/ff713a0ff792e49e5e8e099e59251b5a/image.png)
 
 ## 2. 创建伸缩组
 
-打开[控制台](https://console.qcloud.com/autoscaling/config)，选择导航条中的【伸缩组】。
+打开[控制台](https://console.cloud.tencent.com/autoscaling/config)，选择导航条中的【伸缩组】。
 
 ### a.选择区域
 
@@ -23,7 +23,7 @@
   - **启动配置**：指定创建好的启动配置，扩容时会按照启动配置来创建扩容机器
   - **支持网络**：选择的是扩容出来的机器的网络属性，即扩容出来的机器是在基础网络中的还是在某个私有网络（VPC）中的。除非您的集群已经用了VPC，一般选“基础网络”即可
   - **支持可用区**：指定自动扩容机器在哪个可用区生产。您可选择多个可用区，自动扩容的机器会随机地从您勾选的可用区创建，达到跨可用区容灾的效果
-  - **移出策略**：当伸缩组要减少实例且有多个选择时，将根据移出策略来选择移出哪个CVM。一般选“移出最旧机器”即可。查看两种策略[详情](https://www.qcloud.com/document/product/377/4166#13.-.E4.BC.B8.E7.BC.A9.E7.BB.84.E7.A7.BB.E5.87.BA.E7.AD.96.E7.95.A5.E7.9A.84.E5.85.B7.E4.BD.93.E8.A7.84.E5.88.99.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F)。
+  - **移出策略**：当伸缩组要减少实例且有多个选择时，将根据移出策略来选择移出哪个CVM。一般选“移出最旧机器”即可。查看两种策略[详情](https://cloud.tencent.com/document/product/377/4166#13.-.E4.BC.B8.E7.BC.A9.E7.BB.84.E7.A7.BB.E5.87.BA.E7.AD.96.E7.95.A5.E7.9A.84.E5.85.B7.E4.BD.93.E8.A7.84.E5.88.99.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F)。
   - **负载均衡**：指定一个负载均衡，扩容出来的机器会自动挂载到该负载均衡下。
 
 伸缩组即创建完成。此时伸缩组能容纳机器，但还没有智能扩缩容的能力。接下来，我们强烈建议您继续以下3个操作：
@@ -33,7 +33,7 @@
 
 
 ## 3.修改伸缩组绑定的云主机
-打开[控制台](https://console.qcloud.com/autoscaling)，选择导航条中的【伸缩组】。
+打开[控制台](https://console.cloud.tencent.com/autoscaling)，选择导航条中的【伸缩组】。
 
 选择要修改的伸缩组，点击伸缩组ID进入伸缩组基本信息页面。
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -47,7 +47,7 @@
 对手动加入的机器，移出后不会销毁，只会从伸缩组中移出，以及解绑负载均衡。
 
 ## 4. 定义自动扩容机器落在哪个可用区上
-打开[控制台](https://console.qcloud.com/autoscaling)，选择导航条中的【伸缩组】。
+打开[控制台](https://console.cloud.tencent.com/autoscaling)，选择导航条中的【伸缩组】。
 
 选择要修改的伸缩组，点击伸缩组ID进入伸缩组基本信息页面。
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -56,7 +56,7 @@
 
 
 ## 5. 修改伸缩组
-打开[控制台](https://console.qcloud.com/autoscaling)，选择导航条中的【伸缩组】。
+打开[控制台](https://console.cloud.tencent.com/autoscaling)，选择导航条中的【伸缩组】。
 
 选择要修改的伸缩组，点击伸缩组ID进入伸缩组基本信息页面。
 ![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
@@ -65,7 +65,7 @@
 ![](//mccdn.qcloud.com/static/img/19a6f7cc708a4288974a98d8a78263bd/image.png)
 
 ## 6. 删除伸缩组
-打开[控制台](https://console.qcloud.com/autoscaling)，选择导航条中的【伸缩组】。
+打开[控制台](https://console.cloud.tencent.com/autoscaling)，选择导航条中的【伸缩组】。
 
 在伸缩组列表中，每个伸缩组列表的最后都有“删除”按钮。注意，您需要将伸缩组中的实例删除后，才能删除伸缩组。
 
@@ -77,7 +77,7 @@
 
 伸缩组 与 CLB 集成，以便您将负载均衡器附加到现有 伸缩组。附加负载均衡器后，它自动注册组中的实例，并将传入流量分布到这些实例。
 
-在AS[控制台](https://console.qcloud.com/autoscaling)，选择【新建】，页面下方有个“负载均衡”选项，选择您需要的负载均衡。如果您没有事先创建好，可以点击选项下方的“新建”链接，创建新的负载均衡。
+在AS[控制台](https://console.cloud.tencent.com/autoscaling)，选择【新建】，页面下方有个“负载均衡”选项，选择您需要的负载均衡。如果您没有事先创建好，可以点击选项下方的“新建”链接，创建新的负载均衡。
 
 >注：
 >伸缩组关联的负载均衡实例必须与伸缩组在同一个网络环境（VPC或同一地域的基础网络）中。

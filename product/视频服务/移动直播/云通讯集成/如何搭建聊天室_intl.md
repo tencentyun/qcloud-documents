@@ -1,4 +1,4 @@
-﻿This document describes how to use [Tencent Cloud IM](https://www.qcloud.com/product/im.html) service to build simple chat room features.
+﻿This document describes how to use [Tencent Cloud IM](https://cloud.tencent.com/product/im.html) service to build simple chat room features.
 (1) Broadcast ordinary text messages
 (2) Broadcast on-screen comments
 (3) Broadcast likes
@@ -8,7 +8,7 @@
 ### 1. Activate service
 To use Tencent Cloud IM service, you need to activate it first by following these steps:
 
-Go to [IM Console](https://console.qcloud.com/avc). If you have not activated the service yet, just click **Activate IM** button. For a new Tencent Cloud account, the IM App list is empty, as shown below:
+Go to [IM Console](https://console.cloud.tencent.com/avc). If you have not activated the service yet, just click **Activate IM** button. For a new Tencent Cloud account, the IM App list is empty, as shown below:
 ![](//mc.qcloudimg.com/static/img/c033ddba671a514c7b160e1c99a08b55/image.png)
 
 Click the **Create App Access** button to create a new App access, that is, the name of the App for which you want to get the access to Tencent Cloud IM service. Our test App is called "Mini LVB Demo", as shown below:
@@ -150,11 +150,11 @@ UserSig signature is used for mutual authentication between Tencent Cloud IM ser
 
 This is how interfacing process goes behind message authentication. The core is to prevent users not accepted by your backend server from sending and receiving messages. However, it would be inappropriate to let your server check each one of the messages, so this solution is developed.
 
-UserSig signature uses the most commonly used non-symmetric key encryption technique. When enabling independent mode, you will receive a public and private key pair from Tencent Cloud. You can simply [Encrypt](https://www.qcloud.com/doc/product/269/1510) specified messages with the private key.
+UserSig signature uses the most commonly used non-symmetric key encryption technique. When enabling independent mode, you will receive a public and private key pair from Tencent Cloud. You can simply [Encrypt](https://cloud.tencent.com/doc/product/269/1510) specified messages with the private key.
 
 #### 3.3.3 Interfacing Process
 - **Step 1: Select independent mode**
-> Ensure the integration mode in Tencent Cloud [IM Console](https://console.qcloud.com/avc) is **Independent Mode**, and download the public and private keys required to calculate signatures.
+> Ensure the integration mode in Tencent Cloud [IM Console](https://console.cloud.tencent.com/avc) is **Independent Mode**, and download the public and private keys required to calculate signatures.
 > ![](//mc.qcloudimg.com/static/img/4e79ff175d8053f8998e02732468e398/image.png)
 
 - **Step 2: Complete interfacing with the backend**
@@ -171,7 +171,7 @@ The above steps are shown in the following figure:
 
 
 ## 4 Message sending and receiving
-Tencent Cloud IM service supports a variety of message formats, such as text, picture, emoji, voice or even small files. You can go to the [IM document zone](https://www.qcloud.com/doc/product/269 ) to learn more about this.
+Tencent Cloud IM service supports a variety of message formats, such as text, picture, emoji, voice or even small files. You can go to the [IM document zone](https://cloud.tencent.com/doc/product/269 ) to learn more about this.
 
 Comparatively, LVB messaging is rather simple, mainly including the following types:
 - Ordinary text messages: including the sender's nickname and the message itself.

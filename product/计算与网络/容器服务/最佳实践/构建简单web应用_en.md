@@ -11,9 +11,9 @@ The application is an example that comes with the kubernetes project. Link: http
 
 ### 1. Creating Container Cluster
 
-Step 1: Go to the cluster creation page and create [Container Cluster](https://console.qcloud.com/ccs/cluster):
+Step 1: Go to the cluster creation page and create [Container Cluster](https://console.cloud.tencent.com/ccs/cluster):
 Step 2: Enter cluster name and specify its location (Guangzhou, Shanghai, Beijing and so on).
-Step 3: Specify node network for the cluster. The node network must be within a certain VPC. If you don't have one, [Create a VPC](https://console.qcloud.com/vpc) first and create a subnet in this VPC.
+Step 3: Specify node network for the cluster. The node network must be within a certain VPC. If you don't have one, [Create a VPC](https://console.cloud.tencent.com/vpc) first and create a subnet in this VPC.
 Step 4: Specify container network.
 Step 5: Select model for the cluster node (CPU and memory).
 Step 6: Set cluster node configurations such as its disk space and bandwidth. Configure password and security group.

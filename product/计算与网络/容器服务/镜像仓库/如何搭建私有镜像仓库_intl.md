@@ -6,7 +6,7 @@ Registry is a storage service for Docker images. Registry images on DockerHub ca
 
 ## Build Registry
 
- - Install Docker by executing the following command on the CVM. Here, we choose [Tencent Cloud](https://www.qcloud.com/ "Tencent Cloud") (Ubuntu Server 14.04.1 LTS 64-bit) image to create the CVM.
+ - Install Docker by executing the following command on the CVM. Here, we choose [Tencent Cloud](https://cloud.tencent.com/ "Tencent Cloud") (Ubuntu Server 14.04.1 LTS 64-bit) image to create the CVM.
 ```
 curl -fsSL https://get.docker.com/ | sh
 ```
@@ -314,5 +314,5 @@ To free disk space, execute the following command to delete "blob". Note that **
         depends_on:
           - registry
 
-  [1]: https://www.qcloud.com/
+  [1]: https://cloud.tencent.com/
   [2]: https://github.com/docker/compose

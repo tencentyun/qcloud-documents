@@ -133,6 +133,6 @@ Tencent Cloud Cloud Monitor provides the following monitoring metrics for Cloud 
 </tbody></table>
 
 
-For more information about the monitoring metrics of Cloud Load Balance, please see [Read Monitoring Data API](https://www.qcloud.com/doc/api/405/4667) in the Cloud Monitor API.
+For more information about the monitoring metrics of Cloud Load Balance, please see [Read Monitoring Data API](https://cloud.tencent.com/doc/api/405/4667) in the Cloud Monitor API.
 
 

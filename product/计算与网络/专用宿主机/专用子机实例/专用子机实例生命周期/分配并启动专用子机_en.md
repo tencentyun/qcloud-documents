@@ -2,7 +2,7 @@ The dedicated CVM has the same lifetime as its host, and it is assigned on a pre
 
 ## 1. Go to CVM assignment page
 
-1. Log in to [CDH Console](https://console.qcloud.com/cvm/cdh).
+1. Log in to [CDH Console](https://console.cloud.tencent.com/cvm/cdh).
 2. Select the CDH in the list, and click "Assign CVM" on the top.
 
 
@@ -32,7 +32,7 @@ The configurations determine the number of CVMs that can be created.
 
 You can select image, disk and network configurations for a dedicated CVM and start the dedicated CVM in exactly the same way as for an ordinary CVM instance.
 
-For more information, please see [Purchase and Start Instances>](https://www.qcloud.com/doc/product/213/4855)
+For more information, please see [Purchase and Start Instances>](https://cloud.tencent.com/doc/product/213/4855)
 
 - **By default, a dedicated CVM is billed on a prepaid basis**. The available usage period of the dedicated CVM is same as that of the CDH where the CVM resides. You don't need to select the billing mode and purchased usage period when assigning CVM instances.
 - **By default, network of dedicated CVM is billed on a pay-per-use basis**. You only need to select the capped bandwidth of the network when configuring the it.

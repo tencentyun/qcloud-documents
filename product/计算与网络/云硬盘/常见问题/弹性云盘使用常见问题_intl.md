@@ -29,7 +29,7 @@ The maximum number of elastic cloud disks that a single account is allowed to pu
 ### 7. Do I need to reboot the CVM after I finished mounting operation in the console?
 
 CVMs purchased after March 10, 2016 can identify newly mounted data disks without rebooting.
-As for CVMs with the following operating systems purchased before the above date, it is recommended to reboot the CVM and run some commands to enable its capability of identifying elastic cloud block storage (i.e. hot-plug function), please refer to [Note about Disk Identification Capability for CVMs of Certain Systems](http://www.qcloud.com/doc/product/362/%E9%83%A8%E5%88%86%E5%AD%98%E9%87%8F%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E5%BC%B9%E6%80%A7%E4%BA%91%E7%9B%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95).
+As for CVMs with the following operating systems purchased before the above date, it is recommended to reboot the CVM and run some commands to enable its capability of identifying elastic cloud block storage (i.e. hot-plug function), please refer to [Note about Disk Identification Capability for CVMs of Certain Systems](http://cloud.tencent.com/doc/product/362/%E9%83%A8%E5%88%86%E5%AD%98%E9%87%8F%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E5%BC%B9%E6%80%A7%E4%BA%91%E7%9B%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95).
 
 
 <table>

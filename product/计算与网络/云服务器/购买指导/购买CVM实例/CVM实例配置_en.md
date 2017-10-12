@@ -1,11 +1,11 @@
-In the following section, we will describe the CVM configurations in each availability zone. For more information on each instance type, refer to [Instance Types](https://www.qcloud.com/doc/product/213/7153).By underlying hardware, Tencent Cloud currently provides two instance series: *Series 1* and *Series 2*. Different instance series have the following instance types:
+In the following section, we will describe the CVM configurations in each availability zone. For more information on each instance type, refer to [Instance Types](https://cloud.tencent.com/doc/product/213/7153).By underlying hardware, Tencent Cloud currently provides two instance series: *Series 1* and *Series 2*. Different instance series have the following instance types:
 
 **Current-generation instance type**: standard S2, high-I/O I2, memory type M2, computing type C2
 **Last-generation instance type**: standard S1, High-I/O I1, memory type M1
 
 ## Instance Series 2
 Instance Series 2 currently only supports purchase in **South China (Guangzhou) - Guangzhou Zone 3** and **East China (Shanghai) - Shanghai Zone 1**.
-To purchase, click [here](https://buy.qcloud.com/?regionId=1&zoneId=100003&generation=v2).
+To purchase, click [here](https://buy.cloud.tencent.com/?regionId=1&zoneId=100003&generation=v2).
 
 ### 1.	South China (Guangzhou) – Guangzhou Zone 3
 

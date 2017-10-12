@@ -4,7 +4,7 @@ If you need to acquire the specific metric data of a monitoring object at a cert
 
 ## Acquiring the specific metric data of a monitoring object at a certain time through the console
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), click "Cloud Monitoring" - "Cloud Product Monitoring", and then select the type of the product you wish to view.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "Cloud Product Monitoring", and then select the type of the product you wish to view.
 > Note: If there is no desired product, you can check whether there is a monitoring tab in the corresponding product console and obtain relevant data there.
 
 2) Select a specific object to be monitored, and click object ID to enter the details page of monitor.
@@ -12,5 +12,5 @@ If you need to acquire the specific metric data of a monitoring object at a cert
 3) You can view the specific metric data of this monitoring object at a certain time by clicking on the specific metric on the left of the Overview page.
 
 ## Acquiring the specific metric data of a monitoring object at a certain time through API
-Please see [API GetMonitorData](https://www.qcloud.com/doc/api/405/4667).
+Please see [API GetMonitorData](https://cloud.tencent.com/doc/api/405/4667).
 

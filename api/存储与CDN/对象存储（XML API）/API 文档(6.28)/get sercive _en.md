@@ -11,7 +11,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (For more information, please see [Request Signature](https://www.qcloud.com/document/product/436/7778) chapter)
+> Authorization: Auth String (For more information, please see [Request Signature](https://cloud.tencent.com/document/product/436/7778) chapter)
 
 ### Request Line
 ~~~
@@ -22,7 +22,7 @@ This API allows GET request.
 ### Request Header
 
 **Common Header**
-This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://www.qcloud.com/document/product/436/7728) chapter.
+This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://cloud.tencent.com/document/product/436/7728) chapter.
 **Non-common header**
 No particular request header information for this request operation.
 ### Request Body
@@ -32,7 +32,7 @@ The request body of this request is null.
 
 ### Response Header
 #### Common Response Header 
-This response uses common response header. For more information, please see [Common Response Headers](https://www.qcloud.com/document/product/436/7729) chapter.
+This response uses common response header. For more information, please see [Common Response Headers](https://cloud.tencent.com/document/product/436/7729) chapter.
 #### Specific Response Header
 No particular response header for this response.
 ### Response Body
@@ -93,7 +93,7 @@ Content of Container node Bucket:
 | Node Name (Keyword)          | Parent Node | Description                                    | Type        |
 | ------------ | ------------------------------------- | --------- |:--|
 | Name      | ListAllMyBucketsResult.Buckets.Bucket | Name of Bucket                               | String    |
-| Location        | ListAllMyBucketsResult.Buckets.Bucket  | Region in which Bucket resides. For enumerated values, please see the document [Available Regions](https://www.qcloud.com/document/product/436/6224), such as: ap-beijing, ap-hongkong, eu-frankfurt, etc. | String    |
+| Location        | ListAllMyBucketsResult.Buckets.Bucket  | Region in which Bucket resides. For enumerated values, please see the document [Available Regions](https://cloud.tencent.com/document/product/436/6224), such as: ap-beijing, ap-hongkong, eu-frankfurt, etc. | String    |
 | CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Date on which the Bucket was created. It takes an ISO8601 format, for example, 2016-11-09T08:46:32.000Z  | Date   |
 
 

@@ -2,7 +2,7 @@ Restart is indispensable to the maintenance of CDB. Restarting PostgreSQL instan
 
 ## Use Console to Restart Instances
 
-1) Log in to [CDB for PostgreSQL Console](https://console.qcloud.com/pgsql).
+1) Log in to [CDB for PostgreSQL Console](https://console.cloud.tencent.com/pgsql).
 
 2) Click "Restart" in the operation column on the instance list to restart a single running PostgreSQL instance.
 

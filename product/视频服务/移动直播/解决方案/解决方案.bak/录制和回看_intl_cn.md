@@ -6,15 +6,15 @@
 
 ## 对接攻略
 ### 1.开启点播服务
-录制回看功能依托于腾讯云的**点播服务**后台集群支撑，如果您想要对接这个功能，首先需要在腾讯云的管理控制台[开通点播服务](http://console.qcloud.com/video)。
+录制回看功能依托于腾讯云的**点播服务**后台集群支撑，如果您想要对接这个功能，首先需要在腾讯云的管理控制台[开通点播服务](http://console.cloud.tencent.com/video)。
 
-开通点播服务之后，新录制的文件也可以在点播控制台的[视频管理](http://console.qcloud.com/video/videolist)里找到它们。
+开通点播服务之后，新录制的文件也可以在点播控制台的[视频管理](http://console.cloud.tencent.com/video/videolist)里找到它们。
 
 ### 2.开启直播录制
 腾讯云支持对视频直播过程进行全程录制，您可以使用两种方式开启录制功能：
 
 #### 2.1 全局开启
-即指定所有直播的视频流全部开启或者关闭录制，在[直播管理控制台](https://console.qcloud.com/live)中可以对其进行设置，见下图：
+即指定所有直播的视频流全部开启或者关闭录制，在[直播管理控制台](https://console.cloud.tencent.com/live)中可以对其进行设置，见下图：
 ![](//mc.qcloudimg.com/static/img/89c0a7e2b64527afae86e304635300b3/image.png)
 
 改方式的历史比较久了，腾讯云第一个版本的直播码录制就有全局录制开关，目前还只支持 flv 格式。
@@ -31,7 +31,7 @@ rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&
  
  - <font color='red'>如果您指定的录制格式是flv或mp4</font>，可以通过 record_interval 参数用于指定单个录制分片的时长，单位是秒，最长支持90分钟（也就是5400），不指定的话默认值是30分钟（也就是1800）。
  
- - hls（m3u8） 文件本身就是小分片机制，所以无所谓切断问题，只要直播过程中不断流，您只会拿到一个m3u8文件。但如果直播期间推流出现中断，录制过程依然会出现分段问题（也就是会得到多个m3u8），其中一个常见的问题就是 App 切后台，推荐采用后台推流解决方案（[ios](https://www.qcloud.com/doc/product/454/6946#step-8.3A-.E5.90.8E.E5.8F.B0.E6.8E.A8.E6.B5.81) & [android](https://www.qcloud.com/doc/product/454/6947)）进行缓解。
+ - hls（m3u8） 文件本身就是小分片机制，所以无所谓切断问题，只要直播过程中不断流，您只会拿到一个m3u8文件。但如果直播期间推流出现中断，录制过程依然会出现分段问题（也就是会得到多个m3u8），其中一个常见的问题就是 App 切后台，推荐采用后台推流解决方案（[ios](https://cloud.tencent.com/doc/product/454/6946#step-8.3A-.E5.90.8E.E5.8F.B0.E6.8E.A8.E6.B5.81) & [android](https://cloud.tencent.com/doc/product/454/6947)）进行缓解。
  
  - record_name 可以指定录制文件名，没有特别需求您还是不要用了（我怕您把URL长度撑爆了）。
  
@@ -45,7 +45,7 @@ rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&
 那么怎样才能拿到文件的地址呢？有如下两种解决方案：
 
 #### 3.1 消息通知
-您可以使用腾讯云的**[事件通知服务](https://www.qcloud.com/doc/api/258/5957)**：您的服务器注册一个自己的**回调URL**给腾讯云，腾讯云会在一个新的录制文件生成时通过这个URL通知给您。
+您可以使用腾讯云的**[事件通知服务](https://cloud.tencent.com/doc/api/258/5957)**：您的服务器注册一个自己的**回调URL**给腾讯云，腾讯云会在一个新的录制文件生成时通过这个URL通知给您。
 
 ![](//mc.qcloudimg.com/static/img/b50c901fb4d529daf3405e78bc69908d/image.png)
 
@@ -68,10 +68,10 @@ rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&
 ```
 
 #### 3.2 主动查询
-您可以通过腾讯云的文件查询接口（**[Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960)**）定时地查看是否有新的录制文件生成，不过这种方案在要查询的频道数特别多的时候，响应速度不理想，同时调用频率也不能太快（仅对刚结束的频道进行调用为宜），这种方案的实时性和可靠性不高，并不推荐频繁使用。
+您可以通过腾讯云的文件查询接口（**[Live_Tape_GetFilelist](https://cloud.tencent.com/doc/api/258/5960)**）定时地查看是否有新的录制文件生成，不过这种方案在要查询的频道数特别多的时候，响应速度不理想，同时调用频率也不能太快（仅对刚结束的频道进行调用为宜），这种方案的实时性和可靠性不高，并不推荐频繁使用。
 
 ### 4. 终端播放
 您的服务器获得录制的文件后，就可以生成播放 URL 了，APP 拿到 URL 后交给 RTMP SDK 的点播播放模块就可以观看回放:
-- [IOS平台参考文档](https://www.qcloud.com/doc/api/258/4738)
-- [Android平台参考文档](https://www.qcloud.com/doc/api/258/4739)
-- [Web平台参考文档](https://www.qcloud.com/doc/api/258/5706)
+- [IOS平台参考文档](https://cloud.tencent.com/doc/api/258/4738)
+- [Android平台参考文档](https://cloud.tencent.com/doc/api/258/4739)
+- [Web平台参考文档](https://cloud.tencent.com/doc/api/258/5706)

@@ -13,21 +13,21 @@ Tencent Cloud provides a set of LVB Code management APIs for your backend server
 
 | API                                | Description                                                   |
 |---------------------------------|--------------------------------------------------------------|
-| [Get_LiveStat](https://www.qcloud.com/doc/api/258/6110) | Statistics query - query the push and playback information |
-| [Get_LivePushStat](https://www.qcloud.com/doc/api/258/6110) | Statistics query - query the push information |
-| [Get_LivePlayStat](https://www.qcloud.com/doc/api/258/6110) | Statistics query - query the playback information |
-| [Get_LivePushStatHistory](https://www.qcloud.com/document/product/267/9579) | Obtain the history of push |
-| [Get_LivePushStatHistory](https://www.qcloud.com/document/product/267/9580) | Obtain the history of playback statistics |
-| [Live_Channel_GetStatus](https://www.qcloud.com/doc/api/258/5958) | Query only status information of a stream (old version API) | 
-| [Live_Channel_SetStatus](https://www.qcloud.com/doc/api/258/5959) | It is used to **ban** an LVB stream, mainly available for porn detection | 
-| [Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960) | Query the list of **recording files** for a stream in the LVB process | 
-| [Live_Queue_Get](https://www.qcloud.com/doc/api/258/5961) | Query the list of **screenshot files** for a stream in the LVB process |
-| [Live_Channel_GetChannelList](https://www.qcloud.com/document/product/267/7997) | Query channel list |
-| [Live_Channel_GetLiveChannelList](https://www.qcloud.com/document/product/267/8862) | Query the channel list in LVB |
-| [mix_streamv2.start_mix_stream_advanced](https://www.qcloud.com/document/product/267/8832) | API for stream mixing on the cloud |
-| [channel_manager](https://www.qcloud.com/document/product/267/9500) | Stop pushing stream and delay the availability of API - It can disable push for a specified stream |
-| [Live_Tape_Start](https://www.qcloud.com/document/product/267/9567) | Create a recording task - It supports scheduled recording task and real-time recording |
-| [Live_Tape_Stop](https://www.qcloud.com/document/product/267/9568) | End a recording task |
+| [Get_LiveStat](https://cloud.tencent.com/doc/api/258/6110) | Statistics query - query the push and playback information |
+| [Get_LivePushStat](https://cloud.tencent.com/doc/api/258/6110) | Statistics query - query the push information |
+| [Get_LivePlayStat](https://cloud.tencent.com/doc/api/258/6110) | Statistics query - query the playback information |
+| [Get_LivePushStatHistory](https://cloud.tencent.com/document/product/267/9579) | Obtain the history of push |
+| [Get_LivePushStatHistory](https://cloud.tencent.com/document/product/267/9580) | Obtain the history of playback statistics |
+| [Live_Channel_GetStatus](https://cloud.tencent.com/doc/api/258/5958) | Query only status information of a stream (old version API) | 
+| [Live_Channel_SetStatus](https://cloud.tencent.com/doc/api/258/5959) | It is used to **ban** an LVB stream, mainly available for porn detection | 
+| [Live_Tape_GetFilelist](https://cloud.tencent.com/doc/api/258/5960) | Query the list of **recording files** for a stream in the LVB process | 
+| [Live_Queue_Get](https://cloud.tencent.com/doc/api/258/5961) | Query the list of **screenshot files** for a stream in the LVB process |
+| [Live_Channel_GetChannelList](https://cloud.tencent.com/document/product/267/7997) | Query channel list |
+| [Live_Channel_GetLiveChannelList](https://cloud.tencent.com/document/product/267/8862) | Query the channel list in LVB |
+| [mix_streamv2.start_mix_stream_advanced](https://cloud.tencent.com/document/product/267/8832) | API for stream mixing on the cloud |
+| [channel_manager](https://cloud.tencent.com/document/product/267/9500) | Stop pushing stream and delay the availability of API - It can disable push for a specified stream |
+| [Live_Tape_Start](https://cloud.tencent.com/document/product/267/9567) | Create a recording task - It supports scheduled recording task and real-time recording |
+| [Live_Tape_Stop](https://cloud.tencent.com/document/product/267/9568) | End a recording task |
 
 ### 2. Call Method
 
@@ -39,7 +39,7 @@ To ensure performance, we use HTTP protocol to call the API. Therefore, an effec
 All cloud APIs related to LVB code adopt the same security check mechanism - **t + sign verification**:
 - **t (validity period)**: If the t value specified in an API request or notification has expired, the request or notification is invalid. The purpose is to prevent network replay attacks. The format of t is the UNIX time stamp, that is, the number of seconds that have elapsed since January 1, 1970 (midnight in UTC/GMT).
 
-- **sign (security signature)**: <font color='blue'>sign=MD5 (key + t)</font>, that is, to calculate the MD5 value by concatenating the strings of the encryption key and t. The encryption key here is CGI call key, which can be configured in Tencent Cloud LVB [Console](https://console.qcloud.com/live/livecodemanage):
+- **sign (security signature)**: <font color='blue'>sign=MD5 (key + t)</font>, that is, to calculate the MD5 value by concatenating the strings of the encryption key and t. The encryption key here is CGI call key, which can be configured in Tencent Cloud LVB [Console](https://console.cloud.tencent.com/live/livecodemanage):
 
 ![](//mc.qcloudimg.com/static/img/e5034b47cead66be46b1f81a1fea8274/image.png)
 
@@ -70,8 +70,8 @@ MD5 is an irreversible HASH algorithm. As long as the key is not disclosed, atta
 |---------|---------|---------|
 | appid is invalid | appid is invalid, which means the feature is not activated ||
 
-**Note: The above error codes are specific to the APIs in "1. API List" of this document. [Event Message Notification](https://www.qcloud.com/document/product/267/5957) is not included**.
+**Note: The above error codes are specific to the APIs in "1. API List" of this document. [Event Message Notification](https://cloud.tencent.com/document/product/267/5957) is not included**.
 
 ## Message Notification
-For more information, please see Tencent Cloud [Event Message Notification](https://www.qcloud.com/document/product/267/5957) service. 
+For more information, please see Tencent Cloud [Event Message Notification](https://cloud.tencent.com/document/product/267/5957) service. 
 

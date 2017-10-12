@@ -17,4 +17,4 @@
 运营月报提供月度 CDN 消耗分析报表。
 
 ### 7. 查看带宽使用情况
-您可以在控制台中查看流量及带宽使用详情，具体操作步骤请参阅 [使用量统计](https://www.qcloud.com/document/product/228/6307#.E4.BD.BF.E7.94.A8.E9.87.8F.E7.BB.9F.E8.AE.A1)。
+您可以在控制台中查看流量及带宽使用详情，具体操作步骤请参阅 [使用量统计](https://cloud.tencent.com/document/product/228/6307#.E4.BD.BF.E7.94.A8.E9.87.8F.E7.BB.9F.E8.AE.A1)。

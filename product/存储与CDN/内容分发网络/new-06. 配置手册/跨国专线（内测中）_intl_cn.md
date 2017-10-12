@@ -7,7 +7,7 @@
 3. 若国内三级源站依然无所需资源，则会向源站发起请求。
 
 ## 配置操作
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/ec6fc01715f571cdb20247a9992e98b6/manage_abroad.png)
 单击【高级配置】，您可以看到 **跨国专线配置** 模块。默认情况下，跨国专线配置及海外中间源配置按钮为灰色，均为关闭状态。
 ![](https://mc.qcloudimg.com/static/img/55bd86df8e718be41d3b44781aebdba0/crosscountry.png)

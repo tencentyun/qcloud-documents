@@ -1,6 +1,6 @@
 ## 查看伸缩活动
 
-打开控制台，选择导航条中的[【伸缩组】](https://console.qcloud.com/autoscaling)。
+打开控制台，选择导航条中的[【伸缩组】](https://console.cloud.tencent.com/autoscaling)。
 
 选择要修改的伸缩组，点击伸缩组ID进入伸缩组基本信息页面。
 

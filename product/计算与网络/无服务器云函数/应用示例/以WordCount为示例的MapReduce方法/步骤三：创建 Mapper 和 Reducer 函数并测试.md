@@ -2,7 +2,7 @@
 
 ## 创建 Mapper 函数
 ### 通过控制台创建函数
-1) 登录[无服务器云函数控制台](https://console.qcloud.com/scf)，在【广州】地域下点击【新建】按钮；
+1) 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮；
 
 2) 进入函数配置部分，函数名称填写`Mapper`，剩余项保持默认，点击【下一步】；
 
@@ -15,7 +15,7 @@
 
 ## 创建 Reducer 函数
 ### 通过控制台创建函数
-1) 登录[无服务器云函数控制台](https://console.qcloud.com/scf)，在【广州】地域下点击【新建】按钮；
+1) 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮；
 
 2) 进入函数配置部分，函数名称填写`Reducer`，剩余项保持默认，点击【下一步】；
 
@@ -79,7 +79,7 @@
 
 4) 点击【运行】按钮，观察运行结果。
 
-5) 前往[对象存储控制台](https://console.qcloud.com/cos4/index)，点击步骤一：准备 COS Bucket 中创建的`destmr`，观察该 COS Bucket 中是否有`result_middle_serverless.txt`文件生成，该文件中统计了刚刚上传的文本文件中文章各个单词出现的次数：
+5) 前往[对象存储控制台](https://console.cloud.tencent.com/cos4/index)，点击步骤一：准备 COS Bucket 中创建的`destmr`，观察该 COS Bucket 中是否有`result_middle_serverless.txt`文件生成，该文件中统计了刚刚上传的文本文件中文章各个单词出现的次数：
 
 6) 下载该文件，文件内容应该类似如下：
 ```

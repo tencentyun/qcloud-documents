@@ -48,7 +48,7 @@ Enter the ID number of a channel to obtain the current status, name, description
 
 Input 1
 <pre>
-https://domain/v2/index.php?Action=DescribeLVBChannel&channelId=96171715553394807&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+https://domain/v2/index.php?Action=DescribeLVBChannel&channelId=96171715553394807&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 </pre>
 
 Output 1

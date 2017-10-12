@@ -1,7 +1,7 @@
-This document mainly describes the interfacing solution of Tencent Cloud's joint broadcasting feature. If you want to learn the principle of the feature, please see [How to Achieve Joint Broadcasting?](https://www.qcloud.com/document/product/454/8092)
+This document mainly describes the interfacing solution of Tencent Cloud's joint broadcasting feature. If you want to learn the principle of the feature, please see [How to Achieve Joint Broadcasting?](https://cloud.tencent.com/document/product/454/8092)
 
 ## Version Updating
-The joint broadcasting feature is enabled from RTMP SDK 1.8.2. Go to [Download Page](https://www.qcloud.com/document/product/454/7873) to download the latest RTMP SDK. In addition, the sample codes of this solution have been integrated into the Mini LVB [DEMO](https://www.qcloud.com/document/product/454/6991).
+The joint broadcasting feature is enabled from RTMP SDK 1.8.2. Go to [Download Page](https://cloud.tencent.com/document/product/454/7873) to download the latest RTMP SDK. In addition, the sample codes of this solution have been integrated into the Mini LVB [DEMO](https://cloud.tencent.com/document/product/454/6991).
 
 ## Glossary
 - **session_id**
@@ -36,14 +36,14 @@ For multi-way joint broadcasting, a VJ needs to play equal ways of audio and vid
 
 ## Intra-Studio Joint Broadcasting
 ### Step 1. Primary VJ push
-For more information on how to enable LVB feature at the VJ side, please see [Android Push](https://www.qcloud.com/document/product/454/7885). If it is your first time to use RTMP SDK, please be sure to read documents about basic push features.
+For more information on how to enable LVB feature at the VJ side, please see [Android Push](https://cloud.tencent.com/document/product/454/7885). If it is your first time to use RTMP SDK, please be sure to read documents about basic push features.
 
 ![](//mc.qcloudimg.com/static/img/779bb742c46a415b505cb8b21c6b2c59/image.png)
 
 Note: You need to pay attention to the following points:
 
 - **1.1 Add joint broadcasting parameters to a push URL**
-[How to Get a push URL](https://www.qcloud.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8 .E6.8B.BC.E8.A3.85.EF.BC.9F) details the construction rules of push URL. if you want to perform joint broadcasting, add additional parameters to the push URL:
+[How to Get a push URL](https://cloud.tencent.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8 .E6.8B.BC.E8.A3.85.EF.BC.9F) details the construction rules of push URL. if you want to perform joint broadcasting, add additional parameters to the push URL:
 ![](//mc.qcloudimg.com/static/img/a066ac2f6caf1764b69477a9aa031d0e/image.png)
 
  **&mix=layer:s;session_id:1234;t_id:1** is used to tell Tencent Cloud that this LVB stream supports joint broadcasting, with the studio ID of joint broadcasting being 1234.
@@ -76,7 +76,7 @@ This step is intended to entitle the primary VJ to the decision-making right on 
 
 As shown above: Viewer A requests to the VJ: "I want to perform joint broadcasting with you", and the VJ agrees or refuses. If the VJ agrees, the response message of the VJ must bring the session_id in Step 1.1 to A.
 
-In practice, you can use C2C (Client To Client) message channel. Tencent Cloud IM service provides a C2C solution, and you can see [How to Build a Chat Room](https://www.qcloud.com/document/product / 454/7980) to learn IM service usage.
+In practice, you can use C2C (Client To Client) message channel. Tencent Cloud IM service provides a C2C solution, and you can see [How to Build a Chat Room](https://cloud.tencent.com/document/product / 454/7980) to learn IM service usage.
 
 ### Step 3. Secondary VJ push
 If the primary VJ agrees, viewer A will become a secondary VJ and then need to push, otherwise the primary VJ cannot see the image of the secondary VJ.
@@ -114,7 +114,7 @@ The interfacing solution of secondary VJ push is the same as that of the primary
 ### Step 4. Create a low-latency playback linkage
 After Step 1 - Step 3, both primary VJ and secondary VJ(s) have started push, so viewers can see two (or more) screens. However, this is far from enough because VJs cannot see each other.
 
-[Android Playback](https://www.qcloud.com/document/product/454/7886) details how to use playback feature on the viewer side. If CDN-issued [Playback URL](https://www.qcloud.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8.E6 .8B.BC.E8.A3.85.EF.BC.9F) could have been used between VJs, like between VJs and viewers, VJs could certainly see and hear each other.
+[Android Playback](https://cloud.tencent.com/document/product/454/7886) details how to use playback feature on the viewer side. If CDN-issued [Playback URL](https://cloud.tencent.com/document/product/454/7915#.E5.90.8E.E5.8F.B0.E8.87.AA.E5.8A.A8.E6 .8B.BC.E8.A3.85.EF.BC.9F) could have been used between VJs, like between VJs and viewers, VJs could certainly see and hear each other.
 
 However, CDN playback URL can cause **delay**, which is definitely unacceptable for real-time communication between VJs. Therefore, we need to adjust TXLivePlayer parameters to keep the delay between primary VJ and secondary VJ(s) below one second:
 
@@ -133,7 +133,7 @@ For both primary VJ and secondary VJ(s), low-latency playback linkage can be ach
 ![](//mc.qcloudimg.com/static/img/59c492abef77cddaf026cfd7509de678/image.png)
  + URL must use RTMP as playback protocol because the delay time cannot be minimized to seconds with FLV protocol.
  + session_id must be that of the other side, meaning that secondary VJ(s) should use the session_id of primary VJ when constructing a playback URL. For intra-studio joint broadcasting, we do not need to consider this because both sides use the same session_id.
- +A hotlink protection signature is required for playback address. For more information about signature method, please see [Push Hotlink Protection Calculation](https://www.qcloud.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F). Since almost all the Tencent Cloud customers are configured with push hotlink protection key, you can directly use this key to reduce your access expenses.
+ +A hotlink protection signature is required for playback address. For more information about signature method, please see [Push Hotlink Protection Calculation](https://cloud.tencent.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F). Since almost all the Tencent Cloud customers are configured with push hotlink protection key, you can directly use this key to reduce your access expenses.
 
 - **4.3.2 Modify player parameters**
  + The parameter type of startPlay needs to be set to **PLAY_TYPE_LIVE_RTMP_ACC** added in version 1.8.2.
@@ -234,7 +234,7 @@ Please see [Step 1](# step1 .-. E2.80.9C.E5.A4.A.E.BB.BB.E6.92.AD.E2.80.9D.E6.8E
 - **Cross-studio joint broadcasting**: Since primary VJ and secondary VJ(s) use different session_ids, VJs must use session_id of the other side when constructing low-delay playback URL, otherwise the video will stutter badly.
 
 ### Step 5. Multi-stream mixing
-- **Cross-studio joint broadcasting**: Currently multi-stream mixing is only supported on the client and not supported on the server. We will enable a new commen cgi style API. By then, you can view its definition in [Tencent Cloud Server APIs](https://www.qcloud.com/document/product/454/7920).
+- **Cross-studio joint broadcasting**: Currently multi-stream mixing is only supported on the client and not supported on the server. We will enable a new commen cgi style API. By then, you can view its definition in [Tencent Cloud Server APIs](https://cloud.tencent.com/document/product/454/7920).
 
 
 

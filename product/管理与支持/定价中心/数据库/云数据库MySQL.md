@@ -1,6 +1,6 @@
 ## 云数据库 MySQL 定价
 
-您可以点击[云数据库 Mysql计算器](https://buy.qcloud.com/calculator/cdb)来查看产品价格，估算资源成本，加入购买预算清单，更可实现一键购买。
+您可以点击[云数据库 Mysql计算器](https://buy.cloud.tencent.com/calculator/cdb)来查看产品价格，估算资源成本，加入购买预算清单，更可实现一键购买。
 
 注：为保证您获取价格准确性，请登录后查看。
 

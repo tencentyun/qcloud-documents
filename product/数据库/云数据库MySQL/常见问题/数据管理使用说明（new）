@@ -1,5 +1,5 @@
 ## 1. 数据管理 DMC 使用说明
-1. 在 [云数据库控制台](https://console.qcloud.com/cdb) 在相应实例的操作栏单击【登录】，进入数据库管理控制台登录界面，如下图所示：
+1. 在 [云数据库控制台](https://console.cloud.tencent.com/cdb) 在相应实例的操作栏单击【登录】，进入数据库管理控制台登录界面，如下图所示：
 ![](//mc.qcloudimg.com/static/img/e88ef23e20a2bb9870c23063a267fe0f/image.png)
 2. 选择地域和实例（默认为您刚才选择的实例），输入帐号密码后单击【登录】，进入数据库管理控制台，如下图所示：
 ![](//mc.qcloudimg.com/static/img/51a078f9117cc5ec1e9765ff727ac42b/image.png)

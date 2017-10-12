@@ -2,7 +2,7 @@
 
 -----------------------------------------------------------------------------------------------------------------
 
-This document introduces how to interface with the upgraded Tencent Video Cloud joint broadcasting solution. For more information on how to interface with the old joint broadcasting solution, please see [Android Joint Video Broadcasting (old solution)](https://www.qcloud.com/document/product/454/8091). If it is your first time to use the joint broadcasting feature, we strongly recommend you to use the upgraded joint broadcasting solution.
+This document introduces how to interface with the upgraded Tencent Video Cloud joint broadcasting solution. For more information on how to interface with the old joint broadcasting solution, please see [Android Joint Video Broadcasting (old solution)](https://cloud.tencent.com/document/product/454/8091). If it is your first time to use the joint broadcasting feature, we strongly recommend you to use the upgraded joint broadcasting solution.
 
 ### Demo
 Before introducing the guide on interfacing with the upgraded joint broadcasting solution, we will provide joint broadcasting Demo from version 2.0.3, to help you quickly understand how the joint broadcasting works.
@@ -11,7 +11,7 @@ Before introducing the guide on interfacing with the upgraded joint broadcasting
 
 If user A and user B start a joint broadcasting session, the method in joint broadcasting Demo is:
 
-1. Both user A and user B generate their push URLs and pull URLs respectively. Please note that, **pull URLs must contain hotlink protection key (i.e. parameters "bizid", "txSecret" and "txTime")**. For more information about the method for generating URLs, please see [Accelerated Pull URL](https://www.qcloud.com/document/product/454/8872#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E4.BA.92.E7.9B.B8.E6.8B.89.E6.B5.818) below:
+1. Both user A and user B generate their push URLs and pull URLs respectively. Please note that, **pull URLs must contain hotlink protection key (i.e. parameters "bizid", "txSecret" and "txTime")**. For more information about the method for generating URLs, please see [Accelerated Pull URL](https://cloud.tencent.com/document/product/454/8872#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E4.BA.92.E7.9B.B8.E6.8B.89.E6.B5.818) below:
 
 ```
 Push URL A: rtmp://3891.livepush.myqcloud.com/live/3891_streamA?bizid=3891&txSecret=9d6e1a1ec1dde00dab718e5684ad53a3&txTime=5919D07F
@@ -31,7 +31,7 @@ Pull URL B:rtmp://3891.liveplay.myqcloud.com/live/3891_streamB?bizid=3891&txSecr
 
 Notes:
 - In Step 3 "scan a pull URL and add a pull stream", the hotlink protection key must be added in the pull URL. Only with this key, can pull playback be achieved in the Demo by using accelerated pull API discussed later in this document, to reduce video latency and eliminate audio echo;
-- In this joint broadcasting Demo, since we only establish a real-time two-way video session between primary VJ and secondary VJ without mixing video streams, the third-party viewers can only see the video image of primary VJ. In practice, the joint broadcasting can only be achieved by mixing video streams of primary and secondary VJs using [Video Stream Mixing Method](https://www.qcloud.com/document/product/454/8872#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.B7.B7.E6.B5.8111) discussed later in this document.
+- In this joint broadcasting Demo, since we only establish a real-time two-way video session between primary VJ and secondary VJ without mixing video streams, the third-party viewers can only see the video image of primary VJ. In practice, the joint broadcasting can only be achieved by mixing video streams of primary and secondary VJs using [Video Stream Mixing Method](https://cloud.tencent.com/document/product/454/8872#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.B7.B7.E6.B5.8111) discussed later in this document.
 
 ### Interfacing Guide
 
@@ -56,7 +56,7 @@ If multiple secondary VJs join with primary VJ in a broadcasting session at the 
 
 In the upgraded solution, when enabling push, both primary and secondary VJs **don't need to add joint broadcasting parameter after their push URLs**. However in old solution, the primary VJ needs to add the joint broadcasting parameter "mix=layer:b;session_id:xxxx;t_id:1" and secondary VJ needs to add "mix=layer:s;session_id:xxxx;t_id:1" to enable video stream mixing on server. For upgraded solution, the video stream mixing is enabled by calling backend CGI to provide a higher flexibility;
 
-For more information on how to enable LVB push feature at the VJ side, please see [Android Push](https://www.qcloud.com/document/product/454/7885). If it is your first time to use RTMP SDK, please be sure to read relevant document about basic push features.
+For more information on how to enable LVB push feature at the VJ side, please see [Android Push](https://cloud.tencent.com/document/product/454/7885). If it is your first time to use RTMP SDK, please be sure to read relevant document about basic push features.
 
 There are two points to note about the push under the joint broadcasting mode: 1. You need to enable echo elimination; 2. You need to control latency using appropriate control policy. Actually, you don't need to worry about these two points. We strongly recommend you to use video quality configuration API "setVideoQuality" provided by SDK with a version of 1.9.2 or above. Each of the following enumerated video qualities corresponds to a set of quality parameters (such as video resolution, bitrate, frame rate, whether to enable echo elimination), and all of them have been optimized, please feel free to use.
 
@@ -144,7 +144,7 @@ Notes:
 
 Under the joint broadcasting mode, the primary VJ and secondary VJ must pull each other's stream using accelerated pull API provided by SDK. Before we introduce how to use the accelerated pull API, you need to know three scenarios where primary VJ and secondary VJ need to pull each other's stream:
 
-- Before a secondary VJ joins a broadcasting session, viewers watch primary VJ's video using generic pull API (document [Android Pull](https://www.qcloud.com/document/product/454/7886)). After a secondary VJ joins a broadcasting session, viewers must watch primary VJ's video using accelerated pull API. After a secondary VJ exits from a joint broadcasting session, viewers must change the API to generic pull API to watch primary VJ's video.
+- Before a secondary VJ joins a broadcasting session, viewers watch primary VJ's video using generic pull API (document [Android Pull](https://cloud.tencent.com/document/product/454/7886)). After a secondary VJ joins a broadcasting session, viewers must watch primary VJ's video using accelerated pull API. After a secondary VJ exits from a joint broadcasting session, viewers must change the API to generic pull API to watch primary VJ's video.
 - Before joining a broadcasting session, the primary VJ does not need to pull the video stream. Under the joint broadcasting mode, the primary VJ needs to watch secondary VJ's video using accelerated pull API.
 - If multiple secondary VJs (a maximum of three VJs is supported currently) join with primary VJ in a broadcasting session at the same time: The primary VJ needs to pull each secondary VJ's video stream using the accelerated pull API. In addition to primary VJ's video stream, a secondary VJ also needs to pull the video streams of other secondary VJs.
 
@@ -157,7 +157,7 @@ Next, we will introduce how to use the accelerated pull API in details:
 Please note:
 
 - URL must use RTMP playback protocol, because the delay time cannot be minimized to seconds with FLV protocol.
-- A hotlink protection signature is required for playback URL. For more information about signature method, please see [Push Hotlink Protection Calculation](https://www.qcloud.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F). Since almost all the Tencent Cloud customers are configured with push hotlink protection key, you can directly use this key to reduce your access expenses. You can use the pull hotlink protection key if you configure it when accessing Tencent Cloud LVB.
+- A hotlink protection signature is required for playback URL. For more information about signature method, please see [Push Hotlink Protection Calculation](https://cloud.tencent.com/document/product/454/7915#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F). Since almost all the Tencent Cloud customers are configured with push hotlink protection key, you can directly use this key to reduce your access expenses. You can use the pull hotlink protection key if you configure it when accessing Tencent Cloud LVB.
 
 #### 2. Set player parameters
 
@@ -203,7 +203,7 @@ http://fcgi.video.qcloud.com/common_access?cmd=appid&interface=Mix_StreamV2&t=t&
 - **cmd**: Enter LVB APPID, which is used for differentiating the identity of different customers
 - **interface**: Always entered with Mix_StreamV2
 - **t (expiration time)**: UNIX time stamp, that is, the number of seconds that have elapsed since January 1, 1970 (Midnight in UTC/GMT). This field indicates the expiration time of request. Please add 60 seconds of offset to the current time (in sec)
-- **sign (security signature)**: sign = MD5(key + t), that is, to compute the MD5 value by concatenating the strings of the encryption key and t. The encryption key here is the API authentication key you set in Tencent Cloud LVB [Console](https://console.qcloud.com/live/livecodemanage)
+- **sign (security signature)**: sign = MD5(key + t), that is, to compute the MD5 value by concatenating the strings of the encryption key and t. The encryption key here is the API authentication key you set in Tencent Cloud LVB [Console](https://console.cloud.tencent.com/live/livecodemanage)
 
 Example on how to calculate security signature **sign** 
 

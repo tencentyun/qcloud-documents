@@ -1,10 +1,10 @@
 ### 简介
 
 默认VPC及默认子网功能目前处于**灰度**阶段，只有**2017.6.13后**新注册的部分账号的网络属性为only-vpc，其它均为classic属性，其中：
-- **only-vpc**账号仅支持在VPC下创建实例（如CVM、LB等），无法在 [基础网络](https://www.qcloud.com/document/product/215/535)内创建实例。
+- **only-vpc**账号仅支持在VPC下创建实例（如CVM、LB等），无法在 [基础网络](https://cloud.tencent.com/document/product/215/535)内创建实例。
 - ** classic**账号可在基础网络 或 VPC下创建实例。
 
-您可以通过接口([DescribeAccountVpcAttributes](https://www.qcloud.com/document/api/215/9499))用于查询账号网络属性。
+您可以通过接口([DescribeAccountVpcAttributes](https://cloud.tencent.com/document/api/215/9499))用于查询账号网络属性。
 
 
 ### 默认VPC 和 默认子网

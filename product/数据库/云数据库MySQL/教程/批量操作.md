@@ -1,5 +1,5 @@
 ## 批量续费
-1. 进入 [云数据库数据控制台](https://console.qcloud.com/cdb)，选中一个或多个需要续费的实例，单击【续费】操作。
+1. 进入 [云数据库数据控制台](https://console.cloud.tencent.com/cdb)，选中一个或多个需要续费的实例，单击【续费】操作。
 ![](https://mc.qcloudimg.com/static/img/83008284f2d39df398d2cce0cc3eb706/check_one.png)
 2. 选择续费时长，单击【确定】后进入下一步。
 ![](https://mc.qcloudimg.com/static/img/2e4a806ce72aeacfc9fd0ca2d4446bfb/check_two.png)
@@ -17,7 +17,7 @@
 
 ### 批量回档具体操作步骤
 
-1. 进入 [云数据库数据控制台](https://console.qcloud.com/cdb)，选中一个或多个需要回档的实例，单击【更多操作】 > 【回档】。
+1. 进入 [云数据库数据控制台](https://console.cloud.tencent.com/cdb)，选中一个或多个需要回档的实例，单击【更多操作】 > 【回档】。
 ![](https://mc.qcloudimg.com/static/img/38b5002d8b4d158a5c57c150b50277ad/reback_one.png)
 2. 选择回档方式，指定需要回档的库表和回档时间，单击【批量回档】。
 >**注意：**  
@@ -34,7 +34,7 @@
 
 ### 批量SQL操作操作步骤
 
-1. 进入 [云数据库数据控制台](https://console.qcloud.com/cdb)，选中一个或多个需要 SQL 操作的实例，单击【更多操作】 > 【SQL操作】。
+1. 进入 [云数据库数据控制台](https://console.cloud.tencent.com/cdb)，选中一个或多个需要 SQL 操作的实例，单击【更多操作】 > 【SQL操作】。
 ![](https://mc.qcloudimg.com/static/img/e404ae00352e6118163f7a6701edd228/sql_one.png)
 2. 选择需要操作的实例或数据库，单击进入【下一步】。
 ![](https://mc.qcloudimg.com/static/img/2301e2abe6a5486c4764aa1d75227565/sql_two.png)

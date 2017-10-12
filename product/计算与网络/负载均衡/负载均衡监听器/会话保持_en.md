@@ -8,10 +8,10 @@ Layer-4 forwarding scenario supports simple session persistence. The session per
 ## Layer-7 Session Persistence
 Layer-7 forwarding scenario supports session persistence based on cookie insertion (the cookie is stuffed into the client by cloud load balancer) 
 
-Session persistence duration is not adjustable currently and the default is `75` seconds.  If the time threshold is exceeded and there is no new request in the session, the session will be disconnected.  For more information on session persistence based on cookie insertion, refer to [here](https://www.qcloud.com/doc/product/214/%E4%BC%9A%E8%AF%9D%E4%BF%9D%E6%8C%81%E5%8E%9F%E7%90%86). 
+Session persistence duration is not adjustable currently and the default is `75` seconds.  If the time threshold is exceeded and there is no new request in the session, the session will be disconnected.  For more information on session persistence based on cookie insertion, refer to [here](https://cloud.tencent.com/doc/product/214/%E4%BC%9A%E8%AF%9D%E4%BF%9D%E6%8C%81%E5%8E%9F%E7%90%86). 
 
 ## Configuring Session Persistence
-1) Log in to [Cloud Load Balance Console](https://console.qcloud.com/loadbalance), click the cloud load balancer instance ID to be configured with session persistence and go to the cloud load balancer details page. 
+1) Log in to [Cloud Load Balance Console](https://console.cloud.tencent.com/loadbalance), click the cloud load balancer instance ID to be configured with session persistence and go to the cloud load balancer details page. 
 
 2) Click the "Modify" button after the cloud load balancer listener to be configured with session persistence. 
 

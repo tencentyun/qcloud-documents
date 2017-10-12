@@ -1,4 +1,4 @@
-通过本教程，您将了解到如何通过 CDN 快速地分发内容。腾讯云在全国各省份部署 800+ 加速节点，您的服务内容将缓存至距离用户最近的节点，再通过全网监控与智能调度，将用户请求精准调度到最优接入节点，降低访问延迟，帮助用户快速获取所需内容。要实现 CDN 加速，您需要准备一个原始服务器（又称：源站），当节点中没有缓存用户请求的内容时，CDN 会向源站请求内容，返回给用户并缓存到 CDN 节点。本次教程将使用腾讯云 [对象存储](https://www.qcloud.com/product/cos) 存储桶作为源站，按照下列步骤进行操作，最终您将可以通过浏览器访问存储桶中的内容。
+通过本教程，您将了解到如何通过 CDN 快速地分发内容。腾讯云在全国各省份部署 800+ 加速节点，您的服务内容将缓存至距离用户最近的节点，再通过全网监控与智能调度，将用户请求精准调度到最优接入节点，降低访问延迟，帮助用户快速获取所需内容。要实现 CDN 加速，您需要准备一个原始服务器（又称：源站），当节点中没有缓存用户请求的内容时，CDN 会向源站请求内容，返回给用户并缓存到 CDN 节点。本次教程将使用腾讯云 [对象存储](https://cloud.tencent.com/product/cos) 存储桶作为源站，按照下列步骤进行操作，最终您将可以通过浏览器访问存储桶中的内容。
 
 **开始前请将您的 CDN 计费方式设为流量计费。CDN 及对象存储服务的免费额度足以完成本次教程，无需任何花费。**
 
@@ -7,12 +7,12 @@
 1. 本教程中我们将使用下图作为测试图片。您可以单击 [Tencent_CDN.png](http://cdntest-1253833564.cosgz.myqcloud.com/Tencent_CDN.png) 下载原图，也可以使用您计算机上的图片。
 ![](https://mc.qcloudimg.com/static/img/975e127f832bf943b5b0575d96c9d160/Tencent_CDN.png)
 2. 创建 COS 存储桶。若您已有 COS 存储桶，请跳到步骤 3。
-	2-1. 登录 [COS 控制台](https://console.qcloud.com/cos4) ，单击概览页上的【创建 Bucket】，弹出创建 Bucket 对话框。
+	2-1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos4) ，单击概览页上的【创建 Bucket】，弹出创建 Bucket 对话框。
 	![](https://mc.qcloudimg.com/static/img/94a92b09d6dd58e9de2e9a3c8a3c3586/image.png)
 	2-2. 填写存储桶名称（如：cdntest），选定存储桶所属地域，单击【确定】即可快速创建一个存储桶。
 	![](https://mc.qcloudimg.com/static/img/2da55897ed9666300bb2a0eeacdb0ea6/create_bucket.png)
 3. 将测试图片 **Tencent_CDN.png** 上传至 COS 存储桶。
-	3-1. 登录 [COS 控制台](https://console.qcloud.com/cos4) ，单击【Bucket 列表】，进入存储桶列表。单击您想存储对象的存储桶，进入存储桶的文件列表页面。
+	3-1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos4) ，单击【Bucket 列表】，进入存储桶列表。单击您想存储对象的存储桶，进入存储桶的文件列表页面。
 	![](https://mc.qcloudimg.com/static/img/ddbbd04cea224839ec026ca11c2ea56c/bucket_list.png)
 	3-2. 在文件列表中，单击【上传文件】，出现上传文件对话框。
 	![](https://mc.qcloudimg.com/static/img/78b365fd883bfd6231a65c3f9d935166/upload_file.png)
@@ -21,7 +21,7 @@
 
 ## 二、接入域名
 配置源站完成后，将您的域名接入 CDN。
-1. 登录 [CDN 控制台](https://console.qcloud.com/cdn)，单击左侧菜单中【域名管理】进入 **域名管理** 页面，单击【添加域名】。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧菜单中【域名管理】进入 **域名管理** 页面，单击【添加域名】。
 ![](https://mc.qcloudimg.com/static/img/e68a96fa42843fa13f58afc7ba15e2fe/add_host.png)
 2. 填写域名相关配置及加速服务相关配置。
 	2-1. 在 **域名** 处填入您的域名，域名必须已经在工信部备案。
@@ -32,10 +32,10 @@
 
 ## 三、CNAME 配置
 接入域名完成后，CDN 会自动为您分配一个以 ```.cdn.dnsv1.com``` 为后缀的 CNAME 域名。您需要在您的域名 DNS 服务商为您的域名添加一条 CNAME 记录。
-1. 登录 [CDN 控制台](https://console.qcloud.com/cdn)，单击左侧菜单中【域名管理】进入 **域名管理** 页面，查看您的 CNAME 域名。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧菜单中【域名管理】进入 **域名管理** 页面，查看您的 CNAME 域名。
 ![](https://mc.qcloudimg.com/static/img/39bf233c5145c1f1c64bfa2c628c6019/check_cname.png)
-2. 到您的域名 DNS 服务商处添加 CNAME 解析记录。本教程所使用域名 DNS 服务商为腾讯云，其他服务商请参阅 [CNAME 配置](https://www.qcloud.com/document/product/228/3121)。
-	2-1. 登录 [域名管理](https://console.qcloud.com/domain) 控制台，单击您的域名右侧的【解析】跳转到 **记录管理** 页面。
+2. 到您的域名 DNS 服务商处添加 CNAME 解析记录。本教程所使用域名 DNS 服务商为腾讯云，其他服务商请参阅 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121)。
+	2-1. 登录 [域名管理](https://console.cloud.tencent.com/domain) 控制台，单击您的域名右侧的【解析】跳转到 **记录管理** 页面。
 	![](https://mc.qcloudimg.com/static/img/d736722a9a2f0788f55c3ea10320baab/mydomain.png)
 	2-2. 单击【添加记录】，添加 CNAME 记录。
 	![](https://mc.qcloudimg.com/static/img/280a9f09e37eeb5938a8b10b7e671b9c/add_record.png)
@@ -47,7 +47,7 @@
 
 ## 四、结果测试
 完成上述操作后，通过浏览器访问您的内容测试是否配置成功。
-1. 登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您的域名右侧的【管理】。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/064a6808d098beea397e55b6e776194d/domain_manage.png)
 2. 在【基本配置】页面中，查看 **源站信息** 中的 **源站地址**。
 ![](https://mc.qcloudimg.com/static/img/72392441874862aa65307d4214af1ec8/host_info.png)
@@ -75,7 +75,7 @@
 
 ## 五、关闭 CDN
 您可以在 CDN 控制台中关闭域名加速服务。若您决定不再使用某些内容，最好关闭他们对应的 CDN 服务，以免产生不必要的消耗。关闭本教程中对应的 CDN 服务后，用户将不能再通过您的域名访问您 COS 源中的内容。
-1. 登录 [CDN 控制台](https://console.qcloud.com/cdn)，单击【域名管理】进入 **域名管理** 页面，右键单击要关闭加速服务的域名，选择【关闭 CDN】。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击【域名管理】进入 **域名管理** 页面，右键单击要关闭加速服务的域名，选择【关闭 CDN】。
 ![](https://mc.qcloudimg.com/static/img/367e6359e85fb7eebb2a9867506948a8/shutdown_cdn.png)
 2. 单击【确定关闭】即可关闭 CDN。
 ![](https://mc.qcloudimg.com/static/img/6f16a16eb5999c72ad9b3b39139eccd7/shutdown_confirm.png)
