@@ -210,7 +210,7 @@ data 字段具体内容：
 | name_confidence  | double | 姓名置信度                         |
 | phone_confidence | double | 手机号置信度                        |
 | uin_confidence   | double | QQ 号置信度                        |
-| image            | string | 返回图片的 base64 编码（ret_image=1时返回） |
+| image            | string | 返回图片的 base64 编码（ret_image=1 时返回） |
 
 ><font color="#0000cc">**注意：** </font>
 如未识别出某字段（如 name），则该字段对应的置信度（如 name_confidence ）为-1。
