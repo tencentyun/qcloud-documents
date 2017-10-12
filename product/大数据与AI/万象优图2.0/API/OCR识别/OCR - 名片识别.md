@@ -5,7 +5,7 @@ OCR - 名片识别可识别名片上的姓名、手机号、地址等信息。OC
 接口：`http://service.image.myqcloud.com/ocr/namecard`
 请求方式： POST
 
-说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
+说明：该接口的费用可查看 [计费说明](/doc/product/460/6970)，按使用量进行月结。
 ## 使用图片 url
 ### 请求
 **请求语法:**
