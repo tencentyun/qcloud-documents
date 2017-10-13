@@ -1,6 +1,6 @@
 ## 1. 如何备份数据
 
-云数据库实例每天会进行全量备份，开发者可以在控制台外网或者内网下载备份数据（详情请参考 <a href="https://cloud.tencent.com/document/product/236/7274?!preview=true&lang=zh" target="_blank">下载备份文件</a>），也可以在 phpMyAdmin 控制台中手动备份数据库。
+云数据库实例每天会进行全量备份，开发者可以在控制台外网或者内网下载备份数据（详情请参考 <a href="https://cloud.tencent.com/document/product/236/7274" target="_blank">下载备份文件</a>），也可以在 phpMyAdmin 控制台中手动备份数据库。
 
 ## 2. 如何查看云数据库慢查询日志
 

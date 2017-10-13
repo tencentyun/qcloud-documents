@@ -5,7 +5,7 @@ OCR 接口采用 http 协议，支持多 url 和多本地图片文件,每个请�
 接口：`http://service.image.myqcloud.com/ocr/idcard`
 请求方式：POST
 
-说明：该接口的费用可查看 [计费说明](/doc/product/460/6970?!preview=true&lang=zh)，按使用量进行月结。
+说明：该接口的费用可查看 [计费说明](/doc/product/460/6970)，按使用量进行月结。
 
 ## 身份证 OCR - 图片 url
 ### 请求
