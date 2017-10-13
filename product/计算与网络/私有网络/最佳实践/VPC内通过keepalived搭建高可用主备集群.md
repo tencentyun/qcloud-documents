@@ -30,7 +30,17 @@
 6.  验证主备倒换时 VIP 及外网 IP 是否正常切换。
 
 说明：由于本文给出了数个配置和脚本文件，为了更清晰地说明，**本节先给出各脚本的详细修改步骤**。然后您可以根据后文解决各步骤可能遇到的困难，如云api的使用，vip的申请等。**修改步骤预览如下：**
+
 ```
+/etc/keepalived
+|-- check_self.sh
+|-- keepalived.conf
+|-- notify_action.sh
+|-- query_vip.py
+|-- README
+`-- vip.py
+
+/etc/keepalived/README
 常主常备用法使用步骤：
 主机操作： (常主)
     1. 安装keepalived
@@ -93,14 +103,19 @@ stable用法使用步骤：(两台设备选举主机优先权相同)
 
 
 - 方式1 **控制台**方式：点击查看[在弹性网卡上  分配内网IP（Qcloud控制台）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910) （推荐）
-
+ > 注意：见方法 2 的注意
 - 方式2 **云API** 方式：**通过云 API 分配 申请VIP 具体操作(云API代码开发指引请参考第6步)：** 
 
  > 注意 1：后续配置完成后，在主备设备上启用keepalived服务，可以看到VIP出现在主设备上，并可以从VPC其它子机内ping通该VIP或外网VIP。（请同时注意安全组对您主备云主机的网络隔离的功能，建议在实验阶段为主备云主机设置全通安全组）
  > 注意 2：申请到VIP后，云主机内不会自动在网卡配置上VIP，但VPC管理平台已为您建立好了VIP相关功能。1） VIP不用于keepalived时，需要您在分配内网IP后，在云服务器内配置该内网IP才能使VIP在云主机内可见，**点击查看[分配内网IP（云服务器系统内）的方法](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911) 。 2）本文配置的keepalived可在使用时帮您在云主机网卡配置VIP实现云主机内可见。
+ 
+ 方法 2 步骤
+ - 1) 获取您云主机的主网卡的ID。
+     -  控制台方法：可从控制台云主机详情页弹性网卡标签下找到主网卡ID，如图所示
+			  ![](//mc.qcloudimg.com/static/img/fa9fc6b8995bef9734c8de9cb004543c/image.png)
+     - 云API方法：通过云`API:DescribeNetworkInterfaces`得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络 ID**和**云服务器的 ID**即可）。[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4814)
+ - 2) 通过云`API:AssignPrivateIpAddresses`在弹性网卡上申请内网 VIP 的，申请 VIP 操作可参考以下  Python 代码：[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4817)   **若您通过方式1控制台申请VPC，可以跳过下段代码。**
 
-1) 通过云`API:DescribeNetworkInterfaces`得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络 ID**和**云服务器的 ID**即可）。[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4814)
-2) 通过云`API:AssignPrivateIpAddresses`在弹性网卡上申请内网 VIP 的，申请 VIP 操作可参考以下  Python 代码：[点击查看 API 详情](https://cloud.tencent.com/doc/api/245/4817)   **若您通过方式1控制台申请VPC，可以跳过下段代码。**
 ```
         
 #!/usr/bin/python
