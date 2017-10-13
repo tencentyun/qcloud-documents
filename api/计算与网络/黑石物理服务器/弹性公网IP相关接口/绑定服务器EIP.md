@@ -20,10 +20,10 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmBindRs。
  
-|参数名称|必选|类型|描述|
-|-------|----|---|----|----|
-| eipId | 是 | String | EIP实例ID，格式形如：eip-testid |
-| instanceId | 是 | String | 服务器实例ID，可通过[DescribeDevice](/document/product/386/6728)接口返回字段中的instanceId获取|
+|参数名称|类型|描述|必选|
+|-------|----|---|----|
+| eipId | String | EIP实例ID，格式形如：eip-testid | 是 |
+| instanceId | String | 服务器实例ID，可通过[DescribeDevice](/document/product/386/6728)接口返回字段中的instanceId获取| 是 |
 
  > 已绑定到NAT网关的物理机，目前暂不支持同时绑定EIP
 

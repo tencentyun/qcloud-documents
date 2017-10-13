@@ -19,10 +19,10 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmUnbindRs。
 
-|参数名称|必选|类型|描述|
+|参数名称|类型|描述|必选|
 |-------|----|---|----|
-| eipId | 否 | String | EIP实例ID |
-| instanceId | 否 | String | 黑石物理服务器实例ID，可通过[查询服务器](/document/product/386/6728)接口返回字段中的instanceId获取|
+| eipId | String | EIP实例ID | 否 |
+| instanceId | String | 黑石物理服务器实例ID，可通过[查询服务器](/document/product/386/6728)接口返回字段中的instanceId获取| 否 |
 
 
 ## 响应

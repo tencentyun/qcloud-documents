@@ -18,12 +18,12 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmApply。
 
-|参数名称|必选|类型|描述|
+|参数名称|类型|描述|必选|
 |-------|----|---|----|
-| goodsNum | 否 | Int | 创建的EIP数量，默认为1，最大20 |
-| payMode | 否 | String | 创建的EIP计费模式，"flow"：流量计费；"bandwidth"：带宽计费（单位：MB）|
-| bandwidth | 否 | Int | EIP为带宽计费时，此参数才有效。表示EIP最大带宽（单位：MB，当前最大为1000MB）|
-| vpcId | 是 | Int | 申请的EIP归属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得 |
+| goodsNum | Int | 创建的EIP数量，默认为1，最大20 | 否 |
+| payMode | String | 创建的EIP计费模式，"flow"：流量计费；"bandwidth"：带宽计费（单位：MB）| 否 |
+| bandwidth | Int | EIP为带宽计费时，此参数才有效。表示EIP最大带宽（单位：MB，当前最大为1000MB）| 否 |
+| vpcId | Int | 申请的EIP归属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得 | 是 |
 
  > 平台对用户每地域能申请的EIP最大配额有所限制。上述配额可通过[查询EIP限额](/document/product/386/6668)接口获取。
 

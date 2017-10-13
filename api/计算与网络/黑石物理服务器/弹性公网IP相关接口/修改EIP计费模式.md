@@ -18,11 +18,11 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmModifyCharge。
  
-|参数名称|必选|类型|描述|
+|参数名称|类型|描述|必选|
 |-------|----|---|----|
-| eipIds.n|否|Array|EIP实例ID列表，可以通过[查询EIP列表](/document/product/386/6671)接口查询，数组下标从0开始|
-| payMode|是|String|EIP计费模式：flow-流量计费；bandwidth-带宽计费|
-| bandwidth|否|Int|带宽上限（该字段只在带宽计费模式下生效），单位MB，默认值为1，最小为0，最大为1000MB|
+| eipIds.n|Array|EIP实例ID列表，可以通过[查询EIP列表](/document/product/386/6671)接口查询，数组下标从0开始|否|
+| payMode|String|EIP计费模式：flow-流量计费；bandwidth-带宽计费|是|
+| bandwidth|Int|带宽上限（该字段只在带宽计费模式下生效），单位MB，默认值为1，最小为0，最大为1000MB|否|
 
 
 ## 响应

@@ -17,9 +17,9 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmDelete。
  
-|参数名称|必选|类型|描述|
+|参数名称|类型|描述|必选|
 |-------|----|---|----|
-| eipIds.n|是|数组型|EIP实例ID列表，可以通过[查询EIP列表](/document/product/386/6671)接口查询，数组下标从0开始|
+| eipIds.n|数组型|EIP实例ID列表，可以通过[查询EIP列表](/document/product/386/6671)接口查询，数组下标从0开始|是|
 
  > 绑定状态的EIP不可以释放，只可以释放创建失败或未绑定状态的EIP。
 
