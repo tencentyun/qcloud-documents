@@ -17,10 +17,10 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 ModifyEipAlias。
 
-|参数名称|类型|描述|必选|
+|参数名称|必选|类型|描述|
 |-------|----|---|----|
-| eipId|String|EIP实例ID，可以通过[查询EIP列表](/document/product/386/6671)接口查询|是|
-| eipName|String|待更改的EIP名称，仅可以使用英文、汉字、数字、连接线"-"或下划线"_"|是|
+| eipId|是|String|EIP实例ID，可以通过[查询EIP列表](/document/product/386/6671)接口查询|
+| eipName|是|String|待更改的EIP名称，仅可以使用英文、汉字、数字、连接线"-"或下划线"_"|
 
 
 ## 响应

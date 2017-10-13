@@ -17,9 +17,9 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 EipBmQueryTask。
 
-|参数名称|类型|描述|必选|
+|参数名称|必选|类型|描述|
 |-------|----|---|----|
-| requestId|Int|EIP异步任务返回的requestId，可以参考[EipBmDelete](/document/product/386/6676)的响应参数|是|
+| requestId|是|Int|EIP异步任务返回的requestId，可以参考[EipBmDelete](/document/product/386/6676)的响应参数|
 
 ## 响应
 ### 响应示例

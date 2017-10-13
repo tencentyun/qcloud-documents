@@ -18,19 +18,19 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 DescribeEipBm。
 
-|参数名称|类型|描述|必选|
-|-------|----|---|----|
-| eipIds.n|String|EIP实例ID列表，数组下标从0开始|否|
-| eips.n|String|EIP列表，数组下标从0开始|否|
-| unInstanceIds.n|String|服务器实例ID列表，数组下标从0开始，可通过[DescribeDevice](/document/product/386/6728)接口返回字段中的instanceId获取|否|
-| searchKey|String|EIP实例名称，模糊匹配|否|
-| status.n|Int|状态列表，数组下标从0开始<br>0：创建中； 1：绑定中；2：已绑定；3：解绑中； 4：未绑定； 6：下线中； 9：创建失败|否|
-| offset | Int | 偏移量，默认为0| 否 |
-| limit | Int | 返回EIP数量，默认 20, 最大值 100| 否 |
-| orderBy | String | 排序字段，支持这些字段名：eipId, eip, status, unInstanceId, arrears, createdAt。| 否 |
-| orderType | Int | 1倒序，0顺序，默认倒序| 否 |
-|vpcId|Int|EIP所属vpcId，会筛选出指定vpc的EIP，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|否|
-|payMode|String|计费模式，流量计费：flow，带宽计费：bandwidth|否|
+|参数名称|必选|类型|描述|
+|-------|----|---|----|----|
+| eipIds.n|否|String|EIP实例ID列表，数组下标从0开始|
+| eips.n|否|String|EIP列表，数组下标从0开始|
+| unInstanceIds.n|否|String|服务器实例ID列表，数组下标从0开始，可通过[DescribeDevice](/document/product/386/6728)接口返回字段中的instanceId获取|
+| searchKey|否|String|EIP实例名称，模糊匹配|
+| status.n|否|Int|状态列表，数组下标从0开始<br>0：创建中； 1：绑定中；2：已绑定；3：解绑中； 4：未绑定； 6：下线中； 9：创建失败|
+| offset | 否 | Int | 偏移量，默认为0|
+| limit | 否 | Int | 返回EIP数量，默认 20, 最大值 100|
+| orderBy | 否 | String | 排序字段，支持这些字段名：eipId, eip, status, unInstanceId, arrears, createdAt。|
+| orderType | 否 | Int | 1倒序，0顺序，默认倒序|
+|vpcId|否|Int|EIP所属vpcId，会筛选出指定vpc的EIP，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
+|payMode|否|字符串型|计费模式，流量计费：flow，带宽计费：bandwidth|
 
  > 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；比如我想查询第110~149 这40条记录，则可以设置 offset=110，limit=40。
 
