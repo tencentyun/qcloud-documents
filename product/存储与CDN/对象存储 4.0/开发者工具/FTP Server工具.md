@@ -3,7 +3,7 @@ COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目�
 ### 系统环境
 操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
 
-Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
+Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](/doc/product/436/10866) 进行安装与配置。
 
 依赖库：
 - cos-python-sdk-v5（included），requests（not included），argparse（not included）
@@ -61,11 +61,11 @@ cos_appid = 12XXXXXX
 # 用户自己的 APPID
 cos_secretid = XXXXXX
 cos_secretkey = XXXXXX
-# SecretId 和 SecretKey 可以在以下地址获取：https://console.qcloud.com/capi
+# SecretId 和 SecretKey 可以在以下地址获取：https://console.cloud.tencent.com/cam/capi
 cos_bucket = XXXXX
 # 要操作的 Bucket 名称，需要注意的是 COS V5 控制台上的 Bucket 采用了 <Bucket>-<APPID> 的命名方式，这里只填写 Bucket 即可。
 cos_region = ap-xxx
-# Bucket 所在的地域，目前支持的地域请参照【可用地域-适用于 XML API 部分】：https://www.qcloud.com/document/product/436/6224
+# Bucket 所在的地域，目前支持的地域请参照【可用地域-适用于 XML API 部分】：https://cloud.tencent.com/document/product/436/6224
 cos_user_home_dir = /home/cos_ftp/data
 # FTP Server 的工作目录。
 [FTP_ACCOUNT]
