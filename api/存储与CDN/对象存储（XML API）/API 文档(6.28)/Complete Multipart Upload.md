@@ -73,7 +73,7 @@ Container 节点 Part 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
-| PartNumber| CompleteMultipartUpload.Part | 块编号 | String |是|
+| PartNumber| CompleteMultipartUpload.Part | 块编号 | Integer |是|
 | ETag | CompleteMultipartUpload.Part | 每个块文件的 MD5 算法校验值 | String |是|
 ## 响应
 
