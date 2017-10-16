@@ -541,8 +541,8 @@ log_write()
 
 CMD=`ip addr show dev $interface | grep $vip | awk '{print $2}' | awk -F/ '{print $1}'| wc -l`
 if [ $state == "MASTER" ]; then
-        if [ ${CMD} -ne 1 ]; then
-            log_write "it is detected no vip on nic in cvm in MASTER state, add vip on this nic" 
+    if [ ${CMD} -ne 1 ]; then
+        log_write "it is detected no vip on nic in cvm in MASTER state, add vip on this nic" 
         ip addr add $vip dev $interface
         echo "false" > $vip_last_check_result_file
     else
@@ -552,26 +552,25 @@ if [ $state == "MASTER" ]; then
             $vip_operater migrate &
         else
             vip_last_check_result=`cat $vip_last_check_result_file`
-                [ $vip_last_check_result == "false" ] && log_write " vip_check pass"
+            [ $vip_last_check_result == "false" ] && log_write " vip_check pass"
             echo "true" > $vip_last_check_result_file
         fi
     fi
-
-        exit 0
+    exit 0
 fi
 
 if [ $state == "BACKUP" -o $state == "FAULT" ]; then
-        if [ ${CMD} -ne 0 ]; then
-                sleep 2  
-                CMD=`ip addr show dev eth0 | grep $vip | awk '{print $2}' | awk -F/ '{print $1}'| wc -l`
-                if [ ${CMD} -ne 0 ]; then
-                                log_write "detect vip in non-MASTER status, so ystemctl restart keepalived" 
+    if [ ${CMD} -ne 0 ]; then
+            sleep 2  
+            CMD=`ip addr show dev eth0 | grep $vip | awk '{print $2}' | awk -F/ '{print $1}'| wc -l`
+            if [ ${CMD} -ne 0 ]; then
+                log_write "detect vip in non-MASTER status, so ystemctl restart keepalived" 
                 ip addr del $vip dev $interface
-                    systemctl restart keepalived &
-                    exit 1
-                fi
-        fi
-        exit 0
+                systemctl restart keepalived &
+                exit 1
+            fi
+    fi
+    exit 0
 fi
 ```
 
