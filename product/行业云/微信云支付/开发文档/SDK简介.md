@@ -11,11 +11,11 @@
 ## 安全性如何
 - 云支付专门提供了安全登录的接口，将商户的敏感信息做了加密和签名，防止黑客偷取或篡改商户信息，并验证登录收银机的人的身份，避免造成商户资金损失。
 ## 下载地址
-- [windows环境运行Demo](https://mc.qcloudimg.com/static/archive/3cfd5408766d5682347994d0d00ce082/Demo.zip)，解压后包含两个目录：   
+- [windows环境运行Demo](https://mc.qcloudimg.com/static/archive/0b797e17f3239a3101ec32c86a8ce26c/Demo.zip)，解压后包含两个目录：   
 &radic;&nbsp;&nbsp;&nbsp;Demo\_tools目录, 可直接运行，用于验证服务商相关的账户等信息的正确性。    
 &radic;&nbsp;&nbsp;&nbsp;Demo\_src目录，为Demo的源码，用于给开发者调用SDK的参考，方便开发者将SDK集成进自己的收银软件中。
-- [windows环境运行SecurityDemo](https://mc.qcloudimg.com/static/archive/7405dca144e3a3ecf13bfcbe1d64a134/SecurityDemo.zip)，安全版SDK，增加了登录权限校验和敏感信息保护功能，目录结构及作用同上。
-- [windows环境SDK](https://mc.qcloudimg.com/static/archive/c6a523ff508c2e4148dcec11c9d9dd19/SDK.zip)，解压后包含两个目录：   
+- [windows环境运行SecurityDemo](https://mc.qcloudimg.com/static/archive/7a3551e2c42ea302f3c0a5ce4c9d1d0c/SecurityDemo.zip)，安全版SDK，增加了登录权限校验和敏感信息保护功能，目录结构及作用同上。
+- [windows环境SDK](https://mc.qcloudimg.com/static/archive/14b0478aaf73501cc83fc57f443ae6aa/SDK.zip)，解压后包含两个目录：   
 &radic;&nbsp;&nbsp;&nbsp;CloudPayAPI\_SDK\_CPP\_DLL目录，包含编译好的dll库，可直接使用。  
 &radic;&nbsp;&nbsp;&nbsp;CloudPayAPI\_SDK\_CPP目录，包含源码，开发者可自行编译。  
 &radic;&nbsp;&nbsp;&nbsp;开发者集成云支付时，可参考Demo调用SDK的方式和API说明文档。
