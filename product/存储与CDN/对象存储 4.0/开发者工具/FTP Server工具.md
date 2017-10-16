@@ -10,7 +10,7 @@ Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](/doc/pr
 - pyftpdlib(included)
 
 ### 下载与安装
-下载链接：[COS FTP Server 工具](https://mc.qcloudimg.com/static/archive/02732b3693a90b8b6f4d7f01a40801b3/cos-ftp-server-V5-master.zip)。
+GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-server-V5)。
 
 下载完成后，直接运行`cos ftp server`目录下的`setup.py`即可，需要联网安装依赖库。
 ```
