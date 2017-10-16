@@ -25,22 +25,21 @@
 1.  申请 VIP，该 VIP 仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
 2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。
 3.  编辑使用 keepalived  的 notify 机制，借助notify_action.sh和vip.py，调用云 API 进行主备切换。
-4.  编辑使用 keepalived 的 track_script 机制，借助check_self.sh和query_vip.py，周期性执行检查脚本增强可用性。
+4.  编辑使用 keepalived 的 track_script 机制，借助check_self.sh和vip.py，周期性执行检查脚本增强可用性。
 5.  给 VIP 分配外网 IP。**（可选）**
 6.  验证主备倒换时 VIP 及外网 IP 是否正常切换。
 
 说明：由于本文给出了数个配置和脚本文件，为了更清晰地说明，**本节先给出各脚本的详细修改步骤**。然后您可以根据后文解决各步骤可能遇到的困难，如云api的使用，vip的申请等。**修改步骤预览如下：**
 
 ```
-/etc/keepalived
+/etc/keepalived/
 |-- check_self.sh
 |-- keepalived.conf
 |-- notify_action.sh
-|-- query_vip.py
 |-- README
 `-- vip.py
 
-/etc/keepalived/README
+
 常主常备用法使用步骤：
 主机操作： (常主)
     1. 安装keepalived
@@ -48,20 +47,19 @@
     3. 修改keepalived.conf: 
         0) state            初始角色，主机填MASTER, 备机填BACKUP
         1) interface        改成本机网卡名 例如eth0
-        2) priority         主机值高于备于，如：主50备30 
+        2) priority         主机值高于备，如：主50备30 
         3) unicast_src_ip   改成本机内网IP
         4) unicast_peer     改成对端机器内网IP
         5) virtual_ipaddress    改成内网vip 
         6) track_interface  改成本机网卡名 例如eth0
-    4. 修改query_vip.py:
-        1) 第11行   interface 改成本机内网IP
-        2) 第12行   vip       改成内网vip
-        3) 第16行至第20行     修改使用用户自己的对应参数，并填好地域。可参考官网文档
-        4) 第23行             改成本机网卡id 
-    5. 修改vip.py
-        1) 第11行   interface 改成本机内网IP
-        2) 第16第至25行     修改与 query_vip.py修改类似， 注意第24行填对端网卡ID，第25行填写本机网卡ID
-    6. 修改check_self.sh:
+    4. 修改vip.py
+        1) 第12行   interface   改成本机内网IP
+        2) 第13行   vip         改成您的vip      
+        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡ID      
+        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡ID      
+        5) 第16行   vpcId         改成您的 vpc ID      
+        6) 第19-22行            填写您的secretId和您的secretKey
+    5. 修改check_self.sh:
         1) 第3行    vip           改成内网vip
         2) 第4行    interface     改成本机网卡名
         
@@ -70,7 +68,7 @@
 
 ===================================================================================================================================
 
-stable用法使用步骤：(两台设备选举主机优先权相同)
+stable用法使用步骤：(两台设备选举主机优先权相同, 非常主常备) (推荐)
 双机操作相同：
     1. 安装keepalived
     2. 在keepalived使用的配置目录/etc/keepalived/中，将本目录文件移入
@@ -82,17 +80,21 @@ stable用法使用步骤：(两台设备选举主机优先权相同)
         4) unicast_peer     改成对端机器内网IP
         5) virtual_ipaddress    改成内网vip 
         6) track_interface  改成本机网卡名 例如eth0
-    4. 修改query_vip.py:
-        1) 第11行   interface 改成本机内网IP
-        2) 第12行   vip       改成内网vip
-        3) 第16行至第20行     修改使用用户自己的对应参数，并填好地域。可参考官网文档
-        4) 第23行             改成本机网卡id 
-    5. 修改vip.py
-        1) 第11行   interface 改成本机内网IP
-        2) 第16第至25行     修改与 query_vip.py修改类似， 注意第24行填对端网卡ID，第25行填写本机网卡ID
-    6. 修改check_self.sh:
+    4. 修改vip.py
+        1) 第12行   interface   改成本机内网IP
+        2) 第13行   vip         改成您的vip      
+        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡ID      
+        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡ID      
+        5) 第16行   vpcId         改成您的 vpc ID      
+        6) 第19-22行            填写您的secretId和您的secretKey
+    5. 修改check_self.sh:
         1) 第3行    vip           改成内网vip
         2) 第4行    interface     改成本机网卡名
+        
+
+注：
+    1. 脚本日志将会写到/var/log/keealived.log中。日志会占用您的磁盘空间。您可以自行借助logrotate等工具处理日志累积的问题
+    2. keepalived进程的日志仍会写到/var/log/message中。
         
 ```
 
@@ -168,7 +170,7 @@ except Exception, e:
     常主常备模式步骤，以主设备为例，修改keepalived.conf: 
         0) state            初始角色，主机填MASTER, 备机填BACKUP
         1) interface        改成本机网卡名 例如eth0
-        2) priority         主机值高于备于，如：主50备30 
+        2) priority         主机值高于备，如：主50备30 
         3) unicast_src_ip   改成本机内网IP
         4) unicast_peer     改成对端机器内网IP
         5) virtual_ipaddress    改成内网vip 
@@ -213,19 +215,19 @@ vrrp_script checkhaproxy
 
 vrrp_instance VI_1 {
     #注意主备参数选择
-    #state MASTER            #主   #仅为初始状态, 主机为MASTER，备机为BACKUP
-    state BACKUP           #备   #仅为初始状态
+    state MASTER            #主   #修改点, 主机为MASTER，备机为BACKUP
+#state BACKUP           #备
     interface eth0          #改成本机网卡名 例如eth0  
     virtual_router_id 51
     nopreempt                   #非抢占模式
-    #preempt_delay 10
-    priority 50             #常主高于常备, 例如 主50，备30；无常主时双机配相同大小值; 无常主的使用方式更加稳定和高可用
+#    preempt_delay 10
+    priority 50             #主高于备, 例如 主50，备30
     advert_int 1        
     authentication {
         auth_type PASS
         auth_pass 1111
     }
-    unicast_src_ip 10.0.1.17   #本机内网IP
+        unicast_src_ip 10.0.1.17   #本机内网IP
     unicast_peer {
         10.0.1.16           #对端设备的 IP 地址，例如：10.0.0.1
     }
@@ -236,12 +238,13 @@ vrrp_instance VI_1 {
     notify_master "/etc/keepalived/notify_action.sh MASTER"
     notify_backup "/etc/keepalived/notify_action.sh BACKUP"
     notify_fault "/etc/keepalived/notify_action.sh FAULT"
+    notify_stop "/etc/keepalived/notify_action.sh STOP"
     garp_master_delay 1
     garp_master_refresh 5
 
-    track_interface {
-        eth0                #改成本机网卡名 例如eth0
-    }
+        track_interface {
+                eth0                #改成本机网卡名 例如eth0
+        }
 
     track_script {
         checkhaproxy 
@@ -260,7 +263,7 @@ vrrp_instance VI_1 {
 ```
 #!/bin/bash
 #/etc/keepalived/notify_action.sh
-log_file=/etc/keepalived/log
+log_file=/var/log/keepalived.log
 log_write()
 {
         echo "[`date '+%Y-%m-%d %T'`] $1" >> $log_file
@@ -271,7 +274,7 @@ if [ $1 == 'MASTER' ]; then
         echo -n "$1" > /var/keepalived/state
         log_write " notify_master" 
         echo -n "0" > /var/keepalived/vip_check_failed_count       
-        /etc/keepalived/vip.py &
+        /etc/keepalived/vip.py migrate &
 fi
 
 if [ $1 == 'BACKUP' ]; then
@@ -283,9 +286,13 @@ if [ $1 == 'FAULT' ]; then
         echo -n "$1" > /var/keepalived/state
         log_write " notify_fault" 
 fi
-```
 
-### 步骤 6. 修改vip.py帮助您在云主机之间迁移VIP
+if [ $1 == 'STOP' ]; then
+        echo -n "$1" > /var/keepalived/state
+        log_write " notify_stop" 
+fi
+```
+### 步骤 6. 修改vip.py帮助您在云主机之间迁移VIP和查询本机当前IP
 
 vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移的云 API 来进行 IP 地址的切换，以 Python 为例：
 
@@ -313,11 +320,19 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 
 ```
     常主常备模式步骤: 修改vip.py
-        1) 第11行   interface 改成本机内网IP
-        2) 第16第至25行     修改与 query_vip.py修改类似， 注意第24行填对端网卡ID，第25行填写本机网卡ID
+        1) 第12行   interface   改成本机内网IP
+        2) 第13行   vip         改成您的vip      
+        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡ID      
+        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡ID      
+        5) 第16行   vpcId         改成您的 vpc ID      
+        6) 第19-22行            填写您的secretId和您的secretKey
     非常主常备模式步骤: 修改vip.py
-        1) 第11行   interface 改成本机内网IP
-        2) 第16第至25行     修改与 query_vip.py修改类似， 注意第24行填对端网卡ID，第25行填写本机网卡ID
+        1) 第12行   interface   改成本机内网IP
+        2) 第13行   vip         改成您的vip      
+        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡ID      
+        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡ID      
+        5) 第16行   vpcId         改成您的 vpc ID      
+        6) 第19-22行            填写您的secretId和您的secretKey
 ```
 
 ```
@@ -347,78 +362,150 @@ step3: 将以下python代码保存成vip.py放到sdk的src同级目录, 编辑�
 import os
 import time
 import json
+import sys
 from QcloudApi.qcloudapi import QcloudApi 
 
 #当前机器主网卡和主IP
 interface = {"eth0":"10.0.1.17"}
+vip = "10.0.1.100"                          #改成您的本机内网VIP
+thisNetworkInterfaceId = 'eni-pvsvph0u'     #IP迁移前所在的弹性网卡ID(本机网卡ID)
+thatNetworkInterfaceId = 'eni-qnxioxyi'     #IP迁移后所在的弹性网卡ID(对端主机网卡ID)
+vpcId = 'vpc-1yxuk010'                      #vpcId
 
-module = 'vpc'
-action = 'MigratePrivateIpAddress'
 config = {
-    'Region': 'bj',  #改成您操作的地域
-    'secretId': '您的secretId',  #您的secretId
-    'secretKey': '您的secretKey', #您的secretKey
+    'Region': 'bj',                      #您的地域
+    'secretId': '您的secretId',              #您的secretId
+    'secretKey': '您的secretKey',        #您的secretKey
     'method': 'post'
 }
-params = {
-    'vpcId': 'vpc-1yxuk010',    #VPCID
-    'privateIpAddress': '10.0.1.100',   #VIP
-    'oldNetworkInterfaceId': 'eni-pvsvph0u',  #IP迁移前所在的弹性网卡ID
-    'newNetworkInterfaceId': 'eni-qnxioxyi'   #IP迁移后所在的弹性网卡ID
-}
 
-#time.sleep(3)
-log = open('/etc/keepalived/log', 'a+')
+
+log = open('/var/log/keepalived.log', 'a+')
 state_file = open('/var/keepalived/state', 'r')
+
 def get_now_time():
     return time.strftime('[%Y-%m-%d %H:%M:%S]',time.localtime(time.time())) + '[pid' + str(os.getpid()) + ']' 
+
+def log_write(message=''):
+    log.write(get_now_time() + " " + str(message) + "\n")
 
 def get_ip():
     f = os.popen('ip addr show dev %s | grep %s | awk \'{print $2}\' | awk -F/ \'{print $1}\'' % (interface.keys()[0] , interface.values()[0]))
     return f.read().strip()
 
-log.write(get_now_time() + " try set vip.\n")
-retry_times_when_mgr_ip_got = 4
-exceptimes = 0
-get_ip_times = 0
-time.sleep(0.5)
-while get_ip_times < 5:
-    log.write(get_now_time() + " get_ip=" + get_ip() + "\n")
-    if get_ip()==interface.values()[0]:
-        log.write(get_now_time() + " now set vip.\n")
-        try:
-            service = QcloudApi(module, config)
-            ret = service.generateUrl(action, params)
-            log.write(get_now_time() + " generateUrl ret " + ret + "\n")
-            i = 0
-            while i < retry_times_when_mgr_ip_got:
-                state_file.seek(0)
-                state = state_file.readline()
-                if state != 'MASTER':
-                    break 
-                ret = service.call(action, params)
-                ret_json = json.loads(ret)
-                log.write(get_now_time() + " call ret " + ret + "\n")
-                log.write(get_now_time() + " last_code_mark: " + str(ret_json.get("code")) + "\n") 
-                if ret_json.get("code") == 0:
-                    log.write(get_now_time() + " set done\n")
-                    break
-                if ret_json.get("code") == 6300:
-                    break
-                i = i + 1
-                time.sleep(2)
-            if i >= retry_times_when_mgr_ip_got:
-                log.write(get_now_time() + " set vip failed\n")
-            break
-        except Exception, e:
-            log.write(get_now_time() + ' exception:' + str(e) + '\n')
-            exceptimes = exceptimes + 1
-            if exceptimes > 3:
-                break
-    time.sleep(0.5)
-    get_ip_times = get_ip_times + 1
-print 'done'
 
+def migrateVip():
+    module = 'vpc'
+    action = 'MigratePrivateIpAddress'
+    params = {
+        'vpcId': vpcId,             #vpcId
+        'privateIpAddress': vip,        #VIP
+        'oldNetworkInterfaceId': thisNetworkInterfaceId, #IP迁移前所在的弹性网卡ID(本机网卡ID) 
+        'newNetworkInterfaceId': thatNetworkInterfaceId  #IP迁移后所在的弹性网卡ID(对端主机网卡ID)
+    }
+    
+    log_write(sys.argv[1])
+    log_write(" try set vip.")
+    retry_times_when_mgr_ip_got = 4
+    exceptimes = 0
+    get_ip_times = 0
+    time.sleep(0.5)
+    while get_ip_times < 5:
+        log_write(" get_ip=" + get_ip())
+        if get_ip()==interface.values()[0]:
+            log_write(" now set vip.")
+            try:
+                service = QcloudApi(module, config)
+                ret = service.generateUrl(action, params)
+                log_write(" generateUrl ret " + ret)
+                i = 0
+                while i < retry_times_when_mgr_ip_got:
+                    check_vip_str = queryVip()
+                    if check_vip_str == "true":
+                        break 
+                    state_file.seek(0)
+                    state = state_file.readline()
+                    if state != 'MASTER':
+                        break 
+                    ret = service.call(action, params)
+                    ret_json = json.loads(ret)
+                    log_write(" call ret " + ret)
+                    #log_write(" last_code_mark: " + str(ret_json.get("code"))) 
+                    if ret_json.get("code") == 0:
+                        log_write(" set done")
+                        break
+                    if ret_json.get("code") == 6300:
+                        break
+                    i = i + 1
+                    time.sleep(2)
+                if i >= retry_times_when_mgr_ip_got:
+                    log_write(" set vip failed")
+                break
+            except Exception, e:
+                log_write(' exception:' + str(e))
+                exceptimes = exceptimes + 1
+                if exceptimes > 3:
+                    break
+        time.sleep(0.5)
+        get_ip_times = get_ip_times + 1
+    log_write("vip.py checks vip: is this cvm holding the vip? " + queryVip())
+
+
+def queryVip():
+    module = 'vpc'
+    action = 'DescribeNetworkInterfaces'
+    params = {
+        "networkInterfaceId": thatNetworkInterfaceId  #您的本机网卡ID
+    }
+
+    result = 'true'
+    return_json_str = None
+    try:
+        service = QcloudApi(module, config)
+        ret = service.generateUrl(action, params)
+        ret = service.call(action, params)
+        return_json_str = ret
+        ret_json = json.loads(ret)
+        if ret_json.get("code") == 0:
+            eni_data = ret_json['data']['data'][0]['privateIpAddressesSet']
+            privateIpAddressSet = set([k['privateIpAddress'] for k in eni_data])
+            if len(privateIpAddressSet) > 0 and vip not in privateIpAddressSet:
+                log_write(" vip not in master in qcloud")
+                result = 'false'
+        else:
+            log_write("call ret: " + return_json_str)
+            log_write("attempt query vip failed")
+    except Exception, e:
+        log_write("call ret: " + return_json_str)
+        log_write(' exception:' + str(e))
+        exceptimes = exceptimes + 1
+    return result
+
+
+
+def print_help():
+    log_write(
+            '''
+            ./vip.py migrate
+                migrate your vip
+                    
+            ./vip.py query
+                query that if this cvm hold your vip in tencent cloud
+                return: true or false
+            ''')
+
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        log_write("vip.py: parameter num is 0")
+        print_help()
+    elif sys.argv[1] == 'migrate':
+        migrateVip()   
+        log_write()
+    elif sys.argv[1] == 'query':
+        print queryVip()
+    else:
+        log_write("vip.py: misMatched parameter")
+        print_help()
 ```
 ### 步骤 7. 修改check_self.sh增强keepalived处理故障的能力
 
@@ -442,10 +529,11 @@ vip_retry_failed_count_file=/var/keepalived/vip_retry_failed_count
 vip_last_check_result_file=/var/keepalived/vip_last_check_result
 query_vip_asker=/etc/keepalived/query_vip.py
 vip_migrater=/etc/keepalived/vip.py
+vip_operater=/etc/keepalived/vip.py
 state=`cat $state_file`
 
 
-log_file=/etc/keepalived/log
+log_file=/var/log/keepalived.log
 log_write()
 {
         echo "[`date '+%Y-%m-%d %T'`] $1" >> $log_file
@@ -456,11 +544,12 @@ if [ $state == "MASTER" ]; then
         if [ ${CMD} -ne 1 ]; then
             log_write "it is detected no vip on nic in cvm in MASTER state, add vip on this nic" 
         ip addr add $vip dev $interface
+        echo "false" > $vip_last_check_result_file
     else
-        is_vip_in_master=`$query_vip_asker`
+        is_vip_in_master=`$vip_operater query`
         if [ $is_vip_in_master == "false" ]; then
             echo "false" > $vip_last_check_result_file
-            $vip_migrater &
+            $vip_operater migrate &
         else
             vip_last_check_result=`cat $vip_last_check_result_file`
                 [ $vip_last_check_result == "false" ] && log_write " vip_check pass"
@@ -473,7 +562,7 @@ fi
 
 if [ $state == "BACKUP" -o $state == "FAULT" ]; then
         if [ ${CMD} -ne 0 ]; then
-                sleep 2  #用于keepalived启动时，vip还未配置完成的情况; 防止启动keepalived时误判所导致的keepalived循环重启
+                sleep 2  
                 CMD=`ip addr show dev eth0 | grep $vip | awk '{print $2}' | awk -F/ '{print $1}'| wc -l`
                 if [ ${CMD} -ne 0 ]; then
                                 log_write "detect vip in non-MASTER status, so ystemctl restart keepalived" 
@@ -485,96 +574,19 @@ if [ $state == "BACKUP" -o $state == "FAULT" ]; then
         exit 0
 fi
 ```
-### 步骤 8. 修改query_vip.py增强keepalived处理故障的能力
-```
-    常主常备模式步骤:   修改query_vip.py:
-        1) 第11行   interface 改成本机内网IP
-        2) 第12行   vip       改成内网vip
-        3) 第16行至第20行     修改使用用户自己的对应参数，并填好地域。可参考官网文档
-        4) 第23行             改成本机网卡id 
-    非常主常备模式步骤:   修改query_vip.py:
-        1) 第11行   interface 改成本机内网IP
-        2) 第12行   vip       改成内网vip
-        3) 第16行至第20行     修改使用用户自己的对应参数，并填好地域。可参考官网文档
-        4) 第23行             改成本机网卡id 
-```
-```
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 
-#pip安装使用方式使用
-import os
-import time
-import json
-from QcloudApi.qcloudapi import QcloudApi 
-
-#当前机器主网卡和主IP
-interface = {"eth0":"10.0.1.17"} #改成您的本机内网IP
-vip = "10.0.1.100"  #改成您的本机内网VIP
-
-module = 'vpc'
-action = 'DescribeNetworkInterfaces'
-config = {
-    'Region': 'bj',  #改成您操作的地域
-    'secretId': '您的secretId',  #您的secretId
-    'secretKey': '您的secretKey', #您的secretKey
-    'method': 'post'
-}
-params = {
-    "networkInterfaceId": "eni-qnxioxyi"  #您的本机网卡ID
-}
-
-#time.sleep(3)
-log_level = 2 
-log = open('/etc/keepalived/log', 'a+')
-
-def log_write(str):
-    if log_level > 3:
-        log.write(str)
-
-def get_now_time():
-    return time.strftime('[%Y-%m-%d %H:%M:%S]',time.localtime(time.time())) + '[pid' + str(os.getpid()) + ']' 
-
-def get_ip():
-    f = os.popen('ip addr show dev %s | grep %s | awk \'{print $2}\' | awk -F/ \'{print $1}\'' % (interface.keys()[0] , interface.values()[0]))
-    return f.read().strip()
-
-log_write(get_now_time() + " try query vip.\n")
-result = 'true'
-log_write(get_now_time() + " now query vip.\n")
-try:
-    service = QcloudApi(module, config)
-    ret = service.generateUrl(action, params)
-    log_write(get_now_time() + " generateUrl ret " + ret + "\n")
-    ret = service.call(action, params)
-    log_write(get_now_time() + " call ret " + ret + "\n")
-    ret_json = json.loads(ret)
-    log_write(get_now_time() + " query vip last_code: " + str(ret_json.get("code")) + "\n") 
-    if ret_json.get("code") == 0:
-        eni_data = ret_json['data']['data'][0]['privateIpAddressesSet']
-        privateIpAddressSet = set([k['privateIpAddress'] for k in eni_data])
-        log_write(get_now_time() + " " + str(privateIpAddressSet) + "\n")
-        if len(privateIpAddressSet) > 0 and vip not in privateIpAddressSet:
-            log.write(get_now_time() + " vip not in master in qcloud\n")
-            result = 'false'
-        log_write(get_now_time() + " query vip done\n")
-    else:
-        log.write(get_now_time() + " query vip failed\n")
-except Exception, e:
-    log.write(get_now_time() + ' exception:' + str(e) + '\n')
-    exceptimes = exceptimes + 1
-print result
-```
-### 步骤 9.（可选）给 VIP 分配外网 IP
+### 步骤 8.（可选）给 VIP 分配外网 IP
 有两种控制台操作和云API操作两种方式：
 - 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。
 - 云API：[点击查看具体调用方式](https://cloud.tencent.com/doc/api/229/1377)。
 
-### 步骤 10. 验证主备倒换时 VIP 及外网 IP 是否正常切换
+### 步骤 9. 验证主备倒换时 VIP 及外网 IP 是否正常切换
 1) 启动 keepalived：`/etc/init.d/keepalived start` 或 `systemctl start keepalived` 或 `service keepalived start`
 
-2) 验证主备切换容灾效果：通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能迁移。通过ping VIP 或其EIP的方式，可以查看网络中断到恢复的时间间隔。
-说明：由于迁移IP以云API方式异步实现，需要数秒才能落地到新子机上。所以，常主常备模式式，主的故障时间**极短**时，可能发生两次短时间的主备状态倒换，但VIP重新落地到恢复的主机上需要较长时间（10s）。
+2) 验证主备切换容灾效果：通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能迁移。/var/log/keepalived.log中同时会留下相应的日志。通过ping VIP 或其EIP的方式，可以查看网络中断到恢复的时间间隔。
+>说明：
+>1) 由于迁移IP以云API方式异步实现，需要数秒才能落地到新子机上。所以，常主常备模式式，主的故障时间**极短**时，可能发生两次短时间的主备状态倒换，但VIP重新落地到恢复的主机上需要较长时间（10s）。
+>2) 脚本日志将会写到/var/log/keealived.log中。日志会占用您的磁盘空间。您可以自行借助logrotate等工具处理日志累积的问题。keepalived进程的日志仍会写到/var/log/message中。
 
 
 
