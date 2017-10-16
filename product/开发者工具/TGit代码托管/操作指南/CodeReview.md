@@ -1,12 +1,12 @@
 ## 创建 Review、添加 Reviewer
 
+>**注意：**  
+> Code Review 设置的【Suggestion reviewers】和【Necessary reviewers】有添加成员的话，在创建 Merge Request 时会自动创建 Review，【Suggestion reviewers】和【Necessary reviewers】中添加的成员会自动成为该 Review 的 Reviewer。
+
 1. 新建 Merge Request，创建成功后的部分截图如下所示。
 ![](https://mc.qcloudimg.com/static/img/b826e7a2545369e4b4925564f931617e/2017-09-18_105418.png)
 
-2. 单击右侧【Add reviewer】按钮并在下拉框中找到需要参与评审的人员来添加 Reviewer。
->**注意：**  
-> Code Review 设置的【Suggestion reviewers】和【Necessary reviewers】有添加成员的话，在创建 Merge Request 时会自动创建 Review，【Suggestion reviewers】和【Necessary reviewers】中添加的成员会自动成为该 Review 的 Reviewer。
-  
+2. 单击右侧【Add reviewer】按钮并在下拉框中找到需要参与评审的人员来添加 Reviewer。  
 ![](https://mc.qcloudimg.com/static/img/9816d1f662a1e2f360208103aa9c4bae/2017-09-15_093630.png)
 
 3. 页面将会提示 “Merging is blocked. Review required.”，Review 改变为锁定状态，即需要通过评审才可提交。
