@@ -16,14 +16,10 @@ Run the sysprep.exe program under the folder C: \ windows \ system32 \ sysprep.
 
 As shown below, select "Enter System Out-of-Box Experience (OOBE)" under "System Cleanup Action", and meanwhile check the "General" option. Select "Restart" under "Shutdown Options".
 
-![](//mccdn.qcloud.com/static/img/1dfa18a861c0a70b880b5130ff40d572/image.png)
-
 4) Clicking on "OK" will restart the system. When the restart is done, complete the configuration steps following the wizard (select language, reset password, etc.)
 
 5) Verify SID
-Click "Start" - "Run". Type cmd to open a command line. Run the whoami / user command and refer to the figure below to verify if SID has been modified:
-
-![](//mccdn.qcloud.com/static/img/6c1c0784b3e51b5dca3a19f381ea2e02/image.png)
+Click "Start" - "Run". Type cmd to open a command line. Run the whoami / user command and refer to the figure below to verify if SID has been modified.
 
 6) Refer to the configuration saved in Step 2 to reset network card information (IP address, gateway address, DNS, etc.).
 
