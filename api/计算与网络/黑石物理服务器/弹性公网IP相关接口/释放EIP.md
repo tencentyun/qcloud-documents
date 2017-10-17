@@ -8,7 +8,7 @@ EipBmDelete 接口用于释放弹性公网EIP，以清理不再使用的EIP资�
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmDelete
+	Action=EipBmDelete
 	&<公共请求参数>
 	&eipIds.0=<EIP实例ID>
 ```

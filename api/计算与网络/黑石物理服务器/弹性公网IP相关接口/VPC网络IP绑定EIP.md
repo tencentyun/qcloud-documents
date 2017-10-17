@@ -10,7 +10,7 @@ EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非�
 
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmBindVpcIp
+	Action=EipBmBindVpcIp
 	&<公共请求参数>
 	&eipId=<EIP实例ID>
 	&vpcId=<vpc数字ID>

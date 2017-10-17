@@ -7,7 +7,7 @@ DescribeEipBmQuota 接口用于查询当前已使用的EIP限额状况，默认�
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=DescribeEipBmQuota
+	Action=DescribeEipBmQuota
 	&<公共请求参数>
 ```
 ### 请求参数

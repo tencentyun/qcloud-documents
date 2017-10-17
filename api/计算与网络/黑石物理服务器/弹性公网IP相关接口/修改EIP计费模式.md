@@ -8,7 +8,7 @@ EipBmModifyCharge 接口用于修改弹性公网EIP的计费模式，目前有�
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmModifyCharge
+	Action=EipBmModifyCharge
 	&<公共请求参数>
 	&bandwidth=<带宽计费模式下的带宽上限值>
 	&eipIds.0=<EIP实例ID>

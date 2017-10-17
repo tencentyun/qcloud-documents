@@ -10,7 +10,7 @@ EipBmBindRs接口用于绑定黑石弹性公网IP到黑石物理服务器上。�
 
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmBindRs
+	Action=EipBmBindRs
 	&<公共请求参数>
 	&eipId=<EIP实例ID>
 	&instanceId=<服务器实例ID>
