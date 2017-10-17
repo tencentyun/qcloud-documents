@@ -48,6 +48,11 @@ image    对应   image.api.qcloud.com
 monitor  对应   monitor.api.qcloud.com
 cdn      对应   cdn.api.qcloud.com
 wenzhi   对应   wenzhi.api.qcloud.com
+bm      对应   bm.api.qcloud.com
+bmlb    对应   bmlb.api.qcloud.com
+bmeip   对应   bmeip.api.qcloud.com
+bmvpc   对应   bmvpc.api.qcloud.com
+
 '''
 module = 'sec'
 
