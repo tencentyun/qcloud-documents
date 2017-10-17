@@ -50,10 +50,10 @@ $config = array('SecretId'       => '你的secretId',
 // QcloudApi::MODULE_MONITOR  对应   monitor.api.qcloud.com
 // QcloudApi::MODULE_CDN      对应   cdn.api.qcloud.com
 // QcloudApi::MODULE_WENZHI   对应   wenzhi.api.qcloud.com
-//QcloudApi::MODULE_BM        对应   bm.api.qcloud.com
-//QcloudApi::MODULE_BMLB      对应   bmlb.api.qcloud.com
-//QcloudApi::MODULE_BMEIP     对应   bmeip.api.qcloud.com
-//QcloudApi::MODULE_BMVPC     对应   bmvpc.api.qcloud.com
+// QcloudApi::MODULE_BM       对应   bm.api.qcloud.com
+// QcloudApi::MODULE_BMLB     对应   bmlb.api.qcloud.com
+// QcloudApi::MODULE_BMEIP    对应   bmeip.api.qcloud.com
+// QcloudApi::MODULE_BMVPC    对应   bmvpc.api.qcloud.com
 
 $service = QcloudApi::load(QcloudApi::MODULE_CVM, $config);
 
