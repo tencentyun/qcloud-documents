@@ -78,7 +78,7 @@ http://aai.qcloud.com/asr/v1/<appid>
 "nonce":"44925",
 }
 ```
-这里以< appid > = 200001, < SecretKey >=bLcPnl88WU30VY57ipRhSePfPdOfSruK 为例拼接签名原文，则拼接的签名原文为：
+这里以`< appid > = 200001, < SecretKey >=bLcPnl88WU30VY57ipRhSePfPdOfSruK` 为例拼接签名原文，则拼接的签名原文为：
 ```
 POSTaai.qcloud.com/asr/v1/2000001?callback_url=http://test.qq.com/rec_callback&engine_model_type=1&expired=1473752807&nonce=44925&projectid=0&res_text_format=0&res_type=1&secretid=AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv&source_type=0&sub_service_type=0&timestamp=1473752207&url=http://test.qq.com/voice_url
 ```
