@@ -355,18 +355,22 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 
 ## 5.响应示例
 ```
+{"code":0,
+"codeDesc":"Success",
+"found":1,  //表示该条记录能被查到
+"idFound":1, //表示该条记录中的身份证能被查到
+"message":"No Error",
+"riskInfo":
+[
 {
-"code": 0,
-"codeDesc":"success" ,
-"message": "OK",
-"riskScore": 90,
-"riskInfo": [
-　　{
-　　　"riskCode": 1
-　　},
-　　{
-　　　"riskCode": 203
-　　}
-　]
+"riskCode":5,  
+"riskCodeValue":2 //命中风险码5：身份认证失败，风险等级为中风险
+},     
+{
+"riskCode":6,
+"riskCodeValue":3 //命中风险码6：疑似恶意欺诈，风险等级为高风险
+}
+], 
+"riskScore":88
 }
 ```
