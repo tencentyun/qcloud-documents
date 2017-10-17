@@ -1,5 +1,5 @@
 ## 签名
-用户需要自己实现 AbsCredentialProvider 接口来计算签名，计算签名函数：
+用户需要自己使用 AbsCredentialProvider 接口来计算签名，计算签名函数：
 ```
 String getAudioRecognizeSign(String source);
 ```
@@ -235,7 +235,7 @@ pcmAudioDataSource|PcmAudioDataSource|是|音频数据源|无
 templateName| String | 否 | 用户控制台设置的模板名称|无
 customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|(1, 0, 1)
 ### AudioRecognizeResult
- 语音识别结果对象，和 AudioRecognizeRequest 对象相对应，用于返回语音识别的结果。
+语音识别结果对象，和 AudioRecognizeRequest 对象相对应，用于返回语音识别的结果。
 
 参数名称|类型|参数描述
 --|--|--|--
@@ -261,7 +261,7 @@ AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate(1,0,1
 ## PcmAudioDataSource
 用户可以实现这个接口来识别单通道、采样率 16k 的 PCM 音频数据。主要包括如下几个接口：
 
-- 向语音识别器添加数据，将长度为 length 的数据以从下标 0 开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
+- 向语音识别器添加数据，将长度为 length 的数据从下标 0 开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
 
 ```
 int read(short[] audioPcmData, int length);
@@ -285,8 +285,9 @@ int maxLengthOnceRead();
 PcmAudioDataSource 接口的实现类，可以直接读取麦克风输入的音频数据，用于实时识别。
 ## AudioFileDataSource
 PcmAudioDataSource 接口的实现类，可以直接读取单通道、采样率 16k 的 PCM 音频数据的文件。
-**注意：**
-其他格式的数据无法正确识别。
+>**注意：**
+>其他格式的数据无法正确识别。
+
 ## AAILogger
 用户可以利用 AAILogger 来控制日志的输出，可以选择性的输出 debug、info、warn 以及 error 级别的日志信息。
 ```
@@ -299,6 +300,3 @@ public static void enableInfo();
 public static void enableWarn();
 public static void enableError();
 ```
-
-
-  [1]: https://mc.qcloudimg.com/static/archive/6600e4e3ed5d41a5b9bfd649a4f7a3aa/aai-android-sdk-v2.x.zip
