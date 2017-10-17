@@ -63,13 +63,13 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ```
 GET https://bm.api.qcloud.com/v2/index.php?
 	Action=SetOutBandVPNAuthPwd
-    &SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
-    &Nonce=52684
-    &Timestamp=1508212392
-    &Region=gz
+	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+	&Nonce=52684
+	&Timestamp=1508212392
+	&Region=gz
 	&password=tencentV%89
 	&createOrUpdate=update
-    &Signature=sU7JPpjAVbwYw%2Fp0m6ysu65VPac%3D
+	&Signature=sU7JPpjAVbwYw%2Fp0m6ysu65VPac%3D
 ```
 
 ### 输出
