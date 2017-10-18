@@ -362,14 +362,14 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 "message":"No Error",
 "riskInfo":
 [
-{
-"riskCode":5,  
-"riskCodeValue":2 //命中风险码5：身份认证失败，风险等级为中风险
-},     
-{
-"riskCode":6,
-"riskCodeValue":3 //命中风险码6：疑似恶意欺诈，风险等级为高风险
-}
+  {
+     "riskCode":5,  
+     "riskCodeValue":2 //命中风险码5：身份认证失败，风险等级为中风险
+  },     
+  {
+    "riskCode":6,
+    "riskCodeValue":3 //命中风险码6：疑似恶意欺诈，风险等级为高风险
+  }
 ], 
 "riskScore":88
 }
