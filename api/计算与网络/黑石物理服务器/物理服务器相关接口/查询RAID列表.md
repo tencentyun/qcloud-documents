@@ -2,7 +2,7 @@
 
 DescribeDeviceClassRaid接口用来获取设备类型对应的RAID方式。(过期的接口，不推荐使用，不支持自定义机型的RAID列表。 推荐使用[DescribeDeviceClassPartition接口](/document/api/386/7370)。
 
-接口访问域名：<font style="color:red">bm.api.qcloud.com</font>
+接口访问域名：bm.api.qcloud.com
 
 ## 请求
 
