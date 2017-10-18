@@ -42,8 +42,8 @@
 常主常备用法使用步骤：
 主机操作： (常主)
     1. 安装 keepalived
-    2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入
-    3. 修改 keepalived.conf: 
+    2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入，并添加可执行权限chmod +x /etc/keepalived/*.sh
+    3. 修改 keepalived.conf: 
         0) state            初始角色，主机填 MASTER, 备机填 BACKUP
         1) interface        改成本机网卡名 例如 eth0
         2) priority         主机值高于备，如：主 50 备 30 
@@ -70,7 +70,7 @@
 stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主常备) (推荐)
 双机操作相同：
     1. 安装 keepalived
-    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入
+    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并添加可执行权限chmod +x /etc/keepalived/*.sh
     3. 修改 keepalived.conf: 
         0) state            初始角色，均填写 BACKUP
         1) interface        改成本机网卡名 例如 eth0
