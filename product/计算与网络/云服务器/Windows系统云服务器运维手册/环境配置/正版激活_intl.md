@@ -24,10 +24,8 @@ w32tm / resync
 ```
 
 Note 2:
-SPP Notification Service on Windows is used to perform activation-related services and its normal operation needs to be ensured, as shown below.
-![](//mccdn.qcloud.com/img56b1caa1eec42.png)
+SPP Notification Service on Windows is used to perform activation-related services and its normal operation needs to be ensured.
 
-Some optimization software may disable the change to execute permissions of service-related executables. For example, the change to the execute permission of sppsvc.exe process can cause abnormal operation of service:
-![](//mccdn.qcloud.com/img56b1caaf5ff0a.png)
+Some optimization software may disable the change to execute permissions of service-related executables. For example, the change to the execute permission of sppsvc.exe process can cause abnormal operation of service.
 
 Before you attempt to activate Windows, make sure the service and other basic functions on Windows are in a normal condition.
