@@ -22,8 +22,8 @@
 <td> phoneNumber
 </td><td> String
 </td><td> 手机号码：国家代码
-<br> 手机号，如0086-15912345678
-<br> 注意0086前不需要+号
+<br> 手机号，如：0086-15912345678
+<br> 注意 0086 前不需要+号
 </td></tr>
 <tr>
 <td> bankCardNumber
