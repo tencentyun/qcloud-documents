@@ -1,3 +1,12 @@
+### Version 3.5
+- IOS&Android：连麦发送策略优化，声音更加流畅。
+- IOS&Android：声音重采样算法更新，对背景音有更好的兼容性。
+- IOS&Android：点播接口拆分，点播接口更易用。
+- IOS：解决多段录制杂音问题。
+- Android：连麦对部分手机支持系统AEC，性能更优。
+- Android：支持发送I420、NV21等自定义数据。
+- Android：播放支持原始数据回调接口。
+
 ### Version 3.4
 - IOS&Android：短视频录制新增回删、多比例切换、焦距调节等功能。
 - IOS&Android：短视频编辑新增片尾水印功能。
