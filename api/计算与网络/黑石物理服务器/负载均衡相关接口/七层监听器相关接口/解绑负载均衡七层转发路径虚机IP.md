@@ -23,7 +23,7 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL7LocationVmIp
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 UnbindBmL7LocationVmIp。
 
-| 参数名称 | 是否必选  | 类型 | 描述 |
+| 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | loadBalancerId | 是 | String |   负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/document/product/386/9306)查询。|
 | listenerId | 是 | String | 七层监听器实例ID，可通过接口[DescribeBmForwardListeners](/document/product/386/9283)查询。|
@@ -33,7 +33,7 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL7LocationVmIp
 
 vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
 
-| 参数名称 | 是否必选  | 类型 | 描述 |
+| 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |vmList.n.port|是|Int|待解绑的虚机端口，可选值1~65535。|
 |vmList.n.vmIp|是|String|待解绑的虚机IP。|
@@ -73,7 +73,7 @@ vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
 
 ## 实际案例
  
-###输入
+### 输入
 
 ```
 GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL7LocationVmIp
@@ -90,7 +90,7 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL7LocationVmIp
 	&Signature=AySJsE6Zq3knXwPSzxlYUl%2FrM90%3D
 ```
 
-###输出
+### 输出
 
 ```
 {
