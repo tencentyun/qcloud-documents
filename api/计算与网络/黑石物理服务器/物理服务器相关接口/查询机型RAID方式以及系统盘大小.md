@@ -10,7 +10,7 @@ DescribeDeviceClassPartition接口用来获取设备类型对应的RAID方式。
 ```
 https://bm.api.qcloud.com/v2/index.php?
 	Action=DescribeDeviceClassPartition
-	&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+	&<公共请求参数>
 	&deviceClass=<设备类型>
 	&cpuId=<cpuId类型>
 	&mem=<内存大小>
