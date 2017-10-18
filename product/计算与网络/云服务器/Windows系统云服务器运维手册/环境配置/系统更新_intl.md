@@ -1,13 +1,9 @@
 ## 1. Obtain updates via the public network.
 Users can install the patch program through the Windows Update service program of the system. The steps are as follows:
 
-Click "Start" - "Control Panel" - "Windows Updates", click "Check for Updates" button. After the check completes, you'll be notified of the availability of several update packages:
-
-![](//mccdn.qcloud.com/img56b2b9fa17686.png)
+Click "Start" - "Control Panel" - "Windows Updates", click "Check for Updates" button. After the check completes, you'll be notified of the availability of several update packages.
 
 Click "Available Updates", then "Choose the Update to Install" pop-up box will appear. Select the update to install, click "Install", then wait until the appearance of the message that the installation is completed.
-
-![](//mccdn.qcloud.com/img56b2ba48e4d8f.png)
 
 If you are prompted to restart your system after the update is completed, please restart the CVM.
 
@@ -23,8 +19,7 @@ If you want to use patch server of Tencent Cloud private network, do as follows:
 1) After logging in to Windows CVM, download the setup tool wusin.bat at Tencent Cloud private network through IE:
 http://mirrors.tencentyun.com/install/windows/wusin.bat
 
-2) Save it to C:\wusin.bat, and open the console to execute:
-![](//mccdn.qcloud.com/img56b2bae4c1a05.png)
+2) Save it to C:\wusin.bat, and open the console to execute.
 
 > NOTE: When this script is directly executed through IE, console window will be closed automatically and you are unable to view the output messages.
 
@@ -33,7 +28,6 @@ If you no longer need to use the Windows patch server of Tencent Cloud private n
 1) After logging in to Windows CVM, download cleanup tool wuout.bat through IE:
 http://mirrors.tencentyun.com/install/windows/wusout.bat
 
-2) Save it to C:\wusout.bat, and open the console to execute:
-![](//mccdn.qcloud.com/img56b2bb66dc99f.png)
+2) Save it to C:\wusout.bat, and open the console to execute.
 
 > NOTE: When this script is directly executed through IE, console window will be closed automatically and you are unable to view the output messages.

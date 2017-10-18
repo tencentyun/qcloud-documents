@@ -22,8 +22,8 @@
 <td> phoneNumber
 </td><td> String
 </td><td> 手机号码：国家代码
-<br> 手机号，如0086-15912345678
-<br> 注意0086前不需要+号
+<br> 手机号，如：0086-15912345678
+<br> 注意 0086 前不需要+号
 </td></tr>
 <tr>
 <td> bankCardNumber
@@ -362,14 +362,14 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 "message":"No Error",
 "riskInfo":
 [
-{
-"riskCode":5,  
-"riskCodeValue":2 //命中风险码5：身份认证失败，风险等级为中风险
-},     
-{
-"riskCode":6,
-"riskCodeValue":3 //命中风险码6：疑似恶意欺诈，风险等级为高风险
-}
+  {
+     "riskCode":5,  
+     "riskCodeValue":2 //命中风险码5：身份认证失败，风险等级为中风险
+  },     
+  {
+    "riskCode":6,
+    "riskCodeValue":3 //命中风险码6：疑似恶意欺诈，风险等级为高风险
+  }
 ], 
 "riskScore":88
 }
