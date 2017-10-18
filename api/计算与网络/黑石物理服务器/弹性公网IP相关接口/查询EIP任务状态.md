@@ -9,7 +9,7 @@ EipBmQueryTask 接口用于查询弹性公网IP异步任务的状态，主要用
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmQueryTask
+	Action=EipBmQueryTask
 	&<公共请求参数>
 	&requestId=<EIP异步任务ID>
 ```

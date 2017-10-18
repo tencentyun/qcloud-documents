@@ -1,73 +1,61 @@
-## 1. 接口描述
+## 功能描述
 
-本接口 (GetOutBandVPNAuthInfo) 获取带外VPN认证信息。
+GetOutBandVPNAuthInfo接口用来获取带外VPN认证信息。用户使用带外SSL VPN客户端登录VPN时，用获取到的信息作为VPN客户端输入的信息。
+
 接口请求域名：<font style="color:red">bm.api.qcloud.com</font>
 
-
-用户使用带外SSL VPN客户端登录VPN时，用获取到的信息作为VPN客户端输入的信息。
-
-
-## 2. 输入参数
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>必选</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> appId
-<td> 是
-<td> Int
-<td> 开发商自己的appId
-</tbody></table>
+## 请求
+### 请求示例
+```
+GET https://bmeip.api.qcloud.com/v2/index.php?
+	&Action=GetOutBandVPNAuthInfo
+	&<公共请求参数>
+	&zoneId=<可用区zoneId>
+```
+### 请求参数
+|参数名称|必选|类型|描述|
+|-------|----|---|----|
+| zoneId | 是 | Int | 可用区ID，需调用<a href="/doc/api/386/6634" title="查询地域以及可用区">查询地域以及可用区(DescribeRegions)接口</a> 获取zoneId |
 
 
-## 3. 输出参数
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> code
-<td> Int
-<td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="/doc/api/456/6725" title="公共错误码">公共错误码</a>。
-<tr>
-<td> message
-<td> String
-<td> 模块错误信息描述，与接口相关。
-<tr>
-<td> data
-<td> Object
-<td> 返回的authInfo实例，具体数据结构如下表说明。
-</tbody></table>
+## 响应
+### 响应示例
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "authInfo": {
+            "vpnGwAddr": <带外vpn地址>,
+            "userName": <带外vpn用户名>,
+            "userGroup": <带外vpn用户域信息>,
+            "be_first": <true or false>
+        }
+    }
+}
+```
+### 响应参数
+响应参数部分包含两层结构，外层展示接口的响应结果，内层展示具体的接口内容，包括带外登录信息。
 
-</b></th>authInfo结构</b></th>
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> vpnGwAddr
-<td> String
-<td> 带外SSL VPN网关地址。
-<tr>
-<td> userName
-<td> String
-<td> 带外SSL VPN 认证用户名。
-<tr>
-<td> userGroup
-<td> String
-<td> 带外SSL VPN 认证用户所在的用户组, 对应带外SSL VPN客户端中需要输入的域信息。
-<tr>
-<td> be_first
-<td> Bool
-<td> 此接口中返回的userName是否为第一次使用。 
- 如为true, 则是第一次, 需要用户调用API SetOutBandVPNAuthPwd并且入参createOrUpdate值为create，创建此appId的vpn认证帐号; 
- false 为已经调用过SetOutBandVPNAuthPwd创建过VPN认证帐号。
-</tbody></table>
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code |  Int | 错误码, 0: 成功, 其他值: 失败，具体含义可以参考[错误码](/document/product/386/6725)。 |
+| message |   String | 错误信息 |
+| data |   Object | 返回的authInfo实例，具体数据结构如下表说明。 |
+
+data.authInfo实例结构
+
+|参数名称|类型|描述|
+|---|---|---|
+| authInfo.vpnGwAddr | String | 带外SSL VPN网关地址。|
+| authInfo.userName | String | 带外SSL VPN 认证用户名。|
+| authInfo.userGroup | String | 带外SSL VPN 认证用户所在的用户组, 对应带外SSL VPN客户端中需要输入的域信息。|
+| authInfo.be_first | String | 此接口中返回的userName是否为第一次使用。 如为true, 则是第一次, 需要用户调用API SetOutBandVPNAuthPwd并且入参createOrUpdate值为create，创建此appId的vpn认证帐号;  false 为已经调用过SetOutBandVPNAuthPwd创建过VPN认证帐号。|
 
 
-## 4. 模块错误码
+## 错误码
 
 | code |codeDesc| 描述 |
 |------|------|------|
@@ -78,13 +66,20 @@
 | 10105 |InvalidResource.ObAuthNoConfig|操作错误，系统无此用户的VPN设置信息 |
 
 
-## 5. 示例
-输入
-<pre>
-https://bm.api.qcloud.com/v2/index.php?
-Action=GetOutBandVPNAuthInfo
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
-</pre>
+## 实际案例
+
+### 输入
+```
+GET https://bm.api.qcloud.com/v2/index.php?
+	Action=GetOutBandVPNAuthInfo
+	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+	&Nonce=35342
+	&Timestamp=1508213215
+	&Region=gz
+	&zoneId=1000100003
+	&Signature=o%2Fx5UUFhEO%2F5V2oADueinidHS9A%3D
+```
+
 输出
 ```
 {

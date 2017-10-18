@@ -22,8 +22,8 @@
 <td> phoneNumber
 </td><td> String
 </td><td> 手机号码：国家代码
-<br> 手机号，如0086-15912345678
-<br> 注意0086前不需要+号
+<br> 手机号，如：0086-15912345678
+<br> 注意 0086 前不需要+号
 </td></tr>
 <tr>
 <td> bankCardNumber
@@ -355,18 +355,22 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 
 ## 5.响应示例
 ```
-{
-"code": 0,
-"codeDesc":"success" ,
-"message": "OK",
-"riskScore": 90,
-"riskInfo": [
-　　{
-　　　"riskCode": 1
-　　},
-　　{
-　　　"riskCode": 203
-　　}
-　]
+{"code":0,
+"codeDesc":"Success",
+"found":1,  //表示该条记录能被查到
+"idFound":1, //表示该条记录中的身份证能被查到
+"message":"No Error",
+"riskInfo":
+[
+  {
+     "riskCode":5,  
+     "riskCodeValue":2 //命中风险码5：身份认证失败，风险等级为中风险
+  },     
+  {
+    "riskCode":6,
+    "riskCodeValue":3 //命中风险码6：疑似恶意欺诈，风险等级为高风险
+  }
+], 
+"riskScore":88
 }
 ```

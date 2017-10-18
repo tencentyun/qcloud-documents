@@ -12,108 +12,36 @@ This article provides the guide on how to mount, partition and format data disks
 
 On Windows 2012, the path to Disk Management is "Start" - "Server Management" - "Tools" - "Computer Management" - "Disk Management".
 
-Click the "Start" button:
-
-![](//mccdn.qcloud.com/img56b1ae00cc2f5.jpg)
-
-Click "Server Management":
-
-![](//mccdn.qcloud.com/img56b1ae17e6f48.jpg)
-
-Click "Tools" - "Computer Management":
-
-![](//mccdn.qcloud.com/img56b1aed3a67b3.jpg)
-
-Click on "Disk Management":
-
-![](//mccdn.qcloud.com/img56b1af025f7e1.jpg)
-
-As shown below, "Disk 1" is an unpartitioned disk. Here, the process is illustrated by creating one partition for "Disk 1". Right click on Disk 1, then select "Online":
-
-![](//mccdn.qcloud.com/img56b1b00b8935c.jpg)
-
-Right click again, then select "Initialize Disk":
-
-![](//mccdn.qcloud.com/img56b1b057ada88.jpg)
-
-Select "GPT" or "MBR" depending on the partitioning method, and click on the "OK" button:
-
-![](//mccdn.qcloud.com/img56b1b0a1cd741.jpg)
+"Disk 1" is an unpartitioned disk. Here, the process is illustrated by creating one partition for "Disk 1". Right click on Disk 1, then select "Online". Right click again, then select "Initialize Disk". Select "GPT" or "MBR" depending on the partitioning method, and click on the "OK" button.
 
 > Note: Make sure to select GPT as the partitioning method if the disk is larger than 2TB.
 
-Right click on the unallocated space, and select "New Simple Volume":
-
-![](//mccdn.qcloud.com/img56b1b0bead71b.jpg)
-
-In the "New Simple Volume Wizard" pop-up window, click "Next":
-
-![](//mccdn.qcloud.com/img56b1b0fae959f.jpg)
-
-Enter the desired disk size for the partition, then click "Next":
-
-![](//mccdn.qcloud.com/img56b1b1de673fb.jpg)
-
-Enter the drive letter, then click "Next":
-
-![](//mccdn.qcloud.com/img56b1b2f078870.jpg)
-
-Select "File System", then "Format Partition", and click "Next":
-
-![](//mccdn.qcloud.com/img56b1b32b1846e.jpg)
-
-Upon completing the New Simple Volume Wizard, click "Finish":
-
-![](//mccdn.qcloud.com/img56b1b37e6e5f2.jpg)
-
-View the new partition:
-
-![](//mccdn.qcloud.com/img56b1b39fb404d.jpg)
-
-![](//mccdn.qcloud.com/img56b1b3a3e4dd4.jpg)
-
+Right click on the unallocated space, and select "New Simple Volume". In the "New Simple Volume Wizard" pop-up window, click "Next".
+Enter the desired disk size for the partition, then click "Next". Enter the drive letter, then click "Next". Select "File System", then "Format Partition", and click "Next". Upon completing the New Simple Volume Wizard, click "Finish". 
 
 ## 2. Disk Partitioning and Formatting on Windows 2008
 On Windows 2008, the path to "Disk Management", different from that on Windows 2012, is "Server Management" - "Storage" - "Disk Management".
 
-Click "Server Management":
-![](//mccdn.qcloud.com/img56b1b5c4cd2ad.jpg)
+"Disk 1" is an unallocated disk. Here, the process is illustrated by creating one partition for "Disk 1".
 
-Click "Storage" - "Disk Management":
+"Disk 1" is not online in the initial state. Right click "Disk 1", and then click "Online" in the pop-up menu.
 
-![](//mccdn.qcloud.com/img56b1b6b60f2fd.jpg)
+Again, right click "Disk 1", and then click "Initialize Disk" in the pop-up menu.
 
-As shown above, "Disk 1" is an unallocated disk. Here, the process is illustrated by creating one partition for "Disk 1".
+Select the GPT initialization method, and click the "OK" button.
 
-"Disk 1" is not online in the initial state. Right click "Disk 1", and then click "Online" in the pop-up menu:
-
-![](//mccdn.qcloud.com/img56b1b71f7e7d4.jpg)
-
-Again, right click "Disk 1", and then click "Initialize Disk" in the pop-up menu:
-
-![](//mccdn.qcloud.com/img56b1b75941a79.jpg)
-
-Select the GPT initialization method, and click the "OK" button:
-![](//mccdn.qcloud.com/img56b1b89cb0675.jpg)
 Note: Make sure to select GPT as the partitioning method if the disk is larger than 2TB.
 
-Right click on the unallocated region behind "Disk 1", and select "New Simple Volume" in the shortcut menu that pops up:
-![](//mccdn.qcloud.com/img56b1b91f2445b.jpg)
+Right click on the unallocated region behind "Disk 1", and select "New Simple Volume" in the shortcut menu that pops up.
+As prompted by the Wizard, enter the size of the disk partition, then click "Next".
 
-As prompted by the Wizard, enter the size of the disk partition, then click "Next":
-![](//mccdn.qcloud.com/img56b1b93ab1e4a.jpg)
+Select "File System", then "Format Partition", and click "Next".
 
-Select "File System", then "Format Partition", and click "Next":
-![](//mccdn.qcloud.com/img56b1b95a7f09a.jpg)
+Upon completing the New Simple Volume Wizard, click "Finish".
 
-Upon completing the New Simple Volume Wizard, click "Finish":
-![](//mccdn.qcloud.com/img56b1b9829f98e.jpg)
+"Formatting..." is displayed.
 
-"Formatting..." is displayed:
-![](//mccdn.qcloud.com/img56b1b99be5831.jpg)
-
-At this point, the newly partitioned data disk can be seen on the computer screen:
-![](//mccdn.qcloud.com/img56b1b9b953e21.jpg)
+At this point, the newly partitioned data disk can be seen on the computer screen.
 
 > Note: Do not convert a basic hard disk to a dynamic hard disk. We are not liable for any data loss arising out of this action.
 
@@ -125,5 +53,4 @@ diskpart
 san policy = onlineall
 ```
 
-![](//mccdn.qcloud.com/static/img/cfb2f1d6d9b99c6786db612f343df525/image.png)
 Once remounted to the Windows CVM, the Elastic Cloud Block Storage can be used directly without any user action as long as it contains a valid file system.

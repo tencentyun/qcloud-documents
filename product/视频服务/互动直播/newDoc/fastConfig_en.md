@@ -1,7 +1,7 @@
 ### Fast Parameter Configuration
 Before initial development, the applications, account and encoding/decoding parameters need to be configured. All configurations can be completed in Tencent Cloud console.
 #### Step 1: Create an Application
-1. Considering that a company may have multiple applications, a Tencent Video Cloud account can create multiple ILVB applications. However, the data of the applications are independent and isolated from each other. If multiple applications need to access each other, it's recommended to assign a same appid for them.
+1. Considering that a company may have multiple applications, a Tencent Video Cloud account can create multiple ILVB applications. However, the data of the applications are independent and isolated from each other. If multiple applications need to access each other, it's recommended to assign a same <b>`SDKAPPID`</b> for them.
 2. Log in to Tencent Cloud console and find ILVB business. Click the **Create Application Access** button in the application list and enter a name for the application, then click **OK** to create an application.
 3. After the application has been created, you can see <b>`SDKAPPID`</b> in the application list. The backend uses this parameter to identify applications.
 4. If multiple applications need to access each other, it's recommended to assign a same<b>`SDKAPPID`</b>for them. In this case, developers are responsible to ensure that accounts assignment are unique across applications.
