@@ -20,9 +20,6 @@
 - 暂不支持 VRRP 组播报文，需要将 keepalived 的 VRRP Instance 配置为单播 VRRP 报文。
 - 暂不支持通过免费 ARP 报文做 VIP 的迁移，而是通过调用云 API来绑定 VIP 到主设备上。
 
-
-
-
 ## 本文步骤预览
 1.  申请 VIP，该 VIP 仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
 2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。
@@ -109,10 +106,12 @@ stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主�
 - 方式二：**云 API** 方式：**通过云 API 分配 申请 VIP 具体操作(云 API 代码开发指引请参考第 6 步)：** 
 
 >**注意：**
-* 后续配置完成后，在主备设备上启用 keepalived 服务，可以看到 VIP 出现在主设备上，并可以从 VPC 其它子机内 ping 通该 VIP 或外网 VIP。（请同时注意安全组对您主备云主机的网络隔离的功能，建议在实验阶段为主备云主机设置全通安全组）
-* 申请到 VIP 后，云主机内不会自动在网卡配置上 VIP，但 VPC 管理平台已为您建立好了 VIP 相关功能。1） VIP不用于 keepalived 时，需要您在分配内网 IP 后，在云服务器内配置该内网 IP 才能使 VIP 在云主机内可见，点击查看[分配内网IP（云服务器系统内）的方法](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911) 。 2）本文配置的 keepalived 可在使用时帮您在云主机网卡配置 VIP 实现云主机内可见。
+ 1. 后续配置完成后，在主备设备上启用 keepalived 服务，可以看到 VIP 出现在主设备上，并可以从 VPC 其它子机内 ping 通该 VIP 或外网 VIP。（请同时注意安全组对您主备云主机的网络隔离的功能，建议在实验阶段为主备云主机设置全通安全组）
+ 2. 申请到 VIP 后，云主机内不会自动在网卡配置上 VIP，但 VPC 管理平台已为您建立好了 VIP 相关功能。
+1） VIP不用于 keepalived 时，需要您在分配内网 IP 后，在云服务器内配置该内网 IP 才能使 VIP 在云主机内可见，点击查看[分配内网IP（云服务器系统内）的方法](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911) 。
+2）本文配置的 keepalived 可在使用时帮您在云主机网卡配置 VIP 实现云主机内可见。
  
-方式二实现步骤:
+方式二实现步骤：
 1. 获取您云主机的主网卡的 ID。
 - 控制台方法：可从控制台云主机详情页弹性网卡标签下找到主网卡 ID，如图所示
 ![](//mc.qcloudimg.com/static/img/fa9fc6b8995bef9734c8de9cb004543c/image.png)
@@ -164,6 +163,7 @@ except Exception, e:
 本文并行介绍两种使用模式：
 - 无常主模式，即双机选举主设备的优先级相同；
 - 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  
+
 常主常备模式较无常主模式增加了主备倒换次数，推荐使用无常主模式（非常主常备模式）
 
 ### 步骤 4. 修改配置 keepalived.conf
@@ -257,9 +257,9 @@ vrrp_instance VI_1 {
 ### 步骤 5. 修改 notify_action.sh 帮助云主机在故障时角色切换
 
 ```
-    常主常备模式步骤. 修改notify_action.sh:
+    常主常备模式步骤. 修改 notify_action.sh:
         1) 无
-    非常主常备模式步骤. 修改notify_action.sh:
+    非常主常备模式步骤. 修改 notify_action.sh:
         1) 无
 ```
 
@@ -583,12 +583,12 @@ fi
 - 云API：[点击查看具体调用方式](https://cloud.tencent.com/doc/api/229/1377)。
 
 ### 步骤 9. 验证主备倒换时 VIP 及外网 IP 是否正常切换
-1) 启动 keepalived：`/etc/init.d/keepalived start` 或 `systemctl start keepalived` 或 `service keepalived start`
+1. 启动 keepalived：`/etc/init.d/keepalived start` 或 `systemctl start keepalived` 或 `service keepalived start`
 
-2) 验证主备切换容灾效果：通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能迁移。/var/log/keepalived.log中同时会留下相应的日志。通过 ping VIP 或其 EIP 的方式，可以查看网络中断到恢复的时间间隔。
+2. 验证主备切换容灾效果：通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能迁移。/var/log/keepalived.log中同时会留下相应的日志。通过 ping VIP 或其 EIP 的方式，可以查看网络中断到恢复的时间间隔。
 >说明：
->1) 由于迁移 IP 以云 API 方式异步实现，需要数秒才能落地到新子机上。所以，常主常备模式式，主的故障时间**极短**时，可能发生两次短时间的主备状态倒换，但 VIP 重新落地到恢复的主机上需要较长时间（10s）。
->2) 脚本日志将会写到`/var/log/keealived.log`中。日志会占用您的磁盘空间。您可以自行借助 logrotate 等工具处理日志累积的问题。keepalived 进程的日志仍会写到`/var/log/message`中。
+1) 由于迁移 IP 以云 API 方式异步实现，需要数秒才能落地到新子机上。所以，常主常备模式式，主的故障时间**极短**时，可能发生两次短时间的主备状态倒换，但 VIP 重新落地到恢复的主机上需要较长时间（10s）。
+2) 脚本日志将会写到`/var/log/keealived.log`中。日志会占用您的磁盘空间。您可以自行借助 logrotate 等工具处理日志累积的问题。keepalived 进程的日志仍会写到`/var/log/message`中。
 
 
 
