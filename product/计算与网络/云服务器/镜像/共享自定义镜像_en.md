@@ -10,7 +10,7 @@ To share an image with another user, you need to obtain his/er unique account ID
 1) Log in to Tencent Cloud console, and click the account name in the upper right corner.
 
 2) View the account ID in your personal information.
-![](https://mc.qcloudimg.com/static/img/8ecbc060325b2fa0face6d875ac4ce41/pic1.png)
+![](http://mc.qcloudimg.com/static/img/dd0614aed805b82e6aa642f375facb4d/image.png)
 
 ### Sharing Images on Console
 

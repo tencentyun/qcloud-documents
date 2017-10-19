@@ -26,8 +26,6 @@ However, as mentioned above, there may be some issues within the Windows system 
 
 1) A Windows Update process may extend the shutdown time. For some patch operations, the Windows system may take some actions during the shutdown process, by which time messages like "Please do not power off or unplug your machine" will display.
 
-![](//mccdn.qcloud.com/img56b1d328d17b1.jpg)
-
 2) If "Shutdown Event Tracker" mechanism is enabled on the Windows system, when the system is shut down due to any error in the system service and driver, the system will provide user with a prompt box based on the configuration or fill in the error description to wait for the user to complete these operations. Windows will not turn off the power until the user has completed these operations.
 
 3) Windows can be set to not allow shutdown while the user is not logged in to the system. In this case, the soft-shutdown command sent from the virtual host will be discarded by Windows so that the shutdown cannot be achieved.
