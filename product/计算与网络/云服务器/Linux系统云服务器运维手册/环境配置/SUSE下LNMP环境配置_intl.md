@@ -27,9 +27,7 @@ Saving to:  'index.html'
 
 3) In the browser, visit the Public IP of CentOS CVM to check if the nginx service is working properly.
 
-The appearance of the following page indicates that nginx has been installed and configured successfully:
-
-![](//mccdn.qcloud.com/img56af51bf21d78.png)
+The appearance of the following page indicates that nginx has been installed and configured successfully.
 
 ## 2. Configuration of PHP
 1) Create a new configuration file php-fpm.conf with the following command:
@@ -81,5 +79,3 @@ echo "hello world";
 ```
 
 In the browser, visit the Public IP of SUSE CVM to check whether the environment configuration is successful. If the webpage shows "hello world", it means the configuration is successful.
-
-![](//mccdn.qcloud.com/img56b01b629ad2e.png)

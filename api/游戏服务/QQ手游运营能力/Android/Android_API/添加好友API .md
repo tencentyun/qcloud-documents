@@ -1,4 +1,4 @@
-### 游戏内添加QQ好友
+### 添加游戏好友
 #### 功能描述
 游戏 SDK 通过调用 Tencent 类的 gameMakeFriend API 添加游戏好友。
 

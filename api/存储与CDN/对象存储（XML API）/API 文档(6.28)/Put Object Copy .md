@@ -84,7 +84,7 @@ PUT /destinationObject HTTP/1.1
 | 名称               | 描述                                       | 类型     |
 | ---------------- | ---------------------------------------- | ------ |
 | CopyObjectResult | 返回复制结果信息                                 | String |
-| ETag             | 返回文件的 SHA-1 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
 | LastModified     | 返回文件最后修改时间，GMT 格式                         | String |
 
 
