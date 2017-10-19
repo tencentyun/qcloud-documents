@@ -1,9 +1,9 @@
 ## 开发准备
 
 ### SDK 获取
-对象存储服务的 XML Android SDK 的下载github地址:[XML Android SDK](https://github.com/tencentyun/qcloud-sdk-android/releases).
+对象存储服务的 XML Android SDK 资源下载地址:[XML Android SDK](https://github.com/tencentyun/qcloud-sdk-android/releases).
 
-更多示例可参考Demo:[XML Android SDK Demo](https://github.com/tencentyun/qcloud-sdk-android-samples).
+演示示例Demo下载地址:[XML Android SDK Demo](https://github.com/tencentyun/qcloud-sdk-android-samples).
 
 ### 开发准备
 
@@ -14,7 +14,7 @@
 
 ### SDK 配置
 
-配置工程导入下列 jar 包：
+需要在工程项目中导入下列 jar 包，存放在libs文件夹下：
 
 - cos-xml-android-sdk-1.2.jar
 
@@ -28,7 +28,7 @@
 
 - fastjson-1.1.62.android.jar
 
-SDK 需要网络、存储等相关的一些访问权限，需要在 AndroidManifest.xml 中增加如下权限声明：
+使用该SDK需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明（Android 5.0以上还需要动态获取权限）：
 ```html
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -40,10 +40,15 @@ SDK 需要网络、存储等相关的一些访问权限，需要在 AndroidManif
 
 ## 快速入门 
 
-### 初始化 CosXmlService 和 CosXmlServiceConfig
-进行操作之前需要实例化 CosXmlService 和 CosXmlServiceConfig.
+### 初始化 
+CosXmlServiceConfig： 网络连接、重试等配置参数
+
+CosXmlService：SDK提供的服务类，可操作各种cos服务
+
+进行任何操作之前，需要实例化 CosXmlService 和 CosXmlServiceConfig.
 
 ````java
+
 String appid = "对象存储 的服务APPID";
 String region = "存储桶 所在的地域"; 
 
@@ -80,7 +85,10 @@ PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPat
 
 putObjectRequest.setSign(signDuration,null,null);
 
-//设置进度显示
+/*设置进度显示
+  实现QCloudProgressListener.onProgress(long progress, long max)方法，
+  progress已上传的大小， max表示文件的总大小
+*/
 putObjectRequest.setProgressListener(new QCloudProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
@@ -127,14 +135,15 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
 ````
 
 ### 分片上传文件
-````java
-//分片上传一般需要经历：初始化分片上传->分块上传->完成等3个阶段.
 
+分片上传一般需要经历：初始化分片上传->分块上传->完成等3个阶段.
+
+````java
 String bucket = "存储桶名称";
 String cosPath = "远端路径，即存储到cos上的绝对路径";
 
 
-//第一步，初始化分片上传，获取 uploadId
+//第一步，初始化分片上传，获取 uploadId，用于后续的分片上传、完成上传等.
 
 String uploadId = null;
 
@@ -160,6 +169,8 @@ try {
 }
 
 //第二步，分片上传，需要参数 uploadId 和分片号 partNumber; 并获取对应的 eTag # 此处只演示只有一个分片的文件例子 #.
+//分片号：此分片在所有分片中的编号，从1开始
+//etag： 是此分片上传成功后，返回的此分片的 MD5+分片号组成的。
 
 String srcPath = "本地文件的绝对路径";
 int partNumber = 1; //上传分片编码，从1开始； 此处演示上传第一个分片
@@ -171,6 +182,10 @@ srcPath, uploadId);
 
 uploadPartRequest.setSign(600,null,null);
 
+/*设置进度显示
+  实现QCloudProgressListener.onProgress(long progress, long max)方法，
+  progress已上传的大小， max表示文件的总大小
+*/
 uploadPartRequest.setProgressListener(new QCloudProgressListener() {
 	 @Override
 	 public void onProgress(long progress, long max) {
@@ -194,6 +209,7 @@ try {
 	   //抛出异常
        Log.w("TEST","CosXmlServiceException =" + e.toString());
 }
+
 
 //第三步，当确定所有分片全部上传完成之后，调用CompleteMultiUploadRequest完成分片上传结束.
 //需要参数 uploadId， partNumber和对应每块分片文件的eTag值
@@ -231,6 +247,11 @@ String savePath = "下载到本地的路径";
 GetObjectRequest getObjectRequest = GetObjectRequest(bucket, cosPath, savePath);
 
 getObjectRequest.setSign(signDuration,null,null);
+
+/*设置进度显示
+  实现QCloudProgressListener.onProgress(long progress, long max)方法，
+  progress已上传的大小， max表示文件的总大小
+*/
 getObjectRequest.setProgressListener(new QCloudProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
@@ -279,9 +300,9 @@ cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
 
 ## 生成签名
 
-签名具体的生成和使用请参照[签名流程](https://www.qcloud.com/document/product/436/7778).
+若需要了解签名具体的生成过程请参照[签名流程](https://www.qcloud.com/document/product/436/7778).
 
-SDK中已提供了签名获取类，用户只需要继承 BasicLifecycleCredentialProvider 类，并重写 fetchNewCredentials() 方法.
+在使用SDK时，SDK中已提供了签名获取类，只需要继承 BasicLifecycleCredentialProvider 类，并重写 fetchNewCredentials() 方法，从而获取secretId,secretKey, secretKey Duration.
 
 #### 示例
 ````java
@@ -296,6 +317,9 @@ public class LocalCredentialProvider extends BasicLifecycleCredentialProvider{
         this.keyDuration = keyDuration;
      }
 
+     /**
+     返回密钥 secretId,secretKey, secretKey Duration
+	 */
      @Override
      public QCloudLifecycleCredentials fetchNewCredentials() throws CosXmlClientException {
          long current = System.currentTimeMillis() / 1000L;
