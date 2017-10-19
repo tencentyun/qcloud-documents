@@ -8,7 +8,6 @@
  * 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  常主常备模式较无常主模式增加了主备倒换次数，推荐使用无常主模式（非常主常备模式）
 - 本文通过给出若干 `keepalived 配置和脚本文件` + `不同场景配置方法`的形式，帮助用户在云主机上作本次实践。
 
-
 ## 基本原理
 通常高可用主备集群包含 2 台服务器，一台主服务器处于某种业务的激活状态（即 Active 状态），另一台备服务器处于该业务的备用状态（即 Standby 状态)，它们共享同一个 VIP（Virtual IP），同一时刻 VIP 只在一台主设备上生效，当主服务器出现问题，备用服务器接管 VIP 继续提供服务。高可用主备模式有着广泛的应用，例如：MySQL 主备切换、Ngnix Web 接入。
 <div style="text-align:center">
@@ -41,8 +40,8 @@
 
 常主常备用法使用步骤：
 主机操作： (常主)
-    1. 安装 keepalived，给主网卡分配外网IP或弹性公网IP
-    2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入，并添加可执行权限chmod +x /etc/keepalived/*.sh; chmod -x /etc/keepalived/keepalived.conf 
+    1. 安装 keepalived，给主网卡分配外网 IP 或弹性公网 IP。
+    2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入，并添加可执行权限 chmod +x /etc/keepalived/*.sh; chmod -x /etc/keepalived/keepalived.conf 
     3. 修改 keepalived.conf: 
         0) state            初始角色，主机填 MASTER, 备机填 BACKUP
         1) interface        改成本机网卡名 例如 eth0
@@ -52,7 +51,7 @@
         5) virtual_ipaddress    改成内网 vip 
         6) track_interface  改成本机网卡名 例如 eth0
     4. 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        1) 第12行   interface   改成本机内网 IP，该 IP 要有外网 IP
         2) 第13行   vip         改成您的 VIP      
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
@@ -70,20 +69,20 @@
 stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主常备) (推荐)
 双机操作相同：
     1. 安装 keepalived，给主网卡分配外网IP或弹性公网IP
-    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并修改权限chmod 744 /etc/keepalived/*.sh; chmod 644 /etc/keepalived/keepalived.conf 
+    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并修改权限 chmod 744 /etc/keepalived/*.sh; chmod 644 /etc/keepalived/keepalived.conf 
     3. 修改 keepalived.conf: 
         0) state            初始角色，均填写 BACKUP
         1) interface        改成本机网卡名 例如 eth0
         2) priority         两台设备配置大小相同的整数，如 50
         3) unicast_src_ip   改成本机内网 IP
         4) unicast_peer     改成对端机器内网 IP
-        5) virtual_ipaddress    改成内网 vip 
+        5) virtual_ipaddress    改成内网 VIP 
         6) track_interface  改成本机网卡名 例如 eth0
     4. 修改 vip.py
-        1) 第12行   interface   改成本机内网IP，该IP要有外网IP
-        2) 第13行   vip         改成您的vip      
-        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡ID      
-        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡ID      
+        1) 第12行   interface   改成本机内网 IP，该IP要有外网 IP
+        2) 第13行   vip         改成您的 vip      
+        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
+        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
         5) 第16行   vpcId         改成您的 vpc ID      
         6) 第19-22行            填写您的 secretId 和您的 secretKey
     5. 修改 check_self.sh:
@@ -323,14 +322,14 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 
 ```
     常主常备模式步骤: 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        1) 第12行   interface   改成本机内网 IP，该 IP 要有外网 IP
         2) 第13行   vip         改成您的 VIP       
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
         5) 第16行   vpcId         改成您的 vpc ID      
         6) 第19-22行            填写您的 secretId 和您的 secretKey
     非常主常备模式步骤: 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        1) 第12行   interface   改成本机内网 IP，该 IP 要有外网 IP
         2) 第13行   vip         改成您的 VIP       
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
@@ -369,10 +368,10 @@ import sys
 from QcloudApi.qcloudapi import QcloudApi 
 
 #当前机器主网卡和主 IP
-interface = {"eth0":"10.0.1.17"}            #该IP要有外网IP
+interface = {"eth0":"10.0.1.17"}            #该 IP 要有外网 IP
 vip = "10.0.1.100"                          #改成您的本机内网 VIP
-thisNetworkInterfaceId = 'eni-pvsvph0u'     #IP迁移后所在的弹性网卡 ID(本机网卡 ID)
-thatNetworkInterfaceId = 'eni-qnxioxyi'     #IP迁移前所在的弹性网卡 ID(对端主机网卡 ID)
+thisNetworkInterfaceId = 'eni-pvsvph0u'     #IP 迁移后所在的弹性网卡 ID(本机网卡 ID)
+thatNetworkInterfaceId = 'eni-qnxioxyi'     #IP 迁移前所在的弹性网卡 ID(对端主机网卡 ID)
 
 
 vpcId = 'vpc-1yxuk010'                      #vpcId
