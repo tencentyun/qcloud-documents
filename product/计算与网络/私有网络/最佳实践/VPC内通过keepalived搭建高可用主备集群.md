@@ -22,7 +22,7 @@
 
 ## 本文步骤预览
 1.  申请 VIP，该 VIP 仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
-2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。
+2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。**给主备服务器主网卡分配外网IP或弹性公网IP**
 3.  编辑使用 keepalived  的 notify 机制，借助 notify_action.sh 和 vip.py，调用云 API 进行主备切换。
 4.  编辑使用 keepalived 的 track_script 机制，借助 check_self.sh 和 vip.py，周期性执行检查脚本增强可用性。
 5.  给 VIP 分配外网 IP。**（可选）**
@@ -41,7 +41,7 @@
 
 常主常备用法使用步骤：
 主机操作： (常主)
-    1. 安装 keepalived
+    1. 安装 keepalived，给主网卡分配外网IP或弹性公网IP
     2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入，并添加可执行权限chmod +x /etc/keepalived/*.sh; chmod -x /etc/keepalived/keepalived.conf 
     3. 修改 keepalived.conf: 
         0) state            初始角色，主机填 MASTER, 备机填 BACKUP
@@ -52,8 +52,8 @@
         5) virtual_ipaddress    改成内网 vip 
         6) track_interface  改成本机网卡名 例如 eth0
     4. 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP
-        2) 第13行   vip         改成您的 VIP      
+        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        2) 第13行   vip         改成您的 VIP      
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
         5) 第16行   vpcId         改成您的 vpc ID      
@@ -69,8 +69,8 @@
 
 stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主常备) (推荐)
 双机操作相同：
-    1. 安装 keepalived
-    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并添加可执行权限chmod +x /etc/keepalived/*.sh; chmod -x /etc/keepalived/keepalived.conf 
+    1. 安装 keepalived，给主网卡分配外网IP或弹性公网IP
+    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并修改权限chmod 744 /etc/keepalived/*.sh; chmod 644 /etc/keepalived/keepalived.conf 
     3. 修改 keepalived.conf: 
         0) state            初始角色，均填写 BACKUP
         1) interface        改成本机网卡名 例如 eth0
@@ -80,8 +80,8 @@ stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主�
         5) virtual_ipaddress    改成内网 vip 
         6) track_interface  改成本机网卡名 例如 eth0
     4. 修改 vip.py
-        1) 第12行   interface   改成本机内网IP
-        2) 第13行   vip         改成您的vip      
+        1) 第12行   interface   改成本机内网IP，该IP要有外网IP
+        2) 第13行   vip         改成您的vip      
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡ID      
         5) 第16行   vpcId         改成您的 vpc ID      
@@ -323,14 +323,14 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 
 ```
     常主常备模式步骤: 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP
-        2) 第13行   vip         改成您的 VIP       
+        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        2) 第13行   vip         改成您的 VIP       
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
         5) 第16行   vpcId         改成您的 vpc ID      
         6) 第19-22行            填写您的 secretId 和您的 secretKey
     非常主常备模式步骤: 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP
+        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
         2) 第13行   vip         改成您的 VIP       
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
@@ -369,10 +369,12 @@ import sys
 from QcloudApi.qcloudapi import QcloudApi 
 
 #当前机器主网卡和主 IP
-interface = {"eth0":"10.0.1.17"}
-vip = "10.0.1.100"                          #改成您的本机内网 VIP
-thisNetworkInterfaceId = 'eni-pvsvph0u'     #IP迁移前所在的弹性网卡 ID(本机网卡 ID)
-thatNetworkInterfaceId = 'eni-qnxioxyi'     #IP迁移后所在的弹性网卡 ID(对端主机网卡 ID)
+interface = {"eth0":"10.0.1.17"}            #该IP要有外网IP
+vip = "10.0.1.100"                          #改成您的本机内网 VIP
+thisNetworkInterfaceId = 'eni-pvsvph0u'     #IP迁移后所在的弹性网卡 ID(本机网卡 ID)
+thatNetworkInterfaceId = 'eni-qnxioxyi'     #IP迁移前所在的弹性网卡 ID(对端主机网卡 ID)
+
+
 vpcId = 'vpc-1yxuk010'                      #vpcId
 
 config = {
@@ -403,8 +405,8 @@ def migrateVip():
     params = {
         'vpcId': vpcId,             #vpcId
         'privateIpAddress': vip,        #VIP
-        'oldNetworkInterfaceId': thisNetworkInterfaceId, #IP 迁移前所在的弹性网卡 ID(本机网卡 ID) 
-        'newNetworkInterfaceId': thatNetworkInterfaceId  #IP 迁移后所在的弹性网卡 ID(对端主机网卡 ID)
+        'oldNetworkInterfaceId': thatNetworkInterfaceId, #IP 迁移前所在的弹性网卡 ID(对端主机网卡 ID) 
+        'newNetworkInterfaceId': thisNetworkInterfaceId  #IP 迁移后所在的弹性网卡 ID(本机网卡 ID)
     }
     
     log_write(sys.argv[1])
@@ -458,7 +460,7 @@ def queryVip():
     module = 'vpc'
     action = 'DescribeNetworkInterfaces'
     params = {
-        "networkInterfaceId": thatNetworkInterfaceId  #您的本机网卡 ID
+        "networkInterfaceId": thisNetworkInterfaceId  #您的本机网卡 ID
     }
 
     result = 'true'

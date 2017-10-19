@@ -1,6 +1,6 @@
 ## 版本说明 
 + **版本相关信息**
-  - 版本号：3.4.1797 @ 2017-09-29
+  - 版本号：3.5.2144 @ 2017-10-13
 
 + **直播相关优化**
   - iOS & Android：引入推流加速技术，当您推流到腾讯云的 rtmp 地址时，可以开启 <font color='purple'>TXLivePushConfig::enableNearestIP</font> 开关，此时SDK会使用 **推流+** 加速后的推流通道传输主播的音视频数据，使推流质量获得较大提升，如下是 SDK 和 其他直播软件的对比效果。（推其他云商请关闭 enableNearestIP 开关）
@@ -26,8 +26,8 @@
   - Android：TXLivePusher 的 setBeautyFilter 接口增加了两个参数。
   - Android：TXUGCRecord、TXVideoEditer、TXVideoJoiner、TXUGCPublish 从原来的 <font color='purple'>com.tencent.rtmp</font> 移到了 <font color='purple'>com.tencent.ugc</font> 下。
 
-+ **历史版本**
-  - 上一版 SDK 下载地址为 [SDK Ver.2.0.5](https://cloud.tencent.com/document/product/454/10776)，历史版本功能说明详见 [变更历史](https://cloud.tencent.com/document/product/454/7878)。
++ **旧架构版本**
+  - 3.0 以后的版本为新架构版本，相比于旧架构，在性能和稳定性上更有优势，而且后续功能开发速度更快。但如果您是我们的老客户，可能新架构有些细节之处还没有照顾到您，在我们完全补全这些细节之前，旧架构的稳定版本 [SDK Ver.2.0.5](https://cloud.tencent.com/document/product/454/10776) 是个不错的选择，历史版本功能说明详见 [变更历史](https://cloud.tencent.com/document/product/454/7878)。
 
 
 ## 下载地址
@@ -58,16 +58,17 @@ table td { height: 35px; }
 | 直播播放  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 点播播放  |![](//mc.qcloudimg.com/static/img/2e00c5e35962f177efb87c8ed2c037dd/image.jpg) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/2e00c5e35962f177efb87c8ed2c037dd/image.jpg)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 视频通话  ||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 短视频录制  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 短视频编辑  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 多视频合并  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 短视频发布  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频录制  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频编辑  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频拼接  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频发布  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 基础美颜  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) | | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 动效贴纸 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 美瞳瘦脸 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 绿幕抠图 ||||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 符号重命名 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 支持BitCode |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)||||
-||[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Smart_iOS_3.4.1797.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Player_iOS_3.4.1797.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_UGC_iOS_3.4.1797.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_iOS_3.4.1797.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Professional_Rename_iOS_3.4.1797.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_iOS_3.4.1797.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/TXLiteAVSDK_Enterprise_Rename_iOS_3.4.1797.zip)|
+||[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Smart_iOS_3.5.2144.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Player_iOS_3.5.2144.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_UGC_iOS_3.5.2144.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_iOS_3.5.2144.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_Rename_iOS_3.5.2144.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_iOS_3.5.2144.zip)| 见版本说明 |
 
 - **Android 平台**
 
@@ -77,20 +78,21 @@ table td { height: 35px; }
 | 直播播放  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)| ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 点播播放  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 视频通话  ||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 短视频录制  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 短视频编辑  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 多视频合并  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| 短视频发布  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频录制  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频编辑  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频拼接  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 视频发布  |||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
+| 基础美颜  |![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png) | | ![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 动效贴纸 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 美瞳瘦脸 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 绿幕抠图 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| |[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/LiteAVSDK_Smart_Android_3.4.1797.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/LiteAVSDK_Player_Android_3.4.1797.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/LiteAVSDK_UGC_Android_3.4.1797.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/LiteAVSDK_Professional_Android_3.4.1797.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.4/LiteAVSDK_Enterprise_Android_3.4.1797.zip) | 
+| |[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Smart_Android_3.5.2144.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Player_Android_3.5.2144.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_UGC_Android_3.5.2144.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Professional_Android_3.5.2144.zip)| 见版本说明 | 
 
 - **版本说明**
 
-> 1. 除精简版之外，SDK 各功能版本均打包有 ijkplayer，如果您的工程中已使用 ffmpeg，可能会导致符号冲突。为解决这个问题，您可以使用我们经过符号处理的 rename 版 SDK。
+> 1. 除精简版之外，SDK 各功能版本均打包有 ijkplayer （修复了若干内部BUG），如果您的工程中已使用 ijkplayer，可能会导致符号冲突。为解决这个问题，您可以使用我们经过符号处理的 rename 版 SDK。
 
-> 2. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
+> 2. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本（[iOS](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_Rename_iOS_3.5.2144.zip) | [Android](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Enterprise_Android_3.5.2144.zip) ）非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
 >  
 > 3. iOS 直播精简版中没有包含软实现的编解码器，SDK 被压缩至最小（安装包体积增量 1M 左右），但此版本不支持 iOS 7.0 及以下系统。
 >  

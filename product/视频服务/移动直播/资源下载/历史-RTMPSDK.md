@@ -1,3 +1,11 @@
+### Version 3.5
+- IOS&Android：连麦发送策略优化，弱网下声音更加流畅。
+- IOS&Android：声音重采样算法更新，对不同采样率背景音有更好的兼容。
+- IOS&Android：新增独立点播接口（TXVodPlayer），点播需求可使用此接口，更简单纯粹，原有直播点播接口（TXLivePlayer）不变可继续使用。
+- Android：连麦对部分手机支持系统AEC，性能更优。
+- Android：自定义发送接口（sendCustomVideoData）支持发送I420、NV21等自定义数据。
+- Android：播放端支持YUV视频数据回调接口。
+
 ### Version 3.4
 - IOS&Android：短视频录制新增回删、多比例切换、焦距调节等功能。
 - IOS&Android：短视频编辑新增片尾水印功能。
