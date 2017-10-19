@@ -33,9 +33,9 @@
  
 输入
 <pre>
-  https://iothub.api.qcloud.com/v2/index.php?Action=CreateProduct
+  https://iothub.api.cloud.tencent.com/v2/index.php?Action=CreateProduct
   &productName=fruit
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
 输出

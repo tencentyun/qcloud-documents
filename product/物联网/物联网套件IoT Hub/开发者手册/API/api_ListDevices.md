@@ -7,7 +7,7 @@
 
 ### 2 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](https://www.qcloud.com/doc/api/229/6976)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](https://www.cloud.tencent.com/doc/api/229/6976)页面。
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -39,7 +39,7 @@ Device 的结构如下
 <pre>
   https://iothub.api.cloud.tencent.com/v2/index.php?Action=ListDevices
   &productName=fruit
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
 输出
