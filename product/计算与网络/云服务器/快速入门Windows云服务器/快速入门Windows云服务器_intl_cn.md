@@ -21,7 +21,7 @@
 > Windows 云服务器无法作为 [公网网关](/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 [快速入门 Linux 云服务器](/doc/product/213/2936) 。
 
 ### 确定付费方式
-腾讯云提供 包年包月 和 按量付费 两种付费模式。详见 [计费模式说明](/doc/product/213/2180) 。
+腾讯云提供按量付费模式。详见 [计费模式说明](/doc/product/213/2180) 。
 若您选择按量付费，则需先完成 [实名认证](https://console.cloud.tencent.com/developer/infomation) 。
 
 <div id="page2"></div>

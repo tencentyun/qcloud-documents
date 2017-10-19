@@ -1,4 +1,4 @@
-您可以使用 secret_id 和 secret_key 对您的 API 进行认证管理。secret_id 和 secret_key 成对出现，这里将它们将成为 secret_id/secret_key 对。在使用 secret_id/secret_key 对认证前，需要先创建好一对 secret_id 和 secret_key。在服务发布时，你可以在选择发布服务的认证方式时选定为使用 `secret_id + secret_key`，然后在 Key/secret_key 对的选择处选择已经创建好的 secret_id/secret_key 对。一对 secret_id/secret_key 可用于多个已发布的服务，一个已发布的服务也可以选择使用多个 secret_id/secret_key 对。
+您可以使用 secret_id 和 secret_key 对您的 API 进行认证管理。secret_id 和 secret_key 成对出现，这里将它们将成为 secret_id/secret_key 对。在使用 secret_id/secret_key 对认证前，需要先创建好一对 secret_id 和 secret_key。在服务发布时，你可以在选择发布服务的认证方式时选定为使用 secret_id + secret_key，然后在 Key/secret_key 对的选择处选择已经创建好的 secret_id/secret_key 对。一对 secret_id/secret_key 可用于多个已发布的服务，一个已发布的服务也可以选择使用多个 secret_id/secret_key 对。
 
 使用 secret_id + secret_key 完成认证的方式如下：
 
@@ -29,7 +29,7 @@ Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="h
 ###### 签名计算方法
 签名由两部分并根据指定加密算法进行计算，以 hmac-sha1 算法举例：
 
-####### 1. 签名内容
+** 1. 签名内容**
 首先生成签名内容，签名内容由自定义的 header 组成，header 内建议至少包含 date,可以包含更多其他 header。
 
 header 按如下要求转换后按顺序排列：
@@ -47,12 +47,12 @@ Source:AndriodApp
 date: Fri, 09 Oct 2015 00:00:00 GMT\nsource:AndriodApp
 ```
 
-####### 2. 计算签名
+** 2. 计算签名**
 将上一步生成的签名内容，使用 Base64(HMAC-SHA1(signing_str, secret_key)) 算法进行计算生成签名，也就是：
-* 使用签名内容作为输入信息，密钥内的secret_key内容作为密钥，使用HMAC-SHA1算法进行计算得出加密签名内容
+* 使用签名内容作为输入信息，密钥内的 secret_key 内容作为密钥，使用 HMAC-SHA1 算法进行计算得出加密签名内容
 * 使用 Base64 对算出的加密签名内容进行转换生成可传递的签名内容
 
-####### 3. 使用签名
+ **3. 使用签名**
 如 *最终发送内容* 中所示的一样，在 Authorization header 的 signature 处填入上一步计算完成后的签名
 
 ##### 注意事项
