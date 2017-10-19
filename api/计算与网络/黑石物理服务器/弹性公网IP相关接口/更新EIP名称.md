@@ -8,7 +8,7 @@ ModifyEipAlias 接口用于更改弹性公网EIP的别名。用户通过该接�
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=ModifyEipAlias
+	Action=ModifyEipAlias
 	&<公共请求参数>
 	&eipId=<EIP实例ID>
 	&eipName=<更改的EIP别名>

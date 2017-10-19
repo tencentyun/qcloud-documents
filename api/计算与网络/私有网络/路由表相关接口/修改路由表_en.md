@@ -16,7 +16,7 @@ After the modification, the original content of routing table will be totally re
 | routeTableName | No|  String| Routing table name; up to 60 characters.  |
 | routeSet.n | No | array | (Optional) Content of routing table. |
 | routeSet.n.destinationCidrBlock | Yes | String | Destination IP address range. It should not be within the VPC IP address range. For example: 112.20.51.0/24. |
-| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway. |
+| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn gateway; 8: NAT gateway; 9: general cvm|
 | routeSet.n.nextHub | Yes | String | Next hop address. You just need to specify gateway IDs (new ID is recommended) of different next hop types and the system will automatically match to the next hop address.  |
 | routeSet.n.description | No | String | Route description, which should be limited to 60 characters.  |
   

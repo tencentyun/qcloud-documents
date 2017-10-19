@@ -8,7 +8,7 @@
 获取途径：用户登录 [控制台](https://console.cloud.tencent.com/)，选择【用户中心】栏下的【项目管理】，可查看默认项目，默认项目 ProjectId = 0。单击【新建】即可创建新项目，并获取新的 ProjectId。
 **3. SecretId 和 SecretKey**
 腾讯云安全凭证，其中，SecretId 是用于标识 API 调用者身份的，而 SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。用户应严格保管其 SecretKey，避免泄露。
-获取途径：<br>1) 用户登录 [控制台](https://console.cloud.tencent.com/)，单击【云产品】，选择【监控与管理】栏下的【云 API 密钥】，进入云 API 密钥管理页面。<br>2) 在云 API 访问密钥管理页面，点击【新建】即可以创建一对 SecretId/SecretKey，每个帐号最多可以拥有两对 SecretId/SecretKey。<br>
+获取途径：<br>1) 用户登录 [控制台](https://console.cloud.tencent.com/)，单击【云产品】，选择【监控与管理】栏下的【云 API 密钥】，进入云 API 密钥管理页面。<br>2) 在云 API 访问密钥管理页面，单击【新建】即可以创建一对 SecretId/SecretKey，每个帐号最多可以拥有两对 SecretId/SecretKey。<br>
 ![1](https://mccdn.qcloud.com/img568f5fb824757.png)
 ![2](//mc.qcloudimg.com/static/img/0727c55969eabe8d2b0aba7b0e0e796c/image.png)
 **4. 服务类型**
