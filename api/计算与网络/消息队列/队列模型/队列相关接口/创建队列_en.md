@@ -2,20 +2,20 @@
 
 This API (CreateQueue) is used to create a new queue under the user's account.
 
-Domain for public network API request: <font style="color:red">cmq-queue-region.api.qcloud.com</font>
+Domain for public network API request: cmq-queue-region.api.qcloud.com
 
-Domain for private network API request: <font style="color:red">cmq-queue-region.api.tencentyun.com</font>
+Domain for private network API request: cmq-queue-region.api.tencentyun.com
 
-> Whenever (including during alpha test) any public network downstream traffic is generated from the use of a public network domain, a fee will be charged.  It is strongly recommended that users whose services are on the Tencent Cloud use **private network** domains, because no fee will be charged for the traffic consumed in the private network.
+> Whenever (including during alpha test) any public network downstream traffic is generated from the use of a public network domain, a fee will be charged. Hence it is strongly recommended to use **private network** domains, in which traffic consumption is NOT charged. 
 
 - region should be replaced with a specific region: gz (Guangzhou), sh (Shanghai), or bj (Beijing). The region value in the common parameters should be consistent with the region value of the domain. If there is an inconsistency, the request will be sent to the region specified by the domain.
-- Public network domain requests both support http and https. Private network requests only support http.
+- Public network domain requests both support HTTP and HTTPS. Private network requests only support HTTP.
 - Some of the input parameters are optional. If not specified, the default value will be taken.
 - All the output parameters will be returned to the user when the request is successful; otherwise, at least code, message, and requestId will be returned.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/431/5883).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/431/5883).
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
@@ -46,24 +46,24 @@ The following request parameter list only provides API request parameters. For o
 <tr>
 <td> 4000
 </td><td> 10020
-</td><td> queue name format error
-</td><td> The format of the queue name is incorrect. <a href="https://www.qcloud.com/doc/api/431/5832">See the description of the queueName field for the API CreateQueue for the rules</a>.
+</td><td> Queue name format error
+</td><td> The format of the queue name is incorrect. <a href="https://cloud.tencent.com/doc/api/431/5832">See the description of the queueName field for the API CreateQueue for the rules</a>.
 </td></tr>
 <tr>
 <td> 4450
 </td><td> 10220
-</td><td> number of queues has reached the limit
+</td><td> Number of queues has reached the limit
 </td><td> The number of queues has reached the upper limit. The number of queues for an account is limited (1,000). When the maximum number is reached, no queue can be created then.
 </td></tr>
 <tr>
 <td> 6040
 </td><td> 10660
-</td><td> it will take some time to release resources of previous queue before you create a new one with the same name, please try later
+</td><td> It will take some time to release resources of previous queue before you create a new one with the same name, please try later
 </td><td> Failed to create a queue with the same name. It will take some time to release resources of the previous queue with the same name. Currently, to ensure data consistency of CMQ, it is not allowed to create a new queue with the same name within ten seconds after a queue is deleted.
 </td></tr>
 </tbody></table>
 
-Note: The error codes listed in the above table are specific to this API. If the error code you are looking for is not in the table, you may find it in the [Common Error Codes](https://www.qcloud.com/document/product/406/5903).
+Note: The error codes listed in the above table are specific to this API. If the error code you are looking for is not in the table, you may find it in the [Common Error Codes](https://cloud.tencent.com/document/product/406/5903).
 
 
 ## 4. Example
@@ -73,7 +73,7 @@ Input:
 <pre>
  https://domain/v2/index.php?Action=CreateQueue
  &queueName=test-queue-123
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+ &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 </pre>
 
 Output:

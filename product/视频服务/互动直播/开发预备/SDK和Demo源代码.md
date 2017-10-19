@@ -1,7 +1,7 @@
 
 #### 互动直播SDK下载地址
 目前需要在腾讯云申请互动直播服务才能下载：
-https://console.qcloud.com/avc/avSdkDownload 
+https://console.cloud.tencent.com/avc/avSdkDownload 
 
 #### 互动直播辅助开发入门    
 为了帮助用户进行互动直播的开发，我们提供了一个名叫随心播的Demo，完整演示了互动直播的功能。    

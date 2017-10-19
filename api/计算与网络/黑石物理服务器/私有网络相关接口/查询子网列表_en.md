@@ -1,7 +1,7 @@
 ## 1. API Description
  
 This API (DescribeBmSubnetEx) is used to query the list of BM subnets.  
-Domain name for API request: vpc.api.qcloud.com 
+Domain name for API request: bmvpc.api.qcloud.com
 
 
 ## 2. Input Parameters
@@ -9,10 +9,10 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | No | String | ID of VPC to which the subnet belongs, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-kd7d06of. You can query this through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
+| vpcId | No | String | ID of VPC to which the subnet belongs, which can be vpcId or unVpcId. unVpcId is recommended. For example: vpc-kd7d06of. You can query this through API <a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
 | subnetId | No | String | Subnet ID assigned by the system. Both subnetId and unSubnetId are supported. unSubnetId is recommended. For example: subnet-3lzrkspo. |
 | subnetName | No | String | Subnet name. Fuzzy query is supported.  |
-| zoneIds | No | Array | Availability zone ID. For more information, please see <a href="https://www.qcloud.com/document/api/386/6633">VPC Availability Zone Overview</a>.  |
+| zoneIds | No | Array | Availability zone ID. For more information, please see <a href="https://cloud.tencent.com/document/api/386/6633">VPC Availability Zone Overview</a>.  |
 | offset | No | Int | Offset of initial line. Default is 0.  |
 | limit | No | Int | Number of lines per page. Default is 20.  |
 | orderField | No | String | Sort by a certain field. Currently, sorting by createTime (default) and subnetName is supported.  |
@@ -27,7 +27,7 @@ The following request parameter list only provides API request parameters. Commo
 | message |  String | Error message.  |
 | totalCount |  Int | Total number of subnets.  |
 | data | Array  | Returned array.  |
-| data.n.vpcId | String | The VPC ID assigned by the system, e.g. gz_vpc_266. |
+| data.n.vpcId | Int | The VPC ID assigned by the system, e.g. 10001. |
 | data.n.unVpcId | String | The new VPC ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new VPC ID, for example: vpc-5gu2jxf4. |
 | data.n.subnetId | int | Subnet ID assigned by the system. For example: 23. |
 | data.n.unSubnetId | String | The new subnet ID assigned by the system, which is upgraded from the subnet ID. It is recommended to use the new subnet ID, for example: subnet-5gu2jxf4. |
@@ -40,8 +40,8 @@ The following request parameter list only provides API request parameters. Commo
  
 | Error Code | Error Message | Description |
 |--------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query the VPC through API <a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
-| -3030 | InvalidBmSubnet.NotFound | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct. You can query the subnet through API <a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>.  |
+| -3047 | InvalidBmVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct. You can query the VPC through API <a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>.  |
+| -3030 | InvalidBmSubnet.NotFound | Invalid subnet. Subnet resource does not exist. Please verify whether the resource information entered is correct. You can query the subnet through API <a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>.  |
 
 ## 5. Example
  
@@ -61,7 +61,7 @@ Output
     "totalCount": 1,
     "data": [
         {
-            "vpcId": "gz_vpc_64",
+            "vpcId": 10001,
             "unVpcId": "vpc-kd7d06of",
             "vpcName": "panpan-vpc1",
             "vpcCidrBlock": "10.0.0.0\/16",

@@ -10,7 +10,7 @@ No special restrictions. For specific parameter restrictions, refer to the table
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976
 ).
 
 | Parameter Name | Required | Type | Description |
@@ -22,8 +22,8 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Type | Description |
 | ------- | ------- | ------- |
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For details, refer to the [Error Code page](https://www.qcloud.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81) |
-| message | String | Error message. For details, refer to the [Error Code page](https://www.qcloud.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81)|
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For details, refer to the [Error Code page](https://cloud.tencent.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81) |
+| message | String | Error message. For details, refer to the [Error Code page](https://cloud.tencent.com/doc/api/364/%E9%94%99%E8%AF%AF%E7%A0%81)|
 | detail | Array [Object] | The number of elastic cloud storages that have already been mounted on the CVM and the maximum number of elastic cloud storages that can be mounted on the CVM. See the table below |
  
 detail Structure:
@@ -35,7 +35,7 @@ detail Structure:
  
 ## 4. Error Code List
 
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://www.qcloud.com/doc/api/364/4207).
+The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://cloud.tencent.com/doc/api/364/4207).
 
 | Error Code | English Description | Error Description |
 | ------- | ------- | ------- |
@@ -47,7 +47,7 @@ The following list only provides the business logic error codes for this API. Fo
 Input
 <pre>
 https://cbs.api.qcloud.com/v2/index.php?
-<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &Action=DescribeInstancesCbsNum
 &uInstanceIds.0=ins-ka40hchw
 </pre>

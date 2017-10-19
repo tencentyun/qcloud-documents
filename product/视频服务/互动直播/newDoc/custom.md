@@ -11,7 +11,7 @@
 TIMManager imManager = ILiveSDK.getTIMManager();
 ```
 
-查看Android IMSDK接口的详细信息请点击[这里](https://www.qcloud.com/document/product/269/1557)
+查看Android IMSDK接口的详细信息请点击[这里](https://cloud.tencent.com/document/product/269/1557)
 
 ##### 获取AV上下文实例
 
@@ -19,7 +19,7 @@ TIMManager imManager = ILiveSDK.getTIMManager();
 AVContext avContext = ILiveSDK.getAVContext();
 ```
 
-查看Android AVSDK接口的详细信息请点击[这里](https://www.qcloud.com/document/product/268/7685)
+查看Android AVSDK接口的详细信息请点击[这里](https://cloud.tencent.com/document/product/268/7685)
 
 * ios
 
@@ -30,7 +30,7 @@ AVContext avContext = ILiveSDK.getAVContext();
 TIMManager *imManager = [[ILiveSDK getInstance] getTIMManager];
 ```
 
-查看IOS IMSDK接口的详细信息请点击[这里](https://www.qcloud.com/document/product/269/1565)
+查看IOS IMSDK接口的详细信息请点击[这里](https://cloud.tencent.com/document/product/269/1565)
 
 ##### 获取AV上下文实例
 
@@ -38,7 +38,7 @@ TIMManager *imManager = [[ILiveSDK getInstance] getTIMManager];
 QAVContext *avContext = [[ILiveSDK getInstance] getAVContext];
 ```
 
-查看IOS AVSDK接口的详细信息请点击[这里](https://www.qcloud.com/document/product/268/7661)
+查看IOS AVSDK接口的详细信息请点击[这里](https://cloud.tencent.com/document/product/268/7661)
 
 
 **注意事项：**请在ILiveSDK初始化并登录后再使用以上接口。

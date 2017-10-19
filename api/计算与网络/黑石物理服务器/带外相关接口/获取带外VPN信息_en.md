@@ -1,7 +1,7 @@
 ## 1. API Description
 
 This API (GetOutBandVPNAuthInfo) is used to get authentication information of out-of-band VPN.
-Domain for API request: <font style="color:red">bm.api.qcloud.com</font>
+Domain for API request: bm.api.qcloud.com
 
 
 When you log in to VPN from the out-of-band SSL VPN client, you can enter the acquired information at the VPN client.
@@ -83,7 +83,7 @@ Input
 <pre>
 https://bm.api.qcloud.com/v2/index.php?
 Action=GetOutBandVPNAuthInfo
-&<<a href="https://www.qcloud.com/doc/api/229/6976">common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">common request parameters</a>>
 </pre>
 Output
 ```

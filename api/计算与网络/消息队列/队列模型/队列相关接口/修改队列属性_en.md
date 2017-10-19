@@ -13,7 +13,7 @@ Domain for private network API request:<font style="color:red">cmq-queue-region.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -45,7 +45,7 @@ Input:
  https://domain/v2/index.php?Action=SetQueueAttributes
  &queueName=test-queue-123
  &pollingWaitSeconds=20
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+ &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output:

@@ -1,5 +1,5 @@
 ## Push消息统一路径
-消息相关的接口，统一的接口地址是http://wns.api.qcloud.com/api/
+消息相关的接口，统一的接口地址是`http://wns.api.qcloud.com/api/`
 在统一地址后面加上不同的接口名字，实现响应的功能接口。
 
 ## 签名生成方法

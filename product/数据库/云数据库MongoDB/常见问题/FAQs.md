@@ -6,7 +6,7 @@ A：MongoDB采用一种贪婪的策略会尽量分配可用的内存用作缓存
 
 ###  连接类
 **Q：实例的连接数规格是多少？是否支持升级连接数？**
-A：连接数规格参考：[连接限制说明](https://www.qcloud.com/document/product/240/622)，连接数和实例规格相关，可以通过升级规格以获取更大的连接数。
+A：连接数规格参考：[连接限制说明](https://cloud.tencent.com/document/product/240/622)，连接数和实例规格相关，可以通过升级规格以获取更大的连接数。
 
 **Q：在php中，如何设置最大连接数？**
 A：
@@ -48,9 +48,9 @@ A：升级实例规格所需的时间取决于实例已用容量，升级期间�
 
 **Q：升级的原理是什么？**
 A：
-步奏1：添加新规格的节点到集群中；
-步奏2：等待新加节点同步数据完成；
-步奏3：踢掉老的节点，升级完成。
+步骤1：添加新规格的节点到集群中；
+步骤2：等待新加节点同步数据完成；
+步骤3：踢掉老的节点，升级完成。
 
 **Q：是否支持定时升级？**
 A：正在开发中，敬请期待。
@@ -68,7 +68,7 @@ A：基于安全原因，不支持无密码访问
 
 
 **Q：mongodump无法导出数据**
-A：mongodump[使用参考](https://www.qcloud.com/document/product/240/5321)，mongodump工具建议使用3.2.10以上版本。
+A：mongodump[使用参考](https://cloud.tencent.com/document/product/240/5321)，mongodump工具建议使用3.2.10以上版本。
 
 **Q：如何设置从库dump**
 A：mongodump的参数中设置--readPreference=secondaryPreferred
@@ -87,16 +87,16 @@ A：目前暂时不支持，该功能在内测中，尽请期待
 A：支持
 
 **Q：云数据库MongoDB与自建MongoDB的区别**
-A：参见[云数据库MongoDB相比自建MongoDB的优势 ](http://www.qcloud.com/doc/product/240/%E4%BA%A7%E5%93%81%E4%BC%98%E5%8A%BF)
+A：参见[云数据库MongoDB相比自建MongoDB的优势 ](http://cloud.tencent.com/doc/product/240/%E4%BA%A7%E5%93%81%E4%BC%98%E5%8A%BF)
 
 **Q：云数据库MongoDB版支持哪些语言的客户端进行连接**
 A：云数据库MongoDB版针对客户端连接完全兼容MongoDB，只要是官方MongoDB版支持的客户端，云数据库全部支持。比如：C,C++,c#,java,node.js,python,php,perl等等，具体详情见官方链接，参见[https://docs.mongodb.org/ecosystem/drivers/](https://docs.mongodb.org/ecosystem/drivers/)
 
 **Q：在shell里怎么连接腾讯云MongoDB**
-A：参见[Shell连接示例](https://www.qcloud.com/doc/product/240/3978)
+A：参见[Shell连接示例](https://cloud.tencent.com/doc/product/240/3978)
 
 **Q：业务程序里连接MongoDB的URI是什么样的**
-A：参见[连接示例](https://www.qcloud.com/doc/product/240/3563)
+A：参见[连接示例](https://cloud.tencent.com/doc/product/240/3563)
 
 **Q：我应该选用哪个版本的驱动程序**
 A：尽量用最新版本的，比如PHP可以选择mongo-1.6及以上
@@ -137,4 +137,4 @@ A：[参见BBS](http://bbs.qcloud.com/thread-17852-1-1.html)
 A：此时实例将处于封禁状态，该状态下不可写入数据，只能做读操作，尝试写入数据的连接将会被关闭。请及时关注自身业务发展和实例使用情况，当容量使用达到一定阈值时请适当扩容。
 
 **Q：连接断开或者出现“Remote server has closed the connection”信息怎么办？**
-A：首先参考[连接示例](https://www.qcloud.com/doc/product/240/3563)排除认证问题，如果能连上但是依然会出现这个问题那可能需要实现一个重连机制，请参考 [实现重连](https://www.qcloud.com/doc/product/240/4980)
+A：首先参考[连接示例](https://cloud.tencent.com/doc/product/240/3563)排除认证问题，如果能连上但是依然会出现这个问题那可能需要实现一个重连机制，请参考 [实现重连](https://cloud.tencent.com/doc/product/240/4980)

@@ -2,7 +2,7 @@
 
 ## 1. Overview
 ### 1.1 Overview
-If you only need to achieve [Read-write Separation](https://www.qcloud.com/document/product/237/2081), all the slaves on MariaDB (TDSQL) support read-only capability currently. For more information, please see the document of [Read-write Separation](https://www.qcloud.com/document/product/237/2081) technique.
+If you only need to achieve [Read-write Separation](https://cloud.tencent.com/document/product/237/2081), all the slaves on MariaDB (TDSQL) support read-only capability currently. For more information, please see the document of [Read-write Separation](https://cloud.tencent.com/document/product/237/2081) technique.
 
 However, you may still need additional read-only instances, to control in a more flexible way and build complicated business systems. Therefore, MariaDB (TDSQL) supports the scheme of **using self-built CVM read-only instances**.
 
@@ -11,7 +11,7 @@ As shown in the figure below, self-built read-only instances locate outside of t
 
 ![](https://mc.qcloudimg.com/static/img/a347c4d64a22c6b3f08c115c9e51c490/image.png)
 
-To ensure the performance and stability of MariaDB (TDSQL) cluster, we only provide "async" synchronization under this scheme, and increase the delay time of data synchronization in case of cluster overload, to reduce the performance consumption on MariaDB (TDSQL) master cluster. This means, the data delay of your self-built read-only instances may range from few seconds to few minutes. If you have any stringent requirements for delay, it is recommended to use [Read-write Separation](https://www.qcloud.com/document/product/237/2081) technique of MariaDB (TDSQL).
+To ensure the performance and stability of MariaDB (TDSQL) cluster, we only provide "async" synchronization under this scheme, and increase the delay time of data synchronization in case of cluster overload, to reduce the performance consumption on MariaDB (TDSQL) master cluster. This means, the data delay of your self-built read-only instances may range from few seconds to few minutes. If you have any stringent requirements for delay, it is recommended to use [Read-write Separation](https://cloud.tencent.com/document/product/237/2081) technique of MariaDB (TDSQL).
 
 ## 2. Creation scheme
 ### 2.1 Determine kernel version of MariaDB (TDSQL)

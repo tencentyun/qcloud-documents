@@ -15,20 +15,20 @@ Domain for API request:<font style="color:red">cdn.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473). The Action field for this API is GetCdnProvIspDetailStat.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473). The Action field for this API is GetCdnProvIspDetailStat.
 
 | Parameter Name    | Required | Type     | Description                                       |
 | ------- | ---- | ------ | ---------------------------------------- |
 | date     | Yes    | String | The date for which the query is made. Format: yyyy-mm-dd. For example, 2016-09-28                    |
 | hosts.n | Yes    | String | Specify domains. You may enter multiple domains, for example: hosts.0=www.test.com&hosts.1=www.test2.com. You can query a maximum of 5 domains at a time |
-| provs.n | No    | String | Specify provinces. Provinces are identified by codes. For details, click [CDN Log Province Code Mapping Table](https://www.qcloud.com/document/product/228/6316). |
-| isps.n | No    | String | Specify ISPs. ISPs are identified by codes. For details, click [CDN Log ISP Code Mapping Table](https://www.qcloud.com/document/product/228/6316). |
+| provs.n | No    | String | Specify provinces. Provinces are identified by codes. For details, click [CDN Log Province Code Mapping Table](https://cloud.tencent.com/document/product/228/6316). |
+| isps.n | No    | String | Specify ISPs. ISPs are identified by codes. For details, click [CDN Log ISP Code Mapping Table](https://cloud.tencent.com/document/product/228/6316). |
 
 ## 3. Output Parameters
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Code page.  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Code page.  |
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | Error message or error code at business side.                           |
 | data     | Object | Data result. For details, refer to the description later.                            |

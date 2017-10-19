@@ -17,12 +17,12 @@ Domain for API request:<font style="color:red">cdn.api.qcloud.com</font>
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473). The Action field for this API is GetCdnHostsCacheFlux.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473). The Action field for this API is GetCdnHostsCacheFlux.
 
 | Parameter Name       | Required | Type     | Description                                       |
 | ---------- | ---- | ------ | ---------------------------------------- |
 | date       | Yes    | String | Specify the date for which the query is made. Format: yyyy-mm-dd. For example, 2016-10-13.
-| projects.n | No    | Int    |Specify the project ID for which the query is made. Multiple IDs can be specified, such as projects.0=1&projects.1=2, [Click to View Project ID](https://console.qcloud.com/project)|
+| projects.n | No    | Int    |Specify the project ID for which the query is made. Multiple IDs can be specified, such as projects.0=1&projects.1=2, [Click to View Project ID](https://console.cloud.tencent.com/project)|
 | hosts.n    | No    | String | Specify the domain for which the query is made. Multiple domains can be specified, such as hosts.0=www.abc.com&hosts.1=www.def.com. When you enter a domain, you need to enter the project ID of this domain in projects.n parameter. |
 
 **Note:**
@@ -35,7 +35,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page |
 | message  | String | Module error message description depending on API                           |
 | codeDesc | String | Error message or error code at business side                           |
 | data     | Object | Returned result data, including detailed data array for the specified dates and domains. Traffic is measured in Byte        |

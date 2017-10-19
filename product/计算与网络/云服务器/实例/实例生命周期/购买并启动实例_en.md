@@ -2,9 +2,9 @@ Users can start a new instance as follows:
 
 ## Purchase and start the instance via image
 
-1) Log in to the Tencent Cloud official website, select "Cloud Services" - "Compute and Network" - "Cloud Virtual Machine", then click "Buy Now" button, enter the [CVM purchase page](https://buy.qcloud.com/buy/cvm).
+1) Log in to the Tencent Cloud official website, select "Cloud Services" - "Compute and Network" - "Cloud Virtual Machine", then click "Buy Now" button, enter the [CVM purchase page](https://buy.cloud.tencent.com/buy/cvm).
 
-2) Select the billing mode: prepaid or postpaid (If you are not able to purchase postpaid CVMs, please go through a [Qualification](https://console.qcloud.com/developer/infomation) process first). With these two modes, the fee is charged on a monthly basis and by the seconds for which the server is used, respectively. For more information, see [here](http://www.qcloud.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E).
+2) Select the billing mode: prepaid or postpaid (If you are not able to purchase postpaid CVMs, please go through a [Qualification](https://console.cloud.tencent.com/developer/infomation) process first). With these two modes, the fee is charged on a monthly basis and by the seconds for which the server is used, respectively. For more information, see [here](http://cloud.tencent.com/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E).
 ![](//mccdn.qcloud.com/static/img/2116de97fc48aa340e08d3ebb982bbde/image.png)
 
 3) Select a region and availability zone. When you need more than one CVMs, it's recommended that you choose different availability zones so as to ensure disaster tolerance.
@@ -58,7 +58,7 @@ Tencent Cloud supports multiple CVM login methods, from which users are free to 
 
 For more information about logging in to server, please refer to [Logging in to Windows Instance](/doc/product/213/5435) and [Logging in to Linux Instance](/doc/product/213/5436)
 
-10) Choose a Security Group (<font color="red">Make sure the login ports 22 (Linux) or 3389 (Windows) are open</font>. See [Security Group](/doc/product/213/5221) for more information), click "Buy Now" button and complete the payment, and then you may enter [Console](https://console.qcloud.com/cvm) to check and accept your CVM.
+10) Choose a Security Group (<font color="red">Make sure the login ports 22 (Linux) or 3389 (Windows) are open</font>. See [Security Group](/doc/product/213/5221) for more information), click "Buy Now" button and complete the payment, and then you may enter [Console](https://console.cloud.tencent.com/cvm) to check and accept your CVM.
 
 After the CVM is created, the user will get an internal message containing such information as instance name, Public IP address, Private IP address, login name, and initial login password (if you choose the method of automatically generated password). You may use the information to log in to and manage instances.
 
@@ -78,7 +78,7 @@ Tencent Cloud allows users to start an instance which is the same as the current
 
 ## Automatically mount data disks when using custom image and data disk snapshot to start a new instance
 
-For instances started based on the method above, the data disks can only be used by CVM instances after being mounted or made online. See the [Linux System Partitioning, Formatting, Mounting and File System Creation](/document/product/362/6735) and [Windows System Partitioning, Formatting and File System Creation](https://www.qcloud.com/document/product/362/6734) for details. When starting new CVM instances, if a user specifies a ***custom image*** and***data disk snapshot***, the Cloud Block Storage of Tencent Cloud can support automatic mounting after a CVM instance is started (which means reading and writing for data disks can be achieved directly without the need to perform a series of operations including adding, partitioning and formatting). Users need to perform several operations on the original instances according to the following instructions before making custom images and data disk snapshots:
+For instances started based on the method above, the data disks can only be used by CVM instances after being mounted or made online. See the [Linux System Partitioning, Formatting, Mounting and File System Creation](/document/product/362/6735) and [Windows System Partitioning, Formatting and File System Creation](https://cloud.tencent.com/document/product/362/6734) for details. When starting new CVM instances, if a user specifies a ***custom image*** and***data disk snapshot***, the Cloud Block Storage of Tencent Cloud can support automatic mounting after a CVM instance is started (which means reading and writing for data disks can be achieved directly without the need to perform a series of operations including adding, partitioning and formatting). Users need to perform several operations on the original instances according to the following instructions before making custom images and data disk snapshots:
 
 ### How to set automatic mounting of data disks in Linux system
 In a Linux system, if a user hopes that the Cloud Block Storage generated by a specified data disk snapshot can automatically mount new CVM instances, the specified custom image and data disk snapshot must meet the following requirements:

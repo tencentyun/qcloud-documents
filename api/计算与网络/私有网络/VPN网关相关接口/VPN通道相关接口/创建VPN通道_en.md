@@ -1,26 +1,26 @@
 ## 1. API Description
 
 This API (AddVpnConnEx) is used to create VPN tunnel.
-Domain for API request:<font style="color:red">vpc.api.qcloud.com</font>
+Domain for API request: vpc.api.qcloud.com
 
  
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is AddVpnConnEx.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. 
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | Yes | string | VPC ID or unified ID (unified ID is recommended). Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  | 
-| vpnGwId | Yes | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv. Can be queried via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>.  |
-| userGwId | Yes | String | Peer gateway ID, which can be userGwId or unUserGwId. unUserGwId is recommended. For example: cgw-e098slul. Can be queried via the API<a href="https://www.qcloud.com/document/product/215/5119" title=" DescribeUserGw"> DescribeUserGw</a>.  |
+| vpcId | Yes | string | VPC ID or unified ID (unified ID is recommended). Can be queried via the API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  | 
+| vpnGwId | Yes | String | VPN gateway ID assigned by the system, which can be vpnGwId or unVpnGwId. unVpnGwId is recommended. For example: vpngw-dystbrkv. Can be queried via the API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2VPN%E7%BD%91%E5%85%B3%E5%88%97%E8%A1%A8" title="DescribeVpnGw">DescribeVpnGw</a>.  |
+| userGwId | Yes | String | Peer gateway ID, which can be userGwId or unUserGwId. unUserGwId is recommended. For example: cgw-e098slul. Can be queried via the API<a href="https://cloud.tencent.com/document/product/215/5119" title=" DescribeUserGw"> DescribeUserGw</a>.  |
 | vpnConnName | Yes | String | Tunnel name; you can specify any name you like, but its length should be limited to 60 characters.  |
 | preSharedKey | Yes | String | Pre-shared private key.  |
 | userGwCidrBlock.n | No | Array | CIDR address of the peer IP address range, multiple values can be entered. Specifies the IDC IP address range with which the VPC can communicate, later upgraded to spdAcl (finer granularity). Either userGwCidrBlock or spdAcl must be entered.  |
-| spdAcl | No | String | SPD rule group, json format. For example: {"10.0.0.5/24":["172.123.10.5/16"]}, 10.0.0.5/24 is a VPC private IP address range, and 172.123.10.5/16 is an IDC IP address range. You can specify which IP address range in the VPC can communicate with which IP address range in your IDC, upgraded from userGwCidrBlock. Either userGwCidrBlock or spdAcl must be entered.  |
-| IKESet | No | Array | IKE configuration (Internet Key Exchange). IKE is provided with a self-protection mechanism. The network security protocol is configured by the user. See <a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN Connection-IKE Configuration">VPN Connection-IKE Configuration</a> for details.  |
-| IPsecSet | No | Array | IPSec configuration. The IPSec secure session configuration is provided by Tencent Cloud. See <a href="https://www.qcloud.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.4-ipsec-.E4.BF.A1.E6.81.AF" title="VPN Connection-IPsec Configuration">VPN Connection-IPsec Configuration</a> for details. |
+| spdAcl | No | String | SPD rule group, json format. For example: `{"10.0.0.5/24":["172.123.10.5/16"]}`, `10.0.0.5/24` is a VPC private IP address range, and `172.123.10.5/16` is an IDC IP address range. You can specify which IP address range in the VPC can communicate with which IP address range in your IDC, upgraded from `userGwCidrBlock`. Either `userGwCidrBlock` or `spdAcl` must be entered.  |
+| IKESet | No | Array | IKE configuration (Internet Key Exchange). IKE is provided with a self-protection mechanism. The network security protocol is configured by the user. See <a href="https://cloud.tencent.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN Connection-IKE Configuration">VPN Connection-IKE Configuration</a> for details.  |
+| IPsecSet | No | Array | IPSec configuration. The IPSec secure session configuration is provided by Tencent Cloud. See <a href="https://cloud.tencent.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.4-ipsec-.E4.BF.A1.E6.81.AF" title="VPN Connection-IPsec Configuration">VPN Connection-IPsec Configuration</a> for details. |
 
-IKE configuration details
+**Details of `IKESet`**
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -38,7 +38,7 @@ IKE configuration details
 | IKESet.encryptAlgorithm | No | String | IPsec configuration, encryption algorithm. Available values include 3des-cbc, aes-cbc-128, aes-cbc-192, aes-cbc-256, des-cbc and null. The default is 3des-cbc. See the product instruction for more details.  |
 
 
-IPsec configuration details
+**Details of `IPsec`**
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -50,23 +50,23 @@ IPsec configuration details
  
 
 ## 3. Output Parameters
- The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+ The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | code | Int | Error code, 0: Succeeded; other values: Failed |
 | message |  String | Error message |
-| data.taskId | Int  | Task ID. The operation result can be queried with taskId. For more information, refer to <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">API for Querying Task Execution Result</a>.  |
+| data.taskId | Int  | Task ID. The operation result can be queried with taskId. For more information, refer to <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%bb%bb%e5%8a%a1%e6%89%a7%e8%a1%8c%e7%bb%93%e6%9e%9c%e6%8e%a5%e5%8f%a3">API for Querying Task Execution Result</a>.  |
 
 ## 4. Error Codes
 
 | Error Code | Description |
 |---------|---------|
-| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the API <a href="http://www.qcloud.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
-| InvalidVpnGw.NotFound | Invalid VPN gateway. VPN gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN gateway via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>.  |
-| InvalidUserGw.NotFound | Invalid peer gateway. Peer gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the peer gateway via the API <a href="https://www.qcloud.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a>.  |
+| InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. You can query the VPC via the API <a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx">DescribeVpcEx</a>.  |
+| InvalidVpnGw.NotFound | Invalid VPN gateway. VPN gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the VPN gateway via the API <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2VPN%e7%bd%91%e5%85%b3%e5%88%97%e8%a1%a8?viewType=preview" title="DescribeVpnGw">DescribeVpnGw</a>.  |
+| InvalidUserGw.NotFound | Invalid peer gateway. Peer gateway resource does not exist. Please verify that the resource information you entered is correct. You can query the peer gateway via the API <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a>.  |
 | InvalidVpnConnName | Invalid VPN name. You can specify any name you like, but its length should be limited to 60 characters.  |
-| VpnConnLimitExceeded | Reached the upper limit of requested VPN tunnels for the specific region. Please contact customer service for more resources. For more information on VPC service limits, see <a href="https://www.qcloud.com/doc/product/215/537" title="VPC Service Limits">VPC Service Limits</a>.  |
+| VpnConnLimitExceeded | Reached the upper limit of requested VPN tunnels for the specific region. Please contact customer service for more resources. For more information on VPC service limits, see <a href="https://cloud.tencent.com/doc/product/215/537" title="VPC Service Limits">VPC Service Limits</a>.  |
 
 
 
@@ -75,7 +75,7 @@ IPsec configuration details
 Input
 <pre>
   https://vpc.api.qcloud.com/v2/index.php?Action=AddVpnConnEx
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
   &vpcId=vpc-amhnnao5
   &userGwId=cgw-e098slul
   &vpnGwId=vpngw-dystbrkv

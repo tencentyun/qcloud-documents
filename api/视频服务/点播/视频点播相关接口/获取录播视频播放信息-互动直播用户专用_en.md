@@ -127,7 +127,7 @@ You need to pass this parameter to receive corresponding call-back content befor
 Input
 <pre>
 https://domain/v2/index.php?Action=DescribeRecordPlayInfo &vid=1200_c5997fa0f77745a49824150da4e4a6cc&notifyUrl=test.com
- &<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+ &<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 
 </pre>
 Output

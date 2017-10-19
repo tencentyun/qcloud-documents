@@ -21,9 +21,9 @@
 1. 支持自定义消息。
 
 ## 4 相关API
-1. [推送](http://www.qcloud.com/doc/product/269/%E6%8E%A8%E9%80%81) ；
-1. [查询推送任务状态](http://www.qcloud.com/doc/product/269/%E6%9F%A5%E8%AF%A2%E6%8E%A8%E9%80%81%E4%BB%BB%E5%8A%A1%E7%8A%B6%E6%80%81) ；
-1. [设置标签](http://www.qcloud.com/doc/product/269/%E8%AE%BE%E7%BD%AE%E6%A0%87%E7%AD%BE) ；
-1. [删除标签](http://www.qcloud.com/doc/product/269/%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BE)  ；
-1. [获取用户标签](http://www.qcloud.com/doc/product/269/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE) 。
+1. [推送](http://cloud.tencent.com/doc/product/269/%E6%8E%A8%E9%80%81) ；
+1. [查询推送任务状态](http://cloud.tencent.com/doc/product/269/%E6%9F%A5%E8%AF%A2%E6%8E%A8%E9%80%81%E4%BB%BB%E5%8A%A1%E7%8A%B6%E6%80%81) ；
+1. [设置标签](http://cloud.tencent.com/doc/product/269/%E8%AE%BE%E7%BD%AE%E6%A0%87%E7%AD%BE) ；
+1. [删除标签](http://cloud.tencent.com/doc/product/269/%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BE)  ；
+1. [获取用户标签](http://cloud.tencent.com/doc/product/269/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE) 。
 

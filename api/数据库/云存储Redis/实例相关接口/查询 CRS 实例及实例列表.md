@@ -15,15 +15,15 @@
 | orderBy | 否 | String | 枚举范围redisId,projectId,createtime|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
 | vpcIds.n  | 否 | Int | 历史原因，仍保留该参数，推荐使用下面参数unVpcIds。 私有网络ID数组，数组下标从0开始，如果不传则默认选择基础网络。|
-| unVpcIds.n  | 否 | String | 私有网络ID数组，数组下标从0开始，如果不传则默认选择基础网络。请使用[私有网络列表](https://www.qcloud.com/doc/api/245/1372) 查询返回的unVpcId为准，如：vpc-kd7d06of|
+| unVpcIds.n  | 否 | String | 私有网络ID数组，数组下标从0开始，如果不传则默认选择基础网络。请使用[私有网络列表](https://cloud.tencent.com/doc/api/245/1372) 查询返回的unVpcId为准，如：vpc-kd7d06of|
 | subnetIds.n | 否 | Int | 历史原因，仍保留该参数，推荐使用下面参数unSubnetIds。私有网络下的子网ID数组，数组下标从0开始|
-| unSubnetIds.n | 否 | String | 子网ID数组，数组下标从0开始。 vpc子网下，取值以查询[查询子网列表](https://www.qcloud.com/document/product/215/1371) 返回的unSubnetId为准，如：subnet-3lzrkspo|
+| unSubnetIds.n | 否 | String | 子网ID数组，数组下标从0开始。 vpc子网下，取值以查询[查询子网列表](https://cloud.tencent.com/document/product/215/1371) 返回的unSubnetId为准，如：subnet-3lzrkspo|
 | projectIds.n | 否 | String | 项目ID 组成的数组，数组下标从0开始|
 
 ## 3. 输出参数
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='公共错误码'>公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | codeDesc | String | 业务侧错误码英文描述。成功时返回Success，错误时返回具体业务错误原因。 |
 | totalCount | Int | 实例数 |
@@ -46,7 +46,7 @@
 | data.redisSet.createtime | String | 实例创建时间 | 
 | data.redisSet.size | Int | 实例容量大小，单位：MB| 
 | data.redisSet.sizeUsed | Int | 实例当前已使用容量，单位：MB | 
-| data.redisSet.typeId | Int | 实例类型，1：集群版；2：单机版| 
+| data.redisSet.typeId | Int | 实例类型，1：集群版；2：主从版| 
 | data.redisSet.typeIddesc | String | 实例类型描述 |
 | data.redisSet.autoRenewFlag | Int | 实例是否设置自动续费标识，1：设置自动续费；0：未设置自动续费 |  
 | data.redisSet.deadlineTime | String | 实例到期时间 |
@@ -62,7 +62,7 @@
 ## 5. 示例
 <pre>
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedis
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &limit=10
 &offset=0
 </pre>

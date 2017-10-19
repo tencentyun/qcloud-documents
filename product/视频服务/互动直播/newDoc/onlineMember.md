@@ -31,7 +31,7 @@
     * 只返回人数
     * 人数较少场景（比如只有几十人），统计结果偏差明显
 
-点击[这里](https://www.qcloud.com/doc/product/269/4104#5.3-.E8.8E.B7.E5.8F.96.E8.A7.82.E7.9C.8B.E7.9B.B4.E6.92.AD.E7.9A.84.E4.BA.BA.E6.95.B0)查看详细。
+点击[这里](https://cloud.tencent.com/doc/product/269/4104#5.3-.E8.8E.B7.E5.8F.96.E8.A7.82.E7.9C.8B.E7.9B.B4.E6.92.AD.E7.9A.84.E4.BA.BA.E6.95.B0)查看详细。
 
 
 **注意事项：**

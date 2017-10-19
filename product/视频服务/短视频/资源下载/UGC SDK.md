@@ -1,24 +1,13 @@
-﻿## 版本说明
+## 版本说明
 
-- 版本号：2.0.4.3253 @ 2017-06-08	
-- iOS：支持短视频的裁剪和拼接功能，短视频编辑支持滤镜、水印、背景音、字幕、变速等功能。
-- Android：优化短视频裁剪、拼接功能，支持编辑滤镜功能。
-- iOS & Android：支持短视频录制（暂仅支持摄像头录制）和发布（上传视频到CDN）。
-- iOS & Android：优化短视频发布的成功率和速度。
-- iOS & Android：商用版支持动效贴纸、大眼、瘦脸、绿幕等 AI 加持特效。
-- 
-## 版本预告
-- 2.0.5 版本预计 6 月底发布
-- 预计Android增加变速编辑功能，可以将本地视频加速到原来的 2x, 4x 等倍速。
-- 预计Android增加音轨编辑功能，可以将本地视频的音轨进行替换和修改。
-- 预计Android增加字幕编辑功能，可以对本地视频添加字幕。
+- 版本号：3.5.2144 @ 2017-10-18
 
 ## 文档索引
 
 | 手机平台 | 文档索引 |
 |:-------:|---------|
-| iOS 平台 | [【录制+发布】](https://www.qcloud.com/document/product/584/9367) &nbsp; [【视频编辑】](https://www.qcloud.com/document/product/584/9375) &nbsp; [【视频拼接】](https://www.qcloud.com/document/product/584/9370) &nbsp; [【视频播放】](https://www.qcloud.com/document/product/584/9372) | 
-| Android 平台 | [【录制+发布】](/document/product/584/9367) &nbsp; [【视频编辑】](https://www.qcloud.com/document/product/584/9502) &nbsp; [【视频拼接】](https://www.qcloud.com/document/product/584/9503) &nbsp; [【视频播放】](https://www.qcloud.com/document/product/584/9373) | 
+| iOS 平台 | [【录制+发布】](https://cloud.tencent.com/document/product/584/9367) &nbsp; [【视频编辑】](https://cloud.tencent.com/document/product/584/9375) &nbsp; [【视频拼接】](https://cloud.tencent.com/document/product/584/9370) &nbsp; [【视频播放】](https://cloud.tencent.com/document/product/584/9372) | 
+| Android 平台 | [【录制+发布】](/document/product/584/9367) &nbsp; [【视频编辑】](https://cloud.tencent.com/document/product/584/9502) &nbsp; [【视频拼接】](https://cloud.tencent.com/document/product/584/9503) &nbsp; [【视频播放】](https://cloud.tencent.com/document/product/584/9373) | 
 
 ## 下载地址
 
@@ -28,8 +17,8 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKiOSRename2.0.4.3253.zip)   |
-| Android平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://download-1252463788.cossh.myqcloud.com/RTMPSDKAndroidSimple2.0.4.3253.zip) |
+| iOS平台  | 3.5.2144 @ 2017-10-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_UGC_iOS_3.5.2144.zip)   |
+| Android平台  | 3.5.2144 @ 2017-10-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_UGC_Android_3.5.2144.zip) |
 
 - **付费版**
 
@@ -37,7 +26,7 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
-| Android平台  | 2.0.4.3253 @ 2017-06-08 | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
+| iOS平台  | 3.5.2144 @ 2017-10-18 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_iOS_3.5.2144.zip) |
+| Android平台  | 3.5.2144 @ 2017-10-18  | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Enterprise_Android_3.5.2144.zip) | 
 
 

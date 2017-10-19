@@ -154,7 +154,7 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 	}
 });
 ```
-此示例中设置了自己的好友验证方式为需要验证，此时如果有用户申请加好友，会收到加好友的系统通知（详见 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A540)）。
+此示例中设置了自己的好友验证方式为需要验证，此时如果有用户申请加好友，会收到加好友的系统通知（详见 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)）。
 
 ### 2.3 设置自己的头像
 
@@ -349,7 +349,7 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 
 ### 3.1 获取自己的资料 
 
-可通过 `TIMFriendshipManager`的 `getSelfProfile`方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.9916) 方法设置，此方法全局有效。
+可通过 `TIMFriendshipManager`的 `getSelfProfile`方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
 
 **原型：**
 
@@ -460,7 +460,7 @@ TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserPr
 
 ### 3.2 获取任何人的资料
 
-可通过`TIMFriendshipManager`的 `getUsersProfile` 方法获取任何人的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.9916) 方法设置，此方法全局有效。此接口从网络获取数据。
+可通过`TIMFriendshipManager`的 `getUsersProfile` 方法获取任何人的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网络获取数据。
 
 **原型： **  
 ```
@@ -502,7 +502,7 @@ TIMFriendshipManager.getInstance().getUsersProfile(users, new TIMValueCallBack<L
 
 ### 3.3 获取好友的资料
 
-好友关系链的功能是由资料关系链扩展包提供的，可通过 扩展包中`TIMFriendshipManagerExt`的 `getFriendsProfile` 方法获取好友的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.9916) 方法设置，此方法全局有效。此接口从网络获取数据。
+好友关系链的功能是由资料关系链扩展包提供的，可通过 扩展包中`TIMFriendshipManagerExt`的 `getFriendsProfile` 方法获取好友的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网络获取数据。
 
 **原型： **  
 
@@ -905,7 +905,7 @@ TIMFriendshipManagerExt.getInstance().delFriend(param, new TIMValueCallBack<List
 
 ### 5.3 获取所有好友 
 
-可通过`TIMFriendshipManagerExt`的 `getFriendList` 方法可以获取所有好友，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.9916) 方法设置，此方法全局有效。
+可通过`TIMFriendshipManagerExt`的 `getFriendList` 方法可以获取所有好友，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
 
 **原型： **   
 
@@ -1143,7 +1143,7 @@ public void getFriendGroups(@Nullable List<String> groupNames,
 
 ### 6.7 获取所有好友分组
 
-通过 [获取指定的好友分组信息](#6.6-.E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E7.9A.84.E5.A5.BD.E5.8F.8B.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF34) 可以获取所有分组信息，另外，通过 [获取所有好友](#5.3-.E8.8E.B7.E5.8F.96.E6.89.80.E6.9C.89.E5.A5.BD.E5.8F.8B23)，也可以获取分组信息。
+通过 [获取指定的好友分组信息](#6.6-.E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E7.9A.84.E5.A5.BD.E5.8F.8B.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF) 可以获取所有分组信息，另外，通过 [获取所有好友](#5.3-.E8.8E.B7.E5.8F.96.E6.89.80.E6.9C.89.E5.A5.BD.E5.8F.8B)，也可以获取分组信息。
 
 ## 7. 关系链资料存储
 

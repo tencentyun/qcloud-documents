@@ -1,9 +1,9 @@
 在购买并启动了 Linux 类型的实例后，您可以连接并登录它。根据您本地的操作系统和 CVM 实例是否可被 Internet 访问，不同情况下可以使用不同的登录方式，具体内容可参考下表：
 <table><tbody>
 <tr><th>本地操作系统类型</th><th> Linux 云服务器实例有公网 IP</th><th> Linux 云服务器实例没有公网 IP</th></tr>
-<tr><td>Windows</td><td>VNC 登录<br>远程登录软件登录<br>密钥登录</td><td rowspan="3">VNC登录</td></tr>
-<tr><td>Linux</td><td>VNC 登录<br>SSH 登录<br>密钥登录</td></tr>
-<tr><td>Mac OS</td><td>VNC 登录<br>SSH 登录<br>密钥登录</td></tr>
+<tr><td>Windows</td><td>WebShell 登录<br>VNC 登录<br>远程登录软件登录<br>密钥登录</td><td rowspan="3">VNC登录</td></tr>
+<tr><td>Linux</td><td>WebShell 登录<br>VNC 登录<br>SSH 登录<br>密钥登录</td></tr>
+<tr><td>Mac OS</td><td>WebShell 登录<br>VNC 登录<br>SSH 登录<br>密钥登录</td></tr>
 </tbody></table>
 
 ## 先决条件
@@ -18,7 +18,7 @@
 |Ubuntu|ubuntu|
 
 - 密码：
-  - 若用户在启动实例时选择【自动生成密码】，则初始密码由系统随机分配。您可以登录[腾讯云控制台](https://console.qcloud.com/)，点击右侧站内信按钮，查收新购买的服务器页面中将包含云主机登录管理员帐号及初始密码，如下图所示。
+  - 若用户在启动实例时选择【自动生成密码】，则初始密码由系统随机分配。您可以登录[腾讯云控制台](https://console.cloud.tencent.com/)，点击右侧站内信按钮，查收新购买的服务器页面中将包含云主机登录管理员帐号及初始密码，如下图所示。
   ![](//mccdn.qcloud.com/img56a20f10a373a.png)
   - 若用户在启动实例时选择了自定义密码，则密码为用户在购买云服务器实例时指定的密码。有关密码的更多内容，如忘记登录密码应该如何操作，请参考[登录密码](/doc/product/213/6093)。
 
@@ -27,7 +27,7 @@
 需要使用 SSH 密钥登录，您首先需要创建 SSH 密钥、下载私钥并绑定到 Linux 云服务器上。有关密钥操作的更多内容，请参阅 [SSH 密钥](/doc/product/213/6092)。
 ![](//mccdn.qcloud.com/img56a5d553bddcf.png)
 
-登录[腾讯云控制台](https://console.qcloud.com)，点击【云服务器】-【SSH密钥】进入密钥窗口。点击【创建密钥】按钮，输入密钥名创建一个新密钥。创建完密钥后，点击【下载】按钮，下载私钥。
+登录[腾讯云控制台](https://console.cloud.tencent.com)，点击【云服务器】-【SSH密钥】进入密钥窗口。点击【创建密钥】按钮，输入密钥名创建一个新密钥。创建完密钥后，点击【下载】按钮，下载私钥。
 
 然后右键选择刚创建的密钥 ID，选择绑定需要登录的 Linux 服务器进行绑定。只有绑定了 SSH 密钥的云服务器实例才能使用密钥方式登录。
 
@@ -40,7 +40,7 @@
 ### 使用 PUTTY 连接 Linux 云服务器
 打开Putty客户端，在PuTTY Configuration 窗口中输入以下内容：
 
-- Host Name：云服务器的公网IP（登录[腾讯云控制台云服务器页面](https://console.qcloud.com/cvm)，可在列表页及详情页中获取主机公网IP）。
+- Host Name：云服务器的公网IP（登录[腾讯云控制台云服务器页面](https://console.cloud.tencent.com/cvm)，可在列表页及详情页中获取主机公网IP）。
 - Port：云服务器的端口，必须填22。（请确保云主机22端口已开放，详见查看[安全组](/doc/product/213/5221)及[网络ACL](/doc/product/215/5132)）
 - Connect type：选择“SSH”。
 
@@ -76,7 +76,7 @@
 
 在Session配置页中，配置服务器的IP，端口，连接类型。
 
-- IP：云服务器的公网IP。登录[腾讯云控制台云服务器页面](https://console.qcloud.com/cvm)，可在列表页及详情页中获取主机公网IP。
+- IP：云服务器的公网IP。登录[腾讯云控制台云服务器页面](https://console.cloud.tencent.com/cvm)，可在列表页及详情页中获取主机公网IP。
 - 端口：云服务器的端口，必须填22。（请确保云主机22端口已开放，详见查看[安全组](/doc/product/213/5221)及[网络ACL](/doc/product/215/5132)）。
 
 在【Saved Sessions】输入框中中输入会话名称（本例为test），再点击【Save】按钮，然后双击会话名称或者点击【Open】按钮发起登录请求。
@@ -120,6 +120,29 @@ ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@119.xxx.xxx.xxx
 
 如果登录失败，请检查您的云服务器实例是否允许 22 端口的入流量。端口的查看请参考[安全组](/doc/product/213/5221),若您的云服务器处于[私有网络](/doc/product/213/5227)环境下，请同时查看相关子网的[网络ACL](/doc/product/215/5132)。 
 
+## 使用 WebShell 登录实例（推荐）
+WebShell 登录是腾讯云提供的 Web 浏览器远程连接云服务器的方式。相比 VNC，WebShell 的各方面体验更接近于使用 Putty 和 SSH 等客户端登录方式，在云服务器拥有公网 IP 和开启了对应登录端口情况下，使用 WebShell 可以获取更好的远程访问体验。
+
+优点：
+- 支持快捷键复制粘贴
+- 支持鼠标滚屏
+- 支持中文输入法
+- 安全性高，每次登录需要输入密码或密钥
+
+
+![](//mc.qcloudimg.com/static/img/9fa1ada470b2e708c6888e67eb6b043e/webshell1.png)
+
+支持密码和密钥登录
+
+![](//mc.qcloudimg.com/static/img/351934d11c6775945e1f39f578ae7471/webshell2.png)
+
+更好的显示和操作体验（相比 VNC 方式）
+
+>注：
+>- 需要云服务器有公网 IP
+>- 需要云服务器打开 SSH 远程登录端口（默认 22）
+
+
 ## 使用 VNC 登录实例
 VNC登陆是腾讯云为用户提供的一种通过 Web 浏览器远程连接云服务器的方式。在没有安装远程登陆客户端或者客户端远程登陆无法使用的情况下，用户可以通过 VNC 登陆连接到云服务器，观察云服务器状态，并且可通过云服务器账户进行基本的云服务器管理操作。
 
@@ -141,4 +164,5 @@ VNC登陆的场景至少包括以下几种:
 >- 要正常使用VNC登录，需要使用现代浏览器，如：chrome，firefox，IE10及以上版本等。
 >- 暂不支持复制粘贴
 >- 暂不支持文件上传下载
+>- 只有首次登录需要输入密码，请开启 MFA 操作保护提高安全性
 

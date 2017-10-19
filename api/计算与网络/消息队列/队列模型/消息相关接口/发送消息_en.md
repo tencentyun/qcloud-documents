@@ -16,7 +16,7 @@ Domain for private network API request:<font style="color:red">cmq-queue-region.
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -44,7 +44,7 @@ The following request parameter list only provides API request parameters. For o
 <td> 4400
 </td><td> 10230
 </td><td> exceed maximum message size
-</td><td> There's at least one message that reached the maximum message length limit. You can use the <a  href="https://www.qcloud.com/doc/api/431/5834">GetQueueAttributes</a> API to view the maximum message length for the queue.
+</td><td> There's at least one message that reached the maximum message length limit. You can use the <a  href="https://cloud.tencent.com/doc/api/431/5834">GetQueueAttributes</a> API to view the maximum message length for the queue.
 </td></tr>
 <tr>
 <td> 4000
@@ -56,11 +56,11 @@ The following request parameter list only provides API request parameters. For o
 <td> 4410
 </td><td> 10240
 </td><td> reach maximum retention number of message
-</td><td> The maximum number of messages in a queue has been reached. You can use the <a  href="https://www.qcloud.com/doc/api/431/5834">GetQueueAttributes</a> API to view the maximum number of messages for the queue.
+</td><td> The maximum number of messages in a queue has been reached. You can use the <a  href="https://cloud.tencent.com/doc/api/431/5834">GetQueueAttributes</a> API to view the maximum number of messages for the queue.
 </td></tr>
 </tbody></table>
 
-Note: The error codes listed in the above table are specific to the API. If the error code you are looking for is not here, you may find it in the [Common Error Codes](https://www.qcloud.com/document/product/406/5903).
+Note: The error codes listed in the above table are specific to the API. If the error code you are looking for is not here, you may find it in the [Common Error Codes](https://cloud.tencent.com/document/product/406/5903).
 
 ## 4. Example
 
@@ -70,7 +70,7 @@ Input:
  https://domain/v2/index.php?Action=SendMessage
  &queueName=test-queue-123
  &msgBody=helloworld
- &<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+ &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 </pre>
 
 Output:

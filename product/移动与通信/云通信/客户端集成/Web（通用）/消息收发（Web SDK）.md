@@ -1,5 +1,8 @@
 ## 监听新消息
 
+
+>注意：现托管模式下的群聊消息体中，已经有下发的用户基本信息。
+
 示例：
 
 ```
@@ -952,3 +955,31 @@ webim.getRecentContactList({
 });
 ```
 请参考demo代码 recentcontact/recent_contact_list_manager.js
+
+## 删除最近联系人
+
+删除最近联系人中的一条会话。 
+
+**示例：** 
+
+注：
+```
+sess_type == 'C2C' ? 1 : 2;
+```
+
+```
+	function delChat(sess_type, to_id) {
+	    var data = {
+	        'To_Account': to_id,
+	        'chatType': sess_type
+	    }
+	    webim.deleteChat(
+	        data,
+	        function(resp) {
+	            $("#sessDiv_" + to_id).remove();
+	        }
+	    );
+	}
+```
+
+请参考demo代码 switch_chat_obj.js

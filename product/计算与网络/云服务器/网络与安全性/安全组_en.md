@@ -62,11 +62,11 @@ In addition, if the last policy of the multiple security groups to which the clo
 | Supports rules that 'Allow' or 'Deny' | Supports rules that 'Allow' or 'Deny' |
 | Stateful: The return data stream is automatically allowed and is not affected by any rules | Stateless: The return data stream must be explicitly allowed by the rule |
 
-1) Open [CVM Console](https://console.qcloud.com/cvm/).
+1) Open [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 ## Create security group
 
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click [Security Group].
 
@@ -76,7 +76,7 @@ In addition, if the last policy of the multiple security groups to which the clo
 
 ## Delete security group
 
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click [Security Group].
 
@@ -86,7 +86,7 @@ In addition, if the last policy of the multiple security groups to which the clo
 
 ## Clone security group
 
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click [Security Group].
 
@@ -96,7 +96,7 @@ In addition, if the last policy of the multiple security groups to which the clo
 
 ## Add a rule to the security group
 
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click [Security Group].
 
@@ -108,7 +108,7 @@ In addition, if the last policy of the multiple security groups to which the clo
 
 ## Configure the CVM instance associated with the security group
 
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) Click [Cloud Host] in the navigation pane.
 
@@ -117,7 +117,7 @@ In addition, if the last policy of the multiple security groups to which the clo
 4) In the Configure Security Group dialog box, select one or more security groups from the list and click [OK].
 
 or
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) Click [Security Group] in the navigation pane.
 
@@ -128,7 +128,7 @@ or
 
 ## Import and export security group rules
 
-1) Open [CVM console](https://console.qcloud.com/cvm/).
+1) Open [CVM console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click [Security Group].
 
@@ -138,8 +138,6 @@ or
 
 
 ## Security Group Cloud API
-Security Group Developer Tool, you can use the cloud API to complete security group operations, and manage configurations between security groups and CVM instances; click [here](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88#6.-安全组相关接口).
-
-
+Security Group Developer Tool, you can use the cloud API to complete security group operations, and manage configurations between security groups and CVM instances; click [here](http://cloud.tencent.com/doc/api/229/API%E6%A6%82%E8%A7%88#6.-安全组相关接口).
 
 

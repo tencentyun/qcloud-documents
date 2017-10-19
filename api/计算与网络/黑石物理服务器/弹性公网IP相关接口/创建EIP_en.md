@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (EipBmApply) is used to apply for the creation of BM EIP.
  
-Domain: <font style="color:red">eip.api.qcloud.com</font>
+Domain: <font style="color:red">bmeip.api.qcloud.com</font>
 
 
 ## 2. Input Parameters
@@ -27,7 +27,7 @@ Parameter data is composed as follows:
 | Parameter Name | Type | Description |
 |---|---|---|
 | data.eipIds | Array | Return the list of EIP instance IDs being requested |
-| data.requestId | Int | ID of asynchronous task for binding to CPM. The task status can be queried via API [EipBmQueryTask](/doc/api/456/6670) |
+| data.requestId | Int | ID of asynchronous task for binding to CPM. The task status can be queried via API [EipBmQueryTask](/document/product/386/6670) |
 
 ## 4. Error Codes
 | Error Code | Error Message | Error Description |
@@ -44,9 +44,9 @@ Parameter data is composed as follows:
 Input
 ```
 
-  https://eip.api.qcloud.com/v2/index.php?
+  https://bmeip.api.qcloud.com/v2/index.php?
   &Action=EipBmApply
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>&goodsNum=2&payMode=flow&vpcId=1
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>&goodsNum=2&payMode=flow&vpcId=1
 ```
 
 Output

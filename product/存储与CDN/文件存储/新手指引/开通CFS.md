@@ -4,7 +4,7 @@
 ## 注册腾讯云账号
 
 
-打开 [腾讯云官网](http://www.qcloud.com) ，点击右上角 **注册** ：
+打开 [腾讯云官网](http://cloud.tencent.com) ，点击右上角 **注册** ：
 
 ![](//mccdn.qcloud.com/static/img/94eb60bfc4b0cd7995b261100ebbd894/image.png)
 
@@ -35,8 +35,8 @@
 
 ![](//mccdn.qcloud.com/static/img/2e668e7e607ea863f1d2b4540397334d/image.png)
 
-## 申请开通 CFS
-在公测申请页面点击 **立即申请** ，等待资质审核后即可开通服务。
-![](https://mc.qcloudimg.com/static/img/a54a65b778df2247cd7ca08abcaca466/image.png)
+## 使用 CFS
+在产品页面点击 **立即使用** ，即可到 CFS 控制台，开始使用产品。
+
 
 

@@ -1,17 +1,74 @@
 ## 简介
 
-基于 COS 的 PHP SDK 和云 API 的 SDK，VOD 提供了一个 PHP语言的 Demo，通过该 Demo，用户可以将服务端的视频和封面文件直接上传到腾讯云点播系统。
+基于 COS 的 PHP SDK 和云 API 的 SDK，VOD 提供了一个 PHP语言的 SDK，通过该 SDK，用户可以将服务端的视频和封面文件直接上传到腾讯云点播系统。
 
 ## 下载地址
 
-* [VOD 服务端上传 PHP DEMO](https://github.com/tencentyun/vod-php-sdk-based-demo)
-* [COS PHP SDK](https://www.qcloud.com/document/product/436/6274)
-* [云API PHP SDK](https://www.qcloud.com/document/developer-resource/494/7243)
+* [从 Github 访问 >>](https://github.com/tencentyun/vod-php-sdk-v5)
+* [点击下载 PHP SDK >>](https://github.com/tencentyun/vod-php-sdk-v5/archive/master.zip)
 
 ## 使用方式
 
-1. 下载 VOD 服务端上传 PHP DEMO 并解压，将工作目录切换到 upload_demo.php 所在的目录下。
-1. 将 cos-php-sdk-v4-master.zip 解压到工作目录。
-1. 将 qcloudapi-sdk-php-master.zip 解压到工作目录。
-1. 编辑 cos-php-sdk-v4-master/qcloudcos/conf.php，将 APP_ID 设置为  SECRET_ID 设置为 API 密钥中的 secret id，将 SECRET_KEY 设置为 API 密钥中的 secret key。
-1. 执行 php upload_demo.php，即可发起文件上传，上传成功后将获取文件的播放地址和 fileid。
+### With Composer
+* 引入依赖
+
+```json
+{
+    "require": {
+        "qcloud/vod-sdk-v5": "v1.2.1"
+    }
+}
+```
+* 调用示例
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodApi;
+
+VodApi::initConf("your secretId", "your secretKey");
+
+$result = VodApi::upload(
+    array (
+        'videoPath' => './test/Wildlife.wmv',
+    ),
+    array (
+        'videoName' => 'WildAnimals',
+//        'procedure' => 'myProcedure',
+//        'sourceContext' => 'test',
+    )
+);
+echo "upload to vod result: " . json_encode($result) . "\n";
+```
+上传成功后将获取文件的播放地址和 fileid
+
+### Without Composer
+
+* 复制src文件下的源码和test/non-composer文件的cos-sdk-v5、qcloudapi-sdk-php到同级目录
+* 调用示例
+
+```php
+<?php
+require './cos-sdk-v5/cos-autoloader.php';
+require './qcloudapi-sdk-php/src/QcloudApi/QcloudApi.php';
+require './src/Vod/VodApi.php';
+require './src/Vod/Conf.php';
+
+use Vod\VodApi;
+
+VodApi::initConf("your secretId", "your secretKey");
+
+$result = VodApi::upload(
+    array (
+        'videoPath' => '../Wildlife.wmv',
+    ),
+    array (
+        'videoName' => 'WildAnimals',
+//        'procedure' => 'myProcedure',
+//        'sourceContext' => 'test',
+    )
+);
+echo "upload to vod result: " . json_encode($result) . "\n";
+```
+上传成功后将获取文件的播放地址和 fileid

@@ -2,10 +2,10 @@
 
 ### SDK 获取
 
-对象存储服务的 Android SDK 的下载github地址:[Android SDK](https://github.com/tencentyun/cos_android_sdk)。
-对象存储服务的 [Android SDK 本地下载](https://mc.qcloudimg.com/static/archive/0423c3be84c30d3549cfc45c13b68c7f/cos_android_sdk-master+%281%29.zip)。
+对象存储服务的 Android SDK 的下载github地址:[Android SDK](https://github.com/tencentyun/cos_android_sdk/tree/master/COSLibs)。
+对象存储服务的 [Android SDK 本地下载](https://mc.qcloudimg.com/static/archive/7d016fa85b597d5b788477284545d6a7/cos_android_sdk-master.zip)。
 
-更多示例可参考Demo:[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/blob/master/qclouddemo.zip)。 
+更多示例可参考Demo:[Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/tree/master/COSDemo)。 
 （本版本SDK基于JSON API封装组成）
 
 ### 开发准备
@@ -193,7 +193,7 @@ GetObjectResult getObjectResult = cos.getObject(getObjectRequest);
 
 **签名获取：**
 
-SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https://www.qcloud.com/document/product/436/6054)。
+SDK 中用到的 SIGN，推荐使用 服务器端SDK，并由移动端向业务服务器请求。SIGN 的具体生成和使用请参照 [访问权限](https://cloud.tencent.com/document/product/436/6054)。
 
 
 ## 目录操作 

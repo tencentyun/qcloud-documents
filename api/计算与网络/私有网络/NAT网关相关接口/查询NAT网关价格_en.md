@@ -1,8 +1,7 @@
 ## 1. API Description
+This API (InquiryNatPrice) is used to query NAT gateway price.
 Domain: vpc.api.qcloud.com
-API: InquiryNatPrice
 
-This API is used to query NAT gateway price.
 
 ## 2. Input Parameters
 | Parameter Name | Required  | Type | Description |
@@ -17,7 +16,7 @@ This API is used to query NAT gateway price.
 | message | String | Error message |
 | data | Array | Returned price array |
 
-Data structure
+Details of `data`
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -36,7 +35,7 @@ Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=InquiryNatPrice
 &maxConcurrent=2000000
-&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 Output
 ```

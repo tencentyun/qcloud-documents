@@ -9,14 +9,14 @@ Domain name for API request: cdn.api.qcloud.com
 - You may query by specifying date, URL and/or domain;
 - Currently you can only query the operation status of a purge task that was submitted within 30 days.
 
-[Call Demo](https://www.qcloud.com/document/product/228/1734)
+[Call Demo](https://cloud.tencent.com/document/product/228/1734)
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://www.qcloud.com/doc/api/231/4473) page for details. The Action field for this API is GetCdnOverseaRefreshLog.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page for details. The Action field for this API is GetCdnOverseaRefreshLog.
 
 | Parameter Name | Required | Type     | Description              |
 | ---- | ---- | ------ | --------------- |
-| Date | Yes    | String | Query date (day)         |
+| date | Yes    | String | Query date (day)         |
 | url  | No    | String | Purged URL to be queried (can be blank) |
 | host | No    | String | Purged domain to be queried (can be blank)  |
 
@@ -26,19 +26,19 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name     | Type     | Description                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
+| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
 | message  | String | Module error message description depending on API.                           |
 | codeDesc | String | English error message or error code at business side.                           |
 | data     | Array  | Returned data result                                   |
 
-#### data Field Description
+#### `data` field Description
 
 | Parameter Name  | Type    | Description   |
 | ----- | ----- | ---- |
 | logs  | Array | Log details |
 | total | Int   | Number of purges |
 
-#### logs Field Description
+#### `logs` field Description
 
 | Parameter Name       | Type     | Description                           |
 | ---------- | ------ | ---------------------------- |

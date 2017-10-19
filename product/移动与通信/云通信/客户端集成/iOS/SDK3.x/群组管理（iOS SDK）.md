@@ -744,6 +744,55 @@ fail | 失败回调
 ```
 示例中转让群组 @"TGID1JYSZEAEQ"给用户@"iOS_001"。 
 
+### 3.12 全员禁言 
+
+通过 modifyGroupAllShutup 可以设置群组全员禁言。 
+
+**权限说明：**
+ 
+只有群主和管理员才有权限进行全员禁言的操作；
+所有群组类型都支持全员禁言的操作；
+
+**原型：**
+
+```
+@interface TIMGroupManager (Ext)
+
+/**
+ *  修改群组全员禁言属性
+ *
+ *  @param group   群组Id
+ *  @param shutup  是否禁言
+ *  @param succ    成功回调
+ *  @param fail    失败回调
+ *
+ *  @return 0 成功
+ */
+- (int)modifyGroupAllShutup:(NSString*)group shutup:(BOOL)shutup succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+group | 群组Id 
+shutup | 是否设置为禁言 
+succ | 成功回调 
+fail | 失败回调 
+
+**示例：**
+
+```
+[[TIMGroupManager sharedInstance] modifyGroupAllShutup:@"TGID1JYSZEAEQ" shutup:YES succ:^() {
+	NSLog(@"set all shutup succ");
+}fail:^(int code, NSString* err) {
+	NSLog(@"failed code: %d %@", code, err);
+}];
+```
+示例中设置群组 @"TGID1JYSZEAEQ" 为全员禁言的状态。客户端可以通过 getGroupList 和 getGroupInfo 接口获取当前群组全员禁言的属性。
+
 ## 4. 获取群资料
 
 ### 4.1 设置拉取字段

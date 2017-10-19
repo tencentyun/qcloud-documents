@@ -3,9 +3,9 @@
 This API (ModifySecurityGroupPolicy) is used to modify the rules of existing security groups.
 Domain name for API request: <font style="color:red">dfw.api.qcloud.com</font>
 
-1) Input the inbound and outbound rules for a security group through the "ingress" and "egress" lists respectively. There is a [upper limit](https://www.qcloud.com/doc/product/213/500#2.-.E5.AE.89.E5.85.A8.E7.BB.84.E7.9A.84.E9.99.90.E5.88.B6) for each kind of rules. The last rule is a DROP rule by default. It does not need to be entered and is not subject to the rule number limit.
+1) Input the inbound and outbound rules for a security group through the "ingress" and "egress" lists respectively. There is a [upper limit](https://cloud.tencent.com/doc/product/213/500#2.-.E5.AE.89.E5.85.A8.E7.BB.84.E7.9A.84.E9.99.90.E5.88.B6) for each kind of rules. The last rule is a DROP rule by default. It does not need to be entered and is not subject to the rule number limit.
 2) When there are multiple rules for the inbound or outbound direction, the rules take effect in the order shown in the entered list, overwriting the original rules of the security group.
-3) Rules [Description](https://www.qcloud.com/doc/product/213/500#3.-.E5.AE.89.E5.85.A8.E7.BB.84.E8.A7.84.E5.88.99)
+3) Rules [Description](https://cloud.tencent.com/doc/product/213/500#3.-.E5.AE.89.E5.85.A8.E7.BB.84.E8.A7.84.E5.88.99)
 4) Each security group rule can contain up to four valid fields: ipProtocol, cidrIp or sgId (the two are mutually exclusive and cannot be entered at the same time), portRange, and action. The action field is required. If any of the other fields does not appear, it means that the rule will ignore that field and match all when processing network messages.
 5) The ipProtocol field allows you to enter tcp, udp and icmp in a case-insensitive manner.
 6) The cidrIp field allows you to enter any string that conforms to the cidr format. (More details) In a basic network, if cidrIp contains private IPs on Tencent Cloud for devices within your account other than CVM, it does not mean this rule allows you to access these devices. The network isolation rules between tenants take priority over the private network rules in security groups.
@@ -96,7 +96,7 @@ Input
   &egress.0.ipProtocol=tcp
   &egress.0.desc=Outbound tcp traffic of private network is allowed
   &egress.0.cidrIp=10.0.0.0/8
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 
 </pre>
 

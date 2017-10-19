@@ -53,7 +53,7 @@ indicates the visible time of the message. If you delete the consumed message af
 **Q10: Is there a Graph Manager interface in CMQ? Where can I check the details of the queue?**
 
 A10: CMQ provides a visual console for you to check the current queue.
-[Enter the console >>](https://console.qcloud.com/mq/)
+[Enter the console >>](https://console.cloud.tencent.com/mq/)
 
 **Q11: Does CMQ support mqtt protocol?**
 

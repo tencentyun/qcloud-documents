@@ -16,10 +16,6 @@ Action=DescribeInstances
 &Timestamp=1465055529
 &Nonce=59485
 &Signature=mysignature
-&instanceIds.0=ins-0hm4gvho
-&instanceIds.1=ins-8oby8q00
-&offset=0
-&limit=20
-&status=2
-&zoneId=100003
+&InstanceIds.0=ins-0hm4gvho
+&InstanceIds.1=ins-8oby8q00
 ```

@@ -56,6 +56,7 @@
 | NAT网关绑定子网 | [SubnetBindBmNatGateway](/document/product/386/9352) | 用于黑石NAT网关绑定子网。 |
 | NAT网关解绑子网 | [SubnetUnBindBmNatGateway](/document/product/386/9353) | 用黑石于NAT网关解绑子网。 |
 | 升级NAT网关规格 | [UpgradeBmNatGateway](/document/product/386/9354) | 用于升级黑石NAT网关规格。 |
+| 修改子网Dhcp Relay属性 | [ModifySubnetDhcpRelayFlag](/document/product/386/10175) | 用于修改子网Dhcp Relay属性。 |
 
 
 ## 5. 负载均衡相关接口

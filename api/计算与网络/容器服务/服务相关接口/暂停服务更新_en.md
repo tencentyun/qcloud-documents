@@ -2,20 +2,20 @@
  
 This API (PauseClusterService) is used to pause a service update process. Using this feature on a service that is not being updated also pauses capacity scaling operations on the containers, and subsequent service update operations will not launch.
 
-Domain for API request: <font style="color:red">ccs.api.qcloud.com</font>
+Domain for API request: ccs.api.qcloud.com
 
 
 
 ## 2. Input Parameters
 
 
-The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://www.qcloud.com/document/api/457/9463).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/457/9463).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the clusterId in the returned fields of the API "Query Clusters".  |
-| serviceName   | Yes    | String | Service name. You can obtain this name from the returned serviceName of the API "Query Service List" |
-| namespace | No | String      | Namespace. Default is "default" |
+| clusterId   | Yes    | String | Cluster ID. You can obtain this ID from the *clusterId* returned by the [*DescribeCluster*](https://cloud.tencent.com/document/api/457/9448) API.  |
+| serviceName   | Yes    | String | Service name. Please enter the *serviceName* returned by the [DescribeClusterService](https://cloud.tencent.com/document/api/457/9440) API.|
+| namespace | No | String      | Namespace. Please enter the *namespace* returned by the [DescribeClusterService](https://cloud.tencent.com/document/api/457/9440) API. Default is "default" |
 
 
 ## 3. Output Parameters

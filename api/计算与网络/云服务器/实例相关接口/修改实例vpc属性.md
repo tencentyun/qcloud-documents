@@ -15,7 +15,7 @@
 
 | 名称      |  是否必选|    类型  | 描述|
 |---------|---------|---------|---------|
-|instanceId |是|String|待操作的实例ID。可通过 [DescribeInstances](https://www.qcloud.com/doc/api/229/831) API返回值中的 unInstanceId 获取|
+|instanceId |是|String|待操作的实例ID。可通过 [DescribeInstances](https://cloud.tencent.com/doc/api/229/831) API返回值中的 unInstanceId 获取|
 |vpcId | 是 |String| 私有网络ID。|
 |subnetId| 是|String|私有网络子网ID。|
 |privateIpAddresses.n| 是|array of Strings|私有子网ip数组，目前只支持一个ip。|
@@ -25,8 +25,8 @@
  
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
-| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
+| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
+| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
 
 
 ## 4. 错误码
@@ -49,7 +49,7 @@
   &vpcId=gz_vpc_1
   &subnetId=gz_subnet_1
   &privateIpAddresses.0=10.0.0.20
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
 输出

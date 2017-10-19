@@ -7,10 +7,10 @@
 + 每一个客户每天能够提交的海外CDN预热资源上限为1000条，每一个客户每次提交的海外CDN预热资源上限为20条；
 + 若默认上限无法满足您的业务需求，请联系我们为您调整配额；
 
-[调用Demo](https://www.qcloud.com/document/product/228/1734)
+[调用Demo](https://cloud.tencent.com/document/product/228/1734)
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的Action字段为CdnOverseaPushser。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的Action字段为CdnOverseaPushser。
 
 | 参数名称   | 是否必选 | 类型     | 描述                        |
 | ------ | ---- | ------ | ------------------------- |
@@ -33,7 +33,7 @@
 ## 3. 输出参数
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关。                          |
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
 | data     | Object | 返回结果数据                                   |
@@ -84,8 +84,13 @@ array (
 	"code": 0,
 	"message": "",
 	"codeDesc": "Success",
-	"data": {
-		"task_id": "20161027-5811b7bf2fac3"
+	"data":[
+ {
+		"task_id": 7
+        "date":"2016-06-21 20:24:47"
 	}
+]
+
 }
+
 ```

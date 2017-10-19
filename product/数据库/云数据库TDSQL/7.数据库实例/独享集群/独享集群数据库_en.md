@@ -20,10 +20,10 @@ In addition to all of the capabilities of cloud database, dedicated cluster has 
 >Note: There are some differences between dedicated cluster solutions in finance cloud cage and in public cloud in terms of isolation. For more information, please consult the architect.
 
 ## 3. Procedure for Using Database Dedicated Cluster
-1. [Purchase a dedicated cluster](https://buy.qcloud.com/excluster) at a cluster device dimension. During the purchase, make sure to:
+1. [Purchase a dedicated cluster](https://buy.cloud.tencent.com/excluster) at a cluster device dimension. During the purchase, make sure to:
 	
 	- Select the region and availability zone where your server resides in for a better user experience
-	- Select database kernel. For more information, please see [Compatibility Between TDSQL and MySQL](https://www.qcloud.com/document/product/237/6988).
+	- Select database kernel. For more information, please see [Compatibility Between TDSQL and MySQL](https://cloud.tencent.com/document/product/237/6988).
 	- Select model and master/slave architecture. "One Master, Multi-Slave" architecture is currently supported. The availability varies with different number of slaves. Theoretically, the availability of "One Master, One Slave" and "One Master, Two Slaves" is 99.95% and 99.99% or more, respectively.
 	- Select the number of groups to purchase. Multiple groups of devices can form a cluster, and more redundancy resource pools can be provided for the cluster to ensure the availability.
 
@@ -32,7 +32,7 @@ In addition to all of the capabilities of cloud database, dedicated cluster has 
 
 ![](https://mc.qcloudimg.com/static/img/1a0829726ad5e7662e394c11c1604519/image.png)
 
-3. Go to the "MySQL/TDSQL Instance List" page to check the database instances you just allocated. By [Initializing the Instances](https://www.qcloud.com/document/product/236/3128), you can use these instances.
+3. Go to the "MySQL/TDSQL Instance List" page to check the database instances you just allocated. By [Initializing the Instances](https://cloud.tencent.com/document/product/236/3128), you can use these instances.
 >As shown in the figure below, all the instances marked `Master instance (dedicated)` are allocated on dedicated cluster:
 
 ![](https://mc.qcloudimg.com/static/img/33ff4d302883b8d5f450f7ec9ddda2e2/image.png)
