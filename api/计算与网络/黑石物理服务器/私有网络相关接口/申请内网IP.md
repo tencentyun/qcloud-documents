@@ -9,8 +9,8 @@ ApplyIps 用于申请黑石私有网络子网IP。
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
     &<公共请求参数>
-    &vpcId=<VPC网络唯一ID>
-	&subnetId=<子网唯一ID>
+    &unVpcId=<VPC网络唯一ID>
+	&unSubnetId=<子网唯一ID>
 	&count=<申请IP个数>
     &ipClass=<IP类型>
 ```
@@ -19,8 +19,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
-| subnetId | 是 | String | 系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 |
+| unVpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询返回的unVpcId值。 |
+| unSubnetId | 是 | String | 系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询返回的unSubnetId值。 |
 | count | 否 | Int | 申请IP个数，默认为1，取值范围1-20。 |
 | ipClass | 否 | Int | IP类型，0为物理机IP，1为虚拟机类型IP，2为托管类型IP。默认传1 |
 
@@ -63,8 +63,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=ApplyIps
 	&<公共请求参数>
-	&vpcId=vpc-2ari9m7h
-	&subnetId=subnet-keqt3oty
+	&unVpcId=vpc-2ari9m7h
+	&unSubnetId=subnet-keqt3oty
 	&count=1
 	&ipClass=1
 ```

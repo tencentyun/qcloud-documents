@@ -9,7 +9,7 @@ ReturnIps 用于释放黑石私有网络子网IP。
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
     &<公共请求参数>
-    &vpcId=<VPC网络唯一ID>
+    &unVpcId=<VPC网络唯一ID>
     &ips=<释放的IP数组>
 ```
 ### 请求参数
@@ -17,7 +17,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
+| unVpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询返回的unVpcId值。 |
 | ips | 是 | Array | 释放的IP数组信息。 |
 
 
@@ -51,7 +51,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=ReturnIps
 	&<公共请求参数>
-	&vpcId=vpc-2ari9m7h
+	&unVpcId=vpc-2ari9m7h
 	&ips.0=1.1.1.1&ips.1=2.2.2.2
 ```
 

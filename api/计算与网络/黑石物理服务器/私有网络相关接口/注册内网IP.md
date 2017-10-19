@@ -9,8 +9,8 @@ RegisterBatchIp 用于指定子网IP进行IP注册。
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
     &<公共请求参数>
-    &vpcId=<VPC网络唯一ID>
-	&subnetId=<子网唯一ID>
+    &unVpcId=<VPC网络唯一ID>
+	&unSubnetId=<子网唯一ID>
     &ipList=<注册IP数组>
 ```
 ### 请求参数
@@ -18,8 +18,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
-| subnetId | 是 | String | 系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 |
+| unVpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询返回的unVpcId值。 |
+| unSubnetId | 是 | String | 系统分配的私有网络子网ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询返回的unSubnetId值。 |
 | ipList | 是 | Array | 注册IP数组，数组个数范围为1-20。 |
 | ipClass | 否 | Int | IP类型，0为物理机IP，1为虚拟机类型IP，2为托管类型IP。默认传1 |
 
@@ -72,8 +72,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=RegisterBatchIp
 	&<公共请求参数>
-	&vpcId=vpc-2ari9m7h
-	&subnetId=subnet-keqt3oty
+	&unVpcId=vpc-2ari9m7h
+	&unSubnetId=subnet-keqt3oty
 	&ipList.0=10.1.1.2&ipList.1=10.1.1.130&10.1.1.10
 ```
 
@@ -98,8 +98,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=RegisterBatchIp
 	&<公共请求参数>
-	&vpcId=vpc-2ari9m7h
-	&subnetId=subnet-keqt3oty
+	&unVpcId=vpc-2ari9m7h
+	&unSubnetId=subnet-keqt3oty
 	&ipList.0=10.1.1.4&ipList.1=10.1.1.200&10.1.1.6
 ```
 
