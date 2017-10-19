@@ -2,7 +2,7 @@
 
 DescribeDeviceClassRaid接口用来获取设备类型对应的RAID方式。(过期的接口，不推荐使用，不支持自定义机型的RAID列表。 推荐使用[DescribeDeviceClassPartition接口](/document/api/386/7370)。
 
-接口访问域名：<font style="color:red">bm.api.qcloud.com</font>
+接口访问域名：bm.api.qcloud.com
 
 ## 请求
 
@@ -11,11 +11,17 @@ DescribeDeviceClassRaid接口用来获取设备类型对应的RAID方式。(过�
 ```
 https://bm.api.qcloud.com/v2/index.php?
 	Action=DescribeDeviceClassRaid
-	&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+	&<公共请求参数>
 ```
 
 ### 请求参数
+
 正式调用时需要加上公共请求参数，此接口的Action字段为DescribeDeviceClassRaid。
+
+| 参数名称 | 必选   | 类型   | 描述   |
+| ---- | ---- | ---- | ---- |
+| 无    | -    | -    | -    |
+
 
 ## 响应
 
