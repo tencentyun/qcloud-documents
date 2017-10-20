@@ -33,9 +33,9 @@ Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="h
 首先生成签名内容，签名内容由自定义的 header 组成，header 内建议至少包含 date,可以包含更多其他 header。
 
 header 按如下要求转换后按顺序排列：
-* header 名转换为小写，跟上 **ascii字符** 和 **ascii空格字符**
+* header 名转换为小写，跟上 **ascii 字符** 和 **ascii 空格字符**
 * 然后附加 header 值
-* 如果不是最后一条需构造签名的 header，附上 **ascii换行字符`\n`**
+* 如果不是最后一条需构造签名的 header，附上 **ascii 换行字符`\n`**
 
 例如有两个 header 参与构建签名内容：
 ```
