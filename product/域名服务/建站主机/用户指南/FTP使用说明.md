@@ -3,6 +3,7 @@
 
 #### 1.	获取FTP信息
 进入主机的管理页面，获取ftp地址、用户名和密码
+![](https://mc.qcloudimg.com/static/img/44989bcf85458672bb503e76d334e92d/ftp.png)
 
 #### 2.	使用 FTP 工具登录主机
 FileZilla 是比较常用的 FTP 工具，下面以 FileZilla 为例说明

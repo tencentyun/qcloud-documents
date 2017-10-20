@@ -2,6 +2,7 @@
 
 #### 1.	获取FTP信息
 进入主机的管理页面，获取 ftp 地址、用户名和密码
+![](https://mc.qcloudimg.com/static/img/44989bcf85458672bb503e76d334e92d/ftp.png)
 
 #### 2. 下载 WordPress 安装包
 前往 [WordPress中文官网](https://cn.wordpress.org/) 下载最新版本的 WordPress 安装包。
@@ -11,6 +12,7 @@
 
 #### 4. 获取数据信息
 进入主机的管理页面，获取数据库信息。
+![](更新版本后补图)
 
 #### 5. 执行安装
 5.1 浏览器访问`http://您的域名/wordpress/wp-admin/setup-config.php`，点击【现在就开始！】，进入安装步骤，
