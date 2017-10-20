@@ -1,5 +1,5 @@
 ## 功能描述
-EipUnBindBmNatGateway 接口用于将EIP从黑石NAT网关解绑，此后NAT网关不会使用该EIP作为访问外网的源IP地址
+EipUnBindBmNatGateway 接口用于将EIP从黑石NAT网关解绑，此后NAT网关将不会使用该EIP作为访问外网的源IP地址
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -21,8 +21,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 | natId | 是 | String | NAT网关统一ID，例如：nat-8pbrkzh6|
 | vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | assignedEipSet.n | 是 | Array | 弹性IP数组，例如：assignedEipSet.0=183.60.249.122 |
-
-
 
 ## 响应
 ### 响应示例
@@ -66,7 +64,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Region=gz
 	&vpcId=300006
 	&natId=nat-et8e970y
-	&&assignedEipSet.0=183.60.249.122
+	&assignedEipSet.0=183.60.249.122
 	&Signature=xhpWkOBXHyEdddxK2KIH%2F14bMrc%3D
 ```
 
