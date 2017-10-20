@@ -110,6 +110,8 @@ Ajax 上传需要浏览器支持基本的 Html5 特性，当前方案使用的�
 </html>
 ```
 
+![Ajax 上传](upload_1.png)
+
 ### 方案B：使用 form 表单上传
 
 Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前方案使用的是 [XML API 的 PostObject 接口](https://cloud.tencent.com/document/product/436/7751)
@@ -222,6 +224,8 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
 </body>
 </html>
 ```
+
+![Form 表单上传](upload_2.png)
 
 ## 相关文档
 
