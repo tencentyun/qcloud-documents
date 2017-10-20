@@ -19,13 +19,13 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 	&orderDirection=<排序类型>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeNatGateway
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeNatGateway
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | natId | 否 | String | NAT网关统一ID，例如：nat-xx454|
 | natName | 否 | String | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| vpcId | 否 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | offset | 否 | Int | 初始行的偏移量，默认为0|
 | limit | 否 | Int | 每页行数，默认为20，最大支持50。|
 | orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId。|
@@ -91,7 +91,7 @@ data数据结构如下：
 | data.n.vpcName | String | vpc网络名称 |
 | data.n.state | Int | NAT网关状态，1:运行中, 0:不可用 |
 | data.n.productionStatus | Int | NAT网关的生产状态, 0: 创建中, 1: 创建成功, 2: 创建失败 |
-| data.n.maxConcurrent | Int | NAT网关并发连接上限, 100w:小型, 300w:中型, 1000w:大型，详见<a href="">NAT网关产品说明</a> |
+| data.n.maxConcurrent | Int | NAT网关并发连接上限, 100w:小型, 300w:中型, 1000w:大型，详见NAT网关产品说明 |
 | data.n.ntype | String | 对应NAT网关并发连接上限, 取值为small, middle, big, 分别对应小型、中型、大型|
 | data.n.eipCount | String | NAT网关绑定eip的个数 |
 | data.n.eipSet | Array | NAT网关绑定的弹性IP列表，例如：[183.60.249.11] |
@@ -112,7 +112,7 @@ subnets包含的数据结构如下：
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
+| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
 | 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
 
 ## 实际案例

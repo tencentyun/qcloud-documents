@@ -14,11 +14,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
     &maxConcurrent=<网关并发连接上限>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为UpgradeBmNatGateway
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为UpgradeBmNatGateway
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | natId | 是 | String | 高可用网关统一ID，例如：nat-xdf54d |
 | maxConcurrent | 是 | Int | 网关并发连接上限，可选值为：1000000（小型）、3000000（中型）、 10000000（大型）|
 
@@ -39,14 +39,14 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
 |---------|---------|---------|
 | code | Int | 错误码。0：成功, 其他值：失败|
 | message | String | 错误信息 |
-| data | Array | 返回操作的任务ID，操作结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+| data | Array | 返回操作的任务ID，操作结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
 
 
 ## 错误码
 
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
+| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
 | 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
 
 
