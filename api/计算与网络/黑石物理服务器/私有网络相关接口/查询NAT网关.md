@@ -23,7 +23,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-<<<<<<< HEAD
 | natId | 否 | String | NAT网关统一ID，例如：nat-xx454|
 | natName | 否 | String | NAT网关名称 (支持模糊查找) |
 | vpcId | 否 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
@@ -31,7 +30,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 | limit | 否 | Int | 每页行数，默认为20，最大支持50。|
 | orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId。|
 | orderDirection | 否 | String | 升序（asc）或降序（desc），默认：desc。|
-=======
 | natId | 否 | string | NAT网关统一ID，例如：nat-xx454|
 | natName | 否 | string | NAT网关名称 (支持模糊查找) |
 | vpcId | 否 | int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
@@ -39,7 +37,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 | limit | 否 | int | 每页行数，默认为20，最大支持50。|
 | orderField | 否 | string | 按某个字段排序，默认不排序。<br>支持字段：natId。|
 | orderDirection | 否 | string | 升序（asc）或降序（desc），默认：desc。|
->>>>>>> origin/master
+
 
 ## 响应
 ### 响应示例
@@ -118,7 +116,6 @@ subnets包含的数据结构如下：
 |cidrBlock|String|子网网段|
 
 ## 错误码
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|

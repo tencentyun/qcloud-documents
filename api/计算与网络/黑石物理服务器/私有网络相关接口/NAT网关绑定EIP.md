@@ -17,17 +17,16 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipBindBmNatGateway
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-<<<<<<< HEAD
 | natId | 是 | String | 黑石网关统一ID，例如：nat-df5dfd |
 | vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 |
 | assignedEipSet.n | 否 | Array | 弹性IP。assignedEipSet 和 autoAllocEipNum 这两个入参需至少传一个，例如：assignedEipSet.0=183.23.0.0.1 |
 | autoAllocEipNum | 否 | Int | 需要新申请的弹性IP个数, 取值范围[0, 4]。assignedEipSet 和 autoAllocEipNum 这两个入参需至少传一个|
-=======
+
 | natId | 是 | string | 黑石网关统一ID，例如：nat-df5dfd |
 | vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 |
 | assignedEipSet.n | 否 | array | 弹性IP。assignedEipSet 和 autoAllocEipNum 这两个入参需至少传一个，例如：assignedEipSet.0=183.23.0.0.1 |
 | autoAllocEipNum | 否 | int | 需要新申请的弹性IP个数, 取值范围[0, 4]。assignedEipSet 和 autoAllocEipNum 这两个入参需至少传一个|
->>>>>>> origin/master
+
 
 
 ## 响应
@@ -47,14 +46,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipBindBmNatGateway
 |---------|---------|---------|
 | code | Int | 错误码。0: 成功, 其他值: 失败|
 | message | String | 错误信息|
-<<<<<<< HEAD
 | data | Array | data中包含操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
-=======
 | data | Array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
->>>>>>> origin/master
+
 
 ## 错误码
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
