@@ -39,7 +39,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetUnBindBmNatGateway
 |---------|---------|---------|
 | code | Int | 错误码。0：成功，其他值：失败|
 | message | String | 错误信息|
-| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+| data | Array | 返回操作的任务ID，创建结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
 
 
 
