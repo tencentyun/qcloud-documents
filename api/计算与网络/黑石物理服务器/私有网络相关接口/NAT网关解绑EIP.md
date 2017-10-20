@@ -19,7 +19,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | natId | 是 | String | NAT网关统一ID，例如：nat-8pbrkzh6|
-
 | vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | assignedEipSet.n | 是 | Array | 弹性IP数组，例如：assignedEipSet.0=183.60.249.122 |
 
@@ -40,7 +39,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-
 | code | Int | 错误码。0：成功，其他值：失败|
 | message | String | 错误信息|
 | data | Array | data中包含操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
