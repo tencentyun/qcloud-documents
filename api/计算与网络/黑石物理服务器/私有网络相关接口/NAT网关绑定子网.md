@@ -1,12 +1,12 @@
 ## 功能描述
-SubnetBindBmNatGateway 用于将子网的全部IP绑定到NAT网关
+SubnetBindBmNatGateway 接口用于将全部IP的子网类型绑定到NAT网关
 
 接口请求域名：bmvpc.api.qcloud.com
 
 ## 请求
-语法示例：
+### 请求示例
 ```
-GET https://vpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
+GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
     &vpcId=<vpc网络ID>
@@ -18,18 +18,24 @@ GET https://vpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
+<<<<<<< HEAD
+| natId | 是 | String | 黑石网关统一ID，例如：nat-df5dfd |
+| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| subnetIds.n | 是 | Array | 需要绑定全部IP的子网唯一ID数组。例如：subnetIds.0=	subnet-8pca7qqf。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+=======
 | natId | 是 | string | 黑石网关统一ID，例如：nat-df5dfd |
 | vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | subnetIds.n | 是 | array | 需要绑定全部IP的子网唯一ID数组。例如：subnetIds.0=	subnet-8pca7qqf。可通过<a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+>>>>>>> origin/master
 
 ## 响应
-响应示例：
+### 响应示例
 ```
 {
 	"code": 0,
 	"message": "",
 	"data": {
-		"taskId": 9641
+		"taskId": <NAT异步任务ID>
 	}
 }
 ```

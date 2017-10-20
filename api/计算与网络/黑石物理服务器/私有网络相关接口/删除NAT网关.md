@@ -1,11 +1,11 @@
 ## 功能描述
-DeleteBmNatGateway 用于删除黑石NAT网关
+DeleteBmNatGateway 接口用于删除黑石NAT网关
 
 接口请求域名：bmvpc.api.qcloud.com
 
 ## 请求
 
-语法示例：
+### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DeleteBmNatGateway
     &<公共请求参数>
@@ -17,17 +17,22 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DeleteBmNatGateway
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
+<<<<<<< HEAD
+| vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
+| natId | 是 | String | 系统分配的黑石NAT网关统一ID，例如：nat-7t9nf3pu |
+=======
 | vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | natId | 是 | string | 系统分配的黑石NAT网关统一ID，例如：nat-7t9nf3pu |
+>>>>>>> origin/master
 
 ## 响应
-响应示例：
+### 响应示例
 ```
 {
 	"code": 0,
 	"message": "",
 	"data": {
-		"taskId": 9641
+		"taskId": <NAT异步任务ID>
 	}
 }
 ```
@@ -35,9 +40,15 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DeleteBmNatGateway
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
+<<<<<<< HEAD
+| code | Int | 错误码。0: 成功, 其他值: 失败|
+| message | String | 错误信息|
+| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+=======
 | code | int | 错误码。0: 成功, 其他值: 失败|
 | message | string | 错误信息|
 | data | array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+>>>>>>> origin/master
 
 ## 错误码
 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
