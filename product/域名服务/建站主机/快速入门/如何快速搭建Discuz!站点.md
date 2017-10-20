@@ -2,6 +2,7 @@
 
 #### 1.	获取FTP信息
 进入主机的管理页面，获取 ftp 地址、用户名和密码
+![](https://mc.qcloudimg.com/static/img/44989bcf85458672bb503e76d334e92d/ftp.png)
 
 #### 2. 下载 Discuz! 安装包
 前往 [Discuz!官网](http://www.comsenz.com/downloads/install/discuzx) 下载最新版本的 Discuz! 安装包。
@@ -11,6 +12,7 @@
 
 #### 4. 获取数据信息
 进入主机的管理页面，获取数据库信息。
+![](更新版本后补图)
 
 #### 5. 执行安装
 5.1 浏览器访问`http://您的域名/discuz/install `，点击【我同意】，进入安装步骤，
