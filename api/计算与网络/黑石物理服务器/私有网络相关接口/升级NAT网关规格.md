@@ -21,11 +21,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
 | vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
 | natId | 是 | String | 高可用网关统一ID，例如：nat-xdf54d |
 | maxConcurrent | 是 | Int | 网关并发连接上限，可选值为：1000000（小型）、3000000（中型）、 10000000（大型）|
-| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| natId | 是 | string | 高可用网关统一ID，例如：nat-xdf54d |
-| maxConcurrent | 是 | int | 网关并发连接上限，可选值为：1000000（小型）、3000000（中型）、 10000000（大型）|
-
-
 
 ## 响应
 ### 响应示例
@@ -45,10 +40,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
 | code | Int | 错误码。0：成功, 其他值：失败|
 | message | String | 错误信息 |
 | data | Array | 返回操作的任务ID，操作结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
-| code | int | 错误码。0：成功, 其他值：失败|
-| message | string | 错误信息 |
-| data | array | 返回操作的任务ID，操作结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
-
 
 
 ## 错误码

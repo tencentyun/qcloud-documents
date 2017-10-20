@@ -30,13 +30,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 | limit | 否 | Int | 每页行数，默认为20，最大支持50。|
 | orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId。|
 | orderDirection | 否 | String | 升序（asc）或降序（desc），默认：desc。|
-| natId | 否 | string | NAT网关统一ID，例如：nat-xx454|
-| natName | 否 | string | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| offset | 否 | int | 初始行的偏移量，默认为0|
-| limit | 否 | int | 每页行数，默认为20，最大支持50。|
-| orderField | 否 | string | 按某个字段排序，默认不排序。<br>支持字段：natId。|
-| orderDirection | 否 | string | 升序（asc）或降序（desc），默认：desc。|
 
 
 ## 响应

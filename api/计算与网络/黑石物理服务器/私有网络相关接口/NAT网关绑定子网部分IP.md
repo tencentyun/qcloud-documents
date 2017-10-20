@@ -24,11 +24,9 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=BindIpsToBmNatGateway
 |---------|---------|---------|---------|
 | natId | 是 | String | 黑石网关统一ID，例如：nat-df5dfd |
 | vpcId | 是 | String | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://www.qcloud.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| ips.n | 是 | Array | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下：
+| ips.n | 是 | Array | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。
 
-| natId | 是 | string | 黑石网关统一ID，例如：nat-df5dfd |
-| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| ips.n | 是 | array | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下：
+ips包含字段如下：
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -53,10 +51,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=BindIpsToBmNatGateway
 | code | Int | 错误码。0: 成功, 其他值: 失败|
 | message | String | 错误信息|
 | data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询黑石NAT网关绑定子网部分IP的任务状态">查询黑石NAT网关绑定子网部分IP的任务状态</a>查询 |
-| code | int | 错误码。0: 成功, 其他值: 失败|
-| message | string | 错误信息|
-| data | array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询黑石NAT网关绑定子网部分IP的任务状态">查询黑石NAT网关绑定子网部分IP的任务状态</a>查询 |
-
 
 ## 错误码 
 | 错误代码 | 英文提示 | 错误描述 |

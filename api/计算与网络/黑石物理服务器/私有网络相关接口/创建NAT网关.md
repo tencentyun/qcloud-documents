@@ -36,14 +36,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 | autoAllocEipNum | 否 | Int | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考弹性IP。 |
 | subnetIds.n | 否 | Array | 需要绑定全部IP的子网唯一ID数组, 子网Id如：subnet-k20jbhp0。可通过<a href="https://www.qcloud.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。|
 | ips.n | 否 | Array | 需要绑定部分IP的子网信息数组，ips和subnetIds中的子网ID标识不能重复。ips包含字段如下：
-| natName | 是 | string | NAT网关名称，支持1-25个中文、英文大小写的字母、数字和下划线分隔符。 |
-| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 |
-| maxConcurrent | 是 | int | 网关并发连接上限，例如：1000000、3000000、10000000。 |
-| assignedEipSet.n | 否 | array | 绑定网关的弹性IP数组, assignedEipSet和autoAllocEipNum至少传一个，例如：assignedEipSet.0=10.0.0.1 ，更多关于弹性IP的信息请参考弹性IP。|
-| subnetAll | 否 | int | 是否包含vpc下的所有子网包括后续新建子网的IP。当subnetAll为1时，subnetIds和ips的参数传入将忽略；当subnetAll为0时，需至少传入subnetIds子网或ips信息一个。|
-| autoAllocEipNum | 否 | int | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考弹性IP。 |
-| subnetIds.n | 否 | array | 需要绑定全部IP的子网唯一ID数组, 子网Id如：subnet-k20jbhp0。可通过<a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。|
-| ips.n | 否 | array | 需要绑定部分IP的子网信息数组，ips和subnetIds中的子网ID标识不能重复。ips包含字段如下：
 
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
@@ -68,9 +60,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 | code | Int | 错误码。0：成功, 其他值：失败|
 | message | String | 错误信息|
 | data | Array | 返回操作的任务ID，创建结果可调用<a href="https://www.qcloud.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
-| code | int | 错误码。0：成功, 其他值：失败|
-| message | string | 错误信息|
-| data | array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
 
 
 ## 错误码
