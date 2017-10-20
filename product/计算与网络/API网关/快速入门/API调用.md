@@ -5,21 +5,21 @@
 
 ### 请求
 
-1、地址
+1. 地址
 
 <pre><code>http://
 </code></pre>
 
-2、方法
+2. 方法
 
 <pre><code>POST
 </code></pre>
 
-3、请求体
+3. 请求体
 <pre><code>QueryParam_a=value1&QueryParam_b=value2
 </code></pre>
 
-4、请求头
+4. 请求头
 <pre><code>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 Accept-Language: zh-cn
 Connection: Keep-Alive
@@ -40,13 +40,13 @@ Authorization: hmac id="AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN", algorithm="hmac-s
 
 ### 响应
 
-1、响应码
+1. 响应码
 
 <pre><code>200
-//响应状态码，大于等于200小于300表示成功；大于等于400小于500为客户端错误；大于500为服务端错误。
+//响应状态码，大于等于 200 小于 300 表示成功；大于等于 400 小于 500 为客户端错误；大于 500 为服务端错误。
 </code></pre>
 
-2、响应头
+2. 响应头
 
 <pre><code>Content-Type: text/html; charset=UTF-8
 Content-Length: 122
