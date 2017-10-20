@@ -132,14 +132,8 @@ openssl pkcs12 -in certname.pfx -nocerts -out key.pem -nodes
 
 ### Completion of Certificate Chain
 
-CA agency mainly provide the following three certificates:
-
-![](https://mc.qcloudimg.com/static/img/b6aa91178ad952913f2a797b2f52bc93/cer_type.png)
+CA agency mainly provide the following three certificates: Apache, IIS, Nginx.
 
 CDN uses **Nginx**. Select the certificates with an extension of .crt or .key under  **Nginx** folder. A certificate of PEM format can be directly opened in text editor. You just need to copy and upload it.
 
-![](https://mc.qcloudimg.com/static/img/a282abe9154c5e78b2ba771289e52c7f/cer_nginx.png)
-
-You can also complete the certificate chain by pasting the content of CA certificate (PEM format) to the bottom of domain certificate (PEM format):
-
-![](https://mc.qcloudimg.com/static/img/53927ba56ceba5d0a3ed0c5d80257c8a/cer_add.png)
+You can also complete the certificate chain by pasting the content of CA certificate (PEM format) to the bottom of domain certificate (PEM format).

@@ -1,4 +1,4 @@
-COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。
+COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
 ## 使用环境
 ### 系统环境
 操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
@@ -18,7 +18,7 @@ python setup.py install   # 这里可能需要sudo或者root权限
 ```
 
 ### 使用限制
-适用于 COS V5 版本
+适用于 COS V5 版本 XML 接口
 
 ## 功能说明
 #### 上传机制
