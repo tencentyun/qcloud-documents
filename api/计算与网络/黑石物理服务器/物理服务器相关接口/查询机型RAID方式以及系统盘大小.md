@@ -7,6 +7,7 @@ DescribeDeviceClassPartition接口用来获取设备类型对应的RAID方式。
 ## 请求
 
 ### 请求示例
+
 ```
 https://bm.api.qcloud.com/v2/index.php?
 	Action=DescribeDeviceClassPartition
@@ -39,6 +40,7 @@ https://bm.api.qcloud.com/v2/index.php?
 ## 响应
 
 ### 响应示例
+
 ```
 {
   "version": "1.0",
@@ -210,6 +212,7 @@ https://bm.api.qcloud.com/v2/index.php?
 
 
 ### 响应参数
+
 响应参数部分包含两层结构，外层展示接口的响应结果，内层展示具体的接口内容，包括RAID等信息。
 
 | 参数名称    | 类型     | 描述                                       |
@@ -257,7 +260,9 @@ https://bm.api.qcloud.com/v2/index.php?
 	&Region=bj
 	&Signature=afRlJQ0disdT97B7uIfVB4v2KWo%3D
 ```
+
 ### 输出
+
 ```
 {
   "version": "1.0",
