@@ -7,9 +7,8 @@ BindBmL4ListenerVmIp 提供了绑定虚机IP到黑石负载均衡四层监听器
 ## 请求
 ### 请求示例
 ```
-https://bmlb.api.qcloud.com/v2/index.php?
-	Action=BindBmL4ListenerVmIp
-	&公共请求参数
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=BindBmL4ListenerVmIp
+	&<公共请求参数>
 	&loadBalancerId=<负载均衡实例ID>
 	&listenerId=<四层监听器实例ID>
 	&vmList.0.port=<待绑定的虚机端口>
@@ -82,8 +81,7 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
  
 ### 输入
 ```
-https://domain/v2/index.php?
-	Action=BindBmL4ListenerVmIp
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=BindBmL4ListenerVmIp
 	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
 	&Nonce=61431
 	&Timestamp=1507728683

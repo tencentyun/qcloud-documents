@@ -1,59 +1,66 @@
-## 1. 接口描述
- 
-本接口（ReturnIps）用于释放黑石私有网络子网IP。
-接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
+## 功能描述
+ReturnIps 用于释放黑石私有网络子网IP。
+
+接口请求域名：bmvpc.api.qcloud.com
 
 
-
- 
-
-## 2. 输入参数
- 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为ReturnIps。
+## 请求
+语法示例：
+```
+GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
+    &<公共请求参数>
+    &unVpcId=<VPC网络唯一ID>
+    &ips=<释放的IP数组>
+```
+### 请求参数
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为RegisterBatchIp。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| vpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |
+| unVpcId | 是 | String | 系统分配的私有网络ID，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询返回的unVpcId值。 |
 | ips | 是 | Array | 释放的IP数组信息。 |
 
 
- 
-
-## 3. 输出参数
-
-| 参数名称 | 类型 | 描述 |
-|---------|---------|---------|
-| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
-| message | String | 模块错误信息描述，与接口相关。|
-
-
-
-  ## 4. 错误码表
- 
- | 错误代码 |英文提示| 描述 |
-|---------|---------|---------|
-| -3047 |InvalidBmVpc.NotFound| 无效的VPC,VPC资源不存在，请再次核实您输入的资源信息是否正确。 |
-
-## 5. 示例
- 
-输入
+## 响应
+响应示例：
 ```
-
-  https://vpc.api.qcloud.com/v2/index.php?Action=ReturnIps
-	&<公共请求参数>
-	&vpcId=vpc-2ari9m7h
-	&ips.0=1.1.1.1&ips.1=2.2.2.2
-	&count=1
-```
-
-输出
-```
-
 {
     "code": 0,
     "message": "",
     "codeDesc": "Success",
     "data": []
 }
+```
+### 响应参数
 
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
+| message | String | 模块错误信息描述，与接口相关。|
+
+## 错误码
+
+| 错误代码 |英文提示| 描述 |
+|---------|---------|---------|
+| -3047 |InvalidBmVpc.NotFound| 无效的VPC,VPC资源不存在，请再次核实您输入的资源信息是否正确。 |
+
+
+## 实际案例
+### 请求
+```
+GET https://bmvpc.api.qcloud.com/v2/index.php?
+	Action=ReturnIps
+	&<公共请求参数>
+	&unVpcId=vpc-2ari9m7h
+	&ips.0=1.1.1.1&ips.1=2.2.2.2
 ```
 
+### 响应
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": []
+}
+```
