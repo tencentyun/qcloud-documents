@@ -50,7 +50,7 @@ Ajax 上传需要浏览器支持基本的 Html5 特性，当前方案使用的�
     (function () {
 
         // 指定存储桶
-        var Bucket = 'guangzhou-1251902136';
+        var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
         var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
 
@@ -149,7 +149,7 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
     (function () {
 
         // 指定存储桶
-        var Bucket = 'guangzhou-1251902136';
+        var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
 
         var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
