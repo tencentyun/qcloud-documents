@@ -13,7 +13,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipBindBmNatGateway
     &autoAllocEipNum=<分配IP的个数>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为EipBindNatGateway。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为EipBindBmNatGateway。
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -47,7 +47,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipBindBmNatGateway
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
 | -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
-| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
+| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过<a href="/document/product/386/9355" title="DescribeBmNatGateway">DescribeBmNatGateway</a>接口查询NAT网关。 |
 | 13010 | BmVpcNat.InvalidEip | 绑定NAT网关的弹性IP不存在。 |
 | 13011 | BmVpcNat.InvalidEipVpcId | 弹性IP所属VPC与NAT网关不一致。 |
 | 13013 | BmVpcNat.EipUsed | 绑定NAT网关的弹性IP已被使用。 |

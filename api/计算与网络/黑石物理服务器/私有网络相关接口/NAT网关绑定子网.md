@@ -1,5 +1,5 @@
 ## 功能描述
-SubnetBindBmNatGateway 接口用于将全部IP的子网类型绑定到NAT网关
+SubnetBindBmNatGateway 接口用于将全部IP类型的子网绑定到NAT网关
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -39,7 +39,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
 |---------|---------|---------|
 | code | Int | 错误码。0: 成功, 其他值: 失败|
 | message | String | 错误信息|
-| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+| data | Array | 返回操作的任务ID，创建结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
 
 
 ## 错误码
@@ -49,7 +49,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
 | 10001 | BmVpc.InvalidParameterValue | 参数设置错误，具体错误信息可查看返回的message信息 |
 | -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
 | -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
-| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
+| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过<a href="/document/product/386/9355" title="DescribeBmNatGateway">DescribeBmNatGateway</a>接口查询NAT网关。 |
 | 13012 | BmVpcNat.SubnetUsed | 子网已被绑定到其他NAT网关。 |
 
 ## 实际案例
