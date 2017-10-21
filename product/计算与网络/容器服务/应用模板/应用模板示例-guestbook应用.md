@@ -1,10 +1,4 @@
-﻿# 应用模板示例-guestbook应用
-
-标签（空格分隔）： 未分类
-
----
-
-Guestbook是一个比较典型的web应用服务，其有一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。本示例将介绍如何将创建gustbook软件的应用模板。
+﻿Guestbook是一个比较典型的web应用服务，其有一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。本示例将介绍如何将创建gustbook软件的应用模板。
 
 ## 步骤一: 创建应用模板
 
@@ -199,11 +193,11 @@ REDIS_SLAVE_IMAGE: v1
 
 
   [1]: https://console.cloud.tencent.com/ccs/template
-  [2]: http://static.zybuluo.com/yan234280533/ar92auc9ym0hq3mknll6zcst/001-%E6%96%B0%E5%BB%BA%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BF.png
-  [3]: http://static.zybuluo.com/yan234280533/fe06z4qwow5oe0pw6jyzhha5/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BFgustbook%E7%A4%BA%E4%BE%8B-001.png
-  [4]: http://static.zybuluo.com/yan234280533/ar879876mtaryjs836dhenir/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BFgustbook%E7%A4%BA%E4%BE%8B-002.png
-  [5]: http://static.zybuluo.com/yan234280533/rz4jaizpr0hmbd13jlnsd32k/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BFgustbook%E7%A4%BA%E4%BE%8B-003.png
-  [6]: http://static.zybuluo.com/yan234280533/2v2h389rcum738va0n7o2ood/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BFgustbook%E7%A4%BA%E4%BE%8B-004.png
-  [7]: http://static.zybuluo.com/yan234280533/dyoujp93bf6fc32fh3p02d5m/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BFgustbook%E7%A4%BA%E4%BE%8B-005.png
-  [8]: http://static.zybuluo.com/yan234280533/2fej9p4quj8ivr7jj29h7i1z/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BFgustbook%E7%A4%BA%E4%BE%8B-006.png
-  [9]: http://static.zybuluo.com/yan234280533/mnvigivkticjnaaogw6l8ovq/%E5%BA%94%E7%94%A8%E6%A8%A1%E6%9D%BFgustbook%E7%A4%BA%E4%BE%8B-007.png
+  [2]: https://mc.qcloudimg.com/static/img/916facfa358f0ab96524c2e644a3b223/image.png
+  [3]: https://mc.qcloudimg.com/static/img/ca4cfb00da6fef22577596fa145156fd/image.png
+  [4]: https://mc.qcloudimg.com/static/img/5dad81c961661a5ee4147d1a5b3231a6/image.png
+  [5]: https://mc.qcloudimg.com/static/img/3b29da4e2d2e758c0c144029bcf583d0/image.png
+  [6]: https://mc.qcloudimg.com/static/img/dc0552a8a6b110b35d3f6e95fde12efc/image.png
+  [7]: https://mc.qcloudimg.com/static/img/a3c9542183055e9ebc2cf834aae43957/image.png
+  [8]: https://mc.qcloudimg.com/static/img/66635b054bf711fa4c570265bed3971a/image.png
+  [9]: https://mc.qcloudimg.com/static/img/f371ff5c3969ecb50bc80f2599c5b67a/image.png

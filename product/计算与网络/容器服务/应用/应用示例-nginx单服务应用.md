@@ -1,19 +1,13 @@
-﻿# 应用示例-nginx单服务应用
-
-标签（空格分隔）： 未分类
-
----
-
-应用模板中我们使用nginx单服务的应用作为基础示例。在应用中我们同样使用nginx单服务应用作为示例。
+﻿应用模板中我们使用nginx单服务的应用作为基础示例。在应用中我们同样使用nginx单服务应用作为示例。
 
 ## 步骤一： 创建nginx单服务的应用的模板
 
-创建nginx单服务的应用模板的过程，可以参考[补充应用示例-nginx单服务应用链接]
+创建nginx单服务的应用模板的过程，可以参考[用示例-nginx单服务应用][1]
 
 ## 步骤二： 新建应用
 在应用列表中，点击新建按钮。
 
-![应用nginx示例-008.png-38kB][1]
+![应用nginx示例-008.png-38kB][2]
 
 ## 步骤三： 配置应用
 
@@ -27,7 +21,7 @@
 
 3.4 配置项选择，默认情况下不选择配置项会使用模板中的配置项。这里我们使用模板中的配置项。
 
-![应用nginx示例-001.png-34.4kB][2]
+![应用nginx示例-001.png-34.4kB][3]
 
 3.5 点击下一步进入应用编辑操作
 
@@ -35,11 +29,11 @@
 
 在应用编辑操作中，可以更加应用的需要对模板中的内容和配置文件的内容进行修改。因为我们在模板中已经将内容已经编辑好了，不再需要额外的修改，所以直接点击完成，完成应用的编辑。
 
-![应用nginx示例-002.png-40.2kB][3]
+![应用nginx示例-002.png-40.2kB][4]
 
 在应用编辑完成后，这个应用已经创建。再应用列表页面可以看到对应的应用。只是这时后应用还处于未部署状态。
 
-![应用nginx示例-004.png-23.4kB][4]
+![应用nginx示例-004.png-23.4kB][5]
 
 ## 步骤五： 部署应用中的服务
 
@@ -47,15 +41,15 @@
 
 5.2 在应用详情页面，可以看到服务的状态为未部署，点击部署按钮，部署服务。
 
-![应用nginx示例-005.png-22kB][5]
+![应用nginx示例-005.png-22kB][6]
 
 5.3 这样应用中的服务在集群中进行部署，查看应用中服务的状态已经变为了已部署。
 
-![应用nginx示例-005.png-23.9kB][6]
+![应用nginx示例-005.png-23.9kB][7]
 
 5.4 点击应用中对应的服务，跳转到服务页面查看服务详情。
 
-![应用nginx示例-006.png-46.7kB][7]
+![应用nginx示例-006.png-46.7kB][8]
 
 这样就完成了应用的部署。
 
@@ -63,14 +57,24 @@
 
 通过`nginx`服务的负载均衡器IP可以直接访问前端的服务。
 
-![应用nginx示例-007.png-17.6kB][8]
+![应用nginx示例-007.png-17.6kB][9]
 
 
-  [1]: http://static.zybuluo.com/yan234280533/an596csd51w14s8cmakm94n8/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-008.png
-  [2]: http://static.zybuluo.com/yan234280533/nsyiczaemgdc5tztwicet8va/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-001.png
-  [3]: http://static.zybuluo.com/yan234280533/emgljvjhd1a7u7i210lzj1j3/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-002.png
-  [4]: http://static.zybuluo.com/yan234280533/liopu8tm6sjv5p95zq7aqooy/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-004.png
-  [5]: http://static.zybuluo.com/yan234280533/szfa7as4djfnd94v7ff54vfm/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-005.png
-  [6]: http://static.zybuluo.com/yan234280533/m6h652eyf1q38tqvprcfjca4/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-005.png
-  [7]: http://static.zybuluo.com/yan234280533/n0luhp9vbuz6rvlwf0ggl57s/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-006.png
-  [8]: http://static.zybuluo.com/yan234280533/1ajtweo8mrs74x57a4jpx5u8/%E5%BA%94%E7%94%A8nginx%E7%A4%BA%E4%BE%8B-007.png
+  [1]: https://cloud.tencent.com/document/product/457/11945
+  [2]: https://mc.qcloudimg.com/static/img/d53130f06874376f75091affcaef4536/image.png
+  [3]: https://mc.qcloudimg.com/static/img/8f4875ebcda51162829e72ddb0a2f44f/image.png
+  [4]: https://mc.qcloudimg.com/static/img/70f5d4accc30c33ac0d46209a1e6c37d/image.png
+  [5]: https://mc.qcloudimg.com/static/img/0f7b6fdf9b88a811fbc71365e3a00f63/image.png
+  [6]: https://mc.qcloudimg.com/static/img/6c9ebb5ec4378e3989e336f32c2a1ff7/image.png
+  [7]: https://mc.qcloudimg.com/static/img/7080e4548187a17192fa8d180442e252/image.png
+  [8]: https://mc.qcloudimg.com/static/img/1b4a175ca1d258ec7ade435ca9ed79ad/image.png
+  [9]: https://mc.qcloudimg.com/static/img/3aea8dfee04dd0b8beb5a7aa48ce1bf1/image.png
+  
+  
+ 
+
+  
+  
+  
+  
+  
