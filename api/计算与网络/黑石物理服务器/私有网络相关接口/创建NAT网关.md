@@ -35,8 +35,9 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 | subnetAll | 否 | Int | 是否包含vpc下的所有子网包括后续新建子网的IP。当subnetAll为1时，subnetIds和ips的参数传入将忽略；当subnetAll为0时，需至少传入subnetIds子网或ips信息一个。|
 | autoAllocEipNum | 否 | Int | 需要新申请的弹性IP个数，系统会按您的要求生产N个弹性IP, assignedEipSet和autoAllocEipNum至少传一个，更多关于弹性IP的信息请参考弹性IP。 |
 | subnetIds.n | 否 | Array | 需要绑定全部IP的子网唯一ID数组, 子网Id如：subnet-k20jbhp0。可通过<a href="/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。|
-| ips.n | 否 | Array | 需要绑定部分IP的子网信息数组，ips和subnetIds中的子网ID标识不能重复。ips包含字段如下：
+| ips.n | 否 | Array | 需要绑定部分IP的子网信息数组，ips和subnetIds中的子网ID标识不能重复。|
 
+ips包含字段如下：
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
