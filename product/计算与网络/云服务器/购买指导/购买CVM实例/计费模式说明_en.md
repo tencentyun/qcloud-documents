@@ -62,13 +62,13 @@ Amount to be deducted for buying cloud services = Number of cloud services appli
 
 Therefore, before purchasing cloud services, you need first to check the balance of your cloud expense account. If the balance is less than the amount required, please top up first.
 
-For prices of annual/monthly-package CVM instances, [see here](http://cloud.tencent.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#1.-包年包月)
+For prices of annual/monthly-package CVM instances, [see here](/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#1.-包年包月)
  
-For configuration of prepaid CVM instances, [see here](http://cloud.tencent.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+For configuration of prepaid CVM instances, [see here](/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
 
-For expiration reminder for prepaid CVMs, [see here](http://cloud.tencent.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#1.-包年包月云服务器到期提醒)
+For expiration reminder for prepaid CVMs, [see here](/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#1.-包年包月云服务器到期提醒)
 
-For adjusting instance configuration of prepaid CVMs, [see here](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
+For adjusting instance configuration of prepaid CVMs, [see here](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
 
 
 ## 2.	Postpaid
@@ -104,16 +104,16 @@ Take 1-core 2 GB configuration as an example: tier-1 unit price is 0.42 CNY/hour
 1. CVM tiered pricing program only involves CPU and memory costs, excluding network and disk costs.
 2. The tiered pricing program only involves CPU and memory costs, excluding network and disk costs
 3. The tiered pricing program applies only to the same configuration. If the configuration changes, billing will starts again from tier 1 of the new configuration. In the CVM example: the original configuration is 2-core 4 GB and you have entered tier 2 after using it for 100 hours. Then you change the configuration to 1-core 2 GB, so your billing starts again from tier 1 of the 1-core 2 GB configuration.
-4. The pay-per-use arrears program remains unchanged. [Learn about the Pay-per-use Arrears Program](https://cloud.tencent.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#2.3.-.E6.AC.A0.E8.B4.B9.E5.A4.84.E7.90.86)
+4. The pay-per-use arrears program remains unchanged. [Learn about the Pay-per-use Arrears Program](/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#2.3.-.E6.AC.A0.E8.B4.B9.E5.A4.84.E7.90.86)
 
 Click the links below for more information on pay-per-use instructions.
 
-For prices of postpaid CVM instances, [see here](http://cloud.tencent.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#2.-按量计费) 
+For prices of postpaid CVM instances, [see here](/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E4%BB%B7%E6%A0%BC#2.-按量计费) 
 
-For configuration of postpaid CVM instances, [see here](http://cloud.tencent.com/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
+For configuration of postpaid CVM instances, [see here](/doc/product/213/CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE)
 
-For expiration reminder for postpaid CVMs, [see here](http://cloud.tencent.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#2.-按量计费云服务器到期提醒) 
+For expiration reminder for postpaid CVMs, [see here](/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#2.-按量计费云服务器到期提醒) 
 
-For adjusting instance configuration of postpaid CVMs, [see here](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
+For adjusting instance configuration of postpaid CVMs, [see here](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE)
 
 
