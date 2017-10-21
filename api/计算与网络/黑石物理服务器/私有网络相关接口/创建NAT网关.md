@@ -38,7 +38,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 | ips.n | 否 | Array | 需要绑定部分IP的子网信息数组，ips和subnetIds中的子网ID标识不能重复。ips包含字段如下：
 
 
-| 参数名称 | 是否必选  | 类型 | 描述 |
+| 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |ips.n.subnetId|是|String|子网ID标识|
 |ips.n.ipList|是|Array|子网下需要绑定NAT的IP列表，IP需要属于该subnetId子网|
