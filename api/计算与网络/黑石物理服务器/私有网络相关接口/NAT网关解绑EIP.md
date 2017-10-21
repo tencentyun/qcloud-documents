@@ -7,11 +7,11 @@ EipUnBindBmNatGateway 接口用于将EIP从黑石NAT网关解绑，此后NAT网�
 ### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
-    &<公共请求参数>
-    &natId=<NAT网关ID>
-    &vpcId=<vpc网络ID>
-    &assignedEipSet.0=<eip>
- 	&assignedEipSet.1=<eip>
+	&<公共请求参数>
+	&natId=<NAT网关ID>
+	&vpcId=<vpc网络ID>
+	&assignedEipSet.0=<eip>
+	&assignedEipSet.1=<eip>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为EipUnBindBmNatGateway。
