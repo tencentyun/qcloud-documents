@@ -56,16 +56,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
             "maxConcurrent":  <NAT网关并发连接上限>,
             "ntype": <NAT网关并发连接上限类型>,
             "subnetAll": <是否绑定全部子网>,
-            "createTime": <创建时间>,
-            "subnets": [
-                {
-                    "name": <子网名称>,
-                    "unSubnetId": <子网统一ID>,
-                    "subnetId": <子网ID>,
-                    "subnetNatType": <绑定的子网类型>,
-                    "cidrBlock": <子网网段>
-                }
-            ]
+            "createTime": <创建时间>
         }
     ]
 }
@@ -96,17 +87,7 @@ data数据结构如下：
 | data.n.eipCount | String | NAT网关绑定eip的个数 |
 | data.n.eipSet | Array | NAT网关绑定的弹性IP列表，例如：[183.60.249.11] |
 | data.n.createTime | String | NAT网关网关创建时间，例如：2016-06-21 12:01:23 |
-| data.n.subnets | Array | NAT网关绑定的子网列表信息 |
 
-subnets包含的数据结构如下：
-
-|参数名称|类型|描述|
-|-------|---|---------------|
-|name|String|子网名称|
-|unSubnetId|String|子网统一ID|
-|subnetId|Int|子网ID|
-|subnetNatType|Int|绑定的子网类型，0表示子网部分IP，1表示子网全部IP|
-|cidrBlock|String|子网网段|
 
 ## 错误码
  
@@ -152,23 +133,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
             ],
             "maxConcurrent": 10000000,
             "ntype": "big",
-            "createTime": "2017-05-12 11:35:57",
-            "subnets": [
-                {
-                    "name": "wefwefwe",
-                    "unSubnetId": "subnet-00al7z8l",
-                    "subnetId": 224,
-                    "subnetNatType": 1,
-                    "cidrBlock": "10.11.5.0/24"
-                },
-                {
-                    "name": "test0717",
-                    "unSubnetId": "subnet-4qh1a0bt",
-                    "subnetId": 263,
-                    "subnetNatType": 1,
-                    "cidrBlock": "10.11.8.0/24"
-                }
-            ]
+            "createTime": "2017-05-12 11:35:57"
         }
     ]
 }
