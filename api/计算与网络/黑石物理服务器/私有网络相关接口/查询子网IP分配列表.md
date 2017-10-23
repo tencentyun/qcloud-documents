@@ -41,10 +41,10 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
         ],
         "vmSet": [
             <虚拟机IP>,
-		],
+        ],
         "tgSet": [
             <托管机器IP>,
-		]
+        ]
     }
 }
 
@@ -75,8 +75,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 ```
 
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=DescribeBmSubnetIps
-	&<公共请求参数>
-	&vpcId=vpc-34cxlz7z
+    &<公共请求参数>
+    &vpcId=vpc-34cxlz7z
     &subnetId=subnet-jv24ivq0
 ```
 
