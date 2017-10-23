@@ -233,5 +233,5 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
 
 ## 相关文档
 
-有更丰富的接口调用需求，请参考如下 JS-SDK 文档：
+有更丰富的接口调用需求，请使用 JS-SDK：
 1. [JS-SDK详细文档（XML API）](https://cloud.tencent.com/document/product/436/8095)
