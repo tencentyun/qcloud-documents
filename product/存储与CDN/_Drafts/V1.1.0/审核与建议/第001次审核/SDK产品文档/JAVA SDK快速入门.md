@@ -1066,7 +1066,7 @@ public String buildAuthorizationStr(HttpMethodName methodName, String resourcePa
 
 #### 返回值
 
-base64编码的签名字符串
+签名字符串
 
 #### 示例
 
