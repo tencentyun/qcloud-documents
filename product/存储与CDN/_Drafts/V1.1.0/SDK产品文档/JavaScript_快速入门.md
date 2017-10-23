@@ -1,16 +1,14 @@
 # JavaScript SDK 快速入门
 
-腾讯云 COS JS SDK（[XML API](https://www.qcloud.com/document/product/436/7751)）
-
-[releases and changelog](https://github.com/tencentyun/cos-js-sdk-v5/releases)
+腾讯云 COS JS SDK（[XML API](https://cloud.tencent.com/document/product/436/7751)）
 
 ## get started
 
 ### 一、前期准备
 
 1. 首先，JS SDk 需要浏览器支持基本的 HTML5 特性，以便支持 ajax 上传文件和计算文件 md5 值。
-2. 到 (COS对象存储控制台)[https://console.qcloud.com/cos4] 创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）
-3. 到 (控制台密钥管理)[https://console.qcloud.com/capi] 获取您的项目 SecretId 和 SecretKey
+2. 到 [COS对象存储控制台](https://console.cloud.tencent.com/cos4) 创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）
+3. 到 [控制台密钥管理](https://console.cloud.tencent.com/capi) 获取您的项目 SecretId 和 SecretKey
 4. 配置 CORS 规则，配置例子如下图：
 
 ![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
