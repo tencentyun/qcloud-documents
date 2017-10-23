@@ -6,6 +6,11 @@
 
 [C SDK本地下载(to be updated)](https://mc.qcloudimg.com/static/archive/2549fea204187b28d05fb1ac470f49d4/cos-c-sdk-v5-master.zip)
 
+
+> <font size=4 color=red>  把Demo的地址附上来，可以引导用户去demo里面查看</font>
+> by stongdong
+
+
 ### 开发环境
 
 1. 安装cmake工具（建议2.6.0及以上版本），点击[这里](http://www.cmake.org/download/)下载，典型安装方式如下：
@@ -102,12 +107,23 @@ int main(int argc, char *argv[])
 
 ## 快速入门
 
+> <font size=4 color=red> 这个标题和目录的位置是不是放错了？</font>
+> by stongdong
+
 ###  SDK一般使用流程
 
 1. 初始化SDK
 2. 设置请求选项参数
 3. 设置API接口必需的参数
 4. 调用SDK API发起请求并获得请求响应结果
+
+> <font size=4 color=red> 关键的数据appid region secretId 和 secretKey从哪里获取，要写出来，并给出链接</font>
+> by stongdong
+
+
+> <font size=4 color=red> 最好是把每一步 加上简单的注释，说明一下用途。这样能够更直接明白。</font>
+> by stongdong
+
 
 ### 创建Bucket
 
@@ -148,6 +164,10 @@ int main(int argc, char *argv[])
 ```
 
 ### 上传文件
+
+
+> <font size=4 color=red> 得到结果怎么使用，中间进度怎么监控需要说明一下。</font>
+> by stongdong
 
 ```cpp
     cos_pool_t *p = NULL;

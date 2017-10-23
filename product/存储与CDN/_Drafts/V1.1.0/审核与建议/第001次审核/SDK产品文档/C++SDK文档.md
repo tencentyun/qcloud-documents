@@ -1,6 +1,15 @@
 ## 开发准备
 
 ### 相关资源
+
+> <font size=4 color=red> 如果在标准的包管理工具，比如ruby的gem之类的，可以在这里说一下</font>
+> by stongdong
+
+
+> <font size=4 color=red>  把Demo的地址附上来，可以引导用户去demo里面查看</font>
+> by stongdong
+
+
 依赖静态库: jsoncpp boost_system boost_thread Poco (在lib文件夹下)
 依赖动态库: ssl crypto rt z (需要安装)
 
@@ -10,29 +19,44 @@
 4. 安装Poco的库和头文件 [https://pocoproject.org/download/index.html](https://pocoproject.org/download/index.html)
 5. 从控制台获取APP ID、SecretID、SecretKey。
 
+
+
 sdk中提供了Poco、jsoncpp的库以及头文件，以上库编译好后替换掉sdk中相应的库和头文件即可，如果以上库已经安装到系统里，也可删除sdk中相应的库和头文件。
 可以修改CMakeList.txt文件中，指定本地boost头文件路径，修改如下语句： SET(BOOST_HEADER_DIR "/root/boost_1_61_0")
 
 ### SDK 配置
 
+> <font size=4 color=red> 如果在标准的IDE或者工程之类的工具，可以在这里说一下</font>
+> by stongdong
+
+
 直接下载github上提供的源代码，集成到您的开发环境。
 
 执行下面的命令 ：
 ``` bash
-cd ${cos-cpp-sdk} 
-mkdir -p build 
-cd build 
-cmake .. 
+cd ${cos-cpp-sdk}
+mkdir -p build
+cd build
+cmake ..
 make
 ```
 
 cos_demo.cpp里面有常见API的例子。生成的cos_demo可以直接运行，生成的静态库名称为：libcossdk.a。生成的 libcossdk.a 放到你自己的工程里lib路径下，include 目录拷贝到自己的工程的include路径下。
 
 ## 初始化操作
+
 ### 初始化
 接口说明：在使用COS操作之前，需要首先进行COS系统参数的设置，然后分别创建CosConfig以及CosAPI对象，COS的操作都是基于CosAPI对象进行的。
 
+> <font size=4 color=red> 这个接口说明在这里有点，不知道要说什么</font>
+> by stongdong
+
+
+> <font size=4 color=red> 关键的数据appid region secretId 和 secretKey从哪里获取，要写出来，并给出链接</font>
+> by stongdong
+
 ### 配置文件
+
 ```
 "AppID":********,
 "AccessKey":"*********************************",
@@ -47,7 +71,7 @@ cos_demo.cpp里面有常见API的例子。生成的cos_demo可以直接运行，
 "DownloadThreadPoolSize":5,         // 单文件下载线程池大小
 "AsynThreadPoolSize":2,             // 异步上传下载线程池大小
 "LogoutType":1,                     // 日志输出类型,0:不输出,1:输出到屏幕,2输出到syslog
-"LogLevel":3                        // 日志级别:1: ERR, 2: WARN, 3:INFO, 4:DBG 
+"LogLevel":3                        // 日志级别:1: ERR, 2: WARN, 3:INFO, 4:DBG
 ```
 
 ### COS API对象构造原型
@@ -56,6 +80,17 @@ cos_demo.cpp里面有常见API的例子。生成的cos_demo可以直接运行，
 CosConfig(const string& config_file); // config_file是配置文件所在路径
 CosAPI(CosConfig& config);
 ```
+
+
+> <font size=4 color=red> 这里需要是使用的范例， 不是接口说明哈！！ </font>
+> by stongdong
+
+
+
+
+> <font size=4 color=red> 关键的几个过程 文档上传、下载需要把使用的范例给出来。 </font>
+> by stongdong
+
 
 ## 生成签名
 
@@ -73,7 +108,7 @@ static std::string Sign(const std::string& secret_id,
                         const std::map<std::string, std::string>& params);
 ```
 
-#### 参数说明 
+#### 参数说明
 
 - secret_id   —— String             开发者拥有的项目身份识别 ID，用以身份认证
 - secret_key  —— String             开发者拥有的项目身份密钥
@@ -97,7 +132,7 @@ static std::string Sign(const std::string& secret_id,
                         uint64_t start_time_in_s,
                         uint64_t end_time_in_s);
 ```
-#### 参数说明 
+#### 参数说明
 
 - secret_id   —— String             开发者拥有的项目身份识别 ID，用以身份认证
 - secret_key  —— String             开发者拥有的项目身份密钥
@@ -141,7 +176,7 @@ BaseReq、BaseResp 封装了请求和返回， 调用者只需要根据不同的
 函数返回后，调用对应BaseResp的成员函数获取请求结果。
 
 对于Request，如无特殊说明，仅需要关注request的构造函数。
-对于Response，所有方法的response均有获取公共返回头部的成员函数。 
+对于Response，所有方法的response均有获取公共返回头部的成员函数。
 Response的公共成员函数如下， 具体字段含义见[公共返回头部](https://www.qcloud.com/document/product/436/7729 "公共返回头部")， 此处不再赘述：
 ```
 uint64_t GetContentLength();
@@ -175,7 +210,7 @@ CosResult GetBucket(const GetBucketReq& req, GetBucketResp* resp);
 
 - resp   —— GetBucketResp GetBucket操作的返回
 
-GetBucketResp提供以下成员函数，用于获取GetBucket返回的xml格式中的具体内容。 
+GetBucketResp提供以下成员函数，用于获取GetBucket返回的xml格式中的具体内容。
 ```C++
 std::vector<Content> GetContents();
 std::string GetName();
@@ -212,7 +247,7 @@ if (result.IsSucc()) {
     std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
     std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
     std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
-} 
+}
 ```
 
 ## Object操作
@@ -446,7 +481,7 @@ void SetXcosGrantFullControl(const std::string& str);
 - resp   ——PutObjectByStreamResp/PutObjectByFileResp PutObject操作的返回
 
 #### 示例
- 
+
 ```cpp
 qcloud_cos::CosConfig config("./config.json");
 qcloud_cos::CosAPI cos(config);
@@ -463,7 +498,7 @@ std::string object_name = "object_name";
     req.SetXCosStorageClass("STANDARD_IA");
     qcloud_cos::PutObjectByStreamResp resp;
     qcloud_cos::CosResult result = cos.PutObject(req, &resp);
-    
+
     if (result.IsSucc()) {
         // 调用成功，调用resp的成员函数获取返回内容
         do sth
@@ -650,7 +685,7 @@ void SetPartNumber(uint64_t part_number);
     qcloud_cos::UploadPartDataResp resp;
     qcloud_cos::CosResult result = cos.UploadPartData(req, &resp);
 
-    // 上传成功需要记录分片编号以及返回的etag 
+    // 上传成功需要记录分片编号以及返回的etag
     if (result.IsSucc()) {
         etags.push_back(resp.GetEtag());
         part_numbers.push_back(2);
