@@ -21,7 +21,7 @@
 
 ## 本文步骤预览
 1.  申请 VIP，该 VIP 仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
-2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。**主备本机主IP仅有内网 IP 时，需要参考步骤9修改 SDK host**
+2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。**主备本机主 IP 仅有内网 IP 时，需要参考步骤 9 修改 SDK host**
 3.  编辑使用 keepalived  的 notify 机制，借助 notify_action.sh 和 vip.py，调用云 API 进行主备切换。
 4.  编辑使用 keepalived 的 track_script 机制，借助 check_self.sh 和 vip.py，周期性执行检查脚本增强可用性。
 5.  给 VIP 分配外网 IP。**（可选）**
