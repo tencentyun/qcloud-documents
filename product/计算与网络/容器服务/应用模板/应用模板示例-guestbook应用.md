@@ -175,7 +175,7 @@ FRONTEND_VERSION: v4
 REDIS_MASTER_IMAGE: ccr.ccs.tencentyun.com/library/redis
 REDIS_MASTER_VERSION: e2e
 REDIS_SLAVE_IMAGE: ccr.ccs.tencentyun.com/library/gb-redisslave
-REDIS_SLAVE_IMAGE: v1
+REDIS_SLAVE_VERSION: v1
 ```
 填写完之后，配置项的值如下图所示。
 
