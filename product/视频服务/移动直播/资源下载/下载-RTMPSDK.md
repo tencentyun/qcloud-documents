@@ -86,7 +86,7 @@ table td { height: 35px; }
 | 动效贴纸 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 美瞳瘦脸 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
 | 绿幕抠图 |||||![](//mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png)|
-| |[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Smart_Android_3.5.2144.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Player_Android_3.5.2144.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_UGC_Android_3.5.2144.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Professional_Android_3.5.2144.zip)| 见版本说明 | 
+| |[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Smart_Android_3.5.2152.zip)| [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Player_Android_3.5.2152.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_UGC_Android_3.5.2152.zip) | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Professional_Android_3.5.2152.zip)| 见版本说明 | 
 
 - **版本说明**
 
