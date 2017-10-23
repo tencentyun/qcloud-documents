@@ -1064,11 +1064,9 @@ public String buildAuthorizationStr(HttpMethodName methodName, String resourcePa
 |   paramMap   | Map<String, String> |  无   |              URL路径中的参数KV对              |
 |     cred     |   COSCredentials    |  无   |                  身份信息                  |
 
-#### 成功返回值
+#### 返回值
 
-| 返回值类型  | 返回值描述 |
-| :----: | :---: |
-| String |  签名   |
+base64编码的签名字符串
 
 #### 示例
 
