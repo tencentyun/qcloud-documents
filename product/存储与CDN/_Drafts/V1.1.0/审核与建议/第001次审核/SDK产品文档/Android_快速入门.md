@@ -5,7 +5,8 @@
 
 演示示例Demo下载地址:[XML Android SDK Demo](https://github.com/tencentyun/qcloud-sdk-android-samples).
 
-
+> <font size=4 color=red> 标准的maven等包管理工具的安装方式要给出来</font>
+> by stongdong
 
 ### 开发准备
 
@@ -21,11 +22,11 @@
 - cos-xml-android-sdk-1.2.jar
 
 - qcloud-core-1.2.jar
- 
+
 - okhttp-3.8.1.jar
 
 - okio-1.13.0.jar
- 
+
 - xstream-1.4.7.jar
 
 - fastjson-1.1.62.android.jar
@@ -40,19 +41,23 @@
 ```
 
 
-## 快速入门 
+## 快速入门
 
-### 初始化 
+### 初始化
 CosXmlServiceConfig： 网络连接、重试等配置参数
 
 CosXmlService：SDK提供的服务类，可操作各种cos服务
 
 进行任何操作之前，需要实例化 CosXmlService 和 CosXmlServiceConfig.
 
+> <font size=4 color=red> 关键的数据appid region secretId 和 secretKey从哪里获取，要写出来，并给出链接</font>
+> by stongdong
+
+
 ````java
 
 String appid = "对象存储 的服务APPID";
-String region = "存储桶 所在的地域"; 
+String region = "存储桶 所在的地域";
 
 String secretId = "云 API 密钥 secretId";
 String secretKey ="云 API 密钥 secretKey";
@@ -104,7 +109,7 @@ try {
     PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
 
 		Log.w("TEST","success: " + putObjectResult.accessUrl);
-    
+
   } catch (CosXmlClientException e) {
 
 	   //抛出异常
@@ -126,7 +131,7 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
 
      @Override
      public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
-        
+
 		String errorMsg = clientException != null ? clientException.toString() : serviceException.toString();
 		Log.w("TEST",errorMsg);
     }
@@ -197,9 +202,9 @@ uploadPartRequest.setProgressListener(new QCloudProgressListener() {
 	});
 
 try {
-	UploadPartResult uploadPartResult = cosXmlService.uploadPart(uploadPartRequest); 
-	
-	Log.w("TEST","success");	
+	UploadPartResult uploadPartResult = cosXmlService.uploadPart(uploadPartRequest);
+
+	Log.w("TEST","success");
 	eTag = uploadPartResult.getETag(); // 获取分片文件的 eTag
 
   } catch (CosXmlClientException e) {
@@ -238,7 +243,7 @@ try {
        Log.w("TEST","CosXmlServiceException =" + e.toString());
 }
 ````
- 
+
 ### 下载文件
 ````java
 
@@ -265,9 +270,9 @@ getObjectRequest.setProgressListener(new QCloudProgressListener() {
 //使用同步方法下载
 try {
    GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
-	
+
 	Log.w("TEST","success： " + getObjectResult.xCOSStorageClass);
-       
+
   } catch (CosXmlClientException e) {
 
       Log.w("TEST","CosXmlClientException =" + e.toString());
@@ -290,7 +295,7 @@ cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
 
      @Override
      public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
-        
+
 		String errorMsg = clientException != null ? clientException.toString() : serviceException.toString();
 		Log.w("TEST",errorMsg);
     }
@@ -301,6 +306,10 @@ cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
 
 
 ## 生成签名
+
+
+> <font size=4 color=red> 写了本地签名的流程，如果使用CAM那套机制如何进行签名，要列出来，可参考ricken的最佳实践</font>
+> by stongdong
 
 若需要了解签名具体的生成过程请参照[签名流程](https://www.qcloud.com/document/product/436/7778).
 

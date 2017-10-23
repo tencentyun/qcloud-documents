@@ -1,5 +1,8 @@
 ##开发准备
 ###SDK 获取
+
+
+
 ####github
 在github中获取代码
 ```php
@@ -15,7 +18,21 @@ https://github.com/tencentyun/cos-php-sdk-v5
     }
 }
 ```
+
+> <font size=4 color=red>  把Demo的地址附上来，可以引导用户去demo里面查看</font>
+> by stongdong
+
+
 ##快速入门 
+
+> <font size=4 color=red> 关键的数据appid region secretId 和 secretKey从哪里获取，要写出来，并给出链接</font>
+> by stongdong
+
+
+> <font size=4 color=red> 把步骤拆分一下，分成初始化配置、上传、下载等章节</font>
+> by stongdong
+
+
 ```php
 require(__DIR__ . DIRECTORY_SEPARATOR . 'cos-autoloader.php');
 #配置文件
