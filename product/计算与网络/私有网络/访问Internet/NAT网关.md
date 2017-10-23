@@ -68,7 +68,7 @@ NAT网关主要有以下几点关键特性：
 - 用户无法直接使用网络 ACL 控制进出 NAT 网关的流量，但可以使用网络 ACL 控制进出 NAT 网关所关联子网的流量。
 - 用户无法通过 VPC 对等连接、VPN 连接或专线接入将流量路由到 NAT 网关，这些连接另一端的资源不能使用 NAT 网关。例如，VPC 1 的发往 Internet 的流量都可以通过 NAT 网关实现，现在 VPC 1 和 VPC 2 建立了对等连接，VPC 2 里所有资源可以访问 VPC 1 中的所有资源，但 VPC 2 中的所有资源不可以经过 NAT 网关访问 Internet。
 - NAT 网关支持 TCP、UDP 和 ICMP 协议，而 GRE 隧道和 IPSec 使用的 ESP、AH 则无法使用 NAT 网关，这是由于 NAT 网关本身的特性决定的，与服务提供商无关。幸运的是互联网大部分应用都是 TCP 应用，TCP 和 UDP 应用合起来占互联网应用类型的99%。
-- NAT 网关资源支持限制如下表所示，您还可以查看 [VPC 其它产品的使用约束](https://cloud.tencent.com/doc/product/215/537)。
+- NAT 网关资源支持限制如下表所示，您还可以查看 [VPC 其它产品的使用约束](https://www.cloud.tencent.com/doc/product/215/537)。
 
 | 资源| 限制 | 
 |---------|---------|
@@ -79,15 +79,15 @@ NAT网关主要有以下几点关键特性：
 ## 计费方式
 NAT网关设备共收取两项服务费用：网关租用费（按小时计费）和访问 Internet 产生的流量费用。流量部分的费用可以参考云服务器网络费用中的按流量计费。NAT 网关本体计费模式如下表：
 
-| 类型 | 国内 |新加坡、硅谷、法兰克福、香港|  多伦多 |
+| 类型 | 国内 |新加坡、硅谷、韩国、法兰克福、香港|  多伦多 |
 |---------|---------|---------|---------|
 | 小型 | 0.5元/h | 0.75元/h |0.8元/h |
 | 中型 | 1.5元/h| 2.25元/h |2.4元/h |
 | 大型 | 5元/h| 7.5元/h |8元/h |
 
  >注：
- - 如果用户账号开通了带宽包共享带宽功能，则NAT网关产生的出流量按照带宽包整体结算（不再重复收取0.8元/GB的网络流量费），建议您限制NAT网关的出带宽，以避免因为NAT网关出带宽过高产生高额的带宽包费用,点击查看[带宽包计费详情](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
- - 欠费逻辑：与按量计费主机保持一致，[点击查看私有网络价格总览](https://cloud.tencent.com/doc/product/215/3079)
+ - 如果用户账号开通了带宽包共享带宽功能，则NAT网关产生的出流量按照带宽包整体结算（不再重复收取0.8元/GB的网络流量费），建议您限制NAT网关的出带宽，以避免因为NAT网关出带宽过高产生高额的带宽包费用,点击查看[带宽包计费详情](https://www.cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
+ - 欠费逻辑：与按量计费主机保持一致，[点击查看私有网络价格总览](https://www.cloud.tencent.com/doc/product/215/3079)
  - 由于NAT网关具备双机热备的特性，系统每3秒会分别给NAT网关的主备服务器发送一个5KB的探测包，因此每天会产生0.2747GB的流量，对应大陆、香港、北美会分别产生:0.2197元、0.2747元、0.1373元的费用。
 
 
@@ -142,7 +142,7 @@ NAT网关创建后，可以对其属性进行修改。
 1)	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击顶部导航条【云产品】-【监控与管理】-[【云监控】](https://console.cloud.tencent.com/monitor/overview)，选择左导航栏内的【我的告警】-[【告警策略】](https://console.cloud.tencent.com/monitor/policylist)，点击：新增告警策略。
 2)	填写告警策略名称，在策略类型中选择【NAT网关】，然后添加告警触发条件。
 3)	**关联告警对象**：选择告警接收组，保存后即可在告警策略列表中查看已设置的告警策略。
-4)	**查看告警信息**：告警条件被触发后，您将接受到短信/邮件/站内信等通知，同时可以在左导航【我的告警】-【告警列表】中查看。有关告警的更多信息，请参考[创建告警](https://cloud.tencent.com/doc/product/248/1073)。
+4)	**查看告警信息**：告警条件被触发后，您将接受到短信/邮件/站内信等通知，同时可以在左导航【我的告警】-【告警列表】中查看。有关告警的更多信息，请参考[创建告警](https://www.cloud.tencent.com/doc/product/248/1073)。
 
 ### 删除 NAT 网关
 用户可以在不需要 NAT 网关时随时将其删除，删除时会将含有此 NAT 网关的路由表的相关路由策略一并删除，Internet 转发请求将立即中断，请提前做好网络中断准备。
@@ -172,17 +172,17 @@ NAT网关创建后，可以对其属性进行修改。
 
 
 ## API概览
-您可以使用API操作来设置和管理您的NAT网关，有关更多 VPC 内其他资源的内容，可以查看[ VPC 所有 API 概览](https://cloud.tencent.com/doc/api/245/909)。
+您可以使用API操作来设置和管理您的NAT网关，有关更多 VPC 内其他资源的内容，可以查看[ VPC 所有 API 概览](https://www.cloud.tencent.com/doc/api/245/909)。
 
 | 接口功能 | Action ID |  功能描述 |
 |---------|---------|---------|
-| 创建NAT网关 | [CreateNatGateway](https://cloud.tencent.com/doc/api/245/4094) |  创建NAT网关。 |
-| 查询NAT网关创建状态 | [QueryNatGatewayProductionStatus](https://cloud.tencent.com/doc/api/245/4089) |  查询NAT网关创建状态。 |
-| 删除NAT网关 | [DeleteNatGateway](https://cloud.tencent.com/doc/api/245/4087) | 删除NAT网关。 |
-| 修改NAT网关 | [ModifyNatGateway](https://cloud.tencent.com/doc/api/245/4086) | 修改NAT网关。 |
-| 查询NAT网关 | [DescribeNatGateway](https://cloud.tencent.com/doc/api/245/4088) | 查询NAT网关。 |
-| NAT网关绑定EIP | [EipBindNatGateway](https://cloud.tencent.com/doc/api/245/4093) | NAT网关绑定EIP。 |
-| NAT网关解绑EIP | [EipUnBindNatGateway](https://cloud.tencent.com/doc/api/245/4092) | NAT网关解绑EIP。 |
-| 升级NAT网关规格 | [UpgradeNatGateway](https://cloud.tencent.com/doc/api/245/4090) | 升级NAT网关规格。 |
+| 创建NAT网关 | [CreateNatGateway](https://www.cloud.tencent.com/doc/api/245/4094) |  创建NAT网关。 |
+| 查询NAT网关创建状态 | [QueryNatGatewayProductionStatus](https://www.cloud.tencent.com/doc/api/245/4089) |  查询NAT网关创建状态。 |
+| 删除NAT网关 | [DeleteNatGateway](https://www.cloud.tencent.com/doc/api/245/4087) | 删除NAT网关。 |
+| 修改NAT网关 | [ModifyNatGateway](https://www.cloud.tencent.com/doc/api/245/4086) | 修改NAT网关。 |
+| 查询NAT网关 | [DescribeNatGateway](https://www.cloud.tencent.com/doc/api/245/4088) | 查询NAT网关。 |
+| NAT网关绑定EIP | [EipBindNatGateway](https://www.cloud.tencent.com/doc/api/245/4093) | NAT网关绑定EIP。 |
+| NAT网关解绑EIP | [EipUnBindNatGateway](https://www.cloud.tencent.com/doc/api/245/4092) | NAT网关解绑EIP。 |
+| 升级NAT网关规格 | [UpgradeNatGateway](https://www.cloud.tencent.com/doc/api/245/4090) | 升级NAT网关规格。 |
 
 

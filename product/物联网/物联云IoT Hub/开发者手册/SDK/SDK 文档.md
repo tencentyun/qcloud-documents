@@ -1,9 +1,9 @@
-### 1 相关下载
+### 1. 相关下载
 
 根证书: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/root-ca.zip)
 SDK源码: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/C-SDK.zip)
 
-### 2 日志接口
+### 2. 日志接口
 
 | 序号  | 函数名                     	 | 说明                                                                   |
 |-------|-----------------------------|-----------------------------------------------------------------------|
@@ -11,7 +11,7 @@ SDK源码: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/C-SDK.z
 |     2 | qcloud_iot_get_log_level  | 返回日志输出的等级`LOG_LEVEL`。|
 
 
-### 3 MQTT接口
+### 3. MQTT接口
 
 | 序号  | 函数名                  		           | 说明                                                                    |
 |-------|---------------------------------------|-------------------------------------------------------------------------|
@@ -26,7 +26,7 @@ SDK源码: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/C-SDK.z
 |     9 | qcloud_iot_mqtt_attempt_reconnect   | MQTT 客户端与服务器重新建立连接。 |
 |    10 | qcloud_iot_mqtt_is_connected       | 判断 MQTT 客户端目前是否已连接，返回真则客户端在连接状态，反之客户端已经断开连接。|
 
-### 4 设备影子接口
+### 4. 设备影子接口
 
 | 序号  | 函数名                   	                  | 说明                                               |
 |-------|---------------------------------------------|----------------------------------------------------|
