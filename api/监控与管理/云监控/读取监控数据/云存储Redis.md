@@ -33,7 +33,7 @@ dimensions.0.value为实例的uuid
 | getbit命令数 | cmdstat_getbit |1分钟内 getbit 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和   | 次/分钟 |
 | getrange命令数| cmdstat_getrange |1分钟内 getrange 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
 | hget命令数 | cmdstat_hget |1分钟内 hget 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
-| hgetall命令数 | cmdstat_hgetall  |1分钟内 hgetall 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟| 次/分钟 |
+| hgetall命令数 | cmdstat_hgetall  |1分钟内 hgetall 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟|
 | hmget命令数     | cmdstat_hmget   |1分钟内 hmget 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和 | 次/分钟 |
 | hmset命令数  | cmdstat_hmset   |1分钟内 hmset 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和 | 次/分钟 |
 | hset命令数 | cmdstat_hset  |1分钟内 hset 命令请求数| 每分钟采集，5分钟粒度数据是按最近5分钟内求和  | 次/分钟 |
