@@ -6,7 +6,7 @@ RegisterBatchIp 用于指定子网IP进行IP注册。
 
 ## 请求
 
-###请求示例：
+### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
     &<公共请求参数>
@@ -26,7 +26,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 
 
 ## 响应
-###响应示例：
+### 响应示例
 ```
 {
     "code": 0,
