@@ -1,4 +1,4 @@
-# JavaScript SDK快速入门
+# JavaScript SDK 快速入门
 
 腾讯云 COS JS SDK（[XML API](https://www.qcloud.com/document/product/436/7751)）
 
