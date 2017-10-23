@@ -5,7 +5,8 @@ ReturnIps 用于释放黑石私有网络子网IP。
 
 
 ## 请求
-语法示例：
+
+###请求示例：
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
     &<公共请求参数>
@@ -22,7 +23,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
 
 
 ## 响应
-响应示例：
+
+###响应示例：
 ```
 {
     "code": 0,
@@ -46,7 +48,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ReturnIps
 
 
 ## 实际案例
-### 请求
+
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=ReturnIps
@@ -55,7 +58,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&ips.0=1.1.1.1&ips.1=2.2.2.2
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 0,

@@ -5,7 +5,8 @@ ModifySubnetDhcpRelayFlag 用于修改子网的DHCP RELAY属性。
 
 
 ## 请求
-语法示例：
+
+###请求示例：
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ModifySubnetDhcpRelayFlag
     &<公共请求参数>
@@ -28,7 +29,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ModifySubnetDhcpRelayFlag
 
 
 ## 响应
-响应示例：
+
+###响应示例：
 ```
 {
     "code": 0,
@@ -68,7 +70,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ModifySubnetDhcpRelayFlag
 
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=ModifySubnetDhcpRelayFlag
@@ -80,7 +82,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
     &ipReserve=5
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 0,
