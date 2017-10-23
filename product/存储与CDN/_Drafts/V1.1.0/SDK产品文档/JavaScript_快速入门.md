@@ -2,8 +2,6 @@
 
 腾讯云 COS JS SDK（[XML API](https://www.qcloud.com/document/product/436/7751)）
 
-[releases and changelog](https://github.com/tencentyun/cos-js-sdk-v5/releases)
-
 ## get started
 
 ### 一、前期准备
