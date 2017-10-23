@@ -12,6 +12,10 @@ npm i cos-nodejs-sdk-v5 --save
 
 ## demo
 
+1. 到 [COS对象存储控制台](https://console.cloud.tencent.com/cos4) 创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）
+2. 到 [控制台密钥管理](https://console.cloud.tencent.com/capi) 获取您的项目 SecretId 和 SecretKey
+3. 参照以下代码，修改 SecretId、SecretKey、Bucket、Region，测试上传文件
+
 ```javascript
 // 引入模块
 var COS = require('cos-nodejs-sdk-v5');
