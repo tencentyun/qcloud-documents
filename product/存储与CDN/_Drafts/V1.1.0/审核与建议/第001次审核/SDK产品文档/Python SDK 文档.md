@@ -41,6 +41,11 @@ client = CosS3Client(config)
 # 参照下文的API描述。或者参照Demo程序，详见https://github.com/tencentyun/cos-python-sdk-v5/blob/master/qcloud_cos/test.py
 ```
 
+
+> <font size=4 color=red> 这里需要是使用的范例， 不是接口说明哈！！下面的章节可以删去，简化成上传下载等使用的范例。 </font>
+> by stongdong
+> 
+
 ## 基本API描述
 
 COS XML API Python SDK 操作成功会返回一个dict或者None，失败会抛出异常(CosClientError 和 CosServiceError)。异常类会提供相关的错误信息，详见文末的异常类型介绍。
