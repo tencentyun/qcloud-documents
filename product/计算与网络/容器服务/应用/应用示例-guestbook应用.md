@@ -1,20 +1,14 @@
-﻿# 应用示例-guestbook应用
-
-标签（空格分隔）： 未分类
-
----
-
-Guestbook是一个比较典型的web应用服务，其有一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。本文将介绍如何使用模板来部署guestbook应用。
+﻿Guestbook是一个比较典型的web应用服务，其有一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。本文将介绍如何使用模板来部署guestbook应用。
 
 ## 步骤一： 创建guestbook的应用的模板
 
-创建nginx单服务的应用模板的过程，可以参考[补充应用示例-nginx单服务应用链接]
+创建guestbook的应用模板的过程，可以参考[guestbook应用模板][1]
 
 ## 步骤二： 新建应用
 
-在应用列表中，点击新建按钮。
+在[应用列表][2]中，点击新建按钮。
 
-补充： [新建页面截图]
+![新建应用][3]
 
 ## 步骤三： 配置应用
 
@@ -28,7 +22,7 @@ Guestbook是一个比较典型的web应用服务，其有一个frontend前端服
 
 3.4 配置项选择，默认情况下不选择配置项会使用模板中的配置项。这里我们使用模板中的配置项。
 
-![应用guestbook示例-001.png-34.7kB][1]
+![应用guestbook示例-001.png-34.7kB][4]
 
 3.5 点击下一步进入应用编辑操作
 
@@ -36,11 +30,11 @@ Guestbook是一个比较典型的web应用服务，其有一个frontend前端服
 
 在应用编辑操作中，可以更加应用的需要对模板中的内容和配置文件的内容进行修改。因为我们在模板中已经将内容已经编辑好了，不再需要额外的修改，所以直接点击完成，完成应用的编辑。
 
-![应用guestbook示例-002.png-47.2kB][2]
+![应用guestbook示例-002.png-47.2kB][5]
 
 在应用编辑完成后，这个应用已经创建。再应用列表页面可以看到对应的应用。只是这时后应用还处于未部署状态。
 
-![应用guestbook示例-003.png-29.6kB][3]
+![应用guestbook示例-003.png-29.6kB][6]
 
 ## 步骤五： 部署应用中的服务
 
@@ -48,15 +42,15 @@ Guestbook是一个比较典型的web应用服务，其有一个frontend前端服
 
 5.2 在应用详情页面，可以看到服务的状态为未部署，点击部署按钮，部署服务。
 
-![应用guestbook示例-004.png-29.7kB][4]
+![应用guestbook示例-004.png-29.7kB][7]
 
 5.3 这样应用中的服务在集群中进行部署，查看应用中服务的状态已经变为了已部署。
 
-![应用guestbook示例-005.png-34.1kB][5]
+![应用guestbook示例-005.png-34.1kB][8]
 
 5.4 点击应用中对应的服务，跳转到服务页面查看服务详情。
 
-![应用guestbook示例-006.png-51.2kB][6]
+![应用guestbook示例-006.png-51.2kB][9]
 
 这样就完成了应用的部署。
 
@@ -64,12 +58,25 @@ Guestbook是一个比较典型的web应用服务，其有一个frontend前端服
 
 通过`frontend`服务的负载均衡器IP可以直接访问前端的服务。
 
-![应用guestbook示例-007.png-10.9kB][7]
+![应用guestbook示例-007.png-10.9kB][10]
 
-  [1]: http://static.zybuluo.com/yan234280533/zpaoi8v7n7nr0fmfkf0v33an/%E5%BA%94%E7%94%A8guestbook%E7%A4%BA%E4%BE%8B-001.png
-  [2]: http://static.zybuluo.com/yan234280533/nm7x9dtdmlpygt21c0aja9v4/%E5%BA%94%E7%94%A8guestbook%E7%A4%BA%E4%BE%8B-002.png
-  [3]: http://static.zybuluo.com/yan234280533/7kcevpu07qlzlkddyxc15kmr/%E5%BA%94%E7%94%A8guestbook%E7%A4%BA%E4%BE%8B-003.png
-  [4]: http://static.zybuluo.com/yan234280533/mdbe0nsjegm087eir7a6ssbj/%E5%BA%94%E7%94%A8guestbook%E7%A4%BA%E4%BE%8B-004.png
-  [5]: http://static.zybuluo.com/yan234280533/0b4y53777evzqp9y9xftj1em/%E5%BA%94%E7%94%A8guestbook%E7%A4%BA%E4%BE%8B-005.png
-  [6]: http://static.zybuluo.com/yan234280533/tbrtvxhxi1ysqix10ctilwfu/%E5%BA%94%E7%94%A8guestbook%E7%A4%BA%E4%BE%8B-006.png
-  [7]: http://static.zybuluo.com/yan234280533/unlkndoo6yvw0k3udwz5rf8z/%E5%BA%94%E7%94%A8guestbook%E7%A4%BA%E4%BE%8B-007.png
+  [1]: https://cloud.tencent.com/document/product/457/11951
+  [2]: https://console.cloud.tencent.com/ccs/application
+  [3]: https://mc.qcloudimg.com/static/img/5929bfea74ad6e099c58c7b28cd690cd/image.png
+  [4]: https://mc.qcloudimg.com/static/img/713bb12340507dc134ef46d2802e9efe/image.png
+  [5]: https://mc.qcloudimg.com/static/img/36b6b557c0f66c8879e6ecf61688948f/image.png
+  [6]: https://mc.qcloudimg.com/static/img/059891cc1b9177964366b4dcf97c2bcc/image.png
+  [7]: https://mc.qcloudimg.com/static/img/91d91500a7a8b03c5317f6eb865f3730/image.png
+  [8]: https://mc.qcloudimg.com/static/img/5040ad346837ccc0cc64b97c9ab4832d/image.png
+  [9]: https://mc.qcloudimg.com/static/img/c874efeaa8f5080c69d007c36c6fda6f/image.png
+  [10]: https://mc.qcloudimg.com/static/img/5929bfea74ad6e099c58c7b28cd690cd/image.png
+  
+  
+  
+
+
+
+
+
+
+

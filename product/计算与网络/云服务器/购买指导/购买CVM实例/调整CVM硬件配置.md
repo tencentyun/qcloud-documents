@@ -17,7 +17,7 @@
 #### 通过控制台升级实例配置
 1. 登录 [腾讯云](https://console.cloud.tencent.com/cvm/overview)，单击左侧【云主机】。
 2. 对于要调整配置的 CVM 实例，在右侧操作栏，单击【更多】->【云主机设置】->【调整配置】。
-   ![](https://mc.qcloudimg.com/static/img/2ae36c378c7215ccbff6c06d5cabd1e5/6.png)
+   ![](//mc.qcloudimg.com/static/img/2cf36c88b498d6e1a0f79141c0bc9ded/image.png)
 3. 在调整配置弹出框中，选定升级后的 **目标 CPU 核数** 和 **目标内存容量** 后，单击 **确定**。核对订单无误后确认支付，完成支付即可即时调整实例配置。
  ![](https://mc.qcloudimg.com/static/img/a38af52306c38ab709b974432bb24895/7.png)
  
@@ -44,7 +44,7 @@
 #### 降级方法：
 1. 登录 [腾讯云](https://console.cloud.tencent.com/cvm/overview)，单击左侧【云主机】。
 2. 对于要调整配置的 **包年包月** CVM 实例，在右侧操作栏，单击【更多】->【云主机设置】->【调整配置】。 
-    ![](https://mc.qcloudimg.com/static/img/2ae36c378c7215ccbff6c06d5cabd1e5/6.png)
+    ![](//mc.qcloudimg.com/static/img/721ba1d6da68f07d1ba63a3065626e77/image.png)
 3. 在调整配置弹出框中，选择降级后的 **目标 CPU 核数** 和 **目标内存容量** 后，单击确定，将即时降低主机配置并延长实例到期时间。
  ![](https://mc.qcloudimg.com/static/img/29a1e2cad004e54d1ba3f9b6a9d61b91/9.png)
  >**注意：**
@@ -57,7 +57,7 @@
 #### 降级方法：
 1. 登录 [腾讯云](https://console.cloud.tencent.com/cvm/overview)，单击左侧【云主机】。
 2. 对于要调整配置的 **按量计费** CVM 实例，在右侧操作栏，单击【更多】->【云主机配置】->【调整配置】。
-   ![](https://mc.qcloudimg.com/static/img/b99a4499cd783965e58a3a701aa74cd5/10.png)
+   ![](//mc.qcloudimg.com/static/img/f4b8b92472a34a22f5a3df8ae8011f0d/image.png)
 3. 在调整配置弹出框中，选择降级后的 **目标 CPU 核数** 和 **目标内存容量** 后，单击确定，即时降级云服务器配置。
    ![](https://mc.qcloudimg.com/static/img/2822c18d89c9e3aefda0dfce9c40b493/11.png)
   
