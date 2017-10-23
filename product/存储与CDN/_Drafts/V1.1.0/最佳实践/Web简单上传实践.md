@@ -4,8 +4,8 @@
 
 ## 一、前期准备
 
-1. 到 (COS对象存储控制台)[https://console.qcloud.com/cos4] 创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）
-2. 到 (控制台密钥管理)[https://console.qcloud.com/capi] 获取您的项目 SecretId 和 SecretKey
+1. 到 [COS对象存储控制台](https://console.qcloud.com/cos4) 创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）
+2. 到 [控制台密钥管理](https://console.qcloud.com/capi) 获取您的项目 SecretId 和 SecretKey
 3. 配置 CORS 规则，配置例子如下图：
 
 ![cors](cors.png)
