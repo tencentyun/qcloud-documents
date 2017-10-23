@@ -2,7 +2,7 @@
 
 ## 步骤一：申请产品
 1. 登录腾讯云账号。
-若是新用户需在腾讯云官网进行[【注册】](https://www.qcloud.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
+若是新用户需在腾讯云官网进行[【注册】](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
 
 2. 到 TGit 产品介绍页上单击【立即申请】，然后跳转到 TGit 产品申请页。
 ![](https://mc.qcloudimg.com/static/img/c9f10ff0f08f1ef06e50c0608980742c/image.png)

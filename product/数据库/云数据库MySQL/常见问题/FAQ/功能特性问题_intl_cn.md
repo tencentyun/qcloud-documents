@@ -4,7 +4,7 @@ MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭�
 
 ### 2.使用云数据库前要做什么准备
 在使用云数据库前您需要考虑以下两个问题：
-1. 您的应用是否适合使用 DB？比如数据量小、访问量高、key-value 存储的场景就应该考虑使用内存级持久化存储服务 [【云缓存Memcached】](https://www.qcloud.com/product/cmem)。
+1. 您的应用是否适合使用 DB？比如数据量小、访问量高、key-value 存储的场景就应该考虑使用内存级持久化存储服务 [【云缓存Memcached】](https://cloud.tencent.com/product/cmem)。
 2. 您的数据库设计是否合理？比如有明显访问热点或者数据量过大的表，则应该考虑拆分成多个表。 
 
 ### 3. 云数据库如何对 MySQL 进行管理？
@@ -31,16 +31,16 @@ MySQL 数据库适用的地方都可以使用云数据库。相比于自行搭�
 - 某个连接执行了太久，独占了 MySQL 的资源，导致大量的访问请求被阻塞。
 
 ### 7. 云数据库对数据量有什么限制？
-详见 <a href="https://www.qcloud.com/document/product/236/7259#1-.E6.95.B0.E6.8D.AE.E9.87.8F.E9.99.90.E5.88.B61" target="_blank">云数据库数量限制</a>。
+详见 <a href="https://cloud.tencent.com/document/product/236/7259#1-.E6.95.B0.E6.8D.AE.E9.87.8F.E9.99.90.E5.88.B61" target="_blank">云数据库数量限制</a>。
 
 ### 8. 使用云数据库的注意事项？
-详见 <a href="https://www.qcloud.com/document/product/236/7259#7-.E6.93.8D.E4.BD.9C.E9.99.90.E5.88.B67" target="_blank">云数据库操作限制</a>。
+详见 <a href="https://cloud.tencent.com/document/product/236/7259#7-.E6.93.8D.E4.BD.9C.E9.99.90.E5.88.B67" target="_blank">云数据库操作限制</a>。
 
 ### 9. 云数据库中运行的MySQL版本是多少？
 云数据库中使用的 MySQL 版本为 5.5.45、5.6.28。
 
 ### 10. 如何申请云数据库实例 slave 只读权限开放/关闭？
-如果需要开放或关闭 slave 只读实例，请按照模版 [提交工单申请](https://console.qcloud.com/workorder/category)。
+如果需要开放或关闭 slave 只读实例，请按照模版 [提交工单申请](https://console.cloud.tencent.com/workorder/category)。
 
 ### 11. 云数据库的连接数有限制吗？
-详见 <a href="https://www.qcloud.com/document/product/236/7259#2-.E8.BF.9E.E6.8E.A5.E6.95.B0.E9.99.90.E5.88.B62" target="_blank">云数据库链接数限制</a>。
+详见 <a href="https://cloud.tencent.com/document/product/236/7259#2-.E8.BF.9E.E6.8E.A5.E6.95.B0.E9.99.90.E5.88.B62" target="_blank">云数据库链接数限制</a>。

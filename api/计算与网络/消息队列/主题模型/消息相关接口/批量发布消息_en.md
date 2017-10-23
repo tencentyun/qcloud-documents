@@ -16,13 +16,13 @@ Domain for private network API request: <font style="color:red">cmq-topic-region
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/doc/api/431/5883).
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/431/5883).
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | topicName | Yes | String| Topic name. It is unique under the same account in one region. The topic name is a string of no more than 64 characters, which can contain letters, numbers, and hyphens (-) and must begin with a letter. |
 | msgBody.n | Yes | String | Message body. One of the messages in the batch. Currently, there can be up to 16 messages in one batch. <br><br>To make it more convenient for users, "n" may start from either 0 or 1, but must be consecutive. For example, if you send two messages, they can be (msgBody.0, msgBody.1) or (msgBody.1, msgBody.2). <br><br>Note: Currently, the total size of all messages is limited to 64 k (only the size of msgBody, and message header and other parameters are not included), so we recommend that you determine the number of messages to be sent in the batch beforehand. |
-| msgTag.n | No | String| Tag for message filtering. Message tag (used to filter messages). The maximum number of tags is 5, with each containing not more than 16 characters. It is used in combination with the filterTag parameter of API [Subscribe](https://www.qcloud.com/document/api/406/7414), and the rules are: 1) if filterTag is not configured, subscribers can receive all the messages published on Topic no matter whether msgTag is configured; 2) if filterTag array is specified, subscribers can receive the messages published on Topic only when at least one value in filterTag array also exists in the msgTag array (that is, there is an intersection between filterTag and msgTag); 3) if filterTag array is specified, but msgTag is not configured, subscribers cannot receive any messages published on Topic. 3) can be considered as a special case of 2), and there is no intersection between filterTag and msgTag in this case. The rules are designed to allow subscribers to choose at their own discretion. |
+| msgTag.n | No | String| Tag for message filtering. Message tag (used to filter messages). The maximum number of tags is 5, with each containing not more than 16 characters. It is used in combination with the filterTag parameter of API [Subscribe](https://cloud.tencent.com/document/api/406/7414), and the rules are: 1) if filterTag is not configured, subscribers can receive all the messages published on Topic no matter whether msgTag is configured; 2) if filterTag array is specified, subscribers can receive the messages published on Topic only when at least one value in filterTag array also exists in the msgTag array (that is, there is an intersection between filterTag and msgTag); 3) if filterTag array is specified, but msgTag is not configured, subscribers cannot receive any messages published on Topic. 3) can be considered as a special case of 2), and there is no intersection between filterTag and msgTag in this case. The rules are designed to allow subscribers to choose at their own discretion. |
 | routingKey | No | String | This field indicates the routing path for sending messages. Its length should be not more than 64 bytes and contain up to 15 ".", i.e. 16 phrases at most. <br>The "routingKey" cannot be specified randomly when messages are sent to the "exchange" of topic type. The above format requirement must be met. A message with routingKey specified by a subscriber will be pushed to all the consumers whose BindingKey matches with routingKey. There are two matching options: <br>1 \* (asterisk) can be a substitute for a word (a sequence of alphabetic string); <br>2 # (pound sign) can be used to match one or more characters. |
 
 
@@ -82,7 +82,7 @@ msgList is defined as follows:
 
 </tbody></table>
 
-Note: The error codes listed in the above table are specific to this API. If the error code you are looking for is not in the table, you may find it in the [Common Error Codes](https://www.qcloud.com/document/product/406/5903).
+Note: The error codes listed in the above table are specific to this API. If the error code you are looking for is not in the table, you may find it in the [Common Error Codes](https://cloud.tencent.com/document/product/406/5903).
 
 ## 4. Example
 

@@ -24,7 +24,7 @@ System requirements for installing VPN Client:
 
 ### Obtaining the VPN gateway IP as well as VPN username and password
 
-Log in to Tencent Cloud [Cloud Physical Machine Console](https://console.qcloud.com/cpm)
+Log in to Tencent Cloud [Cloud Physical Machine Console](https://console.cloud.tencent.com/cpm)
 
 Select any of the CPMs and open the details page to locate the "Out-of-Band Management" tab.  
 Locate the VPN gateway, user name, password and domain in the "Out-of-Band Management" tab.

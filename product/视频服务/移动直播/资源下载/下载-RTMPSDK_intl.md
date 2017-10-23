@@ -7,7 +7,7 @@
 - Android: Added "Auto" option for software/hardware encoding. The SDK will automatically choose hardware or software encoding based on mobile phone performance.
 - iOS & Android: Added [Dynamic] option to setVideoQuality for scenarios with great network condition variances, such as overseas broadcasting.
 - iOS & Android: Optimized directory and code structure for Demos, reducing interfacing cost. Added simple-to-use Demos for short video recording, cropping, stitching and joint broadcasting.
-- See [Update History](https://www.qcloud.com/document/product/454/7878) for features in previous versions.
+- See [Update History](https://cloud.tencent.com/document/product/454/7878) for features in previous versions.
 
 
 ## Future Releases
@@ -20,8 +20,8 @@
 
 | Mobile Phone Platform | Document Index |
 |:-------:|---------|
-| iOS Platform | [Push Feature](https://www.qcloud.com/document/product/454/7879) &nbsp; [Playback Feature](https://www.qcloud.com/document/product/454/7880) &nbsp; [Joint Broadcasting](https://www.qcloud.com/document/product/454/8090) &nbsp; [Advanced Usage](https://www.qcloud.com/document/product/454/7884) &nbsp; [ReplayKit](https://www.qcloud.com/document/product/454/7883)  | 
-| Android Platform | [Push Feature](https://www.qcloud.com/document/product/454/7885) &nbsp; [Playback Feature](https://www.qcloud.com/document/product/454/7886) &nbsp; [Joint Broadcasting](https://www.qcloud.com/document/product/454/8091) &nbsp; [Advanced Usage](https://www.qcloud.com/document/product/454/7890) &nbsp; [Phone Screencap](https://www.qcloud.com/document/product/454/7889) | 
+| iOS Platform | [Push Feature](https://cloud.tencent.com/document/product/454/7879) &nbsp; [Playback Feature](https://cloud.tencent.com/document/product/454/7880) &nbsp; [Joint Broadcasting](https://cloud.tencent.com/document/product/454/8090) &nbsp; [Advanced Usage](https://cloud.tencent.com/document/product/454/7884) &nbsp; [ReplayKit](https://cloud.tencent.com/document/product/454/7883)  | 
+| Android Platform | [Push Feature](https://cloud.tencent.com/document/product/454/7885) &nbsp; [Playback Feature](https://cloud.tencent.com/document/product/454/7886) &nbsp; [Joint Broadcasting](https://cloud.tencent.com/document/product/454/8091) &nbsp; [Advanced Usage](https://cloud.tencent.com/document/product/454/7890) &nbsp; [Phone Screencap](https://cloud.tencent.com/document/product/454/7889) | 
 
 ## Test Result
 - Kernel test cases: Total number of cases - 56, number of passed cases - 56, number of failed cases - 0
@@ -54,10 +54,10 @@ table th:nth-of-type(3) {  width:  100px; }
 
 | OS | Version Description | Download Link |
 | :---------: |  ---- | :----: | 
-| iOS Platform  | Implemented special effects such as eye enlarging, face slimming, motion effect sticker and green screen based on patented AI technologies developed by YouTu Lab. For instructions, see [Special Effects](https://www.qcloud.com/document/product/454/9018).  | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
-| Android Platform  | Implemented special effects such as eye enlarging, face slimming, motion effect sticker and green screen based on patented AI technologies developed by YouTu Lab. For instructions, see [Special Effects](https://www.qcloud.com/document/product/454/9018).  | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
+| iOS Platform  | Implemented special effects such as eye enlarging, face slimming, motion effect sticker and green screen based on patented AI technologies developed by YouTu Lab. For instructions, see [Special Effects](https://cloud.tencent.com/document/product/454/9018).  | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKIOSPitu.zip) |
+| Android Platform  | Implemented special effects such as eye enlarging, face slimming, motion effect sticker and green screen based on patented AI technologies developed by YouTu Lab. For instructions, see [Special Effects](https://cloud.tencent.com/document/product/454/9018).  | [ZIP](http://downloadfix-1252463788.cosgz.myqcloud.com/RTMPSDKAndroidPitu.zip) |
 
 ## Contact Us
-We have a professional testing team to perform tests and verifications for every version to ensure the usability and stability of basic features. If you encounter any technical issues during interfacing process, feel free to [Contact Us](https://www.qcloud.com/document/product/454/7998).
+We have a professional testing team to perform tests and verifications for every version to ensure the usability and stability of basic features. If you encounter any technical issues during interfacing process, feel free to [Contact Us](https://cloud.tencent.com/document/product/454/7998).
 
 

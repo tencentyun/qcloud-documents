@@ -52,7 +52,7 @@ Input
 
 <pre>
 https://domain/v2/index.php?Action=UnbindBmL7LocationVmIp
-&<<a href="https://www.qcloud.com/document/product/386/6718">Public Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/document/product/386/6718">Public Request Parameters</a>>
 &loadBalancerId=lb-abcdefgh
 &listenerId=lbl-abcdefgh
 &domainId=dm-abcdefgh

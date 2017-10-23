@@ -41,7 +41,7 @@ Assume that the CDN peak bandwidth for the previous day is X, the tiered calcula
 > If 5000Mbps <= X < 50000Mbps, the charge billed is X &times; 3.90;
 > If X >= 50000Mbps, please contact us for off-line contracting. We have more discount options available for you.
 
-You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for a charge estimation.
+You can use [Price Calculator](https://buy.cloud.tencent.com/calculator/cdn) for a charge estimation.
 
 ## Pay by Traffic
 ### Tiered Prices
@@ -94,7 +94,7 @@ Unlike "Pay by Bandwidth", "Pay by Traffic" method takes a tiered progressive ap
 
 By such a way, the charge for each day in January can be calculated. From February 1, a new progressive billing process will be started from scratch.
 
-You can use [Price Calculator](https://buy.qcloud.com/calculator/cdn) for calculating the charge.
+You can use [Price Calculator](https://buy.cloud.tencent.com/calculator/cdn) for calculating the charge.
 
 ### Note on Traffic Package Deduction
 + The traffic package takes effect on the day of purchase. The validity period of ordinary traffic package is 6 months from the date of purchase. The validity period of special traffic package provided during special offer campaign varies according to campaign policies, which is generally one month. Your traffic package is only valid during the validity period. Any unused traffic expires as the traffic package expires.

@@ -1,5 +1,5 @@
 ## 1. 集成小视频功能扩展包
-从 [官网](https://www.qcloud.com/product/im.html#sdk) 下载ImSDK开发包，小视频功能扩展包。
+从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载ImSDK开发包，小视频功能扩展包。
 
 ImSDK包的功能见[概述](/product/269/9227)， 小视频功能扩展包各个文件功能如下：
 ```
@@ -125,7 +125,7 @@ void onRecordComplete(TXRecordResult result);
 ```     
 
 ### 2.4. 文件预览
-使用 [视频播放](https://www.qcloud.com/document/product/584/9373) 即可预览刚才生成的 MP4 文件，需要在调用 startPlay 时指定播放类型为 [PLAY_TYPE_LOCAL_VIDEO](https://www.qcloud.com/document/product/584/9373#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE.E5.99.A86) 。
+使用 [视频播放](https://cloud.tencent.com/document/product/584/9373) 即可预览刚才生成的 MP4 文件，需要在调用 startPlay 时指定播放类型为 [PLAY_TYPE_LOCAL_VIDEO](https://cloud.tencent.com/document/product/584/9373#step-3.3A-.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE.E5.99.A86) 。
 
 ## 3. 小视频消息
 ### 3.1 发送小视频消息

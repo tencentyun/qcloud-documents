@@ -40,7 +40,7 @@
 
 ### 申请弹性公网 IP 
 
- 1. 登录 [云服务器控制台](https://console.qcloud.com/cvm)。
+ 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 	
  2. 在左侧导航窗格中，单击【弹性公网 IP】。
 
@@ -51,7 +51,7 @@
 <span id = "jump2">  </span>
 ### 弹性公网 IP 绑定云产品
 
- 1. 登录 [云服务器控制台](https://console.qcloud.com/cvm)。
+ 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 
  2. 在左侧导航窗格中，单击【弹性公网 IP】。
 
@@ -61,7 +61,7 @@
 
 ### 弹性公网 IP 解绑云产品
 
- 1. 登录 [云服务器控制台](https://console.qcloud.com/cvm)。
+ 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 
  2. 在左侧导航窗格中，单击【弹性公网 IP】。
 
@@ -74,7 +74,7 @@
 
 <span id = "jump">  </span>
 ### 释放弹性公网 IP
- 1. 登录 [云服务器控制台](https://console.qcloud.com/cvm)。
+ 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 
  2. 在左侧导航窗格中，单击【弹性公网 IP】。
 

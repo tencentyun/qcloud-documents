@@ -1,6 +1,6 @@
 The CVM instance described below also refers to dedicated CVM.
 
-EIP is a static IP designed for dynamic cloud computing. It is a fixed public IP of a certain region. With EIP, you can quickly remap address to another CVM instance under your account (or [NAT Gateway](https://www.qcloud.com/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) instance), to block instance failures.
+EIP is a static IP designed for dynamic cloud computing. It is a fixed public IP of a certain region. With EIP, you can quickly remap address to another CVM instance under your account (or [NAT Gateway](https://cloud.tencent.com/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) instance), to block instance failures.
 
 Your EIP is associated with a Tencent Cloud account, instead of a CVM instance, until you choose to explicitly release it or your payment is more than 7 days overdue.
 
@@ -47,7 +47,7 @@ An EIP that has been purchased but <font color="red">not yet bound to a cloud pr
 
 ## Applying for EIP
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 ​	
 2) In the left navigation pane, click EIP.
 
@@ -57,7 +57,7 @@ An EIP that has been purchased but <font color="red">not yet bound to a cloud pr
 
 ## Binding EIP to Cloud Products
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 
 2) In the left navigation pane, click EIP.
 
@@ -67,7 +67,7 @@ An EIP that has been purchased but <font color="red">not yet bound to a cloud pr
 
 ## Unbinding EIP from Cloud Products
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 
 2) In the left navigation pane, click EIP.
 
@@ -78,7 +78,7 @@ An EIP that has been purchased but <font color="red">not yet bound to a cloud pr
 At this point, the cloud product instance may be assigned with a new public IP. Details may vary with different cloud resources, depending on the actual situation.
 
 ## Releasing EIP
-1) Log in to [CVM Console](https://console.qcloud.com/cvm).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm).
 
 2) In the left navigation pane, click EIP.
 

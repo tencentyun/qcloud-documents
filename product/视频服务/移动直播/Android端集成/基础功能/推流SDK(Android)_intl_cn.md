@@ -11,10 +11,10 @@
 ## 准备工作
 
 - **获取开发包**
-[下载](https://www.qcloud.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://www.qcloud.com/document/product/454/7877)指引将 SDK 嵌入您的 APP 开发工程。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 APP 开发工程。
 
 - **获取测试URL**
-[开通](https://console.qcloud.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://www.qcloud.com/document/product/454/7915)。
+[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://cloud.tencent.com/document/product/454/7915)。
 
 ## 代码对接
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
@@ -232,7 +232,7 @@ step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY*
 观众端的画面表现符合预期以后，剩下要做的就是调整主播端的预览画面，这时可以通过 TXLivePusher 中的 setRenderRotation 接口，来旋转主播端看到的画面旋转方向，此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
 
 - **Activity自动旋转**
-Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://www.qcloud.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
+Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://cloud.tencent.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
 
 
@@ -241,7 +241,7 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 
 | 接口 | 说明 |
 |---------|---------|
-| playBGM | 通过path传入一首歌曲，[小直播Demo](https://www.qcloud.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
+| playBGM | 通过path传入一首歌曲，[小直播Demo](https://cloud.tencent.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
 | stopBGM|停止播放背景音乐|
 | pauseBGM|暂停播放背景音乐|
 | resumeBGM|继续播放背景音乐|

@@ -1,5 +1,5 @@
 ## Access Entry
-Log in to [User and Permission Console](https://console.qcloud.com/cam)
+Log in to [User and Permission Console](https://console.cloud.tencent.com/cam)
 ![](//mccdn.qcloud.com/static/img/bc95b9e687ddb4c8eba5481f04af3e7a/image.png)
 
 ## Role of User Management
@@ -12,7 +12,7 @@ You can add employees who need to manage the cloud resources in the account (use
 > "User Management" is an abstract representation of staff management in the organizational structure.
 
 ## How to Create a Sub-user
-Step 1: Log in to [User and Permission Console](https://console.qcloud.com/cam) and click "Create User"
+Step 1: Log in to [User and Permission Console](https://console.cloud.tencent.com/cam) and click "Create User"
 
 Step 2: If a user needs to log in to Tencent Cloud console or call cloud APIs, select "Yes" in "Allow login to Tencent Cloud", and enter "QQ Number" as the login credential
 ![](//mccdn.qcloud.com/static/img/717db35eae2332917a152eb69e8b4339/image.png)

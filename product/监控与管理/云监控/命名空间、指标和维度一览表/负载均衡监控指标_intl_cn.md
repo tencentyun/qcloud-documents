@@ -133,5 +133,5 @@
 </tbody></table>
 
 
-有关更多负载均衡的监控指标，可以查看云监控 API 中的[读取监控数据接口](https://www.qcloud.com/doc/api/405/4667)。
+有关更多负载均衡的监控指标，可以查看云监控 API 中的[读取监控数据接口](https://cloud.tencent.com/doc/api/405/4667)。
 

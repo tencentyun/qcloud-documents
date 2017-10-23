@@ -1,6 +1,6 @@
 ## 1.	CVM实例制作自定义镜像
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 右键单击您要制作镜像的CVM实例，或点击“操作”-“更多”，单击“制作镜像”。
 
@@ -8,13 +8,13 @@
 
 ## 2. 查看自定义镜像列表
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】，即可看到您自定义的镜像列表。
 
 ## 3. 删除自定义镜像
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 
@@ -22,7 +22,7 @@
 
 4) 删除成功。
 或批量删除：
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 
@@ -32,7 +32,7 @@
 
 ## 4.	修改自定义镜像名称及描述
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 
@@ -40,7 +40,7 @@
 
 4) 弹框处填写您要确定的名称及描述后，单击确定。
 或
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 
@@ -50,7 +50,7 @@
 
 ## 5. 自定义镜像跨地域复制
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 
@@ -62,7 +62,7 @@
 
 ## 6. 自定义镜像创建CVM实例
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 
@@ -74,7 +74,7 @@
 
 ## 7. 跨账号共享自定义镜像
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 
@@ -82,11 +82,11 @@
 
 4) 单击【共享】按钮，此时输入您要共享的对方腾讯云主账户，单击确认；
 
-5) 通知对方腾讯云主账户登录，打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) ，单击共享镜像，找到刚刚的镜像；
+5) 通知对方腾讯云主账户登录，打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) ，单击共享镜像，找到刚刚的镜像；
 ## 8. 导入镜像
 `请确认您的腾讯云账户，是否已申请了导入权限，如未开通，请提交相关信息至工单系统申请。`
 
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【镜像】。
 

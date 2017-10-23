@@ -51,7 +51,7 @@
   &fileId=8782277315343726561
   &amp;para=https://125111232654.vod2.myqcloud.com/vodtransgzp1251132654/9031868221236647/shotup/f0.100_2.jpg
   &type=1
-  &<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+  &<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 
 输出

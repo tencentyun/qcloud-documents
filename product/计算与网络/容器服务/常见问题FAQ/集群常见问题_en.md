@@ -21,7 +21,7 @@ The system disk is 20 GB by default (free). Lower and upper limits are 20 GB and
 You can only choose a region in which your current cluster resides, but you may choose a different availability zone. Clusters can be deployed across different availability zones.
 
 ### 2. Is there a limit for the number of CVMs?
-Yes. A user cannot own more postpaid CVMs than his or her user quota. For for information, please see [Cloud Service Overview](https://console.qcloud.com/cvm/overview).
+Yes. A user cannot own more postpaid CVMs than his or her user quota. For for information, please see [Cloud Service Overview](https://console.cloud.tencent.com/cvm/overview).
 
 ## FAQ on CVM Termination
 ### 1. When I terminate a CVM, what happens to the containers that are deployed under this CVM by my service?

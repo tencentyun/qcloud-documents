@@ -12,8 +12,8 @@
 MySQL 语句说明详见：[MySQL手册][4]。
 ![][image-1]
 
-[1]:	https://www.qcloud.com/document/product/213/2936
-[2]:	https://www.qcloud.com/document/product/213/2975
+[1]:	https://cloud.tencent.com/document/product/213/2936
+[2]:	https://cloud.tencent.com/document/product/213/2975
 [3]:	https://dev.mysql.com/downloads/installer/
 [4]:	http://dev.mysql.com/doc/
 

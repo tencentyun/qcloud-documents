@@ -1,7 +1,8 @@
 ## 1. 接口描述
 
 功能：单条或者批量提交用户行为数据  
-接口：`https://sdtj.y.qq.com:8008/upload`   
+测试接口：`https://sdtj.y.qq.com:8008/cre_test_upload`
+正式接口：`https://sdtj.y.qq.com:8008/upload`   
 请求方式：POST  
 
 ## 2. 输入参数  
@@ -62,7 +63,7 @@
 		<td colspan="2">uid_type</td>
 		<td>是</td>
 		<td>String</td>
-		<td>"0" - qq， "1" - 微信号， "2" - qq-openid， "3" - imei/idfa， "4" – 手机号，"5" - app唯一用户，"6" – 微信-openid</td>
+		<td>"0" - qq， "1" - 微信号， "2" - qq-openid， "3" - imei/idfa， "4" – 手机号，"5" - App 唯一用户，"6" – 微信-openid</td>
 	</tr>
 	<tr>
 		<td colspan="2">uid</td>
@@ -98,7 +99,7 @@
 		<td colspan="2">item_type</td>
 		<td>否</td>
 		<td>String</td>
-		<td>物品类型，例如 APP 、商品等</td>
+		<td>物品类型，例如 App 、商品等</td>
 	</tr>
 	<tr>
 		<td colspan="2">action_id</td>
@@ -155,7 +156,7 @@
 		<td colspan="2">app_version</td>
 		<td>否</td>
 		<td>String</td>
-		<td>APP 的版本</td>
+		<td>App 的版本</td>
 	</tr>
 	<tr>
 		<td colspan="2">report_source</td>

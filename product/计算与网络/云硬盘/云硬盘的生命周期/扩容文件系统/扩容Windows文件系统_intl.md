@@ -7,7 +7,7 @@ In both of the above two scenarios, after the upgrade of your cloud disk on Wind
 
 ## Preconditions
 - You need to [expand physical cloud disk](/doc/product/362/5747) first.
-- If the old empty cloud disk is directly expanded without being formatted when no file system is created on it, please refer to [Partitioning, Formatting and File System Creation on Windows System](https://www.qcloud.com/document/product/362/6734
+- If the old empty cloud disk is directly expanded without being formatted when no file system is created on it, please refer to [Partitioning, Formatting and File System Creation on Windows System](https://cloud.tencent.com/document/product/362/6734
 ) for related operations.
 
 ## Formatting the new disk space as a separate partition

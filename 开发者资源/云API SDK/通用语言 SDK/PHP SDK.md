@@ -4,8 +4,8 @@
 
 ## 依赖环境
 1.  依赖环境：PHP 5.3.0 版本及以上
-2. 从 [腾讯云控制台](https://console.qcloud.com) 开通相应产品，
-3. [获取 SecretID、SecretKey](https://console.qcloud.com/capi) 以及调用地址（endpoint），endpoint 一般形式为`*.api.qcloud.com`，如CVM 的调用地址为 `cvm.api.qcloud.com`，具体参考各产品说明。
+2. 从 [腾讯云控制台](https://console.cloud.tencent.com) 开通相应产品，
+3. [获取 SecretID、SecretKey](https://console.cloud.tencent.com/capi) 以及调用地址（endpoint），endpoint 一般形式为`*.api.qcloud.com`，如CVM 的调用地址为 `cvm.api.qcloud.com`，具体参考各产品说明。
 4. 下载相关资料并做好相关文件配置。
 
 ## 获取安装

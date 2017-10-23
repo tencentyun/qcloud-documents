@@ -2,7 +2,7 @@ This document describes the basic software installation and environment configur
 
 The following examples use Windows Server 2008.
 ## 1. Installation and configuration of IIS and ASP
-This example uses Windows Server 2008 as the operating environment. For configuration on Windows Server 2012, refer to [here](http://www.qcloud.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#1.1.-windows2012r2.E7.89.88.E6.9C.AC.E7.A4.BA.E4.BE.8B).
+This example uses Windows Server 2008 as the operating environment. For configuration on Windows Server 2012, refer to [here](http://cloud.tencent.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#1.1.-windows2012r2.E7.89.88.E6.9C.AC.E7.A4.BA.E4.BE.8B).
 
 In the bottom bar, click "Server Manager" - "Role", then click "Add Roles" button. (At this point, you may be asked to restart the system. Please proceed as instructed by the system)
 ![](//mccdn.qcloud.com/static/img/d09bb74a5baa87e31c184ec6d75cb57d/image.png)
@@ -25,7 +25,7 @@ Since ASP has been selected as the role service, now you can set about developin
 ![](//mccdn.qcloud.com/static/img/bda072e406546f9954168c8724fcd5d1/image.png)
 
 ## 2. Set up MySQL
-Generally, Windows systems use SQL Server database, but SQL Server is a paid product that needs your authorization (you can also purchase [Tencent Cloud SQL Server database CDB instance](http://www.qcloud.com/product/sqlserver.html)). This document describes the steps to set up MySQL 5.5.
+Generally, Windows systems use SQL Server database, but SQL Server is a paid product that needs your authorization (you can also purchase [Tencent Cloud SQL Server database CDB instance](http://cloud.tencent.com/product/sqlserver.html)). This document describes the steps to set up MySQL 5.5.
 
 Download MySQL 5.5 installer (download link: http://dev.mysql.com/downloads/mysql/), run the setup.exe, and select "Typical" as the setup type.
 ![](//mccdn.qcloud.com/static/img/96039d46303894a81b161e73a5e53f08/image.png)
@@ -55,7 +55,7 @@ Log in to MySQL at the command line by typing in the root password you set:
 
 
 ## 3. Install PHP
-This example shows the installation of PHP 5.3. For the installation of higher versions, please refer to [here](http://www.qcloud.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#2.2.-php-5.3.E4.B9.8B.E5.90.8E.E7.89.88.E6.9C.AC.E5.AE.89.E8.A3.85).
+This example shows the installation of PHP 5.3. For the installation of higher versions, please refer to [here](http://cloud.tencent.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP#2.2.-php-5.3.E4.B9.8B.E5.90.8E.E7.89.88.E6.9C.AC.E5.AE.89.E8.A3.85).
 
 Download PHP installer (download link:  http://windows.php.net/download/). In this document, PHP 5.3 is taken as the example, for which the following installer is selected: 
 ![](//mccdn.qcloud.com/static/img/fbfdc56c240c227bd9e79d23ca3f6539/image.png)

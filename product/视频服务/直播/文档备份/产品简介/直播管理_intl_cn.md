@@ -49,9 +49,9 @@ URL防盗链是一种保护用户视频内容安全的功能。通过使用防�
 
 **可以对直播进行录制么？**
 
-支持通过API方式，对直播进行录制。录制后将存放至点播平台。用户需提前开启点播平台账号并购买对应空间流量。详细方法请阅读直播[录制API](http://www.qcloud.com/doc/api/258/API%E6%A6%82%E8%A7%88)，以及直播[录制使用说明](http://www.qcloud.com/doc/product/267/%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8)。
+支持通过API方式，对直播进行录制。录制后将存放至点播平台。用户需提前开启点播平台账号并购买对应空间流量。详细方法请阅读直播[录制API](http://cloud.tencent.com/doc/api/258/API%E6%A6%82%E8%A7%88)，以及直播[录制使用说明](http://cloud.tencent.com/doc/product/267/%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8)。
 
 
 **我能对直播过程截图么？**
 
-支持通过API方式，对直播进行截图，截图后文件将存放至面向对象服务COS平台。用户需提前开启COS服务并购买对应空间流量。详细方法请阅读直播[录制API](http://www.qcloud.com/doc/api/258/API%E6%A6%82%E8%A7%88)，以及直播[录制使用说明](http://www.qcloud.com/doc/product/267/%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8)。
+支持通过API方式，对直播进行截图，截图后文件将存放至面向对象服务COS平台。用户需提前开启COS服务并购买对应空间流量。详细方法请阅读直播[录制API](http://cloud.tencent.com/doc/api/258/API%E6%A6%82%E8%A7%88)，以及直播[录制使用说明](http://cloud.tencent.com/doc/product/267/%E9%85%8D%E7%BD%AE%E4%B8%8E%E4%BD%BF%E7%94%A8)。

@@ -18,7 +18,7 @@ Peer gateway refers to the IPsec VPN service gateway of IDC data center, which n
 ## VPN Tunnel
 After the VPN gateway and the peer gateway are established, the VPN tunnel used for encrypted communication between VPC and external IDC can be established. Currently, VPN tunnels support IPsec encryption protocol, which can meet the needs of most VPN connections.
 
-Because the VPN tunnels are operating in the operator's public network, the block or jitter of public network will affect the quality of VPN network. Therefore, the assurance of SLA service agreement is currently unavailable. If your business is sensitive to delay and jitter, it is recommended to access the VPC via Direct Connect. For more information, refer to [Direct Connect](https://www.qcloud.com/product/dc.html).
+Because the VPN tunnels are operating in the operator's public network, the block or jitter of public network will affect the quality of VPN network. Therefore, the assurance of SLA service agreement is currently unavailable. If your business is sensitive to delay and jitter, it is recommended to access the VPC via Direct Connect. For more information, refer to [Direct Connect](https://cloud.tencent.com/product/dc.html).
 
 The VPN tunnel on Tencent Cloud uses Internet Key Exchange (IKE) protocol to establish a session when implementing IPsec. IKE is provided with a self-protection mechanism that can securely authenticate identities, distribute keys and establish IPSec sessions on unsecured networks.
 
@@ -100,7 +100,7 @@ For VPN connections, please note that:
 |50 |4880 |	5330|
 |100 |9880 |10330|
 
-For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://www.qcloud.com/doc/product/215/3079).
+For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
 ## Instructions
 
@@ -119,14 +119,14 @@ Through IPsec VPN, connect the subnet A`192.168.1.0/24` in your VPC in **Guangzh
 
 You need to complete the following steps:
 #### Step 1: Create VPN gateway
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "VPN Connection" - "VPN Gateway" tab in the left navigation bar.
 3) Select the region of myVPC "**Guangzhou**" and the name of VPC `TomVPC` at the top of the list, then click "New".
 4) Fill in the name of VPN gateway (e.g. TomVPNGw), select the appropriate bandwidth configuration and make the payment. Then, the VPN gateway is created. After that, the system will randomly assign a public IP to you, such as: `203.195.147.82`.
 
 #### Step 2: Create peer gateway
 Before creating a VPN tunnel, you need to create a peer gateway:
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "VPN Connection" - "Peer Gateway" tab in the left navigation bar.
 3) Select the region "**Guangzhou**" at the top of the list, then click "New".
 4) Fill in the name of peer gateway (such as: TomVPNUserGw) and the public IP of VPN gateway of IDC `202.108.22.5`.
@@ -135,7 +135,7 @@ Before creating a VPN tunnel, you need to create a peer gateway:
 #### Step 3: Create VPN tunnel
 You need to complete the following steps to create a VPN tunnel:
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "VPN Connection" - "VPN Tunnel" tab in the left navigation bar.
 3) Select the region of myVPC "**Guangzhou**" and the name of VPC `TomVPC` at the top of the list, then click "New".
 4) Enter the name of tunnel (e.g. TomVPNConn), select the VPN gateway `TomVPNGw` and the peer gateway` TomVPNUserGw`, and enter the pre-shared key (e.g. `123456`).
@@ -149,7 +149,7 @@ To achieve interconnection of VPN tunnels, you need to load and configure the co
 
 #### Step 5: Modify routing table
 After the completion of Step 4, we have successfully configured a VPN tunnel. However, since the traffic of subnet A have not been routed to the VPN gateway, the network segment in subnet A still can not communicate with the network segment in IDC. Now, you need to configure the routing settings:
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "Subnet" in the left navigation bar. Select the region of myVPC "**Guangzhou**" and the name of VPC `TomVPC` at the top of the list. Click the routing table ID associated with subnet A to enter the details page of the routing table.
 3) Click "Edit" button, then click "New line". Enter the destination network segment (`10.0.1.0/24`), select the "VPN Gateway" for the next hop type, and then select the VPN gateway`TomVPNGw` you just created.
 4) Click "Save" to complete the outbound routing settings of subnet that needs to achieve communication.
@@ -159,28 +159,28 @@ To activate the VPN tunnel, you need to ping the IP of peer network segment usin
 
 ### Viewing the Monitoring Data
 VPN tunnels and VPN gateways provide monitoring data viewing function.
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "VPN Connection" - "VPN Gateway" or "VPN Tunnel" tab in the left navigation bar.
 3) Click the icon in "Monitoring" column on the list page to view the monitoring data.
 
 ### Setting the Alarm
 VPN tunnel provides alarm function:
-1) Log in [Tencent Cloud Console](https://console.qcloud.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.qcloud.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
+1) Log in [Tencent Cloud Console](https://console.cloud.tencent.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
 2) Fill in the Alarm Policy Name, select "VPN Tunnel" in Policy Type, and then add the Condition of alarm trigger.
 3) **Associate alarm objects**: select the alarm receiver group, and when it is saved, you can view the set alarm polices in Policy List.
-4) **View the alarm information**: when any alarm conditions are triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://www.qcloud.com/doc/product/248/1073).
+4) **View the alarm information**: when any alarm conditions are triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).
 
 ### Viewing the Details of VPN Gateway
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "VPN Connection" - "VPN Gateway" tab in the left navigation bar.
 3) Click "VPN Gateway ID" to enter the details page of VPN gateway to view the information of VPN gateway.
 
 ### Modifying the VPN tunnel configuration
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "VPN Connection" - "VPN Tunnel" tab in the left navigation bar.
 3) Click "VPN Gateway ID" to enter the details page of VPN gateway to view the information of VPN gateway.
 4) You can modify the basic information and SPD policy in the basic information page, or you can modify the IKE and Ipsec configurations in "Advanced Configuration".
  
 
 ## API Overview
-You can use API operations to configure and manage your VPN connections. Please refer to [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
+You can use API operations to configure and manage your VPN connections. Please refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).

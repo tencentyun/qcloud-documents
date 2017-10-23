@@ -18,7 +18,7 @@ Here are the download links:
 
 ## Notes about SDK
 
-Before using a SDK, you need to at least get the [secret id](https://console.qcloud.com/capi), [secret key](https://console.qcloud.com/capi), and endpoint (it indicates the region to which the request is to be sent, and whether the request is sent through a private network or a public network).
+Before using a SDK, you need to at least get the [secret id](https://console.cloud.tencent.com/capi), [secret key](https://console.cloud.tencent.com/capi), and endpoint (it indicates the region to which the request is to be sent, and whether the request is sent through a private network or a public network).
 
 Instructions for endpoint:
 	

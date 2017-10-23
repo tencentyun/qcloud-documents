@@ -13,7 +13,7 @@ The following list only provides API request parameters. For additional paramete
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| keyIds.n | No | String | Key ID (This API allows passing multiple IDs for filtering at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://www.qcloud.com/doc/api/229/568)).
+| keyIds.n | No | String | Key ID (This API allows passing multiple IDs for filtering at a time. For the format of this parameter, refer to `id.n` section of API [Introduction](https://cloud.tencent.com/doc/api/229/568)).
 | keyName | No | String | Name of Key.
 | projectId | No | String | Project ID, by which the results are filtered.
 | offset | No | Int | Offset; default value is 0. For more information about `offset`, refer to the relevant sections in API [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89).
@@ -21,8 +21,8 @@ The following list only provides API request parameters. For additional paramete
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
 | totalCount | int | Number of keys matching the filter criteria. |
 | keyId | String | ID of key. |
 | keyName | String | Name of key. |
@@ -39,7 +39,7 @@ The following list only provides API request parameters. For additional paramete
 Input
 <pre>
   https://cvm.api.qcloud.com/v2/index.php?Action=DescribeKeyPairs
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Public request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Public request parameters</a>>
 </pre>
 
 Output

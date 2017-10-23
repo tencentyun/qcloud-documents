@@ -6,7 +6,7 @@ Welcome to Tencent Cloud! Your use of Tencent Cloud is subject to these Terms of
 
 (a)Please review these Terms and our policies and instructions to understand how you can and cannot use Tencent Cloud. You must comply with these Terms in your use of Tencent Cloud and only use Tencent Cloud as permitted by (and in compliance with) applicable laws and regulations (including laws related to data privacy and protection), wherever you may be when you use Tencent Cloud. By using Tencent Cloud, you agree to these Terms. If you do not agree to these Terms, you must not use Tencent Cloud.
 
-(b)These Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud Service Region located outside of the People's Republic of China. If you choose to use Tencent Cloud via a Tencent Cloud Service Region located inside the People's Republic of China, your use of Tencent Cloud will be governed by (and you will be contracting with the Tencent entity set out in) the terms set out at [https://www.qcloud.com/document/product/301/1967](https://www.qcloud.com/document/product/301/1967). Further details about how you select a Service Region for your use of Tencent Cloud is set out under Section 8 of the Privacy and Data Processing Policy. For the purposes of these Terms, "People's Republic of China" does not include Hong Kong Special Administrative Region of the People's Republic of China or Macau Special Administrative Region of the People's Republic of China. 
+(b)These Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud Service Region located outside of the People's Republic of China. If you choose to use Tencent Cloud via a Tencent Cloud Service Region located inside the People's Republic of China, your use of Tencent Cloud will be governed by (and you will be contracting with the Tencent entity set out in) the terms set out at [https://cloud.tencent.com/document/product/301/1967](https://cloud.tencent.com/document/product/301/1967). Further details about how you select a Service Region for your use of Tencent Cloud is set out under Section 8 of the Privacy and Data Processing Policy. For the purposes of these Terms, "People's Republic of China" does not include Hong Kong Special Administrative Region of the People's Republic of China or Macau Special Administrative Region of the People's Republic of China. 
 
 (c)In some countries, there are restrictions on your use of Tencent Cloud – it is your responsibility to ensure that you are legally allowed to use Tencent Cloud where you are located and that the data you wish to process and store in Tencent Cloud can legally and appropriately be processed and stored in Tencent Cloud. Please note that certain Tencent Cloud functionalities and features may not be available in some countries. 
 
@@ -74,13 +74,13 @@ If you are a citizen or a habitual resident of any of the following countries, t
 
 You must comply with the following policies in using Tencent Cloud:
 
-(a)[Privacy and Data Processing Policy ](https://www.qcloud.com/document/product/301/9247) – which sets out how we collect, store and process Your Content. 
+(a)[Privacy and Data Processing Policy ](https://cloud.tencent.com/document/product/301/9247) – which sets out how we collect, store and process Your Content. 
 
 (b)[Tencent Privacy Policy](https://www.tencent.com/en-us/zc/privacypolicy.shtml) – which sets out how we collect, store and process your Personal Information (excluding Your Content).
 
-(c)[Acceptable Use Policy](https://www.qcloud.com/document/product/301/9245) – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
+(c)[Acceptable Use Policy](https://cloud.tencent.com/document/product/301/9245) – which sets out rules of good behaviour applicable to your use of Tencent Cloud. 
 
-(d)[Copyright Policy](https://www.qcloud.com/document/product/301/9246) – which sets out how we deal with copyright-related complaints. 
+(d)[Copyright Policy](https://cloud.tencent.com/document/product/301/9246) – which sets out how we deal with copyright-related complaints. 
 
 **2.4Inconsistencies **
 

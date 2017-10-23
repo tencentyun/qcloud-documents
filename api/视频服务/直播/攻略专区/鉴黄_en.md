@@ -22,7 +22,7 @@ The service could be used in any application scenario that requires porn detecti
 **Porn detection interfacing process**
 
 1. (1) Register a Tencent Video Cloud account
-       Tencent Cloud official website: https://www.qcloud.com/
+       Tencent Cloud official website: https://cloud.tencent.com/
        
    (2) Create collaborator accounts for co-management if needed. Create policy and project groups in "User Center" -> "Project Management" -> "Users and Permissions".
    

@@ -35,7 +35,7 @@
 ### 3.1 从github下载
 从[github](https://github.com/zhaoyang21cn/Android_Suixinliao)下载源码。
 ### 3.2 从官网下载
-从[官网](https://www.qcloud.com/product/im.html)下载IM Android SDK。
+从[官网](https://cloud.tencent.com/product/im.html)下载IM Android SDK。
 工程路径：IM_iOS_SDK_x.x.x/samples/sample , 其中x.x.x是版本号。用Android Studio打开（File ->open）sample工程即可。
 ## 4. Demo使用
 ### 4.1 注册和登录

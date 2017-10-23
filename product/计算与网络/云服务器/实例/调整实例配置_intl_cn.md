@@ -8,7 +8,7 @@
 ##  配置升级
 ### 通过控制台升级
 
-1. 登录 [腾讯云控制台](https://console.qcloud.com/) ，单击左侧【云主机】选项卡，进入云服务器列表。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，单击左侧【云主机】选项卡，进入云服务器列表。
 
 2. 找到需要调整的实例右侧操作栏，单击【更多】-【云主机配置】-【调整配置】。
 
@@ -17,14 +17,14 @@
  - **包年包月实例弹框：**
 ![](//mc.qcloudimg.com/static/img/c58002204cb5a0481fed03c7ad9903b1/image.png)
  - **按量计费实例弹框：**
-![](//mc.qcloudimg.com/static/img/9521a781204a6af89a9cda2b32ae6d3c/image.png)
+![](//mc.qcloudimg.com/static/img/2736588533362e5904a7d006136ceb01/image.png)
 
 ### 通过 API 升级
 用户可以使用 ResizeInstance 和 ResizeInstanceHour 接口升级实例配置，具体内容可参考 [调整实例配置 API](/doc/product/213/9394) 。
 
 ## 配置降级
 ### 包年包月实例降级
-1. 登录 [腾讯云控制台](https://console.qcloud.com/) ，单击左侧【云主机】选项卡，进入云服务器列表。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，单击左侧【云主机】选项卡，进入云服务器列表。
 
 2. 找到需要调整的 **包年包月** 实例右侧操作栏，单击【更多】-【云主机配置】-【调整配置】。
 
@@ -33,10 +33,10 @@
 
 
 ### 按量计费实例降级
-1. 登录 [腾讯云控制台](https://console.qcloud.com/) ，单击左侧【云主机】选项卡，进入云服务器列表。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，单击左侧【云主机】选项卡，进入云服务器列表。
 
 2. 找到需要调整的 **按量计费** 实例右侧操作栏，单击【更多】-【云主机配置】-【调整配置】。
 
 3. 在弹出框中，选择降级后的配置，单击【确认】即可。
-![](//mc.qcloudimg.com/static/img/f5d40939e607ca2747dd33c737a1c2c3/image.png)
+![](//mc.qcloudimg.com/static/img/724fc68d5876c20c81e83706b7effcdc/image.png)
 

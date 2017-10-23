@@ -1,4 +1,4 @@
-Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Access" page under "Statistics" to review real-time statistics of request quantity, number of IP visits, hit rates. You can check the historical record within 90 days.
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and click "Access" page under "Statistics" to review real-time statistics of request quantity, number of IP visits, hit rates. You can check the historical record within 90 days.
 
 ## Query Criteria Instruction
 The following criteria are supported when querying access statistics:

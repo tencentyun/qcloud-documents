@@ -31,7 +31,7 @@ There are two ways to get the number of online members in a live room through IM
     * Only number of members is returned
     * Suitable for scenarios with fewer people (e.g. dozens of people). The statistical result has an obvious deviation.
 
-For more information, click [here](https://www.qcloud.com/doc/product/269/4104#5.3-.E8.8E.B7.E5.8F.96.E8.A7.82.E7.9C.8B. E7.9B.B4.E6.92.AD.E7.9A.84.E4.BA.BA.E6.95.B0).
+For more information, click [here](https://cloud.tencent.com/doc/product/269/4104#5.3-.E8.8E.B7.E5.8F.96.E8.A7.82.E7.9C.8B. E7.9B.B4.E6.92.AD.E7.9A.84.E4.BA.BA.E6.95.B0).
 
 
 **Note:**

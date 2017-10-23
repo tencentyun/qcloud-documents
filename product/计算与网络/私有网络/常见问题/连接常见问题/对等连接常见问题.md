@@ -1,5 +1,5 @@
 ## 1. 能否将 IP 地址范围有重叠的的两个 VPC 进行对等连接？
-不能。对等连接的 VPC 必须拥有互不重叠的 IP 范围，[点击查看对等连接使用约束详情](https://www.qcloud.com/doc/product/215/5000#.E4.BD.BF.E7.94.A8.E7.BA.A6.E6.9D.9F)。
+不能。对等连接的 VPC 必须拥有互不重叠的 IP 范围，[点击查看对等连接使用约束详情](https://cloud.tencent.com/doc/product/215/5000#.E4.BD.BF.E7.94.A8.E7.BA.A6.E6.9D.9F)。
 
 ## 2. 如果将 VPC A 对等连接到 VPC B，再将 VPC B 对等连接到 VPC C，是否表示 VPC A 和 VPC C 已经对等连接？
 不可以，对等连接不具备传递性。

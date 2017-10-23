@@ -3,7 +3,7 @@ Tencent Cloud Virtual Machine (CVM) is a server which runs in the Tencent Cloud 
 When querying monitoring data of CVMs, the values of input parameters are as follows:
 namespace: qce/cvm
 dimensions.0.name=unInstanceId
-dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained when calling the [DescribeInstances](http://www.qcloud.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8) API.
+dimensions.0.value is the ID of CVM. This is the unInstanceId field obtained when calling the [DescribeInstances](http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E7%9C%8B%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8) API.
 
 
 **Available values of metricName**
@@ -131,7 +131,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cvm
 &metricName=cpu_usage
 &dimensions.0.name=unInstanceId
@@ -194,7 +194,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/dc_line
 &metricName=inpkg
 &dimensions.0.name=directconnectid
@@ -271,7 +271,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/dc_channel
 &metricName=delay
 &dimensions.0.name=directconnectconnid 
@@ -328,7 +328,7 @@ This dimension represents the overall monitoring metric of a public network clou
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -348,7 +348,7 @@ This dimension represents the monitoring metric of a public network cloud load b
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -374,7 +374,7 @@ This dimension represents the monitoring metric for a backend server that is bou
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -404,7 +404,7 @@ This dimension represents the monitoring metric for a certain port of a backend 
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_public
 &metricName=connum
 &dimensions.0.name=vip
@@ -437,7 +437,7 @@ This dimension represents the overall monitoring metric of a private network clo
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -460,7 +460,7 @@ This dimension represents the monitoring metric of a private network cloud load 
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -492,7 +492,7 @@ This dimension represents the monitoring metric of the backend machine that is b
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_rs_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -523,7 +523,7 @@ This dimension represents the monitoring metric for a certain port of a backend 
 Example of how to call this dimension:
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?Action=GetMonitorData
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/lb_rs_private
 &metricName=connum
 &dimensions.0.name=vip
@@ -562,7 +562,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cdn
 &metricName=requests
 &dimensions.0.name=projectid
@@ -641,7 +641,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cdb
 &metricName=slow_queries
 &dimensions.0.name=uInstanceId
@@ -703,7 +703,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/tdsql
 &metricName=data_disk_available
 &dimensions.0.name=uuid
@@ -774,7 +774,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/sqlserver
 &metricName=cpu
 &dimensions.0.name=resourceId
@@ -849,7 +849,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/redis
 &metricName=cache_hit_ratio
 &dimensions.0.name=redis_uuid
@@ -895,7 +895,7 @@ For the values of dimensions.0.value, see the table below
 
 | Value Type  | Value Example                                     | Description                                       |
 | ----- | ---------------------------------------- | ---------------------------------------- |
-| Instance ID  | cmgo-6ielucen                            | The instance ID is the unique identifier of a MongoDB instance;<br/>You can query this ID from the <a href="https://console.qcloud.com/mongodb">MongoDB Console</a>;<br/>You can also acquire this ID by calling MongoDB APIs |
+| Instance ID  | cmgo-6ielucen                            | The instance ID is the unique identifier of a MongoDB instance;<br/>You can query this ID from the <a href="https://console.cloud.tencent.com/mongodb">MongoDB Console</a>;<br/>You can also acquire this ID by calling MongoDB APIs |
 | Replica set ID | cmgo-6ielucen_0<br/>cmgo-6ielucen_2      | Acquire replica set ID by adding the "_index number" suffix behind the instance ID;<br/>The "index number" starts from 0, up to a maximum of [number of replica sets - 1];<br/>A replica set instance contains only one replica set, thus the suffix is always "_0";<br/>Sharded instance contains multiple shards, each shard is a replica set. For example: add "_2" as suffix for the replica set ID of the third shard |
 | Node ID  | cmgo-6ielucen_0-node-primary<br/>cmgo-6ielucen_1-node-slave0<br/>cmgo-6ielucen_3-node-slave2 | Add "-node-primary" suffix behind a replica set ID to acquire its primary node ID;<br/>Add "-node-slave[slave node index number]" to acquire the corresponding slave node ID, <br/>The "slave node index number" starts from 0, up to a maximum of [number of slave nodes - 1] |
 
@@ -1069,7 +1069,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/bm_lb
 &metricName=inpkg
 &dimensions.0.name=protocol
@@ -1150,7 +1150,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &namespace=qce/cmq
 &metricName=invisibleMsgNum
 &dimensions.0.name=queueId
@@ -1210,7 +1210,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=qce/cmqtopic
 &metricName=NumOfMsgPublished
 &dimensions.0.name=topicId
@@ -1237,7 +1237,7 @@ Output
 ```
 
 ## 12 VPC
-Tencent Cloud Virtual Private Cloud (VPC) is a customized network space on Tencent Cloud that is logically isolated, which is similar to the traditional network you run in the data center. The service resources hosted in Tencent Cloud VPC include Cloud Virtual Machine, Cloud Load Balance, Cloud Database and other resources of Cloud Services in your Tencent Cloud. You can fully control your VPC environment, including customizing network segmentation, IP address and routing policy, and achieve multi-layer security protections through network ACL and security group and so on. At the same time, you can also use IPsec VPN/Direct Connect to connect the VPC with your data center, to deploy hybrid cloud in a flexible manner. For detailed introductions, please see the <a href="https://www.qcloud.com/document/product/215/535" title="Product Overview">VPC Product Overview</a> page.
+Tencent Cloud Virtual Private Cloud (VPC) is a customized network space on Tencent Cloud that is logically isolated, which is similar to the traditional network you run in the data center. The service resources hosted in Tencent Cloud VPC include Cloud Virtual Machine, Cloud Load Balance, Cloud Database and other resources of Cloud Services in your Tencent Cloud. You can fully control your VPC environment, including customizing network segmentation, IP address and routing policy, and achieve multi-layer security protections through network ACL and security group and so on. At the same time, you can also use IPsec VPN/Direct Connect to connect the VPC with your data center, to deploy hybrid cloud in a flexible manner. For detailed introductions, please see the <a href="https://cloud.tencent.com/document/product/215/535" title="Product Overview">VPC Product Overview</a> page.
 When querying monitoring data of VPC products, the values of input parameters are as follows:
 
 ### 12.1 Peering Connection
@@ -1271,7 +1271,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=qce/vpc_region_conn
 &metricName=inpkg
 &dimensions.0.name=peeringConnectionId
@@ -1327,7 +1327,7 @@ Input
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &namespace=qce/pcx
 &metricName=inpkg
 &dimensions.0.name=peeringConnectionId

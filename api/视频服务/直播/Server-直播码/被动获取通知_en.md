@@ -5,7 +5,7 @@ Events such as state change of an LVB stream, generation of a new recording file
 You can register a callback URL from your backend server on the console and provide it to Tencent Cloud. When an event occurs, Tencent Cloud will post the event to your server using HTTP POST method, with the event content organized in JSON format.
 
 ## Configure URL
-When you enable LVB Code mode in the ["LVB Console" -> "LVB Code Access" -> "Access Configuration"](https://console.qcloud.com/live/livecodemanage), you can specify a URL for receiving Tencent Cloud notifications, as shown below:
+When you enable LVB Code mode in the ["LVB Console" -> "LVB Code Access" -> "Access Configuration"](https://console.cloud.tencent.com/live/livecodemanage), you can specify a URL for receiving Tencent Cloud notifications, as shown below:
 
 ![](//mc.qcloudimg.com/static/img/b1df74884171a920e37940a17d2edac2/image.png)
 
@@ -155,7 +155,7 @@ Example: The LVB stream "2016090090936" generated a new screenshot picture on Te
 > - Download path: "/2016-09-12/2016090090936-screenshot-10-03-08-1280x720.jpg"
 > - Complete URL: "http://(cos_bucketname)-(cos_appid).file.myqcloud.com/2016-09-12/2016090090936-screenshot-10-03-08-1280x720.jpg"
 > 
-> **cos_appid and cos_bucketname are only available after you activate the [Cloud Object Storage](https://console.qcloud.com/cos) in Tencent Cloud. Previously, you need to activate COS service on your own and bind the service to the LVB screenshot service before you can use screenshot feature. This approach is no longer applicable. Now you don't need to apply for COS service on your own. Currently, there are two approaches to activate screenshot feature. 1: Use the screenshot feature on the console; 2: Contact us to configure relevant information, then call the API to enable screenshot feature.**
+> **cos_appid and cos_bucketname are only available after you activate the [Cloud Object Storage](https://console.cloud.tencent.com/cos) in Tencent Cloud. Previously, you need to activate COS service on your own and bind the service to the LVB screenshot service before you can use screenshot feature. This approach is no longer applicable. Now you don't need to apply for COS service on your own. Currently, there are two approaches to activate screenshot feature. 1: Use the screenshot feature on the console; 2: Contact us to configure relevant information, then call the API to enable screenshot feature.**
 >
 > 2. You no longer need to enable COS service on your own, as we can now provide the complete URL address of the screenshot in a callback.
 >  A complete image URL field is added in callback: pic_full_url, which helps you obtain the complete image URL. The original callback information fields are not changed in order not to affect original services (that is, the pic_url field still exists).

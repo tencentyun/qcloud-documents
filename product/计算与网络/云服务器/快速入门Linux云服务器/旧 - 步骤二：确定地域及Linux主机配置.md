@@ -10,4 +10,4 @@
 - 入门型：1核1GB内存，带宽选择1Mbps或使用流量。适合个人博客等小型网站。
 - 基础型：1核2GB内存，带宽选择1Mbps。适合企业官网等简单的Web应用。
 
-推荐配置只是腾讯云提供的配置中很小一部分，仅供您参考。腾讯云提供了更多灵活的配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行[配置升级](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级)或[配置降级](http://www.qcloud.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级)。
+推荐配置只是腾讯云提供的配置中很小一部分，仅供您参考。腾讯云提供了更多灵活的配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行[配置升级](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级)或[配置降级](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级)。

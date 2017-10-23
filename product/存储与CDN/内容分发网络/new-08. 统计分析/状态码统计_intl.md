@@ -1,4 +1,4 @@
-Log in to [CDN Console](https://console.qcloud.com/cdn), and click "Status Code" under "Statistics" to review statistics of 2XX, 3XX, 4XX, 5XX status codes.
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and click "Status Code" under "Statistics" to review statistics of 2XX, 3XX, 4XX, 5XX status codes.
 
 
 

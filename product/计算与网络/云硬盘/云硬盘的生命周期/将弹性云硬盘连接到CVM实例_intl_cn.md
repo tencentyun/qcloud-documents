@@ -3,7 +3,7 @@
 ## 使用控制台将弹性云硬盘连接到实例
 目前支持对作为<font color="red">数据盘</font>的普通弹性云硬盘云盘进行挂载，不可挂载系统盘。
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)。
 
 2) 进入【云服务器】-【云硬盘】选项卡。
 
@@ -12,11 +12,11 @@
 
 4) 在弹出框中选择需要挂载到的云服务器，点击【确定】按钮，等待挂载完毕即可登录云服务器查看云硬盘挂载状况。
 
-云硬盘在挂载完后并不能马上使用，需要进行分区、格式化等一系列操作。具体操作方式请见：[Windows 系统分区、格式化及创建文件系统](https://www.qcloud.com/document/product/362/6734
+云硬盘在挂载完后并不能马上使用，需要进行分区、格式化等一系列操作。具体操作方式请见：[Windows 系统分区、格式化及创建文件系统](https://cloud.tencent.com/document/product/362/6734
 )、[Linux 系统分区、格式化、挂载及创建文件系统](/document/product/362/6735)、
 
 ## 使用 API 将弹性云硬盘连接到实例
-请参考 [AttachCbsStorages 接口](https://www.qcloud.com/doc/api/364/2520)。
+请参考 [AttachCbsStorages 接口](https://cloud.tencent.com/doc/api/364/2520)。
 
 ## 部分已创建的云服务器实例无法识别弹性云盘的解决方案
 

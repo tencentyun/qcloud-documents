@@ -37,7 +37,7 @@ The sourceList structure is as follows:
 Input (RTMP push)
 
 <pre>
-https://domain/v2/index.php?Action=CreateLVBChannel&channelName=%E5%9B%BD%E9%99%85%E4%B9%92%E4%B9%93%E7%90%83%E9%94%A6%E6%A0%87%E8%B5%9B3&outputSourceType=2&sourceList.1.name=video-1999&sourceList.1.type=1&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+https://domain/v2/index.php?Action=CreateLVBChannel&channelName=%E5%9B%BD%E9%99%85%E4%B9%92%E4%B9%93%E7%90%83%E9%94%A6%E6%A0%87%E8%B5%9B3&outputSourceType=2&sourceList.1.name=video-1999&sourceList.1.type=1&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 </pre>
 
 

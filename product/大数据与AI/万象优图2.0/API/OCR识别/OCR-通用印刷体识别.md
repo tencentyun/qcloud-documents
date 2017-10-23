@@ -1,3 +1,5 @@
+通用印刷体识别目前正处于免费公测阶段，会在11月1日开始计费，第一次扣费为12月份3~5日。
+
 ## 1. 基本概念
 
 | 概念     | 解释              |
@@ -32,7 +34,7 @@ OCR接口采用http协议，支持指定图片URL和 上传本地图片文件两
 | Host           | recognition.image.myqcloud.com        | 服务器域名                                    |
 | Content-Length | 包体总长度                                 | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | Application/json或者Multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                  | 用于鉴权的签名，使用多次有效签名。[详情](https://www.qcloud.com/document/product/460/6968) |
+| Authorization  | 鉴权签名                                  | 用于鉴权的签名，使用多次有效签名。[详情](https://cloud.tencent.com/document/product/460/6968) |
 
 ## 5. 描述
 

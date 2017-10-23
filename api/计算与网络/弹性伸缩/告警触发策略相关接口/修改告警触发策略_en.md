@@ -16,7 +16,7 @@ The following request parameter list only provides API request parameters. Commo
 | scalingGroupId | Yes | String | ID of the scaling group for which the alarm trigger policy needs to be modified. It can be queried by calling API <a href="/doc/api/372/查询伸缩组列表" title="Query Scaling Group List">Query Scaling Group List</a> (DescribeScalingGroup). |
 | scalingPolicyId | Yes | String | ID of the alarm trigger policy; ID of the alarm trigger policy to be modified in this case. This parameter can be queried by calling API <a href="/doc/api/372/查询告警触发策略" title="Query Alarm Trigger Policy">Query Alarm Trigger Policy</a> (DescribeScalingPolicy). |
 | scalingPolicyName | No | String | Name of the alarm policy defined by users. |
-| metric | No | String | Parameter metric stipulates the specific scaling policy in json format. <br>{"dimensionName":"cpu_usage","comparisonOperator":"Greater","threshold":50}<br>If the CPU utilization is greater than 50%, the scaling behavior will be triggered to increase or decrease corresponding CVMs. <a href="https://www.qcloud.com/doc/product/377/%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98#15.-.E5.91.8A.E8.AD.A6.E7.AD.96.E7.95.A5.E6.98.AF.E5.A6.82.E4.BD.95.E7.BB.9F.E8.AE.A1.E4.BA.91.E7.9B.91.E6.8E.A7.E4.BF.A1.E6.81.AF.E7.9A.84.EF.BC.9F" title="Detailed statistical rules">Click here to view detailed statistical rules</a> |
+| metric | No | String | Parameter metric stipulates the specific scaling policy in json format. <br>{"dimensionName":"cpu_usage","comparisonOperator":"Greater","threshold":50}<br>If the CPU utilization is greater than 50%, the scaling behavior will be triggered to increase or decrease corresponding CVMs. <a href="https://cloud.tencent.com/doc/product/377/%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98#15.-.E5.91.8A.E8.AD.A6.E7.AD.96.E7.95.A5.E6.98.AF.E5.A6.82.E4.BD.95.E7.BB.9F.E8.AE.A1.E4.BA.91.E7.9B.91.E6.8E.A7.E4.BF.A1.E6.81.AF.E7.9A.84.EF.BC.9F" title="Detailed statistical rules">Click here to view detailed statistical rules</a> |
 | adjustmentType | No | String | Adjustment method of the scaling rule. Only 3 values are available:<br>TotalCapacity: Adjusting the number of instances in the current scaling group to the specified number. <br>QuantityChangeInCapacity: Increasing or decreasing the instances by specified number. <br>PercentChangeInCapacity: Increasing or decreasing instances by specified percentage. |
 | adjustmentValue | No | Int | Adjustment value for the scaling rule. If it is negative, it means decreasing instances.  The value ranges of adjustmentValue are as follows:<br>TotalCapacity: 0-30<br>QuantityChangeInCapacity: -30-30<br>PercentChangeInCapacity: -100-100.  |
 | cooldown | No | Int | Cooldown period (in seconds), a period of time when the corresponding scaling group is locked after a scaling activity is completed. During this period, this scaling group cannot execute other scaling activities. |
@@ -34,12 +34,12 @@ Parameter metric stipulates the specific scaling policy in json format. Its para
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | message | String | Module error message description depending on API. |
 | codeDesc | String | Error code at business side. If the task succeeds, it will return "Success"; if the task fails, the specific business error reason will be returned. |
 
 ## 4. Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, refer to [AS Error Code](https://www.qcloud.com/doc/api/372/4173).
+The following error codes only include the business logic error codes for this API. For additional common error codes, refer to [AS Error Code](https://cloud.tencent.com/doc/api/372/4173).
 
 | Error Code | Description |
 |----|------|

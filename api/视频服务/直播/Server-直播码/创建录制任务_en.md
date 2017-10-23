@@ -16,8 +16,8 @@
 |---------|---------|---------|---------|---------|
 | appid                       | Customer ID     | int       | LVB APPID used for identifying customers |  Y          | 
 | interface                 | API name   | string |  such as: Get_LivePushStat  |  Y          | 
-| t | [Validity period](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
-| sign | [Security signature](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
+| t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
+| sign | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
 | Param.s.channel_id | Channel ID | string | | Yes |
 | Param.s.start_time  | Start time of task | string  | Standard date_time which needs urlencode, such as: 2017-01-01%2010:10:01 | Y |
 | Param.s.end_time | End time of task | string   | Standard date_time which needs urlencode, such as: 2017-01-01%2010:10:01. | Y |

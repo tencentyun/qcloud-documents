@@ -24,7 +24,7 @@ VPC supports both regional and cross-region peering connections. Despite the sam
 |---------|---------|---------|
 | Infrastructure | Based on regional local private network of Tencent Cloud | Based on cross-region internal MPLS network of Tencent cloud |
 | Bandwidth | No upper limit | Up to 10 Gbps, you can set the upper limit of bandwidth |
-| Billing Rule | 	Free | 	Bill by Day based on the regions your VPC and the peer VPC are located and the actually used network bandwidth. For details, refer to [Price Overview](https://www.qcloud.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88) |	
+| Billing Rule | 	Free | 	Bill by Day based on the regions your VPC and the peer VPC are located and the actually used network bandwidth. For details, refer to [Price Overview](https://cloud.tencent.com/doc/product/215/%E4%BB%B7%E6%A0%BC%E6%80%BB%E8%A7%88) |	
 | Availability | 99.95% or more, no single point of failure | 99.95% or more, no single point of failure |	
 | Cross-account connection | Support | Support |	
 | Access Permission | CVM of each VPC can access CVM, database, cloud load balancer and other resources in the peer VPC | CVM of each VPC can access CVM, database, cloud load balancer and other resources in the peer VPC |	

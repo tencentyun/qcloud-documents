@@ -1,14 +1,14 @@
 You can create a complete auto scaling solution by performing the following three steps:
 ![](https://mc.qcloudimg.com/static/img/3c1cc8d6a0bcab10fb527ed941635287/1.png)
 
-> Note: The example below are performed in the console. If you want to use API, refer to [API Usage Examples](https://www.qcloud.com/document/product/377/4232).
+> Note: The example below are performed in the console. If you want to use API, refer to [API Usage Examples](https://cloud.tencent.com/document/product/377/4232).
 
 ## Step 1: Create a Scaling Configuration
 The scaling configuration defines the configuration information of CVM instances used for auto scaling, including the image, storage, network, security group, login method of the CVM.
 
 > Note: The scaling configuration is created **completely free of charge**.
 
-Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
+Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
 
 ### Select a Region
 
@@ -36,7 +36,7 @@ It is strongly recommended that you use the custom image of which the environmen
 
 Therefore, it is recommended to select a custom image here.
 Bind the image of the **CVM to which the scaling group is going to bind**.
-[How to create the image for the "CVM to which the scaling group is going to bind"?](https://www.qcloud.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
+[How to create the image for the "CVM to which the scaling group is going to bind"?](https://cloud.tencent.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
 ![](https://mc.qcloudimg.com/static/img/c9a614fedaccf6a5ab2c1a16634989cc/image.png)
 
 
@@ -52,10 +52,9 @@ For users with large amount of data, they often use data disks to store data. Wh
 
 When the auto scaling automatically adds a new CVM instance, if the data disk snapshot is specified in scaling configuration, Tencent Cloud's cloud disk can allow the automatic mounting of the data disk containing the set data after the CVM instance is activated, so as to meet the needs of automatic data copy.
 
-If the data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted automatically and correctly for the successful automatic scale-up of the scaling group. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance. For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot](https://www.qcloud.com/doc/product/362/5564)
+If the data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted automatically and correctly for the successful automatic scale-up of the scaling group. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance. For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot](https://cloud.tencent.com/doc/product/362/5564)
 
 > Note:
->-  Customers who create a data disk based on a data disk snapshot should [submit a ticket for application](https://console.qcloud.com/workorder/category).
 >-  Auto Scaling service is free of charge, and newly added servers, hard disks and networks will be charged by the traffic of CVM instances, hard disks and networks. This page will display prices based on your settings.
 
 ### Set Information
@@ -68,7 +67,7 @@ After configuration, this entry will be displayed in the scaling configuration l
 
 ## Step 2: Create a Scaling Group
 A scaling group is a collection of CVM instances following the same rules and serving the same scenario.
-Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click **Scaling Group** in the navigation bar.
+Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click **Scaling Group** in the navigation bar.
 
 ### Create a Scaling Group
 Click ![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png), and fill in the basic information on scaling group in the pop-up page. Items with ![](//mccdn.qcloud.com/static/img/f9df27a1d1e0d42a7ff08dd884bfa34c/image.png) are required.

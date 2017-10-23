@@ -18,9 +18,9 @@ The following figure illustrates the service architecture of COS:
 ![](https://mccdn.qcloud.com/static/img/054a0694e4d52fb1a470debcf57452eb/image.png)
 
 For more information on Tencent Cloud COS, refer to:
-[Terms and Concepts of COS](https://www.qcloud.com/document/product/436/6225)
-[How to Use Buckets](https://www.qcloud.com/document/product/436/6232)
-[How to Use Objects](https://www.qcloud.com/document/product/436/6233)
+[Terms and Concepts of COS](https://cloud.tencent.com/document/product/436/6225)
+[How to Use Buckets](https://cloud.tencent.com/document/product/436/6232)
+[How to Use Objects](https://cloud.tencent.com/document/product/436/6233)
 
 ## Standard Storage
 

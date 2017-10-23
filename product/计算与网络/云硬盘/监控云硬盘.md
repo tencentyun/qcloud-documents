@@ -8,8 +8,8 @@
 |磁盘使用率	|disk_usage	|磁盘已使用空间的百分比，分区展示|	磁盘已使用空间的百分比，分区展示|%|unInstanceId|
 |磁盘IO等待	|disk_io_await	|平均每次设备I/O操作的等待时间，取所有分区最大值|	平均每次设备I/O操作的等待时间，取所有分区最大值|ms|unInstanceId|
 
-有关具体的监控指标说明，请参考[云监控产品文档](https://www.qcloud.com/doc/product/248)。
+有关具体的监控指标说明，请参考[云监控产品文档](https://cloud.tencent.com/doc/product/248)。
 
 云监控从运行状态下的云服务器实例中收集硬盘的原始数据，并将数据展示为易读的图标形式。统计数据默认保存一个月，用户可以观察一个月来磁盘的对应情况，更好地了解使用量和读写等方面的数据。
 
-用户可以从 [云监控控制台入口](https://console.qcloud.com/monitor/cvm) 或 [云监控 API](https://www.qcloud.com/doc/api/405/4667) 获取数据，同时控制台还提供了相应指标的可视化图标。有关更多内容，可以参考[获取特定指标的监控数据](/doc/product/248/6141) 和 [查看监控图表](/doc/product/248/6142)。
+用户可以从 [云监控控制台入口](https://console.cloud.tencent.com/monitor/cvm) 或 [云监控 API](https://cloud.tencent.com/doc/api/405/4667) 获取数据，同时控制台还提供了相应指标的可视化图标。有关更多内容，可以参考[获取特定指标的监控数据](/doc/product/248/6141) 和 [查看监控图表](/doc/product/248/6142)。

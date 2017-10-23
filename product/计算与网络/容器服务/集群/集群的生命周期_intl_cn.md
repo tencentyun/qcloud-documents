@@ -23,4 +23,4 @@
 |:--:|:--|
 |健康|节点正常运行，并连接上集群|
 |异常|节点运行异常，未连接上集群|
-|其他状态|参考[云主机生命周期](https://www.qcloud.com/document/product/213/4856)|
+|其他状态|参考[云主机生命周期](https://cloud.tencent.com/document/product/213/4856)|

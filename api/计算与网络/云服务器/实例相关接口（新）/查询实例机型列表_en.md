@@ -10,12 +10,12 @@ Domain name for API request: cvm.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/6976).
+The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/11650).
 
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
 | Version | String | Yes | Indicates API version No., used for identifying the API version of the request. To indicate the first version of this API, you can input the value "2017-03-12" to the parameter. |
-| Filters.N | [array of [Filter]() objects](https://www.qcloud.com/document/api/213/9451#filter) | No | Filtering criteria can be found in [Table of Instance Filter Criteria](). The maximum number of `Filters ' of each request is 10, and the maximum number of` Filter.Values`' is 1. |
+| Filters.N | [array of [Filter]() objects](https://cloud.tencent.com/document/api/213/9451#filter) | No | Filtering criteria can be found in [Table of Instance Filter Criteria](). The maximum number of `Filters ' of each request is 10, and the maximum number of` Filter.Values`' is 1. |
 
 Table of Instance Filter Criteria
 
@@ -30,18 +30,18 @@ Table of Instance Filter Criteria
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | RequestId | String | Unique request ID. `RequestId` is returned for each request. `RequestId` should be provided to the backend developer for a help when the user fails to call the API. |
-InstanceTypeConfigSet | array of [InstanceTypeConfig](https://www.qcloud.com/document/api/213/9451#instance) objects | List of Instance Model Configuration. |
+InstanceTypeConfigSet | array of [InstanceTypeConfig](https://cloud.tencent.com/document/api/213/9451#instance) objects | List of Instance Model Configuration. |
 
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://www.qcloud.com/document/api/213/10146).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://cloud.tencent.com/document/api/213/11657).
 
 | Error code | Description |
 |---------|---------|
 | InvalidParameterValue | Invalid parameter value. Parameter value is not in a correct format or not supported, etc. |
-| InvalidFilter | [The specified `Filter` is not supported. ](https://www.qcloud.com/document/api/213/9451#filter) |
-| InvalidFilterValue.LimitExceeded | The number of values of parameter `Filter` exceeds the limit. (https://www.qcloud.com/document/api/213/9451#filter) |
+| InvalidFilter | [The specified `Filter` is not supported. ](https://cloud.tencent.com/document/api/213/9451#filter) |
+| InvalidFilterValue.LimitExceeded | The number of values of parameter `Filter` exceeds the limit. (https://cloud.tencent.com/document/api/213/9451#filter) |
 | InvalidZone.MismatchRegion | The specified `zone` does not exist. |
 | InternalServerError | Internal service error. |
 
@@ -57,7 +57,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstanceTypeConfigs
 &Filters.1.Values.1=ap-guangzhou-2
 &Filters.1.Name=instance-family
 &Filters.1.Values.1=I1
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="/document/api/213/11650">Common request parameters</a>>
 </pre>
 
 Output
@@ -100,4 +100,3 @@ Output
     }
 }
 </pre>
-

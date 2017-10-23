@@ -1,11 +1,11 @@
 ## Virtual Private Cloud (VPC)
-Virtual Private Cloud allows you to build an independent network space on Tencent Cloud, similar to the traditional network you hosted in a data center. However, what hosted in Tencent Cloud VPC are your service resources on Tencent Cloud, which include: [Cloud Virtual Machine](https://www.qcloud.com/doc/product/213/495), [Cloud Load Balance](https://www.qcloud.com/doc/product/214/524), [Cloud Database](https://www.qcloud.com/doc/product/236) and other resources of cloud services on your Tencent Cloud. Tencent Cloud VPC can provide you with the following features:
+Virtual Private Cloud allows you to build an independent network space on Tencent Cloud, similar to the traditional network you hosted in a data center. However, what hosted in Tencent Cloud VPC are your service resources on Tencent Cloud, which include: [Cloud Virtual Machine](https://cloud.tencent.com/doc/product/213/495), [Cloud Load Balance](https://cloud.tencent.com/doc/product/214/524), [Cloud Database](https://cloud.tencent.com/doc/product/236) and other resources of cloud services on your Tencent Cloud. Tencent Cloud VPC can provide you with the following features:
 - Customize network segmentation, IP address and routing policy via the console and APIs
-- Access Internet flexibly via [Elastic IP](https://www.qcloud.com/doc/product/213/1941), [NAT Gateway](https://www.qcloud.com/doc/product/215/4975) and [Public Network Gateway](https://www.qcloud.com/doc/product/215/4972)
-- Connect VPC with your data center via [VPN](https://www.qcloud.com/doc/product/215/4956) and [Direct Connect](https://www.qcloud.com/doc/product/215/4976)
-- "One server covering the globe" and disaster recovery at "two regions, three centers" can be achieved via [Peering Connection](https://www.qcloud.com/doc/product/215/5000)
+- Access Internet flexibly via [Elastic IP](https://cloud.tencent.com/doc/product/213/1941), [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972)
+- Connect VPC with your data center via [VPN](https://cloud.tencent.com/doc/product/215/4956) and [Direct Connect](https://cloud.tencent.com/doc/product/215/4976)
+- "One server covering the globe" and disaster recovery at "two regions, three centers" can be achieved via [Peering Connection](https://cloud.tencent.com/doc/product/215/5000)
 - Through basic network interconnection, hosts in basic network and VPC can communicate via private network
-- The [Security Group](https://www.qcloud.com/doc/product/213/500) and [Network ACL](https://www.qcloud.com/doc/product/215/5132) can satisfy your network security requirement in a multi-dimensional and all-round manner.
+- The [Security Group](https://cloud.tencent.com/doc/product/213/500) and [Network ACL](https://cloud.tencent.com/doc/product/215/5132) can satisfy your network security requirement in a multi-dimensional and all-round manner.
 
 When creating a VPC, the user needs to specify an IP address group for VPC in the form of a classless inter-domain routing (CIDR) block (e.g, 10.0.0.0/16). VPC is region related. For example VPC A in southern China (Guangzhou), users cannot create a cross-region VPC.
 
@@ -17,7 +17,7 @@ Subnet is the IP address block within VPC, and all cloud resources in the VPC mu
 You can specify the CIDR (Classless Inter-Domain Routing) to implement the overall IP division of the VPC and subnets. IP address used in the Tencent Cloud VPC is divided into three categories:
 - **Private IP**: It is the IP address that must be assigned to an instance within VPC for communication between instances in VPC, but it cannot be used for Internet communication.
 - **Public IP**: It is the IP address used for Internet access and can be used for communication between instances and the Internet or other Tencent Cloud resources (such as CDB) that have common terminal nodes.
-- **[Elastic IP (EIP)](https://www.qcloud.com/doc/product/213/1941)**: It is the public IP that can be requested separately. Dynamic binding and unbinding it with CVM/NAT gateway instances is supported.
+- **[Elastic IP (EIP)](https://cloud.tencent.com/doc/product/213/1941)**: It is the public IP that can be requested separately. Dynamic binding and unbinding it with CVM/NAT gateway instances is supported.
 
 ## CIDR
 CIDR (Classless Inter-Domain Routing) is a user-specified independent network space address block, which enables the overall division of the network by combining IP with mask. Take `10.1.0.0/16` as an example, the left side of the slash is the IP of the network block, and the right side of the slash is the mask of the network block. You can adjust the size of the network block by setting the value of the mask. Number of IPs that the network block contains equals 2 ^ (32-mask), so the `10.1.0.0/16` network block contains up to 65,536 IP addresses.
@@ -163,7 +163,7 @@ What you need to be aware of about the availability zone:
 - Once a VPC is selected for a CVM, it cannot be changed, but it's allowed to change subnets within a VPC.
 - After its private IP of the VPC is changed, CVM will restart in about two minutes although the time differs.
 - A CVM in a VPC can bind only one private IP and one public IP
-- Each subnet must be associated with a [Routing Table](https://www.qcloud.com/doc/product/215/4954), which allows the user to specify the network routing for the subnet.
+- Each subnet must be associated with a [Routing Table](https://cloud.tencent.com/doc/product/215/4954), which allows the user to specify the network routing for the subnet.
 
 
 The following table shows the number limit on VPCs and subnets:
@@ -176,7 +176,7 @@ The following table shows the number limit on VPCs and subnets:
 | Number of routing tables per VPC | 10	 | 
 | Number of routing tables associated per subnet | 1	 | 
 
-For more information, please click to view [Usage Constraints on Other VPC Products](https://www.qcloud.com/document/product/215/537).
+For more information, please click to view [Usage Constraints on Other VPC Products](https://cloud.tencent.com/document/product/215/537).
 
 ## Billing Method
 
@@ -186,65 +186,65 @@ For more information, please click to view [Usage Constraints on Other VPC Produ
 - VPC cloud services is priced the same as the basic network cloud services; no additional fees are applicable,  such as CVM, cloud database and so on.
 
 **Paid-for products**:
-- Communication via public network/direct connection is charged, Click to view [the details on public network communication charges](https://www.qcloud.com/doc/product/213/509).
-- Cross-region peer connection, VPN gateway, NAT gateway are charged, Click to view [charge details](https://www.qcloud.com/doc/product/215/3079).
+- Communication via public network/direct connection is charged, Click to view [the details on public network communication charges](https://cloud.tencent.com/doc/product/213/509).
+- Cross-region peer connection, VPN gateway, NAT gateway are charged, Click to view [charge details](https://cloud.tencent.com/doc/product/215/3079).
 
 ## Operating Instructions
 ### Creating VPC and Initializing Subnets and Routing Tables
 A VPC contains at least one subnet. Cloud service resources can only be added to subnet.
 
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Select a region in the drop-down box above the list and click "New" to create a VPC under this region.
-3) Fill in the name for the VPC and its subnet and their [CIDR (Click to view the constraints on CIDR planning)](https://www.qcloud.com/doc/product/215/4927#cidr), and select the availability zone of subnets.
+3) Fill in the name for the VPC and its subnet and their [CIDR (Click to view the constraints on CIDR planning)](https://cloud.tencent.com/doc/product/215/4927#cidr), and select the availability zone of subnets.
 4) Click "Create" to complete the creation of VPC and its subnet.
 
 
 ### Adding Subnet
 Users can create one or more subnets at the same time.
 
-1) Click "Subnet" in the left navigation bar of [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Click "Subnet" in the left navigation bar of [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Select a region and VPC for which you want to create subnets.
 3) Click "New", and fill in subnet name, CIDR, availability zone and associated routing table.
 4) (Optional) Click "New Line" to create multiple subnets at the same time.
 5) Click "Create" button to complete the creation of subnet.
 
 ### Associating Subnets with Routing Tables
-Each subnet must be associated with a [Routing Table](https://www.qcloud.com/doc/product/215/4954) to specify the outbound route for the subnet, and you can change the routing table associated with the subnet at any time. If you need to create a new routing table, please refer to [Creating Routing Table](https://www.qcloud.com/doc/product/215/4954#.E5.88.9B.E5.BB.BA.E8.87.AA. E5.AE.9A.E4.B9.89.E8.B7.Af.E7.94.B1.E8.A1.A8).
+Each subnet must be associated with a [Routing Table](https://cloud.tencent.com/doc/product/215/4954) to specify the outbound route for the subnet, and you can change the routing table associated with the subnet at any time. If you need to create a new routing table, please refer to [Creating Routing Table](https://cloud.tencent.com/doc/product/215/4954#.E5.88.9B.E5.BB.BA.E8.87.AA. E5.AE.9A.E4.B9.89.E8.B7.Af.E7.94.B1.E8.A1.A8).
 
-1)	Enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8) to select "Subnet" in the left navigation bar.
+1)	Enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8) to select "Subnet" in the left navigation bar.
 2)	Move the cursor to the "subnet" line to be modified and select "Change Routing Table" in Operation column.
 3)	Click "Save" button to complete the association of the subnet with the routing table.
 
 
 ### Adding CVM to Subnet
-1)  Enter the [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8) to select "Subnet" in the left navigation bar.
+1)  Enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8) to select "Subnet" in the left navigation bar.
 2)  In the line containing the subnet that needs to add a CVM, click the Add CVM icon.
 
 Or you can:
 
-1)	On the [CVM Overview](https://www.qcloud.com/product/cvm.html), click "Buy Now" button.
+1)	On the [CVM Overview](https://cloud.tencent.com/product/cvm.html), click "Buy Now" button.
 2)	In the third step, select a storage and network, and select the corresponding VPC and subnet.
 
 ### Viewing All Resources in VPC
 
-1)	Click "Virtual Private Cloud" in the left navigation bar of [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1)	Click "Virtual Private Cloud" in the left navigation bar of [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2)	Above the list, select the region where the VPC you want to view is located.
 3)  Click VPC ID to enter its details page to view all the resources in the VPC.
 
 ### Modifying CVM's Private IP
 Modification to primary private IP of CVM primary ENI is supported, while modification to primary private IP of secondary ENI is not supported. The operating steps are as follows:
-1)  Enter the [CVM Console](https://console.qcloud.com/cvm/), and click the CVM in the navigation bar to enter the CVM list page.
+1)  Enter the [CVM Console](https://console.cloud.tencent.com/cvm/), and click the CVM in the navigation bar to enter the CVM list page.
 2)  Click the CVM ID to enter the CVM details page, and click the "ENI" tab on the top.
 3)  Click "Modify primary IP".
 4)  Fill in the new IP and save it.
 ![](https://mc.qcloudimg.com/static/img/9c08d3a7ead4707abd6315e2a092184b/A%7D%257Q%25R3C5QDOR%24JM%25I3U%28D.png)
 
-You can also modify the primary private IP on the ENI details page. Click to view [Operation Details](https://www.qcloud.com/doc/product/215/6513#.E4.BF.AE.E6.94. B9.E.B8.BB.E5.86.85.E7.BD.91ip).
+You can also modify the primary private IP on the ENI details page. Click to view [Operation Details](https://cloud.tencent.com/doc/product/215/6513#.E4.BF.AE.E6.94. B9.E.B8.BB.E5.86.85.E7.BD.91ip).
 
 ### Deleting Virtual Private Cloud (VPC)
 The prerequisite for deleting a VPC is that IPs in the VPC is not occupied and there are no resources (for example, subnets, NAT gateways, etc.) in the VPC.
 
-1) Click "Virtual Private Cloud" in the left navigation bar of [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Click "Virtual Private Cloud" in the left navigation bar of [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Above the list, select its region for the VPC that you want to delete.
 3) Select the line where the VPC you want to delete is located and click "Delete" in the Operation column.
 
@@ -252,9 +252,9 @@ The prerequisite for deleting a VPC is that IPs in the VPC is not occupied and t
 ### Deleting Subnet
 The prerequisite for deleting a subnet is that the IPs in the subnet is not occupied and there are no resources (such as a CVM) in the subnet.
 
-1) Click "Subnet" in the left navigation bar of [VPC Console](https://console.qcloud.com/vpc/vpc?rid=8).
+1) Click "Subnet" in the left navigation bar of [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Select the region and VPC where the subnet to be deleted locates.
 3) Select the line where subnet to be deleted is located and click "Delete".
 
 ## API Overview
-You can use API to set up and manage your VPCs and subnets. Click to view [Overview of All VPC APIs](https://www.qcloud.com/doc/api/245/909).
+You can use API to set up and manage your VPCs and subnets. Click to view [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).

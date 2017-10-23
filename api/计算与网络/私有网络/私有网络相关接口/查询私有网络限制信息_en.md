@@ -45,7 +45,7 @@ Input
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeVpcLimit
 &type.0=1
 &type.1=2
-&<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 
 

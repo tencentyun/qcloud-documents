@@ -18,7 +18,7 @@
 ### 3.1 DEMO 应用商店体验
 
 **Native App：**
-云通信直播聊天室的相关 DEMO 在应用商店上架名为“随心播”，该 App 是基于云通信以及腾讯云另一款产品“[互动直播](https://www.qcloud.com/product/ilvb.html)”开发而成。
+云通信直播聊天室的相关 DEMO 在应用商店上架名为“随心播”，该 App 是基于云通信以及腾讯云另一款产品“[互动直播](https://cloud.tencent.com/product/ilvb.html)”开发而成。
 
 Android 下载地址（应用宝）：http://sj.qq.com/myapp/detail.htm?apkName=com.tencent.qcloud.suixinbo
 
@@ -133,7 +133,7 @@ DEMO 二维码：
 * [iOS 用户退群通知](/doc/product/269/群组管理（iOS%20SDK）#8.2-.E7.94.A8.E6.88.B7.E9.80.80.E5.87.BA.E7.BE.A4.E7.BB.84)
 * [Windows C++ 用户退群通知](/doc/product/269/群组管理（Windows%20SDK）#8.2-.E7.94.A8.E6.88.B7.E9.80.80.E5.87.BA.E7.BE.A4.E7.BB.84)
 
-云通信后台会对用户进出聊天室的消息进行频率控制，具体参见[消息优先级与频率控制](https://www.qcloud.com/doc/product/269/%E7%BE%A4%E7%BB%84%E6%B6%88%E6%81%AF%E7%BB%BC%E8%BF%B0#7.5-.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)。
+云通信后台会对用户进出聊天室的消息进行频率控制，具体参见[消息优先级与频率控制](https://cloud.tencent.com/doc/product/269/%E7%BE%A4%E7%BB%84%E6%B6%88%E6%81%AF%E7%BB%BC%E8%BF%B0#7.5-.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)。
 
 ### 5.2 获取观看直播的用户列表
 直播 App 有时需要展示当前用户列表。单个 AVChatRoom 本身支持的用户数量无上限，但是只能够获取到部分群成员列表，最多为300个成员。
@@ -147,7 +147,7 @@ DEMO 二维码：
 ### 5.3 获取观看直播的人数
 AVChatRoom 的人数统计并不是实时的，有1分钟左右的时延。App 管理后台通过 REST API 接口获取当前群人数参见：
 
-* [获取群组资料](https://www.qcloud.com/doc/product/269/1616)（回包中的 MemberNum 字段）
+* [获取群组资料](https://cloud.tencent.com/doc/product/269/1616)（回包中的 MemberNum 字段）
 
 IMSDK 获取当前群人数参见：
 
@@ -269,7 +269,7 @@ AVChatRoom 和 ChatRoom 主要有以下区别：
 
 * IMSDK 1.9或以上版本（下面称为新版本，1.9之前的称为老版本）可以支持 AVChatRoom。
 * 对于老版本，后台实现了有限制的兼容逻辑，最多允许1000个老版本用户加入一个 AVChatRoom 群组，超出部分的老版本申请加群请求会返回10014（群已满员）错误码，新版本客户端加群不受人数限制。
-* WEB SDK 需使用[直播聊天室](https://www.qcloud.com/doc/product/269/4105)专用接口，[通用](https://www.qcloud.com/doc/product/269/4196)接口无法支持AVChatRoom。
+* WEB SDK 需使用[直播聊天室](https://cloud.tencent.com/doc/product/269/4105)专用接口，[通用](https://cloud.tencent.com/doc/product/269/4196)接口无法支持AVChatRoom。
 
 因此，我们建议将 ChatRoom 用于直播场景的用户迁移到 AVChatRoom。IMSDK 与后台已经做了充分的兼容逻辑，开发者唯一需要做的事情是：在创建群组时，指定群组形态为 AVChatRoom。除此之外，其他逻辑一概不需要改变。即使对于已经发布的老版本客户端，依然可以加入到 AVChatRoom 并接收消息。
 

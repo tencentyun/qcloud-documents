@@ -1,8 +1,5 @@
 ## 1. 接口描述
 
-注：本接口为改版后的 API 接口。如需了解旧接口相关信息，请参考：[解绑定弹性公网IP](/document/api/213/1376)。
-
-
 本接口 (DisassociateAddress) 用于解绑[弹性公网IP](/document/product/213/1941)（简称 EIP）。
 
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
@@ -13,7 +10,7 @@
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/6976)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
 
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
@@ -31,7 +28,7 @@
 
 ## 4. 错误码
 
-以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](/document/api/213/10146)。
+以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](/document/api/213/11657)。
 
 | 错误码 | 描述 |
 |---------|---------|
@@ -54,10 +51,10 @@
 
 #### 请求参数
 <pre>
-  https://cvm.api.qcloud.com/v2/index.php?Action=AssociateAddress
+  https://cvm.api.qcloud.com/v2/index.php?Action=DisassociateAddress
   &Version=2017-03-12
   &AddressId=eip-ek0cdz1g
-  &<<a href="/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数
@@ -78,11 +75,11 @@
 
 #### 请求参数
 <pre>
-  https://cvm.api.qcloud.com/v2/index.php?Action=AssociateAddress
+  https://cvm.api.qcloud.com/v2/index.php?Action=DisassociateAddress
   &Version=2017-03-12
   &AddressId=eip-ek0cdz1g
   &ReallocateNormalPublicIp=TRUE
-  &<<a href="/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数

@@ -4,11 +4,11 @@
 
 ## 通过控制台获取监控对象某一时刻的特定指标数据
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)，进入需要查看监控数据的对应产品控制台。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)，进入需要查看监控数据的对应产品控制台。
 
 2) 选择需要监控的特定对象，点击对象 ID 进入监控详情页，或点击对象列表的监控icon通过监控浮窗查看数据。
 
 3) 点击左侧概览处的具体指标，即可查看到此监控对象某一时刻的特定指标数据。
 
 ## 通过 API 获取监控对象某一时刻的特定指标数据
-请参考 [GetMonitorData 接口](https://www.qcloud.com/doc/api/405/4667)。
+请参考 [GetMonitorData 接口](https://cloud.tencent.com/doc/api/405/4667)。

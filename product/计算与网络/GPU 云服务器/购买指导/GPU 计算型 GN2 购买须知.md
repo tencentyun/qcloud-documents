@@ -9,12 +9,12 @@
 ##  GPU 计算型 GN2 实例购买步骤
 用户依据以下操作可以快速购买一台 GPU 计算型 GN2 实例
 ### 1. 登录购买页面
-[点击进入购买页面>>](https://buy.qcloud.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
+[点击进入购买页面>>](https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=gpu&tabIndex=1)
 ### 2. 选择地域与机型
 在这个步骤需要选择：
 1. 计费模式：包年包月计费或者按量计费。
 2. 地域和可用区：目前 GPU 云服务器仅支持 **广州三区**、 **上海一区**、 **上海二区**、 **北京二区** 和 **深圳金融一区** 。
-3. 机型和配置：机型选择【系列2】-【GPU计算型GN2】，提供两种配置任用户选择。
+3. 机型和配置：机型选择**【系列2】**-**【GPU计算型GN2】**，提供两种配置任用户选择。
 
 设置完成后单击【下一步：选择镜像】。
  ![](//mc.qcloudimg.com/static/img/550bf1efa9c9471d2967192f2d0e7478/image.png)
@@ -22,8 +22,21 @@
 GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共享镜像、服务市场。 [了解镜像 >>](/doc/product/213/4940)
 对于刚开始使用腾讯云的用户，可选择【公共镜像】，并根据需要挑选版本。GPU 云服务器提供 Centos、Ubuntu、Windows Server 三种公共镜像，可根据不同需要挑选公共镜像的版本。
 
-设置完成后单击【下一步：选择存储于网络】。
 ![](//mc.qcloudimg.com/static/img/63210bc3654107b68336d1e92789b000/image.png)
+
+**注意：**
+**GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。**
+
+- 如果您选择公有镜像安装，GPU 实例创建成功后，需要安装 GPU 驱动才可正常使用，相关驱动安装可参照 [安装 NVIDIA 驱动指引](https://cloud.tencent.com/document/product/560/8048)
+- 我们提供带有 GPU 驱动的服务市场镜像供您选择
+ - 选择【服务市场】-【从服务市场选择】
+![](//mc.qcloudimg.com/static/img/ee7d1e5401bbfa03c43a6990fd619949/image.png)
+ - 搜索“ M40 GPU ”
+![](//mc.qcloudimg.com/static/img/18b79dc307d14d95477078b9ec5e728c/image.png)
+ - 我们提供两种云市场镜像供您选择选择，这些镜像为公有镜像 CentOS 7.2 64位和Ubuntu 16.04 LTS 64位预装 TESLA NVIDIA M40 GPU Driver 和 CUDA Toolkit 7.5，您使用时无需安装GPU驱动程序 ，选择您所需的镜像类型，点击【免费使用】
+
+ 设置完成后单击【下一步：选择存储于网络】。
+
 ### 4. 选择存储与网络
 在这个步骤需要选择：
 - 存储：根据您在步骤 3 选择的配置，您的 GPU 云服务器的系统盘和数据盘大小已确定。
@@ -47,7 +60,7 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 
 设置完成后单击【立即购买】。
 ### 6. 查收服务器
-核实信息后完成支付，即可进入 [控制台](https://console.qcloud.com/cvm) 的邮箱中查收云服务器。
+核实信息后完成支付，即可进入 [控制台](https://console.cloud.tencent.com/cvm) 的邮箱中查收云服务器。
 GPU 云服务器购买完成后，将会收到站内信，内容包括实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息。可以使用这些信息登录和管理实例，也请尽快更改登录密码保障主机安全性。
 ![](//mc.qcloudimg.com/static/img/2003b614e24ea973f9c03a9c084380ce/image.png)
 

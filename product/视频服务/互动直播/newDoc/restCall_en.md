@@ -10,7 +10,7 @@ In addition to the client SDK APIs, ILVB backend also provides a number of APIs 
 The request data is Content Body in HTTPs Req+JSON format, and the response data is Content Body in HTTPs Rsp+JSON format.
 
 ## Mutual Authentication
-For system security consideration, mutual authentication is required for the requests from a third-party backend. For more information on application for mutual authentication certificate, please see related documentation on Tencent Cloud official website: [Product Documentation - Instant Messaging - A Third-Party Callback - Mutual Authentication Configuration Guide - Nginx Mutual Authentication Configuration Guide](http://www.qcloud.com/doc/product/269/Nginx双向认证配置指南)
+For system security consideration, mutual authentication is required for the requests from a third-party backend. For more information on application for mutual authentication certificate, please see related documentation on Tencent Cloud official website: [Product Documentation - Instant Messaging - A Third-Party Callback - Mutual Authentication Configuration Guide - Nginx Mutual Authentication Configuration Guide](http://cloud.tencent.com/doc/product/269/Nginx双向认证配置指南)
 
 
 ## Format of HTTP Request

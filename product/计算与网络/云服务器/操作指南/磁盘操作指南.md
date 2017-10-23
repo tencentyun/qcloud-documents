@@ -1,16 +1,16 @@
 ## 1. 购买弹性云硬盘
-1) 登录[腾讯云控制台](https://console.qcloud.com/)。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)。
 
 2) 进入【云服务器】-【云硬盘】选项卡。
 
 3) 点击顶部【新建】按钮，在弹出框中选择地域/可用区、计费模式（当前仅支持包年包月）、容量、购买数量和购买时间，点击【确定】按钮。
 
-4) 完成支付后即可在[云硬盘列表页](https://console.qcloud.com/cvm/cbs)看到刚刚购买的弹性云硬盘，显示为<font color="red">待挂载</font>状态。
+4) 完成支付后即可在[云硬盘列表页](https://console.cloud.tencent.com/cvm/cbs)看到刚刚购买的弹性云硬盘，显示为<font color="red">待挂载</font>状态。
 
 ## 2. 挂载弹性云硬盘
 目前支持对作为<font color="red">数据盘</font>的普通弹性云硬盘云盘进行挂载，不可挂载系统盘。
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)。
 
 2) 进入【云服务器】-【云硬盘】选项卡。
 
@@ -31,7 +31,7 @@
 - 在 Linux 操作系统下，您需要先登录实例，并对需要卸载的弹性云硬盘进行 unmount 操作，命令执行成功后再进入控制台对磁盘进行卸载操作。
 
 
-1) 登录[腾讯云控制台](https://console.qcloud.com/)。
+1) 登录[腾讯云控制台](https://console.cloud.tencent.com/)。
 
 2) 进入【云服务器】-【云硬盘】选项卡。
 
@@ -41,7 +41,7 @@
 4) 在弹出的对话框中确认警告事项，点击【确认】按钮。
 
 ## 4.	云硬盘创建快照
-1)	打开 云服务器 [CVM控制台](https://console.qcloud.com/cvm)。
+1)	打开 云服务器 [CVM控制台](https://console.cloud.tencent.com/cvm)。
 
 2) 单击导航窗格中的【云硬盘】。
 
@@ -50,7 +50,7 @@
 4) 等待快照创建。
 
 ## 5.	云硬盘改名
-1) 打开 云服务器 [CVM控制台](https://console.qcloud.com/cvm)。
+1) 打开 云服务器 [CVM控制台](https://console.cloud.tencent.com/cvm)。
 
 2)	单击导航窗格中的【云硬盘】。
 

@@ -32,7 +32,7 @@ In Tencent Cloud console, select `"LVB" -> "LVB Code Access (Recommended)"`. If 
 
 1. Check whether LVB service is activated<br/>
 
-[Select `LVB` tab in Tencent Cloud console](https://console.qcloud.com/live). If the service has not been activated yet, the following page appears:<br/>
+[Select `LVB` tab in Tencent Cloud console](https://console.cloud.tencent.com/live). If the service has not been activated yet, the following page appears:<br/>
 ![](https://mc.qcloudimg.com/static/img/c40ff3b85b3ad9c0cb03170948d93555/image.png)<br/>
 Click **Request for Activation**, then go to Tencent Cloud's manual review stage. Upon the approval of Tencent Cloud, the service is activated.
 
@@ -44,10 +44,10 @@ The options are described as follows:<br/>
 
 Configuration Option  | Available Value Range | Description | Detailed Documentation
 :-----: | :-----: | :-----:|:-----: 
-LVB Recording | Enable OR Disable | After it is enabled, all non-interactive broadcasting videos are recorded by default.  | [Supplementary document address](https://www.qcloud.com/document/product/454/7917)
-Push hotlink protection key | 32-bit lower-case string | The key used to calculate push hotlink protection address | [DOC](https://www.qcloud.com/document/product/454/7917)
-API authentication key | 32-bit lower-case string | The parameter required for authentication information when business server and Tencent Cloud backend call each other's API | [DOC](https://www.qcloud.com/document/product/454/7920#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5)
-Callback URL | URL of HTTP | Callback URL of business server. Notification of push and recording events is sent via this URL. HTTPS is not supported | [DOC](https://www.qcloud.com/document/product/267/5957)
+LVB Recording | Enable OR Disable | After it is enabled, all non-interactive broadcasting videos are recorded by default.  | [Supplementary document address](https://cloud.tencent.com/document/product/454/7917)
+Push hotlink protection key | 32-bit lower-case string | The key used to calculate push hotlink protection address | [DOC](https://cloud.tencent.com/document/product/454/7917)
+API authentication key | 32-bit lower-case string | The parameter required for authentication information when business server and Tencent Cloud backend call each other's API | [DOC](https://cloud.tencent.com/document/product/454/7920#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5)
+Callback URL | URL of HTTP | Callback URL of business server. Notification of push and recording events is sent via this URL. HTTPS is not supported | [DOC](https://cloud.tencent.com/document/product/267/5957)
 
 3. After the configuration is completed based on your business needs, click `Confirm to Access`. Now, the LVB Code mode is activated.
 

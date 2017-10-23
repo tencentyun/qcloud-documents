@@ -12,7 +12,7 @@ It should be noted that reinstalling the system will result in loss of all conte
 - For Windows instance system disks, the first 50GB of Tencent Cloud is free of charge. Since Windows instances do not support system disk capacity adjustment, no fees will be charged for system disks of Windows instances.
 
 ## Use console to reinstall system
-1) Open [CVM Console] (https://console.qcloud.com/cvm/).
+1) Open [CVM Console] (https://console.cloud.tencent.com/cvm/).
 
 2) For CVM instances that requires system reinstallation, click "More" - "Reinstall System" on the action bar to the right side.
 
@@ -24,7 +24,7 @@ It should be noted that reinstalling the system will result in loss of all conte
 >
 - Do not perform other operations during system disk reinstallation.
 - The data in current system disks cannot be recovered after system disk reinstallation.
-- The data in data disks will be retained and will not be affected after system disk reinstallation, which however need to be mounted manually before use. See [File System Creation, Partitioning and Formatting](https://www.qcloud.com/doc/product/362/5448)
+- The data in data disks will be retained and will not be affected after system disk reinstallation, which however need to be mounted manually before use. See [File System Creation, Partitioning and Formatting](https://cloud.tencent.com/doc/product/362/5448)
 ## Questions about the switching between Windows system instances and Linux system instances
 
 ### Can the system disk of an old user's Linux CVM that comes with a local disk be scaled out to 20GB? 
@@ -36,4 +36,4 @@ If a user purchases a Linux CVM that comes with an over-20GB Cloud Block Storage
 - If the CVM is based on charge-by-quantity, the calculation of configuration charge for the part exceeding 20GB of the system disk will be stopped (i.e. the system disk will be free of charge afterwards) after the operating system is changed to Windows;
 
 ### A user has purchased a Windows CVM that comes with a Cloud Block Storage. How the charges are calculated if the user reinstalls the operating system and changes it to Linux?
-Since the current system disk does not support capacity reduction, when a 50GB Windows Cloud Block Storage is changed to Linux, the capacity shall be kept and corresponding fees for the Cloud Block Storage shall be paid. (The first 20GB is free of charge, and fees for another 30GB shall be paid). See [Hard Disk Prices](http://www.qcloud.com/doc/product/213/%E7%A1%AC%E7%9B%98%E4%BB%B7%E6%A0%BC) for details
+Since the current system disk does not support capacity reduction, when a 50GB Windows Cloud Block Storage is changed to Linux, the capacity shall be kept and corresponding fees for the Cloud Block Storage shall be paid. (The first 20GB is free of charge, and fees for another 30GB shall be paid). See [Hard Disk Prices](http://cloud.tencent.com/doc/product/213/%E7%A1%AC%E7%9B%98%E4%BB%B7%E6%A0%BC) for details

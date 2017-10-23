@@ -1,11 +1,21 @@
-## 1. 接口描述
+## 功能描述
  
-本接口 (UnbindBmL4ListenerVmIp) 提供了解绑黑石负载均衡四层监听器虚机IP功能。
+UnbindBmL4ListenerVmIp 提供了解绑黑石负载均衡四层监听器虚机IP功能。
 
-接口请求域名：<font style="color:red">bmlb.api.qcloud.com</font>
+接口请求域名：bmlb.api.qcloud.com
 
+## 请求
+### 请求示例
+```
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL4ListenerVmIp
+	&<公共请求参数>
+	&loadBalancerId=<负载均衡实例ID>
+	&listenerId=<四层监听器ID>
+	&vmList.0.port=<待解绑的虚机端口>
+	&vmList.0.vmIp=<待解绑的虚机IP>
+```
 
-## 2. 输入参数
+### 请求参数
 
 以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/product/386/6718)页面。
 
@@ -22,8 +32,19 @@ vmList描述待解绑的虚机信息，n为下标，vmList包含字段如下
 |vmList.n.port|是|Int|待解绑的虚机端口，可选值1~65535。|
 |vmList.n.vmIp|是|String|待解绑的虚机IP。|
 
+## 响应
 
-## 3. 输出参数
+### 响应示例
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "requestId" : <异步任务ID>
+}
+```
+
+### 响应参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
@@ -33,7 +54,7 @@ vmList描述待解绑的虚机信息，n为下标，vmList包含字段如下
 | requestId | Int | 任务ID。该接口为异步任务，可根据本参数调用[DescribeBmLoadBalancersTaskResult](/document/product/386/9308)接口来查询任务操作结果|
 
 
-模块错误码
+## 错误码
 
 | 错误代码 | 英文提示 | 错误描述 |
 |------|------|------|
@@ -47,20 +68,22 @@ vmList描述待解绑的虚机信息，n为下标，vmList包含字段如下
 
 
 
-## 4. 示例
- 
-输入
+## 实际案例
+### 输入
+```
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL4ListenerVmIp
+	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+	&Nonce=61431
+	&Timestamp=1507728683
+	&Region=bj
+	&loadBalancerId=lb-abcdefgh
+	&listenerId=lbl-abcdefgh
+	&vmList.0.port=1234
+	&vmList.0.vmIp=1.1.1.1
+	&Signature=umZFAAWKzjXEQp4ySgrWAoWOHKI%3D
+```
 
-<pre>
-https://domain/v2/index.php?Action=UnbindBmL4ListenerVmIp
-&<<a href="https://www.qcloud.com/document/product/386/6718">公共请求参数</a>>
-&loadBalancerId=lb-abcdefgh
-&listenerId=lbl-abcdefgh
-&vmList.1.port=1234
-&vmList.1.vmIp=1.1.1.1
-</pre>
-
-输出
+### 输出
 
 ```
 {

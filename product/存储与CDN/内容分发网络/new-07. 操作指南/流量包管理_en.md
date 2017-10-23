@@ -2,7 +2,7 @@ If your billing method is Pay by Traffic, you can purchase a traffic package for
 
 
 
-Log in to [CDN Console](https://console.qcloud.com/cdn) and select **Advanced** page. You'll see the **Traffic Package Management** feature provided by CDN:
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn) and select **Advanced** page. You'll see the **Traffic Package Management** feature provided by CDN:
 
 
 

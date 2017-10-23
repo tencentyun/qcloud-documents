@@ -4,7 +4,7 @@
 
 <span id="present"></span>
 ###  预付费套餐
-客户需要预先向腾讯云账户进行充值，充值方法请参见腾讯云[充值流程](http://www.qcloud.com/doc/product/285/%E5%85%85%E5%80%BC)
+客户需要预先向腾讯云账户进行充值，充值方法请参见腾讯云[充值流程](http://cloud.tencent.com/doc/product/285/%E5%85%85%E5%80%BC)
 
 购买周期为1年，需要一次性支付套餐费用，套餐详细说明请参考套餐详细介绍。
 
@@ -75,7 +75,7 @@
 
 ## 2 套餐详细介绍
 
-套餐详细介绍请见[官网产品页面](http://www.qcloud.com/product/vod.html)。
+套餐详细介绍请见[官网产品页面](http://cloud.tencent.com/product/vod.html)。
 
 
 - 当月超出套餐部分按照超出部分存储空间和流量计费
@@ -87,7 +87,7 @@
 
 ## 3 结算及扣费
 
-腾讯云视频点播服务采用和腾讯云一致的[计费流程](http://www.qcloud.com/doc/product/285/%E8%AE%A1%E8%B4%B9%E6%B5%81%E7%A8%8B)。
+腾讯云视频点播服务采用和腾讯云一致的[计费流程](http://cloud.tencent.com/doc/product/285/%E8%AE%A1%E8%B4%B9%E6%B5%81%E7%A8%8B)。
 - 每月 1-5 日为月结日，预付费套餐超出部分以及后付费的计费均在每月 1-5 日完成结算与扣费。
 
 

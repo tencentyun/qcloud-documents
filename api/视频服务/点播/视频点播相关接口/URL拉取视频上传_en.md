@@ -126,7 +126,7 @@ Input 1
  &pullset.1.notifyUrl=http%3A%2F%2Ftest.com%2Ftest
  &pullset.1.classId=0
  &pullset.1.isReport=1
- &<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>
+ &<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
 </pre>
 
 Output 1
@@ -179,7 +179,7 @@ General
 <td>Extension section, detailed data of each API
 </tbody></table>
 
-Note: If the developer specifies to transcode when calling the API, there will be two call-backs. One is for the success of uploading, the other is for the success of transcoding. [Call-back Instruction of Transcode Result](http://www.qcloud.com/wiki/v2/MultipartUploadVodFile#8..E8.AE.BE.E7.BD.AE.E8.BD.AC.E7.A0.81.E5.9B.9E.E8.B0.83)
+Note: If the developer specifies to transcode when calling the API, there will be two call-backs. One is for the success of uploading, the other is for the success of transcoding. [Call-back Instruction of Transcode Result](http://cloud.tencent.com/wiki/v2/MultipartUploadVodFile#8..E8.AE.BE.E7.BD.AE.E8.BD.AC.E7.A0.81.E5.9B.9E.E8.B0.83)
 
 ● Output Parameter Description
 The call-back API needs to return data in json format. Required fields are as follows:

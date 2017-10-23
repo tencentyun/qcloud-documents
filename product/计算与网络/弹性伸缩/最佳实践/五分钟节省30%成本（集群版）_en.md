@@ -32,7 +32,7 @@ The website for an instance is simply structured - there is only the application
 
 ### Step 1. Create a custom image for the cluster CVM
 
-This step is very simple. The custom image can be created based on an existing cluster CVM. If you have any questions, refer to [Create Custom Image >>](https://www.qcloud.com/document/product/213/4942)
+This step is very simple. The custom image can be created based on an existing cluster CVM. If you have any questions, refer to [Create Custom Image >>](https://cloud.tencent.com/document/product/213/4942)
 
 > Note:
 > You need to deploy the environment in the image in advance, ensuring that the application of the image can be activated with the operating system. In such case, the scaled CVM can work directly without manual intervention.
@@ -41,7 +41,7 @@ This step is very simple. The custom image can be created based on an existing c
 
 AS uses the scaling configuration as a template to create a CVM for scale-up. Therefore, we can specify the region, model, and image through scaling configuration in advance.
 
-1. Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click "Scaling Configuration" in the navigation bar.
+1. Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click "Scaling Configuration" in the navigation bar.
 
 2. Select a project and a region. Note that you must select the project and region of your Web application.
 ![](https://mc.qcloudimg.com/static/img/653ebf516d940a90fd79728e5d319cdc/image.png)
@@ -52,7 +52,7 @@ AS uses the scaling configuration as a template to create a CVM for scale-up. Th
 
 ### Step 3. Create a scaling group for the CVM
 
-In the [Auto Scaling Console](https://console.qcloud.com/autoscaling), click "New" and fill in the cluster management information as follows:
+In the [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling), click "New" and fill in the cluster management information as follows:
 
 - **Name**: Fill in an appropriate name, such as "Application Server Cluster" in here.
 - **Minimum group size**: Lower limit of the number of cluster servers. Fill in 0 in this example.
@@ -69,7 +69,7 @@ Click **OK** to finish the creation.
 
 ### Step 4. Add an existing CVM to the scaling group
 
-1. In the [Auto Scaling Console](https://console.qcloud.com/autoscaling), click on the scaling group name to enter the management page, and click "Add CVM" at the bottom of the page.
+1. In the [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling), click on the scaling group name to enter the management page, and click "Add CVM" at the bottom of the page.
 ![](https://mc.qcloudimg.com/static/img/d940c118ffa3e443543ffbc5a7b71daf/image.jpg)
 
 2. In the pop-up dialog box, select an existing server in the cluster to add it to the scaling group. During the off-peak hours, the server that is not fully utilized in the cluster can be returned to save costs.

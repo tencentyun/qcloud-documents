@@ -1,5 +1,5 @@
 ## 1 概述
-使用消息语音，需要先调用[基本API](https://www.qcloud.com/document/product/556/7675)。
+使用消息语音，需要先调用[基本API](https://cloud.tencent.com/document/product/556/7675)。
 
 ## 2 语音消息API调用流程
  

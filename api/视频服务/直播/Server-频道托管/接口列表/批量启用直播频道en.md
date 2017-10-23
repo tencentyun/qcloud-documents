@@ -43,7 +43,7 @@ Enter the ID of an LVB channel to start the channel (channels can be started in 
 
 Input 1
 <pre>
-https://domain/v2/index.php?Action=StartLVBChannel&channelIds.1=96171715553394807&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+https://domain/v2/index.php?Action=StartLVBChannel&channelIds.1=96171715553394807&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 </pre>
 
 Output 1

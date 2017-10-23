@@ -12,7 +12,7 @@ The following list only provides API request parameters. For additional paramete
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| imageId | Yes | String | Image ID, which can be obtained from unImgId in the returned field of [DescribeImages](http://www.qcloud.com/document/api/213/1272) API. |
+| imageId | Yes | String | Image ID, which can be obtained from unImgId in the returned field of [DescribeImages](http://cloud.tencent.com/document/api/213/1272) API. |
 |imageName | No | String |Image name, which cannot be identical to an existing image name. If you don't want to modify it, left it blank. Naming rule: The name should contain 1-16 characters, including English letters, numbers, and "-".
 | imageDescription | No | String | Description of the image. If you don't want to modify it, left it blank. Naming rule: The name contains 0-64 characters, including English letters, numbers, "-", and "_".
 
@@ -22,8 +22,8 @@ The following list only provides API request parameters. For additional paramete
  
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
  
 ## 4. Example
  
@@ -34,7 +34,7 @@ Input
   &imageId=img-12345678
   &imageName=testName
   &imageDescription=descrip
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

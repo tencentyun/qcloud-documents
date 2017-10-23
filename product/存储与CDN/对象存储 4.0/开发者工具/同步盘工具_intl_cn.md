@@ -2,7 +2,7 @@
 
 ### 开通 FTP 上传白名单
 
-登陆 [腾讯云官网](www.qcloud.com) ，点击右上角 **管理中心** ：
+登陆 [腾讯云官网](cloud.tencent.com) ，点击右上角 **管理中心** ：
 
 ![管理中心入口](https://mc.qcloudimg.com/static/img/2715d631ef5907ee7482338a9d52efd9/image.jpg)
 

@@ -15,7 +15,7 @@
 <th><b>类型</b></th>
 <th><b>描述</b></th>
 <tr>
-<td> eipId <td> 是 <td> String <td> EIP实例ID，可通过<a href="http://www.qcloud.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEipQuota">DescribeEip</a>接口返回字段中的 eipId获取
+<td> eipId <td> 是 <td> String <td> EIP实例ID，可通过<a href="http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8" title="DescribeEipQuota">DescribeEip</a>接口返回字段中的 eipId获取
 <tr>
 <td> mode <td> 是 <td> Int <td> 要切换到的模式<br>0：NAT模式，1：直通模式。
 </tbody></table>

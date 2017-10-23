@@ -24,7 +24,7 @@ The following request parameter list only provides API request parameters. Commo
 | taskId | Int | Task ID. The operation result can be queried with taskId. For more information, refer to API for Querying Task Execution Result. |
 
  ## 4. Error Code List
-  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://www.qcloud.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error Code | Description |
 |---------|---------|
@@ -36,7 +36,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=ModifyDirectConnectGateway
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &vpcId=vpc-dfgg190
 &directConnectGatewayId=dcg-ddf14d
 &directConnectGatewayName=Direct Connect Gateway1

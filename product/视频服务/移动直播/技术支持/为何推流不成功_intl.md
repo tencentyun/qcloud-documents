@@ -2,10 +2,10 @@
 ![](//mc.qcloudimg.com/static/img/8f0d4acce0ae96705239f7984efd0382/image.png)
 
 ## Incorrect txSecret
-Tencent Cloud currently requires adding Hotlink protection to all push URLs to ensure security. Miscalculated hotlink protection or expired push URLs will be **rejected** by Tencent Cloud. In this case, RTMP SDK will throw a **PUSH_WARNING_SERVER_DISCONNECT** event, and [RTMP SDK DEMO](https://www.qcloud.com/document/product/454/6555) behaves as follows: 
+Tencent Cloud currently requires adding Hotlink protection to all push URLs to ensure security. Miscalculated hotlink protection or expired push URLs will be **rejected** by Tencent Cloud. In this case, RTMP SDK will throw a **PUSH_WARNING_SERVER_DISCONNECT** event, and [RTMP SDK DEMO](https://cloud.tencent.com/document/product/454/6555) behaves as follows: 
 ![](//mc.qcloudimg.com/static/img/83e5c2dce6707f5c0c5e6dfc8fc548e5/image.png)
 
-Please see [How to Obtain the Push URL](https://www.qcloud.com/document/product/454/7915) to learn how to obtain a reliable push URL.
+Please see [How to Obtain the Push URL](https://cloud.tencent.com/document/product/454/7915) to learn how to obtain a reliable push URL.
 
 ## Expired txTime
 Some customers who worry about their LVB traffic being stolen would set a rather conservative txTime, such as 5 minutes after the current time. In fact, with txSercet signature, you don't need to set such a short validity period. Furthermore, with a too-short validity period, in case of a network interruption during LVB, the VJ would not be able to resume push due to expiration of push URL.

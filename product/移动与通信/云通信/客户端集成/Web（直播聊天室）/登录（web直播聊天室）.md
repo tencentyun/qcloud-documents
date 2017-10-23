@@ -1,6 +1,6 @@
 ## 1 TLS登录（托管模式）
 
-Demo集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于TLS账号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://www.qcloud.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在demo中如何集成托管模式下的web 版TLS SDK。
+Demo集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于TLS账号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://cloud.tencent.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在demo中如何集成托管模式下的web 版TLS SDK。
 
 在index.html引入web 版TLS sdk，如： 
 

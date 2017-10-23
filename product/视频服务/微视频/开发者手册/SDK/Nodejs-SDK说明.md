@@ -5,7 +5,7 @@
 ### 1.1	前期准备
 
 <p>1.	sdk采用Node.js v0.10.29版本开发， 推荐使用相同的版本。<br>
-2.	通过<a href="http://console.qcloud.com/uvs/vproject" class="external text" title="http://console.qcloud.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取appid，secret_id和secret_key；<br>
+2.	通过<a href="http://console.cloud.tencent.com/uvs/vproject" class="external text" title="http://console.cloud.tencent.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取appid，secret_id和secret_key；<br>
 </p>
 
 ### 1.2	导入SDK
@@ -39,7 +39,7 @@ var qcloud = require('qcloud_video');
 签名分为2种：<br>
 		多次有效签名（有一定的有效时间）<br>
 		单次有效签名（绑定资源url，只能生效一次）<br>
-签名的详细描述及使用场景参见<a href="http://www.qcloud.com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3" title="微视频鉴权及签名文档">鉴权服务技术方案</a><br>
+签名的详细描述及使用场景参见<a href="http://cloud.tencent.com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3" title="微视频鉴权及签名文档">鉴权服务技术方案</a><br>
 2．	方法<br>
 多次有效签名<br>    
 </p>
@@ -78,7 +78,7 @@ function signOnce(bucket, fileid);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> 开发者的授权secret_key，非传入参数，从conf.js中获取，使用前需初始化好conf，以上两项获取参见<a href="http://console.qcloud.com/uvs/vproject" class="external text" title="http://console.qcloud.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>
+</td><td> 开发者的授权secret_key，非传入参数，从conf.js中获取，使用前需初始化好conf，以上两项获取参见<a href="http://console.cloud.tencent.com/uvs/vproject" class="external text" title="http://console.cloud.tencent.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>
 </td></tr>
 <tr>
 <td> expired
@@ -92,7 +92,7 @@ function signOnce(bucket, fileid);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> fileid
@@ -141,7 +141,7 @@ function createFolder(bucket, path, bizattr, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -233,7 +233,7 @@ function updateFolder(bucket, path, bizattr, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -310,7 +310,7 @@ function statFolder(bucket, path, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -405,7 +405,7 @@ function deleteFolder(bucket, path, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -475,7 +475,7 @@ function list(bucket, path, num, pattern, order, context, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -703,7 +703,7 @@ function prefixSearch(bucket, path, prefix, num, pattern, order, context, callba
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -940,7 +940,7 @@ function upload(filePath, bucket, dstpath, videocover, bizattr, title, desc, mag
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> dstpath
@@ -989,7 +989,7 @@ function upload(filePath, bucket, dstpath, videocover, bizattr, title, desc, mag
 </td><td> String
 </td><td> 否
 </td><td> null
-</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://www.qcloud.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
+</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://cloud.tencent.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
 </td></tr>
 <tr>
 <td> callback
@@ -1079,7 +1079,7 @@ function upload_slice(filePath, bucket, dstpath, videocover, bizattr, title, des
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> dstpath
@@ -1128,7 +1128,7 @@ function upload_slice(filePath, bucket, dstpath, videocover, bizattr, title, des
 </td><td> String
 </td><td> 否
 </td><td> null
-</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://www.qcloud.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
+</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://cloud.tencent.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
 </td></tr>
 <tr>
 <td> slice_size
@@ -1232,7 +1232,7 @@ function updateFile(bucket, path, title, desc, bizattr, videocover, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -1333,7 +1333,7 @@ function statFile(bucket, path, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path
@@ -1502,7 +1502,7 @@ function deleteFile(bucket, path, callback);
 </td><td> String
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> path

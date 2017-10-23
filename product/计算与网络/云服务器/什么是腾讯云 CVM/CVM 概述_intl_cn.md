@@ -16,7 +16,7 @@
 - 自定义的虚拟网络空间，与其他资源逻辑隔离，也即[私有网络](/doc/product/215/4927)。
 - 专为动态网络设计的静态公网 IP，满足快速排障需求，也即[弹性 IP](/doc/product/213/5733)。
 - 实例内部标识实例资源的标签，也即[元数据](/doc/product/213/4934)。
-- 基于 Web 的用户界面，也即[腾讯云控制台](https://console.qcloud.com/)。
+- 基于 Web 的用户界面，也即[腾讯云控制台](https://console.cloud.tencent.com/)。
 
 
 如果这是您第一次开始使用腾讯云云服务器，可以参考 [快速入门 Windows 云服务器](/doc/product/213/2764) 和 [快速入门 Linux 云服务器](/doc/product/213/2936)。
@@ -26,25 +26,25 @@
 
 - 您可以使用一个预设模版来启动新的云服务器。预设模版可以包含任何您希望在初始化时就包含在云服务器中的环境或应用程序。腾讯云提供大量经审核的第三方预设模版，帮助用户快速搭建环境。有关更多信息，可以参考[服务市场](http://market.qcloud.com/)。
 
-- 可使用负载均衡横跨多个云服务器实例自动分配来自客户端的请求流量。有关更多信息，请参阅 [负载均衡产品文档](https://www.qcloud.com/doc/product/214)。
+- 可使用负载均衡横跨多个云服务器实例自动分配来自客户端的请求流量。有关更多信息，请参阅 [负载均衡产品文档](https://cloud.tencent.com/doc/product/214)。
 
-- 可以使用弹性伸缩定时或根据条件地自动增加及减少服务器集群数量。有关更多信息，请参阅 [弹性伸缩产品文档](https://www.qcloud.com/doc/product/377)。
+- 可以使用弹性伸缩定时或根据条件地自动增加及减少服务器集群数量。有关更多信息，请参阅 [弹性伸缩产品文档](https://cloud.tencent.com/doc/product/377)。
 
-- 要监控云服务器实例的运行统计数据，可使用云监控。有关更多信息，请参阅 [云监控产品文档](https://www.qcloud.com/doc/product/248)。
+- 要监控云服务器实例的运行统计数据，可使用云监控。有关更多信息，请参阅 [云监控产品文档](https://cloud.tencent.com/doc/product/248)。
 
-- 在云上部署您的关系数据库，可以使用腾讯云云数据库。有关更多信息，请参阅相应的云数据库产品文档，如：[云数据库MySQL](https://www.qcloud.com/doc/product/236)。
+- 在云上部署您的关系数据库，可以使用腾讯云云数据库。有关更多信息，请参阅相应的云数据库产品文档，如：[云数据库MySQL](https://cloud.tencent.com/doc/product/236)。
 
 ## 使用 CVM
 
-腾讯云 CVM 提供基于 Web 的用户界面，即控制台，如果您已注册腾讯云账户，您可以直接 [登录 CVM 控制台](https://console.qcloud.com/cvm)，对您的 CVM 进行操作。
+腾讯云 CVM 提供基于 Web 的用户界面，即控制台，如果您已注册腾讯云账户，您可以直接 [登录 CVM 控制台](https://console.cloud.tencent.com/cvm)，对您的 CVM 进行操作。
 
-腾讯云 CVM 提供 API 接口，这些请求属于 HTTP 或 HTTPS 请求，有关 CVM API 操作的更多信息，请参阅 [API 文档](https://www.qcloud.com/document/api/213/568)。
+腾讯云 CVM 提供 API 接口，这些请求属于 HTTP 或 HTTPS 请求，有关 CVM API 操作的更多信息，请参阅 [API 文档](https://cloud.tencent.com/document/api/213/568)。
 
 如果您倾向于使用 API 的方式对您的资源、应用和数据进行管理操作，您可以使用 SDK（支持 PHP/Python/Java/.NET/Node.js）编程或使用腾讯云命令行工具调用 CVM API，具体请参考：
-- [使用 SDK >>](https://www.qcloud.com/document/developer-resource)
-- [使用命令行工具 >>](https://www.qcloud.com/document/product/440/6317)
+- [使用 SDK >>](https://cloud.tencent.com/document/developer-resource)
+- [使用命令行工具 >>](https://cloud.tencent.com/document/product/440/6317)
 
 ## 定价
 
-有关云服务器的收费模式和具体价格，请参阅[云服务器实例价格](https://www.qcloud.com/doc/product/213/2176)。
+有关云服务器的收费模式和具体价格，请参阅[云服务器实例价格](https://cloud.tencent.com/doc/product/213/2176)。
 

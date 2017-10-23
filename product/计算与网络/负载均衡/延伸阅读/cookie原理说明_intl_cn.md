@@ -18,7 +18,7 @@ Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,/;q=0.8
 Accept-Encoding:gzip, deflate, sdch 
 Accept-Language:en,zh-CN;q=0.8,zh;q=0.6 
 Connection:keep-alive 
-Host:www.qcloud.com
+Host:cloud.tencent.com
 ```
 
 2) 请求到达腾讯云的服务器以后，腾讯云的服务器生成响应，并在响应的头部写入cookie信息：
@@ -39,7 +39,7 @@ Accept-Encoding:gzip, deflate, sdch
 Accept-Language:en,zh-CN;q=0.8,zh;q=0.6 
 Connection:keep-alive 
 Cookie:BD_HOME=1; BDSVRTM=0; BD_LAST_QID=1507196234531915875957057 
-Host:www.qcloud.com
+Host:cloud.tencent.com
 ```
 
 5) 服务器接收到请求以后，从请求头中获得cookie信息，分析cookie数据后向客户端返回响应。
@@ -83,7 +83,7 @@ cookie是有生命周期的。一旦到了cookie的失效日期，客户端的co
 
 ```
 // 创建一个cookie对象 
-Cookie co = new Cookie(“site”, “http://www.qcloud.com“); 
+Cookie co = new Cookie(“site”, “http://cloud.tencent.com“); 
 co.setDomain(“test.com”); 
 // 通过响应头，将cookie发送到客户端 
 response.addCookie(co);

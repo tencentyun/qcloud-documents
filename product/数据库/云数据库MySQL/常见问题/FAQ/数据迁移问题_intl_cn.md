@@ -25,7 +25,7 @@
 2. 如果需要导出实时数据，可以购买只读实例，通过只读实例 mysqldump 获取。
 
 ### 3、原数据库大概 7G，哪种方式最快迁移至腾讯云购买的 MySQL 数据库中？
-建议您使用 [数据迁移](https://www.qcloud.com/document/product/571/8710) 功能，可以直接连到您的源库进行数据同步。
+建议您使用 [数据迁移](https://cloud.tencent.com/document/product/571/8710) 功能，可以直接连到您的源库进行数据同步。
 
 ### 4、想配置同城双备，能够实现两个实例实时数据同步吗？如何做？
-可以在控制台购买 [灾备实例](https://www.qcloud.com/document/product/236/7272) 来实现您这个需求 。
+可以在控制台购买 [灾备实例](https://cloud.tencent.com/document/product/236/7272) 来实现您这个需求 。

@@ -13,7 +13,7 @@
 <title>创建一个新的实例</title>
 <simpara>在创建实例前，我们首先需要确定其配置，因为它决定了用户所创建实例的性能。</simpara>
 <blockquote>
-<simpara>平台支持的有关配置，用户可以参考https://www.qcloud.com/doc/product/213/497#3.-.E6.9C.BA.E5.9E.8B[CVM实例机型] 和 <link xl:href="https://www.qcloud.com/doc/product/213/2177">CVM实例配置</link>。</simpara>
+<simpara>平台支持的有关配置，用户可以参考https://cloud.tencent.com/doc/product/213/497#3.-.E6.9C.BA.E5.9E.8B[CVM实例机型] 和 <link xl:href="https://cloud.tencent.com/doc/product/213/2177">CVM实例配置</link>。</simpara>
 </blockquote>
 <simpara>假设我们想创建一个新的广州二区的 Windows 2008 操作系统的实例，所需要需要的最小请求参数是：</simpara>
 <informaltable frame="all" rowsep="1" colsep="1">
@@ -31,7 +31,7 @@
 <tbody>
 <row>
 <entry align="left" valign="top"><simpara>Zone</simpara></entry>
-<entry align="left" valign="top"><simpara><link xl:href="https://www.qcloud.com/doc/api/229/1286">可用区</link>ID</simpara></entry>
+<entry align="left" valign="top"><simpara><link xl:href="https://cloud.tencent.com/doc/api/229/1286">可用区</link>ID</simpara></entry>
 <entry align="left" valign="top"><simpara>ap-guangzhou-2</simpara></entry>
 </row>
 <row>
@@ -56,10 +56,10 @@
 <simpara>密码将会自动生成，并通过站内信的形式下发。</simpara>
 </listitem>
 <listitem>
-<simpara>这里我们指定的镜像为 Windows 2008，其它标准操作系统的 ImageId 可见https://www.qcloud.com/doc/api/229/1272[镜像列表]</simpara>
+<simpara>这里我们指定的镜像为 Windows 2008，其它标准操作系统的 ImageId 可见https://cloud.tencent.com/doc/api/229/1272[镜像列表]</simpara>
 </listitem>
 </itemizedlist>
-<simpara>也可以修改这些默认值以便修改根据您的需要来创建实例，这一点可以详细参考 <link xl:href="https://www.qcloud.com/doc/api/229/1350">RunInstances</link>，它详尽的列出了每个可能的参数。</simpara>
+<simpara>也可以修改这些默认值以便修改根据您的需要来创建实例，这一点可以详细参考 <link xl:href="https://cloud.tencent.com/doc/api/229/1350">RunInstances</link>，它详尽的列出了每个可能的参数。</simpara>
 <simpara>除了两个请求之外，还需要增加公共请求参数，最终得到的请求形式如下：</simpara>
 <programlisting language="bash" linenumbering="unnumbered">GET https://cvm.api.qcloud.com/v2/index.php?
 &amp;Action=RunInstances

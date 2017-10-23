@@ -1,5 +1,5 @@
 ## 1. 创建密钥
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【SSH密钥】。
 
@@ -10,7 +10,7 @@
 4) 点击【确定】按钮后，弹出提示框，用户需要在10分钟内下载私钥。
 
 ## 2. 密钥绑定/解绑服务器
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【SSH密钥】。
 
@@ -23,7 +23,7 @@
 6) 点击【详情】链接，可以查看最近一次操作的结果。
 
 ## 3. 修改密钥
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【SSH密钥】。
 
@@ -33,7 +33,7 @@
 4) 在弹框中输入新的名称及描述信息，点击“确定”。
 
 ## 4. 删除密钥
-1) 打开[云服务器CVM控制台](https://console.qcloud.com/cvm/) 。
+1) 打开[云服务器CVM控制台](https://console.cloud.tencent.com/cvm/) 。
 
 2) 单击导航窗格中的【SSH密钥】。
 

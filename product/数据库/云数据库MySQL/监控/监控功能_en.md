@@ -52,6 +52,6 @@ Cache usage (innodb cache use rate, in percentage)
 
 > More monitoring metrics will be available in the future.
 
-[1]:	https://console.qcloud.com/
-[2]:	https://console.qcloud.com/cdb/ "Cloud Database Console"
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://console.cloud.tencent.com/cdb/ "Cloud Database Console"
 

@@ -68,7 +68,7 @@
 
 ## 价格计算器
 
-用户可以使用 [价格计算器](https://buy.qcloud.com/calculator/cos)，进行快速估价。
+用户可以使用 [价格计算器](https://buy.cloud.tencent.com/calculator/cos)，进行快速估价。
 
 ![](https://mc.qcloudimg.com/static/img/3e0c746f012f8ab31ee4ef8e9b854206/Free-Converter.com-qq20161104-1-8511018.jpg)
 

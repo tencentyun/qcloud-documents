@@ -195,7 +195,7 @@ Select **Video View** as viewing method.
 
 #### 5. Price
 
-Screenshot and porn detection are paid services. Screenshot service: 0.1 CNY per thousand images; porn detection service: 1.3 CNY per thousand images.  [Billing Details](https://www.qcloud.com/document/product/268/5129#3..E6.88.AA.E5.9B.BE.E9.89.B4.E9.BB.84.E5.8A.9F.E8.83.BD.E8.AE.A1.E8.B4.B9)
+Screenshot and porn detection are paid services. Screenshot service: 0.1 CNY per thousand images; porn detection service: 1.3 CNY per thousand images.  [Billing Details](https://cloud.tencent.com/document/product/268/5129#3..E6.88.AA.E5.9B.BE.E9.89.B4.E9.BB.84.E5.8A.9F.E8.83.BD.E8.AE.A1.E8.B4.B9)
 
 
 ### Appendix

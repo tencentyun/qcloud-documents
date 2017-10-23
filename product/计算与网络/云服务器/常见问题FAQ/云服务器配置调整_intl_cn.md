@@ -1,6 +1,6 @@
 ## 调整云服务器配置相关
 ### 问：哪里查看调整配置的记录？ 
-[控制台](https://console.qcloud.com/cvm) 右上角操作日志中可以展示您对 CVM 调整配置的记录。对于包年包月的 CVM ，在收支明细中升配和降配都会产生相应的订单。
+[控制台](https://console.cloud.tencent.com/cvm) 右上角操作日志中可以展示您对 CVM 调整配置的记录。对于包年包月的 CVM ，在收支明细中升配和降配都会产生相应的订单。
 ![](//mccdn.qcloud.com/static/img/b759463ebe8f1e988902456f2aed07c8/image.png)
 
 ### 问：包年包月计费模式的配置降级延长时长是如何计算的？ 

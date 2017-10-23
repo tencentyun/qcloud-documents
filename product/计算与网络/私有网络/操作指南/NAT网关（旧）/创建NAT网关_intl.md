@@ -1,4 +1,4 @@
-1) Log in to [Tencent Cloud Console](https://console.qcloud.com/), select "Virtual Private Cloud" tab, and select "NAT Gateway".
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" tab, and select "NAT Gateway".
 
 2) Click the "New" button at the upper left corner, and enter or specify the following parameters in the pop-up box:
 - Gateway name

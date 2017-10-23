@@ -29,12 +29,12 @@ The local Windows images to be imported must meet following requirements:
 | System disk size  | Smaller than 50 GB. You can only import the images of system disks rather than that of data disks                 |
 | Network     | Multiple network APIs are not supported. Only eth0 is supported.<br>IPv6 address is not supported<br>. When users create CVMs with imported images, Tencent Cloud will create a network configuration file and store it in `C:\qcloud-network-config.ini`, which includes IP, subnet mask, gateway and DNS, etc. Users can log in to CVMs created with the images to configure the network.  |
 | Driver     | The virtio driver for virtualization platform KVM must be installed. By default, Windows is not installed with virtio driver. You can use the [software package provided by Tencent Cloud](http://windowsvirtio-10016717.file.myqcloud.com/InstallQCloud.exe) to install the driver before exporting machines on external platform to local images.  |
-| Misc     | We do <font color="red">NOT</font> provide [Windows activation](https://www.qcloud.com/doc/product/213/%E6%AD%A3%E7%89%88%E6%BF%80%E6%B4%BB) service for imported Windows images |
+| Misc     | We do <font color="red">NOT</font> provide [Windows activation](https://cloud.tencent.com/doc/product/213/%E6%AD%A3%E7%89%88%E6%BF%80%E6%B4%BB) service for imported Windows images |
 
 ## Importing Images in the Console
 > Check whether your Tencent Cloud account has applied for the import permission. If not, please submit related information via ticket system for an application.
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) Click "Image" in the navigation pane.
 

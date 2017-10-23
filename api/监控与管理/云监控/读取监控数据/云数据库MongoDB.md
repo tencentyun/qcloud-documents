@@ -17,9 +17,10 @@ dimensions.0.value=视查询维度而定
 “某个节点”维度可以查询集群内的任意节点的CPU、内存等信息。
 
 dimensions.0.value 取值参照表
+
 | 取值类型  | 取值示例                                     | 描述                                       |
 | ----- | ---------------------------------------- | ---------------------------------------- |
-| 实例ID  | cmgo-6ielucen                            | 实例ID一个MongoDB实例的唯一标识；可以在[MongoDB控制台](https://console.qcloud.com/mongodb)查询到；或者调用MognoDB的API也可以获取 |
+| 实例ID  | cmgo-6ielucen                            | 实例ID一个MongoDB实例的唯一标识；可以在[MongoDB控制台](https://console.cloud.tencent.com/mongodb)查询到；或者调用MognoDB的API也可以获取 |
 | 副本集ID | cmgo-6ielucen_0cmgo-6ielucen_2           | 在实例ID后面拼接 “_索引号”可以得到副本集ID；“索引号”从0开始，最大值为副本集个数-1；副本集实例只有一个副本集，所以固定拼接“_0”即可；分片实例有多个片，每一片都是副本集，举例：第3个片的副本集ID就是拼接“_2” |
 | 节点ID  | cmgo-6ielucen_0-node-primarycmgo-6ielucen_1-node-slave0cmgo-6ielucen_3-node-slave2 | 在副本集ID后面拼接“-node-primary”得到该副本集的主节点ID；拼接“-node-slave从节点索引号”可得到对应的从节点的ID，“从节点索引号”从0开始，最大值为从节点个数-1 |
 
@@ -96,7 +97,7 @@ dimensions.0.value 取值参照表
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/cmongo
 &metricName=delay_100
 &dimensions.0.name=target
@@ -129,7 +130,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target
@@ -162,7 +163,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target

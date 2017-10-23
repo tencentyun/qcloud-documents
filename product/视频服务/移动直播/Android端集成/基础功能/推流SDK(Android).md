@@ -11,10 +11,10 @@
 ## 准备工作
 
 - **获取开发包**
-[下载](https://www.qcloud.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://www.qcloud.com/document/product/454/7877)指引将 SDK 嵌入您的 APP 开发工程。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 APP 开发工程。
 
 - **获取测试URL**
-[开通](https://console.qcloud.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://www.qcloud.com/document/product/454/7915)。
+[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://cloud.tencent.com/document/product/454/7915)。
 
 ## 代码对接
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
@@ -44,7 +44,7 @@ mLivePusher.setConfig(mLivePushConfig);
 ```
 
 ### step 3: 启动推流
-经过step1 和 step2 的准备之后，用下面这段代码就可以启动推流了：
+经过 step1 和 step2 的准备之后，用下面这段代码就可以启动推流了：
 ```java
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
@@ -54,6 +54,21 @@ mLivePusher.startCameraPreview(mCaptureView);
 ```
 - **startPusher** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
 - **startCameraPreview** 则是将界面元素和Pusher对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
+
+
+### step 3+: 启动纯音频推流
+如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
+
+```java
+// 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
+mLivePushConfig.enablePureAudioPush(true);   // true 为启动纯音频推流，而默认值是 false；
+mLivePusher.setConfig(mLivePushConfig);      // 重新设置 config
+
+String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
+mLivePusher.startPusher(rtmpUrl);
+```
+如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
+
 
 ### step 4: 设定清晰度
 
@@ -187,6 +202,16 @@ Android 手机目前对硬件加速的支持已较前两年有明显的进步，
 
 - **9.1) 设置pauseImg**
 在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
+```java
+    mLivePushConfig.setPauseImg(300,5);
+    // 300 为后台播放暂停图片的最长持续时间,单位是秒
+    // 10 为后台播放暂停图片的帧率,最小值为5,最大值为20
+    Bitmap bitmap = decodeResource(getResources(),R.drawable.pause_publish);
+    mLivePushConfig.setPauseImg(bitmap);
+    // 设置推流暂停时,后台播放的暂停图片, 图片最大尺寸不能超过1920*1920.
+    mLivePusher.setConfig(mLivePushConfig);  
+```
+
 - **9.2) 设置setPauseFlag**
 在开始推流前，使用 TXLivePushConfig 的 setPauseFlag 接口设置切后台pause推流时需要停止哪些采集，停止视频采集则会推送pauseImg设置的默认图，停止音频采集则会推送静音数据。
 >  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示同时停止视频和音频采集，并且推送填充用的音视频流；
@@ -216,6 +241,14 @@ public void onResume() {
 }
 ```
 
+### step 9+: 后台推摄像头采集数据
+如果主播希望在切后台或者跳转其他界面还能看到摄像头采集的画面， 按照以下配置即可。
+ （1） step 9.1 和 step 9.2 无需设置。
+ （2） 在 step 9.3 中，注释 mLivePusher.pausePusher() 该方法。
+ （3） 在 step 9.4 中，注释 mLivePusher.resumePusher() 该方法。
+
+**<font color='red'>注意</font>**：使用该功能注意保护主播隐私。
+
 ### step 10: 提醒主播“网络不好”
 step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
 
@@ -232,7 +265,7 @@ step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY*
 观众端的画面表现符合预期以后，剩下要做的就是调整主播端的预览画面，这时可以通过 TXLivePusher 中的 setRenderRotation 接口，来旋转主播端看到的画面旋转方向，此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
 
 - **Activity自动旋转**
-Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://www.qcloud.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
+Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://cloud.tencent.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
 
 
@@ -241,7 +274,7 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 
 | 接口 | 说明 |
 |---------|---------|
-| playBGM | 通过path传入一首歌曲，[小直播Demo](https://www.qcloud.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
+| playBGM | 通过path传入一首歌曲，[小直播Demo](https://cloud.tencent.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
 | stopBGM|停止播放背景音乐|
 | pauseBGM|暂停播放背景音乐|
 | resumeBGM|继续播放背景音乐|

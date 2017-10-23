@@ -9,7 +9,7 @@ Auto Scaling in the following two scenarios may reduce costs and improve busines
 
 1. Lite Apps visits with obvious peak and idle hours: According to the prediction, if more than 1 set of CVM for business server cluster and session server cluster with less than 8 peak hours are required, 30% of the cost shall be saved if the method of **fixed servers only for idle hours + temporary servers added for peak hours** is used. With AS's scheduled scaling capability, Tencent Cloud allows you to add temporary servers in peak hours and reclaim and terminate the surplus servers in idle hours.
 
-2. Constant lite Apps visits: You can configure monitoring and alarm based scaling policy to deal with unexpected high load, maintain continuous service and earn time for troubleshooting. Abnormally high load includes [CC attack](http://baike.baidu.com/link?url=aSNcL5Q_xzDxPvFYRU3qbS11NIQXD5vwvI5yxtJTVlL0xhjAaLntwmDHVW8buUlH4bbNJqMzCPp8b1N2LX-OnwAUR3MnE9GhH-F7fomUac3) and unexpected traffic (for example, superfast spreading speed of "MYOTee" upon its launch, or burst visits brought by a certain event). Refer to the cases at the public welfare website [baobeihuijia](https://www.qcloud.com/community/article/651089001483090830).
+2. Constant lite Apps visits: You can configure monitoring and alarm based scaling policy to deal with unexpected high load, maintain continuous service and earn time for troubleshooting. Abnormally high load includes [CC attack](http://baike.baidu.com/link?url=aSNcL5Q_xzDxPvFYRU3qbS11NIQXD5vwvI5yxtJTVlL0xhjAaLntwmDHVW8buUlH4bbNJqMzCPp8b1N2LX-OnwAUR3MnE9GhH-F7fomUac3) and unexpected traffic (for example, superfast spreading speed of "MYOTee" upon its launch, or burst visits brought by a certain event). Refer to the cases at the public welfare website [baobeihuijia](https://cloud.tencent.com/community/article/651089001483090830).
 
 > Note: Auto Scaling is free, but the scaled CVM will be charged by seconds.
 
@@ -22,7 +22,7 @@ It will:
 
 
 ## Preconditions of Configuration
-Your WeChat Lite App should support auto scaling. To enable auto scaling for your WeChat Lite App, refer to [Detailed Steps](https://console.qcloud.com/la/guide).
+Your WeChat Lite App should support auto scaling. To enable auto scaling for your WeChat Lite App, refer to [Detailed Steps](https://console.cloud.tencent.com/la/guide).
 
 ## Configuring Auto Scaling Policy for Session Servers
 
@@ -30,7 +30,7 @@ Your WeChat Lite App should support auto scaling. To enable auto scaling for you
 
 As **scaling configuration** is the template for CVMs creation when scaling, we specify the region, model, image through scaling configuration in advance.
 
-1. Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click "Scaling Configuration" in the navigation bar.
+1. Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click "Scaling Configuration" in the navigation bar.
 
 2. Choose the project and region. Note that you must select the project and region of your WeChat Lite App.
 ![](https://mc.qcloudimg.com/static/img/653ebf516d940a90fd79728e5d319cdc/image.png)
@@ -44,7 +44,7 @@ As **scaling configuration** is the template for CVMs creation when scaling, we 
 
 ### 2. Create a Scaling Group
 
-In the [Auto Scaling Console](https://console.qcloud.com/autoscaling), click "New" and fill in the cluster management information as follows:
+In the [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling), click "New" and fill in the cluster management information as follows:
 
 - **Name**: Fill in an appropriate name, such as "Session Server Cluster".
 - **Minimum group size**: Lower limit of the number of cluster servers, such as "0".
@@ -62,7 +62,7 @@ Click **OK** to finish the creation.
 
 ### 3. Add Existing CVMs to the Scaling Group
 
-1. In the [Auto Scaling Console](https://console.qcloud.com/autoscaling), click on the scaling group name to enter the management page, and click "Add CVM" at the bottom of the page.
+1. In the [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling), click on the scaling group name to enter the management page, and click "Add CVM" at the bottom of the page.
 ![](https://mc.qcloudimg.com/static/img/8ed547b6d545cff5b6e22cd71a75402c/08.jpg)
 
 2. Select the existing session server to add to the scaling group in the pop-up dialog box.
@@ -109,7 +109,7 @@ This process is similar to that of configuring the session servers:
 Add 1 to the expected instance number of the scaling group and the group shall automatically scale up one server to the cluster. If the newly scale-up machine can handle requests normally, it indicates that the scaling group is working properly.
 ![](https://mc.qcloudimg.com/static/img/665e029c6abfa6a7ef3f9063c88df486/05.jpg)
 
-The scaling group also supports [View Scaling Activity History](https://www.qcloud.com/document/product/377/3804), ensuring your complete grasp of the scaling activity.
+The scaling group also supports [View Scaling Activity History](https://cloud.tencent.com/document/product/377/3804), ensuring your complete grasp of the scaling activity.
 
 Now, your WeChat Lite App is capable of intelligent capacity scaling. You no longer need to worry about the scale-up and scale-down. Just pay attention to the scaling group notification or check from time to time the history of scaling activities.
 

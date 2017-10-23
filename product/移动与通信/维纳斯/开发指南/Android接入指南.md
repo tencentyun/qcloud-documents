@@ -137,7 +137,7 @@ HttpClent实例使用WnsService.getWnsHttpClient()来获取,然后使用HttpClie
 2.业务侧最好打印出 response.getFirstHeader(WnsService.KEY_HTTP_RESULT)中的数据
 以便于bug定位
 
-**[注意]此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[http://www.qcloud.com/doc/product/276/控制台说明]()**
+**[注意]此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[http://cloud.tencent.com/doc/product/276/控制台说明]()**
 
 如下图所示:
 ```
@@ -204,7 +204,7 @@ private void sendHttpReq() {
 注意：
 1发送和接受数据大小限制为512KB。
 
-**[注意]此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[http://www.qcloud.com/doc/product/276/控制台说明]()**
+**[注意]此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[http://cloud.tencent.com/doc/product/276/控制台说明]()**
 
 ```
 //[必须] 定义wns的引用，从而使用其内部方法
@@ -275,7 +275,7 @@ private void sendHttpUrlConnReq(final String url)
 1.发送和接受数据大小限制为512KB。
 2.命令字禁止使用“wnscloud”作为前缀。
 
-**[注意]cmd必须是细化到接口，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置模块wnsdemo对应的路由。路由配置请参考：[http://www.qcloud.com/doc/product/276/控制台说明]()**
+**[注意]cmd必须是细化到接口，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置模块wnsdemo对应的路由。路由配置请参考：[http://cloud.tencent.com/doc/product/276/控制台说明]()**
 
 ```
 private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); //[必须] 定义wns的引用，从而使用其内部方法

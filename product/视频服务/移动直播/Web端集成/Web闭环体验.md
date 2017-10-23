@@ -71,7 +71,7 @@ PC 上的浏览器都不能原生支持直播视频流，所以如果 Web 页面
 ### Step3: Web页面制作
 这部分工作可以交给贵团队的 Web **前端工程师**处理。当然，从零开始制作一个支持在线直播观看，同时又具备聊天室功能的 Web 页面，还是需要一定的经验储备的，所以我们想要尽可能地为您提供一些快速上手的参考：
 
-小直播源码集中包含 Web 分享页面的 [DEMO源码](https://www.qcloud.com/document/product/454/6991) ，实现了**直播观看**、**文本消息**以及**点赞**等功能。
+小直播源码集中包含 Web 分享页面的 [DEMO源码](https://cloud.tencent.com/document/product/454/6991) ，实现了**直播观看**、**文本消息**以及**点赞**等功能。
 
 | 文件名 | 所属文件夹 | 功能说明 |
 |:-------: |:--------------:|-------------|
@@ -89,24 +89,24 @@ PC 上的浏览器都不能原生支持直播视频流，所以如果 Web 页面
 
 | 配置项 | 含义 | 参考文档 |
 |:-------: |:--------------|:----------:|
-| SERVER | 为该网页提供视频播放信息的业务服务器。 | [DOC](https://www.qcloud.com/document/product/454/8046#step4.3A-web.E5.90.8E.E5.8F.B0.E6.90.AD.E5.BB.BA) |
-| accountMode | IM SDK 的账号集成模式（配置要跟小直播中保持一致）。 | [DOC](https://www.qcloud.com/document/product/454/7980) | 
-| sdkAppID | IM 服务开通后分配的一个id，如果分享URL的参数中携带可以不配置。 | [DOC](https://www.qcloud.com/document/product/454/7953#3.2-im-sdk-appid) |
-| accountType |  IM 服务开通后分配的一个type，如果分享URL的参数中携带可以不配置。 | [DOC](https://www.qcloud.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
+| SERVER | 为该网页提供视频播放信息的业务服务器。 | [DOC](https://cloud.tencent.com/document/product/454/8046#step4.3A-web.E5.90.8E.E5.8F.B0.E6.90.AD.E5.BB.BA) |
+| accountMode | IM SDK 的账号集成模式（配置要跟小直播中保持一致）。 | [DOC](https://cloud.tencent.com/document/product/454/7980) | 
+| sdkAppID | IM 服务开通后分配的一个id，如果分享URL的参数中携带可以不配置。 | [DOC](https://cloud.tencent.com/document/product/454/7953#3.2-im-sdk-appid) |
+| accountType |  IM 服务开通后分配的一个type，如果分享URL的参数中携带可以不配置。 | [DOC](https://cloud.tencent.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
 
 #### 3.2 调试&部署页面
 - 如果您要调试，要注意直接 <font color='red'>在 Windows 下用浏览器打开 xiaozhibo.html 是不行的</font>，需要将其上传到一台可访问的服务器上进行调试，如果您没有自己的服务器，可以参照源码包里的 readme.pdf 部署一台。
  
-- 静态网页的部署推荐使用[CDN 内容分发网络](https://www.qcloud.com/product/cdn)，CDN 的优势就是能极大的缩减用户打开页面的速度，从而提升用户体验。
+- 静态网页的部署推荐使用[CDN 内容分发网络](https://cloud.tencent.com/product/cdn)，CDN 的优势就是能极大的缩减用户打开页面的速度，从而提升用户体验。
 
 ### Step4: Web后台搭建
 这部分工作可以交给贵团队的**后端工程师**处理，主要工作就是在您的业务服务器上提供一个 **信息查询接口：**。
 
 因为 Step3 中的 Web 页面是静态的，但是每个直播的信息都不一样，比如主播是谁？主播的头像是什么？房间的标题是什么？甚至，有没有录播的回放录像？
 
-这些信息就需要 Web 页面中的 xzb.js 通过 ajax 异步请求到您的业务后台服务器查询。我们在小直播中，将这一查询协议定义为 [GetUserInfo](https://www.qcloud.com/document/product/454/7895#9..E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E4.B8.BB.E6.92.AD.E7.9A.84.E8.AF.A6.E7.BB.86.E4.BF.A1.E6.81.AF)。
+这些信息就需要 Web 页面中的 xzb.js 通过 ajax 异步请求到您的业务后台服务器查询。我们在小直播中，将这一查询协议定义为 [GetUserInfo](https://cloud.tencent.com/document/product/454/7895#9..E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E4.B8.BB.E6.92.AD.E7.9A.84.E8.AF.A6.E7.BB.86.E4.BF.A1.E6.81.AF)。
 
-小直播源码集中包含 PHP 后台服务器 [DEMO源码](https://www.qcloud.com/document/product/454/6991) ，其中 GetUserInfo.php 中提供了对 GetUserInfo 协议的实现。
+小直播源码集中包含 PHP 后台服务器 [DEMO源码](https://cloud.tencent.com/document/product/454/6991) ，其中 GetUserInfo.php 中提供了对 GetUserInfo 协议的实现。
 
 ### Step5: 页面做了什么
 完成 Step4 之后基本已经搞定了本文档所言功能的对接，但到这里您的感觉可能是：
@@ -132,8 +132,8 @@ http://imgcache.qq.com/open/qcloud/video/share/xiaozhibo.html?sdkappid=140001234
 
 | 参数名 | 含义 | 备注 |
 |---------|---------|---------|
-| sdkappi | IM 服务开通后分配的一个id，用来进入聊天室的必备信息。 | [参考文档](https://www.qcloud.com/document/product/454/7953#3.2-im-sdk-appid) |
-| acctype |  IM 服务开通后分配的一个type，跟 sdkappi 配合使用。 | [参考文档](https://www.qcloud.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
+| sdkappi | IM 服务开通后分配的一个id，用来进入聊天室的必备信息。 | [参考文档](https://cloud.tencent.com/document/product/454/7953#3.2-im-sdk-appid) |
+| acctype |  IM 服务开通后分配的一个type，跟 sdkappi 配合使用。 | [参考文档](https://cloud.tencent.com/document/product/454/7953#3.3-im-sdk-.E8.B4.A6.E5.8F.B7.E7.B1.BB.E5.9E.8B) |
 | userid | 主播的 userid | 在小直播里，主播 id 即为房间号 |
 | type | 视频类型 | 0 - 代表直播， 1 - 代表点播，也就是录像回放 | 
 

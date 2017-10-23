@@ -1,6 +1,6 @@
 ## Applying for a Tunnel
 
-1) Open [Tencent Cloud Direct Connect Console - Direct Connect Tunnel](https://console.qcloud.com/vpc/dcConn).
+1) Open [Tencent Cloud Direct Connect Console - Direct Connect Tunnel](https://console.cloud.tencent.com/vpc/dcConn).
 
 2) Click "New" to initiate the application for a Direct Connect tunnel. You need to enter the following information to create a Direct Connect tunnel:
 
@@ -26,7 +26,7 @@ Currently, the system only supports the creation and deletion of a Direct Connec
 
 ## Deleting a Tunnel
 
-1) Open [Tencent Cloud Direct Connect Console - Direct Connect Tunnel](https://console.qcloud.com/vpc/dcConn).
+1) Open [Tencent Cloud Direct Connect Console - Direct Connect Tunnel](https://console.cloud.tencent.com/vpc/dcConn).
 
 2) Locate the Direct Connect tunnel to delete in the list, click "Delete" and then "OK".
 
@@ -36,7 +36,7 @@ Currently, the system only supports the creation and deletion of a Direct Connec
 
 It's possible to query monitoring information (outbound and inbound bandwidth, latency) of a Direct Connect tunnel, and this can be done in the console or via API. The procedure in the console is as follows:
 
-1) open [Tencent Cloud Direct Connect Console - Direct Connect Tunnel](https://console.qcloud.com/vpc/dcConn).
+1) open [Tencent Cloud Direct Connect Console - Direct Connect Tunnel](https://console.cloud.tencent.com/vpc/dcConn).
 
 2) Locate the Direct Connect tunnel in the list, and click the "Monitoring" button to query its monitoring information.
 
@@ -44,7 +44,7 @@ It's possible to query monitoring information (outbound and inbound bandwidth, l
 
 It's possible to configure alarms for a Direct Connect tunnel. The configuration steps are as follows:
 
-1) Open [Tencent Cloud Cloud Monitoring - Alarm Policy Console](https://console.qcloud.com/monitor/policylist).
+1) Open [Tencent Cloud Cloud Monitoring - Alarm Policy Console](https://console.cloud.tencent.com/monitor/policylist).
 
 2) Enter the name of the alarm policy.
 
@@ -57,4 +57,4 @@ It's possible to configure alarms for a Direct Connect tunnel. The configuration
 
 5) Set the receiving group and click OK to complete the configuration of the alarm policy.
 
-After the Direct Connect tunnel alarm is configured, you can receive the system alarm according to the setting of the alarm receiving group. For more information on monitoring, refer to [Help for Cloud Monitoring](https://www.qcloud.com/doc/product/248/967).
+After the Direct Connect tunnel alarm is configured, you can receive the system alarm according to the setting of the alarm receiving group. For more information on monitoring, refer to [Help for Cloud Monitoring](https://cloud.tencent.com/doc/product/248/967).

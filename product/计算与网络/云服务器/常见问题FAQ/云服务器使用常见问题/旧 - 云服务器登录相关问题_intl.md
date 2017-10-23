@@ -9,18 +9,18 @@ At present, long latency occurs quite often if you need to manage and operate a 
 
 2) After the purchase is made successfully, log in to the Windows CVM located in Hong Kong.
 For details, see:
-[Log in to a Windows CVM with public IP from a Windows machine](http://www.qcloud.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
-[Log in to a Windows CVM with Console VNC](http://www.qcloud.com/doc/product/213/%E6%8E%A7%E5%88%B6%E5%8F%B0VNC%E7%99%BB%E5%BD%95Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+[Log in to a Windows CVM with public IP from a Windows machine](http://cloud.tencent.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+[Log in to a Windows CVM with Console VNC](http://cloud.tencent.com/doc/product/213/%E6%8E%A7%E5%88%B6%E5%8F%B0VNC%E7%99%BB%E5%BD%95Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 
 3) Log in to your CVM located in North America from a Windows CVM located in Hong Kong.
 
 You can use the methods below to log in to your CVM located in North America from a Windows CVM located in Hong Kong:
 
 - Log in to a Linux CVM located in North America
-[Use password to log in to a Linux CVM with public IP from a Windows machine](http://www.qcloud.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E4%BD%BF%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Linux%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
-[Use key to log in to a Linux CVM with public IP from a Windows machine](http://www.qcloud.com/document/product/213/2036)
+[Use password to log in to a Linux CVM with public IP from a Windows machine](http://cloud.tencent.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E4%BD%BF%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Linux%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+[Use key to log in to a Linux CVM with public IP from a Windows machine](http://cloud.tencent.com/document/product/213/2036)
 
 
 - Log in to a Windows CVM located in North America 
-[Log in to a Windows CVM with public IP from a Windows machine](http://www.qcloud.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
-[Log in to a Windows CVM with Console VNC](http://www.qcloud.com/doc/product/213/%E6%8E%A7%E5%88%B6%E5%8F%B0VNC%E7%99%BB%E5%BD%95Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+[Log in to a Windows CVM with public IP from a Windows machine](http://cloud.tencent.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+[Log in to a Windows CVM with Console VNC](http://cloud.tencent.com/doc/product/213/%E6%8E%A7%E5%88%B6%E5%8F%B0VNC%E7%99%BB%E5%BD%95Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)

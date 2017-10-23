@@ -6,7 +6,7 @@
 ```
 <script type="text/javascript" src="xxx"></script>
 ```
-提示：[JS地址的获取方法](https://www.qcloud.com/doc/product/295/6620)
+提示：[JS地址的获取方法](https://cloud.tencent.com/doc/product/295/6620)
 ### 2.2 添加验证码展示控件
 ```
  <div id="TCaptcha" style="" ></div>

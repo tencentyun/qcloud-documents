@@ -1,5 +1,5 @@
 ## 1.Project Structure
-[Download](https://www.qcloud.com/document/product/454/6991) Mini LVB's source code and find the TCLVBIMDemo.xcworkspace file. This is Mini LVB's XCode project workspace to manage Mini LVB's project code and 3rd-party open-source class library dependencies (under the directory Pods). Use this workspace to compile or browse code related to Mini LVB, instead of directly open Mini LVB's project file TCLVBIMDemo.xcodeproj. After opening TCLVBIMDemo.xcworkspace, you will see the following project directory structure:
+[Download](https://cloud.tencent.com/document/product/454/6991) Mini LVB's source code and find the TCLVBIMDemo.xcworkspace file. This is Mini LVB's XCode project workspace to manage Mini LVB's project code and 3rd-party open-source class library dependencies (under the directory Pods). Use this workspace to compile or browse code related to Mini LVB, instead of directly open Mini LVB's project file TCLVBIMDemo.xcodeproj. After opening TCLVBIMDemo.xcworkspace, you will see the following project directory structure:
 ![](//mc.qcloudimg.com/static/img/8673bf53392e34a9f38d8a5a8625e8eb/image.jpg)
 
 | Project Directory | Description | 
@@ -21,7 +21,7 @@ Download the code and open **TCLVBIMDemo.xcworkspace** project file (do NOT dire
 **Step 3: Configure other TARGETS**
 Follow step 1 and 2 to configure the other two targets: TCLVBIMDemoUpload and TCLVBIMDemoUploadUI. These two targets are used to push videos captured by Replaykit. They can be removed if this feature is not required.
 
-After configuration, the project should be able to run on real devices. However, to actually enable Mini LVB's features, TCConstants.h needs to be configured. For more information, please see [Mobile End Integration](https://www.qcloud.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90.E5.8F.8A.E5.9B.9E.E8.B0.83.E8.AE.BE.E7.BD.AE).
+After configuration, the project should be able to run on real devices. However, to actually enable Mini LVB's features, TCConstants.h needs to be configured. For more information, please see [Mobile End Integration](https://cloud.tencent.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90.E5.8F.8A.E5.9B.9E.E8.B0.83.E8.AE.BE.E7.BD.AE).
 
 ## 3. Module Introduction
 Mini LVB is divided into 7 modules by their functions. They are: account, LVB/Replay list management, push, playback, messaging, profile and joint broadcasting. The code is also classified in this way. Below we will introduce these modules and their implementations respectively:
@@ -29,8 +29,8 @@ Mini LVB is divided into 7 modules by their functions. They are: account, LVB/Re
 ### Account Module
 #### Module Introduction
 - Account module handles the logics of user login/registration and login cache.
-- Login and registration are implemented by login via [TLS SDK Delegate](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F).
-- If you already have your own account system, you can simply replace this module and call guestLogin function in TCIMPlatform to use IM channel as a guest. For more information, please see [Replace Account](https://www.qcloud.com/doc/api/258/6441).
+- Login and registration are implemented by login via [TLS SDK Delegate](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F).
+- If you already have your own account system, you can simply replace this module and call guestLogin function in TCIMPlatform to use IM channel as a guest. For more information, please see [Replace Account](https://cloud.tencent.com/doc/api/258/6441).
 - After the TLS SDK login authentication is successful, you can login to the IM module by passing UserId and UserSig returned by the authentication to the login interface of the ImSDK.
 - Users can register and login by either username and password or mobile verification code.
 - Account module caches locally the basic information (UserId and UserSig) of the last logged-in user. It will get the information of recently logged-in users from the interface and determine if re-login is required.
@@ -106,7 +106,7 @@ Please see the UI hierarchy of the push module.
 
 ### Message
 #### Module Introduction
-- Mini LVB's interactive message feature is mainly based on the group chat feature of [ImSDK](https://www.qcloud.com/doc/product/269/1569). It's available when IMSDK is logged-in.
+- Mini LVB's interactive message feature is mainly based on the group chat feature of [ImSDK](https://cloud.tencent.com/doc/product/269/1569). It's available when IMSDK is logged-in.
 - Every live room is a large LVB group, which needs to be created before actually pushing occurs on the push end and disbanded after the pushing ends. Player ends join the group when they join the live room, and exit the group when they exit the room.
 - To listen for desired messages, implement a messaging listener class. Currently supported message types include text message, "Like" message, user joining/leaving message and group disband message.
 - All messages are sent as text messages in a uniform JSON format. The JSON carries information about message type, sender ID, nickname, profile photo and message text. The receivers receive and parse the JSON, and accordingly use the callbacks to pass all kinds of messages to the upper levels.

@@ -8,7 +8,7 @@
   - API调用地址为： http://<font color='red'>fcgi.</font>video.qcloud.com/common_access
 
 - **说明**
-  - 由于文件的落地时间对您不可知，所以这种主动查询接口在调用时机上并不是特别好掌握，更推荐使用[被动事件通知](https://www.qcloud.com/doc/api/258/5957)（event_type = 100）机制。
+  - 由于文件的落地时间对您不可知，所以这种主动查询接口在调用时机上并不是特别好掌握，更推荐使用[被动事件通知](https://cloud.tencent.com/doc/api/258/5957)（event_type = 100）机制。
 
 ## 2.输入参数
 
@@ -16,8 +16,8 @@
 |---------|---------|---------|---------|---------|
 | cmd                        | 客户ID     | int       | 即直播APPID，用于区分不同客户的身份 |  Y          | 
 | interface                 | 接口名称   | string |  如：Get_LivePushStat  |  Y          | 
-| t | [有效时间](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | int  | UNIX时间戳(十进制) |  Y | 
-| sign | [安全签名](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | string | MD5(key+t) | Y | 
+| t | [有效时间](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | int  | UNIX时间戳(十进制) |  Y | 
+| sign | [安全签名](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5) | string | MD5(key+t) | Y | 
 | Param.s.channel_id | 直播码 | string | | Y|
 | Param.n.page_no   | 分页页码  | int  | 从1开始，默认为1 | N |
 | Param.n.page_size | 分页大小 | int   |1~100，默认为10  | N |

@@ -1,25 +1,25 @@
 
 ## 1. API Description
 
-This API (CreateSnapshot) is used to create snapshots for the specified cloud disk. This API will return the ID of the newly created snapshot, and users can use this ID to call [DescribeSnapshots (Query Snapshot List)](https://www.qcloud.com/doc/api/364/2530) API to query the snapshot creation progress (percent). For snapshot introductions, refer to [Snapshot Features](https://www.qcloud.com/doc/product/213/502).
+This API (CreateSnapshot) is used to create snapshots for the specified cloud disk. This API will return the ID of the newly created snapshot, and users can use this ID to call [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API to query the snapshot creation progress (percent). For snapshot introductions, refer to [Snapshot Features](https://cloud.tencent.com/doc/product/213/502).
 
 Domain for API request:<font style="color:red">snapshot.api.qcloud.com</font>
 
 
 Usage restrictions:
-1. Only a cloud disk with snapshot ability can create snapshots. Whether a cloud disk has snapshot ability can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://www.qcloud.com/doc/api/364/2519) API. See the `snapshotAbility` field in output parameters. 
-2. For the number of snapshots that can be created, refer to [Product Usage Restriction](https://www.qcloud.com/doc/product/362/5145).
+1. Only a cloud disk with snapshot ability can create snapshots. Whether a cloud disk has snapshot ability can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `snapshotAbility` field in output parameters. 
+2. For the number of snapshots that can be created, refer to [Product Usage Restriction](https://cloud.tencent.com/doc/product/362/5145).
 
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://www.qcloud.com/document/api/213/6976
+The following request parameter list only provides API request parameters. For other parameters, refer to [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976
 ).
 
 
 | Parameter Name | Required  | Type | Description |
 |---------|---------|---------|---------|
-| storageId | Yes | String | ID of the cloud disk that needs to create snapshots, which can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](https://www.qcloud.com/doc/api/364/2519) API |
+| storageId | Yes | String | ID of the cloud disk that needs to create snapshots, which can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API |
 | snapshotName | No | String | Snapshot name. If not passed, the new snapshot name is "Unnamed" |
 
 
@@ -33,7 +33,7 @@ The following request parameter list only provides API request parameters. For o
 
 ## 4. Error Code List
 
-The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://www.qcloud.com/doc/api/364/4207).
+The following list only provides the business logic error codes for this API. For additional common error codes, refer to [Cloud Block Storage Error Codes](https://cloud.tencent.com/doc/api/364/4207).
 
 | Error Code | English Description | Error Description |
 | ------- | ------- | ------- |
@@ -49,7 +49,7 @@ The following list only provides the business logic error codes for this API. Fo
 Input:
 <pre>
 https://snapshot.api.qcloud.com/v2/index.php?
-<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &Action=CreateSnapshot
 &storageId=disk-g73hhs4o
 &snapshotName=mySnap

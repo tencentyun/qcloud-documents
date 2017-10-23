@@ -1,12 +1,12 @@
 连接到MariaDB数据库的方式有两种：
-- 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://www.qcloud.com/document/product/215/535" target="_blank">VPC概述</a>。）
+- 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC概述</a>。）
 - 外网访问：在外网的Windows或者Linux主机中，安装数据库客户端来访问腾讯云中的MariaDB数据库实例的外网地址。
 
 <font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。
 
 无论从内网还是外网访问，都需要先创建帐号。
 ## 创建帐号
-1. 在[腾讯云控制台](https://console.qcloud.com/)中，进入菜单【云产品】-【关系型数据库】-【TDSQL(MariaDB)】-【实例列表】，单击运行中的MariaDB数据库实例的ID名，进入详情页。
+1. 在[腾讯云控制台](https://console.cloud.tencent.com/)中，进入菜单【云产品】-【关系型数据库】-【TDSQL(MariaDB)】-【实例列表】，单击运行中的MariaDB数据库实例的ID名，进入详情页。
 ![](//mc.qcloudimg.com/static/img/08e24afbf51b941df4b8c4a893857b31/image.png)
 2. 在**帐号管理**页单击【创建帐号】，并设置帐号的相关权限。此处以帐号test123为例，开通全部权限。
 创建帐号，设置密码，并单击【确定】。
@@ -15,16 +15,16 @@
 ![](//mc.qcloudimg.com/static/img/38297ac6bb2bde4a085cddd53ba8dcd7/image.png)
 查看帐号权限的配置是否正确，然后单击**关闭**完成配置。
 ![](//mc.qcloudimg.com/static/img/385bfb7ab899da5266a56242601a4c62/image.png)
-如需了解更多关于帐号创建的信息，请参考https://www.qcloud.com/document/product/237/7054。
+如需了解更多关于帐号创建的信息，请参考https://cloud.tencent.com/document/product/237/7054。
 
 ## 访问数据库
 连接到MariaDB数据库的方式有两种：
- - 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://www.qcloud.com/document/product/215/535" target="_blank">VPC概述</a>。）
+ - 内网访问：使用腾讯云中一台与MariaDB数据库实例网络相通的CVM来访问MariaDB数据库实例的内网地址。（注意：此台CVM需要与数据库处于某个VPC下的同一个子网中，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC概述</a>。）
  - 外网访问：在外网的Windows或者Linux主机中，安装数据库客户端来访问腾讯云中的MariaDB数据库实例的外网地址。
 
 ### 内网访问
 
-1. 登录到与此数据库实例属于同一个可用区的网络可达的CVM主机，关于登录CVM主机请查看<a href="https://www.qcloud.com/document/product/213/2764" target="_blank">WIndows CVM入门</a>或<a href="https://www.qcloud.com/document/product/213/2936" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MariaDB数据库实例都处于基础网络之中，或者处于同一个VPC中。
+1. 登录到与此数据库实例属于同一个可用区的网络可达的CVM主机，关于登录CVM主机请查看<a href="https://cloud.tencent.com/document/product/213/2764" target="_blank">WIndows CVM入门</a>或<a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MariaDB数据库实例都处于基础网络之中，或者处于同一个VPC中。
 2. 请根据CVM的操作系统选择推荐的连接方式。
 **-从Windows系统登录**
 1). 下载并安装MariadDB的客户端。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/。

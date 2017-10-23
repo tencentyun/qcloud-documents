@@ -2,7 +2,7 @@
 
 REST API是腾讯云提供给APP后台的HTTP管理接口，其主要目的在于为APP后台提供一个后台管理入口。目前云通信支持的REST API参见[REST API接口列表](/doc/product/269/REST%20API接口列表)。 
 
-除了REST API，APP[控制台](http://www.qcloud.com/doc/product/269/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#3.10-.E6.8E.A7.E5.88.B6.E5.8F.B0)亦可实现简单的数据管理、单发/群发消息，开发者可以在控制台上进行简单的数据管理、查看及测试。相比之下，REST API接口较为原始，但管理能力却更为强大。
+除了REST API，APP[控制台](http://cloud.tencent.com/doc/product/269/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#3.10-.E6.8E.A7.E5.88.B6.E5.8F.B0)亦可实现简单的数据管理、单发/群发消息，开发者可以在控制台上进行简单的数据管理、查看及测试。相比之下，REST API接口较为原始，但管理能力却更为强大。
 
 为了安全性，REST API仅提供HTTPS接口。
 
@@ -124,8 +124,8 @@ REST API的应答包体也是JSON格式，其格式符合如下特征：
 
 ### 5.1 REST API调试工具 
 
-通过[REST API在线调试工具](http://avc.qcloud.com/wiki2.0/im/APITester/APITester.html)调试本接口
-https://avc.qcloud.com/wiki2.0/im/APITester/APITester.html
+通过[REST API在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html)调试本接口
+https://avc.qcloud.com/im/APITester/APITester.html
 使用案例参见[这里](/doc/product/269/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%9B%86%E6%88%90%E6%8C%87%E5%BC%95#5.2-.E5.AF.BC.E5.85.A5.E8.B4.A6.E5.8F.B7.E5.88.B0.E4.BA.91.E9.80.9A.E4.BF.A1.EF.BC.88.E4.BD.BF.E7.94.A8.E4.BA.91.E9.80.9A.E8.AE.AFrest-api.E8.B0.83.E8.AF.95.E5.B7.A5.E5.85.B7.EF.BC.89)。 
 
 ### 5.2 Postman 

@@ -4,7 +4,7 @@
 <br> 接口名：AntiFraud
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/document/product/295/7279)页面。其中，此接口的Action字段为AntiFraud。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)页面。其中，此接口的Action字段为AntiFraud。
 <br>注意：以下每一个参数对于识别恶意都非常重要，任何参数的缺少都有可能影响识别效果 。
 <table class="t">
 <th><b>参数名称</b>
@@ -122,7 +122,7 @@
 </th></tr>
 <td> code
 </td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/document/product/295/7285"target="black">公共错误码</a>
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/document/product/295/7285">公共错误码</a>
 <tr><td> codeDesc
 </td><td> String
 </td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
@@ -154,7 +154,7 @@ RiskDetail类型说明
 </th><th> <b>说明</b>
 </th></tr>
 <tr>
-<td rowspan="7"> 帐号风险
+<td rowspan="8"> 帐号风险
 </td>
 <td> 信贷中介
 </td>
@@ -190,6 +190,11 @@ RiskDetail类型说明
   <td>失信名单 </td>
   <td>7</td>
   <td>失信名单</td>
+</tr>
+<tr>
+  <td>异常支付行为 </td>
+  <td>8</td>
+  <td>支付行为异常包括支付频次、额度、场景等方面有过异常的</td>
 </tr>
 <tr>
 <td rowspan="4"> 区域风险
@@ -326,7 +331,7 @@ RiskDetail类型说明
 ## 4.示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/a8b291becf06c9fefab003f6afc16509/AntiFraud.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/06397c265ae2dc364f2f47559125ce5b/AntiFraud.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/70b700e34e982822af2a020454185a8d/AntiFraud.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/05c3d0f6edbcd297502ab7407e91275b/AntiFraud.zip)
 
-一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/document/product/295/7279)小节。
+一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)小节。
 ```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
@@ -337,6 +342,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 ```
 
 ## 5.响应示例
+样例代码
 ```
 {
 "code": 0,
@@ -353,3 +359,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 　]
 }
 ```
+【如何使用】
+	反欺诈服务通过API的方式灵活使用，不受客户IT部署的物理限制，最快捷的支持客户使用。
+【客户价值】
+	天御反欺诈服务提供8大纬度的恶意数据模型，覆盖IP地址、手机号、手机设备、银行卡、身份信息、邮箱、QQ号、微信号等数据，最大程度的帮助客户发现欺诈风险，对VIP客户支持线下场景的VIP版服务

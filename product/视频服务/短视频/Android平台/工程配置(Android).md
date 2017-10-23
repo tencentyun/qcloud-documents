@@ -76,12 +76,8 @@ allprojects {
 
 | so文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
-| libliteavsdk.so              | 小直播SDK 核心组件              |
-| libsaturn.so                 | 小直播SDK 核心组件              |
 | libTXSHA1.so                 | 计算上传文件的 SHA 值 jar 包，此组件用于短视频上传(TXUGCPublish)功能    |
-| libijkffmpeg.so              | ffmpeg 基础库（ijk版本），用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
-| libijkplayer.so              | ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
-| libijksdl.so                 |  ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题        |
+
 
 ### 4.2 拷贝文件
 

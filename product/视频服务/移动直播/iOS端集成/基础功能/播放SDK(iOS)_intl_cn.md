@@ -149,7 +149,7 @@ _txLivePlayer.recordDelegate = recordListener;
 ```
 - 录制的进度以时间为单位，由 TXVideoRecordListener 的 onRecordProgress 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 onRecordComplete 通知出来。
-- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://www.qcloud.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
+- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
 
 ### step 10: mp4本地缓存播放（仅点播）
 点播播放器支持对mp4的本地缓存，在观看同一个视频的时候可以节省流量，默认没有开启，开启此功能需要配置两个参数：本地缓存目录及需要缓存的视频个数。
@@ -196,7 +196,7 @@ _txLivePlayerConfig.maxCacheItems = 2;
 TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime 属性被设置的很小，那么 LOADING 就会变得非常频繁，如果你您发现有频繁LOADING的情况出现，请参考[卡顿&延迟](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) 进行校调。
 
 - **PLAY_PROGRESS 播放进度的处理**
-如果您对如何处理点播时的 PLAY_EVT_PLAY_PROGRESS 事件没有思路，可以参考示例代码-[进度处理](https://www.qcloud.com/document/product/454/7896)。
+如果您对如何处理点播时的 PLAY_EVT_PLAY_PROGRESS 事件没有思路，可以参考示例代码-[进度处理](https://cloud.tencent.com/document/product/454/7896)。
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -259,7 +259,7 @@ TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime
 
 **播放器本身在其中起到了更为关键的决定性作用**，同样的网络环境和播放地址，不同的播放器可能会表现出完全不同的延迟和卡顿率。（比如 PC 浏览器上主流的 flash 播放器会因为播放策略过于简单粗暴，产生延迟越对越多的问题）
 
-所以，在您完成本篇文档前面部分罗列的功能代码对接后，请务必阅读 [卡顿优化-播放端优化](https://www.qcloud.com/document/product/454/7946#5.-.E6.92.AD.E6.94.BE.E7.AB.AF.E7.9A.84.E4.BC.98.E5.8C.969) 来校调出最适合您的业务场景的播放模式。
+所以，在您完成本篇文档前面部分罗列的功能代码对接后，请务必阅读 [卡顿优化-播放端优化](https://cloud.tencent.com/document/product/454/7946#5.-.E6.92.AD.E6.94.BE.E7.AB.AF.E7.9A.84.E4.BC.98.E5.8C.969) 来校调出最适合您的业务场景的播放模式。
 
 - **三种模式的特性对比**
 

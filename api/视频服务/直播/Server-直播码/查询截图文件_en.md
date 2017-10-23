@@ -17,7 +17,7 @@
   - The screenshot service is not a completely open service. It provides API support only for VIP customers. The API is invalid for customers who haven't activated screenshot-related services.
 
 - **History**
-  - Live_Queue_Get was planned to be used to retrieve various types of messages. As the [Notification Mechanism](https://www.qcloud.com/doc/api/258/5957) becomes gradually accepted by more customers, this service is not widely applied. Currently, this service is mainly used to provide service for high frequency events such as screenshot.
+  - Live_Queue_Get was planned to be used to retrieve various types of messages. As the [Notification Mechanism](https://cloud.tencent.com/doc/api/258/5957) becomes gradually accepted by more customers, this service is not widely applied. Currently, this service is mainly used to provide service for high frequency events such as screenshot.
 
 
 ## 2. Input Parameters
@@ -26,8 +26,8 @@
 |---------|---------|---------|---------|---------|
 | appid                       | Customer ID     | int       | LVB APPID used for identifying customers |  Y          | 
 | interface                 | API name   | string |  such as: Get_LivePushStat  |  Y          | 
-| t | [Validity period](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
-| sign | [Security signature](https://www.qcloud.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
+| t | [Validity period](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | int  | UNIX time stamp (decimal) |  Y | 
+| sign | [Security signature](https://cloud.tencent.com/doc/api/258/5956#.E5.AE.89.E5.85.A8.E6.A3.80.E6.9F.A5 ) | string | MD5 (key + t) | Y | 
 | Param.n.bid   | Message queue ID  | int  | 100: ID of the dedicated screenshot queue | Y |
 | Param.n.count | Number of messages obtained at a time | int   |1-100. Default value is 1 | N |
 

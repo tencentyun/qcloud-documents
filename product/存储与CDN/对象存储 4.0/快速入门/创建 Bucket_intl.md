@@ -30,7 +30,7 @@ COS supports multi-region storage which is currently available in three regions 
 | East China   | sh   | [bucketname]-[appid].cossh.myqcloud.com | sh.file.myqcloud.com | Launched  |
 | Singapore  | -    | -                                       | -                    | To be determined |
 
-**Private Network Cross-Region Access: Different Tencent Cloud Services in different regions cannot be visited directly. If you need to achieve private network cross-region access (for example, CVM in Guangzhou needs the data on Singapore COS), then you need to use VPC to deploy exclusive network tunnel to implement high-speed access.  [Click to view more information about VPC](https://www.qcloud.com/product/vpc.html)**
+**Private Network Cross-Region Access: Different Tencent Cloud Services in different regions cannot be visited directly. If you need to achieve private network cross-region access (for example, CVM in Guangzhou needs the data on Singapore COS), then you need to use VPC to deploy exclusive network tunnel to implement high-speed access.  [Click to view more information about VPC](https://cloud.tencent.com/product/vpc.html)**
 
 ## Access Permission
 > Public read permission and private write permission: Anyone (including anonymous visitors) has read permission to the files in the Bucket, but only the Bucket creator and accounts with the appropriate permission have write permission to the files in the Bucket.

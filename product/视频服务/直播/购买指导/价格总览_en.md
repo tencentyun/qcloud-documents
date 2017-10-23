@@ -99,7 +99,7 @@ Using value-added LVB services can produce related costs. Currently, the billed 
 
 ## 2.1 Recording Costs
 The price of recording in Tencent Cloud LVB service: 4.6 USD/channel/month. The overall channels equal the maximum concurrent recording channels in a month.
-The recorded files are stored in the Tencent Cloud VOD system and can produce VOD and storage costs. It can also produce VOD traffic/bandwidth costs during video playback. For information on VOD billing, please see [Product Price](https://www.qcloud.com/product/vod#price)
+The recorded files are stored in the Tencent Cloud VOD system and can produce VOD and storage costs. It can also produce VOD traffic/bandwidth costs during video playback. For information on VOD billing, please see [Product Price](https://cloud.tencent.com/product/vod#price)
 
 ## 2.2 Screencap and Porn Detection Costs
 

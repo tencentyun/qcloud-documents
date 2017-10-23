@@ -14,8 +14,8 @@ When developing mini-apps, image resources usually take up a great deal of space
 
 
 ## Preparation
-* Go to [Tencent Cloud Official Site](https://www.qcloud.com) and register an account
-* Log in to [Cloud Object Storage Service (COS) Console](https://console.qcloud.com/cos4), activate COS service and create Bucket
+* Go to [Tencent Cloud Official Site](https://cloud.tencent.com) and register an account
+* Log in to [Cloud Object Storage Service (COS) Console](https://console.cloud.tencent.com/cos4), activate COS service and create Bucket
 * Download the [WeCOS Tool](https://github.com/tencentyun/wecos)
 * Install [Node.js](https://nodejs.org) environment
 
@@ -50,7 +50,7 @@ Example of the configurations in `wecos.config.json`:
 | Configuration | Type | Description |
 |:-- |:-- |:-- |
 | appDir | **[String]** | Default `./app`, project directory of the mini-app |
-| cos | **[Object]** | (Required) configuration information of the COS to upload resources to. You can view some of the information from the [COS Console](https://console.qcloud.com/cos4/secret) |
+| cos | **[Object]** | (Required) configuration information of the COS to upload resources to. You can view some of the information from the [COS Console](https://console.cloud.tencent.com/cos4/secret) |
 
 
 ## Use
@@ -122,9 +122,9 @@ If you want to change the domain for the image link in the codes, you can config
 
 Uploading images onto COS will reduce the size of app packages, but this will also reduce access speed if the images are too large, which will in turn affect user experience
 
-In addition to uploading images to the cloud, WeCOS also provides image compression feature which is base on [Tencent Cloud Image](https://www.qcloud.com/product/ci).
+In addition to uploading images to the cloud, WeCOS also provides image compression feature which is base on [Tencent Cloud Image](https://cloud.tencent.com/product/ci).
 
-First, you need to create a bucket with the same name that of COS in the [Cloud Image Console](https://console.qcloud.com/ci)
+First, you need to create a bucket with the same name that of COS in the [Cloud Image Console](https://console.cloud.tencent.com/ci)
 
 Next, enable this option, after which the resources will be uploaded after being compressed (Note: Compression may not reduce the size of certain images that are already small enough)
 

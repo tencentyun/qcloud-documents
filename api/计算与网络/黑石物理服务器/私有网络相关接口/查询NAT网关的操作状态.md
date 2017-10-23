@@ -1,44 +1,66 @@
-## 1. 接口描述
+## 功能描述
 
-本接口(QueryBmNatGatewayProductionStatus)用于查询黑石NAT网关的操作状态
-接口请求域名：<font style="color:red">bmvpc.api.qcloud.com</font>
+QueryBmNatGatewayProductionStatus 接口用于查询操作黑石NAT网关任务的执行状态
 
-## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为QueryBmNatGatewayProductionStatus。
+接口请求域名：bmvpc.api.qcloud.com
+
+## 请求
+
+### 请求示例
+```
+GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=QueryBmNatGatewayProductionStatus
+    &<公共请求参数>
+    &taskId=<NAT异步任务ID>
+```
+### 请求参数
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为QueryBmNatGatewayProductionStatus。
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| taskId | 是 | String | 任务ID, 用该ID查询最后结果|
+| taskId | 是 | String | 任务ID, 可使用该ID查询任务执行结果|
 
-
-## 3. 输出参数
-
-| 参数名称 | 类型 | 描述 |
-|---------|---------|---------|
-| code | int | 错误码。0: 成功, 其他值: 失败|
-| message | string | 错误信息|
-| data.result | int | 0为执行成功，1为执行失败，2为正在执行中 |
-
- ## 4. 错误码表
- 该接口没有业务错误码.
-
-
-
-## 5. 示例
-输入
-<pre>
-https://vpc.api.qcloud.com/v2/index.php?Action=QueryBmNatGatewayProductionStatus
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-&taskId=2160000000
-</pre>
-输出
+## 响应
+### 响应示例
 ```
 {
-    "code":"0",
-    "message":"",
-    "data":{
-          "result":1
-		}
+    "code": "0",
+    "message": "",
+    "data": {
+        "status": <任务执行状态>
+    }
 }
 ```
 
+### 响应参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 错误码。0: 成功, 其他值: 失败|
+| message | String | 错误信息|
+| data.status | Int | 0为执行成功，1为执行失败，2为正在执行中 |
+
+## 实际案例
+
+### 请求
+```
+GET https://bmvpc.api.qcloud.com/v2/index.php?	
+	Action=QueryBmNatGatewayProductionStatus
+	&SecretId=AKID1ub7R1JoyBF7nHqjk7IH8nGWaR6Yezwd
+	&Nonce=56046
+	&Timestamp=1507703517
+	&Region=gz
+	&taskId=3000
+	&Signature=QKEu1BoztPhLn%2B1MRThSbNogd1s%3D
+```
+
+### 响应
+
+```
+{
+    "code": "0",
+    "message": "",
+    "data": {
+        "status": 1
+    }
+}
+```

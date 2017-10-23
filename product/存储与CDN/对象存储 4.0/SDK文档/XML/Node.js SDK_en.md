@@ -18,7 +18,7 @@ npm i cos-nodejs-sdk-v5 --save
 
 1. 使用SDK需要您的运行环境包含nodejs 以及npm , nodejs版本建议7.0版本以上
 2. 安装好 npm 之后记得在sdk的解压目录npm install 一次（安装依赖包）；
-3. 去您的控制台获取 AppId, SecretId, SecretKey, 地址在 https://console.qcloud.com/capi
+3. 去您的控制台获取 AppId, SecretId, SecretKey, 地址在 https://console.cloud.tencent.com/capi
 
 
 ### SDK配置

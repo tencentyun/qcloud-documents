@@ -77,5 +77,5 @@ CDN 集群存在目的是 **分发** 数据流：如果主播在上海，那么�
 | 服务端混流 | 下行数据只有一路，所以对于高并发的直播场景，能有效降低带宽消耗。| 目前最多支持 1v3 混流。 | 需要调用混流CGI并正确设置混流参数 | 
 
 ## 对接攻略
-- [视频连麦（iOS）](https://www.qcloud.com/document/product/454/8871)
-- [视频连麦（Android）](https://www.qcloud.com/document/product/454/8872)
+- [视频连麦（iOS）](https://cloud.tencent.com/document/product/454/8871)
+- [视频连麦（Android）](https://cloud.tencent.com/document/product/454/8872)

@@ -42,17 +42,17 @@ A newly purchased CDB can be used in the VPC. It should be noted that once you s
 2) On the Cloud Database purchase page, click "VPC" on "Network" tab, and select the VPC and the corresponding subnets created in the above steps, to add the newly purchased CDB to the VPC.
 
 
-[1]:	https://console.qcloud.com/
-[2]:	https://www.qcloud.com/product/vpc.html
-[3]:	https://console.qcloud.com/vpc/
-[4]:	https://console.qcloud.com/
-[5]:	https://www.qcloud.com/product/vpc.html
-[6]:	https://console.qcloud.com/vpc/
-[7]:	https://console.qcloud.com/
-[8]:	https://www.qcloud.com/product/vpc.html
-[9]:	https://console.qcloud.com/vpc/
-[10]:	https://console.qcloud.com/
-[11]:	https://console.qcloud.com/cdb/ "Cloud Database Console"
+[1]:	https://console.cloud.tencent.com/
+[2]:	https://cloud.tencent.com/product/vpc.html
+[3]:	https://console.cloud.tencent.com/vpc/
+[4]:	https://console.cloud.tencent.com/
+[5]:	https://cloud.tencent.com/product/vpc.html
+[6]:	https://console.cloud.tencent.com/vpc/
+[7]:	https://console.cloud.tencent.com/
+[8]:	https://cloud.tencent.com/product/vpc.html
+[9]:	https://console.cloud.tencent.com/vpc/
+[10]:	https://console.cloud.tencent.com/
+[11]:	https://console.cloud.tencent.com/cdb/ "Cloud Database Console"
 
 [image-1]:	//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png
 [image-2]:	//mccdn.qcloud.com/static/img/66a4e93f7f8dfeeed421fb799fd09137/image.png

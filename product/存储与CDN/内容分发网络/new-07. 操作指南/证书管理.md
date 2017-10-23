@@ -1,7 +1,7 @@
-您可以对已经接入 CDN 的域名进行 HTTPS 证书配置。CDN 支持配置您已有的证书，或腾讯云 [SSL 证书管理](https://console.qcloud.com/ssl) 控制台中托管或颁发的证书。
+您可以对已经接入 CDN 的域名进行 HTTPS 证书配置。CDN 支持配置您已有的证书，或腾讯云 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 控制台中托管或颁发的证书。
 
 ## 证书及私钥
-若您要为您的域名配置已有证书，请先了解以下内容。若您配置的是腾讯云 [SSL 证书管理](https://console.qcloud.com/ssl) 控制台中托管或颁发的证书，可跳过此部分内容，直接查阅后文配置证书流程。
+若您要为您的域名配置已有证书，请先了解以下内容。若您配置的是腾讯云 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 控制台中托管或颁发的证书，可跳过此部分内容，直接查阅后文配置证书流程。
 CA 机构提供的证书一般包括以下几种，其中 CDN 使用的是 **Nginx**。
 ![](https://mc.qcloudimg.com/static/img/1d81ed6bea067ce28af930f6fd45f827/certificate.png)
 进入 Nginx 文件夹，使用文本编辑器打开“.crt”（证书）文件和“.key”（私钥）文件，即可看到 PEM 格式的证书内容及私钥内容。
@@ -34,7 +34,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 ```
 
 ## 配置证书
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，在左侧菜单栏【高级工具】下单击【证书管理】进入 **证书管理** 页面。页面中单击【配置证书】进入 **配置证书** 页面。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏【高级工具】下单击【证书管理】进入 **证书管理** 页面。页面中单击【配置证书】进入 **配置证书** 页面。
 ![](https://mc.qcloudimg.com/static/img/a50a78762a1cf10291b5c29c3bbd2cf9/certificate_manage.png)
 
 ### 1. 选择域名
@@ -54,7 +54,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 > + 当您的证书有证书链时，请将证书链内容，转化为 PEM 格式内容，与证书内容合并上传，证书链补齐问题请参考后文 **证书链补齐**。
 
 #### 2.2 腾讯云托管证书
-您可以登录 [SSL 证书管理](https://console.qcloud.com/ssl) 控制台，申请由亚洲诚信免费提供的第三方证书，或是将已有证书托管至腾讯云。
+您可以登录 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 控制台，申请由亚洲诚信免费提供的第三方证书，或是将已有证书托管至腾讯云。
 选中【腾讯云托管证书】，即可看到该域名可用的证书列表。从证书列表中选择要使用的证书，证书列表中展示格式为“证书 ID（备注）”。
 ![](https://mc.qcloudimg.com/static/img/91fd243506b64e3678ed60afa3da7b90/ssl_certificate.png)
 
@@ -73,7 +73,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 
 ## 批量配置证书
 若您拥有多域名证书或泛域名证书，可适用于多个 CDN 加速域名，您可以通过批量配置，一次性为多个域名添加配置。
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，在左侧菜单栏【高级工具】下单击【证书管理】进入 **证书管理** 页面。页面中单击【批量配置】进入 **批量管理** 页面。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏【高级工具】下单击【证书管理】进入 **证书管理** 页面。页面中单击【批量配置】进入 **批量管理** 页面。
 ![](https://mc.qcloudimg.com/static/img/ceb54fc1a4e6f4c9d0254325a5d84c64/batch_configuration.png)
 
 ### 1. 上传证书

@@ -6,7 +6,7 @@ MFA (Multi-FactorAuthentication)即多因子认证，是一种简单有效的安
 
 硬件 MFA 设备如上图所示，正面的 6 位数动态安全码 30 秒更新一次，背面有该硬件 MFA 设备的序列号。目前该设备仅开放给内测用户使用。
 ### 绑定硬件 MFA 设备
-1. 登录腾讯云控制台，进入 [安全设置](https://console.qcloud.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】。
+1. 登录腾讯云控制台，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】。
 ![](https://mc.qcloudimg.com/static/img/63c17fdf2fc1913927ad669c86dcafcd/image.png)
 2. 弹出身份验证页面后，单击【发送验证码】，手机收到验证码后，将手机收到的 6 位数字验证码输入框内。
 ![](https://mc.qcloudimg.com/static/img/b96da083ba830fdaeab02785fdcd7625/image.png)
@@ -20,7 +20,7 @@ MFA (Multi-FactorAuthentication)即多因子认证，是一种简单有效的安
 
 ### 解绑硬件 MFA 设备
 
-1. 登录腾讯云控制台，进入 [账号中心](https://console.qcloud.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】。
+1. 登录腾讯云控制台，进入 [账号中心](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】。
 ![](https://mc.qcloudimg.com/static/img/5a6fbe99163c47d960f5481d2d29bf09/%7BD096D4A6-7497-42C8-9968-66EC048E870B%7D.png)
 2. 单击【确定解绑】。
 ![](https://mc.qcloudimg.com/static/img/41e8f092c9710d0cbda8d96b3ac4c08b/image.png)
@@ -29,7 +29,7 @@ MFA (Multi-FactorAuthentication)即多因子认证，是一种简单有效的安
 虚拟 MFA 设备是一个产生动态安全码的应用程序，它遵循基于时间的一次性密码 (TOTP) 标准(RFC 6238)，可以将虚拟 MFA 设备安装在不同的移动设备上，如智能手机。因此方便用户使用虚拟 MFA 设备。
 
 ### 绑定虚拟 MFA 设备
-1. 登录腾讯云控制台，进入 [安全设置](https://console.qcloud.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】。
+1. 登录腾讯云控制台，进入 [安全设置](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【绑定】。
 ![](https://mc.qcloudimg.com/static/img/63c17fdf2fc1913927ad669c86dcafcd/image.png)
 2. 弹出身份验证页面后，单击【发送验证码】，手机收到验证码后，将手机收到的 6 位数字验证码输入框内。
 ![](https://mc.qcloudimg.com/static/img/b96da083ba830fdaeab02785fdcd7625/image.png)
@@ -46,7 +46,7 @@ MFA (Multi-FactorAuthentication)即多因子认证，是一种简单有效的安
 
 
 
-1. 登录腾讯云控制台，进入 [账号中心](https://console.qcloud.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】。
+1. 登录腾讯云控制台，进入 [账号中心](https://console.cloud.tencent.com/developer/security)，在 MFA 设备那一栏上，单击【解绑】。
 ![](https://mc.qcloudimg.com/static/img/31eac4c6f2e90dac10d941ba9fd3181f/image.png)
 2. 单击【确定解绑】。
 ![](https://mc.qcloudimg.com/static/img/41e8f092c9710d0cbda8d96b3ac4c08b/image.png)

@@ -5,7 +5,7 @@ CDN 为您提供 Range 回源配置功能，Range 是 Http 请求头，用于文
 > 3. 开启 Range 回源配置后，资源在节点上分片缓存，但所有分片的缓存过期时间保持一致，按照用户指定的缓存过期规则。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【回源配置】，您可以看到 **Range 回源配置** 模块。
 ![](https://mc.qcloudimg.com/static/img/e69d4dc5e391e4b75d2aecbc9c2c042b/range.png)

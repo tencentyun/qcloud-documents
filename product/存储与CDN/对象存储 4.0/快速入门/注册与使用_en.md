@@ -3,7 +3,7 @@ Before activating COS service, please ensure that you have a Tencent Cloud accou
 ## Sign up for a Tencent Cloud Account
 
 
-Log in to [Tencent Cloud Official Website](http://www.qcloud.com), and click **Register** at the upper right corner:
+Log in to [Tencent Cloud Official Website](http://cloud.tencent.com), and click **Register** at the upper right corner:
 
 ![](//mccdn.qcloud.com/static/img/94eb60bfc4b0cd7995b261100ebbd894/image.png)
 
@@ -34,7 +34,7 @@ Click **Identity Verification**, and complete the identity verification by follo
 
 ## Activate Cloud Object Storage
 
-After the account registration and identity verification are completed, the user may log in to [Tencent Cloud Official Website](http://www.qcloud.com), drop down **Cloud Services** in the navigation pane, select **Storage and CDN**, and click **Cloud Object Storage (COS)** on the right to enter the product page:
+After the account registration and identity verification are completed, the user may log in to [Tencent Cloud Official Website](http://cloud.tencent.com), drop down **Cloud Services** in the navigation pane, select **Storage and CDN**, and click **Cloud Object Storage (COS)** on the right to enter the product page:
 
 ![](//mccdn.qcloud.com/static/img/986e64b4db0022764784ccb1bbfa4cdb/image.jpg)
 
