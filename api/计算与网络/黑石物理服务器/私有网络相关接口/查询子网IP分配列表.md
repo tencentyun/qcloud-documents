@@ -37,16 +37,14 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
     "codeDesc": "Success",
     "data": {
         "cpmSet": [
-            "10.10.0.2",
-            "10.10.0.3",
-            "10.10.0.4",
-            "10.10.0.5",
-            "10.10.0.6",
-            "10.10.0.9",
-            "10.10.0.10"
+            <物理机IP>,
         ],
-        "vmSet": [],
-        "tgSet": []
+        "vmSet": [
+            <虚拟机IP>,
+        ],
+        "tgSet": [
+            <托管机器IP>,
+        ]
     }
 }
 
@@ -77,8 +75,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 ```
 
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=DescribeBmSubnetIps
-	&<公共请求参数>
-	&vpcId=vpc-34cxlz7z
+    &<公共请求参数>
+    &vpcId=vpc-34cxlz7z
     &subnetId=subnet-jv24ivq0
 ```
 
