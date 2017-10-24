@@ -54,7 +54,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=EipUnBindBmNatGateway
@@ -68,7 +68,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Signature=xhpWkOBXHyEdddxK2KIH%2F14bMrc%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,

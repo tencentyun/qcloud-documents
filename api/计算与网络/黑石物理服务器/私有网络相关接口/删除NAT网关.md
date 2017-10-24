@@ -51,7 +51,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DeleteBmNatGateway
 
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=DeleteBmNatGateway
@@ -64,7 +64,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,

@@ -64,7 +64,7 @@ ips包含字段如下：
 | 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过<a href="/document/product/386/9355" title="DescribeBmNatGateway">DescribeBmNatGateway</a>接口查询NAT网关。 |
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=UnbindIpsToBmNatGateway
@@ -82,7 +82,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,
