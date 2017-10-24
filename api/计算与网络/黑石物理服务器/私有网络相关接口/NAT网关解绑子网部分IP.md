@@ -31,7 +31,7 @@ ips包含字段如下：
 | 参数名称 | 描述 | 类型 |必选  | 
 |---------|---------|---------|---------|
 |ips.n.subnetId|子网ID标识|String|是|
-|ips.n.ipList|子网下需要解绑NAT的IP列表，IP需要属于该subnetId子网Array||是|
+|ips.n.ipList|子网下需要解绑NAT的IP列表，IP需要属于该subnetId子网|Array|是|
 
 
 ## 响应
