@@ -225,8 +225,7 @@ param.videoPath = _videoPath;
 param.coverPath = _coverImage; 
 
 TXUGCPublish *_ugcPublish = [[TXUGCPublish alloc] init];
-// 如果需要使用断点续传功能，需要传入一个字符串类型的 userId 作为唯一标识, 建议使用登录帐号
-// TXUGCPublish *_ugcPublish = [[TXUGCPublish alloc] initWithUserID:[userId];
+// 文件发布默认是采用断点续传
 _ugcPublish.delegate = self;                                 // 设置 TXVideoPublishListener 回调
 [_ugcPublish publishVideo:param];
 ``` 
