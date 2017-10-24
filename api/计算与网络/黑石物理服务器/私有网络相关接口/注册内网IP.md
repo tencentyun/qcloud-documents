@@ -94,7 +94,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 }
 ```
 
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=RegisterBatchIp
@@ -104,7 +104,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&ipList.0=10.1.1.4&ipList.1=10.1.1.200&10.1.1.6
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 4000,
