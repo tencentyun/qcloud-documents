@@ -5,7 +5,8 @@ ApplyIps 用于申请黑石私有网络子网IP。
 
 
 ## 请求
-语法示例：
+
+### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
     &<公共请求参数>
@@ -26,7 +27,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 
 
 ## 响应
-响应示例：
+
+### 响应示例
 ```
 {
     "code": 0,
@@ -58,7 +60,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=ApplyIps
@@ -69,7 +71,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&ipClass=1
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 0,

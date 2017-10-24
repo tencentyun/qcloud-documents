@@ -5,7 +5,8 @@ RegisterBatchIp 用于指定子网IP进行IP注册。
 
 
 ## 请求
-语法示例：
+
+### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
     &<公共请求参数>
@@ -25,7 +26,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 
 
 ## 响应
-响应示例：
+### 响应示例
 ```
 {
     "code": 0,
@@ -67,7 +68,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=RegisterBatchIp
 
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=RegisterBatchIp
@@ -77,7 +78,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&ipList.0=10.1.1.2&ipList.1=10.1.1.130&10.1.1.10
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 0,
@@ -93,7 +94,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 }
 ```
 
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=RegisterBatchIp
@@ -103,7 +104,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&ipList.0=10.1.1.4&ipList.1=10.1.1.200&10.1.1.6
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 4000,
