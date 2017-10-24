@@ -8,7 +8,7 @@ v1.1.12
 
 [IOS SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS.zip)
 
-[IOS SDK 1.1.12(bitcode)版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS_bitcode.zip)
+[IOS(bitcode) SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS_bitcode.zip)
 
 [Win64 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
 
