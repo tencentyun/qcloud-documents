@@ -71,7 +71,7 @@ CAM（访问控制）相关术语、配置详细描述请查看[CAM概述](https
     "statement": [
         {
             "action": [
-                "cos:*"
+                "name/cos:*"
             ],
             "resource": "*",
             "effect": "allow"
@@ -95,10 +95,10 @@ CAM（访问控制）相关术语、配置详细描述请查看[CAM概述](https
     "statement": [
         {
             "action": [
-                "cos:List*",
-                "cos:Get*",
-                "cos:Head*",
-                "cos:OptionsObject"
+                "name/cos:List*",
+                "name/cos:Get*",
+                "name/cos:Head*",
+                "name/cos:OptionsObject"
             ],
             "resource": "*",
             "effect": "allow"
