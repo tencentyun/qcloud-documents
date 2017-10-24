@@ -1,14 +1,14 @@
-##开发准备
-###SDK 获取
+## 开发准备
+### SDK 获取
 
 
 
-####github
+#### github
 ```php
 #在github中获取代码
 https://github.com/tencentyun/cos-php-sdk-v5
 ```
-####composer
+#### composer
 ```php
 #利用composer下载
 {
@@ -17,11 +17,11 @@ https://github.com/tencentyun/cos-php-sdk-v5
     }
 }
 ```
-##快速入门 
+## 快速入门 
 ```
 可参照Demo程序，详见https://github.com/tencentyun/cos-php-sdk-v5/blob/master/sample.php
 ```
-###配置文件
+### 配置文件
 ```php
 require(__DIR__ . DIRECTORY_SEPARATOR . 'cos-autoloader.php');
 
@@ -31,7 +31,7 @@ $cosClient = new Qcloud\Cos\Client(array('region' => getenv('COS_REGION'),
         'secretId'    => getenv('COS_KEY'),
         'secretKey' => getenv('COS_SECRET'))));
 ```
-###上传文件
+### 上传文件
 ```php
 try {
     $result = $cosClient->putObject(array(
@@ -53,7 +53,7 @@ try {
     echo "$e\n";
 }
 ```
-###下载文件
+### 下载文件
 ```php
 try {
     $result = $cosClient->getObject(array(
