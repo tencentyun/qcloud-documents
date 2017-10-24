@@ -1,7 +1,7 @@
 ### 1. 相关下载
 
-根证书: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/root-ca.zip)
-SDK源码: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/C-SDK.zip)
+根证书下载请点击: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/root-ca.zip)
+SDK 源码下载请点击: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/C-SDK.zip)
 
 ### 2. 日志接口
 
@@ -24,7 +24,7 @@ SDK源码: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/C-SDK.z
 |     7 | qcloud_iot_mqtt_disconnect          | 断开 MQTT 客户端与服务器的连接。|
 |     8 | qcloud_iot_mqtt_yield               | 在当前线程为底层 MQTT 客户端让出一定 CPU 执行时间，内含了心跳的维持，服务器下行报文的收取等。 |
 |     9 | qcloud_iot_mqtt_attempt_reconnect   | MQTT 客户端与服务器重新建立连接。 |
-|    10 | qcloud_iot_mqtt_is_connected       | 判断 MQTT 客户端目前是否已连接，返回真则客户端在连接状态，反之客户端已经断开连接。|
+|    10 | qcloud_iot_mqtt_is_connected       | 判断 MQTT 客户端目前是否已连接，返回 True 则客户端在连接状态，反之客户端已经断开连接。|
 
 ### 4. 设备影子接口
 

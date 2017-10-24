@@ -66,8 +66,11 @@ pod 'QCloudCOSXML'
 
 在使用SDK的功能之前，我们需要导入一些必要的头文件和进行一些初始化工作。
 
-引入上传 SDK 的头文件 *QCloudCore.h,    
-QCloudCOSXML/QCloudCOSXML.h*，    
+引入上传 SDK 的头文件
+```objective-c
+QCloudCore.h,    
+QCloudCOSXML/QCloudCOSXML.h
+```    
  使用 SDK 操作时，需要先实例化 *QCloudCOSXMLService* 和 *QCloudCOSTransferManagerService* 对象。实例化这两个对象之前我们要实例化一个云服务配置对象*QCloudServiceConfiguration*。
 
 #### 方法原型
@@ -93,6 +96,8 @@ QCloudCOSXML/QCloudCOSXML.h*，
 
 #### 初始化示例
 
+下面用到的APPID, secretID, secretKey等可以从[COS控制台](https://console.cloud.tencent.com/cos4/secret)中获取。
+
 ```objective-c
 //AppDelegate.m
 
@@ -113,7 +118,9 @@ QCloudCOSXML/QCloudCOSXML.h*，
 
 ## 快速入门
 
-这里演示的上传和下载的基本流程，更多细节可以参考demo；在进行这一步之前必须在腾讯云控制台上申请COS业务的appid；
+这里演示的上传和下载的基本流程，更多细节可以参考demo（[点击跳转至Demo](https://github.com/tencentyun/qcloud-sdk-ios-samples)）。具体每一个接口如何使用请参照demo中提供的单元测试文件。
+
+在进行这一步之前必须在腾讯云控制台上申请COS业务的appid。
 
 ### STEP - 1 初始化
 

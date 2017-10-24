@@ -24,20 +24,13 @@
 
 在工程中添加`TXLiteAVSDK_UGC.framework`，同时还要添加以下系统依赖库
 
-> 1. VideoToolbox.framework
-> 2. SystemConfiguration.framework
-> 3. CoreTelephony.framework
-> 4. AVFoundation.framework
-> 5. CoreMedia.framework
-> 6. CoreGraphics.framework
-> 7. libstdc++.tbd
-> 8. libz.tbd
-> 9. libiconv.tbd
-> 10. libresolv.tbd
+> 1. libz.tbd
+> 2. Accelerate.framework
+> 3. Bugly.framework
 
 所有添加完毕，工程依赖如下图所示：
 
-![](//mc.qcloudimg.com/static/img/1a5d1d671e7952b0484ba340b01bff41/image.png)
+![](//mc.qcloudimg.com/static/img/98f026d48d92df36eaa23f8304b84eaf/image.png)
 
 ### 3、添加头文件
 在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_UGC的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_UGC/"，如下所示：

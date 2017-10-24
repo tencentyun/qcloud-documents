@@ -1,13 +1,11 @@
-## 物联云API: ListDevices
-
-### 1 接口描述
+### 1. 接口描述
 本接口 (ListDevices) 用于查询物联云设备的设备列表。
 
 接口请求域名：`iothub.api.cloud.tencent.com`
 
-### 2 输入参数
+### 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](https://cloud.tencent.com/document/api/213/6976)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/api/213/6976) 页面。
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -15,12 +13,12 @@
 | nextToken | 否 | String | 用于获取剩下的结果，超过 maxResults 结果会返回 nextToken。|
 | productName | 否 | String | 产品名称。命名规则：[a-zA-Z0-9:_-]{1,128}。|
 
-### 3 输出参数
+### 3. 输出参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0 表示成功，其他值表示失败。详见错误码页面的[公共错误码]。|
-| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码]。|
+| code | Int | 公共错误码。0 表示成功，其他值表示失败。详见错误码页面的【公共错误码】。|
+| message | String | 模块错误信息描述，与接口相关。详见错误码页面的【模块错误码】。|
 | nextToken | String | 用于获取剩下的结果，超过 maxResults 结果会返回 nextToken。|
 | devices | Array of Device | 设备对象的数组。|
 
@@ -33,7 +31,7 @@ Device 的结构如下
 | productName | String | 产品的名称。|
 | version | Long | 设备的当前版本号。|
 
-### 4 示例
+### 4. 示例
  
 输入
 <pre>
