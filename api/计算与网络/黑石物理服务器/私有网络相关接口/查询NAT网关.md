@@ -45,7 +45,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
             "natId": <NAT网关ID>,
             "natName": <NAT网关名称>,
             "unVpcId": <VPC统一ID>,
-            "vpcId": <VPCID>,
+            "vpcId": <vpc网络ID>,
             "vpcName": <VPC名称>,
             "state": <NAT网关状态>,
             "productionStatus": <NAT网关生产状态>,
