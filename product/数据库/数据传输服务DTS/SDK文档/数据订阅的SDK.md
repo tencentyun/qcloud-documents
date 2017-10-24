@@ -66,7 +66,9 @@ public class Main {
  3. 最后启动客户端，开始流程
 在监听器`ClusterListener`中，可以根据用户自身的需求，对收到的数据进行操作，还可以对收到Binlog数据根据类型进行过滤，比如过滤掉所有`drop`语句等。
  
- 注意到示例代码中，用户需要提供五个参数。其中，`secretId`和`secretKey`是跟用户腾讯云帐号关联的密钥值，可以在腾讯云管理中心-->云产品-->云API密钥-->API密钥中查看，SDK用这两个两个参数来对用户操作进行鉴权；另外三个参数`serviceIp` `servicePort` `channelId`都是与用户Binlog订阅相关的，在腾讯云CDB for MySQL相应页面配置好订阅内容后，会展示在控制台上，具体操作步骤请参考控制台操作指引。
+ 示例代码中，用户需要提供五个参数。其中，`secretId`和`secretKey`是跟用户腾讯云帐号关联的密钥值，可以在腾讯云管理中心-->云产品-->云API密钥-->API密钥中查看，SDK用这两个两个参数来对用户操作进行鉴权；另外三个参数`serviceIp` `servicePort` `channelId`都是与用户Binlog订阅相关的，在腾讯云CDB for MySQL相应页面配置好订阅内容后，会展示在控制台上，具体操作步骤请参考控制台操作指引。
+ 
+ 注意：数据订阅SDK已经接入了CAM权限控制，根账号默认有所有的权限，可以直接用根账号的云API密钥访问；子账号默认没有任何权限，需要根账号给子账号赋予`name/dts:AuthenticateSubscribeSDK`操作的权限，或者赋予DTS所有操作的权限`QcloudDTSFullAccess`。
 
 # SDK API说明
 ---
@@ -364,7 +366,7 @@ public String getAttribute(String key)
 
 | 属性键值Key | 说明 |
 |:-------------|:-------------|
-|record_id |	Record的ID，这个ID在订阅过程中不保证递增|
+|record_id |	Record的ID，这个Id在通道内按字符串比较自增有序，不保证连续 |
 |source_type |	Record对应数据库实例的引擎类型，目前取值为：mysql|
 |source_category |	Record的类型，目前取值为：full_recorded|
 |timestamp |	Record落binlog的时间，这个时间同时也是这条SQL在CDB中执行的时间|

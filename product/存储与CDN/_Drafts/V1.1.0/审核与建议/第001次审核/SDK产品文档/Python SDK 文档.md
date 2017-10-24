@@ -4,9 +4,16 @@
 
 COS Python SDK V5 相关资源地址: [github项目](https://github.com/tencentyun/cos-python-sdk-v5)
 
+> COS Python SDK 相关资源地址: [github项目](https://github.com/tencentyun/cos-python-sdk-v5)
+> by  vivianlei  // 无V5这一说。
 ### 环境依赖
 
 V5 版本 COS Python SDK 目前可以支持 Python2.6 与 Python2.7
+
+> 系统需先安装 Python 和 pip，支持python版本： 2.6 ， 2.7
+> 1. python 下载和安装：请根据所使用操作系统，从[python官网]（https://www.python.org/downloads/）下载对应版本，并安装。
+> 2. pip 下载和安装：请查看[pip官网](https://pip.pypa.io/en/stable/installing/) 
+> by  vivianlei  // 1. 尽量简洁 2. 标题是环境依赖，描述是说明支持版本
 
 ### 安装SDK
 
