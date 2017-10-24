@@ -4,16 +4,12 @@ MFA (Multi-FactorAuthentication)即多因子认证，是一种简单有效的安
 ### 如何绑定虚拟 MFA 设备？
 1. 登录腾讯云控制台，进入安全设置，在 MFA 设备那一栏上，单击【绑定】。
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964c7d8a0cc.png)
-
 2. 在弹出来的页面中，单击【发送验证码】，收到验证码后，将6位数字验证码输入框内。
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964c8b5deff.png)
-
 3. 在弹出来的页面中，依次按照图片中的步骤进行操作。
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964c9801d11.png)
-
 4. 将手机中的应用程序出现的连续的安全码输入到框内，安全码每 30 秒更新一次。
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964ca455f73.png)
-
 5. 选择您想启用的范围，您可以选择登录保护，也可以选择操作保护，只需要在你想选择的范围前面勾选出来即可，可多选。选择完之后，单击【提交】。
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964cafa58f1.png)
 
@@ -23,15 +19,10 @@ MFA (Multi-FactorAuthentication)即多因子认证，是一种简单有效的安
 主要有以下几个步骤：
 1. 进入用户中心>账户信息>安全设置，单击【绑定】按钮。
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964dd7d36c4.png)
-
 2. 弹出身份验证框，输入手机中收到的6位数验证码，单击【确定】按钮。
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964de0493df.png)
-
-3. 在绑定 MFA 设备页中选择“硬件MFA设备”，根据提示输入 token 卡背面的序列码（SN 码），和 token 卡正面的 6 位数动态安全码。
-
- 启用范围可勾选也可以不勾选：
-- 不勾选则默认您的账户不开启安全保护；
-- 勾选登陆保护则登陆后需要验证 token 卡上的安全码；
+3. 在绑定 MFA 设备页中选择“硬件 MFA 设备”，根据提示输入 token 卡背面的序列码（SN 码），和 token 卡正面的 6 位数动态安全码。
+启用范围可勾选也可以不勾选：不勾选则默认您的账户不开启安全保护；勾选登陆保护则登陆后需要验证 token 卡上的安全码。
 
 勾选操作保护则在账户中进行删除云主机，修改安全资料，查看云 API 密钥等敏感操作前需要验证 token 卡上的安全码;
 ![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59964df234659.png)
