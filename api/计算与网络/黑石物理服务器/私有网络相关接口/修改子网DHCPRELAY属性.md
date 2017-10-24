@@ -24,6 +24,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ModifySubnetDhcpRelayFlag
 | vpcId | 系统分配的私有网络ID，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of。可通过DescribeBmVpcEx接口查询。 |String | 是 | 
 | subnetId | 子网ID值，可使用subnetId或unSubnetId，建议使用unsubnetId，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询。 |String | 是 | 
 | dhcpEnable | 是否开启dhcp relay ，关闭为0，开启为1。默认为0 | Int | 否 |
+| dhcpServerIp | DHCP SERVER 的IP地址数组。IP地址为相同VPC的子网内分配的IP。 dhcpEnable为1时为必选值。| Array |否 |
 | ipReserve | 预留的IP个数。从该子网的最大可分配IP倒序分配N个IP 用于DHCP 动态分配使用的地址段。dhcpEnable为1时为必选值。 | Int | 否 |
 
 
