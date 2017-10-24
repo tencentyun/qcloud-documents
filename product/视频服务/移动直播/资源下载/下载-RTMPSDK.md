@@ -52,11 +52,11 @@ table td { height: 35px; }
 
 - **iOS 平台**
 
-<iframe src="https://live.qcloud.com/sdkdownload/iosdownloadlist.html" width=750px height=760px border=0 style=border:none></iframe>
+<iframe src="https://live.qcloud.com/sdkdownload/iosdownloadlist.html" width=980px height=700px border=0 style=border:none></iframe>
 
 - **Android 平台**
 
-<iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=750px height=430px border=0 style=border:none></iframe>
+<iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=750px height=620px border=0 style=border:none></iframe>
 
 - **版本说明**
 

@@ -15,9 +15,9 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=QueryBmNatGatewayProductio
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为QueryBmNatGatewayProductionStatus。
 
-| 参数名称 | 必选  | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
-| taskId | 是 | String | 任务ID, 可使用该ID查询任务执行结果|
+| taskId | 任务ID, 可使用该ID查询任务执行结果| String |是 | 
 
 ## 响应
 ### 响应示例
@@ -33,11 +33,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=QueryBmNatGatewayProductio
 
 ### 响应参数
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | Int | 错误码。0: 成功, 其他值: 失败|
-| message | String | 错误信息|
-| data.status | Int | 0为执行成功，1为执行失败，2为正在执行中 |
+| code |错误码。0: 成功, 其他值: 失败| Int | 
+| message | 错误信息| String |
+| data.status | 0为执行成功，1为执行失败，2为正在执行中 | Int |
 
 ## 实际案例
 

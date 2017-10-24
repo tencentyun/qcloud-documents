@@ -1,4 +1,4 @@
-# Nodejs SDK 快速入门
+# Node.js SDK 快速入门
 
 腾讯云 COS Nodejs SDK（[XML API](https://cloud.tencent.com/document/product/436/7751)）
 
