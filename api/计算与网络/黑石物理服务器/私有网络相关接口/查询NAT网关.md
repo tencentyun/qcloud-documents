@@ -21,15 +21,15 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeNatGateway
 
-| 参数名称 | 必选  | 类型 | 描述 |
+| 参数名称 |  描述 | 类型 |必选  |
 |---------|---------|---------|---------|
-| natId | 否 | String | NAT网关统一ID，例如：nat-xx454|
-| natName | 否 | String | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| offset | 否 | Int | 初始行的偏移量，默认为0|
-| limit | 否 | Int | 每页行数，默认为20，最大支持50。|
-| orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId。|
-| orderDirection | 否 | String | 升序（asc）或降序（desc），默认：desc。|
+| natId | NAT网关统一ID，例如：nat-xx454| String | 否 |
+| natName | NAT网关名称 (支持模糊查找) | String | 否 |
+| vpcId | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| Int | 否 |
+| offset |  初始行的偏移量，默认为0| Int | 否 |
+| limit |  每页行数，默认为20，最大支持50。| Int | 否 |
+| orderField |按某个字段排序，默认不排序。<br>支持字段：natId。| String | 否 |
+| orderDirection | 升序（asc）或降序（desc），默认：desc。| String | 否 |
 
 
 ## 响应
@@ -64,12 +64,12 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 
 ### 响应参数
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | Int | 错误码, 0: 成功, 其他值: 失败|
-| message | String | 错误信息|
-| totalCount | Int | 查询的NAT网关总数 |
-| data.n | Array | 查询的NAT网关信息数组 |
+| code | 错误码, 0: 成功, 其他值: 失败| Int |
+| message | 错误信息| String |
+| totalCount |  查询的NAT网关总数 | Int |
+| data.n | 查询的NAT网关信息数组 | Array |
 
 data数据结构如下：
 
