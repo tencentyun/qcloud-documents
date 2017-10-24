@@ -1,5 +1,5 @@
 
-v1.1.12   
+v1.1.12 （2017-10-18）   
 [C++\Cocos2D SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Cocos.zip)
 
 [Unity3D SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Unity3D.zip)
@@ -14,7 +14,7 @@ v1.1.12
 
 [Win32 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
        
-v1.1.12（2017-10-18）  
+
 1. 语音增强扛丢包和网络抖动的能力  
 2. 语音消息最长时间从3分钟提升至5分钟  
 3. 支持每个用户（按OpenID区别）保存一条永久语音消息  
