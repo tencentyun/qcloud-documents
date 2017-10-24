@@ -46,7 +46,7 @@ dimensions.0.value为实例的uuid
 | setbit命令数 | cmdstat_setbit   |1分钟内 setbit 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
 | setex命令数| cmdstat_setex    |1分钟内 setex 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
 | setnx命令数 | cmdstat_setnx    |1分钟内 setnx 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
-| setrange命令数| cmdstat_setrange |1分钟内 setrange 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟| 次/分钟 |
+| setrange命令数| cmdstat_setrange |1分钟内 setrange 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟|
 | 每秒执行命令数| qps      |1分钟内命令总数除以60|每分钟采集，5分钟粒度数据是按最近5分钟内求平均值 | 次/秒钟    |
 | 连接数| connections      |1分钟内连接数总和|每分钟采集，5分钟粒度数据是按最近5分钟内求和 | 个    |
 | cpu利用率            | cpu_us    |CPU处于非空闲状态的百分比，取/proc/stat数据计算得出| 每分钟采集，5分钟粒度数据是按最近5分钟内求平均值 | %   |
