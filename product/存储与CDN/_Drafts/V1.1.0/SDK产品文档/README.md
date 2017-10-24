@@ -7,7 +7,9 @@
 2. 没有问题后再迁移到发布目录
 
 
+## 关于标记
 
+需要润色的SDK文档会在该SDK目录上面标记**待润色**。润色完成后，请修改为润色完成，并rtx:[stonedong](rtx://open?action=chat&member=stonedong)
 ## 检查部分
 
 
