@@ -17,7 +17,7 @@ CDB for MySQL 不支持 MyISAM 引擎的主要原因有如下几个：
 SET NAMES 'utf8';
 ```
 ### 5. 如何查看 MySQL 慢查询日志？
-MySQL 慢查询时间（long_query_time）的默认值是 10s，建议调成 1~2s 。
+MySQL 慢查询时间（long_query_time）的默认值是 10s，在遇到性能问题上，若没发现有慢查询，建议调成 1~2s 再查看 。
 登录腾讯云 [管理控制台](https://console.cloud.tencent.com/) ，进入管理中心后，在【云产品】模块单击【云数据库】，进入关系型数据库页面。
 ![总览](//mc.qcloudimg.com/static/img/d274cc926a10f2b4741d114264f927d5/image.png)
 在关系型数据库页面，单击【MySQL】下的【实例列表】，找到目标地域（此例中以广州为例）中待重置密码的 MySQL 数据库实例，单击【管理】按钮，进入 MySQL 数据库管理页面。
