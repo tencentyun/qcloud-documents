@@ -23,3 +23,9 @@
 | srcDuration | 必选 | 主叫接通虚拟保护号码到通话结束通话时间 | 
 | dstDuration | 必选 | 呼叫转接被叫接通到通话结束通话时间 | 
 
+**确认响应包必填字段**  
+```
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=utf-8
+Content-Length: 0
+```
