@@ -17,16 +17,13 @@ CDB for MySQL 不支持 MyISAM 引擎的主要原因有如下几个：
 SET NAMES 'utf8';
 ```
 ### 5. 如何查看 MySQL 慢查询日志？
-可在云数据库控制台导出并查看慢查询日志。
-MySQL 慢查询时间（long_query_time）的默认值是 10s，建议调成 1~2s 查看慢查询日志。
+MySQL 慢查询时间（long_query_time）的默认值是 10s，建议调成 1~2s 。
 登录腾讯云 [管理控制台](https://console.cloud.tencent.com/) ，进入管理中心后，在【云产品】模块单击【云数据库】，进入关系型数据库页面。
 ![总览](//mc.qcloudimg.com/static/img/d274cc926a10f2b4741d114264f927d5/image.png)
 在关系型数据库页面，单击【MySQL】下的【实例列表】，找到目标地域（此例中以广州为例）中待重置密码的 MySQL 数据库实例，单击【管理】按钮，进入 MySQL 数据库管理页面。
 ![管理](//mc.qcloudimg.com/static/img/8216d33e2c5063b13c92e6010a7219d9/image.png)
 在 MySQL 数据库管理页面，单击管理列表下的参数设置，修改的变量如下：
 ![参数设置](//mc.qcloudimg.com/static/img/a9836f3b39acfdf0f200df22e612d2bd/image.png)
-修改完成后，在【操作日志】查看慢查询日志。
-![操作日志](//mc.qcloudimg.com/static/img/101fd6b1360e3e77e3ba2bd5522fd8e6/image.png)
 <table>
 <tbody><tr>
 <th>  变量
@@ -37,6 +34,9 @@ MySQL 慢查询时间（long_query_time）的默认值是 10s，建议调成 1~2
 </td><td> 超过该时间的查询为慢查询
 </td></tr>
 </tr></tbody></table>
+在【操作日志】查看并导出慢查询日志。
+![操作日志](//mc.qcloudimg.com/static/img/101fd6b1360e3e77e3ba2bd5522fd8e6/image.png)
+
 ### 6. 单击后台的登录，不能直接进入 phpadmin 创建数据库了，请问如何登录 phpadmin？
 在控制台单击登录后选择返回 pma 即可 。
 ![图片描述](http://tss.sng.com/ticket/upload/displayImage?filename=598d51e955f76.png)
