@@ -24,7 +24,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=UnbindIpsToBmNatGateway
 |---------|---------|---------|---------|
 | natId | NAT网关统一ID，例如：nat-8pbrkzh6| String | 是 |
 | vpcId |  私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String |是 |
-| ips.n |需要解绑部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下 | Array | 是 | 
+| ips.n |需要解绑部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。| Array | 是 | 
 
 ips包含字段如下：
 
