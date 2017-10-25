@@ -164,10 +164,10 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 
 token 计算方式  
 
-	string iccid = "898602b8011730558259";	// tel的mobile字段的内容
-	string appkey = "cefd16fb530a61b6d69f95a038e420d5"; 	// sdkappid对应的appkey，需要业务方高度保密
-	string random = "1234";									// url中的random字段的值
-	string time = "1506074049";								// unix时间戳
+	string iccid = "898602b8011730558259"; // tel的mobile字段的内容
+	string appkey = "cefd16fb530a61b6d69f95a038e420d5"; // sdkappid对应的appkey，需要业务方高度保密
+	string random = "1234"; // url中的random字段的值
+	string time = "1506074049"; // unix时间戳
 	string token = sha256("action=sendsms&appkey=$appkey&iccid=$iccid&random=$random&time=$time");
 
 ### 应答格式
