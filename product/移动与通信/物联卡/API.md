@@ -26,7 +26,7 @@
 	{
 	    "token": "ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4",
 	    "time": "1505812393",           // unix 时间戳
-        "echo": ""
+	    "echo": ""
 	}
 
 token 计算方式  
@@ -36,7 +36,7 @@ token = sha256("action=getappinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx
 	{
 	    "code": 0,
 	    "message": "OK",
-        "echo": "",
+	    "echo": "",
 	    "data": {
 	        "name": "售货机",
 	        "description": "星星街边售货机物联卡",
@@ -60,9 +60,8 @@ token = sha256("action=getappinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx
 	    "offset": 0,            // 分页偏移
 	    "token": "ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4",
 	    "time": "1505812393",   // unix 时间戳
-        "echo": ""
+	    "echo": ""
 	}
-
 token 计算方式
 token = sha256("action=getcardlist&appkey=xxxxxxx&random=xxxxxx&time=xxxxxxxx")
 
@@ -70,7 +69,7 @@ token = sha256("action=getcardlist&appkey=xxxxxxx&random=xxxxxx&time=xxxxxxxx")
 	{
 	    "code": 0,
 	    "message": "OK",
-        "echo": "",
+	    "echo": "",
 	    "data": {
 	        "card_brief_infos": [
 	            {
@@ -119,7 +118,7 @@ token = sha256("action=getcardlist&appkey=xxxxxxx&random=xxxxxx&time=xxxxxxxx")
 	    "iccid": "898602B7091701054333",
 	    "token": "ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4",
 	    "time": "1505812393",           // unix 时间戳
-        "echo": ""
+	    "echo": ""
 	}
 
 token 计算方式
@@ -129,7 +128,7 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 	{
 	    "code": 0,
 	    "message": "OK",
-        "echo": "",
+	    "echo": "",
 	    "data": {
 	        "iccid": "898602B7091701054333",   // iccid
 	        "msisdn": "1064878384333",         // 电话号码
@@ -160,15 +159,12 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 	    "time": 1506074049,					// unix时间戳，请求发起时间，如果和系统时间相差超过10分钟则会返回失败
 	    "echo": "" 							// 用户自定义内容，腾讯server回包中会原样返回，不需要就填空。
 	}
-
 token 计算方式
-
 	string iccid = "898602b8011730558259";	// tel的mobile字段的内容
 	string appkey = "cefd16fb530a61b6d69f95a038e420d5"; 	// sdkappid对应的appkey，需要业务方高度保密
 	string random = "1234";									// url中的random字段的值
 	string time = "1506074049";								// unix时间戳
 	string token = sha256("action=sendsms&appkey=$appkey&iccid=$iccid&random=$random&time=$time");
-
 ### 应答格式
 	{
 	    "code": 0,  		// 0 表示成功，非 0 表示失败
@@ -176,7 +172,6 @@ token 计算方式
 	    "sid": "xxxxxxx", 	// 标识本次发送 id，标识一次短信下发记录
 	    "echo": "" 			// 用户自定义内容，腾讯 server 回包中会原样返回
 	}
-
 ## 短信回执
 ### 说明
 <table>
@@ -190,13 +185,11 @@ token 计算方式
 	    "report_status": "SUCCESS",
 	    "sid": xxxxx
 	}
-
 ### 应答格式
 	{
 	    "code": 0,  	// 0 表示成功，非0表示失败
 	    "message": "OK"	// code 非 0 时的具体错误信息
 	}
-
 ## 短信回复
 ### 说明
 <table>
@@ -209,11 +202,8 @@ token 计算方式
 	    "user_reply_time": "2017-09-17 08:03:04", 
 	    "msg ": "回复的内容"
 	}
-
-
 ### 应答格式
 	{
 	    "code": 0,  	// 0 表示成功，非0表示失败
 	    "message": "OK"	// code 非 0 时的具体错误信息
 	}
-
