@@ -4,7 +4,7 @@
 |--------|--------|--------|
 |https://yun.tim.qq.com/版本号/iotcard/命令字?sdkappid=xxxxx&random=xxxx|HTTPS|POST
 
-请求数据和应答数据均采用 json 格式，sdkappid 由腾讯物联卡平台分配，random 为随整数，不要添加零前缀。
+请求数据和应答数据均采用 json 格式，sdkappid 由腾讯物联卡平台分配，random 为随机整数，不要添加零前缀。
 ## 查询账户信息
 ### 请求行
 
@@ -58,7 +58,8 @@ sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
 }
 ```
 
-sig 计算方式 sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
+sig 计算方式  
+sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
 
 ### 应答格式
 
@@ -75,8 +76,8 @@ sig 计算方式 sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
                  "type": 1,                         // 类型 1 单卡 2 流量池
                  "card_status": 1,                  // 卡片状态 1 未激活 2 已激活 3 已停用
                  "network_status": 1,               // 网络状态 1 关闭 2 开启
-                 "data_used_in_period": 14.970,     // 周期内已使用的流量，单位MB
-                 "data_total_in_period": 30.000     // 周期内可用的流量，单位MB
+                 "data_used_in_period": 14.970,     // 周期内已使用的流量，单位 MB
+                 "data_total_in_period": 30.000     // 周期内可用的流量，单位 MB
             },
             {
                  "iccid": "898607B0101730318875",
@@ -120,7 +121,8 @@ sig 计算方式 sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
 }
 ```
 
-sig 计算方式 sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
+sig 计算方式  
+sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
 ### 应答格式
 
 ```
@@ -134,8 +136,8 @@ sig 计算方式 sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
         "type": 1,                         // 类型 1 单卡 2 流量池
         "card_status": 1,                  // 卡片状态 1 未激活 2 已激活 3 已停用
         "network_status": 1,               // 网络状态 1 关闭 2 开启
-        "data_used_in_period": 14.970,     // 周期内已使用的流量，单位MB
-        "data_total_in_period": 30.000     // 周期内可用的流量，单位MB
+        "data_used_in_period": 14.970,     // 周期内已使用的流量，单位 MB
+        "data_total_in_period": 30.000     // 周期内可用的流量，单位 MB
         "product_id": "xxxxxxxxxxxxxxxxx", // 套餐 id
         "pool_id": "yyyyyyyyyyyyyyyy",     // 流量池 id
         "product_expired_time": 1506494258 // 套餐过期时间
