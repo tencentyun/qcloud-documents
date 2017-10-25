@@ -104,7 +104,7 @@ config.maxDuration    = 60;                      //视频录制的最大时长
 // 设置背景音乐文件
 [[TXUGCRecord shareInstance] setBGM:path];
 
-// 播放背景音，目前仅支持开启录制后播放背景音
+// 播放背景音，目前仅支持开启录制后播放背景音乐，后续会支持录制前播放背景音
 [[TXUGCRecord shareInstance] playBGMFromTime:startTime
              toTime:endTime
     withBeginNotify:beginNotify
