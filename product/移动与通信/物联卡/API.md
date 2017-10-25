@@ -21,7 +21,7 @@
 }
 ```
 
-sig 计算方式
+sig 计算方式  
 sig = sha256("appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
 ### 应答格式
 
