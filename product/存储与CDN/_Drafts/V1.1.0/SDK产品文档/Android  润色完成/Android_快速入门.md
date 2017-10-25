@@ -9,7 +9,7 @@
 1. SDK 支持 Android 2.2 及以上版本的手机系统；
 2. 手机必须要有网络（GPRS、3G 或 WIFI 网络等）；
 3. 手机可以没有存储空间，但会使部分功能无法正常工作；
-4. 从 [腾讯云控制台](https://console.qcloud.com/capi) 获取 APPID、SecretId、SecretKey。
+4. 从 [COS v4 控制台](https://console.cloud.tencent.com/cos4/secret) 获取 APPID、SecretId、SecretKey。
 
 ### SDK 配置
 
@@ -36,13 +36,13 @@
 
 ### 初始化 
 
-进行任何操作之前，需要实例化 CosXmlService 和 CosXmlServiceConfig。
+进行任何操作之前，都需要实例化 CosXmlService 和 CosXmlServiceConfig。
 - CosXmlServiceConfig： 网络连接、重试等配置参数；
 - CosXmlService：SDK 提供的服务类，可操作各种 COS 服务；
 
 ````java
-String appid = "对象存储 的服务 APPID";
-String region = "存储桶 所在的地域"; 
+String appid = "对象存储的服务 APPID";
+String region = "存储桶所在的地域"; 
 
 String secretId = "云 API 密钥 SecretId";
 String secretKey ="云 API 密钥 SecretKey";
