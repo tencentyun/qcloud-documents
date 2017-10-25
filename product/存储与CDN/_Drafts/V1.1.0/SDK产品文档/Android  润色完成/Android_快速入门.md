@@ -204,7 +204,7 @@ try {
 
 
 //第三步，当确定所有分片全部上传完成之后，调用 CompleteMultiUploadRequest 完成分片上传结束。
-//需要参数 uploadId， partNumber和对应每块分片文件的 eTag 值
+//需要参数 uploadId， partNumber 和对应每块分片文件的 eTag 值
 
 CompleteMultiUploadRequest completeMultiUploadRequest = new CompleteMultiUploadRequest(bucket, cosPath, uploadId, null);
 
@@ -281,7 +281,7 @@ cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
 ## 生成签名
 
 若需要了解签名具体的生成过程请参照 [签名流程](https://www.qcloud.com/document/product/436/7778)。
-在使用 SDK 时，SDK 中已提供了签名获取类，只需要继承 BasicLifecycleCredentialProvider 类，并重写 fetchNewCredentials() 方法，从而获取 SecretId,SecretKey, SecretKey Duration。
+在使用 SDK 时，SDK 中已提供了签名获取类，只需要继承 BasicLifecycleCredentialProvider 类，并重写 fetchNewCredentials() 方法，从而获取 SecretId，SecretKey， SecretKey Duration。
 
 #### 示例
 ````java
