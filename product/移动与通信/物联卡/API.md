@@ -13,7 +13,7 @@
 </tr>
 </table>
 
-请求数据和应答数据均采用 json 格式，sdkappid 由腾讯物联卡平台分配，random 为随整数，不要添加零前缀。内测阶段 sdkappid 和 appkey 请向腾讯云物联卡技术支持(QQ：3513545165)申请。
+请求数据和应答数据均采用 json 格式，sdkappid 由腾讯物联卡平台分配，random 为随机整数，不要添加零前缀。内测阶段 sdkappid 和 appkey 请向腾讯云物联卡技术支持(QQ：3513545165)申请。
 
 ## 查询账户信息
 ### 说明
@@ -33,18 +33,18 @@ token 计算方式
 token = sha256("action=getappinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
 
 ### 应答格式
-	{
-	    "code": 0,
-	    "message": "OK",
-	    "echo": "",
-	    "data": {
-	        "name": "售货机",
-	        "description": "星星街边售货机物联卡",
-	        "yd_card_cnt": 10,
-	        "dx_card_cnt": 10,
-	        "lt_card_cnt": 10
-	    }
-	}
+    {
+        "code": 0,
+        "message": "OK",
+        "echo": "",
+        "data": {
+            "name": "售货机",
+            "description": "星星街边售货机物联卡",
+            "yd_card_cnt": 10,
+            "dx_card_cnt": 10,
+            "lt_card_cnt": 10
+        }
+    }
 
 ## 查询卡片列表
 ### 说明
@@ -62,7 +62,8 @@ token = sha256("action=getappinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx
 	    "time": "1505812393",   // unix 时间戳
 	    "echo": ""
 	}
-token 计算方式
+
+token 计算方式  
 token = sha256("action=getcardlist&appkey=xxxxxxx&random=xxxxxx&time=xxxxxxxx")
 
 ### 应答格式
@@ -121,7 +122,7 @@ token = sha256("action=getcardlist&appkey=xxxxxxx&random=xxxxxx&time=xxxxxxxx")
 	    "echo": ""
 	}
 
-token 计算方式
+token 计算方式  
 token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx")
 
 ### 应答格式
@@ -151,6 +152,7 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 <tr><td>版本号</td><td>v1</td></tr>
 <tr><td>说明</td><td>给物联卡下发短信，内容长度不超过70字。</td></tr>
 </table>
+
 ### 请求格式
 	{
 	    "iccid": "898602b8011730558259",	// 物联卡ID
@@ -159,12 +161,14 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 	    "time": 1506074049,					// unix时间戳，请求发起时间，如果和系统时间相差超过10分钟则会返回失败
 	    "echo": "" 							// 用户自定义内容，腾讯server回包中会原样返回，不需要就填空。
 	}
-token 计算方式
+
+token 计算方式  
 	string iccid = "898602b8011730558259";	// tel的mobile字段的内容
 	string appkey = "cefd16fb530a61b6d69f95a038e420d5"; 	// sdkappid对应的appkey，需要业务方高度保密
 	string random = "1234";									// url中的random字段的值
 	string time = "1506074049";								// unix时间戳
 	string token = sha256("action=sendsms&appkey=$appkey&iccid=$iccid&random=$random&time=$time");
+
 ### 应答格式
 	{
 	    "code": 0,  		// 0 表示成功，非 0 表示失败
@@ -172,11 +176,13 @@ token 计算方式
 	    "sid": "xxxxxxx", 	// 标识本次发送 id，标识一次短信下发记录
 	    "echo": "" 			// 用户自定义内容，腾讯 server 回包中会原样返回
 	}
+
 ## 短信回执
 ### 说明
 <table>
 <tr><td>说明</td><td>给用户后台服务推送短信状态回执，需要由用户提供接收回执的地址</td></tr>
 </table>
+
 ### 请求格式
 	{
 	    "type": "report",
@@ -185,16 +191,19 @@ token 计算方式
 	    "report_status": "SUCCESS",
 	    "sid": xxxxx
 	}
+
 ### 应答格式
 	{
 	    "code": 0,  	// 0 表示成功，非0表示失败
 	    "message": "OK"	// code 非 0 时的具体错误信息
 	}
+
 ## 短信回复
 ### 说明
 <table>
 <tr><td>说明</td><td>一般用于物联卡设备收到短信之后进行回复，需要由用户提供接收回复的地址</td></tr>
 </table>
+
 ### 请求格式
 	{
 	    "type": "reply",
@@ -202,6 +211,7 @@ token 计算方式
 	    "user_reply_time": "2017-09-17 08:03:04", 
 	    "msg ": "回复的内容"
 	}
+
 ### 应答格式
 	{
 	    "code": 0,  	// 0 表示成功，非0表示失败
