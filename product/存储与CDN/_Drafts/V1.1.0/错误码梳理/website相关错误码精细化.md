@@ -33,8 +33,8 @@
 |:--|:--|:--|
 | NoSuchWebsiteConfiguration |当没有开启静态网站的情况下，试图通过静态网站域名访问资源|404 Not Found|
 | MethodNotAllowed |当使用非法的Method或者URL中带参数来访问静态网站域名|405 Method Not Allowed|
-| MethodNotAllowed |当访问的资源命中错误码重定向或者前缀重定向时|301 Moved Permanently|
-| MethodNotAllowed |当访问的资源resource不存在，而resource/Index存在时|302 Moved Temporarily|
+| |当访问的资源命中错误码重定向或者前缀重定向时|301 Moved Permanently|
+| |当访问的资源resource不存在，而resource/Index存在时|302 Moved Temporarily|
 
 ## ActionS3WebsiteObjectAttrQuery 
 
@@ -47,8 +47,8 @@
 |:--|:--|:--|
 | NoSuchWebsiteConfiguration |当没有开启静态网站的情况下，试图通过静态网站域名访问资源|404 Not Found|
 | MethodNotAllowed |当使用非法的Method或者URL中带参数来访问静态网站域名|405 Method Not Allowed|
-| MethodNotAllowed |当访问的资源命中错误码重定向或者前缀重定向时|301 Moved Permanently|
-| MethodNotAllowed |当访问的资源resource不存在，而resource/Index存在时|302 Moved Temporarily|
+| |当访问的资源命中错误码重定向或者前缀重定向时|301 Moved Permanently|
+| |当访问的资源resource不存在，而resource/Index存在时|302 Moved Temporarily|
 
 ## ActionS3GetBucketObjectVersioning 
 
