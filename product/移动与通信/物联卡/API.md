@@ -4,6 +4,20 @@
 |协议|HTTPS|
 |方法|POST|
 
+<table>
+<tr>
+	<td>请求行</td>
+	<td>https://yun.tim.qq.com/版本号/iotcard/命令字?sdkappid=xxxxx&random=xxxx</td>
+</tr>
+<tr>
+	<td>协议</td>
+	<td>HTTPS</td>
+<tr>
+	<td>方法</td>
+	<td>POST</td>
+</tr>
+</table>
+
 请求数据和应答数据均采用 json 格式，sdkappid 由腾讯物联卡平台分配，random 为随机整数，不要添加零前缀。内测阶段 sdkappid 和 appkey 请向腾讯云物联卡技术支持(QQ：3513545165)申请。
 ## 查询账户信息
 ### 请求行
