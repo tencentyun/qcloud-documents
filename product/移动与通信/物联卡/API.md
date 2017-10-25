@@ -80,8 +80,8 @@ token = sha256("action=getcardlist&appkey=xxxxxxx&random=xxxxxx&time=xxxxxxxx")
 	                 "type": 1,                         // 类型 1 单卡 2 流量池
 	                 "card_status": 1,                  // 卡片状态 1 未激活 2 已激活 3 已停用
 	                 "network_status": 1,               // 网络状态 1 关闭 2 开启
-	                 "data_used_in_period": 14.970,     // 周期内已使用的流量，单位MB
-	                 "data_total_in_period": 30.000     // 周期内可用的流量，单位MB
+	                 "data_used_in_period": 14.970,     // 周期内已使用的流量，单位(MB)
+	                 "data_total_in_period": 30.000     // 周期内可用的流量，单位(MB)
 	            },
 	            {
 	                 "iccid": "898607B0101730318875",
@@ -137,8 +137,8 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 	        "type": 1,                         // 类型 1 单卡 2 流量池
 	        "card_status": 1,                  // 卡片状态 1 未激活 2 已激活 3 已停用
 	        "network_status": 1,               // 网络状态 1 关闭 2 开启
-	        "data_used_in_period": 14.970,     // 周期内已使用的流量，单位MB
-	        "data_total_in_period": 30.000     // 周期内可用的流量，单位MB
+	        "data_used_in_period": 14.970,     // 周期内已使用的流量，单位(MB)
+	        "data_total_in_period": 30.000     // 周期内可用的流量，单位(MB)
 	        "product_id": "xxxxxxxxxxxxxxxxx", // 套餐 id
 	        "pool_id": "yyyyyyyyyyyyyyyy",     // 流量池 id
 	        "product_expired_time": 1506494258 // 套餐过期时间
@@ -150,25 +150,25 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 <table>
 <tr><td>命令字</td><td>sendsms</td></tr>
 <tr><td>版本号</td><td>v1</td></tr>
-<tr><td>说明</td><td>给物联卡下发短信，内容长度不超过70字。</td></tr>
+<tr><td>说明</td><td>给物联卡下发短信，内容长度不超过 70 字。</td></tr>
 </table>
 
 ### 请求格式
 	{
-	    "iccid": "898602b8011730558259",   // 物联卡ID
+	    "iccid": "898602b8011730558259",   // 物联卡 ID
 	    "msg": "发送的短信内容",             // 短信内容
 	    "token": "4445829b4301d3f2a120c038605f376a3fb48b2e7902275b85044447008f6bd2",   //发送短信凭证，生成方式见下注
-	    "time": 1506074049,                // unix时间戳，请求发起时间，如果和系统时间相差超过10分钟则会返回失败
-	    "echo": ""                         // 用户自定义内容，腾讯server回包中会原样返回，不需要就填空。
+	    "time": 1506074049,                // unix 时间戳，请求发起时间，如果和系统时间相差超过 10 分钟则会返回失败
+	    "echo": ""                         // 用户自定义内容，腾讯 server 回包中会原样返回，不需要就填空。
 	}
 
 token 计算方式  
 
-	string iccid = "898602b8011730558259"; // tel的mobile字段的内容
-	string appkey = "cefd16fb530a61b6d69f95a038e420d5"; // sdkappid对应的appkey，需要业务方高度保密
-	string random = "1234"; // url中的random字段的值
-	string time = "1506074049"; // unix时间戳
-	string token = sha256("action=sendsms&appkey=$appkey&iccid=$iccid&random=$random&time=$time");
+	string iccid = "898602b8011730558259"; // tel 的 mobile 字段的内容  
+	string appkey = "cefd16fb530a61b6d69f95a038e420d5"; // sdkappid 对应的 appkey，需要业务方高度保密  
+	string random = "1234"; // url 中的 random 字段的值  
+	string time = "1506074049"; // unix 时间戳  
+	string token = sha256("action=sendsms&appkey=$appkey&iccid=$iccid&random=$random&time=$time");  
 
 ### 应答格式
 	{
@@ -195,7 +195,7 @@ token 计算方式
 
 ### 应答格式
 	{
-	    "code": 0,         // 0 表示成功，非0表示失败
+	    "code": 0,         // 0 表示成功，非 0 表示失败
 	    "message": "OK"    // code 非 0 时的具体错误信息
 	}
 
@@ -215,6 +215,6 @@ token 计算方式
 
 ### 应答格式
 	{
-	    "code": 0,         // 0 表示成功，非0表示失败
+	    "code": 0,         // 0 表示成功，非 0 表示失败
 	    "message": "OK"    // code 非 0 时的具体错误信息
 	}
