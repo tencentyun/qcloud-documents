@@ -24,13 +24,13 @@ pom.xml 添加依赖
 </dependency>
 ```
 
- <font size=14 color=red> 添加之后运行什么命令，或者这个时候应该使用哪种IDE操作？  by stongdong</font>
+ > <font size=14 color=red> 添加之后运行什么命令，或者这个时候应该使用哪种IDE操作？  by stongdong</font>
 
 - 源码安装
 
 从[github](https://github.com/tencentyun/cos-java-sdk-v5)下载源码, 通过maven导入。比如eclipse，选择File->Import->maven->Existing Maven Projects
 
- <font size=14 color=red> 使用Eclipse的方式需要详细描述.  by stongdong</font>
+> <font size=14 color=red> 使用Eclipse的方式需要详细描述.  by stongdong</font>
  
  
 ## 卸载SDK
@@ -40,7 +40,7 @@ pom.xml 添加依赖
 # 快速入手
 
 
- <font size=14 color=red> 拆成章节来描述吧，堆在一起不太容易理解. 可以参考：https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/V1.1.0/SDK%E4%BA%A7%E5%93%81%E6%96%87%E6%A1%A3/iOS%20%E5%BE%85%E6%B6%A6%E8%89%B2/iOS_%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md  by stongdong</font>
+>  <font size=14 color=red> 拆成章节来描述吧，堆在一起不太容易理解. 可以参考：https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/V1.1.0/SDK%E4%BA%A7%E5%93%81%E6%96%87%E6%A1%A3/iOS%20%E5%BE%85%E6%B6%A6%E8%89%B2/iOS_%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.md  by stongdong</font>
  
  
 ```java
