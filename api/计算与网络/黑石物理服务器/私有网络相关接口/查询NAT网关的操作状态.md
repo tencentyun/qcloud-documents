@@ -39,9 +39,15 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=QueryBmNatGatewayProductio
 | message | 错误信息| String |
 | data.status | 0为执行成功，1为执行失败，2为正在执行中 | Int |
 
+## 错误码
+| 错误码   | 英文提示                  | 错误描述    |
+| ----- | --------------------- | ------- |
+| 9001  | InternalError.DbError | 操作数据库错误 |
+| 10001 | InvalidParameter      | 参数错误    |
+
 ## 实际案例
 
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?	
 	Action=QueryBmNatGatewayProductionStatus
@@ -53,7 +59,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Signature=QKEu1BoztPhLn%2B1MRThSbNogd1s%3D
 ```
 
-### 响应
+### 输出
 
 ```
 {
