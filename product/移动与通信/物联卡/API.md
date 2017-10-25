@@ -1,26 +1,20 @@
 ## 约定
-<table>
-<tr>
-	<td>请求行</td>
-	<td>https://yun.tim.qq.com/版本号/iotcard/命令字?sdkappid=xxxxx&random=xxxx</td>
-</tr>
-<tr>
-	<td>协议</td>
-	<td>HTTPS</td>
-<tr>
-	<td>方法</td>
-	<td>POST</td>
-</tr>
-</table>
+
+|项目|内容|
+|-----|-----|
+|请求行|https://yun.tim.qq.com/版本号/iotcard/命令字?sdkappid=xxxxx&random=xxxx|
+|协议|HTTPS|
+|方法|POST|
 
 请求数据和应答数据均采用 json 格式，sdkappid 由腾讯物联卡平台分配，random 为随机整数，不要添加零前缀。内测阶段 sdkappid 和 appkey 请向腾讯云物联卡技术支持(QQ：3513545165)申请。
 
 ## 查询账户信息
 ### 说明
-<table>
-<tr><td>命令字</td><td>getappinfo</td></tr>
-<tr><td>版本号</td><td>v1</td></tr>
-</table>
+
+|项目|内容|
+|-----|-----|
+|命令行|getappinfo|
+|版本号|v1|
 
 ### 请求格式
 	{
@@ -48,10 +42,12 @@ token = sha256("action=getappinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxxx
 
 ## 查询卡片列表
 ### 说明
-<table>
-<tr><td>命令字</td><td>getcardlist</td></tr>
-<tr><td>版本号</td><td>v1</td></tr>
-</table>
+
+|项目|内容|
+|-----|-----|
+|命令行|getcardlist|
+|版本号|v1|
+
 
 ### 请求格式
 	{
@@ -109,10 +105,11 @@ token = sha256("action=getcardlist&appkey=xxxxxxx&random=xxxxxx&time=xxxxxxxx")
 
 ## 查询卡片信息
 ### 说明
-<table>
-<tr><td>命令字</td><td>getcardinfo</td></tr>
-<tr><td>版本号</td><td>v1</td></tr>
-</table>
+
+|项目|内容|
+|-----|-----|
+|命令行|getcardinfo|
+|版本号|v1|
 
 ### 请求格式
 	{
@@ -147,11 +144,13 @@ token = sha256("action=getcardinfo&appkey=xxxxxxx&sdkappid=xxxxxxxx&time=xxxxxxx
 
 ## 发送短信
 ### 说明
-<table>
-<tr><td>命令字</td><td>sendsms</td></tr>
-<tr><td>版本号</td><td>v1</td></tr>
-<tr><td>说明</td><td>给物联卡下发短信，内容长度不超过 70 字。</td></tr>
-</table>
+
+
+|项目|内容|
+|-----|-----|
+|命令字|sendsms|
+|版本号|v1|
+|说明|给物联卡下发短信，内容长度不超过 70 字。|
 
 ### 请求格式
 	{
@@ -180,9 +179,10 @@ token 计算方式
 
 ## 短信回执
 ### 说明
-<table>
-<tr><td>说明</td><td>给用户后台服务推送短信状态回执，需要由用户提供接收回执的地址</td></tr>
-</table>
+
+|项目|内容|
+|-----|-----|
+|说明|给用户后台服务推送短信状态回执，需要由用户提供接收回执的地址|
 
 ### 请求格式
 	{
@@ -201,9 +201,10 @@ token 计算方式
 
 ## 短信回复
 ### 说明
-<table>
-<tr><td>说明</td><td>一般用于物联卡设备收到短信之后进行回复，需要由用户提供接收回复的地址</td></tr>
-</table>
+
+|项目|内容|
+|-----|-----|
+|说明|一般用于物联卡设备收到短信之后进行回复，需要由用户提供接收回复的地址|
 
 ### 请求格式
 	{
