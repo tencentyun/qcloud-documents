@@ -21,7 +21,7 @@ dimensions.0.value为实例的uuid
 | namespace          | 是    | String   | qce/redis    | 命名空间，每个云产品会有一个命名空间，具体名称见输入内容一栏。          |
 | metricName         | 是    | String   | 具体的指标名称    | 指标名称，具体名称见2.2                            |
 | dimensions.0.name  | 是    | String   | redis_uuid | 入参必须是redis_uuid                            |
-| dimensions.0.value | 是    | String   | 具体的uuid    | 输入redis实例id，也即是实例串号，如crs-ifmymj41，可通过[查询CRS实例列表接口](http://www.qcloud.com/doc/api/260/1384)查询 |
+| dimensions.0.value | 是    | String   | 具体的uuid    | 输入redis实例id，也即是实例串号，如crs-ifmymj41，可通过[查询CRS实例列表接口](http://cloud.tencent.com/doc/api/260/1384)查询 |
 | period             | 否    | Int      | 60/300     | 监控统计周期，绝大部分指标支持60s统计粒度，部分指标仅支持300s统计粒度，统计粒度根据指标的不同而变。输入参数时可参考2.2的指标详情列表。 |
 | startTime          | 否    | Datetime | 起始时间       | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
 | endTime            | 否    | Datetime | 结束时间       | 结束时间，默认为当前时间。 endTime不能小于startTime       |
@@ -46,7 +46,7 @@ dimensions.0.value为实例的uuid
 | setbit命令数 | cmdstat_setbit   |1分钟内 setbit 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
 | setex命令数| cmdstat_setex    |1分钟内 setex 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
 | setnx命令数 | cmdstat_setnx    |1分钟内 setnx 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟 |
-| setrange命令数| cmdstat_setrange |1分钟内 setrange 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟| 次/分钟 |
+| setrange命令数| cmdstat_setrange |1分钟内 setrange 命令请求数|每分钟采集，5分钟粒度数据是按最近5分钟内求和| 次/分钟|
 | 每秒执行命令数| qps      |1分钟内命令总数除以60|每分钟采集，5分钟粒度数据是按最近5分钟内求平均值 | 次/秒钟    |
 | 连接数| connections      |1分钟内连接数总和|每分钟采集，5分钟粒度数据是按最近5分钟内求和 | 个    |
 | cpu利用率            | cpu_us    |CPU处于非空闲状态的百分比，取/proc/stat数据计算得出| 每分钟采集，5分钟粒度数据是按最近5分钟内求平均值 | %   |

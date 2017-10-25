@@ -24,14 +24,14 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=UnbindIpsToBmNatGateway
 |---------|---------|---------|---------|
 | natId | NAT网关统一ID，例如：nat-8pbrkzh6| String | 是 |
 | vpcId |  私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String |是 |
-| ips.n |需要解绑部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。ips包含字段如下 | Array | 是 | 
+| ips.n |需要解绑部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。| Array | 是 | 
 
 ips包含字段如下：
 
 | 参数名称 | 描述 | 类型 |必选  | 
 |---------|---------|---------|---------|
 |ips.n.subnetId|子网ID标识|String|是|
-|ips.n.ipList|子网下需要解绑NAT的IP列表，IP需要属于该subnetId子网Array||是|
+|ips.n.ipList|子网下需要解绑NAT的IP列表，IP需要属于该subnetId子网|Array|是|
 
 
 ## 响应
@@ -64,7 +64,7 @@ ips包含字段如下：
 | 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过<a href="/document/product/386/9355" title="DescribeBmNatGateway">DescribeBmNatGateway</a>接口查询NAT网关。 |
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=UnbindIpsToBmNatGateway
@@ -82,7 +82,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,

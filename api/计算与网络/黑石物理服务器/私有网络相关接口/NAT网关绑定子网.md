@@ -53,7 +53,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
 | 13012 | BmVpcNat.SubnetUsed | 子网已被绑定到其他NAT网关。 |
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=SubnetBindBmNatGateway
@@ -68,7 +68,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,
