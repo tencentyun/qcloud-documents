@@ -1,12 +1,12 @@
 ## 功能描述
-SubnetBindBmNatGateway 用于将子网的全部IP绑定到NAT网关
+SubnetBindBmNatGateway 接口用于将全部IP类型的子网绑定到NAT网关
 
 接口请求域名：bmvpc.api.qcloud.com
 
 ## 请求
-语法示例：
+### 请求示例
 ```
-GET https://vpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
+GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
     &vpcId=<vpc网络ID>
@@ -14,46 +14,46 @@ GET https://vpc.api.qcloud.com/v2/index.php?Action=SubnetBindBmNatGateway
     &subnetIds.1=<子网ID>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为SubnetBindBmNatGateway。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为SubnetBindBmNatGateway。
 
-| 参数名称 | 必选  | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
-| natId | 是 | string | 黑石网关统一ID，例如：nat-df5dfd |
-| vpcId | 是 | string | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| subnetIds.n | 是 | array | 需要绑定全部IP的子网唯一ID数组。例如：subnetIds.0=	subnet-8pca7qqf。可通过<a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+| natId | 黑石网关统一ID，例如：nat-df5dfd | String | 是 |
+| vpcId | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 |
+| subnetIds.n | 需要绑定全部IP的子网唯一ID数组。例如：subnetIds.0=subnet-8pca7qqf。可通过<a href="/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 | Array | 是 |
+
 
 ## 响应
-响应示例：
+### 响应示例
 ```
 {
 	"code": 0,
 	"message": "",
 	"data": {
-		"taskId": 9641
+		"taskId": <NAT异步任务ID>
 	}
 }
 ```
 ### 响应参数
-| 参数名称 | 类型 | 描述 |
+| 参数名称 | 描述 |  类型 |
 |---------|---------|---------|
-| code | Int | 错误码。0: 成功, 其他值: 失败|
-| message | String | 错误信息|
-| data | Array | 返回操作的任务ID，创建结果可调用<a href="https://cloud.tencent.com/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 |
+| code | 错误码。0: 成功, 其他值: 失败| Int |
+| message | 错误信息| String |
+| data | 返回操作的任务ID，创建结果可调用<a href="/document/api/386/9356" title="查询NAT网关操作状态">查询NAT网关操作状态</a>查询 | Array |
 
 
 ## 错误码
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
 | 10001 | BmVpc.InvalidParameterValue | 参数设置错误，具体错误信息可查看返回的message信息 |
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
-| -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
-| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
+| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
+| -3030 | InvalidBmSubnet.NotFound | 无效的子网。子网资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 |
+| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过<a href="/document/product/386/9355" title="DescribeBmNatGateway">DescribeBmNatGateway</a>接口查询NAT网关。 |
 | 13012 | BmVpcNat.SubnetUsed | 子网已被绑定到其他NAT网关。 |
 
 ## 实际案例
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=SubnetBindBmNatGateway
@@ -68,7 +68,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
 	"code": 0,

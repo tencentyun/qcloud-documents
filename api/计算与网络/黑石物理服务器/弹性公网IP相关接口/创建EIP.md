@@ -8,7 +8,7 @@ EipBmApply 接口用于创建黑石弹性公网IP。创建成功后，便可以�
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmApply
+	Action=EipBmApply
 	&<公共请求参数>
 	&goodsNum=<创建的EIP数量>
 	&payMode=<计费模式>

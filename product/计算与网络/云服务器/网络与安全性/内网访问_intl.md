@@ -40,8 +40,6 @@ Run the command '/ etc / resolv.conf', according to the corresponding table in d
 ![](https://mc.qcloudimg.com/static/img/fa8ecdf52b7f51361c369dbc96eea4ec/image.png)
 
 - For Windows, you can modify the DNS server by opening the [Control Panel] - [Network and Sharing Center] - [Change Adapter Devices], then right-clicking on the network card [Properties] and double-clicking [Internet Protocol Version 4].
-![](https://mc.qcloudimg.com/static/img/beb44bdaad8d90c9534891b725a1d3a6/image.png)
-![](https://mc.qcloudimg.com/static/img/7f6590044c32188faa7f8e749aade9fe/image.png)
 
 ## Obtain private IP of instance
 You can use the Tencent Cloud console and API to determine the private IP of the instance. You can also use the instance metadata to determine the private IP of an instance from within. For more information, see [Instance Metadata](/doc/product/213/4934).
