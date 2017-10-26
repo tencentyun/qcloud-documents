@@ -156,7 +156,7 @@ public class LocalCredentialProvider extends BasicLifecycleCredentialProvider{
 通过 PutObjectResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | accessUrl   | String          | 请求成功时，返回访问文件的地址|
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7749)|
 
@@ -241,7 +241,7 @@ cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
 通过 InitMultipartUploadResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | initMultipartUpload   | InitMultipartUpload          | [请求成功的返回结果](https://www.qcloud.com/document/product/436/7746)|
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7746)|
 
@@ -323,7 +323,7 @@ cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest, new CosXmlRes
 通过 UploadPartResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | eTag   | String          | 请求成功,返回分片文件的MD5值，用于最后完成分片|
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7750)|
 
@@ -412,7 +412,7 @@ cosXmlService.uploadPartAsync(uploadPartRequest, new CosXmlResultListener() {
 通过 CompleteMultiUploadResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | completeMultipartUpload   | CompleteMultipartResult          | [请求成功的返回结果](https://www.qcloud.com/document/product/436/7742)|
 | accessUrl   | String          | 请求成功时，返回访问文件的地址|
 
@@ -489,7 +489,7 @@ cosXmlService.completeMultiUploadAsync(completeMultiUploadRequest, new CosXmlRes
 通过 ListPartsResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | listParts  | ListParts             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7747)     |
 | httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7747)     |
 
@@ -562,7 +562,7 @@ cosXmlService.listPartsAsync(listPartsRequest, new CosXmlResultListener() {
 通过 AbortMultiUploadResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7740)     |
 
 
@@ -638,7 +638,7 @@ cosXmlService.abortMultiUploadAsync(abortMultiUploadRequest, new CosXmlResultLis
 通过 DeleteObjectResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7743)     |
 
 
@@ -711,7 +711,7 @@ cosXmlService.deleteObjectAsync(deleteObjectRequest, new CosXmlResultListener() 
 通过 DeleteMultiObjectResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7743)     |
 
 
@@ -787,7 +787,7 @@ cosXmlService.deleteMultiObjectAsync(deleteMultiObjectRequest, new CosXmlResultL
 通过 GetObjectResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7753)     |
 
 
@@ -1037,7 +1037,7 @@ cosXmlService.putBucketAsync(putBucketRequest, new CosXmlResultListener() {
 通过 PutBucketResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7735)|
 
 
@@ -1105,7 +1105,7 @@ cosXmlService.headBucketAsync(headBucketRequest, new CosXmlResultListener() {
 通过 GetBucketResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | listBucket | ListBucket | 保存 Get Bucket 请求结果的所有信息 |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7734)|
 
@@ -1184,7 +1184,7 @@ cosXmlService.getBucketAsync(getBucketRequest, new CosXmlResultListener() {
 通过 DeleteBucketResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7732)|
 
 
@@ -1254,7 +1254,7 @@ cosXmlService.deleteBucketAsync(deleteBucketRequest, new CosXmlResultListener() 
 通过 DeleteBucketResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7737)|
 
 
@@ -1340,7 +1340,7 @@ cosXmlService.putBucketACLAsync(putBucketACLRequest, new CosXmlResultListener() 
 通过 GetBucketACLResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | accessControlPolicy  | AccessControlPolicy             | [被授权者信息与权限信息](https://cloud.tencent.com/document/product/436/7733)|
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7733)|
 
@@ -1410,7 +1410,7 @@ cosXmlService.getBucketACLAsync(getBucketACLRequest, new CosXmlResultListener() 
 通过 PutBucketCORSResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/8279)|
 
 
@@ -1511,7 +1511,7 @@ cosXmlService.putBucketCORSAsync(putBucketCORSRequest, new CosXmlResultListener(
 通过 GetBucketCORSResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | cORSConfiguration  | CORSConfiguration             | [跨域资源共享配置的所有信息](https://cloud.tencent.com/document/product/436/8274)|
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/8274)|
 
@@ -1580,7 +1580,7 @@ cosXmlService.getBucketCORSAsync(getBucketCORSRequest, new CosXmlResultListener(
 通过 DeleteBucketCORSResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/8283)|
 
 
@@ -1646,7 +1646,7 @@ cosXmlService.deleteBucketCORSAsync(deleteBucketCORSRequest, new CosXmlResultLis
 通过 GetBucketLocationResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | region| String | Bucket 所在地域 |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/8275)|
 
@@ -1715,7 +1715,7 @@ cosXmlService.getBucketLocationAsync(getBucketLocationRequest, new CosXmlResultL
 通过 PutBucketLifecycleResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/8280)|
 
 
@@ -1796,7 +1796,7 @@ cosXmlService.putBucketLifecycleAsync(putBucketLifecycleRequest, new CosXmlResul
 通过 getBucketLifecycle 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 |lifecycleConfiguration| LifecycleConfiguration| 生命周期配置信息|
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/8278)|
 
@@ -1866,7 +1866,7 @@ cosXmlService.getBucketLifecycleAsync(getBucketLifecycleResult, new CosXmlResult
 通过 DeleteBucketLifecycleResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/8284)|
 
 
@@ -1935,7 +1935,7 @@ cosXmlService.deleteBucketLifecycleAsync(deleteBucketLifecycleRequest, new CosXm
 通过 ListMultiUploadsResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :-------------- | :----------- |
 | listMultipartUploads | ListMultipartUploads | 所有分块上传的信息 |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7736)|
 
