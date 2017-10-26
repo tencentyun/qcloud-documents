@@ -1,11 +1,11 @@
-You can configure HTTPS certificate for a domain that has been connected to CDN. You can upload your existing certificate for deployment, or directly deploy the certificate hosted or issued by [SSL Certificate Management](https://console.qcloud.com/ssl) platform.
+You can configure HTTPS certificate for a domain that has been connected to CDN. You can upload your existing certificate for deployment, or directly deploy the certificate hosted or issued by [SSL Certificate Management](https://console.cloud.tencent.com/ssl) platform.
 
 You can apply for a free third party certificate from TrustAsia on SSL Certificate Management page.
 
 ## Configuring Certificate
 
-If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.qcloud.com/cdn), and go to **Certificates** page in **Advanced** and click "Configure Certificate":
-![](https://mc.qcloudimg.com/static/img/01da37e2a16808ccb23cfec174a08409/1.png)
+If you already have a certificate, you can upload it directly to the CDN page for configuration. Log in to [CDN Console](https://console.cloud.tencent.com/cdn), and go to **Certificates** page and click "Configure Certificate":
+![](//mc.qcloudimg.com/static/img/4b6dc524595e3ac1c605676210901659/image.png)
 
 ### 1. Selecting a Domain
 Select the accelerated domain for which you want to configure a certificate. Note:
@@ -21,20 +21,20 @@ Select the accelerated domain for which you want to configure a certificate. Not
 
 Select "External Certificate", and paste the certificate content and private key to the corresponding text boxes. You can optionally add a remark for identifying the certificate.
 
-![](https://mc.qcloudimg.com/static/img/794ed717eb96076fde27ad9abde38093/3.png)
+![](//mc.qcloudimg.com/static/img/4b6dc524595e3ac1c605676210901659/image.png)
 
 + The certificate content must take a PEM format. For non-PEM certificates, please refer to the instructions below for format conversion;
 + If your certificate has a certificate chain, please convert its content into PEM format, and upload it with the certificate content. The instructions on the completion of certificate chain is described later in this chapter.
 
 #### 2.2 Using Tencent Cloud Hosted Certificate
-You can apply for a free third-party certificate from TrustAsia on [SSL Certificate Management](https://console.qcloud.com/ssl) page or trust an existing certificate to Tencent Cloud to use it for such Cloud products as CDN, Cloud Load Balance.
+You can apply for a free third-party certificate from TrustAsia on [SSL Certificate Management](https://console.cloud.tencent.com/ssl) page or trust an existing certificate to Tencent Cloud to use it for such Cloud products as CDN, Cloud Load Balance.
 
 By selecting "Tencent Cloud Hosted Certificate", you can view the list of certificates available for the domain in SSL Certificate Management:
 
 ![](https://mc.qcloudimg.com/static/img/aacbfb543f25cbebb1c7eef984cf42bb/4.png)
 
 + Select the certificate to use from the List of Certificates;
-+ The certificates are displayed as Certificate IDs (Remark) in the list . You can learn more about the certificates by going to [SSL Certificate Management](https://console.qcloud.com/ssl).
++ The certificates are displayed as Certificate IDs (Remark) in the list . You can learn more about the certificates by going to [SSL Certificate Management](https://console.cloud.tencent.com/ssl).
 
 ### 3. Origin-Pull Method
 After the certificate is configured, you can select the back-to-origin method by which CDN nodes get resources from origin server:

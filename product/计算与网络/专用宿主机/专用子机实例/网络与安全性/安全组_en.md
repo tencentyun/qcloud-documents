@@ -62,7 +62,7 @@ If you have a large number of CVM instances that need to be interconnected, you 
 
 ## Create a Security Group
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click "Security Group".
 
@@ -72,7 +72,7 @@ If you have a large number of CVM instances that need to be interconnected, you 
 
 ## Delete Security Group
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click "Security Group".
 
@@ -82,7 +82,7 @@ If you have a large number of CVM instances that need to be interconnected, you 
 
 ## Clone Security Group
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click "Security Group".
 
@@ -92,7 +92,7 @@ If you have a large number of CVM instances that need to be interconnected, you 
 
 ## Add a Rule to the Security Group
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click "Security Group".
 
@@ -104,7 +104,7 @@ If you have a large number of CVM instances that need to be interconnected, you 
 
 ## Configure the Security Groups Associated with the CVM Instance
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2)	Click "Cloud Virtual Machine" in the navigation pane.
 
@@ -113,7 +113,7 @@ If you have a large number of CVM instances that need to be interconnected, you 
 4)	In the "Configure Security Group" dialog box, select one or more security groups from the list and click "OK".
 
 Or:
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2)	Click "Security Group" in the navigation pane.
 
@@ -124,7 +124,7 @@ Or:
 
 ## Import and Export Security Group Rules
 
-1) Log in to [CVM Console](https://console.qcloud.com/cvm/).
+1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) In the navigation pane, click "Security Group".
 
@@ -134,7 +134,7 @@ Or:
 
 
 ## Security Group Cloud API
-The security group cloud API is the developer tool for security group. It is used to complete security group operations, and manage configurations between security groups and CVM instances. Click [here](http://www.qcloud.com/doc/api/229/API%E6%A6%82%E8%A7%88#6.-安全组相关接口).
+The security group cloud API is the developer tool for security group. It is used to complete security group operations, and manage configurations between security groups and CVM instances. Click [here](http://cloud.tencent.com/doc/api/229/API%E6%A6%82%E8%A7%88#6.-安全组相关接口).
 
 
 

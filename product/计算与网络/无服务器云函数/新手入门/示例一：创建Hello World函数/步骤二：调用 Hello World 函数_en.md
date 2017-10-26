@@ -15,4 +15,4 @@ Please use the test template provided by the console to call Hello World functio
  - The execution time, memory and other information of the function will appear in running information
  - Logs generated during the execution of function will appear in the log, including print statement in user code, trace stack for function execution failure, and so on, and will be written in the log module.
 
-4) You can run the code a couple of times, and click "Log" tab to check the log information of each run.
+4) You can run the code a couple of times, and click **Logs** tab to check the log information of each run.

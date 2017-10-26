@@ -4,7 +4,7 @@
 <br> 接口名：AntiFraud
 
 ## 2.输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/document/product/295/7279)页面。其中，此接口的Action字段为AntiFraud。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)页面。其中，此接口的Action字段为AntiFraud。
 <br>注意：以下每一个参数对于识别恶意都非常重要，任何参数的缺少都有可能影响识别效果 。
 <table class="t">
 <th><b>参数名称</b>
@@ -22,8 +22,8 @@
 <td> phoneNumber
 </td><td> String
 </td><td> 手机号码：国家代码
-<br> 手机号，如0086-15912345678
-<br> 注意0086前不需要+号
+<br> 手机号，如：0086-15912345678
+<br> 注意 0086 前不需要+号
 </td></tr>
 <tr>
 <td> bankCardNumber
@@ -122,7 +122,7 @@
 </th></tr>
 <td> code
 </td><td> Int
-</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://www.qcloud.com/document/product/295/7285"target="black">公共错误码</a>
+</td><td> 公共错误码，0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/document/product/295/7285"target="black">公共错误码</a>
 <tr><td> codeDesc
 </td><td> String
 </td><td> 业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。
@@ -131,6 +131,18 @@
 <td> message
 </td><td> String
 </td><td> 模块错误信息描述，与接口相关
+</td></tr>
+<tr>
+<tr>
+<td> idfound
+</td><td> int
+</td><td>  表示该条记录中的身份证能否查到,1为能查到，-1为查不到
+</td></tr>
+<tr>
+<tr>
+<td> found
+</td><td> int
+</td><td>表示该条记录能否查到,1为能查到，-1为查不到
 </td></tr>
 <tr>
 <td> riskScore
@@ -154,7 +166,7 @@ RiskDetail类型说明
 </th><th> <b>说明</b>
 </th></tr>
 <tr>
-<td rowspan="7"> 帐号风险
+<td rowspan="8"> 帐号风险
 </td>
 <td> 信贷中介
 </td>
@@ -190,6 +202,11 @@ RiskDetail类型说明
   <td>失信名单 </td>
   <td>7</td>
   <td>失信名单</td>
+</tr>
+<tr>
+  <td>异常支付行为 </td>
+  <td>8</td>
+  <td>支付行为异常包括支付频次、额度、场景等方面有过异常的</td>
 </tr>
 <tr>
 <td rowspan="4"> 区域风险
@@ -326,7 +343,7 @@ RiskDetail类型说明
 ## 4.示例代码
 代码下载：  [Python示例](https://mc.qcloudimg.com/static/archive/a8b291becf06c9fefab003f6afc16509/AntiFraud.py.zip) [PHP示例](https://mc.qcloudimg.com/static/archive/06397c265ae2dc364f2f47559125ce5b/AntiFraud.php.zip) [Java示例](https://mc.qcloudimg.com/static/archive/70b700e34e982822af2a020454185a8d/AntiFraud.zip) [.Net示例](https://mc.qcloudimg.com/static/archive/05c3d0f6edbcd297502ab7407e91275b/AntiFraud.zip)
 
-一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://www.qcloud.com/document/product/295/7279)小节。
+一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。这里只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的说明可见[公共请求参数](https://cloud.tencent.com/document/product/295/7279)小节。
 ```
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
@@ -338,18 +355,22 @@ https://csec.api.qcloud.com/v2/index.php?Action=AntiFraud
 
 ## 5.响应示例
 ```
-{
-"code": 0,
-"codeDesc":"success" ,
-"message": "OK",
-"riskScore": 90,
-"riskInfo": [
-　　{
-　　　"riskCode": 1
-　　},
-　　{
-　　　"riskCode": 203
-　　}
-　]
+{"code":0,
+"codeDesc":"Success",
+"found":1,  //表示该条记录能被查到
+"idFound":1, //表示该条记录中的身份证能被查到
+"message":"No Error",
+"riskInfo":
+[
+  {
+     "riskCode":5,  
+     "riskCodeValue":2 //命中风险码5：身份认证失败，风险等级为中风险
+  },     
+  {
+    "riskCode":6,
+    "riskCodeValue":3 //命中风险码6：疑似恶意欺诈，风险等级为高风险
+  }
+], 
+"riskScore":88
 }
 ```

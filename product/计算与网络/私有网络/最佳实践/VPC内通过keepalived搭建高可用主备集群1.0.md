@@ -19,8 +19,8 @@
 ### 步骤1.    申请VIP
 在某个子网内申请VIP（VPC内用户主动申请的IP都可作为VIP），暂时仅支持云API，云API代码开发指引请参考第6步。由于VIP绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而VPC内每台CVM在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请VIP。
 **具体操作：** 
-1) 通过云`API:DescribeNetworkInterfaces`[点击查看API详情](https://www.qcloud.com/doc/api/245/4814)得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络ID**和**云服务器的ID**即可）。
-2) 通过云`API:AssignPrivateIpAddresses`[点击查看API详情](https://www.qcloud.com/doc/api/245/4817)在弹性网卡上申请内网VIP的，申请VIP操作可参考以下python代码：
+1) 通过云`API:DescribeNetworkInterfaces`[点击查看API详情](https://cloud.tencent.com/doc/api/245/4814)得到云服务器的主网卡的`networkInterfaceId`（入参填写：**私有网络ID**和**云服务器的ID**即可）。
+2) 通过云`API:AssignPrivateIpAddresses`[点击查看API详情](https://cloud.tencent.com/doc/api/245/4817)在弹性网卡上申请内网VIP的，申请VIP操作可参考以下python代码：
 
 ```
         
@@ -82,7 +82,7 @@ vrrp_instance VI_1 {
 ```
 
 ### 步骤 4.（可选）给VIP分配外网IP
-先在控制台申请EIP，再通过云API绑定到1中申请的内网IP，[点击查看具体调用方式](https://www.qcloud.com/doc/api/229/1377)，python代码与步骤1类似。
+先在控制台申请EIP，再通过云API绑定到1中申请的内网IP，[点击查看具体调用方式](https://cloud.tencent.com/doc/api/229/1377)，python代码与步骤1类似。
 
 ### 步骤 5.   keepalived.conf 配置切换脚本
 主备切换时，新切换为主的设备通过notify调用vip.py进行切换。
@@ -115,7 +115,7 @@ vip.py：通过云API开发主备切换程序，通过调用内网IP迁移的云
 
 """
 step1: 下载python-sdk: https://github.com/QcloudApi/qcloudapi-sdk-python
-step2: 将以下python代码保存成vip.py放到sdk的src同级目录,  具体参数参考: https://www.qcloud.com/doc/api/245/1361
+step2: 将以下python代码保存成vip.py放到sdk的src同级目录,  具体参数参考: https://cloud.tencent.com/doc/api/245/1361
 """
 
 from src.QcloudApi.qcloudapi import QcloudApi

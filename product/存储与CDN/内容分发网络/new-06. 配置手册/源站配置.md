@@ -7,7 +7,7 @@
 > **注意**：热备源站暂时不支持 HTTPS 回源，配置了热备源站的域名在配置证书时，请勿选择 HTTPS 回源。
 
 ## 配置说明
-登录 [CDN 控制台](https://console.qcloud.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
 ![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
 单击【基本配置】，您可以看到 **源站信息** 模块，查看域名当前的源站配置。
 ![](https://mc.qcloudimg.com/static/img/7e218acca2ef3a4f146afe74e35bc129/host_info.png)

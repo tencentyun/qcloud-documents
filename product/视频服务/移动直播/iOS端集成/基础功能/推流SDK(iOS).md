@@ -15,10 +15,10 @@
 ## 准备工作
 
 - **获取开发包**
-[下载](https://www.qcloud.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://www.qcloud.com/document/product/454/7876)指引将 SDK 嵌入您的 APP 开发工程。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7876)指引将 SDK 嵌入您的 APP 开发工程。
 
 - **获取测试URL**
-[开通](https://console.qcloud.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.qcloud.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://www.qcloud.com/document/product/454/7915)。
+[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://cloud.tencent.com/document/product/454/7915)。
 
 
 ## 代码对接
@@ -57,7 +57,7 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
 ```
 
 ### step 3: 启动推流
-经过step1 和 step2 的准备之后，用下面这段代码就可以启动推流了： 
+经过 step1 和 step2 的准备之后，用下面这段代码就可以启动推流了： 
 
 ```objectivec 
 NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";    
@@ -67,6 +67,19 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 
 - **startPush** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
 - **startPreview** 的参数就是step2中需要您指定的view，startPreview 的作用就是将界面view控件和LivePush对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
+
+### step 3+: 启动纯音频推流
+如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
+
+```objectivec
+// 只有在推流启动前设置启动纯音频推流才会生效，推流过程中设置不会生效。
+txLivePush.config.enablePureAudioPush = YES;   // true 为启动纯音频推流，而默认值是 false；
+[_txLivePublisher setConfig:_config];          // 重新设置 config
+
+NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";      
+[_txLivePush startPush:rtmpUrl];
+```
+如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
 
 ### step 4: 设定清晰度
 
@@ -196,6 +209,16 @@ iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都�
 - **9.1) 设置pauseImg**
 在开始推流前，使用 LivePushConfig 的 pauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
 
+```objectivec
+    // 300 为后台播放暂停图片的最长持续时间,单位是秒
+    _config.pauseTime = 300;
+    // 10 为后台播放暂停图片的帧率,最小值为5,最大值为20
+    _config.pauseFps = 10;
+    // 设置推流暂停时,后台播放的暂停图片, 图片最大尺寸不能超过1920*1920.
+    _config.pauseImg = [UIImage imageNamed:@"pause_publish.jpg"];
+    [_txLivePublisher setConfig:_config];
+```
+
 - **9.2) 设置App后台（短暂）运行**
 App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济于事，所以我们使用下面的代码让App在切到后台后还可再跑几分钟，这段时间如果主播应付一下紧急电话，也就算是“功德圆满”。
 
@@ -257,7 +280,7 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 
 | 接口 | 说明 |
 |:-------:|---------|
-| playBGM | 通过path传入一首歌曲，[小直播Demo](https://www.qcloud.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
+| playBGM | 通过path传入一首歌曲，[小直播Demo](https://cloud.tencent.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
 | stopBGM|停止播放背景音乐|
 | pauseBGM|暂停播放背景音乐|
 | resumeBGM|继续播放背景音乐|

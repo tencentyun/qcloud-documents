@@ -6,7 +6,7 @@
 
 <p><b>前期准备</b><br>
 1.	sdk依赖C# 4.0版本及以上， 推荐使用相同的版本。<br>
-2.	通过<a href="http://console.qcloud.com/uvs/vproject" class="external text" title="http://console.qcloud.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取appid，bucket，secret_id和secret_key；<br>
+2.	通过<a href="http://console.cloud.tencent.com/uvs/vproject" class="external text" title="http://console.cloud.tencent.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取appid，bucket，secret_id和secret_key；<br>
 </p>
 
 ### 1.2	获取SDK
@@ -27,7 +27,7 @@
 签名分为2种：<br>
 		多次有效签名（有一定的有效时间）<br>
 		单次有效签名（绑定资源url，只能生效一次）<br>
-签名的详细描述及使用场景参见<a href="http://www.qcloud.com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3" title="微视频鉴权及签名文档">鉴权服务技术方案</a><br>
+签名的详细描述及使用场景参见<a href="http://cloud.tencent.com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3" title="微视频鉴权及签名文档">鉴权服务技术方案</a><br>
 2．	方法<br>
 多次有效签名<br>
 </p>
@@ -67,7 +67,7 @@
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> Secret Key，以上三项通过<a href="http://console.qcloud.com/uvs/vproject" class="external text" title="http://console.qcloud.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取
+</td><td> Secret Key，以上三项通过<a href="http://console.cloud.tencent.com/uvs/vproject" class="external text" title="http://console.cloud.tencent.com/uvs/vproject" target="_blank" rel="nofollow">项目设置</a>获取
 </td></tr>
 <tr>
 <td> expired
@@ -81,7 +81,7 @@
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -125,7 +125,7 @@ var sign = Sign.SignatureOnce(appId, secretId, secretKey, (remotePath.StartsWith
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -205,7 +205,7 @@ var result = video.CreateFolder("myBucket", "/sdk/");
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -269,7 +269,7 @@ var result = video.UpdateFolder("myBucket", "/sdk/", "test folder");
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -357,7 +357,7 @@ var result = video.GetFolderStat("myBucket", "/sdk/");
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -415,7 +415,7 @@ var result = video.DeleteFolder("myBucket", "/sdk/");
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -639,7 +639,7 @@ var result = video.GetFolderList("myBucket", "/", 20, "", 0, FolderPattern.Both)
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -688,7 +688,7 @@ var result = video.GetFolderList("myBucket", "/", 20, "", 0, FolderPattern.Both)
 </td><td> string
 </td><td> 否
 </td><td> 空串
-</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://www.qcloud.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
+</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://cloud.tencent.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
 </td></tr></tbody></table><br><br>
 <p>返回值,json格式字符串：<br>
 </p>
@@ -769,7 +769,7 @@ public string SliceUploadFile(string bucketName, string remotePath, string local
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -818,7 +818,7 @@ public string SliceUploadFile(string bucketName, string remotePath, string local
 </td><td> string
 </td><td> 否
 </td><td> 空串
-</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://www.qcloud.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
+</td><td> 透传字段，微视频会将此字段信息透传给业务设定的回调url，具体参见<a href="http://cloud.tencent.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97" title="微视频控制台操作指南">回调设置</a>
 </td></tr>
 <tr>
 <td> sliceSize
@@ -903,7 +903,7 @@ var result = video.SliceUploadFile("myBucket", "/test.mp4", "F:\\test.mp4", 512 
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -992,7 +992,7 @@ result = video.UpdateFile("myBucket", "/sdk/xx.mp4", "test file");
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath
@@ -1149,7 +1149,7 @@ var result = video.GetFileStat("myBucket", "/sdk/xx.mp4");
 </td><td> string
 </td><td> 是
 </td><td> 无
-</td><td> bucket名称，bucket创建参见<a href="http://console.qcloud.com/uvs/vbucket" class="external text" title="http://console.qcloud.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
+</td><td> bucket名称，bucket创建参见<a href="http://console.cloud.tencent.com/uvs/vbucket" class="external text" title="http://console.cloud.tencent.com/uvs/vbucket" target="_blank" rel="nofollow">创建Bucket</a>
 </td></tr>
 <tr>
 <td> remotePath

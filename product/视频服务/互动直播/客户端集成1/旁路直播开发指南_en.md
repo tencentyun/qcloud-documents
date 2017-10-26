@@ -344,13 +344,13 @@ void DemoRequestMutli()
 
 Non-interactive broadcasting is initiated through ILVB SDK. Live broadcasting streaming is implemented using Tencent Cloud LVB service.
 
-(1) Users can access LVB console http://console.qcloud.com/live for management
+(1) Users can access LVB console http://console.cloud.tencent.com/live for management
 (2) Users can also perform management-related operations using LVB APIs. For more information on how to use the APIs, please see:
-http://www.qcloud.com/wiki/直播API
+http://cloud.tencent.com/wiki/直播API
 
 ## 5 Price and Billing
 Non-interactive broadcasting is a paid service, with the same billing method as that of Tencent Cloud LVB service. For more information, please see:
-http://www.qcloud.com/wiki/腾讯云直播价格与计费说明
+http://cloud.tencent.com/wiki/腾讯云直播价格与计费说明
 
 Please note that if you have activated the LVB service and selected the package and one of the postpaid billing methods, the selected billing method is adopted. If you have not activated the LVB service, the pay-by-traffic billing method (postpaid) is used by default.
 

@@ -67,7 +67,7 @@ dimensions.0.value为VPN网关ID
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &namespace=qce/vpngw
 &metricName=inpkg
 &dimensions.0.name=vpnGwId

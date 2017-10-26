@@ -23,7 +23,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page.  |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page.  |
 | message | String | Error message |
 | codeDesc | String | Description of error code at business side. For a successful operation, "Success" will be returned. In case of an error, a message describing the reason for the error will be returned.  |
 | data | Array | Returned array |
@@ -50,7 +50,7 @@ The following error codes include the business logic error codes for this API.
 ## 5. Example
 <pre>
   https://redis.api.qcloud.com/v2/index.php?Action=ClearRedis
-	&<<a href="https://www.qcloud.com/doc/api/229/6976">Common Request Parameters</a>>
+	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 	&redisId=crs-ifmymj41
 	&password=49A2d!e@f12e
 </pre>

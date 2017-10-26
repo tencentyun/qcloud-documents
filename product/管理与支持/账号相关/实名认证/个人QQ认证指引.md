@@ -2,7 +2,7 @@
 QQ认证是指 ， 腾讯云认可您的QQ号在手机QQ或财付通登记的实名认证信息，并以此登记在腾讯云作为备案信息
 
 ## 如何完成QQ认证？
-1. 登录腾讯云控制台，进入[帐号信息](https://console.qcloud.com/developer)，单击【实名认证】。
+1. 登录腾讯云控制台，进入[帐号信息](https://console.cloud.tencent.com/developer)，单击【实名认证】。
 ![](https://mc.qcloudimg.com/static/img/38dfac01f9137c23fc9ba313b1511046/image.png)
 2. 选择个人认证。
 ![](https://mc.qcloudimg.com/static/img/4c4426a2cff4c901158e8282f0ac69a4/image.png)

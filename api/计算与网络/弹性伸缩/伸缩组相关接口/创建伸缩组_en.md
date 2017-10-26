@@ -20,9 +20,9 @@ The following request parameter list only provides API request parameters. Commo
 | maxSize | Yes | Int | The maximum group size, that is, the maximum number of CVM instances in the scaling group, with the range of 0-30, no less than minSize. When the number of CVM instances in the scaling group is larger than maxSize, AS will automatically remove CVM instance to make the current instance number in the scaling group equal to maxSize. |
 | removePolicy | Yes | String | Remove policy. Only two values are available: RemoveOldestInstance means removing the oldest instance in the scaling group, that is, the oldest CVM instance in the scaling group will be first removed if necessary; RemoveNewestInstance means removing the newest instance in the scaling group, that is, the newest CVM instance in the scaling group will be first removed if necessary. |  
 | vpcId | Yes | String | VPC ID. 0 means basic network. To specify a VPC network, please fill in the unVpcId (unified ID of VPC) field returned in the API <a href="/doc/api/245/1372" title="Query VPC List">Query VPC List</a> (DescribeVpcEx). |
-| zoneIds.n | No | String | Region ID of the scaling group. If vpcId is 0, this parameter is required. It can be queried by calling API [Query Availability Zone](https://www.qcloud.com/document/api/213/1286) (DescribeAvailabilityZones). |
+| zoneIds.n | No | String | Region ID of the scaling group. If vpcId is 0, this parameter is required. It can be queried by calling API [Query Availability Zone](https://cloud.tencent.com/document/api/213/1286) (DescribeAvailabilityZones). |
 | loadBalancerIds.n | No | String | An array of IDs of cloud load balancers bound to the scaling group. You can call API <a href="/doc/api/244/查询云服务器关联的负载均衡实例" title="Query Cloud Load Balancer Instances">Query Cloud Load Balancer Instances</a> (DescribeLoadBalancersByInstances) to query. |
-| subnetIds.n  | No | String |Subnet ID of scaling group. If vpcId is not 0, this parameter is required. It can be queried by calling API [Query Subnet List](https://www.qcloud.com/document/api/215/1371) (DescribeSubnetEx). |
+| subnetIds.n  | No | String |Subnet ID of scaling group. If vpcId is not 0, this parameter is required. It can be queried by calling API [Query Subnet List](https://cloud.tencent.com/document/api/215/1371) (DescribeSubnetEx). |
 | projectId | No | String | Project ID. If not specified, 0 means default project. To specify other projects, you can call API <a href="/doc/api/403/4400" title="Query Project List">Query Project List </a>(DescribeProject) to query. |
 | desiredCapacity | No | Int | Initial number of instances, that is, the number of CVMs when the scaling group is created|
 
@@ -30,7 +30,7 @@ The following request parameter list only provides API request parameters. Commo
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | codeDesc | String | Error code at business side. If the task succeeds, it will return "Success"; if the task fails, the specific business error reason will be returned. |
 | message | String | Module error message description depending on API. |
 | data | Array | Output result, displaying the information of newly created scaling group.  |
@@ -43,7 +43,7 @@ Parameter data is composed of the following parameters:
 
 scalingGroupIdSet is a set that contains IDs of all the newly created scaling groups.
 ## 4. Error Codes
-The following error codes only include the business logic error codes for this API. For additional common error codes, refer to [AS Error Code](https://www.qcloud.com/doc/api/372/4173).
+The following error codes only include the business logic error codes for this API. For additional common error codes, refer to [AS Error Code](https://cloud.tencent.com/doc/api/372/4173).
 
 | Error Code | Description |
 |---------|---------|

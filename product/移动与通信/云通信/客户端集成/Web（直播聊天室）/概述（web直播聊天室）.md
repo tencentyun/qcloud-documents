@@ -11,11 +11,11 @@
 http://avc.qcloud.com/demo/webim/index.html
 
 通用demo运行指引地址：
-https://www.qcloud.com/doc/product/269/4196
+https://cloud.tencent.com/doc/product/269/4196
 
 ### 1.1 下载SDK 
 
-从官网下载SDK包（[下载地址](https://www.qcloud.com/product/im.html)），包含以下库文件： 
+从官网下载SDK包（[下载地址](https://cloud.tencent.com/product/im.html)），包含以下库文件： 
 
 
 ```
@@ -34,7 +34,7 @@ sdk/json2.js
 <script type="text/javascript" src="sdk/json2.js"></script>
 ```
 
-此外，如果业务的帐号体系是[托管模式](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，还需要引入TLS web sdk：
+此外，如果业务的帐号体系是[托管模式](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，还需要引入TLS web sdk：
 
 ```
 <!--TLS web sdk(只用于托管模式，独立模式不用引入)-->
@@ -43,7 +43,7 @@ sdk/json2.js
 
 ### 1.3 函数调用顺序
 
-如果帐号是[托管模式](https://www.qcloud.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，在调用sdk登录api之前，需要先进行以下操作：
+如果帐号是[托管模式](https://cloud.tencent.com/doc/product/269/%E6%89%98%E7%AE%A1%E6%A8%A1%E5%BC%8F)，在调用sdk登录api之前，需要先进行以下操作：
 
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
@@ -59,7 +59,7 @@ sdk/json2.js
 |acctype|	业务帐号类型accountType|	Integer|
 |url	|TLS登录成功回调地址，一般为业务网站首页地址|	String|
 
-当帐号模式为[独立模式](https://www.qcloud.com/doc/product/269/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F)时，则不需要上面的操作，直接进行下面的操作（当然这些步骤托管模式下也是需要的）。
+当帐号模式为[独立模式](https://cloud.tencent.com/doc/product/269/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%BC%8F)时，则不需要上面的操作，直接进行下面的操作（当然这些步骤托管模式下也是需要的）。
 
 Sdk函数使用顺序，如下：
 

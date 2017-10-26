@@ -1,2 +1,4 @@
-Apply on [https://buy.qcloud.com/dcdb](https://buy.qcloud.com/dcdb).
+
+Apply on [https://buy.cloud.tencent.com/dcdb](https://buy.cloud.tencent.com/dcdb].
+
 

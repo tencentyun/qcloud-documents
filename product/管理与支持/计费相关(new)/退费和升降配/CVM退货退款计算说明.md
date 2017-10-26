@@ -13,4 +13,4 @@
 - 退款金额 <= 0，按0计算并清退资源
 
 如何调整云服务器配置，请参考如下：
-https://www.qcloud.com/document/product/213/2146
+https://cloud.tencent.com/document/product/213/2146

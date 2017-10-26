@@ -14,7 +14,7 @@ Specification of DCDB shard is determined by three factors: performance, capacit
 
 **Performance**: By predicting the performance capacity and possible increments for at least six months, you can define the total CPU/memory size required for your distributed instance.
 **Capacity**: By predicting the disk capacity and possible increments for at least one year, you can define the total disk size required for your distributed instance.
-**Other requirements**: That one shard stores at least **50 million lines of data** is recommended. [Broadcast table and single table](https://www.qcloud.com/document/product/557/8764), join and other businesses within the node shall also be considered.
+**Other requirements**: That one shard stores at least **50 million lines of data** is recommended. [broadcast table and single table](https://cloud.tencent.com/document/product/557/8764), join and other businesses within the node shall also be considered.
 
 > Note: It is recommended to ensure high specification for single shard with relatively small quantity of shards.
 

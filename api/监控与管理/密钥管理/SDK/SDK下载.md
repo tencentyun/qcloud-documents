@@ -31,7 +31,7 @@ github地址如下：
 
 ## SDK使用注意事项
 
-使用SDK前至少要获取[secret id](https://console.qcloud.com/capi)， [secret key](https://console.qcloud.com/capi)，endpoint（即请求发到哪个地域，走内网还是外网）。
+使用SDK前至少要获取[secret id](https://console.cloud.tencent.com/capi)， [secret key](https://console.cloud.tencent.com/capi)，endpoint（即请求发到哪个地域，走内网还是外网）。
 
 endpoint 说明：
 	

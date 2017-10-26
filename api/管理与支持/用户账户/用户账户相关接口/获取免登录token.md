@@ -31,7 +31,7 @@ data是实际数据返回，数据接口如下：
 <pre>
   https://account.api.qcloud.com/v2/index.php?Action=GetAccountToken
   &uin=9809876615
-  &<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>
+  &<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>
 </pre>
 
 输出
@@ -47,7 +47,7 @@ data是实际数据返回，数据接口如下：
 
 ## 5. 使用token跳转流程
 
-* 跳转url为：https://www.qcloud.com/login/sync?token=22f53160ead00947ac5eacf69093c7dd&s_url=https%3A%2F%2Fconsole.qcloud.com
+* 跳转url为：https://cloud.tencent.com/login/sync?token=22f53160ead00947ac5eacf69093c7dd&s_url=https%3A%2F%2Fconsole.cloud.tencent.com
 * token填入使用本api获得的token。
 * s_url填入跳转到腾讯云的目标页面。
 * token生成后1分钟内有效，同一只能使用一次。

@@ -6,7 +6,7 @@
 ![](//mc.qcloudimg.com/static/img/304285e91495e5fa463e8512411b6185/IOSVideoEditsubtitle.jpg)
 其中图1是视频裁剪加速操作界面，图2是添加滤镜操作界面，图3是添加音乐伴奏操作界面，图4-6是添加字幕操作的界面。
 
-编译运行Demo体验，从资源下载处下载[SDK开发包](https://www.qcloud.com/document/product/584/9366)，解压出来运行Demo工程RTMPiOSDemo.xcodeproj，在运行起来后的主界面中点选视频编辑即可选择视频进入进行编辑功能体验。
+编译运行Demo体验，从资源下载处下载[SDK开发包](https://cloud.tencent.com/document/product/584/9366)，解压出来运行Demo工程RTMPiOSDemo.xcodeproj，在运行起来后的主界面中点选视频编辑即可选择视频进入进行编辑功能体验。
 
 ## 复用现有UI
 视频编辑具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码，使用时从Demo中拷贝以下文件夹到自己的工程: 
@@ -132,7 +132,7 @@ Demo示例：
 ```
 [_ugcEdit setSpeedLevel:2];//两倍加速
 ```
-### 7. 设置水印
+### 7. 设置全局水印
 您可以为视频设置水印图片，并且可以指定图片的位置
 
 设置水印的方法为：  
@@ -147,7 +147,30 @@ Demo示例：
 UIImage *image = [UIImage imageNamed:@"watermark"];
 [_ugcEdit setWaterMark:image normalizationFrame:CGRectMake(0, 0, 0.3 , 0.3 * image.size.height / image.size.width)];//水印大小占视频宽度的30%，高度根据宽度自适应
 ```
-### 8. 字幕叠加
+### 8.设置片尾水印
+您可以为视频设置片尾水印，并且可以指定片尾水印的位置
+
+设置片尾水印的方法为：  
+
+```
+- (void) setTailWaterMark:(UIImage *)tailWaterMark normalizationFrame:(CGRect)normalizationFrame 
+                          duration:(CGFloat)duration;
+```  
+其中 tailWaterMark 表示片尾水印图片，normalizationFrame 是相对于视频图像的归一化frame，frame 的 x，y，width，height 的取值范围都为 0~1，
+ duration 水印的持续时长
+Demo示例：设置水印在片尾中间，持续时间1s
+```
+UIImage *tailWaterimage = [UIImage imageNamed:@"tcloud_logo"];
+float w = 0.15;
+float x = (1.0 - w) / 2.0;
+float width = w * videoMsg.width;
+float height = width * tailWaterimage.size.height / tailWaterimage.size.width;
+float y = (videoMsg.height - height) / 2 / videoMsg.height;
+[_ugcEdit setTailWaterMark:tailWaterimage normalizationFrame:CGRectMake(x,y,w,0) duration:1];   
+
+```
+
+### 9. 字幕叠加
 您可以为视频添加字幕，我们支持对每一帧视频添加字幕，每个字幕你也可以设置视频作用的起始时间和结束时间。所有的字幕组成了一个字幕列表， 你可以把字幕列表传给SDK内部，SDK会自动在合适的时间对视频和字幕做叠加。
 
 设置字幕的方法为：  

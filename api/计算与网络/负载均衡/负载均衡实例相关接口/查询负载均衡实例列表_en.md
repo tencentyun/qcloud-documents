@@ -83,7 +83,7 @@ loadBalancerName, createTime, domain and loadBalancerType.
 <tr>
 <td> code
 <td> Int
-<td> Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://www.qcloud.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Codes</a> on the Error Code page.
+<td> Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="https://cloud.tencent.com/doc/api/244/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Codes</a> on the Error Code page.
 <tr>
 <td> message
 <td> String
@@ -160,7 +160,7 @@ loadBalancerName, createTime, domain and loadBalancerType.
 Use the default parameters to query the list of cloud load balancer instances:
 <pre>
 https://lb.api.qcloud.com/v2/index.php?Action=DescribeLoadBalancers
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
 Output

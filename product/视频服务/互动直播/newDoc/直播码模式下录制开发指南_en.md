@@ -69,7 +69,7 @@ Example: A new recorded FLV part is generated, ID is 9192487266581821586, playba
 * The download address for the video files that can be recorded in server callback event.
 * You can use video name prefix to perform fuzzy query. Construction rule of video name prefix: LVB code_Recording ID<br/>
 If the LVB code is `8888_81265058829fd2e50c8ec2ac78d55127`, the prefix of recorded file is `8888_81265058829fd2e50c8ec2ac78d55127`.
-* [API documentation](https://www.qcloud.com/document/product/266/7825) for querying recorded files
+* [API documentation](https://cloud.tencent.com/document/product/266/7825) for querying recorded files
 
 ====================================================================
 

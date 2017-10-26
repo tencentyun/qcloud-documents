@@ -18,22 +18,21 @@ Identity verification is required for some Tencent Cloud products (such as the p
 ## (Optional) Creating an SSH key
 SSH key is used to log into Linux CVM and is more secure than password login. For more information about SSH keys, see [here](/doc/product/213/6092).
 
-1. Log in to [CVM Console](https://console.qcloud.com/) and select **SSH Keys** from the left. 
+1. Log in to [CVM Console](https://console.cloud.tencent.com/) and select **SSH Keys** from the left. 
 2. Click **Create a key** and enter the key name in the pop-up window. Click **OK** to confirm. 
 3. Download the private key issued by Tencent Cloud within the specified period. 
 
 ## (Optional) Creating a Virtual Private Cloud (VPC)
 
-With VPC, you can customize a network environment that is logically isolated and start the cloud resources of Tencent Cloud within it. For more information about VPC, see [here](https://www.qcloud.com/doc/product/215/535).
+With VPC, you can customize a network environment that is logically isolated and start the cloud resources of Tencent Cloud within it. For more information about VPC, see [here](https://cloud.tencent.com/doc/product/215/535).
 
 A VPC contains at least one subnet. The resources of Cloud Services can only be added in the subnet.
 ![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
-
-1. Log in to [VPC Console](https://console.qcloud.com/vpc).
+1. Log in to [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2. Select a region from the drop-down list and click **New**.
 
-3. Enter the VPC and subnet name, [CIDR](https://www.qcloud.com/doc/product/215/4925#cidr) and select the AZ. 
+3. Enter the VPC and subnet name, [CIDR](https://cloud.tencent.com/doc/product/215/4925#cidr) and select the AZ. 
 
 4. Click **Create** to complete. 
 ![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
@@ -42,7 +41,7 @@ A VPC contains at least one subnet. The resources of Cloud Services can only be 
 
 Security Group can be considered as the firewall for CVM and is used to control the inbound and outbound data flow at the instance level. You need to add rules in the Security Group to connect to instance from your local IP address using SSH. You can also add any other rules to restrict the access to the instance.
 
-1. Log in to [CVM Console](https://console.qcloud.com/cvm), select **Security Groups** from the left column. 
+1. Log in to [CVM Console](https://console.cloud.tencent.com/cvm), select **Security Groups** from the left column. 
 
 2. Click **New** and enter the security group name (e.g. my-security-group) and description. 
 
@@ -56,10 +55,9 @@ Security Group can be considered as the firewall for CVM and is used to control 
 
 ## (Optional) Generating a Cloud API key
 
-Tencent Cloud provides rich [Cloud APIs](https://www.qcloud.com/product/api.html) for developers. To use these APIs, you need to get a Cloud API key. Each call to the Cloud API requires an authentication using the Cloud API key. For more information about the authentication using the Cloud API key, see [here](https://www.qcloud.com/document/product/213/6984?lang=en). You can generate a Cloud API key on the console by following steps.
+Tencent Cloud provides rich [Cloud APIs](https://cloud.tencent.com/product/api.html) for developers. To use these APIs, you need to get a Cloud API key. Each call to the Cloud API requires an authentication using the Cloud API key. For more information about the authentication using the Cloud API key, see [here](https://cloud.tencent.com/document/product/213/6984?lang=en). You can generate a Cloud API key on the console by following steps.
 
-1. Log in to [Tencent Cloud Console](https://console.qcloud.com/) with your Tencent Cloud account, and choose **Cloud API Keys** from the product list at the top of the page.
+1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/) with your Tencent Cloud account, and choose **Cloud API Keys** from the product list at the top of the page.
 
 2. Open **API Keys** and click **New Key**.
 > Note: Each user can generate up to 2 Cloud API keys.
-

@@ -1,9 +1,9 @@
 ## 1. 云监控概念
-[云监控概述](https://www.qcloud.com/doc/product/248/967)
-[云监控基本概念](https://www.qcloud.com/doc/product/248/968)
+[云监控概述](https://cloud.tencent.com/doc/product/248/967)
+[云监控基本概念](https://cloud.tencent.com/doc/product/248/968)
 
 ## 2. 告警查询
-入口在【云监控】-【我的告警】-【告警列表】。[链接>>](https://console.qcloud.com/monitor/policylist)
+入口在【云监控】-【我的告警】-【告警列表】。[链接>>](https://console.cloud.tencent.com/monitor/policylist)
 告警列表展示发生过的基础告警信息。查看基础告警监控指标。
 ![](//mc.qcloudimg.com/static/img/d09da8713d2c411fcaf1434a157a8166/image.jpg)
 
@@ -46,7 +46,7 @@
 
 ## 4. 告警接收方式
 目前的告警接收方式支持邮件、短信。您可以到用户中心修改信息接收方式。
-[用户中心指引>>](https://www.qcloud.com/doc/product/248/6217)
+[用户中心指引>>](https://cloud.tencent.com/doc/product/248/6217)
 
 ## 5. 取消告警订阅
 若您不想收到某个策略的告警，即取消告警订阅。有2种办法：

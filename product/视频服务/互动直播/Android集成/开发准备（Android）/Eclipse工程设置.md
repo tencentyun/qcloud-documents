@@ -18,7 +18,7 @@ APP的开发环境不需要与SDK的完全一致，但要保证兼容。如下�
 ![](//mccdn.qcloud.com/static/img/29a545171c4479c8f255c25ef0629b8e/image.png)
 
 ### 2、拷贝SDK文件
-如下图所示，将《[下载SDK](http://www.qcloud.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88Android%EF%BC%89)》中那个libs文件夹下的所有jar和so文件拷贝到工程文件夹：
+如下图所示，将《[下载SDK](http://cloud.tencent.com/doc/product/268/%E4%B8%8B%E8%BD%BDSDK%EF%BC%88Android%EF%BC%89)》中那个libs文件夹下的所有jar和so文件拷贝到工程文件夹：
 - jar文件都放在libs文件夹；
 - so文件都放在libs\armeabi文件夹。
 ![](//mccdn.qcloud.com/static/img/ba16e54bac3a2d284c81eaefe006621e/image.png)

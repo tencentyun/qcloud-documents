@@ -11,7 +11,7 @@
 
 签名分为单次签名和多次签名，区别为: 如果针对资源进行写操作(资源删除)，那么这个签名必须是单次有效的。重复使用该签名则会返回签名失败。如果是上传或下载资源，签名必须是多次有效的，有效时长最多为三个月。
 
-开发者可以通过[服务器SDK文档](https://www.qcloud.com/document/product/314/3499#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/314/2290)。
+开发者可以通过[服务器SDK文档](https://cloud.tencent.com/document/product/314/3499#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290)。
 
 ## 3	目录操作
 ### 3.1	创建目录
@@ -25,7 +25,7 @@
 | ------------- | ---- | ------ | ---------------------------------------- |
 | Host          | 是    | String | 视频处理服务器域名，固定为web.video.myqcloud.com      |
 | Content-Type  | 是    | String | application/json                         |
-| Authorization | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/314/2290) |
+| Authorization | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290) |
 
 请求包体 (json)：
 
@@ -260,7 +260,7 @@
 | -------------- | ---- | ------ | ---------------------------------------- |
 | Content-Length | 是    | Int    | 整个multipart/form-data内容的总长度，单位：字节（Byte）  |
 | Content-Type   | 是    | String | 固定为multipart/form-data                   |
-| Authorization  | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/314/2290) |
+| Authorization  | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290) |
 
 请求包体信息 (multipart/form-data):
 
@@ -351,7 +351,7 @@ Request Param(query string)：
 | pattern       | 否    | String | eListBoth， eListDirOnly， eListFileOnly (默认eListBoth) |
 | order         | 否    | Int    | 默认正序(=0)， 填1为反序，                         |
 | context       | 否    | String | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中。order用于指定翻页顺序。若order填0，则从当前页正序/往下翻页；若order填1，则从当前页倒序/往上翻页。 |
-| Authorization | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/314/2290) |
+| Authorization | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290) |
 
 Response (json):
 <table style="display:table;width:80%;">
@@ -529,7 +529,7 @@ Request Body (json)：
 | video_cover   | 否    | String | 视频封面的URL                                 |
 | video_title   | 否    | String | 视频才有，目录没有此属性                             |
 | video_desc    | 否    | String | 视频才有，目录没有此属性                             |
-| Authorization | 是    | String | 单次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/314/2290) |
+| Authorization | 是    | String | 单次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290) |
 
 Response (json)：
 
@@ -547,7 +547,7 @@ Request Body (query string)：
 | 参数名称          | 必选   | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
 | op            | 是    | String | 操作类型。固定填”stat”                           |
-| Authorization | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/314/2290) |
+| Authorization | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290) |
 
 Response (json)：
 <table style="display:table;width:80%;">
@@ -677,7 +677,7 @@ Request Body (json)：
 | 参数名称          | 必选   | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
 | op            | 是    | String | 操作类型。固定填”delete”                         |
-| Authorization | 是    | String | 单次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/314/2290) |
+| Authorization | 是    | String | 单次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290) |
 
 Response (json)：
 
@@ -716,9 +716,9 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 - 本文档用于腾讯云CDN转码服务结果查询和回调
 - 请求域名：cdn.api.qcloud.com
 - 请求方式：POST 或者GET
-- 签名方法：https://www.qcloud.com/document/product/228/1725
+- 签名方法：https://cloud.tencent.com/document/product/228/1725
 - SDK： https://github.com/QCloudCDN/CDN_API_SDK/tree/master/Qcloud_CDN_API
-- secretKey和secretId：https://console.qcloud.com/capi
+- secretKey和secretId：https://console.cloud.tencent.com/capi
 
 ### 4.1	视频转码结果查询接口(GetCtsInfo)
 

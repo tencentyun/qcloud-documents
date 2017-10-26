@@ -16,13 +16,13 @@
 
 播放地址=传输协议://BIZID.liveplay.myqcloud.com/live/直播码[.格式]
 ```
-详见[直播码模式下旁路直播](https://www.qcloud.com/document/product/268/8560)
+详见[直播码模式下旁路直播](https://cloud.tencent.com/document/product/268/8560)
 
 ### 混流接口
 
 腾讯云视频后台提供接口可以将多路视频流，按照一定的布局，混成新的视频流(也可以覆盖原视频流)
 
-详见[混流接口文档](https://www.qcloud.com/document/product/267/8832)
+详见[混流接口文档](https://cloud.tencent.com/document/product/267/8832)
 
 ### 自动录制
 
@@ -32,4 +32,4 @@
 录制文件名=直播码_起始时间_结束时间
 ```
 
-所以录制文件成功都会以录制事件(100)通知到回调URL，详见[直播码模式下旁路直播](https://www.qcloud.com/document/product/268/8560)
+所以录制文件成功都会以录制事件(100)通知到回调URL，详见[直播码模式下旁路直播](https://cloud.tencent.com/document/product/268/8560)

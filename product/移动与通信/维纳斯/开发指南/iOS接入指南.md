@@ -79,14 +79,14 @@ if (request.HTTPBody)
     [NSURLProtocol setProperty:request.HTTPBody forKey:WnsHTTPBody inRequest:request];
 }
 ```
-**[注意]此模式下，sdk会自动将url设置为cmd，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[控制台说明](http://www.qcloud.com/doc/product/276/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AF%B4%E6%98%8E)**
+**[注意]此模式下，sdk会自动将url设置为cmd，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AF%B4%E6%98%8E)**
 
 ** 2、Wns Sdk接口方案**
 调用接口sendHTTPRequest来收发Http(s)数据。
 
 开发商终端需要修改老的接口，替换为Wns的收发接口(该接口不支持http的301, 302跳转)
 
-**[注意]cmd必须是细化到接口，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置域名user.qzone.qq.com对应的路由。路由配置请参考：[控制台说明](http://www.qcloud.com/doc/product/276/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AF%B4%E6%98%8E)**
+**[注意]cmd必须是细化到接口，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置域名user.qzone.qq.com对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AF%B4%E6%98%8E)**
 ```
             NSString *cmd = @"user.qzone.qq.com/xunren";  
             NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://user.qzone.qq.com/xunren"]
@@ -139,7 +139,7 @@ NSData *data = [NSData dataWithBytes:"abcdefg" length:7];
             }];
         }
 ```
-**[注意]cmd必须是细化到接口，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置模块wnsdemo对应的路由。路由配置请参考：[控制台说明](http://www.qcloud.com/doc/product/276/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AF%B4%E6%98%8E)**
+**[注意]cmd必须是细化到接口，wns会统计每个cmd的成功率等信息，对应的，需要在控制台配置模块wnsdemo对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%AF%B4%E6%98%8E)**
 
 
 ### 3.4、用户绑定和接收push

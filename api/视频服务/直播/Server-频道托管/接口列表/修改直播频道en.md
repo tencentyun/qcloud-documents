@@ -55,7 +55,7 @@ To modify the basic information of LVB channels, including the channel name and 
 Input 1
 <pre>
 https://domain/v2/index.php?Action=ModifyLVBChannel&channelId=96171715553394807&channelName=test-15&channel
-Describe=%E7%AC%AC15%E4%B8%AA%E6%B5%8B%E8%AF%95%E9%A2%91%E9%81%93%E7%94%A8%E4%BE%8B&<a href="https://www.qcloud.com/doc/api/229/6976">Public Request Parameters</a>
+Describe=%E7%AC%AC15%E4%B8%AA%E6%B5%8B%E8%AF%95%E9%A2%91%E9%81%93%E7%94%A8%E4%BE%8B&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 </pre>
 
 Output 1

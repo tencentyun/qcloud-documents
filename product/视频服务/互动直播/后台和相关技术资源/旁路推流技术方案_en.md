@@ -1,14 +1,14 @@
 By connecting Tencent Cloud storage VOD and LVB services, Tencent Cloud ILVB service provides a full set of strong capabilities, such as audio/video interaction, non-interactive broadcasting and recording & replay, covering many scenarios including online education, live show/game ILVB, real-time audio/video chat, etc. Its architecture and data flow are shown in the figure below. It is classified into **`audio/video backend service`**, **`non-interactive push service`** and **`recording and storage service`** (with different colors) by feature. Note:
 
 + **`Audio/video backend service`** is mainly responsible for the forwarding of audio/video data, management of users/rooms and control of network quality. For more information about DC/OC access module in the figure, please see "Data Center (DC) and Outer Center (OC) of ILVB".
-+ **`Non-interactive push service`** is mainly responsible for transcoding the uplink QAVSDK audio/video data for pushing and distributing, so that users can watch files through [Web or streaming media player](http://www.qcloud.com/product/LVB.html). It is used primarily for LVB sharing (send palyback URL to users to play through Web), monitoring (whether VJ behaves exceptionally) and online education.
-+ **`Recording and storage service`** is responsible for recording the uplink audio/video data collected by QAVSDK as MP4 file, and storing it into Tencent Cloud storage for users to [replay using VOD service](http://www.qcloud.com/product/vod.html).
++ **`Non-interactive push service`** is mainly responsible for transcoding the uplink QAVSDK audio/video data for pushing and distributing, so that users can watch files through [Web or streaming media player](http://cloud.tencent.com/product/LVB.html). It is used primarily for LVB sharing (send palyback URL to users to play through Web), monitoring (whether VJ behaves exceptionally) and online education.
++ **`Recording and storage service`** is responsible for recording the uplink audio/video data collected by QAVSDK as MP4 file, and storing it into Tencent Cloud storage for users to [replay using VOD service](http://cloud.tencent.com/product/vod.html).
 
 ![Overall architecture](//mccdn.qcloud.com/img56cdcee729316.png)
 
 ## 1. About Non-interactive Push
 
-Since ILVB uses Tencent Cloud LVB service, you need to apply for activation of Tencent Cloud LVB service before using non-interactive push feature. Upon approval, you can directly perform operations such as management of LVB channels, statistical analysis and configuration in the [Console](http://console.qcloud.com/live). In addition to manual operations, you can also directly manage the LVB at business backend using the capacity provided by [LVB API](http://www.qcloud.com/wiki/直播API).
+Since ILVB uses Tencent Cloud LVB service, you need to apply for activation of Tencent Cloud LVB service before using non-interactive push feature. Upon approval, you can directly perform operations such as management of LVB channels, statistical analysis and configuration in the [Console](http://console.cloud.tencent.com/live). In addition to manual operations, you can also directly manage the LVB at business backend using the capacity provided by [LVB API](http://cloud.tencent.com/wiki/直播API).
 
 ### 1.1 Overview of Non-interactive Push
 

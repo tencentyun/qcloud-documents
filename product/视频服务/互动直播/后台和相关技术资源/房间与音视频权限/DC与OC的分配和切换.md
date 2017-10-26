@@ -2,7 +2,7 @@
 - DC（Data Center）：核心机房，用于互动直播业务中需要上行音视频数据或实时交互的用户角色（如主播、讲师、参与实时互动的角色等）接入
 - OC（Outer Center）：边缘节点，用于互动直播业务中不需要上行音视频数据、仅观看的用户角色（如普通观众、不需要与老师互动的学生等）接入
 
-二者的计费价格是不同的的，详情请见(https://www.qcloud.com/doc/product/268/5128#2..E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E8.B4.B9.E7.94.A8.E8.AE.A1.E7.AE.97.E5.85.AC.E5.BC.8F)。
+二者的计费价格是不同的的，详情请见(https://cloud.tencent.com/doc/product/268/5128#2..E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E8.B4.B9.E7.94.A8.E8.AE.A1.E7.AE.97.E5.85.AC.E5.BC.8F)。
 
 ## 2、关于DC和OC的分配原则
 对于一个App的终端实例来说，什么情况下会接入DC、什么情况下会接入OC呢？分配原则简单来说只有一句话：“有上行音视频数据权限的实例会分配DC、没有上行音视频数据权限的实例分配OC”。具体地，在调用SDK进入房间接口EnterRoom()的时候，其参数EnterRoomParam.auth_bits和

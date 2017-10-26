@@ -1,7 +1,7 @@
 Users can write SCF to handle timer tasks. Timer can automatically trigger the SCF at a specified time. Timer trigger has the following features:
 
 - Pull model: Timer directly calls Invoke API of relevant function at a specified time to trigger the function. The event source mapping relation is stored in SCF.
-- Asynchronous call: Timer always uses asynchronous call type to call the function, and the result is not returned to the caller. For more information about the call type, please see [Call Type](https://www.qcloud.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B).
+- Asynchronous call: Timer always uses asynchronous call type to call the function, and the result is not returned to the caller. For more information about the call type, please see [Call Type](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B).
 
 ## Attribute of Timer Trigger
 

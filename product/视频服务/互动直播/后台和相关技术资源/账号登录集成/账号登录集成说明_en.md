@@ -5,7 +5,7 @@ Tencent Login Service (TLS) is a set of generic account login components provide
 ### 1.1 Introduction
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151117034741_42845.png)
-The integration of account system is the fourth step of cloud service access procedure. Before integration of account system, you first need to register a Tencent Cloud account, activate service and create an App. For specific method, click **[App Access Guide](/doc/product/269/应用接入指引)**. Account integration is described later in this document. Besides, we made a video about what we discussed here. Click [here](https://www.qcloud.com/course/detail/133) to watch.
+The integration of account system is the fourth step of cloud service access procedure. Before integration of account system, you first need to register a Tencent Cloud account, activate service and create an App. For specific method, click "[App Access Guide](/doc/product/269/应用接入指引)". Account integration is described later in this document. Besides, we made a video about what we discussed here. Click [here](https://cloud.tencent.com/course/detail/133) to watch.
 
 ## 2 Overview of Two Modes
 

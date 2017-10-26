@@ -39,11 +39,11 @@ Masses LVB generally has two roles: VJ and viewer.
 		+ **`AUTH_BITS_RECV_VIDEO`**
 		+ **`AUTH_BITS_RECV_SUB`**
 
-Reasonable control of audio/video permissions can help users who don't join broadcasting avoid using more expensive [core nodes](http://www.qcloud.com/doc/product/268/DC与OC的分配和切换) and significantly reduce the bandwidth costs. For more information on how to change users' audio/video permissions, please see details below.
+Reasonable control of audio/video permissions can help users who don't join broadcasting avoid using more expensive [core nodes](http://cloud.tencent.com/doc/product/268/DC与OC的分配和切换) and significantly reduce the bandwidth costs. For more information on how to change users' audio/video permissions, please see details below.
 	
 ## Dynamic Change of User's Audio/Video Permissions
 
-As mentioned previously, Tencent Cloud ILVB's backend can access to [core node and outer node](http://www.qcloud.com/doc/product/268/DC与OC的分配和切换). Core node is more expensive than outer node in terms of bandwidth fee, and is mainly used for user roles (specific to VJ and users who join broadcasting in Masses LVB business) that need to send uplink audio/video data or participate in real-time interaction. Outer node has cheaper bandwidth fee and is mainly used for user roles (specific to roles other than VJ and users who join broadcasting in Masses LVB business) that only watch the LVB without the need to send uplink audio/video data.
+As mentioned previously, Tencent Cloud ILVB's backend can access to [core node and outer node](http://cloud.tencent.com/doc/product/268/DC与OC的分配和切换). Core node is more expensive than outer node in terms of bandwidth fee, and is mainly used for user roles (specific to VJ and users who join broadcasting in Masses LVB business) that need to send uplink audio/video data or participate in real-time interaction. Outer node has cheaper bandwidth fee and is mainly used for user roles (specific to roles other than VJ and users who join broadcasting in Masses LVB business) that only watch the LVB without the need to send uplink audio/video data.
 
 For businesses that need joint broadcasting feature, if all users are set as `AUTH_BITS_DEFUALT` when joining a room, they would all be connected to core node, and a ***_higher fee_*** may be incurred. Therefore, the most economical approach is that when API `AVContext.enterRoom()` for joining a room is called, only VJ has all audio/video permissions (`AUTH_BITS_DEFUALT`), and all other users only have the permissions to join the room and receive audio/video data (`AUTH_BITS_JOIN_ROOM` | `AUTH_BITS_RECV_AUDIO` | `AUTH_BITS_RECV_VIDEO` | `AUTH_BITS_RECV_SUB`).
 

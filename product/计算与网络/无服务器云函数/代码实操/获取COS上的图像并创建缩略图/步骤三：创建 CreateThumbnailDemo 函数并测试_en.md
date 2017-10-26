@@ -1,11 +1,11 @@
 In this section, you will create a function to implement thumbnail program, and test the function through the console or by calling API.
 
 ## Creating CreateThumbnailDemo SCF
-1) Log in to [SCF Console](https://console.qcloud.com/scf), and click [New] button under [Guangzhou] region.
+1) Log in to [SCF Console](https://console.cloud.tencent.com/scf). Select **Guangzhou** from the region list, and click **New**.
 
-2) In function configuration section, enter the function name as `CreateThumbnailDemo`, leave all other configuration options unchanged, and then click "Next".
+2) In function configuration section, enter the function name as `CreateThumbnailDemo`, leave all other configuration options unchanged, and then click **Next**.
 
-3) Go to the function code section, and click "Upload local zip file". Enter the execution method as `CreateThumbnail.main_handler`, select `CreateThumbnailDemo.zip` created in "Step 2: Create Deployment Package", and click "Next".
+3) Go to the function code section, and click **Upload local zip file**. Enter the execution method as `CreateThumbnail.main_handler`, select `CreateThumbnailDemo.zip` created in "Step 2: Create Deployment Package", and click "Next".
 
 4) Go to the trigger method section. Now you need to manually test the function, so no trigger method is added currently. Click "Complete" button.
 
@@ -61,7 +61,7 @@ When a function is created, it is generally tested through the console or API, t
 4) Click "Run" button to observe the result. This program is running normally if both upload and download are successful in the result:
 ![](//mc.qcloudimg.com/static/img/aec9243fd45a41e562b9c17d530740a0/image.png)
 
-5) Go to [COS Console](https://console.qcloud.com/cos4/index), and click `mybucketresized` created in "Step 1: Prepare COS Bucket", to check whether a thumbnail named `HappyFace.png` is generated.
+5) Go to [COS Console](https://console.cloud.tencent.com/cos4/index), and click `mybucketresized` created in "Step 1: Prepare COS Bucket", to check whether a thumbnail named `HappyFace.png` is generated.
 ![](//mc.qcloudimg.com/static/img/5c4224adcef4231f1469956107f000aa/image.png)
 
 6) Download the picture and compare it with the size of original picture.

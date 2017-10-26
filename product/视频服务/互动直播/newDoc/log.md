@@ -17,7 +17,7 @@ AVSDK|tencent/imsdklogs/包名/QAVSDK_YYYYMMDD.log
 
 SDK|目录
 :--:|:--:
-iLiveSDK|Library/Caches/imsdk_YYYMMDD.log
+iLiveSDK|Library/Caches/ilivesdk_YYYMMDD.log
 IMSDK|Library/Caches/imsdk_YYYMMDD.log
 AVSDK|Library/Caches/QAVSDK_YYYMMDD.log
 

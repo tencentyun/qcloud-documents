@@ -1,3 +1,5 @@
+通用OCR目前正处于免费公测阶段，会在11月1日开始计费，第一次扣费为12月份3~5日。
+
 ## 1. 说明
 
 开发者使用功能之前，需要先注册腾讯云账号，添加密钥，并在万象优图创建bucket。
@@ -23,7 +25,7 @@ OCR接口采用http协议，支持指定图片URL和上传本地图片文件两�
 | Host           | recognition.image.myqcloud.com           | 万象优图服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | Application/json  或者  Multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于鉴权的签名，使用多次有效签名。[详情](https://www.qcloud.com/doc/product/275/3805) |
+| Authorization  | 鉴权签名                                     | 用于鉴权的签名，使用多次有效签名。[详情](https://cloud.tencent.com/doc/product/275/3805) |
 
 ## 3.接口描述
 

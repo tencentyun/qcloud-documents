@@ -4,7 +4,7 @@
 <div id="page1"></div>
 ## 步骤一：准备与选型
 ### 注册腾讯云账号
-新用户需在腾讯云官网进行[【注册】](https://www.qcloud.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
+新用户需在腾讯云官网进行[【注册】](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
 
 ### 确定云服务器所在地域及可用区
 地域选择原则：
@@ -16,19 +16,19 @@
 不同地域之间的云服务器不能通过内网互相通信（通信需经过公网，收费）。
 
 ### 确定云服务器配置方案
-腾讯云提供如下推荐配置：[【推荐选型】](https://www.qcloud.com/act/recommended)
+腾讯云提供如下推荐配置：[【推荐选型】](https://cloud.tencent.com/act/recommended)
 - 入门型：适用于起步阶段的个人网站。如：个人博客等小型网站。
 - 基础型：适合有一定访问量的网站或应用。如：较大型企业官网、小型电商网站。
 - 普及型：适合常使用云计算等一定计算量的需求。如：门户网站、SaaS 软件、小型 App 。
 - 应用型：适用于并发要求较高的应用及适合对云服务器网络及计算性能有一定要求的应用场景。如：大型门户、电商网站、游戏 App 。
 
-若推荐的配置不能满足您的需求，您可以在[【更多机型】](https://buy.qcloud.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) 或 [配置降级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) 。
+若推荐的配置不能满足您的需求，您可以在[【更多机型】](https://buy.cloud.tencent.com/cvm?tabIndex=1)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) 或 [配置降级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) 。
 >**注意：**
 > Windows 云服务器无法作为 [公网网关](/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关) 使用，需要公网网关的用户请参考 [快速入门 Linux 云服务器](/doc/product/213/2936) 。
 
 ### 确定付费方式
 腾讯云提供 包年包月 和 按量付费 两种付费模式。详见 [计费模式说明](/doc/product/213/2180) 。
-若您选择按量付费，则需先完成 [实名认证](https://console.qcloud.com/developer/infomation) 。
+若您选择按量付费，则需先完成 [实名认证](https://console.cloud.tencent.com/developer/infomation) 。
 
 <div id="page2"></div>
 ## 步骤二：创建 Windows 云服务器
@@ -38,7 +38,7 @@
 
 ![](//mc.qcloudimg.com/static/img/377368de9e85b21bf90632480dad903c/image.png)
 
- 1. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.qcloud.com/buy/cvm) 。
+ 1. 登录腾讯云官网，选择【云产品】-【计算与网络】-【云服务器】，单击【立即选购】按钮，进入 [云服务器购买页面](https://buy.cloud.tencent.com/buy/cvm) 。
 
  2. 选择镜像。选择符合需求的 Windows 操作系统。
  
@@ -67,10 +67,10 @@
    更多内容请参考 [登录密码](/doc/product/213/6093) 。
    
 ### 查看站内信及云服务器信息
-完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.qcloud.com/message) 的方式发送到账户上。
+完成云服务器的购买和创建后，云服务器的实例名称、公网 IP 地址、内网 IP 地址、登录名、初始登录密码等信息都将以 [站内信](https://console.cloud.tencent.com/message) 的方式发送到账户上。
 
 ![](//mc.qcloudimg.com/static/img/1385695211763c620c31d603136c3128/image.png)
- 1. 登录 [云服务器控制台](https://console.qcloud.com/cvm) 。登录后即可看到公网 IP 地址、内网 IP 地址等信息。
+ 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm) 。登录后即可看到公网 IP 地址、内网 IP 地址等信息。
 
  2. 单击右上角【站内信】。
 

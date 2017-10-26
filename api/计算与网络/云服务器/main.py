@@ -12,7 +12,7 @@ class RelEnvironment(jinja2.Environment):
         return os.path.join(os.path.dirname(parent), template)
 
 env = RelEnvironment(loader=loader)
-url={'instance_buy_limit':'https://www.qcloud.com/document/product/213/2664'}
+url={'instance_buy_limit':'https://cloud.tencent.com/document/product/213/2664'}
 
 def gen(**args):
     import glob

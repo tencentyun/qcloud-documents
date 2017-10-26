@@ -3,14 +3,14 @@
 ## 1. Register, log in and pass the developer identity verification
 Before using audio/video IM service, you need to register a Tencent Cloud account and submit relevant information.
 
-For more information on how to register and log in, please see [How to sign up as a Tencent Cloud user](https://www.qcloud.com/doc/product/378/%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E4%B8%BA%E8%85%BE%E8%AE%AF%E4%BA%91%E7%94%A8%E6%88%B7
+For more information on how to register and log in, please see [How to sign up as a Tencent Cloud user](https://cloud.tencent.com/doc/product/378/%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E4%B8%BA%E8%85%BE%E8%AE%AF%E4%BA%91%E7%94%A8%E6%88%B7
 )
 
 After registration, you first need to pass **developer identity verification**, and proceed to the next step: apply for activation of audio/video IM service.
 
 ### 2. Activate the service
 
-Go to Tencent Cloud video [solution overview page](http://www.qcloud.com/solution_video.html), and click **Free Activation** button at the bottom, as shown below:
+Go to Tencent Cloud video [solution overview page](http://cloud.tencent.com/solution_video.html), and click "Free Activation" button at the bottom, as shown below:
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/jianjie-2.png)
 

@@ -5,7 +5,7 @@ Domain for API request: sqlserver.api.qcloud.com
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see<a href='https://www.qcloud.com/document/api/238/7328
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see<a href='https://cloud.tencent.com/document/api/238/7328
 ' title='Common Request Parameters'>Common Request Parameters</a>. The Action field for this API is ListBackup.
 
 | Parameter Name | Required | Type | Description |
@@ -20,7 +20,7 @@ The following request parameter list only provides API request parameters. Commo
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see <a href='https://www.qcloud.com/doc/api/238/7334#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
+| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see <a href='https://cloud.tencent.com/doc/api/238/7334#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81' title='Common Error Codes'>Common Error Codes</a> on the Error Codes page. |
 | message | String | Module error message description depending on API. |
 | data | Array | Returned data |
 
@@ -55,7 +55,7 @@ Parameter backupList is composed as follows:
 Input
 <pre>
 https://sqlserver.api.qcloud.com/v2/index.php?Action=ListBackup
-&<<a href="https://www.qcloud.com/document/api/238/7328">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/document/api/238/7328">Common request parameters</a>>
 &resourceId=mssql-q6g71pcf
 &startTime=2016-09-27 00:00:00
 &endTime=2016-09-28 00:00:00

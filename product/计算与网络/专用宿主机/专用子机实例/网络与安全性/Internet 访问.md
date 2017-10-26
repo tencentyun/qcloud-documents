@@ -5,12 +5,12 @@
 ## 公网 IP 地址
 公有 IP 地址是可以从 Internet 访问的 IP 地址，可以使用公用 IP 地址在实例和 Internet 之间进行通信。公有 IP 地址通过网络地址转换 (NAT) 映射到实例的[私有 IP 地址](/doc/product/213/5225)。腾讯云的所有公网接口统一由 Tencent Gateway（TGW）进行处理，TGW 具有可靠性高、扩展性强、性能高、抗攻击能力强等特点，提供了更加高效和安全的网络访问。因此，腾讯云云服务器实例的公网网卡在统一接口层 TGW 上配置，云服务器无感知。
 
-这样的特点导致了当用户在云服务器中使用`ifconfig`等命令查看网络接口信息时，只能查看到[内网](/doc/product/213/5225)的信息。公网信息需要由用户自行登录[腾讯云控制台](https://console.qcloud.com/)云服务器列表/详情页进行查看。
+这样的特点导致了当用户在云服务器中使用`ifconfig`等命令查看网络接口信息时，只能查看到[内网](/doc/product/213/5225)的信息。公网信息需要由用户自行登录[腾讯云控制台](https://console.cloud.tencent.com/)云服务器列表/详情页进行查看。
 
-实例通过公网 IP 地址提供服务需要支付相应的费用，具体内容可以参考[购买网络带宽](https://www.qcloud.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)。
+实例通过公网 IP 地址提供服务需要支付相应的费用，具体内容可以参考[购买网络带宽](https://cloud.tencent.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)。
 
 ## 如何获得公网 IP 地址
-腾讯云的网络（公网）计费方式有三种：按带宽计费、按流量计费和带宽包（有关网络计费模式的更多内容，可以参考 [购买网络带宽](https://www.qcloud.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)）。用户在[购买并启动云服务器实例](/doc/product/213/4855)时，在网络设置中：
+腾讯云的网络（公网）计费方式有三种：按带宽计费、按流量计费和带宽包（有关网络计费模式的更多内容，可以参考 [购买网络带宽](https://cloud.tencent.com/doc/product/213/509#2.1.-.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)）。用户在[购买并启动云服务器实例](/doc/product/213/4855)时，在网络设置中：
 
 - 选择按带宽计费，并将带宽设置为大于 0 Mbps 的值；
 - 选择按流量计费，并将带宽上限设置为大于 0 Mbps 的值（包括无上限）；
@@ -31,7 +31,7 @@
 
 ### 使用控制台获取实例的公网IP地址
 
-1) 打开[云主机控制台]( https://console.qcloud.com/cvm/)。
+1) 打开[云主机控制台]( https://console.cloud.tencent.com/cvm/)。
 
 2) 云服务器列表中列出了您名下的实例，鼠标移动到云服务器的公网IP后，出现复制按钮，点击即可复制该IP。
 
@@ -40,7 +40,7 @@
 > 公网 IP 地址通过 NAT 映射到内网 IP 地址。因此，如果在实例内部查看网络接口的属性（例如，通过 ifconfig (Linux) 或 ipconfig (Windows)），则不会显示公网 IP 地址。要从实例内部确定实例的公网 IP 地址，可以使用实例元数据。
 
 ### 使用 API 获取实例的公网 IP 地址
-请参考 [DescribeInstances 接口](https://www.qcloud.com/doc/api/229/831)。
+请参考 [DescribeInstances 接口](https://cloud.tencent.com/doc/api/229/831)。
 
 ### 使用实例元数据获取实例的公网 IP 地址
 

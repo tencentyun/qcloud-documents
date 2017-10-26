@@ -10,8 +10,8 @@ Domain for API access: lb.api.qcloud.com
  
 | Parameter Name | Required | Type | Description |
 |-----|------|--------|-----------|
-| loadBalancerId | Yes | String | The ID of the cloud load balancer instance, which can be loadBalancerId or unLoadBalancerId (recommended). You can query it via the API <a href="https://www.qcloud.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
-| listenerId | Yes | String | ID of the cloud load balancer listener. You can query it via the API<a href="https://www.qcloud.com/doc/api/244/%E8%8E%B7%E5%8F%96%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9B%91%E5%90%AC%E5%99%A8%E5%88%97%E8%A1%A8" title=" DescribeLoadBalancerListeners"> DescribeLoadBalancerListeners</a>. |
+| loadBalancerId | Yes | String | The ID of the cloud load balancer instance, which can be loadBalancerId or unLoadBalancerId (recommended). You can query it via the API <a href="https://cloud.tencent.com/doc/api/244/%E6%9F%A5%E8%AF%A2%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%AE%9E%E4%BE%8B%E5%88%97%E8%A1%A8" title="DescribeLoadBalancers">DescribeLoadBalancers</a>. |
+| listenerId | Yes | String | ID of the cloud load balancer listener. You can query it via the API<a href="https://cloud.tencent.com/doc/api/244/%E8%8E%B7%E5%8F%96%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9B%91%E5%90%AC%E5%99%A8%E5%88%97%E8%A1%A8" title=" DescribeLoadBalancerListeners"> DescribeLoadBalancerListeners</a>. |
 | listenerName | No | String | Listener name. |
 | sessionExpire | No | Int | Session duration. 0 means disabled. <br>Value range for listeners with TCP or UDP protocols on public network (with daily rate): 900-3600; value range for listeners with HTTP protocols on public network (without daily rate): 900-3600; <br>value range for listeners with HTTP or HTTPS protocols on public network (with daily rate): 30-3600; <br>Not supported for private network cloud load balancers. |
 | healthSwitch | No | Int | Indicate whether to enable Health Check: 1 (On) and 0 (Off). |
@@ -45,7 +45,7 @@ Domain for API access: lb.api.qcloud.com
 Input
 <pre>
 https://lb.api.qcloud.com/v2/index.php?Action=ModifyLoadBalancerListener
-&<<a href="https://www.qcloud.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 loadBalancerId=lb-ltkip4do
 &listenerId=lbl-6hkiqc6c
 &SSLMode=unidirectional

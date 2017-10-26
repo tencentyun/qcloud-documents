@@ -33,7 +33,7 @@ Tencent Cloud ILVB provides two ways of account interfacing.
 
 **This section focuses on the standalone mode.**
 
-For more information, please see [Account Login Integration](https://www.qcloud.com/doc/product/268/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)
+For more information, please see [Account Login Integration](https://cloud.tencent.com/doc/product/268/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)
 
 1. App logs in to business server, which then authenticates the user identity.
 
@@ -44,7 +44,7 @@ For more information, please see [Account Login Integration](https://www.qcloud.
 ![The process of issuing UserSig](https://mccdn.qcloud.com/static/img/fe587958a511ca5211ecae36165833dc/image.png)
 
 ## Interaction Logic for Creating a Room
-ILVB achieves the exchange of audio/video streams based on the concept of room. This means the viewers and the VJ must be in the same room to achieve the messaging. But operations related to **room management** do not fall within ILVB scope. The features such as room number assignment, list of room members, and joining/exiting room by VJ and viewers can be managed by the client (can be implemented using IMSDK. For more information, please see [Room Status Notification](https://www.qcloud.com/doc/product/268/%E6%88%BF%E9%97%B4%E7%8A%B6%E6%80%81%E9%80%9A%E7%9F%A5))
+ILVB achieves the exchange of audio/video streams based on the concept of room. This means the viewers and the VJ must be in the same room to achieve the messaging. But operations related to **room management** do not fall within ILVB scope. The features such as room number assignment, list of room members, and joining/exiting room by VJ and viewers can be managed by the client (can be implemented using IMSDK. For more information, please see [Room Status Notification](https://cloud.tencent.com/doc/product/268/%E6%88%BF%E9%97%B4%E7%8A%B6%E6%80%81%E9%80%9A%E7%9F%A5))
 
 The interaction process for creating a room is as follows:
 

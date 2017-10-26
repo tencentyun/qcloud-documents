@@ -1,15 +1,15 @@
 ## Product Overview
 ### [Introduction to Interactive LVB Feature](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/Introduction.md)
-### [Application Scenarios](https://www.qcloud.com/doc/product/268/3160)
+### [Application Scenarios](https://cloud.tencent.com/doc/product/268/3160)
 ### [Change Log](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/History.md)
 ## How to Activate and Purchase the Service
-#### [How to Activate the Service](https://www.qcloud.com/doc/product/268/4899)
-#### [Pricing](https://www.qcloud.com/doc/product/268/5127)
-1. [Basic Network Fee](https://www.qcloud.com/doc/product/268/5128)
-2. [Additional Features Fee](https://www.qcloud.com/doc/product/268/5129)
-3. [Technical Support Fee](https://www.qcloud.com/doc/product/268/5130)
+#### [How to Activate the Service](https://cloud.tencent.com/doc/product/268/4899)
+#### [Pricing](https://cloud.tencent.com/doc/product/268/5127)
+1. [Basic Network Fee](https://cloud.tencent.com/doc/product/268/5128)
+2. [Additional Features Fee](https://cloud.tencent.com/doc/product/268/5129)
+3. [Technical Support Fee](https://cloud.tencent.com/doc/product/268/5130)
 
-#### [Charges and Arrears](https://www.qcloud.com/doc/product/268/3166)
+#### [Charges and Arrears](https://cloud.tencent.com/doc/product/268/3166)
 
 ## Integrated Development
 ## Development Preparation
@@ -29,13 +29,13 @@
 3. [Interactive Message and Broadcast Joining APIs](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/iOS_ILiveSDK_Interactive.md)
 
 ### PC Integration
-1. [Windows C++ Integration](https://www.qcloud.com/document/product/268/5451)
-2. [PC Demo Instructions](https://www.qcloud.com/document/product/268/5453)
-3. [C++ SDK File List](https://www.qcloud.com/document/product/268/2473)
+1. [Windows C++ Integration](https://cloud.tencent.com/document/product/268/5451)
+2. [PC Demo Instructions](https://cloud.tencent.com/document/product/268/5453)
+3. [C++ SDK File List](https://cloud.tencent.com/document/product/268/2473)
 
 ### Web Integration
-1. [Playback on Web](https://www.qcloud.com/doc/api/258/5704)
-2. [Interactive Messages on Web](https://www.qcloud.com/doc/product/269/1594)
+1. [Playback on Web](https://cloud.tencent.com/doc/api/258/5704)
+2. [Interactive Messages on Web](https://cloud.tencent.com/doc/product/269/1594)
 
 
 ### [Non-Interactive Broadcasting](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/pushStream.md)
@@ -46,11 +46,11 @@
 ### [Assignment and Switching of DC and OC](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/ocdc.md)
 
 ### Account Login Integration
-* [Account Login Integration Instructions](https://www.qcloud.com/doc/product/268/3328)
-* [Standalone Mode](https://www.qcloud.com/doc/product/268/3329)
-* [Hosted Mode](https://www.qcloud.com/doc/product/268/3330)
-* [TLS Backend API](https://www.qcloud.com/doc/product/268/3331)
-* [About Key and Signature](https://www.qcloud.com/doc/product/268/3332)
+* [Account Login Integration Instructions](https://cloud.tencent.com/doc/product/268/3328)
+* [Standalone Mode](https://cloud.tencent.com/doc/product/268/3329)
+* [Hosted Mode](https://cloud.tencent.com/doc/product/268/3330)
+* [TLS Backend API](https://cloud.tencent.com/doc/product/268/3331)
+* [About Key and Signature](https://cloud.tencent.com/doc/product/268/3332)
 
 
 ## FAQs
@@ -65,7 +65,7 @@
 ### [Log Description](https://github.com/zhaoyang21cn/suixinbo_doc/blob/master/doc2/log.md)
 
 ## About Operation
-### [License Requirement for WeChat Pay](https://www.qcloud.com/document/product/268/6048)
-### [ Large-Scale LVB Preparation Guide](https://www.qcloud.com/document/product/268/4557)
+### [License Requirement for WeChat Pay](https://cloud.tencent.com/document/product/268/6048)
+### [ Large-Scale LVB Preparation Guide](https://cloud.tencent.com/document/product/268/4557)
 
 

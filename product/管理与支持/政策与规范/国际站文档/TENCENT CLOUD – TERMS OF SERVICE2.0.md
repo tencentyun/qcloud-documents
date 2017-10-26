@@ -36,7 +36,7 @@ For the purposes of these Terms, any reference to "Tencent Cloud" in these Terms
 
 **1.4 These Terms apply only to your use of Tencent Cloud's non-China located servers**
 
-For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at [[腾讯云服务协议]](https://www.qcloud.com/document/product/301/1967?lang=en). Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
+For the avoidance of doubt, these Terms apply only if you use Tencent Cloud anywhere in the world, via a Tencent Cloud server located outside of the People's Republic of China.   If you choose to use Tencent Cloud via a Tencent Cloud server located inside the People's Republic of China, your use of Tencent Cloud will be governed by the terms set out at [[腾讯云服务协议]](https://cloud.tencent.com/document/product/301/1967?lang=en). Further details about how you select a server for your use of Tencent Cloud is set out under the "Data Location Selection" section of the Privacy and Data Processing Policy.
 
 **1.5 Contacting us**
 

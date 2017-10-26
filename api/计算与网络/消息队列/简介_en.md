@@ -10,7 +10,7 @@ To deal with these problems, Tencent Cloud introduces the CMQ service for messag
 
 For all the supported operations, please see [API Overview](/doc/api/431/5852).
 
-Before using these APIs, please make sure that you have a thorough understanding of [CMQ Product Overview](https://www.qcloud.com/doc/product/406).
+Before using these APIs, please make sure that you have a thorough understanding of [CMQ Product Overview](https://cloud.tencent.com/doc/product/406).
 
 **Note: Currently, collaborator account is not allowed to perform CMQ operations.**
 
@@ -30,7 +30,7 @@ The key terms involved in the document are as follows:
 | pollingWaitSeconds | Polling Wait Seconds | Long-Polling Waiting Time for Message Receipt | When a consumer wants to pull messages from a queue for consumption, there may not be data available in the queue. Perhaps the consumer does not want to go backn immediately (similar to the non-blocking mode) and wants to wait a while to see if some messages will come (similar to the blocking mode); pollingWaitSeconds is similar to the timeout in the blocking mode; once this time is up, the consumer must go back regardless of whether there is a message. If you want to consume a message in a non-blocking manner, set this value to 0. |
 | msgRetentionSeconds | Message Retention Seconds | Message Retention Period | Messages heaped in the queue are kept within a certain time period and will be deleted from the queue if not consumed within the time limit. Once being deleted, , they cannot be consumed any longer. |
 | receiptHandle | Receipt Handle | Message Receipt Handle | This handle is returned when a message is consumed. Only the handle which is currently consuming the message can be used to delete the message. If consumption is so lengthy that the visibilityTimeout is exceeded, and the message is consumed by another consumer, the handle through which the former consumer obtains the message will become invalid and cannot be used to delete the message. |
-| qps throttling | QPS Throttling | qps limt | This term originally means the limit on the number of requests per second, but in practice it refers to the limit on the number of messages per second. For single-operation APIs (SendMessage, ReceiveMessage, DeleteMessage), it still refers to the number of requests per second. But for batch-opeartion APIs (BatchSendMessage, BatchReceiveMessage, BatchDeleteMessage), it is the sum of all the batch values within 1s. This limit is designed to provide users with a more consistent and fairer product. If you need to raise the limit on the number of messages, please send a request to us by submitting a [ticket](https://console.qcloud.com/workorder/category). |
+| qps throttling | QPS Throttling | qps limt | This term originally means the limit on the number of requests per second, but in practice it refers to the limit on the number of messages per second. For single-operation APIs (SendMessage, ReceiveMessage, DeleteMessage), it still refers to the number of requests per second. But for batch-opeartion APIs (BatchSendMessage, BatchReceiveMessage, BatchDeleteMessage), it is the sum of all the batch values within 1s. This limit is designed to provide users with a more consistent and fairer product. If you need to raise the limit on the number of messages, please send a request to us by submitting a [ticket](https://console.cloud.tencent.com/workorder/category). |
 
 
 
@@ -52,7 +52,7 @@ The key terms involved in the document are as follows:
 
 ## API Quick Start
 
-You can use CMQ services through [CMQ SDK](https://www.qcloud.com/product/cmq#sdk)(recommended; it is available in multiple languages) or by directly calling cloud APIs (this method is very inconvenient and is suitable for the users using a language other than SDK language):
+You can use CMQ services through [CMQ SDK](https://cloud.tencent.com/product/cmq#sdk)(recommended; it is available in multiple languages) or by directly calling cloud APIs (this method is very inconvenient and is suitable for the users using a language other than SDK language):
 
 1. Select a region and private/public network. The request domains for the CMQ APIs, unlike those of APIs of other cloud products, vary with the regions, and need to be selected based on the region. Each request domain name has a composition such as `cmq-queue-region.api.qcloud.com/v2/index.php`, where the "region" field needs to be replaced with the specific region: gz (Guangzhou), sh (Shanghai), bj (Beijing). If you are using a Tencent Cloud CVM, private network domain is preferred, otherwise a public network domain.
 
