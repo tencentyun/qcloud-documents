@@ -33,7 +33,7 @@ tar xf Python-2.7.12.tar.xz
 ### 4. 编译与安装 Python
 ```
 cd Python-2.7.12 //进入目录
-./configure –prefix=/usr/local
+./configure -prefix=/usr/local
 make && make install //安装
 make clean 
 make distclean

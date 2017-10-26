@@ -3,6 +3,8 @@
 |---------|---------|---------|
 | 查询实例列表 | [DescribeInstanceList](/doc/api/449/6878) | 查看实例列表以及详情 |
 | 查询规格列表 | [DescribeSpecList](/doc/api/449/6878) | 查看规格列表以及详情 |
+| 创建实例资源 | [CreateResource](/doc/api/449/6878) | 创建实例资源 |
+| 初始化实例 | [InitInstance](/doc/api/449/6878) | 初始化实例 |
 
 ## 2.地域管理接口
 | 接口功能 | Action ID | 功能描述 | 
