@@ -870,8 +870,8 @@ cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
 通过 CopyObjectResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | 返回复制结果信息 |
-|copyObject | CopyObject| :-- | :----------- |
+| :---- | :-------------- | :-----------  |
+|copyObject | CopyObject| 返回复制结果信息|
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/10881)|
 
 
@@ -947,7 +947,7 @@ cosXmlService.copyObjectAsync(copyObjectRequest, new CosXmlResultListener() {
 通过 PutBucketResult 对象的成员变量返回请求结果。
 
 | 成员变量名称 | 类型     | 变量说明    |
-| :---- | :-------------- | :-- | :----------- |
+| :---- | :--------------  | :----------- |
 | httpCode  | int             | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7738)|
 
 
