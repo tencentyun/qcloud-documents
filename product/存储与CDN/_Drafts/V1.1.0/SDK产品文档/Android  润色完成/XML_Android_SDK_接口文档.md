@@ -1,5 +1,6 @@
 ## 初始化
 进行操作之前需要实例化 CosXmlService 和 CosXmlServiceConfig。
+> 关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)
 
 #### 实例化 CosXmlServiceConfig
 调用 `CosXmlServiceConfig(String appid, String region)`构造方法，实例化 CosXmlServiceConfig 对象。
@@ -7,9 +8,8 @@
 #### 参数说明
 | 参数名称   | 参数描述   |类型 | 必填 | 
 | -------------- | -------------- |---------- | ----------- |
-| appid           | 对象存储 的服务 APPID |String          | 是  | 
-| region          |  存储桶 所在的地域 |String          | 是  |
-
+| appid           | 对象存储的服务 APPID |String          | 是  | 
+| region          |  存储桶所在的地域 |String          | 是  |
 
 #### 其它配置设置方法
 |   方法   |     方法描述   |
