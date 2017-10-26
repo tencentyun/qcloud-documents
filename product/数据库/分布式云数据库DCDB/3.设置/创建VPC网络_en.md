@@ -9,19 +9,20 @@ A VPC contains at least one subnet, only in which the cloud service resources ca
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, or click "Experience" in Tencent Cloud's [VPC Overview](https://cloud.tencent.com/product/vpc.html) page to enter the [VPC Console](https://console.cloud.tencent.com/vpc/).
 2)	Select a region in the drop-down box above the list and click "New" to create a VPC. For example, select the "North China (Beijing)" region.
 3)	Enter the names of VPC and subnet as well as CIDR, and select the availability zone for the subnet.
-4)	Click "Create".
+4)	Click **Create**.
 
 ![](//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png)
 
 ### Step 2: Create a subnet
 You can create one or more subnets at a time.
 
+
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, or click "Experience" in Tencent Cloud's [VPC Overview](https://cloud.tencent.com/product/vpc.html) page to enter the [VPC Console](https://console.cloud.tencent.com/vpc/).
 2)	Click "Subnets" in the left navigation pane.
 3)	Select a region and a VPC in the drop-down boxes.
-4)	Click "New", and then enter the subnet name, CIDR, availability zone and associated routing table.
-5)	(Optional) Click "New Line" to create multiple subnets at a time.
-6)	Click "Create".
+4)	Click **New**, and then enter the subnet name, CIDR, availability zone and associated routing table.
+5)	(Optional) Click **New Line** to create multiple subnets at a time.
+6)	Click **Create**.
 
 ![](//mccdn.qcloud.com/static/img/66a4e93f7f8dfeeed421fb799fd09137/image.png)
 
@@ -38,7 +39,6 @@ You can create a custom routing table, edit the routing policy, and then associa
 7) Click "Save".
 
 ![](//mccdn.qcloud.com/static/img/a41758221e11cacef5dbdbd53f06049a/image.png)
-
 
 ### Step 4: Add a CVM to the subnet
 
@@ -57,7 +57,7 @@ Or
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click "Cloud Virtual Machine" in the navigation bar, and click "EIP" in the left navigation pane.
 2) Click "Apply" button.
 3) Apply for the EIP in the same region where the VPC resides in. After this, you can view the applied EIP in the EIP list.
-4) Select the specified EIP in the EIP list, click "Bind" to bind the EIP to the CVM you just created in the VPC. After the binding, your CVM can access the public network.
+4) Select the specified EIP in the EIP list, click **Bind** to bind the EIP to the CVM you just created in the VPC. After the binding, your CVM can access the public network.
 ![](//mccdn.qcloud.com/static/img/4853aa0215993d8ce40e965cafee6bf8/image.png)
 
 ### (Optional) Step 6: Create a security group for network traffic control

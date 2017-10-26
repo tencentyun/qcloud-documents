@@ -11,6 +11,8 @@
 3. 手机可以没有存储空间，但会使部分功能无法正常工作；
 4. 从 [COS v4 控制台](https://console.cloud.tencent.com/cos4/secret) 获取 APPID、SecretId、SecretKey。
 
+> 关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)
+
 ### SDK 配置
 
 需要在工程项目中导入下列 jar 包，存放在 libs 文件夹下：

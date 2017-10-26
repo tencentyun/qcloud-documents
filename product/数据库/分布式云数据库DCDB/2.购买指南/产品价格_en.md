@@ -1,9 +1,9 @@
->DCDB is estimated to be sold at a price based on your needs (that is, separate prices for memory and disk) starting from April, 2017. A new pricing policy is implemented, and details are shown below.
+>DCDB is estimated to be sold at a price based on your needs (that is, separate prices for memory and disk) starting from April 2017. A new pricing policy is implemented, and details are shown below.
 
 ## Instance Price Calculation
 Prepaid billing method is supported for Tencent Cloud DCDB. The billing solution is as follows:
 
-Total price of instance=Price of shard\ * Number of shards\ * Time\ * Discount rate=(Memory size of shard\ * Unit price + Disk size of shard * Unit price)\ * Number\ * Time\ * Discount rate
+Total price of instance=Price of shard\* Number of shards\* Time\* Discount rate=(Memory size of shard\* Unit price + Disk size of shard * Unit price)\* Number\* Time\* Discount rate
 
 ## Shard Prices for Different Regions
 

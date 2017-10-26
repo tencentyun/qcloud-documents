@@ -56,7 +56,7 @@ https://openapi.tim.qq.com/v3/openim/videorelay?usersig=xxxx&apn=1&identifier=xx
 | Parameter Name | Type | Description | Note |
 | --- | --- | --- | --- |
 | reqhead | GVCommOprHead | Common header for audio/video services |   |
-| reqbody | Determined by the subcommand in GVCommOprHead |   |   |    |
+| reqbody | Determined by the subcommand in GVCommOprHead |   |  
 
 "Response Format"
 
@@ -68,7 +68,7 @@ https://openapi.tim.qq.com/v3/openim/videorelay?usersig=xxxx&apn=1&identifier=xx
 | Parameter Name | Type | Description | Note |
 | --- | --- | --- | --- |
 | reqhead | GVCommOprHead | Common header for audio/video services |   |
-| rspbody | Determined by the subcommand in GVCommOprHead |   |    |   |
+| rspbody | Determined by the subcommand in GVCommOprHead |   |    
 
 ## Definition of Common Header GVCommOprHead
 
@@ -190,10 +190,10 @@ Note: The object on which non-interactive push operation is performed is rpt_to_
 | Parameter Name | Type | Description | Note |
 | --- | --- | --- | --- |
 | uint32_type | unsigned int | LVB stream output coding: 1: HLS push; 5: RTMP push; 6: HLS+RTMP push; |   |
-| string_play_url | String | URL of LVB stream output coding |   | 
-| RateType | unsigned int | Bitrate type of this URL: 0: Original bitrate; 10: SD bitrate (550K) 20: HD bitrate (900K) | Original bitrate is used if this parameter is not specified  | 
+| string_play_url | String | URL of LVB stream output coding |   
+| RateType | unsigned int | Bitrate type of this URL: 0: Original bitrate; 10: SD bitrate (550K) 20: HD bitrate (900K) | Original bitrate is used if this parameter is not specified  
 
-***Note: Non-interactive broadcasting can be enabled successfully only after the user joins the audio/video room.
+***Note: Non-interactive broadcasting can be enabled successfully only after the user joins the audio/video room.***
 
 #### Example of JSON Packet Request:
 
@@ -282,7 +282,7 @@ Take JSON packet for enabling non-interactive broadcasting as an example, you ne
 | str_errorinfo | string | Error information | Error string information |
 | str_fileID | [String] | Video file ID list; string array. | Returned only at the end of the recording |
 
-***Note: Recording can be enabled successfully only after the user joins the audio/video room.
+***Note: Recording can be enabled successfully only after the user joins the audio/video room.***
 
 # Error Codes
 
