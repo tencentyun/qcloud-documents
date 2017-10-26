@@ -11,6 +11,8 @@
 -  手机必须要有网络（GPRS、3G 或 Wifi 网络等）；
 -  从 [COS v4 控制台](https://console.cloud.tencent.com/cos4/secret) 获取 APPID、SecretId、SecretKey。
 
+> 关于文章中出现的 SecretID、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)
+
 ### SDK 配置
 #### SDK 导入
 您可以通过 cocoapods 或者下载打包好的动态库的方式来集成 SDK。在这里我们推荐您使用 cocoapods 的方式来进行导入。
