@@ -62,6 +62,10 @@ XSplit是收费的，如果银子不够的话，推荐用OBS（**Free**）。XSp
 点击**设定** 选中 **广播设定**，依次配置模式为**直播流**、串流服务为**Custom**、FMS URL为推流地址的前半部分、播放路径/串码流为推流地址的后半部分。自动重连是在OBS检测到网络断开等异常情况，自动触发推流连接操作，建议勾选。
 ![](//mc.qcloudimg.com/static/img/88024aaff126c5e34f4e96b9cd7e37c2/image.png)
 
+- **OBS Studio推流地址设置**
+![](//mc.qcloudimg.com/static/img/023f599e7fe3e22a8d348a6b4b7b0720/image.png)
+点击界面右下角**设置**选中**串流**，依次配置串流类型为**自定义流媒体服务器**、URL为推流地址的前半部分、流密钥为推流地址的后半部分。
+
 ### 2.2 设置音视频源
 音视频源相当于你要投递的包裹的内容。内容形式主要有三种:
 - 来自视频采集设备，如camera 或者是专业的录像设备等。
@@ -73,6 +77,9 @@ XSplit是收费的，如果银子不够的话，推荐用OBS（**Free**）。XSp
 ![](//mc.qcloudimg.com/static/img/c2f5a64918807e99aad4bd7778259e62/image.png)
 ![](//mc.qcloudimg.com/static/img/6f15746021918db02fbaefa6dc56c22b/image.png)
 ![](//mc.qcloudimg.com/static/img/d60b1a9c246d381a5e698bafac8c3f4e/image.png)
+
+- **OBS Studio音视频源设置**
+参考**OBS 音视频源设置**。
 
 ### 2.3 设置音视频格式
 设置好视频来源后，虽然能够获取音视频信号，但是原始的音视频信号对带宽的需求过大不适合在网络上传播。因此直播前最重要一步，就是要设置音视频编码参数。
@@ -87,6 +94,10 @@ XSplit是收费的，如果银子不够的话，推荐用OBS（**Free**）。XSp
 
 - **OBS 音视频格式设置**
 ![](//mc.qcloudimg.com/static/img/eb91f2e51ca3b3d8c39028262b4eae21/image.png)
+
+- **OBS Studio音视频格式设置**
+![](//mc.qcloudimg.com/static/img/1d473aed08fcdc7611d8de599184e75c/image.png)
+![](//mc.qcloudimg.com/static/img/baa533b47d920f70ca08b12771ee3158/image.png)
 
 ## 3. 播放验证
 
