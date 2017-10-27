@@ -54,45 +54,45 @@ create database caccts ;
 | Concurrence | Version | QPS | Average Response Time (ms) | 99% Response Time (ms) |
 | --- | --- | --- | --- | --- |
 | 50 | Open source MySQL | 304,585 | 0.16 | 0.26 |
-| 50 | DCDB | 330695 | 0.15 | 0.24 |
+| 50 | DCDB | 330,695 | 0.15 | 0.24 |
 | 100 | Open source MySQL | 407,443 | 0.24 | 0.48 |
-| 100 | DCDB | 484640 | 0.2 | 0.72 |
+| 100 | DCDB | 484,640 | 0.2 | 0.72 |
 | 200 | Open source MySQL | 433,401 | 0.57 | 1 |
-| 200| DCDB | 498215 | 0.55 | 1.22 |
+| 200| DCDB | 498,215 | 0.55 | 1.22 |
 | 500 | Open source MySQL | 428,542 | 1.16 | 2.42 |
-| 500 | DCDB | 494874 | 1.01 | 2.61 |
+| 500 | DCDB | 494,874 | 1.01 | 2.61 |
 | 1000 | Open source MySQL | 412,775 | 2.4 | 6.3 |
-| 1000 | DCDB | 478393 | 2.08 | 4.21 |
+| 1000 | DCDB | 478,393 | 2.08 | 4.21 |
 
 #### Write Request (Update)
 
 | Concurrence | Version | QPS | Average Response Time (ms) | 99% Response Time (ms) |
 | --- | --- | --- | --- | --- |
 | 50 | Open source MySQL | 14,816 | 3.37 | 4.82 |
-| 50 | DCDB | 28925 | 1.73 | 2.55 |
+| 50 | DCDB | 28,925 | 1.73 | 2.55 |
 | 100 | Open source MySQL | 25,046 | 3.99 | 6.91 |
-| 100 | DCDB | 43466 | 2.3 | 4 |
+| 100 | DCDB | 43,466 | 2.3 | 4 |
 | 200 | Open source MySQL | 32,690 | 6.12 | 10.86 |
-| 200 | DCDB | 54045 | 3.7 | 7.27 |
+| 200 | DCDB | 54,045 | 3.7 | 7.27 |
 | 500 | Open source MySQL | 37,192 | 13.44 | 21.1 |
-| 500 | DCDB | 70370 | 7.25 | 15.52 |
+| 500 | DCDB | 70,370 | 7.25 | 15.52 |
 | 1000 | Open source MySQL | 35,447 | 28.2 | 40.47 |
-| 1000 | DCDB | 69890 | 14.35 | 30.73 |
+| 1000 | DCDB | 69,890 | 14.35 | 30.73 |
 
 #### Hybrid Scenario (OLTP test)
 
 | Concurrence | Version | QPS | Average Response Time (ms) | 99% Response Time (ms) |
 | --- | --- | --- | --- | --- |
 | 50 | Open source MySQL | 63,806 | 4.7 | 7.13 |
-| 50 | DCDB | 162883 | 1.84 | 3.45 |
+| 50 | DCDB | 162,883 | 1.84 | 3.45 |
 | 100 | Open source MySQL | 102,516 | 5.85 | 11.4 |
-| 100 | DCDB | 173974 | 3.58 | 6.64 |
+| 100 | DCDB | 173,974 | 3.58 | 6.64 |
 | 200 | Open source MySQL | 124,550 | 9.64 | 18.92 |
-| 200 | DCDB | 208128 | 5.76 | 11.9 |
+| 200 | DCDB | 208,128 | 5.76 | 11.9 |
 | 500 | Open source MySQL | 125,386 | 23.93 | 39.68 |
-| 500 | DCDB | 232543 | 13.58 | 27.81 |
+| 500 | DCDB | 232,543 | 13.58 | 27.81 |
 | 1000 | Open source MySQL | 121,765 | 49.29 | 80.71 |
-| 1000 | DCDB | 226130 | 27.76 | 54.78 |
+| 1000 | DCDB | 226,130 | 27.76 | 54.78 |
 
 
 

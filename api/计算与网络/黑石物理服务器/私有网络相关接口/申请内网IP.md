@@ -64,7 +64,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=ApplyIps
-	&<公共请求参数>
+	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+    &Nonce=6791
+    &Timestamp=1507777243
+    &Region=bj
+    &Signature=RLfmJ0mnkm2Fla4zbTGABkRA%2Ft4%3D
 	&unVpcId=vpc-2ari9m7h
 	&unSubnetId=subnet-keqt3oty
 	&count=1

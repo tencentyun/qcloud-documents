@@ -166,7 +166,7 @@ Tencent Cloud CDN supports two streaming media protocols: RTMP (Real Time Messag
 RTMP protocol, a streaming media transmission protocol led by Adobe company, is featured with a low delay (which can be reduced to around 3 seconds) and high compatibility with PC (thanks to the high penetration of Flash plug-in in PC, RTMP stream can be directly played in PC browsers). However, due to problems such as vulnerabilities of FLASH and high battery consumption, the penetration of Flash plug-in is extremely low in mobile devices (it is even not supported in iOS system). So on mobile devices, you need to play RTMP stream using dedicated players. For routine test, you can use **`ffplay`** (a component in ffmpeg) or **`vlc`** to check whether the push is successful:
 
 * Play stream with **`ffplay`**: ffplay -fflags nobuffer -i "rtmp playback address", in which nobuffer is used to restrict player from performing buffering for the better observation of latency
-* Play stream with **`vlc`**: (Menu) "Media" -> "Open network stream" -> "Enter RTMP playback URL" -> "Play"
+* Play stream with **`vlc`**: (Menu) **Media** -> **Open network stream** -> **Enter RTMP playback URL** -> **Play**
 
 HLS, a streaming media protocol led by Adobe company, is featured with simpleness, high versatility and bitrate adaption. It is supported by iOS system and most Android systems. You can watch videos directly through H5 page. However, to ensure fluency, at least 3 fragments (with each lasting about 5 seconds) should be cached before playback. So the latency for the playback of HLS is generally more than 10 seconds.
 
