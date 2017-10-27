@@ -42,7 +42,7 @@ Android SDK 接口:
 ```java
 //设定需要旋转画面
 AVVideoView.setRotate(true);
-//设定是铺满屏幕还是留黑边(下为全屏)
+//设定是铺满屏幕还是留黑边(下为黑边)
 AVVideoView.setSameDirectionRenderMode(BaseVideoView.BaseRenderMode.BLACK_TO_FILL);
 ```
 
@@ -71,9 +71,9 @@ Android SDK 接口:
 ```java
 //设定不需要旋转画面
 AVVideoView.setRotate(false);
-//设定在方向不一致情况下，是铺满屏幕还是留黑边(下为全屏)
+//设定在方向不一致情况下，是铺满屏幕还是留黑边(下为黑边)
 AVVideoView.setDiffDirectionRenderMode(BaseVideoView.BaseRenderMode.BLACK_TO_FILL);
-//设定在方向一致情况下，是铺满屏幕还是留黑边(下为黑边)
+//设定在方向一致情况下，是铺满屏幕还是留黑边(下为全屏)
 AVVideoView.setSameDirectionRenderMode(BaseVideoView.BaseRenderMode.SCALE_TO_FIT);
 ```
 
