@@ -1,4 +1,4 @@
-﻿## 1. Download SDK
+## 1. Download SDK
 
 Decompress the package, and you'll see two demos, one for one-on-one messaging and one for multi-person messaging.
 
@@ -28,7 +28,7 @@ SDK libraries are provided in the form of jar files and dynamic link libraries (
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yinshipinAndroidkehuduanjicheng-5.png)
 
-> Note: Uncheck "Force error when external jars contain native libraries" in the Preferences section of Eclipse.
+> Note: Uncheck **Force error when external jars contain native libraries** in the **Preferences** section of Eclipse.
 
 ![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yinshipinAndroidkehuduanjicheng-6.png)
 
