@@ -1,0 +1,29 @@
+## 本地硬盘数据卷应用场景
+使用本地硬盘有两种形式：
+- 指定源路径（HostPath）,将容器所在宿主机的文件目录挂载到容器指定的挂载点中，如容器需要访问`/etc/hosts`则可以使用`HostPath`映射`/etc/hosts`等场景。
+- 空的源路径（EmptyDir）,用于容器的数据的临时存储，如基于磁盘的排序场景等。
+
+## 使用本地硬盘数据卷操作流程
+1. 在创建服务页面 **数据卷** 选项下单击【添加数据卷】。
+  ![][createVolume]
+2. 配置数据卷。
+ - **类型**：单击【∨】，在下拉框中选择数据卷的类型，选择本地硬盘。
+ - **名称**：数据卷的名称，由小写字母和数字和连接符 “-” 组成，必须是小写字母开头，且在 20 个字符以内。
+ - **源路径**：根据需要填写或不填写主机的源路径
+
+ ![][setVolumeConfig]
+3. 设置挂载路径：在 **实例内容器**填写挂载点。
+ - **数据卷名称**：选择上述设置的数据卷
+ - **目标路径**：设置数据卷挂载到容器内的路径
+ - **权限**：设置该路径的读写权限。
+
+ ![][setVolumeMountPath]
+
+4. 设置完成，登录容器验证。
+![][verification]
+
+
+[createVolume]:https://mc.qcloudimg.com/static/img/0286498ec3ada210c6c01f9ef8ca7b52/image.png
+[setVolumeConfig]:https://mc.qcloudimg.com/static/img/062d9b093b006627f6186a5b59cbe2ff/%7BAD62E0D6-78E7-4BB2-93D8-CC0D29ADDB57%7D.png
+[setVolumeMountPath]:https://mc.qcloudimg.com/static/img/1367d8a35e215c7c22450a5cc9c1fda6/%7B0BE30571-DB5E-43A4-AFEC-656A47647EEB%7D.png
+[verification]:https://mc.qcloudimg.com/static/img/d84e7b3246ef627889c67e0ed38f95aa/%7B4768A55C-CEB7-46AF-A3A2-0A49D3AC7063%7D.png

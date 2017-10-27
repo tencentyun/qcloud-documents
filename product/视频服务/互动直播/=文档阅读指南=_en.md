@@ -24,7 +24,7 @@ Read the [Big Event Preparation Guide](https://cloud.tencent.com/doc/product/268
 </br>
 --
 ### Want to launch your product as fast as possible, regardless of the cost?
-Sorry, there is no solution to this in the document.
+Sorry, there is no such solution in the document.
 
 However, we prepared a fast service channel for you. Please add this QQ number as friend: 3358225043 (specify your enterprise name and "ILVB" in the message).
 </br>
