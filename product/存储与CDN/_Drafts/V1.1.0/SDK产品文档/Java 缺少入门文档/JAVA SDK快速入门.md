@@ -26,7 +26,7 @@ pom.xml 添加依赖
 
 - 源码安装
 
-从[github](https://github.com/tencentyun/cos-java-sdk-v5)下载源码, 通过maven导入。比如eclipse，选择File->Import->maven->Existing Maven Projects
+从[github](https://github.com/tencentyun/cos-java-sdk-v5)下载源码, 通过maven导入。比如eclipse，依次选择File->Import->maven->Existing Maven Projects
 
 ## 卸载SDK
 
@@ -34,63 +34,62 @@ pom.xml 添加依赖
 
 # 快速入手
 
+## 初始化客户端cosclient
+
+设置用户的身份信息, appid, bucket所在的园区以及bucket名
+
 ```java
-// 1 初始化身份信息
+// 1 初始化身份信息(appid, secretId, secretKey)
 COSCredentials cred = new BasicCOSCredentials("1250000", "AKIDXXXXXXXX", "1A2Z3YYYYYYYYYY");
 // 2 设置bucket的区域, COS地域的简称请参照 https://www.qcloud.com/document/product/436/6224
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 // 3 生成cos客户端
 COSClient cosClient = new COSClient(cred, clientConfig);
-// 操作API， 每一种API详情请参照JAVA SDK API文档.
-// 或者参照Demo(https://github.com/tencentyun/cos-java-sdk-v5/blob/master/src/main/java/com/qcloud/cos/demo/Demo.java)
-
+// 设置bucket名
 String bucketName = "mybucket";
+```
 
-// 上传object, 建议20M以下的文件使用该接口
+## 上传文件
+
+将本地文件或者已知长度的输入流内容上传到COS. 适用于图片类小文件上传(20MB以下), 最大支持5GB(含), 5GB以上请使用分块上传或高级API上传。请参照API文档put object
+
+```java
+// 简单文件上传, 最大支持5GB, 适用于小文件上传, 建议20M以下的文件使用该接口
+// 大文件上传请参照API文档高级API上传
 File localFile = new File("src/test/resources/len5M.txt");
+// 指定要上传到COS上的路径
 String key = "/upload_single_demo.txt";
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
 PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
+```
 
-// 下载object
-File downFile = new File("src/test/resources/len5M_down.txt");
+## 下载文件
+
+文件下载到本地或者获取下载文件下载输入流.
+
+```java
+// 指定要下载到的本地路径
+File downFile = new File("src/test/resources/mydown.txt");
+// 指定要下载的文件所在的bucket和路径
 GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, key);
 ObjectMetadata downObjectMeta = cosClient.getObject(getObjectRequest, downFile);
+```
 
-// 获取object属性
-GetObjectMetadataRequest getObjectMetadataRequest =
-        new GetObjectMetadataRequest(bucketName, key);
-ObjectMetadata statObjectMeta = cosClient.getObjectMetadata(getObjectMetadataRequest);
+## 删除文件
 
-// 删除object
-DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(bucketName, key);
-cosClient.deleteObject(deleteObjectRequest);
+删除COS上指定路径的文件.
 
-// 上传文件(推荐), 支持根据文件的大小自动选择单文件上传或者分块上传
-// 同时支持同时上传不同的文件
-TransferManager transferManager = new TransferManager(cosClient);
-localFile = new File("src/test/resources/len30M.txt");
-// transfermanger upload是异步上传
-key = "/upload_transfer_manager_demo.txt";
-Upload upload = transferManager.upload(bucketName, key, localFile);
-// 等待传输结束
-upload.waitForCompletion();
-transferManager.shutdownNow();
+```java
+// 指定要删除的bucket和路径
+cosClient.deleteObject(bucketName, key);
+```
 
-// list bucket下的成员
-ObjectListing objectListing = cosClient.listObjects(bucketName);
-List<COSObjectSummary> objectListSummary = objectListing.getObjectSummaries();
+## 关闭客户端
 
-// 删除刚上传的文件
-deleteObjectRequest = new DeleteObjectRequest(bucketName, key);
-cosClient.deleteObject(deleteObjectRequest);
+关闭cosclient, 并释放后台线程(http连接的管理线程)
 
-// 删除空bucket, bucket需要为空，不包含任何object
-DeleteBucketRequest deleteBucketRequest = new DeleteBucketRequest(bucketName);
-cosClient.deleteBucket(deleteBucketRequest);
-
+```
 // 关闭客户端(关闭后台线程)
 cosClient.shutdown();
 ```
 
-# 
