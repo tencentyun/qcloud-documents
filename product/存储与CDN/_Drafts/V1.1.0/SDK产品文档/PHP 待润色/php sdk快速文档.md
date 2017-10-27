@@ -1,28 +1,29 @@
 ## 开发准备
-###SDK 获取
+### SDK 获取
+#### 1. github
+对象存储服务的 XML PHP SDK 资源下载地址：[XML PHP SDK](https://github.com/tencentyun/cos-php-sdk-v5 ) 。
+演示示例 Demo 下载地址：[XML PHP SDK Demo](https://github.com/tencentyun/cos-php-sdk-v5/blob/master/sample.php) 。
 
-
-
-#### github
+#### 2. composer
+在项目目录下，新建一个 composer.json 的文件，内容如下：
 ```php
-#在github中获取代码
-https://github.com/tencentyun/cos-php-sdk-v5
-```
-#### composer
-```php
-#利用composer下载
 {
     "require": {
         "qcloud/cos-sdk-v5": ">=1.0"
     }
 }
 ```
+然后使用下面的命令进行安装：
+```
+composer install
+```
 ## 快速入门 
-```
-可参照Demo程序，详见https://github.com/tencentyun/cos-php-sdk-v5/blob/master/sample.php
-```
+
+可参照 Demo 程序，详见 [XML PHP SDK Demo](https://github.com/tencentyun/cos-php-sdk-v5/blob/master/sample.php)。
+
 ### 配置文件
 ```php
+#这里请填写cos-autoloader.php该文件所在的相对路径
 require(__DIR__ . DIRECTORY_SEPARATOR . 'cos-autoloader.php');
 
 $cosClient = new Qcloud\Cos\Client(array('region' => getenv('COS_REGION'),
@@ -32,6 +33,11 @@ $cosClient = new Qcloud\Cos\Client(array('region' => getenv('COS_REGION'),
         'secretKey' => getenv('COS_SECRET'))));
 ```
 ### 上传文件
+使用 putObject 接口进行单文件的上传。使用 upload 接口则会自动判断文件大小，若超过阈值，则会分块上传。
+* Bucket 填写上传到的存储桶的名字；
+* Key 填上传到 cos 上的文件名；
+* Body 填上传的文件内容。
+
 ```php
 try {
     $result = $cosClient->putObject(array(
@@ -54,6 +60,7 @@ try {
 }
 ```
 ### 下载文件
+使用 getObject 接口下载文件。
 ```php
 try {
     $result = $cosClient->getObject(array(
