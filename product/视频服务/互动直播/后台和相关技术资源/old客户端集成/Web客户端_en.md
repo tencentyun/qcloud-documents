@@ -384,7 +384,7 @@ None
 
 Return the microphone volume.
 
-**23. GetPlayerList **
+**23. GetPlayerList**
 
 Obtain the speaker list.
 

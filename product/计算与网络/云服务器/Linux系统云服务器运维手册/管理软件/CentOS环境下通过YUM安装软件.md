@@ -1,38 +1,29 @@
-为了提升用户在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了Yum下载源。在CentOS环境下，用户可通过YUM快速安装软件。
+为提升用户在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了 Yum 下载源。在 CentOS 环境下，用户可通过 Yum 快速安装软件。对于 Yum 下载源，用户不需要添加软件源，可以直接安装软件包。
 
-对于Yum下载源，不需要添加软件源，可以直接安装软件包。
+### 安装步骤
+1. 登录操作系统为 CentOS 的云服务器。默认已获取 root 权限。
+>**注意：**
+>严禁执行 password 命令，root 密码默认不能被修改。
 
-## 1. 安装步骤
-1) 登录操作系统为CentOS的云服务器后，默认已获取root权限：
-
->注：严禁执行password命令，root密码默认不能被修改。 
-
-2) 在root权限下，通过以下命令来安装软件：
+2. 在 root 权限下，通过以下命令来安装软件：
 ```
-yum install [nginx][php][php-fpm][mariadb][mariadb-server][mysql][mysql-server]...
-```
+yum install 软件名称
+``` 
+>**注意：**
+>从 CentOS 7 系统开始，MariaDB 成为 yum 源中默认的数据库安装包。在 CentOS 7 及以上的系统中使用 yum 安装 MySQL 包将无法使用 MySQL。您可以选择使用完全兼容的 MariaDB，或点击 [参阅此处](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7) 进行较低版本的 MySQL 的安装。
 
->注：自CentOS 7来，MariaDB成为yum源中默认的数据库安装包，在CentOS 7以上的系统中使用yum安装MySQL包将无法使用MySQL。您可以选择使用完全兼容的MariaDB，或参考[这里](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7)进行MySQL较低版本的安装。
+3. 输入上述命令后，系统将自动搜索相关的软件包和依赖关系，并且在界面中提示用户确认搜索到的软件包是否合适。
+例如，键入`yum install php`之后，界面显示如图：
+![](https://mc.qcloudimg.com/static/img/cdf81bb49022aa8924968864571922ed/39.png)
+4. 确认软件包合适无误后，键入`y`，开始安装软件。界面提示`Complete`即安装完成。
+![](https://mc.qcloudimg.com/static/img/c98bda7d1f3f42156f9015e3c9d00295/40.png)
+
+### 查看已安装软件信息
+软件安装完成后：
+- 可通过命令` rpm -ql 软件名`查看软件包具体的安装目录。
+- 可通过命令` rpm -q 软件名`查看软件包的版本信息。
+
+以 php 为例：
+![](https://mc.qcloudimg.com/static/img/d8b9e21cc801da16b76011b3886e1351/42.png)
 
 
-3) 系统会自动搜索相关的软件包和依赖关系，并且在界面中提示用户确认搜索到的软件包是否合适，如下图所示：
-![](//mccdn.qcloud.com/static/img/f61a066066619f09fed1be6fa4a8a4b0/image.png)
-
-4) 输入“y”确认后，开始安装软件，安装完成后会提示“Complete”，如下图所示：
-![](//mccdn.qcloud.com/static/img/e36f74f325c00814c3c840aeda9c26a6/image.png)
-
-## 2. 查看安装的软件信息
-软件安装完成后，可通过以下命令查看软件包具体的安装目录。
-
-```
- rpm -ql 
-```
-以查看nginx的安装目录为例：
-![](//mccdn.qcloud.com/img56a61fa482658.png)
-
-可通过以下命令查看软件包的版本信息。
-```
- rpm -q 
-```
-以查看nginx的版本为例（实际的版本可能和此版本不一致，请以实际查询到的版本为准）：
-![](//mccdn.qcloud.com/img56a621c372e23.png)

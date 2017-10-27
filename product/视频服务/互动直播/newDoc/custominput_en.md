@@ -55,7 +55,7 @@ private AVAudioCtrl.RegistAudioDataCompleteCallbackWithByteBuffer mAudioDataComp
 
 #### iOS
 
-**Audio pass-through** is mainly used to reprocess data captured by microphone in an LVB. Usually it's used to mix background sound in a live room. Audio data passed-through can only be of specific formats, and the default one is QAVAudioFrameDesc = {48000, 2, 16}. It is  usually used in the following two ways:<br>
+**Audio pass-through** is mainly used to reprocess data captured by microphone in an LVB. Usually it's used to mix background sound in a live room. Audio data passed-through can only be of specific formats, and the default one is QAVAudioFrameDesc = {48000, 2, 16}. It is usually used in the following two ways:<br>
 1. Microphone pass-through: both the broadcasting side (the side capable of inputting upstream audio data) and the others receive the audio stream. Following code illustrates how to setup microphone pass-through:
 
 ```
