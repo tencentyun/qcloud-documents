@@ -11,7 +11,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	Action=EipBmUnBindVpcIp
 	&<公共请求参数>
 	&eipId=<EIP实例ID>
-	&unVpcId=<vpc数字ID>
+	&unVpcId=<vpc的ID>
 	&vpcIp=<内网IP>
 ```
 
