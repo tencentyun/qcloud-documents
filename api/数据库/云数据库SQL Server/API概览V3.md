@@ -1,11 +1,11 @@
 ## 1.备份与恢复接口
 | 接口功能 | Action ID | 功能描述 | 
 |---------|---------|---------|
-| 查看备份列表 | [DescribeBackupList](/doc/api/449/6422) | 查看备份列表以及详情 |
+| 查看备份列表 | [DescribeBackups](/doc/api/449/6422) | 查看备份列表以及详情 |
 | 创建备份 | [CreateBackup](/doc/api/449/6876) | 手工创建备份 |
 
 ## 2.实例管理接口
 | 接口功能 | Action ID | 功能描述 | 
 |---------|---------|---------|
-| 查询实例列表 | [DescribeInstanceList](/doc/api/449/6878) | 查看实例列表以及详情 |
+| 查询实例列表 | [DescribeInstances](/doc/api/449/6878) | 查看实例列表以及详情 |
 | 查询流程状态 | [DescribeFlowStatu](/doc/api/449/6878) | 查看异步任务的流程状态 |

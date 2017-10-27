@@ -1,4 +1,4 @@
-﻿## Fee Types of ILVB
+## Fee Types of ILVB
 1. Basic Network Fee
 •	Payment period:
 (1) Charge on a monthly basis. In the settlement between the 1st and 5th day of every month, the fee for the service actually used in last month is deducted from Tencent Cloud account, and an amount equivalent to 120% of the fee for the last month is frozen in the balance;
@@ -138,13 +138,13 @@ Note: If you have a large business volume or need to access service separately, 
 
 ### Outer Center (OC)
 •	It can only send downstream audio/video data, being suitable for scenarios where viewers only watch the video.
-(As shown in the figure, if no viewer sends upstream video data, and the number of online members in the room is more than 5, most of traffic is generated from OC. But a certain proportion of bandwidth comes from DC-->OC, which accounts for almost 10%)
+(As shown in the figure, if no viewer sends upstream video data, and the number of online members in the room is more than five, most of traffic is generated from OC. But a certain proportion of bandwidth comes from DC-->OC, which accounts for almost 10%)
 
 ### Traffic Flow Diagram
 #### A room with more than 5 people where joint broadcasting is not implemented
 ![](//mccdn.qcloud.com/static/img/1cb95629a1101c5381ce64194b478fbd/image.png)
 
-####  A room with not more than 5 people where joint broadcasting is not implemented
+####  A room with not more than five people where joint broadcasting is not implemented
 In case of a small number of room members, use of OC may cause a waste of the traffic from DC-->OC. In this case, DC is directly used to send downstream traffic.
  ![](//mccdn.qcloud.com/static/img/3dd9c91f847457a5d456256d895f56d4/image.jpg)
  

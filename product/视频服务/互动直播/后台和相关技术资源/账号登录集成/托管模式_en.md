@@ -4,28 +4,28 @@ Note: Currently, hosted mode is only supported for Android and iOS platforms. Yo
 ## 1. App Self-owned Account
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151116095740_64728.png)
 
-**[Registration]**
+**Registration**
 
 (1) Two APIs are provided for the registration of App self-owned account:
 (2) (Optional) [API](/doc/product/269/托管模式存量账号导入) is provided for the import of existing accounts.
 (3) New account is registered using TLS SDK.
 
-**[Login]**
+**Login**
 
 (1) Enter account and password on the client and verify in TLS.
 (2) After login, you can directly use audio/video or IM cloud service.
 (3) (Optional) App server can verify the signature using [TLS Backend API](/doc/product/269/TLS后台API使用手册) to confirm the validity of user.
 
-**[Notes]**
+**Notes**
 
 (1) Quickly complete the integration of registration and login capacities using TLS SDK directly.
 (2) Apps that have been launched can also use hosted mode through import of existing accounts.
 
-**[Security]**
+**Security**
 
 The security level of storage of account and password is the same with that of QQ account, to ensure the account security when database dragging occurs.
 
-**[Process]**
+**Process**
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151116095831_86603.png)
 
