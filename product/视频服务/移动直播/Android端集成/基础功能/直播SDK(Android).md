@@ -1,21 +1,21 @@
 ## 基础知识
-RTMP SDK 包含推流和播放两方面功能，推流为主播端功能，播放（分为直播和点播）为观众端功能。对接之前，我们先列表如下一些基本知识会大有裨益：
+本文主要介绍视频云 SDK 的直播播放功能，在此之前，先了解如下一些基本知识会大有裨益：
 
 - **直播和点播**
-<font color='blue'>直播</font> 的视频源是实时生成的，有人推流直播才有意义。所以，一旦主播停播，直播URL也就失效了，而且由于是实时直播，所以播放器在播直播视频的时候是没有进度条的。
+<font color='blue'>直播（LIVE）</font> 的视频源是主播实时推送的。因此，主播停止推送后，播放端的画面也会随即停止，而且由于是实时直播，所以播放器在播直播 URL 的时候是没有进度条的。
 
- <font color='blue'>点播</font> 的视频源是云端的一个文件，文件只要没有被提供方删除，就随时可以播放， 而且由于整个视频都在服务器上，所以播放的时候是有进度条的哦。
+ <font color='blue'>点播（VOD）</font> 的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷土豆等视频网站上的视频观看就是典型的点播场景。
 
 - **协议的支持**
 通常使用的直播协议如下，APP端推荐使用 FLV 协议的直播地址(以“http”打头，以“.flv”结尾)：
 ![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
 
- 通常使用的点播协议如下，现在比较流行的是HLS(以“http”打头，以“.m3u8”结尾)的点播地址：
-![](//mc.qcloudimg.com/static/img/4b42a00bb7ce2f58f362f35397734177/image.jpg)
-
 ## 特别说明
-SDK <font color='red'>**不会对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但 SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
+- **是否有限制？**
+视频云 SDK <font color='red'>**不会对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
 
+- **历史因素**
+SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，但是由于点播功能越做越多，我们最终在 SDK 3.5 版本开始，将点播功能单独分离出来，交由 TXVodPlayer 来负责。但是为了保证编译通过，您在 TXLivePlayer 中依然可以看到类似 seek 等点播才具备的功能。
 ## 对接攻略
 
 ### step 1: 添加View
@@ -30,32 +30,33 @@ SDK <font color='red'>**不会对**</font> 播放地址的来源做限制，即�
 ```
 
 ### step 2: 创建Player
-接下来创建一个**TXLivePlayer**的对象，并使用 setPlayerView 接口将这它与我们刚刚添加到界面上的**video_view**控件进行关联。
+视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将这它与我们刚刚添加到界面上的**video_view**控件进行关联。
 ```java
 //mPlayerView即step1中添加的界面view
-TXCloudVideoView mPlayerView = (TXCloudVideoView) view.findViewById(R.id.video_view);
+TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
+
 //创建player对象
 TXLivePlayer mLivePlayer = new TXLivePlayer(getActivity());
+
 //关键player对象与界面view
-mLivePlayer.setPlayerView(mPlayerView);
+mLivePlayer.setPlayerView(mView);
 ```
 
-### step 3: 启动播放器
+### step 3: 启动播放
 ```java
 String flvUrl = "http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 ```
-type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**播放有快进现象**</font>，那是因为把 LIVE_FLV 和 VOD_FLV 弄混了导致的。
 
 | 可选值 | 枚举值 | 含义 |
 |---------|---------|---------|
 | PLAY_TYPE_LIVE_RTMP | 0 | 传入的URL为RTMP直播地址 |
 | PLAY_TYPE_LIVE_FLV | 1 | 传入的URL为FLV直播地址 |
-| PLAY_TYPE_VOD_FLV | 2 | 传入的URL为FLV点播地址 |
-| PLAY_TYPE_VOD_HLS | 3 | 传入的URL为HLS(m3u8)点播地址 |
-| PLAY_TYPE_VOD_MP4 | 4 | 传入的URL为MP4点播地址 |
-| PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟连麦链路直播地址（仅适合于连麦场景） |
-| PLAY_TYPE_LOCAL_VIDEO | 6 | 手机本地视频文件 |
+| PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟链路地址（仅适合于连麦场景） |
+| PLAY_TYPE_VOD_HLS | 3 | 传入的URL为HLS(m3u8)播放地址 |
+
+> **关于HLS(m3u8)**
+> 在 APP 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 APP 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
 
 ### step 4: 画面调整
 
@@ -79,19 +80,8 @@ type 参数支持如下几种选项，有很多客户反馈 <font color='red'>**
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
 
-### step 5: 进度调整
-调整播放进度这个操作 <font color='red'>**仅对点播有效**</font> ，因为直播的视频源是实时的，没有调整进度的可能。
-```java
-// 调整进度
-mLivePlayer.seek(seekBar.getProgress());
-```
-
-### step 6: 暂停播放
-- **点播**
-暂停对于点播的含义相信您不需要我再做赘述。
-
-- **直播**
-在直播过程中调用pause，效果等同于暂时停止拉流，播放器不会被销毁，但会显示最后一帧画面。
+### step 5: 暂停播放
+对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这跟点播是有很大不同的（点播播放器的暂停和继续与播放本地视频文件时的表现相同)。
 
 ```java
 // 暂停
@@ -100,7 +90,7 @@ mLivePlayer.pause();
 mLivePlayer.resume();
 ```
 
-### step 7: 结束播放
+### step 6: 结束播放
 结束播放时 <font color='red'>**记得销毁view控件**</font> ，尤其是在下次startPlay之前，否则会产生大量的内存泄露以及闪屏问题。
 
 同时，在退出播放界面时，记得一定要调用渲染View的`onDestroy()`函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
@@ -109,7 +99,7 @@ mLivePlayer.resume();
 public void onDestroy() {
     super.onDestroy();
     mLivePlayer.stopPlay(true); // true代表清除最后一帧画面
-    mPlayerView.onDestroy(); 
+    mView.onDestroy(); 
 }
 ```
 
@@ -117,7 +107,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 
 如果是点播播放结束后，也想保留最后一帧画面，您可以在收到播放结束事件后什么也不做，默认停在最后一帧。
 
-### step 8: 硬件加速
+### step 7: 硬件加速
 对于蓝光级别（1080p）的画质，简单采用软件解码的方式很难获得较为流畅的播放体验，所以如果您的场景是以游戏直播为主，一般都推荐开启硬件加速。
 
 软解和硬解的切换需要在切换之前先**stopPlay**，切换之后再**startPlay**，否则会产生比较严重的花屏问题。
@@ -128,7 +118,23 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
  mLivePlayer.startPlay(flvUrl, type);
 ```
 
-### step 9: 截流录制（仅直播）
+### step 8: 屏幕截图
+通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
+
+![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
+
+```java
+mLivePlayer.snapshot(new ITXSnapshotListener() {
+    @Override
+    public void onSnapshot(Bitmap bmp) {
+        if (null != bmp) {
+           //获取到截图bitmap
+        }
+    }
+});
+```
+
+### step 9: 截流录制
 截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过点击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
 
 ![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
@@ -148,49 +154,23 @@ mLivePlayer.stopRecord();
 - 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的  onRecordComplete 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
 
+## 超低延时播放
+支持 <font color='red'>**400ms**</font> 左右的超低延迟播放时腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**，等等，关于这个特性，您需要知道：
 
-### step 10:视频截图
-视频截图功能满足了观众想将主播直播过程中的精彩画面进行截图保存的需求。视频截图只会截图当前视频流的一帧原始画面，而不会截取整个屏幕内容。
-```
-mLivePlayer.snapshot(new ITXSnapshotListener() {
-    @Override
-    public void onSnapshot(Bitmap bmp) {
-        if (null != bmp) {
-           //获取到截图bitmap
-        }
-    }
-});
-```
+- **该功能是不需要开通的**
+该功能并不需要提前开通，但是要求直播流必须位于腾讯云，跨云商实现低延时链路的难度不仅仅是技术层面的。
 
-### step 11: mp4本地缓存播放（仅点播）
-点播播放器支持对mp4的本地缓存，在观看同一个视频的时候可以节省流量，默认没有开启，开启此功能需要配置两个参数：本地缓存目录及需要缓存的视频个数。
+- **播放地址需要带防盗链**
+播放URL 不能用普通的 CDN URL， 必须要带防盗链签名，防盗链签名的计算方法见 [**txTime&txSecret**](https://cloud.tencent.com/document/product/454/9875)。
 
-```
-//如下代码用于展示点播场景下mp4本地缓存播放
-//指定一个本地mp4缓存目录
-mPlayConfig.setCacheFolderPath(Environment.getExternalStorageDirectory().getPath(); +"/txcache");
-//指定本地最多缓存多少文件，避免缓存太多数据
-mPlayConfig.setMaxCacheItems(2);
-mLivePlayer.setConfig(mPlayConfig); 
-// ...
-//开始播放
-mLivePlayer.startPlay(playUrl,_playType);                         
-```
+- **播放类型需要指定ACC**
+在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，否则延迟会很高。
 
-### step 12: 变速播放（仅点播）
-点播播放器支持变速播放，通过接口`setRate`设置点播播放速率来完成，支持快速与慢速播放，如0.5X、1.0X、1.2X、2X等。
+- **该功能有并发播放限制**
+目前最多同时 10 路并发播放，所以您只能在互动场景中使用（比如连麦主播 或者 夹娃娃直播中的操作者这一路）。
 
- ```
-//如下代码用于展示点播倍速播放
-//设置1.2倍速播放
-mLivePlayer.setRate(1.2); 
-// ...
-//开始播放
-mLivePlayer.startPlay(playUrl,_playType);
-```
-
-## 状态监听
-腾讯云 RTMP SDK 一直坚持白盒化设计原则，你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（质量反馈）通知给您。
+## SDK事件监听
+你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
 
 ### 1. 播放事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -205,8 +185,6 @@ mLivePlayer.startPlay(playUrl,_playType);
 - **LOADING 频繁与否多是由cacheTime决定的**
 TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime 属性被设置的很小，那么 LOADING 就会变得非常频繁，如果你您发现有频繁LOADING的情况出现，请参考[卡顿&延迟](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) 进行校调。
 
-- **PLAY_PROGRESS 播放进度的处理**
-如果您对如何处理点播时的 PLAY_EVT_PLAY_PROGRESS 事件没有思路，可以参考示例代码-[播放进度](https://cloud.tencent.com/document/product/454/7887)。
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -247,20 +225,24 @@ TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
-### 5. 状态回调 
- **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频质量等有所了解。
+## 视频宽高 
+
+**视频的宽高（分辨率）是多少？**
+站在 SDK 的角度，如果只是拿到一个 URL 字符串，它是回答不出这个问题的。要知道视频画面的宽和高各是多少个 pixel, SDK 需要先访问云端服务器，直到加载到足够能够分析出视频画面大小的信息才行，所以对于视频信息而言，SDK 也只能以通知的方式告知您的应用程序。 
+
+ **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。
   
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
 | NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
-| NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
-| NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
-|   NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
-|   NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
-|   NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|   NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
+| **NET_STATUS_VIDEO_WIDTH**  | 视频分辨率 - 宽 |
+| **NET_STATUS_VIDEO_HEIGHT**| 视频分辨率 - 高 |
+|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
+|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
 
 ## 卡顿&延迟

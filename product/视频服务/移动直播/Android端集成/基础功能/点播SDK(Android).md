@@ -15,53 +15,46 @@
 
 ## 对接攻略
 
-### step 1: 创建Player
-视频云 SDK 中的 TXVodPlayer 模块负责实现点播播放功能。
-
-```objectivec
-TXVodPlayer _txVodPlayer = [[TXVodPlayer alloc] init];
-[_txVodPlayer setupVideoWidget:_myView insertIndex:0]
+### step 1: 添加View
+为了能够展示播放器的视频画面，我们第一步要做的就是在布局xml文件里加入如下一段代码：
+```xml
+<com.tencent.rtmp.ui.TXCloudVideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
 ```
 
-### step 2: 渲染View
-接下来我们要给播放器的视频画面找个地方来显示，iOS系统中使用 view 作为基本的界面渲染单位，所以您只需要准备一个 view 并调整好布局就可以了。
-
-```objectivec
-[_txVodPlayer setupVideoWidget:_myView insertIndex:0]
-```
-
-内部原理上讲，播放器并不是直接把画面渲染到您提供的 view （示例代码中的 \_myView）上，而是在这个view之上创建一个用于OpenGL渲染的子视图（subView）。
-
-如果您要调整渲染画面的大小，只需要调整你所常见的 view 的大小和位置即可，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
-
-![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
- 
-> **如何做动画？**
-> 针对view做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 <font color='red'>transform</font> 属性而不是 frame 属性。
-```objectivec
-  [UIView animateWithDuration:0.5 animations:^{
-            _myView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
-        }];
+### step 2: 创建Player
+接下来创建一个**TXVodPlayer**的对象，并使用 setPlayerView 接口将这它与我们刚刚添加到界面上的**video_view**控件进行关联。
+```java
+//mPlayerView即step1中添加的界面view
+TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
+//创建player对象
+TXVodPlayer mVodPlayer = new TXLivePlayer(getActivity());
+//关键player对象与界面view
+mVodPlayer.setPlayerView(mView);
 ```
 
 ### step 3: 启动播放
 TXVodPlayer 内部会自动识别播放协议，您只需要将您的播放 URL 传给 startPlay 函数即可。
-```objectivec
-NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
-[_txVodPlayer startPlay:url ];
+```java
+String url = "http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
+mVodPlayer.startPlay(url); 
 ```
 
 ### step 4: 画面调整
 
 - **view：大小和位置**
-如需修改画面的大小及位置，直接调整 setupVideoWidget 的参数 view 的大小和位置，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
+如需修改画面的大小及位置，直接调整 step1中添加的 “video_view” 控件的大小和位置即可。
 
 - **setRenderMode：铺满or适应**
 
 | 可选值 | 含义  |
 |---------|---------|
 | RENDER_MODE_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
-| RENDER_MODE_FILL_EDGE | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
+| RENDER_MODE_ADJUST_RESOLUTION | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
 
 - **setRenderRotation：画面旋转**
 
@@ -74,40 +67,60 @@ NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 
 
 ### step 5: 播放控制
-```objectivec
+```java
 // 调整进度
-[_txVodPlayer seek:slider.value];
+mVodPlayer.seek(seekBar.getProgress());
 // 暂停播放
-[_txVodPlayer pause];
+mVodPlayer.pause();
 // 恢复播放
-[_txVodPlayer resume];
+mVodPlayer.resume();
 ```
 
 ### step 6: 结束播放
-结束播放时，如果要推出当前的UI界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁view控件，否则会产生内存泄露或闪屏问题。
+结束播放时 <font color='red'>**记得销毁view控件**</font> ，尤其是在下次startPlay之前，否则会产生大量的内存泄露以及闪屏问题。
 
-```objectivec
-// 停止播放
-[_txVodPlayer stopPlay];
-[_txVodPlayer removeVideoWidget]; // 记得销毁view控件
+同时，在退出播放界面时，记得一定要调用渲染View的`onDestroy()`函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
+```java
+@Override
+public void onDestroy() {
+    super.onDestroy();
+    mVodPlayer.stopPlay(true); // true代表清除最后一帧画面
+    mView.onDestroy(); 
+}
 ```
+
+stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”。早期版本的 RTMP SDK 的直播播放器没有 pause 的概念，所以通过这个布尔值来控制最后一帧画面的清除。
+
+如果是点播播放结束后，也想保留最后一帧画面，您可以在收到播放结束事件后什么也不做，默认停在最后一帧。
 
 ### step 7: 屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
 
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
+```java
+mLivePlayer.snapshot(new ITXSnapshotListener() {
+    @Override
+    public void onSnapshot(Bitmap bmp) {
+        if (null != bmp) {
+           //获取到截图bitmap
+        }
+    }
+});
+```
+
 ### step 8: 变速播放
 点播播放器支持变速播放，通过接口`setRate`设置点播播放速率来完成，支持快速与慢速播放，如0.5X、1.0X、1.2X、2X等。
 
 ![](//mc.qcloudimg.com/static/img/8666305d62167cfb7c1e670d14fbd689/image.png)
 
- ```objectivec
+ ```java
+//如下代码用于展示点播倍速播放
 //设置1.2倍速播放
-[_txVodPlayer setRate:1.2]; 
+mLivePlayer.setRate(1.2); 
 // ...
 //开始播放
-[_txVodPlayer startPlay:url];
+mLivePlayer.startPlay(playUrl,_playType);
 ```
 
 ### step 9: 本地缓存
@@ -122,54 +135,51 @@ SDK 并不默认开启缓存功能，对于用户回看率不高的场景，也�
 - **如何开启？**
 开启此功能需要配置两个参数：本地缓存目录及需要缓存的视频个数。
 
-```objectivec
-TXVodPlayConfig _config = [[TXVodPlayConfig alloc] init];
-
-// 设置缓存路径
-_config.cacheFolderPath = 
-[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-
-// 设置最多缓存多少个文件，避免缓存太多数据
-_config.maxCacheItems = 10;
-
-[_txVodPlayer setConfig: _config]; 
+```java
+//指定一个本地mp4缓存目录
+TXVodPlayConfig mConfig = new TXVodPlayConfig();
+mConfig.setCacheFolderPath(
+         Environment.getExternalStorageDirectory().getPath(); +"/txcache");
+				 
+//指定本地最多缓存多少文件，避免缓存太多数据
+mConfig.setMaxCacheItems(10);
+mVodPlayer.setConfig(mConfig); 
 // ...
 //开始播放
-[_txVodPlayer startPlay:playUrl];                            
+mVodPlayer.startPlay(playUrl);                         
 ```
 
 ### step 10: 预加载
 在短视频播放场景中，预加载功能对于流畅的观看体验很有帮助：在观看当前视频的同时，在后台加载即将要播放的下一个视频URL，这样一来，当用户真正切换到下一个视频时，已经不需要从头开始加载了，而是可以做到立刻播放。
 
-这就是视频播放中无缝切换的背后技术支撑，您可以使用 TXVodPlayer 中的 isAutoPlay 开关来实现这个功能，具体做法如下：
+这就是视频播放中无缝切换的背后技术支撑，您可以使用 TXVodPlayer 中的 setAutoPlay 开关来实现这个功能，具体做法如下：
 
 ![](//mc.qcloudimg.com/static/img/7331417ebbdfe6306fe96f4b76c8d0ad/image.jpg)
 
-```objectivec
-// 播放视频A: 如果将 isAutoPlay 设置为 YES， 那么 startPlay 调用会立刻开始视频的加载和播放
-NSString* url_A = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f10.mp4";
-_player_A.isAutoPlay = YES;
-[_player_A startPlay:url_A];
+```java
+// 播放视频A: 如果将 autoPlay 设置为 true， 那么 startPlay 调用会立刻开始视频的加载和播放
+String urlA = "http://1252463788.vod2.myqcloud.com/xxxxx/v.f10.mp4";
+playerA.setAutoPlay(true);
+playerA.startPlay(urlA);
 
-// 在播放视频 A 的同时，预加载视频 B，做法是将 isAutoPlay 设置为 NO
-NSString* url_B = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
-_player_B.isAutoPlay = NO;
-[_player_B startPlay:url_B];
+// 在播放视频 A 的同时，预加载视频 B，做法是将 true 设置为 false
+String urlB = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
+playerA.setAutoPlay(false);
+playerB.startPlay(urlB); // 不会立刻开始播放，而只会开始加载视频
 ```
 
 等到视频 A 播放结束，自动（或者用户手动切换到）视频B时，调用 resume 函数即可实现立刻播放。
-```objectivec
--(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param
-{
+```java
+public void onPlayEvent(int event, Bundle param) {
     // 在视频 A 播放结束的时候，直接启动视频 B 的播放，可以做到无缝切换
-    if (EvtID == PLAY_EVT_PLAY_END) {
-		   [_player_B resume];
+    if (event == PLAY_EVT_PLAY_END) {
+		   playerB.resume();
 		}
 }
 ```
 
 ### step 11: 贴片广告
-autoPlay 还可以用来做贴片广告功能，由于设置了 autoPlay 为 NO 之后，播放器会立刻加载但又不会立刻播放，因此可以在此时展示贴片广告，等广告播放结束，在使用 resume 函数立即开始视频的播放。
+autoPlay 还可以用来做贴片广告功能，由于设置了 autoPlay 为 false 之后，播放器会立刻加载但又不会立刻播放，因此可以在此时展示贴片广告，等广告播放结束，在使用 resume 函数立即开始视频的播放。
 
 ### step 12: 加密播放
 视频加密方案主要用于在线教育等需要对视频版权进行保护的场景。如果要对您的视频资源进行加密保护，就不仅仅需要在播放器上做改造，还需要对视频源本身进行加密转码，亦需要您的后台和终端研发工程师都参与其中。在 [视频加密解决方案](https://cloud.tencent.com/document/product/266/9638) 中您会了解到全部细节内容。
@@ -184,34 +194,34 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 
 软解和硬解的切换需要在切换之前先**stopPlay**，切换之后再**startPlay**，否则会产生比较严重的花屏问题。
 
-```objectivec
-  [_txLivePlayer stopPlay];
-  _txLivePlayer.enableHWAcceleration = YES;
-  [_txLivePlayer startPlay:_flvUrl type:_type];
+```java
+ mLivePlayer.stopPlay(true);
+ mLivePlayer.enableHardwareDecode(true);
+ mLivePlayer.startPlay(flvUrl, type);
 ```
 
 ## 进度展示
 
 点播进度分为两个指标：**加载进度** 和 **播放进度**，SDK 目前是以事件通知的方式将这两个进度实时通知出来的。
 
-您可以为 TXVodPlayer 对象绑定一个 **TXLivePlayListener** 监听器（名字不匹配是历史原因），进度通知会通过 **PLAY_EVT_PLAY_PROGRESS** 事件回调到您的应用程序，该事件的附加信息中即包含上述两个进度指标。
+您可以为 TXVodPlayer 对象绑定一个 **TXVodPlayerListener** 监听器，进度通知会通过 **PLAY_EVT_PLAY_PROGRESS** 事件回调到您的应用程序，该事件的附加信息中即包含上述两个进度指标。
 
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
-```objectivec
--(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param {
-    if (EvtID == PLAY_EVT_PLAY_PROGRESS) {
+```java
+public void onPlayEvent(int event, Bundle param) {
+    if (event == PLAY_EVT_PLAY_PROGRESS) {
 		    // 加载进度
-		    float playable = [param[EVT_PLAYABLE_DURATION] floatValue];
-				[_loadProgressBar setValue:playable];
-				
+		    int duration = param.getInt(TXLiveConstants.EVT_PLAYABLE_DURATION);
+				mLoadBar.setProgress(duration);
+
 		    // 播放进度
-		    float progress = [param[EVT_PLAY_PROGRESS] floatValue];
-				[_seekProgressBar setValue:progress];
+		    int progress = param.getInt(TXLiveConstants.EVT_PLAY_PROGRESS);
+				mSeekBar.setProgress(progress);
 				
-			// 视频总长
-			float duration = [param[EVT_PLAYABLE_DURATION] floatValue];
-			// 可以用于设置时长显示等等
+				// 视频总长
+		    int duration = param.getInt(TXLiveConstants.EVT_PLAY_DURATION);
+			  // 可以用于设置时长显示等等
 	}
 }
 ```
@@ -257,6 +267,7 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
+
 ## 视频宽高 
 **视频的宽高（分辨率）是多少？**
 站在 SDK 的角度，如果只是拿到一个 URL 字符串，它是回答不出这个问题的。要知道视频画面的宽和高各是多少个 pixel, SDK 需要先访问云端服务器，直到加载到足够能够分析出视频画面大小的信息才行，所以对于视频信息而言，SDK 也只能以通知的方式告知您的应用程序。 
@@ -274,4 +285,3 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
-
