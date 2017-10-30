@@ -14,14 +14,14 @@ The local HDD is a local storage located on the physical machine where the CVM i
 
 | Specifications | Performance | Price |
 |---------|---------|---------|
-| System disk: a fee-free capacity of 20 GB. You can choose to buy disks of a larger capacity. It supports a maximum of 50 GB (Linux)<br><br> A fee-free non-expandable capacity of 50 GB (Windows).<br><br> Data disk: the local HDD supports the capacity from 10 GB up to 1,000 GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Reading and writing speed of more than 80 MB/S | Prepaid plan: 0.3 CNY/GB/month <br>Postpaid: 0.042 CNY/100 GB/hour |
+| System disk: a fee-free capacity of 20 GB. You can choose to buy disks of a larger capacity. It supports a maximum of 50 GB (Linux)<br><br> A fee-free non-expandable capacity of 50 GB (Windows).<br><br> Data disk: the local HDD supports the capacity from 10 GB up to 1,000 GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Reading and writing speed of more than 80 MB/S | Postpaid: USD $0.01/100 GB/hour |
 
 ### SSD local disk
 The SSD local disk is a local storage located on the physical machine where the CVM resides, providing instances with block-level data access with low latency, high random IOPS, and high I/O throughput.
 
 | Specifications | Performance | Price |
 |---------|---------|---------|
-| System disk:<br> a fee-free capacity of 20 GB (Linux)<br> A fee-free non-expandable capacity of 50 GB (Windows)<br><br> Data disk: the SSD local disk supports the capacity from 10 GB up to 250 GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Throughput of up to 300 MB/s and 30,000 random IOPS| Prepaid plan: 0.8 yuan/GB/ <br>Postpaid: 0.33 CNY/100 GB/hour |
+| System disk:<br> a fee-free capacity of 20 GB (Linux)<br> A fee-free non-expandable capacity of 50 GB (Windows)<br><br> Data disk: the SSD local disk supports the capacity from 10 GB up to 250 GB (in 10 GB increments), and its maximum capacity to be selected varies with the specific hardware configuration.  | Throughput of up to 300 MB/s and 30,000 random IOPS| Postpaid: USD $0.03/100 GB/hour |
 
 SSD local disk is suitable for the following scenarios:
 

@@ -1,10 +1,65 @@
-## 初始化操作
+## 开发准备
 
-### 初始化
+### 相关资源
+[cos-cpp-sdk-v5下载地址](https://github.com/tencentyun/cos-cpp-sdk-v5 "cos-cpp-sdk-v5下载地址")
+[Cpp SDK 参考](https://github.com/tencentyun/cos-cpp-sdk-v5/blob/master/demo/cos_demo.cpp "Cpp SDK 参考")
 
-接口说明：在使用COS操作之前，需要首先进行COS系统参数的设置，然后分别创建CosConfig以及CosAPI对象，COS的操作都是基于CosAPI对象进行的。
+依赖静态库: jsoncpp boost_system boost_thread Poco (在lib文件夹下)
+依赖动态库: ssl crypto rt z (需要安装)
 
-### 配置文件
+1. 安装boost的库和头文件 
+```
+wget http://sourceforge.net/projects/boost/files/boost/1.54.0/boost_1_54_0.tar.gz
+tar -xzvf boost_1_54_0.tar.gz
+cd boost_1_54_0
+./bootstrap.sh --prefix=/usr/local
+./b2 install --with=all
+boost库被安装在/usr/local/lib下面
+```
+2. 安装cmake工具 
+```
+安装gcc等必备程序包（已安装则略过此步）
+yum install -y gcc gcc-c++ make automake
+yum install -y wget
+wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz
+tar -zxvf cmake-2.8.10.2.tar.gz
+cd cmake-2.8.10.2
+./bootstrap
+gmake
+gmake install
+```
+3. 安装openssl的库和头文件 
+```
+wget https://www.openssl.org/source/openssl-1.0.1t.tar.gz  
+tar -xzvf ./openssl-1.0.1t.tar.gz
+cd openssl-1.0.1t/
+./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl
+```
+
+4. 安装Poco的库和头文件 [Poco官网](https://pocoproject.org/download/index.html)
+5. 从控制台获取APP ID、SecretID、SecretKey。
+密钥获取地址： [云API密钥](https://console.cloud.tencent.com/capi "云API密钥")
+
+sdk中提供了Poco、jsoncpp的库以及头文件，以上库编译好后替换掉sdk中相应的库和头文件即可，如果以上库已经安装到系统里，也可删除sdk中相应的库和头文件。
+可以修改CMakeList.txt文件中，指定本地boost头文件路径，修改如下语句： SET(BOOST_HEADER_DIR "/root/boost_1_61_0")
+
+### SDK 配置
+
+直接下载github上提供的源代码，集成到您的开发环境。
+
+执行下面的命令 ：
+``` bash
+cd ${cos-cpp-sdk} 
+mkdir -p build 
+cd build 
+cmake .. 
+make
+```
+
+cos_demo.cpp里面有常见API的例子。生成的cos_demo可以直接运行，生成的静态库名称为：libcossdk.a。生成的 libcossdk.a 放到你自己的工程里lib路径下，include 目录拷贝到自己的工程的include路径下。
+
+## SDK初始化
+### 配置文件初始化
 ```
 "AppID":********,
 "AccessKey":"*********************************",
@@ -22,11 +77,114 @@
 "LogLevel":3                        // 日志级别:1: ERR, 2: WARN, 3:INFO, 4:DBG 
 ```
 
-### COS API对象构造原型
-
+### 创建Bucket
 ```
-CosConfig(const string& config_file); // config_file是配置文件所在路径
-CosAPI(CosConfig& config);
+#include "cos_api.h"
+#include "cos_sys_config.h"
+#include "cos_defines.h"
+
+int main(int argc, char *argv[]) {
+    // 1. 指定配置文件路径，初始化CosConfig
+    qcloud_cos::CosConfig config("./config.json");
+    qcloud_cos::CosAPI cos(config);
+    
+    // 2. 构造创建Bucket的请求
+    std::string bucket_name = "cpp_sdk_v5"; // Bucket名称
+    qcloud_cos::PutBucketReq req(bucket_name);
+    qcloud_cos::PutBucketResp resp;
+    
+    // 3. 调用创建Bucket接口
+    qcloud_cos::CosResult result = cos.PutBucket(req, &resp);
+    
+    // 4. 处理调用结果
+    if (result.IsSucc()) {
+        // 创建成功
+    } else {
+        // 创建Bucket失败，可以调用CosResult的成员函数输出错误信息，比如requestID等
+        std::cout << "ErrorInfo=" << result.GetErrorInfo() << std::endl;
+        std::cout << "HttpStatus=" << result.GetHttpStatus() << std::endl;
+        std::cout << "ErrorCode=" << result.GetErrorCode() << std::endl;
+        std::cout << "ErrorMsg=" << result.GetErrorMsg() << std::endl;
+         std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
+        std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
+        std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
+    }
+}
+```
+
+### 上传文件
+```
+#include "cos_api.h"
+#include "cos_sys_config.h"
+#include "cos_defines.h"
+
+int main(int argc, char *argv[]) {
+    // 1. 指定配置文件路径，初始化CosConfig
+    qcloud_cos::CosConfig config("./config.json");
+    qcloud_cos::CosAPI cos(config);
+    
+    // 2. 构造上传文件的请求
+    std::string bucket_name = "cpp_sdk_v5"; // 上传的目的Bucket名称
+    // request的构造函数中需要传入本地文件路径
+    qcloud_cos::PutObjectByFileReq req(bucket_name, object_name, "/path/to/local/file");
+    req.SetXCosStorageClass("STANDARD_IA")； // 调用Set方法设置元数据或者ACL等
+    qcloud_cos::PutObjectByFileResp resp;
+    
+    // 3. 调用上传文件接口
+    qcloud_cos::CosResult result = cos.PutObject(req, &resp);
+    
+    // 4. 处理调用结果
+    if (result.IsSucc()) {
+        // 上传文件成功
+    } else {
+        // 上传文件失败，可以调用CosResult的成员函数输出错误信息，比如requestID等
+        std::cout << "ErrorInfo=" << result.GetErrorInfo() << std::endl;
+        std::cout << "HttpStatus=" << result.GetHttpStatus() << std::endl;
+        std::cout << "ErrorCode=" << result.GetErrorCode() << std::endl;
+        std::cout << "ErrorMsg=" << result.GetErrorMsg() << std::endl;
+         std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
+        std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
+        std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
+    }
+}
+```
+
+### 下载文件
+```
+#include "cos_api.h"
+#include "cos_sys_config.h"
+#include "cos_defines.h"
+
+int main(int argc, char *argv[]) {
+    // 1. 指定配置文件路径，初始化CosConfig
+    qcloud_cos::CosConfig config("./config.json");
+    qcloud_cos::CosAPI cos(config);
+    
+    // 2. 构造创建Bucket的请求
+    std::string bucket_name = "cpp_sdk_v5"; // 上传的目的Bucket名称
+    std::string object_name = "object_name"; // 
+    std::string local_path = "/tmp/object_name";
+    // request需要提供appid、bucketname、object,以及本地的路径（包含文件名）
+    qcloud_cos::GetObjectByFileReq req(bucket_name, object_name, local_path);
+    qcloud_cos::GetObjectByFileResp resp;
+    
+    // 3. 调用创建Bucket接口
+    qcloud_cos::CosResult result = cos.PutObject(req, &resp);
+    
+    // 4. 处理调用结果
+    if (result.IsSucc()) {
+        // 下载文件成功
+    } else {
+        // 下载文件失败，可以调用CosResult的成员函数输出错误信息，比如requestID等
+        std::cout << "ErrorInfo=" << result.GetErrorInfo() << std::endl;
+        std::cout << "HttpStatus=" << result.GetHttpStatus() << std::endl;
+        std::cout << "ErrorCode=" << result.GetErrorCode() << std::endl;
+        std::cout << "ErrorMsg=" << result.GetErrorMsg() << std::endl;
+         std::cout << "ResourceAddr=" << result.GetResourceAddr() << std::endl;
+        std::cout << "XCosRequestId=" << result.GetXCosRequestId() << std::endl;
+        std::cout << "XCosTraceId=" << result.GetXCosTraceId() << std::endl;
+    }
+}
 ```
 
 ## 生成签名
@@ -167,7 +325,7 @@ struct Content {
     std::string m_size; // 文件大小，单位是 Byte
     std::vector<std::string> m_owner_ids; // Bucket 持有者信息
     std::string m_storage_class; // Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE
-}
+};
 ```
 #### 示例
 
@@ -230,7 +388,7 @@ void SetXCosGrantRead(const std::string& str);
 /// 当需要给子账户授权时,id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>",
 /// 当需要给根账户授权时,id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"
 void SetXCosGrantWrite(const std::string& str);
-	
+    
 /// 赋予被授权者读写权限.格式：x-cos-grant-full-control: id=" ",id=" ".
 /// 当需要给子账户授权时,id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>",
 /// 当需要给根账户授权时,id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"
@@ -529,7 +687,7 @@ public:
     bool HasDays();
     bool HasDate();
     bool HasStorageClass();
-	
+    
 private:
     // 不能在同一规则中同时使用Days和Date
     uint64_t m_days; // 指明规则对应的动作在对象最后的修改日期过后多少天操作, 有效值是非负整数
@@ -540,11 +698,11 @@ private:
 class LifecycleExpiration {
 public:
     LifecycleExpiration();
-	
+    
     uint64_t GetDays();
     std::string GetDate();
     bool IsExpiredObjDelMarker();
-	
+    
     void SetDays(uint64_t days);
     void SetDate(const std::string& date);
     void SetExpiredObjDelMarker(bool marker);
@@ -552,7 +710,7 @@ public:
     bool HasDays();
     bool HasDate();
     bool HasExpiredObjDelMarker();
-	
+    
 private:
     // 不能在同一规则中同时使用Days和Date
     uint64_t m_days; // 指明规则对应的动作在对象最后的修改日期过后多少天操作, 有效值为正整数
@@ -581,7 +739,7 @@ private:
 class LifecycleNonCurrExpiration {
 public:
     LifecycleNonCurrExpiration();
-	
+    
     uint64_t GetDays();
 
     void SetDays(uint64_t days);
@@ -607,7 +765,7 @@ public:
     void SetExpiration(const LifecycleExpiration& rh);
     void SetNonCurrTransition(const LifecycleNonCurrTransition& rh);
     void SetNonCurrExpiration(const LifecycleNonCurrExpiration& rh);
-	void SetAbortIncompleteMultiUpload(const AbortIncompleteMultipartUpload& rh);
+    void SetAbortIncompleteMultiUpload(const AbortIncompleteMultipartUpload& rh);
 
     bool IsEnable();
     std::string GetId();
@@ -699,7 +857,7 @@ Get Bucket Lifecycle 用来查询 Bucket 的生命周期配置。如果该 Bucke
 #### 方法原型
 
 ```cpp
-CosResult GetBucketLifecycle(const DGetBucketLifecycleReq& req, GetBucketLifecycleResp* resp);
+CosResult GetBucketLifecycle(const GetBucketLifecycleReq& req, GetBucketLifecycleResp* resp);
 ```
 
 #### 参数说明
@@ -709,9 +867,10 @@ CosResult GetBucketLifecycle(const DGetBucketLifecycleReq& req, GetBucketLifecyc
 - resp   —— GetBucketLifecycleResp GetBucketLifecycle操作的返回
 
 ```
-// 获取LifecycleRules, LifecycleRule定义参见Put Bucket Lifecycle
+// 获取LifecycleRules
 std::vector<LifecycleRule> GetRules()
 ```
+其中， LifecycleRule定义参见Put Bucket Lifecycle。
 
 #### 示例
 
@@ -744,7 +903,7 @@ Delete Bucket Lifecycle 用来删除 Bucket 的生命周期配置。如果该 Bu
 #### 方法原型
 
 ```cpp
-CosResult DeleteBucketLifecycle(const DDeleteBucketLifecycleReq& req, DeleteBucketLifecycleResp* resp);
+CosResult DeleteBucketLifecycle(const DeleteBucketLifecycleReq& req, DeleteBucketLifecycleResp* resp);
 ```
 
 #### 参数说明
@@ -990,8 +1149,8 @@ ACLRule定义如下：
 ```
 struct Grantee {
     // type 类型可以为 RootAccount， SubAccount
-	// 当 type 类型为 RootAccount 时，可以在 id 中 uin 中填写 QQ，可以在 id 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/<OwnerUin> 和 uin/<SubUin>
-	// 当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号
+    // 当 type 类型为 RootAccount 时，可以在 id 中 uin 中填写 QQ，可以在 id 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/<OwnerUin> 和 uin/<SubUin>
+    // 当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号
     std::string m_type; 
     std::string m_id; // qcs::cam::uin/<OwnerUin>:uin/<SubUin>
     std::string m_display_name; // 非必选
@@ -1884,8 +2043,8 @@ ACLRule定义如下：
 ```
 struct Grantee {
     // type 类型可以为 RootAccount， SubAccount
-	// 当 type 类型为 RootAccount 时，可以在 id 中 uin 中填写 QQ，可以在 id 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/<OwnerUin> 和 uin/<SubUin>
-	// 当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号
+    // 当 type 类型为 RootAccount 时，可以在 id 中 uin 中填写 QQ，可以在 id 中 uin 填写 QQ，也可以用 anyone（指代所有类型用户）代替 uin/<OwnerUin> 和 uin/<SubUin>
+    // 当 type 类型为 RootAccount 时，uin 代表根账户账号，Subaccount 代表子账户账号
     std::string m_type; 
     std::string m_id; // qcs::cam::uin/<OwnerUin>:uin/<SubUin>
     std::string m_display_name; // 非必选
@@ -1923,7 +2082,7 @@ std::string object_name = "sevenyou";
 
     qcloud_cos::PutObjectACLResp resp;
     qcloud_cos::CosResult result = cos.PutObjectACL(req, &resp);
-	// 调用成功，调用resp的成员函数获取返回内容
+    // 调用成功，调用resp的成员函数获取返回内容
     if (result.IsSucc()) {
         // ...
     } else {
@@ -2047,7 +2206,7 @@ void SetXCosStorageClass(const std::string& storage_class);
 /// 默认值：private
 void SetXCosAcl(const std::string& str);
 
-    /// 赋予被授权者读的权限.格式：x-cos-grant-read: id=" ",id=" ".
+/// 赋予被授权者读的权限.格式：x-cos-grant-read: id=" ",id=" ".
 /// 当需要给子账户授权时,id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"
 /// 当需要给根账户授权时,id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"
 void SetXCosGrantRead(const std::string& str);
@@ -2069,7 +2228,7 @@ void SetXCosMeta(const std::string& key, const std::string& value);
 - resp   —— PutObjectCopyResp PutObjectCopy操作的返回
 
 ```
-// 	返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。
+// 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。
 std::string GetEtag();
 
 // 返回文件最后修改时间，GMT 格式
