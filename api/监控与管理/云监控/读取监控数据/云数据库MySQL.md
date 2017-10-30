@@ -60,6 +60,39 @@ dimensions.0.value为cdb实例id
 | tps                   | 每秒执行事务数        | 次/秒    |
 | cpu_use_rate          | CPU占比          | %      |
 | memory_use            | 内存占用           | MB     |
+| key_write_requests    |数据块写入键缓冲次数|  次/秒 | 
+| key_writes            | 数据块写入磁盘次数  | 次/秒 |
+| com_commit			| 提交数 			 | 次/秒|
+| handler_commit  		| 内部提交数 		| 次/秒| 
+| innodb_rows_read	    |  InnoDB行读取量	| 次/秒| 
+| innodb_row_lock_time_avg | InnoDB平均获取行锁时间 | 毫秒 |
+| threads_created 		| 已创建的线程数 		|	个 |
+| opened_tables			| 已经打开的表数		| 个|
+| threads_running		| 运行的线程数			| 个|
+| innodb_data_reads		| InnoDB总读取量		| 次/秒 |
+| com_rollback			| 回滚数				| 次/秒|
+| key_blocks_unused		| 键缓存内未使用的块数量  |个|
+| innodb_data_writes	| InnoDB总写入量   		| 次/秒|
+| innodb_buffer_pool_pages_free | InnoDB空页数 | 个|
+| innodb_rows_inserted | InnoDB行插入量 | 次/秒|
+| created_tmp_files	    | 临时文件数量| 次/秒|
+| innodb_data_read      | InnoDB读取量 | Byte/秒|
+| innodb_row_lock_waits | InnoDB等待行锁次数 | 次/秒|
+| innodb_buffer_pool_read_requests | InnoDB逻辑读|  次/秒|
+| handler_rollback		| 内部回滚数 | 次/秒|
+| master_slave_sync_distance | 主从不同步距离| MB| 
+| handler_read_rnd_next | 读下一行请求数| 次/秒|
+| innodb_rows_updated   | InnoDB行更新量|  次/秒|
+| innodb_rows_deleted   | InnoDB行删除量| 次/秒| 
+| innodb_buffer_pool_pages_total | InnoDB空页数|  个|
+| key_blocks_used  		| 键缓存内使用的块数量|  个|
+| innodb_data_written   | InnoDB写入量| Byte/秒|
+| key_read_requests		| 键缓存读取数据块次数 | 次/秒|
+| innodb_buffer_pool_reads | InnoDB物理读|  次/秒|
+| created_tmp_disk_tables | 磁盘临时表数量|  次/秒|
+| key_reads				| 硬盘读取数据块次数  | 次/秒|
+
+
 
 
 ## 3. 输出参数
