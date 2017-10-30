@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 | routeTableName | Yes|  String| Routing table name. You can specify any name you like, but its length should be limited to 60 characters.   |
 | routeSet.n | No | array | (Optional) Content of routing table.|
 | routeSet.n.destinationCidrBlock | Yes | String | Destination network segment, which cannot be within the VPC network segment. For example: 112.20.51.0/24. |
-| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway. |
+| routeSet.n.nextType | Yes | String | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway; 9: general cvm . |
 | routeSet.n.nextHub | Yes | String | Next hop address. You just need to specify gateway IDs (new ID is recommended) of different next hop types and the system will automatically match to the next hop address.  |
 | routeSet.n.description | No | String | Route description, which should be limited to 60 characters.   |
 
