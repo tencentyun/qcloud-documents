@@ -24,4 +24,4 @@
 | 未消费消息堆积量 (MB) | unconsume_size | 消费分组对应partition未被消费的消息总大小，按粒度（1分钟、5分钟）取最新值 | MB   | consumer group |
 
 
-有关更多如何使用XXX的监控指标内容，可以查看云监控 API 中的[读取监控数据接口](https://www.qcloud.com/doc/api/405/4667)。
+有关更多如何使用CKafka的监控指标内容，可以查看云监控 API 中的[读取监控数据接口](https://cloud.tencent.com/document/api/248/4667)。
