@@ -12,7 +12,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
     &natName=<NAT网关名称>
-    &vpcId=<vpc网络ID>
+    &unVpcId=<vpc网络ID>
     &offset=<初始行的偏移量>
     &limit=<每页行数>
     &orderField=<排序字段>
@@ -25,7 +25,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 |---------|---------|---------|---------|
 | natId | NAT网关统一ID，例如：nat-xx454| String | 否 |
 | natName | NAT网关名称 (支持模糊查找) | String | 否 |
-| vpcId | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| Int | 否 |
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| Int | 否 |
 | offset |  初始行的偏移量，默认为0| Int | 否 |
 | limit |  每页行数，默认为20，最大支持50。| Int | 否 |
 | orderField |按某个字段排序，默认不排序。<br>支持字段：natId。| String | 否 |
@@ -106,7 +106,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 

@@ -30,7 +30,7 @@ Here is a summary of I2 instance features:
 ## Requirements for high IO I2 instance
 Here are the requirements for I2 instance:
 
-- An I2 instance can be used on the basis of [prepaid](https://cloud.tencent.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) or [postpaid](https://cloud.tencent.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), or as the production instance of high IO host in dedicated hosts;
+- An I2 instance can be used on the basis of  [postpaid](https://cloud.tencent.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9), or as the production instance of high IO host in dedicated hosts;
 - Support I2 instance startup in basic network and [Virtual Private Cloud](https://cloud.tencent.com/doc/product/215/535#.E8.85.BE.E8.AE.AF.E4.BA.91.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F);
 - For the available configurations when you purchase a high IO I2 instance, refer to [CVM Instance Configurations](https://cloud.tencent.com/doc/product/213/2177).
 

@@ -13,7 +13,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&eipIds.1=<EIP实例ID>
 	&limit=<返回EIP数量>
 	&offset=<分页偏移量>
-	&vpcId=<EIP所属VPCID>
+	&unVpcId=<EIP所属VPCID>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 DescribeEipBm。
@@ -29,7 +29,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 | limit | 否 | Int | 返回EIP数量，默认 20, 最大值 100|
 | orderBy | 否 | String | 排序字段，支持这些字段名：eipId, eip, status, unInstanceId, arrears, createdAt。|
 | orderType | 否 | Int | 1倒序，0顺序，默认倒序|
-|vpcId|否|Int|EIP所属vpcId，会筛选出指定vpc的EIP，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
+| unVpcId | 否 | String | EIP归属的VPC的标识，格式形如：vpc-k7j1t2x1，可通过[查询私有网络列表](/document/product/386/6646)返回的字段unVpcId获得 |
 |payMode|否|字符串型|计费模式，流量计费：flow，带宽计费：bandwidth|
 
  > 查询接口中单次查询一般都有一个默认最大返回记录数，要遍历所有资源，需要使用 limit，offset进行分页查询；比如我想查询第110~149 这40条记录，则可以设置 offset=110，limit=40。
@@ -102,7 +102,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&eipIds.1=eip-8n4ymhxr
 	&limit=5
 	&offset=5
-	&vpcId=1025
+	&unVpcId=vpc-k7j1t2x1
 	&Signature=umZFAAWKzjXEQp4ySgrWAoWOHKI%3D
 ```
 
