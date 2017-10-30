@@ -282,7 +282,7 @@ cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
 
 ## 生成签名
 
-若需要了解签名具体的生成过程请参照 [签名流程](https://www.qcloud.com/document/product/436/7778)。
+若需要了解签名具体的生成过程请参照 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
 在使用 SDK 时，SDK 中已提供了签名获取类，只需要继承 BasicLifecycleCredentialProvider 类，并重写 fetchNewCredentials() 方法，从而获取 SecretId，SecretKey， SecretKey Duration。
 
 #### 示例
