@@ -7,7 +7,7 @@
 
 查询云数据库（MySQL）产品监控数据，入参取值如下：
 namespace：qce/cdb
-dimensions.0.name=unInstanceId
+dimensions.0.name=uInstanceId
 dimensions.0.value为cdb实例id
 
 ## 2. 输入参数
@@ -29,7 +29,7 @@ dimensions.0.value为cdb实例id
 
 | 指标名称                  | 含义             | 单位     |
 | --------------------- | -------------- | ------ |
-| slow_queries          | 慢查询数           | 次/秒    |
+| slow_queries          | 慢查询数           | 次/分    |
 | max_connections       | 最大连接数          | 个      |
 | select_scan           | 全表扫描数          | 次/秒    |
 | select_count          | 查询数            | 次/秒    |

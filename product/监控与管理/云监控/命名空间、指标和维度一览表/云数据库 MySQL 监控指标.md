@@ -2,7 +2,7 @@
 
 | 指标中文名 | 指标英文名 | 单位 |维度|
 |---------|---------|---------|---------|
-|慢查询数|slow_queries|次/秒|uInstanceId|
+|慢查询数|slow_queries|次/分|uInstanceId|
 |全表扫描数|select_scan|次/秒|uInstanceId|
 |查询数|select_count|次/秒|uInstanceId|
 |更新数|com_update|次/秒|uInstanceId|

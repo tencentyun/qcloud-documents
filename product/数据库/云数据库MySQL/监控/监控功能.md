@@ -14,7 +14,7 @@
 | 指标中文名 | 指标英文名 | 单位 |维度|指标说明|
 |---------|---------|---------|---------|
 |每秒执行操作数|qps|次/秒|实例维度|数据库每秒执行的SQL数（含insert、select、update、delete、replace），QPS指标主要体现CDB实例的实际处理能力|
-|慢查询数|slow_queries|次/秒|实例维度|[查看MySQL官方指导][3]|
+|慢查询数|slow_queries|次/分|实例维度|[查看MySQL官方指导][3]|
 |全表扫描数|select_scan|次/秒|实例维度|[查看MySQL官方指导][3]|
 |查询数|select_count|次/秒|实例维度|Com_select值|
 |更新数|com_update|次/秒|实例维度|[查看MySQL官方指导][3]|
