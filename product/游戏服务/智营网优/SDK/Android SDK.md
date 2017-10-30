@@ -40,12 +40,12 @@ public static void GSDKInit(Context context, string qqappid, bool debug, int zon
 |参数 | 含义 | 
 |---------|---------|
 | context | 上下文环境或者当前 activity | 
-| qqappid | 惟一标识该应用 | 
+| qqappid | 惟一标识该应用，对应腾讯云加速服务的“游戏ID” | 
 | debug | 控制 log 的输出方便联调 | 
 | zoneid | 玩家大区 id | 
 | env | 云控正式环境，默认直接填 true 即可 | 
 | useBattery | 电量统计信息，默认直接填 false 即可 | 
-| tCloudKey | 腾讯云申请的 key 值 | 
+| tCloudKey | 腾讯云申请的 key 值,即“秘钥KEY” | 
 
 #### 3.1.2 设置用户信息
 ```
@@ -102,6 +102,7 @@ public class StartSpeedRet {
 ```
 public static void GSDKStartSpeed(string vip, int vport, int htype, string hookModules, int zoneid, int stopMNA, int timeout, String pvpid)
 ```
+功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要 5~6 秒。完成后会回调`GSDKObserver`函数。  
 
 |参数 | 含义 | 
 |---------|---------|
@@ -115,7 +116,6 @@ public static void GSDKStartSpeed(string vip, int vport, int htype, string hookM
 | timeout | 默认值为 0 ；设置启动阶段超时时间，单位为毫秒，当`timeout<=0`时，表示不设置启动超时 | 
 | pvpid | 游戏对局唯一 ID，应用直接填`"UNKNOWN"` | 
 
-功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要 5~6 秒。完成后会回调`GSDKObserver`函数。
 
 #### 3.2.2 通知加速引擎：游戏目前在前台
 ```
@@ -285,4 +285,13 @@ public class KartinRet {
 #### 字段：netinfo_desc；关键名称：直连时延
 | 取值 | 含义 | 
 |---------|---------|
-|   | 当前网卡有丢包或错包，不适合游戏 | 
+|   | 当前网卡有丢包或错包，不适合游戏 |   
+
+具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）
+
+WIFI 直连环境下图示如下：
+![](https://mc.qcloudimg.com/static/img/8be2ccf30041db352caed1d98b524bab/wifi-android.png)
+
+4G 直连环境下图示如下：
+![](https://mc.qcloudimg.com/static/img/f62992074419d7e3a8e90c53a7112cf1/4g-android.png)
+

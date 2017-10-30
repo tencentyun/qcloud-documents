@@ -9,7 +9,7 @@
 - beacongsdk_xxx.jar
 - libgsdk.so
 
-2) 将Assets/Plugins/Scripts下的脚本拷贝到项目中；
+2) 将脚本拷贝到项目中；
 ![](https://mc.qcloudimg.com/static/img/00ec57c83a914d5c00e24d81c04b341d/unity+sdk.png)
 3) 修改项目中的 AndroidManifest.xml 文件，添加以下权限：
 ```
@@ -96,7 +96,7 @@ public static void Init(string qqappid, bool debug, int zoneid, bool isReleaseEn
 
 |参数 | 含义 | 
 |---------|---------|
-| qqappid | 惟一标识该应用 | 
+| qqappid | 惟一标识该应用,即腾讯云控制台加速服务对应的游戏ID | 
 | debug | 控制 log 的输出方便联调，默认直接填 false 即可 | 
 | zoneid | 玩家大区 ID | 
 | isReleaseEnv | 云控正式环境，默认直接填 true 即可 | 
@@ -340,3 +340,12 @@ public class KartinRet {
 | 取值 | 含义 | 
 |---------|---------|
 |   | 当前网卡有丢包或错包，不适合游戏 | 
+
+  
+具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）
+
+WIFI 直连环境下图示如下：
+![](https://mc.qcloudimg.com/static/img/8be2ccf30041db352caed1d98b524bab/wifi-android.png)
+
+4G 直连环境下图示如下：
+![](https://mc.qcloudimg.com/static/img/f62992074419d7e3a8e90c53a7112cf1/4g-android.png)
