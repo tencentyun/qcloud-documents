@@ -1,7 +1,7 @@
 ## 1 iOS 接入
 
 ### 1.1 SDK 获取
-智营网优 iOS SDK 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/12b7fd970dd3791d6a83fd5c4618fb33/archive.zip).
+智营网优 iOS SDK 1.1.0 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/4ab5f30bd830cb54bb06a133280f297b/IOSv1.1.0.zip).
 
 ### 1.2 SDK 配置
 #### 1.2.1 安装包结构
