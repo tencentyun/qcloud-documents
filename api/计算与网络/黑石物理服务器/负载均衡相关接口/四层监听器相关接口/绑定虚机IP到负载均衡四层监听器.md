@@ -1,40 +1,65 @@
-## 1. 接口描述
- 
-本接口 (BindBmL4ListenerVmIp) 提供了绑定虚机IP到黑石负载均衡四层监听器功能。
+## 功能描述
+BindBmL4ListenerVmIp 提供了绑定虚机IP到黑石负载均衡四层监听器功能。
 
-接口请求域名：<font style="color:red">bmlb.api.qcloud.com</font>
+接口请求域名：bmlb.api.qcloud.com
 
 
-## 2. 输入参数
+## 请求
+### 请求示例
+```
+https://bmlb.api.qcloud.com/v2/index.php?
+	Action=BindBmL4ListenerVmIp
+	&公共请求参数
+	&loadBalancerId=<负载均衡实例ID>
+	&listenerId=<四层监听器实例ID>
+	&vmList.0.port=<待绑定的虚机端口>
+	&vmList.0.vmIp=<待绑定的虚机IP>
+	&vmList.0.weight=<待绑定的主机权重>
+```
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/product/386/6718)页面。
+### 请求参数
 
-| 参数名称 | 是否必选  | 类型 | 描述 |
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 BindBmL4ListenerVmIp。
+
+
+| 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| loadBalancerId | 是 | String |   负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/document/product/386/9306)查询。|
-| listenerId | 是 | String | 负载均衡四层监听器ID，可通过接口[DescribeBmListeners](/document/product/386/9296)查询。|
-| vmList | 是 | Array |   待绑定的虚机信息。可以绑定多个主机端口。目前一个四层监听器下面最多允许绑定255个主机端口。|
+| loadBalancerId | 是 | String | 负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/document/product/386/9306)查询。|
+| listenerId | 是 | String | 四层监听器实例ID，可通过接口[DescribeBmListeners](/document/product/386/9296)查询。|
+| vmList | 是 | Array |   待绑定的虚机信息。可以绑定多个虚机端口。目前一个四层监听器下面最多允许绑定255个虚机端口。|
 
 vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
 
-| 参数名称 | 是否必选  | 类型 | 描述 |
+| 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |vmList.n.port|是|Int|待绑定的虚机端口，可选值1~65535。|
 |vmList.n.vmIp|是|String|待绑定的虚机IP。|
-|vmList.n.weight|是|Int|权重信息，可选值0~100。|
+|vmList.n.weight|是|Int|待绑定的虚机权重，可选值0~100。|
 
 
-## 3. 输出参数
+## 响应
+
+### 响应示例
+
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "requestId" : <异步任务ID>
+}
+```
+
+### 响应参数
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](/document/product/386/6725)。|
 | message | String | 模块错误信息描述，与接口相关。|
-| codeDesc | String | 返回码信息描述。|
 | requestId | Int | 任务ID。该接口为异步任务，可根据本参数调用[DescribeBmLoadBalancersTaskResult](/document/product/386/9308)接口来查询任务操作结果|
 
 
-模块错误码
+## 错误码
 
 | 错误代码 | 英文提示 | 错误描述 |
 |------|------|------|
@@ -53,28 +78,32 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
 | -12024 | InvalidVmIp.NotExist | 不存在该虚拟IP |
 
 
-## 4. 示例
+## 实际案例
  
-输入
+### 输入
+```
+https://domain/v2/index.php?
+	Action=BindBmL4ListenerVmIp
+	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+	&Nonce=61431
+	&Timestamp=1507728683
+	&Region=bj
+	&loadBalancerId=lb-abcdefgh
+	&listenerId=lbl-abcdefgh
+	&vmList.0.port=1234
+	&vmList.0.vmIp=1.1.1.1
+	&vmList.0.weight=10
+	&Signature=umZFAAWKzjXEQp4ySgrWAoWOHKI%3D
+```
 
-<pre>
-https://domain/v2/index.php?Action=BindBmL4ListenerVmIp
-&<<a href="https://cloud.tencent.com/document/product/386/6718">公共请求参数</a>>
-&loadBalancerId=lb-abcdefgh
-&listenerId=lbl-abcdefgh
-&vmList.1.port=1234
-&vmList.1.vmIp=1.1.1.1
-&vmList.1.weight=10
-</pre>
-
-输出
+### 输出
 
 ```
 {
     "code": 0,
     "message": "",
     "codeDesc": "Success",
-    "requestId" : 1234
+    "requestId": 100000
 }
 
 ```
