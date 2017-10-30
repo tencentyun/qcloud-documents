@@ -22,6 +22,9 @@ Cloud Kafka 通过如下安全特性确保安全性：
 权限控制：Cloud Kafka 额外应用层上做了来源ip白名单的鉴权机制。
 安全防护：提供多纬度的安全防护、防 DDoS 攻击等服务；
 
+### CKafka 监控指标的具体含义是什么？
+CKafka已接入监控告警，具体指标维度参见文档 https://cloud.tencent.com/document/product/248/12154
+
 ### CKafka 是否会丢失消息？
 1. 开源的 Apache Kafka 不保证不丢消息；CKafka 针对可用性做了优化，腾讯云承诺 CKafka 的可用性超 99.95%。
 2. CKafka 客户可以通过生产时开启 ACK ，尽量保障不丢失和少丢失消息，提升消息可靠性。
