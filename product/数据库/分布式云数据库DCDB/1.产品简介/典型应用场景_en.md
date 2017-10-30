@@ -2,7 +2,7 @@
 
 ## Large Applications (Real-time Transaction with Ultra-high Concurrency)
 
-Service providers from e-commerce, finance, O2O, social applications, retail, SaaS industries generally have the following problems that restrict the development of business: a large user base (up to a million or above), frequent marketing activities, slower response from core trading system database. DCDB provides linear scale-out feature to improve processing capacity in real time and increase the access efficiency up to over 15 million QPS, allowing rapid respond to real-time transactions with high concurrency.
+Service providers from e-commerce, finance, O2O, social applications, retail, SaaS industries generally have the following problems that restrict the development of business: a large user base (up to a million or above), frequent marketing activities and slower response from core trading system database. DCDB provides linear scale-out feature to improve processing capacity in real time and increase the access efficiency up to over 15 million QPS, allowing rapid respond to real-time transactions with high concurrency.
 
 Currently, WeChat Pay, Tenpay, pay.qq.com, JD.com, taobao.com and many other platforms use the DCDB-based database.
   
@@ -12,7 +12,7 @@ Many sensor monitoring devices with high sampling rate and large-scale data are 
   
 ## File Index (Instant Access to Trillions Lines of Data)
 
-Generally, a cloud service platform contains hundreds of millions of to trillions of images, documents and video data. Service platforms need to store the indexes of these files and perform addition, modification, read and deletion (in case of a large file, the index is deleted instead of the file) operations at index level in real time. The access of other users to the service platform makes the requirement extremely high for service quality and performance. Traditional database cannot support such a large volume of access and usage. With ultra-high performance and scalability in combination with strongsync capability, DCDB effectively guarantees the platform's service quality and data consistency.
+Generally, a cloud service platform contains hundreds of millions to trillions of images, documents and video data. Service platforms need to store the indexes of these files and perform addition, modification, read and deletion (in case of a large file, the index is deleted instead of the file) operations at index level in real time. The access of other users to the service platform makes the requirement extremely high for service quality and performance. Traditional database cannot support such a large volume of access and usage. With ultra-high performance and scalability in combination with strongsync capability, DCDB effectively guarantees the platform's service quality and data consistency.
   
 ## Cost-effective Business Database Solution
 

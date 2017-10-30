@@ -19,7 +19,7 @@
 您可以在[【更多机型】](https://intl.cloud.tencent.com/document/product/213/7153)中根据实际需要比较各配置方案。当然您也可以在购买云服务器之后，根据您的需求随时进行 [配置升级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) 或 [配置降级](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) 。
 
 ### 确定付费方式
-腾讯云提供 包年包月 和 按量付费 两种付费模式。详见 [计费模式说明](/doc/product/213/2180) 。
+腾讯云提供按量付费模式。详见 [计费模式说明](/doc/product/213/2180) 。
 若您选择按量付费，则需先完成 [实名认证](https://console.cloud.tencent.com/developer/infomation) 。
 
 <div id="page2"></div>
@@ -30,7 +30,7 @@
 
  1. 登录腾讯云官网，进入【Products】-【Computer】-【Cloud Virtual Machine】，单击【Experience】按钮，进入 [云服务器购买页面](https://console.cloud.tencent.com/cvm/index) 单击【+NEW】开始选购。
 
- 2. 选择镜像。选择符合需求的 Windows 操作系统。
+ 2. 选择镜像。选择符合需求的 Linux 操作系统。
  
  3. 选择机型。
  
@@ -67,7 +67,7 @@
 
 
 ### 控制台登录云服务器
- 1. 在云服务器列表的操作列，单击【Log In】按钮即可通过 VNC 连接至 Windows 云服务器：
+ 1. 在云服务器列表的操作列，单击【Log In】按钮即可通过 VNC 连接至 Linux 云服务器：
 	![](//mc.qcloudimg.com/static/img/2458a30dd79da5762ea6cf474755319e/image.png)
 
  2. 通过单击左上角发送 Ctrl-Alt-Delete 命令进入系统登录界面：
@@ -84,7 +84,7 @@
 ### 前提条件
  - 已购买数据盘的用户，需要格式化数据盘才可使用。未购买数据盘的用户可以跳过此步骤。
  - 请确保您已完成步骤三操作，登录到云服务器。
- - 大于 2TB 的硬盘请使用 GPT 方式进行搭载数据盘操作。详情请参见 [使用GPT分区表分区并格式化](/doc/product/213/2043) 。
+ - 大于 2TB 的硬盘请使用 GPT 方式进行搭载数据盘操作。详情请参见 [使用 GPT 分区表分区并格式化](/doc/product/213/2043) 。
  
 ### 分区数据盘
 

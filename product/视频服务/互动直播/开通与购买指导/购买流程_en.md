@@ -1,4 +1,4 @@
-﻿
+
 ## Billing Process
 
 <table style="display:table;width:80%;"class="t">
@@ -31,7 +31,7 @@
 ## Overdraft
 
 (1) On the settlement data of each month, if user's cloud account is in arrears after deduction, or the account balance is insufficient for freezing after the account is frozen, the user will be informed of this after the settlement date via private message and email. Please pay off the overdraft as soon as possible.
-(2) If the account is still in arrears or the balance is still insufficient for freezing, <font color=red>the service is not suspended until 20th of the month.</font>
+(2) If the account is still in arrears or the balance is still insufficient for freezing,  the service is not suspended until 20th of the month.
 
 
 ## Billing During Test Period

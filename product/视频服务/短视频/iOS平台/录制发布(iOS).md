@@ -100,8 +100,13 @@ config.maxDuration    = 60;                      //视频录制的最大时长
 //////////////////////////////////////////////////////////////////////////
 //                             背景音相关
 //////////////////////////////////////////////////////////////////////////
-// 播放背景音
-[[TXUGCRecord shareInstance] playBGM:path
+
+// 设置背景音乐文件
+[[TXUGCRecord shareInstance] setBGM:path];
+
+// 播放背景音，目前仅支持开启录制后播放背景音乐，后续会支持录制前播放背景音
+[[TXUGCRecord shareInstance] playBGMFromTime:startTime
+             toTime:endTime
     withBeginNotify:beginNotify
  withProgressNotify:progressNotify
   andCompleteNotify:completeNotify];
@@ -225,8 +230,7 @@ param.videoPath = _videoPath;
 param.coverPath = _coverImage; 
 
 TXUGCPublish *_ugcPublish = [[TXUGCPublish alloc] init];
-// 如果需要使用断点续传功能，需要传入一个字符串类型的 userId 作为唯一标识, 建议使用登录帐号
-// TXUGCPublish *_ugcPublish = [[TXUGCPublish alloc] initWithUserID:[userId];
+// 文件发布默认是采用断点续传
 _ugcPublish.delegate = self;                                 // 设置 TXVideoPublishListener 回调
 [_ugcPublish publishVideo:param];
 ``` 

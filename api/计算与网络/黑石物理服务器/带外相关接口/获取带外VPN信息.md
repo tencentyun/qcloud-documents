@@ -80,7 +80,7 @@ GET https://bm.api.qcloud.com/v2/index.php?
 	&Signature=o%2Fx5UUFhEO%2F5V2oADueinidHS9A%3D
 ```
 
-输出
+### 输出
 ```
 {
     "code": 0,
