@@ -1,7 +1,7 @@
 ## 1 接入流程/开发准备
 
 ### 1.1 SDK 获取
-智营网优Android SDK下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/38a530aad89a49e4fdc57028af4fd577/MNA_Android_v3.1.0a_svn4166.zip).
+智营网优Android SDK 1.1.0 下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/3561722264c115a130b9dec26633d5ed/Androidv1.1.0.zip).
 
 ### 1.2 SDK 配置
 将下列文件导入到项目中：
