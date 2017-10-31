@@ -10,7 +10,7 @@ UpgradeBmNatGateway 接口用于修改黑石NAT网关规格，可修改为小型
 GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
-    &vpcId=<vpc网络ID>
+    &unVpcId=<vpc网络ID>
     &maxConcurrent=<网关并发连接上限>
 ```
 ### 请求参数
@@ -18,7 +18,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=UpgradeBmNatGateway
 
 | 参数名称 |  描述 | 类型 |必选  |
 |---------|---------|---------|---------|
-| vpcId | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 |
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 |
 | natId | 高可用网关统一ID，例如：nat-xdf54d | String | 是 |
 | maxConcurrent | 网关并发连接上限，可选值为：1000000（小型）、3000000（中型）、 10000000（大型）|  Int |是 |
 
@@ -60,7 +60,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&natId=nat-et8e970y
 	&maxConcurrent=3000000
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D

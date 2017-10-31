@@ -38,10 +38,10 @@ When an elastic IP has been purchased, but <font color="red">is not yet bound to
 
 | Elastic public IP location | Unbound price |
 |---------|---------|---------|
-| Beijing area, Shanghai area, Guangzhou area | 0.20RMB/hour | 
-| Hongkong Region | 0.30RMB/hour | 
-| North America Region | 0.25RMB/hour | 
-| Singapore Region | 0.30RMB/hour | 
+| Beijing area, Shanghai area, Guangzhou area |  | 
+| Hongkong Region |  | 
+| North America Region |  | 
+| Singapore Region |  | 
 
 ## Apply for elastic public IP
 

@@ -45,20 +45,26 @@
 
 在工程中添加`TXLiteAVSDK_Professional.framework`，同时还要添加以下系统依赖库
 
-> 1. VideoToolbox.framework
-> 2. SystemConfiguration.framework
-> 3. CoreTelephony.framework
-> 4. AVFoundation.framework
-> 5. CoreMedia.framework
-> 6. CoreGraphics.framework
-> 7. libstdc++.tbd
-> 8. libz.tbd
-> 9. libiconv.tbd
-> 10. libresolv.tbd
+> 1. Foundation.framework
+> 2. AVFoundation.framework
+> 3. MediaPlayer.framework
+> 4. SystemConfiguration.framework
+> 5. CoreTelephony.framework
+> 6. VideoToolbox.framework
+> 7. CoreMedia.framework
+> 8. CoreGraphics.framework
+> 9. Accelerate.framework
+> 10. Security.framework
+> 11. AssetsLibrary.framework
+> 12. libiconv.tbd
+> 13. libz.tbd
+> 14. libc++.tbd
+> 15. libstdc++.tbd
+> 16. libresolv.tbd
 
 所有添加完毕，工程依赖如下图所示：
 
-![](//mc.qcloudimg.com/static/img/0e012a7ab67e833eb33aec1e02f5d86b/image.jpg)
+![](//mc.qcloudimg.com/static/img/0ce5b490164295091c01250b09f8b6f2/image.jpg)
 
 ### 3、添加头文件
 在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_Professional的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_Professional/"，如下所示：

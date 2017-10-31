@@ -9,11 +9,11 @@ UnbindIpsToBmNatGateway 接口用于将子网的部分IP从NAT网关中解绑
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=UnbindIpsToBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
-    &vpcId=<vpc网络ID>
-	&ips.0.subnetId=<子网ID>
+    &unVpcId=<vpc网络ID>
+	&ips.0.unSubnetId=<子网ID>
 	&ips.0.ipList.0=<子网内IP>
 	&ips.0.ipList.1=<子网内IP>
-	&ips.1.subnetId=<子网ID>
+	&ips.1.unSubnetId=<子网ID>
 	&ips.1.ipList.0=<子网内IP>
 ```
 
@@ -23,15 +23,15 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=UnbindIpsToBmNatGateway
 | 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
 | natId | NAT网关统一ID，例如：nat-8pbrkzh6| String | 是 |
-| vpcId |  私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String |是 |
+| unVpcId |  私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String |是 |
 | ips.n |需要解绑部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。| Array | 是 | 
 
 ips包含字段如下：
 
 | 参数名称 | 描述 | 类型 |必选  | 
 |---------|---------|---------|---------|
-|ips.n.subnetId|子网ID标识|String|是|
-|ips.n.ipList|子网下需要解绑NAT的IP列表，IP需要属于该subnetId子网|Array|是|
+|ips.n.unSubnetId|子网ID标识|String|是|
+|ips.n.ipList|子网下需要解绑NAT的IP列表，IP需要属于该unSubnetId子网|Array|是|
 
 
 ## 响应
@@ -72,12 +72,12 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&natId=nat-et8e970y
 	&ips.0.subnetId=subnet-111111
 	&ips.0.ipList.0=10.11.1.14
 	&ips.0.ipList.1=10.11.1.15
-	&ips.1.subnetId=subnet-222222
+	&ips.1.unSubnetId=subnet-222222
 	&ips.1.ipList.0=10.11.3.15
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```

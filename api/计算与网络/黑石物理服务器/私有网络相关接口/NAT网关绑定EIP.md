@@ -9,7 +9,7 @@ EipBindBmNatGateway 接口用于将EIP绑定到黑石NAT网关，NAT网关使用
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipBindBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
-    &vpcId=<vpc网络ID>
+    &unVpcId=<vpc网络ID>
     &autoAllocEipNum=<分配IP的个数>
 ```
 ### 请求参数
@@ -18,7 +18,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipBindBmNatGateway
 | 参数名称 | 描述 | 类型 | 必选 |
 |---------|---------|---------|---------|
 | natId | 黑石网关统一ID，例如：nat-df5dfd | String | 是 |
-| vpcId | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 | String | 是 |
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 | String | 是 |
 | assignedEipSet.n |弹性IP。assignedEipSet 和 autoAllocEipNum 这两个入参需至少传一个，例如：assignedEipSet.0=183.23.0.0.1 | Array | 否 |
 | autoAllocEipNum | 需要新申请的弹性IP个数, 取值范围[0, 4]。assignedEipSet 和 autoAllocEipNum 这两个入参需至少传一个| Int | 否 |
 
@@ -63,7 +63,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&natId=nat-et8e970y
 	&autoAllocEipNum=1
 	&Signature=xhpWkOBXHyEdddxK2KIH%2F14bMrc%3D
