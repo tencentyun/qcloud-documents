@@ -17,7 +17,7 @@
 | Host           | 是    | String | recognition.image.myqcloud.com           |
 | Content-Length | 是    | Int    | 整个请求包体内容的总长度，单位：字节（Byte）。                |
 | Content-Type   | 是    | String | text/json                                |
-| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/460/6968) |
+| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/document/product/460/6968) |
 
 #### 请求包体
 
