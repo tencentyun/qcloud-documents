@@ -1,38 +1,32 @@
-## Put Bucket
+错误码润色及上线说明
 
-### 功能描述
+## 润色说明
 
-Put Bucket 接口请求可以在指定账号下创建一个 Bucket。该 API 接口不支持匿名请求，您需要使用帯 Authorization 签名认证的请求才能创建新的 Bucket 。创建 Bucket 的用户默认成为 Bucket 的持有者。
+各位开发同学现在把错误码按照各自负责的接口，写成了具体的文档。现在可在**错误码梳理**目录下面看到。每个文档会包含多个接口，因此，需要进行第一步：
 
+> 按照接口，从文档中将提取每个接口的素材，并按照接口拆成文件（主要是为了后续给对应的文档加入本部分内容方便），中间会涉及到一些合并的操作。比如同一个接口在多个文档中有内容，因而这一步使用拆文件的方式比较合理。
 
-### 细节分析
+拆完之后
 
-> 此处描述一些非错误相关的东西，和注意事项。比如该接口的模型，该接口需要的前置条件等等
-
-
-1. 创建bucket的时候，如果没有指定访问权限，则默认使用私有读写(private)权限。
-
-
-### Response
+1. 检查错别字
+2. 检查格式
+3. 检查语法是否通顺
 
 
-#### Special Errors
 
-> 该章节描述次请求可能会发生的一些特殊的且常见的错误情况
+## 上线说明
 
-在该请求下经常会发生的一些错误如下：
+### 细节说明
 
-|错误码|描述|HTTP状态码|
-|:--|:--|:--|
-| BucketAlreadyExists |当请求创建的bucket已经存在，并且请求创建的用户就是拥有者| 409 Conflict|
-| InvalidBucketName |bucket的命名不规范 具体原因可参考message的描述|400 Bad Request|
-| InvalidRequest |bucket的命名不规范 具体原因可参考message的描述| 400 Bad Request|
-||如果bucket设置的ACL不正确，也会导致创建bucket失败，同时会返回“Failed to set access control authority for the bucket”的错误信息。具体错误原因，可根据返回的错误码参考[Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 相关的文档||
+如果错误码梳理文档中存在细节说明一节，则在**功能描述** 下面加入子章节 **细节分析**，并黏贴相关内容
 
-> 如果该错误有多个错误信息请按照如下格式来书写：
+### 在XML API 下面加入如下章节：
 
-|错误码|描述|HTTP状态码|
-|:--|:--|:--|
-| BucketAlreadyExists |1. 当请求创建的bucket已经存在，并且请求创建的用户就是拥有者 <br> 2. sdfsdfs| 409 Conflict|
+~~~
+## 响应
 
-获取更多关于COS的错误码的信息，或者产品所有的错误列表，请查看[错误码](https://cloud.tencent.com/document/product/436/7730)
+### 相应错误分析
+
+> 这个位置加入对应的接口的错误说明哈！！！
+
+~~~
