@@ -17,7 +17,7 @@
 | Host           | 是    | String | recognition.image.myqcloud.com           |
 | Content-Length | 是    | Int    | 整个请求包体内容的总长度，单位：字节（Byte）。                |
 | Content-Type   | 是    | String | text/json                                |
-| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](https://www.qcloud.com/document/product/460/6968) |
+| Authorization  | 是    | String | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/document/product/460/6968) |
 
 #### 请求包体
 
@@ -235,7 +235,7 @@ items（json数组）中每一项的具体内容：
 |503|HTTP_SERVICE_UNAVAILABLE| 服务不可用|
 |504 | HTTP_GATEWAY_TIME_OUT   |   后端服务超时或者 处理失败|
 
-####协议错误码
+###协议错误码
 
 |错误码 | 内容 | 含义|
 |----------|--------|
