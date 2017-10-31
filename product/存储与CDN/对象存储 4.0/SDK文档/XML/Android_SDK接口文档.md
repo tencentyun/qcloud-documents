@@ -493,7 +493,7 @@ serviceException)  {
 
 | 成员变量名称 | 变量说明    |类型     | 
 | ---- | --------------  | ----------- |
-| listParts  | [请求成功返回的结果](https://www.qcloud.com/document/product/436/7747)     | ListParts             |
+| listParts  | [请求成功返回的结果](https://cloud.tencent.com/document/product/436/7747)     | ListParts             |
 | httpCode  |[200, 300)之间请求成功， 否则请求失败| Int             |
 
 #### 示例
@@ -1244,8 +1244,7 @@ serviceException)  {
 | signDuration    |签名的有效期，单位为秒   | Long           | 是  | 
 | checkHeaderListForSign    |签名中需要验证的请求头    | Set&lt;String>           | 否  | 
 | checkParameterListForSing   |签名中需要验证的请求参数      | Set&lt;String>           | 否  | 
-| cosXmlResultListener   |  否  | 上传结果回调     |CosXmlResultListener          |
-
+| cosXmlResultListener   |   上传结果回调     |CosXmlResultListener          |否  |
 #### 返回结果说明
 通过 DeleteBucketResult 对象的成员变量返回请求结果。
 
