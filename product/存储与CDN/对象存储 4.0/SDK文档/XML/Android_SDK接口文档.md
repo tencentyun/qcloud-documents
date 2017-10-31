@@ -46,7 +46,7 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 
 #### 示例
 ```java
-String appid = "对象存储的服务APPID";
+String appid = "对象存储的服务 APPID";
 String region = "存储桶所在的地域"; 
 
 //创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
@@ -1023,7 +1023,7 @@ serviceException)  {
 | -------- | --------------- | -- | ----------- |
 | bucket    | 存储桶名称   |String           | 是  |
 | signDuration    | 签名的有效期，单位为秒   |Long           | 是  | 
-| checkHeaderListForSign    | 否  | 签名中需要验证的请求头    |Set&lt;String>           | 
+| checkHeaderListForSign    |  签名中需要验证的请求头    |Set&lt;String>           | 否  |
 | checkParameterListForSing   |  签名中需要验证的请求参数      |Set&lt;String>           | 否  |
 | cosXmlResultListener   |  上传结果回调     |CosXmlResultListener          | 否  |
 
@@ -1395,8 +1395,8 @@ serviceException)  {
 
 | 参数名称   |  参数描述   |类型 | 必填 |
 | -------- | --------------- | -- | ----------- |
-| bucket    |  是  |存储桶名称   |String           |
-| cORSRule    | 是  |跨域访问配置信息   |CORSRule           | 
+| bucket    |  存储桶名称   |String           |是|
+| cORSRule    | 跨域访问配置信息   |CORSRule           | 是|
 | signDuration    | 签名的有效期，单位为秒   | Long           | 是  |
 | checkHeaderListForSign    | 签名中需要验证的请求头    |Set&lt;String>           | 否  | 
 | checkParameterListForSing   |签名中需要验证的请求参数      | Set&lt;String>           | 否  | 
@@ -1427,7 +1427,7 @@ corsRule.exposeHeader： 设置浏览器可以接收到的来自服务器端的�
 CORSRule corsRule = new CORSRule();
 
 corsRule.id = "123";
-corsRule.allowedOrigin = "http://www.qcloud.com";
+corsRule.allowedOrigin = "https://cloud.tencent.com";
 corsRule.maxAgeSeconds = "5000";
 
 List<String> methods = new LinkedList<>();
