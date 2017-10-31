@@ -141,7 +141,7 @@ coscmd config -u 1250000011 -a AKIDasdfmRxHPa9oLhJp9wqwraCdtzvfPasdfaqW -s e8Sde
     ]
 }
 ```
-#### 为子账户配置某 IP 段的读写权限
+### 为子账户配置某 IP 段的读写权限
 本示例中限制仅 IP 网段为`192.168.1.0/24`和`192.168.2.0/24`的地址具有读写权限，如下所示。
 更丰富的生效条件填写，可查看 [生效条件](/doc/product/598/10608)。
 ```
