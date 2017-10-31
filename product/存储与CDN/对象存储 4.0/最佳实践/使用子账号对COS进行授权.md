@@ -34,39 +34,70 @@ CAM 相关术语、配置详细描述请查看 [CAM 概述](/doc/product/598/105
 
 3. 根据系统提供的策略选择，可配置简单的策略，如 COS 的读写权限，只读权限等。如需配置更复杂的策略，可参考 [步骤二：对子账号授予权限](#对子账号授予权限)。
 ![子账户3](//mc.qcloudimg.com/static/img/8c3be83e576d892c99b90190d5f5c0b2/image.png)
+
 <span id="对子账号授予权限"></span>
 ### 步骤二：对子账号授予权限
-对子账号授予权限可通过CAM，对子账号（用户）或用户组进行策略配置，本文将通过实例说明几种场景：
-- 使用COS对象存储时，如何给子帐户配置读写权限？
-- 使用COS对象存储时，如何给子帐户配置只读权限？
-- 使用COS对象存储时，如何仅对某IP段设置读写权限？
-
-1. 登陆CAM（云访问管理）[控制台](https://console.cloud.tencent.com/cam)，点击左侧菜单栏【策略管理】，点击标签页【自定义策略】，单击按钮【新建自定义策略】：
-  ![image](http://mypics-1251729613.cosgz.myqcloud.com/4.png)
+对子账号授予权限可通过 CAM，对子账号（用户）或用户组进行策略配置。
+1. 登陆 [CAM 控制台](https://console.cloud.tencent.com/cam)，点击左侧菜单栏【策略管理】，点击标签页【自定义策略】，单击按钮【新建自定义策略】：
 ![4](//mc.qcloudimg.com/static/img/c1edfdc87bc078d8bc8f0fb052313d28/image.png)
-2. 选择【按策略语法创建】
-  ![image](http://mypics-1251729613.cosgz.myqcloud.com/5.png)
+2. 选择【按策略语法创建】，进入创建页面。
 ![5](//mc.qcloudimg.com/static/img/94801671fcdff7b80dc973d9ee0e1165/image.png)
-3. 可选择空白模板和已有的COS模板，进行再编辑，常见场景的策略请查看，可将其拷贝至输入框【编辑策略内容】。
-  ![image](http://mypics-1251729613.cosgz.myqcloud.com/6.png)
+3. 可供选择的模版有空白模板和已有的 COS 模板，您可以根据实际情况进行选择。
 ![6](//mc.qcloudimg.com/static/img/8ee0f66634765849bb90a1a2d60806a5/image.png)
-  ![image](http://mypics-1251729613.cosgz.myqcloud.com/7.png)
+4. 编辑策略，COS 常见场景的策略请参见 [CAM 产品文档](/doc/product/598) 的商用案例部分。您可将策略内容复制粘贴到【编辑策略内容】输入框内。
 ![7](//mc.qcloudimg.com/static/img/2a5ce2ce4863f1a537dc74d45284ee5d/image.png)
-4. 创建完成后，可将策略关联到子帐户。
-  ![image](http://mypics-1251729613.cosgz.myqcloud.com/8.png)
+5. 创建完成后，可将策略关联到子账户。
 ![8](//mc.qcloudimg.com/static/img/3517b05ee79c818883d1ecf96dbbad89/image.png)
-  ![image](http://mypics-1251729613.cosgz.myqcloud.com/9.png)
+完成子账户授权，子账号即可根据权限范围访问 COS 资源。
 ![9](//mc.qcloudimg.com/static/img/606cdbcdccb90cf65dbc8826bc7d92da/image.png)
-  完成子帐户授权，子账号即可根据权限范围访问COS资源。
+ 
 
-#### 常见场景的策略
+本文还通过以下策略示例说明几种典型场景，详情参见 [策略示例](#策略示例)：
+- 使用 COS 对象存储时，如何给子账户配置读写权限？
+- 使用 COS 对象存储时，如何给子账户配置只读权限？
+- 使用 COS 对象存储时，如何仅对某 IP 段设置读写权限？
 
-在【自定义策略】中，可将以下参考策略拷贝至输入框【编辑策略内容】，根据实际配置修改即可。
+### 步骤三：子账号访问根账号 COS 资源
+COS 访问（API/SDK）需要如下资源：APPID、SecretId、SecretKey。
+当使用子账号访问 COS 资源时，需要使用根账号的 APPID，子账号的 SecretId 和 SecretKey，您可以在访问管理控制台创建子账号的 SecretId 和 SecretKey。
+1. 子账号登陆  [访问管理控制台](https://console.cloud.tencent.com/cam/capi)  时，需选择对应的根账号（开发商账号）。
+![10](//mc.qcloudimg.com/static/img/7f109890f04a9f57f3b8c924b3788e2d/image.png)
+2. 登陆后，单击按钮【新建密钥】，即可创建子账号的 SecretID 和 SecretKey，APPID 需由根账号提供。
+![11](//mc.qcloudimg.com/static/img/294e294ef54662dedf57af975b7bea75/image.png)
 
-#### 为子帐户配置读写权限
 
-例：对子帐户仅配置读写权限，如下所示。
+> **注意：**
+- 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
+- 子账号访问 COS 资源时，需要使用根账号的 APPID，子账号的 SecretId 和 SecretKey。
 
+#### 基于 XML 的 JAVA SDK 访问示例
+以基于 XML 的 JAVA SDK 命令行为例，需填入参数如下：
+```
+// 1 初始化身份信息
+COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号SecretId>", "<子账号SecretKey>");
+```
+
+实例如下：
+```
+// 1 初始化身份信息
+COSCredentials cred = new BasicCOSCredentials("1250000011", "AKIDasdfmRxHPa9oLhJp9wqwraCdtzvfPasdfaqW", "e8Sdeasdfas2238ViAXjpkU6XloeN2Wpxue");
+```
+
+#### COSCMD 命令行工具访问示例
+以 COSCMD `config`命令行为例，需填入参数如下：
+```
+coscmd config -u <主账号APPID> -a <子账号SecretId> -s <子账号SecretKey>  -b <主账号bucketname> -r <主账号bucketname地域>
+```
+实例如下：
+```
+coscmd config -u 1250000011 -a AKIDasdfmRxHPa9oLhJp9wqwraCdtzvfPasdfaqW -s e8Sdeasdfas2238ViAXjpkU6XloeN2Wpxue -b bucket1 -r ap-beijing
+```
+<span id="策略示例"></span>
+## 策略示例
+在配置自定义策略时，您可将以下参考策略复制粘贴至输入框【编辑策略内容】，根据实际配置修改即可。
+
+### 为子账户配置读写权限
+为子账户仅配置读写权限，具体策略如下所示：
 ```
 {
     "version": "2.0",
@@ -86,11 +117,8 @@ CAM 相关术语、配置详细描述请查看 [CAM 概述](/doc/product/598/105
     ]
 }
 ```
-
-#### 为子帐户配置只读权限
-
-例：对子帐户仅配置只读权限，如下所示。
-
+### 为子帐户配置只读权限
+为子账户仅配置只读权限，具体策略如下所示：
 ```
 {
     "version": "2.0",
@@ -113,10 +141,9 @@ CAM 相关术语、配置详细描述请查看 [CAM 概述](/doc/product/598/105
     ]
 }
 ```
-#### 为子帐户配置某IP段的读写/只读权限
-
-例：限制仅IP网段为“192.168.1.0/24”和“192.168.2.0/24”的地址才能访问，如下所示。
-更丰富的生效条件填写，可查看[生效条件](https://cloud.tencent.com/document/product/598/10608)。
+### 为子账户配置某 IP 段的读写权限
+本示例中限制仅 IP 网段为`192.168.1.0/24`和`192.168.2.0/24`的地址具有读写权限，如下所示。
+更丰富的生效条件填写，可查看 [生效条件](/doc/product/598/10608)。
 ```
 {
     "version": "2.0",
@@ -136,49 +163,3 @@ CAM 相关术语、配置详细描述请查看 [CAM 概述](/doc/product/598/105
     ]
 }
 ```
-
-### 步骤三：子账号访问根账号COS资源
-
-COS访问（API/SDK）需要如下资源：APPID、SecretID、SecretKey。
-当使用子账号访问COS资源时，需要使用根账号的APPID，子账号的SecretId和SecretKey。子账号登陆腾讯云控制台时，需选择对应的根帐号（开发商账号）。
-![image](http://mypics-1251729613.cosgz.myqcloud.com/10.png)
-![10](//mc.qcloudimg.com/static/img/7f109890f04a9f57f3b8c924b3788e2d/image.png)
-登陆后，单击按钮【新建密钥】，即可创建子账号的SecretID和SecretKey，APPID需由根帐号提供。
-![image](http://mypics-1251729613.cosgz.myqcloud.com/11.png)
-![11](//mc.qcloudimg.com/static/img/294e294ef54662dedf57af975b7bea75/image.png)
-![image](http://mypics-1251729613.cosgz.myqcloud.com/12.png)
-![12](//mc.qcloudimg.com/static/img/7a0f259b634ded6970b6cbd9326d1782/image.png)
-*注: 
-
-1. 子账号需通过XML API或基于XML API的SDK访问。
-2. 需要使用根账号的APPID，子账号的SecretId和SecretKey。
-
-#### 基于XML的JAVA SDK访问实例
-以基于XML的JAVA SDK命令行为例，需填入参数如下：
-
-```
-// 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号SecretId>", "<子账号SecretKey>");
-```
-
-实例如下：
-
-```
-// 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("1250000011", "AKIDasdfmRxHPa9oLhJp9wqwraCdtzvfPasdfaqW", "e8Sdeasdfas2238ViAXjpkU6XloeN2Wpxue");
-```
-
-#### COSCMD命令行工具访问实例
-
-以COSCMD config命令行为例，需填入参数如下：
-
-```
-coscmd config -u <主账号APPID> -a <子账号SecretId> -s <子账号SecretKey>  -b <主账号bucketname> -r <主账号bucketname地域>
-```
-
-实例如下：
-
-```
-coscmd config -u 1250000011 -a AKIDasdfmRxHPa9oLhJp9wqwraCdtzvfPasdfaqW -s e8Sdeasdfas2238ViAXjpkU6XloeN2Wpxue -b bucket1 -r ap-beijing
-```
-
