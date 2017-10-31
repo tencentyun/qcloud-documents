@@ -1,13 +1,13 @@
-Unlike postpaid instances, pripaid instance cannot be terminated by users. It will be recycled by the system after a certain time following the expiration. You can renew the instance with an annual or monthly plan through manual or auto renewal at any time to avoid data loss or interruption of service due to instances being terminated by the system upon expiration.
+It will be recycled by the system after a certain time following the expiration. You can renew the instance  plan through manual or auto renewal at any time to avoid data loss or interruption of service due to instances being terminated by the system upon expiration.
 
 ## Instance Renewal
 
 ### Renew instance via the console
-You can renew the instance with an annual or monthly plan before the expiry date to prevent services interruption due to shutdown when it expires:
+You can renew the instance  plan before the expiry date to prevent services interruption due to shutdown when it expires:
 
 1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
-2) For CVM instances with an annual or monthly plan to be renewed, click on "Renew" on the action bar to the right side.
+2) For CVM instances  plan to be renewed, click on "Renew" on the action bar to the right side.
 
 3) In the pop-up box of host renewal, select the time for renewal and select whether or not to adjust the bandwidth, and then click "OK".
 

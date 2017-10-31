@@ -9,7 +9,7 @@ EipUnBindBmNatGateway 接口用于将EIP从黑石NAT网关解绑，此后NAT网�
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 	&<公共请求参数>
 	&natId=<NAT网关ID>
-	&vpcId=<vpc网络ID>
+	&unVpcId=<vpc网络ID>
 	&assignedEipSet.0=<eip>
 	&assignedEipSet.1=<eip>
 ```
@@ -19,7 +19,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=EipUnBindBmNatGateway
 | 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
 | natId | NAT网关统一ID，例如：nat-8pbrkzh6| String | 是 |
-| vpcId | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 | 
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 | 
 | assignedEipSet.n |弹性IP数组，例如：assignedEipSet.0=183.60.249.122 | Array |  是 |
 
 ## 响应
@@ -62,7 +62,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&natId=nat-et8e970y
 	&assignedEipSet.0=183.60.249.122
 	&Signature=xhpWkOBXHyEdddxK2KIH%2F14bMrc%3D

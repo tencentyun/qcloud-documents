@@ -9,9 +9,9 @@ SubnetUnBindBmNatGateway 接口用于将子网从NAT网关中解绑
 GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetUnBindBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
-    &vpcId=<vpc网络ID>
-    &subnetIds.0=<子网ID>
-    &subnetIds.1=<子网ID>
+    &unVpcId=<vpc网络ID>
+    &unSubnetIds.0=<子网ID>
+    &unSubnetIds.1=<子网ID>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为SubnetUnBindBmNatGateway。
@@ -19,8 +19,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=SubnetUnBindBmNatGateway
 | 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
 | natId | NAT网关统一ID，例如：nat-8pbrkzh6|String |  是 |
-| vpcId | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 |
-| subnetIds.n |需要解绑的子网唯一ID数组。例如：subnetIds.0=subnet-8pca7qqf。可通过<a href="/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 | Array |  是 |
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 |
+| unSubnetIds.n |需要解绑的子网唯一ID数组。例如：unSubnetIds.0=subnet-8pca7qqf。可通过<a href="/document/api/386/6648" title="DescribeBmSubnetEx">DescribeBmSubnetEx</a>接口查询子网。 | Array |  是 |
 
 ## 响应
 ### 响应示例
@@ -61,10 +61,10 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&natId=nat-et8e970y
-	&subnetIds.0=subnet-11111
-	&subnetIds.1=subnet-22222
+	&unSubnetIds.0=subnet-11111
+	&unSubnetIds.1=subnet-22222
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 

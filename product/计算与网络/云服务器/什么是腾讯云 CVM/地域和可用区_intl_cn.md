@@ -3,82 +3,6 @@
 每个地域（region）都是一个独立的地理区域。每个地域内都有多个相互隔离的位置，称为可用区（zone）。每个地域都是完全独立的。每个可用区都是独立的，但同一地域下的可用区通过低时延的内网链路相连。
 
 腾讯云支持用户在不同位置分配云资源，并且建议用户在设计系统时考虑将资源放置在不同可用区以屏蔽单点故障导致的服务不可用状态。
-
-
-<table class="table-striped">
-	<tbody>
-		<tr>
-			<th>&nbsp;</th>
-			<th>地域</th>
-			<th>可用区</th>
-		</tr>
-		<tr>
-			<td rowspan="12">中国大陆区域</td>
-			<td rowspan="3">华南地区（广州）<br> ap-guangzhou</td>
-			<td>广州一区（售罄）<br> ap-guangzhou-1</td>
-		</tr>
-		<tr>
-			<td>广州二区<br> ap-guangzhou-2</td>
-		</tr>
-		<tr>
-			<td>广州三区<br> ap-guangzhou-3</td>
-		</tr>
-		<tr>
-			<td rowspan="2">华南地区（深圳金融）<br>ap-shenzhen-fsi
-</td>
-			<td>深圳金融一区<span style="background-color: rgb(249, 249, 249);">（仅限金融机构和企业提工单申请开通）<br>ap-shenzhen-fsi-1</span></td>
-			</tr>
-			<tr>
-			<td>深圳金融二区<span style="background-color: rgb(249, 249, 249);">（仅限金融机构和企业提工单申请开通）<br>ap-shenzhen-fsi-2</span></td>
-			<tr>
-		
-		<tr>
-			<td rowspan="2">华东地区（上海）<br>ap-shanghai</td>
-			<td>上海一区<br>ap-shanghai-1</td>
-		</tr>
-			<tr>
-			<td>上海二区<br>ap-shanghai-2</td>
-		   </tr>
-		
-			
-		</tr>
-		<tr>
-			<td rowspan="2">华东地区（上海金融）<br>ap-shanghai-fsi</td>
-			<td>上海金融一区（仅限金融机构和企业提工单申请开通）<br>ap-shanghai-fsi-1</td>
-		</tr>
-		<tr>
-			<td>上海金融二区（仅限金融机构和企业提工单申请开通）<br>ap-shanghai-fsi-2</td>
-		   </tr>
-		<tr>
-			<td rowspan="2">华北地区（北京）<br>ap-beijing</td>
-			<td>北京一区<br>ap-beijing-1</td>
-		</tr>
-			<tr>
-			<td>北京二区<br>ap-beijing-2</td>
-		   </tr>
-		</tr>
-		<tr>
-			<td rowspan="4">国际区域</td>
-			<td>东南亚地区（香港）<br>ap-hongkong</td>
-			<td>香港一区（中国香港节点可用于覆盖东南亚地区）<br>ap-hongkong-1</td>
-		</tr>
-		<tr>
-			<td>东南亚地区（新加坡）<br>ap-singapore</td>
-			<td>新加坡一区（新加坡节点可用于覆盖东南亚地区）<br>ap-singapore-1</td>
-		</tr>
-		<tr>
-			<td>北美地区（多伦多）<br>na-toronto</td>
-			<td>多伦多一区（多伦多节点可用于覆盖北美地区）<br>na-toronto-1</td>
-		</tr>
-		<tr>
-			<td>美国西部（硅谷）<br>na-siliconvalley</td>
-			<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
-		</tr>
-	</tbody>
-</table>
-
-
-
 ## 地域
 腾讯云不同地域之间完全隔离，保证不同地域间最大程度的稳定性和容错性。当前覆盖国内华南、华东、华北三个地区；并有针对覆盖东南亚地区的香港节点、新加坡节点，覆盖北美地区的多伦多节点，覆盖美国西部的硅谷节点。我们将逐步增加区域供应以满足更多节点的覆盖。建议用户选择最靠近您客户的地域，可降低访问时延、提高下载速度。
 
@@ -101,8 +25,7 @@
 - 下列云服务暂不提供：云硬盘、弹性web引擎、对象存储服务、移动加速、云拨测、一键开服和分区分服域名绑定。
 - 由于北美和国内时延较大，当您需要登录北美地域云服务器时，建议使用跳板机登录，以获得更好的运维体验。
 
-**上海金融专区特别说明：**
-针对金融行业监管要求定制的合规专区，具有高安全，高隔离性的特点； 目前提供云服务器、金融数据库、Redis存储、人脸识别等服务，已认证通过的金融行业客户可提工单申请使用专区；详见[金融专区介绍](http://cloud.tencent.com/doc/product/304/%E9%87%91%E8%9E%8D%E4%BA%91%E7%AE%80%E4%BB%8B)。
+)。
 
 ## 可用区
 可用区（Zone）是指腾讯云在同一地域内电力和网络互相独立的物理数据中心。目标是能够保证可用区间故障相互隔离（大型灾害或者大型电力故障除外），不出现故障扩散，使得用户的业务持续在线服务。通过启动独立可用区内的实例，用户可以保护应用程序不受单一位置故障的影响。
