@@ -63,7 +63,7 @@ GET /?replication HTTP/1.1
 |节点名称（关键字）|    父节点|    描述    |类型|    必选|
 |---|---|---|---|---|
 |ReplicationConfiguration    |无    |说明所有跨区域配置信息    |Container    |是|
-|Role|ReplicationConfiguration    |具体配置信息，最多支持 1000 个，所有策略只能指向一个目标存储桶    |String    |是|
+|Role|ReplicationConfiguration    |发起者身份标示：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>  |String    |是|
 |Rule    |ReplicationConfiguration    |具体配置信息，最多支持 1000 个，所有策略只能指向一个目标存储桶    |Container    |是|
 |ID    |ReplicationConfiguration.Rule    |用来标注具体 Rule 的名称    |String    |否|
 |Status    |ReplicationConfiguration.Rule    |标识 Rule 是否生效，枚举值：Enabled, Disabled    |String    |是|
