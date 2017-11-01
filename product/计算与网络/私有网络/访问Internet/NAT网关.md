@@ -11,7 +11,7 @@ NAT 网关是一种将私有网络中内网 IP 地址和公网 IP 地址进行�
 ## 主要功能
 NAT 网关支持 SNAT 和 DNAT：
 - SNAT：源网络地址转换，支持多个 VPC 云主机通过同一公网 IP 主动访问互联网。
-- DNAT：目的地址转换（内测中，如有需求，请提供[工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)），用于将VPC内的云主机的[内网IP，协议，端口]映射成[外网IP，协议，端口]，使得云主机上的服务可被外网访问。
+- DNAT：目的地址转换（内测中，如有需求，请提供[工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)），用于将 VPC 内的云主机的[内网IP，协议，端口]映射成[外网IP，协议，端口]，使得云主机上的服务可被外网访问。
 
 ## NAT网关和公网网关的区别
 NAT 网关与公网网关都用于私有网络内云主机访问 Internet，但二者存在一些差异：
