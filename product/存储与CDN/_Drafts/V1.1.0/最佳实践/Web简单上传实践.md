@@ -131,6 +131,7 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
     <meta charset="UTF-8">
     <title>Form 表单上传</title>
     <style>h1, h2 {font-weight: normal;}#msg {margin-top:10px;}</style>
+    <script src="jquery-1.12.4.js"></script>
 </head>
 <body>
 
@@ -142,8 +143,8 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
     <input id="success_action_redirect" name="success_action_redirect" type="hidden" value="">
     <input id="key" name="key" type="hidden" value="">
     <input id="signature" name="Signature" type="hidden" value="">
-    <input id="file" name="file" type="file">
-    <input type="submit">
+    <input id="fileSelector" name="file" type="file">
+    <input id="submitBtn" type="button" value="提交">
 </form>
 <iframe id="submitTarget" name="submitTarget" style="display:none;" frameborder="0"></iframe>
 
@@ -152,10 +153,9 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
 <script>
     (function () {
 
-        // 指定存储桶
+        // 请求用到的参数
         var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
-
         var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
         var form = document.getElementById('form');
         form.action = prefix;
@@ -165,14 +165,13 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
             var method = (options.Method || 'get').toLowerCase();
             var key = options.Key || '';
             var pathname = key.indexOf('/') === 0 ? key : '/' + key;
-            var url = './server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
+            var url = '../server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
-            xhr.onload = function (e) {
-                callback(null, e.target.responseText);
-            };
-            xhr.onerror = function (e) {
-                callback('获取签名出错');
+            xhr.onreadystatechange = function (e) {
+               if (xhr.readyState === 4) {
+                    xhr.status === 200 ? callback(null, xhr.responseText) : callback('获取签名出错');
+                }
             };
             xhr.send();
         };
@@ -204,13 +203,13 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
         };
 
         // 发起上传
-        form.onsubmit = function (e) {
-            var file = document.getElementById('file').files[0];
-            if (!file) {
-                e.preventDefault();
+        document.getElementById('submitBtn').onclick = function (e) {
+            var filePath = document.getElementById('fileSelector').value;
+            if (!filePath) {
+                document.getElementById('msg').innerText = '未选择上传文件';
                 return;
             }
-            Key = file.name;
+            Key = filePath.match(/[\\\/]?([^\\\/]+)$/)[1];
             getAuthorization({Method: 'POST', Key: '/'}, function (err, auth) {
                 // 在当前目录下放一个空的 empty.html 以便让接口上传完成跳转回来
                 document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
@@ -218,7 +217,6 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
                 document.getElementById('signature').value = auth;
                 form.submit();
             });
-            e.preventDefault();
         };
     })();
 </script>

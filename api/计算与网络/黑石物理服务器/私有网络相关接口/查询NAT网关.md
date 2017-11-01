@@ -12,24 +12,24 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
     &natName=<NAT网关名称>
-    &vpcId=<vpc网络ID>
+    &unVpcId=<vpc网络ID>
     &offset=<初始行的偏移量>
     &limit=<每页行数>
     &orderField=<排序字段>
 	&orderDirection=<排序类型>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeNatGateway
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeBmNatGateway
 
-| 参数名称 | 必选  | 类型 | 描述 |
+| 参数名称 |  描述 | 类型 |必选  |
 |---------|---------|---------|---------|
-| natId | 否 | String | NAT网关统一ID，例如：nat-xx454|
-| natName | 否 | String | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | Int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| offset | 否 | Int | 初始行的偏移量，默认为0|
-| limit | 否 | Int | 每页行数，默认为20，最大支持50。|
-| orderField | 否 | String | 按某个字段排序，默认不排序。<br>支持字段：natId。|
-| orderDirection | 否 | String | 升序（asc）或降序（desc），默认：desc。|
+| natId | NAT网关统一ID，例如：nat-xx454| String | 否 |
+| natName | NAT网关名称 (支持模糊查找) | String | 否 |
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| Int | 否 |
+| offset |  初始行的偏移量，默认为0| Int | 否 |
+| limit |  每页行数，默认为20，最大支持50。| Int | 否 |
+| orderField |按某个字段排序，默认不排序。<br>支持字段：natId。| String | 否 |
+| orderDirection | 升序（asc）或降序（desc），默认：desc。| String | 否 |
 
 
 ## 响应
@@ -45,7 +45,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
             "natId": <NAT网关ID>,
             "natName": <NAT网关名称>,
             "unVpcId": <VPC统一ID>,
-            "vpcId": <VPCID>,
+            "vpcId": <vpc网络ID>,
             "vpcName": <VPC名称>,
             "state": <NAT网关状态>,
             "productionStatus": <NAT网关生产状态>,
@@ -64,29 +64,29 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 
 ### 响应参数
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | Int | 错误码, 0: 成功, 其他值: 失败|
-| message | String | 错误信息|
-| totalCount | Int | 查询的NAT网关总数 |
-| data.n | Array | 查询的NAT网关信息数组 |
+| code | 错误码, 0: 成功, 其他值: 失败| Int |
+| message | 错误信息| String |
+| totalCount |  查询的NAT网关总数 | Int |
+| data.n | 查询的NAT网关信息数组 | Array |
 
 data数据结构如下：
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 |描述 | 类型 |
 |---------|---------|---------|
-| data.n.natId | String | NAT网关统一ID，例如：nat-xx454 |
-| data.n.natName | String | NAT网关名称 |
-| data.n.unVpcId | String | 私有网络统一ID，例如：vpc-xgfd55d |
-| data.n.vpcId | Int | 私有网络ID |
-| data.n.vpcName | String | vpc网络名称 |
-| data.n.state | Int | NAT网关状态，1:运行中, 0:不可用 |
-| data.n.productionStatus | Int | NAT网关的生产状态, 0: 创建中, 1: 创建成功, 2: 创建失败 |
-| data.n.maxConcurrent | Int | NAT网关并发连接上限, 100w:小型, 300w:中型, 1000w:大型，详见NAT网关产品说明 |
-| data.n.ntype | String | 对应NAT网关并发连接上限, 取值为small, middle, big, 分别对应小型、中型、大型|
-| data.n.eipCount | String | NAT网关绑定eip的个数 |
-| data.n.eipSet | Array | NAT网关绑定的弹性IP列表，例如：[183.60.249.11] |
-| data.n.createTime | String | NAT网关网关创建时间，例如：2016-06-21 12:01:23 |
+| data.n.natId |  NAT网关统一ID，例如：nat-xx454 |String |
+| data.n.natName | NAT网关名称 | String |
+| data.n.unVpcId |私有网络统一ID，例如：vpc-xgfd55d | String | 
+| data.n.vpcId | 私有网络ID | Int |
+| data.n.vpcName |  vpc网络名称 |String |
+| data.n.state | NAT网关状态，1:运行中, 0:不可用 | Int |
+| data.n.productionStatus |  NAT网关的生产状态, 0: 创建中, 1: 创建成功, 2: 创建失败 |Int |
+| data.n.maxConcurrent |  NAT网关并发连接上限, 100w:小型, 300w:中型, 1000w:大型，详见NAT网关产品说明 |Int |
+| data.n.ntype |  对应NAT网关并发连接上限, 取值为small, middle, big, 分别对应小型、中型、大型|String |
+| data.n.eipCount |  NAT网关绑定eip的个数 |String |
+| data.n.eipSet |  NAT网关绑定的弹性IP列表，例如：[183.60.249.11] |Array |
+| data.n.createTime | NAT网关网关创建时间，例如：2016-06-21 12:01:23 |String | 
 
 
 ## 错误码
@@ -98,7 +98,7 @@ data数据结构如下：
 
 ## 实际案例
 
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=DescribeBmNatGateway
@@ -106,11 +106,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 0,

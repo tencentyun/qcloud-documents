@@ -8,7 +8,7 @@ Note:
 . Configure these parameters by using the web configuration tool.
 . Maximum encoding/decoding definition supported by different platforms are as follows:
 
-**Windows    ** 
+**Windows** 
 Encoding: 1280*720 
 Decoding: 1280*720
 Requirement:
@@ -20,7 +20,7 @@ Encoding: 1280*720
 Decoding: 1280*720
 Requirement: Good network connection.
 
-**Android **
+**Android**
 Encoding: 1280*720 
 Decoding: 1280*720
 Requirement: Good network connection."
@@ -82,7 +82,8 @@ Supported systems: Windows/iOS/Android
 Note:
 Input your own video streams based on business requirement and send them to other room members through the SDK. You can use any video source, for example, video from user's camera, or video from a certain file.
 Note:
-The input video stream must comply with the conventions of SDK APIs. To be specific, the video must be converted into individual image frames to be passed in, the only supported color format now is I420, there is no limit to image size, image width and height must be multipliers of 4, optimal video frame rate is between 10-15. Furthermore, the SDK does not preprocess or render the input video stream.
+
+. The input video stream must comply with the conventions of SDK APIs. To be specific, the video must be converted into individual image frames to be passed in, the only supported color format now is I420, there is no limit to image size, image width and height must be multipliers of 4, optimal video frame rate is between 10-15. Furthermore, the SDK does not preprocess or render the input video stream.
 . External image capturing device and camera device are exclusive, that is, only one of them can be enabled at a time.
 
 

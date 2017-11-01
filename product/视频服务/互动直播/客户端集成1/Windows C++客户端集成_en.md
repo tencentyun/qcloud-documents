@@ -1,4 +1,4 @@
-﻿## SDK Directories and Files
+## SDK Directories and Files
 
 The directories and files contained in the SDK are as follows:
 
@@ -68,7 +68,7 @@ If you are prompted that system library is missing when attempting to run QAVSDK
 
 **Development Platform and Integrated Development Environment**
 
-Development platform: Mainstream Windows platforms such as Windows 7, Windows XP.
+Development platform: Mainstream Windows platforms such as Windows 7 and Windows XP.
 
 Integrated development environment: VS2010 (Visual Studio 2010). Currently you can only use VS2010 for development.
 
@@ -92,7 +92,7 @@ Open VS2010 and create an MFC Application project named "QAVSDKDemo", which is p
 
 Modify project configuration. In this case, Debug version is taken as an example.
 
-First, right-click the project name and select "Properties" to open the project property configuration window.
+First, right-click the project name and select **Properties** to open the project property configuration window.
 
 Then, under Configuration Properties\VC++ Directories\Include Directories, add SDK header file path: D:\QAVSDK\include;D:\QAVSDK\include\timsdk.
 

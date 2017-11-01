@@ -20,13 +20,13 @@ Please see the content in the bold red box.
 
 ### Android
 
-Solution: set enableMic to true before joining the room. In Android, user can enable the microphone before joining the room, so no conflict will occur.
+Solution: Set enableMic to true before joining the room. For Android, user can enable the microphone before joining the room, so no conflict will occur.
 
 ### iOS
 
-In iOS, the microphone is being disabled by default when user joins a room, so a conflict may occur between enabling the microphone and joining a room. You can solve this problem by adding a delay of 1s before enabling the microphone.
+For iOS, the microphone is being disabled by default when user joins a room, so a conflict may occur between enabling the microphone and joining a room. You can solve this problem by applying a delay of 1s before enabling the microphone.
 
-## How to deal with the black screen at viewer side when VJ returns to the foreground after switching to the background for a while (15s)?
+## How to deal with the black screen at viewer end when VJ returns to the foreground after switching to the background for a while (15s)?
 
 Solution: VJ needs to disable the camera before switching to the background, and enable the camera again when switching back to the foreground.
 
@@ -60,9 +60,9 @@ By simply setting enableSpeaker to false, you can go into a mute mode.
 
 ### iOS
 
-At VJ end, the volume of VJ cannot be set to 0; at viewer end, you can go into a mute mode by setting the `Audio Scenario` to `Watch` in audio parameter settings of console Spear engine, or by referring to the usage of "Mute" button in sample 2.
+At VJ end, the volume of VJ cannot be set to 0; at viewer end, you can go into a mute mode by setting the `Audio Scenario` to `Watch` in audio parameter settings of console Spear engine, or by referring to the usage of **Mute** button in sample 2.
 
-## The option to automatically create a room when joining a room that does not exist.
+## The option to automatically create a room while joining a room that does not exist.
 
 ![Automatically Create a Room](//mccdn.qcloud.com/static/img/f8f70026eae76d3b6415a8ea3c051932/image.jpg)
 
@@ -89,7 +89,7 @@ For iOS, switching to background requires the opengl rendering at higher layer t
 
 ## How to use the "roles" configured in console SPEAR engine in the code?
 
-For the ILVB featuring Beauty VJs, two roles are configured in SPEAR engine of Tencent Cloud console: VJ and Viewer. The main difference between the two roles is that a viewer just watches/listens to the broadcasting and does not need audio recording and other permissions. Therefore, in many businesses, viewers are recommended not to trigger the permission pop-up "Accessing XX device is allowed or not?" from operating system.
+For the ILVB featuring Beauty VJs, two roles are configured in SPEAR engine of Tencent Cloud console: VJ and Viewer. The main difference between the two roles is that a viewer just watches/listens to the broadcasting and does not need audio recording and other permissions. Therefore, for a lot of business, viewers are recommended not to trigger the permission pop-up "Accessing XX device is allowed or not?" from operating system.
 
 How to use the "roles" configured on the page in the code? Please see the following code snippet
 ![Figure 1](//mccdn.qcloud.com/static/img/e4e8a61adf1d250630f101bbd9160285/image.png)

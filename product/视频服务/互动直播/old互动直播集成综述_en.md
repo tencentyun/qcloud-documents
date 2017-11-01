@@ -78,7 +78,7 @@ If any viewer wants to perform billed operations like giving flowers or gifts, t
 ![IM and other message interactions](//mccdn.qcloud.com/static/img/85ec89b3af73dfad66491abdd75f3f8a/image.png)
 
 ## Interaction Logic for Viewer to Quit the Room
-When a viewer quits the room, a notification also needs to be sent to VJ and other viewers. For more information about the process, please see [Interaction Logic for Viewer to Join the Room]
+When a viewer quits the room, a notification also needs to be sent to VJ and other viewers. For more information about the process, please see [Interaction Logic for Viewer to Join the Room]()
 
 ## Interaction Logic for VJ to Quit the Room
 When a VJ quits the room, the following should be done:
@@ -112,14 +112,14 @@ The implementation process for quitting broadcasting is as follows:
 - The notification of quitting broadcasting can be sent at the same time when the quitting viewer closes the upload of local video. But it is recommended to send the notification before closing the local video.
 
 ## Push RTMP/HLS (watching on H5 or Web)
-ILVB SDK can directly transcode the private protocol to RTMP and HLS, which are then shared by client to Apps such as WeChat, QQ, Moment and QZone.
+ILVB SDK can directly transcode the private protocol to RTMP and HLS, which are then shared by client to Apps such as WeChat, QQ, Moments and QZone.
 
 **Tips**
 **You can simply set the parameter TIMAvManage.StreamParam to recording without the need to call the API for recording (recording has the same lifecycle as push and is finished with the ending of push)**
 
 **Note**
 - ILVB uses CDN for LVB, so it is very important to apply for the LVB permission at client side.
-- LVB has a limit on the number of channels, so sufficient channels need to be applied for in advance at client side.
+- LVB has a limit on the number of channels, so sufficient channels need to be applied in advance at client side.
 - If any channel fails to be terminated normally due to various client exceptions, developer needs to disable the channel manually on Tencent Cloud console. Otherwise the channel always exists (taking up the total number of channels)
 
 Please see the document [Non-interactive Broadcasting Development](/doc/product/268/3226)
@@ -141,6 +141,6 @@ To be added
 
 ## Must-read: Considerations for Development
 * In case of a large number of viewers, an dramatic increase of message volume will happen. In this case, **pay close attention to the performance at VJ end** to avoid stutters caused by soaring CPU usage resulting from too much rendering codes.
-*A VJ may get disconnected for some reason (CRASH, network interruption), so heartbeat test for VJ should be added on the service-end live broadcasting platform to ensure the real-time update of LVB list.
+* A VJ may get disconnected for some reason (CRASH, network interruption), so heartbeat test for VJ should be added on the service-end live broadcasting platform to ensure the real-time update of LVB list.
 * ILVB does not support such operations as management of room members, which need to be implemented on the service-end live broadcasting platform or by using [IMSDK Solution](/doc/product/269/%E7%9B%B4%E6%92%AD%E5%9C%BA%E6%99%AF%E4%B8%8B%E7%9A%84IM%E9%9B%86%E6%88%90%E6%96%B9%E6%A1%88).
 

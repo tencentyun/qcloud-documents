@@ -42,7 +42,7 @@ routeTableSet Routing Policy Information Array
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | routeTableSet.n.destinationCidrBlock | string  | Destination network segment, which cannot be within VPC network segment. For example, 112.20.51.0/24.   |
-| routeTableSet.n.nextType | string  | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway.   |
+| routeTableSet.n.nextType | string  | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway; 9: general cvm.   |
 | routeTableSet.n.nextHub | string  | Next hop address. You just need to specify gateway IDs (new ID is recommended) of different next hop types and the system will automatically match to the next hop address.  |
 | routeTableSet.n.unNextHub | string  | Unique ID of next hop address. It is recommended to use the unified ID.   |
 | routeTableSet.n.description | string  | Route description.   |

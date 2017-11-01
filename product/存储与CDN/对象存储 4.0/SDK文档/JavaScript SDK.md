@@ -20,7 +20,7 @@ COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencenty
 
 ```
 
-###初始化
+### 初始化
 
 ```js
 
@@ -89,7 +89,7 @@ COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencenty
 
 ```js
 
-CosCloud.prototype.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, file, insertOnly);
+cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, file, insertOnly);
 
 ```
 
@@ -152,7 +152,7 @@ CosCloud.prototype.uploadFile(successCallBack, errorCallBack, progressCallBack, 
 
 ```js
 
-CosCloud.prototype.sliceUploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, file, insertOnly);
+cos.sliceUploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, file, insertOnly);
 
 ```
 
@@ -219,7 +219,7 @@ CosCloud.prototype.sliceUploadFile(successCallBack, errorCallBack, progressCallB
 #### 方法原型
 
 ```js
-CosCloud.prototype.deleteFile(successCallBack, errorCallBack, bucket, path);
+cos.deleteFile(successCallBack, errorCallBack, bucket, path);
 ```
 
 #### 参数说明
@@ -259,7 +259,7 @@ CosCloud.prototype.deleteFile(successCallBack, errorCallBack, bucket, path);
 #### 方法原型
 
 ```js
-CosCloud.prototype.getFileStat(successCallBack, errorCallBack, bucket, path);
+cos.getFileStat(successCallBack, errorCallBack, bucket, path);
 ```
 
 #### 参数说明
@@ -310,7 +310,7 @@ CosCloud.prototype.getFileStat(successCallBack, errorCallBack, bucket, path);
 #### 方法原型
 
 ```js
-CosCloud.prototype.updateFile(successCallBack, errorCallBack, bucket, path, bizAttr);
+cos.updateFile(successCallBack, errorCallBack, bucket, path, bizAttr);
 ```
 
 #### 参数说明
@@ -350,7 +350,7 @@ CosCloud.prototype.updateFile(successCallBack, errorCallBack, bucket, path, bizA
 #### 方法原型
 
 ```js
-CosCloud.prototype.copyFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
+cos.copyFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 ```
 
 #### 参数说明
@@ -397,7 +397,7 @@ CosCloud.prototype.copyFile(successCallBack, errorCallBack, bucket, path, destPa
 #### 方法原型
 
 ```js
-CosCloud.prototype.moveFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
+cos.moveFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 ```
 
 #### 参数说明
@@ -449,7 +449,7 @@ CosCloud.prototype.moveFile(successCallBack, errorCallBack, bucket, path, destPa
 #### 方法原型
 
 ```js
-CosCloud.prototype.createFolder(successCallBack, errorCallBack, bucket, path);
+cos.createFolder(successCallBack, errorCallBack, bucket, path);
 ```
 
 #### 参数说明
@@ -488,7 +488,7 @@ CosCloud.prototype.createFolder(successCallBack, errorCallBack, bucket, path);
 #### 方法原型
 
 ```js
-CosCloud.prototype.deleteFolder(successCallBack, errorCallBack, bucket, path);
+cos.deleteFolder(successCallBack, errorCallBack, bucket, path);
 ```
 
 #### 参数说明
@@ -527,7 +527,7 @@ CosCloud.prototype.deleteFolder(successCallBack, errorCallBack, bucket, path);
 #### 方法原型
 
 ```js
-CosCloud.prototype.getFolderStat(successCallBack, errorCallBack, bucket, path);
+cos.getFolderStat(successCallBack, errorCallBack, bucket, path);
 ```
 
 #### 参数说明
@@ -568,7 +568,7 @@ CosCloud.prototype.getFolderStat(successCallBack, errorCallBack, bucket, path);
 #### 方法原型
 
 ```js
-CosCloud.prototype.updateFolder(successCallBack, errorCallBack, bucket, path, bizAttr);
+cos.updateFolder(successCallBack, errorCallBack, bucket, path, bizAttr);
 ```
 
 #### 参数说明
@@ -608,7 +608,7 @@ CosCloud.prototype.updateFolder(successCallBack, errorCallBack, bucket, path, bi
 #### 方法原型
 
 ```js
-CosCloud.prototype.getFolderList(successCallBack, errorCallBack, bucket, path);
+cos.getFolderList(successCallBack, errorCallBack, bucket, path);
 ```
 
 #### 参数说明

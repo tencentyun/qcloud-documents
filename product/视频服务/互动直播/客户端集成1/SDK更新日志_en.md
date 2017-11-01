@@ -1,4 +1,4 @@
-﻿## AV_iOS_SDK1.7    March 17, 2016
+## AV_iOS_SDK1.7    March 17, 2016
 
 **1. New SDK Features**
 
@@ -54,7 +54,7 @@
 **1. New SDK Features**
 
 (1) Added screen sharing feature to allow receiving videos on screen shared by PC
-(2) Added support for audio data input/output capacities Features such as recording, accompaniment, KTV feedback and custom sound effects can be implemented.
+(2) Added support for audio data input/output capacities. Features such as recording, accompaniment, KTV feedback and custom sound effects can be implemented.
 (3) Terminal network type reporting
 (4) Improved the content, display format and style of tips about call quality
 
@@ -68,7 +68,7 @@
 **1. New SDK Features**
 
 (1) Added screen sharing feature to allow receiving videos on screen shared by PC
-(2) Added support for audio data input/output capacities Features such as recording, accompaniment, KTV feedback and custom sound effects can be implemented.
+(2) Added support for audio data input/output capacities. Features such as recording, accompaniment, KTV feedback and custom sound effects can be implemented.
 (3) Added terminal network type reporting
 (4) Improved the content, display format and style of tips about call quality
 (5) Reduced the SDK size by approximately 80 KB
@@ -129,13 +129,13 @@
 
 1. Support rotating video images (Reset; 90°, 180° and 270° clockwise)
 2. Screenshot (Save as local BMP image files. Returning base64-encoded screenshots is supported)
-3. Support full-screen mode in demo (press ESC key to return to the original size)
+3. Support full-screen mode in demo (Press the **ESC** button to return the image to its original size)
 
 ## AV_iOS_SDK1.4 Nov 18, 2015
 
 **1. Multi-Person**
 
-(1) Support non-interactive broadcasting which allows live broadcasting streaming based on HLS and RTMP when combined with Tencent Cloud's LVB service
+(1) Support non-interactive broadcasting which allows live broadcasting streaming based on HLS and RTMP with Tencent Cloud's LVB service
 (2) Support multi-channel rendering
 (3) Added self-monitoring for audio
 (4) The API for obtaining platform system camera object
@@ -151,7 +151,7 @@
 
 **1. Multi-Person**
 
-(1) Support non-interactive broadcasting which allows live broadcasting streaming based on HLS and RTMP when combined with Tencent Cloud's LVB service
+(1) Support non-interactive broadcasting which allows live broadcasting streaming based on HLS and RTMP with Tencent Cloud's LVB service
 (2) Added self-monitoring for audio
 (3) Optimized the audio parameters configured on SPEAR cloud
 (4) The API for obtaining platform system camera object
@@ -177,18 +177,18 @@
 
 (1) Notification of joining/exiting room by the first 50 room members
 (2) Log optimization
-(3) Log reporting
+(3) Log report
 (4) The API for setting storage directory of log files
-(5) Support inputting and outputting video streams
+(5) Support input and output of video streams
 (6) Improved design of SDK error codes
 (7) Three audio/video modes: VOIP mode, media playback mode, and media capturing and playback mode
-(8) Support inputting audio streams
+(8) Support input of audio streams
 (9) Support for recording
 
 **2. Two-Person**
 
 (1) Log optimization
-(2) Log reporting
+(2) Log report
 (3) The API for setting storage directory of log files
 (4) Improved design of SDK error codes
 
@@ -198,18 +198,18 @@
 
 (1) Notifications of joining/exiting room by the first 50 room members
 (2) Log optimization
-(3) Log reporting
+(3) Log report 
 (4) The API for setting storage directory of log files
-(5) Support inputting and outputting video streams
+(5) Support input and output of video streams
 (6) Improved design of SDK error codes
-(7) Three audio/video modes: VOIP mode, media playback mode, and media capturing and playback mode
-(8) Support inputting audio streams
+(7) Three audio/video modes: VoIP mode, media playback mode, and media capturing and playback mode
+(8) Support input of audio streams
 (9) Support for recording
 
 **2. Two-Person**
 
 (1) Log optimization
-(2) Log reporting
+(2) Log report
 (3) The API for setting storage directory of log files
 (4) Improved design of SDK error codes
 
@@ -219,12 +219,12 @@
 
 (1) Notifications of joining/exiting room by the first 50 room members
 (2) Log optimization
-(3) Log reporting
+(3) Log report 
 (4) The API for setting storage directory of log files
-(5) Support inputting and outputting video streams
-(6) Added hot-plugging detection (HPD) for microphone/speaker
+(5) Support input and output of video streams
+(6) Added hot plug detection (HPD) for microphone/speaker
 (7) Improved design of SDK error codes
-(8) Three audio/video modes: VOIP mode, media playback mode, and media capturing and playback mode.
+(8) Three audio/video modes: VOIP mode, media playback mode, and media capturing and playback mode
 (9) Support for recording
 
 ## AV_Web_SDK1.0 Sept 18, 2015
@@ -275,8 +275,8 @@
 (7)	Support returning part of IMSDK module's error codes
 (8) Disabled Assert notification
 (9)	Improved log module: The maximum size of log files was changed to 50 MB; Old log files can be deleted. By default, any logs other than the ones for the last three days are deleted
-(10)	Added more content to key logs to help pinpointing problems
-(11)	Implemented event notification of the other side's frame rendering
+(10) Added more content to key logs to help pinpoint problems
+(11) Implemented event notification of the other side's frame rendering
 
 **2.	SDK Bug Fixes**
 
@@ -312,8 +312,8 @@
 (7) Implemented event notification of the other side's frame rendering
 (8)	Implemented speaking status detection of the other side and relevant event notification
 (9)	Removed unwanted APIs such as AVAudioCtrl::EnableBoost/EnableAEC/EnableNS
-(10)	Support capturing camera video with a 640×480 resolution
-(11)	Added network type configuration logic to make full use of network resources
+(10) Support capturing camera video with a 640×480 resolution
+(11) Added network type configuration logic to make full use of network resources
 
 1.2	Multi-Person
 (1)	Support encoding and decoding videos with a resolution of up to 480×360 and 640×480 respectively
@@ -325,13 +325,13 @@
 (7)	Support returning part of IMSDK module's error codes	
 (8)	Improved log module: The maximum size of log files was changed to 50 MB; Old log files can be deleted. By default, any logs other than the ones for the last three days are deleted
 (9)	Unified log file naming for Windows and Android to QAVSDK.date.log
-(10)	Added more content to key logs to help pinpointing problems
+(10) Added more content to key logs to help pinpointing problems
 (11) SDK enables microphone/speaker and sets speaker to receiver mode by default
-(12)	Implemented event notification of the other side's frame rendering
-(13)	Implemented speaking status detection of the other side and relevant event notification
-(14)	Removed unwanted APIs such as AVAudioCtrl::EnableBoost/EnableAEC/EnableNS
-(15)	Support capturing camera video with a 640×480 resolution
-(16)	Added network type configuration logic to make full use of network resources
+(12) Implemented event notification of the other side's frame rendering
+(13) Implemented speaking status detection of the other side and relevant event notification
+(14) Removed unwanted APIs such as AVAudioCtrl::EnableBoost/EnableAEC/EnableNS
+(15) Support capturing camera video with a 640×480 resolution
+(16) Added network type configuration logic to make full use of network resources
 
 **2.	SDK Bug Fixes**
 
@@ -369,7 +369,7 @@
 (2) Support encoding and decoding videos with a resolution of up to 640×480
 (3) Support returning part of IMSDK module's error codes	
 (4) Improved log module: The maximum size of log files was changed to 50 MB; Old log files can be deleted. By default, any logs other than the ones for the last three days are deleted
-(5) Added more content to key logs to help pinpointing problems
+(5) Added more content to key logs to help pinpoint problems
 (6) SDK enables microphone/speaker and sets speaker to receiver mode by default
 (7) Implemented event notification of the other side's frame rendering
 (8) Implemented speaking status detection of the other side and relevant event notification

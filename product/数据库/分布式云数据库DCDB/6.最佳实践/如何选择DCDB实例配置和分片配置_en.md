@@ -10,9 +10,9 @@ Therefore, high specification and large quantity of shards means strong processi
 
 ## How to decide on DCDB shard specification
 
-Specification of DCDB shard is determined by 3 factors: performance, capacity and other requirements.
+Specification of DCDB shard is determined by three factors: performance, capacity and other requirements.
 
-**Performance**: By predicting the performance capacity and possible increments for at least 6 months, you can define the total CPU/memory size required for your distributed instance.
+**Performance**: By predicting the performance capacity and possible increments for at least six months, you can define the total CPU/memory size required for your distributed instance.
 **Capacity**: By predicting the disk capacity and possible increments for at least one year, you can define the total disk size required for your distributed instance.
 **Other requirements**: That one shard stores at least **50 million lines of data** is recommended. [broadcast table and single table](https://cloud.tencent.com/document/product/557/8764), join and other businesses within the node shall also be considered.
 
