@@ -87,29 +87,29 @@ status:
 
 填写完之后，如下图所示：
 
-![应用模板nginx示例-003.png-46.1kB][8]
+![应用模板nginx示例-003.png-46.1kB][7]
 
 **2.3 填写默认配置项信息**
 
 在应用模板的配置项部分，点击从模板导入按钮，自动提取模板中的变量。上面的示例中提出`NAMESPACE`变量作为配置文件的的key。(从控制台导出的服务模板已经自动将namespace提取成了`NAMESPACE`变量)
 
-![应用模板nginx示例-004.png-42.5kB][9]
+![应用模板nginx示例-004.png-42.5kB][8]
 
 在配置项中填写`NAMESPACE`的值，这里填写为`default`，表示在默认的命名空间中部署。
 
-![创建应用-005.png-7kB][10]
+![创建应用-005.png-7kB][9]
 
 ## 步骤三: 完成应用模板编辑，并查看
 
 在步骤二中，完成了应用模板的编辑。点击`完成`按钮，保存应用模板。
 
-![应用模板nginx示例-006.png-15.1kB][11]
+![应用模板nginx示例-006.png-15.1kB][10]
 
 这样应用模板就创建完成，可以在应用模板列表查看。
 
-![应用模板nginx示例-007.png-20.6kB][12]
+![应用模板nginx示例-007.png-20.6kB][11]
 
-接下来可以使用创建的模板，进行应用服务部署。关于如何使用应用模板进行应用部署可以参考[补充应用创建链接]。关于`nginx`这个应用模板具体部署应用的过程可以参考 [补充应用创建示例--nginx单服务应用]
+接下来可以使用创建的模板，进行应用服务部署。关于如何使用应用模板进行应用部署可以参考[创建应用][12]。关于`nginx`这个应用模板具体部署应用的过程可以参考[应用模板示例-Nginx单服务应用][13]。
 
 
   [1]: https://console.cloud.tencent.com/ccs/template
@@ -118,10 +118,10 @@ status:
   [4]: https://mc.qcloudimg.com/static/img/7016d8f37155a80aebdd23f9cf418f11/image.png
   [5]: https://mc.qcloudimg.com/static/img/78f7ba8c83da6cf4152dc228ff5d1abd/image.png
   [6]: https://mc.qcloudimg.com/static/img/d0c62ea6664384a4f08bb4df3f02145e/image.png
-  [7]: https://mc.qcloudimg.com/static/img/d0c62ea6664384a4f08bb4df3f02145e/image.png
-  [8]: https://mc.qcloudimg.com/static/img/8a729cf7c8f2c9f98e524e98cd08d7f3/image.png
-  [9]: https://mc.qcloudimg.com/static/img/94e91388b81a0dcbca6a96afc9a33d31/image.png
-  
-  [10]: https://mc.qcloudimg.com/static/img/2c5e07b5f4bb224d9ff30102b8e958a6/image.png
-  [11]: https://mc.qcloudimg.com/static/img/bd31c2a625d8a480c3edeffc9cd72de9/image.png
-  [12]: https://mc.qcloudimg.com/static/img/3dc44d8e08039db14b28c9727920290a/image.png
+  [7]: https://mc.qcloudimg.com/static/img/8a729cf7c8f2c9f98e524e98cd08d7f3/image.png
+  [8]: https://mc.qcloudimg.com/static/img/94e91388b81a0dcbca6a96afc9a33d31/image.png
+  [9]: https://mc.qcloudimg.com/static/img/2c5e07b5f4bb224d9ff30102b8e958a6/image.png
+  [10]: https://mc.qcloudimg.com/static/img/bd31c2a625d8a480c3edeffc9cd72de9/image.png
+  [11]: https://mc.qcloudimg.com/static/img/3dc44d8e08039db14b28c9727920290a/image.png
+  [12]: https://cloud.tencent.com/document/product/457/11942
+  [13]: https://cloud.tencent.com/document/product/457/11952

@@ -17,13 +17,13 @@
                 </strong>
             </td>
         </tr>
-		
+        
         <!--视频上传-->
-		<tr>
-			<td rowspan=4>
-				视频上传
-			</td>
-			<td>
+        <tr>
+            <td rowspan=4>
+                视频上传
+            </td>
+            <td>
                 发起上传
             </td>
             <td>
@@ -31,41 +31,41 @@
                     ApplyUpload
                 </a>
             </td>
-		</tr>
+        </tr>
         <tr> 
-			<td>
+            <td>
                 上传文件
             </td>
             <td>
                 
-            </td>	
+            </td>   
         </tr>
-		<tr>
-			<td>
+        <tr>
+            <td>
                 确认上传
             </td>
             <td>
                 <a href="/document/product/266/9757">
                     CommitUpload
                 </a>
-            </td>	
-		</tr>
-        <tr>	
-			<td>
-				URL 拉取视频上传
-			</td>
+            </td>   
+        </tr>
+        <tr>    
+            <td>
+                URL 拉取视频上传
+            </td>
             <td>
                 <a href="/document/product/266/7817">
                     MultiPullVodFile
                 </a>
             </td>
         </tr>
-		
-		<!--视频处理-->
+        
+        <!--视频处理-->
         <tr>
-			<td rowspan=8>
-				视频处理
-			</td>
+            <td rowspan=8>
+                视频处理
+            </td>
             <td>
                 使用任务流处理视频
             </td>
@@ -75,7 +75,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 对视频文件进行处理
             </td>
@@ -85,7 +85,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 视频转码
             </td>
@@ -145,16 +145,16 @@
                 </a>
             </td>
         </tr>
-		
+        
         <!--媒资管理-->
         <tr>
-			<td rowspan=7>
-				媒资管理
-			</td>
-            <td>
-                获取视频信息 	
+            <td rowspan=7>
+                媒资管理
             </td>
-			<td>
+            <td>
+                获取视频信息  
+            </td>
+            <td>
                 <a href="/document/product/266/8586">
                     GetVideoInfo
                 </a>
@@ -164,7 +164,7 @@
             <td>
                 依照视频名称前缀获取视频信息
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7825">
                     DescribeVodPlayInfo
                 </a>
@@ -174,59 +174,59 @@
             <td>
                 依照 VID 查询视频信息
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/8227">
                     DescribeRecordPlayInfo
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 增加视频标签
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7826">
                     CreateVodTags
                 </a>
             </td>
-		</tr>
-		<tr>
+        </tr>
+        <tr>
             <td>
                 删除视频标签
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7827">
                     DeleteVodTags
                 </a>
             </td>
-		</tr>
-		<tr>
+        </tr>
+        <tr>
             <td>
                 删除视频
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7838">
                     DeleteVodFile
                 </a>
             </td>
-		</tr>
-		<tr>
+        </tr>
+        <tr>
             <td>
                 修改视频属性
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7828">
                     ModifyVodInfo
                 </a>
             </td>
-		</tr>
+        </tr>
         
-		<!--视频分类管理-->
-		<tr>
-			<td rowspan=5>
-				视频分类管理
-			</td>
-			<td>
+        <!--视频分类管理-->
+        <tr>
+            <td rowspan=5>
+                视频分类管理
+            </td>
+            <td>
                 创建视频分类
             </td>
             <td>
@@ -234,12 +234,12 @@
                     CreateClass
                 </a>
             </td>
-		</tr>
+        </tr>
         <tr>
             <td>
                 获取视频分类层次信息
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7813">
                     DescribeAllClass
                 </a>
@@ -249,17 +249,17 @@
             <td>
                 获取视频分类信息
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7814">
                     DescribeClass
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 修改视频分类
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7815">
                     ModifyClass
                 </a>
@@ -269,18 +269,18 @@
             <td>
                 删除视频分类
             </td>
-			<td>
+            <td>
                 <a href="/document/product/266/7816">
                     DeleteClass
                 </a>
             </td>
         </tr>
-		
-		<!--事件通知与任务管理-->
+        
+        <!--事件通知与任务管理-->
         <tr>
-			<td rowspan=5>
-				事件通知与任务管理
-			</td>
+            <td rowspan=5>
+                事件通知与任务管理
+            </td>
             <td>
                 拉取事件通知
             </td>
@@ -300,7 +300,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 查询任务列表
             </td>
@@ -310,7 +310,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 查询任务信息
             </td>
@@ -320,7 +320,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 重试任务
             </td>
@@ -330,12 +330,12 @@
                 </a>
             </td>
         </tr>
-		
+        
         <!--参数模版管理-->
         <tr>
-			<td rowspan=5>
-				参数模版管理
-			</td>
+            <td rowspan=5>
+                参数模版管理
+            </td>
             <td>
                 创建转码模板
             </td>
@@ -375,7 +375,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 删除转码模板
             </td>
@@ -385,12 +385,12 @@
                 </a>
             </td>
         </tr>
-		
+        
         <!--水印模板管理-->
         <tr>
-			<td rowspan=6>
-				水印模板管理
-			</td>
+            <td rowspan=6>
+                水印模板管理
+            </td>
             <td>
                 申请上传水印文件
             </td>
@@ -410,7 +410,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 查询水印模板列表
             </td>
@@ -420,7 +420,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 查询水印模板
             </td>
@@ -430,7 +430,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 更新水印模板
             </td>
@@ -440,7 +440,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 删除水印模板
             </td>
@@ -450,12 +450,12 @@
                 </a>
             </td>
         </tr>
-		
-		<!--秘钥管理-->
+        
+        <!--秘钥管理-->
         <tr>
-			<td rowspan=1>
-				秘钥管理
-			</td>
+            <td rowspan=1>
+                秘钥管理
+            </td>
             <td>
                 获取视频解密秘钥
             </td>
@@ -465,12 +465,12 @@
                 </a>
             </td>
         </tr>
-		
-		<!--数据统计-->
+        
+        <!--数据统计-->
         <tr>
-			<td rowspan=1>
-				数据统计
-			</td>
+            <td rowspan=1>
+                数据统计
+            </td>
             <td>
                 获取存储量
             </td>
@@ -480,12 +480,12 @@
                 </a>
             </td>
         </tr>
-		
-		<!--已废弃的API-->
+        
+        <!--已废弃的API-->
         <tr>
-			<td rowspan=4>
-				已废弃的API
-			</td>
+            <td rowspan=4>
+                已废弃的API
+            </td>
             <td>
                 获取视频信息
             </td>
@@ -495,7 +495,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 批量获取视频信息
             </td>
@@ -505,7 +505,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 使用任务流处理视频
             </td>
@@ -515,7 +515,7 @@
                 </a>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td>
                 截图地址设为视频封面
             </td>
