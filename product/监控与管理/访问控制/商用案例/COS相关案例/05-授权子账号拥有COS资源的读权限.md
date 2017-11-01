@@ -1,5 +1,3 @@
-### 授权子账号拥有该账号下COS资源的读权限
-
 企业帐号CompanyExample（ownerUin为12345678）下有一个子账号Developer，该子账号需要拥有对企业帐号CompanyExample的COS服务的只读访问权限（访问COS的存储桶或者对象及对象列表等）。
 
 方案A：
