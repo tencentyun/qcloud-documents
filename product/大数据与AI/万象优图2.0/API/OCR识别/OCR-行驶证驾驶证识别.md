@@ -1,4 +1,4 @@
-通用OCR目前正处于免费公测阶段，会在11月1日开始计费，第一次扣费为12月份3~5日。
+通用OCR目前正处于免费公测阶段，会在12月1日开始计费，第一次扣费为2018年1月3~5日。
 
 ## 1. 说明
 
@@ -49,6 +49,7 @@ http://recognition.image.myqcloud.com/ocr/drivinglicence
 | 发动机号 | 准驾车型 |
 | 注册日期 | 起始日期 |
 | 发证日期 | 有效日期 |
+|      | 红章   |
 
 3) 参数
 
@@ -60,7 +61,7 @@ http://recognition.image.myqcloud.com/ocr/drivinglicence
 | ------ | ---- | ------ | ------------------------------------- |
 | appid  | 必须   | String | 项目ID                                  |
 | bucket | 必须   | string | 空间名称                                  |
-| type   | 必选   | Int    | 识别类型，0表示行驶证，1表示驾驶证                    |
+| type   | 必选   | Int    | 识别类型，0表示行驶证，1表示驾驶证识别，2表示驾驶证副页识别       |
 | image  | 可选   | Binary | 图片内容                                  |
 | url    | 可选   | String | 图片的url, image和url只提供一个即可,如果都提供,只使用url |
 
@@ -163,7 +164,6 @@ Content-Type: application/json
   "code":0,
   "message":"OK"
 }
-
 ```
 
  
