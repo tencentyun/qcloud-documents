@@ -1,4 +1,4 @@
-1.  新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fwww.qcloud.com%2Fdocument%2Fproduct%2F213)  ，注册指引可参考 [如何注册腾讯云](https://cloud.tencent.com/document/product/378/9603)。
+1.  新用户需在腾讯云官网进行 [注册](https://cloud.tencent.com/register?s_url=https%3A%2F%2F.qcloud.com%2Fdocument%2Fproduct%2F213)  ，注册指引可参考 [如何注册腾讯云](https://cloud.tencent.com/document/product/378/9603)。
 2.  到【开发者工具】>【TAPD敏捷项目管理】产品介绍页上单击【免费注册】。
 ![](//mc.qcloudimg.com/static/img/fe775b7ce4d6aac38fc1cd4b14439aec/image.png)
 3. 授权访问 TAPD 注册页面。 
