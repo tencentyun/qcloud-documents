@@ -12,11 +12,11 @@
 
 | 参数名 |必选/可选 | 类型 |参数说明 |
 |---------|---------|---------|---------|
-| QzoneShare.SHARE_TO_QQ_KEY_TYPE | 选填 | Int |SHARE_TO_QZONE_TYPE_IMAGE_TEXT（图文） |
-| QzoneShare.SHARE_TO_QQ_TITLE | 必选 |Int |分享的标题，最多 200 个字符|
-| QzoneShare.SHARE_TO_QQ_SUMMARY | 选填 | String |分享的摘要，最多 600 字符 |
-| QzoneShare.SHARE_TO_QQ_TARGET_URL | 必选 | String|需要跳转的链接，URL 字符串 |
-| QzoneShare.SHARE_TO_QQ_IMAGE_URL | 选填 | String |分享的图片, 以 ArrayList<String> 的类型传入，以便支持多张图片（注：图片最多支持 9 张图片，多余的图片会被丢弃） |
+| QzoneShare.SHARE_TO_QQ_KEY_TYPE | 选填 | Int |SHARE_TO_QZONE_TYPE_IMAGE_TEXT（图文）。 |
+| QzoneShare.SHARE_TO_QQ_TITLE | 必选 |Int |分享的标题，最多 200 个字符。|
+| QzoneShare.SHARE_TO_QQ_SUMMARY | 选填 | String |分享的摘要，最多 600 字符。 |
+| QzoneShare.SHARE_TO_QQ_TARGET_URL | 必选 | String|需要跳转的链接，URL 字符串。 |
+| QzoneShare.SHARE_TO_QQ_IMAGE_URL | 选填 | String |分享的图片, 以 ArrayList<String> 的类型传入，以便支持多张图片（注：图片最多支持 9 张图片，多余的图片会被丢弃）。 |
 
 >**注意：**
 >QZone 接口暂不支持发送多张图片的能力，若传入多张图片，则会自动选入第一张图片作为预览图。分享多图的能力将会在以后实现。
