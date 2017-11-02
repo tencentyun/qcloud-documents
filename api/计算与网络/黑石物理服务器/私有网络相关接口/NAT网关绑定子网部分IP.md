@@ -13,7 +13,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=BindIpsToBmNatGateway
 	&ips.0.unSubnetId=<子网ID>
 	&ips.0.ipList.0=<子网内IP>
 	&ips.0.ipList.1=<子网内IP>
-	&ips.1.subnetId=<子网ID>
+	&ips.1.unSubnetId=<子网ID>
 	&ips.1.ipList.0=<子网内IP>
 ```
 
@@ -75,7 +75,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&ips.0.unSubnetId=subnet-111111
 	&ips.0.ipList.0=10.11.1.14
 	&ips.0.ipList.1=10.11.1.15
-	&ips.1.subnetId=subnet-222222
+	&ips.1.unSubnetId=subnet-222222
 	&ips.1.ipList.0=10.11.3.15
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
