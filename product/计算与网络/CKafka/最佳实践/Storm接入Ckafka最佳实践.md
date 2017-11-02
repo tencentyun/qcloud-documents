@@ -1,33 +1,35 @@
-#Storm with kafka
-#storm简介
-&emsp;&emsp;storm是一个分布式实时计算框架，能够对数据进行流式处理和提供通用性分布式RPC调用，可以实现处理事件亚秒级的延迟，适用于对延迟要求比较高的实时数据处理场景。
-#storm工作原理
-&emsp;&emsp;在storm的集群中有两种节点，控制节点`Master Node`和工作节点`Worker Node`。`Master Node`上运行`Nimbus`进程，用于资源分配与状态监控。`Worker Node`上运行`Supervisor`进程，监听工作任务，启动`executor`执行。整个storm集群依赖`zookeeper`负责公共数据存放、集群状态监听、任务分配等功能。
+## Storm 简介
+&emsp;&emsp;Storm 是一个分布式实时计算框架，能够对数据进行流式处理和提供通用性分布式 RPC 调用，可以实现处理事件亚秒级的延迟，适用于对延迟要求比较高的实时数据处理场景。
+## Storm 工作原理
+&emsp;&emsp;在 Storm 的集群中有两种节点，控制节点`Master Node`和工作节点`Worker Node`。`Master Node`上运行`Nimbus`进程，用于资源分配与状态监控。`Worker Node`上运行`Supervisor`进程，监听工作任务，启动`executor`执行。整个 Storm 集群依赖`zookeeper`负责公共数据存放、集群状态监听、任务分配等功能。
 
-&emsp;&emsp;用户提交给storm的数据处理程序称为`topology`，它处理的最小消息单位是`tuple`，一个任意对象的数组。`topology`由`spout`和`bolt`构成，`spout`是产生`tuple`的源头，`bolt`可以订阅任意`spout`或`bolt`发出的`tuple`进行处理。
-![Alt text](./1509201873967.png)
+&emsp;&emsp;用户提交给 Storm 的数据处理程序称为`topology`，它处理的最小消息单位是`tuple`，一个任意对象的数组。`topology`由`spout`和`bolt`构成，`spout`是产生`tuple`的源头，`bolt`可以订阅任意`spout`或`bolt`发出的`tuple`进行处理。
+![](//mc.qcloudimg.com/static/img/93eb9e2621f5ad49fee536ab9d6e8799/image.png)
 
-#storm with ckafka
-&emsp;&emsp;storm可以把ckafka作为`spout`，消费数据进行处理；也可以作为`bolt`，存放经过处理后的数据提供给其它组件消费。
+## Storm with ckafka
+&emsp;&emsp;Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作为`bolt`，存放经过处理后的数据提供给其它组件消费。
 
-##测试环境
+### 测试环境
 **Centos6.8系统**
-|package| version|
-|---|--- |
+
+| package | version |
+|----|---- |
 |maven |3.5.0|
 |storm|1.1.0|
 |ssh|5.3|
 |Java|1.8|
 
 
-##申请创建ckafka实例
-![Alt text](./1509250372006.png)
+### 申请创建 CKafka 实例
 
-##创建topic
-![Alt text](./1509250422111.png)
+![](//mc.qcloudimg.com/static/img/d2ae59d6670c641c73ddcc3d0b7fa364/image.png)
 
-##maven依赖
-pom.xml
+### 创建 Topic
+
+![](//mc.qcloudimg.com/static/img/0b6d4b8f9b18951cbc5ba3b16cd5ea8a/image.png)
+
+### maven 依赖
+pom.xml配置如下
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -132,9 +134,9 @@ pom.xml
 ```
 
 
-##写入 ckafka 
-###使用spout/bolt
-topology代码
+### 写入 CKafka 
+#### 使用 spout/bolt
+topology 代码
 ```java
 //KafkaProduceTopology.java
 import org.apache.storm.Config;
@@ -208,7 +210,7 @@ public class KafkaProduceTopology {
 }
 ```
 
-为`tuple`加上key、message两个字段，当key为null时，生产的消息均匀分配到各个partition，指定了key后将按照key值hash到特定partition上
+为`tuple`加上 key、message 两个字段，当 key 为 null 时，生产的消息均匀分配到各个 partition，指定了 key 后将按照 key 值 hash 到特定 partition 上
 
 ```java
 //AddMessageKeyBolt.java
@@ -226,8 +228,8 @@ public class AddMessageKeyBolt extends BaseBasicBolt {
 }
 ```
 
-###使用trident
-使用trident类生成topology
+#### 使用 trident
+使用 trident 类生成 topology
 ```java
 //TridentKafkaProduceTopology.java
 import org.apache.storm.Config;
@@ -312,8 +314,8 @@ public class TridentKafkaProduceTopology {
 ```
 
 
-##从消费ckafka消费
-### 使用spout/bolt
+### 从 CKafka 消费
+#### 使用 spout/bolt
 ```java
 //KafkaConsumeTopology.java
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -387,7 +389,7 @@ public class KafkaConsumeTopology {
     }
 }
 ```
-###使用trident
+#### 使用trident
 ```
 //TridentKafkaTopology.java
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -465,8 +467,8 @@ public class TridentKafkaConsumeTopology {
 }
 ```
 
-##提交storm
-使用mvn package编译后,可以提交到本地集群进行debug测试，也可以提交到正式集群进行运行
+### 提交Storm
+使用 mvn package 编译后,可以提交到本地集群进行 debug 测试，也可以提交到正式集群进行运行
 ```bash
 storm jar your_jar_name.jar topology_name
 ```
