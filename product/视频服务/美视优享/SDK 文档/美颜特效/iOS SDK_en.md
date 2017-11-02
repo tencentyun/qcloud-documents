@@ -13,7 +13,7 @@ You can download the SDK zip file (VIP version) at the bottom of the [RTMP SDK](
 
 ### 1. Add Frameworks
 
-The VIP version requires to link with additional system frameworks:
+The VIP version requires linking with additional system frameworks:
 > AssetsLibrary.framwork
 > CoreMedia.framework
 > Accelerate.framework
