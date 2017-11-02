@@ -63,14 +63,14 @@ initViews();
 }
 ```
 
-如果你已经添加了 android.permission.INTERNET 和 android.permission.ACCESS_NETWORK_STATE 权限，则无需重复添加。而你的 APPID 则要替换成具体应用的 APPID，例如你的 APPID 是 222222，则 ***data*** 标签应该是这样的：
+如果你已经添加了 android.permission.INTERNET 和 android.permission.ACCESS_NETWORK_STATE 权限，则无需重复添加。而你的 APPID 则要替换成具体应用的 APPID，例如你的 APPID 是 222222，则 **data** 标签应该是这样的：
 
 ```
 <data android:scheme="tencent222222" />
 ```
 ### 实现回调
 所有的 SDK 接口调用，都会传入一个回调用以接收 SDK 返回的调用结果。回调的主要接口有两种：
-- 实现回调 IUiListener
+- 实现回调 IUiListener：
 调用 SDK 已经封装好的接口时，例如登录、快速支付登录、应用分享、应用邀请等接口，需传入该回调的实例。IUiListener 的实现示例代码如下：
 
 ```
@@ -112,7 +112,7 @@ showResult("onCancel", "");
  
 }
 ```
-- 实现回调 IRequestListener
+- 实现回调 IRequestListener：
 使用 requestAsync、request 等通用方法调用 SDK 未封装的接口时，例如上传图片、查看相册等接口，需传入该回调的实例。IRequestListener 的实现示例代码如下：
 
 ```
@@ -206,7 +206,7 @@ public void onUnknowException(Exception e, Object state) {
 ```
 应用在调用 SDK 提供的接口时，将实现了对应回调接口的实例传入。当 SDK 的接口调用完成后，具体如登录、应用邀请和应用分享调用完成后，会回调传入的接口实例。
 >**注意：**
->应用调用 Andriod_SDK 接口时，如果要成功接收到回调，需要在调用接口的 Activity的onActivityResult 方法中增加如下代码：
+>应用调用 Andriod_SDK 接口时，如果要成功接收到回调，需要在调用接口的 Activity 的 onActivityResult 方法中增加如下代码：
 
 ```
 @Override
