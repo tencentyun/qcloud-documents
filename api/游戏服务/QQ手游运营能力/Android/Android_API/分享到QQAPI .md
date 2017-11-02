@@ -19,7 +19,7 @@
 | QQShare.PARAM_TITLE | 必选 | String |分享的标题, 最长 30 个字符 |
 | QQShare.PARAM_SUMMARY | 可选| String |分享的消息摘要，最长 40 个字 |
 | QQShare.SHARE_TO_QQ_IMAGE_URL | 可选 | String |分享图片的 URL 或者本地路径  |
-| QQShare.SHARE_TO_QQ_APP_NAME | 可选 | String |手Q客户端顶部，替换“返回”按钮文字，如果为空，用“返回”代替 |
+| QQShare.SHARE_TO_QQ_APP_NAME | 可选 | String |手Q客户端顶部，替换【返回】按钮文字，如果为空，用“返回”代替 |
 | QQShare.SHARE_TO_QQ_EXT_INT | 可选 | Int |分享额外选项，两种类型可选（默认是不隐藏分享到 QZone 按钮且不自动打开分享到 QZone 的对话框）：QQShare.SHARE_TO_QQ_FLAG_QZONE_AUTO_OPEN：分享时自动打开分享到 QZone 的对话框。QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE：分享时隐藏分享到QZone按钮 |
 
 分享纯图片：
