@@ -39,10 +39,10 @@ pom.xml配置如下
   <name>storm</name> 
   	<repositories>
 		<repository>
-		    <id>nexus-aliyun</id>
-		    <name>Nexus aliyun</name>
+		    <id>nexus</id>
+		    <name>Nexus</name>
 		    <layout>default</layout>
-		    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		    <url>xxx</url>
 		    <snapshots>
 		        <enabled>false</enabled>
 		    </snapshots>
