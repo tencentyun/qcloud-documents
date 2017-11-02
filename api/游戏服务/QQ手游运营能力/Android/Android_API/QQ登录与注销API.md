@@ -41,7 +41,7 @@ public void login(Activity activity, String scope, IUiListener listener)
 
 | 返回码 | 返回码描述 | 
 |---------|---------|
-| 10 | 解码失败 |
+| 10 | 解码失败。 |
 | 110201 | 票据无效。 |
 | 110405 | 登录请求被限制，请稍后在登录。 |
 | 110404 | 请求参数缺少 APPID。  |
