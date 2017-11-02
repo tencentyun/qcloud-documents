@@ -14,11 +14,11 @@ public boolean gameBindGroup(Activity activity, Bundle params)
 
 | 参数名 | 必选/可选 | 类型 |参数说明 |
 |---------|---------|---------|---------|
-| MGameAppOperation.GAME_UNION_ID | 必选 | String |公会 ID |
-| MGameAppOperation.GAME_ZONE_ID | 必选 | String |游戏区域 ID |
-| MGameAppOperation.GAME_UNION_NAME | 必选 | String |公会名称|
-| MGameAppOperation.GAME_ROLE_ID | 必选 | String |游戏角色 ID|
-| MGameAppOperation.GAME_APP_KEY | 必选 | String |与 APPID 对应，第三方申请 |
+| MGameAppOperation.GAME_UNION_ID | 必选 | String |公会 ID。 |
+| MGameAppOperation.GAME_ZONE_ID | 必选 | String |游戏区域 ID。 |
+| MGameAppOperation.GAME_UNION_NAME | 必选 | String |公会名称。|
+| MGameAppOperation.GAME_ROLE_ID | 必选 | String |游戏角色 ID。|
+| MGameAppOperation.GAME_APP_KEY | 必选 | String |与 APPID 对应，第三方申请。 |
 ## 实际示例
 
 ```
