@@ -3,15 +3,10 @@
         <tr>
             <td style="background-color:#CCCCCC;">
                 <strong>
-                    API 大类
+                    API 分类
                 </strong>
             </td>
             <td style="background-color:#CCCCCC;">
-                <strong>
-                    API 子类
-                </strong>
-            </td>
-                        <td style="background-color:#CCCCCC;">
                 <strong>
                     功能
                 </strong>
@@ -22,14 +17,40 @@
                 </strong>
             </td>
         </tr>
+		
         <!--视频上传-->
 		<tr>
-			<td rowspan=3>
+			<td rowspan=4>
 				视频上传
 			</td>
 			<td>
-				URL 拉取视频上传
-			</td>
+                发起上传
+            </td>
+            <td>
+                <a href="/document/product/266/9756">
+                    ApplyUpload
+                </a>
+            </td>
+		</tr>
+        <tr> 
+			<td>
+                上传文件
+            </td>
+            <td>
+                
+            </td>	
+        </tr>
+		<tr>
+			<td>
+                确认上传
+            </td>
+            <td>
+                <a href="/document/product/266/9757">
+                    CommitUpload
+                </a>
+            </td>	
+		</tr>
+        <tr>	
 			<td>
 				URL 拉取视频上传
 			</td>
@@ -38,39 +59,174 @@
                     MultiPullVodFile
                 </a>
             </td>
-		</tr>
+        </tr>
+		
+		<!--视频处理-->
         <tr>
-            <td rowspan=2>
-                服务端视频上传
+			<td rowspan=8>
+				视频处理
+			</td>
+            <td>
+                使用任务流处理视频
             </td>
             <td>
-                发起上传
+                <a href="/document/product/266/11030">
+                    RunProcedure
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                对视频文件进行处理
             </td>
             <td>
-                <a href="/document/product/266/9756">
-                    ApplyUpload
+                <a href="/document/product/266/9642">
+                    ProcessFile
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                视频转码
+            </td>
+            <td>
+                <a href="/document/product/266/7822">
+                    ConvertVodFile
                 </a>
             </td>
         </tr>
         <tr>
             <td>
-                确认上传
+                视频剪辑
             </td>
             <td>
-                <a href="/document/product/266/9757">
-                    CommitUpload
+                <a href="/document/product/266/10156">
+                    ClipVideo
                 </a>
             </td>
         </tr>
+        <tr>
+            <td>
+                视频拼接
+            </td>
+            <td>
+                <a href="/document/product/266/7821">
+                    ConcatVideo
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                HLS 视频简单剪切
+            </td>
+            <td>
+                <a href="/document/product/266/8859">
+                    SimpleClipHls
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                指定时间点截图
+            </td>
+            <td>
+                <a href="/document/product/266/8102">
+                    CreateSnapshotByTimeOffset
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                截取雪碧图
+            </td>
+            <td>
+                <a href="/document/product/266/8101">
+                    CreateImageSprite
+                </a>
+            </td>
+        </tr>
+		
         <!--媒资管理-->
         <tr>
-			<td rowspan=15>
+			<td rowspan=7>
 				媒资管理
 			</td>
-            <td rowspan=5>
-                视频分类管理
-            </td>
             <td>
+                获取视频信息 	
+            </td>
+			<td>
+                <a href="/document/product/266/8586">
+                    GetVideoInfo
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                依照视频名称前缀获取视频信息
+            </td>
+			<td>
+                <a href="/document/product/266/7825">
+                    DescribeVodPlayInfo
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                依照 VID 查询视频信息
+            </td>
+			<td>
+                <a href="/document/product/266/8227">
+                    DescribeRecordPlayInfo
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                增加视频标签
+            </td>
+			<td>
+                <a href="/document/product/266/7826">
+                    CreateVodTags
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                删除视频标签
+            </td>
+			<td>
+                <a href="/document/product/266/7827">
+                    DeleteVodTags
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                删除视频
+            </td>
+			<td>
+                <a href="/document/product/266/7838">
+                    DeleteVodFile
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td>
+                修改视频属性
+            </td>
+			<td>
+                <a href="/document/product/266/7828">
+                    ModifyVodInfo
+                </a>
+            </td>
+		</tr>
+        
+		<!--视频分类管理-->
+		<tr>
+			<td rowspan=5>
+				视频分类管理
+			</td>
+			<td>
                 创建视频分类
             </td>
             <td>
@@ -78,10 +234,10 @@
                     CreateClass
                 </a>
             </td>
-        </tr>
+		</tr>
         <tr>
             <td>
-                获取视频分类层次结构
+                获取视频分类层次信息
             </td>
 			<td>
                 <a href="/document/product/266/7813">
@@ -99,7 +255,7 @@
                 </a>
             </td>
         </tr>
-        <tr>
+		<tr>
             <td>
                 修改视频分类
             </td>
@@ -119,256 +275,66 @@
                 </a>
             </td>
         </tr>
-		<tr>
+		
+		<!--事件通知与任务管理-->
+        <tr>
 			<td rowspan=5>
-				获取视频信息
+				事件通知与任务管理
 			</td>
             <td>
-                获取视频信息
-            </td>
-			<td>
-                <a href="/document/product/266/7824">
-                    DescribeVodPlayUrls
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                获取视频信息 	V2
-            </td>
-			<td>
-                <a href="/document/product/266/8586">
-                    GetVideoInfo
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                批量获取视频信息
-            </td>
-			<td>
-                <a href="/document/product/266/7823">
-                    DescribeVodInfo
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                依照视频名称前缀获取视频信息
-            </td>
-			<td>
-                <a href="/document/product/266/7825">
-                    DescribeVodPlayInfo
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                依照 VID 查询视频信息
-            </td>
-			<td>
-                <a href="/document/product/266/8227">
-                    DescribeRecordPlayInfo
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                增加视频标签
+                拉取事件通知
             </td>
             <td>
-                增加视频标签
-            </td>
-			<td>
-                <a href="/document/product/266/7826">
-                    CreateVodTags
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                删除视频标签
-            </td>
-            <td>
-                删除视频标签
-            </td>
-			<td>
-                <a href="/document/product/266/7827">
-                    DeleteVodTags
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                删除视频
-            </td>
-            <td>
-                删除视频
-            </td>
-			<td>
-                <a href="/document/product/266/7838">
-                    DeleteVodFile
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                截图地址设为视频封面
-            </td>
-            <td>
-                截图地址设为视频封面
-            </td>
-			<td>
-                <a href="/document/product/266/8814">
-                    DescribeVodCover
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td>
-                修改视频属性
-            </td>
-            <td>
-                修改视频属性
-            </td>
-			<td>
-                <a href="/document/product/266/7828">
-                    ModifyVodInfo
-                </a>
-            </td>
-		</tr>
-        <!--视频处理-->
-        <tr>
-			<td rowspan=7>
-				视频处理
-			</td>
-            <td>
-                视频转码
-            </td>
-            <td>
-                视频转码
-            </td>
-            <td>
-                <a href="/document/product/266/7822">
-                    ConvertVodFile
+                <a href="/document/product/266/7818">
+                    PullEvent
                 </a>
             </td>
         </tr>
         <tr>
             <td>
-                视频剪辑
+                确认事件通知
             </td>
             <td>
-                视频剪辑
-            </td>
-            <td>
-                <a href="/document/product/266/10156">
-                    ClipVideo
+                <a href="/document/product/266/7819">
+                    ConfirmEvent
                 </a>
             </td>
         </tr>
-        <tr>
+		<tr>
             <td>
-                视频拼接
+                查询任务列表
             </td>
             <td>
-                视频拼接
-            </td>
-            <td>
-                <a href="/document/product/266/7821">
-                    ConcatVideo
+                <a href="/document/product/266/11722">
+                    GetTaskList
                 </a>
             </td>
         </tr>
-        <tr>
+		<tr>
             <td>
-                HLS 视频简单剪切
+                查询任务信息
             </td>
             <td>
-                HLS 视频简单剪切
-            </td>
-            <td>
-                <a href="/document/product/266/8859">
-                    SimpleClipHls
+                <a href="/document/product/266/11724">
+                    GetTaskInfo
                 </a>
             </td>
         </tr>
-        <tr>
+		<tr>
             <td>
-                指定时间点截图
+                重试任务
             </td>
             <td>
-                指定时间点截图
-            </td>
-            <td>
-                <a href="/document/product/266/8102">
-                    CreateSnapshotByTimeOffset
+                <a href="/document/product/266/11725">
+                    RedoTask
                 </a>
             </td>
         </tr>
-        <tr>
-            <td>
-                截取雪碧图
-            </td>
-            <td>
-                截取雪碧图
-            </td>
-            <td>
-                <a href="/document/product/266/8101">
-                    CreateImageSprite
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                获取视频解密秘钥
-            </td>
-            <td>
-                获取视频解密秘钥
-            </td>
-            <td>
-                <a href="/document/product/266/9643">
-                    DescribeDrmDataKey
-                </a>
-            </td>
-        </tr>
-        <!--任务流-->
-        <tr>
-			<td rowspan=2>
-				任务流
-			</td>
-            <td>
-                按指定任务流处理视频
-            </td>
-            <td>
-                按指定任务流处理视频
-            </td>
-            <td>
-                <a href="/document/product/266/9045">
-                    ProcessFileByProcedure
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                按指定参数处理视频
-            </td>
-            <td>
-                按指定参数处理视频
-            </td>
-            <td>
-                <a href="/document/product/266/9642">
-                    ProcessFile
-                </a>
-            </td>
-        </tr>
+		
         <!--参数模版管理-->
         <tr>
 			<td rowspan=5>
 				参数模版管理
-			</td>
-			<td rowspan=5>
-				转码模版
 			</td>
             <td>
                 创建转码模板
@@ -381,11 +347,11 @@
         </tr>
         <tr>
             <td>
-                更新转码模板
+                查询转码模板列表
             </td>
             <td>
-                <a href="/document/product/266/9911">
-                    UpdateTranscodeTemplate
+                <a href="/document/product/266/9913">
+                    QueryTranscodeTemplateList
                 </a>
             </td>
         </tr>
@@ -401,11 +367,11 @@
         </tr>
         <tr>
             <td>
-                查询转码模板列表
+                更新转码模板
             </td>
             <td>
-                <a href="/document/product/266/9913">
-                    QueryTranscodeTemplateList
+                <a href="/document/product/266/9911">
+                    UpdateTranscodeTemplate
                 </a>
             </td>
         </tr>
@@ -419,33 +385,143 @@
                 </a>
             </td>
         </tr>
-        <!--可靠事件通知-->
+		
+        <!--水印模板管理-->
         <tr>
-			<td rowspan=2>
-				可靠事件通知
+			<td rowspan=6>
+				水印模板管理
 			</td>
             <td>
-                拉取事件通知
+                申请上传水印文件
             </td>
             <td>
-                拉取事件通知
-            </td>
-            <td>
-                <a href="/document/product/266/7818">
-                    PullEvent
+                <a href="/document/product/266/11607">
+                    ApplyUploadWatermark
                 </a>
             </td>
         </tr>
         <tr>
             <td>
-                确认事件通知
+                创建水印模板
             </td>
             <td>
-                确认事件通知
+                <a href="/document/product/266/11599">
+                    CreateWatermarkTemplate
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                查询水印模板列表
             </td>
             <td>
-                <a href="/document/product/266/7819">
-                    ConfirmEvent
+                <a href="/document/product/266/11608">
+                    QueryWatermarkTemplateList
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                查询水印模板
+            </td>
+            <td>
+                <a href="/document/product/266/11606">
+                    QueryWatermarkTemplate
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                更新水印模板
+            </td>
+            <td>
+                <a href="/document/product/266/11605">
+                    UpdateWatermarkTemplate
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                删除水印模板
+            </td>
+            <td>
+                <a href="/document/product/266/11604">
+                    DeleteWatermarkTemplate
+                </a>
+            </td>
+        </tr>
+		
+		<!--秘钥管理-->
+        <tr>
+			<td rowspan=1>
+				秘钥管理
+			</td>
+            <td>
+                获取视频解密秘钥
+            </td>
+            <td>
+                <a href="/document/product/266/9643">
+                    DescribeDrmDataKey
+                </a>
+            </td>
+        </tr>
+		
+		<!--数据统计-->
+        <tr>
+			<td rowspan=1>
+				数据统计
+			</td>
+            <td>
+                获取存储量
+            </td>
+            <td>
+                <a href="/document/product/266/10012">
+                    DescribeVodStorage
+                </a>
+            </td>
+        </tr>
+		
+		<!--已废弃的API-->
+        <tr>
+			<td rowspan=4>
+				已废弃的API
+			</td>
+            <td>
+                获取视频信息
+            </td>
+            <td>
+                <a href="/document/product/266/7824">
+                    DescribeVodPlayUrls
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                批量获取视频信息
+            </td>
+            <td>
+                <a href="/document/product/266/7823">
+                    DescribeVodInfo
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                使用任务流处理视频
+            </td>
+            <td>
+                <a href="/document/product/266/9045">
+                    ProcessFileByProcedure
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                截图地址设为视频封面
+            </td>
+            <td>
+                <a href="/document/product/266/8814">
+                    DescribeVodCover
                 </a>
             </td>
         </tr>
