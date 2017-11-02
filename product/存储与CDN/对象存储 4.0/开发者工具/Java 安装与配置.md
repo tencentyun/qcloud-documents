@@ -63,7 +63,7 @@ source /etc/profile
 ```
 java -version
 ```
-显示如下信息，则说明 JDK 安装成功：
+显示 java 版本信息，则说明 JDK 安装成功：
 ```
 java version "1.8.0_151"
 Java(TM) SE Runtime Environment (build 1.8.0_151-b12)
