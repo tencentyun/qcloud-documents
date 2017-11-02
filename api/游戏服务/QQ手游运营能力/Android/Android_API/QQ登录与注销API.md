@@ -1,11 +1,13 @@
-## QQ 登录/授权与注销
-### 登录/授权
-#### 功能描述
+
+## 登录/授权
+### 功能描述
 通过调用 Tencent 类的 login 函数发起登录/校验登录态。
 
 该API具有两个作用：
 - 如果开发者没有调用 mTencent 实例的 setOpenId 、setAccessToken API，则该 API 执行正常的登录操作；
-- 如果开发者先调用 mTencent 实例的 setOpenId 、setAccessToken API，则该 API 执行校验登录态的操作。如果登录态有效，则返回成功给应用。如果登录态失效，则会自动进入登录流程，将最新的登录态数据返回给应用。
+- 如果开发者先调用 mTencent 实例的 setOpenId 、setAccessToken API，则该 API 执行校验登录态的操作。
+ - 如果登录态有效，则返回成功给应用。
+ - 如果登录态失效，则会自动进入登录流程，将最新的登录态数据返回给应用。
 
 >**注意：**
 >- 建议开发者在每次应用启动时调用一次该 API (先调用 setOpenId 、setAccessToken)，以确保每次打开应用时用户都是有登录态的。
@@ -22,12 +24,12 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-#### 方法原型
+### 方法原型
 
 ```
 public void login(Activity activity, String scope, IUiListener listener)
 ```
-#### 参数说明
+### 参数说明
 
 | 参数名 | 参数说明 | 
 |---------|---------|---------|
@@ -35,9 +37,9 @@ public void login(Activity activity, String scope, IUiListener listener)
 | scope | 应用需要获得的 API 的权限，由“，”分隔。例如：SCOPE = “get_user_info,add_t”；所有权限用 “all”。 | 
 | listener | 回调 API，IUiListener 实例。| 
 
-#### 返回码
+### 返回码
 
-| 标题1 | 标题2 | 
+| 返回码 | 返回码描述 | 
 |---------|---------|
 | 10 | 解码失败 |
 | 110201 | 票据无效 |
@@ -59,7 +61,7 @@ public void login(Activity activity, String scope, IUiListener listener)
 | 110509 | SKEY 校验失败 |
 | 110510 | 应用被禁止登录 |
 
-#### 实例演示
+### 实例演示
 
 ```
 private void doLogin() {
@@ -73,20 +75,20 @@ private void doLogin() {
 }
 ```
 
-### 注销
-#### 功能描述
+## 注销
+### 功能描述
 通过调用 Tencent 类的 logout 函数注销。
-#### 方法原型
+### 方法原型
 
 ```
  public void logout(Context context)
 ```
-#### 参数说明
+### 参数说明
 
 | 参数名 | 参数说明 |
 |---------|---------|
 | context | 调用者的 context 。Context 是上下文的意思，每一个 Activity 都有对应的 Context 。示例中的 this 为调用者 Activity 对应的 Context | 
-#### 实例演示
+### 实例演示
 
 ```
 mTencent.logout(this);
