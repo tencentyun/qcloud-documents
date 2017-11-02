@@ -91,14 +91,14 @@ NAT 网关设备共收取两项服务费用：网关租用费（按小时计费�
 | 大型 | 5元/h| 7.5元/h |8元/h |
 
  >**注意：**
- - 如果用户账号开通了带宽包共享带宽功能，则 NAT 网关产生的出流量按照带宽包整体结算（不再重复收取 0.8元/GB 的网络流量费），建议您限制NAT网关的出带宽，以避免因为NAT网关出带宽过高产生高额的带宽包费用,点击查看[带宽包计费详情](https://www.cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
+ - 如果用户账号开通了带宽包共享带宽功能，则 NAT 网关产生的出流量按照带宽包整体结算（不再重复收取 0.8元/GB 的网络流量费），建议您限制 NAT 网关的出带宽，以避免因为 NAT 网关出带宽过高产生高额的带宽包费用,点击查看 [带宽包计费详情](https://www.cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
  - 欠费逻辑：与按量计费主机保持一致，[点击查看私有网络价格总览](https://www.cloud.tencent.com/doc/product/215/3079)
- - 由于 NAT 网关具备双机热备的特性，系统每 3 秒会分别给 NAT 网关的主备服务器发送一个 5KB 的探测包，因此每天会产生0.2747GB 的流量，对应大陆、香港、北美会分别产生:0.2197元、0.2747元、0.1373 元的费用。
+ - 由于 NAT 网关具备双机热备的特性，系统每 3 秒会分别给 NAT 网关的主备服务器发送一个 5KB 的探测包，因此每天会产生 0.2747GB 的流量，对应大陆、香港、北美会分别产生:0.2197元、0.2747元、0.1373 元的费用。
 
 
 ## 到期提醒
 - 当您的账户余额不足。从余额为 0 的时刻开始，**2** 小时内 NAT 网关可继续使用且继续扣费。
-- 2 小时后，若您的账户仍未充值到大于0，NAT 网关将自动停止服务并停止扣费。
+- 2 小时后，若您的账户仍未充值到大于 0，NAT 网关将自动停止服务并停止扣费。
 - NAT 网关停止服务后的 24 小时内，若您的账户余额仍未充值到大于 0，则保持为不可用状态；若充值到余额大于 0，则网关重新可用，且计费重新开始。
 - NAT 网关停止服务后，余额小于 0 的时间达到 24 小时，NAT 网关将被立即回收。
 - NAT 网关回收时，我们将通过邮件及短信的方式通知到腾讯云帐号的创建者以及所有协作者。
@@ -109,7 +109,7 @@ NAT 网关设备共收取两项服务费用：网关租用费（按小时计费�
 ### 快速入门
 您需要完成以下两个步骤，您可以通过 NAT 网关访问 Internet：
 #### 第一步：创建NAT网关
-1. 登录[腾讯云控制台](https://console.cloud.tencent.com/)，选择【私有网络】选项卡，选择【NAT网关】。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【私有网络】选项卡，选择【NAT 网关】。
 2. 点击左上角【新建】按钮，在弹出框中依次输入或确定以下参数：
 - 网关名称
 - 网关类型（网关类型创建后可更改）
@@ -130,7 +130,7 @@ NAT 网关创建时将会冻结 1 小时的租用费用。
 
 ### 新建端口转发规则
 端口转发表是 NAT 网关上的一张配置表，用于配置 NAT 网关上的 DNAT 功能，可将 VPC 内的云主机的[内网 IP，协议，端口]映射成[外网 IP，协议，端口]，使得云主机上的服务可被外网访问。（内测中，如有需求，请提供 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)）
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。选择【NAT 网关】。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。选择【NAT 网关】。
 2. 在 NAT 网关列表页中点击需要修改的 NAT 网关 ID 进入详情页，选择【端口转发】
 3. 点击【新建】，选择协议、外部IP端口、及内部 IP 端口。
 
@@ -141,7 +141,7 @@ NAT 网关创建时将会冻结 1 小时的租用费用。
 
 ### 查询端口转发规则
 
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。选择【NAT 网关】。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。选择【NAT 网关】。
 2. 在 NAT 网关列表页中点击需要修改的 NAT 网关 ID 进入详情页，选择【端口转发】
 3. 在搜索框内，选择协议\IP\端口 ，填写相关属性值后，即可查询相关端口转发规则。
 
@@ -149,18 +149,18 @@ NAT 网关创建时将会冻结 1 小时的租用费用。
 
 ### 修改 NAT 网关配置
 NAT 网关创建后，可以对其属性进行修改。
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。选择【NAT 网关】。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。选择【NAT 网关】。
 2. 在 NAT 网关列表页中点击需要修改的 NAT 网关 ID 进入详情页，在详情页您可以完成以下属性的修改：
 - 修改 NAT 网关的自定义名称
 - 更改 NAT 网关的规格，规格更改后实时设定，实时生效（变更规格不会中断原网络连接）
 
 ### 管理 NAT 网关的弹性 IP
-1. 	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
+1. 	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
 2. 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
 3. 在关联弹性 IP 表中，你可以选择【新增】弹性 IP或者【解绑】弹性 IP。
 
 ### 查看 NAT 网关监控信息
-1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
+1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
 2. 在 NAT 网关列表页，点击需要查看的 NAT 网关条目中的监控按钮，即可查看该 NAT 网关的监控信息。
 （或）在 NAT 网关列表页，点击需要查看的 NAT 网关 ID 进入详情页，点击监控选项卡查看该 NAT 网关的监控信息。
 
@@ -168,19 +168,19 @@ NAT 网关创建后，可以对其属性进行修改。
 1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击顶部导航条【云产品】-【监控与管理】-[【云监控】](https://console.cloud.tencent.com/monitor/overview)，选择左导航栏内的【我的告警】-[【告警策略】](https://console.cloud.tencent.com/monitor/policylist)，点击：新增告警策略。
 2.	填写告警策略名称，在策略类型中选择【NAT 网关】，然后添加告警触发条件。
 3.	**关联告警对象**：选择告警接收组，保存后即可在告警策略列表中查看已设置的告警策略。
-4.	**查看告警信息**：告警条件被触发后，您将接受到短信/邮件/站内信等通知，同时可以在左导航【我的告警】-【告警列表】中查看。有关告警的更多信息，请参考 [创建告警](https://www.cloud.tencent.com/doc/product/248/1073)。
+4.	**查看告警信息**：告警条件被触发后，您将接受到短信/邮件/站内信等通知，同时可以在左导航【我的告警】-【告警列表】中查看。有关告警的更多信息，请参考  [创建告警](https://www.cloud.tencent.com/doc/product/248/1073)。
 
 ### 删除 NAT 网关
 用户可以在不需要 NAT 网关时随时将其删除，删除时会将含有此 NAT 网关的路由表的相关路由策略一并删除，Internet 转发请求将立即中断，请提前做好网络中断准备。
-1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
+1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
 2. 选中需要删除的 NAT 网关，点击【删除】按钮并确认即可完成删除。
 
 ### 开启网关流控明细
-开启后，可查看某 NAT 网关上过去7天内的经过该网关的 IP 流量指标，可设置某个 IP 流向某 NAT 网关的出带宽。
-1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
+开启后，可查看某 NAT 网关上过去 7 天内的经过该网关的 IP 流量指标，可设置某个 IP 流向某 NAT 网关的出带宽。
+1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
 2. 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
 3. 点击监控 tab，开启右上角开启网关流控明细开关。
-开启网关流控明细，需要5-6采集数据、发布数据，一段时间您可在监控图表下方查看监控明细表格。
+开启网关流控明细，需要 5-6 采集数据、发布数据，一段时间您可在监控图表下方查看监控明细表格。
 ![](//mc.qcloudimg.com/static/img/d5c3ffd8172da454680cab941f891297/image.png)
 >**注意：**
 该功能处于内测中，请提工单申请。
@@ -188,16 +188,16 @@ NAT 网关创建后，可以对其属性进行修改。
 
 ### 设置网关流控明细
 您在开启网关流控明细，可设置某个 IP 留向某 NAT 网关的出带宽。
-1.	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
+1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
 2. 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
 3. 点击监控 tab，找到需要设置监控明细的 IP，设置其出带宽限制。
 
 ### 查看网关流控明细
-1.	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
+1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
 2. 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
 3. 点击监控 tab，在网关流控明细表右上方，点击【查看已限制 IP】。
 
-## API概览
+## API 概览
 您可以使用 API 操作来设置和管理您的 NAT 网关，有关更多 VPC 内其他资源的内容，可以查看 [VPC 所有 API 概览](https://www.cloud.tencent.com/doc/api/245/909)。
 
 | 接口功能 | Action ID |  功能描述 |
