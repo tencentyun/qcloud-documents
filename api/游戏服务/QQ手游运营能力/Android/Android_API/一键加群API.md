@@ -1,15 +1,15 @@
-### 一键加群
-#### 功能描述
+
+## 功能描述
 通过调用 Tencent 类的 gameJoinQQGroup 调用绑定群接口。
 >**注意：**
->CGI调用需要登录态！若是没有登录态则不会跳到手Q。
+>CGI 调用需要登录态！若是没有登录态则不会跳到手 Q。
 
-#### 方法原型
+## 方法原型
 
 ```
 public boolean gameJoinGroup(Activity activity, Bundle params)
 ```
-#### 参数说明
+## 参数说明
 
 | 参数名 | 必选/可选 | 类型 |参数说明 |
 |---------|---------|---------|---------|
@@ -17,7 +17,7 @@ public boolean gameJoinGroup(Activity activity, Bundle params)
 | MGameAppOperation.GAME_GUILD_ZONE_ID | 必选 | String|游戏区域 ID |
 | MGameAppOperation.GAME_ROLE_ID | 必选 | String|游戏角色 ID |
 
-#### 实际示例
+## 实际示例
 
 ```
 mTencent = Tencent.createInstance(APPID, this);

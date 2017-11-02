@@ -1,24 +1,22 @@
-### 获取用户信息
 
-#### 功能描述
+
+## 功能描述
+开发者可以通过调用 API 获取 用户的个人信息。
 
 获取用户信息分为两个步骤：
-
-1.发送获取用户信息的请求
-
+1. 发送获取用户信息的请求
 ```
 // _tencentOAuth为TencentOAuth类的实例
 [_tencentOAuth getUserInfo])
 ```
-
- 2.实现协议 TencentSessionDelegate 的获取到用户信息后的回调方法
+2. 实现协议 TencentSessionDelegate 的获取到用户信息后的回调方法
 
 ```
 //可以通过response获取数据的返回结果
 - (void)getUserInfoResponse:(APIResponse*) response;
 ```
 
-#### 方法原型
+## 方法原型
 
 ```
 /**
@@ -29,7 +27,7 @@
 
 ```
 
-#### 实际示例
+## 实际示例
 
 ```
 - (void)getUserInfoResponse:(APIResponse*) response {
