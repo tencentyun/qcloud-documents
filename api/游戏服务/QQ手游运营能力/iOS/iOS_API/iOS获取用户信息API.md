@@ -5,7 +5,6 @@
 
 获取用户信息分为两个步骤：
 1. 发送获取用户信息的请求
-
 ```
 // _tencentOAuth为TencentOAuth类的实例
 [_tencentOAuth getUserInfo])
