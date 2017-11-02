@@ -1,16 +1,15 @@
-### 查询公会是否绑定群
-#### 功能描述
+
+## 功能描述
 通过调用 Tencent 类的 checkBindGroup 调用查询公会是否绑定群接口。
 >**注意：**
->CGI 调用需要登录态！若是没有登录态则不会跳到手Q。
+>CGI 调用需要登录态！若是没有登录态则不会跳到手 Q。
 
-#### 方法原型
+## 方法原型
 
 ```
  public void checkBindGroup(Context context, Bundle params, IUiListener listener)
 ```
-
-#### 参数说明
+## 参数说明
 
 | 参数名 | 必选/可选 | 类型 |参数说明 |
 |---------|---------|---------|---------|
@@ -25,7 +24,7 @@
 |MGameAppOperation.GAME_ROLE_ID | 必选 | String |游戏角色 ID |
 
 
-#### 实际示例
+## 实际示例
 
 ```
 mTencent = Tencent.createInstance(APPID, this);
