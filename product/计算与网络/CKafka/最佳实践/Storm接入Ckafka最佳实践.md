@@ -37,20 +37,6 @@ pom.xml配置如下
   <artifactId>storm</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>storm</name> 
-  	<repositories>
-		<repository>
-		    <id>nexus</id>
-		    <name>Nexus</name>
-		    <layout>default</layout>
-		    <url>xxx</url>
-		    <snapshots>
-		        <enabled>false</enabled>
-		    </snapshots>
-		    <releases>
-		        <enabled>true</enabled>
-		    </releases>
-		</repository>
-	</repositories>
      <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
