@@ -2,6 +2,9 @@
 [点击下载][1]
 
 ## SDK发布日志
+### Version 2.6.0
+1、支持单SDK订阅多个通道2、支持订阅Client的stop，start等操作3、支持DataMessage.Record的序列化4、优化SDK的性能，降低资源消耗
+
 ### Version 2.5.0
 1、修复高并发情况下小概率出现的bug
 2、支持事务中记录的全局唯一自增的ID
@@ -639,4 +642,4 @@ public Boolean isPrimary()
 ##### 抛出异常
 无
 
-[1]:	//mc.qcloudimg.com/static/archive/5e8ccc5e8c2edce6c60b576d0d4fee00/binlogsdk-2.5.0.jar.zip
+[1]:	//mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-2.6.0-release.jar.zip

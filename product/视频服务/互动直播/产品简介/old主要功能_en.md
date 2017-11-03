@@ -22,7 +22,7 @@ Support sharing the whole screen or a specific region of the screen in HD mode (
 
 ### SPEAR Cloud Configuration
 
-Basing on their application scenario, Users can create independent audio, video and network parameter configurations for different platforms and roles, and flexibly customize their traffic control strategy. They can also use default strategies for instant messaging and ILVB, etc.
+Based on their application scenario, users can create independent audio, video and network parameter configurations for different platforms and roles, and flexibly customize their traffic control strategy. They can also use default strategies for instant messaging and ILVB, etc.
 
 ### Cloud Recording
 

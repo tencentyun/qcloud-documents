@@ -1,6 +1,6 @@
 ## 版本说明 
 + **版本相关信息**
-  - 版本号：3.5.2144 @ 2017-10-13
+  - 版本号：3.5.2170 @ 2017-10-27
 
 + **直播相关优化**
   - iOS & Android：引入推流加速技术，当您推流到腾讯云的 rtmp 地址时，可以开启 <font color='purple'>TXLivePushConfig::enableNearestIP</font> 开关，此时SDK会使用 **推流+** 加速后的推流通道传输主播的音视频数据，使推流质量获得较大提升，如下是 SDK 和 其他直播软件的对比效果。（推其他云商请关闭 enableNearestIP 开关）
@@ -52,17 +52,17 @@ table td { height: 35px; }
 
 - **iOS 平台**
 
-<iframe src="https://live.qcloud.com/sdkdownload/iosdownloadlist.html" width=750px height=760px border=0 style=border:none></iframe>
+<iframe src="https://live.qcloud.com/sdkdownload/iosdownloadlist.html" width=980px height=700px border=0 style=border:none></iframe>
 
 - **Android 平台**
 
-<iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=750px height=430px border=0 style=border:none></iframe>
+<iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=750px height=620px border=0 style=border:none></iframe>
 
 - **版本说明**
 
 > 1. 除精简版之外，SDK 各功能版本均打包有 ijkplayer （修复了若干内部BUG），如果您的工程中已使用 ijkplayer，可能会导致符号冲突。为解决这个问题，您可以使用我们经过符号处理的 rename 版 SDK。
 
-> 2. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本（[iOS](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_Rename_iOS_3.5.2144.zip) | [Android](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Enterprise_Android_3.5.2152.zip) ）非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
+> 2. 商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，该版本（[iOS](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_Rename_iOS_3.5.2170.zip) | [Android](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Enterprise_Android_3.5.2170.zip) ）非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
 >  
 > 3. iOS 直播精简版中没有包含软实现的编解码器，SDK 被压缩至最小（安装包体积增量 1M 左右），但此版本不支持 iOS 7.0 及以下系统。
 >  

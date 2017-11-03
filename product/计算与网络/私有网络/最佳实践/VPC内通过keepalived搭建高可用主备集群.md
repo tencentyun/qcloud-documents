@@ -122,6 +122,7 @@ stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主�
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+#注意python代码的缩进须与本文一致
 #以下两行根据 SDK 的安装方式选一
 #     具体参考步骤 6 第 3 点中的代码注释
 #from QcloudApi.qcloudapi import QcloudApi 
@@ -345,6 +346,7 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 #/etc/keepalived/vip.py
 
 """
+#注意python代码的缩进须与本文一致
 pip 安装使用方式：
 	安装好 Python 后执行如下步骤：
 step1: yum install python-pip

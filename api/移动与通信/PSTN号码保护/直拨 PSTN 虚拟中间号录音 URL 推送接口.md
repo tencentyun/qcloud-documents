@@ -16,3 +16,9 @@
 | dstVirtualNum | 必选 | 主叫通讯录直拨虚拟保护号码 | 
 | recordUrl | 必选 | 录音下载 URL | 
 
+**确认响应包必填字段**  
+```
+HTTP/1.1 200 OK
+Content-Type: text/plain;charset=utf-8
+Content-Length: 0
+```

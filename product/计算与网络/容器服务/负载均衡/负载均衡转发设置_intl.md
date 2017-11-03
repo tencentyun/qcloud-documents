@@ -14,7 +14,6 @@ You can create services by the following 4 access options:
 If you forward traffic to the CVM and then to the container by load balancer, you need enable the port for the backend RS of load balancer (the container node). So application-based load balancer is not available for services accessed only within the cluster.
 You can use either Layer-4 or Layer-7 load balancer to set the access to your services. In other words, you can use private network-based and application-based load balancer. So a services can be accessed wither via private or public network to suit your individual business demands.
 
-![Alt text](https://mc.qcloudimg.com/static/img/f7bb858ee09d581494bd4340ce8f82b4/%7B24E3203B-3637-4826-BCFC-74BFBF5A9E1C%7D.png)
 
 ### Configuring Application-based Load Balancer
 If you want to configure application-based load balancer for services, services must be accessed using Layer-4 load balancer or using CVM port for communication. Applicable-based load balancer is not mutually exclusive with private network-based and public network-based load balancer.
