@@ -1,29 +1,32 @@
-# JavaScript SDK 快速入门
+## 开发准备
 
-腾讯云 COS JS SDK（[XML API](https://cloud.tencent.com/document/product/436/7751)）
+### SDK 获取
+对象存储服务的 XML JS SDK 资源下载地址：[XML JS SDK](https://github.com/tencentyun/cos-js-sdk-v5)。
+演示示例 Demo 下载地址：[XML JS SDK Demo](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/demo)。
 
-## get started
-
-### 一、前期准备
+### 开发准备
 
 1. 首先，JS SDk 需要浏览器支持基本的 HTML5 特性，以便支持 ajax 上传文件和计算文件 md5 值。
-2. 到 [COS对象存储控制台](https://console.cloud.tencent.com/cos4) 创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）
-3. 到 [控制台密钥管理](https://console.cloud.tencent.com/capi) 获取您的项目 SecretId 和 SecretKey
+2. 到 [COS 对象存储控制台](https://console.cloud.tencent.com/cos4) 创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）。
+3. 到 [控制台密钥管理](https://console.cloud.tencent.com/capi) 获取您的项目 SecretId 和 SecretKey。
 4. 配置 CORS 规则，配置例子如下图：
-
 ![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
+
+
+> 关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考：[COS 术语信息](https://cloud.tencent.com/document/product/436/7751)
     
-### 二、计算签名
+## 快速入门		
+### 计算签名
 
 由于签名计算放在前端会暴露 SecretId 和 SecretKey，我们把签名计算过程放在后端实现，前段通过 ajax 向后端获取签名结果，正式部署时请再后端加一层自己网站本身的权限检验。
 
 这里提供 [PHP 和 NodeJS 的签名例子](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/)，其他语言，请参照对应的 [XML SDK](https://cloud.tencent.com/document/product/436/6474)
 
-### 三、上传例子
+### 上传例子
 
 1. 创建 test.html，填入下面的代码，修改里面的 Bucket 和 Region。
-2. 部署好后端的签名服务，并修改 getAuthorization 里的签名服务地址
-3. 把 test.html 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传
+2. 部署好后端的签名服务，并修改 getAuthorization 里的签名服务地址。
+3. 把 test.html 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传。
 
 ```html
 <input id="file-selector" type="file">
@@ -75,5 +78,5 @@ npm i cos-js-sdk-v5 --save
 
 ## 其他文档和例子
 
-[更多例子](demo/demo.js)
-[完整文档](https://cloud.tencent.com/document/product/436/11459)
+更多例子请参阅 [XML JS SDK Demo](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/demo)。
+完整接口文档请参阅 [JS SDK 接口文档](https://cloud.tencent.com/document/product/436/11459)。

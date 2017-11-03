@@ -156,6 +156,16 @@ SDK所要求的水印图片格式为png，因为png这种图片格式有透明�
 ```java
 //设置视频水印
 mLivePushConfig.setWatermark(BitmapFactory.decodeResource(getResources(),R.drawable.watermark), 10, 10);
+//后面两个参数分别是水印位置的X轴坐标和Y轴坐标
+mLivePusher.setConfig(mLivePushConfig);
+```
+
+如果您需要对水印图片的位置做机型适配，那么您需要调用水印归一化接口。
+```java
+//设置视频水印
+mLivePushConfig.setWatermark(mBitmap, 0.02f, 0.05f, 0.2f);
+//参数分别是水印图片的 Bitmap、水印位置的X轴坐标，水印位置的Y轴坐标，水印宽度。后面三个参数取值范围是[0, 1]
+//后面两个参数分别是水印位置的X轴坐标和Y轴坐标
 mLivePusher.setConfig(mLivePushConfig);
 ```
 
