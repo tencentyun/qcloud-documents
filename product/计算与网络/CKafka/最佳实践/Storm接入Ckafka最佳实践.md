@@ -39,10 +39,10 @@ pom.xml配置如下
   <name>storm</name> 
   	<repositories>
 		<repository>
-		    <id>nexus-aliyun</id>
-		    <name>Nexus aliyun</name>
+		    <id>nexus</id>
+		    <name>Nexus</name>
 		    <layout>default</layout>
-		    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		    <url>xxx</url>
 		    <snapshots>
 		        <enabled>false</enabled>
 		    </snapshots>
@@ -389,7 +389,7 @@ public class KafkaConsumeTopology {
     }
 }
 ```
-#### 使用trident
+#### 使用 trident
 ```
 //TridentKafkaTopology.java
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -467,7 +467,7 @@ public class TridentKafkaConsumeTopology {
 }
 ```
 
-### 提交Storm
+### 提交 Storm
 使用 mvn package 编译后,可以提交到本地集群进行 debug 测试，也可以提交到正式集群进行运行
 ```bash
 storm jar your_jar_name.jar topology_name

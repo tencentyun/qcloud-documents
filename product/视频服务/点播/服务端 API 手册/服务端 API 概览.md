@@ -507,7 +507,7 @@
         </tr>
 		<tr>
             <td>
-                使用任务流处理视频
+                依照指定流程处理视频文件
             </td>
             <td>
                 <a href="/document/product/266/9045">
