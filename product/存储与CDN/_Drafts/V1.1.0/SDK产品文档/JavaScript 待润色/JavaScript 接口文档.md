@@ -1682,17 +1682,17 @@ cos.sliceUploadFile(params, function(err, data) {
   |   AsyncLimit |    分块的并发量|  String| 否|
   |   StorageClass |   Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE|  String|  否|
   |   TaskReady |   上传任务创建时的回调函数，返回一个 taskId，唯一标识上传任务，可用于上传任务的取消（cancelTask），停止（pauseTask）和重新开始（restartTask）|  Function|否|
-    |   taskId |  上传任务的编号|   String|  否|
-  |   onHashProgress |  计算文件 MD5 值的进度回调函数，回调参数为进度对象 progressData|   Function|否|
-    |   progressData.loaded |  已经校验的文件部分大小，以字节（bytes）为单位|   Number|  否|
-    |   progressData.total |   整个文件的大小，以字节（bytes）为单位|  Number|  否|
-    |   progressData.speed |  文件的校验速度，以字节/秒（bytes/s）为单位|  Number|  否| 
-    |   progressData.percent |  文件的校验百分比，以小数形式呈现，例如：下载 50% 即为 0.5|    Number| 否|
-  |   onProgress |  上传文件的进度回调函数，回调参数为进度对象 progressData|  Function| 否|
-    |   progressData.loaded | 已经上传的文件部分大小，以字节（bytes）为单位|   Number|   否|
-    |   progressData.total |   整个文件的大小，以字节（bytes）为单位|   Number| 否|
-    |   progressData.speed |   文件的上传速度，以字节/秒（bytes/s）为单位|   Number| 否|
-    |   progressData.percent |   文件的上传百分比，以小数形式呈现，例如：下载 50% 即为 0.5|   Number| 否|
+ |   taskId |  上传任务的编号|   String|  否|
+|   onHashProgress |  计算文件 MD5 值的进度回调函数，回调参数为进度对象 progressData|   Function|否|
+ |   progressData.loaded |  已经校验的文件部分大小，以字节（bytes）为单位|   Number|  否|
+ |   progressData.total |   整个文件的大小，以字节（bytes）为单位|  Number|  否|
+|   progressData.speed |  文件的校验速度，以字节/秒（bytes/s）为单位|  Number|  否| 
+|   progressData.percent |  文件的校验百分比，以小数形式呈现，例如：下载 50% 即为 0.5|    Number| 否|
+ |   onProgress |  上传文件的进度回调函数，回调参数为进度对象 progressData|  Function| 否|
+|   progressData.loaded | 已经上传的文件部分大小，以字节（bytes）为单位|   Number|   否|
+ |   progressData.total |   整个文件的大小，以字节（bytes）为单位|   Number| 否|
+|   progressData.speed |   文件的上传速度，以字节/秒（bytes/s）为单位|   Number| 否|
+|   progressData.percent |   文件的上传百分比，以小数形式呈现，例如：下载 50% 即为 0.5|   Number| 否|
 
 #### 回调函数说明
 
@@ -1733,9 +1733,9 @@ cos.cancelTask(taskId);
 
 #### 操作参数说明
 
-|参数名|   参数描述|      类型|  
-|--------|---------|--------|
-|taskId|文件上传任务的编号，在调用 sliceUploadFile 方法时，其 TaskReady 回调会返回该上传任务的 taskId |String|
+|参数名|   参数描述|      类型|  必填|
+|--------|---------|--------|----------|
+|taskId|文件上传任务的编号，在调用 sliceUploadFile 方法时，其 TaskReady 回调会返回该上传任务的 taskId |String|是|
 
 ### Pause Task
 
@@ -1757,9 +1757,9 @@ cos.pauseTask(taskId);
 
 #### 操作参数说明
 
-|参数名|   参数描述|      类型|  
-|--------|---------|--------|
-|taskId|String|文件上传任务的编号，在调用 sliceUploadFile 方法时，其 TaskReady 回调会返回该上传任务的 taskId| 
+|参数名|   参数描述|      类型|  必填|
+|--------|---------|--------|------|
+|taskId|文件上传任务的编号，在调用 sliceUploadFile 方法时，其 TaskReady 回调会返回该上传任务的 taskId| String|是|
 
 
 ### Restart Task
@@ -1783,6 +1783,6 @@ cos.restartTask(taskId);
 
 #### 操作参数说明
 
-|参数名|   参数描述|      类型|  
-|--------|---------|--------|
-|taskId|文件上传任务的编号，在调用 sliceUploadFile 方法时，其 TaskReady 回调会返回该上传任务的 taskId |String|
+|参数名|   参数描述|      类型|  必填|
+|--------|---------|--------|-------|
+|taskId|文件上传任务的编号，在调用 sliceUploadFile 方法时，其 TaskReady 回调会返回该上传任务的 taskId |String|是|
