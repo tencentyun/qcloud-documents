@@ -1,3 +1,21 @@
+v1.1.13  
+[C++\Cocos2D SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Cocos.zip)
+
+[Unity3D SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Unity3D.zip)
+
+[Android SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Android.zip)
+
+[IOS SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS.zip)
+
+[IOS(bitcode) SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS_bitcode.zip)
+
+[Win64 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
+
+[Win32 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
+
+1.噪音优化  
+2.回声优化  
+
 
 v1.1.12 （2017-10-18）   
 [C++\Cocos2D SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Cocos.zip)
