@@ -12,8 +12,4 @@ CCS consists of the following modules:
 - **Container service modules**: The core CCS modules, including addition, deletion, modification and query of clusters and services.
 
 
-### Additional Information
-Tencent Cloud's CCS is built on open-source Kubernetes orchestration framework, allowing you to manage clusters using native Kubernetes API. The corresponding relationship between Tencent Cloud's CCS and Kubernetes resources is shown below:
-
-![Alt text](https://mc.qcloudimg.com/static/img/6aa5ec231df20984395de29641477eb4/Image+056.png)
 
