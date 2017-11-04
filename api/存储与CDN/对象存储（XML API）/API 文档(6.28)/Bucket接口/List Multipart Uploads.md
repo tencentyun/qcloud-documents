@@ -146,7 +146,7 @@ Container 节点 CommonPrefixs 的内容：
 | ------------- | ------------------------------------ | ------------- |
 | InvalidArgument | 400 Bad Request |1. max-uploads 必须是整数，且值介于 0~1000 之间，否则返回 InvalidArgument；<br>2. encoding-type 只能取值 url，否则会返回 InvalidArgument | 
 
-获取更多关于COS的错误码的信息，或者产品所有的错误列表，请查看[错误码](https://cloud.tencent.com/document/product/436/7730)
+获取更多关于COS的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
