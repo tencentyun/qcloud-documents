@@ -61,7 +61,7 @@ http://recognition.image.myqcloud.com/ocr/drivinglicence
 | ------ | ---- | ------ | ------------------------------------- |
 | appid  | 必须   | String | 项目ID                                  |
 | bucket | 必须   | string | 空间名称                                  |
-| type   | 必选   | Int    | 识别类型，0表示行驶证，1表示驾驶证识别，2表示驾驶证副页识别       |
+| type   | 必选   | Int    | 识别类型，0表示行驶证，1表示驾驶证识别                  |
 | image  | 可选   | Binary | 图片内容                                  |
 | url    | 可选   | String | 图片的url, image和url只提供一个即可,如果都提供,只使用url |
 
@@ -137,36 +137,140 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 回包:
 
 ```
-HTTP/1.1 200 OK
-Connection: keep-alive
-Content-Length: 404
-Content-Type: application/json
-
 {
-  "data":{
-"items":[
-  {
-    "item":"姓名",
-    "itemstring":"张三",
-    "itemconf":0.9,
-    "itemcoord":{"x":0,"y":100,"width":40,"height":20},
-  },
-  {
-    "item":"性别",
-    "itemstring":"男",
-    "itemconf":0.8,
-    "itemcoord":{"x":0,"y":80,"width":40,"height":20},
-  }
-
-],
-    "session_id":"",
-  },
-  "code":0,
-  "message":"OK"
+    "code": 0,
+    "message": "OK",
+    "data": {
+        "session_id": "10000018324840",
+        "items": [
+            {
+                "item": "证号",
+                "itemcoord": {
+                    "x": 226,
+                    "y": 66,
+                    "width": 194,
+                    "height": 30
+                },
+                "itemconf": 0.9999638199806212,
+                "itemstring": "342221199005033256"
+            },
+            {
+                "item": "姓名",
+                "itemcoord": {
+                    "x": 84,
+                    "y": 98,
+                    "width": 93,
+                    "height": 26
+                },
+                "itemconf": 0.999157190322876,
+                "itemstring": "张三"
+            },
+            {
+                "item": "性别",
+                "itemcoord": {
+                    "x": 291,
+                    "y": 100,
+                    "width": 23,
+                    "height": 27
+                },
+                "itemconf": 0.9999893307685852,
+                "itemstring": "男"
+            },
+            {
+                "item": "国籍",
+                "itemcoord": {
+                    "x": 388,
+                    "y": 100,
+                    "width": 44,
+                    "height": 28
+                },
+                "itemconf": 0.9999999403953552,
+                "itemstring": "中国"
+            },
+            {
+                "item": "住址",
+                "itemcoord": {
+                    "x": 87,
+                    "y": 126,
+                    "width": 286,
+                    "height": 30
+                },
+                "itemconf": 0.5020201206207275,
+                "itemstring": "深圳市南山区万利达大厦"
+            },
+            {
+                "item": "出生日期",
+                "itemcoord": {
+                    "x": 224,
+                    "y": 195,
+                    "width": 106,
+                    "height": 25
+                },
+                "itemconf": 0.999338924884796,
+                "itemstring": "1990-05-03"
+            },
+            {
+                "item": "领证日期",
+                "itemcoord": {
+                    "x": 249,
+                    "y": 226,
+                    "width": 112,
+                    "height": 26
+                },
+                "itemconf": 0.9999741315841676,
+                "itemstring": "2014-12-25"
+            },
+            {
+                "item": "准驾车型",
+                "itemcoord": {
+                    "x": 262,
+                    "y": 261,
+                    "width": 58,
+                    "height": 27
+                },
+                "itemconf": 0.9999993443489076,
+                "itemstring": "C1"
+            },
+            {
+                "item": "起始日期",
+                "itemcoord": {
+                    "x": 122,
+                    "y": 291,
+                    "width": 111,
+                    "height": 26
+                },
+                "itemconf": 0.9859412312507628,
+                "itemstring": "2014-12-25"
+            },
+            {
+                "item": "有效日期",
+                "itemcoord": {
+                    "x": 266,
+                    "y": 294,
+                    "width": 113,
+                    "height": 27
+                },
+                "itemconf": 0.9921129941940308,
+                "itemstring": "2020-12-25"
+            },
+            {
+                "item": "红章",
+                "itemcoord": {
+                    "x": 52,
+                    "y": 186,
+                    "width": 110,
+                    "height": 100
+                },
+                "itemconf": 0.9392985105514526,
+                "itemstring": "深圳市公安局交通管理局"
+            }
+        ]
+    }
 }
+
 ```
 
- 
+
 
 ## 4.  返回码
 
@@ -196,7 +300,10 @@ Content-Type: application/json
 | -1301 | 参数为空                     |
 | -1304 | 参数过长                     |
 | -1308 | 图片下载失败                   |
-| -9002 | OCR识别失败                  |
+| -9001 |请求 type 错误，不是 0，1|
+| -9002 | 识别失败|
+|-9005|  图片无效|
+|-9006 | 预处理失败|
 
  
 

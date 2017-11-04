@@ -8,7 +8,8 @@ OCR接口采用http协议，支持指定图片URL和上传本地图片文件两�
 ## 2. 接口描述
 
 银行卡 OCR 识别，根据用户上传的银行卡图像，返回识别出的银行卡字段信息。
-接口：http://recognition.image.myqcloud.com/ocr/creditcardocr
+接口：http://recognition.image.myqcloud.com/ocr/bankcard
+
 方法：POST
 
 ## 3. 银行卡 OCR
@@ -26,11 +27,11 @@ OCR接口采用http协议，支持指定图片URL和上传本地图片文件两�
 
 #### 请求包体
 
-| 参数名称       | 必选   | 类型            | 描述                                       |
-| ---------- | ---- | ------------- | ---------------------------------------- |
-| appid     | 必须   | String        | 腾讯云的 AppID                               |
-| image      | 可选   | binary | 图片内容                     |
-| url        | 可选   | String        | 图片的url,image和url只提供一个即可，如果都提供，只使用url                                    |
+| 参数名称  | 必选   | 类型     | 描述                                   |
+| ----- | ---- | ------ | ------------------------------------ |
+| appid | 必须   | String | 腾讯云的 AppID                           |
+| image | 可选   | binary | 图片内容                                 |
+| url   | 可选   | String | 图片的url,image和url只提供一个即可，如果都提供，只使用url |
 
 #### 示例—使用图片URL
 
@@ -81,19 +82,19 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 返回字段为一个json数组，其中每一项的内容如下：
 
-| 参数         | 类型     | 说明                                       |
-| ---------- | ------ | ---------------------------------------- |
-| code  | Int    | 返回值                                    |
-| message   | String | 返回消息                                   |
-| data | Object | 返回数据                |
-|session_id| String |相应请求的 session 标识符，可用于结果查询|
-| items | json数组 | 具体查询数据，内容见下表 |
+| 参数         | 类型     | 说明                        |
+| ---------- | ------ | ------------------------- |
+| code       | Int    | 返回值                       |
+| message    | String | 返回消息                      |
+| data       | Object | 返回数据                      |
+| session_id | String | 相应请求的 session 标识符，可用于结果查询 |
+| items      | json数组 | 具体查询数据，内容见下表              |
 
 
 items（json数组）中每一项的具体内容：
 
-| 参数    | 类型     | 描述           |
-| ----- | ------ | ------------ |
+| 参数         | 类型     | 描述                                       |
+| ---------- | ------ | ---------------------------------------- |
 | item       | String | 字段名称                                     |
 | itemstring | String | 字段结果                                     |
 | itemcoord  | Object | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width, height |
