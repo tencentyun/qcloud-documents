@@ -35,7 +35,7 @@
 | appid     | 必选    | string | 项目ID         |
 | bucket    | 必选    | string | 图片空间         |
 | ret_image | 必选    | int    | 0 不返回图片，1 返回图片 |
-| url_list  | 必选    | string 数组 | 图片url列表      |
+| url_list  | 必选    | string 数组 | 图片 url 列表      |
 
 ### 返回内容
 | 字段          | 类型     | 说明           |
@@ -63,7 +63,7 @@ data字段具体内容
 | uin_confidence   | double | QQ号置信度，取值范围[0.0,100.0]                        |
 
 ><font color="#0000cc">**注意：** </font>
->如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1。
+>如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
 
 ### 示例
@@ -135,7 +135,7 @@ Content-Type: "application/json"
 | appid     | 必选    | uint        | 项目ID                                     |
 | bucket    | 必选    | string      | 图片空间                                     |
 | ret_image | 必选    | int         | 0 不返回图片，1 返回图片                             |
-| image     | 必选    | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等image开头的字符串。响应http body中会按照该字符串的字典序排列。每张图片需指定filename，filename的值为可为空，响应http body中会返回用户设置的filename值。 |
+| image     | 必选    | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
 ### 返回内容
 

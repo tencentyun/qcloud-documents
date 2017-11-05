@@ -36,7 +36,7 @@
 | appid     | 必选    | string | 项目ID         |
 | bucket    | 必选    | string | 图片空间         |
 | ret_image | 必选    | int    | 0 不返回图片，1 返回图片 |
-| url_list  | 必选    | string 数组 | 图片url列表      |
+| url_list  | 必选    | string 数组 | 图片 url 列表      |
 
 
 ### 返回内容
@@ -84,7 +84,7 @@ data 字段具体内容（身份证反面）
 
 
 ><font color="#0000cc">**注意：** </font>
->如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1。
+>如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
 ### 示例
 
@@ -225,7 +225,7 @@ data 字段具体内容（身份证有照片的一面）：
 | id_confidence_all      | array(int) | 身份证号置信度，取值范围[0,100] |
 
 ><font color="#0000cc">**注意：** </font>
->如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1。
+>如未识别出某字段（如 name），则该字段对应的置信度（如 name_confidence）为-1。
 
 data 字段具体内容（身份证反面）：
 
@@ -237,7 +237,7 @@ data 字段具体内容（身份证反面）：
 | valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
 
 ><font color="#0000cc">**注意：** </font>
->如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1。
+>如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
 
 ### 示例
