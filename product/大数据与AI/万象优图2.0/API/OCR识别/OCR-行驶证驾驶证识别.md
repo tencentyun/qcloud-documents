@@ -85,7 +85,7 @@ Item说明
 
 ## 示例
 
-###使用url的请求包
+### 使用 url 的请求包
 
 ```
 POST /ocr/drivinglicence HTTP/1.1
@@ -102,7 +102,7 @@ Content-Type: application/json
 }
 ```
 
-### 使用image的请求包
+### 使用 image 的请求包
 
 ```
 POST /ocr/drivinglicence HTTP/1.1
