@@ -65,13 +65,13 @@ data 字段具体内容（身份证有照片的一面）
 | address                | string     | 地址      |
 | id                     | string     | 身份证号    |
 | frontimage  | string(bytes)| OCR 识别的身份证正面照片（card_type 为0时返回）|
-| name_confidence_all    | array(int) | 证件姓名置信度 |
-| sex_confidence_all     | array(int) | 性别置信度   |
-| nation_confidence_all  | array(int) | 民族置信度   |
-| birth_confidence_all   | array(int) | 出生日期置信度 |
-| address_confidence_all | array(int) | 地址置信度   |
-| id_confidence_all      | array(int) | 身份证号置信度 |
-|frontimage_confidence_all| array(int)| 正面照片置信度|
+| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0.0,100.0]  |
+| sex_confidence_all     | array(int) | 性别置信度，取值范围[0.0,100.0]    |
+| nation_confidence_all  | array(int) | 民族置信度，取值范围[0.0,100.0]    |
+| birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0.0,100.0]  |
+| address_confidence_all | array(int) | 地址置信度，取值范围[0.0,100.0]    |
+| id_confidence_all      | array(int) | 身份证号置信度,，取值范围[0.0,100.0]  |
+|frontimage_confidence_all| array(int)| 正面照片置信度，取值范围[0.0,100.0] |
 
 data 字段具体内容（身份证反面）
 
@@ -79,11 +79,12 @@ data 字段具体内容（身份证反面）
 | ------------------------- | ---------- | -------- |
 | authority                 | string     | 发证机关     |
 | valid_date                | string     | 证件有效期    |
-| authority_confidence_all  | array(int) | 发证机关置信度  |
-| valid_date_confidence_all | array(int) | 证件有效期置信度 |
+| authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0.0,100.0]   |
+| valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0.0,100.0]  |
+
 
 ><font color="#0000cc">**注意：** </font>
->置信度的值为区间在 [0,100] 的整数。
+>如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1。
 
 ### 示例
 
@@ -216,12 +217,15 @@ data 字段具体内容（身份证有照片的一面）：
 | birth                  | string     | 出生日期    |
 | address                | string     | 地址      |
 | id                     | string     | 身份证号    |
-| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0.0,100.0]|
-| sex_confidence_all     | array(int) | 性别置信度，取值范围[0.0,100.0]   |
-| nation_confidence_all  | array(int) | 民族置信度，取值范围[0.0,100.0]   |
-| birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0.0,100.0] |
-| address_confidence_all | array(int) | 地址置信度，取值范围[0.0,100.0]   |
-| id_confidence_all      | array(int) | 身份证号置信度，取值范围[0.0,100.0] |
+| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0,100]|
+| sex_confidence_all     | array(int) | 性别置信度，取值范围[0,100]]   |
+| nation_confidence_all  | array(int) | 民族置信度，取值范围[0,100]   |
+| birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0,100] |
+| address_confidence_all | array(int) | 地址置信度，取值范围[0,100]  |
+| id_confidence_all      | array(int) | 身份证号置信度，取值范围[0,100] |
+
+><font color="#0000cc">**注意：** </font>
+>如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1。
 
 data 字段具体内容（身份证反面）：
 
@@ -229,8 +233,11 @@ data 字段具体内容（身份证反面）：
 | ------------------------- | ---------- | -------- |
 | authority                 | string     | 发证机关     |
 | valid_date                | string     | 证件有效期    |
-| authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0.0,100.0]  |
-| valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0.0,100.0] |
+| authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]  |
+| valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
+
+><font color="#0000cc">**注意：** </font>
+>如未识别出某字段（如name），则该字段对应的置信度（如name_confidence）为-1。
 
 
 ### 示例

@@ -77,7 +77,7 @@ Item说明
 | ---------- | ------ | ------ | --------- |
 | item       |        | string | 字段名称      |
 | itemstring |        | string | 字段内容      |
-| itemconf   |        | float  | 字段识别结果置信度 |
+| itemconf   |        | float  | 字段识别结果置信度[0.0, 100.0] |
 | itemcoord  | x      | int    | item 框左上角 x |
 |            | y      | int    | item 框左上角 y |
 |            | width  | int    | item 框宽度   |
@@ -289,7 +289,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | 23    | 请求包体过大                   |
 | 24    | 没有权限                     |
 | 25    | 您购买的资源已用完                |
-| 107   | 鉴权服务不可用                  |
+| 107   | 鉴权服务内部错误                  |
 | 108   | 鉴权服务不可用                  |
 | 213   | 内部错误                     |
 | -1102 | 图片解码失败                   |

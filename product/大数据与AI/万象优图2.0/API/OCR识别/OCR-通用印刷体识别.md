@@ -51,8 +51,8 @@
 | --------------- | ----------- | --------------- |
 | data.session_id | string      | 相应请求的 session 标识符 |
 | data.items      | array(item) | 识别出的所有字段信息      |
-| code            | int         | 返回码             |
-| message         | string      | 返回错误信息          |
+| code            | int         | 错误码             |
+| message         | string      | 错误描述         |
 
 Item说明
 
@@ -70,7 +70,7 @@ word说明
 | 字段         | 类型     | 说明      |
 | ---------- | ------ | ------- |
 | character  | string | 单字的内容   |
-| confidence | float  | 这个字的置信度 |
+| confidence | float  | 这个字的置信度,取值范围[0.0,100.0] |
 
 ## 示例
 
@@ -148,11 +148,11 @@ Content-Type: application/json
 | 3     | 错误的请求                    |
 | 4     | 签名为空                     |
 | 5     | 签名串错误                    |
-| 6     | 签名中的appid/bucket与操作目标不匹配 |
+| 6     | 签名中的 appid/bucket 与操作目标不匹配 |
 | 9     | 签名过期                     |
-| 10    | appid不存在                 |
-| 11    | secretid不存在              |
-| 12    | appid和secretid不匹配        |
+| 10    | appid 不存在                 |
+| 11    | secretid 不存在              |
+| 12    | appid 和 secretid 不匹配        |
 | 13    | 重放攻击                     |
 | 14    | 签名校验失败                   |
 | 15    | 操作太频繁，触发频控               |
@@ -161,13 +161,13 @@ Content-Type: application/json
 | 23    | 请求包体过大                   |
 | 24    | 没有权限                     |
 | 25    | 您购买的资源已用完                |
-| 107   | 鉴权服务不可用                  |
+| 107   | 鉴权服务内部错误                  |
 | 108   | 鉴权服务不可用                  |
 | 213   | 内部错误                     |
 | -1102 | 图片解码失败                   |
 | -1300 | 图片为空                     |
 | -1301 | 参数为空                     |
 | -1304 | 参数过长                     |
-| -9003 | OCR识别失败                  |
+| -9003 | OCR 识别失败                  |
 
 更多其他 API 错误码请看[**错误码说明**](/document/product/460/8523) 。
