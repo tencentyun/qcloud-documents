@@ -79,8 +79,8 @@ data 字段具体内容（身份证反面）
 | ------------------------- | ---------- | -------- |
 | authority                 | string     | 发证机关     |
 | valid_date                | string     | 证件有效期    |
-| authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0.0,100.0]   |
-| valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0.0,100.0]  |
+| authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]   |
+| valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100]  |
 
 
 ><font color="#0000cc">**注意：** </font>
