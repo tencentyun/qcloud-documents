@@ -67,7 +67,7 @@ items（ json 数组）中每一项的具体内容：
 | ------- | ------ | ---- |
 | code    | int    | 错误码  |
 | message | string | 错误描述 |
-| data    | Object | 返回数据 |
+| data    | object | 返回数据 |
 
 ## 示例
 
