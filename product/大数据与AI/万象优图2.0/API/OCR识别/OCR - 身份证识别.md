@@ -65,13 +65,13 @@ data 字段具体内容（身份证有照片的一面）
 | address                | string     | 地址      |
 | id                     | string     | 身份证号    |
 | frontimage  | string(bytes)| OCR 识别的身份证正面照片（card_type 为0时返回）|
-| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0.0,100.0]  |
-| sex_confidence_all     | array(int) | 性别置信度，取值范围[0.0,100.0]    |
-| nation_confidence_all  | array(int) | 民族置信度，取值范围[0.0,100.0]    |
-| birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0.0,100.0]  |
-| address_confidence_all | array(int) | 地址置信度，取值范围[0.0,100.0]    |
-| id_confidence_all      | array(int) | 身份证号置信度,，取值范围[0.0,100.0]  |
-|frontimage_confidence_all| array(int)| 正面照片置信度，取值范围[0.0,100.0] |
+| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0,100]  |
+| sex_confidence_all     | array(int) | 性别置信度，取值范围[0,100]    |
+| nation_confidence_all  | array(int) | 民族置信度，取值范围[0,100]    |
+| birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0,100]  |
+| address_confidence_all | array(int) | 地址置信度，取值范围[0,100]   |
+| id_confidence_all      | array(int) | 身份证号置信度,，取值范围[0,100]  |
+|frontimage_confidence_all| array(int)| 正面照片置信度，取值范围[0,100] |
 
 data 字段具体内容（身份证反面）
 
