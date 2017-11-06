@@ -65,8 +65,9 @@ Spark 要分析 COS 上的数据前提是您购买的 EMR 集群在创建的时�
 - 打包项目(mvn package)并上传到 EMR 集群中(sftp，scp 等文件传输工具)
 
 - 提交任务
-  ``` shell
+  
+  <pre>
   park-submit --class me.minusli.learning.spark.WordCountOnCOS --master
   yarn-cluster sparkstreaming-1.0-SNAPSHOT-jar-with-dependencies.jar
   cosn://huadong/logs/yarn/yarn.log cosn://huadong/logs/spark-on-cos-result
-  ```
+  </pre>

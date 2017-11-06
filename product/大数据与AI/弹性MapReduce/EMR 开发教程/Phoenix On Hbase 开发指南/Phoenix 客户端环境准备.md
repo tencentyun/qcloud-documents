@@ -10,9 +10,9 @@ EMR Phoenix 编译的是 4.8.1 版本，首先下载一个 phoenix-4.8.1-HBase-1
 
 切换成 Hadoop 用户，使用 Phoenix 的 python 命令行工具：
 
-    ``` shell
-    ./sqlline.py
-    ```
+``` 
+./sqlline.py
+```
 
 成功后会显示成这种方式：
 
