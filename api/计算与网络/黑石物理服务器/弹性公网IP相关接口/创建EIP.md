@@ -8,11 +8,11 @@ EipBmApply 接口用于创建黑石弹性公网IP。创建成功后，便可以�
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmApply
+	Action=EipBmApply
 	&<公共请求参数>
 	&goodsNum=<创建的EIP数量>
 	&payMode=<计费模式>
-	&vpcId=<VPC的ID>
+	&unVpcId=<VPC的ID>
 ```
 ### 请求参数
 
@@ -23,7 +23,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 | goodsNum | 否 | Int | 创建的EIP数量，默认为1，最大20 |
 | payMode | 否 | String | 创建的EIP计费模式，"flow"：流量计费；"bandwidth"：带宽计费（单位：MB）|
 | bandwidth | 否 | Int | EIP为带宽计费时，此参数才有效。表示EIP最大带宽（单位：MB，当前最大为1000MB）|
-| vpcId | 是 | Int | 申请的EIP归属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得 |
+| unVpcId | 是 | String | EIP归属的VPC的标识，格式形如：vpc-k7j1t2x1，可通过[查询私有网络列表](/document/product/386/6646)返回的字段unVpcId获得 |
 
  > 平台对用户每地域能申请的EIP最大配额有所限制。上述配额可通过[查询EIP限额](/document/product/386/6668)接口获取。
 
@@ -82,7 +82,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Region=bj
 	&goodsNum=1
 	&payMode=flow
-	&vpcId=1025
+	&unVpcId=vpc-k7j1t2x1
 	&Signature=TX6qOTgRhljuPI%2BqHdfo6O%2FunlE%3D
 ```
 

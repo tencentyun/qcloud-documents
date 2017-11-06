@@ -22,7 +22,7 @@ The location where you can view the temporary instances:
 ![](//mccdn.qcloud.com/img568a306e4cc5a.png)
 
 ## 3. Instance Switchover
-Instance switchover feature is used to switch a temporary instance to an existing network environment. If the data is successfully rolled back to an temporary instance, you can perform a switchover. At this point, the private network connection between the original instance and the temporary instance is changed.
+Instance switchover feature is used to switch a temporary instance to an existing network environment. If the data is successfully rolled back to a temporary instance, you can perform a switchover. At this point, the private network connection between the original instance and the temporary instance is changed.
 - The instance generated from the existing network may encounter a brief disconnection (1 second) during the switchover process.
 - When the switchover is completed, the instance generated originally is deleted.
 - After the switchover, the temporary instance is replaced with the instance generated from the existing network, and the original temporary instance is deleted as well. 

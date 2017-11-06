@@ -1,14 +1,17 @@
 # iLiveSDK版本更新
 
-## `iLiveSDK Android V1.7.0(2017-09-25)`
-* 更新AVSDK 1.9.5.9
-* 优化旋转切换前后置闪屏问题
-* 添加进房前摄像头预览分辨率及FPS设置
-* 添加进房后摄像头预览接口
+## `iLiveSDK Android V1.7.2(2017-10-30)`
+ - 更新AVSDK 1.9.5.12 (修复退房回调中stopContext异常)
+ - ILiveSDK中添加setCaptureMode(配置是否需要悬浮窗权限)
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
-## `iLiveSDK iOS V1.7.0.11812(2017-09-25)`
+## `iLiveSDK iOS V1.7.1.12078(2017-10-30)`
+* 修改上麦接口，将role参数改成option参数，方便相机和麦克风配置
+* 推流接口参数配置，增加recordId（“客户端手动推流，自动录制” 时，录制文件在后台可以用recordId来识别），增加字段pushSvrType（推流server类型），在当前版本中使用默认值。
+* 修复在磁盘空间不足时，日志模块crash问题
+* 修复cocos2d渲染和ilivesdk渲染冲突的问题
+* 去掉TILLiveSDK内部的pch文件
 * 增加极速模式
 * 增加预览接口
 * 增加预览分辨率设置

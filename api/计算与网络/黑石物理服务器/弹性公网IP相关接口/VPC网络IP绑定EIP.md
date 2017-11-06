@@ -10,10 +10,10 @@ EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非�
 
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	&Action=EipBmBindVpcIp
+	Action=EipBmBindVpcIp
 	&<公共请求参数>
 	&eipId=<EIP实例ID>
-	&vpcId=<vpc数字ID>
+	&unVpcId=<vpc的ID>
 	&vpcIp=<内网IP>
 ```
 
@@ -24,7 +24,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
 | eipId | 是 | String | EIP实例ID，格式形如：eip-testid |
-| vpcId | 是 | Int | IP所属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
+| unVpcId | 是 | String | EIP归属的VPC的标识，格式形如：vpc-k7j1t2x1，可通过[查询私有网络列表](/document/product/386/6646)返回的字段unVpcId获得 |
 | vpcIp | 是 | String | VPC内IP，此IP地址必须通过[申请内网IP接口](/document/product/386/7337)申请获得或者通过[注册子网IP](/document/product/386/7925)接口注册，否则无法绑定EIP|
 
 ## 响应
@@ -86,7 +86,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Timestamp=1507728683
 	&Region=bj
 	&eipId=eip-kpge33wo
-	&vpcId=1025
+	&unVpcId=vpc-k7j1t2x1
 	&vpcIp=10.1.1.2
 	&Signature=ohpWkOBXHyE11XgK2KIH%2F14bMrc%3D
 ```

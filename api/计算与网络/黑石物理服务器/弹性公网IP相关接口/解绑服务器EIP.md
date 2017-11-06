@@ -9,8 +9,8 @@ EipBmUnbindRs 接口用于解绑黑石物理服务器上的弹性公网EIP。需
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
+	Action=EipBmUnbindRs
 	&<公共请求参数>
-	&Action=EipBmUnbindRs
 	&eipId=<EIP实例ID>
 	&instanceId=<黑石物理服务器实例ID>
 ```

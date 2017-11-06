@@ -60,9 +60,9 @@ iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一�
 
 | 参数名称          | 类型           | 是否必填 | 说明                                       |
 | ------------- | ------------ | ---- | ---------------------------------------- |
-| appId         | NSString *   | 是    | 项目 ID，即 `APP ID`  |
-| sid         | NSString *   | 是    | 项目的 `SecretID`  |
-| pid         | NSString *   | 是    | 项目的 `ProjectID`  |
+| appId         | NSString *   | 是    | 项目 ID，即 APPID  |
+| sid         | NSString *   | 是    | 项目的 SecretID |
+| pid         | NSString *   | 是    | 项目的 ProjectID  |
 
 
 ### STEP1：初始化 QCloudAAIClient

@@ -27,7 +27,7 @@ Authorization: Auth
 
 ```JSON
 {
-  "Policy":"String"
+  "policy":"String"
 }
 ```
 

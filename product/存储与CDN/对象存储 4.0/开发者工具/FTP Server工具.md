@@ -1,4 +1,4 @@
-COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。
+COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
 ## 使用环境
 ### 系统环境
 操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
@@ -10,7 +10,7 @@ Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](/doc/pr
 - pyftpdlib(included)
 
 ### 下载与安装
-下载链接：[COS FTP Server 工具](https://mc.qcloudimg.com/static/archive/02732b3693a90b8b6f4d7f01a40801b3/cos-ftp-server-V5-master.zip)。
+GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-server-V5)。
 
 下载完成后，直接运行`cos ftp server`目录下的`setup.py`即可，需要联网安装依赖库。
 ```
@@ -18,7 +18,7 @@ python setup.py install   # 这里可能需要sudo或者root权限
 ```
 
 ### 使用限制
-适用于 COS V5 版本
+适用于 COS V5 版本 XML 接口
 
 ## 功能说明
 #### 上传机制
@@ -77,6 +77,8 @@ masquerade_address = XXX.XXX.XXX.XXX
 # 当 FTP Server 处于某个网关或 NAT 后时，可以通过该配置项将网关的 IP 地址或域名指定给 FTP Server。一般情况下，无需配置。
 listen_port = 2121
 # Ftp Server 的监听端口，默认为 2121，请注意防火墙需要放行该端口。
+passive_ports = 60000,65535             
+# passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择。
 
 [FILE_OPTION]
 single_file_max_size = 21474836480
