@@ -4,7 +4,9 @@
 
 - 需要后端CVM同步开启GZIP支持
 对于常见的Nginx服务容器，必须在其配置文件（默认为nginx.conf）中，开启GZIP并重启服务
-```gzip on;```
+```
+gzip on;
+```
 - 当前负载均衡支持的文件类型如下，您可以在gzip_types配置项中指定文件类型进行压缩
 ```
 application/atom+xml application/javascript application/json application/rss+xml application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/svg+xml image/x-icon text/css text/plain text/x-component;
