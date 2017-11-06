@@ -1,80 +1,72 @@
 ## 开发准备
-
 ### 相关资源
+对象存储的 XML C SDK 资源下载地址：
+- [GitHub 项目（to be updated）](https://github.com/tencentyun/cos-c-sdk-v5)
+- [本地下载（to be updated）](https://mc.qcloudimg.com/static/archive/2549fea204187b28d05fb1ac470f49d4/cos-c-sdk-v5-master.zip)
 
-[cos c sdk v5 github项目(to be updated)](https://github.com/tencentyun/cos-c-sdk-v5)
-
-[C SDK本地下载(to be updated)](https://mc.qcloudimg.com/static/archive/2549fea204187b28d05fb1ac470f49d4/cos-c-sdk-v5-master.zip)
-
-[C SDK Demo参考(to be updated)](https://github.com/tencentyun/cos-c-sdk-v5/cos_c_sdk_test/cos_demo.c)
+演示示例 Demo 下载地址：
+- [XML C SDK Demo（to be updated）](https://github.com/tencentyun/cos-c-sdk-v5/cos_c_sdk_test/cos_demo.c)
 
 ### 开发环境
-
-1. 安装cmake工具（建议2.6.0及以上版本），点击[这里](http://www.cmake.org/download/)下载，典型安装方式如下：
+1. 安装 CMake 工具（建议 2.6.0 及以上版本），点击 [这里](http://www.cmake.org/download/) 下载，典型安装方式如下：
 ```bash
 ./configure
 make
 make install
 ```
-2. libcurl（建议 7.32.0 及以上版本），点击[这里](http://curl.haxx.se/download.html?spm=5176.doc32132.2.7.23MmBq)下载，典型安装方式如下：
+2. 安装 libcurl（建议 7.32.0 及以上版本），点击 [这里](http://curl.haxx.se/download.html?spm=5176.doc32132.2.7.23MmBq) 下载，典型安装方式如下：
 ```bash
 ./configure
 make
 make install
 ```
-3. apr（建议 1.5.2 及以上版本），点击[这里](https://apr.apache.org/download.cgi?spm=5176.doc32132.2.9.23MmBq&file=download.cgi)下载，典型安装方式如下：
+3. 安装 apr（建议 1.5.2 及以上版本），点击 [这里](https://apr.apache.org/download.cgi?spm=5176.doc32132.2.9.23MmBq&file=download.cgi) 下载，典型安装方式如下：
 ```bash
 ./configure
 make
 make install
 ```
-4. apr-util（建议 1.5.4 及以上版本），点击[这里](https://apr.apache.org/download.cgi?spm=5176.doc32132.2.10.23MmBq&file=download.cgi)下载，安装时需要指定—with-apr选项，典型安装方式如下：
+4. 安装 apr-util（建议 1.5.4 及以上版本），点击 [这里](https://apr.apache.org/download.cgi?spm=5176.doc32132.2.10.23MmBq&file=download.cgi) 下载，安装时需要指定— with-apr 选项，典型安装方式如下：
 ```bash
 ./configure --with-apr=/your/apr/install/path
 make
 make install
 ```
-5. minixml（建议 2.8 及以上版本），点击[这里](http://www.msweet.org/downloads.php?spm=5176.doc32132.2.11.23MmBq&L+Z3)下载，典型安装方式如下：
+5. 安装 minixml（建议 2.8 及以上版本），点击 [这里](http://www.msweet.org/downloads.php?spm=5176.doc32132.2.11.23MmBq&L+Z3) 下载，典型安装方式如下：
 ```bash
 ./configure
 make
 sudo make install
 ```
 
-### 安装SDK
-
-- 源码安装
-
-从[cos c sdk v5 github项目(to be updated)](https://github.com/tencentyun/cos-c-sdk-v5)下载源码，典型编译命令如下：
+### 安装 SDK
+源码安装。从 [GitHub](https://github.com/tencentyun/cos-c-sdk-v5) 下载源码，典型编译命令如下：
 ```bash
 cmake .
 make
 make install
 ```
 
-## SDK初始化
-
-### 初始化SDK运行环境
-
+## SDK 初始化
+### 初始化 SDK 运行环境
 ```cpp
 int main(int argc, char *argv[])
 {
-    /* 程序入口处调用cos_http_io_initialize方法，这个方法内部会做一些全局资源的初始化，涉及网络，内存等部分 */
+    /* 程序入口处调用 cos_http_io_initialize 方法，这个方法内部会做一些全局资源的初始化，涉及网络，内存等部分 */
     if (cos_http_io_initialize(NULL, 0) != AOSE_OK) {
         exit(1);
     }
 
-    /* 调用COS SDK的接口上传或下载文件 */
+    /* 调用 COS SDK 的接口上传或下载文件 */
     /* ... 用户逻辑代码，这里省略 */
 
-    /* 程序结束前，调用cos_http_io_deinitialize方法释放之前分配的全局资源 */
+    /* 程序结束前，调用 cos_http_io_deinitialize 方法释放之前分配的全局资源 */
     cos_http_io_deinitialize();
     return 0;
 }
 ```
 
 ### 初始化请求选项
-
 ```cpp
     /* 等价于apr_pool_t，用于内存管理的内存池，实现代码在apr库中 */
     cos_pool_t *pool;
@@ -102,18 +94,18 @@ int main(int argc, char *argv[])
     options->ctl = cos_http_controller_create(options->pool, 0);
 ```
 
-##  SDK一般使用流程
+##  SDK 一般使用流程
+1. 初始化 SDK。
+2. 设置请求选项参数。
+关于 APPID、SecretId、SecretKey、Bucket 等名称的含义和获取方式请参考 [COS 术语信息](/document/product/436/7751)。
+  *  APPID 是申请腾讯云账户后，系统分配的账户标识之一。
+  * access_key_id 与 access_key_secret 是账户 API 密钥。
+  * endpoint 是 COS 访问域名信息，可以通过腾讯云[【COS 可用地域】](/document/product/436/6224) 页面查看。
+  例如，广州地区 endpoint 为 cos.ap-guangzhou.myqcloud.com。
+3. 设置 API 接口必需的参数。
+4. 调用 SDK API 发起请求并获得请求响应结果。
 
-1. 初始化SDK
-2. 设置请求选项参数
-  * appid是申请腾讯云账户后，系统分配的账户标识之一，可以通过[腾讯云控制台【账号信息】](https://console.cloud.tencent.com/developer)页面查看
-  * access_key_id与access_key_secret是账户API秘钥，可以通过[腾讯云控制台【云API秘钥】](https://console.cloud.tencent.com/capi)页面获取
-  * endpoint是COS访问域名信息，可以通过腾讯云[【COS可用地域】](https://cloud.tencent.com/document/product/436/6224)页面查看。例如，广州地区endpoint为cos.ap-guangzhou.myqcloud.com
-3. 设置API接口必需的参数
-4. 调用SDK API发起请求并获得请求响应结果
-
-### 创建Bucket
-
+### 创建 Bucket
 ```cpp
     cos_pool_t *p = NULL;
     int is_cname = 0;
@@ -155,7 +147,6 @@ int main(int argc, char *argv[])
 ```
 
 ### 上传文件
-
 ```cpp
     cos_pool_t *p = NULL;
     int is_cname = 0;
@@ -200,7 +191,6 @@ int main(int argc, char *argv[])
 ```
 
 ### 下载文件
-
 ```cpp
     cos_pool_t *p = NULL;
     int is_cname = 0;
@@ -243,4 +233,3 @@ int main(int argc, char *argv[])
     //destroy memory pool
     cos_pool_destroy(p); 
 ```
-
