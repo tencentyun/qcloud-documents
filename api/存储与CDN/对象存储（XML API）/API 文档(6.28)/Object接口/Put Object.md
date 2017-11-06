@@ -50,6 +50,7 @@ PUT /<ObjectName> HTTP/1.1
 | Expires |RFC 2616 中定义的过期时间，将作为 Object 元数据保存 |String| 否|
 | x-cos-meta- * | 允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K |String| 否|
 | x-cos-storage-class  | 设置 Object 的存储级别，枚举值：STANDARD,STANDARD_IA，NEARLINE，默认值：STANDARD |String| 否|
+|Content-MD5|RFC 1864 中定义对消息内容（不包括头部）计算 MD5 值获得 128 比特位数字，对该数字进行 base64 编码为一个消息的 Content-MD5 值。该请求头可用于检查数据是否与发送时一致。虽然该请求头是可选的，但我们建议使用该请求头进行端到端检查|String| 否|
 
 **权限相关头部**
 该请求操作的实现可以用 Put 请求中的 x-cos-acl 头来设置 Object 访问权限。有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
