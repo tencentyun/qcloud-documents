@@ -32,7 +32,7 @@ The security level of storage of account and password is the same with that of Q
 ## 2. Download Development Documents
 
 [TLS SDK Development Manual (Android)](http://share.weiyun.com/5354e32c0206943193eb3516173efc5d)
-[TLS SDK Development Manual (iOS)](http://share.weiyun.com/c422eeec71523c2d706754ed923b6602)
+[TLS SDK Development Manual (IOS)](http://share.weiyun.com/c422eeec71523c2d706754ed923b6602)
 
 ## 3. Contact Us
 
