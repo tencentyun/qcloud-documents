@@ -110,8 +110,8 @@ enableSilentDetect| boolean | 否 | 是否开启静音检测，开启后说话�
 enableFirstAudioFlow|boolean |否|是否开启检测说话启始超时，开启后超时会自动停止录音|false
 enableNextAudioFlow|boolean|否|是否开启检测说话结束超时，开启后超时会自动停止录音|false
 minAudioFlowSilenceTime|int|否|两个语音流最短分割时间|1500ms
-maxAudioFlowSilenceTime|int|否|说话启始超时时间|5000ms
-maxAudioStartSilenceTime|int|否|说话启始超时时间|5000ms
+maxAudioFlowSilenceTime|int|否|语音终点超时时间|10000ms
+maxAudioStartSilenceTime|int|否|语音起点超时时间|2000ms
 minVolumeCallbackTime|int |否|音量回调时间|80ms
 sensitive|float|否|语音识别敏感度，越小越敏感(范围1~5)|3
 
