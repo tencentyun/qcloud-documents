@@ -4,9 +4,9 @@
 
     ``` xml
     <dependency>
-    <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
-    <version>1.2.4</version>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-client</artifactId>
+      <version>1.2.4</version>
     </dependency>
     ```
 
