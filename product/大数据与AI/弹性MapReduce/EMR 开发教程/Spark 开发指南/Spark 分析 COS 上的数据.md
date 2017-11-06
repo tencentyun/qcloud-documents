@@ -4,9 +4,9 @@ Spark 要分析 COS 上的数据前提是您购买的 EMR 集群在创建的时�
 
   ``` xml
   <dependency>
-    <groupId>org.apache.spark</groupId>
-    <artifactId>spark-core_2.11</artifactId>
-    <version>2.0.2</version>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.11</artifactId>
+      <version>2.0.2</version>
   </dependency>
   ```
 
