@@ -6,11 +6,11 @@
 请查看[计费说明](/document/product/460/6970)。
 
 ## 说明
-| 概念     | 解释               |
-| ------ | ---------------- |
-| appid  | 项目ID, 接入项目的唯一标识 |
+| 概念    | 解释              |
+| ----- | --------------- |
+| appid | 项目ID, 接入项目的唯一标识 |
 ><font color="#0000cc">**注意：** </font>
- 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
+> 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
 `http://service.image.myqcloud.com/ocr/idcard`
@@ -31,12 +31,12 @@
 
 使用 application/json 格式。
 
-| 参数        | 是否必选 | 类型     | 说明           |
-| --------- | ---- | ------ | ------------ |
-| appid     | 必选    | string | 项目ID         |
-| bucket    | 必选    | string | 图片空间         |
-| ret_image | 必选    | int    | 0 不返回图片，1 返回图片 |
-| url_list  | 必选    | string 数组 | 图片 url 列表      |
+| 参数        | 是否必选 | 类型        | 说明             |
+| --------- | ---- | --------- | -------------- |
+| appid     | 必选   | string    | 项目ID           |
+| bucket    | 必选   | string    | 图片空间           |
+| ret_image | 必选   | int       | 0 不返回图片，1 返回图片 |
+| url_list  | 必选   | string 数组 | 图片 url 列表      |
 
 
 ### 返回内容
@@ -49,38 +49,38 @@ result_list（ json 数组）中每一项的具体内容
 
 | 参数      | 类型     | 描述           |
 | ------- | ------ | ------------ |
-| code    | int    | 错误码，0 为成功 |
-| message | string | 错误描述     |
+| code    | int    | 错误码，0 为成功    |
+| message | string | 错误描述         |
 | url     | string | 当前图片的 url    |
-| data    | object       | 具体查询数据，内容见下表 |
+| data    | object | 具体查询数据，内容见下表 |
 
 data 字段具体内容（身份证有照片的一面）
 
-| 参数                     | 类型         | 描述      |
-| ---------------------- | ---------- | ------- |
-| name                   | string     | 姓名      |
-| sex                    | string     | 性别      |
-| nation                 | string     | 民族      |
-| birth                  | string     | 出生日期    |
-| address                | string     | 地址      |
-| id                     | string     | 身份证号    |
-| frontimage  | string(bytes)| OCR 识别的身份证正面照片（card_type 为0时返回）|
-| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0,100]  |
-| sex_confidence_all     | array(int) | 性别置信度，取值范围[0,100]    |
-| nation_confidence_all  | array(int) | 民族置信度，取值范围[0,100]    |
-| birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0,100]  |
-| address_confidence_all | array(int) | 地址置信度，取值范围[0,100]   |
-| id_confidence_all      | array(int) | 身份证号置信度,，取值范围[0,100]  |
-|frontimage_confidence_all| array(int)| 正面照片置信度，取值范围[0,100] |
+| 参数                        | 类型            | 描述                              |
+| ------------------------- | ------------- | ------------------------------- |
+| name                      | string        | 姓名                              |
+| sex                       | string        | 性别                              |
+| nation                    | string        | 民族                              |
+| birth                     | string        | 出生日期                            |
+| address                   | string        | 地址                              |
+| id                        | string        | 身份证号                            |
+| frontimage                | string(bytes) | OCR 识别的身份证正面照片（card_type 为0时返回） |
+| name_confidence_all       | array(int)    | 证件姓名置信度，取值范围[0,100]             |
+| sex_confidence_all        | array(int)    | 性别置信度，取值范围[0,100]               |
+| nation_confidence_all     | array(int)    | 民族置信度，取值范围[0,100]               |
+| birth_confidence_all      | array(int)    | 出生日期置信度，取值范围[0,100]             |
+| address_confidence_all    | array(int)    | 地址置信度，取值范围[0,100]               |
+| id_confidence_all         | array(int)    | 身份证号置信度,，取值范围[0,100]            |
+| frontimage_confidence_all | array(int)    | 正面照片置信度，取值范围[0,100]             |
 
 data 字段具体内容（身份证反面）
 
-| 参数                        | 类型         | 描述       |
-| ------------------------- | ---------- | -------- |
-| authority                 | string     | 发证机关     |
-| valid_date                | string     | 证件有效期    |
-| authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]   |
-| valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100]  |
+| 参数                        | 类型         | 描述                   |
+| ------------------------- | ---------- | -------------------- |
+| authority                 | string     | 发证机关                 |
+| valid_date                | string     | 证件有效期                |
+| authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]  |
+| valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
 
 
 ><font color="#0000cc">**注意：** </font>
@@ -194,7 +194,7 @@ Content-Type: "application/json"
 
 ### 返回内容
 
-| 字段          | 类型      |  说明           |
+| 字段          | 类型      | 说明           |
 | ----------- | ------- | ------------ |
 | result_list | json 数组 | 具体查询数据，内容见下表 |
 
@@ -205,23 +205,23 @@ result_list（json 数组）中每一项的具体内容
 | code     | int    | 服务器错误码，0 为成功                     |
 | message  | string | 服务器返回的信息                         |
 | filename | string | 当前图片的 filename，与请求包中 filename 一致 |
-| data     |  object      | 具体查询数据，内容见下表                     |
+| data     | object | 具体查询数据，内容见下表                     |
 
 data 字段具体内容（身份证有照片的一面）：
 
-| 字段                     | 类型         | 说明      |
-| ---------------------- | ---------- | ------- |
-| name                   | string     | 姓名      |
-| sex                    | string     | 性别      |
-| nation                 | string     | 民族      |
-| birth                  | string     | 出生日期    |
-| address                | string     | 地址      |
-| id                     | string     | 身份证号    |
-| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0,100]|
-| sex_confidence_all     | array(int) | 性别置信度，取值范围[0,100]]   |
+| 字段                     | 类型         | 说明                  |
+| ---------------------- | ---------- | ------------------- |
+| name                   | string     | 姓名                  |
+| sex                    | string     | 性别                  |
+| nation                 | string     | 民族                  |
+| birth                  | string     | 出生日期                |
+| address                | string     | 地址                  |
+| id                     | string     | 身份证号                |
+| name_confidence_all    | array(int) | 证件姓名置信度，取值范围[0,100] |
+| sex_confidence_all     | array(int) | 性别置信度，取值范围[0,100]]  |
 | nation_confidence_all  | array(int) | 民族置信度，取值范围[0,100]   |
 | birth_confidence_all   | array(int) | 出生日期置信度，取值范围[0,100] |
-| address_confidence_all | array(int) | 地址置信度，取值范围[0,100]  |
+| address_confidence_all | array(int) | 地址置信度，取值范围[0,100]   |
 | id_confidence_all      | array(int) | 身份证号置信度，取值范围[0,100] |
 
 ><font color="#0000cc">**注意：** </font>
@@ -229,10 +229,10 @@ data 字段具体内容（身份证有照片的一面）：
 
 data 字段具体内容（身份证反面）：
 
-| 字段                        | 类型         | 描述       |
-| ------------------------- | ---------- | -------- |
-| authority                 | string     | 发证机关     |
-| valid_date                | string     | 证件有效期    |
+| 字段                        | 类型         | 描述                   |
+| ------------------------- | ---------- | -------------------- |
+| authority                 | string     | 发证机关                 |
+| valid_date                | string     | 证件有效期                |
 | authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]  |
 | valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
 
@@ -315,43 +315,49 @@ Content-Type: image/jpeg
 ```
 
 ## 错误码
-| **错误码** | **含义**                               |
-| ------- | ------------------------------------ |
-| 3       | 错误的请求                                |
-| 4       | 签名为空                                 |
-| 5       | 签名串错误                                |
-| 6       | APPID /存储桶/ url 不匹配                  |
-| 7       | 签名编码失败（内部错误）                         |
-| 8       | 签名解码失败（内部错误）                         |
-| 9       | 签名过期                                 |
-| 10      | APPID 不存在                            |
-| 11      | SecretId 不存在                         |
-| 12      | APPID 不匹配                            |
-| 13      | 重放攻击                                 |
-| 14      | 签名失败                                 |
-| 15      | 操作太频繁，触发频控                           |
-| 16      | 存储桶不存在                               |
-| 17      | url  为空                              |
-| 18      | 没有图片或 url                            |
-| 19      | 图片数过多，单次请求最多支持 20 个 url 或文件          |
-| 20      | 图片过大，单个文件最大支持 1MB                    |
-| 21      | 无效的参数                                |
-| 200     | 内部打包失败                               |
-| 201     | 内部解包失败                               |
-| 202     | 内部链接失败                               |
-| 203     | 内部处理超时                               |
-| -1102   | 图片解码失败                               |
-| -1300   | 图片为空                                 |
-| -1301   | 请求的参数为空                              |
-| -1308   | url 图片下载失败                           |
-| -1400   | 非法的图片格式                              |
-| -1403   | 图片下载失败                               |
-| -1404   | 图片无法识别                               |
-| -1505   | url 格式不对                             |
-| -1506   | 图片下载超时                               |
-| -1507   | 无法访问 url 对应的图片服务器                    |
-| -5062   | url 对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
-| -5103   | OCR 识别失败                             |
-| -5107   | 提供的图片不是身份证                           |
+| **错误码** | **含义**                            |
+| ------- | --------------------------------- |
+| 3       | 错误的请求                             |
+| 4       | 签名为空                              |
+| 5       | 签名串错误                             |
+| 6       | APPID /存储桶/ url 不匹配               |
+| 7       | 签名编码失败（内部错误）                      |
+| 8       | 签名解码失败（内部错误）                      |
+| 9       | 签名过期                              |
+| 10      | APPID 不存在                         |
+| 11      | SecretId 不存在                      |
+| 12      | APPID 不匹配                         |
+| 13      | 重放攻击                              |
+| 14      | 签名失败                              |
+| 15      | 操作太频繁，触发频控                        |
+| 16      | 存储桶不存在                            |
+| 17      | url  为空                           |
+| 18      | 没有图片或 url                         |
+| 19      | 图片数过多，单次请求最多支持 20 个 url 或文件       |
+| 20      | 图片过大，单个文件最大支持 1MB                 |
+| 21      | 无效的参数                             |
+| 200     | 内部打包失败                            |
+| 201     | 内部解包失败                            |
+| 202     | 内部链接失败                            |
+| 203     | 内部处理超时                            |
+| -1102   | 图片解码失败                            |
+| -1300   | 图片为空                              |
+| -1301   | 参数为空                              |
+| -1304   | 参数过长                              |
+| -1308   | url	图片下载失败                        |
+| -5101   | OCR	照片为空                          |
+| -5103   | OCR	识别失败                          |
+| -5106   | 身份证边框不完整                          |
+| -5107   | 输入图片不是身份证                         |
+| -5108   | 身份证信息不合规范                         |
+| -5109   | 照片模糊                              |
+| -7001   | 未检测到身份证，请对准边框(请避免拍摄时倾角和旋转角过大、摄像头) |
+| -7002   | 请使用第二代身份证件进行扫描                    |
+| -7003   | 不是身份证正面照片(请使用带证件照的一面进行扫描)         |
+| -7004   | 不是身份证反面照片(请使用身份证反面进行扫描)           |
+| -7005   | 确保扫描证件图像清晰                        |
+| -7006   | 请避开灯光直射在证件表面                      |
+| -9100   | 身份证日期不合法                          |
+| -9101   | 身份证边框不完整                          |
 
 更多其他 API 错误码请看[**错误码说明**](/document/product/460/8523) 。
