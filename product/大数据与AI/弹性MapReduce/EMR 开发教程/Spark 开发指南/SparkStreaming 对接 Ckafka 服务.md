@@ -80,6 +80,6 @@
 
     通过 mvn package 编译工程，并把编译后的 jar 传输到服务器，通过以下命令提交：
 
-    ``` shell
+    <pre>
     spark-submit --class your_main
-    ```
+    </pre>

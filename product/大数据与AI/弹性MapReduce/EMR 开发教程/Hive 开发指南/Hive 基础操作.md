@@ -2,7 +2,7 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 
 1. 准备数据
 
-    ``` shell
+    ```
     #!/bin/bash
     MAXROW=1000000 #指定生成数据行数
     for((i = 0; i < $MAXROW; i++))
@@ -19,9 +19,9 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 
     数据在 HDFS, 将生成的数据文件放入 HDFS 上，如
 
-    ``` shell
+    <pre>
     hdfs dfs -put ./hive_test.data /user/hadoop/hive-test/
-    ```
+    </pre>
 
     将 hive_test.data 放入 HDFS 的 /user/hadoop/hive-test 目录中, 如果想把数据放在 COS 中，则需要按如下操作：在 COS 上创建一个 bucket，如：hivecos，并在 hivecos 中创建文件夹，如：hivetest，将数据文件上传到 hivetest 中, COS 的文件全路径为: cosn://hivecos/hivetest/hive_test.data
 
@@ -31,19 +31,19 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 
         登录 master 机器, 进入 Hive 目录
 
-        ``` shell
+        <pre>
         su hadoop
         cd /usr/local/service/hive/bin
         ./hive
-        ```
+        </pre>
 
     - 通过 beeline 模式连接数据库
 
         登录 master 机器, 进入 Hive 目录
         
-        ``` shell
+        <pre>
         cd /usr/local/service/hive
-        ```
+        </pre>
         
         在 conf/hive-site.xml 配置文件中, 获得 hive server2 的连接端口
         
@@ -56,15 +56,14 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 
         在 bin 目录下，执行
 
-        ``` shell
+        <pre>
         cd bin
         ./beeline -u "jdbc:hive2://10.0.1.125:7001" -n hadoop -p hadoop
-        ```
+        </pre>
 
 3. 执行查询
 
     无论以 Hive 模式还是 beeline 模式成功连接到 Hive 数据库后，Hive-SQL 的执行语句都是一样的，现在以 Hive 模式执行 Hive-SQL
-
 
     1. 创建 Hive 表
 
@@ -105,7 +104,7 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 
     3. 执行查询
 
-        ``` shell
+        <pre>
         hive> select count(*) from hive_test;
         Query ID = hadoop_20170316142922_967b5f0e-1f89-4464-bfa3-b6ed53273fc2
         Total jobs = 1
@@ -146,4 +145,4 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
         21530 "4647"
         17869 "13358"
         32
-        ```
+        </pre>
