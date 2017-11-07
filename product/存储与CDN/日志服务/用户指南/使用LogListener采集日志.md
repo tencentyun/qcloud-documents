@@ -22,7 +22,7 @@ Ubuntu
 
 ```
 cd loglistener/tools/op;
-./install ($SecretId)($SecretKey)($region)
+./install.sh ($SecretId)($SecretKey)($region)
 ```
 
 注：这里的SecretId与SecretKey为您云api秘钥中的SecretId与SecretKey。region为您所使用的日志服务区域。服务区域编码如下：
