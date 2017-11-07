@@ -1,1 +1,1 @@
-关于Spark on Hbase的读写操作等内容，请查看[使用示例](http://hbase.apache.org/0.94/book/mapreduce.example.html?spm=5176.doc59511.2.3.yq4GRu#mapreduce.example.read)。
+关于Spark on Hbase的详细操作，可以查看Github主页[Spark-HBase Connector](https://github.com/nerdammer/spark-hbase-connector?spm=5176.doc59511.2.4.yq4GRu)。
