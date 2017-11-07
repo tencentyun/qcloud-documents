@@ -3,13 +3,12 @@ Once you have logged into cloud database console, you can upgrade the specificat
 ![Upgrade][image-1]
 
 ### How to Calculate Fees
-When the user is upgrading database instance, the system will calculate the price difference between instance specifications and this price difference will be deducted from the user's account. The user will need to top up first if there isn't enough balance in the account. After the upgrade, the fees will be calculated based on the price of the new instance specification.
+After the upgrade, the fees will be calculated based on the price of the new instance specification next billing period.
 
 ### Restrictions when Upgrading Instance Specification by Yourself
-1. High-performance instance specification self-upgrade feature is only available to pre-paid users.
-2. You can only upgrade instances from smaller specifications into larger ones (such as upgrading a high-performance Type-C instance into high-performance Type-A instance). Degrading is not supported.
-3. You can only upgrade an instance when it is in upgradeable status. For an instance that is currently being upgraded, you will need to wait for the upgrade process to complete before upgrading it again.
-4. You cannot cancel upgrade process once it has started.
+1. You can only upgrade instances from smaller specifications into larger ones (such as upgrading a high-performance Type-C instance into high-performance Type-A instance). Degrading is not supported.
+2. You can only upgrade an instance when it is in upgradeable status. For an instance that is currently being upgraded, you will need to wait for the upgrade process to complete before upgrading it again.
+3. You cannot cancel upgrade process once it has started.
 
 ### Note
 1. You can still use the original instance as usual during upgrade process (for example, import or export data).

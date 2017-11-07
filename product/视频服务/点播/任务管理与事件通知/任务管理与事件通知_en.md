@@ -131,14 +131,12 @@ The reliable callback based on message queue is achieved through two server APIs
 ### Example
 
 1. APP backend calls [PullEvent](/document/product/266/7818) to obtain unconsumed event notifications. The request URL is:
-
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=PullEvent
 &COMMON_PARAMS
 ```
 
 2. If there is an unconsumed event notification, the server response packet body is as follows. The msgHandle field in the eventList is critical and will be used later.
-
 ```javascript
 {
     "code": 0,
@@ -186,7 +184,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=PullEvent
 ```
 
 3. After the APP backend consumes an event notification, it will call the API [ConfirmEvent](/document/product/266/7819) to confirm that the event notification has been received. The eventList.msgHandle returned by PullEvent is used as the parameter.
-
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=ConfirmEvent
 &msgHandle.1=MsgHandle1
@@ -195,7 +192,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=ConfirmEvent
 ```
 
 4. VOD server will respond as follows:
-
 ```javascript
 {
     "code": 0,

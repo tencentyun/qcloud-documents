@@ -151,7 +151,7 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
 
 ```
 {
-    request_content":{
+    "request_content":{
         "pay_mch_key":{
             "pay_platform":2,
             "out_mch_id":"1234mcWYS3M5TjKLorAZ',
@@ -798,7 +798,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1232,7 +1232,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1446,7 +1446,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>trade_type</td>
@@ -1672,13 +1672,13 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>out_refund_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的退款单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的退款单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1983,7 +1983,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -3919,7 +3919,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>author_code</td>
@@ -4126,13 +4126,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>out_refund_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的退款单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的退款单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>total_fee</td>
