@@ -6,7 +6,7 @@
 3. 到 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 开通相应产品。
 
 ## SDK 获取与安装
-可以通过以下方式获取 PHP SDK:
+可以通过以下方式获取 PHP SDK：
 1. github
 [从 Github 访问 >>](https://github.com/QcloudApi/qcloudapi-sdk-php)
 2. 直接下载
