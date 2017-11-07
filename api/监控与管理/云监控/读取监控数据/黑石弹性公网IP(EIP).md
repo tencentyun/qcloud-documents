@@ -69,7 +69,7 @@ dimensions.0.value为要查询的EIP的地址信息
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&[公共请求参数](https://cloud.tencent.com/doc/api/229/6976)
 &namespace=qce/bm_lb
 &metricName=eip_outpkg
 &dimensions.0.name=vip

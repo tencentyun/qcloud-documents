@@ -69,7 +69,7 @@ dimensions.0.value为VPN通道ID
 
 ```
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&[公共请求参数](https://cloud.tencent.com/doc/api/229/6976)
 &namespace=qce/vpnx
 &metricName=inpkg
 &dimensions.0.name=vpnConnId
