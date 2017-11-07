@@ -39,7 +39,7 @@ PHP：Web 服务器生成网页的程序。
 
 #### 需要购买云服务器
 1. 获取 Discuz! 镜像
-请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](http://market.qcloud.com/categories?q=discuz)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
+请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](https://market.cloud.tencent.com/)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
 ![获取Discuz1](//mc.qcloudimg.com/static/img/54021a861602cdf6560306848cdcef0f/image.png)
 2. 购买云服务器
 购买镜像的过程同时会配套购买云服务器，云服务器的配置可以根据网站自身访问量来确定，相关指南请参考 [创建 Linux 服务器指引](https://cloud.tencent.com/document/product/213/2972)。
