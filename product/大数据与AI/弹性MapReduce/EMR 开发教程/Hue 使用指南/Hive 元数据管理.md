@@ -1,3 +1,5 @@
+使用 Hue 之前，您首先需要通过 EMR 的快捷入口登录Hue，且 Hue 上的用户名建议是 hadoop。
+
 进入 Hue 的 Hive 编辑模式，并选择对应的数据库
 
 ![选择数据库](https://mc.qcloudimg.com/static/img/c3e31e8338d7e6df80720becf819d2cd/5-8-1-1.png)
