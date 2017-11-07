@@ -5,56 +5,6 @@ Each region is an independent geographical location. Within each region, there a
 Tencent Cloud supports distribution of cloud resources in different locations by users. Users are advised to consider placing resources in different availability zones when designing system to shield "service unavailable" status caused by single point of failure.
 
 
-<table class="table-striped">
-    <tbody>
-        <tr>
-            <th>&nbsp;</th>
-            <th>Region</th>
-            <th>Availability Zone</th>
-        </tr>
-        <tr>
-            <td rowspan="7">Within Chinese territory</td>
-            <td rowspan="3">South China (Guangzhou)</td>
-            <td>Guangzhou Zone 1 (Sold out)</td>
-        </tr>
-        <tr>
-            <td>Guangzhou Zone 2</td>
-        </tr>
-        <tr>
-            <td>Guangzhou Zone 3</td>
-        </tr>
-        <tr>
-            <td>South China (Shenzhen Finance)</td>
-            <td>Shenzhen Finance Zone 1<span style="background-color: rgb(249, 249, 249);"> (only financial institutions and enterprises can initiate tickets for application)</span></td>
-        </tr>
-        <tr>
-            <td>East China (Shanghai)</td>
-            <td>Shanghai Zone 1</td>
-        </tr>
-        <tr>
-            <td>East China (Shanghai Finance)</td>
-            <td>Shanghai Finance Zone 1 (only financial institutions and enterprises can initiate tickets for application)</td>
-        </tr>
-        <tr>
-            <td>North China (Beijing)</td>
-            <td>Beijing Zone 1</td>
-        </tr>
-        <tr>
-            <td rowspan="3">Outside China</td>
-            <td>Southeast Asia (Hong Kong)</td>
-            <td>Hong Kong Zone 1</td>
-        </tr>
-        <tr>
-            <td>Southeast Asia (Singapore)</td>
-            <td>Singapore Zone 1</td>
-        </tr>
-        <tr>
-            <td>North America (Toronto)</td>
-            <td>Toronto Zone 1</td>
-        </tr>
-    </tbody>
-</table>
-
 
 
 ## Region
@@ -71,16 +21,13 @@ Region attribute is differentiated for all behaviors such as enabling and viewin
 - The name of regional availability zone is the most straightforward representation of the coverage range of a data center. To make it easier for clients to understand the name of regional availability zone, the "coverage range + city where the data center is located" structure is used for region naming. The first half represents the coverage capability of the data center, and the second half indicates the city where the data center is located or near to. Availability zone name adopts the "city + number" structure.
 - The above private network interconnection refers to the interconnection among resources under the same account. Private networks for resources under different accounts are completely isolated.
 
-**Special instructions about Hong Kong region:**
-- The following cloud services are temporarily unavailable: Cloud Memcached, elastic web engine, Cloud Object Storage, Cloud Block Storage, one-click opening of server and domain binding with separated regions and servers.
-- When you need to log in to CVMs in Hong Kong region, login via jump server is recommended for better operation and maintenance experience.
+
 
 **Special instructions about North America region:**
 - The following cloud services are temporarily unavailable: Cloud Memcached, elastic web engine, Cloud Object Storage, mobile acceleration, Cloud Automated Testing, one-click opening of server and domain binding with separated regions and servers.
 - Due to the considerable latency between North America and China, when you need to log in to CVMs in North America region, login via jump server is recommended for better operation and maintenance experience.
 
-**Special instructions about Shanghai Finance Zone:**
-Compliance zone customized according to regulatory requirements of finance industry features high level of security and isolation. Currently available services are CVM, finance database, Redis storage, face recognition, etc. Verified clients in finance industry can apply for using the zone by submitting tickets. For details, refer to [Introduction to finance zone][6].
+
 
 ## Availability zone
 Availability zones (Zone) refer to Tencent Cloud's physical data centers whose power and network are independent from each other within the same region. They are designed to ensure that the failures within an availability zones can be isolated (except for large-scale disaster or major power failure) without spreading to and affecting other zones so that users' businesses can provide continuous online services. By starting an instance in an independent availability zone, users can protect their applications from being affected by the failures occurring in a single location.
