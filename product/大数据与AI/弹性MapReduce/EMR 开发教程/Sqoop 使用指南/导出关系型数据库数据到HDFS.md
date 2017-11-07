@@ -1,3 +1,5 @@
+Sqoop 是一种用于在 Hadoop 和关系数据库之间传输数据的工具，能够有效地在关系数据库（如 MySQL）和大数据产品（Hadoop/Hive 等）之间导入/导出数据。本文介绍了使用腾讯云 Sqoop 服务将数据在 MySQL 和 Hadoop/Hive/HBase 之间导入/导出的使用方法。使用 EMR 中的服务建议都使用 Hadoop 用户执行。
+
 创建表并插入测试数据, 如下:
 
 ``` sql
