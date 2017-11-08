@@ -82,8 +82,7 @@ dimensions.0.value为实例的资源 Id
 ## 5. 示例
 
 输入
-
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
 &[公共请求参数](https://cloud.tencent.com/doc/api/229/6976)
 &namespace=qce/sqlserver
@@ -92,7 +91,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &dimensions.0.value=mssql-dh01nvsb
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-```
+<pre>
 
 输出
 
