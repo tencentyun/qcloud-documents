@@ -79,13 +79,13 @@
 <td> Nonce </td><td> 随机正整数 </td><td> 是 </td><td> 345122
 </td></tr>
 <tr>
-<td> 业务参数 </td><td> url </td><td> 待抓取的url </td><td> 是 </td><td> http://www.qq.com
+<td> 业务参数 </td><td> url </td><td> 待抓取的url </td><td> 是 </td><td>`http://www.qq.com`
 </td></tr></table>
 
 
   下面以上述业务为例，详细说明“下载抽取API”接口的使用方法。
 #### 4.1 接口鉴权
-  示例要调用服务的数据为：{"url":"http://www.qq.com"}
+  示例要调用服务的数据为：{"url":"`http://www.qq.com`"}
   则上述业务的参数列表如下：
  
  <div class="code">
@@ -117,5 +117,5 @@
 	&url=http://www.qq.com</pre>
 </div>
 
-  执行上述操作之后，会将数据{"url":"http://www.qq.com"} 发送给API接口，进行相应分析。
+  执行上述操作之后，会将数据{"url":"`http://www.qq.com`"} 发送给API接口，进行相应分析。
  <b> 注意：</b>在发送请求过程中，不能将参数字符串中包含的“”改写成“.”。
