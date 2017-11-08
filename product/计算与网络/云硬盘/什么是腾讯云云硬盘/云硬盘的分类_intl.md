@@ -16,8 +16,7 @@ An IO throughput of 40-100 MB/s and a random IOPS of hundreds - one thousand are
 
 ### Price
 
-Prepaid: 0.3 CNY/GB/month
-Postpaid: 0.042 CNY/100 G/hour
+Postpaid: 0.01 USD/100 G/hour
 
 ### Usage Scenarios
 
@@ -47,8 +46,8 @@ Compared with HDD cloud storages, the performance of SSD cloud storages increase
 
 ### Price
 
-Prepaid: 1.1 CNY/GB/month
-Postpaid: 0.332 CNY/hour/100 GB
+
+Postpaid: 0.03 USD/hour/100 GB
 
 ### Usage Scenarios
 
@@ -73,9 +72,7 @@ A capacity from 50 GB up to 4 TB is provided
 
 ### Price
 
-Annual or monthly plan: RMB 0.35/GB/month
-
-Pay by usage: RMB 0.0009/GB/hour
+Pay by usage:  0.02 USD/GB/hour
 
 ### Usage Scenarios
 
@@ -147,16 +144,16 @@ The minimum throughput value is 150 MB/s with an increment of 0.147 MB/s per GB 
         </tr>
 								<tr>
             <td>Price</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/100G/hour</td>
-            <td>Annual or monthly plan: RMB 0.8/GB/month<br>
-Pay by usage: RMB 0.33/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/hour/100GB</td>
-						<td>Annual or monthly plan: RMB 1.1/GB/month<br>
-Pay by usage: RMB 0.332/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.35/GB/month<br>
-Pay by usage: RMB 0.09/hour/100GB</td>
+            <td><br>
+Pay by usage:  0.01 USD/100G/hour</td>
+            <td><br>
+Pay by usage:  0.03 USD/hour/100GB</td>
+            <td><br>
+Pay by usage: 0.01 USD/hour/100GB</td>
+						<td><br>
+Pay by usage:0.03 USD/hour/100GB</td>
+            <td><br>
+Pay by usage: 0.02 USD/hour/100GB</td>
         </tr>
         
     </tbody></table>
