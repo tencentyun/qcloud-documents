@@ -2,6 +2,7 @@
 万象优图服务的Go sdk的下载地址：https://github.com/tencentyun/go-sdk.git
 ### 1.1	前期准备
 1. 获取appid，secret_id和secret_key。
+
 ### 1.2	导入SDK
 1. 导入go-sdk包
 在开发环境命令行直接执行下面的命令导入go-sdk包。
@@ -9,7 +10,7 @@
 ```
 　　Go get github.com/tencentyun/go-sdk
 ```
-2. 参考api说明和sdk中提供的demo，开发代码。
+1. 参考api说明和sdk中提供的demo，开发代码。
 
 ## 2	相关数据结构定义
 ### 2.1 PicCloud
