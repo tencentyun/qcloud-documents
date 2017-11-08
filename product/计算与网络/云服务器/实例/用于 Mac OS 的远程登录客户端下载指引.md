@@ -4,10 +4,9 @@ Microsoft 为 Mac 提供了测试版客户端。转到 [Microsoft Remote Desktop
 > **注意：**
 > 中国大陆用户可能由于网络问题访问延迟或缓慢。
 
- 2. 从 [Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12&ls=1) 下载 Microsoft 远程桌面客户端。
+ 2. 从 [Mac App Store](https://itunes.apple.com/cn/app/id409907375) 下载 Microsoft 远程桌面客户端。
 > **注意：**
 > - 中国大陆地区的用户可能无法下载该客户端。
-> - 该客户端需要在 macOS/OS 10.9 或更新版本的计算机上运行。
 
  3.  您还可以尝试通过搜索引擎，自行搜索下载。如下图：
 ![搜索引擎搜索](//mc.qcloudimg.com/static/img/1357c6fff12d95fbeec81db36dbd3faa/image.png)
