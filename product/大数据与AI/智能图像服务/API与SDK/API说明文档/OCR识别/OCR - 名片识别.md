@@ -2,15 +2,15 @@
 本接口用于识别名片上的姓名、手机号、地址等信息。
 
 ## 计费说明
-请查看[计费说明](/document/product/460/6970)。
+请查看[计费说明](/document/product/641/12399)。
 
 
 ## 说明
-| 概念     | 解释               |
-| ------ | ---------------- |
-| appid  | 项目ID, 接入项目的唯一标识 |
+| 概念    | 解释              |
+| ----- | --------------- |
+| appid | 项目ID, 接入项目的唯一标识 |
 ><font color="#0000cc">**注意：** </font>
- 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
+> 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
 `http://service.image.myqcloud.com/ocr/namecard`
@@ -24,43 +24,43 @@
 | Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](https://cloud.tencent.com/doc/product/275/3805)的签名 |
+| Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
 
 ## 使用图片 URL
 ### 请求参数
 使用 application/json 格式。
 
-| 参数        | 是否必选 | 类型     | 说明           |
-| --------- | ---- | ------ | ------------ |
-| appid     | 必选    | string | 项目ID         |
-| bucket    | 必选    | string | 图片空间         |
-| ret_image | 必选    | int    | 0 不返回图片，1 返回图片 |
-| url_list  | 必选    | string 数组 | 图片 url 列表      |
+| 参数        | 是否必选 | 类型        | 说明             |
+| --------- | ---- | --------- | -------------- |
+| appid     | 必选   | string    | 项目ID           |
+| bucket    | 必选   | string    | 图片空间           |
+| ret_image | 必选   | int       | 0 不返回图片，1 返回图片 |
+| url_list  | 必选   | string 数组 | 图片 url 列表      |
 
 ### 返回内容
-| 字段          | 类型     | 说明           |
-| ----------- | ------ | ------------ |
+| 字段          | 类型      | 说明           |
+| ----------- | ------- | ------------ |
 | result_list | json 数组 | 具体查询数据，内容见下表 |
 
 result_list（json 数组）中每一项的具体内容
 
 | 字段      | 类型     | 说明           |
 | ------- | ------ | ------------ |
-| code    | int    | 服务器错误码，0 为成功  |
+| code    | int    | 服务器错误码，0 为成功 |
 | message | string | 服务器返回的信息     |
-| url     | string | 当前图片的 url     |
-| data    | object       | 具体查询数据，内容见下表 |
+| url     | string | 当前图片的 url    |
+| data    | object | 具体查询数据，内容见下表 |
 
 data字段具体内容
 
-| 字段               | 类型     | 说明     |
-| ---------------- | ------ | ------ |
-| name             | string | 姓名     |
-| phone            | string | 手机号    |
-| uin              | string | QQ号    |
+| 字段               | 类型     | 说明                     |
+| ---------------- | ------ | ---------------------- |
+| name             | string | 姓名                     |
+| phone            | string | 手机号                    |
+| uin              | string | QQ号                    |
 | name_confidence  | double | 姓名置信度，取值范围[0.0,100.0]  |
 | phone_confidence | double | 手机号置信度，取值范围[0.0,100.0] |
-| uin_confidence   | double | QQ号置信度，取值范围[0.0,100.0]                        |
+| uin_confidence   | double | QQ号置信度，取值范围[0.0,100.0] |
 
 ><font color="#0000cc">**注意：** </font>
 >如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
@@ -132,10 +132,10 @@ Content-Type: "application/json"
 
 | 参数        | 是否必选 | 类型          | 说明                                       |
 | --------- | ---- | ----------- | ---------------------------------------- |
-| appid     | 必选    | uint        | 项目ID                                     |
-| bucket    | 必选    | string      | 图片空间                                     |
-| ret_image | 必选    | int         | 0 不返回图片，1 返回图片                             |
-| image     | 必选    | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| appid     | 必选   | uint        | 项目ID                                     |
+| bucket    | 必选   | string      | 图片空间                                     |
+| ret_image | 必选   | int         | 0 不返回图片，1 返回图片                           |
+| image     | 必选   | image/jpeg等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
 ### 返回内容
 
@@ -144,13 +144,13 @@ Content-Type: "application/json"
 | name             | string | 姓名                            |
 | phone            | string | 手机号                           |
 | uin              | string | QQ号                           |
-| name_confidence  | double | 姓名置信度，取值范围[0.0,100.0]                          |
-| phone_confidence | double | 手机号置信度，取值范围[0.0,100.0]                        |
-| uin_confidence   | double | QQ号置信度，取值范围[0.0,100.0]                        |
+| name_confidence  | double | 姓名置信度，取值范围[0.0,100.0]         |
+| phone_confidence | double | 手机号置信度，取值范围[0.0,100.0]        |
+| uin_confidence   | double | QQ号置信度，取值范围[0.0,100.0]        |
 | image            | string | 返回图片的base64编码（ret_image=1时返回） |
 
 ><font color="#0000cc">**注意：** </font>
-如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1
+>如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1
 
 
 ### 示例
@@ -260,7 +260,7 @@ Content-Type: image/jpeg
 | -5062 | url对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 | -5103 | OCR识别失败                             |
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/460/8523) 。
+更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
 
 
 

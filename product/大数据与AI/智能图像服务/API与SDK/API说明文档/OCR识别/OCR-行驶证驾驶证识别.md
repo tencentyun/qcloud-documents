@@ -5,7 +5,7 @@
 
 ## 计费说明
 通用 OCR 目前正处于免费公测阶段，会在12月1日开始计费，第一次扣费为2018年1月3~5日。
-请查看[计费说明](/document/product/460/6970)。
+请查看[计费说明](/document/product/641/12399)。
 
 
 ## 说明
@@ -27,7 +27,7 @@
 | Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](https://cloud.tencent.com/doc/product/275/3805)的签名 |
+| Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
 
 ><font color="#0000cc">**注意：** </font>
  (1) 每个请求的包体大小限制为 6MB。
@@ -302,7 +302,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 |-9005|  图片无效|
 |-9006 | 预处理失败|
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/460/8523) 。
+更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
 
  
 
