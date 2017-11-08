@@ -54,7 +54,7 @@ return [TencentOAuth HandleOpenURL:url];
 	//这里delegate不能为空
 	_tencentOAuth = [[TencentOAuth alloc] initWithAppId:@"222222",   andDelegate:self];
 	```
- 2. 初始化 redirectURI（这里需要填写注册 APP 时填写的域名。默认可以不用填写。建议不用填写。demo可以在这里注册：[demo注册地址](www.qq.com)
+ 2. 初始化 redirectURI（这里需要填写注册 APP 时填写的域名。默认可以不用填写。建议不用填写。demo 可以在这里注册：[demo 注册地址](http://www.qq.com)
 ```
   _tencentOAuth.redirectURI = @"www.qq.com";
 ```
