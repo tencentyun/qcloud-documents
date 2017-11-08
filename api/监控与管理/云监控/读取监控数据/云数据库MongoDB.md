@@ -103,7 +103,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &dimensions.0.value=cmgo-6ielucen
 &startTime=2017-01-09 20:22:00
 &endTime=2017-01-09 20:38:00
-<pre>
+</pre>
 
 输出
 
@@ -127,7 +127,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
 &<公共请求参数>
 &namespace=qce/cmongo
@@ -136,7 +136,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &dimensions.0.value=cmgo-6ielucen_0
 &startTime=2017-01-09 20:22:00
 &endTime=2017-01-09 20:38:00
-```
+</pre>
 
 输出
 
@@ -160,7 +160,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
 &<公共请求参数>
 &namespace=qce/cmongo
@@ -169,7 +169,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &dimensions.0.value=cmgo-6ielucen_0
 &startTime=2017-01-09 20:22:00
 &endTime=2017-01-09 20:38:00
-```
+</pre>
 
 输出
 
