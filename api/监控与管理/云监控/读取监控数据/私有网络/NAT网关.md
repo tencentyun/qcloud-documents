@@ -81,7 +81,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &dimensions.1.value=vpc-4d545d
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-<pre>
+</pre>
 
 输出
 
