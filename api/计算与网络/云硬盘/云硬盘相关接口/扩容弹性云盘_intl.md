@@ -2,7 +2,7 @@
 
 This API (ResizeCbsStorage) is used to expand the specified elastic cloud storage.
 
-Domain for API call:<font style="color:red">cbs.api.qcloud.com</font>
+Domain for API call:<font style="color:red">cbs.api.cloud.tencent.com</font>
 
 Usage restrictions:
 1. Only elastic cloud storages can be expanded. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters. The cloud disk storage created with the CVM needs to be expanded via  [ResizeInstanceHour (Adjust the Instance Configuration (Bill by Traffic)](/doc/api/229/1344) API
