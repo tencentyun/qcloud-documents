@@ -22,6 +22,8 @@ Content-Type: application/x-protobuf
 ```
 **PB描述文件**
 
+PB（Protocol Buffer）是 Google 开发的用于结构化数据交换格式，作为腾讯云日志服务标准写入格式。因此用于写入日志数据前，需要将日志原始数据序列化为 PB 数据流后通过 API 写入服务端。PB 格式示例如下：
+
 ```
 package cls
 message Log
@@ -63,31 +65,3 @@ Content-Length: 0
 **错误码**
 
 见错误码说明文档。
-
-## PB 格式示例
-
-PB（Protocol Buffer）是 Google 开发的用于结构化数据交换格式，作为腾讯云日志服务标准写入格式。因此用于写入日志数据前，需要将日志原始数据序列化为 PB 数据流后通过 API 写入服务端。PB 格式示例如下
-
-```
-message Log
-{
-    required uint32 time = 1; // UNIX Time Format
-    message Content
-    {
-        required string key = 1;
-        required string value = 2;
-    }
-    repeated Content contents= 2;
-}
-message LogGroup
-{
-    repeated Log logs= 1;
-    optional string reserved =2; // 内部字段，不需要填写
-    optional string topic = 3;
-    optional string source = 4;
-}
-message LogGroupList
-{
-    repeated LogGroup logGroupList = 1;
-}
-```

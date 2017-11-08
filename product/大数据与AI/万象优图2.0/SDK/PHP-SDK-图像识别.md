@@ -4,7 +4,7 @@
 ## 快速入门
 
 ### 在腾讯云申请业务的授权
-授权包括： APPID 、SecretId 、 SecretKey 及存储桶名（可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937) ）。
+开发者使用前，需要先进行 [腾讯云账号注册](https://cloud.tencent.com/register)（详细指引请参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)），并 [创建存储桶](https://cloud.tencent.com/document/product/460/10637)，从而获得 APPID 、SecretId 和 SecretKey 等（获取 APPID 可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937)）。
 
 ### 创建对应操作类的对象
 如果要使用图片，需要创建图片操作类对象
