@@ -1,17 +1,4 @@
-## Expiry Reminder for Annual/Monthly-plan Cloud Block Storage
 
-### Expiration Forewarning
-Seven days before the expiration of annual/monthly-plan resources, we will send you an expiration forewarning message every two days to Tencent Cloud account creator and all the collaborators via email and SMS.
-
-### Arrears Forewarning
-On the day when annual/monthly-plan resources expire and every two days after that, we will send you an arrears isolation forewarning message to Tencent Cloud account creator and all the collaborators via email and SMS.
-
-### Recovery Mechanism
-- Seven days before the expiration of CBS resources, we will send you a renewal reminder notice. 
-- You can continue using the cloud services for a further period of**seven days** after the expiration. We will send you the expiry reminder for such cloud services, and you need to renew them as soon as possible.
-- From the eighth day after the expiration, This CBS cannot be used (to perform read and write operations), and will be put into the **Recycle Bin**. You can still view devices and renew it on Recycle Bin Console page.
-- Such in the recycle bin will be retained for **seven days**. If the CBS in the recycle bin is not renewed within 7 days, the resources will be reclaimed by the system. The data will be cleared and cannot be recovered. 
-- In other words, there are **7-day available duration** and **7-day unavailable duration** for the expired CBS. Within the 14 days, you can opt to renew the device. If your balance is sufficient, for the device with auto renewal setting, it will perform renewal automatically on the expiration date.
 
 ## Expiry Reminder for Pay-by-usage Cloud Block Storage
  
