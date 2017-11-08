@@ -79,7 +79,7 @@
 <td> Nonce </td><td> 随机正整数 </td><td> 是 </td><td> 345122
 </td></tr>
 <tr>
-<td> 业务参数 </td><td> url </td><td> 待抓取的url </td><td> 是 </td><td>`http://www.qq.com`
+<td> 业务参数 </td><td> url </td><td> 待抓取的url </td><td> 是 </td><td>http://www.qq.com
 </td></tr></table>
 
 
