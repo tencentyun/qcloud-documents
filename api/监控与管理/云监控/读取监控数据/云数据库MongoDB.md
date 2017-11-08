@@ -96,7 +96,7 @@ dimensions.0.value 取值参照表
 输入
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&[公共请求参数](https://cloud.tencent.com/doc/api/229/6976)
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/cmongo
 &metricName=delay_100
 &dimensions.0.name=target
@@ -129,7 +129,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<公共请求参数>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target
@@ -162,7 +162,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<公共请求参数>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target
