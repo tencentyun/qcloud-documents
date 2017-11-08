@@ -37,7 +37,7 @@ The following list only provides the business logic error codes for this API. Fo
 
 Input
 <pre>
-https://cbs.api.qcloud.com/v2/index.php?
+https://cbs.api.cloud.tencent.com/v2/index.php?
 <<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &Action=ResizeCbsStorage
 &storageId=disk-cw6a3g9w
