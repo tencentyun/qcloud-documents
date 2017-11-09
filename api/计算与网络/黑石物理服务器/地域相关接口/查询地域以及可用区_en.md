@@ -45,11 +45,11 @@ The following request parameter list only provides API request parameters. For a
  
 Input
 
-<pre><code>
+```
 	https://domain/v2/index.php?
 	Action=DescribeRegions</code>
-	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-<pre>
+	&<Common request parameters>
+```
 Output
 
 ```
