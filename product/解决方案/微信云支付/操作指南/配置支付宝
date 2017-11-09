@@ -1,9 +1,4 @@
-## 配置服务商
-- 具体步骤见[配置服务商](/document/product/569/9796)文档。
-## 配置微信支付子商户
-- 具体步骤见[配置子商户](/document/product/569/9795)文档。
-## 配置门店
-- 具体步骤见[配置门店](/document/product/569/9795)文档。
-- 备注：在配置门店中，需添加收银设备，收银类型选择刷卡支付。
-## 使用云支付订单查询终端
-- 腾讯云官方提供了云支付订单查询终端，可多维度查看订单明细和汇总，且可将订单明细及汇总通过小票机打印，[点击下载](https://mc.qcloudimg.com/static/archive/e60a424f6fa85d078c6c3eeb53c8c4bc/archive.zip)。
+## 在服务商信息中配置支付宝信息
+-  在服务商信息中配置支付宝信息，具体配置方式请点击下载，[点击下载](https://mc.qcloudimg.com/static/archive/2973e9104d6e32dab10a33b256071005/archive.zip)
+## 在子商户信息中配置支付宝信息
+- 在子商户信息中配置支付宝信息，具体配置方式请点击文档，[点击文档](https://pay.weixin.qq.com/index.php/core/account/info)
