@@ -21,18 +21,19 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0 表示成功，其他值表示失败。详见错误码页面的【公共错误码】。|
+| code | Int | 公共错误码。0 表示成功，其他值表示失败。详见[公共错误码](https://cloud.tencent.com/document/product/634/12279)页面。|
 | message | String | 模块错误信息描述，格式为 "(模块错误码)模块错误信息" 详见本页面的[模块错误信息](#module_error_info)。|
 | codeDesc | String | 模块错误码的英文描述 |
 | listCreateDeviceInfo | Array of Devices | 批量创建设备的结果。 |
 
 Devices的结构如下
+
 | 参数名称 | 类型 | 描述 |
-|---------|---------|---------|
+| --------- | --------- | --------- |
 | deviceName | String | 设备的名称。|
-| deviceId | String | 设备的腾讯云资源唯一标识。用于 MTQQ 登录和 TLSPSK Hint|
+| deviceId | String | 设备的腾讯云资源唯一标识。用于 MTQQ 登录和 TLSPSK Hint。|
 | devicePassword| String | 设备的密码用于 MQTT 登录。后台不保存明文，请妥善保管。|
-| deviceKey| String | 设备的对称密钥。用于 TLSPSK 的通讯 |
+| deviceKey| String | 设备的对称密钥。用于 TLSPSK 的通讯。|
 | deviceCert | String | 设备的证书。用于 TLS 协商。|
 | devicePrivateKey | String | 设备证书的私钥。用于 TLS 协商。后台不保存，请妥善保管。|
 
@@ -41,7 +42,7 @@ Devices的结构如下
  
 输入
 <pre>
-    POST https://iothub.api.qcloud.com/v2/index.php 
+POST https://iothub.api.qcloud.com/v2/index.php 
 </pre>
 ```
 Body:
@@ -78,7 +79,6 @@ Body:
     "codeDesc": "Success",
     "code": 0
 }
-
 ```
 <span id = "module_error_info"></span>
 ### 5. 模块错误信息
@@ -89,6 +89,3 @@ Body:
 |2000|创建的设备超过数量限制。|
 |2001|创建的设备名已存在。|
 |2002|请求中存在重复的设备名。|
-
-
-

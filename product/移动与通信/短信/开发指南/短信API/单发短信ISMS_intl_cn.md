@@ -78,6 +78,7 @@ string sig = sha256(appkey=$strAppKey&random=$strRand&time=$strTime&tel=$strTel)
     "result": 0, //0表示成功(计费依据)，非0表示失败
     "errmsg": "OK", //result非0时的具体错误信息
     "ext": "", //用户的session内容，腾讯server回包中会原样返回
+    "nationcode":"86",//根据请求包体中tel字段而解析出的国家码
     "sid": "xxxxxxx", //标识本次发送id，标识一次短信下发记录
     "fee": 1 //短信计费的条数
 }

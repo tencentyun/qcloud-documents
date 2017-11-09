@@ -59,25 +59,26 @@ The minimum throughput value is 150 MB/s with an increment of 0.147 MB/s per GB 
         </tr>
 								<tr>
             <td>Price</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/100G/hour</td>
-            <td>Annual or monthly plan: RMB 0.8/GB/month<br>
-Pay by usage: RMB 0.33/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/hour/100GB</td>
-						<td>Annual or monthly plan: RMB 1.1/GB/month<br>
-Pay by usage: RMB 0.332/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.35/GB/month<br>
-Pay by usage: RMB 0.09/hour/100GB</td>
+            <td><br>
+Pay by usage:$ 0.01/100G/hour</td>
+            <td><br>
+Pay by usage:$ 0.03/hour/100GB</td>
+            <td><br>
+Pay by usage: $ 0.01/hour/100GB</td>
+						<td><br>
+Pay by usage: $ 0.03/hour/100GB</td>
+            <td><br>
+Pay by usage: $ 0.02/hour/100GB</td>
         </tr>
         
     </tbody></table>
     
 **Note:**
-
 - System disk must be purchased when you purchase a CVM, and cannot be purchased separately.
 
-- You can enjoy 2-month discount if you choose annual or monthly plan. In other words, annual billing price equals monthly price multiplied by 10.
+
+
+
  
  
 
