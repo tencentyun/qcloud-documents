@@ -1,4 +1,5 @@
 ## 1. Project Structure
+
 [Download](https://cloud.tencent.com/document/product/454/6991) Mini LVB's source code and find the TCLVBIMDemo.xcworkspace file. This is Mini LVB's XCode project workspace to manage Mini LVB's project code and 3rd-party open-source class library dependencies (under the directory Pods). Use this workspace to compile or browse code related to Mini LVB, instead of directly open Mini LVB's project file TCLVBIMDemo.xcodeproj. After opening TCLVBIMDemo.xcworkspace, you will see the following project directory structure:
 ![](//mc.qcloudimg.com/static/img/8673bf53392e34a9f38d8a5a8625e8eb/image.jpg)
 
@@ -13,6 +14,7 @@
 | Pods | CocoaPods is used to manage the 3rd-party open-source class libraries used by Mini LVB |
 
 ## 2. Compile and Run
+
 Download the code and open **TCLVBIMDemo.xcworkspace** project file (do NOT directly open Mini LVB's project file TCLVBIMDemo.xcodeproj). Currently Mini LVB only support real device debugging, not simulator debugging. Therefore, a project certificate needs to be setup by following steps:
 **Step 1: Configure bundle id and signature certificate**
 ![](//mc.qcloudimg.com/static/img/e2c29a0daa9dbba958c970fadc0a3f09/image.jpg)
@@ -24,6 +26,7 @@ Follow step 1 and 2 to configure the other two targets: TCLVBIMDemoUpload and TC
 After configuration, the project should be able to run on real devices. However, to actually enable Mini LVB's features, TCConstants.h needs to be configured. For more information, please see [Mobile End Integration](https://cloud.tencent.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90.E5.8F.8A.E5.9B.9E.E8.B0.83.E8.AE.BE.E7.BD.AE).
 
 ## 3. Module Introduction
+
 Mini LVB is divided into 7 modules by their functions. They are: account, LVB/Replay list management, push, playback, messaging, profile and joint broadcasting. The code is also classified in this way. Below we will introduce these modules and their implementations respectively:
 
 ### Account Module
