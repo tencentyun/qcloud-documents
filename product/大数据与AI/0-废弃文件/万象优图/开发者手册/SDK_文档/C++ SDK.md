@@ -26,7 +26,7 @@ make
 生成的libimagesdk.a放到你自己的工程里lib路径下， 
 include目录下的 Auth.h Imageapi.h curl json都放到你自己的工程的include路径下。 
 例如我的项目里只有一个sample.cpp,项目目录和sdk在同级目录， 
-copy libimagesdk.a 到项目所在目录那么编译命令为: 
+copy libimagesdk.a 到项目所在目录那么编译命令为：
 
 ```
 g++ -o sample sample.cpp -I ./include/ -L. -L../cpp-sdk/lib/ -limagesdk -lcurl -lcrypto -lssl -lrt -ljsoncpp

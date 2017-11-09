@@ -26,7 +26,7 @@ dimensions.0.value 取值参照表
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为GetMonitorData。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见公共请求参数页面。其中，此接口的Action字段为GetMonitorData。
 
 ### 2.1输入参数
 
@@ -94,17 +94,16 @@ dimensions.0.value 取值参照表
 ### 5.1查询某个集群/实例大于100ms的请求数
 
 输入
-
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/cmongo
 &metricName=delay_100
 &dimensions.0.name=target
 &dimensions.0.value=cmgo-6ielucen
 &startTime=2017-01-09 20:22:00
 &endTime=2017-01-09 20:38:00
-```
+</pre>
 
 输出
 
@@ -128,16 +127,16 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target
 &dimensions.0.value=cmgo-6ielucen_0
 &startTime=2017-01-09 20:22:00
 &endTime=2017-01-09 20:38:00
-```
+</pre>
 
 输出
 
@@ -161,16 +160,16 @@ https://monitor.api.qcloud.com/v2/index.php?
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/cmongo
 &metricName=slavedelay
 &dimensions.0.name=target
 &dimensions.0.value=cmgo-6ielucen_0
 &startTime=2017-01-09 20:22:00
 &endTime=2017-01-09 20:38:00
-```
+</pre>
 
 输出
 
@@ -191,4 +190,9 @@ https://monitor.api.qcloud.com/v2/index.php?
     ]
 }
 ```
+
+
+
+
+
 
