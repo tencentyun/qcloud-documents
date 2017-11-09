@@ -8,12 +8,12 @@ Even if the number of VJs grows significantly with the increasing popularity of 
 ![](//mc.qcloudimg.com/static/img/504f32f7112d7dd9ab6c4ec10cb20099/image.png)
 
 ## Enable Recording
-Recording & Replay is built on Tencent Cloud's **VOD service**. To use this feature, you need to [Activate VOD Service](http://console.qcloud.com/video) on Tencent Cloud console. After the service is enabled, you can find the new recorded files in [Video Management](http://console.qcloud.com/video/videolist) on VOD console.
+Recording & Replay is built on Tencent Cloud's **VOD service**. To use this feature, you need to [Activate VOD Service](http://console.cloud.tencent.com/video) on Tencent Cloud console. After the service is enabled, you can find the new recorded files in [Video Management](http://console.cloud.tencent.com/video/videolist) on VOD console.
 
 How to enable recording? There are two methods:
 
 ### 1. Enable recording globally
-You can enable or disable recording for all LVB streams on ["LVB Console" -> "Access Management" -> "LVB Code Access" -> "Access Configuration"](https://console.qcloud.com/live/livecodemanage), as shown below:
+You can enable or disable recording for all LVB streams on ["LVB Console" -> "Access Management" -> "LVB Code Access" -> "Access Configuration"](https://console.cloud.tencent.com/live/livecodemanage), as shown below:
 
 ![](//mc.qcloudimg.com/static/img/302dd405148cb9ccd016c3deafc6027d/image.png)
 
@@ -23,7 +23,7 @@ When the recording of all LVB streams is disabled, you can enable recording for 
 rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&record=mp4&record_interval=5400
 ```
 Notes:
-- The video wrapper formats supported by recording feature are mp4, hls and flv. For more information about the VOD formats, see [DOC](https://www.qcloud.com/document/product/454/7937#3.-.E5.B8.B8.E8.A7.81.E7.9A.84.E7.82.B9.E6.92.AD.E5.8D.8F.E8.AE.AE.E6.9C.89.E5.93.AA.E4.BA.9B.EF.BC.9F).
+- The video wrapper formats supported by recording feature are mp4, hls and flv. For more information about the VOD formats, see [DOC](https://www.cloud.tencent.com/document/product/454/7937#3.-.E5.B8.B8.E8.A7.81.E7.9A.84.E7.82.B9.E6.92.AD.E5.8D.8F.E8.AE.AE.E6.9C.89.E5.93.AA.E4.BA.9B.EF.BC.9F).
 
 - record=mp4|hls|flv delimiter-based format is used to specify multiple formats in which the video is recorded at a time (mobile browsers only support playback of MP4 and HLS videos).
 
@@ -41,7 +41,7 @@ You can implement many extensions based on your business scenarios. For example,
 How to get the URL of the recorded file? in the following two ways:
 
 ### 1. Listen to notification passively
-You can use Tencent Cloud's **[Event Notification Service](https://www.qcloud.com/doc/api/258/5957)**: Register a **callback URL** for your server on Tencent Cloud, which will be used to let Tencent Cloud notify you of the generation of a new recorded file.
+You can use Tencent Cloud's **[Event Notification Service](https://www.cloud.tencent.com/doc/api/258/5957)**: Register a **callback URL** for your server on Tencent Cloud, which will be used to let Tencent Cloud notify you of the generation of a new recorded file.
 
 ![](//mc.qcloudimg.com/static/img/b50c901fb4d529daf3405e78bc69908d/image.png)
 
@@ -64,7 +64,7 @@ The following is a typical notification message, which indicates: a new FLV reco
 ```
 
 ### 2. Query files actively
-You can check if any new recorded file is generated on a regular basis using Tencent Cloud's query API (**[Live_Tape_GetFilelist](https://www.qcloud.com/doc/api/258/5960)**). However, this method is not recommended for frequent use due to its unsatisfactory real-timeness and reliability since it has a slow response in case of a query for a large number of channels and cannot be called at a high frequency (only suitable for the channels that have just finished).
+You can check if any new recorded file is generated on a regular basis using Tencent Cloud's query API (**[Live_Tape_GetFilelist](https://www.cloud.tencent.com/doc/api/258/5960)**). However, this method is not recommended for frequent use due to its unsatisfactory real-timeness and reliability since it has a slow response in case of a query for a large number of channels and cannot be called at a high frequency (only suitable for the channels that have just finished).
 
 ## FAQs
 ### 1. How does LVB recording work?
@@ -97,4 +97,4 @@ Therefore, the time information sent from App client is very important. If you w
 
 
 ### 4. How to stitch fragments?
-Currently, Tencent Cloud allows you to use cloud API to stitch video fragments. For more information about this API, see [Video Stitching](https://www.qcloud.com/document/product/266/7821).
+Currently, Tencent Cloud allows you to use cloud API to stitch video fragments. For more information about this API, see [Video Stitching](https://www.cloud.tencent.com/document/product/266/7821).
