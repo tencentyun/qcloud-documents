@@ -79,7 +79,7 @@
 
 + Users are experiencing a slow connection when accessing CDN?
   + We consider download speed for large files and latency for small files:
-    1. Acquire the URL that is slow to access for users and determine if the access is slow by using speed test websites. (Recommendation: 17ce http://www.17ce.com, Alibench http://alibench.com)
+    1. Acquire the URL that is slow to access for users and determine if the access is slow by using speed test websites. (Recommendation: 17ce http://www.17ce.com, Alibench https://alibench.com.cutestat.com/)
     2. If connection is slow according to test, and origin server is FTP hosted origin or SVN origin, you should report the issue to second-line to solve the problem
     3. If connection is slow according to test, and origin server is self-owned origin, you should assist the user to check if the machine load and bandwidth of the origin server are restricted
 

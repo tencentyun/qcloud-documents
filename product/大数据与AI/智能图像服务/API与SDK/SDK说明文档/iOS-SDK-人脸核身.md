@@ -7,12 +7,11 @@
 ### 开发准备
 -  iOS 8.0+ ；
 -  手机必须要有网络（ GPRS 、3G 或 Wifi 网络等）；
--  开发者使用人脸识别功能前，需要先进行 [腾讯云账号注册](https://cloud.tencent.com/register)（详细指引请参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)），并 [创建存储桶](https://cloud.tencent.com/document/product/460/10637?!preview&lang=cn)，从而获得 APPID 、SecretId 和 SecretKey 等（获取 APPID 可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937)）；
+-  开发者使用人脸识别功能前，需要先进行 [腾讯云账号注册](https://cloud.tencent.com/register)（详细指引请参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)），并 [创建存储桶](https://cloud.tencent.com/document/product/460/10637?!preview&lang=cn)，从而获得 APPID 、SecretId 和 SecretKey 等（获取 APPID 可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937)）。
 ### SDK 配置
 #### SDK 导入
 
-万象优图的 iOS SDK 压缩包（CIClientSDK.zip）组成：
-压缩包中都包含了一个 .a 静态库和一个包含头文件的文件夹 Headers ，如下图所示。上传包提供了**支持 bitcode **与**不支持 bitcode **两个版本，可根据业务需要进行选择。
+万象优图的 iOS SDK 压缩包（CIClientSDK.zip）由一个 .a 静态库和一个包含头文件的文件夹 Headers 组成，如下图所示。上传包提供了**支持 bitcode **与**不支持 bitcode **两个版本，可根据业务需要进行选择。
 ![上传SDK](https://mccdn.qcloud.com/static/img/05f5a1d6768985aa11b23c3808914989/image.png)
 ![下载SDK](https://mccdn.qcloud.com/static/img/190e5c8c4920ba4d7334f7ba64fd3839/image.png)
 将解压后的 CISDK 拖入工程目录，Xcode 会自动将其加入链接库列表中。
@@ -21,7 +20,7 @@
 #### 工程配置
 在 Build Settings 中设置 Other Linker Flags，加入参数 -ObjC。
 ![参数配置](https://mccdn.qcloud.com/static/img/58327ba5d83809c77da158ff95627ef7/image.png)
-在工程 info.plist 文件中添加 App Transport Security Settings 类型，然后在 App Transport Security Settings 下添加 Allow Arbitrary Loads 类型 Boolean ,值设为‘YES’。
+在工程 info.plist 文件中添加 App Transport Security Settings 类型，然后在 App Transport Security Settings 下添加 Allow Arbitrary Loads 类型 Boolean ，值设为‘YES’。
 ## 签名获取
 **签名类型：**
 
@@ -49,7 +48,7 @@
 ```objective-c
 CIClient *client= [[CIClient alloc] initWithAppId:appId]```
 ## 快速入门
-这里演示的对比用户人脸身份照片的基本流程，更多细节可以参考 demo；在进行这一步之前必须在腾讯云控制台上申请万象业务的 APPID；
+这里演示的对比用户人脸身份照片的基本流程，更多细节可以参考 demo；在进行这一步之前必须在腾讯云控制台上申请万象业务的 APPID。
 
 ### STEP - 1 初始化 CIClient
 #### 示例
@@ -134,7 +133,7 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId]```
 
 1. 实例化 CIGetLipIdentificationStringTask  对象；
 2. 调用 CIClient  的 getLipIdentificationString 方法，将 CIGetLipIdentificationStringTask 对象传入；
-3. 通过 CITaskRsp 对象返回结果
+3. 通过 CITaskRsp 对象返回结果。
 
 #### CIGetLipIdentificationStringTask 参数说明
 
@@ -174,7 +173,7 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId]```
 
 1.实例化 CILipIdentificationCompareTask  对象；
 2.调用 CIClient  的 lipIdentificationCompare 方法，将 CILipIdentificationCompareTask 对象传入；
-3.通过 CITaskRsp的 对象返回结果信息；
+3.通过 CITaskRsp的 对象返回结果信息。
 
 #### CILipIdentificationCompareTask参数说明
 
@@ -220,7 +219,7 @@ CIClient *client= [[CIClient alloc] initWithAppId:appId]```
 
 1. 实例化 CIIDNumbeVideoComparTask  对象；
 2. 调用 CIClient  的 IDCardCompareVideo 命令，传入 CIIDNumbeVideoComparTask  对象；
-3. 通过 CITaskRsp 的对象返回结果信息
+3. 通过 CITaskRsp 的对象返回结果信息。
 
 
 #### CIIDNumbeVideoComparTask 参数说明

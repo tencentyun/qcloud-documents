@@ -123,16 +123,16 @@ dimensions.0.value为cdb实例id
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&[公共请求参数](https://cloud.tencent.com/doc/api/229/6976)
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/cdb
 &metricName=slow_queries
 &dimensions.0.name=uInstanceId
 &dimensions.0.value=cdb-e242adzf
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-```
+</pre>
 
 输出
 

@@ -11,7 +11,7 @@
 #### 1.2.1 下载Android SDK
 Android SDK的下载地址为：[Android SDK](/doc/product/275/SDK下载#1.-android-sdk)。
 
-注意
+注意：
 (1). Android SDK的库文件中包含上传SDK（upload.jar）和下载SDK（download.jar）两个可选jar包，开发者可以根据需要选择性的集成。
 (2). SDK中用到的SIGN，推荐使用[服务器端SDK](/doc/product/275/SDK文档#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk.E6.96.87.E6.A1.A3)提供的接口来生成，并由移动端向业务服务器请求。SIGN的具体生成和使用请参照[鉴权服务技术方案](/doc/product/275/签名与鉴权文档)。
 

@@ -1,6 +1,6 @@
 ## 唇语人脸核身 SaaS 服务 Android-SDK 说明文档
 
-腾讯云万象优图人脸核身服务指通过人脸智能识别技术与OCR技术相结合，在线验证用户自拍视频或照片与身份证照片的匹配关系，秒级确认用户的身份是否真实有效。基于唇语活体检测的人脸核身SaaS服务提供集成了UI的一站式服务，开发者可以轻松集成SDK即可使用人脸核身服务。腾讯云提供IOS与Android的SDK，本文将介绍Android的SDK的集成方式。
+腾讯云万象优图人脸核身服务，指通过人脸智能识别技术与OCR技术相结合，在线验证用户自拍视频或照片与身份证照片的匹配关系，秒级确认用户的身份是否真实有效。基于唇语活体检测的人脸核身SaaS服务提供集成了UI的一站式服务，开发者可以轻松集成SDK即可使用人脸核身服务。腾讯云提供IOS与Android的SDK，本文将介绍Android的SDK的集成方式。
 
 ### 1、开发准备
 
@@ -43,7 +43,7 @@ compile 'org.slf4j:slf4j-android:1.6.1-RC1'
 下载腾讯云facein、faceid、qimage三个库，以及常用的okhttp3、okio以及slf4j三个库，然后将这6个库文件放在lib目录下，并添加到gradle的构建路径中即可。
 
 
-SDK需要的危险权限包括
+SDK需要的危险权限包括：
 
 ```
 <uses-permission android:name="android.permission.INTERNET" />
@@ -52,7 +52,7 @@ SDK需要的危险权限包括
 <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 <uses-permission android:name="android.permission.CAMERA" />
 ```
-feature包括
+feature包括：
 
 ```
 <uses-feature android:name="android.hardware.camera"/>
@@ -94,10 +94,11 @@ YourActivity.this.startActivity(intent);
 #### 签名
 签名是后台对SDK请求合法性的校验凭据，我们提供了两种方式来对请求进行签名：
 
-- 本地签名：SDK中提供了LocalCredentialProvider类来进行本地签名，但是需要用户提供secret_key，这会使得用户将自己的机密信息硬编码到代码中，存在泄漏的风险，因此在您的发布版本中我们强烈建议您不要使用这种方式进行签名。
+- 本地签名：SDK中提供了LocalCredentialProvider类来进行本地签名，但是需要用户提供secret_key，这会使得用户将自己的机密信息硬编码到代码中，存在泄漏的风险，因此在您的发布版本中，我们强烈建议您不要使用这种方式进行签名。
 - 远程服务器签名：用户需要自己子类化AbsCredentialProvider这个抽象类，实现该类的encrypt方法（实现方式可以参考LocalCredentialProvider），将对secret_key和加密原始串的过程放在远程服务器中，来保证secret_key的安全性。
 
 [签名算法](https://cloud.tencent.com/document/product/460/6968)主要包括拼凑原始串和利用secret_key将原始串加密为签名两个步骤，使用本地签名时SDK帮用户实现了这两个步骤，而在远程服务器中签名方式下，SDK帮用户实现了第一步，用户只需要将拼凑好的原始串利用secret_key进行加密即可。
+
 代码示例：
 
 ```
@@ -123,7 +124,7 @@ FaceInConfig.setCredentialProvider(credentialProvider);
 目前支持的人脸核身类型（**FaceInModelType**）包括：
 
 - ```OCR_ID_CARD_IMAGE_COMPARE``` ：用户扫描身份证后，拍照进行身份验证。
-- ```OCR_ID_CARD_LIP_VIDEO_COMPARE```：用户扫描身份证后，录制短视频来进行身份以及活体校验
+- ```OCR_ID_CARD_LIP_VIDEO_COMPARE```：用户扫描身份证后，录制短视频来进行身份以及活体校验。
 
 代码示例：
 
@@ -170,7 +171,7 @@ IdCardInfo类包括了身份证上的5个基本信息：
 
 ##### FaceInFailedType
 
-目前只返回识别置信度小于阈值错误
+目前只返回识别置信度小于阈值错误。
 
 - ```FACE_IN_SIMILARITY_LOW``` ：识别置信度小于用户设置的阈值。
 
@@ -194,7 +195,7 @@ FaceInConfig.setFaceInResultListener(new FaceInResultListener() {
 
 #### 其他
 
-置信度阈值设置、HTTP超时时间设置、是否打印debug日志
+置信度阈值设置、HTTP超时时间设置、是否打印debug日志。
 
 | 类型   | 名称                              | 信息                                       | 默认值     | 范围     |
 | ---- | ------------------------------- | ---------------------------------------- | ------- | ------ |
