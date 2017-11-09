@@ -8,11 +8,16 @@
 
 | SDK            | 接入文档                                     |
 | :-------------: | :---------------------------------------: |
-| Android SDK    | [Android SDK 接入说明](/doc/product/436/11238) |
-| iOS SDK        | [iOS SDK 接入说明](/doc/product/436/11280)    |
-| Java SDK       | [Java SDK 接入说明](/doc/product/436/10199)   |
-| Node.js SDK    | [Node.js SDK 接入说明](/doc/product/436/8629) |
-| JavaScript SDK | [JavaScript SDK 接入说明](/doc/product/436/11459) |
+| Android SDK    | [Android SDK 快速入门](https://cloud.tencent.com/document/product/436/12159) |
+| C SDK    | [C SDK 快速入门](https://cloud.tencent.com/document/product/436/12296) |
+| C++ SDK    | [C++ SDK 快速入门](https://cloud.tencent.com/document/product/436/12301) |
+| iOS SDK        | [iOS SDK 快速入门](https://cloud.tencent.com/document/product/436/11280)    |
+| JavaScript SDK | [JavaScript SDK 快速入门](https://cloud.tencent.com/document/product/436/11459) |
+| Java SDK | [Java SDK 快速入门](https://cloud.tencent.com/document/product/436/10199) |
+| Node.js SDK    | [Node.js SDK 快速入门](https://cloud.tencent.com/document/product/436/8629) |
+| PHP SDK       | [PHP SDK 快速入门](https://cloud.tencent.com/document/product/436/12266)   |
+| Python SDK       | [Python SDK 快速入门](https://cloud.tencent.com/document/product/436/12269)   |
+
 
 ### 基于 JSON API 封装的 SDK
 
