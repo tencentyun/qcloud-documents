@@ -12,7 +12,7 @@ Download the Mini LVB source code from Github and open the project with Android 
 
 ## Library Instructions
 
-### [LVB SDK](https://cloud.tencent.com/document/product/454/7873)(Required)
+### [LVB SDK](https://cloud.tencent.com/document/product/454/7873)  (Required)
 
 The main SDK used by MLVB, providing features such as push, LVB, VOD, joint broadcasting and screencap.
 - JAR package
@@ -47,8 +47,7 @@ MLVB currently integrates only the armeabi architecture.
 	- libqalmsfboot.so
   - libwtcrypto.so
 
-###  [UGC Short Videos](https://cloud.tencent.com/document/product/454/8843)  (Optional)
-
+### [UGC Short Videos](https://cloud.tencent.com/document/product/584/9369)（Optional）
 Recording, editing and publishing UGC videos.
 - JAR package
 
