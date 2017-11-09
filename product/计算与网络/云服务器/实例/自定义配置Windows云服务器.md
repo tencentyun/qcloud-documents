@@ -11,7 +11,7 @@
 <div id="page2"></div>
 ## 选择地域与机型
 ![](//mc.qcloudimg.com/static/img/3ed8bab8cce3dde578a6e3fb14267ea5/image.png)
- 1. 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.cloud.tencent.com/developer/infomation) ）。更多信息请看 [计费模式说明](h/doc/product/213/%E8%AE%A1%E8%B4%B9%E6%A8%A1%E5%BC%8F%E8%AF%B4%E6%98%8E) 。
+ 1. 选择计费模式：包年包月或按量付费（无法购买按量付费云服务器的用户请先进行 [实名认证](https://console.cloud.tencent.com/developer/infomation) ）。更多信息请看 [计费模式说明](https://cloud.tencent.com/document/product/213/2180) 。
 
  2. 选择地域和可用区。当您需要多台云服务器时，选择不同可用区可实现容灾效果。
 
