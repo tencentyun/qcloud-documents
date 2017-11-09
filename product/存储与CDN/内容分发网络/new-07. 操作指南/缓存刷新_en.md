@@ -10,7 +10,7 @@ Log in to [CDN Console](https://console.cloud.tencent.com/cdn), select **Purge C
 
 ![](https://mc.qcloudimg.com/static/img/95184d6e47c917fddc8ec0ef58a94925/1.png)
 
-Enter the URLs of objects to be refreshed (must contain http:// or https://), one per line, for example: http://www.abc.com/test.html.
+Enter the URLs of objects to be refreshed (must contain http:// or https://), one per line, for example: `http://www.abc.com/test.html`.
 
 **Note:**
 
@@ -25,7 +25,7 @@ Log in to [CDN Console](https://console.cloud.tencent.com/cdn), select the "Purg
 
 ![](https://mc.qcloudimg.com/static/img/02e28f79c50438007c8a4f70c14f8b82/2.png)
 
-Enter the URLs of directories to be refreshed (must contain http:// or https://), one per line, for example: http://www.abc.com/test/.
+Enter the URLs of directories to be refreshed (must contain http:// or https://), one per line, for example: `http://www.abc.com/test/`.
 
 **Note:**
 
@@ -38,7 +38,7 @@ Enter the URLs of directories to be refreshed (must contain http:// or https://)
 Log in to [CDN Console](https://console.cloud.tencent.com/cdn), select "Purge Cache" menu on the left, and then select "Prefetch URL":
 ![](https://mc.qcloudimg.com/static/img/4d2c6fdb38a739a8f1910d68d7067e8b/3.png)
 
-Enter the URLs of objects to be prefetched (must contain http:// or https://), one per line, for example: http://www.abc.com/test.html.
+Enter the URLs of objects to be prefetched (must contain http:// or https://), one per line, for example: `http://www.abc.com/test.html`.
 
 **Note:**
 + If the resource has been cached on the node and has not expired, it will not be updated to the latest one. If you need to update the resources on all CDN nodes to the latest ones, you can refresh them before prefetch.

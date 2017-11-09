@@ -9,7 +9,7 @@ Cloud Memcached is a distributed system and does not support asynchronous client
 
 (2) If you need to use Java based client, it is recommended to use this one: [memcached-java-2.5.1](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/memcached-java-2.5.1.zip).
 
-(3) If you need to use clients based on other languages, refer to [This](http://code.google.com/p/memcached/wiki/Clients).
+(3) If you need to use clients based on other languages, refer to [This](https://code.google.com/archive/p/memcached/downloads).
 
 2 Socket connection timeout Limits for Cloud Memcached
 
