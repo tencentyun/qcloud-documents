@@ -196,7 +196,7 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 -keep class com.tencent.** { *; }
 ```
 
-### 8.1 问题二
+### 8.2 问题二
 文件发布之后无反应，没有提示错误信息，也没有回调返回。log出现如下打印
 ```
  TaskManager: ExecutionException
