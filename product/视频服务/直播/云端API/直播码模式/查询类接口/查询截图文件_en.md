@@ -50,7 +50,7 @@
 | Field Name | Description | Type | Remarks                 |
 |---------|---------|---------|------------------|
 | stream_id | LVB code    |   string      |            |
-| pic_url   | Screenshot URL|   string  |   Complete URL:  http://(cos_bucketname)-(cos_appid).file.myqcloud.com/<file name> |
+| pic_url   | Screenshot URL|   string  |   Complete URL:  `http://(cos_bucketname)-(cos_appid).file.myqcloud.com/<file name>` |
 | create_time | Screenshot time |   int  |  The time cannot be accurate to seconds due to interference of the I frame position  |
 
 ## 4. Example
