@@ -35,7 +35,7 @@ Then right click on the newly created key ID, and select "Bind the Linux server 
 
 On a Windows computer, you can log in to the Linux instance using remote login software. PUTTY is taken as an example in this case. There are also other types of login software for you to choose from.
 ### Install Windows remote login software
-To log in to the Linux CVM from a local Windows computer, you need to use client software to establish a connection. Here PUTTY is taken as an example. Reference download link: http://www.putty.nl/download.html
+To log in to the Linux CVM from a local Windows computer, you need to use client software to establish a connection. Here PUTTY is taken as an example. Reference download link: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 ### Use PUTTY to connect to Linux CVM
 Open the Putty client, enter the following information in the "PuTTY Configuration" window:
@@ -57,7 +57,7 @@ If the login fails, check if your CVM instance allows inbound traffic over port 
 Likewise, you need to use remote login software to log in to the Linux instance from a Windows computer. PUTTY is taken as an example in this case. There are also other types of login software for you to choose from.
 
 ### Install Windows remote login software
-To log in to the Linux CVM from a local Windows computer, you need to use client software to establish a connection. Here PUTTY is taken as an example. Reference download link: http://www.putty.nl/download.html. <font color="red">Download putty.exe and puttygen.exe. </font>
+To log in to the Linux CVM from a local Windows computer, you need to use client software to establish a connection. Here PUTTY is taken as an example. Reference download link: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html. <font color="red">Download putty.exe and puttygen.exe. </font>
 
 ### Key format conversion
 Open puttygen.exe, and click "Load" button. In the window that pops up, go to the path under which you store the private key downloaded in the Prerequisites step, and then select "All File (\*.\*)", select the downloaded private key (in this case it is file david, which is the name of the key), and click "Open".
