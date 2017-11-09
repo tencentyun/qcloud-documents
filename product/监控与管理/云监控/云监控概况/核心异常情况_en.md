@@ -46,7 +46,9 @@ Such exception may occur if you did not install [Agent](https://cloud.tencent.co
 
    2) If the uuid file is not modified, check the timestamp of the sub-machine
 
-    For Linux, you can use `/usr/sbin/ntpdate ntpupdate.tencentyun.com` to check whether the adjusted value of the time is less than 50 seconds. If the adjusted value is greater than 50 seconds, reboot barad_agent and the original time will be resumed. ![img](http://tapd.oa.com/tfl/captures/2016-05/tapd_10114711_base64_1464166851_22.png)
+    For Linux, you can use `/usr/sbin/ntpdate ntpupdate.tencentyun.com` to check whether the adjusted value of the time is less than 50 seconds. If the adjusted value is greater than 50 seconds, reboot barad_agent and the original time will be resumed. 
+    
+    ![img](http://tapd.oa.com/tfl/captures/2016-05/tapd_10114711_base64_1464166851_22.png)
 
 6. If the problem still exists after you complete the above procedures, use check_agent_profile script for Linux.
 
