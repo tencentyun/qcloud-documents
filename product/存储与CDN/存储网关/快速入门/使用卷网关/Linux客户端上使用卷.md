@@ -124,14 +124,11 @@ sudo /sbin/iscsiadm --mode node --type iqn.2003-07.com.qcloud:vol-10098 --portal
 	
   **注意：卸载卷会导致此项配置失效，因此，每次挂载完卷以后都要执行一次操作。**
   
-  
   查看上述配置的规则是否能够应用于当前系统，请输入以下命令，其中 "设备名" 需要替换成设备名称。
   	```
 	udevadm test 设备名
-	
 	例如：udevadm test /dev/sda
 	```
-	
 	使用如下命令验证是否已经应用生效，
   	```
 	udevadm control --reload-rules && udevadm trigger 
