@@ -9,8 +9,11 @@ Download the Mini LVB source code from Github and open the project with Android 
 | ui | The code of Mini LVB's UI layer |
 | ui/customviews | Custom widgets used by Mini LVB's UI |
 | jniLibs | Tencent SDKs relied by Mini LVB, mainly Bugly SDK, TLS SDK, IM SDK and RTMP SDK |
+
 ## Library Instructions
-###  [LVB SDK](https://cloud.tencent.com/document/product/454/7873) (required)
+
+### [LVB SDK](https://cloud.tencent.com/document/product/454/7873) (Required)
+
 The main SDK used by MLVB, providing features such as push, LVB, VOD, joint broadcasting and screencap.
 - JAR package
 txrtmpsdk.jar
@@ -23,7 +26,8 @@ txrtmpsdk.jar
 | libtraeimp-rtmp-armeabi.so | Joint broadcasting library |
 | libstlport_shared.so | Joint broadcasting library |
 
-### IM SDK (required)
+### IM SDK (Required)
+
 Provides messaging feature.
 - JAR package
 
@@ -44,6 +48,7 @@ MLVB currently integrates only the armeabi architecture.
   - libwtcrypto.so
 
 ###  [UGC Short Videos](https://cloud.tencent.com/document/product/454/8843) (Optional)
+
 Recording, editing and publishing UGC videos.
 - JAR package
 
@@ -66,6 +71,7 @@ Recording, editing and publishing UGC videos.
 
 
 ### Value-added Commercial Version (not included in Mini LVB's source code)
+
 With patented AI technologies developed by YouTu Lab, this version supports special effects such as eye enlarging, face slimming, motion effect sticker and green screen. Related so libraries could be deleted if these features are not required.
 - libblasV8.so   
 - librsjni.so  
@@ -80,7 +86,7 @@ With patented AI technologies developed by YouTu Lab, this version supports spec
 ### Glide (optional)
 3rd-party image loading library
 
-#### dfm (optional)
+### dfm (optional)
 3rd-party on-screen commenting library. It's recommended to keep this library if on-screen commenting is desired.
 
 
