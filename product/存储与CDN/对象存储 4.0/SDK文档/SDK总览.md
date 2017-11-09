@@ -7,7 +7,7 @@
 ### 基于 XML API 封装的 SDK
 
 | SDK            | 接入文档                                     |
-| :-------------: | :---------------------------------------: |
+| ------------- | --------------------------------------- |
 | Android SDK    | [Android SDK 快速入门](https://cloud.tencent.com/document/product/436/12159) |
 | C SDK    | [C SDK 快速入门](https://cloud.tencent.com/document/product/436/12296) |
 | C++ SDK    | [C++ SDK 快速入门](https://cloud.tencent.com/document/product/436/12301) |
@@ -22,7 +22,7 @@
 ### 基于 JSON API 封装的 SDK
 
 | SDK            | 接入文档                                     |
-| :-------------: | :---------------------------------------: |
+| ------------- | --------------------------------------- |
 | Android SDK    | [Android SDK 接入说明](/doc/product/436/6517) |
 | C# SDK    | [C# SDK 接入说明](/doc/product/436/6271) |
 | C++ SDK        | [C++ SDK 接入说明](/doc/product/436/6272)    |
