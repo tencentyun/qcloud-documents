@@ -6,11 +6,10 @@
 ### 1.2	导入SDK
 1. 导入go-sdk包
 在开发环境命令行直接执行下面的命令导入go-sdk包。
-
 ```
 　　Go get github.com/tencentyun/go-sdk
 ```
-1. 参考api说明和sdk中提供的demo，开发代码。
+2. 参考api说明和sdk中提供的demo，开发代码。
 
 ## 2	相关数据结构定义
 ### 2.1 PicCloud

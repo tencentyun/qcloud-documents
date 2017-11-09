@@ -6,13 +6,12 @@
  通过图片空间获取appid（项目ID），secret_id和secret_key。
 
 ### 1.2	导入SDK
-1. 导入go-sdk包
+ 1. 导入go-sdk包
 在开发环境命令行直接执行下面的命令导入go-sdk包。
-
 ```
 go get github.com/tencentyun/go-sdk
 ```
-2. 参考api说明和sdk中提供的demo，开发代码。demo.go对应v1版本的restful api, demoV2.go对应v2版本的restful api。
+ 2. 参考api说明和sdk中提供的demo，开发代码。demo.go对应v1版本的restful api, demoV2.go对应v2版本的restful api。
 
 ## 2	相关数据结构定义
 ### 2.1 icCloud
