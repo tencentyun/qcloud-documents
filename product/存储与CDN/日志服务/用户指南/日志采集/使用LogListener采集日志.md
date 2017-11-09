@@ -25,7 +25,7 @@ cd loglistener/tools/op;
 ./install.sh ($SecretId)($SecretKey)($region)
 ```
 
-注：这里的SecretId与SecretKey为您云api秘钥中的SecretId与SecretKey。region为您所使用的日志服务区域。服务区域编码如下：
+注：这里的SecretId与SecretKey为您云api秘钥中的SecretId与SecretKey。region为您所使用的**日志服务区域而非您的机器所处的区域**。服务区域编码如下：
 
 ```
 shanghai - 上海
