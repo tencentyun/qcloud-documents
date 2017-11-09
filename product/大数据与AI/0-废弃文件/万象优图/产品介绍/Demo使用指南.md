@@ -6,7 +6,7 @@
 ## 2 万象优图/微视频DemoAPP下载
 **Android系统**
 手机扫描下面的二维码，安装图片/微视频服务安卓版的体验APP。Android SDK中自带的demo即为这个体验APP。
-http://1251013638.cdn.myqcloud.com/1251013638/img-qcloud-sdk/qr-code.png?v=1.1.0
+`http://1251013638.cdn.myqcloud.com/1251013638/img-qcloud-sdk/qr-code.png?v=1.1.0`
 **iOS系统**
 [iOS体验APP ](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/QCloudDemo-ios-v1.1.0.zip)
 将SDK中Demo重新编译或在模拟器中运行图片/微视频服务iOS版的体验APP。

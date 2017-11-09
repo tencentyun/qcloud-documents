@@ -1,4 +1,4 @@
-﻿## 1.Project Structure
+## Project Structure
 Download the Mini LVB source code from Github and open the project with Android Studio. The project structure is as follows:
 ![](//mc.qcloudimg.com/static/img/af1b516a6c254da0224486bd35e3d2b6/image.png)
 
@@ -9,8 +9,11 @@ Download the Mini LVB source code from Github and open the project with Android 
 | ui | The code of Mini LVB's UI layer |
 | ui/customviews | Custom widgets used by Mini LVB's UI |
 | jniLibs | Tencent SDKs relied by Mini LVB, mainly Bugly SDK, TLS SDK, IM SDK and RTMP SDK |
-### Library Instructions
-#### [LVB SDK](https://cloud.tencent.com/document/product/454/7873) (required)
+
+## Library Instructions
+
+### [LVB SDK (Required)](https://cloud.tencent.com/document/product/454/7873)  
+
 The main SDK used by MLVB, providing features such as push, LVB, VOD, joint broadcasting and screencap.
 - JAR package
 txrtmpsdk.jar
@@ -23,7 +26,8 @@ txrtmpsdk.jar
 | libtraeimp-rtmp-armeabi.so | Joint broadcasting library |
 | libstlport_shared.so | Joint broadcasting library |
 
-#### IM SDK (required)
+### IM SDK (Required)
+
 Provides messaging feature.
 - JAR package
 
@@ -43,7 +47,7 @@ MLVB currently integrates only the armeabi architecture.
 	- libqalmsfboot.so
   - libwtcrypto.so
 
-#### [UGC Short Videos](https://cloud.tencent.com/document/product/454/8843) (Optional)
+### [UGC Short Videos (Optional)](https://cloud.tencent.com/document/product/584/9369)
 Recording, editing and publishing UGC videos.
 - JAR package
 
@@ -65,27 +69,28 @@ Recording, editing and publishing UGC videos.
 | libTXSHA1.so | Implements SHA calculation of UGC files to be uploaded |
 
 
-#### Value-added Commercial Version (not included in Mini LVB's source code)
+### Value-added Commercial Version (not included in Mini LVB's source code)
+
 With patented AI technologies developed by YouTu Lab, this version supports special effects such as eye enlarging, face slimming, motion effect sticker and green screen. Related so libraries could be deleted if these features are not required.
 - libblasV8.so   
 - librsjni.so  
 - libRSSupport.so  
 
-#### volley (optional)
+### volley (optional)
 3rd-party network request library
 
-#### Gson (optional)
+### Gson (optional)
 3rd-party Java class library to convert Java objects into JSON and back
 
-#### Glide (optional)
+### Glide (optional)
 3rd-party image loading library
 
-#### dfm (optional)
+### dfm (optional)
 3rd-party on-screen commenting library. It's recommended to keep this library if on-screen commenting is desired.
 
 
 
-## 2. Module Introduction
+## Module Introduction
 Mini LVB is divided into 6 modules by their functions. They are: account, LVB/Replay list management, push, playback, messaging and profile. The code is also classified in this way. Below we will introduce these modules and their implementations respectively:
 
 ### Account Module
@@ -106,6 +111,23 @@ Mini LVB is divided into 6 modules by their functions. They are: account, LVB/Re
 - UI:
 	- TCLoginActivity.java: user login page
 	- TCRegisterActivity.java: user registration page
+
+### Message
+#### Module Introduction
+- Mini LVB's interactive message feature is mainly based on the group chat feature of [ImSDK](https://cloud.tencent.com/doc/product/269/1561). It's available when IMSDK is logged-in.
+- Every live room is a large LVB group, which needs to be created before actually pushing occurs on the push end and disbanded after the pushing ends. Player ends join the group when they join the live room, and exit the group when they exit the room.
+- To listen for desired messages, implement a messaging listener class. Currently supported message types include text message, "Like" message, user joining/leaving message and group disband message.
+- All messages are sent as text messages in a uniform JSON format. The JSON carries information about message type, sender ID, nickname, profile photo and message text. The receivers receive and parse the JSON, and accordingly use the callbacks to pass all kinds of messages to the upper levels.
+
+#### Related Code
+- Logic:
+	- TCCharRoomMgr.java: Messaging management class. It's responsible for initializing message loop, message parsing and packaging. It also provide interfaces for VJs to create/disband message groups, and for viewers to join/exit message groups.
+- UI:	
+	- TCLivePublisherActivity.java: Implements VJ ends' message displaying activity.
+	- TCLivePlayerActivity.java: Implements viewer ends' message displaying activity.
+	- TCInputTextMsgDialog.java: Custom widget that implements a text input.
+	- TCHeartLayout.java/TCHeartView.java: Custom widget that implements floating heart animation when "Like" is given.
+	- TCDanmuMgr.java: Widget that implements on-screen comments. Based on open-sourced Bilibili Danmaku library.
 
 ### Main Interface & List Management
 #### Module Introduction
@@ -128,7 +150,7 @@ Mini LVB is divided into 6 modules by their functions. They are: account, LVB/Re
 - VJs can create their own rooms. Viewers can join these rooms and interact with the VJs by ordinary comments, on-screen comments, and "Like" comments. These comments are shown to the VJs in corresponding comment lists and on-screen comments' locations. For more information about comments, please see "Message" module.
 - The viewer lists can be displayed on VJ ends. When viewers join or leave a room, the list is refreshed, and the VJ is notified.
 
-### Push Timing Diagram
+#### Push Timing Diagram
 ![](//mc.qcloudimg.com/static/img/6fb00666a6a1cdea732fbddccc5fc786/image.png)
 
 #### UI Hierarchy
@@ -159,22 +181,7 @@ Please see the UI hierarchy of the push module.
 - UI:
 	- TCLivePublisherActivity.java: Playback module activity, including VOD and LVB. All the playback management, message management and animation effects are implemented in this class.
 
-### Message
-#### Module Introduction
-- Mini LVB's interactive message feature is mainly based on the group chat feature of [ImSDK](https://cloud.tencent.com/doc/product/269/1561). It's available when IMSDK is logged-in.
-- Every live room is a large LVB group, which needs to be created before actually pushing occurs on the push end and disbanded after the pushing ends. Player ends join the group when they join the live room, and exit the group when they exit the room.
-- To listen for desired messages, implement a messaging listener class. Currently supported message types include text message, "Like" message, user joining/leaving message and group disband message.
-- All messages are sent as text messages in a uniform JSON format. The JSON carries information about message type, sender ID, nickname, profile photo and message text. The receivers receive and parse the JSON, and accordingly use the callbacks to pass all kinds of messages to the upper levels.
 
-#### Related Code
-- Logic:
-	- TCCharRoomMgr.java: Messaging management class. It's responsible for initializing message loop, message parsing and packaging. It also provide interfaces for VJs to create/disband message groups, and for viewers to join/exit message groups.
-- UI:	
-	- TCLivePublisherActivity.java: Implements VJ ends' message displaying activity.
-	- TCLivePlayerActivity.java: Implements viewer ends' message displaying activity.
-	- TCInputTextMsgDialog.java: Custom widget that implements a text input.
-	- TCHeartLayout.java/TCHeartView.java: Custom widget that implements floating heart animation when "Like" is given.
-	- TCDanmuMgr.java: Widget that implements on-screen comments. Based on open-sourced Bilibili Danmaku library.
 	
 ### Personal Information
 #### Module Introduction
