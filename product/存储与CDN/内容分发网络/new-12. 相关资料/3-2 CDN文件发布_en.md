@@ -22,5 +22,5 @@ The files released on CDN can be accessed by using the URL address given on the 
 ![](https://mccdn.qcloud.com/static/img/7f4bda0577446fa6e2ce4eb5888df912/image.png)
 
 For example:
-Your account of Cloud Services is 1251000013. Using the SVN client, create the img directory at https://cdn.yun.qq.com/1251000013 and upload the file CVM.png to the img directory. After the CVM.png file is validated, the image can be accessed by using the following CDN public network address:
+Your account of Cloud Services is 1251000013. Using the SVN client, create the img directory at `https://cdn.yun.qq.com/1251000013` and upload the file CVM.png to the img directory. After the CVM.png file is validated, the image can be accessed by using the following CDN public network address:
 `http://1251000013.cdn.myqcloud.com/1251000013/img/CVM.png`
