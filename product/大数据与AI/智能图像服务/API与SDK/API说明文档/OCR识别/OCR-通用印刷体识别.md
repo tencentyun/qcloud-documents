@@ -9,7 +9,7 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
-`hhttp://recognition.image.myqcloud.com/ocr/general`
+`http://recognition.image.myqcloud.com/ocr/general`
 
 ## 请求包header
 接口采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
@@ -84,6 +84,7 @@ Content-Type: application/json
   "appid":"123456",
   "bucket":"test",
   "url":"http://test-123456.image.myqcloud.com/test.jpg"
+  }
 ```
 
 ### 使用 image 的请求包
@@ -165,6 +166,7 @@ Content-Type: application/json
 | -1300 | 图片为空                       |
 | -1301 | 参数为空                       |
 | -1304 | 参数过长                       |
+| -1308 | 图片下载失败                       |
 | -9003 | OCR 识别失败                   |
 
 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
