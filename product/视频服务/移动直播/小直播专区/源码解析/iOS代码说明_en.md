@@ -12,7 +12,7 @@
 | TCLVBIMDemo/TCLVBIMDemoUploadUI | The code of the UI layer of the extension for screen capture with Replaykit |
 | Pods | CocoaPods is used to manage the 3rd-party open-source class libraries used by Mini LVB |
 
-### 2. Compile and Run
+## 2. Compile and Run
 Download the code and open **TCLVBIMDemo.xcworkspace** project file (do NOT directly open Mini LVB's project file TCLVBIMDemo.xcodeproj). Currently Mini LVB only support real device debugging, not simulator debugging. Therefore, a project certificate needs to be setup by following steps:
 **Step 1: Configure bundle id and signature certificate**
 ![](//mc.qcloudimg.com/static/img/e2c29a0daa9dbba958c970fadc0a3f09/image.jpg)
