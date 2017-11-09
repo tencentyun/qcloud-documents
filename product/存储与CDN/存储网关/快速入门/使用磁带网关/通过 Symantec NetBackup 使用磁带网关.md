@@ -146,7 +146,9 @@
 1. 在 NetBackup 控制台的导航窗格上，展开 NetBackup Management 节点。 
 2. 展开 Policies (策略) 节点。 
 3. 右键菜单，然后点击 【Manual Backup】。
-![](https://mc.qcloudimg.com/static/img/f697db1611516a1014b34a4248e9fdf9/NBU22.png)  4. 在 Manual Backup 窗口中，输入计划名称，再选择一个客户端，然后点击【OK】。  5. 在随后确认对话框中，选择 "差量备份" 或 "全量备份"，点击 【OK】并退出设置。 
+![](https://mc.qcloudimg.com/static/img/f697db1611516a1014b34a4248e9fdf9/NBU22.png) 
+4. 在 Manual Backup 窗口中，输入计划名称，再选择一个客户端，然后点击【OK】。 
+5. 在随后确认对话框中，选择 "差量备份" 或 "全量备份"，点击 【OK】并退出设置。 
 6. 在导航窗格上，选择 Activity Monitor 以在 Job ID 列中查看备份的状态。   
 要查找 NetBackup 在备份期间写入到文件数据的虚拟磁带的条码，请查看 Job Details 窗口 (如以下过程中所述)。在下一部分中的对磁带进行存档的过程中，将需要用到此条码。
 
@@ -161,13 +163,16 @@
 
 1. 在 NetBackup 管理控制台中，展开 Media and Device Management (介质和设备管理) 节点，然后展开 Media (介质) 节点。 
 2. 在列出的磁带中，鼠标右键点击需要弹出的磁带，点击 【Eject Volume From Robot】。 
-![](https://mc.qcloudimg.com/static/img/c56830bab8e729835590388ec2e2d70e/NBU25.png) 3. 在 Eject Volumes 窗口中，再次确认 Media ID，然后点击【Eject】。  4. 在弹出对话框中，点击【Yes】。弹出过程完毕后，Eject Volumes 对话框中磁带的状态指示弹出已成功。 
+![](https://mc.qcloudimg.com/static/img/c56830bab8e729835590388ec2e2d70e/NBU25.png)
+3. 在 Eject Volumes 窗口中，再次确认 Media ID，然后点击【Eject】。 
+4. 在弹出对话框中，点击【Yes】。弹出过程完毕后，Eject Volumes 对话框中磁带的状态指示弹出已成功。 
 5. 点击【Close】，关闭 Eject Volumes 窗口。 
 6. 当执行弹出磁带的操作后，在 CSG 控制台中，该磁带状态会由 "正常" 转变为 "归档中"。当磁带弹出后数据会转存入归档存储中，此时磁带状态会转变为 "已归档"。 
 
 ## 已归档磁带的取回
 
 应用程序是无法从已归档磁带中取出数据。为了读取归档数据，您需要磁带数据取回。
+
 1. 要将已归档磁带取回到磁带网关。您可以在 CSG 控制台，选中 "磁带列表", 找到相应的已归档磁带，点击【取回】，详细操作步骤请参考[磁带取回](https://cloud.tencent.com/document/product/581/12507#.E7.A3.81.E5.B8.A6.E5.8F.96.E5.9B.9E)。 
 2. 等待磁带取回后， 您可使用随 Symantec NetBackup 应用程序一起安装的“备份、存档和还原”软件。此过程与从物理磁带还原数据相同。
 
