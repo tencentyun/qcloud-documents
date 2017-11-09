@@ -164,7 +164,7 @@ TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
 
 ##  8 常见问题排查
-### 8.1 问题一
+### 8.1 编译问题
 如果您将 SDK 导入到您的工程，编译运行出现类似以下错误：
 
 ```
@@ -196,7 +196,7 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 -keep class com.tencent.** { *; }
 ```
 
-### 8.2 问题二
+### 8.2 短视频发布问题
 文件发布之后无反应，没有提示错误信息，也没有回调返回。log出现如下打印
 ```
  TaskManager: ExecutionException
