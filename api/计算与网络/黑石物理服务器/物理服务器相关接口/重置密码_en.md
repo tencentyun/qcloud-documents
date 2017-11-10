@@ -42,8 +42,7 @@ The following request parameter list only provides API request parameters. For a
  
 Input
 
-<pre>
-  https://domain/v2/index.php?Action=ResetDevicePasswd
+<pre>`https://domain/v2/index.php?Action=ResetDevicePasswd`
   &instanceIds.1=cpm-34xs43xs
   &instanceIds.2=cpm-3xwssdfx
   &passwd=abce1234
