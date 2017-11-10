@@ -2,7 +2,7 @@
  
 This API (ResetDevicePasswd) is used to reset the root password of CPM.
 
-Domain for API request: bm.api.qcloud.com
+Domain for API request: bm.api.cloud.tencent.com
 
  * This API is asynchronous task. You need to query operation completion status by using another API: [Query Status of Asynchronous Task (DescriptionOperationResult)](/doc/api/456/6644).
  * You can batch modify CPM passwords by using this API.
