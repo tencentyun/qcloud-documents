@@ -15,7 +15,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| name | string | COS Bucket名称 |
+| name | string | COS Bucket 名称 |
 | region | string | Bucket 所在的区域 |
 ## 实际案例
 ### 请求
