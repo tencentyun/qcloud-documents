@@ -10,7 +10,7 @@ UpdateAudit 用于更新云审计（CloudAudit）。
 
 |参数名称|必选|类型|描述|
 |---------|---------|---------|--------|
-|IsMultiRegionAudit	|否|	number	|是否开启多地域采集(0 不开启，1 开启)|
+|IsMultiRegionAudit	|否|	number	|是否开启多地域采集（0 不开启，1 开启）|
 |KmsKeyId	|否|	string	| KMS 的 scretId 用于数据加密|
 |Name	|是|	string	|CloudAudit 的名字，3-128 字节，只能包含 ASCII 编码字母（a-z,A-Z），数字（0-9），下划线（_）|
 |CosBucketName	|是|	string	|要投递的 COSBUCKET 的名称（命名规范参照 COS 的命名要求）|
