@@ -4,13 +4,13 @@ SDK包下载地址：
 https://cloud.tencent.com/product/im.html
 
 直播聊天室demo体验地址：
-http://avc.qcloud.com/demo/webim/biggroup/mobile/index.html
+http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html
 
 直播聊天室demo二维码：
 ![](//mccdn.qcloud.com/static/img/a188f7fd653c8237b362a7adea1f63b1/image.png)
 
 通用demo地址：
-http://avc.qcloud.com/demo/webim/index.html
+http://avc.cloud.tencent.com/demo/webim/index.html
 
 通用demo运行指引地址：
 https://cloud.tencent.com/doc/product/269/4196
@@ -74,8 +74,8 @@ C:\Users\peakerdong>"D:\Program Files\Apache24\bin\httpd.exe" -k install -n apac
 
 点击左侧start，启动apache服务。
 
-打开浏览器，输入访问 http://localhost
-如果你设置的端口是8080，则访问地址是http://localhost:8080/
+打开浏览器，输入访问 `http://localhost`
+如果你设置的端口是8080，则访问地址是`http://localhost:8080/`
 出现以下界面，表示apahce启动成功。
 ![](//mccdn.qcloud.com/static/img/1a051fa9cbedf08e55a979f732e824ef/image.png)
 
@@ -97,7 +97,7 @@ https://cloud.tencent.com/doc/product/269/%E5%88%9B%E5%BB%BA%E7%BE%A4%E7%BB%84
 也可以使用在其他平台（android或者ios）上创建的直播聊天室id。
 
 restapi调试地址：
-https://avc.qcloud.com/im/APITester/APITester.html
+`https://avc.cloud.tencent.com/im/APITester/APITester.html`
 
 ### 3.2 运行demo（托管模式）
 
@@ -128,7 +128,7 @@ var avChatRoomId = '@TGS#aJIPTVAEE';
 访问demo，这里拿谷歌浏览器举例。
 
 打开浏览器输入地址：
-http://localhost:8080/webim/biggroup/mobile/index.html
+`http://localhost:8080/webim/biggroup/mobile/index.html`
 
 效果如下：
 ![](//mccdn.qcloud.com/static/img/9994fb0d0f4073a77f5766a7abd5283d/image.png)
@@ -174,7 +174,7 @@ var avChatRoomId = '@TGS#aJIPTVAEE';
 访问demo，这里拿谷歌浏览器举例。
 
 打开浏览器输入地址：
-http://localhost:8080/webim/biggroup/mobile/index.html
+`http://localhost:8080/webim/biggroup/mobile/index.html`
 
 效果如下：
 
