@@ -3,8 +3,8 @@
 | 概念            | 解释                                       |
 | ------------- | ---------------------------------------- |
 | appid         | 接入视频处理时，生成为唯一id， 用于唯一标识接入业务， 获取地址: 密钥配置  |
-| Authorization | 签名，具体生成参见[鉴权签名方法](http://www。qcloud。com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3)。 |
-| bucket_name   | bucket名称，bucket创建参见[创建Bucket](https://console。qcloud。com/media/bucket) |
+| Authorization | 签名，具体生成参见[鉴权签名方法](http://www.qcloud.com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3)。 |
+| bucket_name   | bucket名称，bucket创建参见[创建Bucket](https://console.qcloud.com/media/bucket) |
 
 ## 2	鉴权
 腾讯云•视频处理通过签名来验证请求的合法性。开发者通过将签名授权给客户端，使其具备上传下载及管理指定资源的能力。
@@ -89,7 +89,7 @@
 | -------------- | ---- | ------ | ---------------------------------------- |
 | Content-Length | 是    | Int    | 整个multipart/form-data内容的总长度，单位：字节（Byte）  |
 | Content-Type   | 是    | String | 固定为multipart/form-data                   |
-| Authorization  | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](http://www。qcloud。com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3) |
+| Authorization  | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](http://www.qcloud.com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3) |
 
 请求包体信息 (multipart/form-data)：
 
@@ -165,7 +165,7 @@
 | -------------- | ---- | ------ | ---------------------------------------- |
 | Content-Length | 是    | Int    | 整个multipart/form-data内容的总长度，单位：字节（Byte）  |
 | Content-Type   | 是    | String | 固定为multipart/form-data                   |
-| Authorization  | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](http://www。qcloud。com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3) |
+| Authorization  | 是    | String | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](http://www.qcloud.com/doc/product/314/%E9%89%B4%E6%9D%83%E5%8F%8A%E7%AD%BE%E5%90%8D%E6%96%87%E6%A1%A3) |
 
 请求包体信息 (multipart/form-data)：
 
@@ -699,7 +699,7 @@ Response (json)：
 高清：http://bucketname-10000379.video.myqcloud.com/q.mp4.f30.mp4
 ```
 
-若开启了token防盗链（如何开启，详见[token防盗链](http://www。qcloud。com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)）。
+若开启了token防盗链（如何开启，详见[token防盗链](http://www.qcloud.com/doc/product/314/%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)）。
 视频下载只能是私密下载，即必须access_url +?sign=[签名]。转码后的视频防盗链规则一样。
 示例：
 
