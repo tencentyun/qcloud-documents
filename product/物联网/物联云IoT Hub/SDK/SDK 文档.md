@@ -5,39 +5,34 @@ SDK 源码下载请点击: [下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns
 
 ### 2. 日志接口
 
-| 序号  | 函数名                     	 | 说明                                                                   |
-|-------|-----------------------------|-----------------------------------------------------------------------|
-|     1 | qcloud_iot_set_log_level   | 设置打印的日志等级，接受一个枚举`LOG_LEVEL`的入参，枚举包括`ERROR`、`WARN`、`INFO`、`DEBUG`， 打印详细度依次增加。|
-|     2 | qcloud_iot_get_log_level  | 返回日志输出的等级`LOG_LEVEL`。|
+| 序号 | 函数名            | 说明                                                                                                               |
+| ---- | ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| 1    | IOT_Log_Set_Level | 设置打印的日志等级|
+| 2    | IOT_Log_Get_Level | 返回日志输出的等级                                                                   |
 
 
 ### 3. MQTT接口
 
-| 序号  | 函数名                  		           | 说明                                                                    |
-|-------|---------------------------------------|-------------------------------------------------------------------------|
-|     1 | qcloud_iot_mqtt_init   		        | MQTT 实例构造函数，入参为`MQTTInitParams`结构体和`Client`实例指针。 |
-|     2 | qcloud_iot_mqtt_connect  	        | 建立基于 MQTT 连接，入参为`ConnectParams`结构体和`Client`实例指针。  |
-|     3 | qcloud_iot_mqtt_publish   	        | 组织一个完整的`MQTT Publish`报文并向服务端发布报文。|
-|     4 | qcloud_iot_mqtt_subscribe           | 组织一个完整的`MQTT Subscribe`报文并向服务端发送订阅请求。|
-|     5 | qcloud_iot_mqtt_resubscribe         | MQTT 客户端重新订阅断开连接之前已订阅的主题。 |
-|     6 | qcloud_iot_mqtt_unsubscribe         | 组织一个完整的`MQTT UnSubscribe`报文并向服务端发送取消订阅请求。 |
-|     7 | qcloud_iot_mqtt_disconnect          | 断开 MQTT 客户端与服务器的连接。|
-|     8 | qcloud_iot_mqtt_yield               | 在当前线程为底层 MQTT 客户端让出一定 CPU 执行时间，内含了心跳的维持，服务器下行报文的收取等。 |
-|     9 | qcloud_iot_mqtt_attempt_reconnect   | MQTT 客户端与服务器重新建立连接。 |
-|    10 | qcloud_iot_mqtt_is_connected       | 判断 MQTT 客户端目前是否已连接，返回 True 则客户端在连接状态，反之客户端已经断开连接。|
+| 序号 | 函数名               | 说明                                            |
+| ---- | -------------------- | ----------------------------------------------- |
+| 1    | IOT_MQTT_Construct   | 构造 MQTTClient 并完成 MQTT 连接                |
+| 2    | IOT_MQTT_Destroy     | 关闭 MQTT 连接并销毁 MQTTClient                 |
+| 3    | IOT_MQTT_Yield       | 在当前线程为底层 MQTT 客户端让出一定CPU执行时间 |
+| 4    | IOT_MQTT_Publish     | 发布 MQTT 消息                                  |
+| 5    | IOT_MQTT_Subscribe   | 订阅 MQTT 主题                                  |
+| 6    | IOT_MQTT_Unsubscribe | 取消订阅已订阅的 MQTT 主题                      |
+| 7    | IOT_MQTT_IsConnected | 客户端目前是否已连接                            |
+
 
 ### 4. 设备影子接口
 
-| 序号  | 函数名                   	                  | 说明                                               |
-|-------|---------------------------------------------|----------------------------------------------------|
-|     1 | qcloud_iot_shadow_init   	              | MQTT 实例构造函数，入参为`MQTTInitParams`结构体和`Client`实例指针。|
-|     2 | qcloud_iot_shadow_connect  	              | 建立基于 MQTT 连接，入参为`ShadowConnectParams`结构体和`Client`实例指针。  |
-|     3 | qcloud_iot_shadow_yield   	              | 在当前线程为底层 MQTT 客户端让出一定 CPU 执行时间，内含了心跳的维持，服务器下行报文的收取等。  |
-|     4 | qcloud_iot_shadow_disconnect              | 断开 MQTT 连接。|
-|     5 | qcloud_iot_shadow_get   	                 | 把服务器端被缓存的 JSON 数据下拉到本地, 更新本地的数据属性。  |
-|     6 | qcloud_iot_shadow_delete   	              | 客户发向服务端发送请求，删除服务器端的缓存数据。  |
-|     7 | qcloud_iot_shadow_update   	              | 把本地的数据属性上推到服务器缓存的 JSON 数据, 更新服务端的数据属性。 |
-|     8 | qcloud_iot_shadow_register_update_documents| 监听本地推动数据到服务端的请求结果。 |
-|     9 | qcloud_iot_shadow_register_property        | 创建一个数据类型注册到服务端。 |
-|    10 | qcloud_iot_shadow_reset_document_version   | 重置本地设备文档版本号。                     |
-|    11 | qcloud_iot_shadow_get_document_version     | 获取本地设备文档版本号 。                   |
+| 序号 | 函数名                               | 说明                                              |
+| ---- | ------------------------------------ | ------------------------------------------------- |
+| 1    | IOT_Shadow_Construct                 | 构造 ShadowClient                                 |
+| 2    | IOT_Shadow_Destroy                   | 关闭 Shadow 连接并销毁 ShadowClient               |
+| 3    | IOT_Shadow_Yield                     | 在当前线程为底层 Shadow 客户端让出一定CPU执行时间 |
+| 4    | IOT_Shadow_Update                    | 更新设备影子文档                                  |
+| 5    | IOT_Shadow_Get                       | 获取设备影子文档                                  |
+| 6    | IOT_Shadow_Delete                    | 删除设备影子文档                                  |
+| 7    | IOT_Shadow_Register_Update_Documents | 订阅设备影子文档更新成功的消息                    |
+| 8    | IOT_Shadow_Register_Property         | 注册当前设备的设备属性                            |

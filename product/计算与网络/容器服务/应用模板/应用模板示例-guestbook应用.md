@@ -1,4 +1,8 @@
-﻿Guestbook是一个比较典型的web应用服务，其有一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。本示例将介绍如何将创建gustbook软件的应用模板。
+﻿Guestbook留言板是一个比较典型的web应用服务，由一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。用户通过web前端提交数据，写入到redis-master上，然后通过读取同步到redis-slave上的数据展示给用户。
+
+为了实现快速的在不同集群或者集群的不同namespace中部署Guestbook应用，可以先将Gustbook部署相关的配置保存到应用模板中，然后使用应用模板快速部署对应的应用。
+
+本示例将介绍如何将创建Gustbook的应用模板。
 
 ## 步骤一: 创建应用模板
 
@@ -102,7 +106,7 @@ spec:
     protocol: TCP
     targetPort: 6379
   sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
 ```
 
 **2.4 创建redis-slave服务**
@@ -151,7 +155,7 @@ spec:
     protocol: TCP
     targetPort: 6379
   sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
 ```
 
 创建后的服务如下图所示：
@@ -175,7 +179,7 @@ FRONTEND_VERSION: v4
 REDIS_MASTER_IMAGE: ccr.ccs.tencentyun.com/library/redis
 REDIS_MASTER_VERSION: e2e
 REDIS_SLAVE_IMAGE: ccr.ccs.tencentyun.com/library/gb-redisslave
-REDIS_SLAVE_VERSION: v1
+REDIS_SLAVE_IMAGE: v1
 ```
 填写完之后，配置项的值如下图所示。
 

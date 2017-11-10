@@ -103,8 +103,8 @@ Output 1
 
 The format of the URL where the screenshot file is stored is as follows:
 Description of the screenshot URL
-http://(cos_bucketname)-(cos_appid).file.myqcloud.com/file name
+`http://(cos_bucketname)-(cos_appid).file.myqcloud.com/file name`
 Example:
-http://record1-10005041.file.myqcloud.com/2000_f3d36****eeb11e5b91fa4dcbef5e35a_1453255801_0_146324_1280_720.jpg
+`http://record1-10005041.file.myqcloud.com/2000_f3d36****eeb11e5b91fa4dcbef5e35a_1453255801_0_146324_1280_720.jpg`
 
 

@@ -3,18 +3,18 @@
 ## 1	开发准备
 万象优图服务的Go sdk的下载地址：https://github.com/tencentyun/go-sdk.git
 ### 1.1	前期准备
-1. 通过图片空间获取appid（项目ID），secret_id和secret_key。
-### 1.2	导入SDK
-1. 导入go-sdk包
-在开发环境命令行直接执行下面的命令导入go-sdk包。
+ 通过图片空间获取appid（项目ID），secret_id和secret_key。
 
+### 1.2	导入SDK
+ 1. 导入go-sdk包
+在开发环境命令行直接执行下面的命令导入go-sdk包。
 ```
 go get github.com/tencentyun/go-sdk
 ```
-2. 参考api说明和sdk中提供的demo，开发代码。demo.go对应v1版本的restful api, demoV2.go对应v2版本的restful api。
+ 2. 参考api说明和sdk中提供的demo，开发代码。demo.go对应v1版本的restful api, demoV2.go对应v2版本的restful api。
 
 ## 2	相关数据结构定义
-### 2.1 PicCloud
+### 2.1 icCloud
 图片sdk的类，所有api通过该类的对象调用。根据使用的restful api的版本，需要采用不同的初始化方式。
 对1.0版本的api，初始化bucket不用赋值：
 
@@ -106,7 +106,7 @@ fileid|	string|	否	|无	|图片资源的唯一标识
   //可以自定义fileid的上传方法
   func (pc *PicCloud) UploadWithFileid(filename string, fileid string) (UrlInfo, error)
 ```
-3．	参数和返回值
+2．	参数和返回值
 参数说明：
 
 参数名|	类型	|必须	|默认值	|参数描述

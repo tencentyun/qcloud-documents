@@ -64,11 +64,17 @@ allprojects {
 
 ### 4.1 库说明
 
-解压 LiteAVSDK_UGC_3.4.1757.zip 压缩包后得到libs目录，里面主要包含 so 文件和 jar 文件，文件清单如下：
+解压 LiteAVSDK_UGC_3.4.1757.zip 压缩包后得到libs目录，里面主要包含 jar 文件，文件清单如下：
 
 | jar文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
 | liteavsdk.jar                | 小直播 SDK android 核心库          |
+
+
+短视频上传相关库，在**Demo\app\libs**目录下找到用于短视频上传的so文件和jar文件，文件清单如下：
+
+| jar文件                           | 说明                      |
+| ---------------------------- | ----------------------- |
 | sha1utils.jar                | 计算上传文件的 SHA 值 jar 包，此组件用于短视频上传(TXUGCPublish)功能 |
 | cos-sdk-android.1.4.3.11.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
 | okio-1.6.0.jar               | 一款优秀的开源网络 I/O 组件      |
@@ -81,7 +87,7 @@ allprojects {
 
 ### 4.2 拷贝文件
 
-如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才解压的 jar 包和 so 库在 /src/main/jniLibs 目录下，这是android studio 默认的 jni 加载目录。
+如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库在 **/src/main/jniLibs** 目录下，这是android studio 默认的 jni 加载目录。
 
 ### 4.3 工程配置
 
@@ -157,8 +163,8 @@ TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
 
-##  常见问题排查
-
+##  8 常见问题排查
+### 8.1 编译问题
 如果您将 SDK 导入到您的工程，编译运行出现类似以下错误：
 
 ```
@@ -189,6 +195,14 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 ```
 -keep class com.tencent.** { *; }
 ```
+
+### 8.2 短视频发布问题
+文件发布之后无反应，没有提示错误信息，也没有回调返回。log出现如下打印
+```
+ TaskManager: ExecutionException
+```
+
+原因是上传需要用到的 libTXSHA1.so 没有正确集成到工程中，请参考[集成攻略](https://cloud.tencent.com/document/product/584/11631#4-.E9.9B.86.E6.88.90.E6.94.BB.E7.95.A5.EF.BC.88jar.EF.BC.89)。
 
 
 

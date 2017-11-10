@@ -54,9 +54,6 @@ PUT /?replication HTTP/1.1
             <Bucket>qcs:id/0:cos:[Region]:appid/[AppId]:[Bucketname]</Bucket>
         </Destination>
     </Rule>
-    <Rule>
-        ...
-    </Rule>
 </ReplicationConfiguration>
 ```
 具体内容描述如下：
@@ -92,7 +89,7 @@ PUT /?replication HTTP/1.1
 Date: Mon, 28 Aug 2017 02:53:38 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=replication&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f63f9
 Content-MD5: AAq+9nzrpsz5LJ4UEe1f6Q==
-Host: sevenyounorthtest-7319456.cos.cn-north.myqcloud.com
+Host: sevenyounorthtest-7319456.cos.ap-guangzhou.myqcloud.com
 Content-Length: 312
 
 <ReplicationConfiguration>
@@ -102,7 +99,7 @@ Content-Length: 312
         <ID>RuleId_01</ID>
         <Prefix>sevenyou_10m</Prefix>
         <Destination>
-            <Bucket>qcs:id/0:cos:cn-south:appid/132213432:sevenyousouthtest</Bucket>
+            <Bucket>qcs:id/0:cos:ap-guangzhou:appid/132213432:sevenyousouthtest</Bucket>
         </Destination>
     </Rule>
 </ReplicationConfiguration>
