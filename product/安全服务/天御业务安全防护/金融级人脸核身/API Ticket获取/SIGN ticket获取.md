@@ -13,7 +13,7 @@
 | 参数 | 说明 |类型 |长度 | 是否必填 |
 |---------|---------|---------|---------|---------|
 | app_id | 腾讯服务分配的 app_id | 字符串 |腾讯服务分配 |必填 ，腾讯服务分配的 app_id |
-| access_token | 根据[《整体登录鉴权流程》](https://cloud.tencent.com/document/product/295/10117?!preview&lang=cn)获取 access token | 字符串 |腾讯服务分配 |根据[《整体登录鉴权流程》](https://cloud.tencent.com/document/product/295/10117?!preview&lang=cn)获取 access token |
+| access_token | 根据[《整体登录鉴权流程》](https://cloud.tencent.com/document/product/295/10117?=cn)获取 access token | 字符串 |腾讯服务分配 |根据[《整体登录鉴权流程》](https://cloud.tencent.com/document/product/295/10117?=cn)获取 access token |
 |type | ticket 类型 | 字符串 |20 |必填 ，默认值：**SIGN** (必须大写) |
 | version | 版本号 | 字符串 |20 |必填 ，默认值：1.0.0|
 
