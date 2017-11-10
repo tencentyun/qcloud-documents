@@ -38,7 +38,7 @@ Please note the following points when enabling audit feature:
 
 -  You must have at least one CDB for MariaDB (TDSQL) instance that is not offline or isolated, otherwise the system will disable your audit feature automatically.
 -  The MariaDB (TDSQL) instance purchased before June 5, 2016 requires to be rebooted and upgraded to support this feature. Since reboot and upgrade may cause interruption of service for 1 to 5 seconds, you can contact Tencent Cloud staff to schedule time for upgrade.
--  Database audit logs are displayed in plaintext, so you are recommended to enable [Secondary Login Authentication https://cloud.tencent.com/document/product/378/8392](https://cloud.tencent.com/document/product/378/8392). However, this is not required.
+-  Database audit logs are displayed in plaintext, so you are recommended to enable [Secondary Login Authentication](https://cloud.tencent.com/document/product/378/8392). However, this is not required.
 ![](//mccdn.qcloud.com/static/img/89e47d9466f5d5b2db1d9e6602eb94b7/image.png)
 Audit enabling interface
 ![](//mccdn.qcloud.com/static/img/ac6fc0157833324ac398228c1a1415f0/image.png)
@@ -82,7 +82,7 @@ The audit policy is a complete audit solution by combining "audit rule, audit ob
 
 The SQL statement matched to audit policy is displayed on the audit log page, so you can click to view or search. Note:
 
-- According to design requirements, the audit logs are displayed in plaintext. You are recommended to enable [Secondary Login Authentication https://cloud.tencent.com/document/product/378/8392](https://cloud.tencent.com/document/product/378/8392) again, to keep logs under control.
+- According to design requirements, the audit logs are displayed in plaintext. You are recommended to enable [Secondary Login Authentication](https://cloud.tencent.com/document/product/378/8392) again, to keep logs under control.
 - The logs are recorded starting at the time when the audit policy is created. Historical data are not recorded.
 - The transaction or storage procedure may be recorded as a single statement. For more information, please see [syntax supported for database audit](https://cloud.tencent.com/doc/product/237/4847)
 - The maximum size of single SQL statement supported currently is 1 KB, and the portion in excess will be truncated.
