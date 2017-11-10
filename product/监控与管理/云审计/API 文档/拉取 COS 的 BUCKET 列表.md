@@ -9,7 +9,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| cosBucketsList | Array | COS Bucket数组 |
+| cosBucketsList | Array | COS Bucket 数组 |
 
 其中 cosBucketsList 的参数如下：
 
