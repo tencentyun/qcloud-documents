@@ -208,8 +208,7 @@ TXUGCPublish（位于 TXUGCPublish.java）负责将 MP4 文件发布到腾讯云
 
 ```java
 mVideoPublish = new TXUGCPublish(TCVideoPublisherActivity.this.getApplicationContext());
-// 如果需要使用断点续传功能，需要传入一个字符串类型的 userId 作为唯一标识, 建议使用登录帐号
-// mVideoPublish = new TXUGCPublish(TCVideoPublisherActivity.this.getApplicationContext(), userId);
+// 文件发布默认是采用断点续传
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
 param.signature = mCosSignature;						// 需要填写第四步中计算的上传签名
 // 录制生成的视频文件路径, ITXVideoRecordListener 的 onRecordComplete 回调中可以获取
@@ -233,3 +232,5 @@ void onPublishComplete(TXPublishResult result);
 
 ### 8.发布结果
 通过 [错误码表](https://cloud.tencent.com/document/product/584/10176) 来确认短视频发布的结果。
+
+如果没有错误信息返回，也没有回调。很有可能是集成出现问题，可以参考这里[集成问题](https://cloud.tencent.com/document/product/584/11631?!preview&lang=cn#8.2-.E7.9F.AD.E8.A7.86.E9.A2.91.E5.8F.91.E5.B8.83.E9.97.AE.E9.A2.98) 

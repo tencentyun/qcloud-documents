@@ -3,60 +3,6 @@ Tencent Cloud CVM's entrusted data centers are located in different regions arou
 Each region is an independent geographical location. Within each region, there are multiple mutually isolated locations referred to as availability zones. Each region is entirely independent. Each availability zone is independent. However, availability zones in the same region can be connected via private network links with low latency.
 
 Tencent Cloud supports distribution of cloud resources in different locations by users. Users are advised to consider placing resources in different availability zones when designing system to shield "service unavailable" status caused by single point of failure.
-
-
-<table class="table-striped">
-	<tbody>
-		<tr>
-			<th>&nbsp;</th>
-			<th>Region</th>
-			<th>Availability Zone</th>
-		</tr>
-		<tr>
-			<td rowspan="7">Mainland China</td>
-			<td rowspan="3">South China (Guangzhou)</td>
-			<td>Guangzhou Zone 1 (Sold out)</td>
-		</tr>
-		<tr>
-			<td>Guangzhou Zone 2</td>
-		</tr>
-		<tr>
-			<td>Guangzhou Zone 3</td>
-		</tr>
-		<tr>
-			<td>South China (Shenzhen Finance)</td>
-			<td>Shenzhen Finance Zone 1<span style="background-color: rgb(249, 249, 249);"> (only for financial institutions and enterprises; requires applications via tickets)</span></td>
-		</tr>
-		<tr>
-			<td>East China (Shanghai)</td>
-			<td>Shanghai Zone 1</td>
-		</tr>
-		<tr>
-			<td>East China (Shanghai Finance)</td>
-			<td>Shanghai Finance Zone 1 (only for financial institutions and enterprises; requires applications via tickets)</td>
-		</tr>
-		<tr>
-			<td>North China (Beijing)</td>
-			<td>Beijing Zone 1</td>
-		</tr>
-		<tr>
-			<td rowspan="3">International</td>
-			<td>Southeast Asia (Hong Kong)</td>
-			<td>Hong Kong Zone 1</td>
-		</tr>
-		<tr>
-			<td>Southeast Asia (Singapore)</td>
-			<td>Singapore Zone 1</td>
-		</tr>
-		<tr>
-			<td>North America (Toronto)</td>
-			<td>Toronto Zone 1</td>
-		</tr>
-	</tbody>
-</table>
-
-
-
 ## Region
 Regions are completely isolated with each other, so as to ensure high stability and fault tolerance. Tencent Cloud now have 3 regions in Mainland China and provides nodes in Hong Kong, Singapore and Toronto. You are recommended to choose nearest region to reduce access latency and improve download speed.
 
@@ -81,9 +27,6 @@ Region attribute is differentiated for all behaviors such as enabling and viewin
 - The following cloud services are temporarily unavailable: Cloud Memcached, elastic web engine, Cloud Object Storage, mobile acceleration, Cloud Automated Testing, one-click opening of server and domain binding with separated regions and servers.
 - Due to the considerable latency between North America and China, when you need to log in to CVMs in North America region, login via jump server is recommended for better operation and maintenance experience.
 
-**Notes for Shanghai Finance Zone:**
-
-Compliance zone customized according to regulatory requirements of finance industry characterized by high level of safety and isolation; currently provide CVM, finance database, Redis storage, face recognition and other services. Verified clients in finance industry can apply for using the zone with initiating tickets. For details, see [Introduction of finance zone](http://cloud.tencent.com/doc/product/304/%E9%87%91%E8%9E%8D%E4%BA%91%E7%AE%80%E4%BB%8B).
 
 ## Availability Zone
 Availability zones (Zone) refer to Tencent Cloud's physical data centers whose power and network are independent from each other within the same region. They are designed to ensure that the failures within an availability zones can be isolated (except for large-scale disaster or major power failure) without spreading to and affecting other zones so that users' businesses can provide continuous online services. By starting an instance in an independent availability zone, users can protect their applications from being affected by the failures occurring in a single location.

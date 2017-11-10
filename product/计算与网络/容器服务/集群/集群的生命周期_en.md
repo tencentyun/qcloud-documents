@@ -13,7 +13,7 @@
 ### Status Flow Chart
 **Cluster Lifecycle**: Cluster status flow is shown below. Hexagons represent node status.
 
-![Alt text](https://mc.qcloudimg.com/static/img/c480588db03d554a36df294316a981da/Image+051.png)
+![Alt text](https://mc.qcloudimg.com/static/img/a21f83fb844568e72ccb319d24f01946/%7BBE75004B-997B-4939-B7DB-C769ED2712AF%7D.png)
 
 ## Node Lifecycle
 

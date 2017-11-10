@@ -7,7 +7,7 @@
  * 无常主模式，即双机选举主设备的优先级相同；
  * 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  常主常备模式较无常主模式增加了主备倒换次数，推荐使用无常主模式（非常主常备模式）
 - 本文通过给出若干 `keepalived 配置和脚本文件` + `不同场景配置方法`的形式，帮助用户在云主机上作本次实践。
-
+- 本文主要介绍 keepalived 的 VRRP Instance 配置为单播 VRRP 报文的用法。
 
 ## 基本原理
 通常高可用主备集群包含 2 台服务器，一台主服务器处于某种业务的激活状态（即 Active 状态），另一台备服务器处于该业务的备用状态（即 Standby 状态)，它们共享同一个 VIP（Virtual IP），同一时刻 VIP 只在一台主设备上生效，当主服务器出现问题，备用服务器接管 VIP 继续提供服务。高可用主备模式有着广泛的应用，例如：MySQL 主备切换、Ngnix Web 接入。
@@ -16,13 +16,13 @@
 
 </div>
 ## 与物理网络的区别
-在传统的物理网络中可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 的迁移到主设备上。腾讯云 VPC 内支持部署 keepalived 来搭建主备高可用集群，与物理网络相比，主要有两个区别：
-- 暂不支持 VRRP 组播报文，需要将 keepalived 的 VRRP Instance 配置为单播 VRRP 报文。
+在传统的物理网络中可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 的迁移到主设备上。腾讯云 VPC 内支持部署 keepalived 来搭建主备高可用集群，与物理网络相比，主要区别是：
 - 暂不支持通过免费 ARP 报文做 VIP 的迁移，而是通过调用云 API来绑定 VIP 到主设备上。
+
 
 ## 本文步骤预览
 1.  申请 VIP，该 VIP 仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
-2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。**给主备服务器主网卡分配外网IP或弹性公网IP**
+2.  主备服务器安装及配置 keepalived (**1.3.5版本以上**)，并修改配置文件。**主备本机主 IP 仅有内网 IP 时，需要参考步骤 9 修改 SDK host**。
 3.  编辑使用 keepalived  的 notify 机制，借助 notify_action.sh 和 vip.py，调用云 API 进行主备切换。
 4.  编辑使用 keepalived 的 track_script 机制，借助 check_self.sh 和 vip.py，周期性执行检查脚本增强可用性。
 5.  给 VIP 分配外网 IP。**（可选）**
@@ -41,8 +41,8 @@
 
 常主常备用法使用步骤：
 主机操作： (常主)
-    1. 安装 keepalived，给主网卡分配外网IP或弹性公网IP
-    2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入，并添加可执行权限chmod +x /etc/keepalived/*.sh; chmod -x /etc/keepalived/keepalived.conf 
+    1. 安装 keepalived，给主网卡分配外网 IP 或弹性公网 IP。
+    2. 在 keepalived 使用的配置目录/etc/keepalived/中，将本目录文件移入，并添加可执行权限 chmod +x /etc/keepalived/*.sh; chmod -x /etc/keepalived/keepalived.conf 
     3. 修改 keepalived.conf: 
         0) state            初始角色，主机填 MASTER, 备机填 BACKUP
         1) interface        改成本机网卡名 例如 eth0
@@ -52,7 +52,7 @@
         5) virtual_ipaddress    改成内网 vip 
         6) track_interface  改成本机网卡名 例如 eth0
     4. 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        1) 第12行   interface   改成本机内网 IP，该 IP 要有外网 IP，否则步骤 9 修改 SDK host
         2) 第13行   vip         改成您的 VIP      
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
@@ -70,20 +70,20 @@
 stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主常备) (推荐)
 双机操作相同：
     1. 安装 keepalived，给主网卡分配外网IP或弹性公网IP
-    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并修改权限chmod 744 /etc/keepalived/*.sh; chmod 644 /etc/keepalived/keepalived.conf 
+    2. 在 keepalived 使用的配置目录 /etc/keepalived/ 中，将本目录文件移入，并修改权限 chmod 744 /etc/keepalived/*.sh; chmod 644 /etc/keepalived/keepalived.conf 
     3. 修改 keepalived.conf: 
         0) state            初始角色，均填写 BACKUP
         1) interface        改成本机网卡名 例如 eth0
         2) priority         两台设备配置大小相同的整数，如 50
         3) unicast_src_ip   改成本机内网 IP
         4) unicast_peer     改成对端机器内网 IP
-        5) virtual_ipaddress    改成内网 vip 
+        5) virtual_ipaddress    改成内网 VIP 
         6) track_interface  改成本机网卡名 例如 eth0
     4. 修改 vip.py
-        1) 第12行   interface   改成本机内网IP，该IP要有外网IP
-        2) 第13行   vip         改成您的vip      
-        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡ID      
-        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡ID      
+        1) 第12行   interface   改成本机内网 IP，该IP要有外网 IP，否则步骤 9 修改 SDK host
+        2) 第13行   vip         改成您的 vip      
+        3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
+        4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
         5) 第16行   vpcId         改成您的 vpc ID      
         6) 第19-22行            填写您的 secretId 和您的 secretKey
     5. 修改 check_self.sh:
@@ -123,6 +123,7 @@ stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主�
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+#注意python代码的缩进须与本文一致
 #以下两行根据 SDK 的安装方式选一
 #     具体参考步骤 6 第 3 点中的代码注释
 #from QcloudApi.qcloudapi import QcloudApi 
@@ -308,8 +309,10 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 	- [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
 
 请仔细阅读其中`README.md`，并将 SDK 下载到`/etc/keepalived`目录中.
+2) 全内网环境的host修改
+- 若您的主备云主机的网卡主 IP 没有外网 IP，您可以参考步骤 9，修改 SDK 使用的 host，达到对云 API 的内网调用。
 
-2) 云 API 密钥获取：
+3) 云 API 密钥获取：
 
 <div style="text-align:center">
 ![](//mc.qcloudimg.com/static/img/ffd379c9e886d0ae3de4fba34539aac7/2.png)
@@ -319,18 +322,18 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 ![](//mc.qcloudimg.com/static/img/900df050c3d619566a482ff4e1bd5433/4.png)
 
 </div>
-3) 基于 SDK 开发切换调用云 API 的程序 vip.py，并将 vip.py 保存到```/etc/keepalived```目录，用于调用内网 IP 迁移云 API：
+4) 基于 SDK 开发切换调用云 API 的程序 vip.py，并将 vip.py 保存到```/etc/keepalived```目录，用于调用内网 IP 迁移云 API：
 
 ```
     常主常备模式步骤: 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        1) 第12行   interface   改成本机内网 IP，该 IP 要有外网 IP，否则步骤 9 修改 SDK host
         2) 第13行   vip         改成您的 VIP       
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
         5) 第16行   vpcId         改成您的 vpc ID      
         6) 第19-22行            填写您的 secretId 和您的 secretKey
     非常主常备模式步骤: 修改 vip.py
-        1) 第12行   interface   改成本机内网 IP，该IP要有外网IP
+        1) 第12行   interface   改成本机内网 IP，该 IP 要有外网 IP，否则步骤9修改SDK host
         2) 第13行   vip         改成您的 VIP       
         3) 第14行   thisNetworkInterfaceId         改成本机的主机网卡 ID      
         4) 第15行   thatNetworkInterfaceId         改成对端机器的主机网卡 ID      
@@ -344,6 +347,7 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 #/etc/keepalived/vip.py
 
 """
+#注意python代码的缩进须与本文一致
 pip 安装使用方式：
 	安装好 Python 后执行如下步骤：
 step1: yum install python-pip
@@ -369,10 +373,10 @@ import sys
 from QcloudApi.qcloudapi import QcloudApi 
 
 #当前机器主网卡和主 IP
-interface = {"eth0":"10.0.1.17"}            #该IP要有外网IP
+interface = {"eth0":"10.0.1.17"}            #该 IP 要有外网 IP
 vip = "10.0.1.100"                          #改成您的本机内网 VIP
-thisNetworkInterfaceId = 'eni-pvsvph0u'     #IP迁移后所在的弹性网卡 ID(本机网卡 ID)
-thatNetworkInterfaceId = 'eni-qnxioxyi'     #IP迁移前所在的弹性网卡 ID(对端主机网卡 ID)
+thisNetworkInterfaceId = 'eni-pvsvph0u'     #IP 迁移后所在的弹性网卡 ID(本机网卡 ID)
+thatNetworkInterfaceId = 'eni-qnxioxyi'     #IP 迁移前所在的弹性网卡 ID(对端主机网卡 ID)
 
 
 vpcId = 'vpc-1yxuk010'                      #vpcId
@@ -584,7 +588,15 @@ fi
 - 控制台：先在控制台申请 EIP，绑定到**步骤 1** 中申请的内网 VIP，操作步骤 1 类似。
 - 云API：[点击查看具体调用方式](https://cloud.tencent.com/doc/api/229/1377)。
 
-### 步骤 9. 验证主备倒换时 VIP 及外网 IP 是否正常切换
+### 步骤 9.主备云主机本机主 IP 没有外网IP的使用方式（全内网环境调用帮助）
+由于云 API Python SDK 的默认 host 是外网 host，无法走内网访问。如果您的主备云主机的本机 IP 只有内网 IP，没有外网 IP，则需求将 Python SDK 进行修改，将 host 改成内网云 API 访问域名。修改步骤如下：
+ - 确认自己的 SDK 安装方式：是 pip 方式安装，还是直接下载源码安装到/etc/keepalived/的？
+ - 装方式确认修改 host 的文件的路径。
+	  - 源码方式安装则修改 /etc/keepalived/src/QcloudApi/modules/vpc.py
+	  - pip 方式安装则修改 /usr/lib/pythonX.Y/site-packages/QcloudApi/modules/vpc.py  (pythonX.Y依实际，如python2.6)
+ - `requestHost = 'vpc.api.qcloud.com'` 修改为 `requestHost = 'vpc.api.tencentyun.com'`
+
+### 步骤 10. 验证主备倒换时 VIP 及外网 IP 是否正常切换
 1. 启动 keepalived：`/etc/init.d/keepalived start` 或 `systemctl start keepalived` 或 `service keepalived start`
 
 2. 验证主备切换容灾效果：通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能迁移。/var/log/keepalived.log中同时会留下相应的日志。通过 ping VIP 或其 EIP 的方式，可以查看网络中断到恢复的时间间隔。

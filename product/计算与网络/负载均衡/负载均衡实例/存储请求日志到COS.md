@@ -40,14 +40,18 @@
 | 8 | proxy_host | upstream id |
 | 9 | request | 请求行 |
 | 10 | request_length | 从客户端收到的请求字节数 |
-| 11 | request_time| 请求处理时间 |
-| 12 | upstream_response_time | 从rs接收应答所花费时间 |
-| 13 | upstream_connect_time	 | 和rs建立tcp连接所花费时间 |
-| 14 | upstream_header_time	 | 从rs接收完http头部所花费时间 |
-| 15 | tcpinfo_rtt | tcp连接的rtt |
-| 16 | connection | 连接id |
-| 17 | connection_requests | 连接上的请求个数 |
-| 18 | ssl_handshake_time	|ssl握手所花费时间 |
-| 19 | ssl_cipher| 加密套件|
-| 20 | ssl_protocol	| ssl协议版本 |
-| 21 | ssl_session_reused | ssl session复用|	
+| 11 |bytes_sent | 	发送客户端的字节数 | 
+| 12 |http_host	 | 请求域名 | 
+| 13 |http_user_agent | 	user_agent | 
+| 14 |http_referer	 | http请求来源 | 
+| 15 | request_time| 请求处理时间 |
+| 16 | upstream_response_time | 从rs接收应答所花费时间 |
+| 17 | upstream_connect_time	 | 和rs建立tcp连接所花费时间 |
+| 18 | upstream_header_time	 | 从rs接收完http头部所花费时间 |
+| 19 | tcpinfo_rtt | tcp连接的rtt |
+| 20 | connection | 连接id |
+| 21 | connection_requests | 连接上的请求个数 |
+| 22 | ssl_handshake_time	|ssl握手所花费时间 |
+| 23 | ssl_cipher| 加密套件|
+| 24 | ssl_protocol	| ssl协议版本 |
+| 25 | ssl_session_reused | ssl session复用|	

@@ -7,9 +7,8 @@ UnbindBmL4ListenerVmIp 提供了解绑黑石负载均衡四层监听器虚机IP�
 ## 请求
 ### 请求示例
 ```
-https://domain/v2/index.php?
-	Action=UnbindBmL4ListenerVmIp
-	&公共请求参数
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL4ListenerVmIp
+	&<公共请求参数>
 	&loadBalancerId=<负载均衡实例ID>
 	&listenerId=<四层监听器ID>
 	&vmList.0.port=<待解绑的虚机端口>
@@ -72,8 +71,7 @@ vmList描述待解绑的虚机信息，n为下标，vmList包含字段如下
 ## 实际案例
 ### 输入
 ```
-GET https://domain/v2/index.php?
-	Action=UnbindBmL4ListenerVmIp
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL4ListenerVmIp
 	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
 	&Nonce=61431
 	&Timestamp=1507728683

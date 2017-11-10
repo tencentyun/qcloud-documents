@@ -1,6 +1,10 @@
-Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之一，被 200 多万网站用户使用。本教程介绍在 LAMP （Linux + Apache + MySQL + PHP）环境下搭建 Discuz! 论坛网站的步骤，以 Discuz! X3.2 为例。
+Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之一，被 200 多万网站用户使用。
 
-本教程提供两种搭建 Discuz! 论坛的方式，您可根据需求自由选择：
+腾讯云实验室提供了实践动手的教程，可帮助您一步一步完成 LAMP 环境和 Discuz! 论坛的搭建。您可点击进入 [实验室](https://cloud.tencent.com/developer/labs/gallery)。其中，搭建 Discuz! 网站的实践教程可参考：
+- [基于 CentOS 搭建 Discuz 论坛](https://cloud.tencent.com/developer/labs/lab/10030)
+- [基于 Ubuntu 搭建 Discuz 论坛](https://cloud.tencent.com/developer/labs/lab/10102)
+
+本教程介绍在 LAMP （Linux + Apache + MySQL + PHP）环境下搭建 Discuz! 论坛网站的步骤，以 Discuz! X3.2 为例。我们提供两种搭建 Discuz! 论坛的方式，您可根据需求自由选择：
 - 使用 Discuz! 镜像快速安装
 推荐第一次进行 Discuz! 论坛搭建，不熟悉相关命令操作的用户使用。
 - 自主安装 LAMP 环境并搭建论坛
@@ -35,7 +39,7 @@ PHP：Web 服务器生成网页的程序。
 
 #### 需要购买云服务器
 1. 获取 Discuz! 镜像
-请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](http://market.qcloud.com/categories?q=discuz)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
+请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](https://market.cloud.tencent.com/)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
 ![获取Discuz1](//mc.qcloudimg.com/static/img/54021a861602cdf6560306848cdcef0f/image.png)
 2. 购买云服务器
 购买镜像的过程同时会配套购买云服务器，云服务器的配置可以根据网站自身访问量来确定，相关指南请参考 [创建 Linux 服务器指引](https://cloud.tencent.com/document/product/213/2972)。

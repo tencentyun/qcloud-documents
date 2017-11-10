@@ -12,7 +12,7 @@
 ### Gradle 安装
 
 具体安装方法可见 [https://gradle.org/install/](https://gradle.org/install/)，以下说明手工安装过程：
-1. 下载 Gradle 的[二进制包](https://services.gradle.org/distributions/gradle-4.1-bin.zip) 或 [带文档和源码的完整包](https://services.gradle.org/distributions/gradle-4.1-all.zip)。
+1. 下载 Gradle 的 [二进制包](https://services.gradle.org/distributions/gradle-4.1-bin.zip) 或 [带文档和源码的完整包](https://services.gradle.org/distributions/gradle-4.1-all.zip)。
 2. 解压包到自己所期望的目录，例如 `C:\Gradle` （Windows） 或 `/opt/gradle/gradle-4.1` （Linux）。
 3. 将解压目录下 bin 目录的路径添加到系统 PATH 环境变量中，Linxu 通过 `export PATH=$PATH:/opt/gradle/gradle-4.1/bin` 完成添加，Windows 通过 `计算机-右键-属性-高级系统设置-高级-环境变量` 进入到环境变量设置页面，选择 `Path` 变量编辑，在变量值最后添加`;C:\Gradle\bin;`。
 4. 通过在命令行下执行 `gradle -v`，确认有如下类似输出，证明 Gradle 已正确安装。如有问题，请查询 Gradle 的[官方文档](https://gradle.org/docs/)。
@@ -66,7 +66,7 @@ build.dependsOn buildZip
 ```
 #### 使用 Maven Central 库处理包依赖
 
-如果需要引用 Maven Central 的外部包，可以	根据需要添加依赖，`build.gradle`文件内容写为如下：
+如果需要引用 Maven Central 的外部包，可以根据需要添加依赖，`build.gradle`文件内容写为如下：
 ```
 apply plugin: 'java'
 
@@ -90,6 +90,7 @@ task buildZip(type: Zip) {
 
 build.dependsOn buildZip
 ```
+
 通过 repositories 指明依赖库来源为 mavenCentral 后，在编译过程中，Gradle 会自行从 Maven Central 拉取依赖项，也就是 dependencies 中指明的 `com.qcloud:qcloud-scf-java-events:1.0.0` 包。
 
 #### 使用本地 Jar 包库处理包依赖
@@ -112,20 +113,21 @@ task buildZip(type: Zip) {
 
 build.dependsOn buildZip
 ```
-通过 dependencies 指明搜索目录为 jars 目录下的 *.jar 文件，依赖会在编译时自动进行搜索
+通过 dependencies 指明搜索目录为 jars 目录下的 *.jar 文件，依赖会在编译时自动进行搜索。
 
 ## 编译打包
 
 在项目文件夹根目录下执行命令 `gradle build`，应有编译输出类似如下：
+
 ```
 Starting a Gradle Daemon (subsequent builds will be faster)
 
 BUILD SUCCESSFUL in 5s
 3 actionable tasks: 3 executed
 ```
-如果显示编译失败，请根据输出的编译错误信息调整代码。
 
-编译后的 zip 包位于项目文件夹内的 `/build/distributions` 目录内，并以项目文件夹名命名为 `scf_example.zip`
+如果显示编译失败，请根据输出的编译错误信息调整代码。
+编译后的 zip 包位于项目文件夹内的 `/build/distributions` 目录内，并以项目文件夹名命名为 `scf_example.zip`。
 
 ## 函数使用
 

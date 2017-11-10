@@ -110,7 +110,6 @@ servers	5
 on	5
 because	5
 at	5
-OpenWhisk	5
 Serverless	5
 have	5
 platform	5
@@ -144,7 +143,6 @@ model	3
 In	3
 requests	3
 means	3
-AWS	3
 typically	3
 which	3
 latency	3
@@ -152,9 +150,7 @@ any	3
 could	3
 This	3
 may	3
-Lambda	3
 via	3
-Azure	3
 resources	3
 required	2
 10	2
@@ -163,7 +159,6 @@ application	2
 underutilisation	2
 hosted	2
 was	2
-November	2
 start	2
 support	2
 microservices	2
@@ -185,7 +180,6 @@ both	2
 available	2
 For	2
 request	2
-Google	2
 The	2
 efficient	2
 part	2
@@ -207,12 +201,10 @@ its	2
 operations	2
 machine	2
 end	2
-IBM	2
 more	2
 from	2
 public	2
 officially	2
-Amazon	2
 even	2
 cost	2
 Functions	2
@@ -386,7 +378,6 @@ announced	1
 7	1
 since	1
 measure	1
-Cognito	1
 another	1
 events	1
 fully	1
@@ -427,7 +418,6 @@ high	1
 billed	1
 known	1
 expose	1
-Bluemix	1
 sharing	1
 6	1
 Microsoft	1
@@ -459,4 +449,3 @@ languages	1
 Docker	1
 go	1
 manages	1
-```
