@@ -226,7 +226,7 @@ For details, refer to [MySQL Proxy official manual][7]
 The steps for building a MySQL Proxy are as follows:
 
 1) Download mysql-proxy installer to the CVM
- \`\`\`
+```
 wget http://cdn.mysql.com/Downloads/MySQL-Proxy/mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit.tar.gz
 ```
 

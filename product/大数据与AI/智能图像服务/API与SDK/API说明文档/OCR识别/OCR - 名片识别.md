@@ -42,7 +42,7 @@
 | ----------- | ------ | ------------ |
 | result_list | json 数组 | 具体查询数据，内容见下表 |
 
-result_list（json 数组）中每一项的具体内容
+result_list（json 数组）中每一项的具体内容：
 
 | 字段      | 类型     | 说明           |
 | ------- | ------ | ------------ |
@@ -51,7 +51,7 @@ result_list（json 数组）中每一项的具体内容
 | url     | string | 当前图片的 url     |
 | data    | object       | 具体查询数据，内容见下表 |
 
-data字段具体内容
+data字段具体内容：
 
 | 字段               | 类型     | 说明     |
 | ---------------- | ------ | ------ |
@@ -150,7 +150,7 @@ Content-Type: "application/json"
 | image            | string | 返回图片的base64编码（ret_image=1时返回） |
 
 ><font color="#0000cc">**注意：** </font>
-如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1
+如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
 
 ### 示例
