@@ -7,16 +7,16 @@
 ### 开发准备
 1. 开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得 APPID、SecretId 和 SecretKey 等；
 2. 手机必须要有网络（GPRS、3G 或 Wifi 等）；
-3. 支持Android 4.0及其以上版本；
+3. 支持Android 4.0及其以上版本。
 
 ### SDK 配置
-1.导入下列 jar 包
+1.导入下列 jar 包：
 - faceid-1.0.0.jar
 - okhttp-3.2.0.jar
 - okio-1.6.0.jar
 - slf4j-android-1.6.1-RC1.jar
 
-2.在AndroidManifest.xml中增加如下权限
+2.在AndroidManifest.xml中增加如下权限：
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -33,7 +33,7 @@ String appid = "your appid";
 final FaceIdClient faceIdClient = new FaceIdClient(context, appid);
 ```
 ### 人脸对比
-**通过上传本地图像进行对比**
+**通过上传本地图像进行对比**：
 ```
 String bucket = "your bucket"; // bucket名称
 String idCardNumber = "your id card number"; // 身份证号码
@@ -63,7 +63,7 @@ new Thread(new Runnable() {
     }
 }).start();
 ```
-**通过上传图像 url 进行对比**
+**通过上传图像 url 进行对比**：
 
 ```
 String bucket = "your bucket"; // bucket名称
@@ -122,7 +122,7 @@ new Thread(new Runnable() {
 ```
 <span id="3"></span>
 ### 人脸核身
-**根据用户上传的照片和视频，进行人脸核身验证**
+**根据用户上传的照片和视频，进行人脸核身验证**：
 ```
 String bucket = "your bucket"; // bucket名称
 String validateData = "your validate data"; // 唇语
@@ -153,7 +153,7 @@ new Thread(new Runnable() {
     }
 }).start();
 ```
-**根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比**
+**根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比**：
 ```
 String bucket = "your bucket"; // bucket名称
 String validateData = "your validate data"; // 唇语
@@ -194,7 +194,7 @@ new Thread(new Runnable() {
 | setHttpReadTimeout         | HTTP 读超时时间  | 160*1000ms |
 | setHttpWriteTimeout        | HTTP 写超时时间  | 160*1000ms |
 
-示例
+示例：
 ```
 ClientConfiguration.setMaxTaskConcurrentNumber(4);
 ClientConfiguration.setHttpConnectTimeout(20 * 1000)；
@@ -203,6 +203,7 @@ ClientConfiguration.setHttpWriteTimeout(100 * 1000);
 ```
 ### 签名获取
 所有请求均需要多次有效签名。为了方便用户测试，SDK 中提供了本地生成签名的方法，调用 CredentialProvider 对象的getMultipleSign方法即可获得有效签名。但是为了不暴露用户的 SecretKey，正式环境下请在第三方服务器上进行签名。具体签名算法可参考 [签名与鉴权](https://cloud.tencent.com/document/product/460/6968)。
+
 本地生成签名示例：
 ```
 String appid = "your appid"; 
@@ -308,7 +309,7 @@ public GetLipLanguageRequest(String bucket, String seq);
 ```
 public VideoImageIdentityRequest(String bucket, String validateData, String videoPath, String imagePath, boolean compare, String seq);
 ```
-参数说明
+参数说明：
 
 | 参数名称         | 类型      | 是否必填 | 参数描述                  |
 | ------------ | ------- | ---- | --------------------- |
@@ -337,7 +338,9 @@ public VideoImageIdentityRequest(String bucket, String validateData, String vide
 
 ### 人脸核身---活体检测视频身份信息核验
 
-自带人脸识别数据库，可实时为国内公民提供真实身份信息核验。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。人脸核身构造函数：
+自带人脸识别数据库，根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比，可实时为国内公民提供真实身份信息核验。
+
+人脸核身构造函数：
 
 ```
 VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath, String idCardNumber, String idCardName, String seq);

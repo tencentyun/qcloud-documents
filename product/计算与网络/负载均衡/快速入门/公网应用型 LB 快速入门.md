@@ -113,7 +113,7 @@ CVM2 的/text页面
 
 ![](https://mc.qcloudimg.com/static/img/8aa703e2da557010210f23b52da56f87/013.png)
 
-接下来，可以分别输入http://www.example.com/image/和 https://www.example2.com/text/ 来测试请求是否能通过LB访问后端服务器。（注意，image/和text/后面的/很重要哦，因为这个代表了image和text是两个默认的目录，而不是名为image和text的文件）
+接下来，可以分别输入 `http://www.example.com/image/` 和 `https://www.example2.com/text/` 来测试请求是否能通过LB访问后端服务器。（注意，image/和text/后面的/很重要哦，因为这个代表了image和text是两个默认的目录，而不是名为image和text的文件）
 
 ![](https://mc.qcloudimg.com/static/img/82360f96ea78984030d7378b35ee48e0/014.png)
 
@@ -150,7 +150,7 @@ CVM2 的/text页面
 
 
 ### 3.2 验证服务
-最后一步，我们可以通过访问http://www.example.com/image/ 来验证，是否请求会被自动重定向到如下地址https://www.example2.com/text/
-如果输入http://www.example.com/image/ 之后，出现如下页面，那么恭喜你，重定向配置也完成了！
+最后一步，我们可以通过访问 `http://www.example.com/image/` 来验证，是否请求会被自动重定向到如下地址 `https://www.example2.com/text/`
+如果输入 `http://www.example.com/image/` 之后，出现如下页面，那么恭喜你，重定向配置也完成了！
 
 ![](https://mc.qcloudimg.com/static/img/591798ef620f8a72d9904197ca06c9a2/020.png)

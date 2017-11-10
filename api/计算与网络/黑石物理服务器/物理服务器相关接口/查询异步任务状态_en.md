@@ -2,7 +2,7 @@
  
 This API (DescriptionOperationResult) is used to acquire the completion status of asynchronous tasks.
 
-Domain for API request: bm.api.qcloud.com
+Domain for API request: bm.api.cloud.tencent.com
 
 
 ## 2. Input Parameters
@@ -42,8 +42,7 @@ data is the json information of the completion status. It contains the following
  
 Input
 
-<pre>
-	https://domain/v2/index.php?
+<pre>`https://domain/v2/index.php?`
 	Action=DescriptionOperationResult
 	&taskId=1000800001
 	&<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>
