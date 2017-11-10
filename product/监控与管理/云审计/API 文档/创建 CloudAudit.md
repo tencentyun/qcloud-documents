@@ -14,6 +14,17 @@ CreateAudit 用于创建云审计（CloudAudit）。
 |CmqTopicName	|否|	string	|Cmq 的名字，如果开启消息队列请填写（命名规范参照 CMQ 要求）|
 > **注意：**
 > 此处每个用户只能创建 50 个 CloudAudit 。
+## 响应参数
+
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| IsMultiRegionAudit | number | 是否开启多地域采集（1 代表是，0 代表否） |
+| KmsKeyId | string | Kms 秘钥 ID |
+| Name | string | CloudAudit 名称 |
+| CosBucketName | string | 	COS Bucket 名称 |
+| CosKeyPrefix | string | COS Bucket 前缀 |
+| CmqTopicName | string | CMQ 主题名称 |
 
 ## 实际案例
 ### 请求
