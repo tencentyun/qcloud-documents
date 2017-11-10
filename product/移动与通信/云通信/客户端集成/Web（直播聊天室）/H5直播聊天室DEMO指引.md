@@ -7,7 +7,7 @@ https://cloud.tencent.com/product/im.html
 http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html
 
 直播聊天室demo二维码：
-![](//mccdn.qcloud.com/static/img/a188f7fd653c8237b362a7adea1f63b1/image.png)
+![](//mccdn.cloud.tencent.com/static/img/a188f7fd653c8237b362a7adea1f63b1/image.png)
 
 通用demo地址：
 http://avc.cloud.tencent.com/demo/webim/index.html
