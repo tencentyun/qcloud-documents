@@ -4,7 +4,7 @@
 3.每次用户登录时必须重新获取 ticket。
 
 ### 2.Access Token 获取
-请求URL：**https://idasc.webank.com/api/oauth2/access_token**
+请求URL：`**https://idasc.webank.com/api/oauth2/access_token**`
 请求方法:GET
 请求参数：
 
