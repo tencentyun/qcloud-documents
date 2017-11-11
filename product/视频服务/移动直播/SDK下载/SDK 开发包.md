@@ -58,6 +58,12 @@ table td { height: 35px; }
 
 <iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=750px height=620px border=0 style=border:none></iframe>
 
+- **Windows 平台**
+| 操作系统 | 版本说明|下载链接 |
+| :---------: |  ---- | :----: | 
+| Windows平台  | 1.0 @ 2017-11-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVWindowsDemo1.0.zip)|
+
+
 - **版本说明**
 
 > 1. 除精简版之外，SDK 各功能版本均打包有 ijkplayer （修复了若干内部BUG），如果您的工程中已使用 ijkplayer，可能会导致符号冲突。为解决这个问题，您可以使用我们经过符号处理的 rename 版 SDK。
