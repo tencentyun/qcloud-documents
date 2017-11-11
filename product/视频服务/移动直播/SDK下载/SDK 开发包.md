@@ -62,7 +62,7 @@ table td { height: 35px; }
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| Windows平台  | 1.0 @ 2017-11-11 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVWindowsDemo1.0.zip)|
+| Windows平台  | 1.0 @ 2017-11-11 | [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVWindowsDemo1.0.zip)|
 
 
 - **版本说明**
