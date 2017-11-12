@@ -1,3 +1,20 @@
+<style>
+table td { 
+    height: 35px; 
+		text-align:center;
+		vertical-align:middle; 
+}
+.markdown-text-box img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    box-sizing: content-box;
+    box-shadow: 0 0 0px #ccc;
+    margin: 0px 0;
+}
+</style>
+
+
 <h2 id="iOS"> iOS 平台 </h3>
 
 <table style="text-align:center;vertical-align:middle;">
