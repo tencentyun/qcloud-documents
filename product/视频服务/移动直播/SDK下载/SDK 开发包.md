@@ -1,6 +1,7 @@
 ## iOS 平台
 <h3 id="iOS"> 下载地址 </h3>
-<iframe src="https://live.qcloud.com/sdkdownload/iosdownloadlist.html" width=980px height=700px border=0 style=border:none></iframe>
+
+<iframe src="https://live.qcloud.com/sdkdownload/iosdownloadlist.html" width="980px" height="630px" border=0 style=border:none></iframe>
 
 ### 版本说明
 - **商用版本**
@@ -11,7 +12,8 @@
 	
 ## Android 平台
 <h3 id="Android"> 下载地址 </h3>
-<iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=980px height=620px border=0 style=border:none></iframe>
+
+<iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=980px height=560px border=0 style=border:none></iframe>
 
 ### 版本说明
 - **商用版本**
@@ -20,6 +22,7 @@
 
 ## Windows 平台
 <h3 id="Windows"> 下载地址 </h3>
+
 <table>
   <tr align="center">
     <th width="220px">版本号</th>
@@ -41,6 +44,51 @@
 
 - **QT界面库**
 	Windows 版本的 SDK 不依赖其它 dll 即可运行，但 Windows 版本的 Demo 是基于 Qt 界面库构建的，所以编译和运行 Demo 请在 Qt 官网下载和安装 Qt 5.9 和 Visual Studio Add-in For Qt 插件。
+	
+## 小直播源码
+### 版本说明
+小直播是腾讯云研发团队自主打造的一款直播产品 DEMO，致力于为您快速上线直播功能提供设计参考和源码参考。
+
+DEMO源码集包括文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动、身份认证等一系列常见的直播相关功能，且所有功能在设计上遵循【积木式堆叠】原则，您可以根据自己产品的需求随意定制组合。
+
+如果您想搭建小直播环境来进行调试，您可以按照文档 [如何快速搭建小直播？](https://cloud.tencent.com/document/product/454/7999) 指引来完成搭建工作。
+
+<h3 id="Xiaozhibo"> 下载地址 </h3>
+
+<table width="850px">
+  <tr align="center">
+    <th width="120px">所属平台</th>
+    <th width="80px">版本号</th>
+		<th width="570px">说明</th>
+    <th width="80px">下载链接</th>
+  </tr>
+  <tr align="center">
+    <td>iOS 源码包</td>
+    <td>3.5.2145</td>
+		<td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">[DOC]</a></td>
+		<td><a href="http://download-1252463788.cossh.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_3.5.2145.zip">DOWNLOAD</a></td>
+  </tr>
+	<tr align="center">
+    <td>Android 源码包</td>
+    <td>3.5.2145</td>
+		<td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7892">[DOC]</a></td>
+		<td><a href="http://download-1252463788.cossh.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_3.5.2145.zip">DOWNLOAD</a></td>
+  </tr>
+	<tr align="center">
+    <td>PHP源码包</td>
+    <td>2.0.3</td>
+		<td>为观众端提供直播间列表，同时为主播端提供推流URL，其相关的前台后协议设计推荐参考 <a href="https://cloud.tencent.com/document/product/454/7895">[DOC]</a></td>
+		<td><a href="http://download-1252463788.cossh.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_2.0.3.3033.zip">DOWNLOAD</a></td>
+  </tr>
+	<tr align="center">
+    <td>Web分享页</td>
+    <td>1.1.0</td>
+		<td>基于HTML5技术构建的Web分享页面，支持在常规手机浏览器和PC浏览器上观看直播，并支持与主播进行消息互动，实现原理推荐参考 <a href="https://cloud.tencent.com/document/product/454/8046">[DOC]</a></td>
+		<td><a href="http://download-1252463788.cossh.myqcloud.com/web_share_2017.01.04.zip">DOWNLOAD</a></td>
+  </tr>
+</table>
+
+
 	
 ## 旧架构版本
 Ver3.0 以后的版本为新架构版本，相比于旧架构，在性能和稳定性上更有优势，而且后续功能开发速度更快。但如果您是我们的老客户，可能新架构有些细节之处还没有照顾到您，在我们完全补全这些细节之前，可以选择继续使用旧架构版本 [SDK Ver.2.0.5](https://cloud.tencent.com/document/product/454/10776) 。	
