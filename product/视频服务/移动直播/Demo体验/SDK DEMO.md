@@ -1,4 +1,5 @@
 <style>
+table td {text-align:center;}
 table th:nth-of-type(1) {  width: 200px; }
 table th:nth-of-type(2) {  width: 200px; }
 table th:nth-of-type(3) {  width: 200px; }
@@ -16,7 +17,7 @@ table th:nth-of-type(4) {  width: 235px; }
 <h2 id="DE">如果您是开发人员</h2>
 
 ### 效果预览
-![](//mc.qcloudimg.com/static/img/0f8ac8ffcda52c7aec22d8cc4688df8b/image.png)
+![](https://mc.qcloudimg.com/static/img/a493ea36da54be8ab95ece6f69147227/image.jpg)
 
 ### 安装地址
 <table width="840px">
@@ -45,7 +46,7 @@ table th:nth-of-type(4) {  width: 235px; }
 <h2 id="PM">如果您是产品经理</h2>
 
 ### 效果预览
-![](//mc.qcloudimg.com/static/img/cdecddae5b01df1748c3f41bc9da1729/image.png)
+![](http://mc.qcloudimg.com/static/img/9a79f2f291d83949c851dc428ea7766b/image.jpg)
 
 ### 安装地址
 <table width="840px">
