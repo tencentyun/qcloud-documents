@@ -1,27 +1,257 @@
-## iOS 平台
-<h3 id="iOS"> 下载地址 </h3>
+<h2 id="iOS"> iOS 平台 </h3>
 
-<iframe src="https://live.qcloud.com/sdkdownload/iosdownloadlist.html" width="980px" height="630px" border=0 style=border:none></iframe>
+<table style="text-align:center;vertical-align:middle;">
+  <tr>
+    <th width="115px">功能特性</th>
+    <th width="150px">直播精简版</th>
+		<th width="150px">独立播放器版</th>
+    <th width="150px">短视频功能板</th>
+		<th width="150px">全功能专业版</th>
+    <th width="150px">商用企业版</th>
+  </tr>
+  <tr>
+    <td>RTMP推流</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>直播播放</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>点播播放</td>
+    <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>基础美颜</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>直播连麦</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td></td>
+	  <td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频录制</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频编辑</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频拼接</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频发布</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>动效贴纸</td>
+    <td></td>
+	  <td></td>
+	  <td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>美瞳瘦脸</td>
+    <td></td>
+	  <td></td>
+	  <td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>绿幕抠图</td>
+    <td></td>
+	  <td></td>
+	  <td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>BitCode</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td></td>
+  </tr>
+	<tr>
+    <td></td>
+    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Smart_iOS_3.5.2170.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Player_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_UGC_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+		<td>见版本说明</td>
+  </tr>
+</table>
 
-### 版本说明
 - **商用版本**
   商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_Rename_iOS_3.5.2170.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
 	
 - **命名冲突**
   部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_Rename_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401)。	
 	
-## Android 平台
-<h3 id="Android"> 下载地址 </h3>
 
-<iframe src="https://live.qcloud.com/sdkdownload/androiddownloadlist.html" width=980px height=560px border=0 style=border:none></iframe>
+<h2 id="Android"> Android 平台 </h3>
 
-### 版本说明
+<table style="text-align:center;vertical-align:middle;">
+  <tr>
+    <th width="115px">功能特性</th>
+    <th width="150px">直播精简版</th>
+		<th width="150px">独立播放器版</th>
+    <th width="150px">短视频功能板</th>
+		<th width="150px">全功能专业版</th>
+    <th width="150px">商用企业版</th>
+  </tr>
+  <tr>
+    <td>RTMP推流</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>直播播放</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>点播播放</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>基础美颜</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>直播连麦</td>
+    <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+	  <td></td>
+	  <td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频录制</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频编辑</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频拼接</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>视频发布</td>
+    <td></td>
+	  <td></td>
+	  <td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>动效贴纸</td>
+    <td></td>
+	  <td></td>
+	  <td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>美瞳瘦脸</td>
+    <td></td>
+	  <td></td>
+	  <td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td>绿幕抠图</td>
+    <td></td>
+	  <td></td>
+	  <td></td>
+		<td></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
+  </tr>
+	<tr>
+    <td></td>
+    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Smart_Android_3.5.2170.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Player_Android_3.5.2170.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_UGC_Android_3.5.2170.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Professional_Android_3.5.2170.zip">DOWNLOAD</a></td>
+		<td>见版本说明</td>
+  </tr>
+</table>
+
 - **商用版本**
 	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Enterprise_Android_3.5.2170.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9020)。
 
 
-## Windows 平台
-<h3 id="Windows"> 下载地址 </h3>
+<h2 id="Windows"> Windows 平台 </h3>
 
 <table>
   <tr align="center">
@@ -38,22 +268,13 @@
   </tr>
 </table>
 
-### 版本说明
-- **Why not OBS?**
+- **Why not Obs?**
 本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
 
 - **QT界面库**
 	Windows 版本的 SDK 不依赖其它 dll 即可运行，但 Windows 版本的 Demo 是基于 Qt 界面库构建的，所以编译和运行 Demo 请在 Qt 官网下载和安装 Qt 5.9 和 Visual Studio Add-in For Qt 插件。
 	
-## 小直播源码
-### 版本说明
-小直播是腾讯云研发团队自主打造的一款直播产品 DEMO，致力于为您快速上线直播功能提供设计参考和源码参考。
-
-DEMO源码集包括文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动、身份认证等一系列常见的直播相关功能，且所有功能在设计上遵循【积木式堆叠】原则，您可以根据自己产品的需求随意定制组合。
-
-如果您想搭建小直播环境来进行调试，您可以按照文档 [如何快速搭建小直播？](https://cloud.tencent.com/document/product/454/7999) 指引来完成搭建工作。
-
-<h3 id="Xiaozhibo"> 下载地址 </h3>
+<h2 id="Xiaozhibo">小直播源代码</h3>
 
 <table width="850px">
   <tr align="center">
@@ -88,8 +309,13 @@ DEMO源码集包括文字互动、弹幕消息、飘星点赞、美颜增白、�
   </tr>
 </table>
 
+- 小直播是腾讯云研发团队自主打造的一款直播产品 DEMO，致力于为您快速上线直播功能提供设计参考和源码参考。
 
-	
+- DEMO源码集包括文字互动、弹幕消息、飘星点赞、美颜增白、动效蒙皮、连麦互动、身份认证等一系列常见的直播相关功能，且所有功能在设计上遵循【积木式堆叠】原则，您可以根据自己产品的需求随意定制组合。
+
+- 如果您想搭建小直播环境来进行调试，您可以按照文档 [如何快速搭建小直播？](https://cloud.tencent.com/document/product/454/7999) 指引来完成搭建工作。
+
+
 ## 旧架构版本
 Ver3.0 以后的版本为新架构版本，相比于旧架构，在性能和稳定性上更有优势，而且后续功能开发速度更快。但如果您是我们的老客户，可能新架构有些细节之处还没有照顾到您，在我们完全补全这些细节之前，可以选择继续使用旧架构版本 [SDK Ver.2.0.5](https://cloud.tencent.com/document/product/454/10776) 。	
 	
