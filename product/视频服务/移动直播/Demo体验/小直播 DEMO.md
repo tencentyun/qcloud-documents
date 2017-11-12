@@ -1,3 +1,18 @@
+<style>
+table th:nth-of-type(1) {  width: 200px; }
+table th:nth-of-type(2) {  width: 200px; }
+table th:nth-of-type(3) {  width: 200px; }
+table th:nth-of-type(4) {  width: 235px; }
+.markdown-text-box img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    box-sizing: content-box;
+    box-shadow: 0 0 0px #ccc;
+    margin: 0px 0;
+}
+</style>
+
 <h2 id="DE">如果您是开发人员</h2>
 
 ### 效果预览
