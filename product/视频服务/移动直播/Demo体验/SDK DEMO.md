@@ -1,10 +1,25 @@
+<style>
+table th:nth-of-type(1) {  width: 200px; }
+table th:nth-of-type(2) {  width: 200px; }
+table th:nth-of-type(3) {  width: 200px; }
+table th:nth-of-type(4) {  width: 235px; }
+.markdown-text-box img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    box-sizing: content-box;
+    box-shadow: 0 0 0px #ccc;
+    margin: 0px 0;
+}
+</style>
+
 <h2 id="DE">如果您是开发人员</h2>
 
 ### 效果预览
 ![](//mc.qcloudimg.com/static/img/0f8ac8ffcda52c7aec22d8cc4688df8b/image.png)
 
 ### 安装地址
-<table>
+<table width="840px">
   <tr align="center">
     <th width="220px">所属系统</th>
     <th width="220px">当前版本</th>
@@ -33,7 +48,7 @@
 ![](//mc.qcloudimg.com/static/img/cdecddae5b01df1748c3f41bc9da1729/image.png)
 
 ### 安装地址
-<table>
+<table width="840px">
   <tr align="center">
     <th width="220px">所属系统</th>
     <th width="220px">当前版本</th>
