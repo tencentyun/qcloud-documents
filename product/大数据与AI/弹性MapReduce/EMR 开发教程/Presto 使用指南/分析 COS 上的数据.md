@@ -24,7 +24,7 @@ cos.txt 的内容如下：
 6,cos_stone
 ```
 
-温馨提示，建议如示例一样，使用外部表进行 Hive 测试，以免删除重要数据。使用 hive-cli 执行这个脚本：
+温馨提示：建议如示例一样使用外部表进行 Hive 测试，以免删除重要数据。使用 hive-cli 执行这个脚本：
 
 ``` shell
 $hive -f "presto_on_cos_test.sql"
