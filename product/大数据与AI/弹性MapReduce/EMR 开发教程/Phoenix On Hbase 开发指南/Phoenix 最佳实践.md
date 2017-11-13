@@ -1,4 +1,4 @@
-- 使用Phoenix salted 表
+- 使用 Phoenix salted 表
 
     Hbase 的 Row Key 假如没有经过精心设计，如果它又是自增长的，那么顺序写很可能会导致热点问题。PHoenix 提供了一种透明的方法，关联 salt 和 RowKey 到一张指定表的方案。只需要在创建表的时候添加 SALT_BUCKETS 关键字，这个值的范围是 1 到 256。比如：
 
