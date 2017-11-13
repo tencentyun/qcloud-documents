@@ -10,21 +10,22 @@ load data inpath "cosn://huadong/cos.txt" into table presto_on_cos;
 load data local inpath "lzo.txt.lzo" into table presto_on_cos;
 ```
 
-其中，lzo.txt 压缩 lzo 之前的内容是
+其中，lzo.txt 压缩 lzo 之前的内容如下：
 
 ``` 
 10,lzo_pop
 11,lzo_tim
 ```
 
-cos.txt 的内容是
+cos.txt 的内容如下：
 
 ```
 5,cos_patrick
 6,cos_stone
 ```
 
-温馨提示，建议如示例一样：使用外部表进行 Hive 测试，以免删除重要数据。使用 hive-cli 执行这个脚本
+温馨提示：建议如示例一样使用外部表进行 Hive 测试，以免删除重要数据。  
+使用 hive-cli 执行这个脚本：
 
 ``` shell
 $hive -f "presto_on_cos_test.sql"

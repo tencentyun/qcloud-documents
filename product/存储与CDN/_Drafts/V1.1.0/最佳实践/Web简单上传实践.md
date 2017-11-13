@@ -50,16 +50,17 @@ Ajax 上传需要浏览器支持基本的 Html5 特性，当前方案使用的�
     (function () {
 
         // 指定存储桶
-        var Bucket = 'test-1250000000';
+        var AppId = '1250000000';
+        var Bucket = 'test';
         var Region = 'ap-guangzhou';
-        var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+        var prefix = 'http://' + Bucket + '-' + AppId + '.cos.' + Region + '.myqcloud.com/';
 
         // 计算签名
         var getAuthorization = function (options, callback) {
             var method = (options.Method || 'get').toLowerCase();
             var key = options.Key || '';
             var pathname = key.indexOf('/') === 0 ? key : '/' + key;
-            var url = './server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
+            var url = '../server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onload = function (e) {
@@ -119,7 +120,7 @@ Ajax 上传需要浏览器支持基本的 Html5 特性，当前方案使用的�
 Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前方案使用的是 [XML API 的 PostObject 接口](https://cloud.tencent.com/document/product/436/7751)
 
 1. 按照上文【前期准备】，准备好存储桶
-2. 创建 form.html，填充下面的代码，修改里面的 Bucket 和 Region
+2. 创建 form.html，填充下面的代码，修改里面的 AppId、Bucket 和 Region
 3. 部署好后端的签名服务，并修改 form.html 里的签名服务地址
 4. 在 form.html 同一个目录下创建一个空的 empty.html，用于上传成功时跳转回来
 5. 把 form.html 和 empty.html 放在 Web 服务器下，然后在浏览器访问页面，测试文件上传
@@ -142,7 +143,7 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
     <input name="success_action_status" type="hidden" value="200">
     <input id="success_action_redirect" name="success_action_redirect" type="hidden" value="">
     <input id="key" name="key" type="hidden" value="">
-    <input id="signature" name="Signature" type="hidden" value="">
+    <input id="Signature" name="Signature" type="hidden" value="">
     <input id="fileSelector" name="file" type="file">
     <input id="submitBtn" type="button" value="提交">
 </form>
@@ -154,9 +155,10 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
     (function () {
 
         // 请求用到的参数
-        var Bucket = 'test-1250000000';
+        var AppId = '1250000000';
+        var Bucket = 'test';
         var Region = 'ap-guangzhou';
-        var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+        var prefix = 'http://' + Bucket + '-' + AppId + '.cos.' + Region + '.myqcloud.com/';
         var form = document.getElementById('form');
         form.action = prefix;
 
@@ -169,7 +171,7 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function (e) {
-               if (xhr.readyState === 4) {
+                if (xhr.readyState === 4) {
                     xhr.status === 200 ? callback(null, xhr.responseText) : callback('获取签名出错');
                 }
             };
@@ -214,7 +216,7 @@ Form 表单上传可以支持低版本的浏览器比如 ie8 的上传，当前�
                 // 在当前目录下放一个空的 empty.html 以便让接口上传完成跳转回来
                 document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
                 document.getElementById('key').value = Key;
-                document.getElementById('signature').value = auth;
+                document.getElementById('Signature').value = auth;
                 form.submit();
             });
         };
