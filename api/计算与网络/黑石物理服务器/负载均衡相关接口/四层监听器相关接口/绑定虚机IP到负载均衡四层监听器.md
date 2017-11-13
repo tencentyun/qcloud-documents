@@ -32,6 +32,7 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |vmList.n.port|是|Int|待绑定的虚机端口，可选值1~65535。|
+|vmList.n.probePort|否|Int|自定义探测的虚机端口，可选值1~65535。（需要监听器开启自定义健康检查）|
 |vmList.n.vmIp|是|String|待绑定的虚机IP。|
 |vmList.n.weight|是|Int|待绑定的虚机权重，可选值0~100。|
 
@@ -89,6 +90,7 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=BindBmL4ListenerVmIp
 	&loadBalancerId=lb-abcdefgh
 	&listenerId=lbl-abcdefgh
 	&vmList.0.port=1234
+	&vmList.0.probePort=1234
 	&vmList.0.vmIp=1.1.1.1
 	&vmList.0.weight=10
 	&Signature=umZFAAWKzjXEQp4ySgrWAoWOHKI%3D
