@@ -24,7 +24,6 @@ The storage period for objects using COS Infrequent Access is a minimum of 30 da
 
 ### Request Fee
 **Note:**
->
 > - Billing unit for request fees: USD/10,000 requests
 > - The request fee is billed at a minimum of 10,000 requests. If the number of requests is less than 10,000, the request fees are billed at the rate for 10,000 requests.
 |      | Mainland China | Hong Kong  |  Singapore  |  Germany   |  Canada  |
@@ -43,7 +42,6 @@ The storage period for objects using COS Infrequent Access is a minimum of 30 da
 
 ### Traffic Fees
 **Note:** 
->
 > - Billing unit for traffic fees: USD/GB
 > -  Traffic fees are priced at the same rate for the two storage types.
 |      | Mainland China | Hong Kong  |  Singapore  |  Germany   |  Canada  |
