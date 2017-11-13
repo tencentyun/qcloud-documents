@@ -34,7 +34,7 @@ compile(name: 'WbCloudNormal-release-v3.0.8-f0cefef', ext: 'aar')    }
 云OCR产品的混淆规则分为三部分，分别是云OCR SDK的混淆规则，云公共组件的混淆规则及依赖的第三方库混淆规则。
 **1. 云 OCR SDK 的混淆规则**
 ```
-######################云ocr混淆规则 ocr-BEGIN###########################
+######################云 ocr 混淆规则 ocr-BEGIN###########################
 -keepattributes InnerClasses
 -keep public class com.webank.mbank.ocr.WbCloudOcrSDK{
     public <methods>;
@@ -54,7 +54,7 @@ compile(name: 'WbCloudNormal-release-v3.0.8-f0cefef', ext: 'aar')    }
 -keep public class com.webank.mbank.ocr.net.*{
     *;
 }
-#######################云ocr混淆规则 ocr-END#############################
+#######################云 ocr 混淆规则 ocr-END#############################
 ```
 **2**.您可以将如上代码拷贝到您的混淆文件中，也可以将 SDK 中的 webank-cloud-ocr-proguard-rules.pro拷贝到主工程根目录下,然后通过"-include webank-cloud-ocr-rules.pro" 加入到您的混淆文件中。
 **3. 云公共组件的混淆规则**
