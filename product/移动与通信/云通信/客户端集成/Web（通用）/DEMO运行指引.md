@@ -70,8 +70,8 @@ C:\Users\peakerdong>"D:\Program Files\Apache24\bin\httpd.exe" -k install -n apac
 
 点击左侧start，启动apache服务。
 
-打开浏览器，输入访问 http://localhost
-如果你设置的端口是8080，则访问地址是http://localhost:8080/
+打开浏览器，输入访问 `http://localhost`
+如果你设置的端口是8080，则访问地址是 `http://localhost:8080/`
 出现以下界面，表示apahce启动成功。
 ![](//mccdn.qcloud.com/static/img/1a051fa9cbedf08e55a979f732e824ef/image.png)
 
@@ -106,7 +106,7 @@ var sdkAppID = 1400001533;//开发者改成自己的业务id
 访问demo，这里拿谷歌浏览器举例。
 
 打开浏览器输入地址：
-http://localhost:8080/webim/index.html
+`http://localhost:8080/webim/index.html`
 
 显示demo首页：
 ![](//mccdn.qcloud.com/static/img/deaf3ceeb96916e35ce611602f4c0074/image.png)

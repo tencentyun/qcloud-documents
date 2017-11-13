@@ -2,7 +2,7 @@
  
 This API (ReloadDeviceOs) is used to re-install CPM's operating system.
 
-Domain for API request: <font style="color:red">bm.api.qcloud.com</font>
+Domain for API request: <font style="color:red">bm.api.cloud.tencent.com</font>
 
 
 ## 2. Input Parameters
@@ -52,8 +52,7 @@ An empty agentIds means monitor and security agents are not installed.
  
 Input
 
-<pre>
-  https://domain/v2/index.php?Action=ReloadDeviceOs
+<pre>`https://domain/v2/index.php?Action=ReloadDeviceOs`
   &instanceId=cpm-34xs43xs
   &passwd=34x@#23A
   &osTypeId=2

@@ -1,7 +1,7 @@
 ## 1. 接口描述
 本接口（CdnPusherV2）提交URL预热任务。
 
-接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
+接口请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
 
 **接口说明：**
 + 每一个客户每天能够提交的预热资源上限为1000条，每一个客户每次提交的预热资源上限为20条；
@@ -24,7 +24,7 @@
 + 提交的URL可以属于不同的域名，CDN会以域名维度来拆分不同任务进行预热；
 + 预热会导致回源带宽较高，请根据源站带宽来拆分提交预热任务；
 + 当预热回源压力较大时，可以通过设置预热限速从一定程度上缓解源站压力；
-+ 限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 http://www.abc.com/1.mkv 时，向域名 www.abc.com 配置的源站拉取资源时，全网节点总回源速度会控制在 1Mbps 左右。
++ 限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在 1Mbps 左右。
 
 ## 3. 输出参数
 | 参数名称     | 类型     | 描述                                       |
@@ -49,8 +49,10 @@
 
 ## 4. 示例
 ### 4.1 输入示例
+```
 > urls.0: http://www.test.com/1.txt
 > limitRate: 1
+```
 
 ### 4.2 GET 请求
 GET 请求需要将所有参数都加在 URL 后：
@@ -67,9 +69,9 @@ Action=CdnPusherV2
 
 ### 4.2 POST请求
 POST请求时，参数填充在HTTP Requestbody中，请求地址：
-```
-https://cdn.api.qcloud.com/v2/index.php
-```
+
+`https://cdn.api.qcloud.com/v2/index.php`
+
 参数支持 formdata、xwwwformurlencoded 等格式，参数数组如下：
 
 ```

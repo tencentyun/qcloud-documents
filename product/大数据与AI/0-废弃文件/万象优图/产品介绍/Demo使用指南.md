@@ -1,4 +1,4 @@
-在正式开始使用腾讯云•万象优图前您可以通过我们提供的Demo APP体验万象优图。
+在正式开始使用腾讯云•万象优图前，您可以通过我们提供的DemoAPP体验万象优图。
 
 ## 1 万象优图/微视频DemoAPP简介
 万象优图/微视频DemoAPP，是腾讯云提供给开发者的一个测试APP，包括图片和视频两个体验模块。图片体验模块包括图片的上传、暂停、删除、查询和复制等功能；视频体验模块包括视频的上传、暂停、查询和删除等功能。开发者可以使用DemoAPP体验腾讯云万象优图/微视频服务，也可以在DemoAPP上注册自己的APP来验证其万象优图/微视频服务是否正常开通。 
@@ -6,7 +6,7 @@
 ## 2 万象优图/微视频DemoAPP下载
 **Android系统**
 手机扫描下面的二维码，安装图片/微视频服务安卓版的体验APP。Android SDK中自带的demo即为这个体验APP。
-http://1251013638.cdn.myqcloud.com/1251013638/img-qcloud-sdk/qr-code.png?v=1.1.0
+`http://1251013638.cdn.myqcloud.com/1251013638/img-qcloud-sdk/qr-code.png?v=1.1.0`
 **iOS系统**
 [iOS体验APP ](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/QCloudDemo-ios-v1.1.0.zip)
 将SDK中Demo重新编译或在模拟器中运行图片/微视频服务iOS版的体验APP。

@@ -17,8 +17,8 @@ GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-se
 python setup.py install   # 这里可能需要sudo或者root权限
 ```
 
-### 使用限制
-适用于 COS V5 版本 XML 接口
+### 特别说明
+本工具使用 COS XML 接口开发
 
 ## 功能说明
 #### 上传机制
@@ -89,6 +89,9 @@ single_file_max_size = 21474836480
 ```
 python ftp_server.py
 ```
+运行命令后，见到如下图示，即代表 FTP Server 服务启动成功，您可以开始使用 FTP 客户端对配置的 IP 和端口进行访问了。
+![运行成功](//mc.qcloudimg.com/static/img/7bbb20b2ba2c6cf9678a47d8753499cc/image.png)
+
 ## 停止
 `Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
 ## FAQ

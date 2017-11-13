@@ -59,7 +59,7 @@ items说明
 
 ## 示例
 
-#### 使用url的请求包:
+#### 使用url的请求包
 
 ```
 POST /ocr/plate HTTP/1.1
@@ -74,7 +74,7 @@ Content-Type: application/json
 }
 ```
 
-#### 使用image的请求包:
+#### 使用image的请求包
 
 ```
 POST /ocr/plate HTTP/1.1
@@ -89,7 +89,7 @@ Content-Type: application/json
 }
 ```
 
-#### 回包:
+#### 回包
 
 ```
 HTTP/1.1 200 OK
@@ -139,5 +139,9 @@ Content-Type: text/json
 | -1304 | 参数过长                       |
 | -1308 | url 图片下载失败                 |
 
+<<<<<<< HEAD
 更多其他 API 错误码请看[错误码说明](/document/product/641/12410) 。
+=======
+更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+>>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
 
