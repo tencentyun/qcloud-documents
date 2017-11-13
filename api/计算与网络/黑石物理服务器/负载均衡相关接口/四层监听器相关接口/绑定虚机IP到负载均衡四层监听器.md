@@ -12,6 +12,7 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=BindBmL4ListenerVmIp
 	&loadBalancerId=<负载均衡实例ID>
 	&listenerId=<四层监听器实例ID>
 	&vmList.0.port=<待绑定的虚机端口>
+	&vmList.0.probePort=<自定义探测的虚机端口>
 	&vmList.0.vmIp=<待绑定的虚机IP>
 	&vmList.0.weight=<待绑定的主机权重>
 ```
