@@ -89,7 +89,6 @@ String uploadFile(UploadFileRequest request);
 |     bizAttr     |     String      |          Null          | Constructor or set method |           Note for file, mainly the description of the use of the file            |
 |   insertOnly    | InsertOnly (enumeration) | NO_OVER_WRITE (not overwrite) |   set method    | Indicate whether to insert only and not overwrite the existing file. NO_OVER_WRITE means inserting only and not overwriting the existing file; when the file exists, an error will be returned. OVER_WRITE means overwriting the existing file |
 | enableSavePoint |     boolean     |        true         |   set method    | Indicate whether to enable savepoint for files. If enabled, one savepoint will be recorded locally. When upload failed, the resumed upload will skip the uploaded parts. But enabling savepoint may slow down the upload speed.  |
-| enableShaDigest |     boolean     |        false        |   set method    | Indicate whether to calculate sha digest. If enabled, when there is a file containing same content under the bucket, instant upload will be triggered. Calculating sha consumes a certain CPU and time. Thus, it is recommended that you do not enable it for large files.  |
 |     taskNum     |       int       |         16          |   set method    |                 Number of concurrent file uploads                 |
 
 #### Returned Value
