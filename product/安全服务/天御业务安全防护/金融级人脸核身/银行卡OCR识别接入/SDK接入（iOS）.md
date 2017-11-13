@@ -169,7 +169,7 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 ---|--- 
 app_id |腾讯服务分配的app_id 
 order_no	| 订单号，本次人脸验证合作伙伴上送的订单号，唯一标识。
-api ticket	|合作伙伴服务端缓存的tikcet,注意是sign 类型，具体见[Access Token获取](https://cloud.tencent.com/document/product/295/10118?!preview&lang=cn)获取规则
+api ticket	|合作伙伴服务端缓存的tikcet,注意是sign 类型，具体见[Access Token获取](https://cloud.tencent.com/document/product/295/10118?=cn)获取规则
 - 将 app_id、order_no、连同 ticket(SIGN) 共三个参数的值进行字典序排序
 将排序后的所有参数字符串拼接成一个字符串进行 SHA1 编码
 SHA1 编码后的 40 位字符串作为签名(sign)
@@ -209,7 +209,7 @@ B02CEBEB07F792B2F085E8CB1E7BA9EC19284F54 该字串就是最终生成的签名 (4
 app_id|	腾讯服务分配的 app_id
 order_no	|订单号，本次人脸验证合作伙伴上送的订单号，唯一标识。
 version|	默认值：1.0.0
-api ticket	|合作伙伴服务端缓存的 tikcet,注意是 sign 类型，具体见[Access Token获取](https://cloud.tencent.com/document/product/295/10118?!preview&lang=cn)获取规则
+api ticket	|合作伙伴服务端缓存的 tikcet,注意是 sign 类型，具体见[Access Token获取](https://cloud.tencent.com/document/product/295/10118?cn)获取规则
 nonceStr|	32位随机字符串,字母和数字
 - 生成一个 32 位的随机字符串(字母和数字)  nonceStr，将 app_id、order_no、version 连同 ticket、nonceStr 共五个参数的值进行字典序排序再 SHA1 编码生成签名。具体签名算法见章节7。
 
