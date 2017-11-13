@@ -190,7 +190,7 @@ To support ATS, two preconditions should be met:
 > **Step 2. Deploy the certificate on the backend server after your application is approved:**
 > First, [download the certificate](https://console.cloud.tencent.com/ssl). Find the certificate and click the "Download" button, and then upload it to the business server using WinScp or other tools. Next, modify the configuration of live_demo.nginx by referring to [Certificate Deployment](https://cloud.tencent.com/document/product/400/4143#2.-nginx-.E8.AF.81.E4.B9.A6.E9.83.A8.E7.BD.B2). Save the modification and restart (Shell command: **nginx -s reload**)
 > **Step 3. Verify the completion of certificate deployment:**
-> Enter https://cgi.tcmlvb.cn/interface.php in the browser's address bar. A returned result indicates the successful deployment of HTTPS.
+> Enter `https://cgi.tcmlvb.cn/interface.php` in the browser's address bar. A returned result indicates the successful deployment of HTTPS.
 > 
 > ![](//mc.qcloudimg.com/static/img/d3e3d8bf476b03ce86989740c760b25f/image.png)
 - **kHttpServerAddr ** switches to HTTPS protocol: `https://business server domain name/interface.php`.
