@@ -20,11 +20,14 @@ SDK 根据代码结构可以大致分成四部分:
 	- 这里包括了一系列C函数的原型声明, 用于编写业务逻辑, 实现和腾讯云通信的API
 	- sample里面提供了demo代码，可以借此参考如何使用这些API
 
+4. SDK Sample Program（例程）
+	- 这部分提供了部分场景化demo的实现代码，以供参考
+
 下面对各层次进行更加详细的说明
 
-### 硬件平台抽象层（HAL层）
+### <font color=gray>硬件平台抽象层（HAL层）</font>
 
-1. 所有 HAL 层函数都在 `src/sdk-impl/qcloud_iot_import.h` 中进行声明
+所有 HAL 层函数都在 `src/sdk-impl/qcloud_iot_import.h` 中进行声明
 <!--2. `src/sdk-impl/qcloud_iot_import.h` 包含了 `imports ` 目录下的子文件,
 --><!--`3. 各功能点引入的 HAL 层接口依赖在 `src/sdk-impl/imports/qcloud_iot_import_*.h` 中列出`-->
 
@@ -45,6 +48,8 @@ SDK 根据代码结构可以大致分成四部分:
 | 9    | HAL_Timer_expired      | 判断定时器时间是否已经过期               |
 | 10   | HAL_Timer_countdown    | 根据定时器开始计时, 单位:s               |
 | 11   | HAL_Timer_countdown_ms | 根据定时器开始计时, 单位:ms              |
+| 12   | HAL_Timer_current | 获取当前时间格式化字符串              |
+| 13   | HAL_Print_Socket | 获取socket本地端口              |
 
 **无MQTT时可以不实现：**
 
@@ -63,4 +68,7 @@ SDK 根据代码结构可以大致分成四部分:
 3. `src/sdk-impl/exports/qcloud_iot_export_*.h` 中列出各功能点提供的API
 
 
+### <font color=gray>SDK接口声明层 + 例程</font>
 
+1. 接口说明：[SDK接口文档](https://cloud.tencent.com/document/product/634/11929)
+2. 例程介绍：[快速开始](https://cloud.tencent.com/document/product/634/11912)
