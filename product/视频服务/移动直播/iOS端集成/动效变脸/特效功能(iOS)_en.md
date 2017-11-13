@@ -65,7 +65,7 @@ Download resources for dynamic effects from the background and decompress them t
 
 > `https://st1.xiangji.qq.com/yunmaterials/{Name of the dynamic effect}.zip`
 >
-> `https://st1.xiangji.qq.com/yunmaterials/{Name of the dynamic effect}.png`
+> `https://st1.xiangji.qq.com/yunmaterials/Name of the dynamic effect}.png`
 >
 
 It is strongly recommended that you put the resources for dynamic effects on your own servers to prevent unnecessary impact caused by modifications of the Mini LVB.
