@@ -33,7 +33,7 @@ Please see [How to Activate Cloud Services?](https://cloud.tencent.com/document/
 	
 	When Tencent Cloud makes a callback to business server, it implements callback logic through the API Live_callback.php on the server. 
 	
-	The callback URL of LVB Console needs to be configured as: http://IP or domain name of business server/callback/Live_callback.php
+	The callback URL of LVB Console needs to be configured as: `http://IP` or domain name of business server/callback/Live_callback.php
 
 ## 3. Integration and Deployment at Backend
 ### 3.1. Steps and Methods for Deployment at Backend
@@ -97,7 +97,7 @@ We provide a set of **Nginx + PHP + MySQL** backend source codes, which are reco
 > - Start PHP and then start Nginx.
 > 
 - **Step 4. Verify deployment completion**
-> Enter http://your server IP/interface.php on your browser. The returned result of "{"returnValue":4001,"returnMsg":"json format error","returnData":[]}" indicates PHP is in a running status and the API can be accessed from the public network. Now, the deployment at backend is completed.
+> Enter `http://your server IP/interface.php` on your browser. The returned result of "{"returnValue":4001,"returnMsg":"json format error","returnData":[]}" indicates PHP is in a running status and the API can be accessed from the public network. Now, the deployment at backend is completed.
 > The reason for receiving **"json format error"** is that the request is initiated without parameter. After being wrapped by the terminal source code for Mini LVB, the API request becomes normal. For more information about the APIs, please see "Analysis of Frontend and Backend Protocols for Mini LVB" (https://cloud.tencent.com/document/product/454/7895).
 
 
@@ -193,7 +193,7 @@ To support ATS, two preconditions should be met:
 > Enter https://cgi.tcmlvb.cn/interface.php in the browser's address bar. A returned result indicates the successful deployment of HTTPS.
 > 
 > ![](//mc.qcloudimg.com/static/img/d3e3d8bf476b03ce86989740c760b25f/image.png)
-- **kHttpServerAddr ** switches to HTTPS protocol: https://business server domain name/interface.php.
+- **kHttpServerAddr ** switches to HTTPS protocol: `https://business server domain name/interface.php`.
 
 ### 5.2. How to Use your Own Account System?
 Please see [How to Use your Own Account System?](https://cloud.tencent.com/document/product/454/7981)
