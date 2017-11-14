@@ -150,7 +150,11 @@ Content-Type: "application/json"
 | image            | string | 返回图片的base64编码（ret_image=1时返回） |
 
 ><font color="#0000cc">**注意：** </font>
+<<<<<<< HEAD
+>如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1
+=======
 >如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
+>>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
 
 
 ### 示例
