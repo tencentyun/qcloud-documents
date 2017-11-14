@@ -9,9 +9,9 @@ Android 并没有运行时权限，检测权限只能靠开关相机进行。考
  
 ### 2.接入配置
 OCR SDK（WbCloudOcr）最低支持到  ** Android API 14: Android 4.0(ICS) **，请在构建项目时注意。
-WbCloudOcr 将以 AAR 文件的形式提供。
-需要添加下面文档中所示的依赖(将提供的 aar 文件加入到 app 工程的 `'libs'` 文件夹下面,
-并且在 **build.gradle** 中添加下面的配置:
+`WbCloudOcr` 将以 AAR 文件的形式提供。
+需要添加下面文档中所示的依赖（将提供的 aar 文件加入到 app 工程的 `'libs'` 文件夹下面），
+并且在 **build.gradle** 中添加下面的配置：
 
 ```
 android{
@@ -192,7 +192,7 @@ public interface IDCardScanResultListener{
 
 ```
 
-WbCloudOcrSdk.init() 的第二个参数用来传递数据.可以将参数打包到 data(Bundle) 中，必须传递的参数包括(参数要求见下一节描述):
+`WbCloudOcrSdk.init() `的第二个参数用来传递数据。可以将参数打包到 `data(Bundle) `中，必须传递的参数包括（见 5. 接口参数说明）
 
 ```
 //这些都是 WbCloudOcrSdk.InputData 对象里的字段，是需要传入的数据信息
@@ -258,7 +258,7 @@ public interface IDCardScanResultListener{
 #### 4.3 第三方进入 SDK 的模式
 当 type==WBOCRSDKTypeBankSide 时，直接进入扫描银行卡界面，进行银行卡识别。
 
-### 5. 接口参数说明接口参数说明
+### 5. 接口参数说明
 | 参数 | 说明 |类型 |长度 | 是否必填 |
 |---------|---------|---------|---------|---------|
 |orderNo	|订单号|	String|	32	|必填，合作方订单的唯一标识|
@@ -269,9 +269,9 @@ public interface IDCardScanResultListener{
 |openApiSign	|合作方后台服务器通过 ticket 计算出来的签名信息	|String	|40	|必填|
 
 ### 6. 个性化参数设置
-WbCloudOcrSdk.init()里Bundle data，除了必须要传的InputData对象(详情见上节)之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己app的sdk。如果合作方未设置这些参数，则以下所有参数按默认值设置。
+`WbCloudOcrSdk.init()`里 Bundle data，除了必须要传的 InputData 对象（详情见 5. 接口参数说明）之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己 app 的 sdk。如果合作方未设置这些参数，则以下所有参数按默认值设置。
 #### 6.1 设置 sdk 的扫描识别的时间上限
-合作方可以设置 sdk 的扫描识别时间的上限。 SDK 打开照相机进行扫描识别的时间上限默认是 20 秒，20 秒内若识别成功则退出扫描界面，否则一直识别直到 20 秒后直接退出扫描界面。第三方可对其个性化设置，设置的时间上限不能超过 60 秒，建议第三方采用默认值，不要修改这个参数。设置代码如下：
+合作方可以设置 sdk 的扫描识别时间的上限。 SDK 打开照相机进行扫描识别的时间上限默认是 20 秒，20 秒内若识别成功则退出扫描界面，否则一直识别，直到 20 秒后直接退出扫描界面。第三方可对其个性化设置，设置的时间上限不能超过 60 秒，建议第三方采用默认值，不要修改这个参数。设置代码如下：
 
 ```
 # 在 MainActivity 中点击某个按钮的代码逻辑：
@@ -353,9 +353,8 @@ IDOCR__ERROR_USER_NO_NET="100101";    //无网络
 IDOCR_USER_2G="100102";   //不支持2G网络
 IDOCR_ERROR_PERMISSION_CAMERA="100103";  //无相机权限
 IDOCR_ERROR_PERMISSION_READ_PHONE="100103";  //READ PHONE未权限
-IDOCR_ERROR_PERMISSION="100103";  //权限异常
-    IDOCR_LOGIN__ERROR="-10000";  //登录错误
-	 SERVER_FAIL="-30000";    //内部服务错误
+IDOCR_ERROR_PERMISSION="100103";  //权限异常 IDOCR_LOGIN__ERROR="-10000";  //登录错误
+SERVER_FAIL="-30000";    //内部服务错误
 ```
     
 
@@ -365,13 +364,13 @@ IDOCR_ERROR_PERMISSION="100103";  //权限异常
 INTERNAL_SERVER_ERROR="999999"      //网络不给力,请稍后再试
 FRONT_INTERNAL_SERVER_ERROR="999998"  //网络不给力，请您稍后再试
 SERVICE_TIME_OUT="999997"            //网络不给力，请您稍后再试
-  OAUTH_INVALID_REQUEST="400101"     //不合法请求
-  OAUTH_INVALID_LOGIN_STATUS="400102"    //不合法请求
-  OAUTH_ACCESS_DENIED="400103"    //服务器拒绝访问此接口
-  OAUTH_INVALID_PRIVILEGE="400104"    //无权限访问此请求
-  OAUTH_REQUEST_VALIDATE_ERROR="400105"  //身份验证不通过
-  OAUTH_TPS_EXCEED_LIMIT="400501"   //请求超过最大限制
-  OAUTH_INVALID_VERSION="400502"    //请求上送版本参数错误
-  OAUTH_INVALID_FILE_HASH="400503"   //文件校验值错误
-    OAUTH_REQUEST_RATE_LIMIT="400504"   //请求访问频率过高
+OAUTH_INVALID_REQUEST="400101"     //不合法请求
+OAUTH_INVALID_LOGIN_STATUS="400102"    //不合法请求 
+OAUTH_ACCESS_DENIED="400103"    //服务器拒绝访问此接口
+OAUTH_INVALID_PRIVILEGE="400104"    //无权限访问此请求
+OAUTH_REQUEST_VALIDATE_ERROR="400105"  //身份验证不通过
+OAUTH_TPS_EXCEED_LIMIT="400501"   //请求超过最大限制
+OAUTH_INVALID_VERSION="400502"    //请求上送版本参数错误
+OAUTH_INVALID_FILE_HASH="400503"   //文件校验值错误
+OAUTH_REQUEST_RATE_LIMIT="400504"   //请求访问频率过高
 ```
