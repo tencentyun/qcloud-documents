@@ -87,16 +87,16 @@ dimensions.0.value为实例的uuid
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&[公共请求参数](https://cloud.tencent.com/doc/api/229/6976)
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/redis
 &metricName=cache_hit_ratio
 &dimensions.0.name=redis_uuid
 &dimensions.0.value=crs-ifmymj41
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-```
+</pre>
 
 输出
 

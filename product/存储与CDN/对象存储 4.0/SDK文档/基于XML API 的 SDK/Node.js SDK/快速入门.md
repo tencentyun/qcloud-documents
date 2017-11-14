@@ -29,12 +29,13 @@ npm i cos-nodejs-sdk-v5 --save
 var COS = require('cos-nodejs-sdk-v5');
 // 创建实例
 var cos = new COS({
+    AppId: '1250000000',
     SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
     SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 });
 // 分片上传
 cos.sliceUploadFile({
-    Bucket: 'test-1250000000',
+    Bucket: 'test',
     Region: 'ap-guangzhou',
     Key: '1.zip',
     FilePath: './1.zip'

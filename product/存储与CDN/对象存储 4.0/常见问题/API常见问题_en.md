@@ -46,7 +46,7 @@ A: The upload domain of V4 XML API varies depending on its region. For example, 
 
 **Q: What is the upload path of XML API?**
 
-A: For example, to upload a file Put, refer to API documentation at http://BucketName-UID.Region.myqcloud.com/ObjectName for details.
+A: For example, to upload a file Put, refer to API documentation at `http://BucketName-UID.Region.myqcloud.com/ObjectName` for details.
 
 ### Key Issues
 
