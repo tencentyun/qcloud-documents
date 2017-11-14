@@ -139,5 +139,9 @@ Content-Type: text/json
 | -1304 | 参数过长                       |
 | -1308 | url 图片下载失败                 |
 
+<<<<<<< HEAD
+更多其他 API 错误码请看[错误码说明](/document/product/641/12410) 。
+=======
 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+>>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
 
