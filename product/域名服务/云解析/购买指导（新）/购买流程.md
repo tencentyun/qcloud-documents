@@ -1,0 +1,12 @@
+### 添加域名
+购买套餐的域名需要先添加到一级域名列表，首先登录 [腾讯云控制台](https://console.cloud.tencent.com)，选择【云产品】>【域名与网站】>【云解析】，在【我的域名】下单击【添加解析】，如图所示：
+![1](//mc.qcloudimg.com/static/img/8231080d9d713baf5d4edf4163b23ee0/image.png)
+![2](//mc.qcloudimg.com/static/img/f55d8b825625d9520bd898786015eee5/image.png)
+添加域名后可以先购买套餐，再完成注册商 DNS 服务器的修改，互不影响。
+### 选购套餐
+新添加的域名，云解析默认提供免费套餐，可以在域名列表中选中域名然后单击【免】>【升级套餐】，会跳转到云解析套餐的购买页，选择套餐进行购买。
+![3](//mc.qcloudimg.com/static/img/10e34882dc41401d2ec7fb888acea388/image.png)
+或者前往 [购买页](https://buy.cloud.tencent.com/cns) 直接选购，购买页提供了五种套餐的参数对比，用户可根据实际需求进行选购。
+![4](//mc.qcloudimg.com/static/img/ac8be742c7c43bdead5d275ee8a1ad61/image.png)
+### 订单支付
+完成套餐、项目和绑定域名的选择后，则可以提交订单，继续完成支付流程。
