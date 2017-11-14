@@ -226,5 +226,7 @@ Content-Type: application/json
 | -5208 | OCR_SERVER_INTERN_ERROR         |
 | -9010 | CREDITCARD_OCR_PREPROCESS_ERROR |
 | -9011 | CREDITCARD_OCR_RECOG_FAILED     |
-更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+
+更多其他 API 错误码请看[错误码说明](/document/product/641/12410) 
+
 

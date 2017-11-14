@@ -164,6 +164,7 @@ _player_B.isAutoPlay = NO;
     // 在视频 A 播放结束的时候，直接启动视频 B 的播放，可以做到无缝切换
     if (EvtID == PLAY_EVT_PLAY_END) {
 			[_player_A stopPlay];
+			[_player_B setupVideoWidget:mVideoContainer insertIndex:0];
 			[_player_B resume];
 		}
 }
