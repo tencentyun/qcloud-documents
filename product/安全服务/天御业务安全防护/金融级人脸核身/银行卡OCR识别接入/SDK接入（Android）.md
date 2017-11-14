@@ -218,8 +218,6 @@ public String warningCode;  //识别的警告码
 public Bitmap bankcardNoPhoto;//识别的银行卡的卡号图片
 ```
 
-
-
 #### 4.1 登录接口
 
 ```
@@ -236,8 +234,6 @@ public interface OcrLoginListener {
     }
 ```
 
-
-
 #### 4.2 返回第三方接口
 
 ```
@@ -253,7 +249,6 @@ public interface IDCardScanResultListener{
 }
 
 ```
-
 
 #### 4.3 第三方进入 SDK 的模式
 当 type==WBOCRSDKTypeBankSide 时，直接进入扫描银行卡界面，进行银行卡识别。
@@ -282,9 +277,6 @@ public interface IDCardScanResultListener{
    data.putLong(WbCloudOcrSDK.SCAN_TIME, 20000);
 ```
  
-
-
-  
 #### 6.2 接入示例
 
 ```
@@ -294,7 +286,6 @@ public interface IDCardScanResultListener{
   //设置扫描识别的时间上限,默认 20 秒，此处设置为 20 秒
   data.putLong(WbCloudOcrSDK.SCAN_TIME, 20000);
 ```
-
 
 
 ### 7. 接入示例
@@ -357,7 +348,6 @@ IDOCR_ERROR_PERMISSION="100103";  //权限异常 IDOCR_LOGIN__ERROR="-10000";  /
 SERVER_FAIL="-30000";    //内部服务错误
 ```
     
-
 #### 8.2 后台返回错误码
 
 ```
