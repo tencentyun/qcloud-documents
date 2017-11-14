@@ -7,7 +7,7 @@ Sub-users are the users added to the sub-user list by creator without the need t
 
 ### Creating message-receiving sub-user
 
-Log in to [Users and Permissions](https://console.qcloud.com/cam) page, click "Create User", and select "No" in "Allow Login to Tencent Cloud" to create a sub-user for only receiving messages:
+Log in to [Users and Permissions](https://console.cloud.tencent.com/cam) page, click "Create User", and select "No" in "Allow Login to Tencent Cloud" to create a sub-user for only receiving messages:
 
 ![](//mc.qcloudimg.com/static/img/c54bb9695b9125a7f7389d694825d903/image.png)
 
