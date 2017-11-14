@@ -77,7 +77,7 @@
                              failed:(nonnull WBOCRServiceFailedBlock)failed;
 ```
 
-2）WBOCRConfig 支持对 SDK 的做个性化配置，字段详情，请阅读WBOCRConfig 头文件部分注释。
+2）WBOCRConfig 支持对 SDK 的做个性化配置，字段详情，请阅读 WBOCRConfig 头文件部分注释。
 3）WBOCRConfig.h
 ```
 /*
@@ -159,7 +159,7 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 ### 4. 银行卡 OCR 识别返回结果获取及验证
 #### 4.1 前端获取结果验证签名
 - 为了确保前端 SDK 的结果真实性且未被篡改，合作伙伴服务端可以验证结果。
-- 合作伙伴 APP 端银行卡 OCR 识别SDK返回的带签名结果。
+- 合作伙伴 APP 端银行卡 OCR 识别 SDK 返回的带签名结果。
 - 合作伙伴 APP 端调用其服务端接口进行签名认证，接口认证成功后继续业务流程。
 
 ##### 4.1.1 合作方后台生成签名 ####
@@ -167,14 +167,13 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 
 参数 | 说明
 ---|--- 
-app_id |腾讯服务分配的app_id 
+app_id |腾讯服务分配的 app_id 
 order_no	| 订单号，本次人脸验证合作伙伴上送的订单号，唯一标识。
-api ticket	|合作伙伴服务端缓存的tikcet,注意是sign 类型，具体见[Access Token获取](https://cloud.tencent.com/document/product/295/10118?=cn)获取规则
+api ticket	|合作伙伴服务端缓存的 tikcet,注意是 sign 类型，具体见 [Access Token获取](https://cloud.tencent.com/document/product/295/10118?=cn) 获取规则
 生成签名步骤：
 1. 将 app_id、order_no、连同 ticket(SIGN) 共三个参数的值进行字典序排序
 2. 将排序后的所有参数字符串拼接成一个字符串进行 SHA1 编码
 3. SHA1 编码后的 40 位字符串作为签名(sign)
-
 
 - 示例代码及用法
 ```
@@ -218,7 +217,7 @@ nonceStr|	32位随机字符串,字母和数字
 
 ##### 4.2.2 银行卡 OCR 识别结果查询接口
 请求URL：`https://idasc.webank.com/api/server/getBankCardOcrResult`
-请求方法:GET
+请求方法：GET
 请求参数：
 
 参数	|说明	|类型	|长度|	是否必填
@@ -232,9 +231,7 @@ sign	|签名值	|字符串|	40	|必填，使用上面生成的签名。
  **请求示例：**
 ```
 https://idasc.webank.com/api/server/getOcrResult?app_id=xxx&nonce=xxx&order_no=xxx&version=1.0.0&sign=xxx&get_file=xxxx
-```
-
-	
+```	
 返回参数：
 
 参数|	类型|	说明
@@ -243,14 +240,14 @@ code	|string|	“0”说明银行卡识别成功
 msg|	string|	返回结果描述
 orderNo|	string	|订单编号
 bankCardNo|	string	|resultCode为0返回:银行卡号
-bankCardValidDate	|string|	resultCode为0返回:银行卡有效期
+bankCardValidDate	|string|	resultCode 为 0 返回：银行卡有效期
 bankcardCropPhoto|	Base 64 string|	银行卡切边图片
 bankcardNoPhoto	|Base 64 string	|银行卡卡号切边图片
 orginBankcardPhoto	|Base 64 string	|识别原始图片
-warnCode	|string	|银行卡警告码，在银行卡日期失效或者过期会提示；当frontCode为0时才会出现告警码，告警码的含义请参考“通用响应码”-“银行卡识别响应码”
-operateTime|	string	|做OCR的操作时间
+warnCode	|string	|银行卡警告码，在银行卡日期失效或者过期会提示；当 frontCode 为 0 时才会出现告警码，告警码的含义请参考“通用响应码”-“银行卡识别响应码”
+operateTime|	string	|做 OCR 的操作时间
 
 >** 注意：
-- 银行卡照片信息作为存证，合作伙伴可以通过此接口拉取识别结果和文件，需要注意请求参数的get_file需要设置为1；如果不上送参数或者参数为空，默认不返回照片信息。
+- 银行卡照片信息作为存证，合作伙伴可以通过此接口拉取识别结果和文件，需要注意请求参数的 get_file 需要设置为 1；如果不上送参数或者参数为空，默认不返回照片信息。
 - 照片均为 base64 位编码，其中照片解码后格式一般为 jpg。
 - 对于银行卡识别有日期失效或者过期的情况，请参考 frontWarnCode和backWarnCode 告警码。（见银行卡识别响应码码）
