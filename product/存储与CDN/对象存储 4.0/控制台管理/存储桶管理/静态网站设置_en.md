@@ -32,7 +32,7 @@ Assume that you have created a Bucket, uploaded test.html to the root directory,
 
 ## Index Document
 
-When you enter a URL such as http://example.com, you are not requesting a specific page. In this case, the Web server will provide a default page that contains the directory where the table of contents of the requested website is stored. This default page is called an index document and is named index.html.
+When you enter a URL such as `http://example.com`, you are not requesting a specific page. In this case, the Web server will provide a default page that contains the directory where the table of contents of the requested website is stored. This default page is called an index document and is named index.html.
 
 When any Bucket directory including the root directory is accessed using a custom domain (CNAME or CDN binding) with URL address ending with /, the index.html in this directory will be automatically matched at first, and then the index.htm. If both files do not exist, a 404 error is returned.
 
@@ -75,23 +75,23 @@ If you use the CDN Accelerated Address or COS Direct Access Address for access a
 
 ### Configuring Static Access
 
-You have created a Bucket and bound the custom domain www.example.com to the Bucket via CNAME or CDN console. You have placed an index.htm file in the root directory.
+You have created a Bucket and bound the custom domain `www.example.com` to the Bucket via CNAME or CDN console. You have placed an index.htm file in the root directory.
 
 **Before enabled**
 
-> If you use a custom domain to access the file http://www.example.com/index.htm, a download box will pop up, where you can save the index.htm file to the local machine.
+> If you use a custom domain to access the file `http://www.example.com/index.htm`, a download box will pop up, where you can save the index.htm file to the local machine.
 
 ![](//mccdn.qcloud.com/static/img/939165a47b8da3c678577a9ff945e80a/image.png)
 
 **After enabled**
 
-> If you use a custom domain to access the file http://www.example.com/index.htm, the content of index.htm will be directly displayed in the browser.
+> If you use a custom domain to access the file `http://www.example.com/index.htm`, the content of index.htm will be directly displayed in the browser.
 
 ![](//mccdn.qcloud.com/static/img/42eac89413e3916d7c160020037b6783/image.png)
 
 ### Configuring Index Document
 
-You have created a Bucket and bound the custom domain www.example.com to the Bucket via CNAME or CDN console. You have placed the following documents:
+You have created a Bucket and bound the custom domain `www.example.com` to the Bucket via CNAME or CDN console. You have placed the following documents:
 
 > index.html
 >
@@ -105,40 +105,40 @@ You have created a Bucket and bound the custom domain www.example.com to the Buc
 
 **Before enabled**
 
-> Visit http://www.example.com and the 404 error returns.
+> Visit `http://www.example.com` and the 404 error returns.
 >
-> Visit http://www.example.com/dir and the 404 error returns, because the dir file does not exist under the root directory.
+> Visit `http://www.example.com/dir` and the 404 error returns, because the dir file does not exist under the root directory.
 >
-> Visit http://www.example.com/dir/ and the 404 error returns.
+> Visit `http://www.example.com/dir/` and the 404 error returns.
 >
-> Visit http://www.example.com/dir2/ and the 404 error returns.
+> Visit `http://www.example.com/dir2/` and the 404 error returns.
 >
-> Visit http://www.example.com/dir3/ and the 404 error returns.
+> Visit `http://www.example.com/dir3/` and the 404 error returns.
 
 **After enabled**
 
-> Visit http://www.example.com and the content of the index.html file returns.
+> Visit `http://www.example.com` and the content of the index.html file returns.
 >
-> Visit http://www.example.com/dir and the 404 error returns, because the dir file does not exist under the root directory.
+> Visit `http://www.example.com/dir` and the 404 error returns, because the dir file does not exist under the root directory.
 >
-> Visit http://www.example.com/dir/ and the content of the dir/index.html file returns, because the index.html has higher priority than the index.htm.
+> Visit `http://www.example.com/dir/` and the content of the dir/index.html file returns, because the index.html has higher priority than the index.htm.
 >
-> Visit http://www.example.com/dir2/ and the 404 error returns because the index file to be matched does not exist.
+> Visit `http://www.example.com/dir2/` and the 404 error returns because the index file to be matched does not exist.
 >
-> Visit http://www.example.com/dir3/ and the contents of the dir3/index.htm file returns.
+> Visit `http://www.example.com/dir3/` and the contents of the dir3/index.htm file returns.
 
 ### Configuring Error Document
 
-You have created a Bucket and bound the custom domain www.example.com to the Bucket via CNAME or CDN console.
+You have created a Bucket and bound the custom domain `www.example.com` to the Bucket via CNAME or CDN console.
 
 You have placed the 404.htm file under the root directory and configure 404 error pointing to 404.html. Assume that there is no abcd.txt file under the root directory.
 
 **Before enabled**
 
-> Visit http://www.example.com/abcd.txt and the status code 404 returns, including the default error message.
+> Visit `http://www.example.com/abcd.txt` and the status code 404 returns, including the default error message.
 
 **After enabled**
 
-> Visit http://www.example.com/abcd.txt and the specified 404.htm page returns; the HTTP status code is still 404.
+> Visit `http://www.example.com/abcd.txt` and the specified 404.htm page returns; the HTTP status code is still 404.
 
 
