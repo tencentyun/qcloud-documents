@@ -3,7 +3,7 @@ User group is user for the management of a group of sub-users with the same perm
 
 ## Create User Group
 
-Log in to [Users and Permissions](https://console.qcloud.com/cam), and select "User Group Management" on the left:
+Log in to [Users and Permissions](https://console.cloud.tencent.com/cam), and select "User Group Management" on the left:
 
 ![ ](//mc.qcloudimg.com/static/img/ff24a10681e43c3baa66d5df7eac5a2b/image.png)
 
