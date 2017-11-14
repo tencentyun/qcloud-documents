@@ -40,7 +40,7 @@ vod.api.qcloud.com
 |pullset.n.classId | 否 | Integer | 视频的分类ID |
 |pullset.n.tags | 否 | String | 视频的标签，有多个标签的话采用英文逗号分隔 |
 |pullset.n.priority | 否 | Integer | 优先级：0:中 1：高 2：低 |
-| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
+| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/api/213/6976) |
 
 ### 请求示例
 

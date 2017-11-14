@@ -237,7 +237,7 @@ Modification to primary private IP of CVM primary ENI is supported, while modifi
 2)  Click the CVM ID to enter the CVM details page, and click the "ENI" tab on the top.
 3)  Click "Modify primary IP".
 4)  Fill in the new IP and save it.
-![](https://mc.qcloudimg.com/static/img/9c08d3a7ead4707abd6315e2a092184b/A%7D%257Q%25R3C5QDOR%24JM%25I3U%28D.png)
+![](https://mc.qcloudimg.com/static/img/1a0b1a1b2b0788e011982910e1c101f0/Private_Network_and_Subnet.jpg)
 
 You can also modify the primary private IP on the ENI details page. Click to view [Operation Details](https://cloud.tencent.com/doc/product/215/6513#.E4.BF.AE.E6.94. B9.E.B8.BB.E5.86.85.E7.BD.91ip).
 
