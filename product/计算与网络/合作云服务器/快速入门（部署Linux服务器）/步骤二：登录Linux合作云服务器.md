@@ -6,7 +6,7 @@
 
 ### 远程密码登录
 
-1） 下载远程链接软件Putty，参考下载地址：http://www.putty.nl/download.html
+1） 下载远程链接软件Putty，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 打开Putty客户端，在PuTTY Configuration 窗口中输入以下内容：
 - Host Name：Linux合作云服务器的公网IP。

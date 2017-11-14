@@ -228,18 +228,18 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
-| m3u8            | String   | 无       |  原画m3u8 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
-| m3u8_hd         | String   | 无       |  高清m3u8 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8 |
-| m3u8_sd         | String   | 无       |  标清m3u8 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8 |
-| flv             | String   | 无       |  原画flv 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535a.flv |
-| flv_hd          | String   | 无       |  高清flv 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535ahd.flv |
-| flv_sd          | String   | 无       |  标清flv 播放URL  <br> 示例: http://2157.liveplay.myqcloud.com/2157_358535asd.flv |
-| mp4             | String   | 无       |  原画mp4 播放URL  <br> 示例: http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
-| mp4_hd          | String   | 无       |  高清mp4 播放URL  <br> 示例: http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
-| mp4_sd          | String   | 无       |  标清mp4 播放URL  <br> 示例: http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
-| rtmp            | String   | 无       |  原画rtmp 播放URL  <br> 示例: rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
-| rtmp_hd         | String   | 无       |  高清rtmp 播放URL  <br> 示例: rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
-| rtmp_sd         | String   | 无       |  标清rtmp 播放URL   <br> 示例: rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
+| m3u8            | String   | 无       |  原画m3u8 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
+| m3u8_hd         | String   | 无       |  高清m3u8 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
+| m3u8_sd         | String   | 无       |  标清m3u8 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8` |
+| flv             | String   | 无       |  原画flv 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535a.flv` |
+| flv_hd          | String   | 无       |  高清flv 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535ahd.flv` |
+| flv_sd          | String   | 无       |  标清flv 播放URL  <br> 示例: `http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
+| mp4             | String   | 无       |  原画mp4 播放URL  <br> 示例: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
+| mp4_hd          | String   | 无       |  高清mp4 播放URL  <br> 示例: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4` |
+| mp4_sd          | String   | 无       |  标清mp4 播放URL  <br> 示例: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4` |
+| rtmp            | String   | 无       |  原画rtmp 播放URL  <br> 示例: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88` |
+| rtmp_hd         | String   | 无       |  高清rtmp 播放URL  <br> 示例: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
+| rtmp_sd         | String   | 无       |  标清rtmp 播放URL   <br> 示例: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
 | width           | Number   | 无       | <font color="red">必选</font>，设置播放器宽度，单位为像素   <br> 示例:  640   |
 | height          | Number   | 无       | <font color="red">必选</font>，设置播放器高度，单位为像素   <br> 示例: 480  |
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]    <br> 示例: 0.6   |

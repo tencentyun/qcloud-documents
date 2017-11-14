@@ -22,13 +22,13 @@ Pay-per-use CVMs use 3-tier pricing, saving more money for longer usage.
 
 | Phase | Tier 1 | Tier 2 | Tier 3|
 |---|---|---|---|
-| Price (CNY/hour) | P | 50% × P | 34% × P |
+| Price (USD/hour) | P | 50% × P | 34% × P |
 > Note:  P is the tier-1 unit price of postpaid CVMs.
 
 
 ![](//mc.qcloudimg.com/static/img/2b8e3a898dab0454d77d99a0e1c1eb07/image.jpg)
 
-Take 1-core 2 GB configuration as an example: tier-1 unit price is 0.42 CNY/hour, tier-2 unit price 0.42 × (1-50%) = 0.21 CNY/hour, and tier-3 unit price 0.42 × (1-50%-16%) = 0.14 CNY/hour
+Take 1-core 2 GB configuration as an example: tier-1 unit price is 0.49 USD/hour, tier-2 unit price 0.49 × (1-50%) = 0.245 USD/hour, and tier-3 unit price 0.49 × (1-50%-16%) = 0.1666 USD/hour
 
 "Note"
 1. CVM tiered pricing program only involves CPU and memory costs, excluding network and disk costs.

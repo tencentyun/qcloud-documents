@@ -1,7 +1,7 @@
 ## 1. 接口描述
 本接口（CdnPusherV2）提交URL预热任务。
 
-接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
+接口请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
 
 **接口说明：**
 + 每一个客户每天能够提交的预热资源上限为1000条，每一个客户每次提交的预热资源上限为20条；
@@ -69,9 +69,9 @@ Action=CdnPusherV2
 
 ### 4.2 POST请求
 POST请求时，参数填充在HTTP Requestbody中，请求地址：
-```
-https://cdn.api.qcloud.com/v2/index.php
-```
+
+`https://cdn.api.qcloud.com/v2/index.php`
+
 参数支持 formdata、xwwwformurlencoded 等格式，参数数组如下：
 
 ```

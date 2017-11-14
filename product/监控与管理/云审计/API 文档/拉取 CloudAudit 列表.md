@@ -10,10 +10,10 @@
 |参数名称|类型|描述|
 |---------|---------|---------|
 |Name|string|CloudAudit 名字|
-|bucketName|string|COS 存储桶名称|
+|bucketName|string|COS Bucket 名称|
 |prefix|string|日志前缀|
-|status|number|状态（0：关闭，1：开启）|
-|isMultiRegionTrail|number|是否开启多地域采集（0：否，1：是）|
+|status|number|audit 状态，0 代表关闭、1 代表开启|
+|IsMultiRegionAudit|number|是否开启多地域采集（0：否，1：是）|
 
 ## 实际案例
 ### 请求
@@ -32,14 +32,14 @@
             "bucketName":"xxx",
             "prefix":"xxx",
             "status":1,
-            "isMultiRegionTrail":0
+            "IsMultiRegionAudit":0
         },
         {
             "name": "xxx-1",
             "bucketName":"xxx",
             "prefix":"xxx",
             "status":1
-            "isMultiRegionTrail":0
+            "IsMultiRegionAudit":0
         }
     ]
 }

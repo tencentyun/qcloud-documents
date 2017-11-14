@@ -2,7 +2,7 @@
 PullEvent
 
 ## Feature Description
-1. This API is used to get event notifications from the VOD server. For details, refer to [Server Event Notification](/ document / product / 266/7829).
+1. This API is used to get event notifications from the VOD server. For details, refer to [Server Event Notification](https://cloud.tencent.com/document/product/266/7829).
 2. The API is a long Round Robin mode. That is, if there is any unconsumed event on the server, it will be returned to the requester immediately; If there isn't any unconsumed event on the server, the request will be suspended in the backend until a new event is generated ;
 3. The API can suspend the request for up to 5 seconds. It is recommended that the requester set the timeout to 10 seconds;
 4. If the server returns an event, the caller must call [ConfirmEvent](/document/product/266/7819) to confirm that the event notification has been processed. Otherwise, the event notification will be pulled again.

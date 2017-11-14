@@ -7,7 +7,7 @@
 ### Development Environment
 
 1. Install the library and header files of openssl [http://www.openssl.org/source/](http://www.openssl.org/source/) 
-2. Install the library and header files of curl [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) 
+2. Install the library and header files of curl https://curl.haxx.se/download.html
 3. Install the library and header files of jsoncpp [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
 4. Install the library and header files of boost [http://www.boost.org/](http://www.boost.org/) 
 5. Install cmake tools [http://www.cmake.org/download/](http://www.cmake.org/download/) 

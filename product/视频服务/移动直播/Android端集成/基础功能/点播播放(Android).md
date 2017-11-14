@@ -164,7 +164,7 @@ playerA.startPlay(urlA);
 
 // 在播放视频 A 的同时，预加载视频 B，做法是将 true 设置为 false
 String urlB = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
-playerA.setAutoPlay(false);
+playerB.setAutoPlay(false);
 playerB.startPlay(urlB); // 不会立刻开始播放，而只会开始加载视频
 ```
 
@@ -173,6 +173,8 @@ playerB.startPlay(urlB); // 不会立刻开始播放，而只会开始加载视�
 public void onPlayEvent(int event, Bundle param) {
     // 在视频 A 播放结束的时候，直接启动视频 B 的播放，可以做到无缝切换
     if (event == PLAY_EVT_PLAY_END) {
+           playerA.stop();
+           playerB.setPlayerView(mPlayerView);
 		   playerB.resume();
 		}
 }
