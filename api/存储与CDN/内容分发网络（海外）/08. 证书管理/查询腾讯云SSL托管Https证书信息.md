@@ -77,7 +77,7 @@ array (
   'Timestamp' => 1462868615,
   'Nonce' => 520585444,
   'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-  'offset' => www.test.com,
+  'host' => www.test.com,
 )
 ```
 
