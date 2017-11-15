@@ -105,7 +105,7 @@ Please read README.md carefully and download SDK to the directory `/etc/keepaliv
 
 2) Get Cloud API key:
 <div style="text-align:center">
-![](//https://mc.qcloudimg.com/static/img/1bfebf103df7289eaae9e1484536c679/capi.jpg)
+![](https://mc.qcloudimg.com/static/img/1bfebf103df7289eaae9e1484536c679/capi.jpg)
 
 </div>
 
