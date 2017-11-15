@@ -4,17 +4,14 @@
 ### 1.频道模式获取播放地址
 
 创建一个频道,选择需要的播放码率，如下图
-
 ![](https://mc.qcloudimg.com/static/img/9ce69e0956fa742c04fea9398a9a9988/1233.png)
 
 
 在接收方设置中，选择需要的播放协议，如下图
-
 ![](https://mc.qcloudimg.com/static/img/c86206664ad3289911b276d1a9686e82/123.png)
 
 
 点击确认。创建完成后，在频道信息中可查看到各种码率和播放协议对应的播放URL，如下图
-
 ![](https://mc.qcloudimg.com/static/img/afecc7c3963e083c27fba7748b718651/12334.png)
 
 
@@ -22,7 +19,6 @@
 进入直播吗模式，在推流生成器中输入直播码，可得到对应的推流id和播放id。
 * 推流生成器是一个推流播放地址生成的工具，仅是一个工具，工具展示出URL时该条流并未建立，实际推流成功后，才会建立对应的一条流
 * 直播码即 一条流的id，等同于频道模式的频道概念，或者房间的概念。
-
 ![](https://mc.qcloudimg.com/static/img/de6150ff5a0f8c766ddbd64f72edd9bb/133.png)
 
 **如果需要转码，则播放URL中携带码率后缀接口**，
