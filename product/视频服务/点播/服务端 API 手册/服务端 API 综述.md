@@ -142,5 +142,5 @@
 
 [云 API]: https://cloud.tencent.com/product/api "云 API"
 [公共错误码]: https://cloud.tencent.com/document/api/213/10146 "公共错误码"
-[SDK]: https://cloud.tencent.com/document/product/266/7982 "SDK"
+[SDK]: https://cloud.tencent.com/document/developer-resource "SDK"
 

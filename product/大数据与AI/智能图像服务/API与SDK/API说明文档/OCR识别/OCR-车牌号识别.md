@@ -27,7 +27,7 @@ OCR接口采用http协议，支持指定图片URL和上传本地图片文件两�
 | Host           | recognition.image.myqcloud.com | 图像识别服务器域名                                |
 | Content-Length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json               | 标准json格式                                 |
-| Authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](https://cloud.tencent.com/doc/product/275/3805) |
+| Authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](/document/product/641/12409) |
 
 #### 请求参数
 
@@ -139,5 +139,9 @@ Content-Type: text/json
 | -1304 | 参数过长                       |
 | -1308 | url 图片下载失败                 |
 
-更多其他 API 错误码请看[错误码说明](/document/product/460/8523) 。
+<<<<<<< HEAD
+更多其他 API 错误码请看[错误码说明](/document/product/641/12410) 。
+=======
+更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+>>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
 

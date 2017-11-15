@@ -8,7 +8,7 @@
 
 1. C# 4.0 or later version is supported for SDK. It is recommended to use the same version.
 2 . Get APP ID, SecretID, and SecretKey from the Console.
-3. Modify the URL of the region in CosCloud.cs, for example, East China: http://sh.file.myqcloud.com/files/v2/; North China: http://tj.file.myqcloud.com/files/v2/: South China: http://gz.file.myqcloud.com/files/v2/
+3. Modify the URL of the region in CosCloud.cs, for example, East China: `http://sh.file.myqcloud.com/files/v2/` ; North China: `http://tj.file.myqcloud.com/files/v2/` ; South China: `http://gz.file.myqcloud.com/files/v2/`
 
 
 

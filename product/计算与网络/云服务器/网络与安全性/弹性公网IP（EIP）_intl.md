@@ -36,13 +36,6 @@ An elastic public IP block usually has the below reasons:
 When an elastic IP has been purchased, but <font color="red">is not yet bound to a cloud product instance (CVM or NAT Gateway) </font> yet, a small amount of resource usage will be charged using the below chart (anything less than 1 hour will be charged by 1 hour's time; will be billed once every hour). <font color="red">Elastic IPs used for binding cloud product instances (CVM or NAT Gateways) are free. </font>We recommend that you stop all use of elastic public IPs immediately, to ensure rational use of IP resources, and to save costs.
 
 
-| Elastic public IP location | Unbound price |
-|---------|---------|---------|
-| Beijing area, Shanghai area, Guangzhou area |  | 
-| Hongkong Region |  | 
-| North America Region |  | 
-| Singapore Region |  | 
-
 ## Apply for elastic public IP
 
 1) Open CVM [CVM console](https://console.cloud.tencent.com/cvm).
