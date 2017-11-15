@@ -105,13 +105,10 @@ Please read README.md carefully and download SDK to the directory `/etc/keepaliv
 
 2) Get Cloud API key:
 <div style="text-align:center">
-![](//mc.qcloudimg.com/static/img/ffd379c9e886d0ae3de4fba34539aac7/2.png)
+![](//https://mc.qcloudimg.com/static/img/1bfebf103df7289eaae9e1484536c679/capi.jpg)
 
 </div>
-<div style="text-align:center">
-![](//mc.qcloudimg.com/static/img/900df050c3d619566a482ff4e1bd5433/4.png)
 
-</div>
 3) Develop vip.py switchover program for calling the Cloud API based on the SDK, save `vip.py` to the directory `/etc/keepalived`. The Cloud API of private IP migration:
 
 ```
