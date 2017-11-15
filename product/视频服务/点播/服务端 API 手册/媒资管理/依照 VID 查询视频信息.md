@@ -21,7 +21,7 @@ vod.api.qcloud.com
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
 | vid | 是 | String | 直播/互动直播系统返回的video_id |
-| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/api/213/6976) |
+| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
 
 ### 请求示例
 
