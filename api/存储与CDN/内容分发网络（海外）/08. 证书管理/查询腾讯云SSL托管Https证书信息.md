@@ -4,7 +4,7 @@
 
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
-1) 单次最多查询1个域名对应的1个证书Id；
+1) 单次最多查询1个域名对应的1个证书信息；
 
 [调用Demo](https://www.qcloud.com/document/product/228/1734)
 
