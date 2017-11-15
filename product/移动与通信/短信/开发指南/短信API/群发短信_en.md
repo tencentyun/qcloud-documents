@@ -33,7 +33,7 @@
       <td>
         Send notification or marketing SMS messages to a group of users.
 		<br />
-		This API is only available for bulk/one-to-one SMS messages to mobile phones in China (no more than 200 mobile numbers and 450 characters per time).
+		This API is only available for bulk/single SMS messages to mobile phones in China (no more than 200 mobile numbers and 450 characters per time).
         <br />
         Note: Enter the applied SDKAppID as sdkappid, and a random number as random.
       </td>
