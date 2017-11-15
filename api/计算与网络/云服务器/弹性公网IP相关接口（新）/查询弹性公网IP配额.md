@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口 (DescribeAddressQuota) 用于查询您账户的[弹性公网IP](/document/product/213/1941)（简称 EIP）配额信息。配额详情可参见 [EIP 产品简介](/document/product/213/5733)。
+本接口 (DescribeAddressQuota) 用于查询您账户的[弹性公网IP](/document/product/213/1941)（简称 EIP）在当前地域的配额信息。配额详情可参见 [EIP 产品简介](/document/product/213/5733)。
 
 接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
 
