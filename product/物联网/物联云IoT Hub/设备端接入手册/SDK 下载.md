@@ -1,10 +1,10 @@
 ## C 语言 SDK
-###代码托管
+### 代码托管
 - 自v1.0.0版本开始，设备端SDK代码使用Github托管
 
 [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)
 
-###版本v1.0.0
+### 版本v1.0.0
 - 发布日期：2017/11/17
 - 开发语言：C语言
 - 开发环境：Linux, GNU Make
