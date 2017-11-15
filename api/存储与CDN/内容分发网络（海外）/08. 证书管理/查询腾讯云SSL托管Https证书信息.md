@@ -2,15 +2,15 @@
 
 本接口（GetHostCertList）用于查询用户托管在腾讯云SSL上的HTTPS证书Id等信息，支持分页查询。
 
-接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
+接口请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
 
 1) 单次最多查询1个域名对应的1个证书信息；
 
-[调用Demo](https://www.qcloud.com/document/product/228/1734)
+[调用Demo](https://www.cloud.tencent.com/document/product/228/1734)
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的Action字段为GetHostCertList。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的Action字段为GetHostCertList。
 
 | 参数名称      | 是否必选 | 类型     | 描述                                       |
 | --------- | ---- | ------ | ---------------------------------------- |
@@ -20,7 +20,7 @@
 
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关                           |
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
 | data     | Array  | 结果数据，详细说明见下文                             |
@@ -52,7 +52,7 @@
 GET 请求需要将所有参数都加在 URL 后：
 
 ```
-https://cdn.api.qcloud.com/v2/index.php?
+https://cdn.api.cloud.tencent.com/v2/index.php?
 Action=GetCertificates
 &SecretId=XXXXXXXXXXXXXXXXXXXXXXXXX
 &Timestamp=1462440051
@@ -65,7 +65,7 @@ Action=GetCertificates
 POST请求时，参数填充在HTTP Request-body 中，请求地址：
 
 ```
-https://cdn.api.qcloud.com/v2/index.php
+https://cdn.api.cloud.tencent.com/v2/index.php
 ```
 
 参数支持 form-data、x-www-form-urlencoded 等格式，参数数组如下：
