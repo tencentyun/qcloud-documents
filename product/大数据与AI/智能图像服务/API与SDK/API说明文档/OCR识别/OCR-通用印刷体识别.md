@@ -17,7 +17,7 @@
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
+| Host           | recognition.image.myqcloud.com           | 万象优图服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
@@ -166,10 +166,7 @@ Content-Type: application/json
 | -1300 | 图片为空                       |
 | -1301 | 参数为空                       |
 | -1304 | 参数过长                       |
-<<<<<<< HEAD
 | -1308 | 图片下载失败                       |
-=======
->>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
 | -9003 | OCR 识别失败                   |
 
 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
