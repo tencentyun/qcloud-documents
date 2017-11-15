@@ -1,4 +1,3 @@
-# 如何获取播放URL
 
 ## 获取播放地址
 
@@ -20,7 +19,8 @@
 * 直播码即 一条流的id，等同于频道模式的频道概念，或者房间的概念。
 ![](https://mc.qcloudimg.com/static/img/de6150ff5a0f8c766ddbd64f72edd9bb/133.png)
 
-**如果需要转码，则播放URL中携带码率后缀接口**，例
+**如果需要转码，则播放URL中携带码率后缀接口**，
+例：
 rtmp协议，标清（550kbps）播放地址： 	rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
 rtmp协议，高清（900kbps）播放地址rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
 flv协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.flv
@@ -35,7 +35,8 @@ hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/
 推流地址和播放地址是有对应关系的，如下，
 假设推流地址格式：
 rtmp://bizid.livepush.myqcloud.com/live/bizid_id？
-播放地址格式：
+
+则播放地址格式：
 rtmp://bizid.liveplay.myqcloud.com/live/bizid_id
 http://bizid.liveplay.myqcloud.com/live/bizid_id,flv
 http://bizid.liveplay.myqcloud.com/live/bizid_id.m3u8
