@@ -12,8 +12,8 @@ UpdateAudit 用于更新云审计（CloudAudit）。
 |---------|---------|---------|--------|
 |IsMultiRegionAudit	|否|	Number	|是否开启多地域采集（0 不开启，1 开启）|
 |KmsKeyId	|否|	String	| KMS 的 scretId 用于数据加密|
-|Name	|是|	String	|CloudAudit 的名字，3-128 字节，只能包含 ASCII 编码字母（a-z,A-Z），数字（0-9），下划线（_）|
-|CosBucketName	|是|	String	|要投递的 COSBUCKET 的名称（命名规范参照 COS 的命名要求）|
+|Name	|是|	String	|CloudAudit 的名字，3-128 字节，只能包含 ASCII 编码字母`a-z，A-Z`，数字`0-9`，下划线`_`。|
+|CosBucketName	|是|	String	|要投递的 COSBucket 的名称（命名规范参照 COS 的命名要求）|
 |CosKeyPrefix	|否|	String	|COS 存储桶的前缀（命名规范参照 COS）|
 |CmqTopicName	|否|	String	|Cmq 的名字，如果开启消息队列请填写（命名规范参照 CMQ 要求）|
 ## 响应参数
@@ -22,7 +22,7 @@ UpdateAudit 用于更新云审计（CloudAudit）。
 |---------|---------|--------|
 |IsMultiRegionAudit	|	Number	|是否开启多地域采集(0 不开启，1 开启)|
 |KmsKeyId	|	String	| KMS 的 scretId 用于数据加密|
-|Name	|	String	|CloudAudit 的名字，3-128 字节，只能包含 ASCII 编码字母（a-z,A-Z），数字（0-9），下划线（_）|
+|Name	|	String	|CloudAudit 的名字，3-128 字节，只能包含 ASCII 编码字母`a-z，A-Z`，数字`0-9`，下划线`_`。|
 |CosBucketName	|	String	|要投递的 COSBucket 的名称（命名规范参照 COS 的命名要求）|
 |CosKeyPrefix	|	String	|COS 存储桶的前缀（命名规范参照 COS）|
 |CmqTopicResource|String|Cmq 主题资源|
