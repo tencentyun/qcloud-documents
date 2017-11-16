@@ -33,6 +33,8 @@ flv协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/
 hls协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
 hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.m3u8
 
+<br  />
+
 ### 3.业务后台生成播放地址
 **适用于直播码模式**
 
