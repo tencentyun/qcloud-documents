@@ -38,8 +38,8 @@ dimensions.0.value为实例的uuid
 | delete_total          | DELETE请求总数   | 次/秒  |
 | mem_available         | 内存可用大小       | GB   |
 | disk_iops             | 磁盘IOPS       | 次/秒  |
-| conn_active           | 活跃连接数        | 次/秒  |
-| conn_running          | 连接数          | 次/秒  |
+| conn_active           | 总连接数       | 次/秒  |
+| conn_running          | 活跃连接数          | 次/秒  |
 | is_mater_switched     | 监控是否主备切换     | 无    |
 | cpu_usage_rate        | CPU使用率       | %    |
 
