@@ -1,6 +1,6 @@
 ### How to Upgrade Cloud Database Instance Specification by Yourself
 Once you have logged into cloud database console, you can upgrade the specification of specified instance through "Upgrade" operation.
-![Upgrade][image-1]
+![ ](//mc.qcloudimg.com/static/img/175792a1e1ac70303e987fc71dd92f5d/image.png)
 
 ### How to Calculate Fees
 After the upgrade, the fees will be calculated based on the price of the new instance specification next billing period.
@@ -16,4 +16,4 @@ After the upgrade, the fees will be calculated based on the price of the new ins
 \*\* <font color="#FE4C40">3. When the upgrade process is completed, the MySQL database connections will be disconnected within seconds. It is recommended that applications are configured with auto reconnect feature.
 4. During upgrade process, please try to avoid operations such as modifying the global parameters of MySQL, instance name, user password. </font> \*\*
 
-[image-1]:	//mccdn.qcloud.com/static/img/d7b59861436817bcc9a0be795c49b1ec/image.png
+
