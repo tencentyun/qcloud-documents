@@ -42,6 +42,7 @@ When you send SMS messages using Tencent Cloud SMS API, if the response packet r
 3. Check whether there is a typo in the parameter name.
 4. Check whether the requested field type is the same as that described in the API and whether the JSON string and JSON integer are confused.
 For example: `{"Name":"Xiao Ming", "Age":23}`,"Name " is a JSON string and "Age" is a JSON integer.
+5. Check whether the API is called as described in the official website. For example, you call the API for bulk SMS but use the packet format for single SMS.
 
 ## 6 Description of error 1014
 When you send SMS messages using Tencent Cloud SMS API, if the response packet returns error 1014, use the following methods to locate and solve the problem:
