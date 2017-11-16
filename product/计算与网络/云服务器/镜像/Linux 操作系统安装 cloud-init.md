@@ -1,6 +1,6 @@
 
 cloud-init 主要提供了一个实例首次初始化时的自定义配置的能力，如果导入的镜像没有安装cloud-init服务，通过该镜像启动的实例就不会被正常初始化，因此该镜像就会导入失败。
-安装cloud-init的方式有两种，手工下载cloud-init源码包的方式安装 和 直接安装软件源上面的 cloud-init 版本。在导入Linux系统镜像前，请确保您的镜像内部已经按照如下方式之一正确安装了cloud-init服务。
+安装cloud-init的方式有两种，[手工下载cloud-init源码包的方式安装](/document/product/213/12587#.E4.B8.80.E3.80.81.E6.89.8B.E5.B7.A5.E4.B8.8B.E8.BD.BDcloud-init.E6.BA.90.E7.A0.81.E5.8C.85.E7.9A.84.E6.96.B9.E5.BC.8F.E5.AE.89.E8.A3.85) 和 [直接使用软件源上面的 cloud-init 包安装](/document/product/213/12587#.E4.BA.8C.E3.80.81.E7.9B.B4.E6.8E.A5.E5.AE.89.E8.A3.85.E8.BD.AF.E4.BB.B6.E6.BA.90.E4.B8.8A.E9.9D.A2.E7.9A.84-cloud-init-.E7.89.88.E6.9C.AC)。在导入Linux系统镜像前，请确保您的镜像内部已经按照如下方式之一正确安装了cloud-init服务。
 ## 一、手工下载cloud-init源码包的方式安装
 
 ### 1、前提条件
@@ -19,8 +19,7 @@ cloud-init 主要提供了一个实例首次初始化时的自定义配置的能
 python-six
 python-jsonpatch
 python-requests
-python-yaml
-PyYAML
+python-yaml / PyYAML
 python-configobj
 python-oauthlib
 python-prettytable
@@ -33,7 +32,7 @@ python-markdown
    python3 setup.py install --init-system systemd
   <br> <font color="#FF0000">*注：--init-system的可选参数 有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]，需要根据当前操作系统使用的自启动服务管理方式是什么进行选择，如果选择出错则cloud-init 服务无法开机自启动，本例以systemd自启动服务管理为例。*</font>
 
-####3.3、修改cloud-init 配置文件
+#### 3.3、修改cloud-init 配置文件
 > 根据不同操作系统，从以下链接下载 cloud.cfg 将 /etc/cloud/cloud.cfg 的内容进行替换。
 > * [ubuntu 操作系统的 cloud.cfg](http://cloudinit-1251740579.cosgz.myqcloud.com/ubuntu-cloud.cfg)
 > * [centos 操作系统的 cloud.cfg](http://cloudinit-1251740579.cosgz.myqcloud.com/centos-cloud.cfg)
@@ -129,11 +128,11 @@ chkconfig cloud-config on
 chkconfig cloud-final on 
 
 
-## 二、直接安装软件源上面的 cloud-init 版本
+## 二、直接使用软件源上面的 cloud-init 包安装
 **执行以下安装命令即可**
 >apt-get/yum install cloud-init
 
-<font color="#FF0000">*注： 直接通过apt-get 或 yum 命令安装的cloud-init 版本默认为当前操作系统配置的软件源里面默认的cloud-init版本，通常情况下和cloud-init 17.1 版本存会存在比较大的差异，使用这种方式安装的镜像创建出来的实例可能会存在部分配置项初始化不符合预期的情况，建议使用方案一：手工下载cloud-init源码包的方式安装的方式进行安装。*</font>
+<font color="#FF0000">*注： 直接通过apt-get 或 yum 命令安装的cloud-init 版本默认为当前操作系统配置的软件源里面默认的cloud-init版本，通常情况下和cloud-init 17.1 版本存会存在比较大的差异，使用这种方式安装的镜像创建出来的实例可能会存在部分配置项初始化不符合预期的情况，建议使用方案一：[手工下载cloud-init源码包的方式安装](/document/product/213/12587#.E4.B8.80.E3.80.81.E6.89.8B.E5.B7.A5.E4.B8.8B.E8.BD.BDcloud-init.E6.BA.90.E7.A0.81.E5.8C.85.E7.9A.84.E6.96.B9.E5.BC.8F.E5.AE.89.E8.A3.85)的方式进行安装。*</font>
 
 ## 三、安装完之后的操作
 
