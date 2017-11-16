@@ -1,6 +1,6 @@
 1. 准备工作流数据
 
-    Hue 的任务调度基于工作流，我们先创建一个包含 Hive script 脚本的工作流, Hive script 脚本的内容如下:
+    Hue 的任务调度基于工作流，我们先创建一个包含 Hive script 脚本的工作流，Hive script 脚本的内容如下:
 
     ``` sql
     create database if not exists hive_sample;
@@ -33,7 +33,6 @@
       <value>/tmp/hive/tmp/operation_logs</value>
     </property>
     ```
-
     
 2. 创建工作流
 
@@ -41,7 +40,7 @@
 
     ![创建工作流](https://mc.qcloudimg.com/static/img/d370180a4d6886b335e199cf045dcab9/5-8-2-1.png)
 
-    点击“create”
+    单击“create”
 
     ![creat](https://mc.qcloudimg.com/static/img/51aab5e3987b1a627c9914667317bc89/5-8-2-2.png)
 
@@ -87,4 +86,4 @@
 
     ![监控](https://mc.qcloudimg.com/static/img/1f0f8cbc0164c31c6ac9a7b4e069ecdf/5-8-2-11.png)
 
-除此以外 Hue 还支持管理 HDFS 上的数据、Hbase 数据管理，Yarn 任务管理等，更多资料请参考[这里](http://gethue.com/blog/)
+除此以外 Hue 还支持管理 HDFS 上的数据、Hbase 数据管理，Yarn 任务管理等，更多资料请参考 [这里](http://gethue.com/blog/)

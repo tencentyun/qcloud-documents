@@ -1,7 +1,7 @@
 ## 编译
 请先下载根证书 [根证书下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/root-ca.zip)
 
-请先下载最新版本设备端C语言SDK [SDK下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/release_V1_00_C_20171117.zip)
+请先下载最新版本设备端C语言SDK [SDK下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/release_V1_00_C_20171115.zip)
 
 解压之后，打开编译配置文件```config.mk```，根据需要编辑配置项
 
