@@ -1,6 +1,6 @@
 1. 准备工作流数据
 
-    Hue 的任务调度基于工作流，我们先创建一个包含 Hive script 脚本的工作流, Hive script 脚本的内容如下:
+    Hue 的任务调度基于工作流，我们先创建一个包含 Hive script 脚本的工作流，Hive script 脚本的内容如下:
 
     ``` sql
     create database if not exists hive_sample;
