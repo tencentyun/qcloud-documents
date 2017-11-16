@@ -1,4 +1,4 @@
-# 拉取 CloudAudit 列表
+
 ## 接口描述
   ListAudits 用于拉取 CloudAudit 列表。
 ## 请求参数
@@ -9,11 +9,11 @@
 
 |参数名称|类型|描述|
 |---------|---------|---------|
-|Name|string|CloudAudit 名字|
-|bucketName|string|COS Bucket 名称|
-|prefix|string|日志前缀|
-|status|number|audit 状态，0 代表关闭、1 代表开启|
-|IsMultiRegionAudit|number|是否开启多地域采集（0：否，1：是）|
+|Name|String|CloudAudit 名字|
+|bucketName|String|COS Bucket 名称|
+|prefix|String|日志前缀|
+|status|Number|audit 状态，0 代表关闭、1 代表开启|
+|IsMultiRegionAudit|Number|是否开启多地域采集（0：否，1：是）|
 
 ## 实际案例
 ### 请求
