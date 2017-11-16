@@ -25,6 +25,7 @@
 
 例：
 <br  />
+
 rtmp协议，标清（550kbps）播放地址： 	rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
 rtmp协议，高清（900kbps）播放地址rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
 flv协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.flv
