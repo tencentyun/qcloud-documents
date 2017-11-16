@@ -23,7 +23,7 @@ vod.api.qcloud.com
 | newFileName| 是 | String    | 目标文件名称|
 | startTimeOffset | 是 | Integer| 目标文件开始相对源文件的时间偏移，单位为秒，大于0表示从头部开始计算，小于0表示从尾部开始计算 |
 | endTimeOffset | 是 | Integer| 目标文件结束相对源文件的时间偏移，单位为秒，大于0表示从头部开始计算，小于0表示从尾部开始计算 |
-| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/api/213/6976) |
+| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/api/213/6976) |
 
 ### 请求示例一：时间偏移都为正数
 期望生成的目标文件为源文件的第2秒到第10秒的视频内容，请求示例如下：

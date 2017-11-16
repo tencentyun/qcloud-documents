@@ -234,7 +234,7 @@ Either party can delete the peering connection at any time. The peering connecti
 When you create a cross-account peering connection/shared Direct Connect, you need to enter the peer account ID, which you can check in the following ways:
 1) Log in to Tencent Cloud Console, and click account name in the right top corner.
 2) View account ID in the personal information.
-![](https://mc.qcloudimg.com/static/img/7a8d00d3b805435a63d20657ecca935c/Peering_Connection.jpg)
+![](https://mc.qcloudimg.com/static/img/8a06f2ed1e2afdfb0d1dacc590dd381a/Peering_Connection.jpg)
 
 ## Related APIs
 You can use API operations to set and manage your peering connection. For more information on additional resources in VPC, please refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
