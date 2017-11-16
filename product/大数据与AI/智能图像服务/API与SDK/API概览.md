@@ -29,7 +29,7 @@
 | 个体信息管理 | [查看文档](/document/product/641/12417) |
 | 人脸验证   | [查看文档](/document/product/641/12418) |
 | 人脸检索   | [查看文档](/document/product/641/12419) |
-| 人脸静态活体检测   | [查看文档](/document/product/641/12407) |
+| 人脸静态活体检测   | [查看文档](/document/product/641/12558) |
 
 ## 人脸核身解决方案接口
 
