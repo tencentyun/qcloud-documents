@@ -98,4 +98,5 @@ http://5000.liveplay.myqcloud.com/live/test2016011415_900.flv
 ![](https://mc.qcloudimg.com/static/img/f96379d3803342bb5e4d4465c23d1c7a/12.png)
 
 **配置申请**
+
 如需配置播放防盗链，可提交工单或者联系腾讯商务人员，联系电话：4009-100-100
