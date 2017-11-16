@@ -21,9 +21,10 @@
 * 直播码即 一条流的id，等同于频道模式的频道概念，或者房间的概念。
 ![](https://mc.qcloudimg.com/static/img/de6150ff5a0f8c766ddbd64f72edd9bb/133.png)
 
-**如果需要转码，则播放URL中携带码率后缀接口**，
+**如需多码率，则获取到播放URL后，在URL后携带码率后缀**，
 
 例：
+<br  />
 rtmp协议，标清（550kbps）播放地址： 	rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
 rtmp协议，高清（900kbps）播放地址rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
 flv协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.flv
@@ -33,6 +34,8 @@ hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/
 
 ### 3.业务后台生成播放地址
 **适用于直播码模式**
+
+#### 3.1 不带防盗链的播放地址
 在控制台上通过工具生成地址不够方便，您可根据播放地址的生成逻辑在您的业务后台用代码实现
 
 推流地址和播放地址是有对应关系的，如下，
@@ -52,5 +55,17 @@ http://bizid.liveplay.myqcloud.com/live/bizid_test.m3u8
 bizid可在控制台上查看，id为自定义部分，一般由大小英文字幕和下划线组成
 ![](https://mc.qcloudimg.com/static/img/f70a09344a89e7c1c4491b1cf6a567f9/132.png)
 
+#### 3.2 多码率播放地址
 
+同上，如需多码率，在URL后携带码率后缀，
+
+例：
+rtmp协议，标清（550kbps）播放地址： 	rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
+rtmp协议，高清（900kbps）播放地址rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
+flv协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.flv
+flv协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.flv
+hls协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
+hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.m3u8
+
+#### 3.2 带防盗链的播放地址
  
