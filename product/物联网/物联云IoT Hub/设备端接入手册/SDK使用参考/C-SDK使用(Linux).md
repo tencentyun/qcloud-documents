@@ -1,7 +1,7 @@
 ## 编译
 请先下载根证书 [根证书下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/root-ca.zip)
 
-请先下载最新版本设备端C语言SDK [SDK下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/release_V1_00_C_20171117.zip)
+请先下载最新版本设备端C语言SDK [SDK下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/release_V1_00_C_20171115.zip)
 
 解压之后，打开编译配置文件```config.mk```，根据需要编辑配置项
 
@@ -30,10 +30,10 @@ IOT_SDK_LIB_NAME     = libiotsdk
 | ENABLE_SHADOW                                  | 是否开启设备影子功能 |
 | ENABLE_TRACE                                   | 是否开启代码跟踪功能，开启后程序运行过程中函数的调用堆栈将被跟踪并打印 |
 
-##运行
+## 运行
 请参考[快速开始](https://cloud.tencent.com/document/product/634/11912)
 
-##C-SDK提供的功能API说明
+## C-SDK提供的功能API说明
 以下是V1.0.0版本C-SDK提供的功能和对应API，用于客户编写业务逻辑，更加详细详细的说明请查看src/sdk-impl/qcloud_iot_export.h及src/sdk-impl/exports/*.h中的注释
 
 ### 1. 日志接口
