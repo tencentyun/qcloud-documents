@@ -131,7 +131,7 @@ chkconfig cloud-final on
 ## 二、直接使用软件源上面的 cloud-init 包安装
 **执行以下安装命令即可**
 >apt-get/yum install cloud-init
-
+<br>
 <font color="#FF0000">*注： 直接通过apt-get 或 yum 命令安装的cloud-init 版本默认为当前操作系统配置的软件源里面默认的cloud-init版本，通常情况下和cloud-init 17.1 版本存会存在比较大的差异，使用这种方式安装的镜像创建出来的实例可能会存在部分配置项初始化不符合预期的情况，建议使用方案一：手工下载cloud-init源码包的方式进行安装。*</font>
 
 ## 三、安装完之后的操作
