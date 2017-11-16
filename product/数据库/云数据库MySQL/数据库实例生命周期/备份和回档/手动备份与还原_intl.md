@@ -19,9 +19,7 @@ The exported data are in the format of binary sql files by default.
 ## 2. Installation and Deployment
 
 ### 2.1 Downloading the Tool
-
 1. Download the CDB data import/export tool:
-
 <table  style="width:650px">
 	<thead>
 		<tr>
@@ -38,20 +36,15 @@ The exported data are in the format of binary sql files by default.
 		</tr>
 	</tbody>
 </table>
-
 2. Save the tool to the local, then upload it to the CVM, and log in to the CVM (Linux CVM only) to decompress the toolkit.
-
 The decompression process is as follows:
-
 ```
 tar xzvf cdb_mydumper_v1.0.0.tar.gz
 ```
 
 3. After the decompression, there will be a mydumper folder with two binary executable files. The files are described as follows:
-
 mydumper: CDB multi-thread data export tool.
 myloader: CDB multi-thread data import tool.
-
 4. Run the tool directly on the CVM (Linux CVM only) without installation.
 
 ### 2.2 Command Description
