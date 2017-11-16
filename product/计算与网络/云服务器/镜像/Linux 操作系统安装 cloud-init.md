@@ -1,7 +1,4 @@
 
-
-# linux 机器安装cloud-init
-
 cloud-init 主要提供了一个实例首次初始化时的自定义配置的能力，如果导入的镜像没有安装cloud-init服务，通过该镜像启动的实例就不会被正常初始化，因此该镜像就会导入失败。
 安装cloud-init的方式有两种，手工下载cloud-init源码包的方式安装 和 直接安装软件源上面的 cloud-init 版本。在导入Linux系统镜像前，请确保您的镜像内部已经按照如下方式之一正确安装了cloud-init服务。
 ## 一、手工下载cloud-init源码包的方式安装
@@ -17,16 +14,18 @@ cloud-init 主要提供了一个实例首次初始化时的自定义配置的能
 
 ### 3、安装cloud-init
 #### 3.1、安装cloud-init 依赖包
->apt-get install python-cheetah -y
-apt-get install python-six -y
-apt-get install python-jsonpatch -y
-apt-get install python-requests -y
-apt-get install python-yaml -y
-apt-get install python-configobj -y
-apt-get install python-oauthlib -y
-apt-get install python-prettytable -y
-apt-get install python-jinja2 -y
-apt-get install python-markdown -y
+>python-setuptools
+>python-cheetah
+python-six
+python-jsonpatch
+python-requests
+python-yaml
+PyYAML
+python-configobj
+python-oauthlib
+python-prettytable
+python-jinja2
+python-markdown
 
 #### 3.2、解压并安装
 >cd ./cloud-init-17.1
@@ -152,7 +151,3 @@ chkconfig cloud-final on
 \# and how to activate them. For more information, see interfaces(5).
 >
 source /etc/network/interfaces.d/*
-
-
-
-
