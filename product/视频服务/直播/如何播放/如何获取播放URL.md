@@ -75,5 +75,28 @@ hls协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com
 hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.m3u8
 ```
 
-#### 3.2 带防盗链的播放地址
+#### 3.3 带防盗链的播放地址
  
+ 携带防盗链的播放地址格式如下：
+ ```
+rtmp://bizid.liveplay.myqcloud.com/live/bizid_id?xSecret=xxxx&txTime=xxxx
+http://bizid.liveplay.myqcloud.com/live/bizid_id,flv?xSecret=xxxx&txTime=xxxx
+http://bizid.liveplay.myqcloud.com/live/bizid_id.m3u8?xSecret=xxxx&txTime=xxxx
+```
+**参数说明：**
+1.txTime：播放地址的有效截止时间戳，在该时间戳之前请求是合法请求，时间戳之后的请求是非法请求会被拒绝。
+2.txSecret：校验串，**算法为：txSecret = MD5(KEY+ path + txTime)**字母小写
+其中
+* txTime：播放地址的有效截止时间戳，同上
+* path：取的是去掉后缀的文件名。如：
+```
+rtmp://5000.liveplay.myqcloud.com/live/test2016011415
+http://5000.liveplay.myqcloud.com/live/test2016011415_550.m3u8
+http://5000.liveplay.myqcloud.com/live/test2016011415_900.flv
+```
+* KEY：为用户的密钥；由控制分配，进入直播码模式——接入配置——应用信息 即可查看
+![](https://mc.qcloudimg.com/static/img/f96379d3803342bb5e4d4465c23d1c7a/12.png)
+
+**配置申请**
+
+如需配置播放防盗链，可提交工单或者联系腾讯商务人员，联系电话：4009-100-100
