@@ -33,7 +33,6 @@
       <value>/tmp/hive/tmp/operation_logs</value>
     </property>
     ```
-
     
 2. 创建工作流
 
