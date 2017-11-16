@@ -18,6 +18,7 @@ To purchase the public network gateway in the gateway subnet created above, plea
 
 ### 2.3. Creating the Routing Table of Gateway Subnet
 Gateway subnet and ordinary subnet cannot be associated with the same routing table. You need to create a separate gateway routing table and associate it with the gateway subnet.
+
 ![](https://mc.qcloudimg.com/static/img/1054ab93b8a0d73a5998778ce8ed0c8f/Best_Allow_2.jpg)
 ![](https://mc.qcloudimg.com/static/img/7f71e82a254b79893bcd54dad1d3ca0a/Best_Allow_3.jpg)
 
