@@ -1,7 +1,7 @@
 The prices in the table are in US dollar. The actual settlement amount should be converted to CNY based on the exchange rate for US dollar to CNY on the last day of the month. Click to download the [International SMS Price List](https://mc.qcloudimg.com/static/archive/ecbd7de36078dab5baf0a270e8a82103/archive.xlsx "腾讯云短信海外价格表").
 
 | Country/Region | Code	| Country/Region Code |	Unit Price (USD) |
-|--------------------|----------|-------|---------|---------------|
+|--------------------|----------|---------|---------------|
 | Andorra |		AD |	376 |	0.0651 |
 | United Arab Emirates|	AE|	971	|0.0415 |
 | Afghanistan|		AF|	93|	0.0731 |
