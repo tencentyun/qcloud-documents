@@ -279,12 +279,17 @@ table td {
     <th width="220px">下载链接</th>
   </tr>
   <tr align="center">
-    <td>1.0.0</td>
-    <td>2017-11-11</td>
+    <td>1.1.0</td>
+    <td>2017-11-17</td>
 		<td>VS2015</td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVWindowsDemo1.0.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVSDK_Win_1.1.zip">DOWNLOAD</a></td>
   </tr>
 </table>
+
+- **新增功能**
+ + Demo UI 换新，采用 Win10 黑色系风格。
+ + 支持 **双人视频** 和 **多人视频** 功能。
+ + 支持命令行模式唤起推流功能，适用于在线夹娃娃。
 
 - **Why not Obs?**
 本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
