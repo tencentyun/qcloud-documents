@@ -19,7 +19,7 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
-`hhttp://recognition.image.myqcloud.com/ocr/drivinglicence`
+`http://recognition.image.myqcloud.com/ocr/drivinglicence`
 
 ## 请求包header
 接口采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
