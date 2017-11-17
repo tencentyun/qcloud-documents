@@ -16,7 +16,7 @@ table td {
 
 
 
-<h2 id="iOS"> iOS 平台 (3.5.2170) </h3>
+<h2 id="iOS"> iOS 平台 (3.7.3403) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
@@ -133,19 +133,19 @@ table td {
   </tr>
 	<tr>
     <td></td>
-    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Smart_iOS_3.5.2170.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Player_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_UGC_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Smart_iOS_3.7.3403.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Player_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_UGC_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
 		<td>见版本说明</td>
   </tr>
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_Rename_iOS_3.5.2170.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Enterprise_Rename_iOS_3.7.3403.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
 	
 - **命名冲突**
-  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_Rename_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401)。	
+  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_Rename_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401)。	
 	
 
 <h2 id="Android"> Android 平台 (3.5.2170) </h3>
@@ -257,16 +257,16 @@ table td {
   </tr>
 	<tr>
     <td></td>
-    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Smart_Android_3.5.2170.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Player_Android_3.5.2170.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_UGC_Android_3.5.2170.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Professional_Android_3.5.2170.zip">DOWNLOAD</a></td>
+    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Smart_Android_3.7.3403.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Player_Android_3.7.3403.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_UGC_Android_3.7.3403.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Professional_Android_3.7.3403.zip">DOWNLOAD</a></td>
 		<td>见版本说明</td>
   </tr>
 </table>
 
 - **商用版本**
-	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Enterprise_Android_3.5.2170.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9020)。
+	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/LiteAVSDK_Enterprise_Android_3.7.3403.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9020)。
 
 
 <h2 id="Windows"> Windows 平台 </h3>
