@@ -35,7 +35,7 @@ yum install mariadb mariadb-server
 ```
  -  适用于 CentOS 6.8 或以前版本：
 ```
-yum install mysql mysql-server mysql-devel 。
+yum install mysql mysql-server mysql-devel
 ```
 
 2. 启动 MySQL 服务。输入命令：
