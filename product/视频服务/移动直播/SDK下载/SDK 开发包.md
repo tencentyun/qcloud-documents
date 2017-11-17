@@ -15,7 +15,8 @@ table td {
 </style>
 
 
-<h2 id="iOS"> iOS 平台 </h3>
+
+<h2 id="iOS"> iOS 平台 (3.5.2170) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
@@ -147,7 +148,7 @@ table td {
   部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.5/TXLiteAVSDK_Professional_Rename_iOS_3.5.2170.zip?_ga=1.172502247.572863791.1503542401)。	
 	
 
-<h2 id="Android"> Android 平台 </h3>
+<h2 id="Android"> Android 平台 (3.5.2170) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
