@@ -3,13 +3,9 @@
 
 开发者使用功能之前，需要先注册腾讯云账号，添加密钥，并在万象优图创建bucket。
 
-<<<<<<< HEAD
 ## 计费说明
 通用 OCR 目前正处于免费公测阶段，会在12月1日开始计费，第一次扣费为2018年1月3~5日。
 请查看[计费说明](/document/product/641/12399)。
-
-=======
->>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
 
 ## 说明
 | 概念    | 解释              |
@@ -54,7 +50,7 @@
 | 发动机号 | 准驾车型 |
 | 注册日期 | 起始日期 |
 | 发证日期 | 有效日期 |
-|      | 红章   |
+|    &nbsp;  | 红章   |
 
 
 | 参数名    | 是否必须 | 类型     | 说明                                       |
@@ -76,15 +72,15 @@
 
 Item说明：
 
-| 字段         |        | 类型     | 说明                    |
+| 字段         |    &nbsp;    | 类型     | 说明                    |
 | ---------- | ------ | ------ | --------------------- |
-| item       |        | string | 字段名称                  |
-| itemstring |        | string | 字段内容                  |
-| itemconf   |        | float  | 字段识别结果置信度[0.0, 100.0] |
+| item       |    &nbsp;    | string | 字段名称                  |
+| itemstring |    &nbsp;    | string | 字段内容                  |
+| itemconf   |  &nbsp;      | float  | 字段识别结果置信度[0.0, 100.0] |
 | itemcoord  | x      | int    | item 框左上角 x           |
-|            | y      | int    | item 框左上角 y           |
-|            | width  | int    | item 框宽度              |
-|            | height | int    | item 框高度              |
+|       &nbsp;     | y      | int    | item 框左上角 y           |
+| &nbsp;           | width  | int    | item 框宽度              |
+|   &nbsp;         | height | int    | item 框高度              |
 
 ## 示例
 

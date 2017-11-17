@@ -53,14 +53,14 @@
 
 Item说明
 
-| 字段         |        | 类型          | 说明          |
+| 字段         |   &nbsp;     | 类型          | 说明          |
 | ---------- | ------ | ----------- | ----------- |
-| itemstring |        | string      | 字段内容        |
+| itemstring | &nbsp;       | string      | 字段内容        |
 | itemcoord  | x      | int         | item 框左上角 x |
-|            | y      | int         | item 框左上角 y |
-|            | width  | int         | item 框宽度    |
-|            | height | int         | item 框高度    |
-| words      |        | array(word) | 每个字的信息      |
+|     &nbsp;       | y      | int         | item 框左上角 y |
+|     &nbsp;       | width  | int         | item 框宽度    |
+|    &nbsp;        | height | int         | item 框高度    |
+| words      |    &nbsp;    | array(word) | 每个字的信息      |
 
 word说明
 
