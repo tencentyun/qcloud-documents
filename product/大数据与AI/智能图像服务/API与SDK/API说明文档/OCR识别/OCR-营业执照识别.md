@@ -9,7 +9,7 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
-`hhttp://recognition.image.myqcloud.com/ocr/bizlicense`
+`http://recognition.image.myqcloud.com/ocr/bizlicense`
 
 ## 请求包header
 采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
@@ -23,14 +23,14 @@
 | Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
 
 ><font color="#0000cc">**注意：** </font>
-<<<<<<< HEAD
+><<<<<<< HEAD
 > (1) 每个请求的包体大小限制为 6MB。
 > (2) 所有接口都为 POST 方法。
-=======
+>=======
 > (1) 每个请求的包体大小限制为 6MB；
 > (2) 所有接口都为 POST 方法；
 >>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
-> (3) 不支持 .gif 这类的动图。
+>>>>>>>  (3) 不支持 .gif 这类的动图。
 
 
 ## 请求参数
