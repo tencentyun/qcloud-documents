@@ -1,4 +1,4 @@
-CVM instances include hardware (CPU, memory), disk (system disk, data disk) and network. You can purchase these resources on the Purchase page. Here we first describe prices, purchase and configuration adjustment of CVM instance hardware (that is, CPU and memory).
+CVM instances include hardware (CPU, memory), disk (system disk, data disk) and network. You can purchase these resources on the Purchase page. 
 
 ## 1.	Postpaid
 This section describes the pricing rules for postpaid CVMs. 
