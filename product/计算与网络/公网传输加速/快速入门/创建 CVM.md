@@ -1,6 +1,6 @@
 下例中我们以快速配置为例来演示如何快速配置相关选项，实际购买时用户也可以选择自定义配置来选择更多的配置项。
 **第 1 步：登录控制台**
-登录[腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。如果没有帐号，请参考[帐号注册教程](https://www.qcloud.com/document/product/378/8415)。
+登录[腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。如果没有帐号，请参考[帐号注册教程](https://www.qcloud.tencent.com/document/product/378/8415)。
 ![登录](//mc.qcloudimg.com/static/img/ff6e234a3c1b419cc8ea2ba272c59101/image.png)
 
 **第 2 步：新建云主机（CVM）**
