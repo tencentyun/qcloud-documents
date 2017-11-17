@@ -1,4 +1,8 @@
-﻿Guestbook是一个比较典型的web应用服务，其有一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。本示例将介绍如何将创建gustbook软件的应用模板。
+﻿Guestbook留言板是一个比较典型的web应用服务，由一个frontend前端服务和redis-master和redis-slave两个后端存储服务组成。用户通过web前端提交数据，写入到redis-master上，然后通过读取同步到redis-slave上的数据展示给用户。
+
+为了实现快速的在不同集群或者集群的不同namespace中部署Guestbook应用，可以先将Gustbook部署相关的配置保存到应用模板中，然后使用应用模板快速部署对应的应用。
+
+本示例将介绍如何将创建Gustbook的应用模板。
 
 ## 步骤一: 创建应用模板
 
@@ -102,7 +106,7 @@ spec:
     protocol: TCP
     targetPort: 6379
   sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
 ```
 
 **2.4 创建redis-slave服务**
@@ -151,7 +155,7 @@ spec:
     protocol: TCP
     targetPort: 6379
   sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
 ```
 
 创建后的服务如下图所示：
@@ -175,7 +179,7 @@ FRONTEND_VERSION: v4
 REDIS_MASTER_IMAGE: ccr.ccs.tencentyun.com/library/redis
 REDIS_MASTER_VERSION: e2e
 REDIS_SLAVE_IMAGE: ccr.ccs.tencentyun.com/library/gb-redisslave
-REDIS_SLAVE_VERSION: v1
+REDIS_SLAVE_IMAGE: v1
 ```
 填写完之后，配置项的值如下图所示。
 
@@ -191,6 +195,7 @@ REDIS_SLAVE_VERSION: v1
 
 ![应用模板gustbook示例-007.png-17.1kB][9]
 
+接下来可以使用创建的模板，进行应用服务部署。关于如何使用应用模板进行应用部署可以参考[创建应用][10]。关于`Guestbook`这个应用模板具体部署应用的过程可以参考应用[模板示例-Guestbook应用][11]。
 
   [1]: https://console.cloud.tencent.com/ccs/template
   [2]: https://mc.qcloudimg.com/static/img/916facfa358f0ab96524c2e644a3b223/image.png
@@ -201,3 +206,5 @@ REDIS_SLAVE_VERSION: v1
   [7]: https://mc.qcloudimg.com/static/img/a3c9542183055e9ebc2cf834aae43957/image.png
   [8]: https://mc.qcloudimg.com/static/img/66635b054bf711fa4c570265bed3971a/image.png
   [9]: https://mc.qcloudimg.com/static/img/f371ff5c3969ecb50bc80f2599c5b67a/image.png
+  [10]: https://cloud.tencent.com/document/product/457/11942
+  [11]: https://cloud.tencent.com/document/product/457/11944

@@ -281,18 +281,18 @@ Here are all parameters supported by the player as well as their detailed descri
 
 | Parameter             | Type     | Default Value   | Parameter Description
 |-----------------|--------- |--------  |-------------------------------------------- |
-| m3u8            | String   | None       |  m3u8 playback URL (original)  <br> Example:  http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
-| m3u8_hd         | String   | None       |  m3u8 playback URL (high definition)  <br> Example:  http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8 |
-| m3u8_sd         | String   | None       |  m3u8 playback URL (standard definition)  <br> Example:  http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8 |
-| flv             | String   | None       |  flv playback URL (original)  <br> Example:  http://2157.liveplay.myqcloud.com/2157_358535a.flv |
-| flv_hd          | String   | None       |  flv playback URL (high definition)  <br> Example:  http://2157.liveplay.myqcloud.com/2157_358535ahd.flv |
-| flv_sd          | String   | None       |  flv playback URL (standard definition)  <br> Example:  http://2157.liveplay.myqcloud.com/2157_358535asd.flv |
-| mp4             | String   | None       |  mp4 playback URL (original)  <br> Example:  http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
-| mp4_hd          | String   | None       |  mp4 playback URL (high definition)  <br> Example:  http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4 |
-| mp4_sd          | String   | None       |  mp4 playback URL (standard definition)  <br> Example:  http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4 |
-| rtmp            | String   | None       |  rtmp playback URL (original)  <br> Example:  rtmp://2157.liveplay.myqcloud.com/live/2157_280d88 |
-| rtmp_hd         | String   | None       |  rtmp playback URL (high definition)  <br> Example:  rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd |
-| rtmp_sd         | String   | None       |  rtmp playback URL (standard definition)   <br> Example:  rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd |
+| m3u8            | String   | None       |  m3u8 playback URL (original)  <br> Example: `http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
+| m3u8_hd         | String   | None       |  m3u8 playback URL (high definition)  <br> Example:  `http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
+| m3u8_sd         | String   | None       |  m3u8 playback URL (standard definition)  <br> Example: `http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8` |
+| flv             | String   | None       |  flv playback URL (original)  <br> Example:  `http://2157.liveplay.myqcloud.com/2157_358535a.flv` |
+| flv_hd          | String   | None       |  flv playback URL (high definition)  <br> Example: `http://2157.liveplay.myqcloud.com/2157_358535ahd.flv` |
+| flv_sd          | String   | None       |  flv playback URL (standard definition)  <br> Example:  `http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
+| mp4             | String   | None       |  mp4 playback URL (original)  <br> Example: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
+| mp4_hd          | String   | None       |  mp4 playback URL (high definition)  <br> Example:  `http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4` |
+| mp4_sd          | String   | None       |  mp4 playback URL (standard definition)  <br> Example: `http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4` |
+| rtmp            | String   | None       |  rtmp playback URL (original)  <br> Example:  `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88` |
+| rtmp_hd         | String   | None       |  rtmp playback URL (high definition)  <br> Example: `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
+| rtmp_sd         | String   | None       |  rtmp playback URL (standard definition)   <br> Example:  `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
 | width           | Number   | None       | Required parameter, used to configure player width (in pixels)   <br> Example:   640   |
 | height          | Number   | None       | Required parameter, used to configure player height (in pixels)   <br> Example:  480  |
 | volume          | Number   | 0.5      | Used to configure initial volume. Range: 0-1 [v2.2.0+]    <br> Example:  0.6   |

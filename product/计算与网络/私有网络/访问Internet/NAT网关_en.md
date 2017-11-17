@@ -5,7 +5,7 @@ NAT Gateway is a gateway with the ability to translate private and public IP add
 
 ## Network Topology
 As shown below, NAT gateway is a gateway that resides on the boundary between the Internet and the VPC, and connects to the router on the VPC. In a topology like this, when resources like CVM within the VPC send outgoing data packets via the NAT gateway, the data will firstly move through the router and make routing selection based on the route rules. After that, the NAT gateway will use the bound elastic IP address as the source IP address to send the traffic to the Internet:
-![](//mccdn.qcloud.com/static/img/4772b9bc1e78436104f89f943f06ac97/image.png)
+![](http://mccdn.qcloud.com/static/img/4772b9bc1e78436104f89f943f06ac97/image.png)
 
 ## The Difference between NAT Gateway and Public Network Gateway
 Both NAT gateway and public network gateway are used for the CVM in the VPC to access the Internet, but there exist some differences between the two:
@@ -136,7 +136,7 @@ After the creation of a NAT gateway, you can modify its attributes.
 (Alternatively) In the NAT gateway list page, click the ID of a NAT gateway to enter its details page, and then click "Monitoring" tab to view its monitoring information.
 
 ### Setting the Alarm
-1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.cloud.tencent.com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
 2) Fill in the Alarm Policy Name, select "NAT Gateway" in Policy Type, and then add the Condition of alarm trigger.
 3)	**Associate alarm objects**: select the alarm receiver group. You can view the set alarm policy in the policy list after you click "Complete".
 4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).

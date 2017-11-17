@@ -6,7 +6,7 @@ http://memcached.org/
 
 Open source Memcached extension libraries and API descriptions (extension libraries for multiple languages, such as C++/PHP/Java/Python/Ruby/Perl...):
 
-http://code.google.com/p/memcached/wiki/Clients 
+https://code.google.com/archive/p/memcached/downloads 
 
 
 2. The Memcached text protocol list contains a list of commands supported by Cloud Memcached. Download the list in the table below.

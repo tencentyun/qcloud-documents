@@ -33,14 +33,13 @@ Read-only instances run on a pay-by-usage billing mode only. Tiered prices are a
 
 *You access the instance purchase page by going to the instance management page:
 	*Step 1. Enter the instance list, and click "Manage"
-![](//mc.qcloudimg.com/static/img/5a3e1aca92b6f1fe502a7a2f59b23662/image.png)
+![ ](//mc.qcloudimg.com/static/img/3db5124e52d7b5140503b76289cac54e/image.png)
 	*Step 2. Click "Add Read-only Instance"
-![](//mc.qcloudimg.com/static/img/e59eb9fff3b5661bcd548b066c48b280/image.png)
+![](//mc.qcloudimg.com/static/img/d1a0c15a2bfbe828e1b2367a10d85922/image.png)
 	*Step 3. Click "New"
-![](//mc.qcloudimg.com/static/img/38fb7789fa98a7f9e7170e965fce610b/image.png)
+![](//mc.qcloudimg.com/static/img/416e33a635da626360b65af991439d8f/image.png)
 
-*Read-only instance purchase page:
-![](//mc.qcloudimg.com/static/img/0b424ba8e67b16b284d51329e77a127b/image.png)
+
  
 ## 7. Upgrade
 1. To ensure normal synchronization between the master instance and the read-only instances, the specification of the master instance needs to be less than or equal to that of the read-only instance.

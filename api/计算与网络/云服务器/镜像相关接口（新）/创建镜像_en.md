@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (CreateImage) is used to make the current status of the instance system disk into a new image, which can be used to quickly create instances.
 
@@ -52,7 +52,7 @@ The following error codes only include the business logic error codes for this A
 
 ## 5. Example 
 
->**GET** `https://image.api.qcloud.com/?Action=CreateImage`
+>**GET** `https://image.api.qcloud.com/v2/index.php?Action=CreateImage`
 >&Version=2017-03-12
 >&InstanceId=ins-6pb6lrmy<br>
 >&[Common Request Parameters](/doc/api/229/6976)

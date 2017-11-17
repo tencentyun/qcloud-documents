@@ -8,7 +8,7 @@
  3. 界面出现“ Complete ! ”，表示已安装完成。
 
 ## 步骤二：启动 vsftpd 服务
- 1. 启动服务。输入命令：`serverice vsftpd start`
+ 1. 启动服务。输入命令：`service vsftpd start`
 
  2. 命令确认是否启动。输入命令：`netstat -tunlp`，出现图中展示内容即表示已经启动。
 ![](//mc.qcloudimg.com/static/img/6cc74de5689106ce763be98bfe7f5d24/image.png)

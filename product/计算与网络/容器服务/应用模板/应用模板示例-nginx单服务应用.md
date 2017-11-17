@@ -12,33 +12,69 @@
 
 ![应用模板nginx示例-010.png-27.5kB][3]
 
-**2.2 创建nginx服务**
+**2.2 添加nginx服务**
 
-**创建服务方法1： 通过控制台导入服务模板**
+应用模板中增加服务，是通过导入服务相对应的模板内容实现的。导入服务模板内容包括两种可选的方式: 1. 从控制台导入 2. YAML文件导入
 
-点击导入服务按钮，会弹出导入服务的控制台。在控制台填写参数后，直接导入服务模板。
+>**注意：**
+>可以根据场景选择使用其中的任意一种方式
 
-![应用模板nginx示例-011.png-78kB][4]
+更多关于服务导入的说明可以参考[应用模板内容操作指引][4]。
 
-点击完成后可以看到在自动生成的服务模板信息：
-![应用模板nginx示例-012.png-39.6kB][5]
+**导入方法1： 控制台导入服务**
 
-**创建服务方法2： 手动添加服务模板**
+点击导入服务按钮，会弹出导入服务的控制台，在导入服务控制台填写相应参数。
 
-(1) 点击在应用模板中新增服务--服务名称为`nginx`
+![应用模板nginx示例-014.png-78kB][5]
+![应用模板nginx示例-015.png][6]
 
-![应用模板nginx示例-002.png-39kB][6]
+在`nginx`服务中设置的参数包括：
 
-(2) 在编辑框中填写服务的描述文本(YAML)格式
+设置服务的基本信息：
+1. 填写服务名称`nginx`
+2. 填写服务描述`nginx服务`
 
-nginx服务的示例描述文本如下，可以直接将下面的文本拷贝到编辑框中。
+设置服务的数据卷信息：
+未使用数据盘，无。
+
+设置镜像参数：
+4. 在设置容器运行参数中的镜像参数：
+容器名称设置为`nginx`
+镜像名称设置为`nginx`
+版本号选择为`latest`
+
+设置服务的实例数：
+5. 服务的实例数设置为1
+
+设置服务的访问方式：
+6. 服务的访问方式设置为集群内访问
+7. 服务的访问端口：容器端口和服务端口都设置成80
+
+更多关于参数设置内容可以参考 [服务创建][7]操作的相关文档。
+
+填写参数后，点击导入服务的`完成`按钮，控制台自动导入服务的模板内容。
+
+![应用模板nginx示例-012.png-39.6kB][8]
+
+**导入方法2： YAML文件导入**
+
+如果已经存在服务对应的模板内容的YAML文件，可以直接将模板内容导入到编辑框中。具体的步骤如下：
+
+**步骤一 创建对应的服务**：
+在模板内容编辑区域，点击"+"号按钮，新增一个服务。服务名称设置为`nginx`。
+
+![应用模板nginx示例-002.png-39kB][9]
+
+**步骤二 导入模板内容**：
+
+可以将下面YAML文件中的内容，直接拷贝到编辑框中，导入服务的模板内容。
 
 ```
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
-    description: abc
+    description: nginx服务
   creationTimestamp: null
   name: nginx
   namespace: '{{.NAMESPACE}}'
@@ -83,45 +119,49 @@ status:
   loadBalancer: {}
 ```
 
-在示例中，使用了`NAMESPACE`做为变量进行替换，更多关于变量替换的内容可以参考[补充变量替换链接]
+**步骤三 提取模板内容中的变量**：
+
+在示例中，使用了`NAMESPACE`将`namespace`参数作为变量进行替换，更多关于变量替换的说明可以参考[变量替换][10]。
+
+点击`从模板内容导入`按钮，提取模板内容中的变量作为配置项。然后在配置项中填写变量的默认值，这里设置成`default`。
 
 填写完之后，如下图所示：
 
-![应用模板nginx示例-003.png-46.1kB][8]
+![应用模板nginx示例-017.png][11]
 
-**2.3 填写默认配置项信息**
+**2.3 常用参数变量化**
+在模板内容中可能有些参数需要经常改变或者在不同环境中需要设置不同的值。可以将这部分参数在模板内容设置成变量，在配置项中对变量进行赋值。这样如果需要修改这个参数，就只需要修改配置项，不需要对模板内容进行修改。在不同环境中，也可以通过使用不同的配置项文件，对不同环境下的应用使用不同的参数进行部署。
 
-在应用模板的配置项部分，点击从模板导入按钮，自动提取模板中的变量。上面的示例中提出`NAMESPACE`变量作为配置文件的的key。(从控制台导出的服务模板已经自动将namespace提取成了`NAMESPACE`变量)
+在本示例中，我们将实例副本数(`replicas`)转换成变量`NGINX_REPLICAS`，镜像名称和版本(`image`)分别`IMAGE_NAME`和`IMAGE_VERSION`。
 
-![应用模板nginx示例-004.png-42.5kB][9]
+![应用模板nginx示例-018.png][12]
 
-在配置项中填写`NAMESPACE`的值，这里填写为`default`，表示在默认的命名空间中部署。
+在应用模板的配置项部分，点击从模板导入按钮，自动提取模板中的变量。分别对变量赋值： `NGINX_REPLICAS`设置为`2`，`IMAGE_NAME`设置为`nginx`,`IMAGE_VERSION`s设置为latest。
 
-![创建应用-005.png-7kB][10]
+![应用模板nginx示例-019.png][13]
 
 ## 步骤三: 完成应用模板编辑，并查看
 
-在步骤二中，完成了应用模板的编辑。点击`完成`按钮，保存应用模板。
+在步骤二中，完成了应用模板的编辑。点击`完成`按钮，保存应用模板。这样应用模板就创建完成，可以在应用模板列表查看。
 
-![应用模板nginx示例-006.png-15.1kB][11]
+![应用模板nginx示例-007.png-20.6kB][15]
 
-这样应用模板就创建完成，可以在应用模板列表查看。
-
-![应用模板nginx示例-007.png-20.6kB][12]
-
-接下来可以使用创建的模板，进行应用服务部署。关于如何使用应用模板进行应用部署可以参考[补充应用创建链接]。关于`nginx`这个应用模板具体部署应用的过程可以参考 [补充应用创建示例--nginx单服务应用]
-
+接下来可以使用创建的模板，进行应用服务部署。关于如何使用应用模板进行应用部署可以参考[创建应用][16]。关于`nginx`这个应用模板具体部署应用的过程可以参考[应用模板示例-Nginx单服务应用][17]。
 
   [1]: https://console.cloud.tencent.com/ccs/template
   [2]: https://mc.qcloudimg.com/static/img/2de5054fff255008e18b60eb9142d643/image.png
   [3]: https://mc.qcloudimg.com/static/img/ccc8dff965275ff3f436bb53d8c394b3/image.png
-  [4]: https://mc.qcloudimg.com/static/img/7016d8f37155a80aebdd23f9cf418f11/image.png
-  [5]: https://mc.qcloudimg.com/static/img/78f7ba8c83da6cf4152dc228ff5d1abd/image.png
-  [6]: https://mc.qcloudimg.com/static/img/d0c62ea6664384a4f08bb4df3f02145e/image.png
-  [7]: https://mc.qcloudimg.com/static/img/d0c62ea6664384a4f08bb4df3f02145e/image.png
-  [8]: https://mc.qcloudimg.com/static/img/8a729cf7c8f2c9f98e524e98cd08d7f3/image.png
-  [9]: https://mc.qcloudimg.com/static/img/94e91388b81a0dcbca6a96afc9a33d31/image.png
-  
-  [10]: https://mc.qcloudimg.com/static/img/2c5e07b5f4bb224d9ff30102b8e958a6/image.png
-  [11]: https://mc.qcloudimg.com/static/img/bd31c2a625d8a480c3edeffc9cd72de9/image.png
-  [12]: https://mc.qcloudimg.com/static/img/3dc44d8e08039db14b28c9727920290a/image.png
+  [4]: https://cloud.tencent.com/document/product/457/12199
+  [5]: https://mc.qcloudimg.com/static/img/4c24dba39ed4637fdf71054859b8623a/image.png
+  [6]: https://mc.qcloudimg.com/static/img/ac1fda92af3cd48d8f573c10fb82cfe9/image.png
+  [7]: https://mc.qcloudimg.com/static/img/7016d8f37155a80aebdd23f9cf418f11/image.png
+  [8]: https://mc.qcloudimg.com/static/img/78f7ba8c83da6cf4152dc228ff5d1abd/image.png
+  [9]: https://mc.qcloudimg.com/static/img/d0c62ea6664384a4f08bb4df3f02145e/image.png
+  [10]: https://mc.qcloudimg.com/static/img/7016d8f37155a80aebdd23f9cf418f11/image.png
+  [11]: https://mc.qcloudimg.com/static/img/2e2029729c2c525a4fb39db94cace6fa/image.png
+  [12]: https://mc.qcloudimg.com/static/img/9ea24fc4ac6874c763e49be0c54b4713/image.png
+  [13]: https://mc.qcloudimg.com/static/img/95805801a80af3430b85674c8e3721f9/image.png
+  [14]: https://mc.qcloudimg.com/static/img/bd31c2a625d8a480c3edeffc9cd72de9/image.png
+  [15]: https://mc.qcloudimg.com/static/img/3dc44d8e08039db14b28c9727920290a/image.png
+  [16]: https://cloud.tencent.com/document/product/457/11942
+  [17]: https://cloud.tencent.com/document/product/457/11952

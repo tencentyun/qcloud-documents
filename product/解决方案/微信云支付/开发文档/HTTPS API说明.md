@@ -151,7 +151,7 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
 
 ```
 {
-    request_content":{
+    "request_content":{
         "pay_mch_key":{
             "pay_platform":2,
             "out_mch_id":"1234mcWYS3M5TjKLorAZ',
@@ -798,7 +798,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1232,7 +1232,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1446,7 +1446,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>trade_type</td>
@@ -1672,13 +1672,13 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>out_refund_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的退款单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的退款单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1983,7 +1983,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -3668,6 +3668,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>实际支付金额</td>
    </tr>
 </table>
+
 ## 退款单信息
 ### RefundOrderContent结构（仅作为返回参数）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3755,6 +3756,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>WxpayRefundOrderContentExt</td>
       <td>微信支付扩展信息，详见WxpayRefundOrderContentExt</td>
    </tr>
+   <tr>
+      <td>alipay_refund_order_content_ext</td>
+      <td>是</td>
+      <td>AlipayRefundOrderContentExt</td>
+      <td>支付宝扩展信息，详见AlipayRefundOrderContentExt</td>
+   </tr>
 </table>
 
 ### WxpayRefundOrderContentExt结构
@@ -3818,6 +3825,40 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>否</td>
       <td>String(64)</td>
       <td>取当前退款单的退款入账方<br>1、退回银行卡：{银行名称}{卡类型}{卡尾号}<br>2、退回支付用户零钱:支付用户零钱</td>
+   </tr>
+</table>
+
+### AlipayRefundOrderContentExt结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>fund_change</td>
+      <td>是</td>
+      <td>String(1)</td>
+      <td>是否发生了资金变化，示例:Y</td>
+   </tr>
+   <tr>
+      <td>gmt_refund_pay</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>退款时间</td>
+   </tr>
+   <tr>
+      <td>refund_detail_item_list</td>
+      <td>否</td>
+      <td>AlipayFundBill</td>
+      <td>退款渠道，详见 AlipayFundBill</td>
+   </tr>
+   <tr>
+      <td>refund_status</td>
+      <td>是</td>
+      <td>AlipayRefundOrderState(枚举类型)</td>
+      <td>退款状态，详见 AlipayRefundOrderState</td>
    </tr>
 </table>
 
@@ -3919,7 +3960,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>author_code</td>
@@ -4126,13 +4167,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>out_refund_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的退款单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的退款单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>total_fee</td>
@@ -4175,10 +4216,58 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>说明</td>
    </tr>
    <tr>
+      <td>state</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>退款状态，详见WxpayRefundOrderState</td>
+   </tr>
+   <tr>
+      <td>cash_refund_fee</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>现金退款金额，单位：分</td>
+   </tr>
+   <tr>
+      <td>settlement_refund_fee</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>去掉非充值代金券退款金额后的退款金额，单位：分。<br>退款金额=申请退款金额-非充值代金券退款金额，退款金额<=申请退款金额<br>退款金额=申请退款金额-非充值代金券退款金额                                                                       退款金额<=申请退款金额</td>
+   </tr>
+   <tr>
+      <td>coupon_refund_fee</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>退款代金券金额，支持多张代金券，单位：分</td>
+   </tr>
+   <tr>
+      <td>coupon_refund_count</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>退款代金券数量</td>
+   </tr>
+   <tr>
+      <td>coupon_refund_infos</td>
+      <td>否</td>
+      <td>WxpayCouponInfo</td>
+      <td>退款代金券信息，详见WxpayCouponInfo</td>
+   </tr>
+   <tr>
       <td>refund_account</td>
       <td>否</td>
       <td>String(30)</td>
-      <td>退款资金来源，仅针对老资金流子商户使用。默认使用未结算资金退款<br>REFUND_SOURCE_UNSETTLED_FUNDS：未结算资金退款<br>REFUND_SOURCE_RECHARGE_FUNDS：可用余额退款</td>
+      <td>退款资金来源，仅针对老资金流子商户使用<br>默认使用未结算资金退款<br>REFUND_SOURCE_UNSETTLED_FUNDS：未结算资金退款<br>REFUND_SOURCE_RECHARGE_FUNDS：可用余额退款</td>
+   </tr>
+   <tr>
+      <td>refund_channel</td>
+      <td>否</td>
+      <td>String(16)</td>
+      <td>退款渠道<br>ORIGINAL：原路退款 <br>BALANCE：退回到余额</td>
+   </tr>
+   <tr>
+      <td>refund_recv_account</td>
+      <td>否</td>
+      <td>String(64)</td>
+      <td>取当前退款单的退款入账方<br>1、退回银行卡：{银行名称}{卡类型}{卡尾号}<br>2、退回支付用户零钱:支付用户零钱</td>
    </tr>
 </table>
 
