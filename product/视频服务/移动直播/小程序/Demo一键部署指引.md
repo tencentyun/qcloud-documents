@@ -82,8 +82,7 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
 ## 四、下载 Demo 和安装依赖
 
- `RTMPRoom` 项目源码地址：
-直接访问[RTMPRoom](https://cloud.tencent.com/document/product/454/7873)，下载打包好的源码。
+访问[SDK+Demo](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu)，获取小程序 Demo 和后台源码。
 
 **安装依赖**
 

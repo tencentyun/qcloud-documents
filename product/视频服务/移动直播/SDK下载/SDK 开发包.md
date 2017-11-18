@@ -297,6 +297,27 @@ table td {
 - **QT界面库**
 	Windows 版本的 SDK 不依赖其它 dll 即可运行，但 Windows 版本的 Demo 是基于 Qt 界面库构建的，所以编译和运行 Demo 请在 Qt 官网下载和安装 Qt 5.9 和 Visual Studio Add-in For Qt 插件。
 	
+	
+<h2 id="XiaoChengXu"> 小程序源代码 </h3>
+<table>
+  <tr align="center">
+    <th width="220px">版本号</th>
+    <th width="220px">发布日期</th>
+		<th width="220px">小程序公共库</th>
+    <th width="220px">下载链接</th>
+  </tr>
+  <tr align="center">
+    <td>1.0.0</td>
+    <td>2017-11-18</td>
+		<td>1.7.0</td>
+		<td><a href="https://mc.qcloudimg.com/static/archive/077c8736ceaa730ed577e92c5a108fd1/RTMPRoom.zip">DOWNLOAD</a></td>
+  </tr>
+</table>
+
+- **一键部署**
+此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**server** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
+
+	
 <h2 id="Xiaozhibo">小直播源代码</h3>
 
 <table width="850px">
