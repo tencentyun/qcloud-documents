@@ -9,13 +9,12 @@ The security credential includes SecretId and SecretKey, where: </br>
 
 Do the followings to apply for a security credential:
 
-1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
-2) Select account name in the top right corner on the navigation bar, and choose "Cloud API Key" in the drop-down box to access the Cloud API key management page.
+2) Click "Cloud Products" and select "Cloud API Key" under "Monitor & Management" to enter the cloud API key management page.
+![](//mccdn.qcloud.com/img568f5fb824757.png)
 
-![](https://mc.qcloudimg.com/static/img/d32aa65f20cfce5af6f30ba5ee792490/capi_1.jpg)
-
-3) On the [Cloud API Key Management](https://console.cloud.tencent.com/capi) page, click "New" to create a pair of SecretId/SecretKey. Each account can have two pairs of SecretId/SecretKey at most.
+3) In [Cloud API Key Managemen](https://console.cloud.tencent.com/capi), click "New" to create a SecretId/SecretKey pair.
 > <font color='red'>A developer account can have up to two SecretId/SecretKey pairs. </br>
 >  A QQ account that has been added by the developer as a sub-user can apply for different security credentials on different developer consoles. </br>
 >  The sub-user security credential currently can only call some cloud APIs. </font>
