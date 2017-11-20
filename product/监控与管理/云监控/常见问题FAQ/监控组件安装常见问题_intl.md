@@ -1,5 +1,5 @@
 ## 1. What are the Agent installation directories?
-A: Installation directories on Linux: /usr/local/qcloud/stargate and /usr/local/qcloud/monitor; installation directories on CoreOs: /var/lib/qcloud/stargate and /var/lib/qcloud/monitor, installation directories on Windows: C:\Program Files\QCloud\Stargate and C:\Program Files\QCloud\Monitor.
+A: Installation directories on Linux: `/usr/local/qcloud/stargate` and `/usr/local/qcloud/monitor`; installation directories on CoreOs: `/var/lib/qcloud/stargate` and `/var/lib/qcloud/monitor`, installation directories on Windows: `C:\Program Files\QCloud\Stargate` and `C:\Program Files\QCloud\Monitor`.
 
 ## 2. How to install Cloud Monitor Agent on Linux?
 
