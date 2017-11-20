@@ -15,7 +15,6 @@
  - 账户的详细配置方式：http://www.imfirewall.com/support/WFilter_4_1/Doc/WFilter_Local_Account.htm 。   
 ## 收银终端访问外网
 √ 服务商在配置收银终端时，可以点击设置代理，然后填写代理URL（格式为:http://proxy_server_ip:proxy_server_port）， 用户名和密码（如没有则不用填写），然后点击保存即可。
-http://proxy 
 ![](https://mc.qcloudimg.com/static/img/0445fbe86f69c8859d89d9848abc92c5/image.png) 
 ## 订单查询终端访问外网
  - 服务商在配置订单查询终端时，可以点击设置代理，然后填写代理URL，（格式为:http://proxy_server_ip:proxy_server_port）， 用户名和密码（如没有则不用填写），然后点击保存即可。
