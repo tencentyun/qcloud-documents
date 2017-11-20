@@ -1,3 +1,10 @@
+### Version 3.7
+- IOS&Android：Demo优化，新增低延时播放，推流直播播放可直接体验。
+- IOS&Android：Demo新增多端音视频互通能力，可与小程序、windows等多端进行多人会话。
+- Android：修复后台摄像头数据采集无效问题。
+- Android：修复SetMirror接口设置无效问题。
+- Android：修复多个TXCloudView渲染显示问题。
+
 ### Version 3.5
 - IOS&Android：连麦发送策略优化，弱网下声音更加流畅。
 - IOS&Android：声音重采样算法更新，对不同采样率背景音有更好的兼容。

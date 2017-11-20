@@ -70,3 +70,24 @@ table th:nth-of-type(4) {  width: 235px; }
   </tr>
 </table>
 
+<h2 id="DE">新增 Windows 平台 </h2>
+
+### 效果预览
+![](//mc.qcloudimg.com/static/img/aec2f0e2848c351f026c4bb22066d596/image.jpg)
+
+### 体验地址
+
+<table width="840px">
+  <tr align="center">
+    <th>所属系统</th>
+    <th>当前版本</th>
+		<th>运行时库</th>
+		<th>下载体验</th>
+  </tr>
+  <tr align="center">
+    <td height="100px">Windows</td>
+    <td>1.1.0</td>
+		<td>VS2015</td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVSDK_Win_1.1.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
+  </tr>
+</table>

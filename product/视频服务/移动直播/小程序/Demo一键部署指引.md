@@ -82,8 +82,7 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
 ## 四、下载 Demo 和安装依赖
 
- `RTMPRoom` 项目源码地址：
-直接访问[RTMPRoom](https://github.com/tencentyun/wafer2-quickstart)，下载打包好的源码。
+访问[SDK+Demo](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu)，获取小程序 Demo 和后台源码。
 
 **安装依赖**
 
@@ -135,7 +134,7 @@ npm install
 
   ![修改客户端配置](https://mc.qcloudimg.com/static/img/7a84707de836ab15e08927f69545c445/xiaochengxuset.png)
 
-9. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。
+9. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。 
 
   ![登录测试](https://mc.qcloudimg.com/static/img/fcef90001b4b8d3549e20656cf09491a/xiaochengxuresult.png)
 

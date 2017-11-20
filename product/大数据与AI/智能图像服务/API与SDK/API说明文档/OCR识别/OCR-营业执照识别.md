@@ -27,9 +27,15 @@
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
 
+<<<<<<< HEAD
 > 注意
 > (1) 每个请求的包体大小限制为 6MB。
 > (2) 所有接口都为 POST 方法。
+=======
+><font color="#0000cc">**注意：** </font>
+> (1) 每个请求的包体大小限制为 6MB；
+> (2) 所有接口都为 POST 方法；
+>>>>>>> 96ae4f3775ca86fc8ba6bff92cc5911e6956a10b
 > (3) 不支持 .gif 这类的动图。
 
 

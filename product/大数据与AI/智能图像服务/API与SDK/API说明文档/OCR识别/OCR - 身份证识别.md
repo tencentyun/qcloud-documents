@@ -360,4 +360,10 @@ Content-Type: image/jpeg
 | -9100   | 身份证日期不合法                          |
 | -9101   | 身份证边框不完整                          |
 
+<<<<<<< HEAD
 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410)  。
+=======
+
+更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410)  。
+
+>>>>>>> 96ae4f3775ca86fc8ba6bff92cc5911e6956a10b

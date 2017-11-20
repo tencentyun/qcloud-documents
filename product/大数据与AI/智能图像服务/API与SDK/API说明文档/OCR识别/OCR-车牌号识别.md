@@ -55,13 +55,13 @@ items说明
 
 | 字段         | 子字段    | 类型     | 说明        |
 | ---------- | ------ | ------ | --------- |
-| item       |        | String | 字段名称      |
-| itemstring |        | String | 字段内容      |
+| item       |    &nbsp;    | String | 字段名称      |
+| itemstring |     &nbsp;   | String | 字段内容      |
 | itemcoord  | x      | Int    | item框左上角x |
-|            | y      | Int    | item框左上角y |
-|            | width  | Int    | item框宽度   |
-|            | height | Int    | item框高度   |
-| itemconf   |        | Float  | 字段识别结果置信度 |
+|     &nbsp;         | y      | Int    | item框左上角y |
+|       &nbsp;      | width  | Int    | item框宽度   |
+|    &nbsp;        | height | Int    | item框高度   |
+| itemconf   | &nbsp;       | Float  | 字段识别结果置信度 |
 
 ## 示例
 
@@ -145,9 +145,7 @@ Content-Type: text/json
 | -1304 | 参数过长                       |
 | -1308 | url 图片下载失败                 |
 
-<<<<<<< HEAD
-更多其他 API 错误码请看[错误码说明](/document/product/641/12410) 。
-=======
+
 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
->>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
+
 
