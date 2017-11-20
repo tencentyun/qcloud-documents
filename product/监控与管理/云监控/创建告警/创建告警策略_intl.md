@@ -34,7 +34,7 @@ Note: The meaning of the periodic index incrementing is that when the alarm is t
 >
 >After the alarm is generated for 72 hours, the alarm message will be sent for the last time.
 
-5)You can set an existing policy as a default alarm policy. The newly purchased CVM will automatically be associated with the default alarm policy.
+5. You can set an existing policy as a default alarm policy. The newly purchased CVM will automatically be associated with the default alarm policy.
 ![](//mccdn.qcloud.com/img568a63ffe4329.png)
 
 > Note:
