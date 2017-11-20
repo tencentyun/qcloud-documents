@@ -131,8 +131,16 @@ table td {
 		<td><img src="https://mc.qcloudimg.com/static/img/a9bdba876321beb3c0ad270e67d41743/image.png"/></td>
 		<td></td>
   </tr>
+		<tr>
+    <td>Pod 安装</td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+    <td><a href="https://cloud.tencent.com/document/product/454/12642">COCOAPOD</a></td>
+		<td>见版本说明</td>
+  </tr>
 	<tr>
-    <td></td>
+    <td>SDK 下载</td>
     <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.7/TXLiteAVSDK_Smart_iOS_3.7.3403.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
 		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.7/TXLiteAVSDK_Player_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
 		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.7/TXLiteAVSDK_UGC_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
@@ -142,10 +150,10 @@ table td {
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为[DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.7/TXLiteAVSDK_Enterprise_Rename_iOS_3.7.3403.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018)。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 [商用版下载](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.7/TXLiteAVSDK_Enterprise_Rename_iOS_3.7.3403.zip)，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能](https://cloud.tencent.com/document/product/454/9018) 。
 	
 - **命名冲突**
-  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.7/TXLiteAVSDK_Professional_Rename_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401)。	
+  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 [重命名版下载](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.7/TXLiteAVSDK_Professional_Rename_iOS_3.7.3403.zip?_ga=1.172502247.572863791.1503542401) 。	
 	
 
 <h2 id="Android"> Android 平台 (3.7.3403) </h3>
