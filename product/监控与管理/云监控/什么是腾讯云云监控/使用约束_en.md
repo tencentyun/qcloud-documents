@@ -1,4 +1,4 @@
-##Permission Control
+## Permission Control
 1. Cloud Monitor service is available to all users with a Tencent Cloud account.
 2. There is no independent permission control for cloud monitoring. With the main account, the user can see the monitoring and alarm information of all services. Collaborators can see all resource monitoring and alarm information of the corresponding project.
 ##Storage Time of Monitoring Data
