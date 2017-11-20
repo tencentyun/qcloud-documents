@@ -55,13 +55,13 @@ items说明
 
 | 字段         | 子字段    | 类型     | 说明        |
 | ---------- | ------ | ------ | --------- |
-| item       |    &nbsp;    | String | 字段名称      |
-| itemstring |     &nbsp;   | String | 字段内容      |
+| item       | &nbsp; | String | 字段名称      |
+| itemstring | &nbsp; | String | 字段内容      |
 | itemcoord  | x      | Int    | item框左上角x |
-|     &nbsp;         | y      | Int    | item框左上角y |
-|       &nbsp;      | width  | Int    | item框宽度   |
-|    &nbsp;        | height | Int    | item框高度   |
-| itemconf   | &nbsp;       | Float  | 字段识别结果置信度 |
+| &nbsp;     | y      | Int    | item框左上角y |
+| &nbsp;     | width  | Int    | item框宽度   |
+| &nbsp;     | height | Int    | item框高度   |
+| itemconf   | &nbsp; | Float  | 字段识别结果置信度 |
 
 ## 示例
 
