@@ -18,6 +18,4 @@ Once installed, you will see the following results:
 
 2) Run the installer to install it automatically.
 
-Once installed, you will see the following results:
-![](//mccdn.qcloud.com/img568a758c4c308.png)
-![](//mccdn.qcloud.com/img568a75948c917.png)
+
