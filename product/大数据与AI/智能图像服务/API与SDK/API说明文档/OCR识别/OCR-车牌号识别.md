@@ -2,6 +2,10 @@
 
 OCR - 车牌号识别用于识别图像上的车牌号码。
 
+## 计费
+
+请查看[计费说明](/document/product/641/12399)。
+
 ## 说明
 
 (1) 每个请求的包体大小限制为6MB。
@@ -12,7 +16,9 @@ OCR - 车牌号识别用于识别图像上的车牌号码。
 
 ## 调用URL
 
+```
 http://recognition.image.myqcloud.com/ocr/plate
+```
 
 ## 请求方式
 
