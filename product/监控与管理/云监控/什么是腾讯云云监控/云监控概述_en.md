@@ -7,7 +7,7 @@ You can get the following functions in the Cloud Monitoring Console:
 
 | Module | Feature |Function |
 |---------|---------|---------|
-| Monitor Overview | Cloud monitoring overview | Provide general monitoring results and health check, so you can view the monitoring data at a glance |
+| Monitor Overview | Cloud Monitoring overview | Provide general monitoring results and health check, so you can view the monitoring data at a glance |
 | My Alarms | User-defined alarm threshold | Support Alarm Settings for CVMs, Cloud Databases, CDN, VPN, etc. |
 | Cloud Product Monitoring | Visualized cloud products monitoring | Cloud monitor console provides monitoring views for Cloud Databases, CVMs, memcached and other cloud products |
 | Custom Monitoring | User-defined monitoring metrics | Check user-defined custom monitoring metrics and reported data |
