@@ -1,13 +1,13 @@
- ##Permission Control
+ ## Permission Control
 1. Cloud Monitor service is available to all users with a Tencent Cloud account.
 2. There is no independent permission control for cloud monitoring. With the main account, the user can see the monitoring and alarm information of all services. Collaborators can see all resource monitoring and alarm information of the corresponding project.
-##Storage Time of Monitoring Data
+## Storage Time of Monitoring Data
 The longest retention time of the current monitoring data lats for six months, only supporting monitoring data query within six months.
 
 1.Storage of one minute, five minutes and one hour granularity monitoring data lasts for thirty one days
 
 2.Storage of one day granularity of monitoring data lasts for six months
-##Alarm Limit
+## Alarm Limit
 • Alarm SMS Quota Limit
 Alarm message includes basic alarm, cloud automated testing alarm, custom message, custom alarm monitoring
 
