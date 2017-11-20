@@ -12,10 +12,10 @@ You can learn how to create an alarm for one or more objects, and select the obj
 ## Basic Concepts
 | Term          | Definition                                       |
 | ----------- | ---------------------------------------- |
-| Alarm policy type | It is used to identify policy types, which corresponds to the cloud products. For example, when you select a CVM policy, you can customize CPU utilization, disk utilization and other metric alarms |
-| Alarm type | It corresponds to specific monitoring metric. For example, CVM policy type includes several alarm types, such as disk utilization alarm, unreachable ping alarm, memory utilization alarm, and so on|
-| Relations between policy type and alarm type| A policy type contains several alarm types. It is a set of alarm types. For example, CVM policy contains disk utilization alarm, unreachable ping alarm and memory utilization alarm |
-| Alarm policy group | An alarm policy group consists of a set of alarm trigger conditions. The alarm policy is associated with projects and policy types. For each policy type, fifteen alarm policy groups can be created for each project|
+| Alarm policy type | It is used to identify policy types, which corresponds to the cloud products. For example, when you select a CVM policy, you can customize CPU utilization, disk utilization and other metric alarms. |
+| Alarm type | It corresponds to specific monitoring metric. For example, CVM policy type includes several alarm types, such as disk utilization alarm, unreachable ping alarm, memory utilization alarm, and so on.|
+| Relations between policy type and alarm type| A policy type contains several alarm types. It is a set of alarm types. For example, CVM policy contains disk utilization alarm, unreachable ping alarm and memory utilization alarm. |
+| Alarm policy group | An alarm policy group consists of a set of alarm trigger conditions. The alarm policy is associated with projects and policy types. For each policy type, fifteen alarm policy groups can be created for each project.|
 | Default policy group| For each project, every policy type has and only has one default policy group. The system will self create default policy which can be modified but cannot be deleted after users purchase CVM. Note: The present alarm policy created by system by default can receive the alarm message from the default alarm policy only when users bind the default policy group with the alarm receiver group.|
 
 ## Alarm Statuses
