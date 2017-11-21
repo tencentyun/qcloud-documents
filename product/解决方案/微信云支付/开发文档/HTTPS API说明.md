@@ -1899,6 +1899,12 @@ content_type：application/json
       <td>OrderContent</td>
       <td>订单信息，详见OrderContent</td>
    </tr>
+<tr>
+      <td>order_client</td>
+      <td>是</td>
+      <td>OrderClient</td>
+      <td>订单信息，详见OrderClient</td>
+   </tr>
 </table>
 
 ### 返回参数

@@ -10,14 +10,13 @@ The alarm consists of the following components:
 You can learn how to create an alarm for one or more objects, and select the objects that need to receive alarms from this section.
 
 ## Basic Concepts
-| Term          | Term                                       |
+| Term          | Definition                                       |
 | ----------- | ---------------------------------------- |
-| Alarm policy type      | It is used to identify policy types, which corresponds to the cloud products. For example, when you select a CVM policy, you can customize CPU utilization, disk utilization and other metric alarms |
-| Alarm type        | It is the specific type of an alarm, which is the segmentation of policy types. For example, there are several alarm types of CVM policy types, including disk utilization alarm, unreachable ping alarm and memory utilization alarm |
-| Relations between policy type and alarm type | A policy type contains several alarm types. It is a set of alarm types. For example, CVM policy contains disk utilization alarm, unreachable ping alarm and memory utilization alarm |
-| Alarm policy        | An alarm policy is a set of alarm trigger conditions. The alarm policy is associated with projects and policy types. For each policy type, 15 alarm policies can be created for each project |
-| Alarm trigger conditions      | The alarm trigger condition are the bases for the alarm. Only the conditions are met can the alarm be triggered. The maximum number of trigger conditions of each alarm policy can be equal to the amount of metrics. <font color="red">The logical relationship among them is "or", that is, as long as one of the conditions is satisfied, an alarm will be triggered</font> |
-| Default policy        | CVM policy has only one default policy, which can be modified but cannot be deleted           |
+| Alarm policy type | It is used to identify policy types, which corresponds to the cloud products. For example, when you select a CVM policy, you can customize CPU utilization, disk utilization and other metric alarms. |
+| Alarm type | It corresponds to specific monitoring metric. For example, CVM policy type includes several alarm types, such as disk utilization alarm, unreachable ping alarm, memory utilization alarm, and so on.|
+| Relations between policy type and alarm type| A policy type contains several alarm types. It is a set of alarm types. For example, CVM policy contains disk utilization alarm, unreachable ping alarm and memory utilization alarm. |
+| Alarm policy group | An alarm policy group consists of a set of alarm trigger conditions. The alarm policy is associated with projects and policy types. For each policy type, fifteen alarm policy groups can be created for each project.|
+| Default policy group| For each project, every policy type has and only has one default policy group. The system will self create default policy which can be modified but cannot be deleted after users purchase CVM. Note: The present alarm policy created by system by default can receive the alarm message from the default alarm policy only when users bind the default policy group with the alarm receiver group.|
 
 ## Alarm Statuses
 <table class="t">
@@ -35,5 +34,5 @@ You can learn how to create an alarm for one or more objects, and select the obj
 </td></tr>
 <tr>
 <td> <b>Insufficient data</b>
-</td><td> The alarm policy for a generated alarm has been deleted. <br>The CVM is migrated from one project to another. <br>No data is submitted if the Cloud Monitor components has not been installed or has been unmounted.
+</td><td> The alarm policy for a generated alarm has been deleted. <br>The CVM is migrated from one project to another. <br>No data is submitted if the Cloud Monitor components have not been installed or have been unmounted.
 </tbody></table>

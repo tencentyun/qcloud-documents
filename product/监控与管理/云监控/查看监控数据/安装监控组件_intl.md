@@ -1,5 +1,7 @@
 To use Tencent Cloud Monitor to view the **CVM** metric data and generate alarms, you need to properly install the monitoring components on the Tencent Cloud CVM, which will be used when you collect the metric data of CVM.
 
+Note: In order to normally report the metric data, you need to open port tcp dport 80 of CVM to Internet. 
+
 ## Installing on Linux
 After [logging in to Linux instance](/doc/product/213/5436), you can execute the following command to install required components, as shown below:
 ```
