@@ -107,7 +107,7 @@ Example: Tencent Cloud notifies that a stream interruption (event_type=0) occurr
 | duration | Duration of the push | Int | | Y |
 | stream_param | Parameter of push URL | string |  | Y |
 
-Example: A new recorded FLV part is generated, ID is 9192487266581821586, playback address is "http://200025724.vod.myqcloud.com/200025724_ac92b781a22c4a3e937c9e61c2624af7.f0.flv".
+Example: A new recorded FLV part is generated, ID is 9192487266581821586, playback address is `http://200025724.vod.myqcloud.com/200025724_ac92b781a22c4a3e937c9e61c2624af7.f0.flv`.
 ```json
 {
     "channel_id": "3891_@v_tls#3pfnm5fw35qt", 
