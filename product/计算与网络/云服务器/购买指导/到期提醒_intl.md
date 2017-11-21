@@ -2,7 +2,7 @@
 
 ## 1.	Expiration reminder for postpaid CVMs
  
- ![](//mccdn.qcloud.com/img567f91951599d.png)
+![ ](//mc.qcloudimg.com/static/img/3a50706a27bfc92a2a52d524e04beca9/image.png)
  
 ### 1.1. Balance warning
 The system will estimate the period you balance can last every day based on your consumption of the pay-per-use resources under your account and your balance. If the period is less than 5 days, we will push a balance warning message to you. The warning message will be sent by Email and SMS to the Tencent Cloud account creator and all collaborators.

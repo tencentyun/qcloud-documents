@@ -5,7 +5,7 @@ Through the Tencent Cloud basic network, all of the user's resources on the clou
 With the Tencent Cloud Private Network (VPC), you can customize a logical isolated virtual network within the cloud and launch a CVM resource (such as an instance) into the quarantine. Even in the same area, different VPCs cannot communicate with each other by default. VPC is very similar to traditional networks that data centers run, but at the same time, can offer you faster and more extensible infrastructures on the cloud. Users can customize network topology and IP addresses within the network and configure the [Router Table](https://cloud.tencent.com/doc/product/215/4954), gateway and security settings; supports [Dedicated Connection](https://cloud.tencent.com/doc/product/215/4976) through your local data center, and rapid expansion of computing resources; freely plan how your VPC communicates with the Internet. Use a variety of control methods (including [Security Group](/doc/product/213/5221) and [Network ACL](https://cloud.tencent.com/doc/product/215/5132) to protect VPC resources. For more information, see [Private Network Product Documentation](https://cloud.tencent.com/doc/product/215). Private networks can help users build more complex network architectures, suitable for users who are familiar with network management.
 
 ## Basic network and private network
-![](//mccdn.qcloud.com/static/img/f1c113751199560fb87bc002b4bf0207/image.png)
+![ ](//mc.qcloudimg.com/static/img/33f800da64d2b7c0e6c2f23f102e059a/image.png)
 
 						
 The functional differences between the private network and the basic network are shown in the table below:
