@@ -337,15 +337,15 @@ table td {
   </tr>
   <tr align="center">
     <td>iOS 源码包</td>
-    <td>3.5.2145</td>
+    <td>3.7.3404</td>
 		<td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">[DOC]</a></td>
-		<td><a href="http://download-1252463788.cossh.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_3.5.2145.zip">DOWNLOAD</a></td>
+		<td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_3.7.3404.zip">DOWNLOAD</a></td>
   </tr>
 	<tr align="center">
     <td>Android 源码包</td>
-    <td>3.5.2145</td>
+    <td>3.7.3404</td>
 		<td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7892">[DOC]</a></td>
-		<td><a href="http://download-1252463788.cossh.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_3.5.2145.zip">DOWNLOAD</a></td>
+		<td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_3.7.3404.zip">DOWNLOAD</a></td>
   </tr>
 	<tr align="center">
     <td>PHP源码包</td>
