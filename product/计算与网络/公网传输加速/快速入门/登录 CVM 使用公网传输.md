@@ -1,5 +1,5 @@
 您在成功创建云服务器后，可以通过控制台登录到云服务器，使用公网传输。示例如下：
-登录[腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。
+登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。
 ![登录](//mc.qcloudimg.com/static/img/ff6e234a3c1b419cc8ea2ba272c59101/image.png)
 选择云服务器项目。
 ![控制台](//mc.qcloudimg.com/static/img/6c158f2c0e65ef1c5353cf5db74da8af/image.png)
