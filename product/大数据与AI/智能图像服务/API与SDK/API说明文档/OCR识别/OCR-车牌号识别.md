@@ -2,6 +2,10 @@
 
 OCR - 车牌号识别用于识别图像上的车牌号码。
 
+## 计费
+
+请查看[计费说明](/document/product/641/12399)。
+
 ## 说明
 
 (1) 每个请求的包体大小限制为6MB。
@@ -12,7 +16,9 @@ OCR - 车牌号识别用于识别图像上的车牌号码。
 
 ## 调用URL
 
+```
 http://recognition.image.myqcloud.com/ocr/plate
+```
 
 ## 请求方式
 
@@ -27,7 +33,7 @@ OCR接口采用http协议，支持指定图片URL和上传本地图片文件两�
 | Host           | recognition.image.myqcloud.com | 图像识别服务器域名                                |
 | Content-Length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json               | 标准json格式                                 |
-| Authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](https://cloud.tencent.com/doc/product/275/3805) |
+| Authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](/document/product/641/12409) |
 
 #### 请求参数
 
@@ -49,13 +55,13 @@ items说明
 
 | 字段         | 子字段    | 类型     | 说明        |
 | ---------- | ------ | ------ | --------- |
-| item       |        | String | 字段名称      |
-| itemstring |        | String | 字段内容      |
+| item       | &nbsp; | String | 字段名称      |
+| itemstring | &nbsp; | String | 字段内容      |
 | itemcoord  | x      | Int    | item框左上角x |
-|            | y      | Int    | item框左上角y |
-|            | width  | Int    | item框宽度   |
-|            | height | Int    | item框高度   |
-| itemconf   |        | Float  | 字段识别结果置信度 |
+| &nbsp;     | y      | Int    | item框左上角y |
+| &nbsp;     | width  | Int    | item框宽度   |
+| &nbsp;     | height | Int    | item框高度   |
+| itemconf   | &nbsp; | Float  | 字段识别结果置信度 |
 
 ## 示例
 
@@ -139,5 +145,7 @@ Content-Type: text/json
 | -1304 | 参数过长                       |
 | -1308 | url 图片下载失败                 |
 
-更多其他 API 错误码请看[错误码说明](/document/product/460/8523) 。
+
+更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+
 

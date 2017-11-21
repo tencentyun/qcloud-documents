@@ -1,4 +1,4 @@
-As a general monitoring and management system, Tencent Cloud Monitor monitors all your Tencent cloud products and resources in real time to provide the most complete and detailed monitoring data. When monitoring [Cloud Virtual Machine](https://cloud.tencent.com/product/cvm.html), [Cloud Database](https://cloud.tencent.com/product/cdb-overview.html), [Cloud Load Balance](https://cloud.tencent.com/product/clb.html), and other Cloud products, Cloud Monitor extracts their key metrics and displays the monitored results in chart, which allows you to have a clear understanding of your resource usage, application performance and cloud product health, set custom alarm threshold, and send notifications based on your custom rules.
+ As a general monitoring and management system, Tencent Cloud Monitor monitors all your Tencent cloud products and resources in real time to provide the most complete and detailed monitoring data. When monitoring [Cloud Virtual Machine](https://cloud.tencent.com/product/cvm.html), [Cloud Database](https://cloud.tencent.com/product/cdb-overview.html), [Cloud Load Balance](https://cloud.tencent.com/product/clb.html), and other Cloud products, Cloud Monitor extracts their key metrics and displays the monitored results in chart, which allows you to have a clear understanding of your resource usage, application performance and cloud product health, set custom alarm threshold, and send notifications based on your custom rules.
 
 Cloud Monitor uses monitoring charts to demonstrate the health and performance of your cloud products. If any exceptions are monitored, an alarm message will be pushed to you, enabling you to know the product usage and health without developing a new application. You can get the monitoring data using [Cloud Monitoring Console](https://console.cloud.tencent.com/monitor/overview), [Cloud Monitoring API](https://cloud.tencent.com/doc/api/405) or [Tencent Cloud CLI](https://cloud.tencent.com/doc/product/440).
 
@@ -7,7 +7,7 @@ You can get the following functions in the Cloud Monitoring Console:
 
 | Module | Feature |Function |
 |---------|---------|---------|
-| Monitor Overview | Cloud monitoring overview | Provide general monitoring results and health check, so you can view the monitoring data at a glance |
+| Monitor Overview | Cloud Monitoring overview | Provide general monitoring results and health check, so you can view the monitoring data at a glance |
 | My Alarms | User-defined alarm threshold | Support Alarm Settings for CVMs, Cloud Databases, CDN, VPN, etc. |
 | Cloud Product Monitoring | Visualized cloud products monitoring | Cloud monitor console provides monitoring views for Cloud Databases, CVMs, memcached and other cloud products |
 | Custom Monitoring | User-defined monitoring metrics | Check user-defined custom monitoring metrics and reported data |

@@ -1,82 +1,74 @@
-## 性能及价格说明
-
-<table class="cvmMonth">
+##一、价格
+<table>
         <tbody><tr>
-            <th style="width: 10%;" rowspan="2">对比项</th>
-            <th style="width: 40%;" colspan="2">本地盘</th>
-            <th style="width: 50%;" colspan="3">云硬盘</th>
+            <th style="width:30%;" rowspan="2">CBS</th>
+            <th style="width:70%;" colspan="3">按量计费价格（USD/GB*小时）</th>
         </tr>
         <tr>
-            <th>普通本地盘</th>
-            <th>SSD本地盘</th>
-			<th>普通云盘</th>
-			<th>SSD云硬盘</th>
-            <th>高性能云硬盘</th>
+            <th>普通云盘</th>
+            <th>高效云盘</th>
+            <th>SSD云盘</th>
         </tr>
         <tr>
-            <td>单盘规格(作为数据盘使用)</td>
-            <td>10GB - 1000GB</td>
-            <td>10GB - 250GB</td>
-						<td>10GB - 16000GB</td>
-            <td>100GB - 4000GB</td>
-            <td>50GB - 4000GB</td>
+            <td rowspan="2">广州、北京、上海</td>
+            <td rowspan="2">USD $0.0001</td>
+            <td rowspan="2">USD $0.0002</td>
+            <td rowspan="2">USD $0.0003</td>
         </tr>
-        <tr>
-            <td>最大吞吐量</td>
-            <td>40-数百MB/s</td>
-            <td>300MB/s</td>
-						<td>40-100MB/s</td>
-            <td>128 - 260MB/s</td>
-            <td>75 - 130MB/s</td>
-        </tr>
-					<tr>
-            <td>吞吐性能计算公式</td>
-            <td>不适用</td>
-            <td>不适用</td>
-						<td>不适用</td>
-            <td>吞吐量={min 128+0.147*(购买容量-100GB)，max 260}MB/s<br>
-最低吞吐峰值为128MB/s、每GB增加0.147MB/s，上限是260MB/s；</td>
-            <td>吞吐量={min 75+磁盘容量*0.147，max 130} MB/s<br>最低吞吐峰值为75MB/s，上限是130MB/s；
-</td>
-        </tr>
-        <tr>
-            <td>最大IOPS</td>
-            <td>数百-1000</td>
-            <td>30000</td>
-						<td>数百-1000</td>
-            <td>2400-24000</td>
-            <td>1500-4500</td>
-        </tr>
-				<tr>
-            <td>性能计算公式</td>
-            <td>不适用</td>
-            <td>不适用</td>
-						<td>不适用</td>
-            <td>IOPS={24*磁盘容量}<br>
-每GB提供24个IOPS、上限是24000；最低IOPS峰值为2400；</td>
-            <td>IOPS={min 1500+8*容量，max 4500}<br>
-每GB提供8个IOPS、上限是4500；最低IOPS峰值为1500；；
-</td>
-        </tr>
-								<tr>
-            <td>价格(广州、北京、上海、香港、多伦多)</td>
-            <td><br>
-按量计费：0.01美元/100G/小时</td>
-            <td><br>
-按量计费：0.03美元/时/100GB</td>
-            <td><br>
-按量计费：0.01美元/时/100GB</td>
-						<td><br>
-按量计费：0.03美元/时/100GB</td>
-            <td><br>
-按量计费：0.02美元/时/100GB</td>
-        </tr>
-        
-    </tbody></table>
-    
-**补充：**
+        </tbody>
+</table>
 
-- 系统盘不支持独立售卖，随服务器一起售卖
+##2.Disk Type
+<table>
+        <tbody><tr>
+            <th style="width: 20%;">CBS卷类型</th>
+            <th style="width: 20%;">普通云硬盘<br>（HDD Cloud Storage）</th>
+            <th style="width: 30%;">高性能云硬盘<br>（HDD-SSD Fusion Cloud Storage）</th>
+            <th style="width: 30%;">SSD云硬盘<br>（SSD Cloud Storage）</th>
+        </tr>
+        <tr>
+            <td>描述</td>
+            <td>适用于常规工作负载的低成本 HDD 卷类型</td>
+            <td>适用于均衡核心工作负载的价格和性能的混合介质卷类型</td>
+			<td>适用于对延迟敏感的核心交易型工作负载的SSD卷类型</td>
+        </tr>
+        <tr>
+            <td>典型场景</td>
+            <td>大数据、数据仓库、日志处理</td>
+            <td>业务逻辑处理、低延迟应用程序</td>
+			<td>关系型数据库和NoSQL 数据库</td>
+        </tr>
+        <tr>
+            <td>数据持久性</td>
+            <td>99.999999%</td>
+            <td>99.999999%</td>
+			<td>99.999999%</td>
+        </tr>
+        <tr>
+            <td>磁盘大小</td>
+            <td>10 GB - 16 TB</td>
+            <td>50 GB - 4 TB</td>
+			<td>100 GB - 4 TB</td>
+        </tr>
+        <tr>
+            <td>单盘最大IOPS</td>
+            <td>1000</td>
+            <td>4500</td>
+			<td>24000</td>
+        </tr>
+        <tr>
+            <td>单盘最大吞吐</td>
+            <td>100 MB/s</td>
+            <td>130 MB/s</td>
+			<td>260 MB/s</td>
+        </tr>
+        <tr>
+            <td>访问时延</td>
+            <td>小于10 ms</td>
+            <td>小于3 ms</td>
+			<td>小于3 ms</td>
+        </tr>
+    </tbody></table>
 
 
  

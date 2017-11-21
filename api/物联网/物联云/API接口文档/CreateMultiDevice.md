@@ -49,7 +49,8 @@ Body:
 {
     "Action": "CreateMultiDevice",
     "productName": "fruit",
-    "listDeviceName": [ "apple", "banana" ],
+    "listDeviceName.0": "apple",
+    "listDeviceName.1": "banana",
     #公共请求参数
 }
 ```

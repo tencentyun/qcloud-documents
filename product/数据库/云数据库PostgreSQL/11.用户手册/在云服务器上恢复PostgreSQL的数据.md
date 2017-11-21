@@ -18,7 +18,7 @@ tar zxf 20170905010143.tar.gz –C recovery
 ![](https://mc.qcloudimg.com/static/img/c946fa0b44be183d6fcdfbffb1815d33/2.png)
 
 ### 1.4 安装相同版本的posgresql（如已安装可跳过此步骤）
-例如采用yum源的安装方式，yum源可到https://yum.postgresql.org/查找您说需要的版本：
+例如采用yum源的安装方式，yum源可到 https://yum.postgresql.org/ 查找您所需要的版本：
 
 ```
 yum install http://yum.postgresql.org/9.3/RedHat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm

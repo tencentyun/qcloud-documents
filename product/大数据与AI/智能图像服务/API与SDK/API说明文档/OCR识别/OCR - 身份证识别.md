@@ -3,7 +3,7 @@
 本接口用于识别身份证上的姓名、证件号、地址等信息。
 
 ## 计费说明
-请查看[计费说明](/document/product/460/6970)。
+请查看[计费说明](/document/product/641/12399)。
 
 ## 说明
 | 概念    | 解释              |
@@ -24,7 +24,7 @@
 | Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](https://cloud.tencent.com/doc/product/275/3805)的签名 |
+| Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
 
 ## 使用图片 URL
 ### 请求参数
@@ -360,4 +360,4 @@ Content-Type: image/jpeg
 | -9100   | 身份证日期不合法                          |
 | -9101   | 身份证边框不完整                          |
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/460/8523) 。
+更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410)  。

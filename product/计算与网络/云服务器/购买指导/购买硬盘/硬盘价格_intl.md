@@ -7,7 +7,7 @@ Separate purchase of system disks is not supported. The data disk is purchased a
 ## 1. Postpaid
 >Note:
 >
-- Unit: <font color="red">CNY/100 GB/hour</font>
+- Unit: <font color="red">USD/100 GB/hour</font>
 - <font color="red">This price does not include the price of CVM hardware (CPU, memory) and network</font>
 
 <table class="diskHour">
@@ -23,7 +23,7 @@ Separate purchase of system disks is not supported. The data disk is purchased a
         <tr>
             <td rowspan="4">System disk</td>
             <td>HDD local disk</td>
-<td rowspan="8"><span style="color:red">CNY/100 GB/hour</span></td>
+<td rowspan="8"><span style="color:red">USD/100 GB/hour</span></td>
             <td rowspan="4">-</td>
             <td rowspan="4">-</td>
 						<td rowspan="4">Free: Linux 20 GB, Windows 50 GB</td>

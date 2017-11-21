@@ -1,4 +1,4 @@
-- 使用Phoenix salted 表
+- 使用 Phoenix salted 表
 
     Hbase 的 Row Key 假如没有经过精心设计，如果它又是自增长的，那么顺序写很可能会导致热点问题。PHoenix 提供了一种透明的方法，关联 salt 和 RowKey 到一张指定表的方案。只需要在创建表的时候添加 SALT_BUCKETS 关键字，这个值的范围是 1 到 256。比如：
 
@@ -10,7 +10,7 @@
       
     ![salted 表性能](https://mc.qcloudimg.com/static/img/8381e5a72ea654a488dd29b5d0effccf/5-4-4.png)  
 
-    更多 salte 性能或者操作说明，可查看 Phoenix salted 表[社区文档](http://phoenix.apache.org/salted.html)。
+    更多 salte 性能或者操作说明，可查看 Phoenix salted 表 [社区文档](http://phoenix.apache.org/salted.html)。
 
 - Phoenix 二级索引
 
@@ -45,4 +45,4 @@
     0: jdbc:phoenix:>CREATE INDEX my_index ON my_table (v1) INCLUDE (v2)；
     ```
     
-    更多二级索引操作说明，可查看 [Phoenix 二级索引社区文档](http://phoenix.apache.org/secondary_indexing.html), 有关使用二级索引后的性能，可查看[二级索引性能](http://phoenix-bin.github.io/client/performance/latest.htm)。
+    更多二级索引操作说明，可查看 [Phoenix 二级索引社区文档](http://phoenix.apache.org/secondary_indexing.html), 有关使用二级索引后的性能，可查看 [二级索引性能](http://phoenix-bin.github.io/client/performance/latest.htm)。

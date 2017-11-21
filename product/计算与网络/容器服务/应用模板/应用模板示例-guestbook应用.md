@@ -195,6 +195,7 @@ REDIS_SLAVE_IMAGE: v1
 
 ![应用模板gustbook示例-007.png-17.1kB][9]
 
+接下来可以使用创建的模板，进行应用服务部署。关于如何使用应用模板进行应用部署可以参考[创建应用][10]。关于`Guestbook`这个应用模板具体部署应用的过程可以参考应用[模板示例-Guestbook应用][11]。
 
   [1]: https://console.cloud.tencent.com/ccs/template
   [2]: https://mc.qcloudimg.com/static/img/916facfa358f0ab96524c2e644a3b223/image.png
@@ -205,3 +206,5 @@ REDIS_SLAVE_IMAGE: v1
   [7]: https://mc.qcloudimg.com/static/img/a3c9542183055e9ebc2cf834aae43957/image.png
   [8]: https://mc.qcloudimg.com/static/img/66635b054bf711fa4c570265bed3971a/image.png
   [9]: https://mc.qcloudimg.com/static/img/f371ff5c3969ecb50bc80f2599c5b67a/image.png
+  [10]: https://cloud.tencent.com/document/product/457/11942
+  [11]: https://cloud.tencent.com/document/product/457/11944

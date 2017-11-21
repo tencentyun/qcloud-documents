@@ -5,7 +5,7 @@
 ### 1.1	前期准备
 <p><b>前期准备</b><br>
 1.	安装openssl的库和头文件 <a href="http://www.openssl.org/source/" class="external free" title="http://www.openssl.org/source/" target="_blank" rel="nofollow">http://www.openssl.org/source/</a> <br>
-2.	安装curl的库和头文件 <a href="http://curl.haxx.se/download/curl-7.43.0.tar.gz" class="external free" title="http://curl.haxx.se/download/curl-7.43.0.tar.gz" target="_blank" rel="nofollow">http://curl.haxx.se/download/curl-7.43.0.tar.gz</a> <br>
+2.	安装curl的库和头文件 <a href="http://curl.haxx.se/download/curl-7.43.0.tar.gz" class="external free" title="http://curl.haxx.se/download/curl-7.43.0.tar.gz" target="_blank" rel="nofollow">https://curl.haxx.se/download.html</a> <br>
 3.	安装jsoncpp的库和头文件 <a href="https://github.com/open-source-parsers/jsoncpp" class="external free" title="https://github.com/open-source-parsers/jsoncpp" target="_blank" rel="nofollow">https://github.com/open-source-parsers/jsoncpp</a> <br>
 4.	安装cmake工具 <a href="http://www.cmake.org/download/" class="external free" title="http://www.cmake.org/download/" target="_blank" rel="nofollow">http://www.cmake.org/download/</a> <br>
 </p>

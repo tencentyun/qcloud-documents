@@ -1,12 +1,12 @@
 - 原始数据非 HDFS 数据
 
-    如果您的原始数据是非 HDFS 数据而是其他形式的文件数据，可以通过 COS 的 web 控制台或者 COS 提供的 API 来把数据传入到COS，然后在 EMR 集群中进行分析，COS 传输数据请查看资料
+    如果您的原始数据是非 HDFS 数据而是其他形式的文件数据，可以通过 COS 的 web 控制台或者 COS 提供的 API 来把数据传入到 COS，然后在 EMR 集群中进行分析，COS 传输数据请查看资料
 
 - 原始数据在 HDFS 的数据迁移
 
     1. 获取 COS 迁移工具
 
-        [点此](https://github.com/tencentyun/hdfs_to_cos_tools)获取迁移工具，更多迁移工具请参考[这里](https://cloud.tencent.com/document/product/436/6242)
+        [点此](https://github.com/tencentyun/hdfs_to_cos_tools) 获取迁移工具，更多迁移工具请参考 [这里](https://cloud.tencent.com/document/product/436/6242)
 
     2. 工具配置
 
@@ -60,10 +60,9 @@
 
     如上图所示，其中 sum 表示总共需要迁移的文件数；ok 表示成功迁移的文件数；fail 表示迁移失败的文件数；skip 表示在添加 skip_if_len_match 参数后，由于上传文件和同名文件具有相同长度的文件，则跳过的数量。您也可以登录 COS 控制台查看数据是否已经正确迁移过来。
 
-- 常见问题
-
-    1. 请确保填写的配置信息，包括 appID，秘钥信息，bucket 和 region 信息正确，以及机器的时间和北京时间一致(如相差 1 分钟左右是正常的)，如果相差较大，请设置机器时间。
-    2. 请保证对于 DateNode, 拷贝程序所在的机器也可以连接. 因 NameNode 有外网 IP 可以连接, 但获取的 block 所在的 DateNode 机器是内网 IP, 无法连接上, 因此建议同步程序放在 Hadoop 的某个节点上执行,保证对 NameNode 和 DateNode 皆可访问
-    3. 权限问题, 用当前账户使用 Hadoop 命令下载文件, 看是否正常, 再使用同步工具同步 Hadoop 上的数据
-    4. 对于 COS 上已存在的文件, 默认进行重传覆盖，除非用户明确的指定 -skip_if_len_match，当文件长度一致时则跳过上传。
-    5. cos path 都认为是目录, 最终从 HDFS 上拷贝的文件都会存放在该目录下
+- 常见问题  
+    - 请确保填写的配置信息，包括 appID，秘钥信息，bucket 和 region 信息正确，以及机器的时间和北京时间一致(如相差 1 分钟左右是正常的)，如果相差较大，请设置机器时间。  
+    - 请保证对于 DateNode, 拷贝程序所在的机器也可以连接. 因 NameNode 有外网 IP 可以连接, 但获取的 block 所在的 DateNode 机器是内网 IP, 无法连接上, 因此建议同步程序放在 Hadoop 的某个节点上执行,保证对 NameNode 和 DateNode 皆可访问。    
+    - 权限问题, 用当前账户使用 Hadoop 命令下载文件, 看是否正常, 再使用同步工具同步 Hadoop 上的数据。    
+    - 对于 COS 上已存在的文件, 默认进行重传覆盖，除非用户明确的指定 -skip_if_len_match，当文件长度一致时则跳过上传。    
+    - cos path 都认为是目录, 最终从 HDFS 上拷贝的文件都会存放在该目录下。

@@ -2,7 +2,7 @@
  
 This API (DescribeRegions) is used to obtain the availability zones of CPM.
 
-Domain for API request: <font style="color:red">bm.api.qcloud.com</font>
+Domain for API request: <font style="color:red">bm.api.cloud.tencent.com</font>
 
 
 ## 2. Input Parameters
