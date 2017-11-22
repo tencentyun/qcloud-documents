@@ -21,7 +21,7 @@ It will:
 
 
 ## Preconditions of Configuration
-Your WeChat Lite App should support auto scaling. To enable auto scaling for your WeChat Lite App, refer to [Detailed Steps](https://console.qcloud.com/la/guide).
+Your WeChat Lite App should support auto scaling. To enable auto scaling for your WeChat Lite App, refer to [Detailed Steps](https://console.cloud.tencent.com/la/guide).
 
 ## Configuring Auto Scaling Policy for Session Servers
 
@@ -29,7 +29,7 @@ Your WeChat Lite App should support auto scaling. To enable auto scaling for you
 
 As **scaling configuration** is the template for CVMs creation when scaling, we specify the region, model, image through scaling configuration in advance.
 
-1. Log in to [Auto Scaling Console](https://console.qcloud.com/autoscaling/config), and click "Scaling Configuration" in the navigation bar.
+1. Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click "Scaling Configuration" in the navigation bar.
 
 2. Choose the project and region. Note that you must select the project and region of your WeChat Lite App.
 ![](https://mc.qcloudimg.com/static/img/9a39d87fa90f3ae5995073a6077b1057/1.jpg)
@@ -43,7 +43,7 @@ As **scaling configuration** is the template for CVMs creation when scaling, we 
 
 ### 2. Create a Scaling Group
 
-In the [Auto Scaling Console](https://console.qcloud.com/autoscaling), click "New" and fill in the cluster management information as follows:
+In the [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling), click "New" and fill in the cluster management information as follows:
 
 - **Name**: Fill in an appropriate name, such as "Session Server Cluster".
 - **Minimum group size**: Lower limit of the number of cluster servers, such as "0".
@@ -62,7 +62,7 @@ Click **Done** to finish the creation.
 
 ### 3. Add Existing CVMs to the Scaling Group
 
-1. In the [Auto Scaling Console](https://console.qcloud.com/autoscaling), click on the scaling group name to enter the management page, and click "Add CVM" at the bottom of the page.
+1. In the [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling), click on the scaling group name to enter the management page, and click "Add CVM" at the bottom of the page.
 ![](https://mc.qcloudimg.com/static/img/3ff1beba2621d68ef939d7fd0df2de11/5.jpg)
 
 2. Select the existing session server to add to the scaling group in the pop-up dialog box.
