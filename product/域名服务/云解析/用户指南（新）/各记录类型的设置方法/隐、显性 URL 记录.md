@@ -16,5 +16,6 @@
 6. TTL 不需要填写，添加时系统会自动生成，默认为 600 秒（TTL 为缓存时间，数值越小，修改记录生效时间越快）。
 ![](//mc.qcloudimg.com/static/img/b1201d381985067214ad99c688de459e/image.png)
 ![](//mc.qcloudimg.com/static/img/4bc770b92f945758f3d0cce05d5c5b4f/image.png)
+
 ### 什么情况下会用到 URL 转发？
 将一个域名指向另外一个已经存在的站点，就需要添加 URL 记录。
