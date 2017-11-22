@@ -21,9 +21,9 @@ Mykey（别名） -tsa <时间戳>（时间戳为可选项，需有网络的条�
 
 安装示例：
 在Windows中cmd命令下，采用cd命令进入C:\Program Files\Java\jdk\bin，输入  
-```
-Jarsigner  –keystore  1.jks –storepass 123123  1.jar  mykey  –tsa <br> http://sha256timestamp.ws.symantec.com/sha256/ 
-```
+
+`Jarsigner  –keystore  1.jks –storepass 123123  1.jar  mykey  –tsa ` `http://sha256timestamp.ws.symantec.com/sha256/ `
+
 ### 4. 获取别名
 
 利用在线证书转换工具转换证书格式时，需要提供文件别名，因此可通过keytool工具下的命名获取别名。  
