@@ -28,7 +28,5 @@
 
 ### 数据统计
 在【数据统计】一栏中可以查询任意时间段的用户登录和分享数据，如下图所示：
-![](https://mc.qcloudimg.com/static/img/d0585aea4775bb8df313855d662d3bfa/image.png)
-
-
+![](https://mc.qcloudimg.com/static/img/2ca067e48628a71829723be832b8913b/image.png)
 
