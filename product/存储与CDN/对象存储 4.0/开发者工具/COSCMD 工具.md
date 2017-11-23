@@ -166,7 +166,7 @@ coscmd list bbb/123.txt  -r -n 10 //操作示例
 * 使用 `-n num` 设置打印数量的最大值
 
 **注意：** 
-1. <cospath>为空默认打印当前Bucket根目录
+` <cospath> `为空打印当前Bucket根目录
 
 ### 显示文件信息
 - 命令如下：
