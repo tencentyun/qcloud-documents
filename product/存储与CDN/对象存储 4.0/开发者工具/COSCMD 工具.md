@@ -23,8 +23,11 @@ python setup.py install
 ```
 pip install coscmd
 ```
-安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。如下图所示：
-![](//mc.qcloudimg.com/static/img/3ba7db584152f03ad5d1848058c35743/image.png)
+安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
+```
+coscmd -v
+coscmd 1.7.7.6
+```
 - **pip 更新**
 下执行`pip`命令进行更新：
 ```
@@ -37,8 +40,38 @@ pip install coscmd -U
 ```
 coscmd -h  //查看当面版本信息
 ```
-help 信息如下图所示：
-![](//mc.qcloudimg.com/static/img/d7d49135c1f3064e4d1be3c210192143/image.png)
+help 信息如下所示：
+```
+usage: coscmd [-h] [-d] [-v]
+              {config,upload,download,delete,list,info,mget,signurl,putobjectacl,getobjectacl,putbucketacl,getbucketacl}
+              ...
+
+an easy-to-use but powerful command-line tool. try 'coscmd -h' to get more
+informations. try 'coscmd sub-command -h' to learn all command usage, likes
+'coscmd upload -h'
+
+positional arguments:
+  {config,upload,download,delete,list,info,mget,signurl,putobjectacl,getobjectacl,putbucketacl,getbucketacl}
+    config              config your information at first.
+    upload              upload file or directory to COS.
+    download            download file from COS to local.
+    delete              delete file or files on COS
+    list                list files on COS
+    info                get the information of file on COS
+    mget                download big file from COS to local.
+    signurl             get download url
+    putobjectacl        set object acl
+    getobjectacl        get object acl
+    putbucketacl        set bucket acl
+    getbucketacl        get bucket acl
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d, --debug           debug mode
+  -v, --version         show program's version number and exit
+
+```
+
 除此之外，用户还可以在每个命令后（不加参数）输入`-h`查看该命令的具体用法，例如：
 ```
 coscmd upload -h  //查看 upload 命令使用方法
@@ -46,7 +79,7 @@ coscmd upload -h  //查看 upload 命令使用方法
 ### 配置参数
 COSCMD 工具在使用前需要进行参数配置。用户可以直接编辑`~/.cos.conf`文件，也可以通过如下命令来配置：
 ```
-coscmd config -a <access_id> -s <secret_key> -u <appid> -b <bucketname> -r <region> [-m <max_thread>] [-p <parts_size>]      
+coscmd config -a <secret_id> -s <secret_key> -u <appid> -b <bucketname> -r <region> [-m <max_thread>] [-p <parts_size>]      
 ```
 上述示例中使用"<>"的字段为必选参数，使用"[]"的字段为可选参数。其中：
 
