@@ -67,7 +67,7 @@ The EIPs that are bound to CVMs (or NAT gateways) are free. To ensure the effect
 2) In the left navigation pane, click "Elastic Public IP".
 3) Select a region in the list and click the "Apply" button.
 3) After the application is successful, the EIP you applied for will display in the EIP list.
-![](https://mc.qcloudimg.com/static/img/3540f79bb093ade831a5261f510b9a93/EIP.jpg)
+![](https://mc.qcloudimg.com/static/img/9b456a3f09f479d553e06503dee42aa1/EIP.jpg)
 
 ### Modifying the EIP Name
 1) Open the CVM Console.

@@ -301,7 +301,7 @@ A2F2F3C3506F3461212525C4917479B515ABB42BDC5909F7C012B6F74C0C1B99
 # 交易接口
 ## 刷卡支付
 ### 接口地址
->https://pay.qcloud.com/cpay/micro_pay  
+`https://pay.qcloud.com/cpay/micro_pay`  
 
 content\_type：application/json
 ### 输入参数
@@ -527,7 +527,7 @@ post(request, "https://pay.qcloud.com/cpay/micro_pay", &response);
 ```
 ## 扫码支付
 ### 接口地址
->https://pay.qcloud.com/cpay/scan_code_pay
+`https://pay.qcloud.com/cpay/scan_code_pay`
 
 content_type：application/json
 ### 输入参数
@@ -749,7 +749,7 @@ post(request, "https://pay.qcloud.com/cpay/scan_code_pay", &response);
 - **支付宝只有发生支付超时或者支付结果未知时可调用撤销**
 - **撤单的终端必须和发起支付的终端是同一个（为保证安全）**
 ### 接口地址
->https://pay.qcloud.com/cpay/reverse
+`https://pay.qcloud.com/cpay/reverse`
 
 content_type：application/json
 ### 输入参数
@@ -955,7 +955,7 @@ post(request, "https://pay.qcloud.com/cpay/reverse", &response);
 ```
 ## 申请退款
 ### 接口地址
->https://pay.qcloud.com/cpay/refund
+`https://pay.qcloud.com/cpay/refund`
 
 content_type：application/json
 ### 输入参数
@@ -1183,7 +1183,7 @@ post(request, "https://pay.qcloud.com/cpay/refund", &response);
 ```
 ## 关闭订单
 ### 接口地址
->https://pay.qcloud.com/cpay/close_order
+`https://pay.qcloud.com/cpay/close_order`
 
 content_type：application/json
 ### 输入参数
@@ -1397,7 +1397,7 @@ post(request, "https://pay.qcloud.com/cpay/reverse", &response);
 ```
 ## 查询订单
 ### 接口地址
->https://pay.qcloud.com/cpay/query_order
+`https://pay.qcloud.com/cpay/query_order`
 
 content_type：application/json
 ### 输入参数
@@ -1623,7 +1623,7 @@ post(request, "https://pay.qcloud.com/cpay/query_order", &response);
 ```
 ## 查询退款单
 ### 接口地址
->https://pay.qcloud.com/cpay/query_refund_order
+`https://pay.qcloud.com/cpay/query_refund_order`
 
 content_type：application/json
 ### 输入参数
@@ -2146,7 +2146,7 @@ content_type：application/json
 ### 特别说明
 - 如使用接口配置门店信息，则不要再使用云支付提供的商户管理后台页面配置门店信息，否则会造成云支付和服务商系统的门店信息不一致。
 ### 接口地址
->https://pay.qcloud.com/cpay/set_sub_mch_shop_info
+`https://pay.qcloud.com/cpay/set_sub_mch_shop_info`
 
 content_type：application/json
 ### 输入参数
@@ -2374,7 +2374,7 @@ post(request, "https://pay.qcloud.com/cpay/set_sub_mch_shop_info", &response);
 ```
 ## 查询门店信息
 ### 接口地址
->https://pay.qcloud.com/cpay/query_sub_mch_shop_info
+`https://pay.qcloud.com/cpay/query_sub_mch_shop_info`
 
 content_type：application/json
 ### 输入参数
@@ -2582,7 +2582,7 @@ post(request, "https://pay.qcloud.com/cpay/query_sub_mch_shop_info", &response);
 # 监控上报接口
 ## 上报客户端接口监控信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload_client_monitor_info
+`https://pay.qcloud.com/cpay/upload_client_monitor_info`
 
 content_type：application/json
 ### 输入参数
@@ -2914,7 +2914,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_monitor_info", &respons
 ```
 ## 上报客户端机器配置信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload_client_conf_info
+`https://pay.qcloud.com/cpay/upload_client_conf_info`
 
 content_type：application/json
 ### 输入参数

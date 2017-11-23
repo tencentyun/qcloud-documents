@@ -83,7 +83,14 @@ passive_ports = 60000,65535
 [FILE_OPTION]
 single_file_max_size = 21474836480
 # 默认单文件大小最大支持到 200 GB，不建议设置太大。
+
+[OPTIONAL]
+# 以下设置，如无特殊需要，建议保留default设置。如需设置，请填写一个合理的整数。
+min_part_size       = default
+upload_thread_num   = default
+max_connection_num  = 512
 ```
+配置中OPTIONAL选项是用于调整上传性能的可选项，一般情况下保持默认值即可。根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度。 max_connection_num 为最大连接数的限制选项，设置为0表示不限制最大连接数，可以根据机器情况进行调整。 
 ## 运行
 正确填写配置文件后，直接通过 Python 运行根目录下的`ftp_server.py`即可启动 FTP Server。也可以配合screen 的命令将 FTP Server 放到后台运行。
 ```
