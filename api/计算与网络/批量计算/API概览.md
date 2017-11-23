@@ -4,7 +4,7 @@
 | 提交作业 | [SubmitJob]() | 用于提交一个待执行的作业 |
 | 查看作业列表| [DescribeJobs]() | 用于查看一个或者多个作业的概览信息 |
 | 查看作业信息 | [DescribeJob]() | 用于查看一个作业的详细信息，包括内部任务（Task）和依赖（Dependence）信息 |
-| 查看任务详细信息 | [DescribeTask]() | 用于查看一个任务详细信息，包括任务实例（TaskInstance）信息 |
+| 查看任务信息 | [DescribeTask]() | 用于查看一个任务详细信息，包括任务实例（TaskInstance）信息 |
 | 查看作业的提交信息 | [DescribeJobSubmitInfo]() | 用于查看一个作业的提交信息，相当于查看作业对应的 SubmitJob 的参数 |
 | 终止任务实例 | [TerminateTaskInstance]() | 用于终止一个任务实例
 | 终止作业 | [TerminateJob]() | 用于终止一个作业，相当于对作业所包括的所有任务实例执行 TerminateTaskInstance 操作 |
@@ -16,7 +16,7 @@
 | 创建计算环境 | [CreateComputeEnv]() | 用于创建一个计算环境，包含一个或者多个 CVM 实例 |
 | 删除计算环境 | [DeleteComputeEnv]() | 用于删除一个计算环境 |
 | 查看计算环境列表 | [DescribeComputeEnvs]() | 用于查看一个或者多个计算环境的概览信息 |
-| 查看计算环境详细信息 | [DescribeComputeEnv]() | 查看计算环境详情 |
+| 查看计算环境信息 | [DescribeComputeEnv]() | 查看计算环境详情 |
 
 ## 3. 查看配置类接口
 | 接口功能 | Action ID | 功能描述 |
