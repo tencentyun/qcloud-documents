@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 ##CDB导入数据报错：Specified key was too long
 ##一、报错原因
 	 ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes
