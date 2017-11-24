@@ -8,8 +8,8 @@ Currently, CDB for MySQL supports two automatic backup methods
 
 #### 2. Setting Backup Method
 On the instance list page, click an instance, enter "Backup Management", and click "Automatic Backup Setting" to set backup method
-![](https://mc.qcloudimg.com/static/img/61eec4f474762057d6956dc61ecc1214/B1.png)
-![](https://mc.qcloudimg.com/static/img/d67376cc5c98175d31fd29ae55499cb9/B2.png)
+![](//mc.qcloudimg.com/static/img/e4c8cefb6dbe8d4bdc2c46848d8c40c9/image.png)
+![](//mc.qcloudimg.com/static/img/dcef37daa0e543f3cc6e832994ce06aa/image.png)
 
 #### 3. Notes About Backup Methods
 1. For logical backup, downloads at both the instance level and the database table level are supported, while for physical backup, only download at the instance level is supported

@@ -1,5 +1,3 @@
-#### FAQS
-
 **Q: Does Cloud Database MongoDB support public network access?**
 A: Temporarily not, you need to purchase a CVM, and access through private network
 

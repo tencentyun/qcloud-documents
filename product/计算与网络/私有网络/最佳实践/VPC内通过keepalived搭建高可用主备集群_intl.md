@@ -102,7 +102,8 @@ Vip.py: Develop the master/slave switchover program through Cloud API, and switc
 Please read README.md carefully and download SDK to the directory `/etc/keepalived`:
 
 2) Get Cloud API key:
-![](http://mc.qcloudimg.com/static/img/1bfebf103df7289eaae9e1484536c679/capi.jpg)
+
+![](https://mc.qcloudimg.com/static/img/eea1315c7e59e16251bb23ae84fa280c/capi.jpg)
 
 3) Develop vip.py switchover program for calling the Cloud API based on the SDK, save `vip.py` to the directory `/etc/keepalived`. The Cloud API of private IP migration:
 

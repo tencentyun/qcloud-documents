@@ -2,7 +2,7 @@
 
 ## Expiry Reminder for Pay-by-usage Cloud Block Storage
  
- ![](//mccdn.qcloud.com/img567f91951599d.png)
+![](//mc.qcloudimg.com/static/img/3a50706a27bfc92a2a52d524e04beca9/image.png)
  
 ### Balance Forewarning
 We will estimate the remaining available period of your account based on your usage of pay-by-usage resources under your account and your balance over the past 24 hours. We will send you a balance forewarning message if the period is less than 5 days. The forewarning message will be sent by email and SMS to Tencent Cloud account creator and all the collaborators.

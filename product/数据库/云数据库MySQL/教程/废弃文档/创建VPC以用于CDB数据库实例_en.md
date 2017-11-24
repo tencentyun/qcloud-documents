@@ -8,7 +8,7 @@ A VPC contains at least one subnet, only in which the cloud service resources ca
 3) Enter the names of VPC and subnet as well as CIDR, and then select the availability zone for the subnet.
 4) Click "Create".
 
-![][image-1]
+![ ](//mc.qcloudimg.com/static/img/412fdc0f7c95d9d575d307f31fe40df3/image.png)
 
 ### Step 2: Create a subnet
 You can create one or more subnets at a time.
@@ -20,7 +20,7 @@ You can create one or more subnets at a time.
 5) (Optional) Click "New Line" to create multiple subnets at a time.
 6) Click "Create".
 
-![][image-2]
+![](//mc.qcloudimg.com/static/img/c87608616f3327d191ef0c04e16a744b/image.png)
 
 
 ### Step 3: Create a routing table to associate with a subnet
@@ -34,7 +34,7 @@ You can create a custom routing table, edit the routing policy, and then associa
 6) Click the "Edit" button, and select the associated routing table in the drop-down box.
 7) Click "Save".
 
-![][image-3]
+![ ](//mc.qcloudimg.com/static/img/66098c2892eaf6f88b38b022973ca13b/image.png)
 
 ### Step 4: Add a CDB
 A newly purchased CDB can be used in the VPC. It should be noted that once you select the VPC to which a CDB is added, it cannot be changed.
@@ -54,6 +54,4 @@ A newly purchased CDB can be used in the VPC. It should be noted that once you s
 [10]:	https://console.cloud.tencent.com/
 [11]:	https://console.cloud.tencent.com/cdb/ "Cloud Database Console"
 
-[image-1]:	//mccdn.qcloud.com/static/img/55cdba64e785d9b073bc4169a9459e39/image.png
-[image-2]:	//mccdn.qcloud.com/static/img/66a4e93f7f8dfeeed421fb799fd09137/image.png
-[image-3]:	//mccdn.qcloud.com/static/img/a41758221e11cacef5dbdbd53f06049a/image.png
+
