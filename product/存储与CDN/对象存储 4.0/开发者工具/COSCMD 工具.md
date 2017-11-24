@@ -44,7 +44,7 @@ pip install coscmd -U
 coscmd -h  
 ```
 help 信息如下所示：
-```
+<pre>
 usage: coscmd [-h] [-d] [-v]
               {config,upload,download,delete,list,info,mget,signurl,putobjectacl,getobjectacl,putbucketacl,getbucketacl}
               ...
@@ -73,7 +73,7 @@ optional arguments:
   -d, --debug           debug mode
   -v, --version         show program's version number and exit
 
-```
+</pre>
 
 除此之外，用户还可以在每个命令后输入`-h`查看该命令的具体用法，例如：
 ```
