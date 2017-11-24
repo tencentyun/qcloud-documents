@@ -1,7 +1,7 @@
 ## 功能说明
 使用 COSCMD 工具，用户可通过简单的命令行指令实现对对象（Object）的批量上传、下载、删除等操作。
 ## 使用限制
-1. 适用于 COS V4、V5 版本；
+适用于 COS V4、V5 版本；
 
 ## 使用环境
 ### 系统环境
@@ -41,7 +41,7 @@ pip install coscmd -U
 ### 查看 help
 用户可通过`-h`或`--help`命令来查看工具的 help 信息。
 ```
-coscmd -h  //查看当面版本信息
+coscmd -h  
 ```
 help 信息如下所示：
 ```
@@ -75,7 +75,7 @@ optional arguments:
 
 ```
 
-除此之外，用户还可以在每个命令后（不加参数）输入`-h`查看该命令的具体用法，例如：
+除此之外，用户还可以在每个命令后输入`-h`查看该命令的具体用法，例如：
 ```
 coscmd upload -h  //查看 upload 命令使用方法
 ```
@@ -85,7 +85,7 @@ COSCMD 工具在使用前需要进行参数配置。用户可以直接编辑`~/.
 ```
 coscmd config -a <secret_id> -s <secret_key> -u <appid> -b <bucketname> -r <region> [-m <max_thread>] [-p <parts_size>]      
 ```
-上述示例中使用"<>"的字段为必选参数，使用"[]"的字段为可选参数。其中：
+上述示例中"<>"中的字段为必选参数，"[]"中的字段为可选参数。其中：
 
 | 名称         | 描述                                       | 有效值  |
 | :---------: | :----------------------------------------: | :----: |
@@ -99,12 +99,12 @@ coscmd config -a <secret_id> -s <secret_key> -u <appid> -b <bucketname> -r <regi
 
 配置完成之后的`.cos.conf`文件内容示例如下所示：
 ```
- [common]
+[common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
 secret_key = WE54wreefvds3462refgwewerewr
 appid = 1234567890
 bucket = ABC
-region = cn-south
+region =  ap-guangzhou
 max_thread = 5
 part_size = 1
 ```
@@ -120,29 +120,32 @@ coscmd upload -r <localpath> <cospath>  //命令格式
 coscmd upload -r /home/aaa/ bbb/  //操作示例
 ```
 
-请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
+请将 "<>" 中的参数替换为您的实际参数。` <localpath> `为需要上传的本地文件路径，` <cospath> ` 为COS上存储文件的目标路径。
 
 >**注意：** 
->1. 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)。
->2. COSCMD 支持大文件断点上传功能。当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
+>1. 上传文件时需要将cos上的路径补全(参考例子)，包括文件(夹)的名字。
+>2. COSCMD 支持大文件断点续传功能。大文件分块上传失败时，重新上传该文件只会重传失败的分块。 （请保证重新上传文件及其目录和上次上传时一致）。
 
 ### 下载文件或文件夹
-下载文件命令如下：
+
+- 下载文件命令如下：
 ```
 coscmd download <cospath> <localpath>  //命令格式
 coscmd download bbb/123.txt /home/aaa/111.txt  //操作示例
 ```
-- 如下下载文件夹命令如下：
+- 下载文件夹命令如下：
 ```
 coscmd download-r <cospath> <localpath> //命令格式
 coscmd download -r /home/aaa/ bbb/  //操作示例
 ```
-请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
-**注意：** 
-1. 若本地存在同名文件，则会下载失败。使用 `-f` 参数覆盖本地文件
-2. 将以上命令中的 `download` 替换为 `mget`， 则可以使用分块下载，在带宽足够的条件下速度会提升2-3倍。
+请将 "<>" 中的参数替换为您的实际参数。` <localpath> `为需要上传的本地文件路径，` <cospath> ` 为COS上存储文件的目标路径。
+
+>**注意：** 
+>1. 若本地存在同名文件，不带 `-f` 会因下载失败，使用 `-f` 参数可以成功下载并覆盖本地文件。
+>2. 当下载大文件时，可以使用 `mget` 替换 `download` ，以启用分块下载方式。 在带宽足够的条件下速度会提升2-3倍。
 
 ### 删除文件或文件夹
+
 - 删除文件命令如下：
 ```
 coscmd delete <cospath>  //命令格式
@@ -154,9 +157,7 @@ coscmd delete -r <cospath>  //命令格式
 coscmd delete -r bbb/  //操作示例
 ```
 
-请将"<>"中的参数替换为您需要删除的 COS 上文件的路径（cospath）。工具会提示用户是否确认进行删除操作。
-**注意：** 
-1. 批量删除需要输入确定，使用 `-f` 参数跳过确认 
+请将 "<>" 中的参数替换为您的实际参数。`<cospath>`为您需要删除的 COS 上文件的路径。批量删除时需要用户确认操作，使用 `-f` 参数可以跳过确认。
 
 ### 打印文件列表
 - 打印命令如下：
@@ -165,7 +166,7 @@ coscmd list <cospath>  //命令格式
 coscmd list -a //操作示例
 coscmd list bbb/123.txt  -r -n 10 //操作示例
 ```
-请将"<>"中的参数替换为您需要打印文件列表的 COS 上文件的路径（cospath）。
+请将 "<>" 中的参数替换为您的实际参数。`<cospath>`为您需要打印列表的 COS 上文件的路径。
 * 使用`-a`打印全部文件
 * 使用 `-r` 递归打印
 * 使用 `-n num` 设置打印数量的最大值
@@ -179,7 +180,7 @@ coscmd list bbb/123.txt  -r -n 10 //操作示例
 coscmd info <cospath>  //命令格式
 coscmd info bbb/123.txt //操作示例
 ```
-请将"<>"中的参数替换为您需要显示的 COS 上文件的路径（cospath）。
+请将 "<>" 中的参数替换为您的实际参数。`<cospath>`为您需要显示的 COS 上文件的路径。
 
 ### 获取带签名的下载url
 - 命令如下：
@@ -188,7 +189,7 @@ coscmd sigurl<cospath>  //命令格式
 coscmd signurl bbb/123.txt //操作示例
 coscmd signurl bbb/123.txt -t 100//操作示例
 ```
-请将"<>"中的参数替换为您需要获取下载url的 COS 上文件的路径（cospath）。
+请将 "<>" 中的参数替换为您的实际参数。`<cospath>`为您需要下载的 COS 上文件的路径。
 * 使用 `-t time` 设置打印签名的有效时间(单位为秒)
 
 ### 设置访问控制(ACL)
@@ -207,13 +208,13 @@ coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --
 ```
 * ACL设置指南
 
- --grant-read代表读的权限。
+ --grant-read：读权限。
  
- --grant-write代表写的权限。
+ --grant-write：写权限。
 
- --grant-full-control代表读写的权限。
+ --grant-full-control：读写权限。
 
-GRANT_READ / GRANT_WRITE / GRANT_FILL_CONTORL代表被赋权的帐号。
+GRANT_READ / GRANT_WRITE / GRANT_FILL_CONTORL：被赋权的帐号。
 
 若赋权根帐号，使用rootid的形式；
 
