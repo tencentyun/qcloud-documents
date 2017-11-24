@@ -14,9 +14,6 @@ table td {
 }
 </style>
 
-<script src="//pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500538821" cid="500538834"></script>
-
-
 <h2 id="iOS"> iOS 平台 (3.7.3403) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
@@ -377,5 +374,18 @@ Ver3.0 以后的版本为新架构版本，相比于旧架构，在性能和稳�
 
 ## 联系我们！
 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://cloud.tencent.com/document/product/454/7998)。
+
+<script>
+  	var _mtac = {"senseHash":0};
+  	(function() {
+  		var mta = document.createElement("script");
+  		mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.setAttribute("name", "MTAH5");
+  		mta.setAttribute("sid", "500538821");
+  		mta.setAttribute("cid", "500538834");
+  		var s = document.getElementsByTagName("script")[0];
+  		s.parentNode.insertBefore(mta, s);
+  	})();
+</script>
 
 
