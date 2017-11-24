@@ -31,7 +31,7 @@ The typical applications for cross-region peering connection (cross-region inter
 ![](https://mc.qcloudimg.com/static/img/743f16c5d86997d0d797ec86722d3323/VPC-Peer+Connection%282%29.png)
 
 ### Workflow for Deleting a Peering Connection
-![](//mccdn.qcloud.com/static/img/0e0ae950ebface4e307cd510de2b885e/image.pnghttps://mc.qcloudimg.com/static/img/fbfaddf94684023e2f28f04576c4f740/VPC-Peer+Connection%283%29.png)
+![](https://mc.qcloudimg.com/static/img/fbfaddf94684023e2f28f04576c4f740/VPC-Peer+Connection%283%29.png)
 
 ## Service Limits
 When using peering connection, you have to note the following:
