@@ -14,18 +14,7 @@ table td {
 }
 </style>
 
-<script type="text/javascript">
-	var _mtac = {"senseHash":0};
-	(function() {
-		var mta = document.createElement("script");
-		mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
-		mta.setAttribute("name", "MTAH5");
-		mta.setAttribute("sid", "500538821");
-		mta.setAttribute("cid", "500538834");
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(mta, s);
-	})();
-</script>
+<script src="//pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500538821" cid="500538834"></script>
 
 
 <h2 id="iOS"> iOS 平台 (3.7.3403) </h3>
