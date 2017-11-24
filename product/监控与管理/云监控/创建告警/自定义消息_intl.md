@@ -14,7 +14,7 @@ Execute the following commands directly and view the help information:
 cagent_tools
 ```
 The result is as follows:
-![](//mccdn.qcloud.com/img56cacd38f3fb9.png)
+![](//mc.qcloudimg.com/static/img/dc75f6a2f791b7d7117bff3e38556017/image.png)
 
 3) Example
 
@@ -72,7 +72,7 @@ Execute the following commands directly on the command line interface and view t
 cagent_tools
 ```
 The results are:
-![](//mccdn.qcloud.com/img56cacf193430e.png)
+![](//mc.qcloudimg.com/static/img/100806bd0ceca1f6e45320aa25af6916/image.png)
 
 3) Example
 

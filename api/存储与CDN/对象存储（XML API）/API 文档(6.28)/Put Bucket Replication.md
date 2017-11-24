@@ -68,7 +68,7 @@ PUT /?replication HTTP/1.1
 |Prefix    |ReplicationConfiguration.Rule    |前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空    |String    |是|
 |Destination    |ReplicationConfiguration.Rule    |目标存储桶信息    |Container    |是|
 |Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：qcs:id/0:cos:[region]:appid/[AppId]:[bucketname]    |String    |是|
-|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：Standard, Standard_IA, Nearline；默认值：原存储桶级别    |String    |否|
+|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：STANDARD, STANDARD_IA, NEARLINE；默认值：原存储桶级别    |String    |否|
 
 ## 响应
 

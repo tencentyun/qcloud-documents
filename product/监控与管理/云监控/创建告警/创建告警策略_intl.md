@@ -14,7 +14,7 @@ A user need to create an alarm policy first before sending an alarm for a certai
 - A maximum of 15 alarm policies can be created for each policy type per project.
 
 4) You can set an existing policy as a default alarm policy. The newly purchased CVM will automatically associate with the default alarm policy.
-![](//mccdn.qcloud.com/img568a63ffe4329.png)
+![ ](//mc.qcloudimg.com/static/img/8fe8ff0026d74934c498d7f304869adc/image.png)
 
 > Note:
 >- Each policy type has only one default policy.
