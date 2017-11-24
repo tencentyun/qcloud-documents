@@ -26,7 +26,7 @@ pip install coscmd
 安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
 ```
 coscmd -v
-coscmd 1.7.7.6
+coscmd 1.8.1
 ```
 - **pip 更新**
 下执行`pip`命令进行更新：
