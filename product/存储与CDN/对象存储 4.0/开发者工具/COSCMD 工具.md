@@ -9,6 +9,7 @@ Windows 或 Linux 系统
 ### 软件依赖
 * Python 2.7
 * 并装有最新版本的pip
+
 #### 安装及配置
 环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
 ## 下载与安装
@@ -33,7 +34,9 @@ coscmd 1.8.1
 ```
 pip install coscmd -U
 ```
-**注意不论是在linux还是windows环境下，都可以通过以上的方法安装或更新**
+
+**注意无论是在linux还是windows环境下，都可以通过以上的方法安装或更新**
+
 ## 使用方法
 ### 查看 help
 用户可通过`-h`或`--help`命令来查看工具的 help 信息。
@@ -76,6 +79,7 @@ optional arguments:
 ```
 coscmd upload -h  //查看 upload 命令使用方法
 ```
+
 ### 配置参数
 COSCMD 工具在使用前需要进行参数配置。用户可以直接编辑`~/.cos.conf`文件，也可以通过如下命令来配置：
 ```
@@ -117,9 +121,10 @@ coscmd upload -r /home/aaa/ bbb/  //操作示例
 ```
 
 请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
-**注意：** 
-1. 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)。
-2. COSCMD 支持大文件断点上传功能。当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
+
+>**注意：** 
+>1. 上传文件时需要将cos上的路径包括文件(夹)的名字补全(参考例子)。
+>2. COSCMD 支持大文件断点上传功能。当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 
 ### 下载文件或文件夹
 下载文件命令如下：
@@ -204,9 +209,9 @@ coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --
 
  --grant-read代表读的权限。
  
---grant-write代表写的权限。
+ --grant-write代表写的权限。
 
---grant-full-control代表读写的权限。
+ --grant-full-control代表读写的权限。
 
 GRANT_READ / GRANT_WRITE / GRANT_FILL_CONTORL代表被赋权的帐号。
 
