@@ -1,10 +1,10 @@
-Monitor Overview allows you to access the overall monitoring information of your cloud products, including the exceptions detected during the monitoring. They are:
+ Monitor Overview allows you to access the overall monitoring information of your cloud products, including the exceptions detected during the monitoring. They are:
 
-## CVM Ping Unreachable
-The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "ping Unreachable" are displayed. You should pay close attention to these unrecovered CVM alarms, because they probably affect normal operation of your business.
+## CVM Unreachable Ping 
+The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "ping Unreachable" for nearly one month are displayed. You should pay close attention to these unrecovered CVM alarms, because they probably affect normal operation of your business.
 
 ## CVM Disk is Read-only
-The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "Disk is Read-only" are displayed. Such exception may affect the business that requires data writing in the CVM.
+The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "Disk is Read-only" for the recent month are displayed. Such exception may affect the business that requires data writing in the CVM.
 
 ## CVM Failed to Be Monitored
 

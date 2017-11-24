@@ -14,22 +14,21 @@ cloud-init 主要提供了一个实例首次初始化时的自定义配置的能
 
 ### 3、安装cloud-init
 #### 3.1、安装cloud-init 依赖包
->python-setuptools
->python-cheetah
-python-six
-python-jsonpatch
-python-requests
-python-yaml / PyYAML
-python-configobj
-python-oauthlib
-python-prettytable
-python-jinja2
-python-markdown
+>setuptools
+>jinja2
+prettytable
+oauthlib
+configobj
+pyyaml
+requests
+jsonpatch
+jsonschema
+six
 
 #### 3.2、解压并安装
 >cd ./cloud-init-17.1
-   python3 setup.py build
-   python3 setup.py install --init-system systemd
+   python setup.py build
+   python setup.py install --init-system systemd
   <br> <font color="#FF0000">*注：--init-system的可选参数 有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]，需要根据当前操作系统使用的自启动服务管理方式是什么进行选择，如果选择出错则cloud-init 服务无法开机自启动，本例以systemd自启动服务管理为例。*</font>
 
 #### 3.3、修改cloud-init 配置文件
@@ -61,7 +60,7 @@ systemctl status cloud-init.service
 systemctl status cloud-config.service
 systemctl status cloud-final.service
 
-**centos 操作系统特殊执行**
+**centos 和 redhat 操作系统特殊执行**
 >**将 /lib/systemd/system/cloud-init-local.service 文件内容替换为如下：**
 [Unit]
 Description=Initial cloud-init job (pre-networking)
@@ -131,13 +130,10 @@ chkconfig cloud-final on
 ## 二、直接使用软件源上面的 cloud-init 包安装
 **执行以下安装命令即可**
 >apt-get/yum install cloud-init
-
-<font color="#FF0000">*注： 直接通过apt-get 或 yum 命令安装的cloud-init 版本默认为当前操作系统配置的软件源里面默认的cloud-init版本，通常情况下和cloud-init 17.1 版本存会存在比较大的差异，使用这种方式安装的镜像创建出来的实例可能会存在部分配置项初始化不符合预期的情况，建议使用方案一：手工下载cloud-init源码包的方式进行安装。*</font>
+ <br><font color="#FF0000">*注： 直接通过apt-get 或 yum 命令安装的cloud-init 版本默认为当前操作系统配置的软件源里面默认的cloud-init版本，通常情况下和cloud-init 17.1 版本存会存在比较大的差异，使用这种方式安装的镜像创建出来的实例可能会存在部分配置项初始化不符合预期的情况，建议使用方案一：手工下载cloud-init源码包的方式进行安装。*</font>
 
 ## 三、安装完之后的操作
-
 <font color="#FF0000">*注：以下操作执行完成后请勿重启服务器，否则需重新执行下以下操作。*</font>
-
 >cloud-init init --local
 >rm -rf /var/lib/cloud
 

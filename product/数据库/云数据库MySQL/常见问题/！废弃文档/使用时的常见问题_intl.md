@@ -185,7 +185,7 @@ The following variables can be dynamically modified when the syntax "set global 
 
 After logging in to the cloud database through phpMyAdmin, click "Variables" on the top menu, and click the value of the variable to be modified in the variable list below and modify it.
 
-![][image-1]
+![ ](//mc.qcloudimg.com/static/img/9a312893cdb298cdbb4171155f649b5d/image.png)
 
 For more information, refer to [Modifiable Configurations for Cloud Database.][2] 
 

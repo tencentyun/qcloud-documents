@@ -7,7 +7,8 @@ If you need to acquire the specific metric data of a monitoring object at a cert
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "Cloud Product Monitoring", and then select the type of the product you wish to view.
 > Note: If there is no desired product, you can check whether there is a monitoring tab in the corresponding product console and obtain relevant data there.
 
-2) Select a specific object to be monitored, and click object ID to enter the details page of monitor.
+2) Select a specific object to be monitored, and click object ID to enter the details page of monitor. You can also click monitor icon of the object list to view the data through 
+monitoring floating window. 
 
 3) You can view the specific metric data of this monitoring object at a certain time by clicking on the specific metric on the left of the Overview page.
 
