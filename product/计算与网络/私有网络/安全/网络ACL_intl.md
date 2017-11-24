@@ -1,6 +1,6 @@
 ## Basics
 The network Access Control List (ACL) is a stateless optional layer of security at the subnet level to control the traffic in and out of subnets (accuracy up to protocol and port granularity). The network ACL rules are similar to [security group](https://cloud.tencent.com/doc/product/213/500), as shown below: However, since the network ACL is stateless, even if certain access is set allowed in inbound rules, the access will still become unavailable due to lack of proper settings in outbound rules.
-![](//mccdn.qcloud.com/static/img/04de33187d40d6891f7e5c8da120fdc7/image.png)
+![](https://mc.qcloudimg.com/static/img/0d2797c443b5ab3a722f180548b3c610/VPC-Security.png)
 
 ## Usage Scenarios
 The user can associate a network ACL with multiple subnets with the same network traffic control. By setting the outbound and inbound allowing rules, the traffic in and out of subnets can be precisely controlled. For example, when multiple layers of Web applications are hosted in Tencent Cloud private gateways, and Web layer, logic layer and data layer services are deployed for different subnets, you can control the access among the three subnets through network ACL: Web layer subnet and data layer subnet cannot access each other, and only the logic layer can access the Web layer and data layer subnet.

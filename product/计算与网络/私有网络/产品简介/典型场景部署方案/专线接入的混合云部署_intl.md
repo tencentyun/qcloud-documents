@@ -9,7 +9,7 @@ Direct Connect provides a fast and secure approach to connect Tencent Cloud with
 
 There are two ways to set up a slave for Direct Connect
 - **Dual Direct Connect** slave, Tencent Cloud supports main/slave failover configuration.
-![](https://mc.qcloudimg.com/static/img/bedb9f79daf8ee8c89db53a49d49b251/image.png)
+![](https://mc.qcloudimg.com/static/img/a73e60175bb118a137f1b9817e0a695b/VPC-Direct+Connect-accessed.png)
 
 - **VPN connection** serves as Direct Connect slave (master/slave).
 
