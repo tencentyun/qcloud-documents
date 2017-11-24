@@ -1,6 +1,8 @@
 ## 功能描述
 Delete Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）删除。该操作需要请求者对 Bucket 有 WRITE 权限。
-需要特别注意：删除的文件不可恢复，请小心操作。
+
+> **<font color=red>注意：对象一旦删除，不可恢复。</font>**
+
 ## 请求
 
 语法示例：
@@ -63,5 +65,4 @@ Connection: keep-alive
 Date: Wed, 23 Oct 2016 21:32:00 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3NzRjYTRfYmRjMzVfMzFhOF82MmM3Yg==
-
 ```
