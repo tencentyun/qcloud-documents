@@ -167,12 +167,12 @@ coscmd list -a //操作示例
 coscmd list bbb/123.txt  -r -n 10 //操作示例
 ```
 请将 "<>" 中的参数替换为您的实际参数。`<cospath>`为您需要打印列表的 COS 上文件的路径。
-* 使用`-a`打印全部文件
-* 使用 `-r` 递归打印
-* 使用 `-n num` 设置打印数量的最大值
+* 使用`-a`打印全部文件。
+* 使用 `-r` 递归打印。
+* 使用 `-n num` 设置打印数量的最大值。
 
-**注意：** 
-` <cospath> `为空打印当前Bucket根目录
+>**注意：** 
+>` <cospath> `为空打印当前Bucket根目录。
 
 ### 显示文件信息
 - 命令如下：
@@ -190,7 +190,7 @@ coscmd signurl bbb/123.txt //操作示例
 coscmd signurl bbb/123.txt -t 100//操作示例
 ```
 请将 "<>" 中的参数替换为您的实际参数。`<cospath>`为您需要下载的 COS 上文件的路径。
-* 使用 `-t time` 设置打印签名的有效时间(单位为秒)
+* 使用 `-t time` 设置打印签名的有效时间(单位为秒)。
 
 ### 设置访问控制(ACL)
 - 命令如下：
@@ -216,9 +216,9 @@ coscmd putbucketacl --grant-read 12345678,12345678/11111 --grant-write anyone --
 
 GRANT_READ / GRANT_WRITE / GRANT_FILL_CONTORL：被赋权的帐号。
 
-若赋权根帐号，使用rootid的形式；
+若赋权根帐号，使用rootid的形式。
 
-若赋权子账户，使用rootid/subid的形式；
+若赋权子账户，使用rootid/subid的形式。
 
 若需要对所有人赋权，使用anyone的形式。
 
