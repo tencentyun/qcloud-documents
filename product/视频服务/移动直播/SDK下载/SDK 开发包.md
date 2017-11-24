@@ -379,7 +379,7 @@ Ver3.0 以后的版本为新架构版本，相比于旧架构，在性能和稳�
   	var _mtac = {"senseHash":0};
   	(function() {
   		var mta = document.createElement("script");
-  		mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+  		mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
   		mta.setAttribute("name", "MTAH5");
   		mta.setAttribute("sid", "500538821");
   		mta.setAttribute("cid", "500538834");
