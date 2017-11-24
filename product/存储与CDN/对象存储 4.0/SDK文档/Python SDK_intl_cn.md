@@ -4,8 +4,6 @@
 
 * [GitHub地址](https://github.com/tencentyun/cos-python-sdk-v4) GitHub项目地址，欢迎贡献代码以及反馈问题。
 
-* [Python SDK本地下载](https://mc.qcloudimg.com/static/archive/bf01d4db35e1e90f40814b53e787f740/cos-python-sdk-v4-master.zip)。
-
 * [PyPi](https://pypi.python.org/pypi/qcloud_cos_v4) PyPi项目地址 。
 （本版本SDK基于JSON API封装组成）
 
@@ -52,10 +50,6 @@ python setup.py install
 ```shell
 pip uninstall qcloud_cos_v4
 ```
-
-### 历史版本
-
-3.3版本对接口等进行了重构，和之前的历史版本诸多不同，同时修复了一些bug, 和历史版本不兼容, 如果需要使用历史版本, 请参见[v3版的python sdk](https://cloud.tencent.com/document/product/430/5943)
 
 
 ## 生成客户端对象
