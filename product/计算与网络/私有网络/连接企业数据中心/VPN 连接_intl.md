@@ -3,7 +3,7 @@ VPN Connection is a method you can use to connect peered IDC and VPC through pub
 - VPN gateway: created VPC IPsec VPN gateway
 - Peer gateway:  IPsec VPN service gateway for IDC
 - VPN tunnel: encrypted IPsec VPN tunnel
-![](//mccdn.qcloud.com/static/img/a654d376b4e4e13ae2bb65b13239cef2/image.png)
+![](https://mc.qcloudimg.com/static/img/34ee1011da3d0671d3637a8c036480b2/VPC-VPN+Connection%281%29.png)
 
 A VPN gateway can be established in the VPC. Each VPN gateway can establish multiple VPN tunnels. Each VPN tunnel can connect with one local IDC. It is important to note that **after establishing a VPN connection, you need to configure the routing policy in the routing table to achieve communication.**
  
@@ -47,7 +47,7 @@ SPD policy 1 The local network segment is `10.0.0.0/24`, the peer network segmen
 SPD policy 2 The local network segment is `10.0.1.0/24`, the peer network segment is `192.168.2.0/24`.
 SPD policy 3 The local network segment is `10.0.2.0/24` the peer network segment is `192.168.2.0/24`.
 
-![](//mccdn.qcloud.com/static/img/5b32174d312e31c5b5a9162a50456de8/image.png)
+![](https://mc.qcloudimg.com/static/img/b0e968f0f8644bc150b6da2e578a873d/VPC-VPN+Connection%282%29.png)
  
 ### IKE Configuration
 
@@ -115,7 +115,7 @@ IPsec VPN can be fully customized in the console. You need to complete the follo
 
 Example:
 Through IPsec VPN, connect the subnet A`192.168.1.0/24` in your VPC in **Guangzhou** ("TomVPC") with the subnet `10.0.1.0/24` in your IDC, and the public IP of the VPN gateway in IDC is `202.108.22.5`.
-![](//mc.qcloudimg.com/static/img/0cfc46cf11e4d53164219b1c386509a1/1.png)
+![](https://mc.qcloudimg.com/static/img/b7b5723298837aab677c88078caae7ca/VPC-VPN+Connection%283%29.png)
 
 You need to complete the following steps:
 #### Step 1: Create VPN gateway

@@ -3,7 +3,7 @@ A routing table consists of a series of routing policies that are used to contro
 
 The routing table consists of a series of routing policies. The routing policy includes the routing destination, the next hop type, and the next hop. The next hop type can be any component in the following figure.
 
-![](//mccdn.qcloud.com/static/img/2788ddc8974023b2c4b9d83b007c8bda/image.png)
+![](https://mc.qcloudimg.com/static/img/f8b245d763569d7e36c12b84b81aea20/VPC-Routing+Tables.png)
 
 ## Default Routing Table
 When a user creates a VPC, the system automatically generates a default routing table. When a subnet is created afterwards, the subnet will automatically associate the default routing table if the user does not select a custom routing table. You can add, delete, and modify routing policies in the default routing table, but you cannot delete the default routing table.
