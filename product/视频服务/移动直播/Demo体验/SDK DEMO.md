@@ -70,7 +70,7 @@ table th:nth-of-type(4) {  width: 235px; }
   </tr>
 </table>
 
-<h2 id="DE">新增 Windows 平台 </h2>
+<h2 id="Windows">新增 Windows 平台 </h2>
 
 ### 效果预览
 ![](//mc.qcloudimg.com/static/img/aec2f0e2848c351f026c4bb22066d596/image.jpg)
