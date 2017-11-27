@@ -468,7 +468,7 @@
 		
 		<!--数据统计-->
         <tr>
-			<td rowspan=1>
+			<td rowspan=2>
 				数据统计
 			</td>
             <td>
@@ -477,6 +477,16 @@
             <td>
                 <a href="/document/product/266/10012">
                     DescribeVodStorage
+                </a>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                获取播放统计数据文件下载地址
+            </td>
+            <td>
+                <a href="/document/product/266/12624">
+                    GetPlayStatLogList
                 </a>
             </td>
         </tr>
