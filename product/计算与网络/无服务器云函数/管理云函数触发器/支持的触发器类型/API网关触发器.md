@@ -9,7 +9,7 @@ API 网关触发器具有以下特点：
 
 API 网关触发器配置并**不在云函数中进行配置**，而是在 API 网关中进行。在 API 网关中配置 API 规则时，后端配置可选 Cloud Function，在选择 Cloud Function 后，即可选择与 API 服务相同地域的云函数。
 
-在 API 网关配置对接云函数时，同样会配置超时时间。API 网关中的请求超时，和云函数的运行超时时间，两者分别生效。超时规则如下：
+在 API 网关配置对接云函数时，同样会配置超时时间。API 网关中的请求超时时间，和云函数的运行超时时间，两者分别生效。超时规则如下：
 * API 网关超时时间 > 云函数超时时间：云函数超时先生效，API 请求响应为 200 http code，但返回内容为云函数超时报错内容。
 * API 网关超时时间 < 云函数超时时间：API网关超时先生效，API 请求返回 5xx http code，标识请求超时。
 
@@ -59,7 +59,7 @@ API 网关中，一条 API 规则仅能绑定一个云函数，但一个云函�
 }
 ```
 
-其中，`requestContext` 结构标识了 API 请求来源服务和 API 规则、所生效环境、请求id、认证信息等内容。`pathParameters`,`queryStringParameters`,`headerParameters`等内容包含了 API 规则中所配置入参的参数名称和实际值，`httpMethod`、`path`、`body`、`headers`等内容包含了实际请求内容。
+其中，`requestContext` 结构标识了 API 请求来源服务和 API 规则、所生效的环境、请求id、认证信息等内容。`pathParameters`,`queryStringParameters`,`headerParameters`等内容包含了 API 规则中所配置入参的参数名称和实际值，`httpMethod`、`path`、`body`、`headers`等内容包含了实际请求内容。
 
 ## API 网关触发器对云函数返回内容的处理
 
