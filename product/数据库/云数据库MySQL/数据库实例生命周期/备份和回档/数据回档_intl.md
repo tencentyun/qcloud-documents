@@ -87,11 +87,9 @@ $ ./CdbRollbackTools start appid instanceName dbName tableName destTableName rol
 ### 2.3 Executing Rollback Task
 
 **1. Command Example**
-
 ```
 $ ./CdbRollbackTools start 125000000 16_test_2011_10_31 rb_database rb_table rb_dest_table_1 201209251650 user passwd full e827a9de-06f0-11e2-81d1-781dbace8354
 ```
-
 **2. Input Parameter Description**
 <table style="width:700px">
 	<thead>
@@ -158,7 +156,7 @@ $ ./CdbRollbackTools start 125000000 16_test_2011_10_31 rb_database rb_table rb_
 </table>
 
 
-3. Execution Results  
+**3.Execution Results**  
 
 If the command execution succeeds, the tool will output the following results:
 
@@ -172,7 +170,7 @@ If the command execution fails, the tool will output the following results:
 execute failed:cdb rollback internal error
 ```
 
-4. Error Code Description
+**4.Error Code Description**
 
 <table style="width:500px">
 	<thead>
