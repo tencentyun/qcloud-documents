@@ -11,7 +11,7 @@ One-hour fees will be frozen when a postpaid CVM is created. When you adjust con
 
 **Billing in seconds, no cost waste**
 Billing starts when the CVM instance is created successfully, and ends when you initiate a termination operation.
-![](//mc.qcloudimg.com/static/img/b67e5fbde8f2a9d2c0e619c633ce0b89/image.jpg)
+![](//mc.qcloudimg.com/static/img/b7157e71b4cffbdcc6464a5695313419/image.png)
 
 
 

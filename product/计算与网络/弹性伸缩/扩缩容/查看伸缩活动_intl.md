@@ -4,7 +4,8 @@ Open the Console, and select [**Scaling Group**](https://console.cloud.tencent.c
 
 Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
 
-![](https://mc.qcloudimg.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](https://mc.qcloudimg.com/static/img/06a1ca079f41a7cd825b47c68304f6f5/1.jpg)
 Select **Scaling Activity** in the top navigation bar, and you can view the information of the scaling activity that has been performed by the scaling group based on the scaling policy.
 
-![](https://mc.qcloudimg.com/static/img/be90d8d34240120a87838e8f56c7b67f/image+%281%29.png)
+![](https://mc.qcloudimg.com/static/img/034aaab2b4dc38107a906048869624f2/2.jpg)
+

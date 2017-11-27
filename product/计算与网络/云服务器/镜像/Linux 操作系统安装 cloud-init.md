@@ -14,22 +14,21 @@ cloud-init 主要提供了一个实例首次初始化时的自定义配置的能
 
 ### 3、安装cloud-init
 #### 3.1、安装cloud-init 依赖包
->python-setuptools
->python-cheetah
-python-six
-python-jsonpatch
-python-requests
-python-yaml / PyYAML
-python-configobj
-python-oauthlib
-python-prettytable
-python-jinja2
-python-markdown
+>setuptools
+>jinja2
+prettytable
+oauthlib
+configobj
+pyyaml
+requests
+jsonpatch
+jsonschema
+six
 
 #### 3.2、解压并安装
 >cd ./cloud-init-17.1
-   python3 setup.py build
-   python3 setup.py install --init-system systemd
+   python setup.py build
+   python setup.py install --init-system systemd
   <br> <font color="#FF0000">*注：--init-system的可选参数 有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]，需要根据当前操作系统使用的自启动服务管理方式是什么进行选择，如果选择出错则cloud-init 服务无法开机自启动，本例以systemd自启动服务管理为例。*</font>
 
 #### 3.3、修改cloud-init 配置文件
@@ -61,7 +60,7 @@ systemctl status cloud-init.service
 systemctl status cloud-config.service
 systemctl status cloud-final.service
 
-**centos 操作系统特殊执行**
+**centos 和 redhat 操作系统特殊执行**
 >**将 /lib/systemd/system/cloud-init-local.service 文件内容替换为如下：**
 [Unit]
 Description=Initial cloud-init job (pre-networking)

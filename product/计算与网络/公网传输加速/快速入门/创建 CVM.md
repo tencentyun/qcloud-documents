@@ -1,13 +1,13 @@
 下例中我们以快速配置为例来演示如何快速配置相关选项，实际购买时用户也可以选择自定义配置来选择更多的配置项。
-**第 1 步：登录控制台**
-登录[腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。如果没有帐号，请参考[帐号注册教程](https://www.qcloud.tencent.com/document/product/378/8415)。
+### 第 1 步：登录控制台
+登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)。如果没有帐号，请参考 [帐号注册教程](https://cloud.tencent.com/document/product/378/8415)。
 ![登录](//mc.qcloudimg.com/static/img/ff6e234a3c1b419cc8ea2ba272c59101/image.png)
 
-**第 2 步：新建云主机（CVM）**
+### 第 2 步：新建云主机（CVM）
 进入云主机的界面，单击【新建】创建和配置云主机。
 ![新建云主机](//mc.qcloudimg.com/static/img/f51676036b7681c3c938014c36f7d40a/image.png)
 
-**第 3 步：配置云主机的相关选项**
+### 第 3 步：配置云主机的相关选项
 选择地域和机型：
 - [计费模式](https://cloud.tencent.com/document/product/213/2180?_ga=1.33985321.903886351.1504603839)：包年包月和按量计费。
 - 地域：选择靠近您的客户的地域可以降低访问延迟，此处以广州为例。
@@ -29,8 +29,8 @@
 - 自动续费：用户根据需求选择。
 ![选择存储与网络](//mc.qcloudimg.com/static/img/d76e5cb52eb26e9c80be548615253ef5/image.png)
 设置信息：
-设置云主机所属项目、主机名、登录方式和[安全组](https://cloud.tencent.com/document/product/213/2502?_ga=1.155629235.903886351.1504603839#1.-.E4.B8.BA.E4.BB.80.E4.B9.88.E5.9C.A8.E8.B4.AD.E4.B9.B0-.E4.BA.91.E4.B8.BB.E6.9C.BA-.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.97.B6.E5.80.99.E9.9C.80.E8.A6.81.E9.80.89.E6.8B.A9.E5.AE.89.E5.85.A8.E7.BB.84.EF.BC.9F2)等信息。
+设置云主机所属项目、主机名、登录方式和 [安全组](https://cloud.tencent.com/document/product/213/2502?_ga=1.155629235.903886351.1504603839#1.-.E4.B8.BA.E4.BB.80.E4.B9.88.E5.9C.A8.E8.B4.AD.E4.B9.B0-.E4.BA.91.E4.B8.BB.E6.9C.BA-.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.97.B6.E5.80.99.E9.9C.80.E8.A6.81.E9.80.89.E6.8B.A9.E5.AE.89.E5.85.A8.E7.BB.84.EF.BC.9F2) 等信息。
 ![设置信息](//mc.qcloudimg.com/static/img/1a99945636e40c391491e08f9bdf4866/image.png)
-**第 4 步：确认配置详情并支付**
+### 第 4 步：确认配置详情并支付
 确认配置详情后，选择【立即购买】，支付完成后，系统大概需要几分钟时间来为您创建 CVM 服务器。
 ![支付完成](//mc.qcloudimg.com/static/img/296c50a25f3eed1f8dea7f5b997ab444/image.png)
