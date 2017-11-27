@@ -12,7 +12,7 @@ Currently, VPN tunnels support IKE/IPesec encryption protocol, and a maximum ban
 
 The network quality of VPN tunnels depends on the network quality of public network connections. It is recommended that you test the network latency between your own IT resources and Tencent Cloud in different regions when choosing a region to deploy a VPC, so as to get the optimal hybrid cloud deployment architecture.
 
-## Solutions
+## Solutions:
 **Cloud data center**: Deploy cloud data center in a VPC created on Tencent Cloud.
 **Connection method**: VPN connection
 **Network Segment Layout**: The network segment between the physical data center and the VPC that needs to be connected **cannot overlap**.
