@@ -1,8 +1,6 @@
 Users can use the rollback tool to roll back a database or table on Tencent Cloud platform. Based on cold backup and binlog, the tool can be used to roll back data in real time.
 
-The CDB rollback tool can roll back the cloud database or table to the specified time with regular images and real-time flow reconstruction, and ensure that all data have the same time slice. During the rollback, the access to the original database or table is not affected,
-
-and a new database or table will be generated. After the rollback is finished, the user can see the original database or table, as well as the new database or table.
+The CDB rollback tool can roll back the cloud database or table to the specified time with regular images and real-time flow reconstruction, and ensure that all data have the same time slice. During the rollback, the access to the original database or table is not affected,and a new database or table will be generated. After the rollback is finished, the user can see the original database or table, as well as the new database or table.
 
 > Note: Cloud database will not change any user data. The data damage due to personal cause can be repaired through rollback.
 
@@ -28,8 +26,7 @@ As data rollback is a resource-consuming service, the number of requests that ca
 
 ### 2.1 Installation Instructions
 
-1. Download the CDB rollback tool:
-
+1.Download the CDB rollback tool:
 <table  style="width:600px">
 	<thead>
 		<tr>
@@ -52,19 +49,14 @@ As data rollback is a resource-consuming service, the number of requests that ca
 	</tbody>
 </table>
 
-
-2. Save the tool to the local, then upload it to the CVM, and decompress the toolkit.
+2.Save the tool to the local, then upload it to the CVM, and decompress the toolkit.
 The decompression process is as follows:
-
 ```
 unzip CdbRollbackTools_x64_v1.1.0.zip
 ```
-
-3. After the decompression, there will be a binary executable file. The file is described as follows:
-
+3.After the decompression, there will be a binary executable file. The file is described as follows:
 CdbRollbackTools: Cloud Database rollback tool.
-
-4. Run the tool directly on the CVM (Linux CVM only) without installation. 
+4.Run the tool directly on the CVM (Linux CVM only) without installation. 
 
 ### 2.2 Command Description
 
