@@ -6,7 +6,7 @@ Many companies, especially those specializing in games, deploy IT systems across
 - **Access to the nearest system by region**: Reduce latency;
 - **High-speed data interconnection between regions**: cross-server battle, etc.
 
-## Solutions:
+## Solutions
 Tencent provides a "One Server Covering the Globe" solution for game companies:
 1) **Database centralized deployment**. With 16 data centers covering 5 continents around the globe, Tencent Cloud allows game companies to deploy their game database center servers to any of these core data centers based on their business needs. The following two aspects shall be considered when selecting a data center for deployment of center servers: first, confirm with the game company the key region that it expects to cover, such as Europe, America or Southeast Asia; second, make a comparison on the network quality and coverage of overseas IDCs to select the optimal node for deployment.
 
