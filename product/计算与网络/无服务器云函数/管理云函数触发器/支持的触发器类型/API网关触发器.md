@@ -59,7 +59,7 @@ API 网关中，一条 API 规则仅能绑定一个云函数，但一个云函�
 }
 ```
 
-其中，`requestContext` 结构标识了 API 请求来源服务和 API 规则、所生效环境、请求id、认证信息等内容。`pathParameters`,`queryStringParameters`,`headerParameters`等内容包含了 API 规则中所配置入参的参数名称和实际值，`httpMethod`、`path`、`body`、`headers`等内容包含了实际请求内容。
+其中，`requestContext` 结构标识了 API 请求来源服务和 API 规则、所生效的环境、请求id、认证信息等内容。`pathParameters`,`queryStringParameters`,`headerParameters`等内容包含了 API 规则中所配置入参的参数名称和实际值，`httpMethod`、`path`、`body`、`headers`等内容包含了实际请求内容。
 
 ## API 网关触发器对云函数返回内容的处理
 
