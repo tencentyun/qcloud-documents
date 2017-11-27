@@ -1,6 +1,8 @@
 ## 功能描述
 Delete Object请求可以将一个文件（Object）删除。
 
+> **<font color=red>注意：对象一旦删除，不可恢复。</font>**
+
 ## 请求
 
 ### 请求语法

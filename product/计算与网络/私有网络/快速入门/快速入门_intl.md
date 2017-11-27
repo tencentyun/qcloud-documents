@@ -1,5 +1,5 @@
 As shown in the figure below, in this exercise, you will create a VPC and a subnet, and deploy a CVM that can be connected to the Internet to your subnet. Finally, you need to filter the inbound and outbound traffic of the CVM through security group to guarantee the security of the communication of CVM. The deployed CVM can communicate with the Internet, and you can access your CVM from a local computer. In a real application environment, you can use this scenario to create a Web server for public use, for example, blog hosting.
-![](//mccdn.qcloud.com/static/img/7a428200fc9782b02d05d220ae6328bb/image.png)
+![](https://mc.qcloudimg.com/static/img/eb73742c0af764b294b032f6e40a5049/VPC-getting+started.png)
 
 You need to complete the following steps:
 

@@ -1,6 +1,6 @@
-Tencent Cloud Cloud Monitor provides the following monitoring metrics for Cloud Load Balance:
+ Cloud Monitor of Tencent Cloud provides the following monitoring metrics for Cloud Load Balancing(CLB):
 
-## Cloud Load Balance Instance Monitoring Metrics
+## Cloud Load Balancer Instance Monitoring Metrics
 
 <table class="t"><tbody><tr>
 <th><b>Metric Name </b></th>
@@ -8,37 +8,37 @@ Tencent Cloud Cloud Monitor provides the following monitoring metrics for Cloud 
 <th><b>Unit</b></th>
 <th><b>Dimension</b></th>
 <tr>
-<td> Active Connection
+<td> Active Connection 
 <td> rrv_connum
 <td> count
 <td> Backend CVM IP, backend CVM port, and VPC ID
 <tr>
-<td> Inactive Connection
+<td> Inactive Connection 
 <td> rrv_inactive_conn
 <td> count
 <td> Backend CVM IP, backend CVM port, and VPC ID
 <tr>
-<td> Inbound Packet
+<td> Inbound Packet 
 <td> rrv_inpkg
 <td> count/s
 <td> Backend CVM IP, backend CVM port, and VPC ID
 <tr>
-<td> Inbound Traffic
+<td> Inbound Traffic 
 <td> rrv_intraffic
 <td> bps
 <td> Backend CVM IP, backend CVM port, and VPC ID
 <tr>
-<td> New Connection
+<td> New Connection 
 <td> rrv_new_conn
 <td> count
 <td> Backend CVM IP, backend CVM port, and VPC ID
 <tr>
-<td> Outbound Packet
+<td> Outbound Packet 
 <td> rrv_outpkg
 <td> count/s
 <td> Back-end CVM IP, back-end CVM port, and VPC ID
 <tr>
-<td> Outgoing Traffic
+<td> Outbound Traffic 
 <td> rrv_outtraffic
 <td> bps
 <td> Back-end CVM IP, back-end CVM port, and VPC ID
@@ -133,6 +133,6 @@ Tencent Cloud Cloud Monitor provides the following monitoring metrics for Cloud 
 </tbody></table>
 
 
-For more information about the monitoring metrics of Cloud Load Balance, please see [Read Monitoring Data API](https://cloud.tencent.com/doc/api/405/4667) in the Cloud Monitor API.
+For more information about the monitoring metrics of Cloud Load Balancing, please see [Read Monitoring Data API](https://cloud.tencent.com/doc/api/405/4667) in the Cloud Monitor API.
 
 

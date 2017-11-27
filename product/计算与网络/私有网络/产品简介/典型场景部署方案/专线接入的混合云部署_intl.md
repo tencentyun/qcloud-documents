@@ -9,14 +9,14 @@ Direct Connect provides a fast and secure approach to connect Tencent Cloud with
 
 There are two ways to set up a slave for Direct Connect
 - **Dual Direct Connect** slave, Tencent Cloud supports main/slave failover configuration.
-![](https://mc.qcloudimg.com/static/img/bedb9f79daf8ee8c89db53a49d49b251/image.png)
+![](https://mc.qcloudimg.com/static/img/a73e60175bb118a137f1b9817e0a695b/VPC-Direct+Connect-accessed.png)
 
 - **VPN connection** serves as Direct Connect slave (master/slave).
 
 >Note:
 > Your **network segment** between VPC and data center does not affect their communication, for Tencent Cloud Direct Connect gateway supports NAT. [Click here to view details](https://cloud.tencent.com/doc/product/215 /4976#.E4.B8.93.E7.BA.BFnat).
 
-## Solutions:
+## Solutions
 **Cloud data center**: Use CVM and Cloud Database to deploy cloud data center in a VPC created on Tencent Cloud.
 **Connection method**: Integrate VPC data center with your IDC private network via physical Direct Connect.
 **Slave connection method**: Dual Direct Connect/VPN connection
