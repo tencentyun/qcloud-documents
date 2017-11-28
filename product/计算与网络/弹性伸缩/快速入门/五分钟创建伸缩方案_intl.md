@@ -58,7 +58,7 @@ If the data disk snapshot is specified in the scaling configuration, you need to
 >-  Auto Scaling service is free of charge, and newly added servers, hard disks and networks will be charged by the traffic of CVM instances, hard disks and networks. This page will display prices based on your settings.
 
 ### Set Information
-![](https://mc.qcloudimg.com/static/img/9f1779b369b2f8a9c4487afcddd991fa/16.jpg)
+![](https://mc.qcloudimg.com/static/img/5738fa58c6990e7428c83e6d20ebd80c/as_revise_1.jpg)
 Select the login method and security group in the **Set Information** page. The CVM instances added via the Auto Scaling service use Cloud Security and Cloud Monitor services for free by default.
 
 After configuration, this entry will be displayed in the scaling configuration list, as shown in the figure below:
