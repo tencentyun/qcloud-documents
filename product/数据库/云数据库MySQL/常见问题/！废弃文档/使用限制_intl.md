@@ -20,18 +20,26 @@ Refer to the MySQL official manual for more information on max_connections.
 
 We recommend that you use the MySQL client and library provided by the CVM system to connect to the cloud database instance.
 
-## 4. About Slow Query
+## 4. Operation Restriction
+
+(1) Do not modify information or privilege of existing accounts for the MySQL instance, for this may cause some of the cluster services to become unavailable.
+
+(2) It is recommended to use Innodb engine in a unified manner when creating libraries and tables. This will help instances support more concurrent accesses.
+
+(3) Do not modify or stop master-slave relations, for this may cause the hot backup feature to become unavailable.
+
+## 5. About Slow Query
 
 1. Developers using Linux cloud databases can obtain slow query logs with the cloud database export tool. For details, see Cloud Database Data Export.
 
 2. Currently, developers using Windows cloud databases cannot acquire slow query logs directly. Please submit a ticket and contact us to obtain slow query log files if necessary. 
 
 
-## 5. binlog Storage Time of Cloud Database
+## 6. binlog Storage Time of Cloud Database
 
 MySQL binlog will use up large amount of storage, thus the cloud database will only save the binlog for the recent 3 days. In addition, if the data volume of binlog grows too fast and server disk storage is not enough to store the binlog for 3 days, you can delete binlog manually to release storage. 
 
-## 6. Character Set
+## 7. Character Set
 
 The default character set encoding format of cloud databases is the same with MySQL databases: latin1 (ISO-8859-1 encoding format).
 
@@ -83,29 +91,6 @@ jdbc:mysql://localhost:3306/dbname?useUnicode=true&characterEncoding=UTF-8
 
 For details, refer to the MySQL official manual. 
 
-## 7. Operation Restriction
 
-(1) Do not modify information or privilege of existing accounts for the MySQL instance, for this may cause some of the cluster services to become unavailable.
 
-(2) It is recommended to use Innodb engine in a unified manner when creating libraries and tables. This will help instances support more concurrent accesses.
 
-(3) Do not modify or stop master-slave relations, for this may cause the hot backup feature to become unavailable.
-
-## 8. Limits on High-performance Version
-
-### 8.1 InnoDB Storage Format
-
-For InnoDB storage engine, high-performance cloud databases use DYNAMIC format by default. Users are advised not to modify this format in order to avoid affecting normal usage. 
-
-### 8.2 Maximum Number of Concurrent Transactions Supported
-
-Cloud databases support a maximum of 1,000 concurrent transactions. 
-
-### 8.3 Maximum In-row Record Length Supported by InnoDB
-
-The maximum in-row record length supported by high-performance InnoDB is 1,982 bytes. The following error will occur if this limit is exceeded:
-```
-ERROR 1118 (42000): Row size too large. The maximum row size for the used table type, not counting BLOBs, is 1982. You have to change some columns to TEXT or BLOBs
-```
-
-Users are advised to keep the storage length of in-row records as short as possible. For example, try to declare the length of varchar fields as 256 or above (in which case the fields will be stored outside rows), or use text/blob as replacement. 
