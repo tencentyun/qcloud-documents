@@ -9,7 +9,7 @@ Tencent Cloud Virtual Private Cloud (VPC) is a customized network space on Tence
 The network types of Tencent Cloud are classified as VPC and basic network:
 - The **basic network** is the resource pool of public network for all users on Tencent Cloud (as shown in the left figure). All private IPs of Cloud Virtual Machine are assigned by Tencent Cloud. It is easy to configure and convenient to use, suitable for scenarios that have high usability requirements and need to get started with the CVM quickly.
 - **Virtual Private Cloud** refers to a logically isolated network space built by user on Tencent Cloud (as shown in the right figure). In the VPC, users can customize network segmentation, IP address and routing policy, and deploy services such as CVM and database. Compared with the basic network, VPC is more suitable for the scenarios that have network custom configuration requirements.
-![](//mccdn.qcloud.com/static/img/f1c113751199560fb87bc002b4bf0207/image.png)
+![](https://mc.qcloudimg.com/static/img/906834bedb9d197b3b033f30c562fa79/VPC-Overview.png)
     　　　　　    　　　　　  Figure 1:  Comparison of basic network and VPC
 
 ## Steps

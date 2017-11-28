@@ -30,13 +30,13 @@
 ### Delocalization
 - **Data storage with high performance and high reliability**: Supports virtual machine hot migration with much efficiency, to prevent business interruption caused by physical failures ahead of time; Provides three copies of redundant data and complete data backup, snapshot capabilities as well as able to recover data within seconds; Suitable for critical core business systems with high load.
 - **Elastic scaling**: Cloud disks can be mounted or unmounted flexibly within the region, without the need to shut down/reboot the server; the capacity of cloud storage can be configured in an elastic manner, and upgraded as required; up to 10 cloud disks can be mounted on a single virtual machine, with a capacity of up to 40 TB
-![](//mccdn.qcloud.com/static/img/b6611d7eb39538f8376c2ed32ac58a5e/image.png)
+![](https://mc.qcloudimg.com/static/img/480af470e06468e94e957d11f52ada27/CBS-Use+Cases%281%29.png)
 
 ### Analyze Massive Data
 For the typical Spark-HDFS offline data analysis framework, RDD read/write, shuffle write towards disks all are sequential IO operations (only shuffle read IO is random IO), 95% of the IO read/write operations are sequential IO operations. CBS has excellent multi-thread concurrent throughput performance and supports offline data processing of TBs/PBs of data under Hadoop-Mapreduce, HDFS, Spark.
 With multi-disk concurrency, a single HDFS cluster can achieve a throughput performance of 1 GB/sec.
 Large enterprises such as xiaohongshu.com, ztgame.com, ele.me, yohobuy.com, weipiao.com have already launched big data practices (for example, data analysis, digging, commercial intelligence and so on) on CBS.
-![](//mccdn.qcloud.com/static/img/fcd7c911ceec7205a36562dcf5f5288a/image.png)
+![](https://mc.qcloudimg.com/static/img/cb5f751efeedd3d20290ff0b42450798/CBS-Use+Cases%282%29.png)
 **Deployment environment**: 5 servers (12 Core 40 GB RAM), each mounted with a 1 TB SSD cloud disk and a 1 TB HDD cloud disk, to simulate offline data analysis
 **Test performance**: For 1.5 TB data, 5 HDD cloud disks can provide a read speed of 500 MB/sec, the data is read into RAM in 50 minutes, while SSD cloud disks will finish this process in 25 minutes!
 
@@ -44,7 +44,7 @@ Large enterprises such as xiaohongshu.com, ztgame.com, ele.me, yohobuy.com, weip
 SSD cloud disks are suitable for scenarios where both high I/O performance and high data reliability are required. It is especially suitable for core business systems such as medium and large relational database applications (like PostgreSQL, MySQL, Oracle, SQL Server) and I/O intensive services which require high data reliability, as well as medium to large scale developing/testing environments that require high data reliability.
 CBS-SSD Cloud Block Storage holds both data reliability and high performance with perfection. The service has been providing reliable supports for large enterprises such as Heroes Evolved, Wendao, yohobuy.com, weipiao.com, xiaohongshu.com, etc.
 
-![](//mccdn.qcloud.com/static/img/9867c8f2376fdf5d0878ca44159d6b66/image.png)
+![](https://mc.qcloudimg.com/static/img/98e92b4f0bb2015bb43fcccddd8e405b/CBS-Use+Cases%283%29.png)
 **Deployment environment**: Mount 800 G SSD cloud disks onto 4 virtual machines (Core 8 GB RAM) and deploy Mysql version 5.5.42.
 **Test performance**: We simulate OLTP performance test using sysbench, with a test set of 10 million records. In this test, TPS reached 1616, QPS reached 29,000, which means a single disk is enough to support concurrent transactions performed by more than 10 thousand people per second!
 

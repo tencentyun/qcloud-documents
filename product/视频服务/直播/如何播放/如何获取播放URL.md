@@ -43,7 +43,7 @@ hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/
 
 推流地址和播放地址是有对应关系的，如下，
 假设推流地址格式：
-```rtmp://bizid.livepush.myqcloud.com/live/bizid_id？```
+`rtmp://bizid.livepush.myqcloud.com/live/bizid_id？`
 
 则播放地址格式：
 ```

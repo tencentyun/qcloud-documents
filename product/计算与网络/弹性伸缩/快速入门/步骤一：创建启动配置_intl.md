@@ -4,19 +4,19 @@ The scaling configuration defines the configuration information of CVM instances
 Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/config), and click **Scaling Configuration** in the navigation bar.
 
 ## Select a Region
-![](https://mc.qcloudimg.com/static/img/653ebf516d940a90fd79728e5d319cdc/image.png)
+![](https://mc.qcloudimg.com/static/img/9a39d87fa90f3ae5995073a6077b1057/11.jpg)
 Please note that you must select the region where the CVM to which the scaling group needs to bind locates.
 
 The CVMs which can be added manually and the cloud load balancers which can be bound are restricted by your selected region. For example, if you select Guangzhou as the region of the scaling configuration, the CVM of Guangzhou is automatically added to the scaling group. In a scaling group of Guangzhou region, you cannot add CVMs in other regions (Shanghai, Beijing, Hong Kong, Toronto, etc.) manually, nor bind load balancers in other regions (Shanghai, Beijing, Hong Kong, Toronto, etc.)
 
 ## Select a Model
-Click ![](//mccdn.qcloud.com/static/img/9d38f7bfbe02a922370765f3adfa58bf/image.png), and fill in the basic scaling configuration information in the pop-up page.
+Click ![](https://mc.qcloudimg.com/static/img/60fa242cdf5488626d6968f2c174222c/12.jpg), and fill in the basic scaling configuration information in the pop-up page.
 
-![](https://mc.qcloudimg.com/static/img/4cecf25e8ad9caa67271159c67d0b770/image.png)
+![](https://mc.qcloudimg.com/static/img/02220977468b12ef47c9aeb30a26b06d/13.jpg)
 
 
 ## Select an Image
-![](https://mc.qcloudimg.com/static/img/c9a614fedaccf6a5ab2c1a16634989cc/image.png)
+![](https://mc.qcloudimg.com/static/img/4a199eb83c1a38c47d9d545e44acea62/14.jpg)
 Public images and custom images are available.
 
 If you select a public image, it should be consistent with the operating system of the CVM to which the scaling group is going to bind. If you select a custom image, you need to create the custom image through the CVM's image creation feature.
@@ -28,7 +28,7 @@ Therefore, it is recommended to select a custom image here. Bind the image of th
 > Note: [How to create the image for the "CVM to which the scaling group is going to bind"?](https://cloud.tencent.com/doc/product/213/4942)
 
 ## Select a Storage and a Network
-![](https://mc.qcloudimg.com/static/img/8e9c2fc896959e14364a2e17ce277e28/image.png)
+![](https://mc.qcloudimg.com/static/img/4d39abc1fd4ed12927aa80591518328d/15.jpg)
 Set the disk and network in the **Select Storage and Network** page.
 
 Please note that if you select the cloud disk as the system disk, then you can select the data disk snapshot for the data disk.
@@ -43,9 +43,9 @@ If the data disk snapshot is specified in the scaling configuration, you need to
 
 ## Set Information
 Select the login method and security group in the **Set Information** page.
-![](https://mc.qcloudimg.com/static/img/bd8a3a728126fc866ccf0c17d15a5d27/image.png)
+![](https://mc.qcloudimg.com/static/img/9f1779b369b2f8a9c4487afcddd991fa/16.jpg)
 
 > Note: The CVM instances added via the Auto Scaling service use Cloud Security and Cloud Monitor services for free by default.
 
 After configuration, this entry will be displayed in the scaling configuration list, as shown in the figure below:
-![](https://mc.qcloudimg.com/static/img/67ba31fd6c1f12485bb8f96220aaf6af/image.png)
+![](https://mc.qcloudimg.com/static/img/c968ea622f06c8cfdd19f96b04fd5bb8/17.jpg)

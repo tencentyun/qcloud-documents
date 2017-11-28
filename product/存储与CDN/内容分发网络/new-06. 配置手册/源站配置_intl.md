@@ -32,7 +32,7 @@ Log in to [CDN Console](https://console.cloud.tencent.com/cdn) and go to "Domain
 
 Go to **Origin Server Info** under "Basic Configuration" to view the current origin server configuration of the domain:
 
-![](https://mc.qcloudimg.com/static/img/27e0cfaebcf678ab57c76e2adf6bd449/2.png)
+![](https://mc.qcloudimg.com/static/img/3d4ec364b6c1f09a064cce3e65ba378a/CDN-Configuration+management-+Basic+Configurations-Origin+Config.png)
 
 
 

@@ -69,7 +69,7 @@ Block storage is a storage device that puts data into blocks in bytes and allows
 - Local disk
 - Cloud disk
 
-![](https://mc.qcloudimg.com/static/img/7e8715ce6bba831c61d0cc807bec8ce9/device-mapping.png)
+![ ](//mc.qcloudimg.com/static/img/13ae98c43d198116c00ad901ed50a329/image.png)
 
 This figure shows how CBS maps the block storage device to the CVM and maps /dev/vda' to the system disk, and how it maps the two data disks to '/dev/vdb and /dev/vdc' respectively. 
 

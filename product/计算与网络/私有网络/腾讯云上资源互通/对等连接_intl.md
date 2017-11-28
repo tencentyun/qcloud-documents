@@ -6,7 +6,7 @@ VPC peering connection is a cross-VPC network interconnection service for office
 
 ## Interconnectivity of Peering Connection Is Not Transitive
 Peering connection allows interconnections between VPCs, but this interconnection is not transitive. As shown in the following figure, peering connection is established between VPC 1 and VPC 2, as is done between VPC 1 and VPC 3. However, due to the non-transitive nature of peering connection, VPC 2 and VPC 3 cannot readily interconnect.
-![](//mccdn.qcloud.com/static/img/9127397dcb1df231bfd8d32bcd628223/image.png)
+![](https://mc.qcloudimg.com/static/img/abb5acd1e173508dc37afbd01c0d8492/VPC-Peer+Connection%281%29.png)
 > Note: Even if a peering connection is established, communication cannot be achieved if routes for sending and returning packets are not configured at both ends.
 
 
@@ -28,10 +28,10 @@ The typical applications for cross-region peering connection (cross-region inter
 
 ## Workflow for Establishing and Deleting
 ### Workflow for Establishing a Peering Connection
-![](//mccdn.qcloud.com/static/img/9527bab04ca5213bdd72dbec99c9e9ef/image.png)
+![](https://mc.qcloudimg.com/static/img/743f16c5d86997d0d797ec86722d3323/VPC-Peer+Connection%282%29.png)
 
 ### Workflow for Deleting a Peering Connection
-![](//mccdn.qcloud.com/static/img/0e0ae950ebface4e307cd510de2b885e/image.png)
+![](https://mc.qcloudimg.com/static/img/fbfaddf94684023e2f28f04576c4f740/VPC-Peer+Connection%283%29.png)
 
 ## Service Limits
 When using peering connection, you have to note the following:
@@ -159,7 +159,7 @@ Example:
 Network segment 1: VPC1 subnet A `192.168.1.0/24` in **Guangzhou**.
 Network segment 2:   VPC2 subnet B `10.0.1.0/24` in **Beijing**.
 The following steps are required to achieve interconnection between segment 1 and segment 2 via peering connection:
-![](//mc.qcloudimg.com/static/img/4817a68077ccf82022ea167476871c41/3.jpg)
+![](https://mc.qcloudimg.com/static/img/d79a35cb5fa2701e147dd1d52f316ea1/VPC-Peer+Connection%284%29.png)
 #### Step 1: Creating a peering connection
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click "Virtual Private Cloud" in the navigation bar.
 2) Select the "Peering Connection" tab in the VPC console, and select **Region: Guangzhou**, VPC `VPC1` above the list, and then click "New" to create a peering connection.

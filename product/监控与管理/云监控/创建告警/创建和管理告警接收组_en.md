@@ -7,15 +7,15 @@ Alarm receiver group determines alarm receivers. You can gather users who pay at
 
 3) Click the "Manage Alarm Receiver Group" button in the "Alarm Receiver Group" module. Then, you can select a receiver group in the pop-up window.
 
-4) Click the "User Center" button in the "You can modify the group members in the User Center" prompt to jump to the User Center.
+4) Click the "Cloud Access Management" button in the "You can modify the group members in the Cloud Access Management" prompt to jump to the Cloud Access Management console.
 
 5) You can create a new user (including user name, QQ, mobile phone and mailbox) in "User Management", and add the user to user groups in "User Group Management".
 
 ## Managing the Alarm Reception Methods
-Currently, users can only receive alarms through email and SMS. You can modify your mobile number and email in "User Center" to select the reception method of alarm information.
+Currently, users can only receive alarms through email and SMS. You can modify your mobile number and email in "User Management" to select the reception method of alarm information.
  
 ## Canceling Alarm Subscription
 If you don't want a user to receive an alarm from a policy, you can cancel the user's alarm subscription. There are two methods to cancel the subscription:
 
-- Cancel the association with the alarm receiver group where the user locates in the corresponding policy.
-- Delete the user from the corresponding group in the "User Center" - "Permission Setting".
+- Cancel the association with the alarm receiver group where the user locates in the corresponding policy. 
+- Delete the user from the corresponding group in the "Cloud Access Management" - "User Group Management".

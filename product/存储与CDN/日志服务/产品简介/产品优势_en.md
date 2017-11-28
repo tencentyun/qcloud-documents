@@ -1,14 +1,14 @@
-## High stability and reliability
+## High Stability and Reliability
 
 CLS supports multiple redundant backups, providing a data persistence of not less than 99.99999999% and service reliability of not less than 99.9%.
 
-## Excellent performance
+## Excellent Performance
 
-Configurations take effect quickly and results are returned within seconds for data retrieval. Storage demands are collected from the daily TB-level log data.
+Configurations take effect quickly and results of data search are returned within seconds. Storage demands are collected from the daily TB-level log data.
 
-## Wide selection of features
+## Wide Selection of Features
 
-A one-stop solution is provided, covering a full range of features from log collection, storage, retrieval, analysis, to delivery.
+A one-stop solution is provided, covering a full range of features from log collection, storage, search, analysis, to shipping.
 
 ## Auto Scaling
 
