@@ -43,6 +43,5 @@ Read-only instances run on a pay-by-usage billing mode only. Tiered prices are a
  
 ## 7. Upgrade
 1. To ensure normal synchronization between the master instance and the read-only instances, the specification of the master instance needs to be less than or equal to that of the read-only instance.
-2. If the read-only instance is not upgraded along with the upgrade of the master instance, the master instance can only be upgraded to an instance specification that is less than or equal to that of the read-only instance. If there are multiple read-only instances under this master instance, and they have different specifications, the master instance can be upgraded to the lowest specification of these read-only instances.
-3. One or more read-only instances can be upgraded along with the upgrade of the master instance. If you select all the read-only instances for upgrade at the same time, you can choose to upgrade to any instance type with a specification larger than the current master instance specification. All read-only instances with a specification lower than that of this instance type will be upgraded, while read-only instances above this specification will neither be upgraded nor degraded. If only part of the read-only instances are selected, the master instance can only be upgraded to an instance specification that is less than or equal to the lowest specification of the unselected read-only instances.
+
 
