@@ -54,7 +54,7 @@
 | Query the VPN gateway list | [DescribeVpnGw](http://cloud.tencent.com/doc/api/245/5108) | Query VPN gateway details based on user information such as the ID and name of the VPN gateway. |
 | Renew the VPN gateway | [RenewVpn](http://cloud.tencent.com/doc/api/245/5109) | Renew the VPN gateway. |
 
-##6. Peer Gateway Related APIs
+## 6. Peer Gateway Related APIs
 | Feature | Action ID | Description |
 |---------|---------|---------|
 | Create a peer gateway | [AddUserGw](http://cloud.tencent.com/doc/api/245/5116) | Create a peer gateway to connect to. |
