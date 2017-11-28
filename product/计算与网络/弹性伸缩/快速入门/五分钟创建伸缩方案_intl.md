@@ -1,5 +1,5 @@
 You can create a complete auto scaling solution by performing the following three steps:
-![](https://mc.qcloudimg.com/static/img/3c1cc8d6a0bcab10fb527ed941635287/1.png)
+![](https://mc.qcloudimg.com/static/img/cfca5d454509e38558e458cca5efecc4/AS-Creating+a+Scaling+Solution.png)
 
 > Note: The example below are performed in the console. If you want to use API, refer to [API Usage Examples](https://cloud.tencent.com/document/product/377/4232).
 
