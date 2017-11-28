@@ -67,7 +67,7 @@ Step 4: Configure the number of pods to run for the service. Here, we choose "1"
 Step 5: Select access method for the service. Since our frontend needs to provide access to Internet browsers, we choose "Public Network Load Balancer Access".
 Step 6: Lastly, configure service access port. Our service pod includes 1 frontend container which listens the port 80, so we configure the mapping container port as 80, and set the service port to the same value as the container port, which is also 80. When this is done, users will be able to access our frontend container when they access our load balancer IP through browsers.
 
-![](https://mc.qcloudimg.com/static/img/58f0dcfcc0d84efffb7478cff1e1e2ab/ccs_revise_6.jpg)
+![](https://mc.qcloudimg.com/static/img/426bf3368d93268d0c8dc09455ad868d/ccs_revise_6.jpg)
 
 #### (4) View Service
 
