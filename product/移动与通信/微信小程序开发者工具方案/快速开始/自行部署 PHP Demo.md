@@ -180,7 +180,7 @@ $config = [
          * 广州二区：cn-south-2
          * 成都：cn-southwest
          * 新加坡：sg
-         * @see https://www.qcloud.com/document/product/436/6224
+         * @see https://cloud.tencent.com/document/product/436/6224
          */
         'region' => 'cn-sorth',
         // Bucket 名称
