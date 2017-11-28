@@ -34,7 +34,7 @@ You can create a custom routing table, edit the routing policy, and then associa
 6) Click the "Edit" button, and select the associated routing table in the drop-down box.
 7) Click "Save".
 
-![ ](//mc.qcloudimg.com/static/img/66098c2892eaf6f88b38b022973ca13b/image.png)
+![](//mc.qcloudimg.com/static/img/66098c2892eaf6f88b38b022973ca13b/image.png)
 
 ### Step 4: Add a CDB
 A newly purchased CDB can be used in the VPC. It should be noted that once you select the VPC to which a CDB is added, it cannot be changed.
