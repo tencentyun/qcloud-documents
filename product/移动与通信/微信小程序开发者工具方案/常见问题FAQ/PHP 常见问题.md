@@ -8,7 +8,7 @@
 
 Wafer2 针对 PHP 的开发情况专门优化了日志的下载，为了兼容，您必须将日志输出在 `application/logs` 目录下。同时，日志的文件名也必须遵循 `log-[YYYY]-[MM]-[DD].log` 模式，YYYY 为完整年份，MM 为完整月份数字，DD 为完整日期，例如：`log-2017-10-16.log`。具体的日志输出代码您可以参考 [SDK 內建的 Logger](https://github.com/tencentyun/wafer-php-server-sdk/blob/master/lib/Helper/Logger.php)。
 
-您可以在[腾讯云小程序控制台](https://console.qcloud.com/lav2/dev)下载日志，系统将会自动取**当天**最后 1000 条日志。
+您可以在[腾讯云小程序控制台](https://console.cloud.tencent.com/lav2/dev)下载日志，系统将会自动取**当天**最后 1000 条日志。
 
 ## 如何快速新建路由
 
