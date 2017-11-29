@@ -1,7 +1,7 @@
 
 ## Applying for Domain Validation (DV) SSL Certificate
 
-### 1. Application Entry
+## 1. Application Entry
 
 Enter the SSL certificate management console
 ![](https://mc.qcloudimg.com/static/img/f990389699184b164082dce1ebe809c6/1.png)
@@ -13,7 +13,7 @@ View the model of the applied domain validation certificate, and click "OK"
 
 ![](https://mc.qcloudimg.com/static/img/287bd4f6c633cb1a81e18a096f47d5ed/3.png)
 
-### 2. Filling in the Application
+## 2. Filling in the Application
 
 Fill in the applied domain, note that it is not supported to apply for top-level domains (e.g. qcloud com), please enter second-level, third-level domains such as cloud.tencent.com, demo.test.qlcoud.com.
 ![](https://mc.qcloudimg.com/static/img/4961164252cd488c9695475e173c0b8c/4.png)
