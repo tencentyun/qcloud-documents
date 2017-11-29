@@ -71,7 +71,7 @@ After a CVM is purchased and launched, the instance name, public IP address, pri
 	![](//mc.qcloudimg.com/static/img/2458a30dd79da5762ea6cf474755319e/image.png)
 
  2. Select **Ctrl-Alt-Delete** from the top left corner, go to the system login interface:
-	![](//mc.qcloudimg.com/static/img/e4dbc02ca9ae2a7cb9ada5316effd31a/image.png)
+	![](//mc.qcloudimg.com/static/img/ac56e378386a3e6fbc3eaa50ba80358c/image.png)
 	
  3. Enter the account ID (Admin) and the initial password from the internal message (or the password modified by you) to log in.
 
