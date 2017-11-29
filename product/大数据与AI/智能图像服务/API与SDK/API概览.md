@@ -18,6 +18,7 @@
 | OCR-银行卡识别     | [查看文档](/document/product/641/12429) |
 | OCR-营业执照识别    | [查看文档](/document/product/641/12425) |
 | OCR-通用印刷体识别   | [查看文档](/document/product/641/12428) |
+| OCR-手写体识别     |[查看文档](document/product/641/12838) |
 
 ## 人脸识别接口
 
