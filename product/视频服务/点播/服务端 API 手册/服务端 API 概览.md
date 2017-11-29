@@ -63,7 +63,7 @@
 		
 		<!--视频处理-->
         <tr>
-			<td rowspan=8>
+			<td rowspan=7>
 				视频处理
 			</td>
             <td>
@@ -112,16 +112,6 @@
             <td>
                 <a href="/document/product/266/7821">
                     ConcatVideo
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                HLS 视频简单剪切
-            </td>
-            <td>
-                <a href="/document/product/266/8859">
-                    SimpleClipHls
                 </a>
             </td>
         </tr>
@@ -451,13 +441,13 @@
             </td>
         </tr>
 		
-		<!--秘钥管理-->
+		<!--密钥管理-->
         <tr>
 			<td rowspan=1>
-				秘钥管理
+				密钥管理
 			</td>
             <td>
-                获取视频解密秘钥
+                获取视频解密密钥
             </td>
             <td>
                 <a href="/document/product/266/9643">
@@ -487,51 +477,6 @@
             <td>
                 <a href="/document/product/266/12624">
                     GetPlayStatLogList
-                </a>
-            </td>
-        </tr>
-		
-		<!--已废弃的API-->
-        <tr>
-			<td rowspan=4>
-				已废弃的API
-			</td>
-            <td>
-                获取视频信息
-            </td>
-            <td>
-                <a href="/document/product/266/7824">
-                    DescribeVodPlayUrls
-                </a>
-            </td>
-        </tr>
-		<tr>
-            <td>
-                批量获取视频信息
-            </td>
-            <td>
-                <a href="/document/product/266/7823">
-                    DescribeVodInfo
-                </a>
-            </td>
-        </tr>
-		<tr>
-            <td>
-                依照指定流程处理视频文件
-            </td>
-            <td>
-                <a href="/document/product/266/9045">
-                    ProcessFileByProcedure
-                </a>
-            </td>
-        </tr>
-		<tr>
-            <td>
-                截图地址设为视频封面
-            </td>
-            <td>
-                <a href="/document/product/266/8814">
-                    DescribeVodCover
                 </a>
             </td>
         </tr>
