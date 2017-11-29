@@ -1,0 +1,7 @@
+| Term | Full Name | Name | Description |
+|-||:-:|:-:|:-:|
+| KMS | Key Management Service | Key Management Service			| A security-related cloud-based management service that provides key management and data encryption and decryption capabilities. The core is to protect sensitive information on the server |
+| CMK | Customer Master Keys | User Master Key			| The CMK hosted by Tencent Cloud is used to encrypt and decrypt sensitive data used by businesses such as passwords, certificates, data keys. CMK can be created and managed through the console and the API |
+| DEK | Data Encryption Keys | Data Encryption Keys		| Keys protected by CMK are used to encrypt business data. You can customize a key or create a new data key by using KMS API |
+| Envelope Encryption | Envelope Encryption | Envelope Encryption | A high-performance encryption solution to handle massive data. It uses data keys to encrypt and decrypt business data by means of high-performance symmetric encryption method, and ensures the secure use of the data key through KMS. It can guarantee the data security while providing high data read/write performance |
+| Encryption Context | Encryption Context | Auxiliary Data Verification	| A piece of data in JSON format. If you input the data when calling the API Encrypt, you must provide equivalent JSON data during decryption, otherwise the decryption may fail. You can regularly update the Encryption Context to improve business security or quickly block unauthorized access without disabling CMK |
