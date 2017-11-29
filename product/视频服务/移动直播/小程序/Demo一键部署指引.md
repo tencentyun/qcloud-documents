@@ -86,7 +86,7 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
 **安装依赖**
 
-> 注意：这里一定要在本地安装依赖。
+<font color='red'> 注意：这里一定要在本地安装依赖，否则会出现部署失败的问题。 </font>
 
 在下载下来的目录打开 CMD 安装依赖：
 
