@@ -28,20 +28,20 @@ This step describes how to create a Linux CVM. Let's take quick configuration as
 
 ![](//mc.qcloudimg.com/static/img/15b48516a605826fbc15d6775be04f20/image.png)
 
- 1. Log in to Tencent Cloud official website, go to **Products** -> **Compute** -> **Cloud Virtual Machine**, then click the **Experience** button to go to [CVM Purchase Page](https://console.cloud.tencent.com/cvm/index), and click **+ NEW** to start purchase.
+ 1.Log in to Tencent Cloud official website, go to **Products** -> **Compute** -> **Cloud Virtual Machine**, then click the **Experience** button to go to [CVM Purchase Page](https://console.cloud.tencent.com/cvm/index), and click **+ NEW** to start purchase.
+![](//mc.qcloudimg.com/static/img/51e3ba45030b206b51f7a03b05d4a757/image.png)
 
- 2. Select an image. Select a Linux operating system that meets your requirement.
+ 2.Select a model.
  
- 3. Select a model.
+ 3.Select a region. Choosing a region close to your users can minimize access latency and improve download speed.![](//mc.qcloudimg.com/static/img/8a2ea5f4d088d2beac5686a8364994d7/image.png)
  
- 4. Select a region. Choosing a region close to your users can minimize access latency and improve download speed.
- 
- 5. Select public network bandwidth. If you do not need to connect to the public network, set the bandwidth value to 0.
- 
- 6. Select CVM quantity and the usage period.
-
- 7. Set account name and login method.
- 
+ 4.Select an image. Select a Linux operating system that meets your requirement.
+ ![](//mc.qcloudimg.com/static/img/351555b94d60fae965b315404f0f37af/image.png)
+ 5.Select public network bandwidth. If you do not need to connect to the public network, set the bandwidth value to 0.
+ 6.Select CVM quantity and the usage period.
+![](//mc.qcloudimg.com/static/img/727646454414ef49b6891c7b5a96cc3a/image.png)
+ 7.Set account name and login method.
+ ![](//mc.qcloudimg.com/static/img/671d4120d3f7578087d85a84d0e824f9/image.png)
 For more information on how to view internal message, please see later steps.
  
 <div id="Inter-Page">  </div>
@@ -58,7 +58,7 @@ You need to use the admin account ID and the corresponding password to log in to
 ### Viewing Internal Message and CVM Information
 After a CVM is purchased and launched, the instance name, public IP address, private IP address, login name and initial login password of the CVM are sent to your account via [Internal Message](https://console.cloud.tencent.com/message).
 
-![](//mc.qcloudimg.com/static/img/da559439d58296f6da3ff28c2c1ab952/image.png)
+![](//mc.qcloudimg.com/static/img/4af14d1f95582f48e42912441def19b0/image.png)
  1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/index). You can see the public IP address, private IP address and other information after login.
 
  2. Click **Internal Message** at the upper right corner.
