@@ -19,7 +19,7 @@
 ```
 server {
     listen        443;
-server_name  test.cos.com ;
+    server_name  test.cos.com ;
 
     ssl on;
     ssl_certificate /usr/local/nginx/conf/server.crt;
