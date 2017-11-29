@@ -23,7 +23,7 @@ Cloud Monitor can automatically monitor the following services. Once you start u
 - [Cloud Load Balance](https://cloud.tencent.com/doc/product/214)
 - [Direct Connect](https://cloud.tencent.com/doc/product/216)
 - [Content Delivery Network](https://cloud.tencent.com/doc/product/228)
-- [Cloud Object Storage](https://cloud.tencent.com/doc/product/430)
+- [Cloud Object Storage](https://cloud.tencent.com/document/product/436)
 - [Cloud Database for MySQL](https://cloud.tencent.com/doc/product/236)
 - [Cloud Database for TDSQL](https://cloud.tencent.com/doc/product/237)
 - [Cloud Database for SQL Server](https://cloud.tencent.com/doc/product/238)

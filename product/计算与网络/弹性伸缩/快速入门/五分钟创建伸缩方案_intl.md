@@ -1,5 +1,5 @@
 You can create a complete auto scaling solution by performing the following three steps:
-![](https://mc.qcloudimg.com/static/img/3c1cc8d6a0bcab10fb527ed941635287/1.png)
+![](https://mc.qcloudimg.com/static/img/cfca5d454509e38558e458cca5efecc4/AS-Creating+a+Scaling+Solution.png)
 
 > Note: The example below are performed in the console. If you want to use API, refer to [API Usage Examples](https://cloud.tencent.com/document/product/377/4232).
 
@@ -58,7 +58,7 @@ If the data disk snapshot is specified in the scaling configuration, you need to
 >-  Auto Scaling service is free of charge, and newly added servers, hard disks and networks will be charged by the traffic of CVM instances, hard disks and networks. This page will display prices based on your settings.
 
 ### Set Information
-![](https://mc.qcloudimg.com/static/img/9f1779b369b2f8a9c4487afcddd991fa/16.jpg)
+![](https://mc.qcloudimg.com/static/img/5738fa58c6990e7428c83e6d20ebd80c/as_revise_1.jpg)
 Select the login method and security group in the **Set Information** page. The CVM instances added via the Auto Scaling service use Cloud Security and Cloud Monitor services for free by default.
 
 After configuration, this entry will be displayed in the scaling configuration list, as shown in the figure below:
