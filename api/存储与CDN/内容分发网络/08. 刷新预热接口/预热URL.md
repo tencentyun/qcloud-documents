@@ -1,7 +1,8 @@
-## 接口描述
-**CdnPusherV2** 将指定URL资源主动推送至CDN节点。
-
 <font color="orange">URL 预热接口目前仅开放内测，敬请期待全量开放</font>
+
+## 接口描述
+
+**CdnPusherV2** 将指定URL资源主动推送至CDN节点。
 
 请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
 
