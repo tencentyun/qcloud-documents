@@ -53,7 +53,7 @@ The routing table is created and used completely free of charge. For other price
 ### Modifying Default Routing Table
 When a VPC is created, the system will automatically create a default routing table, with which newly created subnets will be associated by default.
 
-1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, and enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc ? Rid = 8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, and enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?Rid = 8).
 2) Click "Routing Table" in the left navigation bar, and click the routing table ID in the routing table list to enter the routing table details page.
 3) Click "Edit" button of the routing policy to start modifying the routing policy.
 4) (Optional) Click "New Line" to add a routing policy. Enter the destination network segment, select the next hop type (public network gateway, VPN gateway, direct connect gateway, etc.), and then select the next hop ID.
