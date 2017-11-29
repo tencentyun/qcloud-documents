@@ -218,7 +218,7 @@ http://201405.image.myqcloud.com/201405/123456/8d72f95e-f8cc-4962-b787-cc1d21847
 http://201405.image.myqcloud.com/201405/123456/8d72f95e-f8cc-4962-b787-cc1d218475e0/original
 ```
 ### 8.2	普通缩放功能
-url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&amp;w=100&amp;h=80
+url=`http://[domain]/[appid]/[userid]/[fileid]/[pattern]?ss=1&amp;w=100&amp;h=80`
 
 参数名称|	参数值|	说明
 ---------|---------|---------
