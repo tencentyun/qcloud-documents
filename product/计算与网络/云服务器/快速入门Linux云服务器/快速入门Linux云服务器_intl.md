@@ -26,7 +26,7 @@ If Prepaid method is selected, you need to complete [Identity Verification](http
 ## Step 2: Create Linux CVM
 This step describes how to create a Linux CVM. Let's take quick configuration as an example. If it does not meet your requirements, you can choose a detailed configuration by referring to [Customized Configuration of Linux CVM](/doc/product/213/10517) document.
 
-![](//mc.qcloudimg.com/static/img/15b48516a605826fbc15d6775be04f20/image.png)
+
 
  1.Log in to Tencent Cloud official website, go to **Products** -> **Compute** -> **Cloud Virtual Machine**, then click the **Experience** button to go to [CVM Purchase Page](https://console.cloud.tencent.com/cvm/index), and click **+ NEW** to start purchase.
 ![](//mc.qcloudimg.com/static/img/51e3ba45030b206b51f7a03b05d4a757/image.png)
