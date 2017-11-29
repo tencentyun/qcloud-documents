@@ -8,7 +8,7 @@
 2.4	Wait for review to be completed. It usually takes 2-4 work days.
 
 3. Identity Verification for Company：
-3.1 Enter the **Identity Verification** page（https://console.cloud.tencent.com/developer/auth ) ,and select **Company**.
+3.1 Enter the **Identity Verification** page（https://console.cloud.tencent.com/developer/auth ) , and select **Company**.
 ![ ](https://mc.qcloudimg.com/static/img/ff6b269bf0e32dae0f86114d40ab2b5c/image.png)
 3.2	Enter the information consistent with your business license. Only business license is supported for company verification. Business license is the permit issued by government agencies that allow individuals or companies to conduct business within the government's geographical jurisdiction.
 3.3	Wait for review to be completed. It usually takes 2-4 work days.
