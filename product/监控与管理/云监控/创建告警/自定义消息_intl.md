@@ -72,7 +72,7 @@ Execute the following commands directly on the command line interface and view t
 cagent_tools
 ```
 The results are:
-![](//mccdn.qcloud.com/img56cacf193430e.png)
+![](https://mc.qcloudimg.com/static/img/eb63d852fccd82532a90774edc0565f8/BCM-Create+Alarm-Customize+Alarm+Message.png)
 
 3) Example
 
