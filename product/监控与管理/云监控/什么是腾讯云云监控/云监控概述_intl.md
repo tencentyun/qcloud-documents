@@ -35,4 +35,4 @@ Cloud Monitor provides basic metrics monitoring and data storage. You can view t
 
 Cloud Monitor stores metric data of all the cloud products. You can search the cloud products (such as CVM) based on these metrics. The Cloud Monitoring Console collects the metric data of cloud products and displays them in chart.
 
-![](https://mc.qcloudimg.com/static/img/e17600ac6f357ce818470a179fde9aca/image.png)
+![](https://mc.qcloudimg.com/static/img/93517fe56fa0222615d9f73cba5bd494/image.png)
