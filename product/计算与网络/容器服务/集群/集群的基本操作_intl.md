@@ -16,7 +16,7 @@
 
 ![](https://mc.qcloudimg.com/static/img/0cec22abebd970383c0f23c1dcd19b39/Basic_Operations_of_Clusters_5.jpg)
 
-### Adding a CVM
+## Adding a CVM
 1. Select the cluster you just created and click **Add Nodes**.
 ![](https://mc.qcloudimg.com/static/img/bfe645cc457f645ba4f8095fd5bb87a8/Basic_Operations_of_Clusters_6.jpg)
 
