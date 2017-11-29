@@ -16,7 +16,7 @@ In the "Add Alarm Policy" pop-up box, enter the policy name and select the polic
 - The CVM alarm can be sent normally only after CVM instances [install monitoring components](/doc/product/248/6211) and report data for monitoring metrics. On the alarm object page, you can view the CVMs without the monitoring agent, and download the IP list.
 - A maximum of fifteen alarm policies can be created for each policy type per project.
 
-4. Setting up repeated alarm policy
+4) Setting up repeated alarm policy
 
 You can set up a repeated alarm policy for each of the alarm policies. That is, when an alarm occurs, you can custom the alarm to repeatedly inform at a specific frequency.
 
@@ -34,7 +34,7 @@ Note: The meaning of the periodic index incrementing is that when the alarm is t
 >
 >After the alarm is generated for 72 hours, the alarm message will be sent for the last time.
 
-5. You can set an existing policy as a default alarm policy. The newly purchased CVM will automatically be associated with the default alarm policy.
+5)You can set an existing policy as a default alarm policy. The newly purchased CVM will automatically be associated with the default alarm policy.
 ![](https://mc.qcloudimg.com/static/img/c9dc88126ce1f98f99f32fe99db81040/BCM-Create+Alarm.png)
 
 > Note:
