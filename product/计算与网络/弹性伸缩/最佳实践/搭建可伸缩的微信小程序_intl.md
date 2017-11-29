@@ -1,6 +1,6 @@
 ## Deployment Architecture
 We can create a WeChat Lite App with the following architecture. Auto Scaling is required for business server cluster and session server cluster.
-![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/solution/css/img/wx/fw-pic.png)
+![](https://mc.qcloudimg.com/static/img/e2de0c6b3a406e867c26d2310f2cf228/AS-Best+Practise-WeChat.png)
 
 ## Why Is the Auto Scaling Configuration Required?
 

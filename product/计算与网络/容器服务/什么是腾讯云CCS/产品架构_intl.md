@@ -2,7 +2,7 @@
 
 ### Overall Architecture
 This section describes the design and implementation of CCS system, and its product architecture is as follows:
-![Alt text](https://mc.qcloudimg.com/static/img/8381e7cdb015bf0f8d01437287779f92/%7B6271F726-FE22-4222-B487-81ACEA386EED%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/2924e6a13177c982aa86bf243cb5bbce/ccs_revise_pic.png)
 
 CCS consists of the following modules:
 

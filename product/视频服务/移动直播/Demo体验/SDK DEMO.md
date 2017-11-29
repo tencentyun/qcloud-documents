@@ -32,13 +32,13 @@ table th:nth-of-type(4) {  width: 235px; }
     <td>3.5</td>
 		<td><a href="https://itunes.apple.com/us/app/rtmp-tui-liu-jing-ling/id1152295397?l=zh&ls=1&mt=8
 "><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/3906acd31c5d96251e9d2bd1cd6cc41a/image.png" /></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/f9f652e7bc42b0e79dfbadbeea3aec06/image.jpg" /></td>
   </tr>
 	<tr align="center">
     <td>Android</td>
     <td>3.5</td>
 		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/06305dc235fde26cdc51c022842875e5/image.png" /></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/e11f945cafa155a4e991706dabb15849/image.jpg" /></td>
   </tr>
 </table>
 
@@ -70,7 +70,7 @@ table th:nth-of-type(4) {  width: 235px; }
   </tr>
 </table>
 
-<h2 id="DE">新增 Windows 平台 </h2>
+<h2 id="Windows">新增 Windows 平台 </h2>
 
 ### 效果预览
 ![](//mc.qcloudimg.com/static/img/aec2f0e2848c351f026c4bb22066d596/image.jpg)

@@ -116,7 +116,9 @@ POST /ObjectName?uploadId=1484728886e63106e87d8207536ae8521c89c42a436fe23bb58854
 Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484729794;32557625794&q-key-time=1484729794;32557625794&q-header-list=host&q-url-param-list=uploadId&q-signature=23627c8fddb3823cce4257b33c663fd83f9f820d
-Content-Length: 155
+Content-Length: 138
+
+<CompleteMultipartUpload><Part><PartNumber>1</PartNumber><ETag>"fc392a65890e447ff4e2d256489a9773"</ETag></Part></CompleteMultipartUpload>
 ```
 
 ### 响应

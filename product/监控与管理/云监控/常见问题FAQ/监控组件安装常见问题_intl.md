@@ -24,11 +24,6 @@ Once installed, you will see the following:
 1) After logging in to the server, download `windows-stargate-installer.exe` from `http://update2.agent.tencentyun.com/update/windows-stargate-installer.exe`.
 
 2) Run` windows-stargate-installer.exe` to install it automatically.
-Once installed, you will see the following results:
-
-![img](https://mccdn.qcloud.com/img56259a45535ad.png)
-
-![img](https://mccdn.qcloud.com/img561f650a18fb6.png)
 
 ## 4. Why are there no prompt messages after I double click the installer on Windows?
 
