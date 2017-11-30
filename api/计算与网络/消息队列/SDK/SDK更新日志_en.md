@@ -1,4 +1,3 @@
-﻿
 ### CMQ SDK1.0.3
 #### March 13, 2017
 New features for CMQ: message rewind, message delay and routing subscription.
