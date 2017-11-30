@@ -1,6 +1,4 @@
-﻿The routing key matching feature of CMQ is similar to the exchange queue of rabbitMQ. It is used to filter messages, and make subscribers receive different messages based on different conditions. You can enable "Routing Key Matching" when creating Topic.
-
-# Routing Key Matching
+The routing key matching feature of CMQ is similar to the exchange queue of rabbitMQ. It is used to filter messages, and make subscribers receive different messages based on different conditions. You can enable "Routing Key Matching" when creating Topic.
 
 Instructions:
 
