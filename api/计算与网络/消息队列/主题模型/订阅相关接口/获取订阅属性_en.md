@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (GetSubscriptionAttributes) is used to acquire the attributes of a created subscription.
 
