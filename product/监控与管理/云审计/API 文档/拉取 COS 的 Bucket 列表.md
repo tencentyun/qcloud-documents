@@ -9,14 +9,14 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| cosBucketsList | Array | COS Bucket 数组 |
+| cosBucketsList | Array | COS Bucket 列表 |
 
 其中 cosBucketsList 的参数如下：
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | name | String | COS Bucket 名称 |
-| region | String | Bucket 所在的区域 |
+| region | String | Bucket 所在的地域 |
 ## 实际案例
 ### 请求
 
