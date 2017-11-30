@@ -1,15 +1,15 @@
-为了提升用户在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了YaST下载源。操作系统为 Opensuse 及 部分 SLES 的云服务器用户可通过YaST快速安装软件。
+为了提升用户在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了 zypper 下载源。操作系统为 Opensuse 及 部分 SLES 的云服务器用户可通过 zypper 快速安装软件。
 
 ## 1. 安装步骤
 登录操作系统为 Opensuse 的云服务器后，默认已获取root权限，在此权限下，通过以下命令列出软件源：
 
 ```
-service-list 
+zypper service-list 
 ```
 或
 
 ```
-sl
+zypper sl
 ```
 
 如果软件源中已经添加了可用源，则可以直接执行步骤3，正常进行软件下载和安装；
@@ -20,34 +20,34 @@ sl
 如果上一步骤中没有列出软件源，则需要在root权限下，通过以下命令手动添加软件源：
 
 ```
-service-add
+zypper service-add
 ```
 或
 ```
-sa
+zypper sa
 ```
 示例如下：
 
 ```
-sa -t YaST http://mirrors.tencentyun.com/opensuse opensuse 
-sa -t YaST http://mirrors.tencentyun.com/opensuse/update update
+zypper sa -t YaST http://mirrors.tencentyun.com/opensuse opensuse 
+zypper sa -t YaST http://mirrors.tencentyun.com/opensuse/update update
 ```
 
 ## 3. 搜索软件包
 通过以下命令搜索软件包：
 
 ```
-search
+zypper search
 ```
 或
 
 ```
-se
+zypper se
 ```
 示例如下：
 
 ```
-se nginx
+zypper se nginx
 ```
 
 ## 4. 安装软件包
@@ -58,22 +58,22 @@ se nginx
 通过以下命令安装软件包：
 
 ```
-install
+zypper install
 ```
 或
 ```
-in
+zypper in
 ```
 示例如下：
 
 ```
-in nginx
+zypper in nginx
 ```
 
 可以按照相同的方式安装php和php-fpm等软件：
 
 ```
-in MySQL-server-community php5-mysql php5 php5-fpm
+zypper in MySQL-server-community php5-mysql php5 php5-fpm
 ```
 
 ## 5. 查看安装的软件信息

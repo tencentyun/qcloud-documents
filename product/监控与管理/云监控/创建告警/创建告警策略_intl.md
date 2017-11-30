@@ -30,7 +30,7 @@ Default logic of repeated alarm：
 * After the alarm is generated for 72 hours, the alarm message will be sent for the last time.
 
 5) You can set an existing policy as a default alarm policy. The newly purchased CVM will automatically be associated with the default alarm policy.
-![](https://mc.qcloudimg.com/static/img/c9dc88126ce1f98f99f32fe99db81040/BCM-Create+Alarm.png)
+![](https://mc.qcloudimg.com/static/img/c9b4142d2894ddd8430ab917fb992d53/BCM-Create+Alarm.png)
 
 > Note:
 >- Each policy type has only one default policy.
