@@ -24,11 +24,11 @@ function checkTBSVersion(ua) {
 4. iOS 和 Mac 的 Safari 正在适配中
 
 ## 体验 Demo
-### 1. 微信或者手 Q 请先升级 tbs (预计 10 月 tbs 正式发布后就可以跳过此步骤)；
+1. 微信或者手 Q 请先升级 tbs (预计 10 月 tbs 正式发布后就可以跳过此步骤)；
 ![tbs升级](http://docs-1253488539.picsh.myqcloud.com/tbs.png)
-### 2. 微信或者手 Q 扫码，进入 demo；
+2. 微信或者手 Q 扫码，进入 demo；
 ![扫码界面](http://docs-1253488539.picsh.myqcloud.com/demo.png)
-### 3. 用 pc 或者 mac 的 Chrome 打开 [体验地址](https://sxb.qcloud.com/quick/index.html)，体验音视频互通。
+3. 用 pc 或者 mac 的 Chrome 打开 [体验地址](https://sxb.qcloud.com/quick/index.html)，体验音视频互通。
 <!--
 
 #### 主流浏览器对WebRTC的支持情况
