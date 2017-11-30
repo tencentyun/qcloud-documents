@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (ListSubscriptionByTopic) is used to display the subscription list under one of a user's topics. Data can be acquired in pages.
 
