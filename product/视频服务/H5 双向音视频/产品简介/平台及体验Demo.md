@@ -1,5 +1,5 @@
 ## H5 支持的平台
-1. Android 微信、手 Q
+1. Android 微信、 手机 QQ
 ```javascript
 //判断终端及tbs版本号来确定当前用户的tbs的版本是否支持
 function checkTBSVersion(ua) {
