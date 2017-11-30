@@ -31,7 +31,7 @@ function checkTBSVersion(ua) {
 3. 用 pc 或者 mac 的 Chrome 打开 [体验地址](https://sxb.qcloud.com/quick/index.html)，体验音视频互通。
 <!--
 
-#### 主流浏览器对WebRTC的支持情况
+   #### 主流浏览器对WebRTC的支持情况
 
 ​	![](http://docs-1253488539.cossh.myqcloud.com/iswebrtcreadyyet.png)
 
