@@ -1,6 +1,6 @@
 Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之一，被 200 多万网站用户使用。
 
-腾讯云实验室提供了实践动手的教程，可帮助您一步一步完成 LAMP 环境和 Discuz! 论坛的搭建。您可点击进入 [实验室](https://cloud.tencent.com/developer/labs/gallery)。其中，搭建 Discuz! 网站的实践教程可参考：
+腾讯云实验室提供了实践动手的教程，可帮助您一步一步完成 LAMP 环境和 Discuz! 论坛的搭建。您可点击进入 [实验室](https://cloud.tencent.com/developer/labs?utm_source=doc8043&utm_medium=qclab)。其中，搭建 Discuz! 网站的实践教程可参考：
 - [基于 CentOS 搭建 Discuz 论坛](https://cloud.tencent.com/developer/labs/lab/10030)
 - [基于 Ubuntu 搭建 Discuz 论坛](https://cloud.tencent.com/developer/labs/lab/10102)
 

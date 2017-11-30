@@ -60,7 +60,7 @@ Local disk is a storage medium located on the same physical machine as the CVM i
 
 ## Cloud Object Storage (COS)
 
-Tencent Cloud COS is a data storage device located on the Internet. It allows data retrieval from any location on CVM instance or the Internet, thus reducing the storage cost. For example, you can use COS to store the backup copies of data and applications. For more information, please see [Tencent Cloud COS Product Documentation](https://cloud.tencent.com/doc/product/430).
+Tencent Cloud COS is a data storage device located on the Internet. It allows data retrieval from any location on CVM instance or the Internet, thus reducing the storage cost. For example, you can use COS to store the backup copies of data and applications. For more information, please see [Tencent Cloud COS Product Documentation](https://cloud.tencent.com/document/product/436).
 
 ## Block Storage Device Mapping
 
