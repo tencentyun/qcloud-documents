@@ -1,4 +1,4 @@
-### Q1: Why do some actions not exist when I call CMQ?
+### Why do some actions not exist when I call CMQ?
 
 For example, API "Create Topic" does not exist
 CMQServerException {"code":4000,"data":"{\"code\":4000,\"message\":\"(10430)action name CreateTopic is not existed\"
@@ -15,7 +15,7 @@ Please replace region with gz (Guangzhou), sh (Shanghai) or bj (Beijing) accordi
 Yes, just replace tencentyun in the private network domain with qcloud. Note that public network needs to be paid by traffic and has relatively high delay.
 
 
-### Q3: Does CMQ support https?
+### Does CMQ support https?
 
 No, the current private network domain does not support https, but the public network domain does.
 
@@ -23,16 +23,16 @@ No, the current private network domain does not support https, but the public ne
 
 No, currently it cannot.
 
-### Q5: How many SDKs does CMQ provide? What if these SDKs are not suitable for me?
+### How many SDKs does CMQ provide? What if these SDKs are not suitable for me?
 
 CMQ provides four SDKs, including c++, php, python and java. If you don't find an SDK with appropriate language, you can assemble the packet and call your own CMQ service following the specific documentation on the official website.
 
-### Q6: If the number of messages in the queue is smaller than the requested number of messages consumed in batch in the API "Batch Consume" of CMQ, will the request be blocked?
+### If the number of messages in the queue is smaller than the requested number of messages consumed in batch in the API "Batch Consume" of CMQ, will the request be blocked?
 
 No, it won't.
 
 
-### Q7: As the API key is applicable to all APIs, is there any way that can make this key only applicable to the API of CMQ?
+### As the API key is applicable to all APIs, is there any way that can make this key only applicable to the API of CMQ?
 
 CMQ does not have the permission to control it, but it is connecting to CAM, which is expected to take effect in March. By then, you will be able to use CAM for permission control.
 
