@@ -16,9 +16,9 @@ CVMs in the same region can communicate with each other via private network free
 CVMs in different regions cannot communicate with each other via private network but only via public network with a charge.
 
 ### Choosing Configurations
-You can compare the configurations in [More Models](https://intl.cloud.tencent.com/document/product/213/7153) based on your actual needs. You can also [Upgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) or [Degrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) at any time after purchasing a CVM based on your actual needs.
+You can compare the configurations in [More Models](https://intl.cloud.tencent.com/document/product/213/7153) based on your actual needs. You can also [Upgrade Configuration](https://intl.cloud.tencent.com/document/product/213/5730)  at any time after purchasing a CVM based on your actual needs.
 >**Note:**
-> Windows CVM cannot be used as [Public Network Gateway](/doc/product/215/%E7%BD%91%E5%85%B3#1.-公网网关). If you want to use public network gateway, please refer to [Quick Start for Linux CVM](/doc/product/213/2936).
+> Windows CVM cannot be used as [Public Network Gateway](https://intl.cloud.tencent.com/document/product/215/1682#1.-公网网关). If you want to use public network gateway, please refer to [Quick Start for Linux CVM](/doc/product/213/2936).
 
 ### Choosing Billing Method
 Tencent cloud supports Postpaid billing method. For more information, please see [Billing Methods](/doc/product/213/2180).
@@ -26,7 +26,7 @@ If Prepaid method is selected, you need to complete [Identity Verification](http
 
 <div id="page2"></div>
 ## Step 2: Create a Windows CVM
-This step describes how to create a Windows CVM. Let's take quick configuration as an example. If it does not meet your requirements, you can choose a detailed configuration by referring to [Customized Configuration of Windows CVM](/doc/product/213/10516) document.
+This step describes how to create a Windows CVM. Let's take quick configuration as an example. 
 
 
 
