@@ -1,7 +1,7 @@
 ## Identity Verification for Tencent Cloud International Account
 1. As required by Chinese laws and regulations, users must verify their identity information before using cloud resources in China.
 2. Identity Verification for Individual：
-2.1	Enter the **Identity Verification** page（https://console.cloud.tencent.com/developer/auth ), and select **Individual**.
+2.1	Enter the **Identity Verification** page [https://console.cloud.tencent.com/developer/auth], and select **Individual**.
 ![ ](https://mc.qcloudimg.com/static/img/ccf5abaed140e0046c1af146c63384c1/image.png)
 2.2	Select a certification type. Only passport and driving license are supported for individual verification.
 2.3	Enter the information consistent with the certification.
