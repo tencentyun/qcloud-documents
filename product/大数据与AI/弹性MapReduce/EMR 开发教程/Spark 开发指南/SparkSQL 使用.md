@@ -1,12 +1,12 @@
-在使用SparkSQL 之前请登录 EMR 集群的 master 节点并以 Hadoop 身份进入到如下目录：/usr/local/service/spark，通过如下命令您可以进入 SparkSQL 的交互式控制台
+在使用 SparkSQL 之前请登录 EMR 集群的 master 节点并以 Hadoop 身份进入到如下目录：/usr/local/service/spark，通过如下命令您可以进入 SparkSQL 的交互式控制台
 
 <pre>
 bin/spark-sql --master yarn --num-executors 64 --executor-memory 2g
 </pre>
 
-以上参数可以根据您的实际情况作出修改, 当然您也可以通过 sbin/start-thriftserver.sh 或者 sbin/stop-thriftserver.sh 来启动或者停止一个 SparkSQLthriftserver, 命令行参数使用教程请参考[社区文档](http://spark.apache.org/docs/latest/sql-programming-guide.html)
+以上参数可以根据您的实际情况作出修改, 当然您也可以通过 sbin/start-thriftserver.sh 或者 sbin/stop-thriftserver.sh 来启动或者停止一个  SparkSQLthriftserver, 命令行参数使用教程请参考 [社区文档](http://spark.apache.org/docs/latest/sql-programming-guide.html)
 
-通过 API 使用SparkSQL：
+通过 API 使用 SparkSQL：
 
 - 添加 maven 依赖  
 

@@ -32,7 +32,7 @@
 //mPlayerView即step1中添加的界面view
 TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
 //创建player对象
-TXVodPlayer mVodPlayer = new TXLivePlayer(getActivity());
+TXVodPlayer mVodPlayer = new mVodPlayer(getActivity());
 //关键player对象与界面view
 mVodPlayer.setPlayerView(mView);
 ```
@@ -99,7 +99,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
 ```java
-mLivePlayer.snapshot(new ITXSnapshotListener() {
+mVodPlayer.snapshot(new ITXSnapshotListener() {
     @Override
     public void onSnapshot(Bitmap bmp) {
         if (null != bmp) {
@@ -117,10 +117,10 @@ mLivePlayer.snapshot(new ITXSnapshotListener() {
  ```java
 //如下代码用于展示点播倍速播放
 //设置1.2倍速播放
-mLivePlayer.setRate(1.2); 
+mVodPlayer.setRate(1.2); 
 // ...
 //开始播放
-mLivePlayer.startPlay(playUrl,_playType);
+mVodPlayer.startPlay(playUrl,_playType);
 ```
 
 ### step 9: 本地缓存
@@ -140,7 +140,7 @@ SDK 并不默认开启缓存功能，对于用户回看率不高的场景，也�
 TXVodPlayConfig mConfig = new TXVodPlayConfig();
 mConfig.setCacheFolderPath(
          Environment.getExternalStorageDirectory().getPath(); +"/txcache");
-				 
+                 
 //指定本地最多缓存多少文件，避免缓存太多数据
 mConfig.setMaxCacheItems(10);
 mVodPlayer.setConfig(mConfig); 
@@ -173,8 +173,10 @@ playerB.startPlay(urlB); // 不会立刻开始播放，而只会开始加载视�
 public void onPlayEvent(int event, Bundle param) {
     // 在视频 A 播放结束的时候，直接启动视频 B 的播放，可以做到无缝切换
     if (event == PLAY_EVT_PLAY_END) {
-		   playerB.resume();
-		}
+           playerA.stop();
+           playerB.setPlayerView(mPlayerView);
+           playerB.resume();
+        }
 }
 ```
 
@@ -195,9 +197,9 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 软解和硬解的切换需要在切换之前先**stopPlay**，切换之后再**startPlay**，否则会产生比较严重的花屏问题。
 
 ```java
- mLivePlayer.stopPlay(true);
- mLivePlayer.enableHardwareDecode(true);
- mLivePlayer.startPlay(flvUrl, type);
+ mVodPlayer.stopPlay(true);
+ mVodPlayer.enableHardwareDecode(true);
+ mVodPlayer.startPlay(flvUrl, type);
 ```
 
 ## 进度展示
@@ -210,21 +212,44 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 
 ```java
 public void onPlayEvent(int event, Bundle param) {
+    
     if (event == PLAY_EVT_PLAY_PROGRESS) {
-		    // 加载进度
-		    int duration = param.getInt(TXLiveConstants.EVT_PLAYABLE_DURATION);
-				mLoadBar.setProgress(duration);
+            // 加载进度, 单位是秒
+            int duration = param.getInt(TXLiveConstants.EVT_PLAYABLE_DURATION);
+                mLoadBar.setProgress(duration);
 
-		    // 播放进度
-		    int progress = param.getInt(TXLiveConstants.EVT_PLAY_PROGRESS);
-				mSeekBar.setProgress(progress);
-				
-				// 视频总长
-		    int duration = param.getInt(TXLiveConstants.EVT_PLAY_DURATION);
-			  // 可以用于设置时长显示等等
-	}
+            // 播放进度, 单位是秒
+            int progress = param.getInt(TXLiveConstants.EVT_PLAY_PROGRESS);
+                mSeekBar.setProgress(progress);
+                
+            // 视频总长, 单位是秒
+            int duration = param.getInt(TXLiveConstants.EVT_PLAY_DURATION);
+            // 可以用于设置时长显示等等
+    }
 }
 ```
+
+如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
+```java
+public void onPlayEvent(int event, Bundle param) {
+    
+    if (event == PLAY_EVT_PLAY_PROGRESS) {
+            // 加载进度, 单位是毫秒
+            int duration_ms = param.getInt(TXLiveConstants.EVT_PLAYABLE_DURATION_MS);
+                mLoadBar.setProgress(duration_ms);
+
+            // 播放进度, 单位是毫秒
+            int progress_ms = param.getInt(TXLiveConstants.EVT_PLAY_PROGRESS_MS);
+                mSeekBar.setProgress(progress_ms);
+                
+            // 视频总长, 单位是毫秒
+            int duration_ms = param.getInt(TXLiveConstants.EVT_PLAY_DURATION_MS);
+            // 可以用于设置时长显示等等
+    }
+}
+```
+
+
 
 ## 事件监听
 除了 PROGRESS 进度信息，SDK 还会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）同步给您的应用程序很多其它的信息：
@@ -234,7 +259,7 @@ public void onPlayEvent(int event, Bundle param) {
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果有转菊花什么的这个时候该停了 | 
 |PLAY_EVT_PLAY_PROGRESS |  2005|  视频播放进度，会通知当前播放进度、加载进度 和总体时长     | 
-|PLAY_EVT_PLAY_LOADING	|  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
+|PLAY_EVT_PLAY_LOADING  |  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                |   
@@ -279,9 +304,9 @@ public void onPlayEvent(int event, Bundle param) {
 | NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
 | **NET_STATUS_VIDEO_WIDTH**  | 视频分辨率 - 宽 |
 | **NET_STATUS_VIDEO_HEIGHT**| 视频分辨率 - 高 |
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
+|   NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|   NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
+|   NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 

@@ -29,6 +29,8 @@ cd loglistener/tools/op;
 
 ```
 shanghai - 上海
+guangzhou - 广州
+chengdu - 成都
 ```
 
 安装脚本会注册`crontab`，以保证机器重起后，客户端正常拉起

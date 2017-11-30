@@ -50,10 +50,6 @@ python setup.py install
 pip uninstall qcloud_cos_v4
 ```
 
-### Historical Version
-
-Version 3.3 refactors APIs, and is different from previous versions in many aspects. In addition, it fixes some bugs, and is incompatible with historical versions. If you need to use the historical version, please refer to [python sdk of version 3].
-
 ## Generating Client Object
 
 ### Initializing the Client

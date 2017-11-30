@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (Subscribe) is used to create a new subscription under one of a user's topics.
 

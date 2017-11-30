@@ -117,9 +117,9 @@ PUT /?lifecycle HTTP/1.1
 |AbortIncompleteMultipartUpload    |LifecycleConfiguration.Rule    |设置允许分片上传保持运行的最长时间    |Container    |否|
 |DaysAfterInitiation    |LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload    |指明分片上传开始后多少天内必须完成上传    |Integer    |是|
 |NoncurrentVersionExpiration    |LifecycleConfiguration.Rule    |指明非当前版本对象何时过期    |Container    |否|
-|NoncurrentVersionTransition    |LifecycleConfiguration.Rule    |指明非当前版本对象何时转换被转换为 Standard_IA或 Nearline    |Container    |否|
+|NoncurrentVersionTransition    |LifecycleConfiguration.Rule    |指明非当前版本对象何时转换被转换为 STANDARD_IA 或 NEARLINE    |Container    |否|
 |NoncurrentDays    |LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition    |指明规则对应的动作在对象变成非当前版本多少天后执行，如果是 Transition，该字段有效值是非负整数；如果是Expiration，该字段有效值为正整数    |Integer    |否|
-|StorageClass    |LifecycleConfiguration.Rule.Transition<br>或 NoncurrentVersionTransition    |指定 Object 转储到的目标存储类型，枚举值： Standard_IA, Nearline    |String    |是|
+|StorageClass    |LifecycleConfiguration.Rule.Transition<br>或 NoncurrentVersionTransition    |指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA, NEARLINE    |String    |是|
 
 
 ## 响应

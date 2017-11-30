@@ -11,7 +11,7 @@ When creating a VPC, the user needs to specify an IP address group for VPC in th
 
 ## Subnet
 Subnet is the IP address block within VPC, and all cloud resources in the VPC must be deployed in subnet. Subnet is availability zone related, as shown in the following figure. After creating a VPC, you can add a subnet to each availability zone under the region to which the VPC belongs. Availability zone is designed to isolate failures from other availability zone. By starting an instance in an independent availability zone, users can protect their applications from being affected by the failures occurring in a single point.
-![](//mccdn.qcloud.com/static/img/ed30d5720e70a9f25510216526c1c342/image.png)
+![](https://mc.qcloudimg.com/static/img/40f878e32272b1657f0c2004f80d6ab7/VPC-Private+Network+and+Subnet%281%29.png)
 
 ## VPC IP Address
 You can specify the CIDR (Classless Inter-Domain Routing) to implement the overall IP division of the VPC and subnets. IP address used in the Tencent Cloud VPC is divided into three categories:
@@ -67,16 +67,16 @@ Region is named as "coverage + city where data center locates". The first half r
 
 ## Availability Zone
 Availability zones are physical zones under the same region but each with independent power and network (it is usually a physical data center), named as "city + No.". For example, there are two availability zones under South China (Guangzhou), i.e., Guangzhou Zone 1 and Guangzhou Zone 2, as shown below.
-![](//mccdn.qcloud.com/static/img/1e3fefd8da993577229ea4df2a34d559/image.png)
+![](https://mc.qcloudimg.com/static/img/db8ed5b876cd159c7253dacf24fb68b9/VPC-Private+Network+and+Subnet%282%29.png)
 
 The availability zone is designed to ensure that failure of any zone can be isolated (except for large-scale disaster or major power failure) without spreading to and affecting other zones so that users' online services will not interrupt. For large-scale applications, disaster recovery is an important guarantee for service availability, and multiple data center deployment is a common practice of disaster recovery; for ordinary users, the multiple data center deployment is a luxury investment, but Tencent Cloud's multiple availability zones is designed as such that each customer can implement disaster recovery deployment across multiple data centers while not incurring additional cost and the complexity of operation and maintenance.
 
 For example, if you have deployed the same service in Zone 1 and Zone 2, the power failure in Zone 1 will not affect Zone 2, which provides you with stable and highly available services, as shown below.
-![](//mccdn.qcloud.com/static/img/764997fbfa7359bb8c384f460f89be57/image.png)
+![](https://mc.qcloudimg.com/static/img/5acf2667d4c9e11d4a36add666a54050/VPC-Private+Network+and+Subnet%283%29.png)
 
 - Disaster recovery architecture: When your service needs higher availability, multiple data center deployment across the availability zones is to ensure low latency while providing users with high disaster recovery capacity. For example: You can purchase CVM in Guangzhou Zone 1 and Zone 2, respectively, and failure that happens in one zone will not affect the normal operation of cloud services in the other zone.
 - Low latency architecture: If the application is more focused on low network latency, you can deploy the services in the same availability zone.
-![](//mccdn.qcloud.com/static/img/756eac365c1a43c81a95abe976979ca7/image.png)
+![](https://mc.qcloudimg.com/static/img/091ef35eaad1c1baa39a022860057d61/VPC-Private+Network+and+Subnet%284%29.png)
 
 Regions and availability zones supported by Tencent Cloud VPC are listed as follows:
 
@@ -237,7 +237,8 @@ Modification to primary private IP of CVM primary ENI is supported, while modifi
 2)  Click the CVM ID to enter the CVM details page, and click the "ENI" tab on the top.
 3)  Click "Modify primary IP".
 4)  Fill in the new IP and save it.
-![](https://mc.qcloudimg.com/static/img/9c08d3a7ead4707abd6315e2a092184b/A%7D%257Q%25R3C5QDOR%24JM%25I3U%28D.png)
+
+![](https://mc.qcloudimg.com/static/img/c9a84dfc1784b3a51f21fb80626447ee/step6.jpg)
 
 You can also modify the primary private IP on the ENI details page. Click to view [Operation Details](https://cloud.tencent.com/doc/product/215/6513#.E4.BF.AE.E6.94. B9.E.B8.BB.E5.86.85.E7.BD.91ip).
 

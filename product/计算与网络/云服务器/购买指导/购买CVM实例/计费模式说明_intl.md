@@ -11,30 +11,9 @@ One-hour fees will be frozen when a postpaid CVM is created. When you adjust con
 
 **Billing in seconds, no cost waste**
 Billing starts when the CVM instance is created successfully, and ends when you initiate a termination operation.
-![](//mc.qcloudimg.com/static/img/b67e5fbde8f2a9d2c0e619c633ce0b89/image.jpg)
-**Tiered price reduction, saving more money for longer usage**
-Pay-per-use CVMs use 3-tier pricing, saving more money for longer usage.
- 
-| Phase | Tier 1 | Tier 2 | Tier 3|
-|---|---|---|---|
-| Duration (hours) | 0 < T  96 | 96 <T  360 | T > 360 |
->Note:  T is the time of continuous use of postpaid CVMs.
-
-| Phase | Tier 1 | Tier 2 | Tier 3|
-|---|---|---|---|
-| Price (CNY/hour) | P | 50% × P | 34% × P |
-> Note:  P is the tier-1 unit price of postpaid CVMs.
+![](//mc.qcloudimg.com/static/img/b7157e71b4cffbdcc6464a5695313419/image.png)
 
 
-![](//mc.qcloudimg.com/static/img/2b8e3a898dab0454d77d99a0e1c1eb07/image.jpg)
-
-Take 1-core 2 GB configuration as an example: tier-1 unit price is 0.42 CNY/hour, tier-2 unit price 0.42 × (1-50%) = 0.21 CNY/hour, and tier-3 unit price 0.42 × (1-50%-16%) = 0.14 CNY/hour
-
-"Note"
-1. CVM tiered pricing program only involves CPU and memory costs, excluding network and disk costs.
-2. The tiered pricing program only involves CPU and memory costs, excluding network and disk costs
-3. The tiered pricing program applies only to the same configuration. If the configuration changes, billing will starts again from tier 1 of the new configuration. In the CVM example: the original configuration is 2-core 4 GB and you have entered tier 2 after using it for 100 hours. Then you change the configuration to 1-core 2 GB, so your billing starts again from tier 1 of the 1-core 2 GB configuration.
-4. The pay-per-use arrears program remains unchanged. [Learn about the Pay-per-use Arrears Program](https://cloud.tencent.com/doc/product/213/%E5%88%B0%E6%9C%9F%E6%8F%90%E9%86%92#2.3.-.E6.AC.A0.E8.B4.B9.E5.A4.84.E7.90.86)
 
 Click the links below for more information on pay-per-use instructions.
 

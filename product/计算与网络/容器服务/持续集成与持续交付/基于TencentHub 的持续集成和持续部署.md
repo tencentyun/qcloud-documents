@@ -64,15 +64,15 @@ hello world
 到此为止，已经完成基于TencentHub持续集成和持续交付的部署。
 
 
-[tencenthubcicd]: https://mc.qcloudimg.com/static/img/34c83b4280eb33e35197083330dbad7d/%7BE5F1B207-719E-4F6D-B0AB-D390CED90D22%7D.png
+[tencenthubcicd]:https://mc.qcloudimg.com/static/img/34c83b4280eb33e35197083330dbad7d/%7BE5F1B207-719E-4F6D-B0AB-D390CED90D22%7D.png
 
-[step1]: https://mc.qcloudimg.com/static/img/9b6de96e4af4dfa36e31e0f5608033e4/%7B8657D57E-E403-4E63-B5EC-894CF5BC864E%7D.png
+[step1]:https://mc.qcloudimg.com/static/img/9b6de96e4af4dfa36e31e0f5608033e4/%7B8657D57E-E403-4E63-B5EC-894CF5BC864E%7D.png
 
-[step2]: https://mc.qcloudimg.com/static/img/7ed37353251703dbf0f2b9e4ee39ed37/%7B611F6AE1-8E51-4CFF-95BB-DB6F7ECBBC70%7D.png
+[step2]:https://mc.qcloudimg.com/static/img/17fcb5e01643d923bb6ea15e83eef439/step2.png
 
 [step3]:https://mc.qcloudimg.com/static/img/1f9872b83b828d91bc2df9a7fb2fe08f/%7B8EA0E3A0-0A0A-451A-85BC-AEF63B74406E%7D.png
 
-[step4]: https://mc.qcloudimg.com/static/img/2c8746f2d4d3c317a3a5afbfd1ed0469/%7BC573A8FF-341A-40DD-A6F3-28D2F0E3EC6B%7D.png
+[step4]:https://mc.qcloudimg.com/static/img/2c8746f2d4d3c317a3a5afbfd1ed0469/%7BC573A8FF-341A-40DD-A6F3-28D2F0E3EC6B%7D.png
 
 [step5]:https://mc.qcloudimg.com/static/img/46a872c20298deb9d8877e13bfc482a3/%7B29136692-0878-4F89-A14A-6BE54C200129%7D.png
 

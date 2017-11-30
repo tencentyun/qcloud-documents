@@ -8,13 +8,7 @@
 视频处理DemoAPP，是腾讯云提供给开发者的一个测试APP，包括图片（万象优图）和视频（视频处理）两个体验模块。图片体验模块包括图片的上传、暂停、删除、查询和复制等功能；视频体验模块包括视频的上传、暂停、查询和删除等功能。开发者可以使用DemoAPP体验腾讯云视频处理服务，也可以在DemoAPP上注册自己的APP来验证其视频处理服务是否正常开通。 
 
 ### 1.2 视频处理DemoAPP下载
-**Android系统**
-手机扫描下面的二维码，安装图片/视频处理服务安卓版的体验APP。Android SDK中自带的demo即为这个体验APP。
-http://v.qcloud.com/src/css/images/android.png
-**iOS系统(暂时仅支持代码包下载）**
-[iOS体验APP](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/QCloudDemo-ios-v1.1.0.zip) 
-将SDK中Demo重新编译或在模拟器中运行图片/视频处理服务iOS版的体验APP。
-
+Android 和 iOS 均参考 [SDK 下载](https://cloud.tencent.com/document/product/314/3499)。
 
 ## 2	视频处理DemoAPP使用说明
 ### 2.1	注册APP

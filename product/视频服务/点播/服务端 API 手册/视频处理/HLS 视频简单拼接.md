@@ -35,7 +35,7 @@ vod.api.qcloud.com
 |---------------|----------|---------|---------|
 | srcFileList.n.fileId | 是 | String | 文件id列表 |
 | name          | 是 | String    | 拼接出来的文件名称 |
-| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
+| COMMON_PARAMS | 是 |  | 参见[公共参数](/document/api/213/6976) |
 
 ### 请求示例
 ```

@@ -16,7 +16,7 @@
 ### 方案 A：使用 AJAX 上传
 AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的是 [XML API 的 PutObject 接口](/doc/product/436/7749)，操作指引：
 1. 按照 [步骤一、前期准备](#前期准备) 的步骤，准备好存储桶。
-2. 创建`test.html`文件，修改下方代码的 AppId、Bucket 和 Region，复制到`test.html`文件。
+2. 创建`test.html`文件，修改下方代码的 Bucket 和 Region，复制到`test.html`文件。
 3. 部署好后端的签名服务，并修改`test.html`里的签名服务地址。
 4. 把`test.html`放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
 
@@ -43,10 +43,9 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
     (function () {
 
         // 指定存储桶
-        var AppId = '1250000000';
-        var Bucket = 'test';
+        var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
-        var prefix = 'http://' + Bucket + '-' + AppId + '.cos.' + Region + '.myqcloud.com/';
+        var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
 
         // 计算签名
         var getAuthorization = function (options, callback) {
@@ -109,7 +108,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
 ### 方案 B：使用 Form 表单上传
 Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方案使用的是 [XML API 的 PostObject 接口](/doc/product/436/7751)。操作指引：
 1. 按照 [步骤一、前期准备](#前期准备) 的步骤，准备好存储桶。
-2. 创建`test.html`文件，修改下方代码的 AppId、Bucket 和 Region，复制到`test.html`文件。
+2. 创建`test.html`文件，修改下方代码的 Bucket 和 Region，复制到`test.html`文件。
 3. 部署好后端的签名服务，并修改`test.html`里的签名服务地址。
 4. 在`test.html`同一个目录下创建一个空的`empty.html`，用于上传成功时跳转回来。
 5. 把`test.html`和`empty.html`放在 Web 服务器下，然后在浏览器访问页面，测试文件上传功能。
@@ -144,10 +143,9 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     (function () {
 
         // 请求用到的参数
-        var AppId = '1250000000';
-        var Bucket = 'test';
+        var Bucket = 'test-1250000000';
         var Region = 'ap-guangzhou';
-        var prefix = 'http://' + Bucket + '-' + AppId + '.cos.' + Region + '.myqcloud.com/';
+        var prefix = 'http://' + Bucket + '.cos.' + Region + '.myqcloud.com/';
         var form = document.getElementById('form');
         form.action = prefix;
 

@@ -28,9 +28,20 @@ Saving to: `index.html'
 ![](//mc.qcloudimg.com/static/img/fce31b900d308c4a5d57b1d316574a58/image.png)
 
 ## 安装配置 MySQL
-1. 安装 MySQL。输入命令：`yum install mysql mysql-server mysql-devel` 。
+1. 安装 MySQL。输入以下命令：
+ - 适用于 CentOS 7.0 或以后版本：
+```
+yum install mariadb mariadb-server
+```
+ -  适用于 CentOS 6.8 或以前版本：
+```
+yum install mysql mysql-server mysql-devel
+```
 
-2. 启动 MySQL 服务。输入命令：`service mysqld start` 。
+2. 启动 MySQL 服务。输入命令：
+```
+service mysqld start
+```
 
 3. 登录 MySQL ，删除空用户。输入命令：
 ```

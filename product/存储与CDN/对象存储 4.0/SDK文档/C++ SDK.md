@@ -10,7 +10,7 @@
 ### 开发环境
 
 1. 安装openssl的库和头文件 [http://www.openssl.org/source/](http://www.openssl.org/source/) 
-2. 安装curl的库和头文件 [http://curl.haxx.se/download/curl-7.43.0.tar.gz](http://curl.haxx.se/download/curl-7.43.0.tar.gz) 
+2. 安装curl的库和头文件 https://curl.haxx.se/download.html
 3. 安装jsoncpp的库和头文件 [https://github.com/open-source-parsers/jsoncpp](https://github.com/open-source-parsers/jsoncpp) 
 4. 安装boost的库和头文件 [http://www.boost.org/](http://www.boost.org/) 
 5. 安装cmake工具 [http://www.cmake.org/download/](http://www.cmake.org/download/) 

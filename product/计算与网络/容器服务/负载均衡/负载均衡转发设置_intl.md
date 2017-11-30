@@ -24,17 +24,16 @@ Backend service:
 - bye service: Port 80 is listened with the entry file in /path_bye/index.html
 
 Create an application-based load balancer on the load balancer page. You can skip this step if you already have the load balancer.
-![Alt text](https://mc.qcloudimg.com/static/img/a3b194503971f8bdd1147852496abeba/%7B946ED9B7-80DA-4FCC-80B9-AF02897B1BD1%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/07d662f17350b181c8e1c854a617c496/ccs_revise_1.jpg)
 
 For more information on how to resolve proprietary domain to the VIP of the load balancer, please see [Domain Resolution Help](https://cloud.tencent.com/document/product/302/3446).
 In the example below, www.qcloudccs.com is resolved to sample load balancer.
 
 Configuring the forwarding rules of application-based load balancer
 
-![Alt text](https://mc.qcloudimg.com/static/img/cb9e6912f2dccd99e86833dea18d3965/%7B537EFD34-F43E-439E-8D22-BB77BFCB29E5%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/e88de390a8f1b7566c8260b98aaf62f6/ccs_revise_2.jpg)
 
 Access test:
 
-![Alt text](https://mc.qcloudimg.com/static/img/4160d18aad9fd9d0da7b69cabce9f2f9/%7BEF8EA5D8-4859-4008-9E3C-B98E7E25AAAF%7D.png)
-![Alt text](https://mc.qcloudimg.com/static/img/47d9eca8fef9f7c492c4033d8080a0ae/%7B1700D9DE-417D-4F3E-8E9E-0883FA9A5C5C%7D.png)
-
+![Alt text](https://mc.qcloudimg.com/static/img/893dd58c442a8396029e68a3bfc468a2/lb_3.jpg)
+![Alt text](https://mc.qcloudimg.com/static/img/9f99882c40d07a5ec010bc10b55254e1/lb_4.jpg)
