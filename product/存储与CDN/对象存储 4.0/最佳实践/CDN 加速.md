@@ -12,11 +12,11 @@ CDN 加速适用于对存储桶中的对象进行下载、分发的场景，特�
 ### CDN 加速域名
 在开启 CDN 加速后，腾讯云会默认生成一条 CDN 加速域名。CDN 加速域名可配置不可更改，访问经由 CDN 加速节点，可获得更高的带宽和更低的等待时延。格式为：
 ```
-<bucketname>-<APPID>.file.myqcloud.com
+<bucketname-APPID>.file.myqcloud.com
 ```
 如需访问每个存储桶中的对应对象，在存储桶的加速域名后加上相对路径即可。
 例如：
-访问存储桶 example 根目录下的对象 test.txt ，其访问地址为：
+访问存储桶 example-1234567890 根目录下的对象 test.txt ，其访问地址为：
 ```
 example-1234567890.file.myqcloud.com/test.txt
 ```

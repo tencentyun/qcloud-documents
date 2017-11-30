@@ -34,12 +34,12 @@ You can create a custom routing table, edit the routing policy, and then associa
 6) Click the "Edit" button, and select the associated routing table in the drop-down box.
 7) Click "Save".
 
-![ ](//mc.qcloudimg.com/static/img/66098c2892eaf6f88b38b022973ca13b/image.png)
+![](//mc.qcloudimg.com/static/img/66098c2892eaf6f88b38b022973ca13b/image.png)
 
 ### Step 4: Add a CDB
 A newly purchased CDB can be used in the VPC. It should be noted that once you select the VPC to which a CDB is added, it cannot be changed.
 1) Log in to [Tencent Cloud Console][10], click "Relational database" in the navigation bar to enter [Cloud Database Console][11], and click "New" button.
-![](//mc.qcloudimg.com/static/img/e259c9ec7f02b7d1143fc1e5b6ecdb63/image.png)
+![](//mc.qcloudimg.com/static/img/4e8d668c9cfa4356ef6f543e9cb883cb/image.png)
 2) On the Cloud Database purchase page, click "VPC" on "Network" tab, and select the VPC and the corresponding subnets created in the above steps, to add the newly purchased CDB to the VPC.
 ![](//mc.qcloudimg.com/static/img/f76960dd95ef9827a05656dea310d915/image.png)
 

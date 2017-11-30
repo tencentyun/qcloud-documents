@@ -72,7 +72,7 @@ Click "OK" when you've completed the settings.
 
 It will take some time for the CDNS (Cloud Domain Name Service) to transmit the record over the Internet. To test if the domain name is resolved normally, you can directly access the bound CNAME domain (such as www.qcloudtest.com in the example) when the resolution record has been added for some time.
 
-### Testing Cloud Load Balancer
+## Testing Cloud Load Balancer
 Enter the public network domain name (`www.qcloudtest.com`) configured for the cloud load balancer instance in the browser. Check the test result to verify whether the cloud load balancer instance has been configured successfully.
 
 According to the following figures, the cloud load balancer can access the two bound backend CVMs based on the configurations made by the user.
