@@ -54,5 +54,5 @@ Configure the routing table of the ordinary subnet, and direct the route to the 
  ![](https://mc.qcloudimg.com/static/img/d70946d2101e9f38593f103193814450/vpc2.jpg)
 
 ## API Overview
-The public network gateway is essentially a CVM instance. Users can view related APIs in [Overview of CVM APIs](https://cloud.tencent.com/doc/api/229/569), or use VPC, subnet, routing table and other APIs to complete the configuration of public network gateways. For more information, refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
+The public network gateway is essentially a CVM instance. Users can view related APIs in [Overview of CVM APIs](https://cloud.tencent.com/doc/api/229/569), or use VPC, subnet, routing table and other APIs to complete the configuration of public network gateways. For more information, refer to [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909).
 
