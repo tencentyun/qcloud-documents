@@ -183,4 +183,4 @@ VPN tunnel provides alarm function:
  
 
 ## API Overview
-You can use API operations to configure and manage your VPN connections. Please refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
+You can use API operations to configure and manage your VPN connections. Please refer to [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909).
