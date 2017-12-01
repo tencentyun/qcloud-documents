@@ -88,15 +88,14 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 
 ## Step 3: Create a Service with the Image
 Click the "Create Service" button, choose the cluster to run the service, enter port configuration and click "Create":
-![Alt text](https://mc.qcloudimg.com/static/img/cb114031ca66d0c126ee92a6671f6eb5/Image+073.png)
+![Alt text](https://mc.qcloudimg.com/static/img/814ed6eaf9ca44126e1c50c0866a4ae9/examples_2_1.jpg)
 
 You will be redirected to the event list where you can view the details of the creation process.
-![Alt text](https://mc.qcloudimg.com/static/img/7121a486db35c98a81e8e1408e97b585/Image+074.png)
-![Alt text](https://mc.qcloudimg.com/static/img/922306ca4c4524e7113802d0840be86d/Image+075.png)
+![Alt text](https://mc.qcloudimg.com/static/img/620cd9c69e4319b5050ae063c2609881/examples_2_2.jpg)
+![Alt text](https://mc.qcloudimg.com/static/img/d71e64acf8e996891979ddaa1cb14533/examples_2_3.jpg)
 
 When creation is completed, click the service to view its details. You can access the service through its public IP or load balancer domain.
-![Alt text](https://mc.qcloudimg.com/static/img/81e12259e6947039374295a7f838e298/Image+076.png)
+![Alt text](https://mc.qcloudimg.com/static/img/62def9ed65f1d0b1172325ded2b248fe/examples_2_4.jpg)
 
 Enter the IP address in the browser, you will see "Hello World!"
 ![Alt text](https://mc.qcloudimg.com/static/img/1342aa5ff1575e683ef2ed813b872721/Image+034.png)
-
