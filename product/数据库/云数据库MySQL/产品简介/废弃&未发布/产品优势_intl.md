@@ -3,8 +3,7 @@
 >PCI-e SSD's powerful IO performance guarantees access to the database
 >A maximum of 37,000 QPS and a maximum storage space of 1TB are supported
 
-* Flexible billing options
->The billing model of annual or monthly plan is provided. You can make a payment for the database services for one month or several months at a time based on the business needs, so as to avoid a significant one-time investment in the infrastructure construction.
+
 
 * Read/Write separation
 >Read-only instances can be mounted to CDB for MySQL. "One Master, Multi-Slave" architecture allows you to respond to massive requests. RO group featured with cloud load balance is supported to greatly simplify the process of pressure distribution among slaves.
