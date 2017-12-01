@@ -13,7 +13,7 @@ NAT 网关是一种将私有网络中内网 IP 地址和公网 IP 地址进行�
  - DNAT：目的地址转换（内测中，如有需求，请提供 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)），用于将 VPC 内的云主机的[内网IP，协议，端口]映射成[外网IP，协议，端口]，使得云主机上的服务可被外网访问。
  
 - NAT 网关支持高防服务：
-BGP 高防可为腾讯云客户提供超大带宽的 DDoS 和 CC 防护，最高支持 310Gbps 防护。您可以将高防包绑定到需要防护的NAT网关上，实现安全防护。
+BGP 高防可为腾讯云客户提供超大带宽的 DDoS 和 CC 防护，最高支持 310Gbps 防护。您可以将高防包绑定到需要防护的 NAT 网关上，实现安全防护。
 
 
 ## NAT网关和公网网关的区别
@@ -211,7 +211,7 @@ NAT 网关创建后，可以对其属性进行修改。
 3. 点击监控 tab，在网关流控明细表右上方，点击【查看已限制 IP】。
 
 ### 绑定高防包
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【安全】>【大禹网络安全】，选择左导航栏的【[BGP高防包](https://console.cloud.tencent.com/dayu/bgp/list/sp/gz)】。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【安全】>【大禹网络安全】，选择左导航栏的[【BGP高防包】](https://console.cloud.tencent.com/dayu/bgp/list/sp/gz)。
 2. 选择您已有的高防包实例，单击更换设备操作，选择需要反复的 NAT 网关上的 EIP。
 3. 单击【确认】，即为该 NAT 网关关联了高防包功能。
 
