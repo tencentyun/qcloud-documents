@@ -1,6 +1,6 @@
-﻿Compared with various open source message queue products, CMQ has the following advantages:
+Compared with various open source message queue products, CMQ has the following advantages:
 
-## Advantages over Kafka:
+## Advantages over Kafka
 
 1. **Kafka is not suitable for core financial business:** CMQ features synchronous flush mechanism, ensuring reliable generation of data. If messages generated on the client are flushed to the disk by over half of brokers in "set", the acknowledgement will be returned to notify that messages are generated successfully. If the client does not receive the acknowledgement within a certain period, the messages will be resent to ensure that messages are sent successfully. However, Kafka features asynchronous flush, that is, asynchronous replication, which may lead to message lost. Therefore, Kafka cannot ensure reliable delivery of messages.
 
@@ -18,7 +18,7 @@
 
 4. **Great difficulty with RabbitMQ O&M:** The programming language of RabbitMQ is Erlang, which is not common and costs more to study.
 
-## Advantages over RocketMQ:
+## Advantages over RocketMQ
 
 1. **Data may be lost in RocketMQ in extreme cases:** RocketMQ can return acknowledgment to the client when flush is not made. In this way, messages will be lost if the server crashes.
 

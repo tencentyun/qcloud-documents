@@ -86,8 +86,6 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
 **安装依赖**
 
-> 注意：这里一定要在本地安装依赖。
-
 在下载下来的目录打开 CMD 安装依赖：
 
 ```bash
@@ -97,6 +95,8 @@ cd server
 # 安装依赖
 npm install
 ```
+
+<font color='red'> 注意：这里一定要在本地安装依赖，否则会出现部署失败的问题。 </font>
 
 ## 五、上传和部署代码
 

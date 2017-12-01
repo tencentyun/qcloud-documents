@@ -49,7 +49,7 @@ If you wish to allow CVM "TomCVM" to communicate with VPC "TomVPC" via Classicli
 4) Click "OK" to complete the disassociation process.
 
 ## Related APIs
-You can use APIs to configure and manage the interconnection between your VPC and basic network. Refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909) for more information about VPC API services.
+You can use APIs to configure and manage the interconnection between your VPC and basic network. Refer to [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909) for more information about VPC API services.
 
 
 

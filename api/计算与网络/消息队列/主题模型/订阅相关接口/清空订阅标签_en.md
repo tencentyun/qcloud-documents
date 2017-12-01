@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (ClearSubscriptionFilterTags) is used to clear up subscription tags.
 

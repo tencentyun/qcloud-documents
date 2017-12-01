@@ -4,8 +4,8 @@
 ## 请求参数
 |参数名称|必选|类型|描述|
 |---------|---------|---------|--------|
-|ownerUin|	是|	Number	|主账号(云 API 自动解析)|
-|Uin|	是|	Number|	账号（云 API 自动解析）|
+|ownerUin|	是|	Number	|主账号，云 API 自动解析|
+|Uin|	是|	Number|	账号，云 API 自动解析|
 |clientIp|	是	|String	|用户 IP|
 |clientUa|	是|	String	|客户端 UA|
 > **注意：**

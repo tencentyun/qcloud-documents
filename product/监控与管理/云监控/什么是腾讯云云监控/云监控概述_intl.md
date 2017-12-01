@@ -23,7 +23,7 @@ Cloud Monitor can automatically monitor the following services. Once you start u
 - [Cloud Load Balance](https://cloud.tencent.com/doc/product/214)
 - [Direct Connect](https://cloud.tencent.com/doc/product/216)
 - [Content Delivery Network](https://cloud.tencent.com/doc/product/228)
-- [Cloud Object Storage](https://cloud.tencent.com/doc/product/430)
+- [Cloud Object Storage](https://cloud.tencent.com/document/product/436)
 - [Cloud Database for MySQL](https://cloud.tencent.com/doc/product/236)
 - [Cloud Database for TDSQL](https://cloud.tencent.com/doc/product/237)
 - [Cloud Database for SQL Server](https://cloud.tencent.com/doc/product/238)
@@ -35,4 +35,4 @@ Cloud Monitor provides basic metrics monitoring and data storage. You can view t
 
 Cloud Monitor stores metric data of all the cloud products. You can search the cloud products (such as CVM) based on these metrics. The Cloud Monitoring Console collects the metric data of cloud products and displays them in chart.
 
-![](https://mc.qcloudimg.com/static/img/e17600ac6f357ce818470a179fde9aca/image.png)
+![](https://mc.qcloudimg.com/static/img/93517fe56fa0222615d9f73cba5bd494/image.png)
