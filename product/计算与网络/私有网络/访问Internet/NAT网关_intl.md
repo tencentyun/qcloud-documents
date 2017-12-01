@@ -147,6 +147,6 @@ NAT Gateway can be deleted when it is not needed. The routing table and routing 
 2) Select the NAT gateway to be deleted, click "Delete" button. After you confirm the deletion action, the NAT gateway will be deleted.
 
 ## API Overview
-You can use API operations to set and manage your NAT gateway. For more information about other resources in a VPC, please refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
+You can use API operations to set and manage your NAT gateway. For more information about other resources in a VPC, please refer to [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909).
 
 
