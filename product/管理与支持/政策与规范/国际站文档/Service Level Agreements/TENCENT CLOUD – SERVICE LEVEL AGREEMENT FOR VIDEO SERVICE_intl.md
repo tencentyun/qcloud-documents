@@ -64,40 +64,44 @@ Calculation of each Video  Service Level refers only to the content delivery its
 
 In calculating Availability: 
 
- 1. Unit time = 5 minute intervals. A service failure that returns to normal within less than 5 minutes will not be counted as service unavailability. Two or more continuous intervals (10 minutes or greater) of service unavailability shall be considered a failure.  Any period of service unavailability that is less than 10 minutes is not considered a failure. 
+ (a) Unit time = 5 minute intervals. A service failure that returns to normal within less than 5 minutes will not be counted as service unavailability. Two or more continuous intervals (10 minutes or greater) of service unavailability shall be considered a failure.  Any period of service unavailability that is less than 10 minutes is not considered a failure. 
 
- 2.	"**Unavailable**" means that the relevant Video Service is not available to be used by the end user in accordance with the relevant Specifications, only where such unavailability is caused by Tencent Cloud not operating in accordance with the relevant Specifications. The period of time where the service is unavailable is calculated from when the service failure begins through to when the service returns to normal, and excludes any unavailability caused by or in relation to any Exclusions. 
+ (b) 	"**Unavailable**" means that the relevant Video Service is not available to be used by the end user in accordance with the relevant Specifications, only where such unavailability is caused by Tencent Cloud not operating in accordance with the relevant Specifications. The period of time where the service is unavailable is calculated from when the service failure begins through to when the service returns to normal, and excludes any unavailability caused by or in relation to any Exclusions. 
 
- 3. A service failure that returns to normal within less than 5 minutes will not be counted as service unavailability. The service unavailable time is a period of time from when the service failure begins through to when the service returns to normal, including the maintenance time.
+ (c) A service failure that returns to normal within less than 5 minutes will not be counted as service unavailability. The service unavailable time is a period of time from when the service failure begins through to when the service returns to normal, including the maintenance time.
 
 For the purposes of calculating Availability for each of the Video Service Levels:
 
- 1. Tencent's tests for calculating Availability will meet all of the following criteria:
-(i)	run equally from each agent, one or more times per hour
-(ii)	use an MP4 HTTP test object (500KB-5MB)
-(iii)	have "cache-control: public" (1 day) as the only test object TTL
-(iv)	utilize high availability Video Service accessible origin storage 
+(d) Tencent's tests for calculating Availability will meet all of the following criteria:
 
- 2.	All backbone “agent availability” problem samples will be trimmed from the pre-calculation final data.
+&emsp;(i)	run equally from each agent, one or more times per hour
 
- 3. Organisation may also provide additional data from any third party, independent from Organisation and commercially operated monitoring services meeting these same criteria, for Tencent's consideration.
+&emsp;(ii)	use an MP4 HTTP test object (500KB-5MB)
+
+&emsp;(iii)	have "cache-control: public" (1 day) as the only test object TTL
+
+&emsp;(iv)	utilize high availability Video Service accessible origin storage 
+
+ (e)	All backbone “agent availability” problem samples will be trimmed from the pre-calculation final data.
+
+ (f) Organisation may also provide additional data from any third party, independent from Organisation and commercially operated monitoring services meeting these same criteria, for Tencent's consideration.
 
 
 ### 3.2	Video Service Level-specific Exclusions
 In addition to the Exclusions set out in Section 4 of the Tencent Cloud Service Levels Agreement, any non-Availability of any Video Service caused by any of the following Exclusions will not be calculated for the purposes of calculating any Video Service Level:
 
- 1. inaccessibility of Organisation’s site source server(s) due to modification of source station equipment or acceleration of domain name(s) DNS configuration, without prior express agreement with Tencent; and
+ (a) inaccessibility of Organisation’s site source server(s) due to modification of source station equipment or acceleration of domain name(s) DNS configuration, without prior express agreement with Tencent; and
 
- 2. where Tencent has provided additional capacity for Organisation’s relevant Video due to a sudden increase in end user traffic to Organisation’s site, without prior notice of such sudden increase from Organisation to Tencent. 
+ (b) where Tencent has provided additional capacity for Organisation’s relevant Video due to a sudden increase in end user traffic to Organisation’s site, without prior notice of such sudden increase from Organisation to Tencent. 
 
 ## 4.	SERVICE CREDITS
 ### 4.1	Introduction
 
 Service Credits are calculated in accordance with the Tencent Cloud Service Level Agreement. As set out in Sections 2.2 and 2.3 of that Agreement: 
 
- 1. All Service Levels will be calculated on a per-account, per-complete calendar month basis.
+ (a) All Service Levels will be calculated on a per-account, per-complete calendar month basis.
 
- 2. Service Credits are calculated as a percentage of the total Charges paid by Organisation to Tencent in respect of the relevant Video Service provided during the relevant calendar month in which the Service Level was calculated.    
+ (b) Service Credits are calculated as a percentage of the total Charges paid by Organisation to Tencent in respect of the relevant Video Service provided during the relevant calendar month in which the Service Level was calculated.    
 
 ### 4.2	Global Video Service Level – Service Credit
 <table>
@@ -148,6 +152,6 @@ Service Credits are calculated in accordance with the Tencent Cloud Service Leve
 </table>
 
 ### 4.4	Example of how Service Credit for a Video Service Level is calculated
- 1. Fault Time = (incident resolution time) minus (failure starting time).   
+ (a) Fault Time = (incident resolution time) minus (failure starting time).   
 
- 2. Fault time is calculated per minute. Faults under 1 minute will be rounded up and deemed as one minute. 
+ (b) Fault time is calculated per minute. Faults under 1 minute will be rounded up and deemed as one minute. 
