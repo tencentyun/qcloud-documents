@@ -482,3 +482,70 @@
         </tr>
     </tbody>
 </table>
+## 附录
+以下接口是已废弃的服务端 API 接口，具体废弃原因请参见对应文档。
+<table style="display:table">
+    <tbody>
+        <tr>
+            <td style="background-color:#CCCCCC;">
+                <strong>
+                    功能
+                </strong>
+            </td>
+            <td style="background-color:#CCCCCC;">
+                <strong>
+                    API
+                </strong>
+            </td>
+        </tr>
+		<tr>
+			<td>
+             获取视频信息
+         </td>
+            <td>
+                <a href="/document/product/266/7824">
+                    DescribeVodPlayUrls
+                </a>
+            </td>
+		</tr>
+        <tr> 
+			<td>
+                批量获取视频信息
+            </td>
+            <td>
+                 <a href="/document/product/266/7823">
+                    DescribeVodInfo
+                </a>
+            </td>	
+        </tr>
+		<tr>
+			<td>
+           依照指定流程处理视频
+            </td>
+            <td>
+                <a href="/document/product/266/9045">
+                    ProcessFileByProcedure
+                </a>
+            </td>	
+		</tr>
+        <tr>	
+			<td>
+				HLS 视频简单剪切
+			</td>
+            <td>
+                <a href="/document/product/266/8859">
+                    SimpleClipHls
+                </a>
+            </td>
+				</tr>
+            <td>
+                截图地址设为视频封面
+            </td>
+            <td>
+                <a href="/document/product/266/8814">
+                    DescribeVodCover
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
