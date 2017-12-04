@@ -2,9 +2,11 @@
 **&lt;live-pusher&gt;** 是小程序内部用于支持音视频上行能力的功能标签，本文主要介绍该标签的使用方法。
 
 ## 版本支持
-- 微信 APP iOS 最低版本要求: 6.5.21 
-- 微信 APP Android 最低版本要求: 6.5.19 
-- 公共库最低版本要求： 1.7.0 
+- 微信 APP iOS 最低版本要求：6.5.21 
+- 微信 APP Android 最低版本要求：6.5.19 
+- 小程序基础库最低版本要求：1.7.0 
+
+> 通过 wx.getSystemInfo 可以获取当前基础库版本信息
 
 ## 类目支持
 出于政策和合规的考虑，暂时没有放开所有类目的小程序对 &lt;live-pusher&gt; 标签的支持，现阶段已经支持的类目有：
@@ -32,7 +34,7 @@
 | audio-quality| String| low | low 适合语音通话, high 代表高音质 | 
 | waiting-image | String |  | 当微信切到后台时的垫片图片 |
 | waiting-image-md5 | String |  |当微信切到后台时的垫片图片的校验值 |
-| background-mute | String |  | 当微信切到后台时是否禁用声音采集 |
+| background-mute | Boolean | false | 当微信切到后台时是否禁用声音采集 |
 | bindstatechange | String |  | 用于指定一个javascript函数来接收音视频事件 |
 | debug | Boolean | false | 是否开启调试模式 |
 
@@ -82,10 +84,10 @@ SD、HD 和 FHD 主要用于直播类场景，比如赛事直播、在线教育�
 
 | 场景        | mode |  min-bitrate | max-bitrate |  audio-quality |  说明  |
 |-------------|:-------:| :-------------: | :-------:| :--------: | ------------ -|
-| 低带宽场景 | SD   | 300kbps | 800kbps  | high | min-bitrate 低于 500 的原因是很多网络上行限制就是 500 |
-| 内部培训 | HD   | 600kbps | 1200kbps | high | 常规直播软件所采用的清晰度级别 |
-| 720P直播 | FHD  | 600kbps | 1800kbps | high | 720P的分辨率对于手机观看是比较浪费的，PC上观看才有意义 |
-| 视频客服（用户） | RTC | 200kbps | 500kbps   | high | 声音为主，画面为辅，所以画质不要求太高 | 
+| 标清直播 | SD   | 300kbps | 800kbps  | high | 窄带场景，比如户外或者网络不稳定的情况下适用 |
+| 高清直播 | HD   | 600kbps | 1200kbps | high | 常规直播软件所采用的清晰度级别，推荐使用 |
+| 超清直播 | FHD  | 600kbps | 1800kbps | high | 观众是手机为主的话不太需要，大屏幕观看才有意义 |
+| 视频客服（用户） | RTC | 200kbps | 500kbps   | high | 声音为主画面为辅的场景，所以画质不要求太高 | 
 | 车险定损（车主） | RTC | 200kbps | 1200kbps | high | 由于可能要看车况详情，画质上限会设置的高一些 |
 | 多人会议（主讲） | RTC | 200kbps | 1000kbps | low | 多人场景下要选用低音质，主讲人画质可以适当高一些 |
 | 多人会议（参与） | RTC | 150kbps | 300kbps   | low | 作为会议参与者，不需要太高的画质，有画面就可以了 |
