@@ -50,7 +50,7 @@ Cloud Block Storage is a persistent storage device at data block level. You can 
 
 You can mount multiple elastic Cloud Block Storages to one instance, or dismount them from one instance and mount to another instance at any time. With its life cycle being independent of CVM instances, elastic Cloud Block Storage can be stored independently as a storage medium for important data.
 
-You can keep a backup copy of data by creating a snapshot for Cloud Block Storage. You can also create a new Cloud Block Storage from the snapshot at any time and connect it to another instance. For more information about Cloud Block Storage, see [Tencent Cloud Cloud Block Storage product documentation](https://cloud.tencent.com/doc/product/362).
+You can keep a backup copy of data by creating a snapshot for Cloud Block Storage. You can also create a new Cloud Block Storage from the snapshot at any time and connect it to another instance. For more information about Cloud Block Storage, see [Tencent Cloud Cloud Block Storage product documentation](https://cloud.tencent.com/document/product/362).
 
 ## Local Disks
 
@@ -58,7 +58,7 @@ Local disk is a storage medium located on the same physical machine as the CVM i
 
 ## Cloud Object Storage (COS)
 
-Tencent Cloud COS is a data storage device located on the Internet. It allows data retrieval from any location on CVM instance or the Internet, thus reducing the storage cost. For example, you can use COS to store the backup copies of data and applications. For more information, see [Tencent Cloud COS product documentation](https://cloud.tencent.com/doc/product/430).
+Tencent Cloud COS is a data storage device located on the Internet. It allows data retrieval from any location on CVM instance or the Internet, thus reducing the storage cost. For example, you can use COS to store the backup copies of data and applications. For more information, see [Tencent Cloud COS product documentation](https://cloud.tencent.com/document/product/436).
 
 ## Block storage device mapping
 
