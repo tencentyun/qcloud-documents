@@ -275,5 +275,5 @@ Note 2: You must unbind all secondary IPs before you can change subnet for the E
 Note 3: When changing subnet for the ENI, you can only choose another subnet under the same availability zone.
 
 ## API Overview
-Refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909) for more information about other VPC resources.
+Refer to [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909) for more information about other VPC resources.
 

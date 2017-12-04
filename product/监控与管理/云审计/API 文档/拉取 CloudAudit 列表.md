@@ -8,17 +8,17 @@
 
 |参数名称|类型|描述|
 |---------|---------|---------|
-|auditLists|Array|跟踪集数组|
+|auditLists|Array|跟踪集列表|
 
 以下是 auditLists 列表的数据。
 
 |参数名称|类型|描述|
 |---------|---------|---------|
-|Name|String|CloudAudit 名字|
+|Name|String|CloudAudit 名称|
 |bucketName|String|COS Bucket 名称|
 |prefix|String|日志前缀|
-|status|Number|Audit 状态，0 代表关闭、1 代表开启|
-|IsMultiRegionAudit|Number|是否开启多地域采集（0：否，1：是）|
+|status|Number|Audit 状态，0 代表关闭，1 代表开启|
+|IsMultiRegionAudit|Number|是否开启多地域采集。0：否，1：是|
 
 ## 实际案例
 ### 请求

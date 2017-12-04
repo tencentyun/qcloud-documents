@@ -6,7 +6,7 @@ You don't need to intentionally purchase or activate Cloud Monitor, which is aut
 ## Multi-metric Monitoring
 Cloud monitor provides cloud service load and performance metrics including CVM CPU utilization, memory utilization, disk utilization and cloud database, memcached high-speed storage, which will be shown in intuitive charts.
 
-Fine-grained monitoring
+## Fine-grained monitoring
 
 One minute granularity monitoring covers most of the products, such as cloud servers, cloud databases, VPCs and cloud hard disks. As well,  the second-level monitoring of five-second granularity will be introduced subsequently.
 
