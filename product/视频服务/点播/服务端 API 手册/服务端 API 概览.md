@@ -482,8 +482,10 @@
         </tr>
     </tbody>
 </table>
+
 ## 附录
 以下接口是已废弃的服务端 API 接口，具体废弃原因请参见对应文档。
+
 <table style="display:table">
     <tbody>
         <tr>
