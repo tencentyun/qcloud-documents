@@ -7,7 +7,7 @@
 
 + COS源、FTP源域名暂时无法将回源方式设置为协议跟随
 + 证书&私钥传递：请将证书、私钥内容按照base64编码后传输
-+ httpsType 与f orceSwith 不可同时为空
++ httpsType 与 forceSwith 不可同时为空
 + 接口调用频次限制为 100次/分钟
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
@@ -36,6 +36,8 @@
 
 ## 调用案例
 ### 示例参数
+
+注意：示例中证书私钥仅供参考。
 
 ```
 host：www.test.com
