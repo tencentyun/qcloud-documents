@@ -17,13 +17,13 @@
 ## 入参说明
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 GetCdnStatTop。
 
-| 参数名称       | 是否必选 | 类型     | 描述                 |
-| ---------- | ---- | ------ | ------------------ |
-| startDate  | 是    | String | 查询开始时间（日）          |
-| endDate    | 是    | String | 查询结束时间（日）          |
-| projects.n | 是    | String | 项目ID               |
-| hosts.n    | 否    | String | 域名                 |
-| statType   | 是    | String | "requests"：表示按流量排序 |
+| 参数名称       | 是否必选 | 类型     | 描述                                       |
+| ---------- | ---- | ------ | ---------------------------------------- |
+| startDate  | 是    | String | 查询开始时间（日）                                |
+| endDate    | 是    | String | 查询结束时间（日）                                |
+| projects.n | 是    | String | 项目ID，[查看项目ID](https://console.cloud.tencent.com/project) |
+| hosts.n    | 否    | String | 域名                                       |
+| statType   | 是    | String | "requests"：表示按流量排序                       |
 
 
 ## 出参说明
