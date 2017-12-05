@@ -157,36 +157,4 @@ Pay by usage: 0.02 USD/hour/100GB</td>
         </tr>
         
     </tbody></table>
-    
-    
-    
-## FAQ
-
-Q:  Can elastic cloud storages be used as system disks?
-
-A:  No. System disks cannot be unmounted or mounted
-
-Q:  Can cloud disks be used as data disks?
-
-A:  All types of local disks and cloud disks can be used as data disks
-
-Q:  Is mounting/unmounting supported for cloud disks?
-
-A:  Mounting/unmounting is supported for elastic cloud storages
-
-Q:  Is capacity adjustment supported for cloud disks?
-
-A:  It is supported when the data disk of CVM is a cloud disk
-
-Q:  Is snapshot supported?
-
-A:  Snapshot is supported in all types of cloud disks, but is not supported in local disks
-
-Q:  Is it billed independently? 
-
-A:  The elastic cloud storages purchased in the console can be billed independently, based on the **annual or monthly plan**
-
-Q: Is CPU/memory expansion supported?
-
-A: **CPU/memory expansion is supported as long as the root disk (system disk) is a cloud disk**
-
+ 
