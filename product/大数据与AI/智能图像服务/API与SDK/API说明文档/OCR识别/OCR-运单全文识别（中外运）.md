@@ -2,7 +2,7 @@
 
 中外运单据OCR识别，根据用户提供的中外运单据图片，返回识别出的字段信息。
 
-## URL接口
+## 调用URL
 
 `http://recognition.image.myqcloud.com/ocr/waybill`
 
