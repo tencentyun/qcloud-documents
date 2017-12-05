@@ -7,7 +7,7 @@ Tencent Cloud VPC can be integrated with many other Tencent Cloud Services. The 
 |---------|---------|
 | [Cloud Virtual Machine (CVM)](https://cloud.tencent.com/product/cvm.html) | You can deploy the CVM in the VPC |
 | [Cloud Load Balance (CLB)](https://cloud.tencent.com/product/clb.html?idx=2) | You can deploy private network LB or public network LB in a private network |
-| [NAT Gateway]() | It can be used to access the Internet with traffic in the VPC|
+|  NAT Gateway | It can be used to access the Internet with traffic in the VPC|
 | [VPN Connections](https://cloud.tencent.com/product/vpn.html) | Connect VPC and user's IDC via IPsec VPN |
 | [Direct Connect (DC)](https://cloud.tencent.com/product/dc.html) | Connect VPC and user's IDC via Direct Connect |
 | [Basic Cloud Monitor (BCM)](https://cloud.tencent.com/product/bcm.html) | Provide custom alarms for the key metrics of certain services in the VPC |
