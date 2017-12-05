@@ -12,6 +12,8 @@ VPN 网关是私有网络建立 VPN 连接的出口网关，与对端网关（ID
 
 VPN网关根据带宽上限分为5种设置，分别为：5M、10M、20M、50M、100M。您可以随时调整 VPN 网关带宽设置，即时生效。
 
+如果您需要 BGP 高防为 VPN 网关提供超大带宽的 DDoS 和 CC 防护，您可以将高防包绑定到 VPN 网关上，实现安全防护。
+
 ## 对端网关
 对端网关是指 IDC 机房的 IPsec VPN 服务网关，对端网关需与腾讯云 VPN 网关配合使用，一个VPN网关可与多个对端网关建立带有加密的VPN网络通道。
 
@@ -194,13 +196,17 @@ VPN 通道提供告警功能：
 2)	点击左导航栏中【VPN连接】-【VPN网关】选项卡。
 3)  点击 VPN 网关 ID 即可进入 VPN 网关详情页查看 VPN 网关信息。
 
-### 修改VPN通道配置
+### 修改 VPN 通道配置
 1)	登录[腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)。
 2)	点击左导航栏中【VPN连接】-【VPN通道】选项卡。
 3)  点击 VPN 网关 ID 即可进入 VPN 网关详情页查看 VPN 网关信息。
 4)  您可以在基本信息页中修改基本信息和SPD策略，或者您可以在高级配置修改IKE和Ipsec配置。
  
-
+### 绑定高防包
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【安全】>【大禹网络安全】，选择左导航栏的[【BGP 高防包】](https://console.cloud.tencent.com/dayu/bgp/list/sp/gz)
+	2. 选择您已有的高防包实例，单击更换设备操作，选择需要防护的 VPN 网关。
+	3. 单击【确认】，即为该 VPN 网关关联了高防包功能。
+ 
 ## API概览
 您可以使用API操作来设置和管理您的VPN连接，私有网络的更多相关API可以参考[私有网络所有 API 概览。](https://cloud.tencent.com/doc/api/245/909)
 ### VPN 相关接口
