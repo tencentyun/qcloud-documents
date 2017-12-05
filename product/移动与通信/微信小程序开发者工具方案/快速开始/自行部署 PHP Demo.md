@@ -56,7 +56,7 @@ php -v
 
 <img width="437" alt="node" src="https://mc.qcloudimg.com/static/img/644dde0092226c2748d5cb1eecca9984/php-v.png">
 
-### 开启 SFTP
+## 开启 SFTP
 
 SFTP 是一种安全的文件传输协议，我们可以通过 SFTP 把本地的文件上传到服务器上，通过以下命令检查 sftp 状态：
 
