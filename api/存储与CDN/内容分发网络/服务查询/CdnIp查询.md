@@ -8,6 +8,8 @@
 + 调用频次限制为 3000次/分钟
 
 
+[查看调用示例](https://cloud.tencent.com/document/product/228/1734)
+
 ## 入参说明
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 QueryCdnIp。
 
@@ -36,7 +38,7 @@
 
 | 参数名称      | 类型     | 描述                                       |
 | --------- | ------ | ---------------------------------------- |
-| ip        | String | 查询的IP                                    |
+| ip        | String | 查询的 IP                                   |
 | platform  | String | 是否属于 CDN 节点<br/>"yes"：属于腾讯云 CDN<br/>"no"：不属于腾讯云 CDN |
 | prov_name | String | 节点所在省份                                   |
 | isp_name  | String | 节点运营商                                    |
