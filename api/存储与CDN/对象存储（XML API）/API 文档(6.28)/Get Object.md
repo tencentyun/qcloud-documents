@@ -34,7 +34,9 @@ GET /<ObjectName>?response-content-type=ContentType&response-content-language=Co
 | response-content-disposition |设置响应头部中的 Content-Disposition 参数。|String| 否|
 | response-content-encoding |设置响应头部中的 Content-Encoding 参数。|String| 否|
 
+
 **说明**
+
 如果使用这些参数，那么请求必须要携带签名的，可以使用Authorization头部，也可以在URL参数中携带。匿名请求不允许携带这些参数 
 
 ### 请求头
@@ -52,9 +54,12 @@ GET /<ObjectName>?response-content-type=ContentType&response-content-language=Co
 | If-Modified-Since |当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304 |String| 否|
 | If-Match |当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed)|String| 否|
 | If-None-Match |当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified)|String| 否|
- 
+
+
 **说明**
+
 如果If-None-Match 与 If-Modified-Since同时携带，If-None-Match 不匹配，If-Modified-Since匹配，则返回304 Not Modified
+
 如果If-Match 与 If-Unmodified-Since同时携带，If-Match 匹配，If-Unmodified-Since 不匹配，则返回200 OK
  
 ### 请求体
