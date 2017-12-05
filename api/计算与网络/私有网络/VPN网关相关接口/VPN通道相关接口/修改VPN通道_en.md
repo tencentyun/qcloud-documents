@@ -17,7 +17,7 @@ The following request parameter list only provides API request parameters. Commo
 | userGwCidrBlock.n | No | Array | CIDR address of the peer IP address range, multiple values can be entered. Specifies the IDC IP address range the VPC can communicate with, later upgraded to spdAcl (finer granularity). Either userGwCidrBlock or spdAcl must be entered.  |
 | spdAcl.n | No | Array | SPD rule group. You can specify which IP address range in the VPC can communicate with which IP address range in your IDC, upgraded from userGwCidrBlock. Either userGwCidrBlock or spdAcl must be entered. See the product instruction for details.  |
 | IKESet.n | No | Array | IKE configuration (Internet Key Exchange). IKE is provided with a self-protection mechanism. The network security protocol is configured by the user. See <a href="https://cloud.tencent.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN Connection-IKE Configuration">VPN Connection-IKE Configuration</a> for details.  |
-| IPsecSet.n | No | Array | IPSec configuration. The IPSec secure session configuration is provided by Tencent Cloud. See <a href="https://cloud.tencent.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.4-ipsec-.E4.BF.A1.E6.81.AF" title=VPN Connection-IPSec Configuration">VPN Connection-IPSec Configuration</a> for details. |
+| IPsecSet.n | No | Array | IPSec configuration. The IPSec secure session configuration is provided by Tencent Cloud. See [VPN Connection-IPSec Configuration](https://intl.cloud.tencent.com/document/product/215/4956) for details. |
 
 IKE configuration details
 
