@@ -25,8 +25,7 @@ When no parameter is passed, the first 20 VPCs in the default sort order will be
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://intl.cloud.tencent.com/document/product/215/4781
-" title="Common Error Codes">Common Error Codes</a> on the Error Code page. || message | String | Module error message description depending on API. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://intl.cloud.tencent.com/document/product/215/4781" title="Common Error Codes">Common Error Codes</a> on the Error Code page. || message | String | Module error message description depending on API. |
 | totalCount | Int | Total number of VPCs under the developer account. |
 | data.n | Array | VPC information array. |
 | data.n.vpcId | String | vpcId assigned by the system, e.g. gz_vpc_266. |
