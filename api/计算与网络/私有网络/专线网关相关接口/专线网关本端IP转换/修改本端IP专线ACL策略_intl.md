@@ -24,7 +24,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, please refer to <a href="删除本端IP转换ACL策略_intl.md" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, please refer to <a href="https://intl.cloud.tencent.com/document/product/215/4781" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | message | string | Module error message description depending on API. |
 
  ## 4. Error Code List
