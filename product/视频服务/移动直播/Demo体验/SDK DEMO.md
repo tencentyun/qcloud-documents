@@ -19,10 +19,6 @@ table th:nth-of-type(4) {  width: 235px; }
 ### 效果预览
 ![](https://mc.qcloudimg.com/static/img/a493ea36da54be8ab95ece6f69147227/image.jpg)
 
-
-![](//mc.qcloudimg.com/static/img/4015054ec3b4e0d76078e8297af8107c/image.jpg)
-![](//mc.qcloudimg.com/static/img/a4f8c5249c62d9eb57c4893ed0072531/image.jpg)
-
 ### 安装地址
 <table width="840px">
   <tr align="center">
