@@ -27,7 +27,8 @@ Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 ## 3. Output Parameters
 
 | Parameter Name | Type | Description |
-|---------|---------|---------| | code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://intl.cloud.tencent.com/document/product/215/4781" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+|---------|---------|---------|
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please see <a href="https://intl.cloud.tencent.com/document/product/215/4781" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | message | String | Module error message description depending on API. |
  
 ## 4. Error Codes
