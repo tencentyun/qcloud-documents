@@ -56,12 +56,12 @@ The following error codes include the business logic error codes for this API.
 
 ## 5. Example
 Input
-<pre>
+```
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedisProduct
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &zoneIds.0=100002
 &typeId=1
-</pre>
+```
 Output
 ```
 {
