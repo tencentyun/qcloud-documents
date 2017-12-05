@@ -48,7 +48,7 @@ The following error codes include the business logic error codes for this API.
 
 ## 5. Example
 Input
-<pre>
+```
 https://redis.api.qcloud.com/v2/index.php?Action=InquiryRedisPrice
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">common request parameters</a>>
 &zoneId=100002
@@ -56,7 +56,7 @@ https://redis.api.qcloud.com/v2/index.php?Action=InquiryRedisPrice
 &memSize=1024
 &goodsNum=1
 &period=2
-</pre>
+```
 Output
 ```
 {

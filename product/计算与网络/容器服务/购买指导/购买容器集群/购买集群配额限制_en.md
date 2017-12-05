@@ -1,4 +1,3 @@
-## Purchase Limits for Container Clusters
 For each user, fixed quotas are allocated for Tencent Cloud CCS clusters in each region.
 
 1. You can find below different container cluster quotas that one user can purchase in different regions. If you need more clusters, submit a [quota request ticket](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) for application.

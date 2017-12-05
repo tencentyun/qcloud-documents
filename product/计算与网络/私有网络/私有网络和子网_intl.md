@@ -1,11 +1,11 @@
 ## Virtual Private Cloud (VPC)
 Virtual Private Cloud allows you to build an independent network space on Tencent Cloud, similar to the traditional network you hosted in a data center. However, what hosted in Tencent Cloud VPC are your service resources on Tencent Cloud, which include: [Cloud Virtual Machine](https://cloud.tencent.com/doc/product/213/495), [Cloud Load Balance](https://cloud.tencent.com/doc/product/214/524), [Cloud Database](https://cloud.tencent.com/doc/product/236) and other resources of cloud services on your Tencent Cloud. Tencent Cloud VPC can provide you with the following features:
 - Customize network segmentation, IP address and routing policy via the console and APIs
-- Access Internet flexibly via [Elastic IP](https://cloud.tencent.com/doc/product/213/1941), [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972)
+- Access Internet flexibly via [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733), [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972)
 - Connect VPC with your data center via [VPN](https://cloud.tencent.com/doc/product/215/4956) and [Direct Connect](https://cloud.tencent.com/doc/product/215/4976)
 - "One server covering the globe" and disaster recovery at "two regions, three centers" can be achieved via [Peering Connection](https://cloud.tencent.com/doc/product/215/5000)
 - Through basic network interconnection, hosts in basic network and VPC can communicate via private network
-- The [Security Group](https://cloud.tencent.com/doc/product/213/500) and [Network ACL](https://cloud.tencent.com/doc/product/215/5132) can satisfy your network security requirement in a multi-dimensional and all-round manner.
+- The [Security Group](https://intl.cloud.tencent.com/document/product/213/5221) and [Network ACL](https://cloud.tencent.com/doc/product/215/5132) can satisfy your network security requirement in a multi-dimensional and all-round manner.
 
 When creating a VPC, the user needs to specify an IP address group for VPC in the form of a classless inter-domain routing (CIDR) block (e.g, 10.0.0.0/16). VPC is region related. For example VPC A in southern China (Guangzhou), users cannot create a cross-region VPC.
 
@@ -17,7 +17,7 @@ Subnet is the IP address block within VPC, and all cloud resources in the VPC mu
 You can specify the CIDR (Classless Inter-Domain Routing) to implement the overall IP division of the VPC and subnets. IP address used in the Tencent Cloud VPC is divided into three categories:
 - **Private IP**: It is the IP address that must be assigned to an instance within VPC for communication between instances in VPC, but it cannot be used for Internet communication.
 - **Public IP**: It is the IP address used for Internet access and can be used for communication between instances and the Internet or other Tencent Cloud resources (such as CDB) that have common terminal nodes.
-- **[Elastic IP (EIP)](https://cloud.tencent.com/doc/product/213/1941)**: It is the public IP that can be requested separately. Dynamic binding and unbinding it with CVM/NAT gateway instances is supported.
+- **[Elastic IP (EIP)](https://intl.cloud.tencent.com/document/product/213/5733)**: It is the public IP that can be requested separately. Dynamic binding and unbinding it with CVM/NAT gateway instances is supported.
 
 ## CIDR
 CIDR (Classless Inter-Domain Routing) is a user-specified independent network space address block, which enables the overall division of the network by combining IP with mask. Take `10.1.0.0/16` as an example, the left side of the slash is the IP of the network block, and the right side of the slash is the mask of the network block. You can adjust the size of the network block by setting the value of the mask. Number of IPs that the network block contains equals 2 ^ (32-mask), so the `10.1.0.0/16` network block contains up to 65,536 IP addresses.
