@@ -12,7 +12,7 @@
 
 | 参数名          | 值                             | 描述                     |
 | -------------- | ------------------------------ | ------------------------ |
-| Host           | recognition.image.myqcloud.com | 万象优图服务器域名         |
+| Host           | recognition.image.myqcloud.com | 智能图像识别服务器域名      |
 | Content-Length | 包体总长度                      | 整个请求包体内容的总长度，单位：字节（Byte）|
 | Content-Type	 | Multipart/form-data            | &nbsp;                   |
 | Authorization	 | 鉴权签名	                      | 用于鉴权的签名，使用多次有效签名，[鉴权签名方法](/document/product/641/12409) |
