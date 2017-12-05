@@ -1,15 +1,17 @@
 ## 1.	INTRODUCTION
 This agreement forms part of, and is incorporated into, the Tencent Cloud Service Level Agreement between you and us, in relation to your use of Tencent Cloud.
 ## 2.	SERVICE LEVELS
-### **2.1 Introduction**
+### 2.1 Introduction
+
 The following Service Levels apply to Tencent Cloud's Cloud Database service.
 
 Service Credits are calculated in accordance with the Tencent Cloud Service Level Agreement. As set out in Sections 2.2 and 2.3 of that Agreement: 
- 1. 	All Service Levels will be calculated on a per-account, per-complete calendar month basis.
 
- 2. 	except for the Database Expansion Support Service Level, Service Credits are calculated as a percentage of the total Charges paid by Organisation to Tencent in respect of the Cloud Database service provided during the relevant calendar month in which the Service Level was calculated.      
+ &emsp;(a)	All Service Levels will be calculated on a per-account, per-complete calendar month basis.
 
-### ** 2.2 Data Storage Persistence Service Level**
+&emsp;(b) 	except for the Database Expansion Support Service Level, Service Credits are calculated as a percentage of the total Charges paid by Organisation to Tencent in respect of the Cloud Database service provided during the relevant calendar month in which the Service Level was calculated.      
+
+###  2.2 Data Storage Persistence Service Level
 <table style="width:700px">
 <tbody>
 <tr>
@@ -52,8 +54,8 @@ For the purposes of this Service Level, <b>"Persistence" </b>means a maximum of 
 </tbody>
 </table>
 
-</br>
-### ** 2.3	Service Availability Service Level**
+
+###  2.3	Service Availability Service Level
 <table style="width:700px">
 <tbody>
 <tr>
@@ -98,8 +100,8 @@ A service failure that returns to normal within less than 5 minutes will not be 
 </tbody>
 </table>
 
-</br>
-### ** 2.4	Database Expansion Support Service Level**
+
+###  2.4	Database Expansion Support Service Level
 <table style="width:700px">
 <tbody>
 <tr>
