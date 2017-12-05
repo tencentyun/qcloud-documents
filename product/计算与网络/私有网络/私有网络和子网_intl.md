@@ -258,4 +258,4 @@ The prerequisite for deleting a subnet is that the IPs in the subnet is not occu
 3) Select the line where subnet to be deleted is located and click "Delete".
 
 ## API Overview
-You can use API to set up and manage your VPCs and subnets. Click to view [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
+You can use API to set up and manage your VPCs and subnets. Click to view [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909).

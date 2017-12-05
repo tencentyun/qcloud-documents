@@ -42,15 +42,15 @@
 ## 3. 网络相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
-| 绑定子机与弹性网卡 | [AttachNetworkInterface](/document/api/213/8836)|  用于绑定子机与弹性网卡。
+| 绑定主机与弹性网卡 | [AttachNetworkInterface](/document/api/213/8836)|  用于绑定主机与弹性网卡。
 
 ## 4. 安全组相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
-| 查询安全组列表 | [DescribeSecurityGroups](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%88%97%E8%A1%A8) | 用于查询已经存在的安全组的规则。
-| 创建安全组 | [CreateSecurityGroup](/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%89%E5%85%A8%E7%BB%84) | 用于创建新的安全组。
-| 删除安全组 | [DeleteSecurityGroup](/doc/api/229/%E5%88%A0%E9%99%A4%E5%AE%89%E5%85%A8%E7%BB%84) | 用于删除新的安全组。
-| 修改安全组名称 | [ModifySecurityGroupAttributes](/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E5%90%8D%E7%A7%B0) | 用于修改已经存在的安全组的属性信息，包括名称和描述。
+| 查询安全组列表 | [DescribeSecurityGroups](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%88%97%E8%A1%A8) | 用于查询已经存在的安全组。
+| 创建安全组 | [CreateSecurityGroup](/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%89%E5%85%A8%E7%BB%84) | 用于创建安全组。
+| 删除安全组 | [DeleteSecurityGroup](/doc/api/229/%E5%88%A0%E9%99%A4%E5%AE%89%E5%85%A8%E7%BB%84) | 用于删除安全组。
+| 修改安全组属性 | [ModifySecurityGroupAttributes](/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E5%90%8D%E7%A7%B0) | 用于修改已经存在的安全组的属性信息，包括名称和描述。
 | 查询安全组规则 | [DescribeSecurityGroupPolicy](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E8%A7%84%E5%88%99) | 用于查询已经存在的安全组的规则。
 | 修改安全组规则 | [ModifySecurityGroupPolicy](/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E8%A7%84%E5%88%99) | 用于修改已经存在的安全组的规则。
 | 查询安全组关联的实例列表 | [DescribeInstancesOfSecurityGroup](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%85%B3%E8%81%94%E7%9A%84%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%88%97%E8%A1%A8) | 用于查询已关联指定的安全组的云服务器。
