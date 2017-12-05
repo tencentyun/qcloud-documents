@@ -11,7 +11,7 @@
 ![](https://mc.qcloudimg.com/static/img/f4c62ba416032b20e17ff9ec3ed15e39/s3.png)
 [云市场链接地址>>](https://market.cloud.tencent.com/products/4243)
 
-选择镜像的时候，选择『服务市场』，在搜索栏里搜索『Batch』，选择Windows Server 2012 的基础镜像（镜像 ID：img-iy8pcwen），后续存储、网络、其他设置根据提示选择，最后点击『立即购买』创建云主机。
+选择镜像的时候，选择『服务市场』，在搜索栏里搜索『批量计算』，选择Windows Server 2012 的基础镜像（镜像 ID：img-iy8pcwen），后续存储、网络、其他设置根据提示选择，最后点击『立即购买』创建云主机。
 
 ###2. 在云主机上安装业务需要的软件
 
@@ -65,7 +65,7 @@ qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
 qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "待替换" }  }, "RedirectInfo": {"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"}, "MaxRetryCount":  1 } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
 ```
 
-实际命令行提交请复制上面这段命令到文本，修改里面的『带替换』部分（3处，镜像 ID 和日志地址）即可。
+实际命令行提交请复制上面这段命令到文本，修改里面的『待替换』部分（3处，镜像 ID 和日志地址）即可。
 
 
 
