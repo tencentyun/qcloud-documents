@@ -4,7 +4,7 @@ This API (DescribeInstancesCbsNum) is used to query the number of elastic cloud 
 
 Domain for API request:<font style="color:red">cbs.api.qcloud.com</font>
 
-Usage restrictions:
+Usage restrictions:<br>
 
 No special restrictions. For specific parameter restrictions, refer to the table below.
 
