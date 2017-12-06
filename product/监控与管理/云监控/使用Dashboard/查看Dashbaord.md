@@ -8,17 +8,25 @@
 
    ![](http://mc.qcloudimg.com/static/img/b79f92232891fa8051ad277c41142389/image.png)
 
-2. 在折线图内部选中一段时间，可放大查看该时间段内的细节数据。
+2. 在折线图内部拖拽选中一段时间，可放大视图以查看细节数据。
 
    当用户拖拽放大视图时，视图所展示的监控数据粒度也自动变细。
 
-   （配图）
+   ![](http://mc.qcloudimg.com/static/img/e49e4c77263efaac3c26e7e1e2a24c1f/image.png)
+
+   ![](http://mc.qcloudimg.com/static/img/db0ea7a595af1c9f6aaf4dc288d304cb/image.png)
+
+   ​
 
 3. 通过折线图右下角的滑块，可拖动调节折线图大小。支持用户自定义图表在面板中的位置与面积占比。
 
+   ![](http://mc.qcloudimg.com/static/img/f60bd38352e9fb968a7dfbb8f1f707ed/image.png)
+
 4. 点击图表的![6](http://mc.qcloudimg.com/static/img/68e7b4bfa5775b1b4c53157f0a85eb79/image.png)按钮，将通过弹窗提供监控视图的大图展示功能。
 
-   ![](http://mc.qcloudimg.com/static/img/3a2026d7eede22800d62d78da569e935/image.png)
+   ![](http://mc.qcloudimg.com/static/img/7022003837295e1f3088ad974dc1c331/image.png)
+
+   ![](http://mc.qcloudimg.com/static/img/fb21e2d6d3110daefa9a1a7abf064263/image.png)
 
 
 
@@ -28,10 +36,9 @@
 
    ![](http://mc.qcloudimg.com/static/img/b79f92232891fa8051ad277c41142389/image.png)
 
-2. 点击列表中的”导出”，可将排序列表导出至本地。
-   点击列表中的“收起”，可收起排序列表，恢复至单折线图展示。
+2. 点击列表中的”导出”，可将排序列表导出至本地。点击列表中的“收起”，可收起排序列表，恢复至单折线图展示。
 
-3. 当鼠标hover于列表中不同实例时，上方曲线图将高亮该实例对应的监控数据曲线图；若其他图表中也包含此实例，此实例的曲线也将在其他图表中高亮展示。
+3. 当鼠标悬浮于列表中不同实例时，上方曲线图将高亮该实例对应的监控数据曲线图；若其他图表中也包含此实例，此实例的曲线也将在其他图表中高亮展示。
 
 4. 点击列表中目标对象的名称，页面将跳转至目标对象的监控详情页面，进行进一步的排查。
 
