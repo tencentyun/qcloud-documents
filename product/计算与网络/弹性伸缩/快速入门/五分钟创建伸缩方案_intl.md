@@ -36,7 +36,7 @@ It is strongly recommended that you use the custom image of which the environmen
 
 Therefore, it is recommended to select a custom image here.
 Bind the image of the **CVM to which the scaling group is going to bind**.
-[How to create the image for the "CVM to which the scaling group is going to bind"?](https://cloud.tencent.com/doc/product/213/%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97#1.-cvm实例制作自定义镜)
+[How to create the image for the "CVM to which the scaling group is going to bind"?](https://intl.cloud.tencent.com/document/product/213/4940)
 ![](https://mc.qcloudimg.com/static/img/4a199eb83c1a38c47d9d545e44acea62/14.jpg)
 
 
@@ -52,7 +52,7 @@ For users with large amount of data, they often use data disks to store data. Wh
 
 When the auto scaling automatically adds a new CVM instance, if the data disk snapshot is specified in scaling configuration, Tencent Cloud's cloud disk can allow the automatic mounting of the data disk containing the set data after the CVM instance is activated, so as to meet the needs of automatic data copy.
 
-If the data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted automatically and correctly for the successful automatic scale-up of the scaling group. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance. For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot](https://cloud.tencent.com/doc/product/362/5564)
+If the data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted automatically and correctly for the successful automatic scale-up of the scaling group. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance. For instructions on how to do this, refer to [How to Mount Data Disk Automatically When Activating New Instance Using Custom Image and Data Disk Snapshot](https://intl.cloud.tencent.com/document/product/362/7871)
 
 > Note:
 >-  Auto Scaling service is free of charge, and newly added servers, hard disks and networks will be charged by the traffic of CVM instances, hard disks and networks. This page will display prices based on your settings.
