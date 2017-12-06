@@ -4,15 +4,15 @@
 
 - [腾讯云 CVM（云服务器）](https://cloud.tencent.com/product/cvm)：CentOS 7.3 64位
 
-  ###### 如果系统不是 CentOS，以下操作只是包管理工具不同，例如 Ubuntu 则是 `apt-get` 等。
+  **如果系统不是 CentOS，以下操作只是包管理工具不同，例如 Ubuntu 则是 `apt-get` 等。**
 
 - [腾讯云 CDB（云数据库）](https://cloud.tencent.com/product/cdb)：MySQL 5.7
 
-  ###### Wafer SDK 的数据库仅支持 5.7 及以上版本的 MySQL。为了生产环境的稳定，采用云数据库而非自行搭建。
+  **Wafer SDK 的数据库仅支持 5.7 及以上版本的 MySQL。为了生产环境的稳定，采用云数据库而非自行搭建。**
 
-  ###### 云服务器和云数据库必须在同一个腾讯云账号下，否则内网 IP 无法连通。
+  **云服务器和云数据库必须在同一个腾讯云账号下，否则内网 IP 无法连通。**
 
-### 安装 Nginx
+## 安装 Nginx
 
 PHP-FPM 依赖于 Nginx 进行请求的派发与响应，并且一些静态文件我们也可以直接通过 Nginx 代理，提高性能。其中第一步就是安装 Nginx。
 
@@ -32,7 +32,7 @@ nginx -v
 
 <img width="253" alt="nginx" src="https://mc.qcloudimg.com/static/img/fd6021afc2d8599604e46273ca9c194f/nginx.png">
 
-### 安装 PHP
+## 安装 PHP
 
 Wafer 的 Demo 需要 5.6 以上版本的 PHP 才能运行，目前最新版本为 7.x，`yum` 本身不提供 PHP 的源，所以首先我们得添加 remi 源：
 
@@ -56,7 +56,7 @@ php -v
 
 <img width="437" alt="node" src="https://mc.qcloudimg.com/static/img/644dde0092226c2748d5cb1eecca9984/php-v.png">
 
-### 开启 SFTP
+## 开启 SFTP
 
 SFTP 是一种安全的文件传输协议，我们可以通过 SFTP 把本地的文件上传到服务器上，通过以下命令检查 sftp 状态：
 
@@ -70,7 +70,7 @@ service sshd status
 
 接下来可以通过 FileZilla、Transmit 等 FTP 工具连接上服务器。
 
-### 配置 Nginx 和 HTTPS
+## 配置 Nginx 和 HTTPS
 
 完成以上准备工作，就要开始配置 Nginx 和 HTTPS 了，首先需要申请一个 SSL 证书，可以到腾讯云[申请免费的 SSL 证书](https://console.cloud.tencent.com/ssl?apply=1)，申请成功之后下载证书，并把压缩包中 Nginx 目录下的证书文件通过 SFTP 上传到服务器的 `/data/release/nginx` 目录，如果没有这个目录则新建：
 
@@ -137,7 +137,7 @@ nginx -t
 
 <img width="1439" alt="chrome2" src="https://mc.qcloudimg.com/static/img/5e4c1a05191ff1655d223831ed1dc0bc/visit.png">
 
-### 上传 Demo 和启动
+## 上传 Demo 和启动
 
 到 [wafer2-quickstart-php](https://github.com/tencentyun/wafer2-quickstart-php) 仓库下载最新的 Demo 代码，修改 `server/config.php`：
 
@@ -217,7 +217,7 @@ $config = [
 
 <img width="1192" alt="pma" src="https://mc.qcloudimg.com/static/img/3368fdf7ab27a91faaa460f085ac95f4/sql.png">
 
-### 启动 PHP
+## 启动 PHP
 
 回到 SSH 界面，输入：
 
@@ -225,7 +225,7 @@ $config = [
 service php-fpm start
 ```
 
-### 完成
+## 完成
 
 顺利完成以上操作，就完成了 Wafer Demo 在自己服务器上的部署。直接访问 `http://你的域名/weapp/login`，会提示：
 
