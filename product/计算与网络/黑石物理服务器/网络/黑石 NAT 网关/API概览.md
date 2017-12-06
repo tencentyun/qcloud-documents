@@ -10,4 +10,4 @@
 |NAT 网关绑定子网|SubnetBindBmNatGateway|NAT 网关绑定子网|
 |NAT 网关解绑子网|SubnetUnBindBmNatGateway|NAT 网关解绑子网|
 |NAT 网关绑定子网部分 IP|BindIpsToBmNatGateway|NAT 网关绑定子网部分 IP|
-|NAT网关解绑子网部分IP|UnbindIpsToBmNatGateway|NAT 网关解绑子网部分 IP|
+|NAT网关解绑子网部分 IP|UnbindIpsToBmNatGateway|NAT 网关解绑子网部分 IP|
