@@ -1,4 +1,4 @@
-|**接口功能**|**Action ID**|**功能描述**|
+|**接口功能**|**Action ID**|
 |------------------------|-------------------------|
 |创建 NAT 网关|CreateBmNatGateway|
 |查询 NAT 网关操作状态|QueryBmNatGatewayProductionStatus|
