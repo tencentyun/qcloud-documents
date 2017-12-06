@@ -16,7 +16,7 @@ CVMs in the same region can communicate with each other via private network free
 CVMs in different regions cannot communicate with each other via private network but only via public network with a charge.
 
 ### Choosing Configurations
-Check details of different configurations in [More Models](https://intl.cloud.tencent.com/document/product/213/7153). You can also [Upgrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#1.-配置升级) or [Degrade Configuration](/doc/product/213/%E8%B0%83%E6%95%B4CVM%E5%AE%9E%E4%BE%8B%E9%85%8D%E7%BD%AE#2.-配置降级) purchased CVMs whenever necessary.
+Check details of different configurations in [More Models](https://intl.cloud.tencent.com/document/product/213/7153). You can also [Upgrade Configuration](https://intl.cloud.tencent.com/document/product/213/5730) purchased CVMs whenever necessary.
 
 ### Choosing Billing Method
 Tencent cloud supports Postpaid billing method. For more information, please see [Billing Methods](/doc/product/213/2180).
@@ -24,7 +24,7 @@ If Prepaid method is selected, you need to complete [Identity Verification](http
 
 <div id="page2"></div>
 ## Step 2: Create Linux CVM
-This step describes how to create a Linux CVM. Let's take quick configuration as an example. If it does not meet your requirements, you can choose a detailed configuration by referring to [Customized Configuration of Linux CVM](/doc/product/213/10517) document.
+This step describes how to create a Linux CVM. Let's take quick configuration as an example.
 
 
 
@@ -46,7 +46,7 @@ For more information on how to view internal message, please see later steps.
  
 <div id="Inter-Page">  </div>
 ## Step 3: Log in to Linux CVM
-This section describes how to log in to the Linux CVM. You can use different login methods in different situations. We describe the steps to login on Console here. For more information on other login methods, please see [Log in to Linux Instance](/doc/product/213/5436).
+This section describes how to log in to the Linux CVM. You can use different login methods in different situations. We describe the steps to login on Console here. 
 
 ### Preconditions
 You need to use the admin account ID and the corresponding password to log in to the CVM.

@@ -32,13 +32,13 @@ table th:nth-of-type(4) {  width: 235px; }
     <td>3.5</td>
 		<td><a href="https://itunes.apple.com/us/app/rtmp-tui-liu-jing-ling/id1152295397?l=zh&ls=1&mt=8
 "><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/f9f652e7bc42b0e79dfbadbeea3aec06/image.jpg" /></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/4015054ec3b4e0d76078e8297af8107c/image.jpg" /></td>
   </tr>
 	<tr align="center">
     <td>Android</td>
     <td>3.5</td>
 		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/e11f945cafa155a4e991706dabb15849/image.jpg" /></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/a4f8c5249c62d9eb57c4893ed0072531/image.jpg" /></td>
   </tr>
 </table>
 

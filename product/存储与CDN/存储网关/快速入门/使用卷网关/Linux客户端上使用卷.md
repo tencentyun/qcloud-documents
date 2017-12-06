@@ -35,10 +35,10 @@ sudo /sbin/iscsiadm --mode discovery --type sendtargets --portal 192.168.190.11:
 请使用如下命令挂载发现的卷。其中 TargetName 替换为需要挂载的卷的 TargetName, 该信息可以到卷的详细信息页面获取； GATEWAY_IP 需要替换为您的网关的 IP 变量。
 <p style="color: red;"> 注意： 由于 iSCSI 协议限制，请勿将一个卷挂载到多个客户端上。<p>
 ```
-sudo /sbin/iscsiadm --mode node --type <TargetName> --portal <GATEWAY_IP> -l 
+sudo /sbin/iscsiadm --mode node --targetname <TargetName> --portal <GATEWAY_IP> -l 
  
 例如：
-sudo /sbin/iscsiadm --mode node --type iqn.2003-07.com.qcloud:vol-10098 --portal 192.168.190.11:3260 -l
+sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --portal 192.168.190.11:3260 -l
 ```
 
 ### 查看卷
@@ -100,10 +100,10 @@ sudo /sbin/iscsiadm --mode node --type iqn.2003-07.com.qcloud:vol-10098 --portal
 ### 卸载卷
 如果挂载有误或者需要更换挂载的服务器，可以使用以下语句解除挂载。
 ```
-sudo /sbin/iscsiadm --mode node --type <TargetName> --portal <GATEWAY_IP> -u
+sudo /sbin/iscsiadm --mode node --targetname <TargetName> --portal <GATEWAY_IP> -u
  
 例如：
-sudo /sbin/iscsiadm --mode node --type iqn.2003-07.com.qcloud:vol-10098 --portal 192.168.190.11:3260 -u
+sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --portal 192.168.190.11:3260 -u
 ```
 
 ### 优化配置
@@ -116,10 +116,10 @@ sudo /sbin/iscsiadm --mode node --type iqn.2003-07.com.qcloud:vol-10098 --portal
   找到并打开 /etc/udev/rules.d/50-udev.rules 文件，并找到如下的代码行。如果在 RHEL 6 / 7 的 Initiator 中未找到如下代码，请自行将如下代码添加该文件中并保存。
 	```
 	ACTION=="add", SUBSYSTEM=="scsi", SYSFS{type}=="0|7|14",\
-	RUN+="/bin/sh -c 'echo 7200 > /sys/block/sda/device/timeout'"  // RedHat 5
+	RUN+="/bin/sh -c 'echo 7200 > /sys$$DEVPATH/timeout'"  // RedHat 5
 	
 	ACTION=="add", SUBSYSTEM=="scsi",  ATTR{type}=="0|7|14",\
-	RUN+="/bin/sh -c 'echo 7200 > /sys/block/sda/device/timeout'"  // RedHat 6 和 RedHat 7
+	RUN+="/bin/sh -c 'echo 7200 > /sys$$DEVPATH/timeout'"  // RedHat 6 和 RedHat 7
 	```
 	
   **注意：卸载卷会导致此项配置失效，因此，每次挂载完卷以后都要执行一次操作。**

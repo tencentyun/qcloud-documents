@@ -1,3 +1,5 @@
+腾讯云提供了全套技术文档和源码来帮助您快速构建一个音视频小程序，但是再好的源码和文档也有学习成本，为了尽快的能调试起来，我们还提供了一个免费的一键部署服务：您只需轻点几下鼠标，就可以在自己的账号下获得一个音视频小程序，同时附送一台拥有独立域名的测试服务器，让您可以在 5 分钟内快速构建出自己的测试环境。
+
 ## 一、通过微信公众平台授权登录腾讯云
 
 打开[微信公众平台](https://mp.weixin.qq.com)注册并登录小程序，按如下步骤操作：
@@ -17,7 +19,7 @@
 
 ![腾讯云微信小程序控制台](https://mc.qcloudimg.com/static/img/032d0b2b99dfcfdf4234db911e93b60f/15.png)
 
-## 二、开通腾讯云服务
+## 二、免费开通腾讯云服务
 ### 1.开通直播服务
 #### 1.1 申请开通视频直播服务
 进入[直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，则会有如下提示:
@@ -74,7 +76,7 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 "zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg\r\n"+
 "-----END PRIVATE KEY-----\r\n"
 ```
-## 三、安装开发工具
+## 三、安装微信小程序开发工具
 
 下载并安装最新版本的[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
 
@@ -82,11 +84,9 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
 ## 四、下载 Demo 和安装依赖
 
-访问[SDK+Demo](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu)，获取小程序 Demo 和后台源码。
+访问 [SDK+Demo](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu)，获取小程序 Demo 和后台源码。
 
 **安装依赖**
-
-> 注意：这里一定要在本地安装依赖。
 
 在下载下来的目录打开 CMD 安装依赖：
 
@@ -97,10 +97,11 @@ cd server
 # 安装依赖
 npm install
 ```
+<font color='red'> 注意：这里一定要在本地安装依赖，否则会出现部署失败的问题。 </font>
 
 ## 五、上传和部署代码
 
-1. 打开第二步安装的微信开发者工具，点击【小程序项目】按钮。
+1. 打开第三步安装的微信开发者工具，点击【小程序项目】按钮。
 2. 输入小程序 AppID，项目目录选择上一步下载下来的代码目录，点击确定创建小程序项目。
 3. 再次点击【确定】进入开发者工具。
 
@@ -138,7 +139,9 @@ npm install
 
   ![登录测试](https://mc.qcloudimg.com/static/img/fcef90001b4b8d3549e20656cf09491a/xiaochengxuresult.png)
   
-  ## 常见问题
-  1.运行小程序进入多人音视频看不到画面?
-  
-  请确认使用手机来运行，微信开发者工具内部的模拟器目前还不支持直接运行，如果使用手机运行还是没有画面请确认开通了微信直播服务，目前需要提供微信APPID，人工审核开通，可以提工单或客服电话（400-9100-100）联系我们。
+## 常见问题 FAQ
+##### 1. 运行小程序进入多人音视频看不到画面?
+  - 请确认使用手机来运行，微信开发者工具内部的模拟器目前还不支持直接运行
+  - 请确认小程序基础库版本 wx.getSystemInfo 可以查询到该信息，1.7.0 以上的基础库才支持音视频能力。
+  - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](http://panshi.isd.com/helpCenterNew/helpManager/article#/doc/454/12518)。
+  - 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。

@@ -22,5 +22,5 @@ Or in the Cloud Block Storage list page, check the Cloud Block Storage with the 
 
 4) Confirm warnings in the pop-up dialog box, and click "Confirm" button.
 
-### Unmounting an elastic cloud disk with API
+## Unmounting an elastic cloud disk with API
 Users can use the DetachCbsStorages API to unmount the elastic cloud disk. For more information, refer to [API to Unmount Elastic Cloud Disk](https://cloud.tencent.com/doc/api/364/2521).

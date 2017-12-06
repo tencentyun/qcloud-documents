@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (Unsubscribe) is used to delete a created subscription.
 

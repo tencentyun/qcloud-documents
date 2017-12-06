@@ -1,4 +1,4 @@
-﻿1. The producer can know immediately whether the message from Topic is successfully delivered
+1. The producer can know immediately whether the message from Topic is successfully delivered
 
 2. The producer can know immediately the consumption state of the Queue message
 

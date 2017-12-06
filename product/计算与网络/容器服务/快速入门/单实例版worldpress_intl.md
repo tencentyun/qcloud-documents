@@ -17,10 +17,10 @@ The created Wordpress with single pod is for testing purposes only. The image in
 2. Enter image "tutum/wordpress", and select "latest" version.
 
 3. Enter port mapping information.
+![Alt text](https://mc.qcloudimg.com/static/img/5f0d087d00cde09bc6f45cd1bfb2486b/examples_3_1.jpg)
 
-![Alt text](https://mc.qcloudimg.com/static/img/27a0a00a151c5f5ebacffca5fc8f832a/Image+025.png)
+1. Click "Create Service" to complete the configuration.
 
-4. Click "Create Service" to complete the configuration.
 ### Access Wordpress Service
 Click on the service to view its public IP. Enter this IP address in the browser to access the service.
 ![Alt text](https://mc.qcloudimg.com/static/img/c0132b35996db099c02af7f2cf747137/Image+023.png)
