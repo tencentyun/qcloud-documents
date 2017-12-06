@@ -30,7 +30,7 @@ The following request parameter list only provides API request parameters. Commo
 ## 3. Output Parameters
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="创建伸缩组_intl.md" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, please refer to <a href="http://intl.cloud.tencent.com/document/product/377/8946" title="Common Error Codes">Common Error Codes</a> on the Error Code page. |
 | codeDesc | String | Error code at business side. If the task succeeds, it will return "Success"; if the task fails, the specific business error reason will be returned. |
 | message | String | Module error message description depending on API. |
 | data | Array | Output result, displaying the information of newly created scaling group.  |
