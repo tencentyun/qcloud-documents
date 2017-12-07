@@ -1,6 +1,8 @@
+<font style="color:Brown">接口 GetCdnStatTop 通过入参 statType 不同可指定查询按流量/请求数排序的 TOP 省份、TOP 运营商、TOP URL，此文档对流量 TOP 查询进行详细说明</font>
+
 ## 接口描述
 
-**GetCdnStatTop** 用于查询多域名/项目指定时间区间流量TOP 100 URL列表、省份TOP排名、运营商TOP排名。
+**GetCdnStatTop** 用于查询多域名/项目指定时间区间按流量排名的TOP 100 URL列表、省份TOP排名、运营商TOP排名。
 
 请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 

@@ -1,3 +1,5 @@
+<font style="color:Brown">接口 GetCdnStatTop 通过入参 statType 不同可指定查询按流量/请求数排序的 TOP 省份、TOP 运营商、TOP URL，此文档对请求数 TOP 查询进行详细说明</font>
+
 ## 接口描述
 
 **GetCdnStatTop** 用于查询多域名/项目指定时间区间请求数TOP 100 URL列表、省份TOP排名、运营商TOP排名。
@@ -8,7 +10,7 @@
 
 + 可一次提交多个域名，查询整体请求数TOP100 URL、请求数省份TOP排名、请求数运营商TOP排名，需填充对应projectId
 + 可一次提交多个项目，查询整体请求数TOP100 URL、请求数省份TOP排名、请求数运营商TOP排名
-+ TOP数据从日志中计算获取，数据延迟约 30 分钟
++ TOP 数据从日志中计算获取，数据延迟约 30 分钟
 + 支持查询 90天内的TOP数据
 + 调用频次限制为 100次/分钟
 
@@ -23,7 +25,7 @@
 | endDate    | 是    | String | 查询结束时间（日）                                |
 | projects.n | 是    | String | 项目ID，[查看项目ID](https://console.cloud.tencent.com/project) |
 | hosts.n    | 否    | String | 域名                                       |
-| statType   | 是    | String | "requests"：表示按流量排序                       |
+| statType   | 是    | String | "requests"：表示按请求数排序                      |
 
 
 ## 出参说明
