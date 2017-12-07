@@ -59,4 +59,4 @@ Action=DescribeInstances
 &<API request parameters>
 ```
 
-A complete request requires two types of request parameters: public request parameters and API request parameters. Only the aforementioned six public request parameters are listed here. For more information about API request parameters, refer to the <a href="/doc/api/372/接口请求参数" title="接口请求参数">API request parameters</a> section.
+A complete request requires two types of request parameters: public request parameters and API request parameters. Only the aforementioned six public request parameters are listed here. For more information about API request parameters, refer to the <a href="https://cloud.tencent.com/document/product/377/8938" title="接口请求参数">API request parameters</a> section.

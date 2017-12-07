@@ -10,7 +10,7 @@
 在 CDN 控制台进行 HTTPS 配置，操作指引参考 [HTTPS 配置](/doc/product/228/6295)。
 <span id="关闭 CDN 加速"></span>
 ## 关闭 CDN 加速
-本章节主要以示例的形式介绍在 COS 中通过反向代理配置自定义域名（关闭 CDN 加速）支持 https 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问用户 APPID 为 12345678 、所属地域为华南、名称为 testhttps 的存储桶，具体操作步骤如下：
+本章节主要以示例的形式介绍在 COS 中通过反向代理配置自定义域名（关闭 CDN 加速）支持 https 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问所属地域为华南、名称为 testhttps-12345678 的存储桶，具体操作步骤如下：
 
 ### 一、绑定自定义域名
 将存储桶 testhttps 绑定到域名`https://test.cos.com`，关闭 CDN 加速。操作指引参考 [域名管理--自定义域名](/doc/product/436/6252#关闭 CDN 加速)。
@@ -19,7 +19,7 @@
 ```
 server {
     listen        443;
-server_name  test.cos.com ;
+    server_name  test.cos.com ;
 
     ssl on;
     ssl_certificate /usr/local/nginx/conf/server.crt;
@@ -29,7 +29,7 @@ server_name  test.cos.com ;
     access_log logs/test.cos.com.access_log;
     location / {
         root /data/www/;
-        proxy_pass  http://testhttps-12345678.cosgz.myqcloud.com; //配置存储桶（Bucket）的默认下载域名 
+        proxy_pass  http://testhttps-12345678.cos.ap-guangzhou.myqcloud.com; //配置存储桶（Bucket）的默认下载域名 
     }
         
 }
@@ -43,7 +43,7 @@ server_name  test.cos.com ;
 ```
 
 ### 三、解析域名到服务器
-在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云云解析，请前往 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，将域名`test.cos.com`解析到步骤二中的服务器的 IP 上，指引参考 [域名解析](/doc/product/302/3446)。
+在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云云解析，请前往 [云解析控制台](https://console.qcloud.com/cns/domains)，将域名`test.cos.com`解析到步骤二中的服务器的 IP 上，指引参考 [域名解析](/doc/product/302/3446)。
 ### 进阶配置
 #### 通过浏览器直接打开网页
 在配置好自定义域名支持 HTTPS 访问后，就可以通过您的域名下载存储桶（Bucket）中的对象（Object）了。若根据业务需要，想直接在浏览器中访问网页、图片等，可通过静态网站功能实现。操作指引参考 [静态网站设置](/doc/product/436/6249)。
@@ -54,7 +54,7 @@ proxy_set_header Host $http_host;
 ```
 #### 配置 refer 防盗链
 若存储桶（Bucket）是公有的，会有被盗链的风险。用户可以通过防盗链设置，开启 Referer 白名单，防止被恶意盗链。具体操作步骤如下：
-1. 在[COS 控制台](https://console.cloud.tencent.com/cos4/index) 开启防盗链设置功能，选择白名单。操作指引参考 [防盗链设置](/doc/product/436/6250)
+1. 在[COS 控制台](https://console.qcloud.com/cos4/index) 开启防盗链设置功能，选择白名单。操作指引参考 [防盗链设置](/doc/product/436/6250)
 ![图片2](//mc.qcloudimg.com/static/img/788556013c4d3ebd6b728d8c22a8adb5/image.png)
 2. 在 Nginx 配置中增加一行信息，再重启 Nginx，刷新浏览器缓存。
 ```

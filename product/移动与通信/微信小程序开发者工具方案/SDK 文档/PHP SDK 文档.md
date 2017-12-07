@@ -1,190 +1,490 @@
-# Wafer 服务端 SDK - PHP
+## SDK 初始化
 
-[![Latest Stable Version][packagist-image]][packagist-url]
-[![License][license-image]][license-url]
+> 在使用本 SDK 提供的其他 API 之前，需调用以下和配置项相关的 API 进行初始化。
 
-## 介绍
+### 命名空间
 
-Wafer 服务端 SDK 是腾讯云为微信小程序开发者提供的快速开发库，SDK 封装了以下功能供小程序开发者快速调用：
+`QCloud_WeApp_SDK`
 
-- 用户登录与验证
-- 信道服务
-- COS 对象存储 SDK
-- 数据库
+### API
 
-开发者只需要根据文档对 SDK 进行初始化配置，就可以获得以上能力。你还可以直接到[腾讯云小程序控制台](https://console.cloud.tencent.com/la)购买小程序解决方案，可以得到运行本示例所需的资源和服务，其中包括已部署好的相关程序、示例代码及自动下发的 SDK 配置文件 `/etc/qcloud/sdk.config`。
+#### Conf::setup(array $config)
 
-## 安装
+可以使用本方法批量设置所有配置。
 
-- 方法一（推荐）：使用 PHP 包依赖管理工具 `composer` 执行以下命令安装
+##### 参数
 
-```sh
-composer require qcloud/weapp-sdk
-```
+- `appId` - 可选。微信小程序的 App id
+- `appSecret` - 可选。微信小程序的 App secret
+- `useQcloudLogin` - 必填。是否使用腾讯云代理登录小程序。会话登录需要使用小程序的 App id 和 App secret 来解密用户信息，腾讯云提供使用腾讯云 App id 和 App secret 代理请求微信进行解密。如果该项为 `false`，则需填写微信小程序 App id 和 App secret。默认为 `true`
+- `mysql` - 必填。MySQL 配置。不填则使用小程序解决方案分配机器中默认的 MySQL，若使用自行部署的 MySQL 数据库，则需提供一个类型为 `object`  的配置，具体配置项如下：
+  - `host` - 必填。MySQL 主机名
+  - `user` - 必填。MySQL 用户名
+  - `db` - 必填。MySQL 数据库名
+  - `pass` - 必填。MySQL 密码，若使用了腾讯云微信小程序解决方案，开发环境下，MySQL 的初始密码为您的微信小程序 appid
+  - `port` - 选填。MySQL 端口（默认：3306）
+  - `char` - 选填。MySQL 编码
+- `cos` - 必填。腾讯云对象存储配置信息，用于上传模块使用。
+  - `region` - 必填。COS 的地域
+  - `fileBucket` - 必填。COS 的 bucket 名
+  - `uploadFolder` - 必填。COS 上传文件夹名
+  - `maxSize` - 选填。COS 上传最大大小，默认 5M (单位：M)
+  - `field` - 选填。COS 上传是 field 名称，默认为 `file`
+- `serverHost` - 必填。当前服务器的 hostname
+- `tunnelServerUrl` - 必填。信道服务器地址
+- `tunnelSignatureKey` - 必填。信道服务签名密钥
+- `qcloudAppId` - 必填。腾讯云 AppId
+- `qcloudSecretId` - 必填。腾讯云 SecretId
+- `qcloudSecretKey` - 必填。腾讯云 SecretKey
+- `wxMessageToken` - 必填。微信客服消息通知 token
+- `wxLoginExpires` - 可选。微信登录态有效期，默认 7200 秒（单位：秒）
 
-- 方法二： 直接下载本仓库 `ZIP` 包解压到项目目录中
+**如果购买了腾讯云小程序解决方案，配置项中 `serverHost`, `tunnelServerUrl`, `tunnelSignatureKey`, `qcloudAppId`, `qcloudSecretId`, `qcloudSecretKey`, `wxMessageToken` 由腾讯云自动下发到您的服务器上。**
 
-## API
+自动下发的 SDK 配置文件地址： `/data/release/sdk.config.json`
 
-参见 [API 文档](./API.md)
+##### 返回值
 
-## 使用
+`void`
 
-### 加载 SDK
+## 会话服务
 
-```php
-// 方法一：使用 composer 加载
-require_once 'path/to/vendor/autoload.php';
+### 命名空间
 
-// 方法二：不使用 composer 加载
-require_once 'path/to/qcloud/weapp-sdk/AutoLoader.php';
-```
+`QCloud_WeApp_SDK\Auth`
 
-### 初始化 SDK 配置项
+### API
 
-```php
-use \QCloud_WeApp_SDK\Conf;
+#### LoginService::login()
 
-Config::setup(array(
-    'appId'          => '微信小程序 AppID',
-    'appSecret'      => '微信小程序 AppSecret',
-    'useQcloudLogin' => false,
-    'mysql' => [
-        'host' => 'localhost',
-        'port' => 3306,
-        'user' => 'root',
-        'pass' => '',
-        'db'   => 'cAuth',
-        'char' => 'utf8mb4'
-    ],
-    'cos' => [
-        'region'       => 'cn-south',
-        'fileBucket'   => 'test',
-        'uploadFolder' => ''
-    ],
-    'serverHost'         => '1234567.qcloud.la',
-    'tunnelServerUrl'    => '1234567.ws.qcloud.la',
-    'tunnelSignatureKey' => 'abcdefghijkl',
-    'qcloudAppId'        => '121000000',
-    'qcloudSecretId'     => 'ABCDEFG',
-    'qcloudSecretKey'    => 'abcdefghijkl',
-    'wxMessageToken'     => 'abcdefghijkl',
-));
-```
+该静态方法用于处理用户登录。
 
-具体配置项说明请查看：[API 文档](/API.md#sdk-配置)。
+##### 参数
 
-### 处理用户登录请求
+无
+
+##### 返回值
+
+登录成功时，返回：
 
 ```php
-use \QCloud_WeApp_SDK\Auth\LoginService;
-use \QCloud_WeApp_SDK\Constants;
+array(
+    'loginState' => 1,
+    'userinfo' => array(
+        // 第三方 key
+      	'skey' => 'fy89ayri3h2ifs'
+        // 微信用户信息
+        'userinfo' => array(...),
+    ),
+)
+```
 
-$result = LoginService::login();
+登录失败时，返回：
 
-// $result => [
-//   loginState: 1  // 1表示登录成功，0表示登录失败
-//   userinfo: []   // 用户信息
-// ]
+```php
+array(
+    'loginState' => 0,
+    'error' => '失败原因'
+)
+```
 
-if ($result['loginState'] === Constants::S_AUTH) {
-    // 微信用户信息：`$result['userinfo']['userinfo']`
-} else {
-    // 登录失败原因：`$result['error']`
+#### LoginService::check()
+
+该静态方法用于校验登录态。
+
+##### 参数
+
+无
+
+##### 返回值
+
+校验登录态成功时，返回：
+
+```php
+array(
+    'loginState' => 1,
+    'userinfo' => array(
+        // 微信用户信息
+    ),
+)
+```
+
+校验登录态失败时，返回：
+
+```php
+array(
+    'loginState' => 0,
+    'error' => '失败原因'
+)
+```
+
+## 信道服务
+
+### 命名空间
+
+`QCloud_WeApp_SDK\Tunnel`
+
+### API
+
+#### ITunnelHandler
+
+处理信道请求需实现该接口，接口定义和描述如下：
+
+```php
+interface ITunnelHandler {
+    /*----------------------------------------------------------------
+     * 初始化时传入用户信息
+     *----------------------------------------------------------------
+     * @param array $userinfo 用户信息
+     *----------------------------------------------------------------
+     */
+  	public function __construct ($userinfo);
+  
+    /*----------------------------------------------------------------
+     * 在客户端请求 WebSocket 信道连接之后会调用该方法
+     * 此时可以把信道 ID 和用户信息关联起来
+     *----------------------------------------------------------------
+     * @param string $tunnelId  信道 ID
+     * @param string $tunnelUrl 信道地址
+     *----------------------------------------------------------------
+     */
+    public function onRequest($tunnelId, $tunnelUrl);
+
+    /*----------------------------------------------------------------
+     * 在客户端成功连接 WebSocket 信道服务之后会调用该方法
+     * 此时可以通知所有其它在线的用户当前总人数以及刚加入的用户是谁
+     *----------------------------------------------------------------
+     * @param string $tunnelId  信道 ID
+     *----------------------------------------------------------------
+     */
+    public function onConnect($tunnelId);
+
+    /*----------------------------------------------------------------
+     * 客户端推送消息到 WebSocket 信道服务器上后会调用该方法
+     * 此时可以处理信道的消息
+     *----------------------------------------------------------------
+     * @param string $tunnelId  信道 ID
+     * @param string $type      消息类型
+     * @param mixed  $content   消息内容
+     *----------------------------------------------------------------
+     */
+    public function onMessage($tunnelId, $type, $content);
+
+    /*----------------------------------------------------------------
+     * 客户端关闭 WebSocket 信道或者被信道服务器判断为已断开后会调用该方法
+     * 此时可以进行清理及通知操作
+     *----------------------------------------------------------------
+     * @param string $tunnelId  信道 ID
+     *----------------------------------------------------------------
+     */
+    public function onClose($tunnelId);
 }
 ```
 
-### 检查请求登录态
+#### TunnelService::handle(ITunnelHandler $handler[, array $options])
+
+该静态方法用于处理信道请求。
+
+##### 参数
+
+- `$handler` - 该参数须实现接口 `ITunnelHandler`（必填）
+- `$options` - 该参数支持的可选选项如下：
+    - `checkLogin` - 是否校验登录态（默认为 `FALSE`）
+
+##### 返回值
+
+`void`
+
+> 当 `checkLogin` 为 `FALSE` 时，传递给 `ITunnelHandler->onRequest` 的参数 `$userInfo` 值为 `NULL`。
+
+#### TunnelService::broadcast(array $tunnelIds, string $messageType, mixed $messageContent)
+
+该静态方法用于广播消息到多个信道。
+
+##### 参数
+
+- `$tunnelIds` - 要广播消息的信道 ID 列表（必填）
+- `$messageType` - 要广播消息的消息类型（必填）
+- `$messageContent` - 要广播消息的消息内容（必填）
+
+##### 返回值
+
+消息广播成功时，返回：
 
 ```php
-use \QCloud_WeApp_SDK\Auth\LoginService;
-use \QCloud_WeApp_SDK\Constants;
-
-$result = LoginService::check();
-
-// $result => [
-//   loginState: 1  // 1表示登录成功，0表示登录失败
-//   userinfo: []   // 用户信息
-// ]
-
-if ($result['loginState'] === Constants::E_AUTH) {
-    // 登录失败原因：`$result['error']`
-    return;
-}
-
-// 使用微信用户信息（`$result['userinfo']['userinfo']`）处理其它业务逻辑
-// ...
+array(
+    'code' => 0,
+    'message' => 'OK',
+    'data' => array(
+        // 广播消息时无效的信道 IDs
+        'invalidTunnelIds' => array(...),
+    ),
+)
 ```
 
-### 使用信道服务
-
-业务在一个路由上（如 `/tunnel`）提供信道服务，只需把该路由上的请求都交给 SDK 的信道服务处理即可。
+消息广播失败时，返回：
 
 ```php
-use \QCloud_WeApp_SDK\Tunnel\TunnelService;
-use \QCloud_WeApp_SDK\Tunnel\ITunnelHandler;
-
-class TunnelHandler implements ITunnelHandler {
-    // TODO: 传入登录的用户信息
-    public function __construct($userinfo) {
-
-    }
-
-    // TODO: 实现 onRequest 方法，处理信道连接请求
-    public function onRequest($tunnelId, $tunnelUrl) {
-
-    }
-
-    // TODO: 实现 onConnect 方法，处理信道连接事件
-    public function onConnect($tunnelId) {
-
-    }
-
-    // TODO: 实现 onMessage 方法，处理信道消息
-    public function onMessage($tunnelId, $type, $content) {
-
-    }
-
-    // TODO: 实现 onClose 方法，处理信道关闭事件
-    public function onClose($tunnelId) {
-
-    }
-}
-
-$handler = new TunnelHandler();
-TunnelService::handle($handler, array('checkLogin' => TRUE));
+array(
+    'code' => '失败错误码（非0）',
+    'message' => '失败原因',
+)
 ```
 
-使用信道服务需要实现处理器，来获取处理信道的各种事件，具体可参考接口 [ITunnelHandler](/API.md#itunnelhandler) 的 API 文档以及配套 Demo 中的 [ChatTunnelHandler](/application/business/ChatTunnelHandler.php) 的实现。
+#### TunnelService::emit(string $tunnelId, string $messageType, mixed $messageContent)
 
-### MySQL 操作类
+该静态方法用于发送消息到指定信道。
 
-SDK 在 PDO 的基础上完成了对增删改查等常用操作的封装，并默认会在初始化 SDK 的时候连接数据库，直接通过如下代码可以快速使用 MySQL 操作类：
+##### 参数
 
-> **注意：**MySQL 操作类为静态类
+- `$tunnelId` - 要发送消息的信道 ID（必填）
+- `$messageType` - 要发送消息的消息类型（必填）
+- `$messageContent` - 要发送消息的消息内容（必填）
+
+##### 返回值
+
+消息发送成功时，返回：
 
 ```php
-use \QCloud_WeApp_SDK\Mysql\Mysql as DB;
-
-// 查询数据
-$res = DB::row('cSessionInfo', ['*'], ['open_id' => '1234567890']);     // 查询一条
-$res = DB::select('cSessionInfo', ['*'], ['open_id' => '1234567890']);  // 查询多条
-
-// 插入数据
-$res = DB::insert('cSessionInfo', ['open_id' => '1234567890']);
-
-// 更新数据
-$res = DB::update('cSessionInfo', ['open_id' => '1234567890'], ['uuid' => '1']);
-
-// 删除数据
-$res = DB::delete('cSessionInfo', ['open_id' => '1234567890']);
+array(
+    'code' => 0,
+    'message' => 'OK',
+)
 ```
 
-具体配置项说明请查看：[API 文档](/API.md#MySQL)。
+消息发送失败时，返回：
 
-### COS 实例
+```php
+array(
+    'code' => '失败错误码（非0）',
+    'message' => '失败原因',
+)
+```
 
-SDK 导出了一个 COS V5 API 实例，可以使用以下代码获取：
+#### TunnelService::closeTunnel(string $tunnelId)
+
+该静态方法用于关闭指定信道。
+
+##### 参数
+
+- `$tunnelId` - 要关闭的信道 ID（必填）
+
+##### 返回值
+
+信道关闭成功时，返回：
+
+```php
+array(
+    'code' => 0,
+    'message' => 'OK',
+)
+```
+
+信道关闭失败时，返回：
+
+```php
+array(
+    'code' => '失败错误码（非0）',
+    'message' => '失败原因',
+)
+```
+
+## MySQL
+
+### 命名空间
+
+`QCloud_WeApp_SDK\Mysql`
+
+### API
+
+#### MySQL::getInstance()
+
+获取 SDK 连接数据库实例，这个是个 [PDO 连接实例](http://php.net/manual/zh/class.pdo.php)。
+
+##### 参数
+
+无
+
+##### 返回值
+
+返回 PDO Instance
+
+#### Mysql::insert($tableName, $data)
+
+向数据库中插入数据
+
+##### 参数
+
+- `$tableName` - 要操作的数据表名（必填）
+- `$data` - 要插入的数据（key-value 的 array 类型）
+
+##### 返回值
+
+受影响的行数（数值类型）。
+
+##### 示例
+
+```php
+use QCloud_WeApp_SDK\Mysql\Mysql as DB;
+
+DB::insert('tableName', [
+    'nickname' => 'Jason',
+  	'age' => 21
+]);
+```
+
+#### Mysql::select($tableName[, $columns = ['*'], $conditions = '', $operator = 'and', $suffix = ''])
+
+从数据库中查询多条数据
+
+##### 参数
+
+- `$tableName` - 要操作的数据表名（必填）
+- `$columns` - 查询出来的列名
+- `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
+- `$operator` - 条件之间的操作符
+- `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
+
+##### 返回值
+
+返回一个包含结果集中所有行的数组。
+
+##### 示例
+
+```php
+use QCloud_WeApp_SDK\Mysql\Mysql as DB;
+
+// 条件为字符串
+$rows = DB::select('tableName', ['*'], 'nickname = Jason');
+
+// 条件为数组
+$rows = DB::select('tableName', ['*'], ['nickname = Jason']);
+
+// 条件为 key-value 数组
+$rows = DB::select('tableName', ['*'], ['nickname' => 'Jason']);
+
+// 查询结果
+// $rows > [['nickname' => 'Jason','age' => 21]]
+```
+
+#### Mysql::row($tableName[, $columns = ['*'], $conditions = '', $operator = 'and', $suffix = ''])
+
+从数据库中查询单条数据
+
+##### 参数
+
+- `$tableName` - 要操作的数据表名（必填）
+- `$columns` - 查询出来的列名
+- `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
+- `$operator` - 条件之间的操作符
+- `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
+
+##### 返回值
+
+返回一个包含结果集中所有行的第一行。
+
+##### 示例
+
+```php
+use QCloud_WeApp_SDK\Mysql\Mysql as DB;
+
+// 条件为字符串
+$rows = DB::row('tableName', ['*'], 'nickname = Jason');
+
+// 条件为数组
+$rows = DB::row('tableName', ['*'], ['nickname = Jason']);
+
+// 条件为 key-value 数组
+$rows = DB::row('tableName', ['*'], ['nickname' => 'Jason']);
+
+// 查询结果
+// $rows > ['nickname' => 'Jason','age' => 21]
+```
+
+#### Mysql::update($tableName, $updates[, $conditions = '', $operator = 'and', $suffix = ''])
+
+从数据库中查询单条数据
+
+##### 参数
+
+- `$tableName` - 要操作的数据表名（必填）
+- `$updates` - 更新的数据对象
+- `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
+- `$operator` - 条件之间的操作符
+- `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
+
+##### 返回值
+
+受影响的行数（数值类型）。
+
+##### 示例
+
+```php
+use QCloud_WeApp_SDK\Mysql\Mysql as DB;
+
+// 条件为字符串
+$rows = DB::update('tableName', ['age' => 22], 'nickname = Jason');
+
+// 条件为数组
+$rows = DB::update('tableName', ['age' => 22], ['nickname = Jason']);
+
+// 条件为 key-value 数组
+$rows = DB::update('tableName', ['age' => 22], ['nickname' => 'Jason']);
+
+// 查询结果
+// $rows > 1
+```
+
+#### Mysql::delete($tableName, $conditions[, $operator = 'and', $suffix = ''])
+
+从数据库中删除数据
+
+##### 参数
+
+- `$tableName` - 要操作的数据表名（必填）
+- `$conditions` - 查询条件，支持 string、array 和 key-value array 类型
+- `$operator` - 条件之间的操作符
+- `$suffix` - SQL 语句的后缀，可以用来插入 order、limit 等
+
+##### 返回值
+
+受影响的行数（数值类型）。
+
+##### 示例
+
+```php
+use QCloud_WeApp_SDK\Mysql\Mysql as DB;
+
+// 条件为字符串
+$rows = DB::delete('tableName', 'nickname = Jason');
+
+// 条件为数组
+$rows = DB::delete('tableName', ['nickname = Jason']);
+
+// 条件为 key-value 数组
+$rows = DB::delete('tableName', ['nickname' => 'Jason']);
+
+// 查询结果
+// $rows > 1
+```
+
+## COS 对象储存 SDK
+
+### 命名空间
+
+`QCloud_WeApp_SDK\Cos`
+
+### API
+
+#### CosAPI::getInstance()
+
+获取 COS 初始化实例
+
+##### 参数
+
+无
+
+##### 示例
 
 ```php
 use \QCloud_WeApp_SDK\Cos\CosAPI as Cos;
@@ -193,17 +493,4 @@ $cosClient = Cos::getInstance();
 $cosClient->upload('mybucket', 'test.txt', 'Hello World')->toArray();
 ```
 
-更多关于 `Cos::getInstance()` 返回 COS 实例的 API，可以查看 [COS PHP SDK V5 文档](https://github.com/tencentyun/cos-php-sdk-v5)
-
-### 详细示例
-
-参见项目：[Wafer2 服务端 DEMO - PHP](https://github.com/tencentyun/wafer2-php-server-demo)
-
-## LICENSE
-
-[MIT](LICENSE)
-
-[packagist-image]: https://img.shields.io/packagist/v/qcloud/weapp-sdk.svg
-[packagist-url]: https://packagist.org/packages/qcloud/weapp-sdk
-[license-image]: https://img.shields.io/github/license/tencentyun/wafer-php-server-sdk.svg
-[license-url]: LICENSE
+更多关于 `Cos::getInstance()` 返回 COS 实例的 API，可以查看 [COS PHP SDK V5 文档](https://github.com/tencentyun/cos-php-sdk-v5)。

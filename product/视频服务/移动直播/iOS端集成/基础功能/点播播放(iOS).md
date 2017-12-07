@@ -212,7 +212,7 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 				[_seekProgressBar setValue:progress];
 				
 			// 视频总长, 单位是秒
-			float duration = [param[EVT_PLAYABLE_DURATION] floatValue];
+			float duration = [param[EVT_PLAY_DURATION] floatValue];
 			// 可以用于设置时长显示等等
 	}
 }
@@ -230,7 +230,7 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 				[_seekProgressBar setValue:progress];
 				
 			// 视频总长, 单位是毫秒
-			float duration_ms = [param[EVT_PLAYABLE_DURATION_MS] floatValue];
+			float duration_ms = [param[EVT_PLAY_DURATION_MS] floatValue];
 			// 可以用于设置时长显示等等
 	}
 }
