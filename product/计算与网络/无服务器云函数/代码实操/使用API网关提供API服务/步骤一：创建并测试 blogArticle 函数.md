@@ -1,7 +1,7 @@
-在此部分中，我们将创建一个函数来实现博客文章的 API 响应，并通过控制台调用来测试函数。
+在此部分中，将创建一个函数来实现博客文章的 API 响应，并通过控制台调用来测试函数。
 
 ## 创建 blogArticle 云函数
-1 . 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下点击【新建】按钮。
+1 . 登录[无服务器云函数控制台](https://console.cloud.tencent.com/scf)，在【广州】地域下单击【新建】按钮。
 
 2 . 进入函数配置部分，函数名称填写`blogArticle`，剩余项保持默认，点击【下一步】。
 
@@ -51,7 +51,7 @@ def main_handler(event,content):
 
 在创建函数时，通常会使用控制台或 API 先进行测试，确保函数输出符合预期后再绑定触发器进行实际应用。
 
-1 . 在刚刚创建的函数详情页中，点击【测试】按钮；
+1 . 在刚刚创建的函数详情页中，单击【测试】按钮；
 
 2 . 在测试模版内选择【API Gateway 测试模版】，并修改模版成为如下内容，此内容为测试获取文章列表的 API。
 
@@ -88,7 +88,7 @@ def main_handler(event,content):
 
 其中 `requestContext` 内的 `path`，`httpMethod`字段，外围的`path`，`httpMethod` 字段，均修改为我们设计的 API 路径 `/article` 和方法 `GET`。
 
-3 . 点击【运行】按钮，观察运行结果。运行结果应该为成功，且返回内容应该为如下所示的文章概要内容。
+3 . 单击【运行】按钮，观察运行结果。运行结果应该为成功，且返回内容应该为如下所示的文章概要内容。
 
 ```
 [{"category": "blog", "time": "2017-12-05 13:45", "id": 1, "title": "hello world"}, {"category": "blog", "time": "2017-12-06 08:22", "id": 2, "title": "record info"}, {"category": "python", "time": "2017-12-06 18:32", "id": 3, "title": "python study"}]
@@ -130,7 +130,7 @@ def main_handler(event,content):
 
 其中 `requestContext` 内的 `path`，`httpMethod`字段，外围的`path`，`httpMethod` 字段，均修改为我们设计的 API 路径 `/article/{articleId}`和实际请求路径 `/article/1` ，方法为`GET`， `pathParameters` 字段内应该为 API网关内抽取出来的参数和实际值`"articleId":"1" ` 。
 
-5 . 点击【运行】按钮，观察运行结果。运行结果应该为成功，且返回内容应该为如下所示的文章详细内容。
+5 . 单击【运行】按钮，观察运行结果。运行结果应该为成功，且返回内容应该为如下所示的文章详细内容。
 
 ```
 {"category": "blog", "content": "first blog! hello world!", "time": "2017-12-05 13:45", "id": 1, "title": "hello world"}

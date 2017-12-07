@@ -1,35 +1,35 @@
-在此部分中，我们将创建一个 API 网关中的服务和相关的API规则，对接我们在步骤一中创建的 SCF 云函数，并通过控制台的 API 测试，来测试 API 的正确性。
+在此部分中，将创建一个 API 网关中的服务和相关的API规则，对接在步骤一中创建的 SCF 云函数，并通过控制台的 API 测试，来测试 API 的正确性。
 
 > 注意：
-> API 服务和函数必须位于同一个地域下。在本教程中，我们将使用广州区域来创建 API 服务。
+> API 服务和函数必须位于同一个地域下。在本教程中，将使用广州区域来创建 API 服务。
 
 
 ## 创建 API 服务和 API 规则
 
 1. 登录[腾讯云控制台](https://console.cloud.tencent.com/apigateway)，从云产品中选择【互联网中间件】-【API网关】。
 
-2. 点击【服务】选项卡，并切换地域为【广州】。
+2. 单击【服务】选项卡，并切换地域为【广州】。
 
-3. 点击【新建】按钮以新建 API 服务，在弹出窗口中写入服务名 `blogAPI`，点击提交创建。
+3. 单击【新建】按钮以新建 API 服务，在弹出窗口中写入服务名 `blogAPI`，点击提交创建。
 
 4. 完成服务创建后，进入创建的 `blogAPI` 服务，选择 【API管理】选项卡。
 
-5. 点击【新建】创建 API，路径为 `/article`，请求方法为 GET，为了方便后面的测试，我们在这里勾选上免鉴权，无需输入参数配置，点击【下一步】。
+5. 单击【新建】创建 API，路径为 `/article`，请求方法为 GET，为了方便后面的测试，我们在这里勾选上免鉴权，无需输入参数配置，点击【下一步】。
 
-6. 后端类型选择为【cloud function】，选择函数为步骤一中创建的 `blogArticle`，点击【完成】。
+6. 后端类型选择为【cloud function】，选择函数为步骤一中创建的 `blogArticle`，单击【完成】。
 
 7. 再次在【API管理】选项卡中点击【新建】创建 API，路径为 `/article/{articleId}`，请求方法为 GET，勾选上免鉴权，参数配置中输出 名称为 `articleId` 的参数，参数位置为 Path，类型为 int，默认值为 1，点击【下一步】。
 
-8. 后端类型选择为【cloud function】，选择函数为步骤一中创建的 `blogArticle`，点击【完成】。
+8. 后端类型选择为【cloud function】，选择函数为步骤一中创建的 `blogArticle`，单击【完成】。
 
 ## 对 API 规则进行调试
 
-1. 针对前面第 5 步创建的 `/article` API，点击 【API调试】，在调试页面发送请求，确保返回结果内的响应 Body，为如下内容：
+1. 针对前面第 5 步创建的 `/article` API，单击 【API调试】，在调试页面发送请求，确保返回结果内的响应 Body，为如下内容：
 ```
 [{"category": "blog", "time": "2017-12-05 13:45", "id": 1, "title": "hello world"}, {"category": "blog", "time": "2017-12-06 08:22", "id": 2, "title": "record info"}, {"category": "python", "time": "2017-12-06 18:32", "id": 3, "title": "python study"}]
 ```
 
-2. 针对前面第 7 布创建的 `/article/{articleId}` API， 点击【API调试】，在调试页面将请求参数修改为 1 后发送请求，确保返回结果内的响应 Body，为如下内容：
+2. 针对前面第 7 布创建的 `/article/{articleId}` API， 单击【API调试】，在调试页面将请求参数修改为 1 后发送请求，确保返回结果内的响应 Body，为如下内容：
 ```
 {"category": "blog", "content": "first blog! hello world!", "time": "2017-12-05 13:45", "id": 1, "title": "hello world"}
 ```
