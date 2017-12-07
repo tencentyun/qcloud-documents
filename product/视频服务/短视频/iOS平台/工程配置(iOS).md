@@ -37,6 +37,8 @@
 ```
 #import "TXLiteAVSDK_UGC/TXUGCRecord.h"
 ```
+### 4、添加 -Objc
+SDK用到了一些类别的方法，加载类别方法需要在工程配置：Build Settings -> Linking -> Other Linker Flags 添加 -Objc ，否则在程序运行的过程中可能因为找不到类别方法而报错
 
 ### 四、验证
 
