@@ -8,10 +8,10 @@
  
 ### 上架操作  
 1. 发布 API 服务：请参考[《配置 API 网关接入 API 市场》](https://cloud.tencent.com/document/product/306/13034)文档。  
-2.	登录[云市场->服务商管理](https://console.cloud.tencent.com/serviceprovider/goods/api)后台。  
-3. 	进入商品管理 -> API 服务，点击【+新建】按钮。    
+2. 登录[云市场->服务商管理](https://console.cloud.tencent.com/serviceprovider/goods/api)后台。  
+3. 进入商品管理 -> API 服务，点击【+新建】按钮。    
 ![](//mc.qcloudimg.com/static/img/c3f3bce8487fc2dd0d3b7d3168ac517f/image.png)  
-4.	填写 API 服务商品信息：  
+4. 填写 API 服务商品信息：  
 ![](//mc.qcloudimg.com/static/img/20ada80246bbd1e005f3dcea01926f6e/image.png)  
 【填写说明】  
 **商品名称**：输入商品名称， 40 字内；  
@@ -23,6 +23,6 @@
 **商品摘要**：简要描述商品特点与优势；   
 **商品详情**：详细描述商品内容，包括不限于：商品特点、商品介绍、使用说明、界面截图、交付物、帮助文档、过往案例、客户评价；（由于暂不支持自动生成 API 文档，请在商品详情的顶部粘贴每个 API 的调用地址）
 **上传文档**：支持本地文档上传，文档格式： PDF、Word、PPT、ZIP、RAR，大小：不超过 5M；  
-5.  填写完商品信息，点击【提交】按钮。     
-6.  提交后商品为 “审核中” 状态， API 服务商品需要通过商品信息审核，请耐心等候。   
-7. 	完成。   
+5. 填写完商品信息，点击【提交】按钮。     
+6. 提交后商品为 “审核中” 状态， API 服务商品需要通过商品信息审核，请耐心等候。   
+7. 完成。   

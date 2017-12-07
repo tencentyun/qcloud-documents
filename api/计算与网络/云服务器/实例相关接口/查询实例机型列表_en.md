@@ -10,27 +10,27 @@ Domain name for API request: cvm.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/11650).
+The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/11650).
 
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| Version | String | Yes | Indicates API version No., used for identifying the API version of the request. To indicate the first version of this API, you can input the value "2017-03-12" to the parameter. |
-| Filters.N | [array of [Filter]() objects](https://cloud.tencent.com/document/api/213/9451#filter) | No | Filtering criteria can be found in [Table of Instance Filter Criteria](). The maximum number of `Filters ' of each request is 10, and the maximum number of` Filter.Values`' is 1. |
+| Version | String | Yes | API version No., used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
+| Filters.N | [array of [Filter](https://cloud.tencent.com/document/api/213/9451#filter) objects | No | Filtering criteria can be found in Table of Instance Filter Criteria. The maximum number of `Filters` of each request is 10, and the maximum number of` Filter.Values`' is 1. |
 
 Table of Instance Filter Criteria
 
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| Zone | String | No | (Filter criteria) Filter by [Availability Zone](/ document / api / 213/806). |
-| Instance-family | String | No | (Filter criteria) Filter by instance model series, such as: `S1`, `I1`, `M1`, etc. |
+| zone | String | No | (Filter criteria) Filter by [Availability Zone](/document/product/213/9452#zone). |
+| instance-family | String | No | (Filter criteria) Filter by instance model series, such as: `S1`, `I1`, `M1`, etc. |
 
 
 ## 3. Output Parameters
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| RequestId | String | Unique request ID. `RequestId` is returned for each request. `RequestId` should be provided to the backend developer for a help when the user fails to call the API. |
-InstanceTypeConfigSet | array of [InstanceTypeConfig](https://cloud.tencent.com/document/api/213/9451#instance) objects | List of Instance Model Configuration. |
+| RequestId | String | Unique request ID. `RequestId` is returned for each request. In case of a failed call to the API, `RequestId` needs to be provided when you contact the developer at backend. |
+|InstanceTypeConfigSet | Array of [InstanceTypeConfig](https://cloud.tencent.com/document/api/213/9451#instance) object | Instance Model Configuration |
 
 
 ## 4. Error Codes
@@ -39,11 +39,11 @@ The following error codes only include the business logic error codes for this A
 
 | Error code | Description |
 |---------|---------|
-| InvalidParameterValue | Invalid parameter value. Parameter value is not in a correct format or not supported, etc. |
+| InvalidParameterValue | Invalid parameter value. Parameter value is in an incorrect format or is not supported. |
 | InvalidFilter | [The specified `Filter` is not supported. ](https://cloud.tencent.com/document/api/213/9451#filter) |
-| InvalidFilterValue.LimitExceeded | The number of values of parameter `Filter` exceeds the limit. (https://cloud.tencent.com/document/api/213/9451#filter) |
+| InvalidFilterValue.LimitExceeded | [The number of values of parameter `Filter` exceeds the limit.](https://cloud.tencent.com/document/api/213/9451#filter) |
 | InvalidZone.MismatchRegion | The specified `zone` does not exist. |
-| InternalServerError | Internal service error. |
+| InternalServerError | Tencent Cloud server error |
 
 
 ## 5. Example
@@ -100,3 +100,4 @@ Output
     }
 }
 </pre>
+

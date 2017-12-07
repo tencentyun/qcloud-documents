@@ -39,11 +39,11 @@ For example, if a CVM in a VPC is bound to a elastic IP and it is in a subnet th
 - Dynamic routing protocols such as BGP and OSPF are not supported
 - As shown in the following table, there are number limit on the routing tables created and the routing policies added in each routing table:
 
-| Resource | Limit | 
+| Resource | Limit  
 |---------|---------|
-| Number of routing tables per VPC | 10	 | 
-| Number of routing tables associated with a subnet | 1	 | 
-| Number of routing policies per routing table | 50	 |
+| Number of routing tables per VPC | 10	  
+| Number of routing tables associated with a subnet | 1	  
+| Number of routing policies per routing table | 50	 
 
 ## Billing Method
 The routing table is created and used completely free of charge. For other price information on VPC, refer to [Overview of VPC Price](https://cloud.tencent.com/doc/product/215/3079).
