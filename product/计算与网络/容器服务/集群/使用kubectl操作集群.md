@@ -1,4 +1,3 @@
-## 使用kubectl操作集群教程
 ### 安装kubectl工具
 
 如果您已经安装有kubectl工具，请忽略本步骤。详细安装kubectl过程参考[Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/)
