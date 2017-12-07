@@ -13,10 +13,15 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
-`http://service.image.myqcloud.com/ocr/idcard`
+
+```
+http://recognition.image.myqcloud.com/ocr/idcard
+```
 
 ## 请求包header
+
 接口采用 http 协议，支持多 url 和多本地图片文件，每个请求最多支持 20 张图片或 url 。
+
 所有请求都要求含有下表列出的头部信息：
 
 | 参数名            | 值                                        | 描述                                       |
