@@ -61,10 +61,10 @@ urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
 
 #### data
 
-| 参数名称    | 类型   | 描述           |
-| ------- | ---- | ------------ |
-| count   | Int  | 此次刷新提交的URL数目 |
-| task_id | Int  | 此次刷新任务对应的ID  |
+| 参数名称    | 类型     | 描述           |
+| ------- | ------ | ------------ |
+| count   | Int    | 此次刷新提交的URL数目 |
+| task_id | String | 此次刷新任务对应的ID  |
 
 
 ## 调用案例
