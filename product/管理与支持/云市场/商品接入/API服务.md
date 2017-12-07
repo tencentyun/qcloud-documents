@@ -4,7 +4,8 @@
 ### 上架流程    
 1. 发布 API 服务至发布环境；（服务商）   
 2. 上架 API 服务商品，并申请审核；（服务商）   
-3. 商品信息审核。（腾讯云）    
+3. 商品信息审核。（腾讯云）     
+ 
 ### 上架操作  
 1. 发布 API 服务：请参考[《配置 API 网关接入 API 市场》](https://cloud.tencent.com/document/product/306/13034)文档。  
 2.	登录[云市场->服务商管理](https://console.cloud.tencent.com/serviceprovider/goods/api)后台。  
