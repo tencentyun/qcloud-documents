@@ -9,7 +9,7 @@ It's recommended to read [Introduction to CVM Products](/doc/product/213/495) be
 
 <br>
 > **Note:**
-> All CVM APIs under this module have been updated. All new features related to the CVM are added to the APIs under this module. **For new users, it's recommended to use new APIs.** The old APIs remain available. For more information, please see [API Overview (old)](/document/api/213/568).
+> All CVM APIs under this module have been updated. All new features related to the CVM are added to the APIs under this module. **For new users, it's recommended to use new APIs.** The old APIs remain available. For more information, please see [API Overview (old)](https://cloud.tencent.com/document/product/213/568).
 
 <br>
 
@@ -20,11 +20,10 @@ The key terms involved in the document are as follows:
 |---------|---------|---------|---------|
 | Instance | Instance | [Instance](/doc/product/213/4939) | A cloud virtual machine. |
 | Region | Region | [Region](/document/product/213/497#1.-.E5.9C.B0.E5.9F.9F) | A region where resources reside. Each region contains multiple availability zones. |
-| Zone | Zone | [Availability Zone](/document/product/213/497#2.-.E5.8F.AF.E7.94.A8.E5.8C.BA) | Tencent Cloud physical data centers in the same region with independent power and network resources. They are designed to ensure that the failures within an availability zone can be isolated (except for large-scale disaster or major power failure) without spreading to and affecting other zones, so as to ensure users' business stability. |
+| Zone | Zone | [Availability Zone](/doc/product/213/6091) | Tencent Cloud physical data centers in the same [region](/doc/product/213/6091) with independent power and network resources. They are designed to ensure that the failures within an availability zone can be isolated without spreading to and affecting other zones, so as to ensure users' business stability. |
 | Image | Image | [Image](/doc/product/213/4940) | A copy of the software environment on a CVM instance, which generally includes operation system and installed software, and is used to create an instance. |
 | SecurityGroup | Security Group | [Security Group](/doc/product/213/5221) | A type of virtual firewall with a state-based packet filtering feature. It's an important network security isolation method used to control the network access of CVM instances. |
 | EIP | Elastic IP | [Elastic IP](/doc/product/213/5733) | A type of public IP. Unlike an ordinary public IP, an elastic IP belongs to a user account rather than an instance. The mapping relationship between an instance and a public IP address can be changed at any time. |
-| Zone | Zone | [Availability Zone](/doc/product/213/6091) | Tencent Cloud physical data centers in the same [region](/doc/product/213/6091) with independent power and network resources. They are designed to ensure that the failures within an availability zone can be isolated without spreading to and affecting other zones, so as to ensure users' business stability. |
 | Prepaid | Prepaid | Prepaid | A billing model. For more information, please see [Billing Model Instruction](/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88). |
 | Postpaid | Postpaid | Postpaid | A billing model. For more information, please see [Billing Model Instruction](/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9). |
 
