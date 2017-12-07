@@ -9,7 +9,7 @@ It's recommended to read [Introduction to CVM Products](/doc/product/213/495) be
 
 <br>
 > **Note:**
-> All CVM APIs under this module have been updated. All new features related to the CVM are added to the APIs under this module. **For new users, it's recommended to use new APIs.** The old APIs remain available. For more information, please see [API Overview (old)](/document/api/213/568).
+> All CVM APIs under this module have been updated. All new features related to the CVM are added to the APIs under this module. **For new users, it's recommended to use new APIs.** The old APIs remain available. For more information, please see [API Overview (old)](https://cloud.tencent.com/document/product/213/568).
 
 <br>
 
