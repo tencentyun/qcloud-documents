@@ -25,11 +25,11 @@ This practical guide provides detailed operation instructions to guide you throu
 
 ## Get Started with Linux CVM
 [1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
-[2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2937)
-[3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2972)
-[4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2973)
-[5. Partition and formatting](https://cloud.tencent.com/doc/product/213/2974)
-[6. Deploy application environment](https://cloud.tencent.com/doc/product/213/2975)
+[2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2936)
+[3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2936)
+[4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2936)
+[5. Partition and formatting](https://cloud.tencent.com/doc/product/213/2936)
+[6. Deploy application environment](https://cloud.tencent.com/doc/product/213/2936)
 
 ## Managing CVMs
 The advanced guide provides more detailed CVM management and operation instructions and assists you in environment configuration and program installation. Please refer to this article to complete the deployment of operation and maintenance of CVM under Window and Linux systems.
