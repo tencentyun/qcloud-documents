@@ -55,7 +55,7 @@ Security Group can be considered as the firewall for CVM and is used to control 
 
 ## (Optional) Generating a Cloud API key
 
-Tencent Cloud provides rich [Cloud APIs](https://cloud.tencent.com/product/api.html) for developers. To use these APIs, you need to get a Cloud API key. Each call to the Cloud API requires an authentication using the Cloud API key. For more information about the authentication using the Cloud API key, see [here](https://cloud.tencent.com/document/product/213/6984?lang=en). You can generate a Cloud API key on the console by following steps.
+Tencent Cloud provides rich Cloud APIs for developers. To use these APIs, you need to get a Cloud API key. Each call to the Cloud API requires an authentication using the Cloud API key. For more information about the authentication using the Cloud API key, see [here](https://cloud.tencent.com/document/product/213/6984?lang=en). You can generate a Cloud API key on the console by following steps.
 
 1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/) with your Tencent Cloud account, and choose **Cloud API Keys** from the product list at the top of the page.
 
