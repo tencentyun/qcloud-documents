@@ -8,7 +8,7 @@
 | 参数名称 | 描述 |类型 | 必选  | 
 |---------|---------|---------|---------
 | clusterId   | 集群 ID，请填写 [查询集群列表](/doc/api/457/9448) 接口中返回的 clusterId 字段 | String |是 |
-| instanceId   | 节点 ID，请填写 [查询集群列表](/doc/api/457/9448) 接口中返回的 clusterId 字段 | String |是 |
+| instanceId   | 节点 ID | String |是 |
 | labels   | 需要为节点打上的Label | Object Array |是 |
 
 labels 参数详细说明：
