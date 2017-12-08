@@ -7,21 +7,21 @@ This document is prepared to provide you a preliminary Cloud Virtual Machine (CV
 Before using CVM, please make sure you've completed the [initial configurations](https://cloud.tencent.com/doc/product/213/6090).
 
 ## How to Select the CVM
-1.If you are not sure which configurations to choose, see [Configuration recommendations](https://cloud.tencent.com/act/event/recommand.html). It covers the needs for 80% of the cloud users. 
-2.Click [Price calculator](https://buy.cloud.tencent.com/calculator/cvm) to view the price for the product portfolio that you need for estimation of resource costs. 
-3.When you are not sure how CVM charges you, [CVM pricing mode](https://cloud.tencent.com/doc/product/213/2180) can help you select the billing mode that suits your business scenarios.
-4.When you have no idea which model to choose among various options, [CVM model selection](https://cloud.tencent.com/document/product/213/7153) can help you learn about the applicable scenarios and performance of different models so that you can choose the one that is suitable for your business scenarios.
+
+1.Click [Price calculator](https://buy.cloud.tencent.com/calculator/cvm) to view the price for the product portfolio that you need for estimation of resource costs. 
+2.When you are not sure how CVM charges you, [CVM pricing mode](https://cloud.tencent.com/doc/product/213/2180) can help you select the billing mode that suits your business scenarios.
+3.When you have no idea which model to choose among various options, [CVM model selection](https://cloud.tencent.com/document/product/213/7153) can help you learn about the applicable scenarios and performance of different models so that you can choose the one that is suitable for your business scenarios.
 
 ## Practice
 This practical guide provides detailed operation instructions to guide you through account registration, purchase, login and management of CVM. Please refer to this article for a quick start for the basic use of Windows and Linux CVM.
 
 ## Get Started with Windows CVM
 [1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
-[2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2762)
-[3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2763)
-[4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2783)
-[5. Format the data disk](https://cloud.tencent.com/doc/product/213/2786)
-[6. Install and deploy applications](https://cloud.tencent.com/doc/product/213/2881)
+[2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2764)
+[3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2764)
+[4. Log in to the CVM](https://cloud.tencent.com/doc/product213/2764)
+[5. Format the data disk](https://cloud.tencent.com/doc/product/213/2764)
+[6. Install and deploy applications](https://cloud.tencent.com/doc/product/213/2764)
 
 ## Get Started with Linux CVM
 [1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
