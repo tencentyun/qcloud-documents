@@ -33,7 +33,7 @@ android {
 dependencies {
     ......
    
-    //信鸽jar
+    
     compile 'com.tencent.tac:crash:1.0.0-release' 
 
 }
