@@ -4,7 +4,7 @@
 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在【使用中的云产品】栏目内单击【域名管理】，即可看到您购买的所有域名信息列表。
 ![](//mc.qcloudimg.com/static/img/da4ba43894682972815e6deb5f040e50/image.png)
 ### 步骤二：域名证书下载
-在域名管理页面右侧，单击【操作】>【更多】，在下拉框内单击【下载域名证书】进入域名管理页面。
+在【操作】栏内单击【更多】>【下载域名证书】进入域名管理页面。
 ![](//mc.qcloudimg.com/static/img/21c288b28bd1b887bb3f587772f3e982/image.png)
-单击【下载证书】按钮可将证书下载到本地；单击【打印证书】可以将证书打印。
+单击【下载证书】按钮可将证书下载到本地，单击【打印证书】可以将证书打印。
 ![](//mc.qcloudimg.com/static/img/3ce512892c05d4b62730b521b99d7c3f/image.png)
