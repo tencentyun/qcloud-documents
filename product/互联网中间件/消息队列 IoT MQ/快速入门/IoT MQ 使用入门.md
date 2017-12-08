@@ -27,4 +27,6 @@
 |C++|MQTT C++ Client for Posix and Windows|http://www.eclipse.org/paho/clients/cpp/|
 |.Net(C#)|C# .Net and WinRT Client|http://www.eclipse.org/paho/clients/dotnet/|
 
-> 注：第三方 SDK 均可从 http://www.eclipse.org/paho/downloads.php 进行下载。
+> 注：
+> 第三方 SDK 均可从 http://www.eclipse.org/paho/downloads.php 进行下载。
+> 使用客户端连接 IoT MQ 服务器时，须发送 CONNECT 报文，且在 Connect 报文中需上传 username 和 password，其中 username 和 password 的计算详情参见[客户端签名计算](https://cloud.tencent.com/document/product/646/12661)。
