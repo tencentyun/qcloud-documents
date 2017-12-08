@@ -33,7 +33,6 @@ android {
 dependencies {
     ......
    
-    //信鸽jar
     compile 'com.tencent.tac:messaging:1.0.0-release' 
 
 }
