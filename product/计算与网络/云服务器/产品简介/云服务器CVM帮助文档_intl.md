@@ -16,7 +16,7 @@ Before using CVM, please make sure you've completed the [initial configurations]
 This practical guide provides detailed operation instructions to guide you through account registration, purchase, login and management of CVM. Please refer to this article for a quick start for the basic use of Windows and Linux CVM.
 
 ## Get Started with Windows CVM
-[1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/2764)
+[1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
 [2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2762)
 [3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2763)
 [4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2783)
@@ -24,7 +24,7 @@ This practical guide provides detailed operation instructions to guide you throu
 [6. Install and deploy applications](https://cloud.tencent.com/doc/product/213/2881)
 
 ## Get Started with Linux CVM
-[1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/2936)
+[1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
 [2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2937)
 [3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2972)
 [4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2973)
@@ -50,6 +50,4 @@ The advanced guide provides more detailed CVM management and operation instructi
 [7. Connect CVMs without public IPs to Internet via CVMs with public IPs](http://cloud.tencent.com/doc/product/213/%E6%97%A0%E5%85%AC%E7%BD%91CVM%E9%80%9A%E8%BF%87%E5%B8%A6%E5%85%AC%E7%BD%91CVM%E5%87%BA%E8%AE%BF%E5%85%AC%E7%BD%91)
 
 ## Further Operations
-[Renew CVMs](https://cloud.tencent.com/doc/product/213/6143): renew your CVM in time manually or automatically, so to avoid data loss or service interruption due to instances being terminated upon expiration.
-[Adjust the Instance Configuration](https://cloud.tencent.com/doc/product/213/5730): Change the configuration of CVMs according to your business volume easily and quickly.
 Refer to [CVM Management FAQ](https://cloud.tencent.com/doc/product/213/2539) if you have problems. Email to tencentcloud@tencent.com or [submit a ticket](https://console.cloud.tencent.com/workorder?language=en) if you need further helps.
