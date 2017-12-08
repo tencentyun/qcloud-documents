@@ -25,17 +25,17 @@ This practical guide provides detailed operation instructions to guide you throu
 
 ## Get Started with Linux CVM
 [1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
-[2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2937)
-[3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2972)
-[4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2973)
-[5. Partition and formatting](https://cloud.tencent.com/doc/product/213/2974)
-[6. Deploy application environment](https://cloud.tencent.com/doc/product/213/2975)
+[2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2936)
+[3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2936)
+[4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2936)
+[5. Partition and formatting](https://cloud.tencent.com/doc/product/213/2936)
+[6. Deploy application environment](https://cloud.tencent.com/doc/product/213/2936)
 
 ## Managing CVMs
 The advanced guide provides more detailed CVM management and operation instructions and assists you in environment configuration and program installation. Please refer to this article to complete the deployment of operation and maintenance of CVM under Window and Linux systems.
 
 ## Managing Windows CVMs
-[1. Log in to Windows CVM](http://cloud.tencent.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+[1. Log in to Windows CVM](https://intl.cloud.tencent.com/document/product/213/5435)
 [2. Format data](http://cloud.tencent.com/doc/product/213/Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E6%8D%AE%E7%9B%98%E5%88%86%E5%8C%BA%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96)
 [3. Configure environment](http://cloud.tencent.com/doc/product/213/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEIIS%E5%8F%8APHP)
 [4. Install Windows programs](http://cloud.tencent.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)

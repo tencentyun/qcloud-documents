@@ -34,5 +34,4 @@ SSD local disk is suitable for the following scenarios:
 ## Purchasing local disks
 Since the local disk can only be started together with the launch of CVM,  you can just specify the local disks when purchasing CVM instances. For more information, please refer to the [Purchase and Start an Instance](/doc/product/213/4855).
 
-## Formatting, partitioning and creating a file system
-As the Cloud Block Storage mounted to instances, the local disk is used by CVM instances as a hard disk. For formatting, partitioning and creating a file system, please refer to [Linux System Partitioning, Formatting, Mounting and File System Creation](https://cloud.tencent.com/doc/product/362/5448) and [Windows System Partitioning, Formatting and File System Creation](https://cloud.tencent.com/doc/product/362/5450) in product documents of Cloud Block Storage.
+

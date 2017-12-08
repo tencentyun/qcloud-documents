@@ -174,7 +174,7 @@ The following steps are required to achieve interconnection between segment 1 an
 - For a cross-region peering connection, you can select a maximum bandwidth. If you need a higher cross-region bandwidth, please initiate a request by submitting a ticket.
 
 5) A peering connection between the VPCs under the same account takes effect immediately after its creation;
-   4) If you want to create a peering connection to a VPC under another account, the connection takes effect only after the peer accepts the connection request.
+6) If you want to create a peering connection to a VPC under another account, the connection takes effect only after the peer accepts the connection request.
 > Note: Any fees charged for a cross-region peering connection are paid by the initiator of the connection.
 
 #### (Optional) Step 2: Accepting request for peering connection

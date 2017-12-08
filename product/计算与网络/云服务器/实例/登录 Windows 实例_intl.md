@@ -52,7 +52,7 @@ If the login fails, check if your CVM instance allows inbound traffic over port 
 
 ## Mac operating system: Use Microsoft Remote Desktop Connection Client for Mac to log in to Windows instance
 
-Go to the Microsoft official website to download [Remote Desktop Connection Client for Mac OS](https://www.microsoft.com/zh-cn/download/details.aspx?spm=5176.doc25435.2.2.l9afth&id=18140).
+Go to the Microsoft official website to download Remote Desktop Connection Client for Mac OS.
 
 After the installation is completed, use the username and password you obtained from the Prerequisites step to log in to the remote Windows instance.
 
