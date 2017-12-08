@@ -2429,7 +2429,7 @@ content_type：application/json
       <td>page_num</td>
       <td>是</td>
       <td>Number(32)</td>
-      <td>页码</td>
+      <td>页码（从1开始）</td>
    </tr>
    <tr>
       <td>page_size</td>

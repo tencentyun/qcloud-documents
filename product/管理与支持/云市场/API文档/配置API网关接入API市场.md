@@ -2,13 +2,14 @@
 目前 API 网关在内测阶段，您需要在 [API 网关](https://cloud.tencent.com/product/apigateway) 中点击【申请内测】开通 API 网关，或联系自己的客户经理直接申请开通。开通后，您就可以进入 API 网关的管理控制台进行配置了。
 
 ## 二、服务创建
-1. 登陆 [腾讯云控制台](https://console.cloud.tencent.com/apigateway)。     
-2. 在当前地域下，服务标签页中，单击【新建】。    
-![新建服务](https://i.imgur.com/DsnOFaH.png)   
-3. 填写服务名称、备注信息，并选择前端类型，前端类型可选择 http、https、http 与 https 任一种。   
+1. 登陆 [腾讯云控制台](https://console.cloud.tencent.com/apigateway)。   
+2. 在当前地域下，服务标签页中，单击【新建】。
+![新建服务](https://i.imgur.com/DsnOFaH.png)
+3. 填写服务名称、备注信息，并选择前端类型，前端类型可选择 http、https、http 与 https 任一种。
+![服务信息](https://i.imgur.com/lG0WNAh.png)
 > **注意：**
 > 服务名有特定输入限制，包括：不区分大小写，均以小写体现，可包含数字，不可包含其他非数字和字母外的符号，长度限制为 30 字符。    
-![服务信息](https://i.imgur.com/lG0WNAh.png)      
+      
 4. 单击【完成】，服务创建成功，可进入 API 管理进行 API 创建。    
 ![服务创建成功](https://i.imgur.com/pLKCOm4.png)     
 
@@ -32,7 +33,7 @@
 一般 API 市场的供应商，后端配置均为 http 对接，故此处仅讲解 http 配置。如需了解其他后端配置，请参考相关 [API 网关文档](/document/product/628)。
 ![后端配置](https://mc.qcloudimg.com/static/img/a847cc675cdedc33c31c0782c37bab8e/2017-12-07_112422.png)
 #### 配置说明：   
-1. 后端对接 http 时，需要选择您的后端类型为 http 或 https。    
+1. 后端对接 http 时，需要选择您的后端类型为 http 或 https。  
 2. 输入后端地址，以`http://`或`https://`开头，不包括后面的路径，例如`http://api.myservice.com`或 `http://108.160.162.30`。    
 3. 输入后端路径以 / 开头，如`/path`或`/path{petid}`。   
 4. 选择请求方法，前后端选择的请求方法可不一致。   
