@@ -4753,7 +4753,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>门店内店员编号</td>
+      <td>微信支付分配的子商户号</td>
    </tr>
    <tr>
       <td>company_name</td>
@@ -4771,13 +4771,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>cloud_cashier_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配为某个第三方支付平台分配给子商户的id</td>
+      <td>云支付分配的唯一订单前缀，<b>下单时商户的订单号需要以这个id开头</b></td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>外部可见的商户id，和cloud_cashier_id一一对应</td>
+      <td>云支付分配的商户id</td>
    </tr>
    <tr>
       <td>default_order_body</td>
