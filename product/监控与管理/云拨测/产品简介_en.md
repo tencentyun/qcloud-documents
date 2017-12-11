@@ -1,0 +1,1 @@
+Cloud Automated Testing relies on Tencent's proprietary service quality monitoring network, uses the service quality monitoring points widely distributed around the world to perform periodic monitoring on users' websites, domain names, backend APIs, etc. It also provides real-time alarms, performance and availability view display, intelligent analysis and other services.
