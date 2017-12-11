@@ -7,6 +7,7 @@ Domain name for API request: cvm.api.qcloud.com
 * Upper limit of bandwidth varies among different models. For details, please see [Purchase Network Bandwidth](https://cloud.tencent.com/document/product/213/509).
 * For the bandwidth of `TRAFFIC_POSTPAID_BY_HOUR`, `BANDWIDTH_POSTPAID_BY_HOUR`, or `BANDWIDTH_PACKAGE` billing method, the bandwidth whose upper limit is adjusted using this API takes effect in real time. The bandwidth can be adjusted to a value higher or lower than the current value within an allowable range. The input of parameters `StartTime` and `EndTime` is not supported.
 * The adjustment of bandwidth of `BANDWIDTH_POSTPAID_BY_MONTH` billing method is not supported for this API.
+* Batch adjustment of bandwidth of BANDWIDTH_POSTPAID_BY_HOUR billing methods is not supported for this API.
 * Batch adjustment of bandwidth of mixed billing methods is not supported for this API. For example, the bandwidth of `TRAFFIC_POSTPAID_BY_HOUR` and `BANDWIDTH_PACKAGE` billing methods cannot be adjusted at the same time.
 
 
