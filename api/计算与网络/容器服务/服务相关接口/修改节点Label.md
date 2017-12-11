@@ -16,7 +16,7 @@ labels 参数详细说明：
 | 字段 | 描述 |类型 |必选 |  
 |---------|---------|---------|---------|
 |key | Label的key值 | String |是 | 
-|value | Label的value值 | String | 是 |
+|value | Label的value值 | String | 否 |
 
 ## 3. 输出参数
  
