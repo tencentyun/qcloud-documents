@@ -6,7 +6,7 @@ Domain name for API request: cvm.api.qcloud.com
 
 * You can use this API to return unused instances.
 * All postpaid instances can be returned via this API. 
-* Batch operations are supported. Up to 100 instances can be returned in a time. If any instance that does not allow batch operations exists in the batch, an [error code](#4.-.E9.94.99.E8.AF.AF.E7.A0.81) is returned.
+* Batch operations are supported. Up to 100 instances can be returned in a time. If any instance that does not allow batch operations exists in the batch, an error code is returned.
 
 
 ## 2. Input Parameters

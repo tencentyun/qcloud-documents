@@ -7,7 +7,7 @@ Domain name for API request: cvm.api.qcloud.com
 * This operation is only allowed for the instances with a status of `RUNNING`.
 * When the API is called, the instance will go into the `STOPPING` status. When the instance is shut down, it will go into the `STOPPED` status.
 * Forced shutdown is supported. Just like powering off a physical PC, forced restart may cause data loss or the corruption of file system. Be sure to perform forced restart only when the server cannot be shut down normally.
-* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. Before instances are started in batches, an [Error Code](#4.-.E9.94.99.E8.AF.AF.E7.A0.81) is returned for those that do not allow batch operations.
+* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. Before instances are started in batches, an Error Code is returned for those that do not allow batch operations.
 
 
 ## 2. Input Parameters
