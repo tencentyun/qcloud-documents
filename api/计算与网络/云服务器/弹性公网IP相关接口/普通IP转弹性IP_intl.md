@@ -1,18 +1,18 @@
 ## 1. API Description
 
-This API (TransformAddress) is used to change an ordinary public IP into an [Elastic IP](/document/product/213/1941) (EIP).
+This API (TransformAddress) is used to change an ordinary public IP into an [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733) (EIP).
 
 Domain name for API request: eip.api.qcloud.com
 
 
-* Tencent Cloud imposes quotas on the number of ordinary public IPs that a user can re-assign for each region per day after the EIP is unbound. Please see [Overview of EIP Products](/document/product/213/1941). The above quotas can be obtained via API [DescribeAddressQuota](/document/api/213/1378).
+* Tencent Cloud imposes quotas on the number of ordinary public IPs that a user can re-assign for each region per day after the EIP is unbound. Please see [Overview of EIP Products](https://intl.cloud.tencent.com/document/product/213/5733). The above quotas can be obtained via API [DescribeAddressQuota](/document/api/213/1378).
 
 
 ## 2. Input Parameters
 
 The following request parameter list only provides API request parameters. For other parameters, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/11650).
 
-| Parameter  Type | Required | Description |
+| Parameter | Type | Required | Description |
 |---------|---------|---------|---------|
 | Version | String | Yes | API version number, used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
 | InstanceId | String | Yes | ID of the instance to be operated which has an ordinary public IP, such as `ins-11112222`. You can obtain the instance ID by either of the following ways: query the instance ID via [Console](https://console.cloud.tencent.com/cvm); obtain the instance ID from the `InstanceId` field of the returned values of API [DescribeInstances](/document/api/213/9389). |
