@@ -6,7 +6,6 @@ Domain name for API request: cvm.api.qcloud.com
 
 * This API can only be used to expand disks purchased along with instances, and the [data disk type](/document/api/213/9452#block_device) must be: `CLOUD_BASIC`, `CLOUD_PREMIUM` or `CLOUD_SSD`.
 * This API is not available to [CDH](/document/product/416) instances.
-* For prepaid instances, using this API will charge a fee. Please ensure that the user account has sufficient balance. You can query your account balance via the API [`DescribeAccountBalance`](/document/product/378/4397).
 * You can scale up ONLY ONE data disk each time.
 
 
