@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (AssociateAddress) is used to bind an [Elastic IP](/document/product/213/1941) (EIP) to a specified private IP of an instance or ENI.
+This API (AssociateAddress) is used to bind an [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733) (EIP) to a specified private IP of an instance or ENI.
 
 Domain name for API request: eip.api.qcloud.com
 
