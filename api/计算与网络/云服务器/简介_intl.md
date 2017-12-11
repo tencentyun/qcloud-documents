@@ -19,7 +19,7 @@ The key terms involved in the document are as follows:
 | Term | Full Name | Meaning | Description |
 |---------|---------|---------|---------|
 | Instance | Instance | [Instance](/doc/product/213/4939) | A cloud virtual machine. |
-| Region | Region | [Region](/document/product/213/497#1.-.E5.9C.B0.E5.9F.9F) | A region where resources reside. Each region contains multiple availability zones. |
+| Region | Region | [Region](https://intl.cloud.tencent.com/document/product/213/6091) | A region where resources reside. Each region contains multiple availability zones. |
 | Zone | Zone | [Availability Zone](/doc/product/213/6091) | Tencent Cloud physical data centers in the same [region](/doc/product/213/6091) with independent power and network resources. They are designed to ensure that the failures within an availability zone can be isolated without spreading to and affecting other zones, so as to ensure users' business stability. |
 | Image | Image | [Image](/doc/product/213/4940) | A copy of the software environment on a CVM instance, which generally includes operation system and installed software, and is used to create an instance. |
 | SecurityGroup | Security Group | [Security Group](/doc/product/213/5221) | A type of virtual firewall with a state-based packet filtering feature. It's an important network security isolation method used to control the network access of CVM instances. |

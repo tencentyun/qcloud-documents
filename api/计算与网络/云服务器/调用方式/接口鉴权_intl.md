@@ -13,7 +13,7 @@ Apply for a security credential by following the steps below:
 1) Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 
 2) Go to the console page of [Cloud API Key](https://console.cloud.tencent.com/capi).
-![](//mccdn.qcloud.com/img568f5fb824757.png)
+![](https://mc.qcloudimg.com/static/img/d32aa65f20cfce5af6f30ba5ee792490/capi_1.jpg)
 
 3) On the [Cloud API Key](https://console.cloud.tencent.com/capi) page, click "New" to create a pair of SecretId/SecretKey.
 

@@ -21,7 +21,6 @@
 | Modify the project to which an instance belongs | [ModifyInstancesProject](/document/api/213/9380) | Modify the project to which an instance belongs.
 | Modify VPC attributes | [UpdateInstanceVpcConfig](/document/api/213/9379) | Modify VPC attributes, such as IP.
 | Reset instance password | [ResetInstancesPassword](/document/api/213/9397) | Reset the password of the instance's operating system to a user-specified value.
-| Query instance bandwidth configurations| [DescribeInstanceInternetBandwidthConfigs](/document/api/213/9390) | Query instance bandwidth configurations.
 
 
 

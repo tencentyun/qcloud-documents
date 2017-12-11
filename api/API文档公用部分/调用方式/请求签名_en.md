@@ -10,7 +10,7 @@ Before using Tencent Cloud's API for the first time, you need to apply for a sec
 >API private key is an important credential when building Tencent Cloud API requests. With Tencent Cloud APIs, you can operate all of your Tencent Cloud resources under your account. To keep your property and services secure, please keep the private key well and change it on a timely basis (after you do so, remember to delete the old key in time).
 
 
-### Application Procedure for Getting a Security Credential
+#### Application Procedure for Getting a Security Credential
 
 1. Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 2. Click "Cloud Products", and choose "Cloud API Key" under "Management Tool" to access the Cloud API key management page.

@@ -5,7 +5,7 @@ This API (DescribeRegions) is used to query regions.
 
 Domain name for API request: cvm.api.qcloud.com
 
-* For more information on the definition of regions, please see [Region](https://cloud.tencent.com/doc/product/213/497#2.-.E5.8F.AF.E7.94.A8.E5.8C.BA) product documentation.
+* For more information on the definition of regions, please see [Region](https://intl.cloud.tencent.com/document/product/213/9456) product documentation.
 
 ## 2. Input Parameters
 
@@ -19,12 +19,12 @@ Note: You do not need to specify the parameter Region in the common request para
 |---------|---------|---------|
 | RequestId | String | Request ID. |
 | TotalCount | Integer | Number of regions. |
-| RegionSet | Array of [Region]() object | Region list. |
+| RegionSet | Array of [Region](https://intl.cloud.tencent.com/document/product/213/9456) object | Region list. |
 
 
 ## 4. Error Codes
 
-For more information, please see [Error Codes](https://cloud.tencent.com/document/api/213/10146).
+For more information, please see [Error Codes](https://intl.cloud.tencent.com/document/product/213/11657).
 
 
 ## 5. Example
