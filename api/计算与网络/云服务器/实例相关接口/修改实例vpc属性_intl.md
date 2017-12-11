@@ -16,7 +16,7 @@ The following request parameter list only provides API request parameters. For o
 | Parameter | Type | Required | Description |
 |---------|---------|---------|---------|
 | Version | String | Yes | API version number, used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
-| InstanceId | String | Yes | ID of the instance you want to modify. It can be obtained from `InstanceId` in the returned values of API [`DescribeInstances`](document/api/213/9388). |
+| InstanceId | String | Yes | ID of the instance you want to modify. It can be obtained from `InstanceId` in the returned values of API [`DescribeInstances`](https://intl.cloud.tencent.com/document/api/213/9388). |
 | VirtualPrivateCloud | [VirtualPrivateCloud](/document/api/213/9451#virtualprivatecloud) object | Yes | Configuration information of VPC. This parameter is used to specify VPC ID, subnet ID, VPC IP, etc. |
 | ForceStop | Boolean | No | Whether to forced shutdown a running instance. Default is TRUE. |
 
