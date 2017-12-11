@@ -14,9 +14,9 @@
 ## 入参说明
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 GetHostInfoByHost。
 
-| 参数名称    | 是否必选 | 类型     | 描述                       |
-| ------- | ---- | ------ | ------------------------ |
-| hosts.n | 是    | String | 需要查询的 host，支持查询一个或多个host |
+| 参数名称    | 是否必选 | 类型     | 描述                     |
+| ------- | ---- | ------ | ---------------------- |
+| hosts.n | 是    | String | 查询的 host，支持查询一个或多个host |
 
 ### 详细说明 
 
@@ -61,7 +61,6 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | status          | Int    | 域名加速状态<br/>1：域名审核中<br/>2：域名审核未通过<br/>3：域名审核通过处于部署中<br/>4：域名部署中<br/>5：域名已启动<br/>6：域名已关闭 |
 | disabled        | Int    | 域名封禁状态<br/> 0：表示域名未被封禁，其他均为已封禁           |
 | message         | String | 域名状态信息<br/> "已关闭"、"已启动"、"部署中"            |
-| enable_overseas | String | 是否开启海外CDN，若为'no'，表示域名未开启海外 CDN；若为'yes'，则表示该域名开启了海外 CDN |
 | create_time     | String | 域名接入时间                                   |
 | update_time     | String | 更新时间                                     |
 | deleted         | String | 是否删除<br/>"no"：表示域名未删除<br/>"yes"：表示域名已删除  |
@@ -72,43 +71,46 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | cname           | String | CDN 分配的 .cdn.dnsv1.com 后缀加速域名            |
 | cache_mode      | String | 缓存规则类型<br/>"simple"：表示缓存完全依赖控制台设置<br/>"custom"：则表示缓存依赖控制台设置的缓存时间和源站吐出的max-age的最小值 |
 | furl_cache      | String | 过滤参数<br/>"on"：开启全路径缓存，关闭过滤参数<br/>"off"：关闭全路径缓存，开启过滤参数 |
-| ssl_type        | Int    | 是否开通HTTPS，若为0，则表示未开通HTTPS配置；若为其他，则表示已开通HTTPS配置 |
+| http2           | Int    | 是否开启HTTP2.0<br/>                         |
+| ssl_type        | Int    | 是否开通HTTPS<br/>"0"：未开通HTTPS配置<br/>若为其他，则表示已开通HTTPS配置 |
 | bucket_name     | String | COS 源时，对应的 bucket 名称                     |
 | ssl_deploy_time | String | SSL部署时间                                  |
 | ssl_expire_time | String | SSL过期时间                                  |
+| ssl_cert_name   | String | 证书备注名                                    |
+| ssl_cert_id     | String | 托管证书ID                                   |
 | seo             | String | 是否开启SEO优化，off：表示未开启，on：表示开启              |
-| host_id         | Int    | host 对应 ID，与 id 相同                       |
+| host_id         | Int    | host 对应 ID                               |
 
-#### cache 字段说明
+#### cache
 
 | 参数名称 | 类型     | 描述                                       |
 | ---- | ------ | ---------------------------------------- |
-| type | Int    | 类型，共有四种类型，其中0表示配置为所有文件，1表示配置为文件类型，2表示配置为文件夹类型，3表示配置为全路径文件 |
+| type | Int    | 缓存配置类型<br/>"0"：所有文件<br/>"1"：文件类型<br/>"2"：文件夹类型<br/>"3"：全路径文件 |
 | rule | String | 匹配规则，与上述 type 相对应                        |
 | time | Int    | 缓存时间，单位为 秒                               |
-| unit | String | 设置缓存时间时所用单位，共有四种类型，'d'表示天，'h'表示小时，'m'表示分钟，'s'表示秒 |
+| unit | String | 设置缓存时间时所用单位<br/>"d"：表示天<br/>"h"：表示小时<br/>"m"：表示分钟<br/>"s"：表示秒 |
 
-#### refer 字段说明
+#### refer
 
 | 参数名称      | 类型    | 描述                                       |
 | --------- | ----- | ---------------------------------------- |
-| type      | Int   | 防盗链类型，共有三种类型，0表示未配置防盗链，1表示配置的名单为黑名单，2表示配置的名单为白名单 |
+| type      | Int   | 防盗链类型<br/>"0"：未配置防盗链<br/>"1"：黑名单<br/>"2"：白名单 |
 | null_flag | Int   | 防盗链是否为空，若为1，则表示防盗链为空                     |
 | list      | Array | 配置的防盗链名单                                 |
 
 **注意事项**：
-+ 未在上述文档中说明的字段为 **无效字段**，可直接忽略。
++ 未在上述文档中说明的字段为 **无效字段** 或 **内部标识字段**，可直接忽略。
 
 
-## 4. 示例
+## 调用案例
 
-### 4.1 输入示例
+### 示例参数
 
-> hosts.0:www.test.com
+```
+hosts.0：www.test.com
+```
 
-
-
-### 4.2 GET 请求
+### GET 请求
 
 GET 请求需要将所有参数都加在 URL 后：
 
@@ -122,9 +124,7 @@ Action=GetHostInfoByHost
 &hosts.0=www.test.com
 ```
 
-
-
-### 4.3 POST 请求
+### POST 请求
 
 POST 请求时，参数填充在 HTTP Request-body 中，请求地址：
 
@@ -145,81 +145,8 @@ array (
 )
 ```
 
+### 结果示例
 
-
-
-
-### 4.4 返回结果示例
-
-#### 查询成功
-
-```json
-{
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "hosts": [
-            {
-                "id": 1234,
-                "app_id": 1234567,
-                "owner_uin": 7654321,
-                "project_id": 0,
-                "host": "www.test.com",
-                "host_type": "cname",
-                "service_type": "web",
-                "origin": "8.8.8.8",
-                "cache": [
-                    {
-                        "type": 0,
-                        "rule": "all",
-                        "time": 2592000,
-                        "unit": "d"
-                    },
-                    {
-                        "type": 1,
-                        "rule": ".php;.jsp;.asp;.aspx",
-                        "time": 0,
-                        "unit": "s"
-                    }
-                ],
-                "status": 5,
-                "disabled": 0,
-                "message": "已开启",
-                "enable_overseas": "no",
-                "create_time": "2016-08-25 21:22:40",
-                "update_time": "2016-09-02 15:33:37",
-                "deleted": "no",
-                "fwd_host_type": "default",
-                "fwd_host": "www.test.com",
-                "middle_resource": -1,
-                "refer": {
-                    "type": 2,
-                    "list": [
-                        "1.1.1.1"
-                    ],
-                    "null_flag": 0
-                },
-                "readonly": 0,
-                "cname": "www.test.com.cdn.dnsv1.com",
-                "cache_mode": "simple",
-                "furl_cache": "on",
-                "ssl_type": 0,
-                "pid_config": null,
-                "bucket_name": "",
-                "bucket_project_id": 0,
-                "ssl_deploy_time": null,
-                "ssl_expire_time": null,
-                "seo": "off",
-                "host_id": 308902
-            }
-        ],
-        "total": 1
-    }
-}
-```
-
-#### 查询失败
 ```json
 {
     "code": 4100,
