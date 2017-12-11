@@ -79,7 +79,7 @@ https://cvm.api.qcloud.com/v2/index.php?Action=RunInstances
 }
 </pre>
 
-After creating an instance with a specified ID, you can manage it using VNC or the [remote desktop](/doc/product/213/2154).
+After creating an instance with a specified ID, you can manage it using VNC or the [remote desktop](https://intl.cloud.tencent.com/document/product/213/5435).
 
 ## 3. Return an Existing Instance
 
