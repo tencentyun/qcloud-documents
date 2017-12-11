@@ -93,7 +93,6 @@
 
 | ID | Description |
 |---------|---------|
-| PREPAID | Prepaid |
 | POSTPAID_BY_HOUR | Postpaid |
 | CDHPAID| Charge only the CDH but not the instances on it |
 
@@ -105,7 +104,6 @@
 | ID | Description |
 |---------|---------|
 | BANDWIDTH_POSTPAID_BY_MONTH | Postpaid on a monthly basis |
-| BANDWIDTH_PREPAID | Bill by bandwidth |
 | TRAFFIC_POSTPAID_BY_HOUR | Bill by traffic |
 | BANDWIDTH_POSTPAID_BY_HOUR | Bill by bandwidth usage time |
 | BANDWIDTH_PACKAGE| Bill by bandwidth package |
