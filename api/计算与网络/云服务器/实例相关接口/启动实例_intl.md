@@ -6,7 +6,7 @@ Domain name for API request: cvm.api.qcloud.com
 
 * This API is only available to instances in the status of `STOPPED`.
 * When the API is called, the instance goes into the `STARTING` status. When the instance is started, it will go into the `RUNNING` status.
-* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. Before instances are started in batches, an [Error Code](#4.-.E9.94.99.E8.AF.AF.E7.A0.81) is returned for those that do not allow batch operations.
+* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. Before instances are started in batches, an Error Code is returned for those that do not allow batch operations.
 
 
 ## 2. Input Parameters
