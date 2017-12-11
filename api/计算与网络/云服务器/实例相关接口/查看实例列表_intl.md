@@ -28,7 +28,7 @@ Table of Instance Filter Criteria
 | host-id | String | No | (Filter criteria) Filter by [CDH](/document/product/416) `ID`, such as: `host-11112222`. |
 | instance-id | String | No | (Filter criteria) Filter by instance `ID`, such as: `ins-11112222`. |
 | instance-name | String | No | (Filter criteria) Filter by instance name. |
-| instance-charge-type | String| No | (Filter criteria) Filter by instance billing method. Value range:<br><li>PREPAID: prepaid (by year/month<br><li>POSTPAID_BY_HOUR: postpaid (by traffic)<br><li>CDHPAID: [CDH](/document/product/416) paid, i.e. only pay for [CDH](/document/product/416), excluding instances on the [CDH](/document/product/416). |
+| instance-charge-type | String| No | (Filter criteria) Filter by instance billing method. Value range:<br><li>POSTPAID_BY_HOUR: postpaid (by traffic)<br><li>CDHPAID: [CDH](/document/product/416) paid, i.e. only pay for [CDH](/document/product/416), excluding instances on the [CDH](/document/product/416). |
 | private-ip-address | String| No | (Filter criteria) Filter by the private `IP` of the instance primary ENI. |
 | public-ip-address | String | No | (Filter criteria) Filter by the private `IP` of the instance primary ENI, including `IP` automatically assigned when the instance is created and Elastic `IP` manually bound after the instance is created. |
 
@@ -92,7 +92,6 @@ Output
                 "CPU": 1,
                 "Memory": 2,
                 "InstanceName": "\u6d4b\u8bd5\u5b9e\u4f8b",
-                "InstanceChargeType": "PREPAID",
                 "SystemDisk": {
                     "DiskType": "CLOUD_BASIC",
                     "DiskId": "disk-4rnslbwq",
@@ -113,7 +112,6 @@ Output
                 ],
                 "InternetAccessible": {
                     "InternetMaxBandwidthOut": 2,
-                    "InternetChargeType": "BANDWIDTH_PREPAID",
                     "PublicIpAssigned": "TRUE"
                 },
                 "VirtualPrivateCloud": {
@@ -122,7 +120,6 @@ Output
                     "AsVpcGateway": "TRUE"
                 },
                 "ImageId": "img-0vbqvzfn",
-                "RenewFlag": "NOTIFY_AND_AUTO_RENEW",
                 "CreatedTime": "2016-12-02T00:22:40Z",
                 "ExpiredTime": "2017-01-02T00:22:48Z"
             }
