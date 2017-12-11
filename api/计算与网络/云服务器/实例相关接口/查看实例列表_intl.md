@@ -14,10 +14,10 @@ The following request parameter list only provides API request parameters. For o
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
 | Version | String | Yes | API version number, used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
-| InstanceIds.N | array of Strings | No | To query according to one or more instance IDs, such as `ins-11112222`. For the format of this parameter, please see `id.N` section of API [Introduction](https://cloud.tencent.com/doc/api/229/568). `InstanceIds` and `Filters` cannot be specified at the same time.
+| InstanceIds.N | array of Strings | No | To query according to one or more instance IDs, such as `ins-11112222`. For the format of this parameter, please see `id.N` section of API [Introduction](https://intl.cloud.tencent.com/document/product/213/11646). `InstanceIds` and `Filters` cannot be specified at the same time.
 | Filters.N | array of [Filter](https://cloud.tencent.com/document/api/213/9451#filter) objects | No | Filter criteria can be found in Table of Instance Filter Criteria. The maximum number of `Filters` of each request is 10, and the maximum number of `Filter.Values` is 5. `InstanceIds` and `Filters` cannot be specified at the same time. |
-| Offset | Integer | No | Offset. Default is 0. For more information on `offset`, please see relevant sections of API [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89). |
-| Limit | Integer | No | Number of results to be returned. Default is 20. Maximum is 100. For more information on `limit`, please see relevant sections of API [Introduction](/doc/api/229/568#.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0.E4.B8.8E.E8.BF.94.E5.9B.9E.E5.8F.82.E6.95.B0.E9.87.8A.E4.B9.89). |
+| Offset | Integer | No | Offset. Default is 0. For more information on `offset`, please see relevant sections of API [Introduction](https://intl.cloud.tencent.com/document/product/213/11646). |
+| Limit | Integer | No | Number of results to be returned. Default is 20. Maximum is 100. For more information on `limit`, please see relevant sections of API [Introduction](https://intl.cloud.tencent.com/document/product/213/11646). |
 
 Table of Instance Filter Criteria
 
