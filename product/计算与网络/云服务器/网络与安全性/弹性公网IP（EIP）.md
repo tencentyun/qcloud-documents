@@ -9,7 +9,7 @@
 
 >##如何识别弹性公网IP的类型？
 >
->您进入[弹性公网IP控制台](https://console.qcloud.com/cvm/eip)。
+>您进入[弹性公网IP控制台](https://console.cloud.tencent.com/cvm/eip)。
 >
 >如果没有“带宽”相关的信息，如下图，即为第一类账户。弹性公网IP的类型为裸IP，无任何公网网络属性，需要后端资源购买公网网络后，再通过公网IP或CLB外访。
 >![](https://mc.qcloudimg.com/static/img/f45f57af5dea2a6e9cf3f968c2498d2d/image.png)
