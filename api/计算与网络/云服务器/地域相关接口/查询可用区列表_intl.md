@@ -23,7 +23,7 @@ Note: You must specify the parameter Region in the common request parameter for 
 
 ## 4. Error Codes
 
-For more information, please see [Error Codes](https://cloud.tencent.com/document/api/213/10146).
+For more information, please see [Error Codes](https://intl.cloud.tencent.com/document/product/213/11657).
 
 
 ## 5. Example
