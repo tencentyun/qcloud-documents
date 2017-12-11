@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (ModifyAddressAttribute) is used to modify the name of an [Elastic IP](/document/product/213/1941) (EIP).
+This API (ModifyAddressAttribute) is used to modify the name of an [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733) (EIP).
 
 Domain name for API request: eip.api.qcloud.com
 
