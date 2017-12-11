@@ -14,7 +14,7 @@ You can view [Instructions](https://cloud.tencent.com/document/product/457/6781#
 server.js
 ```
 
-File "server.js" is shown below:
+	File "server.js" is shown below:
 ```js
 var http = require('http');
 var handleRequest = function(request, response) {
@@ -30,13 +30,14 @@ www.listen(8080);
 [root@VM_88_88_centos ~]# node server.js
 ```
 
-Open a new console and test the application with "curl", or access the application from the browser using "<IP address:port>". Port is 8080.
-```shell
-[root@VM_88_88_centos ~]# curl 127.0.0.1:8080
-Hello World!
-```
+	Open a new console and test the application with "curl", or access the application from the browser using "<IP address:port>". Port is 8080.
 
-Here, you have completed the "helloworld" application.
+	```shell
+	[root@VM_88_88_centos ~]# curl 127.0.0.1:8080
+	Hello World!
+	```
+
+	Here, you have completed the "helloworld" application.
 
 ### Create Docker Image
 For more information about how to create a Docker image, please see [Build Docker Image](https://cloud.tencent.com/document/product/457/7208).
@@ -84,7 +85,7 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 ```
 
 ## Step 2: Create Cluster
-1. First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://cloud.tencent.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
+First, you need a cluster where containers can run. If you have no cluster, you need to create one. For more information, please see [Create Cluster](https://cloud.tencent.com/document/product/457/6779#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4).
 
 ## Step 3: Create a Service with the Image
 Click the "Create Service" button, choose the cluster to run the service, enter port configuration and click "Create":

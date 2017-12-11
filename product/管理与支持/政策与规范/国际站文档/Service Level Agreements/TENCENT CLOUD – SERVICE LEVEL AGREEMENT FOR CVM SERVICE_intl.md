@@ -1,17 +1,18 @@
 ## 1.	INTRODUCTION
 This agreement forms part of, and is incorporated into, the Tencent Cloud Service Level Agreement between you and us, in relation to your use of Tencent Cloud.
 ## 2.	SERVICE LEVELS
-###  **1. Introduction**
+###   2.1 Introduction       
+  
+  The following are the Service Levels for Tencent Cloud’s Cloud Virtual Machine service ("**CVM**").
+ 
+ Service Credits are calculated in accordance with the Tencent Cloud Service Level Agreement. As set out in Sections 2.2 and 2.3 of that Agreement: 
+ 
+&emsp;(a) All Service Levels will be calculated on a per-account, per-complete calendar month basis.
 
-The following are the Service Levels for Tencent Cloud’s Cloud Virtual Machine service ("**CVM**").
+&emsp;(b) Except for the CVM Expansion Support Service Level, Service Credits are calculated as a percentage of the total Charges paid by Organisation to Tencent in respect of the CVM service provided during the relevant calendar month in which the Service Level was calculated.
+ 
+###  2.2 Data Storage Persistence Service Level
 
-Service Credits are calculated in accordance with the Tencent Cloud Service Level Agreement. As set out in Sections 2.2 and 2.3 of that Agreement: 
-
-   1. All Service Levels will be calculated on a per-account, per-complete calendar month basis.
-   2. Except for the CVM Expansion Support Service Level, Service Credits are calculated as a percentage of the total Charges paid by Organisation to Tencent in respect of the CVM service provided during the relevant calendar month in which the Service Level was calculated.
-</br>
-
-### ** 2. Data Storage Persistence Service Level**
 <table style="width:700px">
 <tbody>
 <tr>
@@ -52,8 +53,8 @@ Service Credits are calculated in accordance with the Tencent Cloud Service Leve
 </tbody>
 </table>
 
-</br>
-### ** 3.	Service Availability Service Level**
+###  2.3 Service Availability Service Level
+
 <table style="width:700px">
 <tbody>
 <tr>
@@ -99,8 +100,8 @@ Any service failure that returns to normal within less than 5 minutes will not b
 </tbody>
 </table>
 
-</br>
-### ** 4. CVM Expansion Support Service Level**
+### 2.4  CVM Expansion Support Service Level
+
 <table style="width:700px">
 <tbody>
 <tr>

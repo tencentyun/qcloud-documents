@@ -31,7 +31,7 @@ Notes:
  
  - the specified recording format is FLV or MP4, you can specify the recording length for a single video fragment using parameter record_interval (in seconds). The maximum length is 90 minutes (i.e. 5,400 seconds). If no value is specified, the default is 30 minutes (i.e. 1,800 seconds).
  
- - HLS (m3u8) file is on a fragmentation basis in essence, so you can always get a single m3u8 file as long as no push interruption occurs during LVB. But in case of a push interruption during LVB, fragmentation will occur in the process of recording (you will get multiple m3u3 files). One of the common problems would be switching of App to the background. To solve this problem, you're recommended to use background push solution ([iOS](https://cloud.tencent.com/doc/product/454/6946#step-8.3A-.E5.90.8E.E5.8F.B0.E6.8E.A8.E6.B5.81) & Android](https://cloud.tencent.com/doc/product/454/6947)).
+ - HLS (m3u8) file is on a fragmentation basis in essence, so you can always get a single m3u8 file as long as no push interruption occurs during LVB. But in case of a push interruption during LVB, fragmentation will occur in the process of recording (you will get multiple m3u3 files). One of the common problems would be switching of App to the background. To solve this problem, you're recommended to use background push solution (iOS & Android).
  
  - record_name can be used to specify the recorded file's name, but is not recommended unless in special cases to avoid a too long URL.
  

@@ -8,9 +8,13 @@ NAT 网关是一种将私有网络中内网 IP 地址和公网 IP 地址进行�
 ![](//mccdn.qcloud.com/static/img/4772b9bc1e78436104f89f943f06ac97/image.png)
 
 ## 主要功能
-NAT 网关支持 SNAT 和 DNAT：
-- SNAT：源网络地址转换，支持多个 VPC 云主机通过同一公网 IP 主动访问互联网。
-- DNAT：目的地址转换（内测中，如有需求，请提供 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)），用于将 VPC 内的云主机的[内网IP，协议，端口]映射成[外网IP，协议，端口]，使得云主机上的服务可被外网访问。
+- NAT 网关支持 SNAT 和 DNAT：
+ - SNAT：源网络地址转换，支持多个 VPC 云主机通过同一公网 IP 主动访问互联网。
+ - DNAT：目的地址转换（内测中，如有需求，请提供 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)），用于将 VPC 内的云主机的[内网IP，协议，端口]映射成[外网IP，协议，端口]，使得云主机上的服务可被外网访问。
+ 
+- NAT 网关支持高防服务：
+BGP 高防可为腾讯云客户提供超大带宽的 DDoS 和 CC 防护，最高支持 310Gbps 防护。您可以将高防包绑定到需要防护的 NAT 网关上，实现安全防护。
+
 
 ## NAT网关和公网网关的区别
 NAT 网关与公网网关都用于私有网络内云主机访问 Internet，但二者存在一些差异：
@@ -205,6 +209,11 @@ NAT 网关创建后，可以对其属性进行修改。
 1.	登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8)，选择【NAT 网关】。
 2. 在 NAT 网关列表中点击 ID 进入 NAT 网关详情页。
 3. 点击监控 tab，在网关流控明细表右上方，点击【查看已限制 IP】。
+
+### 绑定高防包
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【安全】>【大禹网络安全】，选择左导航栏的[【BGP高防包】](https://console.cloud.tencent.com/dayu/bgp/list/sp/gz)。
+2. 选择您已有的高防包实例，单击更换设备操作，选择需要反复的 NAT 网关上的 EIP。
+3. 单击【确认】，即为该 NAT 网关关联了高防包功能。
 
 ## API 概览
 您可以使用 API 操作来设置和管理您的 NAT 网关，有关更多 VPC 内其他资源的内容，可以查看 [VPC 所有 API 概览](https://cloud.tencent.com/doc/api/245/909)。

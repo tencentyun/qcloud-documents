@@ -1,3 +1,18 @@
+### Version 3.9
+- iOS&Android：新增H.265硬解码能力。
+- iOS&Android：Demo功能全新改版，新增双人、多人实时音视频能力。
+- iOS&Android：动效贴纸大升级，新增HDR和高分辨率贴纸特效，贴纸更靓丽。
+- iOS&Android：新增AI智能抠背景能力，主播再也不用要绿幕了。
+- iOS&Android：支持在点播播放过程中无缝切换视频清晰度。
+- iOS&Android：修复若干bug。
+- iOS&Android：推出慢动作、重复播放、时光倒流三种时间特效。
+- iOS&Android：新增多种滤镜，更多效果供您选择。
+- iOS&Android：新增多种动态与静态贴纸，支持定制更多贴纸。
+- iOS&Android：可以在视频中添加气泡字幕了。
+- iOS&Android：支持静音拍摄，方便后期制作。
+- iOS&Android：支持在拍摄时进行横竖屏切换。
+- Android：UGCPublish接入全新cos架构，优化短视频上传处理流程。
+
 ### Version 3.7
 - IOS&Android：Demo优化，新增低延时播放，推流直播播放可直接体验。
 - IOS&Android：Demo新增多端音视频互通能力，可与小程序、windows等多端进行多人会话。

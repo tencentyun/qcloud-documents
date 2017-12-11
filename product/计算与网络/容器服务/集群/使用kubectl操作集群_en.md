@@ -1,4 +1,3 @@
-## Instructions on How to Use kubectl to Work with Clusters
 ### Installing kubectl tool
 
 If you have installed the kubectl tool, skip this step. For more information on how to install kubectl, please see [Installing and Setting up kubectl](https://kubernetes.io/docs/user-guide/prereqs/).
@@ -48,7 +47,7 @@ Copy or download the certificate to a local machine.
 
 ![Alt text](https://mc.qcloudimg.com/static/img/0b74fedbf69a1ce31d8fcd0f3baff7e5/Image+015.png)
 
-## Using Certificate to Enable kubectl to Work with Clusters
+### Using Certificate to Enable kubectl to Work with Clusters
 #### Method 1: Supply certificate information for each request.
 Request method:
 kubectl command -s "Domain Name" --username=user name --password=password --certificate-authority=certificate path, for example:
