@@ -38,7 +38,7 @@
 ## 3. Network-related APIs
 | Feature | Action ID | Description
 |---------|---------|---------|
-| Bind a server with an Elastic NIC | [AttachNetworkInterface](/document/api/213/8836) | Bind a server with an EIP
+| Bind a server with an Elastic NIC | AttachNetworkInterface | Bind a server with an EIP
 
 ## 4. Security group-related APIs
 | Feature | Action ID | Description

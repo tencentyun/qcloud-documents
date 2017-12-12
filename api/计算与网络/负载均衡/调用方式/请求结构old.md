@@ -1,5 +1,5 @@
 ## 服务地址
-腾讯云负载均衡（CLB）使用的域名访问地址为：lb.api.qcloud.com。
+腾讯云负载均衡（CLB）使用的域名访问地址为：`lb.api.qcloud.com`
 
 ## 通信协议
 腾讯云 API 的所有接口均通过 HTTPS 进行通信，提供高安全性的通信通道。
@@ -9,7 +9,6 @@
 
 ## 字符编码
 均使用 UTF-8 编码。
-
 
 ## API 请求结构
 <table class="t">
@@ -26,14 +25,14 @@
 <tr>
 <td> 公共参数
 </td><td> 每个接口都包含的通用参数
-</td><td> 详见 <a href="/doc/api/244/公共参数" title="公共参数">公共参数</a> 页面
+</td><td> 详见 <a href="https://cloud.tencent.com/document/product/214/1527" title="公共参数">公共参数</a> 页面
 </td></tr>
 <tr>
 <td> 指令名称
 </td><td> API 要执行的指令的名称，这里使用 Action 指定，<br>
 <p>例如 Action=CreateLoadBalancer
 </p>
-</td><td> 完整的指令请参见 <a href="/doc/api/244/API概览" title="API概览">API概览</a>
+</td><td> 完整的指令请参见 <a href="https://cloud.tencent.com/document/product/214/889" title="API概览">API概览</a>
 </td></tr>
 <tr>
 <td> 指令参数
