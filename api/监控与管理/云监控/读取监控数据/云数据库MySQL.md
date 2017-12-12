@@ -10,6 +10,13 @@ namespace：qce/cdb
 dimensions.0.name=uInstanceId
 dimensions.0.value为cdb实例id
 
+当cdb实例类型为主实例或者灾备实例时，默认拉取主机监控数据，如需要拉取其备机监控数据，请添加以下字段：
+dimensions.1.name=instType
+dimensions.1.value=slave
+
+
+只读实例不能传递该字段
+
 ## 2. 输入参数
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为GetMonitorData。
