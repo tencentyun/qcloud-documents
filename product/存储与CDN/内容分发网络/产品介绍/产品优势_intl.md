@@ -5,6 +5,7 @@ In order to allow your published content to reach users faster, Tencent Cloud CD
 **Nodes in Mainland China**
 
 Tencent Cloud CDN provides more than 100 overseas nodes with a coverage of more than 30 countries and regions across the globe to allow your business to go global seamlessly.
+![](https://mc.qcloudimg.com/static/img/19f5708498e59acef7d60a755dee686e/image.png)
 
 ## Intelligent Scheduling and Link Optimization
 
