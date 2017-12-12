@@ -23,10 +23,10 @@ HTTP persistent connection and short connection are essentially TCP persistent c
 When a TCP protocol is used for network communication, a connection must be established between the client and the server before the read and write operations are performed. When the read and write operations are completed, the connection can be released when both sides no longer need it. The establishment of a connection depends on "three-way handshake", while the release requires "four-way handshake". So, the establishment of each connection needs to consume resources and time.
 
 Diagram of connection establishment via three-way handshake:
-![](//mccdn.qcloud.com/static/img/da079414fde193f4d790c72a719eba78/image.jpg)
+![](//mc.qcloudimg.com/static/img/e5687b934e72eeb4d8fa8550527adfc1/image.png)
 
 Diagram of connection closing via four-way handshake:
-![](//mccdn.qcloud.com/static/img/4e7b6439145e3db6c0a2ff62eec24322/image.jpg)
+![](//mc.qcloudimg.com/static/img/71e17a38aecec75f618fc1a99b766c92/image.png)
 
 ### TCP short connections
 Simulation of a TCP short connection: the client initiates a connection request to the server, the server receives the request, and then a connection between them is established. The client sends a message to the server, the server returns a response to the client, and then a request is completed. At this time, both the client and the server can initiate a close operation, but usually the client will first initiate the operation. As mentioned above, short connections only pass one request operation between the client and the server.
