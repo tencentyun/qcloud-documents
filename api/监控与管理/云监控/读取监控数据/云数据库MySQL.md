@@ -134,6 +134,8 @@ https://monitor.api.qcloud.com/v2/index.php?
 &metricName=slow_queries
 &dimensions.0.name=uInstanceId
 &dimensions.0.value=cdb-e242adzf
+&dimensions.1.name=instType
+&dimensions.1.value=slave
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
 </pre>
