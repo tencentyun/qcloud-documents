@@ -5,8 +5,6 @@
 - **方案一：** 使用腾讯云提供的pod路径，该方案下载的是最新版本的SDK, 下载速度较快
 
 ```
-source 'https://github.com/CocoaPods/Specs.git'
-
 platform :ios, '8.0'
 
 target 'test' do
@@ -24,6 +22,7 @@ end
 **- 方案二：** 使用pod官方的路径，支持选择版本号，比如 `pod 'TXLiteAVSDK_Smart', '3.9.2749'`
 
 ```
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'test' do
