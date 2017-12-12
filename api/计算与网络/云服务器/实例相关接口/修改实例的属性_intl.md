@@ -5,7 +5,7 @@ This API (ModifyInstancesAttribute) is used to modify the attributes of an insta
 Domain name for API request: cvm.api.qcloud.com
 
 * "Instance name" is only used by users for easy management. This name is not used in ticket system or for instance operations.
-* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. For the instances that do not allow batch operations, an [error code](#4.-.E9.94.99.E8.AF.AF.E7.A0.81) is returned.
+* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. For the instances that do not allow batch operations, an error code is returned.
 
 
 ## 2. Input Parameters

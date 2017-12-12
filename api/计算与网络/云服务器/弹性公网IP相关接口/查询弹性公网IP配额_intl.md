@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (DescribeAddressQuota) is used to query the quota information of the [Elastic IP](/document/product/213/1941) (EIP) in your account in the current region. For more information about the EIP quota, please see [Overview of EIP Products](/document/product/213/5733).
+This API (DescribeAddressQuota) is used to query the quota information of the [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733) (EIP) in your account in the current region. For more information about the EIP quota, please see [Overview of EIP Products](/document/product/213/5733).
 
 Domain name for API request: eip.api.qcloud.com
 

@@ -30,7 +30,7 @@ Table of Image Sharing Information
 
 ## 4. Error Codes
 
-The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](/document/api/213/10146).
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](https://intl.cloud.tencent.com/document/product/213/11657).
 
 | Error Code | Description |
 |---------|---------|

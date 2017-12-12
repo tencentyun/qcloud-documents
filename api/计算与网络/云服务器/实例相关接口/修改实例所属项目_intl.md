@@ -7,7 +7,7 @@ Domain name for API request: cvm.api.qcloud.com
 * A project is a virtual concept. A user can create multiple projects under an account, with different resources managed in each project. You can allocate different instances to different projects, and then use the API [`DescribeInstances`](/document/api/213/9388) to query instances. The project ID can be used to filter the results.
 * The project of the instances bound with load balancers cannot be modified until the load balancers are unbound using the API [`DeregisterInstancesFromLoadBalancer`](/document/api/214/1258).
 * The security groups originally associated with the instances are automatically disassociated when the project of the instances is modified. You can use the API [`ModifySecurityGroupsOfInstance`](/document/api/213/1367) to associate security groups after modification.
-* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. For the instances that do not allow batch operations, an [Error Code](#4.-.E9.94.99.E8.AF.AF.E7.A0.81) is returned.
+* Batch operations are supported. The maximum number of instances for each request for batch operations is 100. For the instances that do not allow batch operations, an Error Code is returned.
 
 
 ## 2. Input Parameters

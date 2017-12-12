@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (ReleaseAddresses) is used to release one or more [Elastic IPs](/document/product/213/1941) (EIP).
+This API (ReleaseAddresses) is used to release one or more [Elastic IPs](https://intl.cloud.tencent.com/document/product/213/5733) (EIP).
 
 Domain name for API request: eip.api.qcloud.com
 

@@ -1,5 +1,5 @@
 ﻿The following is an example of a two-way hiding of (outbound public network access/public network access) backend server cluster:
-![](//mccdn.qcloud.com/static/img/fca01bf18ea9e6a30081c7ed5a001779/image.png)
+![](//mc.qcloudimg.com/static/img/fa02c027836ab789a1b90247bbd237e6/image.png)
 
 Cloud server (VM2, VM3) does not have public IP, and cannot take the initiative to communicate with the public network.
 - When CVM cluster needs to access the public network, the routing table is configured and NAT forwarding is performed through an Internet gateway (VM1). For resources on the Internet, the request address is always the public network IP (115.159.45.144) of Internet gateway, and the resources on the Internet are never exposed to the backend server cluster.

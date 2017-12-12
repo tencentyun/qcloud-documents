@@ -1,6 +1,6 @@
 ## 1. API Description
 
-This API (DisassociateAddress) is used to unbind an [Elastic IP](/document/product/213/1941) (EIP).
+This API (DisassociateAddress) is used to unbind an [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733) (EIP).
 
 Domain name for API request: eip.api.qcloud.com
 
