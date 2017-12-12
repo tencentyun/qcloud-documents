@@ -24,7 +24,7 @@ Go to "Advanced Configuration" and find "HTTPS Configuration"
 Tencent Cloud currently supports two certificate deployment methods:
 
 - Self-owned certificate: Upload self-owned certificate and private key to CDN for deployment. Transmission is encrypted throughout the process to ensure security of your certificate;
-- Tencent Cloud-hosted certificate: You can go to [SSL Certificate Management](https://console.cloud.tencent.com/ssl) and trust your certificate to Tencent Cloud to use it for multiple cloud products. You can also apply for a **Free Certificate** provided by TrustAsia through this platform and deploy it directly to CDN;
+- Tencent Cloud-hosted certificate: You can go to SSL Certificate Management and trust your certificate to Tencent Cloud to use it for multiple cloud products. You can also apply for a **Free Certificate** provided by TrustAsia through this platform and deploy it directly to CDN;
 - Tencent Cloud certificate: The original ".qcloudcdn.com" domain suffix belongs to Tencent Cloud and uses Tencent Cloud certificate. The entrance for adding this certificate has been closed.
 
 ## Certificate Management
