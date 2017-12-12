@@ -1,5 +1,5 @@
 ## 搜索 hbase 表
-在库表管理左侧标签页中点击【Hbase 的库表】进入 hbase 表管理的单独页面，可以通过表名称搜索表。
+在库表管理左侧标签页中单击【Hbase 的库表】进入 hbase 表管理的单独页面，可以通过表名称搜索表。
 ![hbase](//mc.qcloudimg.com/static/img/e757c8a756dff984941a0f5a2d10e2bd/image.png)
 ## 新建 hbase 表
 单击【库表管理】标签页右上角的【新建表】，填写配置信息，单击【提交】。

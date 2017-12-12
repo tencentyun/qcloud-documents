@@ -1,4 +1,4 @@
-Different from postpaid instances, prepaid instance cannot be terminated by users. After a certain time following the its end of life cycle, it will be automatically terminated by the system. Prepaid CVM instances are shut down on the expiry date and automatically put into the Recycle Bin. It will be retained for 7 calendar days during which you can choose to renew. The instance will then be terminated if it is not renewed within 7 calendar days. At the same time, you can [renew (or set up auto renewal for)](/doc/product/213/6143) the instance with such plan before the expiry date, to prevent services interruption due to shutdown when it expires.
+Different from postpaid instances, prepaid instance cannot be terminated by users. After a certain time following the its end of life cycle, it will be automatically terminated by the system. Prepaid CVM instances are shut down on the expiry date and automatically put into the Recycle Bin. It will be retained for 7 calendar days during which you can choose to renew. The instance will then be terminated if it is not renewed within 7 calendar days. 
 
 ## Instance Recycle
 

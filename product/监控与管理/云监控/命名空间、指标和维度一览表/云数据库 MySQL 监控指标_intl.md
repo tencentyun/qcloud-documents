@@ -22,7 +22,7 @@
 | Waited Table Locks | table_locks_waited | Counts per second | uInstanceId |
 | Creating Temp Table Rate| created_tmp_tables | Counts per second | uInstanceId |
 | Innodb Cache Hit Rate | innodb_cache_hit_rate | % | uInstanceId |
-| innodb Cache Use Rate | innodb_cache_use_rate | % | uInstanceId |key_cache_hit_rate|
+| innodb Cache Use Rate | innodb_cache_use_rate | % | uInstanceId |
 | Read Innodb File | innodb_os_file_reads | Counts per second | uInstanceId |
 | Write Innodb File | innodb_os_file_writes | Counts per second | uInstanceId |
 | Innodb Fsyncs Number | innodb_os_fsyncs | Counts per second | uInstanceId |

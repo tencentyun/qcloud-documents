@@ -4,7 +4,9 @@
 
 ## 调用URL
 
-`http://recognition.image.myqcloud.com/ocr/waybill`
+```
+http://recognition.image.myqcloud.com/ocr/waybill
+```
 
 ## 头部信息
 
