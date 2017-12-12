@@ -25,7 +25,7 @@
 <tr>
 <td> 公共参数
 </td><td> 每个接口都包含的通用参数
-</td><td> 详见 <a href="https://cloud.tencent.com/document/product/214/11594" title="公共参数">公共参数</a> 页面
+</td><td> 详见 <a href="https://cloud.tencent.com/document/product/214/1527" title="公共参数">公共参数</a> 页面
 </td></tr>
 <tr>
 <td> 指令名称
