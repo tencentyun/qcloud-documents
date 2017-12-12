@@ -3,7 +3,7 @@ You need to configure SecretId and SecretKey to call API using command line scri
 ![](//mc.qcloudimg.com/static/img/f449efa9f3904c24894f50376bd406f6/image.png)
 
 ## Instructions
-The command line is python script. [Download](https://github.com/zz-mars/CDN_API_DEMO/tree/master/Qcloud_CDN_API/python).
+The command line is python script. [Download](https://github.com/zz-mars/CDN_API_DEMO/blob/master/Qcloud_CDN_API/python/QcloudCdnTools_V2.py).
 
 ### Preparation Before Using
 You need to install requests library to use the python script mentioned above. Use the following command:
