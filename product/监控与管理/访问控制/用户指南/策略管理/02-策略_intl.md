@@ -23,11 +23,11 @@ For the policies created using policy generator, the policy syntax is generated 
 
 #### 3.1 Create a policy using policy generator
 
-Step 1:  Go to policy management console, click "Create Custom Policy", and select "Policy Generator".
+Step 1:  Go to [policy management console](https://console.cloud.tencent.com/cam/policy), click "Create Custom Policy", and select "Create by Policy Generator".
 
 ![](https://mc.qcloudimg.com/static/img/a28aa332634c323e6a038f455801a26b/1009.jpg)
 
-Step 2:  Select desired service and operation from the list, click "Add Declaration", and then click Next. For the operation of a certain service that needs to be associated with an object, "Resource Description" is required. As shown below, the operation is required to be associated with an object. You can click "Note" on the left for detailed definition and example of "Resource Description".
+Step 2:  Select desired service and operation from the list, click "Add Statement", and then click Next. For the operation of a certain service that needs to be associated with an object, "Resource Description" is required. As shown below, the operation is required to be associated with an object. You can click "Note" on the left for detailed definition and example of "Resource Description".
 
 ![](https://mc.qcloudimg.com/static/img/fbce91eea2f7f14e432a42768f14f589/1011.jpg)
 
@@ -48,7 +48,7 @@ Step 3: Click Create Policy. The policy name is generated automatically, in whic
 
 #### 3.2 Create a policy using business permission
 
-Step 1:  Go to policy management console, click "Create Custom Policy", and select "Business Permission".
+Step 1:  Go to [policy management console](https://console.cloud.tencent.com/cam/policy), click "Create Custom Policy", and select "Business Permission".
 
 ![](https://mc.qcloudimg.com/static/img/39d208e0f038df3ea6bf4cf4e9c04c9a/s1.jpg)
 
@@ -71,7 +71,7 @@ Step 5:  Policies can be found in "Policy List".
 
 #### 3.3 Create a policy using policy syntax:
 
-Step 1:  Go to policy management console, click "Create Custom Policy", and select "Policy Syntax".
+Step 1:  Go to [policy management console](https://console.cloud.tencent.com/cam/policy), click "Create Custom Policy", and select "Policy Syntax".
 
 ![](https://mc.qcloudimg.com/static/img/16b3c63209ba7237ea45221c63cd53fa/p1.jpg)
 
