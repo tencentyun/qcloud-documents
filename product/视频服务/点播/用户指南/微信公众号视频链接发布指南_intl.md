@@ -29,6 +29,6 @@ After generation, the video URL takes effect immediately as follows. Users can s
 
 Step 3: Copy the URL and post it in official accounts
 
-Copy the generated video URL to the corresponding information posting page in official accounts, as shown below (the following shows the information posting page in WeChat official accounts):
+Copy the generated video URL to the corresponding information posting page in official accounts.
 
 [4]:http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-4.png
