@@ -47,7 +47,7 @@ When using peering connection, you have to note the following:
 
 | Resource | Restriction | Description |
 |---------|---------|---------|
-| Bandwidth limit for cross-region peering connection | 1 Gbps | If you need a larger bandwidth, please initiate the request by submitting a ticket. There is no limit for the bandwidth of regional peering connections. |
+| Bandwidth limit for cross-region peering connection | 1 GB | If you need a larger bandwidth, please initiate the request by submitting a ticket. There is no limit for the bandwidth of regional peering connections. |
 | Number of peering connections supported by each VPC |10 |　|
 
 > Note: For peering connection services in other region, please submit a ticket for the request.

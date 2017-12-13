@@ -28,7 +28,8 @@ The following request parameter list only provides API request parameters. For o
 | code | Int | Error code. 0:  Succeeded, other values:  Failed |
 | message | String | Error message |
 | detail | Array | Returned array|
-| detail.requestId | Int | Task ID. Refer to [Format of Returned Results for Asynchronous Task APIs](https://cloud.tencent.com/document/product/240/8325) | 
+| detail.requestId | Int | Task ID. Refer to [Format of Returned Results for Asynchronous Task APIs](https://cloud.tencent.com/document/product/240/8325
+) | 
 
 ## 4. Error Code List
 
