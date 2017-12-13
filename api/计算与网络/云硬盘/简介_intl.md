@@ -4,7 +4,7 @@ Cloud Block Storage (CBS) is a highly available, highly reliable, low-cost, cust
 
 Users can perform relevant operations (such as creating elastic cloud storage, creating snapshot or roll backing snapshot etc.) on cloud disk or snapshots with the APIs described in this document by referring to [API Overview](https://cloud.tencent.com/doc/api/231/1723).
 
-Before using these APIs, please make sure that you have a thorough understanding of [CBS Product Overview](https://cloud.tencent.com/doc/product/362/2345), [Tips on Usage](https://intl.cloud.tencent.com/document/product/362/5744) and [Billing Methods](https://cloud.tencent.com/doc/product/362/2413).
+Before using these APIs, please make sure that you have a thorough understanding of [CBS Product Overview](https://cloud.tencent.com/doc/product/362/2345), [Tips on Usage](https://intl.cloud.tencent.com/document/product/362/5745) and [Billing Methods](https://cloud.tencent.com/doc/product/362/2413).
 
 ## 1. Glossary
 
