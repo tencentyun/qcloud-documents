@@ -67,11 +67,11 @@ bizid可在控制台上查看，id为自定义部分，一般由大小英文字�
 
 例：
 ```
-rtmp协议，标清（550kbps）播放地址： 	rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
-rtmp协议，高清（900kbps）播放地址rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
+rtmp协议，标清（550kbps）播放地址：rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
+rtmp协议，高清（900kbps）播放地址：rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
 flv协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.flv
 flv协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.flv
-hls协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
+hls协议，标清（550kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
 hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.m3u8
 ```
 
