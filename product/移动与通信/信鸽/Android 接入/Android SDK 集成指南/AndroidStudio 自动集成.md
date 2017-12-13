@@ -1,13 +1,13 @@
 
 ## 一导入依赖
 
-AndroidStudio上可以使用jcenter远程仓库自动接入，不需要在项目中导入jar包和so文件；
-在AndroidManifest.xml中不需要配置信鸽相关的内容，jcenter 会自动导入。
+AndroidStudio 上可以使用 jcenter 远程仓库自动接入，不需要在项目中导入 jar 包和 so 文件；
+在 AndroidManifest.xml 中不需要配置信鸽相关的内容，jcenter 会自动导入。
 导入依赖过后修改应用配置，书写注册代码就能够实现信鸽快速接入。 
 对应的依赖版本号均是，官网上最新的版本。
-用户自定义的recevier.依然需要在Androidmianfest.xml配置相关节点。
+用户自定义的 recevier.依然需要在 Androidmianfest.xml 配置相关节点。
 
-在app build.gradle文件下配置 以下内容
+在 App build.gradle 文件下配置以下内容
 ```
 android {
     ......
@@ -53,14 +53,13 @@ dependencies {
 ```
 
 >***注意*** 
-
->如果在添加以上 abiFilter 配置之后android Studio出现以下提示：
+>如果在添加以上 abiFilter 配置之后 Android Studio 出现以下提示：
 >
     NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin.
->则在 Project 根目录的gradle.properties文件中添加：
+>则在 Project 根目录的 gradle.properties 文件中添加：
 >
-    android.useDeprecatedNdk=true
-> 如需监听消息请参考XGBaseReceiver接口或者是demo的MessageReceiver类。自行继承XGBaseReceiver并且在配置文件中配置如下内容：
+    Android.useDeprecatedNdk=true
+> 如需监听消息请参考 XGBaseReceiver 接口或者是 demo 的 MessageReceiver 类。自行继承 XGBaseReceiver 并且在配置文件中配置如下内容：
 >
 ```
   <receiver android:name="完整的类名如:com.qq.xgdemo.receiver.MessageReceiver"

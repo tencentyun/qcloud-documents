@@ -8,7 +8,7 @@ A VPC contains at least one subnet, only in which the cloud service resources ca
 3) Enter the names of VPC and subnet as well as CIDR, and then select the availability zone for the subnet.
 4) Click "Create".
 
-![ ](//mc.qcloudimg.com/static/img/412fdc0f7c95d9d575d307f31fe40df3/image.png)
+![ ](https://mc.qcloudimg.com/static/img/12901f65ca2844a88814a7190168391e/1.jpg)
 
 ### Step 2: Create a subnet
 You can create one or more subnets at a time.
@@ -20,7 +20,7 @@ You can create one or more subnets at a time.
 5) (Optional) Click "New Line" to create multiple subnets at a time.
 6) Click "Create".
 
-![](//mc.qcloudimg.com/static/img/c87608616f3327d191ef0c04e16a744b/image.png)
+![](https://mc.qcloudimg.com/static/img/ebda9d255ef99e0107b5d52198cc9d43/2.jpg)
 
 
 ### Step 3: Create a routing table to associate with a subnet
@@ -34,14 +34,15 @@ You can create a custom routing table, edit the routing policy, and then associa
 6) Click the "Edit" button, and select the associated routing table in the drop-down box.
 7) Click "Save".
 
-![](//mc.qcloudimg.com/static/img/66098c2892eaf6f88b38b022973ca13b/image.png)
+![](https://mc.qcloudimg.com/static/img/7078df53ec8ce935cc1763761bc67b40/3.jpg)
 
 ### Step 4: Add a CDB
 A newly purchased CDB can be used in the VPC. It should be noted that once you select the VPC to which a CDB is added, it cannot be changed.
 1) Log in to [Tencent Cloud Console][10], click "Relational database" in the navigation bar to enter [Cloud Database Console][11], and click "New" button.
-![](//mc.qcloudimg.com/static/img/4e8d668c9cfa4356ef6f543e9cb883cb/image.png)
+![](https://mc.qcloudimg.com/static/img/94b355ae34f75f64874eb53346513914/4.jpg)
 2) On the Cloud Database purchase page, click "VPC" on "Network" tab, and select the VPC and the corresponding subnets created in the above steps, to add the newly purchased CDB to the VPC.
-![](//mc.qcloudimg.com/static/img/f76960dd95ef9827a05656dea310d915/image.png)
+![](https://mc.qcloudimg.com/static/img/ba3116f44e2ccaec036b0fa5df0a9a9b/5.jpg)
+
 
 
 [1]:	https://console.cloud.tencent.com/

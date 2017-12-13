@@ -1,46 +1,46 @@
-
-## 1.接口描述
+## 接口描述
+### 功能描述
 本接口（QueryMountTarget）用于查询文件系统挂载点信息。
-接口请求域名：**cfs.api.qcloud.com**
 
-## 2.输入参数
+### 接口域名
+文件存储请求域名：`cfs.api.qcloud.com`
 
-|    参数    | 子参数 | 必填 |  类型  |                      描述                      |
-|------------|--------|------|--------|------------------------------------------------|
-| Region     |        | 是   | string | 园区，请参考"概览"文档中的园区与可用区列表 |
-| CfsOrderId |        | 是   | string | CFS实例ID                                      |
+## 请求参数
 
-
-## 3.输出参数
-
-|     参数名称     |  类型  |                                                           描述                                                          |
-|------------------|--------|-------------------------------------------------------------------------------------------------------------------------|
-| FileSystemId     | string | 文件系统ID                                                                                                              |
-| IpAddress        | string | 挂载点IP                                                                                                                |
-| FSID             | string | 挂载点ID                                                                                                                |
-| LifeCycleState   | string | 文件系统状态 creating（创建中） available（可用）create_failed（创建失败） deleting（删除中） delete_failed（删除失败） |
-| NetworkInterface | string | 网络类型 vpc（私有网络） basic（基础网络）                                                                              |
-| VpcId            | int    | 私有网络ID                                                                                                              |
-| VpcName          | string | 私有网络名称                                                                                                            |
-| SubnetId         | int    | 子网Id                                                                                                                  |
-| SubnetName       | string | 子网名称                                                                                                                |
-| ZoneId           | int    | 可用区ID，请参考"概览"文档中的园区与可用区列表                                                                      |
+|    参数    |                       描述                      |  类型  | 必填 |
+|------------|-----|--------|------------------------------------------------|
+| Region     |   园区，请参考 [概览]() 文档中的园区与可用区列表 | String |  是   |
+| CfsOrderId | CFS 实例 ID                                      | String | 是   |
 
 
-## 4.示例 
+## 响应参数
 
-### 输入
+|     参数名称     |                      描述                        |类型  |  
+|------------------|--------|-----------------------------------|
+| FileSystemId     | 文件系统 ID                                                  |String | 
+| IpAddress        |  挂载点 IP                                          |String |
+| FSID             |  挂载点 ID                                                   |String |
+| LifeCycleState   |  文件系统状态 creating（创建中） available（可用）create_failed（创建失败） deleting（删除中） delete_failed（删除失败） |String |
+| NetworkInterface |  网络类型 vpc（私有网络） basic（基础网络）                                          |String |
+| VpcId            |私有网络 ID                                 | Int    | 
+| VpcName          | 私有网络名称               |String | 
+| SubnetId         |  子网 Id                       |Int    |
+| SubnetName       | 子网名称                                     |String | 
+| ZoneId           | 可用区 ID，请参考 [概览]() 文档中的园区与可用区列表                       |Int    | 
+
+
+## 实际示例 
+
+### 请求示例
 
 ```
-<pre>
   https://cfs.api.qcloud.com/v2/index.php?Action=QueryMountTarget
   &Region=bj
   &CfsOrderId=cfs-h97kuqvr
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
-</pre>
+  &<公共请求参数>
 ```
 
-### 输出
+### 响应示例
 
 ```
 {

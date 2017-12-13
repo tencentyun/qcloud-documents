@@ -22,7 +22,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 
 回调中调用信鸽的初始化方法才能正常使用信鸽
 
-**(1)接口**
+**1.接口**
 
 ```
 /**
@@ -33,7 +33,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 */
 +(void)startApp:(uint32_t)appId appKey:(nonnull NSString *)appKey;
 ```
-**(2)示例**
+**2.示例**
 
 ```
 - (BOOL)application:(UIApplication *)application
@@ -57,7 +57,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 }
 ```
 
-**注: 在 iOS 10 中也可以可以使用 iOS 10 之前的注册方法来注册推送,但是对应的,也要使用 iOS 10之前的方法来接收推送**
+>**注意：**
+>在 iOS 10 中也可以可以使用 iOS 10 之前的注册方法来注册推送,但是对应的,也要使用 iOS 10之前的方法来接收推送。
 
 ## 注册信鸽
 
@@ -68,9 +69,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
 ```
 
-回调中调用信鸽的 registerDevice 方法即可完成信鸽注册
+回调中调用信鸽的 registerDevice 方法即可完成信鸽注册。
 
-**(1)接口**
+**1.接口**
 
 ```
 /**
@@ -116,7 +117,7 @@ account:(nullable NSString *) account
 successCallback:(nullable void(^)(void)) successCallback
 errorCallback:(nullable void(^)(void))errorCallback;
 ```
-**(2)示例**
+**2.示例**
 
 ```
 - (void)application:(UIApplication *)application
@@ -133,14 +134,13 @@ NSLog(@"[XGPush Demo] device token is %@", deviceTokenStr);
 }
 ```
 >**注意：**
->account 是需要设置的账号，视业务需求自定义，可以是用户的名称或者 ID 等，长度为2个字节以上，不要使用”myAccount"或者"test"，"123456"这种过于简单的字符串，若不想设置账号，请传入 nil。
+>account 是需要设置的账号，视业务需求自定义，可以是用户的名称或者 ID 等，长度为两个字节以上，不要使用”myAccount"或者"test"，"123456"这种过于简单的字符串，若不想设置账号，请传入 nil。
 
 ## 设置/删除标签
 
 开发者可以针对不同的用户设置标签，然后对该标签推送。对标签推送会让该标签下的所有设备都收到推送。一个设备可以设置多个标签。
 
-**(1)接口**
-
+**1.接口**
 
 ```
 /**
@@ -154,7 +154,6 @@ NSLog(@"[XGPush Demo] device token is %@", deviceTokenStr);
 successCallback:(nullable void (^)(void)) successCallback
 errorCallback:(nullable void (^)(void)) errorCallback;
 
-
 /**
 删除tag
 
@@ -166,7 +165,7 @@ errorCallback:(nullable void (^)(void)) errorCallback;
 successCallback:(nullable void (^)(void)) successCallback
 errorCallback:(nullable void (^)(void)) errorCallback;
 ```
-**(2)示例**
+**2.示例**
 
 ```
 - (void)setTag:(NSString *)tag {
@@ -196,7 +195,7 @@ NSLog(@"[XGDemo] Del tag error");
 >**注2: **
 >老版本不带回调的接口要求设置/删除账号后再调用一次注册设备的方法，但是新版带回调的接口不需要再调用注册设备的方法。
 
-**(1)接口**
+**1.接口**
 
 ```
 /**
@@ -210,7 +209,6 @@ NSLog(@"[XGDemo] Del tag error");
 successCallback:(nullable void(^)(void)) successCallback
 errorCallback:(nullable void(^)(void)) errorCallback;
 
-
 /**
 删除已经设置的账号. 删除账号前需要调用一次registerDevice
 
@@ -220,7 +218,7 @@ errorCallback:(nullable void(^)(void)) errorCallback;
 +(void)delAccount:(nullable void(^)(void)) successCallback
 errorCallback:(nullable void(^)(void)) errorCallback;
 ```
-**(2)示例**
+**2.示例**
 
 ```
 - (void)setAccount:(NSString *)account {
@@ -244,7 +242,7 @@ NSLog(@"[XGDemo] Del account error");
 
 注销设备以后，可以让该设备不再接收推送。
 
-**（1）接口**
+**1.接口**
 
 ```
 /**
@@ -255,7 +253,7 @@ NSLog(@"[XGDemo] Del account error");
 +(void)unRegisterDevice:(nullable void (^)(void)) successCallback
 errorCallback:(nullable void (^)(void)) errorCallback;
 ```
-**（2）示例**
+**2.示例**
 
 ```
 [XGPush unRegisterDevice:^{
