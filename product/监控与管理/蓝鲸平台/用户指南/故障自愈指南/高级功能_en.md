@@ -26,6 +26,7 @@ If PING alarm occurred six times this month, they might be neglected during manu
 
 ![](https://mc.qcloudimg.com/static/img/95d9831c10ecc3070027b8098e7ba3cb/14955236702912.jpg)
 
+Failure Self-recovery enables an Alert Self-recovery Package by default (if alarms of unreachable PING or server restart occurred for the same server of an idle server module five times over the last 30 days, the server will be transferred to the faulty server module).
 
 Alert Self-recovery analyzes alarms at 8:00 a.m. every day and then perform self-recovery.
 
