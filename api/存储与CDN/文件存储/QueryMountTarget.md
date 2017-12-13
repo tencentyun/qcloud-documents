@@ -9,7 +9,7 @@
 
 |    参数    |                       描述                      |  类型  | 必填 |
 |------------|-----|--------|------------------------------------------------|
-| Region     |   园区，请参考 [概览]() 文档中的园区与可用区列表 | String |  是   |
+| Region     |   园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表 | String |  是   |
 | CfsOrderId | CFS 实例 ID                                      | String | 是   |
 
 
@@ -26,7 +26,7 @@
 | VpcName          | 私有网络名称               |String | 
 | SubnetId         |  子网 Id                       |Int    |
 | SubnetName       | 子网名称                                     |String | 
-| ZoneId           | 可用区 ID，请参考 [概览]() 文档中的园区与可用区列表                       |Int    | 
+| ZoneId           | 可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                       |Int    | 
 
 
 ## 实际示例 
