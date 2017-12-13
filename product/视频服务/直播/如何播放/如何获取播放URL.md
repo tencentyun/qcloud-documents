@@ -90,7 +90,7 @@ http://bizid.liveplay.myqcloud.com/live/bizid_id.m3u8?xSecret=xxxx&txTime=xxxx
 * txTime：播放地址的有效截止时间戳，同上
 * path：取的是去掉后缀的文件名。如：
 ```
-rtmp://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415</font>**
+rtmp://5000.liveplay.myqcloud.com/live/<font color='red'>test2016011415</font>
 http://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415_550</font>**.m3u8
 http://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415_900</font>**.flv   
 ```
