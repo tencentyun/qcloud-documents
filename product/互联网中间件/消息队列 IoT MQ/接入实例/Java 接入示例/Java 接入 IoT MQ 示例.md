@@ -234,7 +234,7 @@ public class Publish {
             sampleClient.connect(connOpts);
             for (int i = 0; i < 10; i++) {
                 try {
-                    String scontent = "MQ for Iot demo " + i;
+                    String scontent = "IoT MQ demo " + i;
                     final MqttMessage message = new MqttMessage(scontent.getBytes());
                     message.setQos(0);
                     System.out.println("publish msg: " + scontent);
