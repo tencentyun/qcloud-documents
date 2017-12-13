@@ -22,6 +22,7 @@ The basic process of HTTP callback is as follows: An HTTP service is built at th
 
 ### How to Configure
 Enter the "Console" -> "Global Settings" -> "Callback Configuration" page, set the "Callback URL" to the address for the APP backend to receive the callback, select "Normal Callback" in the "Callback Model", and select the event callback type you need.
+
 [1]://mc.qcloudimg.com/static/img/349c36d65d5c42163ec131e1689db5a4/image.png
 
 ### Callback Protocol
@@ -104,6 +105,7 @@ APP server may encounter network problems or failures such as crashes. For simpl
 
 ### Configuration Method
 Enter the "Console" -> "Global Settings" -> "Callback Configuration" page, select "Reliable Callback" in the "Callback Model", and select the event callback type you need. Note: In the model of reliable callback, the "Callback URL" will not take effect.
+
 [2]://mc.qcloudimg.com/static/img/e448c807e093ecae7651c9c94987137c/image.png
 
 ### Basic Principle
