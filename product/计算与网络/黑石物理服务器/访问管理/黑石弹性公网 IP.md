@@ -1,5 +1,3 @@
-[TOC]
-
 ## 概述
 黑石弹性公网IP 支持细化到实例级别的权限管理，你可以为同事分配管理特定弹性公网IP 实例的权限；或者属于特定 VPC 的所有弹性公网IP的 管理权限。
 
@@ -30,12 +28,15 @@
 
 Action ，即操作，对应的是 API 。编写策略时，你可以复制表格里内容并粘贴在 Action 字段中。关联该策略后，即可获得特定 API 的调用权限<br/>
 
-Resource ，即云资源，当列表中 ACtion 的鉴权参数不为空时，则表示在调用 API 需要指定云资源，否则则不需要指定。编写策略时，你可以复制表格里内容并粘贴在策略生成器的 Resource 字段中，但请记得替换 $EipId、$InstanceId 为真实的实例 ID ；关联该策略后，即可获得特定资源的操作权限<br/>`部份 API 鉴权时需要两种类型的实例 ID，例如绑定 EIP ，分别需要 被绑定的黑石服务器 以及 用于绑定的黑石弹性公网IP 的实例 ID，这时需要把两种云产品的资源描述都写在 Resource 里`
+Resource ，即云资源，当列表中 ACtion 的鉴权参数不为空时，则表示在调用 API 需要指定云资源，否则则不需要指定。编写策略时，你可以复制表格里内容并粘贴在策略生成器的 Resource 字段中，但请记得替换 $EipId、$InstanceId 为真实的实例 ID ；关联该策略后，即可获得特定资源的操作权限<br/>
+
+>部份 API 鉴权时需要两种类型的实例 ID，例如绑定 EIP ，分别需要 被绑定的黑石服务器 以及 用于绑定的黑石弹性公网IP 的实例 ID，这时>
+>需要把两种云产品的资源描述都写在 Resource 里*
 
 
 Condition,即生效条件。换句话说 Action 和 Resource 需要在特定的生效条件下，才能鉴权通过。你可以灵活使用 condtion 以做到 VPC 或者 Subnet 粒度的权限管理，比如授权同事管理特定 VPC 内的所有黑石服务器
 
-> 特别说明：Describe* 或者 Get* 指查询操作，比如拉取多个实例详情等，查询操作鉴权通过后可能会把所有实例信息都返回，而无法区别哪些是有权限哪些是没有权限的实例。但再修改、删除实例时，会再次鉴权。
+>特别说明：Describe* 或者 Get* 指查询操作，比如拉取多个实例详情等，查询操作鉴权通过后可能会把所有实例信息都返回，而无法区别哪些是有权限哪些是没有权限的实例。但再修改、删除实例时，会再次鉴权。
  
 <table >
  <tr>
@@ -93,13 +94,7 @@ Condition,即生效条件。换句话说 Action 和 Resource 需要在特定的�
 	
  </tr>
  
-   <tr>
-    <td>bmeip:DescribeEipBm</td>
-    <td></td>
-	<td>黑石EIP查询接口</td>
-	<td> </td>
-	
- </tr>
+
  
  <tr>
     <td>bmeip:EipBmDelete</td>
@@ -114,6 +109,14 @@ Condition,即生效条件。换句话说 Action 和 Resource 需要在特定的�
     <td>qcs::bmvpc:::unVpcId/vpc-xxx</td>
 	<td>创建黑石EIP</td>
 	<td> </td>	
+ </tr>
+
+   <tr>
+    <td>bmeip:DescribeEipBm</td>
+    <td></td>
+	<td>黑石EIP查询接口</td>
+	<td> </td>
+	
  </tr>
  
  </table>
