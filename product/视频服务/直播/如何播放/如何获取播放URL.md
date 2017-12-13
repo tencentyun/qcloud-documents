@@ -97,6 +97,9 @@ http://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415_900</f
 * KEY：为用户的密钥；由控制分配，进入直播码模式——接入配置——应用信息 即可查看
 ![](https://mc.qcloudimg.com/static/img/f96379d3803342bb5e4d4465c23d1c7a/12.png)
 
+http://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415_550</font>**.m3u8
+
+
 **配置申请**
 
 如需配置播放防盗链，可提交工单或者联系腾讯商务人员，联系电话：4009-100-100
