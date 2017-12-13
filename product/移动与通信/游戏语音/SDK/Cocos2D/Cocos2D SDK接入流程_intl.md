@@ -46,7 +46,7 @@ Conduct initialization in Java. See below:
 [Call Voice Chat APIs](https://cloud.tencent.com/document/product/556/7667).   
 3. Voice Message API: Used for Voice Message feature
 [Call Voice Message APIs](https://cloud.tencent.com/document/product/556/7670)    
-![](https://mc.qcloudimg.com/static/img/c2055b982fda95b416144c907dfceed0/1.png)  
+[1]:https://mc.qcloudimg.com/static/img/c2055b982fda95b416144c907dfceed0/1.png
 
 
  

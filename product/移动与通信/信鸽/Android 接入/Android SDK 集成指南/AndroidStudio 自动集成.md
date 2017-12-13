@@ -7,7 +7,7 @@ AndroidStudio 上可以使用 jcenter 远程仓库自动接入，不需要在项
 对应的依赖版本号均是，官网上最新的版本。
 用户自定义的 recevier.依然需要在 Androidmianfest.xml 配置相关节点。
 
-在 app build.gradle 文件下配置以下内容
+在 App build.gradle 文件下配置以下内容
 ```
 android {
     ......
@@ -53,7 +53,6 @@ dependencies {
 ```
 
 >***注意*** 
-
 >如果在添加以上 abiFilter 配置之后 Android Studio 出现以下提示：
 >
     NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin.
