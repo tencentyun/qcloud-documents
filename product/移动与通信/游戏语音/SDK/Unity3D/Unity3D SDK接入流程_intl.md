@@ -1,7 +1,7 @@
 This document describes the method of connecting to C# API SDK of GVoice. The method is applicable to games developed via Unity3D engine.
 ## 1 Download SDK
 [Download Unity3D SDK package v1.1.2](http://doc-10010986.cos.myqcloud.com/gvoice/gcloud_voice_1_1_2_136114_20161209_Unity3D.zip))  
-Download and decompress the SDK package, you will see: 
+Download and decompress the SDK package. 
 [1]:https://mc.qcloudimg.com/static/img/ef63d54941048e51fdaf9c023fa8be2f/image.jpg
 ## 2 System Configuration
 ### 2.1 iOS System Configuration
