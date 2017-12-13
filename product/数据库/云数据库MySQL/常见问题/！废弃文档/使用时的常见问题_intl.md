@@ -215,7 +215,7 @@ SET NAMES 'utf8';
 
 ## 26. Can the cloud database be accessed through public network addresses?
 
-The access to cloud database through public networks in domestic regions has been made possible. For tips on usage, refer to [Public Network Access][6]
+The access to cloud database through public networks in domestic regions has been made possible. For tips on usage, refer to Public Network Access
 
 But it is not supported in Hong Kong and North American regions currently.
 
@@ -295,7 +295,6 @@ Click here to view specific configurations.
 [3]:	/document/product/236/7269#2-%E8%BF%9E%E6%8E%A5%E6%95%B0%E9%99%90%E5%88%B6
 [4]:	/document/product/236/7269#5-%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84binlog%E4%BF%9D%E5%AD%98%E6%97%B6%E9%97%B4%E8%AF%B4%E6%98%8E
 [5]:	http://dev.mysql.com/doc/refman/5.1/en/server-system-variables.html#sysvar_long_query_time
-[6]:	/document/product/236/7264
 [7]:	//dev.mysql.com/downloads/mysql-proxy/
 
 [image-1]:	//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/faq_cdb_1.png
