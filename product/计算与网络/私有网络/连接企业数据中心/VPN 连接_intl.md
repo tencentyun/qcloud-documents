@@ -83,7 +83,7 @@ For VPN connections, please note that:
 |---------|---------|
 | Number of VPN gateways per VPC | 10 | 
 | Number of peer gateways in a region | 20 | 
-| Number of VPN tunnels per peer gateway | 10 | 
+| Number of VPN tunnels per peer gateway | 1 | 
 | Number of VPN tunnels in a region | 20 | 
 | Number of SPDs per VPN tunnel | 10 | 
 | Number of peered network segments per SPD | 50 | 
