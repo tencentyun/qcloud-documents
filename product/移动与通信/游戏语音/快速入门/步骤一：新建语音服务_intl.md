@@ -1,6 +1,6 @@
 ## 1 Enable Voice Service
 Go to the Console, open Game Voice and enable the service.
-![](https://mc.qcloudimg.com/static/img/7ad80ac753affb64a932b42e94ae0e52/image.png)
+<!--![](https://mc.qcloudimg.com/static/img/7ad80ac753affb64a932b42e94ae0e52/image.png)-->
 
 
 ## 2. Create a GVoice Instance
