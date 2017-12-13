@@ -1,6 +1,6 @@
 ## 1 Enable Voice Service
 Go to the Console, open Game Voice and enable the service.
-<!--![](https://mc.qcloudimg.com/static/img/7ad80ac753affb64a932b42e94ae0e52/image.png)-->
+![Alt text][1]
 
 
 ## 2. Create a GVoice Instance
@@ -21,3 +21,4 @@ When a game voice is activated, a "Game ID" and a "Game KEY" will be generated, 
 You can change your configurations in the Console, including setting restrictions and alarm triggering conditions.
 ![](https://mc.qcloudimg.com/static/img/37f83df909748e90ba326b4787663016/update.png)
 
+[1]:https://mc.qcloudimg.com/static/img/7ad80ac753affb64a932b42e94ae0e52/image.png
