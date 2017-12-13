@@ -45,7 +45,7 @@
 ## 3. Database-Related APIs
 | API Function | Action Name | Description | 
 |---------|---------|---------|
-| [Query Database Schema](/document/api/236/8375) | GetCdbInstanceSchema | Query details on a database schema |
+| [Query Database Schema](http://intl.cloud.tencent.com/document/product/236/8923) | GetCdbInstanceSchema | Query details on a database schema |
 | [Query Database](/document/api/236/7167) | QueryCdbDatabases | Query database information of a cloud database instance |
 | [Query Database Table](/document/api/236/7176) | QueryCdbDatabaseTables | Query database table information of a cloud database instance |
 

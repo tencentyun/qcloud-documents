@@ -3,7 +3,6 @@
 信鸽 iOS SDK 是一个能够提供 Push 服务的开发平台，提供给开发者简便、易用的 API 接口，方便快速接入。
 
 ## 接入方法
-
 1 获取 AppId 和 AppKey
 2 工程配置
 
@@ -13,8 +12,8 @@
 
 ### 工程配置
 
-1 下载信鸽 SDK，解压缩。注：3.0版本 sdk 暂不支持 pods
-2 将 XGPush.h 以及 libXG-SDK.a 添加到工程
+1 下载信鸽 SDK，解压缩。注：3.0版本 SDK 暂不支持 pods。
+2 将 XGPush.h 以及 libXG-SDK.a 添加到工程。
 3 添加以下库/framework 的引用 CoreTelephony.framework，SystemConfiguration.framework,
 UserNotifications.framework，libXG-SDK.a 以及 libz.tbd，libsqlite3.0.tbd 添加完成以后，库的引用如下：
 ![](//mc.qcloudimg.com/static/img/a8375845f7a6dc63a951255da13730ad/image.jpg)
@@ -22,7 +21,7 @@ UserNotifications.framework，libXG-SDK.a 以及 libz.tbd，libsqlite3.0.tbd 添
 ![](//mc.qcloudimg.com/static/img/e875b2b189be94311d65b5c70a17b730/image.png)
 5 添加编译参数-ObjC 
 ![](//mc.qcloudimg.com/static/img/03ca0cdeeb661b38dd3a731392330ab4/image.jpg)
-6 参考 Demo，添加相关代码
+6 参考 Demo，添加相关代码。
 
 
 
