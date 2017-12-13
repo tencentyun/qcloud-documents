@@ -90,9 +90,9 @@ http://bizid.liveplay.myqcloud.com/live/bizid_id.m3u8?xSecret=xxxx&txTime=xxxx
 * txTime：播放地址的有效截止时间戳，同上
 * path：取的是去掉后缀的文件名。如：
 ```
-rtmp://5000.liveplay.myqcloud.com/live/test2016011415
-http://5000.liveplay.myqcloud.com/live/test2016011415_550.m3u8
-http://5000.liveplay.myqcloud.com/live/test2016011415_900.flv
+rtmp://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415</font>**
+http://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415_550</font>**.m3u8
+http://5000.liveplay.myqcloud.com/live/**<font color='red'>test2016011415_900</font>**.flv   
 ```
 * KEY：为用户的密钥；由控制分配，进入直播码模式——接入配置——应用信息 即可查看
 ![](https://mc.qcloudimg.com/static/img/f96379d3803342bb5e4d4465c23d1c7a/12.png)
