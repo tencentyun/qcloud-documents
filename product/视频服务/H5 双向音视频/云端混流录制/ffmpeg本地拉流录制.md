@@ -12,8 +12,12 @@ make
 make install
 ```
 ## 2. 拉流录制
+<<<<<<< HEAD
+以混流后的直播码 `8525_d1965300f23315789ded4e49ce831d10` 为例，根据获得的推流地址为：`rtmp://8525.liveplay.myqcloud.com/live/8525_d1965300f23315789ded4e49ce831d10.flv` 进行拉流录制。
+=======
 根据拿到混流后直播码的推流地址：
 [rtmp://8525.liveplay.myqcloud.com/live/8525_d1965300f23315789ded4e49ce831d10.flv]() 进行拉流录制。
+>>>>>>> d11e5df6f9b4f6aeab0c250a7efde39e6c8735e6
 ``` shell
 ./ffmpeg  -i "rtmp://8525.liveplay.myqcloud.com/live
 /8525_d1965300f23315789ded4e49ce831d10.flv" 
