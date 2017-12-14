@@ -241,6 +241,12 @@ node tools/initdb.js
 
 初始化成功则会提示“数据库初始化成功！”
 
+接着执行如下代码启动 Node.js
+
+```bash
+node app.js
+```
+
 ### 完成
 
 顺利完成以上操作，就完成了 Wafer Demo 在自己服务器上的部署。直接访问 `http://你的域名/weapp/login`，会提示：
