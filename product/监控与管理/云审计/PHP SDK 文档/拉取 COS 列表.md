@@ -26,7 +26,7 @@ $config = array('SecretId'       => '你的secretId',
                 'SecretKey'      => '你的secretKey',
                 'RequestMethod'  => 'GET',
                 'DefaultRegion'  => 'gz');
-$ca = QcloudApi::load(QcloudApi::MODULE_CA, $config);
+$ca = QcloudApi::load(QcloudApi::MODULE_CLOUDAUDIT, $config);
 $package = array();
 $a = $ca->ListCosBuckets($package);
 if ($a === false) {
