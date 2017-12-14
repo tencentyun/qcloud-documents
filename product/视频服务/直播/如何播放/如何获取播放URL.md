@@ -26,11 +26,11 @@
 例：
 
 ```
-rtmp协议，标清（550kbps）播放地址： 	rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
-rtmp协议，高清（900kbps）播放地址rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
+rtmp协议，标清（550kbps）播放地址：rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
+rtmp协议，高清（900kbps）播放地址：rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
 flv协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.flv
 flv协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.flv
-hls协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
+hls协议，标清（550kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
 hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.m3u8
 
 ```
@@ -67,11 +67,11 @@ bizid可在控制台上查看，id为自定义部分，一般由大小英文字�
 
 例：
 ```
-rtmp协议，标清（550kbps）播放地址： 	rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
-rtmp协议，高清（900kbps）播放地址rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
+rtmp协议，标清（550kbps）播放地址：rtmp://2001.liveplay.myqcloud.com/live/2001_test_550
+rtmp协议，高清（900kbps）播放地址：rtmp://2001.liveplay.myqcloud.com/live/2001_test_900
 flv协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.flv
 flv协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.flv
-hls协议，标清（550kbps）播放地址： http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
+hls协议，标清（550kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_550.m3u8
 hls协议，高清（900kbps）播放地址：http://2001.liveplay.myqcloud.com/live/2001_test_900.m3u8
 ```
 
@@ -90,12 +90,13 @@ http://bizid.liveplay.myqcloud.com/live/bizid_id.m3u8?xSecret=xxxx&txTime=xxxx
 * txTime：播放地址的有效截止时间戳，同上
 * path：取的是去掉后缀的文件名。如：
 ```
-rtmp://5000.liveplay.myqcloud.com/live/test2016011415
-http://5000.liveplay.myqcloud.com/live/test2016011415_550.m3u8
-http://5000.liveplay.myqcloud.com/live/test2016011415_900.flv
+rtmp://5000.liveplay.myqcloud.com/live/test2016011415               path为test2016011415
+http://5000.liveplay.myqcloud.com/live/test2016011415_550.m3u8      path为test2016011415_550
+http://5000.liveplay.myqcloud.com/live/test2016011415_900.flv       path为test2016011415_900
 ```
 * KEY：为用户的密钥；由控制分配，进入直播码模式——接入配置——应用信息 即可查看
 ![](https://mc.qcloudimg.com/static/img/f96379d3803342bb5e4d4465c23d1c7a/12.png)
+
 
 **配置申请**
 
