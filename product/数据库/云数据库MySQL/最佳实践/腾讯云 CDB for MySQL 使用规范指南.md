@@ -8,7 +8,7 @@ CDB for MySQL 产品用户。
 ### 权限管理规范
 1.  由于考虑到 CDB for MySQL 的稳定性和安全性，CDB for MySQL 限制了 super、shutdown、file 权限，有时在 CDB for MySQL 上执行 set 语句时，会出现如下的报错：  
 ```
-#1227-Accessdenied;you need(at least one of)the SUPER privilege (s) for this operation
+#1227-Access denied;you need(at least one of)the SUPER privilege (s) for this operation
 ```
       
  解决方法：如果需要 set 修改相关参数，可以使用控制台【参数修改】功能完成，如果需要修改的参数不在其中，可以提交工单后经评估后协助修改，确保实例稳定；
