@@ -1,7 +1,7 @@
 本示例使用 Eclipse Paho Java SDK 接入 消息队列 IoT MQ。
 
-## 1. 环境准备
-本示例使用 Maven 构建。如果您使用其他方式构建，可前往[此处](https://cloud.tencent.com/document/product/646/12718#3.-.E7.94.9F.E4.BA.A7.E6.B6.88.E8.B4.B9)查看如何下载 SDK。
+## 环境准备
+本示例使用 Maven 构建。如果您使用其他方式构建，可前往 [使用入门](https://cloud.tencent.com/document/product/646/12718#3.-.E7.94.9F.E4.BA.A7.E6.B6.88.E8.B4.B9) 查看对应的 SDK 下载。
 
 ### pom.xml 配置
 在项目的 pom.xml 文件中配置 mqttv3 依赖，配置如下：
@@ -33,8 +33,8 @@
 </repositories>
 ```
 
-## 2. 计算签名
-客户端签名计算方法详见[这里](https://cloud.tencent.com/document/product/646/12661)。签名计算辅助类代码如下：
+## 计算签名
+客户端签名计算方法详见 [客户端签名计算](https://cloud.tencent.com/document/product/646/12661)。签名计算辅助类代码如下：
 ```java
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -54,7 +54,7 @@ public class Signature {
 
     private static final String CONTENT_CHARSET = "UTF-8";
 
-    // base64编码计算，如果使用java8，可直接使用java.util.Base64计算
+    // base64 编码计算，如果使用 java8，可直接使用 java.util.Base64 计算
     private static String base64_encode(byte[] data) {
         StringBuilder sb = new StringBuilder();
         int len = data.length;
@@ -112,7 +112,7 @@ public class Signature {
 }
 ```
 
-## 3. 订阅消息
+## 订阅消息
 
 ```java
 import org.eclipse.paho.client.mqttv3.*;
@@ -178,7 +178,7 @@ public class Subscribe {
 }
 ```
 
-## 4. 发送消息
+## 发送消息
 
 ```java
 import org.eclipse.paho.client.mqttv3.*;
