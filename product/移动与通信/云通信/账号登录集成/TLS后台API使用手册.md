@@ -2,6 +2,8 @@
 
 开发者可以使用TLS后台API及相关工具，生成公私钥、生成UserSig和校验UserSig。TLS后台API我们提供了6个包供开发者[下载](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)，内容分别是windows下64位预编译文件包、windows下32位预编译文件包、linux下64位预编译文件包、linux下32位预编译文件包、zip格式的源代码文件和tar.gz格式的源代码文件。
 
+注意：在控制台上下载的公私钥文件名分别为`private_key`和`public_key`，分别对应下面的`ec_key.pem`和`public.pem`。请在使用公私钥时注意区分。
+
 ## 2 linux平台
 
 ### 2.1 工具使用

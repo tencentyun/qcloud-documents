@@ -103,7 +103,7 @@ done
 
 ### 使用软件（以 Linux 为例）
 #### 使用 hadoop fs 常用命令
-命令格式为：`hadoop fs- -ls cosn://Object 路径`，下例中以名称为 example 的 Bucket 为例，可在其后面加上具体路径。
+命令格式为：`hadoop fs- -ls cosn://Bucket 路径`，下例中以名称为 example 的 Bucket 为例，可在其后面加上具体路径。
 ```
 hadoop fs -ls  cosn://example/
 Found 7 items

@@ -1,69 +1,12 @@
-### 一个 VPC 可以通过 VPN 连接与多个 IDC 互联么？
-您好，可以，目前私网网络可以建立 VPN 网关并在每个 VPN 网关上建立多个 VPN 通道，每个 VPN 通道可以打通一个本地 IDC。
-
-### 两个 VPC 之间通信可以通过 VPN 连接实现吗？
-您好，可以，你需要分别在两个 VPC 内购买 VPN 网关、配置 VPN 通道和对端网关，但配置较为复杂，建议您使用对等连接。对等连接使用腾讯骨干网连接两个 VPC，其通信质量更有保障。
-
-### 通过 VPN 连接的私有网络和 IDC 之间的网络质量如何保证？
-- 私有网络与 IDC 之间走的是公网，依赖公网网络的质量,可能会出现时延、丢包、抖动，如果您需要更加稳定的通信质量，建议您使用专线接入服务。
-- VPN 后台会全天监控网络质量，包括 keepalive 和网络时延，如果出现网络异常情况会请运维及时处理。您也可以在控制台实时监控 VPN 网关和通道的流量状态，如果发现异常及时与我们联系。
-
-### VPN 通道未联通可能原因？
-- 对端网关出现故障
-- 通道配置错误
-- 通道长时间没有流量
-
-### 什么是 VPN 网关？
-您好，VPN 网关是私有网络建立 VPN 连接的出口网关，与对端网关（IDC 侧的 IPsec VPN 服务网关）配合使用，主要用于腾讯云私有网络和外部 IDC 之间建立安全可靠的加密网络通信。腾讯云 VPN 网关通过软件虚拟化实现，采用双机热备策略，单台故障时自动切换，不影响业务正常运行。
-
-VPN 网关根据带宽上限分为 5 种设置，分别为：5M、10M、20M、50M、100M。您可以随时调整 VPN 网关带宽设置，即时生效。
-
-### 如何创建 VPN 网关？
-您好，创建 VPN 网关可以参考以下步骤：
-
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) 后单击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8) 。
-2. 单击左导航栏中【VPN连接】>【VPN网关】选项卡。
-3. 在列表的上端选择私有网络 myVPC 所在广州和私有网络 TomVPC，单击【新建】。
-4. 填写 VPN 网关名称（如：TomVPNGw）选择合适的带宽配置并付款后，VPN网关创建完成之后，系统随机了分配公网 IP，如：203.195.147.82。
-
-### 如何查看 VPN 网关的详细信息？
-您好，查看 VPN 网关详细信息可以参考以下步骤：
-
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) 后单击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8) 。
-2. 单击左导航栏中【VPN连接】>【VPN网关】选项卡。
-3. 单击 VPN 网关 ID 即可进入 VPN 网关详情页查看 VPN 网关信息。
-
-### VPN 网关是如何实现的，可用性如何？
-您好，VPN 网关是通过软件虚拟化实现，通过两个 VSR 子机冗余实现。双子机为热备份，单台故障时另外一台可以无缝切换至备份机，不影响业务正常运行； 
-VPN 通道在公网中运行，公网网络阻塞、抖动会对 VPN 网络质量有影响。如果业务对延时、抖动敏感，建议通过专线接入私有网络。
-
-### 什么是 VPN 通道？
-您好，VPN 网关和对端网关建立后，即可建立 VPN 通道，用于私有网络和外部 IDC 之间的加密通信。当前 VPN 通道支持 IPsec 加密协议，可满足绝大多数 VPN 连接的需求。
-
-VPN 通道在运营商公网中运行，公网的网络阻塞、抖动会对 VPN 网络质量有影响，因此也无法提供 SLA 服务协议保 障。如果业务对延时、抖动敏感，建议通过专线接入私有网络，更多内容可以查看专线接入服务。
-
-腾讯云上的 VPN 通道在实现 IPsec 中使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。
-
-VPN 通道的建立包括以下配置信息：
-- 基本信息
-- SPD（Security Policy Database）策略
-- IKE配置（选填）
-- IPsec配置（选填）
-
-VPN 通道的详细信息请参考：[VPN 通道](https://cloud.tencent.com/document/product/215/4956#vpn.E9.80.9A.E9.81.93) 
-
-### 如何修改 VPN 通道配置？
-您好，修改 VPN 通道配置 可以参考以下步骤：
-
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) 后单击导航条【私有网络】，进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=8) 。
-2. 单击左导航栏中【VPN连接】>【VPN通道】选项卡。
-3. 单击 VPN 网关 ID 即可进入 VPN 网关详情页查看 VPN 网关信息。
-4. 您可以在基本信息页中修改基本信息和 SPD 策略，或者您可以在高级配置修改 IKE 和 Ipsec 配置。
-
-### 如何配置 VPN？
-VPN 配置的详细信息请参考：[VPN 操作指南](https://cloud.tencent.com/document/product/215/4956#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)
-
-### 专线接入和 VPN 连接的区别？
-- VPN 连接利用公网和 IPsec 协议在您的数据中心和私有网络之间建立加密的网络连接。VPN 网关的购买、生效和配置可以在几分钟内完成。但是 VPN 连接可能会受到 Internet 抖动、阻塞等公网质量问题而中断，当用户业务对网络连接质量要求不高时，是一种快速部署的高性价比选择。
-
-- 专线接入则提供了一个您专用的专线网络连接方案，施工时间较长，但可以提供高质量、高可靠的网络连接服务，当用户业务对网络质量和网络安全要求较高时，可以选择此方案进行部署。
+#### [什么是 VPN 网关？](https://cloud.tencent.com/document/product/215/12463)
+#### [如何创建 VPN 网关？](https://cloud.tencent.com/document/product/215/12466)
+#### [如何查看 VPN 网关的详细信息？](https://cloud.tencent.com/document/product/215/12467)
+#### [VPN 网关是如何实现的，可用性如何？](https://cloud.tencent.com/document/product/215/12458)
+#### [什么是 VPN 通道？](https://cloud.tencent.com/document/product/215/12464)
+#### [如何修改 VPN 通道配置？](https://cloud.tencent.com/document/product/215/12465)
+#### [VPN 通道未联通可能原因？](https://cloud.tencent.com/document/product/215/12459)
+#### [如何配置 VPN？](https://cloud.tencent.com/document/product/215/4956#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)
+#### [一个 VPC 可以通过 VPN 连接与多个 IDC 互联么？](https://cloud.tencent.com/document/product/215/12460)
+#### [两个 VPC 之间通信可以通过 VPN 连接实现吗？](https://cloud.tencent.com/document/product/215/12462)
+#### [通过 VPN 连接的私有网络和 IDC 之间的网络质量如何保证？](https://cloud.tencent.com/document/product/215/12468)
+#### [专线接入和 VPN 连接的区别？](https://cloud.tencent.com/document/product/215/12461)

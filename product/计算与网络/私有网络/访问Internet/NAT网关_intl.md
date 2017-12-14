@@ -5,7 +5,7 @@ NAT Gateway is a gateway with the ability to translate private and public IP add
 
 ## Network Topology
 As shown below, NAT gateway is a gateway that resides on the boundary between the Internet and the VPC, and connects to the router on the VPC. In a topology like this, when resources like CVM within the VPC send outgoing data packets via the NAT gateway, the data will firstly move through the router and make routing selection based on the route rules. After that, the NAT gateway will use the bound elastic IP address as the source IP address to send the traffic to the Internet:
-![](//mccdn.qcloud.com/static/img/4772b9bc1e78436104f89f943f06ac97/image.png)
+![](https://mc.qcloudimg.com/static/img/32593cb6e9930b0126889b5a15eb2dc9/image.png)
 
 ## The Difference between NAT Gateway and Public Network Gateway
 Both NAT gateway and public network gateway are used for the CVM in the VPC to access the Internet, but there exist some differences between the two:
@@ -147,6 +147,6 @@ NAT Gateway can be deleted when it is not needed. The routing table and routing 
 2) Select the NAT gateway to be deleted, click "Delete" button. After you confirm the deletion action, the NAT gateway will be deleted.
 
 ## API Overview
-You can use API operations to set and manage your NAT gateway. For more information about other resources in a VPC, please refer to [Overview of All VPC APIs](https://cloud.tencent.com/doc/api/245/909).
+You can use API operations to set and manage your NAT gateway. For more information about other resources in a VPC, please refer to [Overview of All VPC APIs](https://intl.cloud.tencent.com/document/product/215/909).
 
 

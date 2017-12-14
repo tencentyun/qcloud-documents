@@ -843,7 +843,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 ### 5.2 配置AndroidManifest.xml文件
 
-应用要集成华为推送，必须集成华为推送的客户端SDK，可以到 [华为开发者中心](http://developer.huawei.com/cn/consumer/wiki/index.php?title=PushSDK%E4%B8%8B%E8%BD%BD) 进行下载。下载完成后，解压，将libs目录中的`HwPush_SDK_V**.jar`库文件添加到自己应用的`libs`库目录下，并添加引用。
+应用要集成华为推送，必须集成华为推送的客户端SDK，可以到 [华为开发者中心](http://developer.huawei.com/consumer/cn/service/hms/catalog/huaweipush.html?page=hmssdk_huaweipush_sdkdownload) 进行下载。下载完成后，解压，将libs目录中的`HwPush_SDK_V**.jar`库文件添加到自己应用的`libs`库目录下，并添加引用。
 
 #### 5.2.1 添加华为推送必须的权限
 

@@ -49,7 +49,7 @@
 | end_time    | End time of the part |   string  |  The time cannot be accurate to seconds due to interference of the I frame position  |
 | file_id        | VOD file_id     |   string  |  This parameter is required when you use the VOD API to exchange for playback URL |
 | record_file_url | Playback address | string | This field is used as the address. If left empty, the address will be the vid which is assembled based on assembly format  |
-**vid assembly format: URL format for video part recording requests: http://(VOD bizid).vod.myqcloud.com/(vid).f0.flv**
+**vid assembly format: URL format for video part recording requests: `http://(VOD bizid).vod.myqcloud.com/(vid).f0.flv` **
 
  
 ## 4. Example

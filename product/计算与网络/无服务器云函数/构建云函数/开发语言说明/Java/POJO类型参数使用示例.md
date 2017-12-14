@@ -27,11 +27,11 @@
 
 ## 代码准备
 
-根据入参已经设计的四个类和入口函数，按接下来的步骤进行准备
+根据入参已经设计的四个类和入口函数，按接下来的步骤进行准备。
 
 ### 项目目录准备
 
-创建项目根目录，例如 `scf_example`
+创建项目根目录，例如 `scf_example`。
 
 ### 代码目录准备
 
@@ -235,11 +235,11 @@ public class ResponseClass {
 
 如果编译失败，请根据提示进行相应修改。
 
-编译后的生成包位于`target\java-example-1.0-SNAPSHOT.jar`
+编译后的生成包位于 `target\java-example-1.0-SNAPSHOT.jar`。
 
 ## SCF 云函数创建及测试
 
-根据指引，创建云函数，并使用编译后的包作为提交包上传。您可以自行选择使用zip上传，或先上传至 COS Bucket后再通过选择 COS Bucket上传来提交。
+根据指引，创建云函数，并使用编译后的包作为提交包上传。您可以自行选择使用 zip 上传，或先上传至 COS Bucket后再通过选择 COS Bucket上传来提交。
 
 云函数的执行方法配置为 `example.Pojo::handle`。
 
@@ -261,4 +261,4 @@ public class ResponseClass {
 }
 ```
 
-您也可以自行修改测试入参内结构的value内容，运行后可以看到修改效果。
+您也可以自行修改测试入参内结构的 value 内容，运行后可以看到修改效果。

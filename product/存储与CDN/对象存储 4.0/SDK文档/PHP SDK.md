@@ -4,7 +4,6 @@
 
 [cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)（本版本SDK基于JSON API封装组成）
 
-[PHP SDK 本地下载](https://github.com/tencentyun/cos-php-sdk-v4/archive/master.zip)
 
 ### 开发环境
 
@@ -319,7 +318,7 @@ $dstPath = "/myFolder/test.mp4";
 $bizAttr = "";
 $insertOnly = 0;
 $sliceSize = 3 * 1024 * 1024;
-$result = $cosApi->upload($srcPath,$bucketName,dstPath ,"biz_attr");
+$result = $cosApi->upload($bucketName, $srcPath, $dstPath ,"biz_attr");
 ```
 
 ### 文件属性更新

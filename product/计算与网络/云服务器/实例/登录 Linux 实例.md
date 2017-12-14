@@ -30,7 +30,7 @@
 ### 登录工具
 使用 **远程登录软件** ，采用密码登录 Linux 实例（本例中选择使用 PUTTY，用户也可以选择其他类型的登录软件）。
 ### 操作步骤
-1. 安装 Windows 远程登录软件，参考下载地址：http://www.putty.nl/download.html
+1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 2. 使用 PUTTY 连接 Linux 云服务器。打开Putty客户端，在PuTTY Configuration 窗口中输入以下内容：
 	>- Host Name：云服务器的公网 IP（登录 [云服务器控制台](https://console.cloud.tencent.com)，可在列表页及详情页中获取主机公网IP）。
@@ -51,7 +51,7 @@
 使用 **远程登录软件** ，采用 SSH 密钥登录 Linux 实例（本例中选择使用 PUTTY，用户也可以选择其他类型的登录软件）。
 
 ### 操作步骤
-1. 安装 Windows 远程登录软件，参考下载地址：http://www.putty.nl/download.html ，分别下载 putty.exe 及 puttygen.exe 两个文件。
+1. 安装 Windows 远程登录软件，参考下载地址：https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html ，分别下载 putty.exe 及 puttygen.exe 两个文件。
 
 2. 选择私钥。打开 puttygen.exe，单击【Load】按钮，在弹窗中首先进入您存放前提条件中下载下来的私钥的路径，然后选择“All File（\*.\*）”，选择下载好的私钥（例子中为文件david，david是密钥的名称），单击【打开】。
 ![](//mccdn.qcloud.com/img56a5c48fb810a.png)

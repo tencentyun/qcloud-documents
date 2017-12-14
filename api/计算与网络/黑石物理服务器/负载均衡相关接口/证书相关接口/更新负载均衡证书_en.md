@@ -2,7 +2,7 @@
  
 This API (ReplaceBmCert) is used to update certificate for BM load balancer.
 
-Domain for API request:bmlb.api.qcloud.com
+Domain for API request:bmlb.api.cloud.tencent.com
 
 
 ## 2. Input Parameters
@@ -48,8 +48,7 @@ Module Error Codes
  
 Input
 
-<pre>
-https://domain/v2/index.php?Action=ReplaceBmCert
+<pre>`https://domain/v2/index.php?Action=ReplaceBmCert`
 &<<a href="https://cloud.tencent.com/document/product/386/6718">Public Request Parameters</a>>
 &oldCertId=abcdefgh
 &newCert=-----BEGIN CERTIFICATE-----

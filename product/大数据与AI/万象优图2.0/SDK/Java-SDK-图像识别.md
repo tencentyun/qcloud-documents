@@ -1,11 +1,10 @@
 ## 开发准备
 ### SDK获取
 万象优图的 java SDK 下载地址：[image-java-sdk-v2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
-### 简介
-java sdk for picture service of tencentyun.
+
 ## 快速入门
 ### 在腾讯云申请业务的授权
-授权包括：APPID，SecretId，SecretKey，以及存储桶名。可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937)。
+开发者使用前，需要先进行 [腾讯云账号注册](https://cloud.tencent.com/register)（详细指引请参考 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)），并 [创建存储桶](https://cloud.tencent.com/document/product/460/10637)，从而获得 APPID 、SecretId 和 SecretKey 等（获取 APPID 可参考 [域名管理](https://cloud.tencent.com/document/product/460/6937)）。
 ### 创建对应操作类的对象
 如果要使用图片，需要创建图片操作类对象
 ```

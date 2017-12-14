@@ -3,15 +3,20 @@
 
 ## SDK发布日志
 ### Version 2.6.0
-1、支持单SDK订阅多个通道2、支持订阅Client的stop，start等操作3、支持DataMessage.Record的序列化4、优化SDK的性能，降低资源消耗
+1、支持单SDK订阅多个通道
+2、支持订阅Client的stop，start等操作
+3、支持DataMessage.Record的序列化
+4、优化SDK的性能，降低资源消耗
 
 ### Version 2.5.0
 1、修复高并发情况下小概率出现的bug
-2、支持事务中记录的全局唯一自增的ID
+
+2、支持事务中记录的全局唯一自增的ID
 
 ### Version 2.4.0
 1、配合后台优化了订阅的逻辑，可以精确显示SDK当前的消费时间点
-2、修复了后台的少数特殊字符的编码问题
+
+2、修复了后台的少数特殊字符的编码问题
 
 3、**修复了多项兼容性问题，建议更老版本用户尽快升级至此版本**
 
@@ -252,11 +257,17 @@ public void start() throws Exception
 #### **停止SDK客户端**
 ---
 ##### 函数原型
+public void stop(int waitSeconds) throws Exception
+
 public void stop() throws Exception
 
 ##### 输入参数
 
-无
+| 参数名 | 类型 | 参数含义 |
+|:-------------:|:-------------|:-------------|
+| waitSeconds | int| 等待时间，单位为秒，表示等待多久开始强制停止SDK的运行 |
+
+其中，不带参数的stop函数会耐心等待线程停止，可能等待的时间较长，具体时间由系统的调度决定；建议对重启时间有要求的场景，始终使用带超时时间的stop函数。
 
 ##### 返回结果
 无
@@ -264,6 +275,7 @@ public void stop() throws Exception
 ##### 抛出异常
 
  - Exception：如果SDK内部关闭出错，将抛Exception异常
+
 
 ## ClusterListener接口
 ---
@@ -642,4 +654,4 @@ public Boolean isPrimary()
 ##### 抛出异常
 无
 
-[1]:	//mc.qcloudimg.com/static/archive/5856b1ce3c0be2f43fc7afc23ee52d42/binlogsdk-2.6.0-release.jar.zip
+[1]:	//mc.qcloudimg.com/static/archive/2a5032c6100b9cb3316f978bb32519e5/binlogsdk-2.6.0-release.jar.zip

@@ -82,17 +82,16 @@ dimensions.0.value为实例的资源 Id
 ## 5. 示例
 
 输入
-
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/sqlserver
 &metricName=cpu
 &dimensions.0.name=resourceId
 &dimensions.0.value=mssql-dh01nvsb
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-```
+</pre>
 
 输出
 

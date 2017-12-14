@@ -15,7 +15,7 @@ The following table describes API operations of Cloud Container Service (CCS) th
 | DescribeClusterServiceInfo | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
 | CreateClusterService | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId`<br>Load balance resource<br>`qcs::clb:$region:$account:clb/*`<br>Cloud disk resource<br>`qcs::cvm:$region:$account:volume/*`<br>`qcs::cvm:$region:$account:volume/$diskId` |
 | ModifyClusterService | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId`<br>Load balance resource<br>`qcs::clb:$region:$account:clb/*`<br>Cloud disk resource<br>`qcs::cvm:$region:$account:volume/*`<br>`qcs::cvm:$region:$account:volume/$diskId` |
-| DeleteClusterService |Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId`<br>Load balance resource<br>`qcs::clb:$region:$account:clb/*`<br>Cloud disk resource<br>`qcs::cvm:$region:$account:volume/*` |
+| DeleteClusterService |Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
 | ModifyServiceDescription| Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
 | DescribeServiceEvent| Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
 | ResumeClusterService | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
@@ -31,7 +31,7 @@ The following table describes API operations of Cloud Container Service (CCS) th
 | DeleteClusterNamespace | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
 | DescribeCluster | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
 | CreateCluster | CVM resource<br>`qcs::cvm:$region:$account:instance/*` |
-| DeleteCluster | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId`<br>Load balance resource<br>`qcs::clb:$region:$account:clb/*`<br>Cloud disk resource<br>`qcs::cvm:$region:$account:volume/*` |
+| DeleteCluster | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId`|
 | DescribeClusterInstances | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId` |
 | AddClusterInstances | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId`<br>CVM resource<br>`qcs::cvm:$region:$account:instance/*` |
 | DeleteClusterInstances | Cluster resource<br>`qcs::ccs:region:account:cluster/*`<br>`qcs::ccs:region:account:cluster/$clusterId`<br>CVM resource<br>`qcs::cvm:$region:$account:instance/*`<br>`qcs::cvm:$region:$account:instance/$instanceId` |

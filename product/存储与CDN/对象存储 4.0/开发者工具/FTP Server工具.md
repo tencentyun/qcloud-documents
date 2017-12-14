@@ -17,8 +17,8 @@ GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-se
 python setup.py install   # 这里可能需要sudo或者root权限
 ```
 
-### 使用限制
-适用于 COS V5 版本 XML 接口
+### 特别说明
+本工具使用 COS XML 接口开发
 
 ## 功能说明
 #### 上传机制
@@ -77,17 +77,28 @@ masquerade_address = XXX.XXX.XXX.XXX
 # 当 FTP Server 处于某个网关或 NAT 后时，可以通过该配置项将网关的 IP 地址或域名指定给 FTP Server。一般情况下，无需配置。
 listen_port = 2121
 # Ftp Server 的监听端口，默认为 2121，请注意防火墙需要放行该端口。
-passive_ports = 60000,65535             # #passive_port可以设置passive模式下，端口的选择范围，默认在(60000, 65535)区间上选择
+passive_ports = 60000,65535             
+# passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择。
 
 [FILE_OPTION]
 single_file_max_size = 21474836480
 # 默认单文件大小最大支持到 200 GB，不建议设置太大。
+
+[OPTIONAL]
+# 以下设置，如无特殊需要，建议保留default设置。如需设置，请填写一个合理的整数。
+min_part_size       = default
+upload_thread_num   = default
+max_connection_num  = 512
 ```
+配置中OPTIONAL选项是用于调整上传性能的可选项，一般情况下保持默认值即可。根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度。 max_connection_num 为最大连接数的限制选项，设置为0表示不限制最大连接数，可以根据机器情况进行调整。 
 ## 运行
 正确填写配置文件后，直接通过 Python 运行根目录下的`ftp_server.py`即可启动 FTP Server。也可以配合screen 的命令将 FTP Server 放到后台运行。
 ```
 python ftp_server.py
 ```
+运行命令后，见到如下图示，即代表 FTP Server 服务启动成功，您可以开始使用 FTP 客户端对配置的 IP 和端口进行访问了。
+![运行成功](//mc.qcloudimg.com/static/img/7bbb20b2ba2c6cf9678a47d8753499cc/image.png)
+
 ## 停止
 `Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
 ## FAQ

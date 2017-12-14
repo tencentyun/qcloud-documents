@@ -1,4 +1,4 @@
-﻿## 1. API Description
+## 1. API Description
 
 This API (SetSubscriptionAttributes) is used to modify the attributes of a subscription.
 

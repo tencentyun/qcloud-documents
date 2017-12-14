@@ -1,7 +1,7 @@
 ## 1 iOS 接入
 
 ### 1.1 SDK 获取
-智营网优 iOS SDK 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/12b7fd970dd3791d6a83fd5c4618fb33/archive.zip).
+智营网优 iOS SDK 1.1.0 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/4ab5f30bd830cb54bb06a133280f297b/IOSv1.1.0.zip).
 
 ### 1.2 SDK 配置
 #### 1.2.1 安装包结构
@@ -65,7 +65,7 @@
 
 |参数 | 含义 | 
 |---------|---------|
-| appid | 惟一标识该应用 | 
+| appid | 惟一标识该应用,即腾讯云控制台加速服务的游戏ID | 
 | isDebug | 控制 log 的输出方便联调 | 
 | zoneid | 玩家大区 ID | 
 | isReleaseEnv | 云控正式环境，默认直接填 YES 即可 | 
@@ -148,4 +148,103 @@
 -(void)MNARealTimeQuery:(NSString *)tag withGhCompletionHandler:(void (^)(MNAKartinRet *))handler;
 ```
 参数`tag`，作为标识每一次查询的 ID。
+
+返回参数MNAKartinRet类型说明：
+
+```
+NSString * tag; // 游戏传入的Tag
+int flag; // 查询成功标识，若为0则成功
+NSString * desc; // 查询flag的具体描述
+int jump_network; // 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: wifi
+int jump_signal; // 信号强度
+int signal_status = -1; // 0表示绿色，信号强；1表示黄色，信号弱；2表示红色，信号极弱
+NSString * signal_desc = ""; // 3、信号强度描述
+int jump_router; // ping路由时延
+int router_status = -1; // ping状态,0表示绿色，时延低；2表示红色，时延高
+NSString * router_desc = ""; // ping描述
+int jump_export = -1; // 宽带或基站出口时延  
+// export状态,0表示绿色，时延低；2表示红色，时延高  
+int export_status = -1; // 宽带出口和基站出口状态
+NSString * export_desc = ""; //宽带出口和基站出口描述
+int jump_proxy; // ping代理时延
+int jump_edge; // ping边缘时延
+int jump_terminal; // wifi终端数 
+// terminal状态,0表示绿色终端数少；2表示红色，时延高   
+int terminal_status = -1; //wifi终端数状态
+NSString * terminal_desc = ""; //wifi终端数描述
+int jump_terminal; // wifi终端数
+int jump_direct; // 直连测速时延
+// 直连状态,0表示绿色时延低；2表示红色，时延高
+int direct_status; // 直连测速时延状态
+int direct_desc; // 直连状态的描述
+// 网卡状态, 0表示绿色网卡无问题；2表示红色网卡有问题
+int netinfo_status; // 网卡状态
+int netinfo_desc; // 网卡情况具体描述
+
+```
+
+### 4.3 附录3  KartinRet 关键参数取值及其说明如下
+#### 字段：flag；关键名称：查询结果标识
+| 取值 | 含义 | 
+|---------|---------|
+| 0 | 查询成功 | 
+| -1 | 表明无网络 | 
+| -2 | 表明请求云控失败，重新调用一次 | 
+| -3 | 表明初始化 SDK 失败 | 
+| -4 | 当前网络类型发生了变化，请稍后再试 | 
+| -5 | 2G 网络不适合游戏，无法检测 | 
+
+#### 字段：jump_network；关键名称：网络类型
+| 取值 | 含义 | 
+|---------|---------|
+| 0 | 无网络或网络类型无法识别 | 
+| 1 | 2G | 
+| 2 | 3G | 
+| 3 | 4G | 
+| 4 | Wi-Fi | 
+
+#### 字段：jump_signal；关键名称：信号强度（仅 Wi-Fi）
+| 取值 | 含义 | 
+|---------|---------|
+| -1 | 获取强度失败，请稍后再试 | 
+| 0..4 | Wi-Fi 信号强度 | 
+
+#### 字段：jump_router；关键名称：路由器时延（仅 Wi-Fi）
+| 取值 | 含义 | 
+|---------|---------|
+| -1 | 不支持路由延迟查询 | 
+| -2 | 获取路由器延迟失败，请稍后再试 | 
+| 0..1000 | 当前路由器的延迟值 | 
+
+#### 字段：jump_terminal；关键名称：共享 Wi-Fi 设备数（仅 Wi-Fi）
+| 取值 | 含义 | 
+|---------|---------|
+| -1 | 仅在WIFI模式下支持共享 Wi-Fi 设备查询 | 
+| 0..254 | 链接相同 Wi-Fi 的设备数 | 
+
+#### 字段：jump_export；关键名称：宽带出口时延
+| 取值 | 含义 | 
+|---------|---------|
+| -1 | 获取社区延迟失败，请稍后再试 | 
+| -2 | 抱歉，当前所在区域网络不支持社区宽带延迟查询 | 
+| 0..500 | 带宽出口时延值 | 
+
+#### 字段：jump_direct；关键名称：直连时延
+| 取值 | 含义 | 
+|---------|---------|
+| -1 | 获取直连延迟失败，请稍后再试 | 
+| 0..800 | 网络时延值 | 
+
+#### 字段：netinfo_desc；关键名称：直连时延
+| 取值 | 含义 | 
+|---------|---------|
+|   | 当前网卡有丢包或错包，不适合游戏 |   
+
+具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）
+
+WIFI 直连环境下图示如下：
+![](https://mc.qcloudimg.com/static/img/8be2ccf30041db352caed1d98b524bab/wifi-android.png)
+
+4G 直连环境下图示如下：
+![](https://mc.qcloudimg.com/static/img/f62992074419d7e3a8e90c53a7112cf1/4g-android.png)
 

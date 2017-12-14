@@ -1,10 +1,10 @@
 Monitor Overview allows you to access the overall monitoring information of your cloud products, including the exceptions detected during the monitoring. They are:
 
-## CVM Ping Unreachable
-The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "ping Unreachable" are displayed. You should pay close attention to these unrecovered CVM alarms, because they probably affect normal operation of your business.
+## CVM Unreachable Ping 
+The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "ping Unreachable" for nearly one month are displayed. You should pay close attention to these unrecovered CVM alarms, because they probably affect normal operation of your business.
 
 ## CVM Disk is Read-only
-The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "Disk is Read-only" are displayed. Such exception may affect the business that requires data writing in the CVM.
+The number of alarms with the policy type of "CVM", the alarm status of "Not Recovered" and the alarm type of "Disk is Read-only" for the recent month are displayed. Such exception may affect the business that requires data writing in the CVM.
 
 ## CVM Failed to Be Monitored
 
@@ -12,7 +12,7 @@ Such exception may occur if you did not install [Agent](https://cloud.tencent.co
 
 1. Check if barad_agent is installed
 
-   If you don't install the agent in your CVM, we can't do a detailed monitoring for your CVM, and can't inform you in case of any failure, which is high risky. For more information on installing monitoring components, please see [Install Monitoring Components](/ doc / product / 248/6211).
+   If you don't install the agent in your CVM, we can't do a detailed monitoring for your CVM, and can't inform you in case of any failure, which is high risky. For more information on installing monitoring components, please see [Install Monitoring Components](https://cloud.tencent.com/document/product/248/6211).
 
 2. If you have installed the agent on your CVM, check if the barad_agent log is rolled every minute in real time and reported successfully 
 

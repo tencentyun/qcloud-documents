@@ -1,83 +1,79 @@
-## Price Description of Block Storage Devices
-<table class="cvmMonth">
+### Price List
+<table>
         <tbody><tr>
-            <th style="width: 10%;" rowspan="2">Item</th>
-            <th style="width: 40%;" colspan="2">Local disk</th>
-            <th style="width: 50%;" colspan="3">Cloud disk</th>
+            <th style="width:30%;" rowspan="2">CBS</th>
+            <th style="width:70%;" colspan="3">Postpaid price (USD/GB*hour)</th>
         </tr>
         <tr>
-            <th>Local HDD</th>
-            <th>SSD local disk</th>
-			<th>HDD cloud disk</th>
-			<th>SSD cloud disk</th>
-            <th>Premium cloud disk</th>
+            <th>HDD Cloud Storage</th>
+            <th>High-performance Cloud Disk</th>
+            <th>SSD Cloud Disk</th>
         </tr>
         <tr>
-            <td>Capacity of a single disk (used as a data disk)</td>
-            <td>10 GB - 1,000 GB</td>
-            <td>10 GB - 250 GB</td>
-						<td>10 GB - 16,000 GB</td>
-            <td>250 GB - 4,000 GB</td>
-            <td>50 GB - 4,000 GB</td>
+            <td rowspan="2">Guangzhou, <br>Beijing,<br> Shanghai<br></td>
+            <td rowspan="2">USD $0.0001</td>
+            <td rowspan="2">USD $0.0002</td>
+            <td rowspan="2">USD $0.0003</td>
+        </tr>
+        </tbody>
+</table>
+
+### Disk Type
+<table>
+        <tbody><tr>
+            <th style="width: 20%;">CBS volume type</th>
+            <th style="width: 20%;">HDD Cloud Storage<br>(HDD Cloud Storage)</th>
+            <th style="width: 30%;">HDD-SSD Fusion Cloud Storage<br>(HDD-SSD Fusion Cloud Storage)</th>
+            <th style="width: 30%;">SSD Cloud Storage<br>(SSD Cloud Storage)</th>
         </tr>
         <tr>
-            <td>Maximum throughput</td>
-            <td>40-hundreds MB/s</td>
-            <td>300 MB/s</td>
-						<td>40-100 MB/s</td>
-            <td>150-260 MB/s</td>
-            <td>75-130 MB/s</td>
-        </tr>
-					<tr>
-            <td>Formula for calculating throughput performance </td>
-            <td>N/A</td>
-            <td>N/A</td>
-						<td>N/A</td>
-            <td>Throughput={min 150+0.147*(purchased capacity-250 GB), max 260} MB/s<br>
-The minimum throughput value is 150 MB/s with an increment of 0.147 MB/s per GB and the upper limit is 260 MB/s;</td>
-            <td>Throughput={min 75+disk capacity*0.147, max 130} MB/s<br>The minimum throughput value is 75 MB/s, and the upper limit is 130 MB/s;
-</td>
+            <td>Description</td>
+            <td>Low-cost HDD volume type suitable for normal workloads</td>
+            <td>Hybrid medium volume type that balances price and performance for core workloads</td>
+			<td>SSD volume type suitable for core transactional workloads that are latency-sensitive</td>
         </tr>
         <tr>
-            <td>Maximum IOPS</td>
-            <td>Hundreds-2,000</td>
-            <td>30,000</td>
-						<td>Hundreds-1,000</td>
-            <td>6,000-24,000</td>
-            <td>1,500-4,500</td>
+            <td>Typical use cases</td>
+            <td>Big data, data warehouse, log processing</td>
+            <td>Business logic processing, applications with low latency</td>
+			<td>Relational databases and NoSQL databases</td>
         </tr>
-				<tr>
-            <td>Formula for calculating IOPS performance</td>
-            <td>N/A</td>
-            <td>N/A</td>
-						<td>N/A</td>
-            <td>IOPS={min 6,000+24*capacity, max 24,000}<br>
-24 IOPS are provided per GB, and the upper limit is 24,000; the minimum IOPS value is 6,000;</td>
-            <td>IOPS={min 1,500+8*capacity, max 4,500}<br>
-8 IOPS are provided per GB, and the upper limit is 4,500; the minimum IOPS value is 1,500;
-</td>
+        <tr>
+            <td>Data persistence</td>
+            <td>99.999999%</td>
+            <td>99.999999%</td>
+			<td>99.999999%</td>
         </tr>
-								<tr>
-            <td>Price</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/100G/hour</td>
-            <td>Annual or monthly plan: RMB 0.8/GB/month<br>
-Pay by usage: RMB 0.33/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.3/GB/month<br>
-Pay by usage: RMB 0.042/hour/100GB</td>
-						<td>Annual or monthly plan: RMB 1.1/GB/month<br>
-Pay by usage: RMB 0.332/hour/100GB</td>
-            <td>Annual or monthly plan: RMB 0.35/GB/month<br>
-Pay by usage: RMB 0.09/hour/100GB</td>
+        <tr>
+            <td>Disk size</td>
+            <td>10 GB - 16 TB</td>
+            <td>50 GB - 4 TB</td>
+			<td>100 GB - 4 TB</td>
         </tr>
-        
+        <tr>
+            <td>Maximum IOPS for single disk</td>
+            <td>1000</td>
+            <td>4500</td>
+			<td>24000</td>
+        </tr>
+        <tr>
+            <td>Maximum throughput for single disk</td>
+            <td>100 MB/sec</td>
+            <td>130 MB/sec</td>
+			<td>260 MB/sec</td>
+        </tr>
+        <tr>
+            <td>Access latency</td>
+            <td><10 ms</td>
+            <td><3 ms</td>
+			<td><3 ms</td>
+        </tr>
     </tbody></table>
-    
-**Note:**
 
-- System disk must be purchased when you purchase a CVM, and cannot be purchased separately.
 
-- You can enjoy 2-month discount if you choose annual or monthly plan. In other words, annual billing price equals monthly price multiplied by 10.
+
+
+
  
  
 

@@ -1,4 +1,4 @@
-After the alarm policy is created, it is essential for you to associate some alarm objects to it to determine which instance objects will send alarms if the alarm trigger conditions are reached.
+After the alarm policy is created, it is essential for you to associate some alarm objects with it to determine which instance objects will send alarms if the alarm trigger conditions are reached.
 
 ## Adding Associated Objects
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click the "Alarm Policy" button.

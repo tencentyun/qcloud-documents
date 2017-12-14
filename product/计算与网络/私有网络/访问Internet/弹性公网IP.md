@@ -21,7 +21,7 @@
 
 ## 弹性公网IP不通原因排查方法
 弹性公网IP不通一般有如下原因：
-- 弹性 IP 地址没有绑定云产品。具体绑定方法见 <a href="https://cloud.tencent.com/document/product/213/10656?!preview&lang=cn#jump2" target="_blank">弹性公网 IP 绑定云产品</a> 。
+- 弹性 IP 地址没有绑定云产品。具体绑定方法见弹性公网 IP 绑定云产品。
 - 安全策略无效。查看是否有生效的安全策略（ <a href="https://cloud.tencent.com/doc/product/213/5221" target="_blank">安全组</a> 或 <a href="https://cloud.tencent.com/doc/product/215/5132" target="_blank">网络 ACL</a> )。如果绑定的云产品实例有安全策略，例如：禁止 `8080` 端口访问，那么弹性公网 IP 的 `8080` 端口也是无法访问的。
 
 ## NAT网关和弹性公网IP的使用

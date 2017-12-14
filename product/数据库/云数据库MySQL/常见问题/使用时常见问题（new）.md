@@ -82,7 +82,7 @@ MySQL 实例的配置由云数据库统一管理，并支持部分参数的自�
 可通过云数据库数据导出工具获取慢查询日志，详见 <a href="https://cloud.tencent.com/document/product/236/7274" target="_blank">下载备份文件</a>。
 
 ## 19. 开发者自己如何备份数据？
-云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见[手动备份与恢复云数据库](https://cloud.tencent.com/document/product/236/7275?!preview&lang=cn)，或者通过 mysqldump 工具自己备份数据。
+云数据库实例每天会进行全量备份，开发者也可以采用云数据库提供的多线程快速导入导出工具进行备份，详见[手动备份与恢复云数据库](https://cloud.tencent.com/document/product/236/7275)，或者通过 mysqldump 工具自己备份数据。
 
 ## 20. 如何申请云数据库实例 slave 只读权限开放/关闭？
 如果需要开放或关闭 slave 只读实例，请按照模版提交工单申请。

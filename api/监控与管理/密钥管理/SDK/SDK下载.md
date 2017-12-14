@@ -35,9 +35,9 @@ github地址如下：
 
 endpoint 说明：
 	
-内网endpoint：https://kms-region.api.tencentyun.com
+内网endpoint：`https://kms-region.api.tencentyun.com`
 
-公网endpoint：https://kms-region.api.qcloud.com
+公网endpoint：`https://kms-region.api.qcloud.com`
 
 - 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网 endpoint。例如在腾讯云北京地域的 CVM 子机则建议您使用 `https://kms-bj.api.tencentyun.com`。
 原因是：1）同地域内网时延更低；2）目前KMS对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。

@@ -5,6 +5,7 @@
 
 2. 输入调用 API 的默认参数，单击【发送请求】。
 ![调试](//mc.qcloudimg.com/static/img/9d95ca1579a8fefa2bb0f11be7b2355f/image.png)
+> 如果非必填参数，用户不填写任何参数，则默认 API 网关会给后端传一个 null。
 
 3. 右侧会展示调用 API 的返回结果。
 ![调试结果](//mc.qcloudimg.com/static/img/e84bc7854788295b9fe0b05e8791d019/image.png)

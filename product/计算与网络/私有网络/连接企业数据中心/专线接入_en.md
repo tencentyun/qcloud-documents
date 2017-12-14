@@ -230,7 +230,7 @@ Modifying: Click "Modify IP Port Mapping" to the right of the line where the IP 
 4)	Click "Save".
 
 ### Step 6: Setting the alarm
-1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.cloud.tencent.com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
 2)	Fill in the Policy Name, select "Physical Direct Connect" or "Direct Connect Tunnel" in Policy Type, and then add the Hit Condition.
 3)	**Associate alarm objects**: select the alarm receiver group. You can view the set alarm policy in the policy list after you click "Complete".
 4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).

@@ -1,5 +1,5 @@
 LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍 SUSE 下的 LNMP 环境搭建。
-本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [SUSE 环境下通过 YaST 安装软件](doc/product/213/SUSE%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%80%9A%E8%BF%87YaST%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6) 。
+本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [Opensuse 环境下通过 YaST 安装软件](https://cloud.tencent.com/document/product/213/2047) 。
 
 ## 安装配置 Nginx
 1. 自动安装 Nginx。输入命令：

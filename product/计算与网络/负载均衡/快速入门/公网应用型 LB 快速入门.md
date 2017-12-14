@@ -78,9 +78,9 @@ CVM2 的/text页面
 ## 2. 购买并配置公网应用型LB
 
 ### 2.1 购买应用型负载均衡
-在负载均衡的[购买页](https://buy.cloud.tencent.com/lb)选择公网应用型负载均衡。需要注意的是，选取某一地域的负载均衡后（如广州区域的LB），当前该负载均衡下只支持绑定同一地域、不同可用区的后端云服务器（支持绑定广州二区、广州三区的CVM）。创建完成后，就可以体验应用型LB丰富的能力了！
+在负载均衡的[购买页](https://buy.cloud.tencent.com/lb)选择应用型负载均衡。需要注意的是，选取某一地域的负载均衡后（如广州区域的LB），当前该负载均衡下只支持绑定同一地域、不同可用区的后端云服务器（支持绑定广州二区、广州三区的CVM）。创建完成后，即可体验应用型LB的丰富功能
 
-![](https://mc.qcloudimg.com/static/img/0dc79d07fec5a1998b98f37bd17334d5/005.png)
+![](https://mc.qcloudimg.com/static/img/bb98d1b01df00c7d64a9fa665bc81ed1/123.jpg)
 
 ### 2.2 配置监听器、转发组和转发规则，绑定云主机
 购买完成后，在【LB详情】-【监听器管理】页面，可以查看该LB实例绑定的监听器信息，单击【新建】创建一个HTTP监听器
@@ -113,7 +113,7 @@ CVM2 的/text页面
 
 ![](https://mc.qcloudimg.com/static/img/8aa703e2da557010210f23b52da56f87/013.png)
 
-接下来，可以分别输入http://www.example.com/image/和 https://www.example2.com/text/ 来测试请求是否能通过LB访问后端服务器。（注意，image/和text/后面的/很重要哦，因为这个代表了image和text是两个默认的目录，而不是名为image和text的文件）
+接下来，可以分别输入 `http://www.example.com/image/` 和 `https://www.example2.com/text/` 来测试请求是否能通过LB访问后端服务器。（注意，image/和text/后面的/很重要哦，因为这个代表了image和text是两个默认的目录，而不是名为image和text的文件）
 
 ![](https://mc.qcloudimg.com/static/img/82360f96ea78984030d7378b35ee48e0/014.png)
 
@@ -150,7 +150,7 @@ CVM2 的/text页面
 
 
 ### 3.2 验证服务
-最后一步，我们可以通过访问http://www.example.com/image/ 来验证，是否请求会被自动重定向到如下地址https://www.example2.com/text/
-如果输入http://www.example.com/image/ 之后，出现如下页面，那么恭喜你，重定向配置也完成了！
+最后一步，我们可以通过访问 `http://www.example.com/image/` 来验证，是否请求会被自动重定向到如下地址 `https://www.example2.com/text/`
+如果输入 `http://www.example.com/image/` 之后，出现如下页面，那么恭喜你，重定向配置也完成了！
 
 ![](https://mc.qcloudimg.com/static/img/591798ef620f8a72d9904197ca06c9a2/020.png)

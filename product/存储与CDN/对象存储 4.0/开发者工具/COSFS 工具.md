@@ -24,6 +24,28 @@ sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
 
+注意在centos6.5及较低版本，可能会提示fuse版本太低，在安装过程的configure操作时返回
+```
+ checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
+  Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
+```
+此时，你需要来手动安装fuse版本，具体步骤
+```
+ # yum remove -y fuse-devel
+  # wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.8.4.tar.gz
+  # tar -zxvf fuse-2.8.4.tar.gz
+  # cd fuse-2.8.4
+  # ./configure
+  # make
+  # make install
+  # export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
+  # modprobe fuse
+  # echo "/usr/local/lib" >> /etc/ld.so.conf
+  # ldconfig
+  # pkg-config --modversion fuse   
+  2.8.4   //看到版本表示安装成功  
+```
+
 ## 使用方法 
 ### 获取工具 
 Github 获取地址： [COSFS 工具](https://github.com/tencentyun/cosfs-v4.2.1)

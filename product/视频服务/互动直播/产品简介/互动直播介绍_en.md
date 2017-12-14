@@ -1,6 +1,6 @@
 ##  1. What is ILVB?
 
-**ILVB** (Interactive Live Video Broadcasting) is a <font size = 4 color=008c00>"Real-time Multi-Stream Audio and Video Interaction"</font> solution. Please see [Typical Scenarios](https://cloud.tencent.com/doc/product/268/3160)
+**ILVB** (Interactive Live Video Broadcasting) is a "**Real-time Multi-Stream Audio and Video Interaction**" solution. Please see [Typical Scenarios](https://cloud.tencent.com/doc/product/268/3160)
 
 - Compared to one-way live broadcasting, ILVB allows **viewers to "show themselves and speak"**, thus has a higher requirement for real-timeness and anti-echo capability.
 

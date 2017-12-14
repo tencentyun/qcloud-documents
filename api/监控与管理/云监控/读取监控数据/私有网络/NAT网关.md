@@ -70,9 +70,9 @@ dimensions.1.value为私有网络ID
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/nat_gateway
 &metricName=inpkg
 &dimensions.0.name=natId
@@ -81,7 +81,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &dimensions.1.value=vpc-4d545d
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-```
+</pre>
 
 输出
 

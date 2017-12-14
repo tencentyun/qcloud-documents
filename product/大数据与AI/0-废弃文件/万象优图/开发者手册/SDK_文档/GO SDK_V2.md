@@ -7,7 +7,6 @@
 ### 1.2	导入SDK
 1. 导入go-sdk包
 在开发环境命令行直接执行下面的命令导入go-sdk包。
-
 ```
 go get github.com/tencentyun/go-sdk
 ```

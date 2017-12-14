@@ -2,7 +2,7 @@
 
 | 指标中文名 | 指标英文名 | 单位 |维度|
 |---------|---------|---------|---------|
-|慢查询数|slow_queries|次/秒|uInstanceId|
+|慢查询数|slow_queries|次/分|uInstanceId|
 |全表扫描数|select_scan|次/秒|uInstanceId|
 |查询数|select_count|次/秒|uInstanceId|
 |更新数|com_update|次/秒|uInstanceId|
@@ -63,12 +63,6 @@
 |硬盘读取数据块次数|key_reads|次/秒|uInstanceId|
 |数据块写入键缓冲次数|key_write_requests|次/秒|uInstanceId|
 |数据块写入磁盘次数|key_writes|次/秒|uInstanceId|
-|打开文件总数|open_files|个|uInstanceId|
-|日志使用量|log_capacity|MB|uInstanceId|
-|主从不同步距离|master_slave_sync_distance|MB|uInstanceId|
-|Slave下IO线程状态|slave_io_running|0-Yes，1-No，2-Connecting|uInstanceId|
-|Slave下SQL线程状态|slave_sql_running|0-Yes，1-No|uInstanceId|
-|主从差距时间|seconds_behind_master|秒|uInstanceId|
 
 
-有关更多如何使用云数据库监控指标的内容，可以查看云监控 API 中的[读取监控数据接口](https://cloud.tencent.com/doc/api/405/4667)。
+有关更多如何使用云数据库监控指标的内容，可以查看云监控 API 中的[读取监控数据接口](https://cloud.tencent.com/document/api/248/11006)。

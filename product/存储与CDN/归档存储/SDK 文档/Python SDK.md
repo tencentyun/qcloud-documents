@@ -30,7 +30,8 @@ Python 2.7
 ```Python
 
 	# 要使用CAS的API，首先需要初始化一个CAS的client对象，其中包含客户端访问CAS的必要信息，以及提供了http接口的低层次封装
-    client = CASClient(host, appid, secret_id, secret_key)
+    client = CASClient(host, appid, secret_id, secret_key) # host：host stands for the domain name, not the host IP or host name. For example: cas.ap-chengdu.myqcloud.com
+
     response = client.list_vaults()                       # 返回HttpResponse
     ...
 

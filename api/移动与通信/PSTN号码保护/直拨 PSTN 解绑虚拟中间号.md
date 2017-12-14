@@ -28,7 +28,7 @@
 | 变量名 | 类型 | 说明 | 
 |---------|---------|------------|
 | bindId | String | 绑定 ID，该 ID 全局唯一 | 
-| refLeftNum | String | 中间号还剩引用计数，如果计数为0会解绑 | 
+| refLeftNum | String | 中间号还剩引用计数，如果计数为 0 会解绑 | 
 | requestId | String | requestId 原样返回 | 
 
 ## 4. 示例

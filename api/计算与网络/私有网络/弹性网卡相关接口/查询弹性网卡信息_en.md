@@ -37,7 +37,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.eniDescription| String | ENI description | 
 | data.n.networkInterfaceId | String | ENI ID, for example: eni-m6dyj72l | 
 | data.n.primary | Bool | Indicate whether it is a primary ENI. true: primary ENI; false: secondary ENI | 
-| data.n.macAddress| String | ENI mac address | for example: 02: 81: 60: cb: 27: 37 | 
+| data.n.macAddress| String | ENI mac address, for example: 02: 81: 60: cb: 27: 37 | 
 | data.n.privateIpAddressesSet | Array | IP information bound to ENI | 
 | data.n.instanceSet | Array | CVM information bound to ENI | 
 | data.n.groupSet | Array | Security group information bound to ENI | 

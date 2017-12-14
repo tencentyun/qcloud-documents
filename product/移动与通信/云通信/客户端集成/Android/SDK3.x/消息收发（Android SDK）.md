@@ -1426,7 +1426,7 @@ ImSDK 在3.1.0版本开始提供撤回消息的接口。可以通过调用`TIMCo
 public void revokeMessage(@NonNull TIMMessage msg, @NonNull TIMCallBack cb)
 ```
 
-成功撤回消息后，群组内其他用户和C2C会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器`TIMMessageRevokeListener`通知到上层应用。消息撤回通知监听器可以在登录前，通过`TIMUserConfigMsgExt`的`setMessageRevokedListener`来进行配置。具体可以参考[用户配置](/product/269/9229#4-.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)。
+成功撤回消息后，群组内其他用户和C2C会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器`TIMMessageRevokeListener`通知到上层应用。消息撤回通知监听器可以在登录前，通过`TIMUserConfigMsgExt`的`setMessageRevokedListener`来进行配置。具体可以参考[用户配置](https://cloud.tencent.com/document/product/269/9229)。
 
 **原型：**
 

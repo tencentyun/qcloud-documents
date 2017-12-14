@@ -1,5 +1,5 @@
 
-苹果在WWDC 2016中表示，从2017年1月1日起，所有新提交的app默认不能使用`NSAllowsArbitraryLoads=YES`来绕过ATS的限制。腾讯云将于12月12日正式支持HTTPS，届时您只需要使用新版SDK（接口无变化），并且将原来的视频地址的前缀从http://换成https:// 即可，SDK内部会自动适配。
+苹果在WWDC 2016中表示，从2017年1月1日起，所有新提交的app默认不能使用`NSAllowsArbitraryLoads=YES`来绕过ATS的限制。腾讯云将于12月12日正式支持HTTPS，届时您只需要使用新版SDK（接口无变化），并且将原来的视频地址的前缀从 `http://` 换成 `https://` 即可，SDK内部会自动适配。
 
 
 

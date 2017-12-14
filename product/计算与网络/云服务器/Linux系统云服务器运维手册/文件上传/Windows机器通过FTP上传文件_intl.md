@@ -137,8 +137,8 @@ Please use FileZilla Ver. 3.5.1 or 3.5.2 (Using FileZilla Ver. 3.5.3 for FTP upl
 Since FileZilla official site only provides the latest Ver.3.5.3 for download, you are recommended to search for download links for Ver.3.5.1 or 3.5.2 on your own. Recommended download link for Ver. 3.5.1: http://www.oldapps.com/filezilla.php?old_filezilla=6350
 
 2) Connect to FTP
-Run FileZilla, make settings as shown below, and then click "Quick Links".
-![](//mccdn.qcloud.com/img56b0593f99e17.png)
+Run FileZilla, fill in setting form, and then click "Quick Links".
+
 
 >Description of the settings:
 - Host: Public network IP of CVM (Log in to [CVM Console](https://console.cloud.tencent.com/cvm) page to view the public network IP of CVM).
@@ -152,6 +152,3 @@ When uploading a file, select the local file with the mouse and drag it to the r
 
 >Note: CVM FTP path does not support automatic unzipping or deletion of uploaded tar zip files.
 
-The following figure shows how to upload the files:
-
-![](//mccdn.qcloud.com/img56b05a11b4b80.png)

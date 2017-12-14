@@ -2,7 +2,7 @@
  
 This API (DescribeRegions) is used to obtain the availability zones of CPM.
 
-Domain for API request: <font style="color:red">bm.api.qcloud.com</font>
+Domain for API request: <font style="color:red">bm.api.cloud.tencent.com</font>
 
 
 ## 2. Input Parameters
@@ -45,11 +45,11 @@ The following request parameter list only provides API request parameters. For a
  
 Input
 
-<pre>
+```
 	https://domain/v2/index.php?
-	Action=DescribeRegions
-	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-</pre>
+	Action=DescribeRegions</code>
+	&<Common request parameters>
+```
 Output
 
 ```
