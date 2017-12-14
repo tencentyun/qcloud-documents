@@ -7,7 +7,7 @@
 由于采用了优图实验室的专利技术，授权费用约 **50W/年**（目前国内同类图像处理产品授权均在百万左右）。如有需要可以提工单或客服电话（400-9100-100）联系我们，商务同学会提供压缩包解码密码，并替您向优图实验室申请试用 License。
 
 ## 版本下载
-可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个so，替换你工程中的非特权版jar和so即可。
+可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
 
 > 区分特权版与非特权版，可以查看SDK的bundler id。bundler id为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
 >
@@ -23,35 +23,44 @@
 > 1. AssetsLibrary.framwork
 > 2. CoreMedia.framework
 > 3. Accelerate.framework
+> 4. Metal.framework 
 
 ### 2. 添加链接参数
 
 在工程  Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
 
-### 3. 添加资源bundle
+### 3. 添加动效资源
 
-将zip包中下列文件添加到工程中
+将SDK/Resource下列文件添加到工程中
 
-> 1. FilterEngine.bundle
-> 2. PE.dat
-> 3. ufa.bundle
-> 4. youtubeauty.bundle
+> 1. 3DFace
+> 2. detector.bundle
+> 3. FilterEngine.bundle
+> 4. model  
+> 5. PE.dat
+> 6. poseest.bundle
+> 7. RPNSegmenter.bundle
+> 8. ufa.bundle
 
-### 4. 添加动效资源
 
-将zip包中Resource目录以folder refrence形式添加到工程中。
+将Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下的SegmentationShader.metal文件添加到工程中
+> 1. SegmentationShader.metal
 
-![](https://mc.qcloudimg.com/static/img/b7fac6b5e08b0ff245b17d29f7296b18/AAE85661-7601-4473-A338-747FB9A6981C.png)
+### 4. 添加动效资源示例
+
+将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，你可以找到直接添加，具体操作如图所示：
+![](https://mc.qcloudimg.com/static/img/d9c501a923b7dbc08f9467da07595b58/image.png)  
+![](https://mc.qcloudimg.com/static/img/7a4c4c93298ba65b83fdd63b8b52de42/image.png)
 
 这些资源非常重要，否则切换到换脸类素材时会发生crash。
 
 ### 3. 导入licence文件
 特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 license。
-得到 licence 后，您需要将其命名为**YTFaceSDK.licence**，工程的assets目录下。
+得到 licence 后，您需要将其命名为**YTFaceSDK.licence** ,然后如上图所示添加到工程。
 
-> 每个licence都有绑定具体的package name，修改app的package name会导致验证失败。
+> 每个licence都有绑定具体的Bundle Identifier，修改app的Bundle Identifier会导致验证失败。
 >
-> YTFaceSDK.license的文件名固定，不可修改、且必须放在assets目录下。
+> YTFaceSDK.license的文件名固定，不可修改。
 > 
 > iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
 
@@ -101,18 +110,40 @@
 大眼和瘦脸通过以下方法设置
 
 ```objective-c
-/**
- * 设置大眼级别
- * 
- *  @param eyeScaleLevel: 大眼级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+/* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          eyeScaleLevel     : 大眼级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
  */
--(void)setEyeScaleLevel:(float)eyeScaleLevel;
+-(void) setEyeScaleLevel:(float)eyeScaleLevel;
 
-/**
- * 设置瘦脸级别
- *
- *  @param faceScaleLevel: 瘦脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+/* setFaceScaleLevel  设置瘦脸级别（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          faceScaleLevel    : 瘦脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
  */
--(void)setFaceScaleLevel:(float)faceScaleLevel;
+-(void) setFaceScaleLevel:(float)faceScaleLevel;
+
+/* setFaceVLevel  设置V脸（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          faceVLevel    : V脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+- (void) setFaceVLevel:(float)faceVLevel;
+
+/* setChinLevel  设置下巴拉伸或收缩（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          chinLevel    : 下巴拉伸或收缩取值范围 -9 ~ 9； 0 表示关闭 -9收缩 ~ 9拉伸。
+ */
+- (void) setChinLevel:(float)chinLevel;
+
+/* setFaceShortLevel  设置短脸（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          faceShortlevel    : 短脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+- (void) setFaceShortLevel:(float)faceShortlevel;
+
+/* setNoseSlimLevel  设置瘦鼻（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          noseSlimLevel    : 瘦鼻级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+- (void) setNoseSlimLevel:(float)noseSlimLevel;
+
 ```
-
