@@ -26,6 +26,7 @@ Rules for certificate:
 - [--- BEGIN CERTIFICATE ---, --- END CERTIFICATE ---] are the beginning and end, which should be uploaded with the content;
 - Each line contains 64 characters, but the last line can contain less than 64 characters;
 
+
 2. Certificate chain issued by intermediate CA:
 ---BEGIN CERTIFICATE---
 ---END CERTIFICATE---
