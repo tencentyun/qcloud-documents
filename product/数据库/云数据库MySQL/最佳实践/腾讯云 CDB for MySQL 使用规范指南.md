@@ -8,7 +8,7 @@ CDB for MySQL 产品用户。
 ### 权限管理规范
 1.  由于考虑到 CDB for MySQL 的稳定性和安全性，CDB for MySQL 限制了 super、shutdown、file 权限，有时在 CDB for MySQL 上执行 set 语句时，会出现如下的报错：  
 ```
-#1227-Accessdenied;youneed(atleastoneof)theSUPERprivilege(s)forthisoperation  
+#1227-Accessdenied;you need(at least one of)the SUPER privilege (s) for this operation
 ```
       
  解决方法：如果需要 set 修改相关参数，可以使用控制台【参数修改】功能完成，如果需要修改的参数不在其中，可以提交工单后经评估后协助修改，确保实例稳定；
@@ -37,7 +37,7 @@ CDB for MySQL 产品用户。
 5.  存在自增列的表，自增列上必须存在一个单独的索引，若在复合索引中，自增列必须置于第一位；
 6.  `row_format` 必须保证为非 fixed；
 7.  字符集统一使用 utf8mb4 降低乱码风险，部分复杂汉字和 emoji 表情必须使用 utf8mb4 方可正常显示，修改字符集只对修改后创建的表生效，故建议新购 CDB 初始化实例时即选择 utf8mb4；
-8.  小数字段推荐使用 decimal 类型，float 和 double 精度不够，特别是涉及金钱的业务，必须使用 decimal7；
+8.  小数字段推荐使用 decimal 类型，float 和 double 精度不够，特别是涉及金钱的业务，必须使用 decimal；
 9.  尽量避免据库中使用 text/blob 来存储大段文本、二进制数据、图片、文件等内容，而是将这些数据保存成本地磁盘文件，数据库中只保存其索引信息；
 10. 尽量不使用外键，建议在应用层实现外键的逻辑， 外键与级联更新不适合高并发场景，降低插入性能，大并发下容易产生死锁；
 11. 字段尽量定义为 NOT NULL 并加上默认值，NULL 会给 SQL 开发带来很多坑导致走不了索引，对 NULL 计算时只能用 IS NULL 和 IS NOT NULL 来判断；
@@ -51,7 +51,7 @@ CDB for MySQL 产品用户。
 2.  选择业务中 SQL 过滤走的最多的并且 cardinality 值比较高的列建索引，业务 SQL 不走的列建索引是无意义的，字段的唯一性越高即代表 cardinality 值越高，索引过滤效果也越好，一般索引列的 cardinality 记录数小于 10% 我们可认为这是一个低效索引，例如性别字段；
 3.  varchar 字段上建索引时，建议指定索引长度，不要直接将整个列建索引， 一般 varchar 列比较长，指定一定长度作索引已经区分度够高，没必要整列建索引，整列建索引会显得比较重，增大了索引维护的代价，可以用 count(distinct left(列名, 索引长度))/count(*)来看索引区分度；
 4.  避免冗余索引，两个索引(a,b) (a)同时存在，则(a)属于冗余索引——redundant index，若查询过滤条件为 a 列，(a,b)索引就够了，不用单独建(a)索引；
-5.  建复合索引的时候，区分度最高的列放索引的在最左边， 例如 select xxx where a = x and b = x; a 和 b 一起建组合索引，a 的区分度更高，则建 `idx_ab(a,b)` 存在非等号和等号混合判断条件时，必须把等号条件的列前置。如：where a xxx and b = xxx 那么即使 a 的区分度更高，也必须把 b放在索引的最前列，因为走不到索引 a；
+5.  建复合索引的时候，区分度最高的列放索引的在最左边， 例如 `select xxx where a = x and b = x;` ，a 和 b 一起建组合索引，a 的区分度更高，则建 `idx_ab(a,b)` 存在非等号和等号混合判断条件时，必须把等号条件的列前置。如：`where a xxx and b = xxx` 那么即使 a 的区分度更高，也必须把 b放在索引的最前列，因为走不到索引 a；
 6.  禁止在更新十分频繁、区分度不高的列上建立索引，记录更新会变更 B+ 树，更新频繁的字段建立索引会大大降低数据库性能；
 7.  合理利用覆盖索引来降低 io 开销，在 InnoDB 中二级索引的叶子节点保存的只保存本身的键值和主键值，若一个 SQL 查询的不是索引列或者主键，走这个索引就会先找到对应主键然后根据主键去找需要找的列，这就是回表，这样会带来额外的 io 开销，此时我们可以利用覆盖索引来解决这个问题，比如`select a,b from xxx where a = xxx`，若 a 不是主键，这时候我们可以创建 a，b 两个列的复合索引，这样就不会回表。
 
