@@ -45,9 +45,6 @@ $ open your-project.xcworkspace
 
 ##### (5) 从 Firebase 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
 
-
-
-
 ### 手工集成
 
 
