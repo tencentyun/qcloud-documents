@@ -1,4 +1,4 @@
-### Types of Alarms
+## Types of Alarms
 
 There are four types of Tencent Cloud Monitor alarms， including basic monitor alarm, cloud automated testing alarm, custom message alarm and custom monitor alarm
 
@@ -26,14 +26,14 @@ The system will notify the user when the monthly SMS quota has been exhausted, i
 
 Users can purchase additional SMS quota if the free amount is not enough to satisfy their need.
 
-### Quota Type
+## Quota Type
 
 | Quota Type | Description  | 
 |---------|---------|
 | Free quota | Each month, users are provided with a fixed amount of free SMS quota to send alarm SMS.| 
 | Additional quota|Additional SMS quota could be purchased by users when the free quota is not enough to satisfy their demand.|
 
-### Free Quota Details
+## Free Quota Details
 
 |Alarm type | Free quota amount| Distribution rule |
 |---------|---------|---------|
@@ -43,7 +43,7 @@ Users can purchase additional SMS quota if the free amount is not enough to sati
 |Custom monitor alarm|1000 messages/month|Quota is reset to 1000 at the first day of each month, regardless of the remaining quota in the previous month|
 
 
-### Billing Mode of Additional Quota
+## Billing Mode of Additional Quota
 
 There are different quotas for different types of alarms, therefore you need to purchase quotas for basic alarms, cloud automated testing alarms, custom message alarms and custom monitor alarms separately.
 
@@ -58,7 +58,7 @@ There are different quotas for different types of alarms, therefore you need to 
 
 >Quota validity: Alarm quota has a long-term validity. There is no time limit for purchased quota.
 
-### Quota Calculation
+## Quota Calculation
 
 1.The quotas for different alarm types are independent from each other and are calculated separately. That is, every developer has a fixed free alarm SMS quota for every alarm type in each month. If you have used up the SMS quota for one alarm type, SMS quota for other alarm types won't be affected.
 
