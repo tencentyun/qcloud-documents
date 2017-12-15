@@ -45,7 +45,6 @@ git clone https://github.com/tencentyun/COS_iOS_SDK.git
 - CoreTelephony.framework    
 - Foundation.framework
 - SystemConfiguration.framework
-
 
 #### 工程配置
 
