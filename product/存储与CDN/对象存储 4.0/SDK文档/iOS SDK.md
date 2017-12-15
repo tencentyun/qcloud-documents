@@ -42,9 +42,9 @@ git clone https://github.com/tencentyun/COS_iOS_SDK.git
 
 并添加以下依赖库：
 
-CoreTelephony
-Foundation
-SystemConfiguration
+- CoreTelephony.framework    
+- Foundation.framework
+- SystemConfiguration.framework
 
 
 #### 工程配置
