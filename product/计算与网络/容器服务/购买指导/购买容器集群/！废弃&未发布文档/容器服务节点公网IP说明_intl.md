@@ -36,7 +36,6 @@ Step 2: Configure the routing table associated with the subnet
 ### Others: Use EIP
 
 The CVM is only bound to an EIP, and the NAT gateway will not be used. With this method, all traffic from the CVM accessing the Internet will go out from the EIP. That means this traffic will not be subject to the public network bandwidth limit specified when the CVM was purchased. The cost resulting from accessing the public network will be charged based on the network billing mode of the CVM.
-Tips on usage: Please see [How to Use EIP](https://cloud.tencent.com/document/product/215/4958#.E6.93.8D.E4.BD.9C.E6.8C.87.E5.8D.97)
 
 If you are using NAT gateway and EIP at the same time, with this method, all traffic from the CVM actively accessing the Internet can only be forwarded to the NAT gateway through the private network, and the returning packets will be returned to the CVM through the NAT gateway as well. This traffic will not be subject to the public network bandwidth limit specified when the CVM was purchased, nor will the traffic generated at the NAT gateway occupy the public network bandwidth egress of the CVM. If the traffic from the Internet actively accesses the elastic public IP of the CVM, the returning packets of the CVM will be uniformly returned through the EIP. This way, the resulting outbound traffic of the public network will be subject to the public network bandwidth limit specified when the CVM was purchased. The cost resulting from accessing the public network will be charged based on the network billing mode of the CVM.
 
