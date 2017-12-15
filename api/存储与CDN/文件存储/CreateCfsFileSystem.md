@@ -5,15 +5,15 @@
 文件存储请求域名：`cfs.api.qcloud.com`
 
 ## 请求参数
-以下请求参数为本接口的请求参数，其它参数见 [公共请求参数]() 页面。
+以下请求参数为本接口的请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/582/13227) 页面。
 
 |       参数      |                                   描述                              |类型  |必填 |
 |-----------------|------|--------|-----------------------------------------------------------------|
-| ZoneId          |   可用区ID，请参考 [概览]() 文档中的园区与可用区列表              |Int    | 是   |
+| ZoneId          |   可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表              |Int    | 是   |
 | NetInterface    | 网络类型，值为 vpc，basic。 其中 vpc为私有网络，basic 为基础网络                      |String |是   |
 | CreationToken   | 用户自定义文件系统名称                                                  |String | 是   |
 | PgroupOrderId   |  权限组 ID，目前仅支持 pgroupbasic                                |  String |       是   |                      
-| Region          |  园区，请参考 [概览]() 文档中的园区与可用区列表                   | String |是   |
+| Region          |  园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                   | String |是   |
 | VpcId           |    VPC ID，如使用基础网络，请传 0                                 |Int    |是   |
 | SubnetId        |  子网 ID， 如使用基础网络，请传 0                                | Int    |是   |
 
