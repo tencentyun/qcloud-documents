@@ -24,7 +24,8 @@ It should be noted that reinstalling the system will result in loss of all conte
 >
 - Do not perform other operations during system disk reinstallation.
 - The data in current system disks cannot be recovered after system disk reinstallation.
-- The data in data disks will be retained and will not be affected after system disk reinstallation, which however need to be mounted manually before use.
+- The data in data disks will be retained and will not be affected after system disk reinstallation, which however    need to be mounted manually before use.
+
 ## Questions about the switching between Windows system instances and Linux system instances
 
 ### Can the system disk of an old user's Linux CVM that comes with a local disk be scaled out to 20GB? 
