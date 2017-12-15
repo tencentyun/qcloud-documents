@@ -14,7 +14,7 @@
 短信 JavaScript SDK 在微云中的下载地址：[短信 JavaScript SDK](https://share.weiyun.com/3e5630334a937685b66651f4058c5793)。
 ### 开发准备
 1. 申请 APPID 以及 APPKey：
-在开始本教程之前，您需要先获取 APPID 和 APPkey，如您尚未申请，请到 [短信控制台](https://console.qcloud.com/sms/smslist) 中添加应用。应用添加成功后您将获得 APPID 以及 APPKey。
+在开始本教程之前，您需要先获取 APPID 和 APPkey，如您尚未申请，请到 [短信控制台](https://cloud.tencent.com) 中添加应用。应用添加成功后您将获得 APPID 以及 APPKey。
 >**注意：**
 > APPID 是以 14xxxxx 开头。
 
