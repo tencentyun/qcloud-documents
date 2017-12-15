@@ -37,16 +37,26 @@
 1. 需要解压LiteAVSDK_Enterprise_3.9.2749.zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
 
    | jar                     |                          |                   |
+   
    | ----------------------- | ------------------------ | ----------------- |
+   
    | filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
+   
    | video_module.jar        | YTCommon.jar             |                   |
+   
 
    | so                   |                      |                      |
+   
    | -------------------- | -------------------- | -------------------- |
+   
    | libalgo_rithm_jni.so | libalgo_youtu_jni.so | libalgo_youtu_jni.so |
+   
    | libalgo_youtu_jni.so | libalgo_youtu_jni.so | libalgo_youtu_jni.so |
+   
    | libnnpack.so         | libParticleSystem.so | libpitu_tools.so     |
+   
    | libsegmentern.so     | libsegmentero.so     | libYTCommon.so       |
+   
    | libYTFaceTrackPro.so | libYTHandDetector.so | libYTIllumination.so |
 
    ​
