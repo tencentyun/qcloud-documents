@@ -1,7 +1,7 @@
-##概述
+## 概述
 黑石弹性公网IP支持细化到实例级别的权限管理，你可以为人员分配管理特定弹性公网IP实例的权限；或者属于特定VPC的所有弹性公网IP的管理权限。
 
-##预设策略
+## 预设策略
 预设策略，能帮助你快速授权，而不需要编写策略，但授权粒度会粗些，以下是黑石弹性公网IP的两个预设策略，分别为：
 <table>
 <tr>
@@ -22,7 +22,7 @@
 </table>
 
 
-##Action、Resource、Condtion列表
+## Action、Resource、Condtion列表
 以下表格，罗列了在配置黑石弹性公网IP的策略时，需要用到的action、resource、condition。相关概念请参考《[访问管理](https://cloud.tencent.com/document/product/598/10603"访问管理")》章节
 
 Action，即操作，对应的是API。编写策略时，你可以复制表格里内容并粘贴在Action字段中。关联该策略后，即可获得特定API的调用权限<br/>
@@ -123,14 +123,14 @@ Condition,即生效条件。换句话说Action和Resource需要在特定的生�
 </table>
 
 
-##Condition(生效条件）
+## Condition(生效条件）
 
 灵活使用Condtion，即可做到Vpc粒度的权限管理，比如授权管理特定Vpc内的黑石弹性公网IP实例
 
 >在使用Condtion时，做到Vpc粒度的授权，策略的Resource字段建议只需填写"*"
 
 
-##书写规范
+## 书写规范
 
 ```
 "condition":
@@ -148,13 +148,13 @@ Key和Value是对应的，以下是对应关系。传入的鉴权参数经过运
 <tr><td>bmvpc：unVpcId</td><td>vpc-yyyyyy(Vpc的实例Id)</td></tr>
 </table>
 
-###操作符(Option)
+### 操作符(Option)
 黑石弹性公网IP只推荐使用`for_all_value:string_equal_if_exist`</br>
 
 for\_all\_value:string_equal\_if\_exist，用于condition有一个key多个value的情况key:value1,value2，可以做到多个vpc或者subnet的授权
 
 
-###例子
+### 例子
 策略如下：
 
 ```
@@ -187,13 +187,13 @@ for\_all\_value:string_equal\_if\_exist，用于condition有一个key多个value
 
 
 
-##最佳实践
+## 最佳实践
 本章节，我们举例两个场景的策略内容和评估逻辑，帮助你了解如何实现黑石服务器的权限分配
 
 场景1：授权释放eip-adt6pq7f
 场景2：授权绑定vpc-34cxlz7z和vpc-muinpf9p里内所有的物理服务器和EIP
 
-###场景1
+### 场景1
 策略如下：
 ```
 {
@@ -217,7 +217,7 @@ for\_all\_value:string_equal\_if\_exist，用于condition有一个key多个value
 当调用EipBmDelete时，CAM会判断传入的EipId是否为eip-adt6pq7f，【是】则鉴权通过；【否】则鉴权失败
 
 
-###场景2
+### 场景2
 策略如下：
 ```
 {
