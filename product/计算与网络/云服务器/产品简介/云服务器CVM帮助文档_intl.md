@@ -19,7 +19,7 @@ This practical guide provides detailed operation instructions to guide you throu
 [1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
 [2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2764)
 [3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2764)
-[4. Log in to the CVM](https://cloud.tencent.com/doc/product213/2764)
+[4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2764)
 [5. Format the data disk](https://cloud.tencent.com/doc/product/213/2764)
 [6. Install and deploy applications](https://cloud.tencent.com/doc/product/213/2764)
 
