@@ -26,7 +26,7 @@ Backend service:
 Create an application-based load balancer on the load balancer page. You can skip this step if you already have the load balancer.
 ![Alt text](https://mc.qcloudimg.com/static/img/07d662f17350b181c8e1c854a617c496/ccs_revise_1.jpg)
 
-For more information on how to resolve proprietary domain to the VIP of the load balancer, please see [Domain Resolution Help](https://cloud.tencent.com/document/product/302/3446).
+For more information on how to resolve proprietary domain to the VIP of the load balancer, please see Domain Resolution Help.
 In the example below, www.qcloudccs.com is resolved to sample load balancer.
 
 Configuring the forwarding rules of application-based load balancer
