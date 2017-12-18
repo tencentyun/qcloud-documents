@@ -3,57 +3,51 @@
 ## 主从版 Redis 支持命令
 
 1. | **connection 族** | **hashes 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | 
-| --- | --- | --- | --- | --- | --- |
-| auth | hdel | del | lindex | psubscribe | command | 
-| echo | hexists | scan | linsert | pubsub | dbsize |
-| ping | hget | exists | llen | publish | info | 
-| quit | hgetall | expire | lpop | punsubscribe | time | 
-| select | hincrby | expireat | lpush | subscribe |   | 
-|   | hincrbyfloat | keys | lpushx | unsubscribe |   | 
-| 　 | hkeys | type | lrange | 　 |   | 
-| 　 | hlen | move | lrem | 　 |   |
-| 　 | hmget | ttl | lset | 　 |   |
-| 　 | hmset | persist | ltrim | 　 |   |
-| 　 | hset | pexpire | rpop | 　 |   |
-| 　 | hsetnx | pexpireat | rpoplpush | 　 |   |
-| 　 | hstrlen | pttl | rpush | 　 |   |
-| 　 | hvals | randomkey | rpushx | 　 |   |
-| 　 | hscan | rename | blpop | 　 |   |
-| 　 | 　 | renamenx | brpop | 　 |   |
-| 　 | 　 | sort | brpoplpush | 　 |   |
-| 　 | 　 |   | 　 | 　 |   |
-| 　 | 　 |   | 　 | 　 |   |
-| 　 | 　 |   | 　 | 　 |   |
-| 　 | 　 |   | 　 | 　 |   |
-| 　 | 　 |   | 　 | 　 |   |
-| 　 | 　 |   | 　 | 　 |   |
+   | --- | --- | --- | --- | --- | --- |
+   | auth | hdel | del | lindex | psubscribe | command | 
+   | echo | hexists | scan | linsert | pubsub | dbsize |
+   | ping | hget | exists | llen | publish | info | 
+   | quit | hgetall | expire | lpop | punsubscribe | time | 
+   | select | hincrby | expireat | lpush | subscribe |   | 
+   |   | hincrbyfloat | keys | lpushx | unsubscribe |   | 
+   | 　 | hkeys | type | lrange | 　 |   | 
+   | 　 | hlen | move | lrem | 　 |   |
+   | 　 | hmget | ttl | lset | 　 |   |
+   | 　 | hmset | persist | ltrim | 　 |   |
+   | 　 | hset | pexpire | rpop | 　 |   |
+   | 　 | hsetnx | pexpireat | rpoplpush | 　 |   |
+   | 　 | hstrlen | pttl | rpush | 　 |   |
+   | 　 | hvals | randomkey | rpushx | 　 |   |
+   | 　 | hscan | rename | blpop | 　 |   |
+   | 　 | 　 | renamenx | brpop | 　 |   |
+   | 　 | 　 | sort | brpoplpush | 　 |   |
 
 
 2. |**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
-| --- | --- | --- | --- |
-| sadd | zadd | append | discard |
-| scard | zcard | bitcount | exec |
-| sdiff | zcount | bitop | multi |
-| sdiffstore | zincrby | bitpos | unwatch |
-| sinter | zinterstore | decr | watch |
-| sinterstore | zlexcount | decrby | 　 |
-| sismember | zrange | get | 　 |
-| smembers | zrangebylex | getbit | 　 |
-| smove | zrangebyscore | getrange | 　 |
-| spop | zrank | getset | 　 |
-| srandmember | zrem | incr | 　 |
-| srem | zremrangebylex | incrby | 　 |
-| sscan | zremrangebyrank | incrbyfloat | 　 |
-| sunion | zremrangebyscore | mget | 　 |
-| sunionstore | zrevrange | mset | 　 |
-| 　 | zrevrangebylex | msetnx | 　 |
-| 　 | zrevrangebyscore | psetex | 　 |
-| 　 | zscore | setex | 　 |
-| 　 | zrevrank | set | 　 |
-| 　 | zscan | setbit | 　 |
-| 　 | zunionstore | setnx | 　 |
-| 　 | 　 | setrange | 　 |
-| 　 | 　 | strlen | 　 |
+   | --- | --- | --- | --- |
+   | sadd | zadd | append | discard |
+   | scard | zcard | bitcount | exec |
+   | sdiff | zcount | bitop | multi |
+   | sdiffstore | zincrby | bitpos | unwatch |
+   | sinter | zinterstore | decr | watch |
+   | sinterstore | zlexcount | decrby | 　 |
+   | sismember | zrange | get | 　 |
+   | smembers | zrangebylex | getbit | 　 |
+   | smove | zrangebyscore | getrange | 　 |
+   | spop | zrank | getset | 　 |
+   | srandmember | zrem | incr | 　 |
+   | srem | zremrangebylex | incrby | 　 |
+   | sscan | zremrangebyrank | incrbyfloat | 　 |
+   | sunion | zremrangebyscore | mget | 　 |
+   | sunionstore | zrevrange | mset | 　 |
+   | 　 | zrevrangebylex | msetnx | 　 |
+   | 　 | zrevrangebyscore | psetex | 　 |
+   | 　 | zscore | setex | 　 |
+   | 　 | zrevrank | set | 　 |
+   | 　 | zscan | setbit | 　 |
+   | 　 | zunionstore | setnx | 　 |
+   | 　 | 　 | setrange | 　 |
+   | 　 | 　 | strlen | 　 |
 
 
 
