@@ -14,7 +14,7 @@ The following request parameter list only provides API request parameters. Commo
 | offset | No | Int | Offset; default is 0.  | 
 | limit | No | Int | The maximum number of scaling groups that can be queried at a time. Default is 20. |
 | vpcId | No | String | VPC ID. If it is left empty, all the network scaling groups will be queried; 0 means basic network. To specify a VPC network, please fill in the unVpcId (unified ID of VPC) field returned in the API <a href="/doc/api/245/1372" title="Query VPC List">Query VPC List</a> (DescribeVpcEx). |
-| projectId | No | String | Project ID. If it is left empty, the scaling groups of all projects will be queried. 0 means default project. To specify other projects, you can call API <a href="/doc/api/403/4400" title="Query Project List">Query Project List</a> (DescribeProject) to query. |
+| projectId | No | String | Project ID. If it is left empty, the scaling groups of all projects will be queried. 0 means default project. To specify other projects, you can call API Query Project List (DescribeProject) to query. |
 
 
 ## 3. Output Parameters

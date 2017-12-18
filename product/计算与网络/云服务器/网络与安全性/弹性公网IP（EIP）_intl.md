@@ -23,7 +23,7 @@ When binding an elastic IP to a CVM instance, the current public IP of the insta
 
 - Users can release an elastic public IP through the console or cloud API;
 
-- Owed fees release: When an elastic IP is not bound to a resource, it will be charged by the hour. If the user account amount starts at less than 0RMB at any time and continues for more than ** 2 ** hours, and is not recharged to greater than 0RMB, all elastic IPs will remain inactive for the next (24\*7) hours (until the account balance is >0). If the amount is negative for the past (2+24\*7) hours, all elastic public IPs will be released automatically;
+- Owed fees release: When an elastic IP is not bound to a resource, it will be charged by the hour. If the user account amount starts at less than 0 USD at any time and continues for more than ** 2 ** hours, and is not recharged to greater than 0 USD , all elastic IPs will remain inactive for the next (24\*7) hours (until the account balance is >0). If the amount is negative for the past (2+24\*7) hours, all elastic public IPs will be released automatically;
 
 ## Investigation method for elastic public IP block reasons
 An elastic public IP block usually has the below reasons: 

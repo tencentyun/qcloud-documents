@@ -1,7 +1,7 @@
 ## java 构建 
 ### 新建工程
 1. 进入 CCI 持续集成界面后，单击左侧菜单栏中的【服务端构建】。单击【新建】按钮，新建服务端构建工程。
-![](//mc.qcloudimg.com/static/img/94673ad4a61b7a1fe102e432fb9457c2/image.png)
+![](//mc.qcloudimg.com/static/img/a85d6fc850c325f35853ec8f82e53feb/image.png)
 2. 进入新建工程后时，依次填写工程名称（必填）和工程描述（选填）。
 3. 依次选择代码仓库和分支，代码仓库和分支的创建请参考 [Tgit 代码托管文档](https://cloud.tencent.com/document/product/612)。
 4. **编程语言** 中单击【 java 】选项，根据用户需求选择 `ant`  或 `maven` 构建类型，构建环境会根据构建类型自动定位。
