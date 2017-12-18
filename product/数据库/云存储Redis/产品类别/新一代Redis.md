@@ -2,7 +2,6 @@
 新一代 Redis 成熟稳定，容灾机制健全，服务成熟，服务于海量第三方用户以及腾讯自有业务，日访问量超过一万亿次，久经考验，开发者完全可以放心使用。
 
 ## 新一代 Redis 支持命令
-**1.** 
 | **connection 族** | **geo 族** | **hashes 族** | **hyperloglog 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | auth | geoadd | hdel | pfadd | del | lindex | psubscribe | command |
@@ -22,8 +21,8 @@
 | 　 | 　 | hscan | 　 | rename | 　 | 　 | 　 |
 | 　 | 　 | 　 | 　 | renamenx | 　 | 　 | 　 |
 | 　 | 　 | 　 | 　 | sort | 　 | 　 | 　 |
- 
-**2.** 
+
+
 |**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
 | --- | --- | --- | --- |
 | sadd | zadd | append | discard |
@@ -49,7 +48,7 @@
 | 　 | zunionstore | setnx | 　 |
 | 　 | 　 | setrange | 　 |
 | 　 | 　 | strlen | 　 |
- 
+
 ## 新一代 Redis 不支持命令
 | **cluster 族** | **connection 族** | **keys 族** | **lists 族** | **scripting 族** | **server 族** | **strings 族** |
 | --- | --- | --- | --- | --- | --- | --- |
