@@ -9,9 +9,9 @@ Because there is a file upload limit of 100MB on Github, so QAVSDK will be compr
 
 ## III. Run the project
 
-1. Run the installation package directly (In the downloaded Demo project, SuiXinBoForMac.dmg can be run directly)
+1. Run the installation package directly (In the downloaded Demo project, SuiXinBoForMac.dmg can be run directly).
 
-2. Compile source codes to run the project. (Supported for MacOS 10.7 or above)
+2. Compile source codes to run the project(Supported for MacOS 10.7 or above). 
 
 The actual images are shown in the following figure:
 
