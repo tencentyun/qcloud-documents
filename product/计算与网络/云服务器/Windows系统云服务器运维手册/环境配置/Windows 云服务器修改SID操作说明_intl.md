@@ -4,7 +4,7 @@
 Microsoft's operating system uses a security identifier (SID) to identify computers and users. When there is a need to build a Window domain environment, modification of SIDs is required to overcome the inability to join the domain due to the fact that CVM SIDs generated based on the same image are the same.
 
 ## 2. Operation Steps
-1) [Log into the CVM using the console VNC](https://cloud.tencent.com/doc/product/213/2155)
+1) Log into the CVM using the console VNC
 
 2) Save the current network configuration
 

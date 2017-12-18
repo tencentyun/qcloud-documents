@@ -139,7 +139,7 @@ Benefits for VIP customers and common customers during the campaign are as follo
 - It takes effect on the day the bandwidth remission is approved upon review. The extra amount is applicable to the tiered price. This is valid until Dec. 31, 2017. You can view the remission details in the peering connection creation pop-up or in the details page.
 
 
-- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer, entitled to the supreme service and related benefits, [Apply Now >>](https://cloud.tencent.com/service/vip. Html)
+- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer, entitled to the supreme service and related benefits.
 
 ## Operating Instructions
 
