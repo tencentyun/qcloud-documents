@@ -78,7 +78,7 @@ This feature enables sub-users to query the domain information of one or more sp
 
 
 #### Cloud API Permission Control
-The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs to query the domain details (the domain must belong to a project covered by the permission):
+The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs to query the domain details (the domain must belong to a project covered by the permission):
 
 + [GetHostInfoByHost](https://cloud.tencent.com/doc/api/231/3938): Query the domain and configuration details based on domain name
 + [GetHostInfoById](https://cloud.tencent.com/doc/api/231/3939): Query the domain and configuration details based on domain ID
@@ -98,7 +98,7 @@ This feature enables sub-users to query the log download links on specified date
 + CDN Console - Logs: Query the log download links of domains in one or more specified projects
 
 #### Cloud API Permission Control
-The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs to query the log download links (the domain must belong to a project covered by the permission):
+The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs to query the log download links (the domain must belong to a project covered by the permission):
 
 + [GenerateLogList](https://cloud.tencent.com/doc/api/231/3950): Query log download links
 
@@ -120,7 +120,7 @@ This feature enables sub-users to add domain to one or more specified projects. 
 + CDN Console - Domain Management - Add Domain: In Step 1 page of Add Domain, the projects shown in "Project" drop-down box are the ones to which a domain is allowed to be added. If no project exists, it means the sub-user has no permission to add domain and thus cannot perform further operations.
 
 #### Cloud API Permission Control
-The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs to add domain (the project must be covered by the permission):
+The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs to add domain (the project must be covered by the permission):
 
 + [AddCdnHost](https://cloud.tencent.com/doc/api/231/1406): Add domain
 
@@ -138,7 +138,7 @@ This feature enables sub-users to make one or more specified projects online/off
 + CDN Console - Domain Management: Find a domain covered by the permission for going online/offline (activated/closed).
 
 #### Cloud API Permission Control
-The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs to make a domain online or offline (the domain must be covered by the permission):
+The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs to make a domain online or offline (the domain must be covered by the permission):
 
 + [OnlineHost](https://cloud.tencent.com/doc/api/231/1402): Make a CDN domain online
 + [OfflineHost](https://cloud.tencent.com/doc/api/231/1403): Make a CDN domain offline
@@ -155,7 +155,7 @@ This feature enables sub-users to manage domain configurations for one or more s
 + CDN Console - Domain Management: Click "Manage" to edit the basic and advanced configurations for the domains for which you have permission;
 
 #### Cloud API Permission Control
-The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs for domain configuration management (the specified domain must be covered by the permission):
+The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs for domain configuration management (the specified domain must be covered by the permission):
 
 + [UpdateCdnConfig](https://cloud.tencent.com/doc/api/231/3933): Modify domain configuration
 + [UpdateCache](https://cloud.tencent.com/doc/api/231/3934): Modify the settings of domain caching rules
@@ -174,7 +174,7 @@ This feature enables sub-users to delete domains in one or more specified projec
 + CDN Console - Domain management: Right click a closed domain for which you have permission to delete it;
 
 #### Cloud API Permission Control
-The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs for domain deletion (the specified domain must be covered by the permission and has a status of "Closed"):
+The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs for domain deletion (the specified domain must be covered by the permission and has a status of "Closed"):
 
 + [DeleteCdnHost](https://cloud.tencent.com/doc/api/231/1396): Delete CDN domain
 
@@ -191,7 +191,7 @@ This feature enables sub-users to perform refresh and prefetch operations on URL
 + CDN Console - Purge Cache: Paste URLs or directories under the domain for which you have permission in batch to the text box, and submit them for refresh.
 
 #### Cloud API Permission Control
-The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)) and use the key to call the following Cloud APIs to perform refresh and prefetch (only the URLs and directories under the domain covered by the permission can be submitted):
+The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs to perform refresh and prefetch (only the URLs and directories under the domain covered by the permission can be submitted):
 
 + [RefreshCdnUrl](https://cloud.tencent.com/doc/api/231/3946): Refresh URL
 + [RefreshCdnDir](https://cloud.tencent.com/doc/api/231/3947): Refresh directory
