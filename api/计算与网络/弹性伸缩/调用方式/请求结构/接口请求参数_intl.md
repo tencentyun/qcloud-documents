@@ -11,7 +11,7 @@ Take the <a href="/doc/api/229/831" title="Query List of Instances">Query List o
 | status | No | Int | Status of the CVM to be queried. |
 | projectId | No | String | Project ID. If this parameter is left empty, the CVM instances of all projects will be queried. 0 means default project. To specify other projects, you can call the <a href="/document/product/378/4400" title="Query Project List">Query Project List</a>(DescribeProject) API to query projects. |
 | simplify | No | Int | Obtain non-real time data if simplify=1 is added when passing parameters. |
-| zoneId | No | Int | ID of availability zone. If this parameter is left empty, the CVM instances of all availability zones will be queried. To specify availability zones, you can call the <a href="/doc/api/229/1286" title="Query Availability Zones">Query Availability Zones</a>(DescribeAvailabilityZones) API to query availability zones. |
+| zoneId | No | Int | ID of availability zone. If this parameter is left empty, the CVM instances of all availability zones will be queried. To specify availability zones, you can call the Query Availability Zone API to query availability zones. |
 
 Here are the descriptions of each field:
 <table class="t">
