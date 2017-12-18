@@ -100,10 +100,6 @@ This feature enables sub-users to query the log download links on specified date
 #### Cloud API Permission Control
 The sub-users with this feature can apply for a Cloud API Key (for more information, refer to [Applying for Security Credential](https://intl.cloud.tencent.com/document/product/228/9261) and use the key to call the following Cloud APIs to query the log download links (the domain must belong to a project covered by the permission):
 
-+ [GenerateLogList](https://cloud.tencent.com/doc/api/231/3950): Query log download links
-
-
-
 ### Adding Domain
 #### Note:
 + The permission to add domain only be assigned by **Project** currently, that is, the project to which a domain is allowed to be added can be specified;
