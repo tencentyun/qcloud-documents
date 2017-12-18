@@ -12,7 +12,7 @@
 - 图6是静态与动态贴纸操作界面
 - 图7是气泡字幕操作界面
 
-编译运行Demo体验，从资源下载处下载[SDK开发包](https://cloud.tencent.com/document/product/584/9366)，解压出来运行Demo工程RTMPiOSDemo.xcodeproj，在运行起来后的主界面中点选视频编辑即可选择视频进入进行编辑功能体验。
+编译运行Demo体验，从资源下载处下载[SDK开发包](https://cloud.tencent.com/document/product/584/9366)，解压出来运行Demo工程RTMPiOSDemo.xcodeproj，在运行起来后的主界面中点选短视频特效即可选择视频进入进行编辑功能体验。
 
 ## 复用现有UI
 视频编辑具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码，使用时从Demo中拷贝以下文件夹到自己的工程:    
@@ -28,7 +28,7 @@ UI源码说明
 3. MusicMixView: 视频添加混音界面，包含音乐文件选择，音乐信息展示，音乐长度裁剪，原音与伴音音量调整等功能，如需修改混音界面可对此类进行修改或替换。  
 4. TextAddView: 视频添加字幕界面，此界面只包含跳转到VideoTextViewController的按钮，实际添加字幕的界面及操作在VideoTextViewController中进行，可根据需要进行修改或去除此界面。  
 5. VideoTextField: 字幕输入组件，包含字幕文字输入、字幕拖动、放大、旋转、删除、添加字幕背景样式等功能，VideoTextViewController中主要利用此组件完成字幕的添加删除。  
-6. VideoPasterView: 贴纸输入组件，包含动态/静态贴纸输入、贴纸拖动、放大、旋转、删除等功能，VideoPasterViewController中主要利用此组件完成字幕的添加删除。  
+6. VideoPasterView: 贴纸输入组件，包含动态/静态贴纸输入、贴纸拖动、放大、旋转、删除等功能，VideoPasterViewController中主要利用此组件完成贴纸的添加删除。  
 
 VideoEditViewController只负责将这几个界面与预览界面VideoPreview组合起来，并结合SDK去处理界面间的交互及响应，如需对界面进行整体结构的调整可在此类中进行。
 
@@ -179,10 +179,13 @@ float y = (videoMsg.height - height) / 2 / videoMsg.height;
 - (void) stopEffect:(TXEffectType)type  endTime:(float)endTime;
 
 //滤镜特效的类型（type参数），在常量 TXEffectType 中有定义：
-TXEffectType_SOUL_OUT          - 滤镜特效1
-TXEffectType_SPLIT_SCREEN      - 滤镜特效2
-TXEffectType_DARK_DRAEM        - 滤镜特效3
-TXEffectType_ROCK_LIGHT        - 滤镜特效4
+typedef  NS_ENUM(NSInteger,TXEffectType)
+{
+    TXEffectType_ROCK_LIGHT,  //动感光波
+    TXEffectType_DARK_DRAEM,  //暗黑幻境
+    TXEffectType_SOUL_OUT,    //灵魂出窍
+    TXEffectType_SCREEN_SPLIT,//视频分裂
+};
 
 - (void) deleteLastEffect;
 ```
