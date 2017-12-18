@@ -2,34 +2,52 @@
 新一代 Redis 成熟稳定，容灾机制健全，服务成熟，服务于海量第三方用户以及腾讯自有业务，日访问量超过一万亿次，久经考验，开发者完全可以放心使用。
 
 ## 新一代 Redis 支持命令
-| **connection 族** | **geo 族** | **hashes 族** | **hyperloglog 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | **sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| auth | geoadd | hdel | pfadd | del | lindex | psubscribe | command | sadd | zadd | append | discard |
-| echo | geohash | hexists | pfcount | scan | linsert | pubsub | dbsize | scard | zcard | bitcount | exec |
-| ping | geopos | hget | pfmerge | exists | llen | publish | info | sdiff | zcount | bitop | multi |
-| quit | geodist | hgetall | 　 | expire | lpop | punsubscribe | time | sdiffstore | zincrby | bitpos | unwatch |
-| select | georadius | hincrby | 　 | expireat | lpush | subscribe | 　 | sinter | zinterstore | decr | watch |
-| 　 | georadiusbymember | hincrbyfloat | 　 | keys | lpushx | unsubscribe | 　 | sinterstore | zlexcount | decrby | 　 |
-| 　 | 　 | hkeys | 　 | type | lrange | 　 | 　 | sismember | zrange | get | 　 |
-| 　 | 　 | hlen | 　 | move | lrem | 　 | 　 | smembers | zrangebylex | getbit | 　 |
-| 　 | 　 | hmget | 　 | ttl | lset | 　 | 　 | smove | zrangebyscore | getrange | 　 |
-| 　 | 　 | hmset | 　 | persist | ltrim | 　 | 　 | spop | zrank | getset | 　 |
-| 　 | 　 | hset | 　 | pexpire | rpop | 　 | 　 | srandmember | zrem | incr | 　 |
-| 　 | 　 | hsetnx | 　 | pexpireat | rpoplpush | 　 | 　 | srem | zremrangebylex | incrby | 　 |
-| 　 | 　 | hstrlen | 　 | pttl | rpush | 　 | 　 | sscan | zremrangebyrank | incrbyfloat | 　 |
-| 　 | 　 | hvals | 　 | randomkey | rpushx | 　 | 　 | sunion | zremrangebyscore | mget | 　 |
-| 　 | 　 | hscan | 　 | rename | 　 | 　 | 　 | sunionstore | zrevrange | mset | 　 |
-| 　 | 　 | 　 | 　 | renamenx | 　 | 　 | 　 | 　 | zrevrangebylex | msetnx | 　 |
-| 　 | 　 | 　 | 　 | sort | 　 | 　 | 　 | 　 | zrevrangebyscore | psetex | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | zrevrank | set | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | zscan | setbit | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | zscore | setex | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | zunionstore | setnx | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | setrange | 　 |
-| 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | 　 | strlen | 　 |
+1. | **connection 族** | **geo 族** | **hashes 族** | **hyperloglog 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | 
+   | --- | --- | --- | --- | --- | --- | --- | --- |
+   | auth | geoadd | hdel | pfadd | del | lindex | psubscribe | command |
+   | echo | geohash | hexists | pfcount | scan | linsert | pubsub | dbsize |
+   | ping | geopos | hget | pfmerge | exists | llen | publish | info |
+   | quit | geodist | hgetall | 　 | expire | lpop | punsubscribe | time |
+   | select | georadius | hincrby | 　 | expireat | lpush | subscribe | 　 |
+   | 　 | georadiusbymember | hincrbyfloat | 　 | keys | lpushx | unsubscribe | 　 |
+   | 　 | 　 | hkeys | 　 | type | lrange | 　 | 　 |
+   | 　 | 　 | hlen | 　 | move | lrem | 　 | 　 |
+   | 　 | 　 | hmget | 　 | ttl | lset | 　 | 　 |
+   | 　 | 　 | hmset | 　 | persist | ltrim | 　 | 　 |
+   | 　 | 　 | hset | 　 | pexpire | rpop | 　 | 　 |
+   | 　 | 　 | hsetnx | 　 | pexpireat | rpoplpush | 　 | 　 |
+   | 　 | 　 | hstrlen | 　 | pttl | rpush | 　 | 　 |
+   | 　 | 　 | hvals | 　 | randomkey | rpushx | 　 | 　 |
+   | 　 | 　 | hscan | 　 | rename | 　 | 　 | 　 |
+   | 　 | 　 | 　 | 　 | renamenx | 　 | 　 | 　 |
+   | 　 | 　 | 　 | 　 | sort | 　 | 　 | 　 |
 
-
-
+2. |**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
+   | --- | --- | --- | --- |
+   | sadd | zadd | append | discard |
+   | scard | zcard | bitcount | exec |
+   | sdiff | zcount | bitop | multi |
+   | sdiffstore | zincrby | bitpos | unwatch |
+   | sinter | zinterstore | decr | watch |
+   | sinterstore | zlexcount | decrby | 　 |
+   | sismember | zrange | get | 　 |
+   | smembers | zrangebylex | getbit | 　 |
+   | smove | zrangebyscore | getrange | 　 |
+   | spop | zrank | getset | 　 |
+   | srandmember | zrem | incr | 　 |
+   | srem | zremrangebylex | incrby | 　 |
+   | sscan | zremrangebyrank | incrbyfloat | 　 |
+   | sunion | zremrangebyscore | mget | 　 |
+   | sunionstore | zrevrange | mset | 　 |
+   | 　 | zrevrangebylex | msetnx | 　 |
+   | 　 | zrevrangebyscore | psetex | 　 |
+   | 　 | zrevrank | set | 　 |
+   | 　 | zscan | setbit | 　 |
+   | 　 | zscore | setex | 　 |
+   | 　 | zunionstore | setnx | 　 |
+   | 　 | 　 | setrange | 　 |
+   | 　 | 　 | strlen | 　 |
+ 
 ## 新一代 Redis 不支持命令
 | **cluster 族** | **connection 族** | **keys 族** | **lists 族** | **scripting 族** | **server 族** | **strings 族** |
 | --- | --- | --- | --- | --- | --- | --- |
