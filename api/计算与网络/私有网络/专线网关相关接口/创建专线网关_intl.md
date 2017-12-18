@@ -43,7 +43,9 @@ https://vpc.api.qcloud.com/v2/index.php?Action=CreateDirectConnectGateway
 &directConnectGatewayName=Direct Connect gateway
 &type=0
 </pre>
+
 Output
+
 ```
 {
     "code":"0",
