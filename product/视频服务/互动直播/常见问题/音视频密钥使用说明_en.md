@@ -1,14 +1,15 @@
 
 ## Audio & Video Key Instructions
-### I. Key and encryption algorithm
-#### 1. Key: AppId corresponds to the audio/video key with a length of 16 bytes, which can be found in the official website:
+### Key and encryption algorithm
+#### Key: AppId corresponds to the audio/video key with a length of 16 bytes, which can be found in the official website:
 ![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audiosig_0.png)
-#### 2. Encryption algorithm: Tea;
-#### 3. Encryption library and example: Appendix "tea.zip";
 
-### II. Usage Scenario 1: Encrypted permission string for creating a room
+#### Encryption algorithm: Tea;
+####  Encryption library and example: Appendix "tea.zip";
 
-#### 1. Ciphertext content
+### Usage Scenario 1: Encrypted permission string for creating a room
+
+#### Ciphertext content
 
 Field Description | Type/Length | Value Definition/Note
 :--:|:--:|:--
@@ -21,21 +22,24 @@ dwExpTime | unsigned int/4 | Expiration time (current time + validity period) (i
 dwPrivilegeMap | unsigned int/4 | Permission bit
 dwAccountType | unsigned int/4 | Third-party account type
 
-#### 2. Encrytion method
-##### a). Convert numbers in ciphertext to network byte order (big endian);
-##### b). Construct the ciphertext into a string;
-##### c). Encrypt the string using Tea. The string output by symmetry_encrypt function is the encrypted permission string (Note: Do not convert the binary strings into hexadecimal ones)
-#### 3. Ciphertext verification
+#### Encrytion method
+1. Convert numbers in ciphertext to network byte order (big endian);
+2. Construct the ciphertext into a string;
+3. Encrypt the string using Tea. The string output by symmetry_encrypt function is the encrypted permission string (Note: Do not convert the binary strings into hexadecimal ones).
+
+#### Ciphertext verification
 Use the tool test_tea_decode (packaged with lib) to initially verify whether the ciphertext can be decrypted.
-##### a) Convert the ciphertext into a readable hexadecimal string.
-##### b) Tool verification:
+1. Convert the ciphertext into a readable hexadecimal string.
+2. Tool verification:
 The scenario that the ciphertext can be decrypted correctly:
 ![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audiosig_1.png)
 The scenario that the ciphertext cannot be decrypted correctly:
 ![](https://zhaoyang21cn.github.io/iLiveSDK_Help/readme_img/audiosig_2.png)
-### II. Usage Scenario 2: Cross-room joint broadcasting encrypted string
-#### 1. Ciphertext content
-Attachment: "conn_room_sig.proto"
+
+### Usage Scenario 2: Cross-room joint broadcasting encrypted string
+#### Ciphertext content
+Attachment: "conn_room_sig.proto".
+
 ```
 package tencent.im.groupvideo.conn_room;
 
@@ -59,16 +63,15 @@ uint32_conned_groupcode | Yes | Group number/group ID of joined party
 str_conned_third_account | Yes | Joined party account
 uint32_create_time | Yes | Signature creation time
 uint32_expire_time | Yes | Signature expiration time. It is recommended to set it as the creation time +300 seconds
-#### 2. Encryption method
-##### a). Use google protobuf to serialize the ConnRoomSig object, then output the binary string;
-##### b). Encrypt the binary string using TEA. The string output by symmetry_encrypt function is the encrypted string;
-##### c). Convert the encrypted string into a hexadecimal string in a case-insensitive manner, for example:
+
+#### Encryption method
+1. Use google protobuf to serialize the ConnRoomSig object, then output the binary string;
+2. Encrypt the binary string using TEA. The string output by symmetry_encrypt function is the encrypted string;
+3. Convert the encrypted string into a hexadecimal string in a case-insensitive manner, for example:
 ```
 bytes_conn_room_sig: 
 "00A47C7E5FD0471A6D90CBE6FAAC2D862A114EFC6337D8F0BD1161BB53250F4EE46DB0244E8515D58BA7DAED23190484"
 ```
-The official website of google protobuf: [https://github.com/google/protobuf](https://github.com/google/protobuf)
-
-
-[Download Encrypted Code](http://dldir1.qq.com/hudongzhibo/ILiveSDK/tea_3.zip)
+The official website of google protobuf: [https://github.com/google/protobuf](https://github.com/google/protobuf).
+[Download Encrypted Code](http://dldir1.qq.com/hudongzhibo/ILiveSDK/tea_3.zip).
 
