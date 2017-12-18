@@ -1,5 +1,5 @@
 ## 功能描述
-RecoveryBmTgwCluster 接口用于TGW集群切换，用于NAT网关、物理机、虚拟机IP信息在共享集群和独占集群间切换。
+RecoveryBmTgwCluster 接口用于突发情况下，TGW共享集群和独占集群的切换，切换内容包括NAT网关、物理机、虚拟机IP的信息。
 
 接口请求域名：bm.api.qcloud.com
 
@@ -11,11 +11,11 @@ GET https://bm.api.qcloud.com/v2/index.php?Action=RecoveryBmTgwCluster
     &unVpcId=<vpc网络ID>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为RecoveryBmTgwCluster。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="https://cloud.tencent.com/document/api/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为RecoveryBmTgwCluster。
 
 | 参数名称 | 描述 | 类型 | 必选 |
 |---------|---------|---------|---------|
-| unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。 | String | 是 |
+| unVpcId | 私有网络ID值，例如：vpc-kd7d06of| String | 是 |
 
 
 ## 响应
@@ -25,7 +25,7 @@ GET https://bm.api.qcloud.com/v2/index.php?Action=RecoveryBmTgwCluster
 	"code": 0,
 	"message": "",
 	"data": {
-		"taskId": <NAT异步任务ID>
+		"taskId": <异步任务ID>
 	}
 }
 ```
@@ -41,7 +41,7 @@ data结构
 
 | 参数名称   | 类型   | 描述                        |
 | ------ | ---- | ------------------------- |
-| taskId | Int  | 以taskId为key，对应的值为异步操作的ID。 |
+| taskId | Int  | 以taskId为key，对应的值为异步操作的ID。创建结果可调用<a href="https://cloud.tencent.com/document/api/386/6644" title="查询异步任务操作状态">查询异步任务操作状态</a>查询 |
 
 ## 错误码
 | 错误码   | 英文提示                                    | 错误描述             |
