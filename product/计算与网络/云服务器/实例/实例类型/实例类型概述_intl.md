@@ -28,7 +28,7 @@ Series 1 features Intel Xeon CPU and DDR3 memory.
 
 ## Restrictions on Instances
 
-Currently, Series 2 is only available in South China (Guangzhou) - Guangzhou Zone 1, and East China (Shanghai) - Shanghai Zone 1. Please click [here](http://cloud.tencent.com/event/cvm2.html) to purchase.
+Currently, Series 2 is only available in South China (Guangzhou) - Guangzhou Zone 1, and East China (Shanghai) - Shanghai Zone 1.
 
 The total number of instances started in one zone is limited. For more information about the restrictions, please see [Restrictions on CVM Instance Purchase](https://cloud.tencent.com/doc/product/213/2664)
 

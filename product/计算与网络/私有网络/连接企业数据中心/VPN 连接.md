@@ -58,7 +58,7 @@ SPD策略3 本端网段 `10.0.2.0/24`，对端网段为 `192.168.2.0/24`。
 |版本|IKE V1|
 |身份认证方法|默认预共享秘钥|
 |认证算法|身份认证算法，支持MD5和SHA1|
-|协商模式|支持main（主模式）和aggressive（挑战者模式）<br><br>二者的不同之处在于，aggressive 模式可以用更少的包发送更多信息，这样做的优点是快速建立连接，而代价是以清晰的方式发送安全网关的身份，使用 aggressive 模式时，配置参数如 Diffie-Hellman 和 PFS 不能进行协商，因此两端拥有兼容的配置是至关重要的|
+|协商模式|支持main（主模式）和aggressive（野蛮模式）<br><br>二者的不同之处在于，aggressive 模式可以用更少的包发送更多信息，这样做的优点是快速建立连接，而代价是以清晰的方式发送安全网关的身份，使用 aggressive 模式时，配置参数如 Diffie-Hellman 和 PFS 不能进行协商，因此两端拥有兼容的配置是至关重要的|
 |本端标识|支持 IP address 和 FQDN（全称域名）|
 |对端标识|支持 IP address 和 FQDN|
 |DH group|指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br><br>Group1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br><br> Group2：采用 1024-bit MODP 算法的 DH 组<br><br> Group5：采用 1536-bit MODP 算法的 DH 组<br><br>Group14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br><br> Group24：带 256 位的素数阶子群的 2048-bit MODP算法 DH 组，不支持组 VPN 实现此选项|
