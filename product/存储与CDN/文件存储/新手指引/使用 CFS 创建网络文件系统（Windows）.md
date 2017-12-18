@@ -63,7 +63,7 @@
  > - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](/doc/product/582/9764)。
 
 3. 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Windows 下的挂载命令。
-![](//mc.qcloudimg.com/static/img/b5d0794e84311c37a2543686abc51be1/image.png)
+![](https://mc.qcloudimg.com/static/img/a3eec1aa1a88b3a79aae4da6461b8be0/image.png)
 
 ## 三、连接实例
 本部分操作介绍登录 Windows 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见 [登录 Windows 实例](/doc/product/213/5435) 。
@@ -139,7 +139,7 @@ mount 10.10.0.12:/z3r6k95r X:
 > **注意：**
 > FSID 可以到【控制台】>【文件系统详情】>【挂载点信息】中获取。
 
-![](https://mc.qcloudimg.com/static/img/4ce4a81c90b9ecdc19a4396720a46330/image.png)
+![](https://mc.qcloudimg.com/static/img/a3eec1aa1a88b3a79aae4da6461b8be0/image.png)
 
 #### 5. 卸载共享目录 
 
@@ -158,3 +158,5 @@ umount X：
 ![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. 终止文件系统。进入腾讯云文件存储 [控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 ![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
+
+

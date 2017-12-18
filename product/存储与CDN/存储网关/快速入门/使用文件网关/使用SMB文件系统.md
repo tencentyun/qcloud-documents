@@ -27,6 +27,8 @@
 点击【完成】按钮后，在弹出的窗口中输入第一步创建的用户名密码，点击确认完成挂载。
 ![](https://mc.qcloudimg.com/static/img/27f2f6fdcb2f75ea974ef96bdb90ef28/image.png)
 
+<p style="color: red;">注意，请勿从多台客户端主机上使用相同用户名密码访问同一文件系统，该操作会被系统自动识别为非法（文件系统会锁住）。</p>
+
 ### 验证读写
 确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
