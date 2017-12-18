@@ -1,8 +1,6 @@
 主从版 Redis 是腾讯云基于开源的 Redis 打造的一款高可用、高可靠的 Redis 服务。通过主从热备自动容灾提供高可用性，通过多份数据拷贝保证高可靠性。主从版 Redis 支持开源 V2.8 版本协议，容量支持范围为 1~60G。
 
 ## 主从版 Redis 支持命令
- 
-1.
 | **connection 族** | **hashes 族** | **keys 族** | **lists 族** | **pub/sub 族** | **server 族** | 
 | --- | --- | --- | --- | --- | --- |
 | auth | hdel | del | lindex | psubscribe | command | 
@@ -23,8 +21,6 @@
 | 　 | 　 | renamenx | brpop | 　 |   |
 | 　 | 　 | sort | brpoplpush | 　 |   |
 
- 
-2.
 |**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
 | --- | --- | --- | --- |
 | sadd | zadd | append | discard |
@@ -50,8 +46,6 @@
 | 　 | zunionstore | setnx | 　 |
 | 　 | 　 | setrange | 　 |
 | 　 | 　 | strlen | 　 |
-
-
 
 ## 主从版 Redis 不支持命令
 | **cluster 族** | **connection 族** | **geo 族** | **hyperloglog 族** | **keys 族** | **scripting 族** | **server 族** | **strings 族** |
