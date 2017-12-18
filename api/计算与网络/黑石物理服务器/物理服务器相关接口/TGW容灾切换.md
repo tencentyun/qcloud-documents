@@ -1,5 +1,6 @@
 ## 功能描述
 RecoveryBmTgwCluster 接口用于TGW集群切换，用于NAT网关、物理机、虚拟机IP信息在共享集群和独占集群间切换。
+
 接口请求域名：bm.api.qcloud.com
 
 ## 请求
