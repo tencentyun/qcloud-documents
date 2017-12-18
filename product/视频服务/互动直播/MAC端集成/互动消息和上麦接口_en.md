@@ -1,6 +1,6 @@
 # Interactive Message and Joining Broadcasting
 
-### Preparations
+## Preparations
 Whether you want to send messages or join the broadcasting, you need to set event and message listening before creating and joining a room. Example:
 ```
 //Add IM message listening
@@ -8,7 +8,7 @@ Whether you want to send messages or join the broadcasting, you need to set even
 [[[ILiveSDK getInstance] getTIMManager] addMessageListener:self];
 ```
 
-### 1. Send a message
+## Send a message
 
 | API | Description |
 |---|---|
@@ -19,9 +19,9 @@ Whether you want to send messages or join the broadcasting, you need to set even
 
 **Differences between ordinary messages and online messages:**
 
-1. When sending ordinary messages, the receiver will certainly receive them (If the receiver is not online, he/she will receive them again at the next login)
+1. When sending ordinary messages, the receiver will certainly receive them (If the receiver is not online, he/she will receive them again at the next login).
 
-2. When sending online messages, if the receiver is online, he/she will receive the messages; if not online, he/she will not receive them, even at the next login
+2. When sending online messages, if the receiver is online, he/she will receive the messages; if not online, he/she will not receive them, even at the next login.
 
 The calling methods of above APIs are similar. The sample codes for sending "group online messages" are shown as follows:
 
@@ -50,18 +50,20 @@ __weak typeof(self) ws = self;
 }
 ```
 
-### 2. Join broadcasting
-#### 2.1 Flowchart of invitation from VJ to viewer for joint broadcasting:
+## Join broadcasting
+### Flowchart of invitation from VJ to viewer for joint broadcasting
 ![](http://mc.qcloudimg.com/static/img/ccbafe376da2e175ff41bd681856581e/image.png)
-------
-#### 2.2 Flowchart of viewer's request for joining the broadcasting:
+
+### Flowchart of viewer's request for joining the broadcasting
 ![](http://mc.qcloudimg.com/static/img/4d21a6ce428740fa16ebc58a0675b3e7/image.png)
-------
-#### 2.3 APIs
 
-**Note: The control signaling is implemented by sending custom messages**
 
-##### 2.3.1 Invite to join broadcasting
+### APIs
+
+>**Note: **
+>The control signaling is implemented by sending custom messages.
+
+#### Invite to join broadcasting
 
 ```
 //Message assembly
@@ -87,7 +89,7 @@ __weak typeof(self) ws = self;
     NSLog(@"Failed to send the joint broadcasting invitation, M=%@,code=%d,Msg=%@",module,errId,errMsg);
 }];
 ```
-##### 2.3.2 API for joining broadcasting
+#### API for joining broadcasting
 
 ```
 - (void)onNewMessage:(NSArray *)msgs
@@ -116,17 +118,17 @@ __weak typeof(self) ws = self;
     }];
 }
 ```
-##### 2.3.3 API for setting the area for rendering for joining broadcasting
+#### API for setting the area for rendering for joining broadcasting
 
 | API | Description |
 |---|---|
-| addRenderAt:forIdentifier:srcType: | Add the area for rendering and set the key for the rendered view (generally, the user ID for the rendered view is used) |
+| addRenderAt:forIdentifier:srcType: | Add the area for rendering and set the key for the rendered view (generally, the user ID for the rendered view is used). |
 
 | Parameter Type | Parameter Name | Description |
 |---|---|---|
-| CGRect | rect | View rendering area |
-| NSString | forIdentifier | View key, which is used as business logic (generally, the user ID for the view is used) |
-| avVideoSrcType | srcType | Video source type |
+| CGRect | rect | View rendering area. |
+| NSString | forIdentifier | View key, which is used as business logic (generally, the user ID for the view is used). |
+| avVideoSrcType | srcType | Video source type. |
 
 ```
 - (BOOL)onEndpointsUpdateInfo:(QAVUpdateEvent)event updateList:(NSArray *)endpoints
