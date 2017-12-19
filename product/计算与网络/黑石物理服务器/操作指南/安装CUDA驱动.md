@@ -51,7 +51,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-\# for cuda env
+# for cuda env
 echo $PATH | grep cuda
 if [ $? -ne 0 ]; then
     echo 'export PATH=/usr/local/cuda/bin:$PATH' >> /etc/profile
