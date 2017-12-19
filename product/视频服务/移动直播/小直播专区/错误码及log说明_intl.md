@@ -18,7 +18,6 @@ The path to Android mobile device's log: sdcrad/`tencent/imsdklogs/com/tencent/q
 | 4003| The number of Cloud Image authentications has exceeds the daily limit (currently, a maximum of 100 users are allowed to use the feature each day) |
 | 500 | This is an HTTP error code, which may be caused by the incorrect database configuration. Please check the log at error level under the /logs under Nginx's installation directory. This log also provides the information on other HTTP error codes |
 
-For error codes related to COS (for uploading images, covers), please see [COS Error Codes](https://cloud.tencent.com/document/product/436/6281)
  
      
 
