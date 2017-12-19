@@ -20,7 +20,7 @@
 
 | Mobile Phone Platform | Document Index |
 |:-------:|---------|
-| iOS Platform | [Push Feature](https://cloud.tencent.com/document/product/454/7879) &nbsp; Playback Feature &nbsp; Joint Broadcasting &nbsp; Advanced Usage &nbsp; ReplayKit  | 
+| iOS Platform | Push Feature &nbsp; Playback Feature &nbsp; Joint Broadcasting &nbsp; Advanced Usage &nbsp; ReplayKit  | 
 | Android Platform | Push Feature &nbsp; Playback Feature &nbsp; Joint Broadcasting &nbsp; Advanced Usage &nbsp; Phone Screencap | 
 
 ## Test Result
