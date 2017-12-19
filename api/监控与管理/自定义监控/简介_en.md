@@ -18,7 +18,7 @@ The following are some commonly used terms in CCM:
 |statisticsType statistics|statisticsType statistics| <a href="https://cloud.tencent.com/doc/product/397/3984">Statistical method</a> | It is used to analyze the data set within a specified statistical period. Available analytical methods are: max (to take the maximum value in the data set), min (to take the minimum value in the data set), sum (to take the sum of all data in the data set), avg (to take the average value of all data in the data set), last (to take the last value in the data set) |
 
 
-## 2.API Quick Start
+## 2. API Quick Start
 To use CCM APIs, you need to complete at least the following four steps:
 
 1. Create Namespace
