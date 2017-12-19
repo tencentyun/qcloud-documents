@@ -28,7 +28,7 @@ Action=DescribeInstances
 &Nonce=59485
 &Signature=mysignature
 &SignatureMethod=HmacSHA256
-&<<a href="https://cloud.tencent.com/document/api/377/4154">API request parameters</a>>
+&<<a href="https://intl.cloud.tencent.com/document/product/362/4203">API request parameters</a>>
 </pre>
 
 
