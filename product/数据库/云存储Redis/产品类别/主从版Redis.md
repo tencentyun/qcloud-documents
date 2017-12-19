@@ -18,8 +18,8 @@
 | 　 | hstrlen | pttl | rpush | 　 |   |
 | 　 | hvals | randomkey | rpushx | 　 |   |
 | 　 | hscan | rename | blpop | 　 |   |
-| 　 | 　 | renamenx | brpop | 　 |   |
-| 　 | 　 | sort | brpoplpush | 　 |   |
+| 　 | 　 | renamenx | brpop | 　 | 　 |
+| 　 | 　 | sort | brpoplpush | 　 | 　 |
 
 |**sets 族** | **sorted sets 族** | **strings 族** | **transactions 族** |
 | --- | --- | --- | --- |
