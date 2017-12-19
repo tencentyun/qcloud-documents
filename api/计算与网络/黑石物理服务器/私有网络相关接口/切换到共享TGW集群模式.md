@@ -54,7 +54,7 @@ data结构
 ## 实际案例
 ### 输入
 ```
-GET https://bm.api.qcloud.com/v2/index.php?
+GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=SwitchToTgwSharedCluster
 	&SecretId=AKID1ub7R1JoyBF7nHqjk7IH8nGWaR6Yezwd
 	&Nonce=4557
