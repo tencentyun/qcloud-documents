@@ -490,7 +490,7 @@ python QcloudCdnTools_V2.py DeleteCdnHost -u xxxxx -p xxxxxx -hostId 1234
 
 #### Obtaining Log Download Link
 
-Use the following command to call the [GenerateLogList](https://cloud.tencent.com/doc/api/231/3950) API to acquire the CDN log download link of specified domain:
+Use the following command to call the GenerateLogList API to acquire the CDN log download link of specified domain:
 
 ```
 python QcloudCdnTools_V2.py GenerateLogList -u xxxxx -p xxxxxxx --hostId 1234
