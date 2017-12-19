@@ -12,7 +12,7 @@ To prevent attackers from forging your server to generate push URL, you need to 
 ### Step 1: Exchange the key
 First, set an **encryption key** in the [LVB Console](https://console.cloud.tencent.com/live/livecodemanage) to calculate the hotlink protection signature on you server. As Tencent Cloud has the same key, it can verify the validity of your hotlink protection signature.
 
-Keys are classified into **push hotlink protection keys** and **playback hotlink protection keys**. The former are used to generate the push hotlink protection URLs and the latter are used to generate the playback hotlink protection URLs. On the [LVB Console](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F), you can configure the push hotlink protection key, as shown below:
+Keys are classified into **push hotlink protection keys** and **playback hotlink protection keys**. The former are used to generate the push hotlink protection URLs and the latter are used to generate the playback hotlink protection URLs. On the [LVB Console](https://console.qcloud.com/live), you can configure the push hotlink protection key, as shown below:
 ![](//mc.qcloudimg.com/static/img/6be1d875f1120a16d3692c60bb4485a9/image.png)
  >  **Playback hotlink protection is disabled by default**
  >   
