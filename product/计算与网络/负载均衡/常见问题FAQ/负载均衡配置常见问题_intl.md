@@ -30,7 +30,7 @@ In the Cookie Insertion mode, CLB is responsible for inserting cookies without m
 
 When the client makes the second request, the client HTTP request containing the cookie inserted by CLB last time goes into CLB, which then reads the session persistence values in the cookie and sends the HTTP request (with the same cookie as above) to the specified CVM. Then the back-end CVM gives a reply, and because the CVM does not write the cookie, the HTTP reply does not contain the cookie. When the reply traffic flows into the CLB again, the updated session persistence cookie will be written to CLB.
 
-# # 6. What is the difference between Layer-4 and Layer-7 cloud load balance?
+## 6. What is the difference between Layer-4 and Layer-7 cloud load balance?
 Layer-4 cloud load balance capability is based on IP and port, while Layer-7 cloud load balance capability is based on the application layer information such as HTTP header, URL, etc.
 
 The difference between Layer-4 and Layer-7 cloud load balance lies in whether Layer-4 information or Layer-7 information is used as the basis for determining the way of forwarding traffic when cloud load balance is performed on back-end CVMs.  For example, Layer-4 cloud load balancer determines which traffic needs load balance based on Layer-3 IP address (VIP) and Layer-4 port number, performs NAT on the traffic to be processed and then forwards it to the back-end CVM. At the same time, it records which CVM has processed the TCP or UDP traffic, and forwards all the subsequent traffic of this connection to the same CVM for processing.

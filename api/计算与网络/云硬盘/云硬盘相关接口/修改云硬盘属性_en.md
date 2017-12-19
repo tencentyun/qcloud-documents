@@ -4,7 +4,7 @@ This API (ModifyCbsStorageAttributes) is used to modify the name or the project 
 
 Domain for API call:<font style="color:red">cbs.api.qcloud.com</font>
 
-Usage restrictions:
+Usage restrictions:<br>
 1. Only the project ID of elastic cloud storages can be modified; the project ID of the cloud storage created with the CVM is linked with the CVM. The cloud disk type can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `portable` field in output parameters.
 
 

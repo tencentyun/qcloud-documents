@@ -50,7 +50,7 @@ The desired number of instances refers to the correct number of instances in a s
 
 ## 14. What should be noted when a data disk snapshot is specified in the scaling configuration?
 If a data disk snapshot is specified in the scaling configuration, you need to ensure that the data disk can be mounted correctly to allow the scaling group to automatically scale up. You need to perform some operations on the original instance of the data disk snapshot before setting the auto scaling, so as to realize the automatic mounting of data disk when activating a new CVM instance.
-For instructions on how to do this, refer to [here >>](https://cloud.tencent.com/doc/product/362/5564)
+For instructions on how to do this, refer to [here >>](https://intl.cloud.tencent.com/document/product/362/7871)
 
 ## 15. What activity will be paused when the scaling group is disabled?
 After the scaling group is disabled, the auto capacity scaling of the scaling group will not be triggered, but the restrictions on the scaling group remain in effect.

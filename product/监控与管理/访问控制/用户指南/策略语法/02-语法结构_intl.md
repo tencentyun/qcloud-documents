@@ -174,11 +174,11 @@ Conditional operator used to describe type of the test condition. For example: s
 ```
 condition_key_string:
     
-Condition key which indicates that operation will be performed by using conditional operator on its value, in order to determine if the conditions are met. CAM defines a set of condition keys that can be used in any product, such as qcs:current_time, qcs:ip, qcs:uin and qcs:owner_uin. For more information, please see Conditions.
+Condition key which indicates that operation will be performed by using conditional operator on its value, in order to determine if the conditions are met. CAM defines a set of condition keys that can be used in any product, such as qcs:current_time, qcs:ip, qcs:uin and qcs:owner_uin. For more information, please see [Trigger Conditions](https://intl.cloud.tencent.com/document/product/598/10608).
     
 principal_id_string:
     
-For CAM products, users are resources. Thus, principals are also described using 6-piece format. An example is given below. For more information, please see Resource Description Method.
+For CAM products, users are resources. Thus, principals are also described using 6-piece format. An example is given below. For more information, please see [Resource Description Method](https://intl.cloud.tencent.com/document/product/598/10606).
 
 ```
 "principal":   {"qcs":["qcs::cam::uin/1238423:uin/3232",

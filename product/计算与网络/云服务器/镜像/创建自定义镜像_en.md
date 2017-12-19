@@ -3,10 +3,9 @@
 
 You can launch an CVM using a public image or a service market image, and install and configure the software environment as needed. Then you can create an image to quickly launch more new instances with the same configurations. 
 
-It's recommended to shut down the CVM before creating the image. 
->Note: you can creating custom image while the instance is runing, but data reading/writing during the creation may not be saved properly. 
+It's recommended to shut down the CVM before creating the image.
 
-If you want to reserve the data on the original instance data disk when starting a new instance, then you can first take a [snapshot](https://cloud.tencent.com/doc/product/362/2455) of the data disk. When starting the new instance, you can use this disk snapshot to create a new CBS disk. For more information, see [Create Cloud Disks with Snapshots](https://cloud.tencent.com/doc/product/362/2455#6.-.E4.BD.BF.E7.94.A8.E5.BF.AB.E7.85.A7.E5.88.9B.E5.BB.BA.E7.A3.81.E7.9B.98).
+If you want to reserve the data on the original instance data disk when starting a new instance, then you can first take a snapshot of the data disk. When starting the new instance, you can use this disk snapshot to create a new CBS disk.
 
 ## Creating Images on Console
 
