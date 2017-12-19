@@ -40,10 +40,10 @@ On Linux system, you can check whether the status is HTTP / 1.1 200 OK through t
 
 Check whether the firewall of private network on the CVM allows port 80. You can temporarily disable the firewall for the test.
 
-For Windows system, run the `firewall.cpl' entry to disable the firewall
+For Windows system, run the `firewall.cpl` entry to disable the firewall 
 For Linux system, input `/etc/init.d/iptables stop` to disable the firewall
 
-- Check whether the settings of the CLB health check parameters are correct. It is recommended to complete the settings by referring to the health check default parameter values provided [here](http://cloud.tencent.com/doc/product/214/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#2.2.-.E5.81.A5.E5.BA.B7.E6.A3.80.E6.9F.A5).
+- Check whether the settings of the CLB health check parameters are correct.
 - The recommended test file specified for health check is a simple page in html form and is only used for check return results. Dynamic scripting languages such as php are not recommended.
 - Check whether there is a high load on the back-end CVM that leads to slow response of CVM to provide service.
 
