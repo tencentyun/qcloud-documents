@@ -149,6 +149,7 @@ Execute the following command for installation
 
 ## Operations After Installation
 >**Note:** Do not restart the server after the following operations are completed, otherwise you have to do it again.
+
 ```
 cloud-init init --local
 rm -rf /var/lib/cloud
