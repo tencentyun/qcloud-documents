@@ -15,7 +15,7 @@
 | [Query Upgrade Price](/document/api/236/7193) | InquiryCdbUpgradePrice | Query the upgrade price of a cloud database instance. Instance types include master instance, disaster recovery instance and read-only instance. |
 | [Upgrade Database Engine Version](/document/api/236/8371) | UpgradeCdbEngineVersion | Upgrade the engine version of a cloud database instance |
 | [Query Details on Instance Upgrade Task](/document/api/236/8373) | GetCdbUpgradeJobInfo | Query details on instance upgrade task. The query of upgrade details on master instances, disaster recovery instances and read-only instances are supported. |
-| [Renew Instance](Prepaid)](/document/api/236/1331) | RenewCdb | Renew cloud database instances. Only Prepaid instances are supported |
+| [Renew Instance(Prepaid)](/document/api/236/1331) | RenewCdb | Renew cloud database instances. Only Prepaid instances are supported |
 | [Query Renewal Price (Prepaid)](/document/api/236/7170) | InquiryCdbRenewPrice | Query the renewal price of a cloud database instance. Only Prepaid instances are supported. The renewal of Postpaid instances is not required |
 | [Terminate Instance (Postpaid)](/document/api/236/6415) | CloseCdbHour | Postpaid instances can be terminated in real time |
 | [Recover Instance (Postpaid)](/document/api/236/6416) | OpenCdbHour | Postpaid instances, if terminated, can be recovered in real time through this API |
