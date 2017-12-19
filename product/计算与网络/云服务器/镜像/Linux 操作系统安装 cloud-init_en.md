@@ -46,10 +46,10 @@ According to different operating systems, download cloud.cfg by clicking the lin
 #### 3.5 Set Auto-start on Boot for cloud-init Service
 
 **3.5.1 Auto-start management service for systemd operating system**
-<br>**Execute the specific commands for Ubuntu or Debian operating system**
+Execute the specific commands for Ubuntu or Debian operating system
 ` ln -s /usr/local/bin/cloud-init /usr/bin/cloud-init `
 
-**Execute the following commands for all operating systems**
+Execute the following commands for all operating systems
 ```
 systemctl enable cloud-init-local.service 
 systemctl start cloud-init-local.service
@@ -64,9 +64,10 @@ systemctl status cloud-init.service
 systemctl status cloud-config.service
 systemctl status cloud-final.service
 ```
-**Execute the specific commands for Centos and Redhat operating systems**
-**Replace the content in /lib/systemd/system/cloud-init-local.service file with following:**
-**[Unit]**                  
+Execute the specific commands for Centos and Redhat operating systems
+Replace the content in /lib/systemd/system/cloud-init-local.service file with following:
+**Unit**   
+```
 Description=Initial cloud-init job (pre-networking)
 Wants=network-pre.target
 After=systemd-remount-fs.service
@@ -75,23 +76,25 @@ Before=network-pre.target
 Before=shutdown.target
 Conflicts=shutdown.target
 RequiresMountsFor=/var/lib/cloud
-
-**[Service]**
+```
+**Service**
+```
 Type=oneshot
 ExecStart=/usr/bin/cloud-init init --local
 ExecStart=/bin/touch /run/cloud-init/network-config-ready
 RemainAfterExit=yes
 TimeoutSec=0
-
+```
 >**Note:** Output needs to appear in instance console output
 StandardOutput=journal+console
 
-**[Install]**
+**Install**
 WantedBy=cloud-init.target
 
 
->**Replace the content in /lib/systemd/system/cloud-init.service file with following:**
-**[Unit]**
+Replace the content in /lib/systemd/system/cloud-init.service file with following:
+**Unit**
+```
 Description=Initial cloud-init job (metadata service crawler)
 Wants=cloud-init-local.service
 Wants=sshd-keygen.service
@@ -105,34 +108,35 @@ Before=sshd-keygen.service
 Before=sshd.service
 Before=systemd-user-sessions.service
 Conflicts=shutdown.target
-
-**[Service]**
+```
+**Service**
+```
 Type=oneshot
 ExecStart=/usr/bin/cloud-init init
 RemainAfterExit=yes
 TimeoutSec=0
-
+```
 >**Note:** Output needs to appear in instance console output
 StandardOutput=journal+console
 
-**[Install]**
+**Install**
 WantedBy=cloud-init.target
 
 **3.5.2 Auto-start management service for sysvinit operating system**
-
->chkconfig --add cloud-init-local
+```
+chkconfig --add cloud-init-local
 chkconfig --add cloud-init
 chkconfig --add cloud-config
 chkconfig --add cloud-final
 
->chkconfig cloud-init-local on 
+chkconfig cloud-init-local on 
 chkconfig cloud-init on 
 chkconfig cloud-config on 
 chkconfig cloud-final on 
-
+```
 
 ## Installing Using cloud-init Package in Software Source
-**Execute the following command for installation**
+Execute the following command for installation
 `apt-get/yum install cloud-init`
  >**Note:** The version of cloud-init directly installed by executing apt-get or yum commands is the default cloud-init version in the software source configured in the current operating system. Generally, cloud-init 17.1 may be greatly different from other versions, so the initialization of some configuration items of the instance created through the image installed in this way may fail. "Manually Download cloud-init Source Code Package for Installation" is recommended.
 
@@ -145,9 +149,10 @@ chkconfig cloud-final on
 
 ## Operations After Installation
 >**Note:** Do not restart the server after the following operations are completed, otherwise you have to do it again.
->cloud-init init --local
->rm -rf /var/lib/cloud
-
+```
+cloud-init init --local
+rm -rf /var/lib/cloud
+```
 **Specific operations in Ubuntu or Debian operating systems**
 `rm -rf /etc/network/interfaces.d/50-cloud-init.cfg`
 
