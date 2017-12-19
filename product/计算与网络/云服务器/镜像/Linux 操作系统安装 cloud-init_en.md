@@ -153,7 +153,7 @@ Execute the following command for installation
 cloud-init init --local
 rm -rf /var/lib/cloud
 ```
-**Specific operations in Ubuntu or Debian operating systems**
+Specific operations in Ubuntu or Debian operating systems
 `rm -rf /etc/network/interfaces.d/50-cloud-init.cfg`
 
 Modify /etc/network/interfaces to the following content:
