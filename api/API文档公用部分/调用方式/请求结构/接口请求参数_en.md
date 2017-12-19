@@ -3,7 +3,7 @@ API request parameters depend on specific APIs. Different APIs support different
 >**Note:**
 >The parameters in this document use Tencent Cloud CVM as example. For actual parameters for other Tencent Cloud products, refer to their API parameter instructions accordingly.
 
-The following parameter list uses the Tencent Cloud CVM API Query Instance List as example. This API supports the following API request parameters:
+The following parameter list uses the Tencent Cloud CVM API [Query Instance List](/doc/api/229/831) (DescribeInstances) as example. This API supports the following API request parameters:
 
 | Parameter Name | Description | Type | Required |
 |---------|---------|---------|---------|
@@ -13,7 +13,7 @@ The following parameter list uses the Tencent Cloud CVM API Query Instance List 
 | offset | Offset. Default is 0. | Int | No |
 | limit | The maximum number of servers allowed to be queried at a time. Default is 20, and the maximum is 100. | Int | No | 
 | status | Status of the CVM to be queried. | Int | No |
-| projectId | Project ID. CVM instances of all projects are queried if this is left empty. 0 indicates default project. Call the API [Query Project List](/document/product/378/4400) (DescribeProject) to look for the IDs of other projects. | String | No |
+| projectId | Project ID. CVM instances of all projects are queried if this is left empty. 0 indicates default project. Call the API Query Project List (DescribeProject) to look for the IDs of other projects. | String | No |
 | simplify | Obtain non-real time data if simplify=1 is added when passing parameters. | Int | No |
 | zoneId | Availability zone ID. CVM instances of all availability zones are queried if this is left empty. Call the API [Query Availability Zones](/doc/api/229/1286) (DescribeAvailabilityZones) to look for the IDs of other availability zones. | Int | No |
 
