@@ -1,5 +1,5 @@
 You can connect to a MySQL database by the following ways:
-- Private network access: Use a CVM in the same availability zone to access the private IP assigned automatically to the database. This method has a low delay by using high-speed private network. (Note: The CVM and the database need to be in the same basic network, or belong to the same VPC. For more information on VPC, please see <a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC Overview</a>.)
+- Private network access: Use a CVM in the same availability zone to access the private IP assigned automatically to the database. This method has a low delay by using high-speed private network. (Note: The CVM and the database need to be in the same basic network, or belong to the same VPC. For more information on VPC, please see <a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC Overview</a>
 - Public network access: Log in to phpMyAdmin page to operate the database via the login page of Tencent Cloud console with a public network account.
 
 **Note:** For public network access, the database instance's public IP needs to be enabled, thus exposing your database service to attacks or intrusions on the public network. Therefore, it is recommended to log in to the database using private network.
