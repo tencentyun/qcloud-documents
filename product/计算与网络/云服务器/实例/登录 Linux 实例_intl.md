@@ -45,7 +45,7 @@ Open the Putty client, enter the following information in the "PuTTY Configurati
 - Connect type: select "SSH".
 
 When all the information is entered, click "Open" to create a new dialog.
-![](//mccdn.qcloud.com/img56a5d38a4ffbc.png)
+![](https://mc.qcloudimg.com/static/img/462109abede465d7df1299fb78693268/%7B2D074CD7-5BD3-491A-B083-EB46FBC20B18%7D.png)
 
 In the Putty dialog window, enter the administrator account ID obtained from the "Prerequisites" step, and press Enter. Enter the login password obtained from the "Prerequisites" step, and press Enter to log in.
 ![](//mc.qcloudimg.com/static/img/07afdb3514c36d237b11bf1f333e517c/image.png)

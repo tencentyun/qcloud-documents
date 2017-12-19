@@ -21,7 +21,7 @@ It will:
 
 
 ## Preconditions of Configuration
-Your WeChat Lite App should support auto scaling. To enable auto scaling for your WeChat Lite App, refer to [Detailed Steps](https://console.cloud.tencent.com/la/guide).
+Your WeChat Lite App should support auto scaling.
 
 ## Configuring Auto Scaling Policy for Session Servers
 
