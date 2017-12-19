@@ -51,7 +51,7 @@ The topic model is similar to the Publish/Subscribe model in the design pattern.
 | msgCount| Current number of messages in the topic (number of retained messages). |
 | maxMsgSize | Maximum message length. Value range is 1024-65536 Byte (1-64 K). Default is 65536. |
 | msgRetentionSeconds | The maximum available time of the message in the topic (in seconds). Whether or not the message has been retrieved after being pushed to the users, it will be deleted after the period of time specified in this parameter. This parameter value is always one day (86,400 seconds) and cannot be modified. |
-| createTime | String | Topic creation time | A Unix timestamp will be returned (accurate to second). |
+| Topic creation time | A Unix timestamp will be returned (accurate to second). |
 | lastModifyTime | The time when the topic attributes were last modified. A Unix timestamp will be returned (accurate to second). |
 | filterType | Specify the filtering rules when a user creates a subscription: <br> If filterType =1, filterTag is used for tag filtering;<br>If filterType =2, bindingKey is used for filtering. |
 
