@@ -1,6 +1,6 @@
 According to your different connection needs, Tencent Cloud provides two services respectively to connect your enterprise data center and VPC: VPN connection and Direct Connect. The main differences are as follows:
 - [VPN Connections](https://cloud.tencent.com/product/vpn.html) uses the public network and IPsec protocol to establish an encrypted network connection between your data center and VPC. You can purchase, enable and configure the VPN gateway in a few minutes. But the VPN connection may be interrupted due to Internet jitter, block or other public network quality problems. If users' services have low requirement for the network connection quality, it is a highly cost-effective choice for fast deployment.
-- [Direct Connect](https://cloud.tencent.com/product/dc.html) provides a dedicated direct network connection method. It has relatively long construction duration, but can provide high-quality, highly reliable network connection service. If your business has high requirements on network quality and network security, you can choose to deploy this program.
+- Direct Connect provides a dedicated direct network connection method. It has relatively long construction duration, but can provide high-quality, highly reliable network connection service. If your business has high requirements on network quality and network security, you can choose to deploy this program.
 
 The following describes how to deploy a hybrid cloud using **Direct Connect**.
 

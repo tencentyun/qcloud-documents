@@ -40,7 +40,7 @@ On Linux system, you can check whether the status is HTTP / 1.1 200 OK through t
 
 Check whether the firewall of private network on the CVM allows port 80. You can temporarily disable the firewall for the test.
 
-For Windows system, run the `firewall.cpl' entry to disable the firewall
+For Windows system, run the `firewall.cpl` entry to disable the firewall 
 For Linux system, input `/etc/init.d/iptables stop` to disable the firewall
 
 - Check whether the settings of the CLB health check parameters are correct.

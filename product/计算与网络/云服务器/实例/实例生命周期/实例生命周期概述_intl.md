@@ -1,8 +1,8 @@
 The lifecycle of CVM instance refers to the period ranging from launching to termination. 
 
-The chart below shows the lifecycle of postpaid CVM instances. For more information the different billing types, please see [here](/doc/product/213/2180).
+The chart below shows the lifecycle of postpaid CVM instances. For more information about the billing types, please see [here](/doc/product/213/2180).
 
-![](//Mc.qcloudimg.com/static/img/551771757a0419084585ccbfad776d86/image.png)
+![](//mc.qcloudimg.com/static/img/e21cbb4204105c71d1d66902b030bdac/image.png)
 
 Status of CVM instances including:
 - Launching 

@@ -19,7 +19,7 @@ With password login, you need to use the administrator account ID and the corres
 
 - Password:
   - If you select "Auto Generate Password" when starting the instance, then the initial password will be randomly assigned by the system. You can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click the "Internal Message" button on the right. In the "Check and accept the newly purchased server" page, the login account ID and initial password of administrator for CVM will be provided as shown below.
-![](//mc.qcloudimg.com/static/img/722d9fae0f0bf76146c855139a195c65/image.png)
+![](//mc.qcloudimg.com/static/img/3950729495f303b304489f5a7a0adbec/image.png)
   - If you select "Custom Password" when starting the instance, then the password will be the one you specified when purchasing the CVM instance. To learn more about password, for example, what to do if I forget the login password, refer to [Login Password](/doc/product/213/6093).
 
 ### Prerequisites for login with key
