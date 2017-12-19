@@ -41,7 +41,7 @@ data结构
 
 | 参数名称   | 类型   | 描述                        |
 | ------ | ---- | ------------------------- |
-| taskId | Int  | 以taskId为key，对应的值为异步操作的ID。创建结果可调用<a href="https://cloud.tencent.com/document/api/386/6644" title="查询异步任务操作状态">查询异步任务操作状态</a>查询 |
+| taskId | Int  | 以taskId为key，对应的值为异步操作的ID。创建结果可调用<a href="https://cloud.tencent.com/document/product/386/9356" title="查询异步任务操作状态">查询异步任务操作状态</a>查询 |
 
 ## 错误码
 | 错误码   | 英文提示                                    | 错误描述             |
