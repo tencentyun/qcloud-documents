@@ -5,4 +5,4 @@ See [Batch Rollback](https://cloud.tencent.com/document/product/236/8466#.E6.89.
 ### 3. Some of the data is accidentally deleted during the storage procedure which was just executed for MySQL and no backup was created for these data - Can the lost data be restored?
 You can use the rollback feature in console.
 You can restore the data generated at any time point in the last three days.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=5991032fe3c92.png)
+![](//mc.qcloudimg.com/static/img/06dc8e407e02ea57a9754f07a92118f3/image.png)
