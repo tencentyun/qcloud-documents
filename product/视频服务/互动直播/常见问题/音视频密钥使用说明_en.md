@@ -14,8 +14,8 @@
 Field Description | Type/Length | Value Definition/Note
 :--:|:--:|:--
 cVer | unsigned char/1 | Version Number. Enter 0
-wAccountLen | unsigned short/2 | Length of third-party account |
-buffAccount | wAccountLen | Characters of third-party account |
+wAccountLen | unsigned short/2 | Length of third-party account 
+buffAccount | wAccountLen | Characters of third-party account 
 dwSdkAppid | unsigned int/4 | sdkappid
 dwAuthId | unsigned int/4 | Group ID
 dwExpTime | unsigned int/4 | Expiration time (current time + validity period) (in sec). 300 seconds is recommended.

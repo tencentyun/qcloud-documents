@@ -233,5 +233,5 @@ void onPublishComplete(TXPublishResult result);
 ### 8. Publish Result
 Confirm the publishing result of short videos via [Error Code](https://cloud.tencent.com/document/product/584/10176).
 
-If no error message or callback response is returned, it may be caused by an integration error. For more information, please see [Integration Error](https://cloud.tencent.com/document/product/584/11631?!preview&lang=cn#8.2-.E7.9F.AD.E8.A7.86.E9.A2.91.E5.8F.91.E5.B8.83.E9.97.AE.E9.A2.98). 
+If no error message or callback response is returned, it may be caused by an integration error. For more information, please see [Integration Error](https://cloud.tencent.com/document/product/584/11631). 
 
