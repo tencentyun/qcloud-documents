@@ -4,7 +4,6 @@ If you want to generate a group of URLs for testing, you only need to open ["LVB
 [1]://mc.qcloudimg.com/static/img/98b9b659be67a9ac32384b606ace943f/image.png
 
 
-You can use [RTMP SDK DEMO](https://cloud.tencent.com/document/product/454/6555) to quickly test the validity of the push URL and playback URL.
 
 
 ## How to realize auto construction at the backend?
@@ -20,7 +19,7 @@ It is also called room ID, and a random number or a user ID is recommended. Note
 It refers to the time when the URL expires. The format is UNIX time stamp in hexadecimal notation, for example, 5867D600 means that the URL will expire at 00:00:00 AM on Jan. 1, 2017. Generally, our customers set txTime as follows: the URL will expire after 24 hours from the current time. It is not recommended to minimize the expiration time, because VJ will resume push in case of network interruption during LVB. If the expiration time is too short, VJ cannot resume push due to expiration of push URL.
 
 - **txSecret**
-The hotlink protection signature is used to prevent attackers from forging your backend to generate push URL. For calculation method, see [Hotlink Protection Calculation](#.E9.98.B2.E7.9B.97.E9.93.BE.E7.9A.84.E8.AE.A1.E7.AE.97.EF.BC.9F).
+The hotlink protection signature is used to prevent attackers from forging your backend to generate push URL. 
 
 - **Sample Codes**
 Sample codes (PHP and Java) in the lower half of ["LVB Console" -> "LVB Code Access" -> "Push Generator"](https://console.cloud.tencent.com/live/livecodemanage) page show how to generate hotlink protection URL.

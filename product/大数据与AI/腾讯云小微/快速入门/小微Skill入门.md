@@ -2,7 +2,7 @@
 如果你还没有通过审核，请前往[Skill 开发申请](https://xiaowei.qcloud.com/skill.html)，并填写相关注册信息，提交开通申请。
 
 在配置使用小微 Skill 前，您需要先在产品介绍页 [Skill 开发申请](https://xiaowei.qcloud.com/skill.html) 实现信息注册，并开通小微 Skill 功能。 注册需要提供如下信息：
-![](//mc.qcloudimg.com/static/img/219d9e375482004213e652ba77ef2545/image.png)
+![](https://mc.qcloudimg.com/static/img/219d9e375482004213e652ba77ef2545/image.png)
 
 1. **基本信息：**请确保信息准确无误，以免耽误后续审核的过程中的联系失败；
 2. **公司信息：**请上传公司的营业执照进行资质认证，并确保提交的公司规模信息准确；
@@ -14,10 +14,10 @@
 
 #### 基本配置
 进入 Skill 的配置平台后，可以在右上角单击【新建技能】。其中名称一栏只能为字母、数字、下划线的组合，不超过 32 位。
-![](//mc.qcloudimg.com/static/img/2de2745272942ac3eff1866fbc32d9e3/image.jpg)
+![](https://mc.qcloudimg.com/static/img/2de2745272942ac3eff1866fbc32d9e3/image.jpg)
 
 新建技能之后，就进入了基本配置页面：
-![](//mc.qcloudimg.com/static/img/6017366d7278e6fe31c854c38e4dd65e/image.png)
+![](https://mc.qcloudimg.com/static/img/6017366d7278e6fe31c854c38e4dd65e/image.png)
 - **技能 ID：** Skill 在腾讯云小微的唯一标识；
 - **技能类型：** 您在上个页面选择的技能类型；
 - **技能名称：**仅用户内部区分，不是用户在 Skill 市场上看到的最终名字；
@@ -26,18 +26,18 @@
 - **设备类型：**选择使用该技能的设备类型，如门锁、电视、冰箱等；
 - **绑定帐号：** 新建设备类 Skill 需要单击【开始配置】按钮来配置 OAuth2 相关内容。小微 Skill 平台的帐号登录体系仅支持 OAuth2 的标准协议，如果您的服务不支持 OAuth2 就无法使用帐号登录功能。
 OAuth2 登录相关的授权页面地址、ClientID、授权模式等都是标准协议，请根据您自己的服务协议填写和选择。
-![](//mc.qcloudimg.com/static/img/64f2d6443da22f00b9a9b67f43962d0f/image.png)
+![](https://mc.qcloudimg.com/static/img/64f2d6443da22f00b9a9b67f43962d0f/image.png)
 
 填写完以上所有基本配置内容后，单击页面右上角的【保存】按钮，可以将您填写的信息保存。
 
 ## 测试训练
 在使用 APP 前，需要在测试训练页面打开【是否启用测试】的开关。之后使用开发的 QQ 账号登录小微 APP，在技能市场页面单击【我的技能】>【开发中】，找到开发中的 Skill 并启用。
-![](//mc.qcloudimg.com/static/img/3b17697c6027e04652b878bb7ea802e3/image.png)
+![](https://mc.qcloudimg.com/static/img/3b17697c6027e04652b878bb7ea802e3/image.png)
 
 ## 发布 Skill
 在您自测完成之后就可以在 Skill 平台提交上线审核，在提交前建议您参考 [Skill上线认证要求](#)，先进行自我检查。
 提交审核发布需先填写以下内容：
-![](//mc.qcloudimg.com/static/img/98ef4cfc1c2aa60035e97f84cfdb103e/image.png)
+![](https://mc.qcloudimg.com/static/img/98ef4cfc1c2aa60035e97f84cfdb103e/image.png)
 - **技能全称：** 用户在 Skill 市场里看到的您的 Skill 的名字，必须唯一。
 - **描述：** 用户在 Skill 市场里看到的您的 Skill 的介绍，越详细越好。
 - **最佳示例：** 需要提供 3 句能够指导用户使用你的 Skill 的例句。

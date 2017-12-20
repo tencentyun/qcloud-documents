@@ -12,7 +12,7 @@ The operation performed in the Console is shown below:
 2. If the user needs to log in to Tencent Cloud console or call Cloud APIs, you need to select "Allow login to Tencent Cloud", and fill in "QQ Number" as login credential.
 **Note:**
 We recommend that you use a QQ account not used for registration in Tencent Cloud for the sub-account (you don't need to top up for sub-accounts, as the CMQ charges will be deducted from the main account)
-[Apply for a free QQ account >>](https://ssl.zc.qq.com/chs/index.html)
+[Apply for a free QQ account >>](https://ssl.zc.qq.com/v3/index-en.html?type=0)
 ![](//mccdn.qcloud.com/static/img/717db35eae2332917a152eb69e8b4339/image.png)
 
 3. Associate policies for the user (policies specify the permissions, so the user can have the permissions which the policies specify when associating with the policies).
