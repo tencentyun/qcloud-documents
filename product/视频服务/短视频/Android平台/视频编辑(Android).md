@@ -52,7 +52,7 @@
 
 ## 2 自己实现UI
 如果您不考虑复用我们开发包中的 UI 代码，决心自己实现 UI 部分，则可以参考如下的攻略进行对接：
-### 1 预览图片组
+### 1. 预览图片组
 **TXVideoInfoReader** 的 **getVideoFileInfo** 方法可以获取指定视频文件的一些基本信息，**getSampleImages** 则可以获取指定数量的预览图：
 
 ```objective-c
@@ -64,7 +64,7 @@ getSampleImages(int count, String videoPath, TXVideoInfoReader.OnSampleProgroces
 ```
 开发包中的 TCVideoEditerActivity 即使用了 getSampleImages 获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
 
-### 2 效果预览
+### 2. 效果预览
 视频编辑提供了**区间预览**（循环播放某一时间段A<=>B内的视频片段）预览方式，使用时需要给 SDK 绑定一个 FrameLayout 用于显示视频画面。
 
 - **绑定 FrameLayout**
@@ -78,7 +78,7 @@ PREVIEW_RENDER_MODE_FILL_EDGE  - 适应模式，尽可能保持画面完整，�
 - **区间预览**
   TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B内的视频片段。
 
-### 3 视频裁剪
+### 3. 视频裁剪
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
 
 ```objective-c
@@ -92,7 +92,7 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_540P, mVideoO
 ```
 输出时指定文件压缩质量和输出路径，输出的进度和结果会通过`TXVideoEditer.TXVideoGenerateListener`以回调的形式通知用户。
 
-### 4 美颜滤镜
+### 4. 美颜滤镜
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo提供了9种滤镜选择，同时也可以设置自定义的滤镜。
 设置滤镜调用 **TXVideoEditer** 的 **setFilter** 方法：
 
@@ -101,7 +101,7 @@ void setFilter(Bitmap bmp)
 ```
 其中 image 为滤镜映射图，image 设置为nil，会清除滤镜效果。
 
-### 5 音轨处理
+### 5. 音轨处理
 您可以为视频添加自己喜欢的背景音乐，并且可以选择音乐播放的起始时间和结束时间，如果音乐的播放时间段小于视频的时间段，音乐会循环播放至视频结束。除此之外，您也可以设置视频声音和背景声音的大小，来达到自己想要声音合成效果。
 
 设置背景音乐的方法为：
@@ -133,7 +133,7 @@ mTXVideoEditer.setBGMStartTime(startTime, endTime);
 mTXVideoEditer.setBGMVolume(0.5f);
 mTXVideoEditer.setVideoVolume(0.5f);
 ```
-### 6 设置水印
+### 6. 设置水印
 您可以为视频设置水印图片，并且可以指定图片的位置
 
 设置水印的方法为：
@@ -152,7 +152,7 @@ rect.y = 0.5f;
 rect.width = 0.5f;
 mTXVideoEditer.setWaterMark(mWaterMarkLogo, rect);
 ```
-### 7 设置片尾水印
+### 7. 设置片尾水印
 
 您可以为视频设置片尾水印，并且可以指定片尾水印的位置
 
@@ -174,7 +174,7 @@ txRect.y = (mTXVideoInfo.height - tailWaterMarkBitmap.getHeight()) / (2f * mTXVi
 txRect.width = tailWaterMarkBitmap.getWidth() / (float) mTXVideoInfo.width;
 mTXVideoEditer.setTailWaterMark(tailWaterMarkBitmap, txRect, 3);
 ```
-### 8 视频预处理
+### 8. 视频预处理
 您使用 滤镜特效 和 时间特效（包括倒放，重复片段，慢动作）需要为视频先预处理操作。
 经过预处理后的视频可以精确的seek到每个时间点，看到对应的画面，预处理操作同时还可以精确的生成当前时间点视频缩略图。
 
@@ -227,7 +227,7 @@ mTXVideoEditer.setVideoProcessListener(this);
 mTXVideoEditer.processVideo();          //进行预处理
 ```
 
-### 9 滤镜特效
+### 9. 滤镜特效
 
 您可以为视频添加多种滤镜特效，我们目前支持四种滤镜特效，每种滤镜你也可以设置视频作用的起始时间和结束时间。如果同一个时间点设置了多种滤镜特效，SDK会应用最后一种滤镜特效作为当前的滤镜特效。
 
@@ -260,7 +260,7 @@ mTXVideoEditer.stopEffect(TXVideoEditConstants.TXEffectType_SPLIT_SCREEN, 4000);
 //删除3-4s设置的滤镜特效
 mTXVideoEditer.deleteLastEffect();
 ```
-### 10 慢/快动作
+### 10. 慢/快动作
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
 
 ```
@@ -294,7 +294,7 @@ list.add(speed);
 
 mTXVideoEditer.setSpeedList(list);
 ```
-### 11 倒放
+### 11. 倒放
 您可以将视频画面倒序播放。通过调用 **setReverse(true)** 开启倒序播放，调用 **setReverse(false)** 停止倒序播放。
 首次倒放视频需要花费一定时间对视频进行处理，需要调用 **setTXVideoReverseListener()** 进行监听是否倒放处理完成。
 
@@ -305,7 +305,7 @@ mTXVideoEditer.setTXVideoReverseListener(mTxVideoReverseListener);
 mTXVideoEditer.setReverse(true);
 ```
 
-### 12 重复视频片段
+### 12. 重复视频片段
 您可以设置重复播放一段视频画面，声音不会重复播放。目前Android只支持设置一段画面重复，重复三次。
 如需取消之前设置的重复片段，调用 **setRepeatPlay(null)** 即可。
 
@@ -336,7 +336,7 @@ repeatList.add(repeat);  //目前只支持重复一段时间
 mTXVideoEditer.setRepeatPlay(repeatList);
 ```
 
-### 13 静/动态贴纸
+### 13. 静/动态贴纸
 
 您可以为视频设置静态贴纸或者动态贴纸。
 
@@ -438,7 +438,7 @@ SDK内部将获取到该动态贴纸对应的config.json，并且按照json中�
 
 **注：该封装格式为SDK内部强制性要求，请严格按照该格式描述动态贴纸**
 
-### 14 气泡字幕
+### 14. 气泡字幕
 
 您可以为视频设置气泡字幕，我们支持对每一帧视频添加字幕，每个字幕你也可以设置视频作用的起始时间和结束时间。所有的字幕组成了一个字幕列表， 你可以把字幕列表传给SDK内部，SDK会自动在合适的时间对视频和字幕做叠加。
 
@@ -522,5 +522,5 @@ mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
 您也可以修改相关控件源代码，来满足自身的业务要求。
 
 
-### 15 释放
+### 15. 释放
 当您不再使用mTXVideoEditer对象时，一定要记得调用 **releasee()** 释放它。
