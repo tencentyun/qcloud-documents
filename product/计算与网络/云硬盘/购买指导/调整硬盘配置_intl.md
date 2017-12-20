@@ -39,4 +39,4 @@ Please refer to [ResizeCbsStorage API](https://cloud.tencent.com/doc/api/364/252
 > > For a running instance with its system disk and data disk being cloud disks, you need to perform [Instance Shutdown](/doc/product/213/4929) before expansion.
 
 ### Expanding Non-elastic Cloud Disk via API
-Please refer to [ResizeInstance API](https://cloud.tencent.com/doc/api/229/1306) and [ResizeInstanceHour API](https://cloud.tencent.com/doc/api/229/1344).
+Please refer to [ResizeInstance API](https://intl.cloud.tencent.com/document/product/213/9394) and [ResizeInstanceHour API](https://cloud.tencent.com/doc/api/229/1344).

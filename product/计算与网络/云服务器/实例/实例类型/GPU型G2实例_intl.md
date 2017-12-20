@@ -16,7 +16,7 @@ GN2 Instance is the best choice for server-side GPU computing workloads, which r
 - **CPU:** High-frequency Intel Xeon E5-2680 (Broadwell).
 - **GPU:** NVIDIA Tesla M40 GPU.
 - **Memory:** (DDR4).
-- **Storage:** Both system disk and data disk are local SSD. If you need more capcity, please [purchase elastic cloud disks](/doc/product/362/2732).	 
+- **Storage:** Both system disk and data disk are local SSD.	 
 - **Network:** Network enhancement is available by default (free).
 
 	

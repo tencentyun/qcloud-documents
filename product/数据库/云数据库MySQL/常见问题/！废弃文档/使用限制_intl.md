@@ -14,7 +14,7 @@ The default value is 3,000 for large-size cloud databases, 800 for other specifi
 
 However, more connections means more system resources will be occupied. The service performance of the system will be affected if the number of connections goes beyond the actual capacity of the system.
 
-Refer to the MySQL official manual for more information on max_connections. 
+Refer to the [MySQL official manual](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for more information on max_connections. 
 
 ## 3. Limit on the Version of the MySQL Client Connecting to the Cloud Database
 

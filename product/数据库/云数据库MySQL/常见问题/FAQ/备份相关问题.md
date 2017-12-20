@@ -6,8 +6,8 @@
 
 ### 3. MySQL 怎么设置备份方式？
 在实例列表页，单击实例，进入【备份管理】，再单击【自动备份设置】，即可进行设置备份方式。
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=59842281d37f6.png)
-![图片描述](http://tss.sng.com/ticket/upload/downloadFile?filename=598422932e41d.png)
+![](//mc.qcloudimg.com/static/img/61eec4f474762057d6956dc61ecc1214/image.png)
+![](//mc.qcloudimg.com/static/img/d67376cc5c98175d31fd29ae55499cb9/image.png)
 
 ### 4. MySQL 支持什么方式的备份？
 1. 逻辑备份支持实例级和库表级下载，物理备份仅支持实例级的下载。

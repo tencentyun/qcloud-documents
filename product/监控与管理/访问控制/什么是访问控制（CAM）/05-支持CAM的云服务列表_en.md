@@ -15,6 +15,11 @@ The cloud services supporting CAM are listed below:
 | CDB (Gray) | No | Yes | Yes | No | Resource Level | No | No |
 | DTS (Gray) | No | Yes | Yes | No | Resource Level | No | No |
 | CLB (Gray) | No | Yes | Yes | Yes | Resource Level | Partially Supported | No |
+| CPM | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
+| BMVPC | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
+| BMLB | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
+| BMEIP | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
+
 
 Notes:
 

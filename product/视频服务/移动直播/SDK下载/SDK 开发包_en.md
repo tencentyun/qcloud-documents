@@ -20,8 +20,8 @@
 
 | Mobile Phone Platform | Document Index |
 |:-------:|---------|
-| iOS Platform | [Push Feature](https://cloud.tencent.com/document/product/454/7879) &nbsp; [Playback Feature](https://cloud.tencent.com/document/product/454/7880) &nbsp; [Joint Broadcasting](https://cloud.tencent.com/document/product/454/8090) &nbsp; [Advanced Usage](https://cloud.tencent.com/document/product/454/7884) &nbsp; [ReplayKit](https://cloud.tencent.com/document/product/454/7883)  | 
-| Android Platform | [Push Feature](https://cloud.tencent.com/document/product/454/7885) &nbsp; [Playback Feature](https://cloud.tencent.com/document/product/454/7886) &nbsp; [Joint Broadcasting](https://cloud.tencent.com/document/product/454/8091) &nbsp; [Advanced Usage](https://cloud.tencent.com/document/product/454/7890) &nbsp; [Phone Screencap](https://cloud.tencent.com/document/product/454/7889) | 
+| iOS Platform | Push Feature &nbsp; Playback Feature &nbsp; Joint Broadcasting &nbsp; Advanced Usage &nbsp; ReplayKit  | 
+| Android Platform | Push Feature &nbsp; Playback Feature &nbsp; Joint Broadcasting &nbsp; Advanced Usage &nbsp; Phone Screencap | 
 
 ## Test Result
 - Kernel test cases: Total number of cases - 56, number of passed cases - 56, number of failed cases - 0

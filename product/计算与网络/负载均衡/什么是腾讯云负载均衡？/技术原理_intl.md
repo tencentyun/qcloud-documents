@@ -81,7 +81,6 @@ Realization: when receiving the three-step handshake request from the client, CL
 
 CLB currently offers three types of services:
 - Layer 4 cloud load balance corresponding to listener's tcp and udp;
-- Layer 7 cloud load balance, for public network CLB service without daily rate;
 - Layer 7 cloud load balance corresponding to listener's http/https capabilities.
 
 ### Layer 4 Cloud Load Balance
@@ -90,15 +89,7 @@ Layer 4 cloud load balance is the earliest solution CLB has ever achieved and is
 
 ![](//mc.qcloudimg.com/static/img/a617465603ff36a3be646ccf2749d020/image.png)
 
-## Public Network Cloud Load Balancer without Daily Rate
 
-This type without daily rate was originally designed for meeting the demand for a large number of web and mobile games. Such games have two main features:
-1. Separated regions and servers. Each region needs at least one vip and certain games with hundreds of servers require hundreds of public network vips, causing a substantial waste of public network vips;
-2. Web games need to use port 80, but layer 4 cloud load balancer cannot reuse IPs.
-
-In order to solve this problem, we proposed a solution without daily rate; the specific connection method is to add a domain dimension in the rule key.
-
-![](//mccdn.qcloud.com/static/img/e9d4ed8a62b76264f811d6b0dbf24c2e/image.png)
 
 ### Layer 7 Cloud Load Balance
 

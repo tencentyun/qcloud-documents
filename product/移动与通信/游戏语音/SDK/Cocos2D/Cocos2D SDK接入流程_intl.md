@@ -1,6 +1,6 @@
 This document introduces how to access C++ API SDK of GVoice. The method is applicable to games developed using Cocos2D engine, and developed on iOS and Android platforms.
 ## 1 Download SDK
-[Download Cocos SDK package v1.1.2] (http://doc-10010986.cos.myqcloud.com/gvoice/gcloud_voice_1_1_2_136114_20161209_Cocos.zip)  
+[Download Cocos SDK package v1.1.2](http://doc-10010986.cos.myqcloud.com/gvoice/gcloud_voice_1_1_2_136114_20161209_Cocos.zip)  
 Download and decompress the SDK package, you will see:  
 ![](https://mc.qcloudimg.com/static/img/2f7a1f0e63529d18107011635287be2a/ml.png)
 ## 2 System Configuration

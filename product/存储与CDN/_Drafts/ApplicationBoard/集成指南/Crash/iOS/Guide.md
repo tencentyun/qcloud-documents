@@ -7,7 +7,7 @@
 
 在开始使用应用云 Crashlytics之前，您需要：
 
-1. 一个启用了 Firebase 的应用
+1. 一个启用了 应用云 的应用
 2. 您集成了TACCore
 
 ## 将应用云 Crashlytics 代码库添加到您的Xcode项目中
@@ -15,6 +15,14 @@
 
 ##### （1）在您的项目中集成 应用云 SDK
 
+并在您的 Podfile 文件中添加 应用云 的私有源
+
+~~~
+source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
+source "https://github.com/CocoaPods/Specs"
+~~~
+
+> 注意一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题
 
 ##### （2) 添加 TACCrash 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod：
 
@@ -56,7 +64,7 @@ import TACCrash
 
 ~~~objective-c
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置 
+	// 自定义配置
 	//     options.crashOptions.[Key] = [Value];
     //
     [TACApplication configurateWithOptions:options];
@@ -64,7 +72,7 @@ import TACCrash
 
 ~~~swift
 	let options = TACApplicationOptions.default()
-	// 自定义配置 
+	// 自定义配置
 	// options?.crashOptions.[Key] = [Value];
 	TACApplication.configurate(with: options);
 ~~~
@@ -76,9 +84,7 @@ import TACCrash
 2. 打开Tab `Build Phases`
 3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`.
 4. 将下面的代码粘贴入  `Type a script...` 文本框:
-	
+
 	~~~~
-	"${PODS_ROOT}/TACCrash/run"
+	"${PODS_ROOT}/TACCrash/Scripts/run"
 	~~~~
-	
-	

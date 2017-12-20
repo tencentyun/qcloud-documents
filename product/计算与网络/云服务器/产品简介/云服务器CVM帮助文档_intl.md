@@ -19,7 +19,7 @@ This practical guide provides detailed operation instructions to guide you throu
 [1. Sign up for a Tencent Cloud](https://cloud.tencent.com/doc/product/213/6090)
 [2. Confirm the region and configurations](https://cloud.tencent.com/doc/product/213/2764)
 [3. Launch the CVM](https://cloud.tencent.com/doc/product/213/2764)
-[4. Log in to the CVM](https://cloud.tencent.com/doc/product213/2764)
+[4. Log in to the CVM](https://cloud.tencent.com/doc/product/213/2764)
 [5. Format the data disk](https://cloud.tencent.com/doc/product/213/2764)
 [6. Install and deploy applications](https://cloud.tencent.com/doc/product/213/2764)
 
@@ -41,7 +41,7 @@ The advanced guide provides more detailed CVM management and operation instructi
 [4. Install Windows programs](http://cloud.tencent.com/doc/product/213/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0Windows%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
 
 ## Managing Linux CVMs
-[1. Log in to Linux CVM](http://cloud.tencent.com/doc/product/213/Windows%E6%9C%BA%E5%99%A8%E4%BD%BF%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E6%9C%89%E5%85%AC%E7%BD%91IP%E7%9A%84Linux%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8)
+[1. Log in to Linux CVM](https://intl.cloud.tencent.com/document/product/213/5436)
 [2. Mount data disks](http://cloud.tencent.com/doc/product/213/%E4%BD%BF%E7%94%A8MBR%E5%88%86%E5%8C%BA%E8%A1%A8%E5%88%86%E5%8C%BA%E5%B9%B6%E6%A0%BC%E5%BC%8F%E5%8C%96)
 [3. Install software](http://cloud.tencent.com/doc/product/213/CentOS%E7%8E%AF%E5%A2%83%E4%B8%8B%E9%80%9A%E8%BF%87YUM%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6)
 [4. Configure environment](http://cloud.tencent.com/doc/product/213/CentOS%E4%B8%8BLNMP%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)

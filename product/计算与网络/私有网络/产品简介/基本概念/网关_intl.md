@@ -21,7 +21,7 @@ Both NAT gateway and public network gateway are used by the CVM in the VPC to ac
 | Private IP	| Private IP of VPC user is not occupied |	IP in subnet is occupied
 | Security group |	Binding of security group is not supported. You can bind the security group to the NAT gateway backend CVM	| Support
 | Network ACL |	Binding of network ACL is not supported. You can bind the network ACL to the subnet where the NAT gateway backend CVM resides in	| Binding of network ACL is not supported. You can bind the network ACL to the subnet to which the public network gateway belongs
-| Charges	| Mainland China:<br>Small-sized (a maximum of 1,000,000 connections): RMB 0.5/hour<br>Medium-sized (a maximum of 3,000,000 connections): RMB 1.5/hour<br>Large-sized (a maximum of 10,000,000 connections): RMB 5/hour | Depend on the size of the CVM used as a public network gateway. Take Mainland China as an example:<br>1-core 2GB: RMB 0.44/hour<br>4-core 8GB: RMB 1.76/hour<br>12-core 24GB: RMB 5.28/hour
+
 
 ## 3. VPN Gateway
 
