@@ -1,5 +1,5 @@
 ## 功能描述
-CreateBmNatGateway 接口用于创建黑石NAT网关，可针对全部子网、子网全部IP、子网部分IP创建NAT网关
+CreateBmNatGateway 接口用于创建黑石NAT网关，可针对CIDR方式、子网全部IP、子网部分IP创建NAT网关
 
 接口请求域名：bmvpc.api.qcloud.com
 
