@@ -255,7 +255,9 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 (该属性为TBS内核实验性属性，非 TBS 内核不支持)。[TBS H5同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例: "h5"  |
 | x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例: "true"   |
 | x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏）, 1：（portraint竖屏）, 2：（landscape &verbar; portrait跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]  <br> 示例:  0   |
-| wording         | Object   | 无       | 自定义文案   <br> 示例:  { 2032: '请求视频失败，请检查网络'}  |
+| wording         | Object   | 无       | 自定义文案   <br> 示例: { 2032: '请求视频失败，请检查网络'}  |
+| clarity         | String   | 'od'     | 默认播放清晰度 [v2.2.1+] <br> 示例: clarity: 'od'  |
+| clarityLabel    | Object   | {od: '超清', hd: '高清', sd: '标清'} | 自定义清晰度文案 [v2.2.1+] <br> 示例: clarityLabel: {od: '蓝光', hd: '高清', sd: '标清'}  |
 | listener        | Function | 无       | 事件监听回调函数，回调函数将传入一个JSON格式的对象  <br> 示例: function(msg){<br>//进行事件处理 <br>}  |
 
 ## 实例方法列表
@@ -274,11 +276,37 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |fullscreen(enter)| {Boolean} [可选]       | true,false {Boolean}         | 调用全屏接口(Fullscreen API)，不支持全屏接口时使用伪全屏模式，不传参则返回值当前是否是全屏 <br><font color="red">备注：移动端系统全屏没有提供api，也无法获取系统全屏状态</font> | player.fullscreen(true) |
 |buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br><font color="red">备注：只适用于点播</font> | player.buffered()  |
 |destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
+|switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值"od"、"hd"、"sd" [v2.2.1+] | player.switchClarity('od')  |
 
 <font color="red">备注：以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即load事件触发后）</font><br>
 
 ## 进阶攻略
 这里介绍一些视频播放器SDK的进阶使用方法
+
+### 使用广告SDK
+TcPlayer提供了集成 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码
+
+```
+<!-- Google IMA SDK  -->
+<script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<!-- 使用集成 IMA SDK 的版本 -->
+<script type="text/javascript" src="//restcplayer.qcloud.com/sdk/tcplayer-web-1.0.1.js"></script>
+```
+
+通过adTagUrl和auth参数使用广告功能，帐号及License信息可登录 https://tcplayer.qcloud.com 注册申请，或联系 tcplayer@tencent.com 咨询反馈。
+
+```
+var player = new TcPlayer('id_test_video', {
+  /* Advertisement-related parameter */
+  "adTagUrl": "http://ad_tag_url",	//VAST,VMAP,VAPID视频广告Tag
+  "auth": {
+    "user_id": "your_user_id",		//广告帐户ID 
+    "app_id": "your_app_id",		//应用ID 
+    "license": "your_license"		//应用license
+  }
+});
+```
+
 ### ES Module
 TcPlayer 提供了 ES Module 版本，module name 为 TcPlayer 。 下载地址：
 ```
@@ -350,7 +378,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
 | 2016.12.28      | 2.0.0    | 首个版本  |
 | 2017.3.4        | 2.1.0    | 至2017.6.30，经历数次的迭代开发逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。  |
 | 2017.6.30       | 2.2.0    | 1. 增加控制播放环境判断的参数： flash、h5_flv、x5_player。<br>2.调整播放器初始化逻辑，优化错误提示效果。<br>3.增加flv.js支持，在符合条件的情况下可以采用flv.js播放 flv <br>4.支持x5-video-orientation属性，<br>5.增加播放环境判断逻辑，可通过参数调整H5与Flash的优先级，以及是否启用TBS播放。<br>6.启用版本号发布方式，避免影响旧版本的使用者。<br> 7.优化事件触发的时间戳，统一为标准时间。<br>8.bug修复|
-| 2017.12.7       | 2.2.1    | 1. 增加systemFullscreen参数。<br> 2.增加flashUrl参数。<br>3.修复音量max后进行静音切换的UI问题。<br> 4.修复ios11微信下需要点击两次才能播放的问题。<br> 5.修复safari 11 系统样式被遮挡的问题。<br>6.适配在x5内核会触发seeking，但不会触发seeked的情况。<br>7.修复进度条拖拽到起始位置，设置currentTime失败的问题。<br> 8.切换清晰度保持音量不变。<br> 9.修复页面宽度为0，播放器宽度判断失败问题 <br> 10.destroy方法增加完全销毁播放器节点|
+| 2017.12.7       | 2.2.1    | 1. 增加systemFullscreen参数。<br> 2.增加flashUrl参数。<br>3.修复音量max后进行静音切换的UI问题。<br> 4.修复ios11微信下需要点击两次才能播放的问题。<br> 5.修复safari 11 系统样式被遮挡的问题。<br>6.适配在x5内核会触发seeking，但不会触发seeked的情况。<br>7.修复进度条拖拽到起始位置，设置currentTime失败的问题。<br> 8.切换清晰度保持音量不变。<br> 9.修复页面宽度为0，播放器宽度判断失败问题 <br> 10.destroy方法增加完全销毁播放器节点<br> 11.增加清晰度文案可配置及设置默认清晰度参数，支持切换清晰度方法|
 
 ## 常见问题
 
