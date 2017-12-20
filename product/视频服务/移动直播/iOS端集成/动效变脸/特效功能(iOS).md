@@ -111,26 +111,24 @@
  */
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
-
-
-### 2. 绿幕功能
+### 2. AI抠背
 
 示例：
 
 ![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
 
-使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
+需要下载AI抠背的资源，接口跟动效接口相同
 
 ```objective-c
 /**
- * 设置绿幕文件
- * 
- * @param file: 绿幕文件路径。支持mp4; nil 关闭绿幕
+ * 选择扣背动效
+ *
+ * @param tmplName: 动效名称
+ * @param tmplDir: 动效所在目录
  */
--(void)setGreenScreenFile:(NSURL *)file;
-```
+- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 
-### 3.大眼瘦脸
+### 3.美妆美容
 
 大眼和瘦脸通过以下方法设置
 
@@ -171,4 +169,21 @@
  */
 - (void) setNoseSlimLevel:(float)noseSlimLevel;
 
+```
+
+### 4. 绿幕功能
+
+示例：
+
+![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
+
+使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
+
+```objective-c
+/**
+ * 设置绿幕文件
+ * 
+ * @param file: 绿幕文件路径。支持mp4; nil 关闭绿幕
+ */
+-(void)setGreenScreenFile:(NSURL *)file;
 ```
