@@ -1,6 +1,4 @@
-# 特效功能
-
-# 特效功能（大眼、瘦脸、动效、绿幕等）
+# 特效功能（大眼、瘦脸、动效、绿幕）
 
 ## 功能说明
 
@@ -24,125 +22,145 @@
    - 正式License：有效期根据最终的合同而定，一般为一年。
 
 ## 版本下载
+可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
 
-可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码 & license文件 可以跟我们的商务同学获取）, 成功解压后得到一个`LiteAVSDK_Enterprise_3.9.2749.aar`和`LiteAVSDK_Enterprise_3.9.2749.zip`，分别对应两种集成方式。
-
-## 工程设置
-
-参考 [工程配置](https://cloud.tencent.com/document/product/584/11631) 
-
-### 添加SDK
-
-#### 使用aar方式集成
-
-直接把LiteAVSDK_Enterprise_3.9.2749.aar替换你工程中的非商业版的aar，并在app目录下的build.gradle中修改对应的名称即可，相对简单
-
-#### 使用jar包方式集成
-
-1. 需要解压LiteAVSDK_Enterprise_3.9.2749.zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
-
-   | jar                     |                          |                   |
-   | ----------------------- | ------------------------ | ----------------- |
-   | filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
-   | video_module.jar        | YTCommon.jar             |                   |
-
-   | so                     |                           |                        |
-   | ---------------------- | ------------------------- | ---------------------- |
-   | libalgo_rithm_jni.so   | libalgo_youtu_jni.so      | libformat_convert.so   |
-   | libGestureDetectJni.so | libimage_filter_common.so | libimage_filter_gpu.so |
-   | libnnpack.so           | libParticleSystem.so      | libpitu_tools.so       |
-   | libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
-   | libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
-
-
-2. 把解压后的assets文件夹下的资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
-
-### 导入licence文件
-
-商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 license。
-得到 licence 后，您需要将其命名为**YTFaceSDK.licence**，放到工程的assets目录下。
-
-> 每个licence都有绑定具体的package name，修改app的package name会导致验证失败。
+> 区分特权版与非特权版，可以查看SDK的bundler id。bundler id为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
 >
-> YTFaceSDK.license的文件名固定，不可修改、且必须放在assets目录下。
+> 也可以通过体积直观判断，特权版SDK的体积也比非特权版大很多。
+
+
+
+## Xcode工程设置
+
+参考 [工程配置](https://cloud.tencent.com/document/product/584/11638) 
+
+### 1. 添加Framework
+
+特权版需要额外链接一些系统framework
+> 1. AssetsLibrary.framwork
+> 2. CoreMedia.framework
+> 3. Accelerate.framework
+> 4. Metal.framework 
+
+### 2. 添加链接参数
+
+在工程  Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
+
+### 3. 添加动效资源
+
+将SDK/Resource下列文件添加到工程中
+
+> 1. 3DFace
+> 2. detector.bundle
+> 3. FilterEngine.bundle
+> 4. model  
+> 5. PE.dat
+> 6. poseest.bundle
+> 7. RPNSegmenter.bundle
+> 8. ufa.bundle
+
+
+将Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下的SegmentationShader.metal文件添加到工程中
+> 1. SegmentationShader.metal
+
+### 4. 添加动效资源示例
+
+将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，你可以找到直接添加，具体操作如图所示：
+![](https://mc.qcloudimg.com/static/img/d9c501a923b7dbc08f9467da07595b58/image.png)  
+![](https://mc.qcloudimg.com/static/img/7a4c4c93298ba65b83fdd63b8b52de42/image.png)
+
+这些资源非常重要，否则切换到换脸类素材时会发生crash。
+
+### 3. 导入licence文件
+特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 license。
+得到 licence 后，您需要将其命名为**YTFaceSDK.licence** ,然后如上图所示添加到工程。
+
+> 每个licence都有绑定具体的Bundle Identifier，修改app的Bundle Identifier会导致验证失败。
 >
+> YTFaceSDK.license的文件名固定，不可修改。
+> 
 > iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
 
 ## 功能调用
 
-### 1.动效功能
-
-示例：
-
-![](https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png)
+### 1. 动效贴纸
 
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 
-DEMO中的示例代码是从后台下载动效资源，再统一解压到sdcard。您可以在DEMO代码中找到动效资源的下载地址，格式如下
+小直播中的示例代码是从后台下载动效资源，再统一解压到Resource目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下
 
-> ```
-> http://dldir1.qq.com/hudongzhibo/AISpecial/Android/156/(动效name).zip
-> ```
+> `https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip`
+>
+> `https://st1.xiangji.qq.com/yunmaterials/{动效名}.png`
+>
 
-强烈建议客户将动效资源放在自己的服务器上，以防DEMO变动造成不必要的影响。
+强烈建议客户将动效资源放在自己的服务器上，以防小直播变动造成不必要的影响。
 
 当解压完成后，即可通过以下接口开启动效效果
 
-```
+```objective-c
 /**
- * setMotionTmpl 设置动效贴图文件位置
- * @param tmplPath
+ * 选择动效
+ *
+ * @param tmplName: 动效名称
+ * @param tmplDir: 动效所在目录
  */
-public void setMotionTmpl(String tmplPath);
+- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 2. AI抠背
 
-示例：
-
-![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
-
-需要下载AI抠背的资源，接口跟动效接口相同
-
-```
-/**
- * setMotionTmpl 设置动效贴图文件位置
- * @param tmplPath
- */
-public void setMotionTmpl(String tmplPath);
-```
-
-### 3. 美妆美容
-
-```
-// 大眼效果 0~9
-mTXCameraRecord.setEyeScaleLevel(eyeScaleLevel);
-// 瘦脸效果 0~9
-mTXCameraRecord.setFaceScaleLevel(faceScaleLevel);
-// V脸效果 0~9
-mTXCameraRecord.setFaceVLevel(level)
-// 下巴拉伸或收缩效果 0~9
-mTXCameraRecord.setChinLevel(scale)
-// 缩脸效果 0~9
-mTXCameraRecord.setFaceShortLevel(level)
-// 瘦鼻效果 0~9
-mTXCameraRecord.setNoseSlimLevel(scale)
-```
-
-### 4. 绿幕功能
+### 2. 绿幕功能
 
 使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
 
-```
+```objective-c
 /**
- * 设置绿幕文件:目前图片支持jpg/png，视频支持mp4/3gp等Android系统支持的格式
- * API要求18
- * @param path ：绿幕文件位置，支持两种方式：
- *             1.资源文件放在assets目录，path直接取文件名
- *             2.path取文件绝对路径
+ * 设置绿幕文件
+ * 
+ * @param file: 绿幕文件路径。支持mp4; nil 关闭绿幕
  */
-@TargetApi(18)
-public void setGreenScreenFile(String path);
+-(void)setGreenScreenFile:(NSURL *)file;
 ```
 
-### 
+### 3.大眼瘦脸
+
+大眼和瘦脸通过以下方法设置
+
+```objective-c
+/* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          eyeScaleLevel     : 大眼级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+-(void) setEyeScaleLevel:(float)eyeScaleLevel;
+
+/* setFaceScaleLevel  设置瘦脸级别（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          faceScaleLevel    : 瘦脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+-(void) setFaceScaleLevel:(float)faceScaleLevel;
+
+/* setFaceVLevel  设置V脸（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          faceVLevel    : V脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+- (void) setFaceVLevel:(float)faceVLevel;
+
+/* setChinLevel  设置下巴拉伸或收缩（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          chinLevel    : 下巴拉伸或收缩取值范围 -9 ~ 9； 0 表示关闭 -9收缩 ~ 9拉伸。
+ */
+- (void) setChinLevel:(float)chinLevel;
+
+/* setFaceShortLevel  设置短脸（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          faceShortlevel    : 短脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+- (void) setFaceShortLevel:(float)faceShortlevel;
+
+/* setNoseSlimLevel  设置瘦鼻（增值版本有效，普通版本设置此参数无效）
+ * 参数：
+ *          noseSlimLevel    : 瘦鼻级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+ */
+- (void) setNoseSlimLevel:(float)noseSlimLevel;
+
+```
