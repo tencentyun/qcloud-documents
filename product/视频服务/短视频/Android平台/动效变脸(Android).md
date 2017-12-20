@@ -4,7 +4,7 @@
 
 ## 功能说明
 
-大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天P图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和P图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
+大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天P图的美妆技术为基础开发的特权功能，腾讯云小视频团队通过跟优图和P图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
 ## 接入流程
 
@@ -41,19 +41,19 @@
 
 1. 需要解压LiteAVSDK_Enterprise_3.9.2749.zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
 
-   | jar                     |                          |                   |
-   | ----------------------- | ------------------------ | ----------------- |
-   | filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
-   | video_module.jar        | YTCommon.jar             |                   |
 
-   | so                     |                           |                        |
-   | ---------------------- | ------------------------- | ---------------------- |
-   | libalgo_rithm_jni.so   | libalgo_youtu_jni.so      | libformat_convert.so   |
-   | libGestureDetectJni.so | libimage_filter_common.so | libimage_filter_gpu.so |
-   | libnnpack.so           | libParticleSystem.so      | libpitu_tools.so       |
-   | libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
-   | libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
+| jar                     |                          |                   |
+| ----------------------- | ------------------------ | ----------------- |
+| filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
+| video_module.jar        | YTCommon.jar             |                   |
 
+| so                     |                           |                        |
+| ---------------------- | ------------------------- | ---------------------- |
+| libalgo_rithm_jni.so   | libalgo_youtu_jni.so      | libformat_convert.so   |
+| libGestureDetectJni.so | libimage_filter_common.so | libimage_filter_gpu.so |
+| libnnpack.so           | libParticleSystem.so      | libpitu_tools.so       |
+| libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
+| libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
 
 2. 把解压后的assets文件夹下的资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
 
