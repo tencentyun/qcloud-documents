@@ -10,7 +10,7 @@
 
 ## 2. HTTP、HTTPS 头部标识
 
-CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。这时开发者无法分辨前端的请求是 HTTPS 还是 HTTPS。
+CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。这时开发者无法分辨前端的请求是 HTTP 还是 HTTPS。
 
 腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto：
 
