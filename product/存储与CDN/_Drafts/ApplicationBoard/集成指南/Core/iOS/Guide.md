@@ -27,6 +27,15 @@ $ cd your-project directory
 $ pod init
 ~~~
 
+并在您的 Podfile 文件中添加 应用云 的私有源
+
+~~~
+source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
+source "https://github.com/CocoaPods/Specs"
+~~~
+
+> 注意一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题
+
 ##### （3) 添加您想安装的 Pod。您可以按照以下方法在 Podfile 中纳入一个 Pod：
 
 ~~~
@@ -43,10 +52,7 @@ $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### (5) 从 Firebase 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
-
-
-
+##### (5) 从 应用云 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
 
 ### 手工集成
 
@@ -67,7 +73,7 @@ import TACCore
 ~~~
 
 
-#### 步骤 2 配置一个 FirebaseApp 共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置
+#### 步骤 2 配置一个 TACApplication  共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置
 
 
 ##### 使用默认配置
@@ -88,7 +94,7 @@ import TACCore
 
 ~~~objective-c
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置 
+	// 自定义配置
 	// opions.xxx= xxx
     //
     [TACApplication configurateWithOptions:options];
@@ -96,7 +102,7 @@ import TACCore
 
 ~~~swift
 	let options = TACApplicationOptions.default()
-	// 自定义配置 
+	// 自定义配置
 	// opions.xxx= xxx
 	TACApplication.configurate(with: options);
 ~~~
@@ -104,10 +110,10 @@ import TACCore
 
 ## 其它可用的模块
 
-|Pod|功能及服务|
-|:--|:--|
-|||
-|||
-|||
-|||
-|||
+| Pod | 功能及服务 |
+|:----|:-----------|
+|     |            |
+|     |            |
+|     |            |
+|     |            |
+|     |            |

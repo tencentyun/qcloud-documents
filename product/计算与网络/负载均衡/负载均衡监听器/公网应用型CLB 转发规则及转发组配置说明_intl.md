@@ -3,7 +3,7 @@
 
 The Layer-7 business process and Layer-4 business process of the public network application-based CLB are displayed as follows:
 
-![](//mc.qcloudimg.com/static/img/f0fa90984d263a9f7e26d4f6ee3b6c5f/image.png)
+![](//mc.qcloudimg.com/static/img/85aadb905594f4e755cc2d7e4a597397/image.png)
 
 - In the Layer-7 forwarding http/https of public network application-based CLB, the user may add a corresponding domain name when creating a new forwarding rule in the listener of a LB instance.
 - When only one forwarding rule is created, you can access the service by accessing VIP + URL, for it can correspond to the appropriate forwarding rule.
@@ -41,7 +41,7 @@ For example, a client wants to match any file that ends with gif, jpg, or bmp by
 In the public network application-based CLB, the forwarding path URL of Layer-7 listener is / by default and must start with /; the length range is between 1 and 80 characters; a regular expression should be adopted, and letters, numbers, "$", "=", "*", ".", "-", "&", "#", "？", "%", "/", "~", "^", "!", "+", ")", "(" and "|" can be contained.
 
 ### Example of URL Matching Rule:
-![](//mc.qcloudimg.com/static/img/5e322824d13d70c55f12c5d34f066d4a/image.png)
+![](//mc.qcloudimg.com/static/img/1c01dcd0959105dd7821f4e22f5cd796/image.png)
  
 1. Match rules: Exact match should have precedence over fuzzy match
 

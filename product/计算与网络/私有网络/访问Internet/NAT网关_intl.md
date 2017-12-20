@@ -20,7 +20,6 @@ Both NAT gateway and public network gateway are used for the CVM in the VPC to a
 | Private IP	| Private IP of VPC user is not occupied |	Occupy the subnet private IP |
 | Security group |	Binding of security group is not supported. You can bind the security group to the NAT gateway backend CVM	| Support |
 | Network ACL |	Binding of network ACL is not supported. You can bind the network ACL to the subnet where the NAT gateway backend CVM resides in	| Binding of network ACL is not supported. You can bind the network ACL to the subnet to which the public network gateway belongs |
-| Charges	| Mainland China:<br>Small-sized (a maximum of 1,000,000 connections): RMB 0.5/hour<br>Medium-sized (a maximum of 3,000,000 connections): RMB 1.5/hour<br>Large-sized (a maximum of 10,000,000 connections): RMB 5/hour | Depend on the size of CVM used as a public network gateway. Take Mainland China as an example:<br>1-core 2GB: RMB 0.44/hour<br>4-core 8GB: RMB 1.76/hour<br>12-core 24GB: RMB 5.28/hour
 
 The comparisons listed above show that Tencent Cloud's NAT gateway has three advantages:
 - Large capacity: supports a maximum of 10,000,000 concurrent connections, 5Gbps bandwidth and 10 elastic IPs to meet the demand of users with a large business scale.
@@ -49,7 +48,7 @@ The CVM is only bound to an elastic public IP, and the NAT gateway will not be u
 ### Method 3: Use both the NAT gateway and the elastic public IP
 The CVM is bound to an elastic public IP; meanwhile all traffic from the subnet route accessing the Internet is directed to the NAT gateway. With this method, all traffic from the CVM actively accessing the Internet **can only be forwarded to the NAT gateway through the private network**, and the returning packets will be returned to the CVM through the NAT gateway as well. This traffic will not be subject to the public bandwidth limit specified when the CVM was purchased, nor will the traffic generated at the NAT gateway occupy the public bandwidth egress of the CVM. If the traffic from the Internet actively accesses the elastic public IP of the CVM, the returning packets of the CVM will be uniformly returned through the elastic public IP. This way, the resulting outbound traffic of the public network will be subject to the public bandwidth limit specified when the CVM was purchased. The cost resulting from accessing the public network will be charged based on the network billing mode of the CVM.
 
-> Note: For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the RMB 0.8/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth.
+> Note: For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the USD 0.12/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth.
 
 
 ## Key Features
@@ -76,16 +75,71 @@ The following should be noted about the usage of the NAT gateway:
 ## Billing Method
 Charges for a NAT gateway device include two parts: Gateway rental fee (by hour) and the fee for traffic generated during the access to the Internet. The cost for the traffic can be charged as per the "Bill by Traffic" method for CVM network charges. The billing mode for the NAT gateway itself is as follows:
 
-| Type | Mainland China | Hong Kong |Singapore| North America |
-|---------|---------|---------|---------|
-| Small | RMB 0.5/h | RMB 0.75/h | RMB 0.75/h | RMB 0.8/h |
-| Medium | RMB 1.5/h| RMB 2.25/h | RMB 2.25/h | RMB 2.4/h |
-| Large | RMB 5/h | RMB 7.5/h | RMB 7.5/h | RMB 8/h |
+<table class="cvmMonth">
+        <tbody><tr>
+            <th style="width: 10%;" rowspan="2">Feature</th>
+            <th style="width: 10%;" rowspan="2">Billing Model</th>
+                        <th style="width: 30%;" rowspan="2">Configuration</th>
+            <th style="width: 50%;" colspan="7">Price</th>
+        </tr>
+        <tr>
+            <th>Beijing<br>Shanghai<br>Guangzhou</th>
+                        <th>Hong Kong</th>
+                                                 <th>Singapore</th>
+            <th>Toronto</th> 
+	<th>Korea</th> 
+		<th>Frankfurt</th>
+			<th>Silicon Valley</th>
+        </tr>
+
+        <tr>
+        
+                
+                                <tr>
+            <td rowspan="4">NAT Gateway</td>
+            <td rowspan="3">Rental fee for gateway<br>(USD/hour)</td>
+            <td>Small</td>
+            <td>0.089</td>
+            <td>0.13</td>
+                                    <td>0.13</td>
+                        <td>0.14</td>
+			<td>0.13</td>
+            <td>0.13</td>
+            <td>0.13</td>
+        </tr>
+                <tr>
+            <td>Medium</td>
+            <td>0.28</td>
+            <td>0.39</td>
+                        <td>0.39</td>
+                        <td>0.42</td>
+			<td>0.39</td>
+            <td>0.39</td>
+			<td>0.39</td>
+        </tr>
+                <tr>
+            <td>Large</td>
+            <td>0.89</td>
+            <td>1.3</td>
+                        <td>1.3</td>
+                        <td>1.4</td>
+			<td>1.3</td>
+			<td>1.3</td>
+			<td>1.3</td>
+        </tr>
+              
+        </tr>
+
+                    
+                
+    </tbody></table>
+
+
 
  >Note:
- For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the RMB 0.8/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth. Click to view the [Bandwidth Package billing details](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
+ For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the USD 0.12/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth. Click to view the [Bandwidth Package billing details](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
  - Arrear logic: be consistent with the Bill by Traffic method for CVM. [Click to obtain the VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079)
- - As the NAT gateway features master/slave hot backup, the system will send a 5KB check packet to the master and slave servers of the NAT gateway every three seconds. This will result in a traffic of 0.2747GB each day, incurring a daily charge of RMB 0.2197, RMB 0.2747 and RMB　0.1373 for Mainland China, Hong Kong and North America, respectively.
+
 
 
 ## Expiry Reminder
@@ -136,10 +190,10 @@ After the creation of a NAT gateway, you can modify its attributes.
 (Alternatively) In the NAT gateway list page, click the ID of a NAT gateway to enter its details page, and then click "Monitoring" tab to view its monitoring information.
 
 ### Setting the Alarm
-1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
+1)	Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.cloud.tencent.com/monitor/overview) in the top navigation bar, and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add Alarm Policy.
 2) Fill in the Alarm Policy Name, select "NAT Gateway" in Policy Type, and then add the Condition of alarm trigger.
 3)	**Associate alarm objects**: select the alarm receiver group. You can view the set alarm policy in the policy list after you click "Complete".
-4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).
+4)	**View the alarm information**: when the alarm is triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://intl.cloud.tencent.com/document/product/248/6215).
 
 ### Delete NAT gateway
 NAT Gateway can be deleted when it is not needed. The routing table and routing rules containing the NAT gateway will be deleted with the NAT gateway. Upon the deletion, the request forwarded over Internet will be interrupted immediately. Please provide for the network interruption in advance.

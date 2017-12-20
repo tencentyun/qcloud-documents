@@ -6,7 +6,5 @@
 
 ## Users who haven't passed the identity verification
 
-+ If you are just a trial user who has not undergone the individual/corporate identity verification, the CDN acceleration service will be stopped immediately when the trial period of your traffic package expires. If you want to continue the use of the service, you need to undergo the CDN identity verification (For instructions on how to undergo the identity verification, refer to [Activate CDN](https://cloud.tencent.com/doc/product/228/3156) or purchase a traffic package to continue the trial.
-
-
++ If you are just a trial user who has not undergone the individual/corporate identity verification, the CDN acceleration service will be stopped immediately when the trial period of your traffic package expires. If you want to continue the use of the service, you need to undergo the CDN identity verification (For instructions on how to undergo the identity verification, refer to [Activate CDN](https://intl.cloud.tencent.com/document/product/228/2951) or purchase a traffic package to continue the trial.
 

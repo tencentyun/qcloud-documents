@@ -13,7 +13,7 @@ The following request parameter list only provides API request parameters. Commo
 | scalingConfigurationName | No | String | Scaling configuration names to be queried. Passing of scaling configuration name arrays is currently not supported.  |
 | offset | No | Int | Offset; default is 0.  | 
 | limit | No | Int | The maximum of scaling configurations that can be queried at a time. Default is 20.  | 
-| projectId | No | String | Project ID. If it is left empty, the scaling configurations of all projects will be queried. 0 means default project. To specify other projects, you can call API <a href="/doc/api/403/4400" title="Query Project List">Query Project List</a> (DescribeProject) to query. |
+| projectId | No | String | Project ID. If it is left empty, the scaling configurations of all projects will be queried. 0 means default project. To specify other projects, you can call API Query Project List (DescribeProject) to query. |
 
 
 

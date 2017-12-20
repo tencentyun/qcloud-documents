@@ -48,7 +48,7 @@ Cross-domain means that the resource from one domain (for example, www.abc.com) 
 Access-Control-Allow-Origin is used to solve cross-domain permission issues for resources. The field value defines which domains are allowed to reference this resource. You can also set wildcard "*" to allow all domains to reference the resource. Common configurations are shown below:
 
 >Access-Control-Allow-Origin: *
->Access-Control-Allow-Origin: http://www.test.com
+>Access-Control-Allow-Origin: ```http://www.test.com```
 
 **Note**:
 

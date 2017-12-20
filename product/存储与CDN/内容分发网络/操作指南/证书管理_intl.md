@@ -1,4 +1,4 @@
-You can configure HTTPS certificate for a domain that has been connected to CDN. You can upload your existing certificate for deployment, or directly deploy the certificate hosted or issued by [SSL Certificate Management](https://console.cloud.tencent.com/ssl) platform.
+You can configure HTTPS certificate for a domain that has been connected to CDN. You can upload your existing certificate for deployment, or directly deploy the certificate hosted or issued by SSL Certificate Management platform.
 
 You can apply for a free third party certificate from TrustAsia on SSL Certificate Management page.
 

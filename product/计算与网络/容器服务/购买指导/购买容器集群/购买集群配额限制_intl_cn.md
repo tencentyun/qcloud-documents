@@ -1,3 +1,4 @@
+## 购买容器集群限制
 针对每个用户，腾讯云容器服务集群每个地域分配了固定配额。
 
 1）每个用户每个地域可购买的容器集群配额如下,如果您需要更多的集群数量，可通过[配额申请工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS)提出配额申请。

@@ -1,5 +1,5 @@
 连接到MySQL数据库的方式有两种：
-- 内网访问：使用在同一个可用区的CVM来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台CVM需要与数据库同时处于基础网络中，或者属于同一个VPC，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC概述</a>。）
+- 内网访问：使用在同一个可用区的CVM来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台CVM需要与数据库同一地域下的基础网络中，或者同一个VPC中，关于VPC的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC概述</a>。）
 - 外网访问：借助外网账号，通过腾讯云控制台中的登录入口，登录到phpMyAdmin界面对数据库进行操作。
 
 <font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。
@@ -54,9 +54,8 @@
 **-从Linux系统登录**
 1. 在腾讯云控制台中，选择【云产品】-【关系型数据库】-【MySQL-实例列表】，点击目标实例的ID进入实例详情页。
 ![](//mc.qcloudimg.com/static/img/018350e48f1d535d105c3c6340d36b2d/image.png)
-1. 在实例详情页点击外网地址后的【开启】，设置外网访问帐号cdb_outerroot对应的密码，点击【确定】。
+1. 在实例详情页点击外网地址后的【开启】，点击【确定】。
 ![](//mc.qcloudimg.com/static/img/730e65a8b10f429a80ea15456b9a7193/image.png)
-![](//mc.qcloudimg.com/static/img/48a8489d3c0341ef87627fdc108f93e7/image.png)
 1. 实例详情页会显示开通后的外网地址，随后的步骤里会用到此地址。
 ![](//mc.qcloudimg.com/static/img/3d1176c8958f8ffc0e1f2594fc7f3141/image.png)
 1. 以CentOS 7.2 64位系统为例，利用CentOS自带的包管理软件Yum去下载安装MySQL客户端。
