@@ -85,16 +85,20 @@
 
 ### 1. 动效贴纸
 
+示例：
+
+![](https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png)
+
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 
-短视频中的示例代码是从后台下载动效资源，再统一解压到Resource目录。您可以在短视频代码中找到动效资源和动效缩略图的下载地址，格式如下
+小直播中的示例代码是从后台下载动效资源，再统一解压到Resource目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下
 
 > `https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip`
 >
 > `https://st1.xiangji.qq.com/yunmaterials/{动效名}.png`
 >
 
-强烈建议客户将动效资源放在自己的服务器上，以防短视频变动造成不必要的影响。
+强烈建议客户将动效资源放在自己的服务器上，以防小直播变动造成不必要的影响。
 
 当解压完成后，即可通过以下接口开启动效效果
 
@@ -107,24 +111,25 @@
  */
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
+### 2. AI抠背
 
+示例：
 
-### 2. 绿幕功能
+![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
 
-使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
+需要下载AI抠背的资源，接口跟动效接口相同
 
 ```objective-c
 /**
- * 设置绿幕文件
- * 
- * @param file: 绿幕文件路径。支持mp4; nil 关闭绿幕
+ * 选择扣背动效
+ *
+ * @param tmplName: 动效名称
+ * @param tmplDir: 动效所在目录
  */
--(void)setGreenScreenFile:(NSURL *)file;
+- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3.大眼瘦脸
-
-大眼和瘦脸通过以下方法设置
+### 3.美妆美容
 
 ```objective-c
 /* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
@@ -163,4 +168,17 @@
  */
 - (void) setNoseSlimLevel:(float)noseSlimLevel;
 
+```
+
+### 4. 绿幕功能
+
+使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
+
+```objective-c
+/**
+ * 设置绿幕文件
+ * 
+ * @param file: 绿幕文件路径。支持mp4; nil 关闭绿幕
+ */
+-(void)setGreenScreenFile:(NSURL *)file;
 ```
