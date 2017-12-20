@@ -55,23 +55,6 @@
 | libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
 | libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
 
-
-   | jar                     |                          |                   |
-   | ----------------------- | ------------------------ | ----------------- |
-   | jar                     |                          |                   |
-   | filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
-   | video_module.jar        | YTCommon.jar             |                   |
-   
-
-   | so                     |                           |                        |
-   | ---------------------- | ------------------------- | ---------------------- |
-   | libalgo_rithm_jni.so   | libalgo_youtu_jni.so      | libformat_convert.so   |
-   | libGestureDetectJni.so | libimage_filter_common.so | libimage_filter_gpu.so |
-   | libnnpack.so           | libParticleSystem.so      | libpitu_tools.so       |
-   | libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
-   | libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
-
-
 2. 把解压后的assets文件夹下的资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
 
 ### 导入licence文件
