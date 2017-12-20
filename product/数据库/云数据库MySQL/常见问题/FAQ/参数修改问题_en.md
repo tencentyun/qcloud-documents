@@ -7,11 +7,11 @@ Developers can modify configuration parameters of a cloud database using command
 
 **1. Using command line**
 Step 1: Log in to Tencent Cloud [Console](https://console.cloud.tencent.com/), and click "Cloud Database" in "Cloud Products" to go to the relational database page.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598bca5955b8a.png)
+![](//mc.qcloudimg.com/static/img/00ff8ac563c02a5f661a1b47284f92dc/image.png)
 
 Step 2: On the relational database page, click "Instance List" under "MySQL", and then locate the MySQL database instance for which you want to reset password in the target region (in this example, it is Guangzhou). Click the instance name or "Manage" button to go to the MySQL database management page.
 
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598bcac7af14c.png)
+![](//mc.qcloudimg.com/static/img/62b1e4ab9953e54eab6c53da62ad6436/image.png)
 Step 3: On the MySQL database management page, click the parameter settings in the management list. The common variables under var\_name are as follows:
 <table class="t">
 <tbody><tr>
@@ -60,7 +60,7 @@ CDB does not support Chinese characters now.
 
 ### 3. How to enable the scheduler feature for MySQL?
 Go to [Cloud Database Console](https://console.cloud.tencent.com/cdb), locate the instance to be modified, click the "Manage" button to go to the database management page. Click "Parameter Settings", and then enable the event in the parameter settings of console.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=59830b371dcb1.png)
+![](//mc.qcloudimg.com/static/img/3843219af515499661c4335800253c6a/image.png)
    
 ### 4. How to increase the MySQL connection timeout threshold?
 Go to [Cloud Database Console](https://console.cloud.tencent.com/cdb), locate the instance you want to update, click the "Manage" button to go to the database management page. Click "Parameter Settings", and then modify the wait_timeout parameter in the parameter settings of console.
@@ -68,7 +68,7 @@ Go to [Cloud Database Console](https://console.cloud.tencent.com/cdb), locate th
 
 ### 5. How to modify the group_concat parameter for CDB for MySQL?
 Go to [Cloud Database Console](https://console.cloud.tencent.com/cdb), locate the instance you want to update, click the "Manage" button to go to the database management page. Click "Parameter Settings", and then modify the group_concat parameter in the parameter settings of console.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=59830f85a8714.png)
+![](//mc.qcloudimg.com/static/img/67cfe78563599245bd12c07d55aad191/image.png)
 
 ### 6. How to locate the SQL statement for MySQL full table scan?
 The statements for full table scan is not recorded by default. You can enable the log_queries_not_using_indexes parameter in parameter settings of cloud database console. Note: Do not keep it enabled for too long.
