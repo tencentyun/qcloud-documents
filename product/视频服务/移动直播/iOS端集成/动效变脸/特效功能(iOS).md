@@ -127,10 +127,9 @@
  * @param tmplDir: 动效所在目录
  */
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
+```
 
 ### 3.美妆美容
-
-大眼和瘦脸通过以下方法设置
 
 ```objective-c
 /* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
