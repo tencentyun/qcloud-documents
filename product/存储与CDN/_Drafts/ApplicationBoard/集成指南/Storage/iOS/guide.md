@@ -1,16 +1,13 @@
-在 iOS 中开始使用 应用云 Crashlytics
-
-> 按照本指南在您的 iOS 应用中设置 应用云 Crashlytics。
-
+在 iOS 中开始使用 应用云 Storage
 
 ## 准备工作
 
-在开始使用应用云 Crashlytics之前，您需要：
+在开始使用应用云 Storage之前，您需要：
 
 1. 一个启用了 应用云 的应用
 2. 您集成了TACCore
 
-## 将应用云 Crashlytics 代码库添加到您的Xcode项目中
+## 将应用云 Storage 代码库添加到您的Xcode项目中
 
 
 ##### （1）在您的项目中集成 应用云 SDK
@@ -24,10 +21,10 @@ source "https://github.com/CocoaPods/Specs"
 
 > 注意一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题
 
-##### （2) 添加 TACCrash 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod：
+##### （2) 添加 TACStorage 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod：
 
 ~~~
-pod 'TACCrash'
+pod 'TACStorage"
 ~~~
 
 ##### (3) 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
@@ -37,14 +34,14 @@ $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### (4)在 UIApplicationDelegate 子类中导入 TACCrash 模块：
+##### (4)在 UIApplicationDelegate 子类中导入 TACStorage 模块：
 
 ~~~objective-c
-#import <TACCrash/TACCrash.h>
+#import <TACStorage/TACStorage.h>
 ~~~
 
 ~~~swift
-import TACCrash
+import TACStorage
 ~~~
 
 
@@ -60,12 +57,12 @@ import TACCrash
 	TACApplication.configurate();
 ~~~
 
-如果您需要进行自定义的配置，则可以使用以下方法，我们使用了Objective-C的语法特性Category和一些Runtime的技巧保障了，只有在您引入了 TACCrash模块的时候，才能从TACApplicaitonOptiosn里面看到其对应的配置属性，如果你没有引入TACCrash模块这些属性就不存在，请不要在没有引入TACCrash模块的时候使用这些配置，这将会导致您编译不通过：
+如果您需要进行自定义的配置，则可以使用以下方法，我们使用了Objective-C的语法特性Category和一些Runtime的技巧保障了，只有在您引入了 TACStorage模块的时候，才能从TACApplicaitonOptiosn里面看到其对应的配置属性，如果你没有引入TACStorage模块这些属性就不存在，请不要在没有引入TACStorage模块的时候使用这些配置，这将会导致您编译不通过：
 
 ~~~objective-c
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
-	//     options.crashOptions.[Key] = [Value];
+	//     options.storageOptions.[Key] = [Value];
     //
     [TACApplication configurateWithOptions:options];
 ~~~
@@ -73,18 +70,6 @@ import TACCrash
 ~~~swift
 	let options = TACApplicationOptions.default()
 	// 自定义配置
-	// options?.crashOptions.[Key] = [Value];
+	// options?.storageOptions.[Key] = [Value];
 	TACApplication.configurate(with: options);
 ~~~
-
-
-## 配置 Crashlytics 上报符号表脚本
-
-1. 在导航栏中打开您的工程
-2. 打开Tab `Build Phases`
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`.
-4. 将下面的代码粘贴入  `Type a script...` 文本框:
-
-	~~~~
-	"${PODS_ROOT}/TACCrash/Scripts/run"
-	~~~~
