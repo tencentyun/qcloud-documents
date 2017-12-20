@@ -6,8 +6,8 @@ Cloud database instances are fully backed up every day. Developers can also back
 
 ### 3. How to set backup method for MySQL?
 On the instance list page, click an instance to go to "Backup Management", and then click "Automatic Backup Settings" to set backup method.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=59842281d37f6.png)
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598422932e41d.png)
+![](//mc.qcloudimg.com/static/img/61eec4f474762057d6956dc61ecc1214/image.png)
+![](//mc.qcloudimg.com/static/img/d67376cc5c98175d31fd29ae55499cb9/image.png)
 
 ### 4. What backup methods does MySQL support?
 4.1. For logical backup, downloads at both the instance level and the database table level are supported, while for physical backup, only download at the instance level is supported.
