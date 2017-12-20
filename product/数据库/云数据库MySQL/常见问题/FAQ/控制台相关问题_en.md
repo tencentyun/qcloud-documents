@@ -4,28 +4,28 @@ For more information on on how to reset password, please see [Reset Password](ht
 ### 2. How large is the MySQL instance storage space?
 You can view the instance storage space in the instance details page in console.
 **Step 1:** Log in to Tencent Cloud [Console](https://console.cloud.tencent.com/), and click "Cloud Database" in "Cloud Products" to go to the relational database page.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598bca5955b8a.png)
+![](//mc.qcloudimg.com/static/img/00ff8ac563c02a5f661a1b47284f92dc/image.png)
 **Step 2:** On the relational database page, click "Instance List" under "MySQL", and locate the MySQL database instance for which you want to reset password in the target region (in this example, it is Guangzhou). Click the instance name or "Manage" button to go to the MySQL database management page.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598bcac7af14c.png)
+![](//mc.qcloudimg.com/static/img/62b1e4ab9953e54eab6c53da62ad6436/image.png)
 **Step 3:** In the MySQL database management page, you can view the instance's storage space in the configuration information of instance details.
-![Image](http://tss.sng.com/ticket/upload/displayImage?filename=598c07e1cf040.png)
+![](//mc.qcloudimg.com/static/img/6572eabefce378b96a06f983dea04d0e/image.png)
 
 ### 3. How to view the MySQL data sheet?
 You can view and modify the data sheet via PMA.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=5991142a80b7e.png)
+![](//mc.qcloudimg.com/static/img/ce1c2957c302e865ac453e111bf3f0e9/image.png)
    
 ### 4. Why the max_connections value of MySQL always displays as 1,000 in the instance monitor, instead of the actual maximum number of connections?
 In the instance monitor, the value of max_connections is fixed, but you can modify it. You can view the number of currently open connections as shown in the figure below:
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598a7962582fb.png)
+![](//mc.qcloudimg.com/static/img/46ef7ad72797eb8115819a3a56fd01a1/image.png)
 
 ### 5. How to know the count of accesses to an MySQL instance?
 You can view the count of accesses to an MySQL instance in the instance details page in console.
 Step 1: Log in to Tencent Cloud [Console](https://console.cloud.tencent.com/), and click "Cloud Database" in "Cloud Products" to go to the relational database page.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598bca5955b8a.png)
+![](//mc.qcloudimg.com/static/img/00ff8ac563c02a5f661a1b47284f92dc/image.png)
 Step 2: On the relational database page, click "Instance List" under "MySQL", and locate the MySQL database instance for which you want to reset password in the target region (in this example, it is Guangzhou). Click the instance name or "Manage" button to go to the MySQL database management page.
-![Image](http://tss.sng.com/ticket/upload/downloadFile?filename=598bcac7af14c.png)
+![](//mc.qcloudimg.com/static/img/62b1e4ab9953e54eab6c53da62ad6436/image.png)
 Step 3: In the MySQL database management page, you can view the count of accesses to the instance in the configuration information of instance details.
-![Image](http://tss.sng.com/ticket/upload/displayImage?filename=598c091f1a6fd.png)
+![](//mc.qcloudimg.com/static/img/2bfa1b9d421be3cc1e83dbd5a7a26d0c/image.png)
 ### 6. When will MySQL temporary instances be available?
 Tencent Cloud will notify you of the availability of temporary instances by publish a notice. Please visit [Tencent Cloud website](https://cloud.tencent.com/) from time to time for updates.
 
