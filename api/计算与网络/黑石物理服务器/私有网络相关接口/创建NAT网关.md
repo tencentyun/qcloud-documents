@@ -15,6 +15,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=CreateBmNatGateway
 	&autoAllocEipNum=<分配IP的个数>
 	&unSubnetIds.0=<子网ID>
 	&unSubnetIds.1=<子网ID>
+	&forwardMode=<转发方式>
 	&ips.0.unSubnetId=<子网ID>
 	&ips.0.ipList.0=<子网内IP>
 	&ips.0.ipList.1=<子网ID>
@@ -92,13 +93,9 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&unVpcId=vpc-kd7d06of
 	&maxConcurrent=1000000
 	&autoAllocEipNum=1
+	&forwardMode=1
 	&unSubnetIds.0=subnet-333333
 	&unSubnetIds.1=subnet-444444
-	&ips.0.unSubnetId=subnet-111111
-	&ips.0.ipList.0=10.11.1.14
-	&ips.0.ipList.1=10.11.1.15
-	&ips.1.unSubnetId=subnet-222222
-	&ips.1.ipList.0=10.11.3.15
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
