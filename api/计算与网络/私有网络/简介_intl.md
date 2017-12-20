@@ -1,6 +1,6 @@
 VPC (Virtual Private Cloud) can help you build an independent network space at Tencent Cloud which allows you to customize network segmentation, IP address, routing policy, etc. You can also establish a VPN tunnel through public network/Direct Connect to achieve the interconnection between private network and your other cloud resources and deploy hybrid cloud flexibly. 
 Users can perform such operations as creating VPC and creating subnet with the APIs described in this document. For information on supported operations, please refer to <a href="https://cloud.tencent.com/doc/api/245/909" title="API Overview">API Overview</a>. 
-Before using these APIs, please make sure that you have a thorough understanding of <a href="https://cloud.tencent.com/doc/product/215/535" title="VPC Product Overview">VPC Product Overview</a> and <a href="https://cloud.tencent.com/doc/product/215/1178" title="Operation Instruction">Operation Instruction</a>. 
+Before using these APIs, please make sure that you have a thorough understanding of <a href="https://cloud.tencent.com/doc/product/215/535" title="VPC Product Overview">VPC Product Overview</a> and <a href="https://intl.cloud.tencent.com/document/product/215/8119" title="Operation Instruction">Operation Instruction</a>. 
 
 ## 1. Product Objects
 | Product Object | Full Name  | Description |

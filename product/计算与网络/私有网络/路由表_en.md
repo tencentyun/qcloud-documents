@@ -39,11 +39,11 @@ For example, if a CVM in a VPC is bound to a elastic IP and it is in a subnet th
 - Dynamic routing protocols such as BGP and OSPF are not supported
 - As shown in the following table, there are number limit on the routing tables created and the routing policies added in each routing table:
 
-| Resource | Limit | 
+| Resource | Limit  
 |---------|---------|
-| Number of routing tables per VPC | 10	 | 
-| Number of routing tables associated with a subnet | 1	 | 
-| Number of routing policies per routing table | 50	 |
+| Number of routing tables per VPC | 10	  
+| Number of routing tables associated with a subnet | 1	  
+| Number of routing policies per routing table | 50	 
 
 ## Billing Method
 The routing table is created and used completely free of charge. For other price information on VPC, refer to [Overview of VPC Price](https://cloud.tencent.com/doc/product/215/3079).
@@ -53,7 +53,7 @@ The routing table is created and used completely free of charge. For other price
 ### Modifying Default Routing Table
 When a VPC is created, the system will automatically create a default routing table, with which newly created subnets will be associated by default.
 
-1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, and enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc ? Rid = 8).
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar, and enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).
 2) Click "Routing Table" in the left navigation bar, and click the routing table ID in the routing table list to enter the routing table details page.
 3) Click "Edit" button of the routing policy to start modifying the routing policy.
 4) (Optional) Click "New Line" to add a routing policy. Enter the destination network segment, select the next hop type (public network gateway, VPN gateway, direct connect gateway, etc.), and then select the next hop ID.

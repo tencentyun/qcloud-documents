@@ -13,7 +13,10 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
-`http://service.image.myqcloud.com/ocr/namecard`
+
+```
+http://service.image.myqcloud.com/ocr/namecard
+```
 
 ## 请求包header
 接口采用 http 协议，支持多 url 和多本地图片文件，每个请求最多支持 20 张图片或 url 。
@@ -150,11 +153,8 @@ Content-Type: "application/json"
 | image            | string | 返回图片的base64编码（ret_image=1时返回） |
 
 ><font color="#0000cc">**注意：** </font>
-<<<<<<< HEAD
->如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1
-=======
 >如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
->>>>>>> d6c9cb7950bab675e927df1ba204d0316d99232e
+
 
 
 ### 示例

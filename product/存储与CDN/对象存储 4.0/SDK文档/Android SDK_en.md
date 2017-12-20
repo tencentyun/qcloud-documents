@@ -4,7 +4,7 @@
 
 Android SDK for Cloud Object Storage (COS) can be downloaded from [Android SDK](https://github.com/tencentyun/cos_android_sdk).
 
-For more examples, refer to [Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/tree/master/COSDemo). 
+For more examples, refer to [Android SDK Demo](https://github.com/tencentyun/cos_android_sdk/tree/master/Demo). 
 
 ## Preparations for Development
 
@@ -51,8 +51,8 @@ COSClientConfig config = new COSClientConfig();
 | Method                                       | Description                                     |
 | ---------------------------------------- | ---------------------------------------- |
 | setEndPoint(COSEndPoint endPoint)        | Set the region: South China COSEndPoint.COS_GZ; North China COSEndPoint.COS_TJ; East China COSEndPoint.COS_SH. In SDK, default is South China. |
-| setConnectionTimeout(int connectionTimeout) | Set connection timeout                                   |
-| setSocketTimeout(int socketTimeout)      | Read timeout                                   |
+| setConnectionTimeout(int connectionTimeout) | Set connection timeout (ms)                                  |
+| setSocketTimeout(int socketTimeout)      | Read timeout         (ms)                          |
 | setMaxConnectionsCount(int maxConnectionsCount) | Maximum number of concurrent connections                                   |
 | setMaxRetryCount(int maxRetryCount)      | Number of retry attempts for a failed request                                 |
 

@@ -1,4 +1,3 @@
-##  Advantages in Using Cloud Database HBase Service
 
 1)	Automated Deployment
 It supports the on-demand configuration for the number of nodes and the visual one-click deployment for computing nodes and storage nodes. You don't need to pay attention to the internal details, which eliminates the needs for your deployment and saves you 60% of the development time, so you can put more efforts into the business operation.

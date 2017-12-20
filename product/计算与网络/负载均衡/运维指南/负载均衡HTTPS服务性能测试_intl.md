@@ -34,7 +34,7 @@ The stress from a single stress-source machine is not enough to test the perform
 3) Tested machine, the CVM hosting Tencent Cloud's HTTPS service. When the performance of webserver is tested, page is returned directly and there is no need to make upstream connection.
 The connections are as follows:
 
-! [](https://mc.qcloudimg.com/static/img/45cc4191947ca44b37c47499138c8669/image.jpg)
+![](https://mc.qcloudimg.com/static/img/180044320ba540f396a06925d8f07bbd/CLB-OPS+Guidelines-Load+Balancer+HTTPS+Service+Performance+Test.jpg)
 
 # 5. Performance Testing Data of HTTPS WebServer
 

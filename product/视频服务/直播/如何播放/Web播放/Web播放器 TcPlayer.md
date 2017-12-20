@@ -24,7 +24,7 @@ Web播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ### Step 1：页面准备工作
 在需要播放视频的页面（包括PC或H5）中引入初始化脚本
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.0.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
 ```
 
 >注意：**<font color="red">直接用本地网页是调试不了的</font>，因为腾讯云Web播放器处理不了这种情况下的跨域问题。**
@@ -247,7 +247,9 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | autoplay        | Boolean  | false    | 是否自动播放<br><font color="red">备注：该选项只对大部分PC平台生效</font>  <br> 示例:  true |
 | coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style可选属性：<br>default 居中1:1显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例:  "http://www.test.com/myimage.jpg" <br>或者<br>{"style": "cover", "src": "http://www.test.com/myimage.jpg"} |
 | controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 <font color="red">备注：如果需要在移动端使用系统全屏，就需要设置为system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式</font> [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)  <br> 示例:  "system"  |
+| systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件  <br> 示例:  true  |
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br><font color="red">备注：该选项只对PC平台生效</font> [v2.2.0+]  <br> 示例:  true  |
+| flashUrl        | String   | 无       | 可以设置 flash swf url <br><font color="red">备注：该选项只对PC平台生效</font> [v2.2.1+]  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js ,所以播放器不会默认开启这个属性。[v2.2.0+]   <br> 示例: true |
 | x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例:  true   |
 | x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 (该属性为TBS内核实验性属性，非 TBS 内核不支持)。[TBS H5同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例: "h5"  |
@@ -271,6 +273,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br><font color="red">备注：只适用于点播</font> | player.currentTime() |
 |fullscreen(enter)| {Boolean} [可选]       | true,false {Boolean}         | 调用全屏接口(Fullscreen API)，不支持全屏接口时使用伪全屏模式，不传参则返回值当前是否是全屏 <br><font color="red">备注：移动端系统全屏没有提供api，也无法获取系统全屏状态</font> | player.fullscreen(true) |
 |buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br><font color="red">备注：只适用于点播</font> | player.buffered()  |
+|destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
 
 <font color="red">备注：以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即load事件触发后）</font><br>
 
@@ -279,7 +282,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 ### ES Module
 TcPlayer 提供了 ES Module 版本，module name 为 TcPlayer 。 下载地址：
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.0.js
+http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.2.1.js
 ```
 ### 开启优先H5播放模式
 TcPlayer 是采用 H5 `<video>` 和 Flash 相结合的方式来进行视频播放的，在不同的播放环境中，播放器会选择默认最合适的播放方案。
@@ -347,6 +350,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
 | 2016.12.28      | 2.0.0    | 首个版本  |
 | 2017.3.4        | 2.1.0    | 至2017.6.30，经历数次的迭代开发逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。  |
 | 2017.6.30       | 2.2.0    | 1. 增加控制播放环境判断的参数： flash、h5_flv、x5_player。<br>2.调整播放器初始化逻辑，优化错误提示效果。<br>3.增加flv.js支持，在符合条件的情况下可以采用flv.js播放 flv <br>4.支持x5-video-orientation属性，<br>5.增加播放环境判断逻辑，可通过参数调整H5与Flash的优先级，以及是否启用TBS播放。<br>6.启用版本号发布方式，避免影响旧版本的使用者。<br> 7.优化事件触发的时间戳，统一为标准时间。<br>8.bug修复|
+| 2017.12.7       | 2.2.1    | 1. 增加systemFullscreen参数。<br> 2.增加flashUrl参数。<br>3.修复音量max后进行静音切换的UI问题。<br> 4.修复ios11微信下需要点击两次才能播放的问题。<br> 5.修复safari 11 系统样式被遮挡的问题。<br>6.适配在x5内核会触发seeking，但不会触发seeked的情况。<br>7.修复进度条拖拽到起始位置，设置currentTime失败的问题。<br> 8.切换清晰度保持音量不变。<br> 9.修复页面宽度为0，播放器宽度判断失败问题 <br> 10.destroy方法增加完全销毁播放器节点|
 
 ## 常见问题
 
@@ -359,7 +363,7 @@ TcPlayer在不断的更新以及完善中，为了方便大家了解版本情况
     <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/libs/es5-shim.js" charset="utf-8"></script>
     <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/libs/es5-sham.js" charset="utf-8"></script>
     <![endif]-->
-    <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.0.js" charset="utf-8"></script>;
+    <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
     ```
 
 - **为什么在移动端 TcPlayer 全屏后无法使视频全屏，仍然会显示浏览器的界面？**

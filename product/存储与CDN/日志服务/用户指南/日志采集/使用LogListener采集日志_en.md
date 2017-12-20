@@ -1,4 +1,4 @@
-LogListener is the Agent provided by Tencent Cloud's CLS for collecting logs. You can install it to collect logs in real time.
+LogListener is the agent provided by Tencent Cloud's CLS for collecting logs. You can install it to collect logs in real time.
 
 ## Supported Systems
 
@@ -18,7 +18,7 @@ Ubuntu
 
 ### Install LogListener
 
-[Click to download LogListener 1.1.2](https://mc.qcloudimg.com/static/archive/64065f325335ce4fb1ed96433eb691fd/loglistener.1.1.2.tar.gz), and then decompress the setup package to the specified directory, and execute the setup file under the root directory.
+[Click here to download LogListener 1.1.2](https://mc.qcloudimg.com/static/archive/64065f325335ce4fb1ed96433eb691fd/loglistener.1.1.2.tar.gz), decompress the setup package to the specified directory, and then execute the setup file under the root directory.
 
 ```
 cd loglistener/tools/op;
@@ -86,10 +86,10 @@ Latency before the change to collection configuration takes effect: within 1 min
 
 Maximum log volume: 16 MB/sec
 
-Maximum log length: 512 KB for a log. If this length is exceed, the log is truncated to 512 KB before being collected.
+Maximum log length: 512 KB for a log. If this length is exceeded, the log is truncated to 512 KB before being collected.
 
 Maximum number of connections: 1024
 
 Memory usage: A maximum of 50 MB in normal situation, and 150 MB in case of the failure of backend service.
 
-CPU usage: Not less than 20% of single-core CPU for all of the three processes, if log volume is kept at 5 MB/sec.
+CPU usage: Not greater than 20% of single-core CPU for all of the three processes, if log volume is kept at 5 MB/sec.

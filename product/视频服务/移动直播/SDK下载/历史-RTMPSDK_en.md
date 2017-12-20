@@ -1,4 +1,4 @@
-﻿### Version 2.0.3
+### Version 2.0.3
 - Android: Added UGC cropping/stitching features.
 - Android: Optimized player and render views. Animation, floating window and big/small screen switching features become supported.
 - Android: Added "Auto" option for software/hardware encoding. The SDK will automatically choose hardware or software encoding based on mobile phone performance.

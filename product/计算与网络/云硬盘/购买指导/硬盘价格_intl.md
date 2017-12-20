@@ -1,4 +1,4 @@
-## 1.Price List
+### Price List
 <table>
         <tbody><tr>
             <th style="width:30%;" rowspan="2">CBS</th>
@@ -18,7 +18,7 @@
         </tbody>
 </table>
 
-## 2.Disk Type
+### Disk Type
 <table>
         <tbody><tr>
             <th style="width: 20%;">CBS volume type</th>

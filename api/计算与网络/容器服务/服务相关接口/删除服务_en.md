@@ -1,5 +1,3 @@
-## Delete a Service
-
 ## 1. API Description
  
 This API (DeleteClusterService) is used to delete service.

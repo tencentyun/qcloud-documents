@@ -1,11 +1,11 @@
-### Types of Alarms
+## Types of Alarms
 
-There are four types of Tencent Cloud Monitor alarms: basic monitor alarms, cloud automated testing alarms, custom message alarms and custom monitor alarms
+There are four types of Tencent Cloud Monitor alarms， including basic monitor alarm, cloud automated testing alarm, custom message alarm and custom monitor alarm
 
 | Alarm Type                      | Description                              |
 | ------------------------------- | ---------------------------------------- |
-| Basic alarm                     | This includes alarms regarding the basic monitoring metrics supported by Tencent Cloud, such as cloud server CPU utilization, disk utilization and so on. |
-| Cloud automated tujesting alarm | Alarms created by the automated testing tasks that were configured by users in the [Cloud Automated Testing](https://cloud.tencent.com/document/product/280) console. |
+| Basic alarm                     | Alarms regarding the basic monitoring metrics supported by Tencent Cloud, such as CVM CPU utilization, disk utilization and so on. |
+| Cloud automated testing alarm | Alarms created by the automated testing tasks that were configured by users in the [Cloud Automated Testing](https://cloud.tencent.com/document/product/280) console. |
 | Custom message alarm            | Alarms created by the Cloud Monitor [Custom Message](https://cloud.tencent.com/document/product/248/6218) service that is used by users. |
 | Custom monitor alarm            | Alarms created by the Cloud Monitor [Custom Monitor](https://cloud.tencent.com/document/product/248/6214) service that is used by users |
 
@@ -26,16 +26,16 @@ The system will notify the user when the monthly SMS quota has been exhausted, i
 
 Users can purchase additional SMS quota if the free amount is not enough to satisfy their need.
 
-### Quota Type
+## Quota Type
 
 | Quota Type | Description  | 
 |---------|---------|
-| Free quota | Each month, users are provided with a fixed amount of free SMS quota to receive alarm SMS.| 
-| Additional quota|Additional SMS quota purchased by users when the free quota is not enough to satisfy their demand.|
+| Free quota | Each month, users are provided with a fixed amount of free SMS quota to send alarm SMS.| 
+| Additional quota|Additional SMS quota could be purchased by users when the free quota is not enough to satisfy their demand.|
 
-### Free Quota Details
+## Free Quota Details
 
-|Alarm type | Free quota | Distribution rule |
+|Alarm type | Free quota amount| Distribution rule |
 |---------|---------|---------|
 | Basic alarm | 1000 messages/month | Quota is reset to 1000 at the first day of each month, regardless of the remaining quota in the previous month |
 |Cloud automated testing alarm|1000 messages/month|Quota is reset to 1000 at the first day of each month, regardless of the remaining quota in the previous month|
@@ -43,24 +43,24 @@ Users can purchase additional SMS quota if the free amount is not enough to sati
 |Custom monitor alarm|1000 messages/month|Quota is reset to 1000 at the first day of each month, regardless of the remaining quota in the previous month|
 
 
-### Billing Mode of Additional Quota
+## Billing Mode of Additional Quota
 
 There are different quotas for different types of alarms, therefore you need to purchase quotas for basic alarms, cloud automated testing alarms, custom message alarms and custom monitor alarms separately.
 
-|Additional Quota Purchase |	Additional Quota Price|
+|Additional Quota Amount|Additional Quota Price|
 |---------|---------|
 |< 100 messages| 0.055|
 |≥ 100 messages, < 500 messages	|0.052|
-|≥ 500 messages, < 1000 messages|	0.050|
-|≥ 1000 messages|	0.045|
+|≥ 500 messages, < 1000 messages|0.050|
+|≥ 1000 messages|0.045|
 
 >Deduction rule: When alarm messages are sent, the quota will be deducted from the free quota first, then from the additional quota if the free quota has been exhausted
 
 >Quota validity: Alarm quota has a long-term validity. There is no time limit for purchased quota.
 
-### Quota Calculation
+## Quota Calculation
 
-1.The quotas for different alarm types are independent from each other and are calculated separately. That is to say, every developer has a fixed free alarm SMS quota for every alarm type in each month. If you have used up the SMS quota for one alarm type, SMS quota for other alarm types won't be affected.
+1.The quotas for different alarm types are independent from each other and are calculated separately. That is, every developer has a fixed free alarm SMS quota for every alarm type in each month. If you have used up the SMS quota for one alarm type, SMS quota for other alarm types won't be affected.
 
 2.The amount deducted from the quota is determined by the actual number of messages received by users. For example, if a user configured 10 recipients for receiving a certain alarm message (i.e. a total of ten messages will be sent to the 10 recipients when the alarm is triggered), 10 messages will be deducted from the corresponding SMS quota.
 
