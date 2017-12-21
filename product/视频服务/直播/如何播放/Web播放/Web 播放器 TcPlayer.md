@@ -24,7 +24,7 @@ Web 播放器的视频播放能力本身不是网页代码实现的，而是靠�
 ```
 
 >**注意：**
->直接用本地网页是调试不了的，因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
+>**直接用本地网页是调试不了的，**因为腾讯云 Web 播放器处理不了这种情况下的跨域问题。
 
 ### Step 2：HTML 里放置容器
 
@@ -84,7 +84,7 @@ var player =  new TcPlayer('id_test_video', {
 FLV 和 RTMP 这两种地址，在普通的手机浏览器上都是不支持的（最新版本的 QQ 浏览器支持 FLV 协议的播放，但普及度还不高），只能用 HLS（m3u8)。
 
 - **原因四：跨域安全问题**
-PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 Flash 控件会做跨域访问检查，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件`crossdomain.xml`中增加`qq.com`域名：
+PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开发的同学都知道 **Flash 控件会做跨域访问检查**，当您要播放的视频所存放的服务器没有部署跨域策略时才会碰到这个问题，解决方法就是：在视频服务器的根域名下的跨域配置文件`crossdomain.xml`中增加`qq.com`域名：
 ```xml
 <cross-domain-policy>
 <allow-access-from domain="*.qq.com" secure="false"/>
@@ -93,7 +93,7 @@ PC 浏览器的视频播放是基于 Flash 控件实现的，但做过 Flash 开
 
 ### Step 4：给播放器设置封面
 在前面的代码例子中，您应该注意到 “coverpic” 这个参数了，在这里将详细介绍这个属性的使用方法。
-备注：封面功能有可能在部分移动端播放环境下失效，由于移动端视频播放环境相对 PC 来说比较复杂，各个浏览器和 App 的 Webview 对 H5 video 实现的方式并不统一，如果遇到功能失效的情况，欢迎向我们的技术支持反馈（反馈内容包括系统、浏览器或 App 的版本等关键信息），我们将尽可能去支持。
+**备注：封面功能有可能在部分移动端播放环境下失效，由于移动端视频播放环境相对 PC 来说比较复杂，各个浏览器和 App 的 Webview 对 H5 video 实现的方式并不统一，如果遇到功能失效的情况，欢迎向我们的技术支持反馈（反馈内容包括系统、浏览器或 App 的版本等关键信息），我们将尽可能去支持。**
 
 #### 4.1 简单设置封面
 coverpic 可以传入一个图片地址作为播放器的封面，将在播放器区域内居中并且以图片的实际分辨率进行显示。
@@ -121,13 +121,13 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 ```
 
 >**注意：**
->在某些移动端设置封面会无效，具体说明请查看常见问题。
+>**在某些移动端设置封面会无效，具体说明请查看常见问题。**
 
 ### Step 5：多清晰度的支持
 #### 5.1 原理介绍
 我们知道优酷、土豆、腾讯上的视频有些是有多清晰度选择的，这个效果如何实现呢？
 ![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
-播放器本身是没有能力去改变视频的清晰度的，在视频源产生的地方其实只有一种清晰度，我们称之为原画，而原画视频编码格式和封装格式有很多种，在 Web 端无法完全支持播放所有的视频格式，点播支持必须是以 H.264 为视频编码，以 mp4、FLV 为封装格式的视频。
+**播放器本身是没有能力去改变视频的清晰度的**，在视频源产生的地方其实只有一种清晰度，我们称之为原画，而原画视频编码格式和封装格式有很多种，在 Web 端无法完全支持播放所有的视频格式，点播支持必须是以 H.264 为视频编码，以 mp4、FLV 为封装格式的视频。
 
 那么多清晰度是怎么实现的呢？ 这里就是视频云发挥作用的地方了：
 - 对于直播，来自主播那一端的原始视频会在腾讯云进行实时的转码，分出多路转码后的视频，比如我们常说的高清-HD 以及标清-SD，每一路视频都有其对应的地址：
@@ -144,7 +144,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      // 高清
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 ```
 >**注意：**
->上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。
+>**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
 
 #### 5.2 代码实现
 如下的代码是让播放器支持多种清晰度的支持，也就是在播放器的用户界面上展示多种清晰度线路的选择。
@@ -167,7 +167,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?aut
 ```
 正常情况将看到这样的效果：
 ![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
-PC 端现已支持多种清晰度播放并支持切换的功能，移动端尚未支持。
+**PC 端现已支持多种清晰度播放并支持切换的功能，移动端尚未支持。**
 
 ### Step 6：定制错误提示语
 我们默认的提示语您可能觉得不符合您的需求，比如“网络错误，请检查网络配置或者播放链接是否正确”或者“视频解码错误”等等，我们担心这些提示语在您看来可能太干瘪了，所以腾讯云Web播放器将支持提示语定制：
@@ -211,8 +211,8 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 | 2048	| 无法加载视频文件，跨域访问被拒绝 | 请求 m3u8 文件失败，可能是网络错误或者跨域问题（Flash 提示的错误） |
 
 >**备注：**
->Code 1 ~ 4 对应的是 H5 的原生事件；
->由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。
+>**Code 1 ~ 4 对应的是 H5 的原生事件；**
+>**由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
 
 ## 源码参考
 这里有一个线上的示例代码，在 PC 浏览器中右键【查看页面源码】即可查看页面的代码实现：
@@ -243,16 +243,16 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | rtmp            | String   | 无       |  原画 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88` |
 | rtmp_hd         | String   | 无       |  高清 rtmp 播放 URL  <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd` |
 | rtmp_sd         | String   | 无       |  标清 rtmp 播放 URL   <br> 示例： `rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd` |
-| width           | Number   | 无       | 必选，设置播放器宽度，单位为像素   <br> 示例：640   |
-| height          | Number   | 无       | 必选，设置播放器高度，单位为像素   <br> 示例：480  |
+| width           | Number   | 无       | **必选**，设置播放器宽度，单位为像素   <br> 示例：640   |
+| height          | Number   | 无       | **必选**，设置播放器高度，单位为像素   <br> 示例：480  |
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]    <br> 示例：0.6   |
-| live            | Boolean  | false    | 必选，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑  <br> 示例：true  |
-| autoplay        | Boolean  | false    | 是否自动播放<br><备注：该选项只对大部分 PC 平台生效  <br> 示例：  true |
+| live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑  <br> 示例：true  |
+| autoplay        | Boolean  | false    | 是否自动播放<br>**备注：该选项只对大部分 PC 平台生效**  <br> 示例：  true |
 | coverpic        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>default 居中 1：1 显示 <br>stretch 拉伸铺满播放器区域，图片可能会变形 <br>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内    <br> 示例： "`http://www.test.com/myimage.jpg`" <br>或者<br>{"style": "cover", "src": h`ttp://www.test.com/myimage.jpg`} |
-| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式 [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)  <br> 示例："system"  |
+| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件 **备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式 [例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html) ** <br> 示例："system"  |
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件  <br> 示例：true  |
-| flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>备注：该选项只对 PC 平台生效[v2.2.0+]  <br> 示例：true  |
-| flashUrl        | String   | 无       | 可以设置 flash swf url <br>备注：该选项只对 PC 平台生效 [v2.2.1+]  |
+| flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>**备注：该选项只对 PC 平台生效**[v2.2.0+]  <br> 示例：true  |
+| flashUrl        | String   | 无       | 可以设置 flash swf url <br>**备注：该选项只对 PC 平台生效** [v2.2.1+]  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性。[v2.2.0+]   <br> 示例: true |
 | x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 播放地址直接赋给 `<video>` 播放，[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例：true   |
 | x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：H5 (该属性为TBS内核实验性属性，非 TBS 内核不支持)，[TBS H5同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例："h5"  |
@@ -272,14 +272,14 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |mute(muted)      | {Boolean} [可选]       | true,false {Boolean}         | 切换静音状态，不传参则返回当前是否静音      | player.mute(true) |
 |volume(val)      | {int} 范围：0~1 [可选]  | 范围：0~1                    | 设置音量，不传参则返回当前音量             | player.volume(0.3) |
 |playing()        | 无                     | true,false {Boolean}         | 返回是否在播放中                         | player.playing() |
-|duration()       | 无                     | {int}                       | 获取视频时长 <br>备注：只适用于点播 | player.duration() |
-|currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br>备注：只适用于点播 | player.currentTime() |
-|fullscreen(enter)| {Boolean} [可选]       | true,false {Boolean}         | 调用全屏接口(Fullscreen API)，不支持全屏接口时使用伪全屏模式，不传参则返回值当前是否是全屏 <br>备注：移动端系统全屏没有提供 API，也无法获取系统全屏状态 | player.fullscreen(true) |
-|buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br>备注：只适用于点播 | player.buffered()  |
+|duration()       | 无                     | {int}                       | 获取视频时长 <br>**备注：只适用于点播** | player.duration() |
+|currentTime(time)| {int} [可选]           | {int}                       | 设置视频播放时间点，不传参则返回当前播放时间点 <br>**备注：只适用于点播 **| player.currentTime() |
+|fullscreen(enter)| {Boolean} [可选]       | true,false {Boolean}         | 调用全屏接口(Fullscreen API)，不支持全屏接口时使用伪全屏模式，不传参则返回值当前是否是全屏 <br>**备注：移动端系统全屏没有提供 API，也无法获取系统全屏状态** | player.fullscreen(true) |
+|buffered()       | 无                     |  0~1                        | 获取视频缓冲数据百分比 <br>**备注：只适用于点播** | player.buffered()  |
 |destroy()        | 无                     |  无                        | 销毁播放器实例[v2.2.1+] | player.destroy()  |
 
 >**注意：**
->以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。
+>**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
 
 ## 进阶攻略
 这里介绍一些视频播放器 SDK 的进阶使用方法。
@@ -327,7 +327,7 @@ volumechange
 
 Flash 模式下特有的事件：`netStatus`
 
-**备注：**由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异，开发过程中可以留意这些差异。
+**备注：由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异，开发过程中可以留意这些差异。**
 
 在非自动播放的条件下，加载视频至待播放状态，移动端和 PC Flash 触发的事件区别。
 **移动端：**
@@ -335,7 +335,7 @@ Flash 模式下特有的事件：`netStatus`
 **PC Flash：**
 ![PC Flash](//mc.qcloudimg.com/static/img/f49d8aa8ef678b63ac73e69f254c20bb/image.png)
 
-**备注：**以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。
+**备注：以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
 
 应用案例：通过事件监听，可以进行播放失败重连，[在线例子链接](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html)。
 
@@ -353,18 +353,18 @@ TcPlayer 在不断的更新以及完善中，为了方便大家了解版本情�
 
 ### TcPlayer 支持哪些浏览器？
 
-    TcPlayer 经过测试并支持的浏览器有，桌面端：IE10+、Edge、Chrome、Firefox、QQ 浏览器，MAC Safari，移动端：Android4.4+，iOS8.0+，微信、手机 QQ、QQ 浏览器、Chrome、Safari。
-    如需支持 IE8、IE9 浏览器需要在引入播放器脚本前，引入 Polyfill 脚本，如下所示：
-    ```
-    <!--[if lt IE 9]>
+TcPlayer 经过测试并支持的浏览器有，桌面端：IE10+、Edge、Chrome、Firefox、QQ 浏览器，MAC Safari，移动端：Android4.4+，iOS8.0+，微信、手机 QQ、QQ 浏览器、Chrome、Safari。
+如需支持 IE8、IE9 浏览器需要在引入播放器脚本前，引入 Polyfill 脚本，如下所示：
+
+```
+<!--[if lt IE 9]>
     <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/libs/es5-shim.js" charset="utf-8"></script>
     <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/libs/es5-sham.js" charset="utf-8"></script>
     <![endif]-->
     <script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.1.js" charset="utf-8"></script>;
-    ```
-		
-### 为什么在移动端 TcPlayer 全屏后无法使视频全屏，仍然会显示浏览器的界面？
+```
 
+### 为什么在移动端 TcPlayer 全屏后无法使视频全屏，仍然会显示浏览器的界面？
 首先要了解一些背景知识，TcPlayer 提供的全屏方案是 Fullscreen API + 伪全屏的方式，如果浏览器支持 Fullscreen API 那么进入全屏时，视频容器将会铺满屏幕，控制栏是 TcPlayer 提供的控制栏，如图所示：
 ![](//mc.qcloudimg.com/static/img/df40b2b49390f8fc314fd040ba026156/image.png)
 （Android Chrome）
