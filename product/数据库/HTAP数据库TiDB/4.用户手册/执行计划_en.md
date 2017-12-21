@@ -18,7 +18,7 @@ At present, EXPLAIN of TiDB can output six columns including id, parents, childr
 | id | operator id, used to uniquely identifies an operator throughout the execution plan |
 | parents | parent of the operator. The current execution plan can be seen as a tree structure composed of one operator. The data flows from the child to parent and each operator has only one parent |
 | children | children of the operator, that is, the data source of the operator |
-| task | What kind of task this operator currently belongs to. The current execution plan is divided into two kinds of tasks, one is root task, executed on tidb-server and the other is cop task, executed on tikv in parallel. The topological relationship of the current execution plan at the task level is one root task can be followed by many cop tasks, root task using output result of cop task as input. What executed in cop task are tasks pushed to tikv by tidb. Each cop task distributed in the tikv cluster are executed by multiple processes |
-| operator info | Details on each operator |
-| count	| Count of data to be output by the current operator, estimated based on statistics and operator's execution logic |
+| task | what kind of task this operator currently belongs to. The current execution plan is divided into two kinds of tasks, one is root task, executed on tidb-server and the other is cop task, executed on tikv in parallel. The topological relationship of the current execution plan at the task level is one root task can be followed by many cop tasks, root task using output result of cop task as input. What executed in cop task are tasks pushed to tikv by tidb. Each cop task distributed in the tikv cluster are executed by multiple processes |
+| operator info | details on each operator |
+| count	| count of data to be output by the current operator, estimated based on statistics and operator's execution logic |
  
