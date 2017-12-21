@@ -18,7 +18,7 @@ Ubuntu
 
 ### 安装LogListener
 
-[点击下载 LogListener 2.0.0](https://mc.qcloudimg.com/static/archive/2e9f4214412d53f03b5e0bc973e67db3/loglistener.2.0.0.tar.gz)，将安装包解压至指定的目标目录中，在root下执行
+[点击下载 LogListener 2.0.0](https://mc.qcloudimg.com/static/archive/2e9f4214412d53f03b5e0bc973e67db3/loglistener.2.0.0.tar.gz)，将安装包解压至指定的目标目录中，在root下执行：
 
 ```
 cd loglistener/tools;
@@ -33,17 +33,17 @@ guangzhou - 广州
 chengdu - 成都
 ```
 
-安装脚本会通过 rc.local，以保证机器重起后，客户端正常拉起
+安装脚本会通过 `rc.local`，以保证机器重起后，客户端正常拉起。
 
 ### 查看进程
 
-您可以通过以下命令查看进程
+您可以通过以下命令查看进程：
 
 ```
 cd loglistener/tools; ./p.sh
 ```
 
-正常情况下，将存在以下三个进程
+正常情况下，将存在以下三个进程：
 
 ```
 bin/loglistenerm -d                                                  --守护进程
@@ -54,7 +54,7 @@ bin/loglisteneru -u --conf=etc/loglistener.conf                      --更新进
 
 ### 启停客户端
 
-您可以通过一下脚本启停客户端
+您可以通过一下脚本启停客户端：
 
 ```
 cd loglistener/tools; ./start.sh
@@ -68,13 +68,19 @@ cd loglistener/tools;
 ./uninstall
 ```
 
-卸载操作将删除客户端，注销`crontab`，并清理整个模块及其共享内存、中间文件及日志
+卸载操作将删除`rc.local`里面自动重启的工具。
 
 ## LogListener 的更新
 
-若您的 LogListener 版本是2.0.0及以上，您无需手动更新 LogListener，LogListener将自动热更新，更新时服务不受影响。
+若您的 LogListener 版本是2.0.0及以上，您无需手动更新 LogListener，LogListener 将自动热更新，更新时服务不受影响。
 
-若您的 LogListener 版本低于2.0.0，您需要手动更新至最新版本，手动更新后，LogListener将自动更新。[LogListener 较低版本使用指南]()
+若您的 LogListener 版本低于2.0.0，您需要手动更新至最新版本，手动更新后，LogListener 将自动更新。[LogListener 较低版本使用指南](https://cloud.tencent.com/document/product/614/13550)
+
+手动更新步骤：
+
+1. 停止较低版本 logListener
+2. 备份较低版本 LogListener
+3. 安装最新版本 LogListener
 
 ## LogListener 工作原理
 
