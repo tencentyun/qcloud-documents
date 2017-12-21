@@ -1,4 +1,4 @@
-Renewal means extending the usage period of a CDB for MariaDB (TDSQL) instance. The following operations are supported:
+1 Renewal means extending the usage period of a CDB for MariaDB (TDSQL) instance. The following operations are supported:
 
 1. Go to "Console" -> "Cloud Database" -> "MariaDB (TDSQL)" -> "Renewal", select the instance to be renewed, and click "Renew" or "Batch Renew".
 2. Go to "User Center" -> "Renewal Management" -> "Cloud Database MariaDB (TDSQL)", select the instance to be renewed, and then click "Renewal " or "Batch Renewal", as shown below:

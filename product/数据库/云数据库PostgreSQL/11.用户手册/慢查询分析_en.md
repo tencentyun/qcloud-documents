@@ -36,7 +36,7 @@ f) **Total count**: How many times in total the SQL appeared within statistical 
 
 g) **Occurrence percentage**: The SQL percentage in relation to the total number of all SQL within statistical range.
 
-d) **Number of rows sent**:Total number of data rows sent (returned) to clients by database server within statistical range.
+h) **Number of rows sent**:Total number of data rows sent (returned) to clients by database server within statistical range.
 
 **Query Information Statistics**
 
