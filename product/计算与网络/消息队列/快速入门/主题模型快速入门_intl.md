@@ -157,7 +157,7 @@ Binding key and Routing key are used at the same time, compatible with rabbitmq 
     message = Message()
     message.msgBody = "this is a test message"
     routingKey = '1.test.0' //The message will be delivered to the subscription address in my_sub.
-    my_topic.publish_message(message)
+    my_topic.publish_message(message) 
 ```
 
    
