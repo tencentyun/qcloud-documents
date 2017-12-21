@@ -1,8 +1,8 @@
-LogListener是腾讯云日志服务提供的日志采集Agent，您可以安装LogListener实时采集日志文件。
+LogListener 是腾讯云日志服务提供的日志采集 Agent，您可以安装 LogListener 实时采集日志文件。
 
 ## LogListener 系统支持
 
-目前LogListener支持如下版本的Linux 64位操作系统
+目前 LogListener 支持如下版本的 Linux 64 位操作系统
 
 CentOS
 
@@ -16,9 +16,9 @@ Ubuntu
 
 ## LogListener 使用指南
 
-### 安装LogListener
+### 安装 LogListener
 
-[点击下载 LogListener 2.0.0](https://mc.qcloudimg.com/static/archive/2e9f4214412d53f03b5e0bc973e67db3/loglistener.2.0.0.tar.gz)，将安装包解压至指定的目标目录中，在root下执行：
+[点击下载 LogListener 2.0.0](https://mc.qcloudimg.com/static/archive/2e9f4214412d53f03b5e0bc973e67db3/loglistener.2.0.0.tar.gz)，将安装包解压至指定的目标目录中，在 root 下执行：
 
 ```
 cd loglistener/tools;
@@ -61,7 +61,7 @@ cd loglistener/tools; ./start.sh
 cd loglistener/tools; ./stop.sh
 ```
 
-### 卸载LogListener
+### 卸载 LogListener
 
 ```
 cd loglistener/tools;
@@ -72,19 +72,19 @@ cd loglistener/tools;
 
 ## LogListener 的更新
 
-若您的 LogListener 版本是2.0.0及以上，您无需手动更新 LogListener，LogListener 将自动热更新，更新时服务不受影响。
+若您的 LogListener 版本是 2.0.0 及以上，您无需手动更新 LogListener，LogListener 将自动热更新，更新时服务不受影响。
 
-若您的 LogListener 版本低于2.0.0，您需要手动更新至最新版本，手动更新后，LogListener 将自动更新。[LogListener 较低版本使用指南](https://cloud.tencent.com/document/product/614/13550)
+若您的 LogListener 版本低于 2.0.0，您需要手动更新至最新版本，手动更新后，LogListener 将自动更新。[LogListener 较低版本使用指南](https://cloud.tencent.com/document/product/614/13550)
 
 手动更新步骤：
 
-1. 停止较低版本 logListener
+1. 停止较低版本 LogListener
 2. 备份较低版本 LogListener
 3. 安装最新版本 LogListener
 
 ## LogListener 工作原理
 
-LogListener是通过文件系统的修改事件（Inotify）来感知文件的变化，采集日志。
+LogListener 是通过文件系统的修改事件（Inotify）来感知文件的变化，采集日志。
 
 ## LogListener 相关指标与使用限制
 
@@ -100,4 +100,4 @@ LogListener是通过文件系统的修改事件（Inotify）来感知文件的�
 
 内存使用，正常情况最多50MB，后台服务故障时150MB
 
-CPU使用，5MB/s日志量下，3进程合计不超过单核20%
+CPU 使用，5MB/s日志量下，3进程合计不超过单核20%
