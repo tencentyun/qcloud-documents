@@ -2,7 +2,7 @@ There are two methods to connect to MariaDB database:
 - Private network access: Use a CVM that is connected to the MariaDB database instance in Tencent Cloud to access the private network address of the MariaDB database instance. (Note: The CVM and the database need to be in the subnet of a VPC. For more information on VPC, see <a href="https://cloud.tencent.com/document/product/215/535" target="_blank">VPC Overview</a>.)
 - Public network access: For Windows or Linux CVM with public network, install the database client to access the public network address of MariaDB database instance within Tencent Cloud.
 
-**Security note:**The public network address of database instance must be enabled for public network access, which makes your database services expose on the public network, and thus causes database intrusions or attacks. Therefore, it is recommended to access a database using the private network mode.
+**Security note:** The public network address of database instance must be enabled for public network access, which makes your database services expose on the public network, and thus causes database intrusions or attacks. Therefore, it is recommended to access a database using the private network mode.
 
 An account is required for both private network and public network access.
 ## Create an Account
@@ -36,6 +36,7 @@ There are two methods to connect to MariaDB database:
 ![](//mc.qcloudimg.com/static/img/d4b72b365c7e31ac824851602ca5a29a/image.png)
 3) After the login succeeds, the following interface shows up, on which you can view various modes and objects of the MariaDB database, and you can perform table creation, data insertion, query, and other operations.
 ![](//mc.qcloudimg.com/static/img/7646040af53a923f47c4973a4aac7680/image.png)
+
 **-Login from Linux system**
 (1) In this example, the CVM is run on a CentOS 7.2 64-bit system. You can use Yum, the package manager built in CentOS, to download and install the MySQL from the Tencent Cloud image sources.
 The command is as follows:
