@@ -10,5 +10,5 @@ Tencent Cloud supports the registration, transfer and management for many types 
 | .name | .在线
 | .mobi | .中国
 | .wang | .中文网
-|.club||
+|.club|||
 
