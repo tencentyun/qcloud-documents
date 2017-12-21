@@ -115,7 +115,7 @@ var player = new qcVideo.Player("id_video_container", option);
 >**注意：**
 >使用频道 ID 播放视频不支持直播码的方式。
 
-### Case 3：使用直播视频地址播放视频 
+### Case 3：使用直播视频地址播放视频 <span class="anchor" id="case3"><span id="case3"></span>
 如果没有 app_id 及 channel_id，播放器也支持使用直播视频地址播放视频。
 ```
 var option = {
@@ -131,10 +131,10 @@ var player = new qcVideo.Player("id_video_container", option);
 ```
 
 > **注意：**
-> 最多支持传入两个播放地址，live\_url、live_url2 ，如果这两个地址都传了，那么会按平台支持最好的一个地址选择进行播放，例如当前环境是 PC，那么会优先选择其中为 rtmp 或 flv 的格式，当前环境为手机 H5，会优先选择 hls 格式进行播放。
+> 最多支持传入两个播放地址，live_url、live_url2 ，如果这两个地址都传了，那么会按平台支持最好的一个地址选择进行播放，例如当前环境是 PC，那么会优先选择其中为 rtmp 或 flv 的格式，当前环境为手机 H5，会优先选择 hls 格式进行播放。
 
 ### Case 4：如何使用"弹幕"功能?
-在播放器初始化完成后，调用播放器对象的 addBarrage(barrage) 方法，可以为视频添加弹幕，具体参数参考 [API 方法总览]() 的说明，例如，给正在播放的视频添加两条弹幕：
+在播放器初始化完成后，调用播放器对象的 addBarrage(barrage) 方法，可以为视频添加弹幕，具体参数参考 [API 方法总览](#api) 的说明，例如，给正在播放的视频添加两条弹幕：
 
 ```
 var barrage = [
@@ -146,7 +146,7 @@ player.addBarrage(barrage);
 >**注意：**
 >**弹幕功能仅在前端实现，后台支持请自行开发，弹幕只在 PC Flash 播放器中生效，H5 暂时不具备弹幕功能。**
 
-##  API 方法总览
+##  API 方法总览<span class="anchor" id="api"><span id="api"></span>
 
 ### 构造函数
 
