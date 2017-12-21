@@ -7,10 +7,11 @@
 ```
 安全 SDK 在开发语言为 C/C++ 的 Android 系统下接入需要的相关文件有以下:
 ```
-tp2.jar
-libtersafe2.so
+tp2.cs
+tp2.jar (Android)
+libtersafe2.so (Android)
 ```
-需要申请的权限
+需要申请的权限:
 ```
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -20,39 +21,34 @@ libtersafe2.so
 ```
 SDK 接口函数：
 ```
-初始化接口 initEx
-用户登录接口 onUserLogin
-前台切换到后台接口 onAppPause
-后台切换到前台接口 onAppResume
+初始化接口 Tp2SdkInitEx
+用户登录接口 Tp2UserLogin
+前后台切换接口 Tp2SetGamestatus
 ```
 
 ### 2. 添加 SDK 文件到工程
 #### 2.1 添加文件
-（1）将 sdk/android/c 目录下的 tp2.jar 文件拷贝到 android 工程目录的 libs 目录下;
-（2）将 sdk/android/java/lib 目录下以 CPU 架构命名的文件夹 (包含 libtersafe2.so 文件) 拷贝到 android 工程目录的 libs 目录下, 对不支持的 CPU 架构体系不需要拷贝.
-![](https://mc.qcloudimg.com/static/img/eab83b3ae6d2a13b8f6a8479137a5e07/image.png)
+（1）将 sdk\android\c# 目录下的 tp2.cs 放在工程的 Assets 目录下
+（2）将 sdk\android\c# 目录下的 tp2.jar 放在工程的 Assets\Plugins\Android 目录下
+（3）多 CPU：
+以 Unity5.0 为例，如果游戏支持 Android 多 cpu 架构 (目前只支持 arm-v7a 和 x86)，将 sdk\android\c#\lib 目录下的 armeabi 和 x86 文件夹下的 libtersafe2.so 分别拷贝到以下目录:
+```
+Assets/Plugins/Android/libs/armeabi-v7a/
+Assets/Plugins/Android/libs/x86/
+```
+（4）单 CPU 架构：
+如果游戏只支持 arm-v7，以 Unity4.5 为例，将 SDK 提供的 tp2.jar 和 armeabi-v7a 目录下的 libtersafe2.so 两个文件放在 / Assets/Plugins/Android / 目录下即可
 
 #### 2.2 工程属性设置
-在 Eclipse 中左边的项目导航栏 [Project Explorer] 中选择游戏项目，点击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中点击 [add JARs] 添加 tp2.jar
-![](https://mc.qcloudimg.com/static/img/2b038746f019e439ef5bbdb473ab16b2/image.png)
- 选择已拷贝到工程目录的 tp2.jar
- ![](https://mc.qcloudimg.com/static/img/b48aeb6b30b9c689ca5e56357a0c72b3/image.png)
- 添加 tp2.jar 后在 [Order and Export] 中选中 tp2.jar
- ![](https://mc.qcloudimg.com/static/img/e19cbe55f0997e7bdb68eeef275a1fb4/image.png)
-clean 工程并重新编译
+多 cpu 架构支持时选择 [File] -> [Build settings] -> [Player Settings] -> [Other Settings] -> [Device Filter] -> [FAT(ARMv7+x86)]
+![](https://mc.qcloudimg.com/static/img/c94b432701454a02efdc3a2110902fa6/image.png)
 
 ### 3. SDK 接口调用
-导入包
-```
-import com.tencent.tersafe2.TP2Sdk;
-```
-
 #### 3.1 初始化函数
 ** 函数原型 **
 ```
-public static int initEx(int gameId, String appKey);
+void Tp2SdkInitEx (int gameId, string appKey);
 ```
-
 ** 参数说明 **
 
 | 参数 | 是否必须 | 说明 |
@@ -62,10 +58,10 @@ public static int initEx(int gameId, String appKey);
 gameId 和 appKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成
 ** 返回值 **：0 表示调用成功
 
-#### 3.2 用户登录接口
+#### 3.2 设置用户信息
 ** 函数原型 **
 ```
-public static native int onUserLogin(int accountType, int worldId, String openId, String roleId);
+void Tp2UserLogin (int accountType, int worldId, String openId, String roleId);
 ```
 
 ** 参数说明 **
@@ -73,9 +69,9 @@ public static native int onUserLogin(int accountType, int worldId, String openId
 | 参数 | 标题 2 |
 |---------|---------|
 | account_type | 与运营平台相关的帐号类型，参考下文的 TssSdkEntryId 填写 |
-| worldId | 用户游戏角色的大区信息 |
-| openId | 用户唯一身份标识，可自定义字符串。（和处罚相关必须填写） |
-| roleId | 区分用户创建的不同角色的标识 |
+| world_id | 用户游戏角色的大区信息 |
+| open_id | 用户唯一身份标识，可自定义字符串。（和处罚相关必须填写） |
+| role_id | 区分用户创建的不同角色的标识 |
 account_type 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
 ```
 enum TssSdkEntryId
@@ -94,49 +90,58 @@ role_id 用于区分同一帐号同一分区下的不同角色，如果没有角
 open_id 由所在运营平台分配，用于唯一区分用户。
 ** 返回值 **：0 表示调用成功
 
-#### 3.3 前台切换到后台接口
+#### 3.3 设置游戏状态
 ** 函数原型 **
 ```
-int onAppPause ();
+void Tp2SetGamestatus (Tp2Status status);
 ```
-程序由前台切换到后台，表明游戏当前为非活动状态。
-** 返回值 **：0 表示调用成功
+** 参数说明 **
 
-#### 3.4 后台切换到前台接口
-** 函数原型 **
-程序由后台切换到前台，表明游戏当前为活动状态。
-** 返回值 **：0 表示调用成功
+| 参数 | 说明 |
+|---------|---------|
+| status | 前台 Tp2Status. FRONTEND<br> 后台 Tp2Status. BACKEND |
 
-#### 3.5 调用时机
-（1）TP2Sdk.initEx 在游戏启动的第一时间调用，参数为游戏 id 和 appKey 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
-（2）TP2Sdk.onUserLogin 在游戏获取到用户授权的登录信息后调用，如果游戏有设置大区 id 和角色 id，则在获取大区 id 和角色 id 之后再调用 TP2Sdk.onUserLogin 函数。在游戏过程中，如果出现断线重连，用户注销重新登录等需要重新获取用户登录信息的情况，也需要再次调用该函数。传递的参数为用户的帐号信息，可自定义。
-（3）TP2Sdk.onAppPause 在游戏从前台切换到后台时调用。
-（4）TP2Sdk.onAppResume 在游戏从后台切换到前台时调用。
-
-#### 3.6 示例代码
+** 枚举类型 **
 ```
-public void onCreate()
- {
-// 游戏启动的第一时间调用
-TP2Sdk. initEx(9000, “d5ab8dc7ef67ca92e41d730982c5c602”);
-int accountType = ENTRYID.ENTRY_ID_QZONE; /* 帐号类型 */
-int worldId = 1; /* 大区 id*/
-String openId = "B73B36366565F9E02C752"; /* 与平台相关的用户标识 */
-String roleId = "paladin"; /* 角色 id*/
-// 用户登录游戏时调用
-TP2Sdk.onUserLogin(accountType, worldId, openId, roleId);
-}
-// 游戏切换到后台
-public void onPause()
- {
-super.onResume();
-TP2Sdk.onPause();
-}
-// 游戏切换到前台
-public void onResume()
+public enum Tp2Status
 {
-super.onResume();
-TP2Sdk.onResume();
+FRONTEND = 1, // 前台
+BACKEND = 2 // 后台
+}
+```
+** 返回值 **：0 表示调用成功
+
+#### 3.4 调用时机
+（1）Tp2SdkInitEx 在游戏启动的第一时间调用，参数为游戏 id 和 appKey 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
+（2）Tp2UserLogin 在游戏获取到用户授权的登录信息后调用，如果游戏有设置大区 id 和角色 id，则在获取大区 id 和角色 id 之后再调用 Tp2UserLogin 函数。在游戏过程中，如果出现断线重连，用户注销重新登录等需要重新获取用户登录信息的情况，也需要再次调用该函数。传递的参数为用户的帐号信息，可自定义。
+（3）Tp2SetGamestatus 在游戏切换前后台调用。当游戏从后台切换到前台运行时调用 Tp2SetGamestatus 接口，设置参数为 Tp2Status. FRONTEND。当游戏切从前台切换到后台时传递参数为 Tp2Status. BACKEND。SDK 部分功能在切换到后台时停止运行，因此该接口将影响 SDK 功能是否正常。
+
+#### 3.5 示例代码
+```
+void Awake ()
+{
+Tp2Sdk.Tp2SdkInitEx(8888, "d5ab8dc7ef67ca92e41d730982c5c602");
+}
+// 用户登录后调用
+void Start ()
+{
+int accountType = (int)Tp2Entry.ENTRY_ID_QZONE ; /* 帐号类型 */
+int worldId = 100; /* 大区 id*/
+string openId = "B73B36366565F9E02C752"; /* 用户 id*/
+string roleId = "paladin"; /* 角色 id*/
+Tp2Sdk.Tp2UerLogin(accountType， worldId， openId， roleId);
+}
+// 游戏切换前后台调用
+void OnApplicationPause (bool pause)
+ {
+if (pause)
+ {
+Tp2Sdk.Tp2SetGamestatus(Tp2Status. BACKEND); // 切换到后台
+}
+else
+{
+Tp2Sdk.Tp2SetGamestatus(Tp2Status. FRONTEND); // 切换回前台
+}
 }
 ```
 
@@ -151,10 +156,11 @@ TP2Sdk.onResume();
 ![](https://mc.qcloudimg.com/static/img/91cd8bb85e88eede943d47570a792c35/image.png)
 4. 运行游戏并登录用户，查看 / data/data/log 目录会生成日志文件 tp2.log 和 tlog.log，如图：
 ![](https://mc.qcloudimg.com/static/img/3ce91cbdb15cdb72998fbfcc2bdf074e/image.png)
-如果没有生成日志，请检查 / sdcard/sdk 和 enable.log 是否有读写权限。少部分机型无法读写这个目录，可更换机型测试或将 / sdcard/sdk 改为 / data/data/log(需要 root)。<br><font color=red > 注：enable.log 只用于测试使用。</font color=red>
+如果没有生成日志，请检查 / sdcard/sdk 和 enable.log 是否有读写权限。少部分机型无法读写这个目录，可更换机型测试或将 / sdcard/sdk 改为 / data/data/log(需要 root)。
+注：enable.log 只用于测试使用。
 5. 打开 tp2.log 文件，检查日志中是否包含三个接口（native）信息 **tp2_sdk_init_ex，tp2_setuserinfo，setgamestatus** 以及 jar 包版本号 **jar_ver**。以上条件必须都满足才能正确运行安全 SDK。setgamestatus:1 表示当前进程运行在前台，setgamestatus:2 表示当前进程运行在后台。
 请测试 app 切换前后台，查看接口调用是否正确。除了接口调用，还要检查用户信息 (userinfo) 是否填写正确。
 ![](https://mc.qcloudimg.com/static/img/75eef4a35cf89e8e1d02be304403377b/image.png)
 6. 打开 tlog.log 可查看安全 SDK 发送的数据，如图
 ![](https://mc.qcloudimg.com/static/img/50526870e79bb4d21d5b5bb0c333f86f/image.png)
-安全 SDK 除了在初始化时会上报一些进程基本信息，还会根据定期的安全扫描结果来发送数据，例如扫描到 app 证书签名不正确，内存被修改，外挂进程正在运行等信息。tlog.log 记录 SDK 发送的数据（只在测试时生成），一般 1 小时的数据是 20K 左右，可以查看 tlog.log 的大小来统计安全 SDK 发送的数据量。
+安全 SDK 除了在初始化时会上报一些进程基本信息，还会根据定期的安全扫描结果来发送数据，例如扫描到 App 证书签名不正确，内存被修改，外挂进程正在运行等信息。tlog.log 记录 SDK 发送的数据（只在测试时生成），一般 1 小时的数据是 20K 左右，可以查看 tlog.log 的大小来统计安全 SDK 发送的数据量。
