@@ -20,7 +20,7 @@
 
 After the queue is created, you can view the created queue information from the console.
 
-![](//mc.qcloudimg.com/static/img/25c1dcccefc7c05e0574af5e22e720c7/image.jpg)
+![](//mc.qcloudimg.com/static/img/eb14be7c5125f14e8b7612eca3823ec9/image.png)
 
 
 ## 2. Generating a Message
@@ -34,7 +34,7 @@ After obtaining the queue object, you can call Send Message API of the queue to 
     re_msg = my_queue.send_message(msg)
 ```
 <br>You can view the message attributes directly from the console.
-<br>![](//mc.qcloudimg.com/static/img/73cb26b23c67ad63947e21253d941af0/image.jpg)
+<br>![](//mc.qcloudimg.com/static/img/d32bca0f5cc248004946ffbdeb260868/image.png)
 
 
 - **Generating messages in batch:**
