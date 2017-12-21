@@ -6,7 +6,7 @@
 ## 1. Which notification channels are provided for Failure Self-recovery? 
 Four channels are provided by default: email, SMS, WeChat and telephone.
 
-In the process of "Connect to Self-recovery", you can select the notification type as needed.
+In the process of accessing Self-recovery, you can select the notification type as needed.
 ![](https://mc.qcloudimg.com/static/img/098ca74d53c2dfb765ec2090e44e1791/14955241327247.jpg)
 
 ## 2. Which peripheral systems does the Failure Self-recovery rely on? 

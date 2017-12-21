@@ -90,15 +90,39 @@ For VPN connections, please note that:
 
 ## Billing Method
 - VPN tunnel and peer gateway are free of charge.
-- VPN gateway will be charged by month. Its unit price already includes the cost of IDC bandwidth, so CVM does not need to purchase network bandwidth again. The specific expenses are shown in the following table:
+- VPN gateway will be charged by hour. Its unit price already includes the cost of IDC bandwidth, so CVM does not need to purchase network bandwidth again. The specific expenses are shown in the following table:
 
-| Configuration (Mbps) | Except North America (Toronto) | North America (Toronto) |
-|---------|---------|
-|5 |380 |480|
-|10 |880 |1330|
-|20 |1880 |2330|
-|50 |4880 |	5330|
-|100 |9880 |10330|
+<table class="cvmMonth">
+        <tbody><tr>
+            <th style="width: 10%;" rowspan="2">Feature</th>
+            <th style="width: 10%;" rowspan="2">Billing Model</th>
+                        <th style="width: 30%;" rowspan="2">Configuration</th>
+            <th style="width: 50%;" colspan="7">Price</th>
+        </tr>
+        <tr>
+            <th>Beijing<br>Shanghai<br>Guangzhou</th>
+                        <th>Hong Kong</th>
+                                                 <th>Singapore</th>
+            <th>Toronto</th> 
+	<th>Korea</th> 
+		<th>Frankfurt</th>
+			<th>Silicon Valley</th>
+        </tr>
+       <tr>
+            <td>VPN Gateway</td>
+            <td>Bill by hour<br>(USD/month)</td>
+            <td>Per hour</td>
+            <td>0.078</td>
+            <td>0.088</td>
+            <td>0.12</td>
+            <td>0.12</td>
+			<td>0.088</td>
+            <td>0.088</td>
+            <td>0.088</td>
+        </tr>              
+    </tbody></table>
+
+
 
 For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
@@ -165,10 +189,10 @@ VPN tunnels and VPN gateways provide monitoring data viewing function.
 
 ### Setting the Alarm
 VPN tunnel provides alarm function:
-1) Log in [Tencent Cloud Console](https://console.cloud.tencent.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
+1) Log in [Tencent Cloud Console](https://console.cloud.tencent.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.cloud.tencent.com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
 2) Fill in the Alarm Policy Name, select "VPN Tunnel" in Policy Type, and then add the Condition of alarm trigger.
 3) **Associate alarm objects**: select the alarm receiver group, and when it is saved, you can view the set alarm polices in Policy List.
-4) **View the alarm information**: when any alarm conditions are triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).
+4) **View the alarm information**: when any alarm conditions are triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://intl.cloud.tencent.com/document/product/248/6215).
 
 ### Viewing the Details of VPN Gateway
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to enter the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8).

@@ -43,7 +43,7 @@ If the data disk snapshot is specified in the scaling configuration, you need to
 
 ## Set Information
 Select the login method and security group in the **Set Information** page.
-![](https://mc.qcloudimg.com/static/img/9f1779b369b2f8a9c4487afcddd991fa/16.jpg)
+![](https://mc.qcloudimg.com/static/img/f51ad97ef385e97112012fd87d9464ea/16.jpg)
 
 > Note: The CVM instances added via the Auto Scaling service use Cloud Security and Cloud Monitor services for free by default.
 

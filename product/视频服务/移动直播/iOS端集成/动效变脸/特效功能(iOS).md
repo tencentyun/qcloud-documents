@@ -1,10 +1,25 @@
 # 特效功能（大眼、瘦脸、动效、绿幕）
 
 ## 功能说明
+
 大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天P图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和P图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
-## 费用说明
-由于采用了优图实验室的专利技术，授权费用约 **50W/年**（目前国内同类图像处理产品授权均在百万左右）。如有需要可以提工单或客服电话（400-9100-100）联系我们，商务同学会提供压缩包解码密码，并替您向优图实验室申请试用 License。
+## 接入流程
+
+申请步骤如下：
+
+1. 提工单或客服电话（400-9100-100）联系我们商务同学。
+
+2. 下载[示例表格](https://mc.qcloudimg.com/static/archive/363152d33b47da1a726bfeef2f888b79/archive_2.xlsx)，按照表格填好信息后，邮件发送到 jerryqian@tencent.com 并抄送给您联系的商务同学（重要）。
+
+3. 敦促商务同学回复邮件确认，未经腾讯云商务同学确认的邮件，我们可能会视为骚扰邮件不予处理。
+
+4. 确认后，我们会第一时间替您向优图实验室申请试用 License，并同压缩包解压密码一起发给您。
+
+   License有两种：
+
+   - 试用License：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用License发布了您的应用，会导致有效期过后动效的功能不可用。
+   - 正式License：有效期根据最终的合同而定，一般为一年。
 
 ## 版本下载
 可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
@@ -16,6 +31,8 @@
 
 
 ## Xcode工程设置
+
+参考 [工程配置](https://cloud.tencent.com/document/product/454/7876) 
 
 ### 1. 添加Framework
 
@@ -68,6 +85,10 @@
 
 ### 1. 动效贴纸
 
+示例：
+
+![](https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png)
+
 一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 
 小直播中的示例代码是从后台下载动效资源，再统一解压到Resource目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下
@@ -90,24 +111,25 @@
  */
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
+### 2. AI抠背
 
+示例：
 
-### 2. 绿幕功能
+![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
 
-使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
+需要下载AI抠背的资源，接口跟动效接口相同
 
 ```objective-c
 /**
- * 设置绿幕文件
- * 
- * @param file: 绿幕文件路径。支持mp4; nil 关闭绿幕
+ * 选择扣背动效
+ *
+ * @param tmplName: 动效名称
+ * @param tmplDir: 动效所在目录
  */
--(void)setGreenScreenFile:(NSURL *)file;
+- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3.大眼瘦脸
-
-大眼和瘦脸通过以下方法设置
+### 3.美妆美容
 
 ```objective-c
 /* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
@@ -146,4 +168,17 @@
  */
 - (void) setNoseSlimLevel:(float)noseSlimLevel;
 
+```
+
+### 4. 绿幕功能
+
+使用绿幕需要先准备一个用于播放的mp4文件，通过调用以下接口即可开启绿幕效果
+
+```objective-c
+/**
+ * 设置绿幕文件
+ * 
+ * @param file: 绿幕文件路径。支持mp4; nil 关闭绿幕
+ */
+-(void)setGreenScreenFile:(NSURL *)file;
 ```

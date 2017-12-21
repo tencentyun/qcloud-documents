@@ -215,7 +215,7 @@ SET NAMES 'utf8';
 
 ## 26. Can the cloud database be accessed through public network addresses?
 
-The access to cloud database through public networks in domestic regions has been made possible. For tips on usage, refer to Public Network Access
+The access to cloud database through public networks in domestic regions has been made possible. For tips on usage, refer to [Public Network Access](https://intl.cloud.tencent.com/document/product/236/9038).
 
 But it is not supported in Hong Kong and North American regions currently.
 

@@ -6,6 +6,4 @@ For more information, see:
 
 - [Technical architecture of Tencent Cloud CBS](/doc/product/362/4137)
 
-- [Snapshot of Tencent Cloud CBS](https://cloud.tencent.com/doc/product/362/2455)
-
 - [Price of Tencent Cloud CBS](https://cloud.tencent.com/doc/product/362/2413)
