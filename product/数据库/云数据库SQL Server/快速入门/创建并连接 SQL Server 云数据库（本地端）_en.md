@@ -47,9 +47,9 @@ For data security, public IP has not been enabled for CDB for SQL Server, but yo
  - Server name: Type or paste the local IP address and port number, separated by **comma**. The port number needs to be the same as the one configured in step 6. For example, `127.0.0.1,4000`. Make sure to use **English punctuations**.
  - Authentication: Select SQL Server Authentication.
  - Login and Password: Enter the account and password filled in step 6 of chapter 1 when creating your account. Here we take "test" as an example.
-5. After connecting to the database, you can view the standard built-in SQL Server databases (master, model, msdb and tempdb).
+9. After connecting to the database, you can view the standard built-in SQL Server databases (master, model, msdb and tempdb).
 ![](//mc.qcloudimg.com/static/img/a39d9db6f6a4050d1fa4285a53b55157/image.png)
-6. Now you can start to create your own database and run queries on the database. Click "File" -> "New" -> "Query with Current Connection", and type the following SQL query statement:
+10. Now you can start to create your own database and run queries on the database. Click "File" -> "New" -> "Query with Current Connection", and type the following SQL query statement:
 ```
 select @@VERSION
 ```
