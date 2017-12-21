@@ -5,7 +5,7 @@
 - WeChat Access: It ensures the quality of users' access to the public network;
 - WeChat Pay: It is the entry to online transaction.
     
-![](//mc.qcloudimg.com/static/img/4e497929b188b4ddc76fe43934d9c126/image.png)
+![](https://mc.qcloudimg.com/static/img/f46d9df8bdeb57c33b7d22ff3248c264/image.png)
 
 The distributed transaction similar to the Red Packet system is a focus of attention. For instance, "User A sends a red packet containing 10 CNY to user B", the following steps are needed:
 1) Read the balance in account A
