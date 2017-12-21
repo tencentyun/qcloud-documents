@@ -10,7 +10,7 @@ Put Object Copy  请求实现将一个文件从源路径复制到目标路径。
 语法示例：
 ```
 PUT /destinationObject HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath

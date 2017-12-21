@@ -10,3 +10,27 @@
 * DMC has launched.
 * DMC supports real-time monitoring and instance session management.
 * CDB supports security group.
+
+### 2016
+* Read-only instance went online
+* Postpaid instance was supported
+
+### 2015
+* High IO went online, with a performance 10 times higher than the previous Standard version
+* Web rollback, and batch database management were supported
+* Public network access and Web data import/export were supported
+* CDB was renamed to CDB for MySQL
+
+### 2014
+* Multi-project for one user was supported for CDB; more billing methods were put into use
+* Underlying storage was optimized with improved performance
+
+### 2013
+* 2nd generation high-performance version went online
+
+### 2012
+* High-performance version went online
+* Standard version went online; MySQL kernel was optimized
+
+### 2011
+* 1st generation CDB went online; MySQL management feature was improved

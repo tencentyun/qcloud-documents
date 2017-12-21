@@ -6,7 +6,7 @@ Initiate Multipart Upload 接口请求实现初始化分片上传，成功执行
 语法示例：
 ```
 POST /Object?uploads HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -79,7 +79,7 @@ Container 节点 InitiateMultipartUploadResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Bucket | InitiateMultipartUploadResult | 分片上传的目标 Bucket |  Container |
+| Bucket | InitiateMultipartUploadResult | 分片上传的目标 Bucket，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000 |  Container |
 | Key | InitiateMultipartUploadResult | Object 的名称 |  Container |
 | UploadId | InitiateMultipartUploadResult | 在后续上传中使用的 ID |  Container |
 
@@ -105,7 +105,7 @@ Server: tencent-cos
 x-cos-request-id: NTg3ZjIzZTZfOWIxZjRlXzZmMzhfMWRj
 
 <InitiateMultipartUploadResult>
-    <Bucket>arlenhuangtestsgnoversion</Bucket>
+    <Bucket>arlenhuangtestsgnoversion-1251668577</Bucket>
     <Key>ObjectName</Key>
     <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
 </InitiateMultipartUploadResult>
