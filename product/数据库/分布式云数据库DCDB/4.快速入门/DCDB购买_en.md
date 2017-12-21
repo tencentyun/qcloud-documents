@@ -19,7 +19,6 @@ Here is the detailed operation flow of purchasing DCDB instance.
 2. If all information is correct, click "Confirm Purchase" to make the payment.
 	![](https://mc.qcloudimg.com/static/img/2e4cf68c2838e92cfe905bcbe6fa27cd/r5.png)
 3. Payment successful
-
-![](https://mc.qcloudimg.com/static/img/f959063fa86d13d83558b48baec3cd86/r6.png)
+	![](https://mc.qcloudimg.com/static/img/f959063fa86d13d83558b48baec3cd86/r6.png)
 4. Click "Go to Console" and move the mouse cursor to "Cloud Products" > "Basic Products" > "Database", and then click "Distributed Database" to enter [DCDB Console](https://console.cloud.tencent.com/dcdb). You can see that DCDB instance has been purchased successfully, and you can initialize instance for the next step.
-![](https://mc.qcloudimg.com/static/img/249a71ad1cf6b888d96d0d1170e0f88f/r7.png)
+	![](https://mc.qcloudimg.com/static/img/249a71ad1cf6b888d96d0d1170e0f88f/r7.png)
