@@ -6,6 +6,7 @@
 |Memory/GB|128|Shenzhen and Shanghai Finance Zones|
 |Memory/GB|99|Hong Kong and Singapore|
 |Memory/GB|144|Silicon Valley in American West|
+
 Note: Instance price is billed by linear pricing mode based on memory size
 
 ## Postpaid
