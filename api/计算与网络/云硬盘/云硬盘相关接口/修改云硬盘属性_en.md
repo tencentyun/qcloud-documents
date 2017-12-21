@@ -17,7 +17,7 @@ The following request parameter list only provides API request parameters. For o
 | ------- | ------- | ------- | ------- | 
 | storageId | Yes | String | ID of the cloud storage, which can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](/doc/api/364/2519) API |
 | storageName| No | String | New name of the cloud storage |
-| projectId | No | Int | New project ID of the elastic cloud storage. Only the project ID of elastic cloud storages can be modified. You can query available projects and their IDs via the [DescribeProject (Query Project List)](https://cloud.tencent.com/doc/api/229/1330) API.  | 
+| projectId | No | Int | New project ID of the elastic cloud storage. Only the project ID of elastic cloud storages can be modified. You can query available projects and their IDs via the DescribeProject （Query Project List） API.  | 
  
  
 ## 3. Output Parameters

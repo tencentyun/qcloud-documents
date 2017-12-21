@@ -9,7 +9,7 @@ Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部
 语法示例：
 ```
 GET / HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -90,7 +90,7 @@ Container 节点   ListBucketResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Name | ListBucketResult | 说明 Bucket 的信息 |  String |
+| Name | ListBucketResult |存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000|  String |
 | Encoding-Type | ListBucketResult | 编码格式 |  String |
 | Prefix | ListBucketResult | 前缀匹配，用来规定响应请求返回的文件前缀地址 |  String |
 | Marker | ListBucketResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 |  String |
@@ -159,7 +159,7 @@ x-cos-request-id: NTg3NzRjY2VfYmRjMzVfMTc5M182MmIyNg==
 
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-    <Name>zuhaotestnorth</Name>
+    <Name>zuhaotestnorth-1251668577</Name>
     <Encoding-Type>url</Encoding-Type>
     <Prefix>ela</Prefix>
     <Marker/>

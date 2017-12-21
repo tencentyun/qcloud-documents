@@ -9,7 +9,7 @@ Put Bucket CORS API is used to set cross-origin resource sharing permission for 
 Syntax:
 ```
 PUT /?cors HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
 Content-Type: application/xml
