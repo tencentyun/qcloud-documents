@@ -254,8 +254,8 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | flash           | Boolean  | true     | 是否优先使用 flash 播放视频，<br>**备注：该选项只对 PC 平台生效**[v2.2.0+]  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url <br>**备注：该选项只对 PC 平台生效** [v2.2.1+]  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性。[v2.2.0+]   <br> 示例: true |
-| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ浏览器）将 flv 播放地址直接赋给 `<video>` 播放，[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例：true   |
-| x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：H5 (该属性为TBS内核实验性属性，非 TBS 内核不支持)，[TBS H5同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例："h5"  |
+| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ 浏览器）将 flv 播放地址直接赋给 `<video>` 播放，[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]   <br> 示例：true   |
+| x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：H5 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持)，[TBS H5 同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)   <br> 示例："h5"  |
 | x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例："true"   |
 | x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏），1：（portraint竖屏），2：（landscape &verbar; portrait 跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]  <br> 示例：0   |
 | wording         | Object   | 无       | 自定义文案   <br> 示例：{ 2032: '请求视频失败，请检查网络'}  |
@@ -297,7 +297,7 @@ TcPlayer 提供了集成 IMA SDK 的版本，若需使用广告功能，需在�
 <script type="text/javascript" src="//restcplayer.qcloud.com/sdk/tcplayer-web-1.0.1.js"></script>
 ```
 
-通过 adTagUrl 和 auth 参数使用广告功能，帐号及 License 信息可登录 https://tcplayer.qcloud.com 注册申请，或联系 tcplayer@tencent.com 咨询反馈。
+通过 adTagUrl 和 auth 参数使用广告功能，帐号及 License 信息可登录 `https://tcplayer.qcloud.com` 注册申请，或联系 tcplayer@tencent.com 咨询反馈。
 
 ```
 var player = new TcPlayer('id_test_video', {
