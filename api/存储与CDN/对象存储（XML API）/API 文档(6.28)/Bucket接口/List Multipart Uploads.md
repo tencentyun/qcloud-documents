@@ -8,7 +8,7 @@ List Multipart Uploads 用来查询正在进行中的分块上传。单次请求
 语法示例：
 ```
 GET /?uploads HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -97,7 +97,7 @@ Container 节点 ListMultipartUploadsResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Bucket | ListMultipartUploadsResult | 分块上传的目标 Bucket |  String |
+| Bucket | ListMultipartUploadsResult | 分块上传的目标 Bucket,由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000 |  String |
 | Encoding-Type | ListMultipartUploadsResult | 规定返回值的编码格式，合法值：url |  String |
 | KeyMarker | ListMultipartUploadsResult| 列出条目从该 key 值开始 |  String |
 | UploadIdMarker | ListMultipartUploadsResult | 列出条目从该 UploadId 值开始 |  String |
@@ -169,7 +169,7 @@ Server: tencent-cos
 x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
 
 <ListMultipartUploadsResult>
-    <Bucket>arlenhuangtestsgnoversion</Bucket>
+    <Bucket>arlenhuangtestsgnoversion-1251668577</Bucket>
     <Encoding-Type/>
     <KeyMarker/>
     <UploadIdMarker/>

@@ -13,7 +13,7 @@ Put Bucket Lifecycle 用于为 Bucket 创建一个新的生命周期配置。如
 语法示例：
 ```
 PUT /?lifecycle HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Content-Length: length
 Date: GMT Date
 Authorization: Auth String 

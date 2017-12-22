@@ -28,7 +28,7 @@ min_msg_time - max_retry_time - max_network_time
 
 
 **Notes:**
-![](//mc.qcloudimg.com/static/img/dbff4055c9fa8a10160ff59a830c016c/image.jpg)
+![](https://mc.qcloudimg.com/static/img/cd4f4fa763996459aaa2629a53e7075c/image.png)
 
 
 CMQ provides a maximum message validity period of 15 days to meet the demands of different services.

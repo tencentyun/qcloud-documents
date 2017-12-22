@@ -10,7 +10,7 @@ Before using Tencent Cloud's API for the first time, you need to apply for a sec
 >API private key is an important credential when building Tencent Cloud API requests. With Tencent Cloud APIs, you can operate all of your Tencent Cloud resources under your account. To keep your property and services secure, please keep the private key well and change it on a timely basis (after you do so, remember to delete the old key in time).
 
 
-#### Application Procedure for Getting a Security Credential
+### Application Procedure for Getting a Security Credential
 
 1. Log in to the [Tencent Cloud Console](https://console.cloud.tencent.com/).
 2. Click "Cloud Products", and choose "Cloud API Key" under "Management Tool" to access the Cloud API key management page.
@@ -21,7 +21,7 @@ Before using Tencent Cloud's API for the first time, you need to apply for a sec
 > - QQ accounts that are added as sub-users by a developer can apply for different security credentials on different developer consoles.
 > - For now, the security credential of a sub-user can only be used to call some of cloud APIs.
 
-## Generate a signature string
+## Generate a Signature String
 With the SecretId and SecretKey, a signature string can be generated. The detailed procedure of how to generate a signature string is described as follows:
 
 ![](//mc.qcloudimg.com/static/img/3a3a616ba175bb95be68123d86715e77/image.png)
@@ -45,7 +45,7 @@ Let's take Tencent Cloud CVM as an example. When the user calls the API of Tence
 | SignatureMethod | Signature Method | HmacSHA256 | 
 | InstanceIds.0 | ID of the instance to be queried | ins-09dx96dg | 
 
-### 1. Sort parameters
+### 1. Sort Parameters
 First, sort all the request parameters in ascending lexicographical order by their names, just like sorting words in a dictionary in ascending alphabetical order or numerical order. That is to say, sort the parameters by their first letters, and then sort the parameters with the same first letter by their second letters, and so on. You can complete the sorting with the relevant sorting functions in programming language, such as the ksort function in PHP. The sorting result of the above sample parameters is as follows:
 
 ```
@@ -60,7 +60,7 @@ First, sort all the request parameters in ascending lexicographical order by the
 }
 ```
 Any other programming language can be used to sort these parameters as long as the same result is produced.
-### 2. Generate a request string
+### 2. Generate a Request String
 This step is to generate a request string.
 Format the above sorted request parameters as `"parameter name"="parameter value"`. Let's take the parameter `"Action"` as an example. If the parameter value is `"DescribeInstances"`, the resulting format is `Action=DescribeInstances`.
 >**Note:**
@@ -79,7 +79,7 @@ Action=DescribeInstances
 &Timestamp=1465185768
 ```
 
-### 3. Generate an original signature string
+### 3. Generate an Original Signature String
 This step is used to generate an original signature string.
 The construction rule of an original signature string is as follows:
 > **Request Method + Request CVM Server + Request Path + ? + Request String**
@@ -102,7 +102,7 @@ GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances
 &Timestamp=1465185768
 ```
 
-### 4. Generate a signature string
+### 4. Generate a Signature String
 This step is used to generate a signature string.
 >**Note:** 
 > There are two methods to calculate a signature, that is, HmacSHA256 and HmacSHA1. A signature string will be generated with the signature algorithm (namely the SignatureMethod parameter) specified by you. When HmacSHA256 is taken as SignatureMethod, the signature will be calculated with HmacSHA256, while in other cases, the signature will be calculated with HmacSHA1.
@@ -138,13 +138,13 @@ nPVnY6njQmwQ8ciqbPl5Qe+Oru4=
 ```
 
 
-## Encode a signature string
+## Encode a Signature String
 The generated signature string cannot be directly used as a request parameter, and needs to be encoded with URL encoding.
 For example, if the signature string generated in the previous step is `0EEm/HtGRr/VJXTAD9tYMth1Bzm3lLHz5RCDv1GdM8s=`, it is converted to `0EEm%2FHtGRr%2FVJXTAD9tYMth1Bzm3lLHz5RCDv1GdM8s%3D` after being encoded. Therefore, the resulting signature string request parameter (Signature) is `0EEm%2FHtGRr%2FVJXTAD9tYMth1Bzm3lLHz5RCDv1GdM8s%3D`, which will be used to generate the final request URL.
 >**Note:**
 >If GET method is used, all request parameters need to be encoded with URL encoding. Some language libraries will automatically encode URLs. Reduplicate encoding will cause signature authentication to fail.
 
-## Authentication Failed
+## Authentication failed
 The following table lists possible errors when authentication fails:
 
 | Error Code | Error Type | Error Description |

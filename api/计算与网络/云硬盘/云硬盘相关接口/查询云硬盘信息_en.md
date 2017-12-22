@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. For o
 | diskType | No | String | Standard values: <br><li>root, which refers to system disk; <br><li>data, which refers to data disk |
 | payMode | No | String | Payment mode. <br><li>prePay means Prepaid (Annual or Monthly Plan)<br><li>postPay means Postpaid (Bill by Traffic) | 
 | portable | No | Int | Indicate whether it is an elastic cloud storage. <br><li>1 means it is an elastic cloud storage<br><li>0 means it is a non-elastic cloud storage | 
-| projectId | No | Int | Project ID. You can query available projects and their IDs via the [DescribeProject (Query Project List)](https://cloud.tencent.com/doc/api/229/1330) API.  | 
+| projectId | No | Int | Project ID. You can query available projects and their IDs via the DescribeProject (Query Project List) API.  | 
 | storageIds | No | Array [String] | Filter by one or more Cloud Block Storage IDs.  |
 | storageType | No | String | Type of hard disk medium.<br><li>cloudBasic refers to a HDD cloud storage<br><li>cloudSSD refers to a SSD cloud storage |
 | storageStatus | No | Array [String] | Filter by one or more statuses. The standard values are as follows.<br><li>normal: Normal<br><li>toRecycle: To be terminated<br><li>attaching: Mounting<br><li>detaching: Unmounting<br><li>snapshotCreating: The snapshot is being created<br><li>rollback: Rollbacking<br><li>expanding: Expanding | 
