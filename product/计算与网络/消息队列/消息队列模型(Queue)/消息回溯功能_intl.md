@@ -2,7 +2,7 @@
 
 ## Feature Description
 
-![](//mc.qcloudimg.com/static/img/5c1699ab442ad36b7e34a091bbcf089d/image.jpg)
+![](https://mc.qcloudimg.com/static/img/8bcb65c18496fbb4aceabb16e512edd3/image.png)
 
 As shown above, the fragments in the blue box represents the message lifecycle. After the message rewind is enabled, the message that has been consumed and deleted by a consumer will enter *message for rewind* zone. CMQ backend will still retain this message. However, once exceeding the message lifecyle specified in Queue (if it is set to 1 day), the message will be deleted automatically and cannot be rewound. Specific product logic is as follows:
 
@@ -26,7 +26,7 @@ As shown above, the fragments in the blue box represents the message lifecycle. 
 
 **The maximum rewindable time** = Current time - the configured rewind time The messages cannot be rewound if produced before this time; otherwise, they can be rewound, as shown below:
 
-![](//mc.qcloudimg.com/static/img/44d1295f8c6a3b63c03cc949b470cf65/image.jpg)
+![](https://mc.qcloudimg.com/static/img/cd4f4fa763996459aaa2629a53e7075c/image.png)
 
 
 

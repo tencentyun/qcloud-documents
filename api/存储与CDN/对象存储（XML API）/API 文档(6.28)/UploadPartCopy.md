@@ -10,7 +10,7 @@ Upload Part - Copy  请求实现将一个文件的分块内容从源路径复制
 语法示例：
 ```
 PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
