@@ -16,11 +16,12 @@ Please ensure that JDK environment has been installed. If not, please download [
 
 ### Downloading and Configuring CMQ Java SDK
 #### How to Use Cloud API Key
-When using a Java SDK, the user's Cloud API key is required to verify the validity of the user's identity. Users can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and select "Cloud Services" -> "Cloud API Key" to get the Cloud API key, as shown in the figure below:
-![](https://mc.qcloudimg.com/static/img/b04d51df61bc4e9259dcee293981b644/5.png)
+When using a Java SDK, the user's Cloud API key is required to verify the validity of the user's identity. Users can log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), then select account name in the top right corner on the navigation bar, and choose "Cloud API Key" in the drop-down box to access the Cloud API key management page.
+
+![](https://mc.qcloudimg.com/static/img/d32aa65f20cfce5af6f30ba5ee792490/capi_1.jpg)
 
 Users can create a new Cloud API key or use an existing key. Click key ID and go to the details page to get the secretId of the key and its corresponding secretKey.
-![](https://mc.qcloudimg.com/static/img/47b2cf18add4d32a867f115fffb6af48/2.png)
+![](https://mc.qcloudimg.com/static/img/37ad47170aaa854767be60213339da88/image.png)
 
 #### endpoint
 endpoint is the access address for CMQ service, and it contains the protocol used. endpoint is formatted as follows:
