@@ -17,14 +17,14 @@
 | options         | 否              | map             | 常用的调优配置信息，例如：{"expire_day":7,"refresh_interval":"10s","number_of_shards":5,"number_of_replicas": 1,"rolling_period":1}  |
 
 > **注意**
->
-> - time字段的name默认为timestamp，时间格式（format）完全兼容es的时间格式。
-> - options选项及解释如下：<br/>
-expire_day：数据过期时间，过期后数据自动清理，缺省情况下-1（代表永不过期）<br/>
-refresh_interval：数据刷新频率，写入的数据从内存刷新到磁盘后可查询。认为10秒<br/>
-number_of_shards：表分片数，小表可以忽略，大表按照一个分片至多25G设置分片数，默认为3<br/>
-number_of_replicas：副本数，例如一主一副为1，缺省为1<br/>
-rolling_period：子表时长（单位：天），CTSDB存储数据时，为了方便做数据过期和提高查询效率，根据特定时间间隔划分子表，缺省情况下由数据过期时间决定，下面具体说明缺省子表时长和过期时间的关系<br/>
+> 
+> 1. time 字段的 name 默认为 timestamp，时间格式（format）完全兼容 es 的时间格式。
+> 2. options 选项及解释如下：
+>    - expire_day：数据过期时间，过期后数据自动清理，缺省情况下-1（代表永不过期）。
+>    - refresh_interval：数据刷新频率，写入的数据从内存刷新到磁盘后可查询。认为10秒。
+>    - number_of_shards：表分片数，小表可以忽略，大表按照一个分片至多25G设置分片数，默认为3。
+>    - number_of_replicas：副本数，例如一主一副为1，缺省为1。
+>    - rolling_period：子表时长（单位：天），CTSDB存储数据时，为了方便做数据过期和提高查询效率，根据特定时间间隔划分子表，缺省情况下由数据过期时间决定，下面具体说明缺省子表时长和过期时间的关系。
 >	
 > |过期时间 |    子表时长|
 > |---------|---------|
