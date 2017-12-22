@@ -28,8 +28,8 @@
 
 2.1	You may use a QQ number or other means supported by Tencent Cloud Services to complete the registration process as instructed on the registration page of Tencent Cloud's official website, and obtain a Tencent Cloud Services account (**"Tencent Cloud Account"**).
 
-2.2	**You must comply with the QQ Number Rules if you use a QQ number to register.  In order to safeguard the security and independence of the Tencent Cloud Account, you must apply for a new QQ number to be used for Tencent Cloud Services only.
-**
+2.2	**You must comply with the QQ Number Rules if you use a QQ number to register.  In order to safeguard the security and independence of the Tencent Cloud Account, you must apply for a new QQ number to be used for Tencent Cloud Services only.**
+
 2.3	You shall provide truthful, legitimate and valid information (the** "Information"**) in accordance with the registration procedures for Tencent Cloud Services, including but not limited to your name, contact, email, telephone, mailing address, industrial and commercial registration documents and so forth.  If any change occurs to the Information, you shall promptly notify Tencent Cloud of such change in writing or update such information in accordance with Tencent Cloud system rules.
 
 2.4	**This Agreement is applicable to all Tencent Cloud Accounts under your name.**  As the Tencent Cloud Account(s) will serve as the means of identifying you in regard to your use of the Tencent Cloud Services, you shall adopt all necessary and effective measures to protect the confidentiality your Tencent Cloud Account(s), and shall be responsible for all activities carried out under such account(s).
@@ -50,10 +50,10 @@
 
 **3.1	Service Activation**
 
-3.1.1		You may select and purchase the services you require online via Tencent Cloud's official website based on your own needs.  Prior to purchasing any services, you must carefully read the corresponding Service Rules and then decide whether or not to purchase such services based on your needs.  Orders generated online by you to purchase services shall be called "electronic orders"; and the parties may also enter into separate agreements based on the actual needs for their collaboration.
+&emsp;3.1.1		You may select and purchase the services you require online via Tencent Cloud's official website based on your own needs.  Prior to purchasing any services, you must carefully read the corresponding Service Rules and then decide whether or not to purchase such services based on your needs.  Orders generated online by you to purchase services shall be called "electronic orders"; and the parties may also enter into separate agreements based on the actual needs for their collaboration.
 
-**3.1.2		The parties may be required to enter into separate service agreements for the activation of certain Tencent Cloud Services.  Separate service agreements may manifest in the form of electronic files or in the form of separate paper-based documents.  You may decide whether or not to accept a service agreement and activate services at your own discretion.  
-**
+&emsp;**3.1.2		The parties may be required to enter into separate service agreements for the activation of certain Tencent Cloud Services.  Separate service agreements may manifest in the form of electronic files or in the form of separate paper-based documents.  You may decide whether or not to accept a service agreement and activate services at your own discretion.  **
+
 **3.2	Service Fees**
 
 &emsp;3.2.1	The means of settlement for or and rates of Tencent Cloud Services shall be subject to the prices and currencies posted on Tencent Cloud's official website. Tencent Cloud shall be entitled to direct that you make payment of fees and other amounts payable in respect of the Tencent Cloud Services to any Tencent Cloud affiliate company notified to you from time to time.  
@@ -66,15 +66,15 @@
 
 **3.3	Service Guarantees**
 
-3.3.1	Tencent Cloud shall provide to you 24/7 after-sale services, and answer and resolve any questions and issues encountered by you while using Tencent Cloud Services.
+&emsp;3.3.1	Tencent Cloud shall provide to you 24/7 after-sale services, and answer and resolve any questions and issues encountered by you while using Tencent Cloud Services.
 
-**3.3.2	Tencent Cloud shall provide you with data backup and ensure data reliability to the extent specified under the service level agreement (SLA); beyond this, however, you shall back up your data based on your own needs.**
+&emsp;**3.3.2	Tencent Cloud shall provide you with data backup and ensure data reliability to the extent specified under the service level agreement (SLA); beyond this, however, you shall back up your data based on your own needs.**
 
-**3.3.3	Tencent Cloud shall provide availability assurance to the extent specified under the service level agreement (SLA).  In the event that Tencent Cloud fails to meet the service guarantees under the service level agreement corresponding to the services purchased by you, Tencent Cloud shall be liable to compensate you in accordance with such service level agreement.  Tencent Cloud's total liability for compensation shall not exceed the amount of service fees Tencent Cloud charges you for the services in respect of which Tencent Cloud fails to meet the relevant service guarantees.**
+&emsp;**3.3.3	Tencent Cloud shall provide availability assurance to the extent specified under the service level agreement (SLA).  In the event that Tencent Cloud fails to meet the service guarantees under the service level agreement corresponding to the services purchased by you, Tencent Cloud shall be liable to compensate you in accordance with such service level agreement.  Tencent Cloud's total liability for compensation shall not exceed the amount of service fees Tencent Cloud charges you for the services in respect of which Tencent Cloud fails to meet the relevant service guarantees.**
 
-3.3.4	If your availability requirements are higher than those specified under the SLA, you will need to configure your system for high availability and Tencent Cloud shall extend all necessary assistance.  Any assistance needed from Tencent Cloud with respect to design shall be negotiated and determined by the parties separately.
+&emsp;3.3.4	If your availability requirements are higher than those specified under the SLA, you will need to configure your system for high availability and Tencent Cloud shall extend all necessary assistance.  Any assistance needed from Tencent Cloud with respect to design shall be negotiated and determined by the parties separately.
 
-3.3.5	If you are a non-Chinese company contracting for Tencent Cloud Services from outside of the mainland of the People's Republic of China with a Service Region that is in the mainland of the People's Republic of China, then the service commitments set out in Clauses 3.3.1 to 3.3.4 shall be deleted and replaced with any Service Level Agreements applicable to the Tencent Cloud Services you have procured. 
+&emsp;3.3.5	If you are a non-Chinese company contracting for Tencent Cloud Services from outside of the mainland of the People's Republic of China with a Service Region that is in the mainland of the People's Republic of China, then the service commitments set out in Clauses 3.3.1 to 3.3.4 shall be deleted and replaced with any Service Level Agreements applicable to the Tencent Cloud Services you have procured. 
 
 **3.4	Service Suspension or Termination**
 
@@ -142,8 +142,8 @@
 
 &emsp;**5.3.2	directly removing or blocking the content in question or disabling the links in question;**
 
-&emsp;**5.3.3	restricting or suspending the provision of Tencent Cloud Services to you (including but not limited to directly taking some of your services offline and withdrawing the relevant resources; setting restrictions on your operations under your Tencent Cloud Account(s));
-**
+&emsp;**5.3.3	restricting or suspending the provision of Tencent Cloud Services to you (including but not limited to directly taking some of your services offline and withdrawing the relevant resources; setting restrictions on your operations under your Tencent Cloud Account(s));**
+
 &emsp;**5.3.4	in case of serious violations or breaches, Tencent Cloud shall have the right to terminate the provision of Tencent Cloud Services to you and terminate this Agreement (including but not limited to directly taking all of your services offline and withdrawing the relevant resources).  The fees already paid by you for any unused service period shall be credited to Tencent Cloud as liquidated damages;**
 
 &emsp;**5.3.5	pursuing other liabilities against you in accordance with law.**
