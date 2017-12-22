@@ -26,6 +26,6 @@ For example:
 - 3. Subscriber is "#", then the subscriber will receive all messages
 
 
-![](//mc.qcloudimg.com/static/img/d12ffc8e91322fead97b7633cea47f9a/image.png)
+![](https://mc.qcloudimg.com/static/img/7b82bed30d4ec3fda544112adeace96f/image.png)
 
 

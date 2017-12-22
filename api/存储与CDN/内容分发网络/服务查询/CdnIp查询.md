@@ -25,7 +25,7 @@
 | codeDesc | String | 英文错误信息，或业务侧错误码。<br/>详见错误码页面[业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
 | data     | Object | 返回结果数据                                   |
 
-### 详细说明
+#### 详细说明
 
 #### data
 

@@ -1,6 +1,6 @@
 ﻿An image processing company leverages Tencent Cloud to provide an online image processing service that allows users to upload photos and edit them by cropping, removing red eye , whitening teeth , re-coloring, changing brightness, creating thumbnails, and so on. The whole process is as such: the user uploads the images, submits the tasks, waits for the images to edit, and downloads the edited images. The processing time varies depending on the effect the user applies on the image, and the user may upload dozens or even hundreds of pictures in parallel. Therefore, the total processing time is determined by the number of images to upload, image size and the effects the user applies on these images.
 
-![](//mccdn.qcloud.com/static/img/199941a3bd63173b3c6d200ccffb1461/image.jpg)
+![](https://mc.qcloudimg.com/static/img/2046bcf206af343f274fd05c5f4ab3f0/image.png)
 
 Tencent Cloud CMQ meets the above requirements: The user's images are stored in Tencent Cloud storage (such as CBS/COS); each operation request is saved as a message (image index, consisting of the image name + the operation type requested by the user + the index key of the image storage location) into the Request Queue.
 
