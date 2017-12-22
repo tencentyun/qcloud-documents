@@ -283,13 +283,13 @@ qcVideo.Player(id, option, listener);
 | 方法                                                          | 说明                                                                                                                 |
 |---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | resize(width,height)                                          | 参数：width :int；height :int                                            <br>功能：设置当前播放器宽度高度                                         <br>返回：无                                                                                                              |
-| play(second)                                                  | 参数：second：int 单位秒                                                  <br>功能：开始播放，可以设置开始播放指定时间点 <br>返回：int [返回码](#errorcode)<br>备注：在传视频地址播放的情况下，second 只能传 空值 或者 0                                                               |
-| pause()                                                       | 功能：暂停当前播放的视频 <br>返回：int [返回码](#errorcode)                                                                                     |
-| resume()                                                      | 功能：恢复播放视频<br>返回：int [返回码](#errorcode)                                                                                     |
-| setClarity(clarity)                                           | 参数：clarity：int 清晰度 取值范围 （1：”手机”，2：”标清”，3：”高清”，4：”超清”）<br>功能：更换视频清晰度 <br>返回：int [返回码](#errorcode)                            <br>注意：clarity 指定的清晰度，请确保当前视频具备该清晰度，否则将按播放器默认规则选择一个清晰度播放                       |
-| changeVideo(opt)                                              | 参数： opt Object，包含将要播放的视频的基本信息和构造函数第二个参数基本一致，具体参考 [构造函数说明](#constructor)<br>功能：动态更换视频  <br>返回：int [返回码](#errorcode) |
-| addBarrage(barrage) <span id="barrage"></span>| 参数：barrage：Array 弹幕信息   <br> \[{   <br>"type":"content", //消息类型，content:普通文本（**必选**）  <br>"content":"hello world", //文本消息 （**必选**）  <br>"time":"1.101",//单位秒 ，表示距离当前调用添加字幕的时间多久后，开始显示该条字幕（**必选**）   <br>"style": "C64B03;35",// 分号分割，第一项颜色值，第二项字体大小（可选） <br>"postion":"center" //固定位置 <br>center: 居中，bottom: 底部， up: 顶上 (可选) }, ... \]  <br>功能：添加弹幕     <br>返回：int [返回码](#errorcode) <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效**                                                                                |
-| closeBarrage()                                                | 功能：关闭弹幕，关闭后重新调用 addBarrage 可开启弹幕。 <br>返回：int [返回码](#errorcode)  <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效**                                        |
+| play(second)                                                  | 参数：second：int 单位秒                                                  <br>功能：开始播放，可以设置开始播放指定时间点 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)<br>备注：在传视频地址播放的情况下，second 只能传 空值 或者 0                                                               |
+| pause()                                                       | 功能：暂停当前播放的视频 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)                                                                                     |
+| resume()                                                      | 功能：恢复播放视频<br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)                                                                                     |
+| setClarity(clarity)                                           | 参数：clarity：int 清晰度 取值范围 （1：”手机”，2：”标清”，3：”高清”，4：”超清”）<br>功能：更换视频清晰度 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)                            <br>注意：clarity 指定的清晰度，请确保当前视频具备该清晰度，否则将按播放器默认规则选择一个清晰度播放                       |
+| changeVideo(opt)                                              | 参数： opt Object，包含将要播放的视频的基本信息和构造函数第二个参数基本一致，具体参考 [构造函数说明](#constructor)<br>功能：动态更换视频  <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506) |
+| addBarrage(barrage) <span id="barrage"></span>| 参数：barrage：Array 弹幕信息   <br> \[{   <br>"type":"content", //消息类型，content:普通文本（**必选**）  <br>"content":"hello world", //文本消息 （**必选**）  <br>"time":"1.101",//单位秒 ，表示距离当前调用添加字幕的时间多久后，开始显示该条字幕（**必选**）   <br>"style": "C64B03;35",// 分号分割，第一项颜色值，第二项字体大小（可选） <br>"postion":"center" //固定位置 <br>center: 居中，bottom: 底部， up: 顶上 (可选) }, ... \]  <br>功能：添加弹幕     <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506) <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效**                                                                                |
+| closeBarrage()                                                | 功能：关闭弹幕，关闭后重新调用 addBarrage 可开启弹幕。 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13506)  <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效**                                        |
 这些设置方法的统一返回码是：
   
 | 错误码<span id="errorcode"></span> | 含义 |
@@ -306,45 +306,3 @@ qcVideo.Player(id, option, listener);
 用户可以使用点播 Web SDK 上传视频，以帮助腾讯云视频用户通过 Web 上传视频文件，该 SDK 当前支持 HTML5 上传（不支持 HTML5 的浏览器暂不支持上传）。
 
 具体操作方法请查看 [云点播 Web 上传 SDK](http://video.qcloud.com/sdk/upload.html)。
-
-
-## 问题排查
-
-### 错误码列表
-
-SDK 使用过程中出现的异常 code 对照表，如遇到未在列表中的异常 code，请联系我们的客服，客服会安排工程师进行解决。
-
-| Code  | 说明               |
-|-------|---------------------|
-| 1003  | 密码错误         |
-| 10000 | 请求超时（拉取播放器配置信息与视频信息超时，请检查网络重试，超时时间为 10s）     |
-| 10001 | 数据解析失败（拉取播放器配置信息与视频信息获取到的数据解析失败，可能是网络问题或者服务器异常）     |
-| 10002 | 连接超时，请稍后再试（拉取播放器配置信息与视频信息失败，可能是网络问题或者服务器异常）     |
-| 10008 | APPID 或 File ID 错误 |
-| 11044 | 缺少 APPID     |
-| 11045 | 缺少 File ID     |
-| 11046 | 缺少密码        |
-
-
-### 常见问题
-
-* **为什么 H5 播放视频拉伸变形了？**
-H5 并不具备拉伸视频的能力，请检查播放器的容器宽高是否设置正确。
-
-* **QQ 浏览器显示下载视频，怎么屏蔽？**
-手机 QQ 浏览器的内核限制，JS 无法干预，同样在 UC 等浏览器的内核也提供了自动嗅探视频提供下载的功能，需要联系浏览器开发商进行关闭。
-
-* **QQ 浏览器下无法在盖住视频**
-浏览器接管了 H5 的视频播放功能，X5 内核视频播放使用了自研的播放器，考虑用户体验，浏览器使用了统一的播放界面，相关信息参考 [QQ 浏览器文档说明](http://x5.tencent.com/guide?id=2009)。
-		
-* **在调用 isPlaying() 等方法时没有获取到正确的状态信息**
-在移动端的某些浏览器和 webview 中，播放视频会被浏览器自带的内核接管，SDK 将无法获得正确的播放状态。
-
-* **设置了自动播放，但在移动端无法自动播放？**
-目前大部分手机浏览器由于数据流量等原因默认不自动加载媒体文件，播放视频时需要用户触发操作。
-	
-* **iOS 系统下视频自动全屏播放**
-iOS 系统由于 webkit 设置原因默认视频全屏播放，如果您的视频需要在 App 内实现内联播放，可以设置 webkit-playsinline 属性，目前 iOS10 以下版本的 Safari 无法禁止视频自动全屏。
-
-* **为什么在 PC Chrome 中 Flash 播放器会有两个播放按钮？**
-从 Chrome 42 版本开始将不再自动播放 Flash，只对主要的 Flash 内容进行自动播放，其它的 Flash 内容将被暂停播放，除非用户决定去手动点开它。
