@@ -115,8 +115,8 @@ var player = new qcVideo.Player("id_video_container", option);
 >**注意：**
 >使用频道 ID 播放视频不支持直播码的方式。
 
-### Case 3：使用直播视频地址播放视频 <span class="anchor" id="case3"><span id="case3"></span>
-如果没有 app_id 及 channel_id，播放器也支持使用直播视频地址播放视频。
+### Case 3：使用直播视频地址播放视频 
+如果没有 app_id 及 channel_id<span class="anchor" id="case3"><span id="case3"></span>，播放器也支持使用直播视频地址播放视频。
 ```
 var option = {
 "live_url" : "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
@@ -146,7 +146,7 @@ player.addBarrage(barrage);
 >**注意：**
 >**弹幕功能仅在前端实现，后台支持请自行开发，弹幕只在 PC Flash 播放器中生效，H5 暂时不具备弹幕功能。**
 
-##  API 方法总览<span class="anchor" id="api"><span id="api"></span>
+##  API 方法总览
 
 ### 构造函数
 
@@ -154,7 +154,7 @@ player.addBarrage(barrage);
 qcVideo.Player(id, option, listener);
 ```
 
- **ID**：String，**必选**参数，页面放置播放器的容器 ID，可以自由定义；
+ **ID**<span class="anchor" id="api"><span id="api"></span>：String，**必选**参数，页面放置播放器的容器 ID，可以自由定义；
   **option**：Object，**必选**参数，播放器的参数可设置选项，具体选项：
 
 | 参数             | 类型   | 默认值 | 参数说明   |
@@ -165,7 +165,7 @@ qcVideo.Player(id, option, listener);
 | height           | Number | 无     | **必选**，例如：480，设置播放器高度，单位为像素                                                       |
 | cache_time      | Number | 0.3    | 直播画面开始播放前，最大缓存时间；这个属性可避免有效下行带宽不足导致免 rtmp 直播卡顿的情况（可选参数）<br> **备注：该选项只对 PC 平台 Flash 播放器生效** |
 | h5_start_patch | Object | 无     | H5 播放，开始播放前贴片（可选参数）<br>{ <br>url : 图片地址, <br>stretch: false //是否拉伸图片铺面整个播放器，默认 false<br>}                                                                                                  |
-| wording          | Object | 无     | 直播提示语自定义（可选参数，详细信息可见 [错误码](#errorcode)）<br>{	<br>	'1' 	: '数据库错误',<br> '2'		: '连接不到直播源，直播源没有推送视频内容(hls)',<br> '3'		: '直播已经结束啦(hls)',<br>'113'	: '连接超时，请稍后再试',<br>'114'	: '连接超时，请稍后再试',<br>'1000'	: 'channelID 或者 APPID 错误',<br>'1001'	: '无效参数，获取 bizid 失败',<br>'1009'	: '直播源已失效',<br>'10000'	: '请求超时，请检查网络设置',<br> '10008'	: '密码错误，请重新输入', //无效密码<br>'10020'	: '直播账户余额已不足，请及时充值',  <br>'11044'	: '无效请求',<br> '11045'	: '请求参数缺少 channelID',<br> '11046'	: '密码错误，请重新输入',<br> '20110'	: '密码错误，请重新输入',<br>'20113'	: '直播已经结束啦，请稍后再来' , //'downstream type is not exist' 拉流不存在<br>'20201'	: '直播已经结束啦，请稍后再来', //get upstream info error'  查询推流错误<br> '20301'	: '直播频道不存在，请确认频道 ID',<br>'TipReconnect'	: '重新连接中'<br>'TipRequireSafari'	: '当前浏览器不能支持视频播放，请使用 safari 打开观看'<br>'TipRequireFlash'	: '当前浏览器不能支持视频播放，可下载最新的 QQ 浏览器或者安装 Flash 即可播放'<br>'TipVideoinfoResolveError'	: '视频信息解析错误，请检查参数是否正确', //接口没有返回 json 数据，无法解析<br>'TipVideoinfoError'	: '视频信息错误，请检查参数是否正确',<br>'TipConnectError'	: '连接服务失败，请检查网络设置',<br>'TipConnectDeny'	: '连接服务被拒绝', //Flash 请求触发安全异常<br>'TipLiveEnd'		: '直播已经结束啦，请稍后再来',  // NetStream.Play.Stop 事件, <br>'TipStreamNotFound'	: '直播已经结束啦，请稍后再来' //连接不到直播源，直播源没有推送视频内容<br>}                                                                                                 |
+| wording          | Object | 无     | 直播提示语自定义（可选参数，详细信息可见 [错误码](https://cloud.tencent.com/document/product/267/13500)）<br>{	<br>	'1' 	: '数据库错误',<br> '2'		: '连接不到直播源，直播源没有推送视频内容(hls)',<br> '3'		: '直播已经结束啦(hls)',<br>'113'	: '连接超时，请稍后再试',<br>'114'	: '连接超时，请稍后再试',<br>'1000'	: 'channelID 或者 APPID 错误',<br>'1001'	: '无效参数，获取 bizid 失败',<br>'1009'	: '直播源已失效',<br>'10000'	: '请求超时，请检查网络设置',<br> '10008'	: '密码错误，请重新输入', //无效密码<br>'10020'	: '直播账户余额已不足，请及时充值',  <br>'11044'	: '无效请求',<br> '11045'	: '请求参数缺少 channelID',<br> '11046'	: '密码错误，请重新输入',<br> '20110'	: '密码错误，请重新输入',<br>'20113'	: '直播已经结束啦，请稍后再来' , //'downstream type is not exist' 拉流不存在<br>'20201'	: '直播已经结束啦，请稍后再来', //get upstream info error'  查询推流错误<br> '20301'	: '直播频道不存在，请确认频道 ID',<br>'TipReconnect'	: '重新连接中'<br>'TipRequireSafari'	: '当前浏览器不能支持视频播放，请使用 safari 打开观看'<br>'TipRequireFlash'	: '当前浏览器不能支持视频播放，可下载最新的 QQ 浏览器或者安装 Flash 即可播放'<br>'TipVideoinfoResolveError'	: '视频信息解析错误，请检查参数是否正确', //接口没有返回 json 数据，无法解析<br>'TipVideoinfoError'	: '视频信息错误，请检查参数是否正确',<br>'TipConnectError'	: '连接服务失败，请检查网络设置',<br>'TipConnectDeny'	: '连接服务被拒绝', //Flash 请求触发安全异常<br>'TipLiveEnd'		: '直播已经结束啦，请稍后再来',  // NetStream.Play.Stop 事件, <br>'TipStreamNotFound'	: '直播已经结束啦，请稍后再来' //连接不到直播源，直播源没有推送视频内容<br>}                                                                                                 |
 | live_url        | String | 无     | 直播地址，支持 hls/rtmp/flv 三种格式<br>用视频地址播放方式为**必选参数 **                                                                     |
 | live_url2       | String | 无     | 直播地址，同上（可选参数）                                                                        |
 | volume           | Number | 0.5    | 设置音量初始值 0 到 1，默认 0.5（可选参数）**备注：该选项只对 Flash 播放器生效**                                                                    |
@@ -192,8 +192,8 @@ qcVideo.Player(id, option, listener);
 | stop()                                                  | 功能：停止播放<br>返回：int（统一返回码）<br>**备注：该功能仅 PC 端 Flash 播放器支持 **                                                                   |
 | pause()                                                       | 功能：暂停当前播放的视频 <br>返回：int（统一返回码)<br>**备注：该功能仅 PC 端 Flash 播放器支持**                                                                                 |
 | resume()                                                      | 功能：恢复播放视频<br>返回：int（统一返回码）<br>**备注：该功能仅 PC 端 Flash 播放器支持**       |
-| addBarrage(barrage) | 参数：barrage://Array 弹幕信息   <br> \[{   <br>"type":"content", //消息类型，content：普通文本（必选）  <br>"content":"hello world", //文本消息（必选） <br>"time":"1.101",//单位秒 ，表示距离当前调用添加字幕的时间多久后，开始显示该条字幕（必选）   <br>"style": "C64B03;35",// 分号分割，第一项颜色值，第二项字体大小（可选）<br>"postion":"center" //固定位置 <br>center: 居中，bottom: 底部， up: 顶上 (可选) }, ... \]  <br>功能：添加弹幕     <br>返回：int [返回码](#errorcode) <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效 **                                                                                |
-| closeBarrage()                                                | 功能：关闭弹幕，关闭后重新调用 addBarrage 可开启弹幕。 <br>返回：int [返回码](#errorcode)  <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效 **                                                                                    |
+| addBarrage(barrage) | 参数：barrage://Array 弹幕信息   <br> \[{   <br>"type":"content", //消息类型，content：普通文本（必选）  <br>"content":"hello world", //文本消息（必选） <br>"time":"1.101",//单位秒 ，表示距离当前调用添加字幕的时间多久后，开始显示该条字幕（必选）   <br>"style": "C64B03;35",// 分号分割，第一项颜色值，第二项字体大小（可选）<br>"postion":"center" //固定位置 <br>center: 居中，bottom: 底部， up: 顶上 (可选) }, ... \]  <br>功能：添加弹幕     <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13500) <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效 **                                                                                |
+| closeBarrage()                                                | 功能：关闭弹幕，关闭后重新调用 addBarrage 可开启弹幕。 <br>返回：int [返回码](https://cloud.tencent.com/document/product/267/13500)  <br> 备注：**弹幕仅在前端实现，后台功能请自行开发，该功能只在 PC Flash 播放器中生效 **                                                                                    |
 
 这些设置方法的统一返回码是：
   
@@ -202,69 +202,3 @@ qcVideo.Player(id, option, listener);
 | 200 | 操作成功 | 
 | 0  | 播放器未完全初始化 | 
 | -2 | 未知操作命令 | 
-
-## 问题排查
-
-### 错误码列表
-
-SDK 使用过程中出现的异常 code 对照表<span id="errorcode"></span>
-
-- 前端返回错误
-
-| 提示语  | 说明                                       |
-|-------|--------------------------------------------|
-|视频信息解析错误，请检查参数是否正确|接口没有返回 json 数据，无法解析|
-|视频信息错误，请检查参数是否正确|视频信息解析错误|
-|连接服务失败，请检查网络设置|获取视频频道信息失败|
-|连接服务被拒绝   |Flash 请求触发安全异常|
-|缺少视频数据|视频源数据缺失|
-|直播已经结束啦，请稍后再来 |NetStream.Play.Stop 事件|
-|直播已经结束啦，请稍后再来|连接不到直播源，直播源没有推送视频内容|
-
-
-- 后台返回错误
-
-| Code  | 提示语|说明                                       |
-|-------|-----------|---------------------------------------|
-| 1   	|数据库错误|数据库连接超时或者查询错误|
-| 2     | 连接不到直播源，直播源没有推送视频内容（hls）|无法获取 m3u8 文件，连接不到直播源|
-| 3     |直播已经结束啦（hls）|Manifest 不是合法的 m3u8 文件或直播源已结束 |
-|113	| 连接超时，请稍后再试|参数错误|
-|1000 |channelID 或者 APPID 错误|app_id 填写错误（长度错误）|
-|1001 |无效参数，获取 bizid 失败|app_id 填写错误（长度正确，内容错误）|                  
-| 1009  | 直播源已失效|无效播放地址，直播源已失效                 |
-| 10000 | 请求超时|拉取播放器配置信息与视频信息超时，请检查网络重试，超时时间为 10s       |
-| 10001 | 数据解析失败|拉取播放器配置信息与视频信息获取到的数据解析失败，可能是网络问题或者服务器异常        |
-| 10002 | 连接超时，请稍后再试|拉取播放器配置信息与视频信息失败，可能是网络问题或者服务器异常        |
-| 10008 |密码错误，请重新输入| 无效密码                            |
-|10020 | 直播账户余额已不足，请及时充值| 余额不足|
-| 11044 |无效请求| 缺少 APPID                                  |
-| 11045 |请求参数缺少 channelID| 缺少 Channel ID                             |
-| 11046 | 密码错误，请重新输入|缺少密码                                   |
-| 20110 | 密码错误，请重新输入|无效密码                                   |
-| 20113 | 直播已经结束啦，请稍后再来|downstream type is not exist 拉流不存在|
-|20201  |直播已经结束啦，请稍后再来|get upstream info error   查询推流错误|
-|20301  |直播频道不存在，请确认频道 ID|channel_id 错误（app_id 填写正确）|
-
->**注意：**
->如遇到未在列表中的异常 code，请联系我们的客服，客服会安排工程师进行解决。
-
-### 常见问题
-
-- **为什么 H5 播放视频拉伸变形了？**
- H5 并不具备拉伸视频的能力，请检查播放器的容器宽高是否设置正确。
-
-- **为什么提示“直播已经结束啦，请稍后再来”**
- 播放连接视频直播地址未收到响应并重试 5 次后仍未成功将出现这个提示，这时需要确认视频是否在进行推流，网络是否通畅。
-
--  **QQ 浏览器下无法在盖住视频**
- 浏览器接管了 H5 的视频播放功能，X5 内核视频播放使用了自研的播放器，考虑用户体验，浏览器使用了统一的播放界面，相关信息参考 [QQ 浏览器文档说明](http://x5.tencent.com/guide?id=2009)。
-
--  **iOS 系统下视频自动全屏播放**
- iOS 系统由于 webkit 设置原因，默认视频全屏播放，如果您的视频需要在 App 内实现内联播放，可以设置 webkit-playsinline 属性，目前 iOS10 以下版本的 Safari 无法禁止视频自动全屏。
-
--  **为什么在 PC Chrome 中 Flash 播放器会有两个播放按钮？**
- 从 Chrome 42 版本开始将不再自动播放 Flash，只对主要的 Flash 内容进行自动播放，其它的 Flash 内容将被暂停播放，除非用户决定去手动点开它。
-
--  **为什么在 PC 浏览器中可以播放直播视频，移动端却不行？**
- 在移动端浏览器中播放直播视频，目前只支持 hls 协议，因此需要确认直播拉流地址是否有 hls 拉流 url。
