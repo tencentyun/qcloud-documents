@@ -222,7 +222,7 @@ ExpiredTime | Timestamp | No | Expiry time. In accordance with the `ISO8601` sta
 | ImageState | String | No | Image status
 | imageName | String | No | Image name
 | ImageDescription | String | No | Image description
-| ImageSource | String | No | [Image Source](IMAGE_SOURCE).
+| ImageSource | String | No | Image Source.
 | ImageCreator | String | No | Image creator
 
 ### AvailabilityZone
