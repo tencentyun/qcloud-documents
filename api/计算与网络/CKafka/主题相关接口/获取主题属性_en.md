@@ -22,7 +22,6 @@ The following request parameter list only provides API request parameters. Other
 | enableWhiteList | int | Whether to enable IP whitelist. 1: Enable 0: Disable |
 | ipWhiteList | array | IP whitelist |
 | createTime | Int | Creation time, expressed as timestamp (in second) |
-|   |   |   |
 | partitions | Array | Partition details |
 | partitions::partition | Int | Partition id |
 | partitions :: leaderStatus | Int | Running status of leader  |

@@ -49,7 +49,7 @@ The following need to be considered when you use the High Level Consumer:
 Low Level Consumer API is recommended if you care about the message offset and need such features as repeated consumption or skip read, or want to specify certain partitions for consumption and ensure more consumption semantics. But in this case, you need to handle the exceptions of Offset and Broker by yourself.
 The following need to be considered when you use the Low Level Consumer:
 (1) You need to track and maintain the Offset and control the consumption progress by yourself.
-2) 	You need to find the Leader of Partitions for the Topic, and deal with the Partition changes.
+(2) You need to find the Leader of Partitions for the Topic, and deal with the Partition changes.
 
 [DEMO](https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+SimpleConsumer+Example)
 - New Consumer (After 0.9.x)

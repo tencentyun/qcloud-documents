@@ -13,7 +13,7 @@ The master-slave synchronization feature of CDB for MySQL 5.6 is achieved based 
 
 #### Console Upgrade
 1. In the instance list or instance detail screen, click "Upgrade" behind the instance that you wish to upgrade.
-![ ](//mc.qcloudimg.com/static/img/a7af86c99c3ecbdc8d0aaf49c7533c30/image.png)
+![](//mc.qcloudimg.com/static/img/5d99a7ba0f6cfefb8fe2f351c02f4562/image.png)
 2. Select the desired database version from "Update Version" and click "Upgrade".
 ![](//mc.qcloudimg.com/static/img/86e0a87688f26621373c66af5f91cdb1/image.png)
 

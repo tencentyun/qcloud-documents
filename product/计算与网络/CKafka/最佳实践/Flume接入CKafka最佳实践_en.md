@@ -50,7 +50,7 @@ tier1.sources.source1.kafka.topics = test1, test2
 tier1.sources.source1.kafka.consumer.group.id = custom.g.id
 ```
 
-2.	Kafka Sink
+**2.	Kafka Sink**
 By configuring Kafka as the content receiver, you can push the data to Kafka Server for subsequent operations as a producer.
 
 Main configuration options:

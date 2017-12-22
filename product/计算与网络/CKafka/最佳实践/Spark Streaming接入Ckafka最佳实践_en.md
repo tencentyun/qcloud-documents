@@ -226,6 +226,7 @@ chmod u+x ./sbt_run.sh
 ./sbt-run.sh sbt-version
 ```
 The display of sbt version indicates a normal operation
+
 #### Installing "protobuf"
 1. Download an appropriate version of [protobuf](https://github.com/google/protobuf/releases)
 2. Decompress to enter the directory
@@ -338,6 +339,7 @@ The appearance of 'Exitting with status 0' indicates a successful installation
 ./sbin/start-dfs.sh
 ```
 `NameNode`, `DataNode` and `SecondaryNameNode` processes exist upon a successful startup
+
 #### Installing "spark"
 Go to [spark's official website](http://spark.apache.org/downloads.html) to download the required version
 Since hadoop has been installed, use *Pre-build with user-provided Apache Hadoop* here
