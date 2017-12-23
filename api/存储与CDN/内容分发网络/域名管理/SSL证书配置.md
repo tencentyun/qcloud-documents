@@ -6,7 +6,8 @@
 **注意事项：**
 
 + COS源、FTP源域名暂时无法将回源方式设置为协议跟随
-+ 证书&私钥传递：请将证书、私钥内容按照base64编码后传输
++ 证书&私钥传递：选择自上传证书，请将证书、私钥内容按照base64编码后传输
++ 选择托管证书，使用接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取对应的证书ID
 + httpsType 与 forceSwith 不可同时为空
 + 接口调用频次限制为 100次/分钟
 
@@ -19,11 +20,12 @@
 | 参数名称        | 是否必选 | 类型     | 描述                                       |
 | ----------- | ---- | ------ | ---------------------------------------- |
 | host        | 是    | String | 需要配置证书的域名                                |
-| httpsType   | 否    | Int    | 配置类型设置<br/>"0" ：清除https配置，无需填写证书及私钥参数<br/>"1"：开启并 http 回源<br/>"2"：开启并协议跟随回源<br/>开启时需要传递证书及私钥 |
+| httpsType   | 否    | Int    | 配置类型设置<br/>"0" ：清除https配置，无需填写证书及私钥参数<br/>"1"：上传自有证书，并 http 回源<br/>"2"：上传自有证书，并协议跟随回源<br/>"3"：使用托管证书，并 http 回源<br/>"4"：使用托管证书，并 协议跟随回源<br/>1&2 域名未配置证书或配置的是托管证书，则 必须上传 cert 及 privateKey<br/>3&4 域名未配置证书或配置的是自有证书，则必须传递 certId |
 | cert        | 否    | String | PEM格式证书                                  |
 | privateKey  | 否    | String | PEM格式私钥                                  |
 | forceSwitch | 否    | Int    | 强制跳转开关<br/>"1"：http强制跳转<br/>"-1"：关闭http强制跳转<br/>"2"：开启https强制跳转<br/>"-2"：关闭https强制跳转 |
 | http2       | 否    | String | HTTP2.0 开关<br/>"on"：开启 HTTP2.0<br/>"off"：关闭 HTTP2.0 |
+| certId      | 否    | String | 证书ID，可通过接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取 |
 
 ## 出参说明
 | 参数名称     | 类型     | 描述                                       |

@@ -22,7 +22,7 @@
 | ------ | ---- | ------ | --------------------- |
 | urls.n | 是    | String | 需要刷新的 URL<br/>详细说明见下文 |
 
-### 详细说明
+#### 详细说明
 
 支持刷新一个或多个 URL，刷新多个URL时，参数传入方式可参考：
 ```
@@ -57,7 +57,7 @@ urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
 | codeDesc | String | 英文错误信息，或业务侧错误码。<br/>详见错误码页面[业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
 | data     | Array  | 详细说明见下文                                  |
 
-### 详细说明
+#### 详细说明
 
 #### data
 

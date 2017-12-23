@@ -52,7 +52,7 @@ TXVideoInfoReader 的 getVideoInfo 方法可以获取指定视频文件的一些
 
 开发包中的 VideoRangeSlider 即使用了 getSampleImages 获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
 
-### 2 效果预览
+### 2. 效果预览
 视频编辑提供了 **定点预览**（将视频画面定格在某一时间点）与**区间预览**（循环播放某一时间段A<=>B内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。
 
 - **绑定 UIView**
@@ -69,7 +69,7 @@ TXVideoEditer 的 previewAtTime 函数用于定格显示某一个时间点的视
 - **区间预览**
 TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A<=>B内的视频片段。
 
-### 3 视频裁剪
+### 3. 视频裁剪
 视频编辑类操作都符合同一个操作原则：即先设定操作指定，最后用 generateVideo 将所有指令顺序执行，这种方式可以避免多次重复压缩视频引入的不必要的质量损失。
 
 ```objective-c
@@ -168,7 +168,7 @@ float y = (videoMsg.height - height) / 2 / videoMsg.height;
 
 ```
 
-### 8 滤镜特效
+### 8. 滤镜特效
 
 您可以为视频添加多种滤镜特效，我们目前支持四种滤镜特效，每种滤镜你也可以设置视频作用的起始时间和结束时间。如果同一个时间点设置了多种滤镜特效，SDK会应用最后一种滤镜特效作为当前的滤镜特效。
 
@@ -204,7 +204,7 @@ Demo示例：
 //删除3-4s设置的滤镜特效
 [_ugcEdit deleteLastEffect];
 ```
-### 9 慢/快动作
+### 9. 慢/快动作
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
 
 ```
@@ -236,7 +236,7 @@ Demo示例：
   speed.speedLevel = SPEED_LEVEL_SLOW;
   [_ugcEdit setSpeedList:@[speed]];
 ```
-### 10 倒放
+### 10. 倒放
 您可以将视频画面倒序播放，设置倒放的方法：
 
 ```
@@ -248,7 +248,7 @@ Demo示例：
 [_ugcEdit setReverse:YES];
 ```
 
-### 11 重复视频片段
+### 11. 重复视频片段
 您可以设置重复播放一段视频画面，声音不会重复播放。  
 设置重复片段方法：
 
@@ -273,7 +273,7 @@ repeat.repeatTimes = 3;  //重复次数
 [_ugcEdit setRepeatPlay:@[repeat]];
 ```
 
-### 12 静/动态贴纸
+### 12. 静/动态贴纸
 
 您可以为视频设置静态贴纸或者动态贴纸。
 

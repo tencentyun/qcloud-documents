@@ -12,4 +12,4 @@ Users are unknown about the cluster in CMQ backend. CMQ controller server can re
 
 
 Please refer to the following figure:
-![](//mc.qcloudimg.com/static/img/af7190c78d702f61b900b194e9034546/image.png)
+![](https://mc.qcloudimg.com/static/img/71a51a5cee46ea14a8ff0944855f68d4/image.png)

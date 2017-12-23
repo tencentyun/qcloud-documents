@@ -4,7 +4,7 @@ The AS cooldown period is a configurable setting for your scaling group that hel
 
 When you manually scale your scaling group, the default is not to wait for the cooldown period, but you can overwrite the default by setting a new cooldown period. Note that if an instance becomes unhealthy, AS does not wait for the cooldown period to complete before replacing the unhealthy instance. 
 
-### Importance of Cooldown Period
+## Importance of Cooldown Period
 
 After an instance is added to the scaling group, it will take some time to decrease the load. If there is no cooldown period, the system will keep scaling in before the load decreases. After the newly added instance takes over the service, it has to scale out due to low load.
 
@@ -18,7 +18,7 @@ However, with a cooldown period in place, AS enables an instance and then suspen
 
 After the cooldown period expires, any suspended scaling actions resume. If the alarm is triggered again, AS enables another instance, and the cooldown period takes effect again. If, however, the additional instance was enough to bring the CPU utilization back down, then the group remains at its current size. 
 
-### How to Configure the Cooldown Period
+## How to Configure the Cooldown Period
 
 Cooldown period is 60 seconds by default.
 
