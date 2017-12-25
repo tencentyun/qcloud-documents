@@ -11,11 +11,13 @@
 
 ![权限受控页面](https://mc.qcloudimg.com/static/img/6ff612dcbbeb8b4ff58f598393f7e5e3/image.png)
 图2.权限受控页面
-### 1.2 新建项目###
+### 1.2 新建项目 ###
 项目是双螺旋中的基本单元，用户上传的数据和创建的作业，都会归属到某个项目。用户进入控制台后，首先进入“项目管理”菜单，创建一个**广州地区**的项目（备注：当前测试环境部署在广州）
+
 ![新建项目](https://mc.qcloudimg.com/static/img/adf15e5565d506f6afc4f5cdb3fb2a07/image.png)
 图3.新建项目页面
 项目新建成功后，系统会自动分配一个COS（腾讯云对象存储）Bucket给该项目，用于存放该项目的数据。用户可在“项目管理”菜单中查看项目关联的COS Bucket名称。
+
 ![COS Bucket](https://mc.qcloudimg.com/static/img/261f27ccb63523a651a0943be2771797/COS+Bucket.png)
 图4.项目Bucket信息
 ### 1.3上传数据 ###
@@ -24,7 +26,6 @@
 若源文件小于500MB，可直接通过web上传，点击“上传文件”按钮，在弹出的对话框中选择文件上传。
 
 ![web上传文件页面](https://mc.qcloudimg.com/static/img/771a25660e72828e5e746973b4defb4f/image.png)
-
 图5.web上传页面
 #### 1.3.2 工具上传 ####
 若源文件大于500MB，建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
@@ -49,14 +50,12 @@
 #### 2.2.1 基本信息 ####
 
 ![基本信息配置](https://mc.qcloudimg.com/static/img/02f8b81f6d81fb491f844ffe5eaebe51/image.png)
-
 图8.基本信息配置
 
 其中，项目应选择为存有测试数据的项目 
 #### 2.2.2 输入输出配置 ####
 
 ![输入输出配置](https://mc.qcloudimg.com/static/img/e0a27275bb82c4bfedfb12636c9baf16/image.png)
-
 图9.输入输出配置
 
 1. 其中，点击“浏览”按钮可从项目关联的COS Bucket中选择需要进行分析的文件，需提供双末端测序的一对文件作为输入文件；
@@ -73,5 +72,6 @@
 
 ## 三、结果查看 ##
 平台完成分析计算后，会将结果VCF文件回传到项目关联的COS Bucket中，存放目录为用户在创建作业时设置的“输出目录”。用户可在“数据管理”下“私有文件”子菜单中，查看到平台返回的测试结果文件，用户可将结果文件下载至本地进一步的分析。
+
 ![结果文件](https://mc.qcloudimg.com/static/img/ea5af9d4fb694d40c26f84cae27a0d55/image.png)
 图11. 分析结果文件
