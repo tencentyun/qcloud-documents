@@ -39,7 +39,7 @@
 |[删除短信签名](https://cloud.tencent.com/document/product/382/6039)	|删除指定短信签名 |
 |[短信签名状态查询](https://cloud.tencent.com/document/product/382/6040)	|查询申请的短信签名状态 |
 
-## 签名 API
+## 统计 API
 |API 名称	|描述|
 |-----|------|
 |[发送数据统计](https://cloud.tencent.com/document/product/382/7755)	|获取一段时间短信发送状态（发送量，成功量，计费条数） |
