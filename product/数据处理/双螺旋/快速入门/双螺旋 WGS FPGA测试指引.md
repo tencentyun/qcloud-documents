@@ -24,8 +24,26 @@
 
 图5.web上传页面
 #### 1.3.2 工具上传 ####
-若源文件大于500MB，建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
-本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "工具使用说明")，其中重点配置信息说明如下：
+若源文件大于500MB，建议使用工具上传文件。
+
+**COSCMD 工具**
+
+有一定Python操作基础的用户，建议使用COSCMD工具。点击下载[COSCMD工具](https://github.com/tencentyun/coscmd)，工具的使用指引点此了解[COSCMD工具使用说明](https://cloud.tencent.com/document/product/436/10976)
+。其中重点配置信息说明如下：
+![](https://mc.qcloudimg.com/static/img/cb4a6d9006514cbc54e71fe6db395064/image.png)
+图6.COSCMD工具配置信息
+
+1. **secret_id**和**secret_key**，指用户的云API密钥，可从云API密钥控制台“API密钥”菜单中获取。若还没有云API密钥，用户可在控制台上新建。点此进入[云API密钥控制台](https://console.cloud.tencent.com/capi "API密钥")
+2. **APPID**,指用户在腾讯云的标识，可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 【账号信息】查看 APPID。
+3. **Bucket**，指COS Bucket名称，此处使用系统分配的项目关联Bucket，获取方式见上文图4
+4. **Region**，指文件所属地域，此处固定为 ap-guangzhou
+
+
+
+**COS本地同步工具**
+
+其他用户建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
+，本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "本地同步工具使用说明")。其中重点配置信息说明如下：
 ![同步工具配置信息](https://mc.qcloudimg.com/static/img/fcafb9aa397b49c39b720430d27f2350/image.png)
 图6.同步工具配置信息
 
