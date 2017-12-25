@@ -34,7 +34,7 @@
 
 图5.web上传页面
 #### 1.3.2 工具上传 ####
-<<<<<<< HEAD
+
 若源文件大于500MB，建议使用工具上传文件。
 
 **COSCMD 工具**
@@ -55,14 +55,10 @@
 
 其他用户建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
 ，本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "本地同步工具使用说明")。其中重点配置信息说明如下：
-=======
-若源文件大于500MB，建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
-本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "工具使用说明")，其中重点配置信息说明如下：
 
->>>>>>> 3f5bbdf611d6a2f68cb36a0f6ce07c3750fd97ea
 ![同步工具配置信息](https://mc.qcloudimg.com/static/img/fcafb9aa397b49c39b720430d27f2350/image.png)
 
-图6.同步工具配置信息
+图7.同步工具配置信息
 
 1. **secret_id**和**secret_key**，指用户的云API密钥，可从云API密钥控制台“API密钥”菜单中获取。若还没有云API密钥，用户可在控制台上新建。点此进入[云API密钥控制台](https://console.cloud.tencent.com/capi "API密钥")
 2. **Bucket**，指COS Bucket名称，此处使用系统分配的项目关联Bucket，获取方式见上文图4
@@ -75,21 +71,21 @@
 
 ![新建FPGA作业](https://mc.qcloudimg.com/static/img/cda1f8a4da89153700bc12037194e8bf/image.png)
 
-图7.选择WGS FPGA作业模版
+图8.选择WGS FPGA作业模版
 ### 2.2 作业详情配置 ###
 用户进入作业配置页后，可对各项作业参数进行配置，具体如下：
 #### 2.2.1 基本信息 ####
 
 ![基本信息配置](https://mc.qcloudimg.com/static/img/02f8b81f6d81fb491f844ffe5eaebe51/image.png)
 
-图8.基本信息配置
+图9.基本信息配置
 
 其中，项目应选择为存有测试数据的项目 
 #### 2.2.2 输入输出配置 ####
 
 ![输入输出配置](https://mc.qcloudimg.com/static/img/e0a27275bb82c4bfedfb12636c9baf16/image.png)
 
-图9.输入输出配置
+图10.输入输出配置
 
 1. 其中，点击“浏览”按钮可从项目关联的COS Bucket中选择需要进行分析的文件，需提供双末端测序的一对文件作为输入文件；
 2. 平台预置了human_g1k_v37_decoy.fasta、Homo_sapiens_assembly38.fasta、ucsc.hg19.fasta三个参考文件供用户选择；
@@ -98,7 +94,7 @@
 
 ![作业参数配置](https://mc.qcloudimg.com/static/img/fef8494116763e4110c365fc980837ee/image.png)
 
-图10.作业参数配置
+图11.作业参数配置
 
 1. ReadGroup参数：1.tID，指的是Read Group的分组ID，一般设置为测序的lane ID; 2.tPL，指的是所用的测序平台，只允许为ILLUMINA，SLX，SOLEXA，SOLID，454，LS454，COMPLETE，PACBIO，IONTORRENT，CAPILLARY，HELICOS或UNKNOWN；3.tSM，指的是样本ID；
 2. stand_call_conf参数：只能为0-100的浮点数，默认为30.0；
@@ -109,4 +105,4 @@
 
 ![结果文件](https://mc.qcloudimg.com/static/img/ea5af9d4fb694d40c26f84cae27a0d55/image.png)
 
-图11. 分析结果文件
+图12. 分析结果文件
