@@ -16,9 +16,9 @@ OCR - 车牌号识别用于识别图像上的车牌号码。
 
 ## 调用URL
 
-```
-http://recognition.image.myqcloud.com/ocr/plate
-```
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/plate`
 
 ## 请求方式
 

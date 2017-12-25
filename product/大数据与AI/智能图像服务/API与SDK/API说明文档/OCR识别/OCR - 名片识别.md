@@ -14,9 +14,9 @@
 
 ## 调用URL
 
-```
-http://service.image.myqcloud.com/ocr/namecard
-```
+支持 http 和 https 两种协议：
+
+`http://service.image.myqcloud.com/ocr/namecard`
 
 ## 请求包header
 接口采用 http 协议，支持多 url 和多本地图片文件，每个请求最多支持 20 张图片或 url 。
