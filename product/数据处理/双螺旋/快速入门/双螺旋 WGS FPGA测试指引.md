@@ -19,6 +19,7 @@
 ![新建项目](https://mc.qcloudimg.com/static/img/adf15e5565d506f6afc4f5cdb3fb2a07/image.png)
 
 图3.新建项目页面
+
 项目新建成功后，系统会自动分配一个COS（腾讯云对象存储）Bucket给该项目，用于存放该项目的数据。用户可在“项目管理”菜单中查看项目关联的COS Bucket名称。
 
 ![COS Bucket](https://mc.qcloudimg.com/static/img/261f27ccb63523a651a0943be2771797/COS+Bucket.png)
