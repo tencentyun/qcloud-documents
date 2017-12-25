@@ -8,7 +8,7 @@ It should be noted that when the switching time is selected as the [Within maint
 
 ### Set an instance maintenance duration
 "Instance Details">"Maintenance Duration">"Modify"
-![](//mc.qcloudimg.com/static/img/69761bc8815b125418dfa6f3205e6b71/image.png)
+![](//mc.qcloudimg.com/static/img/6267d39ea7cf9cb554f5794bede6ed4f/image.png)
 ![](//mc.qcloudimg.com/static/img/1fc4249721bd990e0191af452527ed09/image.png)
 
 ### Settings of the switching time for upgrading
