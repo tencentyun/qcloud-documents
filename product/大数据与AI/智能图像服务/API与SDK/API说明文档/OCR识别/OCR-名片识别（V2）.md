@@ -6,9 +6,9 @@
 
 ## 调用URL
 
-```
-http://recognition.image.myqcloud.com/ocr/businesscard
-```
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/businesscard`
 
 > 注意：任何字段都可能存在多个，实际返回由名片内容决定。
 

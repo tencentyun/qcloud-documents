@@ -16,7 +16,7 @@
 
 You can view the created topic from the console. If QPS = 5,000, the maximum API calling frequency defaults to 5,000 counts/s. You can submit a ticket to apply for a higher quota if needed.
 
-![](//mc.qcloudimg.com/static/img/22f31138a083444bb4f21fc9f2135f31/image.jpg)
+![](//mc.qcloudimg.com/static/img/21bf36b8cc8772e9d918ce7f3ebec1de/image.png)
 
 
 ## 2. Publishing a Message
@@ -33,7 +33,7 @@ You can publish a message using SDK, as shown below.
 
 Topic currently supports message filtering, such as message tag, message type, to differentiate message categories under the Topic of a certain CMQ. CMQ allows consumers to filter messages based on the tags and thus only consume the messages that they're interested in. The function is disabled by default. In this case, all messages are sent to all subscribers. But after a tag is added, subscribers can only receive messages with such tag. The message filter tag describes the tag used for message filtering for this subscription (only the messages with consistent tags will be pushed). Each tag is a string with no more than 16 characters. There can be at most 5 tags for a single Message.
 
-![](//mc.qcloudimg.com/static/img/b1a9f1b88a1f4db1d49dfef37171911e/image.jpg)
+![](//mc.qcloudimg.com/static/img/b88ffb9049762edc8a8c7fac09f15a83/image.png)
 
 Topic currently supports both tag filtering and routingKey filtering. Filtering rules are shown above.
 
@@ -157,7 +157,7 @@ Binding key and Routing key are used at the same time, compatible with rabbitmq 
     message = Message()
     message.msgBody = "this is a test message"
     routingKey = '1.test.0' //The message will be delivered to the subscription address in my_sub.
-    my_topic.publish_message(message)
+    my_topic.publish_message(message) 
 ```
 
    

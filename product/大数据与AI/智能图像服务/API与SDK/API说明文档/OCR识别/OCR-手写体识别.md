@@ -9,10 +9,9 @@
 | appid | 项目ID, 接入项目的唯一标识 |
 
 ## 调用URL
+支持 http 和 https 两种协议：
 
-```
-http://recognition.image.myqcloud.com/ocr/handwriting
-```
+`http://recognition.image.myqcloud.com/ocr/handwriting`
 
 ## HTTP 请求格式
 

@@ -16,9 +16,9 @@ OCR ——银行卡识别，根据用户上传的银行卡图像，返回识别�
 
 ## 调用URL
 
-```
-http://recognition.image.myqcloud.com/ocr/bankcard
-```
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/bankcard`
 
 ## 请求包 header
 

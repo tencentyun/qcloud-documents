@@ -4,7 +4,7 @@ If you find that the billing model you selected is not applicable to your actual
   ![](https://mc.qcloudimg.com/static/img/59a10afcc90d118720537cddd979e21e/image.png)
 
 2. Change the original billing method **Pay by Traffic** to **Pay by Bandwidth**:
-   ![](https://mc.qcloudimg.com/static/img/e33ae2ba6d7a744f32c7c42d2af9113e/image.png)
+  ![](//mc.qcloudimg.com/static/img/10d3e6759eba5e6b20b1ed3e2d2a258a/image.png)
 
 3. After the billing method is changed to **Pay by Bandwidth**, the balance of your traffic package will be frozen:
   ![](https://mc.qcloudimg.com/static/img/d6502e9bf1535ff9caa58d479e397241/3.png)

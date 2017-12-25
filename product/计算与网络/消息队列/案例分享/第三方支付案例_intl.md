@@ -14,4 +14,4 @@ Third-party mobile financial payment solution providers in close cooperation wit
 
 
 Please refer to the following figure:
-![](//mc.qcloudimg.com/static/img/7f42706e0f87a942e0c0122167797fa5/image.png)
+![](https://mc.qcloudimg.com/static/img/66c1ce82cd5b1a1112a5729550e19fd3/image.png)
