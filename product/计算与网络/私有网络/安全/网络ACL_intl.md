@@ -1,5 +1,5 @@
 ## Basics
-The network Access Control List (ACL) is a stateless optional layer of security at the subnet level to control the traffic in and out of subnets (accuracy up to protocol and port granularity). The network ACL rules are similar to [security group](https://cloud.tencent.com/doc/product/213/500), as shown below: However, since the network ACL is stateless, even if certain access is set allowed in inbound rules, the access will still become unavailable due to lack of proper settings in outbound rules.
+The network Access Control List (ACL) is a stateless optional layer of security at the subnet level to control the traffic in and out of subnets (accuracy up to protocol and port granularity). The network ACL rules are similar to security group, as shown below: However, since the network ACL is stateless, even if certain access is set allowed in inbound rules, the access will still become unavailable due to lack of proper settings in outbound rules.
 ![](https://mc.qcloudimg.com/static/img/0d2797c443b5ab3a722f180548b3c610/VPC-Security.png)
 
 ## Usage Scenarios

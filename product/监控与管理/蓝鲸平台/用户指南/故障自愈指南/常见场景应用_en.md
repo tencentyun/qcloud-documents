@@ -4,7 +4,7 @@ Here we describe how to access Failure Self-recovery in some common alarm scenar
 ## 1. PING Alarm
 When a PING alarm is generated, you can restart the server for recovery.
 
-Therefore, we connect the unreachable PING alarm to the self-recovery package '"Quickly" Restart Tencent Cloud CVM'.
+Therefore, we enable the self-recovery package '"Quickly" Restart Tencent Cloud CVM' for unreachable PING alarms.
 ![](https://mc.qcloudimg.com/static/img/8a43e97cfc6b807d744deaa57d2f0b6a/14955064369949.jpg)
 
 A corresponding Self-recovery record can be found in "Self-recovery Details".
@@ -21,7 +21,7 @@ In addition to standalone server performance alarm, Failure Self-recovery can al
 
 For example, if nginx process is interrupted, you need to start the nginx process.
 
-> The following takes Nginx process alarm as an example to show how to connect to Self-recovery.
+> The following takes Nginx process alarm as an example to show how to access Self-recovery.
 
 ### 2.1 Write a Job to Start Nginx Process ##
 ![](https://mc.qcloudimg.com/static/img/5fd5977c4d85e50fa02c3361a9c9eafd/14955087013221.jpg)
@@ -37,14 +37,14 @@ Write a script on BlueKing "Job Platform" to start Nginx process.
 
 ## 3. Port Alarm #
 When a port alarm is triggered, a process alarm is not necessarily triggered, because the process may be frozen but still exists.
-Therefore, it is necessary to connect the port alarm to the Failure Self-recovery.
+Therefore, it is necessary to configure port alarms with Failure Self-recovery.
 
-Since a port alarm is connected in a way similar to that of a process alarm, please see the settings of process alarm.
+Since the configuration for port alarms is similar to that of process alarms, please see the settings of process alarm.
 
 ## 4. Traffic Alarm #
 You need also to pay attention to the ENI traffic alarm, and analyze which services have occupied the bandwidth and whether traffic limit is required to avoid the overall service being affected.
 
-Alarms related to network traffic including public network outbound bandwidth, private network outbound bandwidth, public network inbound bandwidth and private network inbound bandwidth can be connected to the Failure Self-recovery.
+Alarms related to network traffic including public network outbound bandwidth, private network outbound bandwidth, public network inbound bandwidth and private network inbound bandwidth can be configured with Failure Self-recovery.
 ![](https://mc.qcloudimg.com/static/img/1c59476c357d4be696087ae25b28e3f3/14955129158481.jpg)
 
 ![](https://mc.qcloudimg.com/static/img/1b4092cec3bd618b21b5b6b7f1c5157c/14955127999644.jpg)
@@ -54,7 +54,7 @@ Generally, when a memory utilization alarm is generated, we must find out the pr
 
 Therefore, a Self-recovery package '"Quickly" Send the List of TOP 10 Processes with High Memory Utilization (Applicable to Linux)' is built in to analyze memory utilization.
 
-Connection method is shown as follows:
+Access method is shown as follows:
 ![](https://mc.qcloudimg.com/static/img/de5979e867995993f4391c8e12b5b618/14955213210764.jpg)
 
 The following is the result of memory utilization analysis sent to your WeChat.

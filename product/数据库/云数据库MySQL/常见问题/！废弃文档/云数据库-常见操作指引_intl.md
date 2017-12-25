@@ -16,7 +16,7 @@ For details, please refer to [MySQL official manual](https://dev.mysql.com/doc/r
 
 ## 3. How to authorize other users to work with the cloud database
 
-root users can authorize other users using the grant command of mysql, but cannot do so using "grant all" command.
+Root users can authorize other users using the grant command of mysql, but cannot do so using "grant all" command.
 
 Currently, "shutdown" and "file" permissions are not available to root users, so you cannot create users with all permissions through root. Please refer to the following commands for authorization:
 
@@ -39,7 +39,7 @@ wget [http://cdn.mysql.com/Downloads/MySQL-Proxy/mysql-proxy-0.8.4-linux-glibc2.
 
 2) Unzip the installer
 
-tar -xzf mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit.tar.gz 
+<pre>tar -xzf mysql-proxy-0.8.4-linux-glibc2.3-x86-64bit.tar.gz</pre> 
 
 3) View the extracted directory
 

@@ -40,8 +40,11 @@ git clone https://github.com/tencentyun/COS_iOS_SDK.git
 
 将目录**coslib**下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
 
+并添加以下依赖库：
 
-
+- CoreTelephony.framework    
+- Foundation.framework
+- SystemConfiguration.framework
 
 #### 工程配置
 
