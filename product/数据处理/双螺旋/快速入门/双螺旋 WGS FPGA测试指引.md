@@ -5,8 +5,10 @@
 用户在测试前，需提前把测试中使用的源数据文件上传至腾讯云双螺旋。文件上传指引如下：
 ### 1.1 开通双螺旋权限 ###
 双螺旋产品当前为受控开放，点此进入[产品控制台](https://console.cloud.tencent.com/helix)。如您登录后可看见控制台操作界面，说明您的账号已经开通权限，请略过本步骤。如您暂无权限，请在控制台出现的内测申请页面（3秒自动跳转）上提交开通申请。
+
 ![双螺旋控制台操作页面](https://mc.qcloudimg.com/static/img/5d6fe42b955323dbda84b521e07a95ef/image.png)
 图1.双螺旋控制台操作页面
+
 ![权限受控页面](https://mc.qcloudimg.com/static/img/6ff612dcbbeb8b4ff58f598393f7e5e3/image.png)
 图2.权限受控页面
 ### 1.2 新建项目###
@@ -20,12 +22,14 @@
 新建完项目后，用户进入“数据管理”下的“私有文件”子菜单，上传源数据文件。
 #### 1.3.1 web上传 ####
 若源文件小于500MB，可直接通过web上传，点击“上传文件”按钮，在弹出的对话框中选择文件上传。
+
 ![web上传文件页面](https://mc.qcloudimg.com/static/img/771a25660e72828e5e746973b4defb4f/image.png)
 
 图5.web上传页面
 #### 1.3.2 工具上传 ####
 若源文件大于500MB，建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
 本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "工具使用说明")，其中重点配置信息说明如下：
+
 ![同步工具配置信息](https://mc.qcloudimg.com/static/img/fcafb9aa397b49c39b720430d27f2350/image.png)
 图6.同步工具配置信息
 
@@ -37,17 +41,20 @@
 用户开通双螺旋 WGS FPGA内测权限后，可在“作业管理”菜单中新建FPGA作业进行分析计算，指引如下:
 ### 2.1 选择作业模版 ###
 用户在“新建作业”对话框中，选择FPGA作业，并选中平台提供的WGS FPGA作业模版，点击“下一步”进行作业配置页面。
+
 ![新建FPGA作业](https://mc.qcloudimg.com/static/img/cda1f8a4da89153700bc12037194e8bf/image.png)
 图7.选择WGS FPGA作业模版
 ### 2.2 作业详情配置 ###
 用户进入作业配置页后，可对各项作业参数进行配置，具体如下：
 #### 2.2.1 基本信息 ####
+
 ![基本信息配置](https://mc.qcloudimg.com/static/img/02f8b81f6d81fb491f844ffe5eaebe51/image.png)
 
 图8.基本信息配置
 
 其中，项目应选择为存有测试数据的项目 
 #### 2.2.2 输入输出配置 ####
+
 ![输入输出配置](https://mc.qcloudimg.com/static/img/e0a27275bb82c4bfedfb12636c9baf16/image.png)
 
 图9.输入输出配置
@@ -56,6 +63,7 @@
 2. 平台预置了human_g1k_v37_decoy.fasta、Homo_sapiens_assembly38.fasta、ucsc.hg19.fasta三个参考文件供用户选择；
 3. 计算完成后的分析结果，默认存放到项目关联COS Bucket的“/stdout/”目录下，用户可修改为其他目录，目录名须以“/”开头。
 #### 2.2.3 作业参数配置 ####
+
 ![作业参数配置](https://mc.qcloudimg.com/static/img/fef8494116763e4110c365fc980837ee/image.png)
 图10.作业参数配置
 
