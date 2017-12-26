@@ -54,9 +54,6 @@
 
 其他用户建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
 ，本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "本地同步工具使用说明")。其中重点配置信息说明如下：
-=======
-若源文件大于500MB，建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
-本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "工具使用说明")，其中重点配置信息说明如下：
 
 ![同步工具配置信息](https://mc.qcloudimg.com/static/img/fcafb9aa397b49c39b720430d27f2350/image.png)
 
