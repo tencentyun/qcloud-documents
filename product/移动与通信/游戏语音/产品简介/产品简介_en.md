@@ -18,7 +18,7 @@ Relying on Tencent cloud-based equipment and dynamic CDN acceleration technology
 #### Low Cost
 GVoice service is charged by DAU, which brings lower costs than the traditional bill-by-length mode.
 
-## Product Features
+## Features
 #### Voice Chat
 Allows multiple users to chat in real-time. It provides 2 modes, Team Chat and Commander. For Team Chat mode, every one in the room can speak freely. For Commander mode: only the authorized user can speak. 
 
