@@ -125,6 +125,27 @@ tac_services_configurations_wechat.plist
 	TACApplication.configurate(with: options);
 ~~~
 
+###### 配置 TACSocialWechat 中的配置脚本 (主要为第三方登陆模块的配置脚本)
+
+
+1. 在导航栏中打开您的工程
+2. 打开Tab `Build Phases`
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`. **请确保该脚本在 `Build Phases` 中排序为第二!!!!**。您可以将改脚本命名WechatSetupScripts.
+4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:
+
+####### 需要黏贴的代码
+
+~~~
+THIRD_FRAMEWORK_PATH=[]
+${THIRD_FRAMEWORK_PATH}/Scripts/run
+~~~
+
+其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
+
+1. 如果您使用Cocoapods来集成的则为 `${PODS_ROOT}/TACSocialWechat/Scripts/run`
+2. 如果您使用 手工集成 的方式则为 `${SRCROOT}/TACSocialWechat/Scripts/run`
+
+
 #### （6） 使用 libWeChatSDK 的功能
 
  > 我们已经为您自动化配置好了 libWeChatSDK 的其他功能，包括HandleOpenURL等函数的响应，和在Info.plist文件中注册相关的回调和Scheme等操作，您不需要重复执行该操作
