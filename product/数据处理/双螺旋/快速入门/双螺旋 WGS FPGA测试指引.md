@@ -87,7 +87,7 @@
 其中，项目应选择为存有测试数据的项目 
 #### 2.2.2 输入输出配置 ####
 
-![输入输出配置](https://mc.qcloudimg.com/static/img/e0a27275bb82c4bfedfb12636c9baf16/image.png)
+![输入输出配置](https://mc.qcloudimg.com/static/img/25b2daf78309b68997799fd51b0a53e5/image.png)
 
 图9.输入输出配置
 
@@ -107,6 +107,6 @@
 ## 三、结果查看 ##
 平台完成分析计算后，会将结果VCF文件回传到项目关联的COS Bucket中，存放目录为用户在创建作业时设置的“输出目录”。用户可在“数据管理”下“私有文件”子菜单中，查看到平台返回的测试结果文件，用户可将结果文件下载至本地进一步的分析。
 
-![结果文件](https://mc.qcloudimg.com/static/img/ea5af9d4fb694d40c26f84cae27a0d55/image.png)
+![结果文件](https://mc.qcloudimg.com/static/img/a2f07c6b2879b776496965fd78b3800c/image.png)
 
 图11. 分析结果文件
