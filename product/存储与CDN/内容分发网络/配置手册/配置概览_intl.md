@@ -16,6 +16,7 @@ CDN supports various custom configurations which allow you to optimize your CDN 
 | [Hotlink Protection Configuration](https://cloud.tencent.com/doc/product/228/6292) | Configure HTTP referer blacklist & whitelist |
 | [IP Blacklist & Whitelist](https://cloud.tencent.com/doc/product/228/6298) | Configure IP blacklist & whitelist for access control |
 | [IP Access Frequency Limit](https://cloud.tencent.com/doc/product/228/6420) | Configure access frequency limit of an IP to a single node |
+| [Video Drag Configurations](https://intl.cloud.tencent.com/document/product/228/8111) | Support to open video drag configuration |
 
 
 ## Cache Configuration
