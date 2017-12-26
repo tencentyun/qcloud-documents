@@ -12,7 +12,7 @@
 [Unity3D SDK接入流程](https://cloud.tencent.com/document/product/556/7673)  
 
 
-#### 3 JAVA 接口
+#### JAVA 接口
 JAVA接口使用方法（Android也可以使用C++接口）。  
 [Android平台接入流程](https://cloud.tencent.com/document/product/556/10022)  
 
