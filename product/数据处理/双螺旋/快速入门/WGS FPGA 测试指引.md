@@ -68,7 +68,7 @@ COS 提供以下工具，您可按照自身需求使用：
 #### 2.2.2 输入输出配置 ####
 ![输入输出配置](https://mc.qcloudimg.com/static/img/6e7ae17c7cf87efb58d284d956769835/image.png)
 -  其中，单击【浏览】按钮可从项目关联的 COS Bucket 中选择需要进行分析的文件，需提供双末端测序的一对文件作为输入文件；
-- 平台预置了`human_g1k_v37_decoy.fasta`、`Homo_sapiens_assembly38.fasta`、`ucsc.hg19.fasta`三个参考文件供您选择；
+- 平台预置了`Homo_sapiens_assembly38.fasta`、`human_g1k_v37_decoy.fasta`、`ucsc.hg19.fasta`三个参考文件供您选择；
 - 计算完成后的分析结果，默认存放到项目关联 COS Bucket 的`/stdout/`目录下，您可修改为其他目录，目录名须以`/`开头。
 
 #### 2.2.3 作业参数配置 ####
