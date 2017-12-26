@@ -1,6 +1,3 @@
-
-![image](https://mc.qcloudimg.com/static/img/1214c23b27c1764bca9a1a6c6d740d69/123.png)
- 
  
 #### For malicious files detected by Host Security, you can perform the following operations:
 1. **Isolate** 
