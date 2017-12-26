@@ -34,7 +34,6 @@
 
 图5.web上传页面
 #### 1.3.2 工具上传 ####
-<<<<<<< HEAD
 若源文件大于500MB，建议使用工具上传文件。
 
 **COSCMD 工具**
@@ -59,7 +58,6 @@
 若源文件大于500MB，建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
 本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "工具使用说明")，其中重点配置信息说明如下：
 
->>>>>>> 3f5bbdf611d6a2f68cb36a0f6ce07c3750fd97ea
 ![同步工具配置信息](https://mc.qcloudimg.com/static/img/fcafb9aa397b49c39b720430d27f2350/image.png)
 
 图6.同步工具配置信息
