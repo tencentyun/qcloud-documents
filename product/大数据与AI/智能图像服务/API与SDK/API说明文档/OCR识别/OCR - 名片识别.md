@@ -13,6 +13,9 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
+
+支持 http 和 https 两种协议：
+
 `http://service.image.myqcloud.com/ocr/namecard`
 
 ## 请求包header

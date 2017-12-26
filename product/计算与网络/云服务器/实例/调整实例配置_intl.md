@@ -12,7 +12,7 @@ Specifications of CVM instances can be adjusted easily and quickly. In the initi
 ![ ](//mc.qcloudimg.com/static/img/d5012707e07f2e1a4e5106bef5e0ba2d/image.png)
 
 ### Upgrading via API
-You can use the ResizeInstance and ResizeInstanceHour APIs to upgrade the instance configuration. For details, see [Adjust Prepaid Instance Configuration API](https://cloud.tencent.com/doc/api/229/1306) and [Adjust Postpaid  Instance Configuration API](https://cloud.tencent.com/doc/api/229/1306).
+You can use the ResizeInstance and ResizeInstanceHour APIs to upgrade the instance configuration. For details, see  [Adjust Postpaid  Instance Configuration API](https://cloud.tencent.com/doc/api/229/1306).
 
 ## Degrading Configuration
 

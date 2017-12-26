@@ -3,13 +3,9 @@
 In order to allow your published content to reach users faster, Tencent Cloud CDN has set up more than 800 nodes across the nation, covering mainstream ISPs such as China Mobile, China Unicom and China Telecom as well as many medium and small-sized ISPs such as China Tietong and Great Wall Broadband. Standalone server on each node has a performance up to double-hundred-million and the total node bandwidth reaches over 70T, thus perfectly solving the problem of high access latency of user and instability caused by such factors as geographical location, network and origin server's performance.
 
 **Nodes in Mainland China**
-![](https://mc.qcloudimg.com/static/img/19f5708498e59acef7d60a755dee686e/image.png)
 
 Tencent Cloud CDN provides more than 100 overseas nodes with a coverage of more than 30 countries and regions across the globe to allow your business to go global seamlessly.
-
-**Overseas node distribution **
-![](https://mc.qcloudimg.com/static/img/7576cb999f587790b39430600bfc2949/image.png)
-
+![](https://mc.qcloudimg.com/static/img/5c613ac74016730b3f144333bd5bf3bd/1.png)
 
 ## Intelligent Scheduling and Link Optimization
 
@@ -47,7 +43,7 @@ You do not need to make adjustments or changes to your business to connect to Te
 To connect to Tencent Cloud CDN, you only need to provide your domain name. CDN will assign you a CNAME in a fixed format. You need to change the CNAME setting corresponding to this domain name at the domain name service provider for the domain name. Once the DNS takes effect, you can immediately start using Tencent Cloud CDN.
 
 **Statistics Monitoring**
-Tencent Cloud CDN provides you with multi-dimensional data analysis, including consumption statistics, access statistics, request status statistics, origin server statistics, etc. If you need to perform real-time monitoring of such statistics, you can go to Cloud Monitor to set relevant alarms, so that you can get a picture about the business status in real time. At the same time, Tencent Cloud CDN will provide monthly operating data report to allow you to keep track of the monthly business fluctuations.
+Tencent Cloud CDN provides you with multi-dimensional data analysis, including consumption statistics, access statistics, request status statistics, origin server statistics, etc. If you need to perform real-time monitoring of such statistics, you can go to [Cloud Monitor](https://console.cloud.tencent.com/monitor/overview) to set relevant alarms, so that you can get a picture about the business status in real time. At the same time, Tencent Cloud CDN will provide monthly operating data report to allow you to keep track of the monthly business fluctuations.
 
 **Various Management Tools**
 You can perform domain name management, setting changes, going online/going offline, deletion and other operations through the CDN console. You can also make queries on the above statistics and charts. If your operation&maintenance personnel need to realize the management, monitoring, data presentation and analysis of your business in a customized way, Tencent Cloud provides a wealth of standard API interfaces.

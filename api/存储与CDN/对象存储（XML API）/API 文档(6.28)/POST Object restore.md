@@ -44,7 +44,7 @@ HTTP/1.1 405 Method Not Allowed
 
 ```http
 POST /ObjectName?restore HTTP 1.1
-Host:<BucketName>-<APPID>.<Region>.myqcloud.com
+Host:<BucketName-APPID>.<Region>.myqcloud.com
 Content-Length: length
 Date: GMT Date
 Authorization: Auth String 

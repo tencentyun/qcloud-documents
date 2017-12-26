@@ -10,7 +10,7 @@ Append Object 接口请求可以将一个对象以分块追加的方式上传至
 语法示例：
 ```
 POST /ObjectName?append&position=*position* HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Content-Length: size
 Content-Type: ContentType
 Date: GMT Date

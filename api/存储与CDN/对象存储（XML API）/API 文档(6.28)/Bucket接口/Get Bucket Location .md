@@ -9,7 +9,7 @@ Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET �
 语法示例：
 ```
 GET /?location HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

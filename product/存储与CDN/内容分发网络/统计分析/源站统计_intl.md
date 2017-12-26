@@ -24,6 +24,7 @@ The following query criteria are supported when querying back-to-origin statisti
   > If the domain has been deleted for the specified time range, it will not be covered in statistics even if it is checked;
   > If the domain experienced three stages (not connected, connected and deleted) for the specified time range, the statistical data for unconnected and deleted time period will be filled by 0.
 
+## Data Result Description
 **Note about statistics:**
 
 Back-to-origin failure rate statistics, back-to-origin failure analysis, and 404 status code are obtained from the statistical analysis of logs, thus such data are collected from the hosting source dimension:
@@ -34,9 +35,6 @@ Back-to-origin failure rate statistics, back-to-origin failure analysis, and 404
 In this situation, the query results regarding relevant information of "www.a.com" or "www.b.com" are the same, which will be the statistics of the origin server "www.c.com".
 
 The statistics of back-to-origin bandwidth and back-to-origin speed are collected independently without following the above logic.
-
-
-## Data Result Description
 ### Back-to-origin Traffic and Bandwidth
 Displays statistical curve graph of back-to-origin traffic and back-to-origin bandwidth:
 ![](https://mc.qcloudimg.com/static/img/08ba22338ee731ec7d036f30c5000c86/2.png)

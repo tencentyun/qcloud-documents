@@ -19,7 +19,7 @@ Where:
     
 3) service_type describes the abbreviations of product names, such as cvm, cdn, etc. For more information, please see the corresponding product documentations. The abbreviation for CAM products is cam. "*" indicates all products. This field is required.
     
-4) region describes the region information. A null value indicates all regions. The list of regions supported currently is as follows:
+4) region describes the region information. A null value indicates all regions. The unified geographical naming method of Tecent Cloud refers to [Regions and Availability Zones](https://intl.cloud.tencent.com/document/product/213/6091). The list of regions supported currently is as follows:
 
 | Abbreviation for Region | Description | 
 |---------|---------|

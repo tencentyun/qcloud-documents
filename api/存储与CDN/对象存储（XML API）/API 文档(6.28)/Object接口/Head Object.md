@@ -13,7 +13,7 @@ Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head �
 语法示例：
 ```
 HEAD /<ObjectName> HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 

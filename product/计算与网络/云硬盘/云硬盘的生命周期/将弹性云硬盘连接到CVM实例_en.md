@@ -20,7 +20,7 @@ Please refer to [API AttachCbsStorages](https://cloud.tencent.com/doc/api/364/25
 
 ## How to solve the problem that some of the created CVM instances cannot recognize elastic cloud disks
 
-All of the supplied images support mounting/unmounting of elastic cloud disks. >Please make sure to perform unmount (for Linux) or offline (for Windows) actions before removing (uninstalling) the disk, otherwise it is likely that the disk cannot be recognized when mounted again.
+All of the supplied images support mounting/unmounting of elastic cloud disks.Please make sure to perform unmount (for Linux) or offline (for Windows) actions before removing (uninstalling) the disk, otherwise it is likely that the disk cannot be recognized when mounted again.
 
 If you have purchased the following CVMs and plan to add elastic cloud disks to the CVMs:
 

@@ -16,7 +16,7 @@ GN2 Instance is the best choice for server-side GPU computing workloads, which r
 - **CPU:** High-frequency Intel Xeon E5-2680 (Broadwell).
 - **GPU:** NVIDIA Tesla M40 GPU.
 - **Memory:** (DDR4).
-- **Storage:** Both system disk and data disk are local SSD. If you need more capcity, please [purchase elastic cloud disks](/doc/product/362/2732).	 
+- **Storage:** Both system disk and data disk are local SSD.	 
 - **Network:** Network enhancement is available by default (free).
 
 	
@@ -56,7 +56,7 @@ GN2 Instance is the best choice for server-side GPU computing workloads, which r
 </table>
 
 ## Service Options
-- It supports two billing methods: [Prepaid](/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) and [Postpaid](/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9).
+- It supports one billing methods: [Postpaid](/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9).
 - It can be launched in basic network and [VPC](/doc/product/213/5227).
 - It can be accessed with [Load Balance](/doc/product/214/524) and other Tencent Cloud services, without additional management and OPS costs. Private network traffic is free of charge.
 
