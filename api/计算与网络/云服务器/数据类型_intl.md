@@ -77,7 +77,7 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| Enabled | Boolean | No | Whether to enable Cloud Security service. Value range: <br><li>TRUE: enable Cloud Security<br><li>FALSE: not enable Cloud Security<br><br>Default: TRUE. |
+| Enabled | Boolean | No | Whether to enable [Cloud Security](https://cloud.tencent.com/document/product/296) service. Value range: <br><li>TRUE: enable Cloud Security<br><li>FALSE: not enable Cloud Security<br><br>Default: TRUE. |
 
 ### RunMonitorServiceEnabled
 
@@ -85,7 +85,7 @@
 
 | Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| Enabled | Boolean | No | Whether to enable Cloud Monitoring service. Value range: <br><li>TRUE: enable Cloud Monitoring<br><li>FALSE: not enable Cloud Monitoring<br><br>Default: TRUE. |
+| Enabled | Boolean | No | Whether to enable [Cloud Monitoring](https://cloud.tencent.com/document/product/296) service. Value range: <br><li>TRUE: enable Cloud Monitoring<br><li>FALSE: not enable Cloud Monitoring<br><br>Default: TRUE. |
 
 ### EnhancedService
 
