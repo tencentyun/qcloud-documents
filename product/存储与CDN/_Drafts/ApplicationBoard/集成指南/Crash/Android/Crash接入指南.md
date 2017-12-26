@@ -26,7 +26,7 @@ dependencies {
 
 #### 本地集成
 
-1. 下载 Messaging 服务资源打包文件，并解压。下载资源文件请点击[这里]()。
+1. 下载 Crash 服务资源打包文件，并解压。下载资源文件请点击[这里]()。
 2. 将资源文件中的 libs 目录拷贝到您的 module 的根目录下。
 3. 将解压后的 jniLibs 目录拷贝到您的 module 的 ./source/main 下，这里您可以根据自己的平台来删减 so 文件。
 4. 打开您自己 module 下的 AndroidManifest.xml 文件，需要添加如下权限。
@@ -47,7 +47,7 @@ dependencies {
 // 每次调用 newDefaultOptions(Context) 方法会新建一个配置对象，如果您使用了多个 TAC 服务，请不要重复调用。
 TACApplicationOptions applicationOptions = TACApplicationOptions.newDefaultOptions(this);
 
-// 这里获取 Messaging 服务的配置对象，您可以通过这个对象来配置 Messaging 服务。
+// 这里获取 Crash 服务的配置对象，您可以通过这个对象来配置 Crash 服务。
 TACCrashOptions crashOptions = applicationOptions.sub("crash");
 ```
 请注意，每次调用 newDefaultOptions(Context) 方法会新建一个配置对象，如果您使用了多个 TAC 服务，请不要重复调用。
