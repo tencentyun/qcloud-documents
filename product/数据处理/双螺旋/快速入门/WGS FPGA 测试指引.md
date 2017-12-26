@@ -66,9 +66,9 @@ COS 提供以下工具，您可按照自身需求使用：
 其中，项目应选择存有测试数据的项目。
 
 #### 2.2.2 输入输出配置 ####
-![输入输出配置](https://mc.qcloudimg.com/static/img/e0a27275bb82c4bfedfb12636c9baf16/image.png)
+![输入输出配置](https://mc.qcloudimg.com/static/img/6e7ae17c7cf87efb58d284d956769835/image.png)
 -  其中，单击【浏览】按钮可从项目关联的 COS Bucket 中选择需要进行分析的文件，需提供双末端测序的一对文件作为输入文件；
-- 平台预置了`human_g1k_v37_decoy.fasta`、`Homo_sapiens_assembly38.fasta`、`ucsc.hg19.fasta`三个参考文件供您选择；
+- 平台预置了`Homo_sapiens_assembly38.fasta`、`human_g1k_v37_decoy.fasta`、`ucsc.hg19.fasta`三个参考文件供您选择；
 - 计算完成后的分析结果，默认存放到项目关联 COS Bucket 的`/stdout/`目录下，您可修改为其他目录，目录名须以`/`开头。
 
 #### 2.2.3 作业参数配置 ####
@@ -84,4 +84,4 @@ COS 提供以下工具，您可按照自身需求使用：
 
 ## 三、结果查看 ##
 平台完成分析计算后，会将结果 VCF 文件回传到项目关联的 COS Bucket 中，存放目录为用户在创建作业时设置的 **输出目录**。您可在 **数据管理** 下的 **私有文件** 子菜单中，查看平台返回的测试结果文件，或将结果文件下载至本地做进一步的分析。
-![结果文件](https://mc.qcloudimg.com/static/img/ea5af9d4fb694d40c26f84cae27a0d55/image.png)
+![结果文件](https://mc.qcloudimg.com/static/img/a2f07c6b2879b776496965fd78b3800c/image.png)
