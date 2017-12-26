@@ -6,7 +6,7 @@ Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 语法示例：
 ```
 GET /<ObjectName> HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

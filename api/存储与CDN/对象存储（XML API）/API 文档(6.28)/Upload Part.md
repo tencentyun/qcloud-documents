@@ -8,7 +8,7 @@ Upload Part 接口请求实现在初始化以后的分块上传，支持的块�
 语法示例：
 ```
 PUT /ObjectName?partNumber=PartNumber&uploadId=UploadId HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: Size
 Authorization: Auth String

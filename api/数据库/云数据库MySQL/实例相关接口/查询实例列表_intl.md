@@ -12,7 +12,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| projectId | No | Int | Project ID. You can use API [Query Project List](/document/product/378/4400) to query the project ID |
+| projectId | No | Int | Project ID. You can use API Query Project List to query the project ID |
 | cdbInstanceIds.n | No | String | One or more instance IDs (n represents array subscript starting with 0). Instance ID, such as: cdb-c1nl9rpv. It is identical to the instance ID displayed in the Cloud Database console page and can be obtained using API [Query Instance List](/doc/api/253/1266). Its value equals the uInstanceId field value in the output parameter.  |
 | cdbInstanceVips.n | No | String | One or more instance access addresses (n represents array subscript starting with 0). Please use API [Query List of Instances](/doc/api/253/1266) to query the instance access addresses of cloud database.
 | status.n | No | Int | Instance status. Default is 1. One or more status values (n represents array subscript starting with 0). The value includes: <br>0-Creating<br>1-Running<br>4-Deleting<br>5-Isolated |

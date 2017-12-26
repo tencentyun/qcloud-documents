@@ -16,6 +16,9 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
+
+支持 http 和 https 两种协议：
+
 `http://recognition.image.myqcloud.com/ocr/drivinglicence`
 
 ## 请求包header
