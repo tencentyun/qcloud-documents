@@ -22,7 +22,6 @@ dependencies {
     compile 'com.tencent.tac:crash:1.0.0' 
 
 }
-
 ```
 
 #### 本地集成
@@ -33,12 +32,11 @@ dependencies {
 4. 打开您自己 module 下的 AndroidManifest.xml 文件，需要添加如下权限。
 
 ```
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	<uses-permission android:name="android.permission.READ_LOGS" />
-
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.READ_LOGS" />
 ```
 
 ### 配置 Crash 服务实例
@@ -51,7 +49,6 @@ TACApplicationOptions applicationOptions = TACApplicationOptions.newDefaultOptio
 
 // 这里获取 Messaging 服务的配置对象，您可以通过这个对象来配置 Messaging 服务。
 TACCrashOptions crashOptions = applicationOptions.sub("crash");
-
 ```
 请注意，每次调用 newDefaultOptions(Context) 方法会新建一个配置对象，如果您使用了多个 TAC 服务，请不要重复调用。
 
@@ -65,7 +62,6 @@ TACCrashService crashService = TACCrashService.getInstance();
 
 // 调用 start 接口启动 Crash 服务，context 这里最好是使用 application context。
 crashService.start(context);
-
 ```
 
 
@@ -85,7 +81,6 @@ buildscript {
         classpath 'com.tencent.tac:crash-plugin:1.0.0'
     }
 }
-
 ```
 
 2、在 module 下的 build.gradle 文件中添加插件
@@ -94,5 +89,4 @@ buildscript {
 ......
  
 apply plugin: 'com.tencent.tac.crash'
-
 ```
