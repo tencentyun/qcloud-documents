@@ -8,7 +8,6 @@
 ### 开发环境
 
 依赖环境：PHP 5.3.0 版本及以上
-<style  rel="stylesheet"> table th:nth-of-type(1) { width: 100px; }</style>
 
 ### SDK 配置
 
@@ -320,7 +319,37 @@ $insertOnly = 0;
 $sliceSize = 3 * 1024 * 1024;
 $result = $cosApi->upload($bucketName, $srcPath, $dstPath ,"biz_attr");
 ```
+### 文件下载
 
+接口说明：文件下载的统一接口。
+
+#### 原型方法
+
+``` php
+public function download($bucket, $srcPath, $dstPath);
+```
+
+#### 参数说明
+
+| **参数名**    | **类型** | **必填** | **参数描述**                                 |
+| ---------- | ------ | ------ | ---------------------------------------- |
+| bucketName | String | 是      | bucket名称，bucket创建参见[创建Bucket](/document/product/436/6245) |
+| srcPath    | String | 是      |  文件在COS服务端的全路径，不包括/appid/bucketname                              |
+| dstPath    | String | 是      |  本地要保存文件的全路径     |
+
+#### 返回值说明(json)
+
+| **参数名** | **类型** | 必带   | **参数描述**                                 |
+| ------- | ------ | ---- | ---------------------------------------- |
+| code    | Int    | 是    | 错误码，成功时为0                                |
+| message | String | 是    | 错误信息                                     |
+| data    | Array  | 是    | 返回数据，请参考[《Restful API 创建文件》](/document/product/436/6066) |
+
+#### 示例
+
+``` php
+$result = $cosApi->upload($bucketName,“a.txt”, "E:/a.txt");
+```
 ### 文件属性更新
 
 接口说明：用于目录业务自定义属性的更新，可以通过此接口更新业务的自定义属性字段。
