@@ -84,4 +84,4 @@ COS 提供以下工具，您可按照自身需求使用：
 
 ## 三、结果查看 ##
 平台完成分析计算后，会将结果 VCF 文件回传到项目关联的 COS Bucket 中，存放目录为用户在创建作业时设置的 **输出目录**。您可在 **数据管理** 下的 **私有文件** 子菜单中，查看平台返回的测试结果文件，或将结果文件下载至本地做进一步的分析。
-![结果文件](https://mc.qcloudimg.com/static/img/ea5af9d4fb694d40c26f84cae27a0d55/image.png)
+![结果文件](https://mc.qcloudimg.com/static/img/a2f07c6b2879b776496965fd78b3800c/image.png)
