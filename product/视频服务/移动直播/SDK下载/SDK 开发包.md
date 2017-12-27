@@ -18,7 +18,7 @@ table td {
 ## 特别提醒
 [Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1 - 2 周时间，这段时间我们会用来进行 bugfix 和 系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
 
-<h2 id="iOS"> iOS (3.9.2754) </h3>
+<h2 id="iOS"> iOS SDK (3.9.2754) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
@@ -158,7 +158,7 @@ table td {
   部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.9/TXLiteAVSDK_Professional_Rename_iOS_3.9.2754.zip?_ga=1.172502247.572863791.1503542401">重命名版下载</a> 。	
 	
 
-<h2 id="Android"> Android (3.9.2754) </h3>
+<h2 id="Android"> Android SDK (3.9.2754) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
@@ -279,7 +279,7 @@ table td {
 	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.9/LiteAVSDK_Enterprise_Android_3.9.2754.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 
-<h2 id="Windows"> Windows（1.2.0） </h3>
+<h2 id="Windows"> Windows SDK (1.2.0) </h3>
 <table>
   <tr align="center">
     <th width="200px">功能特性</th>
@@ -325,9 +325,9 @@ table td {
   </tr>
 	<tr align="center">
     <td>下载地址</td>
-    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK1.2.0.2.zip">DOWNLOAD</a></td>
-		<td><a href="https://mc.qcloudimg.com/static/archive/c9f387249994de16d5f86007dc44a5ff/LiteAVSDK_Windows_C%23_1.2.2.0.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVSDK_Win_1.2.zip">DOWNLOAD</a></td>
+    <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK1.2.1.4.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/1.2.2/LiteAVSDK_Windows_CSharp_1_2_2_0.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/1.2.2/LiteAVSDK_Windows_cpp_1_2_2_0.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 
@@ -342,12 +342,29 @@ table td {
 
 - **QT界面库**
 	Windows 版本的 SDK 不依赖其它 dll 即可运行，但 Windows 版本的 Demo 是基于 Qt 界面库构建的，所以编译和运行 Demo 请在 Qt 官网下载和安装 Qt 5.9 和 Visual Studio Add-in For Qt 插件。
-	
+
+<h2 id="XiaoChengXu">小程序源码</h3>
+
+<table width="850px">
+  <tr align="center">
+    <th width="120px">所属平台</th>
+    <th width="80px">版本号</th>
+		<th width="570px">说明</th>
+    <th width="80px">下载链接</th>
+  </tr>
+  <tr align="center">
+    <td>小程序</td>
+    <td>1.2.277</td>
+		<td>基于小程序音视频能力构建的双人、多人实时音视频解决方案，包含小程序与后台全部源码</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.277.zip">DOWNLOAD</a></td>
+  </tr>
+</table>
+
 - **一键部署**
 此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**server** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
 
 	
-<h2 id="Xiaozhibo">小直播源代码</h3>
+<h2 id="Xiaozhibo">小直播源码</h3>
 
 <table width="850px">
   <tr align="center">
