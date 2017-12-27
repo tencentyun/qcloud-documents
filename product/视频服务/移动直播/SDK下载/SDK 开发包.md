@@ -343,7 +343,7 @@ table td {
 - **QT界面库**
 	Windows 版本的 SDK 不依赖其它 dll 即可运行，但 Windows 版本的 Demo 是基于 Qt 界面库构建的，所以编译和运行 Demo 请在 Qt 官网下载和安装 Qt 5.9 和 Visual Studio Add-in For Qt 插件。
 
-<h2 id="Xiaozhibo">小程序</h3>
+<h2 id="XiaoChengXu">小程序</h3>
 
 <table width="850px">
   <tr align="center">
