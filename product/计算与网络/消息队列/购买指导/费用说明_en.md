@@ -7,7 +7,7 @@ Charges for Tencent Cloud's CMQ include fees for the number of requests, message
 **Note: The fees for the number of requests and message retention occurred in the current CMQ have not been charged. Before formally charging, you will be notified by Email, phone or SMS. Please all developers feel free to use it.**
 
 
-## Fee for the Number of Requests
+### Fee for the Number of Requests
 
 In a single region, after users activate CMQ services, Tencent Cloud will provide the statistics of the API/SDK request number in the message queue ***per hour***. The fee per million requests is ***2.00 CNY/million***. It is charged hourly. The number of requests is calculated in millions (accurate to two decimal places).
 
@@ -16,7 +16,7 @@ Here is an example of billing:
 - If the total number of user requests is 1,323,454 on May, 20, 2016 from 16:00 to 17:00, the calculated number of requests is 1.32 (million counts), and the fee for the requests during this period is 1.32 * 2.00 = 2.64 CNY.
 - If the total number of user requests is 181,000 on May, 20, 2016 from 18:00 to 19:00, the calculated number of requests is 0.18 (million counts), and the fee for the requests during this period is 0.18 * 2.00 = 0.36 CNY.
 
-## Message Retention Fee (including message rewind fee)
+### Message Retention Fee (including message rewind fee)
 
 The CMQ will charge the message retention fee hourly in a single region. The formula is as follows:
 
@@ -29,7 +29,7 @@ Unit price of retained messages: ***0.010 CNY/million messages/hour***. The tota
 Here is an example of billing: 
 - If the total number of retained messages in A Queue is 1,323,450 on May 20, 2016 from 16:00 to 17:00, the message retention fee for this queue within this hour is 0.01 * 1.32 = 0.01 CNY.
 
-## Outbound Traffic Fee
+### Outbound Traffic Fee
 
 Tencent Cloud's network traffic billing rules: The inbound traffic is free, while the outbound traffic is charged. (During alpha test, the public network traffic is also charged. So it is recommended that you perform alpha test via private network API address.)
 
@@ -52,7 +52,7 @@ For regions: All fees are charged separately by region
 
 
 
-## API Request Fee
+### API Request Fee
 For now, the maximum size of a message allowed to be published is 64 KB. The published data for every 64 KB block is charged based on one request (if the data is less than 64 KB, it will be counted as 64 KB). For the configuration of a certain Topic subscriber, API calling is also charged based on one request. For example, for 30 subscribers, API calling with a load of 64 KB will be charged based on 30 requests.
 
 Billing rules: Rounded to two decimal places. For example, if the number of published messages is 1,439,321 (1.43 million), the fee charged will be 2.86 CNY.
@@ -60,7 +60,7 @@ Billing rules: Rounded to two decimal places. For example, if the number of publ
 Here is a billing scenario: 
 - When a Queue is set as the subscriber of a topic, the charges, after the Topic delivers messages, will include: API request fee for the Queue to receive messages, and message delivery fee for the Queue.
 
-## Message Retention Fee
+### Message Retention Fee
 Messages retention may occur in Topic (message retention due to failed publication or multiple retries). The formula for calculating message retention fee is as follows: 
 ```
 Message retention fee = Total number of messages * Unit price of retained messages
@@ -74,7 +74,7 @@ Unit price of retained messages: 0.010 CNY/million messages/hour
 Here is an example of billing: 
 - If the total number of retained messages in Queue A for its Topic is 1,323,450 on May 20, 2016 from 16:00 to 17:00, the message retention fee for Queue A within an hour is 0.01 CNY
 
-## Outbound Traffic Fee
+### Outbound Traffic Fee
 
 Tencent Cloud's traffic billing rules: The inbound traffic of Topic is free, while the outbound traffic of Topic to publish subscriptions is charged. (During alpha test, the public network traffic is also charged. So it is recommended that you perform alpha test via private network API address.)
 
