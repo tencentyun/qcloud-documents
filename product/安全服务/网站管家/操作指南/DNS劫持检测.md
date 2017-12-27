@@ -14,4 +14,5 @@ DNS 劫持检测功能可用于检测域名是否被劫持，并且能实时监�
 ![DNS](https://mc.qcloudimg.com/static/img/2f808769ab3909dc929eda47a1044115/dns_03.png)
 
 [下一步：CC 防护设置](https://cloud.tencent.com/document/product/627/11709){:target="_blank"} 
+
 <a href="https://cloud.tencent.com/document/product/627/11709">下一步：CC 防护设置</a>
