@@ -49,7 +49,7 @@
 
 
 ```
-  https://cfs.api.qcloud.com/v2/index.php?Action=CreateCfsFileSystem
+  https://cfs.api.cloud.tencent.com/v2/index.php?Action=CreateCfsFileSystem
   &Region=bj
   &ZoneId=800001
   &NetInterface=vpc
@@ -62,7 +62,7 @@
   &ActMode=auto
   &<公共请求参数>
 =======
-  &<<a href="https://www.qcloud.com/doc/api/229/6976"> 公共请求参数 </a>>
+  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 >>>>>>> Stashed changes
 ```
