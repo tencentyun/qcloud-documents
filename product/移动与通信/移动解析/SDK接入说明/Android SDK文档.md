@@ -48,10 +48,10 @@ DNS_KEY，DNS_ID，开通使用httpdns时，会分配对应业务的ID和KEY，I
 |-------|---------|---------|
 |厂商开关 |	IS_COOPERATOR | 外部应用填"true" |
 |外部厂商测试开关 | IS_COOPERATOR_TEST | 如果需要使用测试环境来测试则填"true"，直接使用正式环境填"false" （测试环境将会使用官方提供的demo，无需申请ID与KEY，正式使用时需要申请自己的ID与KEY）|
-|厂商上报appID | COOPERATOR_APPID | 注册后由系统或管理员分配|
+|厂商上报appID | COOPERATOR_APPID | 云官网注册获得|
 |SDK日志开关 | IS_DEBUG | true为打开日志开关，false为关闭日志，在测试阶段建议打开日志，以便排查问题，正式上线后可以关闭|
-|服务端分配的ID | DNS_ID | 注册后由系统或管理员分配|
-|服务端分配的KEY | DNS_KEY | 注册后由系统或管理员分配|
+|服务端分配的ID | DNS_ID | 云官网注册获得|
+|服务端分配的KEY | DNS_KEY | 云官网注册获得|
 
 ### 2.3. 接入依赖库
 > 注意：检查应用是否接入过已经接入了腾讯msdk，如果已经接入了腾讯msdk则忽略此步。

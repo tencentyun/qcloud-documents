@@ -15,9 +15,9 @@
 
 ## 调用URL
 
-```
-http://recognition.image.myqcloud.com/ocr/bizlicense
-```
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/bizlicense`
 
 ## 请求包header
 采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
