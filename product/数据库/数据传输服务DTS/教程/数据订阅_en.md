@@ -24,7 +24,6 @@ Supported regions:
 | Toronto | - |
 | Silicon Valley | - |
 | Shenzhen Finance | - |
-| Shanghai Finance | - |
 
 ## 3. Create Data Subscription Channel
 Log in to DTS console and go to the Data Subscription page.
