@@ -34,8 +34,26 @@
 
 图5.web上传页面
 #### 1.3.2 工具上传 ####
-若源文件大于500MB，建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
-本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "工具使用说明")，其中重点配置信息说明如下：
+若源文件大于500MB，建议使用工具上传文件。
+
+**COSCMD 工具**
+
+有一定Python操作基础的用户，建议使用COSCMD工具。点击下载[COSCMD工具](https://github.com/tencentyun/coscmd)，工具的使用指引点此了解[COSCMD工具使用说明](https://cloud.tencent.com/document/product/436/10976)
+。其中重点配置信息说明如下：
+![](https://mc.qcloudimg.com/static/img/cb4a6d9006514cbc54e71fe6db395064/image.png)
+图6.COSCMD工具配置信息
+
+1. **secret_id**和**secret_key**，指用户的云API密钥，可从云API密钥控制台“API密钥”菜单中获取。若还没有云API密钥，用户可在控制台上新建。点此进入[云API密钥控制台](https://console.cloud.tencent.com/capi "API密钥")
+2. **APPID**,指用户在腾讯云的标识，可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 【账号信息】查看 APPID。
+3. **Bucket**，指COS Bucket名称，此处使用系统分配的项目关联Bucket，获取方式见上文图4
+4. **Region**，指文件所属地域，此处固定为 ap-guangzhou
+
+
+
+**COS本地同步工具**
+
+其他用户建议通过腾讯云COS本地同步工具上传。点此下载[本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")
+，本地同步工具的使用指引点此了解[工具使用说明](https://cloud.tencent.com/document/product/436/7133 "本地同步工具使用说明")。其中重点配置信息说明如下：
 
 ![同步工具配置信息](https://mc.qcloudimg.com/static/img/fcafb9aa397b49c39b720430d27f2350/image.png)
 
@@ -64,7 +82,7 @@
 其中，项目应选择为存有测试数据的项目 
 #### 2.2.2 输入输出配置 ####
 
-![输入输出配置](https://mc.qcloudimg.com/static/img/e0a27275bb82c4bfedfb12636c9baf16/image.png)
+![输入输出配置](https://mc.qcloudimg.com/static/img/25b2daf78309b68997799fd51b0a53e5/image.png)
 
 图9.输入输出配置
 
@@ -84,6 +102,6 @@
 ## 三、结果查看 ##
 平台完成分析计算后，会将结果VCF文件回传到项目关联的COS Bucket中，存放目录为用户在创建作业时设置的“输出目录”。用户可在“数据管理”下“私有文件”子菜单中，查看到平台返回的测试结果文件，用户可将结果文件下载至本地进一步的分析。
 
-![结果文件](https://mc.qcloudimg.com/static/img/ea5af9d4fb694d40c26f84cae27a0d55/image.png)
+![结果文件](https://mc.qcloudimg.com/static/img/a2f07c6b2879b776496965fd78b3800c/image.png)
 
 图11. 分析结果文件

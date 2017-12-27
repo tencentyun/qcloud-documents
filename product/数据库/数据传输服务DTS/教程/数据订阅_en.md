@@ -14,13 +14,16 @@ Supported regions:
 | Guangzhou | Yes |
 | Shanghai | Yes |
 | Beijing | Yes |
+| Shanghai Finance | Yes |
+|Frankfurt| Yes |
+| Seoul | Yes |
+| chengdu | Yes |
 | Hong Kong | - |
 | Open Zone | - |
 | Singapore | - |
 | Toronto | - |
 | Silicon Valley | - |
 | Shenzhen Finance | - |
-| Shanghai Finance | - |
 
 ## 3. Create Data Subscription Channel
 Log in to DTS console and go to the Data Subscription page.

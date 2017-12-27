@@ -43,11 +43,16 @@ pod 'TACAuthorization'
 pod 'TACAuthorizationQQ'
 ~~~
 
+该模块依赖 TACSocialQQ 模块，将会自动引入 TACSocialQQ 模块，请查看 TACSocialQQ 的配置手册，并对 TACSocialQQ 进行配置。
+
 ###### 使用WeChat第三方登陆
 
 ~~~
 pod 'TACAuthorizationWechat'
 ~~~
+
+该模块依赖 TACSocialWechat 模块，将会自动引入 TACSocialWechat 模块，请查看 TACSocialWechat 的配置手册，并对 TACSocialWechat 进行配置。
+
 
 ##### (3) 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
 

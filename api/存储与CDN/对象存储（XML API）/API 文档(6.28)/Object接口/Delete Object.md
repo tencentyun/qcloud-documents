@@ -2,8 +2,8 @@
 Delete Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）删除。该操作需要请求者对 Bucket 有 WRITE 权限。
 
 ### 细节分析
-1.	在Delete Objects请求中删除一个不存在的Object，仍然认为是成功的, 返回204 No Content
-2.  Delete Object要求用户对该Object要有写权限
+1.	在 Delete Object 请求中删除一个不存在的 Object，仍然认为是成功的，返回 `204 No Content`。
+2.  Delete Object 要求用户对该 Object 要有写权限。
 
 ## 请求
 
@@ -16,7 +16,7 @@ Content-Length: length
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+> Authorization: Auth String (详细参见 [请求签名](/document/product/436/7778) 章节)
 
 ### 请求行
 ```
