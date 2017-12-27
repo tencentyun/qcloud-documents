@@ -2,7 +2,7 @@
 
 The description format of Tencent Cloud container image is as follows: `ccr.ccs.tencentyun.com/${namespace}/${name}:${tag}`.
 The permissions for image registry are configured based on the following two fields:
-* `${namespace}`: The namespace to which the image belongs;
+* `$ {namespace}`: The namespace to which the image belongs;
 * `$ {name}`: Name of image.
 
 >**Note:**
