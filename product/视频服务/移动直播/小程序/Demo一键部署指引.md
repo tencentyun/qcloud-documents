@@ -1,9 +1,9 @@
-#部署文档
+
 腾讯云提供了全套技术文档和源码来帮助您快速构建一个音视频小程序，但是再好的源码和文档也有学习成本，为了尽快的能调试起来，我们还提供了一个免费的一键部署服务：您只需轻点几下鼠标，就可以在自己的账号下获得一个音视频小程序，同时附送一台拥有独立域名的测试服务器，让您可以在 5 分钟内快速构建出自己的测试环境。
 
-## 一、通过微信公众平台授权登录腾讯云
+## 通过微信公众平台授权登录腾讯云
 
-打开[微信公众平台](https://mp.weixin.qq.com)注册并登录小程序，按如下步骤操作：
+打开 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序，按如下步骤操作：
 
 1. 单击左侧菜单栏中的【设置】。
 2. 单击右侧 Tab 栏中的【开发者工具】。
@@ -20,20 +20,20 @@
 
 ![腾讯云微信小程序控制台](https://mc.qcloudimg.com/static/img/032d0b2b99dfcfdf4234db911e93b60f/15.png)
 
-## 二、免费开通腾讯云服务
-### 1.开通直播服务
-#### 1.1 申请开通视频直播服务
-进入[直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，则会有如下提示:
+## 免费开通腾讯云服务
+### 开通直播服务
+#### 1. 申请开通视频直播服务
+进入 [直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，则会有如下提示:
 ![](https://mc.qcloudimg.com/static/img/c40ff3b85b3ad9c0cb03170948d93555/image.png)
 点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
 
 
-#### 1.2 配置直播码
-直播服务开通后，进入[直播控制台>>直播码接入>>接入配置](https://console.cloud.tencent.com/live/livecodemanage) 完成相关配置，即可开启直播码服务：
+#### 2. 配置直播码
+直播服务开通后，进入【直播控制台】>【直播码接入】>【接入配置】(https://console.cloud.tencent.com/live/livecodemanage) 完成相关配置，即可开启直播码服务：
 ![](https://mc.qcloudimg.com/static/img/32158e398ab9543b5ac3acf5f04aa86e/image.png)
-点击**确定接入**按钮即可。
+点击【确定接入】按钮即可。
 
-#### 1.3 获取直播服务配置信息
+#### 3. 获取直播服务配置信息
 从直播控制台获取bizid、pushSecretKey，后面配置服务器会用到：
 ![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
 
