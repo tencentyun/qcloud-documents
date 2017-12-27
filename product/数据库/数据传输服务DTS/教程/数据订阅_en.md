@@ -14,6 +14,10 @@ Supported regions:
 | Guangzhou | Yes |
 | Shanghai | Yes |
 | Beijing | Yes |
+| Shanghai Finance | Yes |
+|Frankfurt| Yes |
+| Seoul | Yes |
+| chengdu | Yes |
 | Hong Kong | - |
 | Open Zone | - |
 | Singapore | - |
