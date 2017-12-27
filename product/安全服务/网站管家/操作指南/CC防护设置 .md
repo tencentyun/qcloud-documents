@@ -10,6 +10,3 @@ CC 防护功能支持对公网用户访问特定 URL 的行为进行频率控制
 
 [上一步：DNS 劫持检测](/document/product/627/11708)
 [下一步：网页防篡改](/document/product/627/11710)
-
-<a href="https://cloud.tencent.com/document/product/627/11709" target="_blank">下一步：CC 防护设置</a>
-ddd
