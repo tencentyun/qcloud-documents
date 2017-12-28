@@ -1,6 +1,7 @@
 ## Monitoring
 
-Cloud Monitor provides monitoring metrics at the following dimensions for CCS:
+Now, Cloud Monitor provides monitoring metrics at the following dimensions for CCS:
+
 
 ### Monitoring Metrics at Cluster Dimension
 
@@ -65,5 +66,4 @@ View: docker_container
 | Container disk read IOPS          | container_disk_read             | count | Read IOPS when container reads from the disk      |
 | Container disk write IOPS          | container_disk_write            | count | Write IOPS when container writes to the disk      |
 
-For more information about how to use the monitoring metrics of CCS, please see the API [Read Monitoring Data](https://cloud.tencent.com/document/product/248/4667) in the Cloud Monitor API.
-
+For more information on how to use the monitoring metrics of CCS, please see the API [Read Monitoring Data](https://cloud.tencent.com/document/product/248/4667) in the Cloud Monitor API.

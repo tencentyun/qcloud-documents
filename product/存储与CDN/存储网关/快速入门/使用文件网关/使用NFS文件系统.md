@@ -107,21 +107,21 @@
 关闭注册表并重启 windows 系统，完成注册表修改。
 
 
+#### 打开 "映射网路驱动器"
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，点击菜单中的 "映射网路驱动器"。 
+![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
+![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
 
-### 挂载文件系统
-在 windows 的命令行工具中输入如下命令，挂载文件系统。
-
-> mount  <网关 IP >:/share/nfs/<文件系统名称> <共享目录名称>:
-> //列如： mount 10.10.0.12:/share/nfs/filesysname X:
-
-![](https://mc.qcloudimg.com/static/img/f7b69c5f31601a09cc7c48d013a3e2e4/image.png)
+#### 输入访问路径
+在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录）。
+![](https://mc.qcloudimg.com/static/img/7f875dbbaf2a210ad90f40db68fbb487/image.png)
 
 
-### 卸载共享目录 
+#### 验证读写
+确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
+![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
-当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
-> umount <目录名称>：
-> // 列如， umount X：。 
-> // 可以使用 umount -a 卸载所有网络挂载
-
+#### 断开文件系统
+要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中点击【断开】选项，即可断开文件系统的连接。
+![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
 
