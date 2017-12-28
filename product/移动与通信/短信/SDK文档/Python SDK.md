@@ -1,50 +1,37 @@
-
-## 概览
-
-- 目前腾讯云短信为客户提供国内短信，国际短信，语音通知三大服务。
-
-- 国内短信提供单发，群发，带模板 ID 单发，带模板 ID 群发以及短信回执与回复拉取。
-
-- 国际短信可以直接使用国内单发接口，只需替换相应的国家码与手机号码。
-
-- 语音通知目前支持语音验证码以及语音通知功能。
-
-
 ## 开发准备
 ### SDK 获取
 短信 Python SDK 在 Github 中的下载地址：[短信 Python SDK](https://github.com/qcloudsms/qcloudsms_py)。
-短信 Python SDK 在微云中的下载地址：[短信 Python SDK](https://share.weiyun.com/3e5630334a937685b66651f4058c5793)。
+
 ### 开发准备
-1. 申请 APPID 以及 APPKey：
-在开始本教程之前，您需要先获取 APPID 和 APPkey，如您尚未申请，请到 [短信控制台](https://cloud.tencent.com) 中添加应用。应用添加成功后您将获得 APPID 以及 APPKey。
+**1. 申请 SDK AppID 以及 App Key：**
+在开始本教程之前，您需要先获取 SDK AppID 和 App Key，如您尚未申请，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。应用添加成功后您将获得 SDK AppID 以及 App Key。
 >**注意：**
-> APPID 是以 14xxxxx 开头。
+> SDK AppID 是以 14xxxxx 开头。
 
-2. 申请签名：
-下发短信必须携带签名，在相应服务模块【短信内容配置】中进行申请。
+**2. 申请签名：**
+下发短信必须携带签名，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短息签名，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
 
-3. 申请模板：
-下发短信内容必须经过审核，在相应服务 【短信内容配置】中进行申请。
+**3. 申请模板：**
+下发短信内容必须经过审核，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短信模版，详细申请操作参考 [创建正文模版](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E7.89.88)。
 
 完成以上三项便可开始代码开发。
 
 ### SDK 配置
 
-#### pip 配置：
+- **pip 配置：**
 qcloudsms_py 采用 pip 进行安装，要使用 qcloudsms 功能, 只需要执行：
-
 ```shell
 pip install qcloudsms_py
 ```
 
-#### 手动配置：
+- **手动配置：**
 
-1. 手动下载或 clone 最新版本 qcloudsms_py 代码。
-2. 在 qcloudsms_py 目录运行 `python setup.py install`或直接把 qcloudsms_py 所在目录加入`sys.path`。
+ 1.手动下载或 clone 最新版本 qcloudsms_py 代码。
+ 2.在 qcloudsms_py 目录运行 `python setup.py install`或直接把 qcloudsms_py 所在目录加入`sys.path`。
 
 ## 快速入门
 
-若您对接口存在疑问，可以查阅 [API开发指南](https://cloud.tencent.com/document/product/382/5808) 和 [API文档](https://qcloudsms.github.io/qcloudsms_py/)。
+若您对接口存在疑问，可以查阅 [API 文档](https://cloud.tencent.com/document/product/382/13297)。
 
 - **准备必要参数**
 ```python

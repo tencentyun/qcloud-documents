@@ -1,37 +1,25 @@
-## 概览
-
-- 目前腾讯云短信为客户提供国内短信，国际短信，语音通知三大服务。
-
-- 国内短信提供单发，群发，带模板 ID 单发，带模板 ID 群发以及短信回执与回复拉取。
-
-- 国际短信可以直接使用国内单发接口，只需替换相应的国家码与手机号码。
-
-- 语音通知目前支持语音验证码以及语音通知功能。
-
-
 ## 开发准备
 ### SDK 获取
-短信 Java SDK 在 Github 中的下载地址：[短信 Java SDK](https://github.com/qcloudsms/qcloudsms_php)。
-短信 Java SDK 在微云中的下载地址：[短信 Java SDK](https://share.weiyun.com/3e5630334a937685b66651f4058c5793)。
+短信 Java SDK 在 Github 中的下载地址：[短信 Java SDK](https://github.com/qcloudsms/qcloudsms_java)。
+
 ### 开发准备
-1. 申请 APPID 以及 APPKey：
-在开始本教程之前，您需要先获取 APPID 和 APPkey，如您尚未申请，请到 [短信控制台](https://cloud.tencent.com) 中添加应用。应用添加成功后您将获得 APPID 以及 APPKey。
+**1. 申请 SDK AppID 以及 App Key：**
+在开始本教程之前，您需要先获取 SDK AppID 和 App Key，如您尚未申请，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。应用添加成功后您将获得 SDK AppID 以及 App Key。
 >**注意：**
-> APPID 是以 14xxxxx 开头。
+> SDK AppID 是以 14xxxxx 开头。
 
-2. 申请签名：
-下发短信必须携带签名，在相应服务模块【短信内容配置】中进行申请。
+**2. 申请签名：**
+下发短信必须携带签名，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短息签名，详细申请操作参考 [创建签名](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
 
-3. 申请模板：
-下发短信内容必须经过审核，在相应服务 【短信内容配置】中进行申请。
+**3. 申请模板：**
+下发短信内容必须经过审核，您可以在短信 [控制台](https://console.cloud.tencent.com/sms) 中申请短信模版，详细申请操作参考 [创建正文模版](https://cloud.tencent.com/document/product/382/13481#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E7.89.88)。
 
 完成以上三项便可开始代码开发。
 
 ### SDK 配置
 qcloudsms 可以采用多种方式进行配置，我们提供以下三种方法供用户使用：
-#### maven
- 要使用 qcloudsms 功能，需要在 pom.xml 中添加如下依赖：
- 
+- **maven**
+ 要使用 qcloudsms 功能，需要在 pom.xml 中添加如下依赖： 
 ```
 <dependency>
   	<groupId>com.github.qcloudsms</groupId>
@@ -40,25 +28,21 @@ qcloudsms 可以采用多种方式进行配置，我们提供以下三种方法�
 </dependency>
 ```
 
-#### sbt
-
+- **sbt**
 ```
 libraryDependencies += "com.github.qcloudsms" % "sms" % "0.9.2"
 ```
 
-#### 其他方法
-- 方法1： 
- 将 [源代码	](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) 直接引入到项目工程中。
-- 方法2：
- 将 [JAR包]( http://central.maven.org/maven2/com/github/qcloudsms/sms/0.9.2/sms-0.9.2.jar) 直接引入到您的工程中。
+- **其他方法**
+**方法1：** 将 [源代码	](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) 直接引入到项目工程中。
+**方法2：**将 [JAR包]( http://central.maven.org/maven2/com/github/qcloudsms/sms/0.9.2/sms-0.9.2.jar) 直接引入到您的工程中。
 >**注意：**
 由于 qcloudsms 中需要使用以下四个依赖项目：
 [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar) ，[httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar)，[httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar)，[httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar)，采用方法 1，方法 2 都需要将以上四个 jar 包导入工程。
 
 
 ## 快速入门
-
-若您对接口存在疑问，可以查阅 [API文档](http://static.javadoc.io/com.github.qcloudsms/sms/0.0.1/index.html?com/github/qcloudsms/package-summary.html)。
+若您对接口存在疑问，可以查阅 [API 文档](https://cloud.tencent.com/document/product/382/13297)。
 
 首先导入库：
 ```
@@ -93,7 +77,7 @@ import com.github.qcloudsms.*;
 > **注意：**
 > 无论单发短信还是指定模板 ID 单发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
-- **群发**
+- **群发短信**
 ```java
 // 初始化群发
 SmsMultiSender multiSender = new SmsMultiSender(appid, "replace with key");
