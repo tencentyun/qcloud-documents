@@ -29,7 +29,7 @@ It's up to you. You can set to scaling CVMs alone or scaling CVMs and bound CLBs
 
 ## 10. How can I scale up a number of CVMs during a specified period of time?
 You can set a pair of scheduled tasks: one defines the scale-up operation, setting the desired number of instances to the number you want to scale up to; the other defines the scale-down operation, setting the desired number of instances to the number you want to scale down to.
-See [Best Practice Examples >>](https://cloud.tencent.com/document/product/377/8617#step-5.-.E8.AE.BE.E7.BD.AE.E6.89.A9.E7.BC.A9.E5.AE.B9.E7.AD.96.E7.95.A5.EF.BC.88.E9.87.8D.E7.82.B9.EF.BC.81.EF.BC.89)
+See [Best Practice Examples >>](http://www.qcloud.com/document/product/377/8617)
 
 ## 11. What are the specific rules for scaling group removal?
 Tencent Cloud AS provides two removal policies:
