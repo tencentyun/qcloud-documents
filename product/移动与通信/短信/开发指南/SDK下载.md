@@ -7,8 +7,8 @@
 
 |SDK 名称| SDK 文档 | github 地址|
 |------------|-------------|------------------|
-|C# SDK |短信 [C# SDK]() 文档  | [短信 C# SDK](https://github.com/qcloudsms/qcloudsms_csharp)|
-|Java SDK |短信 [Java SDK]() 文档  | [短信 Java SDK](https://github.com/qcloudsms/qcloudsms_java)|
-|JavaScript SDK |短信 [JavaScript SDK]() 文档  | [短信 JavaScript SDK](https://github.com/qcloudsms/qcloudsms_js)|
-|PHP SDK |短信 [PHP SDK]() 文档  | [短信 PHP SDK](https://github.com/qcloudsms/qcloudsms_php)|
-|Python SDK |短信 [Python SDK]() 文档  | [短信 Python SDK](https://github.com/qcloudsms/qcloudsms_py)|
+|Java SDK |短信 [Java SDK 文档 ](https://cloud.tencent.com/document/product/382/13613) | [短信 Java SDK](https://github.com/qcloudsms/qcloudsms_java)|
+|PHP SDK |短信 [PHP SDK 文档](https://cloud.tencent.com/document/product/382/9557)  | [短信 PHP SDK](https://github.com/qcloudsms/qcloudsms_php)|
+|Python SDK |短信 [Python SDK 文档](https://cloud.tencent.com/document/product/382/11672)   | [短信 Python SDK](https://github.com/qcloudsms/qcloudsms_py)|
+|JavaScript SDK |短信 [JavaScript SDK 文档](https://cloud.tencent.com/document/product/382/3772)   | [短信 JavaScript SDK](https://github.com/qcloudsms/qcloudsms_js)|
+|C# SDK |短信 [C# SDK 文档](https://cloud.tencent.com/document/product/382/3785)  | [短信 C# SDK](https://github.com/qcloudsms/qcloudsms_csharp)|
