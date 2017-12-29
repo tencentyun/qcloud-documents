@@ -13,15 +13,20 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
-`http://service.image.myqcloud.com/ocr/idcard`
+
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/idcard`
 
 ## 请求包header
+
 接口采用 http 协议，支持多 url 和多本地图片文件，每个请求最多支持 20 张图片或 url 。
+
 所有请求都要求含有下表列出的头部信息：
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
+| Host           | recognition.image.myqcloud.com           | 智能图像识别服务器域名                              |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
@@ -71,7 +76,7 @@ data 字段具体内容（身份证有照片的一面）：
 | birth_confidence_all      | array(int)    | 出生日期置信度，取值范围[0,100]             |
 | address_confidence_all    | array(int)    | 地址置信度，取值范围[0,100]               |
 | id_confidence_all         | array(int)    | 身份证号置信度,，取值范围[0,100]            |
-| frontimage_confidence_all | array(int)    | 正面照片置信度，取值范围[0,100]             |
+
 
 data 字段具体内容（身份证反面）：
 

@@ -2,6 +2,10 @@
 
 OCR ——银行卡识别，根据用户上传的银行卡图像，返回识别出的银行卡字段信息。
 
+## 计费说明
+
+请查看[计费说明](/document/product/641/12399)。
+
 ## 说明
 
 开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
@@ -12,7 +16,9 @@ OCR ——银行卡识别，根据用户上传的银行卡图像，返回识别�
 
 ## 调用URL
 
-http://recognition.image.myqcloud.com/ocr/bankcard
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/bankcard`
 
 ## 请求包 header
 
@@ -226,5 +232,7 @@ Content-Type: application/json
 | -5208 | OCR_SERVER_INTERN_ERROR         |
 | -9010 | CREDITCARD_OCR_PREPROCESS_ERROR |
 | -9011 | CREDITCARD_OCR_RECOG_FAILED     |
-更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+
+更多其他 API 错误码请看[错误码说明](/document/product/641/12410) 
+
 

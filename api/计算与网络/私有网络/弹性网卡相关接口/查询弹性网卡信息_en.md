@@ -24,8 +24,8 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Error code. 0: Succeeded; other values: Failed
 | message | String | Error message |
-| totalCount | Int | Total number of ENIs |
-| data.n | Array | ENI information array |
+| data.totalCount | Int | Total number of ENIs |
+| data.data.n | Array | ENI information array |
 **data array:**
 
 | Parameter Name | Type | Description |
@@ -37,7 +37,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.eniDescription| String | ENI description | 
 | data.n.networkInterfaceId | String | ENI ID, for example: eni-m6dyj72l | 
 | data.n.primary | Bool | Indicate whether it is a primary ENI. true: primary ENI; false: secondary ENI | 
-| data.n.macAddress| String | ENI mac address | for example: 02: 81: 60: cb: 27: 37 | 
+| data.n.macAddress| String | ENI mac address, for example: 02: 81: 60: cb: 27: 37 | 
 | data.n.privateIpAddressesSet | Array | IP information bound to ENI | 
 | data.n.instanceSet | Array | CVM information bound to ENI | 
 | data.n.groupSet | Array | Security group information bound to ENI | 
@@ -49,6 +49,8 @@ The following request parameter list only provides API request parameters. Commo
 | privateIpAddress | String | IP address |
 | Primary | Bool | Indicate whether it is a primary IP. true: yes; false: no |
 | wanIp | String | Public IP |
+| description |String | ENI description |
+| isWanIpBlocked | Bool | Indicate whether public ip has been blocked. true: yes; false: no |
 | EipId | String | EIP ID |
 
 **instanceSet information array:**
@@ -64,6 +66,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | sgId | String | Security group ID, for example: sg-dfg1df54 | 
 | sgName | String | Security group name | 
+| projectId | Int | Security group name |
 
 ## 4. Error Codes
 The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
@@ -83,41 +86,37 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetworkInterfaces
 Output
 ```
 {
-    "code":"0",
-    "message":"",
-    "totalCount":1,
-    "data":[
-        {
-            "vpcId":"vpc-7t9nf3pu",
-            "subnetId":"subnet-0ap8nwca",
-	    "zoneId":200001,
-            "eniName":"eni",
-            "eniDescription":"eni example",
-            "networkInterfaceId":"eni-m6dyj72l",
-            "primary":false,
-            "macAddress":"02:81:60:cb:27:37",
-            "privateIpAddressesSet":[
-                 {
-                     "privateIpAddress":"10.0.0.2",
-                     "primary":true,
-                     "wanIp":"183.23.0.2",
-                     "eipId":"eip-dgd545ef"
-                  }
-	           ],
-             "instanceSet":[
-                  {
-                       "instanceId":"ins-xx44545f",
-                       "attachTime":"2016-02-15 19:20:54"
-                  }
-            ],
-            "groupSet":[
-                 {
-                      "sgId":"sg-dfg1df54",
-                      "sgName":"Security group 1"
-                  }
-            ]
-        }
-    ]
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "totalCount": 1,
+        "data": [{
+            "vpcId": "vpc-7t9nf3pu",
+            "subnetId": "subnet-0ap8nwca",
+            "zoneId": 200001,
+            "eniName": "eni",
+            "eniDescription": "eni示例",
+            "networkInterfaceId": "eni-m6dyj72l",
+            "primary": false,
+            "macAddress": "02:81:60:cb:27:37",
+            "privateIpAddressesSet": [{
+                "privateIpAddress": "10.0.0.2",
+                "primary": true,
+                "wanIp": "183.23.0.2",
+                "eipId": "eip-dgd545ef"
+            }],
+            "instanceSet": {
+                "instanceId": "ins-xx44545f",
+                "attachTime": "2016-02-15 19:20:54"
+            },
+            "groupSet": [{
+                "sgId": "sg-dfg1df54",
+                "sgName": "安全组1",
+            	"projectId": 0
+	    }]
+        }]
+    }
 }
 ```
 

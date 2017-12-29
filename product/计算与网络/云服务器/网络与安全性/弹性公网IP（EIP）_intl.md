@@ -23,7 +23,7 @@ When binding an elastic IP to a CVM instance, the current public IP of the insta
 
 - Users can release an elastic public IP through the console or cloud API;
 
-- Owed fees release: When an elastic IP is not bound to a resource, it will be charged by the hour. If the user account amount starts at less than 0RMB at any time and continues for more than ** 2 ** hours, and is not recharged to greater than 0RMB, all elastic IPs will remain inactive for the next (24\*7) hours (until the account balance is >0). If the amount is negative for the past (2+24\*7) hours, all elastic public IPs will be released automatically;
+- Owed fees release: When an elastic IP is not bound to a resource, it will be charged by the hour. If the user account amount starts at less than 0 USD at any time and continues for more than ** 2 ** hours, and is not recharged to greater than 0 USD , all elastic IPs will remain inactive for the next (24\*7) hours (until the account balance is >0). If the amount is negative for the past (2+24\*7) hours, all elastic public IPs will be released automatically;
 
 ## Investigation method for elastic public IP block reasons
 An elastic public IP block usually has the below reasons: 
@@ -35,13 +35,6 @@ An elastic public IP block usually has the below reasons:
 ## Elastic public IP billing
 When an elastic IP has been purchased, but <font color="red">is not yet bound to a cloud product instance (CVM or NAT Gateway) </font> yet, a small amount of resource usage will be charged using the below chart (anything less than 1 hour will be charged by 1 hour's time; will be billed once every hour). <font color="red">Elastic IPs used for binding cloud product instances (CVM or NAT Gateways) are free. </font>We recommend that you stop all use of elastic public IPs immediately, to ensure rational use of IP resources, and to save costs.
 
-
-| Elastic public IP location | Unbound price |
-|---------|---------|---------|
-| Beijing area, Shanghai area, Guangzhou area |  | 
-| Hongkong Region |  | 
-| North America Region |  | 
-| Singapore Region |  | 
 
 ## Apply for elastic public IP
 

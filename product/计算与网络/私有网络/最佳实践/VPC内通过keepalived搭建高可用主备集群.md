@@ -407,10 +407,10 @@ def migrateVip():
     module = 'vpc'
     action = 'MigratePrivateIpAddress'
     params = {
-        'vpcId': vpcId,             #vpcId
-        'privateIpAddress': vip,        #VIP
-        'oldNetworkInterfaceId': thatNetworkInterfaceId, #IP 迁移前所在的弹性网卡 ID(对端主机网卡 ID) 
-        'newNetworkInterfaceId': thisNetworkInterfaceId  #IP 迁移后所在的弹性网卡 ID(本机网卡 ID)
+        'vpcId': vpcId,             #vpcId 本行毋须修改
+        'privateIpAddress': vip,      #VIP  本行毋须修改
+        'oldNetworkInterfaceId': thatNetworkInterfaceId, #IP 迁移前所在的弹性网卡 ID(对端主机网卡 ID)   本行毋须修改
+        'newNetworkInterfaceId': thisNetworkInterfaceId  #IP 迁移后所在的弹性网卡 ID(本机网卡 ID)   本行毋须修改
     }
     
     log_write(sys.argv[1])
@@ -464,7 +464,7 @@ def queryVip():
     module = 'vpc'
     action = 'DescribeNetworkInterfaces'
     params = {
-        "networkInterfaceId": thisNetworkInterfaceId  #您的本机网卡 ID
+        "networkInterfaceId": thisNetworkInterfaceId  #您的本机网卡 ID     本行毋须修改
     }
 
     result = 'true'

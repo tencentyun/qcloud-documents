@@ -16,7 +16,7 @@
 
 1.  问题发现者直接找到对应的文档
 	
-	>我们的文档基本上都集中在 [https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN](https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN) 
+	>我们的文档基本上都集中在 [https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN](https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN) 如果没有权限，请联系jimmyyan协商开通文档git repo权限。前提为您先注册github账号。
 2. 问题发现者进行修复，并保留**原先未修改的原文**和**修改后的文档**
 3. 问题发现者将修改周知到v_haixiang或者v_llyanlin，同时周知stonedong进行确认。
 	4. 直接拉群周知

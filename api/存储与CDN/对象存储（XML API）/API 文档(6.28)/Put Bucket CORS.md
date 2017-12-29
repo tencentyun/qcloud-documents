@@ -9,7 +9,7 @@ Put Bucket CORS 接口用来请求设置 Bucket 的跨域资源共享权限，�
 语法示例：
 ```
 PUT /?cors HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-Length: length
 Content-Type: application/xml

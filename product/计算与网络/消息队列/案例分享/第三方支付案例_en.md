@@ -13,5 +13,5 @@ Third-party mobile financial payment solution providers in close cooperation wit
 6. At last, each order payment message will be delivered to systems including Risk Control Management, Activity Management and Promotion by another topic. For instance, Risk Control Management will continuously analyze each order payment delivered by topic. If there is a surge in store A's transaction volume in a short time (It is suspected of scalping), the callback API will be used to stop subsequent transactions of store A.
 
 
-7. Please refer to the following figure:
+Please refer to the following figure:
 ![](//mc.qcloudimg.com/static/img/7f42706e0f87a942e0c0122167797fa5/image.png)

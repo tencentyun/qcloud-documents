@@ -164,6 +164,7 @@ _player_B.isAutoPlay = NO;
     // 在视频 A 播放结束的时候，直接启动视频 B 的播放，可以做到无缝切换
     if (EvtID == PLAY_EVT_PLAY_END) {
 			[_player_A stopPlay];
+			[_player_B setupVideoWidget:mVideoContainer insertIndex:0];
 			[_player_B resume];
 		}
 }
@@ -186,9 +187,9 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 软解和硬解的切换需要在切换之前先**stopPlay**，切换之后再**startPlay**，否则会产生比较严重的花屏问题。
 
 ```objectivec
-  [_txLivePlayer stopPlay];
-  _txLivePlayer.enableHWAcceleration = YES;
-  [_txLivePlayer startPlay:_flvUrl type:_type];
+  [_txVodPlayer stopPlay];
+  _txVodPlayer.enableHWAcceleration = YES;
+  [_txVodPlayer startPlay:_flvUrl type:_type];
 ```
 
 ## 进度展示
@@ -202,20 +203,41 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 ```objectivec
 -(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param {
     if (EvtID == PLAY_EVT_PLAY_PROGRESS) {
-		    // 加载进度
+		    // 加载进度, 单位是秒
 		    float playable = [param[EVT_PLAYABLE_DURATION] floatValue];
 				[_loadProgressBar setValue:playable];
 				
-		    // 播放进度
+		    // 播放进度, 单位是秒
 		    float progress = [param[EVT_PLAY_PROGRESS] floatValue];
 				[_seekProgressBar setValue:progress];
 				
-			// 视频总长
-			float duration = [param[EVT_PLAYABLE_DURATION] floatValue];
+			// 视频总长, 单位是秒
+			float duration = [param[EVT_PLAY_DURATION] floatValue];
 			// 可以用于设置时长显示等等
 	}
 }
 ```
+如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
+```objective
+-(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param {
+    if (EvtID == PLAY_EVT_PLAY_PROGRESS) {
+		    // 加载进度, 单位是毫秒
+		    float playable_ms = [param[EVT_PLAYABLE_DURATION_MS] floatValue];
+				[_loadProgressBar setValue:playable];
+				
+		    // 播放进度, 单位是毫秒
+		    float progress_ms = [param[EVT_PLAY_PROGRESS_MS] floatValue];
+				[_seekProgressBar setValue:progress];
+				
+			// 视频总长, 单位是毫秒
+			float duration_ms = [param[EVT_PLAY_DURATION_MS] floatValue];
+			// 可以用于设置时长显示等等
+	}
+}
+```
+
+
+
 
 ## 事件监听
 除了 PROGRESS 进度信息，SDK 还会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）同步给您的应用程序很多其它的信息：

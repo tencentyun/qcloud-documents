@@ -2,7 +2,44 @@
 **&lt;live-player&gt;** 是小程序内部用于支持音视频下行（播放）能力的功能标签，本文主要介绍该标签的使用方法。
 
 ## 版本支持
-小程序最低版本要求： 1.7.0
+- 微信 APP iOS 最低版本要求：6.5.21 
+- 微信 APP Android 最低版本要求：6.5.19 
+- 小程序基础库最低版本要求：1.7.0 
+
+> 通过 wx.getSystemInfo 可以获取当前基础库版本信息
+
+## 使用限制
+出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-player&gt; 标签的支持，需要注意如下限制条件：
+- 个人账号的小程序暂时是不能使用 &lt;live-player&gt; 标签的。
+
+- 企业账号的小程序暂时只开放如下类目，且需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限。
+
+<table>
+  <tr align="center">
+    <th width="200px">主类目</th>
+    <th width="700px">子类目</th>
+  </tr>
+  <tr align="center">
+    <td>【社交】</td>
+		<td>直播</td>
+  </tr>
+	<tr align="center">
+    <td>【教育】</td>
+		<td>在线教育</td>
+  </tr>
+	<tr align="center">
+    <td>【医疗】</td>
+		<td>互联网医院，公立医院</td>
+  </tr>
+	<tr align="center">
+    <td>【政务民生】</td>
+		<td>所有二级类目</td>
+  </tr>
+	<tr align="center">
+    <td>【金融】</td>
+		<td>基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融</td>
+  </tr>
+</table>
 
 ## 属性定义
 | 属性名 | 类型 | 默认值 | 说明 |
@@ -155,4 +192,9 @@ Page({
 	}
 })
 ```
+
+## 特别说明
+1. &lt;live-player&gt; 组件是由客户端创建的原生组件，它的层级是最高的，可以使用 &lt;cover-view&gt; 和 &lt;cover-image&gt; 覆盖在上面。
+
+2. 请勿在 &lt;scroll-view&gt; 中使用 &lt;live-player&gt; 组件。
 

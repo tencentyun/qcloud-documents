@@ -33,11 +33,11 @@ You can configure the CVM parameters on [one-click deployment page](https://cons
 - Click "Start Deployment" button. You need to reconfirm the security group configuration of the CVM if prompted with "Deployment Failed".
 - ![](//mc.qcloudimg.com/static/img/9b4f3117157d920d50a2685ee271c392/image.png)
 
-- Modify the LVB console callback URL to http://Public IP or domain name of the CVM/callback/Live_callback.php.
+- Modify the LVB console callback URL to `http://Public IP or domain name of the CVM/callback/Live_callback.php`.
 - ![](//mc.qcloudimg.com/static/img/00e333a3ab4b4e7737b11e56c725c6c0/image.png)
 
 ### 1.3 Verify deployment
-Enter the access address for CVM API in a browser. http://Public IP or domain name of the CVM/interface.php. The deployment is successful if the following request result is returned. You can ignore the returned error message of JSON string.
+Enter the access address for CVM API in a browser. `http://Public IP or domain name of the CVM/interface.php`. The deployment is successful if the following request result is returned. You can ignore the returned error message of JSON string.
 ![](//mc.qcloudimg.com/static/img/d3e3d8bf476b03ce86989740c760b25f/image.png)
 
 ## 2. More information

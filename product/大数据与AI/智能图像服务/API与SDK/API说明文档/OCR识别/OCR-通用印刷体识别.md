@@ -1,7 +1,12 @@
 ## 简介
 通用 OCR 技术提供图片整体文字的检测和识别服务，返回文字框位置与文字内容。支持多场景、任意版面下整图文字的识别，以及中英文、字母、数字的识别。被广泛应用于印刷文档识别、广告图文字识别、街景店招识别、菜单识别、视频标题识别、互联网头像文字识别等。
 
+## 计费说明
+
+请查看[计费说明](/document/product/641/12399)。
+
 ## 说明
+
 | 概念    | 解释              |
 | ----- | --------------- |
 | appid | 项目ID, 接入项目的唯一标识 |
@@ -9,7 +14,10 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
-`hhttp://recognition.image.myqcloud.com/ocr/general`
+
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/general`
 
 ## 请求包header
 接口采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
@@ -17,7 +25,7 @@
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
+| Host           | recognition.image.myqcloud.com           | 万象优图服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
@@ -53,14 +61,14 @@
 
 Item说明
 
-| 字段         |        | 类型          | 说明          |
+| 字段         |   &nbsp;     | 类型          | 说明          |
 | ---------- | ------ | ----------- | ----------- |
-| itemstring |        | string      | 字段内容        |
+| itemstring | &nbsp;       | string      | 字段内容        |
 | itemcoord  | x      | int         | item 框左上角 x |
-|            | y      | int         | item 框左上角 y |
-|            | width  | int         | item 框宽度    |
-|            | height | int         | item 框高度    |
-| words      |        | array(word) | 每个字的信息      |
+|     &nbsp;       | y      | int         | item 框左上角 y |
+|     &nbsp;       | width  | int         | item 框宽度    |
+|    &nbsp;        | height | int         | item 框高度    |
+| words      |    &nbsp;    | array(word) | 每个字的信息      |
 
 word说明
 
@@ -84,6 +92,7 @@ Content-Type: application/json
   "appid":"123456",
   "bucket":"test",
   "url":"http://test-123456.image.myqcloud.com/test.jpg"
+  }
 ```
 
 ### 使用 image 的请求包
@@ -165,6 +174,7 @@ Content-Type: application/json
 | -1300 | 图片为空                       |
 | -1301 | 参数为空                       |
 | -1304 | 参数过长                       |
+| -1308 | 图片下载失败                     |
 | -9003 | OCR 识别失败                   |
 
 更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。

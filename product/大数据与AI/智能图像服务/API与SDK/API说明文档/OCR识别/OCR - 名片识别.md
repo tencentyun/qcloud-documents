@@ -13,6 +13,9 @@
 > 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
 
 ## 调用URL
+
+支持 http 和 https 两种协议：
+
 `http://service.image.myqcloud.com/ocr/namecard`
 
 ## 请求包header
@@ -151,6 +154,7 @@ Content-Type: "application/json"
 
 ><font color="#0000cc">**注意：** </font>
 >如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
+
 
 
 ### 示例

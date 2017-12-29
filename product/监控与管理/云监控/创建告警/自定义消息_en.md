@@ -96,10 +96,10 @@ if not %errorlevel% == 0 (
 If circumstances such as hit-bottom traffic, decreased online users, and abnormal income are found during the analysis of collected data, developers can also send alarms by calling cagent_tools.
 
 5) Configuration completed
-When cagent_tools has been successfully called, Tencent Cloud Monitor will automatically send custom messages to related alarm recipient if the monitored object becomes abnormal. You can log in to Tencent Cloud Console, and go to "Cloud Monitoring" - "My Alarms" - "Custom Messages" to view historical alarm data.
+When cagent_tools has been successfully called, Tencent Cloud Monitor will automatically send custom messages to related alarm recipient if the monitored object becomes abnormal. You can log in to Tencent Cloud Console, and go to "Cloud Monitoring" - "My Alarms" - "Custom Messages" to view alarm data history.
 
 > Note:
 >
-- Currently, both UTF-8 and GBK encoding are supported for Chinese alarm content.
+- Currently, both UTF-8 and GBK encoding forms are supported for Chinese alarm content.
 - The maximum length of an alarm message is 256 bytes, and the excess part will be truncated.
 - If an alarm message is sent successfully, "send alarm OK!" will be displayed in the command line, and the error code for process execution is 0. If an alarm message is not sent successfully, the relevant error will be indicated in the command line and the error code for process execution is not 0.

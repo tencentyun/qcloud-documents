@@ -57,13 +57,11 @@ Bucket 作为整个 FTP Server 的根目录，Bucket 下面可以建立若干个
 `conf/vsftpd.conf`为 FTP Server 工具的配置文件，相关配置项的说明如下：
 ```conf
 [COS_ACCOUNT]
-cos_appid = 12XXXXXX
-# 用户自己的 APPID
 cos_secretid = XXXXXX
 cos_secretkey = XXXXXX
 # SecretId 和 SecretKey 可以在以下地址获取：https://console.cloud.tencent.com/cam/capi
-cos_bucket = XXXXX
-# 要操作的 Bucket 名称，需要注意的是 COS V5 控制台上的 Bucket 采用了 <Bucket>-<APPID> 的命名方式，这里只填写 Bucket 即可。
+cos_bucket = BucketName-appid
+# 要操作的bucket，bucket的格式为：bucektname-appid组成。示例：cos_bucket = mybucket-125888888888。
 cos_region = ap-xxx
 # Bucket 所在的地域，目前支持的地域请参照【可用地域-适用于 XML API 部分】：https://cloud.tencent.com/document/product/436/6224
 cos_user_home_dir = /home/cos_ftp/data
@@ -83,7 +81,14 @@ passive_ports = 60000,65535
 [FILE_OPTION]
 single_file_max_size = 21474836480
 # 默认单文件大小最大支持到 200 GB，不建议设置太大。
+
+[OPTIONAL]
+# 以下设置，如无特殊需要，建议保留default设置。如需设置，请填写一个合理的整数。
+min_part_size       = default
+upload_thread_num   = default
+max_connection_num  = 512
 ```
+配置中OPTIONAL选项是用于调整上传性能的可选项，一般情况下保持默认值即可。根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度。 max_connection_num 为最大连接数的限制选项，设置为0表示不限制最大连接数，可以根据机器情况进行调整。 
 ## 运行
 正确填写配置文件后，直接通过 Python 运行根目录下的`ftp_server.py`即可启动 FTP Server。也可以配合screen 的命令将 FTP Server 放到后台运行。
 ```

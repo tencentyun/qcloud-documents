@@ -6,7 +6,7 @@ Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）�
 语法示例：
 ```
 GET /<ObjectName> HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
@@ -21,7 +21,7 @@ GET /<ObjectName> HTTP/1.1
 #### 请求参数<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 包含所有请求参数的请求行示例：
 ```
-GET /<ObjectName>&response-content-type=ContentType&response-content-language=ContentLanguage&response-expires=ContentExpires&response-cache-control=CacheControl&response-content-disposition=ContentDisposition&response-content-encoding=ContentEncoding HTTP/1.1
+GET /<ObjectName>?response-content-type=ContentType&response-content-language=ContentLanguage&response-expires=ContentExpires&response-cache-control=CacheControl&response-content-disposition=ContentDisposition&response-content-encoding=ContentEncoding HTTP/1.1
 ```
 具体内容如下：
 
@@ -34,6 +34,11 @@ GET /<ObjectName>&response-content-type=ContentType&response-content-language=Co
 | response-content-disposition |设置响应头部中的 Content-Disposition 参数。|String| 否|
 | response-content-encoding |设置响应头部中的 Content-Encoding 参数。|String| 否|
 
+
+**说明**
+
+如果使用这些参数，那么请求必须要携带签名的，可以使用Authorization头部，也可以在URL参数中携带。匿名请求不允许携带这些参数 
+
 ### 请求头
 
 #### 公共头部
@@ -45,11 +50,18 @@ GET /<ObjectName>&response-content-type=ContentType&response-content-language=Co
 |名称|描述|类型| 必选|
 |:---|:-- |:---|:-- |
 | Range |RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位|String| 否|
-| If-Unmodified-Since |如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed)|String| 否|
+| If-Unmodified-Since |如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed) |String| 否|
 | If-Modified-Since |当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304 |String| 否|
 | If-Match |当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed)|String| 否|
 | If-None-Match |当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified)|String| 否|
 
+
+**说明**
+
+如果If-None-Match 与 If-Modified-Since同时携带，If-None-Match 不匹配，If-Modified-Since匹配，则返回304 Not Modified
+
+如果If-Match 与 If-Unmodified-Since同时携带，If-Match 匹配，If-Unmodified-Since 不匹配，则返回200 OK
+ 
 ### 请求体
 该请求的请求体为空。
 
@@ -72,7 +84,7 @@ GET /<ObjectName>&response-content-type=ContentType&response-content-language=Co
 
 ## 实际案例
 
-### 请求
+### 请求1
 ```
 GET /123 HTTP/1.1
 Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
@@ -80,11 +92,40 @@ Date: Wed, 28 Oct 2014 22:32:00 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
 ```
 
+
 ### 响应
 ```
 HTTP/1.1 200 OK
 Date: Wed, 28 Oct 2014 22:32:00 GMT
 Content-Type: application/octet-stream
+Content-Length: 16087
+Connection: keep-alive
+Accept-Ranges: bytes
+Content-Disposition: attachment; filename="filename.jpg"
+Content-Range: bytes 0-16086/16087
+ETag: "9a4802d5c99dafe1c04da0a8e7e166bf"
+Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT
+x-cos-object-type: normal
+x-cos-request-id: NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ==
+x-cos-storage-class: STANDARD
+
+[Object]
+```
+
+### 请求2 携带response-xxx参数
+```
+GET /123?response-content-type=application%2fxml HTTP/1.1
+Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com
+Date: Wed, 28 Oct 2014 22:32:00 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
+```
+
+
+### 响应
+```
+HTTP/1.1 200 OK
+Date: Wed, 28 Oct 2014 22:32:00 GMT
+Content-Type: application/xml
 Content-Length: 16087
 Connection: keep-alive
 Accept-Ranges: bytes
