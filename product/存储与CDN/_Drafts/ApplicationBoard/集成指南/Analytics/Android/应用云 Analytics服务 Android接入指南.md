@@ -1,8 +1,17 @@
-## 应用云 Analytics服务 Android接入指南
+## 应用云 Analytics 服务 Android 接入指南
 
-### 集成SDK到你的应用
+### 准备工作
 
-在你的应用级 build.gradle（\<project\>/\<app-module\>/build.gradle）添加 应用云 Analytics 的依赖：
+在开始使用应用云 Analytics 服务前，您需要：
+
+ 1. 新建或者打开一个 Android 项目。
+ 2. 配置了应用云服务框架，配置方式请参见[应用云服务框架 Android 配置指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/%E5%BA%94%E7%94%A8%E4%BA%91%20%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%20Android%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97.md.md)。
+
+### 集成 Analytics 服务到你的应用
+
+#### 通过远程依赖集成 (<font color='red'>推荐</font>)
+
+在你的应用级 build.gradle（\<project\>/\<app-module\>/build.gradle）添加应用云 Analytics 的依赖：
 
 ```
 dependencies {
@@ -11,9 +20,17 @@ dependencies {
 }
 ```
 
+#### 本地集成
+
+1. 下载 Analytics 服务资源打包文件，并解压。下载资源文件请点击[这里]()。
+2. 将资源文件中的 libs 目录拷贝到您的 module 的根目录下。
+4. 打开您自己 module 下的 AndroidManifest.xml 文件，然后按照下载的资源文件中的 AndroidManifest.xml 作为范例来修改。
+
 ### 配置 Analytics 服务
 
-如果你需要编译不同的渠道包，可以在app的AndroidManifest.xml文件中添加meta-data，
+#### 配置渠道
+
+如果你需要编译不同的渠道包，可以在app的AndroidManifest.xml文件中添加meta-data：
 
 ```
 <meta-data
@@ -36,11 +53,22 @@ android {
 }
 ```
 
-### 启动 Analytics 服务
+#### 启动 Analytics 服务实例
 
-首先确保你已经配置了TAC服务框架，具体详情可参考 [link]。
+Analytics服务在使用前必须先启动，我们建议你放在Application onCreate方法中执行该操作。
 
-在你app的Application onCreate方法中，启动 Analytics 服务：
+在启动服务前，您可以在代码中修改 Analytics 服务的相关配置。请注意，启动之后配置将不允许被修改。
+
+```
+// 请确保已经正确配置好服务框架，否则options()方法会返回null
+TACApplicationOptions applicationOptions = TACApplication.options();
+
+// 这里获取 Analytics 服务的配置对象，您可以通过这个对象来配置服务。
+TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
+
+```
+
+然后调用 start 方法启动 Analytics 服务：
 
 ```
 TACAnalyticsService.getInstance().start(this);
@@ -48,7 +76,7 @@ TACAnalyticsService.getInstance().start(this);
 
 ### 上报页面访问
 
-Analytics 在服务启动状态下，默认会统计所有的页面访问，你不需要另外配置。如果需要独立上报页面访问，可以调用：
+Analytics 默认会统计所有的页面访问，你不需要另外配置。如果需要独立上报页面访问，可以调用：
 
 ```
 // 页面访问开始
@@ -79,9 +107,4 @@ TACAnalyticsService.getInstance().trackEventDurationBegin(context, TACAnalyticsE
 TACAnalyticsService.getInstance().trackEventDurationEnd(context, TACAnalyticsEvent);
 
 ```
-
-
-### 高级设置
-
-[后续补充]
 
