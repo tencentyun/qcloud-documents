@@ -72,17 +72,17 @@ URL支持正则表达，用如下方法判断：
  
 1. 匹配规则：优先精确匹配，之后依照规则模糊匹配
 
-举例：依照下图配置转发规则及转发组后，如下几个请求将依次被匹配到不同的转发组中：
+	举例：依照下图配置转发规则及转发组后，如下几个请求将依次被匹配到不同的转发组中：
   
-  a. example.qloud.com/test1/image/index1.html 由于精确匹配转发组1设置的URL规则，则该请求将被转发到转发组1所关联的后端云服务器中，图中即RS1和RS2的80端口。
+  	a. example.qloud.com/test1/image/index1.html 由于精确匹配转发组1设置的URL规则，则该请求将被转发到转发组1所关联的后端云服务器中，图中即RS1和RS2的80端口。
 	
-  b. example.qloud.com/test1/image/hello.html 由于此请求无法精确匹配第一条规则，因此将继续匹配转发组2中的规则，发现模糊匹配成功。因此该请求将被转发到转发组2所关联的后端云服务器中，图中即RS2和RS3的81端口。
+  	b. example.qloud.com/test1/image/hello.html 由于此请求无法精确匹配第一条规则，因此将继续匹配转发组2中的规则，发现模糊匹配成功。因此该请求将被转发到转发组2所关联的后端云服务器中，图中即RS2和RS3的81端口。
   
-  c. example.qloud.com/test2/video/mp4/ 由于此请求无法精确匹配到前两条规则，因此将继续向下匹配，直至发现可以模糊匹配转发组3中的规则。因此该请求将被转发到转发组3所关联的后端云服务器中，图中即RS4的90端口。
+  	c. example.qloud.com/test2/video/mp4/ 由于此请求无法精确匹配到前两条规则，因此将继续向下匹配，直至发现可以模糊匹配转发组3中的规则。因此该请求将被转发到转发组3所关联的后端云服务器中，图中即RS4的90端口。
   
-  d. example.qloud.com/test3/hello/index.html 由于此请求无法匹配到前三个转发组中的规则，因此将匹配用户配置的最通用规则default URL。这个时候应该是nginx转发请求给后端应用服务器，比如FastCGI（php），tomcat（jsp），nginx作为方向代理服务器存在
+  	d. example.qloud.com/test3/hello/index.html 由于此请求无法匹配到前三个转发组中的规则，因此将匹配用户配置的最通用规则default URL。这个时候应该是nginx转发请求给后端应用服务器，比如FastCGI（php），tomcat（jsp），nginx作为方向代理服务器存在
   
-  e. example.qloud.com/test2/ 由于请求无法精确匹配到前三个转发组中的规则，因此将匹配用户所配置的通用规则default URL。
+  	e. example.qloud.com/test2/ 由于请求无法精确匹配到前三个转发组中的规则，因此将匹配用户所配置的通用规则default URL。
 
 2. 如果用户设置的URL规则中，服务不能正常运行，则匹配成功后，不会重定向到其他页面。
 举例：如客户端请求example.qloud.com/test1/image/index1.html匹配了转发组1的URL规则，但此时转发组1的后端服务器运行异常，出现404的页面时，用户进行访问时页面则会显示404，不会跳转到其他页面。
