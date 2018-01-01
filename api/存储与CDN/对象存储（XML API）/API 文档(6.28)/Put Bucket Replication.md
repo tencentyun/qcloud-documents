@@ -51,7 +51,7 @@ PUT /?replication HTTP/1.1
         <ID></ID>
         <Prefix></Prefix>
         <Destination>
-            <Bucket>qcs:id/0:cos:[Region]:appid/[AppId]:[Bucketname]</Bucket>
+            <Bucket>qcs::cos:[Region]::[Bucketname-Appid]</Bucket>
         </Destination>
     </Rule>
 </ReplicationConfiguration>
@@ -67,7 +67,7 @@ PUT /?replication HTTP/1.1
 |Status    |ReplicationConfiguration.Rule    |标识 Rule 是否生效，枚举值：Enabled, Disabled    |String    |是|
 |Prefix    |ReplicationConfiguration.Rule    |前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空    |String    |是|
 |Destination    |ReplicationConfiguration.Rule    |目标存储桶信息    |Container    |是|
-|Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：qcs:id/0:cos:[region]:appid/[AppId]:[bucketname]    |String    |是|
+|Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：qcs::cos:[region]::[bucketname-AppId] |String    |是|
 |StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：STANDARD, STANDARD_IA, NEARLINE；默认值：原存储桶级别    |String    |否|
 
 ## 响应
@@ -99,7 +99,7 @@ Content-Length: 312
         <ID>RuleId_01</ID>
         <Prefix>sevenyou_10m</Prefix>
         <Destination>
-            <Bucket>qcs:id/0:cos:ap-guangzhou:appid/132213432:sevenyousouthtest</Bucket>
+            <Bucket>qcs::cos:ap-guangzhou::sevenyousouthtest-132213432</Bucket>
         </Destination>
     </Rule>
 </ReplicationConfiguration>

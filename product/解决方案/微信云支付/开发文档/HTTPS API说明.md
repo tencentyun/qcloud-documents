@@ -2142,236 +2142,6 @@ content_type：application/json
 </table>
 
 # 门店接口
-## 设置门店信息
-### 特别说明
-- 如使用接口配置门店信息，则不要再使用云支付提供的商户管理后台页面配置门店信息，否则会造成云支付和服务商系统的门店信息不一致。
-### 接口地址
-`https://pay.qcloud.com/cpay/set_sub_mch_shop_info`
-
-content_type：application/json
-### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-### RequestContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>out_mch_id</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
-   </tr>
-   <tr>
-      <td>out_sub_mch_id</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
-   </tr>
-   <tr>
-      <td>is_all</td>
-      <td>是</td>
-      <td>Bool</td>
-      <td><b>True表示设置全量门店信息，会删除未在请求中的门店。<br>False表示设置增量门店信息，只会修改或增加门店。</b></td>
-   </tr>
-
-   <tr>
-      <td>shop_infos</td>
-      <td>是</td>
-      <td>ShopInfo[]</td>
-      <td>门店信息列表。详见ShopInfo</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-</table>
-
-### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-### ResponseContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Status</td>
-      <td>错误码，详见Status。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-   <tr>
-      <td>log_id</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>消息id</td>
-   </tr>
-   <tr>
-      <td>internal_status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>调试使用，调用者可以不予理会</td>
-   </tr>
-   <tr>
-      <td>set_shop_info</td>
-      <td>否</td>
-      <td>SetShopInfoResponse</td>
-      <td>authen_info存在时必填。详见SetShopInfoResponse</td>
-   </tr>
-</table>
-
-### SetShopInfoResponse结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-   <tr>
-      <td>set_shop_infos</td>
-      <td>是</td>
-      <td>ShopInfo[]</td>
-      <td>设置门店完成功后，所有的门店信息列表。详见ShopInfo </td>
-   </tr>
-</table>
-
-### 构造设置门店请求例子
-```
-/*
-构造请求字符串
-*/
-std::string gen_cloud_pay_set_sub_mch_shop_info(
-    const std::string &out_mch_id,
-    const std::string &out_sub_mch_id,
-    bool              is_all，
-    const std::string &authen_key
-)
-{
-    Json::Value request_content;
-    request_content["nonce_str"] = generate_random_nonce_str();
-    request_content["out_mch_id"] = out_mch_id;
-    request_content["out_sub_mch_id"] = out_sub_mch_id;
-    request_content["is_all"] = is_all;
-
-    Json::Value shop_infos; 
-
-    Json::Value shop1, shop2;
-    shop1["shop_name"] = "shop1";
-    Json::Value shop1_devices, shop1_staffs, tmp_device1, tmp_staff1;
-    tmp_device1["device_id"] = "1";
-    tmp_device1["device_type"] = 3;// 3: 混合支付设备，支持刷卡支付+扫码支付
-    shop1_devices.append(tmp_device1);
-    shop1["device_infos"] = shop1_devices;
-    tmp_staff1["staff_id"] = "1";
-    tmp_staff1["staff_name"] = "staff1";
-    tmp_staff1["shop_manager"] = true;
-    shop1_staffs.append(tmp_staff1);
-    shop1["staff_infos"] = shop1_staffs;
-    shop_infos.append(shop1);
-
-    shop2["shop_name"] = "shop2";
-    Json::Value shop2_devices, shop2_staffs, tmp_device2, tmp_staff2;
-    tmp_device2["device_id"] = "1";
-    tmp_device2["device_type"] = 3;// 3: 混合支付设备，支持刷卡支付+扫码支付
-    shop2_devices.append(tmp_device2);
-    shop2["device_infos"] = shop2_devices;
-    tmp_staff2["staff_id"] = "1";
-    tmp_staff2["staff_name"] = "staff2";
-    tmp_staff2["shop_manager"] = true;
-    shop2_staffs.append(tmp_staff2);
-    shop2["staff_infos"] = shop2_staffs;
-    shop_infos.append(shop2);
-    
-    request_content["shop_infos"] = shop_infos;
-    
-    Json::FastWriter w;
-    const std::string &rc = w.write(request_content);
-
-    Json::Value authen_info, s;
-    a["authen_type"] = 1;
-    // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
-    std::string authen_code;
-    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
-        // 计算失败
-        return "";
-    }
-    a["authen_code"] = authen_code;
-    authen_info["a"] = a;
-
-    Json::Value request;
-    request["request_content"] = rc;
-    request["authen_info"] = authen_info;
-
-    return w.write(request);
-}
-/*
-构造请求完毕之后，将请求通过POST方法发送到云支付接口对应的URL
-使用了发送请求举例（使用libcurl实现）中的post函数
-*/
-std::string response;
-post(request, "https://pay.qcloud.com/cpay/set_sub_mch_shop_info", &response);
-```
 ## 查询门店信息
 ### 接口地址
 `https://pay.qcloud.com/cpay/query_sub_mch_shop_info`
@@ -2429,7 +2199,7 @@ content_type：application/json
       <td>page_num</td>
       <td>是</td>
       <td>Number(32)</td>
-      <td>页码</td>
+      <td>页码（从1开始）</td>
    </tr>
    <tr>
       <td>page_size</td>
@@ -3346,7 +3116,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>a<br><br>s</td>
-      <td>二选一</td>
+      <td>撤单和退款接口使用签名,其他接口使用认证码</td>
       <td>Authen<br><br>Signature</td>
       <td>认证信息，详见Authen<br><br>签名信息，详见Signature</td>
    </tr>
@@ -4753,7 +4523,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>门店内店员编号</td>
+      <td>微信支付分配的子商户号</td>
    </tr>
    <tr>
       <td>company_name</td>
@@ -4771,13 +4541,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>cloud_cashier_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>云支付分配为某个第三方支付平台分配给子商户的id</td>
+      <td>云支付分配的唯一订单前缀，<b>下单时商户的订单号需要以这个id开头</b></td>
    </tr>
    <tr>
       <td>out_sub_mch_id</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>外部可见的商户id，和cloud_cashier_id一一对应</td>
+      <td>云支付分配的商户id</td>
    </tr>
    <tr>
       <td>default_order_body</td>

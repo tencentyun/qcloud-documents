@@ -1,8 +1,8 @@
 ## Virtual Private Cloud (VPC)
 Virtual Private Cloud allows you to build an independent network space on Tencent Cloud, similar to the traditional network you hosted in a data center. However, what hosted in Tencent Cloud VPC are your service resources on Tencent Cloud, which include: [Cloud Virtual Machine](https://cloud.tencent.com/doc/product/213/495), [Cloud Load Balance](https://cloud.tencent.com/doc/product/214/524), [Cloud Database](https://cloud.tencent.com/doc/product/236) and other resources of cloud services on your Tencent Cloud. Tencent Cloud VPC can provide you with the following features:
 - Customize network segmentation, IP address and routing policy via the console and APIs
-- Access Internet flexibly via [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733), [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and [Public Network Gateway](https://cloud.tencent.com/doc/product/215/4972)
-- Connect VPC with your data center via [VPN](https://cloud.tencent.com/doc/product/215/4956) and [Direct Connect](https://cloud.tencent.com/doc/product/215/4976)
+- Access Internet flexibly via [Elastic IP](https://intl.cloud.tencent.com/document/product/213/5733), [NAT Gateway](https://cloud.tencent.com/doc/product/215/4975) and Public Network Gateway
+- Connect VPC with your data center via [VPN](https://cloud.tencent.com/doc/product/215/4956) and Direct Connect
 - "One server covering the globe" and disaster recovery at "two regions, three centers" can be achieved via [Peering Connection](https://cloud.tencent.com/doc/product/215/5000)
 - Through basic network interconnection, hosts in basic network and VPC can communicate via private network
 - The [Security Group](https://intl.cloud.tencent.com/document/product/213/5221) and [Network ACL](https://cloud.tencent.com/doc/product/215/5132) can satisfy your network security requirement in a multi-dimensional and all-round manner.

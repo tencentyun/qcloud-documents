@@ -3,7 +3,7 @@ You need to configure SecretId and SecretKey to call API using command line scri
 ![](//mc.qcloudimg.com/static/img/f449efa9f3904c24894f50376bd406f6/image.png)
 
 ## Instructions
-The command line is python script. [Download](https://github.com/zz-mars/CDN_API_DEMO/tree/master/Qcloud_CDN_API/python).
+The command line is python script. [Download](https://github.com/zz-mars/CDN_API_DEMO/blob/master/Qcloud_CDN_API/python/QcloudCdnTools_V2.py).
 
 ### Preparation Before Using
 You need to install requests library to use the python script mentioned above. Use the following command:
@@ -490,7 +490,7 @@ python QcloudCdnTools_V2.py DeleteCdnHost -u xxxxx -p xxxxxx -hostId 1234
 
 #### Obtaining Log Download Link
 
-Use the following command to call the [GenerateLogList](https://cloud.tencent.com/doc/api/231/3950) API to acquire the CDN log download link of specified domain:
+Use the following command to call the GenerateLogList API to acquire the CDN log download link of specified domain:
 
 ```
 python QcloudCdnTools_V2.py GenerateLogList -u xxxxx -p xxxxxxx --hostId 1234

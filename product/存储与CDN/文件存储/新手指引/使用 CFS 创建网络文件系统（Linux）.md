@@ -65,7 +65,7 @@
  > - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](/doc/product/582/9764)。
 
 3. 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Linux 下的挂载命令。
-![](//mc.qcloudimg.com/static/img/b5d0794e84311c37a2543686abc51be1/image.png)
+![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
 ## 三、连接实例
 本部分操作介绍登录 Linux 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见 [登录 Linux 实例](/doc/product/213/5436) 。
@@ -112,7 +112,7 @@ mkdir /local/test
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```
-sudo mount -t nfs4 <挂载点IP>:/ <待挂载目标目录>
+sudo mount -t nfs -o vers=4 <挂载点IP>:/ <待挂载目标目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - 目前默认挂载的是文件系统的根目录 "/"。 在文件系统中创建子目录后，可以挂载该子目录。
@@ -125,14 +125,14 @@ sudo mount -t nfs4 <挂载点IP>:/ <待挂载目标目录>
 示例：
 - 挂载 CFS 根目录：
 ```
-mount -t nfs4 10.0.0.1:/ /local/test
+sudo mount -t nfs -o vers=4 10.0.0.1:/ /local/test
 ```
 - 挂载 CFS 子目录 subfolder：
 ```
-mount -t nfs4 10.10.19.12:/subfolder /local/test
+sudo mount -t nfs -o vers=4 10.10.19.12:/subfolder /local/test
 ```
 
- ![](https://mc.qcloudimg.com/static/img/4ce4a81c90b9ecdc19a4396720a46330/image.png)
+ ![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
 **NFS v3.0 挂载**
 使用下列命令实现 NFS v3.0 挂载。
@@ -157,7 +157,7 @@ mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/z3r6k95r /local/test
 ```
 mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/nfs /local/test
 ```
-![](https://mc.qcloudimg.com/static/img/4ce4a81c90b9ecdc19a4396720a46330/image.png)
+![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
 ### 4. 查看挂载点信息
 挂载完成后，请使用如下命令查看已挂载的文件系统：
@@ -187,3 +187,5 @@ umount /local/test
 ![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. 终止文件系统。进入腾讯云文件存储 [控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 ![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
+
+

@@ -86,7 +86,7 @@ The website for an instance is simply structured - there is only the application
 
 ### Step 1. Create a custom image for the cluster CVM
 
-This step is very simple. The custom image can be created based on an existing cluster CVM. If you have any questions, refer to [Create Custom Image >>](https://www.cloud.tencent.com/document/product/213/4942)
+This step is very simple. The custom image can be created based on an existing cluster CVM. If you have any questions, refer to [Create Custom Image](https://intl.cloud.tencent.com/document/product/213/4942)
 
 > Note:
 > You need to deploy the environment in the image in advance, ensuring that the application of the image can be activated with the operating system. In such case, the scaled CVM can work directly without manual intervention.

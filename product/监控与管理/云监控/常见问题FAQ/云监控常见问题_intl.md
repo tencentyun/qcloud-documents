@@ -12,7 +12,7 @@ Log in to Tencent Cloud Console, click "Cloud Products" - "Cloud Monitor" to ent
 
 If you have installed Monitor Agent, but there is still no monitoring data, please check whether the CVM has just been created. If so, it is normal for certain latency of data submission. Generally, the data will be displayed in about 10 minutes. However, if the CVM has been created for a period of time, please check whether the CVM is shut down. The CVM in the shutdown status cannot submit data normally.
 
-If you still cannot view the data, please check whether the CVM's private network DNS is set correctly. If the DNS is not set as required by Tencent Cloud, data cannot be submitted normally, thus leading to no monitoring data in the console. [Private network DNS configuration of basic network](https://cloud.tencent.com/doc/product/213/499#3.2.-.E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E7.9A.84.E5.86.85.E7.BD.91-dns).
+If you still cannot view the data, please check whether the CVM's private network DNS is set correctly. If the DNS is not set as required by Tencent Cloud, data cannot be submitted normally, thus leading to no monitoring data in the console. [Private network DNS configuration of basic network](http://intl.cloud.tencent.com/document/product/213/5225).
 
 If the data still cannot be displayed normally, please submit a ticket and contact us for resolution.
 

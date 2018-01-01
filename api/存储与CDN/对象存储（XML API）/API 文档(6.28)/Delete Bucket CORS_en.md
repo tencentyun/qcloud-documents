@@ -5,7 +5,7 @@ Delete Bucket CORS API request is used to delete configuration information of cr
 Syntax:
 ```
 DELETE /?cors HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

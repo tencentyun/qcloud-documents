@@ -12,7 +12,7 @@ Domain name: scaling.api.qcloud.com
 | offset | No | Int | |
 | limit | No | Int | |
 | startTime | No | datetime | |
-| endTime | No | datetime | |
+| endTime | No | datetime | | |
 
 
 ## 3. Output Parameters

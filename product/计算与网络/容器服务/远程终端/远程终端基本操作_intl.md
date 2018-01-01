@@ -10,7 +10,7 @@
 
 ![Alt text](https://mc.qcloudimg.com/static/img/00c667b4f980cd574fa50c733783acd1/2.png)
 
-### Uploading/Downloading File
+## Uploading/Downloading File
 
 1. Enter **Remote Terminal**
 2. Click **File Assistant** from the bottom right corner and Select **Upload** or **Download**

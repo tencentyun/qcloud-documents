@@ -64,57 +64,63 @@ For additional VPC service restrictions, refer to [Additional VPC Service Restri
 For details, please refer to the following table:
 
 
-<table>
-        <tbody>
-				<tr>
-            <th style="width: 10%;" rowspan="2">Function</th>
-            <th style="width: 25%;" rowspan="2">Billing Method</th>
-						<th style="width: 25%;" rowspan="2">Configuration</th>
-            <th style="width: 40%;" colspan="4">Price</th>
+<table class="cvmMonth">
+        <tbody><tr>
+            <th style="width: 10%;" rowspan="2">Feature</th>
+            <th style="width: 10%;" rowspan="2">Billing Model</th>
+                        <th style="width: 30%;" rowspan="2">Configuration</th>
+            <th style="width: 50%;" colspan="7">Price</th>
         </tr>
-				
-				 <tr>
-            <th>Beijing <br>Shanghai <br>Shanghai Finance <br>Guangzhou <br>Shenzhen Finance</th>
-						<th>Hong Kong</th>
-						<th>Singapore</th>
-            <th>Toronto</th>
+        <tr>
+            <th>Beijing<br>Shanghai<br>Guangzhou</th>
+                        <th>Hong Kong</th>
+                                                 <th>Singapore</th>
+            <th>Toronto</th> 
+	<th>Korea</th> 
+		<th>Frankfurt</th>
+			<th>Silicon Valley</th>
         </tr>
-				<tr>
-        <td>Regional Peering Connection</td>
-				<td colspan="6" >　　　　　　　　　　　　　　　　　　　　　Free</td>
-				<tr>
-				<tr>
+                <tr>
+                    <td>Regional Peering Connection</td>
+                 <td colspan="9" rowspan="1" align="center">Free</td>
+                 </tr>
+        </tr>
+    <tr>
             <td rowspan="5">Cross-region Peering Connection</td>
-						<td rowspan="5">Peak bandwidth of the day<br><br>Daily rate (CNY/Mbps/Day) <br><br>Peak bandwidth is calculated using the average bandwidth per 5 mins<br></td>
-						<td>(0, 20] Mbps</td>
-						<td>20</td>
-						<td>-</td>
-						<td>-</td>
-						<td>-</td>
+                        <td rowspan="5">Peak bandwidth of the day<br><br>Bill by days (USD/Mbps/day) <br><br>Peak bandwidth is calculated as the average bandwidth every 5 minutes<br></td>
+                        <td>(0, 20] Mbps</td>
+                        <td colspan="1" rowspan="1" align="center">3.19</td>
+                        <td colspan="6" rowspan="1" align="center">15</td>
         </tr>
-				
-				<tr>
-				<td>(20,100] Mbps</td>
-						<td>12</td>
-						<td>-</td>
-						<td>-</td>
-						<td>-</td>
-				</tr>
-				
-				<tr>
-				<td>(100, 500] Mbps</td>
-				<td colspan="4" rowspan="4">　　　　　　　Please consult with the business department<br>
-				</tr>
-				
-				<tr>
-				<td>(500, 2000] Mbps</td>
-				</tr>
-				
-			 <tr>
-				<td >Above 2000 Mbps</td>
-				</tr>
-					<tr>
-</tbody></table>
+                
+                <tr>
+                <td>(20M, 100] Mbps</td>
+                        <td colspan="1" rowspan="1" align="center">1.98</td>
+                        <td colspan="6" rowspan="1" align="center">12</td>
+                </tr>
+                
+                <tr>
+                <td>(100, 500] Mbps</td>
+                <td colspan="1" rowspan="1" align="center">1.48</td>
+                        <td colspan="6" rowspan="1" align="center">9</td>
+                </tr>
+                
+                <tr>
+                <td>(500, 2000] Mbps</td>
+				<td colspan="1" rowspan="1" align="center">1.19</td>
+                        <td colspan="6" rowspan="1" align="center">6</td>
+                </tr>
+                
+             <tr>
+                <td >> 2000 Mbps</td>
+				<td colspan="1" rowspan="1" align="center">0.82</td>
+                        <td colspan="6" rowspan="1" align="center">5</td>
+                </tr>
+                </tr>
+                                    
+    </tbody></table>
+
+
 
 > Contact business department to consult more about prices.
 
@@ -122,9 +128,6 @@ For more information regarding the prices of VPC services, refer to [VPC Price O
 
 > Note: In order for you to view the cost, the billing system describes peering connections as:  bill for cross-region interconnection (mainland) and bill for peering connection of which both ends are in mainland China
 
-
-**Example:**
-If the peering connection initiator is in Shanghai, the receiver is in Guangzhou, outbound peak bandwidth of the day is 20 Mbps, inbound peak bandwidth is 30 Mbps, then the cost of the day is: 30 * 12 = 360 CNY, which shall be paid by the initiator.
 
 ### Free cross-region interconnection bandwidth campaign **(Key customers are entitled to its benefits by default, but it is closed to common customers)**
 Benefits for VIP customers and common customers during the campaign are as follows:
@@ -138,8 +141,6 @@ Benefits for VIP customers and common customers during the campaign are as follo
 > Note:
 - It takes effect on the day the bandwidth remission is approved upon review. The extra amount is applicable to the tiered price. This is valid until Dec. 31, 2017. You can view the remission details in the peering connection creation pop-up or in the details page.
 
-
-- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer, entitled to the supreme service and related benefits, [Apply Now >>](https://cloud.tencent.com/service/vip. Html)
 
 ## Operating Instructions
 
@@ -174,7 +175,7 @@ The following steps are required to achieve interconnection between segment 1 an
 - For a cross-region peering connection, you can select a maximum bandwidth. If you need a higher cross-region bandwidth, please initiate a request by submitting a ticket.
 
 5) A peering connection between the VPCs under the same account takes effect immediately after its creation;
-   4) If you want to create a peering connection to a VPC under another account, the connection takes effect only after the peer accepts the connection request.
+6) If you want to create a peering connection to a VPC under another account, the connection takes effect only after the peer accepts the connection request.
 > Note: Any fees charged for a cross-region peering connection are paid by the initiator of the connection.
 
 #### (Optional) Step 2: Accepting request for peering connection

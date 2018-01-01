@@ -12,9 +12,9 @@ Domain for API request:<font style="color:red">cdn.api.cloud.tencent.com</font>
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473). The Action field for this API is RefreshCdnUrl.
 
-| Parameter Name   | Required | Type     | Description                     |
-| ------ | ---- | ------ | ---------------------- |
-| urls.n | Yes    | String | URL to be purged. You may purge multiple URLs |
+| Parameter Name | Required | Type   | Description                              |
+| -------------- | -------- | ------ | ---------------------------------------- |
+| urls.n         | Yes      | String | URL to be purged. You may purge multiple URLs |
 
 
 #### Note
@@ -38,19 +38,19 @@ The following request parameter list only provides API request parameters. Commo
 
 ## 3. Output Parameters
 
-| Parameter Name     | Type     | Description                                       |
-| -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
-| message  | String | Module error message description depending on API                           |
-| codeDesc | String | English error message or error code at business side.                           |
-| data     | Array  | Details will be described below                                  |
+| Parameter Name | Type   | Description                              |
+| -------------- | ------ | ---------------------------------------- |
+| code           | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
+| message        | String | Module error message description depending on API |
+| codeDesc       | String | English error message or error code at business side. |
+| data           | Array  | Details will be described below          |
 
 **data Field Description:**
 
-| Parameter Name  | Type   | Description           |
-| ----- | ---- | ------------ |
-| count | Int  | Number of URLs submitted for this purge operation |
-| task_id | Int | ID of the purge task |
+| Parameter Name | Type   | Description                              |
+| -------------- | ------ | ---------------------------------------- |
+| count          | Int    | Number of URLs submitted for this purge operation |
+| task_id        | String | ID of the purge task                     |
 
 
 

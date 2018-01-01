@@ -6,7 +6,7 @@ Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用�
 语法示例：
 ```
 GET /?acl HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

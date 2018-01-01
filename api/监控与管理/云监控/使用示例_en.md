@@ -1,6 +1,6 @@
 In order to help you get started with Cloud Monitor APIs quickly, we provide an example on how to use these APIs. In this example, we will query the CPU utilization of a CVM:
 
-## 1. Reading Monitoring Data
+## Reading Monitoring Data
 
 To query the CPU utilization of a CVM, the values of namespace and metricName are qce/cvm and cpu_usage respectively.
 The Action field of common request parameters is GetMetricStatistics. The request parameters of this API are shown in the following table:

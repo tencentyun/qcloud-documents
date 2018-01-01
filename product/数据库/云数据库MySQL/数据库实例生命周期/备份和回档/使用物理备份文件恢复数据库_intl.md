@@ -1,7 +1,7 @@
 # Restoring a Database Locally Using Physical Backup File
 ** If you want to use a physical backup file downloaded to the local computer to restore a database on other hosts, refer to this document**
 #### 1. Downloading Backup File
-For details on the steps, refer to [Download Instructions](https://cloud.tencent.com/document/product/236/7358)
+For details on the steps, refer to [Download Instructions](https://intl.cloud.tencent.com/document/product/236/7358)
 After the file is downloaded, the following information will be displayed:
 ![](https://mc.qcloudimg.com/static/img/d02b20501dd1c42a95f2b7a74c266b98/1.png)
 
@@ -11,8 +11,7 @@ Decompress the backup file:
 tar   xfv  backup.tgz
 ```
 Query the file generated after the decompression. The directory files in blue are the databases where CDB resides in when the backup is generated.
-![](https://mc.qcloudimg.com/static/img/62a64dc648edb040b9bbd9f2bbd65491/2.png)
-
+![](https://mc.qcloudimg.com/static/img/3f26113d3f2c6cc83f7b76d1aaff0a74/2.png)
 
 ### 3. Modifying Configuration File
 Due to version problems, please comment out
@@ -29,7 +28,7 @@ Modify the file owner, and check whether the file belongs to a mysql user
 ```
 chown -R mysql:mysql /home/mysql/backup/data
 ```
-![](https://mc.qcloudimg.com/static/img/efbdeb20e1b699295c6a4321943908b2/4.png)
+![](https://mc.qcloudimg.com/static/img/eaca02a23c22a6431baeadb86fb90720/4.png)
 
 #### 5. Starting mysql Process and Logging in for Verification
 Start the mysql process, and verify whether it is successfully started
