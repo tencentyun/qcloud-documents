@@ -2,7 +2,7 @@
 ### 功能描述
 本接口（CreateCfsFileSystem）用于添加新文件系统。
 ### 接口域名
-文件存储请求域名：`cfs.api.qcloud.com`
+文件存储请求域名：`cfs.api.cloud.tencent.com`
 
 ## 请求参数
 以下请求参数为本接口的请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/582/13227) 页面。
@@ -49,7 +49,7 @@
 
 
 ```
-  https://cfs.api.qcloud.com/v2/index.php?Action=CreateCfsFileSystem
+  https://cfs.api.cloud.tencent.com/v2/index.php?Action=CreateCfsFileSystem
   &Region=bj
   &ZoneId=800001
   &NetInterface=vpc
@@ -62,7 +62,7 @@
   &ActMode=auto
   &<公共请求参数>
 =======
-  &<<a href="https://www.qcloud.com/doc/api/229/6976"> 公共请求参数 </a>>
+  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 >>>>>>> Stashed changes
 ```
