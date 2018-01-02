@@ -16,13 +16,13 @@
 
 4. 确认后，我们会第一时间替您向优图实验室申请试用 Licence，并同压缩包解压密码一起发给您。
 
-   License有两种：
+   Licence有两种：
 
-   - 试用License：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用License发布了您的应用，会导致有效期过后动效的功能不可用。
-   - 正式License：有效期根据最终的合同而定，一般为一年。
+   - 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
+   - 正式Licence：有效期根据最终的合同而定，一般为一年。
 
 ## 版本下载
-可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & license 可以跟我们的商务同学获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
+可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & licence 可以跟我们的商务同学获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
 
 > 区分特权版与非特权版，可以查看SDK的bundler id。bundler id为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
 >

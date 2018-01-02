@@ -16,7 +16,7 @@ https://idasc.webank.com/api/oauth2/api_ticket
 | 参数 | 说明 |类型 |长度 | 是否必填 |
 |---------|---------|---------|---------|---------|
 | app_id | 腾讯服务分配的 app_id | 字符串 |腾讯服务分配 |必填 ，腾讯服务分配的 app_id |
-| access_token | 根据 [Access Token 获取]() 页面中获取| 字符串 |腾讯服务分配 |根据 [Access Token 获取]() 页面中获取 |
+| access_token | 根据 [Access Token 获取]() 页面中的指引进行获取| 字符串 |腾讯服务分配 |根据 [Access Token 获取]() 页面中的指引进行获取 |
 |type | ticket 类型 | 字符串 |20 |必填 ，默认值：**SIGN** (必须大写) |
 | version | 版本号 | 字符串 |20 |必填 ，默认值：1.0.0|
 
