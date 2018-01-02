@@ -1,4 +1,4 @@
-﻿![](//mccdn.qcloud.com/static/img/23bb70b386581b8ebc553fc4c589185f/image.png)
+![](https://mc.qcloudimg.com/static/img/c90b78acfb2e1501d0c94f6546efbd2e/image.png)
 
 ## Balance Forewarning
 We will estimate the remaining available period of your account based on your usage of pay-by-usage resources under your account and your balance over the past 24 hours. We will send you a balance forewarning message if the period is less than 5 days. The forewarning message will be sent by email and SMS to Tencent Cloud account creator and all the collaborators.

@@ -28,7 +28,7 @@ MQTT 客户端连接 IoT MQ 服务器时，须发送 CONNECT 报文，且在 Con
 ##  3. 生成签名串
 有了安全凭证 SecretId 和 SecretKey 后，就可以生成签名串了。您可以选择在控制台上用工具生成签名，也可以使用签名算法自主计算签名。
 ### 3.1 使用控制台生成签名
-为了方便用户对比验证自己的签名计算是否正确，IoT MQ 控制台提供了客户端签名计算工具供参考对比。
+为了方便用户对比验证自己的签名计算是否正确，IoT MQ 控制台提供了[客户端签名计算工具](https://console.cloud.tencent.com/iotmq/tool)供参考对比。
 输入使用账号的 SecretId, SecretKey，选择需要需访问的实例，即可得到客户端连接该实例需使用的用户名和密码。
 ![](//mc.qcloudimg.com/static/img/244089eb3a17badc54ac1ba11d3bc2ee/image.png)
 

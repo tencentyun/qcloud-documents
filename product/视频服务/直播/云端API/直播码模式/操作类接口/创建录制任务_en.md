@@ -8,7 +8,7 @@
   - URL for calling API: http://fcgi.video.qcloud.com/common_access
 
 - **Note**
-  - Create a recording task. This API supports two recording modes: Scheduled Recording and Real-time Recording. In Scheduled Recording, importing start time of task is needed, which may cause the missing of wonderful moments in a video. In Real-time Recording, recording is synchronous with playback of video, making it possible to capture all of the marvelous moments in a video.
+  - Create a recording task. This API supports two recording modes: Scheduled Recording and Real-time Recording. In Scheduled Recording, importing start time of task is needed, which may cause the missing of wonderful moments in a video. In Real-time Recording, recording is synchronous with playback of video, making it possible to capture all of the marvelous moments in a video. Interface timeout should be greater than 3 seconds.
 
 ## 2. Input Parameters
 
@@ -35,7 +35,7 @@
 
 | Field Name | Description | Type | Remarks                 |
 |---------|---------|---------|------------------|
-| task_id | Task ID    |   int      |    |
+| task_id | Task ID    |   int      |  64 bit unsigned integer  |
 
  
 ## 4. Example

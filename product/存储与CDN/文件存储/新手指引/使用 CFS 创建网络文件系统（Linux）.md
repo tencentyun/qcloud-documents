@@ -65,7 +65,7 @@
  > - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](/doc/product/582/9764)。
 
 3. 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Linux 下的挂载命令。
-![](https://mc.qcloudimg.com/static/img/a3eec1aa1a88b3a79aae4da6461b8be0/image.png)
+![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
 ## 三、连接实例
 本部分操作介绍登录 Linux 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见 [登录 Linux 实例](/doc/product/213/5436) 。
@@ -112,7 +112,7 @@ mkdir /local/test
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```
-sudo mount -t nfs -o vers=4.0 <挂载点IP>:/ <待挂载目标目录>
+sudo mount -t nfs -o vers=4 <挂载点IP>:/ <待挂载目标目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - 目前默认挂载的是文件系统的根目录 "/"。 在文件系统中创建子目录后，可以挂载该子目录。
@@ -125,14 +125,14 @@ sudo mount -t nfs -o vers=4.0 <挂载点IP>:/ <待挂载目标目录>
 示例：
 - 挂载 CFS 根目录：
 ```
-sudo mount -t nfs -o vers=4.0 10.0.0.1:/ /local/test
+sudo mount -t nfs -o vers=4 10.0.0.1:/ /local/test
 ```
 - 挂载 CFS 子目录 subfolder：
 ```
-sudo mount -t nfs -o vers=4.0 10.10.19.12:/subfolder /local/test
+sudo mount -t nfs -o vers=4 10.10.19.12:/subfolder /local/test
 ```
 
- ![](https://mc.qcloudimg.com/static/img/a3eec1aa1a88b3a79aae4da6461b8be0/image.png)
+ ![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
 **NFS v3.0 挂载**
 使用下列命令实现 NFS v3.0 挂载。
@@ -157,7 +157,7 @@ mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/z3r6k95r /local/test
 ```
 mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/nfs /local/test
 ```
-![](https://mc.qcloudimg.com/static/img/a3eec1aa1a88b3a79aae4da6461b8be0/image.png)
+![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
 ### 4. 查看挂载点信息
 挂载完成后，请使用如下命令查看已挂载的文件系统：

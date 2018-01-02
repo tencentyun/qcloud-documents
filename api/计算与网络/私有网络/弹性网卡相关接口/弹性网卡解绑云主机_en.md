@@ -47,9 +47,13 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DetachNetworkInterface
 Output
 ```
 {
-    "code":"0",
-    "message":"",
-    "taskId":16284
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data":
+        {
+            "taskId": 16284
+        }
 }
 ```
 

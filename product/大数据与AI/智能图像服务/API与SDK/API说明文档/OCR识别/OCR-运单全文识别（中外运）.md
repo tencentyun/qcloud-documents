@@ -4,9 +4,9 @@
 
 ## 调用URL
 
-```
-http://recognition.image.myqcloud.com/ocr/waybill
-```
+支持 http 和 https 两种协议：
+
+`http://recognition.image.myqcloud.com/ocr/waybill`
 
 ## 头部信息
 

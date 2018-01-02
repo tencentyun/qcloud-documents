@@ -7,7 +7,7 @@ Options Object 接口实现 Object 跨域访问配置的预请求。即在发送
 语法示例：
 ```
 OPTIONS /<ObjectName> HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Origin: Origin
 Access-Control-Request-Method: HTTPMethod

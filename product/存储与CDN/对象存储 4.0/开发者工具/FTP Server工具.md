@@ -57,13 +57,11 @@ Bucket 作为整个 FTP Server 的根目录，Bucket 下面可以建立若干个
 `conf/vsftpd.conf`为 FTP Server 工具的配置文件，相关配置项的说明如下：
 ```conf
 [COS_ACCOUNT]
-cos_appid = 12XXXXXX
-# 用户自己的 APPID
 cos_secretid = XXXXXX
 cos_secretkey = XXXXXX
 # SecretId 和 SecretKey 可以在以下地址获取：https://console.cloud.tencent.com/cam/capi
-cos_bucket = XXXXX
-# 要操作的 Bucket 名称，需要注意的是 COS V5 控制台上的 Bucket 采用了 <Bucket>-<APPID> 的命名方式，这里只填写 Bucket 即可。
+cos_bucket = BucketName-appid
+# 要操作的bucket，bucket的格式为：bucektname-appid组成。示例：cos_bucket = mybucket-125888888888。
 cos_region = ap-xxx
 # Bucket 所在的地域，目前支持的地域请参照【可用地域-适用于 XML API 部分】：https://cloud.tencent.com/document/product/436/6224
 cos_user_home_dir = /home/cos_ftp/data
