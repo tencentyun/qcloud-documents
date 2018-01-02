@@ -7,7 +7,7 @@ Domain name for API request: scaling.api.qcloud.com
 
 The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/372/公共请求参数" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeScalingActivity.
 
-| Parameter | Required | Type | Description | 
+| Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
 | scalingGroupId | Yes | String | ID of the scaling group you want to query|
 | scalingActivityIds.n | No | Array | IDs of the scaling activity ID you want to query|
@@ -28,7 +28,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.scalingActivitySet | Array | Specific scaling activity details |
 | data.totalCount | int | Number of the recorded scaling activities upon query |
 
-Each element in the scalingActivitySet array is a scaling activity log in json format.
+Each element in the `scalingActivitySet` array is a scaling activity log in json format.
 
 | Parameter| Type | Description |
 |---------|---------|---------|
@@ -70,7 +70,7 @@ The mapping relationship is shown as follows:
 
 3) `errorCode`:
 
-| Code | Description | Suggested operation |
+| Code | Description | Suggested Operation |
 |----|----|--------|
 | 0 | Succeed | Succeed |
 | 10000 | Image is deleted | Change launch configuration |
