@@ -2,7 +2,7 @@
 ### 流程图示
 ![](https://mc.qcloudimg.com/static/img/295523ac26c1a844ac3a3f371565fbc1/image.png)
 
-### 整体登录鉴权流程分为三步
+### 整体登录鉴权流程
 **第一步：Access Token 获取**
 - Access Token 有效期 7200 秒，建议合作方缓存在服务器，必须在临近过期和使用中失效时重新获取，获取方式见 [Access Token 获取]()。
 
