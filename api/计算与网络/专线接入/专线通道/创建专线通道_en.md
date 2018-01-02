@@ -18,7 +18,7 @@ GET https://dc.api.qcloud.com/v2/index.php?Action=CreateDirectConnectTunnel
 
 ### Request Parameter
 
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is CreateDirectConnectTunnel.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is CreateDirectConnectTunnel.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
