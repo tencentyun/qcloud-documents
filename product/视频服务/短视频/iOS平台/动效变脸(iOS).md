@@ -14,7 +14,7 @@
 
 3. 敦促商务同学回复邮件确认，未经腾讯云商务同学确认的邮件，我们可能会视为骚扰邮件不予处理。
 
-4. 确认后，我们会第一时间替您向优图实验室申请试用 License，并同压缩包解压密码一起发给您。
+4. 确认后，我们会第一时间替您向优图实验室申请试用 Licence，并同压缩包解压密码一起发给您。
 
    License有两种：
 
@@ -72,14 +72,14 @@
 这些资源非常重要，否则切换到换脸类素材时会发生crash。
 
 ### 3. 导入licence文件
-特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 license。
+特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 licence。
 得到 licence 后，您需要将其命名为**YTFaceSDK.licence** ,然后如上图所示添加到工程。
 
 > 每个licence都有绑定具体的Bundle Identifier，修改app的Bundle Identifier会导致验证失败。
 >
 > YTFaceSDK.license的文件名固定，不可修改。
 > 
-> iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
+> iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
 
 ## 功能调用
 
