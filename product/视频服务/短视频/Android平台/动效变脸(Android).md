@@ -25,7 +25,7 @@
 
 ## 版本下载
 
-可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码 & license文件 可以跟我们的商务同学获取）, 成功解压后得到一个`LiteAVSDK_Enterprise_3.9.2749.aar`和`LiteAVSDK_Enterprise_3.9.2749.zip`，分别对应两种集成方式。
+可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码 & Licence文件 可以跟我们的商务同学获取）, 成功解压后得到一个`LiteAVSDK_Enterprise_3.9.2749.aar`和`LiteAVSDK_Enterprise_3.9.2749.zip`，分别对应两种集成方式。
 
 ## 工程设置
 
