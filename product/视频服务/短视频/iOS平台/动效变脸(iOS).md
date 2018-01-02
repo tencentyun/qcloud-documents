@@ -77,7 +77,7 @@
 
 > 每个licence都有绑定具体的Bundle Identifier，修改app的Bundle Identifier会导致验证失败。
 >
-> YTFaceSDK.license的文件名固定，不可修改。
+> YTFaceSDK.licence 的文件名固定，不可修改。
 > 
 > iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
 
