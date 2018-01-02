@@ -5,7 +5,7 @@ Domain name for API request: scaling.api.qcloud.com
 
 ## 2. Input Parameters
 
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/372/公共请求参数" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeScalingActivity.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeScalingActivity.
 
 | Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
