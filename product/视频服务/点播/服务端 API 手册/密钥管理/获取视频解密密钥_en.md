@@ -21,7 +21,7 @@ vod.api.qcloud.com
 | Parameter | Required | Type | Description |
 |---------------|----------|---------|---------|
 | edkList.n | Yes | String | List of encrypted data keys (max. 10) |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976) |
 
 ### Request Example
 ```
@@ -46,7 +46,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeDrmDataKey&edkList.0=CiCd
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 1000 | Invalid parameter  |
 | 1001 | User information error  |
 | 10009 | 10612. The obtained data key is invalid, which may be caused by incorrect edk. |
