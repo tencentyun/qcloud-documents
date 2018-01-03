@@ -17,7 +17,7 @@
   `$(PROJECT_DIR)/`该 sdk 在项目中的具体路径`/YTFaceSDK.framework/YTFaceSDK`
 
 ## 2. 调用 SDK 接口
-SDK 的功能通过 `WBFaceVerifyCustomerService` 这个类的方法进行调用 ，<font color=red> 其中 SDK 中使用的 nonce，sign 等重要信息，需要合作方从自己后台拉取，并且两者不能缓存，只能使用一次即失效</font color=red>，详细接口说明如下，其他的操作请参考 Demo：
+SDK 的功能通过 `WBFaceVerifyCustomerService` 这个类的方法进行调用 ，**其中 SDK 中使用的 nonce，sign 等重要信息，需要合作方从自己后台拉取，并且两者不能缓存，只能使用一次即失效**，详细接口说明如下，其他的操作请参考 Demo：
 ```
 // SDK版本号
 UIKIT_EXTERN NSString *const WBCloudFaceVerifySDKVersion;
