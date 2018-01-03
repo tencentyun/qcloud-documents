@@ -1,4 +1,4 @@
-## 接入配置
+## 1. 接入配置
 **WeBankService SDK 最低支持到 iOS8.0（iOS7 系统可以编译但是无法使用），请在构建项目时候注意。**
 以下为接入配置的步骤：
 1. 引用资源文件 `WBFaceV2Pics.bundle,ufa.bundle,youtubeauty.bundle` 到项目
@@ -16,7 +16,7 @@
   `$(PROJECT_DIR)/`该 sdk 在项目中的具体路径` /NextCV.framework/NextCV`
   `$(PROJECT_DIR)/`该 sdk 在项目中的具体路径`/YTFaceSDK.framework/YTFaceSDK`
 
-## 调用 SDK 接口
+## 2. 调用 SDK 接口
 SDK 的功能通过 `WBFaceVerifyCustomerService` 这个类的方法进行调用 ，<font color=red> 其中 SDK 中使用的 nonce，sign 等重要信息，需要合作方从自己后台拉取，并且两者不能缓存，只能使用一次即失效</font color=red>，详细接口说明如下，其他的操作请参考 Demo：
 ```
 // SDK版本号
@@ -207,7 +207,7 @@ typedef void (^WBFaceLoginFailureBlock)(WBFaceVerifyLogin errorCode, NSString *l
 @end
 ```
 
-## 接口参数说明
+## 3. 接口参数说明
 | 参数         | 说明                          | 类型               | 长度         | 是否必填                                     |
 | ---------- | --------------------------- | ---------------- | ---------- | ---------------------------------------- |
 | userid     | 用户唯一的标识                     | NSString         | 30         | 必填，必须保证全局唯一                              |
@@ -224,7 +224,7 @@ typedef void (^WBFaceLoginFailureBlock)(WBFaceVerifyLogin errorCode, NSString *l
 | Type       | 模式类型                        | WBFaceVerifyType |            | 中级模式：<br>WBFaceVerifyTypeMiddle,<br>高级模式：<br>WBFaceVerifyTypeAdvanced, |
 
 
-## 个性化参数设置
+## 4. 个性化参数设置
 `WBFaceVerifyCustomerServiceDelegate `的回调方法中，有如下扩展配置选项，直接参考 SDK 头文件注释即可。
 
 ```
