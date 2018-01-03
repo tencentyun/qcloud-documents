@@ -16,7 +16,7 @@ vod.api.qcloud.com
 | Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
 | definition | Yes | Integer | Transcoding template ID |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976) |
 
 ### Request Example
 <pre>
@@ -63,12 +63,12 @@ https://vod.api.qcloud.com/v2/index.php?Action=QueryTranscodeTemplate
 | audio.audioDownmixMode | Integer | If the value is 1 and the number of channels is greater than 4, besides resampling, you can further perform gain compensation for the central channel. |
 
 > Note:
-> - For more information on descriptions and values of fields relating to video and audio, please see [Transcoding Capability Overview](/document/product/266/11701#.E8.BD.AC.E7.A0.81.E8.83.BD.E5.8A.9B.E7.BB.BC.E8.BF.B0).
+> - For more information on descriptions and values of fields relating to video and audio, please see [Transcoding Capability Overview](https://cloud.tencent.com/document/product/266/11701#.E8.BD.AC.E7.A0.81.E8.83.BD.E5.8A.9B.E7.BB.BC.E8.BF.B0).
 
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 1000 | Invalid parameter  |
 | 10702 | Internal error  |
 | 10704 | The template does not exist |
