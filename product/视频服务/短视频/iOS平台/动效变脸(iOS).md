@@ -72,7 +72,7 @@
 
 这些资源非常重要，否则切换到换脸类素材时会发生crash。
 
-### 3. 导入licence文件
+### 5. 导入licence文件
 特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 licence。
 得到 licence 后，您需要将其命名为**YTFaceSDK.licence** ,然后如上图所示添加到工程。
 
@@ -130,7 +130,7 @@
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3.美妆美容
+### 3. 美妆美容
 
 ```objective-c
 /* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
@@ -187,11 +187,11 @@
 ### 1. 工程编译不过？  
  > 1. 检查AssetsLibrary.framwork、CoreMedia.framework、Accelerate.framework、Metal.framework 依赖库是否已经添加
                  
-### 2.工程运行过程中crash？  
+### 2. 工程运行过程中crash？  
  > 1. 检查工程是否配置了 -ObjC  
  > 2. 检查 Metal API Validation 是否设置成了Disabled
      
-### 3.工程特效不生效？  
+### 3. 工程特效不生效？  
  > 1. 检查YTFaceSDK.licence 命名是否正确  
  > 2. 检查licence是否过期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们的开发同学）  
  > 3. 检查pitu资源是否添加正确，尤其要注意 handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，最简单的方法就是比对自己工程添加的动效文件是否和我们demo添加的完全一致  
