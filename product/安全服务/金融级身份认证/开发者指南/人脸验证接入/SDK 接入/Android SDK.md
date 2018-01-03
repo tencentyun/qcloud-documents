@@ -270,7 +270,7 @@ String keyLicence;   //给合作方派发的licence
 | gps               | 用户 gps 信息                                | String                | 30     | 必填，格式为”lgt= xxx;lat=xxx;”；示例：“lgt=22.5044;lat=113.9537“ |
 | openApiAppId      | 腾讯服务分配的 app_id                           | String                | 腾讯服务分配 | 必填，腾讯服务分配的 app_id                        |
 | openApiAppVersion | 接口版本号                                    | String                | 20     | 必填，默认填 1.0.0                             |
-| openApiNonce      | 32 位随机字符串                                | String                | 32     | 必填，每次请求需要的一次性 NONCE                      |
+| openApiNonce      | 32 位随机字符串                                | String                | 32     | 必填，每次请求需要的一次性 nonce                      |
 | openApiUserId     | User Id                                  | String                | 30     | 必填，每个用户唯一的标识                             |
 | openApiSign       | 合作方后台服务器通过 ticket 计算出来的签名信息              | String                | 40     | 必填                                       |
 | isShowGuide       | 是否需要显示刷脸指引，SDK 每次会返回这个结果，由 App 端存储，下次拉起时再传入 | boolean               | 1      | 必填                                       |
