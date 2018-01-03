@@ -145,5 +145,16 @@ mTXCameraRecord.setNoseSlimLevel(scale)
 public void setGreenScreenFile(String path);
 ```
 
-### 
+## 问题排查              
+### 1. 工程运行过程中crash？  
+ > 1. 检查build.gradle设置，abiFilters是否设置为armeabi，目前只支持armeabi架构
+ > 2. 如果是jar集成方式，检查动效对应的so是否都考到工程jniLibs目录下
+     
+### 2. 工程特效不生效？  
+ > 1. 检查YTFaceSDK.licence 命名是否正确，YTFaceSDK.licence必须放在assets根目录下  
+ > 2. 检查licence是否过期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们的开发同学）    
+ > 3. 如果是jar集成方式，检查pitu资源是否添加正确（sdk解压出来的assets目录内容都要拷贝到工程的assets目录下）  
+ > 4. 如果客户更新了licence，请确保使用的是最新的licence，如果不确定，可以查下licence的有效期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们开发同学)，另外如果工程更换了licence，请先clean工程，删除本地安装包，重新编译       
+ 
+##### [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)是一个xcode工程，目前仅支持在mac上使用， 后续会开放其他查询方式
 
