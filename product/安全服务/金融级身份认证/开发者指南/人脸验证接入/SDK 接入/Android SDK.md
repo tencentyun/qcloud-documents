@@ -1,11 +1,11 @@
-## 1.前置条件
+## 1. 前置条件
 ### 1.1 相机/录音/读取手机信息权限检测
 SDK 需要用到相机/录音/读取手机信息权限，在 Android 6.0 以上系统，SDK 对其做了权限的运行时检测。但是由于 Android 6.0 以下系统 Android 并没有运行时权限，检测权限只能靠开关相机/麦克风进行。考虑到 SDK 的使用时间很短，快速频繁开关相机/麦克风可能会导致手机抛出异常，故 SDK 内对 Android 6.0 以下手机没有做权限的检测。为了进一步提高用户体验，在 Android 6.0 以下系统上，我们建议合作方在拉起 SDK 前，帮助 SDK 做相机/麦克风/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行刷脸，可以使整个刷脸体验更快更好。
 ### 1.2 CPU 平台设置
 目前 SDK 只支持 armeabi-v7a 平台，为了防止在其他 cpu 平台上 sdk crash，我们建议在您的 App 的 build.gradle 里加上 abiFilter，如下图中红框所示：
 ![](https://mc.qcloudimg.com/static/img/61fab389aae7630adf751ec997dbdb16/image.png)
 
-## 2.接入配置
+## 2. 接入配置
 云刷脸 SDK（WbCloudFaceVerify）最低支持到** Android API 14: Android 4.0(ICS)**，请在构建项目时注意。
 刷脸 SDK 将以 AAR 文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤（SDK 皮肤的设定，除了接入对应的 AAR，还需要设定相关代码。详见 [SDK 样式选择]()。默认黑色皮肤，无需格外设置），接入方可自由选择组合四个模式。
 ![](https://mc.qcloudimg.com/static/img/0d1fb1b5512b25f4efda0cd89fb33ddb/image.png)
@@ -36,7 +36,7 @@ dependencies {
     }
 ```
 
-## 3.混淆配置
+## 3. 混淆配置
 云刷脸产品的混淆规则分为三部分，分别是云刷脸 SDK 的混淆规则，云公共组件的混淆规则及依赖的第三方库混淆规则。
 ### 3.1 云刷脸 sdk 的混淆规则
 
@@ -179,7 +179,7 @@ dependencies {
 
 您可以根据您现有的混淆规则，将缺少的第三库混淆规则拷贝到您的混淆文件中。
 
-## 4.调用 SDK 接口
+## 4. 调用 SDK 接口
 SDK 代码调用的入口为：
 **`com.webank.wbcloudfaceverify2.tools.WbCloudFaceVerifySdk`** 这个类。
  ```
@@ -258,7 +258,7 @@ String keyLicence;   //给合作方派发的licence
 
 以上参数被封装在`WbCloudFaceVerifySdk.InputData`对象中（它是一个 Serializable 对象）。
 
-## 5.接口参数说明
+## 5. 接口参数说明
 
 | 参数                | 说明                                       | 类型                    | 长度     | 是否必填                                     |
 | ----------------- | ---------------------------------------- | --------------------- | ------ | ---------------------------------------- |
@@ -277,7 +277,7 @@ String keyLicence;   //给合作方派发的licence
 | verifyMode        | 刷脸类型：<br>动作活体<br>FaceVerifyStatus.Mode.MIDDLE<br>数字活体<br>FaceVerifyStatus.Mode.ADVANCED | FaceVerifyStatus.Mode |        | 必填                                       |
 | keyLicence        | 腾讯给合作方派发的 licence                        | String                |        | 必填                                       |
 
-## 6.个性化参数设置
+## 6. 个性化参数设置
 `WbCloudFaceVerifySdk.init()`里 Bundle data，除了必须要传的 InputData 对象(详情见上节)之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己 App 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
 
 ### 6.1是否显示刷脸成功页面
@@ -359,7 +359,7 @@ SDK 为了进一步确保刷脸的安全性，不论是简单还是中级模式�
   data.putBoolean(WbCloudFaceVerifySdk.VIDEO_CHECK, true);
 ```
 
-## 7.接入示例
+## 7. 接入示例
 ```
 # 在 MainActivity 中点击某个按钮的代码逻辑：
 //先填好数据 
@@ -422,7 +422,7 @@ public void onFinish(int resultCode, boolean nextShowGuide, String faceCode, Str
          }     
 ```
 
-## 8.错误码描述
+## 8. 错误码描述
 ### 8.1 刷脸登录错误码
 
 | 错误码                                      | 错误描述             |
