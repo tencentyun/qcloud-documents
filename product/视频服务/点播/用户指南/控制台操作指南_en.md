@@ -1,6 +1,6 @@
 ## 1. Overview
 
-Click **VOD** -> **Overview** to enter the overview page.
+Click "VOD" -> "Overview" to enter the overview page.
 
 In the overview page, you can view your current billing type, expiration date, billing type of the next month, usage of current package, number of files, and number of players, etc.
 
@@ -28,7 +28,7 @@ After changing package or making payment in arrears, you need to log in to the c
 
 ## 2. Upload Videos
 
-Step 1: Click **Web Upload**
+Step 1: Click "Web Upload"
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-7.png)
 
@@ -36,7 +36,7 @@ Go to the **Web Upload** page
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-8.png)
 
-Step 2: Click **Add File**
+Step 2: Click "Add File"
 
 Select the local files you want to upload.
 
@@ -48,7 +48,7 @@ Before starting the upload, you can change the video names, select video categor
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/bz-03.png)
 
-When you complete the selection, click **Start Upload**. In the process of upload, you can delete the upload task. When upload is completed, the files are automatically transcoded based on the transcoding settings in global settings, as shown below:
+When you complete the selection, click "Start Upload". In the process of upload, you can delete the upload task. When upload is completed, the files are automatically transcoded based on the transcoding settings in global settings, as shown below:
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/bz-04.png)
 
@@ -56,7 +56,7 @@ When you complete the selection, click **Start Upload**. In the process of uploa
 
 ## 3. Video Management
 
-Click **Video Management** to enter the video list management page.
+Click "Video Management" to enter the video list management page.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-11.png)
 
@@ -64,7 +64,7 @@ In **Video Management**, you can find all the videos sorted by update time by de
 
 ## 4. Re-transcode
 
-By default, after being uploaded, the videos are transcoded based on the transcoding settings in global settings. If the transcoding settings have been modified, you can select the videos and then click **Transcode** to transcode them again.
+By default, after being uploaded, the videos are transcoded based on the transcoding settings in global settings. If the transcoding settings have been modified, you can select the videos and then click "Transcode" to transcode them again.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-12.png)
 
@@ -80,7 +80,7 @@ To publish videos in batch and get the Web player code, you can select multiple 
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-13.png)
 
-Click **Edit** to modify the name, category, description, and tag of a video.
+Click "Edit" to modify the name, category, description, and tag of a video.
 
 In the editing mode, you can also modify the video cover. You can select to upload local files, or choose from the 10 files obtained from automatic screenshots, as shown below:
 
@@ -98,7 +98,7 @@ Select the file with the specific resolution or bitrate, and then select playbac
 
 Web player code native to video is suitable for the code edited with Web editor, including adaptive HTML code, FLASH, and IFRAME. It contains player configuration information. For this option, perform the steps below:
 
-Step 1: Click the **Edit** button on the player management page;
+Step 1: Click the "Edit" button on the player management page;
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-16.png)
 
@@ -126,7 +126,7 @@ Perform the steps below:
 
 Step 1: Manage player
 
-In the navigation bar, click **Manage Web Players**.
+In the navigation bar, click "Manage Web Players".
 
 You can see a list of players, which is used to manages all the players. You can create and maintain a maximum of 10 custom players. One of the players (initial player) is set as the default player. When all the video files are published, the configuration of the default player is used to generate the player code in the Web player code window, unless otherwise indicated.
 
@@ -141,7 +141,7 @@ Delete: Delete the selected player. When the selected player is deleted, the vid
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-20.png)
 
 Step 2: Modify the player configuration
-Click **Modify** in the player list to go to the player configuration page.
+Click "Modify" in the player list to go to the player configuration page.
 
 ## 10. Modify Web Player Configuration
 
@@ -172,7 +172,7 @@ In the future, more features such as ads will be available to meet the user need
 ### 11.1 Transcoding Settings
 
 By going to **Global Settings** -> **Transcoding Settings**, you can configure the default transcoding formats and resolutions for all the videos of the current customer.
-Step 1: Click **Global Settings**
+Step 1: Click "Global Settings"
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-24.png)
 
@@ -188,7 +188,7 @@ Among the transcoding formats, mp4 SD is the default format, which cannot be dis
 
 By going to **Global Settings** -> **Security Settings**, you can configure the access security features for the current customer's videos, including blacklist & whitelist and hotlink protection features.
 
-Step 1: Click **Global Settings**
+Step 1: Click "Global Settings"
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-26.png)
 
@@ -197,11 +197,11 @@ Step 2: Go to **Global Settings** -> **Security Settings** management page.
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-29.png)
 
 You can enable or disable the blacklist/whitelist feature as needed.
-When it is enabled, select **Use Whitelist** or **Use Blacklist**, and add the URLs individually.
+When it is enabled, select "Use Whitelist" or "Use Blacklist", and add the URLs individually.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-28.png)
 
-When this process completes, click **Save**.
+When this process completes, click "Save".
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-29.png)
 
@@ -223,24 +223,24 @@ After categories are created, you can also mange the file categories in the file
 
 In **Watermark Management**, you can upload images in PNG format as watermarks of the videos, and configure the default watermark and the positions of watermarks in the videos.
 
-Click **Watermark Management** to go to the current customer's watermark management list page.
+Click "Watermark Management" to go to the current customer's watermark management list page.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-33.png)
 
 Step 1: Upload
 
-Click **Upload**, and then select a local watermark file to upload. Only PNG format is supported, and the file size should not exceed 100 KB.
+Click "Upload", and then select a local watermark file to upload. Only PNG format is supported, and the file size should not exceed 100 KB.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-34.png)
 
 Step 2: Set default watermark
 
-Click **Set as Default Watermark** to set this watermark as the default watermark for all the uploaded videos. You can choose whether or not to use the watermark when uploading files.
+Click "Set as Default Watermark" to set this watermark as the default watermark for all the uploaded videos. You can choose whether or not to use the watermark when uploading files.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-35.png)
 
 Step 3: Edit position
-Click **Edit** to set the position of the watermark.
+Click "Edit" to set the position of the watermark.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-36.png)
 
@@ -261,11 +261,11 @@ Before using this feature, you must complete the identify verification for your 
 
 Step 2: Select a video file to generate the video URL in WeChat Official Account
 
-Go to **Console** -> **VOD** -> **Video Management** page, and then click the video file. Before the first use of this feature, you need to click **Activate Service**.
+Go to **Console** -> **VOD** -> **Video Management** page, and then click the video file. Before the first use of this feature, you need to click "Activate Service".
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-2.png)
 
-Then click **Generate URL**. It takes a maximum of 4 hours to generate a URL since the content is subject to an audit.
+Then click "Generate URL". It takes a maximum of 4 hours to generate a URL since the content is subject to an audit.
 
 When generated, the video URL takes effect immediately, as show below. You can switch the current URL posting status and preview it via QR code.
 
@@ -285,7 +285,7 @@ You can view the statistics of traffic and number of requests by ISPs and provin
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tongjifenxi-01.png)
 
-By clicking **File Analysis**, you can view the number of times the existing files are played within the specific time period and the total VOD traffic generated.
+By clicking "File Analysis", you can view the number of times the existing files are played within the specific time period and the total VOD traffic generated.
 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tongjifenxi-02.png)
 
