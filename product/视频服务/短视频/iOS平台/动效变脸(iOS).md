@@ -44,7 +44,8 @@
 
 ### 2. 添加链接参数
 
-在工程  Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
+> 1. 在工程  Build Setting -> Other Link Flags 里，增加 `-ObjC` 选项。
+> 2. 如果使用了AI扣背功能，需要把  Product -> Edit Scheme -> Run -> Options -> Metal API Validation 设置为Disabled。
 
 ### 3. 添加动效资源
 
@@ -182,3 +183,18 @@
  */
 -(void)setGreenScreenFile:(NSURL *)file;
 ```
+## 问题排查
+### 1. 工程编译不过？  
+ > 1. 检查AssetsLibrary.framwork、CoreMedia.framework、Accelerate.framework、Metal.framework 依赖库是否已经添加
+                 
+### 2.工程运行过程中crash？  
+ > 1. 检查工程是否配置了 -ObjC  
+ > 2. 检查 Metal API Validation 是否设置成了Disabled
+     
+### 3.工程特效不生效？  
+ > 1. 检查YTFaceSDK.licence 命名是否正确  
+ > 2. 检查licence是否过期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们的开发同学）  
+ > 3. 检查pitu资源是否添加正确，尤其要注意 handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，最简单的方法就是比对自己工程添加的动效文件是否和我们demo添加的完全一致  
+ > 4. 如果客户更新了licence，请确保使用的是最新的licence，如果不确定，可以查下licence的有效期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们开发同学)，另外如果工程更换了licence，请先clean工程，删除本地安装包，重新编译     
+ 
+#####[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)是一个xcode工程，目前仅支持在mac上使用， 后续会开放其他查询方式
