@@ -327,7 +327,7 @@ table td {
     <td>下载地址</td>
     <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK1.2.1.4.zip">DOWNLOAD</a></td>
 		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/1.2.2/LiteAVSDK_Windows_CSharp_1_2_2_0.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/1.2.2/LiteAVSDK_Windows_cpp_1_2_2_0.zip">DOWNLOAD</a></td>
+		<td><a href="http://sdk-10065671.file.myqcloud.com/LiteAVSDK_Windows_C%2B%2B_1.2.2.0.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 
