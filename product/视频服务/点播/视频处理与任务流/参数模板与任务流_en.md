@@ -15,12 +15,12 @@ The so-called parameter template is a template (or parameter container) in which
 
 The VOD system provides pre-defined parameter templates, and also allows developers to customize their parameter templates. Please see:
 
-- [Transcoding Template](/document/product/266/11701#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)
-- [Re-wrapping Template](/document/product/266/11701#.E8.A7.86.E9.A2.91.E8.BD.AC.E5.B0.81.E8.A3.85)
-- [Watermark Template](/document/product/266/11701#.E6.B0.B4.E5.8D.B0.E6.A8.A1.E6.9D.BF)
-- [Templates for Capturing Screenshots at Specified Time](/document/product/266/11702#.E6.8C.87.E5.AE.9A.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)
-- [Template for Sampling Screenshot](/document/product/266/11702#.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)
-- [Image Sprite Screenshot Template](/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)
+- [Transcoding Template](https://cloud.tencent.com/document/product/266/11701#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)
+- [Re-wrapping Template](https://cloud.tencent.com/document/product/266/11701#.E8.A7.86.E9.A2.91.E8.BD.AC.E5.B0.81.E8.A3.85)
+- [Watermark Template](https://cloud.tencent.com/document/product/266/11701#.E6.B0.B4.E5.8D.B0.E6.A8.A1.E6.9D.BF)
+- [Templates for Capturing Screenshots at Specified Time](https://cloud.tencent.com/document/product/266/11702#.E6.8C.87.E5.AE.9A.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)
+- [Template for Sampling Screenshot](https://cloud.tencent.com/document/product/266/11702#.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)
+- [Image Sprite Screenshot Template](https://cloud.tencent.com/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE.E6.88.AA.E5.9B.BE.E6.A8.A1.E6.9D.BF)
 - [Video Encryption Template](/document/product/266/9645)
 
 ## Task Flow
@@ -131,7 +131,7 @@ When using the Lua task flow to process videos, you must proceed with the templa
 - If only the name of Lua task flow template is passed, the entry function `CreateProcedure` will be called without any parameters;
 - If '()' is added after the name of the Lua task flow template when it is passed, you can pass the parameters in '()' to the task flow (similar as the function calling method); the passing method of parameters is the same as the functional parameter passing method in the Lua language, and the parameters are separated by commas. Four types of parameters are supported, such as Number, String, Boolean, and Table.
 
-For example, call the [ProcessFileByProcedure](/document/product/266/9045) API to process the videos by calling the server APIs:
+For example, call the [ProcessFileByProcedure](https://cloud.tencent.com/document/product/266/9045) API to process the videos by calling the server APIs:
 
 Example 1: Call MyFirstProcedure to process the video, without passing parameters.
 <pre>
@@ -164,7 +164,7 @@ The video generation process determines the source videos processed thereafter. 
 
 Get the meta-information of videos, such as length, bitrate, resolution, encoding and so on. In the Lua task flow, you can control video processing operations for subsequent stages based on the video meta-information.
 
-After the video meta-information is obtained successfully, the result will be written into the media asset system, which can be obtained by  calling API [GetVideoInfo](/document/product/266/8586).
+After the video meta-information is obtained successfully, the result will be written into the media asset system, which can be obtained by  calling API [GetVideoInfo](https://cloud.tencent.com/document/product/266/8586).
 
 ### AI Video Review
 
@@ -182,13 +182,13 @@ The so-called manual video review means that the VOD system can send all videos 
 ### Video Processing
 
 The processing on videos includes:
-- [Transcoding](/document/product/266/11701#.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81) (including [watermark](/document/product/266/11701#.E8.A7.86.E9.A2.91.E6.B0.B4.E5.8D.B0), [encryption](/document/product/266/9638), [re-wrapping](/document/product/266/11701#.E8.A7.86.E9.A2.91.E8.BD.AC.E5.B0.81.E8.A3.85) and other functions);
-- [Capture screenshots at a specified time](/document/product/266/11702#.E6.8C.87.E5.AE.9A.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE);
-- [Use screenshots captured at specified time as cover](/document/product/266/11702#.E4.BD.BF.E7.94.A8.E6.8C.87.E5.AE.9A.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E4.BD.9C.E4.B8.BA.E5.B0.81.E9.9D.A2);
-- [Sampling screenshot](/document/product/266/11702#.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE);
-- [Image Sprite screenshot](/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE(imagesprite)).
+- [Transcoding](https://cloud.tencent.com/document/product/266/11701#.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81) (including [watermark](https://cloud.tencent.com/document/product/266/11701#.E8.A7.86.E9.A2.91.E6.B0.B4.E5.8D.B0), [encryption](https://cloud.tencent.com/document/product/266/9638), [re-wrapping](https://cloud.tencent.com/document/product/266/11701#.E8.A7.86.E9.A2.91.E8.BD.AC.E5.B0.81.E8.A3.85) and other functions);
+- [Capture screenshots at a specified time](https://cloud.tencent.com/document/product/266/11702#.E6.8C.87.E5.AE.9A.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE);
+- [Use screenshots captured at specified time as cover](https://cloud.tencent.com/document/product/266/11702#.E4.BD.BF.E7.94.A8.E6.8C.87.E5.AE.9A.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E4.BD.9C.E4.B8.BA.E5.B0.81.E9.9D.A2);
+- [Sampling screenshot](https://cloud.tencent.com/document/product/266/11702#.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE);
+- [Image Sprite screenshot](https://cloud.tencent.com/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE(imagesprite)).
 
-All the outputs of above video processing operations will be written into the media asset system, which can be obtained by the API [GetVideoInfo](/document/product/266/8586).
+All the outputs of above video processing operations will be written into the media asset system, which can be obtained by the API [GetVideoInfo](https://cloud.tencent.com/document/product/266/8586).
 
 #### Video Distribution
 
@@ -214,9 +214,9 @@ The document is to be completed.
 #### Process Existing Videos via Server API
 
 For more information, please see:
-- Server API: [Process the video files according to the specified process (ProcessFileByProcedure)](/document/product/266/9045)
-- Server API: [Use task flow to process the videos (RunProcedure)](/document/product/266/11030)
-- Server API: [Process the video files (ProcessFile)](/document/product/266/9642)
+- Server API: [Process the video files according to the specified process (ProcessFileByProcedure)](https://cloud.tencent.com/document/product/266/9045)
+- Server API: [Use task flow to process the videos (RunProcedure)](https://cloud.tencent.com/document/product/266/11030)
+- Server API: [Process the video files (ProcessFile)](https://cloud.tencent.com/document/product/266/9642)
 
 Note:
 > The difference between the three APIs is:
@@ -246,13 +246,13 @@ The so-called task flow execution results refer to the outputs of each video pro
 Developers can get the task flow execution results in the following ways:
 1. Perceive the task flow execution results (or status changes) through the task flow event notification: See [Event Notification](#.E4.BA.8B.E4.BB.B6.E9.80.9A.E7.9F.A5);
 2. Get the task flow execution results through the status query API: see [Status Query](#.E4.BB.BB.E5.8A.A1.E7.AE.A1.E7.90.86);
-3. Get the task flow execution results through the media asset management API: The operation results of some sub-tasks in the task flow will be written into the media asset system, and the results of video transcoding, screenshot taking and other operations can be obtained through Server API [GetVideoInfo](/document/product/266/8586).
+3. Get the task flow execution results through the media asset management API: The operation results of some sub-tasks in the task flow will be written into the media asset system, and the results of video transcoding, screenshot taking and other operations can be obtained through Server API [GetVideoInfo](https://cloud.tencent.com/document/product/266/8586).
 
 ## Event Notification and Task Management
 
 Processing videos by using task flows is essentially implemented offline. After the video processing operation is initialized through the task flow, this operation will be performed in the VOD backend as an offline task, and the VOD backend will return the task ID to the caller.
 
-Developers can perceive the task execution through the event notification mechanism, and query the execution status of a certain task through the task management mechanism. See [Event Notification and Task Management](/document/product/266/7829).
+Developers can perceive the task execution through the event notification mechanism, and query the execution status of a certain task through the task management mechanism. See [Event Notification and Task Management](https://cloud.tencent.com/document/product/266/7829).
 
 ### Event Notification
 
@@ -260,13 +260,13 @@ For the video processing tasks initiated by the task flow, their event notificat
 1. Status Change Notification for Task Flow Execution: The event notification is triggered after each sub-task in each stage of the task flow is executed (for example, a notification is triggered after each transcoding of specific format of is completed); it is suitable for the scenarios where the video processing result is to be obtained quickly;
 2. Notification for the End of Task Flow Execution: The event notification is triggered only when the entire task execution is completed, regardless of the intermediate process of task execution.
 
-For more information, please see [Status Change Notification for Task Flow Execution](/document/product/266/9636).
+For more information, please see [Status Change Notification for Task Flow Execution](https://cloud.tencent.com/document/product/266/9636).
 
 ### Task Management
 
 You can query the task flow execution status (queuing/executing/completed) and the results (the output result of each sub-operation) based on the task ID.
 
-For more information, please see [Task Management](/document/product/266/7829#.E4.BB.BB.E5.8A.A1.E7.AE.A1.E7.90.86).
+For more information, please see [Task Management](https://cloud.tencent.com/document/product/266/7829#.E4.BB.BB.E5.8A.A1.E7.AE.A1.E7.90.86).
 
 # VOD Built-in Task Flow Template
 
