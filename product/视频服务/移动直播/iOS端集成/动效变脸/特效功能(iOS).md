@@ -71,7 +71,7 @@
 
 这些资源非常重要，否则切换到换脸类素材时会发生crash。
 
-### 3. 导入licence文件
+### 5. 导入licence文件
 特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 licence。
 得到 licence 后，您需要将其命名为**YTFaceSDK.licence** ,然后如上图所示添加到工程。
 
@@ -129,7 +129,7 @@
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3.美妆美容
+### 3. 美妆美容
 
 ```objective-c
 /* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
