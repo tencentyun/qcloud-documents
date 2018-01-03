@@ -3,10 +3,10 @@ CommitUpload
 
 ## Feature Description
 1. Confirm upload of video files (and cover image files), and obtain playback URLs and file IDs.
-2. For which step of the server upload the API is in, please see [Server Upload Overview](/document/product/266/9759#.E4.B8.8A.E4.BC.A0.E6.B5.81.E7.A8.8B).
+2. For which step of the server upload the API is in, please see [Server Upload Overview](https://cloud.tencent.com/document/product/266/9759#.E4.B8.8A.E4.BC.A0.E6.B5.81.E7.A8.8B).
 
 ## SDK
-It is recommended to use [VOD server SDK](/document/product/266/7982) to call the API.
+It is recommended to use [VOD server SDK](https://cloud.tencent.com/document/product/266/7982) to call the API.
 
 ## Request Method
 
@@ -20,7 +20,7 @@ vod.api.qcloud.com
 | Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
 | vodSessionKey | Yes | String | Session Key obtained when VOD initiates the upload |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976) |
 
 ### Request Example
 ```
@@ -47,7 +47,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=CommitUpload
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 31001 | Incorrect VodSessionKey  |
 | 32001 | Internal service error |
 
