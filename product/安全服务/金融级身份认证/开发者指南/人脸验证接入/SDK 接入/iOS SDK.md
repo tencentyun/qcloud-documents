@@ -1,18 +1,23 @@
-### 1.接入配置
-   **WeBankService SDK 最低支持到 iOS8.0(iOS7 系统可以编译但是无法使用),请在构建项目时候注意.**
-1)引用资源文件 WBFaceV2Pics.bundle,ufa.bundle,youtubeauty.bundle 到项目
-2)引用 WBCloudFaceVerifySDK.framework, YTFaceSDK.framework, NextCV.framework 到项目
-3)SDK 依赖系统的以下框架: `libz.tbd`,`Security.framework`,`MobileCoreServices.framework`,`Accelerate.framework`,`SystemConfiguration.framework`,`libc++.tbd`,`CoreTelephony.framework`,`AVFoundation.framework`,`AudioToolbox.framework`, `CoreMedia.framework`. 需要在`BuildPhases->Link Binary With Libraries`中添加,可以参考 Demo
-4)SDK 需要使用相机,相册和录音权限,请在` info.plist `中添加` Privacy - Microphone Usage Description, Privacy - Camera Usage Description,Privacy - Photo Library Usage Description`
-5)
-6)需要在`BuildSettings->Other Linker Flags`中设置
-`-ObjC`
-`-force_load`
-`$(PROJECT_DIR)/`该 sdk 在项目中的具体路径` /NextCV.framework/NextCV`
-`$(PROJECT_DIR)/`该 sdk 在项目中的具体路径`/YTFaceSDK.framework/YTFaceSDK`
+## 接入配置
+**WeBankService SDK 最低支持到 iOS8.0（iOS7 系统可以编译但是无法使用），请在构建项目时候注意。**
+以下为接入配置的步骤：
+1. 引用资源文件 `WBFaceV2Pics.bundle,ufa.bundle,youtubeauty.bundle` 到项目
 
-### 2.调用 SDK 接口
-SDK 的功能通过 WBFaceVerifyCustomerService 这个类的方法进行调用 ,<font color=red>其中 SDK 中使用的 nonce, sign 等重要信息,需要合作方从自己后台拉取,并且两者不能缓存,只能使用一次即失效</font color=red>, 详细接口说明如下, 其他的操作请参考 Demo:
+2. 引用 `WBCloudFaceVerifySDK.framework`, `YTFaceSDK.framework, NextCV.framework` 到项目
+
+3. SDK 依赖系统的以下框架: `libz.tbd`,`Security.framework`,`MobileCoreServices.framework`,`Accelerate.framework`,`SystemConfiguration.framework`,`libc++.tbd`,`CoreTelephony.framework`,`AVFoundation.framework`,`AudioToolbox.framework`, `CoreMedia.framework`. 需要在`BuildPhases->Link Binary With Libraries`中添加，可以参考 Demo
+
+4. SDK 需要使用相机，相册和录音权限，请在` info.plist `中添加` Privacy - Microphone Usage Description, Privacy - Camera Usage Description,Privacy - Photo Library Usage Description`
+
+5. 需要在`BuildSettings->Other Linker Flags`中设置
+
+  `-ObjC`
+  `-force_load`
+  `$(PROJECT_DIR)/`该 sdk 在项目中的具体路径` /NextCV.framework/NextCV`
+  `$(PROJECT_DIR)/`该 sdk 在项目中的具体路径`/YTFaceSDK.framework/YTFaceSDK`
+
+## 调用 SDK 接口
+SDK 的功能通过 `WBFaceVerifyCustomerService` 这个类的方法进行调用 ，<font color=red> 其中 SDK 中使用的 nonce，sign 等重要信息，需要合作方从自己后台拉取，并且两者不能缓存，只能使用一次即失效</font color=red>，详细接口说明如下，其他的操作请参考 Demo：
 ```
 // SDK版本号
 UIKIT_EXTERN NSString *const WBCloudFaceVerifySDKVersion;
@@ -202,25 +207,25 @@ typedef void (^WBFaceLoginFailureBlock)(WBFaceVerifyLogin errorCode, NSString *l
 @end
 ```
 
-### 3.接口参数说明
-| 参数 | 说明 |类型 |长度 | 是否必填 |
-|---------|---------|---------|---------|---------|
-| userid | 用户唯一的标识 | NSString |30 |必填，必须保证全局唯一|
-| nonce | 32 位随机字符串| NSString |32 |必填(生成方式参考后台文档) |
-| sign    | 合作方后台服务器通过ticket计算出来的签名信息 | NSString |40 |必填(生成方式参考后台文档)|
-| appid | 腾讯服务分配的 app_id | NSString |腾讯服务分配 |必填|
-| apiVersion | 接口版本号 | NSString |默认填 1.0.0 |必填|
-| licence | 腾讯给合作方派发的 licence | NSString |绑定bundleid |必填 |
-| userInfo | 用户信息 | WBFaceUserInfo |Class类型 |必填 |
-| orderNo | 订单号 |  NSString |32 位 |必填(参考后台文档)|
-| name | 客户姓名 | NSString |20 |必填(身份证姓名) |
-| idType | 证件类型 | NSString |2 |01 为身份证，必填 |
-| idNo | 18 位身份证号 | NSString |18 |必填 |
-| Type | 模式类型 | WBFaceVerifyType | |中级模式：<br>WBFaceVerifyTypeMiddle,<br>高级模式：<br>WBFaceVerifyTypeAdvanced,|
+## 接口参数说明
+| 参数         | 说明                          | 类型               | 长度         | 是否必填                                     |
+| ---------- | --------------------------- | ---------------- | ---------- | ---------------------------------------- |
+| userid     | 用户唯一的标识                     | NSString         | 30         | 必填，必须保证全局唯一                              |
+| nonce      | 32 位随机字符串                   | NSString         | 32         | 必填（生成方式参考后台文档）                           |
+| sign       | 合作方后台服务器通过 ticket 计算出来的签名信息 | NSString         | 40         | 必填（生成方式参考后台文档）                           |
+| appid      | 腾讯服务分配的 app_id              | NSString         | 腾讯服务分配     | 必填                                       |
+| apiVersion | 接口版本号                       | NSString         | 默认填 1.0.0  | 必填                                       |
+| licence    | 腾讯给合作方派发的 licence           | NSString         | 绑定bundleid | 必填                                       |
+| userInfo   | 用户信息                        | WBFaceUserInfo   | Class类型    | 必填                                       |
+| orderNo    | 订单号                         | NSString         | 32 位       | 必填(参考后台文档)                               |
+| name       | 客户姓名                        | NSString         | 20         | 必填(身份证姓名)                                |
+| idType     | 证件类型                        | NSString         | 2          | 01 为身份证，必填                               |
+| idNo       | 18 位身份证号                    | NSString         | 18         | 必填                                       |
+| Type       | 模式类型                        | WBFaceVerifyType |            | 中级模式：<br>WBFaceVerifyTypeMiddle,<br>高级模式：<br>WBFaceVerifyTypeAdvanced, |
 
 
-### 4.个性化参数设置
-WBFaceVerifyCustomerServiceDelegate 的回调方法中,有如下扩展配置选项,直接参考 sdk 头文件注释即可
+## 个性化参数设置
+`WBFaceVerifyCustomerServiceDelegate `的回调方法中，有如下扩展配置选项，直接参考 SDK 头文件注释即可。
 
 ```
 @optional
