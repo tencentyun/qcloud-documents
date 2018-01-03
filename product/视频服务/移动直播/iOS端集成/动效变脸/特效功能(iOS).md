@@ -22,7 +22,7 @@
    - 正式Licence：有效期根据最终的合同而定，一般为一年。
 
 ## 版本下载
-可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & licence 可以跟我们的商务同学获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
+可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & licence 的获取参考接入流程）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
 
 > 区分特权版与非特权版，可以查看SDK的bundler id。bundler id为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
 >
