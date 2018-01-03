@@ -2,7 +2,7 @@
 UpdateTranscodeTemplate
 
 ## Feature Overview
-1. This API is used to update a transcoding template.
+This API is used to update a transcoding template.
 
 
 ## Request Method
@@ -39,10 +39,10 @@ vod.api.qcloud.com
 | audio.bitrate | No | Integer | Audio stream bitrate (in Kbps), whose range is from 26 to 256. |
 | audio.soundSystem | No | String | Audio channel mode. 1: Single channel. 2: Dual channel. The default is 2. |
 | audio.sampleRate | No | Integer | Sampling rate of an audio stream (in Hz) |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976). |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976). |
 
 > Notes:
-> - For more information on descriptions and values of fields relating to video and audio, please see [Transcoding Capability Overview](/document/product/266/11701#.E8.BD.AC.E7.A0.81.E8.83.BD.E5.8A.9B.E7.BB.BC.E8.BF.B0).
+> - For more information on descriptions and values of fields relating to video and audio, please see [Transcoding Capability Overview](https://cloud.tencent.com/document/product/266/11701#.E8.BD.AC.E7.A0.81.E8.83.BD.E5.8A.9B.E7.BB.BC.E8.BF.B0).
 > - If resolution adaptation is enabled, the value of the longer side (width) must not be smaller than that of the shorter side (height).
 > - You can enter negative numbers in video.fps, video.bitrate, video.width, video.height, audio.bitrate and audio.sampleRate to prohibit converting from a low value to a high value. For example, if the video.bitrate of a template is -512, the transcoded bitrate will not be greater than 512k. That is, if the original video bitrate is 256k, the transcoded one will still be 256k, and if the original one is 1024k, the transcoded one is 512k.
 
@@ -75,7 +75,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=UpdateTranscodeTemplate
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 1000 | Invalid parameter  |
 | 10701 | Internal error  |
 | 10702 | Internal error  |
