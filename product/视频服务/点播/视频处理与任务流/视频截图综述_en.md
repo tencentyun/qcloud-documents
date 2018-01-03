@@ -81,14 +81,14 @@ The following table lists the parameters and their controlled items of the templ
 
 Now, you can only initiate the operation by calling server APIs. See:
 
-- Server APIs: [Capture Screenshots at Specified Time Points (CreateSnapshotByTimeOffset)](/document/product/266/8102).
+- Server APIs: [Capture Screenshots at Specified Time Points (CreateSnapshotByTimeOffset)](https://cloud.tencent.com/document/product/266/8102).
 
 ### Obtain the result of capturing screenshots at specified time points
 
 You can obtain the result of the task by the following ways:
 
-- After initiating the task, query the task status and results by task ID. For more information, please see [Event Notification and Task Management](/document/product/266/7829);
-- When the task is executed successfully, the screenshot capture result is bound to the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](/document/product/266/8586).
+- After initiating the task, query the task status and results by task ID. For more information, please see [Event Notification and Task Management](https://cloud.tencent.com/document/product/266/7829);
+- When the task is executed successfully, the screenshot capture result is bound to the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](https://cloud.tencent.com/document/product/266/8586).
 
 ## Capture A Screenshot at A Specified Time as Cover
 This operation captures a screenshot at a specified time point of the video, and use its URL as the URL of the video cover in the **VOD media asset system**. A VOD player can read and display this cover image.
@@ -97,13 +97,13 @@ In addition to capture a screenshot at a specified time point, this operation wr
 
 ### Initiate the task of capturing screenshot as cover
 Now, you can only initiate this operation by calling the task flow-related APIs. See also:
-- [Process Videos Using Task Flows](/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91).
+- [Process Videos Using Task Flows](https://cloud.tencent.com/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91).
 
 ### Obtain the result of capturing screenshot as cover
 You can obtain the result of the task by the following ways:
 
-- After initiating the task, query the task status and result by task ID. For more information, please see [Event Notification and Task Management](/document/product/266/7829);
-- When the task is executed successfully, the screenshot capture result is bound to the basic video information in the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](/document/product/266/8586).
+- After initiating the task, query the task status and result by task ID. For more information, please see [Event Notification and Task Management](https://cloud.tencent.com/document/product/266/7829);
+- When the task is executed successfully, the screenshot capture result is bound to the basic video information in the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](https://cloud.tencent.com/document/product/266/8586).
 
 ## Capture Screenshots by Sampling
 Capturing screenshots by sampling is about sampling the video at an fixed time interval and capturing the video image information at the sampling points to generate multiple images.
@@ -192,13 +192,13 @@ The following table lists the parameters and their controlled items for the temp
 
 ### Initiate the task of capturing screenshots by sampling
 Now, you can only initiate this operation by calling task flow-related APIs. See also:
-- [Process Videos Using Task Flows](/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91).
+- [Process Videos Using Task Flows](https://cloud.tencent.com/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91).
 
 ### Obtain the result of capturing screenshots by sampling
 You can obtain the result of the task by the following ways:
 
-- After initiating the task, query the task status and result by task ID. For more information, please see [Event Notification and Task Management](/document/product/266/7829);
-- When the task is executed successfully, the screenshot capture result is bound to the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](/document/product/266/8586).
+- After initiating the task, query the task status and result by task ID. For more information, please see [Event Notification and Task Management](https://cloud.tencent.com/document/product/266/7829);
+- When the task is executed successfully, the screenshot capture result is bound to the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](https://cloud.tencent.com/document/product/266/8586).
 
 ## Image Sprite
 Image Sprite is a technique to merge multiple small images into a large image, and display these images individually. This technique allows you to get the information of multiple images by sending a single request, thus minimizing the number of requests and improving client performance.
@@ -298,14 +298,14 @@ The following table lists the parameters and their controlled items of the templ
 
 ### Initiate capture of Image Sprite screenshots
 You can initiate this operation by the following ways:
-- [Server API: Capture Image Sprite Screenshots](/document/product/266/8101);
-- [Process Videos Using Task Flows](/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91).
+- [Server API: Capture Image Sprite Screenshots](https://cloud.tencent.com/document/product/266/8101);
+- [Process Videos Using Task Flows](https://cloud.tencent.com/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91).
 
 ### Get the result of capturing Image Sprite screenshots
 You can obtain the result of the task by the following ways:
 
-- After initiating the task, query the task status and result by task ID. For more information, please see [Event Notification and Task Management](/document/product/266/7829);
-- When the task is executed successfully, the screenshot capture result is bound to the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](/document/product/266/8586).
+- After initiating the task, query the task status and result by task ID. For more information, please see [Event Notification and Task Management](https://cloud.tencent.com/document/product/266/7829);
+- When the task is executed successfully, the screenshot capture result is bound to the media asset system. For more information, please see [Server API: Get Video Information (GetVideoInfo)](https://cloud.tencent.com/document/product/266/8586).
 
 ## Preset Templates for Capturing Screenshots
 ### Preset templates for capturing screenshots at specified time points
