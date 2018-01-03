@@ -2,7 +2,7 @@
 QueryTranscodeTemplate
 
 ## Feature Description
-1. This API is used to query the details of a transcoding template.
+This API is used to query the details of a transcoding template.
 
 ## Request Method
 
