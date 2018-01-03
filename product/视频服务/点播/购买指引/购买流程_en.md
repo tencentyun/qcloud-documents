@@ -8,13 +8,9 @@ After registration, go to the next step: Apply for Video Service
 
 ## 2 Apply for Video Service and Identity Verification
 
-1. Go to Tencent Cloud product overview page (http://cloud.tencent.com/product/vod.html), and click the **Purchase** button, as shown below:
- 
+1. Go to [Tencent Cloud product overview page](http://cloud.tencent.com/product/vod.html), and click the "Purchase" button, as shown below: 
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tapd_10080061_base64_1442393790_10.png)
-
-
 2. You are directed to "Developer Identity Verification" page, as shown below:
-
 ![](//mccdn.qcloud.com/static/img/5072d490be8560ae6ca17279c19c8861/image.png)
 
 3. By clicking "Verify", you are redirected to the identity verification page on the official website, and enter the correct information on this page. You can complete the verification with individual or enterprise identity. You can log in to the console after a successful verification.
