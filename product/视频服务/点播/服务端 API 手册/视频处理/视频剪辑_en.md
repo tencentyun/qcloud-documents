@@ -22,7 +22,7 @@ vod.api.qcloud.com
 | newFileName | Yes | String | Target file name |
 | startTimeOffset | No | Integer | The time offset that specifies when to start clipping the source file, in seconds. The value greater than or equal to 0 means to calculate from the beginning, and that less than 0 means from the end. The default is 0 if it is left empty. |
 | endTimeOffset | No | Integer | The time offset that specifies when to end clipping the source file, in seconds. The value greater than or equal to 0 means to calculate from the beginning, and that less than 0 means from the end. If this parameter is left empty, it means to stop clipping at the end of the source file. |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976) |
 
 ### Request Example 1: Clipping range
 The expected target file starts from the 2nd second of the source file, and ends at the 10th second. The request example is as follows:
@@ -79,7 +79,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ClipVideo
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 1000 | Invalid parameter  |
 | 1001 | User information error  |
 | 10009 | File status exception |
