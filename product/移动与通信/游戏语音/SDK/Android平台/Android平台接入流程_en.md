@@ -149,44 +149,44 @@ Parameter: None
 Return value: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned.
 
 ### 2.3 Offline Voice API  
-### 2.3.1 Apply for AuthKey    
+#### 2.3.1 Apply for AuthKey    
 API: GCloudVoiceErrno ApplyMessageKey(int msTimeout)   
 Parameters: msTimeout   
 Return values: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned. The success here does not mean your application for a Hong Kong key is successful, while it is required to make a callback in OnApplyMessageKey.  
 
-### 2.3.2 Start Recording 
+#### 2.3.2 Start Recording 
 API: GcloudVoiceErrno StartRecording (const char * filePath)   
 Parameter: filePath: the location of saving a file in the format of "Save as"; "you_dir/your_filename": the file path needs to be separated by a backslash "/".   
 Return value: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned.  
 
-### 2.3.3 Cancel the Recording 
+#### 2.3.3 Cancel the Recording 
 API: GcloudVoiceErrno StopRecording ()   
 Parameter: None  
 Return value: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned.  
 
-### 2.3.4 Send an Audio File 
+#### 2.3.4 Send an Audio File 
 API: GcloudVoiceErrno UploadRecordedFile (const char * filePath)   
 Parameter: filePath: the given path when recording   
 Return value: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned.  
 
-### 2.3.5 Download an Audio File 
+#### 2.3.5 Download an Audio File 
 API: GcloudVoiceErrno DownloadRecordedFile (const char fileID, const char downloadFilePath, int msTimeout)     
 Parameter: fileID: the ID of a file to be downloaded; downloadFilePath: the location of a file to be downloaded with the format as shown above; msTimeout: the timeout.     
 Return value: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned.  
 
-### 2.3.6 Play a Downloaded Audio File 
+#### 2.3.6 Play a Downloaded Audio File 
 API: GcloudVoiceErrno PlayRecordedFile (const char * downloadFilePath)   
 Parameter: DownloadFilePath: the location of a file to be downloaded.   
 Return value: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned.  
 
-### 2.3.7 Cancel the Playing 
+#### 2.3.7 Cancel the Playing 
 API: GcloudVoiceErrno StopPlayFile ()     
 Parameter: None     
 Return value: For a successful operation, GcloudVoiceErrno::GCLOUD_VOICE_SUCC will be returned; otherwise, other error code will be returned.    
 
 ## 2.4 Callback API  
 
-### 2.4.1 Results of Joining a Room 
+#### 2.4.1 Results of Joining a Room 
 API: void OnJoinRoom(GCloudVoiceCompleteCode code, char *roomName, int memberID)    
 Parameter: code: the result of joining a room; enum GcloudVoiceCompleteCode.  
   {
@@ -197,7 +197,7 @@ Parameter: code: the result of joining a room; enum GcloudVoiceCompleteCode.
 roomName: the name of the room to be joined; memberID: the ID of a member.  
 Return value: None  
 
-### 2.4.2 Results of Exiting a Room 
+#### 2.4.2 Results of Exiting a Room 
 API: void OnQuitRoom(GCloudVoiceCompleteCode code, const char *roomName)   
 Parameter: code: the result of joining a room; enum GcloudVoiceCompleteCode.
 
@@ -209,27 +209,27 @@ Parameter: code: the result of joining a room; enum GcloudVoiceCompleteCode.
 roomName: the name of the room to be joined   
 Return value: None
 
-### 2.4.3 Voice Status Changes of Other Members 
+#### 2.4.3 Voice Status Changes of Other Members 
 API: void OnMemberVoice (const int members, int length)   
 Parameter: members: members and their statuses in the format of a pair of memberID and status; status value = 0: which means the status changes from speaking to non-speaking; status vale = 1: which means the status changes from non-speaking to speaking; status value = 2: which means the status changes from speaking to speaking again; length: the number of members with the length of the member array of 2.   
 Return value: None
 
-### 2.4.4 Callback of the File Sending Status 
+#### 2.4.4 Callback of the File Sending Status 
 API: void OnUploadFile(GCloudVoiceCompleteCode code, const char filePath, const char fileID)   
 Parameter: filePath: the location of a file to be saved, which is the same with that of sending; fileID: the only marked ID code of a file; the error code if any error occurs.   
 Return value: None
 
-### 2.4.5 Callback of the File Downloading Status 
+#### 2.4.5 Callback of the File Downloading Status 
 API: void OnDownloadFile(GCloudVoiceCompleteCode code, const char filePath, const char fileID  )   
 Parameters: filePath: the location of a file to be saved, which is the same with that of down[PI1]loading; fileID: the only marked ID code of a file and the error code if any error occurs.   
 Return value: None  
 
-### 2.4.6 Callback of Key Applying   
+#### 2.4.6 Callback of Key Applying   
 API: void OnApplyMessageKey(GCloudVoiceCompleteCode code)   
 Parameter: code: the error code if any error occurs.   
 Return value: None  
 
-### 2.4.7 Callback after Playing a File   
+#### 2.4.7 Callback after Playing a File   
 API: void OnPlayRecordedFile(GCloudVoiceCompleteCode code,const char *filePath)    
 Parameter: code: the error code if any error occurs; filePath: the location of a file to be played.   
 Return value: None  
