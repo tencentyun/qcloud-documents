@@ -16,6 +16,7 @@
 
 ## 响应参数
 
+<<<<<<< Updated upstream
 |     参数名称     |                      描述                        |类型  |  
 |------------------|--------|-----------------------------------|
 | FileSystemId     | 文件系统 ID                                                  |String | 
@@ -28,6 +29,21 @@
 | SubnetId         |  子网 Id                       |Int    |
 | SubnetName       | 子网名称                                     |String | 
 | ZoneId           | 可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                       |Int    | 
+=======
+|     参数名称     |  类型  |                                                           描述                                                          |
+|------------------|--------|-------------------------------------------------------------------------------------------------------------------------|
+| FileSystemId     | string | 文件系统ID                                                                                                              |
+| IpAddress        | string | 挂载点IP                                                                                                                |
+| FSID             | string | 挂载点ID                                                                                                                |
+| LifeCycleState   | string | 文件系统状态 creating（创建中） available（可用）create_failed（创建失败） deleting（删除中） delete_failed（删除失败） |
+| ClientNetwork | string | 来访客户类型，可选CVM或CPM。CVM 为云服务器、CPM 为黑石服务器                                                                              |
+| NetworkInterface | string | 网络类型 vpc（私有网络） basic（基础网络）                                                                              |
+| VpcId            | int    | 私有网络ID                                                                                                              |
+| VpcName          | string | 私有网络名称                                                                                                            |
+| SubnetId         | int    | 子网Id                                                                                                                  |
+| SubnetName       | string | 子网名称                                                                                                                |
+| ZoneId           | int    | 可用区ID，请参考"概览"文档中的园区与可用区列表                                                                      |
+>>>>>>> Stashed changes
 
 
 ## 实际示例 
@@ -56,6 +72,7 @@
                 "FSID": "0322wz9j",
                 "LifeCycleState": "available",
                 "MountTargetId": "mount-q9wejp86",
+                "ClientNetwork": "CVM",
                 "NetworkInterface": "vpc",
                 "VpcId": "vpc-4h0fngoa",
                 "VpcName": "222",

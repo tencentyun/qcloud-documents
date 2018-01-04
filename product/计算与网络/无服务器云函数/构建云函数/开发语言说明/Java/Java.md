@@ -25,11 +25,11 @@ public class Hello {
 
 ## 部署包上传
 
-可以通过 [使用 Gradle 创建 zip 部署包]() 和 [使用 Maven 创建 jar 部署包]() 这两种方式来创建zip或jar包。创建完成后，可通过控制台页面直接上传包（小于 10 M），或通过把部署包上传至 COS Bucket 后，在 SCF 控制台上通过指定部署包的 Bucket 和 Object 信息，完成部署包提交。
+可以通过 [使用 Gradle 创建 zip 部署包](https://cloud.tencent.com/document/product/583/12216) 和 [使用 Maven 创建 jar 部署包](https://cloud.tencent.com/document/product/583/12217) 这两种方式来创建zip或jar包。创建完成后，可通过控制台页面直接上传包（小于 10 M），或通过把部署包上传至 COS Bucket 后，在 SCF 控制台上通过指定部署包的 Bucket 和 Object 信息，完成部署包提交。
 
 ## 入参和返回
 
-代码例子中，mainHandler 所使用的入参包含了两个类型，String 和 Context，返回使用了 String 类型。其中入参的前一类型标识事件入参，后一类型标识函数运行时信息。事件入参和函数返回目前支持的类型包括 Java 基础类型和 POJO 类型；函数运行时目前为 `com.qcloud.scf.runtime.Context` 类型，其相关库文件可从 [此处]() 下载。
+代码例子中，mainHandler 所使用的入参包含了两个类型，String 和 Context，返回使用了 String 类型。其中入参的前一类型标识事件入参，后一类型标识函数运行时信息。事件入参和函数返回目前支持的类型包括 Java 基础类型和 POJO 类型；函数运行时目前为 `com.qcloud.scf.runtime.Context` 类型，其相关库文件可从 [此处](https://mc.qcloudimg.com/static/archive/12ec94d2852a4cfbdb066e0b99b39070/com.qcloud.scf.runtime.Context.1.0.jar.zip) 下载。
 
 * 事件入参及返回参数类型支持
 	* Java 基础类型，包括 byte，int，short，long，float，double，char，boolen 这八种基本类型和包装类，也包含 String 类型。

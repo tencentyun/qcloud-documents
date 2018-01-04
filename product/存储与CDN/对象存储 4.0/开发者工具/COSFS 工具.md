@@ -101,6 +101,12 @@ cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odb
 ```
 fusermount -u /mnt
 ```
+或者
+
+```
+umount -l /mnt
+```
+
 ## 注意事项 
 - COSFS 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
