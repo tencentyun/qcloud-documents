@@ -3,10 +3,10 @@ ApplyUpload
 
 ## Feature Description
 1. Initiate video (and cover image) upload operation and obtain meta-information (such as upload path and upload signature) of file upload to Tencent Cloud COS.
-2. For which step of the server upload process the API is in, please see [Server Upload Overview](/document/product/266/9759#.E4.B8.8A.E4.BC.A0.E6.B5.81.E7.A8.8B).
+2. For which step of the server upload process the API is in, please see [Server Upload Overview](https://cloud.tencent.com/document/product/266/9759#.E4.B8.8A.E4.BC.A0.E6.B5.81.E7.A8.8B).
 
 ## SDK
-It is recommended to use [VOD Server SDK](/document/product/266/7982) to call the API.
+It is recommended to use [VOD Server SDK](https://cloud.tencent.com/document/product/266/7982) to call the API.
 
 ## Request Method
 
@@ -25,8 +25,8 @@ vod.api.qcloud.com
 | coverType | No | String | Cover image file type |
 | coverName | No | String | Cover image file name |
 | coverSize | No | Integer | Cover image file size (in bytes) |
-| procedure | No | String | Operations of follow-up video tasks, please see [Parameter Template and Task Flow](/document/product/266/10263) |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
+| procedure | No | String | Operations of follow-up video tasks, please see [Parameter Template and Task Flow](https://cloud.tencent.com/document/product/266/10263) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976) |
 
 ### Request Example
 ```
@@ -55,7 +55,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ApplyUpload
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783) |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783) |
 | 32001 | Internal service error  |
 
 ### Response Example

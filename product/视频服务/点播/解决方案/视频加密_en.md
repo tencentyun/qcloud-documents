@@ -63,7 +63,7 @@ Advices:
 2. HTTP cache control parameters (such as Cache-Control) can be added to the response that the app backend gives to the client, to reduce the number of the operation that a client obtains DK from the app backend (step 4 in the architecture diagram).
 
 ### Configuring Video Encryption Templates
-To ensure that VOD backend performs a correct encryption operation, you need to configure a video encryption template. For more information, please see [Video Encryption Parameter Template](/document/product/266/9645).
+To ensure that VOD backend performs a correct encryption operation, you need to configure a video encryption template. For more information, please see [Video Encryption Parameter Template](https://cloud.tencent.com/document/product/266/9645).
 
 ## Business Process
 
@@ -76,7 +76,7 @@ Video encryption consists of the following four steps:
 
 ### I. The App backend initiates video encryption
 
-You can initiate video encryption using API [ProcessFile](/document/product/266/9642). Only HLS files can be encrypted.
+You can initiate video encryption using API [ProcessFile](https://cloud.tencent.com/document/product/266/9642). Only HLS files can be encrypted.
 
 The following example indicates:
 
@@ -120,10 +120,10 @@ https://getkey.example.com?fileId=123456&keySource=BuildInKMS&edk=abcdef
 This URL is also the one that the client eventually access when obtaining the decryption key during video playback.
 
 ### IV. VOD Platform initiates encryption and completes callback
-When the status of the task flow that includes encryption operation changes (or the task flow is completed), VOD platform triggers [Notification for Task Flow Status Changes](/document/product/266/9636).
+When the status of the task flow that includes encryption operation changes (or the task flow is completed), VOD platform triggers [Notification for Task Flow Status Changes](https://cloud.tencent.com/document/product/266/9636).
 
 ## Media Asset Management
-After an video is encrypted, its encryption information can be obtain using the API [GetVideoInfo](/document/product/266/8586).
+After an video is encrypted, its encryption information can be obtain using the API [GetVideoInfo](https://cloud.tencent.com/document/product/266/8586).
 API GetVideoInfo returns the video playback URLs of all transcoding specifications under the video ID, including the playback URL of the source file. Since the source file is not encrypted, The app server can filter the playback URL of the source file and only provide the playback URL of the encrypted video to the client. The parameter "definition" of the source file obtained by GetVideoInfo is 0, which can be used to filter the video playback URL of the source file.
 
 ## Video Playback Overview

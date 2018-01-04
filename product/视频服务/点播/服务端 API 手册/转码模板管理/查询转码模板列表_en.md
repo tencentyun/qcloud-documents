@@ -2,7 +2,7 @@
 QueryTranscodeTemplateList
 
 ## Feature Description
-1. This API is used to query a transcoding template list.
+This API is used to query a transcoding template list.
 
 ## Request Method
 
@@ -15,7 +15,7 @@ vod.api.qcloud.com
 ### Parameter Description
 | Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976) |
 
 ### Request Example
 <pre>
@@ -39,7 +39,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=QueryTranscodeTemplateList
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 1000 | Invalid parameter  |
 | 10702 | Internal error  |
 

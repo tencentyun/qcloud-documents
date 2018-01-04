@@ -4,7 +4,7 @@ ProcedureStateChanged
 ## Event Description
 If an app is configured with event notification, when the task procedure state is changed, VOD backend will notify the app backend of the event.
 
-For details about the way in which the app backend receives the event notification, refer to [introduction to server event notification](/document/product/266/7829).
+For details about the way in which the app backend receives the event notification, refer to [introduction to server event notification](https://cloud.tencent.com/document/product/266/7829).
 
 > Note:
 > - Notification mode for task procedure state change is decided by the task procedure's initiating parameter notifyMode. When notifyMode is Finish: an event notification is initiated only after the task procedure is completely finished; when notifyMode is Change: event notification is initiated whenever the state of a subtask in the task procedure changes; notifyMode defaults to Finish.
@@ -20,7 +20,7 @@ For details about the way in which the app backend receives the event notificati
 | data.message | String | Error message  |
 | data.fileId | String | File ID  |
 | data.metaData | Object | Video meta information. This field must exist. For field information, see [metaData (video meta information)](#metadata.EF.BC.88.E8.A7.86.E9.A2.91.E5.85.83.E4.BF.A1.E6.81.AF.EF.BC.89)  |
-| data.drm | Object | File encryption information. After the user specifies the encryption at the [(control parameters for transcoding](/document/product/266/9642#transcode.EF.BC.88.E8.BD.AC.E7.A0.81.E6.8E.A7.E5.88.B6.E5.8F.82.E6.95.B0.EF.BC.89), the field will exist. See [drm (video encryption information)](#drm.EF.BC.88.E8.A7.86.E9.A2.91.E5.8A.A0.E5.AF.86.E4.BF.A1.E6.81.AF.EF.BC.89) for field information  |
+| data.drm | Object | File encryption information. After the user specifies the encryption at the [(control parameters for transcoding](https://cloud.tencent.com/document/product/266/9642#transcode.EF.BC.88.E8.BD.AC.E7.A0.81.E6.8E.A7.E5.88.B6.E5.8F.82.E6.95.B0.EF.BC.89), the field will exist. See [drm (video encryption information)](#drm.EF.BC.88.E8.A7.86.E9.A2.91.E5.8A.A0.E5.AF.86.E4.BF.A1.E6.81.AF.EF.BC.89) for field information  |
 | data.processTaskList | Array | Task list contained in the task flow. For more information, please see [processTaskList (task list)](#processtasklist.EF.BC.88.E4.BB.BB.E5.8A.A1.E5.88.97.E8.A1.A8.EF.BC.89) for the field information  |
 
 #### metaData (video meta information)
@@ -55,7 +55,7 @@ For details about the way in which the app backend receives the event notificati
 | edkList | Array | List of encrypted data keys |
 
 #### processTaskList (task list)
-Task information list currently contains [Trancode (transcoding task)](#trancode.EF.BC.88.E8.BD.AC.E7.A0.81.E4.BB.BB.E5.8A.A1.EF.BC.89), [SampleSnapshot (sampling screenshot task)](#samplesnapshot.EF.BC.88.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE.E4.BB.BB.E5.8A.A1.EF.BC.89), [CoverBySnapshot (screenshot image as video cover task)](#coverbysnapshot.EF.BC.88.E6.88.AA.E5.9B.BE.E5.9B.BE.E7.89.87.E4.BD.9C.E4.B8.BA.E8.A7.86.E9.A2.91.E5.B0.81.E9.9D.A2.E4.BB.BB.E5.8A.A1.EF.BC.89), [SnapshotByTimeOffset (screenshot task at specified time point)](#snapshotbytimeoffset.EF.BC.88.E6.8C.89.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E4.BB.BB.E5.8A.A1.EF.BC.89), [PullFile (pulling video files)](/document/product/266/7817), [ImageSprites (screenshot task of image sprites)](#imagesprites.EF.BC.88.E9.9B.AA.E7.A2.A7.E5.9B.BE.E6.88.AA.E5.9B.BE.E4.BB.BB.E5.8A.A1.EF.BC.89).
+Task information list currently contains [Trancode (transcoding task)](#trancode.EF.BC.88.E8.BD.AC.E7.A0.81.E4.BB.BB.E5.8A.A1.EF.BC.89), [SampleSnapshot (sampling screenshot task)](#samplesnapshot.EF.BC.88.E9.87.87.E6.A0.B7.E6.88.AA.E5.9B.BE.E4.BB.BB.E5.8A.A1.EF.BC.89), [CoverBySnapshot (screenshot image as video cover task)](#coverbysnapshot.EF.BC.88.E6.88.AA.E5.9B.BE.E5.9B.BE.E7.89.87.E4.BD.9C.E4.B8.BA.E8.A7.86.E9.A2.91.E5.B0.81.E9.9D.A2.E4.BB.BB.E5.8A.A1.EF.BC.89), [SnapshotByTimeOffset (screenshot task at specified time point)](#snapshotbytimeoffset.EF.BC.88.E6.8C.89.E6.97.B6.E9.97.B4.E7.82.B9.E6.88.AA.E5.9B.BE.E4.BB.BB.E5.8A.A1.EF.BC.89), [PullFile (pulling video files)](https://cloud.tencent.com/document/product/266/7817), [ImageSprites (screenshot task of image sprites)](#imagesprites.EF.BC.88.E9.9B.AA.E7.A2.A7.E5.9B.BE.E6.88.AA.E5.9B.BE.E4.BB.BB.E5.8A.A1.EF.BC.89).
 
 #### Trancode (transcoding task)
 
@@ -160,8 +160,8 @@ Task information list currently contains [Trancode (transcoding task)](#trancode
 
 ## Example
 
-- For [HTTP callback](/document/product/266/7829#http.E5.9B.9E.E8.B0.83), the following is the HTTP Post Body;
-- For [reliable notification based on message queue](/document/product/266/7829#.E5.9F.BA.E4.BA.8E.E6.B6.88.E6.81.AF.E9.98.9F.E5.88.97.E7.9A.84.E5.8F.AF.E9.9D.A0.E9.80.9A.E7.9F.A5), the following is the content of eventList.eventContent in the returned packet of  API[PullEvent](/document/product/266/7818).
+- For [HTTP callback](https://cloud.tencent.com/document/product/266/7829#http.E5.9B.9E.E8.B0.83), the following is the HTTP Post Body;
+- For [reliable notification based on message queue](https://cloud.tencent.com/document/product/266/7829#.E5.9F.BA.E4.BA.8E.E6.B6.88.E6.81.AF.E9.98.9F.E5.88.97.E7.9A.84.E5.8F.AF.E9.9D.A0.E9.80.9A.E7.9F.A5), the following is the content of eventList.eventContent in the returned packet of  API[PullEvent](https://cloud.tencent.com/document/product/266/7818).
 
 ### Example:
 
@@ -341,5 +341,5 @@ Task information list currently contains [Trancode (transcoding task)](#trancode
 
 ### Error Codes
 
-The errCode field in the event notification packet indicates the result of the video processing task. For more information, please see [error codes regarding video processing Ooerations](/document/product/266/7783#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E6.93.8D.E4.BD.9C.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E).
+The errCode field in the event notification packet indicates the result of the video processing task. For more information, please see [error codes regarding video processing Ooerations](https://cloud.tencent.com/document/product/266/7783#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E6.93.8D.E4.BD.9C.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E).
 

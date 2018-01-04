@@ -11,7 +11,7 @@ Typical application scenarios of offline transcoding include:
 
 The following is an offline transcoded video example with multi-bitrate videos and an APNG dynamic watermark:
 
-<iframe src="https://playvideo.qcloud.com/vod/9031868223417574079/iplayer.html?appid=1253131631&fileid=9031868223417574079&autoplay=0&sw=1280&sh=720" frameborder="0" width="70%" height="360" scrolling="no"></iframe> <!-- iframe code is used multiple times in the page, but the JS code behind them only needs to be used once (to adjust the height of iframe) --> 
+<iframe src="https://playvideo.qcloud.com/vod/4564972818712033224/iplayer.html?appid=1253131631&fileid=4564972818712033224&autoplay=0&sw=1280&sh=720" frameborder="0" width="70%" height="360" scrolling="no"></iframe> <!-- iframe code is used multiple times in the page, but the JS code behind them only needs to be used once (to adjust the height of iframe) --> 
 <script src="//imgcache.qq.com/open/qcloud/video/h5/fixifmheight.js" charset="utf-8"></script>
 
 ## Video Transcoding
@@ -32,7 +32,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td rowspan=5>
-            <a href="/document/product/266/11732##.E5.B0.81.E8.A3.85.E6.A0.BC.E5.BC.8F(format)">Container format</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732##.E5.B0.81.E8.A3.85.E6.A0.BC.E5.BC.8F(format)">Container format</a>
         </td>
         <td>
             Input format
@@ -94,7 +94,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
             Video encoding parameters
         </td>
         <td>
-            <a href="/document/product/266/11732#.E7.BC.96.E7.A0.81.E6.96.B9.E5.BC.8F(codec)">Encoding method (Codec)</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E7.BC.96.E7.A0.81.E6.96.B9.E5.BC.8F(codec)">Encoding method (Codec)</a>
         </td>
         <td>
             <li>H.264</li>
@@ -103,7 +103,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E7.A0.81.E7.8E.87(bitrate)">Bitrate</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E7.A0.81.E7.8E.87(bitrate)">Bitrate</a>
         </td>
         <td>
             Output bitrate range: 10-50,000 Kbps.
@@ -111,7 +111,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E5.B8.A7.E7.8E.87(frame-rate)">Frame rate</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E5.B8.A7.E7.8E.87(frame-rate)">Frame rate</a>
         </td>
         <td>
             The following three frame rates are supported:
@@ -122,7 +122,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E5.88.86.E8.BE.A8.E7.8E.87(resolution)">Resolution</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E5.88.86.E8.BE.A8.E7.8E.87(resolution)">Resolution</a>
         </td>
         <td>
             <li>Width range: 128-4,096</li>
@@ -140,7 +140,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#gop(group-of-pictures)">GOP </a>duration
+            <a href="https://cloud.tencent.com/document/product/266/11732#gop(group-of-pictures)">GOP </a>duration
         </td>
         <td>
             GOP duration: 1-10 seconds.
@@ -148,7 +148,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E7.BC.96.E7.A0.81.E6.A1.A3.E6.AC.A1(profile)">Encoding grade (Profile)</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E7.BC.96.E7.A0.81.E6.A1.A3.E6.AC.A1(profile)">Encoding grade (Profile)</a>
         </td>
         <td>
             <li>H.264: Baseline, Main, High;</li>
@@ -157,7 +157,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E9.A2.9C.E8.89.B2.E7.A9.BA.E9.97.B4(color-space)">Color Space</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E9.A2.9C.E8.89.B2.E7.A9.BA.E9.97.B4(color-space)">Color Space</a>
         </td>
         <td>
             YUV420P.
@@ -168,7 +168,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
             Video processing parameters
         </td>
         <td>
-            <a href="/document/product/266/11732#.E8.A7.86.E9.A2.91.E9.99.8D.E5.99.AA">Video noise reduction</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E8.A7.86.E9.A2.91.E9.99.8D.E5.99.AA">Video noise reduction</a>
         </td>
         <td>
             Supported
@@ -176,7 +176,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E5.8E.BB.E9.9A.94.E8.A1.8C.E6.89.AB.E6.8F.8F">Deinterlacing</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E5.8E.BB.E9.9A.94.E8.A1.8C.E6.89.AB.E6.8F.8F">Deinterlacing</a>
         </td>
         <td>
             Supported
@@ -206,7 +206,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
             Audio encoding parameters
         </td>
         <td>
-            <a href="/document/product/266/11732#.E7.BC.96.E7.A0.81.E6.A0.BC.E5.BC.8F(codec)">Encoding method (Codec)</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E7.BC.96.E7.A0.81.E6.A0.BC.E5.BC.8F(codec)">Encoding method (Codec)</a>
         </td>
         <td>
             <li>MP3</li>
@@ -215,7 +215,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E9.87.87.E6.A0.B7.E7.8E.87(sample-rate)">Sampling Rate</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E9.87.87.E6.A0.B7.E7.8E.87(sample-rate)">Sampling Rate</a>
         </td>
         <td>
             The following audio sampling rates are supported:
@@ -225,7 +225,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E7.A0.81.E7.8E.87(bitrate)2">Bitrate</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E7.A0.81.E7.8E.87(bitrate)2">Bitrate</a>
         </td>
         <td>
             The following audio bitrates are supported:
@@ -236,7 +236,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11732#.E5.A3.B0.E9.81.93(sound-channel)">Channel</a>
+            <a href="https://cloud.tencent.com/document/product/266/11732#.E5.A3.B0.E9.81.93(sound-channel)">Channel</a>
         </td>
         <td>
             <li>MP3: mono, dual-channel</li>
@@ -266,7 +266,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
     </tr>
     <tr>
         <td>
-            <a href="/document/product/266/11700#.E4.BB.BB.E5.8A.A1.E6.B5.81">Programmable transcoding process</a>
+            <a href="https://cloud.tencent.com/document/product/266/11700#.E4.BB.BB.E5.8A.A1.E6.B5.81">Programmable transcoding process</a>
         </td>
         <td>
             Transcoding process can be flexibly controlled via Lua programs.
@@ -277,7 +277,7 @@ The following is an offline transcoded video example with multi-bitrate videos a
             Video content security
         </td>
         <td>
-            <a href="/document/product/266/9638">Video encryption</a>
+            <a href="https://cloud.tencent.com/document/product/266/9638">Video encryption</a>
         </td>
         <td>
             HLS standard video encryption is supported.
@@ -296,11 +296,11 @@ Available soon.
 
 ### Managing Transcoding Templates with Server APIs
 For more information, please see:
-- Server API: [CreateTranscodeTemplate](/document/product/266/9910)
-- Server API: [UpdateTranscodeTemplate](/document/product/266/9911)
-- Server API: [QueryTranscodeTemplate](/document/product/266/9912)
-- Server API: [QueryTranscodeTemplateList](/document/product/266/9913)
-- Server API: [DeleteTranscodeTemplate](/document/product/266/9914)
+- Server API: [CreateTranscodeTemplate](https://cloud.tencent.com/document/product/266/9910)
+- Server API: [UpdateTranscodeTemplate](https://cloud.tencent.com/document/product/266/9911)
+- Server API: [QueryTranscodeTemplate](https://cloud.tencent.com/document/product/266/9912)
+- Server API: [QueryTranscodeTemplateList](https://cloud.tencent.com/document/product/266/9913)
+- Server API: [DeleteTranscodeTemplate](https://cloud.tencent.com/document/product/266/9914)
 
 
 ### Initiating Transcoding
@@ -310,8 +310,8 @@ The document is to be completed.
 
 #### Initiating Transcoding with Server APIs
 For more information, please see:
-- [Process Videos Using Task Flows](/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91)
-- Server API: [ConvertVodFile](/document/product/266/7822)
+- [Process Videos Using Task Flows](https://cloud.tencent.com/document/product/266/11700#.E4.BD.BF.E7.94.A8.E4.BB.BB.E5.8A.A1.E6.B5.81.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91)
+- Server API: [ConvertVodFile](https://cloud.tencent.com/document/product/266/7822)
 
 > Note:
 > When you transcode a video by calling server APIs, it is recommended to use a task flow instead of a separate video transcoding API.
@@ -374,9 +374,9 @@ The document is to be completed.
 ### Managing Watermark Templates with Server APIs
 
 A watermark template can be created in three steps with server APIs:
-1. Call the API [ApplyUploadWatermark](/document/product/266/11607) to request the upload URL of the watermark file;
+1. Call the API [ApplyUploadWatermark](https://cloud.tencent.com/document/product/266/11607) to request the upload URL of the watermark file;
 2. Use the HTTP PUT method to upload the watermark file to the URL returned in step 1. The request body is the binary data of the watermark image;
-3. Call the API [CreateWatermarkTemplate](/document/product/266/11599) to create a watermark template.
+3. Call the API [CreateWatermarkTemplate](https://cloud.tencent.com/document/product/266/11599) to create a watermark template.
 
 > The following example shows how to upload a watermark file in step 2:
 > Suppose the URL returned by the API ApplyUploadWatermark is `http://123.test.com/123.png&sign=abcd` and the local watermark file to upload is `123.png`, the curl command used to upload the watermark file is as follows:
@@ -386,12 +386,12 @@ A watermark template can be created in three steps with server APIs:
 > </pre>
 
 For more information, please see:
-- Server API: [ApplyUploadWatermark](/document/product/266/11607)
-- Server API: [CreateWatermarkTemplate](/document/product/266/11599)
-- Server API: [UpdateWatermarkTemplate](/document/product/266/11605)
-- Server API: [QueryWatermarkTemplate](/document/product/266/11606)
-- Server API: [QueryWatermarkTemplateList](/document/product/266/11608)
-- Server API: [DeleteWatermarkTemplate](/document/product/266/11604)
+- Server API: [ApplyUploadWatermark](https://cloud.tencent.com/document/product/266/11607)
+- Server API: [CreateWatermarkTemplate](https://cloud.tencent.com/document/product/266/11599)
+- Server API: [UpdateWatermarkTemplate](https://cloud.tencent.com/document/product/266/11605)
+- Server API: [QueryWatermarkTemplate](https://cloud.tencent.com/document/product/266/11606)
+- Server API: [QueryWatermarkTemplateList](https://cloud.tencent.com/document/product/266/11608)
+- Server API: [DeleteWatermarkTemplate](https://cloud.tencent.com/document/product/266/11604)
 
 ## Preset Transcoding Template
 
