@@ -1,5 +1,5 @@
 ## 1. Create a Game
-Log in to the console: https://console.cloud.tencent.com/gameservice  
+Log in to the [console](https://console.cloud.tencent.com/gameservice).
 In the game management interface on the homepage, the procedure is: first create a game, and then activate the service.
 ![](https://mc.qcloudimg.com/static/img/07db2948dc8aff9a7807c28029f7a752/image.png)
 
