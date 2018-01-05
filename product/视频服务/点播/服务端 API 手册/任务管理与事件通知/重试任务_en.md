@@ -18,7 +18,7 @@ vod.api.qcloud.com
 | Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
 | vodTaskId | Yes | String | Task ID. |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976). |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976). |
 
 ### Request Example
 ```
@@ -37,7 +37,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=RedoTask
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 1000 | Invalid parameter. |
 | 70014 | The task does not exist. |
 | 10027 | System internal error. |

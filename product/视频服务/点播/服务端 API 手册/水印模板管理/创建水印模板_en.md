@@ -5,7 +5,7 @@ CreateWatermarkTemplate
 1. This API is used to create a watermark template.
 
 Note: A watermark template can be created in three steps with server APIs. This API is used in step 3:
-1. Call the API [ApplyUploadWatermark](/document/product/266/11607) to request the upload URL of the watermark file;
+1. Call the API [ApplyUploadWatermark](https://cloud.tencent.com/document/product/266/11607) to request the upload URL of the watermark file;
 2. Use the HTTP PUT method to upload the watermark file to the URL returned in step 1. The request body is the binary data of the watermark image;
 3. Call this API to create a watermark template.
 
@@ -29,7 +29,7 @@ vod.api.qcloud.com
 | top | No | String | The vertical distance from the upper left corner of the watermark image to the upper left corner of the video image. The string ending with % presents the percentage of the vertical distance in the video image height. The string ending with px represents the vertical distance in pixels. For example, 10% means the vertical distance is 10% of the video height. 100px means the vertical distance is 100 pixels. The default is 0px. |
 | width | Yes | String | The width of the watermark image. The string ending with % presents the percentage of watermark width in the video image width. The string ending with px represents watermark width in pixels. For example, 10% means watermark width is 10% of the video width. 100px means watermark width is 100 pixels. The default is 10%. |
 | height | No | String | The height of the watermark image. The string ending with % presents the percentage of watermark height in the video image height. The string ending with px represents watermark height in pixels. For example, 10% means watermark height is 10% of the video height. 100px means watermark height is 100 pixels. The default is 0px, and the watermark image is scaled down by the video ratio. |
-| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/213/6976) |
 
 ## Request Example
 
@@ -56,7 +56,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=CreateWatermarkTemplate
 ### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](https://cloud.tencent.com/document/product/266/7783)  |
 | 1000 | Invalid parameter  |
 | 1001 | Internal error  |
 | 10706 | The number of watermark templates has reached the limit  |
