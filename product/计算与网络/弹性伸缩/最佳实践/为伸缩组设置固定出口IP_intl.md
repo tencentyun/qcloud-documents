@@ -22,7 +22,7 @@ The setting procedure is shown as follows:
 
 ## Setting Method
 
-###Step One: Create a VPN and a Subnet
+### Step One: Create a VPN and a Subnet
 
 #### **1. Create a VPC**
 
@@ -45,12 +45,12 @@ The setting procedure is shown as follows:
 3. After the creation is completed, you can purchase machines for this subnet.
 
 
-#### Step 2: Create a NAT gateway
+### Step 2: Create a NAT gateway
 #### **1. Purchase desired products**
 1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), select "Virtual Private Cloud" tab, and then select "NAT Gateway".
 
 2. Click the "New" button at the upper left corner, and enter or specify the following parameters in the pop-up box:
-	- Gateway name
+  - Gateway name
 	- Gateway type (which can be changed after creation)
 	- VPC of the NAT Gateway service (which was just created by you)
 	- Assign the elastic IP for the NAT gateway. This IP is the fixed IP via which your machine makes external access.

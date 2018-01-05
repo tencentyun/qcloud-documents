@@ -14,7 +14,7 @@ GET  https://dc.api.qcloud.com/v2/index.php?Action=DescribeDirectConnectTunnels
 
 ### Request Parameter
 
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="/doc/api/372/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeDirectConnectTunnels.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeDirectConnectTunnels.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -59,9 +59,6 @@ Response Example:
 ### Response Error Codes
 The following error codes only include the business logic error codes for this API. For additional common error codes, please see <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
-| Error Code | Description |
-
-
 ## Practical Case
  
 ### Request

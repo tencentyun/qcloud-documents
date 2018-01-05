@@ -37,8 +37,39 @@
 从直播控制台获取bizid、pushSecretKey，后面配置服务器会用到：
 ![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
 
-#### 1.4 申请开通微信直播服务【重要】
-目前需要人工审核开通，可以提工单或客服电话（400-9100-100）联系我们，商务同学会提供开通方法。
+#### 1.4 申请开通小程序推拉流标签【重要】
+出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持，需要注意如下限制条件：
+
+- 个人账号和企业账号的小程序暂时只开放如下类目，且需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限。
+
+<table>
+  <tr align="center">
+    <th width="200px">主类目</th>
+    <th width="700px">子类目</th>
+  </tr>
+  <tr align="center">
+    <td>【社交】</td>
+		<td>直播</td>
+  </tr>
+	<tr align="center">
+    <td>【教育】</td>
+		<td>在线教育</td>
+  </tr>
+	<tr align="center">
+    <td>【医疗】</td>
+		<td>互联网医院，公立医院</td>
+  </tr>
+	<tr align="center">
+    <td>【政务民生】</td>
+		<td>所有二级类目</td>
+  </tr>
+	<tr align="center">
+    <td>【金融】</td>
+		<td>基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融</td>
+  </tr>
+</table>
+
+注意：以上设置都正确如果还是不能正常工作，请删除小程序重启微信，再次进入小程序尝试。
 
 ### 2. 开通云通信服务
 #### 2.1 申请开通云通讯服务
