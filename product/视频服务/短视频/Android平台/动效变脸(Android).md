@@ -16,16 +16,16 @@
 
 3. 敦促商务同学回复邮件确认，未经腾讯云商务同学确认的邮件，我们可能会视为骚扰邮件不予处理。
 
-4. 确认后，我们会第一时间替您向优图实验室申请试用 License，并同压缩包解压密码一起发给您。
+4. 确认后，我们会第一时间替您向优图实验室申请试用 Licence，并同压缩包解压密码一起发给您。
 
-   License有两种：
+   Licence 有两种：
 
-   - 试用License：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用License发布了您的应用，会导致有效期过后动效的功能不可用。
-   - 正式License：有效期根据最终的合同而定，一般为一年。
+   - 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
+   - 正式Licence：有效期根据最终的合同而定，一般为一年。
 
 ## 版本下载
 
-可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码 & license文件 可以跟我们的商务同学获取）, 成功解压后得到一个`LiteAVSDK_Enterprise_3.9.2749.aar`和`LiteAVSDK_Enterprise_3.9.2749.zip`，分别对应两种集成方式。
+可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码 & Licence文件 可以跟我们的商务同学获取）, 成功解压后得到一个`LiteAVSDK_Enterprise_3.9.2749.aar`和`LiteAVSDK_Enterprise_3.9.2749.zip`，分别对应两种集成方式。
 
 ## 工程设置
 
@@ -59,14 +59,14 @@
 
 ### 导入licence文件
 
-商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 license。
+商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 Licence。
 得到 licence 后，您需要将其命名为**YTFaceSDK.licence**，放到工程的assets目录下。
 
 > 每个licence都有绑定具体的package name，修改app的package name会导致验证失败。
 >
-> YTFaceSDK.license的文件名固定，不可修改、且必须放在assets目录下。
+> YTFaceSDK.Licence的文件名固定，不可修改、且必须放在assets目录下。
 >
-> iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
+> iOS 和 Android 不需要重复申请 Licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
 
 ## 功能调用
 
