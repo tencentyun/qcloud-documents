@@ -50,8 +50,8 @@
 | mode | String | RTC |  SD, HD, FHD, RTC|
 | autopush | Boolean | false | 是否自动启动推流 |
 | muted | Boolean | false | 是否静音 |
-| enable-camera | String | true | 开启\关闭摄像头  |
-| auto-focus | String | true | 手动\自动对焦 |
+| enable-camera | Boolean | true | 开启\关闭摄像头  |
+| auto-focus | Boolean | true | 手动\自动对焦 |
 | orientation | String | vertical | vertical, horizontal |
 | beauty |  Number | 0 | 美颜指数，取值 0 - 9，数值越大效果越明显 |
 | whiteness  | Number | 0 | 美白指数，取值 0 - 9，数值越大效果越明显 |
