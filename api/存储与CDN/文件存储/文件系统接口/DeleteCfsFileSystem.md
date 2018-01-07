@@ -8,7 +8,7 @@
 |    参数    |  必填 |  类型  |                      描述                      |
 |------------|------|--------|------------------------------------------------|
 | Region     |   是   | string | 园区，请参考(/DescribeTask.md)园区与可用区列表 |
-| OrderId |    是   | string | CFS实例ID                                      |
+| FileSystemId  | 是 |string| 文件系统 ID                                      |
 
 
 
@@ -29,7 +29,7 @@
 <pre>
   https://cfs.api.qcloud.com/v2/index.php?Action=DeleteCfsFileSystem
   &Region=bj
-  &CfsOrderId=cfs-h97kuqvr
+  &FileSystemId=cfs-h97kuqvr
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
 ```
