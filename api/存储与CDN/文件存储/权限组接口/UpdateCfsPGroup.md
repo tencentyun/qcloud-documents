@@ -1,0 +1,49 @@
+## 1.接口描述
+本接口（UpdateCfsPGroup）更新权限组信息。
+接口请求域名：**cfs.api.qcloud.com**
+## 2.输入参数
+|       参数      | 子参数 | 必填 |  类型  |                               描述                           |
+|-----------------|--------|------|--------|--------------------------------------------------------------|
+| Name   |        | 否  | string | 权限组名称										     |
+| OrderId   |        | 是   | string | 权限组ID                                |                                   
+| DescInfo  |        | 否   | string | 描述信息                   |
+
+## 3.输出参数
+| 参数名称 | 子参数 |  子参数 | 类型 | 描述 |
+|----------|------  |-------- |----- | ---- |
+|OrderId|               |           |string |权限组ID|
+|Name |               |           |string    |权限组名称|
+|DescInfo  |               |           |string |描述信息|
+
+## 4.示例 
+
+### 输入
+
+
+```
+<pre>
+  https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsPGroup
+  &Uin=2779643970
+  &AppId=1251668577
+  &OrderId=pgroup-3hfob9vf
+  &Name=updated-test02
+  &DescInfo=xxxxxx
+  &<<a href="https://www.qcloud.com/doc/api/229/6976"> 公共请求参数 </a>>
+</pre>
+```
+
+### 输出
+
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "OrderId": "pgroup-3hfob9vf",
+        "Name": "updated-test02",
+        "DescInfo": "xxxxxx"
+    }
+}
+
+```
