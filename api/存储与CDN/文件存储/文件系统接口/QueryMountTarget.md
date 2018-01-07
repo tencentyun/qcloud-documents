@@ -11,7 +11,7 @@
 |    参数   | 必填 |  类型 |                       描述                         |
 |------------|-----|--------|------------------------------------------------|
 | Region     |    是   | string |园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表 | 
-| CfsOrderId |  是   |string | CFS 实例 ID                                      | 
+| FileSystemId | 是  |string| 文件系统 ID                                       | 
 
 
 ## 响应参数
@@ -38,7 +38,7 @@
 ```
   https://cfs.api.qcloud.com/v2/index.php?Action=QueryMountTarget
   &Region=bj
-  &CfsOrderId=cfs-h97kuqvr
+  &FileSystemId=cfs-h97kuqvr
   &<公共请求参数>
 ```
 

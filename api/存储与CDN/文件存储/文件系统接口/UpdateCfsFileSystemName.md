@@ -5,7 +5,7 @@
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
 | CreationToken   |  是   | string | 用户自定义文件系统名称										     |
-| CfsId   | 是   | string | 文件系统订单ID                                |                                   
+| FileSystemId  | 是 |string| 文件系统 ID                                |                                   
 
 ## 3.输出参数
 | 参数名称 |  类型 | 描述 |
@@ -24,7 +24,7 @@
   &Uin=2779000000
   &AppId=1250000000
   &CreationToken=hello-world
-  &CfsId=cfs-8xbtlopj
+  &FileSystemId=cfs-8xbtlopj
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 ```
