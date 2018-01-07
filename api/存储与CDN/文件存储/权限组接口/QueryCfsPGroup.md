@@ -4,12 +4,15 @@
 ## 2.输入参数
 |       参数      |  必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
+|       Uin      |  是 |  int  |     用户ID                            |
+|       AppId      |  是 |  int  |     用户APPID                            |
+
 
 ## 3.输出参数
 | 参数名称 | 子参数 |  类型 | 描述 |
 |----------|------  |----- | ---- |
 |PGrouplist|         |  array  |权限组信息列表 |
-|          | OrderId |  string |权限组ID |
+|          | PGroupId |  string |权限组ID |
 |          | Name    |  string |权限组名称 |
 |          | DescInfo|  string |描述信息 |
 |          | CDate   |  string |创建时间 |
@@ -39,7 +42,7 @@
     "data": {
         "PGrouplist": [
             {
-                "OrderId": "pgroup-atutdqup",
+                "PGroupId": "pgroup-atutdqup",
                 "Name": "dd",
                 "DescInfo": "2345",
                 "BindCfsNum": 0,
@@ -47,21 +50,21 @@
             },
             
             {
-                "OrderId": "pgroup-8rf7odn5",
+                "PGroupId": "pgroup-8rf7odn5",
                 "Name": "test23",
                 "DescInfo": "ddd",
                 "BindCfsNum": 0,
                 "CDate": "2017-07-06 10:57:29"
             },
             {
-                "OrderId": "pgroup-19l63t3p",
+                "PGroupId": "pgroup-19l63t3p",
                 "Name": "测试",
                 "DescInfo": "use for test",
                 "BindCfsNum": 1,
                 "CDate": "2017-08-03 16:06:38"
             },
             {
-                "OrderId": "pgroupbasic",
+                "PGroupId": "pgroupbasic",
                 "Name": "默认权限组",
                 "DescInfo": "默认权限组",
                 "BindCfsNum": 5,

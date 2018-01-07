@@ -4,14 +4,14 @@
 ## 2.输入参数
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-|PGroupOrderId    |  是  | string | 权限组ID |
-|CfsOrderId       |   是  | string | 文件系统订单ID|
+|PGroupId    |  是  | string | 权限组ID |
+|FileSystemId       |   是  | string | 文件系统ID|
 
 ## 3.输出参数
 | 参数名称 | 类型 | 描述 |
 |----------|----- | ---- |
-|PGroupOrderId    |   string | 权限组ID |
-|CfsOrderId       |   string | 文件系统订单ID|
+|PGroupId    |   string | 权限组ID |
+|FileSystemId       |   string | 文件系统ID|
 |AppId            |   int    | 用户ID|
 
 
@@ -25,8 +25,8 @@
   https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsFileSystemPGroup
   &Uin=2770000000
   &AppId=1250000000
-  &PGroupOrderId=pgroupbasic
-  &CfsOrderId=cfs-ci0kagcd
+  &PGroupId=pgroupbasic
+  &FileSystemId=cfs-ci0kagcd
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 ```

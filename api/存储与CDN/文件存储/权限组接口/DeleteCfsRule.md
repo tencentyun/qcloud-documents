@@ -4,15 +4,15 @@
 ## 2.输入参数
 |       参数      |  必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-| PGroupOrderId      | 是   | string | 权限组ID                      | 
-| OrderId        | 是   | string | 规则ID |
+| PGroupId      | 是   | string | 权限组ID                      | 
+| RuleId        | 是   | string | 规则ID |
 
 
 ## 3.输出参数
 | 参数名称 |  类型 | 描述 |
 |----------|------ | ---- |
-|OrderId            |  string |规则ID   |
-|PGroupOrderId      |  string |权限组ID |
+|RuleId            |  string |规则ID   |
+|PGroupId      |  string |权限组ID |
 
 
 ## 4.示例 
@@ -25,8 +25,8 @@
   https://cfs.test.api.qcloud.com/v2/index.php?Action=DeleteCfsRule
   &Uin=277000000
   &AppId=1250000000
-  &PGroupOrderId=pgroup-atutdqup
-  &OrderId=rule-ac898wqn
+  &PGroupId=pgroup-atutdqup
+  &RuleId=rule-ac898wqn
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 ```
@@ -39,8 +39,8 @@
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "OrderId": "rule-ac898wqn",
-        "PGroupOrderId": "pgroup-atutdqup"
+        "RuleId": "rule-ac898wqn",
+        "PGroupId": "pgroup-atutdqup"
     }
 }
 

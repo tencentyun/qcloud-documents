@@ -4,14 +4,14 @@
 ## 2.输入参数
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-| OrderId        | 是   | string | 权限组ID|
+| PGroupId        | 是   | string | 权限组ID|
 
 
 ## 3.输出参数
 | 参数名称 |  类型 | 描述 |
 |----------|----- | ---- |
 |AppId     | int    |用户ID   |
-|OrderId   | string |权限组ID |
+|PGroupId   | string |权限组ID |
 
 
 ## 4.示例 
@@ -24,7 +24,7 @@
   https://cfs.test.api.qcloud.com/v2/index.php?Action=DeleteCfsPGroup
   &Uin=27790000000
   &AppId=1250000000
-  &OrderId=pgroup-qa948g7z
+  &PGroupId=pgroup-qa948g7z
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 ```
@@ -37,7 +37,7 @@
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "OrderId": "pgroup-qa948g7z",
+        "PGroupId": "pgroup-qa948g7z",
         "AppId": 1250000000
     }
 }

@@ -4,7 +4,7 @@
 ## 2.输入参数
 |       参数      |  必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-| PGroupOrderId       |是   | string | 权限组ID                      | 
+| PGroupId       |是   | string | 权限组ID                      | 
 | RWPermission   |  否 | string | 读写权限, 可选参数：ro, rw。ro为只读，rw为读写 |
 | UserPermission | 否 | string | 用户权限，可选参数：all_squash，no_all_squash，root_squash，no_root_squash。其中root_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash为将来访的root用户映射为匿名用户或用户组；no_root_squash为来访的root用户保持root帐号权限。|
 | ClientIp            | 是   | string | 允许访问的客户端IP | 
@@ -13,8 +13,8 @@
 ## 3.输出参数
 | 参数名称 | 类型 | 描述 |
 |----------|----- | ---- |
-|OrderId            | string |规则ID   |
-|PGroupOrderId      | string |权限组ID |
+|RuleId            | string |规则ID   |
+|PGroupId      | string |权限组ID |
 |ClientIp           | string |客户端IP |
 |RWPermission       | string |读写权限 |
 | UserPermission    | string | 用户权限 |
@@ -29,7 +29,7 @@
   https://cfs.test.api.qcloud.com/v2/index.php?Action=CreateCfsRule&SecretId=1
   Uin=27700000
   &AppId=1250000000
-  &PGroupOrderId=pgroup-atutdqup
+  &PGroupId=pgroup-atutdqup
   &RWPermission=rw
   &UserPermission=root_squash
   &ClientIp=10.15.21.101
@@ -46,8 +46,8 @@
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "OrderId": "rule-ac898wqn",
-        "PGroupOrderId": "pgroup-atutdqup",
+        "RuleId": "rule-ac898wqn",
+        "PGroupId": "pgroup-atutdqup",
         "ClientIp": "10.15.21.101",
         "RWPermission": "rw",
         "UserPermission": "root_squash",

@@ -4,8 +4,8 @@
 ## 2.输入参数
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
-| PGroupOrderId    | 是  | string | 权限组ID |
-| OrderId       | 是  | string | 规则ID|
+| PGroupId    | 是  | string | 权限组ID |
+| RuleId       | 是  | string | 规则ID|
 | ClientIp         | 否   | string |  允许访问的客户端IP |
 | RWPermission   |  否 | string | 读写权限, 可选参数：ro, rw。ro为只读，rw为读写 |
 | UserPermission | 否 | string | 用户权限，可选参数：all_squash，no_all_squash，root_squash，no_root_squash。其中root_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash为将来访的root用户映射为匿名用户或用户组；no_root_squash为来访的root用户保持root帐号权限。|
@@ -14,8 +14,8 @@
 ## 3.输出参数
 | 参数名称 | 类型 | 描述 |
 |----------|----- | ---- |
-| PGroupOrderId    | string | 权限组ID |
-| OrderId       |  string | 规则ID|
+| PGroupId    | string | 权限组ID |
+| RuleId       |  string | 规则ID|
 | ClientIp         |   string |  允许访问的客户端IP |
 | RWPermission   |  string | 读写权限|
 | UserPermission |  string | 用户权限 |
@@ -32,8 +32,8 @@
   https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsRule
   &Uin=2770000000
   &AppId=1250000000
-  &OrderId=rule-08fbdvat
-  &PGroupOrderId=pgroup-fijirhdp
+  &RuleId=rule-08fbdvat
+  &PGroupId=pgroup-fijirhdp
   &ClientIp=1.2.4.3
   &RWPermission=rw
   &UserPermission=no_root_squash
@@ -50,8 +50,8 @@
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "PGroupOrderId": "pgroup-fijirhdp",
-        "OrderId": "rule-08fbdvat",
+        "PGroupId": "pgroup-fijirhdp",
+        "RuleId": "rule-08fbdvat",
         "ClientIp": "1.2.4.3",
         "RWPermission": "rw",
         "UserPermission": "no_root_squash",

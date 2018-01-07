@@ -10,7 +10,7 @@
 ## 3.输出参数
 | 参数名称 |  类型 | 描述 |
 |----------|----- | ---- |
-|OrderId   |  string |权限组ID|
+|PGroupId   |  string |权限组ID|
 |Name      |  string |权限组名字|
 |DescInfo  |  string |权限组描述信息|
 |BindCfsNum|  int    |权限组关联文件系统个数|
@@ -40,7 +40,7 @@
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "OrderId": "pgroup-bla6gpb3",
+        "PGroupId": "pgroup-bla6gpb3",
         "Name": "helloworld1112",
         "DescInfo": "justfortest11",
         "BindCfsNum": 0,

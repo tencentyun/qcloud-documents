@@ -5,13 +5,13 @@
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|-----|--------|--------------------------------------------------------------|
 | Name   |  否  | string | 权限组名称 |
-| OrderId   |是   | string | 权限组ID                                |                                   
+| PGroupId   |是   | string | 权限组ID                                |                                   
 | DescInfo  | 否   | string | 描述信息                   |
 
 ## 3.输出参数
 | 参数名称 | 类型 | 描述 |
 |----------|----- | ---- |
-|OrderId|   string |权限组ID|
+|PGroupId|   string |权限组ID|
 |Name |   string    |权限组名称|
 |DescInfo  |  string |描述信息|
 
@@ -25,7 +25,7 @@
   https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsPGroup
   &Uin=2770000000
   &AppId=1250000000
-  &OrderId=pgroup-3hfob9vf
+  &PGroupId=pgroup-3hfob9vf
   &Name=updated-test02
   &DescInfo=xxxxxx
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
@@ -40,7 +40,7 @@
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "OrderId": "pgroup-3hfob9vf",
+        "PGroupId": "pgroup-3hfob9vf",
         "Name": "updated-test02",
         "DescInfo": "xxxxxx"
     }
