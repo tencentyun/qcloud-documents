@@ -8,26 +8,26 @@
 ## 请求参数
 以下请求参数为本接口的请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/582/13227) 页面。
 
-|    参数    |                       描述                      |  类型  | 必填 |
+|    参数   | 必填 |  类型 |                       描述                         |
 |------------|-----|--------|------------------------------------------------|
-| Region     |   园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表 | String |  是   |
-| CfsOrderId | CFS 实例 ID                                      | String | 是   |
+| Region     |    是   | string |园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表 | 
+| CfsOrderId |  是   |string | CFS 实例 ID                                      | 
 
 
 ## 响应参数
 
-|     参数名称     |                      描述                        |类型  |  
+|     参数名称     |             类型  |          描述                        | 
 |------------------|--------|-----------------------------------|
-| FileSystemId     | 文件系统 ID                                                  |String | 
-| IpAddress        |  挂载点 IP                                          |String |
-| FSID             |  挂载点 ID                                                   |String |
-| LifeCycleState   |  文件系统状态 creating（创建中） available（可用）create_failed（创建失败） deleting（删除中） delete_failed（删除失败） |String |
-| NetworkInterface |  网络类型 vpc（私有网络） basic（基础网络）                                          |String |
-| VpcId            |私有网络 ID                                 | Int    | 
-| VpcName          | 私有网络名称               |String | 
-| SubnetId         |  子网 Id                       |Int    |
-| SubnetName       | 子网名称                                     |String | 
-| ZoneId           | 可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                       |Int    | 
+| FileSystemId     | string | 文件系统 ID                                                  |
+| IpAddress        |  string |挂载点 IP                                          |
+| FSID             |  string |挂载点 ID                                                   |
+| LifeCycleState   | string | 文件系统状态 creating（创建中） available（可用）create_failed（创建失败） deleting（删除中） delete_failed（删除失败） |
+| NetworkInterface | String | 网络类型, 可选参数 vpc （私有网络），basic（基础网络）                                          |
+| VpcId            |int    | 私有网络 ID                                 |  
+| VpcName          | string | 私有网络名称               |
+| SubnetId         |  int    |子网 Id                       |
+| SubnetName       | string |子网名称                                     | 
+| ZoneId           | int    |可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                       | 
 
 
 

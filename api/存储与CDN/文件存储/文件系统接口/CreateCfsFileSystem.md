@@ -7,40 +7,27 @@
 ## 请求参数
 以下请求参数为本接口的请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/582/13227) 页面。
 
-<<<<<<< Updated upstream
-|       参数      |                                   描述                              |类型  |必填 |
+|       参数      |必填 |类型  |                                   描述                              |
 |-----------------|------|--------|-----------------------------------------------------------------|
-| ZoneId          |   可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表              |Int    | 是   |
-| NetInterface    | 网络类型，值为 vpc，basic。 其中 vpc为私有网络，basic 为基础网络                      |String |是   |
-| CreationToken   | 用户自定义文件系统名称                                                  |String | 是   |
-| PgroupOrderId   |  权限组 ID，目前仅支持 pgroupbasic                                |  String |       是   |                      
-| Region          |  园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                   | String |是   |
-| VpcId           |    VPC ID，如使用基础网络，请传 0                                 |Int    |是   |
-| SubnetId        |  子网 ID， 如使用基础网络，请传 0                                | Int    |是   |
-=======
-|       参数      | 子参数 | 必填 |  类型  |                               描述                              |
-|-----------------|--------|------|--------|-----------------------------------------------------------------|
-| ZoneId          |        | 是   | int    | 可用区ID，请参考"概览"文档中的园区与可用区列表              |
-| NetInterface    |        | 是   | string | 网络类型，值为 vpc, basic。 其中 vpc为私有网络，basic为基础网络                      |
-| CreationToken   |        | 是   | string | 用户自定义文件系统名称                                                  |
-| PgroupOrderId   |        | 是   | string | 权限组ID，目前仅支持 pgroupbasic                                |                                   
-| Region          |        | 是   | string | 园区，请参考"概览"文档中的园区与可用区列表                   |
-| ClientNetwork          |        | 是   | string | 来访客户类型，可选CVM或CPM ， CVM为云服务器、CPM为黑石服务器                  |
-| VpcId           |        | 是   | int    | VPC ID，如使用基础网络，请传0。若ClientNetwork为CPM，则仅支持VPC网络。                                 |
-| SubnetId        |        | 是   | int    | 子网ID， 如使用基础网络，请传0。若ClientNetwork为CPM，则仅支持VPC网络。                                |
->>>>>>> Stashed changes
+| ZoneId          |   是   |int    | 可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表              |
+| NetInterface    | 是   |string | 网络类型，值为 vpc，basic。 其中 vpc为私有网络，basic 为基础网络                      |
+| CreationToken   |  是   |string | 用户自定义文件系统名称                                                  |
+| PgroupOrderId   |       是   |  string |  权限组 ID，目前仅支持 pgroupbasic                                |                      
+| Region          |  是   |string |园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                   | 
+| VpcId           |  是   |int    |  VPC ID，如使用基础网络，请传 0                                 |
+| SubnetId        | 是   |int    | 子网 ID， 如使用基础网络，请传 0                                | 
 
 
 ## 响应参数
 
-|    参数名称    |                                                          描述                                                          |类型  |   
+|    参数名称    |类型|                                                          描述                                                            |   
 |----------------|--------|--------------------------------------------------------|
-| CreationTime   |创建时间                                                                                                                | String | 
-| CreationToken  | 用户自定义文件系统名称                                                          |String | 
-| FileSystemId   | 文件系统 ID                                                           |String | 
-| LifeCycleState | 文件系统状态 creating（创建中） available（可用）create_failed（创建失败） deleting（删除中） delete_failed（删除失败） | String |
-| SizeInBytes    | 文件系统用量信息                                                                                                        |Array  | 
-| ZoneId         | 可用区 ID                                                                                                                | Int    |
+| CreationTime   |string | 创建时间                                                                                                                | 
+| CreationToken  |string| 用户自定义文件系统名称                                                           | 
+| FileSystemId   |string| 文件系统 ID                                                            | 
+| LifeCycleState | string |文件系统状态 creating（创建中） available（可用）create_failed（创建失败） deleting（删除中） delete_failed（删除失败） | 
+| SizeInBytes    |Array  | 文件系统用量信息                                                                                                        | 
+| ZoneId       | int     | 可用区 ID                                                                                                                 |
 
 
 ## 实际示例 

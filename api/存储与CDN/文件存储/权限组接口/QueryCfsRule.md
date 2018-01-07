@@ -2,19 +2,19 @@
 本接口（QueryCfsRule）用于查询权限组规则列表。
 接口请求域名：**cfs.api.qcloud.com**
 ## 2.输入参数
-|       参数      | 子参数 | 必填 |  类型  |                               描述                           |
-|-----------------|--------|------|--------|--------------------------------------------------------------|
-|PGroupOrderId    |        |  是  | string | 权限组ID |
+|       参数      |  必填 |  类型  |                               描述                           |
+|-----------------|------|--------|--------------------------------------------------------------|
+|PGroupOrderId    |   是  | string | 权限组ID |
 
 ## 3.输出参数
-| 参数名称 | 子参数 |  子参数 | 类型 | 描述 |
-|----------|------  |-------- |----- | ---- |
-|RuleList |         |           |array  |权限组规则列表 |
-|          | OrderId |           |string |规则ID |
-|          | ClientIp |          |string |IP列表 |
-|          | RWPermission|       |string |读写权限 |
-|          | UserPermission   |  |string |用户权限 |
-|          | Priority|           |int    |优先级|
+| 参数名称 | 子参数 | 类型 | 描述 |
+|----------|------  |----- | ---- |
+|RuleList |         |  array  |权限组规则列表 |
+|          | OrderId |   string |规则ID |
+|          | ClientIp |  string |允许访问的客户端IP |
+|          | RWPermission|  string |读写权限, ro为只读，rw为读写 |
+|          | UserPermission   | string |用户权限。其中root_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash为将来访的root用户映射为匿名用户或用户组；no_root_squash为来访的root用户保持root帐号权限。 |
+|          | Priority|  int    |规则优先级，1-100。 其中 1 为最高，100为最低|
 
 
 ## 4.示例 

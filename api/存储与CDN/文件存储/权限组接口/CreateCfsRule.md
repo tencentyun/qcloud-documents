@@ -2,23 +2,23 @@
 本接口（CreateCfsRule）用于创建规则。
 接口请求域名：**cfs.api.qcloud.com**
 ## 2.输入参数
-|       参数      | 子参数 | 必填 |  类型  |                               描述                           |
-|-----------------|--------|------|--------|--------------------------------------------------------------|
-| PGroupOrderId            |        | 是   | string | 权限组ID                      | 
-| RWPermission        |        | 是   | string | 读写权限 |
-| UserPermission      |        | 是   | string | 用户权限 |
-| ClientIp            |        | 是   | string | 客户端IP | 
-| Priority            |        | 是   | int    | 优先级   |
+|       参数      |  必填 |  类型  |                               描述                           |
+|-----------------|------|--------|--------------------------------------------------------------|
+| PGroupOrderId       |是   | string | 权限组ID                      | 
+| RWPermission   |  否 | string | 读写权限, 可选参数：ro, rw。ro为只读，rw为读写 |
+| UserPermission | 否 | string | 用户权限，可选参数：all_squash，no_all_squash，root_squash，no_root_squash。其中root_squash为所有访问用户都会被映射为匿名用户或用户组；no_all_squash为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash为将来访的root用户映射为匿名用户或用户组；no_root_squash为来访的root用户保持root帐号权限。|
+| ClientIp            | 是   | string | 允许访问的客户端IP | 
+| Priority            |  是   | int    | 规则优先级，参数范围1-100。 其中 1 为最高，100为最低|
 
 ## 3.输出参数
-| 参数名称 | 子参数 |  子参数 | 类型 | 描述 |
-|----------|------  |-------- |----- | ---- |
-|OrderId            |  |           |string |规则ID   |
-|PGroupOrderId      |  |           |string |权限组ID |
-|ClientIp           |  |           |string |客户端IP |
-|RWPermission       |  |           |string |读写权限 |
-| UserPermission    |  |           | string | 用户权限 |
-| Priority          |  |           | int    | 优先级   |
+| 参数名称 | 类型 | 描述 |
+|----------|----- | ---- |
+|OrderId            | string |规则ID   |
+|PGroupOrderId      | string |权限组ID |
+|ClientIp           | string |客户端IP |
+|RWPermission       | string |读写权限 |
+| UserPermission    | string | 用户权限 |
+| Priority          | int    | 优先级   |
 ## 4.示例 
 
 ### 输入
