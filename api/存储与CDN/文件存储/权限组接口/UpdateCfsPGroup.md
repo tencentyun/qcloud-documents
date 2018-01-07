@@ -23,8 +23,8 @@
 ```
 <pre>
   https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsPGroup
-  &Uin=2779643970
-  &AppId=1251668577
+  &Uin=2770000000
+  &AppId=1250000000
   &OrderId=pgroup-3hfob9vf
   &Name=updated-test02
   &DescInfo=xxxxxx

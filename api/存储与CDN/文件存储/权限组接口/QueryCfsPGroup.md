@@ -23,8 +23,8 @@
 ```
 <pre>
   https://cfs.test.api.qcloud.com/v2/index.php?Action=QueryCfsPGroup
-  &Uin=2779643970
-  &AppId=1251668577
+  &Uin=2770000000
+  &AppId=1250000000
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 ```
@@ -55,8 +55,8 @@
             },
             {
                 "OrderId": "pgroup-19l63t3p",
-                "Name": "詹斌测试",
-                "DescInfo": "我草",
+                "Name": "测试",
+                "DescInfo": "use for test",
                 "BindCfsNum": 1,
                 "CDate": "2017-08-03 16:06:38"
             },

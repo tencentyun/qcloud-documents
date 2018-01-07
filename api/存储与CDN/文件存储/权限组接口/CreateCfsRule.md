@@ -27,8 +27,8 @@
 ```
 <pre>
   https://cfs.test.api.qcloud.com/v2/index.php?Action=CreateCfsRule&SecretId=1
-  Uin=2779643970
-  &AppId=1251668577
+  Uin=27700000
+  &AppId=1250000000
   &PGroupOrderId=pgroup-atutdqup
   &RWPermission=rw
   &UserPermission=root_squash

@@ -24,8 +24,8 @@
 ```
 <pre>
   https://cfs.test.api.cloud.tencent.com/v2/index.php?Action=CreateCfsPGroup&SecretId=1
-  &Uin=2779643970
-  &AppId=1251668577
+  &Uin=277000000
+  &AppId=1250000000
   &Name=helloworld1112
   &DescInfo=justfortest11
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>

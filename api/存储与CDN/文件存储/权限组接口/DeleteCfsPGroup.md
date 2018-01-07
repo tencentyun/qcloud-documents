@@ -22,8 +22,8 @@
 ```
 <pre>
   https://cfs.test.api.qcloud.com/v2/index.php?Action=DeleteCfsPGroup
-  &Uin=2779643970
-  &AppId=1251668577
+  &Uin=27790000000
+  &AppId=1250000000
   &OrderId=pgroup-qa948g7z
   &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
@@ -38,7 +38,7 @@
     "codeDesc": "Success",
     "data": {
         "OrderId": "pgroup-qa948g7z",
-        "AppId": 1251668577
+        "AppId": 1250000000
     }
 }
 
