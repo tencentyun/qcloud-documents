@@ -34,7 +34,7 @@
   &UserPermission=root_squash
   &ClientIp=10.15.21.101
   &Priority=9
-  &<<a href="https://www.qcloud.com/doc/api/229/6976"> 公共请求参数 </a>>
+  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 ```
 
@@ -56,3 +56,5 @@
 }
 
 ```
+
+

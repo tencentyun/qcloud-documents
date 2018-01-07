@@ -1,6 +1,6 @@
 ## 1.接口描述
 本接口（CreateCfsPGroup）用于创建权限组。
-接口请求域名：**cfs.api.qcloud.com**
+接口请求域名：**cfs.api.cloud.tencent.com**
 ## 2.输入参数
 |       参数      | 子参数 | 必填 |  类型  |                               描述                           |
 |-----------------|--------|------|--------|--------------------------------------------------------------|
@@ -23,12 +23,12 @@
 
 ```
 <pre>
-  https://cfs.test.api.qcloud.com/v2/index.php?Action=CreateCfsPGroup&SecretId=1
+  https://cfs.test.api.cloud.tencent.com/v2/index.php?Action=CreateCfsPGroup&SecretId=1
   &Uin=2779643970
   &AppId=1251668577
   &Name=helloworld1112
   &DescInfo=justfortest11
-  &<<a href="https://www.qcloud.com/doc/api/229/6976"> 公共请求参数 </a>>
+  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
 </pre>
 ```
 
@@ -49,3 +49,4 @@
 }
 
 ```
+

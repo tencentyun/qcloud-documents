@@ -31,7 +31,7 @@
   &Region=bj
   &CfsOrderId=cfs-h97kuqvr
   &ActMode=auto
-  &<<a href="https://www.qcloud.com/doc/api/229/6976">公共请求参数</a>>
+  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
 ```
 
