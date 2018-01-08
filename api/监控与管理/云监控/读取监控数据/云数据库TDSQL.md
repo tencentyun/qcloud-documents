@@ -40,7 +40,7 @@ dimensions.0.value为实例的uuid
 | disk_iops             | 磁盘IOPS       | 次/秒  |
 | conn_active           | 总连接数       | 次/秒  |
 | conn_running          | 活跃连接数          | 次/秒  |
-| is_mater_switched     | 监控是否主备切换     | 无    |
+| is_master_switched    | 监控是否主备切换     | 无    |
 | cpu_usage_rate        | CPU使用率       | %    |
 
 

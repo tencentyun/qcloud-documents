@@ -1,9 +1,9 @@
-#部署文档
+
 腾讯云提供了全套技术文档和源码来帮助您快速构建一个音视频小程序，但是再好的源码和文档也有学习成本，为了尽快的能调试起来，我们还提供了一个免费的一键部署服务：您只需轻点几下鼠标，就可以在自己的账号下获得一个音视频小程序，同时附送一台拥有独立域名的测试服务器，让您可以在 5 分钟内快速构建出自己的测试环境。
 
-## 一、通过微信公众平台授权登录腾讯云
+## 通过微信公众平台授权登录腾讯云
 
-打开[微信公众平台](https://mp.weixin.qq.com)注册并登录小程序，按如下步骤操作：
+打开 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序，按如下步骤操作：
 
 1. 单击左侧菜单栏中的【设置】。
 2. 单击右侧 Tab 栏中的【开发者工具】。
@@ -20,25 +20,56 @@
 
 ![腾讯云微信小程序控制台](https://mc.qcloudimg.com/static/img/032d0b2b99dfcfdf4234db911e93b60f/15.png)
 
-## 二、免费开通腾讯云服务
-### 1.开通直播服务
-#### 1.1 申请开通视频直播服务
-进入[直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，则会有如下提示:
+## 免费开通腾讯云服务
+### 开通直播服务
+#### 1. 申请开通视频直播服务
+进入 [直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，则会有如下提示:
 ![](https://mc.qcloudimg.com/static/img/c40ff3b85b3ad9c0cb03170948d93555/image.png)
 点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
 
 
-#### 1.2 配置直播码
-直播服务开通后，进入[直播控制台>>直播码接入>>接入配置](https://console.cloud.tencent.com/live/livecodemanage) 完成相关配置，即可开启直播码服务：
+#### 2. 配置直播码
+直播服务开通后，进入【直播控制台】>【直播码接入】>【接入配置】(https://console.cloud.tencent.com/live/livecodemanage) 完成相关配置，即可开启直播码服务：
 ![](https://mc.qcloudimg.com/static/img/32158e398ab9543b5ac3acf5f04aa86e/image.png)
-点击**确定接入**按钮即可。
+点击【确定接入】按钮即可。
 
-#### 1.3 获取直播服务配置信息
+#### 3. 获取直播服务配置信息
 从直播控制台获取bizid、pushSecretKey，后面配置服务器会用到：
 ![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
 
-#### 1.4 申请开通微信直播服务【重要】
-目前需要人工审核开通，可以提工单或客服电话（400-9100-100）联系我们，商务同学会提供开通方法。
+#### 1.4 申请开通小程序推拉流标签【重要】
+出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持，需要注意如下限制条件：
+
+- 个人账号和企业账号的小程序暂时只开放如下类目，且需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限。
+
+<table>
+  <tr align="center">
+    <th width="200px">主类目</th>
+    <th width="700px">子类目</th>
+  </tr>
+  <tr align="center">
+    <td>【社交】</td>
+		<td>直播</td>
+  </tr>
+	<tr align="center">
+    <td>【教育】</td>
+		<td>在线教育</td>
+  </tr>
+	<tr align="center">
+    <td>【医疗】</td>
+		<td>互联网医院，公立医院</td>
+  </tr>
+	<tr align="center">
+    <td>【政务民生】</td>
+		<td>所有二级类目</td>
+  </tr>
+	<tr align="center">
+    <td>【金融】</td>
+		<td>基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融</td>
+  </tr>
+</table>
+
+注意：以上设置都正确如果还是不能正常工作，请删除小程序重启微信，再次进入小程序尝试。
 
 ### 2. 开通云通信服务
 #### 2.1 申请开通云通讯服务
@@ -131,5 +162,5 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 ##### 1. 运行小程序进入多人音视频看不到画面?
   - 请确认使用手机来运行，微信开发者工具内部的模拟器目前还不支持直接运行
   - 请确认小程序基础库版本 wx.getSystemInfo 可以查询到该信息，1.7.0 以上的基础库才支持音视频能力。
-  - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](http://panshi.isd.com/helpCenterNew/helpManager/article#/doc/454/12518)。
+  - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](https://cloud.tencent.com/document/product/454/13037)。
   - 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。

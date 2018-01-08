@@ -73,3 +73,46 @@ import TACStorage
 	// options?.storageOptions.[Key] = [Value];
 	TACApplication.configurate(with: options);
 ~~~
+
+##### （6） 配置 TACStorage 的使用权限
+
+TACStorage 后台为腾讯云COS服务，在使用COS服务的时候需要对请求进行权限校验，来确保对应的请求是否有权限访问对应的资源。因而您需要在您的代码中实现 `QCloudCredentailFenceQueueDelegate` 协议来提供相关的权限信息。
+
+~~~
+@interface TACStorageDemoViewController () <QCloudCredentailFenceQueueDelegate>
+@end
+
+@implementation  TACStorageDemoViewController
+- (void) fenceQueue:(QCloudCredentailFenceQueue *)queue requestCreatorWithContinue:(QCloudCredentailFenceQueueContinue)continueBlock
+{
+    QCloudCredential* crendential = [[QCloudCredential alloc] init];
+
+    // 在调试阶段您可以通过直接设置secretID和secretKey来测试服务，但是强烈不建议在线上环境使用该方式！！！
+#ifdef ! DEBUG
+    QCloudCredential* crendential = [[QCloudCredential alloc] init];
+    crendential.secretID = <#secretID#>;
+    crendential.secretKey = <#secretKey#>;
+    QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:crendential];
+    continueBlock(creator, nil);
+#else
+
+    //您需要配置自己的服务器，来获取CAM临时密钥。并通过临时密钥来创建权限Creator。具体可以参考：[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068)
+    void(^NetworkCall)(id response, NSError* error) = ^(id response, NSError* error) {
+        if (error) {
+            continueBlock(nil, error);
+        } else {
+            QCloudCredential* crendential = [[QCloudCredential alloc] init];
+            crendential.secretID = @"AKIDPiqmW3qcgXVSKN8jngPzRhvxzYyDL5qP";
+            crendential.secretKey = @"EH8oHoLgpmJmBQUM1Uoywjmv7EFzd5OJ";
+            crendential.experationDate = nil;
+            crendential.token = ;
+            QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:crendential];
+            continueBlock(creator, nil);
+        }
+
+    };
+    <#do network with callback:NetworkCall #>
+#endif
+}
+@end
+~~~
