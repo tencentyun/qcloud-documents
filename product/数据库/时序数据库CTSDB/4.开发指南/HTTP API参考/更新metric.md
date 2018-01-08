@@ -1,7 +1,7 @@
 ### 请求地址 ###
 地址为实例的IP和PORT，可从控制台获取到，例如10.13.20.15:9200
 ### 请求路径和方法 ###
-路径：`/_metric/${metric_name}/update`，${metric_name}为metric的名称
+路径：`/_metric/${metric_name}/update`，`${metric_name}`为metric的名称<br/>
 方法：PUT
 ### 请求参数 ###
 无
@@ -17,22 +17,23 @@
 | rolling_period | 否              | string          | 子表时长（单位：天），为了方便做数据过期清理和提高查询效率，根据特定时间间隔划分子表，缺省情况下由数据过期时间决定 |
 
 ### 返回内容 ###
-需要通过'error'字段判断请求是否成功，若返回内容有error字段则请求失败，具体错误详情请参照error字段描述。
+需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 ### JSON示例说明 ###
 请求：`PUT /_metric/ctsdb_test/update`
 
 请求数据：
 
-    "options":{
-    {
-    "expire_day":15,
-    "number_of_shards":10
-    }
+    "options":
+	{
+	    {
+		    "expire_day":15,
+		    "number_of_shards":10
+	    }
     }
 
 返回：
 
     {
-    "acknowledged": true,
-    "message": "update ctsdb metric test111 success!"
+	    "acknowledged": true,
+	    "message": "update ctsdb metric test111 success!"
     }
