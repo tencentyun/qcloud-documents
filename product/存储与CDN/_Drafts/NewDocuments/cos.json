@@ -350,7 +350,76 @@
               }
             }
           }
+        },
+        "get": {
+          "tags": [
+            "bucket CORS"
+          ],
+          "summary": "Get Bucket CORS",
+          "description": "Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（CORS 是一个 W3C 标准，全称是\"跨域资源共享\"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。",
+          "operationId": "GetBucketCORS",
+          "responses": {
+            "200": {
+              "error_code" : "None",
+              "description": "获取跨域资源共享的信息配置成功",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#components/schemas/BucketCorsRequest"
+                  }
+                }
+              }
+            },
+            "404-0": {
+              "error_code" : "NoSuchBucket",
+              "description": "当访问的 Bucket 不存在，返回该错误码",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "404-1": {
+              "error_code" : "NoSuchCORSConfiguration",
+              "description": "跨域配置不存在",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "bucket CORS"
+          ],
+          "summary": "Delete Bucket CORS",
+          "description": "Delete Bucket CORS 接口请求实现删除跨域访问配置信息。",
+          "operationId": "DeleteBucketCORS",
+          "responses": {
+            "204": {
+              "error_code" : "None",
+              "description": "删除成功, 响应体返回为空"
+            },
+            "404": {
+              "error_code" : "NoSuchBucket",
+              "description": "当访问的 Bucket 不存在，返回该错误码",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
         }
+      }
     },
     "/{ObjectName}": {
       "parameters": [
@@ -1283,4 +1352,4 @@
     }
   }
 }
-}
+
