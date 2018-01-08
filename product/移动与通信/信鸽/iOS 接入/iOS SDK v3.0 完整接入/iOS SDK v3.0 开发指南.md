@@ -6,7 +6,7 @@
 1. 获取 AppId 和 AppKey
 2. 工程配置
 
-### 获取 App Id 和 App Key
+### 获取 AppId 和 AppKey
 
 前往 http://xg.qq.com 注册并获取 AppKey
 
@@ -14,7 +14,7 @@
 
 1. 下载信鸽 SDK，解压缩。注：3.0 版本 SDK 暂不支持 pods。
 2. 将 XGPush.h 以及 libXG-SDK.a 添加到工程。
-3. 添加以下库 /framework 的引用 CoreTelephony.framework，SystemConfiguration.framework,
+3. 添加以下库/framework 的引用 CoreTelephony.framework，SystemConfiguration.framework,
 UserNotifications.framework，libXG-SDK.a 以及 libz.tbd，libsqlite3.0.tbd 添加完成以后，库的引用如下：
 ![](//mc.qcloudimg.com/static/img/a8375845f7a6dc63a951255da13730ad/image.jpg)
 4 在工程配置和后台模式中打开推送，如下图 

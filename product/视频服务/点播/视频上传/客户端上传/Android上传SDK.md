@@ -8,6 +8,7 @@
 将下载下来的Demo/app/libs/upload目录下的所有jar包集成到您的项目中，建议您保留upload目录结构，方便以后对库进行更新。
 
 依赖库说明：
+
 | jar文件                       | 说明                                       |
 | --------------------------- | ---------------------------------------- |
 | cos-xml-android-sdk-1.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
@@ -74,7 +75,7 @@ int publishCode = mVideoPublish.publishVideo(param);
 
 | 参数名称         | 参数描述                                     | 类型      | 必填   |
 | ------------ | ---------------------------------------- | ------- | ---- |
-| signature    | [点播签名](https://www.qcloud.com/document/product/266/9221) | String  | 是    |
+| signature    | 点播签名 | String  | 是    |
 | videoPath    | 本地视频文件路径                                 | String  | 是    |
 | coverPath    | 本地封面文件路径，默认不带封面文件                        | String  | 否    |
 | enableResume | 是否启动断点续传，默认开启                            | boolean | 否    |
