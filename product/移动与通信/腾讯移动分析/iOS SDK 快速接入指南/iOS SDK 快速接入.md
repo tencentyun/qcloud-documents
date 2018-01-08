@@ -45,4 +45,4 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 4. 查看 Xcode 的输出是否有错误信息。
 
 ## SDK 嵌入完成
-到这里您已经顺利接入 MTA 的统计功能，需要获得更高级的服务功能，请参考 [接口说明](https://github.com/Tyzual/mta_xg/blob/master/doc/mta.api.reference.md)。
+到这里您已经顺利接入 MTA 的统计功能，需要获得更高级的服务功能，请参考 [接口说明](https://cloud.tencent.com/document/product/549/12859?!preview&lang=cn)。
