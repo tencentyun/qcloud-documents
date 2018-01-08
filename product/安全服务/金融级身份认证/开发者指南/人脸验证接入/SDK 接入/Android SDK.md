@@ -1,8 +1,8 @@
 ## 1. 前置条件
 ### 1.1 相机/录音/读取手机信息权限检测
-SDK 需要用到相机/录音/读取手机信息权限，在 Android 6.0 以上系统，SDK 对其做了权限的运行时检测。但是由于 Android 6.0 以下系统 Android 并没有运行时权限，检测权限只能靠开关相机/麦克风进行。考虑到 SDK 的使用时间很短，快速频繁开关相机/麦克风可能会导致手机抛出异常，故 SDK 内对 Android 6.0 以下手机没有做权限的检测。为了进一步提高用户体验，在 Android 6.0 以下系统上，我们建议合作方在拉起 SDK 前，帮助 SDK 做相机/麦克风/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行刷脸，可以使整个刷脸体验更快更好。
+SDK 需要用到相机/录音/读取手机信息权限，在 Android 6.0 以上系统，SDK 对其做了权限的运行时检测。但是由于 Android 6.0 以下系统 Android 并没有运行时权限，检测权限只能靠开关相机/麦克风进行。考虑到 SDK 的使用时间很短，快速频繁开关相机/麦克风可能会导致手机抛出异常，故 SDK 内对 Android 6.0 以下手机没有做权限的检测。为了进一步提高用户体验，在 Android 6.0 以下系统上，我们建议合作方在拉起 SDK 前，帮助 SDK 做相机/麦克风/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行刷脸，可以使整个人脸验证体验更快更好。
 ### 1.2 CPU 平台设置
-目前 SDK 只支持 armeabi-v7a 平台，为了防止在其他 cpu 平台上 sdk crash，我们建议在您的 App 的 build.gradle 里加上 abiFilter，如下图中红框所示：
+目前 SDK 只支持 armeabi-v7a 平台，为了防止在其他 CPU 平台上 sdk crash，我们建议在您的 App 的 build.gradle 里加上 abiFilter，如下图中红框所示：
 ![](https://mc.qcloudimg.com/static/img/61fab389aae7630adf751ec997dbdb16/image.png)
 
 ## 2. 接入配置
@@ -270,7 +270,7 @@ String keyLicence;   //给合作方派发的licence
 | gps               | 用户 gps 信息                                | String                | 30     | 必填，格式为”lgt= xxx;lat=xxx;”；示例：“lgt=22.5044;lat=113.9537“ |
 | openApiAppId      | 腾讯服务分配的 app_id                           | String                | 腾讯服务分配 | 必填，腾讯服务分配的 app_id                        |
 | openApiAppVersion | 接口版本号                                    | String                | 20     | 必填，默认填 1.0.0                             |
-| openApiNonce      | 32 位随机字符串                                | String                | 32     | 必填，每次请求需要的一次性 nonce                      |
+| openApiNonce      | 32 位随机字符串                                | String                | 32     | 必填，每次请求需要的一次性 nonce                      |
 | openApiUserId     | User Id                                  | String                | 30     | 必填，每个用户唯一的标识                             |
 | openApiSign       | 合作方后台服务器通过 ticket 计算出来的签名信息              | String                | 40     | 必填                                       |
 | isShowGuide       | 是否需要显示刷脸指引，SDK 每次会返回这个结果，由 App 端存储，下次拉起时再传入 | boolean               | 1      | 必填                                       |
@@ -359,7 +359,7 @@ SDK 为了进一步确保刷脸的安全性，不论是简单还是中级模式�
   data.putBoolean(WbCloudFaceVerifySdk.VIDEO_CHECK, true);
 ```
 
-## 7. 接入示例
+## 7. 整体接入示例
 ```
 # 在 MainActivity 中点击某个按钮的代码逻辑：
 //先填好数据 

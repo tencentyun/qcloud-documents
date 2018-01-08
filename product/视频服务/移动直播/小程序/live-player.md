@@ -111,23 +111,20 @@ live 模式主要用于直播类场景，比如赛事直播、在线教育、远
 - **wx.createLivePlayerContext()**
 通过 wx.createLivePlayerContext() 可以将 &lt;live-player&gt; 标签和 javascript 对象关联起来，之后即可操作该对象。
 
-- **start** 
-开始播放，如果 &lt;live-player&gt; 的 autoplay 属性设置为 false（默认值），那么就可以使用 start 来手动启动播放。
+- **play** 
+开始播放，如果 &lt;live-player&gt; 的 autoplay 属性设置为 false（默认值），那么就可以使用 play 来手动启动播放。
 
 - **stop**
 停止播放。
 
-- **pause**
-暂停播放，对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这跟点播是有很大不同的。
-
-- **resume**
-继续播放，请与 pause 操作配对使用。
+- **mute**
+设置静音。
 
 - **requestFullScreen**
-进入全屏幕
+进入全屏幕。
 
 - **exitFullScreen**
-退出全屏幕
+退出全屏幕。
 
 ```javascript
 var player = wx.createLivePlayerContext('pusher');
