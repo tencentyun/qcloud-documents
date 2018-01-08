@@ -279,7 +279,7 @@ table td {
 	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/3.9/LiteAVSDK_Enterprise_Android_3.9.2754.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 
-<h2 id="Windows"> Windows SDK (1.2.0) </h3>
+<h2 id="Windows"> Windows SDK (1.2.1) </h3>
 <table>
   <tr align="center">
     <th width="200px">功能特性</th>
@@ -319,15 +319,15 @@ table td {
   </tr>
 	<tr align="center">
     <td>版本日期</td>
-    <td>1.2.0 @ 2017-12-25</td>
-		<td>1.2.0 @ 2017-12-25</td>
-		<td>1.2.0 @ 2017-12-25</td>
+    <td>1.2.1 @ 2018-01-08</td>
+		<td>1.2.3 @ 2018-01-08</td>
+		<td>1.2.3 @ 2018-01-08</td>
   </tr>
 	<tr align="center">
     <td>下载地址</td>
     <td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/ActiveX/LiteAV_AX_SDK.zip">DOWNLOAD</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/1.2.2/LiteAVSDK_Windows_CSharp_1_2_2_0.zip">DOWNLOAD</a></td>
-		<td><a href="http://sdk-10065671.file.myqcloud.com/LiteAVSDK_Windows_C%2B%2B_1.2.2.0.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 

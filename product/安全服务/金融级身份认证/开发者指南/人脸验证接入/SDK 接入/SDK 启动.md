@@ -2,13 +2,13 @@
 -  **前置条件**：按照 **[NONCE ticket 获取]()** 进行操作。
 -  合作方根据本次人脸验证的如下参数生成签名，需要签名的参数信息如下：
 
-| 参数名 | 说明 | 
-|---------|---------|
-| appId | 腾讯服务分配的 app_id |
-| userId | 用户唯一标识 |
-| version | 1.0.0|
-| ticket | 合作伙伴服务端缓存的 tikcet，注意是 NONCE 类型，具体见 [Access Token 获取]()|
-| nonceStr | 必须是 32 位随机数 |
+| 参数名      | 说明                                       |
+| -------- | ---------------------------------------- |
+| appId    | 腾讯服务分配的 APPID                            |
+| userId   | 用户唯一标识                                   |
+| version  | 1.0.0                                    |
+| ticket   | 合作伙伴服务端缓存的 tikcet，注意是 NONCE 类型，具体见 [Access Token 获取]() |
+| nonceStr | 必须是 32 位随机数                              |
 
 合作方需要生成一个 32 位的随机字符串（字母和数字）nonceStr（登录时也要用到），将 appId、userId、version 连同 ticket、nonceStr 共五个参数的值进行字典序排序。将排序后的所有参数字符串拼接成一个字符串进行 SHA1 编码，编码后的 40 位字符串作为签名（sign）。签名算法可参考 [签名算法说明]()。
 
@@ -16,13 +16,13 @@
 
 请求参数：
 
-| 参数名 | 参数值 |
-|---------|---------|
-| appId | TIDA0001 |
-| userId | userID19959248596551 |
-| nonceStr | kHoSxvLZGxSoFsjxlbzEoUzh5PAnTU7T |
-| version | 1.0.0 |
-| ticket | XO99Qfxlti9iTVgHAjwvJdAZKN3nMuUhrsPdPlPVKlcyS50N6tlLnfuFBPIucaMS |
+| 参数名      | 参数值                                      |
+| -------- | ---------------------------------------- |
+| appId    | TIDA0001                                 |
+| userId   | userID19959248596551                     |
+| nonceStr | kHoSxvLZGxSoFsjxlbzEoUzh5PAnTU7T         |
+| version  | 1.0.0                                    |
+| ticket   | XO99Qfxlti9iTVgHAjwvJdAZKN3nMuUhrsPdPlPVKlcyS50N6tlLnfuFBPIucaMS |
 
 字典排序后的参数为：
 

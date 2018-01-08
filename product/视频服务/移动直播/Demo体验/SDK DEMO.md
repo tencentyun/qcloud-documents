@@ -86,21 +86,21 @@ table th:nth-of-type(4) {  width: 235px; }
   </tr>
   <tr align="center">
     <td height="100px"> IE 插件解决方案 </td>
-    <td>1.2.0</td>
+    <td>1.2.1</td>
 		<td>ActiveX</td>
 		<td><a href="http://imgcache.qq.com/open/qcloud/video/act/avtivex_demo/demoex/double_room/DoubleRoomIndex.htm">Demo</a></td>
   </tr>
 	<tr align="center">
-    <td height="100px">C++ 解决方案</td>
-    <td>1.2.0</td>
+    <td height="100px">C# 解决方案</td>
+    <td>1.2.3</td>
 		<td>C#（.NET）</td>
-		<td><a href="https://mc.qcloudimg.com/static/archive/7d2c2b55747e49538375b0031751c2e0/CustomServiceDemo.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
   </tr>
 	<tr align="center">
     <td height="100px">C++ 解决方案</td>
-    <td>1.2.0</td>
+    <td>1.2.3</td>
 		<td>C++（DLL）</td>
-		<td><a href="https://mc.qcloudimg.com/static/archive/2496bb2bedb3f7d33db84d3998c82cde/WinSDKDemo.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
   </tr>
 </table>
 
