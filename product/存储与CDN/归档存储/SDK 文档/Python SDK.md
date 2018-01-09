@@ -4,7 +4,7 @@ CAS的Python SDK包含了用于访问和操作CAS的所有API
 
 ### 相关资源
 
-[GitHub地址](https://github.com/tencentyun/cas_python_sdk/tree/v1.0.0) ，欢迎贡献代码以及反馈问题
+[GitHub地址](https://github.com/tencentyun/cas_python_sdk) ，欢迎贡献代码以及反馈问题
 
 
 ### 环境依赖
