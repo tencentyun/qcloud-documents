@@ -38,7 +38,7 @@
 从直播控制台获取bizid、pushSecretKey，后面配置服务器会用到：
 ![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
 
-#### 4 申请开通小程序推拉流标签<font id=“authority” color='red'> 【重要】</font>
+#### 4 申请开通小程序推拉流标签<div id=“authority” color='red'> 【重要】</font>
 出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
 
 - 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
