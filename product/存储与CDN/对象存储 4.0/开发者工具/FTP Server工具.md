@@ -6,8 +6,8 @@ COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目�
 Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](/doc/product/436/10866) 进行安装与配置。
 
 依赖库：
-- cos-python-sdk-v5（included），requests（not included），argparse（not included）
-- pyftpdlib(included)
+- requests
+- argparse
 
 ### 下载与安装
 GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-server-V5)。
