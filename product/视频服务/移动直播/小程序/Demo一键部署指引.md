@@ -20,25 +20,7 @@
 
 ![腾讯云微信小程序控制台](https://mc.qcloudimg.com/static/img/032d0b2b99dfcfdf4234db911e93b60f/15.png)
 
-## 二、免费开通腾讯云服务
-### 开通直播服务
-
-#### 1. 申请开通视频直播服务
-进入 [直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，则会有如下提示:
-![](https://mc.qcloudimg.com/static/img/c40ff3b85b3ad9c0cb03170948d93555/image.png)
-点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
-
-
-#### 2. 配置直播码
-直播服务开通后，进入【直播控制台】>【直播码接入】>【接入配置】(https://console.cloud.tencent.com/live/livecodemanage) 完成相关配置，即可开启直播码服务：
-![](https://mc.qcloudimg.com/static/img/32158e398ab9543b5ac3acf5f04aa86e/image.png)
-点击【确定接入】按钮即可。
-
-#### 3. 获取直播服务配置信息
-从直播控制台获取bizid、pushSecretKey，后面配置服务器会用到：
-![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
-
-#### 4 申请开通小程序推拉流标签<div id=“authority” color='red'> 【重要】</font>
+## 二、开通小程序类目与推拉流标签【重要】
 出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
 
 - 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
@@ -75,6 +57,24 @@
 ![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
 
 注意：如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
+
+## 三、免费开通腾讯云服务
+### 开通直播服务
+
+#### 1. 申请开通视频直播服务
+进入 [直播管理控制台](https://console.cloud.tencent.com/live)，如果服务还没有开通，则会有如下提示:
+![](https://mc.qcloudimg.com/static/img/c40ff3b85b3ad9c0cb03170948d93555/image.png)
+点击申请开通，之后会进入腾讯云人工审核阶段，审核通过后即可开通。
+
+
+#### 2. 配置直播码
+直播服务开通后，进入【直播控制台】>【直播码接入】>【接入配置】(https://console.cloud.tencent.com/live/livecodemanage) 完成相关配置，即可开启直播码服务：
+![](https://mc.qcloudimg.com/static/img/32158e398ab9543b5ac3acf5f04aa86e/image.png)
+点击【确定接入】按钮即可。
+
+#### 3. 获取直播服务配置信息
+从直播控制台获取bizid、pushSecretKey，后面配置服务器会用到：
+![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
 
 ### 开通云通信服务
 #### 1 申请开通云通讯服务
@@ -113,19 +113,19 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 "zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg\r\n"+
 "-----END PRIVATE KEY-----\r\n"
 ```
-## 三、安装微信小程序开发工具
+## 四、安装微信小程序开发工具
 
 下载并安装最新版本的[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
 
 ![微信开发者工具](https://mc.qcloudimg.com/static/img/4fd45bb5c74eed92b031fbebf8600bd2/1.png)
 
-## 四、下载 Demo 
+## 五、下载 Demo 
 
 访问 [SDK+Demo](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu)，获取小程序 Demo 和后台源码。
 
-## 五、上传和部署代码
+## 六、上传和部署代码
 
-1. 打开第三步安装的微信开发者工具，点击【小程序项目】按钮。
+1. 打开第四步安装的微信开发者工具，点击【小程序项目】按钮。
 2. 输入小程序 AppID，项目目录选择上一步下载下来的代码目录，点击确定创建小程序项目。
 3. 再次点击【确定】进入开发者工具。
 
@@ -163,20 +163,27 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
   ![登录测试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
 
-10. 请使用手机进行测试，直接扫描开发者工具预览生成的二维码进入，<font id=“debug” color='red'> 这里部署的是开发测试环境，一定要开启调试: </font>
+10. 请使用手机进行测试，直接扫描开发者工具预览生成的二维码进入，<font color='red'> 这里部署的后台是开发测试环境，一定要开启调试: </font>
 
   ![开启调试](https://mc.qcloudimg.com/static/img/1abfe50750f669ca4e625ec3cdfbd411/xiaochengxutiaoshi.png)
  
    <font color='red'> 注意：后台服务器部署的测试环境有效期为七天，如果还需要测试体验请重新部署后台。</font>
- 
+
 ## 常见问题 FAQ
-##### 1. 运行小程序进入多人音视频看不到画面?
+##### 1. 运行出错如何排查
+  - 修改`wxlite/config.js`中的url，使用默认的官方demo后台：https://lvb.qcloud.com ，直接运行小程序 
+  - 请重新解压下载的demo直接运行小程序，默认就是官方demo后台
+  - 请返回第二步检查开通的小程序类目是否正确，推拉流标签在小程序控制台是否开启
+  - 使用官方demo后台运行可以，请参考此文档重新再走一遍流程
+  - 依然不行可以提工单或客服电话（400-9100-100）联系我们
+  
+##### 2. 运行小程序进入多人音视频看不到画面?
   - 请确认使用手机来运行，微信开发者工具内部的模拟器目前还不支持直接运行
   - 请确认小程序基础库版本 wx.getSystemInfo 可以查询到该信息，1.7.0 以上的基础库才支持音视频能力。
   - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](https://cloud.tencent.com/document/product/454/13037)。
   - 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。
   
-##### 2. 如果需要上线或者部署正式环境怎么办？
+##### 3. 如果需要上线或者部署正式环境怎么办？
   - 请申请域名并做备案
   - 请将服务端代码部署到申请的服务器上
   - 请将业务server域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com
