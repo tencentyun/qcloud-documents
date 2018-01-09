@@ -162,9 +162,11 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
   ![登录测试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
   
-10.请使用手机进行测试，直接扫描小程序生成的二维码，进入后如下所示，<font color='red'> 这里部署的是开发测试环境，一定要开启调试: </font>
+10.请使用手机进行测试，直接扫描开发者工具预览生成的二维码进入，<font color='red'> 这里部署的是开发测试环境，一定要开启调试: </font>
+
  ![开启调试](https://mc.qcloudimg.com/static/img/1abfe50750f669ca4e625ec3cdfbd411/xiaochengxutiaoshi.png)
- <font color='red'> 注意：后台服务器部署的测试环境有效期为七天，如果还需要测试体验请重新部署后台</font>
+ 
+ <font color='red'> 注意：后台服务器部署的测试环境有效期为七天，如果还需要测试体验请重新部署后台。</font>
  
 ## 常见问题 FAQ
 ##### 1. 运行小程序进入多人音视频看不到画面?
