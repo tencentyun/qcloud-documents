@@ -114,7 +114,7 @@
         ],
         "responses": {
           "200": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "查询成功，返回 application/xml 数据，包含bucket中的对象信息",
             "headers": {
               "x-cos-request-id": {
@@ -133,7 +133,7 @@
             }
           },
           "400": {
-            "error_code" : "InvalidBucketName",
+            "error_code": "InvalidBucketName",
             "description": "Bucket名称不合法",
             "content": {
               "application-xml": {
@@ -145,7 +145,7 @@
             }
           },
           "403": {
-            "error_code" : "SignatureDoesNotMatch",
+            "error_code": "SignatureDoesNotMatch",
             "description": "提供的签名不符合规则，返回该错误码",
             "content": {
               "application-xml": {
@@ -157,7 +157,7 @@
             }
           },
           "404": {
-            "error_code" : "NoSuchBucket",
+            "error_code": "NoSuchBucket",
             "description": "Bucket 不存在，返回该错误码",
             "content": {
               "application-xml": {
@@ -220,7 +220,7 @@
         ],
         "responses": {
           "200": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "新建Bucket成功，返回 application/xml 数据，包含bucket中的对象信息",
             "headers": {
               "x-cos-request-id": {
@@ -232,7 +232,7 @@
             }
           },
           "400-0": {
-            "error_code" : "TooManyBucket",
+            "error_code": "TooManyBucket",
             "description": "bucket数量超过200限制",
             "content": {
               "application-xml": {
@@ -244,7 +244,7 @@
             }
           },
           "400-1": {
-            "error_code" : "InvalidBucketName",
+            "error_code": "InvalidBucketName",
             "description": "Bucket名称不合法",
             "content": {
               "application-xml": {
@@ -256,18 +256,18 @@
             }
           },
           "404": {
-            "error_code" : "InvalidBucketName",
+            "error_code": "InvalidBucketName",
             "description": "Bucket 不存在，返回该错误码",
             "content": {
               "application-xml": {
                 "schema": {
                   "oneOf": [
                     {
-                      "description" : "ddd",
+                      "description": "ddd",
                       "type": "string"
                     },
                     {
-                      "description" : "eee",
+                      "description": "eee",
                       "type": "string"
                     }
                   ]
@@ -276,7 +276,7 @@
             }
           },
           "409": {
-            "error_code" : "BucketAlreadyExists",
+            "error_code": "BucketAlreadyExists",
             "description": "CreateBucket指定的BucketName已经使用，请选择新的BucketName",
             "content": {
               "application-xml": {
@@ -324,11 +324,11 @@
         ],
         "responses": {
           "200": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "上传成功,响应体返回为空"
           },
           "403": {
-            "error_code" : "SignatureDoesNotMatch",
+            "error_code": "SignatureDoesNotMatch",
             "description": "提供的签名不符合规则，返回该错误码",
             "content": {
               "application-xml": {
@@ -340,7 +340,7 @@
             }
           },
           "404": {
-            "error_code" : "NoSuchBucket",
+            "error_code": "NoSuchBucket",
             "description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
             "content": {
               "application-xml": {
@@ -351,74 +351,164 @@
             }
           }
         },
-        "get": {
-          "tags": [
-            "bucket CORS"
-          ],
-          "summary": "Get Bucket CORS",
-          "description": "Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（CORS 是一个 W3C 标准，全称是\"跨域资源共享\"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。",
-          "operationId": "GetBucketCORS",
-          "responses": {
-            "200": {
-              "error_code" : "None",
-              "description": "获取跨域资源共享的信息配置成功",
-              "content": {
-                "application-xml": {
-                  "schema": {
-                    "$ref": "#components/schemas/BucketCorsRequest"
-                  }
+        "Demo":
+        "请求示例:\n
+        ```
+        PUT /?cors HTTP/1.1\n
+        Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com\n
+        Date: Fri,
+        10 Mar201709: 45: 46 GMT\n
+        Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814927;32557710927&q-key-time=1484814927;32557710927&q-header-list=host&q-url-param-list=cors&q-signature=8b9f05dabce2578f3a79d732386e7cbade9033e3\n
+        Content-Type: application/xml\n
+        Content-Length: 280\n
+
+        <CORSConfiguration>\n
+        \t<CORSRule>\n
+        \t\t<ID>1234</ID>\n
+        \t\t<AllowedOrigin>http: //www.qq.com</AllowedOrigin>\n
+        \t\t<AllowedMethod>PUT</AllowedMethod>\n
+        \t\t<AllowedHeader>x-cos-meta-test</AllowedHeader>\n
+        \t\t<MaxAgeSeconds>500</MaxAgeSeconds>\n
+        \t\t<ExposeHeader>x-cos-meta-test1</ExposeHeader>\n
+        \t</CORSRule>\n
+        </CORSConfiguration>\n
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1200 OK
+        Content-Type: application/xml
+        Content-Length: 0
+        Connection: keep-alive
+        Date: Fri,
+        10 Mar201709: 45: 46 GMT
+        Server: tencent-cos
+        x-cos-request-id: NTg4MDdiZWRfOWExZjRlXzQ2OWVfZGY0
+        ```
+        "
+      },
+      "get": {
+        "tags": [
+          "bucket CORS"
+        ],
+        "summary": "Get Bucket CORS",
+        "description": "Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（CORS 是一个 W3C 标准，全称是\"跨域资源共享\"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。",
+        "operationId": "GetBucketCORS",
+        "responses": {
+          "200": {
+            "error_code": "None",
+            "description": "获取跨域资源共享的信息配置成功",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#components/schemas/BucketCorsRequest"
                 }
               }
-            },
-            "404-0": {
-              "error_code" : "NoSuchBucket",
-              "description": "当访问的 Bucket 不存在，返回该错误码",
-              "content": {
-                "application-xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
+            }
+          },
+          "404-0": {
+            "error_code": "NoSuchBucket",
+            "description": "当访问的 Bucket 不存在，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
-            },
-            "404-1": {
-              "error_code" : "NoSuchCORSConfiguration",
-              "description": "跨域配置不存在",
-              "content": {
-                "application-xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
+            }
+          },
+          "404-1": {
+            "error_code": "NoSuchCORSConfiguration",
+            "description": "跨域配置不存在",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
           }
         },
-        "delete": {
-          "tags": [
-            "bucket CORS"
-          ],
-          "summary": "Delete Bucket CORS",
-          "description": "Delete Bucket CORS 接口请求实现删除跨域访问配置信息。",
-          "operationId": "DeleteBucketCORS",
-          "responses": {
-            "204": {
-              "error_code" : "None",
-              "description": "删除成功, 响应体返回为空"
-            },
-            "404": {
-              "error_code" : "NoSuchBucket",
-              "description": "当访问的 Bucket 不存在，返回该错误码",
-              "content": {
-                "application-xml": {
-                  "schema": {
-                    "$ref": "#/components/schemas/Error"
-                  }
+        "Demo":
+          "
+          **请求示例:**\n
+          ```
+          GET /?cors HTTP/1.1\n
+          Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com\n
+          Date: Wed,
+        28 Oct201621: 32: 00 GMT\n
+          Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484815944;32557711944&q-key-time=1484815944;32557711944&q-header-list=host&q-url-param-list=cors&q-signature=a2d28e1b9023d09f9277982775a4b3b705d0e23e\n
+          ```
+
+          **响应示例:**\n
+          ```
+          HTTP/1.1200 OK\n
+          Content-Type: application/xml\n
+          Content-Length: 345\n
+          Connection: keep-alive\n
+          Date: Wed,
+        28 Oct201621: 32: 00 GMT\n
+          Server: tencent-cos\n
+          x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZTBh\n
+
+          <CORSConfiguration>\n
+          \t<CORSRule>\n
+          \t\t<ID>1234</ID>\n
+          \t\t<AllowedOrigin>http: //www.qq.com</AllowedOrigin>\n
+          \t\t<AllowedMethod>PUT</AllowedMethod>\n
+          \t\t<AllowedHeader>x-cos-meta-test</AllowedHeader>\n
+          \t\t<ExposeHeader>x-cos-meta-test1</ExposeHeader>\n
+          \t\t<MaxAgeSeconds>500</MaxAgeSeconds>\n
+          \t</CORSRule>\n
+          </CORSConfiguration>\n
+          ```
+          "
+      },
+      "delete": {
+        "tags": [
+          "bucket CORS"
+        ],
+        "summary": "Delete Bucket CORS",
+        "description": "Delete Bucket CORS 接口请求实现删除跨域访问配置信息。",
+        "operationId": "DeleteBucketCORS",
+        "responses": {
+          "204": {
+            "error_code": "None",
+            "description": "删除成功, 响应体返回为空"
+          },
+          "404": {
+            "error_code": "NoSuchBucket",
+            "description": "当访问的 Bucket 不存在，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
           }
-        }
+        },
+        "Demo":
+          "
+          **请求示例:**\n
+          ```
+          DELETE /?lifecycle HTTP/1.1\n
+          Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com\n
+          Date: Wed,
+        16 Aug201712: 59: 09 GMT\n
+          Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502859472;1502939472&q-key-time=1502859472;1502939472&q-header-list=host&q-url-param-list=lifecycle&q-signature=49c1414c700643f11139219384332a3ec4e9485b\n
+          ```
+
+          **响应示例:**\n
+          ```
+          HTTP/1.1204 No Content\n
+          Content-Type: application/xml\n
+          Date: Wed,
+        16 Aug201712: 59: 09 GMT\n
+          Server: tencent-cos\n
+          x-cos-request-id: NTk5NDQxOWNfMjQ4OGY3Xzc3NGRfMjE=\n
+          ```
+          "
       }
     },
     "/{ObjectName}": {
@@ -597,7 +687,7 @@
         ],
         "responses": {
           "200": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "上传成功,响应体返回为空",
             "headers": {
               "ETag": {
@@ -609,7 +699,7 @@
             }
           },
           "400-0": {
-            "error_code" : "InvalidURI",
+            "error_code": "InvalidURI",
             "description": "对象 key 长度限制为 850，如果超过 850 会返回该错误",
             "content": {
               "application-xml": {
@@ -620,7 +710,7 @@
             }
           },
           "400-1": {
-            "error_code" : "EntityTooLarge",
+            "error_code": "EntityTooLarge",
             "description": "如果添加的文件长度超过5G，会返回该错误",
             "content": {
               "application-xml": {
@@ -631,7 +721,7 @@
             }
           },
           "400-2": {
-            "error_code" : "InvalidDigest",
+            "error_code": "InvalidDigest",
             "description": "如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 Md5 和用户携带的 MD5 是否一致，如果不一致将返回该错误",
             "content": {
               "application-xml": {
@@ -642,7 +732,7 @@
             }
           },
           "400-3": {
-            "error_code" : "KeyTooLong",
+            "error_code": "KeyTooLong",
             "description": "上传文件时携带的以x-cos-meta开头的自定义头部，每个自定义头部的key和value加起来不能超过4k，否则返回该错误",
             "content": {
               "application-xml": {
@@ -653,7 +743,7 @@
             }
           },
           "403": {
-            "error_code" : "SignatureDoesNotMatch",
+            "error_code": "SignatureDoesNotMatch",
             "description": "提供的签名不符合规则，返回该错误码",
             "content": {
               "application-xml": {
@@ -665,7 +755,7 @@
             }
           },
           "404": {
-            "error_code" : "NoSuchBucket",
+            "error_code": "NoSuchBucket",
             "description": "如果试图添加的 Object 所在的 Bucket 不存在，返回该错误码",
             "content": {
               "application-xml": {
@@ -676,7 +766,7 @@
             }
           },
           "411": {
-            "error_code" : "MissingContentLength",
+            "error_code": "MissingContentLength",
             "description": "如果上传文件时，没有添加 Content-Length 头部，会返回该错误码",
             "content": {
               "application-xml": {
@@ -809,7 +899,7 @@
         ],
         "responses": {
           "200": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "下载成功，文件内容在响应体中",
             "headers": {
               "x-cos-meta- *": {
@@ -841,7 +931,7 @@
             }
           },
           "400": {
-            "error_code" : "InvalidArgument",
+            "error_code": "InvalidArgument",
             "description": "提供的参数错误",
             "content": {
               "application-xml": {
@@ -852,7 +942,7 @@
             }
           },
           "403": {
-            "error_code" : "SignatureDoesNotMatch",
+            "error_code": "SignatureDoesNotMatch",
             "description": "提供的签名不符合规则，返回该错误码",
             "content": {
               "application-xml": {
@@ -863,7 +953,7 @@
             }
           },
           "404": {
-            "error_code" : "NoSuchKey",
+            "error_code": "NoSuchKey",
             "description": "如果下载的文件不存在，返回该错误码",
             "content": {
               "application-xml": {
@@ -910,11 +1000,11 @@
         ],
         "responses": {
           "200": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "上传成功,响应体返回为空"
           },
           "403": {
-            "error_code" : "SignatureDoesNotMatch",
+            "error_code": "SignatureDoesNotMatch",
             "description": "提供的签名不符合规则，返回该错误码",
             "content": {
               "application-xml": {
@@ -926,7 +1016,7 @@
             }
           },
           "404": {
-            "error_code" : "NoSuchBucket",
+            "error_code": "NoSuchBucket",
             "description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
             "content": {
               "application-xml": {
@@ -937,7 +1027,7 @@
             }
           },
           "400-0": {
-            "error_code" : "MalformedXML",
+            "error_code": "MalformedXML",
             "description": "XML 格式不合法，请跟 restful api 文档仔细比对",
             "content": {
               "application-xml": {
@@ -948,7 +1038,7 @@
             }
           },
           "400-1": {
-            "error_code" : "InvalidRequest",
+            "error_code": "InvalidRequest",
             "description": "请求不合法，如果错误描述中显示\"Conflict lifecycle rule\"，那么表示xml数据中的多条 rule 有相互冲突的部分。",
             "content": {
               "application-xml": {
@@ -959,7 +1049,7 @@
             }
           },
           "400-2": {
-            "error_code" : "InvalidArgument",
+            "error_code": "InvalidArgument",
             "description": "请求参数不合法，如果错误描述中显示\"Rule ID must be unique. Found same ID for more than one rule\"， 那么表示有多个 Rule 的 id 字段相同。",
             "content": {
               "application-xml": {
@@ -969,7 +1059,56 @@
               }
             }
           }
-        }
+        },
+        "Demo":
+        "
+        **请求示例:**\n
+        ```
+        PUT /?lifecycle HTTP/1.1\n
+        Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com\n
+        Date: Wed,
+        16 Aug201711: 59: 33 GMT\n
+        Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c24654\n
+        Content-MD5: LcNUuow8OSZMrEDnvndw1Q==\n
+        Content-Length: 348\n
+        Content-Type: application/x-www-form-urlencoded\n
+
+        <LifecycleConfiguration>\n
+        \t<Rule>\n
+        \t\t<ID>id1</ID>\n
+        \t\t<Filter>\n
+        \t\t\t<Prefix>documents/</Prefix>\n
+        \t\t</Filter>\n
+        \t\t<Status>Enabled</Status>\n
+        \t\t<Transition>\n
+        \t\t\t<Days>100</Days>\n
+        \t\t\t<StorageClass>NEARLINE</StorageClass>\n
+        \t\t</Transition>\n
+        \t</Rule>\n
+        \t<Rule>\n
+        \t\t<ID>id2</ID>\n
+        \t\t<Filter>\n
+        \t\t\t<Prefix>logs/</Prefix>\n
+        \t\t</Filter>\n
+        \t\t<Status>Enabled</Status>\n
+        \t\t<Expiration>\n
+        \t\t\t<Days>10</Days>\n
+        \t\t</Expiration>\n
+        \t</Rule>\n
+        </LifecycleConfiguration>\n
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1200 OK\n
+        Content-Type: application/xml\n
+        Content-Length: 0\n
+        Date: Wed,
+        16 Aug201711: 59: 33 GMT\n
+        Server: tencent-cos\n
+        x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRfMWY=\n
+        ```
+        "
       },
       "get": {
         "tags": [
@@ -980,7 +1119,7 @@
         "operationId": "GetBucketLifecycle",
         "responses": {
           "200": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "获取生命周期配置成功",
             "content": {
               "application-xml": {
@@ -991,7 +1130,7 @@
             }
           },
           "404-0": {
-            "error_code" : "NoSuchBucket",
+            "error_code": "NoSuchBucket",
             "description": "当访问的 Bucket 不存在，返回该错误码",
             "content": {
               "application-xml": {
@@ -1002,7 +1141,7 @@
             }
           },
           "404-1": {
-            "error_code" : "NoSuchLifecycleConfiguration",
+            "error_code": "NoSuchLifecycleConfiguration",
             "description": "生命周期配置不存在",
             "content": {
               "application-xml": {
@@ -1012,9 +1151,55 @@
               }
             }
           }
-        }
+        },
+        "Demo":
+        "
+        **请求示例:**\n
+        ```
+        GET /?lifecycle HTTP/1.1\n
+        Host: lifecycletest-73196696.cos.ap-beijing.myqcloud.com\n
+        Date: Wed,
+        16 Aug201712: 23: 54 GMT\n
+        Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502857357;1502937357&q-key-time=1502857357;1502937357&q-header-list=host&q-url-param-list=lifecycle&q-signature=da155cda3461bee7422ee95367ac8013ef847e02\n
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1200 OK\n
+        Content-Type: application/xml\n
+        Content-Length: 312\n
+        Date: Wed,
+        16 Aug201712: 23: 54 GMT\n
+        Server: tencent-cos\n
+        x-cos-request-id: NTk5NDM5NWFfMjQ4OGY3Xzc3NGRfMjA=\n
+
+        <LifecycleConfiguration>\n
+        \t<Rule>\n
+        \t\t<ID>id1</ID>\n
+        \t\t<Filter>\n
+        \t\t\t<Prefix>documents/</Prefix>\n
+        \t\t</Filter>\n
+        \t\t<Status>Enabled</Status>\n
+        \t\t<Transition>\n
+        \t\t\t<Days>100</Days>\n
+        \t\t\t<StorageClass>NEARLINE</StorageClass>\n
+        \t\t</Transition>\n
+        \t</Rule>\n
+        \t<Rule>\n
+        \t\t<ID>id2</ID>\n
+        \t\t<Filter>\n
+        \t\t\t<Prefix>logs/</Prefix>\n
+        \t\t</Filter>\n
+        \t\t<Status>Enabled</Status>\n
+        \t\t<Expiration>\n
+        \t\t\t<Days>10</Days>\n
+        \t\t</Expiration>\n
+        \t</Rule>\n
+        </LifecycleConfiguration>\n
+        ```
+        "
       },
-      "delete":  {
+      "delete": {
         "tags": [
           "bucket lifecycle"
         ],
@@ -1023,11 +1208,11 @@
         "operationId": "DeleteBucketLifecycle",
         "responses": {
           "204": {
-            "error_code" : "None",
+            "error_code": "None",
             "description": "删除成功, 响应体返回为空"
           },
           "404": {
-            "error_code" : "NoSuchBucket",
+            "error_code": "NoSuchBucket",
             "description": "当访问的 Bucket 不存在，返回该错误码",
             "content": {
               "application-xml": {
@@ -1037,7 +1222,28 @@
               }
             }
           }
-        }
+        },
+        "Demo":
+        "
+        **请求示例:**\n
+        ```
+        DELETE /?lifecycle HTTP/1.1\n
+        Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com\n
+        Date: Wed,
+        16 Aug201712: 59: 09 GMT\n
+        Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502859472;1502939472&q-key-time=1502859472;1502939472&q-header-list=host&q-url-param-list=lifecycle&q-signature=49c1414c700643f11139219384332a3ec4e9485b\n
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1204 No Content\n
+        Content-Type: application/xml\n
+        Date: Wed,
+        16 Aug201712: 59: 09 GMT\n
+        Server: tencent-cos\n
+        x-cos-request-id: NTk5NDQxOWNfMjQ4OGY3Xzc3NGRfMjE=\n
+        ```
+        "
       }
     }
   },
@@ -1352,4 +1558,3 @@
     }
   }
 }
-
