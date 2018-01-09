@@ -1534,6 +1534,26 @@
           }
         }
       },
+      "RestoreRequest": {
+        "type": "object",
+        "description": "设置将归档对象恢复到COS的请求",
+        "properties": {
+          "Days": {
+            "type": "integer",
+            "description": "设置临时副本的过期时间"
+          },
+          "CASJobParameters": {
+            "type": "object",
+            "description": "复原的过程类型配置信息",
+            "properties": {
+              "Tier": {
+                "type": "string",
+                "description": "具体复原过程类型，枚举值： Expedited ，Standard,Bulk；默认值：Standard"
+              }
+            }
+          }
+        }
+      },
       "BucketLifecycle": {
         "type": "object",
         "description": " Bucket 的生命周期",
