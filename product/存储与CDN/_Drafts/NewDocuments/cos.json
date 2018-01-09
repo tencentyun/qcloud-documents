@@ -876,6 +876,91 @@
         }
       }
     },
+    "/{ObjectName}?uploadId={UploadId}": {
+      "parameters": [
+        {
+          "name": "ObjectName",
+          "in": "path",
+          "description": "COS 中存储的具体文件，是存储的基本实体",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        },
+        {
+          "name": "UploadId",
+          "in": "query",
+          "description": "标识本次分块上传的 ID.使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ],
+      "get": {
+        "tags": [
+          "object"
+        ],
+        "summary": "ListParts",
+        "description": "List Parts 用来查询特定分块上传中的已上传的块，即罗列出指定 UploadId 所属的所有已上传成功的分块。",
+        "operationId": "GetObject",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "encoding-type",
+            "description": "规定返回值的编码方式",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "url"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max-parts",
+            "description": "单次返回最大的条目数量，默认 1000",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "MaxParts"
+            }
+          },
+          {
+            "in": "query",
+            "name": "part-number-marker",
+            "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "PartNumberMarker"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "查询成功，返回 application/xml 数据，包含已完成的分片信息",
+            "headers": {
+              "x-cos-request-id": {
+                "description": "全局唯一的请求标识号",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#components/schemas/ListPartsResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/?lifecycle": {
       "put": {
         "tags": [
@@ -1143,6 +1228,98 @@
               "Prefix": {
                 "type": "string",
                 "description": "单条 Common 的前缀"
+              }
+            }
+          }
+        }
+      },
+      "ListPartsResult": {
+        "type": "object",
+        "description": "保存 List Parts 请求结果的所有信息",
+        "properties": {
+          "Bucket": {
+            "type": "string",
+            "description": "分块上传的目标 Bucket，存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000"
+          },
+          "Encoding-Type": {
+            "type": "string",
+            "description": "编码格式"
+          },
+          "Key": {
+            "type": "string",
+            "description": "Object的名字"
+          },
+          "UploadId": {
+            "type": "string",
+            "description": "标识本次分块上传的 ID"
+          },
+          "Initiator": {
+            "type": "object",
+            "description": "用来表示这些分块所有者的信息",
+            "properties": {
+              "ID": {
+                "type": "string",
+                "description": "创建者的一个唯一标识"
+              },
+              "DisplayName": {
+                "type": "string",
+                "description": "创建者的用户名描述"
+              }
+            }
+          },
+          "Owner": {
+            "type": "object",
+            "description": "用来表示这些分块所有者的信息",
+            "properties": {
+              "ID": {
+                "type": "string",
+                "description": "创建者的一个唯一标识"
+              },
+              "DisplayName": {
+                "type": "string",
+                "description": "创建者的用户名描述"
+              }
+            }
+          },
+          "StorageClass": {
+            "type": "string",
+            "description": "用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
+          },
+          "PartNumberMarker": {
+            "type": "string",
+            "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
+          },
+          "NextPartNumberMarker": {
+            "type": "string",
+            "description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
+          },
+          "MaxParts": {
+            "type": "string",
+            "description": "单次返回最大的条目数量"
+          },
+          "IsTruncated": {
+            "type": "boolean",
+            "description": "响应请求条目是否被截断，布尔值：true，false"
+          },
+          "Part": {
+            "type": "object",
+            "description": "元数据信息",
+            "properties": {
+              "PartNumber": {
+                "type": "string",
+                "description": "块的编号"
+              },
+              "LastModified": {
+                "type": "string",
+                "description": "说明块最后被修改时间"
+              },
+              "ETag": {
+                "type": "string",
+                "description": "块的 MD-5 算法校验值"
+              },
+              "Size": {
+                "type": "string",
+                "description": "说明块大小，单位是 Byte"
               }
             }
           }
