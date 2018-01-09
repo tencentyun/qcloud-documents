@@ -161,10 +161,19 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 9. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。 
 
   ![登录测试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
-
+  
+10.请使用手机进行测试，直接扫描小程序生成的二维码，进入后如下所示，这里部署的是开发测试环境，<font color='red'> 一定要开启调试: </font>
+ ![开启调试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
+ 
 ## 常见问题 FAQ
 ##### 1. 运行小程序进入多人音视频看不到画面?
   - 请确认使用手机来运行，微信开发者工具内部的模拟器目前还不支持直接运行
   - 请确认小程序基础库版本 wx.getSystemInfo 可以查询到该信息，1.7.0 以上的基础库才支持音视频能力。
   - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](https://cloud.tencent.com/document/product/454/13037)。
   - 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。
+  
+##### 2. 如果需要上线或者部署正式环境怎么办？
+  - 请申请域名并做备案
+  - 请将服务端代码部署到申请的服务器上
+  - 请将业务server域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com
+   
