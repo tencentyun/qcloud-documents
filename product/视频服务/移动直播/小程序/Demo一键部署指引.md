@@ -38,9 +38,9 @@
 ![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
 
 #### 1.4 申请开通小程序推拉流标签【重要】
-出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持，需要注意如下限制条件：
+出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
 
-- 个人账号和企业账号的小程序暂时只开放如下类目，且需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限。
+- 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
 
 <table>
   <tr align="center">
@@ -69,7 +69,11 @@
   </tr>
 </table>
 
-注意：以上设置都正确如果还是不能正常工作，请删除小程序重启微信，再次进入小程序尝试。
+- 符合类目要求的小程序，需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限，如下图所示：
+
+![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+
+注意：如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
 ### 2. 开通云通信服务
 #### 2.1 申请开通云通讯服务
@@ -157,10 +161,19 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 9. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。 
 
   ![登录测试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
-
+  
+10.请使用手机进行测试，直接扫描小程序生成的二维码，进入后如下所示，这里部署的是开发测试环境，<font color='red'> 一定要开启调试: </font>
+ ![开启调试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
+ 
 ## 常见问题 FAQ
 ##### 1. 运行小程序进入多人音视频看不到画面?
   - 请确认使用手机来运行，微信开发者工具内部的模拟器目前还不支持直接运行
   - 请确认小程序基础库版本 wx.getSystemInfo 可以查询到该信息，1.7.0 以上的基础库才支持音视频能力。
   - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](https://cloud.tencent.com/document/product/454/13037)。
   - 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。
+  
+##### 2. 如果需要上线或者部署正式环境怎么办？
+  - 请申请域名并做备案
+  - 请将服务端代码部署到申请的服务器上
+  - 请将业务server域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com
+   

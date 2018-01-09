@@ -778,6 +778,322 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Put Object Copy",
+        "description": "Put Object Copy 请求实现将一个文件从源路径复制到目标路径。建议文件大小 1M 到 5G，超过 5G 的文件请使用分块上传 Upload - Copy.在拷贝的过程中，文件元属性和 ACL 可以被修改.\n用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本",
+        "operationId": "PutObjectCopy",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "x-cos-copy-source",
+            "description": "源文件 URL 路径，可以通过 versionid 子资源指定历史版本",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-metadata-directive",
+            "description": "是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Modified-Since",
+            "description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Unmodified-Since",
+            "description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Match",
+            "description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-None-Match",
+            "description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-storage-class",
+            "description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "STANDARD",
+                "STANDARD_IA",
+                "NEARLINE"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-acl",
+            "description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "public-read",
+                "private",
+                "public-read-write"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-read",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-write",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-full-control",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-meta-*",
+            "description": "其他自定义的文件头部",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "拷贝成功,返回响应体",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#components/schemas/CopyObjectResult"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Upload Part Copy",
+        "description": "Upload Part - Copy 请求实现将一个文件的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源文件，x-cos-copy-source-range 指定字节范围。允许分块的大小为 5 MB - 5 GB",
+        "operationId": "UploadPartCopy",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "partNumber",
+            "description": "分块拷贝的块号",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "PartNumber"
+            }
+          },
+          {
+            "in": "query",
+            "name": "uploadId",
+            "description": "使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "UploadId"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source",
+            "description": "源文件 URL 路径，可以通过 versionid 子资源指定历史版本",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-range",
+            "description": "源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量.\n例如 bytes=0-9 表示你希望拷贝源文件的开头10个字节的数据 ， 如果不指定，则表示拷贝整个文件",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Modified-Since",
+            "description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Unmodified-Since",
+            "description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Match",
+            "description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-None-Match",
+            "description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-storage-class",
+            "description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "STANDARD",
+                "STANDARD_IA",
+                "NEARLINE"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-acl",
+            "description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "public-read",
+                "private",
+                "public-read-write"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-read",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-write",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-full-control",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "拷贝成功,返回响应体",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#components/schemas/CopyObjectResult"
+                }
+              }
+            }
+          }
+        }
+      },
       "get": {
         "tags": [
           "object"
@@ -899,7 +1215,7 @@
         ],
         "responses": {
           "200": {
-            "error_code": "None",
+            "error_code" : "None",
             "description": "下载成功，文件内容在响应体中",
             "headers": {
               "x-cos-meta- *": {
@@ -931,7 +1247,7 @@
             }
           },
           "400": {
-            "error_code": "InvalidArgument",
+            "error_code" : "InvalidArgument",
             "description": "提供的参数错误",
             "content": {
               "application-xml": {
@@ -942,7 +1258,7 @@
             }
           },
           "403": {
-            "error_code": "SignatureDoesNotMatch",
+            "error_code" : "SignatureDoesNotMatch",
             "description": "提供的签名不符合规则，返回该错误码",
             "content": {
               "application-xml": {
@@ -953,8 +1269,273 @@
             }
           },
           "404": {
+            "error_code" : "NoSuchKey",
+            "description": "如果下载的文件不存在，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Options Object",
+        "description": "Options Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 HEADER 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden.可以通过 Put Bucket CORS 接口来开启 Bucket 的 CORS 支持.",
+        "operationId": "OptionsObject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Origin",
+            "description": "模拟跨域访问的请求来源域名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Access-Control-Request-Method",
+            "description": "模拟跨域访问的请求 HTTP 方法",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Access-Control-Request-Headers",
+            "description": "模拟跨域访问的请求头部",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "200": {
+<<<<<<< HEAD
+            "error_code": "None",
+            "description": "下载成功，文件内容在响应体中",
+=======
+            "error_code" : "None",
+            "description": "跨域成功",
+>>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
+            "headers": {
+              "x-cos-request-id": {
+                "description": "全局唯一的请求标识号",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "description": "模拟跨域访问的请求来源域名，当来源不允许的时候，此 Header 不返回",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "description": "模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Allow-Headers": {
+                "description": "模拟跨域访问的请求头部，当模拟任何请求头部不允许的时候，此 Header 不返回该请求头部",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Expose-Headers": {
+                "description": "模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Max-Age": {
+                "description": "设置 OPTIONS 请求得到结果的有效期",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{ObjectName}?uploadId={UploadId}": {
+      "parameters": [
+        {
+          "name": "ObjectName",
+          "in": "path",
+          "description": "COS 中存储的具体文件，是存储的基本实体",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+<<<<<<< HEAD
+          "400": {
+            "error_code": "InvalidArgument",
+            "description": "提供的参数错误",
+=======
+          "style": "simple"
+        },
+        {
+          "name": "UploadId",
+          "in": "query",
+          "description": "标识本次分块上传的 ID.使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置.",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ],
+      "get": {
+        "tags": [
+          "object"
+        ],
+        "summary": "ListParts",
+        "description": "List Parts 用来查询特定分块上传中的已上传的块，即罗列出指定 UploadId 所属的所有已上传成功的分块。",
+        "operationId": "GetObject",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "encoding-type",
+            "description": "规定返回值的编码方式",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "url"
+            }
+          },
+          {
+            "in": "query",
+            "name": "max-parts",
+            "description": "单次返回最大的条目数量，默认 1000",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "MaxParts"
+            }
+          },
+          {
+            "in": "query",
+            "name": "part-number-marker",
+            "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "PartNumberMarker"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "查询成功，返回 application/xml 数据，包含已完成的分片信息",
+            "headers": {
+              "x-cos-request-id": {
+                "description": "全局唯一的请求标识号",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+>>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#components/schemas/ListPartsResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{ObjectName}?restore": {
+      "parameters": [
+        {
+          "name": "ObjectName",
+          "in": "path",
+          "description": "要恢复到COS上的文件名",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+<<<<<<< HEAD
+          "403": {
+            "error_code": "SignatureDoesNotMatch",
+            "description": "提供的签名不符合规则，返回该错误码",
+            "content": {
+              "application-xml": {
+=======
+          "style": "simple"
+        }
+      ],
+      "post": {
+        "tags": [
+          "object"
+        ],
+        "summary": "PostObjectRestore",
+        "description": "POST Object restore 接口可以对一个通过 COS 归档为 archive 类型的对象进行恢复，恢复出的可读取对象是临时的，您可以设置需要保持可读，以及随后删除该临时副本的时间.您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为 archive 类型对象的副本，被归档的源对象在此期间将始终存在.",
+        "operationId": "PostObjectRestore",
+        "requestBody": {
+          "description": "该请求操作的实现需要有请求体",
+          "required": true,
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/RestoreRequest",
+                "description": "具体的请求参数"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-MD5",
+            "description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "202": {
+            "error_code" : "None",
+            "description": "恢复成功",
+            "headers": {
+              "x-cos-request-id": {
+                "description": "全局唯一的请求标识号",
+>>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+<<<<<<< HEAD
+          "404": {
             "error_code": "NoSuchKey",
             "description": "如果下载的文件不存在，返回该错误码",
+=======
+          "409": {
+            "error_code" : "RestoreAlreadyInProgress",
+            "description": "对象已经在恢复中",
+>>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
             "content": {
               "application-xml": {
                 "schema": {
@@ -1354,6 +1935,98 @@
           }
         }
       },
+      "ListPartsResult": {
+        "type": "object",
+        "description": "保存 List Parts 请求结果的所有信息",
+        "properties": {
+          "Bucket": {
+            "type": "string",
+            "description": "分块上传的目标 Bucket，存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000"
+          },
+          "Encoding-Type": {
+            "type": "string",
+            "description": "编码格式"
+          },
+          "Key": {
+            "type": "string",
+            "description": "Object的名字"
+          },
+          "UploadId": {
+            "type": "string",
+            "description": "标识本次分块上传的 ID"
+          },
+          "Initiator": {
+            "type": "object",
+            "description": "用来表示这些分块所有者的信息",
+            "properties": {
+              "ID": {
+                "type": "string",
+                "description": "创建者的一个唯一标识"
+              },
+              "DisplayName": {
+                "type": "string",
+                "description": "创建者的用户名描述"
+              }
+            }
+          },
+          "Owner": {
+            "type": "object",
+            "description": "用来表示这些分块所有者的信息",
+            "properties": {
+              "ID": {
+                "type": "string",
+                "description": "创建者的一个唯一标识"
+              },
+              "DisplayName": {
+                "type": "string",
+                "description": "创建者的用户名描述"
+              }
+            }
+          },
+          "StorageClass": {
+            "type": "string",
+            "description": "用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
+          },
+          "PartNumberMarker": {
+            "type": "string",
+            "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
+          },
+          "NextPartNumberMarker": {
+            "type": "string",
+            "description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
+          },
+          "MaxParts": {
+            "type": "string",
+            "description": "单次返回最大的条目数量"
+          },
+          "IsTruncated": {
+            "type": "boolean",
+            "description": "响应请求条目是否被截断，布尔值：true，false"
+          },
+          "Part": {
+            "type": "object",
+            "description": "元数据信息",
+            "properties": {
+              "PartNumber": {
+                "type": "string",
+                "description": "块的编号"
+              },
+              "LastModified": {
+                "type": "string",
+                "description": "说明块最后被修改时间"
+              },
+              "ETag": {
+                "type": "string",
+                "description": "块的 MD-5 算法校验值"
+              },
+              "Size": {
+                "type": "string",
+                "description": "说明块大小，单位是 Byte"
+              }
+            }
+          }
+        }
+      },
       "BucketCorsRequest": {
         "type": "object",
         "description": "设置 Bucket 的跨域资源共享权限",
@@ -1403,6 +2076,26 @@
                     "description": "设置浏览器可以接收到的来自服务器端的自定义头部信息"
                   }
                 }
+              }
+            }
+          }
+        }
+      },
+      "RestoreRequest": {
+        "type": "object",
+        "description": "设置将归档对象恢复到COS的请求",
+        "properties": {
+          "Days": {
+            "type": "integer",
+            "description": "设置临时副本的过期时间"
+          },
+          "CASJobParameters": {
+            "type": "object",
+            "description": "复原的过程类型配置信息",
+            "properties": {
+              "Tier": {
+                "type": "string",
+                "description": "具体复原过程类型，枚举值： Expedited ，Standard,Bulk；默认值：Standard"
               }
             }
           }
