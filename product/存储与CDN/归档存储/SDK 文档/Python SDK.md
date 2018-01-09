@@ -20,7 +20,7 @@ Python 2.7
 
 **方式二：手动安装**
 
-从[Github地址](https://github.com/tencentyun/cas_python_sdk/tree/v1.0.0)下载源码，通过setup手动安装:
+从[Github地址](https://github.com/tencentyun/cas_python_sdk)下载源码，通过setup手动安装:
 
     python setup.py install
 ### SDK配置
