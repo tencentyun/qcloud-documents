@@ -167,8 +167,8 @@
               }
             }
           }
-        },
-      }, 
+        }
+      },
       "put": {
         "tags": [
           "bucket"
@@ -216,7 +216,7 @@
               "type": "string",
               "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
             }
-          },
+          }
         ],
         "responses": {
           "200": {
@@ -286,14 +286,14 @@
                 }
               }
             }
-          },
-        },
+          }
+        }
       }
     },
     "/?cors": {
       "put": {
         "tags": [
-          "bucket"
+          "bucket CORS"
         ],
         "summary": "Put Bucket CORS",
         "description": "Put Bucket CORS 接口用来请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64 KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。",
@@ -351,39 +351,74 @@
             }
           }
         },
-        "Demo": 
-        "```xml\n
-        PUT /?lifecycle HTTP/1.1\n
-        Host:lifecycletest-73196696.cos.ap-beijing.myqcloud.com\n
-        Date: Wed, 16 Aug 2017 11:59:33 GMT\n
-        Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c24654\n
-        Content-MD5: LcNUuow8OSZMrEDnvndw1Q==\n
-        Content-Length: 348\n
-        Content-Type: application/x-www-form-urlencoded\n\n
-        <LifecycleConfiguration>\n
-          <Rule>\n
-            <ID>id1</ID>\n
-            <Filter><br>\n
-               <Prefix>documents/</Prefix>\n
-            </Filter>\n
-            <Status>Enabled</Status>\n
-            <Transition>\n
-              <Days>100</Days>\n
-              <StorageClass>NEARLINE</StorageClass>\n
-            </Transition>\n
-          </Rule>\n
-          <Rule>\n
-            <ID>id2</ID>\n
-            <Filter>\n
-               <Prefix>logs/</Prefix>\n
-            </Filter>\n
-            <Status>Enabled</Status>\n
-            <Expiration>\n
-              <Days>10</Days>\n
-            </Expiration>\n
-          </Rule>\n
-        </LifecycleConfiguration>\n
-        ```"
+        "get": {
+          "tags": [
+            "bucket CORS"
+          ],
+          "summary": "Get Bucket CORS",
+          "description": "Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（CORS 是一个 W3C 标准，全称是\"跨域资源共享\"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。",
+          "operationId": "GetBucketCORS",
+          "responses": {
+            "200": {
+              "error_code" : "None",
+              "description": "获取跨域资源共享的信息配置成功",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#components/schemas/BucketCorsRequest"
+                  }
+                }
+              }
+            },
+            "404-0": {
+              "error_code" : "NoSuchBucket",
+              "description": "当访问的 Bucket 不存在，返回该错误码",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            },
+            "404-1": {
+              "error_code" : "NoSuchCORSConfiguration",
+              "description": "跨域配置不存在",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "bucket CORS"
+          ],
+          "summary": "Delete Bucket CORS",
+          "description": "Delete Bucket CORS 接口请求实现删除跨域访问配置信息。",
+          "operationId": "DeleteBucketCORS",
+          "responses": {
+            "204": {
+              "error_code" : "None",
+              "description": "删除成功, 响应体返回为空"
+            },
+            "404": {
+              "error_code" : "NoSuchBucket",
+              "description": "当访问的 Bucket 不存在，返回该错误码",
+              "content": {
+                "application-xml": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Error"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/{ObjectName}": {
@@ -737,7 +772,7 @@
             "description": "如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed)",
             "required": false,
             "schema": {
-              "type": "string",
+              "type": "string"
             },
             "style": "simple"
           },
@@ -810,7 +845,7 @@
             "description": "提供的参数错误",
             "content": {
               "application-xml": {
-                "schema": {       
+                "schema": {
                   "$ref": "#/components/schemas/Error"
                 }
               }
@@ -822,7 +857,7 @@
             "content": {
               "application-xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error",
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -839,7 +874,171 @@
             }
           }
         }
-      } 
+      }
+    },
+    "/?lifecycle": {
+      "put": {
+        "tags": [
+          "bucket lifecycle"
+        ],
+        "summary": "Put Bucket Lifecycle",
+        "description": "COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生命周期。",
+        "operationId": "PutBucketLifecycle",
+        "requestBody": {
+          "description": "请求的请求体为生命周期配置规则",
+          "required": true,
+          "content": {
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/BucketLifecycle",
+                "description": "设置的具体生命周期规则"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-MD5",
+            "description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "上传成功,响应体返回为空"
+          },
+          "403": {
+            "error_code" : "SignatureDoesNotMatch",
+            "description": "提供的签名不符合规则，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error",
+                  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                }
+              }
+            }
+          },
+          "404": {
+            "error_code" : "NoSuchBucket",
+            "description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "400-0": {
+            "error_code" : "MalformedXML",
+            "description": "XML 格式不合法，请跟 restful api 文档仔细比对",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "400-1": {
+            "error_code" : "InvalidRequest",
+            "description": "请求不合法，如果错误描述中显示\"Conflict lifecycle rule\"，那么表示xml数据中的多条 rule 有相互冲突的部分。",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "400-2": {
+            "error_code" : "InvalidArgument",
+            "description": "请求参数不合法，如果错误描述中显示\"Rule ID must be unique. Found same ID for more than one rule\"， 那么表示有多个 Rule 的 id 字段相同。",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "bucket lifecycle"
+        ],
+        "summary": "Get Bucket Lifecycle",
+        "description": "Get Bucket Lifecycle 用来查询 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。",
+        "operationId": "GetBucketLifecycle",
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "获取生命周期配置成功",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#components/schemas/BucketLifecycle"
+                }
+              }
+            }
+          },
+          "404-0": {
+            "error_code" : "NoSuchBucket",
+            "description": "当访问的 Bucket 不存在，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404-1": {
+            "error_code" : "NoSuchLifecycleConfiguration",
+            "description": "生命周期配置不存在",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete":  {
+        "tags": [
+          "bucket lifecycle"
+        ],
+        "summary": "Delete Bucket Lifecycle",
+        "description": "Delete Bucket Lifecycle 用来删除 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。",
+        "operationId": "DeleteBucketLifecycle",
+        "responses": {
+          "204": {
+            "error_code" : "None",
+            "description": "删除成功, 响应体返回为空"
+          },
+          "404": {
+            "error_code" : "NoSuchBucket",
+            "description": "当访问的 Bucket 不存在，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -928,13 +1127,13 @@
                   "ID": {
                     "type": "string",
                     "description": "Bucket 的 AppID"
-                  }                  
+                  }
                 }
               },
               "StorageClass": {
                 "type": "string",
                 "description": "Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
-              },
+              }
             }
           },
           "CommonPrefixes": {
@@ -946,7 +1145,7 @@
                 "description": "单条 Common 的前缀"
               }
             }
-          },
+          }
         }
       },
       "BucketCorsRequest": {
@@ -1002,7 +1201,155 @@
             }
           }
         }
+      },
+      "BucketLifecycle": {
+        "type": "object",
+        "description": " Bucket 的生命周期",
+        "properties": {
+          "LifecycleConfiguration": {
+            "type": "object",
+            "description": "生命周期配置",
+            "properties": {
+              "Rule": {
+                "type": "object",
+                "description": "生命周期规则描述",
+                "properties": {
+                  "ID": {
+                    "type": "string",
+                    "description": "配置规则的 ID，可选填"
+                  },
+                  "Filter": {
+                    "type": "object",
+                    "description": "Filter 用于描述规则影响的 Object 集合",
+                    "properties": {
+                      "And": {
+                        "type": "object",
+                        "description": "用于组合 Prefix 与 Tag",
+                        "properties": {
+                          "Prefix": {
+                            "type": "string",
+                            "description": "指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个"
+                          },
+                          "Tag": {
+                            "type": "object",
+                            "description": "标签，Tag 可以有零个或者多个",
+                            "properties": {
+                              "Key": {
+                                "type": "string",
+                                "description": "Tag 的 Key,长度不超过128字节,不能cos:为前缀开头,仅支持字母、数字、空格和+-=._:/这几个符号"
+                              },
+                              "Value": {
+                                "type": "string",
+                                "description": "Tag 的 Value,长度不超过256字节,仅支持字母、数字、空格和+-=._:/这几个符号"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Prefix": {
+                        "type": "string",
+                        "description": "指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个"
+                      },
+                      "Tag": {
+                        "type": "object",
+                        "description": "标签，Tag 可以有零个或者多个",
+                        "properties": {
+                          "Key": {
+                            "type": "string",
+                            "description": "Tag 的 Key,长度不超过128字节,不能cos:为前缀开头,仅支持字母、数字、空格和+-=._:/这几个符号"
+                          },
+                          "Value": {
+                            "type": "string",
+                            "description": "Tag 的 Value,长度不超过256字节,仅支持字母、数字、空格和+-=._:/这几个符号"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Status": {
+                    "type": "string",
+                    "description": "指明规则是否启用，枚举值：Enabled，Disabled"
+                  },
+                  "Expiration": {
+                    "type": "object",
+                    "description": "规则过期属性",
+                    "properties": {
+                      "Days": {
+                        "type": "integer",
+                        "description": "指明规则对应的动作在对象最后的修改日期过后多少天操作，对于 Expiration，该字段有效值为正整数"
+                      },
+                      "Date": {
+                        "type": "string",
+                        "description": "指明规则对应的动作在何时操作"
+                      },
+                      "ExpiredObjectDeleteMarker": {
+                        "type": "boolean",
+                        "description": "删除过期对象删除标记，枚举值 true，false"
+                      }
+                    }
+                  },
+                  "Transition": {
+                    "type": "array",
+                    "description": "规则转换属性，对象何时转换被转换为 Standard_IA 或 Nearline",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "Days": {
+                          "type": "integer",
+                          "description": "指明规则对应的动作在对象最后的修改日期过后多少天操作，对于 Expiration，该字段有效值为非负整数"
+                        },
+                        "Date": {
+                          "type": "string",
+                          "description": "指明规则对应的动作在何时操作"
+                        },
+                        "StorageClass": {
+                          "type": "string",
+                          "description": "指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA, NEARLINE"
+                        }
+                      }
+                    }
+                  },
+                  "AbortIncompleteMultipartUpload": {
+                    "type": "object",
+                    "description": "设置允许分片上传保持运行的最长时间",
+                    "properties": {
+                      "DaysAfterInitiation": {
+                        "type": "integer",
+                        "description": "指明分片上传开始后多少天内必须完成上传"
+                      }
+                    }
+                  },
+                  "NoncurrentVersionExpiration": {
+                    "type": "object",
+                    "description": "指明非当前版本对象何时过期",
+                    "properties": {
+                      "NoncurrentDays": {
+                        "type": "interger",
+                        "description": "指明规则对应的动作在对象变成非当前版本多少天后执行， 对于NoncurrentVersionExpiration, 该字段有效值为正整数"
+                      }
+                    }
+                  },
+                  "NoncurrentVersionTransition": {
+                    "type": "object",
+                    "description": "指明非当前版本对象何时过期",
+                    "properties": {
+                      "NoncurrentDays": {
+                        "type": "interger",
+                        "description": "指明规则对应的动作在对象变成非当前版本多少天后执行， 对于NoncurrentVersionTransition, 该字段有效值为非负整数"
+                      },
+                      "StorageClass": {
+                        "type": "string",
+                        "description": "指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA, NEARLINE"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 }
+
