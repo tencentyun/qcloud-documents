@@ -415,10 +415,10 @@ function setVideoFPS() {
   - eventId :  Int  （事件ID，参考PusherCallBackEvent定义）
   - objectId  :   Int（和setPusherEventCallBack::objectid一致）
   - paramCnt  :   Int（JSON携带的Key-Value键值对个数）
-  - paramJson  :   List（键值对String）
-    - key : String（参考：CBParamJsonKey定义）
+  - paramJson  :   List（键值对String）推流成功后，实时回调流状态信息
+    - key : String（参考：CBParamJsonKey定义）
     - value:  String （参考：CBParamJsonKey定义指向的值含义）
-  - 示例 {"eventId":200001,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
+  - 【paramJson:List】的示例 {"eventId":200001,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
   
 - 示例代码** : 
 
