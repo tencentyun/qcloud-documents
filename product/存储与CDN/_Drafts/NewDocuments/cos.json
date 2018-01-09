@@ -874,6 +874,90 @@
             }
           }
         }
+      },
+      "options": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Options Object",
+        "description": "Options Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 HEADER 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden.可以通过 Put Bucket CORS 接口来开启 Bucket 的 CORS 支持.",
+        "operationId": "OptionsObject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Origin",
+            "description": "模拟跨域访问的请求来源域名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Access-Control-Request-Method",
+            "description": "模拟跨域访问的请求 HTTP 方法",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Access-Control-Request-Headers",
+            "description": "模拟跨域访问的请求头部",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "跨域成功",
+            "headers": {
+              "x-cos-request-id": {
+                "description": "全局唯一的请求标识号",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "description": "模拟跨域访问的请求来源域名，当来源不允许的时候，此 Header 不返回",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "description": "模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Allow-Headers": {
+                "description": "模拟跨域访问的请求头部，当模拟任何请求头部不允许的时候，此 Header 不返回该请求头部",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Expose-Headers": {
+                "description": "模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Access-Control-Max-Age": {
+                "description": "设置 OPTIONS 请求得到结果的有效期",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/{ObjectName}?uploadId={UploadId}": {
