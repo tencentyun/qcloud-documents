@@ -1322,13 +1322,8 @@
         ],
         "responses": {
           "200": {
-<<<<<<< HEAD
-            "error_code": "None",
-            "description": "下载成功，文件内容在响应体中",
-=======
             "error_code" : "None",
             "description": "跨域成功",
->>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
             "headers": {
               "x-cos-request-id": {
                 "description": "全局唯一的请求标识号",
@@ -1381,11 +1376,6 @@
           "schema": {
             "type": "string"
           },
-<<<<<<< HEAD
-          "400": {
-            "error_code": "InvalidArgument",
-            "description": "提供的参数错误",
-=======
           "style": "simple"
         },
         {
@@ -1450,7 +1440,6 @@
                 }
               }
             },
->>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
             "content": {
               "application-xml": {
                 "schema": {
@@ -1472,13 +1461,6 @@
           "schema": {
             "type": "string"
           },
-<<<<<<< HEAD
-          "403": {
-            "error_code": "SignatureDoesNotMatch",
-            "description": "提供的签名不符合规则，返回该错误码",
-            "content": {
-              "application-xml": {
-=======
           "style": "simple"
         }
       ],
@@ -1520,22 +1502,15 @@
             "headers": {
               "x-cos-request-id": {
                 "description": "全局唯一的请求标识号",
->>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
                 "schema": {
                   "type": "string"
                 }
               }
             }
           },
-<<<<<<< HEAD
-          "404": {
-            "error_code": "NoSuchKey",
-            "description": "如果下载的文件不存在，返回该错误码",
-=======
           "409": {
             "error_code" : "RestoreAlreadyInProgress",
             "description": "对象已经在恢复中",
->>>>>>> e75a23c003caf9cb0a99224a5eb1c7f45bf82d71
             "content": {
               "application-xml": {
                 "schema": {
