@@ -841,6 +841,169 @@
           }
         }
       },
+      "put": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Upload Part Copy",
+        "description": "Upload Part - Copy 请求实现将一个文件的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源文件，x-cos-copy-source-range 指定字节范围。允许分块的大小为 5 MB - 5 GB",
+        "operationId": "UploadPartCopy",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "partNumber",
+            "description": "分块拷贝的块号",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "PartNumber"
+            }
+          },
+          {
+            "in": "query",
+            "name": "uploadId",
+            "description": "使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "UploadId"
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source",
+            "description": "源文件 URL 路径，可以通过 versionid 子资源指定历史版本",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-range",
+            "description": "源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量.\n例如 bytes=0-9 表示你希望拷贝源文件的开头10个字节的数据 ， 如果不指定，则表示拷贝整个文件",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Modified-Since",
+            "description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Unmodified-Since",
+            "description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-Match",
+            "description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-copy-source-If-None-Match",
+            "description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-storage-class",
+            "description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "STANDARD",
+                "STANDARD_IA",
+                "NEARLINE"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-acl",
+            "description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "public-read",
+                "private",
+                "public-read-write"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-read",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-write",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-full-control",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "拷贝成功,返回响应体",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#components/schemas/CopyObjectResult"
+                }
+              }
+            }
+          }
+        }
+      },
       "get": {
         "tags": [
           "object"
