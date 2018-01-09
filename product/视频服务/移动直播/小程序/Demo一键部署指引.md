@@ -162,7 +162,7 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
   ![登录测试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
   
-10.请使用手机进行测试，直接扫描开发者工具预览生成的二维码进入，<font color='red'> 这里部署的是开发测试环境，一定要开启调试: </font>
+10. 请使用手机进行测试，直接扫描开发者工具预览生成的二维码进入，<font color='red'> 这里部署的是开发测试环境，一定要开启调试: </font>
 
   ![开启调试](https://mc.qcloudimg.com/static/img/1abfe50750f669ca4e625ec3cdfbd411/xiaochengxutiaoshi.png)
  
