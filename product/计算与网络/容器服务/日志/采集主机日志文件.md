@@ -26,18 +26,29 @@
 
 用户可以为收集到的日志附加用户指定的 Key-Value 形式的 Metadata，用做日志信息的 Metadata 标记，附加 Metadata 将会以 json field 的形式添加到日志记录中。
 
-例如，当不添加 Metadata 时，收集到的日志为
 ![][5]
 
-当用户指定附加 metadata 时，收集到的日志为
+例如，当不指定附加 Metadata 时，收集到的日志为
 ![][6]
+
+当用户指定附加 Metadata 时，收集到的日志为
+![][7]
 
 [1]:https://mc.qcloudimg.com/static/img/393ad1a2a9575cd89f1f0a38279bf676/image.jpeg
 [2]:https://mc.qcloudimg.com/static/img/412208e6d73427f1c4e12002816be730/image.jpeg
 [3]:https://mc.qcloudimg.com/static/img/0fe6bed71772b09231771e320a789e9d/image.jpeg
 [4]:https://mc.qcloudimg.com/static/img/32f72a65f46f33d67a93d1a9a3f3e3d1/image.jpeg
-[5]:https://mc.qcloudimg.com/static/img/8c3e54d7de5023dc10666ea14f5dcadb/hostlog.jpeg
-[6]:https://mc.qcloudimg.com/static/img/32f72a65f46f33d67a93d1a9a3f3e3d1/hostlogwithmetadata.jpeg
+[5]:https://mc.qcloudimg.com/static/img/6dc59c59ba0bfa7a2587d3109daf118c/setmetadata.png
+[6]:https://mc.qcloudimg.com/static/img/5386281fc3ed14c4f41ba723a23dc3ec/host-log-without-metadata.png
+[7]:https://mc.qcloudimg.com/static/img/c571be8fbc995ab083c2676e3b10861f/host-log-with-metadata.png
 
+相比不指定附加 Metadata 时，附加 Metadata 的 json 日志增加了 key `service`。
+
+## 日志 Metadata 含义
+字段名 | 含义
+--- | ---
+path | 日志的来源文件
+message | 日志信息
+自定义 key | 自定义 value
 
 
