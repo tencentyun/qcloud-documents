@@ -247,3 +247,5 @@ typedef void (^WBFaceLoginFailureBlock)(WBFaceVerifyLogin errorCode, NSString *l
  */
 -(NSDictionary *)wbfaceVerifySerivceGetExternalParamsWBFaceVerifyCustomerService:)service;
 ```
+
+上一步：[SDK 启动](https://cloud.tencent.com/document/product/655/13824)

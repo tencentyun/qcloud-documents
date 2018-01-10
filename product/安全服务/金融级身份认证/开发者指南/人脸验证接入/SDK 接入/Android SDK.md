@@ -7,7 +7,7 @@ SDK 需要用到相机/录音/读取手机信息权限，在 Android 6.0 以上�
 
 ## 2. 接入配置
 云刷脸 SDK（WbCloudFaceVerify）最低支持到** Android API 14: Android 4.0(ICS)**，请在构建项目时注意。
-刷脸 SDK 将以 AAR 文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤（SDK 皮肤的设定，除了接入对应的 AAR，还需要设定相关代码。详见 [SDK 样式选择]()。默认黑色皮肤，无需格外设置），接入方可自由选择组合四个模式。
+刷脸 SDK 将以 AAR 文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤（SDK 皮肤的设定，除了接入对应的 AAR，还需要设定相关代码。详见本页第六部分：SDK 样式选择。默认黑色皮肤，无需格外设置），接入方可自由选择组合四个模式。
 ![](https://mc.qcloudimg.com/static/img/0d1fb1b5512b25f4efda0cd89fb33ddb/image.png)
 另外刷脸 SDK 同时需要依赖**云公共组件（WbCloudNormal）**，同样也是以 AAR 文件的形式提供。
 需要添加下面文档中所示的依赖（将提供的 AAR 文件加入到 App 工程的`'libs'`文件夹下面,
@@ -457,3 +457,5 @@ public void onFinish(int resultCode, boolean nextShowGuide, String faceCode, Str
 | FACEVERIFY_ERROR_OUT_OF_TIME_FACE_DETECT = 71000; | 扫脸验证超时         |
 | FACEVERIFY_ERROR_OUT_OF_TIME_ACTIVE_DETECT = 72000; | 活体验证超时         |
 | FACEVERIFY_ERROR_ACTIVE_DETECT_NOFACE=80000; | 活体检测时人脸曾移出框外   |
+
+上一步：[SDK 启动](https://cloud.tencent.com/document/product/655/13824)
