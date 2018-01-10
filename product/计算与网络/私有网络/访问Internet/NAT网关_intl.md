@@ -5,7 +5,7 @@ NAT gateway provides the capability to translate between private IPs and public 
 
 ## Network Topology
 As shown in the figure below, the NAT gateway resides on the boundary between the Internet and the VPC, and is connected to the router on the VPC. In such a topology, when resources like CVM in the VPC send data packets outwards via the NAT gateway, the data first passes through the router and makes routing selection based on routing policies. Then, the NAT gateway sends traffic to the Internet through the bound EIP as the source IP:
-![](//mccdn.qcloud.com/static/img/4772b9bc1e78436104f89f943f06ac97/image.png)
+![](https://mc.qcloudimg.com/static/img/32593cb6e9930b0126889b5a15eb2dc9/image.png)
 
 ## Features
 - The NAT gateway supports SNAT and DNAT:
