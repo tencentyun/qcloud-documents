@@ -667,7 +667,7 @@
           {
             "in": "header",
             "name": "x-cos-grant-write",
-            "description": "赋予被授权者读写权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"",
+            "description": "赋予被授权者写的权限。格式：x-cos-grant-write: id=\" \",id=\" \"",
             "required": false,
             "schema": {
               "type": "string"
@@ -676,8 +676,8 @@
           },
           {
             "in": "header",
-            "name": "x-cos-acl",
-            "description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+            "name": "x-cos-grant-full-control",
+            "description": "赋予被授权者读写权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"",
             "required": false,
             "schema": {
               "type": "string"
@@ -776,9 +776,32 @@
               }
             }
           }
-        }
+        },
+        "Demo":
+        "
+        **请求示例:**\n
+        ```
+        PUT /filename.jpg HTTP/1.1\n
+        Host: zuhaotestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com\n
+        Date: Wed, 28 Oct 2015 20:32:00 GMT\n
+        Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc\n
+        Content-Length: 64\n\n
+        [Object]\n
+
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1200 OK\n
+        Content-Type: application/xml\n
+        Content-Length: 0\n
+        Date: Wed,16 Aug201711: 59: 33 GMT\n
+        Server: tencent-cos\n
+        x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRfMWY=\n
+        ```
+        "
       },
-      "put": {
+      "put-1": {
         "tags": [
           "object"
         ],
@@ -931,7 +954,7 @@
           }
         }
       },
-      "put": {
+      "put-2": {
         "tags": [
           "object"
         ],
@@ -1279,7 +1302,65 @@
               }
             }
           }
-        }
+        },
+        "Demo":
+        "
+        **请求1:**\n
+        ```
+        GET /123 HTTP/1.1\n
+        Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com\n
+        Date: Wed, 28 Oct 2014 22:32:00 GMT\n
+        Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639\n
+
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1 200 OK\n
+        Date: Wed, 28 Oct 2014 22:32:00 GMT\n
+        Content-Type: application/octet-stream\n
+        Content-Length: 16087\n
+        Connection: keep-alive\n
+        Accept-Ranges: bytes\n
+        Content-Disposition: attachment; filename=\"filename.jpg\"\n
+        Content-Range: bytes 0-16086/16087\n
+        ETag: \"9a4802d5c99dafe1c04da0a8e7e166bf\"\n
+        Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT\n
+        x-cos-object-type: normal\n
+        x-cos-request-id: NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ==\n
+        x-cos-storage-class: STANDARD\n\n
+        
+        [Object]
+        ```
+
+        **请求2 携带response-xxx参数:**\n
+        ```
+        GET /123?response-content-type=application%2fxml HTTP/1.1\n
+        Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com\n
+        Date: Wed, 28 Oct 2014 22:32:00 GMT\n
+        Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639\n
+
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1 200 OK\n
+        Date: Wed, 28 Oct 2014 22:32:00 GMT\n
+        Content-Type: application/xml\n
+        Content-Length: 16087\n
+        Connection: keep-alive\n
+        Accept-Ranges: bytes\n
+        Content-Disposition: attachment; filename=\"filename.jpg\"\n
+        Content-Range: bytes 0-16086/16087\n
+        ETag: \"9a4802d5c99dafe1c04da0a8e7e166bf\"\n
+        Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT\n
+        x-cos-object-type: normal\n
+        x-cos-request-id: NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ==\n
+        x-cos-storage-class: STANDARD\n\n
+        
+        [Object]
+        ```
+        "
       },
       "options": {
         "tags": [
@@ -1364,6 +1445,423 @@
             }
           }
         }
+      },
+      "head": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Head Object",
+        "description": "Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head 的权限与 Get 的权限一致.",
+        "operationId": "HeadObject",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "If-Modified-Since",
+            "description": "当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "查询成功",
+            "headers": {
+              "x-cos-request-id": {
+                "description": "全局唯一的请求标识号",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-cos-meta- *": {
+                "description": "用户自定义的 meta",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-cos-object-type": {
+                "description": "用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-cos-storage-class": {
+                "description": "Object 的存储级别，枚举值：STANDARD,STANDARD_IA, NEARLINE",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Demo":
+        "
+        **请求示例:**\n
+        ```
+        HEAD /123 HTTP/1.1\n
+        Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com\n
+        Date: Thu, 12 Jan 2017 17:26:53 GMT\n
+        Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213210;32557109210&q-key-time=1484213210;32557109210&q-header-list=host&q-url-param-list=&q-signature=ac61b8eb61964e7e6b935e89de163a479a25c210\n
+
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1 200 OK\n
+        Content-Type: application/xml\n
+        Content-Length: 16087\n
+        Connection: keep-alive\n
+        Date: Thu, 12 Jan 2017 17:26:53 GMT\n
+        ETag: \"9a4802d5c99dafe1c04da0a8e7e166bf\"\n
+        Last-Modified: Wed, 11 Jan 2017 07:30:07 GMT\n
+        Server: tencent-cos\n
+        x-cos-object-type: normal\n
+        x-cos-request-id: NTg3NzRiZGRfYmRjMzVfM2Y2OF81N2YzNA==\n
+        x-cos-storage-class: STANDARD\n
+        ```
+        "
+      },
+      "delete": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Delete Object",
+        "description": "Delete Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）删除。该操作需要请求者对 Bucket 有 WRITE 权限。",
+        "operationId": "DeleteObject",
+        "responses": {
+          "200": {
+            "error_code" : "None",
+            "description": "查询成功"
+          },
+          "403": {
+            "error_code" : "SignatureDoesNotMatch",
+            "description": "提供的签名不符合规则，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "error_code" : "NoSuchBucket",
+            "description": "Bucket 不存在，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "Demo":
+        "
+        **请求示例:**\n
+        ```
+        DELETE /123 HTTP/1.1\n
+        Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com\n
+        Date: Wed, 23 Oct 2016 21:32:00 GMT\n
+        Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213409;32557109409&q-key-time=1484213409;32557109409&q-header-list=host&q-url-param-list=&q-signature=1c24fe260ffe79b8603f932c4e916a6cbb0af44a\n
+
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1 204 No Content\n
+        Content-Type: application/xml\n
+        Content-Length: 0\n
+        Connection: keep-alive\n
+        Date: Wed, 23 Oct 2016 21:32:00 GMT\n
+        Server: tencent-cos\n
+        x-cos-request-id: NTg3NzRjYTRfYmRjMzVfMzFhOF82MmM3Yg==\n
+        ```
+        "
+      }
+    },
+    "/{ObjectName}?append&position={position}": {
+      "parameters": [
+        {
+          "name": "ObjectName",
+          "in": "path",
+          "description": "COS上要追加的文件名",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "style": "simple"
+        }
+      ],
+      "post": {
+        "tags": [
+          "object"
+        ],
+        "summary": "Append Object",
+        "description": "Append Object 接口请求可以将一个对象以分块追加的方式上传至指定存储桶中。对象首次使用 Append Object 接口上传时，该对象的属性自动为 appendable ，使用其他接口上传时则属性自动为 normal （如果该对象已存在则属性会被覆盖为 normal），可以使用 Get Object 或 Head Object 接口获取 x-cos-object-type 响应头来判断对象属性。对象属性为 appendable 时才能使用本接口追加上传。\n
+        追加上传的对象每个分块最小为 4K，建议大小 1M-5G。如果 Position 的值和当前对象的长度不致，COS 会返回 409 错误。如果追加一个 normal 属性的文件，COS 会返回 409 ObjectNotAppendable。",
+        "operationId": "AppendObject",
+        "requestBody": {
+          "description": "请求的请求体为追加的Object 文件内容",
+          "required": true,
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "description": "object内容"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Content-Length",
+            "description": "RFC 2616 中定义的 HTTP 请求内容长度（字节)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Content-Disposition",
+            "description": "RFC 2616 中定义的文件名称，将作为 Object 元数据保存",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Content-Encoding",
+            "description": "RFC 2616 中定义的编码格式，将作为 Object 元数据保存",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Content-Type",
+            "description": "RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Expect",
+            "description": "当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Expires",
+            "description": "RFC 2616 中定义的缓存策略，将作为 Object 元数据保存",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-meta-*",
+            "description": "允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-storage-class",
+            "description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "STANDARD",
+                "STANDARD_IA",
+                "NEARLINE"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "Content-MD5",
+            "description": "RFC 1864 中定义对消息内容（不包括头部）计算 MD5 值获得 128 比特位数字，对该数字进行 base64 编码为一个消息的 Content-MD5 值。该请求头可用于检查数据是否与发送时一致。虽然该请求头是可选的，但我们建议使用该请求头进行端到端检查",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-acl",
+            "description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "public-read",
+                "private",
+                "public-read-write"
+              ]
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-read",
+            "description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-write",
+            "description": "赋予被授权者写的权限。格式：x-cos-grant-write: id=\" \",id=\" \"",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          },
+          {
+            "in": "header",
+            "name": "x-cos-grant-full-control",
+            "description": "赋予被授权者读写权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "style": "simple"
+          }
+        ],
+        "responses": {
+          "200": {
+            "error_code": "None",
+            "description": "追加成功,响应体返回为空",
+            "headers": {
+              "ETag": {
+                "description": "上传文件内容的MD5值",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-cos-next-append-position": {
+                "description": "下一次追加操作的起始点，单位：字节",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400-0": {
+            "error_code": "InvalidURI",
+            "description": "对象 key 长度限制为 850，如果超过 850 会返回该错误",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "400": {
+            "error_code": "InvalidArgument",
+            "description": "如果请求中未携带 position 参数，会返回400 Bad Request",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "error_code": "SignatureDoesNotMatch",
+            "description": "提供的签名不符合规则，返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error",
+                  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                }
+              }
+            }
+          },
+          "409": {
+            "error_code": "InvalidObjectState",
+            "description": "如果对一个非 appendable 的文件进行 append 操作，那么会返回 409 Confilct",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "411": {
+            "error_code": "MissingContentLength",
+            "description": "如果追加文件时，没有添加 Content-Length 头部，会返回该错误码",
+            "content": {
+              "application-xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "Demo":
+        "
+        **请求示例:**\n
+        ```
+        POST /coss3/app?append&position=0 HTTP/1.1\n
+        Host: zuhaotestnorth-1251668577.cos.ap-beijing.myqcloud.com\n
+        Date: Tue, 16 Jan 2016 21:32:00 GMT\n
+        Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484208848;32557104848&q-key-time=1484208848;32557104848&q-header-list=host&q-url-param-list=append;position&q-signature=855fe6b833fadf20570f7f650e2120e17ce8a2fe\n
+        Content-Length: 4096\n\n
+        
+        [Object]\n
+
+        ```
+
+        **响应示例:**\n
+        ```
+        HTTP/1.1 200 OK\n
+        Content-Type: application/xml\n
+        Content-Length: 0\n
+        Connection: keep-alive\n
+        Date: Tue, 16 Jan 2016 21:32:00 GMT\n
+        ETag: \"1ce5b469b7d6600ecc2fd112e570917b\"\n
+        Server: tencent-cos\n
+        x-cos-content-sha1: 1ceaf73df40e531df3bfb26b4fb7cd95fb7bff1d\n
+        x-cos-next-append-position: 4096\n
+        x-cos-request-id: NTg3NzNhZGZfMmM4OGY3X2I2Zl8xMTBm\n
+        ```
+        "
       }
     },
     "/{ObjectName}?uploadId={UploadId}": {
