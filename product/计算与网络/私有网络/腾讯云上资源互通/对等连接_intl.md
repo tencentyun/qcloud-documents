@@ -131,7 +131,7 @@ For more information, please see the following table:
 
 > Contact business department to inquire more about the prices.
 
-For more information about the prices of VPC services, please see [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
+For more information about the prices of VPC services, please see [VPC Price Overview](https://intl.cloud.tencent.com/doc/product/215/3079).
 
 >Note:
 1. In order for you to view the cost, the billing system describes peering connections as:  bill for cross-region interconnection (mainland) and bill for peering connection of which both ends are in Mainland China
