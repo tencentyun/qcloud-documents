@@ -60,8 +60,6 @@ detail structure
 <td> data.projectId <td> Int <td> Project ID
 <tr>
 <td> data.beAssociateCount <td> Int <td> associated cloud instance count
-<tr>
-<td> data.version <td> Int <td> it's version of this security group itself, varied when every time rules edited.
 </tbody></table>
 
 ## 4. Error Codes

@@ -1,0 +1,160 @@
+> **注意：**
+>
+> **接入之前，请详细阅读 SDK 中的 readme 和接入指引！**
+
+### 1. SDK 导入&配置
+1.  将 SDK 文件导入到目标 project 中去，并确定**“add to target”**被勾选。
+```
+├── WBOCRService.bundle
+	|
+	├── WBOCRService.framework
+	│   
+	├── include
+	│   └── recdetect.h
+	├── librecdetect.a
+	└── opencv2.framework
+```
+2. 在【build phases】 >【link with libraries】 下加入如下依赖。
+```
+	CoreTelephony.framework
+	AssetsLibrary.framework
+	CoreMedia.framework
+	AVFoundation.framework
+	libc++.tbd
+```
+3. 【Build Setting】>【Enable Bitcode】 设置为 NO.
+4. 【Build Setting】>【 Linking】 > 【other linker flag】设置增加 `-ObjC` 和 `-lz linker flag`
+5. SDK 中需要使用 camera，需要在` Info.plist `中添加 `NSCameraUsageDescription`为 key 的键值对。
+
+### 2. SDK 调用
+**调用详情参见 Demo 工程以及头文件 WBOCRService.h**
+#### 2.1 在使用 OCR SDK 的类中引入 WBOCRService.h
+```
+#import <WBOCRService/WBOCRService.h>
+ 
+@interface ViewController ()
+ 
+// TODO:
+ 
+@end
+```
+#### 2.2 启动 OCR SDK 服务
+1. 入口方法
+```
+/**
+ * @brief 调起 SDK 入口方法
+ 
+ * @param manageVc          SDK 的入口页面对应的 view controller
+ * @param config            配置参数
+ * @param version           接口版本号
+ * @param appId             腾讯服务分配的 app_id
+ * @param nonce             每次请求需要的一次性 nonce
+ * @param userId            每个用户唯一的标识
+ * @param sign              签名信息
+ * @param orderNo           订单号
+ * @param startSucceed      启动 SDK 成功回调
+ * @param recognizeSucceed  识别成功回调
+ * @param failed            SDK 发生异常退出后回调
+ 
+ 
+ * @detail 回调信息 code 和 msg 对照表
+ * ## code 退出 code
+ * ## msg  退出信息描述
+ 
+ * @detail code && msg 错误码以及描述信息参考接口文档中“错误码”章节
+ *
+ */
+
+- (void)startOCRServiceWithManageVC:(nonnull UIViewController *)manageVc
+                             config:(nullable WBOCRConfig *)config
+                            version:(nonnull NSString *)version
+                              appId:(nonnull NSString *)appId
+                              nonce:(nonnull NSString *)nonce
+                             userId:(nonnull NSString *)userId
+                               sign:(nonnull NSString*)sign
+                            orderNo:(nonnull NSString *)orderNo
+                       startSucceed:(nonnull WBOCRServiceStartSucceedBlock)startSucceed
+                   recognizeSucceed:(nonnull WBOCRServiceRecognizeSuccessBlock)recognizeSucceed
+                             failed:(nonnull WBOCRServiceFailedBlock)failed;
+```
+
+2. WBOCRConfig 支持对 SDK 的做个性化配置，字段详情，请阅读 WBOCRConfig 头文件部分注释。
+3. WBOCRConfig.h
+```
+/*
+ * @brief WBOCRConfig 类定义了 SDK 的配置信息，可以通过WBOCRConfig 单例进行读取、配置，
+ *        这个步骤是可选的，如果外部没有配置信息传入，将使用默认的配置参数
+ */
+
+
+/**
+ * @brief WBOCRSDKType定义 SDK 不同的识别模式
+ 
+ - WBOCRSDKTypeNoraml  : 标准模式，SDK 调起成功后，先进入拍摄准备页面，待正反两面识别完成之后
+ 将识别信息返回到第三方 APP
+ - WBOCRSDKTypeFontSide: 人像面识别模式，SDK 调起成功后，直接进入拍摄识别页面，识别身份证人像面
+ 识别完成之后，将本次识别结果返回第三方 APP
+ - WBOCRSDKTypeBackSide: 国徽面识别模式，SDK 调起成功后，直接进入拍摄识别页面，识别身份证国徽面
+ 识别完成之后，将本次识别结果返回第三方 APP
+ */
+typedef NS_ENUM(NSInteger, WBOCRSDKType) {
+    WBOCRSDKTypeIDCardNormal,
+    WBOCRSDKTypeIDCardFrontSide,
+    WBOCRSDKTypeIDCardBackSide,
+    WBOCRSDKTypeBankCard
+};
+@interface WBOCRConfig : NSObject
++ (instancetype _Nonnull )sharedConfig;
+/**
+ * @brief 选择 SDK 接入模式为WBOCRSDKTypeBankCard，default WBOCRSDKTypeNoraml
+ */
+@property (nonatomic)WBOCRSDKType SDKType;
+
+/**
+ * @brief 获取 SDK 的登录接口的baseUrl，readonly
+ */
+@property (nonatomic,copy,readonly)NSString* _Nonnull baseUrl;
+
+@end
+```
+
+#### 2.3  银行卡识别结果返回
+银行卡识别结果返回，封装在 `WBBankCardInfoModel` 类中，会返回如下信息：
+
+```
+/**
+ * @brief 银行卡信息
+ * @detail 字段含义
+ - bankcardNo         银行卡号
+ - bankcardValidDate  银行卡有效期(年／月，没有为空)
+ - warningCode        警告码
+ - warningMsg         警告码描述
+ - bankcardNoPhoto    卡号图片
+*/
+@interface WBBankCardInfoModel : NSObject
+
+@property (nonnull,strong,nonatomic)  NSString *bankcardNo;
+@property (nullable,strong,nonatomic) NSString *bankcardValidDate;
+@property (nullable,strong,nonatomic) NSString *warningCode;
+@property (nullable,strong,nonatomic) NSString *warningMsg;
+@property (nonnull,strong,nonatomic)  UIImage *bankcardNoPhoto;
+@property (nonnull,strong,nonatomic)  UIImage *bankcardCropPhoto;
+
+@end
+```
+
+#### 2.4 具体使用方法
+具体使用方法参照 demo 工程以及 WBOCRService.h 头文件。
+#### 2.5 错误信息
+错误信息通过 fail 回调抛出，错误码列表参见第三节错误码描述或头文件。
+
+### 3. 错误码描述
+| 返回码    | 返回信息      | 处理措施                             |
+| ------ | --------- | -------------------------------- |
+| 100101 | 无网络，请确认   | 确认网络正常                           |
+| 100102 | 不支持 2G 网络 | 更换网络环境                           |
+| 100103 | 无相机权限     |                                  |
+| 200101 | 用户取消操作    | 用户主动退出操作                         |
+| 200102 | 识别超时      | 用户在银行卡识别过程中超过设定的阈值（20S）无法识别，提示超时 |
+
+[上一步：SDK 启动](https://cloud.tencent.com/document/product/655/13858)

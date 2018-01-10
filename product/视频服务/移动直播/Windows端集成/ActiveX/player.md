@@ -2,17 +2,18 @@
 在页面嵌入 &lt;object ID="player" .../&gt; 标签，即创建了 player 对象
 
 ```html
-<!-- 注意 pusher 对象的 clsid 为 01502AEB-675D-4744-8C84-9363788ED6D6 -->
-<object ID="pusher" CLASSID="CLSID:01502AEB-675D-4744-8C84-9363788ED6D6"
+<!-- 注意 player 对象的 clsid 为 99DD15EF-B353-4E47-9BE7-7DB4BC13613C -->
+<!--Warning::直接拷贝代码需要修改LiteAVAX.cab路径和版本号-->
+<object ID="player" CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C"
    codebase="./LiteAVAX.cab#version=1,0,0,1" width="640" height="480">
 </object>
 
-<!-- 调用pusher对象方法 >
+<!-- 调用player对象方法 >
 <script>
   function setRenderWndSize() {
       var vW = 640;
       var vH = 480;
-      pusher.setRenderWndSize(vW, vH );	
+      player.setRenderWndSize(vW, vH );	
   }
 </script>
 ```
@@ -23,7 +24,7 @@
 | ---------------------------------------- | ------------- |
 | getVersion()                             | 关闭图像渲染        |
 | setRenderWndSize(width, height)          | 设置当前视频渲染窗口的大小 |
-| startPlay(sUrl)                          | 开始播放拉流        |
+| startPlay(sUrl,streamType)               | 开始播放拉流        |
 | stopPlay()                               | 停止播放          |
 | pause()                                  | 暂停播放          |
 | resume()                                 | 恢复播放          |
@@ -70,13 +71,15 @@ function setRenderWndSize() {
 }
 ```
 
-### 3.startPlay(sUrl)
+### 3.startPlay(sUrl,streamType)
 
 - **参数说明**
 开始播放， sURL 为播放地址，目前 ActiveX 插件仅支持 RTMP 播放协议，推流地址 `rtmp://8888.livepush.myqcloud.com/live/8888_teststream?bizid=8888&txSecret=6e18e8db0ff2070a339ab739ff46b957&txTime=5A3E7D7F`
 
   对应的播放地址即为： 
 `rtmp://8888.liveplay.myqcloud.com/live/8888_teststream`
+
+ streamType:: 0表示标准直播流，1低延时流 ，默认1。更多可参考:AxTXEPlayType定义
 
 - **返回值说明**
  成功 or 失败，内存分配、资源申请失败等原因可能会导致返回失败
@@ -89,7 +92,7 @@ function setRenderWndSize() {
 
 ```
 function doStartPlay(sUrl) {
-	var vRetInt = player.startPlay(sUrl);	
+	var vRetInt = player.startPlay(sUrl, AxTXEBeautyStyle.AX_PLAY_TYPE_LIVE_RTMP_ACC);	
 }
 ```
 
@@ -244,11 +247,11 @@ function setRenderYMirror() {
 - **paramJson样式**[回调参数JSON格式]
   - eventId :  Int  （事件ID，参考PlayerCallBackEvent定义）
   - objectId  :   Int（和setPlayerEventCallBack::objectid一致）
-  - paramCnt  :   Int（JSON携带的Key-Value键值对个数）
-  - paramJson  :   List（键值对String）
-  - key : String（参考：CBParamJsonKey定义）
-  - value:  String （参考：CBParamJsonKey定义指向的值含义）
-  - 示例 {"eventId":200001,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
+  - paramCnt  :   Int（paramlist参数中JSON携带的Key-Value键值对个数）
+  - paramlist  :   List（键值对String），拉流成功后，实时回调流状态信息。
+    - key : String
+    - value:  String
+  - 【paramJson】示例{"eventId":200002,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
 - 示例代码** : 
 
 ```javascript
@@ -257,12 +260,19 @@ player.setPlayerEventCallBack(PlayerEventListener, 1);
 
 var PlayerEventListener = function (paramJson) {
     var obj = JSON.parse(paramJson);
-    if (parseInt(obj.eventId) == PlayerCallBackEvent.TXE_STATUS_DOWNLOAD_EVENT && parseInt(obj.objectId) == 1) {
+    if (parseInt(obj.eventId) == 2002 && parseInt(obj.objectId) == 1) {
+    	alert("拉流成功");
+    }
+    else if (parseInt(obj.eventId) == -2301 && parseInt(obj.objectId) == 1) {
+    	alert("网络断连，且重试亦不能恢复，请重新推流");
+    }
+    else if (parseInt(obj.eventId) == 200002 && parseInt(obj.objectId) == 1) {
         doUpdatePlayerStatusInfo(paramJson);
     }
 };
 
 function doUpdatePlayerStatusInfo(paramJson) {
+//paramJson 参考 【paramlist:List】的示例
     var obj = JSON.parse(paramJson);
     if (obj.paramCnt != 0) {
         for (var i = 0; i < obj.paramCnt; ++i) {
@@ -348,7 +358,7 @@ SDK 发现了一些非严重错误，一般不会导致播放停止，所以您�
 
 - 设置播放端的流类型
   var AxTXEBeautyStyle = {
-  AX_PLAY_TYPE_LIVE_RTMP_HIGH_DELAY : 0,  // RTMP直播,延时比较高，1s左右，适用一个主播，大量观众场景，但是可以超过10个用户请求播放视频
+  AX_PLAY_TYPE_LIVE_RTMP : 0,  // RTMP直播,延时比较高，1s左右，适用一个主播，大量观众场景，但是可以超过10个用户请求播放视频
 
-  AX_PLAY_TYPE_LIVE_RTMP_LOC_DELAY : 1,  // ActiveX默认采用ACC，RTMP直播加速播放，延时较低，500ms左右，适用双向视频的双人场景或多人视频场景,
+  AX_PLAY_TYPE_LIVE_RTMP_ACC : 1,  // ActiveX默认采用ACC，RTMP直播加速播放，延时较低，500ms左右，适用双向视频的双人场景或多人视频场景,
   };

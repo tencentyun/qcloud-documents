@@ -7,9 +7,7 @@ COS Browser，用户可以可视化、方便地进行数据的上传、下载等
 Windows 32/64 位系统均可
 
 ## 软件界面
-
-![cosbrowser](cosbrowser.png)
-
+![cosbrowser](https://mc.qcloudimg.com/static/img/8016e3fb792856f8e28b9a35877d1767/image.png)
 ## 下载与安装
 
 下载安装版（依赖 .Net Framework 4.5，下载后双击安装）：
