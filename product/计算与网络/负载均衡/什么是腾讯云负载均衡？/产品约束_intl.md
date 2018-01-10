@@ -1,4 +1,4 @@
-﻿In addition to general usage restrictions, Tencent cloud load balancer instances are also subject to specific usage restrictions depending on their types.  For more information on types of cloud load balancer instances, refer to [Public Network Cloud Load Balancer](/doc/product/214/6147) and [Private Network Cloud Load Balancer](/doc/product/214/6148).
+﻿In addition to general usage restrictions, Tencent cloud load balancer instances are also subject to specific usage restrictions depending on their types.  For more information on types of cloud load balancer instances, refer to [Public Network Cloud Load Balancer](http://intl.cloud.tencent.com/document/product/214/6147) and [Private Network Cloud Load Balancer](http://intl.cloud.tencent.com/document/product/214/6148).
 
 <table>
 <tbody>

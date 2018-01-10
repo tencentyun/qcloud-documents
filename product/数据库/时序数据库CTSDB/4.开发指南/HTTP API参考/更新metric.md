@@ -6,7 +6,11 @@
 ### 请求参数 ###
 无
 ### 请求内容 ###
-请求的参数options为map类型的，必填，至少有一个属性。属性列举如下：
+请求内容包含 tags、time、fields、options 等字段，均为map类型，选填。具体如下：<br/>
+tags：允许新增维度字段，但系统不会删除原有字段<br/>
+time：其中的name字段不能修改，format字段允许修改<br/>
+fields：允许新增新的指标字段，但系统不会删除原有字段<br/>
+options属性列举如下：
 
 | 属性名称        | 必选            | 类型            | 描述            |
 |---------|---------|---------|---------|
@@ -23,9 +27,19 @@
 
 请求数据：
 
-    "options":
+    
 	{
-	    {
+		"tags":{
+			"set":"string"
+		},
+		"time":{
+			"name":"timestamp",
+			"format":"epoch_second"
+		},
+		"fields":{
+			"diskUsage":"float"
+		},
+		"options":{
 		    "expire_day":15,
 		    "number_of_shards":10
 	    }
