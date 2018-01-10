@@ -10,7 +10,7 @@ You can purchase BGP High Defense IP at Tencent Cloud China (Shanghai) or Tencen
 
 ### 3. How to Purchase
 
-(1) Go to [BGP High Defense IP Purchase page]().
+(1) Go to [BGP High Defense IP Purchase page](https://buy.cloud.tencent.com/buy/bgp_ip).
 
 (2) Deploy the origin server on Non-Tencent Cloud.
 
