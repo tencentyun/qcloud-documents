@@ -13,3 +13,5 @@
 - 服务端查询结果：合作伙伴服务后台校验 SIGN，查询身份认证结果。
 
 
+更多产品鉴权流程：[登录鉴权概览](https://cloud.tencent.com/document/product/655/13663)
+

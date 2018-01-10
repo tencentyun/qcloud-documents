@@ -3,12 +3,12 @@
 信鸽 iOS SDK 是一个能够提供 Push 服务的开发平台，提供给开发者简便、易用的 API 接口，方便快速接入。
 
 ## 接入方法
-1. 获取 AppId 和 AppKey
-2. 工程配置
+1. 获取 AppId 和 AppKey。
+2. 工程配置。
 
 ### 获取 AppId 和 AppKey
 
-前往 http://xg.qq.com 注册并获取 AppKey
+前往 http://xg.qq.com 注册并获取 AppKey。
 
 ### 工程配置
 
