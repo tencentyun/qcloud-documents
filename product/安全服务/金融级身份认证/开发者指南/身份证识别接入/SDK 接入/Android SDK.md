@@ -3,7 +3,7 @@
 SDK 需要用到相机/读取手机信息权限，在 Android 6.0 以上系统，SDK 对其做了权限的运行时检测。但是由于 Android 6.0 以下系统 Android 并没有运行时权限，检测权限只能靠开关相机进行。考虑到 SDK 的使用时间很短，快速频繁开关相机可能会导致手机抛出异常，故 SDK 内对 Android 6.0 以下手机没有做权限的检测。为了进一步提高用户体验，在 Android 6.0 以下系统上，我们建议合作方在拉起 SDK 前，帮助 SDK 做相机/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行身份证识别，可以使整个身份证识别体验更快更好。
 
 ## 2. 接入配置
-OCR SDK（WbCloudOcr）最低支持到 ** Android API 14: Android 4.0(ICS)**，请在构建项目时注意。
+OCR SDK（WbCloudOcr）最低支持到 ** Android API 14: Android 4.0(ICS) **，请在构建项目时注意。
 WbCloudOcr 将以 AAR 文件的形式提供。
 需要添加下面文档中所示的依赖(将提供的 AAR 文件加入到 app 工程的 `libs` 文件夹下面,
 并且在 **build.gradle** 中添加下面的配置:
@@ -261,7 +261,7 @@ public interface IDCardScanResultListener{
 | openApiSign       | 合作方后台服务器通过 ticket 计算出来的签名信息 | String | 40     | 必填                  |
 
 ## 6. 个性化参数设置
-WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（详情见上节）之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己 app 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
+WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（详情见上节）之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己 App 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
 
 ### 6.1 设置 SDK 的界面标题栏背景色
 合作方可以设置进入 SDK 的准备界面的标题栏背景色（仅对标准模式此设置才有效）。 SDK 默认显示准备界面的标题栏背景颜色是白色 (#ffffff)，但第三方可对其个性化设置。设置代码如下：
@@ -299,7 +299,7 @@ WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（
 ```
 
 ### 6.4 设置 SDK 的扫描识别的时间上限
-合作方可以设置 SDK 的扫描识别时间的上限。 SDK 打开照相机进行扫描识别的时间上限默认是 20 秒，20秒 内若扫描识别成功则返回到 SDK 的第一个界面，否则直到 20 秒直接退出扫描界面。第三方可对其个性化设置，设置的时间上限不能超过 60 秒，建议第三方采用默认值，不要修改这个参数。设置代码如下：
+合作方可以设置 SDK 的扫描识别时间的上限。 SDK 打开照相机进行扫描识别的时间上限默认是 20 秒，20 秒内若扫描识别成功则返回到 SDK 的第一个界面，否则直到 20 秒直接退出扫描界面。第三方可对其个性化设置，设置的时间上限不能超过 60 秒，建议第三方采用默认值，不要修改这个参数。设置代码如下：
 ```
 # 在 MainActivity 中点击某个按钮的代码逻辑：
   //先将必填的 InputData 放入 Bundle 中
@@ -408,3 +408,4 @@ Toast.makeText(MainActivity.this, "登录 OCR SDK 失败！" + "errorCode= " + e
 | OAUTH_INVALID_FILE_HASH="400503"      | 文件校验值错误     |
 | OAUTH_REQUEST_RATE_LIMIT="400504"     | 请求访问频率过高    |
 
+上一步：[SDK 启动](https://cloud.tencent.com/document/product/655/13846)

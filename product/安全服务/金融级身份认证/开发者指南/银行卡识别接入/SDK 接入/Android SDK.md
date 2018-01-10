@@ -186,7 +186,7 @@ public interface IDCardScanResultListener{
 
 ```
 
-`WbCloudOcrSdk.init() `的第二个参数用来传递数据。可以将参数打包到 `data(Bundle) `中，必须传递的参数包括（见 [5. 接口参数]()说明）
+`WbCloudOcrSdk.init() `的第二个参数用来传递数据。可以将参数打包到 `data(Bundle) `中，必须传递的参数包括（见本页第5章：接口参数说明）
 
 ```
 //这些都是 WbCloudOcrSdk.InputData 对象里的字段，是需要传入的数据信息
@@ -258,7 +258,7 @@ public interface IDCardScanResultListener{
 | openApiSign       | 合作方后台服务器通过 ticket 计算出来的签名信息 | String | 40     | 必填                  |
 
 ## 6. 个性化参数设置
-`WbCloudOcrSdk.init()`里 Bundle data，除了必须要传的 InputData 对象（详情见 [5. 接口参数]()说明）之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己 app 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
+`WbCloudOcrSdk.init()`里 Bundle data，除了必须要传的 InputData 对象（详情见本页第五章： 接口参数说明）之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己 app 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
 ### 6.1 设置 sdk 的扫描识别的时间上限
 合作方可以设置 SDK 的扫描识别时间的上限。 SDK 打开照相机进行扫描识别的时间上限默认是 20 秒，20 秒内若识别成功则退出扫描界面，否则一直识别，直到 20 秒后直接退出扫描界面。第三方可对其个性化设置，设置的时间上限不能超过 60 秒，建议第三方采用默认值，不要修改这个参数。设置代码如下：
 
@@ -359,3 +359,5 @@ Toast.makeText(MainActivity.this, "登录OCR sdk失败！" + "errorCode= " + err
 | OAUTH_INVALID_VERSION="400502"        | 请求上送版本参数错误  |
 | OAUTH_INVALID_FILE_HASH="400503"      | 文件校验值错误     |
 | OAUTH_REQUEST_RATE_LIMIT="400504"     | 请求访问频率过高    |
+
+[上一步：SDK 启动](https://cloud.tencent.com/document/product/655/13858)
