@@ -135,11 +135,9 @@ zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
 
   ![上传代码](https://mc.qcloudimg.com/static/img/fd7074730e5b37af8a4d86dc8125d120/xiaochengxustart.png)
 
-  ![开发者工具](https://mc.qcloudimg.com/static/img/f14303d2aa1a0d4609a4d679bf1b761a/image.png)
+4. 打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `appID`、`bizid`、`pushSecretKey`、`APIKey`、`sdkAppID`、`accountType`、`administrator`、`privateKey`配置成上述直播服务及云通信服务里生成的值，同时将小程序的`appid`、`appSecret`配置进去，并**保存**。
 
-4. 打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `bizid`、`pushSecretKey`、`APIKey`、`sdkAppID`、`accountType`、`administrator`、`privateKey`配置成上述直播服务及云通信服务里生成的值，并**保存**。
-
-  ![修改 MySQL 密码](https://mc.qcloudimg.com/static/img/565c61217b68b5a386665a80fc384f0a/serverconfig.png)
+  ![serverconfig](https://mc.qcloudimg.com/static/img/565c61217b68b5a386665a80fc384f0a/serverconfig.png)
 
 5. 点击界面右上角的【腾讯云】图标，在下拉的菜单栏中选择【上传测试代码】。
 
@@ -151,19 +149,15 @@ zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
 
   ![上传成功](https://mc.qcloudimg.com/static/img/a78431b42d0edf0bddae0b85ef00d40f/7.png)
 
-7. 上传代码完成之后，点击右上角的【详情】按钮，接着选择【腾讯云状态】即可看到腾讯云自动分配给你的开发环境域名：
+7. 上传代码完成之后，点击右上角的【详情】按钮，接着选择【腾讯云状态】即可看到腾讯云自动分配给你的开发环境域名，完整复制（包括 `https://`）开发环境 request 域名，然后在编辑器中打开 `wxlite/config.js` 文件，将复制的域名填入 `url` 中并保存，保存之后编辑器会自动编译小程序，左边的模拟器窗口即可实时显示出客户端的 Demo：
 
-  ![查看开发域名](https://mc.qcloudimg.com/static/img/f7549e6b1f6f5f9690c910957082f49c/%7B04138BF0-C29C-4A8B-A494-89E072C84B38%7D.png)
+  ![查看开发域名](https://mc.qcloudimg.com/static/img/52ce9c767e0957311bd7fabd1be64026/wxliteconfigserver.png)
 
-8. 完整复制（包括 `https://`）开发环境 request 域名，然后在编辑器中打开 `wxlite/config.js` 文件，将复制的域名填入 `url` 中并保存，保存之后编辑器会自动编译小程序，左边的模拟器窗口即可实时显示出客户端的 Demo：
+8. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。 
 
-  ![修改客户端配置](https://mc.qcloudimg.com/static/img/227e5b6de550496e6841ff0053644e15/image.png)
+  ![登录测试](https://mc.qcloudimg.com/static/img/6490dd80bd078bfdaff7ee5d7c1a8ad1/xiaochengxudebug.png)
 
-9. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。 
-
-  ![登录测试](https://mc.qcloudimg.com/static/img/536b77d25e5927690bcb93632a528470/image.png)
-
-10. 请使用手机进行测试，直接扫描开发者工具预览生成的二维码进入，<font color='red'> 这里部署的后台是开发测试环境，一定要开启调试: </font>
+9. 请使用手机进行测试，直接扫描开发者工具预览生成的二维码进入，<font color='red'> 这里部署的后台是开发测试环境，一定要开启调试: </font>
 
   ![开启调试](https://mc.qcloudimg.com/static/img/1abfe50750f669ca4e625ec3cdfbd411/xiaochengxutiaoshi.png)
  
