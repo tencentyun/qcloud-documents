@@ -3,7 +3,7 @@ COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目�
 ### 系统环境
 操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
 
-Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](/doc/product/436/10866) 进行安装与配置。
+Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 
 依赖库：
 - requests
