@@ -170,7 +170,7 @@ playerB.startPlay(urlB); // 不会立刻开始播放，而只会开始加载视�
 
 等到视频 A 播放结束，自动（或者用户手动切换到）视频B时，调用 resume 函数即可实现立刻播放。
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     // 在视频 A 播放结束的时候，直接启动视频 B 的播放，可以做到无缝切换
     if (event == PLAY_EVT_PLAY_END) {
            playerA.stop();
