@@ -1,8 +1,8 @@
 The lifecycle of CVM instance refers to the period ranging from launching to termination. 
 
-The chart below shows the lifecycle of prepaid and postpaid CVM instances. For more information the different billing types, please see [here](/doc/product/213/2180).
+The chart below shows the lifecycle of postpaid CVM instances. For more information about the billing types, please see [here](/doc/product/213/2180).
 
-![](//Mc.qcloudimg.com/static/img/551771757a0419084585ccbfad776d86/image.png)
+![](//mc.qcloudimg.com/static/img/e21cbb4204105c71d1d66902b030bdac/image.png)
 
 Status of CVM instances including:
 - Launching 
@@ -42,8 +42,7 @@ For more information, see [Shutting Down Instances](/doc/product/213/4929).
 
 ## Terminating Instances
 You can terminate unnecessary instances if required.
-Note:
-- Prepaid instances will be moved into the Recycle Bin upon expiration, and be terminated automatically after 7 days.
+Note:.
 - For postpaid instances, users can terminate them manually on the Console or via API.
 
 When terminating an instance, the system disks and data disks designated when purchasing will be terminated as well. But elastic cloud disks mounted on it will not be affected.

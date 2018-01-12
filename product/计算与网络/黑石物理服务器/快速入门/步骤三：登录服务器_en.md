@@ -14,7 +14,7 @@ From the CPM console, locate the CPM you just purchased and the public IP.
 *If there is no public IP, please verify whether an EIP is bound*
 
 ## Remote Login
-Download the remote connection software Putty. Reference download link: http://www.putty.nl/download.html
+Download the remote connection software Putty. Reference download link: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 Open the Putty client, enter the following information in the "PuTTY Configuration" window:
 

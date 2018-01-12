@@ -46,7 +46,7 @@ rtmp://2121.livepush.myqcloud.com/live/2121_15919131751?txSecret=aaa&txTime=bbb&
 
 ![](//mc.qcloudimg.com/static/img/b50c901fb4d529daf3405e78bc69908d/image.png)
 
-如下是一个典型的通知消息，它的含义是：一个id为9192487266581821586的新的flv录制文件已经生成，播放地址为：'http://200025724.vod.myqcloud.com/200025724_ac92b781a22c4a3e937c9e61c2624af7.f0.flv'。
+如下是一个典型的通知消息，它的含义是：一个id为9192487266581821586的新的flv录制文件已经生成，播放地址为：`http://200025724.vod.myqcloud.com/200025724_ac92b781a22c4a3e937c9e61c2624af7.f0.flv`。
 ```json
 {
     "channel_id": "2121_15919131751",

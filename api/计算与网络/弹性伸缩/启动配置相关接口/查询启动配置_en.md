@@ -45,7 +45,7 @@ scalingConfigurationSet contains an amount of scaling configuration information,
 | imageId | String | Image ID.  | 
 | storageType | Int | Data disk type. A value of 1 indicates that it is a local disk; A value of 2 indicates that it is a cloud disk. | 
 | storageSize | Int | Size of data disk (in GB). | 
-| rootSize | No | Int | Size of system disk (in GB). |
+| rootSize | Int | Size of system disk (in GB). |
 | bandwidthType | String | Bandwidth type. PayByHour: Charge by bandwidth usage time; PayByTraffic: Charge by traffic. 
 | bandwidth | Int | Public network bandwidth (in Mbps). | 
 | wanIp | Int |Public IP. 1 means enable; 0 means not enable. | 

@@ -1,5 +1,4 @@
-﻿## Download SDK
-
+## Download SDK
 You can download the [LVB SDK](https://cloud.tencent.com/document/product/454/7873) for mobile devices from Tencent Cloud's official website. Decompress the downloaded file to acquire `TXRTMPSDK.framework`. Currently, all features of the SDK are integrated inside this framework.
 
 ## Xcode Project Settings

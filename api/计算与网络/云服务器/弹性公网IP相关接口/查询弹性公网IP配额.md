@@ -1,83 +1,50 @@
 ## 1. 接口描述
- 
-域名: eip.api.qcloud.com
-接口名: DescribeEipQuota
 
-查询指定地域弹性公网IP配额。
+本接口 (DescribeAddressQuota) 用于查询您账户的[弹性公网IP](/document/product/213/1941)（简称 EIP）在当前地域的配额信息。配额详情可参见 [EIP 产品简介](/document/product/213/5733)。
 
- 
+接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
+
 
 ## 2. 输入参数
- 
 
-<table class="t"><tbody><tr>
-<th>参数名称</th>
-<th>必选</th>
-<th>类型</th>
-<th>描述</th>
-<tr>
-<th>空</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-</tbody></table>
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
 
- 
+| 参数名称 | 类型 | 是否必选 | 描述 |
+|---------|---------|---------|---------|
+| Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
+
 
 ## 3. 输出参数
+
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
-| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
-| data |   Array | 返回的数据结构|
+| RequestId| String| 唯一请求 ID。每次请求都会返回`RequestId`。当用户调用接口失败找后台研发人员处理时需提供该`RequestId`。|
+| QuotaSet | array of [Quota](/document/api/213/9451#quota) objects| 账户 EIP 配额信息|
 
-Data结构
 
-<table class="t"><tbody><tr>
-<th><b>参数名称</b></th>
-<th><b>类型</b></th>
-<th><b>描述</b></th>
-<tr>
-<td> data.eipNumQuota <td> Int <td> 能申请EIP个数的总配额
-<tr>
-<td> data.currentEipNum <td> Int <td> 当前EIP个数
-<tr>
-<td> data.dailyApplyQuota <td> Int <td> 日申请EIP的次数限制
-<tr>
-<td> data.dailyApplyCount <td> Int <td> 当天申请EIP次数
-<tr>
-<td> data.dailyAllocWanIpQuota <td> Int <td> 日解绑EIP时重新分配普通公网IP的次数限制
-<tr>
-<td> data.dailyAllocWanIpCount <td> Int <td> 当天解绑EIP并重新分配普通公网IP次数
-</tbody></table>
 
- 
 
-## 4. 示例
- 
-输入
+## 4. 示例代码
+
+#### 请求参数
 <pre>
-
-  https://eip.api.qcloud.com/v2/index.php?
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
-
+  https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddressQuota
+  &Version=2017-03-12
+  &<<a href="/document/api/213/11650">公共请求参数</a>>
 </pre>
 
-输出
-```
-
+#### 返回参数
+<pre>
 {
-    "code": 0,
-    "message": "",
-    "data": {
-        "eipNumQuota": 20,
-        "currentEipNum": 2,
-        "dailyApplyQuota": 10,
-        "dailyApplyCount": 7,
-        "dailyAllocWanIpQuota": 10,
-        "dailyAllocWanIpCount": 2    
+    "Response": {
+        {
+            'QuotaSet': [
+            {'QuotaId': 'TOTAL_EIP_QUOTA', 'QuotaCurrent': 0, 'QuotaLimit': 20},
+            {'QuotaId': 'DAILY_EIP_APPLY', 'QuotaCurrent': 0, 'QuotaLimit': 40},
+            {'QuotaId': 'DAILY_EIP_ASSIGN','QuotaCurrent': 0, 'QuotaLimit': 40},
+             ]
+        }
+        "RequestId": "6EF60BEC-0242-43AF-BB20-270359FB54A7"
     }
 }
-
-```
-
+</pre>

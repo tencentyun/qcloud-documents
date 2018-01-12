@@ -8,9 +8,9 @@ At Tencent, we respect intellectual property rights and the owners of such right
 
 This Policy sets out how we respond to alleged copyright infringements on Tencent Cloud. In addition, we may respond to alleged copyright infringements in accordance with the Tencent Cloud Terms of Service and applicable laws.
 
-Please note that this Policy is in relation to alleged copyright infringements only. If you are concerned about alleged infringements of any other intellectual property rights or proprietary rights (e.g. trademarks), or any other alleged activities that breach the Tencent Cloud Terms of Service (e.g. inappropriate content), please refer to the Tencent Cloud Terms of Service (including the Tencent Cloud Acceptable Use Policy) or contact us at [cloudlegalenquiries@tencent.com](cloudlegalenquiries@tencent.com). 
+Please note that this Policy is in relation to alleged copyright infringements only. If you are concerned about alleged infringements of any other intellectual property rights or proprietary rights (e.g. trademarks), or any other alleged activities that breach the Tencent Cloud Terms of Service (e.g. inappropriate content), please refer to the Tencent Cloud Terms of Service (including the Tencent Cloud Acceptable Use Policy) or contact us at `cloudlegalenquiries@tencent.com`
 
-If you have any questions about this Policy, please contact us at [cloudlegalenquiries@tencent.com](cloudlegalenquiries@tencent.com). 
+If you have any questions about this Policy, please contact us at `cloudlegalenquiries@tencent.com`
 
 ## Summary of Notification and Counter-Notification process
 
@@ -45,7 +45,7 @@ The Notification must be in writing, and must contain at least the following inf
 
 Please send any Notification to our Legal Officer via: 
 
-- **email at** [cloudlegalenquiries@tencent.com](cloudlegalenquiries@tencent.com); or 
+- **email at** `cloudlegalenquiries@tencent.com`; or 
 - **postal mail** at Level 29, Three Pacific Place, 1 Queen’s Road East, Wanchai, Hong Kong (Attention: Legal Department).
 
 ## To file a Counter-Notification
@@ -66,5 +66,5 @@ The Counter-Notification must be in writing, and must contain at least the follo
 
 Please send any Counter-Notification to our Legal Officer via:
 
-- **email** at [cloudlegalenquiries@tencent.com](cloudlegalenquiries@tencent.com); or 
+- **email** at `cloudlegalenquiries@tencent.com`; or 
 - **postal mail** at Level 29, Three Pacific Place, 1 Queen’s Road East, Wanchai, Hong Kong (Attention: Legal Department). 

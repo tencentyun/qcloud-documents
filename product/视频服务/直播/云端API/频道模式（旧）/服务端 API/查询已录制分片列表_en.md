@@ -135,6 +135,6 @@ Output 1
 
 ```
 After the recording, the VOD platform will generate a file, for example:
-http://2527.vod.myqcloud.com/2527_000007d0b18*****bd98f9125ed6569ee9a90001.f0.mp4
+`http://2527.vod.myqcloud.com/2527_000007d0b18*****bd98f9125ed6569ee9a90001.f0.mp4`
 Complete information on access methods can be found via fileId and API [VOD API](https://cloud.tencent.com/document/product/266/8586)
 

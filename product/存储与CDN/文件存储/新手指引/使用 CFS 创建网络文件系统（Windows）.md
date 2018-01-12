@@ -63,7 +63,7 @@
  > - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](/doc/product/582/9764)。
 
 3. 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Windows 下的挂载命令。
-![](//mc.qcloudimg.com/static/img/b5d0794e84311c37a2543686abc51be1/image.png)
+![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
 ## 三、连接实例
 本部分操作介绍登录 Windows 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见 [登录 Windows 实例](/doc/product/213/5435) 。
@@ -118,6 +118,23 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 关闭注册表并重启 Windows 系统，完成注册表修改。
 
 #### 4. 挂载文件系统
+##### 通过图形界面挂载
+a.打开 "映射网路驱动器"
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，点击菜单中的 "映射网路驱动器"。 
+![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
+![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
+
+b.输入访问路径
+在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录）。
+![](https://mc.qcloudimg.com/static/img/caa18888e6da73b19de8eefc18ff3680/image.png)
+![](https://mc.qcloudimg.com/static/img/fbfba42f108e2dd0c31599242afa8878/image.png)
+
+
+c.验证读写
+确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
+![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
+
+##### 通过 CMD 命令行挂载
 在 Windows 的命令行工具中输入如下命令，挂载文件系统。其中，系统缺省子目录为 "nfs"。
 ```
 mount  <挂载点IP>:/<子目录> <共享目录名称>:
@@ -139,9 +156,15 @@ mount 10.10.0.12:/z3r6k95r X:
 > **注意：**
 > FSID 可以到【控制台】>【文件系统详情】>【挂载点信息】中获取。
 
-![](https://mc.qcloudimg.com/static/img/4ce4a81c90b9ecdc19a4396720a46330/image.png)
+![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
-#### 5. 卸载共享目录 
+
+#### 5.卸载文件系统
+##### 通过图形界面卸载共享目录
+要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中点击【断开】选项，即可断开文件系统的连接。
+![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
+
+##### 通过 CMD 命令卸载共享目录 
 
 当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
 ```
@@ -152,9 +175,13 @@ umount <目录名称>：
 umount X：
 ```
 
+
+
 ## 五、终止资源
 您可以从腾讯云控制台轻松终止 CVM 实例和文件系统。事实上，最好终止不再使用的资源，以免继续为其付费。
 1. 终止腾讯云实例。进入腾讯云云服务器 [控制台](https://console.cloud.tencent.com/cvm/index)，选中需要终止的实例，单击【更多】>【云主机状态】，可以选中【销毁】以终止 CVM 实例。
 ![](//mc.qcloudimg.com/static/img/76c588284e3b525702d748b5cd7b8b00/image.png)
 2. 终止文件系统。进入腾讯云文件存储 [控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 ![](//mc.qcloudimg.com/static/img/28cade4807a283ffdcb1fc2a39a7ad88/image.png)
+
+

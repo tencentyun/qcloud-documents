@@ -4,9 +4,9 @@ This API (ApplySnapshot) is used to roll back snapshots to the original cloud di
 
 Domain for API request:<font style="color:red">snapshot.api.qcloud.com</font>
 
-Usage restrictions:
-1. The snapshot must be in `normal` status. The snapshot status can be queried through [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API. See the `status` field in output parameters.
-2. Only the rollback of snapshots to the original cloud disk is supported
+Usage restrictions:<br>
+1. The snapshot must be in `normal` status. The snapshot status can be queried through [DescribeSnapshots (Query Snapshot List)](https://cloud.tencent.com/doc/api/364/2530) API. See the `status` field in output parameters.<br>
+2. Only the rollback of snapshots to the original cloud disk is supported.<br>
 3. For an elastic cloud storage, the elastic cloud storage must be unmounted. The mount status of a cloud storage can be queried via [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API; see the `attached` field in output parameters. For a non-elastic cloud storage purchased with CVM, the CVM must be shut down. The CVM status can be queried via [View Instance List](https://cloud.tencent.com/doc/api/229/831) API; see the `status` field in output parameters.
 
 

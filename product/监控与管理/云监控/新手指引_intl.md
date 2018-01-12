@@ -1,6 +1,6 @@
 This guide is intended for users who use Cloud Monitor for the first time, and teaches users how to check real-time and historical monitoring data as well as how to set alarms for cloud services.
 
-If you want to check the public network outbound bandwidth (the bandwidth sent by the cloud server to the Internet) of a CVM (ID: `ins-12345678`) in Shanghai over the past 7 days, and send an alarm message to `12345678888` when a bandwidth greater than`2Mbps` is detected, you need to complete the following procedures.
+If you want to check the public network outbound bandwidth (the bandwidth sent by the cloud server to the Internet) of a CVM (ID: `ins-12345678`) in Shanghai over the past seven days, and send an alarm message to `12345678888` when a bandwidth greater than`2Mbps` is detected, you need to complete the following procedures.
 
 ## Starting Setup
 To enable Tencent Cloud Monitor, you need to use Tencent Cloud services (such as CVMs) under your Tencent cloud account, so that the metric data can be automatically generated in the Cloud Monitor Console.
@@ -13,7 +13,7 @@ Monitor Overview shows the overall monitoring information under your account, in
 ## Viewing Monitoring Views of Cloud Products
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "Cloud Product Monitoring" - "Cloud Virtual Machine" tab, and the right list will display all the CVM instances and their current <font color="red"> real-time data </font>.
 
-2) Select "East China (Shanghai)" region, and click the CVM (ID: `ins-1234578`) to enter the instance monitoring details page. Click "Public Network Outbound Bandwidth" on the left, select "Last 7 Days" in the time range above, or use the time picker to select a specific time period, and then you can see the trend of the public network outbound bandwidth over the past 7 days.
+2) Select "East China (Shanghai)" region, and click the CVM (ID: `ins-1234578`) to enter the instance monitoring details page. Click "Public Network Outbound Bandwidth" on the left, select "Last Seven Days" in the time range above, or use the time picker to select a specific time period, and then you can see the trend of the public network outbound bandwidth over the past seven days.
 
 ## Setting the Alarm
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Cloud Monitoring" - "My Alarms" tab, and then click "Alarm Policy" button.

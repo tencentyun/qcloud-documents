@@ -24,6 +24,28 @@ sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel
 ```
 
+注意在centos6.5及较低版本，可能会提示fuse版本太低，在安装过程的configure操作时返回
+```
+ checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
+  Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
+```
+此时，你需要来手动安装fuse版本，具体步骤
+```
+ # yum remove -y fuse-devel
+  # wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.8.4.tar.gz
+  # tar -zxvf fuse-2.8.4.tar.gz
+  # cd fuse-2.8.4
+  # ./configure
+  # make
+  # make install
+  # export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
+  # modprobe fuse
+  # echo "/usr/local/lib" >> /etc/ld.so.conf
+  # ldconfig
+  # pkg-config --modversion fuse   
+  2.8.4   //看到版本表示安装成功  
+```
+
 ## 使用方法 
 ### 获取工具 
 Github 获取地址： [COSFS 工具](https://github.com/tencentyun/cosfs-v4.2.1)
@@ -79,8 +101,70 @@ cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odb
 ```
 fusermount -u /mnt
 ```
+或者
+
+```
+umount -l /mnt
+```
+
 ## 注意事项 
 - COSFS 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
 - 不支持 hard link 。不适合高并发读/写的场景。
 - 挂载、卸载文件时，不要同时在挂载点上。可以先 cd 到其他目录，再对挂载点进行挂载、卸载操作。
+
+
+### 常见问题
+* 如何挂载目录
+   在挂载命令的时候，可以指定目录，如
+   
+   cosfs appid:my-bucket:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+   注意，my-dir必须以/开头
+   
+   
+* 为什么之前可用写文件，突然不能写了？
+
+   由于cos鉴权产品策略调整，所以老版本的cosfs工具会导致策略校验不过，因此需要拉取最新的cosfs工具重新mount
+
+
+* 在centos6.5及较低版本，提示fuse版本太低，该如何解决？
+
+  如在configure操作时，提示
+  ```
+    hecking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >=    2.6) were not met:
+    Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
+    ```
+
+   此时，你需要来手动安装fuse版本，具体步骤
+
+   ```
+     # yum remove -y fuse-devel
+     # wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.8.4.tar.gz
+     # tar -zxvf fuse-2.8.4.tar.gz
+     # cd fuse-2.8.4
+     # ./configure
+     # make
+     # make install
+     # export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
+     # modprobe fuse
+     # echo "/usr/local/lib" >> /etc/ld.so.conf
+     # ldconfig
+     # pkg-config --modversion fuse   
+     2.8.4   //看到版本表示安装成功  
+   ```
+
+* 为什么cosfs在正常使用过程中，突然退出了，重新挂载显示"unable to access MOUNTPOINT /path/to/mountpoint: Transport endpoint is not connected"
+
+  如果cosfs不是被强制Kill掉，那么检查机器上的fuse版本是否低于2.9.4，libfuse在低于2.9.4版本的情况下可能会导致cosfs异常退出。
+  建议更新fuse版本，或下载cosfs V1.0.2及以上版本。下载地址: https://github.com/tencentyun/cosfs/releases
+
+* 为什么通过cosfs上传的文件Content-Type全是"application/octet-stream"?
+
+  
+  cosfs是根据/etc/mime.types和上传的文件后缀进行比对，自动设置Content-Type，建议查看机器上是否存在该文件。
+
+  对于ubuntu可以通过sudo apt-get install mime-support来添加
+
+  对于centos可以通过sudo yum install mailcap来添加
+
+  或者手动添加，每种格式一行，例如：image/png png

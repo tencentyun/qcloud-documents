@@ -5,7 +5,7 @@ If the routing of entire system is managed using block as granularity, it will d
 
 Partition is the basic unit of routing and failure recovery, each of which contains several blocks; with the introduction of partition, routing entries can be reduced to the MB level.
 
-![](//mccdn.qcloud.com/static/img/07dad25d196a1511bd8b46174ca8eb3d/image.png)
+![](https://mc.qcloudimg.com/static/img/e4adc7b9fcbeda58987720d1b1286dee/image.png)
 
 ## Consistent Hashing
 **Consistent hashing will solve node failure.**
@@ -33,7 +33,7 @@ The first method has lower write latency but higher network traffic pressure due
 
 We have applied the trade-off solution: the client first writes the master copy, and also writes two auxiliary copies, and then it will return the result of write success to users after the auxiliary copies are updated successfully. The principle is that it is required to write three copies of data successfully before returning the result of success to users. For read requests, request data directly from the master copy.
 
-![](//mccdn.qcloud.com/static/img/1724b5db3c838602c6e4bb71093c09f8/image.png)
+![](https://mc.qcloudimg.com/static/img/ca80a2cd8a1e2b050057020b22ce2cba/image.png)
 
 ## Fast Recovery
 **Incremental recovery policy will rapidly resolve copy failures.**
@@ -48,7 +48,7 @@ In fact, except the hardware failure, the software or network failure can actual
 
 We apply incremental recovery technology to speed up the data recovery for users. The incremental recovery means that, after the recovery of failure node, only data changes during the failure need to be synchronized to the main node, for which the volume of data is far less than that for recovery in full volume.
 
-![](//mccdn.qcloud.com/static/img/fb13ace73a2e0eb5dac28f78bd95b8f8/image.png)
+![](https://mc.qcloudimg.com/static/img/7482cea4d2238001e2d8508c9754d0a7/image.png)
 
 **Incremental recovery policy**:
 The smallest logical unit of migration recovery is partition, and the smallest physical unit is block. Each block has its own seq number to be maintained, which will be auto incremented for each update. The user's new write request will still be written into three copies (including the failure recovery copy), but the new data for the failure copy can only be written in the memory cache, and cannot be refreshed to the disk. The comparison of block seq numbers between the failure copy and master copy will be performed in the backend process; if the numbers are the same, data will skip recovery, and if different, data will be recovered to the disk of failure copy.
@@ -64,7 +64,7 @@ Three destination partitions are allocated by Master. After the user's new reque
 
 Here it is necessary to take into account the mutual exclusion between the backend process and the user's write request, and the specific implementation mechanism is the same with that of fast recovery.
 
-![](//mccdn.qcloud.com/static/img/086b806102327a1e874df22f413339a9/image.png)
+![](https://mc.qcloudimg.com/static/img/fa92f92fe8673d6024ce7473be3821b9/image.png)
 
 ## Snapshot
 **Snapshot is used for data disaster recovery; the snapshot rollback function can be applied for the real-time data rollback.**
@@ -112,6 +112,6 @@ In order to completely eliminate the RPO window, we have introduced the CDP mech
 
 We have combined the changed data of snapshot retained for 7 days in the CDP system, to ensure that users can recover to the data at any time within 7 days, completely resolving users' concern about data loss.
 
-![](//mccdn.qcloud.com/static/img/b31fd3844df86ad4973899f0f5ad0a88/image.png)
+![](https://mc.qcloudimg.com/static/img/22c5514ebc2d854bfce04d9709dba612/image.png)
 
 

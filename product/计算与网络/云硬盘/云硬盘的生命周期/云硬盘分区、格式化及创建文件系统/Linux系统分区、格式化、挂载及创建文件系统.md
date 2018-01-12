@@ -54,7 +54,7 @@ fdisk /dev/vdb
 2) 分区后执行 `ls -l /dev/disk/by-id` 命令，可以看到以下内容：
 ![](//mccdn.qcloud.com/static/img/1b88d2d8deb8d7a421e65ce6e27b82d6/image.png)
 
-##（有条件）硬盘格式化
+## （有条件）硬盘格式化
 > 此步骤假定您在处理初始化的硬盘。如果该硬盘已经包含数据（如，从快照创建的云硬盘），请勿使用 mkfs（而应跳到下一步）。否则，您会格式化并删除现有数据。
 
 运行`mkfs.ext4 device_name`命令格式化并创建 ext4 文件系统。用设备名称（例如，/dev/vdb）替换 device_name。根据应用程序的要求或操作系统的限制，您可以选择其他文件系统类型，如 ext3 或 XFS。

@@ -65,16 +65,16 @@ dimensions.0.value为VPN网关ID
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/vpngw
 &metricName=inpkg
 &dimensions.0.name=vpnGwId
 &dimensions.0.value=vpngw-q7v069tf
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-```
+</pre>
 
 输出
 

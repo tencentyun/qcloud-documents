@@ -1,23 +1,39 @@
-## 1 Enable Voice Service
-Go to the Console, open Game Voice and enable the service.
-![](https://mc.qcloudimg.com/static/img/7ad80ac753affb64a932b42e94ae0e52/image.png)
+## 1. Create a Game
+Log in to the [console](https://console.cloud.tencent.com/gameservice).
+In the game management interface on the homepage, the procedure is: first create a game, and then activate the service.
+![](https://mc.qcloudimg.com/static/img/07db2948dc8aff9a7807c28029f7a752/image.png)
 
 
-## 2. Create a GVoice Instance
+### 1.1 Add Game  
+On the game management page, you can create your games. A game ID and a game KEY are generated automatically when a game is created, which are used when you call the voice API.
 
-1. Free Trial  
-Free trial is available to 1,000 users every day.  
+![](https://mc.qcloudimg.com/static/img/5ff6c29cf96bc110cf05f820575f9e43/image.png) 
 
-2. Create a GVoice Instance 
-Newly created Game Voices are all charged and integrated with SDK. And the fee will be charged after the voice service has actually been used. [view the price] (https://cloud.tencent.com/document/product/556/7637).
-![](https://mc.qcloudimg.com/static/img/7067b0caf6af0a79abc55cf5977459bd/image.png)
+### 1.2 Free Experience Zone  
+A "Free Experience Zone" is created on the game management page by default. You can experience the voice service for free and use it for testing purpose. 
+The capacity for free experience zone is limited. Both ID and KEY must be replaced with the ones for paid game when the service is running formally.
+![](https://mc.qcloudimg.com/static/img/f19385954235ea03abc7e8f163a64470/image.png)
 
-3. Game ID and Game KEY  
-When a game voice is activated, a "Game ID" and a "Game KEY" will be generated, which will be used when calling API of voice SDK. By default, only the owner of registered account number and manager (global coordinator) have the permission to review Game KEY. If you are not the manager, please contact with the manager to review it.
-![](https://mc.qcloudimg.com/static/img/6a2d743ebd02d44dd2f1502f8c0a9cbe/image.png)
+## 2. Activate Voice Service
+
+When a game is created successfully, the voice service is not activated by default, and needs to be activated manually. You also need to manually activate the service for "Free Experience Zone". If the voice service has been activated for "Free Experience Zone", the voice icon is illuminated, otherwise it is gray.
+![](https://mc.qcloudimg.com/static/img/3952fb74c4884b937d7b6c8f4ec18c69/image.png)   
+  
+Click on the gray voice icon to open the voice activation page, and select a region for activation.
+![](https://mc.qcloudimg.com/static/img/90866fba1eca6897b7fd724c0768dac9/image.png) 
+
+Free services are only available in Mainland China. 
+![](https://mc.qcloudimg.com/static/img/c2d35214791f2d1c0fa76fffee4ee59f/image.png) 
 
 
-## 3. Change Voice Settings
-You can change your configurations in the Console, including setting restrictions and alarm triggering conditions.
-![](https://mc.qcloudimg.com/static/img/37f83df909748e90ba326b4787663016/update.png)
+
+## 3. Modify Configuration of Voice Service
+
+
+You can modify the service permission for paid services.
+![](https://mc.qcloudimg.com/static/img/442526170e788940bbfb34bac83ccf72/image.png)
+
+
+Modification of configuration is not allowed for the free zones.
+![](https://mc.qcloudimg.com/static/img/c2d35214791f2d1c0fa76fffee4ee59f/image.png) 
 

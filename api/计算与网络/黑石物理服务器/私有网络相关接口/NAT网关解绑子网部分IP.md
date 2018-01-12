@@ -74,7 +74,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Region=gz
 	&unVpcId=300006
 	&natId=nat-et8e970y
-	&ips.0.subnetId=subnet-111111
+	&ips.0.unSubnetId=subnet-111111
 	&ips.0.ipList.0=10.11.1.14
 	&ips.0.ipList.1=10.11.1.15
 	&ips.1.unSubnetId=subnet-222222

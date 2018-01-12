@@ -151,7 +151,7 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
 
 ```
 {
-    request_content":{
+    "request_content":{
         "pay_mch_key":{
             "pay_platform":2,
             "out_mch_id":"1234mcWYS3M5TjKLorAZ',
@@ -301,7 +301,7 @@ A2F2F3C3506F3461212525C4917479B515ABB42BDC5909F7C012B6F74C0C1B99
 # 交易接口
 ## 刷卡支付
 ### 接口地址
->https://pay.qcloud.com/cpay/micro_pay  
+`https://pay.qcloud.com/cpay/micro_pay`  
 
 content\_type：application/json
 ### 输入参数
@@ -527,7 +527,7 @@ post(request, "https://pay.qcloud.com/cpay/micro_pay", &response);
 ```
 ## 扫码支付
 ### 接口地址
->https://pay.qcloud.com/cpay/scan_code_pay
+`https://pay.qcloud.com/cpay/scan_code_pay`
 
 content_type：application/json
 ### 输入参数
@@ -749,7 +749,7 @@ post(request, "https://pay.qcloud.com/cpay/scan_code_pay", &response);
 - **支付宝只有发生支付超时或者支付结果未知时可调用撤销**
 - **撤单的终端必须和发起支付的终端是同一个（为保证安全）**
 ### 接口地址
->https://pay.qcloud.com/cpay/reverse
+`https://pay.qcloud.com/cpay/reverse`
 
 content_type：application/json
 ### 输入参数
@@ -798,7 +798,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -955,7 +955,7 @@ post(request, "https://pay.qcloud.com/cpay/reverse", &response);
 ```
 ## 申请退款
 ### 接口地址
->https://pay.qcloud.com/cpay/refund
+`https://pay.qcloud.com/cpay/refund`
 
 content_type：application/json
 ### 输入参数
@@ -1183,7 +1183,7 @@ post(request, "https://pay.qcloud.com/cpay/refund", &response);
 ```
 ## 关闭订单
 ### 接口地址
->https://pay.qcloud.com/cpay/close_order
+`https://pay.qcloud.com/cpay/close_order`
 
 content_type：application/json
 ### 输入参数
@@ -1232,7 +1232,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1397,7 +1397,7 @@ post(request, "https://pay.qcloud.com/cpay/reverse", &response);
 ```
 ## 查询订单
 ### 接口地址
->https://pay.qcloud.com/cpay/query_order
+`https://pay.qcloud.com/cpay/query_order`
 
 content_type：application/json
 ### 输入参数
@@ -1446,7 +1446,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>trade_type</td>
@@ -1623,7 +1623,7 @@ post(request, "https://pay.qcloud.com/cpay/query_order", &response);
 ```
 ## 查询退款单
 ### 接口地址
->https://pay.qcloud.com/cpay/query_refund_order
+`https://pay.qcloud.com/cpay/query_refund_order`
 
 content_type：application/json
 ### 输入参数
@@ -1672,13 +1672,13 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>out_refund_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的退款单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的退款单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -1899,6 +1899,12 @@ content_type：application/json
       <td>OrderContent</td>
       <td>订单信息，详见OrderContent</td>
    </tr>
+<tr>
+      <td>order_client</td>
+      <td>是</td>
+      <td>OrderClient</td>
+      <td>订单信息，详见OrderClient</td>
+   </tr>
 </table>
 
 ### 返回参数
@@ -1983,7 +1989,7 @@ content_type：application/json
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>nonce_str</td>
@@ -2136,239 +2142,9 @@ content_type：application/json
 </table>
 
 # 门店接口
-## 设置门店信息
-### 特别说明
-- 如使用接口配置门店信息，则不要再使用云支付提供的商户管理后台页面配置门店信息，否则会造成云支付和服务商系统的门店信息不一致。
-### 接口地址
->https://pay.qcloud.com/cpay/set_sub_mch_shop_info
-
-content_type：application/json
-### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-### RequestContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>out_mch_id</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>云支付分配给服务商的帐号，固定20个数字或者字母</td>
-   </tr>
-   <tr>
-      <td>out_sub_mch_id</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
-   </tr>
-   <tr>
-      <td>is_all</td>
-      <td>是</td>
-      <td>Bool</td>
-      <td><b>True表示设置全量门店信息，会删除未在请求中的门店。<br>False表示设置增量门店信息，只会修改或增加门店。</b></td>
-   </tr>
-
-   <tr>
-      <td>shop_infos</td>
-      <td>是</td>
-      <td>ShopInfo[]</td>
-      <td>门店信息列表。详见ShopInfo</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-</table>
-
-### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-### ResponseContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Status</td>
-      <td>错误码，详见Status。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-   <tr>
-      <td>log_id</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>消息id</td>
-   </tr>
-   <tr>
-      <td>internal_status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>调试使用，调用者可以不予理会</td>
-   </tr>
-   <tr>
-      <td>set_shop_info</td>
-      <td>否</td>
-      <td>SetShopInfoResponse</td>
-      <td>authen_info存在时必填。详见SetShopInfoResponse</td>
-   </tr>
-</table>
-
-### SetShopInfoResponse结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-   <tr>
-      <td>set_shop_infos</td>
-      <td>是</td>
-      <td>ShopInfo[]</td>
-      <td>设置门店完成功后，所有的门店信息列表。详见ShopInfo </td>
-   </tr>
-</table>
-
-### 构造设置门店请求例子
-```
-/*
-构造请求字符串
-*/
-std::string gen_cloud_pay_set_sub_mch_shop_info(
-    const std::string &out_mch_id,
-    const std::string &out_sub_mch_id,
-    bool              is_all，
-    const std::string &authen_key
-)
-{
-    Json::Value request_content;
-    request_content["nonce_str"] = generate_random_nonce_str();
-    request_content["out_mch_id"] = out_mch_id;
-    request_content["out_sub_mch_id"] = out_sub_mch_id;
-    request_content["is_all"] = is_all;
-
-    Json::Value shop_infos; 
-
-    Json::Value shop1, shop2;
-    shop1["shop_name"] = "shop1";
-    Json::Value shop1_devices, shop1_staffs, tmp_device1, tmp_staff1;
-    tmp_device1["device_id"] = "1";
-    tmp_device1["device_type"] = 3;// 3: 混合支付设备，支持刷卡支付+扫码支付
-    shop1_devices.append(tmp_device1);
-    shop1["device_infos"] = shop1_devices;
-    tmp_staff1["staff_id"] = "1";
-    tmp_staff1["staff_name"] = "staff1";
-    tmp_staff1["shop_manager"] = true;
-    shop1_staffs.append(tmp_staff1);
-    shop1["staff_infos"] = shop1_staffs;
-    shop_infos.append(shop1);
-
-    shop2["shop_name"] = "shop2";
-    Json::Value shop2_devices, shop2_staffs, tmp_device2, tmp_staff2;
-    tmp_device2["device_id"] = "1";
-    tmp_device2["device_type"] = 3;// 3: 混合支付设备，支持刷卡支付+扫码支付
-    shop2_devices.append(tmp_device2);
-    shop2["device_infos"] = shop2_devices;
-    tmp_staff2["staff_id"] = "1";
-    tmp_staff2["staff_name"] = "staff2";
-    tmp_staff2["shop_manager"] = true;
-    shop2_staffs.append(tmp_staff2);
-    shop2["staff_infos"] = shop2_staffs;
-    shop_infos.append(shop2);
-    
-    request_content["shop_infos"] = shop_infos;
-    
-    Json::FastWriter w;
-    const std::string &rc = w.write(request_content);
-
-    Json::Value authen_info, s;
-    a["authen_type"] = 1;
-    // 使用计算认证码举例（使用OpenSSL实现）中的函数计算认证码
-    std::string authen_code;
-    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
-        // 计算失败
-        return "";
-    }
-    a["authen_code"] = authen_code;
-    authen_info["a"] = a;
-
-    Json::Value request;
-    request["request_content"] = rc;
-    request["authen_info"] = authen_info;
-
-    return w.write(request);
-}
-/*
-构造请求完毕之后，将请求通过POST方法发送到云支付接口对应的URL
-使用了发送请求举例（使用libcurl实现）中的post函数
-*/
-std::string response;
-post(request, "https://pay.qcloud.com/cpay/set_sub_mch_shop_info", &response);
-```
 ## 查询门店信息
 ### 接口地址
->https://pay.qcloud.com/cpay/query_sub_mch_shop_info
+`https://pay.qcloud.com/cpay/query_sub_mch_shop_info`
 
 content_type：application/json
 ### 输入参数
@@ -2423,7 +2199,7 @@ content_type：application/json
       <td>page_num</td>
       <td>是</td>
       <td>Number(32)</td>
-      <td>页码</td>
+      <td>页码（从1开始）</td>
    </tr>
    <tr>
       <td>page_size</td>
@@ -2573,10 +2349,217 @@ std::string gen_cloud_pay_query_sub_mch_shop_info(
 std::string response;
 post(request, "https://pay.qcloud.com/cpay/query_sub_mch_shop_info", &response);
 ```
+
+## 查询子商户信息
+### 接口地址
+`https://pay.qcloud.com/cpay/sdk_query_sub_mch_info`
+
+content_type：application/json
+### 输入参数
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>request_content</td>
+      <td>是</td>
+      <td>RequestContent</td>
+      <td>请求内容，详见<b>本节RequestContent</b></td>
+   </tr>
+   <tr>
+      <td>authen_info</td>
+      <td>是</td>
+      <td>AuthenInfo</td>
+      <td>认证信息，详见AuthenInfo</td>
+   </tr>
+</table>
+
+### RequestContent结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>out_sub_mch_id</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>云支付分配给子商户的帐号，固定20个数字或者字母</td>
+   </tr>
+   <tr>
+      <td>nonce_str</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>随即字符串</td>
+   </tr>
+   <tr>
+      <td>page_num</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>页码, 请填1，当前只支持查询一个子商户信息</td>
+   </tr>
+   <tr>
+      <td>page_size</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>单页条数, 请填1，当前只支持查询一个子商户信息</td>
+   </tr>
+</table>
+
+### 返回参数
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>response_content</td>
+      <td>是</td>
+      <td>ResponseContent</td>
+      <td>请求内容，详见<b>本节ResponseContent</b></td>
+   </tr>
+   <tr>
+      <td>authen_info</td>
+      <td>否</td>
+      <td>AuthenInfo</td>
+      <td>认证信息，详见AuthenInfo</td>
+   </tr>
+</table>
+
+### ResponseContent结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>status</td>
+      <td>是</td>
+      <td>Status</td>
+      <td>错误码，详见Status。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
+   </tr>
+   <tr>
+      <td>description</td>
+      <td>否</td>
+      <td>String(255)</td>
+      <td>错误描述</td>
+   </tr>
+   <tr>
+      <td>log_id</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>消息id</td>
+   </tr>
+   <tr>
+      <td>internal_status</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>调试使用，调用者可以不予理会</td>
+   </tr>
+   <tr>
+      <td>query_sub_mch_info</td>
+      <td>否</td>
+      <td>QuerySubMchInfoResponse</td>
+      <td>authen_info存在时必填。<b>详见本节QuerySubMchInfoResponse</b></td>
+   </tr>
+</table>
+
+### QuerySubMchInfoResponse结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>nonce_str</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>随机字符串</td>
+   </tr>
+   <tr>
+      <td><b>status为0时返回以下参数：</b></td>
+   </tr>
+   <tr>
+      <td>sub_mch_infos</td>
+      <td>否</td>
+      <td>SubMch[]</td>
+      <td>子商户信息，<b>详见本节SubMch</b></td>
+   </tr>
+   <tr>
+      <td>total_count</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>数据总数</td>
+   </tr>
+</table>
+
+### SubMch结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>mch_id</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>第三方支付平台分配给服务商的帐号</td>
+   </tr>
+   <tr>
+      <td>pay_platform</td>
+      <td>是</td>
+      <td>PayPlatform</td>
+      <td>第三方支付类型，详见PayPlatform</td>
+   </tr>
+   <tr>
+      <td>company_name</td>
+      <td>是</td>
+      <td>String(255)</td>
+      <td>服务商在第三方平台登记的公司名称</td>
+   </tr>
+   <tr>
+      <td>mch_sub_uin</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>子服务商uin</td>
+   </tr>
+   <tr>
+      <td>mch_sub_company_name</td>
+      <td>是</td>
+      <td>String(255)</td>
+      <td>子服务商公司名</td>
+   </tr>
+   <tr>
+      <td>sub_mch_infos</td>
+      <td>否</td>
+      <td>SubMchInfo[]</td>
+      <td>子商户信息，详见SubMchInfo</td>
+   </tr>
+   <tr>
+      <td>out_mch_id</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>服务商out id</td>
+   </tr>
+</table>
+
 # 监控上报接口
 ## 上报客户端接口监控信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload_client_monitor_info
+`https://pay.qcloud.com/cpay/upload_client_monitor_info`
 
 content_type：application/json
 ### 输入参数
@@ -2908,7 +2891,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_monitor_info", &respons
 ```
 ## 上报客户端机器配置信息
 ### 接口地址
->https://pay.qcloud.com/cpay/upload_client_conf_info
+`https://pay.qcloud.com/cpay/upload_client_conf_info`
 
 content_type：application/json
 ### 输入参数
@@ -3133,7 +3116,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>a<br><br>s</td>
-      <td>二选一</td>
+      <td>撤单和退款接口使用签名,其他接口使用认证码</td>
       <td>Authen<br><br>Signature</td>
       <td>认证信息，详见Authen<br><br>签名信息，详见Signature</td>
    </tr>
@@ -3668,6 +3651,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>实际支付金额</td>
    </tr>
 </table>
+
 ## 退款单信息
 ### RefundOrderContent结构（仅作为返回参数）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3755,6 +3739,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>WxpayRefundOrderContentExt</td>
       <td>微信支付扩展信息，详见WxpayRefundOrderContentExt</td>
    </tr>
+   <tr>
+      <td>alipay_refund_order_content_ext</td>
+      <td>是</td>
+      <td>AlipayRefundOrderContentExt</td>
+      <td>支付宝扩展信息，详见AlipayRefundOrderContentExt</td>
+   </tr>
 </table>
 
 ### WxpayRefundOrderContentExt结构
@@ -3818,6 +3808,40 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>否</td>
       <td>String(64)</td>
       <td>取当前退款单的退款入账方<br>1、退回银行卡：{银行名称}{卡类型}{卡尾号}<br>2、退回支付用户零钱:支付用户零钱</td>
+   </tr>
+</table>
+
+### AlipayRefundOrderContentExt结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>fund_change</td>
+      <td>是</td>
+      <td>String(1)</td>
+      <td>是否发生了资金变化，示例:Y</td>
+   </tr>
+   <tr>
+      <td>gmt_refund_pay</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>退款时间</td>
+   </tr>
+   <tr>
+      <td>refund_detail_item_list</td>
+      <td>否</td>
+      <td>AlipayFundBill</td>
+      <td>退款渠道，详见 AlipayFundBill</td>
+   </tr>
+   <tr>
+      <td>refund_status</td>
+      <td>是</td>
+      <td>AlipayRefundOrderState(枚举类型)</td>
+      <td>退款状态，详见 AlipayRefundOrderState</td>
    </tr>
 </table>
 
@@ -3919,7 +3943,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>author_code</td>
@@ -4126,13 +4150,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>out_trade_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>out_refund_no</td>
       <td>是</td>
       <td>String(32)</td>
-      <td>由客户端生成的退款单号，前缀必须是云支付子商户号</td>
+      <td>由客户端生成的退款单号，前缀必须是云支付订单前缀</td>
    </tr>
    <tr>
       <td>total_fee</td>
@@ -4175,10 +4199,58 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>说明</td>
    </tr>
    <tr>
+      <td>state</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>退款状态，详见WxpayRefundOrderState</td>
+   </tr>
+   <tr>
+      <td>cash_refund_fee</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>现金退款金额，单位：分</td>
+   </tr>
+   <tr>
+      <td>settlement_refund_fee</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>去掉非充值代金券退款金额后的退款金额，单位：分。<br>退款金额=申请退款金额-非充值代金券退款金额，退款金额<=申请退款金额<br>退款金额=申请退款金额-非充值代金券退款金额                                                                       退款金额<=申请退款金额</td>
+   </tr>
+   <tr>
+      <td>coupon_refund_fee</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>退款代金券金额，支持多张代金券，单位：分</td>
+   </tr>
+   <tr>
+      <td>coupon_refund_count</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>退款代金券数量</td>
+   </tr>
+   <tr>
+      <td>coupon_refund_infos</td>
+      <td>否</td>
+      <td>WxpayCouponInfo</td>
+      <td>退款代金券信息，详见WxpayCouponInfo</td>
+   </tr>
+   <tr>
       <td>refund_account</td>
       <td>否</td>
       <td>String(30)</td>
-      <td>退款资金来源，仅针对老资金流子商户使用。默认使用未结算资金退款<br>REFUND_SOURCE_UNSETTLED_FUNDS：未结算资金退款<br>REFUND_SOURCE_RECHARGE_FUNDS：可用余额退款</td>
+      <td>退款资金来源，仅针对老资金流子商户使用<br>默认使用未结算资金退款<br>REFUND_SOURCE_UNSETTLED_FUNDS：未结算资金退款<br>REFUND_SOURCE_RECHARGE_FUNDS：可用余额退款</td>
+   </tr>
+   <tr>
+      <td>refund_channel</td>
+      <td>否</td>
+      <td>String(16)</td>
+      <td>退款渠道<br>ORIGINAL：原路退款 <br>BALANCE：退回到余额</td>
+   </tr>
+   <tr>
+      <td>refund_recv_account</td>
+      <td>否</td>
+      <td>String(64)</td>
+      <td>取当前退款单的退款入账方<br>1、退回银行卡：{银行名称}{卡类型}{卡尾号}<br>2、退回支付用户零钱:支付用户零钱</td>
    </tr>
 </table>
 
@@ -4362,6 +4434,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>StaffInfo[]</td>
       <td>门店店员信息列表，详见StaffInfo</td>
    </tr>
+   <tr>
+      <td>fee_type</td>
+      <td>否</td>
+      <td>String(20)</td>
+      <td>门店支持的币种，如果不填，默认为CNY</td>
+   </tr>
 </table>
 
 ### DeviceInfo结构
@@ -4431,6 +4509,290 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是否接收一码支付的成功消息通知</td>
    </tr>
 </table>
+
+## 子商户信息
+### SubMchInfo结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>sub_mch_id</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>微信支付分配的子商户号</td>
+   </tr>
+   <tr>
+      <td>company_name</td>
+      <td>是</td>
+      <td>String(255)</td>
+      <td>子商户在第三方支付平台登记的公司名称</td>
+   </tr>
+   <tr>
+      <td>desc</td>
+      <td>否</td>
+      <td>String(255)</td>
+      <td>子商户描述</td>
+   </tr>
+   <tr>
+      <td>cloud_cashier_id</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>云支付分配的唯一订单前缀，<b>下单时商户的订单号需要以这个id开头</b></td>
+   </tr>
+   <tr>
+      <td>out_sub_mch_id</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>云支付分配的商户id</td>
+   </tr>
+   <tr>
+      <td>default_order_body</td>
+      <td>否</td>
+      <td>String</td>
+      <td>默认的商品或订单简要描述,固定二维码支付时使用</td>
+   </tr>
+   <tr>
+      <td>sub_mch_admin_infos</td>
+      <td>否</td>
+      <td>SubMchAdminInfo</td>
+      <td>商户管理者的信息列表，<b>详见本节SubMchAdminInfo</b></td>
+   </tr>
+   <tr>
+      <td>out_sub_mch_id_url</td>
+      <td>是</td>
+      <td>String(128)</td>
+      <td>子商户二维码</td>
+   </tr>   
+   <tr>
+      <td>merchant_name</td>
+      <td>是</td>
+      <td>String(256)</td>
+      <td>子商户在第三方支付平台的商户名</td>
+   </tr>
+   <tr>
+      <td>logo</td>
+      <td>否</td>
+      <td>String</td>
+      <td>商户logo</td>
+   </tr>
+   <tr>
+      <td>admin_email </td>
+      <td>否</td>
+      <td>String(255)</td>
+      <td>商户管理员邮箱</td>
+   </tr>
+   <tr>
+      <td>phone</td>
+      <td>否</td>
+      <td>String(255)</td>
+      <td>商户联系电话</td>
+   </tr>
+   <tr>
+      <td>one_code_pay_ad_info</td>
+      <td>否</td>
+      <td>OneCodePayAdInfo</td>
+      <td>一码支付中，顾客完成支付后的广告信息,<b>详见本节OneCodePayAdInfo</b></td>
+   </tr>
+   <tr>
+      <td>is_use_cpay_shop_system</td>
+      <td>否</td>
+      <td>Bool</td>
+      <td>是否使用云支付门店管理系统</td>
+   </tr>
+   <tr>
+      <td>ad_page_url</td>
+      <td>否</td>
+      <td>String</td>
+      <td>支付成功后广告页面url</td>
+   </tr>
+   <tr>
+      <td>buslic_id</td>
+      <td>否</td>
+      <td>String(32)</td>
+      <td>营业执照 ID</td>
+   </tr>
+   <tr>
+      <td>sub_mch_source</td>
+      <td>否</td>
+      <td>UInt</td>
+      <td>子商户来源</td>
+   </tr>
+   <tr>
+      <td>direct</td>
+      <td>是</td>
+      <td>Bool</td>
+      <td>false 时使用 upstream_out_channel_id 做转发</td>
+   </tr>
+   <tr>
+      <td>upstream_out_channel_id</td>
+      <td>否</td>
+      <td>String</td>
+      <td>将这一商户的支付请求通过这一渠道转发至其他（相关联的）商户</td>
+   </tr>
+   <tr>
+      <td>upstream_company_name</td>
+      <td>否</td>
+      <td>String</td>
+      <td>上游服务商的公司名</td>
+   </tr>
+   <tr>
+      <td>selectable_upstream_sub_mchs</td>
+      <td>否</td>
+      <td>UpstreamSubMchInfo</td>
+      <td>可选择的上游子商户,不包含各种 key,<b>详见本节UpstreamSubMchInfo</b></td>
+   </tr>
+   <tr>
+      <td>bank_rate</td>
+      <td>否</td>
+      <td>UInt</td>
+      <td>商户进件后，银行收取的费率 1/1000000</td>
+   </tr>
+   <tr>
+      <td>wxpay_sub_mch_info_ext</td>
+      <td>否</td>
+      <td>WxpaySubMchInfoExt</td>
+      <td>微信支付子商户扩展信息,<b>详见本节WxpaySubMchInfoExt</b></td>
+   </tr>
+   <tr>
+      <td>alipay_sub_mch_info_ext</td>
+      <td>否</td>
+      <td>AlipaySubMchInfoExt</td>
+      <td>支付宝子商户扩展信息,<b>详见本节AlipaySubMchInfoExt</b></td>
+   </tr>
+</table>
+
+### SubMchAdminInfo结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>name</td>
+      <td>是</td>
+      <td>String</td>
+      <td>真实姓名</td>
+   </tr>
+   <tr>
+      <td>receive_one_code_pay_notify</td>
+      <td>否</td>
+      <td>Bool</td>
+      <td>是否接收一码支付的成功消息通知</td>
+   </tr>
+</table>
+
+### OneCodePayAdInfo结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>picture</td>
+      <td>是</td>
+      <td>String(64)</td>
+      <td>广告图片内容</td>
+   </tr>
+   <tr>
+      <td>url</td>
+      <td>否</td>
+      <td>String(64)</td>
+      <td>点击广告图片后的跳转链接，如没有，则图片无法点击</td>
+   </tr>
+</table>
+
+### UpstreamSubMchInfo结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>upstream_out_sub_mch_id</td>
+      <td>是</td>
+      <td>String(64)</td>
+      <td>上游云支付子商户帐号</td>
+   </tr>
+   <tr>
+      <td>upstream_out_mch_id</td>
+      <td>是</td>
+      <td>String</td>
+      <td>上游云支付服务商帐号</td>
+   </tr>
+   <tr>
+      <td>upstream_out_channel_id</td>
+      <td>是</td>
+      <td>String</td>
+      <td>上游服务商渠道id</td>
+   </tr>
+   <tr>
+      <td>cached_buslic_id</td>
+      <td>是</td>
+      <td>String</td>
+      <td>上游子商户营业执照id</td>
+   </tr>
+   <tr>
+      <td>cached_cloud_cashier_id</td>
+      <td>是</td>
+      <td>String</td>
+      <td>上游子商户商户订单号前缀</td>
+   </tr>
+   <tr>
+      <td>cached_mch_company_name</td>
+      <td>是</td>
+      <td>String</td>
+      <td>上游服务商的公司名</td>
+   </tr>
+</table>
+
+### WxpaySubMchInfoExt微信支付子商户扩展信息
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>sub_app_id</td>
+      <td>否</td>
+      <td>String(32)</td>
+      <td>第三方支付平台分配给子商户的帐号</td>
+   </tr>
+</table>
+
+### AlipaySubMchInfoExt支付宝子商户扩展信息
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>sub_mch_user_id</td>
+      <td>否</td>
+      <td>String(64)</td>
+      <td>子商户在支付宝平台的用户id即uid</td>
+   </tr>
+   <tr>
+      <td>ali_authorization_url</td>
+      <td>否</td>
+      <td>String</td>
+      <td>子商户支付宝授权二维码</td>
+   </tr>
+</table>
+
 
 # 枚举值定义
 ## 交易相关信息

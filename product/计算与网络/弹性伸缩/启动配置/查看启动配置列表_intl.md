@@ -9,4 +9,4 @@ Log in to [Auto Scaling Console](https://console.cloud.tencent.com/autoscaling/c
 
 > Note: The scaling configuration bound to a scaling group cannot be deleted.
 
-![](//mccdn.qcloud.com/static/img/63162a40f0b01336f1c1d2dd6fa50f5b/image.png)
+![](https://mc.qcloudimg.com/static/img/c14b098c2c40d0a9442efaf80dd02d52/as_revise_2.jpg)

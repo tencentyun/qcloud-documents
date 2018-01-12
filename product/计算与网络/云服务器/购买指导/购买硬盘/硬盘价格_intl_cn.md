@@ -7,7 +7,7 @@
 ## 1. 按量计费
 >注意：
 >
-- 单位为 <font color="red">元/100GB/小时</font>
+- 单位为 <font color="red">美元/100GB/小时</font>
 - <font color="red">本价格不包含主机硬件（CPU、内存）及网络价格</font>
 
 <table class="diskHour">
@@ -23,7 +23,7 @@
         <tr>
             <td rowspan="4">系统盘</td>
             <td>普通本地盘</td>
-						<td rowspan="8"><span style="color:red">元/100GB/小时</span></td>
+						<td rowspan="8"><span style="color:red">美元/100GB/小时</span></td>
             <td rowspan="4">1G</td>
             <td rowspan="4">500G</td>
 						<td rowspan="4">-</td>

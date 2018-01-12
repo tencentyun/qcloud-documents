@@ -13,22 +13,22 @@ Step 1: Confirm the identity verification
 
 Before using this feature, you must first complete the verification in your account  through Console - User Center - Account Information, as shown below: If not, please add necessary information to complete the verification.
 
-![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-1.png)
+[1]:http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-1.png:
 
 Step 2: Select a video file to generate the video URL in WeChat official accounts
 
 On the Console - Video on Demand - Video Management page, click the corresponding video file. You need to activate the service when you first use it.
 
-![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-2.png)
+[2]:http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-2.png
 
 Then you can click to generate a URL. The verification of URL generation takes up to 4 hours.
 
 After generation, the video URL takes effect immediately as follows. Users can switch the current URL posting status and preview it through its QR code.
 
-![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-5-1.jpg)
+[3]:http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianbo-5-1.jpg
 
 Step 3: Copy the URL and post it in official accounts
 
-Copy the generated video URL to the corresponding information posting page in official accounts, as shown below (the following shows the information posting page in WeChat official accounts):
+Copy the generated video URL to the corresponding information posting page in official accounts.
 
-![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-4.png)
+[4]:http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/yundianboweixin-4.png

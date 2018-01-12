@@ -17,6 +17,7 @@ The following request parameter list only provides API request parameters. Commo
 | limit | No | Int | Number of lines per page. Default is 20.  |
 | orderField | No | String | Sort by a certain field. Currently, sorting by createTime (default) and subnetName is supported.  |
 | orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc.  |
+| getAclIdFlag | No | Int | (Optional) Indicate whether display network Acl. 1: display. Default is 0.  |
 
 ## 3. Output Parameters
 

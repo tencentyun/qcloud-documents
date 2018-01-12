@@ -31,8 +31,8 @@
 ### 3 调用方式
 
 智能推荐提供HTTP + JSON的服务，请求协议以Json格式序列化，作为HTTP请求的Body部分，客户端以POST方式访问服务。服务地址：
-- 推荐结果拉取： http://service.dm.qcloud.com:8088 
-- 物料与行为上报： http://data.dm.qcloud.com:8088 
+- 推荐结果拉取： `http://service.dm.qcloud.com:8088`
+- 物料与行为上报： `http://data.dm.qcloud.com:8088` 
 
 **鉴权**
 
@@ -46,7 +46,7 @@ MD5（BID&request_id&TOKEN）
 
 **接口描述**
 
-上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的item_id可以重复上报， 字段信息以最后一次上报为准。 开发者发送http-post获取服务结果，服务URL：http://data.dm.qcloud.com:8088
+上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的item_id可以重复上报， 字段信息以最后一次上报为准。 开发者发送http-post获取服务结果，服务URL：`http://data.dm.qcloud.com:8088`
 
 **输入参数**
 
@@ -138,7 +138,7 @@ item上报返回JSON数据格式
 
 上报某一用户在特定场景下的行为，用户的行为包括曝光、点击、转换、点赞等， 上报用户行为时，必须指定用户行为的会话id。用户行为可以在客户端和服务端上报，建议在客户端上报，可控性更强些，遇到协议变更或者问题排查时，更容易处理。 
 
-开发者发送http-post获取服务结果，服务URL：http://data.dm.qcloud.com:8088
+开发者发送http-post获取服务结果，服务URL：`http://data.dm.qcloud.com:8088`
 
 **输入参数**
 
@@ -215,7 +215,7 @@ action上报返回JSON数据格式
 
 获取特定场景下， 给特定用户的推荐结果。 获取推荐时， 需要指定场景， 用户信息及需要使用的物料池，推荐系统返回用户在当前场景下，对各个物品喜好的权重。 
 
-开发者发送http-post获取服务结果，服务URL：http://service.dm.qcloud.com:8088
+开发者发送http-post获取服务结果，服务URL：`http://service.dm.qcloud.com:8088`
 
 **输入参数**
 

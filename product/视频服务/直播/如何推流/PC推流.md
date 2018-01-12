@@ -109,9 +109,9 @@ XSplit是收费的，如果银子不够的话，推荐用OBS（**Free**）。XSp
 
 | 播放协议 | 播放地址 | 
 |---------|---------|
-| FLV |  rtmp://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test |
-| RTMP | http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.flv |
-| HLS(m3u8) | http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.m3u8 |
+| FLV |  `rtmp://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test` |
+| RTMP | `http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.flv` |
+| HLS(m3u8) | `http://3891.<font color='red'>liveplay</font>.myqcloud.com/live/3891_test.m3u8` |
 
 
 ### 3.2 RTMP DEMO 播放验证

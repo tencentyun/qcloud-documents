@@ -67,9 +67,9 @@ dimensions.0.value为要查询的EIP的地址信息
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/bm_lb
 &metricName=eip_outpkg
 &dimensions.0.name=vip
@@ -77,7 +77,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
 &period=300
-```
+</pre>
 
 输出
 

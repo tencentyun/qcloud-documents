@@ -38,9 +38,9 @@ dimensions.0.value为实例的uuid
 | delete_total          | DELETE请求总数   | 次/秒  |
 | mem_available         | 内存可用大小       | GB   |
 | disk_iops             | 磁盘IOPS       | 次/秒  |
-| conn_active           | 活跃连接数        | 次/秒  |
-| conn_running          | 连接数          | 次/秒  |
-| is_mater_switched     | 监控是否主备切换     | 无    |
+| conn_active           | 总连接数       | 次/秒  |
+| conn_running          | 活跃连接数          | 次/秒  |
+| is_master_switched    | 监控是否主备切换     | 无    |
 | cpu_usage_rate        | CPU使用率       | %    |
 
 
@@ -72,16 +72,16 @@ dimensions.0.value为实例的uuid
 
 输入
 
-```
+<pre>
 https://monitor.api.qcloud.com/v2/index.php?
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+&<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>
 &namespace=qce/tdsql
 &metricName=data_disk_available
 &dimensions.0.name=uuid
 &dimensions.0.value=tdsql-0gfryg60
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
-```
+</pre>
 
 输出
 

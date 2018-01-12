@@ -4,7 +4,7 @@ Cloud disk is an expandable storage device on cloud. When a cloud disk is create
 ).
 
 ## Preconditions
-- For CVMs with annual/monthly plan or pay-by-usage plan, you can only change its configuration when its system disk and data disk are cloud disks.
+
 - For a 8 G system disk whose stock operating system is Linux, you can expand the capacity by reinstalling the system. The system disk supports a capacity of 20 G-50 G. Tencent Cloud will provide you with fee-free capacity of 20GB.
 - For **a system disk** and a data disk typed as **non-elastic cloud disk**, you can expand the capacity only when the CVMs on which they are mounted are shut down.
 - For an elastic cloud disk not mounted on a CVM, you can expand its capacity directly. If it has been mounted on a CVM, you need to shut down the CVM first before the expansion, or unmount the elastic cloud disk before the expansion, and remount it on the original CVM after the expansion.
@@ -39,4 +39,4 @@ Please refer to [ResizeCbsStorage API](https://cloud.tencent.com/doc/api/364/252
 > > For a running instance with its system disk and data disk being cloud disks, you need to perform [Instance Shutdown](/doc/product/213/4929) before expansion.
 
 ### Expanding Non-elastic Cloud Disk via API
-Please refer to [ResizeInstance API](https://cloud.tencent.com/doc/api/229/1306) and [ResizeInstanceHour API](https://cloud.tencent.com/doc/api/229/1344).
+Please refer to [ResizeInstance API](https://intl.cloud.tencent.com/document/product/213/9394) and [ResizeInstanceHour API](https://cloud.tencent.com/doc/api/229/1344).

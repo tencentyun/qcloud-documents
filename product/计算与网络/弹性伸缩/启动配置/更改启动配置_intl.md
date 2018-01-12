@@ -6,5 +6,5 @@ After the application upgrade and data update, please change the scaling configu
 
 **Step 2:** Change the scaling configuration of the scaling group. In the details page of the scaling group, click **Edit** button. This will direct you to a new scaling configuration, as shown below:
 
-![Alt text](https://mc.qcloudimg.com/static/img/bf9472ccbb0b0e02c8273aa4b37c207b/image.jpg)
+![Alt text](https://mc.qcloudimg.com/static/img/6032ba6bf959267ab83922dd2216f0ee/as_revise_3.jpg)
 

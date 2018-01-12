@@ -21,7 +21,7 @@ An ENI has the following major relevant information:
 
 ## Usage Constraints
 
-The number of ENIs that may bind to a CVM, and the number of private IPs that can bind to each ENI will greatly vary according to CPU and RAM configuration. These allowed numbers are shown in the following table. Also, refer to [Usage Constraints of Other VPC Products](https://cloud.tencent.com/doc/product/215/537).
+The number of ENIs that may bind to a CVM, and the number of private IPs that can bind to each ENI will greatly vary according to CPU and RAM configuration. These allowed numbers are shown in the following table. Also, refer to [Usage Limits of Other VPC Products](https://cloud.tencent.com/doc/product/215/537).
 
 | CVM Configuration               | Number of ENIs | Number of IPs for Each ENI |
 | ------------------- | :---- | :------ |
@@ -40,45 +40,45 @@ Free. For more information regarding the prices of VPC services, refer to [VPC P
 
 ### Viewing ENI
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+1) Go to [VPC Console](https://console.cloud.tencent.com/vpc).
 
-2) Click **ENI** in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to open the ENI list.
 
-3) Click the **Instance ID** of an ENI to go to its detail page and view its information.
+3) Click the **Instance ID** of an ENI to open its detail page and view its information.
 
 ### Creating ENI
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+1) Go to [VPC Console](https://console.cloud.tencent.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to open the ENI list.
 
-3) Click "New" in the top-left corner and choose the parameters of the ENI in the pop-up window.
+3) Click **New** in the top-left corner and choose the parameters of the ENI in the pop-up window.
 
-4) Click "OK" to complete the creation process.
+4) Click **OK** to complete.
 
-### Binding CVM
+### Binding with a CVM
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+1) Go to [VPC Console](https://console.cloud.tencent.com/vpc).
 
-2) Click "ENI" in the left panel to go to the page with a list of ENIs.
+2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
-3) Find the line of the ENI and click "Bind CVM" in the action bar.
+3) Find your target ENI and click **Bind CVM** in the action bar.
 
-4) Select the CVM to be bound and click "OK" to finish the binding process.
+4) Select the CVM to be bound and click **OK** to complete.
 
-### Unbinding CVM
+### Unbinding with a CVM
 
-1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
+1) Go to [VPC Console](https://console.cloud.tencent.com/vpc).
 
 2) Click **ENI** in the left panel to go to the page with a list of ENIs.
 
 3) Find the line of the ENI and click **Unbind CVM** in the action bar.
 
-4) Click **OK** to complete the unbinding process.
+4) Click **OK** to complete.
 
-Tips: Once you unbind an ENI, information such as its associated private IPs, elastic public IPs, security groups will be retained.
+Note: Once you unbind an ENI, information such as its associated private IPs, elastic public IPs, security groups will be retained.
 
-### Deleting ENI
+### Deleting an ENI
 
 1) Open the [VPC Console](https://console.cloud.tencent.com/vpc).
 

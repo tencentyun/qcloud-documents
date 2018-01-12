@@ -27,7 +27,7 @@
 1. 登录到与此数据库实例属于同一个可用区的网络可达的CVM主机，关于登录CVM主机请查看<a href="https://cloud.tencent.com/document/product/213/2764" target="_blank">WIndows CVM入门</a>或<a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM入门</a>。网络可达是指此CVM主机与MariaDB数据库实例都处于基础网络之中，或者处于同一个VPC中。
 2. 请根据CVM的操作系统选择推荐的连接方式。
 **-从Windows系统登录**
-1). 下载并安装MariadDB的客户端。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/。
+1). 下载并安装MariadDB的客户端。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/ 。
 2). 打开sqlyog，输入输入MariaDB数据库实例的内网IP和端口号，数据库帐号以及密码。
  - 我的SQL主机地址：此例中输入10.30.0.7。
  - 用户名：用前文中创建的用户名test123。
@@ -64,7 +64,7 @@
 
 2. 登录到数据库
 **-从Windows系统登录**
-1). 下载一个MariaDB客户端并安装。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/。
+1). 下载一个MariaDB客户端并安装。此步骤中我们推荐您下载sqlyog，官网地址如下：https://www.webyog.com/ 。
 2). 打开sqlyog，输入输入MariaDB数据库实例的外网域名和端口号，数据库帐号以及密码。
  - 我的SQL主机地址：此例中输入tdsql-6gy3mopk.gz.cdb.myqcloud.com。
  - 用户名：用前文中创建的用户名test123。

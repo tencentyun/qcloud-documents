@@ -13,7 +13,7 @@ There are mainly 6 causes for scale-up failures:
 | 5 | Resources sold out |Tencent Cloud resources are sold out (of very rare occurrence).  | 
 | 6 | Other background error | Refer to the scaling activity details page for the detailed reasons (of very rare occurrence).  | 
 
-Troubleshooting Steps
+## Troubleshooting Steps
 
 ### 1. Check the Descriptions of the Reasons
 

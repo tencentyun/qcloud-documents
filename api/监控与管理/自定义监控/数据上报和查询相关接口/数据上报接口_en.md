@@ -35,7 +35,7 @@ The following request parameter list only provides API request parameters. Commo
 
 ## 4. Example
 Input
-<pre>
+```
 http://receiver.monitor.tencentyun.com:8080/v2/index.php?Action=PutMonitorData
 &SecretId=xxxxxxx
 &Region=gz
@@ -44,7 +44,7 @@ http://receiver.monitor.tencentyun.com:8080/v2/index.php?Action=PutMonitorData
 &Signature=mysignature
 &Namespace=cvm
 &Data=[{"dimensions":{"diskname":"disk1","ip":"172.31.58.160"},"metricName":"diskusage","value":30}]
-</pre>
+```
 Output
 ```
 {

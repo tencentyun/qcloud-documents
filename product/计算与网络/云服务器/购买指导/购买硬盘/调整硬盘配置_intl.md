@@ -4,4 +4,3 @@
 - After disk expansion, you need to manually modify the file system configuration before using the newly added capacity.
 - For the sake of security, the disk capacity can only be expanded, but not reduced.
 
-For details, see [Adjust CVM Disk Configuration](http://cloud.tencent.com/doc/product/213/%E8%B0%83%E6%95%B4CVM%E7%A3%81%E7%9B%98%E9%85%8D%E7%BD%AE)

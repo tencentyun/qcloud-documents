@@ -64,7 +64,7 @@ Please see [DescribeInstances API](https://cloud.tencent.com/doc/api/229/831).
 
 ### Obtain the private IP of an instance using instance metadata
 
-First, you need to log in to the CVM instance. For more information, please see [Log in to CVM Instance on Linux](doc/product/213/5436) and [Log in to CVM Instance on Windows](/doc/product/213/5435).
+First, you need to log in to the CVM instance. For more information, please see [Log in to CVM Instance on Linux](https://cloud.tencent.com/document/product/416/5436) and [Log in to CVM Instance on Windows](https://cloud.tencent.com/document/product/416/5435).
 
 Use the following command to obtain the private IP:
 

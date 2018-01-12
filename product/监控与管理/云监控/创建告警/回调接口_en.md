@@ -1,6 +1,6 @@
 Callback API allows your system to directly receive alarm notifications from Tencent Cloud. By using HTTP POST requests, the API provides a feature of pushing alarm messages to publicly accessible URLs. Users may proceed further based on the alarm messages pushed by the callback API.
 
-## How to Use
+## Usage
 
 * Callback API: Users need to provide a URL address which is able to receive HTTP POST requests, and is accessible through the public network, as the callback address.
 

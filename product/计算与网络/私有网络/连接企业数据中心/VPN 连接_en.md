@@ -165,7 +165,7 @@ VPN tunnels and VPN gateways provide monitoring data viewing function.
 
 ### Setting the Alarm
 VPN tunnel provides alarm function:
-1) Log in [Tencent Cloud Console](https://console.cloud.tencent.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.qcloud .com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
+1) Log in [Tencent Cloud Console](https://console.cloud.tencent.com/), click in the top navigation bar "Cloud Products" - "Monitor & Management" - ["Cloud Monitoring"](https://console.cloud.tencent.com/monitor/overview), and then select "My Alarms" - ["Alarm Policy"](https://console.cloud.tencent.com/monitor/policylist) in the left navigation bar, and click Add alarm policy.
 2) Fill in the Alarm Policy Name, select "VPN Tunnel" in Policy Type, and then add the Condition of alarm trigger.
 3) **Associate alarm objects**: select the alarm receiver group, and when it is saved, you can view the set alarm polices in Policy List.
 4) **View the alarm information**: when any alarm conditions are triggered, you will receive SMS/email/internal message or other notices, and you can also find the information in the left navigation "My Alarms" - "Alarm List". For more information about alarms, refer to [Creating Alarms](https://cloud.tencent.com/doc/product/248/1073).

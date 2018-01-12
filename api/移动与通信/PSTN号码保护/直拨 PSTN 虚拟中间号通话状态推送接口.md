@@ -15,10 +15,10 @@
 | dst | 必选 | 被叫号码 | 
 | dstVirtualNum | 必选 | 主叫通讯录直拨虚拟保护号码 | 
 | userFlag | 必选 | 用于区分状态属于主叫/被叫 src：主叫 dst：被叫 | 
-| callStatus | 必选 | invite：发起呼叫    ringing：响铃answered：接听  refused：拒绝  disaccept：正常挂机  failed：呼叫异常 | 
+| callStatus | 必选 | invite：发起呼叫    ringing：响铃   answered：接听  refused：拒绝  disaccept：正常挂机  failed：呼叫异常 | 
 | errorCode | 可选 | sip 响应码 | 
 | timeStamp | 必选 | 状态发生的 unix 时间戳 | 
-| callType | 可选 | 通话类型（1: VOIP 2:IP TO PSTN 3: PSTN TO PSTN 4: 直拨 PSTN TO PSTN），如果话单中没有该字段，默认值为回拨 3 (PSTN TO PSTN) | 
+| callType | 可选 | 通话类型（1: VOIP 2:IP TO PSTN 3: PSTN TO PSTN 4: 直拨 PSTN TO PSTN），如果话单中没有该字段，默认值为回拨 3 （PSTN TO PSTN） | 
 
 
 **确认响应包必填字段**  

@@ -7,6 +7,7 @@
  * 无常主模式，即双机选举主设备的优先级相同；
  * 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  常主常备模式较无常主模式增加了主备倒换次数，推荐使用无常主模式（非常主常备模式）
 - 本文通过给出若干 `keepalived 配置和脚本文件` + `不同场景配置方法`的形式，帮助用户在云主机上作本次实践。
+- 本文主要介绍 keepalived 的 VRRP Instance 配置为单播 VRRP 报文的用法。
 
 ## 基本原理
 通常高可用主备集群包含 2 台服务器，一台主服务器处于某种业务的激活状态（即 Active 状态），另一台备服务器处于该业务的备用状态（即 Standby 状态)，它们共享同一个 VIP（Virtual IP），同一时刻 VIP 只在一台主设备上生效，当主服务器出现问题，备用服务器接管 VIP 继续提供服务。高可用主备模式有着广泛的应用，例如：MySQL 主备切换、Ngnix Web 接入。
@@ -15,9 +16,9 @@
 
 </div>
 ## 与物理网络的区别
-在传统的物理网络中可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 的迁移到主设备上。腾讯云 VPC 内支持部署 keepalived 来搭建主备高可用集群，与物理网络相比，主要有两个区别：
-- 暂不支持 VRRP 组播报文，需要将 keepalived 的 VRRP Instance 配置为单播 VRRP 报文。
+在传统的物理网络中可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 的迁移到主设备上。腾讯云 VPC 内支持部署 keepalived 来搭建主备高可用集群，与物理网络相比，主要区别是：
 - 暂不支持通过免费 ARP 报文做 VIP 的迁移，而是通过调用云 API来绑定 VIP 到主设备上。
+
 
 ## 本文步骤预览
 1.  申请 VIP，该 VIP 仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
@@ -406,10 +407,10 @@ def migrateVip():
     module = 'vpc'
     action = 'MigratePrivateIpAddress'
     params = {
-        'vpcId': vpcId,             #vpcId
-        'privateIpAddress': vip,        #VIP
-        'oldNetworkInterfaceId': thatNetworkInterfaceId, #IP 迁移前所在的弹性网卡 ID(对端主机网卡 ID) 
-        'newNetworkInterfaceId': thisNetworkInterfaceId  #IP 迁移后所在的弹性网卡 ID(本机网卡 ID)
+        'vpcId': vpcId,             #vpcId 本行毋须修改
+        'privateIpAddress': vip,      #VIP  本行毋须修改
+        'oldNetworkInterfaceId': thatNetworkInterfaceId, #IP 迁移前所在的弹性网卡 ID(对端主机网卡 ID)   本行毋须修改
+        'newNetworkInterfaceId': thisNetworkInterfaceId  #IP 迁移后所在的弹性网卡 ID(本机网卡 ID)   本行毋须修改
     }
     
     log_write(sys.argv[1])
@@ -463,7 +464,7 @@ def queryVip():
     module = 'vpc'
     action = 'DescribeNetworkInterfaces'
     params = {
-        "networkInterfaceId": thisNetworkInterfaceId  #您的本机网卡 ID
+        "networkInterfaceId": thisNetworkInterfaceId  #您的本机网卡 ID     本行毋须修改
     }
 
     result = 'true'

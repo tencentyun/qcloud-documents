@@ -21,7 +21,7 @@ iCarbonX allows customers to integrate the advantages of artificial intelligence
 
 ## How Can Tencent Cloud Help
 
-![](https://mc.qcloudimg.com/static/img/e98b85e787c02b533f5ffd06a4166bac/31.png)
+![](https://mc.qcloudimg.com/static/img/f60fcbd11e6bd5060a2b998d3b1ddfac/AS-Customer+Cases-iCarbonX%281%29.png)
 
 1. Output original data: Conduct initial processing for multi-omics data using detection devices.
 2. Analyze multi-omics data: Tencent Cloud provides three core infrastructures for this operation.
@@ -31,7 +31,7 @@ iCarbonX allows customers to integrate the advantages of artificial intelligence
 
 The computing cluster to be urgently scaled up is deployed in the following way:
 
-![Alt text](https://mc.qcloudimg.com/static/img/d7208378accfb11c320668ee5089a0c3/02.png)
+![Alt text](https://mc.qcloudimg.com/static/img/abdc577a0708353443eb28fdd154a51a/AS-Customer+Cases-iCarbonX%282%29.png)
  
 Here, you can see that by placing the Compute Node urgently requiring massive scalability into AS, iCarbonX can create HPC clusters with 1,000+ cores and 100+ TB in minutes, and greatly improve the stability and real-timeness of the computing cluster while reducing human efforts, thus greatly saving the cost.
 

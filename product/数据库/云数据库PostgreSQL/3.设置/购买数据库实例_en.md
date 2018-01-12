@@ -1,4 +1,3 @@
-## Create PostgreSQL Database Instance
 1. Log in to Tencent Cloud Console and open the Console via the URL [https://console.cloud.tencent.com/pgsql](https://console.cloud.tencent.com/pgsql)
 
 2. On the upper-right corner of the console, click "New Instance" and choose from the pop-up window.
@@ -17,7 +16,6 @@
 >- Project: If you want different databases to be managed by different teams, you can specify projects that belong to different teams for the databases.
 >- Purchase quantity: Number of instances to be purchased each time. *We configured a limit on how many instances can be purchased at a time in order to prevent misoperation. You can make additional purchase attempts if you want to purchase more*.
 >- Purchased usage period: Since our database service is billed in a prepaid method, you need to estimate your expected database usage period. *Currently Tencent Cloud provides a discount with which you can purchase the service at a lower price if you purchase for a longer usage period*.
-
 
 4. You will be redirected to the payment page upon purchase. After payment is successfully made, you can view your purchased instance from the cloud database instance list page in the Tencent Cloud console.
 

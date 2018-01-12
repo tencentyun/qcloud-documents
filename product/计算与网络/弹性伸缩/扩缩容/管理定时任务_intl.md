@@ -13,10 +13,10 @@ You can create scheduled actions for scaling one time only or for scaling on a r
 1. Open the [Console](https://console.cloud.tencent.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
 
 2. Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
-![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](https://mc.qcloudimg.com/static/img/cebad1b79ccba9fb9548c2bd2c30a210/31.jpg)
 
-3. Select **Scheduled Task** in the top navigation bar, and manage the scheduled task associated with the scaling group on the page:
-![](//mccdn.qcloud.com/static/img/606fc6dc7e5a3e27584f58755e7bca53/image.png)
+3. Select **Timing Task** in the top navigation bar, and manage the scheduled task associated with the scaling group on the page:
+![](https://mc.qcloudimg.com/static/img/a649a9205c2b994db09c4b79583a3827/32.jpg)
 
 	- Click **New** to add a scheduled task;
 
@@ -25,6 +25,3 @@ You can create scheduled actions for scaling one time only or for scaling on a r
 	- Click **Delete** to delete the scheduled task.
 
 If you want to create a scheduled task on a recurring schedule, you can specify a start time. AS performs the action at the specified time, and then performs the action based on the recurring schedule. If you specify an end time, AS does not perform the action after the specified time.
-
-
-

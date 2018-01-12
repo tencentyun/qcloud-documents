@@ -1,13 +1,13 @@
 ### Logging in to Container on Console (Recommended)
 1. Log in to [CCS Console](https://console.cloud.tencent.com/ccs).
 2. Select the service to which the container belongs and enter the details page to view the list of pods. Select container and connect to the remote console.
-3. For the FAQs on the Remote Terminal, please see [Details](https://cloud.tencent.com/document/product/457/8638?!preview&lang=zh)
+3. For the FAQs on the Remote Terminal, please see [Details](https://cloud.tencent.com/document/product/457/8638)
 
-![Alt text](https://mc.qcloudimg.com/static/img/fd06e590a5e2d109d5489b1df55454e5/20170316160930.png)
+![Alt text](https://mc.qcloudimg.com/static/img/1a6a5426ac5eec78cfff809534ebfdf4/1.jpg)
 
 ### Logging in to Container via the Container's Node
 1. Acquire the IP address of the node where the container resides and the container's ID.
-![Alt text](https://mc.qcloudimg.com/static/img/50e98338f439b70cd74120ea9c8da26b/%7B398D6714-100A-424F-8D29-CAB5271D0A51%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/c37a171ce5e5b36f704d6c54a6554cef/2.jpg)
 
 2. Log in to the node. For more information, please see [Logging in to CVM](https://cloud.tencent.com/doc/product/213/5436).
 
@@ -27,7 +27,7 @@ bin  boot  dev	etc  home  lib	lib64  media  mnt  opt	proc  root  run  sbin  srv 
 
 ### Logging in to Container via SSH Key (when SSH Service is Already Installed on the Container)
 1. Check the IP address of the container.
-![Alt text](https://mc.qcloudimg.com/static/img/dd26c4cd651ef1dcbc3073dd326f417e/%7BB64BB446-EAA1-4804-B86C-09BE10B6A1C2%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/5aebd54440b8afcfc3424edfb267f68b/3.jpg)
 
 2. Log in to any node within the cluster. For more information, please see [Log in to CVM](https://cloud.tencent.com/doc/product/213/5436).
 
@@ -35,5 +35,4 @@ bin  boot  dev	etc  home  lib	lib64  media  mnt  opt	proc  root  run  sbin  srv 
 
 ### Logging in to Container via Management Node
 Available soon.
-
 

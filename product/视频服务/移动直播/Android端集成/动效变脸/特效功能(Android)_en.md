@@ -37,9 +37,9 @@ One dynamic effect template is included in one directory, which contains many re
 
 Download resources for dynamic effects from the background and decompress them to the Resource directory, and then you can get sample codes in the Mini LVB. In the codes, you can find download addresses of resources and thumbnails for dynamic effects. The format is as follows
 
-> https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}Android.zip
+> `https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}Android.zip`
 >
-> https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}.png
+> `https://st1.xiangji.qq.com/yunmaterials/{ID of the dynamic effect}.png`
 >
 
 It is strongly recommended that you put the resources for dynamic effects on your own servers to prevent unnecessary impact caused by modifications of the Mini LVB.

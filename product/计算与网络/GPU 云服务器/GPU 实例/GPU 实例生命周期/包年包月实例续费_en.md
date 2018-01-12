@@ -1,4 +1,4 @@
-You can renew or set auto renewal for a prepaid instance at any time before the end of its lifecycle to prevent data loss and service interruption due to termination of instance upon its expiration.
+You can renew or enable auto renewal for a prepaid instance at any time before the end of its lifecycle to prevent data loss and service interruption due to termination of instance upon its expiration.
 
 ## Renewing Instance
 
@@ -7,22 +7,22 @@ You can renew a prepaid instance before its expiration to avoid service interrup
 
 1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
 
-2) Filter the instance types and select "GPU G2", then select the prepaid GCC instance you want to renew, and then click **Renew** in the operation column on the right.
+2) Select **GPU G2** from　instance type, then choose the prepaid GCC instance you want to renew. Click **Renew** in the operation column on the right.
 
-3) In the server renewal pop-up, select the renewal period, select whether to adjust the bandwidth, and then click **OK**.
+3) In the pop-up window, select the renewal period and adjust the bandwidth if necessary, and then click **OK**.
 
 4) The GCC instance is renewed when your payment is received.
 
 
 ### Renew instance via API
-You can use RenewInstance API to renew instances. For more information, please see [RenewInstance API](https://cloud.tencent.com/doc/api/229/1348).
+You can use RenewInstance API to renew instances. For more information, please see [API for Renewing Instance](https://cloud.tencent.com/doc/api/229/1348).
 
 ## Setting Auto Renewal
 
 ### Set auto renewal via console
 You can also set auto renewal for prepaid GCC instances to eliminate the need to renew the instances whenever they are about to expire:
 
-1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), move the mouse cursor to your account name at the top right corner, and then select **Renew** in the menu.
+1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com), mouse-over to your account name at the top right corner, and then select **Renew**.
 
 2) For the prepaid GCC instances you want to renew, click **Set Auto Renewal** on the operation column on the right.
 

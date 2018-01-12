@@ -26,7 +26,7 @@
 
 ### 2.1 身份证OCR接口
 OCR接口采用http协议，支持多URL和多本地图片文件,每个请求最多支持20张图片或url。
-接口：http://service.image.myqcloud.com/ocr/idcard
+接口：`http://service.image.myqcloud.com/ocr/idcard`
 方法：POST
 
 #### 2.1.1 身份证OCR-图片URL
@@ -369,7 +369,7 @@ Content-Type: image/jpeg
 ```
 ### 2.2 名片OCR接口
 OCR接口采用http协议，支持多URL和多本地图片文件,每个请求最多支持20张图片或url。
-接口：http://service.image.myqcloud.com/ocr/namecard
+接口：`http://service.image.myqcloud.com/ocr/namecard`
 方法：POST
 
 #### 2.2.1 名片OCR-图片URL
@@ -654,7 +654,7 @@ d)	如果开发者未添加密钥，则需添加密钥，获取项目的Secret I
 (2) 添加密钥可参考添加密钥。
 
 2 拼接签名串orignal
-a=[appid]&b=[bucket]&k=[SecretID]&t=[currenTime]&e=[expiredTime]
+`a=[appid]&b=[bucket]&k=[SecretID]&t=[currenTime]&e=[expiredTime]`
 注意：如果开发者使用的是V1版本，a字段为appid，b字段的值置空
 
 | 字段名称 | 解释                                   |
@@ -681,8 +681,8 @@ Sign = Base64(SignTmp.orignal)
    获取得到的签名所需信息如下。
    项目ID：1000027
    空间名称（bucket）：test333
-   Secret ID： AKIDnX91172Bs2NK4SP9Ad9JDVYpm7Lx2Nek
-   Secret Key： oHL5srXW3Fkn8xtugG0BDhUfOOsC9DAd
+   Secret ID： `AKIDnX91172Bs2NK4SP9Ad9JDVYpm7Lx2Nek`
+   Secret Key： `oHL5srXW3Fkn8xtugG0BDhUfOOsC9DAd`
 2. 拼接签名串orignal
 ```
 a=1000027&b=test333&k=AKIDnX91172Bs2NK4SP9Ad9JDVYpm7Lx2Nek&t=1443434355&e=1443434365

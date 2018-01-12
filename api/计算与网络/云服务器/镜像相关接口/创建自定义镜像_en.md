@@ -1,59 +1,63 @@
 ## 1. API Description
- 
 
-This API (CreateImage) is used to make the current status of the instance system disk into a new image, which can be used to quickly create instances.
+This API (CreateImage) is used to create an new image from the system disk of an instance. The created image can be used to create instances.
 
-Domain name for API request: <font style="color:red">image.api.qcloud.com</font>
+Domain name for API request: <font style="color:red">image.api.qcloud.com</font>.
 
-* Image service is FREE of charge now.
-* The target instance needs to be shut down before you can create a custom image.
-* A maximum of 10 custom images are allowed to be created for each region.
+* For your data security, shut down the instance before creating an image.
+* An account can create a maximum of 10 custom images for each region.
 
 ## 2. Input Parameters
 
-The following list only provides API request parameters. For additional parameters, refer to [Public Request Parameters](/document/api/213/6976) page.
+The following request parameter list only provides API request parameters. Other parameters can be found in [Common Request Parameters](/document/api/213/6976).
 
-| Parameter Name | Required | Type | Description |
+| Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
-| instanceId | Yes | String | The instance ID to be operated. It can be obtained from unInstanceId in the returned value of  [DescribeInstances](https://cloud.tencent.com/doc/api/229/831) API.
-| imageName | Yes | String |Image name, which cannot be identical to an existing image name. Naming rule: Contain 1-16 characters, including English letters, numbers, "-".
-| imageDescription | No | String | Image description information. Naming rule: Limited to 0-64 characters, including Chinese characters, English letters, numbers, "-", and "_".
+| Version | String | Yes | API version No., used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
+| InstanceId |  String |Yes | The ID of the instance used for creating image. Instance ID can be obtained by either of the following ways: <br><li>Obtained from the `InstanceId` field in the returned values of API[DescribeInstances](/document/api/213/9388);<br><li>Obtained via [instance console](https://console.cloud.tencent.com/cvm/index).
+| ImageName |  String | Yes | Image name, which must meet the following requirements: <br><li>Has a length of not more than 20 characters;<br><li>Must be unique.
+| ImageDescription |  String |No | Image description, which must meet the following requirements: <br><li>Has a length of not more than 60 characters. <br>If this parameter is not specified, it is left empty.
+| Sysprep | Boolean | No | Whether to enable SysPrep (Windows only) when creating an image. Default is `False`.
 
- 
 
 ## 3. Output Parameters
- 
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message | String | Module error message description depending on API. For more information, refer to [Module Error Codes](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| requestId | Int | Task ID.
+| RequestId | String | Unique request ID. A unique RequestId is returned for each request. The value of RequestId need to be provided to the backend developer if you fail to call the API. |
 
- 
-## 4. Example
- 
-Input
 
+## 4. Error Codes
+
+The following error codes only include the business logic error codes for this API. For additional error codes, please see [Common Error Codes](/document/api/213/10146).
+
+| Error Code | Description |
+|---------|---------|
+|InvalidParameter.ValueTooLarge|The length of parameter exceeds the limit.|
+|InvalidImageName.Duplicate|The specified image name already exists.|
+|MutexOperation.TaskRunning|The same task is running.|
+|InvalidInstanceId.NotFound|This instance cannot be found.|
+|ImageQuotaLimitExceeded|Image quota exceeds the limit.|
+|InvalidInstance.NotSupported|Unsupported instance|
+
+## 5. Example 
+
+Request Parameters
 <pre>
-  https://cvm.api.qcloud.com/v2/index.php?Action=CreateImage
-  &instanceId=ins-12345678
-  &imageName=test
-  &imageDescription=desc
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
+https://image.api.qcloud.com/v2/index.php?Action=CreateImage
+&Version=2017-03-12
+&InstanceId=ins-6pb6lrmy
+&<<a href="/doc/api/229/6976">Common request parameters</a>>
 </pre>
 
-Output
-
-```
+Response Parameters
+<pre>
 {
-  "code" : 0,
-  "message" : "ok",
-  "requestId" : 24534341s
+    "Response": {
+        "RequestID": "354f4ac3-8546-4516-8c8a-69e3ab73aa8a"
+    }
 }
-
-```
-
+</pre>
 
 
 

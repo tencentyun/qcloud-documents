@@ -27,7 +27,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 dependencies {
       compile fileTree(dir: 'libs', include: ['*.jar'])
       // 导入短视频SDK aar
-      compile(name: 'LiteAVSDK_UGC_3.4.1757', ext: 'aar')
+      compile(name: 'LiteAVSDK_UGC_3.9.2794', ext: 'aar')
   }
 ```
 
@@ -64,24 +64,24 @@ allprojects {
 
 ### 4.1 库说明
 
-解压 LiteAVSDK_UGC_3.4.1757.zip 压缩包后得到libs目录，里面主要包含 so 文件和 jar 文件，文件清单如下：
+解压 LiteAVSDK_UGC_3.9.2794.zip 压缩包后得到libs目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
 
 | jar文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
 | liteavsdk.jar                | 小直播 SDK android 核心库          |
-| sha1utils.jar                | 计算上传文件的 SHA 值 jar 包，此组件用于短视频上传(TXUGCPublish)功能 |
-| cos-sdk-android.1.4.3.11.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
-| okio-1.6.0.jar               | 一款优秀的开源网络 I/O 组件      |
-| okhttp-3.2.0.jar             | 一款优秀的开源 http 组件          |
+
 
 | so文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
-| libTXSHA1.so                 | 计算上传文件的 SHA 值 jar 包，此组件用于短视频上传(TXUGCPublish)功能    |
+| libliteavsdk.so              | 小直播SDK 核心组件              |
+| libtxffmpeg.so               | ffmpeg 基础库（ijk版本），用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
+| libtxplayer.so               | ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
+| libtxsdl.so                  | ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题        |
 
 
 ### 4.2 拷贝文件
 
-如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才解压的 jar 包和 so 库在 /src/main/jniLibs 目录下，这是android studio 默认的 jni 加载目录。
+如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs**目录下，这是android studio 默认的 jni 加载目录。
 
 ### 4.3 工程配置
 
@@ -94,7 +94,42 @@ dependencies {
     compile fileTree(dir: 'src/main/jniLibs', includes: ['*.jar'])
 }
 ```
-## 5 配置APP权限
+
+## 5 短视频发布功能集成
+短视频发布是以源代码形式提供的。
+
+### 5.1 文件说明
+
+短视频上传相关库，在**Demo\app\libs**目录下找到用于短视频上传的jar包，文件清单如下：
+
+| jar文件                           | 说明                      |
+| ---------------------------- | ----------------------- |
+| cos-xml-android-sdk-1.2.jar	|  腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
+| qcloud-core-1.2.jar			|  腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
+| okhttp-3.2.0				| 一款优秀的开源 http 组件  	|
+| okio-1.6.0				| 一款优秀的开源网络 I/O 组件 	|
+| xstream-1.4.7.jar				| 一款优秀的开源序列化组件		|
+| fastjson-1.1.62.android.jar	| 一款优秀的开源json组件		|
+
+
+短视频上传源代码，在**Demo\app\src\main\java\com\tencent\liteav\demo\videoupload**目录下
+
+### 5.2 拷贝文件
+
+将刚才得到的jar包拷贝到**Demo\app\src\main\libs**目录下，这是android studio 默认的 jar lib 加载目录。
+将刚才得到的源代码目录**videoupload**拷贝到自己的工程源码目录下，记得修改源代码里的package名。
+
+### 5.3 工程配置
+
+在工程app目录下的 build.gradle 中，添加引用 jar 包的代码。
+
+```
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+```
+
+## 6 配置APP权限
 
 在 AndroidManifest.xml 中配置 APP 的权限，音视频类 APP 一般需要以下权限：
 
@@ -105,6 +140,7 @@ dependencies {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.CALL_PHONE"/>
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 <uses-permission android:name="android.permission.READ_LOGS" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 <uses-permission android:name="android.permission.CAMERA" />
@@ -112,11 +148,11 @@ dependencies {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
-## 6 验证
+## 7 验证
 
 在工程中调用SDK接口，获取SDK版本信息，以验证工程设备是否正确。
 
-### 6.1 引用SDK
+### 7.1 引用SDK
 
 在 MainActivity.java 中引用 SDK 的class：
 
@@ -124,7 +160,7 @@ dependencies {
 import com.tencent.rtmp.TXLiveBase;
 ```
 
-### 6.2 调用接口
+### 7.2 调用接口
 
 在onCreate中调用getSDKVersioin接口获取版本号：
 ```
@@ -132,13 +168,13 @@ String sdkver = TXLiveBase.getSDKVersionStr();
 Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 ```
 
-### 6.3 编译运行
+### 7.3 编译运行
 如果前面各步骤都操作正确，demo工程将顺利编译通过，运行之后将在logcat中看到如下log信息：
-`09-26 19:30:36.547 19577-19577/ D/liteavsdk: liteav sdk version is : 3.4.1757`
+`09-26 19:30:36.547 19577-19577/ D/liteavsdk: liteav sdk version is : 3.9.2794`
 
 <a name="online_so">&nbsp;</a>
 
-## 7 LOG打印
+## 8 LOG打印
 
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及log的级别，具体代码如下：
 - **setConsoleEnabled**
@@ -157,8 +193,7 @@ TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
 
-##  常见问题排查
-
+##  9 常见问题排查
 如果您将 SDK 导入到您的工程，编译运行出现类似以下错误：
 
 ```
@@ -189,6 +224,3 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 ```
 -keep class com.tencent.** { *; }
 ```
-
-
-

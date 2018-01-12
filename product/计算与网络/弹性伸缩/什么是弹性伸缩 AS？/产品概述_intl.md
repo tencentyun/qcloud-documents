@@ -10,10 +10,10 @@ As shown in the figures below, by using AS, your cluster can always keep an appr
  - Personal surveillance and frequent handling of capacity alarms, which require multiple manual changes
 
 **Cluster maintenance in the traditional model:**
-![Alt text](https://mc.qcloudimg.com/static/img/dad472d890863fea889cea359de94c28/image.jpg)
+![Alt text](https://mc.qcloudimg.com/static/img/92ae76d43c2b490f558490d328b8761a/AS-Product+Introduction%281%29.jpg)
 
 **Effects after using AS:**
-![Alt text](https://mc.qcloudimg.com/static/img/5ca21d066ffffe9093a6796e3739325b/AS.jpg)
+![Alt text](https://mc.qcloudimg.com/static/img/953c495c4b950e98fd6e360d871bf891/AS-Product+Introduction%282%29.jpg)
 
 
 ## How AS Works

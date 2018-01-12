@@ -25,5 +25,7 @@ You may need to view the monitoring data for a different time period. Please not
 
 You can click in the upper right corner to select the time period to display. There are several time periods preset by Cloud Monitor: "Last hour", "Today", "Yesterday", "Last 7 days" and "Last 14 days". You can also specify a time period using the date picker.
 
+You can also view the data in a day for recent half year, and also the data in one minute, five minutes and one hour for the recent thirty-one days. 
 
+ The data can be displayed for up to thirty one days. 
 

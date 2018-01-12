@@ -16,14 +16,14 @@
 ## 硬件规格
 - **处理器：**Xilinx Kintex UltraScale KU115 FPGA 。
 - **内存：**DDR4 ，配有专用 PCle x8 连接。
-- **存储：**SSD 云盘。	 
+- **存储：**SSD 云硬盘。 
 - **网络：**默认网络增强，万兆网络。
 
 **FX2 实例提供三种配置：**
 
 | 实例规格 | FPGA | DDR4 规格（GiB）| vCPU | 内存（GiB）| 数据盘 | 网络|
 |---------|---------|---------|------|------------|------|----|
-| &nbsp;FX2.7xlarge60 | &nbsp;1 | &nbsp;2 * 8| &nbsp;14 | &nbsp;60 | &nbsp;SSD 云盘 | &nbsp;万兆网络|
-| &nbsp;FX2.14xlarge120 | &nbsp;2 | &nbsp;4 * 8 | &nbsp;28 | &nbsp;120 | &nbsp;SSD 云盘 | &nbsp;万兆网络|
-| &nbsp;FX2.28xlarge240 | &nbsp;4 | &nbsp;8 * 8 | &nbsp;56 | &nbsp;240 | &nbsp;SSD 云盘 | &nbsp;万兆网络|
+| &nbsp;FX2.7xlarge60 | &nbsp;1 | &nbsp;2 * 8| &nbsp;14 | &nbsp;60 | &nbsp;SSD 云硬盘 | &nbsp;万兆网络|
+| &nbsp;FX2.14xlarge120 | &nbsp;2 | &nbsp;4 * 8 | &nbsp;28 | &nbsp;120 | &nbsp;SSD 云硬盘 | &nbsp;万兆网络|
+| &nbsp;FX2.28xlarge240 | &nbsp;4 | &nbsp;8 * 8 | &nbsp;56 | &nbsp;240 | &nbsp;SSD 云硬盘 | &nbsp;万兆网络|
 	

@@ -1,0 +1,63 @@
+
+## SDK 描述
+  ListAudits 用于拉取 CloudAudit 列表。
+## 请求参数
+详见 [公共请求参数](https://cloud.tencent.com/document/product/599/12707)  页面。
+
+## 响应参数
+
+
+|参数名称|类型|描述|
+|---------|---------|---------|
+|auditLists|Array|跟踪集列表|
+
+以下是 auditLists 列表的数据。
+
+|参数名称|类型|描述|
+|---------|---------|---------|
+|Name|String|CloudAudit 名称|
+|bucketName|String|COS Bucket 名称|
+|prefix|String|日志前缀|
+|status|Number|Audit 状态，0：代表关闭，1：代表开启|
+|IsMultiRegionAudit|Number|是否开启多地域采集。0：否，1：是|
+
+## 实际案例
+### 请求示例
+
+```
+$config = array('SecretId'       => '你的secretId',
+                'SecretKey'      => '你的secretKey',
+                'RequestMethod'  => 'GET',
+                'DefaultRegion'  => 'gz');
+$ca = QcloudApi::load(QcloudApi::MODULE_CLOUDAUDIT, $config);
+$package = array();
+$a = $ca->ListAudits($package);
+if ($a === false) {
+    $error = $ca->getError();
+    echo "Error code:" . $error->getCode() . ".\n";
+    echo "message:" . $error->getMessage() . ".\n";
+    echo "ext:" . var_export($error->getExt(), true) . ".\n";
+} else {
+    var_dump($a);
+}
+echo "\nRequest :" . $ca->getLastRequest();
+echo "\nResponse :" . $ca->getLastResponse();
+echo "\n";
+```
+### 响应示例
+
+```
+{
+    "auditLists": [
+        {
+            "name": "ayisunxxx",
+            "bucketName": "sundehuixxx",
+            "prefix": "91000000009",
+            "status": 1,
+            "isMultiRegionAudit": 1
+        }
+    ]
+}
+```
+
+

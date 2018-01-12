@@ -33,7 +33,7 @@ If you can see the listening status at 1.1.1.10:80 or 0.0.0.0:80, the configurat
 
 For a Layer-4 CLB, it is considered normal as long as the back-end port telnet gives a response. You can use `telnet 1.1.1.10 80` to test. For a Layer-7 CLB, such HTTP status codes as 200 indicate a normal state. The test is conducted as follows:
 
-On Windows system, you can directly input private IP in a CVM browser to test whether it is normal. In this example, http://1.1.1.10 is input.
+On Windows system, you can directly input private IP in a CVM browser to test whether it is normal. In this example, `http://1.1.1.10` is input.
 On Linux system, you can check whether the status is HTTP / 1.1 200 OK through the`curl-I` command. In this example, `curl -I 1.1.1.10` is used.
 
 - Check whether there is a firewall or other security software inside the back-end CVM. Such software can easily block local IP address of the CLB system, causing the failure of the CLB system to communicate with the back-end CVM.

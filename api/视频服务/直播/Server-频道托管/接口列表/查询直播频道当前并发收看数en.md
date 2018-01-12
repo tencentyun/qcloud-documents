@@ -1,5 +1,5 @@
 ## 1. API Description
-Domain name: live.api.qcloud.com
+Domain name: live.api.cloud.tencent.com
 API name: DescribeLVBOnlineUsers
 
 Note: This API calculates the number of concurrent online users based on the number of access connections to the video distribution URL. If the RTMP downstream protocol is used, the calculated result can fully reflect the number of online users, or viewers. If the HLS or HLS/RTMP downstream protocol is used, the access connections calculated in real time may not accurately reflect the number of online users since HLS itself performs access based on the TS fragment characteristics, and can be used for reference only.
@@ -58,8 +58,8 @@ If the value of channel ID is -1, the number of online users for all channels is
 
 Query based on a video ID
 Input
-<pre>
-https://domain/v2/index.php?Action=DescribeLVBOnlineUsers&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
+<pre>`https://domain/v2/index.php?Action=DescribeLVBOnlineUsers`
+&<a href="https://cloud.tencent.com/doc/api/229/6976">Public Request Parameters</a>
 </pre>
 Output
 ```

@@ -43,8 +43,9 @@ https://vpc.api.qcloud.com/v2/index.php?Action=ModifyNetworkInterface
 Output
 ```
 {
-    "code":"0",
-    "message":""
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
 }
 ```
 
