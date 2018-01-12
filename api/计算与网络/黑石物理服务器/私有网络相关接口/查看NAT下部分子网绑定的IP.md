@@ -1,5 +1,5 @@
 ## 功能描述
-DescribeBmNatPartSubnetBindIps 接口用于查询黑石NAT网关部分子网下绑定的IP
+DescribeBmNatPartSubnetBindIps 接口用于查询黑石NAT网关部分子网下绑定的IP信息
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -20,7 +20,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
 | 参数名称 |  描述 | 类型 |必选  |
 |---------|---------|---------|---------|
 | natId | NAT网关统一ID，例如：nat-xx454| String | 是 |
-| unSubnetIds | 绑定的部分子网 | Aarry | 否 |
+| unSubnetIds | 绑定的部分子网列表 | Aarry | 否 |
 
 ## 响应
 ### 响应示例
@@ -33,7 +33,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
         {
 			"unSubnetId": <子网统一ID>,
             "subnetId": <子网ID>,
-            "subnetNatType": <子网NAT绑定的类型>,
+            "subnetNatType": <子网绑定的类型>,
             "natIpList": [
                 <绑定的IP>
             ],
@@ -48,16 +48,15 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
 |---------|---------|---------|
 | code | 错误码, 0: 成功, 其他值: 失败| Int |
 | message | 错误信息| String |
-| totalCount |  查询的NAT网关总数 | Int |
 | data.n | 查询NAT网关绑定的子网下IP信息 | Array |
 
 data数据结构如下：
 
 | 参数名称 |描述 | 类型 |
 |---------|---------|---------|
-| data.n.subnets.n.unSubnetId | 子网统一ID | String |
+| data.n.unSubnetId | 子网统一ID | String |
 | data.n.subnetId |  子网ID |Int |
-| data.n.natIpList |  该子网下绑定的IP |Int |
+| data.n.natIpList |  子网下绑定的IP列表 |Int |
 
 
 ## 错误码
