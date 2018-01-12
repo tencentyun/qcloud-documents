@@ -74,7 +74,7 @@
 
 #### 3. 获取直播服务配置信息
 从直播控制台获取bizid、pushSecretKey，后面配置服务器会用到：
-![](https://mc.qcloudimg.com/static/img/2e8c581554c8d790e2b0a212d14d0d46/image.png)
+![](https://mc.qcloudimg.com/static/img/cd216e4bdf2ad956e85a8d8762af3bd3/appidAndBizid.png)
 
 ### 开通云通信服务
 #### 1 申请开通云通讯服务
@@ -98,9 +98,9 @@
 从验证方式中下载公私钥，解压出来将private_key用文本编辑器打开，如：
 ```bash
 -----BEGIN PRIVATE KEY-----
-MIGHAgEAsUj5ep7r9TVxTrZiSpXQKhRANCAASuxr7AJGiXRqGpiO7pPrLAchyORc
-Y5uWCqVm+QFTn0H+ZcHP93ss3OhgZKh8pq+g7X26dW5fQkiSH1PXG/FY
-zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
+Y5uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxO7pPrLAchyORc
+MIGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/FY
+zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
 -----END PRIVATE KEY-----
 ```
 
@@ -108,9 +108,9 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
 ```bash
 "-----BEGIN PRIVATE KEY-----\r\n"+
-"MIGHAgEAsUj5ep7r9TVxTrZiSpXQKhRANCAASuxr7AJGiXRqGpiO7pPrLAchyORc\r\n"+
-"Y5uWCqVm+QFTn0H+ZcHP93ss3OhgZKh8pq+g7X26dW5fQkiSH1PXG/FY\r\n"+
-"zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg\r\n"+
+"Y5uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxO7pPrLAchyORc\r\n"+
+"MIGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/FY\r\n"+
+"zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg\r\n"+
 "-----END PRIVATE KEY-----\r\n"
 ```
 ## 四、安装微信小程序开发工具
@@ -139,7 +139,7 @@ zbTbMHaWCqVm+QFTn0H+QKhRANCAASuxr7AJGiXRqGpiO7pPr7jTFTmg
 
 4. 打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `bizid`、`pushSecretKey`、`APIKey`、`sdkAppID`、`accountType`、`administrator`、`privateKey`配置成上述直播服务及云通信服务里生成的值，并**保存**。
 
-  ![修改 MySQL 密码](https://mc.qcloudimg.com/static/img/5a11569b0d8eb50e3ff93ed7f4714bfb/image.png)
+  ![修改 MySQL 密码](https://mc.qcloudimg.com/static/img/565c61217b68b5a386665a80fc384f0a/serverconfig.png)
 
 5. 点击界面右上角的【腾讯云】图标，在下拉的菜单栏中选择【上传测试代码】。
 
