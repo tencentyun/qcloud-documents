@@ -46,7 +46,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
 
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 错误码, 0：成功, 其他值：失败| Int |
+| code | 错误码，0：成功, 其他值：失败| Int |
 | message | 错误信息| String |
 | data.n | 查询NAT网关绑定的子网下 IP 信息 | Array |
 
