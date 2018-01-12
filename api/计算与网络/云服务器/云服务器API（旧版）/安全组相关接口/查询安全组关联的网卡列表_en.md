@@ -21,7 +21,7 @@ Domain name for API request: dfw.api.qcloud.com
 |---------|---------|---------|
 | code | Int | Error code, 0: succeeded, other values: failed |
 | message | String | Error message |
-| totalCount | Int |Total number of associated CVM instances|
+| totalCount | Int |Total number of associated ENI instances|
 | networkInterfaceSet | Array | Data structure of ENI list|
 
 ENI list structure:

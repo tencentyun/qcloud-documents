@@ -1,5 +1,5 @@
 ## 功能描述
-DescribeBmNatPartSubnetBindIps 接口用于查询黑石NAT网关部分子网下绑定的IP
+DescribeBmNatPartSubnetBindIps 接口用于查询黑石NAT网关部分子网下绑定的IP信息
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -15,12 +15,12 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
 
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeBmNatPartSubnetBindIps
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 DescribeBmNatPartSubnetBindIps。
 
 | 参数名称 |  描述 | 类型 |必选  |
 |---------|---------|---------|---------|
-| natId | NAT网关统一ID，例如：nat-xx454| String | 是 |
-| unSubnetIds | 绑定的部分子网 | Aarry | 否 |
+| natId | NAT 网关统一 ID，例如：nat-xx454| String | 是 |
+| unSubnetIds | 绑定的部分子网列表 | Aarry | 否 |
 
 ## 响应
 ### 响应示例
@@ -33,7 +33,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
         {
 			"unSubnetId": <子网统一ID>,
             "subnetId": <子网ID>,
-            "subnetNatType": <子网NAT绑定的类型>,
+            "subnetNatType": <子网绑定的类型>,
             "natIpList": [
                 <绑定的IP>
             ],
@@ -46,26 +46,25 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
 
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 错误码, 0: 成功, 其他值: 失败| Int |
+| code | 错误码，0：成功, 其他值：失败| Int |
 | message | 错误信息| String |
-| totalCount |  查询的NAT网关总数 | Int |
-| data.n | 查询NAT网关绑定的子网下IP信息 | Array |
+| data.n | 查询NAT网关绑定的子网下 IP 信息 | Array |
 
-data数据结构如下：
+data 数据结构如下：
 
 | 参数名称 |描述 | 类型 |
 |---------|---------|---------|
-| data.n.subnets.n.unSubnetId | 子网统一ID | String |
-| data.n.subnetId |  子网ID |Int |
-| data.n.natIpList |  该子网下绑定的IP |Int |
+| data.n.unSubnetId | 子网统一 ID | String |
+| data.n.subnetId |  子网 ID |Int |
+| data.n.natIpList |  子网下绑定的IP列表 |Int |
 
 
 ## 错误码
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
-| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确 |
+| -3047 | InvalidBmVpc.NotFound | 无效的 VPC。VPC 资源不存在，请再次核实您输入的资源信息是否正确，可通过 <a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a> 接口查询 VPC。 |
+| 13014 | BmVpcNat.NotFound | 无效的 NAT 网关，NAT 网关资源不存在。请再次核实您输入的资源信息是否正确 |
 
 ## 实际案例
 
