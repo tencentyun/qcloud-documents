@@ -56,7 +56,7 @@ mLivePusher.startCameraPreview(mCaptureView);
 - **startCameraPreview** 则是将界面元素和Pusher对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 
-### step 3+: 启动纯音频推流
+### step 3+: 纯音频推流
 如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
 
 ```java
@@ -85,21 +85,36 @@ SDK 提供了六种基础档位，根据我们服务大多数客户的经验进�
 - **adjustResolution**
 是否允许动态分辨率，开启后 SDK 会根据当前的视频码率选择相匹配的分辨率，这样能获得更好的清晰度。相应的代价就是，动态分辨率的直播流所录制下来的文件，在很多播放器上会有兼容性问题。
 
-![](//mc.qcloudimg.com/static/img/07deb1e7e01daba3227175a0fcec1fa5/image.png)
+- **参数配置指引表**
+
+| 参数quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 适用场景 | 带宽费用 | 
+|---------|---------|---------|---------|---------|---------|
+| VIDEO_QUALITY_STANDARD_DEFINITION | true | true | 300~800kbps| 270x480 ~ 360x640| 网络较差的场景| 低|
+| VIDEO_QUALITY_STANDARD_DEFINITION | true | false |300~800kbps|360x640| 网络较差的场景|低|
+| VIDEO_QUALITY_STANDARD_DEFINITION | false | false | 800kbps | 360x640| 网络较差的场景|低|
+| VIDEO_QUALITY_HIGH_DEFINITION | true | true |600~1500kbps| 360x640~540x960| 网络不确定场景| 中|
+| VIDEO_QUALITY_HIGH_DEFINITION | true | false |600~1500kbps| 540x960| 常规秀场直播| 中|
+| VIDEO_QUALITY_HIGH_DEFINITION | false | false |1200kbps| 540x960| 常规秀场直播| 中|
+| VIDEO_QUALITY_SUPER_DEFINITION | true | true | 600~1800kbps|360x640~720x1280|手游直播|高|
+| VIDEO_QUALITY_SUPER_DEFINITION | true | false |600~1800kbps|720x1280|手游直播|高|
+| VIDEO_QUALITY_SUPER_DEFINITION | false | false |1800kbps|720x1280|手游直播|高|
+| VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | true | true |600~1500kbps| 360x640~540x960| 连麦大画面|N/A|
+| VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER | false | false |350kbps| 320x480| 连麦小画面| N/A|
+| VIDEO_QUALITY_REALTIEM_VIDEOCHAT | true | true | 200~800kbps| 190x320~360x640| 实时通话|N/A|
 
 ### step 5: 美颜滤镜
 ![](//mc.qcloudimg.com/static/img/aac647073cf0641141900e775e929418/image.png)
 - **美颜**
 setBeautyFilter 接口可以设置美颜风格、磨皮程度、美白级别和红润级别，配合 540 * 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
- ```java
+```java
  //style             磨皮风格：  0：光滑  1：自然  2：朦胧
  //beautyLevel       磨皮等级： 取值为0-9.取值为0时代表关闭美颜效果.默认值:0,即关闭美颜效果.
  //whiteningLevel    美白等级： 取值为0-9.取值为0时代表关闭美白效果.默认值:0,即关闭美白效果.
  //ruddyLevel        红润等级： 取值为0-9.取值为0时代表关闭美白效果.默认值:0,即关闭美白效果. 
  //
  public boolean setBeautyFilter(int style, int beautyLevel, int whiteningLevel, int ruddyLevel);
- ```
-
+```
+ 
 - **滤镜**
 setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了Demo中，您可以随意使用，不用担心版权问题。
 
@@ -200,7 +215,27 @@ Android 手机目前对硬件加速的支持已较前两年有明显的进步，
 我们在 setVideoQuality 的高清档（推荐档位）和标清档均推荐使用软件编码，如果您担心CPU和发热问题，可以做一个简单的保护逻辑： 
 > 如果发现推流的 **FPS** ( 通过 TXLivePushListener 的 NET_STATUS_VIDEO_FPS 事件可以获知 ) 持续过低，比如半分钟内持续低于 10 帧/秒，表示 CPU 负载过重，则切换为硬编码。
 
-### step 9: 后台推流
+### step 9: 本地录制
+使用 startRecord 接口可以启动本地录制，录制格式为 MP4，通过 videoFilePath 可以指定 MP4 文件的存放路径。
+- 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常。
+- 如果是云端录制，只需要在推流 URL 后面拼接 &record=mp4 即可，详情请参考[云端录制](https://cloud.tencent.com/document/product/454/7917)。
+- 通过 setVideoRecordListener 接口，可以设置 TXRecordCommon.ITXVideoRecordListener 监听器给 TXLivePusher ，从而获取录制相关的事件通知。
+
+```java
+// 启动录制：返回 0 开始录制成功；-1 表示正在录制，这次启动录制忽略；-2 表示还未开始推流，这次启动录制失败
+public int startRecord(final String videoFilePath) 
+// 结束录制
+public void stopRecord() 
+//
+// 视频录制回调
+public interface ITXVideoRecordListener {
+        void onRecordEvent(final int event, final Bundle param);
+        void onRecordProgress(long milliSecond);
+        void onRecordComplete(TXRecordResult result);
+}
+```
+
+### step 10: 后台推流
 常规模式下，App一旦切到后台，摄像头的采集能力就被 Android 系统停掉了，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
  - 阶段一（切后台开始 -> 之后的10秒内）- CDN因为没有数据所以无法向观众提供视频流，观众看到画面卡主。
  - 阶段二（10秒 -> 70秒内）- 观众端的播放器因为持续收不到直播流而直接退出，直播间已经人去楼空。
@@ -251,20 +286,22 @@ public void onResume() {
 }
 ```
 
-### step 9+: 后台推摄像头采集数据
-如果主播希望在切后台或者跳转其他界面还能看到摄像头采集的画面， 按照以下配置即可。
- （1） step 9.1 和 step 9.2 无需设置。
- （2） 在 step 9.3 中，注释 mLivePusher.pausePusher() 该方法。
- （3） 在 step 9.4 中，注释 mLivePusher.resumePusher() 该方法。
+### step 10+: 后台推摄像头采集数据
+如果希望主播在切后台或者跳转其他界面还能看到摄像头采集的画面， 按照以下配置即可。
+ （1） step 10.1 和 step 10.2 无需设置。
+ （2） 在 step 10.3 中，注释 mLivePusher.pausePusher() 该方法。
+ （3） 在 step 10.4 中，注释 mLivePusher.resumePusher() 该方法。
 
 **<font color='red'>注意</font>**：使用该功能注意保护主播隐私。
 
-### step 10: 提醒主播“网络不好”
-step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
+### step 11: 网络质量提示
+如何了解主播当前的网络质量好坏？
 
-当收到此WARNING时，您可以通过UI提醒主播换一下网络出口，或者离WiFi近一点，或者让她吼一嗓子：“领导，我在直播呢，别上淘宝了行不！什么？没上淘宝？那韩剧也是一样的啊。”
+- 【方案一】：通过 TXLivePushListener 里的 **onNetStatus # NET_STATUS_CODEC_CACHE ** 可以获取积压情况，积压情况在 5 以内属于正常，超过 5 代表网速跟不上，数值越大代表网络质量越差。
 
-### step 11: 横屏推流
+- 【方案二】：通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿，此时可以提示主播 “您当前的网络状况不佳，推荐您离 WiFi 近一点”。
+
+### step 12: 横屏推流
 有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果：
 ![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
 
@@ -279,7 +316,7 @@ Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转�
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
 
 
-### step 12: 背景混音
+### step 13: 背景混音
 SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePusher 中的如下这组接口实现背景混音功能：
 
 | 接口 | 说明 |
@@ -291,7 +328,7 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 | setMicVolume|设置混音时麦克风的音量大小，推荐在UI上实现相应的一个滑动条，由主播自己设置|
 | setBGMVolume|设置混音时背景音乐的音量大小，推荐在UI上实现相应的一个滑动条，由主播自己设置|
 
-### step 13: 结束推流
+### step 14: 结束推流
 结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePusher 和用于显示影像的 TXCloudVideoView 都是不能多实例并行运转的，所以清理工作不当会导致下次直播遭受不良的影响。
 ```java
 //结束推流，注意做好清理工作
@@ -302,6 +339,19 @@ public void stopRtmpPublish() {
 }
 ```
 
+
+<h2 id="Message"> 发送消息 </h2>
+此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
+（1）冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
+（2）秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+（3）在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。
+
+```java
+//Android 示例代码
+mTXLivePusher.sendMessage(questionInfo.getBytes("UTF-8"));
+```
+
+> 使用 TXLivePlayer 的 onPlayEvent （PLAY_EVT_GET_MESSAGE） 可以用来接收消息。
 
 ## 事件处理
 ### 1. 事件监听
