@@ -105,13 +105,15 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer removeVideoWidget]; // 记得销毁view控件
 ```
 
-<h3 id="Message">step 7: 接收消息</h3>
+<h3 id="Message">step 7: 消息接收</h3>
 此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
 （1）冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
 （2）秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
 （3）在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。
 
-TXLivePlayer 通过 **TXLivePlayListener** 监听消息，消息编号：**PLAY_EVT_GET_MESSAGE （2012）**
+通过如下方案可以使用此功能：
+- TXLivePlayConfig 中的 **enableMessage** 开关置为 **YES**。
+- TXLivePlayer 通过 **TXLivePlayListener** 监听消息，消息编号：**PLAY_EVT_GET_MESSAGE （2012）**
 
 ```objectiveC
  -(void) onPlayEvent:(int)EvtID withParam:(NSDictionary *)param {
@@ -251,14 +253,6 @@ _config.cacheTime              = 5;
 | PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | RTMP服务器连接失败（仅播放RTMP地址时会抛送）|
 | PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP服务器握手失败（仅播放RTMP地址时会抛送）|
 
-### 4. 连接事件
-此外还有几个连接服务器的事件，主要用于测定和统计服务器连接时间，您也无需关心：
-
-| 事件ID                     |    数值  |  含义说明                    |   
-| :-----------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
-| PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
-| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
 ## 视频宽高 
