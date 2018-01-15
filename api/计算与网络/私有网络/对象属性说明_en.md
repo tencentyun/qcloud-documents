@@ -155,11 +155,11 @@
 
 ## 13. FlowLog Related Parameters
 | vpcId | String | vpcId assigned by the system. For example: gz_vpc_266 |
-| flowLogName | String | FlowLog name。|
-| flowLogDescription | String | 流日志描述，默认为"",可选项。|
-| resourceType | String | 流日志所属资源类型，VPC\|SUBNET\|NETWORKINTERFACE。|
-| resourceId | String | 资源唯一ID，例如vpc-puz6fg, subnet-5o8ycyt, eni-08dhim。 |
-| trafficType | String | 流日志采集类型，ACCEPT\|REJECT\|ALL。 | 
-| cloudLogId | String | 流日志存储ID, 暂时只支持日志服务ID，例如d44e4cf0-c3e2-48d9-bb64-c5f0337ef2b0。|
-| flowLogId | String | FlowLog unique ID，For example: fl-q1b26f3d。|
-| createdTime | String | FlowLog creation time。|
+| flowLogName | String | FlowLog name |
+| flowLogDescription | String | FlowLog description，default "" |
+| resourceType | String | Resource type of FlowLog，VPC\|SUBNET\|NETWORKINTERFACE |
+| resourceId | String | Resource ID, For example:vpc-puz6fg, subnet-5o8ycyt, eni-08dhim |
+| trafficType | String | Collect type of FlowLog，ACCEPT\|REJECT\|ALL | 
+| cloudLogId | String | Storage ID of FlowLog, For example: d44e4cf0-c3e2-48d9-bb64-c5f0337ef2b0 |
+| flowLogId | String | FlowLog unique ID，For example: fl-q1b26f3d |
+| createdTime | String | FlowLog creation time |
