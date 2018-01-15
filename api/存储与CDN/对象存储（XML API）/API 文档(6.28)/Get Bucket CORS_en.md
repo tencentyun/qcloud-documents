@@ -6,7 +6,7 @@ The API Get Bucket CORS helps Bucket owner configure the information of cross-or
 Syntax:
 ```
 GET /?cors HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

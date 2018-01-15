@@ -1,4 +1,3 @@
-## Creating MariaDB (TDSQL) Database Instance
 1. Log in to Tencent Cloud Console and open the Console via the URL [https://console.cloud.tencent.com/tdsql](https://console.cloud.tencent.com/tdsql)
 
 2. Click "New" in the upper-right corner of the console or visit the purchase page [https://buy.cloud.tencent.com/tdsql](https://buy.cloud.tencent.com/tdsql)

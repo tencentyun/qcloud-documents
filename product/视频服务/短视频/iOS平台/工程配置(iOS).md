@@ -1,26 +1,26 @@
 
 ## Xcode工程设置
 
-### 一、支持平台
+### 支持平台
 
 + SDK支持iOS 8.0以上系统
 
-### 二、开发环境
+### 开发环境
 
-+ Xcode 8或更高版本
++ Xcode 9或更高版本
 + OS X 10.10或更高版本
 
-### 三、Xcode工程设置
+### Xcode工程设置
 
 下面通过一个简单的iOS Application工程，说明如和在Xcode工程中配置SDK。
 
-### 1、拷贝SDK文件
+#### 拷贝SDK文件
 
 在本例中，新建一个名字叫做HelloSDK的iOS工程，将下载下来的`TXLiteAVSDK_UGC.framework`拷贝至工程目录。目录结构如下图所示：
 
 ![](//mc.qcloudimg.com/static/img/d2b95540742662c006039adabb44188a/RTX20170811-210804.png)
 
-### 2、添加Framework
+#### 添加Framework
 
 在工程中添加`TXLiteAVSDK_UGC.framework`，同时还要添加以下系统依赖库
 
@@ -32,29 +32,33 @@
 
 ![](//mc.qcloudimg.com/static/img/98f026d48d92df36eaa23f8304b84eaf/image.png)
 
-### 3、添加头文件
+#### 添加头文件
 在Build Settings->Search Paths->User Header Search Paths中添加头文件搜索路径。注意此项不是必须的，如果您没有添加TXLiteAVSDK_UGC的头文件搜索路径，则在引用SDK的相关头文件时，需要在头文件前增加"TXLiteAVSDK_UGC/"，如下所示：
-```
+
+```	objc
 #import "TXLiteAVSDK_UGC/TXUGCRecord.h"
 ```
 
-### 四、验证
+#### 添加 -ObjC
+SDK用到了一些类别的方法，加载类别方法需要在工程配置：Build Settings -> Linking -> Other Linker Flags 添加 -ObjC ，否则在程序运行的过程中可能因为找不到类别方法而报错
+
+#### 验证
 
 下面在HelloSDK的代码中，调用SDK的接口，获取SDK版本信息，以验证工程设置是否正确。
 
-### 1、引用头文件
+##### 引用头文件
 
 在ViewController.m开头引用SDK的头文件：
 
-```
+```	objc
 #import "TXLiteAVSDK_UGC/TXLiveBase.h"
 ```
 
-### 2、添加调用代码
+#### 添加调用代码
 
 在viewDidLoad方法中添加代码：
 
-```
+```	objc
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 打印SDK的版本信息
@@ -62,7 +66,7 @@
 }
 ```
 
-### 3、编译运行
+#### 编译运行
 
 如果前面各个步骤都操作正确的话，HelloSDK工程应该可以顺利编译通过。在Debug模式下运行APP，Xcode的Console窗格会打印出SDK的版本信息。
 
@@ -82,7 +86,7 @@
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
 
-```
+```	objc
 [TXLiveBase setConsoleEnabled:YES];
 [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
 ```

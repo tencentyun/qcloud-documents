@@ -12,13 +12,13 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Required | Type | Description |
 | -------- | ----- | ----- | --------- |
-| diskType | No | String | Standard values: <br> root, which refers to system disk; data, which refers to data disk |
-| payMode | No | String | Payment mode. <br>prePay means Prepaid (Annual or Monthly Plan), postPay means Postpaid (Bill by Traffic) | 
-| portable | No | Int | Indicate whether it is an elastic cloud storage. 1 means it is an elastic cloud storage, and 0 means it is a non-elastic cloud storage | 
-| projectId | No | Int | Project ID. You can query available projects and their IDs via the [DescribeProject (Query Project List)](https://cloud.tencent.com/doc/api/229/1330) API.  | 
+| diskType | No | String | Standard values: <br><li>root, which refers to system disk; <br><li>data, which refers to data disk |
+| payMode | No | String | Payment mode. <br><li>prePay means Prepaid (Annual or Monthly Plan)<br><li>postPay means Postpaid (Bill by Traffic) | 
+| portable | No | Int | Indicate whether it is an elastic cloud storage. <br><li>1 means it is an elastic cloud storage<br><li>0 means it is a non-elastic cloud storage | 
+| projectId | No | Int | Project ID. You can query available projects and their IDs via the DescribeProject (Query Project List) API.  | 
 | storageIds | No | Array [String] | Filter by one or more Cloud Block Storage IDs.  |
-| storageType | No | String | Type of hard disk medium. Only two values are available: cloudBasic refers to a HDD cloud storage; cloudSSD refers to a SSD cloud storage |
-| storageStatus | No | Array [String] | Filter by one or more statuses. The standard values are as follows. <br>normal: Normal<br>toRecycle: To be terminated<br>attaching: Mounting<br>detaching: Unmounting<br>snapshotCreating: The snapshot is being created<br>rollback: Rollbacking<br>expanding: Expanding | 
+| storageType | No | String | Type of hard disk medium.<br><li>cloudBasic refers to a HDD cloud storage<br><li>cloudSSD refers to a SSD cloud storage |
+| storageStatus | No | Array [String] | Filter by one or more statuses. The standard values are as follows.<br><li>normal: Normal<br><li>toRecycle: To be terminated<br><li>attaching: Mounting<br><li>detaching: Unmounting<br><li>snapshotCreating: The snapshot is being created<br><li>rollback: Rollbacking<br><li>expanding: Expanding | 
 | uInstanceIds | No | Array [String] | The CVM instance ID, which can be used to query the Cloud Block Storage mounted under the specified CVM |
 | zoneId | No | Int | ID of the availability zone of the hard disk, which can be queried via the [DescribeAvailabilityZones (Query Availability Zone)](http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA) API |
 | offset | No | Int | Offset; default value is 0 | 
@@ -50,8 +50,8 @@ The following request parameter list only provides API request parameters. For o
 | storageId | String | ID of Cloud Block Storage | 
 | storageName | String | Name of Cloud Block Storage | 
 | storageSize | Int | Size of Cloud Block Storage (GB) | 
-| storageStatus | String | Status of Cloud Block Storage. <br>normal: Normal. toRecycle: To be terminated. <br>attaching: Mounting. detaching: Unmounting. snapshotCreating: The snapshot is being created. <br>rollback: Rollbacking. expanding: Expanding | 
-| storageType | String | Type of hard disk medium. cloudBasic: HDD cloud storage. cloudSSD: SSD cloud storage | 
+| storageStatus | String | Status of Cloud Block Storage.<br><li>normal: Normal. <br><li>toRecycle: To be terminated. <br><li>attaching: Mounting.<br><li>detaching: Unmounting.<br><li>snapshotCreating: The snapshot is being created.<br><li>rollback: Rollbacking. expanding: Expanding | 
+| storageType | String | Type of hard disk medium.<br><li>cloudBasic: HDD cloud storage.<br><li>cloudSSD: SSD cloud storage | 
 | uInstanceId | String | ID of the CVM onto which the Cloud Block Storage is mounted |
 | zoneId | Int | ID of the availability zone of the Cloud Block Storage, which can be queried via the [DescribeAvailabilityZones (Query Availability Zone)](http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA) API | 
 

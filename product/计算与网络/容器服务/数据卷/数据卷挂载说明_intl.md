@@ -17,9 +17,9 @@ Tencent Cloud's CCS is built based on the Kubernetes orchestration system, and s
 Steps:
 
 - Step 1: Add volume
-![Alt text](https://mc.qcloudimg.com/static/img/95fa43aef0712a1c798ac2c762d1d43d/%7BFA88D589-64B7-4F27-90F2-1E8A86485DA6%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/4b39fd336dfde07b85a11089fcfb885d/data_volumn_1.jpg)
 - Step 2: Set a mount path for the volume in the container configuration
-![Alt text](https://mc.qcloudimg.com/static/img/728edfe98f53421d0b621c4f2a290649/%7BE25FD03D-CEAC-406E-8582-913897778175%7D.png)
+![Alt text](https://mc.qcloudimg.com/static/img/a19a6012ca1521494e7ca40baacc726f/data_volumn_2.jpg)
 Note the following when using volumes:
 
 >- The volume mount path can be empty when you create the service;
@@ -32,5 +32,4 @@ Note the following when using volumes:
 
 ### PersistentVolume and PersistentVolumeClaim
 Available soon
-
 

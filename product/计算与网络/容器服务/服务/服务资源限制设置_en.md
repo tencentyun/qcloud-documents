@@ -25,7 +25,7 @@ You can only set the maximum amount of memory available for the container. Memor
 A simple example is given here to illustrate the role of Request and Limit. A 4U4G node is provided in the trial cluster. Two Pods (1, 2) are deployed, each with resources configuration of (CPU Request, CPU Limit, Memory Request, Memory Limit) = (1, 2U, 1G, 1G).
 (1.0 GB = 1000 MiB)
 The usage of CPU and memory on the node is shown as below:
-![Alt text](https://mc.qcloudimg.com/static/img/b021e644c31ddcacf13930a412c51e5a/image.png)
+![Alt text](https://mc.qcloudimg.com/static/img/721a886f4ea3437d851c86770429827a/%7B2A75DFAF-761F-4A20-9AEC-FAE53719CC30%7D.png)
 Assigned CPU resources: 1U (to Pod 1) + 1U (to Pod 2) = 2U; unassigned CPU resources: 2U
 Assigned memory resources: 1G (to Pod 1) + 1G (to Pod 2) = 2G; unassigned memory resources: 2G
 In such case, one Pod with (CPU Request, Memory Request) = (2U, 2G), or two Pods with (CPU Request, Memory Request) = (1U, 2G) can be deployed on the node.

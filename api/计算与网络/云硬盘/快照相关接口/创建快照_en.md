@@ -6,8 +6,8 @@ This API (CreateSnapshot) is used to create snapshots for the specified cloud di
 Domain for API request:<font style="color:red">snapshot.api.qcloud.com</font>
 
 
-Usage restrictions:
-1. Only a cloud disk with snapshot ability can create snapshots. Whether a cloud disk has snapshot ability can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `snapshotAbility` field in output parameters. 
+Usage restrictions:<br>
+1. Only a cloud disk with snapshot ability can create snapshots. Whether a cloud disk has snapshot ability can be queried through [DescribeCbsStorages (Query Cloud Disk Information)](https://cloud.tencent.com/doc/api/364/2519) API. See the `snapshotAbility` field in output parameters. <br>
 2. For the number of snapshots that can be created, refer to [Product Usage Restriction](https://cloud.tencent.com/doc/product/362/5145).
 
 

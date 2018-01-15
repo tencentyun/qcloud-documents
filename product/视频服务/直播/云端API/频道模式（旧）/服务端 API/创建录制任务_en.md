@@ -11,7 +11,7 @@ Recording rules
 2) The recording is fragmented by time, and the longest fragment time is 0.5 hour
 3) The recording is stopped and a fragment is generated in case of a stream interruption
 A new fragment recording task is started after the stream is resumed to repeat the preceding steps until the entire recording is completed
-Fragment recording request URL format: http://(VOD bizid).vod.myqcloud.com/(vid).f0.flv
+Fragment recording request URL format: `http://(VOD bizid).vod.myqcloud.com/(vid).f0.flv`  
 Or view the fragment on the VOD page
 
 ## 2. Input Parameters
@@ -66,7 +66,7 @@ Or view the fragment on the VOD page
 <tr>
 <td> task_id
 <td> Int
-<td> Task ID
+<td> Task ID, 64 bit unsigned integer
 </tbody></table>
 
 </b></th>
@@ -86,7 +86,7 @@ Output 1
 {
    "code": 0,
    "message": "",
-   "task_id": "1"
+   "task_id": 1
 
 }
 

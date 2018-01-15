@@ -10,7 +10,7 @@ Domain name for API request: <font style='color:red'>redis.api.qcloud.com </font
 
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='/doc/api/260/1753' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is CreateRedis.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://cloud.tencent.com/document/api/239/7200' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is CreateRedis.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|

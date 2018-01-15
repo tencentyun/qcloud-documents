@@ -10,29 +10,26 @@ It is recommended that you create two policies for each scaling change: one poli
 
 As shown in the figure below:
 
-![](https://mc.qcloudimg.com/static/img/cca3aaed563b1a5b97e32fa22eebdfa6/4.jpg)
-
+![](https://mc.qcloudimg.com/static/img/83557f69f860be57cf464b2b45ab31c5/1.jpg)
 
 ## Scenario Example
 
 For example, you have an e-commerce web application that currently runs on five instances. You carry out an operating activity, and worry about that the number of visits is much greater than you've expected. You can launch two new instances when the load on the current instance increases to 70%, and terminate these instances when the load decreases to 40%. You can configure the scaling group to scale automatically based on these conditions.
 
-
-
-![](https://mc.qcloudimg.com/static/img/d3320376422b51e1241591e432e2f3c5/7.jpg)
+![](https://mc.qcloudimg.com/static/img/92435c4281be33320200ce3f69bbc36c/AS-Expanding+and+Reducing-Managing+Alarm+Triggering+Policies.jpg)
 
 ## Steps
 
 1. Open the [Console](https://console.cloud.tencent.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
 
 2. Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
-![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](https://mc.qcloudimg.com/static/img/cebad1b79ccba9fb9548c2bd2c30a210/2.jpg)
 
 3. Select **Alarm Trigger Policy** in the top navigation bar, and manage the alarm trigger policy associated with the scaling group on this page.
 	- Click **New** to add a new alarm trigger policy;
 	- Click **Delete** to delete the alarm trigger policy.
 
-![](//mccdn.qcloud.com/static/img/7b4b02c3f0aa3fe5921029b6471d3ada/image.png)
+![](https://mc.qcloudimg.com/static/img/570e5bd24b8975c65dd939bc9052d5a3/3.jpg)
 
 
 ## Exclude a Server from the Alarm Scaling Policy
@@ -51,4 +48,3 @@ Before using auto scaling, your system may have a server that is regularly used.
 **Step 1**: In the [Scaling Group List](https://console.cloud.tencent.com/autoscaling), click the scaling group in which the server resides to enter the management page;
 
 **Step 2**: In the **CVM List** at the bottom of the management page, click **Set Removal Protection** for the appropriate CVM.
-

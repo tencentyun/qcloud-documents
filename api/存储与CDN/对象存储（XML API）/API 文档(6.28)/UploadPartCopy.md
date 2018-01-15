@@ -10,7 +10,7 @@ Upload Part - Copy  请求实现将一个文件的分块内容从源路径复制
 语法示例：
 ```
 PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 x-cos-copy-source: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com/filepath
@@ -70,16 +70,16 @@ PUT /destinationObject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```
-<CopyResultResult>
+<CopyPartResult>
   <ETag></ETag>
   <LastModified></LastModified>
-</CopyResultResult>
+</CopyPartResult>
 ```
 具体的数据内容如下：
 
 | 名称               | 描述                                       | 类型     |
 | ---------------- | ---------------------------------------- | ------ |
-| CopyResultResult | 返回复制结果信息                                 | String |
+| CopyPartResult | 返回复制结果信息                                 | String |
 | ETag             | 返回文件的MD5算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
 | LastModified     | 返回文件最后修改时间，GMT 格式                         | String |
 
@@ -106,8 +106,8 @@ Date: Mon, 04 Sep 2017 04:45:45 GMT
 Server: tencent-cos
 x-cos-request-id: NTlkYjFjYWJfMjQ4OGY3MGFfNGIzZV9k
 
-<CopyResultResult>
+<CopyPartResult>
 <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>
 <LastModified>2017-09-04T04:45:45</LastModified>
-</CopyResultResult>
+</CopyPartResult>
 ```

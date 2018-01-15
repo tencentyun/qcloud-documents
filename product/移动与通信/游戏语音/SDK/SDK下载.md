@@ -1,5 +1,47 @@
+**v1.1.15**  
+[C++\Cocos2D SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Cocos.zip)
 
-v1.1.12   
+[Unity3D SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Unity3D.zip)
+
+[Android SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Android.zip)
+
+[IOS SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS.zip)
+
+[IOS(bitcode) SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS_bitcode.zip)
+
+[Win64 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_winx64_1_1_15_164628_20171214.zip)
+
+[Win32 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_win_1_1_15_164628_20171214.zip)
+
+[UE4 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_UE4.zip)
+
+1. 提供全局范围语音功能，基于游戏中玩家坐标范围来决定语音通话参与者数量（可参考PUBG中的全局语音功能）。
+2. 支持加入多语音房间，现在一个玩家最多可以参与2个小队语音，或参与1个小队语音和1个范围语音。
+
+**v1.1.14**（不发布）
+
+1. 代码合入
+
+**v1.1.13**  
+[C++\Cocos2D SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Cocos.zip)
+
+[Unity3D SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Unity3D.zip)
+
+[Android SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Android.zip)
+
+[IOS SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS.zip)
+
+[IOS(bitcode) SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS_bitcode.zip)
+
+[Win64 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
+
+[Win32 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
+
+1.噪音优化  
+2.回声优化  
+
+
+**v1.1.12** （2017-10-18）   
 [C++\Cocos2D SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Cocos.zip)
 
 [Unity3D SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Unity3D.zip)
@@ -14,13 +56,13 @@ v1.1.12
 
 [Win32 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
        
-v1.1.12（2017-10-18）  
+
 1. 语音增强扛丢包和网络抖动的能力  
 2. 语音消息最长时间从3分钟提升至5分钟  
 3. 支持每个用户（按OpenID区别）保存一条永久语音消息  
  
  
-v1.1.11（2017-9-13）  
+**v1.1.11**（2017-9-13）  
 1. 支持识别男、女声音  
 2. 支持变声  
 3. 解决部分小运营商域名劫持的问题  
@@ -30,7 +72,7 @@ v1.1.11（2017-9-13）
 7. 修复接入蓝牙耳机，实时语音中，拨打电话后，声音从扬声器出来的缺陷  
 
 
-v1.1.8（2017-06-23）   
+**v1.1.8**（2017-06-23）   
 
 [C++\Cocos2D SDK 1.1.8版本](https://mc.qcloudimg.com/static/archive/ad7e3bd1bdc742c0a2272cd85bdee3a9/gcloud_voice_1_1_8_151417_20170704_Cocos.zip)
 

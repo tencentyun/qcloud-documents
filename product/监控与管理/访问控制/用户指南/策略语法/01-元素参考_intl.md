@@ -1,4 +1,9 @@
-Policy consists of several elements and is used to describe specific information about authorization. Core elements include principal, action, resource, condition and effect. The reserved words must be lowercase. The description doesn't have sequence requirement. Condition element is optional if there is no particular condition restrictions for the policy. It's not allowed to write principal element in the console, you can only use principal in policy syntax related parameters in policy management APIs.
+Policy consists of several elements and is used to describe specific information about authorization. Core elements include principal, action, resource, condition and effect. 
+
+**Note:**
+- The reserved words must be lowercase. The description doesn't have sequence requirement. 
+- Condition element is optional if there is no particular condition restrictions for the policy. 
+- It's not allowed to write principal element in the console, you can only use principal in policy syntax related parameters in policy management APIs.
 
 ### 1. Version
 

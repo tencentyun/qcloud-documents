@@ -5,7 +5,7 @@
 发布时间：2016.12.14
 版本说明：  
 1、支持发送https请求
-[下载](http://wnssdk-1251001002.file.myqcloud.com/wnssdk/cloudwns_sdk_and_v2.6.0.zip)
+[下载](https://mc.qcloudimg.com/static/archive/149ba413c9e134235055eacc19c7feb6/cloudwns_sdk_and_v2.6.0.zip)
 
  
  
@@ -17,7 +17,7 @@
 3、优化了日志的性能
 4、优化了网络切换中发送请求的体验
 5、修复了部分bug
-[下载](http://wnssdk-1251001002.file.myqcloud.com/wnssdk/cloudwns_sdk_and_v2.5.14.zip)
+[下载](https://mc.qcloudimg.com/static/archive/bf3edc6f38db1a949c0f48112bc16b05/cloudwns_sdk_and_v2.5.14.zip)
 
 
 ### 版本号：WNS SDK V 2.5.12
@@ -26,4 +26,4 @@
 1、提供关键调试日志拉取
 2、增加了后端调度逻辑的处理
 3、修复了一些bug
-[下载](http://wnssdk-1251001002.file.myqcloud.com/wnssdk/cloudwns_sdk_and_v2.5.12.zip)
+[下载](https://mc.qcloudimg.com/static/archive/8f9499324192200604f6b683793e8d2d/cloudwns_sdk_and_v2.5.12.zip)

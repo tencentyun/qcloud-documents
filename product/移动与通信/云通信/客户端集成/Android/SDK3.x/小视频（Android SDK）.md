@@ -1,7 +1,7 @@
 ## 1. 集成小视频功能扩展包
 从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载ImSDK开发包，小视频功能扩展包。
 
-ImSDK包的功能见[概述](/product/269/9227)， 小视频功能扩展包各个文件功能如下：
+ImSDK包的功能见[概述](https://cloud.tencent.com/document/product/269/9227)， 小视频功能扩展包各个文件功能如下：
 ```
 ugc_ext_libs
 ├── arm64-v8a

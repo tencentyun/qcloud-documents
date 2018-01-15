@@ -7,7 +7,7 @@ You can get the following functions in the Cloud Monitoring Console:
 
 | Module | Feature |Function |
 |---------|---------|---------|
-| Monitor Overview | Cloud monitoring overview | Provide general monitoring results and health check, so you can view the monitoring data at a glance |
+| Monitor Overview | Cloud Monitoring overview | Provide general monitoring results and health check, so you can view the monitoring data at a glance |
 | My Alarms | User-defined alarm threshold | Support Alarm Settings for CVMs, Cloud Databases, CDN, VPN, etc. |
 | Cloud Product Monitoring | Visualized cloud products monitoring | Cloud monitor console provides monitoring views for Cloud Databases, CVMs, memcached and other cloud products |
 | Custom Monitoring | User-defined monitoring metrics | Check user-defined custom monitoring metrics and reported data |
@@ -23,7 +23,7 @@ Cloud Monitor can automatically monitor the following services. Once you start u
 - [Cloud Load Balance](https://cloud.tencent.com/doc/product/214)
 - [Direct Connect](https://cloud.tencent.com/doc/product/216)
 - [Content Delivery Network](https://cloud.tencent.com/doc/product/228)
-- [Cloud Object Storage](https://cloud.tencent.com/doc/product/430)
+- [Cloud Object Storage](https://cloud.tencent.com/document/product/436)
 - [Cloud Database for MySQL](https://cloud.tencent.com/doc/product/236)
 - [Cloud Database for TDSQL](https://cloud.tencent.com/doc/product/237)
 - [Cloud Database for SQL Server](https://cloud.tencent.com/doc/product/238)

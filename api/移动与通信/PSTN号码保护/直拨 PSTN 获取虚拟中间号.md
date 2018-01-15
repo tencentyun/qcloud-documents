@@ -18,7 +18,7 @@
 | assignVirtualNum | 可选 | 指定中间号，如果该中间号已被使用返回绑定失败，如果不带该字段由腾讯侧从号码池里自动分配 | 
 | calleeDisplayNum | 可选 | 被叫显号，如果指定了该字段，被叫透传强显该号码，如果该字段为空，被叫默认显虚拟中间号 | 
 | record | 可选 | 是否录音，0 表示不录音，1 表示录音。默认为不录音 | 
-| cityId | 可选 | 主被叫号码归属地，详见《腾讯-中间号-城市id.xlsx》 | 
+| cityId | 可选 | 主被叫号码归属地，详见[《腾讯-中间号-城市id.xlsx》](https://mc.qcloudimg.com/static/archive/445a5ee035950ed3a5e71068cf972e70/archive.xlsx) | 
 | bizId | 可选 | 应用二级业务 ID，bizId 需保证在该 appId 下全局唯一，最大长度不超过 16 个字节。 | 
 | maxAllowTime | 可选 | 允许最大通话时间，不填默认为 30 分钟，单位分钟 | 
 | maxAssignTime | 可选 | 号码最大绑定时间，不填默认为 24 小时，单位秒 | 

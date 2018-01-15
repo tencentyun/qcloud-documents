@@ -13,7 +13,7 @@ Enter the command "yum install nginx" to install nginx, and enter "y" to confirm
 Enter "service nginx start" to start nginx service.</br>
 ![](http://mc.qcloudimg.com/static/img/24a8f432b79735ca3205aa8d8f9ea1c3/image.png)
 
-Enter "wget http://127.0.0.1" to test nginx service.</br>
+Enter "wget `http://127.0.0.1`" to test nginx service.</br>
 ![](http://mc.qcloudimg.com/static/img/769eddd75ce79dc2b94ba0427be16e25/image.png)
 
 ## Accessing Default Web Page

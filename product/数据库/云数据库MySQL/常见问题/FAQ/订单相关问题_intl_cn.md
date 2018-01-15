@@ -15,7 +15,7 @@
 ### 退货退款步骤
 办理退货前，请先确定是否满足五天无条件退货，且确保数据已迁移，退货完成后系统会立即清除您退还的云服务器，云数据库资源。
 **步骤1：**登录 [腾讯云官网](https://cloud.tencent.com/)，在管理中心选择 [发起工单](https://console.cloud.tencent.com/workorder/category)。
-![图片描述](http://tss.sng.com/ticket/upload/displayImage?filename=598c4299a4796.png)
+![](//mc.qcloudimg.com/static/img/abb231e9db32d4dd7950233fb6eb307a/image.png)
 **步骤2：**进入 [提交工单](https://console.cloud.tencent.com/workorder/category) 页面，根据您要退还的问题类型进行选择，其中问题类型主要包括（公共基础类问题，计算与网络，存储与 CDN，数据库，安全服务，视频与通信服务，其他服务）。
 **步骤3：**点击 [提交工单](https://console.cloud.tencent.com/workorder/category) 选择退还原因，填写问题描述，提交工单，以云服务 CVM 为示例，申请退货，找到云服务器 CVM。
 腾讯云客服人员将会在两个工作日内处理您提交的申请，退款成功后会有退款的订单产生，请注意查看。

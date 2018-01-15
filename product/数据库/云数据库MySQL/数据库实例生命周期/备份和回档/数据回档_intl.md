@@ -1,8 +1,6 @@
 Users can use the rollback tool to roll back a database or table on Tencent Cloud platform. Based on cold backup and binlog, the tool can be used to roll back data in real time.
 
-The CDB rollback tool can roll back the cloud database or table to the specified time with regular images and real-time flow reconstruction, and ensure that all data have the same time slice. During the rollback, the access to the original database or table is not affected,
-
-and a new database or table will be generated. After the rollback is finished, the user can see the original database or table, as well as the new database or table.
+The CDB rollback tool can roll back the cloud database or table to the specified time with regular images and real-time flow reconstruction, and ensure that all data have the same time slice. During the rollback, the access to the original database or table is not affected,and a new database or table will be generated. After the rollback is finished, the user can see the original database or table, as well as the new database or table.
 
 > Note: Cloud database will not change any user data. The data damage due to personal cause can be repaired through rollback.
 
@@ -10,7 +8,7 @@ and a new database or table will be generated. After the rollback is finished, t
 
 In order to ensure the security of data in the database or table, the tool will authenticate a request.
 
-### 1.2 Service Limits
+### 1.1 Service Limits
 
 **Environment limit**  
 
@@ -28,8 +26,7 @@ As data rollback is a resource-consuming service, the number of requests that ca
 
 ### 2.1 Installation Instructions
 
-1. Download the CDB rollback tool:
-
+1.Download the CDB rollback tool:
 <table  style="width:600px">
 	<thead>
 		<tr>
@@ -52,19 +49,14 @@ As data rollback is a resource-consuming service, the number of requests that ca
 	</tbody>
 </table>
 
-
-2. Save the tool to the local, then upload it to the CVM, and decompress the toolkit.
+2.Save the tool to the local, then upload it to the CVM, and decompress the toolkit.
 The decompression process is as follows:
-
 ```
 unzip CdbRollbackTools_x64_v1.1.0.zip
 ```
-
-3. After the decompression, there will be a binary executable file. The file is described as follows:
-
+3.After the decompression, there will be a binary executable file. The file is described as follows:
 CdbRollbackTools: Cloud Database rollback tool.
-
-4. Run the tool directly on the CVM (Linux CVM only) without installation. 
+4.Run the tool directly on the CVM (Linux CVM only) without installation. 
 
 ### 2.2 Command Description
 
@@ -95,11 +87,9 @@ $ ./CdbRollbackTools start appid instanceName dbName tableName destTableName rol
 ### 2.3 Executing Rollback Task
 
 **1. Command Example**
-
 ```
 $ ./CdbRollbackTools start 125000000 16_test_2011_10_31 rb_database rb_table rb_dest_table_1 201209251650 user passwd full e827a9de-06f0-11e2-81d1-781dbace8354
 ```
-
 **2. Input Parameter Description**
 <table style="width:700px">
 	<thead>
@@ -159,14 +149,14 @@ $ ./CdbRollbackTools start 125000000 16_test_2011_10_31 rb_database rb_table rb_
 		<tr>
 			<td style="width: 92px;">token</td>
 			<td style="width: 395px;">Key for rollback. Please enter: <span style="color:#FF0000">rollback-tencent-cloud-token</span>.
-			<p>If the rollback is not allowed, please contact us and <a href="http://console.cloud.tencent.com/ticket" target="_blank">submit a ticket</a>.</p>
+			<p>If the rollback is not allowed, please contact us and <a href="https://console.cloud.tencent.com/workorder/category" target="_blank">submit a ticket</a>.</p>
 			</td>
 		</tr>
 	</tbody>
 </table>
 
 
-3. Execution Results  
+**3.Execution Results**  
 
 If the command execution succeeds, the tool will output the following results:
 
@@ -180,7 +170,7 @@ If the command execution fails, the tool will output the following results:
 execute failed:cdb rollback internal error
 ```
 
-4. Error Code Description
+**4.Error Code Description**
 
 <table style="width:500px">
 	<thead>

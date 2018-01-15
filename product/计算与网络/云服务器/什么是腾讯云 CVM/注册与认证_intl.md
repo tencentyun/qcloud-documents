@@ -26,7 +26,7 @@ SSH key is used to log into Linux CVM and is more secure than password login. Fo
 With VPC, you can customize a network environment that is logically isolated and start the cloud resources of Tencent Cloud within it. For more information about VPC, see [here](https://cloud.tencent.com/doc/product/215/535).
 
 A VPC contains at least one subnet. The resources of Cloud Services can only be added in the subnet.
-![](//mc.qcloudimg.com/static/img/1ebc65bc58bed092c41a12cde8f19452/image.png)
+![ ](//mc.qcloudimg.com/static/img/9e2c47ba8ce922c20ef49055c533bbcf/image.png)
 
 1. Log in to [VPC Console](https://console.cloud.tencent.com/vpc).
 
@@ -35,7 +35,7 @@ A VPC contains at least one subnet. The resources of Cloud Services can only be 
 3. Enter the VPC and subnet name, [CIDR](https://cloud.tencent.com/doc/product/215/4925#cidr) and select the AZ. 
 
 4. Click **Create** to complete. 
-![](//mc.qcloudimg.com/static/img/1ebc65bc58bed092c41a12cde8f19452/image.png)
+![ ](//mc.qcloudimg.com/static/img/9e2c47ba8ce922c20ef49055c533bbcf/image.png)
 
 ## (Optional) Creating a Security Group
 
@@ -55,7 +55,7 @@ Security Group can be considered as the firewall for CVM and is used to control 
 
 ## (Optional) Generating a Cloud API key
 
-Tencent Cloud provides rich [Cloud APIs](https://cloud.tencent.com/product/api.html) for developers. To use these APIs, you need to get a Cloud API key. Each call to the Cloud API requires an authentication using the Cloud API key. For more information about the authentication using the Cloud API key, see [here](https://cloud.tencent.com/document/product/213/6984?lang=en). You can generate a Cloud API key on the console by following steps.
+Tencent Cloud provides rich Cloud APIs for developers. To use these APIs, you need to get a Cloud API key. Each call to the Cloud API requires an authentication using the Cloud API key. For more information about the authentication using the Cloud API key, see [here](https://cloud.tencent.com/document/product/213/6984?lang=en). You can generate a Cloud API key on the console by following steps.
 
 1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/) with your Tencent Cloud account, and choose **Cloud API Keys** from the product list at the top of the page.
 

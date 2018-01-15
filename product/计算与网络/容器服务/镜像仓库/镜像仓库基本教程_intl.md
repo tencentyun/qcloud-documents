@@ -1,5 +1,5 @@
 ## Activating Image Repository
-![Alt text](https://mc.qcloudimg.com/static/img/b0ce4b921b60f4f79fec6be455e16f4f/Image+005.png)
+![Alt text](https://mc.qcloudimg.com/static/img/f2e8ed97b9b24031de57a92acba066eb/1.jpg)
 Users who use Image Registry for the first time need to activate this service first.
 
 - **Namespace**: This is the prefix for the addresses of private images you create.
@@ -8,10 +8,10 @@ Users who use Image Registry for the first time need to activate this service fi
 
 ## Create Image
 1. Click the **New** button on the image list page.
-![Alt text](https://mc.qcloudimg.com/static/img/73e7951509c8bef8f7eaf703af6cb8df/Image+001.png)
+![Alt text](https://mc.qcloudimg.com/static/img/a03d1cb4a0158b024d5e0a31186085b9/2.jpg)
 
 2. Enter name and description of the image, then click **Submit**.
-![Alt text](https://mc.qcloudimg.com/static/img/026b93deb76bfaeff5a27d24878529a2/Image+003.png)
+![Alt text](https://mc.qcloudimg.com/static/img/9f41fb872b429422d42d0565c073018f/3.jpg)
 
 ## Pushing Image to Image Repository
 ### Log in to Tencent Cloud Registry
@@ -44,5 +44,4 @@ $ sudo docker pull ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[Image tag num
 
 ## Deleting Image
 Select an image, click **Delete**, and then click **OK**. All tags of the image will be deleted if you delete the image.
-![Alt text](https://mc.qcloudimg.com/static/img/7bc3adadf35e8d452a380c613abb264e/Image+050.png)
-
+![Alt text](https://mc.qcloudimg.com/static/img/92f092ee054ac80ed3b9a036db2b2013/4.jpg)

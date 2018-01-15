@@ -16,5 +16,4 @@ Normally, the CVMs in the scaling group are stateless, and can be removed at any
 
 ## Setup
 In the list of submachines of the scaling group, you can directly set:
-![](https://mc.qcloudimg.com/static/img/62319473a1a05e98d51c64c22ca24424/0308113553.jpg)
-
+![](https://mc.qcloudimg.com/static/img/f913547df4ed60c7aecb8784b1965a07/1.jpg)

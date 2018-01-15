@@ -1,4 +1,3 @@
-## Querying Result of Asynchronous Task
 ## 1. API Description
  
 This API (DescribeClusterTaskResult) is used to query the result of asynchronous task

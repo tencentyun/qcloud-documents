@@ -5,7 +5,7 @@ Domain name for API request: <font style='color:red'>redis.api.qcloud.com </font
 This API can be used to query the supported specifications for CRS instances under specified availability zone and instance type. Users who are not in the purchaser whitelist cannot query the details of supported specifications under this availability zone and instance type. You can apply for the purchase of the whitelist of a region by submitting a [Ticket](https://console.cloud.tencent.com/workorder/create?level1_id=10&level2_id=103&level1_name=%E6%95%B0%E6%8D%AE%E5%BA%93&level2_name=%E4%BA%91%E5%AD%98%E5%82%A8Redis%20CRS).
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='/doc/api/260/1753' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is DescribeRedisProduct.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href='https://cloud.tencent.com/document/product/239/7200' title='Common Request Parameters'>Common Request Parameters</a> page. The Action field for this API is DescribeRedisProduct.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -56,12 +56,12 @@ The following error codes include the business logic error codes for this API.
 
 ## 5. Example
 Input
-<pre>
+```
 https://redis.api.qcloud.com/v2/index.php?Action=DescribeRedisProduct
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common Request Parameters</a>>
 &zoneIds.0=100002
 &typeId=1
-</pre>
+```
 Output
 ```
 {

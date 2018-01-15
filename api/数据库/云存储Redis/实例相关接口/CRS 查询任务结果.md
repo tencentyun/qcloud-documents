@@ -3,7 +3,7 @@
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/260/1753' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为DescribeTaskInfo。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://cloud.tencent.com/document/api/239/7200' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为DescribeTaskInfo。
 
 <table class="t"><tbody><tr>
 <th><b>参数名称</b></th>

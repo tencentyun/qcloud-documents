@@ -68,8 +68,8 @@
 
 ## 本地为 Mac OS 计算机
 ### 登录工具
-**当本地为 Mac OS 计算机时，使用 Microsoft Remote Desktop Connection Client for Mac 登录 Windows 实例。**
-请前往 Microsoft 官方网站下载 [用于 Mac OS 的远程登录客户端](https://www.microsoft.com/zh-cn/download/details.aspx?spm=5176.doc25435.2.2.l9afth&id=18140)。
+**当本地为 Mac OS 计算机时，使用 Microsoft Remote Desktop for Mac 登录 Windows 实例。**
+Microsoft Remote Desktop for Mac 下载指引参见 [用于 Mac OS 的远程登录客户端下载指引](/document/product/213/12444)。
 
 ### 操作步骤
 1. 打开客户端工具。

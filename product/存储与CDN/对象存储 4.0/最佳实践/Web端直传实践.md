@@ -9,7 +9,7 @@
 ![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
 
 ## 二、计算签名
-签名计算放在前端会暴露 SecretId 和 SecretKey，因此我们把签名计算过程放在后端实现，前端通过 AJAX 向后端获取签名结果，正式部署时请在后端加一层您的网站本身的权限检验。
+签名计算放在前端会暴露 SecretKey，因此我们把签名计算过程放在后端实现，前端通过 AJAX 向后端获取签名结果，正式部署时请在后端加一层您的网站本身的权限检验。
 指引参考 [PHP 和 Node.js 的签名示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/)，其他语言请参照对应的 [XML SDK 文档](/doc/product/436/6474)。
 
 ## 三、前端上传
@@ -52,7 +52,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
             var method = (options.Method || 'get').toLowerCase();
             var key = options.Key || '';
             var pathname = key.indexOf('/') === 0 ? key : '/' + key;
-            var url = './server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
+            var url = '../server/auth.php?method=' + method + '&pathname=' + encodeURIComponent(pathname);
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onload = function (e) {
@@ -93,7 +93,9 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用的�
             file && uploadFile(file, function (err, data) {
                 console.log(err || data);
                 document.getElementById('msg').innerText = err ? err : ('上传成功，ETag=' + data.ETag);
-
+            });
+            e.preventDefault();
+        };
     })();
 </script>
 
@@ -129,7 +131,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <input name="success_action_status" type="hidden" value="200">
     <input id="success_action_redirect" name="success_action_redirect" type="hidden" value="">
     <input id="key" name="key" type="hidden" value="">
-    <input id="signature" name="Signature" type="hidden" value="">
+    <input id="Signature" name="Signature" type="hidden" value="">
     <input id="fileSelector" name="file" type="file">
     <input id="submitBtn" type="button" value="提交">
 </form>
@@ -156,7 +158,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function (e) {
-               if (xhr.readyState === 4) {
+                if (xhr.readyState === 4) {
                     xhr.status === 200 ? callback(null, xhr.responseText) : callback('获取签名出错');
                 }
             };
@@ -201,7 +203,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                 // 在当前目录下放一个空的 empty.html 以便让接口上传完成跳转回来
                 document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
                 document.getElementById('key').value = Key;
-                document.getElementById('signature').value = auth;
+                document.getElementById('Signature').value = auth;
                 form.submit();
             });
         };
@@ -215,5 +217,5 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 ![Form 表单上传](//mc.qcloudimg.com/static/img/b7944177f25a64c3f6c19275b586c32f/image.png)
 ## 相关文档
 若您有更丰富的接口调用需求，请参考以下 JavaScript SDK 文档：
-- [JavaScript SDK（XML API）](/doc/product/436/11459)
-- [JavaScript SDK（JSON API）](/doc/product/436/8095)
+- [JavaScript SDK](https://cloud.tencent.com/document/product/436/11459)
+- [JavaScript SDK（历史版本 API）](https://cloud.tencent.com/document/product/436/8095)

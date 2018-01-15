@@ -9,9 +9,9 @@
 ### Maven 安装
 
 具体安装方法可见 [https://maven.apache.org/install.html](https://maven.apache.org/install.html)，以下说明手工安装过程：
-1. 下载 Maven 的[zip包](http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.zip) 或 [tar.gz包](http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz)。
+1. 下载 Maven 的 [zip包](http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.zip) 或 [tar.gz包](http://mirrors.hust.edu.cn/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz) 。
 2. 解压包到自己所期望的目录，例如 `C:\Maven` （Windows） 或 `/opt/mvn/apache-maven-3.5.0` （Linux）。
-3. 将解压目录下 bin 目录的路径添加到系统 PATH 环境变量中，Linxu 通过 `export PATH=$PATH:/opt/mvn/apache-maven-3.5.0/bin` 完成添加，Windows 通过 `计算机-右键-属性-高级系统设置-高级-环境变量` 进入到环境变量设置页面，选择 `Path` 变量编辑，在变量值最后添加`;C:\Maven\bin;`。
+3. 将解压目录下 bin 目录的路径添加到系统 PATH 环境变量中，Linxu 通过 `export PATH=$PATH:/opt/mvn/apache-maven-3.5.0/bin` 完成添加，Windows 通过 `计算机-右键-属性-高级系统设置-高级-环境变量` 进入到环境变量设置页面，选择 `Path` 变量编辑，在变量值最后添加 `;C:\Maven\bin;`。
 4. 通过在命令行下执行 `mvn -v`，确认有如下类似输出，证明 Maven 已正确安装。如有问题，请查询 Maven 的[官方文档](https://maven.apache.org/install.html)。
 	```
 	Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-04T03:39:06+08:00)
@@ -26,10 +26,11 @@
 
 ### 准备代码文件
 
-在选定的位置创建项目文件夹，例如`scf_example`。在项目文件夹根目录，依次创建如下目录 `src/main/java/` 作为包的存放目录。在创建好的目录下再创建 `example` 包目录，并在包目录内创建 `Hello.java` 文件。最终形成如下目录结构：
+在选定的位置创建项目文件夹，例如 `scf_example` 。在项目文件夹根目录，依次创建如下目录 `src/main/java/` 作为包的存放目录。在创建好的目录下再创建 `example` 包目录，并在包目录内创建 `Hello.java` 文件。最终形成如下目录结构：
 `scf_example/src/main/java/example/Hello.java`
 
 在 `Hello.java` 文件内输入代码内容：
+
 ```java
 package example;
 
@@ -42,7 +43,8 @@ public class Hello {
 ```
 ### 准备编译文件
 
-在项目文件夹根目录下创建`pom.xml`文件并输入如下内容：
+在项目文件夹根目录下创建 `pom.xml` 文件并输入如下内容：
+
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -76,9 +78,10 @@ public class Hello {
   </build>
 </project>
 ```
+
 #### 使用 Maven Central 库处理包依赖
 
-如果需要引用 Maven Central 的外部包，可以	根据需要添加依赖，`pom.xml`文件内容写为如下：
+如果需要引用 Maven Central 的外部包，可以根据需要添加依赖，`pom.xml` 文件内容写为如下：
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -143,7 +146,7 @@ public class Hello {
 ```
 如果显示编译失败，请根据输出的编译错误信息调整代码。
 
-编译后的 jar 包位于项目文件夹内的 `target` 目录内，并根据 pom.xml 内的 artifactId、version字段命名为 `java-example-1.0-SNAPSHOT.jar`
+编译后的 jar 包位于项目文件夹内的 `target` 目录内，并根据 pom.xml 内的 artifactId、version 字段命名为 `java-example-1.0-SNAPSHOT.jar`。
 
 ## 函数使用
 

@@ -36,7 +36,7 @@
 | code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关。                          |
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
-| data     | Object | 返回结果数据                                   |
+| data     | Array | 返回结果数据数组                                   |
 
 **data字段说明**
 

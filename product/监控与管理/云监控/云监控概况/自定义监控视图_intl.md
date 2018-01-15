@@ -1,4 +1,4 @@
-Monitor Overview allows you to access the overall monitoring information of your cloud products, The Custom Monitoring View helps users quickly understand the pre-defined key metrics and is the most important feature on the monitoring overview page.
+ Monitor Overview allows you to access the overall monitoring information of your cloud products, The Custom Monitoring View helps users quickly understand the pre-defined key metrics and is the most important feature on the monitoring overview page.
 
 You can choose to add the core metrics (such as CPU utilization, etc.) and choose the monitored objects to be displayed on the view. You can also click on the view to show/hide the data of some monitored objects. Tencent Cloud's Cloud Monitor helps you aggregate the data of all monitored objects you have chosen on the same chart, so that you can directly view the key metrics for core services each time you visit the overview page, greatly reducing your inspection costs.
 

@@ -26,8 +26,6 @@ Please refer to [StopInstances API](https://cloud.tencent.com/doc/api/229/1250).
 
 To change the instance type, see [Adjust the Instance Configuration](/doc/product/213/5730).
 
-To adjust the size of Cloud Block Storage, see [Expand the Cloud Block Storage](https://cloud.tencent.com/doc/product/362/2928).
-
 To reset password, see [Login Password](/doc/product/213/6093).
 
 To load keys, see [SSH Key](/doc/product/213/6092).

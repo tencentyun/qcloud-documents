@@ -12,7 +12,7 @@ It should be noted that reinstalling the system will result in loss of all conte
 - For Windows instance system disks, the first 50GB of Tencent Cloud is free of charge. Since Windows instances do not support system disk capacity adjustment, no fees will be charged for system disks of Windows instances.
 
 ## Use console to reinstall system
-1) Open [CVM Console] (https://console.cloud.tencent.com/cvm/).
+1) Open [CVM Console](https://console.cloud.tencent.com/cvm/).
 
 2) For CVM instances that requires system reinstallation, click "More" - "Reinstall System" on the action bar to the right side.
 
@@ -24,7 +24,8 @@ It should be noted that reinstalling the system will result in loss of all conte
 >
 - Do not perform other operations during system disk reinstallation.
 - The data in current system disks cannot be recovered after system disk reinstallation.
-- The data in data disks will be retained and will not be affected after system disk reinstallation, which however need to be mounted manually before use. See [File System Creation, Partitioning and Formatting](https://cloud.tencent.com/doc/product/362/5448)
+- The data in data disks will be retained and will not be affected after system disk reinstallation, which however    need to be mounted manually before use.
+
 ## Questions about the switching between Windows system instances and Linux system instances
 
 ### Can the system disk of an old user's Linux CVM that comes with a local disk be scaled out to 20GB? 

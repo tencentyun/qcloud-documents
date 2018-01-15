@@ -6,7 +6,7 @@ Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共
 语法示例：
 ```
 GET /?cors HTTP/1.1
-Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com
+Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

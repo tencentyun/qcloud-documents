@@ -2,7 +2,7 @@
  
 This API (DescribeOs) is used to acquire the operating systems that are supported by the specified device.
 
-Domain for API request: bm.api.qcloud.com
+Domain for API request: bm.api.cloud.tencent.com
 
 
 ## 2. Input Parameters
@@ -44,8 +44,7 @@ Operating system information in the data array
  
 Input
 
-<pre>
-	https://domain/v2/index.php?Action=DescribeOs
+<pre>`https://domain/v2/index.php?Action=DescribeOs`
     &deviceClass=M10
 	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 </pre>

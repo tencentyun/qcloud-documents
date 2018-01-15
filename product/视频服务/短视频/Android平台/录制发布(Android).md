@@ -232,3 +232,5 @@ void onPublishComplete(TXPublishResult result);
 
 ### 8.发布结果
 通过 [错误码表](https://cloud.tencent.com/document/product/584/10176) 来确认短视频发布的结果。
+
+如果没有错误信息返回，也没有回调。很有可能是集成出现问题，可以参考这里[集成问题](https://cloud.tencent.com/document/product/584/11631?!preview&lang=cn#8.2-.E7.9F.AD.E8.A7.86.E9.A2.91.E5.8F.91.E5.B8.83.E9.97.AE.E9.A2.98) 

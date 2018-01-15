@@ -5,7 +5,7 @@
 
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/260/1753' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为InquiryRedisPrice。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://cloud.tencent.com/document/api/239/7200' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为InquiryRedisPrice。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -48,7 +48,7 @@
 
 ## 5. 示例
 输入
-<pre>
+```
 https://redis.api.qcloud.com/v2/index.php?Action=InquiryRedisPrice
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 &zoneId=100002
@@ -56,7 +56,7 @@ https://redis.api.qcloud.com/v2/index.php?Action=InquiryRedisPrice
 &memSize=1024
 &goodsNum=1
 &period=2
-</pre>
+```
 输出
 ```
 {

@@ -26,7 +26,7 @@ use Qcloud_video\Video; <br>
 
 
 ### 1.3	https支持
-<p>修改conf.php中API_VIDEO_END_POINT的值为：<a href="https://web.video.myqcloud.com/files/v1/" class="external free" title="https://web.video.myqcloud.com/files/v1/" target="_blank" rel="nofollow">https://web.video.myqcloud.com/files/v1/</a> <br>
+<p>修改conf.php中API_VIDEO_END_POINT的值为：<code>https://web.video.myqcloud.com/files/v1/</code> <br>
 </p>
 
 ## 2	API详细说明

@@ -93,12 +93,8 @@ Specify which resources of Tencent Cloud are global, which resources are regiona
   <td>disk-xxxxxxxx</td>
   <td>Cross-zone</td>
   <td>Elastic cloud disks can be created independently under a certain region and mounted to instances in the same region. </td>
-</tr>
-<tr>
-<td> <a href="https://cloud.tencent.com/doc/product/362/2455">Snapshot</a> </td>
-  <td>snap-xxxxxxxx</td>
-  <td>Cross-zone</td>
-  <td>After creating snapshot for a specific Cloud disk, users can use this snapshot in the region for other operations (such as creating Cloud disks)</td>
+
+<td> <a href="https://cloud.tencent.com/doc/product/362/2455">
 </tr>
 <tr>
 <td> <a href="/doc/product/214/524">Cloud Load Balance</a> </td>

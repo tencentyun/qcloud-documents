@@ -1,4 +1,4 @@
-You can view all the alarms occurring within a certain period via the Tencent Cloud's Cloud Monitor console. There are three types of alarms:
+You can view all the alarms occurring within a certain period via the Tencent Cloud's Cloud Monitoring Console. There are three types of alarms(Viewing Custom Monitoring alarms is not available in Monitoring Console):
 
 - Basic alarms: Alarms sent by pre-defined alarm metrics of each product
 - Cloud Automated Testing alarms: Alarms sent by [Cloud Automated Testing](https://cloud.tencent.com/product/cat.html)

@@ -10,14 +10,14 @@
 1. 下载iOS SDK
 iOS SDK下载地址为：[iOS SDK](/doc/product/275/SDK下载#2.-ios-sdk)。
 
-注意:
+注意：
 SDK中用到的SIGN，推荐使用[服务器端SDK](/doc/product/275/SDK文档#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk.E6.96.87.E6.A1.A3)提供的接口来生成，并由移动端向业务服务器请求。SIGN的具体生成和使用请参照[鉴权服务技术方案](/doc/product/275/签名与鉴权文档)。
 
 ## 2. 导入项目
-图片云iOS SDK其中包括上传SDK和下载SDK，上传SDK压缩包QCloudUploadSDK.zip,下载SDK压缩包QCloudDownloadSDK.zip.上传和下载SDK压缩包中分别包含了一个.a静态库和一个包含头文件的文件夹Headers，解压后的内容如下：
-上传SDK:
+图片云iOS SDK其中包括上传SDK和下载SDK，上传SDK压缩包QCloudUploadSDK.zip，下载SDK压缩包QCloudDownloadSDK.zip。上传和下载SDK压缩包中分别包含了一个.a静态库和一个包含头文件的文件夹Headers，解压后的内容如下：
+上传SDK：
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ios-sdk-1.jpg)
-下载SDK:
+下载SDK：
 ![](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ios-sdk-2.jpg)
 将解压后的QCloudUPloadSDK和QCloudDownloadSDK拖入工程目录，Xcode会自将其加入链接库列表中。
 注：如果只需要上传或下载功能，则只拖入对应的SDK即可。
@@ -47,7 +47,7 @@ SDK中用到的SIGN，推荐使用[服务器端SDK](/doc/product/275/SDK文档#3
 ### 2.1	上传SDK API
 #### 2.1.1	初始化
 先引入上传SDK的头文件 “TXYUploadManager.h”，使用上传功能时，只需创建TXYUploadManager对象。
-函数原型:
+函数原型：
  
 ```
  /*!
@@ -63,7 +63,7 @@ SDK中用到的SIGN，推荐使用[服务器端SDK](/doc/product/275/SDK文档#3
                               appId:(NSString*)appId;
 ```
 
-示例: 
+示例:：
 
 ```
 self.uploadImageManager = [[TXYUploadManager alloc] initWithCloudType:TXYCloudTypeForImage 
@@ -71,10 +71,10 @@ self.uploadImageManager = [[TXYUploadManager alloc] initWithCloudType:TXYCloudTy
                                                                  appId:appId];
 ```
 #### 2.1.2	图片上传
-上传一张图片的步骤如下:
+上传一张图片的步骤如下：
 1.	创建TXYPhotoUploadTask对象，相对于1.1.0的SDK增加了传入到指定bucket目录下和自定义的fileId，兼容老版本，比如参数填空就与1.1.0接口一致；
 2.	调用TXYUploadManager的upload方法，将TXYPhotoUploadTask对象传入。
-原型:
+原型：
 
 ```
 /**
@@ -114,7 +114,7 @@ self.uploadImageManager = [[TXYUploadManager alloc] initWithCloudType:TXYCloudTy
                        fileId:(NSString *)fileId;
 @end
 ```
-示例:
+示例：
 
 ```
 //初始化图片上传对象
@@ -193,11 +193,11 @@ uploadPhotoTask = [[TXYPhotoUploadTask alloc]
  [uploadManager cancel:task.taskId];//取消上传
 ```
 #### 2.1.5	图片查询
-查询图片文件的详细信息，步骤如下:
+查询图片文件的详细信息，步骤如下：
 1.	通过文件url创建TXYFileStatCommand对象；
 2.	调用TXYUploadManager的sendCommand方法，将TXYFileStatCommand对象传入；
 3.	在sendCommand传入的TXYUpCommandCompletionHandler回调中获取查询结果。
-原型:
+原型：
 
 ```
 /*!
@@ -222,11 +222,11 @@ fileStatCommand= [[TXYFileStatCommand alloc] initWithURL:url];
                    }];
 ```
 #### 2.1.6	图片删除
-删除文件步骤如下:
+删除文件步骤如下：
 1.	通过文件url创建TXYFileDeleteCommand对象；
 2.	调用TXYUploadManager的sendCommand方法，将TXYFileDeleteCommand对象传入；
 3.	在sendCommand传入的TXYUpCommandCompletionHandler回调中获取复制文件。
-示例:
+示例：
 
 ```
 fileDeleteCommand= [[TXYFileDeleteCommand alloc] initWithURL:url];
@@ -261,7 +261,7 @@ fileCopyCommand= [[TXYFileCopyCommand alloc] initWithURL:url];
 ```
 ### 2.2	下载SDK API
 #### 2.2.1	初始化
-函数原型:
+函数原型：
 
 ```
 /*!
@@ -298,7 +298,7 @@ downloder = [[TXYDownloader alloc] initWithPersistenceId:@"persistenceId"];
 */
  - (void)setMaxConcurrent:(int)count;
 ```
-示例
+示例：
 
 ```
 // 设置最大并发数
@@ -322,7 +322,7 @@ downloder = [[TXYDownloader alloc] initWithPersistenceId:@"persistenceId"];
 */
 - (void)enableKeepAlive:(BOOL)enable;
 ```
-示例:
+示例：
 
 ```
 // 启动断点续传功能
@@ -332,7 +332,7 @@ downloder = [[TXYDownloader alloc] initWithPersistenceId:@"persistenceId"];
 ```
 #### 2.2.4	图片下载
 文件下载是采用异步模式进行下载，下载的进度/成功/失败/取消等信息通过回调通知。
-函数原型:
+函数原型：
  
 
 ```
@@ -353,7 +353,7 @@ downloder = [[TXYDownloader alloc] initWithPersistenceId:@"persistenceId"];
     progressBlock:(void (^)(NSString *url, NSNumber *value))progressBlock 
             param:(NSDictionary *)param;
 ```
-示例:
+示例：
 
 ```
  [[TXYDownloader sharedInstanceWithPersistenceId:nil] 
@@ -365,7 +365,7 @@ downloder = [[TXYDownloader alloc] initWithPersistenceId:@"persistenceId"];
                                          } param:self.params];
 ```
 #### 2.2.5	取消下载
-函数原型:
+函数原型：
 
 ```
  /*!
@@ -380,7 +380,7 @@ downloder = [[TXYDownloader alloc] initWithPersistenceId:@"persistenceId"];
   */
  - (void)cancelAll;
 ```
-示例:
+示例：
 
 ```
 // 取消单个下载任务
@@ -390,7 +390,7 @@ downloder = [[TXYDownloader alloc] initWithPersistenceId:@"persistenceId"];
 ```
 #### 2.2.6	缓存查询
 TXYDownloader下载组件支持本地文件缓存,查询/获取/清除缓存文件
-函数原型:
+函数原型：
 
 ```
  /*!
@@ -426,7 +426,7 @@ TXYDownloader下载组件支持本地文件缓存,查询/获取/清除缓存文�
   */
  - (BOOL)clearCache;
 ```
-示例:
+示例：
 
 ```
  //先检查是否有本地缓存图片文件，有的话直接读取缓存文件并显示

@@ -1,6 +1,10 @@
-Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之一，被 200 多万网站用户使用。本教程介绍在 LAMP （Linux + Apache + MySQL + PHP）环境下搭建 Discuz! 论坛网站的步骤，以 Discuz! X3.2 为例。
+Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之一，被 200 多万网站用户使用。
 
-本教程提供两种搭建 Discuz! 论坛的方式，您可根据需求自由选择：
+腾讯云实验室提供了实践动手的教程，可帮助您一步一步完成 LAMP 环境和 Discuz! 论坛的搭建。您可点击进入 [实验室](https://cloud.tencent.com/developer/labs?utm_source=doc8043&utm_medium=qclab)。其中，搭建 Discuz! 网站的实践教程可参考：
+- [基于 CentOS 搭建 Discuz 论坛](https://cloud.tencent.com/developer/labs/lab/10030)
+- [基于 Ubuntu 搭建 Discuz 论坛](https://cloud.tencent.com/developer/labs/lab/10102)
+
+本教程介绍在 LAMP （Linux + Apache + MySQL + PHP）环境下搭建 Discuz! 论坛网站的步骤，以 Discuz! X3.2 为例。我们提供两种搭建 Discuz! 论坛的方式，您可根据需求自由选择：
 - 使用 Discuz! 镜像快速安装
 推荐第一次进行 Discuz! 论坛搭建，不熟悉相关命令操作的用户使用。
 - 自主安装 LAMP 环境并搭建论坛
@@ -35,7 +39,7 @@ PHP：Web 服务器生成网页的程序。
 
 #### 需要购买云服务器
 1. 获取 Discuz! 镜像
-请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](http://market.qcloud.com/categories?q=discuz)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
+请 [登录腾讯云](https://cloud.tencent.com/login?s_ur=https://console.cloud.tencent.com)，通过首页顶部导航进入 [云市场](https://market.cloud.tencent.com/)，在搜索框中搜索 “Discuz”，获取免费 Discuz! 镜像。
 ![获取Discuz1](//mc.qcloudimg.com/static/img/54021a861602cdf6560306848cdcef0f/image.png)
 2. 购买云服务器
 购买镜像的过程同时会配套购买云服务器，云服务器的配置可以根据网站自身访问量来确定，相关指南请参考 [创建 Linux 服务器指引](https://cloud.tencent.com/document/product/213/2972)。
@@ -94,7 +98,7 @@ PHP：Web 服务器生成网页的程序。
 **域名注册**：如果想要使用易记的域名访问您的 Discuz! 论坛，可以使用腾讯云域名注册服务来购买域名。
 **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云为您的域名备案。
 **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的云解析服务来解析域名。
-**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。点击 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524)。
+**PuTTY**：PuTTY 是免费且出色的远程登录工具之一，本教程使用这款简单易操作的软件来完成相关搭建工作。
  
 自主安装流程图如下：
 ![流程图2](//mc.qcloudimg.com/static/img/6b60f627a0f72093c39bf0fb34b35724/image.png)
@@ -110,7 +114,7 @@ PHP：Web 服务器生成网页的程序。
 ### 步骤二：搭建 LAMP 环境 
 对于 CentOS 系统，腾讯云提供与 CentOS 官方同步的软件安装源，包涵的软件都是当前最稳定的版本，可以直接通过 Yum 快速安装。
 #### 2.1 运行 PuTTY 连接 Linux 云主机
-1. 请 [下载 PuTTY ](http://xiazai.sogou.com/comm/redir?softdown=1&u=-9C432O39iS-1WMoK6o75d2rbT1v8F8PVRelGJ0KRMgmFySI7r-cdPLmpUQMiC7rMWKCgnK7gooqOgr0EiOgKJ36wBs_inYy&pcid=-3190951004095154321&filename=putty.zip&w=1907&stamp=20170524) 到您的电脑，解压文件；双击 “putty.exe”，出现配置界面。
+1. 请自行下载 PuTTY 客户端到您的电脑，解压文件；双击 “putty.exe”，出现配置界面。
 2. 选择 “Session”，在 “Host Name (or IP address)” 输入框中输入欲访问的主机名或 IP，如 “server1” 或 “192.168.2.10”。本教程输入的是云主机的公网 IP。其他配置保持默认。
 3. 在 “Saved Sessions” 输入栏中命名会话，单击 “Save” ，即可保存会话配置。
 ![putty1](//mc.qcloudimg.com/static/img/85df3247daae4982003a91ad1ad6f89e/image.png)

@@ -1,4 +1,4 @@
-﻿- As Layer-4 cloud load balance (TCP protocol) can directly access the real IP address of the visitor on the backend CVM, and no additional configuration is required. The following description is only for Layer-7 (HTTP protocol) cloud load balance.
+- As Layer-4 cloud load balance (TCP protocol) can directly access the real IP address of the visitor on the backend CVM, and no additional configuration is required. The following description is only for Layer-7 (HTTP protocol) cloud load balance.
 - Layer-7 cloud load balance system provides X-Forwarded-For method to obtain the visitor's real IP, which is enabled by default.
 
 The common options for application server configuration are described below.

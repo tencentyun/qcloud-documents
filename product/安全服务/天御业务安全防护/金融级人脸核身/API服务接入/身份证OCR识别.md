@@ -33,7 +33,7 @@ ticket=01.0.0FxlAe3HFtEy73Um0pJNzIUriwtfnS3KRcPXiesd5ulS4XRAIcT0FbfaP52dwZf5Saab
 ### 2. 身份证识别API
 合作方后台服务上送sign、请求参数到身份证识别后台服务。
 
-请求URL: https://ida.webank.com/api/paas/ocrapp
+请求URL: `https://ida.webank.com/api/paas/ocrapp`
 请求方法:POST
 请求参数：
 

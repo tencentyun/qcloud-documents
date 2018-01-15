@@ -1,6 +1,6 @@
 You can create an alarm that triggers when there are status changes for Cloud products, and send the related messages. Alarms that are created will determine whether a notification needs to be triggered based on the metrics monitored at a certain interval, relative to a given threshold.
 
-You can take the appropriate precautions or recovery actions immediately after an alarm triggers due to status changes. Therefore, reasonably creating alarms will help improve the robustness and reliability of your applications. For more details on alarms, refer to [Create alarms](https://cloud.tencent.com/doc/product/248/1073).
+You can take the appropriate precautions or recovery actions immediately after an alarm triggers due to status changes. Therefore, reasonably creating alarms will help improve the robustness and reliability of your applications. 
 
 ## Create an alarm strategy
 1) Log in to [Tencent Cloud control platform](https://console.cloud.tencent.com/), click "Cloud Monitor" - "My Alarms" tab, click "Alarm Strategy" menu.
