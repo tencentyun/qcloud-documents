@@ -1,5 +1,5 @@
 ﻿## 1. 接口描述
-本接口 ( ModifyClusterNodeLabel ) 用于修改节点Label。
+本接口 ( ModifyClusterNodeLabel ) 用于修改节点Label。 可配合创建/更新服务的nodeAffinity 参数设置节点的亲和性调度。
 接口请求域名：`ccs.api.qcloud.com`。
 
 ## 2. 输入参数
