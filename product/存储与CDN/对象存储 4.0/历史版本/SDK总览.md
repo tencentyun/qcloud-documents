@@ -15,6 +15,5 @@
 | Python SDK       | [Python SDK 快速入门](https://cloud.tencent.com/document/product/436/12269)   |
 
 >**注意：**
->目前 COS 的可用地域（Region）根据 XML API和 JSON API 有不同的取值，在使用不同的 API 和对应的 SDK 时要求使用对应的地域字段，详细信息请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档。
-
-历史版本 SDK 文档请参见 [历史版本 SDK](https://cloud.tencent.com/document/product/436/13698)。
+>- COS 的可用地域（Region）的详细信息请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档。
+- 历史版本 SDK 文档请参见 [历史版本 SDK](https://cloud.tencent.com/document/product/436/13698)。
