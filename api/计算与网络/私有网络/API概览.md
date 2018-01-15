@@ -155,7 +155,7 @@
 | 弹性网卡迁移 | [MigrateNetworkInterface](https://cloud.tencent.com/doc/api/245/5384) | 弹性网卡迁移。 |
 | 内网IP迁移 | [MigratePrivateIpAddress](https://cloud.tencent.com/doc/api/245/5385) | 内网IP迁移。 |
 
-## 12. 流日志相关接口
+## 13. 流日志相关接口
 | 接口功能 | Action ID |  功能描述 |
 |---------|---------|---------|
 | 创建流日志 | [CreateFlowLog](流日志相关接口/245/4811) |  创建流日志。 |
