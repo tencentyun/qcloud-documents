@@ -1,4 +1,4 @@
-## 接口公共说明
+## 公共接口说明
 ### CGI 调用方法
 方法 1：`http://proxy.vip.qq.com/cgi-bin/QQConnect.fcgi `
 方法 2：`https://proxy.vip.qq.com/cgi-bin/QQConnect.fcgi`
