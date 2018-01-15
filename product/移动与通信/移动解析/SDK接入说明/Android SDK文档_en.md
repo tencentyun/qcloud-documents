@@ -48,10 +48,10 @@ Before copying `dnsconfig.ini` file, you need to modify relevant configurations 
 |-------|---------|---------|
 | Vendor switch |	IS_COOPERATOR | Enter "true" for external App |
 | External vendor test switch | IS_COOPERATOR_TEST | Enter "true" if you need to use test environment for testing, or "false" if you want to use release environment directly (the official demo is used for test environment, so you don't need to apply for ID and KEY. However, you have to apply for your own ID and KEY for the official release) |
-| AppID for vendor report | COOPERATOR_APPID | It is assigned by system or admin after registration |
+| AppID for vendor report | COOPERATOR_APPID | It is assigned by system after registration |
 | SDK log switch | IS_DEBUG | "true" means to enable the log, and "false" means to disable the log. In the test phase, we recommend that you enable log for troubleshooting. You can disable it after official launch |
-| ID assigned by server | DNS_ID | It is assigned by system or admin after registration |
-| KEY assigned by server | DNS_KEY | It is assigned by system or admin after registration |
+| ID assigned by server | DNS_ID | It is assigned by system after registration |
+| KEY assigned by server | DNS_KEY | It is assigned by system after registration |
 
 ### 2.3. Connect to Dependent Library
 > Note: Check whether the App has been connected to Tencent msdk. If so, you can ignore this step.

@@ -1,6 +1,6 @@
 ## 开启 Debug
 
-打开 Debug 模式以后可以在终端看到详细的信鸽 Debug 信息。方便定位问题
+打开 Debug 模式以后可以在终端看到详细的信鸽 Debug 信息。方便定位问题。
 
 **示例**
 
@@ -20,9 +20,9 @@ BOOL debugEnabled = [setting isEnableDebug];
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 ```
 
-回调中调用信鸽的初始化方法才能正常使用信鸽
+回调中调用信鸽的初始化方法才能正常使用信鸽。
 
-**1.接口**
+**1. 接口**
 
 ```
 /**
@@ -33,7 +33,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 */
 +(void)startApp:(uint32_t)appId appKey:(nonnull NSString *)appKey;
 ```
-**2.示例**
+**2. 示例**
 
 ```
 - (BOOL)application:(UIApplication *)application
@@ -47,8 +47,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 使用推送前，需要先向苹果注册推送服务。请参考 Demo 向苹果注册推送服务。
 
 **示例**
-
-
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -58,7 +56,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 ```
 
 >**注意：**
->在 iOS 10 中也可以可以使用 iOS 10 之前的注册方法来注册推送,但是对应的,也要使用 iOS 10之前的方法来接收推送。
+>**在 iOS 10 中也可以可以使用 iOS 10 之前的注册方法来注册推送,但是对应的,也要使用 iOS 10之前的方法来接收推送。**
 
 ## 注册信鸽
 
@@ -71,7 +69,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
 
 回调中调用信鸽的 registerDevice 方法即可完成信鸽注册。
 
-**1.接口**
+**1. 接口**
 
 ```
 /**
@@ -117,7 +115,7 @@ account:(nullable NSString *) account
 successCallback:(nullable void(^)(void)) successCallback
 errorCallback:(nullable void(^)(void))errorCallback;
 ```
-**2.示例**
+**2. 示例**
 
 ```
 - (void)application:(UIApplication *)application
@@ -134,13 +132,13 @@ NSLog(@"[XGPush Demo] device token is %@", deviceTokenStr);
 }
 ```
 >**注意：**
->account 是需要设置的账号，视业务需求自定义，可以是用户的名称或者 ID 等，长度为两个字节以上，不要使用”myAccount"或者"test"，"123456"这种过于简单的字符串，若不想设置账号，请传入 nil。
+>**account 是需要设置的账号，视业务需求自定义，可以是用户的名称或者 ID 等，长度为两个字节以上，不要使用”myAccount"或者"test"，"123456"这种过于简单的字符串，若不想设置账号，请传入 nil。**
 
 ## 设置/删除标签
 
 开发者可以针对不同的用户设置标签，然后对该标签推送。对标签推送会让该标签下的所有设备都收到推送。一个设备可以设置多个标签。
 
-**1.接口**
+**1. 接口**
 
 ```
 /**
@@ -165,7 +163,7 @@ errorCallback:(nullable void (^)(void)) errorCallback;
 successCallback:(nullable void (^)(void)) successCallback
 errorCallback:(nullable void (^)(void)) errorCallback;
 ```
-**2.示例**
+**2. 示例**
 
 ```
 - (void)setTag:(NSString *)tag {
@@ -190,12 +188,12 @@ NSLog(@"[XGDemo] Del tag error");
 开发者可以针对不同的用户设置账号，然后对账号推送。对账号推送会让该账号下的所有设备都收到推送。
 
 >**注1:**
-> 一个设备只能设置一个账号，设置账号的时候前一个账号自动失效。一个账号最多绑定15台设备，超过之后会随机解绑一台设备，然后再进行注册。
+>** 一个设备只能设置一个账号，设置账号的时候前一个账号自动失效。一个账号最多绑定15台设备，超过之后会随机解绑一台设备，然后再进行注册。**
 
 >**注2: **
->老版本不带回调的接口要求设置/删除账号后再调用一次注册设备的方法，但是新版带回调的接口不需要再调用注册设备的方法。
+>**老版本不带回调的接口要求设置/删除账号后再调用一次注册设备的方法，但是新版带回调的接口不需要再调用注册设备的方法。**
 
-**1.接口**
+**1. 接口**
 
 ```
 /**
@@ -218,7 +216,7 @@ errorCallback:(nullable void(^)(void)) errorCallback;
 +(void)delAccount:(nullable void(^)(void)) successCallback
 errorCallback:(nullable void(^)(void)) errorCallback;
 ```
-**2.示例**
+**2. 示例**
 
 ```
 - (void)setAccount:(NSString *)account {
@@ -242,7 +240,7 @@ NSLog(@"[XGDemo] Del account error");
 
 注销设备以后，可以让该设备不再接收推送。
 
-**1.接口**
+**1. 接口**
 
 ```
 /**
@@ -253,7 +251,7 @@ NSLog(@"[XGDemo] Del account error");
 +(void)unRegisterDevice:(nullable void (^)(void)) successCallback
 errorCallback:(nullable void (^)(void)) errorCallback;
 ```
-**2.示例**
+**2. 示例**
 
 ```
 [XGPush unRegisterDevice:^{
@@ -264,5 +262,5 @@ NSLog(@"[XGDemo] unregister error");
 ```
 
 >**注意：**
->重新开启推送功能需要再次调用 registerAPNS 和 registerDevice 接口。
+>**重新开启推送功能需要再次调用 registerAPNS 和 registerDevice 接口。**
 

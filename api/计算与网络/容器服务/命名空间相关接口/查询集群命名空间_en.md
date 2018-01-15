@@ -47,10 +47,20 @@ Output
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "totalCount": 1,
+        "totalCount": 2,
         "namespaces": [
-            "default"
-			"t3"
+            {
+              "name":"default",
+              "status":"Active",
+              "description":""
+              "createdAt":"2017-06-08 19:10:01"
+            },
+			{
+              "name":"tst",
+              "status":"Active",
+              "description":"test"
+              "createdAt":"2017-06-27 19:10:01"
+            },
         ]
     }
 }

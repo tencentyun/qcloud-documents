@@ -3116,7 +3116,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>a<br><br>s</td>
-      <td>二选一</td>
+      <td>撤单和退款接口使用签名,其他接口使用认证码</td>
       <td>Authen<br><br>Signature</td>
       <td>认证信息，详见Authen<br><br>签名信息，详见Signature</td>
    </tr>

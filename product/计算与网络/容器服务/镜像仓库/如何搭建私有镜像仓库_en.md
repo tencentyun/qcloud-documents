@@ -1,95 +1,82 @@
-## Introduction
-This document describes how to build a simple Registry environment through Docker Compose. Here, we use official DockerHub image. Registry image tag: `registry:2.5.0`; nginx image tag: `nginx:1.11.5`. This document focuses on how to build and use Registry environment. For more information on how to build an enterprise-level Registry server, please see open-source [Harbor](https://github.com/vmware/harbor "Harbor")。
+This document is intended to introduce how to build a simple registry environment through Docker Compose. To this end, official DockerHub images, the registry image version of `registry:2.5.0` and the nginx image version of `nginx:1.11.5` are used. This document focuses on how to build and use a registry environment. For more information on how to build an enterprise-level Registry server, please see open-source [Harbor](https://github.com/vmware/harbor "Harbor").
 
-## What is Registry?
-Registry is a storage service for Docker images. Registry images on DockerHub can be found in [Official Registry Images](https://hub.docker.com/_/registry/ "Official Registry Images"). For more information, please [go to GitHub to see the latest source codes](https://github.com/docker/distribution "source codes").
+## Registry Overview
+The registry is a storage service for Docker images. Its images on DockerHub can be found in [Official Registry Images](https://hub.docker.com/_/registry/ "Official Registry Images"). For more information, please go to [GitHub](https://hub.docker.com/_/registry/ "Official Registry Images") to view the latest source code.
 
-## Build Registry
-
- - Install Docker by executing the following command on the CVM. Here, we choose [Tencent Cloud](https://cloud.tencent.com/ "Tencent Cloud") (Ubuntu Server 14.04.1 LTS 64-bit) image to create the CVM.
+## Build a Registry
+- Install Docker by executing the following command on the server. Here, we choose Tencent Cloud (Ubuntu Server 14.04.1 LTS 64-bit) images to create a server.
 ```
 curl -fsSL https://get.docker.com/ | sh
 ```
-
- - Install Docker-compose
-Docker Compose is a tool used to define and run multiple Docker containers. To use Docker Compose, simply define multiple Docker containers in a configuration file, and then launch the containers by executing a command. Docker Compose will launch the defined containers in sequential order by resolving the dependency between these containers.
-[Go to GitHub for more information about Docker Compose >>](https://github.com/docker/compose)
+- Install Docker Compose
+Docker Compose is a tool used to define and run multiple Docker containers. With Docker Compose, you can simply define multiple Docker containers in a configuration file, and enable them with a single command. Docker Compose will enable the defined containers in sequential order by resolving the dependency between them. For more information on Docker Compose, please go to [GitHub](https://github.com/docker/compose).
 ```
   curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-$(uname -s)-$(uname -m) > /usr/local/bin/docker-compose
   chmod a+x /usr/local/bin/docker-compose
 ```    
- - Launch Registry service. In this example, there are two containers: nginx and registry. Related configuration files can be found in Appendix.
+- Enable the registry service. In this example, there are two containers: nginx and registry. The related configuration file can be found in Appendix.
 ```
 docker-compose up -d
 ```
- - Stop the service.
+- Disable the service.
 ```
   docker-compose stop
 ```
-
- - Restart the service.
+- Restart the service.
 ```
   docker-compose restart
 ```
-
- - Deactivate the service.
+- Deactivate the service.
 ```
   docker-compose down
 ```
 
-## Upload Image
-
- - Since the Registry service we built is an HTTP service, you need to configure Docker launch parameters with `--insecure-registry localhost` option, and modify the `/etc/default/docker` file.
+## Basic Image Operations
+### Upload Image
+- Since the Registry service we built is an HTTP service, you need to configure Docker activation parameters with `--insecure-registry localhost` option, and modify the `/etc/default/docker` file as follows:
 ```
 DOCKER_OPTS="--insecure-registry localhost"
 ```
-
- - Restart Docker.
+- Restart Docker.
 ```
   service docker restart
 ```
-
- - Pull and upload the image "docker pull;docker tag;docker push" (tag is "latest" by default).
+- Pull and upload the image "docker pull; docker tag; docker push" (tag is "latest" by default).
 ```
   docker pull hello-world
   docker tag hello-world localhost/library/hello-world
   docker push localhost/library/hello-world
 ```
  
-## Download Image
-
+### Download Image
 ```
    docker pull localhost/library/hello-world
 ```
 
-## Delete Image
-
+### Delete Image
 ```
     docker rmi localhost/library/hello-world
 ```
 
-## Acquire Image Repository List
-
+## Obtain Image
+### Obtain Image Registry List
 ```
     # curl http://localhost/v2/_catalog
     {"repositories":["library/hello-world"]}
 ```
-
 Before the image is uploaded, the output is as follows:
 ```
     # curl http://localhost/v2/_catalog
     {"repositories":[]}
 ```
 
-## Acquire Image Tag List
-
+### Obtain Image Tag List
 ```
     # curl -X GET http://localhost/v2/library/hello-world/tags/list
     {"name":"library/hello-world","tags":["latest"]}
 ```
 
-## Acquire Image Manifests Information
-
+### Obtain Image Manifests Information
 ```
     # curl -H "Accept: application/vnd.docker.distribution.manifest.v2+json"  -X GET http://localhost/v2/library/hello-world/manifests/latest
     {
@@ -109,14 +96,11 @@ Before the image is uploaded, the output is as follows:
        ]
     }
 ```
-
 `c54a2cc56cbb2f04003c1cd4507e118af7c0d340fe7e2720f70976c4b75237dc` is the IMAGE ID shown when you execute "docker images".
-"layers" indicates the hierarchy of images. "blob" can be pulled through "digest" in "layers". For more information on how to acquire image blob, please see below.
+"layers" indicates the hierarchy of images. "blob" can be pulled through "digest" in "layers". For more information on how to obtain image blob, please see below.
 
-## Acquire Image blob
-
-There is only one "layer" in the "manifests" information of "hello-world:latest" image acquired above. We use this as an example to see how to acquire image blob. As shown in the pulling result, the blob we acquired is consistent with file's sha256. **Executing "docker pull" is actually a process to acquire the manifests information of the image, before pulling blob**.
-
+### Obtain Image Blob
+There is only one "layer" in the "manifests" information of "hello-world:latest" image obtained above. We take this as an example to show how to obtain image blob. The pulling results show that the obtained blob is consistent with the file sha256. **Executing docker pull is actually to get the manifests of the image first, and then pull blob**.
 ```
     # curl -s -X GET http://localhost/v2/library/hello-world/blobs/sha256:c04b14da8d1441880ed3fe6106fb2cc6fa1c9661846ac0266b8a5ec8edf37b7c -o hello-world.blob
     # ls -l hello-world.blob 
@@ -125,11 +109,9 @@ There is only one "layer" in the "manifests" information of "hello-world:latest"
     c04b14da8d1441880ed3fe6106fb2cc6fa1c9661846ac0266b8a5ec8edf37b7c  hello-world.blob  
 ```
 
-    
-## Delete Image (Soft Delete)
-
-First, acquire `Docker-Content-Digest` of the image using parameter "curl -i". For Register 2.3 and future versions, you must specify `Accept:  application/vnd.docker.distribution.manifest.v2+json` in the header, otherwise the "digest" of "schema1" is returned by default, which is different from that of "schema2". If you delete using a "digest" that is not returned by specifying the header above, you will receive a 404 error.
-
+## Delete Image
+### Delete Image (Soft Delete)
+First, obtain `Docker-Content-Digest` of the image with parameter "curl -i". For Register 2.3 or above, you must specify `Accept: application/vnd.docker.distribution.manifest.v2+json` in the header, otherwise the "digest" of "schema1" is returned by default, which is different from that of "schema2". If you delete using a "digest" that is not returned by specifying the header above, you will receive a 404 error.
 ```
     # curl -i -H "Accept: application/vnd.docker.distribution.manifest.v2+json"  -X GET http://localhost/v2/library/hello-world/manifests/latest
     
@@ -160,10 +142,7 @@ First, acquire `Docker-Content-Digest` of the image using parameter "curl -i". F
        ]
     }
 ```
-
-
- When deleting image using the `Docker-Content-Digest` returned in the previous step, you will receive the 202 code, indicating that the deletion is successful.
- 
+When deleting an image according to the `Docker-Content-Digest` returned in the previous step, if you receive 202, it indicates that the deletion is successful.
 ```
     # curl -k -v -s -X DELETE http://localhost/v2/library/hello-world/manifests/sha256:a18ed77532f6d6781500db650194e0f9396ba5f05f8b50d4046b294ae5f83aa4
 
@@ -186,31 +165,25 @@ First, acquire `Docker-Content-Digest` of the image using parameter "curl -i". F
     < 
     * Connection #0 to host localhost left intact
 ```
-
- Confirm result:
- 
+Confirm results:
 ```
     # curl -X GET http://localhost/v2/library/hello-world/tags/list
     {"name":"library/hello-world","tags":null}
 ```
 
-## Delete Image (Hard Delete)
-
-In the previous step, you only deleted the manifests information of the image, while some disk space is still occupied by the referenced "blob". Execute the following command to see deletable "blob".
-  
+### Delete Image (Hard Delete)
+In the previous step, you only deleted the manifests information of the image, while some disk space is still occupied by the referenced "blob". Execute the following command to see deletable "blob". 
 ```
   docker exec -it myregistry_registry_1 /bin/registry garbage-collect --dry-run /etc/registry/config.yml
 ```
-
-To free disk space, execute the following command to delete "blob". Note that **Registry must be set as read-only when you execute the command below (read-only mode can be set in the Registry configuration file)**, otherwise data inconsistency may occur.
-  
+To free disk space, execute the following command to delete "blob".
+>**Note:**
+>The registry must be set as the read-only mode when you execute the command below (the read-only mode can be set in the Registry configuration file), otherwise it may result in data inconsistency . 
 ```
   docker exec -it myregistry_registry_1 /bin/registry garbage-collect /etc/registry/config.yml
 ```
 
-
 ## Appendix
-
 ### Directory Structure
     .
     |-- config
@@ -316,3 +289,4 @@ To free disk space, execute the following command to delete "blob". Note that **
 
   [1]: https://cloud.tencent.com/
   [2]: https://github.com/docker/compose
+

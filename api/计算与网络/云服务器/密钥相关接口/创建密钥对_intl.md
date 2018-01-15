@@ -18,7 +18,7 @@ The following request parameter list only provides API request parameters. For o
 |---------|---------|---------|---------|
 | Version | String | Yes | API version No., used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
 | KeyName     | String | Yes  | Name of key pair, which can consist of numbers, letters, and underscores, with a length of not more than 25 characters.      |
-|ProjectId| Integer| Yes| The ID of the project to which the created key pair belongs.<br><br> You can obtain the project ID by either of the following ways: <br><li>Query the project ID via [Project List](https://console.cloud.tencent.com/project);<br><li>Obtain the project ID from the `projectId` field in the retured values of API [DescribeProject](/document/api/378/4400).|
+|ProjectId| Integer| Yes| The ID of the [project](https://intl.cloud.tencent.com/document/product/378/10863) to which the created key pair belongs.<br><br> You can obtain the project ID by either of the following ways: <br><li>Query the project ID via [Project List](https://console.cloud.tencent.com/project);<br><li>Obtain the project ID from the `projectId` field in the retured values of API [DescribeProject](/document/api/378/4400).|
 
 
 ## 3. Output Parameters

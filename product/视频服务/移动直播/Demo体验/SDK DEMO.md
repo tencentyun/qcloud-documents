@@ -70,7 +70,7 @@ table th:nth-of-type(4) {  width: 235px; }
   </tr>
 </table>
 
-<h2 id="Windows">新增 Windows 平台 </h2>
+<h2 id="Windows"> Windows 平台 </h2>
 
 ### 效果预览
 ![](https://mc.qcloudimg.com/static/img/aec2f0e2848c351f026c4bb22066d596/image.jpg)
@@ -81,13 +81,33 @@ table th:nth-of-type(4) {  width: 235px; }
   <tr align="center">
     <th>所属系统</th>
     <th>当前版本</th>
-		<th>运行时库</th>
+		<th>底层技术</th>
 		<th>下载体验</th>
   </tr>
   <tr align="center">
-    <td height="100px">Windows</td>
-    <td>1.1.0</td>
-		<td>VS2015</td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/LiteAVSDK_Win_1.1.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
+    <td height="100px"> IE 插件解决方案 </td>
+    <td>1.2.1</td>
+		<td>ActiveX</td>
+		<td><a href="http://imgcache.qq.com/open/qcloud/video/act/avtivex_demo/demoex/double_room/DoubleRoomIndex.htm">Demo</a></td>
+  </tr>
+	<tr align="center">
+    <td height="100px">C# 解决方案</td>
+    <td>1.2.3</td>
+		<td>C#（.NET）</td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/CSharp/LiteAVSDK_Windows_C%23.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
+  </tr>
+	<tr align="center">
+    <td height="100px">C++ 解决方案</td>
+    <td>1.2.3</td>
+		<td>C++（DLL）</td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
   </tr>
 </table>
+
+<h2 id="XiaoChengXu"> 微信小程序 </h2>
+### 效果预览
+![](https://mc.qcloudimg.com/static/img/ceea12d26d442f07763e0e216195c65e/image.jpg)
+
+### 体验地址
+打开微信（请先升级到最新版本），进入发现页卡，在小程序中搜索 “腾讯视频云”，即可体验我们的官方 Demo。
+

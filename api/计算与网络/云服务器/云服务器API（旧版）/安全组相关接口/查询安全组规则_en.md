@@ -45,17 +45,25 @@ Ingress/egress rule member structure
 <th><b>Type</b></th>
 <th><b>Description</b></th>
 <tr>
+<td> index <td> Int <td> index of a policy, starting from 0
+<tr>
+<td> addressModule <td> String <td> IP Address Module ID or IP Address Module Group ID, conflicted with cidrIp or sgId。
+<tr>
 <td> ipProtocol <td> String <td> Network protocol, which supports udp, tcp, icmp, etc.; the absence of this filed indicates full protocol.
 <tr>
 <td> cidrIp <td> String <td> IP or IP range; the absence of this field indicates full IP. Does not appear together with sgId.
 <tr>
 <td> sgId <td> String <td> Security group ID. Does not appear together with cidrIp.
 <tr>
-<td> portRange<td> String <td> Port or port range; the absence of this filed indicates full port.
+<td> portRange <td> String <td> Port or port range; the absence of this filed indicates full port.
+<tr>
+<td> serviceModule <td> String <td> Proctocol Port Module ID or Proctocol Port Module Group ID, conflicted with ipProtocol or portRange
 <tr>
 <td> desc <td> String <td> Rule description
 <tr>
 <td> action <td> String <td> Action, accept or drop
+<tr>
+<td> version <td> Int <td> it's version of this security group itself, varied when every time rules edited.
 </tbody></table>
 
 ## 4. Error Codes

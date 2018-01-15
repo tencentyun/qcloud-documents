@@ -24,7 +24,7 @@ Table of Instance Filter Criteria
 | Parameter Name | Type | Required | Description |
 |---------|---------|---------|---------|
 | zone | String | No | (Filter criteria) Filter by [Availability Zone](/document/api/213/9452#zone). |
-| project-id | Integer | No | (Filter criteria) Filter by project ID. You can query the list of created projects by calling [DescribeProject](/document/api/378/4400), or view the list by logging in to the [Console](https://console.cloud.tencent.com/project). |
+| project-id | Integer | No | (Filter criteria) Filter by project ID. You can query the list of created projects by calling [DescribeProject](/document/api/378/4400), or view the list by logging in to the [Console](https://console.cloud.tencent.com/project). You can also create a new project by calling [AddProject](https://intl.cloud.tencent.com/document/product/378/4398). |
 | host-id | String | No | (Filter criteria) Filter by [CDH](/document/product/416) `ID`, such as: `host-11112222`. |
 | instance-id | String | No | (Filter criteria) Filter by instance `ID`, such as: `ins-11112222`. |
 | instance-name | String | No | (Filter criteria) Filter by instance name. |

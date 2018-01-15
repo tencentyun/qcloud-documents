@@ -15,7 +15,7 @@
       </intent-filter> 
 </receiver>
 ```
-4.【必须】检查是否配置 com.tencent.android.tpush.service.XGPushServiceV3和com.tencent.android.tpush.rpc.XGRemoteService，若无配置则功能不可使用。
+4.【必须】检查是否配置 `com.tencent.android.tpush.service.XGPushServiceV3`和`com.tencent.android.tpush.rpc.XGRemoteService`，若无配置则功能不可使用。
 
 ```
 <!-- 【必须】 信鸽service -->
@@ -35,7 +35,7 @@
            </intent-filter>
        </service>
 ```
-5.【必须】检查是否配置 com.tencent.android.tpush.XGPushProvider、com.tencent.android.tpush.SettingsContentProvider和com.tencent.mid.api.MidProvider，若无配置则功能不可使用。
+5.【必须】检查是否配置` com.tencent.android.tpush.XGPushProvider`、`com.tencent.android.tpush.SettingsContentProvider`和`com.tencent.mid.api.MidProvider`，若无配置则功能不可使用。
 
 ```
 <!-- 【必须】 【注意】authorities修改为 包名.AUTH_XGPUSH, 如demo的包名为：com.qq.xgdemo-->

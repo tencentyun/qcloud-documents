@@ -1,93 +1,131 @@
 ## 1. API Description
 
-This API (DescribeScalingActivity) is used to query scaling activities
-Domain name: scaling.api.qcloud.com
-
+This API (DescribeScalingActivity) is used to query scaling activity logs of scaling groups.
+Domain name for API request: scaling.api.qcloud.com
 
 ## 2. Input Parameters
-| Parameter Name | Required | Type | Description |
+
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see <a href="https://cloud.tencent.com/document/api/377/4153" title="Common Request Parameters">Common Request Parameters</a> page. The Action field for this API is DescribeScalingActivity.
+
+| Parameter | Required | Type | Description |
 |---------|---------|---------|---------|
-| scalingGroupId | Yes | String | |
-| scalingActivityIds.n (scalingActivityIds is an array, whose elements need to be entered as input parameters) | No | String | |
-| offset | No | Int | |
-| limit | No | Int | |
-| startTime | No | datetime | |
-| endTime | No | datetime | | |
+| scalingGroupId | Yes | String | ID of the scaling group you want to query|
+| scalingActivityIds.n | No | Array | IDs of the scaling activity ID you want to query|
+| offset | No | Int | Offset; default is 0 |
+| limit | No | Int | Number of returned results. Default is 20 |
+| startTime | No | datetime | Specify a start time |
+| endTime | No | datetime | Specify an end time |
 
 
 ## 3. Output Parameters
-| Parameter Name | Type | Description |
+
+| Parameter| Type | Description |
 |---------|---------|---------|
-| code | Int | Error code, 0: Succeeded, other values: Failed |
-| message | String | Error message |
-| data | Array | Description (to be added) |
-| data.scalingActivitySet | Array | Description (to be appended) | 
-| data.scalingActivitySet.status | Int | Description (to be appended) | 
-| data.scalingActivitySet.code | Int | Description (to be appended) | 
-| data.scalingActivitySet.autoScalingGroupId | String | Description (to be appended) | 
-| data.scalingActivitySet.cause | String | Description (to be appended) | 
-| data.scalingActivitySet.hostIndex | Int | Description (to be appended) | 
-| data.scalingActivitySet.desciption | String | Description (to be appended) | 
-| data.scalingActivitySet.detail | String | Description (to be appended) | 
-| data.scalingActivitySet.startTime | String | Description (to be appended) | 
-| data.scalingActivitySet.hostIp | String | Description (to be appended) | 
-| data.scalingActivitySet.msg | String | Description (to be appended) | 
-| data.scalingActivitySet.scalingPolicyId | String | Description (to be appended) | 
-| data.scalingActivitySet.scalingActivityId | String | Description (to be appended) | 
-| data.scalingActivitySet.endTime | String | Description (to be appended) | 
-| data.scalingActivitySet.createTime | String | Description (to be appended) | 
-| data.scalingActivitySet.scalingGroupId | String | Description (to be appended) | 
+| code | Int | Common error code. 0: Successful; other values: Failed. For more information, please see <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common Error Codes">Common Error Codes</a> on the error codes page |
+| codeDesc | String | Error code at business side. For a successful operation, "Success" is returned. In case of an error, a message describing the reason for the error is returned. |
+| message | String | Module error message description depending on API |
+| data | Array | Query detailed information on returned scaling activities |
+| data.scalingActivitySet | Array | Specific scaling activity details |
+| data.totalCount | int | Number of the recorded scaling activities upon query |
+
+Each element in the `scalingActivitySet` array is a scaling activity log in json format.
+
+| Parameter| Type | Description |
+|---------|---------|---------|
+| autoScalingGroupId | String | ID of the scaling group to which the current scaling activity belongs | 
+| status | Int | Execution result of a scaling activity. Specific mapping relationship is shown in the following table | 
+| type | Int | Type of the current scaling activity. Specific mapping relationship is shown in the following table | 
+| errorCode | Int | Error code of the execution result for the scaling activity. Specific mapping relationship is shown in the following table | 
+| succInsList | Int | ID of the server on which a scaling activity is successfully executed | 
+| failInsList | Int | ID of the server on which a scaling activity fails to be executed | 
+| cause | String | The reason why a scaling activity is triggered |  
+| desciption | String | Description of a scaling activity | 
+| msg | String | Description of the execution result for the scaling activity | 
+| scalingActivityId | String | ID of the current scaling activity | 
+| startTime | String | Start time of the current scaling activity | 
+| endTime | String | End time of the current scaling activity | 
+
+The mapping relationship is shown as follows:
+
+1) `status`:
+
+| Code | Description |
+|----|----|
+| 0 | Initializing |
+| 1 | Executing |
+| 2 | Successful |
+| 3 | Partially successful |
+| 4 | Failed |
+| 5 | Canceled |
+
+2) `type`:
+
+| Code | Description |
+|----|----|
+| 0 | Scale up |
+| 1 | Scale down |
+| 2 | Add a server |
+| 3 | Remove a server |
+| 10 | Replace an unhealthy server |
+
+3) `errorCode`:
+
+| Code | Description | Suggested Operation |
+|----|----|--------|
+| 0 | Succeed | Succeed |
+| 10000 | Image is deleted | Change launch configuration |
+| 10001 | LB is deleted | Modify LB|
+| 10002 | Data snapshot is deleted | Change launch configuration |
+| 10003 | Security group is deleted | Change launch configuration |
+| 10004 | Subnet is deleted | Modify the subnet |
+| 20000 | Sold out | Stop scale-up activities |
+| 20001 | Model does not exist | Stop scale-down activities|
+| 20002 | Insufficient backend resources | Stop scale-up activities |
+| 30000 | Insufficient quota | Decrease the number of servers to scale up, or send a ticket to increase quota |
+| 30001 | Insufficient account balance | Top up |
+| 40000 | Scaling group is performing a scaling activity | Try again later |
+| 40001 | Scaling group is in cooldown period | Try again later |
+| 50000 | Key is deleted | Change launch configuration |
+
+## 4. Error Codes
+
+For common errors on this API, please see [AS Error Codes](https://cloud.tencent.com/doc/api/372/4173).
 
 
-## 4. Example
+## 5. Example
+
 Input
 ```
-https://scaling.api.qcloud.com/v2/index.php?Action=DescribeScalingActivity
-&scalingGroupId=asg-1urw3bm9
-&startTime=2016-04-25 17:36:00
-&COMMON_PARAMS
+https://scaling.api.qcloud.com/v2/index.php?
+&<Common request parameters>
+&scalingGroupId=asg-xxxxx
+&limit=1
 ```
+
 Output
 ```
 {
-    "code":"0",
-    "message":"",
-    "data":{
-        "totalCount":"2",
-        "scalingActivitySet":[
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "totalCount": 8,
+        "scalingActivitySet": [
             {
-                "status":"2",
-                "code":"0",
-                "autoScalingGroupId":"asg-1urw3bm9",
-                "cause":"curr instance less than desired capacity",
-                "hostIndex":"0",
-                "desciption":"scale out 1 instance",
-                "detail":"{"vpcId": "vpc-gb6juqdg", "appName": "1251707795", "intSubnetId": 6608, "hostIndex": 0, "desciption": "scale out 1 instance", "defaultProtectedFromScaleIn": 0, "uin": "3321337994", "owner": "1251707795", "maxSize": 10, "num": 1, "warmup": 600, "defaultLifeCycleHookId": "", "subnetId": "subnet-g6syt4ph", "stepNum": 1, "needSecurityAgent": 0, "id": 5, "bManual": 0, "subnet": [{"subnetId": "subnet-g6syt4ph", "intSubnetId": 6608, "zoneId": 200001}], "password": "", "lb": [], "zone": [], "launchConfigurationId": "asc-0ej76sn7", "projectId": 0, "ownerUin": "3321337994", "imageId": "img-0ayoybdd", "zoneId": 200001, "minSize": 2, "autoScalingGroupId": "asg-1urw3bm9", "keyId": "", "needMonitorAgent": 1, "wanIp": 1, "type": 0, "lifeCycleHookId": "", "imageType": 1, "status": 0, "desiredCapacity": 2, "scalingPolicyId": "", "mem": 2, "terminationPolicy": 1, "replaceUnhealthyInstanceScalingPolicyId": "asp-6z6e1c3t", "defaultCooldown": 300, "appCname": "\u817e\u8baf\u4e91", "intImageId": 14210, "hostIp": "0.0.0.0", "scalingActivityId": "asa-hekmoz15", "storageSize": 50, "notificationConfiguration": [], "createTime": "2016-04-25 16:56:58", "bandwidthType": 1, "bEnabledMetrics": 1, "name": "joezou-AS1", "classicLinkVpcId": "", "cause": "curr instance less than desired capacity", "rootSize": 50, "bandwidth": 1, "alarmPolicyGroupId": "677967", "osName": "centos7.1x86_64", "storageType": 2, "hasNum": 1, "launchConfigurationName": "joezou-as1-\u52ff\u5220", "defaultResult": 0, "intVpcId": 389, "sg": [{"sgId": "sg-rmn4vf1c"}], "cpu": 2, "bInScalingActivity": 1}",
-                "startTime":"2016-04-25 17:37:42",
-                "hostIp":"10.110.120.100",
-                "msg":"success",
-                "scalingPolicyId":"",
-                "scalingActivityId":"asa-hekmoz15",
-                "endTime":"2016-04-25 17:49:33",
-                "createTime":"2016-04-25 17:37:39",
-                "scalingGroupId":"asg-1urw3bm9"
-            },
-            {
-                "status":"2",
-                "code":"0",
-                "autoScalingGroupId":"asg-1urw3bm9",
-                "cause":"curr instance more than desired capacity",
-                "hostIndex":"0",
-                "desciption":"scale in 1 instance",
-                "detail":"{"vpcId": "vpc-gb6juqdg", "appName": "1251707795", "hostIndex": 0, "desciption": "scale in 1 instance", "defaultProtectedFromScaleIn": 0, "uin": "3321337994", "maxSize": 1, "num": 1, "warmup": 600, "defaultLifeCycleHookId": "", "owner": "1251707795", "stepNum": 1, "needSecurityAgent": 0, "id": 5, "bManual": 0, "subnet": [{"status": 1, "subnetId": "subnet-g6syt4ph", "owner": "1251707795", "zoneId": 200001}], "password": "", "lb": [], "zone": [], "launchConfigurationId": "asc-0ej76sn7", "projectId": 0, "ownerUin": "3321337994", "imageId": "img-0ayoybdd", "minSize": 1, "autoScalingGroupId": "asg-1urw3bm9", "keyId": "", "needMonitorAgent": 1, "wanIp": 1, "type": 1, "lifeCycleHookId": "", "imageType": 1, "status": 0, "desiredCapacity": 1, "scalingPolicyId": "", "mem": 2, "terminationPolicy": 1, "replaceUnhealthyInstanceScalingPolicyId": "asp-6z6e1c3t", "defaultCooldown": 300, "appCname": "\u817e\u8baf\u4e91", "bEnabledMetrics": 1, "hostIp": "0.0.0.0", "scalingActivityId": "asa-170ocmmt", "storageSize": 50, "notificationConfiguration": [], "createTime": "2016-04-25 16:56:58", "bandwidthType": 1, "alarmPolicyGroupId": "677967", "name": "joezou-AS1", "classicLinkVpcId": "", "cause": "curr instance more than desired capacity", "bandwidth": 1, "bInScalingActivity": 1, "storageType": 2, "launchConfigurationName": "joezou-as1-\u52ff\u5220", "defaultResult": 0, "rootSize": 50, "sg": [{"sgId": "sg-rmn4vf1c"}], "cpu": 2, "hasNum": 1}",
-                "startTime":"2016-04-25 17:36:00",
-                "hostIp":"10.110.120.100",
-                "msg":"success",
-                "scalingPolicyId":"",
-                "scalingActivityId":"asa-170ocmmt",
-                "endTime":"2016-04-25 17:36:26",
-                "createTime":"2016-04-25 17:35:59",
-                "scalingGroupId":"asg-1urw3bm9"
+                "autoScalingGroupId": "asg-pixbyldg",
+                "status": 2,
+                "cause": "Users are removed from the CVM [ins-5u97n5re]",
+                "desciption": "Users are removed from the CVM [ins-5u97n5re]",
+                "startTime": "2017-04-15 20:54:57",
+                "msg": "success",
+                "scalingActivityId": "asa-b51zb5i4",
+                "endTime": "2017-04-15 20:54:59",
+                "type": 3,
+                "succInsList": [
+                    "ins-5u97n5re"
+                ],
+                "failInsList": [],
+                "errorCode": 0
             }
         ]
     }

@@ -30,7 +30,7 @@ If the billing model of an instance is annual or monthly plan, parameter data is
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| dealIds | Array | Short order ID, which is used to call the Cloud API-related APIs |
+| dealIds | Array | Short order ID, which is used to call the Cloud API-related APIs, such as [Acquire Order Information](http://intl.cloud.tencent.com/document/product/378/4403) |
 | dealNames | Array | Long order ID, which is used to report the order-related problems to Tencent Cloud customer service |
 | cdbInstanceIds | Array | Instance ID list, with long order ID as the key, and instance ID as the value |
 

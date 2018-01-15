@@ -1,4 +1,4 @@
-**1. 接口**
+#### 接口
 ```objc
 /**
  接口统计的枚举值
@@ -81,7 +81,7 @@ typedef enum {
  */
 + (void)reportAppMonitorStat:(MTAAppMonitorStat *)stat appkey:(NSString *)appkey isRealTime:(BOOL)isRealTime;
 ```
-**2. 示例**
+#### 示例
 ```obj-c
 -(IBAction) clickNormaltButton:(id)sender{
 	MTAAppMonitorStat* stat = [[MTAAppMonitorStat alloc] init]; 
