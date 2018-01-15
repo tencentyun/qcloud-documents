@@ -1,4 +1,4 @@
-## 接口公共说明
+## 公共接口说明
 ### CGI 调用方法
 
 - 方法1：`http://proxy.vip.qq.com/cgi-bin/QQConnect.fcgi `
@@ -31,7 +31,7 @@
 ### 签名算法
 签名值 sign 是将请求源串以及密钥根据一定签名方法生成的签名值，用来提高传输过程参数的防篡改性。 签名值的生成共有 3 个步骤：构造源请求串、构造待加密串和生成签名值。
 
-#### 举例说明
+#### 使用示例
 URL：`http://proxy.vip.qq.com/cgi-bin/QQConnect.fcgi`
 
 请求参数：
