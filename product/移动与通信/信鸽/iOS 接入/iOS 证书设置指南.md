@@ -53,7 +53,7 @@ openssl pkcs12 -in CertificateName.p12 -out CertificateName.pem -nodes
 ```
 则生成了 CertificateName.pem 证书，上传到信鸽则可以进行消息推送。
 
-iOS SDK 相关开发请前往 iOS SDK 完整接入。
+iOS SDK 相关开发请前往** iOS SDK 完整接入**。
 
 
 

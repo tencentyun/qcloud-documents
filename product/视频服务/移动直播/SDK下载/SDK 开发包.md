@@ -354,9 +354,9 @@ table td {
   </tr>
   <tr align="center">
     <td>小程序</td>
-    <td>1.2.277</td>
+    <td>1.2.345</td>
 		<td>基于小程序音视频能力构建的双人、多人实时音视频解决方案，包含小程序与后台全部源码</a></td>
-		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.277.zip">DOWNLOAD</a></td>
+		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.345.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 

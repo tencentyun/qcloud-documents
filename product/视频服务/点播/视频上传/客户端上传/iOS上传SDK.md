@@ -1,9 +1,7 @@
 对于在iOS平台上传视频的场景，腾讯云点播提供了iOS上传SDK来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
 
-## iOS接入
-
-### 集成
+## 集成
 
 拷贝发布源代码(目录：TXUGCUploadDemo/upload)到您的工程中。
 
@@ -20,9 +18,9 @@
 
 在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
 
-## 如何上传一个视频
+##  如何上传一个视频
 
-### 使用示例
+###  使用示例
 
 初始化一个发布对象
 
@@ -59,7 +57,7 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 [_videoPublish publishVideo:videoPublishParams];
 ```
 
-### 接口描述
+###  接口描述
 
 初始化发布对象TXUGCPublish::initWithUserID
 
@@ -72,9 +70,9 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 
 | 参数名称         | 参数描述                                     | 类型        | 必填   |
 | ------------ | ---------------------------------------- | --------- | ---- |
-| signature    | 点播签名 | NSString* | 是    |
+| signature    | [点播签名](/document/product/266/9221) | NSString* | 是    |
 | videoPath    | 本地视频文件路径                                 | NSString* | 是    |
-| coverImage   | 封面图片，可不设置。不设置SDK会自动截取封面图                 | UIImage*  | 否    |
+| coverImage   | 封面图片，可不设置。                               | UIImage*  | 否    |
 | enableResume | 是否启动断点续传，默认开启                            | BOOL      | 否    |
 
 ### 输出返回
@@ -100,11 +98,11 @@ publishVideo参数检查不通过会直接返回非0错误码。错误信息在T
 @end
 ```
 
-### 如何携带封面
+##  如何携带封面
 
 在发布参数中带上封面图片；或者不设置，SDK内部会尝试自动截取封面图。
 
-### 如何取消、恢复上传
+##  如何取消、恢复上传
 
 取消上传，调用TXUGCPublish的canclePublish()。
 
@@ -114,7 +112,39 @@ publishVideo参数检查不通过会直接返回非0错误码。错误信息在T
 
 恢复上传，用相同的发布参数（视频路径和封面路径不变）再调用一次TXUGCPublish的publishVideo。
 
-### 如何断点续传
+##  如何断点续传
 
 发布参数中的enableResume，是否开启断点续传。默认是开启的。
 在断点续传开启的情况下，只要待上传的文件路径、文件内容没有发生变化，SDK内部会自己实现断点续传，外部不用做特殊处理。
+
+断点续传是基于cos的分片上传实现的，cos的分片上传分为三个步骤：初始化分片上传->上传分片->上传完成。初始化上传会返回一个唯一的描述符（uploadId），后续的分片上传和上传完成都需要带上这个uploadId，同时cos还支持根据uploadId列出已经上传的分片信息。
+断点续传内部实现：以文件路径作为关键字，缓存点播vodSessionKey(用于去点播后台获取上次上传的cos路径)和cos的uploadId。上传文件的时候根据缓存是否存在判断文件是不是上传过，如果是则走断点续传。缓存有效期1天。
+需要注意：cos不会做文件一致性的检测，SDK根据文件最后修改时间做文件一致性检测。
+
+![](https://mc.qcloudimg.com/static/img/9532c4abaf9b916505f0d69335452984/image.png)
+
+## 错误码
+
+SDK 通过 TXVideoPublishListener 接口来监听短视频发布相关的状态。因此，可以利用 TXPublishResult 中的 **retCode ** 来确认视频发布的情况。
+
+| 状态码  | 在 TVCCommon 中所对应的常量           | 含义              |
+| :--: | :---------------------------- | :-------------- |
+|  0   | TVC_OK                        | 发布成功            |
+| 1001 | TVC_ERR_UGC_REQUEST_FAILED    | 请求上传失败          |
+| 1002 | TVC_ERR_UGC_PARSE_FAILED      | 请求信息解析失败        |
+| 1003 | TVC_ERR_VIDEO_UPLOAD_FAILED   | 上传视频失败          |
+| 1004 | TVC_ERR_COVER_UPLOAD_FAILED   | 上传封面失败          |
+| 1005 | TVC_ERR_UGC_FINISH_REQ_FAILED | 结束上传请求失败        |
+| 1006 | TVC_ERR_UGC_FINISH_RSP_FAILED | 结束上传响应错误        |
+| 1008 | TVC_ERR_FILE_NOT_EXIST        | 上传文件不存在         |
+| 1012 | TVC_ERR_INVALID_SIGNATURE     | 视频上传signature为空 |
+| 1013 | TVC_ERR_INVALID_VIDEOPATH     | 视频文件的路径为空       |
+| 1017 | TVC_ERR_USER_CANCLE           | 用户调用取消上传        |
+
+1003和1004是cos上传失败了，详细的错误信息会在log里打印出来，可以查阅[COS错误码](https://cloud.tencent.com/document/product/436/7730)。
+
+##  FAQ
+
+### 上传后如何处理视频？
+### 服务器如何知道追踪用户上传
+### 如何就近上传？
