@@ -31,11 +31,11 @@
 输入
 <pre>
   var oState = {"state": {"desired": {"color": "red"}}};
-  var sState = encodeURIComponent(JSON.stringify(oProperties));
+  var sState = encodeURIComponent(JSON.stringify(oState ));
   https://iotcloud.api.qcloud.com/index.php?Action=UpdateDeviceShadow
   &deviceName=apple
   &productID=ABCDE12345
-  &state=${sProperties}
+  &state=${sState}
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 </pre>
 
