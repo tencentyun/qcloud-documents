@@ -10,7 +10,7 @@
 |参数|	是否必须	|含义|
 |-----|-----|-----|
 |oauth_consumer_key|	是	|申请 QQ 登录成功后，分配给应用的appid |
-|openid	|是	|用户的 ID，与 QQ 号码一一对应。<br> 可通过调用https://graph.qq.com/oauth2.0/me?access_token=YOUR_ACCESS_TOKEN 来获取。|
+|openid	|是	|用户的 ID，与 QQ 号码一一对应。<br> 可通过调用`https://graph.qq.com/oauth2.0/me?access_token=YOUR_ACCESS_TOKEN` 来获取。|
 |access_token|	是|	可通过使用 Authorization_Code 来获取。 <br>access_token有 3 个月有效期。|
 |cmd	|是	|cgi名称，此字段决定具体的接口功能|
 |sign	|是	|签名|
@@ -161,20 +161,4 @@ type12、26、27、28 是必填的字段，所有流水上报必须夹带上报�
 　　}
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
