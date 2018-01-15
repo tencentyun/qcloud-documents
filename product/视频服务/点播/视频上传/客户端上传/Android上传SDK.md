@@ -58,7 +58,7 @@ mVideoPublish.setListener(new TXUGCPublishTypeDef.ITXVideoPublishListener() {
 
 ```java
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
-// signature计算规则可参考 https://www.qcloud.com/document/product/266/9221
+// signature计算规则可参考 [点播签名](/document/product/266/9221)
 param.signature = "xxx";
 param.videoPath = "xxx";
 ```
@@ -83,7 +83,7 @@ int publishCode = mVideoPublish.publishVideo(param);
 
 | 参数名称         | 参数描述                                     | 类型      | 必填   |
 | ------------ | ---------------------------------------- | ------- | ---- |
-| signature    | [点播签名](https://www.qcloud.com/document/product/266/9221) | String  | 是    |
+| signature    | [点播签名](/document/product/266/9221) | String  | 是    |
 | videoPath    | 本地视频文件路径                                 | String  | 是    |
 | coverPath    | 本地封面文件路径，默认不带封面文件                        | String  | 否    |
 | enableResume | 是否启动断点续传，默认开启                            | boolean | 否    |
