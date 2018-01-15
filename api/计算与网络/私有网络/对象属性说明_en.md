@@ -154,6 +154,8 @@
 | createTime | String | Creation time of the link between basic network device and VPC. For example: 2016-05-18 15:01:46 |
 
 ## 13. FlowLog Related Parameters
+| Parameters | Type | Description |
+|---------|---------|---------|
 | vpcId | String | vpcId assigned by the system. For example: gz_vpc_266 |
 | flowLogName | String | FlowLog name |
 | flowLogDescription | String | FlowLog description，default "" |
