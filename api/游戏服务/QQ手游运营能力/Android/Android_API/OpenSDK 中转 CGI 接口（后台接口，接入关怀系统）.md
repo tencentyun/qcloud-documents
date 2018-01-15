@@ -31,7 +31,7 @@
 
 签名值的生成共有 3 个步骤：构造源请求串、构造待加密串和生成签名值。
 
-#### 举例说明：
+#### 实际示例：
 
 URL：http://proxy.vip.qq.com/cgi-bin/QQConnect.fcgi
 
