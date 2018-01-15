@@ -18,7 +18,7 @@ table td {
 ## 特别提醒
 [Demo](https://cloud.tencent.com/document/product/454/6555) 中展示的功能一般会领先 SDK 1 - 2 周时间，这段时间我们会用来进行 bugfix 和 系统测试工作，所以部分 Demo 中的特性如果您在 SDK 中没有找到接口，可以先联系我们获取内部版本。
 
-<h2 id="iOS"> iOS SDK (4.1.3153) </h3>
+<h2 id="iOS"> iOS SDK (4.1.3152) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
