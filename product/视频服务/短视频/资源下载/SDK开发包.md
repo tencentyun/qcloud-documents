@@ -26,5 +26,5 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 4.1.3152 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Enterprise_Rename_iOS_4.1.3152.zip) |
-| Android平台  | 4.1.3153 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Enterprise_Android_4.1.3153.zip) | 
+| iOS平台  | 4.1.3152 @ 2018-01-15 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Enterprise_Rename_iOS_4.1.3152.zip) |
+| Android平台  | 4.1.3153 @ 2018-01-15 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Enterprise_Android_4.1.3153.zip) | 
