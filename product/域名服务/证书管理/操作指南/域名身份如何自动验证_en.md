@@ -5,7 +5,9 @@ After the application for certificate is submitted, the CA will specify a CNAME 
 **2. Add Domain Name to Cloud DNS**
 
 If your domain name is not resolved on the Cloud DNS platform, you can refer to the following process to add a domain name to Cloud DNS:
-[Add a Domain Name to Cloud DNS](https://cloud.tencent.com/doc/product/302/3446)
+
+[Add a Domain Name to Cloud DNS](https://cloud.tencent.com/doc/product/302/3446).
+
 
 **3. Modify DNS Server**
 
