@@ -39,27 +39,27 @@
 {
     "data":{
       "payload":{
-          "state": {
-              "reported": {
-                  "red": "red"
+          "state":{
+              "reported":{
+                  "red":"red"
               }
-          }
-          "metadata": {
-              "reported": {
-                  "red": {
-                      "timestamp": 1509092895971
+          },
+          "metadata":{
+              "reported":{
+                  "red":{
+                      "timestamp":1509092895971
                   }
               }
           },
-          "timestamp": 1509440846572,
-          "version": 4
-      }
+          "timestamp":1509440846572,
+          "version":4
+      },
       "result":0,
       "timestamp":1509440846582,
       "type":"get"
-	}
-    "message": "",
-    "codeDesc": "Success",
+	},
+    "message":"",
+    "codeDesc":"Success",
     "code": 0
 }
 ```
@@ -71,6 +71,7 @@
 | 5000  | 请求中缺少关键字段信息     |
 | 5001  | shadow不存在       |
 | 5100  | 内部服务器错误，请联系技术人员 |
+| 5101  | 请求参数非法          |
 
 
 
