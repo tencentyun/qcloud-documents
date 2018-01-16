@@ -1,29 +1,26 @@
-After CDN connection is approved, the system will automatically assign a CNAME domain (*.fast.cdntip.com). Please go to your domain service provider to complete configuring the CNAME. (CNAME domain is not directly accessible.)
+When your domain name accesses the CDN, the system automatically assigns a CNAME (suffixed with "```.cdn.dnsv1.com```") to you. It cannot be directly accessed. You need to complete the CNAME configuration at the domain name service ISP. After the configuration takes effect, you can use the CDN acceleration service.
+![](https://mc.qcloudimg.com/static/img/1ad97c3a92340219c728f25290ca1f78/CNAME.png)
+## Setting on Tencent Cloud
+If your DNS service ISP is Tencent Cloud, you can add a CNAME record as follows.
+1. Log in to [Domain Name Management](https://console.cloud.tencent.com/domain) console and click "Resolve" to the right of the domain name to which you want to add the CNAME record.
+![](https://mc.qcloudimg.com/static/img/d736722a9a2f0788f55c3ea10320baab/mydomain.png)
+2. After you are directed to the **Record Management** page of the specified domain name, click "Add Record".
+![](https://mc.qcloudimg.com/static/img/280a9f09e37eeb5938a8b10b7e671b9c/add_record.png)
+3. In the pop-up window, set the **Record Type** to CNAME, enter the domain name prefix (such as: www) in **Server Record**, enter the CNAME domain name in **Record Value**, and a CNAME record is added after you click "OK".
+![](https://mc.qcloudimg.com/static/img/398f272e255e7645c7a170c483a29f68/record_info.png)
 
- ![](https://mccdn.qcloud.com/static/img/5953884d4b6204bd9586a7e7b1550464/image.png)
-
-CNAME resolution of domain name can be set as follows. (CNAME resolution shall be performed specifically for the domain name already connected to CDN.)
-1. Enter your domain management center, select the domain to be resolved and click "Resolution":
-  ![](https://mccdn.qcloud.com/static/img/352176a3983d36d325026c0d1e410e98/image.png)
-
-2. Click "Add a record":
-  ![](https://mccdn.qcloud.com/static/img/86057e76fcd71bf86f38c85d9a999506/image.png)
-
-3. Please enter the host name (such as www or cdn) for the host record and select CNAME for the record type. Enter the CNAME domain name as the record value, and then click "Save":
-  ![](https://mccdn.qcloud.com/static/img/208b5c0a4c908fb08a3dfb9c4350db43/image.png)
-
-
-Note:
-Setting DNSPod
+## Setting on DNSPod
+If your DNS service ISP is DNSPod, you can add a CNAME record as follows.
 ![](https://mccdn.qcloud.com/static/img/5104d2605864556a130cac06b87e8187/image.png)
-Setting Wanwang
+
+## Setting on Wanwang
+If your DNS service ISP is Wanwang, you can add a CNAME record as follows.
 ![](https://mccdn.qcloud.com/static/img/f0eff3c6e223575b91322a49c1138ddf/image.png)
 ![](https://mccdn.qcloud.com/static/img/93e3eeef133d305dcc80433a168ee75a/image.png)
-Setting Xinnet
+
+## Setting on Xinnet
+If your DNS service ISP is Xinnet, you can add a CNAME record as follows.
 ![](https://mccdn.qcloud.com/static/img/301f06bf3f6f107fec5295f69f8c0ad3/image.png)
 
-
-
-Verify that CNAME is in effect
-
-The time needed for the CNAME to take effect varies for different DNS service providers (usually within 30 minutes). You can also check whether a CNAME is in effect by using PING. If you are directed to the domain suffixed with "tcdn.qq.com" by using PING, the domain CNAME is already in effect.
+## Verifying Whether CNAME is in Effect
+The time needed for the CNAME to take effect varies with different DNS service ISPs (usually within 30 minutes). You can also check the effectiveness of CNAME by using PING command in command line. If a domain name suffixed with "```.sp.spcdntip.com```" is pinged, then the CNAME has taken effect.
