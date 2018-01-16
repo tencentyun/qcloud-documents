@@ -57,7 +57,7 @@
       "result":0,
       "timestamp":1509440846582,
       "type":"get"
-	}
+	},
     "message":"",
     "codeDesc":"Success",
     "code": 0
