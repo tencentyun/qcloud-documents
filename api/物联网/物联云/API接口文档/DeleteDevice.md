@@ -24,9 +24,8 @@
 
 输入
 <pre>
- https://iotcloud.api.qcloud.com/index.php?Action=DeleteDevice&productID=ABCDE12345&deviceName=apple
+ https://iotcloud.api.qcloud.com/index.php?Action=DeleteDevice&productID=ABCDE12345&deviceName=apple&<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 
-  &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 </pre>
 
 输出
