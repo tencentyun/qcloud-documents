@@ -40,7 +40,11 @@ productProperties定义为：
 
 输入
 <pre>
-  https://iotcloud.api.qcloud.com/index.php?Action=CreateProduct&productName=fruit&productProperties={"productDescription":"desc","regon":"gz"}&<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
+
+  https://iotcloud.api.qcloud.com/index.php?Action=CreateProduct
+  &productName=fruit
+  &productProperties={"productDescription":"desc","regon":"gz"}
+  &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 
 </pre>
 
