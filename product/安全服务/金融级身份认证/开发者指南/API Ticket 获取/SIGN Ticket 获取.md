@@ -24,7 +24,7 @@ https://idasc.webank.com/api/oauth2/api_ticket
 ```
 https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=SIGN&version=1.0.0
 ```
-## 响应示例
+### 响应示例
 ```
 {
 "code":"0",
