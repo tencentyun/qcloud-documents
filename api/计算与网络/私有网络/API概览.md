@@ -155,3 +155,12 @@
 | 弹性网卡迁移 | [MigrateNetworkInterface](https://cloud.tencent.com/doc/api/245/5384) | 弹性网卡迁移。 |
 | 内网IP迁移 | [MigratePrivateIpAddress](https://cloud.tencent.com/doc/api/245/5385) | 内网IP迁移。 |
 
+## 13. 流日志相关接口
+| 接口功能 | Action ID |  功能描述 |
+|---------|---------|---------|
+| 创建流日志 | [CreateFlowLog](流日志相关接口/创建流日志) |  创建流日志。 |
+| 删除流日志 | [DeleteFlowLog](流日志相关接口/删除流日志) |  删除流日志。 |
+| 查询流日志信息 | [DescribeFlowLog](流日志相关接口/查询流日志信息) | 查询流日志实例信息。 |
+| 查询流日志列表 | [DescribeFlowLogs](流日志相关接口/查询流日志列表) | 查询流日志列表信息。 |
+| 修改流日志属性 | [ModifyFlowLogAttribute](流日志相关接口/修改流日志属性) | 修改流日志属性。 |
+

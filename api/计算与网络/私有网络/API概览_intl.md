@@ -155,4 +155,11 @@
 | Migrate an ENI | [MigrateNetworkInterface](https://cloud.tencent.com/doc/api/245/5384) | Migrate an ENI. |
 | Migrate a private IP | [MigratePrivateIpAddress](https://cloud.tencent.com/doc/api/245/5385) | Migrate a private IP. |
 
-
+## 13. FlowLog Related APIs
+| Feature | Action ID | Description |
+|---------|---------|---------|
+| Create a FlowLog | [CreateFlowLog](流日志相关接口/创建流日志.en) |  Create a FlowLog。 |
+| Delete a FlowLog | [DeleteFlowLog](流日志相关接口/删除流日志.en) |  Delete a FlowLog。 |
+| Query FlowLog information | [DescribeFlowLog](流日志相关接口/查询流日志信息.en) | Query FlowLog information。 |
+| Query FlowLog list | [DescribeFlowLogs](流日志相关接口/查询流日志列表.en) | Query FlowLog list。 |
+| Modify a FlowLog | [ModifyFlowLogAttribute](流日志相关接口/修改流日志属性.en) | Modify a FlowLog。 |
