@@ -21,7 +21,7 @@
 | code       | Int    | 公共错误码。0 表示成功，其他值表示失败，详见[公共错误码](https://cloud.tencent.com/document/product/634/12279)页面 |
 | message    | String | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" ，详见本页面的[模块错误码](#module_error_info) |
 | codeDesc   | String | 模块错误码的英文描述                               |
-| taskStatus | Int    | 任务是否完成。1代表完成，0代表未完成                      |
+| taskStatus | Int    | 任务是否完成。0代表任务未开始，1代表任务正在执行，2代表任务已完成       |
 | taskID     | String | 任务ID                                     |
 
 
@@ -54,6 +54,7 @@
 | ----- | --------------- |
 | 2006  | 任务不存在           |
 | 2100  | 内部服务器错误，请联系技术人员 |
+| 2101  | 请求参数非法          |
 
 
 

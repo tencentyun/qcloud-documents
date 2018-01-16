@@ -30,18 +30,14 @@
 
 输入
 <pre>
-POST https://iotcloud.api.qcloud.com/index.php 
+
+  https://iotcloud.api.qcloud.com/index.php?Action=CreateMultiDevice
+  &productID=ABCDE12345
+  &listDeviceName.0=apple
+  &listDeviceName.1=banana
+  &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
+
 </pre>
-```
-Body:
-{
-    "Action": "CreateMultiDevice",
-    "productID": "ABCDE12345",
-    "listDeviceName.0": "apple",
-    "listDeviceName.1": "banana",
-    #公共请求参数
-}
-```
 
 输出
 ```
