@@ -33,7 +33,7 @@
 
 输入
 <pre>
-  GET https://iotcloud.api.qcloud.com/index.php?Action=CreateDevice
+  https://iotcloud.api.qcloud.com/index.php?Action=CreateDevice
   &deviceName=apple
   &productID=ABCDE12345
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
