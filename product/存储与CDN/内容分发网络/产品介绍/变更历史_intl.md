@@ -23,4 +23,6 @@
 | May.18.2015 | V2.2  | WeChat official account one-stop acceleration<br>Inherit cache-control from origin server upon the cache expiration     |
 | Apr.20.2015 | V2.1  | Support such advanced features as host header configuration, refer hotlink protection configuration and cache expiration time     |
 | Mar.15.2015 | V2.0  | Support user's origin server, FTP hosting server to access CDN <br>Support bill-by bandwidth, bill-by traffic and multi-dimension data demonstration |
+
 | May.25.2014 | V1.0  | Support accessing to CDN by SVN                          |
+

@@ -3,11 +3,11 @@ COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目�
 ### 系统环境
 操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
 
-Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](/doc/product/436/10866) 进行安装与配置。
+Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 
 依赖库：
-- cos-python-sdk-v5（included），requests（not included），argparse（not included）
-- pyftpdlib(included)
+- requests
+- argparse
 
 ### 下载与安装
 GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-server-V5)。
@@ -87,6 +87,9 @@ single_file_max_size = 21474836480
 min_part_size       = default
 upload_thread_num   = default
 max_connection_num  = 512
+max_list_file       = 10000                # ls命令最大可列出的文件数目，建议不要设置太大，否则ls命令延时会很高
+log_level           = INFO                 # 设置日志输出的级别
+log_dir             = log                  # 设置日志的存放目录，默认是在ftp server目录下的log目录中
 ```
 配置中OPTIONAL选项是用于调整上传性能的可选项，一般情况下保持默认值即可。根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度。 max_connection_num 为最大连接数的限制选项，设置为0表示不限制最大连接数，可以根据机器情况进行调整。 
 ## 运行

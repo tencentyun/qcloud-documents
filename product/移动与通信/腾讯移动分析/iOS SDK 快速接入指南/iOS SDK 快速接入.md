@@ -1,5 +1,5 @@
 ## 配置 Xcode 工程
-1. 前往【SDK 下载中心】下载对应压缩包到本地；
+1. 前往[【SDK 下载中心】](http://mta.qq.com/mta/ctr_index/download)下载对应压缩包到本地；
 2. 解压 mta-ios-sdk-x.x.x.zip 到本地目录，可以看到其中 SDK 目录下的三个文件 libmtasdk.a，MTA.h，MTAConfig.h；
 3. 将 MTA.h，MTAConfig.h 以及 libmtasdk.a 添加到工程；
 4. 添加以下库或者 framework 的引用 libz.tbd，libsqlite3.tbd，QuartzCore.framework，Security.framework， CFNetwork.framework，SystemConfiguration.framework，CoreTelephony.framework[]()，UIKit.framework， Foundation.framework，CoreGraphics.framework 以及 libmtasdk.a，添加完成后，库的引用如下：
@@ -45,4 +45,4 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 4. 查看 Xcode 的输出是否有错误信息。
 
 ## SDK 嵌入完成
-到这里您已经顺利接入 MTA 的统计功能，需要获得更高级的服务功能，请参考 [接口说明](https://github.com/Tyzual/mta_xg/blob/master/doc/mta.api.reference.md)。
+到这里您已经顺利接入 MTA 的统计功能，需要获得更高级的服务功能，请参考 [接口说明](https://cloud.tencent.com/document/product/549/12859)。

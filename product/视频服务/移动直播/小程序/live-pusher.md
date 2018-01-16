@@ -12,7 +12,6 @@
 出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
 
 - 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
-- 符合类目要求的小程序，需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限。
 
 <table>
   <tr align="center">
@@ -41,6 +40,10 @@
   </tr>
 </table>
 
+- 符合类目要求的小程序，需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限，如下图所示：
+
+![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+
 注意：如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
 ## 属性定义
@@ -50,8 +53,8 @@
 | mode | String | RTC |  SD, HD, FHD, RTC|
 | autopush | Boolean | false | 是否自动启动推流 |
 | muted | Boolean | false | 是否静音 |
-| enable-camera | String | true | 开启\关闭摄像头  |
-| auto-focus | String | true | 手动\自动对焦 |
+| enable-camera | Boolean | true | 开启\关闭摄像头  |
+| auto-focus | Boolean | true | 手动\自动对焦 |
 | orientation | String | vertical | vertical, horizontal |
 | beauty |  Number | 0 | 美颜指数，取值 0 - 9，数值越大效果越明显 |
 | whiteness  | Number | 0 | 美白指数，取值 0 - 9，数值越大效果越明显 |

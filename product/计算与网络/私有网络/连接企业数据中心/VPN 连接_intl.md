@@ -3,7 +3,9 @@ VPN connection is a method to connect your peer IDC and VPC through encrypted pu
 - VPN gateway: Created VPC IPsec VPN gateway
 - Peer gateway: IPsec VPN service gateway for IDC
 - VPN tunnel: Encrypted IPsec VPN tunnel
-![](//mccdn.qcloud.com/static/img/a654d376b4e4e13ae2bb65b13239cef2/image.png)
+
+![](https://mc.qcloudimg.com/static/img/34ee1011da3d0671d3637a8c036480b2/VPC-VPN+Connection%281%29.png)
+
 
 VPN gateways can be established in the VPC. Multiple VPN tunnels can be established in each VPN gateway. Each VPN tunnel can connect to one local IDC. Please note that, **after a VPN connection is established, you need to configure related routing policies in the routing table to achieve communication.**
  
@@ -102,26 +104,42 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
 - Internal service addresses: 169.254.x.x/16;
 
 ## Billing Method
- VPN tunnels and peer gateways are **free of charge**.
- VPN gateway supports two billing methods: Postpaid and Prepaid.
-1) For **Postpaid** service, a gateway rental fee (by hour) and a traffic fee for accessing the public network are included. [View public network traffic fees](https://cloud.tencent.com/document/product/213/10579#.E6.8C.89.E6.B5.81.E9.87.8F.E8.AE.A1.E8.B4.B9).
 
-| Region | Domestic | Silicon Valley/Frankfurt/Hong Kong/South Korea | Toronto/Singapore |
-|---------|---------|---------|---------|
-| Price | 0.48 CNY/hr | 0.58 CNY/hr | 0.75 CNY/hr |
+ VPN tunnel and peer gateway are free of charge.
+ VPN gateway will be charged by hour. Its unit price already includes the cost of IDC bandwidth, so CVM does not need to purchase network bandwidth again. The specific expenses are shown in the following table:
+ 
+<table class="cvmMonth">
+        <tbody><tr>
+             <th style="width: 10%;" rowspan="2">Feature</th>
+             <th style="width: 10%;" rowspan="2">Billing Model</th>
+                         <th style="width: 30%;" rowspan="2">Configuration</th>
+             <th style="width: 50%;" colspan="7">Price</th>
+         </tr>
+         <tr>
+             <th>Beijing<br>Shanghai<br>Guangzhou</th>
+                         <th>Hong Kong</th>
+                                                  <th>Singapore</th>
+             <th>Toronto</th> 
+ 	<th>Korea</th> 
+ 		<th>Frankfurt</th>
+ 			<th>Silicon Valley</th>
+         </tr>
+        <tr>
+             <td>VPN Gateway</td>
+             <td>Bill by hour<br>(USD/month)</td>
+             <td>Per hour</td>
+             <td>0.078</td>
+             <td>0.088</td>
+             <td>0.12</td>
+             <td>0.12</td>
+ 			<td>0.088</td>
+             <td>0.088</td>
+             <td>0.088</td>
+         </tr>              
+     </tbody></table>
+ 
+ For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
-
-2) For **Prepaid** service, the unit price already contains the cost of IDC bandwidth, so you do not need to purchase network bandwidth again for CVM. Details are shown below:
-
-| Configuration (Mbps) | Except North America (Toronto) | North America (Toronto) |
-|---------|---------|
-| 5 | 380 | 480 |
-| 10 | 880 | 1,330 |
-| 20 | 1,880 | 2,330 |
-| 50 | 4,880 | 5,330 |
-| 100 | 9,880 | 10,330 |
-
-For more information about the prices of VPC services, please see [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
 ## Operation Instructions
 
@@ -136,7 +154,8 @@ IPsec VPN can be fully customized in the console. You need to complete the follo
 
 Example:
 Through IPsec VPN, connect the subnet A `192.168.1.0/24` in your VPC ("TomVPC") in **Guangzhou** with the subnet `10.0.1.0/24` in your IDC, and the public IP of the VPN gateway in IDC is `202.108.22.5`.
-![](//mc.qcloudimg.com/static/img/0cfc46cf11e4d53164219b1c386509a1/1.png)
+
+![](https://mc.qcloudimg.com/static/img/b7b5723298837aab677c88078caae7ca/VPC-VPN+Connection%283%29.png)
 
 You need to complete the following steps:
 #### Step 1: Create VPN Gateway

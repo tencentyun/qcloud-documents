@@ -1,13 +1,13 @@
 ## 1. 前置条件
 ### 1.1 相机/录音/读取手机信息权限检测
-SDK 需要用到相机/录音/读取手机信息权限，在 Android 6.0 以上系统，SDK 对其做了权限的运行时检测。但是由于 Android 6.0 以下系统 Android 并没有运行时权限，检测权限只能靠开关相机/麦克风进行。考虑到 SDK 的使用时间很短，快速频繁开关相机/麦克风可能会导致手机抛出异常，故 SDK 内对 Android 6.0 以下手机没有做权限的检测。为了进一步提高用户体验，在 Android 6.0 以下系统上，我们建议合作方在拉起 SDK 前，帮助 SDK 做相机/麦克风/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行刷脸，可以使整个刷脸体验更快更好。
+SDK 需要用到相机/录音/读取手机信息权限，在 Android 6.0 以上系统，SDK 对其做了权限的运行时检测。但是由于 Android 6.0 以下系统 Android 并没有运行时权限，检测权限只能靠开关相机/麦克风进行。考虑到 SDK 的使用时间很短，快速频繁开关相机/麦克风可能会导致手机抛出异常，故 SDK 内对 Android 6.0 以下手机没有做权限的检测。为了进一步提高用户体验，在 Android 6.0 以下系统上，我们建议合作方在拉起 SDK 前，帮助 SDK 做相机/麦克风/读取手机信息权限检测，提示用户确认打开了这三项权限后再进行刷脸，可以使整个人脸验证体验更快更好。
 ### 1.2 CPU 平台设置
-目前 SDK 只支持 armeabi-v7a 平台，为了防止在其他 cpu 平台上 sdk crash，我们建议在您的 App 的 build.gradle 里加上 abiFilter，如下图中红框所示：
+目前 SDK 只支持 armeabi-v7a 平台，为了防止在其他 CPU 平台上 sdk crash，我们建议在您的 App 的 build.gradle 里加上 abiFilter，如下图中红框所示：
 ![](https://mc.qcloudimg.com/static/img/61fab389aae7630adf751ec997dbdb16/image.png)
 
 ## 2. 接入配置
 云刷脸 SDK（WbCloudFaceVerify）最低支持到** Android API 14: Android 4.0(ICS)**，请在构建项目时注意。
-刷脸 SDK 将以 AAR 文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤（SDK 皮肤的设定，除了接入对应的 AAR，还需要设定相关代码。详见 [SDK 样式选择]()。默认黑色皮肤，无需格外设置），接入方可自由选择组合四个模式。
+刷脸 SDK 将以 AAR 文件的形式提供，包括**代码包（WbCloudFaceVerifySdk）和资源包（WbCloudFaceRes）**两个部分，缺一不可。其中代码包分为动作活体和数字活体两个模式，资源包分为黑色皮肤和白色皮肤（SDK 皮肤的设定，除了接入对应的 AAR，还需要设定相关代码。详见本页第六部分：SDK 样式选择。默认黑色皮肤，无需格外设置），接入方可自由选择组合四个模式。
 ![](https://mc.qcloudimg.com/static/img/0d1fb1b5512b25f4efda0cd89fb33ddb/image.png)
 另外刷脸 SDK 同时需要依赖**云公共组件（WbCloudNormal）**，同样也是以 AAR 文件的形式提供。
 需要添加下面文档中所示的依赖（将提供的 AAR 文件加入到 App 工程的`'libs'`文件夹下面,
@@ -270,7 +270,7 @@ String keyLicence;   //给合作方派发的licence
 | gps               | 用户 gps 信息                                | String                | 30     | 必填，格式为”lgt= xxx;lat=xxx;”；示例：“lgt=22.5044;lat=113.9537“ |
 | openApiAppId      | 腾讯服务分配的 app_id                           | String                | 腾讯服务分配 | 必填，腾讯服务分配的 app_id                        |
 | openApiAppVersion | 接口版本号                                    | String                | 20     | 必填，默认填 1.0.0                             |
-| openApiNonce      | 32 位随机字符串                                | String                | 32     | 必填，每次请求需要的一次性 nonce                      |
+| openApiNonce      | 32 位随机字符串                                | String                | 32     | 必填，每次请求需要的一次性 nonce                      |
 | openApiUserId     | User Id                                  | String                | 30     | 必填，每个用户唯一的标识                             |
 | openApiSign       | 合作方后台服务器通过 ticket 计算出来的签名信息              | String                | 40     | 必填                                       |
 | isShowGuide       | 是否需要显示刷脸指引，SDK 每次会返回这个结果，由 App 端存储，下次拉起时再传入 | boolean               | 1      | 必填                                       |
@@ -359,7 +359,7 @@ SDK 为了进一步确保刷脸的安全性，不论是简单还是中级模式�
   data.putBoolean(WbCloudFaceVerifySdk.VIDEO_CHECK, true);
 ```
 
-## 7. 接入示例
+## 7. 整体接入示例
 ```
 # 在 MainActivity 中点击某个按钮的代码逻辑：
 //先填好数据 
@@ -457,3 +457,5 @@ public void onFinish(int resultCode, boolean nextShowGuide, String faceCode, Str
 | FACEVERIFY_ERROR_OUT_OF_TIME_FACE_DETECT = 71000; | 扫脸验证超时         |
 | FACEVERIFY_ERROR_OUT_OF_TIME_ACTIVE_DETECT = 72000; | 活体验证超时         |
 | FACEVERIFY_ERROR_ACTIVE_DETECT_NOFACE=80000; | 活体检测时人脸曾移出框外   |
+
+上一步：[SDK 启动](https://cloud.tencent.com/document/product/655/13824)

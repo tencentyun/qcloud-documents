@@ -5,7 +5,9 @@ NAT gateway provides the capability to translate between private IPs and public 
 
 ## Network Topology
 As shown in the figure below, the NAT gateway resides on the boundary between the Internet and the VPC, and is connected to the router on the VPC. In such a topology, when resources like CVM in the VPC send data packets outwards via the NAT gateway, the data first passes through the router and makes routing selection based on routing policies. Then, the NAT gateway sends traffic to the Internet through the bound EIP as the source IP:
-![](//mccdn.qcloud.com/static/img/4772b9bc1e78436104f89f943f06ac97/image.png)
+
+![](https://mc.qcloudimg.com/static/img/32593cb6e9930b0126889b5a15eb2dc9/image.png)
+
 
 ## Features
 - The NAT gateway supports SNAT and DNAT:
@@ -96,19 +98,73 @@ When you use the NAT gateway, note the followings:
 | Maximum forwarding capacity per NAT gateway | 5 Gbps |
 
 ## Billing Method
-Charges for an NAT gateway device include two parts: gateway rental fee (by hour) and traffic fee for accessing the Internet. The fee for the traffic can be charged by referring to the "Bill-by-Traffic" method for CVM network charges. The billing modes for the NAT gateway are as follows:
 
-| Type | Domestic | Singapore/Silicon Valley/South Korean/Frankfurt/Hong Kong | Toronto |
-|---------|---------|---------|---------|
-| Small | 0.5 CNY/hr | 0.75 CNY/hr | 0.8 CNY/hr |
-| Medium | 1.5 CNY/hr | 2.25 CNY/hr | 2.4 CNY/hr |
-| Large | 5 CNY/hr | 7.5 CNY/hr | 8 CNY/hr |
-
- >**Note:**
- - For the accounts with a bandwidth package for bandwidth sharing, the fee for the outbound traffic from NAT gateway is covered by the bandwidth package (the network traffic fee of 0.8 CNY/GB is not charged additionally). You're recommended to set a limit on the outbound bandwidth of the NAT gateway, so as to avoid an high bandwidth package fee due to the excessive use of outbound bandwidth of NAT gateway. Click to view [Billing Methods for Bandwidth Package](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9).
- - Arrear logic: Consistent with the Postpaid method for CVM. [Click to obtain the VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
- - As the NAT gateway features master/slave hot backup, the system sends a 5 KB detection packet to the master and slave servers of the NAT gateway every three seconds. This will bring about a traffic of 0.2747 GB each day, incurring a daily charge of 0.2197 CNY, 0.2747 CNY and 0.1373 CNY for Mainland China, Hong Kong and North America, respectively.
-
+Charges for a NAT gateway device include two parts: Gateway rental fee (by hour) and the fee for traffic generated during the access to the Internet. The cost for the traffic can be charged as per the "Bill by Traffic" method for CVM network charges. The billing mode for the NAT gateway itself is as follows:
+ 
+ <table class="cvmMonth">
+         <tbody><tr>
+             <th style="width: 10%;" rowspan="2">Feature</th>
+             <th style="width: 10%;" rowspan="2">Billing Model</th>
+                         <th style="width: 30%;" rowspan="2">Configuration</th>
+             <th style="width: 50%;" colspan="7">Price</th>
+         </tr>
+         <tr>
+             <th>Beijing<br>Shanghai<br>Guangzhou</th>
+                         <th>Hong Kong</th>
+                                                  <th>Singapore</th>
+             <th>Toronto</th> 
+ 	<th>Korea</th> 
+ 		<th>Frankfurt</th>
+ 			<th>Silicon Valley</th>
+         </tr>
+ 
+         <tr>
+         
+                 
+                                 <tr>
+             <td rowspan="4">NAT Gateway</td>
+             <td rowspan="3">Rental fee for gateway<br>(USD/hour)</td>
+             <td>Small</td>
+             <td>0.089</td>
+             <td>0.13</td>
+                                     <td>0.13</td>
+                         <td>0.14</td>
+ 			<td>0.13</td>
+             <td>0.13</td>
+             <td>0.13</td>
+         </tr>
+                 <tr>
+             <td>Medium</td>
+             <td>0.28</td>
+             <td>0.39</td>
+                         <td>0.39</td>
+                         <td>0.42</td>
+ 			<td>0.39</td>
+             <td>0.39</td>
+ 			<td>0.39</td>
+         </tr>
+                 <tr>
+             <td>Large</td>
+             <td>0.89</td>
+             <td>1.3</td>
+                         <td>1.3</td>
+                         <td>1.4</td>
+ 			<td>1.3</td>
+ 			<td>1.3</td>
+ 			<td>1.3</td>
+         </tr>
+               
+         </tr>
+ 
+                     
+                 
+     </tbody></table>
+ 
+ 
+ 
+  >Note:
+  For users with a Bandwidth Package for bandwidth sharing, the outbound traffic generated at the NAT gateway will be billed as per the Bandwidth Package (the USD 0.12/GB network traffic fee will not be charged separately). It's recommended that you set a limit on the outbound bandwidth of the NAT gateway, so as to avoid any high Bandwidth Package charge due to excessively high amount of such bandwidth. Click to view the [Bandwidth Package billing details](https://cloud.tencent.com/doc/product/213/%E8%B4%AD%E4%B9%B0%E7%BD%91%E7%BB%9C%E5%B8%A6%E5%AE%BD#.E5.B8.A6.E5.AE.BD.E5.8C.85.E8.AE.A1.E8.B4.B9)
+ Arrear logic: be consistent with the Bill by Traffic method for CVM. [Click to obtain the VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079)
 
 ## Expiry Reminder
 - In the event of insufficient balance in your account. Starting from the moment your account balance becomes 0, you can use the NAT gateway for a further period of **2** hours with the usage being further billed.
@@ -134,6 +190,7 @@ You can access the Internet through an NAT gateway by following the steps below:
 >**Note:**
 The rental fee will be frozen for 1 hour during the creation of NAT gateway.
 
+
 #### Step 2: Configure the Routing Table Associated with the Subnet
 1. Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), click "Virtual Private Cloud" in the navigation bar to go to the [VPC Console](https://console.cloud.tencent.com/vpc/vpc?rid=8), and then select "Routing Table".
 2. In the routing table list, click the ID of the routing table associated to the subnet that needs to access the Internet to go to the details page of the routing table, and then click "Edit" button in the "Routing Policies".
@@ -150,7 +207,8 @@ The port forwarding table is a configuration table on the NAT gateway, which is 
 >**Note:**
 The internal IP only supports the private IP of the CVM in this VPC.
 
-![](https://mc.qcloudimg.com/static/img/cd29655ddb62caceeaf586cb52e48e35/1.png)
+![](https://mc.qcloudimg.com/static/img/ce676bb705b873413de907e94aa124d0/1.png)
+
 
 ### Querying Port Forwarding Rule
 
@@ -194,7 +252,8 @@ After it is enabled, you can view the metrics of IP traffic passing through an N
 2. In the NAT gateway list page, click the NAT gateway ID to go to its details page.
 3. Click the "Monitor" tab, and enable the switch of "Gateway Traffic Control Details" on the upper right corner.
 After the Gateway Traffic Control Details are enabled, it takes 5 to 6 days to collect and publish data. During this period, you can view the monitoring details table at the lower part of the monitoring chart.
-![](//mc.qcloudimg.com/static/img/d5c3ffd8172da454680cab941f891297/image.png)
+
+
 >**Note:**
 This feature is under internal trial. Submit a ticket to apply for it.
 

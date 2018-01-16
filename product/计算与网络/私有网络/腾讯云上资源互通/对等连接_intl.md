@@ -6,12 +6,18 @@ Cross-region interconnections include: VPC cross-region interconnections (the cr
 
 ## Interconnectivity of Peering Connection is Not Transitive
 Peering connection allows interconnections between VPCs, but this interconnection is not transitive. As shown below, peering connection is established between VPC 1 and VPC 2, as is done between VPC 1 and VPC 3. However, due to the non-transitivity of peering connection, the traffic interconnection between VPC 2 and VPC 3 cannot be achieved.
-![](//mccdn.qcloud.com/static/img/9127397dcb1df231bfd8d32bcd628223/image.png)
+
+![](https://mc.qcloudimg.com/static/img/abb5acd1e173508dc37afbd01c0d8492/VPC-Peer+Connection%281%29.png)
 > Note: Even if a peering connection is established, communication cannot be achieved if routes for sending and returning packets are not configured on both ends.
 
 
 ## Intra-region Peering Connections and VPC Cross-region Peering Connections (the VPC Cross-region Interconnections)
 VPC supports both intra-region and cross-region peering connections (the cross-region interconnection). As both types of connections are different in physical distance and underlying architecture, they are also different in function and billing method, as shown below:
+
+
+## Intra-region Peering Connections and VPC Cross-region Peering Connections (the VPC Cross-region Interconnections)
+VPC supports both intra-region and cross-region peering connections (the cross-region interconnection). As both types of connections are different in physical distance and underlying architecture, they are also different in function and billing method, as shown below:
+
 
 | Comparison Item | Intra-region Peering Connection | Cross-region Peering Connection |
 |---------|---------|---------|
@@ -59,7 +65,9 @@ Please note the following when you use peering connection:
 | Resource | Limit | Description |
 |---------|---------|---------|
 | Bandwidth limit for cross-region peering connection | 1 Gbps | If you need a larger bandwidth, submit a ticket. No limit on bandwidth is set for an intra-region peering connection. |
-| Number of peering connections supported by each VPC |10 | |
+
+| Number of peering connections supported by each VPC |10 |  | |
+
 
 > Note: To request for the peering connection in other regions, submit a ticket.
 
@@ -75,69 +83,79 @@ For additional service limits of VPC, please see [Service Limits](https://cloud.
 For more information, please see the following table:
 
 
-<table>
+
+<table class="cvmMonth">
         <tbody>
 				<tr>
-            <th style="width: 10%;" rowspan="2">Features</th>
-            <th style="width: 25%;" rowspan="2">Billing Method</th>
-						<th style="width: 25%;" rowspan="2">Configuration</th>
-            <th style="width: 40%;" colspan="4">Price</th>
-        </tr>
-				
-				 <tr>
-            <th>Beijing<br>Chengdu<br>Shanghai<br>Shanghai Finance Zone<br>Guangzhou<br>Shenzhen Finance Zone</th>
+           <th style="width: 10%;" rowspan="2">Feature</th>
+             <th style="width: 10%;" rowspan="2">Billing Model</th>
+             <th style="width: 30%;" rowspan="2">Configuration</th>
+             <th style="width: 50%;" colspan="7">Price</th>
+				 </tr>
+        <tr>
+            <th>Beijing<br>Shanghai<br>Guangzhou</th>
 						<th>Hong Kong</th>
-						<th>Singapore<br>Silicon Valley<br>South Korea<br>Frankfurt</th>
-            <th>Toronto</th>
-        </tr>
+             <th>Singapore</th>
+            <th>Toronto</th> 
+						<th>Korea</th> 
+						<th>Frankfurt</th>
+						<th>Silicon Valley</th>
+				</tr>
 				<tr>
         <td>Intra-region Peering Connection</td>
-				<td colspan="6" >                     Free</td>
+				<td colspan="9" >                     Free</td>
 				<tr>
 				<tr>
             <td rowspan="5">Cross-region Peering Connection</td>
-						<td rowspan="5">Peak bandwidth of the day<br><br>Charged on a daily basis (CNY/Mbps/day)<br><br>Peak bandwidth is calculated using the average bandwidth per 5 minutes<br></td>
+						<td rowspan="5">Peak bandwidth of the day Bill by days (USD/Mbps/day) Peak bandwidth is calculated as the average bandwidth every 5 minutes<br></td>
 						<td>(0 , 20] Mbps</td>
-						<td>20</td>
-						<td>-</td>
-						<td>-</td>
-						<td>-</td>
+						<td colspan="1" rowspan="1" align="center">3.19</td>
+                         <td colspan="6" rowspan="1" align="center">15</td>
+
         </tr>
 				
 				<tr>
 				<td>(20 ,100] Mbps</td>
-						<td>12</td>
-						<td>-</td>
-						<td>-</td>
-						<td>-</td>
+
+					<td colspan="1" rowspan="1" align="center">1.98</td>
+                         <td colspan="6" rowspan="1" align="center">12</td>
+
 				</tr>
 				
 				<tr>
 				<td>(100 , 500] Mbps</td>
-				<td colspan="4" rowspan="4">       Please consult with the business department<br>
+
+			 <td colspan="1" rowspan="1" align="center">1.48</td>
+                         <td colspan="6" rowspan="1" align="center">9</td>
+
 				</tr>
 				
 				<tr>
 				<td>(500 , 2000] Mbps</td>
+
+				<td colspan="1" rowspan="1" align="center">1.19</td>
+                         <td colspan="6" rowspan="1" align="center">6</td>
+
 				</tr>
 				
 			 <tr>
 				<td >> 2,000 Mbps</td>
+
+					<td colspan="1" rowspan="1" align="center">0.82</td>
+                        <td colspan="6" rowspan="1" align="center">5</td>
 				</tr>
-					<tr>
+
 </tbody></table>
 
 > Contact business department to inquire more about the prices.
 
-For more information about the prices of VPC services, please see [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
+
+For more information about the prices of VPC services, please see [VPC Price Overview](https://intl.cloud.tencent.com/doc/product/215/3079).
+
 
 >Note:
 1. In order for you to view the cost, the billing system describes peering connections as:  bill for cross-region interconnection (mainland) and bill for peering connection of which both ends are in Mainland China
 2. Basic network cross-region interconnection is **not supported in the following regions**: Shanghai Finance, Shenzhen Finance and Silicon Valley.
-
-
-**Example:**
-If the initiator and receiver of a peering connection locate in Shanghai and Guangzhou respectively, and the outbound and inbound peak bandwidth of the day are 20 Mbps and 30 Mbps respectively, then the cost of the day is: 30*12=360 CNY, which shall be paid by the initiator.
 
 
 
@@ -152,7 +170,8 @@ Benefits for VIP customers and common customers during the campaign are as follo
 
 > Note:
 - It takes effect on the day the bandwidth remission is approved upon review. The bandwidth beyond the free quota is billed based on tiered prices. This is valid until December 31, 2017. You can view the remission details in the pop-up window for the creation of peering connection or in the details page.
-- If you consume more than 100,000 CNY in Tencent Cloud within a month, you can apply to become a VIP customer who is entitled to the supreme service and related benefits. [Apply Now >>](https://cloud.tencent.com/service/vip.html)
+
+
 - **This benefit is not applicable for basic network cross-region interconnection.**
 
 
@@ -174,7 +193,9 @@ Example:
 IP address range 1: The subnet A `192.168.1.0/24` of VPC1 in **Guangzhou**.
 IP address range 2: The subnet B `10.0.1.0/24` of VPC2 in **Beijing**.
 The following steps are required to achieve interconnection between IP address range 1 and IP address range 2 via peering connection:
-![](//mc.qcloudimg.com/static/img/4817a68077ccf82022ea167476871c41/3.jpg)
+
+![](https://mc.qcloudimg.com/static/img/d79a35cb5fa2701e147dd1d52f316ea1/VPC-Peer+Connection%284%29.png)
+
 #### Step 1: Create Peering Connection
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/), and click "Virtual Private Cloud" in the navigation bar.
 2) Select the "Peering Connection" tab in the VPC console, and select the region "**Guangzhou**" and the VPC `VPC1` above the list, and then click "New" to create a peering connection.
@@ -272,7 +293,8 @@ The peering connection can be deleted on either end at any time, and becomes inv
 When you create a cross-account peering connection/shared Direct Connect, you need to enter the account ID for the peer **developer**, which you can check as follows:
 1) Log in to Tencent Cloud Console, and click the account name on the upper right corner.
 2) View the Account ID in [Basic Info](https://console.cloud.tencent.com/developer).
-![](https://mc.qcloudimg.com/static/img/d81098a69855b8461d67d181fbc4acdd/1.png)
+
+![](https://mc.qcloudimg.com/static/img/8a06f2ed1e2afdfb0d1dacc590dd381a/Peering_Connection.jpg)
 
 
 ### Deleting Peering Connection

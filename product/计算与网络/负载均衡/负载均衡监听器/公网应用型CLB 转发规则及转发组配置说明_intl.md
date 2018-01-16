@@ -61,7 +61,9 @@ A regular URL does not support the following character sets:
 `"` `{` `}` `;` `\` ` ` ` `~`  `'` `blank space`   
 
 ### Example of URL Matching Rules
-![](//mc.qcloudimg.com/static/img/5e322824d13d70c55f12c5d34f066d4a/image.png)
+
+![](//mc.qcloudimg.com/static/img/1c01dcd0959105dd7821f4e22f5cd796/image.png)
+
  
 1. Match rules: Exact match should be prior to the fuzzy match
 

@@ -1,10 +1,10 @@
 ### 工程配置
-1. 统计安装来源(URL Scheme)
+1. 统计安装来源（URL Scheme）
 XCode 中的 URL Types 中增加一条 URL Scheme 配置，Role 是 Viewer，URL Schemes 的配置后续在 JS SDK 的初始化会用到。
-2. 如果已安装 App，直接打开(非必需，通过 Universal Links 技术)。
+2. 如果已安装 App，直接打开（非必需，通过 Universal Links 技术）。
 i. 首先你需要有一个 https 的域名，例如 domain.com；
 ii. Uninversal Links 需要的 json 文件：apple-app-site-association，可以从 MTA 管理台生成；
-iii. 把 apple-app-site-association 上传到 domain.com 根目录(iOS 系统会自动从`https://domain.com/apple-app-site-association`进行访问)；
+iii. 把 apple-app-site-association 上传到 domain.com 根目录（iOS 系统会自动从`https://domain.com/apple-app-site-association`进行访问）；
 iiii. XCode 的 capabilities 增加 Domains 的配置，例如 applinks:domain.com。
 3. 下载页面的修改
 具体请参考 MTA 管理台中关于 JS SDK 的说明。

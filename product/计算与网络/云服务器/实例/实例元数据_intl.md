@@ -28,7 +28,9 @@ Tencent Cloud provides the following meta-data information:
 > The destination URL address of the request is case sensitive. You must construct the destination URL address of a new request according to the returned result of the request.
 
 ## Querying Instance Metadata
-Operations on the instance metadata can only be performed **internally within the instance**. You first need to log in to the instance. For more information, please see [Log in to Windows Instance](/doc/product/213/5435) and [Log in to Linux Instance](/doc/product/213/5436).
+
+Operations on the instance metadata can only be performed **internally within the instance**. You first need to log in to the instance. For more information, please see [Log in to Windows Instance](https://intl.cloud.tencent.com/document/product/213/5435) and [Log in to Linux Instance](https://intl.cloud.tencent.com/document/product/213/5436).
+
 
 ### Querying All Available Meta-data Types
 Command:

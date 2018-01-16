@@ -15,7 +15,7 @@
 &radic;&nbsp;&nbsp;&nbsp;Demo\_tools目录, 可直接运行，用于验证服务商相关的账户等信息的正确性。    
 &radic;&nbsp;&nbsp;&nbsp;Demo\_src目录，为Demo的源码，用于给开发者调用SDK的参考，方便开发者将SDK集成进自己的收银软件中。
 - [windows环境运行SecurityDemo](https://mc.qcloudimg.com/static/archive/8e96588d3cee7d4c4f9638e968cc5ba8/SecurityDemo.zip)，安全版SDK，增加了登录权限校验和敏感信息保护功能，目录结构及作用同上。
-- [windows环境SDK](https://mc.qcloudimg.com/static/archive/2be58570a8cd309bc7370e57ed500b97/SDK.zip)，解压后包含两个目录：   
+- [windows环境SDK](https://mc.qcloudimg.com/static/archive/b173afcbfeba19451edfc5401f34e70e/SDK.zip)，解压后包含两个目录：   
 &radic;&nbsp;&nbsp;&nbsp;CloudPayAPI\_SDK\_CPP\_DLL目录，包含编译好的dll库，可直接使用。  
 &radic;&nbsp;&nbsp;&nbsp;CloudPayAPI\_SDK\_CPP目录，包含源码，开发者可自行编译。  
 &radic;&nbsp;&nbsp;&nbsp;开发者集成云支付时，可参考Demo调用SDK的方式和API说明文档。

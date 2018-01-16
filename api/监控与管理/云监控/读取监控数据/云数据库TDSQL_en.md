@@ -40,7 +40,7 @@ The following request parameter list only provides API request parameters. Commo
 | disk_iops             | Disk IOPS       | Counts/sec  |
 | conn_active           | Number of connections       | Counts/sec  |
 | conn_running          | Number of active connections          | Counts/sec  |
-| is_mater_switched     | Whether the monitor switches between master and slave     | None    |
+| is_master_switched    | Whether the monitor switches between master and slave     | None    |
 | cpu_usage_rate        | CPU utilization       | %    |
 
 
