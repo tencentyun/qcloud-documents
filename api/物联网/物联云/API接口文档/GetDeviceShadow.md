@@ -39,27 +39,27 @@
 {
     "data":{
       "payload":{
-          "state": {
-              "reported": {
-                  "red": "red"
+          "state":{
+              "reported":{
+                  "red":"red"
               }
           }
-          "metadata": {
-              "reported": {
-                  "red": {
-                      "timestamp": 1509092895971
+          "metadata":{
+              "reported":{
+                  "red":{
+                      "timestamp":1509092895971
                   }
               }
           },
-          "timestamp": 1509440846572,
-          "version": 4
+          "timestamp":1509440846572,
+          "version":4
       }
       "result":0,
       "timestamp":1509440846582,
       "type":"get"
 	}
-    "message": "",
-    "codeDesc": "Success",
+    "message":"",
+    "codeDesc":"Success",
     "code": 0
 }
 ```
