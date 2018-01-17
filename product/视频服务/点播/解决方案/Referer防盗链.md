@@ -5,19 +5,11 @@
 ## 配置向导
 腾讯云点播控制台 -> 全局设置 -> 域名设置 -> 防盗链设置。
 
-<br/>
-
 ![图片描述](https://mc.qcloudimg.com/static/img/cf5a076e57d3287852bf4ab3fe609bbe/image.png)
-
-<br/>
 
 启用 Referer 防盗链 -> 选择是否允许空 Referer -> 选择黑名单或白名单并添加对象 -> 确定。
 
-<br/>
-
 ![图片描述](https://mc.qcloudimg.com/static/img/a8519825840de1bc0cb23cccc40436f6/image.png)
-
-<br/>
 
 保存配置后，大概需要5分钟使所有 CDN 节点生效该配置。
 
