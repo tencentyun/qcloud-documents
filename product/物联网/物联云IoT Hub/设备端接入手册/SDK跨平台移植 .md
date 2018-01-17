@@ -42,7 +42,6 @@ SDK 根据代码结构可以大致分成四部分：
 <!--2. `src/sdk-impl/qcloud_iot_import.h` 包含了 `imports ` 目录下的子文件,
 --><!--`3. 各功能点引入的 HAL 层接口依赖在 `src/sdk-impl/imports/qcloud_iot_import_*.h` 中列出`-->
 
-
 **必须实现：**
 
 | 序号 | 函数名                 | 说明                                     |
@@ -59,16 +58,23 @@ SDK 根据代码结构可以大致分成四部分：
 | 10   | HAL_Timer_countdown    | 根据定时器开始计时, 单位：s               |
 | 11   | HAL_Timer_countdown_ms | 根据定时器开始计时, 单位：ms              |
 | 12   | HAL_Timer_current | 获取当前时间格式化字符串              |
-| 13   | HAL_Print_Socket | 获取 socket 本地端口              |
+| 13    | HAL_TLS_Connect    | 为 MQTT 客户端建立 TLS 连接 |
+| 14    | HAL_TLS_Disconnect | 断开 TLS 连接             |
+| 15    | HAL_TLS_Write      | 从一个 TLS 连接中写数据   |
+| 16    | HAL_TLS_Read       | 从一个 TLS 连接中读数据   |
+| 17    | HAL_MutexCreate    | 创建 mutex |
+| 18    | HAL_MutexDestroy | 销毁 mutex            |
+| 19    | HAL_MutexLock      | mutex 加锁   |
+| 20    | HAL_MutexUnlock       | mutex 解锁   |
 
-**无MQTT时可以不实现：**
+**仅在使用CoAP必须实现：**
 
-| 序号 | 函数名             | 说明                    |
-| ---- | ------------------ | ----------------------- |
-| 1    | HAL_TLS_Connect    | 为 MQTT 客户端建立 TLS 连接 |
-| 2    | HAL_TLS_Disconnect | 断开 TLS 连接             |
-| 3    | HAL_TLS_Write      | 从一个 TLS 连接中写数据   |
-| 4    | HAL_TLS_Read       | 从一个 TLS 连接中读数据   |
+| 序号 | 函数名                 | 说明                                     |
+| ---- | ---------------------- | ---------------------------------------- |
+| 1    | HAL_DTLS_Connect    | 为 CoAP 客户端建立 DTLS 连接，仅在需要使用CoAP时实现 |
+| 2    | HAL_DTLS_Disconnect | 断开 DTLS 连接             |
+| 3    | HAL_DTLS_Write      | 从一个 DTLS 连接中写数据   |
+| 4    | HAL_DTLS_Read       | 从一个 DTLS 连接中读数据   |
 
 
 ### SDK内核实现层
