@@ -1,4 +1,4 @@
-Voice Print Recognition (VPR) performs identification based on the speaker's acoustic characteristics, and can be used for speaker recognition and validation. Accent and language do not affect the identification.
+Voiceprint Recognition (VPR) performs identification based on the speaker's acoustic characteristics, and can be used for speaker recognition and validation. Accent and language do not affect the identification.
 ## Advantages
 a. High stability
 With a massive-level user base, the service proved to be stable and reliable, and can expand along with the business. It has been applied in WeChat voice lock, WeBank remote account opening, and other scenarios, serving more than 100 million users.
