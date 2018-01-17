@@ -98,19 +98,19 @@
 从验证方式中下载公私钥，解压出来将private_key用文本编辑器打开，如：
 ```bash
 -----BEGIN PRIVATE KEY-----
-Y5uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxO7pPrLAchyORc
-MIGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/FY
-zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 -----END PRIVATE KEY-----
 ```
 
-将其转换成字符串形式如下所示，后面在server配置文件中使用：
+将其转换成字符串形式如下所示，后面在server配置文件中使用，<font color='red'>请注意每行后面要加入‘\r\n’</font>：
 
 ```bash
 "-----BEGIN PRIVATE KEY-----\r\n"+
-"Y5uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxO7pPrLAchyORc\r\n"+
-"MIGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/FY\r\n"+
-"zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg\r\n"+
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"+
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"+
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"+
 "-----END PRIVATE KEY-----\r\n"
 ```
 ## 四、安装微信小程序开发工具
@@ -137,7 +137,7 @@ zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
 
 4. 打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `appID`、`bizid`、`pushSecretKey`、`APIKey`、`sdkAppID`、`accountType`、`administrator`、`privateKey`配置成上述直播服务及云通信服务里生成的值，同时将小程序的`appid`、`appSecret`配置进去，并**保存**。
 
-  ![serverconfig](https://mc.qcloudimg.com/static/img/565c61217b68b5a386665a80fc384f0a/serverconfig.png)
+  ![serverconfig](https://mc.qcloudimg.com/static/img/cabf6c3cc9691e6b2be7550b82e7f196/xiaochengxuwxliteconfig.png)
 
 5. 点击界面右上角的【腾讯云】图标，在下拉的菜单栏中选择【上传测试代码】。
 
