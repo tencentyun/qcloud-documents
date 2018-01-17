@@ -177,7 +177,13 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
   - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](https://cloud.tencent.com/document/product/454/13037)。
   - 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。
   
-##### 3. 如果需要上线或者部署正式环境怎么办？
+##### 3. live-pusher、live-player标签使用即错误码参考
+  - [live-pusher&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html)
+  - [live-player&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html)
+  - [livePusherContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-pusher.html)
+  - [livePlayerContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-player.html)
+  
+##### 4. 如果需要上线或者部署正式环境怎么办？
   - 请申请域名并做备案
   - 请将服务端代码部署到申请的服务器上
   - 请将业务server域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com
