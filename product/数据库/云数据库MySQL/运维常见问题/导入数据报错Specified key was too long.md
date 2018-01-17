@@ -1,5 +1,5 @@
-##CDB导入数据报错：Specified key was too long
-##一、报错原因
+## CDB导入数据报错：Specified key was too long
+## 一、报错原因
 	 ERROR 1071 (42000): Specified key was too long; max key length is 767 bytes
 客户通过CVM的命令行向CDB导入XXXX.sql文件时，CDB返回Specified key was too long的报错。
 
@@ -72,7 +72,6 @@ TIPS：768/2=384 个双字节 或者 767/3=255 个三字节的字段（GBK 是�
 -- ERROR 1071（42000）:Specified key was too long; max key length is 767 bytes
 
 ### 2. 使用 CDB5.5 版本，myisam 引擎不会被自动转换为 innodb
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/master
->>>>>>> Stashed changes
+Updated upstream
+origin/master
+Stashed changes
