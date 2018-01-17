@@ -104,7 +104,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 -----END PRIVATE KEY-----
 ```
 
-将其转换成字符串形式如下所示，后面在server配置文件中使用，<font color='red'>请注意每行后面要加入‘\r\n’</font>：
+将其转换成字符串形式如下所示，后面在server配置文件中使用，<font color='red'>请注意每行后面要加入\r\n</font>：
 
 ```bash
 "-----BEGIN PRIVATE KEY-----\r\n"+
