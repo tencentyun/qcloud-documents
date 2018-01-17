@@ -1,4 +1,6 @@
+
 Tencent Cloud supports two listener modes, Layer-4 forwarding and Layer-7 forwarding. For different protocol types, they work on transport layer and application layer in the network model, respectively. For more information about listener modes supported by different types of CLB instances, please see [Public Network CLB Instance](https://intl.cloud.tencent.com/document/product/214/6147) and [Private Network CLB Instance](https://intl.cloud.tencent.com/document/product/214/6148).
+
 
 ## Layer-4 Forwarding Listener Protocol and Port Configuration
 The CLB listener listens to Layer-4 requests (the 4th layer of OSI network protocol, the transport layer) on the cloud load balancer instance and distributes TCP and UDP requests to backend servers for processing. Layer-4 forwarding is achieved by the following configurations:
