@@ -1,4 +1,4 @@
-目前TBaaS处于内测阶段，了解产品详情参见：[产品介绍页](https://cloud.tencent.com/product/tbaas); 申请产品白名单入口：[立即申请](https://cloud.tencent.com/act/apply/tbaas0)。
+目前TBaaS处于内测阶段，了解产品详情参见：[TBaaS介绍页](https://cloud.tencent.com/product/tbaas), 申请产品白名单入口：[立即申请](https://cloud.tencent.com/act/apply/tbaas0)。
 
 特别注意：
 
