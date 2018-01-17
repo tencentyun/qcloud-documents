@@ -151,7 +151,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 7. 上传代码完成之后，点击右上角的【详情】按钮，接着选择【腾讯云状态】即可看到腾讯云自动分配给你的开发环境域名，完整复制（包括 `https://`）开发环境 request 域名，然后在编辑器中打开 `wxlite/config.js` 文件，将复制的域名填入 `url` 中并保存，保存之后编辑器会自动编译小程序，左边的模拟器窗口即可实时显示出客户端的 Demo：
 
-  ![查看开发域名](https://mc.qcloudimg.com/static/img/52ce9c767e0957311bd7fabd1be64026/wxliteconfigserver.png)
+  ![查看开发域名](https://mc.qcloudimg.com/static/img/2d24e840b1fa5b36b4d767e5311ca7cc/wxliteconfigserver2.png)
 
 8. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。 
 
