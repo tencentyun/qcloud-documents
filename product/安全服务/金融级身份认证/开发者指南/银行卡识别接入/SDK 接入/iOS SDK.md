@@ -1,5 +1,6 @@
-
-> **说明：接入之前，请详细阅读，SDK 中的 readme 和接入指引！**
+> **注意：**
+>
+> **接入之前，请详细阅读 SDK 中的 readme 和接入指引！**
 
 ### 1. SDK 导入&配置
 1.  将 SDK 文件导入到目标 project 中去，并确定**“add to target”**被勾选。
@@ -13,7 +14,7 @@
 	├── librecdetect.a
 	└── opencv2.framework
 ```
-2. 在 build phases -> link with libraries 下加入如下依赖。
+2. 在【build phases】 >【link with libraries】 下加入如下依赖。
 ```
 	CoreTelephony.framework
 	AssetsLibrary.framework
@@ -21,9 +22,9 @@
 	AVFoundation.framework
 	libc++.tbd
 ```
-3. `Build Setting --> Enable Bitcode` 设置为 NO。
-4. `Build Setting --> Linking --> other linker flag` 设置 增加` -ObjC`和` -lz linker flag`。
-5. SDK 中需要使用 camera，需要在` Info.plist`中添加 N`SCameraUsageDescription`为 key 的键值对。
+3. 【Build Setting】>【Enable Bitcode】 设置为 NO.
+4. 【Build Setting】>【 Linking】 > 【other linker flag】设置增加 `-ObjC` 和 `-lz linker flag`
+5. SDK 中需要使用 camera，需要在` Info.plist `中添加 `NSCameraUsageDescription`为 key 的键值对。
 
 ### 2. SDK 调用
 **调用详情参见 Demo 工程以及头文件 WBOCRService.h**
@@ -38,7 +39,7 @@
 @end
 ```
 #### 2.2 启动 OCR SDK 服务
-1）入口方法
+1. 入口方法
 ```
 /**
  * @brief 调起 SDK 入口方法
@@ -77,8 +78,8 @@
                              failed:(nonnull WBOCRServiceFailedBlock)failed;
 ```
 
-2）WBOCRConfig 支持对 SDK 的做个性化配置，字段详情，请阅读 WBOCRConfig 头文件部分注释。
-3）WBOCRConfig.h
+2. WBOCRConfig 支持对 SDK 的做个性化配置，字段详情，请阅读 WBOCRConfig 头文件部分注释。
+3. WBOCRConfig.h
 ```
 /*
  * @brief WBOCRConfig 类定义了 SDK 的配置信息，可以通过WBOCRConfig 单例进行读取、配置，
@@ -118,7 +119,7 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 ```
 
 #### 2.3  银行卡识别结果返回
-银行卡识别结果返回，封装在 WBBankCardInfoModel 类中，会返回如下信息：
+银行卡识别结果返回，封装在 `WBBankCardInfoModel` 类中，会返回如下信息：
 
 ```
 /**
@@ -145,14 +146,15 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 #### 2.4 具体使用方法
 具体使用方法参照 demo 工程以及 WBOCRService.h 头文件。
 #### 2.5 错误信息
-错误信息通过 fail 回调抛出，错误码列表参见错误码描述章节或头文件。
+错误信息通过 fail 回调抛出，错误码列表参见第三节错误码描述或头文件。
 
 ### 3. 错误码描述
-| 返回码 | 返回信息 |处理措施 |
-|---------|---------|---------|		
-|100101	|无网络，请确认|	确认网络正常|
-|100102|	不支持 2G 网络	|更换网络环境
-|100103|无相机权限|
-|200101	|用户取消操作	|用户主动退出操作
-|200102	|识别超时|	用户在银行卡识别过程中超过设定的阈值（20S） 无法识别，提示超时
+| 返回码    | 返回信息      | 处理措施                             |
+| ------ | --------- | -------------------------------- |
+| 100101 | 无网络，请确认   | 确认网络正常                           |
+| 100102 | 不支持 2G 网络 | 更换网络环境                           |
+| 100103 | 无相机权限     |                                  |
+| 200101 | 用户取消操作    | 用户主动退出操作                         |
+| 200102 | 识别超时      | 用户在银行卡识别过程中超过设定的阈值（20S）无法识别，提示超时 |
 
+[上一步：SDK 启动](https://cloud.tencent.com/document/product/655/13858)

@@ -1,6 +1,6 @@
 ## 开启 Debug
 
-打开 Debug 模式以后可以在终端看到详细的信鸽 Debug 信息。方便定位问题
+打开 Debug 模式以后可以在终端看到详细的信鸽 Debug 信息。方便定位问题。
 
 **示例**
 
@@ -20,7 +20,7 @@ BOOL debugEnabled = [setting isEnableDebug];
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 ```
 
-回调中调用信鸽的初始化方法才能正常使用信鸽
+回调中调用信鸽的初始化方法才能正常使用信鸽。
 
 **1. 接口**
 
@@ -47,8 +47,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 使用推送前，需要先向苹果注册推送服务。请参考 Demo 向苹果注册推送服务。
 
 **示例**
-
-
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

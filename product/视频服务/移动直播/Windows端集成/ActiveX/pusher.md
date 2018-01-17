@@ -4,6 +4,7 @@
 
 ```html
 <!-- 注意 pusher 对象的 clsid 为 01502AEB-675D-4744-8C84-9363788ED6D6 -->
+<!--Warning::直接拷贝代码需要修改LiteAVAX.cab路径和版本号-->
 <object ID="pusher" CLASSID="CLSID:01502AEB-675D-4744-8C84-9363788ED6D6"
    codebase="./LiteAVAX.cab#version=1,0,0,1" width="640" height="480">
 </object>
@@ -27,6 +28,7 @@
 | enumCameras():                           | 枚举当前的摄像头，                   |
 | startPreview()                           | 启动摄像头预览                     |
 | stopPreview()                            | 关闭摄像头预览                     |
+| startPush(sUrl)                          | 启动推流                        |
 | stopPush()                               | 停止推流                        |
 | switchCamera(cameraIndex)                | 切换摄像头，支持在推流中动态切换，           |
 | setMute(bMute)                           | 静音接口                        |
@@ -413,10 +415,10 @@ function setVideoFPS() {
   - eventId :  Int  （事件ID，参考PusherCallBackEvent定义）
   - objectId  :   Int（和setPusherEventCallBack::objectid一致）
   - paramCnt  :   Int（JSON携带的Key-Value键值对个数）
-  - paramJson  :   List（键值对String）
-    - key : String（参考：CBParamJsonKey定义）
-    - value:  String （参考：CBParamJsonKey定义指向的值含义）
-  - 示例 {"eventId":200001,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
+  - paramlist  :   List（键值对String）推流成功后，实时回调流状态信息
+    - key : String
+    - value:  String 
+  - 【paramlist:List】的示例 {"eventId":200001,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
   
 - 示例代码** : 
 
@@ -426,20 +428,27 @@ pusher.setPusherEventCallBack(PusherEventListener, 1);
 
 var PusherEventListener = function (paramJson) {
     var obj = JSON.parse(paramJson);
-    if (parseInt(obj.eventId) == PusherCallBackEvent.TXE_STATUS_UPLOAD_EVENT && parseInt(obj.objectId) == 1) {
+    if (parseInt(obj.eventId) == 1002 && parseInt(obj.objectId) == 1) {
+    	alert("推流成功");
+    }
+    else if (parseInt(obj.eventId) == -1307 && parseInt(obj.objectId) == 1) {
+    	alert("网络断开，经过多次重试推流无效，请重新推流");
+    }
+    else if (parseInt(obj.eventId) == 200001 && parseInt(obj.objectId) == 1) {
         doUpdatePluserStatusInfo(paramJson);
     }
 };
 
 function doUpdatePusherStatusInfo(paramJson) {
-    var obj = JSON.parse(paramJson);
+    //paramJson 参考 【paramlist:List（键值对String）】里面的示例
+    var obj = JSON.parse(paramJson);
     if (obj.paramCnt != 0) {
         for (var i = 0; i < obj.paramCnt; ++i) {
-            if(obj.paramlist[i].key == CBParamJsonKey.KEY_VIDEO_BITRATE)
+            if(obj.paramlist[i].key == "VIDEO_BITRATE")
                 document.getElementById('PUSHVIDEO_BITRATEID').innerHTML = obj.paramlist[i].value;
-            else if(obj.paramlist[i].key == CBParamJsonKey.KEY_AUDIO_BITRATE)
+            else if(obj.paramlist[i].key == "AUDIO_BITRATE")
                 document.getElementById('PUSHAUDIO_BITRATEID').innerHTML = obj.paramlist[i].value;
-            else if(obj.paramlist[i].key == CBParamJsonKey.KEY_VIDEO_FPS)
+            else if(obj.paramlist[i].key == "VIDEO_FPS")
                 document.getElementById('PUSHVIDEO_FPSID').innerHTML = obj.paramlist[i].value;
             ....
         }
@@ -453,45 +462,56 @@ function doUpdatePusherStatusInfo(paramJson) {
 
 | 事件ID                         | 数值   | 含义说明           |
 | ---------------------------- | ---- | -------------- |
-| PLAY_EVT_CONNECT_SUCC        | 2001 | 已经连接服务器        |
-| PLAY_EVT_RTMP_STREAM_BEGIN   | 2002 | 已经连接服务器，开始拉流   |
-| PLAY_EVT_RCV_FIRST_I_FRAME   | 2003 | 渲染首个视频数据包(IDR) |
-| PLAY_EVT_PLAY_BEGIN          | 2004 | 视频播放开始         |
-| PLAY_EVT_PLAY_PROGRESS       | 2005 | 视频播放进度         |
-| PLAY_EVT_PLAY_END            | 2006 | 视频播放结束         |
-| PLAY_EVT_PLAY_LOADING        | 2007 | 视频播放loading    |
-| PLAY_EVT_START_VIDEO_DECODER | 2008 | 解码器启动          |
-| PLAY_EVT_CHANGE_RESOLUTION   | 2009 | 视频分辨率改变        |
+| PUSH_EVT_CONNECT_SUCC        | 1001 | 已经连接推流服务器        |
+| PUSH_EVT_PUSH_BEGIN          | 1002 | 已经与服务器握手完毕,开始推流   |
+| PUSH_EVT_OPEN_CAMERA_SUCC    | 1003 | 打开摄像头成功 |
+| PUSH_EVT_CHANGE_RESOLUTION   | 1005 | 推流动态调整分辨率         |
+| PUSH_EVT_CHANGE_BITRATE      | 1006 | 推流动态调整码率         |
+| PUSH_EVT_FIRST_FRAME_AVAILABLE  | 1007 | 首帧画面采集完成         |
+| PUSH_EVT_START_VIDEO_ENCODER | 1008 | 编码器启动    |
+| PUSH_EVT_CAMERA_REMOVED      | 1009 | 摄像头设备已被移出         |
+| PUSH_EVT_CAMERA_AVAILABLE    | 1010 | 摄像头设备重新可用        |
+| PUSH_EVT_CAMERA_CLOSED       | 1011 | 关闭摄像头完成        |
 
 ### 2. 错误通知
 
-SDK 遭遇了一些严重错误，比如网络断开等等，这些错误会导致播放无法继续，因此您的代码需要对这些错误进行相应的处理。
+SDK发现了一些严重问题，推流无法继续了，比如Camera已被其他程序占用导致摄像头打不开。
 
-| 事件ID                           | 数值    | 含义说明                  |
-| ------------------------------ | ----- | --------------------- |
-| PLAY_ERR_NET_DISCONNECT        | -2301 | 网络断连，且重试亦不能恢复，将导致播放失败 |
-| PLAY_ERR_GET_RTMP_ACC_URL_FAIL | -2302 | 获取加速拉流地址失败，会导致播放失败    |
+| 事件ID                            | 数值    | 含义说明                               |
+| ------------------------------- | ----- | ---------------------------------- |
+| PUSH_ERR_OPEN_CAMERA_FAIL       | -1301 | 打开摄像头失败                            |
+| PUSH_ERR_OPEN_MIC_FAIL          | -1302 | 打开麦克风失败                            |
+| PUSH_ERR_VIDEO_ENCODE_FAIL      | -1303 | 视频编码失败                             |
+| PUSH_ERR_AUDIO_ENCODE_FAIL      | -1304 | 音频编码失败                             |
+| PUSH_ERR_UNSUPPORTED_RESOLUTION | -1305 | 不支持的视频分辨率                          |
+| PUSH_ERR_UNSUPPORTED_SAMPLERATE | -1306 | 不支持的音频采样率                          |
+| PUSH_ERR_NET_DISCONNECT         | -1307 | 网络断连,且经多次重连抢救无效,可以放弃治疗,更多重试请自行重启推流 |
+| PUSH_ERR_CAMERA_OCCUPY          | -1308 | 摄像头正在被占用中，可尝试打开其他摄像头               |
+
 
 ### 3. 警告事件
 
-SDK 发现了一些非严重错误，一般不会导致播放停止，所以您可以不关注如下事件，其中：
+SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”哦。
 
-**PLAY_WARNING_VIDEO_PLAY_LAG** 是 SDK 对外通知播放卡顿的事件信号，它指的是视频画面的卡顿（两帧画面的刷新时间）超过 500ms。
+**WARNING_NET_BUSY**
+主播网络不给力，如果您需要UI提示，这个 warning 相对比较有用。
 
-| 事件ID                                  | 数值   | 含义说明                            |
-| ------------------------------------- | ---- | ------------------------------- |
-| PLAY_WARNING_VIDEO_DECODE_FAIL        | 2101 | 当前视频帧解码失败                       |
-| PLAY_WARNING_AUDIO_DECODE_FAIL        | 2102 | 当前音频帧解码失败                       |
-| PLAY_WARNING_RECONNECT                | 2103 | 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃) |
-| PLAY_WARNING_RECV_DATA_LAG            | 2104 | 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀    |
-| PLAY_WARNING_VIDEO_PLAY_LAG           | 2105 | 当前视频播放出现卡顿（用户直观感受）              |
-| PLAY_WARNING_HW_ACCELERATION_FAIL     | 2106 | 硬解启动失败，采用软解（暂不支持）               |
-| PLAY_WARNING_VIDEO_DISCONTINUITY      | 2107 | 当前视频帧不连续，可能丢帧                   |
-| PLAY_WARNING_FIRST_IDR_HW_DECODE_FAIL | 2108 | 当前流硬解第一个I帧失败，SDK自动切软解           |
-| PLAY_WARNING_DNS_FAIL                 | 3001 | RTMP -DNS解析失败                   |
-| PLAY_WARNING_SEVER_CONN_FAIL          | 3002 | RTMP服务器连接失败                     |
-| PLAY_WARNING_SHAKE_FAIL               | 3003 | RTMP服务器握手失败                     |
-| PLAY_WARNING_SERVER_DISCONNECT        | 3004 | RTMP服务器主动断开                     |
+**WARNING_SERVER_DISCONNECT**
+推流请求被后台拒绝了，出现这个问题一般是由于推流地址里的 txSecret 计算错了，或者是推流地址被其他人占用了（一个推流URL同时只能有一个端推流）。
+
+| 事件ID                                     | 数值   | 含义说明                            |
+| ---------------------------------------- | ---- | ------------------------------- |
+| PUSH_WARNING_NET_BUSY                    | 1101 | 网络状况不佳：上行带宽太小，上传数据受阻            |
+| PUSH_WARNING_RECONNECT                   | 1102 | 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃) |
+| PUSH_WARNING_HW_ACCELERATION_FAIL        | 1103 | 硬编码启动失败，采用软编码                   |
+| PUSH_WARNING_VIDEO_ENCODE_FAIL           | 1104 | 视频编码失败,非致命错,内部会重启编码器            |
+| PUSH_WARNING_BEAUTYSURFACE_VIEW_INIT_FAIL | 1105 | 视频编码码率异常，警告                     |
+| PUSH_WARNING_VIDEO_ENCODE_BITRATE_OVERFLOW | 1106 | 视频编码码率异常，警告                     |
+| PUSH_WARNING_DNS_FAIL                    | 3001 | RTMP -DNS解析失败 （会触发重试流程）         |
+| PUSH_WARNING_SEVER_CONN_FAIL             | 3002 | RTMP服务器连接失败 （会触发重试流程）           |
+| PUSH_WARNING_SHAKE_FAIL                  | 3003 | RTMP服务器握手失败 （会触发重试流程）           |
+| PUSH_WARNING_SERVER_DISCONNECT           | 3004 | RTMP服务器主动断开，请检查推流地址的合法性或防盗链有效期  |
+| PUSH_WARNING_SERVER_NO_DATA              | 3005 | 超过30s没有数据发送，主动断开连接              |
 
 
 ## 枚举类型

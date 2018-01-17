@@ -3,6 +3,7 @@
 
 ```html
 <!-- 注意 player 对象的 clsid 为 99DD15EF-B353-4E47-9BE7-7DB4BC13613C -->
+<!--Warning::直接拷贝代码需要修改LiteAVAX.cab路径和版本号-->
 <object ID="player" CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C"
    codebase="./LiteAVAX.cab#version=1,0,0,1" width="640" height="480">
 </object>
@@ -246,11 +247,11 @@ function setRenderYMirror() {
 - **paramJson样式**[回调参数JSON格式]
   - eventId :  Int  （事件ID，参考PlayerCallBackEvent定义）
   - objectId  :   Int（和setPlayerEventCallBack::objectid一致）
-  - paramCnt  :   Int（JSON携带的Key-Value键值对个数）
-  - paramJson  :   List（键值对String）
-  - key : String（参考：CBParamJsonKey定义）
-  - value:  String （参考：CBParamJsonKey定义指向的值含义）
-  - 示例 {"eventId":200001,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
+  - paramCnt  :   Int（paramlist参数中JSON携带的Key-Value键值对个数）
+  - paramlist  :   List（键值对String），拉流成功后，实时回调流状态信息。
+    - key : String
+    - value:  String
+  - 【paramJson】示例{"eventId":200002,"objectId":1,"paramCnt":9,"paramlist":[{"key":"AUDIO_BITRATE","value":"0"},{"key":"CACHE_SIZE","value":"571"},{"key":"CODEC_CACHE","value":"329"},{"key":"NET_SPEED","value":"0"},{"key":"SERVER_IP","value":""},{"key":"VIDEO_BITRATE","value":"0"},{"key":"VIDEO_FPS","value":"14"},{"key":"VIDEO_HEIGHT","value":"240"},{"key":"VIDEO_WIDTH","value":"320"}]} 
 - 示例代码** : 
 
 ```javascript
@@ -259,12 +260,19 @@ player.setPlayerEventCallBack(PlayerEventListener, 1);
 
 var PlayerEventListener = function (paramJson) {
     var obj = JSON.parse(paramJson);
-    if (parseInt(obj.eventId) == PlayerCallBackEvent.TXE_STATUS_DOWNLOAD_EVENT && parseInt(obj.objectId) == 1) {
+    if (parseInt(obj.eventId) == 2002 && parseInt(obj.objectId) == 1) {
+    	alert("拉流成功");
+    }
+    else if (parseInt(obj.eventId) == -2301 && parseInt(obj.objectId) == 1) {
+    	alert("网络断连，且重试亦不能恢复，请重新推流");
+    }
+    else if (parseInt(obj.eventId) == 200002 && parseInt(obj.objectId) == 1) {
         doUpdatePlayerStatusInfo(paramJson);
     }
 };
 
 function doUpdatePlayerStatusInfo(paramJson) {
+//paramJson 参考 【paramlist:List】的示例
     var obj = JSON.parse(paramJson);
     if (obj.paramCnt != 0) {
         for (var i = 0; i < obj.paramCnt; ++i) {

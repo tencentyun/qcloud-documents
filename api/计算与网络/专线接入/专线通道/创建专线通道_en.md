@@ -34,6 +34,7 @@ The following request parameter list only provides API request parameters. Commo
 | bgpPeers.asn | No | string | BGP asn.  |
 | bgpPeers.authKey | No | String | BGP key. |
 | routeFilterPrefixes.n.cidr | No | String | Peer IP address range. |
+| vlanId | Yes | Int | vlanId |
 | remark | No | String | Remarks. |
 
 
@@ -69,6 +70,7 @@ The following error codes only include the business logic error codes for this A
   &region=gz
   &vpcId=vpc-df3dfdf
   &directConnectGatewayId=dcg-34drdere
+  &vlanId=400
 ```
 ### Response
 

@@ -28,9 +28,9 @@
 5. SDK 中需要使用 camera，需要在` Info.plist `中添加 `NSCameraUsageDescription`为 key 的键值对。
 
 ### 2. SDK 调用
-调用详情参见 Demo 工程以及头文件 WBOCRService.h
+调用详情参见 Demo 工程以及头文件 `WBOCRService.h`
 
-1. 在使用 OCR SDK 的类中引入 WBOCRService.h
+#### 2.1 在使用 OCR SDK 的类中引入 `WBOCRService.h`
 
 ```
 #import <WBOCRService/WBOCRService.h>
@@ -42,9 +42,9 @@
 @end
 ```
 
-2. 启动 OCR SDK服务
+#### 2.2 启动 OCR SDK服务
 
-2.1 入口方法
+1. 入口方法
 
 ```
 /**
@@ -75,8 +75,8 @@
                       recognizeSucceed:(nullable WBOCRServiceRecognizeSuccessBlock)recognizeSucceed
                                 failed:(nullable WBOCRServiceFailedBlock)failed;
 ```
-2.2 `WBWebOCRConfig` 支持对 SDK 的做个性化配置，字段详情，请阅读` WBWebOCRConfig `头文件部分注释
-2.3 `WBWebOCRConfig.h`
+2. `WBWebOCRConfig` 支持对 SDK 的做个性化配置，字段详情，请阅读` WBWebOCRConfig `头文件部分注释
+3. `WBWebOCRConfig.h`
 ```
 /*
  * @brief WBWebOCRConfig 类定义了 SDK 的配置信息，可以通过 WBWebOCRConfig 单例进行读取、配置，
@@ -121,7 +121,7 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 @end
 ```
 
-3. 身份证识别结果,封装在` WBIDCardInfoModel `类中，会返回如下信息
+#### 2.3 身份证识别结果,封装在` WBIDCardInfoModel `类中，会返回如下信息
 
 ```
 /*
@@ -173,9 +173,9 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 @property (nonnull,strong,nonatomic) NSString *backWarning;
 @end
 ```
-
-4. 具体使用方法参照 demo 工程以及 `WBOCRService.h` 头文件
-5. 错误信息通过 fail 回调抛出，错误码列表参见错误码描述章节或头文件。
+> **注意**
+> 具体使用方法参照 demo 工程以及 `WBOCRService.h` 头文件
+> 错误信息通过 fail 回调抛出，错误码列表参见错误码描述章节或头文件。
 
 ### 3. 错误码描述
 
@@ -186,3 +186,5 @@ typedef NS_ENUM(NSInteger, WBOCRSDKType) {
 | 100103 | 无相机权限     |                                     |
 | 200101 | 用户取消操作    | 用户主动退出操作                            |
 | 200102 | 识别超时      | 用户在身份证正反面识别过程中超过设定的阈值（20S）无法识别，提示超时 |
+
+上一步：[SDK 启动](https://cloud.tencent.com/document/product/655/13846)
