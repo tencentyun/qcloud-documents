@@ -1,6 +1,6 @@
 ### 1. 接口描述
 
-本接口 (DeleteProduct) 用于删除一个物联云产品。
+本接口（DeleteProduct）用于删除一个物联云产品。
 
 接口请求域名：`iotcloud.api.qcloud.com`
 
@@ -10,15 +10,15 @@
 
 | 参数名称      | 必选   | 类型     | 描述        |
 | --------- | ---- | ------ | --------- |
-| productID | 是    | String | 需要删除的产品ID |
+| productID | 是    | String | 需要删除的产品 ID |
 
 
 ### 3. 输出参数
 
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码。0 表示成功，其他值表示失败，详见[公共错误码](https://cloud.tencent.com/document/product/634/12279)页面 |
-| message  | String | 模块错误信息描述，格式为 "(模块错误码)模块错误信息" ，详见本页面的[模块错误码](#module_error_info) |
+| code     | Int    | 公共错误码。0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279)页面 |
+| message  | String | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" ，详见本页面的 [模块错误码](#module_error_info) |
 | codeDesc | String | 模块错误码的英文描述                               |
 
 ### 4. 示例
