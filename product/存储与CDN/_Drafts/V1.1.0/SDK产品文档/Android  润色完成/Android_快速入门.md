@@ -17,12 +17,10 @@
 
 需要在工程项目中导入下列 jar 包，存放在 libs 文件夹下：
 
-- cos-xml-android-sdk-1.2.jar
-- qcloud-core-1.2.jar
+- cos-xml-android-sdk.1.3.0.jar
+- qcloud-core.1.3.0.jar
 - okhttp-3.8.1.jar
 - okio-1.13.0.jar
-- xstream-1.4.7.jar
-- fastjson-1.1.62.android.jar
 
 使用该 SDK 需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明（Android 5.0 以上还需要动态获取权限）：
 ```html
@@ -54,11 +52,9 @@ long keyDuration = 600; //SecretKey 的有效时间，单位秒
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
        .setAppidAndRegion(appid, region)
        .setDebuggable(true)
-       .setConnectionTimeout(45000)
-       .setSocketTimeout(30000)
-       .build();
+       .builder();
 
-//创建获取签名类
+//创建获取签名类(请参考下面的生成签名示例，或者参考 sdk中提供的ShortTimeCredentialProvider类）
 LocalCredentialProvider localCredentialProvider = new LocalCredentialProvider(secretId, secretKey, keyDuration);
 
 //创建 CosXmlService 对象，实现对象存储服务各项操作.
@@ -77,13 +73,13 @@ long signDuration = 600; //签名的有效期，单位为秒
 
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
 
-putObjectRequest.setSign(signDuration,null,null);
+putObjectRequest.setSign(signDuration,null,null); //若不调用，则默认使用sdk中sign duration（60s）
 
 /*设置进度显示
-  实现 QCloudProgressListener.onProgress(long progress, long max)方法，
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
   progress 已上传的大小， max 表示文件的总大小
 */
-putObjectRequest.setProgressListener(new QCloudProgressListener() {
+putObjectRequest.setProgressListener(new CosXmlProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
         float result = (float) (progress * 100.0/max);
@@ -177,10 +173,10 @@ srcPath, uploadId);
 uploadPartRequest.setSign(600,null,null);
 
 /*设置进度显示
-  实现 QCloudProgressListener.onProgress(long progress, long max)方法，
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
   progress已上传的大小， max 表示文件的总大小
 */
-uploadPartRequest.setProgressListener(new QCloudProgressListener() {
+uploadPartRequest.setProgressListener(new CosXmlProgressListener() {
 	 @Override
 	 public void onProgress(long progress, long max) {
 	     float result = (float) (progress * 100.0/max);
@@ -240,10 +236,10 @@ GetObjectRequest getObjectRequest = GetObjectRequest(bucket, cosPath, savePath);
 getObjectRequest.setSign(signDuration,null,null);
 
 /*设置进度显示
-  实现 QCloudProgressListener.onProgress(long progress, long max)方法，
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
   progress 已上传的大小， max 表示文件的总大小
 */
-getObjectRequest.setProgressListener(new QCloudProgressListener() {
+getObjectRequest.setProgressListener(new CosXmlProgressListener() {
     @Override
     public void onProgress(long progress, long max) {
         float result = (float) (progress * 100.0/max);
