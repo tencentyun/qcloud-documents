@@ -34,5 +34,5 @@
 - 内容：
   1. MQTT 协议支持：支持设备快捷轻便的链接 IoT Hub 云端服务器，可查看 [MQTT协议详解](https://github.com/mcxiaoke/mqtt)
   2. 设备影子功能支持：具体可查看 [设备影子详情](https://cloud.tencent.com/document/product/634/11918)
-  3. MQTT 和设备影子均提供跨进程调用API，具体参考 [Android-SDK使用]()
+  3. MQTT 和设备影子均提供跨进程调用 API，具体参考 [Android-SDK使用]()
   4. 提供非对称加密方式支持
