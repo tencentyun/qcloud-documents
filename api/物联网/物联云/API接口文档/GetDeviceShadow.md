@@ -16,7 +16,7 @@
 
 | 参数名称      | 类型       | 描述                                       |
 | --------- | -------- | ---------------------------------------- |
-| code      | Int      | 公共错误码。0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279)页面 |
+| code      | Int      | 公共错误码。0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279) 页面 |
 | codeDesc  | String   | 返回码描述                                    |
 | message   | String   | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" ，详见本页面的 [模块错误码](#module_error_info) |
 | state     | Object   | 虚拟设备当前状态                                 |
