@@ -7,7 +7,7 @@ SSL证书续费操作相当于在控制台重新申请了一个新证书，用�
 ### 2.证书续费流程
 #### 2.1 进入证书续费入口
 OV/EV付费证书在过期前3个月会开启证书快速续费通道，在【状态】项中点击“快速续费”，弹出SSL证书续费提示，信息确认后，点击【前往付费】。    
-![](https://mc.qcloudimg.com/static/img/532ccaf44c82e2813c4f2158ebe24900/1.png)   
+![](https://mc.qcloudimg.com/static/img/532ccaf44c82e2813c4f2158ebe24900/1.png)   
 ![](https://mc.qcloudimg.com/static/img/4e836183f65efca6d3f33975b297d9c6/2.png)   
 #### 2.2 续费信息确认与支付
 证书续费无需再次填写信息，由于证书续费后会生成一个新证书，因此要为新证书设置CSR文件，系统可自动生成CSR文件，用户也可以自己上传CSR文件。
@@ -16,8 +16,9 @@ OV/EV付费证书在过期前3个月会开启证书快速续费通道，在【�
 确认证书信息后，点击【确认购买】进行付款。   
 ![](https://mc.qcloudimg.com/static/img/b7f7bfa086caad55beb016b6753de6e2/5.png)  
 #### 2.3 上传确认函并等待审核
-购买成功后，会在证书管理控制台的证书列表中生成一个新的证书，状态为“待验证”，点击【详情】进入证书详情页。    
-![](https://mc.qcloudimg.com/static/img/5e042746658b3c8e2158d065f890ee8f/6.png)
-证书详情中会生成解析验证值，您需要添加该条解析记录，审核通过后会立即颁发证书。   
+购买成功后，会在证书管理控制台的证书列表中生成一个新的证书，状态为“待验证”，点击【详情】进入证书详情页。   
+![](https://mc.qcloudimg.com/static/img/5e042746658b3c8e2158d065f890ee8f/6.png)    
+证书详情中会生成解析验证值，您需要添加该条解析记录，审核通过后会立即颁发证书。<br>
+<br>
 ![](https://mc.qcloudimg.com/static/img/772a862270a42e29357e08b18f4c125d/4.png)
 
