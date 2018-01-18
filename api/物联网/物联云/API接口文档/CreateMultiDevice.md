@@ -1,5 +1,5 @@
 ### 1. 接口描述
-本接口 (CreateMultiDevice) 用于批量创建物联云设备。
+本接口（CreateMultiDevice）用于批量创建物联云设备。
 
 接口请求域名：`iotcloud.api.qcloud.com`
 
