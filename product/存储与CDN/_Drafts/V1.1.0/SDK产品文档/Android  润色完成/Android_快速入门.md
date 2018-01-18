@@ -37,7 +37,7 @@
 ### 初始化 
 
 进行任何操作之前，都需要实例化 CosXmlService 和 CosXmlServiceConfig。
-- CosXmlServiceConfig： 网络连接、重试等配置参数；
+- CosXmlServiceConfig： 配置参数；
 - CosXmlService：SDK 提供的服务类，可操作各种 COS 服务；
 
 ````java
