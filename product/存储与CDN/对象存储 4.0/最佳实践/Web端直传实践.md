@@ -217,5 +217,5 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 ![Form 表单上传](//mc.qcloudimg.com/static/img/b7944177f25a64c3f6c19275b586c32f/image.png)
 ## 相关文档
 若您有更丰富的接口调用需求，请参考以下 JavaScript SDK 文档：
-- [JavaScript SDK（XML API）](/doc/product/436/11459)
-- [JavaScript SDK（JSON API）](/doc/product/436/8095)
+- [JavaScript SDK](https://cloud.tencent.com/document/product/436/11459)
+- [JavaScript SDK（历史版本 API）](https://cloud.tencent.com/document/product/436/8095)

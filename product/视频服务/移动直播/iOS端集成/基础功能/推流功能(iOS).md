@@ -8,7 +8,6 @@
 - **<font color='red'>不绑定腾讯云</font>**
 > SDK 不绑定腾讯云，如果要推流到非腾讯云地址，请在推流前设置 TXLivePushConfig 中的 enableNearestIP 设置为 NO。但如果您要推流的地址为腾讯云地址，请务必在推流前将其设置为 YES，否则推流质量可能会因为运营商 DNS 不准确而受到影响。
 
-
 - **x86 模拟器调试**
 > 由于 SDK 大量使用iOS系统的高级特性，我们不能保证所有特性在x86环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
 
@@ -19,12 +18,12 @@
 
 - **获取测试URL**
 [开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://cloud.tencent.com/document/product/454/7915)。
-
+![](https://mc.qcloudimg.com/static/img/64342b926e05da462a54b8ce4f8c526f/image.png)
 
 ## 代码对接
 >本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、活动直播等场景，游戏直播请参考本目录下的同级文档。
 
-### step 1: 创建Push对象
+### step 1: 创建Pusher对象
 先创建一个 **LivePush** 对象，我们后面主要用它来完成推流工作。
 
 不过在创建 LivePush 对象之前，还需要您指定一个**LivePushConfig**对象，该对象的用途是决定 LivePush 推流时各个环节的配置参数，比如推流用多大的分辨率、每秒钟要多少帧画面（FPS）以及Gop（表示多少秒一个I帧）等等。
@@ -38,7 +37,7 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
  _txLivePush = [[TXLivePush alloc] initWithConfig: _config];
 ```
 
-### step 2: 给画面“找块地”
+### step 2: 渲染View
 接下来我们要给摄像头的影像画面找个地方来显示，iOS系统中使用view作为基本的界面渲染单位，所以您只需要准备一个view传给 LivePush 对象的 **startPreview** 接口函数就可以了。
 
 - **推荐的布局！**
@@ -68,7 +67,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 - **startPush** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
 - **startPreview** 的参数就是step2中需要您指定的view，startPreview 的作用就是将界面view控件和LivePush对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
-### step 3+: 启动纯音频推流
+### step 3+: 纯音频推流
 如果你的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
 
 ```objectivec
@@ -79,11 +78,11 @@ txLivePush.config.enablePureAudioPush = YES;   // true 为启动纯音频推流�
 NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";      
 [_txLivePush startPush:rtmpUrl];
 ```
-如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
+如果你启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流，那是因为线路配置问题，请提工单联系我们帮忙修改配置。
 
 ### step 4: 设定清晰度
 
-使用 setVideoQuality 接口的可以设定推流的画面清晰度：
+如果您是第一次接触我们的SDK，<font color='red'>不推荐</font>您通过 TXLivePushConfig 设置分辨率、码率等视频参数，参数配置不当可能影响最终的画质表现，推荐您使用 setVideoQuality 接口的可以设定推流的画面清晰度：
 
 ![](//mc.qcloudimg.com/static/img/c52dc506047402db04ac285fa7520e65/image.png)
 
@@ -96,7 +95,22 @@ SDK 提供了六种基础档位，根据我们服务大多数客户的经验进�
 - **adjustResolution**
 是否允许动态分辨率，开启后 SDK 会根据当前的视频码率选择相匹配的分辨率，这样能获得更好的清晰度。相应的代价就是，动态分辨率的直播流所录制下来的文件，在很多播放器上会有兼容性问题。
 
-![](//mc.qcloudimg.com/static/img/a19a839bd528ccce59db80006b23ce5d/image.png)
+- **参数配置指引表**
+
+| 参数quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 适用场景 | 带宽费用 | 
+|---------|---------|---------|---------|---------|---------|
+| VIDEO_QUALITY_STANDARD_DEFINITION | YES | YES | 300~800kbps| 270x480 ~ 360x640| 网络较差的场景| 低|
+| VIDEO_QUALITY_STANDARD_DEFINITION | YES | NO |300~800kbps|360x640| 网络较差的场景|低|
+| VIDEO_QUALITY_STANDARD_DEFINITION | NO | NO | 800kbps | 360x640| 网络较差的场景|低|
+| VIDEO_QUALITY_HIGH_DEFINITION | YES | YES |600~1500kbps| 360x640~540x960| 网络不确定场景| 中|
+| VIDEO_QUALITY_HIGH_DEFINITION | YES | NO |600~1500kbps| 540x960| 常规秀场直播| 中|
+| VIDEO_QUALITY_HIGH_DEFINITION | NO | NO |1200kbps| 540x960| 常规秀场直播| 中|
+| VIDEO_QUALITY_SUPER_DEFINITION | YES | YES | 600~1800kbps|360x640~720x1280|手游直播|高|
+| VIDEO_QUALITY_SUPER_DEFINITION | YES | NO |600~1800kbps|720x1280|手游直播|高|
+| VIDEO_QUALITY_SUPER_DEFINITION | NO | NO |1800kbps|720x1280|手游直播|高|
+| VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | YES | YES |600~1500kbps| 360x640~540x960| 连麦大画面|N/A|
+| VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER | NO | NO |350kbps| 320x480| 连麦小画面| N/A|
+| VIDEO_QUALITY_REALTIEM_VIDEOCHAT | YES | YES | 200~800kbps| 190x320~360x640| 实时通话|N/A|
 
 ### step 5: 美颜滤镜
 
@@ -174,27 +188,16 @@ _config.watermark = [UIImage imageNamed:@"watermark.png"];
 _config.watermarkPos = (CGPoint){10, 10};
 ```
 
-### step 8: 硬件加速
-通过 LivePushConfig 里的 **enableHWAcceleration** 接口可以开启硬件编码。
+### step 8: 本地录制
+使用 startRecord 接口可以启动本地录制，录制格式为 MP4，通过 videoPath 可以指定 MP4 文件的存放路径。
+- 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常
+- 如果是云端录制，只需要在推流 URL 后面拼接 &record=mp4 即可，详情请参考[云端录制](https://cloud.tencent.com/document/product/454/7917)。
+- stopRecord 调用之后，录制出来的文件会通过 TXLiveRecordListener 通知出来。
+
 ```objectivec
-//停止推流 （开启过程推荐同时重启推流，否则可能导致播放端花屏绿屏等问题）
-[_txLivePush stopPush]
-//开启硬件编码
-txLivePush.config.enableHWAcceleration = YES;
-//重启推流
-[_txLivePush startPush:rtmpUrl]
+-(int) startRecord:(NSString *)videoPath;
+-(int) stopRecord;
 ```
-
-- **兼容性评估**
-iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都非常过关，所以硬件加速在iOS平台是非常推荐的，可以放心开启。而且 SDK 内部有健全的保护机制，如果硬编码资源被其它后台App占用，会自动转成软编码。
-
-- **效果差异**
-开启硬件加速后手机耗电量会有明显降低，机身温度也会比较理想，但画面大幅运动时马赛克感会比软编码要明显。
-  
-- **避免中途切换**
-避免在推流过程中开关硬件加速，虽然大部分情况下没有问题，但有各种异常隐患。推荐的做法是一开始就开启，而不是中途再打开。
-
-> SDK 内部有一种保护机制：如果硬件加速资源被其它App占用导致无法开启，会自动切换回软件编码。
 
 ### step 9: 后台推流
 常规模式下，App一旦切到后台，摄像头的采集能力就会被 iOS 暂时停止掉，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
@@ -204,7 +207,7 @@ iOS平台的机型数量并不像Android那么浩瀚，而且硬件质量也都�
 
 主播可能只是短暂接个紧急电话而已，但上述的交互体验显然会让观众全部离开直播间，怎么优化呢？
 从 **SDK 1.6.1** 开始，我们引入了一种解决方案，如下是从观众端的视角看去，该方案可以达到的效果： 
-![](//mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
+![](https://mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
 
 - **9.1) 设置pauseImg**
 在开始推流前，使用 LivePushConfig 的 pauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
@@ -258,10 +261,12 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济�
 }
 ```
 
-### step 10: 提醒主播“网络不好”
-step 13 中会介绍 SDK 的推流事件处理，其中 **PUSH_WARNING_NET_BUSY** 这个很有用，它的含义是：<font color='blue'>**当前主播的上行网络质量很差，观众端已经出现了卡顿。**</font>
+### step 10: 网络质量提示
+如何了解主播当前的网络质量好坏？
 
-当收到此WARNING时，您可以通过UI提醒主播换一下网络出口，或者离WiFi近一点，或者让他吼一嗓子：“领导，我在直播呢，别上淘宝了行不！什么？没上淘宝？那韩剧也是一样的啊。”
+- 【方案一】：通过 TXLivePushListener 里的 **onNetStatus # NET_STATUS_CODEC_CACHE ** 可以获取积压情况，积压情况在 5 以内属于正常，超过 5 代表网速跟不上，数值越大代表网络质量越差。
+
+- 【方案二】：通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿，此时可以提示主播 “您当前的网络状况不佳，推荐您离 WiFi 近一点”。
 
 ### step 11: 横屏推流
 大多数情况下，用户习惯以“竖屏持握”进行直播拍摄，观看端看到的也是竖屏样式；有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果。
@@ -309,6 +314,18 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
     _txLivePush.delegate = nil;
 }
 ```
+
+<h2 id="Message"> 发送消息 </h2>
+此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
+（1）冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
+（2）秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+（3）在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。
+
+```objectiveC
+[_answerPusher sendMessage:[mesg dataUsingEncoding:NSUTF8StringEncoding]];
+```
+
+> 使用 TXLivePlayer 的 onPlayEvent （PLAY_EVT_GET_MESSAGE） 可以用来接收消息。
 
 ## 事件处理
 ### 1. 事件监听

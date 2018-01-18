@@ -19,7 +19,7 @@
 视频云 SDK 中的 TXVodPlayer 模块负责实现点播播放功能。
 
 ```objectivec
-TXVodPlayer _txVodPlayer = [[TXVodPlayer alloc] init];
+TXVodPlayer *_txVodPlayer = [[TXVodPlayer alloc] init];
 [_txVodPlayer setupVideoWidget:_myView insertIndex:0]
 ```
 
@@ -67,8 +67,10 @@ NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 
 | 可选值 | 含义  |
 |---------|---------|
-| RENDER_ROTATION_PORTRAIT | 正常播放（Home键在画面正下方） | 
-| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home键在画面正左方） | 
+| HOME_ORIENTATION_RIGHT | home在右边 | 
+| HOME_ORIENTATION_DOWN | home在下面 | 
+| HOME_ORIENTATION_LEFT | home在左边 | 
+| HOME_ORIENTATION_UP | home在上面 | 
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
@@ -192,11 +194,19 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
   [_txVodPlayer startPlay:_flvUrl type:_type];
 ```
 
+### step 15: 多码率文件
+SDK支持hls的多码率格式，方便用户切换不同码率的播放流。在收到PLAY_EVT_PLAY_BEGIN事件后，可以通过下面方法获取多码率数组
+```objectivec
+NSArray *bitrates = [_txVodPlayer supportedBitrates]; //获取多码率数组
+```
+
+在播放过程中，可以随时通过`-[TXVodPlayer setBitrateIndex:]`切换码率。切换过程中，会重新拉取另一条流的数据，因此会有稍许卡顿。SDK针对腾讯云的多码率文件做过优化，可以做到切换无卡顿。
+
 ## 进度展示
 
 点播进度分为两个指标：**加载进度** 和 **播放进度**，SDK 目前是以事件通知的方式将这两个进度实时通知出来的。
 
-您可以为 TXVodPlayer 对象绑定一个 **TXLivePlayListener** 监听器（名字不匹配是历史原因），进度通知会通过 **PLAY_EVT_PLAY_PROGRESS** 事件回调到您的应用程序，该事件的附加信息中即包含上述两个进度指标。
+您可以为 TXVodPlayer 对象绑定一个 **TXVodPlayListener** 监听器，进度通知会通过 **PLAY_EVT_PLAY_PROGRESS** 事件回调到您的应用程序，该事件的附加信息中即包含上述两个进度指标。
 
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
@@ -254,6 +264,7 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束   | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放 | 
+|PLAY_ERR_HLS_KEY		| -2305 | HLS解密key获取失败 |
 
 ### 3. 警告事件
 如下的这些事件您可以不用关心，它只是用来告知您 SDK 内部的一些事件。
@@ -279,6 +290,15 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
 | PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
+
+### 5. 分辨率事件
+以下事件用于获取画面变化信息，您也无需关心：
+
+| 事件ID                     |    数值  |  含义说明                    |   
+| :-----------------------  |:-------- |  :------------------------ | 
+| PLAY_EVT_CHANGE_RESOLUTION|  2009    | 视频分辨率改变               |
+| PLAY_EVT_CHANGE_ROATION	|  2011    | MP4视频旋转角度 |
+
 
 ## 视频宽高 
 **视频的宽高（分辨率）是多少？**

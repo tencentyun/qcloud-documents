@@ -11,7 +11,7 @@
 <tr><td>1008</td><td>Request to send text/voice SMS timed out.</td><td>Rare occurrence. Try again.</td></tr>
 <tr><td>1009</td><td>Request ip is not on the whitelist.</td><td>Verification of request's source ip has been configured, but the current request ip is not found in the configuration list. If necessary, <a href="/doc/product/382/3773">contact SMS Helper.</a></td></tr>
 <tr><td>1011</td><td>REST API does not exist.</td><td>Check REST API description.</td></tr>
-<tr><td>1012</td><td>Signature format is incorrect or signature is not approved.</td><td>Signature is a combination of 2-8 characters comprised of English letter and numbers only. If the signature format is correct, check whether it is approved.</td></tr>
+<tr><td>1012</td><td>Signature format is incorrect or signature is not approved.</td><td>Signature is a combination of 2-12 characters comprised of English letter and numbers only. If the signature format is correct, check whether it is approved.</td></tr>
 <tr><td>1013</td><td>Text/Voice SMS hits the delivery frequency limit policy. </td><td>You can adjust the delivery frequency limit policy for text SMS messages on the console. For voice SMS messages, <a href="/doc/product/382/3773">contact SMS Helper.</a></td></tr>
 <tr><td>1014</td><td>Template is not approved or request content does not match the approved template content.</td><td>Refer to <a href="/doc/product/382/3772#12-1014.E9.94.99.E8.AF.AF.E8.AF.A6.E8.A7.A3">1014 error description.</a></td></tr>
 <tr><td>1015</td><td>Number on the blacklist. This is generally because you unsubscribed from the SMS service or hit the operator's blacklist.</td><td><a href="/doc/product/382/3773">Contact SMS Helper </a>to solve the problem.</td></tr>
