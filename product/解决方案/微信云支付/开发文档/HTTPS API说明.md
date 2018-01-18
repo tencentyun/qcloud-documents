@@ -4016,7 +4016,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>商家小票ID</td>
    </tr>
    <tr>
-      <td>goods_details</td>
+      <td>goods_detail</td>
       <td>必填</td>
       <td>GoodsDetail[]</td>
       <td>商品详情，详见GoodsDetail</td>
