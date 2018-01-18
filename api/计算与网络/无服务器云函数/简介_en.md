@@ -18,6 +18,5 @@ After the function is created, you can set the function to respond to a triggeri
 **3. Test a function**
 You can call the function directly using the API [InvokeFunction](https://cloud.tencent.com/document/product/583/9747), or manipulate the trigger object to generate an event and use the API [GetFunctionLogs](https://cloud.tencent.com/document/product/583/9746) to verify whether the function executes properly.
 After the above three steps are completed, your function can be put in use.
-In case of any conflict between the value or optional range of any parameter provided in "API Description" of this document and that provided on the Tencent Cloud official website, **the latter shall prevail**.
 
 
