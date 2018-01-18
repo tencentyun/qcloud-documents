@@ -1,6 +1,6 @@
 ## 编译
 
-请先下载最新版本设备端C语言SDK [SDK下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/release_V1_00_C_20171115.zip)
+请先下载最新版本设备端 C 语言 SDK [SDK下载](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/release_V1_00_C_20171115.zip)
 
 解压之后，打开编译配置文件`make.settings`，根据需要编辑配置项
 
@@ -30,10 +30,10 @@ FEATURE_MQTT_RMDUP_MSG_ENABLED  = n
 | FEATURE_MQTT_RMDUP_MSG_ENABLED | 是否启用 MQTT 消息去重功能                                                                |
 
 ## 运行
-请参考[快速开始](https://cloud.tencent.com/document/product/634/11912)
+请参考 [快速开始](https://cloud.tencent.com/document/product/634/11912)
 
-## C-SDK提供的功能API说明
-以下是 V1.2.0 版本 C-SDK 提供的功能和对应 API，用于客户编写业务逻辑，更加详细详细的说明请查看 src/sdk-impl/qcloud_iot_export.h 及 src/sdk-impl/exports/*.h 中的注释
+## C-SDK 提供的功能 API 说明
+以下是 V1.2.0 版本 C-SDK 提供的功能和对应 API，用于客户编写业务逻辑，更加详细的说明请查看 src/sdk-impl/qcloud_iot_export.h 及 src/sdk-impl/exports/*.h 中的注释
 
 ### 1. 日志接口
 
@@ -41,16 +41,16 @@ FEATURE_MQTT_RMDUP_MSG_ENABLED  = n
 | ---- | -------------------------- | --------------------------------------------- |
 | 1    | IOT_Log_Set_Level          | 设置打印的日志等级                            |
 | 2    | IOT_Log_Get_Level          | 返回日志输出的等级                            |
-| 2    | IOT_Log_Set_MessageHandler | 设置日志回调函数，接管SDK日志用于其它输出方式 |
+| 2    | IOT_Log_Set_MessageHandler | 设置日志回调函数，接管 SDK 日志用于其它输出方式 |
 
 
-### 2. MQTT接口
+### 2. MQTT 接口
 
 | 序号 | 函数名               | 说明                                            |
 | ---- | -------------------- | ----------------------------------------------- |
 | 1    | IOT_MQTT_Construct   | 构造 MQTTClient 并完成 MQTT 连接                |
 | 2    | IOT_MQTT_Destroy     | 关闭 MQTT 连接并销毁 MQTTClient                 |
-| 3    | IOT_MQTT_Yield       | 在当前线程为底层 MQTT 客户端让出一定CPU执行时间 |
+| 3    | IOT_MQTT_Yield       | 在当前线程为底层 MQTT 客户端让出一定 CPU 执行时间 |
 | 4    | IOT_MQTT_Publish     | 发布 MQTT 消息                                  |
 | 5    | IOT_MQTT_Subscribe   | 订阅 MQTT 主题                                  |
 | 6    | IOT_MQTT_Unsubscribe | 取消订阅已订阅的 MQTT 主题                      |
