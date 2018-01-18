@@ -1,0 +1,30 @@
+## 步骤说明
+
+1. 安装 npm 依赖包
+```shell
+npm i cos-nodejs-sdk-v5
+```
+
+2. 准备好签名服务器，提供 auth.php 接口给前端获取签名，可以参考 [后端签名例子](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/server)
+
+3. 创建测试文件 test.js，并命令行执行 ```node test.js```
+```javascript
+var request = require('request');
+var COS = require('cos-nodejs-sdk-v5');
+
+var config = {
+    SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // 替换为用户的 SecretId
+    SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',    // 替换为用户的 SecretKey
+    Bucket: 'test-1250000000',                        // 替换为用户操作的 Bucket
+    Region: 'ap-guangzhou'                            // 替换为用户操作的 Region
+};
+
+var cos = new COS({SecretId: SecretId, SecretKey: SecretKey});
+cos.getObject({
+    Bucket: config.Bucket,
+    Region: config.Region,
+    Key: '1.txt',
+}, function (err, data) {
+    console.log(err || '文件内容大小：' + data.Body.length);
+});
+```
