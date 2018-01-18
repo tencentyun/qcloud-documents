@@ -45,20 +45,24 @@
 请求数据：
     
     {
-	    "tags":{
-	    "region":"string"
+	    "tags":
+		{
+	    	"region":"string"
 	    },
-	    "time":{
-	    "name":"timestamp",
-	    "format":"epoch_second"
+	    "time":
+		{
+	    	"name":"timestamp",
+	    	"format":"epoch_second"
 	    },
-	    "fields":{
-	    "cpuUsage":"float"
+	    "fields":
+		{
+	    	"cpuUsage":"float"
 	    },
-	    "options":{
-	    "expire_day":7,
-	    "refresh_interval":"10s",
-	    "number_of_shards":5
+	    "options":
+		{
+	    	"expire_day":7,
+	    	"refresh_interval":"10s",
+	    	"number_of_shards":5
 	    }
     }
 

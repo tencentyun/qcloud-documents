@@ -10,7 +10,7 @@
 |  修改角色描述 | [UpdateRoleDescription](/document/product/598/13891)  |  用于修改角色的描述信息 |
 |  修改角色信任策略 | [UpdateAssumeRolePolicy](/document/product/598/13892)  |  用于修改角色的信任策略 |
 |  删除角色 | [DeleteRole](/document/product/598/13893)  |  用于删除指定角色 |
- 
+
 ## STS 相关接口
 
 |  接口名 | Action ID  | 功能描述  |
