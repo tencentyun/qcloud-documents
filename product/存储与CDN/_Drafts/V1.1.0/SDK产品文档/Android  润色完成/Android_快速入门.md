@@ -225,6 +225,50 @@ try {
        Log.w("TEST","CosXmlServiceException =" + e.toString());
 }
 ````
+
+### UploadService
+
+````java
+//UploadService 封装了上述分片上传请求一系列过程的类
+
+ UploadService.ResumeData resumeData = new UploadService.ResumeData();
+ resumeData.bucket = "存储桶名称";
+ resumeData.cosPath = "远端路径，即存储到 COS 上的绝对路径"; //格式如 cosPath = "/test.txt";
+ resumeData.srcPath = "本地文件的绝对路径"; // 如 srcPath =Environment.getExternalStorageDirectory().getPath() + "/test.txt";
+ resumeData.sliceSize = 1024 * 1024; //每个分片的大小
+ resumeData.uploadId = null; //若是续传，则uploadId不为空
+
+
+ UploadService uploadService = new UploadService(cosXmlService, resumeData);
+
+/*设置进度显示
+  实现 CosXmlProgressListener.onProgress(long progress, long max)方法，
+  progress 已上传的大小， max 表示文件的总大小
+*/
+uploadService.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        float result = (float) (progress * 100.0/max);
+        Log.w("TEST","progress =" + (long)result + "%");
+    }
+});
+try {
+	CosXmlResult cosXmlResult = uploadService.upload();
+									
+	Log.w("TEST","success: " + cosXmlResult.accessUrl );
+
+  } catch (CosXmlClientException e) {
+
+	   //抛出异常
+       Log.w("TEST","CosXmlClientException =" + e.toString());
+  } catch (CosXmlServiceException e) {
+
+	   //抛出异常
+       Log.w("TEST","CosXmlServiceException =" + e.toString());
+}
+
+````
+
  
 ### 下载文件
 ````java
