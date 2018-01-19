@@ -11,7 +11,7 @@ SSL 证书续费操作相当于在控制台重新申请了一个新证书，用�
  
 ## 证书续费流程
 ### 一、进入证书续费入口
-1. OV/EV 付费证书在过期前 3 个月会开启快速续费通道，用户可在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 证书列表中，对应证书的状态项中单击【快速续费】，打开快速续费窗口。    
+1. DV 付费证书在过期前 3 个月会开启快速续费通道，用户可在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 证书列表中，对应证书的状态项中单击【快速续费】，打开快速续费窗口。    
 ![](https://mc.qcloudimg.com/static/img/f1a8c5f4245cde0334dbf2e0770960d8/image.png)
 2. 弹出 SSL 证书续费提示后，请确认信息，单击【前往续费】进入续费页面。 
 
