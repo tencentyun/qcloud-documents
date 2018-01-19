@@ -67,7 +67,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 
 | 可选值 | 含义  |
 |---------|---------|
-| RENDER_MODE_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
+| RENDER_MODE_FULL_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
 | RENDER_MODE_ADJUST_RESOLUTION | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
 
 - **setRenderRotation：画面旋转**
@@ -76,6 +76,13 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 |---------|---------|
 | RENDER_ROTATION_PORTRAIT | 正常播放（Home键在画面正下方） | 
 | RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home键在画面正左方） | 
+
+```Java
+// 设置填充模式
+mLivePlayer.setRenderMode(TXLiveConstants.RENDER_MODE_ADJUST_RESOLUTION);
+// 设置画面渲染方向
+mLivePlayer.setRenderRotation(TXLiveConstants.RENDER_ROTATION_LANDSCAPE);
+```
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
@@ -139,7 +146,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
         @Override
         public void onNetStatus(Bundle status) {
         }
-		});
+        });
 ```
 
 ### step 8: 屏幕截图
@@ -244,8 +251,8 @@ mLivePlayer.setConfig(mPlayConfig);
 | PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 |PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果有转菊花什么的这个时候该停了 | 
-|PLAY_EVT_PLAY_LOADING	|  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
-|PLAY_EVT_GET_MESSAGE	|  2012|  用于接收夹在音视频流中的消息，详情参考[消息接受](#Message)|  
+|PLAY_EVT_PLAY_LOADING  |  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
+|PLAY_EVT_GET_MESSAGE   |  2012|  用于接收夹在音视频流中的消息，详情参考[消息接受](#Message)|  
 
 - **不要在收到 PLAY_LOADING 后隐藏播放画面**
 因为PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个半透明的 loading 动画。
@@ -292,11 +299,11 @@ mLivePlayer.setConfig(mPlayConfig);
 | NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
 | **NET_STATUS_VIDEO_WIDTH**  | 视频分辨率 - 宽 |
 | **NET_STATUS_VIDEO_HEIGHT**| 视频分辨率 - 高 |
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
-|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
+|   NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|   NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|   NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
+|   NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
 

@@ -387,22 +387,7 @@ public void stopRtmpPublish() {
 mTXLivePusher.sendMessage(questionInfo.getBytes("UTF-8"));
 ```
 
-> 播放端使用 TXLivePlayer 的 onPlayEvent （PLAY_EVT_GET_MESSAGE） 可以用来接收消息。
-
-```Java
-//监听事件回调
-public void onPlayEvent(int event, Bundle param) {
-    if (event == TXLiveConstants.PLAY_EVT_GET_MESSAGE) {
-            String msg = null;
-            try {
-                msg = new String(param.getByteArray(TXLiveConstants.EVT_GET_MSG), "UTF-8");
-                onRecvAnswerMsg(msg);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-    }
-}
-```
+> 播放端使用 TXLivePlayer 的 onPlayEvent （PLAY_EVT_GET_MESSAGE） 可以用来接收消息。具体参考[播放文档](https://cloud.tencent.com/document/product/454/7886#Message)
 
 
 ## 事件处理
