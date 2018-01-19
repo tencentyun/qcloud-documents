@@ -57,7 +57,7 @@ Nginx configuration file is the file `/etc/nginx/nginx.conf` of the CVM.
 ### 2.4 How to read more-detailed log?
 To enable detailed log, you can create a directory named log under the directory `/data/live_demo_service/`.
 ## 3. After one-click deployment is completed
-###3.1 How to interface with terminal Mini LVB?
+### 3.1 How to interface with terminal Mini LVB?
 For more information, please see [How to quickly set up Mini LVB - terminal integration](https://cloud.tencent.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90)
 
 ### 3.2 How to configure uploading feature of UGC Mini LVB manually?
