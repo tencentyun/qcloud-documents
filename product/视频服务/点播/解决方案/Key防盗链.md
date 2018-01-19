@@ -98,7 +98,7 @@ sign = md5("24FEQmTzro4V5u3D5epW/dir1/dir2/5a71afc030072d4cd1101") = "547d98c4b9
 http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=5a71afc0&exper=300&us=72d4cd1101&sign=547d98c4b91e81b5ea55c95cef63223f
 </pre>
 
-### Key 防盗链生成和校验工具
+## Key 防盗链生成和校验工具
 点播为开发者提供了 Key 防盗链 URL 的生成工具和校验工具，开发者可以使用该工具快捷准确地生成和校验符合要求的防盗链 URL。
 
 * [Key 防盗链视频播放地址生成工具](https://video.qcloud.com/referer/gen_video_url.html)
