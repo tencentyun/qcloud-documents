@@ -1,4 +1,4 @@
-## 1 SDK信息
+## 1 SDK 信息
 
 您可以在腾讯云官网更新 [小直播 SDK](https://cloud.tencent.com/document/product/454/7873)，目前小直播 SDK 有如下几下版本：
 
@@ -176,9 +176,9 @@ Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。
 
 
-## 9 LOG打印
+## 9 LOG 打印
 
-在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，具体代码如下：
+在 TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，具体代码如下：
 - **setConsoleEnabled**
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 
