@@ -28,7 +28,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 
 ## 3 开发环境
 
-以下是 SDK 的开发环境，APP 开发环境不需要与SDK一致，但要保证兼容：
+以下是 SDK 的开发环境，APP 开发环境不需要与 SDK 一致，但要保证兼容：
 
 - Android NDK: android-ndk-r12b
 - Android SDK Tools: android-sdk_25.0.2
@@ -50,7 +50,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 ```
 dependencies {
       compile fileTree(dir: 'libs', include: ['*.jar'])
-      // 导入腾讯云直播SDK aar
+      // 导入腾讯云直播 SDK aar
       compile(name: 'LiteAVSDK_Professional_3.0.1185', ext: 'aar')
   }
 ```
@@ -140,7 +140,7 @@ dependencies {
 
 ### 7.1 引用 SDK
 
-在 MainActivity.java 中引用 SDK 的class：
+在 MainActivity.java 中引用 SDK 的 class：
 
 ```
 import com.tencent.rtmp.TXLiveBase;
@@ -164,7 +164,7 @@ Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 整个 SDK 的体积主要来自于 so 文件，这些 so 文件是 SDK 正常运行所依赖的音视频编解码库、图像处理库 以及 声学处理组件，如果小直播 SDK 的功能不是 App 的核心功能，您可以考虑采用在线加载的方式减少最终 apk 安装包的大小。
 
 ### 8.1 上传 SO 文件
-将 SDK 压缩包中的 so 文件上传到 CDN ，并记录下载地址，比如 `http://xxx.com/so_files.zip`。
+将 SDK 压缩包中的 so 文件上传到 CDN，并记录下载地址，比如 `http://xxx.com/so_files.zip`。
 
 ### 8.2 启动准备
 在用户启动 SDK 相关功能前，比如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
