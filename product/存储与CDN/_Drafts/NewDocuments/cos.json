@@ -55,6 +55,70 @@
 		"/": {
 			"get": {
 				"tags": [
+				  "serrvice"
+				],
+				"summary": "Get Service",
+				"description": "Get Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。",
+				"operationId": "GetService",
+				"responses": {
+				  "200": {
+					"error_code" : "None",
+					"description": "查询成功，返回 application/xml 数据，包含bucket中的对象信息",
+					"headers": {
+					  "x-cos-request-id": {
+						"description": "全局唯一的请求标识号",
+						"schema": {
+						  "type": "string"
+						}
+					  }
+					},
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#components/schemas/GetServiceResult"
+						}
+					  }
+					}
+				  },
+				  "400": {
+					"error_code" : "InvalidBucketName",
+					"description": "Bucket名称不合法",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "403": {
+					"error_code" : "SignatureDoesNotMatch",
+					"description": "提供的签名不符合规则，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "404": {
+					"error_code" : "NoSuchBucket",
+					"description": "Bucket 不存在，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error"
+						}
+					  }
+					}
+				  }
+				}
+			},
+			"get-2": {
+				"tags": [
 					"bucket"
 				],
 				"summary": "Get Bucket",
