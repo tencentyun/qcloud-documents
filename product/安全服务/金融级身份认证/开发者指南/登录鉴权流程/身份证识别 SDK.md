@@ -1,7 +1,4 @@
 <!--- 身份识别 SDK -->
-### 流程图示
- ![](https://mc.qcloudimg.com/static/img/9b2ba497ae39cb3877c55ab6380bba56/image.jpg)
-
 ### 整体登录鉴权流程
 **第一步：Access Token 获取**
 - Access Token 有效期 7200 秒，建议合作方缓存在服务器，必须在临近过期和使用中失效时重新获取。获取方式见 [Access Token 获取](https://cloud.tencent.com/document/product/655/13813)。
@@ -18,5 +15,9 @@
   合伙伙伴 APP 端调用其服务后台查询识别结果，由 OCR 识别服务端鉴权并返回最终结果。
 
 具体接入开发指南见：[**身份证识别 SDK 接入**](https://cloud.tencent.com/document/product/655/13846)
+### 流程图示
+ ![](https://mc.qcloudimg.com/static/img/9b2ba497ae39cb3877c55ab6380bba56/image.jpg)
+
+
 
 更多产品鉴权流程：[登录鉴权概览](https://cloud.tencent.com/document/product/655/13663)
