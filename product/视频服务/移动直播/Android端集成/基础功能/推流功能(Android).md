@@ -6,7 +6,7 @@
 
 ## 特别说明
 - **<font color='red'>不绑定腾讯云</font>**
-> SDK 不绑定腾讯云，如果要推流到非腾讯云地址，请在推流前设置 TXLivePushConfig 中的 enableNearestIP 设置为 NO。但如果您要推流的地址为腾讯云地址，请务必在推流前将其设置为 YES，否则推流质量可能会因为运营商 DNS 不准确而受到影响。
+> SDK 不绑定腾讯云，如果要推流到非腾讯云地址，请在推流前设置 TXLivePushConfig 中的 enableNearestIP 设置为 false。但如果您要推流的地址为腾讯云地址，请务必在推流前将其设置为 true，否则推流质量可能会因为运营商 DNS 不准确而受到影响。
 
 ## 准备工作
 
@@ -102,15 +102,21 @@ SDK 提供了六种基础档位，根据我们服务大多数客户的经验进�
 | VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER | false | false |350kbps| 320x480| 连麦小画面| N/A|
 | VIDEO_QUALITY_REALTIEM_VIDEOCHAT | true | true | 200~800kbps| 190x320~360x640| 实时通话|N/A|
 
+
+```Java
+// 设置推流分辨率为 540P
+mLivePusher.setVideoQuality(TXLiveConstants.VIDEO_QUALITY_HIGH_DEFINITION, true, true);
+```
+
 ### step 5: 美颜滤镜
 ![](//mc.qcloudimg.com/static/img/aac647073cf0641141900e775e929418/image.png)
 - **美颜**
 setBeautyFilter 接口可以设置美颜风格、磨皮程度、美白级别和红润级别，配合 540 * 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
 ```java
  //style             磨皮风格：  0：光滑  1：自然  2：朦胧
- //beautyLevel       磨皮等级： 取值为0-9.取值为0时代表关闭美颜效果.默认值:0,即关闭美颜效果.
- //whiteningLevel    美白等级： 取值为0-9.取值为0时代表关闭美白效果.默认值:0,即关闭美白效果.
- //ruddyLevel        红润等级： 取值为0-9.取值为0时代表关闭美白效果.默认值:0,即关闭美白效果. 
+ //beautyLevel       磨皮等级： 取值为 0-9.取值为 0 时代表关闭美颜效果.默认值: 0,即关闭美颜效果.
+ //whiteningLevel    美白等级： 取值为 0-9.取值为 0 时代表关闭美白效果.默认值: 0,即关闭美白效果.
+ //ruddyLevel        红润等级： 取值为 0-9.取值为 0 时代表关闭美白效果.默认值: 0,即关闭美白效果. 
  //
  public boolean setBeautyFilter(int style, int beautyLevel, int whiteningLevel, int ruddyLevel);
 ```
@@ -157,6 +163,14 @@ mLivePushConfig.setTouchFocus(mTouchFocus);
 mLivePusher.setConfig(mLivePushConfig);
 ```
 
+- **设置镜像效果**
+主播一般是采用前置摄像头进行直播。所以对比主播端预览画面和观众端的画面，会发现左右颠倒。这个跟我们照镜子的原理是一样的。如果你想要让画面保持一致，需要设置播放端水平镜像。
+```Java
+// 需在 mLivePusher.setConfig(mLivePushConfig); 之后调用
+mLivePusher.setMirror(true);
+```
+
+
 ### step 7: 设置Logo水印
 最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
 腾讯视频云目前支持两种水印设置方式：一种是在推流SDK进行设置，原理是在SDK内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印Logo。
@@ -187,13 +201,22 @@ mLivePusher.setConfig(mLivePushConfig);
 ### step 8: 硬件编码
 TXLivePushConfig 中的 **setHardwareAcceleration** 设置接口可以开启或关闭硬件编码。
 ```java
-if (!HWSupportList.isHWVideoEncodeSupport()){
-    Toast.makeText(getActivity().getApplicationContext(), 
-                   "当前手机型号未加入白名单或API级别过低（最低18）,请慎重开启硬件编码！", 
-                   Toast.LENGTH_SHORT).show();
+if (mHWVideoEncode){
+    if (mLivePushConfig != null) {
+        if(Build.VERSION.SDK_INT < 18){
+            Toast.makeText(getApplicationContext(), "硬件加速失败，当前手机API级别过低（最低18）", 
+                Toast.LENGTH_SHORT).show();
+            mHWVideoEncode = false;
+        }
+    }
 }
-mLivePushConfig.setHardwareAcceleration(mHWVideoEncode);
+
+mLivePushConfig.setHardwareAcceleration(mHWVideoEncode ? 
+    TXLiveConstants.ENCODE_VIDEO_HARDWARE : TXLiveConstants.ENCODE_VIDEO_SOFTWARE);
 mLivePusher.setConfig(mLivePushConfig);  
+
+// 如果你不清楚要何时开启硬件加速, 建议设置为 ENCODE_VIDEO_AUTO
+// 默认是启用软件编码, 但手机 CPU 使用率超过 80% 或者帧率<= 10, SDK 内部会自动切换为硬件编码
 ```
 
 mHWVideoEncode 有以下选项。
@@ -251,7 +274,7 @@ public interface ITXVideoRecordListener {
     mLivePushConfig.setPauseImg(300,5);
     // 300 为后台播放暂停图片的最长持续时间,单位是秒
     // 10 为后台播放暂停图片的帧率,最小值为5,最大值为20
-    Bitmap bitmap = decodeResource(getResources(),R.drawable.pause_publish);
+    Bitmap bitmap = decodeResource(getResources(), R.drawable.pause_publish);
     mLivePushConfig.setPauseImg(bitmap);
     // 设置推流暂停时,后台播放的暂停图片, 图片最大尺寸不能超过1920*1920.
     mLivePusher.setConfig(mLivePushConfig);  
@@ -297,7 +320,7 @@ public void onResume() {
 ### step 11: 网络质量提示
 如何了解主播当前的网络质量好坏？
 
-- 【方案一】：通过 TXLivePushListener 里的 **onNetStatus # NET_STATUS_CODEC_CACHE ** 可以获取积压情况，积压情况在 5 以内属于正常，超过 5 代表网速跟不上，数值越大代表网络质量越差。
+- 【方案一】：通过 TXLivePushListener 里的 **onNetStatus # [NET_STATUS_CODEC_CACHE](https://cloud.tencent.com/document/product/454/9872) ** 可以获取积压情况，积压情况在 5 以内属于正常，超过 5 代表网速跟不上，数值越大代表网络质量越差。
 
 - 【方案二】：通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿，此时可以提示主播 “您当前的网络状况不佳，推荐您离 WiFi 近一点”。
 
@@ -306,10 +329,23 @@ public void onResume() {
 ![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
 
 - **调整观众端表现**
-通过对 LivePushConfig 中的 **setHomeOrientation** 设置项进行配置，它控制的是观众端看到的视频宽高比是 **16:9** 还是 **6:19**，调整后的结果可以用播放器Demo查看以确认是否符合预期。
+通过对 LivePushConfig 中的 **setHomeOrientation** 设置项进行配置，此接口提供了**手机旋转了 0，90，180，270度** 四个参数供设置旋转角度。调整后的结果可以用播放器Demo查看以确认是否符合预期。
+```java
+// 竖屏状态, 手机 Home 键在正下方。   旋转 0 度
+ mLivePushConfig.setHomeOrientation(TXLiveConstants.VIDEO_ANGLE_HOME_DOWN); 
+ // 横屏状态，手机 Home 键在右手方。   旋转 270 度
+ mLivePushConfig.setHomeOrientation(TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT); 
+```
 
 - **调整主播端表现**
-观众端的画面表现符合预期以后，剩下要做的就是调整主播端的预览画面，这时可以通过 TXLivePusher 中的 setRenderRotation 接口，来旋转主播端看到的画面旋转方向，此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
+观众端的画面表现符合预期以后，剩下要做的就是调整主播端的预览画面，这时可以通过 TXLivePusher 中的 setRenderRotation 接口，来旋转主播端看到的画面旋转方向，它决定主播端看到的视频宽高比是 **16:9** 还是 **6:19**
+```Java
+// 竖屏状态，本地渲染相对正方向的角度为0。
+mLivePusher.setRenderRotation(0);
+// 横屏状态，本地渲染相对正方向的角度为90。
+mLivePusher.setRenderRotation(90);
+```
+
 
 - **Activity自动旋转**
 Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://cloud.tencent.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
@@ -351,7 +387,23 @@ public void stopRtmpPublish() {
 mTXLivePusher.sendMessage(questionInfo.getBytes("UTF-8"));
 ```
 
-> 使用 TXLivePlayer 的 onPlayEvent （PLAY_EVT_GET_MESSAGE） 可以用来接收消息。
+> 播放端使用 TXLivePlayer 的 onPlayEvent （PLAY_EVT_GET_MESSAGE） 可以用来接收消息。
+
+```Java
+//监听事件回调
+public void onPlayEvent(int event, Bundle param) {
+    if (event == TXLiveConstants.PLAY_EVT_GET_MESSAGE) {
+            String msg = null;
+            try {
+                msg = new String(param.getByteArray(TXLiveConstants.EVT_GET_MSG), "UTF-8");
+                onRecvAnswerMsg(msg);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+    }
+}
+```
+
 
 ## 事件处理
 ### 1. 事件监听
@@ -365,6 +417,8 @@ SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相�
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器|
 |PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
 |PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（Android部分手机这个过程需要1-2秒）| 
+|PUSH_EVT_CHANGE_RESOLUTION | 1005 | 推流动态调整分辨率 |
+|PUSH_EVT_CHANGE_BITRATE | 1006 | 推流动态调整码率 |
 
 ### 3. 错误通知 
 SDK发现了一些严重问题，推流无法继续了，比如用户禁用了APP的Camera权限导致摄像头打不开。
