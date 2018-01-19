@@ -90,21 +90,13 @@ allprojects {
 
 解压 LiteAVSDK_Professional_3.0.1185.zip 压缩包后得到libs目录，里面主要包含 so 文件和 jar 文件，文件清单如下：
 
-| jar文件                           | 说明                      |
-| ---------------------------- | ----------------------- |
-| liteavsdk.jar                | 小直播 SDK android 核心库          |
-| sha1utils.jar                | 计算上传文件的 SHA 值 jar 包，此组件用于短视频上传(TXUGCPublish)功能 |
-| cos-sdk-android.1.4.3.11.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
-| okio-1.6.0.jar               | 一款优秀的开源网络 I/O 组件      |
-| okhttp-3.2.0.jar             | 一款优秀的开源 http 组件          |
-
 | so文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
+| liteavsdk.jar                | 小直播 SDK android 核心库          |
 | libliteavsdk.so              | 小直播SDK 核心组件              |
 | libsaturn.so                 | 小直播SDK 核心组件              |
 | libtraeimp-rtmp-armeabi.so   | 连麦功能所使用的声学组件库   |
 | libstlport_shared.so         |  C++ stl 基础库（请不要随意替换，版本不匹配亦产生崩溃）        |
-| libTXSHA1.so                 | 计算上传文件的 SHA 值 jar 包，此组件用于短视频上传(TXUGCPublish)功能    |
 | libijkffmpeg.so              | ffmpeg 基础库（ijk版本），用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
 | libijkplayer.so              | ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题       |
 | libijksdl.so                 |  ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题        |
