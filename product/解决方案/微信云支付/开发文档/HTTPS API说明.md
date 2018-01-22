@@ -4878,19 +4878,19 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>成功</td>
    </tr>
    <tr>
-      <td>3</td>
+      <td>4</td>
       <td>等待用户支付</td>
    </tr>
    <tr>
-      <td>4</td>
+      <td>5</td>
       <td>已关闭,或者已退款</td>
    </tr>
    <tr>
-      <td>5</td>
+      <td>6</td>
       <td>交易结束，不可退款</td>
    </tr>
    <tr>
-      <td>6</td>
+      <td>7</td>
       <td>订单不存在</td>
    </tr>
 </table>
