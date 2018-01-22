@@ -22,7 +22,7 @@ Before using a SDK, you need to at least get the [secret id](https://console.clo
 
 Instructions for endpoint:
 	
-Private network endpoint: http://cmq-queue-region.api.tencentyun.com
+Private network endpoint: http:// cmq-queue-region.api.tencentyun.com
 
 Public network endpoint: http(s)://cmq-queue-region.api.qcloud.com
 
