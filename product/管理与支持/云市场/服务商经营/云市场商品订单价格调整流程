@@ -1,4 +1,4 @@
-## 客户侧操作
+## 一、客户侧操作
 ### 1、用户在云市场选购商品
 ![](https://mc.qcloudimg.com/static/img/8373dd18f399cc348e147a02ba66682f/image.png)
 ### 2、用户下单但暂不支付
@@ -13,6 +13,6 @@
 #### 3.3 获取订单ID
 ![](https://mc.qcloudimg.com/static/img/224f16073d9dd7001c2f1fe78295b2af/image.png)
 ### 4、客户将订单ID提供给商品的服务商
-## 云市场商品服务商操作
+## 二、云市场商品服务商操作
 [https://console.cloud.tencent.com/serviceprovider/updateprice](https://console.cloud.tencent.com/serviceprovider/updateprice)
 ![](https://mc.qcloudimg.com/static/img/c339af8c9689113f0a7ae6b361d8a839/image.png)
