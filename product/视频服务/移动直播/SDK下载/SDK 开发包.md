@@ -158,7 +158,7 @@ table td {
   部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Professional_Rename_iOS_4.1.3163.zip?_ga=1.172502247.572863791.1503542401">重命名版下载</a> 。	
 	
 
-<h2 id="Android"> Android SDK (4.1.3162) </h3>
+<h2 id="Android"> Android SDK (4.1.3163) </h3>
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
