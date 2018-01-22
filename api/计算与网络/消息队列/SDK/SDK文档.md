@@ -25,7 +25,7 @@
 #### endpoint 说明
 endpoint 是使用 CMQ 服务的访问地址，同时 endpoint 中也包含了使用的协议，endpoint的格式如下：
 
-- 内网：http://cmq-queue-region.api.tencentyun.com
+- 内网：http ://cmq-queue-region.api.tencentyun.com
 - 外网：http(s)://cmq-queue-region.api.qcloud.com
 
 
