@@ -12,7 +12,7 @@ Rollup接口主要用于聚合历史数据，从而提高查询性能，降低�
 |-----------------|-----------------|-----------------|-----------------|
 | base_metric    | 是              | string          | Rollup依赖的metric名称（父表） |
 | rollup_metric  | 是              | string          | Rollup产生的metric名称（子表）|
-| base_rollup    | 否              | string          | 依赖的Rollup任务，任务执行前会检查应时间段的依赖任务是否完成执行（可以不指定） |
+| base_rollup    | 否              | string          | 依赖的Rollup任务，任务执行前会检查相应时间段的依赖任务是否完成执行（可以不指定） |
 | query           | 否              | string          | 过滤数据的查询条件，由很多个元素和操作对组成，例如`name:host AND type:max OR region:gz`|
 | group_tags     | 是              | Array           | 进行聚合的维度列，可以包含多列 |
 | copy_tags      | 否              | Array           | 不需要聚合的维度列，group_tags确定时，多条数据的copy_tags的值相同 |
@@ -153,7 +153,7 @@ Rollup接口主要用于聚合历史数据，从而提高查询性能，降低�
 
     {
 	    "acknowledged": true,
-	    "message": "update rollup success"
+	    "message": "delete rollup success"
     }
 
 ## 启停Rollup任务 ##
