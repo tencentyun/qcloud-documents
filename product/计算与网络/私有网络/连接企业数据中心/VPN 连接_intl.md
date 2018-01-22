@@ -3,7 +3,9 @@ VPN connection is a method to connect your peer IDC and VPC through encrypted pu
 - VPN gateway: Created VPC IPsec VPN gateway
 - Peer gateway: IPsec VPN service gateway for IDC
 - VPN tunnel: Encrypted IPsec VPN tunnel
+
 ![](https://mc.qcloudimg.com/static/img/34ee1011da3d0671d3637a8c036480b2/VPC-VPN+Connection%281%29.png)
+
 
 VPN gateways can be established in the VPC. Multiple VPN tunnels can be established in each VPN gateway. Each VPN tunnel can connect to one local IDC. Please note that, **after a VPN connection is established, you need to configure related routing policies in the routing table to achieve communication.**
  
@@ -49,7 +51,7 @@ SPD policy 1: The local IP address range is `10.0.0.0/24`, and the peer IP addre
 SPD policy 2: The local IP address range is `10.0.1.0/24`, and the peer IP address range is `192.168.2.0/24`.
 SPD policy 3: The local IP address range is `10.0.2.0/24`, and the peer IP address range is `192.168.2.0/24`.
 
-![](https://mc.qcloudimg.com/static/img/b0e968f0f8644bc150b6da2e578a873d/VPC-VPN+Connection%282%29.png)
+![](//mccdn.qcloud.com/static/img/5b32174d312e31c5b5a9162a50456de8/image.png)
  
 ### IKE Configuration
 
@@ -102,6 +104,7 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
 - Internal service addresses: 169.254.x.x/16;
 
 ## Billing Method
+
  VPN tunnel and peer gateway are free of charge.
  VPN gateway will be charged by hour. Its unit price already includes the cost of IDC bandwidth, so CVM does not need to purchase network bandwidth again. The specific expenses are shown in the following table:
  
@@ -137,6 +140,7 @@ c. Addresses starting with 192-223 in Class C, such as 192-223.x.x.0 and 192-223
  
  For more information regarding the prices of VPC services, refer to [VPC Price Overview](https://cloud.tencent.com/doc/product/215/3079).
 
+
 ## Operation Instructions
 
 ### Quick Start
@@ -150,6 +154,7 @@ IPsec VPN can be fully customized in the console. You need to complete the follo
 
 Example:
 Through IPsec VPN, connect the subnet A `192.168.1.0/24` in your VPC ("TomVPC") in **Guangzhou** with the subnet `10.0.1.0/24` in your IDC, and the public IP of the VPN gateway in IDC is `202.108.22.5`.
+
 ![](https://mc.qcloudimg.com/static/img/b7b5723298837aab677c88078caae7ca/VPC-VPN+Connection%283%29.png)
 
 You need to complete the following steps:
