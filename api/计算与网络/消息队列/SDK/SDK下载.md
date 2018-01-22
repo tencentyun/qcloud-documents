@@ -35,7 +35,7 @@ github地址如下：
 
 endpoint 说明：
 	
-内网endpoint：<p>http:// cmq-queue-region.api.tencentyun.com</p>
+内网endpoint：http:// cmq-queue-region.api.tencentyun.com
 
 公网endpoint：http(s)://cmq-queue-region.api.qcloud.com
 
