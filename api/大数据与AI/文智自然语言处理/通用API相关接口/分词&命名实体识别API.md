@@ -62,12 +62,12 @@
 <tr>
 <td> wtype
 </td><td> String
-</td><td colspan="2">基础词的词性，详细内容参照文末pos对照表
+</td><td colspan="2">基础词的词性，详细内容参照文末词性对照表
 </td></tr>
 <tr>
 <td> wtype_pos
 </td><td> UInt32
-</td><td colspan="2">基础词的词性的 ID，与“ wtype ”对应，同参照文末pos对照表
+</td><td colspan="2">基础词的词性的 ID，与“ wtype ”对应，同参照文末词性对照表
 </td></tr>
 <tr>
 <tr>
@@ -168,7 +168,7 @@ https://wenzhi.api.qcloud.com/v2/index.php?
     }	
 ```
 <span id="postable"></span>
-## 5. POS对照表
+## 5. 词性对照表
 
 | ID | 英文简写 | 含义 | 示例 |
 |---------|---------|---------|---------|
