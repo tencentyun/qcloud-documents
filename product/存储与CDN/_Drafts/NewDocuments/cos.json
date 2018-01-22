@@ -2303,7 +2303,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/PutBucketTagging"
 			},
 			"get": {
 				"tags": [
@@ -2358,7 +2359,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetBucketTagging"
 			},
 			"delete": {
 				"tags": [
@@ -2383,7 +2385,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/DeleteBucketTagging"
 			}
 		},
 		"/{ObjectName}?tagging": {
@@ -2533,7 +2536,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/PutObjectTagging"
 			},
 			"get": {
 				"tags": [
@@ -2600,7 +2604,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetObjectTagging"
 			},
 			"delete": {
 				"tags": [
@@ -2648,7 +2653,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/DeleteObjectTagging"
 			}
 		},
 		"/?acl": {
@@ -3541,7 +3547,7 @@
                               "type": "string",
                               "description": "Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z"
                             }
-      
+
                           }
                         },
                         "DisplayName": {
