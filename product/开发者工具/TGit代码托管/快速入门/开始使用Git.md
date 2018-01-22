@@ -7,14 +7,9 @@
 2. 到 [TGit 产品介绍页](https://cloud.tencent.com/product/TGit) 上单击【开通 DevMaster】
 ![](https://mc.qcloudimg.com/static/img/b9c98c592a9362a463b9a5983ad76b7d/image.png)
 
-3. 跳转页面后，单击【公测申请】，然后跳转到 DevMaster 产品申请页。
+3. 跳转页面后，单击【公测申请】，然后跳转到 DevMaster 产品申请页，完成注册即可。
 ![](https://mc.qcloudimg.com/static/img/25e225935245b6029c171d1a5ff730a4/image.png)
 
-4. 跳转页面后，填写联系方式和业务信息，单击【完成注册】。
-![](https://mc.qcloudimg.com/static/img/f2d1c1ba3788c0affd1fcdb757667cf6/image.png)
-
-5. 跳转页面后，填写用户信息，单击【立即申请】完成申请。
-![](https://mc.qcloudimg.com/static/img/8c5c5e9802e92a78df076b4e0399d660/image.png)
 > TGit 产品已与 DevMaster 产品相关联，可以在 DevMaster 页面使用 TGit 代码托管功能。
 
 ## 步骤二：初始化设置
