@@ -1,10 +1,10 @@
 ## 接口描述
 
-协议： 'HTTPS'
+协议： `HTTPS`
 
-域名： 'csec.api.qcloud.com'
+域名： `csec.api.qcloud.com`
 
-接口名： 'AntiFraud'
+接口名： `AntiFraud`
 
 ## 输入参数
 
@@ -30,7 +30,7 @@
 <td>String</td>
 <td>手机号码：国家代码</br>
 手机号，如 0086-15912345678</br> 
-注意 0086 前不需要 + 号</td>
+注意 0086 前不需要 `+` 号</td>
 </tr>
 <tr>
 <td>bankCardNumber</td>
