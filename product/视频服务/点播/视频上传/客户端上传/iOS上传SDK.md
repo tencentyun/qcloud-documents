@@ -1,13 +1,13 @@
-对于在iOS平台上传视频的场景，腾讯云点播提供了iOS上传代码来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于在 iOS 平台上传视频的场景，腾讯云点播提供了 iOS 上传代码来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
 
-您可以在腾讯云官网更新 [iOS上传demo+源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_iOS.zip)。
-下载完的zip包解压后可以看到上传demo（TXUGCUploadDemo）目录，发布相关源代码在TXUGCUploadDemo/upload目录下。
+您可以在腾讯云官网更新 [ iOS 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_iOS.zip)。
+下载完的 zip 包解压后可以看到上传 demo（TXUGCUploadDemo）目录，发布相关源代码在 TXUGCUploadDemo/upload 目录下。
 
 ## 集成上传库和源代码
 
-拷贝上传源代码目录TXUGCUploadDemo/upload到您的工程中。
+拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
 
 导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。
 
@@ -53,7 +53,7 @@ _videoPublish.delegate = self;
 
 ```objc
 TXPublishParam *videoPublishParams = [[TXPublishParam alloc] init];
-// signature计算规则可参考[客户端上传签名](/document/product/266/9221)
+// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
 videoPublishParams.signature  = @"xxx";
 videoPublishParams.videoPath  = self.uploadTempFilePath;
 ```
@@ -79,34 +79,34 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 
 ### 取消、恢复上传
 
-取消上传，调用`TXUGCPublish的canclePublish()`。
+取消上传，调用 `TXUGCPublish`的 `anclePublish()`。
 
 ```objc
 [_videoPublish canclePublish];
 ```
 
-恢复上传，用相同的上传参数（视频路径和封面路径不变）再调用一次`TXUGCPublish`的`publishVideo`。
+恢复上传，用相同的上传参数（视频路径和封面路径不变）再调用一次 `TXUGCPublish` 的 `publishVideo`。
 
 ### 断点续传
 
 在视频上传过程中，点播支持断点续传，即当上传意外终止时，用户再次上传该文件，可以从中断处继续上传，减少重复上传时间。断点续传的有效时间是 1 天，即同一个视频上传被中断，那么 1 天内再次上传可以直接从断点处上传，超过 1 天则默认会重新上传完整视频。
-上传参数中的`enableResume`为断点续传开关，默认是开启的。
+上传参数中的 `enableResume` 为断点续传开关，默认是开启的。
 
 ## 接口描述
 
-初始化上传对象`TXUGCPublish::initWithUserID`
+初始化上传对象 `TXUGCPublish::initWithUserID`
 
 | 参数名称   | 参数描述               | 类型        | 必填   |
 | ------ | ------------------ | --------- | ---- |
 | userID | 用户userID，用于区分不同的用户 | NSString* | 否    |
 
-上传`TXUGCPublish.publishVideo`
+上传 `TXUGCPublish.publishVideo`
 
 | 参数名称  | 参数描述 | 类型              | 必填   |
 | ----- | ---- | --------------- | ---- |
 | param | 发布参数 | TXPublishParam* | 是    |
 
-上传参数`TXPublishParam`
+上传参数 `TXPublishParam`
 
 | 参数名称         | 参数描述                               | 类型        | 必填   |
 | ------------ | ---------------------------------- | --------- | ---- |
@@ -116,27 +116,27 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 | enableResume | 是否启动断点续传，默认开启                      | BOOL      | 否    |
 
 
-设置上传回调`TXUGCPublish.delegate`
+设置上传回调 `TXUGCPublish.delegate`
 
 | 成员变量名称   | 变量描述        | 类型                     | 必填   |
 | -------- | ----------- | ---------------------- | ---- |
 | delegate | 上传进度和结果回调监听 | TXVideoPublishListener | 是    |
 
 
-进度回调`TXVideoPublishListener.onPublishProgress`
+进度回调 `TXVideoPublishListener.onPublishProgress`
 
 | 变量名称        | 变量描述     | 类型        |
 | ----------- | -------- | --------- |
 | uploadBytes | 已经上传的字节数 | NSInteger |
 | totalBytes  | 总字节数     | NSInteger |
 
-结果回调`TXVideoPublishListener.onPublishComplete`
+结果回调 `TXVideoPublishListener.onPublishComplete`
 
 | 变量名称   | 变量描述 | 类型               |
 | ------ | ---- | ---------------- |
 | result | 上传结果 | TXPublishResult* |
 
-上传结果`TXPublishResult`
+上传结果 `TXPublishResult`
 
 | 成员变量名称   | 变量说明      | 类型        |
 | -------- | --------- | --------- |

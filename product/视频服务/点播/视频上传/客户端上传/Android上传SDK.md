@@ -1,26 +1,26 @@
-对于在Android平台上传视频的场景，腾讯云点播提供了Android上传代码来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于在 Android 平台上传视频的场景，腾讯云点播提供了 Android 上传代码来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
 
-您可以在腾讯云官网更新 [Android上传demo+源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip)。
-下载完的zip包解压后可以看到上传demo（Demo）目录，上传相关源代码在Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload目录下。
+您可以在腾讯云官网更新 [Android 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip)。
+下载完的zip包解压后可以看到上传 demo（Demo）目录，上传相关源代码在Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 目录下。
 
 ##  集成上传库和源代码
 
-拷贝上传源代码目录Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload到您的工程目录中，需要手动修改一下package名。
+拷贝上传源代码目录 Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 到您的工程目录中，需要手动修改一下 package 名。
 
-将Demo/app/libs/upload目录下的所有jar包集成到您的项目中，建议您保留upload目录结构，方便以后对库进行更新。
+将 Demo/app/libs/upload 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
 
 依赖库说明：
 
-| jar文件                       | 说明                                       |
+| jar 文件                       | 说明                                       |
 | --------------------------- | ---------------------------------------- |
-| cos-xml-android-sdk-1.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
-| qcloud-core-1.2.jar         | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传(TXUGCPublish)功能 |
+| cos-xml-android-sdk-1.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传（TXUGCPublish）功能 |
+| qcloud-core-1.2.jar         | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于短视频上传（TXUGCPublish）功能 |
 | okhttp-3.8.1.jar            | 一款优秀的开源 http 组件                          |
 | okio-1.13.0.jar             | 一款优秀的开源网络 I/O 组件                         |
 | xstream-1.4.7.jar           | 一款优秀的开源序列化组件                             |
-| fastjson-1.1.62.android.jar | 一款优秀的开源json组件                            |
+| fastjson-1.1.62.android.jar | 一款优秀的开源 json 组件                            |
 
 
 使用短视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
@@ -61,7 +61,7 @@ mVideoPublish.setListener(new TXUGCPublishTypeDef.ITXVideoPublishListener() {
 
 ```java
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
-// signature计算规则可参考[客户端上传签名](/document/product/266/9221)
+// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
 param.signature = "xxx";
 param.videoPath = "xxx";
 ```
@@ -80,7 +80,7 @@ int publishCode = mVideoPublish.publishVideo(param);
 
 ```java
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
-// signature计算规则可参考[客户端上传签名](/document/product/266/9221)
+// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
 param.signature = "xxx";
 param.videoPath = "xxx";
 param.coverPath = "xxx";
@@ -88,36 +88,36 @@ param.coverPath = "xxx";
 
 ### 取消、恢复上传
 
-取消上传，调用`TXUGCPublish`的`canclePublish()`。
+取消上传，调用 `TXUGCPublish` 的 `canclePublish()` 。
 
 ```java
 mVideoPublish.canclePublish();
 ```
 
-恢复上传，用相同的上传参数（视频路径和封面路径不变）再调用一次`TXUGCPublish`的`publishVideo`。
+恢复上传，用相同的上传参数（视频路径和封面路径不变）再调用一次 `TXUGCPublish` 的 `publishVideo`。
 
 ### 断点续传
 
 在视频上传过程中，点播支持断点续传，即当上传意外终止时，用户再次上传该文件，可以从中断处继续上传，减少重复上传时间。断点续传的有效时间是 1 天，即同一个视频上传被中断，那么 1 天内再次上传可以直接从断点处上传，超过 1 天则默认会重新上传完整视频。
-上传参数中的`enableResume`为断点续传开关，默认是开启的。
+上传参数中的 `enableResume` 为断点续传开关，默认是开启的。
 
 
 ## 接口描述
 
-初始化上传对象`TXUGCPublish`
+初始化上传对象 `TXUGCPublish`
 
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | context   | application 上下文        | Context | 是    |
 | customKey | 用于区分不同的用户，建议使用app的账号id | String  | 否    |
 
-上传`TXUGCPublish.publishVideo`
+上传 `TXUGCPublish.publishVideo`
 
 | 参数名称  | 参数描述 | 类型                                 | 必填   |
 | ----- | ---- | ---------------------------------- | ---- |
 | param | 上传参数 | TXUGCPublishTypeDef.TXPublishParam | 是    |
 
-上传参数`TXUGCPublishTypeDef.TXPublishParam`
+上传参数 `TXUGCPublishTypeDef.TXPublishParam`
 
 | 参数名称         | 参数描述                               | 类型      | 必填   |
 | ------------ | ---------------------------------- | ------- | ---- |
@@ -126,27 +126,27 @@ mVideoPublish.canclePublish();
 | coverPath    | 本地封面文件路径，默认不带封面文件                  | String  | 否    |
 | enableResume | 是否启动断点续传，默认开启                      | boolean | 否    |
 
-设置上传回调`TXUGCPublish.setListener`
+设置上传回调 `TXUGCPublish.setListener`
 
 | 参数名称     | 参数描述        | 类型                                       | 必填   |
 | -------- | ----------- | ---------------------------------------- | ---- |
 | listener | 上传进度和结果回调监听 | TXUGCPublishTypeDef.ITXVideoPublishListener | 是    |
 
 
-进度回调`TXUGCPublishTypeDef.ITXVideoPublishListener.onPublishProgress`
+进度回调 `TXUGCPublishTypeDef.ITXVideoPublishListener.onPublishProgress`
 
 | 变量名称        | 变量描述     | 类型   |
 | ----------- | -------- | ---- |
 | uploadBytes | 已经上传的字节数 | long |
 | totalBytes  | 总字节数     | long |
 
-结果回调`TXUGCPublishTypeDef.ITXVideoPublishListener.onPublishComplete`
+结果回调 `TXUGCPublishTypeDef.ITXVideoPublishListener.onPublishComplete`
 
 | 变量名称   | 变量描述 | 类型                                  |
 | ------ | ---- | ----------------------------------- |
 | result | 上传结果 | TXUGCPublishTypeDef.TXPublishResult |
 
-上传结果`TXUGCPublishTypeDef.TXPublishResult`
+上传结果 `TXUGCPublishTypeDef.TXPublishResult`
 
 | 成员变量名称   | 变量说明      | 类型     |
 | -------- | --------- | ------ |
