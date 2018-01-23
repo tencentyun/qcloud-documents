@@ -12,8 +12,8 @@
 ## 将应用云 TACSocialWechat 代码库添加到您的 Xcode 项目中
 
 
-##### （1）在您的项目中集成应用云 SDK。
-
+##### （1）在您的项目中集成应用云 SDK：
+ 
 并在您的 Podfile 文件中添加应用云的私有源：
 
 ~~~
@@ -24,20 +24,20 @@ source "https://github.com/CocoaPods/Specs"
 > **注意**
 > 一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题。
 
-##### （2）添加 TACSocialWechat 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod。
-
+##### （2）添加 TACSocialWechat 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
+ 
 ~~~
 pod 'TACSocialWechat"
 ~~~
 
-##### （3） 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
-
+##### （3） 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
+ 
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### （4）在 UIApplicationDelegate 子类中导入 TACSocialWechat 模块。
+##### （4）在 UIApplicationDelegate 子类中导入 TACSocialWechat 模块：
 Objective-C 代码示例
 ~~~
 #import <TACSocialWechat/TACSocialWechat.h>
@@ -49,8 +49,8 @@ import TACSocialWechat
 ~~~
 
 
-##### （5） 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置。
-
+##### （5） 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
+ 
 
 ###### 先行配置--引入配置文件
 
@@ -155,8 +155,8 @@ ${THIRD_FRAMEWORK_PATH}/Scripts/run
 2. 如果您使用手工集成的方式则为 `${SRCROOT}/TACSocialWechat/Scripts/run`
 
 
-#### （6） 使用 libWeChatSDK 的功能。
-
+#### （6） 使用 libWeChatSDK 的功能：
+ 
  > 我们已经为您自动化配置好了 libWeChatSDK 的其他功能，包括 HandleOpenURL 等函数的响应，和在 Info.plist 文件中注册相关的回调和 Scheme 等操作，您不需要重复执行该操作。
 
 如果您要使用 libWeChatSDK 的功能，您可以引入头文件：
