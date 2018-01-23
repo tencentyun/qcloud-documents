@@ -32,7 +32,7 @@
 输入
 
 <pre>
-  https://iotcloud.qcloud.com/index.php?Action=Publish
+  https://iotcloud.qcloud.com/v2/index.php?Action=Publish
   &topic=ABCDE12345/${deviceName}/data
   &payload=test&productID=ABCDE12345&deviceName=apple
   &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
@@ -50,12 +50,12 @@
 <span id = "module_error_info"></span>
 ### 5. 模块错误码
 
-| 模块错误码 | 描述                |
-| ----- | ----------------- |
+| 模块错误码 | 描述                  |
+| ----- | ------------------- |
 | 7000  | 消息 topic 非法         |
 | 7001  | 后台内部错误，请联系 api 负责人。 |
-| 7002  | 消息长度非法            |
-| 7101  | 请求参数非法            |
+| 7002  | 消息长度非法              |
+| 7101  | 请求参数非法              |
 
 
 
