@@ -1,6 +1,6 @@
 在 iOS 中开始使用 应用云 TACSocialQQ
 
- >  TACSocialQQ 封装了 [TencentOpenAPI](wiki.connect.qq.com/ios_sdk环境搭建) --  QQ 互联的 SDK，您可以通过引入 TACSocialQQ 来引入 QQ 互联能力。同时，TACSocialQQ 提供了更方便的改 SDK 集成方式。请不要重复引入 TencentOpenAPI 。
+ >  TACSocialQQ 封装了 [TencentOpenAPI](wiki.connect.qq.com/ios_sdk环境搭建) --  QQ 互联的 SDK，您可以通过引入 TACSocialQQ 来引入 QQ 互联能力。同时，TACSocialQQ 提供了更方便的改 SDK 集成方式，请不要重复引入 TencentOpenAPI 。
 
 ## 准备工作
 
@@ -12,8 +12,8 @@
 ## 将应用云 TACSocialQQ 代码库添加到您的 Xcode 项目中
 
 
-##### （1）在您的项目中集成应用云 SDK。
-
+##### （1）在您的项目中集成应用云 SDK：
+ 
 并在您的 Podfile 文件中添加应用云的私有源
 
 ~~~
@@ -24,34 +24,32 @@ source "https://github.com/CocoaPods/Specs"
 > **注意：**
 一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题。
 
-##### （2）添加 TACSocialQQ 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod。
-
+##### （2）添加 TACSocialQQ 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod：
+ 
 ~~~
 pod 'TACSocialQQ"
 ~~~
 
-##### （3）安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
-
+##### （3）安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
+ 
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### （4）在 UIApplicationDelegate 子类中导入 TACSocialQQ 模块。
-
+##### （4）在 UIApplicationDelegate 子类中导入 TACSocialQQ 模块：
+Objective-C 代码示例
 ~~~
-objective-c
 import <TACSocialQQ/TACSocialQQ.h>
 ~~~
-
+Swift 代码示例
 ~~~
-swift
 import TACSocialQQ
 ~~~
 
 
-##### （5）配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置。
-
+##### （5）配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
+ 
 
 ###### 先行配置--引入配置文件
 
