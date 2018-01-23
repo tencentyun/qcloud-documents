@@ -23,12 +23,18 @@
 
 ### 配置案例
 
-用户访问域名为```www.test.com```，源站配置为域名```origin.test.com```，```origin.test.com``` 对应的A记录为```1.1.1.1```，用户请求为：```http://www.test.com/1.jpg```。
+用户访问域名为```www.test.com```，源站配置为域名```origin.test.com```，```origin.test.com``` 对应的A记录为```1.1.1.1```
+
+用户请求为：```http://www.test.com/1.jpg```。
 
 若配置如下：![](https://mc.qcloudimg.com/static/img/36e6b93488f46f08759244ae09553c29/origin-config-4.png)
 
-默认情况下，回源 host 为加速域名，回源时实际请求发往```1.1.1.1```，获取的资源为：```http://www.test.com/1.jpg```。
+默认情况下，回源 host 为加速域名，回源时实际请求发往```1.1.1.1```
+
+获取的资源为：```http://www.test.com/1.jpg```。
 
 若配置如下：![](https://mc.qcloudimg.com/static/img/1888f327603bbdfe15c332d489b1f4c1/origin-host-demo.png)
 
-回源 host 为```origin.test.com```，回源时实际请求发往```1.1.1.1```，获取的资源为：```http://origin.test.com/1.jpg```。
+回源 host 为```origin.test.com```，回源时实际请求发往```1.1.1.1```
+
+获取的资源为：```http://origin.test.com/1.jpg```。
