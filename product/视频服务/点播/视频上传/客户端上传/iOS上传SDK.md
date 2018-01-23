@@ -110,7 +110,7 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 
 | 参数名称         | 参数描述                               | 类型        | 必填   |
 | ------------ | ---------------------------------- | --------- | ---- |
-| signature    | [点播签名](/document/product/266/9221) | NSString* | 是    |
+| signature    | [客户端上传签名](/document/product/266/9221) | NSString* | 是    |
 | videoPath    | 本地视频文件路径                           | NSString* | 是    |
 | coverImage   | 封面图片，可不设置。                         | UIImage*  | 否    |
 | enableResume | 是否启动断点续传，默认开启                      | BOOL      | 否    |

@@ -121,7 +121,7 @@ mVideoPublish.canclePublish();
 
 | 参数名称         | 参数描述                               | 类型      | 必填   |
 | ------------ | ---------------------------------- | ------- | ---- |
-| signature    | [点播签名](/document/product/266/9221) | String  | 是    |
+| signature    | [客户端上传签名](/document/product/266/9221) | String  | 是    |
 | videoPath    | 本地视频文件路径                           | String  | 是    |
 | coverPath    | 本地封面文件路径，默认不带封面文件                  | String  | 否    |
 | enableResume | 是否启动断点续传，默认开启                      | boolean | 否    |
