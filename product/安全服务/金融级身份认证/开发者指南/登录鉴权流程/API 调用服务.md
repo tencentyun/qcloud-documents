@@ -14,7 +14,7 @@
 
 
 ### 流程图示
-![](https://mc.qcloudimg.com/static/img/295523ac26c1a844ac3a3f371565fbc1/image.png)
+![](https://mc.qcloudimg.com/static/img/72ea5f192c133a899c3c348c9cf88d44/image.png)
 
 更多产品鉴权流程：[登录鉴权概览](https://cloud.tencent.com/document/product/655/13663)
 
