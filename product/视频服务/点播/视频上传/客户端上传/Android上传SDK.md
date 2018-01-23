@@ -112,6 +112,7 @@ mVideoPublish.canclePublish();
 | customKey | 用于区分不同的用户，建议使用app的账号id | String  | 否    |
 
 上传`TXUGCPublish.publishVideo`
+
 | 参数名称  | 参数描述 | 类型                                 | 必填   |
 | ----- | ---- | ---------------------------------- | ---- |
 | param | 上传参数 | TXUGCPublishTypeDef.TXPublishParam | 是    |
@@ -126,23 +127,27 @@ mVideoPublish.canclePublish();
 | enableResume | 是否启动断点续传，默认开启                      | boolean | 否    |
 
 设置上传回调`TXUGCPublish.setListener`
+
 | 参数名称     | 参数描述        | 类型                                       | 必填   |
 | -------- | ----------- | ---------------------------------------- | ---- |
 | listener | 上传进度和结果回调监听 | TXUGCPublishTypeDef.ITXVideoPublishListener | 是    |
 
 
 进度回调`TXUGCPublishTypeDef.ITXVideoPublishListener.onPublishProgress`
+
 | 变量名称        | 变量描述     | 类型   |
 | ----------- | -------- | ---- |
 | uploadBytes | 已经上传的字节数 | long |
 | totalBytes  | 总字节数     | long |
 
 结果回调`TXUGCPublishTypeDef.ITXVideoPublishListener.onPublishComplete`
+
 | 变量名称   | 变量描述 | 类型                                  |
 | ------ | ---- | ----------------------------------- |
 | result | 上传结果 | TXUGCPublishTypeDef.TXPublishResult |
 
 上传结果`TXUGCPublishTypeDef.TXPublishResult`
+
 | 成员变量名称   | 变量说明      | 类型     |
 | -------- | --------- | ------ |
 | retCode  | 结果码       | int    |

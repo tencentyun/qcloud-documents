@@ -101,6 +101,7 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 | userID | 用户userID，用于区分不同的用户 | NSString* | 否    |
 
 上传`TXUGCPublish.publishVideo`
+
 | 参数名称  | 参数描述 | 类型              | 必填   |
 | ----- | ---- | --------------- | ---- |
 | param | 发布参数 | TXPublishParam* | 是    |
@@ -116,23 +117,27 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 
 
 设置上传回调`TXUGCPublish.delegate`
+
 | 成员变量名称   | 变量描述        | 类型                     | 必填   |
 | -------- | ----------- | ---------------------- | ---- |
 | delegate | 上传进度和结果回调监听 | TXVideoPublishListener | 是    |
 
 
 进度回调`TXVideoPublishListener.onPublishProgress`
+
 | 变量名称        | 变量描述     | 类型        |
 | ----------- | -------- | --------- |
 | uploadBytes | 已经上传的字节数 | NSInteger |
 | totalBytes  | 总字节数     | NSInteger |
 
 结果回调`TXVideoPublishListener.onPublishComplete`
+
 | 变量名称   | 变量描述 | 类型               |
 | ------ | ---- | ---------------- |
 | result | 上传结果 | TXPublishResult* |
 
 上传结果`TXPublishResult`
+
 | 成员变量名称   | 变量说明      | 类型        |
 | -------- | --------- | --------- |
 | retCode  | 结果码       | int       |
