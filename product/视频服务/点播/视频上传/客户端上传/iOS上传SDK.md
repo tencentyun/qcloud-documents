@@ -154,13 +154,13 @@ SDK 通过 `TXVideoPublishListener` 接口来监听视频上传相关的状态�
 | 状态码  | 在 TVCCommon 中所对应的常量           | 含义              |
 | :--: | :---------------------------- | :-------------- |
 |  0   | TVC_OK                        | 上传成功            |
-| 1001 | TVC_ERR_UGC_REQUEST_FAILED    | 请求上传失败          |
+| 1001 | TVC_ERR_UGC_REQUEST_FAILED    | 请求上传失败，通常是客户端签名过期或者非法，需要 APP 重新申请签名         |
 | 1002 | TVC_ERR_UGC_PARSE_FAILED      | 请求信息解析失败        |
 | 1003 | TVC_ERR_VIDEO_UPLOAD_FAILED   | 上传视频失败          |
 | 1004 | TVC_ERR_COVER_UPLOAD_FAILED   | 上传封面失败          |
 | 1005 | TVC_ERR_UGC_FINISH_REQ_FAILED | 结束上传请求失败        |
 | 1006 | TVC_ERR_UGC_FINISH_RSP_FAILED | 结束上传响应错误        |
 | 1008 | TVC_ERR_FILE_NOT_EXIST        | 上传文件不存在         |
-| 1012 | TVC_ERR_INVALID_SIGNATURE     | 视频上传signature为空 |
+| 1012 | TVC_ERR_INVALID_SIGNATURE     | 视频上传 signature 为空 |
 | 1013 | TVC_ERR_INVALID_VIDEOPATH     | 视频文件的路径为空       |
 | 1017 | TVC_ERR_USER_CANCLE           | 用户调用取消上传        |

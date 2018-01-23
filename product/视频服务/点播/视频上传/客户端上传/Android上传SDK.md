@@ -164,7 +164,7 @@ SDK 通过 `TXUGCPublishTypeDef.TXVideoPublishListener` 接口来监听视频上
 | 状态码  | 在 TVCConstants 中所对应的常量         | 含义                     |
 | :--: | :----------------------------- | :--------------------- |
 |  0   | NO_ERROR                       | 上传成功                   |
-| 1001 | ERR_UGC_REQUEST_FAILED         | 请求上传失败                 |
+| 1001 | ERR_UGC_REQUEST_FAILED         | 请求上传失败，通常是客户端签名过期或者非法，需要 APP 重新申请签名                 |
 | 1002 | ERR_UGC_PARSE_FAILED           | 请求信息解析失败               |
 | 1003 | ERR_UPLOAD_VIDEO_FAILED        | 上传视频失败                 |
 | 1004 | ERR_UPLOAD_COVER_FAILED        | 上传封面失败                 |
@@ -174,8 +174,8 @@ SDK 通过 `TXUGCPublishTypeDef.TXVideoPublishListener` 接口来监听视频上
 | 1008 | ERR_FILE_NOEXIT                | 上传文件不存在                |
 | 1009 | ERR_UGC_PUBLISHING             | 视频正在上传中                |
 | 1010 | ERR_UGC_INVALID_PARAM          | 上传参数为空                 |
-| 1012 | ERR_UGC_INVALID_SIGNATURE      | 视频上传signature为空        |
+| 1012 | ERR_UGC_INVALID_SIGNATURE      | 视频上传 signature 为空        |
 | 1013 | ERR_UGC_INVALID_VIDOPATH       | 视频文件的路径为空              |
 | 1014 | ERR_UGC_INVALID_VIDEO_FILE     | 当前路径下视频文件不存在           |
-| 1015 | ERR_UGC_FILE_NAME              | 视频上传文件名太长（超过40）或含有特殊字符 |
+| 1015 | ERR_UGC_FILE_NAME              | 视频上传文件名太长（超过 40）或含有特殊字符 |
 | 1016 | ERR_UGC_INVALID_COVER_PATH     | 视频文件封面路径不对，文件不存在       |
