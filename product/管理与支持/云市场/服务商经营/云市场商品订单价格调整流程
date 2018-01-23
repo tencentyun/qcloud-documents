@@ -1,0 +1,18 @@
+## 一、客户侧操作
+### 1、用户在云市场选购商品
+![](https://mc.qcloudimg.com/static/img/8373dd18f399cc348e147a02ba66682f/image.png)
+### 2、用户下单但暂不支付
+![](https://mc.qcloudimg.com/static/img/a271cde1414026021c1eef8e6e67c939/image.png)
+![](https://mc.qcloudimg.com/static/img/d0f5bc139abfe7de720e042e51ed7168/image.png)
+### 3、获取需要改价的订单号
+#### 3.1 控制台访问“我的订单”入口
+[https://console.cloud.tencent.com/deal](https://console.cloud.tencent.com/deal)
+![](https://mc.qcloudimg.com/static/img/7bc4223d5aaf6ba9038621bbd13d6eba/image.png)
+#### 3.2 查看订单详情
+![](https://mc.qcloudimg.com/static/img/4bd8f65f8e4060bd444dcdb3acd705e0/image.png)
+#### 3.3 获取订单ID
+![](https://mc.qcloudimg.com/static/img/224f16073d9dd7001c2f1fe78295b2af/image.png)
+### 4、客户将订单ID提供给商品的服务商
+## 二、云市场商品服务商操作
+[https://console.cloud.tencent.com/serviceprovider/updateprice](https://console.cloud.tencent.com/serviceprovider/updateprice)
+![](https://mc.qcloudimg.com/static/img/c339af8c9689113f0a7ae6b361d8a839/image.png)
