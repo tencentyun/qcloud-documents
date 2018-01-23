@@ -2,11 +2,9 @@
 >
 > 源站与回源 HOST：源站配置的 IP/域名能够指引 CDN 节点回源时找到对应的源站服务器，服务器上可能存在若干 WEB 站点，回源 HOST 指明了资源所在的站点。
 
-## 回源host配置
+## 配置指引
 
-### 配置指引
-
-#### 查看配置
+### 查看配置
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】：
 ![](https://mc.qcloudimg.com/static/img/1f2cb594cd614b62b589cb20a20ed362/basic-config-1.png)
@@ -17,11 +15,11 @@
 + 若您接入的加速域名为 ```www.test.com```，则此节点对此域名下资源发起回源请求时，Request HTTP Header 中 HOST 字段的值为 ```www.test.com```。
 + 若您接入的加速域名为泛域名，如 ```*.test.com```，若访问域名为 ```abc.test.com```，则回源 HOST 为 ```abc.test.com```。
 
-#### 修改回源Host
+### 修改回源Host
 
 点击【编辑】可以对回源host配置进行调整：![](https://mc.qcloudimg.com/static/img/36e6b93488f46f08759244ae09553c29/origin-config-4.png)
 
-### 配置案例
+## 配置案例
 
 用户访问域名为```www.test.com```，源站配置为域名```origin.test.com```，```origin.test.com``` 对应的A记录为```1.1.1.1```
 
