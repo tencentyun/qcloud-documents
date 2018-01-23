@@ -7,10 +7,7 @@
 2. 到 [Devmaster 产品介绍页](https://cloud.tencent.com/product/devmaster) 上单击【公测申请】，然后跳转到 Devmaster 产品申请页。
 ![](https://mc.qcloudimg.com/static/img/25e225935245b6029c171d1a5ff730a4/image.png)<br>
 
-3. 跳转页面后，填写联系方式和业务信息，单击【完成注册】。
-![](https://mc.qcloudimg.com/static/img/f2d1c1ba3788c0affd1fcdb757667cf6/image.png)
-4. 跳转页面后，填写用户信息，单击【立即申请】完成申请。
-![](https://mc.qcloudimg.com/static/img/8c5c5e9802e92a78df076b4e0399d660/image.png)
+3. 跳转页面后，填写相关信息完成注册即可。
 
 ## 步骤二：初始化设置
 1. 首次登入 Devmaster 产品后，弹跳出初始化设置面板，设置 Git 帐号密码后，单击【下一步】。
