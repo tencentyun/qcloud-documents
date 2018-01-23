@@ -8,11 +8,11 @@
 
 以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/doc/api/229/6976) 页面。
 
-| 参数名称     | 必选   | 类型     | 描述               |
-| -------- | ---- | ------ | ---------------- |
+| 参数名称     | 必选   | 类型     | 描述                |
+| -------- | ---- | ------ | ----------------- |
 | taskID   | 是    | String | 任务 ID，由批量创建设备接口返回 |
-| pageNum  | 是    | Int    | 分页页数             |
-| pageSize | 是    | Int    | 分页大小，每页返回设备个数    |
+| pageNum  | 是    | Int    | 分页页数              |
+| pageSize | 是    | Int    | 分页大小，每页返回设备个数     |
 
 
 
@@ -28,13 +28,13 @@
 
 其中listCreateDeviceInfo的定义如下：
 
-| 参数名称             | 类型     | 描述                          |
-| ---------------- | ------ | --------------------------- |
-| deviceName       | String | 设备名称                        |
-| deviceCert       | String | 设备证书                        |
-| devicePrivateKey | String | 设备私钥                        |
+| 参数名称             | 类型     | 描述                            |
+| ---------------- | ------ | ----------------------------- |
+| deviceName       | String | 设备名称                          |
+| deviceCert       | String | 设备证书                          |
+| devicePrivateKey | String | 设备私钥                          |
 | result           | Int    | 执行结果，参考 CreateDevice 接口的返回码定义 |
-| errMsg           | String | 错误信息                        |
+| errMsg           | String | 错误信息                          |
 
 
 
@@ -43,7 +43,7 @@
 输入
 
 <pre>
-  https://iotcloud.qcloud.com/index.php?Action=GetMultiDevicesReq
+  https://iotcloud.qcloud.com/v2/index.php?Action=GetMultiDevices
   &taskID=abcdedf123456789&pageNum=1&pageSize=10
   &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
