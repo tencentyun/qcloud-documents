@@ -149,7 +149,7 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 
 ## 错误码
 
-SDK 通过 `TXVideoPublishListener` 接口来监听短视频上传相关的状态。因此，可以利用 `TXPublishResult` 中的 `retCode` 来确认视频发布的情况。
+SDK 通过 `TXVideoPublishListener` 接口来监听视频上传相关的状态。因此，可以利用 `TXPublishResult` 中的 `retCode` 来确认视频发布的情况。
 
 | 状态码  | 在 TVCCommon 中所对应的常量           | 含义              |
 | :--: | :---------------------------- | :-------------- |
