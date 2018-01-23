@@ -53,7 +53,7 @@ _videoPublish.delegate = self;
 
 ```objc
 TXPublishParam *videoPublishParams = [[TXPublishParam alloc] init];
-// signature计算规则可参考 https://www.qcloud.com/document/product/266/9221
+// signature计算规则可参考[客户端上传签名](/document/product/266/9221)
 videoPublishParams.signature  = @"xxx";
 videoPublishParams.videoPath  = self.uploadTempFilePath;
 ```
