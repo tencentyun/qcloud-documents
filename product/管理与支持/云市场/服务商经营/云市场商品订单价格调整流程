@@ -13,10 +13,10 @@
 ## 二、商品服务商调价
 1. 商品服务商登录 [服务商管理控制台](https://console.cloud.tencent.com/serviceprovider/updateprice)。    
 2. 单击“订单管理” > “订单改价”，输入客户提供的订单号后进行价格调整。  
-![](https://mc.qcloudimg.com/static/img/ea6f8396fb439640c51f5b1d31d0b495/image.png)  
-![](https://mc.qcloudimg.com/static/img/9465822466d7719ceca57bbfd18d7c28/image.png)
+![](https://mc.qcloudimg.com/static/img/76f4d04e1a2c957a022f9f60c078ef3f/image.png)
+![](https://mc.qcloudimg.com/static/img/93d63d0c57631810cba1fdc106bf9e9c/image.png)
 3. 价格调整完成后，通知客户在订单页进行支付。  
 
 ## 三、客户支付
 客户收到商品服务商的支付通知后，到订单页刷新后进行支付。  
-![](https://mc.qcloudimg.com/static/img/d396381b570ff2836627203203a89c76/image.png)
+![](https://mc.qcloudimg.com/static/img/5e490b1f2f9537d58fc62ca00b0a9ff6/image.png)
