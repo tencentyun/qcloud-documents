@@ -1,18 +1,21 @@
-## 一、客户侧操作
-### 1、用户在云市场选购商品
+## 一、客户下单
+1. 客户在云市场选购所需的产品，单击【立即购买】。
 ![](https://mc.qcloudimg.com/static/img/8373dd18f399cc348e147a02ba66682f/image.png)
-### 2、用户下单但暂不支付
+2. 核对购买信息无误后，单击【确认购买】进行下单。
 ![](https://mc.qcloudimg.com/static/img/a271cde1414026021c1eef8e6e67c939/image.png)
 ![](https://mc.qcloudimg.com/static/img/d0f5bc139abfe7de720e042e51ed7168/image.png)
-### 3、获取需要改价的订单号
-#### 3.1 控制台访问“我的订单”入口
-[https://console.cloud.tencent.com/deal](https://console.cloud.tencent.com/deal)
+3. 登录 [控制台](https://console.cloud.tencent.com/deal)，单击【我的订单】。
 ![](https://mc.qcloudimg.com/static/img/7bc4223d5aaf6ba9038621bbd13d6eba/image.png)
-#### 3.2 查看订单详情
+4. 单击相关订单所在行的【详情】进入订单详情页。
 ![](https://mc.qcloudimg.com/static/img/4bd8f65f8e4060bd444dcdb3acd705e0/image.png)
-#### 3.3 获取订单ID
+5. 在订单详情页，获取相关订单的“订单号”后将订单号提供给商品的服务商。
 ![](https://mc.qcloudimg.com/static/img/224f16073d9dd7001c2f1fe78295b2af/image.png)
-### 4、客户将订单ID提供给商品的服务商
-## 二、云市场商品服务商操作
-[https://console.cloud.tencent.com/serviceprovider/updateprice](https://console.cloud.tencent.com/serviceprovider/updateprice)
+
+## 二、商品服务商调价
+1. 商品服务商登录 [服务商管理控制台](https://console.cloud.tencent.com/serviceprovider/updateprice)。
+2. 单击“订单管理” > “订单改价”，输入客户提供的订单号后进行价格调整。
 ![](https://mc.qcloudimg.com/static/img/c339af8c9689113f0a7ae6b361d8a839/image.png)
+3. 价格调整完成后，通知客户在订单页进行支付。
+
+## 三、客户支付
+客户收到商品服务商的支付通知后，到订单页刷新后进行支付。
