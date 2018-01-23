@@ -25,20 +25,20 @@ source "https://github.com/CocoaPods/Specs"
 > **注意：**
    一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题
 
-##### （2) 添加 TACCrash 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod。
+##### （2） 添加 TACCrash 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod。
 
 ~~~
 pod 'TACCrash'
 ~~~
 
-##### (3) 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
+##### （3） 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
 
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### (4)在 UIApplicationDelegate 子类中导入 TACCrash 模块。
+##### （4）在 UIApplicationDelegate 子类中导入 TACCrash 模块。
 
 Objective-C 代码示例
 ~~~
@@ -50,7 +50,7 @@ import TACCrash
 ~~~
 
 
-##### (5) 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置
+##### （5） 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置
 
 一般情况下您使用默认配置就可以了，用一下代码使用默认配置启动Crash服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 Objective-C 代码示例
