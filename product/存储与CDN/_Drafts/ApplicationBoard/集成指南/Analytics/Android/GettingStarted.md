@@ -147,6 +147,6 @@ TACApplicationOptions applicationOptions = TACApplication.options();
 TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
 ```
 
-具体的 API 请参考 TACApplicationOptions 的API文档。
+具体的 API 请参考 TACAnalyticsOptions 的API文档。
 
 **请在 Analytics 服务启动前完成它对应的参数配置。一旦服务启动，后续所有对它的参数修改都不会生效**。
