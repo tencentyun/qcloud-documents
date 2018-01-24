@@ -1,5 +1,5 @@
 ### 1. 接口描述
-本接口 (CreateMultiDevice) 用于批量创建物联云设备。
+本接口（CreateMultiDevice）用于批量创建物联云设备。
 
 接口请求域名：`iotcloud.api.qcloud.com`
 
@@ -14,15 +14,15 @@
 | 参数名称           | 必选   | 类型              | 描述                                       |
 | -------------- | ---- | --------------- | ---------------------------------------- |
 | productID      | 是    | String          | 产品 ID。创建产品时腾讯云为用户分配全局唯一的 ID              |
-| listDeviceName | 是    | Array of String | 批量创建的设备名数组，单次最多创建100个设备。命名规则：[a-zA-Z0-9:_-]{1,48} |
+| listDeviceName | 是    | Array of String | 批量创建的设备名数组，单次最多创建 100 个设备。命名规则：[a-zA-Z0-9:_-]{1,48} |
 
 
 ### 3. 输出参数
 
 | 参数名称    | 类型     | 描述                                       |
 | ------- | ------ | ---------------------------------------- |
-| code    | Int    | 公共错误码，0 表示成功，其他值表示失败，详见[公共错误码](https://cloud.tencent.com/document/product/634/12279)页面 |
-| message | String | 模块错误信息描述，格式为 "(模块错误码)模块错误信息"， 详见本页面的[模块错误码](#module_error_info) |
+| code    | Int    | 公共错误码，0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279) 页面 |
+| message | String | 模块错误信息描述，格式为 "(模块错误码)模块错误信息"， 详见本页面的 [模块错误码](#module_error_info) |
 | taskID  | String | 任务ID，腾讯云生成全局唯一的任务 ID                     |
 
 
@@ -31,7 +31,7 @@
 输入
 <pre>
 
-  https://iotcloud.api.qcloud.com/index.php?Action=CreateMultiDevice
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=CreateMultiDevice
   &productID=ABCDE12345
   &listDeviceName.0=apple
   &listDeviceName.1=banana

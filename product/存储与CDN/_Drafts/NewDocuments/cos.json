@@ -55,6 +55,70 @@
 		"/": {
 			"get": {
 				"tags": [
+				  "serrvice"
+				],
+				"summary": "Get Service",
+				"description": "Get Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。",
+				"operationId": "GetService",
+				"responses": {
+				  "200": {
+					"error_code" : "None",
+					"description": "查询成功，返回 application/xml 数据，包含bucket中的对象信息",
+					"headers": {
+					  "x-cos-request-id": {
+						"description": "全局唯一的请求标识号",
+						"schema": {
+						  "type": "string"
+						}
+					  }
+					},
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#components/schemas/GetServiceResult"
+						}
+					  }
+					}
+				  },
+				  "400": {
+					"error_code" : "InvalidBucketName",
+					"description": "Bucket名称不合法",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "403": {
+					"error_code" : "SignatureDoesNotMatch",
+					"description": "提供的签名不符合规则，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "404": {
+					"error_code" : "NoSuchBucket",
+					"description": "Bucket 不存在，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error"
+						}
+					  }
+					}
+				  }
+				}
+			},
+			"get-2": {
+				"tags": [
 					"bucket"
 				],
 				"summary": "Get Bucket",
@@ -167,7 +231,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetBucket"
 			},
 			"put": {
 				"tags": [
@@ -287,8 +352,131 @@
 							}
 						}
 					}
-				}
-			}
+                },
+                "Demo": "demos/PutBucket"
+            },
+            "delete": {
+                "tags": [
+                  "bucket"
+                ],
+                "summary": "Delete Bucket",
+                "description": "Delete Bucket 接口请求可以在指定账号下删除 Bucket，删除之前要求 Bucket 内的内容为空，只有删除了 Bucket 内的信息，才能删除 Bucket 本身 。",
+                "operationId": "DeleteBucket",
+                "responses": {
+                  "204": {
+                    "error_code" : "None",
+                    "description": "删除Bucket成功，返回 application/xml 数据",
+                    "headers": {
+                      "x-cos-request-id": {
+                        "description": "全局唯一的请求标识号",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "403": {
+                    "error_code" : "AccessDenied",
+                    "description": "删除 Bucket 同样需要携带签名，如果试图删除一个没有访问权限的 Bucket，就会返回该错误",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                    },
+                  "404": {
+                    "error_code" : "InvalidBucketName",
+                    "description": "Bucket 不存在，返回该错误码",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "oneOf": [
+                            {
+                              "description" : "ddd",
+                              "type": "string"
+                            },
+                            {
+                              "description" : "eee",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "409": {
+                    "error_code" : "BucketNotEmpty",
+                    "description": "不能删除一个非空的 Bucket",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Demo": "demos/DeleteBucket"
+            },
+            "head": {
+                "tags": [
+                  "bucket"
+                ],
+                "summary": "Head Bucket",
+                "description": "Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。Head 的权限与 Read 一致。当该 Bucket 存在时，返回 HTTP 状态码 200；当该 Bucket 无访问权限时，返回 HTTP 状态码 403；当该 Bucket 不存在时，返回 HTTP 状态码 404。",
+                "operationId": "HeadBucket",
+                "responses": {
+                  "200": {
+                    "error_code" : "None",
+                    "description": "该 Bucket 存在",
+                    "headers": {
+                      "x-cos-request-id": {
+                        "description": "全局唯一的请求标识号",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "403": {
+                    "error_code" : "SignatureDoesNotMatch",
+                    "description": "提供的签名不符合规则，返回该错误码",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                  },
+                  "404": {
+                    "error_code" : "NoSuchBucket",
+                    "description": "该 Bucket 不存在",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "oneOf": [
+                            {
+                              "description" : "ddd",
+                              "type": "string"
+                            },
+                            {
+                              "description" : "eee",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "Demo": "demos/HeadBucket"
+            }
 		},
 		"/?cors": {
 			"put": {
@@ -351,7 +539,7 @@
 						}
 					}
 				},
-        "Demo": "demos/PutBucketCORS"
+                "Demo": "demos/PutBucketCORS"
 			},
 			"get": {
 				"tags": [
@@ -394,8 +582,8 @@
 							}
 						}
 					}
-        },
-        "Demo": "demos/GetBucketCORS"
+                },
+                "Demo": "demos/GetBucketCORS"
 			},
 			"delete": {
 				"tags": [
@@ -1941,7 +2129,54 @@
         },
         "Demo": "demos/DeleteBucketLifecycle"
 			}
-		},
+        },
+        "/?location": {
+            "get": {
+              "tags": [
+                "bucket"
+              ],
+              "summary": "Get Bucket Location",
+              "description": "Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。",
+              "operationId": "GetBucketLocation",
+              "responses": {
+                "200": {
+                  "error_code" : "None",
+                  "description": "上传成功,响应体返回为空",
+                   "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#components/schemas/GetBucketLocationResult"
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "error_code" : "SignatureDoesNotMatch",
+                  "description": "提供的签名不符合规则，返回该错误码",
+                  "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Error",
+                        "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                      }
+                    }
+                  }
+                },
+                "404": {
+                  "error_code" : "NoSuchBucket",
+                  "description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+                  "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Error"
+                      }
+                    }
+                  }
+                }
+              },
+              "Demo": "demos/GetBucketLocation"
+            }
+        },
 		"/?tagging": {
 			"put": {
 				"tags": [
@@ -2068,7 +2303,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/PutBucketTagging"
 			},
 			"get": {
 				"tags": [
@@ -2123,7 +2359,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetBucketTagging"
 			},
 			"delete": {
 				"tags": [
@@ -2148,7 +2385,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/DeleteBucketTagging"
 			}
 		},
 		"/{ObjectName}?tagging": {
@@ -2298,7 +2536,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/PutObjectTagging"
 			},
 			"get": {
 				"tags": [
@@ -2365,7 +2604,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetObjectTagging"
 			},
 			"delete": {
 				"tags": [
@@ -2413,7 +2653,8 @@
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/DeleteObjectTagging"
 			}
 		},
 		"/?acl": {
@@ -3018,6 +3259,16 @@
 					}
 				}
 			},
+            "GetBucketLocationResult": {
+              "type": "object",
+              "description": "返回 Bucket 所在的园区",
+              "properties": {
+                "LocationConstraint": {
+                  "type": "string",
+                  "description": "说明 Bucket 所在地域，枚举值参见 可用地域 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等"
+                }
+              }
+            },
 			"Tag": {
 				"type": "object",
 				"description": "标签集合",
@@ -3253,7 +3504,62 @@
 						}
 					}
 				}
-			}
+			},
+            "GetServiceResult": {
+              "type": "object",
+              "description": "Get Service 所有的返回信息",
+              "properties": {
+                "ListAllMyBucketsResult": {
+                  "type": "object",
+                  "description": "说明本次响应的所有信息",
+                  "properties": {
+                    "Owner": {
+                      "type": "object",
+                      "description": "说明 Bucket 持有者的信息",
+                      "properties": {
+                        "ID": {
+                          "type": "string",
+                          "description": "Bucket 所有者的 ID"
+                        },
+                        "DisplayName": {
+                          "type": "string",
+                          "description": "Bucket 所有者的名字信息"
+                        }
+                      }
+                    },
+                    "Buckets": {
+                      "type": "object",
+                      "description": "说明本次响应的所有 Bucket 列表信息",
+                      "properties": {
+                        "Bucket": {
+                          "type": "object",
+                          "description": "单个 Bucket 的信息",
+                          "properties": {
+                            "Name":{
+                              "type": "string",
+                              "description": "Bucket 的名称"
+                            },
+                            "Location":{
+                              "type": "string",
+                              "description": "Bucket 所在地域。枚举值参见 可用地域 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等"
+                            },
+                            "CreateDate":{
+                              "type": "string",
+                              "description": "Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z"
+                            }
+
+                          }
+                        },
+                        "DisplayName": {
+                          "type": "string",
+                          "description": "Bucket 所有者的名字信息"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
 		}
 	}
 }

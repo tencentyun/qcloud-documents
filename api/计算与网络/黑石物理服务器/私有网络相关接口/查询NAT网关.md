@@ -48,6 +48,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
             "vpcId": <vpc网络ID>,
             "vpcName": <VPC名称>,
             "state": <NAT网关状态>,
+            "forwardMode": <转发方式>,
             "productionStatus": <NAT网关生产状态>,
             "eipCount": <绑定至NAT网关的eip个数>,
             "eipSet": [
@@ -55,7 +56,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
             ],
             "maxConcurrent":  <NAT网关并发连接上限>,
             "ntype": <NAT网关并发连接上限类型>,
-            "subnetAll": <是否绑定全部子网>,
             "exclusive": <NAT网关共享型和独占型标识>,
             "createTime": <创建时间>
         }
@@ -85,6 +85,7 @@ data数据结构如下：
 | data.n.productionStatus |  NAT网关的生产状态, 0: 创建中, 1: 创建成功, 2: 创建失败 |Int |
 | data.n.maxConcurrent |  NAT网关并发连接上限, 100w:小型, 300w:中型, 1000w:大型，详见NAT网关产品说明 |Int |
 | data.n.ntype |  对应NAT网关并发连接上限, 取值为small, middle, big, 分别对应小型、中型、大型|String |
+| data.n.forwardMode | NAT网关的转发方式。当值为0表示ip方式，值为1时表示cidr方式| Int | 是 | 
 | data.n.exclusive |  NAT网关共享型和独占型标识，0表示共享型NAT网关，1表示独占型NAT网关 |Int 
 | data.n.eipCount |  NAT网关绑定eip的个数 |String |
 | data.n.eipSet |  NAT网关绑定的弹性IP列表，例如：[183.60.249.11] |Array |
@@ -127,6 +128,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
             "vpcId": 300006,
             "vpcName": "mgt_two",
             "state": 0,
+			"forwardMode": 1,
             "productionStatus": 1,
             "eipCount": 2,
             "eipSet": [

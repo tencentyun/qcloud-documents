@@ -5,5 +5,5 @@ download_url?imageInfo
 
 ## 示例
 ```
-http://v2test-10000812.image.myqcloud.com/tencentyunRestAPITest?exif
+http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?exif
 ```

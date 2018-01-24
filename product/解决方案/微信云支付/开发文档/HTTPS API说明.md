@@ -146,93 +146,56 @@ bool calc_RSASSA_PSS_2048_SHA256(const std::string &key,
     return true;
 }
 ```
-## 请求举例（以刷卡支付为例）
-- 构造request\_content结构，具体如下：
+## 构造请求举例（以刷卡支付为例）
 
 ```
 {
-    "request_content":{
-        "pay_mch_key":{
-            "pay_platform":2,
-            "out_mch_id":"1234mcWYS3M5TjKLorAZ',
-            "out_sub_mch_id":"12343ycHpBDv8GX]fmSv',
-            "out_shop_id":"1234ruQCleTa9w30AaAH'
-        },
-        "nonce_str":"542AB309ECA042FE92355BDEC4E2D733",
-        "order_client":{
-            "staff_id":"shop_manage_id_01',
-            "machine_no":"34-64-a9-15-b4-cl",
-            "terminal_type":1,
-            "sdk_version":"1.6",
-            "spbill_create_ip":"10.27.14.138",
-            "device_id":"device_id_01"
-        }
-        "pay_content":{
-            "author_code":"282129340414399818',
-            "out_trade_no":"12341008b320170802191960015",
-            "body":"生活用品套餐',
-            "total_fee":1,
-            "fee_type":"CNY"
-        }
-    }
-}
-```
-- 将request\_content从json转为字符串，根据认证算法计算出认证码，如下：
+		Json::Value pay_mch_key;      // 构造pay_mch_key
+		pay_mch_key["pay_platform"]   = 1;
+		pay_mch_key["out_mch_id"]     = "sz013NzuonO6CMJd0rCB";
+		pay_mch_key["out_sub_mch_id"] = "sz01ELTR281OFpmdAp6J";
+		pay_mch_key["out_shop_id"]    = "sz01qyoPJmd3j1hWmul4";
 
-```
-A2F2F3C3506F3461212525C4917479B515ABB42BDC5909F7C012B6F74C0C1B99
-```
-- 构造authen\_info结构，设置相应的认证算法和认证码，具体如下：
+		Json::Value pay_content;      // 构造pay_content
+		pay_content["out_trade_no"]   = "sz0100lmnx20171228151031";
+		pay_content["author_code"]    = "134680423163089456";
+		pay_content["total_fee"]      = 1;
+		pay_content["fee_type"]       = "CNY";
+		pay_content["attach"]         = "attach";
 
-```
-"authen_info":{
-    "a":{
-        "authen_type":1,
-        "authen_code":"A2F2F3C3506F3461212525C4917479B515ABB42BDC5909F7C012B6F74C0C1B99"
-    }
-}
-```
-- 构造请求数据包，包含authen\_info和request\_content两个结构，具体如下：
+		Json::Value order_client;        // 构造order_client
+		order_client["machine_no"]       = "32-62-A8-14-B3-C0";
+		order_client["sdk_version"]      = "1.0";
+		order_client["device_id"]        = 1;
+		order_client["spbill_create_ip"] = "183.15.244.75";
+		order_client["staff_id"]         = "1003";
+		order_client["terminal_type"]    = 2;
 
+		Json::Value request_content;     // 构造request_content
+		request_content["pay_mch_key"]   = pay_mch_key;
+		request_content["pay_content"]   = pay_content;
+		request_content["order_client"]  = order_client;
+		request_content["nonce_str"]     = "416492026bc84091bcaf7e74ea90ceba";
+
+		Json::FastWriter w;
+		std::string request_content_str = w.write(request_content); 
+
+		Json::Value authen;
+		authen["authen_code"] = hmac_sha256(authen_key, request_content_str); //计算认证码
+		authen["authen_type"] = 1; //hmac_sha256 为1
+
+		Json::Value authen_info;
+		authen_info["a"] = authen;  //认证码，签名是s
+
+		Json::Value request;       //构造最终发给服务器的请求
+		request["request_content"] = request_content_str;
+		request["authen_info"]     = authen_info;
+
+		std::string request_str = w.write(request);
+
+		return request_str;
+	}
 ```
-{
-    "request_content":"{
-        "pay_mch_key":{
-            "pay_platform":2,
-            "out_mch_id":"1234mcWYS3M5TjKLorAZ",
-            "out_sub_mch_id":"12343ycHpBDv8GXDfmSv",
-            "out_shop_id":"1234ruQCleTa9w30AaAH"
-        },
-        "pay_content":{
-            "out_trade_no":"12341008b320170802191960015",
-            "author_code":"282129340414399818",
-            "total_fee":1,
-            "fee_type":"CNY",
-            "body":"生活用品套餐"
-        }
-        "wxpay_pay_content_ext":{
-            "attach":"",
-            "goods_tag":"",
-            "order_client":{
-                "device_id":"device_id_01",
-                "staff_id":"shop_manage_id_01",
-                "terminal_type":1,
-                "machine_no":"34-64-a9-15-b4-cl",
-                "sdk_version":"1.6",
-                "spbill_create_ip":"10.27.14.138"
-            }
-        },
-        "nonce_str":"542AB309ECA042FE92355BDEC4E2D733"
-    }",
-    "authen_info":{
-        "a":{
-            "authen_type":1,
-            "authen_code":"A2F2FBCB506FB461212525C4917479B515ABB42BDC5909F7C012B6F74C0ClB99"
-        }
-    }
-}
-```
-- 将json转为string，发送给服务器
 
 ## 响应举例（以刷卡支付为例）
 - 把响应包从string转成json，取出json里面的response\_content和authen\_info，具体如下：
@@ -1951,97 +1914,7 @@ content_type：application/json
    </tr>
 </table>
 
-## 撤单成功回调
-### 接口地址
-服务商在云支付管理后台配置的回调地址（https）  
-content_type：application/json
-### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
 
-### RequestContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>out_trade_no</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-</table>
-
-### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-### ResponseContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>错误码。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-</table>
 
 ## 退款成功回调
 ### 接口地址
@@ -4915,19 +4788,19 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>成功</td>
    </tr>
    <tr>
-      <td>3</td>
+      <td>4</td>
       <td>等待用户支付</td>
    </tr>
    <tr>
-      <td>4</td>
+      <td>5</td>
       <td>已关闭,或者已退款</td>
    </tr>
    <tr>
-      <td>5</td>
+      <td>6</td>
       <td>交易结束，不可退款</td>
    </tr>
    <tr>
-      <td>6</td>
+      <td>7</td>
       <td>订单不存在</td>
    </tr>
 </table>
