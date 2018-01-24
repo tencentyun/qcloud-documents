@@ -6,11 +6,11 @@
 
 为了使用应用云 iOS 版本的 SDK ，您首先需要做好一下工作：
 
-1. 有一个 iOS 的工程，或者下载我们的 [实例工程](https://console.cloud.tencent.com/tac)。
+有一个 iOS 的工程，或者下载我们的 [实例工程](https://console.cloud.tencent.com/tac)。
 
 ## 集成代码库
 
-### 通过 CocoaPods 集成(**推荐**)
+### 通过 CocoaPods 集成 (**推荐**)
 
 如果您是设置一个新项目，则需要安装 SDK 。您可能已经在创建应用云项目的过程中完成此步操作。
 
@@ -21,40 +21,41 @@
 
 #### 为新项目添加 应用云  iOS 库
 
-##### （1）如果没有 Xcode 项目，请新建一个
-##### （2）如果还没有 Podfile，请创建一个
+##### 1.如果没有 Xcode 项目，请新建一个。
+##### 2.如果还没有 Podfile，请创建一个。
 
 ~~~
 $ cd your-project directory
 $ pod init
 ~~~
 
-并在您的 Podfile 文件中添加 应用云 的私有源
+并在您的 Podfile 文件中添加 应用云 的私有源：
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
-> 注意一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题
+> **注意：**
+> 一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题。
 
-##### （3) 添加您想安装的 Pod。您可以按照以下方法在 Podfile 中纳入一个 Pod：
+##### 3.添加您想安装的 Pod。您可以按照以下方法在 Podfile 中纳入一个 Pod。
 
 ~~~
 pod 'TACCore'
 ~~~
 
 
-这会在您的 iOS 应用中添加 应用云 正常运行所需的必备库以及 Analytics for 应用云 功能。下面列出了目前可供使用的一系列 pod 和 subspec。在针对不同功能的设置指南中也对此给出了相应的链接。
+这会在您的 iOS 应用中添加 应用云 正常运行所需的必备库以及 Analytics for 应用云 功能。下面列出了目前可供使用的一系列 pod 和 subspec，在针对不同功能的设置指南中也对此给出了相应的链接。
 
-##### (4) 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
+##### 4.安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
 
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### (5) 从 应用云 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
+##### 5.从 应用云 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
 
 ### 手工集成
 
@@ -62,45 +63,44 @@ $ open your-project.xcworkspace
 
 最后一步是向您的应用添加初始化代码。您可能已经在将应用云添加到应用时完成了此步骤。如果您使用的是快速入门示例，则此步骤已替您完成了。
 
-#### 步骤 1 在 UIApplicationDelegate 子类中导入应用云模块：
-
-~~~objective-c
+#### 步骤 1 在 UIApplicationDelegate 子类中导入应用云模块。
+Objective-C 代码示例：
+~~~
 import <TACCore/TACCore.h>
 ~~~
 
-~~~swift
+Swift 代码示例：
+~~~
 import TACCore
 ~~~
 
 
-#### 步骤 2 配置一个 TACApplication  共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置：
+#### 步骤 2 配置一个 TACApplication  共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置。
 
 
-##### 使用默认配置
-
-通常对于 应用云 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。
-
-~~~objective-c
+##### 使用默认配置，通常对于 应用云 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的：
+Objective-C 代码示例：
+~~~
     [TACApplication configurate];
 ~~~
 
 ~~~
 	TACApplication.configurate();
 ~~~
-##### 需要通过编程的方式自定义某些参数
+##### 需要通过编程的方式自定义某些参数：
 
 通常对于应用云的项目它的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改应用云的配置。
 
-
-~~~objective-c
+Objective-C 代码示例：
+~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
 	// opions.xxx= xxx ;
     //options.analyticsOptions = xxx;
     [TACApplication configurateWithOptions:options];
 ~~~
-
-~~~swift
+Swift 代码示例：
+~~~
 	let options = TACApplicationOptions.default()
 	// 自定义配置
 	// opions.xxx= xxx;
