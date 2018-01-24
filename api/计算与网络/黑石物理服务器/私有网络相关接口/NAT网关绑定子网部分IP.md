@@ -22,7 +22,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=BindIpsToBmNatGateway
 
 | 参数名称 | 描述 | 类型 | 必选  |
 |---------|---------|---------|---------|
-| natId | 黑石网关统一ID，例如：nat-df5dfd | String | 是 | 
+| natId | 黑石NAT网关统一ID，NAT网关需为IP转发方式，例如：nat-df5dfd | String | 是 | 
 | unVpcId | 私有网络ID值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| String | 是 | 
 | ips.n | 需要绑定部分IP的子网信息数组，ips中的子网标识subnetId不能为已经绑定的全部IP子网。| Array | 是 |
 
