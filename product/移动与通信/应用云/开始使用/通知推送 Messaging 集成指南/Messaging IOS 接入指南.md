@@ -43,8 +43,8 @@ import TACMessaging
 ~~~
 
 
-### 5.配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置。
-
+### 5.配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
+ 
 一般情况下您使用默认配置就可以了，用一下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 
 Objective-C 代码示例：
