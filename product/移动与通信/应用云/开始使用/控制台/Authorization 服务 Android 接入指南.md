@@ -1,8 +1,8 @@
 # 应用云 Authorization 服务 Android 接入指南
 
-## 使用QQ登录功能
+## 使用 QQ 登录功能
 
-### 1.在登录Activity添加回调处理
+### 1.在登录 Activity 添加回调处理
 
 在启动登录的 Activity 的 onActivityResult 中添加 QQ 登录回调的处理，否则在某些低端机上可能无法正确处理回调：
  
@@ -17,7 +17,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ```
 
 
-### 2.请求QQ登录
+### 2.请求 QQ 登录
 
 在用户登录界面，你可以调用以下方法让用户选择用 QQ 账号登录：
 
