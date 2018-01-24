@@ -87,8 +87,8 @@ dependencies {
 
 如果您的工程使用了 so 文件或者对代码进行了混淆，您需要添加插件来上传符号表和 mapping 文件。
 
-### 1.在工程根目录下的 build.gradle 文件中添加依赖
-
+### 1.在工程根目录下的 build.gradle 文件中添加依赖。
+ 
 ```
 buildscript {
 	 ......
@@ -99,8 +99,8 @@ buildscript {
 }
 ```
 
-### 2.在您应用 module 下的 build.gradle 文件中添加插件依赖
-
+### 2.在您应用 module 下的 build.gradle 文件中添加插件依赖。
+ 
 请加在您 build.gralde 文件的头部。
 
 ```
@@ -127,4 +127,4 @@ TACCrashOptions crashOptions = applicationOptions.sub("crash");
 具体的 API 请参考 TACCrashOptions 的 API 文档。
 
 >**注意：**
->请在 Crash 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效**。
+>请在 Crash 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效。
