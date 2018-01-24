@@ -4,8 +4,8 @@
 
 ### 1.在登录Activity添加回调处理
 
-在启动登录的 Activity 的 onActivityResult 中添加 QQ 登录回调的处理，否则在某些低端机上可能无法正确处理回调。
-
+在启动登录的 Activity 的 onActivityResult 中添加 QQ 登录回调的处理，否则在某些低端机上可能无法正确处理回调：
+ 
 ```
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -49,8 +49,8 @@ QQ 获取的凭证有效期是3个月，之后需要用户重新登录授权。
 
 ### 3.获取用户信息
 
-登录成功后，你可以使用有效的用户凭证，调用 getUserInfo 方法获取 QQ 用户信息。
-
+登录成功后，你可以使用有效的用户凭证，调用 getUserInfo 方法获取 QQ 用户信息：
+ 
 ```
 // 获取实例
 TACAuthorizationService service = TACAuthorizationService.getInstance();
@@ -74,8 +74,8 @@ qqAuthProvider.getUserInfo(mOAuth2Credentials, new QCloudResultListener<TACOpenU
 
 ### 1.添加微信登录回调处理 Activity
 
-在您的应用包名下新建一个 wxapi 的包，然后新建一个名为 WXEntryActivity 的类，该类直接继承基类 WeChatBaseSignInActivity 即可，不需要增加任何逻辑。这个 Activity 主要是为了接收微信的登录回调。
-
+在您的应用包名下新建一个 wxapi 的包，然后新建一个名为 WXEntryActivity 的类，该类直接继承基类 WeChatBaseSignInActivity 即可，不需要增加任何逻辑，这个 Activity 主要是为了接收微信的登录回调：
+ 
 ```
 package com.tencent.openmidas.sample.wxapi;
 
@@ -108,13 +108,13 @@ weChatAuthProvider.signIn(activity, new QCloudResultListener<OAuth2Credentials>(
  });
 ```
 
-在用户登录成功之后，通过authorization code 和 secret key 可以获取真正的 access token。出于安全的考虑，secret key不建议明文存放在客户端，所以建议把这个请求的过程放到后端服务器中进行。详细的接口可以参考：
+在用户登录成功之后，通过authorization code 和 secret key 可以获取真正的 access token，出于安全的考虑，secret key不建议明文存放在客户端，所以建议把这个请求的过程放到后端服务器中进行。详细的接口可以参考：
 [微信接口说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317853&token=&lang=zh_CN)
 
 ### 3.获取用户信息
 
-登录成功后，你可以使用有效的用户凭证，调用 getUserInfo 方法获取微信用户信息。
-
+登录成功后，你可以使用有效的用户凭证，调用 getUserInfo 方法获取微信用户信息：
+ 
 ```
 // 获取实例
 TACAuthorizationService service = TACAuthorizationService.getInstance();
@@ -137,8 +137,8 @@ weChatAuthProvider.getUserInfo(mOAuth2Credentials, new QCloudResultListener<TACO
 
 ### 4.刷新token
 
-微信支持后台刷新 access token，access token的生命周期通常只有2个小时，可以通过刷新的方式延长到一个月，之后需要用户重新登录授权。
-
+微信支持后台刷新 access token，access token的生命周期通常只有2个小时，可以通过刷新的方式延长到一个月，之后需要用户重新登录授权：
+ 
 ```
 // 获取实例
 TACAuthorizationService service = TACAuthorizationService.getInstance();
