@@ -80,7 +80,32 @@ Access-Control-Expose-Headers 用于指定哪些头部可以作为响应的一�
 暂不支持以下header添加：
 
 ```
-Date、Expires、Content-Type、Content-Encoding、Content-Length、Transfer-Encoding、Cache-Control、If-Modified-Since、Last-Modified、Connection、Content-Range、ETag、Accept-Ranges、Age、Authentication-Info、Proxy-Authenticate、Retry-After、Set-Cookie、Vary、WWW-Authenticate、Content-Location、Content-MD5、Content-Range、Meter、Allow、Error
+Date
+Expires
+Content-Type
+Content-Encoding
+Content-Length
+Transfer-Encoding
+Cache-Control
+If-Modified-Since
+Last-Modified
+Connection
+Content-Range
+ETag
+Accept-Ranges
+Age
+Authentication-Info
+Proxy-Authenticate
+Retry-After
+Set-Cookie
+Vary
+WWW-Authenticate
+Content-Location
+Content-MD5
+Content-Range
+Meter
+Allow
+Error
 ```
 
 多条header重复添加时，底部优先级高于顶部优先级，由最底部配置直接覆盖。
