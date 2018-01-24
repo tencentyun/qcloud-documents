@@ -1,5 +1,5 @@
-### s1. 接口描述
-本接口 (UpdateDeviceShadow) 用于更新虚拟设备信息。
+### 1. 接口描述
+本接口（UpdateDeviceShadow）用于更新虚拟设备信息。
 
 接口请求域名：`iotcloud.api.qcloud.com`
 
@@ -18,9 +18,9 @@
 
 | 参数名称      | 类型       | 描述                                       |
 | --------- | -------- | ---------------------------------------- |
-| code      | Int      | 公共错误码。0 表示成功，其他值表示失败，详见[公共错误码](https://cloud.tencent.com/document/product/634/12279)页面。 |
+| code      | Int      | 公共错误码。0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279) 页面。 |
 | codeDesc  | String   | 返回码描述                                    |
-| message   | String   | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" 详见本页面的[模块错误码](#module_error_info) |
+| message   | String   | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" 详见本页面的 [模块错误码](#module_error_info) |
 | state     | Object   | 虚拟设备当前状态                                 |
 | metadata  | Object   | 虚拟设备属性的元信息，包括创建时间或者最后修改时间                |
 | timestamp | DateTime | 服务器返回时间                                  |
@@ -31,11 +31,11 @@
 输入
 <pre>
   var oState = {"state": {"desired": {"color": "red"}}};
-  var sState = encodeURIComponent(JSON.stringify(oProperties));
-  https://iotcloud.api.qcloud.com/index.php?Action=UpdateDeviceShadow
+  var sState = encodeURIComponent(JSON.stringify(oState ));
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=UpdateDeviceShadow
   &deviceName=apple
   &productID=ABCDE12345
-  &state=${sProperties}
+  &state=${sState}
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 </pre>
 
@@ -68,12 +68,14 @@
 <span id = "module_error_info"></span>
 ### 5. 模块错误信息
 
-| 模块错误码 | 描述                         |
-| ----- | -------------------------- |
-| 5001  | 设备不存在                      |
-| 5002  | State json对象的层数超过了限制，最大为6层 |
-| 5003  | State json对象中包含非法节点        |
-| 5004  | State json对象格式非法           |
-| 5005  | version不匹配，需要与后台版本一致       |
-| 5006  | State json对象超过大小限制，最大为64k  |
-| 5100  | 内部服务器错误，请联系技术人员            |
+| 模块错误码 | 描述                            |
+| ----- | ----------------------------- |
+| 5001  | 设备不存在                         |
+| 5002  | State json 对象的层数超过了限制，最大为 6 层 |
+| 5003  | State json 对象中包含非法节点          |
+| 5004  | State json 对象格式非法             |
+| 5005  | version 不匹配，需要与后台版本一致         |
+| 5006  | State json 对象超过大小限制，最大为 64k   |
+| 5100  | 内部服务器错误，请联系技术人员               |
+| 5101  | 请求参数非法                        |
+
