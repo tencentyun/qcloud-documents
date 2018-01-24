@@ -11,12 +11,12 @@
 
 2. 导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。并添加以下依赖库：
 
-```
-1、CoreTelephony
-2、Foundation
-3、SystemConfiguration
-4、libstdc++.tbd
-```
+    ```
+    1、CoreTelephony
+    2、Foundation
+    3、SystemConfiguration
+    4、libstdc++.tbd
+    ```
 
 3. 在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
 

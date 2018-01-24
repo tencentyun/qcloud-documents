@@ -11,16 +11,16 @@
 
 2. 将 Demo/app/libs/upload 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
 
-依赖库说明：
+    依赖库说明：
 
-| jar 文件                       | 说明                                       |
-| --------------------------- | ---------------------------------------- |
-| cos-xml-android-sdk-1.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-| qcloud-core-1.2.jar         | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-| okhttp-3.8.1.jar            | 开源 http 组件                          |
-| okio-1.13.0.jar             | 开源网络 I/O 组件                         |
-| xstream-1.4.7.jar           | 开源序列化组件                             |
-| fastjson-1.1.62.android.jar | 开源 json 组件                            |
+    | jar 文件                       | 说明                                       |
+    | --------------------------- | ---------------------------------------- |
+    | cos-xml-android-sdk-1.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
+    | qcloud-core-1.2.jar         | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
+    | okhttp-3.8.1.jar            | 开源 http 组件                          |
+    | okio-1.13.0.jar             | 开源网络 I/O 组件                         |
+    | xstream-1.4.7.jar           | 开源序列化组件                             |
+    | fastjson-1.1.62.android.jar | 开源 json 组件                            |
 
 
 3. 使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
