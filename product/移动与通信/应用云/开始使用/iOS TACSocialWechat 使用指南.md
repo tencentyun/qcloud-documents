@@ -1,4 +1,4 @@
-TACSocialWechat 封装了 [libWeChatSDK](https://open.weixin.qq.com/) -- 微信开放平台的 SDK，您可以通过引入 TACSocialWechat 来引入微信开放平台能力。同时，TACSocialWechat 提供了更方便的该 SDK 集成方式，请不要重复引入 libWeChatSDK 。
+TACSocialWechat 封装了 [libWeChatSDK](https://open.weixin.qq.com/) 微信开放平台的 SDK，您可以通过引入 TACSocialWechat 来引入微信开放平台能力。同时，TACSocialWechat 提供了更方便的该 SDK 集成方式，请不要重复引入 libWeChatSDK 。
 
 ## 准备工作
 
