@@ -1,4 +1,4 @@
-对于在 Android 平台上传视频的场景，腾讯云点播提供了 Android 上传代码来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于在 Android 平台上传视频的场景，腾讯云点播提供了 Android 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
 
