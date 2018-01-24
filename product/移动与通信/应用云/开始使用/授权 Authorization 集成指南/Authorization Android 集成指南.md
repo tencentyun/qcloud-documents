@@ -9,7 +9,7 @@
 
 如果希望将 Authorization 库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
 
-### 通过gradle远程依赖集成
+### 通过 gradle 远程依赖集成
 
 如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，我们推荐您使用此方式集成依赖。
 
@@ -55,7 +55,7 @@ dependencies {
 
 下载请点击 [应用云 Authorization 服务资源]()，并解压。
 
-#### 2.集成jar包
+#### 2.集成 jar 包
 
 将资源文件中的 libs 目录下的文件拷贝到您工程的 libs 目录。
 
@@ -89,7 +89,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 }
 ```
 
-### 3.添加SDK 
+### 3.添加 SDK 
 
 #### 通过 gradle 远程依赖集成
 
@@ -109,7 +109,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-## 集成QQ登录
+## 集成 QQ 登录
 
 ### 1.注册应用
 
@@ -132,12 +132,12 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 ```
 
 
-### 3.下载SDK 
+### 3.下载 SDK 
 
 下载 [QQ互联的Android Jar包](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/Android_SDK_V3.3.0.lite.zip) ，并拷贝到应用模块的 libs 文件夹下。
 
 
-### 4.添加SDK依赖
+### 4.添加 SDK 依赖
 
 #### 通过 gradle 远程依赖集成
 
