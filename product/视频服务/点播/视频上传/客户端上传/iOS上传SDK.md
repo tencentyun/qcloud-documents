@@ -3,7 +3,7 @@
 ## 源代码下载
 
 您可以在腾讯云官网更新 [ iOS 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_iOS.zip)。
-下载完的 zip 包解压后可以看到上传 demo（TXUGCUploadDemo）目录，发布相关源代码在 TXUGCUploadDemo/upload 目录下。
+下载完的 zip 包解压后可以看到 TXUGCUploadDemo 目录，发布相关源代码在 TXUGCUploadDemo/upload 目录下。
 
 ## 集成上传库和源代码
 
@@ -98,7 +98,7 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 
 | 参数名称   | 参数描述               | 类型        | 必填   |
 | ------ | ------------------ | --------- | ---- |
-| userID | 用户userID，用于区分不同的用户 | NSString* | 否    |
+| userID | 用户 userID，用于区分不同的用户 | NSString* | 否    |
 
 上传 `TXUGCPublish.publishVideo`
 
@@ -154,7 +154,7 @@ SDK 通过 `TXVideoPublishListener` 接口来监听视频上传相关的状态�
 | 状态码  | 在 TVCCommon 中所对应的常量           | 含义              |
 | :--: | :---------------------------- | :-------------- |
 |  0   | TVC_OK                        | 上传成功            |
-| 1001 | TVC_ERR_UGC_REQUEST_FAILED    | 请求上传失败，通常是客户端签名过期或者非法，需要 APP 重新申请签名         |
+| 1001 | TVC_ERR_UGC_REQUEST_FAILED    | 请求上传失败，通常是客户端签名过期或者非法，需要 app 重新申请签名         |
 | 1002 | TVC_ERR_UGC_PARSE_FAILED      | 请求信息解析失败        |
 | 1003 | TVC_ERR_VIDEO_UPLOAD_FAILED   | 上传视频失败          |
 | 1004 | TVC_ERR_COVER_UPLOAD_FAILED   | 上传封面失败          |

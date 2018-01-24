@@ -3,7 +3,7 @@
 ## 源代码下载
 
 您可以在腾讯云官网更新 [Android 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip)。
-下载完的 zip 包解压后可以看到上传 demo（Demo）目录，上传相关源代码在Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 目录下。
+下载完的 zip 包解压后可以看到 Demo 目录，上传相关源代码在Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 目录下。
 
 ##  集成上传库和源代码
 
@@ -164,7 +164,7 @@ SDK 通过 `TXUGCPublishTypeDef.TXVideoPublishListener` 接口来监听视频上
 | 状态码  | 在 TVCConstants 中所对应的常量         | 含义                     |
 | :--: | :----------------------------- | :--------------------- |
 |  0   | NO_ERROR                       | 上传成功                   |
-| 1001 | ERR_UGC_REQUEST_FAILED         | 请求上传失败，通常是客户端签名过期或者非法，需要 APP 重新申请签名                 |
+| 1001 | ERR_UGC_REQUEST_FAILED         | 请求上传失败，通常是客户端签名过期或者非法，需要 app 重新申请签名                 |
 | 1002 | ERR_UGC_PARSE_FAILED           | 请求信息解析失败               |
 | 1003 | ERR_UPLOAD_VIDEO_FAILED        | 上传视频失败                 |
 | 1004 | ERR_UPLOAD_COVER_FAILED        | 上传封面失败                 |
