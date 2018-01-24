@@ -1,39 +1,39 @@
 ## v1.1.16
-[C++\Cocos2D SDK 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Cocos.zip) 
+[C++\Cocos2D SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Cocos.zip) 
 
-[Unity3D SDK 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Unity3D.zip) 
+[Unity3D SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Unity3D.zip) 
 
-[Android SDK 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Android.zip) 
+[Android SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_Android.zip) 
 
-[IOS SDK 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS.zip) 
+[IOS SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS.zip) 
 
-[IOS(bitcode) SDK 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS_bitcode.zip) 
+[IOS(bitcode) SDK 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_iOS_bitcode.zip) 
 
-[Win64 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_winx64_1_1_16_166568_20180112.zip) 
+[Win64 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_winx64_1_1_16_166568_20180112.zip) 
 
-[Win32 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_win_1_1_16_166568_20180112.zip) 
+[Win32 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_win_1_1_16_166568_20180112.zip) 
 
-[UE4 1.1.16版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_UE4.zip)
+[UE4 1.1.16 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.16/gcloud_voice_1_1_16_166568_20180111_UE4.zip)
 
 1. 修复部分 BUG。
 2. 在使用变声功能的时候，提高语音识别的翻译准确率。
 
 ## v1.1.15
-[C++\Cocos2D SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Cocos.zip)
+[C++\Cocos2D SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Cocos.zip)
 
-[Unity3D SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Unity3D.zip)
+[Unity3D SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Unity3D.zip)
 
-[Android SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Android.zip)
+[Android SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_Android.zip)
 
-[IOS SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS.zip)
+[IOS SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS.zip)
 
-[IOS(bitcode) SDK 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS_bitcode.zip)
+[IOS(bitcode) SDK 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_iOS_bitcode.zip)
 
-[Win64 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_winx64_1_1_15_164628_20171214.zip)
+[Win64 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_winx64_1_1_15_164628_20171214.zip)
 
-[Win32 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_win_1_1_15_164628_20171214.zip)
+[Win32 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_win_1_1_15_164628_20171214.zip)
 
-[UE4 1.1.15版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_UE4.zip)
+[UE4 1.1.15 版本](http://lexizhang-1251557890.file.myqcloud.com/gvoice1.1.15/gcloud_voice_1_1_15_164628_20171214_UE4.zip)
 
 1. 提供全局范围语音功能，基于游戏中玩家坐标范围来决定语音通话参与者数量（可参考 PUBG 中的全局语音功能）。
 2. 支持加入多语音房间，现在一个玩家最多可以参与 2 个小队语音，或参与 1 个小队语音和 1 个范围语音。
@@ -43,38 +43,38 @@
 1. 代码合入
 
 ## v1.1.13 
-[C++\Cocos2D SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Cocos.zip)
+[C++\Cocos2D SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Cocos.zip)
 
-[Unity3D SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Unity3D.zip)
+[Unity3D SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Unity3D.zip)
 
-[Android SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Android.zip)
+[Android SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_Android.zip)
 
-[IOS SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS.zip)
+[IOS SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS.zip)
 
-[IOS(bitcode) SDK 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS_bitcode.zip)
+[IOS(bitcode) SDK 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_13_160197_20171026_iOS_bitcode.zip)
 
-[Win64 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
+[Win64 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
 
-[Win32 1.1.13版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
+[Win32 1.1.13 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
 
   1. 噪音优化  
   2. 回声优化  
 
 
 ## v1.1.12 （2017-10-18）   
-[C++\Cocos2D SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Cocos.zip)
+[C++\Cocos2D SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Cocos.zip)
 
-[Unity3D SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Unity3D.zip)
+[Unity3D SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Unity3D.zip)
 
-[Android SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Android.zip)
+[Android SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_Android.zip)
 
-[IOS SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS.zip)
+[IOS SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS.zip)
 
-[IOS(bitcode) SDK 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS_bitcode.zip)
+[IOS(bitcode) SDK 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_1_1_12_159258_20171014_iOS_bitcode.zip)
 
-[Win64 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
+[Win64 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_winx64_1_1_12_159258_20171016.zip)
 
-[Win32 1.1.12版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
+[Win32 1.1.12 版本](http://lexizhang-1251557890.cossh.myqcloud.com/gcloud_voice_win_1_1_12_159258_20171016.zip)
        
 
 1. 语音增强扛丢包和网络抖动的能力  
@@ -94,17 +94,17 @@
 
 ## v1.1.8（2017-06-23）   
 
-[C++\Cocos2D SDK 1.1.8版本](https://mc.qcloudimg.com/static/archive/ad7e3bd1bdc742c0a2272cd85bdee3a9/gcloud_voice_1_1_8_151417_20170704_Cocos.zip)
+[C++\Cocos2D SDK 1.1.8 版本](https://mc.qcloudimg.com/static/archive/ad7e3bd1bdc742c0a2272cd85bdee3a9/gcloud_voice_1_1_8_151417_20170704_Cocos.zip)
 
-[Unity3D SDK 1.1.8版本](https://mc.qcloudimg.com/static/archive/29f013461515642b4b99e46b327a865a/gcloud_voice_1_1_8_151417_20170704_Unity3D.zip)
+[Unity3D SDK 1.1.8 版本](https://mc.qcloudimg.com/static/archive/29f013461515642b4b99e46b327a865a/gcloud_voice_1_1_8_151417_20170704_Unity3D.zip)
 
-[Android SDK 1.1.8版本](https://mc.qcloudimg.com/static/archive/ae191d585529ba38d16f921f37cf8917/gcloud_voice_1_1_8_151417_20170704_Android.zip)
+[Android SDK 1.1.8 版本](https://mc.qcloudimg.com/static/archive/ae191d585529ba38d16f921f37cf8917/gcloud_voice_1_1_8_151417_20170704_Android.zip)
 
-[IOS SDK 1.1.8版本](https://mc.qcloudimg.com/static/archive/5e719fa75cc4ae9150e31a5990f29c0b/gcloud_voice_1_1_8_151417_20170704_iOS.zip)
+[IOS SDK 1.1.8 版本](https://mc.qcloudimg.com/static/archive/5e719fa75cc4ae9150e31a5990f29c0b/gcloud_voice_1_1_8_151417_20170704_iOS.zip)
 
-[Win64 1.1.8版本](https://mc.qcloudimg.com/static/archive/01ea9bec7ba32948b16c00caeae14e5b/gcloud_voice_winx64_1_1_8_150892_20170622.zip)
+[Win64 1.1.8 版本](https://mc.qcloudimg.com/static/archive/01ea9bec7ba32948b16c00caeae14e5b/gcloud_voice_winx64_1_1_8_150892_20170622.zip)
 
-[Win32 1.1.8版本](https://mc.qcloudimg.com/static/archive/ad0e05ca7d710811621c1bfc3f6dbee6/gcloud_voice_win_1_1_8_150892_20170622.zip)
+[Win32 1.1.8 版本](https://mc.qcloudimg.com/static/archive/ad0e05ca7d710811621c1bfc3f6dbee6/gcloud_voice_win_1_1_8_150892_20170622.zip)
 
 1. GVoice 海外服务地区新增日本、马来西亚两个国家  
 2. 新增高质量语音模式，语音更清晰，同时会增加流量消耗，专门应用于狼人杀等以语音为核心玩法的游戏。  
