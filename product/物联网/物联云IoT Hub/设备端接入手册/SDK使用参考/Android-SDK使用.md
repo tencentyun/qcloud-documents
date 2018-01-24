@@ -58,10 +58,10 @@ dependencies {
 | 6    | connect                            | MQTT 连接                        |
 | 7    | disConnect                         | 断开 MQTT 连接                    |
 | 8    | subscribe                          | 订阅 MQTT 主题                    |
-| 8    | unSubscribe                        | 取消订阅 MQTT 主题                 |
-| 9    | publish                            | 发布 MQTT 消息                    |
-| 10   | setBufferOpts                      | 设置断连状态 buffer 缓冲区          |
-| 11   | clear                              | 释放资源                          |
+| 9    | unSubscribe                        | 取消订阅 MQTT 主题                 |
+| 10    | publish                            | 发布 MQTT 消息                    |
+| 11   | setBufferOpts                      | 设置断连状态 buffer 缓冲区          |
+| 12   | clear                              | 释放资源                          |
 
 ### Shadow远程服务客户端 - TXShadowClient
 
