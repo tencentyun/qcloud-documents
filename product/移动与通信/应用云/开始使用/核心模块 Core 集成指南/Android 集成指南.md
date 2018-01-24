@@ -2,11 +2,11 @@
 
 ## 准备工作
 
-在开始使用应用云服务前，您需要一个应用云项目和适用于您的应用的 配置文件：
+在开始使用应用云服务前，您需要一个应用云项目和适用于您的应用的配置文件：
 
- 1. 如果还没有 应用云 项目，请在 应用云 [控制台](https://console.cloud.tencent.com/tac) 中创建一个。
+ 1. 如果还没有应用云项目，请在应用云 [控制台]() 中创建一个。
  2. 输入您应用的包名，这个包名必须是唯一的，并且和您最终发布的应用包名一致。
- 3. 根据提示，下载配置文件压缩包，并在本地解压，您可以随时重新下载此文件。
+ 3. 根据提示，下载配置文件压缩包，并在本地解压。您可以随时重新下载此文件。
  4. 将 tac\_service_configurations.json 文件并放到您应用模块的 assets 文件夹下。
  5. 将 tac\_service_configurations_unpackage.json 文件并放到您应用模块的根目录下。
 
@@ -18,7 +18,7 @@
 
 如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
 
-#### 1. 使用 jcenter 作为仓库来源
+#### 1.使用 jcenter 作为仓库来源
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
@@ -40,9 +40,9 @@ allprojects {
 ```
 
 
-#### 2. 添加应用云库依赖
+#### 2.添加应用云库依赖
 
-在您的应用级 build.gradle（通常是 app/build.gradle）添加应用云库的依赖。您可以添加自己希望的 SDK 的依赖项。最基础的依赖是 com.tencent.tac:tac-core，它可以提供 Analytics 功能。具体请参阅文档下方的可用库列表：
+在您的应用级 build.gradle（通常是 app/build.gradle）添加应用云库的依赖。您可以添加自己希望的 SDK 的依赖项。最基础的依赖是 com.tencent.tac:tac-core，它可以提供 Analytics 功能，具体请参阅文档下方的可用库列表。
 
 ```
 dependencies {
@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-然后，点击您 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
+然后，点击您 IDE 的 【gradle】同步按钮，会自动将依赖包同步到本地。
 
 ### 手动集成
 
@@ -61,7 +61,7 @@ dependencies {
 
 应用云所有服务都必须在 TACApplication 单例配置完成之后才能正常使用。因此，我们建议您在 Application 的 onCreate 方法中执行该操作。
 
-请注意，如果您使用了多个应用云服务，只要配置一次即可。**TACApplication 单例必须且只允许配置一次**。
+请注意，如果您使用了多个应用云服务，只要配置一次即可，**TACApplication 单例必须且只允许配置一次**。
 
 您可以有两种方式配置，默认配置和高级配置。通常情况下，您使用默认配置即可。
 
@@ -76,7 +76,7 @@ TACApplication.configure(context);
 
 ### 使用高级配置
 
-如果您需要自定义配置某些服务，可以使用 TACApplication 的 configureWithOptions(Context, TACApplicationOptions) 方法。下面是自定义配置的示例代码：
+如果您需要自定义配置某些服务，可以使用 TACApplication 的 configureWithOptions(Context, TACApplicationOptions) 方法，下面是自定义配置的示例代码：
 
 ```
 // 获取一个新的默认配置实例
@@ -91,7 +91,7 @@ analyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
 TACApplication.configureWithOptions(context, applicationOptions);
 ```
 
-每个服务都对应一个参数配置，可以通过服务的名称获取，例如获取 推送 服务的配置参数，可以使用：
+每个服务都对应一个参数配置，可以通过服务的名称获取，例如获取推送服务的配置参数，可以使用：
 
 ```
 TACMessagingOptions messagingOptions = applicationOptions.sub("messaging");
@@ -101,11 +101,19 @@ TACMessagingOptions messagingOptions = applicationOptions.sub("messaging");
 
 ### 获取当前配置
 
-配置完成之后，您任何时候都可以使用 TACApplication 的 options() 方法获取当前的配置参数。**您可以再次修改参数，但请在每个服务启动前完成它对应的参数配置。一旦服务启动，后续所有对它的参数修改都不会生效**。
+配置完成之后，您任何时候都可以使用 TACApplication 的 options() 方法获取当前的配置参数。**您可以再次修改参数，但请在每个服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效**：
 
 ```
 TACApplicationOptions currentOptions = TACApplication.options();
 
+```
+
+### debug 模式
+
+如果你想打开 debug 模式，查看应用云的日志，可以通过以下命令开启：
+
+```
+adb shell setprop log.tag.tac DEBUG
 ```
 
 ## 可用的库
