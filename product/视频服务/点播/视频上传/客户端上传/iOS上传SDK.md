@@ -7,11 +7,9 @@
 
 ## 集成上传库和源代码
 
-拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
+1. 拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
 
-导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。
-
-并添加以下依赖库：
+2. 导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。并添加以下依赖库：
 
 ```
 1、CoreTelephony
@@ -20,7 +18,7 @@
 4、libstdc++.tbd
 ```
 
-在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
+3. 在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
 
 ##  简单视频上传
 
