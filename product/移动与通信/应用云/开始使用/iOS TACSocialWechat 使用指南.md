@@ -140,10 +140,10 @@ ${THIRD_FRAMEWORK_PATH}/Scripts/run
 ~~~
 
 其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
-
-1. 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACSocialWechat/Scripts/run`
-2. 如果您使用手工集成的方式则为 `${SRCROOT}/TACSocialWechat/Scripts/run`
-
+ 
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACSocialWechat/Scripts/run`。
+* 如果您使用手工集成的方式则为 `${SRCROOT}/TACSocialWechat/Scripts/run`。
+ 
 
 ### 6.使用 libWeChatSDK 的功能：
  
