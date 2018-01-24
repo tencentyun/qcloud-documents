@@ -108,7 +108,7 @@ weChatAuthProvider.signIn(activity, new QCloudResultListener<OAuth2Credentials>(
  });
 ```
 
-在用户登录成功之后，通过authorization code 和 secret key 可以获取真正的 access token，出于安全的考虑，secret key不建议明文存放在客户端，所以建议把这个请求的过程放到后端服务器中进行。详细的接口可以参考：
+在用户登录成功之后，通过 authorization code 和 secret key 可以获取真正的 access token，出于安全的考虑，secret key 不建议明文存放在客户端，所以建议把这个请求的过程放到后端服务器中进行。详细的接口可以参考：
 [微信接口说明](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317853&token=&lang=zh_CN)
 
 ### 3.获取用户信息
@@ -135,9 +135,9 @@ weChatAuthProvider.getUserInfo(mOAuth2Credentials, new QCloudResultListener<TACO
 ```
 
 
-### 4.刷新token
+### 4.刷新 token
 
-微信支持后台刷新 access token，access token的生命周期通常只有2个小时，可以通过刷新的方式延长到一个月，之后需要用户重新登录授权：
+微信支持后台刷新 access token，access token 的生命周期通常只有2个小时，可以通过刷新的方式延长到一个月，之后需要用户重新登录授权：
  
 ```
 // 获取实例
