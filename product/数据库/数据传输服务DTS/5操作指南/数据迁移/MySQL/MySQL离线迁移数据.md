@@ -63,7 +63,7 @@ CVM 主机访问数据库请参考 访问MySQL数据库。
 2. 如果导入数据文件中有指定的字符集编码，则以指定的字符集编码执行。
 3. 如果导入的数据文件的字符集编码与云数据库当前字符集编码不同，会造成乱码。
 
-更多字符集编码问题，请参考 使用限制，字符集说明。
+更多字符集编码问题，请参考 [使用限制](https://cloud.tencent.com/document/product/236/7259) ，字符集说明。
 
 [image-1]:  https://mc.qcloudimg.com/static/img/ec1530d76dab094cfc76a49e05e34d3c/step11.png
 [image-2]:  https://mc.qcloudimg.com/static/img/bb37805c3fa523664ea427923f79c747/step12.png

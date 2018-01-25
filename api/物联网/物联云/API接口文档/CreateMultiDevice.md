@@ -31,7 +31,7 @@
 输入
 <pre>
 
-  https://iotcloud.api.qcloud.com/index.php?Action=CreateMultiDevice
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=CreateMultiDevice
   &productID=ABCDE12345
   &listDeviceName.0=apple
   &listDeviceName.1=banana

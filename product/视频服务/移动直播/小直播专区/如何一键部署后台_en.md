@@ -50,24 +50,24 @@ After one-click deployment is completed, the Mini LVB backend is not a "black bo
 - ![](//mc.qcloudimg.com/static/img/d4e08150c4728a1053019d2ec73b6822/image.png)
 
 ### 2.2 Where are the Mini LVB backend PHP source codes?
-PHP source codes locate under the directory /data/live_demo_service/ of the CVM.
+PHP source codes locate under the directory `/data/live_demo_service/` of the CVM.
 ![](//mc.qcloudimg.com/static/img/e09de7919e9820744669dc5a9e3c8edd/image.png)
 ### 2.3 Where is Nginx configuration file?
-Nginx configuration file is the file /etc/nginx/nginx.conf of the CVM.
+Nginx configuration file is the file `/etc/nginx/nginx.conf` of the CVM.
 ### 2.4 How to read more-detailed log?
-To enable detailed log, you can create a directory named log under the directory /data/live_demo_service/.
+To enable detailed log, you can create a directory named log under the directory `/data/live_demo_service/`.
 ## 3. After one-click deployment is completed
-###3.1 How to interface with terminal Mini LVB?
+### 3.1 How to interface with terminal Mini LVB?
 For more information, please see [How to quickly set up Mini LVB - terminal integration](https://cloud.tencent.com/document/product/454/7999#4.-.E7.BB.88.E7.AB.AF.E9.9B.86.E6.88.90)
 
 ### 3.2 How to configure uploading feature of UGC Mini LVB manually?
 Currently, one-click deployment does not support the configuration item required to configure UGC, so you need to configure it manually.
 
 Execute the following commands in sequence on the business server
-a. **wget -c http://download-1252463788.cossh.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_2.0.3.3033.zip**
-b. **unzip xiaozhibo_business_svr_2.0.3.3033.zip**
-c. **cp live_demo_service/interface/GetVodSignatureV2.php  /data/live_demo_service/interface/**
-d **cd /data/live_demo_service/conf/ && vim OutDefine.php**
+a. **`wget -c http://download-1252463788.cossh.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_2.0.3.3033.zip`**
+b. **`unzip xiaozhibo_business_svr_2.0.3.3033.zip`**
+c. **`cp live_demo_service/interface/GetVodSignatureV2.php  /data/live_demo_service/interface/`**
+d **`cd /data/live_demo_service/conf/ && vim OutDefine.php`**
 e. Press "**I**" button to enter the Insert mode of vim, and add the following texts in bold.
    &emsp;** define('CLOUD_API_SECRETID','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //Personal SecretId of cloud API, used to upload the UGC and implement it to VOD system [Cloud API Key](https://console.cloud.tencent.com/capi)
    &emsp;** define('CLOUD_API_SECRETKEY','xxxxxxxxxxxxxxxxxxxxxxxxx');**  //Personal SecrectKey of cloud API, used to upload the UGC and implement it to VOD system [Cloud API Key](https://console.cloud.tencent.com/capi) 

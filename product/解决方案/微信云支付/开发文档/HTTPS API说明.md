@@ -1914,97 +1914,7 @@ content_type：application/json
    </tr>
 </table>
 
-## 撤单成功回调
-### 接口地址
-服务商在云支付管理后台配置的回调地址（https）  
-content_type：application/json
-### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
 
-### RequestContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>out_trade_no</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>由客户端生成的订单号，前缀必须是云支付订单前缀</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-</table>
-
-### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见AuthenInfo</td>
-   </tr>
-</table>
-
-### ResponseContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>错误码。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-</table>
 
 ## 退款成功回调
 ### 接口地址
@@ -4878,19 +4788,19 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>成功</td>
    </tr>
    <tr>
-      <td>3</td>
+      <td>4</td>
       <td>等待用户支付</td>
    </tr>
    <tr>
-      <td>4</td>
+      <td>5</td>
       <td>已关闭,或者已退款</td>
    </tr>
    <tr>
-      <td>5</td>
+      <td>6</td>
       <td>交易结束，不可退款</td>
    </tr>
    <tr>
-      <td>6</td>
+      <td>7</td>
       <td>订单不存在</td>
    </tr>
 </table>

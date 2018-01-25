@@ -9,7 +9,7 @@
 
 | 参数名称       | 必选   | 类型     | 描述                             |
 | ---------- | ---- | ------ | ------------------------------ |
-| productID  | 是    | String | 产品 ID                           |
+| productID  | 是    | String | 产品 ID                          |
 | deviceName | 是    | String | 设备名称。命名规则：[a-zA-Z0-9:_-]{1,48} |
 
 ### 3. 输出参数
@@ -28,7 +28,7 @@
 
 输入
 <pre>
-  https://iotcloud.api.qcloud.com/index.php?Action=GetDeviceShadow
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=GetDeviceShadow
   &deviceName=apple
   &productID=ABCDE12345
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
@@ -69,7 +69,7 @@
 | 模块错误码 | 描述              |
 | ----- | --------------- |
 | 5000  | 请求中缺少关键字段信息     |
-| 5001  | shadow 不存在       |
+| 5001  | shadow 不存在      |
 | 5100  | 内部服务器错误，请联系技术人员 |
 | 5101  | 请求参数非法          |
 
