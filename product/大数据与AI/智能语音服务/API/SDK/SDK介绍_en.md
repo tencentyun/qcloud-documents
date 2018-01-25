@@ -256,6 +256,7 @@ For custom speech templates, the required parameters include:
 | engineModelType | int | Yes | Engine model type |
 | resultTextFormat | int | Yes | Encoding for the result text. Available values: UTF-8, GB2312, GBK, BIG5
 | resType | int | Yes | The way that the result is returned |
+
 Example:
 ```
 AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate(1,0,1);
