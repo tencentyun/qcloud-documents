@@ -21,7 +21,7 @@ source "https://github.com/CocoaPods/Specs"
 
 ### 2. 添加 TACSocialWechat 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
  ~~~
-pod 'TACSocialWechat"
+pod 'TACSocialWechat'
 ~~~
 
 ### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
