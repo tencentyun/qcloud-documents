@@ -97,7 +97,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 #### 手动集成
 
-如果您是采用 ant 编译系统，请从 [微信资源中心](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&lang=zh_CN) 下载最新的开发包，并拷贝到应用模块的 libs 文件夹下，然后添加到您的classpath中。
+如果您是采用 ant 编译系统，请从 [微信资源中心](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&lang=zh_CN) 下载最新的开发包，并拷贝到应用模块的 libs 文件夹下，然后添加到classpath中。
 
 然后，在您的 AndroidManifest.xml 文件中添加以下权限：
 
@@ -113,7 +113,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 ### 1. 注册应用
 
-如果您还没有在 [QQ 互联平台](https://connect.qq.com/) 注册您的应用，请先移步注册您的应用。
+如果您还没有在 [QQ 互联平台](https://connect.qq.com/) 注册应用，请先移步注册您的应用。
 
 ### 2. 配置应用
 
@@ -141,7 +141,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 #### 通过 gradle 远程依赖集成
 
-如果您是采用 gradle 编译系统，确保您的应用级 build.gradle（\<project\>/\<app-module\>/build.gradle）文件中已经包含了对 libs 目录的依赖：
+如果您是采用 gradle 编译系统，确保应用级 build.gradle（\<project\>/\<app-module\>/build.gradle）文件中已经包含了对 libs 目录的依赖：
 
 ```
 dependencies {
@@ -151,7 +151,7 @@ dependencies {
 
 #### 手动集成
 
-如果您是采用 ant 编译系统，请把下载的 QQ open jar 包添加到您的classpath中，并在您的 AndroidManifest.xml 文件中添加以下权限和 Activity：
+如果您是采用 ant 编译系统，请把下载的 QQ open jar 包添加到 classpath 中，并在 AndroidManifest.xml 文件中添加以下权限和 Activity：
 
 ```
 	<uses-permission android:name="android.permission.INTERNET" />
