@@ -5,7 +5,7 @@
 
 **迁移步骤如下：**
 ### 进入迁移工具页面
-![](//mccdn.qcloud.com/img56835f031e53b.png)
+ ![](https://mc.qcloudimg.com/static/img/60ad8ba66c8e670dca9ca26766ca2b40/image.png)
 
 ### 创建迁移任务
 ![](//mccdn.qcloud.com/img56835f3f5fe77.png)

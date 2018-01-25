@@ -21,11 +21,11 @@ source "https://github.com/CocoaPods/Specs"
 
 ### 2. 添加 TACSocialWechat 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
  ~~~
-pod 'TACSocialWechat"
+pod 'TACSocialWechat'
 ~~~
 
 ### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
- ~~~
+~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
@@ -129,7 +129,7 @@ Swift 代码示例：
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`.，您可以将改脚本命名 WechatSetupScripts。
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 WechatSetupScripts。
 > **注意**
 > 请确保 `New Run Script Phase` 脚本在 `Build Phases` 中排序为第二。
 
