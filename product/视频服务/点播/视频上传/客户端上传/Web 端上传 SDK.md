@@ -1,27 +1,21 @@
 ## 简介
-
 用于浏览器的客户端上传 SDK，可向腾讯云点播系统上传视频和封面文件。
 
 ## 集成方式
-
 ### 开发环境
-
 * 使用 SDK 需要浏览器支持 HTML 5
 * 需要 APP 服务器派发客户端上传签名，生成签名的方法请见[上传签名](/document/product/266/9221)
 
 ### 集成
-
-在页面引入ugcuploader.js即可。
+在页面引入 ugcuploader.js 即可。
 ```js
 <script src="//imgcache.qq.com/open/qcloud/js/vod/sdk/ugcUploader.js"></script>
 ```
 
 ### Demo
-
 [http://video.qcloud.com/sdk/ugcuploader.html](http://video.qcloud.com/sdk/ugcuploader.html)
 
 ## 上传步骤
-
 ###  第一步：获取上传签名
 ```js
 var getSignature = function(callback){
@@ -56,14 +50,13 @@ var getSignature = function(callback){
 
 | 函数名          | 说明     | 参数类型     | 参数含义                                     |
 | ------------ | ------ | -------- | ---------------------------------------- |
-| getSignature | 获取签名回调 | Function | callback：把获取到的签名作为 callback 函数的参数，即callback(signature); |
-| success      | 上传成功回调 | Object   | type：上传成功的文件种类，'video'（视频）或者'cover'（封面）  |
+| getSignature | 获取签名回调 | Function | callback：把获取到的签名作为 callback 函数的参数，即callback(signature)； |
+| success      | 上传成功回调 | Object   | type：上传成功的文件种类，'video'（视频）或者'cover'（封面）  |
 | error        | 上传失败回调 | Object   | type：上传失败的文件种类，'video'（视频）或者'cover'（封面）  |
-| progress     | 上传进度回调 | Object   | type：上传进行中的文件种类，'video'（视频）或者'cover'（封面）<br  />name：上传中的文件名<br  />curr：文件上传进度 |
+| progress     | 上传进度回调 | Object   | type：上传进行中的文件种类，'video'（视频）或者'cover'（封面）<br  />name：上传中的文件名<br  />curr：文件上传进度 |
 | finish       | 上传结果回调 | Object   | fileId：视频文件 ID<br  />videoName：视频名称<br  />videoUrl：视频播放地址<br  />coverName：封面名称<br  />coverUrl：封面展示地址 |
 
 ### 第三步：执行上传操作
-
 #### 仅上传视频
 
 ```js
@@ -129,8 +122,8 @@ qcVideo.ugcUploader.start({
 
 | 参数     | 说明                 |
 | ------ | ------------------ |
-| cos    | progress中返回的cos对象  |
-| taskId | progress中返回的taskId |
+| cos    | progress 中返回的 cos 对象  |
+| taskId | progress 中返回的 taskId |
 
 ```js
 qcVideo.ugcUploader.cancel({
@@ -140,9 +133,9 @@ qcVideo.ugcUploader.cancel({
 ```
 ### 断点续传
 
-SDK支持断点续传功能，无需做任何操作。
+SDK 支持断点续传功能，无需做任何操作。
 
-**内部实现：**文件上传过程中，SDK会在COOKIE中记录该文件的vodSessionKey，键名以webugc_开头，如：webugc_dab2bfc5cfcd8d8561c44f7c68961edd9bbcxxxx，重新上传文件的时候SDK通过COOKIE判断该文件是否上传过，如果是则可以拿到vodSessionKey进行断点续传，否则正常上传。vodSessionKey的有效时间为一天。
+**内部实现：**文件上传过程中，SDK 会在 COOKIE 中记录该文件的 vodSessionKey，键名以 webugc_ 开头，如：webugc_dab2bfc5cfcd8d8561c44f7c68961edd9bbcxxxx，重新上传文件的时候 SDK 通过 COOKIE 判断该文件是否上传过，如果是则可以拿到 vodSessionKey 进行断点续传，否则正常上传。vodSessionKey 的有效时间为一天。
 
 ### 上传文件类型
 
@@ -159,8 +152,8 @@ SDK支持断点续传功能，无需做任何操作。
 | 10005       | 断点续传已过期           |
 | 10000-19999 | 请求错误              |
 | 20000-29999 | 服务错误              |
-| 31001       | 用户请求session_key错误 |
-| 31002       | 用户请求中的VOD签名重复     |
+| 31001       | 用户请求 session_key 错误 |
+| 31002       | 用户请求中的 VOD 签名重复     |
 | 31003       | 上传文件不存在           |
 | 32001       | 服务错误              |
 
@@ -170,43 +163,36 @@ SDK支持断点续传功能，无需做任何操作。
 | -------------------------- | ---------------------------------------- |
 | qcVideo.ugcUploader.start  | 文件名不得包含 / : * ? "  < > 等字符               |
 |                            | 参数必须为对象类型                                |
-|                            | 需要videoFile或者fileId字段                    |
-|                            | 需要getSignature字段                         |
-|                            | fileId格式错误                               |
-|                            | 需要coverFile字段                            |
-|                            | getSignature必须为函数，如果有success、error、progress、finish，也必须为函数 |
-|                            | videoFile必须为视频文件                         |
-|                            | coverFile必须为图片文件                         |
+|                            | 需要 videoFile 或者 fileId 字段                    |
+|                            | 需要 getSignature 字段                         |
+|                            | fileId 格式错误                               |
+|                            | 需要 coverFile 字段                            |
+|                            | getSignature 必须为函数，如果有 success、error、progress、finish，也必须为函数 |
+|                            | videoFile 必须为视频文件                         |
+|                            | coverFile 必须为图片文件                         |
 | qcVideo.ugcUploader.cancel | 参数必须为对象类型                                |
-|                            | cos/taskId不能为空                           |
-|                            | taskId格式错误                               |
-|                            | cos格式错误                                  |
+|                            | cos/taskId 不能为空                           |
+|                            | taskId 格式错误                               |
+|                            | cos 格式错误                                  |
 
 ### FAQ
 
-- File对象怎么获取？
+#### File对象怎么获取？
 
   使用input标签，type为file类型，即可拿到File对象
 
-- 一个 10MB文件，上传了 50%，断点续传是从 20%开始的？
+#### 一个 10MB文件，上传了 50%，断点续传是从 20%开始的？
 
   上传是按分片上传的，断点续传是以已经上传完成的分片为准的，比如说正在上传是3个分片，完成的分片2个，那么断点续传的时候就是以完成2个分片的状态为准的。
 
-- 上传最大支持多少G？
+#### 上传最大支持多少G？
 
   最大支持60G
 
-- web上传时，如何自动转码？
+#### web上传时，如何自动转码？
 
   签名里面带上任务流参数（控制台上传的话，勾选转码即可）
 
-- web上传支持的最低版本
+#### web上传支持的最低版本
 
   最低版本为IE10
-
-
-  ​
-
-  ​
-
-  ​
