@@ -65,7 +65,6 @@ Objective-C 代码示例：
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
 	//     options.messagingOptions.[Key] = [Value];
-    //
     [TACApplication configurateWithOptions:options];
 ~~~
 Swift 代码示例：
