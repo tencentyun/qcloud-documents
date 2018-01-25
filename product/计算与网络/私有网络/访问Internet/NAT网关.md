@@ -149,7 +149,7 @@ NAT 网关创建时将会冻结 1 小时的租用费用。
 3. 点击【新建】，选择协议、外部IP端口、及内部 IP 端口。
 
 >**注意：**
-内部 IP 仅支持该私有网络内得云主机内网 IP。
+内部 IP 仅支持该私有网络内的云主机内网 IP。
 
 ![](https://mc.qcloudimg.com/static/img/cd29655ddb62caceeaf586cb52e48e35/1.png)
 

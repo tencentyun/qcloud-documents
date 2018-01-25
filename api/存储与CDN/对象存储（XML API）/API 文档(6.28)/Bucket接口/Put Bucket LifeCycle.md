@@ -1,7 +1,7 @@
 ## 功能描述
 COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生命周期。生命周期配置包含一个或多个将应用于一组对象规则的规则集 (其中每个规则为 COS 定义一个操作)。
 这些操作分为以下两种：
-- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建 30 天后将其转换为 STANDARD_IA (IA，适用于不常访问) 存储类别。
+- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建 30 天后将其转换为低频存储（STANDARD_IA，适用于不常访问) 存储类别。同时也支持将数据沉降到归档存储（Archive，成本更低，目前支持国内园区）。具体参数参见请求示例说明中Transition项。
 - **过期操作：**指定 Object 的过期时间。COS 将会自动为用户删除过期的 Object。
 
 ### 细节分析
@@ -110,7 +110,7 @@ PUT /?lifecycle HTTP/1.1
 |Key    |LifecycleConfiguration.Rule.Filter.Tag<br>或 LifecycleConfiguration.Rule.Filter.And.Tag    |Tag 的 Key,长度不超过128字节,不能cos:为前缀开头,仅支持字母、数字、空格和+-=._:/这几个符号    |String    |是|
 |Value    |LifecycleConfiguration.Rule.Filter.Tag<br>或 LifecycleConfiguration.Rule.Filter.And.Tag    |Tag 的 Value,长度不超过256字节,仅支持字母、数字、空格和+-=._:/这几个符号    |String    |是|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
-|Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换被转换为 Standard_IA 或 Nearline    |Container    |否|
+|Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换被转换为 Standard_IA 或 Nearline 或 Archive   |Container    |否|
 |Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作，如果是 Transition，该字段有效值是非负整数；如果是 Expiration，该字段有效值为正整数    |Integer    |否|
 |Date    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在何时操作    |String    |否|
 |ExpiredObjectDeleteMarker    |LifecycleConfiguration.Rule.Expiration    |删除过期对象删除标记，枚举值 true，false    |String    |否|

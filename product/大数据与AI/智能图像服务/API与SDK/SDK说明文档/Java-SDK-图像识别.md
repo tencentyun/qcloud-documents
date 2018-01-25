@@ -1,3 +1,6 @@
+## SDK获取
+智能图像的 Java SDK 下载地址：[Java-SDK-V2.0](https://github.com/tencentyun/image-java-sdk-v2.0)。
+
 ## 使用前准备​		
   1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）；
   2. 取得存储桶名称 **BucketName**： 请前往 [创建存储桶](https://cloud.tencent.com/document/product/460/10637) ；

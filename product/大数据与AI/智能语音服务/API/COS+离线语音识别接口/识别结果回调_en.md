@@ -7,7 +7,7 @@ The speech recognition system returns the recognized result to the user by calli
 | Field | Type | Description | 
 | ------------- | ------------- | ---------- |
 | code | Int32 | Task status. 0: Successful; other values: Failed | 
-| message |String |  Description of reason for success or failure | 
+| message |String | Description of reason for success or failure | 
 | requestId | Unit64 | Request ID. One request ID corresponds to one backend task ID | 
 | appid | Unit64 | Tencent Cloud application ID |
 | projecteid | Unit64 | Tencent Cloud project ID |
@@ -27,7 +27,7 @@ The speech recognition system returns the recognized result to the user by calli
 
 Upon receiving the HTTP POST callback request from the speech recognition system, the business server needs to return the result as follows:
 
-| Parameter Name | Type | Description |
+| Name | Type | Description |
 | --- | --- | --- |
 | code | Int | Server error code. 0: Successful; other values: Failed |
 | message | String | Description of reason for failure, such as business server overload. If the business server failed to return the result, the callback request will be resent at every interval. |
