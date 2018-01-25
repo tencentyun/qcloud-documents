@@ -129,7 +129,7 @@ Swift 代码示例：
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`.，您可以将改脚本命名 WechatSetupScripts。
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 WechatSetupScripts。
 > **注意**
 > 请确保 `New Run Script Phase` 脚本在 `Build Phases` 中排序为第二。
 
