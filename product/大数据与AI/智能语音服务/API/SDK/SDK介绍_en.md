@@ -13,7 +13,7 @@ AAIClient is the core class for voice services. You can call the class to start,
 public AAIClient(Context context, int appid, int projectId, String secreteId, AbsCredentialProvider credentialProvider) throws ClientException
 ```
 | Parameter Name | Type | Required | Description |
---|--|--|--
+|---|---|---|---|
 | context | Context | Yes | Context |
 | APPID | int | Yes | APPID registered with Tencent Cloud |
 | projectId | Int | No | User's projectId |
@@ -35,7 +35,7 @@ aaiClient.release();
 You can call the static method of the ClientConfiguration class to modify the global configuration.
 
 | Method | Description | Default | Valid Value Range |
---|--
+|---|---|---|---|
 | setServerProtocolHttps | Set HTTPS/HTTP protocol | true(Https) | false/true |
 | setMaxAudioRecognizeConcurrentNumber | Maximum number of concurrent requests for speech recognition | 2 | 1-5 |
 | setMaxRecognizeSliceConcurrentNumber | Maximum number of concurrent speech recognition shards | 5 | 1-5 |
@@ -60,7 +60,7 @@ void onSliceSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, 
 ```
 
 | Parameter | Type | Description | 
---|--
+|---|---|---|
 | request | AudioRecognizeRequest | Speech recognition request | 
 | result | AudioRecognizeResult | Speech recognition result of speech shard |
 | order | Int | The sequence number of the speech stream to which the speech shard belongs |
@@ -72,7 +72,7 @@ void onSegmentSuccess(AudioRecognizeRequest request, AudioRecognizeResult result
 ```
 
 | Parameter | Type | Description | 
---|--
+|---|---|---|
 | request | AudioRecognizeRequest | Speech recognition request | 
 | result | AudioRecognizeResult | Speech recognition result of speech shard |
 | order | Int | The sequence number of the speech stream |
@@ -84,7 +84,7 @@ void onSuccess(AudioRecognizeRequest request, String result);
 ```
 
 | Parameter | Type | Description | 
---|--
+|---|---|---|
 | request | AudioRecognizeRequest | Speech recognition request | 
 | result | String | All the recognition results |
 
@@ -95,7 +95,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 ```
 
 | Parameter | Type | Description | 
---|--
+|---|---|---|
 | request | AudioRecognizeRequest | Speech recognition request | 
 | clientException | ClientException | Client exception |
 | serverException | ServerException | Server exception |
@@ -105,7 +105,7 @@ For the sample code, please see "Quick Start".
 By building the AudioRecognizeConfiguration class, you can set the configuration for speech recognition:
 
 | Parameter Name | Type | Required | Description | Default |
---|--|--|--
+|---|---|---|---|---|
 | enableSilentDetect | boolean | No | Whether to enable silence detection. If it is enabled, the silence before speech is not recognized | true |
 | enableFirstAudioFlow | boolean | No | Whether to enable the detection of speech start timeout. If it is enabled, recording stops automatically when timeout occurs | false |
 | enableNextAudioFlow | boolean | No | Whether to enable the detection of speech end timeout. If it is enabled, recording stops automatically when timeout occurs | false |
@@ -143,7 +143,7 @@ new Thread(new Runnable() {
 AudioRecognizeStateListener can be used to listen for the status of speech recognition. It involves the following seven APIs
 
 | Method | Description | 
---|--
+|---|---|
 | onStartRecord | Start recording |
 | onStopRecord | End recording |
 | onVoiceFlowStart | The start of speech stream is detected | 
@@ -156,7 +156,7 @@ AudioRecognizeStateListener can be used to listen for the status of speech recog
 AudioRecognizeTimeoutListener can be used to listen for the timeout of speech recognition. It involves the following two APIs:
 
 | Method | Description | 
---|--
+|---|---|
 | onFirstVoiceFlowTimeout | Detect the first speech stream timeout |
 | onNextVoiceFlowTimeout | Detect the next speech stream timeout |
 
@@ -230,7 +230,7 @@ new Thread(new Runnable() {
 If both templateName and customTemplate are set, the value of templateName is used.
 
 | Parameter Name | Type | Required | Description | Default |
---|--|--|--
+|---|---|---|---|
 | pcmAudioDataSource | PcmAudioDataSource | Yes | Audio data source | None |
 | templateName | String | No | Template name set by the user on console | None |
 | customTemplate | AudioRecognizeTemplate | No | User-defined template | (1, 0, 1) |
@@ -238,7 +238,7 @@ If both templateName and customTemplate are set, the value of templateName is us
 This the speech recognition result object, which corresponds to the AudioRecognizeRequest object and is used to return the result of speech recognition.
 
 | Parameter Name | Type | Description |
---|--|--|--
+|---|---|---|---|
 | code | Int | Status recognition code |
 | message | String | Recognition message |
 | text | String | Recognition result |
@@ -250,7 +250,7 @@ This the speech recognition result object, which corresponds to the AudioRecogni
 For custom speech templates, the required parameters include:
 
 | Parameter Name | Type | Required | Description |
---|--|--|--
+|---|---|---|---|
 | engineModelType | int | Yes | Engine model type |
 | resultTextFormat | int | Yes | Encoding for the result text. Available values: UTF-8, GB2312, GBK, BIG5
 | resType | int | Yes | The way that the result is returned |
