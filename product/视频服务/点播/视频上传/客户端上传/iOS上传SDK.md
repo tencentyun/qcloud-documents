@@ -15,6 +15,7 @@
     3、SystemConfiguration
     4、libstdc++.tbd
     ```
+    
 3. 在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
 
 ##  简单视频上传
