@@ -39,7 +39,58 @@ __!!#ff0000请注意替换namespace为您的namespace!!__
 点击[获取Namespace名称](https://console.qcloud.com/ccs/cluster/detail/namespace?rid=1&clusterId=cls-a4ed48t8)
 
 ```yaml
-待补充。
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    qcloud-app: nginx
+spec:
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      qcloud-app: nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        qcloud-app: nginx
+    spec:
+      containers:
+      - image: nginx:latest
+        imagePullPolicy: Always
+        name: nginx
+        resources:
+          requests:
+            cpu: 200m
+        securityContext:
+          privileged: false
+      serviceAccountName: ""
+      volumes: null
+      imagePullSecrets:
+      - name: qcloudregistrykey
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    qcloud-app: nginx
+spec:
+  ports:
+  - name: tcp-80-80-ogxxh
+    nodePort: 0
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    qcloud-app: nginx
+  type: LoadBalancer
+status:
+  loadBalancer: {}
 ```
 
 
