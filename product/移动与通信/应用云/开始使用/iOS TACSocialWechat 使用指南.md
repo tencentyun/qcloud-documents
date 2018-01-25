@@ -7,30 +7,30 @@ TACSocialWechat 封装了 [libWeChatSDK](https://open.weixin.qq.com/) 微信开�
 1. 一个启用了应用云的应用。
 2. 您集成了 TACCore。
 
-## 将应用云 TACSocialWechat 代码库添加到您的 Xcode 项目中
+## 将应用云 TACSocialWechat 代码库添加到 Xcode 项目中
 
 
-### 1.在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源：
+### 1. 在您的项目中集成应用云 SDK，并在 Podfile 文件中添加应用云的私有源：
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
 > **注意：**
-> 一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题。
+>一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-### 2.添加 TACSocialWechat 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
+### 2. 添加 TACSocialWechat 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
  ~~~
-pod 'TACSocialWechat"
+pod 'TACSocialWechat'
 ~~~
 
-### 3.安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
- ~~~
+### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
+~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-### 4.在 UIApplicationDelegate 子类中导入 TACSocialWechat 模块：
+### 4. 在 UIApplicationDelegate 子类中导入 TACSocialWechat 模块：
 Objective-C 代码示例：
 ~~~
 #import <TACSocialWechat/TACSocialWechat.h>
@@ -41,7 +41,7 @@ Swift 代码示例：
 import TACSocialWechat
 ~~~
 
-### 5.配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
+### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
  
 #### 先行配置--引入配置文件
 
@@ -56,7 +56,7 @@ import TACSocialWechat
 tac_services_configurations_wechat.plist
 ~~~
 
-文件的内容为需要配置的参数信息，请注意 WechatOptions 的配置路径（:services:social:qq）: 例如配置文件：
+文件的内容为需要配置的参数信息，请注意 WechatOptions 的配置路径`（:services:social:qq）: `例如配置文件：
 
 ~~~
 <?xml version="1.0" encoding="UTF-8"?>
@@ -83,7 +83,7 @@ tac_services_configurations_wechat.plist
 
 | 参数 Key | 参数含义                |
 |:--------|:------------------------|:-----|
-| appID   | 微信开放平台中程序appID |
+| appID   | 微信开放平台中程序 appID |
 
 >**注意：** 
 >目前不支持通过配置文件将 appKey 直接配置，因为这是个危险的操作。
@@ -107,7 +107,8 @@ Swift 代码示例：
 >**注意：** 
 >如果您希望使用我们提供的在终端获取微信用户信息的能力，您需要在这里配置您的 appKey。请注意这是个危险的操作，我们仍然建议您在自己的后台去获取微信用户的信息。
 
-~~~objective-c
+Objective-C 代码示例：
+~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
 	//     options.wechatOptions.[Key] = [Value];
@@ -116,7 +117,8 @@ Swift 代码示例：
     [TACApplication configurateWithOptions:options];
 ~~~
 
-~~~swift
+Swift 代码示例：
+~~~
 	let options = TACApplicationOptions.default()
 	// 自定义配置
 	// options?.wechatOptions.[Key] = [Value];
@@ -145,7 +147,7 @@ ${THIRD_FRAMEWORK_PATH}/Scripts/run
 * 如果您使用手工集成的方式则为 `${SRCROOT}/TACSocialWechat/Scripts/run`。
  
 
-### 6.使用 libWeChatSDK 的功能：
+### 6. 使用 libWeChatSDK 的功能：
  
 我们已经为您自动化配置好了 libWeChatSDK 的其他功能，包括 HandleOpenURL 等函数的响应，和在 Info.plist 文件中注册相关的回调和 Scheme 等操作，您不需要重复执行该操作。如果您要使用 libWeChatSDK 的功能，您可以引入头文件：
 
