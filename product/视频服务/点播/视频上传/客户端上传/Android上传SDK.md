@@ -21,6 +21,7 @@
 | xstream-1.4.7.jar           | 开源序列化组件                             |
 | fastjson-1.1.62.android.jar | 开源 json 组件                            |
 
+
 3. 使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
 
 ```xml
