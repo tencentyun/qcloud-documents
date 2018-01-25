@@ -11,10 +11,8 @@
 ## 将应用云 Authorization 代码库添加到您的 Xcode 项目中
 
 
-### 1. 在您的项目中集成应用云 SDK。
-
-并在您的 Podfile 文件中添加应用云的私有源：
-
+### 1. 在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源。
+ 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
@@ -129,11 +127,11 @@ Swift 示例代码：
 
 ## 配置 Authorization 中的配置脚本 (主要为第三方登陆模块的配置脚本)
   >**注意：**
-  > 您添加了多个第三方权限模块，则需要重复本操作多次。
+  > 如果您添加了多个第三方权限模块，则需要重复本操作多次。
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`。您可以将改脚本命名为您引入的第三方登陆模块的名称，比如QQSetupScripts、WechatSetupScripts……
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`。您可以将改脚本命名为您引入的第三方登陆模块的名称，比如 QQSetupScripts、WechatSetupScripts等。
 >**注意：**
 请确保 `New Run Script Phase`脚本在 `Build Phases` 中排序为第二。
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框。
@@ -148,7 +146,7 @@ ${THIRD_FRAMEWORK_PATH}/Scripts/run
 
 其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同。
 
-* 如果您使用Cocoapods来集成的则为 `${PODS_ROOT}/[第三方登录模块名称]/Scripts/run`
-   - 如果您使用了QQ则为 `${PODS_ROOT}/TACSocialQQ/Scripts/run`
-   - 如果您使用了WeChat则为  `${PODS_ROOT}/TACSocialWechat/Scripts/run`
-* 如果您使用 手工集成 的方式则为 `${SRCROOT}/[第三方登录模块相对于工程根目录的路径]/Scripts/run`
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/[第三方登录模块名称]/Scripts/run`
+   - 如果您使用了 QQ 则为 `${PODS_ROOT}/TACSocialQQ/Scripts/run`
+   - 如果您使用了 WeChat 则为  `${PODS_ROOT}/TACSocialWechat/Scripts/run`
+* 如果您使用手工集成的方式则为 `${SRCROOT}/[第三方登录模块相对于工程根目录的路径]/Scripts/run`
