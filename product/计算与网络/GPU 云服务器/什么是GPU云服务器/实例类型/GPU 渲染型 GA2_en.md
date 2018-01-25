@@ -34,7 +34,6 @@ GA2 Instance is especially suitable for GPU computing workloads requiring high-p
 				<td>&nbsp;8 cores</td>
 				<td>&nbsp;16 GB</td>
 				<td>&nbsp;<a href="/doc/product/362/2345">Cloud Block Storage</td>
-				<td><b></b></td>
 			</tr>
 		</tbody>
 </table>

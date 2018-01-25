@@ -1,10 +1,10 @@
-## 应用云 Storage 服务 Android接入指南
+## 应用云 Storage 服务 Android 接入指南
 
 ## 文件引用
 
 ### 创建引用
 
-要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用。引用可以看作是指向云端文件的指针。
+要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用。引用可以看作是指向云端文件的指针：
 
 ```
 TACStorageService storage = TACStorageService.getInstance();
@@ -36,25 +36,25 @@ TACStorageReference childRef = reference.child('imageA.jpg');
 
 ### 引用属性
 
-你可以使用 getPath()、getName() 和 getBucket() 方法检查引用，以便更好地了解它们指向的文件。
+你可以使用 getPath（）、getName（）和 getBucket（）方法检查引用，以便更好地了解它们指向的文件：
 
 ```
 // 获取文件路径
-reference.getPath();
+reference.getPath( );
 
 // 获取文件名
-reference.getName();
+reference.getName( );
 
 // 获取文件所在bucket
-reference.getBucket();
+reference.getBucket( );
 
 // 获取bucket所在区域
-reference.getRegion();
+reference.getRegion( );
 ```
 
 ## 上传文件
 
-你可以将内存中的数据，本地文件路径，或者是数据流传输到远程 Storage 中。
+你可以将内存中的数据，本地文件路径，或者是数据流传输到远程 Storage 中：
 
 ```
 StorageReference storageRef = storage.referenceWithPath('images/imageA.jpg');

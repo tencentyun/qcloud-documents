@@ -1,37 +1,72 @@
+# 应用云 Crash 服务 Android 集成指南
 
-## 应用云 Crash 服务 Android 接入指南
+## 准备工作
 
-### 准备工作
+在开始使用应用云 Crash 服务前，确保您已经完成：
 
-在开始使用应用云 Crash 服务前，您需要：
+[安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
- 1. 新建或者打开一个 Android 项目。
- 2. 配置了应用云服务框架，配置方式请参见 [应用云服务框架 Android 配置指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)。
+## 添加 SDK
 
-### 集成 Crash 服务到你的应用
+如果希望将 Crash 库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
 
-#### 通过远程依赖集成 (推荐)
+### 通过 gradle 远程依赖集成
 
-你需要在 module 下的 build.gradle 添加依赖：
+如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
+
+#### 1.使用jcenter作为仓库来源。
+
+在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
 ```
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        ...
+    }
+}
 
-dependencies {
-    ......
-    
-    compile 'com.tencent.tac:crash:1.0.0' 
-
+allprojects {
+    repositories {
+         jcenter()
+    }
 }
 ```
 
-#### 本地集成
+#### 2.添加 Crash 库依赖。
 
-1. 下载 Crash 服务资源打包文件，并解压。下载资源文件请点击 [这里](https://console.cloud.tencent.com/tac)。
-2. 将资源文件中的 libs 目录拷贝到您的 module 的根目录下。
-3. 将解压后的 jniLibs 目录拷贝到您的 module 的 ./source/main 下，这里您可以根据自己的平台来删减 so 文件。
-4. 打开您自己 module 下的 AndroidManifest.xml 文件，需要添加如下权限。
+在您的应用级 build.gradle（通常是 app/build.gradle）添加 Crash 的依赖：
 
 ```
+dependencies {
+    //增加这行
+    compile 'com.tencent.tac:tac-crash:1.0.0'
+}
+```
+
+然后，点击您 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
+
+### 手动集成
+
+如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。
+
+#### 1.下载服务资源压缩包。
+
+下载请点击 [应用云 Crash 服务资源]() ，并解压。
+
+#### 2.集成 jar 包。
+
+1. 将资源文件中的 libs 目录下的文件拷贝到您工程的 libs 目录。
+2. 如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，将解压后的 jniLibs 目录拷贝到您工程的 libs 目录。
+
+#### 3. 修改您工程的 AndroidManifest.xml 文件。
+
+请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件：
+
+```
+<!-- 添加 Crash 需要的权限 -->
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -39,54 +74,57 @@ dependencies {
 <uses-permission android:name="android.permission.READ_LOGS" />
 ```
 
-### 配置 Crash 服务实例
+## 避免混淆
 
-在启动 Crash 服务前，您可以在代码中修改 Crash 服务的相关配置。
-
-```
-// 请确保已经正确配置好服务框架，否则options()方法会返回null
-TACApplicationOptions applicationOptions = TACApplication.options();
-
-// 这里获取 Crash 服务的配置对象，您可以通过这个对象来配置 Crash 服务。
-TACCrashOptions crashOptions = applicationOptions.sub("crash");
-```
-请注意，每次调用 newDefaultOptions(Context) 方法会新建一个配置对象，如果您使用了多个 TAC 服务，请不要重复调用。
-
-### 启动 Crash 服务
-
-集成好 Crash 服务后，你可以很方便的启动 Crash 服务，具体代码如下：
+如果您的应用开启了混淆，请在 Proguard 混淆文件中增加以下配置，避免 Crash 被混淆：
 
 ```
-// 首先获取 TACCrashService 实例
-TACCrashService crashService = TACCrashService.getInstance();
-
-// 调用 start 接口启动 Crash 服务，context 这里最好是使用 application context。
-crashService.start(context);
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
 ```
 
+## 添加符号表和 mapping 文件上传插件
 
-### 添加符号表和 mapping 文件上传插件
+如果您的工程使用了 so 文件或者对代码进行了混淆，您需要添加插件来上传符号表和 mapping 文件。
 
-如果你使用了 so 文件或者对代码进行了混淆，那么需要添加插件来上传符号表和 mapping 文件。
-
-1、在项目根目录下的 build.gradle 文件中添加依赖。
-
+### 1.在工程根目录下的 build.gradle 文件中添加依赖。
+ 
 ```
 buildscript {
 	 ......
-	 
     dependencies {
         ......
-        
         classpath 'com.tencent.tac:crash-plugin:1.0.0'
     }
 }
 ```
 
-2、在 module 下的 build.gradle 文件中添加插件。
+### 2.在您应用 module 下的 build.gradle 文件中添加插件依赖。
+ 
+请加在您 build.gralde 文件的头部。
 
 ```
-......
- 
+apply plugin: 'com.android.application'
+// 添加这一行
 apply plugin: 'com.tencent.tac.crash'
 ```
+
+
+## 配置服务
+
+Crash 服务使用默认参数即可，不需要额外配置。如果您已经配置好 TACApplication 单例，这个过程已经自动完成。
+
+### 高级配置
+
+如果您需要自定义服务的策略，您可以使用 TACCrashOptions 修改一些具体的策略：
+
+```
+TACApplicationOptions applicationOptions = TACApplication.options();
+
+TACCrashOptions crashOptions = applicationOptions.sub("crash");
+```
+
+具体的 API 请参考 TACCrashOptions 的 API 文档。
+
+>**注意：**
+>请在 Crash 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效。

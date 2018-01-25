@@ -12,7 +12,7 @@ TACAnalyticsService.getInstance().start(this);
 
 ## 上报页面访问
 
-Analytics 默认会统计所有的页面访问，你不需要另外配置。如果需要独立上报页面访问，可以调用：
+Analytics 默认会统计所有的页面访问，你不需要另外配置，如果需要独立上报页面访问，可以调用：
 
 ```
 // 页面访问开始

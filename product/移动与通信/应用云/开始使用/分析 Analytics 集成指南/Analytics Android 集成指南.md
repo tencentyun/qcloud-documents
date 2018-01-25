@@ -4,7 +4,7 @@
 
 在开始使用应用云 Analytics 服务前，确保您已经完成：
 
- 1. [安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)。
+[安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -14,7 +14,7 @@
 
 如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
 
-#### 1. 使用 jcenter 作为仓库来源
+#### 1.使用 jcenter 作为仓库来源
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
@@ -35,7 +35,7 @@ allprojects {
 }
 ```
 
-#### 2. 添加 Analytics 库依赖
+#### 2.添加 Analytics 库依赖
 
 在您的应用级 build.gradle（通常是 app/build.gradle）添加 Analytics 的依赖：
 
@@ -46,7 +46,7 @@ dependencies {
 }
 ```
 
-然后，点击您 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
+然后，点击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
 
 ### 手动集成
 
@@ -54,7 +54,7 @@ dependencies {
 
 #### 1. 下载服务资源压缩包
 
-下载请点击 [应用云 Analytics 服务资源](https://console.cloud.tencent.com/tac)，并解压。
+下载请点击 [应用云 Analytics 服务资源]()，并解压。
 
 #### 2. 集成jar包
 
@@ -62,7 +62,7 @@ dependencies {
 
 #### 3. 修改您工程的 AndroidManifest.xml 文件
 
-请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件：
+请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件
 
 ```
 <!-- 添加 Analytics 需要的权限 -->
@@ -94,7 +94,7 @@ dependencies {
 
 您可以需要编译不同的渠道包，用于运营数据的采集。如果您没有配置渠道，Analytics 仍然可以正常运行。
 
-### gradle依赖集成下配置渠道
+### gradle 依赖集成下配置渠道
 
 您可以在应用模块下的 AndroidManifest.xml 文件中添加 meta-data：
 
@@ -104,7 +104,7 @@ dependencies {
 	android:value="${tac_channel}" />
 ```
 
-然后，在应用级的 build.gradle 文件里面设置 **tac_channel**，这样当您通过 gradle 编译不同的包时，AndroidManifest 中元数据的 value 会自动替换成配置的值。例如下面的代码，定义了小米商店和应用宝两个不同的渠道包：
+然后，在应用级的 build.gradle 文件里面设置 **tac_channel** ，这样当您通过 gradle 编译不同的包时，AndroidManifest 中元数据的 value 会自动替换成配置的值。例如下面的代码，定义了小米商店和应用宝两个不同的渠道包：
 
 ```
 android {
@@ -135,7 +135,7 @@ android {
 
 ## 配置服务
 
-Analytics 服务使用默认参数即可，不需要额外配置，如果您已经配置好 TACApplication 单例，这个过程已经自动完成。
+Analytics 服务使用默认参数即可，不需要额外配置。如果您已经配置好 TACApplication 单例，这个过程已经自动完成。
 
 ### 高级配置
 
@@ -147,6 +147,7 @@ TACApplicationOptions applicationOptions = TACApplication.options();
 TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
 ```
 
-具体的 API 请参考 TACApplicationOptions 的 API 文档。
+具体的 API 请参考 TACAnalyticsOptions 的 API 文档。
 
-**请在 Analytics 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效**。
+>**注意：**
+>请在 Analytics 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效

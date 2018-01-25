@@ -1,4 +1,4 @@
-对于在 iOS 平台上传视频的场景，腾讯云点播提供了 iOS 上传代码来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于在 iOS 平台上传视频的场景，腾讯云点播提供了 iOS 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
 
@@ -7,20 +7,18 @@
 
 ## 集成上传库和源代码
 
-拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
+1. 拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
 
-导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。
+2. 导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。并添加以下依赖库：
 
-并添加以下依赖库：
+    ```
+    1、CoreTelephony
+    2、Foundation
+    3、SystemConfiguration
+    4、libstdc++.tbd
+    ```
 
-```
-1、CoreTelephony
-2、Foundation
-3、SystemConfiguration
-4、libstdc++.tbd
-```
-
-在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
+3. 在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
 
 ##  简单视频上传
 
