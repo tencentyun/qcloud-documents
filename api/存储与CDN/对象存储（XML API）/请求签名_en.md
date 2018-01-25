@@ -26,7 +26,7 @@ The client signs the HTTP request, and then sends it to Tencent Cloud for signat
 
 ## Preparations
 1. APPID, SecretId and SecretKey. 
-   They are available on the [Cloud API Key](https://console.qcloud.com/cam/capi) page of console.
+   They are available on the [Cloud API Key](https://console.cloud.tencent.com/cam/capi) page of console.
 2. Specify the development languages:
    Support but not limited to Java, PHP, C Sharp, C++, node.js, Python, and specify the corresponding HMAC-SHA1, SHA1 functions.
 
