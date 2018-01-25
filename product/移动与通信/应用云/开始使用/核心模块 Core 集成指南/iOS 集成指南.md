@@ -18,8 +18,8 @@
 
 #### 为新项目添加 应用云 iOS 库
 
-##### 1.如果没有 Xcode 项目，请新建一个。
-##### 2.如果还没有 Podfile，请创建一个。
+##### 1. 如果没有 Xcode 项目，请新建一个。
+##### 2. 如果还没有 Podfile，请创建一个。
 
 ~~~
 $ cd your-project directory
@@ -33,9 +33,9 @@ source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
-> 注意一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题。
+> 注意一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-##### 3.添加您想安装的 Pod。您可以按照以下方法在 Podfile 中纳入一个 Pod。
+##### 3. 添加您想安装的 Pod。您可以按照以下方法在 Podfile 中纳入一个 Pod。
 
 ~~~
 pod 'TACCore'
@@ -44,14 +44,14 @@ pod 'TACCore'
 
 这会在您的 iOS 应用中添加应用云正常运行所需的必备库以及 Analytics for 应用云功能。下面列出了目前可供使用的一系列 pod 和 subspec。在针对不同功能的设置指南中也对此给出了相应的链接。
 
-##### 4.安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
+##### 4. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
 
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### 5.从 应用云 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
+##### 5. 从 应用云 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
 
 ### 手工集成
 
@@ -84,7 +84,7 @@ Objective-C 代码示例：
 ~~~
     [TACApplication configurate];
 ~~~
-
+Swift 代码示例：
 ~~~
 	TACApplication.configurate();
 ~~~
