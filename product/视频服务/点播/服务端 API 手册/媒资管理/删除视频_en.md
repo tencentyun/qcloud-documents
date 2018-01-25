@@ -8,9 +8,9 @@ DeleteVodFile
 
 ## Event Notification
 
-When files have been deleted, [Event Notification-Notification on File Deletion](/document/product/266/13434) is triggered, based on which the App backend monitors the execution status of task flow.
+When files have been deleted, Event Notification-Notification on File Deletion is triggered, based on which the App backend monitors the execution status of task flow.
 
-For more information, please see [Server Event Notifications](/document/product/266/7829).
+For more information, please see Server Event Notifications.
 
 ## Request Method
 
