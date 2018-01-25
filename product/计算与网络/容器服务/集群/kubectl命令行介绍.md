@@ -35,8 +35,6 @@ $ kubectl get po pod1
 $ kubectl create -f nginx.yaml
 ```
 yaml文件如下：
-__!!#ff0000请注意替换namespace为您的namespace!!__
-点击[获取Namespace名称](https://console.qcloud.com/ccs/cluster/detail/namespace?rid=1&clusterId=cls-a4ed48t8)
 
 ```yaml
 apiVersion: extensions/v1beta1
