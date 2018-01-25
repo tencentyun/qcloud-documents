@@ -34,7 +34,6 @@
 				<td>&nbsp;8 核</td>
 				<td>&nbsp;16 GB</td>
 				<td>&nbsp;<a href="/doc/product/362/2345">云硬盘</td>
-				
 			</tr>
 		</tbody>
 </table>
