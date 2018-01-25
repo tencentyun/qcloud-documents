@@ -8,7 +8,7 @@
 在应用云控制台中关联您的应用
 
 1. 安装 [应用云 SDK](https://console.cloud.tencent.com/tac)。
-2. 在 [应用云 控制台](https://console.cloud.tencent.com/tac)中，将您的应用添加到您的 应用云 项目中。
+2. 在 [应用云 控制台](https://console.cloud.tencent.com/tac)中，将您的应用添加到您的应用云项目中。
 3. 参考 [Analytics 配置文档](https://console.cloud.tencent.com/tac)，配置并初始化  Analytics。
 
 
