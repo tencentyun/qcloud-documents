@@ -42,6 +42,7 @@ You can call the static method of the ClientConfiguration class to modify the gl
 | setAudioRecognizeSliceTimeout | HTTP read timeout threshold | 5000 ms | 500-10000 ms |
 | setAudioRecognizeConnectTimeout | HTTP connection timeout threshold | 5000 ms | 500-10000 ms |
 | setAudioRecognizeWriteTimeout | HTTP write timeout threshold | 5000 ms | 500-10000 ms |
+
 Example
 ```
 ClientConfiguration.setServerProtocolHttps(true);
