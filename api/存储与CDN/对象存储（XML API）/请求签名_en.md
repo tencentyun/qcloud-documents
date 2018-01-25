@@ -134,7 +134,7 @@ Parameter | Value
 A user wants to download and upload objects using the API calling method, and make a signature to the calling.
 
 ### Preparations
-Obtain APPID, SecretId, and SecretKey by logging in to the [Cloud API Key](https://console.qcloud.com/cam/capi) page, and specify the development language as follows:
+Obtain APPID, SecretId, and SecretKey by logging in to the [Cloud API Key](https://console.tencent.cloud.com/cam/capi) page, and specify the development language as follows:
 
 APPID | SecretId | SecretKey | Development Language
 ---|---|---|---
