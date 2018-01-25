@@ -52,7 +52,7 @@ shell > mysql -h hostname -P port -u username -p < bak_pathname
 其中，hostname 为还原数据的目标主机，port 为目标主机的端口，username 为目标主机的数据库用户名，bak_pathname 为备份文件的完整路径。
 
 ### 通过 CVM 主机 Linux 系统迁移数据
-CVM 主机访问数据库请参考 访问MySQL数据库。
+CVM 主机访问数据库请参考 访问 MySQL 数据库。
 1. 以云数据库上的 db_blog 数据库为例。登录 CVM 主机，使用 MySQL 命令行工具 mysqldump 生成待导入的 SQL 文件。
 ![][image-5]
 2. 通过 MySQL 命令行工具进行还原，本例将数据还原到 CVM 服务器上。可以查看到备份的数据库已导入到目标服务器对应的数据库中。
