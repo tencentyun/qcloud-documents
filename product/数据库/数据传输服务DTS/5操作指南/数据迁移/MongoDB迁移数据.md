@@ -1,4 +1,4 @@
-
+## 迁移过程
 | 源实例 | 迁移的源实例 |
 |---------|---------|
 | 目标实例 | 迁移的目标实例，即用户购买的腾讯云 MongoDB |
@@ -28,11 +28,11 @@ b.	点击“新建实例迁移任务”，进入创建迁移任务页；
 | 端口 | 源实例端口号 |迁移任务会访问源实例服务 | 是 |
 | 密码 | 源实例密码 |访问源实例服务时有鉴权 | 是 |
 | 目标库-实例 | 目标实例 ID |同步数据到目标实例 | 是 |
-![](https://mc.qcloudimg.com/static/img/77fb157b0783b3706e5bd7f97d3eb6fb/2.png)
+![](https://mc.qcloudimg.com/static/img/6db68ed9a974aae89e26700b2b0bec9e/image.png)
 
 #### 选择迁移对象
 目前支持库级别的迁移能力，勾选要迁移的库。点击保持来创建任务
-![](https://mc.qcloudimg.com/static/img/d04abd9d68433d3377adfe97cdf9ebf3/4.png)
+ ![](https://mc.qcloudimg.com/static/img/f4df377f4a08b92dbd875bcd2063775a/image.png)
 
 
 任务创建成功，会在任务列表中显示一条任务

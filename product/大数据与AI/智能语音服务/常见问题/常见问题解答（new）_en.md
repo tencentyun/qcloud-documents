@@ -17,8 +17,8 @@ Yes.
 ### 1. What types of voice files can be uploaded?
 The format of voice files uploaded during connection testing should conform to the general standard format, such as mp3, wma, wav, etc.
 
-### 2. What is the length of an uploaded voice file?
-It should be equal to or larger than 1 second and shorter than 1 hour.
+### 2. How long can an uploaded voice file be?
+It can be between 1 second (inclusive) and 1 hour.
 
 ### 3. What is the requirement for async callback URL?
 The async callback URL provided during connection testing needs to provide service for public network to guarantee a normal performance of callback operation.
