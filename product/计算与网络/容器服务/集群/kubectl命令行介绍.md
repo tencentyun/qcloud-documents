@@ -31,7 +31,7 @@ $ kubectl get po pod1
 
 ## 示例：常用操作
 使用以下一组示例来帮助您熟悉运行常用 kubectl 操作：
-### `kubectl create` 
+### kubectl create
 从文件或标准输入创建资源。
 
 ```shell
