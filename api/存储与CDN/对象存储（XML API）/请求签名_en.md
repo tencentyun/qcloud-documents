@@ -59,7 +59,7 @@ table th:first-of-type {
 Key(key)|Value(value)	| Description
 ---|---|---
 q-sign-algorithm | sha1 |Required. <br>It is sha1, as only sha1 is currently supported for the signature algorithm.
-q-ak | parameter[*SecretID*] | Required. <br>Account ID, namely SecretID, which is available on the [Cloud API Key](https://console.qcloud.com/capi) page of console.<br><br>**For example:** AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q.
+q-ak | parameter[*SecretID*] | Required. <br>Account ID, namely SecretID, which is available on the [Cloud API Key](https://console.cloud.tencent.com/capi) page of console.<br><br>**For example:** AKIDQjz3ltompVjBni5LitkWHFlFpwkn9U5q.
 q-sign-time | parameter[*SignTime*] | Required. <br>The valid start/end time of this signature, which are described by the Unix timestamp<font color="#3300ff"><sup>Note 1</sup></font> in seconds, in the format of [*start-seconds*];[*end-seconds*].<br><br>**For example:** 1480932292;1481012298.
 q-key-time | parameter[*KeyTime*] | Required. <br>Its value is the same as q-sign-time.
 q-header-list | parameter[*SignedHeaderList*] | Required. <br>HTTP request header. Some or all keys need to be extracted from key:value pairs. The key need to be converted to lowercase, and multiple keys need to be sorted in lexicographical order and can be connected by ";".<br><br>**For example:** Suppose an HTTP request "Host: bucket1-1254000000.cos.ap-beijing.myqcloud.com Content-Type: image/jpeg". Its SignedHeaderList is content-type;host.
