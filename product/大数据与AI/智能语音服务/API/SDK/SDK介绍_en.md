@@ -19,6 +19,7 @@ public AAIClient(Context context, int appid, int projectId, String secreteId, Ab
 | projectId | Int | No | User's projectId |
 | secreteId | String | Yes | User's SecreteId |
 | credentialProvider | AbsCredentialProvider | Yes | Authentication class |
+
 Example
 ```
 try {
