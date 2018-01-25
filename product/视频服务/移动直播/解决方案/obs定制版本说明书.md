@@ -87,7 +87,7 @@ server=http://jww.qcloud.com/dabaa
 GET http://jww.qcloud.com/dabaa/subject/statics/1 HTTP/1.1
 ```
 
-我们期望您的服务器按如下格式向OBS会送答案，不过您也可以自己定制，因为我们定制版OBS在这里不会解析其内容，只是简单的把服务器返回的json塞入音视频流中。
+我们期望您的服务器按如下格式向OBS发送答案，不过您也可以自己定制，因为我们定制版OBS在这里不会解析其内容，只是简单的把服务器返回的json塞入音视频流中。
 
 ```
 {
