@@ -25,7 +25,7 @@ pod 'TACSocialWechat'
 ~~~
 
 ### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
- ~~~
+~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
