@@ -4,7 +4,7 @@
 
 在开始使用应用云 Crash 服务前，确保您已经完成：
 
-[安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -14,7 +14,7 @@
 
 如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
 
-#### 1.使用jcenter作为仓库来源。
+#### 1. 使用jcenter作为仓库来源。
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
@@ -35,7 +35,7 @@ allprojects {
 }
 ```
 
-#### 2.添加 Crash 库依赖。
+#### 2. 添加 Crash 库依赖。
 
 在您的应用级 build.gradle（通常是 app/build.gradle）添加 Crash 的依赖：
 
@@ -52,11 +52,11 @@ dependencies {
 
 如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。
 
-#### 1.下载服务资源压缩包。
+#### 1. 下载服务资源压缩包。
 
 下载请点击 [应用云 Crash 服务资源]() ，并解压。
 
-#### 2.集成 jar 包。
+#### 2. 集成 jar 包。
 
 1. 将资源文件中的 libs 目录下的文件拷贝到您工程的 libs 目录。
 2. 如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，将解压后的 jniLibs 目录拷贝到您工程的 libs 目录。
@@ -87,7 +87,7 @@ dependencies {
 
 如果您的工程使用了 so 文件或者对代码进行了混淆，您需要添加插件来上传符号表和 mapping 文件。
 
-### 1.在工程根目录下的 build.gradle 文件中添加依赖。
+### 1. 在工程根目录下的 build.gradle 文件中添加依赖。
  
 ```
 buildscript {
@@ -99,7 +99,7 @@ buildscript {
 }
 ```
 
-### 2.在您应用 module 下的 build.gradle 文件中添加插件依赖。
+### 2. 在您应用 module 下的 build.gradle 文件中添加插件依赖。
  
 请加在您 build.gralde 文件的头部。
 
