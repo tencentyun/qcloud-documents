@@ -73,7 +73,7 @@ data is the json information of the order. It contains the following fields
  
 Input
 
-<pre>
+`
 	https://domain/v2/index.php?
 	Action=BuyDevice
 	&zoneId=1000800001
@@ -89,7 +89,7 @@ Input
 	&needSecurityAgent=1
 	&alias=Instance name
 	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-</pre>
+`
 Output
 
 ```
