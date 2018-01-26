@@ -118,6 +118,8 @@ Swift 代码示例：
 1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在Info.plist里面增加qqwallet的scheme回调。
 2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如Crash符号表上报
 
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
+
 请按照以下步骤来添加脚本：
 
 ##### 添加构建之前运行的脚本
