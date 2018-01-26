@@ -21,21 +21,20 @@
 OBS的使用方法，我们就不在这里赘述了，但有几个细节需要您注意：
 - **1. 推流 URL要这样填写：**
     比如一个合法的推流 URL `rtmp://3891.livepush.myqcloud.com/live/3891_rexchang?bizid=3891&txSecret=d436dc53e5ab06a12313c736f7d533c91&txTime=5A6B507F`
-![](https://mc.qcloudimg.com/static/img/5c132c243e2659befd69cae4537aead6/image.jpg)
+    ![](https://mc.qcloudimg.com/static/img/5c132c243e2659befd69cae4537aead6/image.jpg)
 
 - **2. GOP（I帧间隔）要设置为1**
-![](https://mc.qcloudimg.com/static/img/204d041289f535ef9355ca8b45780e5d/image.jpg)
+  ![](https://mc.qcloudimg.com/static/img/204d041289f535ef9355ca8b45780e5d/image.jpg)
 
 - **3. 编码参数追求经济适用**
-![](https://mc.qcloudimg.com/static/img/3c4a53b596e1663b5d12e4779922045a/image.jpg)
-![](https://mc.qcloudimg.com/static/img/2516df29225a4e13db1c0a217dc0996c/image.jpg)
+  ![](https://mc.qcloudimg.com/static/img/3c4a53b596e1663b5d12e4779922045a/image.jpg)
+  ![](https://mc.qcloudimg.com/static/img/2516df29225a4e13db1c0a217dc0996c/image.jpg)
 
-|推荐推荐配置| 分辨率 | 视频比特率 | 帧率 | 声道数| 采样率| 音频比特率|
-|----------------|---------|---------|---------| --------|----|----|
-|优先画质| 540x960   | 1000kbps | 25 | 1|48k| 72kbps|
-|优先成本| 360x640| 600kbps|20|1|48k| 72kbps|
+| 推荐推荐配置 | 分辨率     | 视频比特率    | 帧率   | 声道数  | 采样率  | 音频比特率  |
+| ------ | ------- | -------- | ---- | ---- | ---- | ------ |
+| 优先画质   | 540x960 | 1000kbps | 25   | 1    | 48k  | 72kbps |
+| 优先成本   | 360x640 | 600kbps  | 20   | 1    | 48k  | 72kbps |
 
-## 如何发题？
 
 
 ## 如何配置服务器？
