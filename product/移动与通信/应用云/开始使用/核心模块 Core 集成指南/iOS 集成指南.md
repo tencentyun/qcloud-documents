@@ -155,13 +155,11 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 
 ##### 添加构建之后运行的脚本
 
-##### 添加构建之前运行的脚本
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
 3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
-> **注意：**
-请确保该脚本在 `Build Phases` 中排序需要放到最后。
+> **注意：** 请确保该脚本在 `Build Phases` 中排序需要放到最后。
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
 
 需要黏贴的代码
