@@ -166,7 +166,7 @@ class WeatherItem {
 
 #### 闹钟
 
-参照 [Skill 对接](https://xiaowei.qcloud.com/wiki/#Hardware_local_skill_alarm_clock)。
+参照 [Skill 对接](https://cloud.tencent.com/document/product/645/13451)。
 
 #### 纯文本
 
@@ -263,4 +263,4 @@ TXAIAudioMsgInfo[] listMsgInfo = TXAIAudioSDK.getInstance().getMsgInfo(listMsgID
 
 #### 音乐资源接口获取
 
-具体参照[音乐资源可视化](https://xiaowei.qcloud.com/wiki/#APIDesc_android_login_status)
+具体参照[音乐资源可视化](https://cloud.tencent.com/document/product/645/14246)。
