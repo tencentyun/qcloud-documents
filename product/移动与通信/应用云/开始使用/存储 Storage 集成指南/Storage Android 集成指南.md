@@ -4,7 +4,7 @@
 
 在开始使用应用云 Storage 服务前，确保您已经完成：
 
-[安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -46,7 +46,7 @@ dependencies {
 }
 ```
 
-然后，点击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
+然后，单击 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
 
 ### 手动集成
 
@@ -64,9 +64,9 @@ dependencies {
 
 Storage 服务因为需要一个有效的签名提供者，无法直接使用默认配置，您有两种方式可以提供签名。**请在 Storage 服务启动前完成配置，一旦服务启动，后续所有的参数修改都不会生效**。
 
-### 1.提供一个返回有效签名的 HTTP 网络接口
+### 1. 提供一个返回有效签名的 HTTP 网络接口
 
-您可以在自己的后台服务器部署该接口，并在 SDK 端通过调用 TACStorageOptions 的 setCredentialProvider 方法配置。SDK会在需要签名的时候，自动调用该接口获取签名。
+您可以在自己的后台服务器部署该接口，并在 SDK 端通过调用 TACStorageOptions 的 setCredentialProvider 方法配置。SDK 会在需要签名的时候，自动调用该接口获取签名。
 
 ```
 // 请确保已经正确配置好服务框架，否则options()方法会返回null
@@ -86,7 +86,7 @@ storageOptions.setCredentialProvider(new HttpRequest.Builder<String>()
 
 接口的通用返回格式请参考 [这里](https://console.cloud.tencent.com/tac)。
 
-### 2.自己实现一个签名提供者
+### 2. 自己实现一个签名提供者
 
 如果您希望自己定义协议或者请求过程，您可以继承 SDK 提供的 BasicLifecycleCredentialProvider 类，实现 fetchNewCredentials 方法，获取签名。
 

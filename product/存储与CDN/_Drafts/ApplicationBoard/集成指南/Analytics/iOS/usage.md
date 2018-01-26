@@ -26,4 +26,10 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
 [TACAnalyticsService trackEvent:event];
 ~~~
 
-为帮助您着手，Analytics SDK 定义了许多推荐的事件，这些事件可通用于各种应用类型，包括零售和电子商务、旅行以及游戏应用。比如常见的页面追踪
+为帮助您着手，Analytics SDK 定义了许多推荐的事件，这些事件可通用于各种应用类型，包括零售和电子商务、旅行以及游戏应用。比如常见的页面追踪，网络性能追踪等等
+
+具体的使用可以参考：
+
+~~~
+TACAnalyticsService.h
+~~~

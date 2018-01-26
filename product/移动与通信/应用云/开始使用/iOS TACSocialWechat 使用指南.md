@@ -81,11 +81,11 @@ tac_services_configurations_wechat.plist
 
 目前支持的配置为：
 
-| 参数 Key | 参数含义                |
-|:--------|:------------------------|:-----|
-| appID   | 微信开放平台中程序 appID |
+| 参数 Key | 参数含义                 |  |
+|:---------|:-------------------------|:-|
+| appID    | 微信开放平台中程序 appID |  |
 
->**注意：** 
+>**注意：**
 >目前不支持通过配置文件将 appKey 直接配置，因为这是个危险的操作。
 
 #### 程序配置
@@ -104,7 +104,7 @@ Swift 代码示例：
 
 如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACSocialWechat 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACSocialWechat 模块这些属性就不存在，请不要在没有引入 TACSocialWechat 模块的时候使用这些配置，这将会导致您编译不通过：
 
->**注意：** 
+>**注意：**
 >如果您希望使用我们提供的在终端获取微信用户信息的能力，您需要在这里配置您的 appKey。请注意这是个危险的操作，我们仍然建议您在自己的后台去获取微信用户的信息。
 
 Objective-C 代码示例：
@@ -127,25 +127,8 @@ Swift 代码示例：
 
 #### 配置 TACSocialWechat 中的配置脚本 (主要为第三方登陆模块的配置脚本)
 
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`.，您可以将改脚本命名 WechatSetupScripts。
-> **注意**
-> 请确保 `New Run Script Phase` 脚本在 `Build Phases` 中排序为第二。
 
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框。
-
-#### 需要黏贴的代码
-~~~
-THIRD_FRAMEWORK_PATH=[]
-${THIRD_FRAMEWORK_PATH}/Scripts/run
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
- 
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACSocialWechat/Scripts/run`。
-* 如果您使用手工集成的方式则为 `${SRCROOT}/TACSocialWechat/Scripts/run`。
- 
+为了配合 libWeChatSDK 的使用，需要 Info.plist 里面注册回调scheme和query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
 ### 6. 使用 libWeChatSDK 的功能：
  
