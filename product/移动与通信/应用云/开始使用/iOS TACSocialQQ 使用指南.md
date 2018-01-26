@@ -73,8 +73,8 @@ tac_services_configurations_qq.plist
 		<dict>
 			<key>qq</key>
 			<dict>
-				<key>appID</key>
-				<string>请填充您的 AppID</string>
+				<key>appId</key>
+				<string>请填充您的 AppId</string>
 				<key>appKey</key>
 				<string>请填充您的 APPKey</string>
 				<key>permissions</key>
@@ -95,7 +95,7 @@ tac_services_configurations_qq.plist
 
 | 参数Key     | 参数含义                               |  |
 |:------------|:---------------------------------------|:-|
-| appID       | QQ 互联中程序的 appID                  |  |
+| appId       | QQ 互联中程序的 appID                  |  |
 | appKey      | QQ 互联中程序的 appKey                 |  |
 | permissions | 进行 QQ 授权的时候，需要申请的权限列表 |  |
 
@@ -138,6 +138,10 @@ Swift 代码示例：
 
 为了配合TencentOpenApi的使用，需要Info.plist里面注册回调scheme和query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
+
+TACSocialQQ 中的脚本会自动的帮助您完成以下功能：
+1. 根据读取您的 tac_services_configurations_qq 中的 appId 信息按照 `tencent[appId]` 的规则增加回调的scheme
+2. 在 LSApplicationQueriesSchemes 中添加 mqqopensdkapiV2
 
 
 #### 6. 使用 TencentOpenApi 的功能。

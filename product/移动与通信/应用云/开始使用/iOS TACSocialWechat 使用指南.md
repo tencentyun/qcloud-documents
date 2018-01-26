@@ -69,7 +69,7 @@ tac_services_configurations_wechat.plist
 		<dict>
 			<key>wechat</key>
 			<dict>
-				<key>appID</key>
+				<key>appId</key>
 				<string>wx256642f480c15e3e</string>
 			</dict>
 		</dict>
@@ -83,7 +83,7 @@ tac_services_configurations_wechat.plist
 
 | 参数 Key | 参数含义                 |  |
 |:---------|:-------------------------|:-|
-| appID    | 微信开放平台中程序 appID |  |
+| appId    | 微信开放平台中程序 appId |  |
 
 >**注意：**
 >目前不支持通过配置文件将 appKey 直接配置，因为这是个危险的操作。
@@ -129,6 +129,11 @@ Swift 代码示例：
 
 
 为了配合 libWeChatSDK 的使用，需要 Info.plist 里面注册回调scheme和query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之前运行脚本。
+
+TACSocialWechat 中的脚本会自动的帮助您完成以下功能：
+1. 根据读取您的 tac_services_configurations_wechat 中的 appId 信息按照 `[appId]` 的规则增加回调的scheme
+2. 在 LSApplicationQueriesSchemes 中添加 weixin
+
 
 ### 6. 使用 libWeChatSDK 的功能：
  
