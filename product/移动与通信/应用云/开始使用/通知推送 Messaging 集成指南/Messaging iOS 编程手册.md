@@ -9,7 +9,7 @@
 
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-    options.messagingOptions.enable = NO;
+    options.messagingOptions.autoStart = NO;
 ~~~
 
 ### 手动开启服务
