@@ -81,7 +81,7 @@ tac_services_configurations_wechat.plist
 
 目前支持的配置为：
 
-| 参数 Key | 参数含义                 |  |
+| 参数 Key | 参数含义                 |  
 |:---------|:-------------------------|:-|
 | appId    | 微信开放平台中程序 appId |  |
 

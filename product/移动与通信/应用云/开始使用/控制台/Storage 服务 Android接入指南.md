@@ -4,7 +4,7 @@
 
 ### 创建引用
 
-要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用。引用可以看作是指向云端文件的指针：
+要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用，引用可以看作是指向云端文件的指针：
 
 ```
 TACStorageService storage = TACStorageService.getInstance();
@@ -12,7 +12,7 @@ TACStorageService storage = TACStorageService.getInstance();
 TACStorageReference reference = storage.rootReference();
 ```
 
-上面的代码是获取整个bucket的根目录的引用，如果想要创建某个子文件的引用，可以使用：
+上面的代码是获取整个 bucket 的根目录的引用，如果想要创建某个子文件的引用，可以使用：
 
 ```
 TACStorageReference reference = storage.referenceWithPath('images');
