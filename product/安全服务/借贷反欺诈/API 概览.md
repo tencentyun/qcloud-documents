@@ -31,7 +31,7 @@
 <td>String</td>
 <td>手机号码：国家代码</br>
 手机号，如 0086 - 15912345678</br> 
-注意: 0086 前不需要 + 号</td>
+注意：0086 前不需要 + 号</td>
 </tr>
 <tr>
 <td>bankCardNumber</td>
@@ -130,10 +130,10 @@ idfa</td>
 
 | 参数名称 | 类型 | 描述 |
 | ----- | ----- | ----- |
-| code | Int | 公共错误码；</br>0：表示成功</br>其他值：表示失败</br>详见 [错误码](https://cloud.tencent.com/document/product/295/7285) 页面中的 **公共错误码** 相关内容 |
+| code | Int | 公共错误码</br>0：表示成功</br>其他值：表示失败</br>详见 [错误码](https://cloud.tencent.com/document/product/295/7285) 页面中的 **公共错误码** 相关内容 |
 | codeDesc | String | 业务侧错误码</br>成功时返回 Success</br>错误时返回具体业务错误原因 |
 | message | String | 模块错误信息描述，与接口相关。 |
-| idfound | Int | 表示该条记录中的身份证能否查到</br>1：能查到；</br>-1：查不到 |
+| idfound | Int | 表示该条记录中的身份证能否查到</br>1：能查到</br>-1：查不到 |
 | found | Int | 表示该条记录能否查到</br>1：能查到</br>-1：查不到 |
 | riskScore | UInt | 0-100：欺诈分值</br>值越高欺诈可能性越大</br>-1：查询不到数据 |
 | riskInfo | RiskDetail | 扩展字段，对风险类型的说明；</br>riskScore 为 0 ：无此字段 |
