@@ -18,7 +18,7 @@
 
 如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
 
-#### 1.使用 jcenter 作为仓库来源
+#### 1. 使用 jcenter 作为仓库来源
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
@@ -40,7 +40,7 @@ allprojects {
 ```
 
 
-#### 2.添加应用云库依赖
+#### 2. 添加应用云库依赖
 
 在您的应用级 build.gradle（通常是 app/build.gradle）添加应用云库的依赖。您可以添加自己希望的 SDK 的依赖项。最基础的依赖是 com.tencent.tac:tac-core，它可以提供 Analytics 功能，具体请参阅文档下方的可用库列表。
 
@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-然后，点击您 IDE 的 【gradle】同步按钮，会自动将依赖包同步到本地。
+然后，单击 IDE 的 【gradle】同步按钮，会自动将依赖包同步到本地。
 
 ### 手动集成
 
@@ -101,10 +101,10 @@ TACMessagingOptions messagingOptions = applicationOptions.sub("messaging");
 
 ### 获取当前配置
 
-配置完成之后，您任何时候都可以使用 TACApplication 的 options() 方法获取当前的配置参数。**您可以再次修改参数，但请在每个服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效**：
+配置完成之后，您任何时候都可以使用 TACApplication 的 options( ) 方法获取当前的配置参数。**您可以再次修改参数，但请在每个服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效**：
 
 ```
-TACApplicationOptions currentOptions = TACApplication.options();
+TACApplicationOptions currentOptions = TACApplication.options( );
 
 ```
 

@@ -7,21 +7,21 @@
 
 在应用云控制台中关联您的应用
 
-1. 安装 [应用云 SDK](https://console.cloud.tencent.com/tac)。
-2. 在 [应用云控制台](https://console.cloud.tencent.com/tac) 中，将您的应用添加到您的应用云项目中。
-3. 参考 [Storage 配置文档](https://console.cloud.tencent.com/tac)，配置并初始化 Storage。
+1.安装 [应用云 SDK](https://console.cloud.tencent.com/tac)。
+2.在 [应用云控制台](https://console.cloud.tencent.com/tac) 中，将您的应用添加到您的应用云项目中。
+3.参考 [Storage 配置文档](https://console.cloud.tencent.com/tac)，配置并初始化 Storage。
 
 
 ## 使用 Storage 进行文件操作
 
 
-您的文件存储在 COS 存储桶中，此存储桶中的文件以分层结构存储，就像本地硬盘中的文件系统一样。通过创建对文件的引用，您的应用可以获得对相应文件的访问权限。之后，借助所创建的这些引用，您可以上传或下载数据、获取或更新元数据，也可以删除文件。引用可以指向特定的文件，也可以指向层次结构中更高层级的节点。
+您的文件存储在 COS 存储桶中，此存储桶中的文件以分层结构存储，就像本地硬盘中的文件系统一样，通过创建对文件的引用，您的应用可以获得对相应文件的访问权限。之后，借助所创建的这些引用，您可以上传或下载数据、获取或更新元数据，也可以删除文件。引用可以指向特定的文件，也可以指向层次结构中更高层级的节点。
 
 
 ### 创建引用
 要上传、下载或删除文件或要获取或更新文件的元数据，请创建引用，引用可以看作是指向云端文件的指针。由于引用属于轻型项目，因此您可以根据需要创建任意多个引用，引用还可以在多个操作中复用。
 
-引用是使用 TACStorageService 服务并调用其 referenceWithPath 或者 rootReference 方法创建的。
+引用是使用 TACStorageService 服务并调用其 referenceWithPath 或者 rootReference 方法创建的：
 
 
 ~~~
@@ -33,7 +33,7 @@ self.reference = [[TACStorageService defaultStorage] referenceWithPath:@"test-fi
 
 #### 引用导航
 
-您还可以使用 parent 和 root 方法在我们的文件层次结构中向上导航，parent 可向上导航一级，而 root 可直接导航到根目录。
+您还可以使用 parent 和 root 方法在我们的文件层次结构中向上导航，parent 可向上导航一级，而 root 可直接导航到根目录：
 
 
 
@@ -46,7 +46,7 @@ TACStorageReference *rootRef = [spaceRef root];
 ~~~
 
 
-child、parent 和 root 可以多次链接到一起，每次都会返回一个引用。root 的 parent 是例外，它是 nil。
+child、parent 和 root 可以多次链接到一起，每次都会返回一个引用，root 的 parent 是例外，它是 nil：
 
 ~~~
 TACStorageReference *earthRef = [[spaceRef parent] child:@"earth.jpg"];
@@ -59,8 +59,8 @@ TACStorageReference *nilRef = [[spaceRef root] parent];
 
 有了引用之后，您可以通过两种方式将文件上传到 COS：
 
-1. 从内存中的数据上传。
-2. 从代表设备上某个文件的路径上传。
+* 从内存中的数据上传。
+* 从代表设备上某个文件的路径上传。
 
 
 

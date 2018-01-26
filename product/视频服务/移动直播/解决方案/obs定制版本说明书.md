@@ -19,8 +19,8 @@ OBS的使用方法，我们就不在这里赘述了，但有几个细节需要�
 ![](https://mc.qcloudimg.com/static/img/5c132c243e2659befd69cae4537aead6/image.jpg)
 
 - **2. GOP（I帧间隔）要设置为1**
- ![](https://mc.qcloudimg.com/static/img/f608e050abe0d802fa4bf51e1e949296/image.jpg)
- 
+![](https://mc.qcloudimg.com/static/img/204d041289f535ef9355ca8b45780e5d/image.jpg)
+
 - **3. 编码参数追求经济适用**
 ![](https://mc.qcloudimg.com/static/img/3c4a53b596e1663b5d12e4779922045a/image.jpg)
 ![](https://mc.qcloudimg.com/static/img/2516df29225a4e13db1c0a217dc0996c/image.jpg)

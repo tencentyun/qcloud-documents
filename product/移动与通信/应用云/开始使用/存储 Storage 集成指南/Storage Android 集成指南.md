@@ -4,7 +4,7 @@
 
 在开始使用应用云 Storage 服务前，确保您已经完成：
 
- 1. [安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)。
+[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -12,9 +12,9 @@
 
 ### 通过 gradle 远程依赖集成
 
-如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
+如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖**。
 
-#### 1. 使用jcenter作为仓库来源
+#### 1. 使用 jcenter 作为仓库来源
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
@@ -46,27 +46,27 @@ dependencies {
 }
 ```
 
-然后，点击您 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
+然后，单击 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
 
 ### 手动集成
 
 如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。
 
-#### 1. 下载服务资源压缩包
+#### 1. 下载服务资源压缩包。
 
 下载请点击[应用云 Storage 服务资源](https://console.cloud.tencent.com/tac)，并解压。
 
-#### 2. 集成jar包
+#### 2. 集成 jar 包。
 
 将资源文件中的 libs 目录下的文件拷贝到您工程的 libs 目录。
 
 ## 配置服务
 
-Storage 服务因为需要一个有效的签名提供者，无法直接使用默认配置，您有两种方式可以提供签名。**请在 Storage 服务启动前完成配置。一旦服务启动，后续所有的参数修改都不会生效**。
+Storage 服务因为需要一个有效的签名提供者，无法直接使用默认配置，您有两种方式可以提供签名。**请在 Storage 服务启动前完成配置，一旦服务启动，后续所有的参数修改都不会生效**。
 
-### 1. 提供一个返回有效签名的HTTP网络接口
+### 1. 提供一个返回有效签名的 HTTP 网络接口
 
-您可以在自己的后台服务器部署该接口，并在 SDK 端通过调用 TACStorageOptions 的 setCredentialProvider 方法配置。SDK会在需要签名的时候，自动调用该接口获取签名。
+您可以在自己的后台服务器部署该接口，并在 SDK 端通过调用 TACStorageOptions 的 setCredentialProvider 方法配置。SDK 会在需要签名的时候，自动调用该接口获取签名。
 
 ```
 // 请确保已经正确配置好服务框架，否则options()方法会返回null
@@ -84,11 +84,11 @@ storageOptions.setCredentialProvider(new HttpRequest.Builder<String>()
 	.build());
 ```
 
-接口的通用返回格式请参考[这里](https://console.cloud.tencent.com/tac)。
+接口的通用返回格式请参考 [这里](https://console.cloud.tencent.com/tac)。
 
 ### 2. 自己实现一个签名提供者
 
-如果您希望自己定义协议或者请求过程，您可以继承 SDK提供的 BasicLifecycleCredentialProvider 类，实现 fetchNewCredentials 方法，获取签名。
+如果您希望自己定义协议或者请求过程，您可以继承 SDK 提供的 BasicLifecycleCredentialProvider 类，实现 fetchNewCredentials 方法，获取签名。
 
 ```
 // 此处使用本地密钥生成签名，只是作为示例。请不要把密钥放在客户端。

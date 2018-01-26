@@ -4,7 +4,7 @@
 
 在开始使用应用云 Analytics 服务前，确保您已经完成：
 
-[安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -14,7 +14,7 @@
 
 如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
 
-#### 1.使用 jcenter 作为仓库来源
+#### 1. 使用 jcenter 作为仓库来源
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
@@ -35,7 +35,7 @@ allprojects {
 }
 ```
 
-#### 2.添加 Analytics 库依赖
+#### 2. 添加 Analytics 库依赖
 
 在您的应用级 build.gradle（通常是 app/build.gradle）添加 Analytics 的依赖：
 
@@ -150,4 +150,4 @@ TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
 具体的 API 请参考 TACAnalyticsOptions 的 API 文档。
 
 >**注意：**
->请在 Analytics 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效
+>请在 Analytics 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效。

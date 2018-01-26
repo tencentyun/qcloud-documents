@@ -10,7 +10,7 @@ TACSocialQQ 封装了 [TencentOpenAPI](wiki.connect.qq.com/ios_sdk环境搭建) 
 ## 将应用云 TACSocialQQ 代码库添加到您的 Xcode 项目中
 
 
-### 1.在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源：
+### 1. 在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源：
  
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
@@ -18,22 +18,22 @@ source "https://github.com/CocoaPods/Specs"
 ~~~
 
 > **注意：**
-一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题。
+一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-### 2.添加 TACSocialQQ 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
+### 2. 添加 TACSocialQQ 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
  
 ~~~
-pod 'TACSocialQQ"
+pod 'TACSocialQQ'
 ~~~
 
-### 3.安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
+### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
  
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-### 4.在 UIApplicationDelegate 子类中导入 TACSocialQQ 模块：
+### 4. 在 UIApplicationDelegate 子类中导入 TACSocialQQ 模块：
 Objective-C 代码示例：
 ~~~
 import <TACSocialQQ/TACSocialQQ.h>
@@ -44,7 +44,7 @@ import TACSocialQQ
 ~~~
 
 
-### 5.配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
+### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
  
 
 #### 先行配置--引入配置文件
@@ -60,7 +60,7 @@ import TACSocialQQ
 tac_services_configurations_qq.plist
 ~~~
 
-文件的内容为需要配置的参数信息，请注意 QQOptions 的配置路径（:services:social:qq）: 例如配置文件：
+文件的内容为需要配置的参数信息，请注意 QQOptions 的配置路径 `（:services:social:qq）:` 例如配置文件：
  
 ~~~
 <?xml version="1.0" encoding="UTF-8"?>
@@ -73,8 +73,8 @@ tac_services_configurations_qq.plist
 		<dict>
 			<key>qq</key>
 			<dict>
-				<key>appID</key>
-				<string>请填充您的 AppID</string>
+				<key>appId</key>
+				<string>请填充您的 AppId</string>
 				<key>appKey</key>
 				<string>请填充您的 APPKey</string>
 				<key>permissions</key>
@@ -93,11 +93,11 @@ tac_services_configurations_qq.plist
 
 目前支持的配置为：
 
-| 参数Key     | 参数含义                             | 
-|:------------|:-------------------------------------|:-----|
-| appID       | QQ 互联中程序的 appID                  |      
-| appKey      | QQ 互联中程序的 appKey                 |      
-| permissions | 进行 QQ 授权的时候，需要申请的权限列表 |      
+| 参数Key     | 参数含义                               |  |
+|:------------|:---------------------------------------|:-|
+| appId       | QQ 互联中程序的 appID                  |  |
+| appKey      | QQ 互联中程序的 appKey                 |  |
+| permissions | 进行 QQ 授权的时候，需要申请的权限列表 |  |
 
 
 
@@ -105,17 +105,19 @@ tac_services_configurations_qq.plist
 
 一般情况下您使用默认配置就可以了，用以下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 
-~~~objective-c
+Objective-C 代码示例：
+~~~
     [TACApplication configurate];
 ~~~
-
+Swift 代码示例：
 ~~~
 	TACApplication.configurate();
 ~~~
 
 如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACSocialQQ 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACSocialQQ 模块这些属性就不存在，请不要在没有引入 TACSocialQQ 模块的时候使用这些配置，这将会导致您编译不通过：
 
-~~~objective-c
+Objective-C 代码示例：
+~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
 	//     options.qqOptions.[Key] = [Value];
@@ -123,7 +125,8 @@ tac_services_configurations_qq.plist
     [TACApplication configurateWithOptions:options];
 ~~~
 
-~~~swift
+Swift 代码示例：
+~~~
 	let options = TACApplicationOptions.default()
 	// 自定义配置
 	// options?.qqOptions.[Key] = [Value];
@@ -133,27 +136,15 @@ tac_services_configurations_qq.plist
 #### 配置 TACSocialQQ 中的配置脚本 (主要为第三方登陆模块的配置脚本)
 
 
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 QQSetupScripts。
-> **注意：**
-请确保该脚本在 `Build Phases` 中排序为第二。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
-
-#### 需要黏贴的代码
-
-~~~
-THIRD_FRAMEWORK_PATH=[]
-${THIRD_FRAMEWORK_PATH}/Scripts/run
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
- 
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACSocialQQ/Scripts/run`。
-* 如果您使用 手工集成 的方式则为 `${SRCROOT}/TACSocialQQ/Scripts/run`。
+为了配合TencentOpenApi的使用，需要Info.plist里面注册回调scheme和query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
 
-#### 6.使用 TencentOpenApi 的功能。
+TACSocialQQ 中的脚本会自动的帮助您完成以下功能：
+1. 根据读取您的 tac_services_configurations_qq 中的 appId 信息按照 `tencent[appId]` 的规则增加回调的scheme
+2. 在 LSApplicationQueriesSchemes 中添加 mqqopensdkapiV2
+
+
+#### 6. 使用 TencentOpenApi 的功能。
 
 我们已经为您自动化配置好了 TencentOpenApi 的其他功能，包括 HandleOpenURL 等函数的响应，和在 Info.plist 文件中注册相关的回调和 Scheme 等操作，您不需要重复执行该操作。如果您要使用 TencentOpenApi 的功能，您可以引入头文件：
 
