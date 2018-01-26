@@ -81,11 +81,4 @@ Swift 代码示例：
 
 ## 配置 Crashlytics 上报符号表脚本
 
-1.在导航栏中打开您的工程。
-2.打开Tab `Build Phases`。
-3.点击 `Add a new build phase` , 并选择 `New Run Script Phase`。
-4.将下面的代码粘贴入  `Type a script...` 文本框。
-
-	~~~~
-	"${PODS_ROOT}/TACCrash/Scripts/run"
-	~~~~
+Crashlytics 需要在您编译成功上上传符号表以方便解析。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之后运行脚本。
