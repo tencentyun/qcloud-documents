@@ -5,12 +5,12 @@
 在开始使用应用云 Crashlytics 之前，您需要：
 
 * 一个启用了应用云的应用。
-* 您集成了 TACCore。
+* 集成了 TACCore。
 
-## 将应用云 Crashlytics 代码库添加到您的 Xcode 项目中
+## 将应用云 Crashlytics 代码库添加到 Xcode 项目中
 
 
-### 1.在您的项目中集成应用云 SDK：
+### 1. 在您的项目中集成应用云 SDK：
  
 并在您的 Podfile 文件中添加应用云的私有源：
 
@@ -20,22 +20,22 @@ source "https://github.com/CocoaPods/Specs"
 ~~~
 
 > **注意：**
-   一定要添加 https://github.com/CocoaPods/Specs 的原始源，否则会造成部分仓库找不到的问题。
+   一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
  
-### 2.添加 TACCrash 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
+### 2. 添加 TACCrash 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
  
 ~~~
 pod 'TACCrash'
 ~~~
 
-### 3.安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
+### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
  
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-### 4.在 UIApplicationDelegate 子类中导入 TACCrash 模块：
+### 4. 在 UIApplicationDelegate 子类中导入 TACCrash 模块：
  
 Objective-C 代码示例：
 ~~~
@@ -47,14 +47,14 @@ import TACCrash
 ~~~
 
 
-### 5.配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
+### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
  
 一般情况下您使用默认配置就可以了，用一下代码使用默认配置启动Crash服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 Objective-C 代码示例：
 ~~~
     [TACApplication configurate];
 ~~~
-
+Swift 代码示例：
 ~~~
 	TACApplication.configurate();
 ~~~
@@ -81,4 +81,4 @@ Swift 代码示例：
 
 ## 配置 Crashlytics 上报符号表脚本
 
-Crashlytics 需要在您编译成功上上传符号表以方便解析。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之后运行脚本。
+Crashlytics 需要在您编译成功上上传符号表以方便解析。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的脚本配置章节正确配置了运行脚本，尤其是构建之后运行脚本。
