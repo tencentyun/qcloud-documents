@@ -1,5 +1,5 @@
 HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure），是一种在 HTTP 协议基础上进行传输加密的安全协议，能够有效保障数据传输安全。配置 HTTPS 时，需要您提供域名对应的证书，将其部署在全网 CDN 节点，实现全网数据加密传输功能。
-腾讯云 CDN 目前针对 HTTP2.0 协议支持已经全面开启内测，提交资料后，我们将进入审核阶段，审核通过后，您可以在 CDN 控制台直接开启HTTP2.0 功能。请单击 [HTTP2.0 内测申请](https://cloud.tencent.com/act/apply/cdn_http2) 进行申请。
+腾讯云 CDN 目前针对 HTTP2.0 协议支持已经全面公测，可直接使用。
 
 ## 配置说明
 进行 HTTPS 配置的域名需满足以下条件。

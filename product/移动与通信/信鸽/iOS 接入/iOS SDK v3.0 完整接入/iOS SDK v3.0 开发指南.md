@@ -17,11 +17,14 @@
 3. 添加以下库/framework 的引用 CoreTelephony.framework，SystemConfiguration.framework,
 UserNotifications.framework，libXG-SDK.a 以及 libz.tbd，libsqlite3.0.tbd 添加完成以后，库的引用如下：
 ![](//mc.qcloudimg.com/static/img/a8375845f7a6dc63a951255da13730ad/image.jpg)
-4 在工程配置和后台模式中打开推送，如下图 
+
+4. 在工程配置和后台模式中打开推送，如下图 
 ![](//mc.qcloudimg.com/static/img/e875b2b189be94311d65b5c70a17b730/image.png)
-5 添加编译参数-ObjC 
+
+5. 添加编译参数-ObjC 
 ![](//mc.qcloudimg.com/static/img/03ca0cdeeb661b38dd3a731392330ab4/image.jpg)
-6 参考 Demo，添加相关代码。
+
+6. 参考 Demo，添加相关代码。
 
 
 

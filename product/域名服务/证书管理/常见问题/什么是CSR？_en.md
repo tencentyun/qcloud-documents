@@ -18,7 +18,9 @@ The name of your business registered according to law.
 This field is used to differentiate departments within an organization, such as "Engineering Department " or "Human Resources".
 
 **Generic Name**
-The name entered in the generic name field of CSR must be the fully qualified domain name (FQDN) of the website for which you want to use the certificate, for example "www.domainnamegoeshere".
+
+The name entered in the generic name field of CSR must be the fully qualified domain name (FQDN) of the website for which you want to use the certificate, for example `www.domainnamegoeshere`.
+
 
 However, Tencent Cloud applies the method of generating CSR online to simplify the application process. You only need to submit a generic name for a domain validation (DV) certificate application and do not need to generate and submit CSR files.
 
