@@ -42,7 +42,7 @@ The following error codes include the business logic error codes for this API.
 | 11085 | QueryMaxTimeTooSmall | Slow log threshold must be greater than or equal to 100 milliseconds. |
 
 ## 5. Example
-<pre>
+```
 https://mongodb.api.cloud.tencent.com/v2/index.php?Action=GetMongoDBSlowLog
 &<<a href="https://cloud.tencent.com/document/api/240/8320">Common request parameters</a>>
 &Offset=0
@@ -51,7 +51,7 @@ https://mongodb.api.cloud.tencent.com/v2/index.php?Action=GetMongoDBSlowLog
 &BeginTime=2017-10-20 19:16:59
 &EndTime=2017-10-20 20:16:00
 &MongodbId=cmgo-a1234567
-</pre>
+```
 The returned results are as below:
 ```
 {

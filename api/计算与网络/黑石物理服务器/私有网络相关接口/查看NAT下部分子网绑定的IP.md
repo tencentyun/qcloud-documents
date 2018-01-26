@@ -33,7 +33,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatPartSubnetBin
         {
 			"unSubnetId": <子网统一ID>,
             "subnetId": <子网ID>,
-            "subnetNatType": <子网绑定的类型>,
             "natIpList": [
                 <绑定的IP>
             ],

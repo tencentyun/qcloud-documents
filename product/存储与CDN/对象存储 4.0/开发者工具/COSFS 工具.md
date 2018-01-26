@@ -107,6 +107,17 @@ fusermount -u /mnt
 umount -l /mnt
 ```
 
+## 常用挂载选项
+
+1. -omultipart_size=[size]
+`multipart_size`用来指定分块上传时，每个分块的大小，默认是10MB。 由于分块上传对块的数目有最大限制(10000块)， 所以对于大文件，例如超出10MB * 10000(100GB) 大小的文件，需要根据具体情况调整该参数。该参数单位是MB。
+
+2. -oallow_other
+如果要允许其他用户访问挂载文件夹，可以在运行cosfs的时候指定`allow_other`参数。
+
+3. -odel_cache
+默认情况下，cosfs为了优化性能，在umount后，不会清除本地的缓存数据。 如果需要在cosfs退出时，自动清除缓存，可以在挂载时加入该选项。
+
 ## 注意事项 
 - COSFS 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
@@ -118,7 +129,7 @@ umount -l /mnt
 * 如何挂载目录
    在挂载命令的时候，可以指定目录，如
    
-   cosfs appid:my-bucket:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+  `cosfs appid:my-bucket:/my-dir /tmp/cosfs -ourl=http://cn-south.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache`
    注意，my-dir必须以/开头
    
    

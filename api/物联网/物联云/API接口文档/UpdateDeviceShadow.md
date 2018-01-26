@@ -32,7 +32,7 @@
 <pre>
   var oState = {"state": {"desired": {"color": "red"}}};
   var sState = encodeURIComponent(JSON.stringify(oState ));
-  https://iotcloud.api.qcloud.com/index.php?Action=UpdateDeviceShadow
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=UpdateDeviceShadow
   &deviceName=apple
   &productID=ABCDE12345
   &state=${sState}
@@ -68,14 +68,14 @@
 <span id = "module_error_info"></span>
 ### 5. 模块错误信息
 
-| 模块错误码 | 描述                         |
-| ----- | -------------------------- |
-| 5001  | 设备不存在                      |
+| 模块错误码 | 描述                            |
+| ----- | ----------------------------- |
+| 5001  | 设备不存在                         |
 | 5002  | State json 对象的层数超过了限制，最大为 6 层 |
-| 5003  | State json 对象中包含非法节点        |
-| 5004  | State json 对象格式非法           |
-| 5005  | version 不匹配，需要与后台版本一致       |
-| 5006  | State json 对象超过大小限制，最大为 64k  |
-| 5100  | 内部服务器错误，请联系技术人员            |
-| 5101  | 请求参数非法                     |
+| 5003  | State json 对象中包含非法节点          |
+| 5004  | State json 对象格式非法             |
+| 5005  | version 不匹配，需要与后台版本一致         |
+| 5006  | State json 对象超过大小限制，最大为 64k   |
+| 5100  | 内部服务器错误，请联系技术人员               |
+| 5101  | 请求参数非法                        |
 

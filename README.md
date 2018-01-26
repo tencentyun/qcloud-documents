@@ -217,7 +217,7 @@
 <tr><td>正确使用</td><td>错误使用</td></tr>
 <tr><td>腾讯云数据中心高速互联网</td><td>腾讯骨干网</td></tr><tr><td>App / 应用</td><td>APP、软件、程序</td></tr><tr><td>Android</td><td>android、安卓</td></tr><tr><td>iOS</td><td>ios、IOS</td></tr><tr><td>iPhone</td><td>IPHONE、iphone</td></tr>
 <tr><td>App Store</td><td>AppStore、app store</td></tr>
-<tr><td>WiFi</td><td>wifi、Wifi、Wi-fi</td></tr>
+<tr><td>Wi-Fi</td><td>wifi、Wifi、WiFi</td></tr>
 <tr><td>email</td><td>E-mail、Email</td></tr>
 <tr><td>IP</td><td>Ip、ip</td></tr>
 </tbody>
