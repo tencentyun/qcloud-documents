@@ -93,11 +93,11 @@ tac_services_configurations_qq.plist
 
 目前支持的配置为：
 
-| 参数Key     | 参数含义                             | 
-|:------------|:-------------------------------------|:-----|
-| appID       | QQ 互联中程序的 appID                  |      
-| appKey      | QQ 互联中程序的 appKey                 |      
-| permissions | 进行 QQ 授权的时候，需要申请的权限列表 |      
+| 参数Key     | 参数含义                               |  |
+|:------------|:---------------------------------------|:-|
+| appID       | QQ 互联中程序的 appID                  |  |
+| appKey      | QQ 互联中程序的 appKey                 |  |
+| permissions | 进行 QQ 授权的时候，需要申请的权限列表 |  |
 
 
 
@@ -136,24 +136,8 @@ Swift 代码示例：
 #### 配置 TACSocialQQ 中的配置脚本 (主要为第三方登陆模块的配置脚本)
 
 
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 QQSetupScripts。
-> **注意：**
-请确保该脚本在 `Build Phases` 中排序为第二。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
+为了配合TencentOpenApi的使用，需要Info.plist里面注册回调scheme和query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
-#### 需要黏贴的代码
-
-~~~
-THIRD_FRAMEWORK_PATH=[]
-${THIRD_FRAMEWORK_PATH}/Scripts/run
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
- 
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACSocialQQ/Scripts/run`。
-* 如果您使用 手工集成 的方式则为 `${SRCROOT}/TACSocialQQ/Scripts/run`。
 
 
 #### 6. 使用 TencentOpenApi 的功能。

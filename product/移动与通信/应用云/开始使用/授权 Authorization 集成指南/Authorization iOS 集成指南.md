@@ -126,27 +126,7 @@ Swift 示例代码：
 使用同样的方式您也可以配置第三方登陆模块的功能。
 
 ## 配置 Authorization 中的配置脚本 (主要为第三方登陆模块的配置脚本)
-  >**注意：**
-  > 如果您添加了多个第三方权限模块，则需要重复本操作多次。
 
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`。您可以将改脚本命名为您引入的第三方登陆模块的名称，比如 QQSetupScripts、WechatSetupScripts等。
->**注意：**
-请确保 `New Run Script Phase`脚本在 `Build Phases` 中排序为第二。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框。
+> 如果您已经集成了 TACSicoalQQ 和 TACSocialWehcat 则不需要重复该步骤
 
-
-### 需要黏贴的代码
-
-~~~
-THIRD_FRAMEWORK_PATH=[]
-${THIRD_FRAMEWORK_PATH}/Scripts/run
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同。
-
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/[第三方登录模块名称]/Scripts/run`
-   - 如果您使用了 QQ 则为 `${PODS_ROOT}/TACSocialQQ/Scripts/run`
-   - 如果您使用了 WeChat 则为  `${PODS_ROOT}/TACSocialWechat/Scripts/run`
-* 如果您使用手工集成的方式则为 `${SRCROOT}/[第三方登录模块相对于工程根目录的路径]/Scripts/run`
+ 为了配合 其他SDK 的使用，需要 Info.plist 里面注册回调scheme和query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之前运行脚本。
