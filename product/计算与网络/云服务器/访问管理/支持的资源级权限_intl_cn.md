@@ -7,6 +7,7 @@ CAM 中可授权的资源类型：
 | 云服务器实例相关 |  ` qcs::cvm:$region::instance/* `|
 | 云服务器密钥相关 |   `qcs::cvm:$region::keypair/*`  |
 | 云服务器镜像相关 |   `qcs:t:cvm:$region:$account:image/*` |
+| 安全组相关 |   `qcs::cvm:$region:$account:sg/*` |
 
 下表将介绍当前支持资源级权限的 CVM （Cloud Virtual Machine,云服务器） API 操作，以及每个操作支持的资源和条件密钥。指定资源路径的时候，您可以在路径中使用 * 通配符。
 > **注意**：
@@ -57,6 +58,15 @@ CAM 中可授权的资源类型：
 | ModifyImageSharePermission	|  `qcs::cvm:$region:$account:image/*`<br>`qcs::cvm:$region:$account:image/$imageId` | cvm:region |
 | SyncImages	|  `qcs::cvm:$region:$account:image/*`<br>`qcs::cvm:$region:$account:image/$imageId` | cvm:region |
 
+#### 安全组像相关：
+| API操作 | 资源路径 | 条件密钥 |
+| :-------- | :--------| :------ |
+| ModifySecurityGroupPolicys	|  `qcs::cvm:$region:$account:sg/*`<br>`qcs::cvm:$region:$account:sg/$sgId`| `cvm:projectId`<br>`cvm:region` |
+| ModifySingleSecurityGroupPolicy	|  `qcs::cvm:$region:$account:sg/*`<br>`qcs::cvm:$region:$account:sg/$sgId`| `cvm:projectId`<br>`cvm:region` |
+| CreateSecurityGroupPolicy	|  `qcs::cvm:$region:$account:sg/*`<br>`qcs::cvm:$region:$account:sg/$sgId`| `cvm:projectId`<br>`cvm:region` |
+| ModifySecurityGroupAttributes	|  `qcs::cvm:$region:$account:sg/*`<br>`qcs::cvm:$region:$account:sg/$sgId`| `cvm:projectId`<br>`cvm:region` |
+| DeleteSecurityGroup	|  `qcs::cvm:$region:$account:sg/*`<br>`qcs::cvm:$region:$account:sg/$sgId`| `cvm:projectId`<br>`cvm:region` |
+| DeleteSecurityGroupPolicy	|  `qcs::cvm:$region:$account:sg/*`<br>`qcs::cvm:$region:$account:sg/$sgId`| `cvm:projectId`<br>`cvm:region` |
 
 
 
