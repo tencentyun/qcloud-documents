@@ -5,7 +5,7 @@
 
 当您集成了 Messaging 服务之后，系统将会在程序启动的时候自动启动服务。
 
-如果您不希望在启动的时候默认启动 Messaging 服务，您可以在配置中设置关掉 (例如在AppDelegate中加入如下代码).
+如果您不希望在启动的时候默认启动 Messaging 服务，您可以在配置中设置关掉 (例如在AppDelegate中加入如下代码)：
 
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
@@ -29,7 +29,7 @@
 ## 监听 Messaging 服务回调
 
 
-设置 delegate 为您已经实现 TACMessagingDelegate 的类可以监听 Messaging 服务的回调
+设置 delegate 为您已经实现 TACMessagingDelegate 的类可以监听 Messaging 服务的回调：
 
 ~~~
     [TACMessagingService defaultService].delegate = self;
@@ -115,4 +115,4 @@ NSInteger badgeNumber =  @(2);
 
 ## 其他功能
 
-其他功能请参考 TACMessagingService.h 中的定义
+其他功能请参考 TACMessagingService.h 中的定义。

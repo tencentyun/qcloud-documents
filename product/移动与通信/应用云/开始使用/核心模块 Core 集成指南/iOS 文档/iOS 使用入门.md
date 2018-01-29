@@ -26,23 +26,24 @@ $ cd your-project directory
 $ pod init
 ~~~
 
-并在您的 Podfile 文件中添加应用云的私有源
+并在您的 Podfile 文件中添加应用云的私有源：
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
-> 注意一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
+> **注意：**
+> 一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-##### 3. 添加您想安装的 Pod。您可以按照以下方法在 Podfile 中纳入一个 Pod。
+##### 3. 添加您想安装的 Pod，可以按照以下方法在 Podfile 中纳入一个 Pod。
 
 ~~~
 pod 'TACCore'
 ~~~
 
 
-这会在您的 iOS 应用中添加应用云正常运行所需的必备库以及 Analytics for 应用云功能。下面列出了目前可供使用的一系列 pod 和 subspec。在针对不同功能的设置指南中也对此给出了相应的链接。
+这会在您的 iOS 应用中添加应用云正常运行所需的必备库以及 Analytics for 应用云功能。下面列出了目前可供使用的一系列 pod 和 subspec，在针对不同功能的设置指南中也对此给出了相应的链接。
 
 ##### 4. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目。
 
@@ -51,7 +52,7 @@ $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### 5. 从 应用云 控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
+##### 5. 从应用云控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
 
 ### 手工集成
 
@@ -73,12 +74,12 @@ import TACCore
 ~~~
 
 
-#### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置。
+#### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
 
 
 ##### 使用默认配置
 
-通常对于 应用云 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。
+通常对于应用云的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。
 
 Objective-C 代码示例：
 ~~~
@@ -90,7 +91,7 @@ Swift 代码示例：
 ~~~
 ##### 需要通过编程的方式自定义某些参数
 
-通常对于应用云的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口。您可以仿照如下形式来修改应用云的配置。
+通常对于应用云的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改应用云的配置。
 
 Objective-C 代码示例：
 ~~~
@@ -111,12 +112,12 @@ Swift 代码示例：
 
 #### 配置程序需要脚本
 
-为了极致的简化 SDK 的接入流程我们，使用 shell 脚本。帮助您自动化的去执行一些繁琐的操作，比如crash自动上报，在Info.plist里面注册各种第三方SDK的回调scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
+为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
 
 脚本主要包括两个：
 
-1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在Info.plist里面增加qqwallet的scheme回调。
-2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如Crash符号表上报
+1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
+2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
 
 ![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
 
@@ -140,14 +141,14 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 
 其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
  
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`。您需要黏贴的代码实例如下：
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
 
   ~~~
   #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
   ${PODS_ROOT}/Scripts/tac.run.all.before.sh
   ~~~
 
-* 如果您使用 手工集成 的方式则为 `${SRCROOT}/TACCore`。即您TACCore framework的引入路径。您需要黏贴的代码实例如下：
+* 如果您使用手工集成的方式则为 `${SRCROOT}/TACCore`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
 
   ~~~
   #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
@@ -160,8 +161,9 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 
 1. 在导航栏中打开您的工程。
 2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
-> **注意：** 请确保该脚本在 `Build Phases` 中排序需要放到最后。
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
+> **注意：**
+>  请确保该脚本在 `Build Phases` 中排序需要放到最后。
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
 
 需要黏贴的代码
@@ -173,14 +175,14 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
 
 其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
  
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`。您需要黏贴的代码实例如下：
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
 
   ~~~
   #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
   ${PODS_ROOT}/Scripts/tac.run.all.after.sh
   ~~~
 
-* 如果您使用 手工集成 的方式则为 `${SRCROOT}/TACCore`。即您TACCore framework的引入路径。您需要黏贴的代码实例如下：
+* 如果您使用手工集成的方式则为 `${SRCROOT}/TACCore`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
 
   ~~~
   #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
