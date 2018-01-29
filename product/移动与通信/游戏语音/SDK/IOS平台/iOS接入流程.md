@@ -574,10 +574,10 @@ GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式。
 GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用 GetAuthKey 申请许可。
 
 #### 上传录音的文件
-1. 接口说明
+（1）接口说明
 录音完成后，通过提供一个录音文件存储的地址路径，将已经录音完的文件进行上传。
-
-2. 函数原型
+ 
+（2）函数原型
 ```
        - (enum GCloudVoiceErrno) uploadRecordedFile:(const char *_Nullable) filePath timeout: (int) msTimeout ;
 ```
@@ -589,7 +589,7 @@ GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用 GetAuthKey 申请许可。
 
 上传的结果通过`void OnUploadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID)`进行回调。
     
-3. 出错处理
+(3）出错处理
 GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
 GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式。
 GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，路径为空。
@@ -598,10 +598,10 @@ GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可读。
 GCLOUD_VOICE_HTTP_BUSY ： 还在上一次上传或者下载中，需要等待后再尝试。
 
 #### 下载录音的文件
-1. 接口说明
+（1）接口说明
 录音完成后，通过提供一个录音文件存储的地址路径，将已经录音完的文件进行上传。
-
-2. 函数原型
+ 
+（2）函数原型
 ```
         - (enum GCloudVoiceErrno) downloadRecordedFile:(const char *_Nullable)fileID filePath:(const char *_Nullable) downloadFilePath timeout: (int) msTimeout ;
 ```
@@ -612,8 +612,8 @@ GCLOUD_VOICE_HTTP_BUSY ： 还在上一次上传或者下载中，需要等待�
 | downloadFilePath | const char * | 下载录音文件存储的地址路径，路径中需要`/`作分隔，不能用`\`|
 | msTimeout | Int | 下载文件超时时间 |
 下载的结果通过`void OnDownloadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID) ;`进行回调。
-
-3. 出错处理
+ 
+（3）出错处理
 GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
 GCLOUD_VOICE_MODE_STATE_ERR  ： 当前模式不是离线语音模式。
 GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，路径为空。
@@ -644,16 +644,15 @@ GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写。
 GCLOUD_VOICE_SPEAKER_ERR：打开麦克风失败。
 
 #### 停止播放下载的音频
-1.接口说明
+1. 接口说明
 中断播放动作。
 
-2.函数原型
+2. 函数原型
 ```
 - (enum GCloudVoiceErrno) stopPlayFile;
 ```
    
 3. 出错处理
-
 GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
 GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式。
 
@@ -703,32 +702,33 @@ msg = @"Apply AuthKey Success";
 ```
 
 #### 下载完成回调
-
-1.接口说明
-
-下载语音文件后的结果通过这个进行回调
-
-2.函数原型
-
+（1）接口说明
+下载语音文件后的结果通过这个进行回调。
+ 
+（2） 函数原型
+```
       - (void) onDownloadFile: (enum GCloudVoiceCompleteCode) code  withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID 
-    参数	类型	意义
-    code	GCloudVoiceCompleteCode	参见GCloudVoiceCompleteCode定义
-    filepath	const char *	下载的路径
-    fileid	const char *	文件的id
-
-3、示例代码
-
+```
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| code	| GCloudVoiceCompleteCode	| 参见 GCloudVoiceCompleteCode 定义
+| filepath |	const char *	| 下载的路径 |
+| fileid	| const char *	| 文件的 ID |
+ 
+（3）示例代码
+```
      - (void) onDownloadFile: (enum GCloudVoiceCompleteCode) code  withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID {
     NSString *msg;
     msg = @"Download File Success";
     [self warnning:msg];
     }
+```
 
 ####  正常播放完成后回调
-1. 接口说明
+（1）接口说明
 如果用户没有暂停播放，而语音文件已经播放完了，通过这个进行回调。
-
-2. 函数原型
+ 
+（2）函数原型
 ```
        - (void) onPlayRecordedFile:(enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath
 ```
