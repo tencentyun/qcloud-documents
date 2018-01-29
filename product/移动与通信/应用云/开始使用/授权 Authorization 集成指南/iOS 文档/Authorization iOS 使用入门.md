@@ -20,7 +20,7 @@ source "https://github.com/CocoaPods/Specs"
 
 > 注意一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-### 2. 添加 TACAuthorization 到您的 Podfile。您可以按照以下方法在 Podfile 中纳入一个 Pod。
+### 2. 添加 TACAuthorization 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod。
 
 ~~~
 pod 'TACAuthorization'
@@ -134,5 +134,5 @@ Swift 示例代码：
 Authorization 没有脚本功能。主要的脚本功能在支付差劲中。脚本会自动的帮助您完成以下功能：
 
 
-1. 根据读取您的 tac_services_configurations_qq 中的 appId 信息按照 `qqwallet[appId]` 的规则增加回调的scheme
-2. 在 LSApplicationQueriesSchemes 中添加 weixin
+1. 根据读取您的 tac_services_configurations_qq 中的 appId 信息按照 `qqwallet[appId]` 的规则增加回调的scheme。
+2. 在 LSApplicationQueriesSchemes 中添加 weixin。
