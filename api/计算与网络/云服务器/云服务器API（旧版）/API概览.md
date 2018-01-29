@@ -48,7 +48,7 @@
 | 修改安全组规则 | [ModifySecurityGroupPolicy](http://cloud.tencent.com/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E8%A7%84%E5%88%99) | 用于修改已经存在的安全组的规则。
 | 查询安全组关联的云主机列表 | [DescribeInstancesOfSecurityGroup](https://cloud.tencent.com/document/api/213/1366) | 用于查询已关联指定的安全组的云服务器。
 | 修改云主机关联的安全组 | [ModifySecurityGroupsOfInstance](https://cloud.tencent.com/document/api/213/1367) | 用于修改指定云服务器关联的安全组。
-| 查询与安全组关联的安全组列表 | [DescribeAssociateSecurityGroups](https://cloud.tencent.com/document/api/213/1383) | 查询有哪些安全组的出站或入站规则中包含了输入的安全组ID。
+| 查询与安全组关联的安全组列表 | [DescribeAssociateSecurityGroups](https://cloud.tencent.com/document/api/213/1383) | 查询有哪些安全组的出站或入站规则中包含了输入的安全组 ID。
 | 添加安全组规则 | [CreateSecurityGroupPolicy](https://cloud.tencent.com/document/api/213/10144) | 用于添加安全组规则。
 | 编辑单条安全组规则 | [ModifySingleSecurityGroupPolicy](https://cloud.tencent.com/document/api/213/10145) | 用于编辑单条安全组规则。
 | 查询安全组列表 | [DescribeSecurityGroups](http://cloud.tencent.com/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%88%97%E8%A1%A8) | 用于查询已经存在的安全组的规则。
