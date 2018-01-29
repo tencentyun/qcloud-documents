@@ -59,8 +59,8 @@ table th:nth-of-type(4) {  width: 235px; }
   <tr align="center">
     <td>iOS</td>
     <td>4.1</td>
-		<td><a href="https://fir.im/5fq1"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/3bff7004bf7cdba32dff3ef95dbea590/image.png" /></td>
+		<td><a href="https://itunes.apple.com/cn/app/id1132521667?mt=8"><img src="https://mc.qcloudimg.com/static/img/d9f6315a398a5a43c7ddab3f5b0613bd/image.png" /></a></td>
+		<td><img src="https://mc.qcloudimg.com/static/img/4a1a20bc186d6a940458744d9eb72cab/image.png" /></td>
   </tr>
   <tr align="center">
     <td>Android</td>
@@ -69,6 +69,9 @@ table th:nth-of-type(4) {  width: 235px; }
 		<td><img src="https://mc.qcloudimg.com/static/img/6713b0a2e0e2606b9d17e16135e4d95b/image.png" /></td>
   </tr>
 </table>
+
+
+![](https://mc.qcloudimg.com/static/img/4a1a20bc186d6a940458744d9eb72cab/image.png)
 
 <h2 id="Windows"> Windows 平台 </h2>
 
@@ -110,4 +113,3 @@ table th:nth-of-type(4) {  width: 235px; }
 
 ### 体验地址
 打开微信（请先升级到最新版本），进入发现页卡，在小程序中搜索 “腾讯视频云”，即可体验我们的官方 Demo。
-

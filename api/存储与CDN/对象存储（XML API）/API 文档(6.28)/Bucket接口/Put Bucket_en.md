@@ -11,7 +11,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (For more information, please see [Request Signature](https://www.qcloud.com/document/product/436/7778) chapter)
+> Authorization: Auth String (For more information, please see [Request Signature](https://cloud.tencent.com/document/product/436/7778) chapter)
 
 ### Request Line
 ~~~
@@ -22,11 +22,11 @@ This API allows PUT request.
 ### Request Header
 
 **Common Header**
-This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://www.qcloud.com/document/product/436/7728) chapter.
+This request operation is implemented using common request header. For more information, please see [Common Request Headers](https://cloud.tencent.com/document/product/436/7728) chapter.
 
 **Non-common Header**
 This request operation is implemented using header x-cos-acl in request Put to set the access permission of Bucket. Bucket supports three access permissions: public-read-write, public-read and private. The default permission is private if not set. Users can also be clearly granted with permission of read, write or read-write separately. See the details below:
-> For more information on ACL, please see [Put Bucket ACL](https://www.qcloud.com/document/product/436/7737).
+> For more information on ACL, please see [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737).
 
 | Name | Description | Type | Required |
 |:---|:-- |:--|:--|
@@ -42,7 +42,7 @@ The request body of this request is null.
 
 ### Response Header
 #### Common Response Header
-This response uses common response header. For more information, please see [Common Response Headers](https://www.qcloud.com/document/product/436/7729) chapter.
+This response uses common response header. For more information, please see [Common Response Headers](https://cloud.tencent.com/document/product/436/7729) chapter.
 #### Specific Response Header
 No particular response header for this response.
 ### Response Body

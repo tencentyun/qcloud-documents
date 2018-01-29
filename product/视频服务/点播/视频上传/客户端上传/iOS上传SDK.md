@@ -1,14 +1,12 @@
 对于在 iOS 平台上传视频的场景，腾讯云点播提供了 iOS 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
-
 您可以在腾讯云官网更新 [ iOS 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_iOS.zip)。
 下载完的 zip 包解压后可以看到 TXUGCUploadDemo 目录，发布相关源代码在 TXUGCUploadDemo/upload 目录下。
 
 ## 集成上传库和源代码
 
 1. 拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
-
 2. 导入动态库QCloudCore.framework、QCloudCOSXML.framework（TXUGCUploadDemo目录下）到您的工程中。并添加以下依赖库：
 
     ```
@@ -17,7 +15,7 @@
     3、SystemConfiguration
     4、libstdc++.tbd
     ```
-
+    
 3. 在 Build Settings 中设置 Other Linker Flags，加入参数***-ObjC***
 
 ##  简单视频上传
@@ -51,10 +49,11 @@ _videoPublish.delegate = self;
 
 ```objc
 TXPublishParam *videoPublishParams = [[TXPublishParam alloc] init];
-// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
+
 videoPublishParams.signature  = @"xxx";
 videoPublishParams.videoPath  = self.uploadTempFilePath;
 ```
+>signature 计算规则可参考[客户端上传签名](/document/product/266/9221)。
 
 ### 调用上传
 
@@ -63,7 +62,6 @@ videoPublishParams.videoPath  = self.uploadTempFilePath;
 ```
 
 ## 高级功能
-
 ### 携带封面
 
 在上传参数中带上封面图片即可。
