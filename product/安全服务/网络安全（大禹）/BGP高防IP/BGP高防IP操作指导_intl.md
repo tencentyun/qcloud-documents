@@ -2,7 +2,7 @@
 
 **Step 1: Log in to the console and go to the High Defense IP Configuration page**
 
-Log in to the **[Dayu Network Security]()** console. Select **BGP High Defense IP** from the left panel and find the high defense IP that deployed on the non-Tencent Cloud platform, and then click the instance ID to go to the configuration page.
+Log in to the **[Dayu Network Security](https://console.cloud.tencent.com/dayu/bgpip)** console. Select **BGP High Defense IP** from the left panel and find the high defense IP that deployed on the non-Tencent Cloud platform, and then click the instance ID to go to the configuration page.
 
 ![](https://mc.qcloudimg.com/static/img/8ef58dac854d557cf557688e63a2bd2a/image.png)
  
@@ -49,7 +49,7 @@ Note: Separate IPs by pressing Enter. A maximum of 20 public IPs from the target
 
 **Step 1: Log in to the console and go to the High Defense IP Configuration page**
 
-Log in to the "Dayu Network Security" console. On the "BGP High Defense IP" control page, find the high defense IP instance of the business you enabled and deployed on Tencent Cloud, and then click the instance ID to go to the configuration page.
+Log in to the **[Dayu Network Security](https://console.cloud.tencent.com/dayu/bgpip)** console. On the "BGP High Defense IP" control page, find the high defense IP instance of the business you enabled and deployed on Tencent Cloud, and then click the instance ID to go to the configuration page.
 
 ![](https://mc.qcloudimg.com/static/img/3fa91839afbc62d81a7960500a4a5920/image.png)
  
