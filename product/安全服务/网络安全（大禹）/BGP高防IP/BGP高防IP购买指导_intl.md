@@ -1,5 +1,3 @@
-## Purchasing BGP High Defense IP
-
 ### 1. Purchase Method
 
 You can purchase BGP High Defense IP directly on the console. This is a prepaid product and you can purchase on a monthly/yearly basis.
