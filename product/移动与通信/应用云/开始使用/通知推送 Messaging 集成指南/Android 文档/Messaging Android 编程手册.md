@@ -1,4 +1,4 @@
-# 应用云 Messaging 服务 Android 接入指南
+# 应用云 Messaging Android 编程手册
 
 ## 注册 Messaging 服务回调
 
@@ -45,7 +45,7 @@ void onUnregisterResult(Context context, int code);
 
 ## 启动 Messaging 服务
 
-集成好 Messaging 服务后，需要您在 Application 的 onCreate( ) 方法中启动服务，具体代码如下：
+集成好 Messaging 服务后，需要您在 Application 的 onCreate（） 方法中启动服务，具体代码如下：
 
 ```
 // 首先获取 TACMessagingService 实例
