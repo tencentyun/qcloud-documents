@@ -234,8 +234,8 @@ VPN 通道提供告警功能：
  
 ### 绑定高防包
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【安全】>【大禹网络安全】，选择左导航栏的[【BGP 高防包】](https://console.cloud.tencent.com/dayu/bgp/list/sp/gz)
-	2. 选择您已有的高防包实例，单击更换设备操作，选择需要防护的 VPN 网关。
-	3. 单击【确认】，即为该 VPN 网关关联了高防包功能。
+2. 选择您已有的高防包实例，单击更换设备操作，选择需要防护的 VPN 网关。
+3. 单击【确认】，即为该 VPN 网关关联了高防包功能。
  
 ## API概览
 您可以使用API操作来设置和管理您的VPN连接，私有网络的更多相关API可以参考[私有网络所有 API 概览。](https://cloud.tencent.com/doc/api/245/909)
