@@ -22,4 +22,3 @@ You can purchase BGP High Defense IP at Tencent Cloud China (Shanghai) or Tencen
 
 (6) Select Auto Renewal if needed.
 
-![](//mc.qcloudimg.com/static/img/91b83a27aad3fcaa716ae68541f3b0b6/image.png)
