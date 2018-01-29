@@ -159,7 +159,7 @@ GVoice 通过单例方法 [GVGCloudVoice sharedInstance] 来获得示例对象�
 ```
       + (GVGCloudVoice* _Nullable) sharedInstance;
 ```
-该函数返回一个GVGCloudVoice对象，通过调用该对象的接口，可以执行相关动作。
+该函数返回一个 GVGCloudVoice 对象，通过调用该对象的接口，可以执行相关动作。
 
 3. 出错处理
 出错时，返回 NULL 对象。
@@ -207,7 +207,7 @@ GVoice 通过单例方法 [GVGCloudVoice sharedInstance] 来获得示例对象�
 ```
 
 4. 出错处理
-GCLOUD_VOICE_NEED_SETAPPINFO ： 需要先调用 SetAppInfo。
+GCLOUD_VOICE_NEED_SETAPPINFO ：需要先调用 SetAppInfo。
 
 #### 设置引擎模式
 （1）接口说明
@@ -272,10 +272,10 @@ _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.000/15 repeats:YES block:
     GCLOUD_VOICE_NEED_INIT ： 需要先调用 Init 进行初始化。 
 
 #### 系统发生 Resume
-1.接口说明
-当系统发生 Resume 事件时，需要同时通知引擎进行 Resume
+1. 接口说明
+当系统发生 Resume 事件时，需要同时通知引擎进行 Resume。
 
-2.函数原型
+2. 函数原型
 ```
     - (enum GCloudVoiceErrno) resume;
 ```
@@ -286,7 +286,7 @@ _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.000/15 repeats:YES block:
 ### 实时语音 API
 #### 加入小队语音
 （1）接口说明
-使用实时语音的小队语音功能时，需要先加入小队语音房间
+使用实时语音的小队语音功能时，需要先加入小队语音房间。
 
 （2）函数原型
 ```
@@ -394,18 +394,17 @@ GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR ： 当前以听众身份加入的大房间�
    - (enum GCloudVoiceErrno) closeMic;
 ```
   
-3.出错处理
-
+3. 出错处理
 GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
 GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是实时语音模式。
 GCLOUD_VOICE_REALTIME_STATE_ERR ：  实时语音状态不对，比如还没有加入房间。
 GCLOUD_VOICE_OPENMIC_NOTANCHOR_ERR ： 当前以听众身份加入的大房间，不能开麦关麦。
 
 #### 打开扬声器
-1.接口说明
-在实时语音的模式下，加入房间成功后（包括小队语音和国战语音），需要打开扬声器才能从网络接收数据并播放
+1. 接口说明
+在实时语音的模式下，加入房间成功后（包括小队语音和国战语音），需要打开扬声器才能从网络接收数据并播放。
 
-2.函数原型
+2. 函数原型
 ```
 - (enum GCloudVoiceErrno) openSpeaker;
 ```
@@ -482,214 +481,228 @@ GCLOUD_VOICE_REALTIME_STATE_ERR ：  实时语音状态不对，比如还没有�
 ```
 
 #### 成员状态改变回调
-1. 接口说明
+（1）接口说明
 当房间中的其他成员开始说话或者停止说话的时候，通过该回调进行通知。
 
-2. 函数原型
-
+（2）函数原型
+```
     - (void) onMemberVoice:(const unsigned int * _Nullable)members withCount: (int) count
-    参数	类型	意义
-    members	int[]	改变状态的member成员，其值为[memberID	status]这样的对，总共有count对，status有“0”：停止说话 “1”：开始说话 “2”:继续说话
-    count	int	改变状态的成员的数目
+```
 
-3、示例代码
-
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| members | Int[] | 改变状态的 member 成员，其值为`[memberID	status]`这样的对，总共有 count 对，status 有三种状态：<br>0：停止说话；1：开始说话；2：继续说话。 |
+| count | Int | 改变状态的成员的数目|
+    		
+（3）示例代码
+```
     - (void) onMemberVoice:    (const unsigned int * _Nullable)members withCount: (int) count {
         for (int i=0; i<count; i++) {
             NSLog(@"Member %d status %d", *((int*)members+2*i), *((int *)members+2*i+1));
         }
     }
-###  离线语音API
-#### .1 申请语音消息key
-1.接口说明
+```
 
-在语音消息的模式下，需要先申请许可才可以正常使用
+###  离线语音 API
+#### 申请语音消息 Key
+（1）接口说明
+在语音消息的模式下，需要先申请许可才可以正常使用。
 
-2.函数原型
-
+（2）函数原型
+```
         - (enum GCloudVoiceErrno) applyMessageKey:(int) msTimeout;
-    参数	类型	意义
-    msTimeout	itn	超时时间，单位毫秒
-    申请的结果通过void OnApplyMessageKey(GCloudVoiceCompleteCode code) ;进行回调
+```
 
-4.出错处理
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| msTimeout | Int  |超时时间，单位毫秒 |
+申请的结果通过`void OnApplyMessageKey(GCloudVoiceCompleteCode code) ;`进行回调。
 
-GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，比如超时范围5000ms-60000ms。
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_AUTHKEY_ERR ： 请求Key的内部错误，此时需要联系GCloud团队，并提供日志进行定位
-#### .2 限制最大语音消息的长度
+（3）出错处理
+GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，比如超时范围 5000 ms ~ 60000 ms。
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
+GCLOUD_VOICE_AUTHKEY_ERR ： 请求 Key 的内部错误，此时请联系 GCloud 团队，并提供日志进行定位。
+#### 限制最大语音消息的长度
+（1）接口说明
+在语音消息的模式下，可以限制最大语音消息的长度，目前默认是 2 min，最大不超过 2 min。
 
-1.接口说明
-
-在语音消息的模式下，可以限制最大语音消息的长度，目前默认是2min，最大不超过2min。
-
-2.函数原型
-
+（2）函数原型
+```
     - (enum GCloudVoiceErrno) setMaxMessageLength:(int) msTime;
-    参数	类型	意义
-    msTimeout	itn	最大语音消息长度，单位毫秒
+```
 
-3、出错处理
-
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| msTimeout | Int | 最大语音消息长度，单位毫秒 |
+ 
+（3）出错处理
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化
 GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，时间范围1000ms-1000*2*60ms。
 
-#### .3 开始录音
-1.接口说明
+#### 开始录音
+（1）接口说明
+在语音消息的模式下，开始录音时，需要提供一个录音文件存储的地址路径。
 
-在语音消息的模式下，开始录音时，需要提供一个录音文件存储的地址路径
-
-2.函数原型
-
+（2）函数原型
+```
     - (enum GCloudVoiceErrno) startRecording:(const char *_Nullable) filePath;
-参数	类型	意义
-filePath	const char *	录音文件存储的地址路径，路径中需要"/"作分隔，不能用"\"
-4.出错处理
+```
 
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| filePath | const char * | 录音文件存储的地址路径，路径中需要`/`作分隔，不能用`\`|
+
+（3）出错处理
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
+GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式。
 GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，路径为空。
-GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用GetAuthKey申请许可
-GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写
+GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用GetAuthKey申请许可。
+GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写。
 
+#### 停止录音
+1. 接口说明
+在语音消息的模式下，调用停止录音接口。
 
-#### .4 停止录音
-1.接口说明
-
-在语音消息的模式下，调用停止录音接口会
-
-2.函数原型
-
+2. 函数原型
+```
     - (enum GCloudVoiceErrno) stopRecording;
-4.出错处理
+```
 
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式
-GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用GetAuthKey申请许可  
+3. 出错处理
+GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化。
+GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式。
+GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用 GetAuthKey 申请许可。
 
-#### .5 上传录音的文件
+#### 上传录音的文件
+1. 接口说明
+录音完成后，通过提供一个录音文件存储的地址路径，将已经录音完的文件进行上传。
 
-1.接口说明
-
-录音完成后，通过提供一个录音文件存储的地址路径，将已经录音完的文件进行上传
-
-2.函数原型
-    
+2. 函数原型
+```
        - (enum GCloudVoiceErrno) uploadRecordedFile:(const char *_Nullable) filePath timeout: (int) msTimeout ;
-    参数	类型	意义
-    filePath	const char *	录音文件存储的地址路径，路径中需要"/"作分隔，不能用"\"
-    msTimeout	int	上传文件超时时间
-    上传的结果通过void OnUploadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID)进行回调
+```
+
+|参数 | 类型 | 意义 |
+|---------|---------|---------|
+| filePath | const char * | 录音文件存储的地址路径，路径中需要`/`作分隔，不能用`\` |
+| msTimeout	| Int |	上传文件超时时间 |
+
+上传的结果通过`void OnUploadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID)`进行回调。
     
-4.出错处理
-
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式
+3. 出错处理
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
+GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式。
 GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，路径为空。
-GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用GetAuthKey申请许可
-GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可读
-GCLOUD_VOICE_HTTP_BUSY ： 还在上一次上传或者下载中，需要等待后再尝试
+GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用 GetAuthKey 申请许可。
+GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可读。
+GCLOUD_VOICE_HTTP_BUSY ： 还在上一次上传或者下载中，需要等待后再尝试。
 
-#### .6 下载录音的文件
+#### 下载录音的文件
+1. 接口说明
+录音完成后，通过提供一个录音文件存储的地址路径，将已经录音完的文件进行上传。
 
-1.接口说明
-
-录音完成后，通过提供一个录音文件存储的地址路径，将已经录音完的文件进行上传
-
-2.函数原型
-
+2. 函数原型
+```
         - (enum GCloudVoiceErrno) downloadRecordedFile:(const char *_Nullable)fileID filePath:(const char *_Nullable) downloadFilePath timeout: (int) msTimeout ;
-    参数	类型	意义
-    fileID	const char *	要下载文件的文件ID
-    downloadFilePath	const char *	下载录音文件存储的地址路径，路径中需要"/"作分隔，不能用"\"
-    msTimeout	int	下载文件超时时间
-    下载的结果通过void OnDownloadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID) ;进行回调
+```
 
-4.出错处理
+| 参数 | 类型 |意义 |
+|---------|---------|---------|
+| fileID | const char * | 要下载文件的文件 ID |
+| downloadFilePath | const char * | 下载录音文件存储的地址路径，路径中需要`/`作分隔，不能用`\`|
+| msTimeout | Int | 下载文件超时时间 |
+下载的结果通过`void OnDownloadFile(GCloudVoiceCompleteCode code, const char *filePath, const char *fileID) ;`进行回调。
 
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式
+3. 出错处理
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
+GCLOUD_VOICE_MODE_STATE_ERR  ： 当前模式不是离线语音模式。
 GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，路径为空。
-GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用GetAuthKey申请许可
-GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写或者不可读
-GCLOUD_VOICE_HTTP_BUSY ： 还在上一次上传或者下载中，需要等待后再尝试
+GCLOUD_VOICE_NEED_AUTHKEY ： 需要先调用GetAuthKey 申请许可。
+GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写或者不可读。
+GCLOUD_VOICE_HTTP_BUSY ： 还在上一次上传或者下载中，需要等待后再尝试。
 
-#### .7 开始播放下载的音频
+#### 开始播放下载的音频
+（1）接口说明
+下载下来的音频文件，需要调用相关接口进行播放。
 
-1.接口说明
+（2）函数原型
 
-下载下来的音频文件，需要调用相关接口进行播放
-
-2.函数原型
-
+```
        - (enum GCloudVoiceErrno) playRecordedFile:(const char *_Nullable) downloadFilePath;
-    参数	类型	意义
-    filePath	const char*	下载文件存储的地址路径，路径中需要"/"作分隔，不能用"\"
-    如果正常播放完，会回调void OnPlayRecordedFile(GCloudVoiceCompleteCode code,const char *filePath)
+```
 
-4.出错处理
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| filePath | const char *  | 下载录音文件存储的地址路径，路径中需要`/`作分隔，不能用`\` |
+  如果正常播放完，会回调`void OnPlayRecordedFile(GCloudVoiceCompleteCode code,const char *filePath)`。
 
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_MODE_STATE_ERR  ： 当前模式不是离线语音模式
+（3）出错处理
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
+GCLOUD_VOICE_MODE_STATE_ERR  ： 当前模式不是离线语音模式。
 GCLOUD_VOICE_PARAM_INVALID ：  传入的参数不对，路径为空。
-GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写
-GCLOUD_VOICE_SPEAKER_ERR : 打开麦克风失败
+GCLOUD_VOICE_PATH_ACCESS_ERR ： 提供的路径不合法或者不可写。
+GCLOUD_VOICE_SPEAKER_ERR：打开麦克风失败。
 
-#### .8 停止播放下载的音频
-
+#### 停止播放下载的音频
 1.接口说明
-
-中断播放动作
+中断播放动作。
 
 2.函数原型
-
-  ` - (enum GCloudVoiceErrno) stopPlayFile;`
+```
+- (enum GCloudVoiceErrno) stopPlayFile;
+```
    
-4.出错处理
+3. 出错处理
 
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
+GCLOUD_VOICE_MODE_STATE_ERR  ：  当前模式不是离线语音模式。
 
-#### .9 请求语音消息Key回调
-
-1.接口说明
-
+#### 请求语音消息 Key 回调
+（1）接口说明
 请求语音消息许可的时候会回调
 
-2.函数原型
-
+（2）函数原型
+```
     - (void) onApplyMessageKey:(enum GCloudVoiceCompleteCode) code
-参数	类型	意义
-code	GCloudVoiceCompleteCode	参见GCloudVoiceCompleteCode定义
+```
 
-3、示例代码
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| code	 | GCloudVoiceCompleteCode | 参见 GCloudVoiceCompleteCode 定义 |
 
+（3）示例代码
+```
    - (void) onApplyMessageKey:(enum GCloudVoiceCompleteCode) code {
 NSString *msg;
 msg = @"Apply AuthKey Success";
 [self warnning:msg];
 }
-#### .10 上传完成回调
-1.接口说明
+```
 
-上传语音文件后的结果通过这个进行回调
+#### 上传完成回调
+（1） 接口说明
+上传语音文件后的结果通过这个接口进行回调。
 
-2.函数原型
-
+（2）函数原型
+```
         - (void) onUploadFile: (enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID
-    参数	类型	意义
-    code	GCloudVoiceCompleteCode	参见GCloudVoiceCompleteCode定义
-    filepath	const char *	上传的文件路径
-    fileid	const char *	文件的id
+```
 
-3、示例代码
+|  参数 | 类型 | 意义 |
+|---------|---------|---------|
+| code | GCloudVoiceCompleteCode | 参见 GCloudVoiceCompleteCode 定义 |
+ | filepath	| const char *	| 上传的文件路径 |
+| fileid |	const char *	| 文件的 ID |
 
+（3）示例代码
+```
         - (void) onUploadFile: (enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath andFileID:(const char * _Nullable)fileID  {
     _fileID = [NSString stringWithFormat:@"%s", fileID];
     [self warnning:@"Upload Success"];
     }
+```
 
-#### .11 下载完成回调
+#### 下载完成回调
 
 1.接口说明
 
@@ -711,67 +724,73 @@ msg = @"Apply AuthKey Success";
     [self warnning:msg];
     }
 
-#### .12 正常播放完成后回调
+####  正常播放完成后回调
+1. 接口说明
+如果用户没有暂停播放，而语音文件已经播放完了，通过这个进行回调。
 
-1.接口说明
-
-如果用户没有暂停播放，而语音文件已经播放完了，通过这个进行回调
-
-2.函数原型
-
+2. 函数原型
+```
        - (void) onPlayRecordedFile:(enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath
-    参数	类型	意义
-    code	GCloudVoiceCompleteCode	参见GCloudVoiceCompleteCode定义
-    filepath	const char *	播放的文件路径
+```
 
-3、示例代码
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+|  code | GCloudVoiceCompleteCode | 参见 GCloudVoiceCompleteCode 定义 |
+| filepath | const char * 	| 播放的文件路径 | 
 
+（3）示例代码
+```
        - (void) onPlayRecordedFile:(enum GCloudVoiceCompleteCode) code withFilePath: (const char * _Nullable)filePath {
     
     NSString *msg;
     msg = @"Finish Play File";
     [self warnning:msg];
     } 
+```
 
 ###  语音转文字
-#### .1 进行语音转文字
-1.接口说明
-
+####  进行语音转文字
+（1）接口说明
 使用该函数，进行语音转文字。
 
-2.函数原型
-
+(2）函数原型
+```
      - (enum GCloudVoiceErrno) speechToText:(const char *_Nullable)fileID timeout:(int) msTimeout language:(enum GCloudLanguage) language ;
-    参数	类型	意义
-    code	GCloudVoiceCompleteCode	参见GCloudVoiceCompleteCode定义
-    fileID	string	需要翻译的文件id
-    result	string	翻译的文字结果
+```
 
-3、出错处理
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| code | GCloudVoiceCompleteCode | 	参见 GCloudVoiceCompleteCode 定义 |
+| vfileID	| String	| 需要翻译的文件 ID |
+ |   result	| String	| 翻译的文字结果 |
 
-GCLOUD_VOICE_NEED_INIT ：  需要先调用Init进行初始化
-GCLOUD_VOICE_STTING  ：  正在进行上一次的语音转文字
+（3）出错处理
+GCLOUD_VOICE_NEED_INIT ：  需要先调用 Init 进行初始化。
+GCLOUD_VOICE_STTING  ：  正在进行上一次的语音转文字。
 
-4.示例代码
-
+（4）示例代码
+```
 [[GVGCloudVoice sharedInstance] speechToText:[_fileID cStringUsingEncoding:NSUTF8StringEncoding]  timeout:18000 language:China];
+```
 
-#### .2 语音转文字完成后回调
-1.接口说明
+#### 语音转文字完成后回调
+（1）接口说明
+语音转文字的结果通过这个回调进行通知。
 
-语音转文字的结果通过这个回调进行通知
-
-2.函数原型
-
+（2）函数原型
+```
         - (void) onSpeechToText:(enum GCloudVoiceCompleteCode) code withFileID:(const char * _Nullable)fileID andResult:( const char * _Nullable)result
-    参数	类型	意义
-    code	GCloudVoiceCompleteCode	参见GCloudVoiceCompleteCode定义
-    fileID	const char *	翻译文件的fileid
-    result	const char *	翻译的文字结果
-  
-3、示例代码
+```
 
+| 参数 | 类型 | 意义 |
+|---------|---------|---------|
+| code | GCloudVoiceCompleteCode | 参见 GCloudVoiceCompleteCode 定义 |
+| fileID	| const char *	 | 翻译文件的 fileid |
+| result	| const char *	| 翻译的文字结果 |
+  
+（3）示例代码
+```
         - (void) onSpeechToText:(enum GCloudVoiceCompleteCode) code withFileID:(const char * _Nullable)fileID andResult:( const char * _Nullable)result {
     _resultTV.text = [NSString stringWithUTF8String: result];
     }
-    
+```
