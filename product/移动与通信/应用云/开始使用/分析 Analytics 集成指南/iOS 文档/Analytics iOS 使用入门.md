@@ -1,7 +1,3 @@
-
-#应用云 Analytics 服务 iOS 集成指南
-
-
 ## 准备工作
 
 为了使用应用云 iOS 版本的 SDK ，您首先需要做好以下工作：
@@ -10,7 +6,7 @@
 
 ## 集成代码库
 
-### 通过 CocoaPods 集成 (**推荐**)
+### 通过 CocoaPods 集成 （**推荐**）
 
 如果您是设置一个新项目，则需要安装 SDK ，您可能已经在创建应用云项目的过程中完成此步操作。
 
@@ -39,7 +35,7 @@ source "https://github.com/CocoaPods/Specs"
 > **注意：**
 > 一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-##### 3. 添加您想安装的 Pod。您可以按照以下方法在 Podfile 中纳入一个 Pod。
+##### 3. 添加您想安装的 Pod，您可以按照以下方法在 Podfile 中纳入一个 Pod。
 
 ~~~
 pod 'TACCore'

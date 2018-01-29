@@ -3,8 +3,8 @@
 
 ### 绑定用户唯一标记
 
-为了方便追踪用户信息，您可以绑定用户的唯一标记
-
+为了方便追踪用户信息，您可以绑定用户的唯一标记：
+ 
 ~~~
     [[TACApplication defaultApplication] bindUserIdentifier:@"uuid-11"];
 ~~~

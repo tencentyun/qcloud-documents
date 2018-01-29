@@ -49,7 +49,7 @@ import TACCrash
 
 ### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
  
-一般情况下您使用默认配置就可以了，用一下代码使用默认配置启动Crash服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
+一般情况下您使用默认配置就可以了，用一下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 Objective-C 代码示例：
 ~~~
     [TACApplication configurate];
@@ -81,4 +81,4 @@ Swift 代码示例：
 
 ## 配置 Crashlytics 上报符号表脚本
 
-Crashlytics 需要在您编译成功上上传符号表以方便解析。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的脚本配置章节正确配置了运行脚本，尤其是构建之后运行脚本。
+Crashlytics 需要在您编译成功上上传符号表以方便解析。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore 集成指南]() 中的脚本配置章节正确配置了运行脚本，尤其是构建之后运行脚本。
