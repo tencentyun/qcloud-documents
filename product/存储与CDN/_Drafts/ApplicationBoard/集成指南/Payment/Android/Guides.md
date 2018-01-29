@@ -17,7 +17,7 @@ PaymentRequest paymentRequest = new PaymentRequest(userId, payInfo);
 
 // 3、通过 TACPaymentService 实例发起支付
 paymentService.launchPayment(context, paymentRequest, new TACPaymentCallback() {
-	@Override
+    @Override
     public void onResult(int resultCode, PaymentResult result) {}
 });
 
@@ -39,6 +39,6 @@ paymentRequest.addMetaData(key, value);
 ```
 public void onResult(int resultCode, PaymentResult result) {
 	
-	Map<String, String> metaData = result.getMetaData();
+    Map<String, String> metaData = result.getMetaData();
 }
 ```
