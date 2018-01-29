@@ -35,6 +35,7 @@
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 调整包年包月实例带宽 | [UpdateInstanceBandwidth](/document/api/213/1251)|  用于调整包年包月实例的公网带宽。
+| 绑定子机与弹性网卡 | [AttachNetworkInterface](https://cloud.tencent.com/document/product/213/8836) | 用于绑定子机与弹性网卡。
 | 调整按量计费实例带宽 | [UpdateInstanceBandwidthHour](/document/api/213/1345) | 用于调整按量计费实例的公网带宽。
 
 ## 4. 安全组相关接口
