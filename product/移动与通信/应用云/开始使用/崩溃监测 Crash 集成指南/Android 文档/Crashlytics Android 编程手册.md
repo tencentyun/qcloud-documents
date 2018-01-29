@@ -2,7 +2,7 @@
 
 ## 启动 Crash 服务
 
-要想使用 Crash 服务，您需要先启动 Crash 服务，我们建议您放在 Application 的 onCreate 方法中执行该操作。具体代码如下：
+要想使用 Crash 服务，您需要先启动 Crash 服务，我们建议您放在 Application 的 onCreate 方法中执行该操作，具体代码如下：
 
 ```
 // 首先获取 TACCrashService 实例
@@ -12,7 +12,7 @@ TACCrashService crashService = TACCrashService.getInstance();
 crashService.start(context);
 ```
 
-服务启动之后，会在应用程序崩溃后自动收集信息上报，您不需要再另外配置。
+服务启动之后，会在应用程序崩溃后自动收集信息上报，不需要再另外配置。
 
 
 ## MultiDex 注意事项
