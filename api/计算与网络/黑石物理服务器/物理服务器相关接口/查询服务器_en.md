@@ -116,7 +116,7 @@ Device information element in deviceList
  
 Input
 
-<pre>
+```
 	https://domain/v2/index.php?
 	Action=DescribeDevice
 	&offset=1
@@ -129,7 +129,7 @@ Input
     &lanIps.2=10.1.2.2
 	&alias=Instance name
 	&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-</pre>
+```
 Output
 
 ```

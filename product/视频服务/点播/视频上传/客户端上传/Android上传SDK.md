@@ -1,4 +1,4 @@
-对于在 Android 平台上传视频的场景，腾讯云点播提供了 Android 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于在 Android 平台上传视频的场景，腾讯云点播提供了 Android 上传 DEMO 来实现。上传的流程可以参见 [客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
 
@@ -7,8 +7,8 @@
 
 ##  集成上传库和源代码
 
-1. 拷贝上传源代码目录 Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 到您的工程目录中，需要手动修改一下 package 名。
-2. 将 Demo/app/libs/upload 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
+1.拷贝上传源代码目录 Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 到您的工程目录中，需要手动修改一下 package 名。
+2.将 Demo/app/libs/upload 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
 
 依赖库说明：
 
@@ -21,8 +21,7 @@
 | xstream-1.4.7.jar           | 开源序列化组件                             |
 | fastjson-1.1.62.android.jar | 开源 json 组件                            |
 
-
-3. 使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
+3.使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -59,10 +58,11 @@ mVideoPublish.setListener(new TXUGCPublishTypeDef.ITXVideoPublishListener() {
 
 ```java
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
-// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
+
 param.signature = "xxx";
 param.videoPath = "xxx";
 ```
+>signature 计算规则可参考 [客户端上传签名](/document/product/266/9221)。
 
 ### 调用上传
 
@@ -77,11 +77,12 @@ int publishCode = mVideoPublish.publishVideo(param);
 
 ```java
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
-// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
+
 param.signature = "xxx";
 param.videoPath = "xxx";
 param.coverPath = "xxx";
 ```
+>signature 计算规则可参考 [客户端上传签名](/document/product/266/9221)。
 
 ### 取消、恢复上传
 
