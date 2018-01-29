@@ -81,9 +81,9 @@
 
 > *   注意：随机生成 **SN** 是针对当前运行而言的，如果之前已经存在一批 SN，** 客户端工具 ** 无法保证是否会和之前的 SN 重复。
 
-*   <div class="md-text"> 有了 **SN**，我们就可以在 ** 证书生成工具 ** 区域，生成 license 了。生成前，需要选择要使用的 ** 签名私钥 **，然后点击 ** 生成 License** 即可。</div>
+*   有了 **SN**，我们就可以在 ** 证书生成工具 ** 区域，生成 license 了。生成前，需要选择要使用的 ** 签名私钥 **，然后点击 ** 生成 License** 即可。</div>
 
-    <div class="col-sm-12">[![img](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ipcamera_10.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ipcamera_10.png)</div>
+    [![img](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ipcamera_10.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ipcamera_10.png)</div>
 
 > *   注意：license 的生成使用的是 ** 签名密钥 ** 对中的私钥，文件名叫做 ec_key.pem，需要和上传到小微平台的 ** 签名公钥 ** 匹配。
 
