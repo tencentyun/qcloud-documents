@@ -58,7 +58,7 @@ CAM 中可授权的资源类型：
 | ModifyImageSharePermission	|  `qcs::cvm:$region:$account:image/*`<br>`qcs::cvm:$region:$account:image/$imageId` | cvm:region |
 | SyncImages	|  `qcs::cvm:$region:$account:image/*`<br>`qcs::cvm:$region:$account:image/$imageId` | cvm:region |
 
-#### 安全组像相关：
+#### 安全组相关：
 | API 操作 | 资源路径 | 条件密钥 |
 | :-------- | :--------| :------ |
 | ModifySecurityGroupPolicys	|  `qcs::cvm:$region:$account:sg/*`<br>`qcs::cvm:$region:$account:sg/$sgId`| `cvm:projectId`<br>`cvm:region` |
