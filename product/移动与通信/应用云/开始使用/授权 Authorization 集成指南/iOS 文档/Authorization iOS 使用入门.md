@@ -1,6 +1,5 @@
-按照本指南在您的 iOS 应用中设置应用云 Authorization。
-
-
+#Authorization iOS 使用入门
+ 
 ## 准备工作
 
 在开始使用应用云 Authorization 之前，您需要：
