@@ -9,13 +9,13 @@
  2. 取得存储桶名称 `BucketName`： 请前往 [创建存储桶](https://cloud.tencent.com/document/product/460/10637) 
  3. 取得 `APPID`、`SecretId`、`SecretKey`：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，点击“新建密钥”
 
-#快速体验 Demo
+# 快速体验 Demo
 1. 修改：找到 app/src/main/java/com/tencent/faceiddemo/MainActivity.java 文件，定位到 initUserInfo() 方法，填入上面申请到的  `APPID`、`BucketName`、`SecretId`、`SecretKey`
 
 2. 运行：工程使用 Gradle 构建，导入 Android Studio 中即可运行
 >命令行方式编译安装：工程根目录下执行 `./gradlew installDebug` (macOS) 或 `.\gradlew.bat installDebug` (Windows)
 
-#集成 SDK 到你的工程中
+# 集成 SDK 到你的工程中
 
 1.复制 libs 目录下的所有 jar 文件到你工程的 libs 下
 ```
@@ -39,14 +39,14 @@ slf4j-android-1.6.1-RC1.jar
 ``` 
 >如果你的工程的 targetSdkVersion >= 23 (Android 6.0) ，那么还需要处理动态权限申请相关事宜，可参考 MainActivity.java 和 RecorderActivity.java
 
-#快速入门
-##初始化核身引擎 FaceIdClient
+# 快速入门
+## 初始化核身引擎 FaceIdClient
 ```
 String appid = "your appid"; // 你申请到的 APPID
 FaceIdClient mFaceIdClient = new FaceIdClient(context, appid);
 ```
 
-##照片核身（通过照片和身份证信息）
+## 照片核身（通过照片和身份证信息）
 ```
 /**
  * 照片核身（通过照片和身份证信息）
@@ -107,7 +107,7 @@ private void sendRequest(String name, String number, String url, String imagePat
 | similarity | float  | 图像和身份证的相似度 |
 | seq        | String | 用于日志查询     |
 
-##获取唇语验证码，用于活体核身
+## 获取唇语验证码，用于活体核身
 ```
 /**
  * 获取唇语验证码，用于活体核身
@@ -150,7 +150,7 @@ private void sendRequest(final String bucketName, final String sign, final Strin
 | validateData | String | 唇语   |
 
 
-##活体核身（通过视频和照片）
+## 活体核身（通过视频和照片）
 ```
 /**
  * 活体核身（通过视频和照片）
@@ -196,7 +196,7 @@ private void sendRequest(String lip, String videoPath, String imagePath, String 
     }).start();
 }
 ```
-返回结果 VideoImageIdentityResult ：
+返回结果 VideoImageIdentityResult ： 
 | 参数名称           | 类型     | 参数描述          |
 | -------------- | ------ | ------------- |
 | code           | int    | 状态码           |
@@ -209,7 +209,7 @@ private void sendRequest(String lip, String videoPath, String imagePath, String 
 | photo          | String | 人脸检测中相似度最高的图像 |
 
 
-##活体核身（通过视频和身份证信息）
+## 活体核身（通过视频和身份证信息）
 ```
 /**
  * 活体核身（通过视频和身份证信息）
@@ -297,7 +297,7 @@ CredentialProvider credentialProvider = new CredentialProvider(appid, secretId, 
 String sign = credentialProvider.getMultipleSign(bucket, duration); // 生成签名
 ```
 
-###取消单个任务：
+### 取消单个任务：
 ```
 int requestId = request.getRequestId(); // 获取请求任务的ID号
 boolean success = faceIdClient.cancel(requestId); // 通过请求ID号取消任务
