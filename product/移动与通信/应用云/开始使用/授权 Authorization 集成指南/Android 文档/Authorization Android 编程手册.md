@@ -1,4 +1,4 @@
-# 应用云 Authorization 服务 Android 接入指南
+# 应用云 Authorization Android 编程手册
 
 ## 使用 QQ 登录功能
 

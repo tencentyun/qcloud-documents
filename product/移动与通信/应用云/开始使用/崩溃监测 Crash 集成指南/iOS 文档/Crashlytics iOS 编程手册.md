@@ -1,4 +1,4 @@
-# 应用云 Crashlytics 服务 iOS 编程手册
+# 应用云 Crashlytics iOS 编程手册
 
 ## 服务启动与停止
 

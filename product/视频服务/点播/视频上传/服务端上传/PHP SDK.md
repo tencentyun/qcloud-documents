@@ -1,6 +1,4 @@
-## 简介
-
-用于服务端上传的 PHP SDK，可向腾讯云点播系统上传视频和封面文件。
+对于在服务端上传视频的场景，腾讯云点播提供了 PHP SDK 来实现。上传的流程可以参见 [服务端上传综述](/document/product/266/9759)。
 
 ## 集成方式
 
@@ -21,12 +19,10 @@
 
 复制 src 文件下的源码和 test/non-composer 文件的 cos-sdk-v5、qcloudapi-sdk-php 到项目同级目录即可
 
-## 上传步骤
-###  第一步：初始化配置
-使用云 API 密钥初始化配置
-
+##  简单视频上传
+### 初始化上传对象
+使用云API密钥初始化VodApi
 **对于使用 composer 导入的**
-
 ```
 <?php
 require 'vendor/autoload.php';
@@ -49,42 +45,8 @@ use Vod\VodApi;
 VodApi::initConf("your secretId", "your secretKey");
 ```
 
-### 第二步：调用 upload 方法进行上传
-
-方法签名
-```
-public static function upload(array $src, $parameter = null)
-```
-
-方法参数
-**src 参数**
-
-| 参数名称         | 参数描述    | 类型 | 是否必填 |
-| ------------ | ------------ |  ------------ | ------------  |
-| videoPath | 视频路径 |  String |  是 |
-| coverPath | 封面路径 |  String | 否 |
-
-**parameter 参数**
-
-| 参数名称         | 参数描述    | 类型 |
-| ------------ | ------------ |  ------------ | 
-| videoName | 视频名称 |  String | 
-| sourceContext | 用户自定义上下文 |  String | 
-| storageRegion | 指定存储地区 |  String | 
-| procedure | 任务流 |  String | 
-
-方法返回值
-
-|  名称         | 描述    | 类型 |
-| ------------ | ------------ |  ------------ | 
-| code | 状态码，0 为成功，非 0 为失败 |  Integer | 
-| message | 提示信息 |  String | 
-| data | 返回数据 |  Object |
-| data.fileId | 视频文件 ID |  String |
-| data.video.url | 视频 Url |  String |
-| data.cover.url | 封面 Url |  String |
-
-#### 上传视频
+### 调用上传
+传入视频地址进行上传
 ```
 $result = VodApi::upload(
     array (
@@ -94,7 +56,9 @@ $result = VodApi::upload(
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
 
-#### 上传视频附带封面
+## 高级功能
+### 携带封面
+同时传入视频地址和封面地址
 ```
 $result = VodApi::upload(
     array (
@@ -105,7 +69,8 @@ $result = VodApi::upload(
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
 
-#### 上传视频指定任务流
+### 指定任务流
+传入任务流参数，具体的任务流介绍参考[任务流综述](/document/product/266/11700)，视频上传成功后会自动执行任务流
 ```
 $result = VodApi::upload(
     array (
@@ -119,7 +84,8 @@ $result = VodApi::upload(
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
 
-#### 上传视频到指定地域
+###  指定上传区域
+传入指定的地域标识，即可将视频上传指定的区域
 ```
 $result = VodApi::upload(
     array (
@@ -132,11 +98,51 @@ $result = VodApi::upload(
 );
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
-## 错误码列表
 
-| 错误码         | 说明                |
+## 接口描述
+初始化上传对象 `VodApi::initConf(secretId, secretKey)`
+
+| 参数名称      | 参数描述                   | 类型      | 必填   |
+| --------- | ---------------------- | ------- | ---- |
+| secretId   | 云API密钥ID        | String | 是    |
+| secretKey | 云API密钥Key | String  | 是    |
+
+上传方法 `VodApi.upload(src, parameter)`
+
+**src 参数**
+
+| 参数名称         | 参数描述    | 类型 | 必填 |
+| ------------ | ------------ |  ------------ | ------------  |
+| videoPath | 视频路径 |  String |  是 |
+| coverPath | 封面路径 |  String | 否 |
+
+**parameter 参数**
+
+| 参数名称         | 参数描述    | 类型 | 必填 |
+| ------------ | ------------ |  ------------ |   ------------  |
+| videoName | 视频名称 |  String | 否 |
+| sourceContext | 用户自定义上下文 |  String | 否 |
+| storageRegion | 指定存储地区 |  String | 否 |
+| procedure | 任务流 |  String | 否 |
+
+上传结果 
+
+| 成员变量名称   | 变量说明      | 类型     |
+| -------- | --------- | ------ |
+| code |结果码 |  int | 
+| message | 提示信息 |  String | 
+| data | 返回数据 |  Object |
+| data.fileId | 点播视频文件Id |  String |
+| data.video.url | 视频存储地址 |  String |
+| data.cover.url | 封面存储地址 |  String |
+
+## 错误码列表
+调用SDK上传后， 可以根据结果中的 code 来确认视频上传的情况
+
+| 状态码         | 含义               |
 | ----------- | ----------------- |
-| 31001       | 用户请求 session_key 错误 |
-| 31002       | 用户请求中的 VOD 签名重复     |
+| 0       | 上传成功 |
+| 31001       | 用户请求session_key错误 |
+| 31002       | 用户请求中的VOD签名重复     |
 | 31003       | 上传文件不存在           |
 | 32001       | 服务错误              |
