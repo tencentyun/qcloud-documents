@@ -100,6 +100,7 @@ private void sendRequest(String name, String number, String url, String imagePat
 }
 ```
 返回结果 ImageIdCardCompareResult ：
+
 | 参数名称       | 类型     | 参数描述       |
 | ---------- | ------ | ---------- |
 | code       | int    | 状态码        |
@@ -143,6 +144,7 @@ private void sendRequest(final String bucketName, final String sign, final Strin
 }
 ```
 返回结果 GetLipLanguageResult ：
+
 | 参数名称         | 类型     | 参数描述 |
 | ------------ | ------ | ---- |
 | code         | int    | 状态码  |
@@ -197,6 +199,7 @@ private void sendRequest(String lip, String videoPath, String imagePath, String 
 }
 ```
 返回结果 VideoImageIdentityResult ： 
+
 | 参数名称           | 类型     | 参数描述          |
 | -------------- | ------ | ------------- |
 | code           | int    | 状态码           |
@@ -253,6 +256,7 @@ private void sendRequest(String name, String number, String lip, String videoPat
 }
 ```
 返回结果 VideoIdCardIdentityResult ：
+
 | 参数名称           | 类型     | 参数描述          |
 | -------------- | ------ | ------------- |
 | code           | int    | 状态码           |
@@ -267,6 +271,7 @@ private void sendRequest(String name, String number, String lip, String videoPat
 ## SDK 详细说明
 ### 用户配置
 用户调用 ClientConfiguration 类的静态方法来修改全局配置。
+
 
 | 方法                         | 方法描述       | 默认值        |
 | -------------------------- | ---------- | ---------- |
