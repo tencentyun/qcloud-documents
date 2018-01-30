@@ -1,4 +1,4 @@
-# 应用云 Crash 服务 Android 集成指南
+# 应用云 Crashlytics Android 使用入门
 
 ## 准备工作
 
@@ -14,7 +14,7 @@
 
 如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
 
-#### 1. 使用jcenter作为仓库来源。
+#### 1. 使用 jcenter 作为仓库来源。
 
 在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 

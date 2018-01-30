@@ -302,8 +302,8 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 
 1) 下载 Python SDK
 - pip 安装使用方式
-	- yum install python-pip
-	- pip install qcloudapi-sdk-python
+	- <font color=Crimson size=6>yum install python-pip</font>
+	- <font color=Crimson size=6>pip install qcloudapi-sdk-python</font>
 - github 源码下载方式
 	- [转到 github 查看 Python SDK >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
 	- [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
@@ -350,8 +350,8 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 #注意python代码的缩进须与本文一致
 pip 安装使用方式：
 	安装好 Python 后执行如下步骤：
-step1: yum install python-pip
-step2: pip install qcloudapi-sdk-python
+step1:  yum install python-pip
+step2:  pip install qcloudapi-sdk-python
 step3: 将代码中“from src.QcloudApi.qcloudapi import QcloudApi”改为“from QcloudApi.qcloudapi import QcloudApi”
 step4: 编辑好代码并保存在/etc/keepalived试用
 
@@ -555,14 +555,16 @@ if [ $state == "MASTER" ]; then
         ip addr add $vip dev $interface
         echo "false" > $vip_last_check_result_file
     else
-        is_vip_in_master=`$vip_operater query`
+        is_vip_in_master=`timeout 3 python $vip_operater query`
         if [ $is_vip_in_master == "false" ]; then
             echo "false" > $vip_last_check_result_file
-            $vip_operater migrate &
-        else
+            python $vip_operater migrate &
+        elif [ $is_vip_in_master == "true" ]; then
             vip_last_check_result=`cat $vip_last_check_result_file`
             [ $vip_last_check_result == "false" ] && log_write " vip_check pass"
             echo "true" > $vip_last_check_result_file
+        else
+            log_write "$vip_operater check vip time out" 
         fi
     fi
     exit 0

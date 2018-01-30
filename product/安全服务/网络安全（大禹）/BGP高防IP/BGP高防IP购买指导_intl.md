@@ -1,14 +1,12 @@
-## Purchasing BGP High Defense IP
-
-### 1. Purchase Method
+## 1. Purchase Method
 
 You can purchase BGP High Defense IP directly on the console. This is a prepaid product and you can purchase on a monthly/yearly basis.
 
-### 2. Where to Purchase
+## 2. Where to Purchase
 
 You can purchase BGP High Defense IP at Tencent Cloud China (Shanghai) or Tencent Cloud China (Hong Kong), whichever is closer to you.
 
-### 3. How to Purchase
+## 3. How to Purchase
 
 (1) Go to [BGP High Defense IP Purchase page](https://buy.cloud.tencent.com/buy/bgp_ip).
 
@@ -22,4 +20,3 @@ You can purchase BGP High Defense IP at Tencent Cloud China (Shanghai) or Tencen
 
 (6) Select Auto Renewal if needed.
 
-![](//mc.qcloudimg.com/static/img/91b83a27aad3fcaa716ae68541f3b0b6/image.png)

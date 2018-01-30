@@ -1,38 +1,51 @@
-The cloud services supporting CAM are listed below:
+The cloud services that support CAM are listed as follows:
 
-| Service | Business Permissions  | Policy Syntax | Cloud APIs | Console | Authorization Granularity | Conditions | Temporary Certificates |
-|---------|---------|---------|---------|---------|
-| CDN | Yes | No | 	Yes | Yes |  Operation Level | No | No |
-| CMQ | Yes | Yes | Yes | Yes | Resource Level | No | No |
-| ILVB | Yes | Yes | No | Yes | Service Level | No | No |
-| VOD| Yes | Yes | No | Yes | Service Level | No | No |
-| LVB | Yes | Yes | No | Yes | Service Level | No | No |
-| SMS | Yes | Yes | No | Yes | Service Level | No | No |
-| COS | No | Yes | Yes | No | Resource Level | Partially Supported | Yes |
-| VPC (Gray) | No | Yes | Yes | Yes | Resource Level | Partially Supported | No |
-| CAS | No | Yes | Yes | Yes | Resource Level | Partially Supported | Yes |
-| CSG (Gray) | No | Yes | Yes | Yes | Resource Level | No | Yes |
-| CDB (Gray) | No | Yes | Yes | No | Resource Level | No | No |
-| DTS (Gray) | No | Yes | Yes | No | Resource Level | No | No |
-| CLB (Gray) | No | Yes | Yes | Yes | Resource Level | Partially Supported | No |
-| CPM | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
-| BMVPC | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
-| BMLB | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
-| BMEIP | Yes | Yes | Yes | Yes | Resource Level | Yes | No |
-
+| Service | Policy Syntax | Cloud API | Console | Authorization Granularity | Temporary Certificate |
+|---------|---------|---------|---------|---------|---------|
+| CDN | Yes | Yes | Yes | Operation level | No |
+| CMQ | Yes | Yes | Yes | Resource level | No |
+| KMS | Yes | Yes | Yes | Yes | Resource level | Yes |
+| ILVB | Yes | No | Yes | Service level | No |
+| VOD | Yes | No | Yes | Service level | No |
+| LVB | Yes | No | Yes | Service level | No |
+| SMS | Yes | No | Yes | Service level | No |
+| COS | Yes | Yes | Yes | Resource level | Yes |
+| CAS | Yes | Yes | Yes | Resource level | Yes |
+| CM | Yes | Yes | Yes | Operation level | Yes |
+| [VPC](https://cloud.tencent.com/document/product/215/9510) | Yes | Yes | Yes | Resource level | Yes |
+| [CLB](https://cloud.tencent.com/document/product/214/9779) | Yes | Yes | Yes | Resource level | Yes |
+| [CVM](https://cloud.tencent.com/document/product/213/10314) | Yes | Yes | Yes | Resource level | Yes |
+| DFW | Yes | Yes | Yes | Resource level | Yes |
+| CBS | Yes | Yes | Yes | Resource level | Yes |
+| CCB | Yes | Yes | Yes | Resource level | Yes |
+| CCR | Yes | Yes | Yes | Resource level | Yes |
+| CCS | Yes | Yes | Yes | Resource level | Yes |
+| Domain Name ICP Licensing | Yes | No | Yes | Service Level | No |
+| HS | Yes | Yes | Yes | Operation level | Yes |
+| Domain Name Service | Yes | No | Yes | Service level | No |
+| Message Subscription | Yes | No | Yes | Service level | No |
+| IM | Yes | No | Yes | Service level | No |
+| httpdns | Yes | No | Yes | Service level | No | 
+| AS | Yes | Yes | Yes | Service level | No |
+| Dayu | Yes | Yes | Yes | Service level | No |
+| Message Service | Yes | Yes | Yes | Service level | No | 
+| Cloud Automated Testing | Yes | No | Yes | Service level | No |
+| CLS | Yes | No | Yes | Service level | No | 
+| Artificial Audio Intelligence | Yes | No | Yes | Service level | No | 
+| Intelligent Customer Service | Yes | No | Yes | Service level | No |
+| TDF | Yes | No | Yes | Service level | No |
+| WeChat Cloud Pay | Yes | No | Yes | Service level | No | 
+| Natural Language Processing | Yes | No | Yes | Service level | No | 
+| Tencent Machine Learning | Yes | No | Yes | Service level | No |
+| Tencent Machine Translation | Yes | No | Yes | Service level | No |
+| Elastic MapReduce | Yes | No | Yes | Service level | No | 
+| Tencent Cloud Search | Yes | No | Yes | Service level | No |
 
 Notes:
+1. "Cloud APIs" refers to whether cloud APIs are connected to the CAM, and "Console" refers to whether the console is connected to the CAM. 
 
-1) "Business Permission" refers to creating policies based on business permissions, and "Policy Syntax" refers to creating policies based on policy syntax.
+2. Authorization Granularity is divided into three levels: service level, operation level and resource level. Service-level granularity defines the access to a service, operation-level granularity defines the access to an operation under a service, and resource-level granularity, the finest granularity, defines the access to a resource.
 
-2) "Cloud APIs" refers to whether cloud APIs are connected to CAM, and "Console" refers to whether the console is connected to CAM. 
-
-3) Authorization Granularity is divided into three levels: service level, operation level and resource level. Service-level granularity defines the access to a service, operation-level granularity defines the access to an operation under a service, and resource-level granularity, the finest granularity, defines the access to a resource.
-
-4) Condition syntax is only supported in some services. For the list of services supporting conditions, please see the documentation for specific services.
-
-5) Temporary certificates are only supported by COS and CAS currently.
-
-6) COS only supports XML protocol-based APIs; Some cloud services such as VPC are only available in beta release. For more information, please see the documentation the specific services.
+3. Some cloud services such as VPC are available only in gray release. For more information, please see the documentation for specific services.
 
 
