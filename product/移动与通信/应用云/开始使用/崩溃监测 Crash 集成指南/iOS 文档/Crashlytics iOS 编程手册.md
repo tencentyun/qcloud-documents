@@ -4,7 +4,7 @@
 
 当您集成了 Crashlytics 服务之后，系统将会在程序启动的时候自动启动服务。
 
-如果您不希望在启动的时候默认启动 Crashlytics 服务，您可以在配置中设置关掉 (例如在AppDelegate中加入如下代码)：.
+如果您不希望在启动的时候默认启动 Crashlytics 服务，您可以在配置中设置关掉 (例如在AppDelegate中加入如下代码)：
 
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
