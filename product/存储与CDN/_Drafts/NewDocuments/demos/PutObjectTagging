@@ -1,4 +1,6 @@
+
 **请求示例**
+
 ```
 PUT /dog.jpg?tagging HTTP/1.1
 User-Agent: curl/7.29.0
@@ -13,6 +15,7 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 **响应示例**
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml

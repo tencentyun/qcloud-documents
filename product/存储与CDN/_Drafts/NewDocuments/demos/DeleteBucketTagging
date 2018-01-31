@@ -1,4 +1,6 @@
+
 **请求示例**
+
 ```
 DELETE /?tagging HTTP/1.1
 User-Agent: curl/7.29.0
@@ -8,6 +10,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q
 ```
 
 **响应示例**
+
 ```
 HTTP/1.1 204 No Content
 Content-Type: application/xml

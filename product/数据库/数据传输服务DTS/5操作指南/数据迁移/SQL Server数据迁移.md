@@ -13,7 +13,7 @@
 ### 迁移步骤
 1. 将已准备好的数据备份文件通过“Windows 客户端上传工具”上传至腾讯云提供的免费中转存储中（[如何使用上传工具](https://cloud.tencent.com/doc/product/238/6412)）；
 2. 数据库实例页面左侧导航栏中选择“SQLServer>数据传输>创建任务”；
-![](https://mc.qcloudimg.com/static/img/7b0b5cadaa2df742364316302df429e2/1.png)
+ ![](https://mc.qcloudimg.com/static/img/f2286b1c42f326d93928eca0dea68508/image.png)
 3. 创建新的离线迁移任务。任务名称由用户自定义，源实例类型选择“SQLServer 备份还原”，源库地域请选择在使用“Windows 客户端上传工具”上传备份文件时所指定的地域（通常与目标库地域保持一致），目标库类型和目标库地域会根据源库的配置由系统自动生成，最后在实例 ID 下拉列表中选择需要迁入的实例；
-![](https://mc.qcloudimg.com/static/img/ff4798508e2156b7824d9a69e694155d/2.png)
+![](https://mc.qcloudimg.com/static/img/fe1e33bfe1f2b51fcc7aa0f817694aba/image.png)
 4. 任务创建完毕后，页面跳转到任务列表，选择并启动任务；

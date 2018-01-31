@@ -5,12 +5,10 @@
 
 **迁移步骤如下：**
 ### 进入迁移工具页面
- ![](https://mc.qcloudimg.com/static/img/60ad8ba66c8e670dca9ca26766ca2b40/image.png)
+数据库实例页面左侧导航栏中选择“MariaDB（TDSQL）>数据传输>创建任务”
+![](https://mc.qcloudimg.com/static/img/ad9b746593b9753f8c6c3c08b772181e/image.png)
 
-### 创建迁移任务
-![](//mccdn.qcloud.com/img56835f3f5fe77.png)
-单击创建迁移任务，输入任务名称、源库和目标 MariaDB（TDSQL）的信息。
-
+输入任务名称、源库和目标 MariaDB（TDSQL）的信息。
 ![](//mccdn.qcloud.com/img56835f611f583.png)
 然后选择要迁移的数据库，创建并检查迁移任务信息。
 
@@ -28,7 +26,7 @@
 ### 启动迁移
 在校验通过后，您可以启动迁移任务，如果您设定了迁移任务的定时时间，则迁移任务会在设定的时间开始排队并执行，如果没有设置定时任务，则迁移任务会立即执行。
 迁移启动后，您可以在迁移任务下看到对应的迁移进度信息。
-![](//mccdn.qcloud.com/img56837a6d2a476.png)
+![](https://mc.qcloudimg.com/static/img/0702e3c516ac9233a1862e3a24917f8b/image.png)
 注：由于系统设计限制，一次性提交或排队多个迁移任务将按排队时间串行执行。
 
 ### 增量同步
@@ -36,8 +34,8 @@
 单击完成迁移后，主备同步关系会断开。
 
 ### 中止迁移
-在迁移过程中，如果您需要停止迁移，可以单击中止按钮进行中止。
-![](//mccdn.qcloud.com/img56837a93c69e0.png)
+在迁移过程中，如果您需要停止迁移，可以单击右侧【撤销】按钮。
+![](https://mc.qcloudimg.com/static/img/204b77ef95a0ea1f38212a2f78d7de12/image.png)
 注意：再次启动可能导致校验失败或任务失败，您可能需要手动清空目标库内的数据，才能再次启动迁移任务。
 
 ## 通过第三方工具迁入
