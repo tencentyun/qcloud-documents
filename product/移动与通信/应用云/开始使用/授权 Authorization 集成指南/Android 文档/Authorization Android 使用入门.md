@@ -1,4 +1,4 @@
-# 应用云 Authorization 服务 Android 集成指南
+# 应用云 Authorization Android 使用入门
 
 ## 准备工作
 

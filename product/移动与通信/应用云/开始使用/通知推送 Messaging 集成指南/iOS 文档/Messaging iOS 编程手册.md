@@ -1,11 +1,11 @@
-# Messageing 编程手册
+# 应用云 Messaging iOS 编程手册
 
 
 ## 服务启动与停止
 
 当您集成了 Messaging 服务之后，系统将会在程序启动的时候自动启动服务。
 
-如果您不希望在启动的时候默认启动 Messaging 服务，您可以在配置中设置关掉 (例如在AppDelegate中加入如下代码)：
+如果您不希望在启动的时候默认启动 Messaging 服务，您可以在配置中设置关掉 (例如在 AppDelegate 中加入如下代码)：
 
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
@@ -24,7 +24,7 @@
     [[TACMessagingService defaultService] stopReceiveNotifications];
 ~~~
 
-如果您希望在特定的时候关闭服务，
+如果您希望在特定的时候关闭服务。
 
 ## 监听 Messaging 服务回调
 

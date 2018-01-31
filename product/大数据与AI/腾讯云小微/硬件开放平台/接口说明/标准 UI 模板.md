@@ -263,4 +263,4 @@ TXAIAudioMsgInfo[] listMsgInfo = TXAIAudioSDK.getInstance().getMsgInfo(listMsgID
 
 #### 音乐资源接口获取
 
-具体参照[音乐资源可视化](https://cloud.tencent.com/document/product/645/14246)。
+具体参照 [音乐资源可视化](https://cloud.tencent.com/document/product/645/14246)。

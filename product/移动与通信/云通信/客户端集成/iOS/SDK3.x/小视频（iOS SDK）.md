@@ -25,6 +25,10 @@
 
 如果不需要使用小视频功能，可以在集成时移除 IMUGCExt.framework 和 TXRTMPSDK.framework 。Demo中美颜和P图效果需要额外添加beauty_libs中的framework和资源。
 
+说明：使用小视频存储功能需要在控制台开通点播服务
+
+![](https://mc.qcloudimg.com/static/img/7830ff8639567e4a9d60923349bf5a58/image.png)
+
 ## 2. 录制小视频
 
 录制小视频的步骤包括：画面预览、画面特效、文件录制和文件预览。

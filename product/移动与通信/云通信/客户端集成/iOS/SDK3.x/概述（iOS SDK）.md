@@ -43,6 +43,10 @@ ImSDK.framework 支持iOS 7.0 及以上系统。
 * QALHttpSDK.framework		网络透传SDK
  * 只有用到网络透传功能时使用
 
+说明：使用小视频存储功能需要在控制台开通点播服务
+
+![](https://mc.qcloudimg.com/static/img/7830ff8639567e4a9d60923349bf5a58/image.png)
+
 ### 1.3 创建应用
 
 创建一个新工程，填入工程名，这里以IMDemo为例：
