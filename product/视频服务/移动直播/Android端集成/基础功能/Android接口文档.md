@@ -1,9 +1,6 @@
 ## 接口文件
 
-在腾讯云官网 [下载](https://cloud.tencent.com/document/product/454/7873#Android) SDK 开发包，解压后在API文档中可以看到详细的接口注释。
-
-下面是腾讯视频云Android SDK的主要接口列表，分为TXLivePusher和TXLivePlayer两个类，以及接口常量。详细接口请查看[API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_android_doc/index.html)
-
+下面是腾讯视频云Android SDK的主要接口列表，分为TXLivePusher和TXLivePlayer两个类，以及接口常量，详细接口请查看[API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_android_doc/index.html)。
 
 
 ## TXLivePusher
