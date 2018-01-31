@@ -29,7 +29,7 @@ $ kubectl get po pod1
 
 - `flags`：指定可选标志。例如，您可以使用`-s`或`--server`标志来指定 Kubernetes API 服务器的地址和端口。
 
-## 示例：常用操作
+## nginx示例：常用操作
 使用以下一组示例来帮助您熟悉运行常用 kubectl 操作：
 ### kubectl create
 从文件或标准输入创建资源。
@@ -94,6 +94,8 @@ status:
   loadBalancer: {}
 ```
 
+![Alt text][create]
+
 ### kubectl get 
 列出一个或多个资源。
 ```shell
@@ -107,6 +109,9 @@ $ kubectl get deployment nginx
 $ kubectl get dp,services
 ```
 
+通过kubectl get services 获取外网访问地址, 在浏览器上输入该IP， 便可直接访问nginx服务。
+![Alt text][get]
+![Alt text][show]
 ### kubectl describe
 显示一个或多个资源的详细状态，默认情况下包括未初始化的资源。
 ```shell
@@ -131,3 +136,9 @@ $ kubectl logs <pod-name>
 $ kubectl delete -f nginx.yaml
 
 ```
+
+
+[create]:https://mc.qcloudimg.com/static/img/2624efeb9c11b4dc51ae166d4eed034a/image.png
+[get]:https://mc.qcloudimg.com/static/img/fb095179d54e49e0287ba3020f7835cf/image.png
+
+[show]:https://mc.qcloudimg.com/static/img/e09ab193d3f1732cc435ba53235094c1/image.png
