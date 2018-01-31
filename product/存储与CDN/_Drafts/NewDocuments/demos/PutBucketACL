@@ -2,10 +2,10 @@
 **请求示例:**
 
 ```
-PUT /test?acl HTTP/1.1
+PUT /?acl HTTP/1.1
 Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484724784;32557620784&q-key-time=1484724784;32557620784&q-header-list=host&q-url-param-list=acl&q-signature=785d9075b8154119e6a075713c1b9e56ff0bddfc
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484724784;32557620784&q-key-time=1484724784;32557620784&q-header-list=host&q-url-param-list=acl&q-signature=785d9075b8154119e6a075713c1b9e56ff0bddfc\n
 Content-Length: 229
 Content-Type: application/x-www-form-urlencoded
 
@@ -37,7 +37,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
 Connection: keep-alive
-Date: Fri, 25 Feb 2017 04:10:22 GMT\
+Date: Fri, 25 Feb 2017 04:10:22 GMT
 Server: tencent-cos
 x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
 ```
