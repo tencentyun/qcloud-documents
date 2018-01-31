@@ -16,15 +16,30 @@
 
 ### 3. 输出参数
 
-| 参数名称      | 类型       | 描述                                       |
-| --------- | -------- | ---------------------------------------- |
-| code      | Int      | 公共错误码。0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279) 页面。 |
-| codeDesc  | String   | 返回码描述                                    |
-| message   | String   | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" 详见本页面的 [模块错误码](#module_error_info) |
-| state     | Object   | 虚拟设备当前状态                                 |
-| metadata  | Object   | 虚拟设备属性的元信息，包括创建时间或者最后修改时间                |
-| timestamp | DateTime | 服务器返回时间                                  |
-| version   | Long     | 当前虚拟设备的版本号                               |
+| 参数名称     | 类型     | 描述                                       |
+| -------- | ------ | ---------------------------------------- |
+| code     | Int    | 公共错误码。0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279) 页面。 |
+| codeDesc | String | 返回码描述                                    |
+| message  | String | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" 详见本页面的 [模块错误码](#module_error_info) |
+| data     | Object | 业务返回数据                                   |
+
+data 的结构如下：
+
+| 参数名称      | 类型       | 描述      |
+| --------- | -------- | ------- |
+| payload   | Object   | 设备影子数据  |
+| result    | Int      | 业务处理结果  |
+| timestamp | DateTime | 服务器处理时间 |
+| type      | String   | 请求类型    |
+
+payload 的结构如下：
+
+| 参数名称      | 类型       | 描述                        |
+| --------- | -------- | ------------------------- |
+| state     | Object   | 虚拟设备当前状态                  |
+| metadata  | Object   | 虚拟设备属性的元信息，包括创建时间或者最后修改时间 |
+| timestamp | DateTime | 设备影子最近一次更新时间              |
+| version   | Long     | 当前虚拟设备的版本号                |
 
 ### 4. 示例
 
@@ -58,7 +73,10 @@
     		},
     		"timestamp": 1509443636326,
     		"version": 5
-    	}
+    	},
+        "result":0,
+        "timestamp":1509440846582,
+        "type":"update"
     }
     "message": "",
     "codeDesc": "Success",
