@@ -1,5 +1,4 @@
- 
-## 1. 地域相关接口
+ ## 1. 地域相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查询地域列表 | [DescribeRegions](https://cloud.tencent.com/document/product/213/9456) | 用于查询地域信息。
@@ -55,7 +54,6 @@
 | 绑定弹性公网IP | [AssociateAddress](https://cloud.tencent.com/document/product/213/11665) | 用于将弹性公网IP（简称 EIP）绑定到实例或弹性网卡的指定内网 IP 上。
 | 解绑定弹性公网IP | [DisassociateAddress](https://cloud.tencent.com/document/product/213/11666) | 用于解绑弹性公网IP（简称 EIP）。
 | 普通IP转弹性IP | [TransformAddress](https://cloud.tencent.com/document/product/213/11662) | 用于将实例的普通公网 IP 转换为弹性公网IP（简称 EIP）。
-
 
 ## 5. 密钥相关接口
 | 接口功能 | Action ID | 功能描述
