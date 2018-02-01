@@ -11,7 +11,7 @@ DescribeDeviceClassPartition接口用来获取设备类型对应的RAID方式。
 https://bm.api.qcloud.com/v2/index.php?
 	Action=DescribeDeviceClassPartition
 	&<公共请求参数>
-	&deviceClass=<设备类型>
+	&deviceClassCode=<设备类型>
 	&cpuId=<cpuId类型>
 	&mem=<内存大小>
 	&haveRaidCard=<是否需要RAID卡>
@@ -27,7 +27,7 @@ https://bm.api.qcloud.com/v2/index.php?
 
 | 参数名称         | 必选   | 类型     | 描述                                       |
 | ------------ | ---- | ------ | ---------------------------------------- |
-| deviceClass  | 否    | String | 设备类型。腾讯的设备类型deviceClass，通过接口[查询设备型号(DescribeDeviceClass)](/doc/api/456/6636) 获得设备类型。标准机型需要传入此参数。 |
+| deviceClassCode  | 否    | String | 设备类型。腾讯的设备类型deviceClass，通过接口[查询设备型号(DescribeDeviceClass)](/doc/api/456/6636) 获得设备类型。标准机型需要传入此参数。 |
 | cpuId        | 否    | Int    | cpuId类型。自定义机型需要传入此参数。 1：E5-2620v3 (6核) *  2；2：E5-2680v4 (14 核) * 2。 |
 | mem          | 否    | Int    | 内存大小，单位G。 自定义机型需要传入此参数。取值范围[64，128，256，384，512]。 |
 | haveRaidCard | 否    | Int    | 是否需要RAID卡。自定义机型需要传入此参数。0：不需要RAID卡； 1：需要RAID卡。 |
@@ -115,7 +115,7 @@ RAID结构
 ```
 https://bm.api.qcloud.com/v2/index.php?
 	Action=DescribeDeviceClassPartition
-	&deviceClass=M10
+	&deviceClassCode=PS100v1
 	&SecretId=AKID52SKw5uMEy3jhpMUBqSylEBJBby6E0KC
 	&Nonce=48476
 	&Timestamp=1476436689
