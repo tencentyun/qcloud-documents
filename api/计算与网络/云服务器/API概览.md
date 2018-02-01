@@ -1,4 +1,4 @@
- ## 1. 地域相关接口
+## 1. 地域相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查询地域列表 | [DescribeRegions](https://cloud.tencent.com/document/product/213/9456) | 用于查询地域信息。
