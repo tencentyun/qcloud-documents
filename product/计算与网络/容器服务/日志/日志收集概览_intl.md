@@ -43,7 +43,7 @@ Log collection feature primarily provides the following capabilities:
 ![CVM Log Collector][2]
 
 - Push collected logs to Tencent Cloud CKafka service
-- ![Ckafka Configurations][3]
+![Ckafka Configurations][3]
 
 - Push collected logs to a specified Topic of user-built Kafka
 ![Kafka Configurations][4]
