@@ -21,7 +21,7 @@ Tencent Cloud CDN supports the Cache-Control configuration on the origin server 
 For more information, please see [Priority Adjustment](https://cloud.tencent.com/document/product/228/6290#.E4.BC.98.E5.85.88.E7.BA.A7).
 
 ### 5. Can CDN self-owned origin be configured to not cache a certain file? Does it mean "do not cache" if the cache validity period is 0?
-You can configure different cache validity periods for different types of directories and files. If the cache validity period is configured to 0, the CDN node will not cache the resource, in which case the CDN node needs to pull related resources from the origin server every time the users send access request to the node. For more information on cache configurations, please see [Cache Expiration Configuration](https://www.qcloud.com/document/product/228/6290).
+You can configure different cache validity periods for different types of directories and files. If the cache validity period is configured to 0, the CDN node will not cache the resource, in which case the CDN node needs to pull related resources from the origin server every time the users send access request to the node. For more information on cache configurations, please see [Cache Expiration Configuration](https://cloud.tencent.com/document/product/228/6290).
 
 ### 6. Which cache expiration configuration does Tencent Cloud support?
 Tencent Cloud CDN supports cache validity period configuration at various dimensions, custom priority adjustment, and cache inheritance policies (advanced cache configuration). A reasonable cache validity period can effectively improve the resource hit rate and reduce origin-pull rate, so as to save bandwidth.

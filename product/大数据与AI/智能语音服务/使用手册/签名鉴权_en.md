@@ -42,7 +42,7 @@ Encrypt the original signature string obtained in the previous using HMAC-SHA1 w
 
 ## Signature Example
 
-Take a speech recognition subservice as an example. The description and sample value of each field for the URL request parameter of this service are shown as follows. Note: the parameter name, parameter value, and APPID are only examples, users need to generate signature according to the URL request structure of specific service and subservice.
+Take a speech recognition subservice as an example. The description and sample value of each field for the URL request parameter of this service are shown as follows. Note: The parameter name, parameter value, and APPID are only examples. Users need to generate signature according to the URL request structure of specific service and subservice.
 
 | Parameter Name | Type | Value |
 | --- | --- | --- |

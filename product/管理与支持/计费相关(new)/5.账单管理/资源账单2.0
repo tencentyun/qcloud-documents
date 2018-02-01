@@ -1,0 +1,41 @@
+
+登录腾讯云官网，进入费用中心-账单管理-[资源账单2.0](https://console.cloud.tencent.com/account/resourcesV2)，可以查看新版的资源账单。
+
+资源账单反映您每月扣费对应的资源详情。
+您在本月使用的后付费月结资源，将在次月初进行结算，因此资源扣费详情将出现在次月账单中。对于小时/日结算的按量资源，我们将进行按照月度整合展示并提供相关报表，以便于您查看整月趋势。
+
+
+
+### 查看账单明细
+选择【账单明细】，可筛选已展示字段查看资源账单的明细记录，在右侧设置按钮选择所需展示字段。
+![](https://mc.qcloudimg.com/static/img/edd221a494a98f4c54181056db103dfe/image.png)
+
+### 查看账单汇总
+选择【账单汇总】，可查看各云服务类别和计费模式的总计费用。
+![](https://mc.qcloudimg.com/static/img/9a7be77d2526ef5ef18c645973273ebe/image.png)
+
+### 查看扣费趋势
+选择【扣费趋势】，可查看当月的扣费变化曲线。
+![](https://mc.qcloudimg.com/static/img/b047409d9643702d3e30a3dff7212502/image.png)
+
+### 查看扣费占比（按项目）
+选择【扣费占比】，展示指标选择【按项目】，可参看各项目扣费的金额和占比。
+![](https://mc.qcloudimg.com/static/img/d5cdeaa690d8f36b0da22cb7bcd6ab7b/image.png)
+
+### 查看扣费占比（按产品）
+选择【扣费占比】，展示指标选择【按产品】，可参看各云服务类别扣费的金额和占比。
+![](https://mc.qcloudimg.com/static/img/189e88d602cb072b239e4169df9875f2/image.png)
+
+### 查看扣费占比（按地域）
+选择【扣费占比】，展示指标选择【按地域】，可参看各地域扣费的金额和占比。
+![](https://mc.qcloudimg.com/static/img/ec402d000279566ac836ae56ffb49896/image.png)
+
+### 下载账单明细
+选择【账单明细】，可点击右侧下载按钮，下载对应月份的账单明细。
+![](https://mc.qcloudimg.com/static/img/f322d05dedd5505d626b87c6e46bda9b/image.png)
+
+每月月初自动生成上月账单，当前月份的账单明细暂时不支持实时下载，点击下载按钮后会离线生成，请稍后下载。
+![](https://mc.qcloudimg.com/static/img/e6bca60dc5aefabae61fbd90bd2a2b48/image.png)
+
+历史月份的账单可点击下载按钮，根据提示点击链接下载。
+![](https://mc.qcloudimg.com/static/img/5532616ff9fa64883bfad1a0f0175111/image.png)

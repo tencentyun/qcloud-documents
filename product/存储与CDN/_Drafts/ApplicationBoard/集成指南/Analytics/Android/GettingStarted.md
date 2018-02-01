@@ -4,7 +4,7 @@
 
 在开始使用应用云 Analytics 服务前，确保您已经完成：
 
- 1. [安装和配置SDK]()
+ 1. [安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -147,6 +147,6 @@ TACApplicationOptions applicationOptions = TACApplication.options();
 TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
 ```
 
-具体的 API 请参考 TACApplicationOptions 的API文档。
+具体的 API 请参考 TACAnalyticsOptions 的API文档。
 
 **请在 Analytics 服务启动前完成它对应的参数配置。一旦服务启动，后续所有对它的参数修改都不会生效**。

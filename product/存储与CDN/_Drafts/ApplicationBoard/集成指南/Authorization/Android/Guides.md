@@ -74,18 +74,15 @@ qqAuthProvider.getUserInfo(mOAuth2Credentials, new QCloudResultListener<TACOpenU
 
 ### 添加微信登录回调处理Activity
 
-在app包名下新建一个wxapi的包，然后新建一个名为 WXEntryActivity 的类，该类直接继承此基类即可，不需要增加任何逻辑。
+在您的应用包名下新建一个wxapi的包，然后新建一个名为 WXEntryActivity 的类，该类直接继承基类 WeChatBaseSignInActivity 即可，不需要增加任何逻辑。这个 Activity 主要是为了接收微信的登录回调。
 
 ```
+package com.tencent.openmidas.sample.wxapi;
+
+import com.tencent.tac.authorization.oauth2.WeChatBaseSignInActivity;
+
 public class WXEntryActivity extends WeChatBaseSignInActivity {
 }
-```
-
-然后在AndroidManifest.xml中注册该Activity，设置 export = true。
-
-```
-<activity android:name=".wxapi.WXEntryActivity"
-            android:exported="true" />
 ```
 
 ### 请求微信登录

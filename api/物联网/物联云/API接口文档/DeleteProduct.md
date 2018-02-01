@@ -8,8 +8,8 @@
 
 以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/api/213/6976) 页面。
 
-| 参数名称      | 必选   | 类型     | 描述        |
-| --------- | ---- | ------ | --------- |
+| 参数名称      | 必选   | 类型     | 描述         |
+| --------- | ---- | ------ | ---------- |
 | productID | 是    | String | 需要删除的产品 ID |
 
 
@@ -25,7 +25,7 @@
 
 输入
 <pre>
-  https://iotcloud.api.qcloud.com/index.php?Action=DeleteProduct
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=DeleteProduct
   &productID=ABCDE12345
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 </pre>

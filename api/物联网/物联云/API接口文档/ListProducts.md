@@ -47,7 +47,7 @@ productMetadata 部分的结构如下：
 
 输入
 <pre>
-   https://iotcloud.qcloud.com.com/index.php?Action=ListProducts&pageNum=1&pageSize=100
+   https://iotcloud.qcloud.com.com/v2/index.php?Action=ListProducts&pageNum=1&pageSize=100
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 </pre>
 

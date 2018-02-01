@@ -1,4 +1,6 @@
+
 **请求示例:**
+
 ```
 OPTIONS /coss3/ObjectName HTTP/1.1
 Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
@@ -9,6 +11,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q
 ```
 
 **响应示例:**
+
 ```
 OPTIONS /<ObjectName> HTTP/1.1
 Host: <Bucketname>-<APPID>.cos.<Region>.myqcloud.com

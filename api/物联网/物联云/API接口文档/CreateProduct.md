@@ -21,7 +21,7 @@ productProperties定义为：
 | 参数名称               | 类型     | 描述                 |
 | ------------------ | ------ | ------------------ |
 | productDescription | String | 产品描述               |
-| region             | String | 产品所属区域，目前只支持广州（gz）|
+| region             | String | 产品所属区域，目前只支持广州（gz） |
 
 
 
@@ -33,7 +33,7 @@ productProperties定义为：
 | message     | String | 模块错误信息描述，格式为 "(模块错误码)模块错误信息" 详见本页面的 [模块错误码](#module_error_info) |
 | codeDesc    | String | 模块错误码的英文描述                               |
 | productName | String | 产品名称                                     |
-| productID   | String | 产品 ID，腾讯云生成全局唯一 ID                         |
+| productID   | String | 产品 ID，腾讯云生成全局唯一 ID                       |
 
 
 ### 4. 示例
@@ -41,7 +41,7 @@ productProperties定义为：
 输入
 <pre>
 
-  https://iotcloud.api.qcloud.com/index.php?Action=CreateProduct
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=CreateProduct
   &productName=fruit
   &productProperties={"productDescription":"desc","regon":"gz"}
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>

@@ -108,6 +108,14 @@ TACApplicationOptions currentOptions = TACApplication.options();
 
 ```
 
+### debug模式
+
+如果你想打开debug模式，查看应用云的日志，可以通过以下命令开启：
+
+```
+adb shell setprop log.tag.tac DEBUG
+```
+
 ## 可用的库
 
 以下库分别对应各种应用云的功能。
