@@ -1,191 +1,277 @@
 ## 开发准备
 
 ### SDK 获取
-人脸核身 SDK 的 Android SDK-1.0.0下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/9f5229f0bb019f5fe5b9f6b7bc6134af/faceid-1.0.0.zip)。
-更多示例可以参考Demo：[Android SDK Demo](https://mc.qcloudimg.com/static/archive/6e5c11cd423409f50804410e47b04e9a/FaceIdDemo+.zip)。
+人脸核身 SDK 的 Android SDK-1.0.0下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/96cb171e0810b55e85689d0c6f17af34/QCloudFaceIdSample_beta.zip)。
+
 
 ### 开发准备
-1. 开发者使用人脸识别功能前，需要先在腾讯云-万象优图控制台注册账号，并获得 APPID、SecretId 和 SecretKey 等；
-2. 手机必须要有网络（GPRS、3G 或 Wifi 等）；
-3. 支持Android 4.0及其以上版本。
+ 1. 前往注册： [腾讯云账号注册](https://cloud.tencent.com/register) （详细指引见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)）
+ 2. 取得存储桶名称 `BucketName`： 请前往 [创建存储桶](https://cloud.tencent.com/document/product/460/10637) 
+ 3. 取得 `APPID`、`SecretId`、`SecretKey`：请前往 [云API密钥](https://console.cloud.tencent.com/cam/capi) ，点击“新建密钥”
 
-### SDK 配置
-1.导入下列 jar 包：
-- faceid-1.0.0.jar
-- okhttp-3.2.0.jar
-- okio-1.6.0.jar
-- slf4j-android-1.6.1-RC1.jar
+# 快速体验 Demo
+1. 修改：找到 app/src/main/java/com/tencent/faceiddemo/MainActivity.java 文件，定位到 initUserInfo() 方法，填入上面申请到的  `APPID`、`BucketName`、`SecretId`、`SecretKey`
 
-2.在AndroidManifest.xml中增加如下权限：
+2. 运行：工程使用 Gradle 构建，导入 Android Studio 中即可运行
+>命令行方式编译安装：工程根目录下执行 `./gradlew installDebug` (macOS) 或 `.\gradlew.bat installDebug` (Windows)
+
+# 集成 SDK 到你的工程中
+
+1.复制 libs 目录下的所有 jar 文件到你工程的 libs 下
 ```
+faceid-1.1.jar
+lib-camera.jar
+okhttp-3.2.0.jar
+okio-1.6.0.jar
+slf4j-android-1.6.1-RC1.jar
+```
+2.AndroidManifest.xml 增加以下权限
+``` 
+<!--网络-->
 <uses-permission android:name="android.permission.INTERNET"/>
+<!--选择照片或者视频需要-->
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+<!--录制视频需要-->
+<uses-permission android:name="android.permission.RECORD_VIDEO" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-feature android:name="android.hardware.camera" />
+``` 
+>如果你的工程的 targetSdkVersion >= 23 (Android 6.0) ，那么还需要处理动态权限申请相关事宜，可参考 MainActivity.java 和 RecorderActivity.java
+
+# 快速入门
+## 初始化核身引擎 FaceIdClient
 ```
-<span id="1"></span>
-## 快速入门
-### 初始化 FaceIdClient
+String appid = "your appid"; // 你申请到的 APPID
+FaceIdClient mFaceIdClient = new FaceIdClient(context, appid);
 ```
-Context context = getApplicationContext();
-String appid = "your appid";
 
-final FaceIdClient faceIdClient = new FaceIdClient(context, appid);
+## 照片核身（通过照片和身份证信息）
 ```
-### 人脸对比
-**通过上传本地图像进行对比**：
-```
-String bucket = "your bucket"; // bucket名称
-String idCardNumber = "your id card number"; // 身份证号码
-String idCardName = "your idCard name"; // 身份证姓名
-File image = new File("your image path"); // 本地图片文件
-String seq = "seq";
+/**
+ * 照片核身（通过照片和身份证信息）
+ * <ol>
+ *     <li>校验身份证姓名和号码是否正确</li>
+ *     <li>人脸照片与公安照片相似度检测</li>
+ * </ol>
+ * @param name 姓名
+ * @param number 身份证号码
+ * @param url 人脸照片链接，如果为 null 则使用本地图片文件 imagePath
+ * @param imagePath 人脸照片文件路径，如果为 null 则使用链接 url
+ * @param seq 请求标识，用于日志查询
+ * @param bucketName bucket 名称
+ * @param sign 鉴权签名, 测试时可以调用 {@link CredentialProvider#getMultipleSign(java.lang.String, long)} 来生成
+ */
+private void sendRequest(String name, String number, String url, String imagePath, String seq, String bucketName, final String sign) {
 
-String sign = "多次有效签名"; // 测试时可以利用CredentialProvider类来生成签名
+    final ImageIdCardCompareRequest request;
 
-// 初始化人脸对比请求
-final ImageIdCardCompareRequest imageIdCardCompareRequest = new ImageIdCardCompareRequest(bucket, idCardNumber, idCardName, image, seq);
-
-// 设置签名
-imageIdCardCompareRequest.setSign(sign);
-
-// 发送请求（注意：所有发送请求的方法均是同步的，因此请不要直接在主线程中调用）
-new Thread(new Runnable() {
-    @Override
-    public void run() {
-        try {
-            ImageIdCardCompareResult imageIdCardCompareResult = faceIdClient.imageIdCardCompare(imageIdCardCompareRequest);
-        } catch (ClientException e) {
-            e.printStackTrace();
-        } catch (ServerException e) {
-            e.printStackTrace();
-        }
+    if (!TextUtils.isEmpty(url)) {
+        request = ImageIdCardCompareRequest.getInstanceByUrl(bucketName, number, name, url, seq);
+    } else if (!TextUtils.isEmpty(imagePath)) {
+        request = ImageIdCardCompareRequest.getInstanceByPath(bucketName, number, name, imagePath, seq);
+    } else {
+        Toast.makeText(getApplicationContext(), "请先填写图片URL或者选择图片", Toast.LENGTH_SHORT).show();
+        return;
     }
-}).start();
-```
-**通过上传图像 url 进行对比**：
 
-```
-String bucket = "your bucket"; // bucket名称
-String idCardNumber = "your id card number"; // 身份证号码
-String idCardName = "your idCard name"; // 本地图片文件
-String url = "your image url"; // 图片的url路径
-String seq = "seq";
-
-String sign = "多次有效签名"; // 测试时可以利用CredentialProvider类来生成签名
-
-// 初始化请求
-final ImageIdCardCompareRequest imageIdCardCompareRequest = new ImageIdCardCompareRequest(bucket, idCardNumber, idCardName, url, seq);
-// 设置签名
-imageIdCardCompareRequest.setSign(sign);
-
-// 发送请求（注意：所有发送请求的方法均是同步的，因此请不要直接在主线程中调用）
-new Thread(new Runnable() {
-    @Override
-    public void run() {
-        try {
-            ImageIdCardCompareResult imageIdCardCompareResult = faceIdClient.imageIdCardCompare(imageIdCardCompareRequest);
-        } catch (ClientException e) {
-            e.printStackTrace();
-        } catch (ServerException e) {
-            e.printStackTrace();
+    request.setSign(sign);
+    mCurrentRequestId = request.getRequestId();
+    
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                ImageIdCardCompareResult result = mFaceIdClient.imageIdCardCompare(request);
+                if (result != null) {
+                    print(result.toString());
+                } else {
+                    print("result == null");
+                }
+            } catch (ClientException e) {
+                e.printStackTrace();
+                print(e.toString());
+            } catch (ServerException e) {
+                e.printStackTrace();
+                print(e.toString());
+            }
         }
-    }
-}).start();
+    }).start();
+}
 ```
-<span id="2"></span>
-### 获取唇语
+返回结果 ImageIdCardCompareResult ：
+
+| 参数名称       | 类型     | 参数描述       |
+| ---------- | ------ | ---------- |
+| code       | int    | 状态码        |
+| message    | String | 结果信息       |
+| similarity | float  | 图像和身份证的相似度 |
+| seq        | String | 用于日志查询     |
+
+## 获取唇语验证码，用于活体核身
 ```
-String bucket = "your bucket"; // bucket名称
-String seq = "seq";
+/**
+ * 获取唇语验证码，用于活体核身
+ * @param bucketName bucket 名称
+ * @param sign 鉴权签名, 测试时可以调用 {@link CredentialProvider#getMultipleSign(String, long)} 来生成
+ * @param seq 请求标识，用于日志查询
+ */
+private void sendRequest(final String bucketName, final String sign, final String seq) {
+    
+    final GetLipLanguageRequest request = new GetLipLanguageRequest(bucketName, seq);
+    request.setSign(sign);
+    mCurrentRequestId = request.getRequestId();
 
-String sign = "多次有效签名";
-
-// 初始化请求
-final GetLipLanguageRequest getLipLanguageRequest = new GetLipLanguageRequest(bucket, seq);
-// 设置签名
-getLipLanguageRequest.setSign(sign);
-
-// 发送请求（注意：所有发送请求的方法均是同步的，因此请不要直接在主线程中调用）
-new Thread(new Runnable() {
-    @Override
-    public void run() {
-        try {
-            GetLipLanguageResult getLipLanguageResult = faceIdClient.getLipLanguage(getLipLanguageRequest);
-        } catch (ClientException e) {
-            e.printStackTrace();
-        } catch (ServerException e) {
-            e.printStackTrace();
+    new Thread() {
+        @Override
+        public void run() {
+            try {
+                GetLipLanguageResult result = mFaceIdClient.getLipLanguage(request);
+                if (result != null) {
+                    print(result.toString());
+                } else {
+                    print("result == null");
+                }
+            } catch (ClientException e) {
+                e.printStackTrace();
+                print(e.toString());
+            } catch (ServerException e) {
+                e.printStackTrace();
+                print(e.toString());
+            }
         }
+    }.start();
+}
+```
+返回结果 GetLipLanguageResult ：
+
+| 参数名称         | 类型     | 参数描述 |
+| ------------ | ------ | ---- |
+| code         | int    | 状态码  |
+| message      | String | 结果信息 |
+| validateData | String | 唇语   |
+
+
+## 活体核身（通过视频和照片）
+```
+/**
+ * 活体核身（通过视频和照片）
+ * <ol>
+ *     <li>视频活体检测</li>
+ *     <li>视频与照片相似度检测</li>
+ * </ol>
+ * @param lip 唇语验证码
+ * @param videoPath 视频文件路径
+ * @param imagePath 人脸图片文件路径
+ * @param seq 请求标识，用于日志查询
+ * @param sign 鉴权签名, 测试时可以调用 {@link CredentialProvider#getMultipleSign(String, long)} 来生成
+ * @param bucketName bucket 名称
+ */
+private void sendRequest(String lip, String videoPath, String imagePath, String seq, String sign, String bucketName) {
+    final VideoImageIdentityRequest request;
+    if (TextUtils.isEmpty(imagePath)) {
+        request = new VideoImageIdentityRequest(bucketName, lip, videoPath, seq);
+    } else {
+        request = new VideoImageIdentityRequest(bucketName, lip, videoPath, imagePath, true, seq);
     }
-}).start();
-```
-<span id="3"></span>
-### 人脸核身
-**根据用户上传的照片和视频，进行人脸核身验证**：
-```
-String bucket = "your bucket"; // bucket名称
-String validateData = "your validate data"; // 唇语
-String videoPath = "your local video path"; // 本地视频路径
-String imagePath = "your local image path"; // 本地图片路径
-boolean compare = true; // 上传的图片和视频是否进行对比
-String seq = "seq";
-
-String sign = "sign"; // 测试时可以利用CredentialProvider类来生成签名
-
-// 初始化请求
-final VideoImageIdentityRequest videoImageIdentityRequest = new 
-VideoImageIdentityRequest(bucket, validateData, videoPath, imagePath, compare, seq);
-// 设置签名
-videoImageIdentityRequest.setSign(sign);
-
-// 发送请求（注意：所有发送请求的方法均是同步的，因此请不要直接在主线程中调用）
-new Thread(new Runnable() {
-	@Override
-    public void run() {
-        try {
-        	VideoImageIdentityResult videoImageIdentityResult = faceIdClient.videoImageIdentity(videoImageIdentityRequest);
-        } catch (ClientException e) {
-        	e.printStackTrace();            
-        } catch (ServerException e) {
-            e.printStackTrace();
+    request.setSign(sign);
+    currentRequestId = request.getRequestId();
+    
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                 VideoImageIdentityResult result = mFaceIdClient.videoImageIdentity(request);
+                if (result != null) {
+                    print(result.toString());
+                } else {
+                    print("result == null");
+                }
+            } catch (ClientException e) {
+                e.printStackTrace();
+                print(e.toString());
+            } catch (ServerException e) {
+                e.printStackTrace();
+                print(e.toString());
+            }
         }
-    }
-}).start();
+    }).start();
+}
 ```
-**根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比**：
+返回结果 VideoImageIdentityResult ： 
+
+| 参数名称           | 类型     | 参数描述          |
+| -------------- | ------ | ------------- |
+| code           | int    | 状态码           |
+| message        | String | 结果信息          |
+| liveStatus     | int    | 活体检测错误码       |
+| liveMessage    | String | 活体检测错误描述      |
+| compareStatus  | int    | 人脸对比检测错误码     |
+| compareMessage | String | 人脸对比检测错误描述    |
+| similarity     | int    | 人脸对比检测的相似度    |
+| photo          | String | 人脸检测中相似度最高的图像 |
+
+
+## 活体核身（通过视频和身份证信息）
 ```
-String bucket = "your bucket"; // bucket名称
-String validateData = "your validate data"; // 唇语
-String videoPath = "your local video path"; // 本地视频路径
-String idcardNumber = "your id card number"; // 身份证号码
-String idcardName = "your id card name";  // 身份证姓名
-String seq = "seq";
+/**
+ * 活体核身（通过视频和身份证信息）
+ * <ol>
+ *     <li>校验身份证姓名和号码是否正确</li>
+ *     <li>视频活体检测</li>
+ *     <li>视频与公安照片相似度检测</li>
+ * </ol>
+ * @param name 姓名
+ * @param number 身份证号码
+ * @param lip 唇语验证码
+ * @param videoPath 视频文件路径
+ * @param seq 请求标识，用于日志查询
+ * @param sign 鉴权签名
+ */
+private void sendRequest(String name, String number, String lip, String videoPath, String seq, String bucketName, String sign) {
+    
+    final VideoIdCardIdentityRequest request = new VideoIdCardIdentityRequest(bucketName, lip, videoPath, number, name, seq);
+    request.setSign(sign);
+    currentRequestId = request.getRequestId();
 
-String sign = "sign"; // 测试时可以利用CredentialProvider类来生成签名
-
-// 初始化请求
-final VideoIdCardIdentityRequest videoIdCardIdentityRequest = new VideoIdCardIdentityRequest(bucket, validateData, videoPath, idcardNumber, idcardName, seq);
-// 设置签名
-videoIdCardIdentityRequest.setSign(sign);
-
-// 发送请求（注意：所有发送请求的方法均是同步的，因此请不要直接在主线程中调用）
-new Thread(new Runnable() {
-	@Override
-    public void run() {
-        try {
-        	VideoIdCardIdentityResult videoIdCardIdentityResult = faceIdClient.videoIdCardIdentity(videoIdCardIdentityRequest);
-        } catch (ClientException e) {
-        	e.printStackTrace();            
-        } catch (ServerException e) {
-            e.printStackTrace();
+    new Thread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                VideoIdCardIdentityResult result = mFaceIdClient.videoIdCardIdentity(request);
+                if (result != null) {
+                    print(result.toString());
+                } else {
+                    print("result == null");
+                }
+            } catch (ClientException e) {
+                e.printStackTrace();
+                print(e.toString());
+            } catch (ServerException e) {
+                e.printStackTrace();
+                print(e.toString());
+            }
         }
-    }
-}).start();
+    }).start();
+}
 ```
+返回结果 VideoIdCardIdentityResult ：
+
+| 参数名称           | 类型     | 参数描述          |
+| -------------- | ------ | ------------- |
+| code           | int    | 状态码           |
+| message        | String | 结果信息          |
+| liveStatus     | int    | 活体检测错误码       |
+| liveMessage    | String | 活体检测错误描述      |
+| compareStatus  | int    | 人脸对比检测错误码     |
+| compareMessage | String | 人脸对比检测错误描述    |
+| similarity     | int    | 人脸对比检测的相似度    |
+| photo          | String | 人脸检测中相似度最高的图像 |
+
 ## SDK 详细说明
 ### 用户配置
 用户调用 ClientConfiguration 类的静态方法来修改全局配置。
+
 
 | 方法                         | 方法描述       | 默认值        |
 | -------------------------- | ---------- | ---------- |
@@ -216,159 +302,8 @@ CredentialProvider credentialProvider = new CredentialProvider(appid, secretId, 
 String sign = credentialProvider.getMultipleSign(bucket, duration); // 生成签名
 ```
 
-### 实例化 FaceIdClient
-调用构造函数`FaceIdClient(Context context, String appid)`来初始化 FaceIdClient 对象，该对象可以用于发送和取消请求。
-
-| 参数名称    | 类型      | 是否必填 | 参数描述        |
-| ------- | ------- | ---- | ----------- |
-| context | Context | 是    | 上下文         |
-| appid   | String  | 是    | 腾讯云注册的 APPID |
-初始化示例：
-```
-FaceIdClient faceIdClient = new FaceIdClient(context, appid);
-```
-取消单个任务：
+### 取消单个任务：
 ```
 int requestId = request.getRequestId(); // 获取请求任务的ID号
 boolean success = faceIdClient.cancel(requestId); // 通过请求ID号取消任务
 ```
-如果 FaceIdClient 不再需要使用，请调用 release() 方法释放资源：
-```
-faceIdClient.release();
-```
-><font color="#0000cc">**注意：** </font>
-发送任务示例请参见 [快速入门](#1)。
-
-### 人脸对比
-自带人脸识别数据库，可实时为国内公民提供真实身份信息核验。根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比。
-#### 通过上传本地图像进行对比
-人脸对比请求初始化函数：
-```
-public ImageIdCardCompareRequest(String bucket, String idCardNumber, String idCardName, File image, String seq);
-```
-参数说明：
-
-| 参数名称         | 类型     | 是否必填 | 参数描述          |
-| ------------ | ------ | ---- | ------------- |
-| bucket       | String | 是    | 用户创建的存储桶名称 |
-| idCardNumber | String | 是    | 身份证号码         |
-| idCardName   | String | 是    | 身份证名称         |
-| image        | File   | 是    | 本地图片          |
-| seq          | String | 否    | 用于日志查询        |
-
-#### 通过上传图像 url 进行对比
-人脸对比请求初始化函数：
-```
-public static ImageIdCardCompareRequest getInstanceByUrl(String bucket, String idCardNumber, String idCardName, String url, String seq);
-```
-参数说明：
-
-| 参数名称         | 类型     | 是否必填 | 参数描述          |
-| ------------ | ------ | ---- | ------------- |
-| bucket       | String | 是    | 用户创建的存储桶名称 |
-| idCardNumber | String | 是    | 身份证号码         |
-| idCardName   | String | 是    | 身份证名称         |
-| url          | String | 是    | 图片的 url 路径      |
-| seq          | String | 否    | 用于日志查询        |
-
-返回结果 ImageIdCardCompareResult ：
-
-| 参数名称       | 类型     | 参数描述       |
-| ---------- | ------ | ---------- |
-| code       | int    | 状态码        |
-| message    | String | 结果信息       |
-| similarity | float  | 图像和身份证的相似度 |
-| seq        | String | 用于日志查询     |
-><font color="#0000cc">**注意：** </font>
-人脸对比示例代码请参见 [快速入门](#1)。
-
-### 获取唇语
-获取一个唇语验证字符串，用于用户录制视频时使用。获取唇语构造函数：
-```
-public GetLipLanguageRequest(String bucket, String seq);
-```
-参数说明：
-
-| 参数名称   | 类型     | 是否必填 | 参数描述          |
-| ------ | ------ | ---- | ------------- |
-| bucket | String | 是    | 用户创建的存储桶名称 |
-| seq    | String | 否    | 用于日志查询        |
-
-返回结果 GetLipLanguageResult ：
-
-| 参数名称         | 类型     | 参数描述 |
-| ------------ | ------ | ---- |
-| code         | int    | 状态码  |
-| message      | String | 结果信息 |
-| validateData | String | 唇语   |
-><font color="#0000cc">**注意：** </font>
-获取唇语示例代码请参见 [快速入门](#2)。
-
-### 人脸核身---活体检测视频与用户照片的比对
-根据用户提前上传的照片与在线录制的活体视频，通过人脸识别进行匹配验证。人脸核身构造函数：
-```
-public VideoImageIdentityRequest(String bucket, String validateData, String videoPath, String imagePath, boolean compare, String seq);
-```
-参数说明：
-
-| 参数名称         | 类型      | 是否必填 | 参数描述                  |
-| ------------ | ------- | ---- | --------------------- |
-| bucket       | String  | 是    | 用户创建的存储桶名称         |
-| validateData | String  | 是    | 唇语字符串                 |
-| videoPath    | String  | 是    | 本地视频路径                |
-| imagePath    | String  | 否    | 本地图片路径                |
-| compare      | boolean | 否    |  video 中的照片和 image 是否做对比， |
-| seq          | String  | 否    | 用于日志查询                |
-
-返回结果 VideoImageIdentityResult ：
-
-| 参数名称           | 类型     | 参数描述          |
-| -------------- | ------ | ------------- |
-| code           | int    | 状态码           |
-| message        | String | 结果信息          |
-| liveStatus     | int    | 活体检测错误码       |
-| liveMessage    | String | 活体检测错误描述      |
-| compareStatus  | int    | 人脸对比检测错误码     |
-| compareMessage | String | 人脸对比检测错误描述    |
-| similarity     | int    | 人脸对比检测的相似度    |
-| photo          | String | 人脸检测中相似度最高的图像 |
-
-><font color="#0000cc">**注意：** </font>
-人脸核身示例代码请参见 [快速入门](#3)。
-
-### 人脸核身---活体检测视频身份信息核验
-
-自带人脸识别数据库，根据用户的身份证号、姓名，与用户上传的图像进行人脸相似度对比，可实时为国内公民提供真实身份信息核验。
-
-人脸核身构造函数：
-
-```
-VideoIdCardIdentityRequest(String bucket, String validateData, String videoPath, String idCardNumber, String idCardName, String seq);
-```
-**参数说明**
-
-| 参数名称         | 类型     | 是否必填 | 参数描述          |
-| ------------ | ------ | ---- | ------------- |
-| bucket       | String | 是    | 用户创建的存储桶名称 |
-| validateData | String | 是    | 唇语字符串         |
-| videoPath    | String | 是    | 本地视频路径        |
-| idCardNumber | String | 是    | 身份证号码         |
-| idCardName   | String | 是    | 身份证姓名         |
-| seq          | String | 否    | 用于日志查询        |
-
-返回结果 VideoIdCardIdentityResult ：
-
-| 参数名称           | 类型     | 参数描述          |
-| -------------- | ------ | ------------- |
-| code           | int    | 状态码           |
-| message        | String | 结果信息          |
-| liveStatus     | int    | 活体检测错误码       |
-| liveMessage    | String | 活体检测错误描述      |
-| compareStatus  | int    | 人脸对比检测错误码     |
-| compareMessage | String | 人脸对比检测错误描述    |
-| similarity     | int    | 人脸对比检测的相似度    |
-| photo          | String | 人脸检测中相似度最高的图像 |
-
-><font color="#0000cc">**注意：** </font>
-人脸核身示例代码请参见 [快速入门](#3)。
-

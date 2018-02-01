@@ -1,4 +1,4 @@
-对于在 Android 平台上传视频的场景，腾讯云点播提供了 Android 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
+对于在 Android 平台上传视频的场景，腾讯云点播提供了 Android 上传 DEMO 来实现。上传的流程可以参见 [客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
 
@@ -7,23 +7,21 @@
 
 ##  集成上传库和源代码
 
-1. 拷贝上传源代码目录 Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 到您的工程目录中，需要手动修改一下 package 名。
+1.拷贝上传源代码目录 Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 到您的工程目录中，需要手动修改一下 package 名。
+2.将 Demo/app/libs/upload 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
 
-2. 将 Demo/app/libs/upload 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
+依赖库说明：
 
-    依赖库说明：
+| jar 文件                       | 说明                                       |
+| --------------------------- | ---------------------------------------- |
+| cos-xml-android-sdk-1.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
+| qcloud-core-1.2.jar         | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
+| okhttp-3.8.1.jar            | 开源 http 组件                          |
+| okio-1.13.0.jar             | 开源网络 I/O 组件                         |
+| xstream-1.4.7.jar           | 开源序列化组件                             |
+| fastjson-1.1.62.android.jar | 开源 json 组件                            |
 
-    | jar 文件                       | 说明                                       |
-    | --------------------------- | ---------------------------------------- |
-    | cos-xml-android-sdk-1.2.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-    | qcloud-core-1.2.jar         | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-    | okhttp-3.8.1.jar            | 开源 http 组件                          |
-    | okio-1.13.0.jar             | 开源网络 I/O 组件                         |
-    | xstream-1.4.7.jar           | 开源序列化组件                             |
-    | fastjson-1.1.62.android.jar | 开源 json 组件                            |
-
-
-3. 使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
+3.使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -34,7 +32,6 @@
 ```
 
 ##  简单视频上传
-
 ### 初始化一个上传对象
 
 ```java
@@ -61,10 +58,11 @@ mVideoPublish.setListener(new TXUGCPublishTypeDef.ITXVideoPublishListener() {
 
 ```java
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
-// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
+
 param.signature = "xxx";
 param.videoPath = "xxx";
 ```
+>signature 计算规则可参考 [客户端上传签名](/document/product/266/9221)。
 
 ### 调用上传
 
@@ -73,18 +71,18 @@ int publishCode = mVideoPublish.publishVideo(param);
 ```
 
 ## 高级功能
-
 ### 携带封面
 
 在上传参数中带上封面路径即可。
 
 ```java
 TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
-// signature 计算规则可参考[客户端上传签名](/document/product/266/9221)
+
 param.signature = "xxx";
 param.videoPath = "xxx";
 param.coverPath = "xxx";
 ```
+>signature 计算规则可参考 [客户端上传签名](/document/product/266/9221)。
 
 ### 取消、恢复上传
 
@@ -164,7 +162,7 @@ SDK 通过 `TXUGCPublishTypeDef.TXVideoPublishListener` 接口来监听视频上
 | 状态码  | 在 TVCConstants 中所对应的常量         | 含义                     |
 | :--: | :----------------------------- | :--------------------- |
 |  0   | NO_ERROR                       | 上传成功                   |
-| 1001 | ERR_UGC_REQUEST_FAILED         | 请求上传失败，通常是客户端签名过期或者非法，需要 app 重新申请签名                 |
+| 1001 | ERR_UGC_REQUEST_FAILED         | 请求上传失败，通常是客户端签名过期或者非法，需要 App 重新申请签名                 |
 | 1002 | ERR_UGC_PARSE_FAILED           | 请求信息解析失败               |
 | 1003 | ERR_UPLOAD_VIDEO_FAILED        | 上传视频失败                 |
 | 1004 | ERR_UPLOAD_COVER_FAILED        | 上传封面失败                 |

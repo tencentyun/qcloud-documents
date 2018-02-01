@@ -2,7 +2,7 @@
 
 The Layer-7 business process and Layer-4 business process of the public network application-based CLB are displayed as follows:
 
-![](//mc.qcloudimg.com/static/img/f0fa90984d263a9f7e26d4f6ee3b6c5f/image.png)
+![](https://mc.qcloudimg.com/static/img/de6af7fca35640ed6d0937f05f5039d2/image.png)
 
 - In the Layer-7 forwarding http/https of the public network application CLB, you can add a domain name for the new forwarding rule in the listener of a LB instance.
 - When only one forwarding rule is created, you can access the service by accessing VIP + URL, for it can correspond to the appropriate forwarding rule.

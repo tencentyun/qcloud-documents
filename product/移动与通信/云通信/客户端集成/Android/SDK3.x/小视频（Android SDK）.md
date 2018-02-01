@@ -1,4 +1,6 @@
 ## 1. 集成小视频功能扩展包
+
+
 从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载ImSDK开发包，小视频功能扩展包。
 
 ImSDK包的功能见[概述](https://cloud.tencent.com/document/product/269/9227)， 小视频功能扩展包各个文件功能如下：
@@ -49,6 +51,12 @@ buildTypes {
 	}
 }
 ```
+
+说明：要使用小视频存储功能需要在控制台开通点播服务，开通方法如下：
+
+![](https://mc.qcloudimg.com/static/img/7830ff8639567e4a9d60923349bf5a58/image.png)
+
+
 
 ## 2. 录制小视频
 ### 2.1. 画面预览
