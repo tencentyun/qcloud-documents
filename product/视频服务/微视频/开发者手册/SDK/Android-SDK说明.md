@@ -560,7 +560,7 @@ Downloader.uploadLog(APPID, beginDate, endDate);
 
 ## 5 文件SDK
 ### 5.1 初始化
-见[3.1初始化](http://cloud.tencent.com/doc/product/314/Android-SDK%E8%AF%B4%E6%98%8E#3.1-.E5.88.9D.E5.A7.8B.E5.8C.96)章节
+见[3.1初始化](https://cloud.tencent.com/doc/product/314/Android-SDK%E8%AF%B4%E6%98%8E#3.1-.E5.88.9D.E5.A7.8B.E5.8C.96)章节
 -   示例
 
 ```

@@ -8,7 +8,7 @@ OTA 升级模块用于实现设备主动或者通过小微 App 控制设备进�
 
 ### 设备端主动查询
 
-[![设备端主动查询](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_1.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_1.png)</div>
+[![设备端主动查询](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_1.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_1.png)
 
 1.  开发者在硬件开放平台上传升级包并配置升级信息；
 
@@ -46,7 +46,7 @@ OTA 升级模块用于实现设备主动或者通过小微 App 控制设备进�
 
 下图分别为小微 App 中的升级提示界面和升级操作界面：
 
-[![用户操作体验](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_4.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_4.png)</div>
+[![用户操作体验](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_4.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ota_4.png)
 
 ## 如何对接
 

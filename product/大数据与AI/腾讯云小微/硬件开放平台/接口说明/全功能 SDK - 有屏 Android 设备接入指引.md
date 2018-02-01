@@ -11,7 +11,7 @@
 
 为了简化设备对接难度，提升方案的集成度、安全性和灵活性，我们使用设备 SDK 植入的方式进行对接。 同时，大部分整合在云端，设备端 SDK 通过简单有效的接口，提供外部服务：
 
-[![img_main](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Xiaowei_Device_AIAudio_Request.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Xiaowei_Device_AIAudio_Request.png)</div>
+[![img_main](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Xiaowei_Device_AIAudio_Request.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Xiaowei_Device_AIAudio_Request.png)
 
 设备开启后，将持续录音检测唤醒词，用户通过唤醒词等途径唤醒设备后，将录制的声音传到云端进行语音识别和静音检测，检测到静音后，进行语义分析，最后从 Skill 后台得到结果并返回给客户端进行播放。
 
@@ -49,7 +49,7 @@
 
 ### 硬件开放平台框架
 
-[![硬件开放平台框架](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 硬件开放平台框架. png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 硬件开放平台框架. png)
+[![硬件开放平台框架](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/硬件开放平台框架.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/硬件开放平台框架.png)
 
 ### 硬件设备能力概述（有屏 & 无屏设备）
 目前接入硬件开放平台的设备分为有屏和无屏两大类设备，有屏设备相较于无屏设备多了在显示屏上可触摸交互的一部分操作，这部分内容可以详见有屏设备交互规范，在这里不多作赘述。
@@ -58,13 +58,13 @@
 
 硬件厂商完成 sdk 接入之后，传统硬件便获得了语音交互的能力，整个产品的使用流程包含以下 5 个步骤，先来看一张概览图：
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 能力. png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 能力. png)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/能力.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/能力.png)
 
 1：用户可通过语音唤醒音箱（或其他硬件设备，此处以音箱为例），并说出具体的指令；
 
 在这里指令的内容指的是腾讯云小微 skill 的能力（具体 skill 的能力和配置可见 skill 部分 wiki，在这里不多作赘述），包含内置 skill 和第三方 skill 两大块，提供丰富的资源和服务能力，下图是重点能力的概览。
 
-[![腾讯云小微 skill 能力](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 腾讯云小微 skill 能力. png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 腾讯云小微 skill 能力. png)
+[![腾讯云小微 skill 能力](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/腾讯云小微skill能力.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/腾讯云小微 skill 能力.png)
 
 2：音箱将语音内容传送到云端；
 
@@ -82,7 +82,7 @@
 
 开发者申请接入腾讯云小微硬件开放平台需要在 [官网](https://xiaowei.qcloud.com/hardware.html) 递交申请资料，进入腾讯云小微官网 -- 硬件开放开放 -- 点击【申请内测】：
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 申请内测. jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 申请内测. jpg)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/申请内测.jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/申请内测.jpg)
 
 点击申请之后需要完善开发者的相关信息:
 
@@ -92,15 +92,15 @@
 
 3. 技术参数：请根据需求选择符合自己硬件设备的技术参数，如有疑问可参见技术 wiki。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 资料填写. jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 资料填写. jpg)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/资料填写.jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/资料填写.jpg)
 
 以上信息确认填写无误之后，选择提交，会获得您的申请接入单号，腾讯云小微团队会尽快通过邮件反馈审核结果给开发者注册的邮箱地址，开发者也可以在申请页面查看审核进度及反馈。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 申请记录. png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 申请记录. png)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/申请记录.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/申请记录.png)
 
 当申请通过之后，再次进入官网硬件开放平台，会看到【申请内测】的 button 变成了【开始接入】，此时点击【开始接入】即可进入配置平台进行具体的硬件开发配置。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 开始接入. jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 开始接入. jpg)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/开始接入.jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/开始接入.jpg)
 
 ## 配置平台使用说明
 
@@ -112,19 +112,19 @@
 
 设备类型：必须填写准确，后期无法进行修改，这里我们选择设备类型为音箱。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - 添加设备. png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - 添加设备. png)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-添加设备.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-添加设备.png)
 
 完成后，我们已经获得了该产品获得重要信息：pid 和 server key，这两个信息非常重要，会在 SDK 登录的时候中用到。
 
 在设备导航栏中，选择进入相应的设备，即可在头部看到这两个信息，请看下图：
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - pid.jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - pid.jpg)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-pid.jpg)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-pid.jpg)
 
 ### 填写设备信息
 
 当您完成一个新设备的创建之后，需要继续补充完善设备的信息，这里包含【基础信息】和【设备信息】两部分。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - 基本信息. png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - 基本信息. png)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-基本信息.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - 基本信息. png)
 
 进入到刚刚创建的设备 - 设备信息 tab，补充完整设备的【基本信息】：
 
@@ -142,13 +142,13 @@
 
 公钥上传 稍微复杂一点，因为您需要下载一个我们的工具来完成这个步骤，点击 网页上的 “公钥 & 证书工具下载（Win 7 Only）” 链接，然后运行密钥生成工具，点击下图中的生成 KEY 按钮，会在您指定的目录下生成一对非对称密钥文件： ec_key.pem 和 public.pem。之后点击上传按钮上传 public.pem 就可以了。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - 公钥. png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - 公钥. png)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-公钥.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-公钥.png)
 
 ### 为设备配置 skill
 
 每一个接入腾讯云小微的硬件都有使用我们强大资源和服务的权限，此处需要使用同一个账号在我们腾讯云小微 skill 平台进行创建，创建完成之后就会显示在这里，开发者可以自行选择该硬件需要使用的 skill。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - skill.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - skill.png)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-skill.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-skill.png)
 
 ### OTA 能力管理
 
@@ -156,7 +156,7 @@ OTA 能力配置中分为【正式环境】和【测试环境】两个部分，�
 
 在测试环境中允许向指定的设备推送升级，需要上传对应的 sn 包，限制为 100 个。
 
-[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - OTA.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img / 配置平台 - OTA.png)
+[![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-OTA.png)](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/配置平台-OTA.png)
 
 ### 样机审核
 
