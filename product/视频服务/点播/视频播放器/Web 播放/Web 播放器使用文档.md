@@ -32,7 +32,7 @@
 
 ### step 2：上传文件
 
-点播服务开通之后，进入 [点播视频管理](https://console.qcloud.com/video/videolist) 就可以上传新的视频文件，如果您没有开通点播服务，这个页面是进不去的。
+点播服务开通之后，进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) 就可以上传新的视频文件，如果您没有开通点播服务，这个页面是进不去的。
 
 ### step 3：获取 fileID 与 appID
 
