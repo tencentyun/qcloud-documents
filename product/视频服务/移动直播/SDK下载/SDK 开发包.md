@@ -143,19 +143,19 @@ table td {
   </tr>
 	<tr>
     <td>SDK 下载</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Smart_iOS_4.2.3423.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Player_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_UGC_Rename_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Professional_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/TXLiteAVSDK_Smart_iOS_4.2.3423.zip?_ga=1.230547544.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/TXLiteAVSDK_Player_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/TXLiteAVSDK_UGC_Rename_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
+		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/TXLiteAVSDK_Professional_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">DOWNLOAD</a></td>
 		<td>见如下说明</td>
   </tr>
 </table>
 
 - **商用版本**
-  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Enterprise_Rename_iOS_4.2.3423.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
+  商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_enterprise_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/TXLiteAVSDK_Enterprise_Rename_iOS_4.2.3423.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9018) 。
 	
 - **命名冲突**
-  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/TXLiteAVSDK_Professional_Rename_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">重命名版下载</a> 。	
+  部分版本中包含有 ffmpeg 和 ijkplayer，如果您的项目中已经包含相关开源库，推荐使用 **精简版** 或 **符号重命名版**， 符号重命名版下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_ios_profession_rename") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/TXLiteAVSDK_Professional_Rename_iOS_4.2.3423.zip?_ga=1.172502247.572863791.1503542401">重命名版下载</a> 。	
 	
 
 <h2 id="Android"> Android SDK (4.2.3425) </h3>
@@ -267,16 +267,16 @@ table td {
   </tr>
 	<tr>
     <td>SDK 下载</td>
-    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Smart_Android_4.2.3425.zip">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Player_Android_4.2.3425.zip">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_UGC_Android_4.2.3425.zip">DOWNLOAD</a></td>
-		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Professional_Android_4.2.3425.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_livelite") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/LiteAVSDK_Smart_Android_4.2.3425.zip">DOWNLOAD</a></td>
+		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_player") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/LiteAVSDK_Player_Android_4.2.3425.zip">DOWNLOAD</a></td>
+		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_shortvideo") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/LiteAVSDK_UGC_Android_4.2.3425.zip">DOWNLOAD</a></td>
+		<td><a onclick=MtaH5.clickStat("wiki_download_sdk_android_profession") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/LiteAVSDK_Professional_Android_4.2.3425.zip">DOWNLOAD</a></td>
 		<td>见如下说明</td>
   </tr>
 </table>
 
 - **商用版本**
-	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.1/LiteAVSDK_Enterprise_Android_4.2.3425.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
+	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/LiteAVSDK_Enterprise_Android_4.2.3425.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 
 <h2 id="Windows"> Windows SDK (1.2.1) </h3>
