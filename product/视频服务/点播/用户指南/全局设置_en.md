@@ -1,5 +1,4 @@
 In the global settings page of Tencent Cloud VOD console, you can configure the transcoding format type of the video file, set the domain name, mange the video categories, and perform the callback configuration etc.
-
 ## Transcoding Setting
 With the transcoding settings, you can configure the default transcoding formats and resolutions for all the videos you have uploaded. You can set the transcoding bitrate for output here. The history files that have been transcoded will not be transcoded again. If needed, you can select individual videos for transcoding in the **Video Management** page. When transcoding is enabled, click the desired bitrate format. It takes about 5 minutes for the change to take effect.
 Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), click "Global Settings" -> "Transcoding Settings" -> "Edit", select the transcoding format type, and click "OK".
