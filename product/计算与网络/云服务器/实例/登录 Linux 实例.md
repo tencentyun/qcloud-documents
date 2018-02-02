@@ -145,6 +145,7 @@ VNC 登录的场景至少包括以下几种:
 3. 在跳转的新标签页中可看到如下图的界面，由于中间的白色窗口是 Webshell 登录所使用的，因此点击白色窗口右上角的叉以切换登录方式（如下图）。
   ![](https://mc.qcloudimg.com/static/img/df37a0bace811b4069fc5a740c6aad24/%5E20B05F1FF80B4920853E20E88CF2ADB2938BB30DD2E384FC5A%5Epimgpsh_mobile_save_distr.jpg)
 4. 然后点击页面右上角的【其他登录方式】。
+
   ![](https://mc.qcloudimg.com/static/img/1113ca3bde85dbc223a99f5a250d3088/%5E6AAAB397B29FEF3319E3BBD6157AB6D86C902D693A752276A2%5Epimgpsh_mobile_save_distr.jpg)
 5. 在接下来的画面中将会弹出新的白色窗口，在窗口下方找到【浏览器 VNC 方式登录】一栏，然后点击其中的【立即登录】。
 
