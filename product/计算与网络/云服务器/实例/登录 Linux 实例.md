@@ -113,8 +113,8 @@ WebShell 登录是腾讯云提供的 Web 浏览器远程连接云服务器的方
 - 安全性高，每次登录需要输入密码或密钥
 
 ### 操作步骤
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。
-2. 在云服务器列表的操作列，点击【登录】按钮即可通过 Webshell 连接至  Linux 云服务器。
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。在顶部菜单中选择【云产品】-【云计算与网络】-【云服务器】。
+2. 在云服务器列表的操作列，点击【登录】按钮。
   ![](https://mccdn.qcloud.com/img56b1a6cb7b3e8.png)
 3. 在跳转的新标签页中可看到如下图的界面，可以选择【密码登录】或者【密钥登录】两种方式进行登录。
 
@@ -139,7 +139,7 @@ VNC 登录的场景至少包括以下几种:
 
 
 ### 操作步骤
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。在顶部菜单中选择【云产品】-【云计算与网络】-【云服务器】。
 
 2. 在云服务器列表的操作列，点击【登录】按钮。
   ![](https://mccdn.qcloud.com/img56b1a6cb7b3e8.png)
