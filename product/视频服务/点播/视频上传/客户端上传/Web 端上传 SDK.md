@@ -102,7 +102,7 @@ qcVideo.ugcUploader.start({
 });
 ```
 
-### 取消上传功能
+### 取消上传
 SDK 支持取消正在上传的视频或封面，可以通过调用 `qcVideo.ugcUploader.cancel` 实现。
 ```js
 
