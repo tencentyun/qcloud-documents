@@ -1,4 +1,6 @@
+
 **请求示例:**
+
 ```
 GET /?lifecycle HTTP/1.1
 Host: lifecycletest-73196696.cos.ap-beijing.myqcloud.com
@@ -7,6 +9,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-
 ```
 
 **响应示例:**
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml

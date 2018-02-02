@@ -1,4 +1,7 @@
+
 **请求示例:**
+
+```
 PUT /test?acl HTTP/1.1
 Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
 Date: Fri, 25 Feb 2017 04:10:22 GMT
@@ -24,10 +27,12 @@ Content-Type: application/x-www-form-urlencoded
       <Permission>READ</Permission>
     </Grant>
   </AccessControlList>
-</AccessControlPolicy>    ``` 
+</AccessControlPolicy>
+```
 
 **响应示例:**:
-'''
+
+```
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
@@ -35,4 +40,4 @@ Connection: keep-alive
 Date: Fri, 25 Feb 2017 04:10:22 GMT\
 Server: tencent-cos
 x-cos-request-id: NTg3ZjFjMmJfOWIxZjRlXzZmNDhfMjIw
-'''    
+```

@@ -18,5 +18,5 @@ For more information, please see [CKafka Monitoring Metrics](https://cloud.tence
 ### Creating Alarm
 You can create an alarm to warn you of the status change of a cloud product and send related messages. The created alarm determines whether an alarm-related notification needs to be triggered according to the comparison results between a monitoring metric and a specific threshold at every interval.
 
-You can take precautionary or remedial measures in a timely manner when an alarm is triggered by status changes. Therefore, properly created alarms can help you improve robustness and reliability of applications. For more information about alarms, please see [Alarm Configuration](https://cloud.tencent.com/document/product/248/1073).
+You can take precautionary or remedial measures in a timely manner when an alarm is triggered by status changes. Therefore, properly created alarms can help you improve robustness and reliability of applications. 
 

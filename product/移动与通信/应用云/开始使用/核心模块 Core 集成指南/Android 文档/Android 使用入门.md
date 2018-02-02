@@ -74,9 +74,40 @@ dependencies {
 TACApplication.configure(context);
 ```
 
-### 使用高级配置
+### 使用配置文件自定义配置
 
-如果您需要自定义配置某些服务，可以使用 TACApplication 的 configureWithOptions(Context, TACApplicationOptions) 方法，下面是自定义配置的示例代码：
+应用云 SDK 统一配置服务，会读取所有位于您位于应用模块的 assets 里面符合正则条件：`tac_services_configurations*.json`，并合并其里面的内容，然后传递给配置服务，进行对应的服务配置。
+
+例如以下文件名都是合法的配置文件：
+
+```
+tac_services_configurations_custom.json
+tac_services_configurations_payment.json
+```
+
+在读取配置文件的时候，我们会按照字典顺序依次读取( a > z )，并对所有的配置进行合并。如果在多个配置文件中存在多个重复的 Key，则会以顺序靠后的配置文件中的内容为准。
+
+例如文件 `tac_services_configurations_payment.json ` 与 `tac_services_configurations_custom.json` 都存在以 `payment` 为 Key 的内容，则会用 `tac_services_configurations_payment.json ` 中的覆盖掉  `tac_services_configurations_custom.json ` 中的。
+
+每个配置文件的格式都必须和 `tac_services_configurations.json` 保持一致，然后覆写您需要修改的参数，例如
+
+```
+{
+  "services": {
+    "crash": {
+      "excludeModuleFilters": [
+      ]
+    }
+  }
+}
+```
+
+因此，如果您有自定义配置参数的需求，可以通过这种多文件配置的方式，而不需要修改代码。
+
+
+### 代码动态修改配置
+
+如果您需要在代码中动态修改一些服务的配置，可以使用 TACApplication 的 configureWithOptions(Context, TACApplicationOptions) 方法，下面是修改 Analytics 配置的示例代码：
 
 ```
 // 获取一个新的默认配置实例
@@ -126,5 +157,5 @@ adb shell setprop log.tag.tac DEBUG
 |  com.tencent.tac:tac-messaging:1.0.0   |  messaging | 推送 |
 |  com.tencent.tac:tac-crash:1.0.0   |  crash     | Crash |
 |  com.tencent.tac:tac-storage:1.0.0   |  storage   | Cloud Storage |
-|  com.tencent.tac:tac-social:1.0.0   |  social | 登录 |
+|  com.tencent.tac:tac-authorization:1.0.0   |  social | 登录 |
 |  com.tencent.tac:tac-payment:1.0.0   |  payment | 支付 |

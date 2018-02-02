@@ -1,4 +1,6 @@
+
 **请求示例:**
+
 ```
 PUT /?cors HTTP/1.1
 Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
@@ -20,6 +22,7 @@ Content-Length: 280
 ```
 
 **响应示例:**
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
