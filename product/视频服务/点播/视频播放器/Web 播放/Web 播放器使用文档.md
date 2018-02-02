@@ -36,7 +36,7 @@
 
 ### step 3：获取 fileID 与 appID
 
-上传完视频之后，您就可以在视频管理页面查到文件的 fileID ，这个是播放器播放视频的最基本信息，同时您的 appID 也可以在视频管理页面查看到。下图中的两个 ID，左边一个是视频文件的 fileID，另一个是您的 appID。
+上传完视频并转码之后，您就可以在视频管理页面查到文件的 fileID ，这个是播放器播放视频的最基本信息，同时您的 appID 也可以在视频管理页面查看到。下图中的两个 ID，左边一个是视频文件的 fileID，另一个是您的 appID。
 ![](//mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
 
 ## 初始化 Web 播放器
@@ -73,6 +73,8 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
     appID: '1253668508' // 请传入点播账号的appID 必须
   });
 ```
+>**注意事项：**
+>* 需要播放的视频需经过腾讯云转码，原始视频无法保证在浏览器中正常播放。
 
 ### 完整的示例页面：
 
@@ -97,6 +99,7 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 [等比率自适应](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size-adaptive.html)
 
 ### 播放多种清晰度
+
 1. 首先需要在控制台设置转码多种清晰度，如下图
 
 ![](https://mc.qcloudimg.com/static/img/b2c4b5d61ae28cb4558e15bcbcb3bd87/image.png)
@@ -106,6 +109,7 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 ![](https://mc.qcloudimg.com/static/img/3a60f37c5c6d429bffb7e96023c948e9/image.png)
 
 经过以上两个步骤，该视频已具备多种清晰度，使用fileID appID 在腾讯云点播播放器中播放即可。
+清晰度选择效果如下图：
 
 ![](https://mc.qcloudimg.com/static/img/d35731fae08327c66602ee3b7be77c2c/image.png)
 
@@ -117,9 +121,9 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 
 ### 指定播放清晰度
 
-这里分为两种情况：
+这里分为两种情况：指定播放某个清晰度和让播放器默认播放某个清晰度
 
-**指定播放某个清晰度**
+#### 指定播放某个清晰度
 
 通过播放器的 definition 参数指定播放某个清晰度
 
@@ -137,7 +141,7 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 在下面的示例中，将指定播放 MP4 手机清晰度视频：
 [指定播放清晰度](http://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-definition.html)
 
-**让播放器默认播放某个清晰度**
+#### 让播放器默认播放某个清晰度
 
 * 在“控制台-Web播放器管理”选定某个播放器配置进行设置默认画质
 
@@ -161,17 +165,19 @@ var player = TCPlayer('player-container-id', {
     fileID: '', // 请传入需要播放的视频filID 必须
     appID: '', // 请传入点播账号的appID 必须
     plugins:{
-        ContinuePlay: { // 设置续播功能
-          // auto: true, // 是否在视频播放后自动续播
-          // text:'上次播放至 ', // 提示文案
-          // btnText: '恢复播放' // 按钮文案
+        ContinuePlay: { // 开启续播功能
+          // auto: true, //[可选] 是否在视频播放后自动续播
+          // text:'上次播放至 ', //[可选] 提示文案
+          // btnText: '恢复播放' //[可选] 按钮文案
         },
       }
   });
 ```
+开启成功后将会看到的效果如下图：
+![](https://mc.qcloudimg.com/static/img/e155be329a6fec959e1ad6b361add390/image.png)
 
 >**注意事项：**
-> * 必须通过 fileID appID 播放视频，才能使用该功能。
+> * 必须通过 fileID appID 播放经过腾讯云转码后的视频，才能使用该功能。
 > * 该功能通过通过 localStorage 存储播放时间点，浏览器需支持该特性。
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 > * 该功能不是多端多浏览器互通的，比如在 PC 浏览器上没看完，不能在移动端浏览器上续播或者在 PC 上另一个浏览器续播，需额外的接口，可以自行开发。
