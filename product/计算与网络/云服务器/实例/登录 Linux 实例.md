@@ -142,14 +142,14 @@ VNC 登录的场景至少包括以下几种:
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com) 。在顶部菜单中选择【云产品】-【云计算与网络】-【云服务器】。
 2. 在云服务器列表的操作列，点击【登录】按钮。
   ![](https://mccdn.qcloud.com/img56b1a6cb7b3e8.png)
-3. 在跳转的新标签页中可看到如下图的界面，中间的白色窗口是 Webshell 登录所使用的，所以点击白色窗口右上角的叉以切换登录方式（如下图）。
+3. 在跳转的新标签页中可看到如下图的界面，由于中间的白色窗口是 Webshell 登录所使用的，因此点击白色窗口右上角的叉以切换登录方式（如下图）。
   ![](https://mc.qcloudimg.com/static/img/df37a0bace811b4069fc5a740c6aad24/%5E20B05F1FF80B4920853E20E88CF2ADB2938BB30DD2E384FC5A%5Epimgpsh_mobile_save_distr.jpg)
 4. 然后点击页面右上角的【其他登录方式】。
   ![](https://mc.qcloudimg.com/static/img/1113ca3bde85dbc223a99f5a250d3088/%5E6AAAB397B29FEF3319E3BBD6157AB6D86C902D693A752276A2%5Epimgpsh_mobile_save_distr.jpg)
 5. 在接下来的画面中将会弹出新的白色窗口，在窗口下方找到【浏览器 VNC 方式登录】一栏，然后点击其中的【立即登录】。
 
   ![](https://mc.qcloudimg.com/static/img/c386b5bfe57d636f5f5b5cc30d36e65e/%5E3A08F0658668E75EF27C5F7E1D73F59CF7CB91EFA88C5F8864%5Epimgpsh_mobile_save_distr.jpg)
-6. 完成以上步骤即可以成功使用 VNC 方式登录 Linux 云服务器
+6. 完成以上步骤即可以成功使用 VNC 方式登录 Linux 云服务器。
    ![](https://mc.qcloudimg.com/static/img/079533e90ee16b95a63e19064a742a64/%5EDD57BACBDC8B333FCD0FFD6CA385F54D9D9CD790697DEB8847%5Epimgpsh_mobile_save_distr.jpg) 
 
 
