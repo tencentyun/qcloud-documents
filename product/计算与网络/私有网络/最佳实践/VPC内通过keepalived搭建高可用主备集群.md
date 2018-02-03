@@ -494,7 +494,7 @@ if __name__ == '__main__':
 ```
 #!/bin/bash 
 #/etc/keepalived/check_self.sh
-vip=172.17.0.7 #请您改成内网 VIP
+vip=10.0.1.100 #请您改成内网 VIP
 interface=eth0 #您的网络接口名
 
 state_file=/var/keepalived/state
