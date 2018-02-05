@@ -14,29 +14,45 @@
 ```
 我们强烈建议您在自己的后台服务器上下单，然后由服务器给终端返回下单信息，直接在终端进行下单操作可能会泄漏您的密钥信息。
 
-## 发起支付
+## 初始化支付请求
 
-集成好 payment 服务后，您只需要四步即可发起支付流程，具体代码如下：
+每次发起支付前，您必须初始化一个 ```PaymentRequest``` 支付请求对象。
+
+**支付结果 ```PaymentResult```**
+
+参数名称 | 参数描述 | 类型 | 备注
+---- | --- | ---- | ----
+userId | 发起支付的 userId | String  | 最好和下单时的 user_id 保持一致
+payInfo | 支付信息 |  String | 下单接口返回的 pay_info 字段
+
+每次初始化支付请求都必须先进行下单获取支付信息，同一个支付信息不可以多次使用，初始化代码如下：
+
+```
+// 1、向您自己的服务器请求下单信息，也即下单服务器返回的 pay_info 字段。
+//   请您自己根据实际情况自己设计和实现 getPayInfoFromServer() 方法
+String payInfo = getPayInfoFromServer();
+
+// 2、初始化 PaymentRequest 实例
+String userId = "tencent";
+PaymentRequest paymentRequest = new PaymentRequest(userId, payInfo);
+
+```
+
+## 发起支付请求
+
+初始化好支付请求后，您就可以通过 ```TACPaymentRequest``` 实例来发起支付请求了，具体代码如下：
 
 ```
 // 1、获取 TACPaymentService 实例
 TACPaymentService paymentService = TACPaymentService.getInstance();
 
-// 2、向您自己的服务器请求下单信息，也即下单服务器返回的 pay_info 字段。
-//   请您自己根据实际情况自己设计和实现 getPayInfoFromServer() 方法
-String payInfo = getPayInfoFromServer();
-
-// 3、初始化 PaymentRequest 实例
-String userId = "tencent";
-PaymentRequest paymentRequest = new PaymentRequest(userId, payInfo);
-
-// 4、通过 TACPaymentService 实例发起支付
+// 2、通过 TACPaymentService 实例发起支付
 paymentService.launchPayment(context, paymentRequest, new TACPaymentCallback() {
-    @Override
-    public void onResult(int resultCode, PaymentResult result) {
+    @Override
+    public void onResult(int resultCode, PaymentResult paymentResult) {
     
         // 支付码 resultCode
-        // 支付结果
+        // 支付结果 paymentResult
     }
 });
 
