@@ -9,7 +9,7 @@
 按调用接口次数收费，具体请查看 [计费说明](https://cloud.tencent.com/document/product/641/12424)。
 
 ### 是否可以识别电子账单/商品吊牌数字/运动 APP 的步数/商超货架商品等？
-可以使用通用OCR识别，准确率一般在85%左右，不过根据使用场景的不同，准确率也有所差异。
+可以使用通用 OCR 识别，准确率一般在85%左右，不过根据使用场景的不同，准确率也有所差异。
 
 ### 是否可以识别银行汇票/保险单/手写的发票/个人征信报告？
 您可以使用我们的通用 OCR 识别，如需要定制化开发，请 [联系我们](https://console.cloud.tencent.com/workorder/category/create?level1_id=83&level2_id=86&level1_name=%E5%AD%98%E5%82%A8%E4%B8%8ECDN&level2_name=%E4%B8%87%E8%B1%A1%E4%BC%98%E5%9B%BE%20CI)。
