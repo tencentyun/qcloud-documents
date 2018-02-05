@@ -45,7 +45,6 @@ TXVodPlayer 内部会自动识别播放协议，您只需要将您的播放 URL 
 String url = "http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 mVodPlayer.startPlay(url); 
 ```
-
 2. 通过fileId方式
 ```objectivec
 TXPlayerAuthBuilder authBuilder = new TXPlayerAuthBuilder();
@@ -53,7 +52,7 @@ authBuilder.setAppId(1252463788);
 authBuilder.setFileId("4564972819220421305");
 mVodPlayer.startPlay(authBuilder); 
 ```
-在[点播视频管理](https://console.qcloud.com/video/videolist) 找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
+在[点播视频管理](https://console.cloud.tencent.com/video/videolist) 找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
 
 ![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
 
