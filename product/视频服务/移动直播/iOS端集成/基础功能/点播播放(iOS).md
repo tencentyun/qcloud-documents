@@ -45,11 +45,25 @@ TXVodPlayer *_txVodPlayer = [[TXVodPlayer alloc] init];
 ```
 
 ### step 3: 启动播放
+TXVodPlayer支持两种播放模式，您可以根据需要自行选择
+1. 通过url方式
 TXVodPlayer 内部会自动识别播放协议，您只需要将您的播放 URL 传给 startPlay 函数即可。
 ```objectivec
 NSString* url = @"http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 [_txVodPlayer startPlay:url ];
 ```
+2. 通过fileId方式
+```objectivec
+TXPlayerAuthParams *p = [TXPlayerAuthParams new];
+p.appId = 1252463788;
+p.fileId = @"4564972819220421305";
+[_txVodPlayer startPlayWithParams:p];
+```
+在[点播视频管理](https://console.qcloud.com/video/videolist) 找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
+
+![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
+
+通过fileId方式播放，播放器会向后台请求真实的播放地址。如果此时网络异常或fileId不存在，则会收到`PLAY_ERR_GET_PLAYINFO_FAIL`事件，反之收到`PLAY_EVT_GET_PLAYINFO_SUCC`表示请求成功。
 
 ### step 4: 画面调整
 
@@ -318,3 +332,11 @@ NSArray *bitrates = [_txVodPlayer supportedBitrates]; //获取多码率数组
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
 
+## 视频信息
+如果通过fileId方式播放且请求成功，SDK会将一些请求信息通知到上层。您需要在收到`PLAY_EVT_GET_PLAYINFO_SUCC`事件后，解析param中的信息。
+
+|   视频信息                   |  含义说明                   |   
+| :------------------------  |  :------------------------ | 
+| EVT_PLAY_COVER_URL     | 视频封面地址 | 
+| EVT_PLAY_URL  | 视频播放地址 |
+| EVT_PLAY_DURATION | 视频时长 |
