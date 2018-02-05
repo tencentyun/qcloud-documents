@@ -35,7 +35,7 @@ allprojects {
 }
 ```
 
-#### 2. 添加 Storage 库依赖
+#### 2. 添加 Payment 库依赖
 
 在您的应用级 build.gradle（通常是 app/build.gradle）添加 payment 的依赖：
 
@@ -50,23 +50,25 @@ dependencies {
 
 ### 手动集成
 
-如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。
+如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
-#### 1. 下载服务资源压缩包。
+#### 1. 下载服务资源压缩包
 
-下载请点击[应用云 payment 服务资源](https://console.cloud.tencent.com/tac)，并解压。
+1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
+2. 下载 [应用云 Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-payment-1.0.0.zip)，并解压。
 
-#### 2. 集成 jar 包。
+#### 2. 集成 jar 包
 
-将下载包中的 libs 目录下的文件拷贝到您工程的 libs 目录。
+将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
 
 #### 3. 集成 资源文件
 
-将下载包中的 assets 目录下的文件拷贝到您工程的 assets 目录下，并将 res 目录下的所有文件拷贝到您工程的 res 目录下。
+1. 将Payment 资源包中的 `assets` 目录下的文件拷贝到您工程的 `assets` 目录下
+2. 将Payment 资源包中的 `res` 目录下的所有文件拷贝到您工程的 `res` 目录下，注意 `values.xml` 需要和您原来的字符串文件合并。
 
 #### 4. 修改 AndroidManifest.xml 文件
 
-首先添加如下权限声明：
+首先添加如下 `permission` 声明：
 
 ```
 <!-- 必选权限 -->
@@ -81,7 +83,7 @@ dependencies {
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
-然后添加如下 activity 声明：
+然后添加如下 `Activity` 声明：
 
 ```
 <activity

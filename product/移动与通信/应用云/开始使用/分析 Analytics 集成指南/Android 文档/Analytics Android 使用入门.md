@@ -50,15 +50,15 @@ dependencies {
 
 ### 手动集成
 
-如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。
+如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
-#### 1. 下载服务资源压缩包
+#### 1. 下载资源压缩包
 
-下载请点击 [应用云 Analytics 服务资源]()，并解压。
+下载请点击 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
 
 #### 2. 集成jar包
 
-将资源文件中的 libs 目录下的文件拷贝到您工程的 libs 目录
+将解压得到的所有 jar 文件拷贝到您工程或模块的 libs 目录下
 
 #### 3. 修改您工程的 AndroidManifest.xml 文件
 
@@ -75,28 +75,38 @@ dependencies {
 
 <application>
 
-<provider
-	android:name="com.tencent.mid.api.MidProvider"
-	android:authorities="你的包名.TENCENT.MID.V3"
-	android:exported="true" >
-</provider>
+...
 
-<!-- 请添加这行，否则无法编译通过 -->
-<meta-data android:name="TA_APPKEY" android:value=""/>
-
-<!-- 如果您需要配置渠道，请将value改为app发布对应的渠道，否则不需要进行修改。-->
-<meta-data android:name="InstallChannel" android:value=""/>
+	<!-- 添加 Analytics 的 provider -->
+	<provider
+		android:name="com.tencent.mid.api.MidProvider"
+		android:authorities="你的包名.TENCENT.MID.V3"
+		android:exported="true" >
+	</provider>
 
 </application>
 ```
 
 ## 配置渠道
 
-您可以需要编译不同的渠道包，用于运营数据的采集。如果您没有配置渠道，Analytics 仍然可以正常运行。
+您可以编译不同的渠道包，用于运营数据的采集。如果您没有配置渠道，Analytics 仍然可以正常运行。
 
-### gradle 依赖集成下配置渠道
+如果您想要配置渠道信息，可以在您工程的 `AndroidManifest` 文件中添加元数据信息：
 
-您可以在应用模块下的 AndroidManifest.xml 文件中添加 meta-data：
+```
+<application>
+
+<!-- 请将value改为app发布对应的渠道，不同的发布渠道使用不同的名字。-->
+<meta-data android:name="com.tencent.tac.channel" android:value="xiaomi"/>
+	
+</application>
+```
+
+注意：若填写的渠道为纯数字字符串类型，请不要超过int表示的范围！
+
+### gradle 自动生成渠道包
+
+如果您是采用gradle编译，可以将您的 meta-data 设置为：
 
 ```
 <meta-data
@@ -104,7 +114,7 @@ dependencies {
 	android:value="${tac_channel}" />
 ```
 
-然后，在应用级的 build.gradle 文件里面设置 **tac_channel** ，这样当您通过 gradle 编译不同的包时，AndroidManifest 中元数据的 value 会自动替换成配置的值。例如下面的代码，定义了小米商店和应用宝两个不同的渠道包：
+然后，在应用级的 build.gradle 文件里面设置多个产品，每个产品设置不同的 `tac_channel` 。这样当您通过 gradle 编译不同的包时，AndroidManifest 中元数据的 value 会自动替换成配置的值。例如下面的代码，定义了小米商店和应用宝两个不同的渠道包：
 
 ```
 android {
@@ -117,20 +127,6 @@ android {
         }
     }
 }
-```
-
-### 手动集成下配置渠道
-
-请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件：
-
-```
-<application>
-
-<!-- 请将value改为app发布对应的渠道，不同的发布渠道使用不同的名字。-->
-<!-- 注意：若填写的渠道为纯数字字符串类型，请不要超过int表示的范围！ -->
-<meta-data android:name="InstallChannel" android:value="xiaomi"/>
-	
-</application>
 ```
 
 ## 配置服务
