@@ -6,9 +6,9 @@
 
 | 概念     | 解释               |
 | ------ | ---------------- |
-| appid  | 项目 ID, 接入项目的唯一标识 |
+| appid  | 项目 ID, 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer)或[云 API 密钥](https://console.cloud.tencent.com/cam/capi)中查看 |
 
-## 调用URL
+## 调用 URL
 支持 http 和 https 两种协议：
 
 http://aiconsole.cloud.tencent.com/fuseapi/face
@@ -36,8 +36,8 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 
 | 参数名    | 是否必须 | 类型     | 说明    |
 | ------ | ---- | ------ | ------- |
-| appid  | 必须   | string | 项目 ID，腾讯云账号信息中可查    |
-| uin    | 必须   | string | 账号 ID，腾讯云账号信息中可查 |
+| appid  | 必须   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看   |
+| uin    | 必须   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
 | project_id    | 必须   | string | 活动 ID |
 | model_id    | 必须   | string | 素材 ID |
 | img_data    | 必须   | string | 图片 base64 数据 |
@@ -49,7 +49,7 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | 字段                 | 类型     | 说明      |
 | ------------------ | ------ | ------- |
 | ret | int | 错误码 |
-| img_url               | string    | rsp_img_type 为 url 时，返回结果的 url,  rsp_img_type为base64 时返回 base64 数据   |
+| img_url               | string    | rsp_img_type 为 url 时，返回结果的 url,  rsp_img_type 为 base64 时返回 base64 数据   |
 | msg            | string | 错误描述  |
 
 ## 示例
