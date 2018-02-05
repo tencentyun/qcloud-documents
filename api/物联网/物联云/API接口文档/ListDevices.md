@@ -30,7 +30,7 @@ Device 的结构如下
 | deviceName | String | 设备名称  |
 | productID  | String | 产品 ID |
 | online     | Int    | 在线状态，0 表示不在线，1 表示在线，2 表示获取设备在线状态失败 |
-| loginTime  | Long   | 设备登录时间 |
+| loginTime  | Long   | 设备登录时间，Linux 时间，单位为秒 |
 
 ### 4. 示例
 
@@ -48,11 +48,15 @@ Device 的结构如下
     "devices": [
         {
             "deviceName": "device22", 
-            "productID": "ABCDE12345"
+            "productID": "ABCDE12345",
+            "online": 1,
+            "loginTime": 1517802099
         }, 
         {
             "deviceName": "device21", 
-            "productID": "ABCDE12345"
+            "productID": "ABCDE12345",
+            "online": 0,
+            "loginTime": 0
         }
     ],
     "message": "",
