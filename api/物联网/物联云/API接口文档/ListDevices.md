@@ -22,8 +22,6 @@
 | codeDesc | String          | 模块错误码的英文描述                               |
 | totalCnt | Int             | 设备总数                                     |
 | devices  | Array of Device | 设备对象的数组                                  |
-| online     | Int    | 在线状态，0 表示不在线，1 表示在线，2 表示获取设备在线状态失败 |
-| loginTime  | Long   | 设备登录时间 |
 
 Device 的结构如下
 
@@ -31,6 +29,8 @@ Device 的结构如下
 | ---------- | ------ | ----- |
 | deviceName | String | 设备名称  |
 | productID  | String | 产品 ID |
+| online     | Int    | 在线状态，0 表示不在线，1 表示在线，2 表示获取设备在线状态失败 |
+| loginTime  | Long   | 设备登录时间 |
 
 ### 4. 示例
 
