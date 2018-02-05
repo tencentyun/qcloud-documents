@@ -16,16 +16,16 @@
 
 ## 初始化支付请求
 
-每次发起支付前，您必须初始化一个 ```PaymentRequest``` 支付请求对象。
+每次发起支付前，您必须先初始化一个 ```PaymentRequest``` 支付请求对象。
 
-**支付结果 ```PaymentResult```**
+**支付请求 ```PaymentRequest```**
 
 参数名称 | 参数描述 | 类型 | 备注
 ---- | --- | ---- | ----
 userId | 发起支付的 userId | String  | 最好和下单时的 user_id 保持一致
 payInfo | 支付信息 |  String | 下单接口返回的 pay_info 字段
 
-每次初始化支付请求都必须先进行下单获取支付信息，同一个支付信息不可以多次使用，初始化代码如下：
+每次初始化支付请求都必须先进行下单获取支付信息，同一个支付信息不可以多次使用，初始化示例代码如下：
 
 ```
 // 1、向您自己的服务器请求下单信息，也即下单服务器返回的 pay_info 字段。
@@ -40,7 +40,7 @@ PaymentRequest paymentRequest = new PaymentRequest(userId, payInfo);
 
 ## 发起支付请求
 
-初始化好支付请求后，您就可以通过 ```TACPaymentRequest``` 实例来发起支付请求了，具体代码如下：
+初始化好支付请求 ```paymentRequest``` 后，您就可以通过 ```TACPaymentService``` 实例来发起支付请求了，具体示例代码如下：
 
 ```
 // 1、获取 TACPaymentService 实例
