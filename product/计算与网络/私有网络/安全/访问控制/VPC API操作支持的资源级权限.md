@@ -1405,9 +1405,7 @@ r>
 | ResetVpnConnSA | vpn通道资源<br>qcs::vpc:$region:$account:vpnx/*<br>qcs::vpc:$region:$account:vpnx/$vpnConnId | vpc:vpc<br>vpc:vpngw<br>vpc:usergw<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:vpngw表示开发商下的网关<br>vpc:usergw表示开发商下的对端网关<br>vpc:region表示vpc所在地域。|
 | SetLocalIPTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。 |
 | SetLocalSourceIPPortTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
-| SetSSLVpnDomain | vpn网关资源
-qcs::vpc:$region:$account:vpngw/*
-qcs::vpc:$region:$account:vpngw/$vpnGwId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| SetSSLVpnDomain | vpn网关资源<br>qcs::vpc:$region:$account:vpngw/*<br>qcs::vpc:$region:$account:vpngw/$vpnGwId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
 | UnassignPrivateIpAddresses | 弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
 
 
