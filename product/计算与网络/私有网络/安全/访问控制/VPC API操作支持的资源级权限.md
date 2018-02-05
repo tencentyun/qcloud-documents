@@ -1294,3 +1294,133 @@ r>
     vpc:region表示vpc所在地域。</td>
  </tr>
 </table>
+
+| API 操作|	资源 |	条件	|备注|
+|-------|-------|--------|-------|
+|AcceptVpcPeeringConnection	| vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId	|vpc:region	|vpc:region表示vpc所在地域。|
+|  | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | 	vpc:accepter_vpc<br>vpc:region<br>vpc:requester_vpc	| vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:region表示vpc所在地域。|
+|  | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId(接收方vpcId) | vpc:region | 	vpc:region表示vpc所在地域。|
+| AcceptVpcPeeringConnectionEx | 对等连接资源 <br>qcs::vpc:$region:$account:pcx/* <br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:accepter_vpc_region<br>vpc:requester_vpc<br>vpc:requester_vpc_region | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:accepter_vpc_region表示接收方地域。<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:requester_vpc_region表示发起方地域。|
+|  |  vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | 	vpc:region表示vpc所在地域。|
+| AddVpnConnEx |  vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId |  vpc:region | 	vpc:region表示vpc所在地域。|
+|  |  vpn网关资源<br>qcs::vpc:$region:$account:vpngw/*<br>qcs::vpc:$region:$account:vpngw/$vpnGwId | vpc:vpc <br>vpc:region | 	vpc:vpc表示开发商VPC <br> vpc:region表示vpc所在地域。|
+|  |  对端网关资源<br>qcs::vpc:$region:$account:cgw/* | vpc:region | vpc:region表示vpc所在地域。|
+|   | vpn通道资源<br>qcs::vpc:$region:$account:vpnx/* | vpc:vpc <br> vpc:vpngw <br> vpc:region | vpc:vpc表示开发商VPC <br> vpc:vpngw表示开发商下的vpn网关 <br> vpc:region表示vpc所在地域。|
+| AssignPrivateIpAddresses | 	弹性网卡资源 <br> qcs::vpc:$region:$account:eni/* <br> qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc <br> vpc:subnet <br> vpc:region | vpc:vpc表示开发商的VPC <br> vpc:subnet表示开发商下的子网 <br> vpc:region表示vpc所在地域。|
+| AssociateVip | vpc资源 <br> qcs::vpc:$region:$account:vpc/* <br> qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:vpc <br> vpc:region |
+| AssociateRouteTable | 	子网资源 <br> qcs::vpc:$region:$account:subnet/* <br> qcs::vpc:$region:$account:subnet/$subnetId | vpc:vpc <br> vpc:region | 	vpc:vpc表示开发商VPC <br> vpc:region表示vpc所在地域。|
+|  |  路由表资源 <br> qcs::vpc:$region:$account:rtb/* <br> qcs::vpc:$region:$account:rtb/$routeTableId | vpc:vpc <br> vpc:region |  vpc:vpc表示开发商VPC <br> vpc:region表示vpc所在地域。|
+| AttachClassicLinkVpc | vpc资源 <br> qcs::vpc:$region:$account:vpc/* <br> qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | 	云主机资源 <br> qcs::cvm:$region:$account:instance/* <br> qcs::cvm:$region:$account:instance/$instanceId | cvm:region | cvm:region表示云主机所在地域。|
+| AttachNetworkInterface | 	弹性网卡资源 <br> qcs::vpc:$region:$account:eni/* <br> qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc <br> vpc:subnet <br> vpc:region | vpc:vpc表示开发商的VPC <br> vpc:subnet表示开发商下的子网 <br> vpc:region表示vpc所在地域。|
+|  |  云主机资源 <br> qcs::cvm:$region:$account:instance/* <br> qcs::cvm:$region:$account:instance/$instanceId | cvm:region | cvm:region表示云主机所在地域 。|
+| CreateAndAttachNetworkInterface | vpc资源 <br> qcs::vpc:$region:$account:vpc/* <br> qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | 	vpc:region表示vpc所在地域。|
+|  | 云主机资源<br>qcs::cvm:$region:$account:instance/* <br> qcs::cvm:$region:$account:instance/$instanceId | cvm:region | 	cvm:region表示云主机所在地域 。|
+|  | 弹性网卡资源 <br> qcs::vpc:$region:$account:eni/* | vpc:vpc<br> vpc:subnet <br>vpc:region| vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+| CreateDirectConnectGateway | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br> qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | 	vpc:region表示vpc所在地域。|
+|  | 	专线网关资源<br>qcs::vpc:$region:$account:dcg/* | 	vpc:vpc<br> vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateLocalDestinationIPPortTranslationNatRule | 	专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br> vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateLocalIPTranslationAclRule | 	专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br> vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateLocalIPTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateLocalSourceIPPortTranslationAclRule | 	专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateLocalSourceIPPortTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreatePeerIPTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br> vpc:region表示vpc所在地域。|
+| CreateNatGateway | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | nat网关资源<br>qcs::vpc:$region:$account:nat/* | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateNetworkAcl | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | 	vpc:region表示vpc所在地域。 |
+|  | 	网络acl资源<br>qcs::vpc:$region:$account:acl/* | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。| 
+| CreateNetworkInterface | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | 子网资源<br>qcs::vpc:$region:$account:subnet/*<br>qcs::vpc:$region:$account:subnet/$subnetId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+|  | 弹性网卡资源<br>qcs::vpc:$region:$account:eni/* | vpc:vpc<br>vpc:subnet<br>vpc:region |
+| CreateRoute | 	路由表资源<br>qcs::vpc:$region:$account:rtb/*<br>qcs::vpc:$region:$account:rtb/$routeTableId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateRouteTable | 	vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | 路由表资源<br>qcs::vpc:$region:$account:rtb/* | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateSubnet | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | 子网网关资源<br>qcs::vpc:$region:$account:subnet/* | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateSubnetAclRule | 网络acl资源<br>qcs::vpc:$region:$account:acl/*<br>qcs::vpc:$region:$account:acl/$networkAclId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+|  | 子网网关资源<br>qcs::vpc:$region:$account:subnet/* | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| CreateVpcPeeringConnection | vpc资源(发起方)<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。| 
+|  | 对等连接资源<br>qcs::vpc:$region:$account:pcx/* | vpc:accepter_vpc<br>vpc:requester_vpc<br>vpc:region | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:region表示vpc所在地域。|
+| CreateVpcPeeringConnectionEx | 	vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|   | 	对等连接资源<br>qcs::vpc:$region:$account:pcx/* | vpc:accepter_vpc<br>vpc:accepter_vpc_region<br>vpc:requester_vpc<br>vpc:requester_vpc_region | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:accepter_vpc_region表示接收方地域。<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:requester_vpc_region表示发起方地域。|
+| DeleteDirectConnectGateway | 专线网关资源<br>qcs::vpc:$region:$account:dcg/* <br>qcs::vpc$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteLocalDestinationIPPortTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteLocalIPTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteLocalIPTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteLocalSourceIPPortTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc$region:$account:dcg/$directConnectGatewayId |  vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeletePeerIPTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteLocalSourceIPPortTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteNatGateway | nat网关资源<br>qcs::vpc:$region:$account:nat/*<br>qcs::vpc:$region:$account:nat/$natId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteNetworkAcl | 网络acl资源<br>qcs::vpc:$region:$account:acl/*<br>qcs::vpc:$region:$account:acl/$networkAclId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| DeleteNetworkInterface | 	弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+| DeleteRoute | 	路由表资源<br>qcs::vpc:$region:$account:rtb/*<br>qcs::vpc:$region:$account:rtb/$routeTableId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域 | 
+| DeleteRouteTable | 路由表资源<br>qcs::vpc:$region:$account:rtb/*<br>qcs::vpc:$region:$account:rtb/$routeTableId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域 | 
+| DeleteSubnet | 子网资源<br>qcs::vpc:$region:$account:subnet/*<br>qcs::vpc:$region:$account:subnet/$subnetId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域 | 
+| DeleteUserGw | 对端网关资源<br>qcs::vpc:$region:$account:cgw/*<br>cs::vpc:$region:$account:cgw/$userGwId | vpc:region | 	vpc:region表示vpc所在地域。|
+| DeleteVpc | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region<br>vpc:vpc | vpc:region表示vpc所在地域。|
+| DeleteVpcPeeringConnection | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:region<br>vpc:requester_vpc | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:region表示vpc所在地域。|
+| DeleteVpcPeeringConnectionEx | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:accepter_vpc_region<br>vpc:requester_vpc<br>vpc:requester_vpc_region | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:accepter_vpc_region表示接收方地域。<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:requester_vpc_region表示发起方地域。|
+| DeleteVpnConn | vpn通道资源<br>qcs::vpc:$region:$account:vpnx/*<br>qcs::vpc:$region:$account:vpnx/$vpnConnId | vpc:vpc<br>vpc:vpngw<br>vpc:usergw<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:vpngw表示开发商下的网关<br>vpc:usergw表示开发商下的对端网关<br>vpc:region表示vpc所在地域。|
+| DetachClassicLinkVpc | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region<br>vpc:vpc | vpc:region表示vpc所在地域。|
+|  | 云主机资源<br>qcs::cvm:$region:$account:instance/*<br>qcs::cvm:$region:$account:instance/$instanceId | cvm:region | 	cvm:region表示云主机所在地域 。|
+| DetachNetworkInterface | 云主机资源<br>qcs::cvm:$region:$account:instance/*<br>qcs::cvm:$region:$account:instance/$instanceId | cvm:region | 	cvm:region表示云主机所在地域 。|
+|  | 弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+| DeteleSubnetAclRule | 子网资源<br>qcs::vpc:$region:$account:subnet/*<br>qcs::vpc:$region:$account:subnet/$subnetId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+|  | 网络acl资源<br>qcs::vpc:$region:$account:acl/*<br>qcs::vpc:$region:$account:acl/$networkAclId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| EipBindNatGateway | nat网关资源<br>qcs::vpc:$region:$account:nat/*<br>qcs::vpc:$region:$account:nat/$natId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| EipUnBindNatGateway | nat网关资源<br>qcs::vpc:$region:$account:nat/*<br>qcs::vpc:$region:$account:nat/$natId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| EnableVpcPeeringConnection | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:region<br>vpc:requester_vpc | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:region表示vpc所在地域。|
+| EnableVpcPeeringConnectionEx | 	vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|   | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:accepter_vpc_region<br>vpc:requester_vpc<br>vpc:requester_vpc_region | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:accepter_vpc_region表示接收方地域。<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:requester_vpc_region表示发起方地域。|
+| MigrateNetworkInterface | 弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+|   | 云主机资源<br>qcs::cvm:$region:$account:instance/*<br>qcs::cvm:$region:$account:instance/$instanceId(迁移前后的都需要授权) | cvm:region | cvm:region表示云主机所在地域 。|
+| MigratePrivateIpAddress | 弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+| ModifyDirectConnectGateway | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyLocalDestinationIPPortTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyLocalIPTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyLocalIPTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyLocalSourceIPPortTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyPeerIPTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyLocalSourceIPPortTranslationNatRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyNatGateway | nat网关资源<br>qcs::vpc:$region:$account:nat/*<br>qcs::vpc:$region:$account:nat/nat-dc7cdf | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyNetworkAcl | 网络acl资源<br>qcs::vpc:$region:$account:acl/*<br>qcs::vpc:$region:$account:acl/$networkAclId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。| 
+| ModifyNetworkAclEntry | 网络acl资源<br>qcs::vpc:$region:$account:acl/*<br>qcs::vpc:$region:$account:acl/$networkAclId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyNetworkInterface | 弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+| ModifyPrivateIpAddress |弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+| ModifyRouteTableAttribute |  路由表资源<br>qcs::vpc:$region:$account:rtb/*<br>qcs::vpc:$region:$account:rtb/$routeTableId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifySubnetAttribute | 子网资源<br>qcs::vpc:$region:$account:subnet/*<br>qcs::vpc:$region:$account:subnet/$subnetId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| ModifyUserGw | 对端网关资源<br>qcs::vpc:$region:$account:cgw/*<br>qcs::vpc:$region:$account:cgw/$userGwId | vpc:region | vpc:region表示vpc所在地域。|
+| ModifyVpcAttribute | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+| ModifyVpcPeeringConnection |  vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|   | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:region<br>vpc:requester_vpc | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:region表示vpc所在地域。|
+| ModifyVpcPeeringConnectionEx | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:accepter_vpc_region<br>vpc:requester_vpc<br>vpc:requester_vpc_region | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:accepter_vpc_region表示接收方地域。<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:requester_vpc_region表示发起方地域。|
+| ModifyVpnConnEx | vpn通道资源<br>qcs::vpc:$region:$account:vpnx/*<br>qcs::vpc:$region:$account:vpnx/$vpnConnId | vpc:vpc<br>vpc:vpngw<br>vpc:usergw<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:vpngw表示开发商下的网关<br>vpc:usergw表示开发商下的对端网关<br>vpc:region表示vpc所在地域。| 
+| ModifyVpnGw | vpn网关资源<br>qcs::vpc:$region:$account:vpngw/*<br>qcs::vpc:$region:$account:vpngw/$vpnGwId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| RejectVpcPeeringConnection | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId | vpc:region | vpc:region表示vpc所在地域。|
+|  | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:region<br>vpc:requester_vpc | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:region表示vpc所在地域。| 
+| RejectVpcPeeringConnectionEx | vpc资源<br>qcs::vpc:$region:$account:vpc/*<br>qcs::vpc:$region:$account:vpc/$vpcId |  vpc:region | vpc:region表示vpc所在地域。|
+|  | 对等连接资源<br>qcs::vpc:$region:$account:pcx/*<br>qcs::vpc:$region:$account:pcx/$peeringConnectionId | vpc:accepter_vpc<br>vpc:accepter_vpc_region<br>vpc:requester_vpc<br>vpc:requester_vpc_region | vpc:accepter_vpc接收方VPC，取值为接收方VPC；<br>vpc:accepter_vpc_region表示接收方地域。<br>vpc:requester_vpc表示发起方VPC，取值为发起方VPC；<br>vpc:requester_vpc_region表示发起方地域。|
+| ResetVpnConnSA | vpn通道资源<br>qcs::vpc:$region:$account:vpnx/*<br>qcs::vpc:$region:$account:vpnx/$vpnConnId | vpc:vpc<br>vpc:vpngw<br>vpc:usergw<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:vpngw表示开发商下的网关<br>vpc:usergw表示开发商下的对端网关<br>vpc:region表示vpc所在地域。|
+| SetLocalIPTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。 |
+| SetLocalSourceIPPortTranslationAclRule | 专线网关资源<br>qcs::vpc:$region:$account:dcg/*<br>qcs::vpc:$region:$account:dcg/$directConnectGatewayId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| SetSSLVpnDomain | vpn网关资源
+qcs::vpc:$region:$account:vpngw/*
+qcs::vpc:$region:$account:vpngw/$vpnGwId | vpc:vpc<br>vpc:region | vpc:vpc表示开发商VPC<br>vpc:region表示vpc所在地域。|
+| UnassignPrivateIpAddresses | 弹性网卡资源<br>qcs::vpc:$region:$account:eni/*<br>qcs::vpc:$region:$account:eni/$networkInterfaceId | vpc:vpc<br>vpc:subnet<br>vpc:region | vpc:vpc表示开发商的VPC<br> vpc:subnet表示开发商下的子网<br>vpc:region表示vpc所在地域。|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
