@@ -19,7 +19,7 @@ CKafka 配置消息类型同样有两个选项：
 ![](https://mc.qcloudimg.com/static/img/de2b575231b4048e761601273bda60bb/ckafka_save1.png
 )
 
-选择需要推送的实例时，若当前帐号没有实例，可前往 [CKafka](https://console.qcloud.com/ckafka) 购买和创建实例。
+选择需要推送的实例时，若当前帐号没有实例，可前往 [CKafka](https://console.cloud.tencent.com/ckafka) 购买和创建实例。
 
 创建成功后消息队列页面就会展示订阅的详细信息，用户也可以在该页面修改订阅的消息类型、修改实例类型，均如图中红框部分所示。
 

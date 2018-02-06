@@ -10,54 +10,10 @@
  4. 将 tac\_service_configurations.json 文件并放到您应用模块的 assets 文件夹下。
  5. 将 tac\_service_configurations_unpackage.json 文件并放到您应用模块的根目录下。
 
-## 添加 SDK
 
-如果希望将应用云的库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
+## 配置 服务框架SDK
 
-### 通过 gradle 远程依赖集成
-
-如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
-
-#### 1. 使用 jcenter 作为仓库来源
-
-在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
-
-```
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        ...
-    }
-}
-
-allprojects {
-    repositories {
-         jcenter()
-    }
-}
-```
-
-
-#### 2. 添加应用云库依赖
-
-在您的应用级 build.gradle（通常是 app/build.gradle）添加应用云库的依赖。您可以添加自己希望的 SDK 的依赖项。最基础的依赖是 com.tencent.tac:tac-core，它可以提供 Analytics 功能，具体请参阅文档下方的可用库列表。
-
-```
-dependencies {
-    //增加这行
-    compile 'com.tencent.tac:tac-core:1.0.0'
-}
-```
-
-然后，单击 IDE 的 【gradle】同步按钮，会自动将依赖包同步到本地。
-
-### 手动集成
-
-如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。对于每个依赖库，我们都提供了手动集成的方式，具体请参考每个依赖库的集成文档。
-
-## 配置 SDK
+您并不需要额外单独安装应用云的 `服务框架SDK` 到您的应用中。当您集成某个应用云的服务时，我们已经自动为您添加了框架SDK。配置SDK的前提是您已经集成了一个或者多个应用云服务。
 
 应用云所有服务都必须在 TACApplication 单例配置完成之后才能正常使用。因此，我们建议您在 Application 的 onCreate 方法中执行该操作。
 
@@ -139,7 +95,7 @@ TACApplicationOptions currentOptions = TACApplication.options( );
 
 ```
 
-### debug 模式
+## debug 模式
 
 如果你想打开 debug 模式，查看应用云的日志，可以通过以下命令开启：
 
@@ -155,7 +111,7 @@ adb shell setprop log.tag.tac DEBUG
 |:----|:-----------|:-----------|
 |  com.tencent.tac:tac-core:1.0.0   |  analytics | 分析 |
 |  com.tencent.tac:tac-messaging:1.0.0   |  messaging | 推送 |
-|  com.tencent.tac:tac-crash:1.0.0   |  crash     | Crash |
+|  com.tencent.tac:tac-crash:1.0.0   |  crash     | 异常上报 |
 |  com.tencent.tac:tac-storage:1.0.0   |  storage   | Cloud Storage |
 |  com.tencent.tac:tac-authorization:1.0.0   |  social | 登录 |
 |  com.tencent.tac:tac-payment:1.0.0   |  payment | 支付 |

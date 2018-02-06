@@ -49,15 +49,16 @@ dependencies {
 
 ### 手动集成
 
-如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。
+如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
 #### 1. 下载服务资源压缩包
 
-点击应用云 Authorization [服务资源]() 下载，并解压。
+1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
+2. 下载 [应用云 Authorization 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-authorization-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包
 
-将资源文件中的 libs 目录下的文件拷贝到您工程的 libs 目录。
+将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
 
 ## 配置服务
 
@@ -97,7 +98,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 #### 手动集成
 
-如果您是采用 ant 编译系统，请从 [微信资源中心](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&lang=zh_CN) 下载最新的开发包，并拷贝到应用模块的 libs 文件夹下，然后添加到classpath中。
+请从 [微信资源中心](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&lang=zh_CN) 下载最新的开发包，并拷贝到应用模块的 `libs` 文件夹下。
 
 然后，在您的 AndroidManifest.xml 文件中添加以下权限：
 
@@ -117,7 +118,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 ### 2. 配置应用
 
-在您的应用模块的 assets 文件夹下，新建一个名为 tac\_service\_configurations\_qq.json 的文件，内容如下：
+在您的应用模块的 assets 文件夹下，新建一个名为 `tac\_service\_configurations\_qq.json` 的文件，内容如下：
 
 ```
 {
@@ -134,7 +135,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 ### 3. 下载 SDK 
 
-下载 [QQ 互联的 Android Jar 包](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/Android_SDK_V3.3.0.lite.zip) ，并拷贝到应用模块的 libs 文件夹下。
+下载 [QQ 互联的 Android Jar 包](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/Android_SDK_V3.3.0.lite.zip) ，并拷贝到应用模块的 `libs` 文件夹下。
 
 
 ### 4. 添加 SDK 依赖
@@ -151,13 +152,15 @@ dependencies {
 
 #### 手动集成
 
-如果您是采用 ant 编译系统，请把下载的 QQ open jar 包添加到 classpath 中，并在 AndroidManifest.xml 文件中添加以下权限和 Activity：
+请把下载的 QQ open jar 包添加到 classpath 中，并在 AndroidManifest.xml 文件中添加以下权限和 Activity：
 
 ```
 	<uses-permission android:name="android.permission.INTERNET" />
    	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application>
+    	...
+    	
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
