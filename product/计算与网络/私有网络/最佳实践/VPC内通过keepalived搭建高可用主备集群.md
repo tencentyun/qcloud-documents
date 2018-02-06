@@ -5,7 +5,7 @@
 - 首先对 keepalived 简述，并说明其在云主机的应用与物理网络的区别。
 - 然后开始阐述如何通过何种步骤，达到两种使用模式：
  * 无常主模式，即双机选举主设备的优先级相同；
- * 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  常主常备模式较无常主模式增加了主备倒换次数，<font color=Crimson size=6>推荐</font>使用无常主模式（非常主常备模式）
+ * 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  常主常备模式较无常主模式增加了主备倒换次数， 推荐使用无常主模式（非常主常备模式）
 - 本文通过给出若干 `keepalived 配置和脚本文件` + `不同场景配置方法`的形式，帮助用户在云主机上作本次实践。
 - 本文主要介绍 keepalived 的 VRRP Instance 配置为单播 VRRP 报文的用法。
 
@@ -264,8 +264,8 @@ vip.py：通过云 API 开发主备切换程序，通过调用内网 IP 迁移�
 
 1) 下载 Python SDK
 - pip 安装使用方式
-	- <font color=Crimson size=6>yum install python-pip</font>
-	- <font color=Crimson size=6>pip install qcloudapi-sdk-python</font>
+	- yum install python-pip
+	- pip install qcloudapi-sdk-python
 - github 源码下载方式
 	- [转到 github 查看 Python SDK >>](https://github.com/QcloudApi/qcloudapi-sdk-python)
 	- [点击下载 Python SDK >>](https://mc.qcloudimg.com/static/archive/b61ee1ce734e7437530304152c20ee14/qcloudapi-sdk-python-master.zip)
