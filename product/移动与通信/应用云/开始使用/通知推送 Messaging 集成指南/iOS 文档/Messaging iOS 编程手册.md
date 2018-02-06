@@ -1,11 +1,10 @@
-# 应用云 Messaging iOS 编程手册
 
 
 ## 服务启动与停止
 
-当您集成了 Messaging 服务之后，系统将会在程序启动的时候自动启动服务。
+当您集成了 Messaging 服务之后，系统将会在程序启动时默认启动该服务。
 
-如果您不希望在启动的时候默认启动 Messaging 服务，您可以在配置中设置关掉 (例如在 AppDelegate 中加入如下代码)：
+如果您不希望在启动的时候默认启动 Messaging 服务，可以在配置中将其关闭 (例如在 AppDelegate 中加入如下代码)：
 
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
@@ -115,4 +114,4 @@ NSInteger badgeNumber =  @(2);
 
 ## 其他功能
 
-其他功能请参考 TACMessagingService.h 中的定义。
+其他功能请参考 [TACMessagingService.h]() 中的定义。
