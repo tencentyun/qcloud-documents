@@ -221,4 +221,4 @@ echo "curl -sv -H 'Authorization:$signature' '$req_url' -d ''\n";
 
 ```
 > **注意：**
-> 在 html 页面中嵌入 php 脚本会导致 &times 被转译为 x， 纯 php 代码则不会出现这个问题。若出现这个问题，解决办法是：在 php 代码中，把 & 替换为 &amp； （包括分号）
+> 在 html 页面中嵌入 php 脚本会导致 &times 被转译为 x，导致返回结果 404， 纯 php 代码则不会出现这个问题。若出现这个问题，解决办法是：在 php 代码中，把 & 替换为 &amp；（包括分号）。
