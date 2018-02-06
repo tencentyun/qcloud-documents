@@ -149,7 +149,7 @@ TACSocialWechat 中的脚本会自动的帮助您完成以下功能：
 [[TACSocialWechatService shareService].delegateProxy addDelegate:delegate];
 ~~~
 
-其中 delegate 为 TencentOAuth 对象的 delegate，这里我们对原始的 delegate 进行了转发。你可以注册多个 delegate，请在不使用的时候移除：
+其中 delegate 为 TencentOAuth 对象的 delegate，这里我们对原始的 delegate 进行了转发。您可以注册多个 delegate，请在不使用的时候移除：
 
 ~~~
 [[TACSocialWechatService shareService].delegateProxy removeDelegate:delegate];
