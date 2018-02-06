@@ -6,11 +6,7 @@
 
 | 概念     | 解释               |
 | ------ | ---------------- |
-<<<<<<< HEAD
-| appid  | 项目 ID, 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云API密钥](https://console.cloud.tencent.com/cam/capi) 中查看 |
-=======
 | appid  | 项目 ID, 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看 |
->>>>>>> f6c46bfc84b89a013f506d75c37996925d2bf008
 
 ## 调用 URL
 支持 http 和 https 两种协议：
@@ -30,30 +26,18 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | Content-Type   | application/json   | 参数类型                                 |
 | Authorization  | 鉴权签名                                     | 用于 [**鉴权**](/document/product/641/12409) 的签名 |
 
-<<<<<<< HEAD
->**注意：** 
- (1) 每个请求的包体大小限制为 6MB；
- (2) 所有接口都为 POST 方法；
- (3) 不支持 .gif 这类的动图。
-=======
 > **注意：**
 > 1、每个请求的包体大小限制为 6MB；
 > 2、所有接口都为 POST 方法；
 > 3、不支持 .gif 这类的动图。
->>>>>>> f6c46bfc84b89a013f506d75c37996925d2bf008
 
 ## 请求参数
 使用 application/json 格式。
 
 | 参数名    | 是否必须 | 类型     | 说明    |
 | ------ | ---- | ------ | ------- |
-<<<<<<< HEAD
-| appid  | 必须   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer)  查看   |
-| uin    | 必须   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer)  查看|
-=======
 | appid  | 必须   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看   |
 | uin    | 必须   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
->>>>>>> f6c46bfc84b89a013f506d75c37996925d2bf008
 | project_id    | 必须   | string | 活动 ID |
 | model_id    | 必须   | string | 素材 ID |
 | img_data    | 必须   | string | 图片 base64 数据 |
