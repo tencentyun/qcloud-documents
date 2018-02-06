@@ -24,7 +24,7 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | Host           | aiconsole.cloud.tencent.com               | 服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json   | 参数类型                                 |
-| Authorization  | 鉴权签名                                     | 用于 [**鉴权**](document/product/641/12409) 的签名 |
+| Authorization  | 鉴权签名                                     | 用于 [**鉴权**](/document/product/641/12409) 的签名 |
 
 > **注意：**
 > 1、每个请求的包体大小限制为 6MB；
