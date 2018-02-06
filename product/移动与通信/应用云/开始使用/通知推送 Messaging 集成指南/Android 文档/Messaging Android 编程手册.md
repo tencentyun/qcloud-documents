@@ -1,8 +1,7 @@
-# 应用云 Messaging Android 编程手册
 
 ## 注册 Messaging 服务回调
 
-通过注册 Messaging 服务广播接收器，你可以收到 Messaging 服务的通知，你需要继承 `TACMessagingReceiver` 类，然后在 `AndroidManifest.xml` 文件中进行如下注册：
+通过注册 Messaging 服务广播接收器，您可以收到 Messaging 服务的通知，您需要继承 `TACMessagingReceiver` 类，然后在 `AndroidManifest.xml` 文件中进行如下注册：
 
 ```
 <receiver android:name="com.yourpackage.MessagingReceiver">
@@ -33,7 +32,7 @@
     void onRegisterResult(Context context, int errorCode, TACMessagingToken token);
 ```
 
-注册成功时，可以获得设备标识 `TACMessagingToken `。
+注册成功后，可以获得设备标识 `TACMessagingToken `。
 
 相关错误码说明请看文档最后的列表。
 
@@ -181,7 +180,7 @@ messagingService.stop(context);
 
 ## 订阅主题
 
-您可以针对不同的用户订阅主题，然后在前台根据主题群发通知。 一个应用最多有10000个tag， 每个token在一个应用下最多100个tag， tag中不准包含空格。
+您可以针对不同的用户订阅主题，然后在前台根据主题群发通知。 一个应用最多有10000个 tag， 每个 token 在一个应用下最多100个 tag， tag 中不准包含空格。
 
 ### 订阅主题
 
@@ -200,7 +199,7 @@ messagingService.unsubscribeFromTopic(Context context, String topic);
 
 ## 设置通知样式
 
-您可以根据自行需要设置通知样式，然后在后台推送通知的时候，可以设置样式的id。由于目前的定制ROM的限制，部分接口无法适配全部机型。
+您可以根据自行需要设置通知样式，然后在后台推送通知的时候，可以设置样式的 ID。由于目前的定制 ROM 的限制，部分接口无法适配全部机型。
 
 下面是设置样式的示例代码：
 
@@ -246,7 +245,7 @@ messagingService.unsubscribeFromTopic(Context context, String topic);
         build.setNotificationLargeIcon(R.drawable.ic_action_search);
 ```
 
-然后，在控制台选择设置好的id来推送通知。其中 的 `NotificationBuilderId` 是样式的 id。
+然后，在控制台选择设置好的 ID 来推送通知。其中 的 `NotificationBuilderId` 是样式的 ID。
 
 ```
 		// notificationBuilderId 是样式的 id
@@ -257,7 +256,7 @@ messagingService.unsubscribeFromTopic(Context context, String topic);
 
 ## 本地通知
 
-您可以自定义本地通知，保存在本地。当应用打开，Messaging 服务会根据网络心跳判断当前是否有通知5分钟一次 本地通知需要服务启动才能弹出，可能存在一定延迟。
+您可以自定义本地通知，保存在本地。当应用打开，Messaging 服务会根据网络心跳判断当前是否有通知5分钟一次本地通知需要服务启动才能弹出，可能存在一定延迟。
 
 ```
 	//新建本地通知
@@ -355,38 +354,38 @@ String tokenString = messagingToken.getgetTokenString();  // 获取设备唯一�
 
 ### 服务端返回码
 
-| 值| 	含义| 	可采取措施| 
+| 值| 	含义| 	解决方法| 
 | :---: | :----: | :---- |
 |0	|调用成功||
 |-1	|参数错误|	检查参数配置|
 |-2	|请求时间戳不在有效期内	|检查设备当前时间|
-|-3	|recv失败	|稍后重试|
-|-5	|Action处理超时|	稍后重试|
+|-3	|recv 失败	|稍后重试|
+|-5	|Action 处理超时|	稍后重试|
 |2	|非法参数	|检查参数配置|
-|5	|与CMEM通讯失败|	稍后重试（推送超时）|
-|6	|设备token未成功注册|	请检查终端设备注册是否成功
+|5	|与 CMEM 通讯失败|	稍后重试（推送超时）|
+|6	|设备 token 未成功注册|	请检查终端设备注册是否成功
 |7	|通用错误，账号超限	|删除其他未使用的账号(调用账号解绑）|
-|14	|token非法	|Token长度为40位|
+|14	|token 非法	|Token 长度为40位|
 |15|	信鸽逻辑服务器繁忙	|稍后重试|
 |16	|系统繁忙	|稍后重试|
-|19	|操作时序错误。例如进行tag操作前未获取到deviceToken|	没有获取到deviceToken的原因：1.没有注册信鸽或者苹果推送2.provisioning profile制作不正确|
-|20	|鉴权错误，可能是由于Access ID和Access Key不匹配|	检查Access ID和Access Key（注意空格）|
-|21|	鉴权失败	|检查Access ID和Access Key|
-|40	|推送的token没有在信鸽中注册	|检查token是否注册|
-|48	|推送的账号没有绑定token	|检查account和token是否有绑定关系见推送指南：绑定/设置账号见热门问题解答：账号和设备未绑定的解答|
+|19	|操作时序错误。例如进行 tag 操作前未获取到 deviceToken|	没有获取到 deviceToken 的原因：1. 没有注册信鸽或者苹果推送 2. provisioning  profile制作不正确|
+|20	|鉴权错误，可能是由于 Access ID 和 Access Key 不匹配|	检查 Access ID 和 Access Key （注意空格）|
+|21|	鉴权失败	|检查 Access ID 和 Access Key|
+|40	|推送的 token 没有在信鸽中注册	|检查 token 是否注册|
+|48	|推送的账号没有绑定 token	|检查 account 和 token 是否有绑定关系见推送指南：绑定/设置账号见热门问题解答：账号和设备未绑定的解答|
 |53	|设备未注册	|反注册后重新注册|
-|75	|消息体格式不符合json格式	|检查消息体即message字段内容|
+|75	|消息体格式不符合 json 格式	|检查消息体即 message 字段内容|
 |76	|请求过于频繁，请稍后再试	|全量广播限频为每3秒一次|
-|78	|循环任务参数错误	|检查loop time|
+|78	|循环任务参数错误	|检查 loop time|
 |90	|设备离线	|重新打开应用|
-|91	|设备tag过多	|清理不使用的tag|
-|92	|apptag过多	|清理不使用的tag|
+|91	|设备 tag 过多	|清理不使用的 tag|
+|92	|apptag 过多	|清理不使用的 tag|
 |-101	|参数错误|	请检查参数|
-|-102|	请求timestamp字段超过了时间过期|	请使用当前系统时间戳，确保时间同步|
-|-103|	sign 不合法|	检查签名生成流程，生成sign是METHOD 必须与请求时所使用的一致|
+|-102|	请求 timestamp 字段超过了时间过期|	请使用当前系统时间戳，确保时间同步|
+|-103|	sign 不合法|	检查签名生成流程，生成 sign 是 METHOD 必须与请求时所使用的一致|
 |-105|	请求过于频繁|	稍后重试|
 |-106	|证书错误|	证书错误|
-|-111|	缺少公共参数：access_id\timestamp\sign|	检查公共参数access_id\timestamp\sign|
+|-111|	缺少公共参数：access_id\timestamp\sign|	检查公共参数 access_id\timestamp\sign|
 |-112	|参数取值非法	|检查参数取值|
 |其他	|信鸽内部错误	|稍后重试，如出现为标明且必现错误请及时与我们取得联系|
 
@@ -396,15 +395,15 @@ String tokenString = messagingToken.getgetTokenString();  // 获取设备唯一�
 | 值| 	原因以及解决办法| 
 | :---: | :---- |
 |0	|调用成功|
-|2	|参数错误，例如绑定了单字符的别名，或是ios的token长度不对，应为64个字符|
+|2	|参数错误，例如绑定了单字符的别名，或是 ios 的 token长度不对，应为64个字符|
 |20	|鉴权错误,access id 或者 access key 配置错误|
 |10000	|起始错误|
 |10001	|操作类型错误码，例如参数错误时将会发生该错误|
 |10002	|正在执行注册操作时，又有一个注册操作到来，则回调此错误码|
 |10003|	权限配错或者缺少所需权限|
-|10004	|so库没有正确导入（Androidstudio可在main文件目录下 添加jniLibs命名的文件夹将SDK文档中的Other-Platform-SO下的7个so库文件夹添加至该目录）|
-|10005	|AndroidManifest文件的XGRemoteService节点没有配置或者的该节点的action包名配错|
-|10008	|jce JAR错误或者缺少 jce JAR（如果是混淆打包过后出现,请检查混淆代码）|
+|10004	|so 库没有正确导入（Androidstudio 可在 main 文件目录下 添加 jniLibs 命名的文件夹将 SDK 文档中的 Other-Platform-SO 下的7个 so 库文件夹添加至该目录）|
+|10005	|AndroidManifest 文件的 XGRemoteService 节点没有配置或者的该节点的 action 包名配错|
+|10008	|jce JAR 错误或者缺少 jce JAR（如果是混淆打包过后出现,请检查混淆代码）|
 |10101	|创建链路失败（切换网络重试）|
 |10102	|请求处理过程中， 链路被主动关闭（切换网络重试）|
 |10103	|请求处理过程中，服务器关闭链接（切换网络重试）|
@@ -414,6 +413,6 @@ String tokenString = messagingToken.getgetTokenString();  // 获取设备唯一�
 |10107	|请求处理过程中， 等待接收请求超时（切换网络重试）|
 |10108	|服务器返回异常报文|
 |10109	|未知异常，切换网络 或者 重启设备）|
-|10110	|创建链路的handler为null|
+|10110	|创建链路的 handler 为 null|
 |其他|	如出现其他未知错误 请记录错误日志 与我们取得联系|
 
