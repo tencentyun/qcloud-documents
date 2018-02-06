@@ -1,13 +1,11 @@
-#**Error Codes**
+## Error Codes
 "message" field indicates errors related to modules.
 Example:
 "message": "(100004) incorrect projectId"
 It consists of two parts - the string within () indicates the module error code, and the string following () is the error description.
 Different modules may produce different errors. You can identify the cause of error based on error description.<font style="color:red">The common error codes are listed in the following table. Other error codes not listed here can be found in the specific API description of API document.</font>
 
-
-##Common Error Codes##
-
+## Common Error Codes
 
 <table class="t">
 <tbody><tr>

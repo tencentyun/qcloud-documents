@@ -70,9 +70,6 @@ table th:nth-of-type(4) {  width: 235px; }
   </tr>
 </table>
 
-
-![](https://mc.qcloudimg.com/static/img/4a1a20bc186d6a940458744d9eb72cab/image.png)
-
 <h2 id="Windows"> Windows 平台 </h2>
 
 ### 效果预览
