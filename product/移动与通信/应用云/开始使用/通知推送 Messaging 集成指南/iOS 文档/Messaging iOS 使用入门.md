@@ -1,4 +1,3 @@
-## 应用云 Messaging iOS 使用入门
 
 ## 准备工作
 
@@ -47,7 +46,7 @@ import TACMessaging
 
 ### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
  
-一般情况下您使用默认配置就可以了，用一下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
+一般情况下您使用默认配置就可以了，用以下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 
 Objective-C 代码示例：
 ~~~
@@ -60,7 +59,7 @@ Swift 代码示例：
 
 如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACMessaging 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACMessaging 模块这些属性就不存在。
 >**注意：**
-请不要在没有引入 TACMessaging 模块的时候使用这些配置，这将会导致您编译不通过。
+请不要在没有引入 TACMessaging 模块的时候使用这些配置，这将会导致编译不通过。
 
 Objective-C 代码示例：
 ~~~

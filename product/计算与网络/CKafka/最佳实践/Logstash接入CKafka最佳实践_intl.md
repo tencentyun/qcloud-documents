@@ -57,10 +57,8 @@ Now, the operating environment of CKafka has been created.
 ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/input1.png)
 
 2. Write the configuration file "input.conf".
-
 *Here, standard output is taken as the key data, and Kafka is used as the data source*
-
-![](https://mc.qcloudimg.com/static/img/06110a14d01ef395424acf4403188ce3/input2.png)
+![](https://mc.qcloudimg.com/static/img/c3aede643c1bddde175c4ddbd51c06c3/image.png)
 
 3. Launch Logstash to consume message.
 ![](https://mc.qcloudimg.com/static/img/5c58f08f2fd0fff052cab655d00d4133/input3.png)
@@ -74,13 +72,11 @@ For more information on parameter configuration when Kafka is used as output, pl
 ![](https://mc.qcloudimg.com/static/img/c5c876ea5ae5ce75307a5e307357e622/77.png)
 
 2. Write the configuration file "output.conf".
-
 *Here, standard input is taken as the data source, and Kafka is used as the data destination.*
-
-![](https://mc.qcloudimg.com/static/img/661484fed328739fd12bedda0f5e2e67/88.png)
+![](https://mc.qcloudimg.com/static/img/64cc6e6fedcb77aee78779568a282b52/image.png)
 
 3. Launch Logstash to produce message.
-![](https://mc.qcloudimg.com/static/img/c95bbc69c3f0ca36fa42efbb911b0a36/99.png)
+![](https://mc.qcloudimg.com/static/img/1f28c9cac2800e211695307e7138d812/image.png)
 
 4. Verify the data produced just now.
 ![](https://mc.qcloudimg.com/static/img/ae85758a90a497235a90511770f959d2/10.png)

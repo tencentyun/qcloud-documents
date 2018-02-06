@@ -50,15 +50,16 @@ dependencies {
 
 ### 手动集成
 
-如果您使用 Eclipse 作为开发工具并且使用 Ant 编译系统，您可以通过以下方式手动集成。
+如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
 #### 1. 下载服务资源压缩包。
 
-下载请点击[应用云 Storage 服务资源](https://console.cloud.tencent.com/tac)，并解压。
+1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
+2. 下载 [应用云 Storage 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-storage-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包。
 
-将资源文件中的 libs 目录下的文件拷贝到您工程的 libs 目录。
+将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
 
 ## 配置服务
 
