@@ -44,7 +44,6 @@ WordPress是一个内容管理平台，是世界上建立博客和网站最流�
 镜像名称设置为`mariadb`
 版本号选择为`latest`
 
-![应用管理wordpress-04.png-71kB][7]
 
 设置容器其他运行参数：
 5. 设置容器环境变量：
@@ -54,7 +53,6 @@ MYSQL_ROOT_PASSWORD： root
 6. vol数据卷挂载点设置为：/var/lib/mysql 
 (更多关于数据挂载的说明，可以参考[数据卷概述][8])
 
-![应用管理wordpress-05.png-49.1kB][9]
 
 设置服务的实例数：
 7. 服务的实例数设置为1
@@ -133,7 +131,7 @@ spec:
 status:
   loadBalancer: {}
 ```
-点击`从模板内容导入`提取模板中的变量作为配置项。这里自动提取了`NAMESPACE`和`ReleaseCBS_mariadb_vol`作为配置项。并填写`NAMESPACE`配置项的值为`default`。`NAMESPACE`用来表示服务部署到集群的哪个命名空间，更多关于命名空间的说明可以参数[Namespace使用指引][12]。`ReleaseCBS_XXXX`为容器服务为使用Cbs云盘定义的变量，更多关于ReleaseCBS自定义变量的说明可以参考[自定义变量--ReleaseCBS][13]。
+这里自动提取了`NAMESPACE`和`ReleaseCBS_mariadb_vol`作为配置项。并填写`NAMESPACE`配置项的值为`default`。`NAMESPACE`用来表示服务部署到集群的哪个命名空间，更多关于命名空间的说明可以参数[Namespace使用指引][12]。`ReleaseCBS_XXXX`为容器服务为使用Cbs云盘定义的变量，更多关于ReleaseCBS自定义变量的说明可以参考[自定义变量--ReleaseCBS][13]。
 
 ![应用管理wordpress-07.png-50.7kB][14]
 
@@ -142,8 +140,6 @@ status:
 **导入方法1： 通过控制台之间导入**
 
 点击`导入服务`按钮，在控制台填写服务对应参数
-
-![应用管理wordpress-08.png-101.7kB][15]
 
 设置服务的基本信息：
 1. 填写服务名称`wordpress`
@@ -161,7 +157,6 @@ status:
 设置容器资源限制：
 5. 设置容器的CPU分配资源为0.1核，限制最大的使用资源为0.2核
 
-![应用管理wordpress-09.png-62.1kB][16]
 
 设置容器其他运行参数：
 6. 设置容器环境变量：
@@ -171,8 +166,6 @@ WORDPRESS_DB_PASSWORD： root
 设置数据卷的挂载点：
 7. vol数据卷挂载点设置为：/var/www/html 
 (更多关于数据挂载的说明，可以参考[数据卷概述][17])
-
-![应用管理wordpress-10.png-110kB][18]
 
 设置服务的实例数：
 8. 服务的实例数设置为1
@@ -187,8 +180,6 @@ WORDPRESS_DB_PASSWORD： root
 **导入方法2： 通过YAML文件导入**
 
 在应用模板页面，点击`+`按钮，新增一个服务。服务名称设置为`wordpress`。
-
-![应用管理wordpress-11.png-54.1kB][20]
 
 在模板内容编辑区域，将下面的YAML文本内容直接导入：
 
@@ -255,19 +246,15 @@ spec:
 status:
   loadBalancer: {}
 ```
-点击`从模板内容导入`提取模板中的变量作为配置项。这里自动提取ReleaseCBS_wordpress_wordpress_persistent_storage作为配置项。`ReleaseCBS_XXXX`为容器服务为使用Cbs云盘定义的变量，更多关于ReleaseCBS自定义变量的说明可以参考[自定义变量--ReleaseCBS][21]
-
-![应用管理wordpress-12.png-16.6kB][22]
+这里自动提取ReleaseCBS_wordpress_wordpress_persistent_storage作为配置项。`ReleaseCBS_XXXX`为容器服务为使用Cbs云盘定义的变量，更多关于ReleaseCBS自定义变量的说明可以参考[自定义变量--ReleaseCBS][21]
 
 ### 参数转换为配置项
 
 在不同环境中部署，可能会存在不同环境下参数一致的情况。这里在模板内容区域将CPU使用资源设置为变量，在不同环境下设置成不同的值。
-
-![应用管理wordpress-13.png-56.5kB][23]
+![wordpress][23]
 
 在这个示例中我们将CPU分配资源量和最大限制使用资源量设置为变量。分别用变量`CPU_LIMITS`和`CPU_REQUEST`表示。变量的形式符合`{{.}}`这样的形式。更多关于模板中变量的使用可以参考[变量设置][24]。
-
-点击`从模板内容导入`提取模板中的变量作为配置项。这里自动提取变量`CPU_LIMITS`和`CPU_REQUEST`，设置`CPU_LIMITS`的默认值为200m,`CPU_REQUEST`为100m。(1m=0.001核)。
+这里自动提取变量`CPU_LIMITS`和`CPU_REQUEST`，设置`CPU_LIMITS`的默认值为200m,`CPU_REQUEST`为100m。(1m=0.001核)。
 
 点击`完成`后，保存模板信息。在[模板列表页][25]可以看到新创建的模板。
 
@@ -373,8 +360,6 @@ CPU_REQUEST: 400m
 ### 新建应用
 在[应用列表][41]选择创建了命名空间的集群。点击`新建`按钮。
 
-![应用管理wordpress-25.png-13.9kB][42]
-
 ### 选择应用对应的模板和配置
 在新建应用页面，选择对应的应用模板和配置项。
 
@@ -433,30 +418,23 @@ CPU_REQUEST: 400m
 
   [1]: https://baike.baidu.com/item/mariaDB/6466119?fr=aladdin
   [2]: https://console.cloud.tencent.com/ccs/template
-  [3]: https://mc.qcloudimg.com/static/img/fec0b45e9d0115ad394bfc9723a57d7e/image.png
-  [4]: https://mc.qcloudimg.com/static/img/9b87ed2eb0244880c292c914a69e4942/image.png
+  [3]: https://mc.qcloudimg.com/static/img/f72ada368e069275051bc9693f677b40/image.png
+  [4]: https://mc.qcloudimg.com/static/img/d1f4c60ed9a58a3a0c7a4d5b454b5f4b/image.png
   [5]: https://cloud.tencent.com/document/product/457/12199
-  [6]: https://mc.qcloudimg.com/static/img/64a77ad8bb358d1893994089f5099fc6/image.png
-  [7]: https://mc.qcloudimg.com/static/img/dea0f7bc36614c816f887b2bfa6dd751/image.png
+  [6]: https://mc.qcloudimg.com/static/img/5b4226371374d94705cb273b6b2dc005/image.png
   [8]: https://cloud.tencent.com/document/product/457/9112
-  [9]: https://mc.qcloudimg.com/static/img/08da68619a4d81d717e5bf03016f9f53/image.png
   [10]: https://cloud.tencent.com/document/product/457/9098
-  [11]: https://mc.qcloudimg.com/static/img/63de85568b06169699dd49015c0d5963/image.png
+  [11]: https://mc.qcloudimg.com/static/img/1688a7e5da5a4363f98cf4b544777e9e/image.png
   [12]: https://cloud.tencent.com/document/product/457/10177
   [13]: https://cloud.tencent.com/document/product/457/11956#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.8F.98.E9.87.8F--releasecbs
-  [14]: https://mc.qcloudimg.com/static/img/9a1ad6f176e8b46896f890704c38d641/image.png
-  [15]: https://mc.qcloudimg.com/static/img/eeb7dbe0bca6552d5457461c2965b06d/image.png
-  [16]: https://mc.qcloudimg.com/static/img/bd3caf16213e08c34b5fd93ae45f9434/image.png
+  [14]: https://mc.qcloudimg.com/static/img/0f5702315684aefd9d8c69940815adfb/image.png
   [17]: https://cloud.tencent.com/document/product/457/9112
-  [18]: https://mc.qcloudimg.com/static/img/b561424ae42e4f7c97b2ee39af67af13/image.png
   [19]: https://cloud.tencent.com/document/product/457/9098
-  [20]: https://mc.qcloudimg.com/static/img/16172ae9d16ea7e3e4254c911fab5363/image.png
   [21]: https://cloud.tencent.com/document/product/457/11956#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.8F.98.E9.87.8F--releasecbs
-  [22]: https://mc.qcloudimg.com/static/img/73ae4ebec9f7a14fe327745285afd4a1/image.png
-  [23]: https://mc.qcloudimg.com/static/img/287bcbc8199b0c493620b80e43a92c75/image.png
+  [23]: https://mc.qcloudimg.com/static/img/3d8dfa525b98ec7fa486ff29f60492ec/image.png
   [24]: https://cloud.tencent.com/document/product/457/11956
   [25]: https://console.cloud.tencent.com/ccs/template
-  [26]: https://mc.qcloudimg.com/static/img/356329c0bc9dd37f44534cead3a6f438/image.png
+  [26]: https://mc.qcloudimg.com/static/img/d3a797c24d97677c0a9bbbbeaebd7d31/image.png
   [27]: https://cloud.tencent.com/document/product/457/9091
   [28]: https://cloud.tencent.com/document/product/457/10177
   [29]: https://mc.qcloudimg.com/static/img/9c1f92253cdf0533edc335320c8ad5ec/image.png
@@ -472,8 +450,7 @@ CPU_REQUEST: 400m
   [39]: https://mc.qcloudimg.com/static/img/c47b6166f9ac694d7007ba0022aae9d1/image.png
   [40]: https://mc.qcloudimg.com/static/img/bffc9672fffd153b3dad8a27d52c5b24/image.png
   [41]: https://console.cloud.tencent.com/ccs/application
-  [42]: https://mc.qcloudimg.com/static/img/58c321ec3ce6c9aad5fc56d4f2ba7cc4/image.png
-  [43]: https://mc.qcloudimg.com/static/img/1f607149a780cab88223c70cc97fd3d1/image.png
+  [43]: https://mc.qcloudimg.com/static/img/d2bd401b2abb09c06888a970f288dce7/image.png
   [44]: https://mc.qcloudimg.com/static/img/55c56855603f94e761d090ac054e99a7/image.png
   [45]: https://mc.qcloudimg.com/static/img/0bb385567036bbd8292a2483e873dfd9/image.png
   [46]: https://mc.qcloudimg.com/static/img/494789266f4a4bf401c9ef245b0d7760/image.png
