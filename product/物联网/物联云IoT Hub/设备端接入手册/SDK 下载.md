@@ -5,6 +5,13 @@
 - 下载最新版 
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
 
+### 版本 v1.2.1
+- 发布日期：2018/02/02
+- 开发语言：C语言
+- 开发环境：Linux, GNU Make
+- 内容：
+	1、修复Publish消息超时回调的错误逻辑
+
 ### 版本 v1.2.0
 - 发布日期：2018/1/17
 - 开发语言：C 语言

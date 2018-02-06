@@ -1,4 +1,6 @@
+
 **请求示例:**
+
 ```
 PUT /222.txt HTTP/1.1
 Host: bucket1-1252443703.cos.ap-beijing.myqcloud.com
@@ -11,6 +13,7 @@ Content-Length: 0
 ```
 
 **响应示例:**
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml

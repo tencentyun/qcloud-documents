@@ -1,14 +1,14 @@
 ## 简介
-本接口用于人脸融合。
+本接口用于人脸融合，用户上传图片与模板号，获取融合后的图片。
 
 
 ## 说明
 
 | 概念     | 解释               |
 | ------ | ---------------- |
-| appid  | 项目ID, 接入项目的唯一标识 |
+| appid  | 项目 ID, 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看 |
 
-## 调用URL
+## 调用 URL
 支持 http 和 https 两种协议：
 
 http://aiconsole.cloud.tencent.com/fuseapi/face
@@ -16,7 +16,7 @@ http://aiconsole.cloud.tencent.com/fuseapi/face
 https://aiconsole.cloud.tencent.com/fuseapi/face
 
 
-## 请求包header
+## 请求包 header
 所有请求都要求含有下表列出的头部信息：
 
 | 参数名            | 值                                        | 描述                                       |
@@ -24,24 +24,24 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | Host           | aiconsole.cloud.tencent.com               | 服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json   | 参数类型                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](document/product/641/12409)的签名 |
+| Authorization  | 鉴权签名                                     | 用于 [**鉴权**](/document/product/641/12409) 的签名 |
 
-><font color="#0000cc">**注意：** </font>
- (1) 每个请求的包体大小限制为 6MB；
- (2) 所有接口都为 POST 方法；
- (3) 不支持 .gif 这类的动图。
+> **注意：**
+> 1、每个请求的包体大小限制为 6MB；
+> 2、所有接口都为 POST 方法；
+> 3、不支持 .gif 这类的动图。
 
 ## 请求参数
 使用 application/json 格式。
 
 | 参数名    | 是否必须 | 类型     | 说明    |
 | ------ | ---- | ------ | ------- |
-| appid  | 必须   | string | 项目ID，腾讯云账号信息中可查    |
-| uin    | 必须   | string | 账号ID，腾讯云账号信息中可查 |
-| project_id    | 必须   | string | 活动ID |
-| model_id    | 必须   | string | 素材ID |
-| img_data    | 必须   | string | 图片base64数据 |
-| rsp_img_type    | 可选   | string | 返回图像方式（url, base64)，默认url， base64则返回base64数据 |
+| appid  | 必须   | string | 项目 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看   |
+| uin    | 必须   | string | 账号 ID，可在 [账号信息](https://console.cloud.tencent.com/developer) 查看|
+| project_id    | 必须   | string | 活动 ID |
+| model_id    | 必须   | string | 素材 ID |
+| img_data    | 必须   | string | 图片 base64 数据 |
+| rsp_img_type    | 可选   | string | 返回图像方式（url, base64)，默认 url， base64 则返回 base64 数据 |
 
 
 ## 返回内容
@@ -49,7 +49,7 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | 字段                 | 类型     | 说明      |
 | ------------------ | ------ | ------- |
 | ret | int | 错误码 |
-| img_url               | string    | rsp_img_type为url时，返回结果的url,  rsp_img_type为base64时返回base64数据   |
+| img_url               | string    | rsp_img_type 为 url 时，返回结果的 url,  rsp_img_type 为 base64 时返回 base64 数据   |
 | msg            | string | 错误描述  |
 
 ## 示例
