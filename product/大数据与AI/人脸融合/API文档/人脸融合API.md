@@ -6,7 +6,7 @@
 
 | 概念     | 解释               |
 | ------ | ---------------- |
-| appid  | 项目 ID, 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer)或[云 API 密钥](https://console.cloud.tencent.com/cam/capi)中查看 |
+| appid  | 项目 ID, 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看 |
 
 ## 调用 URL
 支持 http 和 https 两种协议：
@@ -26,10 +26,10 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | Content-Type   | application/json   | 参数类型                                 |
 | Authorization  | 鉴权签名                                     | 用于 [**鉴权**](document/product/641/12409) 的签名 |
 
-><font color="#0000cc">**注意：** </font>
- (1) 每个请求的包体大小限制为 6MB；
- (2) 所有接口都为 POST 方法；
- (3) 不支持 .gif 这类的动图。
+> **注意：**
+> 1、每个请求的包体大小限制为 6MB；
+> 2、所有接口都为 POST 方法；
+> 3、不支持 .gif 这类的动图。
 
 ## 请求参数
 使用 application/json 格式。
