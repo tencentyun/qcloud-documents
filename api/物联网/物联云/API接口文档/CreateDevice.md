@@ -27,7 +27,7 @@
 | deviceName       | String | 设备名称                                     |
 | deviceCert       | String | 设备证书，用于 TLS 建立链接时校验客户端身份。采用非对称加密时返回该参数   |
 | devicePrivateKey | String | 设备私钥，用于 TLS 建立链接时校验客户端身份，腾讯云后台不保存，请妥善保管。采用非对称加密时返回该参数 |
-| devicePsk        | String | 对称加密密钥。采用对称加密时返回该参数                      |
+| devicePsk        | String | 对称加密密钥，base64编码。采用对称加密时返回该参数             |
 
 
 ### 4. 示例
