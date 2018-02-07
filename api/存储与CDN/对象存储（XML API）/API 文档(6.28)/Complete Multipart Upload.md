@@ -33,9 +33,9 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 ```
 具体内容如下：
 
-|参数名称|描述|类型|必选|
-|:---|:-- |:--|:--|
-| uploadId |标识本次分块上传的 ID 。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 | String |是|
+| 参数名称     | 描述                                       | 类型     | 必选   |
+| :------- | :--------------------------------------- | :----- | :--- |
+| uploadId | 标识本次分块上传的 ID 。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 | String | 是    |
 
 ### 请求头
 
@@ -59,29 +59,35 @@ POST /ObjectName?uploadId=UploadId HTTP/1.1
 
 具体的数据内容如下：
 
-|节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| CompleteMultipartUpload |无| 用来说明本次分块上传的所有信息 | Container |是|
+| 节点名称（关键字）               | 父节点  | 描述              | 类型        | 必选   |
+| :---------------------- | :--- | :-------------- | :-------- | :--- |
+| CompleteMultipartUpload | 无    | 用来说明本次分块上传的所有信息 | Container | 是    |
 
 Container 节点 CompleteMultipartUpload 的内容：
 
-|节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| Part |CompleteMultipartUpload| 用来说明本次分块上传中每个块的信息 | Container |是|
+| 节点名称（关键字） | 父节点                     | 描述                | 类型        | 必选   |
+| :-------- | :---------------------- | :---------------- | :-------- | :--- |
+| Part      | CompleteMultipartUpload | 用来说明本次分块上传中每个块的信息 | Container | 是    |
 
 Container 节点 Part 的内容：
 
-|节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:-- |:--|:--|:--|
-| PartNumber| CompleteMultipartUpload.Part | 块编号 | Integer |是|
-| ETag | CompleteMultipartUpload.Part | 每个块文件的 MD5 算法校验值 | String |是|
+| 节点名称（关键字）  | 父节点                          | 描述               | 类型      | 必选   |
+| :--------- | :--------------------------- | :--------------- | :------ | :--- |
+| PartNumber | CompleteMultipartUpload.Part | 块编号              | Integer | 是    |
+| ETag       | CompleteMultipartUpload.Part | 每个块文件的 MD5 算法校验值 | String  | 是    |
 ## 响应
 
 ### 响应头
 #### 公共响应头 
 该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
-该响应无特殊的响应头。
+**服务端加密相关响应**
+
+如果在上传时指定使用了服务端加密，响应头部将会包含如下信息：
+
+| 名称                           | 描述                                       | 类型     |
+| ---------------------------- | ---------------------------------------- | ------ |
+| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
@@ -95,18 +101,18 @@ Container 节点 Part 的内容：
 ```
 具体的数据内容如下：
 
-|节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
-| CompleteMultipartUploadResult |无| 说明所有返回信息 | Container |
+| 节点名称（关键字）                     | 父节点  | 描述       | 类型        |
+| :---------------------------- | :--- | :------- | :-------- |
+| CompleteMultipartUploadResult | 无    | 说明所有返回信息 | Container |
 
 Container 节点 CompleteMultipartUploadResult 的内容：
 
-|节点名称（关键字）|父节点|描述|类型|
-|:---|:-- |:--|:--|
-| Location |CompleteMultipartUploadResult| 创建的Object的外网访问域名 | URL |
-| Bucket |CompleteMultipartUploadResult| 分块上传的目标Bucket，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000 | String |
-| Key |CompleteMultipartUploadResult| Object的名称 | String |
-| ETag |CompleteMultipartUploadResult| 合并后文件的 MD5 算法校验值| String |
+| 节点名称（关键字） | 父节点                           | 描述                                       | 类型     |
+| :-------- | :---------------------------- | :--------------------------------------- | :----- |
+| Location  | CompleteMultipartUploadResult | 创建的Object的外网访问域名                         | URL    |
+| Bucket    | CompleteMultipartUploadResult | 分块上传的目标Bucket，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000 | String |
+| Key       | CompleteMultipartUploadResult | Object的名称                                | String |
+| ETag      | CompleteMultipartUploadResult | 合并后文件的 MD5 算法校验值                         | String |
 
 ## 实际案例
 

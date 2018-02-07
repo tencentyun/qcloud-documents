@@ -18,7 +18,7 @@
 
 **2.2 创建frontend服务**
 
-(1) 点击图中`+`号，新增一个服务。服务名称设置为frontend。
+(1) 点击图中`新增空服务`按钮，新增一个服务。服务名称设置为frontend。
 
 ![应用模板gustbook示例-002.png-25.9kB][4]
 
@@ -38,7 +38,7 @@ spec:
       - env:
         - name: GET_HOSTS_FROM
           value: dns
-        image: {{.FRONTEND_IMAGE}}:{{.FRONTEND_VERSION}}
+        image: ccr.ccs.tencentyun.com/library/gb-frontend:{{.FRONTEND_VERSION}}
         imagePullPolicy: Always
         name: php-redis
         resources:
@@ -80,7 +80,7 @@ spec:
   template:
     spec:
       containers:
-      - image: {{.REDIS_MASTER_IMAGE}}:{{.REDIS_MASTER_VERSION}}
+      - image: ccr.ccs.tencentyun.com/library/redis:{{.REDIS_MASTER_VERSION}}
         imagePullPolicy: Always
         name: master
         resources:
@@ -128,7 +128,7 @@ spec:
       - env:
         - name: GET_HOSTS_FROM
           value: dns
-        image: {{.REDIS_SLAVE_IMAGE}}:{{.REDIS_SLAVE_VERSION}}
+        image: ccr.ccs.tencentyun.com/library/gb-redisslave :{{.REDIS_SLAVE_VERSION}}
         imagePullPolicy: Always
         name: slave
         resources:
@@ -165,46 +165,31 @@ spec:
 **2.5 导出配置项，并填写配置项内容**
 
 在应用模板汇总使用了多个变量，需要在配置项中为变量设置默认值。具体的做法如下。
-
-(1) 点击`从模板内容导入`，导出模板中的变量作为配置项。这里导出`NAMESPACE`,FRONTEND_REPLICAS，FRONTEND_IMAGE，FRONTEND_VERSION，REDIS_MASTER_IMAGE，REDIS_MASTER_VERSION，REDIS_SLAVE_IMAGE，REDIS_SLAVE_IMAGE作为配置项。
-
-![应用模板gustbook示例-004.png-32.6kB][6]
-
-(2) 填写配置中配置项的内容。在本示例中，配置项的默认值如下。(可以根据需要进行修改)
+填写配置中配置项的内容。在本示例中，配置项的默认值如下。(可以根据需要进行修改)
 ```
 NAMESPACE: default
 FRONTEND_REPLICAS: 2
-FRONTEND_IMAGE: ccr.ccs.tencentyun.com/library/gb-frontend
 FRONTEND_VERSION: v4
-REDIS_MASTER_IMAGE: ccr.ccs.tencentyun.com/library/redis
 REDIS_MASTER_VERSION: e2e
-REDIS_SLAVE_IMAGE: ccr.ccs.tencentyun.com/library/gb-redisslave
-REDIS_SLAVE_IMAGE: v1
+REDIS_SLAVE_VERSION: v1
 ```
-填写完之后，配置项的值如下图所示。
-
-![应用模板gustbook示例-005.png-27kB][7]
+![应用模板gustbook示例-004.png-32.6kB][6]
 
 ## 步骤三: 完成应用模板编辑，并查看
 
 在步骤二中，完成了应用模板的编辑。点击`完成`按钮，保存应用模板。
-
-![应用模板gustbook示例-006.png-5.3kB][8]
-
 这样应用模板就创建完成，可以在应用模板列表查看。
 
-![应用模板gustbook示例-007.png-17.1kB][9]
+![应用模板gustbook示例-006.png-5.3kB][8]
 
 接下来可以使用创建的模板，进行应用服务部署。关于如何使用应用模板进行应用部署可以参考[创建应用][10]。关于`Guestbook`这个应用模板具体部署应用的过程可以参考应用[模板示例-Guestbook应用][11]。
 
   [1]: https://console.cloud.tencent.com/ccs/template
-  [2]: https://mc.qcloudimg.com/static/img/916facfa358f0ab96524c2e644a3b223/image.png
-  [3]: https://mc.qcloudimg.com/static/img/ca4cfb00da6fef22577596fa145156fd/image.png
-  [4]: https://mc.qcloudimg.com/static/img/5dad81c961661a5ee4147d1a5b3231a6/image.png
-  [5]: https://mc.qcloudimg.com/static/img/3b29da4e2d2e758c0c144029bcf583d0/image.png
-  [6]: https://mc.qcloudimg.com/static/img/dc0552a8a6b110b35d3f6e95fde12efc/image.png
-  [7]: https://mc.qcloudimg.com/static/img/a3c9542183055e9ebc2cf834aae43957/image.png
-  [8]: https://mc.qcloudimg.com/static/img/66635b054bf711fa4c570265bed3971a/image.png
-  [9]: https://mc.qcloudimg.com/static/img/f371ff5c3969ecb50bc80f2599c5b67a/image.png
+  [2]: https://mc.qcloudimg.com/static/img/0102424d765d3deab8a2b81bee485337/image.png
+  [3]: https://mc.qcloudimg.com/static/img/43d6a83add5684351d6ad5bbb3bef7b1/image.png
+  [4]: https://mc.qcloudimg.com/static/img/138339c3113312e63dc7ff401706c5c2/image.png
+  [5]: https://mc.qcloudimg.com/static/img/4283f6420c2d97c6d3e2da97b1f9b677/image.png
+  [6]: https://mc.qcloudimg.com/static/img/93f595d1d91ea5d7eeabedca4201a713/image.png
+  [8]: https://mc.qcloudimg.com/static/img/e8fcce18d38450eb9aaa23f4092077db/image.png
   [10]: https://cloud.tencent.com/document/product/457/11942
   [11]: https://cloud.tencent.com/document/product/457/11944
