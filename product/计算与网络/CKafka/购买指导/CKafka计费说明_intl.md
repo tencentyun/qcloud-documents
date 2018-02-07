@@ -1,6 +1,5 @@
+**Postpaid CKafka** refer to the following pricing standards. The pricing is based on **throughput Unit** and **numbers of messages**. As shown below:
 
-
-**Postpaid CKafka** refer to the following pricing standards. The pricing is based on **throughput Unit** and **numbers of messages**. One Unit provides a capacity of 1MB/sec data input and 1MB/sec data output. 
-
-- **throughput Unit:** $0.0150 / per unit
-- **numbers of messages:** $0.0140 / per 1,000,000 units
+**Pricing:**
+1. throughput Unit（1MB/s）:	$ 0.36 USD/day
+2. numbers of messages: $ 0.028 USD/per 1,000,000 messages

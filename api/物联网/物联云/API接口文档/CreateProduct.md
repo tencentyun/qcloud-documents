@@ -18,10 +18,11 @@
 
 productProperties定义为：
 
-| 参数名称               | 类型     | 描述                 |
-| ------------------ | ------ | ------------------ |
-| productDescription | String | 产品描述               |
-| region             | String | 产品所属区域，目前只支持广州（gz） |
+| 参数名称               | 类型     | 描述                               |
+| ------------------ | ------ | -------------------------------- |
+| productDescription | String | 产品描述                             |
+| encryptionType     | String | 加密类型，1表示非对称加密，2表示对称加密。如不填写，默认值是1 |
+| region             | String | 产品所属区域，目前只支持广州（gz）               |
 
 
 
@@ -43,7 +44,7 @@ productProperties定义为：
 
   https://iotcloud.api.qcloud.com/v2/index.php?Action=CreateProduct
   &productName=fruit
-  &productProperties={"productDescription":"desc","regon":"gz"}
+  &productProperties={"productDescription":"desc", "encryptionType":"1", region":"gz"}
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 
 </pre>
