@@ -126,7 +126,7 @@ p.fileId = @"4564972819220421305";
 [_txVodPlayer startPlay:url];
 ```
 
-### step 9: 本地缓存
+### step 9: 本地缓存 [UGC版本暂不支持]
 在短视频播放场景中，视频文件的本地缓存是很刚需的一个特性，对于普通用户而言，一个已经看过的视频再次观看时，不应该再消耗一次流量。
 
 - **格式支持**
@@ -189,12 +189,12 @@ _player_B.isAutoPlay = NO;
 ### step 11: 贴片广告
 autoPlay 还可以用来做贴片广告功能，由于设置了 autoPlay 为 NO 之后，播放器会立刻加载但又不会立刻播放，因此可以在此时展示贴片广告，等广告播放结束，在使用 resume 函数立即开始视频的播放。
 
-### step 12: 加密播放
+### step 12: 加密播放 [UGC版本暂不支持]
 视频加密方案主要用于在线教育等需要对视频版权进行保护的场景。如果要对您的视频资源进行加密保护，就不仅仅需要在播放器上做改造，还需要对视频源本身进行加密转码，亦需要您的后台和终端研发工程师都参与其中。在 [视频加密解决方案](https://cloud.tencent.com/document/product/266/9638) 中您会了解到全部细节内容。
 
 目前 TXVodPlayer 也是支持加密播放的，您可以使用通过 [URL](https://cloud.tencent.com/document/product/266/9638#.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE.E6.96.B9.E6.A1.881.EF.BC.9A.E9.80.9A.E8.BF.87querystring.E4.BC.A0.E9.80.92.E8.BA.AB.E4.BB.BD.E8.AE.A4.E8.AF.81.E4.BF.A1.E6.81.AF) 携带身份认证信息的方案，该种方案下 SDK 的调用方式跟普通情况没有什么区别。 您也可以使用 [Cookie](https://cloud.tencent.com/document/product/266/9638#.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE.E6.96.B9.E6.A1.882.EF.BC.9A.E9.80.9A.E8.BF.87cookie.E4.BC.A0.E9.80.92.E8.BA.AB.E4.BB.BD.E8.AE.A4.E8.AF.81.E4.BF.A1.E6.81.AF) 携带身份认证信息的方案，该种方案下，需要您通过 TXVodPlayConfig 中的 headers 字段设置 cookie 信息于 http 请求头中。
 
-### step 13: HTTP-REF
+### step 13: HTTP-REF [UGC版本暂不支持]
 TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用的防止 URL 被到处拷贝的 Referer 字段（腾讯云可以提供更加安全的签名防盗链方案），以及用于验证客户端身份信息的 Cookie 字段。
 
 ### step 14: 硬件加速
@@ -208,7 +208,7 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
   [_txVodPlayer startPlay:_flvUrl type:_type];
 ```
 
-### step 15: 多码率文件
+### step 15: 多码率文件 [UGC版本暂不支持]
 SDK支持hls的多码率格式，方便用户切换不同码率的播放流。在收到PLAY_EVT_PLAY_BEGIN事件后，可以通过下面方法获取多码率数组
 ```objectivec
 NSArray *bitrates = [_txVodPlayer supportedBitrates]; //获取多码率数组

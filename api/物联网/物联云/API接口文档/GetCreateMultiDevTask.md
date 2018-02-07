@@ -8,9 +8,10 @@
 
 以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/doc/api/229/6976) 页面。
 
-| 参数名称   | 必选   | 类型     | 描述                |
-| ------ | ---- | ------ | ----------------- |
-| taskID | 是    | String | 任务 ID，由批量创建设备接口返回 |
+| 参数名称      | 必选   | 类型     | 描述                          |
+| --------- | ---- | ------ | --------------------------- |
+| productID | 是    | String | 产品 ID，创建产品时腾讯云为用户分配全局唯一的 ID |
+| taskID    | 是    | String | 任务 ID，由批量创建设备接口返回           |
 
 
 
@@ -32,7 +33,7 @@
 
 <pre>
   https://iotcloud.qcloud.com/v2/index.php?Action=GetCreateMultiDevTask
-  &taskID=abcdedf123456789
+  &productID=ABCDE12345&taskID=abcdedf123456789
   &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
 
@@ -53,6 +54,7 @@
 | 模块错误码 | 描述              |
 | ----- | --------------- |
 | 2006  | 任务不存在           |
+| 2012  | 用户或产品不匹配任务ID    |
 | 2100  | 内部服务器错误，请联系技术人员 |
 | 2101  | 请求参数非法          |
 
