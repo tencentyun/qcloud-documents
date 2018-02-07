@@ -34,7 +34,7 @@
 | deviceName       | String | 设备名称                          |
 | deviceCert       | String | 设备证书，采用非对称加密时返回该参数            |
 | devicePrivateKey | String | 设备私钥，采用非对称加密时返回该参数            |
-| devicePsk        | String | 对称加密密钥，采用对称加密时返回该参数           |
+| devicePsk        | String | 对称加密密钥，base64 编码，采用对称加密时返回该参数 |
 | result           | Int    | 执行结果，参考 CreateDevice 接口的返回码定义 |
 | errMsg           | String | 错误信息                          |
 
