@@ -55,6 +55,70 @@
 		"/": {
 			"get": {
 				"tags": [
+				  "serrvice"
+				],
+				"summary": "Get Service",
+				"description": "Get Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。",
+				"operationId": "GetService",
+				"responses": {
+				  "200": {
+					"error_code" : "None",
+					"description": "查询成功，返回 application/xml 数据，包含bucket中的对象信息",
+					"headers": {
+					  "x-cos-request-id": {
+						"description": "全局唯一的请求标识号",
+						"schema": {
+						  "type": "string"
+						}
+					  }
+					},
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#components/schemas/GetServiceResult"
+						}
+					  }
+					}
+				  },
+				  "400": {
+					"error_code" : "InvalidBucketName",
+					"description": "Bucket名称不合法",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "403": {
+					"error_code" : "SignatureDoesNotMatch",
+					"description": "提供的签名不符合规则，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "404": {
+					"error_code" : "NoSuchBucket",
+					"description": "Bucket 不存在，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error"
+						}
+					  }
+					}
+				  }
+				}
+			},
+			"get-2": {
+				"tags": [
 					"bucket"
 				],
 				"summary": "Get Bucket",
@@ -125,7 +189,7 @@
 							}
 						},
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/ListBucketResult"
 								}
@@ -136,7 +200,7 @@
 						"error_code": "InvalidBucketName",
 						"description": "Bucket名称不合法",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -148,7 +212,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -160,14 +224,15 @@
 						"error_code": "NoSuchBucket",
 						"description": "Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetBucket"
 			},
 			"put": {
 				"tags": [
@@ -235,7 +300,7 @@
 						"error_code": "TooManyBucket",
 						"description": "bucket数量超过200限制",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -247,7 +312,7 @@
 						"error_code": "InvalidBucketName",
 						"description": "Bucket名称不合法",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -259,7 +324,7 @@
 						"error_code": "InvalidBucketName",
 						"description": "Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"oneOf": [
 										{
@@ -279,7 +344,7 @@
 						"error_code": "BucketAlreadyExists",
 						"description": "CreateBucket指定的BucketName已经使用，请选择新的BucketName",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -287,8 +352,131 @@
 							}
 						}
 					}
-				}
-			}
+                },
+                "Demo": "demos/PutBucket"
+            },
+            "delete": {
+                "tags": [
+                  "bucket"
+                ],
+                "summary": "Delete Bucket",
+                "description": "Delete Bucket 接口请求可以在指定账号下删除 Bucket，删除之前要求 Bucket 内的内容为空，只有删除了 Bucket 内的信息，才能删除 Bucket 本身 。",
+                "operationId": "DeleteBucket",
+                "responses": {
+                  "204": {
+                    "error_code" : "None",
+                    "description": "删除Bucket成功，返回 application/xml 数据",
+                    "headers": {
+                      "x-cos-request-id": {
+                        "description": "全局唯一的请求标识号",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "403": {
+                    "error_code" : "AccessDenied",
+                    "description": "删除 Bucket 同样需要携带签名，如果试图删除一个没有访问权限的 Bucket，就会返回该错误",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                    },
+                  "404": {
+                    "error_code" : "InvalidBucketName",
+                    "description": "Bucket 不存在，返回该错误码",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "oneOf": [
+                            {
+                              "description" : "ddd",
+                              "type": "string"
+                            },
+                            {
+                              "description" : "eee",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "409": {
+                    "error_code" : "BucketNotEmpty",
+                    "description": "不能删除一个非空的 Bucket",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Demo": "demos/DeleteBucket"
+            },
+            "head": {
+                "tags": [
+                  "bucket"
+                ],
+                "summary": "Head Bucket",
+                "description": "Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。Head 的权限与 Read 一致。当该 Bucket 存在时，返回 HTTP 状态码 200；当该 Bucket 无访问权限时，返回 HTTP 状态码 403；当该 Bucket 不存在时，返回 HTTP 状态码 404。",
+                "operationId": "HeadBucket",
+                "responses": {
+                  "200": {
+                    "error_code" : "None",
+                    "description": "该 Bucket 存在",
+                    "headers": {
+                      "x-cos-request-id": {
+                        "description": "全局唯一的请求标识号",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "403": {
+                    "error_code" : "SignatureDoesNotMatch",
+                    "description": "提供的签名不符合规则，返回该错误码",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                  },
+                  "404": {
+                    "error_code" : "NoSuchBucket",
+                    "description": "该 Bucket 不存在",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "oneOf": [
+                            {
+                              "description" : "ddd",
+                              "type": "string"
+                            },
+                            {
+                              "description" : "eee",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "Demo": "demos/HeadBucket"
+            }
 		},
 		"/?cors": {
 			"put": {
@@ -331,7 +519,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -343,14 +531,15 @@
 						"error_code": "NoSuchBucket",
 						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/PutBucketCORS"
 			},
 			"get": {
 				"tags": [
@@ -364,7 +553,7 @@
 						"error_code": "None",
 						"description": "获取跨域资源共享的信息配置成功",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/BucketCorsRequest"
 								}
@@ -375,7 +564,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -386,14 +575,15 @@
 						"error_code": "NoSuchCORSConfiguration",
 						"description": "跨域配置不存在",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+                },
+                "Demo": "demos/GetBucketCORS"
 			},
 			"delete": {
 				"tags": [
@@ -411,14 +601,15 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+        "Demo": "demos/DeleteBucketCORS"
 			}
 		},
 		"/{ObjectName}": {
@@ -612,7 +803,7 @@
 						"error_code": "InvalidURI",
 						"description": "对象 key 长度限制为 850，如果超过 850 会返回该错误",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -623,7 +814,7 @@
 						"error_code": "EntityTooLarge",
 						"description": "如果添加的文件长度超过5G，会返回该错误",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -634,7 +825,7 @@
 						"error_code": "InvalidDigest",
 						"description": "如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 Md5 和用户携带的 MD5 是否一致，如果不一致将返回该错误",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -645,7 +836,7 @@
 						"error_code": "KeyTooLong",
 						"description": "上传文件时携带的以x-cos-meta开头的自定义头部，每个自定义头部的key和value加起来不能超过4k，否则返回该错误",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -656,7 +847,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -668,7 +859,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "如果试图添加的 Object 所在的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -679,7 +870,7 @@
 						"error_code": "MissingContentLength",
 						"description": "如果上传文件时，没有添加 Content-Length 头部，会返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -832,7 +1023,7 @@
 						"error_code": "None",
 						"description": "拷贝成功,返回响应体",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/CopyObjectResult"
 								}
@@ -995,7 +1186,7 @@
 						"error_code": "None",
 						"description": "拷贝成功,返回响应体",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/CopyObjectResult"
 								}
@@ -1160,7 +1351,7 @@
 						"error_code": "InvalidArgument",
 						"description": "提供的参数错误",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1171,7 +1362,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1182,7 +1373,7 @@
 						"error_code": "NoSuchKey",
 						"description": "如果下载的文件不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1343,7 +1534,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1354,7 +1545,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1561,7 +1752,7 @@
 						"error_code": "InvalidURI",
 						"description": "对象 key 长度限制为 850，如果超过 850 会返回该错误",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1572,7 +1763,7 @@
 						"error_code": "InvalidArgument",
 						"description": "如果请求中未携带 position 参数，会返回400 Bad Request",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1583,7 +1774,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -1595,7 +1786,7 @@
 						"error_code": "InvalidObjectState",
 						"description": "如果对一个非 appendable 的文件进行 append 操作，那么会返回 409 Confilct",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1606,7 +1797,7 @@
 						"error_code": "MissingContentLength",
 						"description": "如果追加文件时，没有添加 Content-Length 头部，会返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1691,7 +1882,7 @@
 							}
 						},
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/ListPartsResult"
 								}
@@ -1762,7 +1953,7 @@
 						"error_code": "RestoreAlreadyInProgress",
 						"description": "对象已经在恢复中",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1813,7 +2004,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -1825,7 +2016,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1836,7 +2027,7 @@
 						"error_code": "MalformedXML",
 						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1847,7 +2038,7 @@
 						"error_code": "InvalidRequest",
 						"description": "请求不合法，如果错误描述中显示\"Conflict lifecycle rule\"，那么表示xml数据中的多条 rule 有相互冲突的部分。",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1858,14 +2049,15 @@
 						"error_code": "InvalidArgument",
 						"description": "请求参数不合法，如果错误描述中显示\"Rule ID must be unique. Found same ID for more than one rule\"， 那么表示有多个 Rule 的 id 字段相同。",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+        },
+        "Demo": "demos/PutBucketLifecycle"
 			},
 			"get": {
 				"tags": [
@@ -1879,7 +2071,7 @@
 						"error_code": "None",
 						"description": "获取生命周期配置成功",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/BucketLifecycle"
 								}
@@ -1890,7 +2082,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -1901,14 +2093,15 @@
 						"error_code": "NoSuchLifecycleConfiguration",
 						"description": "生命周期配置不存在",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+        },
+        "Demo": "demos/GetBucketLifecycle"
 			},
 			"delete": {
 				"tags": [
@@ -1926,16 +2119,64 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+        },
+        "Demo": "demos/DeleteBucketLifecycle"
 			}
-		},
+        },
+        "/?location": {
+            "get": {
+              "tags": [
+                "bucket"
+              ],
+              "summary": "Get Bucket Location",
+              "description": "Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。",
+              "operationId": "GetBucketLocation",
+              "responses": {
+                "200": {
+                  "error_code" : "None",
+                  "description": "上传成功,响应体返回为空",
+                   "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#components/schemas/GetBucketLocationResult"
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "error_code" : "SignatureDoesNotMatch",
+                  "description": "提供的签名不符合规则，返回该错误码",
+                  "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Error",
+                        "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                      }
+                    }
+                  }
+                },
+                "404": {
+                  "error_code" : "NoSuchBucket",
+                  "description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+                  "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Error"
+                      }
+                    }
+                  }
+                }
+              },
+              "Demo": "demos/GetBucketLocation"
+            }
+        },
 		"/?tagging": {
 			"put": {
 				"tags": [
@@ -1977,7 +2218,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -1989,7 +2230,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2000,7 +2241,7 @@
 						"error_code": "MalformedXML",
 						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2011,7 +2252,7 @@
 						"error_code": "BadRequest",
 						"description": "如超过了允许一个bucket最大设置的tag数量, 目前最大支持10",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2022,7 +2263,7 @@
 						"error_code": "InvalidTag",
 						"description": "tag 的key和value中包含了保留字符串 cos: ",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2033,7 +2274,7 @@
 						"error_code": "InvalidTag",
 						"description": "tag 的key长度超过了128个字符或者value超过了256个字符",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2044,7 +2285,7 @@
 						"error_code": "InvalidTag",
 						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2055,14 +2296,15 @@
 						"error_code": "InvalidTag",
 						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/PutBucketTagging"
 			},
 			"get": {
 				"tags": [
@@ -2076,7 +2318,7 @@
 						"error_code": "None",
 						"description": "获取标签成功",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/Tag"
 								}
@@ -2087,7 +2329,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -2099,7 +2341,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2110,14 +2352,15 @@
 						"error_code": "NoSuchTagSet",
 						"description": "Buckte不包含Tag",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetBucketTagging"
 			},
 			"delete": {
 				"tags": [
@@ -2135,14 +2378,15 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/DeleteBucketTagging"
 			}
 		},
 		"/{ObjectName}?tagging": {
@@ -2196,7 +2440,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -2208,7 +2452,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "object所在的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2219,7 +2463,7 @@
 						"error_code": "NoSuchKey",
 						"description": "object 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2230,7 +2474,7 @@
 						"error_code": "MalformedXML",
 						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2241,7 +2485,7 @@
 						"error_code": "BadRequest",
 						"description": "如超过了允许一个object最大设置的tag数量, 目前最大支持10",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2252,7 +2496,7 @@
 						"error_code": "InvalidTag",
 						"description": "tag 的key和value中包含了保留字符串 cos: ",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2263,7 +2507,7 @@
 						"error_code": "InvalidTag",
 						"description": "tag 的key长度超过了128个字符或者value超过了256个字符",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2274,7 +2518,7 @@
 						"error_code": "InvalidTag",
 						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2285,14 +2529,15 @@
 						"error_code": "InvalidTag",
 						"description": "tag的key和value包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/PutObjectTagging"
 			},
 			"get": {
 				"tags": [
@@ -2318,7 +2563,7 @@
 						"error_code": "None",
 						"description": "获取tag成功",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/Tag"
 								}
@@ -2329,7 +2574,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -2341,7 +2586,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2352,14 +2597,15 @@
 						"error_code": "NoSuchKey",
 						"description": "文件路径不存在",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/GetObjectTagging"
 			},
 			"delete": {
 				"tags": [
@@ -2389,7 +2635,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2400,14 +2646,15 @@
 						"error_code": "NoSuchKey",
 						"description": "文件路径不存在",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
 							}
 						}
 					}
-				}
+				},
+                "Demo": "demos/DeleteObjectTagging"
 			}
 		},
 		"/?acl": {
@@ -2491,7 +2738,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -2503,7 +2750,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2514,7 +2761,7 @@
 						"error_code": "MalformedXML",
 						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2525,7 +2772,7 @@
 						"error_code": "InvalidRequest",
 						"description": "请求不合法，如果错误描述中显示\"header acl and body acl conflict\"，那么表示不能头部和body都有acl参数。",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2546,7 +2793,7 @@
 						"error_code": "None",
 						"description": "获取ACL配置成功",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/ACL"
 								}
@@ -2557,7 +2804,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2648,7 +2895,7 @@
 						"error_code": "SignatureDoesNotMatch",
 						"description": "提供的签名不符合规则，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error",
 									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
@@ -2660,7 +2907,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2671,7 +2918,7 @@
 						"error_code": "MalformedXML",
 						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2682,7 +2929,7 @@
 						"error_code": "InvalidRequest",
 						"description": "请求不合法，如果错误描述中显示\"header acl and body acl conflict\"，那么表示不能头部和body都有acl参数。",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -2703,7 +2950,7 @@
 						"error_code": "None",
 						"description": "获取ACL配置成功",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#components/schemas/ACL"
 								}
@@ -2714,7 +2961,7 @@
 						"error_code": "NoSuchBucket",
 						"description": "当访问的 Bucket 不存在，返回该错误码",
 						"content": {
-							"application-xml": {
+							"application/xml": {
 								"schema": {
 									"$ref": "#/components/schemas/Error"
 								}
@@ -3012,6 +3259,16 @@
 					}
 				}
 			},
+            "GetBucketLocationResult": {
+              "type": "object",
+              "description": "返回 Bucket 所在的园区",
+              "properties": {
+                "LocationConstraint": {
+                  "type": "string",
+                  "description": "说明 Bucket 所在地域，枚举值参见 可用地域 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等"
+                }
+              }
+            },
 			"Tag": {
 				"type": "object",
 				"description": "标签集合",
@@ -3247,7 +3504,62 @@
 						}
 					}
 				}
-			}
+			},
+            "GetServiceResult": {
+              "type": "object",
+              "description": "Get Service 所有的返回信息",
+              "properties": {
+                "ListAllMyBucketsResult": {
+                  "type": "object",
+                  "description": "说明本次响应的所有信息",
+                  "properties": {
+                    "Owner": {
+                      "type": "object",
+                      "description": "说明 Bucket 持有者的信息",
+                      "properties": {
+                        "ID": {
+                          "type": "string",
+                          "description": "Bucket 所有者的 ID"
+                        },
+                        "DisplayName": {
+                          "type": "string",
+                          "description": "Bucket 所有者的名字信息"
+                        }
+                      }
+                    },
+                    "Buckets": {
+                      "type": "object",
+                      "description": "说明本次响应的所有 Bucket 列表信息",
+                      "properties": {
+                        "Bucket": {
+                          "type": "object",
+                          "description": "单个 Bucket 的信息",
+                          "properties": {
+                            "Name":{
+                              "type": "string",
+                              "description": "Bucket 的名称"
+                            },
+                            "Location":{
+                              "type": "string",
+                              "description": "Bucket 所在地域。枚举值参见 可用地域 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等"
+                            },
+                            "CreateDate":{
+                              "type": "string",
+                              "description": "Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z"
+                            }
+
+                          }
+                        },
+                        "DisplayName": {
+                          "type": "string",
+                          "description": "Bucket 所有者的名字信息"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
 		}
 	}
 }

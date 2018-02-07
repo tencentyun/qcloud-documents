@@ -1,18 +1,45 @@
 ## C 语言 SDK
 ### 代码托管
-- 自v1.0.0版本开始，设备端SDK代码使用Github托管
-[https://github.com/tencentyun/qcloud-iot-sdk-embedded-c](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)
+- 自 v1.0.0 版本开始，设备端 SDK 代码使用 Github 托管
+  [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)
+- 下载最新版 
+  [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
 
-### 版本v1.0.0
-- 发布日期：2017/11/15
+### 版本 v1.2.1
+- 发布日期：2018/02/02
 - 开发语言：C语言
 - 开发环境：Linux, GNU Make
-- 下载链接：[release_V1_00_C_20171115.zip](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/release_V1_00_C_20171115.zip)
 - 内容：
-	1. MQTT协议支持：支持设备快捷轻便的链接IoT Hub云端服务器，可查看[MQTT协议详解](https://github.com/mcxiaoke/mqtt)
-	2. 设备影子功能支持：具体可查看[设备影子详情](https://cloud.tencent.com/document/product/634/11918)
-	3. 提供对称和非对称两种加密方式支持
+	1、修复Publish消息超时回调的错误逻辑
 
-根证书下载请点击: [root-ca.zip](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/root-ca.zip)
-> **注意:**
-> 所有设备共享一份根证书。
+### 版本 v1.2.0
+- 发布日期：2018/1/17
+- 开发语言：C 语言
+- 开发环境：Linux, GNU Make
+- 内容：
+  1、改造发布/订阅消息的 ACK 通过回调接收，不会阻塞发送线程
+  2、增加终端与后台关于连接、日志对应的能力
+  3、新增 CoAP 通道，基于 UDP，采用 DTLS 非对称加密，在纯上报数据场景耗能更少
+
+### 版本 v1.0.0
+- 发布日期：2017/11/15
+- 开发语言：C 语言
+- 开发环境：Linux, GNU Make
+- 内容：
+  1、MQTT 协议支持：支持设备快捷轻便的链接 IoT Hub 云端服务器，可查看 [MQTT协议详解](https://github.com/mcxiaoke/mqtt)
+  2、设备影子功能支持：具体可查看[设备影子详情](https://cloud.tencent.com/document/product/634/11918)
+  3、提供对称和非对称两种加密方式支持
+
+## Android SDK
+
+### 代码托管
+- 自 v1.0.0 版本开始，Android 设备端 SDK 代码使用 Github 托管
+  [https://github.com/tencentyun/qcloud-iot-sdk-android](https://github.com/tencentyun/qcloud-iot-sdk-android)
+
+### 版本v1.2.0
+- 发布日期：2018/1/17
+- 内容：
+  1、MQTT 协议支持：支持设备快捷轻便的链接 IoT Hub 云端服务器，可查看 [MQTT协议详解](https://github.com/mcxiaoke/mqtt)
+  2、设备影子功能支持：具体可查看 [设备影子详情](https://cloud.tencent.com/document/product/634/11918)
+  3、MQTT 和设备影子均提供跨进程调用 API
+  4、提供非对称加密方式支持

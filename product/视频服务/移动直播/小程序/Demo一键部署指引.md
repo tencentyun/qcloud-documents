@@ -98,19 +98,19 @@
 从验证方式中下载公私钥，解压出来将private_key用文本编辑器打开，如：
 ```bash
 -----BEGIN PRIVATE KEY-----
-Y5uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxO7pPrLAchyORc
-MIGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/FY
-zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 -----END PRIVATE KEY-----
 ```
 
-将其转换成字符串形式如下所示，后面在server配置文件中使用：
+将其转换成字符串形式如下所示，后面在server配置文件中使用，<font color='red'>请注意每行后面要加入\r\n</font>：
 
 ```bash
 "-----BEGIN PRIVATE KEY-----\r\n"+
-"Y5uxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxO7pPrLAchyORc\r\n"+
-"MIGxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/FY\r\n"+
-"zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg\r\n"+
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"+
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"+
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\r\n"+
 "-----END PRIVATE KEY-----\r\n"
 ```
 ## 四、安装微信小程序开发工具
@@ -137,7 +137,7 @@ zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
 
 4. 打开 Demo 代码中 `server` 目录下的 `config.js` 文件，将其中的 `appID`、`bizid`、`pushSecretKey`、`APIKey`、`sdkAppID`、`accountType`、`administrator`、`privateKey`配置成上述直播服务及云通信服务里生成的值，同时将小程序的`appid`、`appSecret`配置进去，并**保存**。
 
-  ![serverconfig](https://mc.qcloudimg.com/static/img/565c61217b68b5a386665a80fc384f0a/serverconfig.png)
+  ![serverconfig](https://mc.qcloudimg.com/static/img/cabf6c3cc9691e6b2be7550b82e7f196/xiaochengxuwxliteconfig.png)
 
 5. 点击界面右上角的【腾讯云】图标，在下拉的菜单栏中选择【上传测试代码】。
 
@@ -151,7 +151,7 @@ zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
 
 7. 上传代码完成之后，点击右上角的【详情】按钮，接着选择【腾讯云状态】即可看到腾讯云自动分配给你的开发环境域名，完整复制（包括 `https://`）开发环境 request 域名，然后在编辑器中打开 `wxlite/config.js` 文件，将复制的域名填入 `url` 中并保存，保存之后编辑器会自动编译小程序，左边的模拟器窗口即可实时显示出客户端的 Demo：
 
-  ![查看开发域名](https://mc.qcloudimg.com/static/img/52ce9c767e0957311bd7fabd1be64026/wxliteconfigserver.png)
+  ![查看开发域名](https://mc.qcloudimg.com/static/img/2d24e840b1fa5b36b4d767e5311ca7cc/wxliteconfigserver2.png)
 
 8. 在模拟器中编译运行点击多人音视频进入，在右侧的console里面可以看到登录成功的log表示配置成功。 
 
@@ -177,7 +177,13 @@ zbxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxTmg
   - 请确认小程序所属的类目，由于监管要求，并非所有类目的小程序都开发了音视频能力，已支持的类目请参考 [DOC](https://cloud.tencent.com/document/product/454/13037)。
   - 如有更多需求，或希望深度合作，可以提工单或客服电话（400-9100-100）联系我们。
   
-##### 3. 如果需要上线或者部署正式环境怎么办？
+##### 3. live-pusher、live-player标签使用及错误码参考
+  - [live-pusher&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html)
+  - [live-player&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html)
+  - [livePusherContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-pusher.html)
+  - [livePlayerContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-player.html)
+  
+##### 4. 如果需要上线或者部署正式环境怎么办？
   - 请申请域名并做备案
   - 请将服务端代码部署到申请的服务器上
   - 请将业务server域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com

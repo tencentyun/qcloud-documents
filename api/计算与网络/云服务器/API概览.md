@@ -1,9 +1,14 @@
-
-## 1. 实例相关接口
+## 1. 地域相关接口
+| 接口功能 | Action ID | 功能描述
+|---------|---------|---------|
+| 查询地域列表 | [DescribeRegions](https://cloud.tencent.com/document/product/213/9456) | 用于查询地域信息。
+| 查询可用区列表 | [DescribeZones](https://cloud.tencent.com/document/product/213/9455) | 用于查询可用区信息。
+## 2. 实例相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查看实例列表 | [DescribeInstances](/document/api/213/9388) |  用于获取一个或多个实例的详细信息。
 | 查看实例状态列表 | [DescribeInstancesStatus](/document/api/213/9389) |  用于查询一个或多个实例的状态。
+| 查询实例机型列表 | [DescribeInstanceTypeConfigs](https://cloud.tencent.com/document/product/213/9391) | 用于查询实例机型配置。
 | 创建实例 | [RunInstances](/document/api/213/9384) | 用于创建一台或多台指定配置的实例。
 | 创建实例询价 | [InquiryPriceRunInstances](/document/api/213/9385) | 用于创建实例询价。
 | 启动实例 | [StartInstances](/document/api/213/9386) | 用于启动一个或者多个实例。
@@ -17,6 +22,7 @@
 | 续费实例 | [RenewInstances](/document/api/213/9392) | 用于续费包年包月实例。
 | 续费实例询价 | [InquiryPriceRenewInstances](/document/api/213/9491) | 用于续费包年包月实例询价。
 | 调整实例配置 | [ResetInstancesType](/document/api/213/9394) | 用于调整实例的机型。
+| 调整实例带宽上限询价 | [InquiryPriceResetInstancesInternetMaxBandwidth](https://cloud.tencent.com/document/product/213/9488) | 用于调整实例公网带宽上限询价。
 | 调整实例配置询价 | [InquiryPriceResetInstancesType](/document/api/213/9489) |用于调整实例的机型询价。
 | 修改实例续费标识 | [ModifyInstancesRenewFlag](/document/api/213/9382) | 用于修改包年包月实例续费标识。
 | 修改实例的属性 | [ModifyInstancesAttribute](/document/api/213/9381) | 用于修改实例的属性。
@@ -26,9 +32,7 @@
 | 重置实例密码 | [ResetInstancesPassword](/document/api/213/9397) | 用于将实例操作系统的密码重置为用户指定的密码。
 | 查询实例带宽配置 | [DescribeInstanceInternetBandwidthConfigs](/document/api/213/9390) | 用于查询实例带宽配置。
 
-
-
-## 2. 镜像相关接口
+## 3. 镜像相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查看镜像列表 | [DescribeImages](/document/api/213/9418) | 用于获取本账户能够使用的镜像，用户可以使用这些镜像来创建CVM实例。
@@ -39,37 +43,19 @@
 | 修改镜像分享信息 | [ModifyImageSharePermission](/document/api/213/9413) | 用于设置镜像权限。
 | 查询镜像分享信息 | [DescribeImageSharePermission](/document/api/213/9419) | 用于查询本账户的镜像共享情况，包括共享的账户列表。
 
-## 3. 网络相关接口
+## 4. 弹性公网IP相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
-| 绑定主机与弹性网卡 | [AttachNetworkInterface](/document/api/213/8836)|  用于绑定主机与弹性网卡。
+| 查询弹性公网IP列表 | [DescribeAddresses](https://cloud.tencent.com/document/product/213/11663)|  用于查询一个或多个弹性公网IP（简称 EIP）的详细信息.
+| 查询弹性公网IP配额 | [DescribeAddressQuota](https://cloud.tencent.com/document/product/213/11664) | 用于查询账户的弹性公网IP（简称 EIP）在当前地域的配额信息。
+| 修改弹性公网IP属性 | [ModifyAddressAttribute](https://cloud.tencent.com/document/product/213/11660) | 用于修改弹性公网IP（简称 EIP）的名称。
+| 创建弹性公网IP | [AllocateAddresses](https://cloud.tencent.com/document/product/213/11661) | 用于申请一个或多个弹性公网IP（简称 EIP）。
+| 释放弹性公网IP | [ReleaseAddresses](https://cloud.tencent.com/document/product/213/11667) | 用于释放一个或多个弹性公网IP（简称 EIP）。
+| 绑定弹性公网IP | [AssociateAddress](https://cloud.tencent.com/document/product/213/11665) | 用于将弹性公网IP（简称 EIP）绑定到实例或弹性网卡的指定内网 IP 上。
+| 解绑定弹性公网IP | [DisassociateAddress](https://cloud.tencent.com/document/product/213/11666) | 用于解绑弹性公网IP（简称 EIP）。
+| 普通IP转弹性IP | [TransformAddress](https://cloud.tencent.com/document/product/213/11662) | 用于将实例的普通公网 IP 转换为弹性公网IP（简称 EIP）。
 
-## 4. 安全组相关接口
-| 接口功能 | Action ID | 功能描述
-|---------|---------|---------|
-| 查询安全组列表 | [DescribeSecurityGroups](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%88%97%E8%A1%A8) | 用于查询已经存在的安全组。
-| 创建安全组 | [CreateSecurityGroup](/doc/api/229/%E5%88%9B%E5%BB%BA%E5%AE%89%E5%85%A8%E7%BB%84) | 用于创建安全组。
-| 删除安全组 | [DeleteSecurityGroup](/doc/api/229/%E5%88%A0%E9%99%A4%E5%AE%89%E5%85%A8%E7%BB%84) | 用于删除安全组。
-| 修改安全组属性 | [ModifySecurityGroupAttributes](/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E5%90%8D%E7%A7%B0) | 用于修改已经存在的安全组的属性信息，包括名称和描述。
-| 查询安全组规则 | [DescribeSecurityGroupPolicy](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E8%A7%84%E5%88%99) | 用于查询已经存在的安全组的规则。
-| 修改安全组规则 | [ModifySecurityGroupPolicy](/doc/api/229/%E4%BF%AE%E6%94%B9%E5%AE%89%E5%85%A8%E7%BB%84%E8%A7%84%E5%88%99) | 用于修改已经存在的安全组的规则。
-| 查询安全组关联的实例列表 | [DescribeInstancesOfSecurityGroup](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%AE%89%E5%85%A8%E7%BB%84%E5%85%B3%E8%81%94%E7%9A%84%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%88%97%E8%A1%A8) | 用于查询已关联指定的安全组的云服务器。
-| 修改实例关联的安全组 | [ModifySecurityGroupsOfInstance](/doc/api/229/%E4%BF%AE%E6%94%B9%E4%BA%91%E4%B8%BB%E6%9C%BA%E5%85%B3%E8%81%94%E7%9A%84%E5%AE%89%E5%85%A8%E7%BB%84) | 用于修改指定云服务器关联的安全组。
-| 查询关联的安全组列表 | [DescribeAssociateSecurityGroups](/doc/api/229/%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%AE%89%E5%85%A8%E7%BB%84%E5%85%B3%E8%81%94%E7%9A%84%E5%AE%89%E5%85%A8%E7%BB%84%E5%88%97%E8%A1%A8) | 查询有哪些安全组的出站或入站规则中包含了输入的安全组ID。
-
-## 5. 弹性IP相关接口
-| 接口功能 | Action ID | 功能描述
-|---------|---------|---------|
-| 查询弹性公网IP列表 | [DescribeEip](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%88%97%E8%A1%A8) | 查询弹性公网IP。
-| 查询弹性公网IP配额 | [DescribeEipQuota](/doc/api/229/%E6%9F%A5%E8%AF%A2%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E9%85%8D%E9%A2%9D) | 查询指定地域弹性公网IP配额。
-| 修改弹性公网IP名称 | [ModifyEipAttributes](/doc/api/229/%E4%BF%AE%E6%94%B9%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP%E5%90%8D%E7%A7%B0) | 修改弹性公网IP名称。
-| 创建弹性公网IP | [CreateEip](/doc/api/229/%E5%88%9B%E5%BB%BA%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | 创建弹性公网IP（EIP），弹性公网IP是专为动态云计算设计的静态IP地址。借助弹性公网IP，您可以快速将EIP重新映射到您的另一个实例上，从而屏蔽实例故障。
-| 释放弹性公网IP | [DeleteEip](/doc/api/229/%E9%87%8A%E6%94%BE%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | 释放弹性公网IP。
-| 绑定弹性公网IP | [EipBindInstance](/doc/api/229/%E7%BB%91%E5%AE%9A%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | 弹性公网IP与服务器绑定。
-| 解绑弹性公网IP | [EipUnBindInstance](/doc/api/229/%E8%A7%A3%E7%BB%91%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | 弹性公网IP与服务器解绑。
-| 普通公网IP转弹性公网IP | [TransformWanIpToEip](/doc/api/229/%E6%99%AE%E9%80%9A%E5%85%AC%E7%BD%91IP%E8%BD%AC%E5%BC%B9%E6%80%A7%E5%85%AC%E7%BD%91IP) | 普通公网IP转弹性公网IP，将服务器当前绑定的普通公网IP转换成弹性公网IP，转换后随着服务器的释放，该弹性公网IP将会保留。
-
-## 6. 密钥相关接口
+## 5. 密钥相关接口
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查询密钥对列表 | [DescribeKeyPairs](/document/api/213/9403) | 用于查询密钥对信息。

@@ -18,7 +18,7 @@ Ubuntu
 
 ### 安装 LogListener
 
-[点击下载 LogListener 2.0.3](https://mc.qcloudimg.com/static/archive/73b03c0e041d000f962a45399c60dba1/loglistener.2.0.3.tar.gz)，将安装包解压至指定的目标目录中，在 root 下执行：
+[点击下载 LogListener 2.0.4](https://mc.qcloudimg.com/static/archive/a81469ed2f770139d69563097a2ec943/loglistener.2.0.4.tar.gz)，将安装包解压至指定的目标目录中，在 root 下执行：
 
 ```
 cd loglistener/tools;
@@ -31,6 +31,7 @@ cd loglistener/tools;
 shanghai - 上海
 guangzhou - 广州
 chengdu - 成都
+beijing - 北京
 ```
 
 安装脚本会通过 `rc.local`，以保证机器重起后，客户端正常拉起。
@@ -54,7 +55,7 @@ bin/loglisteneru -u --conf=etc/loglistener.conf                      --更新进
 
 ### 启停客户端
 
-您可以通过一下脚本启停客户端：
+您可以通过以下脚本启停客户端：
 
 ```
 cd loglistener/tools; ./start.sh

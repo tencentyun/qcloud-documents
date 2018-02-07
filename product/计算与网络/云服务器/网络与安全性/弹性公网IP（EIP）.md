@@ -13,9 +13,11 @@
 >您进入[弹性公网IP控制台](https://console.cloud.tencent.com/cvm/eip)。
 >
 >如果没有“带宽”相关的信息，如下图，即为第一类账户。弹性公网IP的类型为裸IP，无任何公网网络属性，需要后端资源购买公网网络后，再通过公网IP或CLB外访。
->![](http://imglink-1251740579.coscd.myqcloud.com/IP%E7%B1%BB%E5%9E%8B.png?sign=6qJuMsX+LUDu3+Ia9ftmc0xmIzphPTEyNTE3NDA1Nzkmaz1BS0lEZTlTY1lGaXZ4bE1pdHBoMklJNGJ1eXBWeUNEMUx1NzUmZT0xNTE1NjM4MjkxJnQ9MTUxMzA0NjI5MSZyPTE3MDE0OTc3MjcmZj0vSVAlRTclQjElQkIlRTUlOUUlOEIucG5nJmI9aW1nbGluaw==)
+>
+>![](https://mc.qcloudimg.com/static/img/a79b3329758594fd230594a9a52352b7/eip.png)
+>
 >如果能看到带宽上限的属性，如下图，即为第二类账户。上面可查询EIP的类型。
->![](http://imglink-1251740579.coscd.myqcloud.com/IP%E7%B1%BB%E5%9E%8B2.png?sign=+9+1zxULm1O6Ce7bd7rddJpOJ1NhPTEyNTE3NDA1Nzkmaz1BS0lEZTlTY1lGaXZ4bE1pdHBoMklJNGJ1eXBWeUNEMUx1NzUmZT0xNTE1NjM4MjkxJnQ9MTUxMzA0NjI5MSZyPTIwNzYwNTkyMTEmZj0vSVAlRTclQjElQkIlRTUlOUUlOEIyLnBuZyZiPWltZ2xpbms=)
+>![](https://mc.qcloudimg.com/static/img/bd91715ed89497bda313189331b2baaf/eip2.png)
 
 ## 规则与限制
 使用规则：

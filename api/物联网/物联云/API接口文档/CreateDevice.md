@@ -1,5 +1,5 @@
 ### 1. 接口描述
-本接口 (CreateDevice) 用于新建一个物联云设备。
+本接口（CreateDevice）用于新建一个物联云设备。
 
 接口请求域名：`iotcloud.api.qcloud.com`
 
@@ -21,26 +21,30 @@
 
 | 参数名称             | 类型     | 描述                                       |
 | ---------------- | ------ | ---------------------------------------- |
-| code             | Int    | 公共错误码。0 表示成功，其他值表示失败，详见[公共错误码](https://cloud.tencent.com/document/product/634/12279)页面 |
-| message          | String | 模块错误信息描述，格式为 "(模块错误码)模块错误信息" ，详见本页面的[模块错误码](#module_error_info) |
+| code             | Int    | 公共错误码。0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279) 页面 |
+| message          | String | 模块错误信息描述，格式为 "（模块错误码）模块错误信息" ，详见本页面的 [模块错误码](#module_error_info) |
 | codeDesc         | String | 模块错误码的英文描述                               |
 | deviceName       | String | 设备名称                                     |
-| deviceCert       | String | 设备证书，用于 TLS 建立链接时校验客户端身份。                |
-| devicePrivateKey | String | 设备私钥，用于 TLS 建立链接时校验客户端身份，腾讯云后台不保存，请妥善保管  |
+| deviceCert       | String | 设备证书，用于 TLS 建立链接时校验客户端身份。采用非对称加密时返回该参数   |
+| devicePrivateKey | String | 设备私钥，用于 TLS 建立链接时校验客户端身份，腾讯云后台不保存，请妥善保管。采用非对称加密时返回该参数 |
+| devicePsk        | String | 对称加密密钥，base64编码。采用对称加密时返回该参数             |
 
 
 ### 4. 示例
 
 输入
 <pre>
-  GET https://iotcloud.api.qcloud.com/index.php?Action=CreateDevice
+  https://iotcloud.api.qcloud.com/v2/index.php?Action=CreateDevice
   &deviceName=apple
   &productID=ABCDE12345
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 </pre>
 
 输出
-```
+
+（1）采用非对称加密：
+
+```json
 {
     "deviceName": "apple",
     "deviceCert":"{publickey}",
@@ -49,9 +53,21 @@
     "codeDesc": "Success",
     "code": 0
 }
-
 ```
+（2）采用对称加密：
+
+```json
+{
+    "deviceName": "apple",
+    "devicePsk": "s/GiL8XZ7f/bWvQIuKjMoQ==",
+    "message": "",
+    "codeDesc": "Success",
+    "code": 0
+}
+```
+
 <span id = "module_error_info"></span>
+
 ### 5. 模块错误码
 
 | 模块错误码 | 描述              |
