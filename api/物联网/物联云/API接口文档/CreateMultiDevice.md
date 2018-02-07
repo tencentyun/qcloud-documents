@@ -23,7 +23,7 @@
 | ------- | ------ | ---------------------------------------- |
 | code    | Int    | 公共错误码，0 表示成功，其他值表示失败，详见 [公共错误码](https://cloud.tencent.com/document/product/634/12279) 页面 |
 | message | String | 模块错误信息描述，格式为 "(模块错误码)模块错误信息"， 详见本页面的 [模块错误码](#module_error_info) |
-| taskID  | String | 任务ID，腾讯云生成全局唯一的任务 ID                     |
+| taskID  | String | 任务ID，腾讯云生成全局唯一的任务 ID，有效期一个月              |
 
 
 ### 4. 示例

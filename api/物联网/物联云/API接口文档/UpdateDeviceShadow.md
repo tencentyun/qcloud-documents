@@ -77,7 +77,7 @@ payload 的结构如下：
         "result":0,
         "timestamp":1509440846582,
         "type":"update"
-    }
+    },
     "message": "",
     "codeDesc": "Success",
     "code": 0
@@ -96,4 +96,5 @@ payload 的结构如下：
 | 5006  | State json 对象超过大小限制，最大为 64k   |
 | 5100  | 内部服务器错误，请联系技术人员               |
 | 5101  | 请求参数非法                        |
+| 5102  | 用户下不存在此产品或设备                  |
 
