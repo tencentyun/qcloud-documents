@@ -4,6 +4,14 @@
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)
 - 下载最新版 
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
+  
+### 版本 v1.2.2
+- 发布日期：2018/02/07
+- 开发语言：C语言
+- 开发环境：Linux, GNU Make
+- 内容：
+	1、新增 MQTT/CoAP 对称加密连接支持
+	2、Linux c 编译优化
 
 ### 版本 v1.2.1
 - 发布日期：2018/02/02
