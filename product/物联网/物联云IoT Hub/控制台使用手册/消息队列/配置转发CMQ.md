@@ -15,11 +15,11 @@ CMQ 配置消息类型有两个选项：“设备上报消息”和“设备状�
 
 ## CMQ 接收消息的 SDK 介绍
 - 消息队列 CMQ 提供了如下两个接口从队列中 **读取消息**：
-	[ReceiveMessage](https://cloud.tencent.com/document/product/406/5839)：一次从队列中读取一条消息
-	[BatchReceiveMessage](https://cloud.tencent.com/document/product/406/5924)：一次从队列中读取多条消息
+	[ReceiveMessage](https://cloud.tencent.com/document/product/406/5839)：一次从队列中读取一条消息。
+	[BatchReceiveMessage](https://cloud.tencent.com/document/product/406/5924)：一次从队列中读取多条消息。
 	
 - 消息队列的消息在读取后，需主动 **删除消息** 才能把消息从消息队列中去掉：	
-	[DeleteMessage](https://cloud.tencent.com/document/api/406/5840)：从队列中删除一条消息
-	[BatchDeleteMessage](https://cloud.tencent.com/document/api/406/5841)：从队列中删除多条消息，一次最多删除16条
+	[DeleteMessage](https://cloud.tencent.com/document/api/406/5840)：从队列中删除一条消息。
+	[BatchDeleteMessage](https://cloud.tencent.com/document/api/406/5841)：从队列中删除多条消息，一次最多删除16条。
 	
 - 消息队列的 SDK demo 使用可以参照消息队列提供的 [SDK demo](https://cloud.tencent.com/document/product/406/6107)。
