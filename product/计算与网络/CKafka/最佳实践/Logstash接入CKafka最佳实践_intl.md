@@ -44,7 +44,7 @@ For more information on parameter configuration, please see https://www.elastic.
 - Apply for a Ckafka instance, and create a corresponding topic
 ### Creation of CKafka
 1. After the application for instance is approved, you can see the information of your instance from the console.
-![](https://mc.qcloudimg.com/static/img/67f19ef17a73e768fba188d58ae08f9a/44.png)
+![](https://mc.qcloudimg.com/static/img/6d7a67a6a7620f54fe6c81fe2374d358/10777-01.jpg)
 2. By clicking the instance name, you can see the specific information of assigned instance.
 ![](https://mc.qcloudimg.com/static/img/75412e46fca71833f37f7611c3ab6468/11487-01.jpg)
 3. Click "Topic Management" to create a topic, where the name is **logstash_test**.
