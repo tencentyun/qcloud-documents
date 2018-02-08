@@ -17,7 +17,7 @@ crashService.start(context);
 
 ## MultiDex 注意事项
 
-如果使用了MultiDex，建议通过 Gradle 的 "multiDexKeepFile" 配置等方式把 Crash 的类放到主 Dex，另外建议在 Application 类的 "attachBaseContext" 方法中主动加载非主 dex：
+如果使用了 MultiDex，建议通过 Gradle 的 "multiDexKeepFile" 配置等方式把 Crash 的类放到主 Dex，另外建议在 Application 类的 "attachBaseContext" 方法中主动加载非主 dex：
 
 ```
 public class MyApplication extends SomeOtherApplication {
