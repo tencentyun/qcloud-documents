@@ -46,9 +46,9 @@ For more information on parameter configuration, please see https://www.elastic.
 1. After the application for instance is approved, you can see the information of your instance from the console.
 ![](https://mc.qcloudimg.com/static/img/67f19ef17a73e768fba188d58ae08f9a/44.png)
 2. By clicking the instance name, you can see the specific information of assigned instance.
-![](https://mc.qcloudimg.com/static/img/3841d4eb19ad992d35e60196b38498ce/55.png)
+![](https://mc.qcloudimg.com/static/img/75412e46fca71833f37f7611c3ab6468/11487-01.jpg)
 3. Click "Topic Management" to create a topic, where the name is **logstash_test**.
-![](https://mc.qcloudimg.com/static/img/30a006c20b8a9ba0a644336d5ddc501a/66.png)
+![](https://mc.qcloudimg.com/static/img/db8e5c5145145dbb22673bb973cb486c/11487-02.jpgg)
 
 Now, the operating environment of CKafka has been created.
 
