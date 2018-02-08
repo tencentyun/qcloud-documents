@@ -1,9 +1,7 @@
 
 ## 准备工作
 
-在开始使用应用云 Crash 服务前，确保您已经完成：
-
-[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+在开始使用应用云 Crash 服务前，确保您已经完成：[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -79,15 +77,14 @@ dependencies {
 2. 下载 [应用云 Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-crash-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包。
- 
-* 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
+- 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
 
 #### 3. 如果需要上报 Native 异常，集成 so 包。
  
 如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，您可以集成 native 异常上报库。
-
-* 如果您是采用 Eclipse 开发，将资源文件中的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
-* 如果您是采用 Android Studio 开发，将资源文件中的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
+ 
+- 如果您是采用 Eclipse 开发，将资源文件中的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
+- 如果您是采用 Android Studio 开发，将资源文件中的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
 
 #### 4. 修改您工程的 AndroidManifest.xml 文件。
 
