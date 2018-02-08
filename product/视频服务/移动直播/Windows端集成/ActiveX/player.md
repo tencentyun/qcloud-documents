@@ -34,6 +34,7 @@
 | setRenderYMirror(bool)                   | 设置渲染的镜像效果     |
 | setRotation(TXEVideoRotation)            | 设置图像的顺时针旋转角度  |
 | setTXEPlayType(streamType)               | 标准流或低延时流模式    |
+| captureVideoSnapShot(sFileFullPath,sDirPath)                          | 推流端视频图片快照到本地                        |
 | setPlayerEventCallBack(callbackfun, objectid) | 设置回调接口        |
 
 ### 1.getVersion()
@@ -233,7 +234,48 @@ function setRenderYMirror() {
 }
 ```
 
-### 13.setPlayerEventCallBack(callbackfun, objectid)
+### 13.captureVideoSnapShot(sFileFullPath,sDirPath)
+
+拉流端视频图像快照，以sFileFullPath路径存储，如果sFileFullPath为"",则以sDirPath路径打开文件选择器，如果sDirPath为“”，则文件选择器默认位置为桌面，目前只支持.jpg的文件格式
+
+- **参数说明**
+
+| 参数   | 类型     | 说明   |
+| ---- | ------ | ---- |
+| sFileFullPath | String  | 指定存储文件路径，不为null，则直接存储文件|
+| sDirPath | String  | 指定路径来打开文件选择器，当sFileFullPath为null时，此参数生效|
+
+
+- **返回值说明**
+  成功 or 失败，文件存在、创建文件失败等
+| 参数   | 类型   | 说明       |
+| ---- | ---- | -------- |
+| vRet | Int  | -1:失败，-2路径非法，-3文件存在，-4未推流 |
+
+- **示例代码** : 
+
+```
+function screenShotplayer() {
+	//第一个参数指定文件， 第二个参数指定路径，如果不需要指定文件，则""
+    //var ret = player.captureVideoSnapShot("", "D:\\subTest");
+    var ret = player.captureVideoSnapShot("D:\\subTest\\123.jpg", "D:\\subTest");
+    //-1:失败，-2路径非法，-3文件存在，-4未推流
+    if (ret == -1) {
+        alert("截图失败");
+    }
+    else if (ret == -2) {
+        alert("路径非法");
+    }
+    else if (ret == -3) {
+        alert("文件存在");
+    }
+    else if (ret == -4) {
+        alert("未推流");
+    }
+}
+```
+
+### 14.setPlayerEventCallBack(callbackfun, objectid)
 
 设置播放事件回调。
 
@@ -303,6 +345,7 @@ function doUpdatePlayerStatusInfo(paramJson) {
 | PLAY_EVT_PLAY_LOADING        | 2007 | 视频播放loading    |
 | PLAY_EVT_START_VIDEO_DECODER | 2008 | 解码器启动          |
 | PLAY_EVT_CHANGE_RESOLUTION   | 2009 | 视频分辨率改变        |
+| PLAY_EVT_SNAPSHOT_RESULT   | 2010 | 截图快照返回码        |
 
 ### 2. 错误通知
 
