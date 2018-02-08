@@ -6,9 +6,9 @@
 
 ## 接入准备
 
-1. 下载 SDK + Demo 开发包，下载地址为( [iOS](https://cloud.tencent.com/document/product/454/7873#iOS)  [Android](https://cloud.tencent.com/document/product/454/7873#Android)).
+1. 下载 SDK + Demo 开发包，下载地址为([Android](https://cloud.tencent.com/document/product/454/7873#Android)).
 
-2. 超级播放器的 UI 部分源码开源，开源代码位于 `app/src/main/java/com/tencent/liteav/demo/play/`文件夹中，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹中，您需要先将这两部分拷贝的您的App工程中。
+2. 播放器的 UI 部分代码开源，开源代码位于 `app/src/main/java/com/tencent/liteav/demo/play/`文件夹中，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹中，您需要先将这两部分拷贝的您的App工程中。
 
 3. Demo的弹幕集成了第三方开源库`DanmakuFlameMaster`，可以自行在github获取，也可如Demo在build.gradle示例配置 
 ```
