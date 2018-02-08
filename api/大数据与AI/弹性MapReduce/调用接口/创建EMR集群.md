@@ -18,7 +18,7 @@
 | ZoneId | 是 | uint | 所在地域可用区ID |
 | VpcId | 是 | string | 创建EMR集群所在的私有网络vpcId, vpc-xxxxx格式 |
 | SubnetId | 是 | string | 创建EMR集群的所在的私有网络subnetId, subnet-xxxx格式 |
-| SoftInfo.n | 是 | array string | 需要安装的软件包 |
+| SoftInfo.n | 是 | array string | 需要安装的软件包，至少包含hadoop和zookeeper组件 |
 | MasterNodes | 是 | uint | master节点个数 | 
 | CoreNodes | 是 | uint | core节点个数 |
 | TaskNodes | 否 | uint | task节点个数 |
@@ -40,7 +40,7 @@
 | TaskMemory | 否 | uint | 若TaskNodes不为0，该字段有效。单位MB, task节点内存容量 |
 | TaskCpuCores | 否 | uint | 若TaskNodes不为0，该字段有效。task节点cpu核数 |
 | TaskVolume | 否 | uint | 若TaskNodes不为0，该字段有效。单位GB,task节点数据盘容量 |
-| Password | 是 | string | 初始密码，用于cvm,cdb的初始root密码 |
+| Password | 是 | string | 初始密码，用于cvm,cdb的初始root密码。要求8 - 16 个字符，且必须同时包含大写字母、小写字母、数字和特殊字符!@#%^* 中两种 |
 | VisitCos | 是 | uint | 是否集成cos。0：不集成,非0：集成 |
 | LogOnCosPath | 否 | string | 集成cos后，存储软件运行日志的cos路径地址|
 | CosSecretId | 否 | string | 访问cos的SecretId,参见[COS基本概念-SecretId/SecretKey](https://cloud.tencent.com/document/product/436/6225) |
@@ -66,17 +66,18 @@
   &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
   &ZoneId=100002
   &SoftInfo.0=hadoop-2.7.3
+  &SoftInfo.1=zookeeper-3.4.9
   &VpcId=vpc-lgfidqdd
   &SubnetId=subnet-i5xrg93s
   &ProductId=1
   &MasterNodes=1
   &CoreNodes=2
   &TaskNodes=0
-  &MasterSpec=CVM.S1
+  &MasterSpec=CVM.S2
   &MasterMemory=16384
   &MasterCpuCores=4
   &MasterVolume=50
-  &CoreSpec=CVM.I1
+  &CoreSpec=CVM.I2
   &CoreStorageType=3
   &CoreRootSize=20
   &CoreMemory=16384
@@ -87,7 +88,7 @@
   &TaskCpuCores=4
   &TaskVolume=0
   &VisitCos=0
-  &Password=emrpassword
+  &Password=emrpassword@123
   &SupportHA=0
 </pre>
 
