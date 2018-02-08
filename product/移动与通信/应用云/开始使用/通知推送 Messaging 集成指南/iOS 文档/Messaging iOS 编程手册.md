@@ -41,7 +41,7 @@
 
 /**
  @brief 监控推送服务地启动情况
- 
+
  @param isSuccess 推送是否启动成功
  @param error 推送启动错误的信息
  */
@@ -49,7 +49,7 @@
 
 /**
  @brief 监控服务的终止情况
- 
+
  @param isSuccess 推送是否终止
  @param error 推动终止错误的信息
  */
@@ -58,7 +58,7 @@
 
 /**
  @brief 监控服务上报推送消息的情况
- 
+
  @param isSuccess 上报是否成功
  @param error 上报失败的信息
  */
@@ -72,7 +72,7 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 /**
  处理iOS 10 UNUserNotification.framework的对应的方法
- 
+
  @param center [UNUserNotificationCenter currentNotificationCenter]
  @param notification 通知对象
  @param completionHandler 回调对象，必须调用
@@ -82,7 +82,7 @@
 
 /**
  处理iOS 10 UNUserNotification.framework的对应的方法
- 
+
  @param center [UNUserNotificationCenter currentNotificationCenter]
  @param response 用户对通知消息的响应对象
  @param completionHandler 回调对象，必须调用

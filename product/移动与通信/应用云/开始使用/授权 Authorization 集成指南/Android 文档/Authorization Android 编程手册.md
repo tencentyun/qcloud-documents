@@ -1,4 +1,3 @@
-# 应用云 Authorization Android 编程手册
 
 ## 使用 QQ 登录功能
 
@@ -19,7 +18,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ### 2. 请求 QQ 登录
 
-在用户登录界面，你可以调用以下方法让用户选择用 QQ 账号登录：
+在用户登录界面，您可以调用以下方法让用户选择用 QQ 账号登录：
 
 ```
 // 获取实例
@@ -44,12 +43,12 @@ qqAuthProvider.signIn(activity, new QCloudResultListener<OAuth2Credentials>() {
         };);
 ```
 
-QQ 获取的凭证有效期是3个月，之后需要用户重新登录授权。
+QQ 获取的凭证有效期是 3 个月，之后需要用户重新登录授权。
 
 
 ### 3. 获取用户信息
 
-登录成功后，你可以使用有效的用户凭证，调用 getUserInfo 方法获取 QQ 用户信息：
+登录成功后，您可以使用有效的用户凭证，调用 getUserInfo 方法获取 QQ 用户信息：
  
 ```
 // 获取实例
@@ -87,7 +86,7 @@ public class WXEntryActivity extends WeChatBaseSignInActivity {
 
 ### 2. 请求微信登录
 
-在用户登录界面，你可以调用以下方法让用户选择用微信账号登录：
+在用户登录界面，您可以调用以下方法让用户选择用微信账号登录：
 
 ```
 // 获取实例
@@ -113,7 +112,7 @@ weChatAuthProvider.signIn(activity, new QCloudResultListener<OAuth2Credentials>(
 
 ### 3. 获取用户信息
 
-登录成功后，你可以使用有效的用户凭证，调用 getUserInfo 方法获取微信用户信息：
+登录成功后，您可以使用有效的用户凭证，调用 getUserInfo 方法获取微信用户信息：
  
 ```
 // 获取实例
@@ -137,7 +136,7 @@ weChatAuthProvider.getUserInfo(mOAuth2Credentials, new QCloudResultListener<TACO
 
 ### 4. 刷新 token
 
-微信支持后台刷新 access token，access token 的生命周期通常只有2个小时，可以通过刷新的方式延长到一个月，之后需要用户重新登录授权：
+微信支持后台刷新 access token，access token 的生命周期通常只有 2 个小时，可以通过刷新的方式延长到一个月，之后需要用户重新登录授权：
  
 ```
 // 获取实例
