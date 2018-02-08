@@ -45,7 +45,7 @@
     2）、默认情况下此目录在是一个空目录，确认是否有非业务程序在该目录下。
     3）、点击开始菜单>运行，输入 msconfig，查看是否存在命名异常的启动项目，有的话您将启动项目的勾选去掉，并到命令中显示的路径删除文件。
     4）、点击开始>运行，输入 regedit，打开注册表，查看开机启动项是否正常，特别一下如下三个注册表项：
-        HKEY_CURRENT_USER/software/micorsoft/windows/currentversion/run
+        HKEY_CURRENT_USER\software\micorsoft\windows\currentversion\run
         HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
         HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Runonce
     检查右侧是否有启动异常的项目，如有请删除，并建议安装杀毒软件进行病毒查杀，清除残留病毒或木马。
