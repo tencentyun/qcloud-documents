@@ -1,4 +1,4 @@
-## 简介
+ ## 简介
 
 本接口用于识别身份证上的姓名、证件号、地址等信息。
 
@@ -40,7 +40,6 @@
 | --------- | ---- | --------- | -------------- |
 | appid     | 必选   | string    | 项目ID           |
 | bucket    | 必选   | string    | 图片空间           |
-| ret_image | 必选   | int       | 0 不返回图片，1 返回图片 |
 | url_list  | 必选   | string 数组 | 图片 url 列表      |
 
 
@@ -69,7 +68,6 @@ data 字段具体内容（身份证有照片的一面）：
 | birth                     | string        | 出生日期                            |
 | address                   | string        | 地址                              |
 | id                        | string        | 身份证号                            |
-| frontimage                | string(bytes) | OCR 识别的身份证正面照片（card_type 为0时返回） |
 | name_confidence_all       | array(int)    | 证件姓名置信度，取值范围[0,100]             |
 | sex_confidence_all        | array(int)    | 性别置信度，取值范围[0,100]               |
 | nation_confidence_all     | array(int)    | 民族置信度，取值范围[0,100]               |
@@ -194,8 +192,8 @@ Content-Type: "application/json"
 | --------- | ---- | ------------ | ---------------------------------------- |
 | appid     | 是    | uint         | 项目ID                                     |
 | bucket    | 是    | string       | 图片空间                                     |
-| card_type | 是    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面                |
-| image     | 是    | image/jpeg 等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| card_type | 否    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面；如果未指定，默认为0。     |
+| image     | 是    | image/jpeg 等 | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
 ### 返回内容
 

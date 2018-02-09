@@ -45,12 +45,12 @@ payload 的结构如下：
 
 输入
 <pre>
-  var oState = {"state": {"desired": {"color": "red"}}};
+  var oState = {"desired": {"color": "red"}};
   var sState = encodeURIComponent(JSON.stringify(oState ));
   https://iotcloud.api.qcloud.com/v2/index.php?Action=UpdateDeviceShadow
   &deviceName=apple
   &productID=ABCDE12345
-  &state=${sState}
+  &state=${sState}&version=1
   &<<a href="https://cloud.tencent.com/document/api/213/6976">公共请求参数</a>>
 </pre>
 

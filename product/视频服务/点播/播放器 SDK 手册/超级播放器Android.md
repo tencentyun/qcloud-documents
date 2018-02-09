@@ -1,19 +1,21 @@
-## 超级播放器
-
-### 功能介绍
+## 功能介绍
 
 超级播放器是基于`TXVodPlayer`实现的集视频信息拉取、横竖屏切换、清晰度选择、弹幕等功能于一体的解决方案，**且完全开源**。帮助您在短时间内，打造一个媲美市面上各种流行视频App的播放体验。
 
-![超级播放器](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/superplayer.png)
+![](https://mc.qcloudimg.com/static/img/c5a7b6e6e8cba617b76fee49aa03da18/image.png)
 
-### 接入准备
+## 接入准备
 
-播放器代码位于[Demo](https://cloud.tencent.com/document/product/454/6555)工程下`app/src/main/java/com/tencent/liteav/demo/play/`文件夹，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹，您需要先将这两部分拷贝的您的App工程中。Demo的弹幕集成了第三方开源库`DanmakuFlameMaster`，可以自行在github获取，也可如Demo在build.gradle示例配置 
+1. 下载 SDK + Demo 开发包，下载地址为([Android](https://cloud.tencent.com/document/product/454/7873#Android)).
+
+2. 播放器的 UI 部分代码开源，开源代码位于 `app/src/main/java/com/tencent/liteav/demo/play/`文件夹中，图片资源位于`app/src/main/res/drawable-xxhdpi/`文件夹中，您需要先将这两部分拷贝的您的App工程中。
+
+3. Demo的弹幕集成了第三方开源库`DanmakuFlameMaster`，可以自行在github获取，也可如Demo在build.gradle示例配置 
 ```
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
 
-### 创建播放器
+## 创建播放器
 
 超级播放器主类为`SuperVideoPlayer`，您需求先创建它。
 
@@ -22,7 +24,7 @@ mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
 mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
 ```
 
-### 视频信息获取
+## 视频信息获取
 
 与播放普通url地址不同，获取视频信息需要通过fileId方式。
 
@@ -81,18 +83,19 @@ private ITXVodPlayListener mGetVodInfoListener = new ITXVodPlayListener() {
 ```
 
 
-### 切换视频
+## 切换视频
 
 播放器播放另一个视频，调用`setPlayUrl`即可
 
 ```objective-c
-String url = "http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/68e3febf4564972819220421305/v.f20.mp4";
+String url = "http://1252463788.vod2.myqcloud.com/xxx/yyy/v.f20.mp4";
 if (mSuperVideoPlayer != null) {
     mSuperVideoPlayer.updateUI("新播放的视频");
     mSuperVideoPlayer.setPlayUrl(url);
 }
 ```
-### 移除播放器
+
+## 移除播放器
 
 当不需要播放器时，调用resetPlayer清理播放器内部状态，防止干扰下次播放。
 

@@ -279,7 +279,7 @@ table td {
 	商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.2/LiteAVSDK_Enterprise_Android_4.2.3427.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
 
-<h2 id="Windows"> Windows SDK (1.2.1) </h3>
+<h2 id="Windows"> Windows SDK (2.0.0) </h3>
 <table>
   <tr align="center">
     <th width="200px">功能特性</th>
@@ -319,9 +319,9 @@ table td {
   </tr>
 	<tr align="center">
     <td>版本日期</td>
-    <td>1.2.1 @ 2018-01-08</td>
-		<td>1.2.3 @ 2018-01-08</td>
-		<td>1.2.3 @ 2018-01-08</td>
+    <td>2.0.1 @ 2018-02-08</td>
+		<td>2.0.0 @ 2018-02-08</td>
+		<td>2.0.0 @ 2018-02-08</td>
   </tr>
 	<tr align="center">
     <td>下载地址</td>
@@ -332,16 +332,12 @@ table td {
 </table>
 
 - **新增功能**
- + 新增 C#（.NET）模式 和 ActiveX 两种集成模式。
- + Demo UI 换新，采用 Windows10 黑色系风格。
- + 支持 **双人视频** 和 **多人视频** 功能。
- + 支持命令行模式唤起推流功能，适用于在线夹娃娃。
+ + C++ 支持录屏、截图快照、系统扬声器或进程混音。
+ + C++ Demo UI 交互升级 。
+ + ActiveX支持指定区域录屏、截图快照、系统扬声器混音。
 
 - **Why not Obs?**
 本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
-
-- **QT界面库**
-	Windows 版本的 SDK 不依赖其它 dll 即可运行，但 Windows 版本的 Demo 是基于 Qt 界面库构建的，所以编译和运行 Demo 请在 Qt 官网下载和安装 Qt 5.9 和 Visual Studio Add-in For Qt 插件。
 
 <h2 id="XiaoChengXu">小程序源码</h3>
 

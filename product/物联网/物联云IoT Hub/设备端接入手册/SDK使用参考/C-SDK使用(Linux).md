@@ -11,10 +11,11 @@ PLATFORM_CC                 	= gcc
 PLATFORM_AR                 	= ar
 PLATFORM_OS                 	= linux
 
-FEATURE_MQTT_COMM_ENABLED       = y
-FEATURE_COAP_COMM_ENABLED   	= y
-FEATURE_SDKTESTS_ENABLED        = n
-FEATURE_MQTT_RMDUP_MSG_ENABLED  = n
+FEATURE_MQTT_COMM_ENABLED        = y
+FEATURE_COAP_COMM_ENABLED   	 = y
+FEATURE_SDKTESTS_ENABLED         = n
+FEATURE_MQTT_RMDUP_MSG_ENABLED   = n
+FEATURE_ASYMC_ENCRYPTION_ENABLED = y
 ```
 具体含义参考下表:
 
@@ -27,7 +28,8 @@ FEATURE_MQTT_RMDUP_MSG_ENABLED  = n
 | FEATURE_MQTT_COMM_ENABLED      | 是否开启设备 MQTT 功能，默认开启                                                          |
 | FEATURE_COAP_COMM_ENABLED      | 是否开启设备 CoAP 功能，默认开启                                                          |
 | FEATURE_SDKTESTS_ENABLED       | 是否编译测试代码                                                                          |
-| FEATURE_MQTT_RMDUP_MSG_ENABLED | 是否启用 MQTT 消息去重功能                                                                |
+| FEATURE_MQTT_RMDUP_MSG_ENABLED | 是否启用 MQTT 消息去重功能                                                               |
+| FEATURE_ASYMC_ENCRYPTION_ENABLED | 是否启用非对称加密连接                                                               |
 
 ## 运行
 请参考 [快速开始](https://cloud.tencent.com/document/product/634/11912)
