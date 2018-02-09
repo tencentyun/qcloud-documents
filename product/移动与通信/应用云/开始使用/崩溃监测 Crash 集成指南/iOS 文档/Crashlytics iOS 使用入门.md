@@ -7,6 +7,10 @@
 * 一个启用了应用云的应用。
 * 集成了 TACCore。
 
+## 配置 Crashlytics 中的脚本
+为了配合其它SDK的使用，需要在Info.plist里面注册一些额外的信息。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南](https://github.com/tencentyun/qcloud-documents/tree/master/product/移动与通信/应用云/开始使用/授权%20Authorization%20集成指南/iOS%20文档) 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
+
+
 ## 将应用云 Crashlytics 代码库添加到 Xcode 项目中
 
 
