@@ -43,8 +43,17 @@
 | setVideoBitRateMin(videoBitrateMin)      | 配合 setAutoAdjustStrategy 使用 |
 | setVideoBitRateMax(videoBitrateMax)      | 配合 setAutoAdjustStrategy 使用 |
 | setVideoFPS(fps)                         | 设置视频帧率                      |
+| openSystemVoiceInput(bOpen)                          | 系统混音开关接口                        |
+| startScreenPreview(x,y,width,height)                          | 屏幕捕捉预览接口                        |
+| setPauseVideo(bPause)                   | 推流过程中暂停视频，目前是以黑色替换  |
+| startAudioCapture()                          | 启动音频采集                        |
+| stopAudioCapture()                          | 停止音频采集                        |
 | setPusherEventCallBack(callbackfun, objectid) | 设置回调接口                      |
 
+
+	[id(23)] HRESULT setPauseVideo([in] USHORT bPause);
+	[id(24)] HRESULT startAudioCapture();
+	[id(25)] HRESULT stopAudioCapture();
 ### 1.getVersion()
 
 获取插件版本号，和标签 &lt;object ... codebase='...&version=1.0.0.1'&gt; 上的 version 对应。
@@ -400,7 +409,138 @@ function setVideoFPS() {
 }
 ```
 
-### 19.setPusherEventCallBack(callbackfun, objectid)
+### 19.openSystemVoiceInput(bOpen)
+
+系统混音接口，推流成功后调用，如果打开开关，系统所有的声音被会被采集并和麦克风混音输出，
+
+- **参数说明**
+
+| 参数   | 类型     | 说明   |
+| ---- | ------ | ---- |
+| bOpen | Int  | 1表示打开，0表示关闭，默认为0|
+
+- **示例代码** : 
+
+```
+function doPushOpenSystemAudioMuxer(ckbox) {
+    var ckbox = document.getElementById(ckbox.id);
+    if (ckbox.checked){
+        pusher.openSystemVoiceInput(1);
+    }
+    else{
+        pusher.openSystemVoiceInput(0);
+    }
+}
+```
+
+### 20.startScreenPreview(x,y,width,height)
+
+屏幕录制，指定区域，或者全部输入0时，录制整个主屏幕
+
+- **参数说明**
+
+| 参数   | 类型     | 说明   |
+| ---- | ------ | ---- |
+| x | Int  | 左边原点位置|
+| y | Int  | 右边原点位置|
+| width | Int  | 录屏的长|
+| height | Int  | 录屏的宽|
+
+- **示例代码** : 
+
+```
+function startScreenPreview() {
+	 pusher.startScreenPreview(0,0,0,0);
+}
+```
+
+### 21.captureVideoSnapShot(sFileFullPath,sDirPath)
+
+推流端视频图像快照，以sFileFullPath路径存储，如果sFileFullPath为"",则以sDirPath路径打开文件选择器，如果sDirPath为“”，则文件选择器默认位置为桌面，目前只支持.jpg的文件格式
+
+- **参数说明**
+
+| 参数   | 类型     | 说明   |
+| ---- | ------ | ---- |
+| sFileFullPath | String  | 指定存储文件路径，不为null，则直接存储文件|
+| sDirPath | String  | 指定路径来打开文件选择器，当sFileFullPath为null时，此参数生效|
+
+
+- **返回值说明**
+  成功 or 失败，文件存在、创建文件失败等
+| 参数   | 类型   | 说明       |
+| ---- | ---- | -------- |
+| vRet | Int  | -1:失败，-2路径非法，-3文件存在，-4未推流 |
+
+- **示例代码** : 
+
+```
+function screenShotPusher() {
+	//第一个参数指定文件， 第二个参数指定路径，如果不需要指定文件，则""
+    //var ret = pusher.captureVideoSnapShot("", "D:\\subTest");
+    var ret = pusher.captureVideoSnapShot("D:\\subTest\\123.jpg", "D:\\subTest");
+    //-1:失败，-2路径非法，-3文件存在，-4未推流
+    if (ret == -1) {
+        alert("截图失败");
+    }
+    else if (ret == -2) {
+        alert("路径非法");
+    }
+    else if (ret == -3) {
+        alert("文件存在");
+    }
+    else if (ret == -4) {
+        alert("未推流");
+    }
+}
+```
+
+### 22.setPauseVideo(bPause)
+
+推音视频流过程中，暂停视频，目前是以黑色背景替换
+
+- **参数说明**
+
+| 参数   | 类型     | 说明   |
+| ---- | ------ | ---- |
+| bOpen | Int  | 1表示打开，0表示关闭，默认为0|
+
+- **示例代码** : 
+
+```
+function doPauseVideo(bPause) {
+     pusher.setPauseVideo(bPause);
+}
+```
+
+### 23.startAudioCapture()
+
+启动音频采集
+
+- **示例代码** : 
+
+```
+function startAudioCapture(targetURL) {
+	   //启动音频推流，没有视频
+     pusher.startAudioCapture();
+		 pusher.startPush(targetURL);
+}
+```
+
+### 24.stopAudioCapture()
+
+停止音频采集
+
+- **示例代码** : 
+
+```
+function stopAudioCapture() {
+	   //启动音频推流，没有视频
+     pusher.stopAudioCapture();
+}
+```
+
+### 25.setPusherEventCallBack(callbackfun, objectid)
 
 设置事件回调，用于接收在推流过程中 SDK 所抛出的各种事件，事件列表详见文档接下来的部分。
 
@@ -472,6 +612,7 @@ function doUpdatePusherStatusInfo(paramJson) {
 | PUSH_EVT_CAMERA_REMOVED      | 1009 | 摄像头设备已被移出         |
 | PUSH_EVT_CAMERA_AVAILABLE    | 1010 | 摄像头设备重新可用        |
 | PUSH_EVT_CAMERA_CLOSED       | 1011 | 关闭摄像头完成        |
+| PUSH_EVT_SNAPSHOT_RESULT       | 1012 | 截图快照返回码        |
 
 ### 2. 错误通知
 
@@ -538,15 +679,22 @@ SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 
 - 推流视频分辨率
   var AxTXEVideoResolution = {
-  // 普屏 4:3
+	// 普屏 4:3
   AX_TXE_VIDEO_RESOLUTION_320x240 : 1,
-  AX_TXE_VIDEO_RESOLUTION_640x480 : 2,
+	AX_TXE_VIDEO_RESOLUTION_480x360 : 2,
+  AX_TXE_VIDEO_RESOLUTION_640x480 : 3,
+	AX_TXE_VIDEO_RESOLUTION_960x720 : 4,
+ // 宽屏16:9
+	AX_TXE_VIDEO_RESOLUTION_320x180 : 101,
+  AX_TXE_VIDEO_RESOLUTION_480x272 : 102,
+  AX_TXE_VIDEO_RESOLUTION_640x360 : 103,
+	AX_TXE_VIDEO_RESOLUTION_960x540 : 104,
+	// 宽屏9:16
+	AX_TXE_VIDEO_RESOLUTION_180x320 : 201,
+	AX_TXE_VIDEO_RESOLUTION_272x480 : 202,
+	AX_TXE_VIDEO_RESOLUTION_360x640 : 203,
+	AX_TXE_VIDEO_RESOLUTION_540x960 : 204,
 
-  // 宽屏16:9
-   AX_TXE_VIDEO_RESOLUTION_480x272 : 3,
-  AX_TXE_VIDEO_RESOLUTION_640x360 : 4,
-  AX_TXE_VIDEO_RESOLUTION_1280x720 : 7,
-  AX_TXE_VIDEO_RESOLUTION_1920x1080 : 8,
   };
 
 ### AxTXEBeautyStyle 

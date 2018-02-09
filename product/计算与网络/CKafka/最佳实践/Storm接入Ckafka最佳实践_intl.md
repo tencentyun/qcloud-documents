@@ -22,11 +22,11 @@
 
 ### Applying for the Creation of Ckafka Instance
 
-![](https://mc.qcloudimg.com/static/img/d2ae59d6670c641c73ddcc3d0b7fa364/image.png)
+![](https://mc.qcloudimg.com/static/img/7333604c2285f1db50499eab35fac2fb/12231-01.jpg)
 
 ### Creating Topic
 
-![](https://mc.qcloudimg.com/static/img/0b6d4b8f9b18951cbc5ba3b16cd5ea8a/image.png)
+![](https://mc.qcloudimg.com/static/img/61de4051b661fcb14076b9dde83a6c06/12231-02.jpg)
 
 ### "maven" Dependency
 "pom.xml" is configured as follows

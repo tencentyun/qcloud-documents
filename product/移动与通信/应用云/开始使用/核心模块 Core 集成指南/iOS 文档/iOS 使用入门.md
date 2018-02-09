@@ -1,14 +1,12 @@
-# 应用云 iOS 使用入门
 
 ## 准备工作
 
-为了使用应用云 iOS 版本的 SDK，您首先需要做好一下工作：
-有一个 iOS 的工程，或者下载我们的 [实例工程](https://console.cloud.tencent.com/tac)。
+为了使用应用云 iOS 版本的 SDK，您需要一个 iOS 的工程，或者下载应用云的 [实例工程](https://console.cloud.tencent.com/tac)。
 
 ## 集成代码库
 
-### 通过 CocoaPods 集成(推荐)
-
+### 通过 CocoaPods 集成（推荐）
+ 
 如果您是设置一个新项目，则需要安装 SDK。您可能已经在创建应用云项目的过程中完成此步操作。
 
 我们 **强烈建议** 使用 CocoaPods 来安装相关的库。这样可以方便您后期 **维护** 和 **即时** 收到我们的 **SDK更新**。您可以根据 [安装说明](https://guides.cocoapods.org/using/getting-started.html#getting-started) 来安装并使用 CocoaPods 。如果您不想使用 CocoaPods ，则可以按照 **手工集成** 的方式直接集成 SDK 框架。
@@ -115,9 +113,9 @@ Swift 代码示例：
 为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
 
 脚本主要包括两个：
-
-1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
-2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
+ 
+- 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
+- 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
 
 ![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
 

@@ -1,8 +1,8 @@
 
-Domestic SMS, overseas SMS and voice notification are three major services provided by Tencent Cloud SMS to customers.
-- Domestic SMS support the following features: sending single SMS messages, bulk SMS messages, single SMS messages with template ID and bulk SMS messages with template ID, and pulling SMS report & reply.
-- The API for sending single domestic SMS messages can be directly used to send overseas SMS messages, and only country code and phone number need to be replaced to corresponding ones.
-- For voice notification, voice verification code and voice notification feature are supported.
+China SMS, international SMS and voice notification are three major services provided by Tencent Cloud SMS to customers.
+- China SMS supports the following features: sending single SMS messages, sending bulk SMS messages, sending single SMS messages with template ID, sending bulk SMS messages with template ID, and pulling SMS report & reply.
+- The API for sending single China SMS messages can be directly used to send international SMS messages, and only country code and phone number need to be replaced with corresponding ones.
+- For voice notification, voice verification code and voice notification are supported.
 
 
 | SDK Name | SDK Documentation | Github Address |
