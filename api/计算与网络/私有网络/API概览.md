@@ -102,8 +102,8 @@
 | 接口功能 | Action ID |  功能描述 |
 |---------|---------|---------|
 | 创建专线网关 | [CreateDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4824) | 创建专线网关。 |
-| 修改专线网关属性 | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | 修改专线网关属性。|
-| 删除专线网关 | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | 删除专线网关。 |
+| 修改专线网关属性 | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | 修改专线网关属性。|
+| 删除专线网关 | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | 删除专线网关。 |
 | 查询专线网关 | [DescribeDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4827) | 查询专线网关。 |
 | 添加专线网关本端IP转换 | [CreateLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5185) | 添加专线网关本端IP转换。 |
 | 删除专线网关本端IP转换 | [DeleteLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5186) | 删除专线网关本端IP转换。 |
