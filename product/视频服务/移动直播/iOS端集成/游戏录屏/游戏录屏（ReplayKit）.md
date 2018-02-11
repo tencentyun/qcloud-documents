@@ -2,27 +2,33 @@
 ## 概述
 
 录屏功能是iOS 10新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](http://devstreaming.apple.com/videos/wwdc/2016/601nsio90cd7ylwimk9/601/601_go_live_with_replaykit.pdf)。
+iOS 11新增的ReplayKit2，进一步提升了Replaykit的易用性，可以对整个手机实现屏幕录制，而非某些特定App。
 
-录屏的整个流程分为游戏App和直播App两个部分。iOS录屏时并没有让直播App直接运行，而是以扩展程序的形式为游戏App服务。扩展程序也分为两个，一个是用于显示自定义界面，这个界面可以让用户输入标题、显示用户信息等，用户点击确定后转到另一个扩展程序中发送屏幕数据，这个扩展并没有显示UI的能力。整个录屏直播的结构如下图所示。
+扩展程序有单独的进程。iOS系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被Kill掉。腾讯云RTMP SDK在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
 
-![1](//mc.qcloudimg.com/static/img/8e2f3b74b9c1f2d93feb8ef403042fd8/image.png)
-
-Broadcast Upload作为一个扩展程序，有单独的进程。iOS系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被Kill掉。腾讯云RTMP SDK在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
+> iOS 11和iOS 10的扩展程序编写并无区别，本文将介绍iOS 11上使用SDK的方法，代码同样适用于iOS 10
 
 ## 功能体验
 
-由于录屏功能需要游戏和直播软件都支持，才能完成录制的流程。直播软件推荐使用我们的“小直播”，下载地址
-![2](//mc.qcloudimg.com/static/img/721f68e5ebb0779d2b14a97de40b0121/image.png)
+体验iOS录屏可下载我们的测试demo：[RPLiveStream](http://dldir1.qq.com/hudongzhibo/xiaozhibo/RPLiveStream-master.zip)。
 
-随着iOS 10普及，支持录屏的游戏也在普及。如果您没有可录屏的游戏，可下载“坦克之战”这款游戏，点击上方的直播，选择小直播即可开始录屏。
-![3](//mc.qcloudimg.com/static/img/84ded1555fb546da6652491f4ef71183/image.png)
+![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/er.png)
 
+下载后真机运行，点击“开始直播”。填写正确推流地址即可体验录屏功能。
+
+![RPLiveStream](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/RPLiveStream.png)
+
+体验系统屏幕录制，打开控制中心，长按屏幕录制按钮，选择好直播的程序，开始直播。
+
+![ScreenRecord](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/ScreenRecord.png)
+
+> 注意：系统屏幕录制不会弹出扩展UI，因此RPLiveStream不能输入推流地址。此时需要在App里先开播，扩展Upload会记下您输入的推流地址，再来系统屏幕录制，流数据就会发送到上一个推流地址。
 
 ## 开发环境准备
 
 ### Xcode 准备
 
-录屏直播是iOS 10提供的新特性，所以需要Xcode 8及以上的版本，手机也必须升级至iOS 10以上，模拟器无法使用录屏特性。
+Xcode 9及以上的版本，手机也必须升级至iOS 11以上，模拟器无法使用录屏特性。
 
 ### 创建直播扩展
 
@@ -45,7 +51,9 @@ iOS 10的Replay Kit支持两种直播方式
 
 ### 导入RTMP SDK
 
-直播扩展需要导入TXRTMPSDK.framework。扩展导入framework的方式和主App导入方式相同，SDK的系统依赖库也没有区别，具体可参考腾讯云官网《[工程配置(iOS)](https://cloud.tencent.com/document/product/454/7876)》。
+直播扩展需要导入TXLiteAVSDK.framework。扩展导入framework的方式和主App导入方式相同，SDK的系统依赖库也没有区别。具体可参考腾讯云官网《工程配置(iOS)》
+
+> https://cloud.tencent.com/doc/api/258/5320
 
 
 ## 对接流程
@@ -74,7 +82,7 @@ iOS 10的Replay Kit支持两种直播方式
     
     // Tell ReplayKit that the extension is finished setting up and can begin broadcasting
     [self.extensionContext completeRequestWithBroadcastURL:broadcastURL
-		        broadcastConfiguration:broadcastConfig setupInfo:setupInfo];
+                broadcastConfiguration:broadcastConfig setupInfo:setupInfo];
 }
 ```
 
@@ -107,12 +115,14 @@ s_txLivePublisher是我们用于推流的对象。实例化s_txLivePublisher的�
     config.audioChannels   = 1;
     
     s_txLivePublisher = [[TXLivePush alloc] initWithConfig:config];
-  	NSString *pushUrl = setupInfo[@"endpointURL"]; // setupInfo来自于UI扩展
+    NSString *pushUrl = setupInfo[@"endpointURL"]; // setupInfo来自于UI扩展
     [s_txLivePublisher startPush:pushUrl];  
 }
 ```
 
-s_txLivePublisher的config不能使用默认的配置，需要设置自定义采集视频和音频。关于自定义采集的设置的原理和工作方式，参见腾讯云文档《[RTMP推流－深度使用](https://cloud.tencent.com/document/product/454/7884)》。
+s_txLivePublisher的config不能使用默认的配置，需要设置自定义采集视频和音频。关于自定义采集的设置的原理和工作方式，参见腾讯云文档《RTMP推流－进阶应用》
+
+> https://cloud.tencent.com/doc/api/258/6458
 
 视频启用autoSampleBufferSize，开启此选项后，您不需要关心推流的分辨率，SDK会自动根据输入的分辨率设置编码器；如果您关闭此选项，那么代表您需要自定义分辨率
 
@@ -130,7 +140,7 @@ config.sampleBufferSize = CGSizeMake(640, 360);
 
 ### Step 4: 发送视频
 
-Replay Kit会将音频和视频都以回调的方式传给`-[SampleHandler processSampleBuffer:withType]`
+Replaykit会将音频和视频都以回调的方式传给`-[SampleHandler processSampleBuffer:withType]`
 
 ```objective-c
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType {
@@ -156,59 +166,36 @@ Replay Kit会将音频和视频都以回调的方式传给`-[SampleHandler proce
     switch (sampleBufferType) {
         case RPSampleBufferTypeAudioApp:
             // 来自App内部的音频
-            
+            [s_txLivePublisher sendAudioSampleBuffer:sampleBuffer withType:sampleBufferType];
             break;
         case RPSampleBufferTypeAudioMic:
-            // 来自Mic的音频。
         {
-        	// 发送来着Mic的音频数据
-            [s_txLivePublisher sendAudioSampleBuffer:sampleBuffer];
+            // 发送来着Mic的音频数据
+            [s_txLivePublisher sendAudioSampleBuffer:sampleBuffer withType:sampleBufferType];
         }
             break;
-	}
+    }
 ```
 
-SDK不支持同时发送两路数据，您需要跟进情况自己选择使用那一份音频。
+SDK支持同时发送两路数据，内部会对两路数据进行混音。通常情况，只有当用户插上耳机时，才有必要发送两路数据。否者建议只发送Mic的声音数据。
+
+在屏幕录制时，用户可能关闭麦克风音频，此时RPSampleBufferTypeAudioMic数据不能收到。
 
 ### Step 6: 暂停与恢复
 
-游戏App可以暂停当前直播，此时Samples buffer不再分发到直播扩展，直到用户恢复直播。在自定义采集模式下，SDK需要外部持续提供数据源，否则服务器会因长时间得不到数据而断开直播。
+游戏App可以暂停当前直播，扩展程序不会收到数据，直到用户恢复直播。在自定义采集模式下，SDK需要外部持续提供数据源，否则服务器会因长时间得不到数据而断开直播。
 
-SDK内部对视频有补帧逻辑，没有视频时会重发最后一帧数据，而音频没有补帧逻辑，不向SDK提供数据会导致音画不同步的现象发生。您可以用下面的简单代码，在暂停时向SDK发送静音数据。
+SDK内部对视频有补帧逻辑，没有视频时会重发最后一帧数据。音频暂停需要调用`-[TXLivePush setSendAudioSampleBufferMuted:]` ，此时SDK自动发送静音数据。
 
 ```objective-c
-static dispatch_source_t s_audioTimer;
-
-- (void)pause {
-    if (s_audioTimer) {
-        return;
-    }
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    s_audioTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(s_audioTimer,DISPATCH_TIME_NOW,20*NSEC_PER_MSEC, 0);
-    dispatch_source_set_event_handler(s_audioTimer, ^{
-        static uint8_t _audioData[2048] = {0};
-        [s_txLivePublisher sendCustomPCMData:_audioData len:sizeof(_audioData)];
-    });
-    dispatch_resume(s_audioTimer);
-}
-
-- (void)resume {
-    if (s_audioTimer) {
-        dispatch_cancel(s_audioTimer);
-        s_audioTimer = 0;
-    }
-}
-
 - (void)broadcastPaused {
     // User has requested to pause the broadcast. Samples will stop being delivered.
-    [self pause];
+    [s_txLivePublisher setSendAudioSampleBufferMuted:YES];
 }
 
 - (void)broadcastResumed {
     // User has requested to resume the broadcast. Samples delivery will resume.
-    [self resume];
+    [s_txLivePublisher setSendAudioSampleBufferMuted:NO];
 }
 ```
 
