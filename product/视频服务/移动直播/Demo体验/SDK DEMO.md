@@ -4,23 +4,23 @@
 
 <table width="840px">
   <tr align="center">
-    <th width="220px">所属系统</th>
-    <th width="220px">当前版本</th>
-		<th width="220px">安装地址</th>
-    <th width="220px">扫码安装</th>
+    <th width="150px">所属系统</th>
+    <th width="150px">当前版本</th>
+		<th width="150px">安装地址</th>
+    <th width="300px">扫码安装</th>
   </tr>
   <tr align="center">
     <td>iOS</td>
     <td>4.1</td>
 		<td><a href="https://itunes.apple.com/us/app/rtmp-tui-liu-jing-ling/id1152295397?l=zh&ls=1&mt=8
 ">点击安装</a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/3c5c3071f4a792e01985e9ce23489c0c/image.png" /></td>
+		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/b9c3da61900be18622b5cf5a3984ffa1/image.png" /></td>
   </tr>
 	<tr align="center">
     <td>Android</td>
     <td>4.1</td>
 		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk">点击安装</a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/a58cea429544ceafcbb4b805c1241b94/image.png" /></td>
+		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/601b4555080a5bf3a15be22ff9a66783/image.png" /></td>
   </tr>
 </table>
 
@@ -30,22 +30,22 @@
 
 <table width="840px">
   <tr align="center">
-    <th width="220px">所属系统</th>
-    <th width="220px">当前版本</th>
-		<th width="220px">安装地址</th>
-    <th width="220px">扫码安装</th>
+    <th width="150px">所属系统</th>
+    <th width="150px">当前版本</th>
+		<th width="150px">安装地址</th>
+    <th width="300px">扫码安装</th>
   </tr>
   <tr align="center">
     <td>iOS</td>
     <td>4.1</td>
 		<td><a href="https://itunes.apple.com/cn/app/id1132521667?mt=8">点击安装</a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/45e3c6178579b9e4b6947a80b4fd96bb/image.png" /></td>
+		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/92f5be86a4f0f7f85e45ff5cc3688825/image.png" /></td>
   </tr>
   <tr align="center">
     <td>Android</td>
     <td>4.1</td>
 		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk">点击安装</a></td>
-		<td><img src="https://mc.qcloudimg.com/static/img/afeada9a338150905bc8c30e67d4159f/image.png" /></td>
+		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/1cb8096aef77bf9a16dba52476b322f6/image.png" /></td>
   </tr>
 </table>
 
