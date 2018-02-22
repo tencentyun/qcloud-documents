@@ -1,11 +1,8 @@
 <h2 id="Why"> 为何要派发URL？</h2>
 
-在直播系统的对接中，后台研发工程师的主要工作是两个部分：
-- **派发推流 URL 和播放 URL**
-这里说的“派发”指的是：在 APP（主播端）准备推流（[iOS](https://cloud.tencent.com/document/product/454/7879) | [Android](https://cloud.tencent.com/document/product/454/7885)）时返回推流 URL 给 APP，在 APP（观众端）准备播放（[iOS](https://cloud.tencent.com/document/product/454/7880) | [Android](https://cloud.tencent.com/document/product/454/7886)）时返回播放 URL 给 APP。
+直播推流需要推流 URL， 直播播放需要播放 URL，不管您的产品是想做单场次的活动直播，还是主播可以随时开播的直播平台，由后台派发 URL 都要比把 URL 写死在 APP 里要灵活的多。
 
-- **操控直播流**
-比如关闭某一条正在直播但内容不健康的直播流，或者查询某一条直播流的状态，这些需要结合您的产品逻辑进行二次开发。
+这里说的“派发”指的是：在 APP（主播端）准备推流（[iOS](https://cloud.tencent.com/document/product/454/7879) | [Android](https://cloud.tencent.com/document/product/454/7885)）时返回推流 URL 给 APP，在 APP（观众端）需要播放（[iOS](https://cloud.tencent.com/document/product/454/7880) | [Android](https://cloud.tencent.com/document/product/454/7886)）时返回播放 URL 给 APP。
 
 <h2 id="URL"> URL的组成？ </h2>
 
