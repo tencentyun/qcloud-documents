@@ -1,81 +1,53 @@
-<h2 id="Why"> 为何要派发URL？</h2>
+## 为何要派发?
 
-在直播系统的对接中，后台研发工程师的主要工作是两个部分：
-- **派发推流 URL 和播放 URL**
-这里说的“派发”指的是：在 APP（主播端）准备推流（[iOS](https://cloud.tencent.com/document/product/454/7879) | [Android](https://cloud.tencent.com/document/product/454/7885)）时返回推流 URL 给 APP，在 APP（观众端）准备播放（[iOS](https://cloud.tencent.com/document/product/454/7880) | [Android](https://cloud.tencent.com/document/product/454/7886)）时返回播放 URL 给 APP。
+UserSig是使用腾讯云通讯服务（[IM](https://cloud.tencent.com/product/im)）所需的一种安全票据，所以如果您准备使用腾讯云 IM 服务实现聊天室功能，就需要您的后台工程师生成 UserSig 给返回给终端 APP；如果您已经有自己的 IM 解决方案（也就是已经有自己的聊天室了），可以免去这部分工作。
 
-- **操控直播流**
-比如关闭某一条正在直播但内容不健康的直播流，或者查询某一条直播流的状态，这些需要结合您的产品逻辑进行二次开发。
+## 什么是UserSig?
+腾讯云通讯服务（IM）的终端 SDK 叫做 IM SDK，您可以把它理解为一个没有界面模块的 QQ，把 IM SDK 集成到您的 APP 里，就相当于把一个 QQ 的消息内核集成在您的 APP 内部。
 
-<h2 id="URL"> URL的组成？ </h2>
+我们都知道，QQ 可以用来收发单聊和群聊的消息，但前提是您必须先登录才能使用。我们也都知道，登录 QQ 用的是 QQ 号和密码，登录 IM SDK 也是一样，只是肯定不能用 QQ 号和密码了，而是使用您指定的用户名（userid）和密码（usersig）。
 
-### 推流URL的组成
+- **用户名（userid）**
+可以是您目前 APP 里的用户ID，比如您有一个用户，他/她的账号 ID 是 27149， 那么您就可以用 27149 作为登录 IM SDK 的 userid。
 
-如下是一条标准的推流URL，它由三个部分组成：
- ![url](//mc.qcloudimg.com/static/img/6b4fd09ab2c7d6f1503070f8c994f4e0/image.png)
+- **密码（usersig）**
+既然您指定了 27149 是您的用户，腾讯云如何才能确认该用户是您认可的合法用户呢？usersig 就是用于解决这个问题的，usersig 本质是对 userid、appid 等信息的非对称加密。
 
-- **直播码**
-也叫房间号，推荐用随机数字或者用户ID，注意一个合法的直播码需要拼接 BIZID 前缀。
+ 非对称加密用的加密密钥和解密密钥是不同的，您的服务器可以持有私钥并对 userid 和 appid 进行非对称加密，加密之后的结果就是 usersig ；而腾讯云同步持有您的公钥，这样一来，腾讯云就可以确认 usersig 是否合法，从而可以确认它是否是由您的服务器签发的。
 
-- **txTime**
-何时该URL会过期，格式是十六进制的UNIX时间戳，比如 5867D600 代表 2017年1月1日0时0点0分过期。  我们的客户一般会将 txTime 设置为当前时间 24 小时以后过期，<font color='red'>过期时间不要太短</font>，当主播在直播过程中遭遇网络闪断时会重新恢复推流，如果过期时间太短，主播会因为推流 URL 过期而无法恢复推流。
+![](https://mc.qcloudimg.com/static/img/1e218acdf45772973f9f6c363ab55d89/image.jpg)
 
-- **txSecret**
-防盗链签名，防止攻击者伪造您的后台生成推流URL，计算方法参考[防盗链签名的计算](https://cloud.tencent.com/document/product/454/9875)。
+## 如何生成UserSig?
 
-- **示例代码**
-[直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage)页面下半部分有示例代码（PHP和Java两个版本）演示如何生成防盗链地址。
+### step1：获取签发UserSig用的私钥
 
-### 播放URL的组成
-播放URL的拼接跟推流URL一样简单，只是需要把子域名从 **livepush** 改成 **<font color='red'>liveplay</font>**：
-![](//mc.qcloudimg.com/static/img/b7d8744654af4a174edf47f8998348a4/image.png)
+进入云通讯[管理控制台](https://console.cloud.tencent.com/avc)，如果还没有服务，直接点击 **直接开通云通讯** 按钮即可。新认证的腾讯云账号，云通讯的应用列表是空的，如下图：
+![](//mc.qcloudimg.com/static/img/c033ddba671a514c7b160e1c99a08b55/image.png)
 
+点击 **创建应用接入** 按钮创建一个新的应用接入，即您要接入腾讯云IM通讯服务的App的名字，我们的测试应用名称叫做“小直播演示”，如下图所示：
+![](//mc.qcloudimg.com/static/img/897bff65af6202322a434b6fa3f8a0bd/image.png)
 
-<h2 id="Secret"> 防盗链签名</h2>
+点击 **确定** 按钮，之后就可以在应用列表中看到刚刚添加的项目了，如下图所示：
+![](https://mc.qcloudimg.com/static/img/fff565dc81ba26ca7af4951264b7bb4c/image.png)
 
-### 什么是防盗链签名？
-防盗链签名指的是推流 URL 和播放 URL 中的 **txTime** 和 **txSecret** 字段，它的作用是防止攻击者通过伪造您的直播 URL 而盗播您的流量。
+点击 **应用配置** 链接，会进入应用配置界面，再点击 **账号体系集成** 右侧的 **编辑** 按钮，按照下图所示进行配置即可（账号名称和管理员名称推荐用英文，账号名称随便填写，管理员工程在调用 IM 的 REST API 时可以用到）。
+![](https://mc.qcloudimg.com/static/img/1104e8354d234d949840c9b6c396fd24/image.png)
 
-![](//mc.qcloudimg.com/static/img/4c0ba5f9993da67ff785f10eb4c85f3d/image.png)
+点击 **保存** 按钮，页面会自动刷新，之后就可以看到 **下载公私钥** 的按钮了。
+![](https://mc.qcloudimg.com/static/img/67810cab51216a813b47edcb960ab67a/image.png)
 
-### 防盗链签名的原理？
-为了不让攻击者可以伪造您的服务器生成推流URL，我们需要您现在直播管理控制台配置 **防盗链加密KEY**，由于攻击者无法轻易获得加密KEY，也就无法伪造出有效的推流URL，原理如下图所示：
-![](//mccdn.qcloud.com/static/img/4ea1512fd335f68f30cca0a01e902966/image.png)
+点击 **下载公私钥** 按钮，会得到一个叫做 **keys.zip** 的压缩包，里面有一个 private_key 和 一个 public_key，**private_key** 就是用来签发 UserSig 的私钥了。
+![](https://mc.qcloudimg.com/static/img/615590334ba32627857fdb309176682f/image.png)
 
-### 防盗链签名的计算？
-#### step1 ： 交换KEY
-首先，您需要在 [直播控制台](https://console.cloud.tencent.com/live/livecodemanage) 设置一个**加密密钥**，该密钥用于在您的服务器上计算防盗链签名，由于腾讯云跟您持有同样的密钥，所以您生成的防盗链签名，腾讯云可以进行合法性确认。
+### step2：测试private_key
+可以在 **开发辅助工具** 中测试一下 private_key 是否能正常进行签名。
+![](https://mc.qcloudimg.com/static/img/b7d40f17068d9f6605bcac81e2891b5e/image.png)
 
-密钥分为**推流防盗链KEY**和**播放防盗链KEY**，前者用于生成推流防盗链URL，后者用于生成播放防盗链URL。目前在  [直播控制台](https://console.cloud.tencent.com/live/livecodemanage) 上可以自助配置推流防盗链KEY，如下图：
-![](//mc.qcloudimg.com/static/img/6be1d875f1120a16d3692c60bb4485a9/image.png)
- >  **播放防盗链不支持自助配置**
- >   
- > 由于播放防盗链KEY的配置需要同步到几千台CDN集群，同步周期一般都很长，不适合调试期频繁修改。如果您需要配置播放防盗链，可以通过客服电话联系我们，正常流程一般需要 1 - 3 天完成全 CDN 集群的配置。
+### step3：集成生成代码
+阅读 [DOC](https://cloud.tencent.com/document/product/269/1510) 可以了解各个语言版本（Java、PHP、C++）的 UserSig 生成代码，之后可以将其集成到您的后台系统中。
 
-#### step2 ： txTime
-签名中明文部分为txTime，含义是该链接的有效期，比如现在我当前的时间是2016-07-29 11:13:45，而且期望新生成的URL是在 24 小时后即作废，那么txTime就可以设置为 2016-07-30 11:13:45。
+推荐的做法是将其集成到登录环节中，也就是在用户登录时，您的后台服务器除了返回之前应该返回的信息，还可以将 UserSig 也一并返回给您的 App。
 
-为了减少 URL 中的字符串长度，要  2016-07-30 11:13:45 转换成Unix时间戳，也就是1469848425 ，然后再转换成16进制以进一步压缩字符长度，也就是 txTime = 1469848425（十进制） = 579C1B69（十六进制）。
- 
-一般将 txTime 设置为当前时间 12 小时以后过期，<font color='red'>过期时间不要太短</font>，否则当主播在直播过程中遭遇断网重连时，会因为过期时间太短而无法恢复推流。
-
-#### step3 ： txSecret
-
-<table><tr><td style="width: 700px; height: 80px; text-align:center; "> 
-<B>txSecret = MD5(KEY+ stream_id + txTime)</B> 
-</td></tr></table>
-
-这里的 **KEY** 就是您在 step1 中配置的加密KEY，**stream_id** 为直播码（或称作流ID），**txTime**为刚才计算的 579C1B69，**MD5** 即标准的MD5哈希算法。
-
-#### step4 ： 地址拼接
-现在我们有了推流（或者播放）URL，有了用来告知腾讯云该URL过期时间的txTime，有了只有腾讯云才能解密并且验证的txSecret，就可以拼合成一个防盗链的安全URL了。
-
-<table><tr><td style="width: 700px; height: 80px; text-align:center; "> 
-rtmp://8888.livepush.myqcloud.com/live/8888_test001?txSecret=xxx&txTime=5C2A3CFF
-</td></tr></table>
-	
-> [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 页面下半部分有示例代码（PHP和Java两个版本）演示如何生成防盗链地址。
-
-
-
+## 如何使用 UserSig？
+如果您是后台研发工程师，剩下的工作就不需要您操心了，您可以通知您的同事（终端开发工程师）阅读 IM SDK 的接入文档（[iOS](https://cloud.tencent.com/document/product/269/9149) | [Android](https://cloud.tencent.com/document/product/269/9233)），完成后续接入工作。
 
