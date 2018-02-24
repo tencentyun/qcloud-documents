@@ -213,7 +213,7 @@ NAT 网关创建后，可以对其属性进行修改。
 
 ### 绑定高防包
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)点击导航条【安全】>【大禹网络安全】，选择左导航栏的[【BGP高防包】](https://console.cloud.tencent.com/dayu/bgp/list/sp/gz)。
-2. 选择您已有的高防包实例，单击更换设备操作，选择需要反复的 NAT 网关上的 EIP。
+2. 选择您已有的高防包实例，单击更换设备操作，选择需要防护的 NAT 网关上的 EIP。
 3. 单击【确认】，即为该 NAT 网关关联了高防包功能。
 
 ## API 概览
