@@ -11,7 +11,7 @@ To achieve auto interaction of COS and speech recognition system, you need to cr
 
 **Step 1**: You can enter the template management page via ["Console"](https://console.cloud.tencent.com/) -> "Artificial Audio Intelligence" -> "Template Management".
 
-**Step 2**: Click Add to create a template, and then select the speech recognition service and the subservice, offline speech recognition.
+**Step 2**: Click **Add** to create a template, and then select the speech recognition service and the subservice, offline speech recognition.
 
 **Step 3**: Select the model, number of channels, and text encoding method based on your business.
 
