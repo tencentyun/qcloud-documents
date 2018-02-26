@@ -144,6 +144,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_confirm_conf.png?raw=true)
 
+
 配置好对应的渠道信息、回调地址和平台参数后，点击【保存&预览】：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_input_config.png)
