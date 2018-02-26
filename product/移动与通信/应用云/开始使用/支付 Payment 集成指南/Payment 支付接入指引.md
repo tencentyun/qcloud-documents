@@ -10,9 +10,11 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 想要接入 Payment 支付功能，首先您必须在 TAC 平台上创建项目和应用，首先登录 [TAC 平台](https://console.qcloud.com/tac)，然后点击【创建项目】按钮来创建一个新的项目：
 
-创建好项目后，点击该项目：
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_project.png)
 
-然后点击【创建应用】按钮来创建一个应用：
+创建好项目后，选择该项目，然后点击【创建应用】按钮来创建一个应用：
+
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_app.png)
 
 创建好应用后，您就可以开始接入 Payment 支付功能了。
 
@@ -55,21 +57,19 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 打开之前在 [TAC 平台](https://console.qcloud.com/tac)上创建的应用，点击【我的米大师】，选择【渠道管理】，然后点击【开通微信支付】：
 
-add image
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_add_wechat_pay.png)
 
-填入之前申请好微信商户平台上的商户号和商户号密钥，以及微信开放平台上审核通过的应用AppID和AppKey，然后点击【确认】：
-
-add image
+填入之前申请好微信商户平台上的商户号和商户号密钥，以及微信开放平台上审核通过的应用AppID和AppKey，然后点击【确认】。
 
 ### 第八步：设置支付参数
 
 点击【我的米大师】，选择【参数配置】，点击【修改】：
 
-add image
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_confirm_conf.png)
 
 配置好对应的渠道信息、回调地址和平台参数后，点击【保存&预览】：
 
-add image
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_input_config.png)
 
 到此，您即已经完成了微信支付的接入。
 
@@ -133,21 +133,19 @@ add image
 
 打开之前在 [TAC 平台](https://console.qcloud.com/tac)上创建的应用，点击【我的米大师】，选择【渠道管理】，然后点击【开通 QQ 钱包支付】：
 
-add image
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_qq_pay.png)
 
-填入之前申请的 QQ 商户号上的商户号和商户号密钥，腾讯开放平台上审核通过的应用AppID和AppKey然后点击【确认】：
-
-add image
+填入之前申请的 QQ 商户号上的商户号和商户号密钥，腾讯开放平台上审核通过的应用AppID和AppKey然后点击【确认】。
 
 ### 第十步：设置支付参数
 
 点击【我的米大师】，选择【参数配置】，点击【修改】：
 
-add image
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_confirm_conf.png)
 
 配置好对应的渠道信息、回调地址和平台参数后，点击【保存&预览】：
 
-add image
+![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_input_config.png)
 
 到此，您即已经完成了 QQ 支付的接入。
 
