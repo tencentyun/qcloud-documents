@@ -15,8 +15,7 @@
 ### 5.返回内容 ###
 需要通过error字段判断请求是否成功，若返回内容有error字段则请求失败，具体错误详情请参照error字段描述。
 ### 6.JSON示例说明 ###
-请求：`PUT /_metric/ctsdb_test1/delete`<br/>
-请求数据：
+请求：`PUT /_metric/ctsdb_test1/delete`<br>请求数据：
 
 	{
 		"tags": ["ip"],        
