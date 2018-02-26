@@ -1,45 +1,40 @@
 ## 简介
+车辆属性别服务，传入一张图片，返回该图片中的最大车辆的车系、品牌、车辆类型、颜色等属性的 Top5 识别结果。
 
-车辆属性别服务，传入一张图片，返回该图片中的最大车辆的车系、品牌、车辆类型、颜色等属性的Top5识别结果。
+### 调用 URL
+支持 http 和 https 两种协议：
+```
+http://recognition.image.myqcloud.com/car/classify
+```
 
-## 说明
-
+## 基本概念说明
 | 概念    | 解释              |
 | ----- | --------------- |
-| appid | 项目ID, 接入项目的唯一标识 |
+| appid | 项目 ID，接入项目的唯一标识 |
 
-## 调用URL
-支持 http 和 https 两种协议：
-
-`http://recognition.image.myqcloud.com/car/classify`
-
-## HTTP 请求格式
-
-车辆检测识别接口采用http协议，支持上传本地图片数据进行识别。
+## http 请求
+车辆检测识别接口采用 http 协议，支持上传本地图片数据进行识别。
 
 ### 头部信息
-
 | 参数名            | 值                              | 描述                                       |
 | -------------- | ------------------------------ | ---------------------------------------- |
 | Host           | recognition.image.myqcloud.com | 腾讯云文字识别服务器域名                           |
-| Content-Length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）。                |
+| Content-Length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）          |
 | Content-Type   | multipart/form-data               | 上传本地图片                                 |
-| Authorization  | 鉴权签名                           | 多次有效签名，用于鉴权， 具体生成方式详见[鉴权签名方法](/document/product/641/12409) |
+| Authorization  | 鉴权签名                           | 多次有效签名，用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
 
 ><font color="#0000cc">**注意：** </font>
-> (1) 每个请求的包体大小限制为 6MB；
-> (2) 所有接口都为 POST 方法；
-> (3) 不支持 .gif 这类的动图。
+- 每个请求的包体大小限制为 6 MB；
+- 所有接口都为 POST 方法；
+- 不支持 .gif 这类的动图。
 
 ### 请求参数
-
 | 参数名称   | 是否必选 | 类型     | 说明           |
 | ------ | ---- | ------ | ------------ |
 | app_id | 必须   | String | 腾讯云申请的 AppId |
-| image  | 可选   | binary | base64 图片数据   |
+| image  | 可选   | Binary | base64 图片数据   |
 
-### 示例—使用图片文件
-
+### 示例：使用图片文件
 ```
 POST /car/classify HTTP/1.1
 Authorization: FCHXdPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJi==
@@ -54,25 +49,24 @@ Content-Type: text/json
 ```
 
 ## 返回值
-
 ### 返回内容
 
 | 字段        | 类型            | 说明         |
 | --------- | ------------- | ---------- |
-| code      | int           | 返回状态值      |
-| message   | atring        | 返回错误消息     |
-| data.tags | array(CarTag) | 识别出的所有字段信息 |
+| code      | Int           | 返回状态值      |
+| message   | String        | 返回错误消息     |
+| data.tags | Array(CarTag) | 识别出的所有字段信息 |
 
-CarTag说明
+CarTag 说明
 
 | 字段         | 类型     | 说明     |
 | ---------- | ------ | ------ |
-| idx        | int64  | 腾讯汽车ID |
-| confidence | float  | 置信度    |
-| serial     | string | 车系     |
-| brand      | string | 品牌     |
-| type       | string | 车辆类型   |
-| color      | string | 颜色     |
+| idx        | Int64  | 腾讯汽车 ID |
+| confidence | Float  | 置信度    |
+| serial     | String | 车系     |
+| brand      | String | 品牌     |
+| type       | String | 车辆类型   |
+| color      | String | 颜色     |
 
 ### 示例
 ```
@@ -133,15 +127,15 @@ CarTag说明
 | 3     | 错误的请求                      |
 | 4     | 签名为空                       |
 | 5     | 签名串错误                      |
-| 6     | 签名中的 appid/bucket 与操作目标不匹配 |
+| 6     | 签名中的 APPID/Bucket 与操作目标不匹配 |
 | 9     | 签名过期                       |
-| 10    | appid 不存在                  |
-| 11    | secretid 不存在               |
-| 12    | appid 和 secretid 不匹配       |
+| 10    | APPID 不存在                  |
+| 11    | SecretId 不存在               |
+| 12    | APPID 和 SecretId 不匹配       |
 | 13    | 重放攻击                       |
 | 14    | 签名校验失败                     |
 | 15    | 操作太频繁，触发频控                 |
-| 16    | Bucket不存在                  |
+| 16    | Bucket 不存在                  |
 | 21    | 无效参数                       |
 | 23    | 请求包体过大                     |
 | 24    | 没有权限                       |
