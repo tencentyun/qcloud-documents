@@ -102,8 +102,8 @@
 | 接口功能 | Action ID |  功能描述 |
 |---------|---------|---------|
 | 创建专线网关 | [CreateDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4824) | 创建专线网关。 |
-| 修改专线网关属性 | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | 修改专线网关属性。|
-| 删除专线网关 | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | 删除专线网关。 |
+| 修改专线网关属性 | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | 修改专线网关属性。|
+| 删除专线网关 | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | 删除专线网关。 |
 | 查询专线网关 | [DescribeDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4827) | 查询专线网关。 |
 | 添加专线网关本端IP转换 | [CreateLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5185) | 添加专线网关本端IP转换。 |
 | 删除专线网关本端IP转换 | [DeleteLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5186) | 删除专线网关本端IP转换。 |
@@ -154,4 +154,13 @@
 | 弹性网卡解绑云主机 | [DetachNetworkInterface](https://cloud.tencent.com/document/product/215/4822) | 弹性网卡解绑云主机。 |
 | 弹性网卡迁移 | [MigrateNetworkInterface](https://cloud.tencent.com/doc/api/245/5384) | 弹性网卡迁移。 |
 | 内网IP迁移 | [MigratePrivateIpAddress](https://cloud.tencent.com/doc/api/245/5385) | 内网IP迁移。 |
+
+## 13. 流日志相关接口
+| 接口功能 | Action ID |  功能描述 |
+|---------|---------|---------|
+| 创建流日志 | [CreateFlowLog](流日志相关接口/创建流日志) |  创建流日志。 |
+| 删除流日志 | [DeleteFlowLog](流日志相关接口/删除流日志) |  删除流日志。 |
+| 查询流日志信息 | [DescribeFlowLog](流日志相关接口/查询流日志信息) | 查询流日志实例信息。 |
+| 查询流日志列表 | [DescribeFlowLogs](流日志相关接口/查询流日志列表) | 查询流日志列表信息。 |
+| 修改流日志属性 | [ModifyFlowLogAttribute](流日志相关接口/修改流日志属性) | 修改流日志属性。 |
 

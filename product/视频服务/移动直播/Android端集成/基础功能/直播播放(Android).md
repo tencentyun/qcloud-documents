@@ -7,7 +7,7 @@
  <font color='blue'>点播（VOD）</font> 的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷土豆等视频网站上的视频观看就是典型的点播场景。
 
 - **协议的支持**
-通常使用的直播协议如下，APP端推荐使用 FLV 协议的直播地址(以“http”打头，以“.flv”结尾)：
+通常使用的直播协议如下，APP 端推荐使用 FLV 协议的直播地址(以“http”打头，以“.flv”结尾)：
 ![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
 
 ## 特别说明
@@ -18,7 +18,7 @@
 SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，但是由于点播功能越做越多，我们最终在 SDK 3.5 版本开始，将点播功能单独分离出来，交由 TXVodPlayer 来负责。但是为了保证编译通过，您在 TXLivePlayer 中依然可以看到类似 seek 等点播才具备的功能。
 ## 对接攻略
 
-### step 1: 添加View
+### step 1: 添加 View
 为了能够展示播放器的视频画面，我们第一步要做的就是在布局xml文件里加入如下一段代码：
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
@@ -29,31 +29,31 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
             android:visibility="gone"/>
 ```
 
-### step 2: 创建Player
-视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将这它与我们刚刚添加到界面上的**video_view**控件进行关联。
+### step 2: 创建 Player
+视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将这它与我们刚刚添加到界面上的 **video_view** 控件进行关联。
 ```java
-//mPlayerView即step1中添加的界面view
+//mPlayerView 即 step1 中添加的界面 view
 TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
 
-//创建player对象
+//创建 player 对象
 TXLivePlayer mLivePlayer = new TXLivePlayer(getActivity());
 
-//关键player对象与界面view
+//关键 player 对象与界面 view
 mLivePlayer.setPlayerView(mView);
 ```
 
 ### step 3: 启动播放
 ```java
 String flvUrl = "http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
-mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
+mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 ```
 
 | 可选值 | 枚举值 | 含义 |
 |---------|---------|---------|
-| PLAY_TYPE_LIVE_RTMP | 0 | 传入的URL为RTMP直播地址 |
-| PLAY_TYPE_LIVE_FLV | 1 | 传入的URL为FLV直播地址 |
+| PLAY_TYPE_LIVE_RTMP | 0 | 传入的 URL 为 RTMP 直播地址 |
+| PLAY_TYPE_LIVE_FLV | 1 | 传入的 URL 为 FLV 直播地址 |
 | PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟链路地址（仅适合于连麦场景） |
-| PLAY_TYPE_VOD_HLS | 3 | 传入的URL为HLS(m3u8)播放地址 |
+| PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS（m3u8）播放地址 |
 
 > **关于HLS(m3u8)**
 > 在 APP 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 APP 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
@@ -61,21 +61,28 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 ### step 4: 画面调整
 
 - **view：大小和位置**
-如需修改画面的大小及位置，直接调整 step1中添加的 “video_view” 控件的大小和位置即可。
+如需修改画面的大小及位置，直接调整 step1 中添加的 “video_view” 控件的大小和位置即可。
 
 - **setRenderMode：铺满or适应**
 
 | 可选值 | 含义  |
 |---------|---------|
-| RENDER_MODE_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
+| RENDER_MODE_FULL_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
 | RENDER_MODE_ADJUST_RESOLUTION | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
 
 - **setRenderRotation：画面旋转**
 
 | 可选值 | 含义  |
 |---------|---------|
-| RENDER_ROTATION_PORTRAIT | 正常播放（Home键在画面正下方） | 
-| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home键在画面正左方） | 
+| RENDER_ROTATION_PORTRAIT | 正常播放（Home 键在画面正下方） | 
+| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转 270 度（Home 键在画面正左方） | 
+
+```Java
+// 设置填充模式
+mLivePlayer.setRenderMode(TXLiveConstants.RENDER_MODE_ADJUST_RESOLUTION);
+// 设置画面渲染方向
+mLivePlayer.setRenderRotation(TXLiveConstants.RENDER_ROTATION_LANDSCAPE);
+```
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
@@ -91,14 +98,14 @@ mLivePlayer.resume();
 ```
 
 ### step 6: 结束播放
-结束播放时 <font color='red'>**记得销毁view控件**</font> ，尤其是在下次startPlay之前，否则会产生大量的内存泄露以及闪屏问题。
+结束播放时 <font color='red'>**记得销毁view控件**</font> ，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
 
 同时，在退出播放界面时，记得一定要调用渲染View的`onDestroy()`函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
 ```java
 @Override
 public void onDestroy() {
     super.onDestroy();
-    mLivePlayer.stopPlay(true); // true代表清除最后一帧画面
+    mLivePlayer.stopPlay(true); // true 代表清除最后一帧画面
     mView.onDestroy(); 
 }
 ```
@@ -139,7 +146,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
         @Override
         public void onNetStatus(Bundle status) {
         }
-		});
+        });
 ```
 
 ### step 8: 屏幕截图
@@ -152,7 +159,7 @@ mLivePlayer.snapshot(new ITXSnapshotListener() {
     @Override
     public void onSnapshot(Bitmap bmp) {
         if (null != bmp) {
-           //获取到截图bitmap
+           //获取到截图 bitmap
         }
     }
 });
@@ -213,7 +220,7 @@ mLivePlayer.setConfig(mPlayConfig);
 //设置完成之后再启动播放
 ```
 
-> 更多关于卡顿和延迟优化的技术知识，可以阅读[视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
+> 更多关于卡顿和延迟优化的技术知识，可以阅读 [视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 支持 <font color='red'>**400ms**</font> 左右的超低延迟播放时腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**，等等，关于这个特性，您需要知道：
@@ -224,7 +231,7 @@ mLivePlayer.setConfig(mPlayConfig);
 - **播放地址需要带防盗链**
 播放URL 不能用普通的 CDN URL， 必须要带防盗链签名，防盗链签名的计算方法见 [**txTime&txSecret**](https://cloud.tencent.com/document/product/454/9875)。
 
-- **播放类型需要指定ACC**
+- **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，SDK 会使用 RTMP-UDP 协议拉取直播流。
 
 - **该功能有并发播放限制**
@@ -234,21 +241,21 @@ mLivePlayer.setConfig(mPlayConfig);
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。如果是 Windows 端，请使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)， Obs 的推流端积压比较严重，是无法达到低延时效果的。
 
 
-## SDK事件监听
-你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
+## SDK 事件监听
+你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后 SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
 
 ### 1. 播放事件
-| 事件ID                 |    数值  |  含义说明                    |   
+| 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 | PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
-| PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
-| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
+| PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放 RTMP 地址时会抛送） |
+| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包（IDR）  |
 |PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果有转菊花什么的这个时候该停了 | 
-|PLAY_EVT_PLAY_LOADING	|  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
-|PLAY_EVT_GET_MESSAGE	|  2012|  用于接收夹在音视频流中的消息，详情参考[消息接受](#Message)|  
+|PLAY_EVT_PLAY_LOADING  |  2007|  视频播放 loading，如果能够恢复，之后会有 BEGIN 事件|  
+|PLAY_EVT_GET_MESSAGE   |  2012|  用于接收夹在音视频流中的消息，详情参考 [消息接受](#Message)|  
 
 - **不要在收到 PLAY_LOADING 后隐藏播放画面**
-因为PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个半透明的 loading 动画。
+因为 PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个半透明的 loading 动画。
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -263,7 +270,7 @@ mLivePlayer.setConfig(mPlayConfig);
 
 
 ### 3. 警告事件
-如下的这些事件您可以不用关心，我们只是基于白盒化的SDK设计理念，将事件信息同步出来
+如下的这些事件您可以不用关心，我们只是基于白盒化的 SDK 设计理念，将事件信息同步出来
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
@@ -274,9 +281,9 @@ mLivePlayer.setConfig(mPlayConfig);
 | PLAY_WARNING_VIDEO_PLAY_LAG      |  2105  | 当前视频播放出现卡顿|
 | PLAY_WARNING_HW_ACCELERATION_FAIL|  2106  | 硬解启动失败，采用软解   |
 | PLAY_WARNING_VIDEO_DISCONTINUITY |  2107  | 当前视频帧不连续，可能丢帧|
-| PLAY_WARNING_DNS_FAIL            |  3001  | RTMP-DNS解析失败（仅播放RTMP地址时会抛送）|
-| PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | RTMP服务器连接失败（仅播放RTMP地址时会抛送）|
-| PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP服务器握手失败（仅播放RTMP地址时会抛送）|
+| PLAY_WARNING_DNS_FAIL            |  3001  | RTMP-DNS 解析失败（仅播放 RTMP 地址时会抛送）|
+| PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | RTMP 服务器连接失败（仅播放 RTMP 地址时会抛送）|
+| PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP 服务器握手失败（仅播放 RTMP 地址时会抛送）|
 
 
 
@@ -285,18 +292,18 @@ mLivePlayer.setConfig(mPlayConfig);
 **视频的宽高（分辨率）是多少？**
 站在 SDK 的角度，如果只是拿到一个 URL 字符串，它是回答不出这个问题的。要知道视频画面的宽和高各是多少个 pixel, SDK 需要先访问云端服务器，直到加载到足够能够分析出视频画面大小的信息才行，所以对于视频信息而言，SDK 也只能以通知的方式告知您的应用程序。 
 
- **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前SDK内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。
+ **onNetStatus** 通知每秒都会被触发一次，目的是实时反馈当前的推流器状态，它就像汽车的仪表盘，可以告知您目前 SDK 内部的一些具体情况，以便您能对当前网络状况和视频信息等有所了解。 
   
 |   评估参数                   |  含义说明                   |   
 | :------------------------  |  :------------------------ | 
-| NET_STATUS_CPU_USAGE     | 当前瞬时CPU使用率 | 
+| NET_STATUS_CPU_USAGE     | 当前瞬时 CPU 使用率 | 
 | **NET_STATUS_VIDEO_WIDTH**  | 视频分辨率 - 宽 |
 | **NET_STATUS_VIDEO_HEIGHT**| 视频分辨率 - 高 |
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
-|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
-| NET_STATUS_SERVER_IP | 连接的服务器IP | 
+|   NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|   NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|   NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
+|   NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
+| NET_STATUS_SERVER_IP | 连接的服务器 IP | 
 

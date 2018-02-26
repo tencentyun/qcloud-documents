@@ -1,10 +1,10 @@
-## 一、服务注册发现篇
+## 服务注册发现
 
-### 1.1 名词解释
+### 1. 名词解释
 
 **FatJar** : FatJar (也称作可执行 jars ) 是包含编译后的类及代码运行所需依赖 jar 的存档，可以使用 java -jar 命令运行该应用程序。
 
-### 1.2 实现服务注册和发现
+### 2. 实现服务注册和发现
 
 #### 服务提供者
 ##### Maven 依赖
@@ -94,7 +94,7 @@
 </beans>
 ~~~
 
-## 二、服务打包
+## 服务打包
 可以通过 **maven-shade-plugin** 来构建一个包含所有依赖的 jar 包（FatJar）。
 执行命令 `mvn clean package`。
 
@@ -146,5 +146,5 @@
 
 参考链接：[maven-shade-plugin 入门指南](https://www.jianshu.com/p/7a0e20b30401)
 
-## 三、部署应用
+## 部署应用
 参考 《TSF 操作手册》中 [应用部署](https://cloud.tencent.com/document/product/649/13686) 。

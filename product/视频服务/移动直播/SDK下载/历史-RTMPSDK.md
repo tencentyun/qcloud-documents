@@ -1,3 +1,17 @@
+### Version 4.2
+- iOS&Android：提升企业版SDK性能，开启P图动效，iOS帧率显著提升，Android GPU消耗降低。
+- iOS&Android：优化直播播放器音画同步效果，新的音画同步方案更好的适应OBS推流。
+- iOS&Android：点播播放器支持FieldID，提升多分辨率切换场景易用性。
+
+### Version 4.1
+- iOS&Android：直播推流与播放支持在音视频流中携带消息。
+- iOS&Android：短视频录制新增分辨率与码率切换接口。
+- iOS&Android：短视频录制新增拍照接口。
+- iOS&Android：直播推流新增截图与录制能力。
+- iOS&Android：短视频编辑BGM支持设置播放开始时间与循环播放能力。
+- iOS&Android：点播MP4支持自动旋转。
+- iOS：Demo新增点播全功能播放器，几行代码就能让您拥有一个优酷播放器。
+
 ### Version 3.9
 - iOS&Android：新增H.265硬解码能力。
 - iOS&Android：Demo功能全新改版，新增双人、多人实时音视频能力。

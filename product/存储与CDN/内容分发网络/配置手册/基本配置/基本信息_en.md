@@ -1,42 +1,23 @@
-The basic information of a domain includes its accelerated domain, CNAME, time of creation, the project to which it belongs, and its content type.
+You can view the basic information of domain names in the CDN console, including the accelerated domain name, CNAME, creation time, project and service type. You can modify their **Project** or **Service Type** as needed.
 
-You can modify a domain's project and content type as necessary.
+## Configuration
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn), select "Domain Management" in the left navigation bar, and click "Manage" to the right of the domain name to be edited.
+![](https://mc.qcloudimg.com/static/img/f2f50e0d81eb0a8c0dcb61d2ee37e6c9/manage.png)
+By clicking "Basic Configuration", you can view the basic information of the domain name in the **Basic info** module.
+![](https://mc.qcloudimg.com/static/img/da199bf07c4bc72e4c4f3c27969d16d8/basic.png)
 
+## Modifying Project
+> **Note**: Users who use the CDN permission system should proceed with caution, since this operation may cause changes to the permissions of sub-users.
 
+You can group a large number of domain names for classified management. Click "Modify" to the right of **Project** to select a new project in the drop-down box.
+![](https://mc.qcloudimg.com/static/img/89aa53c0cc4331f582d04872d59d2637/basic_project.png)
+In addition, you can manage your projects in [Project Management](https://console.cloud.tencent.com/project) page.
 
-## Project
+## Modifying Service Type
+> **Note**: The scheduling of resource platform is required to switch the service type. Contact us by submitting a ticket to switch.
 
-If there are a large number of domains, you can group them into projects for classified management. Click [Project Management](https://console.cloud.tencent.com/project) to view the existing projects.
-
-Log in to [CDN Console](https://console.cloud.tencent.com/cdn) and go to "Domain Management" page. Then click **Manage** button to the right of the domain name to enter the management page:
-
-![](https://mc.qcloudimg.com/static/img/f92d2ef7e4be2b69185ab43228f025ef/1.png)
-
-You can check the current project to which a domain belongs from **Basic info** in "Basic Configuration":
-
-![](https://mc.qcloudimg.com/static/img/c988671d3bb852b53dd136965f7ef8a6/2.png)
-
-Click "Modify" to the right of **Project** to change the project:
-
-![](https://mc.qcloudimg.com/static/img/78a5d44004d74055b3a0ed3e0c67e3f8/3.png)
-
-<font color="red">Users who use the CDN permission system should proceed with caution, since this operation may cause changes to the permissions of sub-users.</font>
-
-
-
-## Content Type
-
-The selected content type determines which resource platform will be used by the domain. Acceleration configurations vary with resource platforms. Please choose the content type that matches your business:
-
--  **Static content**: Suitable for acceleration scenarios for static resources such as e-commerce, websites, game images;
--  **Media streaming**: Suitable for application scenarios such as LVB, ILVB downstream acceleration and VOD acceleration;
--  **Downloading**: Suitable for scenarios such as audio & video source file download, mobile phone firmware delivery.
-
-
-You can check the current content type of a domain from **Basic info** in "Basic Configuration":
-
-![](https://mc.qcloudimg.com/static/img/1d679f62f54a3c91b0075df18619ec42/4.png)
-
-Click the "Modify" link to the right of **Content type** to change the content type.
-
-
+The selected service type determines which resource platform is used by the domain name. Acceleration configurations vary with resource platforms. Choose the service type that matches your business:
+-  **Static content**: Suitable for acceleration scenarios for static resources such as e-commerce, websites and game images.
+-  **Downloading**: Suitable for scenarios such as download of game installation packages and audio/video source files and mobile phone firmware delivery.
+-  **Streaming Media VOD acceleration**: Suitable for application scenarios such as audio/video VOD acceleration.
+-  **Streaming Media LVB acceleration**: Suitable for application scenarios such as LVB, ILVB downstream acceleration.
