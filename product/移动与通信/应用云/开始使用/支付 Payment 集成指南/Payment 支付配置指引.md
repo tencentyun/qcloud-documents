@@ -1,8 +1,20 @@
 
-# Payment 支付接入指引
 
+## 引言
 
-Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过在移动端 APP 中集成 Payment SDK 来调起微信支付和手 Q 支付。
+Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过在移动端 APP 中集成 Payment SDK 来调起微信支付和手 Q 支付。在接入 Payment 前，您需要先做如下准备工作：
+
+- 创建 TAC 应用
+
+您必须首先创建项目，然后在该项目下新建应用，才能给该应用配置支付功能。
+
+- 申请微信支付
+
+您需要先在[微信开放平台](https://open.weixin.qq.com)和[微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login)上申请好相关信息，然后才能给 TAC 应用配置微信支付功能。
+
+- 申请 QQ 支付
+
+您需要先在[QQ 钱包商户平台](https://qpay.qq.com)和[腾讯开放平台](http://open.qq.com/)上申请好相关信息，然后才能给 TAC 应用配置 QQ 支付功能。
 
 > [什么是 App 支付](http://kf.qq.com/faq/17060936FNZj170609vMneY3.html)
 
@@ -13,15 +25,15 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_project.png?raw=true)
 
-创建好项目后，选择该项目，然后点击【创建应用】按钮来创建一个应用：
+创建好项目后，选择该项目，然后点击【创建应用】按钮在该项目下新建一个应用：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_app.png)
 
 创建好应用后，您就可以开始接入 Payment 支付功能了。
 
-## 接入微信支付
+## 配置微信支付
 
-下面将详细说明如何在 TAC 平台上接入 Payment 的微信支付渠道。
+下面将详细说明如何在 TAC 平台上配置 Payment 的微信支付渠道。
 
 ### 第一步：注册微信开放平台账号并进行认证
 
@@ -72,13 +84,13 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_input_config.png?raw=true)
 
-到此，您即已经完成了微信支付的接入。
+到此，您即已经完成了微信支付的配置。
 
 > 其中回调地址是支付完成后服务器回调的地址，而平台参数则是用于鉴定来源的APP信息，安卓平台下为应用签名和应用包名，iOS平台下为Bundle Identifier。 
 
-## 接入手 Q 支付
+## 配置手 Q 支付
 
-下面将详细说明如何在 TAC 平台上接入 Payment 的手 Q 支付。
+下面将详细说明如何在 TAC 平台上配置 Payment 的手 Q 支付。
 
 ### 第一步：在 QQ 钱包上填写资料
 
@@ -149,7 +161,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_input_config.png)
 
-到此，您即已经完成了 QQ 支付的接入。
+到此，您即已经完成了 QQ 支付的配置。
 
 > 其中回调地址是支付完成后服务器回调的地址，而平台参数则是用于鉴定来源的APP信息，安卓平台下为应用签名和应用包名，iOS平台下为Bundle Identifier。 
 
