@@ -14,8 +14,7 @@
 | fields          | 否              | map             | 指标列，为了节省空间，建议使用最适合实际业务使用的类型，支持的数据类型：string（字符串）、long、integer、short、byte、double、float、date、boolean。例如：`{"cpu_usage":"float"}`  |
 | options         | 否              | map             | 常用的调优配置信息，例如：`{"expire_day":7,"refresh_interval":"10s","number_of_shards":5,"number_of_replicas":1,"rolling_period":1,"max_string_length": 256,"default_date_format":"strict_date_optional_time","indexed_fields":["host"]}` |
 
-> **注意**
-> 
+> **注意**<br>
 > 1. time 字段的 name 默认为 timestamp，时间格式（format）完全兼容 Elasticsearch 的时间格式。
 > 2. options 选项及解释如下：<br/>
 >    - expire_day：数据过期时间（单位：天），取值范围为非零整数，过期后数据自动清理，缺省情况下为最小值-1（代表永不过期）。<br/>
