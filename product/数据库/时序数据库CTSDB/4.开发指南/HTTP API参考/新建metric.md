@@ -12,8 +12,8 @@
 | 参数名称        | 必选            | 类型            | 描述            |
 |---------|---------|---------|---------|
 | tags            | 是              | map             | 维度列，至少包含一个维度，支持的数据类型：text（带有分词、全文索引的字符串）、string（不分词的字符串）、long、integer、short、byte、double、float、date、boolean。格式如：`{"region": "string","set":  "long","host": "string"}` |
-| time            | 是              | map             | 时间列相关配置，例如：`{"name": "timestamp", "format":  "epoch_second"}`   |
-| fields          | 是              | map             | 指标列，为了节省空间，建议使用最适合实际业务使用的类型，支持的数据类型：string（字符串）、long、integer、short、byte、double、float、date、boolean。例如：`{"cpu_usage":"float"}`  |
+| time            | 否              | map             | 时间列相关配置，例如：`{"name": "timestamp", "format":  "epoch_second"}`，若不填则系统默认格式为`{"name": "timestamp", "format":  "epoch_millis"}`   |
+| fields          | 否              | map             | 指标列，为了节省空间，建议使用最适合实际业务使用的类型，支持的数据类型：string（字符串）、long、integer、short、byte、double、float、date、boolean。例如：`{"cpu_usage":"float"}`  |
 | options         | 否              | map             | 常用的调优配置信息，例如：`{"expire_day":7,"refresh_interval":"10s","number_of_shards":5,"number_of_replicas":1,"rolling_period":1,"max_string_length": 256,"default_date_format":"strict_date_optional_time","indexed_fields":["host"]}` |
 
 > **注意**
