@@ -15,7 +15,7 @@
 | options         | 否              | map             | 常用的调优配置信息，例如：`{"expire_day":7,"refresh_interval":"10s","number_of_shards":5,"number_of_replicas":1,"rolling_period":1,"max_string_length": 256,"default_date_format":"strict_date_optional_time","indexed_fields":["host"]}` |
 
 > **注意**<br>
-> 1. time 字段的 name 默认为 timestamp，时间格式（format）完全兼容 Elasticsearch 的时间格式，如epoch_millis（从1970年的1月1号00:00:00开始所经过的毫秒数）、epoch_second（从1970年的1月1号00:00:00开始所经过的秒数）、basic_date（格式如yyyyMMdd）、basic_date_time（格式如yyyyMMdd'T'HHmmss.SSSZ）等。<br>
+> 1. time 字段的 name 默认为 timestamp，时间格式（format）完全兼容 Elasticsearch 的时间格式，如epoch_millis（以毫秒为单位的Unix时间戳）、epoch_second（以秒为单位的Unix时间戳）、basic_date（格式如yyyyMMdd）、basic_date_time（格式如yyyyMMdd'T'HHmmss.SSSZ）等。<br>
 > 2. options 选项及解释如下：<br>
 >    - expire_day：数据过期时间（单位：天），取值范围为非零整数，过期后数据自动清理，缺省情况下为最小值-1（代表永不过期）。<br>
 >    - refresh_interval：数据刷新频率，写入的数据从内存刷新到磁盘后可查询。默认为 10 秒。<br>
