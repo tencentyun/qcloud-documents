@@ -1,4 +1,3 @@
-# 应用云 Crashlytics Android 编程手册
 
 ## 启动 Crash 服务
 
@@ -17,7 +16,7 @@ crashService.start(context);
 
 ## MultiDex 注意事项
 
-如果使用了MultiDex，建议通过 Gradle 的 "multiDexKeepFile" 配置等方式把 Crash 的类放到主 Dex，另外建议在 Application 类的 "attachBaseContext" 方法中主动加载非主 dex：
+如果使用了 MultiDex，建议通过 Gradle 的 "multiDexKeepFile" 配置等方式把 Crash 的类放到主 Dex，另外建议在 Application 类的 "attachBaseContext" 方法中主动加载非主 dex：
 
 ```
 public class MyApplication extends SomeOtherApplication {
@@ -31,7 +30,7 @@ public class MyApplication extends SomeOtherApplication {
 
 ## 增加上报进程控制
 
-如果App使用了多进程且各个进程都会初始化Crash（例如在Application类onCreate()中初始化Crash），那么每个进程下都会进行数据上报，造成不必要的资源浪费。
+如果 App 使用了多进程且各个进程都会初始化 Crash（例如在 Application 类 onCreate()中初始化 Crash），那么每个进程下都会进行数据上报，造成不必要的资源浪费。
 
 你可以通过以下方法控制只在主线程上报数据，首先通过以下方法获取当前进程是否为主进程：
 
@@ -60,7 +59,7 @@ if (isMainProcess()) {
 
 ## 模拟异常
 
-您可以通过以下方法主动触发异常，以便测试SDK是否正常工作。
+您可以通过以下方法主动触发异常，以便测试 SDK 是否正常工作。
 
 ```
 // 模拟java异常
@@ -87,14 +86,14 @@ final TACCrashOptions tacCrashOptions = tacApplicationOptions.sub("crash");
 
 ### 设置上报延时时间
 
-Crash 会在启动10s后联网同步数据。若您有特别需求，可以修改这个时间。
+Crash 会在启动 10s 后联网同步数据。若您有特别需求，可以修改这个时间。
 
 ```
 final TACCrashOptions tacCrashOptions = tacApplicationOptions.sub("crash");
-tacCrashOptions.setReportDelay(20000);   //改为20s
+tacCrashOptions.setReportDelay(20000);   //改为 20s
 ```
 
-### 设置Crash回调
+### 设置 Crash 回调
 
 您可以设置 Crash 发生时的回调，回调返回的数据将伴随 Crash 一起上报到 Crash 平台，并展示在附件中：
 
@@ -160,18 +159,18 @@ tacCrashOptions.setHandleCallback(new TACCrashHandleCallback() {
         });
 ```
 
-### 关闭Native Crash上报
+### 关闭 Native Crash 上报
 
-默认会上报Native Crash，如果您需要，可以关闭该功能。
+默认会上报 Native Crash，如果您需要，可以关闭该功能。
 
 ```
 final TACCrashOptions tacCrashOptions = tacApplicationOptions.sub("crash");
 tacCrashOptions.enableNativeCrashMonitor(false);
 ```
 
-### 关闭ANR上报
+### 关闭 ANR 上报
 
-默认会上报ANR，如果您需要，可以关闭该功能。
+默认会上报 ANR，如果您需要，可以关闭该功能。
 
 ```
 final TACCrashOptions tacCrashOptions = tacApplicationOptions.sub("crash");
@@ -181,41 +180,41 @@ tacCrashOptions.enableANRCrashMonitor(false);
 ## 用户策略行为
 
 ### 设置标签
-自定义标签，用于标明App的某个“场景”。在发生Crash时会显示该Crash所在的“场景”，以最后设置的标签为准，标签id需大于0。例：当用户进入界面A时，打上9527的标签：
+自定义标签，用于标明 App 的某个“场景”。在发生 Crash 时会显示该 Crash 所在的“场景”，以最后设置的标签为准，标签 ID 需大于 0。例：当用户进入界面A时，打上 9527 的标签：
 
 ```
 TACCrashService.getInstance().setUserSceneTag(context, 9527); // 上报后的Crash会显示该标签
 ```
-打标签之前，需要在Bugly产品页配置中添加标签，取得标签ID后在代码中上报。
+打标签之前，需要在 Bugly 产品页配置中添加标签，取得标签 ID 后在代码中上报。
 
 ### 设置自定义Map参数
 
-自定义Map参数可以保存发生Crash时的一些自定义的环境信息。在发生Crash时会随着异常信息一起上报并在页面展示。
+自定义Map参数可以保存发生 Crash 时的一些自定义的环境信息。在发生 Crash 时会随着异常信息一起上报并在页面展示。
 
 ```
 TACCrashService.getInstance().putUserData(context, "userkey", "uservalue");
 ```
 
-最多可以有9对自定义的key-value（超过则添加失败）；
-key限长50字节，value限长200字节，过长截断；
-key必须匹配正则：[a-zA-Z[0-9]]+。
+最多可以有 9 对自定义的 key-value（超过则添加失败）；
+key 限长 50 字节，value 限长 200 字节，过长截断；
+key 必须匹配正则：[a-zA-Z[0-9]]+。
 
 
-## Javascript的异常捕获功能
+## Javascript 的异常捕获功能
 
-Crash 提供了Javascript的异常捕获和上报能力，以便开发者可以感知到 WebView中发生的Javascript异常。
+Crash 提供了 Javascript 的异常捕获和上报能力，以便开发者可以感知到 WebView 中发生的 Javascript 异常。
 
 ```
 TACCrashService.getInstance().setJavascriptMonitor(Webview);
 ```
 
-由于Android 4.4以下版本存在反射漏洞，接口默认只对Android 4.4及以上版本有效。
+由于 Android 4.4 以下版本存在反射漏洞，接口默认只对 Android 4.4 及以上版本有效。
 
-如果您是采用自动集成SDK的方式，可以选择自动注入或者手动注入两种方式。
+如果您是采用自动集成 SDK 的方式，可以选择自动注入或者手动注入两种方式。
 
 ### 自动注入
 
-建议在WebChromeClient的onProgressChanged函数中调用接口，例子如下：
+建议在 WebChromeClient 的 onProgressChanged 函数中调用接口，例子如下：
 
 ```
 WebView webView = new WebView(this);
@@ -223,18 +222,18 @@ WebView webView = new WebView(this);
 webView.setWebChromeClient(new WebChromeClient() {
     @Override
     public void onProgressChanged(WebView webView, int progress) {
-        // 增加Javascript异常监控
+        // 增加 Javascript 异常监控
         TACCrashService.getInstance().setJavascriptMonitor(webView, true);
         super.onProgressChanged(webView, progress);
     }
 });
-// 加载HTML
+// 加载 HTML
 webView.loadUrl(url);
 ```
 
 ### 手动注入
 
-将下载的SDK资源包中的 Bugly.js 文件添加到需要监控Javascript异常的HTML中：
+将下载的 SDK 资源包中的 Bugly.js 文件添加到需要监控 Javascript 异常的 HTML 中：
 
 ```
 <html>
@@ -243,24 +242,24 @@ webView.loadUrl(url);
     ...
 </body>
 </html>
-在WebView加载完该HTML后设置Javascript的异常捕获功能：
+在 WebView 加载完该 HTML 后设置 Javascript 的异常捕获功能：
 WebView webView = new WebView(this);
-// 加载HTML
+// 加载 HTML
 webView.loadUrl(url);
-// 增加Javascript异常监控
+// 增加 Javascript 异常监控
 TACCrashService.getInstance().setJavascriptMonitor(webView, false);
 ```
 
-在捕获到Javascript异常后，默认会上报以下信息：
+在捕获到 Javascript 异常后，默认会上报以下信息：
 
-* Android设备的相关信息；
-* Javascript异常堆栈和其他信息；
-* Java堆栈；
-* WebView的信息，目前只包括ContentDescription。
+* Android 设备的相关信息；
+* Javascript 异常堆栈和其他信息；
+* Java 堆栈；
+* WebView 的信息，目前只包括 ContentDescription。
 
 ## 主动上报异常
 
-主动上报开发者Catch的异常 您可能会关注某些重要异常的Catch情况。我们提供了上报这类异常的接口。 
+主动上报开发者 Catch 的异常您可能会关注某些重要异常的 Catch 情况，我们提供了上报这类异常的接口。 
 
 ```
 try {
@@ -272,7 +271,7 @@ try {
 
 ## 自定义日志
 
-我们提供了自定义Log的接口，用于记录一些开发者关心的调试日志，可以更全面地反应App异常时的前后文环境。使用方式与android.util.Log一致。用户传入TAG和日志内容。该日志将在Logcat输出，并在发生异常时上报。上报Log最大30K。
+我们提供了自定义 Log 的接口，用于记录一些开发者关心的调试日志，可以更全面地反应 App 异常时的前后文环境。使用方式与 android.util.Log 一致。用户传入 TAG 和日志内容。该日志将在 Logcat 输出，并在发生异常时上报，上报 Log 最大 30K。
 
 ```
 TACCrashService.getInstance().log(TACCrashLogLevel.VERBOSE, tag, log);

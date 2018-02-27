@@ -287,6 +287,16 @@ Please note that the disk path points to the cloud disk to be expanded, rather t
 
 The output of "The file system on /dev/vdb1 is now XXXXX blocks long." indicates the expansion has been successfully completed.
 
+If the output shows "[ERROR] - e2fsck failed!!", you may need to repair the partition of your file system by the following command:
+
+```
+fsck Partition path
+```
+
+Notice that this command is different from the above. The partition path refers to your partition which contains the your file system. If your file system is on vdb1, execute `fsck /dev/vdb1`.
+
+Once the repair finishes, you can continue to execute the expansion tool with command `python /tmp/devresize.py Disk path`.
+
 #### Remounting the expanded partition
 Execute the following command to mount the expanded partition:
 ```

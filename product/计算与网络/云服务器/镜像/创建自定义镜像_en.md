@@ -1,19 +1,28 @@
+## Overview of Creation
+### Common Steps
+You can start an instance with a public image or service marketplace image, and then connect to the instance and deploy your software environment. If the instance runs normally, you can create a new custom image based on this instance as needed, so that you can use this image to start more new instances that have the same custom items with the original one.
 
-## General
+### Best Practice
+ - **Shut down instance:**
+Shut down the instance before you can create the custom image to ensure that the image has exactly the same the deployment environment as that of the current instance.
+ - **Data migration:**
+If you want to keep the data in the original instance data disk while starting a new instance, you can first take a [Snapshot](/doc/product/362/2455) of the data disk, and then create a new CBS disk with this data disk snapshot when the new instance is started. For more information, please see [Create Cloud Disk from Snapshot](/doc/product/362/2455#6.-.E4.BD.BF.E7.94.A8.E5.BF.AB.E7.85.A7.E5.88.9B.E5.BB.BA.E7.A3.81.E7.9B.98).
 
-You can launch an CVM using a public image or a service market image, and install and configure the software environment as needed. Then you can create an image to quickly launch more new instances with the same configurations. 
+### Limit on Creation
+ - Each region supports a maximum of 10 custom images.
+ 
+## Creation Method
+### Creating Image from Instance via Console
 
-It's recommended to shut down the CVM before creating the image.
+ 1. Log in to the [CVM Console](https://console.cloud.tencent.com/cvm/).
+ 2. Select the instance to be shut down, and then click **Shut Down** on the top.
+ 3. Click "More" on the right side of the instance used to create image, and click **Create Image**.
+ 4. Enter **Image Name** and **Image Description** in the pop-up box, and click **OK** to submit the creation application.
+ 5. Move your mouse to "Recent Operations (clock icon)" on the upper right corner to view the progress of creation.
+ 6. After the image is created, click "Image" in the left navigation bar, or click on the image ID in "Recent Operations (clock icon)", and then you are redirected to the image list to view details.
+ 7. To purchase a server with the same image as the previous one, click **Create CVM** on the right side of the image in the image list.
+![](//mc.qcloudimg.com/static/img/b44502e4494247574d23da9e09a20a19/image.png)
 
-If you want to reserve the data on the original instance data disk when starting a new instance, then you can first take a snapshot of the data disk. When starting the new instance, you can use this disk snapshot to create a new CBS disk.
+### Creating Image Using API
+Users can use the API CreateImage to create a custom image. For more information, please see the [API for Creating Image](/doc/api/229/1273).
 
-## Creating Images on Console
-
-1) Log in to [CVM Console](https://console.cloud.tencent.com/cvm/).
-
-2) Select the CVM instance from which you want to create an image, and click **Operation** -> **More** -> **Create Image**.
-
-3) When the image is created successfully, the result is displayed near the operation log in the upper right corner. With the image ID, you can jump to the image list.
-
-## Creating Images via API
-You can use the [CreateImage](https://cloud.tencent.com/doc/api/229/1273) API to create custom images.

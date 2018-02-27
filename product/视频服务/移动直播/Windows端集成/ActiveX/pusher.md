@@ -45,9 +45,15 @@
 | setVideoFPS(fps)                         | 设置视频帧率                      |
 | openSystemVoiceInput(bOpen)                          | 系统混音开关接口                        |
 | startScreenPreview(x,y,width,height)                          | 屏幕捕捉预览接口                        |
-| captureVideoSnapShot(sFileFullPath,sDirPath)                          | 推流端视频图片快照到本地                        |
+| setPauseVideo(bPause)                   | 推流过程中暂停视频，目前是以黑色替换  |
+| startAudioCapture()                          | 启动音频采集                        |
+| stopAudioCapture()                          | 停止音频采集                        |
 | setPusherEventCallBack(callbackfun, objectid) | 设置回调接口                      |
 
+
+	[id(23)] HRESULT setPauseVideo([in] USHORT bPause);
+	[id(24)] HRESULT startAudioCapture();
+	[id(25)] HRESULT stopAudioCapture();
 ### 1.getVersion()
 
 获取插件版本号，和标签 &lt;object ... codebase='...&version=1.0.0.1'&gt; 上的 version 对应。
@@ -489,7 +495,52 @@ function screenShotPusher() {
 }
 ```
 
-### 22.setPusherEventCallBack(callbackfun, objectid)
+### 22.setPauseVideo(bPause)
+
+推音视频流过程中，暂停视频，目前是以黑色背景替换
+
+- **参数说明**
+
+| 参数   | 类型     | 说明   |
+| ---- | ------ | ---- |
+| bOpen | Int  | 1表示打开，0表示关闭，默认为0|
+
+- **示例代码** : 
+
+```
+function doPauseVideo(bPause) {
+     pusher.setPauseVideo(bPause);
+}
+```
+
+### 23.startAudioCapture()
+
+启动音频采集
+
+- **示例代码** : 
+
+```
+function startAudioCapture(targetURL) {
+	   //启动音频推流，没有视频
+     pusher.startAudioCapture();
+		 pusher.startPush(targetURL);
+}
+```
+
+### 24.stopAudioCapture()
+
+停止音频采集
+
+- **示例代码** : 
+
+```
+function stopAudioCapture() {
+	   //启动音频推流，没有视频
+     pusher.stopAudioCapture();
+}
+```
+
+### 25.setPusherEventCallBack(callbackfun, objectid)
 
 设置事件回调，用于接收在推流过程中 SDK 所抛出的各种事件，事件列表详见文档接下来的部分。
 
@@ -633,21 +684,17 @@ SDK发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 	AX_TXE_VIDEO_RESOLUTION_480x360 : 2,
   AX_TXE_VIDEO_RESOLUTION_640x480 : 3,
 	AX_TXE_VIDEO_RESOLUTION_960x720 : 4,
-	AX_TXE_VIDEO_RESOLUTION_1280x960 : 5,
  // 宽屏16:9
 	AX_TXE_VIDEO_RESOLUTION_320x180 : 101,
   AX_TXE_VIDEO_RESOLUTION_480x272 : 102,
   AX_TXE_VIDEO_RESOLUTION_640x360 : 103,
 	AX_TXE_VIDEO_RESOLUTION_960x540 : 104,
-  AX_TXE_VIDEO_RESOLUTION_1280x720 : 105,
-  AX_TXE_VIDEO_RESOLUTION_1920x1080 : 106,
 	// 宽屏9:16
 	AX_TXE_VIDEO_RESOLUTION_180x320 : 201,
 	AX_TXE_VIDEO_RESOLUTION_272x480 : 202,
 	AX_TXE_VIDEO_RESOLUTION_360x640 : 203,
 	AX_TXE_VIDEO_RESOLUTION_540x960 : 204,
-	AX_TXE_VIDEO_RESOLUTION_720x1280 : 205,
-	AX_TXE_VIDEO_RESOLUTION_1080x1920 : 206,
+
   };
 
 ### AxTXEBeautyStyle 
