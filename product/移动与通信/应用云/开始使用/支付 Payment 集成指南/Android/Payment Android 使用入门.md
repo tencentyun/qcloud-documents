@@ -48,6 +48,12 @@ dependencies {
 
 然后，点击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
 
+#### 3. 手动添加 QQ 支付渠道包
+
+如果您需要接入 QQ 支付，那么您必须手动添加[mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar)到您工程的 `libs` 目录。
+
+> 因为 `mqqopenpay.jar` 没有上传到 jcenter 仓库下，因此我们暂时无法自动帮您添加
+
 ### 手动集成
 
 如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
