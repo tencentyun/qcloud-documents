@@ -726,7 +726,7 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 - secretKey和secretId：https://console.cloud.tencent.com/capi
 
 
-##4.1	视频转码结果查询接口(GetCtsInfo)
+## 4.1	视频转码结果查询接口(GetCtsInfo)
 
 ### 功能描述
 
