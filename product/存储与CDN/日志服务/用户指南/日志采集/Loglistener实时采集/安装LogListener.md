@@ -73,15 +73,21 @@ cd loglistener/tools;
 
 ## LogListener 的更新
 
-若您的 LogListener 版本是 2.0.0 及以上，您无需手动更新 LogListener，LogListener 将自动热更新，更新时服务不受影响。
+若您的 LogListener 版本非当前最新版本，我们建议您更新至最新版本。**低于2.1.1版本的LogListener不支持日志结构化。**您可以在 `loglistener/version.txt` 中查看当前 LogListener 的版本信息。
 
-若您的 LogListener 版本低于 2.0.0，您需要手动更新至最新版本，手动更新后，LogListener 将自动更新。[LogListener 较低版本使用指南](https://cloud.tencent.com/document/product/614/13550)
+若您的 LogListener 版本低于当前版本，但是高于2.0.0版本更新步骤如下 ：
 
-手动更新步骤：
+1. 下载新的安装包
+2. 在安装目录（LogListener平级目录）解压新的压缩包
+3. 解压后重启 LogListener 即完成更新操作
+
+若您的 LogListener 版本低于2.0.0手动更新步骤：
 
 1. 停止较低版本 LogListener
 2. 备份较低版本 LogListener
-3. 安装最新版本 LogListener
+3. 下载并安装最新版本 LogListener 
+
+>后续我们将支持2.0.0以上版本的LogListener自动更新，敬请期待。[低于2.0.0版本LogListener使用指南](https://cloud.tencent.com/document/product/614/13550)
 
 ## LogListener 工作原理
 

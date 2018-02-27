@@ -87,7 +87,7 @@ The following should be noted about the usage of the NAT gateway:
 - You cannot use the network ACL to control the traffic that flows in and out of the NAT gateway, but you can use it to control the traffic of the associated subnet that flows in and out of the NAT gateway.
 - You cannot use VPC peering connection, VPN connection or direct connect to route traffic to the NAT gateway. The resources on the other end of these connections cannot use the NAT gateway. For example, all the traffic of VPC 1 can be sent to the Internet through the NAT gateway. And after a peering connection is established between VPC 1 and VPC 2, all the resources within VPC 2 can access all the resources within VPC 1, but cannot access the Internet through the NAT gateway.
 - The NAT gateway supports TCP, UDP and ICMP, while ESP and AH for the GRE tunnel and IPSec cannot be used for the NAT gateway. This is determined by the characteristics of the NAT gateway, and has nothing to do with the service provider. Luckily, most of Internet applications use TCP, and 99% of Internet applications use TCP or UDP.
-- The restrictions on the supported resources for the NAT gateway are shown in the table below. For more information, please see [Usage Restrictions](https://www.qcloud.com/doc/product/215/537).
+- The restrictions on the supported resources for the NAT gateway are shown in the table below. For more information, please see [Usage Restrictions](https://cloud.tencent.com/doc/product/215/537).
 
 | Resources | Limit | 
 |---------|---------|

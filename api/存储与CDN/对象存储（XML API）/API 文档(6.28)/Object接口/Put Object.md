@@ -1,5 +1,5 @@
-## 功能描述
-Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。
+## 功能描述 
+Put Object 接口为简单上传接口，可以将本地的小于 5 GB 的文件（Object）上传至指定 Bucket 中，大于 5 GB 的文件请使用分片接口上传（Upload Part）。该操作需要请求者对 Bucket 有 WRITE 权限。
 ### 细节分析
 1. 需要有 Bucket 的写权限；
 2. 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但 Object 大小只等于 Content-Length 中定义的大小，其他数据将被丢弃；
