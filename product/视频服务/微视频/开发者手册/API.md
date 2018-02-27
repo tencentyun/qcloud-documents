@@ -730,7 +730,7 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 
 ### 功能描述
 
-查询转码任务结果
+本接口用于查询视频转码任务结果
 
 ### 请求参数
 
