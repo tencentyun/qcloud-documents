@@ -4,6 +4,8 @@
 
 在开始使用应用云 payment 服务前，确保您已经完成：
 
+[支付配置指引](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Payment%20支付配置指引.md)
+
 [安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
@@ -48,6 +50,12 @@ dependencies {
 
 然后，点击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
 
+#### 3. 手动添加 QQ 支付渠道包
+
+如果您需要接入 QQ 支付，那么您必须手动添加 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 到您工程的 `libs` 目录。
+
+> 因为 `mqqopenpay.jar` 没有上传到 jcenter 仓库下，因此我们暂时无法自动帮您添加
+
 ### 手动集成
 
 如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
@@ -55,8 +63,8 @@ dependencies {
 #### 1. 下载服务资源压缩包
 
 1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
-2. 下载 [应用云 Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-payment-1.0.0.zip)，并解压。
-
+2. 下载 [应用云 Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-payment-1.0.0.zip)，并解压。
+                             
 #### 2. 集成 jar 包
 
 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
