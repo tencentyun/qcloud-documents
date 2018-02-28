@@ -1,6 +1,5 @@
 ### 代码托管
-API SDK 代码使用 Github 托管：
-[https://github.com/tencentyun/qcloud-iot-api-sdk/tree/master]()
+API SDK 代码使用 Github 托管：[点击这里](https://github.com/tencentyun/qcloud-iot-api-sdk )。
 
 ### SDK版本更迭
 
