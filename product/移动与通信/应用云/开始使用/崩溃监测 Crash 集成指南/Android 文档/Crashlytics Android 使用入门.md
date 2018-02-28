@@ -121,7 +121,7 @@ buildscript {
 	 ......
     dependencies {
         ......
-        classpath 'com.tencent.tac:crash-plugin:1.0.0'
+        classpath 'com.tencent.tac:tac-crash-plugin:1.0.0'
     }
 }
 ```
