@@ -32,10 +32,6 @@ qcloudapi-sdk-java 是为了让 Java 开发者能够在自己的代码里更快�
 		 * 你将要使用接口所在的模块，可以从 官网->云api文档->XXXX接口->接口描述->域名
 		 * 中获取，比如域名：cvm.api.qcloud.com，module就是new Cvm()。
 		 */
-		/*
-		 * DescribeInstances
-		 * 的api文档地址：http://www.qcloud.com/wiki/v2/DescribeInstances
-		 */
 		QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Cvm(),config);
 		TreeMap<String, Object> params = new TreeMap<String, Object>();
 		/* 将需要输入的参数都放入 params 里面，必选参数是必填的。 */
