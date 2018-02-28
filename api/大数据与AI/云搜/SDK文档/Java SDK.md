@@ -7,12 +7,6 @@ qcloudapi-sdk-java 是为了让 Java 开发者能够在自己的代码里更快�
 
 [7/15] 增加 Tdsql 模块。
 
-#### 资源
-
-* [公共参数](http://wiki.qcloud.com/wiki/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
-* [API 列表](http://wiki.qcloud.com/wiki/API)
-* [错误码](http://wiki.qcloud.com/wiki/%E9%94%99%E8%AF%AF%E7%A0%81)
-
 #### 入门
 
 1. 申请安全凭证。
