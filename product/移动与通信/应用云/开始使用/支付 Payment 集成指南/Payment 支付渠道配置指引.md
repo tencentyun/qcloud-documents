@@ -2,7 +2,7 @@
 
 ## 准备工作
 
-Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过在移动端 APP 中集成 Payment SDK 来调起微信支付和手 Q 支付。在接入 Payment 前，确保您已经完成：
+Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过在移动端 APP 中集成 Payment SDK 来调起微信支付和手 Q 支付。在配置 Payment 支付渠道前，确保您已经完成：
 
 [安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN/_Drafts/ApplicationBoard/集成指南/Core/Android/GettingStarted.md)
 
