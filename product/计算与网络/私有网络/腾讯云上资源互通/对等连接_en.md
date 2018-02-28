@@ -10,8 +10,8 @@ Peering connection allows interconnections between VPCs, but this interconnectio
 > Note: Even if a peering connection is established, communication cannot be achieved if routes for sending and returning packets are not configured at both ends.
 
 
-## Regional Peering Connection and Cross-region Peering Connection (i.e., cross-region interconnection)
-VPC supports both regional and cross-region peering connections (i.e., cross-region interconnection). Since the physical distance between the two ends of the peering connection as well as the underlying architecture is different for these two connections, there are also some differences on function and billing, which is summarized below:
+## Regional Peering Connection and Cross-region Peering Connection 
+VPC supports both regional and cross-region peering connections. Since the physical distance between the two ends of the peering connection as well as the underlying architecture is different for these two connections, there are also some differences on function and billing, which is summarized below:
 
 | Comparison Item | Regional Peering Connection | Cross-region Peering Connection |
 |---------|---------|---------|
@@ -57,7 +57,7 @@ For additional VPC service restrictions, refer to [Additional VPC Service Restri
 ## Billing Model
 ### Billing Method Description
 1) Regional peering connection is available for free.
-2) Cross-region peering connection (i.e., cross-region interconnection): 
+2) Cross-region peering connection: 
 - Post-payment by the peering connection initiator on a daily basis.
 - Calculated as the peak bandwidth of the day multiplied by the applicable tiered price.
 - Peak bandwidth of the day is calculated as this: bandwidth is captured once every 5 minutes, and the maximum one out of both inbound and outbound bandwidth of that day is taken as the peak bandwidth.
@@ -126,7 +126,7 @@ For more information regarding the prices of VPC services, refer to [VPC Price O
 **Example:**
 If the peering connection initiator is in Shanghai, the receiver is in Guangzhou, outbound peak bandwidth of the day is 20 Mbps, inbound peak bandwidth is 30 Mbps, then the cost of the day is: 30 * 12 = 360 CNY, which shall be paid by the initiator.
 
-### Free cross-region interconnection bandwidth campaign **(Key customers are entitled to its benefits by default, but it is closed to common customers)**
+### Free cross-region peering connection bandwidth campaign **(Key customers are entitled to its benefits by default, but it is closed to common customers)**
 Benefits for VIP customers and common customers during the campaign are as follows:
 
 **VIP customers** (The benefits are entitled to all VIP customer and those becoming a VIP customer)
@@ -144,7 +144,7 @@ Benefits for VIP customers and common customers during the campaign are as follo
 ## Operating Instructions
 
 ### Quick Start
-Cross-region connection and Cross-account communication of VPC are both advanced features of peering connection, and you can take the following steps to implement cross-account and cross-region interconnection over peering connection.
+Cross-region communication and Cross-account communication of VPC are both advanced features of peering connection, and you can take the following steps to implement cross-account and cross-region communication over peering connection.
 
 - There are two steps to implement communication over peering connection:
   Step 1: Creating a peering connection.
@@ -202,14 +202,14 @@ After the routing table configuration is completed, communication can be perform
 3) Click the ID of the specified peering connection to enter its details page. You can view in the related routing policy that the next hop is the destination IP address range, the associated subnet, and the related routing table of the peering connection.
 > Note: If you have established a peering connection but cannot communicate via it, please use this step to check whether the configuration of routing tables on *both ends* are correct.
 
-### Viewing monitoring data of network traffic over cross-region peering connection (cross-region interconnection)
+### Viewing monitoring data of network traffic over cross-region peering connection
 There is no maximum network traffic for regional peering connection.
 Traffic monitoring of peering connection network is only supported for cross-region peering connections.
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.
 2) Select the region and VPC above the list.
 3) Click on the Monitoring icon of the specified peering connection to view **inbound and outbound bandwidths, number of inbound and outbound packets and packet loss rate**.
 
-### Configuring Traffic Control for Cross-region Peering Connection (Cross-region Interconnection)
+### Configuring Traffic Control for Cross-region Peering Connection
 Network traffic over regional peering connection is free; no traffic control is applicable, with maximum bandwidth of 5 Gbps.
 Traffic control is supported for cross-region peering connection.
 1) Log in to [Tencent Cloud Console](https://console.cloud.tencent.com/). Click "Virtual Private Cloud" in the navigation bar to select the "Peering Connection" in the VPC console.

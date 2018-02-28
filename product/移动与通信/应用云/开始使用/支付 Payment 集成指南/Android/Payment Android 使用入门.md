@@ -6,6 +6,8 @@
 
 [安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
+[支付配置指引](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Payment%20支付配置指引.md)
+
 ## 添加 SDK
 
 如果希望将 payment 库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
