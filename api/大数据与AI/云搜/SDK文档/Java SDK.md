@@ -1,5 +1,3 @@
-### qcloudapi-sdk-java
-
 qcloudapi-sdk-java 是为了让 Java 开发者能够在自己的代码里更快捷方便的使用腾讯云的 API 而开发的 SDK 工具包。
 
 #### 更新

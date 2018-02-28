@@ -1,6 +1,3 @@
-Tencent Qcloud API SDK for node.js
-==================================
-
 `qcloudapi-sdk` 是[腾讯云 API 2.0](https://cloud.tencent.com) 的 node.js SDK 工具包.
 
 安装
