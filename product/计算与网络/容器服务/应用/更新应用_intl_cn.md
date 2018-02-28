@@ -4,28 +4,16 @@
 
 ![应用更新-06.png][2]
 
-## 更新方式选择
-在应用更新页面，选择不同的更新方式： (1) 通过模板更新   (2) 直接编辑应用更新
+## 直接更新YAML或选择新模板更新
 
-## 更新方式一： 通过模板更新
-
-通过应用模板更新指，选择新的应用模板。将新的应用模板中的内容替换现有应用中服务的模板内容。在更新方式选择页面，选择通过模板更新。
+通过应用模板更新指，选择新的应用模板。将新的应用模板中的内容替换现有应用中服务的模板内容。在更新方式选择页面，选择通过模板更新。或者也可以直接编辑Yaml内容进行更新。
 
 ![应用更新-08.png][3]
 
-选择完对应的模板后，可以根据需要选择特定的配置文件。如果希望使用模板中默认的配置文件，可以选择`默认配置`按钮。
+## 查看应用变更内容
 
-在选择特定的配置文件后，在`变更内容`区域会自动限制服务的更新状态，并展示如果选择更新后服务模板内容与现有应用中服务模板内容的差异。更多关于服务差异化展示的说明可以参考[管理应用内服务][4]。
-
-## 更新方式二： 直接更新应用
-
-直接使用应用中已有的模板内容。但可以根据需要选择特定的配置项。如果选择`默认配置`则直接使用应用中已有的配置。
-
-![应用更新-09.png][5]
-
-## 编辑更新应用
-
-更新选择，点击`下一步`按钮。进入应用编辑页面。在应用编辑页面，能够继续根据需要对模板内容和配置项进行修改。具体的修改操作的说明可以参考[应用模板内容操作指引][6]。
+更新选择，点击`下一步`按钮。可以查看本次的变更内容。
+![应用更新-查看变更][4]
 
 >**注意：**
 >创建应用时会从应用模板拷贝一份副本。在更新直接应用内模板的内容，不会同步回原来的应用模板。
@@ -34,23 +22,22 @@
 
 ## 执行应用的更新
 
-在应用详情页面，可以查看到应用中服务的状态已经从`已部署`，转变成了`部署待更新`。更多关于应用中服务状态的说明，可以参考[管理应用内服务][7]。
+在应用详情页面，可以查看到应用中服务的状态已经从`已部署`，转变成了`待更新`。更多关于应用中服务状态的说明，可以参考[管理应用内服务][7]。
 
 ![应用更新-10.png][8]
-
+![应用更新-更新][9]
 点击`更新`按钮，将使用新的模板内容和配置项对服务进更新。更新完成后，服务的状态重新变为`已部署`。
 
-![应用更新-11.png][9]
 
 >**注意：**
 >只有在应用模板内容发生变化时，才能执行更新操作，更新应用中的服务。(如果应用中配置文件中变量的值发生了变化，而服务模板内容使用到了该变量，也视为服务的模板内容发生了变化。)
 
   [1]: https://console.cloud.tencent.com/ccs/application
-  [2]: https://mc.qcloudimg.com/static/img/032baec148056bed81f60b03b66378d2/image.png
-  [3]: https://mc.qcloudimg.com/static/img/613a57f14aa47e0d4b329b69e5289323/image.png
-  [4]: https://cloud.tencent.com/document/product/457/11989
+  [2]: https://mc.qcloudimg.com/static/img/3e0c65b322ed2d00b00740ad5bde061c/image.png
+  [3]: https://mc.qcloudimg.com/static/img/f193819c4aa94c38a2ade5424d14fab2/image.png
+  [4]: https://mc.qcloudimg.com/static/img/a13f93b7c425aefd1d0886f77e9de288/image.png
   [5]: https://mc.qcloudimg.com/static/img/0f6c15f0d641dbaf3f4083e60bf2f6fa/image.png
-  [6]: https://cloud.tencent.com/document/product/457/12199
+
   [7]: https://cloud.tencent.com/document/product/457/11989
-  [8]: https://mc.qcloudimg.com/static/img/5ed504a954fe7fd6cd1bdbb66783e39c/image.png
-  [9]: https://mc.qcloudimg.com/static/img/35b0688899d46f3fa2958b7f9606a8bc/image.png
+  [8]: https://mc.qcloudimg.com/static/img/46a5f28849df686e31e3d98a98c91ebd/image.png
+  [9]: https://mc.qcloudimg.com/static/img/2ffa4bad944797fd50a85bd47f288eea/image.png

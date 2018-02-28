@@ -46,7 +46,7 @@ vod.api.qcloud.com
 
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVodFile
-&pullset.0.url=http%3A%2F%2Fv.qq.com%2Fcover%2Ft%2Ftofg0ynqvcjac58.html%3Fvid%3Dc0152uievii
+&pullset.0.url=http://www.demo.com/1.mp4
 &pullset.0.fileName=test
 &pullset.0.isTranscode=1
 &pullset.0.priority=1

@@ -4,11 +4,9 @@
 
 应用管理包括三个主要的概念：
 
-**应用：** 通过服务组的方式对多个服务进行统一管理。更多关于应用的说明可以参考[应用概述][1]
-
-**应用模板：** 通过YAML形式的文本来描述服务的部署信息。方便用户将相同的应用部署到不同环境。更多关于应用模板的说明可以参考[应用模板概述][2]
-
-**配置管理：** 在配置管理中可以将不同环境中差异化的部分通过配置项来区分，将应用中常变的值以变量的形式替代，方便修改和更新。更多关于应用中配置管理的内容可以参考[应用内使用配置项][3]
+- **应用：** 通过服务组的方式对多个服务进行统一管理。更多关于应用的说明可以参考[应用概述][1]
+- **应用模板：** 通过YAML形式的文本来描述服务的部署信息。方便用户将相同的应用部署到不同环境。更多关于应用模板的说明可以参考[应用模板概述][2]
+- **配置管理：** 在配置管理中可以将不同环境中差异化的部分通过配置项来区分，将应用中常变的值以变量的形式替代，方便修改和更新。更多关于应用中配置管理的内容可以参考[应用内使用配置项][3]
 
 更多应用管理主要概念的说明可以参考[使用指引页面][4]
 
@@ -39,7 +37,7 @@ Guestbook是一个典型的web应用，包含前端fronted服务和后端的redi
   [3]: https://cloud.tencent.com/document/product/457/11987
   [4]: https://console.cloud.tencent.com/ccs/guide
   [5]: https://cloud.tencent.com/document/product/457/12197
-  [6]: https://mc.qcloudimg.com/static/img/30ce4422ec69ff4d409c6bde714b2230/image.png
-  [7]: https://mc.qcloudimg.com/static/img/a5ba801e8315e1a608b4bd7f8cad49f5/image.png
+  [6]: https://mc.qcloudimg.com/static/img/9aa36a00d13ca3e4af5f7357a9eb8267/image.png
+  [7]: https://mc.qcloudimg.com/static/img/4eb0fd7709c194c0c90abbd677daa3ab/image.png
   [8]: https://cloud.tencent.com/document/product/457/11945
   [9]: https://cloud.tencent.com/document/product/457/11944

@@ -1,10 +1,7 @@
-# 应用云 Crashlytics Android 使用入门
 
 ## 准备工作
 
-在开始使用应用云 Crash 服务前，确保您已经完成：
-
-[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+在开始使用应用云 Crash 服务前，确保您已经完成：[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -46,8 +43,8 @@ dependencies {
 }
 ```
 
-#### 3. 如果需要上报 Native 异常，添加 Native Crash 库依赖
-
+#### 3. 如果需要上报 Native 异常，添加 Native Crash 库依赖。
+ 
 如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，您可以集成 native 异常上报库。
 
 在您的应用级 build.gradle（通常是 app/build.gradle）添加 Native Crash 的依赖：
@@ -64,7 +61,7 @@ android {
 
 dependencies {
     //增加这行
-    compile 'com.tencent.bugly:nativecrashreport:3.3.1'
+    compile 'com.tencent.tac:tac-nativecrash:1.0.0'
 }
 ```
 
@@ -74,23 +71,22 @@ dependencies {
 
 如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
-#### 1. 下载服务资源压缩包
-
+#### 1. 下载服务资源压缩包。
+ 
 1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
 2. 下载 [应用云 Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-crash-1.0.0.zip)，并解压。
 
-#### 2. 集成 jar 包
+#### 2. 集成 jar 包。
+- 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
 
-* 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
-
-#### 3. 如果需要上报 Native 异常，集成 so 包
-
+#### 3. 如果需要上报 Native 异常，集成 so 包。
+ 
 如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，您可以集成 native 异常上报库。
+ 
+- 如果您是采用 Eclipse 开发，将资源文件中的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
+- 如果您是采用 Android Studio 开发，将资源文件中的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
 
-* 如果您是采用 Eclipse 开发，将资源文件中的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
-* 如果您是采用 Android Studio 开发，将资源文件中的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
-
-#### 3. 修改您工程的 AndroidManifest.xml 文件。
+#### 4. 修改您工程的 AndroidManifest.xml 文件。
 
 请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件：
 
@@ -144,12 +140,12 @@ apply plugin: 'com.tencent.tac.crash'
 
 ### 手动上传
 
-1. 下载[符号表工具](https://bugly.qq.com/v2/sdk?id=37d1ad19-a4b0-4eed-9146-55d87fc79f8d)
-2. 根据UUID定位Debug SO文件，具体可参考工具包中的使用文档
-3. 使用工具生成符号表文件（zip文件），具体的使用方法可参考工具包中的使用文档
-4. 在应用云的控制台上传符号表文件
-
-如果您的项目只使用了混淆代码 (Proguard)，而没有Native工程，只需要直接上传Proguard生成的Mapping文件即可。
+1. 下载[符号表工具](https://bugly.qq.com/v2/sdk?id=37d1ad19-a4b0-4eed-9146-55d87fc79f8d)。
+2. 根据 UUID 定位 Debug SO 文件，具体可参考工具包中的使用文档。
+3. 使用工具生成符号表文件（zip文件），具体的使用方法可参考工具包中的使用文档。
+4. 在应用云的控制台上传符号表文件。
+ 
+如果您的项目只使用了混淆代码 (Proguard)，而没有 Native 工程，只需要直接上传 Proguard 生成的 Mapping 文件即可。
 
 
 ## 配置服务
@@ -166,7 +162,7 @@ TACApplicationOptions applicationOptions = TACApplication.options();
 TACCrashOptions crashOptions = applicationOptions.sub("crash");
 ```
 
-具体的 API 请参考 编程手册 文档。
+具体的 API 请参考编程手册文档。
 
 >**注意：**
 >请在 Crash 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效。

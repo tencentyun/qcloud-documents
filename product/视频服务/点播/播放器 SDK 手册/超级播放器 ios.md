@@ -1,23 +1,20 @@
-## 超级播放器
-
-### 功能介绍
+## 功能介绍
 
 超级播放器是基于`TXVodPlayer`实现的集视频信息拉取、横竖屏切换、清晰度选择、弹幕等功能于一体的解决方案，**且完全开源**。帮助您在短时间内，打造一个媲美市面上各种流行视频App的播放体验。
 
-![超级播放器](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/superplayer.png)
+
+![](https://mc.qcloudimg.com/static/img/c5a7b6e6e8cba617b76fee49aa03da18/image.png)
+
+## 接入准备
+
+1. 下载 SDK + Demo 开发包，下载地址为（[iOS](https://cloud.tencent.com/document/product/454/7873#iOS)）。
+
+2. 超级播放器的 UI 部分源码开源，开源代码位于`Player`文件夹，图片资源位于`Resource/Player`文件夹，您需要先将这两部分拷贝的您的App工程中。其它依赖的第三方库您可以自行 Pod 添加或在 `Third` 目录中获取
+ -  Masonry
+ - SDWebImage
 
 
-
-### 接入准备
-
-播放器代码位于[Demo](https://cloud.tencent.com/document/product/454/6555)工程下`Player`文件夹，图片资源位于`Resource/Player`文件夹，您需要先将这两部分拷贝的您的App工程中。其它依赖的第三方库您可以自行Pod添加或在`Third`目录中获取
-
-+ Masonry
-+ SDWebImage
-
-
-
-### 创建播放器
+## 创建播放器
 
 超级播放器主类为`ZFPlayerView`，您需求先创建它并添加的需要的父View中。
 
@@ -33,7 +30,7 @@ _playerView.delegate = self;
 [self.playerView autoPlayTheVideo];
 ```
 
-### 视频信息获取
+## 视频信息获取
 
 与播放普通url地址不同，获取视频信息需要通过fileId方式。
 
@@ -75,18 +72,18 @@ SDK在请求成功后，视频信息将以事件的形式通知到上层
 ```
 
 
-### 切换视频
+## 切换视频
 
 播放另一个视频，您需要重新创建一个`playerModel`，调用resetToPlayNewVideo即可
 
 ```objective-c
 _playerModel.title = [cell getSource].title;
 _playerModel.videoURL = [NSURL URLWithString:[cell getSource].url];
-_playerModel.placeholderImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[cell getSource].cover]]];
+_playerModel.placeholderImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:
+                                [NSURL URLWithString:[cell getSource].cover]]];
 
 [_playerView resetToPlayNewVideo:self.playerModel];
 ```
-
 ### 移除播放器
 
 当不需要播放器时，调用resetPlayer清理播放器内部状态，防止干扰下次播放。

@@ -1,4 +1,3 @@
-# 应用云 Authorization iOS 使用入门
  
 ## 准备工作
 
@@ -17,7 +16,8 @@ source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
-> 注意一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
+>**注意：**
+>一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
 ### 2. 添加 TACAuthorization 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod。
 
@@ -30,18 +30,18 @@ pod 'TACAuthorization'
 * QQ
 * WeChat
 
-如果您要使用权限模块的第三方登陆功能，则必须集成需要第三方授权的模块。
+如果您要使用权限模块的第三方登录功能，则必须集成需要第三方授权的模块。
 
-#### 使用 QQ 第三方登陆
-
+#### 使用 QQ 第三方登录
+ 
 ~~~
 pod 'TACAuthorizationQQ'
 ~~~
 
 该模块依赖 TACSocialQQ 模块，将会自动引入 TACSocialQQ 模块，请查看 TACSocialQQ 的配置手册，并对 TACSocialQQ 进行配置。
 
-#### 使用 WeChat 第三方登陆
-
+#### 使用 WeChat 第三方登录
+ 
 ~~~
 pod 'TACAuthorizationWechat'
 ~~~
@@ -67,7 +67,7 @@ Swift 示例代码：
 import TACAuthorization
 ~~~
 
-如果您使用了第三方登陆则需要引入对应模块的头文件才可以使用对应的第三方登录平台的功能。
+如果您使用了第三方登录则需要引入对应模块的头文件才可以使用对应的第三方登录平台的功能。
 
 
 #### 使用 QQ 第三方登陆
@@ -122,16 +122,17 @@ Swift 示例代码：
 	TACApplication.configurate(with: options);
 ~~~
 
-使用同样的方式您也可以配置第三方登陆模块的功能。
+使用同样的方式您也可以配置第三方登录模块的功能。
 
-## 配置 Authorization 中的配置脚本 (主要为第三方登陆模块的配置脚本)
+## 配置 Authorization 中的配置脚本 (主要为第三方登录模块的配置脚本)
 
-> 如果您已经集成了 TACSicoalQQ 和 TACSocialWehcat 则不需要重复该步骤
+>**注意：**
+>如果您已经集成了 TACSicoalQQ 和 TACSocialWehcat 则不需要重复该步骤
 
- 为了配合 其他SDK 的使用，需要 Info.plist 里面注册回调scheme和query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]()中的 *脚本配置* 章节正确配置了运行脚本，尤其是构建之前运行脚本。
+ 为了配合其他 SDK 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]() 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
-Authorization 没有脚本功能。主要的脚本功能在支付差劲中。脚本会自动的帮助您完成以下功能：
+Authorization 没有脚本功能。主要的脚本功能在支付插件中。脚本会自动的帮助您完成以下功能：
 
 
-1. 根据读取您的 tac_services_configurations_qq 中的 appId 信息按照 `qqwallet[appId]` 的规则增加回调的scheme。
+1. 根据读取您的 tac_services_configurations_qq 中的 appId 信息按照 `qqwallet[appId]` 的规则增加回调的 scheme。
 2. 在 LSApplicationQueriesSchemes 中添加 weixin。
