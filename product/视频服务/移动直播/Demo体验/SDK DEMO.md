@@ -49,7 +49,14 @@
   </tr>
 </table>
 
+<h2 id="XiaoChengXu"> 如果您想做小程序 </h2>
+
+![](https://mc.qcloudimg.com/static/img/9851dba2c86161bc9e14a08b5b82dfd2/image.png)
+
+> 打开微信，在小程序中搜索 “腾讯视频云”，即可体验我们的官方 DEMO。
+
 <h2 id="Windows"> 如果您需要Windows </h2>
+
 ![](https://mc.qcloudimg.com/static/img/539da5543b8803504f781de832cd0835/image.png)
 
 <table width="840px">
@@ -78,8 +85,3 @@
 		<td><a href="http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/Cpp/LiteAVSDK_Windows_C%2B%2B.zip">下载安装</a></td>
   </tr>
 </table>
-
-<h2 id="XiaoChengXu"> 如果您需要小程序 </h2>
-![](https://mc.qcloudimg.com/static/img/9851dba2c86161bc9e14a08b5b82dfd2/image.png)
-
-> 打开微信，在小程序中搜索 “腾讯视频云”，即可体验我们的官方 DEMO。

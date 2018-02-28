@@ -714,17 +714,23 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 ## 描述
 
 - 本文档用于腾讯云CDN转码服务结果查询和回调
+
 - 请求域名：cdn.api.cloud.tencent.com
+
 - 请求方式：POST 或者GET
+
 - 签名方法：https://cloud.tencent.com/document/product/228/1725
+
 - SDK： https://github.com/QCloudCDN/CDN_API_SDK/tree/master/Qcloud_CDN_API
+
 - secretKey和secretId：https://console.cloud.tencent.com/capi
 
-### 4.1	视频转码结果查询接口(GetCtsInfo)
+
+## 4.1	视频转码结果查询接口(GetCtsInfo)
 
 ### 功能描述
 
-查询转码任务结果
+本接口用于查询视频转码任务结果
 
 ### 请求参数
 
@@ -766,7 +772,7 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 | deleted     | String | yes表示任务删除，no表示未删除 |
 | result      | Array  | 转码成功后的信息,详细说明见下文  |
 
-#### result 字段说明
+#### result 字段说明 
 
 | 名称    | 类型    | 说明                      |
 | ----- | ----- | ----------------------- |
