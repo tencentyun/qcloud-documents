@@ -32,7 +32,7 @@ allprojects {
 }
 ```
 
-#### 2. 添加 Crash 库依赖。
+#### 2. 添加 Messaging 库依赖。
 
 在您的应用级 build.gradle（通常是 app/build.gradle）添加 Messaging 的依赖：
 
