@@ -61,7 +61,7 @@ android {
 
 dependencies {
     //增加这行
-    compile compile 'com.tencent.tac:tac-nativecrash:1.0.0'
+    compile 'com.tencent.tac:tac-nativecrash:1.0.0'
 }
 ```
 
