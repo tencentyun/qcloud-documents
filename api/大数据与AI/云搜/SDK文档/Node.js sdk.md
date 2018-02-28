@@ -13,7 +13,7 @@ npm i qcloudapi-sdk --save
 使用
 ----
 
-1.	使用之前请在腾讯云的[云 API 控制台](https://console.cloud.tencent.com/capi)中创建自己的安全凭证(SecretId 和 SecretKey). SecretKey 要严格保管, 避免泄露.
+1.	使用之前请在腾讯云的[云 API 控制台](https://console.cloud.tencent.com/yunso/qcloud_open.cgi)中创建自己的安全凭证(SecretId 和 SecretKey). SecretKey 要严格保管, 避免泄露.
 2.	安装并引入本 SDK.
 
 示例
