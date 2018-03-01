@@ -1,7 +1,7 @@
 ## 1 接入流程/开发准备
 
 ### 1.1 SDK 获取
-智营网优Android SDK 1.1.2 下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/dbaae2d4e3a862ef5330363867702d24/qcloud-ino-Android-1.1.2.zip).
+智营网优Android SDK 1.2.3 下载地址：[Android SDK](https://mc.qcloudimg.com/static/archive/0f676cd044c356414e1fc9578100a83a/Tencent-INO-Android-1.2.3.zip).
 
 ### 1.2 SDK 配置
 将下列文件导入到项目中：
