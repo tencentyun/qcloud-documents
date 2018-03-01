@@ -1,5 +1,5 @@
 ## 1. API Description
-This API (ModifyUserGw) is used to modify peer gateway.
+This API (ModifyUserGw) is used to modify customer gateway.
 Domain for API request: <font style='color:red'>vpc.api.qcloud.com </font>
 
 
@@ -9,8 +9,8 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| userGwId | Yes | String | Peer gateway ID assigned by the system. For example: cgw-e098slul |
-| userGwName | Yes | String | Peer gateway name. You can use any content as long as it does not exceed 60 characters.  |
+| userGwId | Yes | String | Customer gateway ID assigned by the system. For example: cgw-e098slul |
+| userGwName | Yes | String | Customer gateway name. You can use any content as long as it does not exceed 60 characters.  |
 
 ## 3. Output Parameters
 
@@ -24,8 +24,8 @@ The following request parameter list only provides API request parameters. Commo
 
 | Error code | Description |
 |---------|---------|
-| InvalidUserGwName | Invalid peer gateway name. It should be within  60 characters.  |
-| InvalidUserGw.NotFound | Invalid peer gateway. Peer gateway resource does not exist. Please check the information you entered. You can query peer gateway by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
+| InvalidUserGwName | Invalid customer gateway name. It should be within  60 characters.  |
+| InvalidUserGw.NotFound | Invalid customer gateway. Customer gateway resource does not exist. Please check the information you entered. You can query customer gateway by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
 
 ## 5. Example
 Input

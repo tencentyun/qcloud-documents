@@ -1,5 +1,5 @@
 ## 1. API Description
-This API (DescribeUserGw) is used to query peer gateway.
+This API (DescribeUserGw) is used to query customer gateway.
 Domain for API request: <font style='color:red'>vpc.api.qcloud.com </font>
 
 
@@ -9,8 +9,8 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| userGwId | No | String | Peer gateway ID or unified ID (unified ID is recommended). For example: cgw-1tb1k34n.  |
-| userGwName | No | String | Peer gateway name. |
+| userGwId | No | String | Customer gateway ID or unified ID (unified ID is recommended). For example: cgw-1tb1k34n.  |
+| userGwName | No | String | Customer gateway name. |
 | offset | No | Int | Offset of initial line. Default is 0. |
 | limit | No | Int | Number of rows per page. Default is 20. Supports up to 50. |
 | orderField | No | String | Sort by a certain field. Currently you can sort by userGwName or createTime (default). |
@@ -23,12 +23,12 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Common error code. A value of 0 indicates success, and other values indicate failure. For more information, please refer to <a href='https://intl.cloud.tencent.com/document/product/215/4781' title='Common Error Codes'>Common Error Codes</a> on the Error Code page. |
 | message | String | Module error message description depending on API. |
-| totalCount | Int | The total number of peer gateways returned. |
+| totalCount | Int | The total number of customer gateways returned. |
 | data.n | Array | Returned array. |
-| data.userGwName | String | Peer gateway name. | 
-| data.userGwId | Int | Peer gateway ID assigned by the system. For example: 400. | 
-| data.unUserGwId | String | New peer gateway ID assigned by the system (it is recommended to use this ID). For example: cgw-1tb1k34n. | 
-| data.userGwAddr | String | Public IP of the peer gateway. | 
+| data.userGwName | String | Customer gateway name. | 
+| data.userGwId | Int | Customer gateway ID assigned by the system. For example: 400. | 
+| data.unUserGwId | String | New customer gateway ID assigned by the system (it is recommended to use this ID). For example: cgw-1tb1k34n. | 
+| data.userGwAddr | String | Public IP of the customer gateway. | 
 | data.vpnConnNum | Int | Number of connected channels. | 
 | data.createTime | String | Creation time: 2016-06-23 11:11:49. | 
 
@@ -38,7 +38,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Error code | Description |
 |---------|---------|
-| InvalidUserGw.NotFound | Peer gateway does not exist. Please  check the information you entered. You can query peer gateway by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
+| InvalidUserGw.NotFound | Customer gateway does not exist. Please  check the information you entered. You can query customer gateway by using the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e5%af%b9%e7%ab%af%e7%bd%91%e5%85%b3?viewType=preview" title="DescribeUserGw">DescribeUserGw</a> API.  |
 
 ## 5. Example
 Input

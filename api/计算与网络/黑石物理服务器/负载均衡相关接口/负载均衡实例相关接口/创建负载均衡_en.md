@@ -15,7 +15,7 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=CreateBmLoadBalancer
 ```
 
 ### Request Parameter
-The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see [Common Request Parameters](document/product/386/6718) page. The Action field for this API is CreateBmLoadBalancer.
+The following request parameter list only provides API request parameters. Common request parameters are also needed when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/product/386/6718) page. The Action field for this API is CreateBmLoadBalancer.
 
 | Parameter | Required | Type | Description |
 | ---------------- | ---- | ------------- | ---------------------------------------- |

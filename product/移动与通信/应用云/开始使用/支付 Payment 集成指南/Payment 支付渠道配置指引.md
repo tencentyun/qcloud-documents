@@ -47,7 +47,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ### 第七步：配置渠道信息
 
-打开之前在 [TAC 平台](https://console.qcloud.com/tac)上创建的应用，点击【我的米大师】，选择【渠道管理】，然后点击【开通微信支付】：
+打开之前在 [TAC 平台](https://console.cloud.tencent.com/tac)上创建的应用，点击【我的米大师】，选择【渠道管理】，然后点击【开通微信支付】：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_add_wechat_pay.png?raw=true)
 
@@ -123,7 +123,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ### 第九步：配置渠道信息
 
-打开之前在 [TAC 平台](https://console.qcloud.com/tac)上创建的应用，点击【我的米大师】，选择【渠道管理】，然后点击【开通 QQ 钱包支付】：
+打开之前在 [TAC 平台](https://console.cloud.tencent.com/tac)上创建的应用，点击【我的米大师】，选择【渠道管理】，然后点击【开通 QQ 钱包支付】：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_qq_pay.png)
 
