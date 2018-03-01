@@ -981,6 +981,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 ### 回调方式
 
 回调域名：需用户提供
+
 回调方式：HTTP POST 请求
 
 ### 回调格式说明
@@ -988,7 +989,8 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 #### 转码开始基本信息回调
 
 - 参数说明
-| 名称            | 类型     | 说明                        |
+
+| 名称            | 类型     | 说明 |
 | ------------- | ------ | ------------------------- |
 | status        | String  |  success：成功，fail：失败 |
 | vid           | String | 视频ID                      |
@@ -1035,6 +1037,8 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 }
 ```
 - 回调失败示例
+
+```
 {
     "vid":"7d6cec782335ff8c9d332daf7c0fda1f1519803613",
     "app_id":12xxxxxxxx,
@@ -1055,7 +1059,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
     "status":"fail",
     "fail_msg":"AVC文件不存在或者文件内容有误，无法识别和处理"
 }
-
+```
 
 #### 转码成功回调
 
