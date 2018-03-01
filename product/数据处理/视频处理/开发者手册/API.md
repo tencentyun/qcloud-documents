@@ -1246,8 +1246,8 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 ```
 {
     "status":"fail",   			 		   
-"url_f0":"/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
- "name":"/10032344/cts/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
+  "url_f0":"/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
+  "name":"/10032344/cts/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
     "vid":"7d70b89fdf72ee6b98dcc0b0211",
     "url":"http://cts-10032344.cossh.myqcloud.com/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
     "detail":{
@@ -1609,23 +1609,36 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=AddCtsAudioTask&SecretId=1
 ```
 
 
-### 4.6	视频ID（vid）规则说明
-
-### 关于使用COS v4和v5上传视频后，获取视频ID（vid）的方法
-
-回调用户实时将完成的转码结果详情回传给用户，需要用户配置回调地址。
+### 4.6	vid获取规则说明
 
 #### 情况一：使用cos v4 API进行视频文件上传
-
+使用cos v4 API进行视频文件上传的用户，在上传文件后的回包中，直接包含有vid信息，用户可直接记录该vid与源文件映射关系即可。
 
 ####情况二、使用cos v5 API进行视频文件上传
+由于cos v5 API升级改版，用户使用新版cos v5 API进行视频文件上传后，回包中将不再包含vid信息，用户需要根据v5回包中的```x-cos-request-id```及```date```信息进行计算后，记录vid信息与源文件的映射关系，具体映射规则如下：
 
-#### 注意事项：
+- cos v5 API 上传文件后回包示例：
 
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Mon, 26 Feb 2018 08:25:37 GMT 
+ETag: "15c7565b15676b5f35ef85615c04dc19"
+Server: tencent-cos
+x-cos-request-id: NWE5M2M0N2ZfZDBhMDY4NjRfMWNhZmZfODE4OTEy
+```
+- 则：
 
-回调域名：需用户提供
-回调方式：HTTP POST 请求
+vid= md5(x-cos-request-id) + strtotime(Date)
+其中，strtotime 表示把回包中的Date 在东八区下转换成时间戳格式。
+**注意**：vid中不包含+符号，如上示例中vid最终计算结果为：vid=421e6d34756e53814c99939ffeec49861519633537
 
+#### 备注说明：
+
+- cos中的bucket不区分v4、v5版本，即cos v4版本创建的bucket，也可使用v5版本API进行上传。
+- 更多cos API详细信息，请参见[cos API产品手册](https://cloud.tencent.com/document/product/436/7751) 
 
 
 
