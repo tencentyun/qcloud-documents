@@ -1615,6 +1615,33 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=AddCtsAudioTask&SecretId=1
 
 使用cos v4 API进行视频文件上传的用户，在上传文件后的回包中，直接包含有vid信息，用户可直接记录该vid与源文件映射关系即可。
 
+- cos v4 API 上传文件后回包示例：
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 321
+Connection: keep-alive
+Date: Tue, 12 Sep 2017 07:36:45 GMT
+Server: tencent-cos
+x-cos-request-id: NTliNzhlOGRfMTliMjk0MGFfNDg0N18xMTdiY2E=
+
+{
+"code":0,
+"message":"SUCCESS",
+"request_id":"NTllOWQ2YjVfYzlhMzNiMGFfMTY0OV9jMzYwZTU=",
+"data":
+     {
+    "access_url":"http://xy2-124566667.file.myqcloud.com/uploader1500000000",
+    "resource_path":"/124566667/xy2/uploader1508497108630",
+    "source_url":"http://xy2-124566667.cosgz.myqcloud.com/uploader1500000000",
+    "url":"http://gz.file.myqcloud.com/files/v2/124566667/xy2/uploader1500000000",
+    "vid":"4396314caa204d61f5d070d45248d9981508497077"
+     }
+}
+```
+
+
 #### 情况二、使用cos v5 API进行视频文件上传
 
 由于cos v5 API升级改版，用户使用新版cos v5 API进行视频文件上传后，回包中将不再包含vid信息，用户需要根据v5回包中的```x-cos-request-id```及```date```信息进行计算后，记录vid信息与源文件的映射关系，具体映射规则如下：
