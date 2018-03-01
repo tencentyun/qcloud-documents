@@ -1217,7 +1217,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 
 #### 4.2.3 转码失败时回调
 
--参数说明
+- 参数说明
 
 | 名称            | 类型     | 说明                        |
 | ------------- | ------ | ------------------------- |
@@ -1233,7 +1233,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 | v_type        | String | 视频文件类型                    |
 
 
--detail说明
+- detail说明
 
 | 名称       | 类型    | 说明                   |
 | -------- | ----- | -------------------- |
