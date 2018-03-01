@@ -1634,6 +1634,7 @@ x-cos-request-id: NWE5M2M0N2ZfZDBhMDY4NjRfMWNhZmZfODE4OTEy
 - 则：
 
 vid= md5(x-cos-request-id) + strtotime(Date)
+
 其中，strtotime 表示把回包中的Date 在东八区下转换成时间戳格式。
 **注意**：vid中不包含+符号，如上示例中vid最终计算结果为：vid=421e6d34756e53814c99939ffeec49861519633537
 
