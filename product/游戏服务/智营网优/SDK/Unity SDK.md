@@ -1,5 +1,5 @@
 ## 1 接入流程
-智营网优 Unity SDK 1.1.2 下载地址：[Unity SDK](https://mc.qcloudimg.com/static/archive/4c1571568243839b15144b84aa923fe4/qcloud-ino-unity-1.1.2.zip).
+智营网优 Unity SDK 1.2.3 下载地址：[Unity SDK](https://mc.qcloudimg.com/static/archive/2c446092ebe8ff827ec80acc1c29d481/Tencent-INO-UnityScripts-1.2.3.zip).
 
 
 ### 1.1 Android
