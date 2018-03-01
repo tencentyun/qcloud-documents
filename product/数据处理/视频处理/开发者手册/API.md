@@ -972,11 +972,11 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 }
 ```
 
-### 4.2	视频转码完成回调
+### 4.2	视频转码回调
 
 ### 功能描述
 
-回调接口实时将完成的转码结果详情回传给用户，需要用户配置回调地址。
+回调接口实时将转码的结果详情回传给用户，需要用户配置回调地址。
 
 ### 回调方式
 
@@ -986,7 +986,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 
 ### 回调格式说明
 
-#### 转码开始基本信息回调
+#### 4.2.1 转码开始时基本信息回调
 
 - 参数说明
 
@@ -1061,7 +1061,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 }
 ```
 
-#### 转码成功回调
+####  4.2.2 转码成功完成时回调
 
 - 参数说明
 
@@ -1215,7 +1215,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 }
 ```
 
-#### 转码失败回调
+#### 4.2.3 转码失败时回调
 
 + 参数说明
 
@@ -1331,7 +1331,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 
 ### 功能描述
 
-查询转码任务结果
+查询音频转码任务结果
 
 ### 请求参数
 
@@ -1404,13 +1404,13 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 | ---- | ---- | ------------- |
 | x_y  | 音频   | 其中x表示码率，y表示格式 |
 
-### 请求示例
+###  请求示例
 
 ```shell
 https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsaudioInfo&SecretId=AKIDxUCsd01oB7BxxxxxxFihD8hlRhftKmXr&Nonce=44207&Timestamp=1480384094&Region=gz&vid=000628c22a4cfa9daac321c31d496393&Signature=njTouxSxxxxxxPjeGKr0ZG%2Fi%2FE%3D
 ```
 
-### 回包示例
+###  回包示例
 
 ```
 {
