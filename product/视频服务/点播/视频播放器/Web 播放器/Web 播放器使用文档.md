@@ -46,7 +46,7 @@
 ### step 1：在页面中引入文件
 在合适的地方引入播放器样式文件与脚本文件
 ```
- <link href="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.CSS" rel="stylesheet">
+ <link href="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.css" rel="stylesheet">
  <script src="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.min.js"></script>
 ```
 
