@@ -1612,9 +1612,11 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=AddCtsAudioTask&SecretId=1
 ### 4.6	vid获取规则说明
 
 #### 情况一：使用cos v4 API进行视频文件上传
+
 使用cos v4 API进行视频文件上传的用户，在上传文件后的回包中，直接包含有vid信息，用户可直接记录该vid与源文件映射关系即可。
 
-####情况二、使用cos v5 API进行视频文件上传
+#### 情况二、使用cos v5 API进行视频文件上传
+
 由于cos v5 API升级改版，用户使用新版cos v5 API进行视频文件上传后，回包中将不再包含vid信息，用户需要根据v5回包中的```x-cos-request-id```及```date```信息进行计算后，记录vid信息与源文件的映射关系，具体映射规则如下：
 
 - cos v5 API 上传文件后回包示例：
