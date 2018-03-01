@@ -1,6 +1,5 @@
 ## 前言
 本文档是介绍腾讯云视频点播服务的 Web 播放器，它可以帮助腾讯云客户通过灵活的接口，快速与自有 Web 应用集成，实现视频播放功能，本文档适合有一定 Javascript 语言基础的开发人员阅读。
-
 ## 能力介绍
 腾讯云视频点播 WEB 播放器是通过 HTML5  `<video>`  标签以及 Flash 实现视频播放。在浏览器不劫持视频播放的情况下，实现了视频播放效果的多平台统一体验，并结合腾讯云点播视频服务，提供防盗链、HLS 加密播放等功能。
 
@@ -15,31 +14,24 @@
 **桌面端**支持最新版本的现代浏览器 Chrome，Firefox，Safari ，Edge，QQ 浏览器，以及非现代浏览器 IE11/10/9/8（IE11/10/9/8 需要开启 Flash，只支持 Win7 IE8）
 **移动端**只要实现 HTML5 `<video>` 标准的浏览器都支持，比如 Android Chrome，iOS Safari，微信，手机 QQ，手机 QQ 浏览器等
 使用本播放器，同一段代码可以自动实现 PC 浏览器和手机浏览器的自适应切换，播放器内部会自动区分平台使用最优的播放方案。例如：在 IE11/10/9/8 浏览器中会使用 Flash 播放器以实现其不支持 HTML5 播放 HLS 的能力，在 Chrome 等现代浏览器中优先使用 HTML5 技术实现视频播放，而手机浏览器上会使用 HTML5 技术实现视频播放。
-
 ### 点播平台的转码服务
 由于 MP4 和 HLS（m3u8）是目前在 PC 浏览器和手机浏览器上支持程度最广泛的格式，所以腾讯云的视频点播平台最终会把上传的视频发布为 MP4 和 HLS（m3u8） 格式。
-
 ## 准备工作
 ### step 1：开通服务
 在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云帐号，然后开通**点播**服务。
-
 ### step 2：上传文件
 点播服务开通之后，进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) 就可以上传新的视频文件，如果您没有开通点播服务，则无法操作这一步骤。
-
 ### step 3：获取 fileID 与 appID
 上传完视频并转码之后，您就可以在视频管理页面查到文件的 fileID ，这个是播放器播放视频的最基本信息，同时您的 appID 也可以在视频管理页面查看到。下图中的两个 ID，左边一个是视频文件的 fileID，另一个是您的 appID。
 ![](//mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
-
 ## 初始化 Web 播放器
 在准备工作完成后，通过以下 3 个步骤，您就可以在您的网页上添加一个视频播放器。
-
 ### step 1：在页面中引入文件
 在合适的地方引入播放器样式文件与脚本文件
 ```
  <link href="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.css" rel="stylesheet">
  <script src="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.min.js"></script>
 ```
-
 ### step 2：放置播放器容器
 在需要展示播放器的页面位置加入播放器容器，例如：在 index.html 中加入如下代码（容器 ID 以及宽高都可以自定义）。
 ```
@@ -54,9 +46,7 @@
 > * playsinline webkit-playinline x5-playinline 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
 
 ### step 3：初始化代码
-
 在页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID 与 appID。
-
 ```
 var player = TCPlayer('player-container-id', { // player-container-id 为播放器容器ID，必须与html中一致
     fileID: '4564972818956091133', // 请传入需要播放的视频filID 必须
@@ -68,10 +58,8 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 
 ### 完整的示例页面：
 [示例代码链接](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)
-
 ## 功能使用说明
 下面将对播放器的部分功能进行详细说明，包括最佳实践与注意事项。
-
 ### 播放器尺寸设置
 这里介绍几种给播放器设置尺寸的方法
 
@@ -87,10 +75,10 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 [等比率自适应](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size-adaptive.html)
 
 ### 播放多种清晰度
-1. 首先需要在控制台设置转码多种清晰度，如下图
+1、 首先需要在控制台设置转码多种清晰度，如下图
 ![](https://mc.qcloudimg.com/static/img/b2c4b5d61ae28cb4558e15bcbcb3bd87/image.png)
 
-2. 视频转码后，将会生成多种清晰度的文件，在【控制台】>【视频管理】视频列表中单击视频将会看到如下图
+2、 视频转码后，将会生成多种清晰度的文件，在【控制台】>【视频管理】视频列表中单击视频将会看到如下图
 ![](https://mc.qcloudimg.com/static/img/3a60f37c5c6d429bffb7e96023c948e9/image.png)
 
 经过以上两个步骤，该视频已具备多种清晰度，使用 fileID appID 在腾讯云点播播放器中播放即可。
@@ -102,7 +90,6 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 
 示例：
 [多种清晰度](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html)
-
 ### 指定播放清晰度
 这里分为两种情况：指定播放某个清晰度和让播放器默认播放某个清晰度
 
@@ -137,7 +124,6 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 
 ### 续播功能
-
 开启续播功能的前提，必须通过 fileID 播放。有了唯一的 fileID，播放器才能记录该视频的播放时长，当播放未结束时关闭页面，在同一个浏览器中再次打开播放页面，可从上次观看的时间点继续播放。
 通过以下参数开启续播功能：
 
@@ -189,7 +175,6 @@ var player = TCPlayer('player-container-id', {
 
 示例：
 [图片贴片](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-image-patch.html)
-
 
 >**注意事项：**
 > * 贴片建议使用体积不超过50KB且尺寸不超过播放器显示区域的图片，避免因图片过大影响视频初始化速度。
