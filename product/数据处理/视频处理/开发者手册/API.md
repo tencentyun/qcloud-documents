@@ -1667,7 +1667,7 @@ vid= md5(x-cos-request-id) + strtotime(Date)
 
 #### 备注说明：
 
-- cos中的bucket不区分v4、v5版本，即cos v4版本创建的bucket，也可使用v5版本API进行上传。
+- cos中的bucket不区分v4、v5版本，即cos v4版本创建的bucket，也可使用v5版本API进行上传；同理，cos v5版本创建的bucket，也可使用v4版本API进行上传。
 - 更多cos API详细信息，请参见[cos API产品手册](https://cloud.tencent.com/document/product/436/7751) 
 
 
