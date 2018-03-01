@@ -1,6 +1,6 @@
 ## 前言
 
-本文档是介绍腾讯云视频点播服务的Web 播放器，它可以帮助腾讯云客户直接使用经过验证的视频播放能力，通过灵活的接口，快速与自有 Web 应用集成，以实现桌面应用播放功能，本文档适合有一定 Javascript 语言基础的开发人员阅读。
+本文档是介绍腾讯云视频点播服务的 Web 播放器，它可以帮助腾讯云客户通过灵活的接口，快速与自有 Web 应用集成，实现视频播放功能，本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 ## 能力介绍
 
@@ -15,7 +15,7 @@
 
 ### 平台支持
 
-桌面端支持最新版本的现代浏览器 Chrome，Firefox，Safari ，Edge，QQ浏览器，以及非现代浏览器 IE11/10/9/8（IE11/10/9/8 需要开启 Flash）
+桌面端支持最新版本的现代浏览器 Chrome，Firefox，Safari ，Edge，QQ浏览器，以及非现代浏览器 IE11/10/9/8（IE11/10/9/8 需要开启 Flash，只支持Win7 IE8）
 
 移动端只要实现 HTML5 `<video>` 标准的浏览器都支持，比如 Android Chrome，iOS Safari，微信，手机 QQ，手机 QQ 浏览器等
 
@@ -44,6 +44,7 @@
 在准备工作完成后，通过以下3个步骤，您就可以在您的网页上添加一个视频播放器。
 
 ### step 1：在页面中引入文件
+在合适的地方引入播放器样式文件与脚本文件
 ```
  <link href="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.css" rel="stylesheet">
  <script src="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.min.js"></script>
@@ -60,7 +61,7 @@
 > * 播放器容器必须为 `<video>` 标签。
 > * 示例中的 player-container-id 为播放器容器的ID，可自行设置。
 > * 播放器容器区域的尺寸，建议通过 css 进行设置，通过 css 设置比属性设置更灵活，可以实现例如铺满全屏、容器自适应等效果。
-> * 示例中的 preload 属性规定是否在页面加载后载入视频，通常为了更快的播放视频，会设置为 auto，其他可选值：meta（当页面加载后只载入元数据），none（当页面加载后不载入视频）。
+> * 示例中的 preload 属性规定是否在页面加载后载入视频，通常为了更快的播放视频，会设置为 auto，其他可选值：meta（当页面加载后只载入元数据），none（当页面加载后不载入视频），移动端由于系统限制不会自动加载视频。
 > * playsinline webkit-playinline x5-playinline 这几个属性是为了在标准移动端浏览器不劫持视频播放的情况下实现行内播放，此处仅作示例，请按需使用。
 
 ### step 3：初始化代码
@@ -84,18 +85,20 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 
 下面将对播放器的部分功能进行详细说明，包括最佳实践与注意事项。
 
-### 尺寸设置
+### 播放器尺寸设置
 
 这里介绍几种给播放器设置尺寸的方法
 
 * 可以给 `<video>` 标签设置 width height 属性，width height 的属性值是以像素计量的（比如 width = "100px" 或 width= 100），不能设置百分比。
 *	可以通过 css 设置尺寸，支持像素、百分比等类型的值（比如：width:"100px" 或 width:"100%" ）。
 
-如果不设置宽高，播放器在获取到视频的分辨率后，将会以视频的分辨率设置播放器的显示尺寸，如果浏览器的可视区域的尺寸小于视频分辨率，会造成播放器区域超出浏览器的可视区域，所以通常不建议这样做。最佳实践为通过 css 设置播放器的尺寸。熟练运用 css 可以实现例如铺满全屏、容器自适应等效果。
+如果不设置宽高，播放器在获取到视频的分辨率后，将会以视频的分辨率设置播放器的显示尺寸，如果浏览器的可视区域的尺寸小于视频分辨率，会造成播放器区域超出浏览器的可视区域，所以通常不建议这样做。最佳实践为通过 css 设置播放器的尺寸。
+
+熟练运用 css 可以实现铺满全屏、容器自适应等效果。
 
 示例：
 [CSS 设置尺寸](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size.html)
-[铺满可视区域](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size-full-viewport.html)
+[铺满网页可视区域](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size-full-viewport.html)
 [等比率自适应](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-size-adaptive.html)
 
 ### 播放多种清晰度
@@ -143,7 +146,7 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 
 #### 让播放器默认播放某个清晰度
 
-* 在“控制台-Web播放器管理”选定某个播放器配置进行设置默认画质
+* 在“控制台-Web 播放器管理”选定某个播放器配置进行设置默认画质
 
 ![](https://mc.qcloudimg.com/static/img/3bcad59bcbb2ae35c2ce02bba1f8cefd/image.png)
 
@@ -154,6 +157,7 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 >**注意事项：**
 > * 如果默认清晰度的视频不存在，则获取该视频的清晰度列表中第一个文件进行播放。比如播放器配置默认播放超高清，但是视频只有标清和高清，这时会播放标清视频。
 > * 控制台播放器配置在设置后，大概需要10分钟使所有 CDN 节点生效该配置。
+> * 在浏览器劫持视频播放的情况下，该功能无法使用。
 
 ### 续播功能
 
@@ -176,11 +180,47 @@ var player = TCPlayer('player-container-id', {
 开启成功后将会看到的效果如下图：
 ![](https://mc.qcloudimg.com/static/img/e155be329a6fec959e1ad6b361add390/image.png)
 
+示例：
+[续播](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-continue-play.html)
+
 >**注意事项：**
 > * 必须通过 fileID appID 播放经过腾讯云转码后的视频，才能使用该功能。
 > * 该功能通过通过 localStorage 存储播放时间点，浏览器需支持该特性。
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 > * 该功能不是多端多浏览器互通的，比如在 PC 浏览器上没看完，不能在移动端浏览器上续播或者在 PC 上另一个浏览器续播，需额外的接口，可以自行开发。
+
+### 设置播放器logo
+
+腾讯云点播播放器支持配置播放器logo，可以在“控制台-Web 播放器管理”选定某个播放器配置，点击外观栏目进行设置 logo 信息
+
+设置 logo 信息后，使用该播放器配置播放视频时，将会在指定位置显示 logo。
+
+示例：
+[显示 Logo](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-logo.html)
+
+>**注意事项：**
+> * 控制台播放器配置在设置后，大概需要10分钟使所有 CDN 节点生效该配置。
+> * 在浏览器劫持视频播放的情况下，设置的logo将无法显示。
+
+### 图片贴片功能
+
+腾讯云点播播放器支持配置片头、片中暂停、片尾显示图片贴片,并且可以添加超链接。可以在“控制台-Web 播放器管理”选定某个播放器配置，点击贴片栏目进行设置贴片信息。
+默认的贴片显示样式为水平垂直居中显示，如果图片的尺寸大于播放器显示区域，将按播放器的宽度等比缩放图片，水平居中显示图片，图片超出播放器区域部分将无法显示。
+可以通过 css 自定义贴片的显示样式
+```
+.tcp-image-patch-start{} /* 片头贴片样式Class */
+.tcp-image-patch-pause{} /* 片中贴片样式Class */
+.tcp-image-patch-ended{} /* 片尾贴片样式Class */
+```
+
+示例：
+[图片贴片](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-image-patch.html)
+
+
+>**注意事项：**
+> * 贴片建议使用体积不超过50K且尺寸不超过播放器显示区域的图片，避免因图片过大影响视频初始化速度。
+> * 控制台播放器配置在设置后，大概需要10分钟使所有 CDN 节点生效该配置。
+> * 在浏览器劫持视频播放的情况下，设置的贴片将无法显示。
 
 ### Referer防盗链
 
