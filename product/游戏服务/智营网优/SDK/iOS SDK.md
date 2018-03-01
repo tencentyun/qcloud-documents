@@ -1,7 +1,7 @@
 ## 1 iOS 接入
 
 ### 1.1 SDK 获取
-智营网优 iOS SDK 1.1.2 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/8a6c017abe3dd3c12b4952c7ee28344a/qcloud-ino-IOS-1.1.2.zip).
+智营网优 iOS SDK 1.2.3 下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/e9b9e0708838214343338188d836307a/Tencent-INO-IOS-1.2.3.zip).
 
 ### 1.2 SDK 配置
 #### 1.2.1 安装包结构
