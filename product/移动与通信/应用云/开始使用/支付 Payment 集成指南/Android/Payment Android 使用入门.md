@@ -67,7 +67,7 @@ dependencies {
                              
 #### 2. 集成 jar 包
 
-将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
+将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。资源文件中只包含了微信支付渠道的 jar 包，如果您需要接入 QQ 支付，那么必须同时将 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 也添加到您工程的 `libs` 目录。
 
 #### 3. 集成 资源文件
 
