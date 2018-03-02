@@ -1,0 +1,157 @@
+# 直播连麦（LiveRoom）
+
+## 功能介绍
+**直播+连麦** 是在 **秀场直播** 和 **在线教育** 场景中经常使用的直播模式，它既能支持高并发和低成本的在线直播，又能通过连麦实现主播和观众之间的视频通话互动，具有极强的场景适用性。
+
+![](https://mc.qcloudimg.com/static/img/4795981dbd6c37428c9aff6e2c28f2ca/image.png)
+
+## 实现原理
+### 1. 两种“通道”解决问题
+
+腾讯云采用了两套通道实现直播+连麦功能，其中直播采用标准的 （RTMP + FLV ）协议，走标准CDN线路，支持超高并发，且带宽成本很低，但延迟一般在2s以上。连麦则采用私有的 UDP 协议，走特殊专线线路，延迟一般在500ms左右，但最多支持10人同时视频通话，且带宽费用较高。
+
+|  通道  | 用途              |  通讯延迟   |     通讯协议      | 价格/费用 | 最高并发  |
+| :--: | --------------- | :-----: | :-----------: | :---: | :---: |
+| TCP  | 直播（将主播的影像广播给观众） |  >=2s   | RTMP/HTTP-FLV |   低   |  无限制  |
+| UDP  | 连麦（主播与观众实时视频通话） | 500ms左右 |    私有UDP协议    |   高   | <=10人 |
+
+### 2. 前后台的设计原理
+
+如果您只需要做一个简单的直播方案，也就是：主播推流 + 观众观看 + 文字互动；那么您应该用不上 LiveRoom，参考[单场次直播](https://cloud.tencent.com/document/product/454/14551)，或者 [自由开播](https://cloud.tencent.com/document/product/454/7916) 就可以解决问题。
+
+但是如果您要上连麦功能，那难度可就高了，为了降低连麦的接入难度，我们在 2016 年底就推出了一套叫做 “小直播” 的源代码，在其上实现了连麦功能，希望通过这套源码降低您的接入成本。
+
+但经过一段时间的运营，有不少客户反馈 “小直播” 源代码实在是太难剥离了，我们开始以为这个问题通过简单优化代码结构就能解决。但后来才发现，一个封装良好的组件才能彻底解决问题，于是 LiveRoom 就诞生了，它的设计目标就是希望将连麦功能独立成一个小组件，让您更好的去剥离和替换 UI。
+
+该组件分成 Client 和 Server 两个部分：
+
+![](https://mc.qcloudimg.com/static/img/5a153aa265f6b41dbd88126d786c47e7/image.png)
+
+
+- **终端（Client）**
+LiveRoom 组件的终端部分是开源的，它是对腾讯视频云 LiteAVSDK（主要用于音视频，包括 TXLivePusher、TXLivePlayer 等接口） 和 LiteIMSDK （主要用于收发消息，包括 TIMManager 和 TIMConversation 等接口）两个组件的封装。
+
+ 您不需要接触 LiteAVSDK 和 LiteIMSDK 这两个较底层的 SDK，可以直接使用 LiveRoom 的 createRoom，enterRoom 和 leaveRoom 等接口就可以完成您想要的直播+连麦功能。
+ 
+ 同时，它也依赖一个用于房间管理和状态协调的后台服务，这是下面要介绍的。
+
+- **后台（Server）**
+
+  RoomService 是 LiveRoom 对应的后台组件（同样也是开源的），其主要代码逻辑分成两个部分：一是房间管理（直播间的增、删、改、查）和成员管理（尤其是要维护好房间里有几个人正在跟主播连麦）；二是对腾讯云直播服务、实时音视频服务以及 IM 云通讯服务的控制（主要通过腾讯云的后台 REST API 进行调用）。
+
+  您可以将我们提供的源码部署到您的业务后台上，也可以使用我们已经搭建好的 RoomService 服务。
+
+## 终端对接
+
+### API 列表
+
+| 平台 | 编程语言 | API 文档 | 
+|:-------:|:-------:| :-------:|
+| iOS                       | Objective-C |  to-do | 
+| Android                 | java            |  to-do | 
+| Web                     | javascript    |  to-do | 
+| PC（C++）           | C++            |  to-do | 
+| PC（C#）             | C#              |  to-do | 
+
+### 对接流程
+
+#### step1: 下载 SDK 开发包
+在腾讯云官网下载 [LiteAVSDK](https://cloud.tencent.com/document/product/454/7873) 开发包，开发包中如下部分跟本文档相关：
+
+| 组件        | 目录                              | 说明                                 |
+| ------------ | ------------------------------ | ---------------------------------- |
+| LiveRoom  | ./Demo/TXLiteAVDemo/LiveRoom    | LiveRoom 终端部分组件，只需要将源码 copy 到您的工程中 |
+| LiteAVSDK | ./SDK | 腾讯云 LiteAV SDK，需要将其加入到您的当前工程中      |
+| LiteIMSDK | ./Demo/TXLiteAVDemo/Third/ImSDK | 腾讯云 IM 通讯 SDK，需要将其加入到您的当前工程中 |
+
+#### step2：登录 RoomService
+RoomService 服务需要先登录之后才能使用， LiveRoom 的 **login** 接入用于登录，但它需要您填写如下参数：
+
+- **serverDomain**
+如果是使用腾讯云免费提供的 RoomService，请使用 setURL 指向我们的云服务器地址：
+``` 
+https://room.qcloud.com/weapp/live_room 
+```
+如果是使用您自己搭建的 RoomService，请使用 setURL 指向您自己的云服务器地址，比如 。
+
+- **sdkAppID & accType**
+RoomService 是基于腾讯云通讯（IM ）服务实现的，所以这里的 sdkAppID 和 accType 也是使用云通讯的相关配置，您可以参考 [DOC](https://cloud.tencent.com/document/product/454/7953#IM)。
+
+- **userID & userSig**
+userID 和 userSig 是用于登录 RoomService 的用户名和登录密码。由于用户名（userID）是由您来指定的，而且我们不能让您的用户在您的后台和腾讯云各注册一次，所以这里的登录密码是基于**数字签名**方案实现的：
+
+ 即您的后台先在腾讯云交换公私钥，之后，您的后台对您的 userID 、AppId 等信息用私钥进行签名，签名出来的结果就是 userSig。再之后，Client 获得这个 userSig 并通过 login 函数传递给腾讯云，腾讯云在 RoomService 后台获得 userID 和 userSig，通过使用特定的公钥解密，就可以确认这个 userID 是否是由您的服务器鉴定过的。
+ ![](https://mc.qcloudimg.com/static/img/32d0a7583f62eb51a2dc0290f8c23afd/image.png)
+
+ 为了帮助您在调试期间快速跑通整个流程，我们提供了一个本地签名 [UserSig](http://to-do) 的工具。但产品上线时，UserSig 应当改成由您的后台服务器[签发](https://cloud.tencent.com/document/product/454/14548)，这是因为客户端持有签名私钥是不安全的。
+
+#### step3: 获取房间列表
+不管是主播还是观众，不管是老师还是学生，都需要有一个房间间列表，调用 LiveRoom 的 **getRoomList** 接口可以获取到该列表。
+
+> 列表里每个房间的 roomInfo，是在 createRoom 时传入的，推荐您将其定义为 json 格式，这样可以有很强的扩展性。
+
+	
+#### step4: 主播开播
+主播要开播，需要先调用 LiveRoom 的 **startLocalPreview** 接口开启本地摄像头预览，该函数需要传入一个 TXCloudVideoView 对象，该对象用于显示摄像头的视频影像。这期间 LiveRoom 会申请摄像头使用权限，同时，主播也可以对着摄像头调整一下美颜和美白的具体效果。
+
+之后，通过调用 LiveRoom 的 **createRoom ** 接口，LiveRoom 会在后台的房间列表中新建一个直播间，同时主播端会进入推流模式。
+
+> **参数roomID**
+> 如果您在调用 createRoom 时不填写 roomId，后台会为您分配一个 roomID， 并通过 createRoom 的回调接口返回给您。如果您希望自己管理房间列表，roomID 可以由您的服务器分配，那么只需要在调用 createRoom 时填写您后台分配的 roomId 即可。
+
+#### step5: 观看直播
+观众通过 LiveRoom 的 **enterRoom** 接口可以进入直播间观看视频直播，enterRoom 函数需要传入一个 TXCloudVideoView 对象，用于显示直播流的视频影像。
+
+#### step6: 观众连麦
+连麦是一个需要主播和观众共同参与的过程，可以参考如下流程图：
+![](https://mc.qcloudimg.com/static/img/52c2eaa6d4ade76fbc71d81e479fd50c/image.jpg)
+
+- 第一步（观众）：首先通过 **requestJoinPusher** 发起连麦请求。
+
+- 第二步（主播）：会收到 **onRecvJoinPusherRequest** 回调通知，之后可以展示一个 UI 提示，询问主播要不要接受连麦。
+
+- 第三步（主播）：可以选择 **acceptJoinPusher** 接受连麦，也可以选择 **rejectJoinPusher** 拒绝连麦。
+
+- 第四步（观众）：通过 **RequestJoinPusherCallback** 可以了解到连麦请求是否被接受，如果被接受。
+
+- 第五步（观众）：如果被连麦请求被接受，需要调用 **startLocalPreview** 开启本地摄像头，startLocalPreview 需要一个 TXCloudVideoView 对象用于显示摄像头的影像，此时 SDK 会申请本地摄像头和麦克风的权限。
+
+- 第六步（观众）：之后，通过调用 **joinPusher** 函数可以开始进入连麦状态（观众端开始推流）。
+
+- 第七步（主播）：一旦观众开始进入连麦状态，主播端就会收到 **onPusherJoin** 通知，该通知会将连麦者的信息封装在一个叫做 pusherInfo 的对象里通知出来。接下来主播会通过 **addRemoteView** 函数把连麦者的远程影像显示出来。
+
+- 第八步（观众）：如果房间里已经有一个（以上）的连麦者，那么观众端也会收到 onPusherJoin 通知，也可以通过 addRemoteView 把其它连麦者的影像显示出来。
+
+> 如果您要实现的是 1v1 连麦，那么上述流程中的第 8 步是可以忽略的。
+
+#### step7: 弹幕消息
+LiveRoom 自带了消息发送接口，可以通过 **sendRoomTextMsg** 函数发送普通的文本消息（用来弹幕），也可以通过 **sendRoomCustomMsg** 发送自定义消息（用于点赞，送花等等）。
+
+通过 RoomListenerCallback 里的 **onRecvRoomTextMsg** 和 onRecvRoo****mCustomMsg 可以收取聊天室里别人发来的文本消息和自定义消息。
+
+>** <font color='red'> Attention </font> **： 腾讯云 IM 每秒钟最多可以收取 40 条以上的消息，如果您要把所有这些消息都按照接收频率刷新到屏幕 UI 上，那您的直播室体验一定是非常卡顿的，这里一定要注意刷新频率控制。
+>
+>有太多的客户在测试期间顺顺利利，APP一上线就卡的不行，都是这个原因导致的。
+
+## 后台对接
+### 使用腾讯云RoomService
+#### 1. 配置账号信息
+to-do
+
+#### 2. 签发 UserSig
+Client 要使用 LiveRoom 组件，需要在一开始用 serverDomain、sdkAppID、accType、userID、userSig 等五个信息进行 login，其中前四个信息都可以在客户端写死，但是 UserSig 必须由您的后台签发，因为让 Client 计算有暴露私钥的安全风险。
+
+RoomService 所使用的 userSig 的签发同 IM 云通讯服务是一样的，所以您可以参考文档 [DOC](https://cloud.tencent.com/document/product/454/14548) 进行接入。同时，我们也提供了一个本地运行的[签发工具](http://to-do) 的工具，帮助您快速完成调试。
+
+### 自建RoomService后台
+#### 1. 下载源码
+在 [CODE](https://cloud.tencent.com/document/product/454/7873) 下载 RoomService 后台源码，源码包分成三个目录，其中 live_room 下的源码是您需要关注的。
+
+#### 2. 修改配置
+下载到源码后，需要先修改源码中的一些留空的配置信息：
+
+| 配置项 | 含义 | 
+|---------|---------|
+| to-do | to-do | 
+
+之后，您可以将其部署到您自己的后台服务器上，并将访问 URL 告知您的终端研发工程师，因为他/她在调用 LiveRoom 的 login 函数时需要指定 RoomService 的后台地址。

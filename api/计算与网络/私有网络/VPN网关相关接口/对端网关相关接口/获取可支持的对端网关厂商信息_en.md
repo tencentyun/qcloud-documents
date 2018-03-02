@@ -1,5 +1,5 @@
 ## 1. API Description
-This API (DescribeUserGwVendor) is used to acquire information on supported peer gateway vendors.
+This API (DescribeUserGwVendor) is used to acquire information on supported customer gateway vendors.
 Domain for API request: <font style='color:red'>vpc.api.qcloud.com </font>
 
 

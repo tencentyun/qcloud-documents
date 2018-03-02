@@ -61,7 +61,7 @@ android {
 
 dependencies {
     //增加这行
-    compile 'com.tencent.bugly:nativecrashreport:3.3.1'
+    compile 'com.tencent.tac:tac-nativecrash:1.0.0'
 }
 ```
 
@@ -73,8 +73,8 @@ dependencies {
 
 #### 1. 下载服务资源压缩包。
  
-1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
-2. 下载 [应用云 Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-crash-1.0.0.zip)，并解压。
+1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
+2. 下载 [应用云 Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-crash-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包。
 - 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
@@ -121,7 +121,7 @@ buildscript {
 	 ......
     dependencies {
         ......
-        classpath 'com.tencent.tac:crash-plugin:1.0.0'
+        classpath 'com.tencent.tac:tac-crash-plugin:1.0.0'
     }
 }
 ```
