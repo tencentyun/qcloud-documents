@@ -23,16 +23,13 @@ UserSig是使用腾讯云通讯服务（[IM](https://cloud.tencent.com/product/i
 
 ### step1：获取签发UserSig用的私钥
 
-进入云通讯[管理控制台](https://console.cloud.tencent.com/avc)，如果还没有开通服务，直接点击 **开通云通讯** 按钮即可。新认证的腾讯云账号，云通讯的应用列表是空的，如下图：
-![](//mc.qcloudimg.com/static/img/c033ddba671a514c7b160e1c99a08b55/image.png)
-
-点击 **创建应用接入** 按钮创建一个新的应用接入，即您要接入腾讯云IM通讯服务的App的名字，我们的测试应用名称叫做“小直播演示”，如下图所示：
+进入云通讯 [管理控制台](https://console.cloud.tencent.com/avc)，如果还没有开通服务，直接点击 **开通云通讯** 按钮即可。新开通的账号下，应用列表是空的，点击 **创建应用接入** 按钮创建一个新的应用：
 ![](//mc.qcloudimg.com/static/img/897bff65af6202322a434b6fa3f8a0bd/image.png)
 
 点击 **确定** 按钮，之后就可以在应用列表中看到刚刚添加的项目了，如下图所示：
 ![](https://mc.qcloudimg.com/static/img/fff565dc81ba26ca7af4951264b7bb4c/image.png)
 
-点击 **应用配置** 链接，会进入应用配置界面，再点击 **账号体系集成** 右侧的 **编辑** 按钮，按照下图所示进行配置即可（账号名称和管理员名称推荐用英文，账号名称随便填写，管理员工程在调用 IM 的 REST API 时可以用到）。
+点击 **应用配置** 链接，会进入应用配置界面，再点击 **账号体系集成** 右侧的 **编辑** 按钮，按照下图所示进行配置即可（账号名称和管理员名称推荐用英文，账号名称随便填写，管理员名称在调用 IM 的 REST API 时可以用到）。
 ![](https://mc.qcloudimg.com/static/img/1104e8354d234d949840c9b6c396fd24/image.png)
 
 点击 **保存** 按钮，页面会自动刷新，之后就可以看到 **下载公私钥** 的按钮了。
