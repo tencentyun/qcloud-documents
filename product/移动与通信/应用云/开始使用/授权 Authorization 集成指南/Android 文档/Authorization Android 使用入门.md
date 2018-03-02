@@ -88,7 +88,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 }
 ```
 
-### 3. 添加 SDK 
+### 3. 添加 SDK
 
 #### 通过 gradle 远程依赖集成
 
@@ -96,9 +96,9 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 #### 手动集成
 
-请从 [微信资源中心](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&lang=zh_CN) 下载最新的开发包，并拷贝到应用模块的 `libs` 文件夹下。
+应用云 Authorization 资源包已经包含了微信的 SDK，您不需要另外下载。
 
-然后，在您的 AndroidManifest.xml 文件中添加以下权限：
+然后，在您的 AndroidManifest.xml 文件中添加以下 SDK 需要的权限：
 
 ```
     <uses-permission android:name="android.permission.INTERNET" />
@@ -133,7 +133,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 ### 3. 下载 SDK 
 
-下载 [QQ 互联的 Android Jar 包](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/doc/Android_SDK_V3.3.0.lite.zip) ，并拷贝到应用模块的 `libs` 文件夹下。
+下载 [jar 包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/open_sdk_r5923_lite.jar) ，并拷贝到应用模块的 `libs` 文件夹下。
 
 
 ### 4. 添加 SDK 依赖
