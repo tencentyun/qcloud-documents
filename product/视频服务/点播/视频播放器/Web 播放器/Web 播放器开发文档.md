@@ -15,7 +15,7 @@ options 对象可配置的参数：
 
 | 名称    | 类型                      | 默认值                        |说明 |
 |------------|-----------------------------------|-----------------------------------|---------------------------------------|
-| appID|  String |   无 |必选|
+|  appID|  String |   无 |必选|
 |  fileID|  String|无|必选|  
 |  width|  String / Number|  无| 播放器区域宽度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
 |  height |  String /Number|  无|  播放器区域高度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|  
@@ -27,7 +27,6 @@ options 对象可配置的参数：
 |  muted|  Boolean|  false|  是否静音播放|  
 |  preload|  String|  auto|  是否需要预加载，有3个属性"auto"，"meta"，"none" ，移动端由于系统限制，设置 auto 无效。|  
 |  swf|  String|  无|  Flash 播放器 swf 文件的 URL|  
-|  fluid|  Boolean|  false|  是否启用自适应样式|  
 |  posterImage|  Boolean|  true|  是否显示封面|  
 |  bigPlayButton|  Boolean|  true|  是否显示居中的播放按钮（浏览器劫持嵌入的播放按钮无法去除）|  
 |  language|  String|  "zh-CN"|  设置语言|  
