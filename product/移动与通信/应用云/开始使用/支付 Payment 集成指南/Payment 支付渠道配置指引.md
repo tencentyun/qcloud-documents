@@ -4,7 +4,7 @@
 
 Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过在移动端 APP 中集成 Payment SDK 来调起微信支付和手 Q 支付。在配置 Payment 支付渠道前，确保您已经完成：
 
-[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN/_Drafts/ApplicationBoard/集成指南/Core/Android/GettingStarted.md)
+- [安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN/_Drafts/ApplicationBoard/集成指南/Core/Android/GettingStarted.md)
 
 
 > [什么是 App 支付](http://kf.qq.com/faq/17060936FNZj170609vMneY3.html)
@@ -12,17 +12,17 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ## 配置微信支付
 
-您需要先在[微信开放平台](https://open.weixin.qq.com)和[微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login)上申请好相关信息，然后才能给 TAC 应用配置微信支付功能。下面将详细说明如何在 TAC 平台上配置 Payment 的微信支付渠道。
+您需要先在 [微信开放平台](https://open.weixin.qq.com) 和 [微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login) 上申请好相关信息，然后才能给 TAC 应用配置微信支付功能。下面将详细说明如何在 TAC 平台上配置 Payment 的微信支付渠道。
 
 ### 第一步：注册微信开放平台账号并进行认证
 
-首先登录[微信开放平台](https://open.weixin.qq.com)，点击首页右上角的【注册】按钮，注册成为微信开放平台开发者。
+首先登录 [微信开放平台](https://open.weixin.qq.com)，点击首页右上角的【注册】按钮，注册成为微信开放平台开发者。
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_wechat_login.png)
 
 ### 第二步：开发者资质认证
 
-开放平台需进行开发者资质认证后才可申请微信支付，您可以点击【账号中心】，然后点击【开发者资质认证】来进行认证，认证费：300元/次。
+开放平台需进行开发者资质认证后才可申请微信支付，您可以点击【账号中心】，然后点击【开发者资质认证】来进行认证，认证费：300 元/次。
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_wechat_verify.png)
 
@@ -34,16 +34,15 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ### 第四步：提交资料申请微信支付
 
-点击【管理中心】，选择需要申请支付功能对应的APP，在微信支付一栏中点击【申请开通】按钮，然后开始填写资料等待审核，审核时间为1-5个工作日内。
+点击【管理中心】，选择需要申请支付功能对应的 APP，在微信支付一栏中点击【申请开通】按钮，然后开始填写资料等待审核，审核时间为 1 - 5 个工作日内。
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_wechat_open_pay.png)
 
 ### 第五步：开户成功，登录商户平台进行验证
 
-资料审核通过后，请登录联系人邮箱查收商户号和密码，并登录[商户平台](https://pay.weixin.qq.com/index.php/core/home/login)填写财付通备付金打的小额资金数额，完成账户验证。（[查看验证方法](http://kf.qq.com/faq/161220mQjmYj161220n6jYN7.html)）
-
+资料审核通过后，请登录联系人邮箱查收商户号和密码，并登录 [商户平台](https://pay.weixin.qq.com/index.php/core/home/login) 填写财付通备付金打的小额资金数额，完成账户验证（[查看验证方法](http://kf.qq.com/faq/161220mQjmYj161220n6jYN7.html)）。
 ### 第六步：在线签署协议
-本协议为线上电子协议，签署后方可进行交易及资金结算，签署完立即生效。[点此提前预览协议内容](https://pay.weixin.qq.com/index.php/public/apply_sign/protocol)。
+本协议为线上电子协议（[点此提前预览协议内容](https://pay.weixin.qq.com/index.php/public/apply_sign/protocol)），签署后方可进行交易及资金结算，签署完立即生效。
 
 ### 第七步：配置渠道信息
 
@@ -51,7 +50,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_add_wechat_pay.png?raw=true)
 
-填入之前申请好微信商户平台上的商户号和商户号密钥，以及微信开放平台上审核通过的应用AppID和AppKey，然后点击【确认】。
+填入之前申请好微信商户平台上的商户号和商户号密钥，以及微信开放平台上审核通过的应用 AppID 和 AppKey，然后点击【确认】。
 
 ### 第八步：设置支付参数
 
@@ -65,11 +64,12 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 到此，您即已经完成了微信支付的配置。
 
-> 其中回调地址是支付完成后服务器回调的地址，而平台参数则是用于鉴定来源的APP信息，安卓平台下为应用签名和应用包名，iOS平台下为Bundle Identifier。 
+> **注意：**
+> 其中回调地址是支付完成后服务器回调的地址，而平台参数则是用于鉴定来源的 APP 信息，安卓平台下为应用签名和应用包名，iOS 平台下为 Bundle Identifier。 
 
 ## 配置手 Q 支付
 
-您需要先在[QQ 钱包商户平台](https://qpay.qq.com)和[腾讯开放平台](http://open.qq.com/)上申请好相关信息，然后才能给 TAC 应用配置 QQ 支付功能。下面将详细说明如何在 TAC 平台上配置 Payment 的手 Q 支付。
+您需要先在 [QQ 钱包商户平台](https://qpay.qq.com) 和 [腾讯开放平台](http://open.qq.com/) 上申请好相关信息，然后才能给 TAC 应用配置 QQ 支付功能。下面将详细说明如何在 TAC 平台上配置 Payment 的手 Q 支付。
 
 ### 第一步：在 QQ 钱包上填写资料
 
@@ -102,7 +102,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ### 第六步：登录腾讯开放平台
 
-首先登录[腾讯开放平台](http://open.qq.com/)，点击首页右上角的【登录】按钮进行登录。
+首先登录 [腾讯开放平台](http://open.qq.com/)，点击首页右上角的【登录】按钮进行登录。
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_qq_open_login.png)
 
@@ -127,7 +127,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_qq_pay.png)
 
-填入之前申请的 QQ 商户号上的商户号和商户号密钥，腾讯开放平台上审核通过的应用AppID和AppKey然后点击【确认】。
+填入之前申请的 QQ 商户号上的商户号和商户号密钥，腾讯开放平台上审核通过的应用 AppID 和 AppKey 然后点击【确认】。
 
 ### 第十步：设置支付参数
 
@@ -142,7 +142,7 @@ Payment 支持微信支付和手 Q 支付的 APP 支付模式，您可以通过�
 
 到此，您即已经完成了 QQ 支付的配置。
 
-> 其中回调地址是支付完成后服务器回调的地址，而平台参数则是用于鉴定来源的APP信息，安卓平台下为应用签名和应用包名，iOS平台下为Bundle Identifier。 
+> 其中回调地址是支付完成后服务器回调的地址，而平台参数则是用于鉴定来源的 APP 信息，安卓平台下为应用签名和应用包名，iOS 平台下为 Bundle Identifier。 
 
 
 
