@@ -19,6 +19,8 @@
 > **注意** 
 > 请确保子网中有足够的可用空闲的 IP 地址。如果由于无空闲 IP 导致的 IP 分配失败，将使得云函数启动运行失败。
 
+
+
 云函数启动后，可通过代码访问 VPC 内的其他各产品，例如 [弹性缓存 Redis](https://cloud.tencent.com/product/crs?idx=1)、[云数据库 CDB](https://cloud.tencent.com/product/cdb-overview)、或用户配置在 VPC 中的 CVM 等等各种访问入口位于 VPC 中的产品或服务，直接通过内网 IP 地址即可访问。如下为访问 [弹性缓存 Redis](https://cloud.tencent.com/product/crs?idx=1) 的示例代码，其中 Redis 实例在 VPC 内的 IP 地址为 `10.0.0.86`。
 
 ```
