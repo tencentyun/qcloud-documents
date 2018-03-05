@@ -38,6 +38,9 @@ yum install mariadb mariadb-server
 yum install mysql mysql-server mysql-devel
 ```
 
+	>**注意：**
+	>从 CentOS 7 系统开始，MariaDB 成为 yum 源中默认的数据库安装包。在 CentOS 7 及以上的系统中使用 yum 安装 MySQL 包将无法使用 MySQL。您可以选择使用完全兼容的 MariaDB，或点击 [参阅此处](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7) 进行较低版本的 MySQL 的安装。
+
 2. 启动 MySQL 服务。输入命令：
 ```
 service mysqld start
