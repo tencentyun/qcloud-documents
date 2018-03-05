@@ -40,7 +40,7 @@ var qs = capi.generateQueryString({
 }, {
     serviceType: 'cvm'
 })
-//'Region=gz&SecretId=&Timestamp=1449461969&Nonce=20874&Action=DescribeInstances&otherParam=otherParam&Signature=r%2Fa9nqMxEIn5RsMjqmIksQ5XcYc%3D
+
 
 ----
 ### API 资源
