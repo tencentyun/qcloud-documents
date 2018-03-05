@@ -5,7 +5,6 @@ qcloudapi-sdk 是 [腾讯云 API 2.0](https://cloud.tencent.com) 的 node.js SDK
 2. 下载 SDK，放入到程序目录，使用方法请参考下面的例子。
 
  ```
-
 var Capi = require('qcloudapi-sdk')
 
 //通过构造函数传入的参数将作为默认配置
@@ -42,7 +41,6 @@ var qs = capi.generateQueryString({
 }, {
     serviceType: 'cvm'
 })
-
  ```
 
 ### API 资源
