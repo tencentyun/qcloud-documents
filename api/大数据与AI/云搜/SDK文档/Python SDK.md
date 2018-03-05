@@ -1,22 +1,11 @@
 qcloudapi-sdk-python 是为了让 Python 开发者能够在自己的代码里更快捷方便的使用腾讯云的 API 而开发的 SDK 工具包。
 
-#### 更新历史
-
-* [3/1] 增加对 HmacSHA1 和 HmacSHA256 签名算法兼容的支持
-* [7/15] 增加 Tdsql 模块
-* [7/6] 添加 Cmem 模块
-* [5/24] 添加 Cbs、Snapshot 和 Scaling 模块
-
-#### 入门
-
+### 使用方法
 1. 申请安全凭证。
-在第一次使用云 API 之前，用户首先需要在腾讯云网站上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
-
-2. 下载 SDK，放入到您的程序目录。
-使用方法请参考下面的例子。
-
-#### 例子
-
+在第一次使用云 API 之前，首先需要在腾讯云网站上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
+2. 使用 SDK
+下载 SDK，放入到程序目录，使用方法请参考下面的例子。
+----
     #!/usr/bin/python
     # -*- coding: utf-8 -*-
 
@@ -85,6 +74,6 @@ qcloudapi-sdk-python 是为了让 Python 开发者能够在自己的代码里更
     except Exception, e:
         print 'exception:', e
 
-#### 常见问题
-
-* 如果碰到 ImportError: No module named requests.auth 请安装 requests.[request说明](https://github.com/kennethreitz/requests)
+----
+### 常见问题
+* 如果碰到 ImportError: No module named requests.auth 请安装 [request](https://github.com/kennethreitz/requests)。
