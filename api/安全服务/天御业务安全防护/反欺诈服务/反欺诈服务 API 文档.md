@@ -126,6 +126,22 @@
 </td><td> uint
 </td><td> 姓名加密类型，0：不加密（默认值） 1：md5
 </td></tr>
+<tr>
+<td> idCryptoType</td>
+<td> Uint</td>
+<td> 身份证加密类型，0：不加密（默认值） 1：md5</td>
+</tr>
+<tr>
+<td> phoneCryptoType</td>
+<td> Uint</td>
+<td> 手机号加密类型，0：不加密（默认值） 1：md5</td>
+</tr>
+<tr>
+<td> nameCryptoType</td>
+<td> Uint</td>
+<td> 姓名加密类型，0：不加密（默认值） 1：md5</td>
+</tr>
+
 </tbody></table>
 
 ## 3.输出参数
