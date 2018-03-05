@@ -2,6 +2,7 @@
 
 ![快速入门](https://mc.qcloudimg.com/static/img/8fbd4b6fe3c5694b4d664b31d590fc4a/image.png)
 ### 创建 Anycast 型 EIP
+
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip
 )，单击 【申请】 按钮。
 
