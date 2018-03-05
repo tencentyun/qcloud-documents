@@ -24,7 +24,7 @@ qcloudapi-sdk-java是为了让Java开发者能够在自己的代码里更快捷�
 	 */
 	/*
 	 * DescribeInstances
-	 * 的api文档地址：http://www.qcloud.com/wiki/v2/DescribeInstances
+	 * 的api文档地址：http://cloud.qcloud.com/wiki/v2/DescribeInstances
 	 */
 	QcloudApiModuleCenter module = new QcloudApiModuleCenter(new Cvm(),config);
 	TreeMap<String, Object> params = new TreeMap<String, Object>();
