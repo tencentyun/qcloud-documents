@@ -46,6 +46,8 @@
 | CosSecretId | 否 | string | 访问cos的SecretId,参见[COS基本概念-SecretId/SecretKey](https://cloud.tencent.com/document/product/436/6225) |
 | CosSecretKey | 否 | string | 访问cos的SecretKey,参见[COS基本概念-SecretId/SecretKey](https://cloud.tencent.com/document/product/436/6225) |
 | SupportHA | 是 | uint | 是否支持高可用 |
+| CvmCharge | 是 | int | CVM计费模式，0：按量计费，1：包年包月。如有hive等组件会自动申请cdb，则cdb的计费方式和cvm一致。 |
+| SgId | 否 | string | 外网Ip的CVM，安全组Id，如果填写了安全组则使用已有安全组。如未填，则会新建一个安全组。不管使用已有还是新建安全组，入站规则仅会开放22和3001端口，如需更改可在CVM安全组修改，参见[安全组](https://cloud.tencent.com/document/product/416/7596) |
 
 ## 3.输出参数
 
@@ -90,6 +92,7 @@
   &VisitCos=0
   &Password=emrpassword@123
   &SupportHA=0
+  &CvmCharge=0
 </pre>
 
 输出

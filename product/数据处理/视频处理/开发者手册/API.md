@@ -1,3 +1,4 @@
+
 ## 1	基本概念
 
 | 概念            | 解释                                       |
@@ -736,16 +737,16 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 
 | 参数名称 | 必选   | 类型     | 说明    |
 | ---- | ---- | ------ | ----- |
-| vid  | 否    | String | 视频的ID |
+| vid  | 否    | String | 视频的ID，vid获取规则参见4.6内容说明 |
 | url  | 否    | String | 转码URL |
 
 ### 输出参数
 
 | 名称      | 类型     | 说明              |
 | ------- | ------ | --------------- |
-| code    | Int    | 错误码，0：成功，其他值：失败 |
+| code    | Int    | 错误码，0：成功；其他值：失败 |
 | message | String | 错误信息            |
-| data    | 对象     | 结果数据，详细说明见下文    |
+| data    | 对象    | 结果数据，详细说明见下文    |
 
 #### data字段说明
 
@@ -766,11 +767,11 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 | url_f0      | String | 视频文件的原始路径         |
 | v_type      | String | 视频文件类型            |
 | region      | String | 存储地区              |
-| status      | Int    | 详细说明见备注           |
+| status      | Int    | 1：待处理， 2：已获取视频基本信息 ，3：转码中 ，4：转码失败 ，5：转码成功 |
 | error_code  | Int    | 转码错误码             |
 | error_msg   | String | 转码错误描述            |
 | deleted     | String | yes表示任务删除，no表示未删除 |
-| result      | Array  | 转码成功后的信息,详细说明见下文  |
+| result      | Array  | 转码成功后的文件信息,详细说明见下文  |
 
 #### result 字段说明 
 
@@ -793,6 +794,15 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 | height     | Array  | 转码后视频高度          |
 | trans_size | Int    | 转码后的视频大小(m3u8为0) |
 
+#### gif 中info字段说明
+
+| 名称     | 类型     | 说明       |
+| ------ | ------ | -------- |
+| width  | Int    | 截图宽度     |
+| path   | String | 转码后的存储路径 |
+| name   | Array  | 规格名称     |
+| height | Array  | 转码后视频高度  |
+
 #### cover 中info字段说明
 
 | 名称     | 类型    | 说明      |
@@ -803,18 +813,8 @@ E0MzMxNDU2MDAmdD0xNDI4NTcwMDMxJnI9MjkzODI3MTE2JnU9JmY9
 | name   | Array | 规格名称    |
 | height | Array | 转码后视频高度 |
 
-#### gif 中info字段说明
+#### 备注说明
 
-| 名称     | 类型     | 说明       |
-| ------ | ------ | -------- |
-| width  | 转码     | 截图宽度     |
-| path   | String | 转码后的存储路径 |
-| name   | Array  | 规格名称     |
-| height | Array  | 转码后视频高度  |
-
-#### 备注
-
-- status 状态：1.待处理 2.已获取视频基本信息 3.转码中 4.转码失败 5.转码成功
 - 当同一个文件重复提交时，会将之前提交的任务标记为删除。
 - 转码结果字段result与具体的配置有关，其中gif和cover可能不存在。
 - dst 字段为转码后的存储信息，可配置，默认为原视频的信息。
@@ -972,28 +972,104 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 }
 ```
 
-### 4.2	视频转码完成回调
+### 4.2	视频转码回调
 
 ### 功能描述
 
-回调用户实时将完成的转码结果详情回传给用户，需要用户配置回调地址。
+回调接口实时将转码的结果详情回传给用户，需要用户配置回调地址。
 
 ### 回调方式
 
 回调域名：需用户提供
+
 回调方式：HTTP POST 请求
 
 ### 回调格式说明
 
-#### 转码成功
+#### 4.2.1 转码开始时基本信息回调
+
+- 参数说明
+
+| 名称            | 类型     | 说明 |
+| ------------- | ------ | ------------------------- |
+| status        | String  |  success：成功，fail：失败 |
+| vid           | String | 视频ID                      |
+| app_id        | Int    | 用户app_id      |
+| bucket_name   | String | cos bucket名               |
+| bucket_region | String | cos地区                     |
+| create_time   | String | 转码任务创建时间                  |
+| url           | String | 视频文件的原始URL                |
+| v_type        | String | 视频文件类型                    |
+| size     | Int   | 视频大小                 |
+| duration | Int   | 视频时长                 |
+| height   | Int   | 视频高度                 |
+| width    | Int   | 视频宽度                 |
+| bitrate  | Int   | 视频码率                 |
+| fps  | Int   | 视频帧率                 |
+| rotation | Int   | 视频方向，horizon ：水平 vertical：垂直|
+|HasVideoStream | Int |是否有视频流，1：有；0：没有     |
+|HasAudioStream | Int |是否有音频流，1：有；0：没有     |
+|callback_type |String | 回调类型，需配置；trans_basic：转码开始时基本信息回调；trans_result：转码完成结果回调 |
+|fail_msg | String  | 失败信息描述 |
+
+- 回调成功示例
+```
+{
+    "vid":"4e4d4cb91b14be1faca76aecad5cd28c1519806353",
+    "app_id":12xxxxxxxx,
+    "bucket_name":"test",
+    "bucket_region":"sh",
+    "url":"http://test-12xxxxxxxx.cossh.myqcloud.com/dragons.mp4",
+    "size":39909209,
+    "duration":31,
+    "width":3840,
+    "height":2032,
+    "v_type":"mov,mp4,m4a,3gp,3g2,mj2",
+    "create_time":"2018-02-28 16:25:54",
+    "bitrate":10260,
+    "fps":24,
+    "rotation":"horizon",
+    "HasVideoStream":1,
+    "HasAudioStream":1,
+    "status":"success",
+    "callback_type":"trans_basic",
+    "fail_msg":""
+}
+```
+- 回调失败示例
+
+```
+{
+    "vid":"7d6cec782335ff8c9d332daf7c0fda1f1519803613",
+    "app_id":12xxxxxxxx,
+    "bucket_name":"test",
+    "bucket_region":"sh",
+    "url":"http://tesdfdfd-12xxxxxxxx.cossh.myqcloud.com/x.mov",
+    "size":0,
+    "duration":0,
+    "width":0,
+    "height":0,
+    "v_type":"",
+    "create_time":"2018-02-28 15:40:14",
+    "bitrate":0,
+    "fps":0,
+    "rotation":"",
+    "HasVideoStream":0,
+    "HasAudioStream":0,
+    "status":"fail",
+    "fail_msg":"AVC文件不存在或者文件内容有误，无法识别和处理"
+}
+```
+
+####  4.2.2 转码成功完成时回调
 
 - 参数说明
 
 | 名称            | 类型     | 说明                        |
 | ------------- | ------ | ------------------------- |
-| status        | String | success 表示转码成功，fail表示转码失败 |
+| status        | String | success：转码成功，fail：转码失败 |
 | vid           | String | 视频ID                      |
-| detail        | Array  | 详情                        |
+| detail        | Array  | 详情，见下文详细说明                        |
 | bucket_name   | String | cos bucket名               |
 | bucket_region | String | cos地区                     |
 | create_time   | String | 转码任务创建时间                  |
@@ -1001,6 +1077,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 | url           | String | 视频文件的原始URL                |
 | url_f0        | String | 视频文件的原始路径                 |
 | v_type        | String | 视频文件类型                    |
+|callback_type |String | 回调类型，需配置；trans_basic：转码开始时基本信息回调；trans_result：转码完成结果回调 |
 
 - detail 说明
 
@@ -1023,6 +1100,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
     "name":"/123456/cts/test/w.mp4",
     "vid":"963f1d4048dfdfad362d9b94e922d5696",
     "url":"http://cts-123456.cossh.myqcloud.com/test/w.mp4",
+    "callback_type":"trans_result"
     "detail":{
         "height":1080,
         "width":1920,
@@ -1137,101 +1215,39 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 }
 ```
 
-#### 转码失败
+#### 4.2.3 转码失败时回调
 
-+ 参数说明
+- 参数说明
 
-<table style="display:table;width:80%;">
+| 名称            | 类型     | 说明                        |
+| ------------- | ------ | ------------------------- |
+| status        | String | success：转码成功，fail：转码失败 |
+| vid           | String | 视频ID                      |
+| detail        | Array  | 详情，见下文详细说明                        |
+| bucket_name   | String | cos bucket名               |
+| bucket_region | String | cos地区                     |
+| create_time   | String | 转码任务创建时间                  |
+| app_id        | Int    | 用户app_id                  |
+| url           | String | 视频文件的原始URL                |
+| url_f0        | String | 视频文件的原始路径                 |
+| v_type        | String | 视频文件类型                    |
 
-    <tbody>
-      <tr>
-        <th align="left"><strong>名称</strong></th>
-        <th align="left"><strong>类型</strong></th>
-        <th align="left"><strong>说明</strong></th>
-      </tr>
-      <tr>
-        <td>status</td>
-        <td>String</td>
-        <td>success 表示转码成功，fail表示转码失败</td>
-      </tr>
-      <tr>
-        <td>vid</td>
-        <td>String</td>
-        <td>视频ID</td>
-      </tr>
-      <tr>
-        <td>detail</td>
-        <td>Array</td>
-        <td>详情</td>
-      </tr>
-      <tr>
-        <td>bucket_name</td>
-        <td>String</td>
-        <td>cos bucket名</td>
-      </tr>
-      <tr>
-        <td>bucket_region</td>
-        <td>String</td>
-        <td>cos地区</td>
-      </tr>
-      <tr>
-        <td>create_time</td>
-        <td>String</td>
-        <td>转码任务创建时间</td>
-      </tr>
-            <tr>
-        <td>app_id</td>
-        <td>Int</td>
-        <td>用户app_id</td>
-      </tr>
-      <tr>
-        <td>url</td>
-        <td>String</td>
-        <td>视频文件的原始URL</td>
-      </tr>
-      <tr>
-        <td>url_f0</td>
-        <td>String</td>
-        <td>视频文件的原始路径</td>
-      </tr>
-      <tr>
-        <td>v_type</td>
-        <td>String</td>
-        <td>视频文件类型</td>
-      </tr>
-    </tbody>
-</table>
 
-+ detail 说明
+- detail说明
 
-<table style="display:table;width:80%;">
+| 名称       | 类型    | 说明                   |
+| -------- | ----- | -------------------- |
+| error_code    | Array   | 转码错误码   |
+| error_msg | Array    | 错误码描述，与error_code一一对应  |
 
-    <tbody>
-      <tr>
-        <th align="left"><strong>名称</strong></th>
-        <th align="left"><strong>类型</strong></th>
-        <th align="left"><strong>说明</strong></th>
-      </tr>
-      <tr>
-        <td>error_code</td>
-        <td>Array</td>
-        <td>转码错误码</td>
-      </tr>
-      <tr>
-        <td>error_msg</td>
-        <td>Array</td>
-        <td>错误码描述与error_code一一对应</td>
-      </tr>
-    </tbody>
-</table>
 
 - 示例
 
 ```
 {
     "status":"fail",   			 		   
-"url_f0":"/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
- "name":"/10032344/cts/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
+  "url_f0":"/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
+  "name":"/10032344/cts/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
     "vid":"7d70b89fdf72ee6b98dcc0b0211",
     "url":"http://cts-10032344.cossh.myqcloud.com/flash/mp4video56/TMS/2016/12/13/27a33649a97b4c3481b609f2be925b7d_h264418000nero_aac32-4.mp4",
     "detail":{
@@ -1253,7 +1269,7 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 
 ### 功能描述
 
-查询转码任务结果
+查询音频转码任务结果
 
 ### 请求参数
 
@@ -1326,13 +1342,13 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsInfo&SecretId=AKIDxU
 | ---- | ---- | ------------- |
 | x_y  | 音频   | 其中x表示码率，y表示格式 |
 
-### 请求示例
+###  请求示例
 
 ```shell
 https://cdn.api.cloud.tencent.com/v2/index.php?Action=GetCtsaudioInfo&SecretId=AKIDxUCsd01oB7BxxxxxxFihD8hlRhftKmXr&Nonce=44207&Timestamp=1480384094&Region=gz&vid=000628c22a4cfa9daac321c31d496393&Signature=njTouxSxxxxxxPjeGKr0ZG%2Fi%2FE%3D
 ```
 
-### 回包示例
+###  回包示例
 
 ```
 {
@@ -1592,6 +1608,67 @@ https://cdn.api.cloud.tencent.com/v2/index.php?Action=AddCtsAudioTask&SecretId=1
 }
 ```
 
+
+### 4.6	vid获取规则说明
+
+#### 情况一：使用cos v4 API进行视频文件上传
+
+使用cos v4 API进行视频文件上传的用户，在上传文件后的回包中，直接包含有vid信息，用户可直接记录该vid与源文件映射关系即可。
+
+- cos v4 API 上传文件后回包示例：
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Content-Length: 321
+Connection: keep-alive
+Date: Tue, 12 Sep 2017 07:36:45 GMT
+Server: tencent-cos
+x-cos-request-id: NTliNzhlOGRfMTliMjk0MGFfNDg0N18xMTdiY2E=
+
+{
+"code":0,
+"message":"SUCCESS",
+"request_id":"NTllOWQ2YjVfYzlhMzNiMGFfMTY0OV9jMzYwZTU=",
+"data":
+     {
+    "access_url":"http://xy2-124566667.file.myqcloud.com/uploader1500000000",
+    "resource_path":"/124566667/xy2/uploader1508497108630",
+    "source_url":"http://xy2-124566667.cosgz.myqcloud.com/uploader1500000000",
+    "url":"http://gz.file.myqcloud.com/files/v2/124566667/xy2/uploader1500000000",
+    "vid":"4396314caa204d61f5d070d45248d9981508497077"
+     }
+}
+```
+
+
+#### 情况二、使用cos v5 API进行视频文件上传
+
+由于cos v5 API升级改版，用户使用新版cos v5 API进行视频文件上传后，回包中将不再包含vid信息，用户需要根据v5回包中的```x-cos-request-id```及```date```信息进行计算后，记录vid信息与源文件的映射关系，具体映射规则如下：
+
+- cos v5 API 上传文件后回包示例：
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Mon, 26 Feb 2018 08:25:37 GMT 
+ETag: "15c7565b15676b5f35ef85615c04dc19"
+Server: tencent-cos
+x-cos-request-id: NWE5M2M0N2ZfZDBhMDY4NjRfMWNhZmZfODE4OTEy
+```
+- 则：
+
+vid= md5(x-cos-request-id) + strtotime(Date)
+
+其中，strtotime 表示把回包中的Date 在东八区下转换成时间戳格式。
+**注意**：vid中不包含+符号，如上示例中vid最终计算结果为：vid=421e6d34756e53814c99939ffeec49861519633537
+
+#### 备注说明：
+
+- cos中的bucket不区分v4、v5版本，即cos v4版本创建的bucket，也可使用v5版本API进行上传；同理，cos v5版本创建的bucket，也可使用v4版本API进行上传。
+- 更多cos API详细信息，请参见[cos API产品手册](https://cloud.tencent.com/document/product/436/7751) 
 
 
 
