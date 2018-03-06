@@ -4,7 +4,7 @@
 
 ## 商品下单
 
-在您发起支付前，需要先在后台调用我们的[下单接口]()进行下单，下单成功后，服务器会给您返回本次下单的具体信息，下单服务器返回的数据示例如下：
+在您发起支付前，需要先在后台调用我们的 [下单接口]() 进行下单，下单成功后，服务器会给您返回本次下单的具体信息，下单服务器返回的数据示例如下：
 
 ```
 {
@@ -17,7 +17,7 @@
 我们强烈建议您在自己的后台服务器上下单，然后由服务器给终端返回下单信息，直接在终端进行下单操作可能会泄漏您的密钥信息。
 
 ## 调起支付
-商品下单完成后，会得到一个Pay Info, 对应前面JSON中pay_info字段的值。Pay Info实质上就是一个字符串，我们可以拿着这个 pay info 调用SDK的接口去直接拉起相应的支付：
+商品下单完成后，会得到一个 Pay Info, 对应前面 JSON 中 pay_info 字段的值。Pay Info 实质上就是一个字符串，我们可以拿着这个 pay info 调用 SDK 的接口去直接拉起相应的支付：
 ~~~
 [[TACPaymentService defaultService] pay:payInfo appMeataData:nil completation:^(TACPaymentResult * result) {
     TACLogDebug(@"支付结果 %d %@", result.resultCode, result.resultMsg);
@@ -25,13 +25,13 @@
 ~~~
 
 ## 返回支付结果
-支付完成以后，结果会包装在TACPaymentResult对象中，在完成回调block里以参数传入的形式返回。它包含了如下信息：
+支付完成以后，结果会包装在 TACPaymentResult 对象中，在完成回调 block 里以参数传入的形式返回。它包含了如下信息：
 
 属性|类型|描述
 ----|------|------------
 resultCode|TACPaymentErrorCode|支付结果的返回码
 payMethod|NSString*|本次支付的方式
-innerCode|NSString*|系统内部Code, 如果出错，则是系统的内部错误码
+innerCode|NSString*|系统内部 Code, 如果出错，则是系统的内部错误码
 resultMsg|NSString*|结果信息
 appMetadata|NSString*|额外的一些元数据
 
@@ -49,14 +49,13 @@ TACPaymentCodeUnkown | -4 | 支付流程结果未知
 
 
 ## 常见问题 FAQ
-* 无法拉起微信支付    
-请按照以下步骤进行排查：
+* 无法拉起微信支付，请按照以下步骤进行排查：
  - 微信商户号是否已经成功开通。
  - 微信开放平台上，是否已经成功开通支付能力。
- - [控制台]()中检查，商户号、商户号密钥是否与微信商户号的一直。AppID, AppKey是否与微信开放平台上的一致。
+ - [控制台]() 中检查，商户号、商户号密钥是否与微信商户号的一直。AppID， AppKey 是否与微信开放平台上的一致。
  - 检查下单是否成功，Pay Info是否是有效的字符串而不是空。
  - 检查控制台日志中是否有初始化错误，或者错误码等信息。
 
 * 支付完成后无法跳转回应用内
- - 检查URL Scheme是否已经设置为微信开放平台上的APPID（以WX开头）
- - 若是QQ支付，检查 URL Scheme 是否已经设置为“qqwallet” + id 的形式，例如 qqwallet1234567
+ - 检查 URL Scheme 是否已经设置为微信开放平台上的 APPID（以WX开头）。
+ - 若是 QQ 支付，检查 URL Scheme 是否已经设置为 “qqwallet” + id 的形式，例如 qqwallet1234567。

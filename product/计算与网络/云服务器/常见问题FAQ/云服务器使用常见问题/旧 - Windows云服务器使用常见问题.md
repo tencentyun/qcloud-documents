@@ -25,7 +25,7 @@ Windows 运行一段时间以后，由于系统本身原因或第三方软件，
 </th></tr>
 <tr>
 <td>QcloudService.exe
-</td><td>C:\Windows\
+</td><td>C:\Program Files\QCloud
 </td><td>Qcloud服务
 </td></tr>
 <tr>
