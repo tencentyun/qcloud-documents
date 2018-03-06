@@ -65,7 +65,11 @@
  2. 打开注册表，进入如下路径： HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
  3. KEY_LOCAL_MACHINE\SYSTEM\CurrentContro1Set\Control\Tenninal Server\WinStations\RDP-Tcp
  4. 修改下右侧的 PortNamber 值。
+
 1. 配置腾讯云安全组防火墙只允许 **指定 IP 才能访问远程桌面端口**。
+
 1. **定期备份重要业务数据和文件**。
+
 1. **定期更新操作系统及应用程序组件版本（如 FTP、Struts2 等）**，防止被漏洞利用。
+
 1. 安装 **腾讯云主机安全 Agent ** 和病毒软件进行定期体检和扫描。
