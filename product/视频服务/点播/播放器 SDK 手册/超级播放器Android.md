@@ -97,7 +97,7 @@ if (mSuperVideoPlayer != null) {
 
 ## 移除播放器
 
-当不需要播放器时，调用resetPlayer清理播放器内部状态，防止干扰下次播放。
+当不需要播放器时，调用onDestroy清理播放器内部状态，防止干扰下次播放。
 
 ```objective-c
 if (mSuperVideoPlayer != null) {

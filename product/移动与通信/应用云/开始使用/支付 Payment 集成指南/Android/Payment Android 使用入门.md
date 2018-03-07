@@ -48,13 +48,14 @@ dependencies {
 }
 ```
 
-然后，点击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
+然后，单击 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
 
 #### 3. 手动添加 QQ 支付渠道包
 
 如果您需要接入 QQ 支付，那么您必须手动添加 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 到您工程的 `libs` 目录。
 
-> 因为 `mqqopenpay.jar` 没有上传到 jcenter 仓库下，因此我们暂时无法自动帮您添加
+>** 注意：**
+> 因为 `mqqopenpay.jar` 没有上传到 jcenter 仓库下，因此我们暂时无法自动帮您添加。
 
 ### 手动集成
 
@@ -62,12 +63,12 @@ dependencies {
 
 #### 1. 下载服务资源压缩包
 
-1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
-2. 下载 [应用云 Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-payment-1.0.0.zip)，并解压。
+1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip) 并解压。
+2. 下载 [应用云 Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-payment-1.0.0.zip) 并解压。
                              
 #### 2. 集成 jar 包
 
-将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
+将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。资源文件中只包含了微信支付渠道的 jar 包，如果您需要同时接入 QQ 支付，那么必须将 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 也添加到您工程的 `libs` 目录。
 
 #### 3. 集成 资源文件
 

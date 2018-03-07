@@ -52,22 +52,33 @@ dependencies {
 
 # 添加初始化代码
 
-
-想要初始化应用云服务，请在应用 `Application` 的 `onCreate` 方法中添加以下初始化代码。
-
+1.在应用模块 `Application` 子类的 `onCreate` 方法中添加以下初始化代码:
 
 ```
-public class App extends Application {
+public class MyCustomApp extends Application {
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
 		...
 		// 增加这行
-		TACApplication.configure(context);
+		TACApplication.configure(this);
 	}
 	
 }
+```
+
+2.在 `AndroidManifest.xml` 添加 自定义的 Application 子类：
+
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tac">
+
+    <application
+        android:name="com.example.tac.MyCustomApp"
+        ...
+    </application>
+</manifest>
 ```
 
 
