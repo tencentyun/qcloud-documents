@@ -51,9 +51,6 @@
 | setPusherEventCallBack(callbackfun, objectid) | 设置回调接口                      |
 
 
-	[id(23)] HRESULT setPauseVideo([in] USHORT bPause);
-	[id(24)] HRESULT startAudioCapture();
-	[id(25)] HRESULT stopAudioCapture();
 ### 1.getVersion()
 
 获取插件版本号，和标签 &lt;object ... codebase='...&version=1.0.0.1'&gt; 上的 version 对应。
