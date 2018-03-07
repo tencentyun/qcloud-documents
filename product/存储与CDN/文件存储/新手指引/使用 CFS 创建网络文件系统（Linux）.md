@@ -53,9 +53,10 @@
 ![](//mc.qcloudimg.com/static/img/4fee6ea61cfba11927f6891527237610/image.png)
 
 2. 在腾讯云 CFS 控制台，单击【新建】，弹出创建文件系统弹窗。在创建文件系统弹窗中填写相关信息，确认无误后，单击【确定】即可创建文件系统。
-![](//mc.qcloudimg.com/static/img/3152947067c8897d3b609e1f6cd2ccae/image.png)
+![](https://main.qcloudimg.com/raw/3797c04469bf0da994d2e2876a2a39ad.png)
  - 名称：您可以为创建的文件系统进行命名。
  - 地域和可用区：靠近您客户的地域可降低访问延迟，提高下载速度。
+ - 文件协议：NFS（更适用于Linux、Unix客户端),CIFS/SMB（更适用于 Windows 客户端）。
  - 网络类型：腾讯云提供基础网络或私有网络两种可选。基础网络适合新手用户，同一用户的云服务器内网互通。私有网络适合更高阶的用户，不同私有网络间逻辑隔离。
   	
  > **注意：**
@@ -65,7 +66,14 @@
  > - 如果有多网络共享文件系统需求，请查看 [跨可用区、跨网络访问指引](/doc/product/582/9764)。
 
 3. 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Linux 下的挂载命令。
-![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
+
+NFS 文件系统挂载点信息如下:
+![](https://mc.qcloudimg.com/static/img/f50435216defb4083874bc78d568001e/image.png)
+
+CIFS/SMB 文件系统挂载点信息如下: 
+![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
+
+
 
 ## 三、连接实例
 本部分操作介绍登录 Linux 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见 [登录 Linux 实例](/doc/product/213/5436) 。
@@ -85,8 +93,9 @@
 
 
 ## 四、挂载文件系统
+### 挂载 NFS 文件系统
 
-### 1. 启动 NFS 客户端
+#### 1. 启动 NFS 客户端
 挂载前，请确保系统中已经安装了`nfs-utils`或`nfs-common`，安装方法如下：
 - CentOS：
 ```
@@ -97,7 +106,7 @@ sudo yum install nfs-utils
 sudo apt-get install nfs-common
 ```
 
-### 2. 创建待挂载目标目录
+#### 2. 创建待挂载目标目录
 使用下列命令创建待挂载目标目录。
 ```
 mkdir <待挂载目标目录>
@@ -108,7 +117,7 @@ mkdir /local/
 mkdir /local/test
 ```
 
-### 3. NFS 挂载
+#### 3. 挂载
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```
@@ -159,7 +168,56 @@ mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/nfs /local/test
 ```
 ![](https://mc.qcloudimg.com/static/img/03550214c0499438e86cfd64b3c377b8/image.png)
 
-### 4. 查看挂载点信息
+#### 4. 查看挂载点信息
+挂载完成后，请使用如下命令查看已挂载的文件系统：
+```
+mount -l
+```
+也可以使用如下命令查看该文件系统的容量信息：
+```
+df -h
+```
+### 挂载 CIFS/SMB 文件系统
+#### 1. 启动 CIFS 客户端
+挂载前，请确保系统中已经安装了`cifs-utils`，安装方法如下：
+CentOS：
+```
+sudo yum install cifs-utils.x86_64 –y
+```
+
+
+#### 2. 创建待挂载目标目录
+使用下列命令创建待挂载目标目录。
+```
+mkdir <待挂载目标目录>
+```
+示例：
+```
+mkdir /local/
+mkdir /local/test
+```
+
+#### 3. 挂载
+使用下列命令实现 CIFS 挂载。
+```
+mount -t cifs -o guest //<挂载点IP>/<FSID> /<待挂载目标目录>
+```
+- 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
+- 目前默认挂载使用文件系统的FSID。 
+- 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
+
+> **注意：**
+> `<FSID>/`与`<待挂载目标目录>`之间有一个空格。
+
+示例：
+
+```
+mount -t cifs -o guest //10.66.168.75/vj3i1135  /local/test
+```
+
+ ![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
+
+#### 4. 查看挂载点信息
 挂载完成后，请使用如下命令查看已挂载的文件系统：
 ```
 mount -l

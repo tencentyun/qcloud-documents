@@ -120,6 +120,21 @@ idfa</td>
 <td>String</td>
 <td>业务 ID，在多个业务中使用此服务，通过此 ID 区分统计数据</td>
 </tr>
+<tr>
+<td>idCryptoType
+</td><td> uint
+</td><td>身份证加密类型， 0：不加密（默认值） 1：md5
+</td></tr>
+<tr>
+<td> phoneCryptoType
+</td><td> uint
+</td><td> 手机号加密类型，0：不加密（默认值） 1：md5
+</td></tr>
+<tr>
+<td> nameCryptoType
+</td><td> uint
+</td><td> 姓名加密类型，0：不加密（默认值） 1：md5
+</td></tr>
 </table>
 
 ## 输出参数

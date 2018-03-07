@@ -499,8 +499,6 @@ interface=eth0 #您的网络接口名
 
 state_file=/var/keepalived/state
 vip_last_check_result_file=/var/keepalived/vip_last_check_result
-query_vip_asker=/etc/keepalived/query_vip.py
-vip_migrater=/etc/keepalived/vip.py
 vip_operater=/etc/keepalived/vip.py
 state=`cat $state_file`
 
