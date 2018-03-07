@@ -84,6 +84,7 @@ string sig = sha256(appkey=$strAppKey&random=$strRand&time=$strTime&tel=$strTel)
 | nationcode    |    |  |       |
 | sid    | 否   | string | 本次发送标识 id，标识一次短信下发记录 |
 | fee    | 否   | number | 短信计费的条数，["fee" 字段计费说明](https://cloud.tencent.com/document/product/382/9556#.E7.9F.AD.E4.BF.A1.E5.86.85.E5.AE.B9.E9.95.BF.E5.BA.A6.E8.AE.A1.E7.AE.97.E8.A7.84.E5.88.99) |  
+
 注：  
 ["fee"字段计费说明](/doc/product/382/常见问题#3-.E7.9F.AD.E4.BF.A1.E9.95.BF.E5.BA.A6)  
 [result对应的错误码](/doc/product/382/错误码)                                                                                                                                         
