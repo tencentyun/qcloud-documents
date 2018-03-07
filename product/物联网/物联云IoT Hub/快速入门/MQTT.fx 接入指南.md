@@ -62,7 +62,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 </tr>
 <tr>
 	<td>ca.crt</td>
-	<td>根证书，点击 <a href="https://main.qcloudimg.com/raw/14108437225f297154d63163ddd3d0da.crt/">ca.crt</a> 链接下载文件</td>
+	<td>根证书，点击 <a href="https://main.qcloudimg.com/raw/14108437225f297154d63163ddd3d0da.crt">ca.crt</a> 链接下载文件</td>
 </tr>
 <tr>
 	<td>Client Certificate File</td>
