@@ -54,7 +54,7 @@ In this step, you need to:
 
 After the configuration, click "Buy Now".
 ### 6. Check the Instance
-After the payment is made, go to the [Console](https://console.qcloud.com/cvm) to check the purchased instance in your mailbox.
+After the payment is made, go to the [Console](https://console.cloud.tencent.com/cvm) to check the purchased instance in your mailbox.
 When a GCC instance is purchased, you will receive an internal message containing information such as instance name, public IP address, private IP address, login name, and initial login password. Use these information to log in to and manage your instance. You're recommended to change your login password as soon as possible for security.
 ![](//mc.qcloudimg.com/static/img/2003b614e24ea973f9c03a9c084380ce/image.png)
 
