@@ -52,7 +52,7 @@ CocoaPods 说明
 4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
 
   ~~~
-  ${SRCROOT}/TACCore/Scripts/tac.run.all.before.sh
+  ${PODS_ROOT}/TACCore/Scripts/tac.run.all.before.sh
   ~~~
 
 ##### 添加构建之后运行的脚本
