@@ -66,7 +66,7 @@
 
 
 
-## LiveRoom对象接口详情
+## LiveRoom 接口详情
 
 ### 1.setLiveRoomListener
 
@@ -672,7 +672,7 @@ mLiveRoom.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 ```
 
 
-## ILiveRoomListener 对象接口列表详情
+## ILiveRoomListener 接口详情
 
 ### 1. onPusherJoin
 
