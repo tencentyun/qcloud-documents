@@ -24,8 +24,8 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|---------|
 | code | Int | Error code. 0: Succeeded; other values: Failed
 | message | String | Error message |
-| data.totalCount | Int | Total number of ENIs |
-| data.data.n | Array | ENI information array |
+| data.totalNum | Int | Total number of ENIs |
+| data.data| Array | ENI information array |
 **data array:**
 
 | Parameter Name | Type | Description |
@@ -39,7 +39,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.primary | Bool | Indicate whether it is a primary ENI. true: primary ENI; false: secondary ENI | 
 | data.n.macAddress| String | ENI mac address, for example: 02: 81: 60: cb: 27: 37 | 
 | data.n.privateIpAddressesSet | Array | IP information bound to ENI | 
-| data.n.instanceSet | Array | CVM information bound to ENI | 
+| data.n.instanceSet | Object | CVM information bound to ENI | 
 | data.n.groupSet | Array | Security group information bound to ENI | 
 
 **privateIpAddressesSet information array:**
@@ -53,7 +53,7 @@ The following request parameter list only provides API request parameters. Commo
 | isWanIpBlocked | Bool | Indicate whether public ip has been blocked. true: yes; false: no |
 | EipId | String | EIP ID |
 
-**instanceSet information array:**
+**instanceSet information:**
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
@@ -81,42 +81,163 @@ Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetworkInterfaces
 &<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
-&vpcId=vpc-7t9nf3pu
+&vpcId=vpc-fyc4pilj
 </pre>
 Output
 ```
 {
     "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "totalCount": 1,
-        "data": [{
-            "vpcId": "vpc-7t9nf3pu",
-            "subnetId": "subnet-0ap8nwca",
-            "zoneId": 200001,
-            "eniName": "eni",
-            "eniDescription": "eni示例",
-            "networkInterfaceId": "eni-m6dyj72l",
-            "primary": false,
-            "macAddress": "02:81:60:cb:27:37",
-            "privateIpAddressesSet": [{
-                "privateIpAddress": "10.0.0.2",
-                "primary": true,
-                "wanIp": "183.23.0.2",
-                "eipId": "eip-dgd545ef"
-            }],
-            "instanceSet": {
-                "instanceId": "ins-xx44545f",
-                "attachTime": "2016-02-15 19:20:54"
+        "message": "",
+        "codeDesc": "Success",
+        "data": {
+            "totalNum": 3,
+            "data": [
+            {
+                "vpcId": "vpc-fyc4pilj",
+                "vpcName": "test",
+                "subnetId": "subnet-pq7ptksa",
+                "zoneId": 100002,
+                "eniName": "大",
+                "eniDescription": "",
+                "networkInterfaceId": "eni-d6m4m0ix",
+                "primary": false,
+                "macAddress": "20:90:6F:59:8D:78",
+                "createTime": "2017-08-31 11:33:59",
+                "flowLogsSet": [],
+                "privateIpAddressesSet": [
+                {
+                    "privateIpAddress": "10.53.54.19",
+                    "primary": true,
+                    "wanIp": "119.29.158.37",
+                    "description": "asdfasdfasdf",
+                    "isWanIpBlocked": false,
+                    "eipId": "eip-07vqn97o"
+                }
+                ],
+                    "instanceSet": {
+                        "instanceId": "ins-7s7zjjcy",
+                        "attachTime": "2017-12-12 11:55:07"
+                    },
+                    "groupSet": [
+                    {
+                        "sgId": "sg-lb62wxwv",
+                        "sgName": "asdfsadf",
+                        "projectId": 1079263
+                    },
+                    {
+                        "sgId": "sg-ikmc8kcr",
+                        "sgName": "全drop",
+                        "projectId": 0
+                    }
+                    ]
             },
-            "groupSet": [{
-                "sgId": "sg-dfg1df54",
-                "sgName": "安全组1",
-            	"projectId": 0
-	    }]
-        }]
-    }
+            {
+                "vpcId": "vpc-fyc4pilj",
+                "vpcName": "test",
+                "subnetId": "subnet-pq7ptksa",
+                "zoneId": 100002,
+                "eniName": "手动",
+                "eniDescription": "",
+                "networkInterfaceId": "eni-fy1ac9c7",
+                "primary": false,
+                "macAddress": "20:90:6F:94:76:77",
+                "createTime": "2017-07-28 20:09:34",
+                "flowLogsSet": [],
+                "privateIpAddressesSet": [
+                {
+                    "privateIpAddress": "10.53.54.230",
+                    "primary": true,
+                    "wanIp": "",
+                    "description": "",
+                    "isWanIpBlocked": false,
+                    "eipId": ""
+                },
+                {
+                    "privateIpAddress": "10.53.54.231",
+                    "primary": false,
+                    "wanIp": "",
+                    "description": "",
+                    "isWanIpBlocked": false,
+                    "eipId": ""
+                }
+                ],
+                    "instanceSet": {
+                        "instanceId": "",
+                        "attachTime": ""
+                    },
+                    "groupSet": [
+                    {
+                        "sgId": "sg-lb62wxwv",
+                        "sgName": "asdfsadf",
+                        "projectId": 1079263
+                    },
+                    {
+                        "sgId": "sg-37tmkdif",
+                        "sgName": "Windows 放通3389端口-20170928143645736",
+                        "projectId": 0
+                    }
+                    ]
+            },
+            {
+                "vpcId": "vpc-fyc4pilj",
+                "vpcName": "test",
+                "subnetId": "subnet-pq7ptksa",
+                "zoneId": 100002,
+                "eniName": "新建弹性网卡手动",
+                "eniDescription": "",
+                "networkInterfaceId": "eni-a7hx9qax",
+                "primary": false,
+                "macAddress": "20:90:6F:31:88:B4",
+                "createTime": "2017-07-28 17:39:39",
+                "flowLogsSet": [],
+                "privateIpAddressesSet": [
+                {
+                    "privateIpAddress": "10.53.54.200",
+                    "primary": true,
+                    "wanIp": "",
+                    "description": "",
+                    "isWanIpBlocked": false,
+                    "eipId": ""
+                }
+                ],
+                    "instanceSet": {
+                        "instanceId": "",
+                        "attachTime": ""
+                    },
+                    "groupSet": [
+                    {
+                        "sgId": "sg-lb62wxwv",
+                        "sgName": "asdfsadf",
+                        "projectId": 1079263
+                    },
+                    {
+                        "sgId": "sg-5y2tai6h",
+                        "sgName": "createPolicy_repair_test",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-q7bvssoz",
+                        "sgName": "del usg test",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-0cgr10iz",
+                        "sgName": "bilibili no icmp",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-ei2rr0q5",
+                        "sgName": "广州",
+                        "projectId": 0
+                    },
+                    {
+                        "sgId": "sg-oodf2fc5",
+                        "sgName": "offset",
+                        "projectId": 0
+                    }
+                ]
+            }
+        }
 }
 ```
 
