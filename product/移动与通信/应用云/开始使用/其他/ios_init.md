@@ -13,7 +13,7 @@ XCode 说明
 
 CocoaPods 说明
 
-应用云 服务使用 CocoaPods 安装和管理依赖项。请打开终端窗口，然后导航至应用的 Xcode 项目位置。
+应用云 服务使用 CocoaPods 安装和管理依赖项。请打开终端窗口，然后导航至应用的 Xcode 项目位置。具体配置可以参考[TAC使用入门](https://cloud.tencent.com/document/product/666/14306?!preview&lang=cn)
 
 
 1. 如果您没有 Podfile，请创建一个：
