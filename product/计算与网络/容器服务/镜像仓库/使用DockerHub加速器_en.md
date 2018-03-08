@@ -29,7 +29,7 @@ OPTIONS='--registry-mirror=https://mirror.ccs.tencentyun.com'
 ### Windows:
 If you are using Boot2Docker, go to Boot2Docker Start Shell and execute the following command:
 ```shell
-sudo su echo "EXTRA_ARGS=\"-registry-mirror=http://https://mirror.ccs.tencentyun.com"">> /var/lib/boot2docker/profile  exit #  Restart Boot2Docker
+sudo su echo "EXTRA_ARGS=\"-registry-mirror=https://mirror.ccs.tencentyun.com"">> /var/lib/boot2docker/profile  exit #  Restart Boot2Docker
 ```
 
 ## Start Docker
