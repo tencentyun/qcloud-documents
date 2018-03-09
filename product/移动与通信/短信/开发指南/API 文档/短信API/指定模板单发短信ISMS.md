@@ -35,11 +35,9 @@
 | params | 是   | array  | 模板参数，若模板没有参数，请提供为空数组                              |
 | sig    | 是   | string | App 凭证，具体计算方式见下注                                           |
 | sign   | 否   | string | 短信签名，如果使用默认签名，该字段可缺省                              |
-| tel    | 是   | object | 电话号码，如需使用国际电话号码通用格式，如："+8613788888888" ，请使用 sendisms 接口见下注  |
+| tel    | 是   | object | 国际电话号码，格式为："+8613788888888"  |
 | time   | 是   | number | 请求发起时间，unix 时间戳，如果和系统时间相差超过 10 分钟则会返回失败    |
 | tpl_id | 是   | number | 模板 ID，在控制台审核通过的模板 ID                                      |
-
-
 
 
 **注**：
@@ -48,8 +46,7 @@
 "【腾讯云】您的验证码是 1234，请于 4 分钟内填写。如非本人操作，请忽略本短信。"   
 如果您有多个短信签名，请将需要的短信签名填入"sign"字段  
 例如您有"【腾讯科技】"，"【腾讯云】"两个签名，但是想以"【腾讯云】"签名发送短信，则"sign"字段可赋值为："腾讯云" ）
-2. [sendisms](https://cloud.tencent.com/document/product/382/8716) 接口，"tel" 字段为国际电话号码通用格式，如："+8613788888888"
-3. "sig" 字段根据公式 sha256（appkey=$appkey&random=$random&time=$time&mobile=$mobile）生成
+2. "sig" 字段根据公式 sha256（appkey=$appkey&random=$random&time=$time&mobile=$mobile）生成
 伪代码如下：
 ```json
 string strMobile = "13788888888"; //tel 的 mobile 字段的内容
