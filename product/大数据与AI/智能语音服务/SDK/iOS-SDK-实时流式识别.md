@@ -2,9 +2,9 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://mc.qcloudimg.com/static/archive/e681b228c06e53096510b3b61c012d36/QCloudAAI_IOSSDK.zip)
+实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://main.qcloudimg.com/raw/65bcb82111afafc619e6145084a78fbb.zip)
 
-更多示例可参考 Demo：[iOS Demo](https://mc.qcloudimg.com/static/archive/44653a19a6f274ebc2b3f7ef028bb72b/QCloudAAI_IOSDemo.zip)
+更多示例可参考 Demo：[iOS Demo](https://main.qcloudimg.com/raw/43f128f2a2133c040aca0ef904bd0840.zip)
 
 ### 开发准备
 
