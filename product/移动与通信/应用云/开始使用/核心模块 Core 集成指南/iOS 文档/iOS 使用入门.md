@@ -142,15 +142,14 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 * 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
 
   ~~~
-  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-  ${PODS_ROOT}/Scripts/tac.run.all.before.sh
+  ${PODS_ROOT}/TACCore/Scripts/tac.run.all.before.sh
   ~~~
 
-* 如果您使用手工集成的方式则为 `${SRCROOT}/TACCore`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
+* 如果您使用手工集成的方式则为 `您存储 TACCore 库的地址`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
 
   ~~~
-  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-  ${SRCROOT}/TACCore/Scripts/tac.run.all.before.sh
+   export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.before.sh
   ~~~
 
 
@@ -176,13 +175,12 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
 * 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
 
   ~~~
-  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-  ${PODS_ROOT}/Scripts/tac.run.all.after.sh
+  ${PODS_ROOT}/TACCore/Scripts/tac.run.all.after.sh
   ~~~
 
-* 如果您使用手工集成的方式则为 `${SRCROOT}/TACCore`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
+* 如果您使用手工集成的方式则为 `[您存储 TACCore 库的地址]`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
 
   ~~~
   #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-  ${SRCROOT}/TACCore/Scripts/tac.run.all.after.sh
+  [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
   ~~~
