@@ -1,3 +1,9 @@
+### Version 4.3
+- iOS&Android：直播播放器支持自定义Http Header，可以指定Refer防盗链。
+- iOS&Android：点播播放器FieldID播放，新增获取视频标题。
+- iOS&Android：直播播放器对外暴露音频数据获取接口。
+- iOS&Android：修复过去一段时间客户反馈的问题。
+
 ### Version 4.2
 - iOS&Android：提升企业版SDK性能，开启P图动效，iOS帧率显著提升，Android GPU消耗降低。
 - iOS&Android：优化直播播放器音画同步效果，新的音画同步方案更好的适应OBS推流。
