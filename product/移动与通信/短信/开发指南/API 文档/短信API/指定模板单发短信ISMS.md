@@ -4,10 +4,8 @@
 
 用户发送国际短信专用接口。
 
-
 ### URL 示例
-
-https://yun.tim.qq.com/v5/tlssmssvr/send<font color=red>i</font>sms?sdkappid=xxxxx&random=xxxx
+`https://yun.tim.qq.com/v5/tlssmssvr/sendisms?sdkappid=xxxxx&random=xxxx`
 
 **注**：sdkappid 请填写您在腾讯云上申请到的，random 请填成随机数。
 
