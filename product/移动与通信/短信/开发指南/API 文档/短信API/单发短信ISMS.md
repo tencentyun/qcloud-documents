@@ -5,7 +5,7 @@
 
 ### URL 示例
 
-`https://yun.tim.qq.com/v5/tlssmssvr/sendsms?sdkappid=xxxxx&random=xxxx`
+`https://yun.tim.qq.com/v5/tlssmssvr/sendisms?sdkappid=xxxxx&random=xxxx`
 
 **注**：sdkappid 请填写您在腾讯云上申请到的，random 请填成随机数。
 
