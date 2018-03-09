@@ -54,7 +54,7 @@ dependencies {
 
 #### 1. 下载资源压缩包
 
-下载请点击 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac-core-1.0.0.zip)，并解压。
+下载请点击 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
 
 #### 2. 集成jar包
 

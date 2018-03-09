@@ -131,7 +131,7 @@ Swift 示例代码：
 
  为了配合其他 SDK 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]() 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
-Authorization 没有脚本功能。主要的脚本功能在支付差劲中。脚本会自动的帮助您完成以下功能：
+Authorization 没有脚本功能。主要的脚本功能在支付插件中。脚本会自动的帮助您完成以下功能：
 
 
 1. 根据读取您的 tac_services_configurations_qq 中的 appId 信息按照 `qqwallet[appId]` 的规则增加回调的 scheme。
