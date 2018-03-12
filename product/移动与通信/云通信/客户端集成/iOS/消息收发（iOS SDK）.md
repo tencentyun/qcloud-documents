@@ -406,7 +406,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 }];
 ```
 
-### 1.7 自定义消息发送 
+### 1.8 自定义消息发送 
 
 自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，ImSDK只负责透传。另外如果需要iOS APNs推送，还需要提供一段推送文本描述，方便展示。
 自定义消息由 TIMCustomElem定义，其中data 存储消息的二进制数据，其数据格式由开发者定义，desc存储描述文本。一条消息内可以有多个自定义Elem，并且可以跟其他Elem混合排列，离线Push时叠加每个Elem的desc描述信息进行下发。
@@ -462,11 +462,113 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 
 示例中拼接一段xml消息，具体展示由开发者决定。 
 
-### 1.9 Elem顺序 
+### 1.9 短视频消息发送
+
+短视频消息由TIMVudeiElem定义。它是TIMElem的一个子类，也就是说视频截图和视频内容也是消息的一种内容。 发送短视频的过程，就是将TIMVideoElem加入到TIMMessage中，然后随消息一起发送出去。详细如下：
+ 
+**TIMImageElem原型：**
+
+```
+/**
+ *  微视频消息
+ */
+@interface TIMVideoElem : TIMElem
+
+/**
+ *  上传时任务Id，可用来查询上传进度
+ */
+@property(nonatomic,assign) uint32_t taskId;
+
+/**
+ *  视频文件路径，发送消息时设置
+ */
+@property(nonatomic,retain) NSString * videoPath;
+
+/**
+ *  视频信息，发送消息时设置
+ */
+@property(nonatomic,retain) TIMVideo * video;
+
+/**
+ *  截图文件路径，发送消息时设置
+ */
+@property(nonatomic,retain) NSString * snapshotPath;
+
+/**
+ *  视频截图，发送消息时设置
+ */
+@property(nonatomic,retain) TIMSnapshot * snapshot;
+
+/**
+ *  查询上传进度
+ */
+- (uint32_t) getUploadingProgress;
+
+
+@property(nonatomic,retain) NSString * selfIdentifier;
+
+@end
+```
+
+**参数说明：**
+
+参数 | 说明
+---|---
+taskId | SDK分配的任务ID，查询发送进度使用 
+videoPath | 发送短视频时，本地视频文件的路径
+video | 视频信息，发送消息时设置type、duration参数
+snapshotPath | 发送短视频时，本地截图文件的路径
+snapshot | 截图信息，发送消息时设置type、width、height参数
+
+**图片发送示例： **
+
+```
+/**
+*  获取聊天会话, 以同用户iOS-001的单聊为例，群聊可参见4.1节a部分
+*/
+TIMConversation * c2c_conversation = [[TIMManager sharedInstance] getConversation:TIM_C2C receiver:@"iOS-001"];
+
+/**
+*  构造一条消息
+*/
+TIMMessage * msg = [[TIMMessage alloc] init];
+
+/**
+*  构短视频内容
+*/
+TIMVideoElem * videoElem = [[TIMVideoElem alloc] init];
+videoElem.videoPath = @"/xxx/videoPath.mp4";
+videoElem.video = [[TIMVideo alloc] init];
+videoElem.video.type = @"mp4";
+videoElem.video.duration = 10;
+videoElem.snapshotPath = @"/xxx/snapshotPath.jgp";
+videoElem.snapshot = [[TIMSnapshot alloc] init];
+videoElem.snapshot.type = @"jpg";
+videoElem.snapshot.width = 100;
+videoElem.snapshot.height = 200;
+
+/**
+*  将短视频内容添加到消息容器中
+*/
+[msg addElem:videoElem];
+
+/**
+*  发送消息
+*/
+[conversation sendMessage:msg succ:^(){  //成功
+       NSLog(@"SendMsg Succ");
+}fail:^(int code, NSString * err) {  //失败
+       NSLog(@"SendMsg Failed:%d->%@", code, err);
+}];
+```
+
+示例中发送了一个短视频消息。
+
+### 1.10 Elem顺序 
 
 目前文件和语音Elem不一定会按照添加顺序传输，其他Elem按照顺序，不过建议不要过于依赖Elem顺序进行处理，应该逐个按照Elem类型处理，防止异常情况下进程Crash。
 
-### 1.10 在线消息
+### 1.11 在线消息
 
 对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与sendMessage类似，**注意：2.5.3版本以前只针对单聊消息有效。2.5.3版本以后对群组消息有效(暂不支持AVChatRoom和BChatRoom类型)**
 
@@ -487,7 +589,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 @end
 ```
 
-### 1.11 消息转发
+### 1.12 消息转发
 
 在2.4.0及以上版本，在TIMMessage中提供了copyFrom接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
 
@@ -858,6 +960,126 @@ fileSize | 文件大小
 filename |文件显示名 
 
 获取到消息时可只展示文件大小和显示名，通过接口 getToFile 下载文件资源。getToFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据uuid作为key进行外部存储，ImSDK并不会存储资源文件。
+
+### 2.5 接收短视频消息
+
+收到消息后，可用过 getElem 从 TIMMessage中获取所有的Elem节点，其中TIMVideoElem为文件消息节点，通过TIMVideo和TIMSnapshot对象获取视频和截图内容，原型如下： 
+
+```
+
+@interface TIMVideo : NSObject
+/**
+ *  视频ID，不用设置
+ */
+@property(nonatomic,retain) NSString * uuid;
+/**
+ *  视频文件类型，发送消息时设置
+ */
+@property(nonatomic,retain) NSString * type;
+/**
+ *  视频大小，不用设置
+ */
+@property(nonatomic,assign) int size;
+/**
+ *  视频时长，发送消息时设置
+ */
+@property(nonatomic,assign) int duration;
+
+@property(nonatomic,retain) NSString * selfIdentifier;
+
+/**
+ *  获取视频
+ *
+ *  @param path 视频保存路径
+ *  @param succ 成功回调
+ *  @param fail 失败回调，返回错误码和错误描述
+ */
+-(void) getVideo:(NSString*)path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+@end
+
+
+@interface TIMSnapshot : NSObject
+/**
+ *  图片ID，不用设置
+ */
+@property(nonatomic,retain) NSString * uuid;
+/**
+ *  截图文件类型，发送消息时设置
+ */
+@property(nonatomic,retain) NSString * type;
+/**
+ *  图片大小，不用设置
+ */
+@property(nonatomic,assign) int size;
+/**
+ *  图片宽度，发送消息时设置
+ */
+@property(nonatomic,assign) int width;
+/**
+ *  图片高度，发送消息时设置
+ */
+@property(nonatomic,assign) int height;
+
+/**
+ *  获取图片
+ *
+ *  @param path 图片保存路径
+ *  @param succ 成功回调，返回图片数据
+ *  @param fail 失败回调，返回错误码和错误描述
+ */
+- (void) getImage:(NSString*) path succ:(TIMSucc)succ fail:(TIMFail)fail;
+
+@property(nonatomic,retain) NSString * selfIdentifier;
+
+@end
+```
+
+**参数说明：**
+
+参数|说明
+---|---
+TIMVideo | 视频信息 
+TIMSnapshot | 截图信息  
+
+接收到TIMVideoElem后，通过video属性和snapshot属性中定义的接口下载视频文件和截图文件。如需缓存或者存储，开发者可根据uuid作为key进行外部存储，ImSDK并不会存储资源文件。
+
+```
+
+//以收到新消息回调为例，介绍下短视频消息的解析过程
+
+//接收到的图片保存的路径
+NSString * video_path = @"/xxx/video.mp4";
+NSString * snapshot_path = @"/xxx/snapshot.jpg";
+
+[conversation getMessage:10 last:nil succ:^(NSArray * msgList) {  //获取消息成功
+	//遍历所有的消息
+	for (TIMMessage * msg in msgList) {
+		//遍历一条消息的所有元素
+		for (TIMImageElem * elem in TIMVideoElem) {
+		   //短视频元素
+			if ([elem isKindOfClass:[TIMVideoElem class]]) {
+				TIMVideoElem * video_elem = (TIMVideoElem * )elem;
+				
+				[video_elem.video getVideo:video_path succ:^()｛
+					NSLog(@"下载视频文件成功");
+				｝ fail:^(int code, NSString * err) {
+					NSLog(@"下载视频文件失败:%@ %d", err, code);
+				}];
+				
+				[video_elem.snapshot getImage:snapshot_path succ:^() {
+					NSLog(@"下载截图成功");
+				} fail:^(int code, NSString * err) {
+					NSLog(@"下载截图失败:%@ %d", err, code);
+				}];
+			}
+		}
+	}
+} fail:^(int code, NSString * err) {  //获取消息失败
+	NSLog(@"Get Message Failed:%d->%@", code, err);
+}];
+
+```
 
 ## 3. 消息属性 
 
