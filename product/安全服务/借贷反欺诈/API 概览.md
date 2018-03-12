@@ -164,7 +164,7 @@ RiskDetail 类型说明
 
 - 风险码
 
-  风险码及其说明请参见 [风险码](https://cloud.tencent.com/document/product/668/14278) 页面。
+  风险码及其说明请参见 [风险码](http://sdssdsd) 页面。
 
 ## 请求示例
 
