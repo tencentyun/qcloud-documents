@@ -464,7 +464,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 
 ### 1.9 短视频消息发送
 
-短视频消息由TIMVudeiElem定义。它是TIMElem的一个子类，也就是说视频截图和视频内容也是消息的一种内容。 发送短视频的过程，就是将TIMVideoElem加入到TIMMessage中，然后随消息一起发送出去。详细如下：
+短视频消息由TIMVideoElem定义。它是TIMElem的一个子类，也就是说视频截图和视频内容也是消息的一种内容。 发送短视频的过程，就是将TIMVideoElem加入到TIMMessage中，然后随消息一起发送出去。详细如下：
  
 **TIMImageElem原型：**
 
