@@ -520,7 +520,7 @@ video | 视频信息，发送消息时设置type、duration参数
 snapshotPath | 发送短视频时，本地截图文件的路径
 snapshot | 截图信息，发送消息时设置type、width、height参数
 
-**图片发送示例： **
+**短视频发送示例： **
 
 ```
 /**
@@ -1048,7 +1048,7 @@ TIMSnapshot | 截图信息
 
 //以收到新消息回调为例，介绍下短视频消息的解析过程
 
-//接收到的图片保存的路径
+//接收到的视频和截图保存的路径
 NSString * video_path = @"/xxx/video.mp4";
 NSString * snapshot_path = @"/xxx/snapshot.jpg";
 
