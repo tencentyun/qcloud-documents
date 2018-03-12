@@ -79,12 +79,12 @@ dependencies {
 #### 2. 集成 jar 包。
 - 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
 
-#### 3. 如果需要上报 Native 异常，集成 so 包。
+#### 3. 如果需要上报 Native 异常，集成 Native Crash 包。
  
-如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，您可以集成 native 异常上报库。
+如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，您可以集成 [native crash 上报库](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-nativecrash-1.0.0.zip)。
  
-- 如果您是采用 Eclipse 开发，将资源文件中的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
-- 如果您是采用 Android Studio 开发，将资源文件中的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
+- 如果您是采用 Eclipse 开发，将 `native crash 上报库`解压后的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
+- 如果您是采用 Android Studio 开发，将`native crash 上报库`解压后的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
 
 #### 4. 修改您工程的 AndroidManifest.xml 文件。
 

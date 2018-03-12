@@ -1,21 +1,18 @@
 ## 前言
-
-本文档介绍腾讯云视频点播服务的 Web 播放器的相关参数以及 API，需结合使用文档使用。本文档适合有一定 Javascript 语言基础的开发人员阅读。
+本文档介绍腾讯云视频点播服务的 Web 播放器的相关参数以及 API，需结合 [《使用文档》](https://cloud.tencent.com/document/product/266/14424) 使用。本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 ## 初始化参数
-
 播放器初始化需要传入两个参数，第一个为播放器容器 ID，第二个为功能参数对象。
 ```
 var player = TCPlayer('player-container-id', options);
 ```
 
 ### options 参数列表
-
 options 对象可配置的参数：
 
 | 名称    | 类型                      | 默认值                        |说明 |
 |------------|-----------------------------------|-----------------------------------|---------------------------------------|
-| appID|  String |   无 |必选|
+|  appID|  String |   无 |必选|
 |  fileID|  String|无|必选|  
 |  width|  String / Number|  无| 播放器区域宽度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
 |  height |  String /Number|  无|  播放器区域高度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|  
@@ -25,9 +22,8 @@ options 对象可配置的参数：
 |  playbackRates|  Array| [0.5, 1, 1.25, 1.5, 2]|  设置变速播放倍率选项，仅 H5 有效|  
 |  loop|Boolean|  false|  是否循环播放|  
 |  muted|  Boolean|  false|  是否静音播放|  
-|  preload|  String|  auto|  是否需要预加载，有3个属性"auto"，"meta"，"none" ，移动端由于系统限制，设置 auto 无效。|  
+|  preload|  String|  auto|  是否需要预加载，有 3 个属性"auto"，"meta"，"none" ，移动端由于系统限制，设置 auto 无效。|  
 |  swf|  String|  无|  Flash 播放器 swf 文件的 URL|  
-|  fluid|  Boolean|  false|  是否启用自适应样式|  
 |  posterImage|  Boolean|  true|  是否显示封面|  
 |  bigPlayButton|  Boolean|  true|  是否显示居中的播放按钮（浏览器劫持嵌入的播放按钮无法去除）|  
 |  language|  String|  "zh-CN"|  设置语言|  
@@ -36,7 +32,6 @@ options 对象可配置的参数：
 |  plugins|  Object|  无|  设置插件功能属性的参数组合，后面有详细介绍|  
 
 #### controlBar 参数列表
-
 controlBar 参数可以配置播放器控制栏的功能，支持的属性有：
 
 | 名称    | 类型                      | 默认值                        |说明 |
@@ -53,7 +48,6 @@ controlBar 参数可以配置播放器控制栏的功能，支持的属性有：
 
 
 #### plugins 插件参数列表
-
 plugins 参数可以配置播放器插件的功能，支持的属性有：
 
 | 名称    | 类型                      | 默认值                        |说明 |
@@ -61,7 +55,6 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 |  ContinuePlay|  Object|  无|  控制续播功能，支持的属性如下<br>auto: false, // 是否在播放时自动续播 <br>text: '上次看到 ', // 提示文案<br>btnText: '恢复播放' // 按钮文案<br>
 
 ## 对象方法
-
 初始化播放器返回对象的方法列表：
 
 | 名称    | 参数及类型                 | 返回值及类型                        |说明 |
@@ -77,7 +70,7 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 |  exitFullscreen()|  无|  无|  退出全屏模式|  
 |  isFullscreen()|  无|  Boolean|  返回是否进入了全屏模式|  
 |  on(type，listerner)|  (String, Function)|  无|  监听事件|  
-|  one(type，listerner)|  (String, Function)|  无|  监听事件，事件处理函数最多只执行1次|  
+|  one(type，listerner)|  (String, Function)|  无|  监听事件，事件处理函数最多只执行 1 次|  
 |  off(type，listerner)|  (String, Function)|  无|  解绑事件监听|  
 |  buffered()|  无|  TimeRanges|  返回视频缓冲区间|  
 |  bufferedPercent()|  无|  值范围[0,1]|  返回缓冲长度占视频时长的百分比|  
@@ -89,8 +82,8 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 
 >**注意事项：**
 > * 部分方法不能同步调用
-## 事件
 
+## 事件
 播放器可以通过初始化返回的对象进行事件监听，示例：
 ```
 var player = TCPlayer('player-container-id', options);
@@ -122,8 +115,7 @@ player.on(type, function);
 |  resolutionswitched|  清晰度切换完毕|  
 
 ## 错误码
-
-当播放器触发 error事件时，监听函数会返回错误码。错误码列表：
+当播放器触发 error 事件时，监听函数会返回错误码。错误码列表：
 
 | 名称    | 介绍                    |  
 |------------|---------------------------------|
