@@ -735,38 +735,32 @@ mLivePusher.snapshot(new TXLivePusher.ITXSnapshotListener() {
 - **示例代码** : 
 
 ```
-//以下是简单的实例，从手机 SD 卡中获取 H264 的视频数据。
-//实际场景中视频数据要从摄像机预览回调中获取。
-customModeType |= TXLiveConstants.CUSTOM_MODE_VIDEO_CAPTURE;
-mLivePushConfig.setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_640_360);
-mLivePushConfig.setAutoAdjustBitrate(false);
-mLivePushConfig.setVideoBitrate(1300);
-mLivePushConfig.setVideoEncodeGop(3);
-new Thread() {  //视频采集线程
-    @Override
-    public void run() {
-        while (true) {
-            try {
-                FileInputStream in = new FileInputStream("/sdcard/dump_1280_720.yuv");
-                int len = 1280 * 720 * 3 / 2;
-                byte buffer[] = new byte[len];
-                int count;
-                while ((count = in.read(buffer)) != -1) {
-                    if (len == count) {
-                        mLivePusher.sendCustomVideoData(buffer, TXLivePusher.YUV_420P, 1280, 720);
-                    } else {
-                        break;
-                    }
-                    sleep(50, 0);
-                }
-                in.close();
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
+//以下是简单的实例，获取摄像机预览回调的视频数据并推流
+  @Override
+public void onPreviewFrame(byte[] data, Camera camera) {
+    // 假设摄像机获取的视频格式是 NV21, 预览画面大小为 1280X720
+    if (!isPush) {
+    } else {
+        // 开始自定义推流
+        // 需要将视频格式转码为 I420
+        byte[] buffer = new byte[data.length];
+        buffer = nv21ToI420(data, mPreviewWidth, mPreviewHeight);
+
+        int customModeType = 0;
+        customModeType |= TXLiveConstants.CUSTOM_MODE_VIDEO_CAPTURE;
+        // 只能分辨率的宽和高小于或者等于预览画面的宽和高的分辨率 
+        // 还能选择 480x640 等，但不能选择 540x960。因指定分辨率的高(960) > 预览画面的高(720)，编码器无法裁剪画面。
+        mLivePushConfig.setVideoResolution(TXLiveConstants.VIDEO_RESOLUTION_TYPE_1280_720);
+        mLivePushConfig.setAutoAdjustBitrate(false);
+        mLivePushConfig.setVideoBitrate(1200);
+        mLivePushConfig.setVideoEncodeGop(3);
+        mLivePushConfig.setVideoFPS(15);
+        mLivePushConfig.setCustomModeType(customModeType);
+        mLivePusher.setConfig(mLivePushConfig);
+
+        int result= mLivePusher.sendCustomVideoData(buffer, TXLivePusher.YUV_420P, mPreviewWidth, mPreviewHeight);
     }
-}.start();
+}
 ```
 
 
