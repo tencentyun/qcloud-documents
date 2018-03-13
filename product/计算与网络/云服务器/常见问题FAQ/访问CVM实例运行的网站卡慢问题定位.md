@@ -5,7 +5,7 @@
 ## 二. 网络链路问题确认
 若第一步确认没有异常，请进一步确认本地客户端到服务器之前网络是否有问题。
 1. 本地客户端 ping 服务器公网 IP，确认是否存在丢包或延时高的情况。
-2. 若存在丢包或时延高的情况，进一步使用 MTR 进行诊断。具体参考 [服务器网络延迟和丢包处理](https://cloud.tencent.com/document/product/213/14638)。
+2. 若存在丢包或时延高的情况，进一步使用 MTR 进行诊断。具体参考 [服务器网络延迟和丢包定位]()。
 3. 若 ping 服务器 IP 无异常，可以使用 dig/nslookup 查看 DNS 的解析情况，排查是否 DNS 解析引起的问题。也可以通过直接使用 IP 访问对应页面，排查是否 DNS 的问题导致访问慢。
 
 ## 三. 服务器问题确认
@@ -13,9 +13,9 @@
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) ，在云主机详情页，单击 tab【监控】，可以查看实例资源使用情况。
 ![](https://mc.qcloudimg.com/static/img/fd32ca7361dc89f56ee8d51ff72dca4d/image.png)
 2. 若 CPU/内存/带宽/磁盘使用率过高，可能是服务器自身负载较高或者中毒等问题导致，请参考对应的文档进行排查：
- - [CPU 使用率过高排查（Linux 系统）](https://cloud.tencent.com/document/product/213/14634)
- - [CPU 使用率过高排查（Windows 系统）](https://cloud.tencent.com/document/product/213/14635)
- - [带宽利用率过高问题处理](https://cloud.tencent.com/document/product/213/14637)
+ - [CPU 使用率过高排查（Linux 系统）]()
+ - [CPU 使用率过高排查（Windows 系统）]()
+ - [带宽利用率过高问题定位]()
 
 ## 四. 业务问题确认
 1. 若通过第三步定位到是服务器负载引起的资源消耗增大，则属于正常情况。可以通过优化业务程序，或升级现有的服务器配置或购买新的服务器分担现有服务器的压力解决。
