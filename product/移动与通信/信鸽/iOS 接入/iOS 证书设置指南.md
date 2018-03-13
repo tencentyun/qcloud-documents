@@ -12,6 +12,7 @@ openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert xxx.pem -key
 ```
 openssl s_client -connect gateway.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 ```
+
 ## 指南介绍
 本指南用于介绍 iOS 证书如何设置，配置好证书后请前往 iOS SDK 完整接入。
 ### 设置步骤
