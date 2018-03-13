@@ -61,6 +61,8 @@ getVideoFileInfo(String videoPath){...}
 
 // 对视频文件进行预读，均匀得生成 count 张预览图片组
 getSampleImages(int count, String videoPath, TXVideoInfoReader.OnSampleProgrocess listener)
+// 或者调用该接口
+getSampleImage(int count, String videoPath)
 ```
 开发包中的 TCVideoEditerActivity 即使用了 getSampleImages 获取了 10 张缩略图来构建一个由视频预览图组成的进度条。
 
