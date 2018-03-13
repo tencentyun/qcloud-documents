@@ -19,8 +19,8 @@
 | acl.n.proto | 是 | String | acl协议，例如tcp。|
 | acl.n.action | 是 | String | ACL策略，0：允许，1：拒绝。|
 | acl.n.destinationPort | 是 | String | 目的端口。|
-| acl.n.sourceCidr | String | 是 | 源IP或源网段。|
-| acl.n.destinationCidr | String | 是 | 目的IP或目的网段。|
+| acl.n.sourceCidr | 是 | String | 源IP或源网段。|
+| acl.n.destinationCidr | 是 | String | 目的IP或目的网段。|
 
  
 
