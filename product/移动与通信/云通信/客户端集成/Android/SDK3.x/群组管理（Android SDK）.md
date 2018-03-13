@@ -1,8 +1,8 @@
-## 1. 群组综述 
+## 1. 群组综述
 
 IM云通讯有多种群组类型，其特点以及限制因素可参考[群组系统](/doc/product/269/群组系统)。群组使用唯一Id标识，通过群组Id可以进行不同操作。
 
-## 2. 群组消息 
+## 2. 群组消息
 
 群组消息与C2C消息相同，仅在获取Conversation时的会话类型不同，可参照 [消息发送](/doc/product/269/9232#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.811) 部分。
 
@@ -164,7 +164,7 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
  * @param cb 回调，OnSuccess函数的参数中返回成功加入群组的用户帐号
  */
 public void inviteGroupMember(@NonNull String groupId, @NonNull List<String> memList,
-							  @NonNull TIMValueCallBack<List<TIMGroupMemberResult>> cb) 
+							  @NonNull TIMValueCallBack<List<TIMGroupMemberResult>> cb)
 ```
 
 其中`TIMGroupMemberResult`接口定义如下：
@@ -188,9 +188,9 @@ public String getUser()
 ```
 //创建待加入群组的用户列表
 ArrayListlist = new ArrayList();
- 
+
 String user = "";
- 
+
 //添加用户
 user = "sample_user_1";
 list.add(user);
@@ -198,13 +198,13 @@ user = "sample_user_2";
 list.add(user);
 user = "sample_user_3";
 list.add(user);
- 
+
 //回调
 TIMValueCallBack<List<TIMGroupMemberResult>> cb = new TIMValueCallBack<List<TIMGroupMemberResult>>() {
     @Override
     public void onError(int code, String desc) {
     }
- 
+
     @Override
     public void onSuccess(List<TIMGroupMemberResult> results) { //群组成员操作结果
         for(TIMGroupMemberResult r : results) {
@@ -213,7 +213,7 @@ TIMValueCallBack<List<TIMGroupMemberResult>> cb = new TIMValueCallBack<List<TIMG
         }
     }
 };
- 
+
 //将list中的用户加入群组
 TIMGroupManagerExt.getInstance().inviteGroupMember(
         groupId,   //群组Id
@@ -226,8 +226,8 @@ TIMGroupManagerExt.getInstance().inviteGroupMember(
 `TIMGroupManager` 的接口`applyJoinGroup`可以主动申请进入群组，此操作只对公开群和聊天室有效。
 
 **权限说明：**
- 
-私有群不能由用户主动申请入群； 
+
+私有群不能由用户主动申请入群；
 公开群和聊天室可以主动申请进入， 如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群组设置为任何人可加入，则直接入群成功；
 直播大群可以任意加入群组。
 
@@ -240,7 +240,7 @@ TIMGroupManagerExt.getInstance().inviteGroupMember(
  * @param reason 申请理由（选填）
  * @param cb 回调
  */
-public void applyJoinGroup(@NonNull String groupId, String reason, @NonNull TIMCallBack cb) 
+public void applyJoinGroup(@NonNull String groupId, String reason, @NonNull TIMCallBack cb)
 ```
 
 **示例：**
@@ -253,7 +253,7 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
         //错误码code列表请参见错误码表
         Log.e(tag, "disconnected");
     }
- 
+
     @java.lang.Override
     public void onSuccess() {
         Log.i(tag, "join group");
@@ -269,7 +269,7 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
 
 **权限说明：**
 
-对于私有群，全员可退出群组； 
+对于私有群，全员可退出群组；
 对于公开群、聊天室和直播大群，群主不能退出；
 
 **原型：**
@@ -280,7 +280,7 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
  * @param groupId 群组Id
  * @param cb 回调
  */
-public void quitGroup(@NonNull String groupId, @NonNull TIMCallBack cb) 
+public void quitGroup(@NonNull String groupId, @NonNull TIMCallBack cb)
 ```
 
 **示例：**
@@ -293,13 +293,13 @@ TIMCallBack cb = new TIMCallBack() {
             //错误码code和错误描述desc，可用于定位请求失败原因
             //错误码code含义请参见错误码表
     }
- 
+
     @Override
     public void onSuccess() {
         Log.e(tag, "quit group succ");
     }
 };
- 
+
 //退出群组
 TIMGroupManager.getInstance().quitGroup(
         groupId,  //群组Id
@@ -312,8 +312,8 @@ TIMGroupManager.getInstance().quitGroup(
 
 **权限说明：**
 
-对于私有群：只有创建者可删除群组成员 
-对于公开群和聊天室：只有管理员和群主可以踢人 
+对于私有群：只有创建者可删除群组成员
+对于公开群和聊天室：只有管理员和群主可以踢人
 对于直播大群：不能踢人
 
 **原型：  **
@@ -325,7 +325,7 @@ TIMGroupManager.getInstance().quitGroup(
  * @param cb 回调，OnSuccess函数的参数中返回成功删除的群成员列表
  */
 public void deleteGroupMember(@NonNull DeleteMemberParam param,
-							  @NonNull TIMValueCallBack<List<TIMGroupMemberResult>> cb) 
+							  @NonNull TIMValueCallBack<List<TIMGroupMemberResult>> cb)
 ```
 
 其中`DeleteMemberParam`接口定义如下：
@@ -341,7 +341,7 @@ public DeleteMemberParam(@NonNull String groupId, @NonNull List<String> members)
  * 设置删除群成员的原因（选填）
  * @param reason 删除原因
  */
-public DeleteMemberParam setReason(@NonNull String reason) 
+public DeleteMemberParam setReason(@NonNull String reason)
 ```
 
 **示例：**
@@ -349,7 +349,7 @@ public DeleteMemberParam setReason(@NonNull String reason)
 ```
 //创建待踢出群组的用户列表
 ArrayListlist = new ArrayList();
- 
+
 String user = "";
 //添加用户
 user = "sample_user_1";
@@ -357,8 +357,8 @@ list.add(user);
 user = "sample_user_2";
 list.add(user);
 user = "sample_user_3";
-list.add(user); 
- 
+list.add(user);
+
 TIMGroupManagerExt.DeleteMemberParam param = new TIMGroupManagerExt.DeleteMemberParam(groupId, list);
 param.setReason("some reason");
 
@@ -386,7 +386,7 @@ ImSDK提供了获取群内成员列表的功能，默认拉取内置字段，但
 
 **权限说明：**
 
-任何群组类型都可以获取成员列表； 
+任何群组类型都可以获取成员列表；
 直播大群只能拉取部分成员列表：包括群主、管理员和部分成员；
 
 **原型：**
@@ -397,7 +397,7 @@ ImSDK提供了获取群内成员列表的功能，默认拉取内置字段，但
  * @param groupId 群组Id
  * @param cb 回调，OnSuccess函数的参数中返回群组成员列表
  */
-public void getGroupMembers(@NonNull String groupId, @NonNull TIMValueCallBack<List<TIMGroupMemberInfo>> cb) 
+public void getGroupMembers(@NonNull String groupId, @NonNull TIMValueCallBack<List<TIMGroupMemberInfo>> cb)
 ```
 
 
@@ -409,10 +409,10 @@ TIMValueCallBack<List<TIMGroupMemberInfo>> cb = new TIMValueCallBack<List<TIMGro
     @Override
     public void onError(int code, String desc) {
     }
- 
+
     @Override
     public void onSuccess(List<TIMGroupMemberInfo> infoList) {//参数返回群组成员信息
- 
+
         for(TIMGroupMemberInfo info : infoList) {
             Log.d(tag, "user: " + info.getUser() +
             "join time: " + info.getJoinTime() +
@@ -420,7 +420,7 @@ TIMValueCallBack<List<TIMGroupMemberInfo>> cb = new TIMValueCallBack<List<TIMGro
         }
     }
 };
- 
+
 //获取群组成员信息
 TIMGroupManagerExt.getInstance().getGroupMembers(
         groupId, //群组Id
@@ -445,7 +445,7 @@ TIMGroupManagerExt.getInstance().getGroupMembers(
  * 获取已加入的群组列表
  * @param cb 回调，OnSuccess函数的参数中返回已加入的群组信息
  */
-public void getGroupList(@NonNull TIMValueCallBack<List<TIMGroupBaseInfo>> cb) 
+public void getGroupList(@NonNull TIMValueCallBack<List<TIMGroupBaseInfo>> cb)
 ```
 
 其中`TIMGroupBaseInfo`提供的方法如下：
@@ -499,11 +499,11 @@ TIMValueCallBack<List<TIMGroupBaseInfo>> cb = new TIMValueCallBack<List<TIMGroup
         //错误码code含义请参见错误码表
         Log.e(tag, "get gruop list failed: " + code + " desc");
     }
- 
+
     @Override
     public void onSuccess(List<TIMGroupBaseInfo> timGroupInfos) {//参数返回各群组基本信息
         Log.d(tag, "get gruop list succ");
- 
+
         for(TIMGroupBaseInfo info : timGroupInfos) {
             Log.d(tag, "group id: " + info.getGroupId() +
             " group name: " + info.getGroupName() +
@@ -511,7 +511,7 @@ TIMValueCallBack<List<TIMGroupBaseInfo>> cb = new TIMValueCallBack<List<TIMGroup
         }
     }
 };
- 
+
 //获取已加入的群组列表
 TIMGroupManagerExt.getInstance().getGroupList(cb);
 ```
@@ -522,7 +522,7 @@ TIMGroupManagerExt.getInstance().getGroupList(cb);
 
 **权限说明：**
 
-对于私有群，任何人都无法解散群组 
+对于私有群，任何人都无法解散群组
 对于公开群、聊天室和直播大群，群主可以解散群组
 
 **原型：**
@@ -533,7 +533,7 @@ TIMGroupManagerExt.getInstance().getGroupList(cb);
  * @param groupId 群组id
  * @param cb 回调
  */
-public void deleteGroup(@NonNull String groupId, @NonNull TIMCallBack cb) 
+public void deleteGroup(@NonNull String groupId, @NonNull TIMCallBack cb)
 ```
 
 
@@ -544,12 +544,12 @@ public void deleteGroup(@NonNull String groupId, @NonNull TIMCallBack cb)
 TIMGroupManager.getInstance().deleteGroup(groupId, new TIMCallBack() {
     @Override
     public void onError(int code, String desc) {
- 
+
         //错误码code和错误描述desc，可用于定位请求失败原因
         //错误码code列表请参见错误码表
         Log.d(tag, "login failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess() {
         //解散群组成功
@@ -557,13 +557,13 @@ TIMGroupManager.getInstance().deleteGroup(groupId, new TIMCallBack() {
 });
 ```
 
-###  3.9 转让群组 
+###  3.9 转让群组
 
-转让群组的接口由`TIMGroupManagerExt`提供。 
+转让群组的接口由`TIMGroupManagerExt`提供。
 
 **权限说明：**
- 
-只有群主可以进行群转让操作。 
+
+只有群主可以进行群转让操作。
 
 **原型：**
 
@@ -591,7 +591,7 @@ public void modifyGroupOwner(@NonNull String groupId, @NonNull String identifier
  * @param cb 回调
  */
 public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNull TIMGroupMemberRoleFilter filter,
-									List<String> custom, long nextSeq, TIMValueCallBack<TIMGroupMemberSucc> cb) 
+									List<String> custom, long nextSeq, TIMValueCallBack<TIMGroupMemberSucc> cb)
 ```
 
 ## 4. 获取群组资料
@@ -606,13 +606,13 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
  * 设置群资料操作选项
  * @param groupInfoOptions 群操作选项，{@see Options}
  */
-public void setGroupInfoOptions(Options groupInfoOptions) 
+public void setGroupInfoOptions(Options groupInfoOptions)
 
 /**
  * 设置群成员资料操作选项
  * @param memberInfoOptions 群成员操作选项，{@see Options}
  */
-public void setMemberInfoOptions(Options memberInfoOptions) 
+public void setMemberInfoOptions(Options memberInfoOptions)
 ```
 
 其中`TIMGroupSettings.Options`的接口定义如下：
@@ -623,13 +623,13 @@ public void setMemberInfoOptions(Options memberInfoOptions)
  *              群资料标志如{@see TIMGroupManager#TIM_GET_GROUP_BASE_INFO_FLAG_NAME}等，
  *              群成员资料标志如{@see TIMGroupManager#TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD}等
  */
-public void setFlags(long flags) 
+public void setFlags(long flags)
 
 /**
  * 设置自定义资料标签
  * @param customTags 自定义资料标签
  */
-public void setCustomTags(List<String> customTags) 
+public void setCustomTags(List<String> customTags)
 
 /**
  * 添加自定义资料标签
@@ -785,7 +785,7 @@ public Map<String, byte[]> getCustom()
  * 获取在线群成员数（需要通过填写工单申请开通才会返回有效值，其中音视频直播大群无法申请开通）
  * @return  在线群成员数
  */
-public long getOnlineMemberNum() 
+public long getOnlineMemberNum()
 
 /**
  * 获取此群组是否被设置了全员禁言
@@ -800,7 +800,7 @@ public boolean isSilenceAll()
 ```
 //创建待获取信息的群组Id列表
 ArrayList<String> groupList = new ArrayList<String>();
- 
+
 //创建回调
 TIMValueCallBack<List<TIMGroupDetailInfo>> cb = new TIMValueCallBack<List<TIMGroupDetailInfo>>() {
     @Override
@@ -808,7 +808,7 @@ TIMValueCallBack<List<TIMGroupDetailInfo>> cb = new TIMValueCallBack<List<TIMGro
             //错误码code和错误描述desc，可用于定位请求失败原因
             //错误码code列表请参见错误码表
     }
- 
+
     @Override
     public void onSuccess(List<TIMGroupDetailInfo> infoList) { //参数中返回群组信息列表
         for(TIMGroupDetailInfo info : infoList) {
@@ -822,11 +822,11 @@ TIMValueCallBack<List<TIMGroupDetailInfo>> cb = new TIMValueCallBack<List<TIMGro
         }
     }
 };
- 
+
 //添加群组Id
 String groupId = "TGID1EDABEAEO";
 groupList.add(groupId);
- 
+
 //获取群组详细信息
 TIMGroupManagerExt.getInstance().getGroupDetailInfo(
         groupList, //需要获取信息的群组Id列表
@@ -847,7 +847,7 @@ TIMGroupManagerExt.getInstance().getGroupDetailInfo(
  * @param cb 回调，OnSuccess函数的参数中返回群组公开信息列表
  */
 public void getGroupPublicInfo(@NonNull List<String> groupIdList,
-							   @NonNull TIMValueCallBack<List<TIMGroupDetailInfo>> cb) 
+							   @NonNull TIMValueCallBack<List<TIMGroupDetailInfo>> cb)
 ```
 
 **示例：**
@@ -855,9 +855,9 @@ public void getGroupPublicInfo(@NonNull List<String> groupIdList,
 ```
 //创建待获取公开信息的群组列表
 List<String> groupList = new ArrayList<String>();
- 
+
 groupList.add(groupId);
- 
+
 //获取群组公开信息
 TIMGroupManagerExt.getInstance().getGroupPublicInfo(groupList, new TIMValueCallBack<List<TIMGroupDetailInfo>>() {
     @Override
@@ -865,9 +865,9 @@ TIMGroupManagerExt.getInstance().getGroupPublicInfo(groupList, new TIMValueCallB
         //错误码code和错误描述desc，可用于定位请求失败原因
         //错误码code列表请参见错误码表
         Log.e(tag, "get gruop list failed: " + code + " desc" + desc);
- 
+
     }
- 
+
     @Override
     public void onSuccess(List<TIMGroupDetailInfo> timGroupDetailInfos) {
         //此时TIMGroupDetailInfo只含有群公开资料，其余字段为空
@@ -956,19 +956,19 @@ public ModifyGroupInfoParam setNotification(@NonNull String notification)
  * 设置修改后的群简介
  * @param introduction 群简介
  */
-public ModifyGroupInfoParam setIntroduction(@NonNull String introduction) 
+public ModifyGroupInfoParam setIntroduction(@NonNull String introduction)
 
 /**
  * 设置修改后的群头像URL
  * @param faceUrl 群头像URL
  */
-public ModifyGroupInfoParam setFaceUrl(@NonNull String faceUrl) 
+public ModifyGroupInfoParam setFaceUrl(@NonNull String faceUrl)
 
 /**
  * 设置加群选项
  * @param addOpt 加群选项
  */
-public ModifyGroupInfoParam setAddOption(@NonNull TIMGroupAddOpt addOpt) 
+public ModifyGroupInfoParam setAddOption(@NonNull TIMGroupAddOpt addOpt)
 
 /**
  * 设置最大群成员数
@@ -980,19 +980,19 @@ public ModifyGroupInfoParam setMaxMemberNum(long maxMemberNum)
  * 设置设置群组成员是否对外可见
  * @param visable 群组成员是否对外可见
  */
-public ModifyGroupInfoParam setVisable(boolean visable) 
+public ModifyGroupInfoParam setVisable(boolean visable)
 
 /**
  * 设置群组是否能被搜索到
  * @param searchable 群组是否能被搜索到
  */
-public ModifyGroupInfoParam setSearchable(boolean searchable) 
+public ModifyGroupInfoParam setSearchable(boolean searchable)
 
 /**
  * 设置群组自定义字段
  * @param customInfos 群组自定义字段字典
  */
-public ModifyGroupInfoParam setCustomInfo(@NonNull Map<String, byte[]> customInfos) 
+public ModifyGroupInfoParam setCustomInfo(@NonNull Map<String, byte[]> customInfos)
 
 /**
  * 设置群组全员禁言
@@ -1006,8 +1006,8 @@ public ModifyGroupInfoParam setSilenceAll(boolean silenceAll)
 
 **权限说明：**
 
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群名； 
-对于私有群，任何人可修改群名； 
+对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群名；
+对于私有群，任何人可修改群名；
 
 **示例：**
 ```
@@ -1030,7 +1030,7 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 
 **权限说明：**
 
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群简介； 
+对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群简介；
 对于私有群，任何人可修改群简介；
 
 **示例：**
@@ -1055,7 +1055,7 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 
 **权限说明：**
 
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群公告； 
+对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群公告；
 对于私有群，任何人可修改群公告；
 
 **示例：**
@@ -1080,8 +1080,8 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 
 **权限说明：**
 
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群头像； 
-对于私有群，任何人可修改群头像； 
+对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群头像；
+对于私有群，任何人可修改群头像；
 
 
 **示例：**
@@ -1106,8 +1106,8 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 
 **权限说明：**
 
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改加群选项； 
-对于私有群，只能通过邀请加入群组，不能主动申请加入某个群组； 
+对于公开群、聊天室和直播大群，只有群主或者管理员可以修改加群选项；
+对于私有群，只能通过邀请加入群组，不能主动申请加入某个群组；
 
 **示例：**
 
@@ -1127,11 +1127,11 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 });
 ```
 
-###  5.6 修改群维度自定义字段 
+###  5.6 修改群维度自定义字段
 
 **权限说明：**
- 
-需要后台配置相关的key和权限； 
+
+需要后台配置相关的key和权限；
 
 **示例：**
 
@@ -1217,7 +1217,7 @@ public ModifyMemberInfoParam setNameCard(@NonNull String nameCard)
  * 修改群消息接收选项
  * @param receiveMessageOpt 群消息接收选项，详见{@see TIMGroupReceiveMessageOpt}
  */
-public ModifyMemberInfoParam setReceiveMessageOpt(@NonNull TIMGroupReceiveMessageOpt receiveMessageOpt) 
+public ModifyMemberInfoParam setReceiveMessageOpt(@NonNull TIMGroupReceiveMessageOpt receiveMessageOpt)
 
 /**
  * 修改群成员角色身份（只有群主和管理员可以修改）
@@ -1229,7 +1229,7 @@ public ModifyMemberInfoParam setRoleType(TIMGroupMemberRoleType roleType)
  * 设置群成员的禁言时间（只有群主和管理员可以设置）
  * @param silence 禁言时间
  */
-public ModifyMemberInfoParam setSilence(long silence) 
+public ModifyMemberInfoParam setSilence(long silence)
 
 /**
  * 设置群组自定义字段
@@ -1238,11 +1238,11 @@ public ModifyMemberInfoParam setSilence(long silence)
 public ModifyMemberInfoParam setCustomInfo(Map<String, byte[]> customInfo)
 ```
 
-### 6.1 修改用户群内身份 
+### 6.1 修改用户群内身份
 
 **权限说明：**
 
-只有群主或者管理员可以进行对群成员的身份进行修改； 
+只有群主或者管理员可以进行对群成员的身份进行修改；
 直播大群不支持修改用户群内身份；
 
 **示例：**
@@ -1266,11 +1266,11 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 
 ###  6.2 对群成员进行禁言
 
-通过modifyGroupMemberInfoSetSilence可以对群成员进行禁言并设置禁言时长。 
+通过modifyGroupMemberInfoSetSilence可以对群成员进行禁言并设置禁言时长。
 
 **权限说明：**
 
-只有群主或者管理员可以进行对群成员进行禁言。 
+只有群主或者管理员可以进行对群成员进行禁言。
 
 
 **示例：**
@@ -1315,7 +1315,7 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 });
 ```
 
-###  6.4 修改群成员维度自定义字段 
+###  6.4 修改群成员维度自定义字段
 
 **示例：**
 
@@ -1342,7 +1342,7 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 });
 ```
 
-###  6.5 修改群消息接收选项 
+###  6.5 修改群消息接收选项
 
 公开群和私有群，默认消息接收方式为接收并提醒；
 聊天室和互动直播聊天室，默认为接收不提醒。
@@ -1468,16 +1468,16 @@ public void accept(String msg, TIMCallBack cb)
 public void refuse(String msg, TIMCallBack cb)
 ```
 
-###  7.1 拉取群未决列表 
+###  7.1 拉取群未决列表
 
 通过`TIMGroupManagerExt`提供的`getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。  
 
 **权限说明：**
 
 **只有审批人有权限拉取相关信息。**
-例如：UserA申请加入群GroupA，则群管理员可获取此未决相关信息，UserA因为没有审批权限，不需要过去未决信息。 
+例如：UserA申请加入群GroupA，则群管理员可获取此未决相关信息，UserA因为没有审批权限，不需要过去未决信息。
          如果AdminA拉UserA进去GroupA，则UserA可以拉取此未决相关信息，因为该未决信息待UserA审批。  
- 
+
 **原型：**
 
 ```
@@ -1490,7 +1490,7 @@ public void getGroupPendencyList(@NonNull TIMGroupPendencyGetParam param,
 								 @NonNull TIMValueCallBack<TIMGroupPendencyListGetSucc> cb)
 ```
 
- 
+
 其中`TIMGroupPendencyGetParam`的接口定义如下：
 ```
 /**
@@ -1505,7 +1505,7 @@ public void setTimestamp(long timestamp)
  */
 public void setNumPerPage(long numPerPage)
 ```
-  
+
 **示例：**
 
 ```
@@ -1535,10 +1535,10 @@ TIMGroupManagerExt.getInstance().getGroupPendencyList(param, new TIMValueCallBac
 });
 ```
 
-###  7.2 上报群未决已读 
+###  7.2 上报群未决已读
 
 对于未决信息，通过`TIMGroupManagerExt`提供的`reportGroupPendency`可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
- 
+
 **原型：**
 
 ```
@@ -1551,10 +1551,10 @@ public void reportGroupPendency(long timestamp, @NonNull TIMCallBack cb)
 ```
 
 
-###  7.3 处理群未决信息 
+###  7.3 处理群未决信息
 
-通过`getGroupPendencyList`获取到一个群未决请求（`TIMGroupPendencyItem`）的列表，对于列表中的每一个元素，都可以通过`TIMGroupPendencyItem`类中的`accept/refuse`接口来对群未决进行审批。已处理成功过的未决信息不能再次处理。 
- 
+通过`getGroupPendencyList`获取到一个群未决请求（`TIMGroupPendencyItem`）的列表，对于列表中的每一个元素，都可以通过`TIMGroupPendencyItem`类中的`accept/refuse`接口来对群未决进行审批。已处理成功过的未决信息不能再次处理。
+
 **原型：**
 ```
 /**
@@ -1612,7 +1612,7 @@ public TIMGroupAssistantListener getGroupAssistantListener()
  * 是否开启群组资料本地储存
  * @return true - 开启， false - 不开启
  */
-public boolean isGroupStorageEnabled() 
+public boolean isGroupStorageEnabled()
 
 /**
  * 设置是否开启群组资料本地储存
@@ -1720,43 +1720,43 @@ TIMGroupTipsElem 成员方法：
 ```
 //获取群资料变更信息列表，仅当tipsType值为TIMGroupTipsType.ModifyGroupInfo时有效
 java.util.List<TIMGroupTipsElemGroupInfo> getGroupInfoList()
- 
+
 //获取群组名称
 java.lang.String    getGroupName()
- 
+
 //获取群成员变更信息列表，仅当tipsType值为TIMGroupTipsType.ModifyMemberInfo时有效
 java.util.List<TIMGroupTipsElemMemberInfo>    getMemberInfoList()
- 
+
 //获取操作者
 java.lang.String    getOpUser()
- 
+
 //获取群组事件通知类型
 TIMGroupTipsType    getTipsType()
- 
+
 //获取被操作的帐号列表
 java.util.List<java.lang.String>  getUserList()
 ```
- 
+
 TIMGroupTipsType 原型：
 ```
 //取消管理员
 CancelAdmin
- 
+
 //加入群组
 Join
- 
+
 //被踢出群组
 Kick
- 
+
 //修改群资料
 ModifyGroupInfo
- 
+
 //修改成员信息
 ModifyMemberInfo
- 
+
 //主动退出群组
 Quit
- 
+
 //设置管理员
 SetAdmin
 ```
@@ -1838,25 +1838,25 @@ TIMGroupTipsElemGroupInfo 原型：
 ```
 //获取消息内容
 java.lang.String    getContent()
- 
+
 //获取群资料变更消息类型
 TIMGroupTipsGroupInfoType   getType()
 ```
- 
+
 TIMGroupTipsGroupInfoType 原型：
 ```
 //修改群头像URL
 ModifyFaceUrl
- 
+
 //修改群简介
 ModifyIntroduction
- 
+
 //修改群名称
 ModifyName
- 
+
 //修改群公告
 ModifyNotification
- 
+
 //修改群主
 ModifyOwner
 ```
@@ -1878,7 +1878,7 @@ getMemberInfoList|	变更的群成员的具体资料信息，为TIMGroupTipsElem
 ```
 //获取被禁言群成员的identifier
 java.lang.String    getIdentifier()
- 
+
 //获取被禁言时间
 long    getShutupTime()
 ```
@@ -1940,7 +1940,7 @@ TIM_GROUP_SYSTEM_INVITATION_REFUSED_TYPE
  *  取值： iOS Android Windows Mac Web RESTAPI Unknown
  * @return 返回操作方平台信息
  */
-public String getPlatform() 
+public String getPlatform()
 
 /**
  * 获取消息子类型
@@ -2027,9 +2027,9 @@ getGroupId	| 群组Id，邀请进入哪个群
 getOpUser	| 操作人，表示哪个用户的邀请
 
 
-### 10.4 邀请入群同意/拒绝消息 
+### 10.4 邀请入群同意/拒绝消息
 
-触发时机：当被邀请者同意入群请求时，邀请者会收到同意入群的消息；当被邀请者拒绝时，邀请者收到拒绝入群的消息。 
+触发时机：当被邀请者同意入群请求时，邀请者会收到同意入群的消息；当被邀请者拒绝时，邀请者收到拒绝入群的消息。
 
 **TIMGroupSystemElem 成员方法返回说明：**
 
@@ -2128,58 +2128,3 @@ getOpUser	| 操作人
 ---|---
 getSubtype	|	TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE
 getGroupId	| 群组Id，表示哪个群被回收了
-
-## 11. 搜索群
-
-通过`TIMGroupManagerExt`提供的`searchGroup`方法可以根据指定的条件来搜索群，**目前只支持群名匹配关键字**，可自定义获取的群资料字段。
-
-**原型：**
-
-```
-/**
- * 根据群组名称信息搜索群组资料（可以指定字段拉取）
- * @param groupName 群组名称关键字
- * @param flags 拉取资料标志, 如{@see TIMGroupManager#TIM_GET_GROUP_BASE_INFO_FLAG_NAME}等标志的或组合位图
- * @param custom 要获取的自定义key
- * @param pageIndex 分页号
- * @param pageSize 每个分页的群组数目
- * @param cb 回调，在onSuccess回调参数中返回搜索结果，详见{@see TIMGroupSearchSucc}
- */
-public void searchGroup(@NonNull String groupName, long flags, List<String> custom, int pageIndex,
-						int pageSize, @NonNull TIMValueCallBack<TIMGroupSearchSucc> cb)
-```
-
-**示例：**
-
-```
-//设置拉取字段，只拉取群类型、群主ID、群简介
-long flag =0;
-flag |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_GROUP_TYPE;
-flag |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_OWNER_UIN;
-flag |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_INTRODUCTION;
-
-//搜索群名称包含"test"关键字的群
-TIMGroupManagerExt.getInstance().searchGroup("test", flag, null, 0, 10, new TIMValueCallBack<TIMGroupSearchSucc>(){
- 
-    @Override
-    public void onError(int arg0, String arg1) {
-        Log.d(tag,"searchGroup failed, error:"+ arg0 +":" + arg1);
-    }
- 
-    @Override
-    public void onSuccess(TIMGroupSearchSucc arg0) {
-        Log.d(tag,"searchGroup succ:"+ arg0.getInfoList().size());
-        //  mListGroup.clear();
-        List<TIMGroupDetailInfo>  infos = arg0.getInfoList();
-        for(TIMGroupDetailInfo info:infos){
-            Log.d(tag, "type:" + info.getGroupType()
-                    + " |owner: " + info.getGroupOwner()
-                    + "|groupname: " + info.getGroupName()
-                    + "|introduction: " + info.getGroupIntroduction()
-            );
-        }
-    }
- 
-});
-
-```
