@@ -35,7 +35,7 @@ Request a Certificate From a Certificate Authority…
 ![](//mc.qcloudimg.com/static/img/61f00eed1371c2ef791dff672545e899/image.png)
 返回网站，选择刚才创建的文件上传
 ![](//mc.qcloudimg.com/static/img/c62bc18cdcb019a62f4ef73cedff8691/image.jpg)
-成功后，下载到本地 http://developer.qq.com/wiki/xg/imgs/20151118170536_85822.jpg
+成功后，下载到本地![](//http://developer.qq.com/wiki/xg/imgs/20151118170536_85822.jpg) 
 
 再次打开 Keychain Access。选中 Push 证书导出，选中一行。导出的格式为 p12
 ![](//mc.qcloudimg.com/static/img/cadb2f416989d37fa517fa27defb21b6/image.jpg)
