@@ -122,5 +122,5 @@ Cloud VOD provides player SDKs for Android, iOS and Web platforms. For more info
 * [VOD Player SDK and Demo for iOS](https://cloud.tencent.com/document/product/266/9237)
 * [VOD Player SDK Download](https://cloud.tencent.com/document/product/266/5236)
 
-## FAQ
+
 
