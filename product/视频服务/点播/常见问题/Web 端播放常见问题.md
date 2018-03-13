@@ -119,9 +119,9 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 腾讯云点播 WEB 播放器采用屏幕全屏为主，网页全屏为辅的全屏方案。全屏模式的优先级为 Fullscreen API > webkitEnterFullScreen > 网页全屏。
 
 目前已知的全屏情况：
-x5 内核(包括 Android 端的微信、手机 QQ、QQ 浏览器)：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
+x5 内核（包括 Android 端的微信、手机 QQ、QQ 浏览器）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
 Android Chrome：支持 Fullscreen API，全屏后进入带有腾讯云播放器UI的屏幕全屏模式。
-iOS safari：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 iOS 系统 UI 的屏幕全屏模式。
+iOS （包括微信、手机 QQ、Safari）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 iOS 系统 UI 的屏幕全屏模式。
 IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
 其他桌面端现代浏览器：通常支持 Fullscreen API，全屏后进入带有腾讯云播放器UI的屏幕全屏模式。
 
