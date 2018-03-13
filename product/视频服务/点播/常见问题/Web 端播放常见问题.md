@@ -120,10 +120,10 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 
 目前已知的全屏情况：
 x5 内核（包括 Android 端的微信、手机 QQ、QQ 浏览器）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
-Android Chrome：支持 Fullscreen API，全屏后进入带有腾讯云播放器UI的屏幕全屏模式。
+Android Chrome：支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
 iOS （包括微信、手机 QQ、Safari）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 iOS 系统 UI 的屏幕全屏模式。
 IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
-其他桌面端现代浏览器：通常支持 Fullscreen API，全屏后进入带有腾讯云播放器UI的屏幕全屏模式。
+其他桌面端现代浏览器：通常支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
 
 ### 默认全屏播放
 与问题“视频激活播放后强制全屏”相同，参考其解决方案。
