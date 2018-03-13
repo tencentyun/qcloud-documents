@@ -46,7 +46,7 @@ Request a Certificate From a Certificate Authority…
 openssl pkcs12 -in CertificateName.p12 -out CertificateName.pem -nodes
 ```
 则生成了 CertificateName.pem 证书，上传到信鸽则可以进行消息推送。
-详细 iOS SDK 相关开发信息请前往[iOS SDK 完整接入](文档超链待补)。
+详细 iOS SDK 相关开发信息请前往 [iOS SDK V2.5.0 完整接入](文档超链待补) 或 [iOS SDK V3.0.0 完整接入](文档超链待补)。
 
 
 
