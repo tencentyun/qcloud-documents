@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口 ( BatchDeleteTag ) 批量删除 tag。
+本接口 ( BatchDeleteTag ) 批量删除tag。
 接口请求域名：`ccr.api.qcloud.com`。
 
 ## 2. 输入参数
@@ -8,7 +8,7 @@
 | 参数名称 | 描述 |类型 | 必选  | 
 |---------|---------|---------|---------
 | reponame   | 仓库名字 | String |是 |
-| tags   | tag 数组 | Object Array |是 |
+| tags   | tag数组 | Object Array |是 |
 
 
 ## 3. 输出参数

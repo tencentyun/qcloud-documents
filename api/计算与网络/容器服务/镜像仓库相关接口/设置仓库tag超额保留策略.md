@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口 ( CloseAutoDelStrategy ) 关闭仓库 tag 超额保留策略。
+本接口 ( SetAutoDelStrategy ) 用于设置仓库tag超额保留策略，当tag配额达到限制时自动清理tag。
 接口请求域名：`ccr.api.qcloud.com`。
 
 ## 2. 输入参数
@@ -8,6 +8,8 @@
 | 参数名称 | 描述 |类型 | 必选  | 
 |---------|---------|---------|---------
 | reponame   | 仓库名字 | String |是 |
+| type   | 策略类型<br>keep\_last\_days：保留最近几天的数据<br>keep\_last\_nums：保留最近多少个数据 | String |是 |
+| val   | 策略值 | Int |是 |
 
 
 ## 3. 输出参数
@@ -22,8 +24,10 @@
 输入
 
 ```
-  https://domain/v2/index.php?Action=CloseAutoDelStrategy
+  https://domain/v2/index.php?Action=SetAutoDelStrategy
   &reponame=test/kube_test
+  &type=keep_last_nums
+  &val=10 
   &其它公共参数
 ```
 输出

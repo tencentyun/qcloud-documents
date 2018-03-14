@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口 ( GetAutoDelStrategy ) 获取仓库 tag 超额保留策略。
+本接口 ( GetAutoDelStrategy ) 获取仓库tag超额保留策略。
 接口请求域名：`ccr.api.qcloud.com`。
 
 ## 2. 输入参数
