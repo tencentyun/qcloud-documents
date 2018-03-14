@@ -29,7 +29,7 @@
 | extend | 否   | string | 短信码号扩展号，格式为纯数字串，其他格式无效。默认没有开通，开通请联系 [腾讯云短信技术支持](https://cloud.tencent.com/document/product/382/3773) |
 | msg    | 是   | string | 短信消息，utf8 编码，需要匹配审核通过的模板内容                                           |
 | sig    | 是   | string | App 凭证，具体计算方式见下注                                                              |
-| tel    | 是   | object | 国际电话号码，格式依据 [e.164](https://en.wikipedia.org/wiki/E.164) 标准为: `+[国家码][手机号]` ，示例如：`+8613711112222`， 其中前面有一个 `+` 符号 ，`86` 为国家码，`13711112222` 为手机号       |
+| tel    | 是   | string | 国际电话号码，格式依据 [e.164](https://en.wikipedia.org/wiki/E.164) 标准为: `+[国家码][手机号]` ，示例如：`+8613711112222`， 其中前面有一个 `+` 符号 ，`86` 为国家码，`13711112222` 为手机号       |
 | time   | 是   | number | 请求发起时间，unix 时间戳（单位：秒），如果和系统时间相差超过 10 分钟则会返回失败                       |
 | type   | 是   | number | 短信类型，Enum{0: 普通短信, 1: 营销短信}（注意：要按需填值，不然会影响到业务的正常使用） |
 
@@ -41,14 +41,14 @@
 如果您的模板是 `你的验证码是{ 1 }`，则 "msg" 字段可赋值为：`你的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
 如果您有多个短信签名，请将需要的短信签名放在短信内容前面，例如您有 "【腾讯科技】"，"【腾讯云】" 两个签名，但是想以 "【腾讯云】" 签名发送短信，
 则 "msg" 字段可赋值为：`【腾讯云】你的验证码是xxxx`。（其中 "xxxx" 为下发的验证码）
-2. "sig" 字段根据公式 `sha256（appkey=$appkey&random=$random&time=$time&mobile=$mobile）`生成
+3. "sig" 字段根据公式 `sha256（appkey=$appkey&random=$random&time=$time&tel=$tel）`生成
 伪代码如下：
 ```json
-string strMobile = "13788888888"; //tel 的 mobile 字段的内容
+string strtel = "+8613788888888"; //tel 的内容
 string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appkey，需要业务方高度保密
 string strRand = "7226249334"; //url 中的 random 字段的值
 string strTime = "1457336869"; //unix 时间戳
-string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&mobile=13788888888)
+string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
            = ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4;
 ```
 
