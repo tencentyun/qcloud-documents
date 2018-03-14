@@ -1,8 +1,8 @@
-Tencent Cloud CCS To ensure steady closed-loop features, some restrictions are imposed on the Kubernetes orchestration syntax in the container platform. This document describes the restrictions and reasons for them.
+To ensure steady closed-loop features, some restrictions are imposed on the Kubernetes orchestration syntax in the container platform. This document describes the restrictions and reasons for them.
 
 ## Restriction on Supported Resource Types
 
-Kubernetes contains many different types of resources. Only the most commonly used resources `Deployment` and ` Service` are available in CCS to meet user needs. (When you create `Deployment`, `Pod` and `replicaset` are created automatically).
+Kubernetes contains many different types of resources. Only the most commonly used resources `Deployment` and ` Service` are available in CCS to meet user needs. (When you create `Deployment`, `Pod` resources and `replicaset` are created automatically.)
 
 Only `Deployment` and `Service` are available in all the application orchestrations in CCS.
 
