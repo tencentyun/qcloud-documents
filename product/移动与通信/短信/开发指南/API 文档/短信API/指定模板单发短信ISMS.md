@@ -35,7 +35,7 @@
 | params | 是   | array  | 模板参数，若模板没有参数，请提供为空数组                              |
 | sig    | 是   | string | App 凭证，具体计算方式见下注                                           |
 | sign   | 否   | string | 短信签名，如果使用默认签名，该字段可缺省                              |
-| tel    | 是   | object | 国际电话号码，格式依据 [e.164](https://en.wikipedia.org/wiki/E.164) 标准为: `+[国家码][手机号]` ，示例如：`+8613711112222`， 其中前面有一个 `+` 符号 ，`86` 为国家码，`13711112222` 为手机号。  |
+| tel    | 是   | string | 国际电话号码，格式依据 [e.164](https://en.wikipedia.org/wiki/E.164) 标准为: `+[国家码][手机号]` ，示例如：`+8613711112222`， 其中前面有一个 `+` 符号 ，`86` 为国家码，`13711112222` 为手机号。  |
 | time   | 是   | number | 请求发起时间，unix 时间戳（单位：秒），如果和系统时间相差超过 10 分钟则会返回失败    |
 | tpl_id | 是   | number | 模板 ID，在控制台审核通过的模板 ID ， |
 
@@ -45,14 +45,14 @@
 1. `tpl_id` 字段需填写审核通过的模板 ID，
 假如模版 ID 对应的模板内容为： `您的{1}是{2}，请于{3}分钟内填写。如非本人操作，请忽略本短信。` ，则上面请求参数组合后下发的内容为： `【腾讯云】您的验证码是1234，请于4分钟内填写。如非本人操作，请忽略本短信。` 。
 如您有多个短信签名，请将需要的短信签名填入 `sign` 字段，例如您有 `腾讯科技` 和 `腾讯云` 两个签名，但想以 `腾讯云` 签名发送短信，则 `sign` 字段可赋值为： `腾讯云` 。
-2. `sig` 字段根据公式 `sha256（appkey=$appkey&random=$random&time=$time&mobile=$mobile）`生成
+2. `sig` 字段根据公式 `sha256（appkey=$appkey&random=$random&time=$time&tel=$tel）`生成
 伪代码如下：
 ```json
-string strMobile = "13788888888"; //tel 的 mobile 字段的内容
+string strtel = "+8613788888888"; //tel 的内容
 string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //sdkappid 对应的 appkey，需要业务方高度保密
 string strRand = "7226249334"; //url 中的 random 字段的值
 string strTime = "1457336869"; //unix 时间戳
-string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&mobile=13788888888)
+string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&tel=+8613788888888)
            = ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4;
 ```
 
