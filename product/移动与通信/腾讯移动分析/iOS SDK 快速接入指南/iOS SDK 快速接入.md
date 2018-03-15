@@ -15,12 +15,10 @@
 ```
 2. 在启动方法内添加如下语句
 该启动方法为：
-
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 ```
-
 添加该语句：
 ```
 [MTA startWithAppkey:@"xxxx"]; //xxxx为注册App时得到的APPKEY
@@ -35,6 +33,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // ...
 }
 ```
+
 ## 验证数据上报
 成功嵌入 SDK 后，在模拟器或手机运行您上面已经编译好的应用（确保已执行 MTA 代码），便会自动上报数据。
 ![](//mc.qcloudimg.com/static/img/4b864a1a4a7a2cfbb70e73a86a30fef3/image.png)
