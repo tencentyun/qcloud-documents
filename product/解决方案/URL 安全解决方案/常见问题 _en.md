@@ -11,7 +11,7 @@ Common malicious URLs can be detected, such as pornography, embedded Trojan, fra
 When we have detected that the URL submitted by you or the one under the monitoring domain name submitted by you is malicious, we will take the initiative to inform you of this for further processing.
 
 ### How to submit the unblocking request for approval?
-If your URL is prohibited from distributing on any marketing platform, you must submit the URL for approval once again on the [Control](https://console.cloud.tencent.com/tianyu/overview) after verifying the malicious content has been removed. If you are a VIP user, the URL you resubmitted in working days will be verified and processed again within 30 minutes.
+If your URL is prohibited from distributing on any marketing platform, you must submit the URL for approval once again on the [Console](https://console.cloud.tencent.com/tianyu/overview) after verifying the malicious content has been removed. If you are a VIP user, the URL you resubmitted in working days will be verified and processed again within 30 minutes.
 
 ### How to become a VIP customer?
 Tencent cloud needs to verify your identity and qualification, and you can become a VIP user once the verification is passed.

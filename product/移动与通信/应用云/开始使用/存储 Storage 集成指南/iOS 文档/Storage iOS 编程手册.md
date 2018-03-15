@@ -144,3 +144,69 @@ TACStorageReference *uploadTask = [riversRef putFile:localFile metadata:nil comp
 }];
 
 ~~~
+
+#### 添加文件元数据
+在文件上传时可以传入元数据，当需要附带一些特殊的信息（例如 Content-Disposition 头部，或者加入自定义的头部）时，可以通过附带在元数据里，随着文件一起上传。例如上传时希望加入一个值为 x-cos-meta-test 的头部时，可以参考下面的例子：
+```objective-c
+TACStorageReference* ref = [[TACStorageService defaultStorage] rootReference];
+  ref = [ref child:@"object-test"];
+  NSString* content = @"file-content";
+   __block TACStorageMetadata* metaData = [[TACStorageMetadata alloc] init];
+   metaData.customMetadata = @{@"x-cos-meta-test":@"testCustomHeader"};//加入自定义头部
+   TACStorageUploadTask* uploadTask = [ref putData:[content dataUsingEncoding:NSUTF8StringEncoding] metaData:metaData completion:^(TACStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
+       //result
+   }];
+   [uploadTask enqueue];
+```
+#### 监听任务状态
+不管是上传还是下载任务，都可以通过下面的方法来监听任务的状态。其中 status 传入希望监听的状态，当对应的状态变更时会调用 handler 进行回调。例如如果希望监听任务的进度，那么status可以传入 TACStorageTaskStatusProgress 。
+```objective-c
+- (TACStorageHandler) observeStatus:(TACStorageTaskStatus)status handler:(void (^)(TACStorageTaskSnapshot * ))handler
+```   
+
+例（监听一个下载任务的进度）：
+```objective-c
+TACStorageReference* ref = [[TACStorageService defaultStorage] referenceWithPath:@"hello"];
+NSURL* url = @"file-local-url";
+TACStorageDownloadTask* download = [ref downloadToFile:url completion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
+    // finish callback
+}];
+[download observeStatus:TACStorageTaskStatusProgress handler:^(TACStorageTaskSnapshot *snapshot) {
+      NSLog(@"下载任务进度：%f"snapshot.progress.fractionCompleted > 0.3)
+];
+[download enqueue];
+```
+
+#### 管理上传
+对于较大的文件（1MB以上）会采取分块上传的形式，上传时会将文件切分成 1MB 大小的数个块，然后并行进行上传。对于这类型的上传可以实现暂停和续传。    
+```objective-c
+NSString* mb4bfile = @"file-local-path";
+
+TACStorageReference* ref = [[TACStorageService defaultStorage] referenceWithPath:@"hello"];
+
+   __block TACStorageMetadata* result;
+   TACStorageUploadTask* task = [ref putFile:[NSURL fileURLWithPath:mb4bfile] metaData:nil completion:^(TACStorageMetadata * _Nullable metadata, NSError * _Nullable error) {
+       //完成回调
+   }];
+   [task enqueue];
+
+
+  //上传还没完成时
+
+  //暂停上传
+  [task pause];
+  //暂停下载
+  [task resume];
+  //取消上传
+  [task cancel];
+```
+#### 删除文件
+删除文件时，只需要对其引用直接调用 deleteWithCompletion: 方法即可，参考下面的例子：
+```objective-c
+TACStorageReference* ref = [[TACStorageService defaultStorage] referenceWithPath:@"test"];
+[ref deleteWithCompletion:^(NSError * _Nullable error) {
+    if (nil == error) {
+      //删除成功
+    } ;
+  }];
+```
