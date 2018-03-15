@@ -1,4 +1,3 @@
-# 应用云 Analytics Android 编程手册
 
 ## 启动服务实例
 
@@ -48,7 +47,7 @@ TACAnalyticsService.getInstance().trackEventDuration(context, TACAnalyticsEvent,
 
 ## 会话统计
 
-会话统计用于统计启动次数，由SDK本身维护，通常开发者无需额外设置或调用接口。
+会话统计用于统计启动次数，由 SDK 本身维护，通常开发者无需额外设置或调用接口。
 
 以下3种情况下，会视为用户打开一次新的会话：
 
@@ -64,7 +63,9 @@ void TACAnalyticsService.getInstance().exchangeNewSession(Context context)
 
 ## 定制 Analytics 服务
 
-我们提供了一些高级配置项，您可以通过这些配置项定制化您的 Analytics 服务。**请注意，您需要在启动服务前完成配置。**
+我们提供了一些高级配置项，您可以通过这些配置项定制化您的 Analytics 服务。
+> **注意:**
+> 您需要在启动服务前完成配置。
 
 ### 获取 Options
 
@@ -75,7 +76,7 @@ final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analy
 
 ### 设置会话超时时长
 
-设置会话超时时长，默认30秒，时长内回到应用的用户视为同一次会话。
+设置会话超时时长，默认 30 秒，时长内回到应用的用户视为同一次会话。
 
 ```
 final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
@@ -120,19 +121,19 @@ Analytics 有多种上报策略，您可以根据需要选择：
 
 | 编号	| 策略名称	|  说明 | 
 | :---: | :----: | :---- |
-| 1	| INSTANT	| 实时发送，app每产生一条消息都会发送到服务器。| 
-| 2	| ONLY_WIFI	| 只在wifi状态下发送，非wifi情况缓存到本地。| 
-| 3	| BATCH	| 批量发送，默认当消息数量达到30条时发送一次。| 
+| 1	| INSTANT	| 实时发送，APP 每产生一条消息都会发送到服务器。| 
+| 2	| ONLY_WIFI	| 只在 WIFI 状态下发送，非 WIFI 情况缓存到本地。| 
+| 3	| BATCH	| 批量发送，默认当消息数量达到 30 条时发送一次。| 
 | 4	| APP_LAUNCH	| 只在启动时发送，本次产生的所有数据在下次启动时发送。| 
 | 5	| DEVELOPER	| 开发者模式，只在手动调用 `sendEvents(Context)` 时发送，否则缓存消息到本地。| 
 | 6	| PERIOD	| 间隔一段时间发送，每隔一段时间一次性发送到服务器。| 
 
-如果您使用 `BATCH` 上报策略，那么您可以通过 `minBatchReportCount` 方法设置最小批量发送消息个数，默认是30条：
-
+如果您使用 `BATCH` 上报策略，那么您可以通过 `minBatchReportCount` 方法设置最小批量发送消息个数，默认是 30 条：
+ 
 ```
 final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
 
-// 设置为当消息数量达到50条时发送一次
+// 设置为当消息数量达到 50 条时发送一次
 tacAnalyticsOptions.minBatchReportCount(50);
 ```
 
@@ -141,7 +142,7 @@ tacAnalyticsOptions.minBatchReportCount(50);
 ```
 final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
 
-// 设置为发送时间间隔为1小时，单位是ms
+// 设置为发送时间间隔为 1 小时，单位是 ms
 tacAnalyticsOptions.sendPeriodMillis(60 * 60 * 1000);
 ```
 
