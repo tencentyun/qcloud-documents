@@ -1,11 +1,10 @@
-# 应用云 Storage Android 编程手册
 
 ## 文件引用
 
 ### 创建引用
 
-要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用，引用可以看作是指向云端文件的指针：
-
+引用可以看作是指向云端文件的指针：要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用。
+ 
 ```
 TACStorageService storage = TACStorageService.getInstance();
 

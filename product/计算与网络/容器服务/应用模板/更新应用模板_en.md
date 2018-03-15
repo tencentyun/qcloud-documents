@@ -1,19 +1,19 @@
 
 ## Application Template List
 
-Log in to the [Tencent CCS Console](https://console.cloud.tencent.com/ccs). You can view all your application templates on [Application Template][1] page.
+Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). You can view all your application templates on the **Application Management** -> **[Application Template][1]** Page.
 
 ![应用模板查看-001.png-51.4kB][2]
 
 ## Filtering and Searching Application Template
 
-Enter the name in the search box above the application template list to filter and search applications with the specific name. For example: Enter `nginx` in the search box to filter out the templates of which the names contain `nginx`.
+Enter the name in the search box above the application template list to filter and search applications with the specific name. Enter `nginx` in the search box to filter out the templates whose names contain `nginx`.
 
 ![应用模板查看-002.png-21.5kB][3]
 
 ## Application Template Details
 
-You can click an application template ID on the application template page to view the details.
+You can click an application template ID on the application template page to view details.
 
 ![应用模板查看-003.png-39.8kB][4]
 
