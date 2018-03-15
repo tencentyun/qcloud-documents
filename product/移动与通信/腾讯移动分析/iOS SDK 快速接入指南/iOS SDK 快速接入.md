@@ -15,18 +15,15 @@
 ```
 2. 在启动方法内添加如下语句
 该启动方法为：
-
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 ```
 添加该语句：
-
 ```
 [MTA startWithAppkey:@"xxxx"]; //xxxx为注册App时得到的APPKEY
 ```
 添加完成后的代码如下：
-
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
