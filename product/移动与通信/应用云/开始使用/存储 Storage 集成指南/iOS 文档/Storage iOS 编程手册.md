@@ -1,12 +1,9 @@
-## 应用云 Storage iOS 编程手册
 
-## 开始之前
+## 准备工作
+ 
 
-
-如果这是您首次向应用添加 Storage，请完成以下步骤：
-
-在应用云控制台中关联您的应用
-
+如果这是您首次向应用添加 Storage，请先在应用云的控制台中关联您的应用：
+ 
 1.安装 [应用云 SDK](https://console.cloud.tencent.com/tac)。
 2.在 [应用云控制台](https://console.cloud.tencent.com/tac) 中，将您的应用添加到您的应用云项目中。
 3.参考 [Storage 配置文档](https://console.cloud.tencent.com/tac)，配置并初始化 Storage。
@@ -19,7 +16,7 @@
 
 
 ### 创建引用
-要上传、下载或删除文件或要获取或更新文件的元数据，请创建引用，引用可以看作是指向云端文件的指针。由于引用属于轻型项目，因此您可以根据需要创建任意多个引用，引用还可以在多个操作中复用。
+引用可以看作是指向云端文件的指针：要上传、下载或删除文件或要获取或更新文件的元数据，请创建引用。由于引用属于轻型项目，因此您可以根据需要创建任意多个引用，引用还可以在多个操作中复用。
 
 引用是使用 TACStorageService 服务并调用其 referenceWithPath 或者 rootReference 方法创建的：
 
@@ -159,7 +156,7 @@ TACStorageReference* ref = [[TACStorageService defaultStorage] rootReference];
    [uploadTask enqueue];
 ```
 #### 监听任务状态
-不管是上传还是下载任务，都可以通过下面的方法来监听任务的状态。其中 status 传入希望监听的状态，当对应的状态变更时会调用 handler 进行回调。例如如果希望监听任务的进度，那么status可以传入 TACStorageTaskStatusProgress 。
+不管是上传还是下载任务，都可以通过下面的方法来监听任务的状态。其中 status 传入希望监听的状态，当对应的状态变更时会调用 handler 进行回调。例如如果希望监听任务的进度，那么 status 可以传入 TACStorageTaskStatusProgress 。
 ```objective-c
 - (TACStorageHandler) observeStatus:(TACStorageTaskStatus)status handler:(void (^)(TACStorageTaskSnapshot * ))handler
 ```   
@@ -178,7 +175,7 @@ TACStorageDownloadTask* download = [ref downloadToFile:url completion:^(NSURL * 
 ```
 
 #### 管理上传
-对于较大的文件（1MB以上）会采取分块上传的形式，上传时会将文件切分成 1MB 大小的数个块，然后并行进行上传。对于这类型的上传可以实现暂停和续传。    
+对于较大的文件（1MB以上）会采取分块上传的形式，上传时会将文件切分成 1 MB 大小的数个块，然后并行进行上传。对于这类型的上传可以实现暂停和续传。    
 ```objective-c
 NSString* mb4bfile = @"file-local-path";
 

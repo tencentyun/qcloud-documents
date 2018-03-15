@@ -31,8 +31,8 @@ public class MyApplication extends SomeOtherApplication {
 ## 增加上报进程控制
 
 如果 App 使用了多进程且各个进程都会初始化 Crash（例如在 Application 类 onCreate()中初始化 Crash），那么每个进程下都会进行数据上报，造成不必要的资源浪费。
-
-你可以通过以下方法控制只在主线程上报数据，首先通过以下方法获取当前进程是否为主进程：
+ 
+您可以通过以下方法控制只在主线程上报数据，首先通过以下方法获取当前进程是否为主进程：
 
 ```
 public boolean isMainProcess() {
@@ -49,7 +49,7 @@ public boolean isMainProcess() {
 	}
 ```
 
-然后，在你启动服务的地方，加上进程的判断：
+然后，在您启动服务的地方，加上进程的判断：
 
 ```
 if (isMainProcess()) {
