@@ -137,7 +137,7 @@ final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analy
 tacAnalyticsOptions.minBatchReportCount(50);
 ```
 
-如果您使用 `PERIOD` 上报策略，那么您可以通过 `sendPeriodMillis` 方法设置发送时间间隔，默认为3小时：
+如果您使用 `PERIOD` 上报策略，那么您可以通过 `sendPeriodMillis` 方法设置发送时间间隔，默认为 3 小时：
 
 ```
 final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
