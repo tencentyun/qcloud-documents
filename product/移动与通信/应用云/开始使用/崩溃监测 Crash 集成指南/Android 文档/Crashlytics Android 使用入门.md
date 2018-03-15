@@ -73,8 +73,8 @@ dependencies {
 
 #### 1. 下载服务资源压缩包。
  
-1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
-2. 下载 [应用云 Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-crash-1.0.0.zip)，并解压。
+- 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
+- 下载 [应用云 Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-crash-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包。
 - 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
@@ -140,9 +140,9 @@ apply plugin: 'com.tencent.tac.crash'
 
 ### 手动上传
 
-1. 下载[符号表工具](https://bugly.qq.com/v2/sdk?id=37d1ad19-a4b0-4eed-9146-55d87fc79f8d)。
+1. 下载 [符号表工具](https://bugly.qq.com/v2/sdk?id=37d1ad19-a4b0-4eed-9146-55d87fc79f8d)。
 2. 根据 UUID 定位 Debug SO 文件，具体可参考工具包中的使用文档。
-3. 使用工具生成符号表文件（zip文件），具体的使用方法可参考工具包中的使用文档。
+3. 使用工具生成符号表文件（zip 文件），具体的使用方法可参考工具包中的使用文档。
 4. 在应用云的控制台上传符号表文件。
  
 如果您的项目只使用了混淆代码 (Proguard)，而没有 Native 工程，只需要直接上传 Proguard 生成的 Mapping 文件即可。
