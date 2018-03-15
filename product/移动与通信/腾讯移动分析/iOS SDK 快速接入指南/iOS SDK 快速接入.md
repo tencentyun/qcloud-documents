@@ -11,13 +11,14 @@
 ![](//mc.qcloudimg.com/static/img/dbd8742a715f2e1b414b731b6b28743b/image.png)
 
 ## 嵌入 MTA 代码
-1. 切换到工程目录，打开 AppDelegate.m，在文件开头 import 部分增加 import：
+1.切换到工程目录，打开 AppDelegate.m，在文件开头 import 部分增加 import：
 ```
 #import "MTA.h"
 #import "MTAConfig.h"
 ```
-2. 在启动方法内添加如下语句
+2.在启动方法内添加如下语句：
 该启动方法为：
+
 ```
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
