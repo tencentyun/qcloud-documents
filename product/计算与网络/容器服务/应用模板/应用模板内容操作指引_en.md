@@ -1,20 +1,16 @@
 In an application template (or an application), you can save the service deployment information as a template using YAML-based descriptive language for the purpose of reutilization or deployment of different applications in multiple environments. You can import and edit the template content of the service in Template Content field.
 
-Two methods are provided to import template content: 1. import via the console; 2. import from YAML file
+You can import the template content by importing service from UI or by adding an empty service.
 
 >**Note:**
->You can select either one of the methods depending on different scenarios.
+>You can select either one of the above methods depending on different scenarios.
 
-**Import via the console**: The parameters of the service you entered in the console are automatically converted to a YAML description file in the template content. It is suitable when no YAML description file is available. **Import YAML file**: You can directly copy the content of the existing YAML description file to the template content field. It is suitable when YAML description file is available.
+**Import from UI**: The parameters of the service you entered on the console are automatically converted to a YAML description file in the template content. It is suitable when no YAML description file is available. **Add empty service**: You can directly copy the content of the existing YAML description file to the template content field. It is suitable when YAML description file is available.
 
-![模板内容操作-001.png-31.8kB][1]
 
-## Template for Importing Service on the Console
+## Template for Importing Service from UI
 
-On the **Create Template** (or **Create Application**) page, click **Import Service**. The parameters you entered on the console are automatically converted to the service template content.
-
-![模板内容操作-002.png-71.9kB][2]
-![模板内容操作-003.png-48kB][3]
+On the **Create Template** (or **Create Application**) page, click `Import Service from UI` button. The parameters you entered on the console are automatically converted to the service template content.
 
 The parameter settings on **Import Service** page is identical to that on **Create Service** page.
 Main parameters include: Basic information, volume, the running parameters of container, number of pods, service access type and port.
@@ -22,8 +18,8 @@ Main parameters include: Basic information, volume, the running parameters of co
 For example, to deploy a nginx service, you need to enter the following parameters:
 
 Basic information:
-1. Enter the service name: `nginx`
-2. Enter the service description: `nginx service`
+1. Service name: `nginx`
+2. Service description: `nginx service`
 
 Volume information:
 3. Unused data disk: None
@@ -32,7 +28,7 @@ Image parameters:
 4. Set image parameters in the running parameters of the container:
 Container name: `nginx`
 Image name: `nginx`
-Version: `latest`
+Tag: `latest`
 
 The number of pods:
 5. Number of pods: 1
@@ -43,17 +39,13 @@ Access method:
 
 For more information on parameter settings, please see [Create Service][4].
 
-After configuring the parameters, click **Finish**, and the console automatically imports the template content of the service.
-![模板内容操作-004.png-47.4kB][5]
+After configuring the parameters, click the `Finish` button, and the console automatically imports the template content of the service.
+## Adding Empty Service and Importing Template Content
 
-## Template for Importing Service from YAML File
-
-If a YAML file of the template content corresponding to the service exists, you can directly import the template content into the edit box. Proceed as follows:
+If a YAML file of the template content corresponding to the service exists, you can directly import the template content into the edit box as follows:
 
 **Step 1: Create a service**
-In the template content editing area, click **+** to add a new service.
-
-![模板内容操作-005.png-37.3kB][6]
+Click the "Add empty service" button to add a service.
 
 **Step 2: Import the template content**
 
@@ -111,11 +103,9 @@ status:
 
 **Step 3: Extract variables from the template content**
 
-In this example, the parameter `namespace` is replaced with `NAMESPACE` as a variable. For more information on variable substitution, please see [Variable Substitution][7].
+In this example, the parameter `namespace` is substituted with `NAMESPACE` as a variable. For more information on variable substitution, please see [Variable Substitution][7].
 
-Click `Import from the template` button to extract the variable in the template content as the configuration item. Then, enter default value of the variable in the configuration item. Here, it is set to `default`.
-
-![模板内容操作-010.png][8]
+The system automatically extracts the variables in the template content as the configuration item. Then, enter default value of the variable in the configuration item. Here, it is set to `default`.
 
 ## Editing Template Content
 
@@ -127,15 +117,12 @@ The syntax rule of template content conforms to the Kubernetes syntax. For more 
 
 ## Configuring Parameters in Template Content
 
-In the template content, if a parameter varies with different environments or needs to be modified frequently, you can convert the parameter into a configurable variable. For example, the number of service pod replicas above may vary in different environments, so we can convert it to the variable `NGINX_REPLICAS`. For more information on variables in the template, please see [Variables Settings][11].
+In the template content, if a parameter varies with different environments or needs to be modified frequently, you can convert the parameter into a configurable variable. For example, the number of service pod replicas above may vary in different environments, so we can convert it to the variable `NGINX_REPLICAS`. For more information on variables in the template, please see [Variable Settings][11].
 
-![模板内容操作-012.png][12]
 
-Click `Import from the template` button to extract the variable in the template content as the configuration item. Then, enter default value of the variable in the configuration item. Here, it is set to `2`.
+The system extracts the variables in the template content as the configuration item. Then, enter default value of the variable in the configuration item. Here, it is set to `2`.
 
-![模板内容操作-013.png][14]
-
-In this way, you can select different configuration items in different deployment environments as needed, and adjust the number of pods in the service accordingly.
+You can select different configuration items in different deployment environments as needed, and adjust the number of pods in the service accordingly.
 
   [1]: https://mc.qcloudimg.com/static/img/4497405adc55f7eaec00774dd28852c7/image.png
   [2]: https://mc.qcloudimg.com/static/img/14eb885cb7632ca3cc716f8ad75459c1/image.png
