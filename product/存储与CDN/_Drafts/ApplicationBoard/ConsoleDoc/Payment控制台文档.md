@@ -21,9 +21,7 @@
 
 接下来，您需要点击【开通微信支付】或者【开通QQ钱包支付】，填写渠道配置信息：
 
-<div align=center>
-<img src="http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_3_.png" width = "550" alt="图片描述" align=center />
-</div>
+<img src="http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_3.png" width="50%" height="50%">
 
 填写好渠道信息后，点击【确定】。
 
