@@ -8,7 +8,7 @@
 
  ![p1](https://mc.qcloudimg.com/static/img/a18a018f87701fd94182da23fb47188b/image.png)
 
-2. 根据您的需求选择地域、带宽上限、数量，IP 地址类型选择 【加速 IP 地址】，再单击 【确定】 即可创建 Antcast 型 EIP。
+2. 根据您的需求选择地域、带宽上限、数量，IP 地址类型选择 【加速 IP 地址】，再单击 【确定】 即可创建 Anycast 型 EIP。
 
  ![p2](https://main.qcloudimg.com/raw/f5a79c4df0aa779f3ff3c1327a250258.png)
  
