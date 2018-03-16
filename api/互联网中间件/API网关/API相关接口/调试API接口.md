@@ -10,19 +10,19 @@
 
 | 参数名称          | 是否必选 | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
-| serviceId     | 是    | String | API所在的服务唯一ID。                            |
-| apiId         | 否    | String | API唯一ID。                                 |
-| requestHeader | 否    | String | API的前端请求头部，是json_dump后的数据。               |
-| requestQuery  | 否    | String | API的前端请求Query，是json_dump后的数据。            |
-| requestPath   | 否    | String | API的请求Path，是json_dump后的数据。               |
-| requestMethod | 否    | String | API的请求方法。只支持HEAD、GET、POST、PUT、PATCH和DELETE。 |
-| requestBody   | 否    | String | API的请求Body。                              |
-| contentType   | 否    | String | 调试请求的内容类型。当前只支持application/json和application/x-www-form-urlencoded，不传的话，默认为application/x-www-form-urlencoded。 |
+| serviceId     | 是    | String | API 所在的服务唯一 ID。                            |
+| apiId         | 否    | String | API 唯一 ID。                                 |
+| requestHeader | 否    | String | API 的前端请求头部，是 json_dump 后的数据。               |
+| requestQuery  | 否    | String | API 的前端请求 Query，是 json_dump 后的数据。            |
+| requestPath   | 否    | String | API 的请求 Path，是 json_dump 后的数据。               |
+| requestMethod | 否    | String | API 的请求方法。只支持 HEAD、GET、POST、PUT、PATCH 和 DELETE。 |
+| requestBody   | 否    | String | API 的请求 Body。                              |
+| contentType   | 否    | String | 调试请求的内容类型。当前只支持 application/json 和 application/x-www-form-urlencoded，不传的话，默认为 application/x-www-form-urlencoded。 |
 
 ## 输出参数
 | 参数名称         | 类型     | 描述                                       |
 | ------------ | ------ | ---------------------------------------- |
-| code         | Int    | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的 <a href="https://www.qcloud.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。 |
+| code         | Int    | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的 <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。 |
 | codeDesc     | String | 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。       |
 | message      | String | 模块错误信息描述，与接口相关。                          |
 | returnHeader | String | API 接口的响应头部。                              |
