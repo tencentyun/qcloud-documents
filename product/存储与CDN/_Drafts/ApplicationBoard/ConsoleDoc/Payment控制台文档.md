@@ -11,7 +11,7 @@
 
 登录 [控制台](https://console.cloud.tencent.com/tac)，然后点击左侧导航【我的米大师】，然后在上方导航栏中点击【渠道管理】。
 
-![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_1.png)
+![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_1.png?raw=true)
 
 **2. 填写渠道信息**
 
