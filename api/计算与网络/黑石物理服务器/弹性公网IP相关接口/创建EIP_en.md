@@ -1,7 +1,7 @@
 ## 1. API Description
-This API (EipBmApply) is used to apply for the creation of BM EIP.
+This API (EipBmApply) is used to create a BM EIP.
  
-Domain: <font style="color:red">bmeip.api.qcloud.com</font>
+Domain: bmeip.api.qcloud.com
 
 
 ## 2. Input Parameters
