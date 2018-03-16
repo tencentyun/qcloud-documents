@@ -1,10 +1,7 @@
-# 应用云 Analytics Android 使用入门
 
 ## 准备工作
 
-在开始使用应用云 Analytics 服务前，确保您已经完成：
-
-[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+在开始使用应用云 Analytics 服务前，确保您已经完成：[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
 
 ## 添加 SDK
 
@@ -45,8 +42,8 @@ dependencies {
     compile 'com.tencent.tac:tac-core:1.0.0'
 }
 ```
-
-然后，点击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
+ 
+添加完成后，单击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
 
 ### 手动集成
 
@@ -56,13 +53,13 @@ dependencies {
 
 下载请点击 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
 
-#### 2. 集成jar包
+#### 2. 集成 jar 包
 
-将解压得到的所有 jar 文件拷贝到您工程或模块的 libs 目录下
+将解压得到的所有 jar 文件拷贝到您工程或模块的 libs 目录下。
 
 #### 3. 修改您工程的 AndroidManifest.xml 文件
 
-请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件
+请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件。
 
 ```
 <!-- 添加 Analytics 需要的权限 -->
@@ -101,12 +98,13 @@ dependencies {
 	
 </application>
 ```
-
-注意：若填写的渠道为纯数字字符串类型，请不要超过int表示的范围！
-
+ 
+> **注意：**
+> 若填写的渠道为纯数字字符串类型，请不要超过 int 表示的范围。
+ 
 ### gradle 自动生成渠道包
 
-如果您是采用gradle编译，可以将您的 meta-data 设置为：
+如果您是采用 gradle 编译，可以将您的 meta-data 设置为：
 
 ```
 <meta-data
