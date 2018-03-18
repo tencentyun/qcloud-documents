@@ -1,45 +1,67 @@
-## 简介
+## 接口概述
 
+### 服务简介
 手写体 OCR 识别，根据用户上传的图像，返回识别出的字段信息。
 
-## 说明
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-| 概念    | 解释              |
-| ----- | --------------- |
-| appid | 项目ID, 接入项目的唯一标识 |
-
-## 调用URL
+### url 说明
 支持 http 和 https 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/handwriting`
 
-## HTTP 请求格式
+`https://recognition.image.myqcloud.com/ocr/handwriting`
 
-OCR接口采用http协议，支持指定图片URL和上传本地图片文件两种方式。
+## 请求方式
 
-### 头部信息
+### 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名            | 值                                       | 描述                                       |
 | -------------- | --------------------------------------- | ---------------------------------------- |
-| Host           | recognition.image.myqcloud.com          | 腾讯云智能图像识别服务器域名                           |
-| Content-Length | 包体总长度                                   | 整个请求包体内容的总长度，单位：字节（Byte）。                |
-| Content-Type   | application/json 或者 multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                    | 多次有效签名,用于鉴权， 具体生成方式详见[鉴权签名方法](/document/product/641/12409) |
+| host           | recognition.image.myqcloud.com          | 腾讯云文字识别服务器域名                           |
+| content-length | 包体总长度                    | 整个请求包体内容的总长度，单位：字节（Byte）。                |
+| content-type   | application/json 或 multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。         |
+| authorization  | 鉴权签名                                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409)|
 
-> 注意： 
-> (1) 每个请求的包体大小限制为 6MB。
-> (2) 所有接口都为 POST 方法。
-> (3) 不支持 .gif 这类的动图。
+>**注意：**
+如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ### 请求参数
 
-| 参数名称   | 是否必选 | 类型            | 说明                                       |
+| 参数名称   | 必选 | 类型            | 说明                                       |
 | ------ | ---- | ------------- | ---------------------------------------- |
-| appid | 必须   | String        | 腾讯云申请的 AppId                             |
-| image  | 可选   | binary | 二进制图片数据                     |
-| url    | 可选   | String        | 图片 url 地址，url 与 image 两者填一个即可，同时赋值时，则以 url 指定的图像作为输入 |
+| appid | 是   | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                                 |
+| image  | 否   | binary | 图片文件，支持多个                  |
+| url    | 否   | String        | mage 和 url 只提供一个即可；如果都提供，只使用 url |
 
-### 示例—使用URL
+## 返回内容
+
+| 字段         | 类型          | 说明         |
+| ---------- | ----------- | ---------- |
+| code       | Int         | 返回状态值      |
+| message    | String      | 返回错误消息     |
+| data.items | array(item) | 识别出的所有字段信息 |
+
+item 说明：
+
+| 字段         | 类型          | 说明                                       |
+| ---------- | ----------- | ---------------------------------------- |
+| itemstring | string      | 字段字符串                                    |
+| itemcoord  | object      | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width,height |
+| words      | array(word) | 字段识别出来的每个字的信息                            |
+
+words 说明：
+
+| 字段         | 类型     | 说明                             |
+| ---------- | ------ | ------------------------------ |
+| character  | string | 识别出的单字字符                       |
+| confidence | float  | 识别出的单字字符对应的置信度，取值范围[0,100] |
+
+## 请求示例
+
+### 使用 url 的请求示例
 
 ```
 POST /ocr/handwriting HTTP/1.1
@@ -55,7 +77,7 @@ Content-Type: application/json
 }
 ```
 
-### 示例—使用图片文件
+### 使用 image 的请求示例 
 
 ```
 POST /ocr/handwriting HTTP/1.1
@@ -81,34 +103,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 
-
-## 返回值
-
-### 返回内容
-
-| 字段         | 类型          | 说明         |
-| ---------- | ----------- | ---------- |
-| code       | Int         | 返回状态值      |
-| message    | String      | 返回错误消息     |
-| data.items | array(item) | 识别出的所有字段信息 |
-
-item说明
-
-| 字段         | 类型          | 说明                                       |
-| ---------- | ----------- | ---------------------------------------- |
-| itemstring | String      | 字段字符串                                    |
-| itemcoord  | Object      | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高 width,height |
-| words      | array(word) | 字段识别出来的每个字的信息                            |
-
-words说明
-
-| 字段         | 类型     | 说明                             |
-| ---------- | ------ | ------------------------------ |
-| character  | String | 识别出的单字字符                       |
-| confidence | Float  | 识别出的单字字符对应的置信度，取值范围[0.0,100.0] |
-
-
-### 示例
+### 返回示例
 ```
 {
     "code": 0,
@@ -343,3 +338,6 @@ words说明
 | -1304 | 参数过长                       |
 | -1308 | 图片下载失败                     |
 | -9011 | 识别失败                       |
+
+
+更多其他 API 错误码请看 [**错误码说明**](/document/product/641/12410)  。
