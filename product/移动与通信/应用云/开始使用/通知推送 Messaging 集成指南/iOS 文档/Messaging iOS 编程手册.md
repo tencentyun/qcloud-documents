@@ -94,17 +94,17 @@
 ~~~
 
 ## 接受与处理远程消息
-如果仅仅是推送消息而不需要进行额外处理的话，那么其实不必进行消息的处理，如果通知中带有了payload，或者需要在通知里进行应用交互的话，可以通过接受消息的回调里去完成。当客户端收到推送消息时，分为两种情况：
-- APP正在当前前台运行    
+如果仅仅是推送消息而不需要进行额外处理的话，那么其实不必进行消息的处理，如果通知中带有了 payload，或者需要在通知里进行应用交互的话，可以通过接受消息的回调里去完成。当客户端收到推送消息时，分为两种情况：
+- APP 正在当前前台运行    
 
-  当APP在前台运行时，系统在收到推送消息时会自动静音，并且直接将通知的数据传递到APP中。如果需要获取通知里附带数据(payload)，那么可以在接受通知回调里实现(payload包装在UserInfo内)：
+  当 APP 在前台运行时，系统在收到推送消息时会自动静音，并且直接将通知的数据传递到 APP 中。如果需要获取通知里附带数据(payload)，那么可以在接受通知回调里实现(payload 包装在 UserInfo 内)：
   ~~~
   - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler;
   ~~~
 
-- APP并没有开启或者在后台运行    
+- APP 并没有开启或者在后台运行    
 
-  在 iOS 10 以上的操作系统中，用户可以在通知上面点击一些自定义的通知时间，例如取消按钮等，从而可以在不进入APP的情况下进行一下快捷操作。
+  在 iOS 10 以上的操作系统中，用户可以在通知上面点击一些自定义的通知时间，例如取消按钮等，从而可以在不进入 APP 的情况下进行一下快捷操作。
 
   对于 iOS 8.0 - 10.0的系统，可以在该回调中实现通知栏按钮点击事件
   ~~~
@@ -123,7 +123,7 @@
 可以通过 TACMessagingService 中的状态来检测推送服务是否可用
 ~~~
 /**
-  @brief 返回信鸽推送服务的状态，启动返回YES，未启动返回NO。
+  @brief 返回信鸽推送服务的状态，启动返回 YES，未启动返回 NO。
  */
 @property (nonatomic, assign, readonly) BOOL status;
 ~~~

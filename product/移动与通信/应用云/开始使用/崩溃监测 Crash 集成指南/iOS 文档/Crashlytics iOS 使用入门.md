@@ -1,4 +1,3 @@
-# 应用云 Crashlytics iOS 使用入门
 
 ## 准备工作
 

@@ -5,6 +5,15 @@
 - 下载最新版 
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)
   
+### 版本 v2.0.0
+- 发布日期：2018/03/12
+- 开发语言：C语言
+- 开发环境：Linux, GNU Make
+- 内容：
+	1、新增固件升级（OTA-MQTT通道）能力
+	2、修复设备影子心跳间隔失效的问题
+	3、修复 MQTT 接收的数据长度在临界值时导致缓冲区溢出的问题
+  
 ### 版本 v1.2.2
 - 发布日期：2018/02/07
 - 开发语言：C语言
@@ -15,7 +24,7 @@
 
 ### 版本 v1.2.1
 - 发布日期：2018/02/02
-- 开发语言：C语言
+- 开发语言：C 语言
 - 开发环境：Linux, GNU Make
 - 内容：
 	1、修复Publish消息超时回调的错误逻辑
@@ -43,6 +52,11 @@
 ### 代码托管
 - 自 v1.0.0 版本开始，Android 设备端 SDK 代码使用 Github 托管
   [https://github.com/tencentyun/qcloud-iot-sdk-android](https://github.com/tencentyun/qcloud-iot-sdk-android)
+  
+### 版本v2.0.0
+- 发布日期：2018/03/12
+- 内容：
+	1、新增固件升级（OTA-MQTT通道）能力
 
 ### 版本v1.2.0
 - 发布日期：2018/1/17

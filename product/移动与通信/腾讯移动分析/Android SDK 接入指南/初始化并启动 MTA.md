@@ -2,15 +2,21 @@
 ```
 boolean StatService.startStatService(Context ctx, String appkey, String mtaSdkVersion)
 ```
-1. 参数：
-Ctx 页面的设备上下文
-Appkey MTA 提供的 appkey，若为 null，则按读取 StatConfig.setAppKey() 或 manifest.xml 配置的 appkey requiredMtaVer 当前 App 依赖的 MTA SDK 版本号，只能为 com.tencent.stat.common.StatConstants.VERSION，用于 SDK 版本冲突检测。
+### 参数说明
+
+|参数名|描述|
+|---|-----|
+|Ctx |页面的设备上下文|
+|Appkey| MTA 提供的 appkey，若为 null，则按读取 StatConfig.setAppKey() 或 manifest.xml 配置的 appkey requiredMtaVer 当前 App 依赖的 MTA SDK 版本号，只能为 com.tencent.stat.common.StatConstants.VERSION，用于 SDK 版本冲突检测|
+
 **MtaSDkException异常：**启动失败时会抛出 MtaSDkException 异常，可能是参数出错，也可能是 SDK 版本冲突，具体的冲突解决办法见注意事项中的 SDK 冲突问题，同时 MTA 会自动禁止所有功能。
-2. 调用位置：
-（1）对于普通 App：AndroidManifest.xml 指定首先启动的 activity 的 onCreate() 处，StatConfig 类的方法之后。
-（2）对于 lib 工程，在其它所有 StatService 方法被调用之前，StatConfig 类的方法之后。 
+
+### 调用位置
+1. 对于普通 App：AndroidManifest.xml 指定首先启动的 activity 的 onCreate() 处，StatConfig 类的方法之后。
+2. 对于 lib 工程，在其它所有 StatService 方法被调用之前，StatConfig 类的方法之后。 
 >**注意：**
 >StatConfig 配置类需要在此方法前才能及时生效。
+
 
 ```
 @Override

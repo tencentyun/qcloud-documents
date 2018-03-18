@@ -86,6 +86,8 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 
 **解决方案：**如需实现页面内（非全屏）播放，需要在 video 标签中加入 playinline 和 webkit-playinline 属性，腾讯云播放器默认会在`<Vdieo>`标签中加上 playinline 和 webkit-playinline 属性。iOS10+ 识别 playinline 属性，版本小于 10 的系统识别 webkit-playinline 属性。经测试，在 iOS Safari 中可以实现页面内（内联）播放。Android 端识别 webkit-playinline，但是由于 Android 的开放性，出现了许多定制浏览器，这些属性不一定生效，比如，在 TBS 内核的浏览器（包括不限于 Android：微信、手机 QQ，QQ 浏览器）中，可能需要使用同层播放器属性（ [接入文档](https://x5.tencent.com/tbs/guide/video.html) 、[使用说明](https://x5.tencent.com/tbs/guide/web/x5-video.html)），避免系统强制全屏视频。
 
+如果已配置以上提到的属性仍会强制全屏，则通用解决方案无效，需要浏览器方厂商提供解决方案。
+
 ### 视频无法被其他元素覆盖
 **问题表现：**无法将其他元素覆盖到视频区域上，播放器控件为浏览器自带控件。
 **解决方案：**需要浏览器提供方法解除视频置顶，暂无通用解决方案。
@@ -113,11 +115,24 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 
 ## 全屏相关问题
 这里主要介绍全屏相关的问题，首先需要了解屏幕全屏（系统全屏）、网页全屏（页面全屏、伪全屏）两个概念。
-- **屏幕全屏** 是指在屏幕范围内全屏，全屏后只有视频画面内容，看不到浏览器的地址栏等界面，这种全屏需要浏览器提供接口支持。
-- **网页全屏** 是指在网页显示区域范围内全屏，全屏后仍可以看到浏览器的地址栏等界面，通常情况下网页全屏是为了应对浏览器不支持系统全屏而实现类似全屏的一种方式，所以又称为伪全屏。
+- **屏幕全屏** 是指在屏幕范围内全屏，全屏后只有视频画面内容，看不到浏览器的地址栏等界面，这种全屏需要浏览器提供接口支持。支持屏幕全屏的接口有两种，一种称为 Fullscreen API，通过 Fullscreen API 进入屏幕全屏后的特点是，进入全屏后仍然可以看到由 HTML CSS 组成的播放器界面。另一种接口为 webkitEnterFullScreen，该接口只能作用于 `<video>` 标签，通常用于移动端不支持 Fullscreen API 的情况，通过该接口全屏后播放器界面为系统自带的界面。
+- **网页全屏** 是指在网页显示区域范围内全屏，全屏后仍可以看到浏览器的地址栏等界面，通常情况下网页全屏是为了应对浏览器不支持系统全屏而实现类似全屏的一种方式，所以又称为伪全屏。该全屏方式由 CSS 实现。
+
+腾讯云点播 WEB 播放器采用屏幕全屏为主，网页全屏为辅的全屏方案。全屏模式的优先级为 Fullscreen API > webkitEnterFullScreen > 网页全屏。
+
+目前已知的全屏情况：
+x5 内核（包括 Android 端的微信、手机 QQ、QQ 浏览器）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 x5 内核的屏幕全屏模式。
+Android Chrome：支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
+iOS （包括微信、手机 QQ、Safari）：不支持 Fullscreen API，支持 webkitEnterFullScreen，全屏后进入 iOS 系统 UI 的屏幕全屏模式。
+IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全屏为网页全屏模式。
+其他桌面端现代浏览器：通常支持 Fullscreen API，全屏后进入带有腾讯云播放器 UI 的屏幕全屏模式。
 
 ### 默认全屏播放
 与问题“视频激活播放后强制全屏”相同，参考其解决方案。
+
+### 在 iOS Hybrid APP 的 WebView 中默认全屏播放
+**问题表现：**在 APP WebView 里播放视频默认全屏播放。
+**解决方案：**配置 WebView 的参数 allowsInlineMediaPlayback = YES 允许视频行内播放，即禁止 WebView/UiWebView 强制全屏播放视频
 
 ### 在 iframe 里使用播放器不能全屏
 **问题表现：**在 iframe 中嵌入播放器页面，点击全屏按钮无效。
@@ -139,6 +154,12 @@ HLS加密视频的播放流程有别于常规视频，通常需要确保获取 K
 **问题表现：**拖拽到某个时间点无法播放，或者跳到片头。
 **解决方案：**避免使用原始视频进行播放，请使用腾讯云转码后的视频进行播放。避免使用 Flash 进行播放，换成 HTML5 播放模式。视频时长过短，关键帧通常只有 1 个，不支持拖拽播放。
 
-## 自动播放失败
+## 自动播放相关问题
+
+### 自动播放失败
 **问题表现：**设置了自动播放属性，视频没有自动播放。
 **解决方案：**在许多浏览器中，都禁止了多媒体文件自动播放，特别是移动端浏览器。部分浏览器允许静音视频或者无音轨视频自动播放，因此可以尝试将播放器设置为静音。对于静音也无法播放的浏览器，暂无解决办法。
+
+### 在 Hybrid APP 的 WebView 中自动播放失败
+**问题表现：**在 APP WebView 里自动播放失败。
+**解决方案：**需要设置 WebView 关于多媒体自动播放的属性。iOS：mediaPlaybackRequiresUserAction = NO。Android：webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
