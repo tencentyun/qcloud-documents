@@ -113,6 +113,10 @@ TACApplicationOptions currentOptions = TACApplication.options( );
 adb shell setprop log.tag.tac DEBUG
 ```
 
+## 示例工程
+
+您可以访问我们的 [示例工程](https://github.com/tencentyun/qcloud-sdk-android-samples)，里面包含了我们所有服务的集成和调用的示例代码。您可以参考代码的编写，也可以下载到本地运行体验。
+
 ## 可用的库
 
 以下库分别对应各种应用云的功能。
