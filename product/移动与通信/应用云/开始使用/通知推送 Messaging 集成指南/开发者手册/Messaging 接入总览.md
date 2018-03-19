@@ -7,10 +7,10 @@
 对于 iOS 端的开发者而言，需要先向苹果申请推送证书才能使用。当然推申请推送证书的步骤其实不难，可以参见：[Todo:申请推送证书指南]()
 ## 终端 SDK 接入
 ### Android SDK 接入
-详见 [Android SDK 使用入门](www.qcloud.com/document/product/666/14323)。
+详见 [Android SDK 使用入门](cloud.tencent.com/document/product/666/14323)。
 
 ### iOS SDK 接入
-详见 [iOS SDK 使用入门](www.qcloud.com/document/product/666/14350)。
+详见 [iOS SDK 使用入门](cloud.tencent.com/document/product/666/14350)。
 
 ## 服务器端推送
 可以采取服务器调用 API 的方式进行推送，详细的接口描述可以参见 [服务器端推送指南](https://cloud.tencent.com/document/product/666/14772#.E6.99.AE.E9.80.9A.E9.80.9A.E7.9F.A5.E7.A4.BA.E4.BE.8B)。
