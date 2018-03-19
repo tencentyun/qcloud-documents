@@ -1,4 +1,4 @@
-Hybrid 统计是在原生统计基础上进行的，在开始之前请确保已按照 [iOS SDK 接入指南](http://docs.developer.qq.com/mta/fast_access/ios.html) 正常接入 MTA iOS SDK 。
+Hybrid 统计是在原生统计基础上进行的，在开始之前请确保已按照 [iOS SDK 接入指南](https://cloud.tencent.com/document/product/549/12858) 正常接入 MTA iOS SDK 。
 1.在 MTA iOS SDK 包中的 sdk/plugin/hybrid 目录下找到 libmtahybrid.a  静态库和 MTAHybrid.h 头文件；
 ![](//mc.qcloudimg.com/static/img/4fd0feffa51b8e14c09ff12edbd71bc6/image.png)
 2.将静态库文件连接至工程中；
