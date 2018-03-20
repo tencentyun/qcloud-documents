@@ -49,11 +49,11 @@ Payment 是 MobileLine 的移动支付服务，给移动开发者提供了微信
 
 ### 4、接入 Payment SDK
 
-配置好支付渠道后，您需要将 Payment SDK 集成到应用中，具体步骤请参见 [Payment 集成指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20使用入门.md)。
+配置好支付渠道后，您需要将 Payment SDK 集成到应用中，具体步骤请参见 [Payment Android 集成指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20使用入门.md) 和 [Payment IOS 集成指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/iOS/Payment%20iOS%20使用入门.md)。
 
 ### 5、使用 Payment SDK 发起支付
 
-至此，您已经完成了整个 Payment 服务的配置，现在您可以使用 Payment SDK 来发起支付了，详情请参见 [Payment 编程手册](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20编程手册.md)。
+至此，您已经完成了整个 Payment 服务的配置，现在您可以使用 Payment SDK 来发起支付了，详情请参见 [Payment Android 编程手册](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20编程手册.md) 和 [Payment IOS 编程手册](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/iOS/Payment%20iOS%20编程手册.md)。
 
 ### 6、沙箱联调和发布上线
 
@@ -66,9 +66,6 @@ Payment 的默认环境，主要用于调试，在这个环境下，支付成功
 #### 线上环境
 
 当您的应用调试成功后，请您将应用发布上线，上线后，Payment Server 会在您支付成功后回调控制台上设置的主回调地址或者备回调地址，如何发布上线请参考 [Payment  控制台操作指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Payment控制台文档/Payment控制台文档.md) 的【配置参数】部分。
-
-
-
 
 
 
