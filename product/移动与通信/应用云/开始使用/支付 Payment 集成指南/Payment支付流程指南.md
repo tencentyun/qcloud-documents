@@ -17,7 +17,7 @@ Payment 是 MobileLine 的移动支付服务，给移动开发者提供了微信
 
 应用 APP 在支付时，首先需要通过应用 Server 调用 Payment Server 统一下单接口，然后用获取的订单信息来初始化 Payment 支付请求并唤起支付，后续流程均由 Payment SDK 完成，支付完成后会返回支付的结果信息。最终支付成功后，应用后台会收到 Payment 后台服务的通知。整个支付过程如下：
 
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/payment/payment%E4%BA%A4%E6%98%93%E6%B5%81%E7%A8%8B.png?raw=true)
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/payment/payment%E4%BA%A4%E6%98%93%E6%B5%81%E7%A8%8B.png)
 
 > Payment Server 回调地址即为控制台上配置的回调地址，应用 Server 需要根据实际情况来按格式进行返回。
 
