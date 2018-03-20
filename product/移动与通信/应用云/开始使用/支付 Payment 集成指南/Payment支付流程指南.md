@@ -39,17 +39,17 @@ Payment 是 MobileLine 的移动支付服务，给移动开发者提供了微信
 
 如果您还没有自己的 MobileLine 应用，那么您首先需要在控制台上 [创建项目](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/产品介绍/控制台使用手册/项目创建和删除.md)，创建好项目后，请在该项目下 [创建 MoblieLine 应用](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/产品介绍/控制台使用手册/应用创建和管理.md)，创建应用时，**请按照控制台指引配置您自己的应用 APP**。
 
-### 2、接入 Payment SDK
-
-创建好 MobileLine 应用后，您需要将 Payment SDK 集成到应用中，具体步骤请参见 [Payment 集成指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20使用入门.md)。
-
-### 3、配置应用 Server
+### 2、配置应用 Server
 
 应用 Server 指的是您自己业务的服务端，使用 Payment 服务时，您必须至少在应用 Server 上部署**统一下单**和**支付成功回调**两个接口，其他如查询订单信息、退货等接口您可以根据自己的需要自行配置，服务端配置请参见 [Payment 后台服务配置](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/后台服务配置.md)。
 
-### 4、配置支付渠道
+### 3、配置支付渠道
 
 支付渠道包括微信支付和 QQ 支付两个渠道，您需要自己在微信开放平台或者腾讯开放平台上申请渠道信息，然后在控制台上进行配置，支付渠道配置请参见 [Payment 支付渠道配置指引](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Payment%20支付渠道配置指引.md)。
+
+### 4、接入 Payment SDK
+
+创建好 MobileLine 应用后，您需要将 Payment SDK 集成到应用中，具体步骤请参见 [Payment 集成指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20使用入门.md)。
 
 ### 5、使用 Payment SDK 发起支付
 
