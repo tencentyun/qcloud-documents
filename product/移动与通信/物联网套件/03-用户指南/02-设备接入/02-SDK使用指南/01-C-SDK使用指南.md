@@ -1,8 +1,8 @@
-## 开发准备
+##  开发准备
 
 开发前请前往github下载最新版C-SDK：https://github.com/tencentyun/tencent-cloud-iotsuite-embedded-c.git
 
-##开发环境
+## 开发环境
 
 1.安装 cmake 工具 http://www.cmake.org/download/
 
@@ -86,7 +86,7 @@
 
 
 
-###编译及运行
+### 编译及运行
 
 1.执行下面的命令，编译示例程序：
 
@@ -156,7 +156,7 @@ cd bin
 
 
 
-###C-SDK的API功能列表
+### C-SDK的API功能列表
 
 以下为V1.0.6版本的C-SDK所提供的功能与API LIST，用户可基于接口编写业务逻辑，封装AT命令，更加详细的说明请查看`include/tc_iot_export.h`中的注释。
 
