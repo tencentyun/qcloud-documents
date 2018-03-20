@@ -15,7 +15,8 @@
 开发者可以通过[服务器SDK文档](https://cloud.tencent.com/document/product/314/3499#3.-.E6.9C.8D.E5.8A.A1.E5.99.A8sdk)生成签名，也可以参考我们的签名函数自行生成签名，具体生成方式详见[鉴权签名方法](https://cloud.tencent.com/document/product/314/2290)。
 
 ## 3	目录操作
-<font color="red">**注意**</font> ：本章节目录操作各API，仅适用于COS V3及以下版本，使用COS V4及以上版本的用户，请参见[cos API产品手册](https://cloud.tencent.com/document/product/436/7751)  
+<font color="red">注意</font> ：本章节目录操作各API，仅适用于COS V3及以下版本，使用COS V4及以上版本的用户，请参见[cos API产品手册](https://cloud.tencent.com/document/product/436/7751)  
+
 
 ### 3.1	创建目录
 功能：在指定路径下创建目录。 接口：web.video.myqcloud.com/files/v1/[appid]/[bucket_name]/[dirName]/ <font color="red"><- 有文件夹斜杠 /</font>
