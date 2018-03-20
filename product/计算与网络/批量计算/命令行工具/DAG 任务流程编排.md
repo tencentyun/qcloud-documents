@@ -25,7 +25,7 @@ number.txt 的内容如下
 使用编辑器打开 3_StoreMapping.py 文件
 ```
 # custom (Change to your info)
-imageId = "img-i91njcmx"
+imageId = "img-m4q71qnf"
 Application = {
     "DeliveryForm": "PACKAGE",
     "Command": "python ./codepkg/countnum.py",

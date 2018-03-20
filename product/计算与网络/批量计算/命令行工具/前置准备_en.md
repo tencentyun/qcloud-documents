@@ -65,7 +65,7 @@ Take the custom information of "1_SimpleStart" as an example:
 
 ```
  # custom (Change to your info)
-imageId = "img-i91njcmx"
+imageId = "img-m4q71qnf"
 Application = {
     "DeliveryForm": "LOCAL",
     "Command": " python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "
@@ -76,7 +76,7 @@ StdoutRedirectPath = "your cos path"
 StderrRedirectPath = "your cos path"
 ```
 
-* imageId: The image containing Cloud-init service is used during internal trial. A CentOS 6.5 image (ID: **img-i91njcmx**) that can be used directly is officially provided in the cloud marketplace, based on which a custom image is created. [Cloud Image Marketplace Address](https://market.cloud.tencent.com/products/3081)
+* imageId: The image containing Cloud-init service is used during internal trial. A CentOS 6.5 image (ID: **img-m4q71qnf**) that can be used directly is officially provided in the cloud marketplace, based on which a custom image is created. [Cloud Image Marketplace Address](https://market.cloud.tencent.com/products/3081)
 * secretId_COS, secretKey_COS: Enter the SecretID and SecretKey obtained in step 2.
 * StdoutRedirectPath, StderrRedirectPath: Enter the complete access address of logs folders in COS directory prepared in step 3. For example, replace cos://batchdemo-1251783334.cosgz.myqcloud.com/logs/ with your access address.
 * Application: Startup command line, with no modification needed.
