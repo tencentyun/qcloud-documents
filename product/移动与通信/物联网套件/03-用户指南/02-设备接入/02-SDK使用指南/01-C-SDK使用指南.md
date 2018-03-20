@@ -69,7 +69,6 @@
 // 传感器设备的序列号，或者设备名称等。
 
 #define TC_IOT_CONFIG_DEVICE_CLIENT_ID "mqtt-xxx@" TC_IOT_CONFIG_DEVICE_NAME 
-
 ```
 
 - 选填项（仅在选择直连模式时填写）
@@ -140,8 +139,6 @@ lib
 
 cd bin
 
-
-
 # 运行demo程序
 
 ./demo_mqtt
@@ -149,8 +146,6 @@ cd bin
 # or
 
 ./demo_shadow
-
-
 
 ```
 
@@ -160,43 +155,26 @@ cd bin
 
 以下为V1.0.6版本的C-SDK所提供的功能与API LIST，用户可基于接口编写业务逻辑，封装AT命令，更加详细的说明请查看`include/tc_iot_export.h`中的注释。
 
-#####1.日志接口
+##### 1.日志接口
+
+| 序号   | 函数名                      | 说明        |
+| ---- | ------------------------ | --------- |
+| 1    | tc_iot_set_log_level     | 设置打印的日志等级 |
+| 2    | tc_iot_get_log_level     | 返回日志输出的等级 |
+| 3    | tc_iot_log_level_enabled | 返回日志输出的等级 |
 
 
 
-| 序号   |  函数名     | 说明        |
+##### 2.MQTT接口
 
-| ---------- | ---------- | ---------- |
-
-|1| tc_iot_set_log_level	|设置打印的日志等级|
-
-|2| tc_iot_get_log_level	|返回日志输出的等级|
-
-|3| tc_iot_log_level_enabled	|判断当前等级日志是否打开|
-
-
-
-#####2.MQTT接口
-
-
-
-| 序号   |  函数名     | 说明        |
-
-| ---------- | ---------- | ---------- |
-
-|1|tc_iot_mqtt_client_construct	|构造 MQTT client，并连接MQ服务器|
-
-|2| tc_iot_mqtt_client_destroy	|关闭 MQTT client 连接，并销毁 MQTT client|
-
-|3| tc_iot_mqtt_client_yield	|在当前线程为底层 MQTT client，让出一定 CPU 执行时间|
-
-|4| tc_iot_mqtt_client_publish	|向指定的 Topic 发布消息|
-
-|5| tc_iot_mqtt_client_subscribe	|订阅指定 Topic 的消息|
-
-|6| tc_iot_mqtt_client_unsubscribe	|取消订阅已订阅的 Topic|
-
-|7| tc_iot_mqtt_client_is_connected	|判断 MQTT client 目前是否已连接|
-
-|8| tc_iot_mqtt_client_disconnecd	|断开 MQTT client 与服务端的连接|
+| 序号   | 函数名                             | 说明                                 |
+| ---- | ------------------------------- | ---------------------------------- |
+| 1    | tc_iot_mqtt_client_construct    | 构造 MQTT client，并连接MQ服务器            |
+| 2    | tc_iot_mqtt_client_destroy      | 关闭 MQTT client 连接，并销毁 MQTT client  |
+| 3    | tc_iot_mqtt_client_yield        | 在当前线程为底层 MQTT client，让出一定 CPU 执行时间 |
+| 4    | tc_iot_mqtt_client_publish      | 向指定的 Topic 发布消息                    |
+| 5    | tc_iot_mqtt_client_subscribe    | 订阅指定 Topic 的消息                     |
+| 6    | tc_iot_mqtt_client_unsubscribe  | 取消订阅已订阅的 Topic                     |
+| 7    | tc_iot_mqtt_client_is_connected | 判断 MQTT client 目前是否已连接             |
+| 8    | tc_iot_mqtt_client_disconnecd   | 断开 MQTT client 与服务端的连接             |
 
