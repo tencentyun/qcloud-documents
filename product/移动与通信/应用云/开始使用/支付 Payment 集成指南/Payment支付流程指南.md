@@ -49,7 +49,7 @@ Payment 是 MobileLine 的移动支付服务，给移动开发者提供了微信
 
 ### 4、接入 Payment SDK
 
-创建好 MobileLine 应用后，您需要将 Payment SDK 集成到应用中，具体步骤请参见 [Payment 集成指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20使用入门.md)。
+配置好支付渠道后，您需要将 Payment SDK 集成到应用中，具体步骤请参见 [Payment 集成指南](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/应用云/开始使用/支付%20Payment%20集成指南/Android/Payment%20Android%20使用入门.md)。
 
 ### 5、使用 Payment SDK 发起支付
 
