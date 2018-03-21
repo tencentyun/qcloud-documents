@@ -4,8 +4,8 @@ Hybrid 统计是在原生统计基础上进行的，在开始之前请确保已�
 2.将静态库文件连接至工程中；
 ![](//mc.qcloudimg.com/static/img/d0048063f43d22daa4a8c9c52f4f77f9/image.png)
 3.在工程中添加代码（具体例子可以参考 demo）。
--  如果使用的是 UIwebview，在 UIwebview 的 delegate 中添加以下代码：
-
+3.1 **如果使用的是 UIwebview**
+在 UIwebview 的 delegate 中添加以下代码：
 ```objc
 - (BOOL)webView:(UIWebView *)webView
 	shouldStartLoadWithRequest:(NSURLRequest *)request
@@ -20,18 +20,16 @@ Hybrid 统计是在原生统计基础上进行的，在开始之前请确保已�
 	return YES;
 }
 ```
-在UIWebView 被隐藏或者从父 view 移除时 ，调用方法为：
-
+在 UIWebView 被隐藏或者从父 view 移除时 ，调用方法为：
 ```objc
 + (void)stopWebView:(UIWebView *)webView;
 ```
 在 UIWebView 重新被显示，或者重新被添加到父 view 上时，调用方法为：
-
 ```objc
 + (void)restartWebView:(UIWebView *)webView;
 ```
-- 如果使用的是 WKwebview，在 WKwebview 的 navagationdelegate 中添加以下代码：
-
+3.2 **如果使用的是 WKwebview**
+在 WKwebview 的 navagationdelegate 中添加以下代码：
 ```objc
 - (void)webView:(WKWebView *)webView
 	decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction
