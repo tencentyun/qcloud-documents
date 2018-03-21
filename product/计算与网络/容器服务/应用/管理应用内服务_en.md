@@ -6,16 +6,16 @@ On the application details page, you can view the status for all services under 
 
 **Deployment status: Describe whether to deploy the resources in the service**
 
-|Status | Description |
+| Status | Description | 
 |------------------|-----------------------|
-| Not deployed | Template content edited but the service is not deployed |
-| Deployed | Template content edited and the service is deployed |
-| Deployed and pending update | Re-edit the template content (or configuration items) after the service is deployed |
-| Deployed and pending deletion | Delete the service in template content after the service is deployed |
+| Not deployed | Only the template content is edited but the service is not deployed |
+| Deployed | The template content is edited and the service is deployed |
+| Pending update | Re-edit the template content (or configuration items) after the service is deployed |
+| Pending deletion | Delete the service from the template content after the service is deployed |
 
 > After the application has been updated on the application updating page, if the template content of the service is modified, the service deployment status is also changed. However, the running status of the service remains unchanged.
 
-**Service status: The actual running status after the service is deployed**
+**Running status: The actual running status after the service is deployed**
 
 | Status | Description | 
 |------------------|-----------------------|
@@ -25,22 +25,22 @@ On the application details page, you can view the status for all services under 
 | Exception occurred while querying | Failed to query the service information after the service has been deployed |
 | - | Service is not deployed and service status information is empty |
 
-## Operations for Services in Different Deployment Statuses
+## Operations Supported for Services under Different Deployment Statuses
 
 The following operations are allowed to be performed on the services in the application: `Deploy`, `Undeploy`, `Update`, `Delete` and `View YAML. The operations supported for a service under each status are shown below:
 
-| Status | Deploy | Undeploy | Update | Delete | View YAML|
+| Status | Deploy | Undeploy | Update | Delete | View YAML |
 |------------------|-----------------------|----------------------|
 | To be deployed | Yes | No | No | No | Yes |
 | Deployed | No | Yes | No | No | Yes|
-| Deployed and pending update | No | Yes | Yes | No | Yes |
-| Deployed and pending deletion| No | No | No | Yes | No |
+| Pending update | No | Yes | Yes | No | Yes |
+| Pending deletion | No | No | No | Yes | No |
 
 ## Description of Comparison Status for Service Differentiation
 On the application updating page, the comparison between the template content to be modified and the existing template content in the application is automatically done. After this, statuses including `New`, `Unchanged`, `Changed` and `To be deleted` are used, which are described as follows:
 
 | Status | Description |
-|------------------|-----------------------|
+|------------------|-----------------------|----------------------|
 | New | The service is not available in the application but it is added to the modified content |
 | Unchanged | There is no difference between the template content to be modified and the existing template content in the application |
 | Changed | The template content to be modified is different from the existing template content in the application |

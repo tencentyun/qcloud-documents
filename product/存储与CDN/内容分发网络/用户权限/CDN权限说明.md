@@ -7,7 +7,7 @@ CDN 目前已经接入新版的云资源访问管理（Cloud Access Management�
 创建者是指此腾讯云账号的拥有者，拥有最高权限，可以管理账户内所有用户及其权限、财务相关的信息、云服务资产。
 ### 预设管理员
 预设管理员包括超级管理员、云资源管理员和财务管理员。超级管理员拥有创建者的所有权限。云资源管理员拥有对所有云服务资产的管理权限。财务管理员拥有账户内财务相关的内容的管理权限，如：付款，开票。
-创建者可以通过将用户关联到 **预设策略**（详情参考 [策略管理](https://cloud.tencent.com/doc/product/228/6690)），指派以下几种管理员：
+创建者可以通过将用户关联到 **预设策略**，指派以下几种管理员：
 + 超级管理员(策略名：AdministratorAccess)
 + 云资源管理员(策略名：QCloudResourceFullAccess)
 + 财务管理员(策略名：QCloudFinanceFullAccess)
@@ -16,7 +16,6 @@ CDN 部分功能仅供预设管理员使用，如：
 + 调用云 API [DescribeCdnHosts](https://cloud.tencent.com/doc/api/231/3937) 获取账户下所有域名的详细信息，包括配置信息，支持分页查询。
 + 调用云 API [UpdateCdnProject](https://cloud.tencent.com/doc/api/231/3935) 或在 CDN 控制台进行域名所属项目的切换。
 
-如何配置预设管理员？请参考 [预设管理员配置示例](https://cloud.tencent.com/doc/product/228/6693)。
 ### 项目管理员
 项目管理员拥有管理 CDN 业务项目内云资源和管理其他业务项目内云资源的权限。创建者或超级管理员可以通过将用户关联到 **项目管理** 策略进行指派。
 项目管理员权限等同于原有版本 **项目协作者**，可以在控制台进行有权限项目之间的资源分配。由于项目的划分对所有云资源均有效，您可以根据需要对项目管理的业务范围进行选择。
@@ -35,7 +34,7 @@ CDN 部分功能仅供预设管理员使用，如：
 + 【CDN 控制台】>【统计分析】>【访问情况统计】：指定项目下资源对象的访问情况明细查询、下载。
 + 【CDN 控制台】>【统计分析】>【状态码统计】：指定项目下资源对象的状态码统计明细查询、下载。
 + 【CDN 控制台】>【统计分析】>【源站统计】：指定项目下资源对象的源站统计明细查询、下载。
-![](https://mc.qcloudimg.com/static/img/b75e99c6f9f034bd42b0aaaa8d2509f2/child_1.png)
+  ![](https://main.qcloudimg.com/raw/1b7f65c15f0987e7bbeab821dad95a1d.png)
 
 #### 云 API 权限控制
 拥有查看消耗数据及统计量权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 查询指定项目下资源对象的消耗数据及统计量：
@@ -54,7 +53,7 @@ CDN 部分功能仅供预设管理员使用，如：
 #### 控制台权限控制
 拥有查询域名信息权限的子用户，在控制台可进行如下操作：
 【CDN 控制台】>【域名管理】：查看指定项目下资源对象的域名信息，单击【管理】可查看更多配置详情。
-![](https://mc.qcloudimg.com/static/img/eb54831422643fda390974c9bdc5a1b7/child_2.png)
+![](https://main.qcloudimg.com/raw/ad9b7064f81ad9f3134ef435257da159.png)
 
 #### 云 API 权限控制
 拥有查询域名信息权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 查询域名信息（该域名必须属于该子用户有权限的项目）：
@@ -69,7 +68,7 @@ CDN 部分功能仅供预设管理员使用，如：
 #### 控制台权限控制
 拥有查询日志下载链接权限的子用户，在控制台可进行如下操作：
 【CDN 控制台】>【高级工具】>【日志管理】：查询指定项目下资源对象的指定日期日志下载链接。
-![](https://mc.qcloudimg.com/static/img/4cadb7313db04a4c1cff29a1438cb9ec/child_3.png)
+![](https://main.qcloudimg.com/raw/0454152de50c9d5f402cba40ccb341b9.png)
 
 #### 云 API 权限控制
 拥有查询日志下载链接权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 查询日志下载链接（该域名必须属于该子用户有权限的项目）：
@@ -84,7 +83,7 @@ CDN 部分功能仅供预设管理员使用，如：
 #### 控制台权限控制
 拥有添加域名权限的子用户，在控制台可进行如下操作：
 【CDN 控制台】>【域名管理】>【添加域名】：单击【添加域名】后，**所属项目** 下拉菜单中显示的项目即为有权限添加域名的项目，若无项目，表明该子用户无添加域名的权限。
-![](https://mc.qcloudimg.com/static/img/cb9e203da35f5e68253b757744f651ff/child_4.png)
+![](https://main.qcloudimg.com/raw/e61a06742f8f3a206471aad8e2c3b68f.png)
 
 #### 云 API 权限控制
 拥有添加域名权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 添加域名（项目必须为有权限的项目）：
@@ -98,7 +97,7 @@ CDN 部分功能仅供预设管理员使用，如：
 #### 控制台权限控制
 拥有上线/下线域名权限的子用户，在控制台可进行如下操作：
 【CDN 控制台】>【域名管理】：找到有权限的域名，可对其进行上线/下线（开启/关闭）操作。
-![](https://mc.qcloudimg.com/static/img/882c01a9efbd86104b096bf9bd51b4a3/child_5.png)
+![](https://main.qcloudimg.com/raw/e05e631b07fa456499c146c9e1f33a74.png)
 
 #### 云 API 权限控制
 拥有上线/下线域名权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 上线/下线域名（上线/下线的域名必须为有权限的域名）：
@@ -112,7 +111,7 @@ CDN 部分功能仅供预设管理员使用，如：
 
 ####  控制台权限控制
 拥有删除域名权限的子用户，在控制台可进行如下操作：
-![](https://mc.qcloudimg.com/static/img/2f34796e2ca647d03d8d58e5257d1a5a/child_6.png)
+![](https://main.qcloudimg.com/raw/d4e07efc098973d6faa642f13beb96e2.png)
 【CDN 控制台】>【域名管理】：勾选要删除的域名，单击【更多操作】下拉菜单中的【删除】，可以对有权限的已关闭的域名进行删除操作。
 
 #### 云 API 权限控制
@@ -127,7 +126,7 @@ CDN 部分功能仅供预设管理员使用，如：
 #### 控制台权限控制
 拥有修改域名配置权限的子用户，可在控制台做如下操作：
 【CDN 控制台】>【域名管理】：点击域名右侧【管理】，可对有权限的域名的各项配置进行修改。
-![](https://mc.qcloudimg.com/static/img/f728980f311e41b6b1df1465898aa3ee/child_7.png)
+![](https://main.qcloudimg.com/raw/4f372acc37b1511c1c7392874979b29a.png)
 
 #### 云 API 权限控制
 拥有修改域名配置权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 修改域名配置（指定域名必须为有权限的域名）：
@@ -143,7 +142,7 @@ CDN 部分功能仅供预设管理员使用，如：
 #### 控制台权限控制
 拥有刷新预热权限的子用户，可在控制台做如下操作：
 【CDN 控制台】>【缓存刷新】：批量贴入有权限的域名下的 URL 或目录，提交进行刷新。单击【操作记录】，可以看到您最近的操作记录。
-![](https://mc.qcloudimg.com/static/img/136ff0c6cc2562f533988c5020becca4/child_8.png)
+![](https://main.qcloudimg.com/raw/42693acbc573a0fc474174de209c4c18.png)
 
 #### 云 API 权限控制
 拥有刷新预热权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 进行刷新预热（仅可提交有权限的域名下的 URL 或目录）：
@@ -154,7 +153,5 @@ CDN 部分功能仅供预设管理员使用，如：
 ### 默认权限
 子用户一旦配置了 CDN 功能权限，则默认可以进行如下操作，无需进行配置。
 + 使用控制台查询所有刷新记录。
-  ![](https://mc.qcloudimg.com/static/img/f28d32cf6b939324abccbddc95134214/child_9.png)
+  ![](https://main.qcloudimg.com/raw/cbe883536cfea044eda8679ebc2df9fa.png)
 + 使用云 API [GetCdnRefreshLog](https://cloud.tencent.com/doc/api/228/3948) 查询指定时间区间内的刷新日志、刷新次数，可指定URL查询。
-
-如何配置子用户？请参考 [子用户配置示例](https://cloud.tencent.com/doc/product/228/6693)。

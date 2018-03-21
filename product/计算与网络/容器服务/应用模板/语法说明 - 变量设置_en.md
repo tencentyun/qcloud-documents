@@ -1,23 +1,23 @@
 ## Variable Substitution
 
-Variable substitution is supported in application templates. A variable has a structure of `{{.}}`, with a variable name following the `.`. The variables to be substituted are substituted by the values of configuration items in the configuration file when the template is parsed. For example, if you define FRONTEND_REPLICAS in the template:
+Variable substitution is supported in application templates. A variable has a structure of `{{.}}`, with a variable name following the `.`. The variables to be substituted are substituted with the values of configuration items in the configuration file when the template is resolved. For example, define FRONTEND_REPLICAS in the template:
 ```
 spec:
  replicas: {{.FRONTEND_REPLICAS}}
 ```
 
-And set the FRONTEND_REPLICAS variable value in the configuration item to:
+Then, configure the value of the FRONTEND_REPLICAS variable in the configuration item:
 
 ```
 FRONTEND_REPLICAS: 2
 ```
-Then, the `{{.FRONTEND_REPLICAS}}` in the template file is substituted with "2" in the configuration file when the template is parsed.
+In this way, the `{{.FRONTEND_REPLICAS}}` in the template file is substituted with "2" in the configuration file when the template is resolved.
 
-Note: The variable name needs to satisfy the regular expression "[A-Za-z_][A-Za-z0-9_]*", with a maximum of 64 characters.
+Note: The variable name needs to satisfy the regular expression "[A-Za-z_][A-Za-z0-9_]*", with a maximum length of 64 characters.
 
 ## Custom Variable - ReleaseCBS
 
-If you need to mount a CBS disk in CCS, the description is specified as follows:
+If you need to mount a CBS disk in CCS, the description language is specified as follows:
 
 ```
       volumes:
@@ -31,9 +31,9 @@ If you need to mount a CBS disk in CCS, the description is specified as follows:
         - mountPath: /mnt
           name: vol
 ```
-(The above description means that the CBS disk disk-pr47vtvt is mounted as a vol disk to the container's /mnt directory.)
+(The above description language means that the CBS disk disk-pr47vtvt is mounted as a vol disk to the container's /mnt directory.)
 
-A CBS disk can only be mounted to one container at a time. You need to specify different CBS disks when deploying applications in different environments with application templates. Therefore, CCS provides variable ReleaseCBS to represent CBS disk. During the application deployment, the **specific CBS disks available for the applications** are selected for deployment. The example is as follows:
+A CBS disk can only be mounted to one container at a time. You need to specify different CBS disks when deploying applications with application templates in different environments. Therefore, CCS provides the variable ReleaseCBS to represent CBS disk. During the application deployment, the **specific CBS disks available for the applications** are selected for deployment. The example is as follows:
 
 ```
       volumes:
@@ -101,6 +101,6 @@ NAMESPACE: default
 FRONTEND_REPLICAS: 2
 ```
 
-In this way, the keys NAMESPACE and FRONTEND_REPLICAS in the configuration file will be mounted to the container's /mnt directory, with the filenames being NAMESPACE and FRONTEND_REPLICAS respectively. The file content is the content of the keys in the configuration file.
+In this way, the keys NAMESPACE and FRONTEND_REPLICAS in the configuration file will be mounted to the container's /mnt directory, with the filenames being NAMESPACE and FRONTEND_REPLICAS respectively. The file content is the content corresponding to the key in the configuration file.
 
 [1]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/

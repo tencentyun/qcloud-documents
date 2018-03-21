@@ -2,14 +2,14 @@
 
 ## 接口描述
 
-**GetCdnStatTop** 用于查询多域名/项目指定时间区间按流量排名的TOP 100 URL列表、省份TOP排名、运营商TOP排名。
+**GetCdnStatTop** 用于查询多域名/项目指定时间区间按流量排名的 TOP 1000 URL列表、省份TOP排名、运营商TOP排名。
 
 请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
 **注意事项：**
 
-+ 可一次提交多个域名，查询整体流量TOP100 URL、省份TOP排名、运营商TOP排名，需填充对应projectId
-+ 可一次提交多个项目，查询整体流量TOP100 URL、省份TOP排名、运营商TOP排名
++ 可一次提交多个域名，查询整体流量TOP1000 URL、省份TOP排名、运营商TOP排名，需填充对应projectId
++ 可一次提交多个项目，查询整体流量TOP1000 URL、省份TOP排名、运营商TOP排名
 + TOP数据从日志中计算获取，数据延迟约 30 分钟
 + 支持查询 90天内的TOP数据
 + 调用频次限制为 100次/分钟

@@ -1,14 +1,12 @@
-With the rise of micro-service and Devops, the deployment and management for multiple services across multiple environments becomes a necessity. Besides, the complexity of deployment also greatly increases. Tencent CCS can help you achieve group management of services via applications, which significantly simplifies the service management. Meanwhile, Tencent CCS saves the service deployment information in application templates, and manages differentiated service information in different environments via configurations, thus achieving quick service deployment in different environments in the mode of "application template + configuration".
+With the rise of micro-service and Devops, the deployment and management for multiple services across multiple environments becomes a necessity. Besides, the complexity of deployment also greatly increases. Tencent Cloud CCS can help you achieve group management of services via applications, which significantly simplifies the service management. Meanwhile, Tencent Cloud CCS saves the service deployment information in application templates, and manages differentiated service information in different environments through configurations, thus achieving quick service deployment in different environments in the mode of "application template + configuration".
 
 ## Key Concepts in Application Management
 
 Application management involves three key concepts:
 
-**Application:** Tencent CCS performs unified management for multiple services via service groups. For more information on applications, please see [Application Overview][1].
-
-**Application Template:** The service deployment information is saved in the form of YAML text. Users can deploy the same application in different environments with ease. For more information on application templates, please see [Application Template Overview][2].
-
-**Configuration Management:** In the configuration management, the differentiated parts in different environments are reflected in configuration items, and values that frequently change are substituted by variables for easy modification and update. For more information on configuration management, please see [Configuration Items in the Application][3].
+- **Application:** Tencent Cloud CCS performs unified management for multiple services using service groups. For more information on applications, please see [Application Overview][1].
+- **Application Template:** The service deployment information is saved in the form of YAML text. Users can deploy the same application in different environments with ease. For more information on application templates, please see [Application Template Overview][2].
+- **Configuration Management:** In the configuration management, the differentiated parts in different environments are reflected in configuration items, and values that frequently change are substituted with variables for easy modification and update. For more information on configuration management, please see [Configuration Items in the Application][3].
 
 For more information on key concepts of application management, please see [Usage Guide][4].
 
@@ -16,14 +14,14 @@ For more information on key concepts of application management, please see [Usag
 There are two major scenarios for application management: rapid application deployment in multiple environments, and service group-based Devops process management.
 
 **Rapid application deployment in multiple environments**
-As shown below, rapid application deployment in multiple environments can be achieved in the mode of application template + configurations of different environments. The application template describes the deployment information of multiple services, and the configuration item (such as the number of instance replicas, database address) reflects the differentiated settings in different environments . With "application template + configuration", application instances can be deployed in multiple environments quickly. For more information on application deployment in multiple environments, please see [Wordpress Deployment in Different Environments][5].
+As shown below, rapid application deployment in multiple environments can be achieved in the mode of "application template + configurations of different environments". The application template describes the deployment information of multiple services, and the configuration item (such as the number of instance replicas, database address) reflects the differentiated settings in different environments. With "application template + configuration", application instances can be deployed in multiple environments quickly. For more information on application deployment in multiple environments, please see [Deploy Wordpress Application in Different Environments][5].
 
 ![多环境下应用的快速部署.png-20.6kB][6]
 
 **Service group-based Devops process management**
-In the Devops process, the application management groups services based on the concept of application. Services with high relevance are organized as a group for unified management to decrease the management complexity for multiple services.
+In the Devops process, the application management groups services based on the concept of application. Services with high relevance are organized as a group for unified management to simplify the management of multiple services.
 
-In addition, synchronous management in different environments can be achieved using "application template + configuration". If the deployment information of the service is modified, the application template can be used for synchronous information management in multiple environments.
+In addition, synchronous management in different environments can be achieved using "application template + configuration". When the deployment information of the service is modified, the application template can be used for synchronous information management in multiple environments.
 
 ![多环境下应用的管理.png-13.8kB][7]
 
@@ -39,7 +37,7 @@ Guestbook is a typical web application service, and consists of a frontend servi
   [3]: https://cloud.tencent.com/document/product/457/11987
   [4]: https://console.cloud.tencent.com/ccs/guide
   [5]: https://cloud.tencent.com/document/product/457/12197
-  [6]: https://mc.qcloudimg.com/static/img/30ce4422ec69ff4d409c6bde714b2230/image.png
-  [7]: https://mc.qcloudimg.com/static/img/a5ba801e8315e1a608b4bd7f8cad49f5/image.png
+  [6]: https://mc.qcloudimg.com/static/img/9aa36a00d13ca3e4af5f7357a9eb8267/image.png
+  [7]: https://mc.qcloudimg.com/static/img/4eb0fd7709c194c0c90abbd677daa3ab/image.png
   [8]: https://cloud.tencent.com/document/product/457/11945
   [9]: https://cloud.tencent.com/document/product/457/11944

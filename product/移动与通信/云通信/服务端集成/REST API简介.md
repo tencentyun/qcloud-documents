@@ -129,7 +129,7 @@ REST API的应答包体也是JSON格式，其格式符合如下特征：
 
 ### 5.2 Postman 
 
-Postman是一款功能强大的网页调试与发送网页HTTP请求的Chrome插件。其使用案例参见[这里](/doc/product/269/服务端集成指引#5.3-.E4.B8.BA.E5.AF.BC.E5.85.A5.E7.9A.84.E8.AE.BE.E7.BD.AE.E8.B4.A6.E5.8F.B7.E7.9A.84.E5.9F.BA.E6.9C.AC.E8.B5.84.E6.96.99.EF.BC.88.E4.BD.BF.E7.94.A8postman.EF.BC.89)。
+Postman是一款功能强大的网页调试与发送网页HTTP请求的Chrome插件。其使用案例参见[这里](https://cloud.tencent.com/document/product/269/1510)。
 
 ### 5.3 PHP Server SDK中的调试工具 
 

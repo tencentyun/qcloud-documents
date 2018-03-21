@@ -1,18 +1,14 @@
-Tencent Cloud CCS supports grouping services by application. Place the services with high relevance into one application for easy management.
+Tencent Cloud CCS supports grouping services by application. You can add multiple services with high relevance into one application for unified management, thus simplifying the service management.
 
-## Application Operations
+## Main Operations Supported for Application
 
-You can quickly create and update an application by using "application template + configuration". You are allowed to deploy and update services in the application separately. For more information on operations, please see the followings:
+Applications can be quickly created and updated with "application template + configurations". You are allowed to deploy and update services in the application separately. For more information on operations, please see:
 
-[Create Application][1]
-
-[Delete Application][2]
-
-[Update Application][3]
-
-[View Application][4]
-
-[Manage Services in the Application][5]
+- [Create Application][1]
+- [Delete Application][2]
+- [Update Application][3]
+- [View Application][4]
+- [Manage Services in the Application][5]
 
 For more information on application management, please see [Application Management Overview][7].
 

@@ -4,13 +4,13 @@ To quickly deploy Guestbook application in different clusters or different names
 
 This example shows how to create a Guestbook application template.
 
-## Step 1: Create Application Template
+## Step 1: Create an application template
 
-In the [Application Template][1] list, click **New**.
+In the [Application Template][1] list, click the **New** button.
 
 ![001-新建应用模板.png-39.8kB][2]
 
-## Step 2: Edit Application Template
+## Step 2: Edit the application template
 
 **2.1 Enter the application template name**
 
@@ -18,11 +18,11 @@ In the [Application Template][1] list, click **New**.
 
 **2.2 Create frontend service**
 
-(1) Click **+** to add a service. Set the service name as "frontend".
+(1) Click the `Add empty service` button to add a service, and set its name to `nginx`.
 
 ![应用模板gustbook示例-002.png-25.9kB][4]
 
-(2) In the template content edit box, enter the template content of the `frontend` service. You can directly copy the following content into the edit box.
+(2) Enter the template content of `frontend` service in the template content edit box. You can directly copy the following content into the edit box.
 
 ```
 apiVersion: extensions/v1beta1
@@ -38,7 +38,7 @@ spec:
       - env:
         - name: GET_HOSTS_FROM
           value: dns
-        image: {{.FRONTEND_IMAGE}}:{{.FRONTEND_VERSION}}
+        image: ccr.ccs.tencentyun.com/library/gb-frontend:{{.FRONTEND_VERSION}}
         imagePullPolicy: Always
         name: php-redis
         resources:
@@ -80,7 +80,7 @@ spec:
   template:
     spec:
       containers:
-      - image: {{.REDIS_MASTER_IMAGE}}:{{.REDIS_MASTER_VERSION}}
+      - image: ccr.ccs.tencentyun.com/library/redis:{{.REDIS_MASTER_VERSION}}
         imagePullPolicy: Always
         name: master
         resources:
@@ -128,7 +128,7 @@ spec:
       - env:
         - name: GET_HOSTS_FROM
           value: dns
-        image: {{.REDIS_SLAVE_IMAGE}}:{{.REDIS_SLAVE_VERSION}}
+        image: ccr.ccs.tencentyun.com/library/gb-redisslave :{{.REDIS_SLAVE_VERSION}}
         imagePullPolicy: Always
         name: slave
         resources:
@@ -164,47 +164,32 @@ The created service is shown as below:
 
 **2.5 Export configuration items, and enter the content of configuration items**
 
-Multiple variables are used in the application template. You need to set default values for the variables in configuration items. You can proceed as follows:
-
-(1) Click `Import from the template` to export variables in the template as configuration items. In this example, `NAMESPACE`, FRONTEND_REPLICAS, FRONTEND_IMAGE, FRONTEND_VERSION, REDIS_MASTER_IMAGE, REDIS_MASTER_VERSION, REDIS_SLAVE_IMAGE and REDIS_SLAVE_IMAGE are exported as configuration items.
-
-![应用模板gustbook示例-004.png-32.6kB][6]
-
-(2) Enter the content of configuration items. In this example, the default values of configuration items are provided as follows. (Values can be modified as needed)
+Multiple variables are used in the application template. You need to configure default values for the variables as follows:
+Enter the content of configuration items. In this example, the default values of configuration items are provided as follows. (Values can be modified as needed)
 ```
 NAMESPACE: default
 FRONTEND_REPLICAS: 2
-FRONTEND_IMAGE: ccr.ccs.tencentyun.com/library/gb-frontend
 FRONTEND_VERSION: v4
-REDIS_MASTER_IMAGE: ccr.ccs.tencentyun.com/library/redis
 REDIS_MASTER_VERSION: e2e
-REDIS_SLAVE_IMAGE: ccr.ccs.tencentyun.com/library/gb-redisslave
-REDIS_SLAVE_IMAGE: v1
+REDIS_SLAVE_VERSION: v1
 ```
-The values of configuration items are shown as follows.
+![应用模板gustbook示例-004.png-32.6kB][6]
 
-![应用模板gustbook示例-005.png-27kB][7]
+## Step 3: Complete editing and view the application template
 
-## Step 3: Complete Editing and View Application Template
-
-You have completed the editing of the application template in Step 2. Click **Finish** button to save the application template.
-
-![应用模板gustbook示例-006.png-5.3kB][8]
-
+After you have completed the editing of the application template in step 2, click the `Finish` button to save it.
 Now, the application template is created. You can view it the application template list.
 
-![应用模板gustbook示例-007.png-17.1kB][9]
+![应用模板gustbook示例-006.png-5.3kB][8]
 
 Next, you can deploy the application service using the created template. For more information on how to deploy services using application template, please see [Create Application][10]. For more information on how to deploy application using the `Guestbook` application template, please see [Template Example - Guestbook Application][11].
 
   [1]: https://console.cloud.tencent.com/ccs/template
-  [2]: https://mc.qcloudimg.com/static/img/916facfa358f0ab96524c2e644a3b223/image.png
-  [3]: https://mc.qcloudimg.com/static/img/ca4cfb00da6fef22577596fa145156fd/image.png
-  [4]: https://mc.qcloudimg.com/static/img/5dad81c961661a5ee4147d1a5b3231a6/image.png
-  [5]: https://mc.qcloudimg.com/static/img/3b29da4e2d2e758c0c144029bcf583d0/image.png
-  [6]: https://mc.qcloudimg.com/static/img/dc0552a8a6b110b35d3f6e95fde12efc/image.png
-  [7]: https://mc.qcloudimg.com/static/img/a3c9542183055e9ebc2cf834aae43957/image.png
-  [8]: https://mc.qcloudimg.com/static/img/66635b054bf711fa4c570265bed3971a/image.png
-  [9]: https://mc.qcloudimg.com/static/img/f371ff5c3969ecb50bc80f2599c5b67a/image.png
+  [2]: https://mc.qcloudimg.com/static/img/0102424d765d3deab8a2b81bee485337/image.png
+  [3]: https://mc.qcloudimg.com/static/img/43d6a83add5684351d6ad5bbb3bef7b1/image.png
+  [4]: https://mc.qcloudimg.com/static/img/138339c3113312e63dc7ff401706c5c2/image.png
+  [5]: https://mc.qcloudimg.com/static/img/4283f6420c2d97c6d3e2da97b1f9b677/image.png
+  [6]: https://mc.qcloudimg.com/static/img/93f595d1d91ea5d7eeabedca4201a713/image.png
+  [8]: https://mc.qcloudimg.com/static/img/e8fcce18d38450eb9aaa23f4092077db/image.png
   [10]: https://cloud.tencent.com/document/product/457/11942
   [11]: https://cloud.tencent.com/document/product/457/11944

@@ -365,7 +365,7 @@ String tokenString = messagingToken.getgetTokenString();  // 获取设备唯一�
 |5	|与 CMEM 通讯失败|	稍后重试（推送超时）|
 |6	|设备 token 未成功注册|	请检查终端设备注册是否成功
 |7	|通用错误，账号超限	|删除其他未使用的账号(调用账号解绑）|
-|14	|token 非法	|Token 长度为40位|
+|14	|token 非法	|Token 长度为 40 位|
 |15|	信鸽逻辑服务器繁忙	|稍后重试|
 |16	|系统繁忙	|稍后重试|
 |19	|操作时序错误。例如进行 tag 操作前未获取到 deviceToken|	没有获取到 deviceToken 的原因：1. 没有注册信鸽或者苹果推送 2. provisioning  profile制作不正确|
