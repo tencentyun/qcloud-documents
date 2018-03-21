@@ -18,7 +18,7 @@
 |-----|------|
 |[查询消息](https://cloud.tencent.com/document/product/548/13281)	|查询群发消息发送状态|
 |[查询设备数](https://cloud.tencent.com/document/product/548/14722)	|查询应用覆盖的设备数（token 总数）|
-|[查询设备信息](https://cloud.tencent.com/document/product//548/14723)	|查询应用的某个 token 的信息（查看是否有效）|
+|[查询设备信息](https://cloud.tencent.com/document/product/548/14723)|查询应用的某个 token 的信息（查看是否有效）|
 |[查询映射设备](https://cloud.tencent.com/document/product/548/14724)|查询应用某帐号映射的 token（查看帐号-token 对应关系）|
 |[查询应用标签](https://cloud.tencent.com/document/product/548/14725)	|查询应用设置的标签|
 |[查询设备标签](https://cloud.tencent.com/document/product/548/14726)	|查询应用的某个设备上设置的标签|
