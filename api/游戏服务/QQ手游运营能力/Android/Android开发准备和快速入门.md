@@ -1,6 +1,4 @@
 ## 开发准备
-### 相关环境
-[点击下载 SDK >>](https://share.weiyun.com/6745141244bffaa37b7560882462e289 )
 
 ![](https://mc.qcloudimg.com/static/img/1c18ecaece1d026e23d2f7c92545d6b4/image.jpg)
 ### 环境依赖
