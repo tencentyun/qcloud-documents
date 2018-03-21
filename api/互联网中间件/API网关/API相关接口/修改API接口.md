@@ -80,7 +80,7 @@ https://apigateway.api.qcloud.com/v2/index.php?
 &requestParameters.0.description=年龄
 &serviceType=Http
 &serviceTimeout=60
-&serviceConfig.url=www.qcloud.com
+&serviceConfig.url=cloud.tencent.com
 &serviceConfig.path=/path
 &serviceConfig.method=GET
 &serviceParameters.0.name=age

@@ -1,4 +1,4 @@
-<font color="red">注意</font> ：本文1、2、3部分内容，仅适用于COS V3及以下版本，使用COS V4及以上版本的用户，请参见[cos API产品手册](https://cloud.tencent.com/document/product/436/7751) 
+**注意** ：本文1、2、3部分内容，仅适用于COS V3及以下版本，使用COS V4及以上版本的用户，请参见[COS  API产品手册](https://cloud.tencent.com/document/product/436/7751) 
 
 ## 1	基本概念
 
@@ -18,6 +18,7 @@
 ## 3	目录操作
 
 ### 3.1	创建目录
+
 功能：在指定路径下创建目录。 接口：web.video.myqcloud.com/files/v1/[appid]/[bucket_name]/[dirName]/ <font color="red"><- 有文件夹斜杠 /</font>
 
 要求：父目录存在
