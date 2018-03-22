@@ -13,6 +13,6 @@
 详见 [iOS SDK 使用入门](https://cloud.tencent.com/document/product/666/14350)。
 
 ## 服务器端推送
-可以采取服务器调用 API 的方式进行推送，详细的接口描述可以参见 [服务器端推送指南](https://cloud.tencent.com/document/product/666/14772#.E6.99.AE.E9.80.9A.E9.80.9A.E7.9F.A5.E7.A4.BA.E4.BE.8B)。
+可以采取服务器调用 API 的方式进行推送，详细的接口描述可以参见 [服务器端推送指南](https://cloud.tencent.com/document/product/666/14772)。
 ## 控制台推送
 如果没有使用服务器端调用 API 进行推送的需求，直接使用控制台进行推送是更为便捷的选择。[控制台使用链接](https://cloud.tencent.com/document/product/666/14864)
