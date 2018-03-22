@@ -1,6 +1,6 @@
 ## 接口描述
 
-**GetHostInfoByHost** 查询域名的详细配置信息。
+**GetHostInfoById** 查询域名的详细配置信息。
 
 请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
@@ -12,7 +12,7 @@
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 
 ## 入参说明
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 GetHostInfoByHost。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 GetHostInfoById。
 
 | 参数名称 | 是否必选 | 类型 | 描述                             |
 | -------- | -------- | ---- | -------------------------------- |
@@ -134,7 +134,7 @@ GET 请求需要将所有参数都加在 URL 后：
 
 ```
 https://cdn.api.qcloud.com/v2/index.php?
-Action=GetHostInfoByHost
+Action=GetHostInfoById
 &SecretId=XXXXXXXXXXXXXXXXXXXXXXXXXXX
 &Timestamp=1462434613
 &Nonce=123456789
@@ -154,7 +154,7 @@ https://cdn.api.qcloud.com/v2/index.php
 
 ```
 array (
-  'Action' => 'GetHostInfoByHost',
+  'Action' => 'GetHostInfoById',
   'SecretId' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
   'Timestamp' => 1462782282,
   'Nonce' => 123456789,
