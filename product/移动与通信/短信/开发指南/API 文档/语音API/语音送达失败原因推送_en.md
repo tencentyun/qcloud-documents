@@ -1,62 +1,50 @@
-## Protocol Descriptions
-<table style="display:table;width:100%">
-  <tbody>
-    <tr>
-      <td style="width:15%;">
-        Protocol
-      </td>
-      <td>
-        HTTP JSON
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Encoding format
-      </td>
-      <td>
-        UTF8
-      </td>
-    </tr>
-    <tr>
-      <td>
-        URL
-      </td>
-      <td>
-		  For example: https://yun.tim.qq.com/voice/voicecallback
-      </td>
-    </tr>
-    <tr>
-      <td>
-        API description
-      </td>
-      <td>
-		   Send the reasons why it is unable to deliver the voice verification code or voice notification to the target mobile number.
-      </td>
-    </tr>
-  </tbody>
-</table>
+## API Description
+### Feature
+This API is used to push the reason why voice verification code or voice notification is failed to be delivered to the target mobile number.
 
-## Request Packet
-The packet is in JSON format with the following parameters:
-```
+### URL Example
+`https://yun.tim.qq.com/voice/voicecallback`
+
+## Request Parameters
+```json
 {
     "voice_failure_callback": {
-        "callid": "xxxxxx", //Indicate the ID of this delivery 
-        "mobile": "13xxxxxxxxx", //Mobile number  
-        "nationcode": "86", //Country code
-        "call_from": "075583763333", //Calling number
-        "failure_code": 8, //Error code
-        "failure_reason": "Invalid number" //Reason of failure
+        "call_from": "075583763333",
+        "callid": "xxxxxx",
+        "failure_code": 8,
+        "failure_reason": "Invalid number",
+        "mobile": "13xxxxxxxxx",
+        "nationcode": "86"
     }
 }
 ```
 
-## Response Packet
-When receiving a callback request, the third party needs to give a response to Tencent Cloud SMS service in the following format:
-```
-{ 
-    "result": 0, //0: Successful. Other values: Failed
-    "errmsg": "OK" //The specific error message when the "result" is not 0
+| Parameter | Required | Type | Description |
+|------------------------|------|--------|--------------------------|
+| voice_failure_callback | Yes | Object | Call back the push of the reasons of voice delivery failure |
+
+- Parameter `voice_failure_callback`:
+
+| Parameter | Required | Type | Description |
+|----------------|------|--------|----------------|
+| call_from | Yes | String | Calling number |
+| callid | Yes | String | The ID of this delivery |
+| failure_code | Yes | Number | Error code |
+| failure_reason | Yes | String | Reasons of failure |
+| mobile | Yes | String | Mobile number |
+| nationcode | Yes | String | Country code |
+## Response Parameters
+```json
+{
+    "result": 0,
+    "errmsg": "OK"
 }
 ```
+
+| Parameter | Required | Type | Description |
+|--------|------|--------|---------------------------|
+| errmsg | Yes | String | The specific error message when the "result" is not 0 |
+| result | Yes | Number | Error code. 0: Successful. Other values: Failed |
+
+
+

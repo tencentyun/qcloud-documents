@@ -1,61 +1,43 @@
-## 1 Protocol Descriptions
-<table style="display:table;width:100%">
-  <tbody>
-    <tr>
-      <td style="width:15%;">
-        Protocol
-      </td>
-      <td>
-        HTTP POST/GET/JSON
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Encoding format
-      </td>
-      <td>
-        UTF8
-      </td>
-    </tr>
-    <tr>
-      <td>
-        URL
-      </td>
-      <td>
-		For example: https://yun.tim.qq.com/sms/smscallback
-      </td>
-    </tr>
-    <tr>
-      <td>
-        API description
-      </td>
-      <td>
-		After a user receives an SMS message and replies to it, Tencent Cloud SMS service notifies the business side of the SMS reply by calling back the service URL.
-      </td>
-    </tr>
-  </tbody>
-</table>
+## API Description
+### Feature
+This API is used for Tencent Cloud SMS service to notify the business side of the SMS reply by calling back the service URL after a user receives an SMS message and replies to it.
 
-## 2 Request Packet
-The packet is in JSON format with the following parameters:
-```
+### URL Example
+`https://yun.tim.qq.com/sms/smscallback`
+
+## Request Parameters
+```json
 {
-    "nationcode": "86", //Country code
-    "mobile": "13xxxxxxxxx", //Mobile number
-    "text": "User's reply",
+    "extend": "extended code",
+    "mobile": "13xxxxxxxxx",
+    "nationcode": "86",
     "sign": "SMS signature",
-    "time": 1457336869, //UNIX timestamp
-    "extend": "Extended code" //The extended code of the channel (optional). If the "extend" field is specified in the API for sending SMS messages, 
-			//when a user replies to an SMS message, Tencent server returns it as is for developers to distinguish the specific reply type.
+    "text": "User's reply",
+    "time": 1457336869
 }
 ```
 
-## 3 Response Packet
-When receiving a callback request, the third party needs to give a response to Tencent Cloud SMS service in the following format:
-```
-{ 
-    "result": 0, //0: Successful. Other values: Failed
-    "errmsg": "OK" //The specific error message when the "result" is not 0
+| Parameter | Required | Type | Description |
+|------------|------|--------|----------------------------------------------|
+| extend | Yes | String | The extended code of the channel (optional). Disabled by default. A value must be specified. |
+| mobile | Yes | String | Mobile number |
+| nationcode | Yes | String | Country code |
+| sign | Yes | String | SMS signature |
+| text | Yes | String | User's reply |
+| time | Yes | Number | Unix timestamp (in sec) |
+
+## Response Parameters
+```json
+{
+    "result": 0,
+    "errmsg": "OK"
+
 }
 ```
+
+| Parameter | Required | Type | Description |
+|--------|------|--------|------------------------------------------|
+| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed |
+| errmsg | Yes | String | Error message. The specific error message when the "result" is not 0 |
+
+

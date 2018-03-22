@@ -1,77 +1,68 @@
-## Protocol Descriptions
-<table style="display:table;width:100%">
-  <tbody>
-    <tr>
-      <td style="width:15%;">
-        Protocol
-      </td>
-      <td>
-        HTTP POST
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Encoding format
-      </td>
-      <td>
-        UTF8
-      </td>
-    </tr>
-    <tr>
-      <td>
-        URL
-      </td>
-      <td>
-		For example: https://yun.tim.qq.com/v5/tlsvoicesvr/sendvoice?sdkappid=xxxxx&random=xxxx
-      </td>
-    </tr>
-    <tr>
-      <td>
-        API description
-      </td>
-      <td>
-		Send voice verification codes to domestic users (consisting of letters, numbers or a combination of both)
-		<br />
-		Note: Enter the applied SDKAppID as sdkappid, and a random number as random.
-      </td>
-    </tr>
-  </tbody>
-</table>
+## API Description
+### Feature
+This API is used to send voice verification codes (consisting of English letters, numbers or a combination of both) to Chinese users.
 
-## Request Packet
-The packet is a JSON string with the following parameters:
-```
+### URL Example
+`https://yun.tim.qq.com/v5/tlsvoicesvr/sendvoice?sdkappid=xxxxx&random=xxxx`
+**Note**: Replace `xxxxx` in the field `sdkappid=xxxxx` with the sdkappid you applied for on Tencent Cloud, and replace `xxxx` in the field `random=xxxx` with a random number.
+
+## Request Parameters
+```json
 {
+    "ext": "",
+    "msg": "1234",
+    "playtimes": 2,
+    "sig": "ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4",
     "tel": {
-        "nationcode": "86", //Country code
-        "mobile": "13788888888" //Mobile number
-    }, 
-    "msg": "1234", //A verification code can contain letters, numbers or a combination of both. A voice prompt "Your verification code is" is added before the voice verification code when it is sent to a user.
-    "playtimes": 2, //The number of playbacks (optional). Maximum is 3. Default is 2.
-    "sig": "ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4", //App credential. For more information on the calculation, please see the following
-    "time": 1457336869, //UNIX timestamp, i.e. the time to initiate the request. A failure message will be returned if the time difference between the UNIX timestamp and the system time is greater than 10 minutes
-    "ext": "" //User's session content (optional). The Tencent server returns it as is. You can leave it empty if it is not needed.
+        "mobile": "13788888888",
+        "nationcode": "86"
+    },
+    "time": 1457336869
 }
 ```
-Note:  
-1. The "sig" field is generated according to the formula sha256(appkey=$appkey&random=$random&time=$time&mobile=$mobile).  
+
+| Parameter | Required | Type | Description |
+|-----------|------|--------|--------------------------------------------------------------------------------------------------|
+| ext | No | String | User's session content. The Tencent server returns it as is. |
+| msg | Yes | String | A verification code can contain Enligsh letters, numbers or a combination of both. A voice prompt "Your verification code is" is added before the voice verification code when it is sent to a user. |
+| playtimes | No | Number | The number of times of playbacks (optional). Maximum is 3. Default is 2. |
+| sig | Yes | String | App credential. For more information on the calculation, please see the following. |
+| tel | Yes | Object | Mobile number |
+| time | Yes | Number | The time to initiate the request (unix timestamp). A failure message is returned if the time difference between the unix timestamp and the system time is greater than 10 minutes. |
+
+- Parameter `tel`:
+
+| Parameter | Required | Type | Description |
+|------------|------|--------|----------|
+| mobile | Yes | String | Mobile number |
+| nationcode | Yes | String | Country code |
+**Note**:
+1. The "sig" field is generated according to the formula sha256(appkey=$appkey&random=$random&time=$time&mobile=$mobile).
 The pseudo codes are as follows:
-```
-string strMobile = "13788888888"; //Content of the mobile field of tel
-string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //The corresponding appkey of sdkappid, which must be kept confidential at the business side.
+```json
+string strMobile = "13788888888"; //The content of the "mobile" field of "tel"
+string strAppKey = "5f03a35d00ee52a21327ab048186a2c4"; //The appkey for the sdkappid, which must be kept confidential
 string strRand = "7226249334"; //The value of the "random" field in the URL
-string strTime = "1457336869"; //UNIX timestamp
+string strTime = "1457336869"; //The unix timestamp
 string sig = sha256(appkey=5f03a35d00ee52a21327ab048186a2c4&random=7226249334&time=1457336869&mobile=13788888888)
            = ecab4881ee80ad3d76bb1da68387428ca752eb885e52621a3129dcf4d9bc4fd4;
-```
-
-## Response Packet
-```
+```           
+           
+## Response Parameters
+```json
 {
-    "result": 0, //0: Successful. Other values: Failed
-    "errmsg": "OK", //The specific error message when the "result" is not 0
-    "ext": "", //User's session content. The Tencent server returns it as is.
-    "callid": "xxxx" //Indicate the ID of this delivery as well as a delivery record
+    "result": 0,
+    "errmsg": "OK",
+    "callid": "xxxx",
+    "ext": ""
 }
 ```
+
+| Parameter | Required | Type | Description |
+|--------|------|--------|-----------------------------------------------|
+| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. |
+| errmsg | Yes | String | Error message. The specific error message when the "result" is not 0. |
+| callid | No | String | Indicates the ID of this delivery as well as a delivery record |
+| ext | No | String | User's session content. Tencent server returns it as is. |
+
+

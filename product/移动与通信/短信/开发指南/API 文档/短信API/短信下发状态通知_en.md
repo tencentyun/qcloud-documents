@@ -1,67 +1,48 @@
-## 1 Protocol Descriptions
-<table style="display:table;width:100%">
-  <tbody>
-    <tr>
-      <td style="width:15%;">
-        Protocol
-      </td>
-      <td>
-        HTTP JSON
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Encoding format
-      </td>
-      <td>
-        UTF8
-      </td>
-    </tr>
-    <tr>
-      <td>
-        URL
-      </td>
-      <td>
-		For example: https://yun.tim.qq.com/sms/smscallback
-      </td>
-    </tr>
-    <tr>
-      <td>
-        API description
-      </td>
-      <td>
-		After an SMS is sent to a user, Tencent Cloud SMS service notifies the business side of the delivery status of the SMS by calling back the service URL.
-      </td>
-    </tr>
-  </tbody>
-</table>
+## API Description
+### Feature
+This API is used for Tencent Cloud SMS service to notify the business side of the delivery status of the SMS by calling back the service URL after an SMS message is sent to a user.
 
-## 2 Request Packet
-The packet is in JSON format with the following parameters:
-```
+### URL Example
+`https://yun.tim.qq.com/sms/smscallback`
+
+## Request Parameters
+```json
 [
     {
-        "user_receive_time": "2015-10-17 08:03:04", //The time the user actually received the message
-        "nationcode": "86", //Country code
-        "mobile": "13xxxxxxxxx", //Mobile number
-        "report_status": "SUCCESS", //The actual SMS receiving status. SUCCESS: successful, FAIL: failed
-        "errmsg": "DELIVRD", //Code that defines the SMS receiving status
-        "description": "The SMS message is successfully sent ", //Description of the SMS receiving status
-        "sid": "xxxxxxx" //Indicate the ID of this delivery
-    }, 
-    { }…
+        "user_receive_time": "2015-10-17 08:03:04",
+        "nationcode": "86",
+        "mobile": "13xxxxxxxxx",
+        "report_status": "SUCCESS",
+        "errmsg": "DELIVRD",
+        "description": "The SMS message is successfully sent",
+        "sid": "xxxxxxx"
+    }
 ]
 ```
-Notes:  
-1. A callback request may have results of multiple SMS requests returned.  
-2. For more information on "errmsg", see [Error Codes for Status Report](/doc/product/382/3771#2-.E7.8A.B6.E6.80.81.E5.9B.9E.E6.89.A7.E9.94.99.E8.AF.AF.E7.A0.81).
 
-## 3 Response Packet
-When receiving a callback request, the third party needs to give a response to Tencent Cloud SMS service in the following format:
-```
-{ 
-    "result": 0, //0: Successful. Other values: Failed
-    "errmsg": "OK" //The specific error message when the "result" is not 0
+| Parameter | Required | Type | Description |
+|-------------------|------|--------|---------------------------------------------------------|
+| user_receive_time | Yes | String | The time when a user actually received the message |
+| nationcode | Yes | String | Country code |
+| mobile | Yes | String | Mobile number |
+| report_status | Yes | String | Whether the message is received or not. SUCCESS: Successful. FAIL: Failed |
+| errmsg | Yes | String | Error code for SMS receiving status. For more information, please see [Error Codes for Status](https://cloud.tencent.com/document/product/382/3771#2-.E7.8A.B6.E6.80.81.E5.9B.9E.E6.89.A7.E9.94.99.E8.AF.AF.E7.A0.81) |
+| description | Yes | String | Description of SMS receiving status |
+| sid | Yes | String | Delivery ID |
+**Notes**:
+A callback request may return the results of multiple SMS requests.
+
+## Response Parameters
+```json
+{
+    "result": 0,
+    "errmsg": "OK"
 }
 ```
+
+| Parameter | Required | Type | Description |
+|--------|------|--------|------------------------------------------|
+| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed |
+| errmsg | Yes | String | Error message. The specific error message when the "result" is not 0 |
+
+
