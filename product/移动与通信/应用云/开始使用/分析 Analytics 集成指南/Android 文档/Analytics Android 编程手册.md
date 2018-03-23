@@ -53,7 +53,7 @@ TACAnalyticsService.getInstance().trackEventDuration(context, TACAnalyticsEvent,
 
 1. 应用第一次启动，或者应用进程在后台被杀掉之后启动
 
-2. 应用退到后台或锁屏超过一定时间之后再次回到前台，默认是30秒，你也可以根据业务需要修改。
+2. 应用退到后台或锁屏超过一定时间之后再次回到前台，默认是 30 秒，你也可以根据业务需要修改。
 
 3. 调用 SDK 提供的startNewSession()函数
 

@@ -1,14 +1,14 @@
 ## 准备工作
 
-在开始使用应用云 Authorization 之前，您需要：
+在开始使用移动开发平台（MobileLine） Authorization 之前，您需要：
 
-1. 一个启用了应用云的应用。
+1. 一个启用了移动开发平台（MobileLine）的应用。
 2. 您集成了 TACCore。
 
-## 将应用云 Authorization 代码库添加到您的 Xcode 项目中
+## 将移动开发平台（MobileLine） Authorization 代码库添加到您的 Xcode 项目中
 
 
-### 1. 在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源。
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK，并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源。
  
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
