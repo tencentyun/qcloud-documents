@@ -27,8 +27,8 @@ ActiveX 插件的原理就是通过一种 IE 浏览器认可的方式，为您�
 
 | 文件名  | 详情                                                         |
 | ------- | ------------------------------------------------------------ |
-| demoex  | demoex包含调用sdk/LiteAVAX.cab的html和js源码，可以直接参考如何使用activex插件开发音视频，目前支持推拉流、双人视频、多人视频、直播模式等demo。 |
-| sdk     | ActiveX插件是LiteAVAX.cab，带在html和js资源包里面，version指明当前插件版本号。 |
+| demoex  | demoex包含调用sdk/LiteAVAX.cab的html和js源码，可以直接参考如何使用activex插件开发音视频，目前支持推拉流、双人视频([体验](https://img.qcloud.com/open/qcloud/video/act/avtivex_demo/doubleroomdemo/index.html))、多人视频([体验](https://img.qcloud.com/open/qcloud/video/act/avtivex_demo/multroomdemo/index.html))、直播模式([体验](http://jww.qcloud.com/))  等demo。 |
+| sdk     | 包含了基础ActiveX插件的LiteAVAX.cab、实时音视频话的RTCRoomSDK、直播模式的LiveRoomSDK |
 | docment | 详细的接入文档                                               |
 
 ### 示例代码
@@ -82,3 +82,25 @@ Zip 包解压后，文件夹命名LiteAV_AX_SDK2.2.1.0，2,2,1,0这个是 Active
 - 用新的版本号（1,2,1,0）更新 codebase 中的旧版本号。新的插件版本号必须比旧的插件版本号要大。
 
 
+
+
+## 开发接入
+
+### 环境要求
+
+- 采用 vue.js 的框架，用webpackk项目构建工具
+- 需要安装node.js的环境，vue.js相关资料网上比较多，可以网上查阅环境配置。
+
+### 本地编译DEMO（doubleroom为例）
+
+- cd  ..\LiteAV_AX_SDK\demoex\doubleroomdemo\
+- npm install  安装依赖js环境
+- npm run dev  本地编译doubleroomdemo，编译好后通过IE访问 http://localhost:8080 即可以访问doubleroom的页面。
+
+### 构建DEMO发布
+
+- npm build  等比较长时间后，编译完成，发布代码生成到 ..\demoex\doubleroomdemo\dist目录下
+
+- dist目录下的代码发布到服务器即可。
+
+  ​
