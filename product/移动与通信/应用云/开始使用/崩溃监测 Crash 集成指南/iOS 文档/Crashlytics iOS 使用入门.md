@@ -1,21 +1,21 @@
 
 ## 准备工作
 
-在开始使用移动开发平台（MobileLine） Crashlytics 之前，您需要：
+在开始使用应用云 Crashlytics 之前，您需要：
 
-* 一个启用了移动开发平台（MobileLine）的应用。
+* 一个启用了应用云的应用。
 * 集成了 TACCore。
 
 ## 配置 Crashlytics 中的脚本
-为了配合其它SDK的使用，需要在Info.plist里面注册一些额外的信息。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南](https://github.com/tencentyun/qcloud-documents/tree/master/product/移动与通信/移动开发平台（MobileLine）/开始使用/授权%20Authorization%20集成指南/iOS%20文档) 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
+为了配合其它SDK的使用，需要在Info.plist里面注册一些额外的信息。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南](https://github.com/tencentyun/qcloud-documents/tree/master/product/移动与通信/应用云/开始使用/授权%20Authorization%20集成指南/iOS%20文档) 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
 
-## 将移动开发平台（MobileLine） Crashlytics 代码库添加到 Xcode 项目中
+## 将应用云 Crashlytics 代码库添加到 Xcode 项目中
 
 
-### 1. 在您的项目中集成移动开发平台（MobileLine） SDK：
+### 1. 在您的项目中集成应用云 SDK：
  
-并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
+并在您的 Podfile 文件中添加应用云的私有源：
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"

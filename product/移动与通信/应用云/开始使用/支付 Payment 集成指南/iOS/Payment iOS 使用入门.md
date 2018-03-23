@@ -1,19 +1,19 @@
-# 移动开发平台（MobileLine） Payment iOS 使用入门
+# 应用云 Payment iOS 使用入门
 
 ## 准备工作
 
-在开始使用移动开发平台（MobileLine） Payment 之前，您需要：
+在开始使用应用云 Payment 之前，您需要：
 
-* 一个启用了移动开发平台（MobileLine）的应用。
+* 一个启用了应用云的应用。
 * 集成了 TACCore。
 * 已经申请好了需要的微信/QQ支付对应的商户号、开放平台应用，并在控制台上配置。
 
-## 将移动开发平台（MobileLine） Payment 代码库添加到 Xcode 项目中
+## 将应用云 Payment 代码库添加到 Xcode 项目中
 
 
-### 1. 在您的项目中集成移动开发平台（MobileLine） SDK：
+### 1. 在您的项目中集成应用云 SDK：
 
-并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
+并在您的 Podfile 文件中添加应用云的私有源：
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"

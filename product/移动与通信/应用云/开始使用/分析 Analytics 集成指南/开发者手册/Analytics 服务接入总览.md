@@ -51,7 +51,7 @@
 
 ### 1. 注册平台账号
 
-访问 [移动开发平台（MobileLine）](https://console.cloud.tencent.com)，并注册开发者账号。
+访问 [应用云](https://console.cloud.tencent.com)，并注册开发者账号。
 
 ### 2. 创建项目和应用
 

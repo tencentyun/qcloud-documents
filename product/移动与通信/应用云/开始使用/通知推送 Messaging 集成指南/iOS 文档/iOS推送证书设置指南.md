@@ -70,4 +70,4 @@ openssl s_client -connect gateway.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 ```
 openssl pkcs12 -in CertificateName.p12 -out CertificateName.pem -nodes
 ```
-则生成了CertificateName.pem证书，上传到移动开发平台（MobileLine）控制台则可以进行消息推送。
+则生成了CertificateName.pem证书，上传到应用云控制台则可以进行消息推送。
