@@ -6,7 +6,7 @@
 
 [后台服务配置](https://cloud.tencent.com/document/product/666/14600)
 
-[安装和配置SDK](https://cloud.tencent.com/document/product/666/14593)
+[安装和配置SDK](https://cloud.tencent.com/document/product/666/14879)
 
 [支付配置指引](https://cloud.tencent.com/document/product/666/14599)
 
