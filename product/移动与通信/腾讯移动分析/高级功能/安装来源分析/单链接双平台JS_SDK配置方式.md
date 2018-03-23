@@ -18,9 +18,11 @@ var _mta_btn_id = '$download_btn_id';
 </script>
 ```
 
-使用示例： 在 MTA 管理台 Androi d和 iOS 中各配置两个 Tlink：
-iOS: `http://xxxxx.com?ADTAG=111 `
-Android:  `http://xxxx.com?ADTAG=222 `
-其中 iOS 的 Appkey 为 AAAAAAAA，Android 的 Appkey 为 BBBBBBB（见管理台->配置管理->应用信息页面） 则在活动页面中判断，若当前设备为 iOS，将 $adtag 设置成 111，同时 $app_key 设置为 AAAAAAAA；若当前设备为 Android, 将 $adtag 设置成 222，同时 $app_key 设置为BBBBBBB。
+**使用示例：**
+在 MTA 管理台 Android 和 iOS 中各配置两个 Tlink：
+- iOS: `http://xxxxx.com?ADTAG=111 `
+- Android:  `http://xxxx.com?ADTAG=222 `
+
+其中 iOS 的 Appkey 为 AAAAAAAA，Android 的 Appkey 为 BBBBBBB（见[管理台](http://mta.qq.com/mta/overview/ctr_all_app_new)->配置管理->应用信息页面） 则在活动页面中判断，若当前设备为 iOS，将 $adtag 设置成 111，同时 $app_key 设置为 AAAAAAAA；若当前设备为 Android, 将 $adtag 设置成 222，同时 $app_key 设置为BBBBBBB。
 
 （如果需要多个链接跳转同一个落地页，同时每个链接都需要统计 Android 和 iOS，则可以在跳转至落地页前将 ADTAG 附在 URL 的参数中）
