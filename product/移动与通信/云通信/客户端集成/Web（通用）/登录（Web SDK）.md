@@ -123,7 +123,7 @@ function webimLogin() {
 
 **特别注意**，identifierNick的值只在初始化的登录时有效（第一次登录某identifier)，初始化账号后的昵称修改，需要调用setProfilePortrait接口。[接口文档](https://cloud.tencent.com/document/product/269/1599)
 
-Web端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一账号），需要联系商务经理提[需求工单](https://cloud.tencent.com/document/product/269/3916#2.18)。
+Web端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一账号），请到云通信控制台相应SDKAPPID "应用配置->功能配置->Web端实例同时在线" 配置实例个数。配置将在50分钟内生效。
 
 
 
