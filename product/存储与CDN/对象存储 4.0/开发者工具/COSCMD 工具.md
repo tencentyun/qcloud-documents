@@ -94,17 +94,18 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 | parts_size | 可选参数，分块上传的单块大小（单位为 MB，默认为 1MB），有效值：1~10     | 数字   |
 
 > **注意：** 
-1. 目前`coscmd`已全部采用`https`协议, 请不要使用像 `cn-north/cn-south`等较老的地域标识（Region）。
-2. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
+1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
 配置完成之后的`.cos.conf`文件内容示例如下所示：
+2. 可以在配置文件中增加`schame`项来选择`http / https`
 ```
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
 secret_key = WE54wreefvds3462refgwewerewr
 bucket = ABC-1234567890
-region = cn-south
+region = ap-guangzhou
 max_thread = 5
 part_size = 1
+schame = https
 ```
 
 ### 指定 Bucket 的命令
@@ -192,7 +193,7 @@ coscmd delete -r /  //操作示例
 - 复制文件命令如下：
 ```
 coscmd copy <sourcepath> <cospath>  //命令格式
-coscmd copybucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt aaa/123.txt  //操作示例
+coscmd copy bucket-appid.cos.ap-guangzhou.myqcloud.com/a.txt aaa/123.txt  //操作示例
 ```
 
 请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）。

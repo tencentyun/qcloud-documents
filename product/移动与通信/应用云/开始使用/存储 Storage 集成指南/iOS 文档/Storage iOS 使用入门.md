@@ -1,18 +1,17 @@
-# 应用云 Storage iOS 使用入门
 
 ## 准备工作
 
-在开始使用应用云 Storage之前，您需要：
+在开始使用移动开发平台（MobileLine） Storage之前，您需要：
 
-1. 一个启用了应用云的应用。
+1. 一个启用了移动开发平台（MobileLine）的应用。
 2. 您集成了 TACCore。
 
-## 将应用云 Storage 代码库添加到您的 Xcode 项目中
+## 将移动开发平台（MobileLine） Storage 代码库添加到您的 Xcode 项目中
 
 
-### 1. 在您的项目中集成应用云 SDK。
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK。
 
-并在您的 Podfile 文件中添加应用云的私有源：
+并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
@@ -50,7 +49,7 @@ import TACStorage
 
 ### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置。
 
-一般情况下您使用默认配置就可以了，用一下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
+一般情况下您使用默认配置就可以了，用以下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 
 Objective-C 代码示例：
 ~~~
@@ -62,7 +61,7 @@ Swift 代码示例：
 	TACApplication.configurate();
 ~~~
 
-如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACStorage 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACStorage 模块这些属性就不存在，请不要在没有引入 TACStorage 模块的时候使用这些配置，这将会导致您编译不通过：
+如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧，保障了只有在您引入了 TACStorage 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACStorage 模块这些属性就不存在，请不要在没有引入 TACStorage 模块的时候使用这些配置，这将会导致您编译不通过：
 
 Objective-C 代码示例：
 ~~~

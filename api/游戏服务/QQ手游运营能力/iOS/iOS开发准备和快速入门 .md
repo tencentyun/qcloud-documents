@@ -1,9 +1,5 @@
 
 ## 开发准备
-### 相关环境
-[点击下载 SDK >>](https://share.weiyun.com/9a52cea509f22d5d2e74f5494e69c640 )
-
-![](https://mc.qcloudimg.com/static/img/1c18ecaece1d026e23d2f7c92545d6b4/image.jpg)
 
 ### 环境依赖
 Xcode 集成开发工具

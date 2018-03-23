@@ -7,7 +7,7 @@ Complete the preparatory work as instructed in [Preparations](https://cloud.tenc
 Open file 2_RemoteCodePkg.py with an editor.
 ```
  # custom (Change to your info)
-imageId = "img-i91njcmx"
+imageId = "img-m4q71qnf"
 Application = {
     "DeliveryForm": "PACKAGE",
     "Command": "python ./codepkg/fib.py",

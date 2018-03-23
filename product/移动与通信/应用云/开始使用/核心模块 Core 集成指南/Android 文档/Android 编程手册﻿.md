@@ -1,11 +1,11 @@
-# 应用云 Android 编程手册
+# 移动开发平台（MobileLine） Android 编程手册
 
 ## 绑定用户标识
 
-应用云的很多服务，例如 Analytics、Messaging，都可以在上报信息时带上用户标识，这样后台可以查看数据的时候，可以定位到具体的用户。如果您需要带上这样的信息，可以在用户模块登录之后，调用 bindUserId 方法，绑定您的用户标识：
+移动开发平台（MobileLine）的很多服务，例如 Analytics、Messaging，都可以在上报信息时带上用户标识，这样后台可以查看数据的时候，可以定位到具体的用户。如果您需要带上这样的信息，可以在用户模块登录之后，调用 bindUserId 方法，绑定您的用户标识：
 
 ```
-TACApplication.bindUserId(customId)
+TACApplication.bindUserId(userId)
 ```
 
 如果您是通过微信或者 QQ 等三方登录模块，可以调用 useOpenId：

@@ -1,7 +1,7 @@
-Tencent Cloud CCS is based on Kubernetes orchestration engine. Kubernetes syntax is natively supported in CCS application templates. This document describes the common syntax of Kubernetes.
+Tencent Cloud CCS is based on Kubernetes orchestration engine at the underlying layer. Kubernetes syntax is natively supported in CCS application templates. This document describes the common syntax of Kubernetes.
 
-## Set CPU/Memory Limits
-Kubernetes uses `Limit` and `Request` to limit the resources used by a container. For more information, please see [here][1].
+## Setting CPU/Memory Limits
+Kubernetes uses Limit and Request to limit the resources used by a container. For more information, please see [official documents][1].
 
 The limits of CPU and memory are configured as follows:
 ```
@@ -14,12 +14,12 @@ The limits of CPU and memory are configured as follows:
             memory: 128Mi
 ```
 
-In the example above, the usage of container CPU and memory is limited by setting the values of CPU and Memory in the parameters `limits` and `requests` under `resources`. 0.2-core CPU is allocated during scheduling and there is no limit on the maximum CPU usage. 128-MB memory is allocated during scheduling and the maximum memory usage is 128 MB.
-The unit `m` can be used for the limit of CPU resource (1m=0.001 core). The units of M, Mi, G and Gi can be used for the limit of memory. 1M=1000*1000*Byte, 1Mi=1024*1024*Byte, 1G=1000*1000*1000*Byte, 1Gi=1024*1024*1024*Byte.
+In the example above, the usage of container CPU and memory is limited by setting the values of CPU and Memory in the parameters limits and requests in resources. 0.2-core CPU is allocated during scheduling and there is no limit on the maximum CPU usage. 128-MB memory is allocated during scheduling and the maximum memory usage is 128 MB.
+The unit `m` can be used for the limit of CPU resource (1m=0.001 core). The units of M, Mi, G and Gi can be used for the limit of memory. 1M=1000\*1000\*Byte, 1Mi=1024\*1024\*Byte, 1G=1000\*1000\*1000\*Byte, 1Gi=1024\*1024\*1024\*Byte.
 
-## Set Namespace
+## Setting Namespace
 
-Kubernetes uses the parameter `namespace` to set the namespace where the service resides. For example, set the `namespace` to `wordpress`.
+Kubernetes uses the parameter "namespace" to set the namespace where the service resides. For example, set the namespace to wordpress.
 
 ```
   namespace: wordpress
@@ -27,33 +27,33 @@ Kubernetes uses the parameter `namespace` to set the namespace where the service
 
 Note: 
 1. The namespace must be set to the same value for different resources under the same service. It must also be set to the same value for different services in the same application.
-2. If parameter `namespace` is left empty, `default` namespace is used.
+2. If parameter "namespace" is left empty, "default" namespace is used by default.
 
-For more information on namespace, please see [Namespace Usage Guide][2]
+For more information on the usage of namespace, please see [Namespace Usage Guide][2].
 
-## Set Number of Pods
-Kubernetes uses the parameter `replicas` to set the number of pods, as shown below:
+## Setting Number of Pods
+Kubernetes uses the parameter "replicas" to set the number of pods, as shown below:
 
 ```
 spec:
   replicas: 2
 ```
 
-Set the number of container pods to 2 in the parameter `replicas`.
+The number of container pods is set to 2 by setting the parameter "replicas".
 
-## Set Image Parameter
+## Setting Image Parameter
 
-Kubernetes uses the parameter `image` to set the image used by the container. In the example below, container image is specified as "busybox" and tag as `latest`:
+Kubernetes uses the parameter "image" to set the image used by the container. In the example below, container image is specified as "busybox" and tag as "latest":
 
 ```
 image: busybox:latest
 ```
 
-Note: If you do not specify an image tag, `latest` is used as the image tag by default.
+Note: If you do not specify an image tag, "latest" is used as the image tag by default.
 
 ## Set Service Type
 
-Kubernetes supports many service access types. Common service access types include: Load balancer access, in-cluster access, node port access, and "Do not set access mothod". In CCS, load balancer access is divided into public network-based load balancer access and VPC-based load balancer access. Kubernetes specifies the service access type with the parameter `type` in the Service resource.
+Kubernetes supports many service access types. Common service access types include: load balancer access, in-cluster access, node port access, and "Do not set access method". In CCS, load balancer access is divided into public network-based load balancer access and VPC-based load balancer access. Kubernetes specifies the service access type with the parameter `type` in the Service resource.
 
 **Public network-based load balancer access**
 ```
@@ -73,7 +73,7 @@ spec:
     qcloud-app: nginx
   type: LoadBalancer
 ```
-As shown in the example, the service access type is set to public network-based load balancer access by setting `type` to `LoadBalancer`.
+As shown in the example, the service access type is set to public network-based load balancer access by setting `type` to LoadBalancer.
 
 **VPC-based load balancer access**
 
@@ -119,7 +119,7 @@ spec:
     qcloud-app: nginx
   type: ClusterIP
 ```
-As shown in the example, the service access type is set to access via ClusterIP by setting `type` to `ClusterIP`. For public network-based and VPC-based load balancers, ClusterIP is also assigned by default and the service can be also be accessed within the `cluster` via `ClusterIP`.
+As shown in the example, the service access type is set to access via ClusterIP by setting `type` to ClusterIP. For public network-based and VPC-based load balancers, ClusterIP is also assigned by default and the service can be also be accessed within the cluster via ClusterIP.
 
 **Do not set access method**
 
@@ -149,7 +149,7 @@ For example, to mount the /home directory on a server to a container:
           name: vol
 ```
 
-For more information on disk mounting, please see [Kubernetes official documents - Volumes][5]
+For more information on disk mounting, please see [Kubernetes official documents - Volumes][5].
 
 The container platform also supports mounting CBS disks, NFS and configuration files. For more information on mounting different types of disks, pleas see:
 
@@ -159,7 +159,7 @@ The container platform also supports mounting CBS disks, NFS and configuration f
 
 ## Multi-Container Service
 
-In Kubernetes, a pod can contain multiple containers. For example, in the following service, a pod contains an `nginx` container and a `busybox` container.
+In Kubernetes, a pod can contain multiple containers. For example, in the following service, a pod contains an nginx container and a busybox container.
 
 ```
 apiVersion: extensions/v1beta1
@@ -209,7 +209,7 @@ spec:
 status: {}
 ```
 
-As shown in the example, setting different container information in the parameter `containers` makes the service pod contain multiple containers.
+As shown in the example, setting different container information in the parameter `containers` enables the service pod to contain multiple containers.
 
 ## Kubernetes Basic Orchestration Syntax
 

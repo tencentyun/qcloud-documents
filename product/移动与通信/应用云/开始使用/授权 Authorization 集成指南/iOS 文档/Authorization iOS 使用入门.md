@@ -1,15 +1,14 @@
- 
 ## 准备工作
 
-在开始使用应用云 Authorization 之前，您需要：
+在开始使用移动开发平台（MobileLine） Authorization 之前，您需要：
 
-1. 一个启用了应用云的应用。
+1. 一个启用了移动开发平台（MobileLine）的应用。
 2. 您集成了 TACCore。
 
-## 将应用云 Authorization 代码库添加到您的 Xcode 项目中
+## 将移动开发平台（MobileLine） Authorization 代码库添加到您的 Xcode 项目中
 
 
-### 1. 在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源。
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK，并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源。
  
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
@@ -129,7 +128,7 @@ Swift 示例代码：
 >**注意：**
 >如果您已经集成了 TACSicoalQQ 和 TACSocialWehcat 则不需要重复该步骤
 
- 为了配合其他 SDK 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：[TACCore集成指南]() 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
+ 为了配合其他 SDK 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据：TACCore集成指南 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
 Authorization 没有脚本功能。主要的脚本功能在支付插件中。脚本会自动的帮助您完成以下功能：
 

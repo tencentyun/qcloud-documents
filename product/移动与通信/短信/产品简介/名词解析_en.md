@@ -1,4 +1,4 @@
-## Format of SMS Message
+## SMS format
 An SMS message is composed of a signature and main content. For example, in this SMS message: "[Tencent Technology] Your verification code for QQ login is 1234, which is valid for five minutes", "[Tencent Technology]" is the signature and "Your verification code for QQ login is 1234, which is valid for five minutes" is the main content.
 You need to apply for a signature and a main content template before sending an SMS message. For the aforesaid SMS message, the signature is "[Tencent Technology]" and the text template is "Your verification code for QQ login is {1}, which is valid for {2} minutes.", and {1} and {2} are variables.
 

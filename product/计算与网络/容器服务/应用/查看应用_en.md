@@ -1,12 +1,12 @@
 ## Viewing Application List
 
-Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). In [Application][1] page, select the region and cluster. You can view all the applications under the cluster.
+Log in to the [Tencent Cloud CCS Console](https://console.cloud.tencent.com/ccs). Go to **Application Management** -> **[Application][1]** page, select the region and cluster, and you can view all the applications under the cluster.
 
 ![应用查看.png-44.4kB][2]
 
 ## Filtering and Searching Application
 
-Enter the name in the search box above the application list to filter and search applications with the specific name. For example, if you enter `nginx`, all the applications of which the names contain `nginx` under this cluster can be filtered out.
+Enter the keyword in the search box for applications with the specific name. For example, if you enter `nginx`, all the applications whose name contains "nginx" under this cluster are listed.
 
 ![应用查看-002.png-25kB][3]
 
@@ -16,7 +16,7 @@ Click the name of an application to see its details.
 
 ![应用查看-003.png-33.4kB][4]
 
-In the application details page, you can perform operations on the service of the application. For more operations on the services in the application, please see [Manage Services in the Application][5]. You can also view the YAML file of service template in the application. Variables in the template content can be replaced with the corresponding values in the configuration items.
+In the application details page, you can perform operations on the service of the application. For more operations on the services in the application, please see [Manage Services in the Application][5]. You can also view the YAML file of service template in the application. Variables in the template content can be substituted with the corresponding values in the configuration items.
 
   
   [1]: https://console.cloud.tencent.com/ccs/application
