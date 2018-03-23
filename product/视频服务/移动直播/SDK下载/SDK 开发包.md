@@ -359,6 +359,24 @@ table td {
 - **一键部署**
 此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**server** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
 
+<h2 id="Server">后台源码</h2>
+
+RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606) 和 [RTCRoom](https://cloud.tencent.com/document/product/454/14617) 的业务后台组件，用于实现房间管理、成员管理和状态同步等功能。您可以使用腾讯云已有的 RoomService 服务（`https://room.qcloud.com/weapp/live_room`），也可以下载如下源码，部署于自己的服务器上。 
+
+<table width="850px">
+  <tr align="center">
+    <th width="120px">所属平台</th>
+    <th width="80px">版本号</th>
+    <th width="570px">说明</th>
+    <th width="80px">下载链接</th>
+  </tr>
+  <tr align="center">
+    <td>小程序</td>
+    <td>1.1.0</td>
+    <td>LiveRoom 和 RTCRoom 的后台源码，可用于自行部署</a></td>
+    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Server") href="http://dldir1.qq.com/hudongzhibo/mlvb/RoomService.zip">DOWNLOAD</a></td>
+  </tr>
+</table>
   
 <h2 id="Xiaozhibo">小直播源码</h2>
 
@@ -401,15 +419,10 @@ table td {
 
 - 如果您想搭建小直播环境来进行调试，您可以按照文档 [如何快速搭建小直播？](https://cloud.tencent.com/document/product/454/7999) 指引来完成搭建工作。
 
+## 关于我们
+- 所有版本 SDK 均不绑定腾讯云，后续亦没有绑定计划，但 SDK 的一些优势功能只能配合腾讯云使用（比如 QUIC 加速等腾讯云的优势能力）。
 
-## 旧架构版本
-Ver3.0 以后的版本为新架构版本，相比于旧架构，在性能和稳定性上更有优势，而且后续功能开发速度更快。但如果您是我们的老客户，可能新架构有些细节之处还没有照顾到您，在我们完全补全这些细节之前，可以选择继续使用旧架构版本 [SDK Ver.2.0.5](https://cloud.tencent.com/document/product/454/10776) 。  
-  
-## 云商绑定
-所有版本 SDK 均不绑定腾讯云，后续亦没有绑定计划，但 SDK 不会局限于仅对接所有云商均支持的功能，诸如 UDP 加速等腾讯云的优势能力，SDK 会有更好的支持度和不俗的效果加成。
-
-## 联系我们
-我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://cloud.tencent.com/document/product/454/7998)。
+- 我们每个版本都会经过专业测试团队的测试验证，基础功能的可用性以及稳定性不成问题，但如果您在对接过程中遇到什么技术问题，欢迎 [联系我们](https://cloud.tencent.com/document/product/454/7998)。
 
 <script>
     var _mtac = {"senseHash":0};
