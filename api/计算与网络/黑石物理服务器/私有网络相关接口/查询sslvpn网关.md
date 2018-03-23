@@ -22,7 +22,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmSslVpnGwEx
 | vpnGwId | 否 | string | 查询指定的sslvpn网关唯一ID， 如不存在返回空。 |
 | orderField | 否 | string | 按某个字段排序，目前仅支持createTime。 |
 | orderDirection | 否 | string | 排序顺序，升序（asc）或降序（desc），默认：asc。|
-
+| zoneId | 是 | Int | 可用区ID，用于非指定查询时过滤。 需调用<a href="/doc/api/386/6634" title="查询地域以及可用区">查询地域以及可用区(DescribeRegions)接口</a> 获取zoneId |
 
 
 

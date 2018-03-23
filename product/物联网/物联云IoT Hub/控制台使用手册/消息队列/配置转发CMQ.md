@@ -1,17 +1,17 @@
 ## 授权访问消息队列(CMQ)
-如果物联云帐号是第一次使用 CMQ，就会显示【授权访问消息队列(CMQ)】按钮。点击进行授权，授权成功之后会进入配置消息队列页面。
-![](https://mc.qcloudimg.com/static/img/02d2649358e55c252f1d186bbe5d0e73/cmqbutton.png)
+如果物联网通信帐号是第一次使用 CMQ，就会显示【授权访问消息队列(CMQ)】按钮。点击进行授权，授权成功之后会进入配置消息队列页面。
+![](https://main.qcloudimg.com/raw/99dbe98152cf5a127a7708f687c07115.png)
 
 ## 配置消息队列
-CMQ 配置消息类型有两个选项：“设备上报消息”和“设备状态变化通知”。根据需求勾选消息类型后，点击【保存配置】按钮，此时会弹出确认保存的窗口。点击【确定】后，物联云将会向默认队列```queue-iot-{productID}``` 推送选择的消息类型。
+CMQ 配置消息类型有两个选项：“设备上报消息”和“设备状态变化通知”。根据需求勾选消息类型后，点击【保存配置】按钮，此时会弹出确认保存的窗口。点击【确定】后，物联网通信将会向默认队列```queue-iot-{productID}``` 推送选择的消息类型。
 > **注意：**
 > 
 > 1. 消息类型不能配置空选项；
 > 2. 修改消息类型不能和上次配置的消息类型相同。
 
-![](https://mc.qcloudimg.com/static/img/fcd5be040760ba6b59e4f6fdbf6042f3/cmq_save1.png)
+![](https://main.qcloudimg.com/raw/548dc69ddbe27a41620e959a0377baa2.png)
 创建成功后消息队列页面就会展示订阅的详细信息，用户也可以在该页面修改订阅的消息类型。
-![](https://mc.qcloudimg.com/static/img/11e0a34d57cb71b2d3f928821c6ea587/cmq_detail_show.png)
+![](https://main.qcloudimg.com/raw/4f0d79d6b9c62e2ccedae6ac60d1b43d.png)
 
 ## CMQ 接收消息的 SDK 介绍
 - 消息队列 CMQ 提供了如下两个接口从队列中 **读取消息**：
