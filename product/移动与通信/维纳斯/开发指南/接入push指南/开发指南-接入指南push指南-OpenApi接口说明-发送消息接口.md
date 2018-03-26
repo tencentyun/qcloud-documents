@@ -1,0 +1,53 @@
+### 发送消息接口
+接口说明：发送在线消息通知到客户端
+接口名：send_msg_new
+请求方法：http post方法
+
+请求参数:
+
+| 参数名 | 类型 | 必选 | 说明 |
+|---------|---------|---------|---------|
+| appid | int | 是 | 第三方appid |
+| secretid | string | 是 | 第三方加密用的密钥id |
+| sign | string | 是 | 第三方签名 |
+| tm | int | 是 | 时间戳，防请求重放 |
+| uid | string | 是 | 用户唯一标识 |
+| wid | string | 是 | 用户名下的某个设备标识，需要指定某台设备时才需填写 |
+| plat | string | 否 | 推送目标手机平台，默认0=所有平台 1=iphone 2=安卓 |
+| tag | string | 是 | 消息标签，会填在STMsg.Tag推给客户端 |
+| content | string | 是 | 消息内容 |
+| aps | string | 否 | os离线消息内容，json格式，见苹果文档 |
+| only_online | string | 否 | 1=表示只发当前在线用户，默认0在线离线都会发 |
+| expire | string | 否 | 消息有效期，单位秒，表示从现在起经过该时间之后该消息将被丢弃 |
+注：
+i)uid/wid：填写一个即可
+i)参数格式：将参数按query_string格式拼接，用http post发送到接口
+
+响应参数：
+
+| 参数名 | 类型 | 必选|说明|
+|---------|---------|---------|---------|
+| errno | int | 是 | 响应码 |
+| msg | string | 否 | 错误信息 |
+| detail | string | 否 | 终端推送结果 |
+注：
+i)数据格式：json格式
+i)errno为0时，detail是详细信息
+示例：
+
+```
+{
+		"errno":0,
+		"detail:"
+		{
+			[
+				{
+					 ret: 0,
+					 wid: 111111
+				}
+			],
+		}
+}
+
+```
+
