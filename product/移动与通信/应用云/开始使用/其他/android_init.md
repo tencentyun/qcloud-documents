@@ -12,7 +12,7 @@ Android Studio 说明
 
 Gradle 说明
 
-应用云核心库会读取您刚才下载的配置文件启动服务。请修改您的 build.gradle 文件以使用服务。
+MobileLine 移动开发平台核心库会读取您刚才下载的配置文件启动服务。请修改您的 build.gradle 文件以使用服务。
 
 1.使用 jcenter 作为仓库来源
 
@@ -36,9 +36,9 @@ allprojects {
 ```
 
 
-2.添加 应用云 库依赖
+2.添加 Android SDK 库依赖
 
-在您的应用级 build.gradle（通常是 app/build.gradle）添加 应用云核心库 的依赖：
+在您的应用级 build.gradle（通常是 app/build.gradle）添加核心库 SDK 的依赖：
 
 ```
 dependencies {
