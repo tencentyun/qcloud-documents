@@ -1,62 +1,49 @@
-## 简介
+## 接口概述
+
+### 服务简介
 本接口用于根据用户上传的营业执照图像，返回识别出的注册号、公司名称、地址字段信息。
 
-## 计费
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-请查看[计费说明](/document/product/641/12399)。
-
-## 说明
-
-| 概念    | 解释              |
-| ----- | --------------- |
-| appid | 项目ID, 接入项目的唯一标识 |
-> 注意：
-> 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
-
-## 调用URL
-
+### url 说明
 支持 http 和 https 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/bizlicense`
 
-## 请求包header
-采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
+`https://recognition.image.myqcloud.com/ocr/bizlicense`
 
-所有请求都要求含有下表列出的头部信息：
+## 请求方式
+
+### 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
-| Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
-| Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
+| host           | service.image.myqcloud.com               | 腾讯云文字识别服务器域名                       |
+| content-length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
+| content-type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。                     |
+| authorization  | 鉴权签名                                     | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
 
-> 注意：
-> (1) 每个请求的包体大小限制为 6MB；
-> (2) 所有接口都为 POST 方法；
-> (3) 不支持 .gif 这类的动图。
+>**注意：**
+如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
+### 请求参数
 
-## 请求参数
-
-使用image则使用 multipart/form-data格式；
-
-不使用image则使用 application/json格式。
-
-| 参数名   | 是否必须 | 类型           | 参数说明                                     |
+| 参数名   | 必选 | 类型           | 参数说明                                     |
 | ----- | ---- | ------------ | ---------------------------------------- |
-| appid | 必须   | string       | 项目ID                                     |
-| image | 可选   | image/jpeg 等 | 图片文件。图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
-| url   | 可选   | string       | 图片的 url , image 和 url 只提供一个即可，如果都提供，只使用 url |
+| appid | 是   | string       | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                    |
+| image | 否   | image/jpeg 等 | 图片文件。图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| url   | 否   | string       | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 
-### 返回内容
+## 返回内容
 
 | 参数    | 类型      | 描述           |
 | ----- | ------- | ------------ |
 | items | json 数组 | 具体查询数据，内容见下表 |
 
-items（ json 数组）中每一项的具体内容：
+items（ json 数组）：
 
 | 参数         | 类型     | 描述                                       |
 | ---------- | ------ | ---------------------------------------- |
@@ -64,8 +51,6 @@ items（ json 数组）中每一项的具体内容：
 | itemstring | string | 字段结果                                     |
 | itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x, y，以及宽、高 width, height |
 | itemconf   | float  | 识别结果对应的置信度                               |
-
-结果具体内容：
 
 返回字段为一个 json 数组，其中每一项的内容如下：
 
@@ -75,9 +60,9 @@ items（ json 数组）中每一项的具体内容：
 | message | string | 错误描述 |
 | data    | object | 返回数据 |
 
-## 示例
+## 请求示例
 
-### 使用 url 的请求包
+### 使用 url 的请求示例
 
 ```
 POST /ocr/bizlicense HTTP/1.1
@@ -99,7 +84,7 @@ Content-Type: "application/json"
 } 
 ```
 
-### 使用图片文件的请求包
+### 使用 image 的请求示例
 
 ```
 POST /ocr/bizlicenseHTTP/1.1
@@ -136,7 +121,7 @@ image_content
 ```
 
 
-### 回包
+### 返回示例
 ```
 {
 

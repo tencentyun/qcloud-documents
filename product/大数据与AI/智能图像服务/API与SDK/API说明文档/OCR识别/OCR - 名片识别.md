@@ -24,7 +24,7 @@
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
+| Host           | service.image.myqcloud.com               | 腾讯云文字识别服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |

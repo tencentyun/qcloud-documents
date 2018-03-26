@@ -2,15 +2,15 @@ TACSocialWechat 封装了 [libWeChatSDK](https://open.weixin.qq.com/) 微信开�
 
 ## 准备工作
 
-在开始使用应用云 TACSocialWechat 之前，您需要：
+在开始使用移动开发平台（MobileLine） TACSocialWechat 之前，您需要：
 
-1. 一个启用了应用云的应用。
+1. 一个启用了移动开发平台（MobileLine）的应用。
 2. 您集成了 TACCore。
 
-## 将应用云 TACSocialWechat 代码库添加到 Xcode 项目中
+## 将移动开发平台（MobileLine） TACSocialWechat 代码库添加到 Xcode 项目中
 
 
-### 1. 在您的项目中集成应用云 SDK，并在 Podfile 文件中添加应用云的私有源：
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK，并在 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
@@ -128,7 +128,7 @@ Swift 代码示例：
 #### 配置 TACSocialWechat 中的配置脚本 (主要为第三方登陆模块的配置脚本)
 
 
-为了配合 libWeChatSDK 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据： [TACCore 集成指南]() 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
+为了配合 libWeChatSDK 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据： [TACCore 集成指南](https://cloud.tencent.com/document/product/666/14306) 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
 TACSocialWechat 中的脚本会自动的帮助您完成以下功能：
 1. 根据读取您的 tac_services_configurations_wechat 中的 appId 信息按照 `[appId]` 的规则增加回调的 scheme。

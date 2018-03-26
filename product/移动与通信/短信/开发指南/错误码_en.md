@@ -32,12 +32,6 @@
 | 1033 | 	Service is suspended due to arrears. | You can log in to Tencent Cloud to top up your account. |   
 | 1036 | The number of variable characters in a single template exceeds 15. | To adjust the limit, please [contact SMS Helper](https://cloud.tencent.com/document/product/382/3773). |
 ## Error Codes for Status
-<style>
-  table th:nth-of-type(3){
-  width:400px;
-  }
-</style>
-
 | Error Code | Category | Reason | Solution |
 |--------|-------|------|--------|
 | DELIVRD | Three ISPs | SMS message is received successfully. | None |

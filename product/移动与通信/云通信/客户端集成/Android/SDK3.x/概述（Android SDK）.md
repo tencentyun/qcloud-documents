@@ -1,6 +1,6 @@
 ## 1 ImSDK集成
 
-本节主要介绍如何创建一个应用，并集成ImSDK。
+本节主要介绍如何创建一个应用，并集成ImSDK。**【使用互动直播业务的开发者，请集成ImSDKv2版本】**。
 ### 1.1 支持版本
 
 ImSDK 支持 JDK 1.6 和 Android SDK version 14 以上系统。

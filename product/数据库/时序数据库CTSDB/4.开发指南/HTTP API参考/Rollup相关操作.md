@@ -100,39 +100,46 @@ Rollup接口主要用于聚合历史数据，从而提高查询性能，降低�
 路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`为Rollup任务的名称<br/>
 方法：GET
 ### 3.请求参数 ###
-无
+指定v参数可以查看rollup的具体进度，返回结构中的@last_end_time为rollup最新进度。
 ### 4.请求内容 ###
 无
 ### 5.返回内容 ###
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 ### 6.JSON示例说明 ###
-请求：`GET /_rollup/rollup_hgh1`
+请求：`GET /_rollup/rollup_jgq_6?v`
 
 返回：
 
     {
-	    "result": 
-		{
-		    "rollup_jgq_6": 
-			{
-			    "base_metric": "hgh1",
-			    "rollup_metric": "rollup_hgh1",
-			    "group_tags": ["appid","domain","paymode"],
-			    "copy_tags": ["protocol","vip"],
-			    "fields": {},
-			    "interval": "1h",
-			    "delay": "5m",
-			    "depend_rollup": "hello",
-			    "options": 
-				{
-			    	"expire_day": 93
-			    },
-			    "start_time": 1504310400,
-			    "end_time": 2147483647
-		    }
-	    },
-	    "status": 200
-    }
+	  "result": {
+	    "rollup_jgq_6": {
+	      "base_metric": "hgh1",
+	      "rollup_metric": "rollup_hgh1",
+	      "group_tags": [
+	        "appid",
+	        "domain",
+	        "paymode"
+	      ],
+	      "copy_tags": [
+	        "protocol",
+	        "vip"
+	      ],
+	      "fields": {},
+	      "interval": "1h",
+	      "delay": "5m",
+	      "depend_rollup": "hello",
+	      "options": {
+	        "expire_day": 93
+	      },
+	      "start_time": 1504310400,
+	      "end_time": 2147483647,
+	      "@state": "running",
+	      "@timestamp": 1512205503000,
+	      "@last_end_time": 1512205200
+	    }
+	  },
+	  "status": 200
+	}
 
 ## 删除Rollup任务 ##
 ### 1.请求地址 ###

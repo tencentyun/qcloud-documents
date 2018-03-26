@@ -1,14 +1,17 @@
 ## 准备工作
 
-在开始使用应用云 Authorization 之前，您需要：
+在开始使用移动开发平台（MobileLine） Authorization 之前，您需要：
 
-1. 一个启用了应用云的应用。
-2. 您集成了 TACCore。
+1. 一个启用了移动开发平台（MobileLine）的应用。
+2. 您集成了 [TACCore](https://cloud.tencent.com/document/product/666/14306)。
 
-## 将应用云 Authorization 代码库添加到您的 Xcode 项目中
+## 将移动开发平台（MobileLine） Authorization 代码库添加到您的 Xcode 项目中
+
+> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
 
 
-### 1. 在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源。
+
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK，并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源。
  
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
@@ -77,7 +80,7 @@ pod 'TACAuthorizationQQ'
 ~~~
 
 >**注意：**
-`TACAuthorizationQQ`依赖基础模块`TACSocialQQ`,将会自动引入 `TACSocialQQ` 模块，该模块分装了对于TencentOpenAPI。如果您需要使用 TencentOpenAPI 也可以直接通过 `TACSocialQQ` 来调用，具体的可以参考  `TACSocialQQ` 的编程指南。
+`TACAuthorizationQQ`依赖基础模块`TACSocialQQ`,将会自动引入 `TACSocialQQ` 模块，该模块分装了对于 TencentOpenAPI。如果您需要使用 TencentOpenAPI 也可以直接通过 `TACSocialQQ` 来调用，具体的可以参考 `TACSocialQQ` 的编程指南。
 
 #### 使用 WeChat 第三方登陆
 

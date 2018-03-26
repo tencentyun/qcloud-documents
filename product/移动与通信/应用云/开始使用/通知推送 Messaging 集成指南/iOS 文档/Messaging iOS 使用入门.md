@@ -1,17 +1,20 @@
 
 ## 准备工作
 
-在开始使用应用云 Messaging 之前，您需要：
+在开始使用移动开发平台（MobileLine） Messaging 之前，您需要：
 
-1. 一个启用了应用云的应用。
-2. 您集成了 TACCore。
+1. 一个启用了移动开发平台（MobileLine）的应用。
+2. 您集成了 [TACCore](https://cloud.tencent.com/document/product/666/14306)。
 
-## 将应用云 Messaging 代码库添加到您的 Xcode 项目中
+## 将移动开发平台（MobileLine） Messaging 代码库添加到您的 Xcode 项目中
+
+> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
 
 
-### 1. 在您的项目中集成应用云 SDK：
+
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK：
  
-并在您的 Podfile 文件中添加应用云的私有源
+并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"

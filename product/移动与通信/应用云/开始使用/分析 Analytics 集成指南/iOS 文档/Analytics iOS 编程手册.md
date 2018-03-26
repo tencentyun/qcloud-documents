@@ -1,14 +1,14 @@
-# 应用云 Analytics iOS 编程手册
+# 移动开发平台（MobileLine） Analytics iOS 编程手册
 
 ## 开始之前
 
 
 如果这是您首次向应用添加 Analytics，请完成以下步骤：
 
-在应用云控制台中关联您的应用
+在移动开发平台（MobileLine）控制台中关联您的应用
 
-1. 安装 [应用云 SDK](https://console.cloud.tencent.com/tac)。
-2. 在 [应用云 控制台](https://console.cloud.tencent.com/tac)中，将您的应用添加到您的应用云项目中。
+1. 安装 [移动开发平台（MobileLine） SDK](https://console.cloud.tencent.com/tac)。
+2. 在 [移动开发平台（MobileLine） 控制台](https://console.cloud.tencent.com/tac)中，将您的应用添加到您的移动开发平台（MobileLine）项目中。
 3. 参考 [Analytics 配置文档](https://console.cloud.tencent.com/tac)，配置并初始化  Analytics。
 
 

@@ -102,7 +102,7 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
 secret_key = WE54wreefvds3462refgwewerewr
 bucket = ABC-1234567890
-region = cn-south
+region = ap-guangzhou
 max_thread = 5
 part_size = 1
 schame = https

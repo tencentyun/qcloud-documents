@@ -59,3 +59,10 @@
     }
 }
 ```
+
+## 4. 错误码
+错误码 | 描述
+-----|------
+CallCvmException | 调用CVM异常。
+InvalidZoneMismatchRegion | 非法的zone名称。
+InternalServerError | 内部服务错误。

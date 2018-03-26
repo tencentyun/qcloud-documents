@@ -1,7 +1,7 @@
 
 ## 准备工作
 
-在开始使用应用云 Crash 服务前，确保您已经完成：[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+在开始使用移动开发平台（MobileLine） Crash 服务前，确保您已经完成：[安装和配置 SDK](https://cloud.tencent.com/document/product/666/14305)
 
 ## 添加 SDK
 
@@ -72,9 +72,9 @@ dependencies {
 如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
 #### 1. 下载服务资源压缩包。
- 
-- 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
-- 下载 [应用云 Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-crash-1.0.0.zip)，并解压。
+
+1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
+2. 下载 [移动开发平台（MobileLine） Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-crash-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包。
 - 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
@@ -143,7 +143,7 @@ apply plugin: 'com.tencent.tac.crash'
 1. 下载 [符号表工具](https://bugly.qq.com/v2/sdk?id=37d1ad19-a4b0-4eed-9146-55d87fc79f8d)。
 2. 根据 UUID 定位 Debug SO 文件，具体可参考工具包中的使用文档。
 3. 使用工具生成符号表文件（zip 文件），具体的使用方法可参考工具包中的使用文档。
-4. 在应用云的控制台上传符号表文件。
+4. 在移动开发平台（MobileLine）的控制台上传符号表文件。
  
 如果您的项目只使用了混淆代码 (Proguard)，而没有 Native 工程，只需要直接上传 Proguard 生成的 Mapping 文件即可。
 

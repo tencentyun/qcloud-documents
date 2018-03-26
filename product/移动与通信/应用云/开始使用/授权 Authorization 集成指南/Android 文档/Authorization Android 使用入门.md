@@ -1,7 +1,7 @@
 
 ## 准备工作
 
-在开始使用应用云 Authorization 服务前，确保您已经完成：[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+在开始使用移动开发平台（MobileLine） Authorization 服务前，确保您已经完成：[安装和配置 SDK](https://cloud.tencent.com/document/product/666/14305)
 
 ## 添加 Authorization SDK
 
@@ -51,8 +51,8 @@ dependencies {
 
 #### 1. 下载服务资源压缩包
 
-1. 下载 [应用云核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
-2. 下载 [应用云 Authorization 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-authorization-1.0.0.zip)，并解压。
+1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
+2. 下载 [移动开发平台（MobileLine） Authorization 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-authorization-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包
 
@@ -96,7 +96,7 @@ Authorization 服务使用默认参数即可，不需要额外配置。如果您
 
 #### 手动集成
 
-应用云 Authorization 资源包已经包含了微信的 SDK，您不需要另外下载。
+移动开发平台（MobileLine） Authorization 资源包已经包含了微信的 SDK，您不需要另外下载。
 
 然后，在您的 AndroidManifest.xml 文件中添加以下 SDK 需要的权限：
 

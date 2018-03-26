@@ -25,7 +25,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 </tr>
 <tr>
   <td>Client ID</td>
-  <td>MQTT协议字段，按照物联云约束填入：产品ID+设备名，如："CJ3ND2P5LHshockDevice1", CJ3ND2P5LH是产品ID，shockDevice1是设备名</td>
+  <td>MQTT协议字段，按照物联网通信约束填入：产品ID+设备名，如："CJ3ND2P5LHshockDevice1", CJ3ND2P5LH是产品ID，shockDevice1是设备名</td>
 </tr>
 <tr>
   <td>Connection Timeout</td>
@@ -49,7 +49,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 </tr>
 <tr>
 	<td>User Name</td>
-	<td>MQTT 协议字段，按照物联云约束填入：产品ID+设备名+sdkappid+connid，如："CJ3ND2P5LHshockDevice1;12010126;12345"，仅替换示例中的产品ID+设备名即可，后面的两个参数本身由物联云接入sdk自动生成，所以这里填写固定测试值</td>
+	<td>MQTT 协议字段，按照物联网通信约束填入：产品ID+设备名+sdkappid+connid，如："CJ3ND2P5LHshockDevice1;12010126;12345"，仅替换示例中的产品ID+设备名即可，后面的两个参数本身由物联网通信接入sdk自动生成，所以这里填写固定测试值</td>
 </tr>
 </table>
 5. 选择开启 SSL/TLS，勾选 Self signed Certificates，上传相关内容。
@@ -74,7 +74,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 </tr>
 <tr>
 	<td>PEM Formatted</td>
-	<td>由于物联云根证书、设备证书、设备密钥均由openssl生成使用PEM格式，而 MQTT.fx是Java客户端，所以不识别PEM证书，这里需要勾选由该客户端自动转换为Java识别的JKS格式</td>
+	<td>由于物联网通信根证书、设备证书、设备密钥均由openssl生成使用PEM格式，而 MQTT.fx是Java客户端，所以不识别PEM证书，这里需要勾选由该客户端自动转换为Java识别的JKS格式</td>
 </tr>
 </table>
 6. 完成以上步骤设置后，点击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，点击【Connect】按钮。当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，可进行发布和订阅操作。

@@ -1,4 +1,4 @@
-Hybrid 统计是在原生统计基础上进行的，在开始之前请确保已按照 [Android SDK 接入指南](http://docs.developer.qq.com/mta/fast_access/android.html) 正常接入 MTA Android SDK 配置和初始化流程。
+Hybrid 统计是在原生统计基础上进行的，在开始之前请确保已按照 [Android SDK 接入指南](https://cloud.tencent.com/document/product/549/12863) 正常接入 MTA Android SDK 配置和初始化流程。
 ### 初始化 Hybrid 模块
 在 Application 或 MainActivity 的 onCreate 初始化 MTA 基础统计接口后，需要额外调用以下接口，初始化 Hybrid 模块，开发者可根据是否使用与原生 App 一致的 Appkey 来决定灵活使用哪个初始化接口。
 
@@ -17,7 +17,7 @@ public static void init(Context context);
 */
 public static void init(Context context, String appkey, String channel);
 ```
-**示例**
+#### 示例
 
 ```java
 public class MyApp extends Application{
@@ -34,7 +34,7 @@ public class MyApp extends Application{
 ```
 ### 配置 WebView
 在需要使用 Hybrid 统计的 WebView 组件，调用以下方法进行初始化。
-**初始化 WebSettings**
+#### 初始化 WebSettings
 
 ```java
 /**
@@ -43,7 +43,7 @@ public class MyApp extends Application{
 */
 public static void initWebSettings(WebSettings webSettings)
 ```
-**示例**
+#### 示例
 
 ```java
 @Override
@@ -67,7 +67,7 @@ Natiive 使用拦截 MTA 专用的 url 跳转方式与 H5 交互，因此需在 
 */
 public static boolean handleWebViewUrl(WebView webView, String url);
 ```
-**示例**
+#### 示例
 ```java
 public class MyWebViewClient extends WebViewClient {
 	@Override
