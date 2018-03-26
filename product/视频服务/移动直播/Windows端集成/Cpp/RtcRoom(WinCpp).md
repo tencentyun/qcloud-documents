@@ -9,9 +9,9 @@
 | login(const std::string & serverDomain, const RTCAuthData & authData, ILoginRTCCallback* callback) | 登录业务服务器RoomService，登录后才能够正常使用其他接口和使用IM功能 |
 | logout()                                                     | 登出业务服务器RoomService，请注意在leaveRoom调用后，再调用logout，否则leaveRoom会调用失败 |
 | getRoomList(int index, int count, IGetRTCRoomListCallback* callback) | 获取房间列表，房间数量比较多时，可以分页获取                 |
-| createRoom(const std::string& roomID, const std::string& roomInfo) | 创建房间，后台的房间列表中会添加一个新房间，同时主播端会进入推流模式 |
+| createRoom(const std::string& roomID, const std::string& roomInfo) | 创建房间，后台的房间列表中会添加一个新房间，同时会议创建者端会进入推流模式 |
 | enterRoom(const std::string& roomID, HWND rendHwnd, const RECT & rect) | 进入房间                                                     |
-| leaveRoom()                                                  | 离开房间，如果是大主播，这个房间会被后台销毁，如果是小主播或者观众，不影响其他人继续通话 |
+| leaveRoom()                                                  | 离开房间，如果是会议创建者，这个房间会被后台销毁，如果是会议参与者，不影响其他人继续通话 |
 | sendRoomTextMsg(const char * msg)                            | 发送普通文本消息                                             |
 | sendRoomCustomMsg(const char * cmd, const char * msg)        | 发送自定义消息                                               |
 | startLocalPreview(HWND rendHwnd, const RECT & rect)          | 启动默认的摄像头预览                                         |
@@ -19,9 +19,9 @@
 | stopLocalPreview()                                           | 关闭摄像头预览                                               |
 | startScreenPreview(HWND rendHwnd, HWND captureHwnd, const RECT & renderRect, const RECT & captureRect) | 启动屏幕分享                                                 |
 | stopScreenPreview()                                          | 关闭屏幕分享                                                 |
-| addRemoteView(HWND rendHwnd, const RECT & rect, const char * userID) | 播放房间内其他主播的视频                                     |
+| addRemoteView(HWND rendHwnd, const RECT & rect, const char * userID) | 播放房间内其他会议参与者的视频                               |
 | updateRemotePreview(HWND rendHwnd, const RECT &rect, const char * userID) | 重设指定userID的视频预览区域，当您指定的本地 HWND 的窗口尺寸发生变化时，可以通过这个函数重新调整视频渲染区域 |
-| removeRemoteView(const char * userID)                        | 停止播放其他主播的视频                                       |
+| removeRemoteView(const char * userID)                        | 停止播放其他会议参与者的视频                                 |
 | setMute(bool mute)                                           | 静音接口                                                     |
 | setBeautyStyle(TXEBeautyStyle beautyStyle, int beautyLevel, int whitenessLevel) | 设置美颜和美白效果                                           |
 
@@ -171,7 +171,7 @@
 
 - 定义：void createRoom(const std::string& roomID, const std::string& roomInfo)
 
-- 说明：创建房间，后台的房间列表中会添加一个新房间，同时主播端会进入推流模式
+- 说明：创建房间，后台的房间列表中会添加一个新房间，同时会议创建者会进入推流模式
 
 - 参数：
 
@@ -209,7 +209,7 @@
 
 - 定义：void leaveRoom()
 
-- 说明：离开房间，如果是大主播，这个房间会被后台销毁，如果是小主播或者观众，不影响其他人继续通话
+- 说明：离开房间，如果是会议创建者，这个房间会被后台销毁，如果是会议参与者，不影响其他人继续通话
 
 - 示例：
 
@@ -354,7 +354,7 @@
 
 - 定义：void addRemoteView(HWND rendHwnd, const RECT & rect, const char * userID)
 
-- 说明：播放房间内其他主播的视频
+- 说明：播放房间内其他会议参与者的视频
 
 - 参数：
 
@@ -400,7 +400,7 @@
 
 - 定义：void removeRemoteView(const char * userID)
 
-- 说明：停止播放其他主播的视频
+- 说明：停止播放其他会议参与者的视频
 
 - 参数：
 
