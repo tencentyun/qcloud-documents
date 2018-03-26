@@ -20,7 +20,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name               | Required   | Type       | Input Content          | Description                                       |
 | ------------------ | ---- | -------- | ------------- | ---------------------------------------- |
-| namespace          | Yes    | String   | qce/cvm       | Namespace. Every Tencent Cloud product has a namespace. For more information, please see Input Content column.           |
+| namespace          | Yes    | String   | qce/cpm       | Namespace. Every Tencent Cloud product has a namespace. For more information, please see Input Content column.           |
 | metricName         | Yes    | String   | Specific metric name       | Metric name. For more information, please see 2.2                            |
 | dimensions.0.name  | Yes    | String   | instanceId    | The input parameter is the instance ID of CPM                            |
 | dimensions.0.value | Yes    | String   | The instance ID of CPM | Enter a specific instanceId                           |
