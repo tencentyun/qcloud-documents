@@ -3,7 +3,7 @@
 
 为了使用移动开发平台（MobileLine） iOS 版本的 SDK ，您首先需要做好以下工作：
 
-有一个 iOS 的工程，或者下载我们的 [实例工程](https://console.cloud.tencent.com/tac)。
+有一个 iOS 的工程，或者下载我们的 [实例工程](https://github.com/tencentyun/qcloud-sdk-ios-samples)。
 
 ## 集成代码库
 
