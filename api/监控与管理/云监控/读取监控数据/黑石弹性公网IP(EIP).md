@@ -20,7 +20,7 @@ dimensions.0.value为要查询的EIP的地址信息
 
 | 参数名称               | 必选   | 类型       | 输入内容           | 描述                                       |
 | ------------------ | ---- | -------- | -------------- | ---------------------------------------- |
-| namespace          | 是    | String   | qce/cvm        | 命名空间，每个云产品会有一个命名空间，具体名称见输入内容一栏。          |
+| namespace          | 是    | String   | qce/bm_lb        | 命名空间，每个云产品会有一个命名空间，具体名称见输入内容一栏。          |
 | metricName         | 是    | String   | 具体的指标名称        | 指标名称，具体名称见2.2                            |
 | dimensions.0.name  | 是    | String   | vip            | 入参为要查询的EIP的地址信息                          |
 | dimensions.0.value | 是    | String   | 具体要查询的EIP的地址信息 | 输入具体vip                                  |

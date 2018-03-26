@@ -1,61 +1,48 @@
-## Protocol Descriptions
-<table style="display:table;width:100%">
-  <tbody>
-    <tr>
-      <td style="width:15%;">
-        Protocol
-      </td>
-      <td>
-        HTTP JSON
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Encoding format
-      </td>
-      <td>
-        UTF8
-      </td>
-    </tr>
-    <tr>
-      <td>
-        URL
-      </td>
-      <td>
-		  For example: https://yun.tim.qq.com/voice/voicecallback
-      </td>
-    </tr>
-    <tr>
-      <td>
-        API description
-      </td>
-      <td>
-      After a voice notification is sent to a user, Tencent Cloud SMS service notifies the business side of the button pressed by the user by calling back the service URL.
-      </td>
-    </tr>
-  </tbody>
-</table>
+## API Description
+### Feature
+This API is used for Tencent Cloud SMS service to notify the business side of the button pressed by the user by calling back the service URL after a voice notification is sent to a user.
 
-## Request Packet
-The packet is in JSON format with the following parameters:
-```
+### URL Example
+`https://yun.tim.qq.com/voice/voicecallback`
+
+## Request Parameters
+```json
 {
     "voicekey_callback": {
-        "callid": "xxxxxx", //Indicate the ID of this delivery
-        "mobile": "13xxxxxxxxx", //Mobile number
-        "nationcode": "86", //Country code
-        "call_from": "", //Calling number
-        "keypress": "2" //The button that a user presses
+        "call_from": "",
+        "callid": "xxxxxx",
+        "keypress": "2",
+        "mobile": "13xxxxxxxxx",
+        "nationcode": "86"
     }
 }
 ```
 
-## Response Packet
-When receiving a callback request, the third party needs to give a response to Tencent Cloud SMS service in the following format:
-```
-{ 
-    "result": 0, //0: Successful. Other values: Failed
-    "errmsg": "OK" //The specific error message when the "result" is not 0
+| Parameter | Required | Type | Description |
+|-------------------|------|--------|------------------|
+| voicekey_callback | Yes | Object | Call back the button pressed by the user after a voice notification is sent |
+
+- Parameter `voicekey_callback`:
+
+| Parameter | Required | Type | Description |
+|------------|------|--------|----------------|
+| call_from | Yes | String | Calling number |
+| callid | Yes | String | The ID of this delivery |
+| keypress | Yes | String | The button pressed by a user |
+| mobile | Yes | String | Mobile number |
+| nationcode | Yes | String | Country code |
+
+## Response Parameters
+```json
+{
+    "result": 0,
+    "errmsg": "OK"
 }
 ```
+
+| Parameter | Required | Type | Description |
+|--------|------|--------|------------------------------------------|
+| result | Yes | Number | Error code. 0: Successful (basis for billing). Other values: Failed. |
+| errmsg | Yes | String | Error message. The specific error message when the "result" is not 0. |
+
+

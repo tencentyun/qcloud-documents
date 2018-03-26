@@ -1,11 +1,11 @@
 
 ## 准备工作
 
-在开始使用移动开发平台（MobileLine）服务前，您需要一个移动开发平台（MobileLine）项目和适用于您的应用的配置文件：
+在开始使用移动开发平台（MobileLine）服务前，您需要一个 MobileLine 的项目和适用于您的应用的配置文件：
 
 ### 创建项目
 
-在使用我们的服务前，您必须先在 TAC 平台上创建项目和应用，首先登录 [TAC 平台](https://console.cloud.tencent.com/tac)，然后点击【创建项目】按钮来创建一个新的项目：
+在使用我们的服务前，您必须先在 MobileLine 平台上创建项目和应用，首先登录 [移动开发平台](https://console.cloud.tencent.com/tac)，然后点击【创建项目】按钮来创建一个新的项目：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_project.png?raw=true)
 
@@ -23,18 +23,18 @@
 
 ## 配置 服务框架SDK
 
-您并不需要额外单独安装移动开发平台（MobileLine）的 `服务框架SDK` 到您的应用中。当您集成某个移动开发平台（MobileLine）的服务时，我们已经自动为您添加了框架 SDK。配置 SDK 的前提是您已经集成了一个或者多个移动开发平台（MobileLine）服务。
+您并不需要额外单独安装 MobileLine 的 `服务框架SDK` 到您的应用中。当您集成某个 MobileLine 的服务时，我们已经自动为您添加了框架 SDK。配置 SDK 的前提是您已经集成了一个或者多个 MobileLine 服务。
 
-移动开发平台（MobileLine）所有服务都必须在 TACApplication 单例配置完成之后才能正常使用。因此，我们建议您在 Application 的 onCreate 方法中执行该操作。
+MobileLine 所有服务都必须在 TACApplication 单例配置完成之后才能正常使用。因此，我们建议您在 Application 的 onCreate 方法中执行该操作。
 
-请注意，如果您使用了多个移动开发平台（MobileLine）服务，只要配置一次即可，**TACApplication 单例必须且只允许配置一次**。
+请注意，如果您使用了多个 MobileLine 服务，只要配置一次即可，**TACApplication 单例必须且只允许配置一次**。
 
 您可以有两种方式配置，默认配置和高级配置，通常情况下您使用默认配置即可。
 
 
 ### 使用默认配置
 
-默认配置可以使用 TACApplication 的 configure(Context) 方法，移动开发平台（MobileLine）会自动依照下载的配置文件，完成配置工作。
+默认配置可以使用 TACApplication 的 configure(Context) 方法，MobileLine 会自动依照下载的配置文件，完成配置工作。
 
 ```
 TACApplication.configure(context);
@@ -42,7 +42,7 @@ TACApplication.configure(context);
 
 ### 使用配置文件自定义配置
 
-移动开发平台（MobileLine） SDK 统一配置服务，会读取所有位于您位于应用模块的 assets 里面符合正则条件：`tac_services_configurations*.json`，并合并其里面的内容，然后传递给配置服务，进行对应的服务配置。
+MobileLine 的 SDK 统一配置服务，会读取所有位于您位于应用模块的 assets 里面符合正则条件：`tac_services_configurations*.json`，并合并其里面的内容，然后传递给配置服务，进行对应的服务配置。
 
 例如以下文件名都是合法的配置文件：
 
@@ -88,7 +88,7 @@ analyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
 TACApplication.configureWithOptions(context, applicationOptions);
 ```
 
-每个服务都对应一个参数配置，可以通过服务的名称获取，例如获取推送服务的配置参数，可以使用：
+每个服务都对应一个参数配置，可以通过 `服务名称` 获取，例如获取推送服务的配置参数，可以使用：
 
 ```
 TACMessagingOptions messagingOptions = applicationOptions.sub("messaging");
@@ -107,7 +107,7 @@ TACApplicationOptions currentOptions = TACApplication.options( );
 
 ## debug 模式
 
-如果你想打开 debug 模式，查看移动开发平台（MobileLine）的日志，可以通过以下命令开启：
+如果你想打开 debug 模式，查看 SDK 的日志，可以通过以下命令开启：
 
 ```
 adb shell setprop log.tag.tac DEBUG
@@ -115,7 +115,7 @@ adb shell setprop log.tag.tac DEBUG
 
 ## 示例工程
 
-您可以访问我们的 [示例工程](https://github.com/tencentyun/qcloud-sdk-android-samples)，里面包含了我们所有服务的集成和调用的示例代码。您可以参考代码的编写，也可以下载到本地运行体验。
+您可以访问我们的 [示例工程](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/QCloudTACSample)，里面包含了我们所有服务的集成和调用的示例代码。您可以参考代码的编写，也可以下载到本地运行体验。
 
 ## 可用的库
 
@@ -123,9 +123,9 @@ adb shell setprop log.tag.tac DEBUG
 
 | gradle | 服务名称 | 功能 |
 |:----|:-----------|:-----------|
-|  com.tencent.tac:tac-core:1.0.0   |  analytics | 分析 |
-|  com.tencent.tac:tac-messaging:1.0.0   |  messaging | 推送 |
-|  com.tencent.tac:tac-crash:1.0.0   |  crash     | 异常上报 |
-|  com.tencent.tac:tac-storage:1.0.0   |  storage   | Cloud Storage |
-|  com.tencent.tac:tac-authorization:1.0.0   |  social | 登录 |
-|  com.tencent.tac:tac-payment:1.0.0   |  payment | 支付 |
+|  com.tencent.tac:tac-core:1.0.0   |  analytics | 腾讯移动分析（MTA） |
+|  com.tencent.tac:tac-messaging:1.0.0   |  messaging | 腾讯移动推送（信鸽） |
+|  com.tencent.tac:tac-crash:1.0.0   |  crash     | 腾讯崩溃服务（bugly） |
+|  com.tencent.tac:tac-storage:1.0.0   |  storage   | 移动存储（Storage） |
+|  com.tencent.tac:tac-authorization:1.0.0   |  authorization | 授权（Authorization） |
+|  com.tencent.tac:tac-payment:1.0.0   |  payment | 腾讯计费（米大师） |
