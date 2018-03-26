@@ -8,6 +8,8 @@
 
 ## 将移动开发平台（MobileLine） Storage 代码库添加到您的 Xcode 项目中
 
+> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
+
 
 ### 1. 在您的项目中集成移动开发平台（MobileLine） SDK。
 
