@@ -54,33 +54,37 @@ $ open your-project.xcworkspace
 
 ##### 5. 从移动开发平台（MobileLine）控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
 
-### 手工集成
-
-### 在您的应用中初始化移动开发平台（MobileLine）
+##### 6. 初始化代码配置
 
 最后一步是向您的应用添加初始化代码。您可能已经在将移动开发平台（MobileLine）添加到应用时完成了此步骤。如果您使用的是快速入门示例，则此步骤已替您完成了。
 
-#### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
+###### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
+
 Objective-C 代码示例：
+
 ~~~
 import <TACCore/TACCore.h>
 ~~~
 
 Swift 代码示例：
+
 ~~~
 import TACCore
 ~~~
 
 
-#### 步骤 2 配置一个 TACApplication  共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置。
+###### 步骤 2 配置一个 TACApplication  共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置。
 
 
-##### 使用默认配置，通常对于 移动开发平台（MobileLine） 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的：
+######  使用默认配置，通常对于 移动开发平台（MobileLine） 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的：
+
 Objective-C 代码示例：
+
 ~~~
     [TACApplication configurate];
 ~~~
 Swift 代码示例：
+
 ~~~
 	TACApplication.configurate();
 ~~~
@@ -89,6 +93,7 @@ Swift 代码示例：
 通常对于移动开发平台（MobileLine）的项目它的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
 
 Objective-C 代码示例：
+
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
@@ -97,6 +102,7 @@ Objective-C 代码示例：
     [TACApplication configurateWithOptions:options];
 ~~~
 Swift 代码示例：
+
 ~~~
 	let options = TACApplicationOptions.default()
 	// 自定义配置
