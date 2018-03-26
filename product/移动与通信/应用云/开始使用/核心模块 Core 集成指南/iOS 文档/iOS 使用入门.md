@@ -201,3 +201,22 @@ ${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
   #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
   ~~~
+
+
+
+## 示例工程
+
+您可以访问我们的 [示例工程](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/MobileLineDemo)，里面包含了我们所有服务的集成和调用的示例代码。您可以参考代码的编写，也可以下载到本地运行体验。
+
+## 可用的库
+
+以下库分别对应各种移动开发平台（MobileLine）的功能。
+
+| cocoapods | 服务名称 | 功能 |
+|:----|:-----------|:-----------|
+|  TACCore   |  analytics | 分析 |
+|  TACMessaging |  messaging | 推送 |
+|  TACCrash   |  crash     | 异常上报 |
+|  TACStorage   |  storage   | Cloud Storage |
+|  TACAuthorization   |  social | 第三方登录与授权（QQ、WeChat） |
+|  TACPayment   |  payment | 支付 |
