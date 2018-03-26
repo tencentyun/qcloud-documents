@@ -51,11 +51,11 @@
 
 ### 1. 注册平台账号
 
-访问 [移动开发平台（MobileLine）](https://console.cloud.tencent.com)，并注册开发者账号。
+访问 [移动开发平台（MobileLine）](https://console.cloud.tencent.com/tac)，并注册开发者账号。
 
 ### 2. 创建项目和应用
 
-在 [控制台](https://console.cloud.tencent.com) 上创建项目，并在创建的项目中新建一个新的应用。详细操作流程请参考【控制台使用手册】。
+在 [控制台](https://console.cloud.tencent.com/tac) 上创建项目，并在创建的项目中新建一个新的应用。详细操作流程请参考【控制台使用手册】。
 
 ### 3. 下载配置文件
 
@@ -75,7 +75,7 @@
 
 ### 6. 控制台查看数据上报情况
 
-在 [控制台](https://console.cloud.tencent.com) 上进入您的应用，查看【移动分析】中是否有相关的用户数据。
+在 [控制台](https://console.cloud.tencent.com/tac) 上进入您的应用，查看【移动分析】中是否有相关的用户数据。
 
 如果数据正常，证明您已经接入完成，如果没有看到数据，请检查您的配置文件和代码是否完全按照文件的规范接入。
 
