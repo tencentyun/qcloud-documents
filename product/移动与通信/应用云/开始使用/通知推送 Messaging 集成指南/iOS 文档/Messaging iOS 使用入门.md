@@ -4,7 +4,7 @@
 在开始使用移动开发平台（MobileLine） Messaging 之前，您需要：
 
 1. 一个启用了移动开发平台（MobileLine）的应用。
-2. 您集成了 TACCore。
+2. 您集成了 [TACCore](https://cloud.tencent.com/document/product/666/14306)。
 
 ## 将移动开发平台（MobileLine） Messaging 代码库添加到您的 Xcode 项目中
 

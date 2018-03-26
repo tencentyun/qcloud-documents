@@ -5,7 +5,7 @@
 在开始使用移动开发平台（MobileLine） Payment 之前，您需要：
 
 * 一个启用了移动开发平台（MobileLine）的应用。
-* 集成了 TACCore。
+* 您集成了 [TACCore](https://cloud.tencent.com/document/product/666/14306)。
 * 已经申请好了需要的微信/ QQ 支付对应的商户号、开放平台应用，并在控制台上配置。
 
 ## 将移动开发平台（MobileLine） Payment 代码库添加到 Xcode 项目中
