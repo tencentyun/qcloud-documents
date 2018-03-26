@@ -77,7 +77,7 @@ pod 'TACAuthorizationQQ'
 ~~~
 
 >**注意：**
-`TACAuthorizationQQ`依赖基础模块`TACSocialQQ`,将会自动引入 `TACSocialQQ` 模块，该模块分装了对于TencentOpenAPI。如果您需要使用 TencentOpenAPI 也可以直接通过 `TACSocialQQ` 来调用，具体的可以参考  `TACSocialQQ` 的编程指南。
+`TACAuthorizationQQ`依赖基础模块`TACSocialQQ`,将会自动引入 `TACSocialQQ` 模块，该模块分装了对于 TencentOpenAPI。如果您需要使用 TencentOpenAPI 也可以直接通过 `TACSocialQQ` 来调用，具体的可以参考 `TACSocialQQ` 的编程指南。
 
 #### 使用 WeChat 第三方登陆
 

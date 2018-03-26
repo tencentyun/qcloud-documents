@@ -2,7 +2,7 @@
  
 ## 商品下单
 
-在您发起支付前，需要先在后台调用我们的 [下单接口](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/移动开发平台（MobileLine）/开始使用/支付%20Payment%20集成指南/后台服务接口.md) 进行下单，下单成功后，服务器会给您返回本次下单的具体信息，下单服务器返回的数据示例如下：
+在您发起支付前，需要先在后台调用我们的 [下单接口](https://cloud.tencent.com/document/product/666/14600) 进行下单，下单成功后，服务器会给您返回本次下单的具体信息，下单服务器返回的数据示例如下：
 
 ```
 {

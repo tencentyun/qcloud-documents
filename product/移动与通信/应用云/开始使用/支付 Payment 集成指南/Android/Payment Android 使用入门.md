@@ -4,11 +4,11 @@
 
 在开始使用移动开发平台（MobileLine） payment 服务前，确保您已经完成：
 
-[后台服务配置](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E7%A7%BB%E5%8A%A8%E4%B8%8E%E9%80%9A%E4%BF%A1/%E5%BA%94%E7%94%A8%E4%BA%91/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8/%E6%94%AF%E4%BB%98%20Payment%20%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/%E5%90%8E%E5%8F%B0%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE.md)
+[后台服务配置](https://cloud.tencent.com/document/product/666/14600)
 
-[安装和配置SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+[安装和配置SDK](https://cloud.tencent.com/document/product/666/14879)
 
-[支付配置指引](https://github.com/tencentyun/qcloud-documents/blob/master/product/移动与通信/移动开发平台（MobileLine）/开始使用/支付%20Payment%20集成指南/Payment%20支付配置指引.md)
+[支付配置指引](https://cloud.tencent.com/document/product/666/14599)
 
 ## 添加 SDK
 

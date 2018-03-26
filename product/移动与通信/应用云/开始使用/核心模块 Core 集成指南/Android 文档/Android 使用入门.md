@@ -5,7 +5,7 @@
 
 ### 创建项目
 
-在使用我们的服务前，您必须先在 TAC 平台上创建项目和应用，首先登录 [TAC 平台](https://console.qcloud.com/tac)，然后点击【创建项目】按钮来创建一个新的项目：
+在使用我们的服务前，您必须先在 TAC 平台上创建项目和应用，首先登录 [TAC 平台](https://console.cloud.tencent.com/tac)，然后点击【创建项目】按钮来创建一个新的项目：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_project.png?raw=true)
 
