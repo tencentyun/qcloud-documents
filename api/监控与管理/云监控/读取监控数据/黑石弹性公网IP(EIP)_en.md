@@ -20,7 +20,7 @@ The following request parameter list only provides API request parameters. Commo
 
 | Parameter Name               | Required   | Type       | Input Content           | Description                                       |
 | ------------------ | ---- | -------- | -------------- | ---------------------------------------- |
-| namespace          | Yes    | String   | qce/cvm        | Namespace. Every Tencent Cloud product has a namespace. For more information, please see Input Content column.           |
+| namespace          | Yes    | String   | qce/bm_lb        | Namespace. Every Tencent Cloud product has a namespace. For more information, please see Input Content column.           |
 | metricName         | Yes    | String   | Specific metric name        | Metric name. For more information, please see 2.2                            |
 | dimensions.0.name  | Yes   | String   | vip            | Input parameter is the address of EIP to be queried                          |
 | dimensions.0.value | Yes    | String   | Address of EIP to be queried | Enter specific vip                                  |
