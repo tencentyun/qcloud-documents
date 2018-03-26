@@ -2,14 +2,13 @@
 
 ## 准备工作
 
-Payment 支持微信支付和手 Q 支付的 [APP 支付](http://kf.qq.com/faq/17060936FNZj170609vMneY3.html)
-模式，您可以通过在移动端 APP 中集成 Payment SDK 来调起微信支付和手 Q 支付。在配置 Payment 支付渠道前，确保您已经完成：[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/存储与CDN/_Drafts/ApplicationBoard/集成指南/Core/Android/GettingStarted.md)
+Payment 支持微信支付和手 Q 支付的 [APP 支付](http://kf.qq.com/faq/17060936FNZj170609vMneY3.html)模式，您可以通过在移动端 APP 中集成 Payment SDK 来调起微信支付和手 Q 支付。在配置 Payment 支付渠道前，确保您已经完成：[安装和配置 SDK](https://cloud.tencent.com/document/product/666/14593)
 
 
 
 ## 配置微信支付
 
-您需要先在 [微信开放平台](https://open.weixin.qq.com) 和 [微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login) 上申请好相关信息，然后才能给 TAC 应用配置微信支付功能。下面将详细说明如何在 TAC 平台上配置 Payment 的微信支付渠道。
+您需要先在 [微信开放平台](https://open.weixin.qq.com) 和 [微信商户平台](https://pay.weixin.qq.com/index.php/core/home/login) 上申请好相关信息，然后才能给应用配置微信支付功能。下面将详细说明如何在 MobileLine 平台上配置 Payment 的微信支付渠道。
 
 ### 第一步：注册微信开放平台账号并进行认证
 
@@ -43,7 +42,7 @@ Payment 支持微信支付和手 Q 支付的 [APP 支付](http://kf.qq.com/faq/1
 
 ### 第七步：配置渠道信息
 
-打开之前在 [TAC 平台](https://console.cloud.tencent.com/tac)上创建的应用，单击【我的米大师】>【渠道管理】，然后单击【开通微信支付】：
+打开之前在 [MobileLine 平台](https://console.cloud.tencent.com/tac)上创建的应用，单击【我的米大师】>【渠道管理】，然后单击【开通微信支付】：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_add_wechat_pay.png?raw=true)
 
@@ -66,7 +65,7 @@ Payment 支持微信支付和手 Q 支付的 [APP 支付](http://kf.qq.com/faq/1
 
 ## 配置手 Q 支付
 
-您需要先在 [QQ 钱包商户平台](https://qpay.qq.com) 和 [腾讯开放平台](http://open.qq.com/) 上申请好相关信息，然后才能给 TAC 应用配置 QQ 支付功能。下面将详细说明如何在 TAC 平台上配置 Payment 的手 Q 支付。
+您需要先在 [QQ 钱包商户平台](https://qpay.qq.com) 和 [腾讯开放平台](http://open.qq.com/) 上申请好相关信息，然后才能给应用配置 QQ 支付功能。下面将详细说明如何在 MobileLine 平台上配置 Payment 的手 Q 支付。
 
 ### 第一步：在 QQ 钱包上填写资料
 
@@ -120,7 +119,7 @@ Payment 支持微信支付和手 Q 支付的 [APP 支付](http://kf.qq.com/faq/1
 
 ### 第九步：配置渠道信息
 
-打开之前在 [TAC 平台](https://console.cloud.tencent.com/tac)上创建的应用，单击【我的米大师】>【渠道管理】，然后单击【开通 QQ 钱包支付】：
+打开之前在 [MobileLine 平台](https://console.cloud.tencent.com/tac)上创建的应用，单击【我的米大师】>【渠道管理】，然后单击【开通 QQ 钱包支付】：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_new_qq_pay.png)
 

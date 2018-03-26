@@ -1,14 +1,12 @@
+# 直播+连麦（LiveRoom ）
 
 **直播+连麦** 是在 **秀场直播** 和 **在线教育** 场景中经常使用的直播模式，它既能支持高并发和低成本的在线直播，又能通过连麦实现主播和观众之间的视频通话互动，具有极强的场景适用性。
 
-
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/4032376146a41d3597d9a28350b542b5.jpg" />
-
+![img](https://main.qcloudimg.com/raw/4032376146a41d3597d9a28350b542b5.jpg)
 
 腾讯云基于 [**LiveRoom**](https://cloud.tencent.com/document/product/454/14606) 组件实现“直播 + 连麦”功能，它分成 Client 和 Server 两个部分（都是开源的），对接攻略请参考 [DOC](https://cloud.tencent.com/document/product/454/14606)，本文档主要是详细列出了 Client 端的 API 列表：
 
 > 在腾讯云官网 [下载](https://cloud.tencent.com/document/product/454/7873#Windows) SDK 开发包，在SDK\Rooms\LiveRoom中，包括LiveRoom相关的头文件和源码文件。
-
 
 ## LiveRoom
 
@@ -16,12 +14,12 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | instance()                                                   | 获取LiveRoom单例，通过单例调用LiveRoom的接口                 |
 | setCallback(ILiveRoomCallback * callback)                    | 设置回调 LiveRoom 的回调代理，监听 LiveRoom 的内部状态和接口的执行结果 |
-| login(const std::string & serverDomain, const LRAuthData & authData, ILoginCallback* callback) | 登录业务服务器RoomService，登录后才能够正常使用其他接口和使用IM功能 |
+| login(const std::string & serverDomain, const LRAuthData & authData, ILoginLiveCallback* callback) | 登录业务服务器RoomService，登录后才能够正常使用其他接口和使用IM功能 |
 | logout()                                                     | 登出业务服务器RoomService，请注意在leaveRoom调用后，再调用logout，否则leaveRoom会调用失败 |
-| getRoomList(int index, int count, IGetRoomListCallback* callback) | 获取房间列表，房间数量比较多时，可以分页获取                 |
+| getRoomList(int index, int count, IGetLiveRoomListCallback* callback) | 获取房间列表，房间数量比较多时，可以分页获取                 |
 | void getAudienceList(const std::string& roomID)              | 获取观众列表，只返回最近进入房间的 30 位观众                 |
 | createRoom(const std::string& roomID, const std::string& roomInfo) | 创建房间，后台的房间列表中会添加一个新房间，同时主播端会进入推流模式 |
-| enterRoom(const std::string& roomID)                         | 进入房间                                                     |
+| enterRoom(const std::string& roomID, HWND rendHwnd, const RECT & rect) | 进入房间                                                     |
 | leaveRoom()                                                  | 离开房间，如果是大主播，这个房间会被后台销毁，如果是小主播或者观众，不影响其他人继续观看 |
 | sendRoomTextMsg(const char * msg)                            | 发送普通文本消息，比如直播场景中，发送弹幕                   |
 | sendRoomCustomMsg(const char * cmd, const char * msg)        | 发送自定义消息，比如直播场景中，发送点赞、送花等消息         |
@@ -40,13 +38,13 @@
 | rejectJoinPusher(const std::string& userID, const std::string& reason) | 大主播拒绝连麦请求，并通知给连麦发起方                       |
 | kickoutSubPusher(const std::string& userID)                  | 大主播踢掉某一个小主播                                       |
 
-## ILoginCallback
+## ILoginLiveCallback
 
 | 名称                                                     | 描述                |
 | -------------------------------------------------------- | ------------------- |
 | onLogin(const LRResult& res, const LRAuthData& authData) | login登录结果的回调 |
 
-## IGetRoomListCallback
+## IGetLiveRoomListCallback
 
 | 名称                                                         | 描述               |
 | ------------------------------------------------------------ | ------------------ |
@@ -125,7 +123,7 @@
 
 ### 3. login
 
-- 定义：void login(const std::string & serverDomain, const LRAuthData & authData, ILoginCallback* callback)
+- 定义：void login(const std::string & serverDomain, const LRAuthData & authData, ILoginLiveCallback* callback)
 
 - 说明：登录业务服务器RoomService，登录后才能够正常使用其他接口和使用IM功能
 
@@ -135,7 +133,7 @@
 | ------------ | ------------------- | ------------------------------------------------------------ |
 | serverDomain | const std::string & | RoomService的URL地址，安全起见，建议访问https加密链接， 参考 [DOC](https://cloud.tencent.com/document/product/454/14606#ClientFLOW) |
 | authData     | const LRAuthData &  | RoomService提供的登录信息，包括IM相关的配置字段，在login成功后，获取到token字段，参考 [DOC](https://cloud.tencent.com/document/product/454/14606#ClientFLOW) |
-| callback     | ILoginCallback*     | ILoginCallback 类型的代理指针，回调login的结果               |
+| callback     | ILoginLiveCallback* | ILoginLiveCallback 类型的代理指针，回调login的结果           |
 
 - 示例：
 
@@ -168,17 +166,17 @@
 
 ### 5. getRoomList
 
-- 定义：void getRoomList(int index, int count, IGetRoomListCallback* callback)
+- 定义：void getRoomList(int index, int count, IGetLiveRoomListCallback* callback)
 
 - 说明：获取房间列表，房间数量比较多时，可以分页获取
 
 - 参数：
 
-| 参数     | 类型                  | 描述                                                         |
-| -------- | --------------------- | ------------------------------------------------------------ |
-| index    | int                   | 分页获取，初始默认可设置为0，后续获取为起始房间索引（如第一次设置index=0, cnt=5,获取第二页时可用index=5） |
-| count    | int                   | 每次调用，最多返回房间个数；0表示所有满足条件的房间          |
-| callback | IGetRoomListCallback* | IGetRoomListCallback 类型的代理指针，查询结果的回调          |
+| 参数     | 类型                      | 描述                                                         |
+| -------- | ------------------------- | ------------------------------------------------------------ |
+| index    | int                       | 分页获取，初始默认可设置为0，后续获取为起始房间索引（如第一次设置index=0, cnt=5,获取第二页时可用index=5） |
+| count    | int                       | 每次调用，最多返回房间个数；0表示所有满足条件的房间          |
+| callback | IGetLiveRoomListCallback* | IGetLiveRoomListCallback 类型的代理指针，查询结果的回调      |
 
 - 示例：
 
@@ -225,20 +223,24 @@ m_liveRoom->getRoomList(roomID);
 
 ### 8. enterRoom
 
-- 定义：void enterRoom(const std::string& roomID)
+- 定义：void enterRoom(const std::string& roomID, HWND rendHwnd, const RECT & rect)
 
 - 说明：进入房间
 
 - 参数：
 
-| 参数   | 类型               | 描述                                                         |
-| ------ | ------------------ | ------------------------------------------------------------ |
-| roomID | const std::string& | roomID - 要进入的房间ID，在 getRoomList 接口房间列表中查询得到 |
+| 参数     | 类型               | 描述                                                         |
+| -------- | ------------------ | ------------------------------------------------------------ |
+| roomID   | const std::string& | roomID - 要进入的房间ID，在 getRoomList 接口房间列表中查询得到 |
+| rendHwnd | HWND               | 承载预览画面的 HWND                                          |
+| rect     | const RECT &       | 指定视频图像在 HWND 上的渲染区域                             |
 
 - 示例：
 
   ```c++
-  m_liveRoom->enterRoom(roomID);
+  RECT rect = { 0 };
+  ::GetClientRect(hwnd, &rect);	// 在hwnd整个窗口中渲染
+  m_liveRoom->enterRoom(roomID, hwnd, rect);
   ```
 
 ### 9. leaveRoom
@@ -476,7 +478,7 @@ m_liveRoom->getRoomList(roomID);
 
 | 参数           | 类型           | 描述                                                         |
 | -------------- | -------------- | ------------------------------------------------------------ |
-| beautyStyle    | TXEBeautyStyle | 参考 TXLiveSDKTypeDef.h 中定义的 TXEBeautyStyle 枚举值       |
+| beautyStyle    | TXEBeautyStyle | 参考 LiveRoomUtil.h 中定义的 LRBeautyStyle 枚举值            |
 | beautyLevel    | int            | 美颜级别取值范围 1 ~ 9； 0 表示关闭，1 ~ 9值越大，效果越明显 |
 | whitenessLevel | int            | 美白级别取值范围 1 ~ 9； 0 表示关闭，1 ~ 9值越大，效果越明显 |
 
@@ -556,7 +558,7 @@ m_liveRoom->getRoomList(roomID);
 
 
 
-## ILoginCallback回调接口的详情
+## ILoginLiveCallback回调接口的详情
 
 ### 1. onLogin
 
@@ -574,7 +576,7 @@ m_liveRoom->getRoomList(roomID);
 - 示例：
 
   ```c++
-  class LoginDialog : public ILoginCallback
+  class LoginDialog : public ILoginLiveCallback
   {
   public:
   	virtual void onLogin(const LRResult& res, const LRAuthData& authData)
@@ -596,7 +598,7 @@ m_liveRoom->getRoomList(roomID);
 
 
 
-## IGetRoomListCallback回调接口的详情
+## IGetLiveRoomListCallback回调接口的详情
 
 ### 1. onGetRoomList
 
@@ -1080,3 +1082,5 @@ public:
       ...
   };
   ```
+
+  ​

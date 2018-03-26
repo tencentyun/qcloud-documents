@@ -5,13 +5,16 @@
 在开始使用移动开发平台（MobileLine） Payment 之前，您需要：
 
 * 一个启用了移动开发平台（MobileLine）的应用。
-* 集成了 TACCore。
-* 已经申请好了需要的微信/QQ支付对应的商户号、开放平台应用，并在控制台上配置。
+* 您集成了 [TACCore](https://cloud.tencent.com/document/product/666/14306)。
+* 已经申请好了需要的微信/ QQ 支付对应的商户号、开放平台应用，并在控制台上配置。
 
 ## 将移动开发平台（MobileLine） Payment 代码库添加到 Xcode 项目中
 
+> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
 
-### 1. 在您的项目中集成移动开发平台（MobileLine） SDK：
+
+
+### 在您的项目中集成移动开发平台（MobileLine） SDK：
 
 并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
 
@@ -23,20 +26,20 @@ source "https://github.com/CocoaPods/Specs"
 > **注意：**
    一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-### 2. 添加 TACPayment 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
+### 添加 TACPayment 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
 
 ~~~
 pod 'TACPayment'
 ~~~
 
-### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
+### 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
 
 ~~~
 $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-### 4. 在 UIApplicationDelegate 子类中导入 TACPayment 模块：
+### 在 UIApplicationDelegate 子类中导入 TACPayment 模块：
 
 Objective-C 代码示例：
 ~~~
@@ -48,7 +51,7 @@ import TACPayment
 ~~~
 
 
-### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
+### 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
 
 一般情况下您使用默认配置就可以了，用以下代码使用默认配置启动 Payment 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
 Objective-C 代码示例：
@@ -79,7 +82,7 @@ Swift 代码示例：
 	TACApplication.configurate(with: options);
 ~~~
 
-### 6.配置 URL Schemes
+### 配置 URL Schemes
 在 Xcode 中，选择工程设置项，选中 "TARGETS" 一栏，在 "Info" 标签栏的 "URL Types" 添加 "URL Schemes"。    
 
 如果使用微信支付，填入微信跳转回本 App 所使用的 URL Scheme（建议直接使用注册的微信应用 ID）。    

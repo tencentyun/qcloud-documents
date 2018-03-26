@@ -89,7 +89,7 @@ $createProductResponse = $client->createProduct($createProductRequest);
 ...
 ```
 
-###  腾讯物联云客户端接口 - TXIoTCloudClient
+###  腾讯物联网通信客户端接口 - TXIoTCloudClient
 
 | 序号  |         方法名           | 说明                       |
 | ---- | ----------------------- | -------------------------  |
