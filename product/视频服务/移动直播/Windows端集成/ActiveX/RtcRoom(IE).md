@@ -139,7 +139,7 @@ RTCRoom.logout({
 
 ### <h3 id="getRoomList"> getRoomList </h3>
 - 接口定义：getRoomList(object):void
-- 接口说明：拉取房间列表（如果您已经有自己的房间列表服务模块，可以继续使用）。
+- 接口说明：拉取房间列表，index 和 count 两个参数用于做分页处理，表示：从序号 index 的房间开始拉取 count 个房间。这并非一个必须调用的 API，如果您已经有自己的房间列表服务模块，可以继续使用。
 - 参数说明：
 
 ```object
@@ -172,13 +172,14 @@ RTCRoom.getRoomList({
 
 ### <h3 id="createRoom"> createRoom </h3>
 - 接口定义：createRoom(object):void
-- 接口说明：在 RoomService 后台创建一个直播房间。调用此方法前，必须先调用[startLocalPreview](#startLocalPreview)开启本地摄像头预览。
+- 接口说明：在 RoomService 后台创建一个直播房间。
 - 参数说明：
 
 ```object
 {
 	data: {
-   		roomInfo     String  用户自定义数据，作为房间信息会在getRoomList函数返回 
+		roomID       String  您可以通过 roomID 参数指定新房间的 ID，也可以不指定。如果您不指定房间 ID，RoomService 会自动生成一个新的 roomID 并通过 CreateRoomCallback 返回给你您。
+   		roomInfo     String  由创建者自定义。在getRoomList中返回该信息 
 	}
 	success       	function  成功回调
 	fail          	function  失败回调
@@ -207,7 +208,7 @@ RTCRoom.createRoom({
 
 ### <h3 id="enterRoom"> enterRoom </h3>
 - 接口定义：enterRoom(object):void
-- 接口说明：观众进入直播房间。
+- 接口说明：（会议参与者）进入直播间。
 - 参数说明：
 
 ```object
@@ -238,7 +239,7 @@ RTCRoom.enterRoom({
 
 ### <h3 id="exitRoom"> exitRoom </h3>
 - 接口定义：exitRoom(object):void
-- 接口说明：（主播 OR 观众）退出房间。
+- 接口说明：（会议创建者 OR 会议参与者）退出房间。
 - 参数说明：
 
 ```object
@@ -489,7 +490,7 @@ RTCRoom.sendRoomTextMsg({
 
 ### <h3 id="sendRoomCustomMsg"> sendRoomCustomMsg </h3>
 - 接口定义：sendRoomCustomMsg(object):void
-- 接口说明：发送自定义消息。直播间其他人会收到 onRecvRoomCustomMsg 通知。
+- 接口说明：发送自定义消息，房间里的其他人会收到 onRecvRoomCustomMsg 通知。
 - 参数说明：
 
 ```object
