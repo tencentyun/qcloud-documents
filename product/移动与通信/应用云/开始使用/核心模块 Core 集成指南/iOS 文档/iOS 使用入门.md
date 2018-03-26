@@ -5,6 +5,8 @@
 
 ## 集成代码库
 
+ > 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。该文件中也有
+
 ### 通过 CocoaPods 集成（推荐）
  
 如果您是设置一个新项目，则需要安装 SDK。您可能已经在创建移动开发平台（MobileLine）项目的过程中完成此步操作。
@@ -55,46 +57,55 @@ $ open your-project.xcworkspace
 
 ##### 5. 从移动开发平台（MobileLine）控制台中下载一个 tac_services_configurations.zip 文件并将其添加到您的应用中。
 
-### 手工集成
+
+1. tac_services_configurations.zip ([从控制台对应的 App 下载](https://console.cloud.tencent.com/tac))文件
+2. 解压 tac_services_configurations.zip 后将其中文件移动到您的 XCode 项目目录下面，并将其中的plist文件添加到您的工程之中（其中 tac_services_configurations_unpackage.plist 请不要添加）
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
 
 
 
-### 在您的应用中初始化移动开发平台（MobileLine）
+##### 6. 初始化代码
 
 最后一步是向您的应用添加初始化代码，您可能已经在将移动开发平台（MobileLine）添加到应用时完成了此步骤。如果您使用的是快速入门示例，则此步骤已替您完成了。
 
-#### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
+###### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
 
 Objective-C 代码示例：
+
 ~~~
 #import <TACCore/TACCore.h>
 ~~~
 Swift 代码示例：
+
 ~~~
 import TACCore
 ~~~
 
 
-#### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
+###### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
 
 
-##### 使用默认配置
+####### 使用默认配置
 
 通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configurations.zip 文件来获取的。
 
 Objective-C 代码示例：
+
 ~~~
     [TACApplication configurate];
 ~~~
 Swift 代码示例：
+
 ~~~
 	TACApplication.configurate();
 ~~~
-##### 需要通过编程的方式自定义某些参数
+####### 需要通过编程的方式自定义某些参数
 
 通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configurations.zip 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
 
 Objective-C 代码示例：
+
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
@@ -111,7 +122,8 @@ Swift 代码示例：
 ~~~
 
 
-#### 配置程序需要脚本
+
+## 配置程序需要脚本
 
 为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
 
