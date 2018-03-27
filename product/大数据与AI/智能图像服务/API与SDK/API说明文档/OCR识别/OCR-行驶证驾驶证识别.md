@@ -21,10 +21,10 @@
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 腾讯云文字识别服务器域名              |
-| Content-Length | 包体总长度                                | 整个请求包体内容的总长度，单位：字节（Byte）        |
-| Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。       |
-| Authorization  | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409)|
+| host           | recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名              |
+| content-Length | 包体总长度                                | 整个请求包体内容的总长度，单位：字节（Byte）        |
+| content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。       |
+| authorization  | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409)|
 
 >**注意：**
 如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
