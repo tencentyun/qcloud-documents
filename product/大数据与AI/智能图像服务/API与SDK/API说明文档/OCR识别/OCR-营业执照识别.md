@@ -20,7 +20,7 @@
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| host           | service.image.myqcloud.com               | 腾讯云文字识别服务器域名                       |
+| host           | recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名                       |
 | content-length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | content-type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。                     |
 | authorization  | 鉴权签名                                     | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
