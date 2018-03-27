@@ -71,7 +71,7 @@
 ### 1.setLiveRoomListener
 
 - 接口定义：void setLiveRoomListener(ILiveRoomListener listener)
-- 借口说明：设置 ILiveRoomListener 回调 ，具体回调函数请参考 ILiveRoomListener 的接口说明
+- 接口说明：设置 ILiveRoomListener 回调 ，具体回调函数请参考 ILiveRoomListener 的接口说明
 - 参数说明：
 
 | 参数       | 类型                  | 说明       |
@@ -99,7 +99,7 @@ mLiveRoom.setLiveRoomListener(new ILiveRoomListener() {
 ### 2.login
 
 - 接口定义：void login(String serverDomain, final LoginInfo loginInfo, final LoginCallback callback) 
-- 借口说明：登录到 RoomService 后台，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService。
+- 接口说明：登录到 RoomService 后台，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService。
 - 参数说明：
 
 | 参数       | 类型                  | 说明       |
@@ -137,7 +137,7 @@ mLiveRoom.login(DOMAIN, loginInfo, new LiveRoom.LoginCallback() {
 ### 3.logout 
 
 - 接口定义：void logout()
-- 借口说明：从 RoomService 后台注销
+- 接口说明：从 RoomService 后台注销
 - 示例代码：
 
 ```
