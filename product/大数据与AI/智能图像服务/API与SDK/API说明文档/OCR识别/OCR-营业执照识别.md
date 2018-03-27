@@ -20,7 +20,7 @@
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| host           | service.image.myqcloud.com               | 腾讯云文字识别服务器域名                       |
+| host           | recognition.image.myqcloud.com               | 腾讯云文字识别服务器域名                       |
 | content-length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | content-type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。                     |
 | authorization  | 鉴权签名                                     | 多次有效签名,用于鉴权， 具体生成方式详见 [鉴权签名方法](/document/product/641/12409) |
@@ -234,15 +234,15 @@ image_content
 | 3     | 错误的请求                    |
 | 4     | 签名为空                     |
 | 5     | 签名串错误                    |
-| 6     | 签名中的appid/bucket与操作目标不匹配 |
+| 6     | 签名中的 appid/bucket 与操作目标不匹配 |
 | 9     | 签名过期                     |
-| 10    | appid不存在                 |
-| 11    | secretid不存在              |
-| 12    | appid和secretid不匹配        |
+| 10    | appid 不存在                 |
+| 11    | secretid 不存在              |
+| 12    | appid 和 secretid 不匹配        |
 | 13    | 重放攻击                     |
 | 14    | 签名校验失败                   |
 | 15    | 操作太频繁，触发频控               |
-| 16    | Bucket不存在                |
+| 16    | bucket 不存在                |
 | 21    | 无效参数                     |
 | 23    | 请求包体过大                   |
 | 24    | 没有权限                     |
@@ -260,10 +260,10 @@ image_content
 | -9002 | 识别失败                     |
 | -9005 | 图片无效                     |
 | -9006 | 预处理失败                    |
-| -9501 | 营业执照OCR预处理失败             |
-| -9502 | 营业执照OCR识别失败              |
+| -9501 | 营业执照 OCR 预处理失败             |
+| -9502 | 营业执照 OCR 识别失败              |
 
 
-更多其他 API 错误码请看[**错误码说明**](/document/product/641/12410) 。
+更多其他 API 错误码请看 [**错误码说明**](/document/product/641/12410) 。
 
  
