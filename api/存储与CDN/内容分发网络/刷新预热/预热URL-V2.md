@@ -28,7 +28,8 @@
 
 #### 详细说明
 
-限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在 1Mbps 左右。
++ 限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在 1Mbps 左右；
++ 提交的URL会根据域名聚合为不同的task，返回多个 task_id。
 
 ## 出参说明
 | 参数名称     | 类型     | 描述                                       |
@@ -56,7 +57,8 @@
 ## 调用案例
 ### 示例参数
 ```
-> urls.0: http://www.test.com/1.txt
+> urls.0: http://www.test.com/1.jpg
+> urls.1: http://www.abc.com/1.jpg
 > limitRate: 1
 ```
 
@@ -70,6 +72,7 @@ Action=CdnPusherV2
 &Nonce=123456789
 &Signature=XXXXXXXXXXXXXXXXXXXXX
 &urls.0=http://www.test.com/1.jpg
+&urls.1=http://www.abc.com/1.jpg
 &limitRate=1
 ```
 
@@ -80,7 +83,7 @@ POST请求时，参数填充在HTTP Requestbody中，请求地址：
 https://cdn.api.qcloud.com/v2/index.php
 ```
 
-参数支持 formdata、xwwwformurlencoded 等格式，参数数组如下：
+参数支持 form-data 等格式，参数数组如下：
 
 ```
 array (
@@ -90,24 +93,29 @@ array (
 	'Nonce' => 123456789,
 	'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXX',
 	'urls.0' => 'http://www.test.com/1.jpg',
+	'urls.1' => 'http://www.abc.com/1.jpg',
     'limitRate'  => 1
 )
 ```
 
 ### 返回示例
-```
+```json
 {
-	"code": 0,
-	"message": "",
-	"codeDesc": "Success",
-	"data": {
-		"task_ids": [
-			{
-				"task_id": 20860,
-				"date": "20161013"
-			}
-		]
-	}
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "task_ids": [
+            {
+                "task_id": 41773,
+                "date": "20180327"
+            },
+            {
+                "task_id": 41774,
+                "date": "20180327"
+            }
+        ]
+    }
 }
 ```
 
