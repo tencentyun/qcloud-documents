@@ -1,4 +1,3 @@
-# 移动开发平台（MobileLine） Analytics iOS 使用入门
 ## 准备工作
 
 为了使用移动开发平台（MobileLine） iOS 版本的 SDK ，您首先需要做好以下工作：

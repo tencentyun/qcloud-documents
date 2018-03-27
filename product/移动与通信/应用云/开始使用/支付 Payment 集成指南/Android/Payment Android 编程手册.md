@@ -1,5 +1,3 @@
-# 移动开发平台（MobileLine） Payment 服务 Android 编程手册
- 
 ## 商品下单
 
 在您发起支付前，需要先在后台调用我们的 [下单接口](https://cloud.tencent.com/document/product/666/14600) 进行下单，下单成功后，服务器会给您返回本次下单的具体信息，下单服务器返回的数据示例如下：

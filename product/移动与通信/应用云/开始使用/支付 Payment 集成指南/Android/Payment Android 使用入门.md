@@ -1,12 +1,10 @@
-# 移动开发平台（MobileLine） Payment 服务 Android 使用入门
-
 ## 准备工作
 
 在开始使用移动开发平台（MobileLine） payment 服务前，确保您已经完成：
 
 [后台服务配置](https://cloud.tencent.com/document/product/666/14600)
 
-[安装和配置SDK](https://cloud.tencent.com/document/product/666/14879)
+[安装和配置SDK](https://cloud.tencent.com/document/product/666/14305)
 
 [支付配置指引](https://cloud.tencent.com/document/product/666/14599)
 

@@ -110,7 +110,7 @@ The available Types are as follows:
 32. &COMMON_PARAMS
 ```
 
-### Response Example
+## Response Example
 
 ```
 1. {

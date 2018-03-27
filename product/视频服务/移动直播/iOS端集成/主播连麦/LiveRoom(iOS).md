@@ -69,7 +69,7 @@
 ### 1.setLiveRoomListener
 
 - 接口定义：@property (nonatomic, weak) id < LiveRoomListener > delegate;
-- 借口说明：设置 LiveRoomListener 代理回调 ，具体回调函数请参考 LiveRoomListener 的接口说明
+- 接口说明：设置 LiveRoomListener 代理回调 ，具体回调函数请参考 LiveRoomListener 的接口说明
 - 参数说明：
 
 | 参数       | 类型                  | 说明       |
@@ -85,7 +85,7 @@ self.liveRoom.delegate = self(回调监听者)
 ### 2.login
 
 - 接口定义：- (void)login:(NSString*)serverDomain loginInfo:(LoginInfo *)loginInfo withCompletion:(ILoginCompletionHandler)completion 
-- 借口说明：登录到 RoomService 后台，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService。
+- 接口说明：登录到 RoomService 后台，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService。
 - 参数说明：
 
 | 参数       | 类型                  | 说明       |
@@ -119,7 +119,7 @@ self.liveRoom.delegate = self(回调监听者)
 ### 3.logout 
 
 - 接口定义：-(void)logout:(ILogoutCompletionHandler)completion
-- 借口说明：从 RoomService 后台注销
+- 接口说明：从 RoomService 后台注销
 - 示例代码：
 
 ```

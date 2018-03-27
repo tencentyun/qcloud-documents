@@ -1,5 +1,3 @@
-# 移动开发平台（MobileLine） Payment iOS 使用入门
-
 ## 准备工作
 
 在开始使用移动开发平台（MobileLine） Payment 之前，您需要：
