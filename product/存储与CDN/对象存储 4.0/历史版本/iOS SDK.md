@@ -1,3 +1,8 @@
+## 温馨提示
+请注意这是历史版本（V4，基于 JSON API 封装的 SDK），**已经不再推荐使用**。
+
+对于新接入SDK的用户，我们推荐使用最新的V5版本[基于 XML API 封装的 SDK](https://cloud.tencent.com/document/product/436/11280)。如果因为种种原因确实仍然需要需要使用基于 JSON API 封装的 SDK ,那么推荐使用我们基于历史版本重构后的[基于 JSON API 封装的 SDK](https://github.com/tencentyun/qcloud-sdk-ios/tree/master/QCloudNewCOSV4) 。
+
 ## 开发准备
 
 ### SDK 获取
@@ -443,7 +448,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称      | 类型         | 说明                                 |
 | --------- | ---------- | ---------------------------------- |
-| retCode   | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| retCode   | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
 | descMsg   | NSString * | 任务描述信息                             |
 | sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
 | sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
@@ -497,7 +502,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型         | 说明                                 |
 | ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| retCode | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
 | descMsg | NSString * | 任务描述信息                             |
 
 #### 示例
@@ -542,7 +547,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型             | 说明                                 |
 | ------- | -------------- | ---------------------------------- |
-| retCode | int            | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| retCode | int            | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
 | descMsg | NSString *     | 任务描述信息                             |
 | data    | NSDictionary * | 成功时，文件基本信息                         |
 
@@ -591,7 +596,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型         | 说明                                 |
 | ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| retCode | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
 | descMsg | NSString * | 任务描述信息                             |
 
 #### 示例
@@ -635,7 +640,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型              | 说明                                 |
 | ------- | --------------- | ---------------------------------- |
-| retCode | int             | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| retCode | int             | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
 | descMsg | NSString *      | 任务描述信息                             |
 | object  | NSMutableData * | 下载文件                               |
 
@@ -685,7 +690,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称    | 类型         | 说明                                 |
 | ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| retCode | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
 | descMsg | NSString * | 任务描述信息                             |
 
 #### 示例
@@ -740,7 +745,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 | 属性名称      | 类型         | 说明                                 |
 | --------- | ---------- | ---------------------------------- |
-| retCode   | int        | 任务描述代码，为retCode >= 0时标示成功，为负数表示为失败 |
+| retCode   | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
 | descMsg   | NSString * | 任务描述信息                             |
 | sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
 | sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |

@@ -49,40 +49,42 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 
 ##### 基本配置
 
-| 参数名称        | 类型   | 描述                                                         |
-| --------------- | ------ | ------------------------------------------------------------ |
-| id              | Int    | 域名接入 CDN 后的的标识 ID                                   |
-| app_id          | Int    | 域名所属账号的 APPID                                         |
-| owner_uin       | Int    | 域名所属账号                                                 |
-| project_id      | Int    | 域名所属项目 ID                                              |
-| host            | String | 域名                                                         |
-| cname           | String | CDN 分配的 .cdn.dnsv1.com 后缀加速域名                       |
-| host_type       | String | 接入方式<br/>"cos"：表示域名接入时使用的托管源为COS源<br/>"cname"：表示域名接入时使用的是自有源站<br/>"ftp"：表示该域名接入时使用了 CDN 提供的 FTP 托管源 |
-| service_type    | String | 域名业务类型<br/>"web"：静态内容加速<br/>"download"：文件下载加速<br/>"vod"：流媒体点播加速<br/>"live"：流媒体直播加速 |
-| origin          | String | 域名源站配置                                                 |
-| fwd_host_type   | String | 回源设置类型<br/>"default"：表示接入的域名即回源地址<br/>"custom"：该域名使用了自定义的回源host |
-| fwd_host        | String | 回源host                                                     |
-| bucket_name     | String | COS 源时，对应的 bucket 名称                                 |
-| cache           | Object | 缓存规则设置，详细说明见下文                                 |
-| status          | Int    | 域名加速状态<br/>1：域名审核中<br/>2：域名审核未通过<br/>3：域名审核通过处于部署中<br/>4：域名部署中<br/>5：域名已启动<br/>6：域名已关闭 |
-| disabled        | Int    | 域名封禁状态<br/> 0：表示域名未被封禁，其他均为已封禁        |
-| message         | String | 域名状态信息<br/> "已关闭"、"已启动"、"部署中"               |
-| create_time     | String | 域名接入时间                                                 |
-| update_time     | String | 更新时间                                                     |
-| deleted         | String | 是否删除<br/>"no"：表示域名未删除<br/>"yes"：表示域名已删除  |
-| middle_resource | Int    | 中间源开关<br/>-1：表示该域名关闭了中间源服务<br/>0：表示该域名开启了中间源服务 |
-| refer           | Object | 防盗链设置，详细说明见下文                                   |
-| cache_mode      | String | 缓存规则类型<br/>"simple"：表示缓存完全依赖控制台设置<br/>"custom"：则表示缓存依赖控制台设置的缓存时间和源站吐出的max-age的最小值 |
-| furl_cache      | String | 过滤参数<br/>"on"：开启全路径缓存，关闭过滤参数<br/>"off"：关闭全路径缓存，开启过滤参数 |
-| http2           | Int    | 是否开启HTTP2.0<br/>"1"：表示已开启http2.0                   |
-| ssl_type        | Int    | 是否开通HTTPS<br/>"0"：未开通HTTPS配置<br/>若为其他，则表示已开通HTTPS配置 |
-| ssl_deploy_time | String | SSL部署时间                                                  |
-| ssl_expire_time | String | SSL过期时间                                                  |
-| ssl_cert_name   | String | 证书备注名                                                   |
-| ssl_cert_id     | String | 托管证书ID                                                   |
-| seo             | String | 是否开启SEO优化<br/>"off"：表示未开启<br/>"on"：表示开启     |
-| capping         | Object | 带宽上限设置<br/>"bandwidth"：设置的带宽封顶阈值<br/>"uint"：设置带宽封顶阈值的单位<br/>"hy"：yes 表示设置为请求回源<br/>"active"：yes 表示开启带宽封顶 |
-| host_config     | Object | 其他高级配置项，具体见下文                                   |
+| 参数名称          | 类型   | 描述                                                         |
+| ----------------- | ------ | ------------------------------------------------------------ |
+| id                | Int    | 域名接入 CDN 后的的标识 ID                                   |
+| app_id            | Int    | 域名所属账号的 APPID                                         |
+| owner_uin         | Int    | 域名所属账号                                                 |
+| project_id        | Int    | 域名所属项目 ID                                              |
+| host              | String | 域名                                                         |
+| cname             | String | CDN 分配的 .cdn.dnsv1.com 后缀加速域名                       |
+| host_type         | String | 接入方式<br/>"cos"：表示域名接入时使用的托管源为COS源<br/>"cname"：表示域名接入时使用的是自有源站<br/>"ftp"：表示该域名接入时使用了 CDN 提供的 FTP 托管源 |
+| service_type      | String | 域名业务类型<br/>"web"：静态内容加速<br/>"download"：文件下载加速<br/>"vod"：流媒体点播加速<br/>"live"：流媒体直播加速 |
+| origin            | String | 域名源站配置                                                 |
+| fwd_host_type     | String | 回源设置类型<br/>"default"：表示接入的域名即回源地址<br/>"custom"：该域名使用了自定义的回源host |
+| fwd_host          | String | 回源host                                                     |
+| bucket_name       | String | COS 源时，对应的 bucket 名称                                 |
+| cache             | Object | 缓存规则设置，详细说明见下文                                 |
+| status            | Int    | 域名加速状态<br/>1：域名审核中<br/>2：域名审核未通过<br/>3：域名审核通过处于部署中<br/>4：域名部署中<br/>5：域名已启动<br/>6：域名已关闭 |
+| disabled          | Int    | 域名封禁状态<br/> 0：表示域名未被封禁，其他均为已封禁        |
+| message           | String | 域名状态信息<br/> "已关闭"、"已启动"、"部署中"               |
+| create_time       | String | 域名接入时间                                                 |
+| update_time       | String | 更新时间                                                     |
+| deleted           | String | 是否删除<br/>"no"：表示域名未删除<br/>"yes"：表示域名已删除  |
+| middle_resource   | Int    | 中间源开关<br/>-1：表示该域名关闭了中间源服务<br/>0：表示该域名开启了中间源服务 |
+| refer             | Object | 防盗链设置，详细说明见下文                                   |
+| cache_mode        | String | 缓存规则类型<br/>"simple"：表示缓存完全依赖控制台设置<br/>"custom"：则表示缓存依赖控制台设置的缓存时间和源站吐出的max-age的最小值 |
+| furl_cache        | String | 过滤参数<br/>"on"：开启全路径缓存，关闭过滤参数<br/>"off"：关闭全路径缓存，开启过滤参数 |
+| http2             | Int    | 是否开启HTTP2.0<br/>"1"：表示已开启http2.0                   |
+| ssl_type          | Int    | 是否开通HTTPS<br/>"0"：未开通HTTPS配置<br/>若为其他，则表示已开通HTTPS配置 |
+| ssl_deploy_time   | String | SSL部署时间                                                  |
+| ssl_expire_time   | String | SSL过期时间                                                  |
+| ssl_cert_name     | String | 证书备注名                                                   |
+| ssl_cert_id       | String | 托管证书ID                                                   |
+| seo               | String | 是否开启SEO优化<br/>"off"：表示未开启<br/>"on"：表示开启     |
+| capping           | Object | 带宽上限设置<br/>"bandwidth"：设置的带宽封顶阈值<br/>"uint"：设置带宽封顶阈值的单位<br/>"hy"：yes 表示设置为请求回源<br/>"active"：yes 表示开启带宽封顶 |
+| status_code_cache | Object | 状态码缓存设置<br/>"404"：404状态码缓存过期时间，单位为秒，设置为 0 表示不缓存 |
+| safety_chain      | Object | 时间戳鉴权设置<br/>"switch"：开关，on-开启，off-关闭<br/>"key"：鉴权key<br/>"time_format"：时间戳格式，10-十进制，16-16进制<br/>"ttl_time"：过期时间<br/>更多配置说明可查看[鉴权配置](https://cloud.tencent.com/document/product/228/13677) |
+| host_config       | Object | 其他高级配置项，具体见下文                                   |
 
 ##### host_config 高级配置
 
