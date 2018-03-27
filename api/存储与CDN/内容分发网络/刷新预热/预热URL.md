@@ -1,5 +1,7 @@
 <font color="orange">URL 预热接口目前仅开放内测，敬请期待全量开放</font>
 
+<br/>
+
 <font color="orange">旧版接口 CdnPusherV2 仍可继续使用，差异点在于，旧版接口提交后获取 task_id 不唯一，需要结合时间区间查询，新版 CdnUrlPusher 返回 task_id 唯一，可直接使用 task_id 查询任务状态</font>
 
 ## 接口描述
