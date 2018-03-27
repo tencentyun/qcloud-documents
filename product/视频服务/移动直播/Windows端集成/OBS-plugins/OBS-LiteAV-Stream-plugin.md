@@ -1,26 +1,19 @@
 
-### 腾讯视频云OBS推流插件
+## 插件简介
 
-腾讯视频云OBS推流插件，让OBS-studio(版本20.0.0及以上)支持RTMP-UDP加速通道推流。如果是推流到腾讯云服务器，会启用 UDP 加速能力，开启 UDP 加速后的推流质量会比标准 RTMP 推流有更好的网络波动抵抗力，同时可以获得更好的推流速度，从而改善当前直播流的观看体验，降低全局卡顿率。如下是一组在客户现场环境下测试的对比结果：
+腾讯云 QUIC 推流加速插件，能够让您的 OBS Stuidio 具备 QUIC 推流加速能力，让您获得比常规 RTMP 推流更好的网络适应性和更低的直播卡顿率。
 ![](https://mc.qcloudimg.com/static/img/12e966a39dc5eba5701cb2e310b16ccb/image.jpg)
 
-**仅支持推264流**
-
-#### 使用说明
-
- [下载](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/OBS_Plugins/liteav-stream-plugin-setup.exe)插件安装
- 
- **需要OBS-Studio 20.0.0及以上版本**
- 
-![](https://main.qcloudimg.com/raw/36db0828234c4094e20a2260d5f8c097.png)
+插件安装后，如果是推流到腾讯云服务器，默认就会开启 QUIC 推流加速能力；如果是推流到其它云服务器，则继续使用标准 RTMP 协议进行推流。
 
 
-目标文件夹：插件安装包会自动检测OBS studio的安装目录，检测失败需要手动选择OBS studio安装的根目录
+## 使用说明
 
-OBS设置-流-流类型选择Tencent Stream Service，填写推流地址，正常推流即可。
+- 在 OBS Studio [官网](https://obsproject.com/)下载并安装 obs studio **20.0.0** 或以上版本。
+- 点击 [DOWNLOAD](http://liteavsdk-1252463788.cosgz.myqcloud.com/windows/OBS_Plugins/liteav-stream-plugin-setup.exe) 下载 QUIC 加速插件，该插件仅能安装在 **20.0.0** 或以上版本的 OBS Studio 上。 
+ ![](https://main.qcloudimg.com/raw/36db0828234c4094e20a2260d5f8c097.png)
 
-获取测试URL
-[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 生成推流地址，详细信息可以参考 [获得推流播放URL](https://cloud.tencent.com/document/product/454/7915)。
-
+- 插件安装完毕后，推流到腾讯云默认会开启 QUIC 加速，如果是推流到其它云服务器，则继续使用标准 RTMP 协议进行推流。
 ![](https://main.qcloudimg.com/raw/221ef0155c98b1ac9f9a27a59aa75e65.png)
 
+- 可以 [开通](https://console.cloud.tencent.com/live) 腾讯云直播服务后，通过 [直播控制台>>直播码接入>>推流生成器](https://console.cloud.tencent.com/live/livecodemanage) 获取腾讯云推流地址。

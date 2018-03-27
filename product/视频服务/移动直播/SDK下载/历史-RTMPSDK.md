@@ -1,3 +1,8 @@
+### Version 4.4
+- iOS：推流端新增音频数据回调接口；
+- iOS&Android：Demo新增连麦解决方案，基于RoomService服务封装liveroom接口，具体请参考直播体验式源码；
+- iOS&Android：Demo新增多人视频会话解决方案，基于RoomService服务封装rtcroom接口，具体请参考多人音视频源码；
+
 ### Version 4.3
 - iOS&Android：直播播放器支持自定义Http Header，可以指定Refer防盗链。
 - iOS&Android：点播播放器FieldID播放，新增获取视频标题。
