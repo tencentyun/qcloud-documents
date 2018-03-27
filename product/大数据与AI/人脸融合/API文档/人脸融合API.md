@@ -41,7 +41,7 @@ https://aiconsole.cloud.tencent.com/fuseapi/face
 | project_id    | 必须   | string | 活动 ID |
 | model_id    | 必须   | string | 素材 ID |
 | img_data    | 必须   | string | 图片 base64 数据 |
-| rsp_img_type    | 可选   | string | 返回图像方式（url, base64)，默认 url， base64 则返回 base64 数据 |
+| rsp_img_type    | 必须   | string | 返回图像方式（url 或 base64) ，二选一 |
 
 
 ## 返回内容

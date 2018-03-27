@@ -1,7 +1,7 @@
 
 ## 准备工作
 
-在开始使用移动开发平台（MobileLine） Storage 服务前，确保您已经完成：[安装和配置 SDK](https://github.com/tencentyun/qcloud-documents/blob/master/product/%E5%AD%98%E5%82%A8%E4%B8%8ECDN/_Drafts/ApplicationBoard/%E9%9B%86%E6%88%90%E6%8C%87%E5%8D%97/Core/Android/GettingStarted.md)
+在开始使用移动开发平台（MobileLine） Storage 服务前，确保您已经完成：[安装和配置 SDK](https://cloud.tencent.com/document/product/666/14305)
 
 ## 添加 SDK
 
@@ -50,9 +50,10 @@ dependencies {
 如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
 #### 1. 下载服务资源压缩包。
- 
-- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
-- 下载 [移动开发平台（MobileLine） Storage 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-storage-1.0.0.zip)，并解压。
+
+1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
+
+2. 下载 [移动开发平台（MobileLine） Storage 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-storage-1.0.0.zip)，并解压。
 
 #### 2. 集成 jar 包。
 
@@ -82,7 +83,20 @@ storageOptions.setCredentialProvider(new HttpRequest.Builder<String>()
 	.build());
 ```
 
-接口的通用返回格式请参考 [这里](https://console.cloud.tencent.com/tac)。
+接口的通用返回格式如下：
+
+```
+{
+	"credentials": {
+		"sessionToken": "xxxxxxx",
+		"tmpSecretId": "xxxxxxx",
+		"tmpSecretKey": "xxxxxxx"
+	},
+	"expiredTime": 1522038254,
+	"bucket": "p123123-storage-1251668577",   // bucket名称
+	"region": "ap-shanghai"   // bucket所在地区
+}
+```
 
 ### 2. 自己实现一个签名提供者
 

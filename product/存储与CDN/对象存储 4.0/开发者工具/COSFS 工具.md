@@ -88,12 +88,12 @@ cosfs your-APPID:your-bucketname your mount-point -ourl=cos-domain-name -odbglev
 - -odbglevel 参数表示信息级别，照写即可。
 #### 示例：
 ```
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info 
+cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
 ```
 另外，如果对性能有要求，可以使用本地磁盘缓存文件，命令中加入 -ouse_cache 参数，示例如下：
 ```
 mkdir /local_cache_dir
-cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/local_cache_dir
+cosfs 1253972369:buckettest /mnt -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -ouse_cache=/local_cache_dir
 ```
 `/local_cache_dir`为本地缓存目录，如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
@@ -117,6 +117,9 @@ umount -l /mnt
 
 3. -odel_cache
 默认情况下，cosfs 为了优化性能，在 umount 后，不会清除本地的缓存数据。 如果需要在 COSFS 退出时，自动清除缓存，可以在挂载时加入该选项。
+
+4. -noxattr
+禁用get/setxattr功能， 当前版本的cosfs不支持该功能，如果本地文件所在磁盘在挂载的时候使用了use_xattr选项，可能会导致mv文件到 bucket 失败。
 
 ## 注意事项 
 - COSFS 提供的功能和性能和本地文件系统相比，具有一些局限性。具体包括：随机或者追加写文件会导致整个文件的重写。
