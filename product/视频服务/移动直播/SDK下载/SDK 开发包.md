@@ -402,7 +402,7 @@ RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606)
   <tr align="center">
     <td>PHP源码包</td>
     <td>4.4</td>
-    <td>为观众端提供直播间列表，同时为主播端提供推流URL，其相关的前台后协议设计推荐参考 <a href="https://cloud.tencent.com/document/product/454/7895">[DOC]</a></td>
+    <td>为观众端提供直播间列表和回放列表</td>
     <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_php_4.4.3775.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
