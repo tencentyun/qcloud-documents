@@ -2,7 +2,7 @@
 
 ## 接口描述
 
-**CdnUrlPusher**  将指定URL资源主动推送至CDN节点。
+**CdnPusherV2** 将指定URL资源主动推送至CDN节点。
 
 请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
 
@@ -15,13 +15,11 @@
 + 调用频次限制为 10000次/分钟
 
 
-<font color="orange">旧版接口 CdnPusherV2 仍可继续使用，差异点在于，旧版接口提交后获取 task_id 不唯一，需要结合时间区间查询，新版 CdnUrlPusher 返回 task_id 唯一，可直接使用 task_id 查询任务状态</font>
-
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 
 ## 入参说明
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 CdnUrlPusher 。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 CdnPusherV2。
 
 | 参数名称      | 是否必选 | 类型    | 描述                           |
 | --------- | ---- | ----- | ---------------------------- |
@@ -30,7 +28,8 @@
 
 #### 详细说明
 
-限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在 1Mbps 左右。
++ 限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在 1Mbps 左右；
++ 提交的URL会根据域名聚合为不同的task，返回多个 task_id。
 
 ## 出参说明
 | 参数名称     | 类型     | 描述                                       |
@@ -44,10 +43,16 @@
 
 #### data
 
-| 参数名称 | 类型   | 描述                |
-| -------- | ------ | ------------------- |
-| task_id  | String | 提交的任务ID        |
-| count    | Int    | 此次提交URL预热数量 |
+| 参数名称     | 类型     | 描述        |
+| -------- | ------ | --------- |
+| task_ids | Object | 提交的任务ID信息 |
+
+#### task_ids
+
+| 参数名称    | 类型     | 描述      |
+| ------- | ------ | ------- |
+| task_id | Int    | 提交的任务ID |
+| date    | String | 提交任务的日期 |
 
 ## 调用案例
 ### 示例参数
@@ -61,7 +66,7 @@
 GET 请求需要将所有参数都加在 URL 后：
 ```
 https://cdn.api.qcloud.com/v2/index.php?
-Action=CdnUrlPusher
+Action=CdnPusherV2
 &SecretId=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 &Timestamp=1462436277
 &Nonce=123456789
@@ -78,11 +83,11 @@ POST请求时，参数填充在HTTP Requestbody中，请求地址：
 https://cdn.api.qcloud.com/v2/index.php
 ```
 
-参数支持 formdata、xwwwformurlencoded 等格式，参数数组如下：
+参数支持 form-data 等格式，参数数组如下：
 
 ```
 array (
-	'Action' => 'CdnUrlPusher',
+	'Action' => 'CdnPusherV2',
 	'SecretId' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 	'Timestamp' => 1462782282,
 	'Nonce' => 123456789,
@@ -97,12 +102,20 @@ array (
 ```json
 {
     "code": 0,
-    "data": {
-        "count": 2,
-        "task_id": "1522134939950455"
-    },
     "message": "",
-    "codeDesc": "Success"
+    "codeDesc": "Success",
+    "data": {
+        "task_ids": [
+            {
+                "task_id": 41773,
+                "date": "20180327"
+            },
+            {
+                "task_id": 41774,
+                "date": "20180327"
+            }
+        ]
+    }
 }
 ```
 
