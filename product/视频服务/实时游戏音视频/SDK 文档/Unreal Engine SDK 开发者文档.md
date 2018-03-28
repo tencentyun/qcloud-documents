@@ -83,8 +83,8 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType, const char
 
 ## 实时语音接入
 ### 初始化工作
-获取相关信息，由腾讯云控制台申请，详情见 [GME接入指引](https://github.com/tencentav/TMGSDK/blob/master/GME%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B.md)。
-在 EnterRoom 函数调用之前要先获取 ITMGContext ，ITMGContext 以单例的形式提供，所有调用都从 ITMGContext 开始，由ITMGDelegate 回调回传给应用，必须首先设置。
+获取相关信息，由腾讯云控制台申请，详情见 [接入指引](/document/product/607/10782)。
+在 EnterRoom 函数调用之前要先获取 ITMGContext ，ITMGContext 以单例的形式提供，所有调用都从 ITMGContext 开始，由 ITMGDelegate 回调回传给应用，必须首先设置。
 #### 示例代码
 ```
  ITMGContextGetInstance()->TMGDelegate(this);
@@ -1036,7 +1036,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->StopAllEffects();
 
 ## 离线语音接入
 ### 离线语音技术接入初始化
-初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[接入指引文档-TLS说明](https://github.com/tencentav/TMGSDK/blob/master/GME%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B.md#tls%E7%AD%BE%E5%90%8D)。
+初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[接入指引文档-TLS说明](/document/product/607/10782)。
 #### 函数原型
 ```
 QAVSDK_API int QAVSDK_CALL QAVSDK_SIG_GenSig(unsigned int appId,const char* uin,const char* privateKey,char* retSigBuff,unsigned int buffLenght);
@@ -1258,6 +1258,7 @@ ITMGContextGetInstance()->GetPTT()->StopPlayFile();
 ```
 ITMGPTT virtual int GetFileSize(const char* filePath)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | filePath    |char                     |语音文件的路径|
@@ -1272,6 +1273,7 @@ ITMGContextGetInstance()->GetPTT()->GetFileSize(filePath);
 ```
 ITMGPTT virtual void SpeechToText(const char* fileID)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | fileID    |char                     |语音文件的路径|
