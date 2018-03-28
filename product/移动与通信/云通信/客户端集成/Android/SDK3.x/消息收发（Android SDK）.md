@@ -1020,7 +1020,7 @@ public TIMMessagePriority getPriority()
 
 ### 群组消息会话的接收消息选项
 
-对于群组会话消息，可以通过消息属性判断本群组设置的接收消息选项，可参阅 [群组管理](/doc/product/群组管理（Android SDK）)。
+对于群组会话消息，可以通过消息属性判断本群组设置的接收消息选项，可参阅 [群组管理](/doc/product/269/群组管理（Android SDK）)。
 
 > **注意：**
 > 只针对群聊消息有效。
