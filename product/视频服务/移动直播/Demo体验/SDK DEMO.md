@@ -70,7 +70,7 @@
     <td height="100px"> IE 解决方案 </td>
     <td>2.0.1</td>
 		<td>ActiveX 插件</td>
-		<td><a href="http://imgcache.qq.com/open/qcloud/video/act/avtivex_demo/demoex/double_room/DoubleRoomIndex.htm">点击体验</a></td>
+		<td><a href="http://img.qcloud.com/open/qcloud/video/act/avtivex_demo/demo/index/IndexDemo.htm">点击体验</a></td>
   </tr>
 	<tr align="center">
     <td height="100px">C# 解决方案</td>

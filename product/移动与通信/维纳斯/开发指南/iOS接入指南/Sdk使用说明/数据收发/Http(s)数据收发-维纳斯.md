@@ -1,4 +1,4 @@
-#### Http(s)数据收发
+
 对于发送 HTTP(s)数据, 我们提供了两种接口方式，分别如下
 **1、兼容系统接口方案：**
 基于 iOS 系统的 URL Loading System 实现的, 只需引 入WnsURLProtocol.h, 然后绑定 sdk 实例并向系统注册，代码如下

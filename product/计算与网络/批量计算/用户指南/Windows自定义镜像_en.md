@@ -1,6 +1,6 @@
 ## Overview
 
-For businesses based on Windows operating system, custom image is created from the Windows Server base image provided by Tencent Cloud. [Link>>](https://market.cloud.tencent.com/products/4243)to official image with the image ID of ``img-iy8pcwen``.
+For businesses based on Windows operating system, custom image is created from the Windows Server base image provided by Tencent Cloud. [Link>>](https://market.cloud.tencent.com/products/4243)to official image with the image ID of ``img-er9shcln``.
 
 ## Steps for Creating Windows Custom Image
 
@@ -11,7 +11,7 @@ Go to the [CVM purchase page](https://buy.cloud.tencent.com/cvm).
 ![](https://mc.qcloudimg.com/static/img/f4c62ba416032b20e17ff9ec3ed15e39/s3.png)
 [Link to Cloud Marketplace>>](https://market.cloud.tencent.com/products/4243)
 
-When choosing image, select **Service Marketplace** first. In the search box, search **Batch**, and select Windows Server 2012 base image (image ID: img-iy8pcwen). For storage, network and other settings, make selections by following the instructions. Finally click **Buy Now** to create a CVM.
+When choosing image, select **Service Marketplace** first. In the search box, search **Batch**, and select Windows Server 2012 base image (image ID: img-er9shcln). For storage, network and other settings, make selections by following the instructions. Finally click **Buy Now** to create a CVM.
 
 ### 2. Install Software in CVM as Required by Businesses
 

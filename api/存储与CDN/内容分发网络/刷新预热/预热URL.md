@@ -2,7 +2,7 @@
 
 ## 接口描述
 
-**CdnPusherV2** 将指定URL资源主动推送至CDN节点。
+**CdnUrlPusher**  将指定URL资源主动推送至CDN节点。
 
 请求域名：<font style="color:red">cdn.api.cloud.tencent.com</font>
 
@@ -15,11 +15,13 @@
 + 调用频次限制为 10000次/分钟
 
 
+<font color="orange">旧版接口 CdnPusherV2 仍可继续使用，差异点在于，旧版接口提交后获取 task_id 不唯一，需要结合时间区间查询，新版 CdnUrlPusher 返回 task_id 唯一，可直接使用 task_id 查询任务状态</font>
+
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)
 
 ## 入参说明
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 CdnPusherV2。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 CdnUrlPusher 。
 
 | 参数名称      | 是否必选 | 类型    | 描述                           |
 | --------- | ---- | ----- | ---------------------------- |
@@ -42,21 +44,16 @@
 
 #### data
 
-| 参数名称     | 类型     | 描述        |
-| -------- | ------ | --------- |
-| task_ids | Object | 提交的任务ID信息 |
-
-#### task_ids
-
-| 参数名称    | 类型     | 描述      |
-| ------- | ------ | ------- |
-| task_id | Int    | 提交的任务ID |
-| date    | String | 提交任务的日期 |
+| 参数名称 | 类型   | 描述                |
+| -------- | ------ | ------------------- |
+| task_id  | String | 提交的任务ID        |
+| count    | Int    | 此次提交URL预热数量 |
 
 ## 调用案例
 ### 示例参数
 ```
-> urls.0: http://www.test.com/1.txt
+> urls.0: http://www.test.com/1.jpg
+> urls.1: http://www.abc.com/1.jpg
 > limitRate: 1
 ```
 
@@ -64,12 +61,13 @@
 GET 请求需要将所有参数都加在 URL 后：
 ```
 https://cdn.api.qcloud.com/v2/index.php?
-Action=CdnPusherV2
+Action=CdnUrlPusher
 &SecretId=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 &Timestamp=1462436277
 &Nonce=123456789
 &Signature=XXXXXXXXXXXXXXXXXXXXX
 &urls.0=http://www.test.com/1.jpg
+&urls.1=http://www.abc.com/1.jpg
 &limitRate=1
 ```
 
@@ -84,30 +82,27 @@ https://cdn.api.qcloud.com/v2/index.php
 
 ```
 array (
-	'Action' => 'CdnPusherV2',
+	'Action' => 'CdnUrlPusher',
 	'SecretId' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 	'Timestamp' => 1462782282,
 	'Nonce' => 123456789,
 	'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXX',
 	'urls.0' => 'http://www.test.com/1.jpg',
+	'urls.1' => 'http://www.abc.com/1.jpg',
     'limitRate'  => 1
 )
 ```
 
 ### 返回示例
-```
+```json
 {
-	"code": 0,
-	"message": "",
-	"codeDesc": "Success",
-	"data": {
-		"task_ids": [
-			{
-				"task_id": 20860,
-				"date": "20161013"
-			}
-		]
-	}
+    "code": 0,
+    "data": {
+        "count": 2,
+        "task_id": "1522134939950455"
+    },
+    "message": "",
+    "codeDesc": "Success"
 }
 ```
 

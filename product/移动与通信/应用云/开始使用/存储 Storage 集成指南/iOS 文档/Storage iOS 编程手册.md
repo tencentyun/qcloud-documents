@@ -98,7 +98,7 @@ TACStorageUploadTask *uploadTask = [riversRef putData:data
     NSURL *downloadURL = metadata.downloadURL;
   }
 }];
-
+[TACStorageUploadTask enqueue];
 ~~~
 
 #### 从文件中上传
@@ -139,7 +139,7 @@ TACStorageReference *uploadTask = [riversRef putFile:localFile metadata:nil comp
     NSURL *downloadURL = metadata.downloadURL;
   }
 }];
-
+[uploadTask enqueue];
 ~~~
 
 #### 添加文件元数据
