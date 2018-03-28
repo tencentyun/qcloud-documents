@@ -83,8 +83,8 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType, const char
 
 ## 实时语音接入
 ### 初始化工作
-获取相关信息，由腾讯云控制台申请，详情见 [GME接入指引](https://github.com/tencentav/TMGSDK/blob/master/GME%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B.md)。
-在 EnterRoom 函数调用之前要先获取 ITMGContext ，ITMGContext 以单例的形式提供，所有调用都从 ITMGContext 开始，由ITMGDelegate 回调回传给应用，必须首先设置。
+获取相关信息，由腾讯云控制台申请，详情见 [接入指引](/document/product/607/10782)。
+在 EnterRoom 函数调用之前要先获取 ITMGContext ，ITMGContext 以单例的形式提供，所有调用都从 ITMGContext 开始，由 ITMGDelegate 回调回传给应用，必须首先设置。
 #### 示例代码
 ```
  ITMGContextGetInstance()->TMGDelegate(this);
@@ -95,6 +95,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType, const char
 ```
 ITMGContext virtual void SetAppInfo(const char* sdkAppId,const char* accountType, const char* openId)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | sdkAppId    	|char  	|来自腾讯云控制台的 SdkAppId 号码					|
@@ -140,13 +141,13 @@ ITMGContextGetInstance()->Poll();
 }
 ```
 
-
 ### 设置相关信息
 设置版本信息，用于查 Log 信息及 Bug 时使用，方便后台统计, 策略调整等（不设置不影响功能）。
 #### 函数原型
 ```
 ITMGContext virtual void SetAppVersion(const char* appVersion)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | appVersion    |char  |版本号|
@@ -204,6 +205,7 @@ context->SetLogPath(logDir);
 ```
 QAVSDK_API int QAVSDK_CALL QAVSDK_AuthBuffer_GenAuthBuffer(unsigned int appId, unsigned int authId, const char* account, unsigned int accountType, const char* key, unsigned int expTime, unsigned int privilegeMap, unsigned char* retAuthBuff, unsigned int* buffLenght);
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | appId    		|int   		|来自腾讯云控制台的 SdkAppId 号码		|
@@ -239,6 +241,7 @@ QAVSDK_AuthBuffer_GenAuthBuffer(appId, roomId, "", account, accountType, expTime
 ```
 ITMGContext virtual void EnterRoom(int relationId, const char* role, const char* authBuff, int buffLen, int teamId, int gameAudioMode)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | relationId			|int   	|房间号，大于等于六位的整数							|
@@ -254,7 +257,7 @@ ITMGContextGetInstance()->EnterRoom(roomId, role, (char*)retAuthBuff,bufferLen,a
 
 ### 加入房间事件的回调
 加入房间完成后会发送信息 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM，在 OnEvent 函数中进行判断。
-> 代码说明
+代码说明：
 ```
 //实现代码
 void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
@@ -371,6 +374,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char*
 ```
 ITMGRoom virtual void ChangeRole(const char* role, const unsigned char* authBuff, int authBuffLenght)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | role    				|char     	|设置角色			|
@@ -378,6 +382,7 @@ ITMGRoom virtual void ChangeRole(const char* role, const unsigned char* authBuff
 | authBuffLenght	|int    	|鉴权长度			|
 >注意
 流控角色意味着音视频编码参数的调整，所以需要再次调用音视频编码 API 重新设置鉴权（参考生成 AuthBuffer ）。
+
 
 角色分别代表的通话质量：
 
@@ -455,6 +460,7 @@ public:
 	const char* pDeviceName;
 };
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | ppDeviceInfoList    	|TMGAudioDeviceInfo   	|设备列表				|
@@ -492,10 +498,12 @@ public:
 	const char* pDeviceName;
 };
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | ppDeviceInfoList    	|TMGAudioDeviceInfo    	|设备列表				|
 | nCount   			|int     					|获取的扬声器设备数量	|
+
 #### 示例代码
 ```
 ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerList(ppDeviceInfoList,nCount);
@@ -507,6 +515,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerList(ppDeviceInfoList,nCount
 ```
 ITMGAudioCtrl virtual int SelectMic(const char* pMicID)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | pMicID    |char     |麦克风设备 ID|
@@ -524,6 +533,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->SelectMic(pMicID);
 ```
 ITMGAudioCtrl virtual void EnableMic(bool bEnabled)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | bEnabled    |bool     |如果需要关闭麦克风，则传入的参数为 true，如果打开麦克风，则参数为 false		|
@@ -588,6 +598,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetMicLevel();
 ```
 ITMGAudioCtrl virtual void SetMicVolume(int vol)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | vol    |int      |设置音量，范围 0 到 100|
@@ -613,6 +624,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetMicVolume();
 ```
 ITMGAudioCtrl virtual int SelectSpeaker(const char* pSpeakerID)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | pSpeakerID    |char     |扬声器设备 ID|
@@ -627,6 +639,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->SelectSpeaker(pSpeakerID);
 ```
 ITMGAudioCtrl virtual void EnableSpeaker(bool enabled)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | enable   		|bool       	|如果需要关闭扬声器，则传入的参数为 false，如果打开扬声器，则参数为 true	|
@@ -694,6 +707,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerLevel();
 ```
 ITMGAudioCtrl virtual void SetSpeakerVolume(int vol)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | vol    |int        |设置音量，范围 0 到 100|
@@ -722,6 +736,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->GetSpeakerVolume();
 ```
 ITMGAudioCtrl virtual int EnableLoopBack(bool enable)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------|
 | enable    |bool         |设置是否启动|
@@ -743,6 +758,7 @@ ITMGContextGetInstance()->GetAudioCtrl()->EnableLoopBack(false);
 ```
 ITMGAudioEffectCtrl virtual void StartAccompany(const char* filePath, bool loopBack, int loopCount, int msTime)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | filePath    	|char	|播放伴奏的路径											|
@@ -781,6 +797,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char*
 ```
 ITMGAudioEffectCtrl virtual int StopAccompany(int duckerTime)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | duckerTime	|int             |淡出时间|
@@ -829,6 +846,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->ResumeAccompany();
 ```
 ITMGAudioEffectCtrl virtual int EnableAccompanyPlay(bool enable)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | enable    |bool             |是否能听到|
@@ -844,6 +862,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->EnableAccompanyPlay(true);
 ```
 ITMGAudioEffectCtrl virtual int EnableAccompanyLoopBack(bool enable)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | enable    |bool             |是否能听到|
@@ -860,6 +879,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->EnableAccompanyLoopBack(true);
 ```
 ITMGAudioEffectCtrl virtual int SetAccompanyVolume(int vol)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | vol    |int             |音量数值|
@@ -942,6 +962,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->SetEffectsVolume(volume);
 ```
 ITMGAudioEffectCtrl virtual int PlayEffect(int soundId,  const char* filePath, bool loop, double pitch, double pan, double gain)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | soundId  	|int        	|音效 id													|
@@ -964,6 +985,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->PlayEffect(soundId,filepath,true
 ```
 ITMGAudioEffectCtrl virtual int PauseEffect(int soundId)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | soundId    |int                    |音效 id|
@@ -990,6 +1012,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->PauseAllEffects();
 ```
 ITMGAudioEffectCtrl virtual int ResumeEffect(int soundId)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | soundId    |int                    |音效 id|
@@ -1015,6 +1038,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->ResumeAllEffects();
 ```
 ITMGAudioEffectCtrl virtual int StopEffect(int soundId)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | soundId    |int                    |音效 id|
@@ -1036,11 +1060,12 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->StopAllEffects();
 
 ## 离线语音接入
 ### 离线语音技术接入初始化
-初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[接入指引文档-TLS说明](https://github.com/tencentav/TMGSDK/blob/master/GME%E6%8E%A5%E5%85%A5%E6%B5%81%E7%A8%8B.md#tls%E7%AD%BE%E5%90%8D)。
+初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[接入指引文档-TLS说明](/document/product/607/10782)。
 #### 函数原型
 ```
 QAVSDK_API int QAVSDK_CALL QAVSDK_SIG_GenSig(unsigned int appId,const char* uin,const char* privateKey,char* retSigBuff,unsigned int buffLenght);
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | appId  		|int   		|来自腾讯云控制台的 SdkAppId 号码				|
@@ -1048,9 +1073,11 @@ QAVSDK_API int QAVSDK_CALL QAVSDK_SIG_GenSig(unsigned int appId,const char* uin,
 | privateKey	|char 		|来自腾讯云控制台的鉴权							|
 | retSigBuff 	|char   		|返回的 sig										|
 | buffLenght	|int   		|返回的 sig 长度									|
+
 ```
 ITMGPTT virtual int ApplyAccessToken(const char* accessToken)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | accessToken    |char                       |QAVSDK_CALL QAVSDK_SIG_GenSig 函数返回的 accessToken|
@@ -1071,6 +1098,7 @@ ITMGContextGetInstance()->GetPTT()->ApplyAccessToken(sigBuff);
 ```
 ITMGPTT virtual void SetMaxMessageLength(int msTime)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | msTime    |int                    |语音时长|
@@ -1086,6 +1114,7 @@ ITMGContextGetInstance()->GetPTT()->SetMaxMessageLength(msTime);
 ```
 ITMGPTT virtual void StartRecording(const char* fileDir)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | fileDir    |char                     |播放的语音路径，可以为 NULL|
@@ -1145,6 +1174,7 @@ ITMGContextGetInstance()->GetPTT()->CancelRecording();
 ```
 ITMGPTT virtual void UploadRecordedFile(const char* filePath)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | filePath    |char                      |上传的语音路径|
@@ -1179,6 +1209,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char*
 ```
 ITMGPTT virtual void DownloadRecordedFile(const char* fileId,const char* filePath)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | fileId  		|char  	|文件的url路径	|
@@ -1214,6 +1245,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char*
 ```
 ITMGPTT virtual void PlayRecordedFile(const char* filePath)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | filePath    |char                      |文件的路径|
@@ -1258,6 +1290,7 @@ ITMGContextGetInstance()->GetPTT()->StopPlayFile();
 ```
 ITMGPTT virtual int GetFileSize(const char* filePath)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | filePath    |char                     |语音文件的路径|
@@ -1272,6 +1305,7 @@ ITMGContextGetInstance()->GetPTT()->GetFileSize(filePath);
 ```
 ITMGPTT virtual void SpeechToText(const char* fileID)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | fileID    |char                     |语音文件的路径|
