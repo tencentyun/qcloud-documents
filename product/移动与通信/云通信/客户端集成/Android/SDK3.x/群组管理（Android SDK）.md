@@ -983,12 +983,6 @@ public ModifyGroupInfoParam setMaxMemberNum(long maxMemberNum)
 public ModifyGroupInfoParam setVisable(boolean visable)
 
 /**
- * 设置群组是否能被搜索到
- * @param searchable 群组是否能被搜索到
- */
-public ModifyGroupInfoParam setSearchable(boolean searchable)
-
-/**
  * 设置群组自定义字段
  * @param customInfos 群组自定义字段字典
  */
