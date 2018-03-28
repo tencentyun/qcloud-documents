@@ -23,7 +23,7 @@
 
 <pre>http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&us=[us]&exper=[exper]&sign=[sign]</pre>
 
-QueryString 中的防盗链参数必须按照`t`，`exper`，`us`，`sign`的顺序拼接，下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
+QueryString 中的防盗链参数必须按照`t`，`us`，`exper`，`sign`的顺序拼接，下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
 
 ### 防盗链参数
 | 参数名 | 必选 | 说明 |
@@ -95,7 +95,7 @@ sign = md5("24FEQmTzro4V5u3D5epW/dir1/dir2/5a71afc030072d4cd1101") = "547d98c4b9
 #### 第三步：生成防盗链 URL
 将防盗链参数拼接到视频原始 URL 的 QueryString 中，就得到了视频防盗链 URL：
 <pre>
-http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=5a71afc0&exper=300&us=72d4cd1101&sign=547d98c4b91e81b5ea55c95cef63223f
+http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=5a71afc0&us=72d4cd1101&exper=300&sign=547d98c4b91e81b5ea55c95cef63223f
 </pre>
 
 ## Key 防盗链生成和校验工具
@@ -109,7 +109,7 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=5a71afc0&exper=300&us=7
 * 启用该功能后，视频原始 URL 将不再能直接播放，需要按规则生成合法的防盗链 URL。
 * 密钥 KEY 必须由大小写字母（a-Z）或者数字（0-9）组成，长度在8-20个字符之间。
 * 若防盗链 URL 过期，或者签名不能通过，将无法播放视频，并返回403响应码。
-* 防盗链 URL 中 QueryString 中各参数必须按照`t`，`exper`，`us`，`sign`的顺序出现，如果顺序不正确将无法播放视频。
+* 防盗链 URL 中 QueryString 中各参数必须按照`t`，`us`，`exper`，`sign`的顺序出现，如果顺序不正确将无法播放视频。
 * 考虑到机器之间可能存在时间差，防盗链 URL 的实际过期时间一般比指定的过期时间长5分钟，即额外给出300秒的容差时间。
 * 如果使用试看功能，需确保试看时长不大于视频时长，否则将导致视频无法播放。
 * 试看对视频的格式有较严格的要求（仅支持H264，视频元信息在视频文件的头部等），不符合格式要求的原始视频使用试看功能将产生异常。建议使用点播转码功能进行转码，对转码后视频设置试看（转码后的格式均符合试看格式要求）。
