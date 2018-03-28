@@ -1,4 +1,5 @@
 
+-
 
 ## 接口 WnsService
 
@@ -8,7 +9,7 @@ public interface WnsService
 类说明：
 WNS 客户端功能接口 
 所有接口只能在使用 WNS 服务的 client 进程调用 
-WNS不支持多进程同时调用
+WNS 不支持多进程同时调用
 
 
 ### initAndStartWns
@@ -125,7 +126,7 @@ void bind(java.lang.String uid,
         com.tencent.wns.client.inte.IWnsCallback.WnsBindCallback callback)
 
 接口说明:
-第三方app登录绑定uid
+第三方 app 登录绑定 uid
 
 参数:
 
@@ -208,7 +209,7 @@ void setBackgroundMode(boolean isBackground)
 接口说明:
 应用在切换前后台时通知 WNS 设置是否后台模式
 WNS 启动默认是后台模式，所以该方法一定要使用
-后台模式下15分钟后进入省电模式 ,省电模式下 WNS 会有一些措施：停止测速、减小心跳频率……
+后台模式下 15 分钟后进入省电模式 ,省电模式下 WNS 会有一些措施：停止测速、减小心跳频率……
 
 参数:
 

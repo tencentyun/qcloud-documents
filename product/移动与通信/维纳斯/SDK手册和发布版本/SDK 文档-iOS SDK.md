@@ -9,6 +9,16 @@
 接口说明：初始化 Wns 系统
 参数说明：
 
+| 参数 | 类型 | 必选 | 说## initWithAppID
+
+```
+- (instancetype)initWithAppID:(int)appID
+                andAppVersion:(NSString *)appVersion
+                andAppChannel:(NSString *)appChannel;
+```
+接口说明：初始化 Wns 系统
+参数说明：
+
 | 参数 | 类型 | 必选 | 说明 |
 |---------|---------|---------|---------|
 | appID | int | 是 | WNS 控制台分配给 app 的 id |
@@ -46,7 +56,7 @@ typedef NS_ENUM(NSInteger, WnsSDKStatus) {
 
 | 参数 | 类型 | 必选 | 说明 |
 |---------|---------|---------|---------|
-| callback | WnsStatusCallback | 是 | 在WnsStatusCallback回调block中同步当前wns通道状态|
+| callback | WnsStatusCallback | 是 | 在 WnsStatusCallback 回调 block 中同步当前 wns 通道状态|
 
 
 ## setLogCallback
@@ -70,19 +80,19 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 
 | 参数 | 类型 | 必选 | 说明 |
 |---------|---------|---------|---------|
-| callback | WnsLogCallback | 是 | 在 WnsLogCallback 回调block中获取wns sdk记录在本地的log信息|
+| callback | WnsLogCallback | 是 | 在 WnsLogCallback 回调 block 中获取 wns sdk 记录在本地的 log 信息|
 
 ## bind
 ```
 - (void)bind:(NSString *)uid completion:(void(^)(NSError *error))completion;
 ```
-接口说明：绑定开发商用户id到wns系统中
+接口说明：绑定开发商用户 id 到 wns 系统中
 参数说明：
 
 | 参数 | 类型 | 必选 | 说明 |
 |---------|---------|---------|---------|
-| uid | NSString | 是 | 开发商自己的用户id|
-| completion | block | 是 | 调用结果的回调block|
+| uid | NSString | 是 | 开发商自己的用户 id|
+| completion | block | 是 | 调用结果的回调 block|
 
 
 ## unbind
@@ -248,7 +258,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | func | const char * | 是 |  记录 log 处位置对应的函数名|
 | line | int | 是 |  记录 log 处位置对应的文件行号|
 | module | NSString | 是 |  记录 log 处位置对应的模块名|
-| extDict | NSDictionary | 是 | 按k/v格式存储的 log 信息 |
+| extDict | NSDictionary | 是 | 按 k/v 格式存储的 log 信息 |
 | fmt | NSString | 是 |  动态参数的 log 信息|
 
 
@@ -268,7 +278,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 ```
 - (void)setDebugIP:(NSString *)ip port:(unsigned short)port;
 ```
-接口说明：使用测试环境，测试环境下终端连接到wns测试环境，wns测试环境也会使用开发商的测试服务器(控制台上配置)
+接口说明：使用测试环境，测试环境下终端连接到 wns 测试环境，wns 测试环境也会使用开发商的测试服务器(控制台上配置)
 参数说明：
 
 | 参数 | 类型 | 必选 | 说明 |
@@ -281,15 +291,15 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 ```
 - (void)reportDebugLog:(NSString *)title content:(NSString *)content beginTime:(NSTimeInterval)beginTime endTime:(NSTimeInterval)endTime;
 ```
-接口说明：将wns sdk记录在终端的log和用户指定的内容上报到wns后台(可以在控制台查看上报的log信息)
+接口说明：将 wns sdk 记录在终端的 log 和用户指定的内容上报到 wns 后台(可以在控制台查看上报的 log 信息)
 参数说明：
 
 | 参数 | 类型 | 必选 | 说明 |
 |---------|---------|---------|---------|
-| title | NSString | 是 |  log上报的标题|
-| content | NSString | 是 |  指定上报的内容，不需要可为空(sdk会自动再加上本地sdk记录的log一起上报)|
-| beginTime | NSTimeInterval | 是 |  上报从这个时间开始的本地log|
-| endTime | NSTimeInterval | 是 |  这个时间后的log不上报|
+| title | NSString | 是 |  log 上报的标题|
+| content | NSString | 是 |  指定上报的内容，不需要可为空(sdk 会自动再加上本地 sdk 记录的 log 一起上报)|
+| beginTime | NSTimeInterval | 是 |  上报从这个时间开始的本地 log|
+| endTime | NSTimeInterval | 是 |  这个时间后的 log 不上报|
 
 
 ## getWnsCarrierType
@@ -317,7 +327,7 @@ typedef NS_ENUM(NSInteger, WnsSDKCarrierType) {
 ```
 - (int64_t)wid;
 ```
-接口说明：获取当前用户的wid
+接口说明：获取当前用户的 wid
 返回值： 
 
 ```
@@ -328,7 +338,7 @@ typedef NS_ENUM(NSInteger, WnsSDKCarrierType) {
 ```
 - (NSString *)keyLog;
 ```
-接口说明：获取sdk记录的关键步骤信息，和debug log的区别是只记录关键信息，便于理解和快速查看
+接口说明：获取 sdk 记录的关键步骤信息，和 debug log 的区别是只记录关键信息，便于理解和快速查看
 返回值： 
 
 ```
