@@ -7,8 +7,7 @@
 
 #### 1. 进入渠道管理页
 
-登录 [控制台](https://console.cloud.tencent.com/tac)，然后点击左侧导航【我的米大师】，然后在上方导航栏中点击【渠道管理】。
-
+登录 [控制台](https://console.cloud.tencent.com/tac)，单击【我的米大师】>【渠道管理】，进入渠道管理界面。
 ![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/payment/console_payment_1_.png?raw=true)
 
 #### 2. 填写渠道信息
@@ -45,7 +44,7 @@
 
 #### 1. 进入参数配置页
 
-配置好渠道信息并点击【确认】后，会提示您进入参数配置页，您也可以点击左侧导航栏【我的米大师】，然后选择上侧导航栏中的【参数配置】，然后点击右上角的【修改】来进入参数配置页。
+配置好渠道信息并点击【确认】后，会提示您进入参数配置页，单击【我的米大师】>【配置参数】>【修改】来进入参数配置页。
 
 #### 2. 填写配置信息
 
@@ -77,8 +76,8 @@
 
 **应用签名**
 
-如果您创建的是 Android 应用，那么需要填入您应用的签名值，这里必须和开放平台上注册应用时的签名值保持一致。您可以用如下示例命令生成应用签名，这里假设您的签名文件 `alias` 为 `androiddebugkey`，签名文件的路径为 `~/.android/debug.keystore`。
-
+如果您创建的是 Android 应用，那么需要填入您应用的签名值，这里必须和开放平台上注册应用时的签名值保持一致。您可以用如下示例命令生成应用签名，这里假设您的签名文件 `alias` 为 `androiddebugkey`，签名文件的示例路径： `~/.android/debug.keystore`。
+签名文件路径：
 `keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore`
 
 命令生成的 `SHA1` 值即为您的应用签名。
