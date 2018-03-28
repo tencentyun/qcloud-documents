@@ -1,4 +1,4 @@
-## Sdk 配置
+
 ### 引入 Wns Sdk
 将/libs 下的 assets 和 libs 目录分别复制到工程根目录对应的目录中，如下图
 ![](https://mccdn.qcloud.com/static/img/dca5498f8a97efd6050f0ac4e3610ab9/wns_and_lib.png)
