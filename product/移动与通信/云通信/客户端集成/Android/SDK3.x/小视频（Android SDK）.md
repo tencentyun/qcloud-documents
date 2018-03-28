@@ -144,7 +144,7 @@ void onRecordComplete(TXRecordResult result);
 
 小视频消息由 `TIMUGCElem` 定义。它是 `TIMElem` 的一个子类，也就是说小视频也是消息的一种内容。 发送小视频的过程，就是将 `TIMUGCElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。详细如下。
 
-**TIMUGCElem原型：**
+**TIMUGCElem 原型：**
 
 ```java
 /**
@@ -299,7 +299,7 @@ public long getSize()
 public void getImage(@NonNull String path, @NonNull TIMCallBack cb)
 ```
 
-**TIMUGCVideo原型：**
+**TIMUGCVideo 原型：**
 ```java
 /**
  * 构造 UGC 视频实例
