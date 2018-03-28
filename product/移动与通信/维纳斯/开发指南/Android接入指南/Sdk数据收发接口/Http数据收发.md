@@ -1,5 +1,4 @@
 
-### Http 数据收发
 #### 使用 HttpClient 请求
 
 HttpClent 实例使用 WnsService.getWnsHttpClient()来获取,然后使用HttpClient.execute(HttpUriRequest httpUriRequest )来发起 http 请求
