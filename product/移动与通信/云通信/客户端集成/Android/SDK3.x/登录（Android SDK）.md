@@ -134,7 +134,6 @@ ext.getLocalMessage(5, null, new TIMValueCallBack<List<TIMMessage>>() {
 ```
 public String getLoginUser()
 ```
-获取当前登陆的用户。
 
 >**注意：**
 返回值为当前登陆的用户名，需要注意的是，如果是自有账号登陆，用户名与登陆所传入的 `identifier` 相同，如果是第三方账号，如微信登陆，QQ 登陆等，登陆后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
