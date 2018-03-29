@@ -70,7 +70,7 @@ m_pTmgContext->TMGDelegate(p);
 
 ## 实时语音接入
 ### 设置相关信息
-获取相关信息，由腾讯云控制台申请，详情见 [游戏音视频接入指引](https://github.com/tencentav/TMGSDK/blob/master/%E6%B8%B8%E6%88%8F%E9%9F%B3%E8%A7%86%E9%A2%91%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95%E6%96%87%E6%A1%A3.md)。
+获取相关信息，由腾讯云控制台申请，详情见 [游戏音视频接入指引](/document/product/607/10782)。
 >在 EnterRoom 函数调用之前要先调用 SetAppInfo 函数及 SetAppVersion 函数进行相关信息的设置
 
 此函数需要来自腾讯云控制台的 SdkAppId 号码及 accountType 号码作为参数，再加上 Id，这个 Id 是唯一标识一个用户，规则由 App 开发者自行制定，App 内不重复即可（Id 需参考鉴权使用文档）。
@@ -82,7 +82,7 @@ ITMGContext virtual void SetAppInfo(const char* sdkAppId,const char* accountType
 | ------------- |-------------|-------------
 | sdkAppId    	|char  	|来自腾讯云控制台的 SdkAppId 号码		|
 | accountType    |char  	|来自腾讯云控制台的 accountType 号码	|
-| openID    		|char  	|OpenID 为Int32类型，必须大于 10000 	|
+| openID    		|char  	|OpenID 为 Int32 类型，必须大于 10000 	|
 #### 示例代码
 ```
 ITMGContext* m_pTmgContext;
@@ -119,7 +119,7 @@ m_pTmgContext->GetSDKVersion;
 用生成的权鉴进房，会收到消息为 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM 的回调。
 >注意:1、加入房间默认不打开麦克风及扬声器。
 >2、在 EnterRoom 函数调用之前要先调用 SetAppInfo 函数及 SetAppVersion 函数进行相关信息的设置
-关于角色的设置，在[游戏实时语音角色说明](https://github.com/tencentav/TMGSDK/blob/master/%E6%B8%B8%E6%88%8F%E9%9F%B3%E8%A7%86%E9%A2%91%E5%AE%9E%E6%97%B6%E8%AF%AD%E9%9F%B3%E8%A7%92%E8%89%B2%E8%AF%B4%E6%98%8E.md)中有介绍。
+关于角色的设置，在[游戏实时语音角色说明](/document/product/607/15172)中有介绍。
 #### 函数原型
 ```
 ITMGContext virtual void EnterRoom(int relationId, const char* role, const char* authBuff,int buffLen)
@@ -137,7 +137,7 @@ m_pTmgContext->EnterRoom(nRoomID, strUserRole, strAuthBuffer, nLength);
 
 ### 加入房间事件的回调
 加入房间完成后会发送信息 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM，在 OnEvent 函数中进行判断。
-> 代码说明
+代码说明：
 ```
 class Callback : public ITMGDelegate
 {
@@ -260,6 +260,7 @@ class Callback : public ITMGDelegate
 ```
 ITMGAudioCtrl virtual int GetMicListCount(int& nCount)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | nCount    |int     |指定一个传值的对象的地址，传递设备数量|
@@ -278,6 +279,7 @@ pTmgAudioCtrl->GetMicListCount(nCount);
 ```
 ITMGAudioCtrl virtual int GetMicList(TMGAudioDeviceInfo* ppDeviceInfoList, int& nCount)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | ppDeviceInfoList    |TMGAudioDeviceInfo     |设备列表|
@@ -296,13 +298,13 @@ pTmgAudioCtrl->GetMicList(ppDeviceInfoList,nCount);
 ```
 ITMGAudioCtrl virtual int GetSpeakerListCount(int& nCount)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | nCount    |int     |指定一个传值的对象的地址，传递设备数量|
 #### 示例代码
 ```
 ITMGAudioCtrl* pTmgAudioCtrl = m_pTmgContext->GetAudioCtrl();
-
 pTmgAudioCtrl->GetSpeakerListCount(nCount);
 ```
 
@@ -314,6 +316,7 @@ pTmgAudioCtrl->GetSpeakerListCount(nCount);
 ```
 ITMGAudioCtrl virtual int GetSpeakerList(TMGAudioDeviceInfo* ppDeviceInfoList, int& nCount)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | ppDeviceInfoList    |TMGAudioDeviceInfo     |设备列表|
@@ -332,6 +335,7 @@ pTmgAudioCtrl->GetSpeakerList(ppDeviceInfoList,nCount);
 ```
 ITMGAudioCtrl virtual int EnableMic(bool bEnabled, const char* pMicId)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | enable    |bool     |如果需要关闭麦克风，则传入的参数为 true，如果打开麦克风，则参数为 false		|
@@ -406,6 +410,7 @@ pTmgAudioCtrl->GetMicLevel();
 ```
 ITMGAudioCtrl virtual void SetMicVolume(int volume)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | volume    |int      |设置音量，范围 0 到 100|
@@ -433,6 +438,7 @@ pTmgAudioCtrl->GetMicVolume();
 ```
 ITMGAudioCtrl virtual int EnableSpeaker(bool bEnabled, const char* pSpeakerID)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | enable   		|bool       	|如果需要关闭扬声器，则传入的参数为 false，如果打开扬声器，则参数为 true	|
@@ -510,6 +516,7 @@ pTmgAudioCtrl->GetSpeakerLevel();
 ```
 ITMGAudioCtrl virtual void SetSpeakerVolume(int vol)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | vol    |int        |设置音量，范围 0 到 100|
@@ -540,6 +547,7 @@ pTmgAudioCtrl->GetSpeakerVolume();
 ```
 ITMGAudioCtrl virtual int EnableLoopBack(bool enable)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | enable    |bool         |设置是否启动|
@@ -570,6 +578,7 @@ m_pTmgContext.GetRoom().GetQualityTips();
 ```
 ITMGAudioCtrl virtual int EnableSpatializer(bool bEnabled)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | bEnabled    |bool         |设置是否开启|
@@ -600,6 +609,7 @@ pTmgAudioCtrl->IsEnableSpatializer();
 ```
 ITMGAudioCtrl virtual int UpdateSpatializer(std::string& identifier,float azimuth,float elevation,float distance_cm)
 ```
+
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
 | identifier    	|string   		|OpenID 为Int32类型，必须大于 10000		|
@@ -607,14 +617,14 @@ ITMGAudioCtrl virtual int UpdateSpatializer(std::string& identifier,float azimut
 | elevation    	|float         	|角度参数								|
 | distance_cm    	|float         	|距离参数，以厘米为距离单位				|
 
->函数原理
-![image](Image/w0.png)
+#### 函数原理
+![](https://main.qcloudimg.com/raw/0f90e8e84915c3f34482b1d40b0630c0.png)
 
 从图看参数，假设接收端用户为 A 点位置，发送端用户为 B点位置 ,<a href="https://www.codecogs.com/eqnedit.php?latex=\angle&space;CAB'" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\angle&space;CAB'" title="\angle CAB'" /></a> 为 azimuth 方位，<a href="https://www.codecogs.com/eqnedit.php?latex=\angle&space;B'AB" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\angle&space;B'AB" title="\angle B'AB" /></a> 为 elevation 角度，AB 即为 distance_cm 距离。
 假设坐标 <a href="https://www.codecogs.com/eqnedit.php?latex=A\left&space;(&space;x_{1},&space;y_{1},&space;z_{1}&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?A\left&space;(&space;x_{1},&space;y_{1},&space;z_{1}&space;\right&space;)" title="A\left ( x_{1}, y_{1}, z_{1} \right )" /></a> ，<a href="https://www.codecogs.com/eqnedit.php?latex=B\left&space;(&space;x_{2},&space;y_{2},&space;z_{2}&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?B\left&space;(&space;x_{2},&space;y_{2},&space;z_{2}&space;\right&space;)" title="B\left ( x_{2}, y_{2}, z_{2} \right )" /></a>，转换为<a href="https://www.codecogs.com/eqnedit.php?latex=A\left&space;(&space;0,&space;0,0&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?A\left&space;(&space;0,&space;0,0&space;\right&space;)" title="A\left ( 0, 0,0 \right )" /></a>，<a href="https://www.codecogs.com/eqnedit.php?latex=B\left&space;(&space;x,&space;y,z\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?B\left&space;(&space;x,&space;y,z\right&space;)" title="B\left ( x, y,z\right )" /></a>，其中 <a href="https://www.codecogs.com/eqnedit.php?latex=x=x_{2}-x_{1},y=y_{2}-y_{1},z=z_{2}-z_{1}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?x=x_{2}-x_{1},y=y_{2}-y_{1},z=z_{2}-z_{1}" title="x=x_{2}-x_{1},y=y_{2}-y_{1},z=z_{2}-z_{1}" /></a>
-则计算公式为：
 
-![image](Image/w1.png)
+则计算公式为：
+![](https://main.qcloudimg.com/raw/e1aa4d09b144af4ea920d63cf9cac6bb.png)
 
 #### 示例代码
 ```
@@ -622,7 +632,7 @@ ITMGAudioCtrl* pTmgAudioCtrl = m_pTmgContext->GetAudioCtrl();
 pTmgAudioCtrl->UpdateSpatializer(identifier,azimuth,elevation,distance_cm);
 ```
 
->函数附录
+#### 函数附录
 ```
 /*     ^
       z|   y(azi=0)

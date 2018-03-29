@@ -909,11 +909,6 @@ getGroupInfo方法可以获取群组资料。默认拉取基本资料，如果�
 @property(nonatomic,assign) uint32_t onlineMemberNum;
 
 /**
- *  群组是否被搜索类型
- */
-@property(nonatomic,assign) TIMGroupSearchableType isSearchable;
-
-/**
  *  群组成员可见类型
  */
 @property(nonatomic,assign) TIMGroupMemberVisibleType isMemberVisible;
@@ -2535,55 +2530,3 @@ user | 操作人
 ---|---
 type | TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE 
 group | 群组Id，表示哪个群被回收了 
-
-
-## 10 搜索群
-
-通过 searchGroup 成员方法可以模糊搜索群组，目前只支持群名匹配关键字。 
-
-**原型：**
-
-```
-@interface TIMGroupManager : NSObject
-
-/**
- *  通过名称信息获取群资料（可指定字段拉取）
- *
- *  @param groupName      群组名称
- *  @param flags          拉取资料标志
- *  @param custom         要获取的自定义key（NSString*）列表
- *  @param pageIndex      分页号
- *  @param pageSize       每页群组数目
- *  @param succ           成功回调
- *  @param fail           失败回调
- */
-- (int)searchGroup:(NSString*)groupName flags:(TIMGetGroupBaseInfoFlag)flags custom:(NSArray*)custom pageIndex:(uint32_t)pageIndex pageSize:(uint32_t)pageSize succ:(TIMGroupSearchSucc)succ fail:(TIMFail)fail;
-
-@end
-```
-**参数说明：**
-
-参数 | 说明
----|---
-groupName| 要检索的群名中关键字 
-flags | 要获取的群资料字段，详情可参考TIMGetGroupBaseInfoFlag 
-custom | 自定义key列表 
-pageIndex | 分页号，从0开始 
-pageSize | 每页的大小 
-succ | 成功回调，返回群列表 
-fail | 失败回调，返回错误码和错误原因 
-
-**示例：** 
-
-```
-[[TIMGroupManager sharedInstance] searchGroup:@"test" flags:TIM_GET_GROUP_BASE_INFO_FLAG_NAME custom:nil pageIndex:0 pageSize:10 succ:^(uint64_t totalNum, NSArray * groupList){
-	NSLog(@"SearchGroup succ: totalNum=%lu groupList=%@", totalNum, groupList);
-	for (TIMGroupInfo * info in groupList) {
-        NSLog(@"group info=%@", info);
-    }
-} fail:^(int code, NSString *err){
-	NSLog(@"SearchGroup failed: code=%d, err=%@", code, err);
-}];
-```
-示例中搜索群名包含"test"关键字的群列表，并打印。
-
