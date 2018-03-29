@@ -380,7 +380,7 @@ TIMGroupManagerExt.getInstance().deleteGroupMember(param, new TIMValueCallBack<L
 
 ### 获取群成员列表
 
-ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
+ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#设置拉取字段) 进行设置。
 
 获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
 
