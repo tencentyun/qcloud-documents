@@ -1109,7 +1109,7 @@ public void addFriendsToFriendGroup(@NonNull String groupName, @NonNull List<Str
  * 从好友分组中删除好友
  * @param groupName 好友分组名称
  * @param users 要从好友分组中删除的好友列表
- * @param cb 回调，在onSuccess回调的参数中返回请求结果{@see TIMFriendResult}列表
+ * @param cb 回调，在 onSuccess 回调的参数中返回请求结果{@see TIMFriendResult}列表
  */
 public void delFriendsFromFriendGroup(@NonNull String groupName, @NonNull List<String> users,
 									  @NonNull TIMValueCallBack<List<TIMFriendResult>> cb)
