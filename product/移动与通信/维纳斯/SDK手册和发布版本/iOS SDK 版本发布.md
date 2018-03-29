@@ -4,7 +4,8 @@
 ### 版本号：WNS SDK V 3.1.0
 [下载](https://mc.qcloudimg.com/static/archive/09c89cba2d1417407e7db86c9148fe5f/cloudwns_sdk_ios_v3.1.0.zip)
 发布时间：2016.12.19
-版本说明：1.提升 sdk 稳定性
+版本说明：
+1.提升 sdk 稳定性
 
  -----
 ### 版本号：WNS SDK V 3.0.9
@@ -29,11 +30,7 @@
 ### 版本号：WNS SDK V 2.5.20
 [下载](https://mc.qcloudimg.com/static/archive/78ff7ea7de94d0097eef116fa026b067/cloudwns_sdk_ios_v2.5.20.zip)
 发布时间：2016.9.6
-
-
 版本说明：
-
-
 1.兼容 iOS10下ATS 特性
 2.增加获取 log 文件路径接口
 3.替换 localdns 接口
