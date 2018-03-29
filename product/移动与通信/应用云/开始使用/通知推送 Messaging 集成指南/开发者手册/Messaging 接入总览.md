@@ -4,7 +4,7 @@
 ![整体流程](http://tacimg-1253960454.cosgz.myqcloud.com/guides/Messaging/Messaging%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 ## 申请必要资料
 ### iOS 申请必要资料
-对于 iOS 端的开发者而言，需要先向苹果申请推送证书才能使用。申请推送证书步骤可参见：[申请推送证书指南](https://cloud.tencent.com/document/product/666/14860)
+对于 iOS 端的开发者而言，需要先向苹果申请推送证书才能使用。申请推送证书步骤可参见：[申请推送证书指南](https://cloud.tencent.com/document/product/666/14860)。
 ## 终端 SDK 接入
 ### Android SDK 接入
 详见 [Android SDK 使用入门](https://cloud.tencent.com/document/product/666/14323)。
