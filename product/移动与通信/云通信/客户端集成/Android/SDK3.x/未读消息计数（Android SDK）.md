@@ -52,6 +52,7 @@ TIMConversationExt conExt = new TIMConversationExt(con);
 long num = conExt.getUnreadMessageNum();
 Log.d(tag, "unread msg num: " + num);
 ```
+
 ## 已读上报
 
 当用户阅读某个会话的数据后，需要进行会话消息的已读上报，SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。已读上报接口为 `TIMConversationExt` 中的 `setReadMessage`。
