@@ -1,5 +1,5 @@
 
-#### 在 AndroidManifest.xml 中注册接收 push 的 service
+### 在 AndroidManifest.xml 中注册接收 push 的 service
  <!-- 注册 WNS push 接收器 -->
 
 <service    
@@ -14,7 +14,7 @@
 </service>
 其中 com.example.cloudwns.push.MyPushService （类名可修改）是应用自定义的 push 处 理 类 型 ， 继 承 自 WNS SDK 提 供 的 抽 象 类 com.tencent.wns.ipc.AbstractPushService。
 
-#### 自定义处理 Push 的Service
+### 自定义处理 Push 的Service
 假设类名是 com.example.cloudwns.push.MyPushService（应用可自定义名称），应用只需要实现 onPushReceived 这个方法即可。如下：
 
  package com.example.cloudwns.push;

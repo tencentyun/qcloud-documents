@@ -1,17 +1,13 @@
 
-### Http 数据收发
 #### 使用 HttpClient 请求
 
-HttpClent 实例使用 WnsService.getWnsHttpClient()来获取,然后使用HttpClient.execute(HttpUriRequest httpUriRequest )来发起 http 请求
+HttpClent 实例使用 WnsService.getWnsHttpClient()来获取，然后使用HttpClient.execute(HttpUriRequest httpUriRequest )来发起 http 请求
 
 >注意：
->
 >发送和接受数据大小限制为 512KB。
->
->业务侧最好打印出 response.getFirstHeader(WnsService.KEY_HTTP_RESULT)中的数据
-以便于 bug 定位
-
-**[注意]此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：http://cloud.tencent.com/doc/product/276/控制台说明**
+>业务侧最好打印出 response.getFirstHeader  (WnsService.KEY_HTTP_RESULT)中的数据
+以便于 bug 定位。
+**此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276)。**
 
 如下图所示:
 ```
@@ -75,8 +71,8 @@ private void sendHttpReq() {
 使用 wns.getWnsHttpUrl()获取 URL 实例
 >注意：
 发送和接受数据大小限制为 512KB。
+**此模式下，sdk 会自动将 url 设置为命令字，wns 会统计每个命令字的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276)。**
 
-**[注意]此模式下，sdk 会自动将 url 设置为命令字，wns 会统计每个命令字的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。路由配置请参考：http://cloud.tencent.com/doc/product/276/控制台说明**
 ```
  //[必须] 定义 wns 的引用，从而使用其内部方法
 private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); 

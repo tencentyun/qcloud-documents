@@ -21,7 +21,7 @@
 
 视频的防盗链 URL 的生成规则是，在原始 URL 后以 QueryString 的方式加入防盗链参数，形如：
 
-<pre>http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&us=[us]&exper=[exper]&sign=[sign]</pre>
+<pre>http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&us=[us]&sign=[sign]</pre>
 
 QueryString 中的防盗链参数必须按照`t`，`exper`，`us`，`sign`的顺序拼接，下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
 

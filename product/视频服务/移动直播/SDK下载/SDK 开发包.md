@@ -389,21 +389,21 @@ RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606)
   </tr>
   <tr align="center">
     <td>iOS 源码包</td>
-    <td>3.7.3404</td>
+    <td>4.4.3781</td>
     <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7894">[DOC]</a></td>
-    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_3.7.3404.zip">DOWNLOAD</a></td>
+    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoiOSSrc_4.4.3781.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Android 源码包</td>
-    <td>3.7.3404</td>
+    <td>4.4.3781</td>
     <td>由 RTMP SDK 、IM SDK、COS SDK、业务逻辑层代码和界面层代码构成，源码阅读推荐参考 <a href="https://cloud.tencent.com/document/product/454/7892">[DOC]</a></td>
-    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_3.7.3404.zip">DOWNLOAD</a></td>
+    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo/XiaoZhiBoAndroidSrc_4.4.3781.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>PHP源码包</td>
-    <td>3.9</td>
-    <td>为观众端提供直播间列表，同时为主播端提供推流URL，其相关的前台后协议设计推荐参考 <a href="https://cloud.tencent.com/document/product/454/7895">[DOC]</a></td>
-    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_3.9.2749.zip">DOWNLOAD</a></td>
+    <td>4.4</td>
+    <td>为观众端提供直播间列表和回放列表</td>
+    <td><a href="http://download-1252463788.file.myqcloud.com/xiaozhibo_php_svr/xiaozhibo_business_svr_php_4.4.3780.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Web分享页</td>

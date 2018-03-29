@@ -1,7 +1,4 @@
-# 移动开发平台（MobileLine） Analytics iOS 编程手册
-
 ## 开始之前
-
 
 如果这是您首次向应用添加 Analytics，请完成以下步骤：
 

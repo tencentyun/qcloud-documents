@@ -71,7 +71,7 @@
 ### 1.setLiveRoomListener
 
 - 接口定义：void setLiveRoomListener(ILiveRoomListener listener)
-- 借口说明：设置 ILiveRoomListener 回调 ，具体回调函数请参考 ILiveRoomListener 的接口说明
+- 接口说明：设置 ILiveRoomListener 回调 ，具体回调函数请参考 ILiveRoomListener 的接口说明
 - 参数说明：
 
 | 参数       | 类型                  | 说明       |
@@ -99,7 +99,7 @@ mLiveRoom.setLiveRoomListener(new ILiveRoomListener() {
 ### 2.login
 
 - 接口定义：void login(String serverDomain, final LoginInfo loginInfo, final LoginCallback callback) 
-- 借口说明：登录到 RoomService 后台，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService。
+- 接口说明：登录到 RoomService 后台，通过参数 serverDomain 可以指定是使用腾讯云的 RoomService 还是使用自建的 RoomService。
 - 参数说明：
 
 | 参数       | 类型                  | 说明       |
@@ -137,7 +137,7 @@ mLiveRoom.login(DOMAIN, loginInfo, new LiveRoom.LoginCallback() {
 ### 3.logout 
 
 - 接口定义：void logout()
-- 借口说明：从 RoomService 后台注销
+- 接口说明：从 RoomService 后台注销
 - 示例代码：
 
 ```
@@ -241,7 +241,7 @@ mLiveRoom.enterRoom(mGroupId, mTXCloudVideoView, new LiveRoom.EnterRoomCallback(
 
 ### 8. exitRoom
 
-- 接口定义：void enterRoom(String roomID, TXCloudVideoView videoView, EnterRoomCallback cb) 
+- 接口定义：void exitRoom(final ExitRoomCallback callback) 
 
 - 接口说明：（主播 OR 观众）退出房间。
 
@@ -674,7 +674,34 @@ mLiveRoom.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 
 ## ILiveRoomListener 接口详情
 
-### 1. onPusherJoin
+### 1. onGetPusherList
+
+- 接口定义：void onGetPusherList(List<PusherInfo> pusherList)
+- 接口说明：房间里已有的推流者列表（也就是当前有几路远程画面）。当新的连麦者加入房间时，新的连麦者会收到该通知。回调中您可以调用 addRemoteView 播放房间里已有连麦者的视频。
+
+- 示例代码：
+
+```
+ public void onGetPusherList(List<PusherInfo> pusherList) {
+	 	......
+	 	for (PusherInfo pusherInfo : pusherInfoList) {
+         	mLiveRoom.addRemoteView(videoView, pusherInfo, new LiveRoom.RemoteViewPlayCallback() {
+			    @Override
+			    public void onPlayBegin() {
+			        //
+			    }
+			
+			    @Override
+			    public void onPlayError() {
+			        
+			    }
+			});
+     	}
+	 	......
+ }
+```
+
+### 2. onPusherJoin
 
 - 接口定义：void onPusherJoin(PusherInfo pusherInfo)
 - 接口说明：当新的连麦者加入房间时，大主播和其他的连麦者都会收到该通知。回调中您可以调用 addRemoteView 播放这个新来的连麦者的视频。
@@ -699,7 +726,7 @@ mLiveRoom.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
  }
 ```
 
-### 2. onPusherQuit
+### 3. onPusherQuit
 
 - 接口定义：void onPusherQuit(PusherInfo pusherInfo)
 - 接口说明：当连麦者离开房间时，大主播和其他的连麦者都会收到该通知。回调中您可以调用 deleteRemoteView 停止播放这个连麦者的视频。
@@ -714,7 +741,7 @@ public void onPusherQuit(PusherInfo pusherInfo) {
 ```
 
 
-### 3. onRecvJoinPusherRequest
+### 4. onRecvJoinPusherRequest
 
 - 接口定义：void onRecvJoinPusherRequest(String userID, String userName, String userAvatar)
 - 接口说明：当观众向主播申请连麦时，主播收到该通知。主播可以在回调中接受（acceptJoinPusher）或者拒绝（rejectJoinPusher）申请。
@@ -743,7 +770,7 @@ public void onRecvJoinPusherRequest(final String userId, String userName, String
 }
 ```
 
-### 4. onKickOut
+### 5. onKickOut
 
 - 接口定义：void onKickOut()
 - 接口说明：当主播把一个连麦者踢出连麦状态后，对应的连麦者会收到该通知。在回调中您可以停止本地预览以及退出直播。
@@ -769,7 +796,7 @@ public void onKickOut() {
 ```
 
 
-### 5. onRecvRoomTextMsg
+### 6. onRecvRoomTextMsg
 
 - 接口定义：void onRecvRoomTextMsg(String roomID, String userID, String userName, String userAvatar, String message)
 - 接口说明：当主播或者观众端调用sendRoomTextMsg时，房间内的主播或者观众都会收到该通知。
@@ -783,12 +810,12 @@ public void onRecvRoomTextMsg(String roomid, String userid, String userName, Str
 
 
 
-### 6. onRecvRoomCustomMsg
+### 7. onRecvRoomCustomMsg
 
 - 接口定义：void onRecvRoomCustomMsg(String roomID, String userID, String userName, String userAvatar, String cmd, String message)
 - 接口说明：当主播或者观众端调用sendRoomCustomMsg时，房间内的主播或者观众都会收到该通知。
 
-### 7. onRoomClosed
+### 8. onRoomClosed
 
 - 接口定义：void onRoomClosed(String roomID)
 - 接口说明：当房间销毁时，观众会收到该通知。需要在回调中退出房间。
@@ -814,7 +841,7 @@ public void onRoomClosed(String roomId) {
 
 
 
-### 8. onDebugLog
+### 9. onDebugLog
 
 - 接口定义：void onDebugLog(String log)
 - 接口说明：直播间日志回调。可以在回调中将日志保存到文件中，方便问题分析。
@@ -827,7 +854,7 @@ public void onDebugLog(String line) {
 ```
 
 
-### 9. onError
+### 10. onError
 
 - 接口定义：void onError(int errorCode, String errorMessage)
 - 接口说明：直播间错误回调
