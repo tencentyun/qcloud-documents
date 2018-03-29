@@ -1,4 +1,4 @@
-## Sdk目录结构说明
+
 ### WnsSDK:
 包含 WnsSDK4Cloud.framework。
 ### WnsSDKDemo:
