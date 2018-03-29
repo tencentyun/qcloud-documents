@@ -12,9 +12,9 @@
 | 对象存储COS| 支持 | 支持 |支持 | 资源级 | 支持 |
 | 归档存储CAS| 支持 | 支持  | 支持  |资源级 | 支持 |
 | 云监控CM| 支持 | 支持  |支持| 操作级 | 支持 |
-| [私有网络VPC](https://www.qcloud.com/document/product/215/9510) |  支持 | 支持  | 支持 | 资源级 | 支持 |
-| [负载均衡CLB](https://www.qcloud.com/document/product/214/9779)| 支持 | 支持  |支持| 资源级 | 支持 |
-| [云服务器CVM](https://www.qcloud.com/document/product/213/10314)| 支持 | 支持  |支持| 资源级 | 支持 |
+| [私有网络VPC](https://cloud.tencent.com/document/product/215/9510) |  支持 | 支持  | 支持 | 资源级 | 支持 |
+| [负载均衡CLB](https://cloud.tencen.com/document/product/214/9779)| 支持 | 支持  |支持| 资源级 | 支持 |
+| [云服务器CVM](https://cloud.tencen.com/document/product/213/10314)| 支持 | 支持  |支持| 资源级 | 支持 |
 | 安全组DFW| 支持 | 支持  |支持| 资源级 | 支持 |
 | 云硬盘CBS| 支持 | 支持  |支持| 资源级 | 支持 |
 | 容器持续集成服务CCB| 支持 | 支持  | 支持  |资源级 | 支持 |
