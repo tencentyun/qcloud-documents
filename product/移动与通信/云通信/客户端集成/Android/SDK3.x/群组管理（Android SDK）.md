@@ -32,7 +32,7 @@ public static TIMGroupManagerExt getInstance()
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（比如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
 
 > **注意：**
-> 自定义群组 ID 的时候，需要遵循一定的规则，具体请参考 [自定义群组 ID](/doc/product/269/1502#5-.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84id7)。
+> 自定义群组 ID 的时候，需要遵循一定的规则，具体请参考 [自定义群组 ID](/doc/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84-id7)。
 
 **原型：**
 
@@ -380,7 +380,7 @@ TIMGroupManagerExt.getInstance().deleteGroupMember(param, new TIMValueCallBack<L
 
 ### 获取群成员列表
 
-ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#设置拉取字段) 进行设置。
+ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
 
 获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
 
@@ -428,7 +428,7 @@ TIMGroupManagerExt.getInstance().getGroupMembers(
 
 ### 获取加入的群组列表
 
-获取当前用户加入的所有群组的接口由 `TIMGroupManagerExt` 提供。此接口可以获取自己所加入的群列表，返回的信息只包含部分基本信息，详细群组信息可以根据 [群成员获取群组资料](#4.2-.E7.BE.A4.E6.88.90.E5.91.98.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.9916) 进行获取。
+获取当前用户加入的所有群组的接口由 `TIMGroupManagerExt` 提供。此接口可以获取自己所加入的群列表，返回的信息只包含部分基本信息，详细群组信息可以根据 [群成员获取群组资料](#.E7.BE.A4.E6.88.90.E5.91.98.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.9916) 进行获取。
 
 **权限说明：**
 
@@ -669,11 +669,11 @@ TIMManager.getInstance().setUserConfig(config);
 
 ### 群成员获取群组资料
 
-`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
+`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
 
 **权限说明：**
 
-**此接口只能由群成员调用**，非群成员获取群组资料请参考 [非群成员获取群组资料](#4.3-.E9.9D.9E.E7.BE.A4.E6.88.90.E5.91.98.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.9917)。
+**此接口只能由群成员调用**，非群成员获取群组资料请参考 [非群成员获取群组资料](#.E9.9D.9E.E7.BE.A4.E6.88.90.E5.91.98.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.9917)。
 
 **原型：    **
 
@@ -834,7 +834,7 @@ TIMGroupManagerExt.getInstance().getGroupDetailInfo(
 
 ### 非群成员获取群组资料
 
-当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
+当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
 
 **原型：**
 
@@ -875,9 +875,9 @@ TIMGroupManagerExt.getInstance().getGroupPublicInfo(groupList, new TIMValueCallB
 
 ### 获取本人在群里的资料
 
-如果需要获取本人在所在群内的资料，可以在通过 [获取群组列表](#3.7-.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A810)  拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下 `TIMGroupManagerExt` 提供的 `getSelfInfo` 获取。如果应用需要获取群组列表，建议在获取群组列表的时候获取个人在所在群内的资料，没有必要调用以下接口单独获取。
+如果需要获取本人在所在群内的资料，可以在通过 [获取群组列表](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A810)  拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下 `TIMGroupManagerExt` 提供的 `getSelfInfo` 获取。如果应用需要获取群组列表，建议在获取群组列表的时候获取个人在所在群内的资料，没有必要调用以下接口单独获取。
 
->注：默认只拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
+>注：默认只拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515) 进行设置。
 
 **权限说明：**
 
@@ -898,7 +898,7 @@ public void getSelfInfo(@NonNull String groupId, @NonNull TIMValueCallBack<TIMGr
 
 获取群成员资料的接口由 `TIMGroupManagerExt` 提供。
 
-默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515)  进行设置。
+默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515)  进行设置。
 
 **权限说明：**
 
@@ -1576,13 +1576,13 @@ public void refuse(String msg, TIMCallBack cb)
 
 ## 群资料存储
 
-如果需要本地存储群资料，请手动开启 SDK 的群资料存储，同时可以设置存储的具体字段，参考 [设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515)。另外，这里仅存储群资料，并未对群成员的资料进行存储，群成员信息可以直接从消息中获取。
+如果需要本地存储群资料，请手动开启 SDK 的群资料存储，同时可以设置存储的具体字段，参考 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515)。另外，这里仅存储群资料，并未对群成员的资料进行存储，群成员信息可以直接从消息中获取。
 
 ### 启用群资料存储
 
 ImSDK 在默认的情况下，不会存储用户的群资料数据，每次调用接口都是从服务端重新获取。
 
-如果需要 SDK 进行群资料存储，可以在**登录前**，通过 `TIMUserConfigGroupExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。同时可以设置存储的具体字段，参考 [设置拉取字段](#4.1-.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515)。
+如果需要 SDK 进行群资料存储，可以在**登录前**，通过 `TIMUserConfigGroupExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。同时可以设置存储的具体字段，参考 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B515)。
 
 另外，SDK 只会对群资料进行存储，不会对群成员资料进行存储。群成员资料可以在收到的群消息里直接获取，请参考 [消息发送者及其相关资料](/doc/product/269/9232#3.4-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E5.8F.8A.E5.85.B6.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)。
 
