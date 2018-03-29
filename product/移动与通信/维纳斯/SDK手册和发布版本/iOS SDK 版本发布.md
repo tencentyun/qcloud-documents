@@ -35,7 +35,7 @@
 2.增加获取 log 文件路径接口
 3.替换 localdns 接口
 4.修复 WnsUrlProtocol 多线程冲突导致 crash
-5.替换 demo 内测试http请求地址
+5.替换 demo 内测试 http 请求地址
 
 -----
 
