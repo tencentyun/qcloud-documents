@@ -54,8 +54,7 @@
 | 导入群消息  |[v4/group_open_http_svc/import_group_msg ](/doc/product/269/导入群消息) | 
 | 导入群成员  |[v4/group_open_http_svc/import_group_member](/doc/product/269/导入群成员) | 
 | 设置成员未读消息计数  |[v4/group_open_http_svc/set_unread_msg_num](/doc/product/269/设置成员未读消息计数) | 
-| 删除指定用户发送的消息  |[v4/group_open_http_svc/delete_group_msg_by_sender](/doc/product/269/删除指定用户发送的消息) | 
-| 搜索群组  |[v4/group_open_http_svc/search_group](/doc/product/269/模糊搜索群组) | 
+| 删除指定用户发送的消息  |[v4/group_open_http_svc/delete_group_msg_by_sender](/doc/product/269/删除指定用户发送的消息) |
 | 拉取群漫游消息  |[v4/group_open_http_svc/group_msg_get_simple](/doc/product/269/拉取群漫游消息) | 
 
 

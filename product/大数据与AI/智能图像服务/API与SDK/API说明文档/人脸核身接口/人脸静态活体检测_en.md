@@ -17,7 +17,8 @@ For more information, please see [Billing](/document/product/641/12401).
 
 Protocols: http and https are supported.
 
-API: `http://service.image.myqcloud.com/face/livedetectpicture`
+API: `http://recognition.image.myqcloud.com/face/livedetectpicture`
+API: `https://recognition.image.myqcloud.com/face/livedetectpicture`
 
 
 ## header of Request Packet
@@ -26,7 +27,7 @@ All requests must contain the header information listed in the following table:
 
 | Parameter Name | Value | Description |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host | service.image.myqcloud.com | Server domain name |
+| Host | recognition.image.myqcloud.com | Server domain name |
 | Content-Length | Total length of the packet | Total length of the entire request packet in Bytes |
 | Content-Type | application/json or multipart/form-data | Choose based on APIs |
 | Authorization | Authentication signature | Signature for [**Authentication**](/document/product/641/12409) |
