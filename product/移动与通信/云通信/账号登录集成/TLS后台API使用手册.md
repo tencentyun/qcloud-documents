@@ -1,6 +1,6 @@
 ## 概述
 
-开发者可以使用 TLS 后台 API 及相关工具，生成公私钥、生成 UserSig 和校验 UserSig。TLS 后台 API 我们提供了 6 个包供开发者[下载](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)，内容分别是 Windows 下 64 位预编译文件包、Windows 下32位预编译文件包、Linux 下64位预编译文件包、Linux 下32位预编译文件包、zip 格式的源代码文件和 tar.gz 格式的源代码文件。
+开发者可以使用 TLS 后台 API 及相关工具，生成公私钥、生成 `UserSig` 和校验 `UserSig`。TLS 后台 API 我们提供了 6 个包供开发者[下载](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)，内容分别是 Windows 下 64 位预编译文件包、Windows 下32位预编译文件包、Linux 下64位预编译文件包、Linux 下32位预编译文件包、zip 格式的源代码文件和 tar.gz 格式的源代码文件。
 
 >**注意：**
 >在控制台上下载的公私钥文件名分别为 `private_key` 和 `public_key`，分别对应下面的 `ec_key.pem` 和 `public.pem`。请在使用公私钥时注意区分。
@@ -19,8 +19,8 @@
 $ ./tls_licence_tools
 ```
 
-
 输出：
+
  ```
 current version: 201511190000
 Usage:
@@ -30,11 +30,9 @@ Usage:
     verify sig e.g.: ./tls_licence_tools verify public.pem sig 1400001052 xiaojun
 ```
 
-下面是演示截图：
+输出实际上是参数模板和示例。下面是演示截图：
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126140600_45285.png)
-
-输出实际上是参数模板和示例。
 
 执行类似于下面的命令可以生成 sig：
 
@@ -87,12 +85,15 @@ identifier：用户标识，即用户 id
 ### C++ 接口
 
 首先包含 `include/tls_sig_api` 目录下的 `tls_signature.h`。头文件中包含的接口，`tls_gen_signature_ex2` 和 `tls_check_signature_ex2`，前者是生成 sig 的接口，后者是校验 sig 的接口，详细的参数和返回值说明请参考头文件 `tls_signature.h`。
+
 然后是链接静态库，在 lib 目录下有下列目录：
 
+```
 ├── jni
 ├── jsoncpp
 ├── openssl
 └── tls_sig_api
+```
 
 需要链接的静态库是 `libjsoncpp.a`、`openssl` 目录下的 `libcrypto.a` 和 `libtlsignature.a`。另外还需要链接系统的 `-ldl` 和 `-lz` ，详细可以查看 `example/cpp/Makefile`，由于 `libtlsignature.a` 引用了 `openssl` 和 `json` 的开发库，所以链接时 `libtlsignature.a` 出现命令的最前面。
 
@@ -115,8 +116,9 @@ void multi_thread_cleanup(void);
 javac -encoding utf-8 tls_sigcheck.java
 ```
 
-请注意接口的包路径为 `com.tls.sigcheck`，典型的使用方法是 example 目录下 Java 版本 Demo 的组织方式：
+请注意接口的包路径为 `com.tls.sigcheck`，典型的使用方法是 `example` 目录下 Java 版本 Demo 的组织方式。
 
+```
 ├── com
 │   └── tls
 │       └── sigcheck
@@ -126,27 +128,29 @@ javac -encoding utf-8 tls_sigcheck.java
 ├── ec_key.pem
 ├── public.pem
 └── README
+```
 
-之前提到 Java 接口目前使用的 JNI 的方式，所以 `Demo.java` 调用了载入 so 的语句，开发者根据自己的存放 `jnisigcheck.so` 实际路径进行修改，在二进制包中预编译的 `jnisigcheck.so` 存放在 `lib/jni` 目录下。Demo 的使用方式请参考 `example/java/README`。
-下面是演示截图：
+之前提到 Java 接口目前使用的 JNI 的方式，所以 `Demo.java` 调用了载入 so 的语句，开发者根据自己的存放 `jnisigcheck.so` 实际路径进行修改，在二进制包中预编译的 `jnisigcheck.so` 存放在 `lib/jni` 目录下。Demo 的使用方式请参考 `example/java/README`。下面是演示截图：
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126141635_23603.png)
 
->注：如果在 Java 代码中使用了**多线程**的方式生成 usersig，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
+>注：如果在 Java 代码中使用了**多线程**的方式生成 `usersig`，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
 
 ### Java 原生接口
 
 Java 原生接口依赖于 5 个jar包中。在 `tls_sig_api/java_native/lib` 目录下：
 
+```
 ├── bcpkix-jdk15on-152.jar
 ├── bcprov-jdk15on-152.jar
 ├── commons-codec-1.10.jar
 ├── gson-2.3.1.jar
 ├── json.jar
 └── tls_signature.jar
+```
 
 >**注意**
->从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，将公钥内容赋值给接口中的 publicBase64Key 参数，私钥内容赋值给接口中的 `privateBase64Key` 参数。
+>从控制台界面 [下载](/doc/product/269/下载公私钥) 的公私钥，将公钥内容赋值给接口中的 `publicBase64Key` 参数，私钥内容赋值给接口中的 `privateBase64Key` 参数。
 
 ### PHP 接口
 
@@ -168,12 +172,12 @@ function signature($identifier, $sdkappid, $private_key_path)
     return $out;
 }
 ```
-开发者请注意命令执行的路径和可执行权限，如果出现问题请尝试打印出 `command` 变量的内容进行定位。
+> 注：开发者请注意命令执行的路径和可执行权限，如果出现问题请尝试打印出 `command` 变量的内容进行定位。
 
 ### PHP原生接口
 在源码包和二进制包中都带有 `php/TLSSig.php` 文件，生成 sig 接口 genSig 和校验 sig 接口 verifySig 均在其中，注意 PHP 环境需要带 openssl 扩展，否则接口使用会报错，另外只支持 PHP 5.3 及以上的版本。
 
-如果上述实现 PHP 环境无法满足要求，比如使用了红帽系（fedora、centos 和 rel 等）的操作系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与 openssl 和系统无关的实现。
+> 注：如果上述实现 PHP 环境无法满足要求，比如使用了红帽系（fedora、centos 和 rel 等）的操作系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与 openssl 和系统无关的实现。
 
 ## Windows 平台
 
@@ -200,11 +204,9 @@ Usage:
     verify sig e.g.: tls_licence_tools.exe verify public.pem sig 1400001052 xiaojun
 ```
 
-下面是演示截图：
+输出实际上是参数模板和示例。下面是演示截图：
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142633_17041.png)
-
-输出实际上是参数模板和示例。
 
 执行类似于下面的命令可以生成 sig：
 
@@ -258,18 +260,18 @@ identifier：用户标识，即用户 id
 
 ### C++ 接口
 
-Windows 下 C++ 接口的使用方式我们采用 vs2012 来举例。
-
-首先包含 `include\tls_sig_api` 目录下的 `tls_signature.h`。头文件中包含的接口，`tls_gen_signature_ex2` 和 `tls_check_signature_ex2`，前者是生成 sig 的接口，后者是校验 sig 的接口，详细的参数和返回值说明请参考头文件 `tls_signature.h`。
+Windows 下 C++ 接口的使用方式我们采用 vs2012 来举例。首先包含 `include\tls_sig_api` 目录下的 `tls_signature.h`。头文件中包含的接口，`tls_gen_signature_ex2` 和 `tls_check_signature_ex2`，前者是生成 sig 的接口，后者是校验 sig 的接口，详细的参数和返回值说明请参考头文件 `tls_signature.h`。
 
 然后是链接静态库，在 `lib` 目录下有下列目录：
 
+```
 ├── jni
 ├── jsoncpp
 ├── libsigcheck
 ├── openssl
 ├── tls_sig_api
 └── zlib
+```
 
 需要链接的静态库是 `jsoncpp.lib`、`openssl` 目录下的 `libeay.lib`、`libtlsignature.lib` 和 `zlib` 目录下的 `zlibstat.lib`，典型的编译配置如下：
 
@@ -295,6 +297,7 @@ javac -encoding utf-8 tls_sigcheck.java
 
 请注意接口的包路径为 `com.tls.sigcheck`，典型的使用方法是 `example` 目录下 Java 版本 Demo 的组织方式：
 
+```
 ├── com
 │   └── tls
 │       └── sigcheck
@@ -304,28 +307,31 @@ javac -encoding utf-8 tls_sigcheck.java
 ├── ec_key.pem
 ├── public.pem
 └── README
+```
 
 之前提到 Java 接口使用的 JNI 的方式，所以 `Demo.java` 调用了载入 dll 的语句，开发者根据自己的存放 `jnisigcheck.dll` 实际路径进行修改，预编译的 `jnisigcheck.dll` 存放在 `lib\jni` 目录下。Demo 的使用方式请参考 `example\java\README`。下面是演示截图：
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151013124617_41874.png)
 
-下面是运行结果，
+下面是运行结果：
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151126142954_16596.png)
 
 >**注意：**
->如果在 Java 代码中使用了多线程的方式生成 usersig，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
+>如果在 Java 代码中使用了多线程的方式生成 `usersig`，请看[这里](http://bbs.qcloud.com/thread-22323-1-1.html)。
 
 ### Java 原生接口
 
 Java 原生接口依赖于 5 个 jar 包。在 `tls_sig_api/java_native/lib` 目录下：
 
+```
 ├── bcpkix-jdk15on-152.jar
 ├── bcprov-jdk15on-152.jar
 ├── commons-codec-1.10.jar
 ├── gson-2.3.1.jar
 ├── json.jar
 └── tls_signature.jar
+```
 
 >**注意：**
 >从控制台界面[下载](/doc/product/269/下载公私钥)的公私钥，将公钥内容赋值给接口中的 `publicBase64Key` 参数，私钥内容赋值给接口中的 `privateBase64Key` 参数。
@@ -364,8 +370,7 @@ class sigcheck
 }
 ```
 
-其中 `dllpath.DllPath` 指明了 dll 的路径，详细请参见 `example\cs\csdemo.cs`。
-关于 Demo 的使用方法参见 `example\cs\README`。下面是演示截图：
+其中 `dllpath.DllPath` 指明了 dll 的路径，详细请参见 `example\cs\csdemo.cs`。关于 Demo 的使用方法参见 `example\cs\README`。下面是演示截图：
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151013132403_75795.png)
 
@@ -401,18 +406,19 @@ function signature($identifier, $sdkappid, $private_key_path)
     return $out;
 }
 ```
-开发者请注意命令执行的路径，如果出现问题请尝试打印出 `command` 变量的内容进行定位。
+
+> 注：开发者请注意命令执行的路径，如果出现问题请尝试打印出 `command` 变量的内容进行定位。
 
 ### PHP 原生接口
-在源码包和二进制包中都带有 `php/TLSSig.php` 文件，生成 sig 接口 genSig 和校验 sig 接口 verifySig 均在其中，注意 PHP 环境需要带 openssl 扩展，否则接口使用会报错，另外只支持 PHP 5.3 及以上的版本。
+在源码包和二进制包中都带有 `php/TLSSig.php` 文件，生成 sig 接口 `genSig` 和校验 sig 接口 `verifySig` 均在其中，注意 PHP 环境需要带 openssl 扩展，否则接口使用会报错，另外只支持 PHP 5.3 及以上的版本。
 
 >注：若上述实现 PHP 环境无法满足要求，比如使用了红帽系（fedora、centos 和 rel 等）的操作系统，可以参考[此处](http://bbs.qcloud.com/thread-22519-1-1.html)另一种与 openssl 和系统无关的实现。
 
 ## 其他平台接口
 
-[JavaScript](http://bbs.qcloud.com/thread-17311-1-1.html)
-[Python](http://bbs.qcloud.com/thread-14366-1-1.html)
-[Go](http://bbs.qcloud.com/thread-21826-1-1.html)
+- [JavaScript](http://bbs.qcloud.com/thread-17311-1-1.html)
+- [Python](http://bbs.qcloud.com/thread-14366-1-1.html)
+- [Go](http://bbs.qcloud.com/thread-21826-1-1.html)
 
 ## TLS 后台 API 下载
 
@@ -420,6 +426,6 @@ function signature($identifier, $sdkappid, $private_key_path)
 
 ## 联系我们
 
-[这里](http://bbs.qcloud.com/thread-8287-1-1.html)的一些信息可能对您有帮助，如需支持，请 @TLS 帐号支持，QQ 3268519604，电子邮箱 tls_assistant@tencent.com。
+[这里](http://bbs.qcloud.com/thread-8287-1-1.html) 的一些信息可能对您有帮助，如需支持，请 @TLS 帐号支持，QQ 3268519604，电子邮箱 tls_assistant@tencent.com。
 
 

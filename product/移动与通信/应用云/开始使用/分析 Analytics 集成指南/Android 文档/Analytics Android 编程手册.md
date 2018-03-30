@@ -119,6 +119,15 @@ tacAnalyticsOptions.setAutoTrackPageViewEnabled(false);
 
 Analytics 有多种上报策略，您可以根据需要选择：
 
+```
+final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
+
+// 上报策略设置为立即发送
+tacAnalyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
+```
+
+每种上报策略的说明如下：
+
 | 编号	| 策略名称	|  说明 | 
 | :---: | :----: | :---- |
 | 1	| INSTANT	| 实时发送，APP 每产生一条消息都会发送到服务器。| 

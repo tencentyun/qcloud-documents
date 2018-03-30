@@ -96,7 +96,7 @@ coscmd config -a <secret_id> -s <secret_key> -b <bucket> -r <region> [-m <max_th
 > **注意：** 
 1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件）。
 配置完成之后的`.cos.conf`文件内容示例如下所示：
-2. 可以在配置文件中增加`schame`项来选择`http / https`
+2. 可以在配置文件中增加`schema`项来选择`http / https`
 ```
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbpHIJK
@@ -105,7 +105,7 @@ bucket = ABC-1234567890
 region = ap-guangzhou
 max_thread = 5
 part_size = 1
-schame = https
+schema = https
 ```
 
 ### 指定 Bucket 的命令
