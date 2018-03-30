@@ -224,9 +224,7 @@ public NotifyMode getNotifyMode()
 public void setNotifyMode(NotifyMode mode)
 ```
 
-**`TIMMessageOfflinePushSettings.NotifyMode`:**
-
-`NotifyMode` 只是针对第三方离线推送进行设置的，比如小米、华为的离线推送。
+`NotifyMode` 只是针对第三方离线推送进行设置的，比如小米、华为的离线推送。**`TIMMessageOfflinePushSettings.NotifyMode`:**
 
 ```java
 /**
@@ -694,7 +692,7 @@ public class MiPushMessageReceiver extends PushMessageReceiver {
 
 ```
 
-将自定义的 `BroadcastReceiver` 注册到 `AndroidManifest.xml`。
+**将自定义的 `BroadcastReceiver` 注册到 `AndroidManifest.xml`。**
 
 ```xml
 <receiver
@@ -922,7 +920,7 @@ public class HwPushMessageReceiver extends PushEventReceiver{
 
 ```
 
-将自定义的 `BroadcastReceiver` 注册到 `AndroidManifest.xml`。
+**将自定义的 `BroadcastReceiver` 注册到 `AndroidManifest.xml`。**
 
 ```xml
 <!-- 第三方相关 :接收 Push 消息（注册、Push 消息、Push 连接状态、标签，LBS 上报结果）广播 -->
@@ -1197,7 +1195,7 @@ public class MyPushMsgReceiver extends MzPushMessageReceiver {
 
 ```
 
-**将这个自定义的 `BroadcastReceiver` 注册到 `AndroidManifest.xml` 中：**
+**将这个自定义的 `BroadcastReceiver` 注册到 `AndroidManifest.xml` 中。**
 
 ```xml
 <!--mz push-->
