@@ -4447,13 +4447,13 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
    <tr>
       <td>device_infos</td>
-      <td>是</td>
+      <td>否</td>
       <td>DeviceInfo[]</td>
       <td>门店设备信息列表，详见DeviceInfo</td>
    </tr>
    <tr>
       <td>staff_infos</td>
-      <td>是</td>
+      <td>否</td>
       <td>StaffInfo[]</td>
       <td>门店店员信息列表，详见StaffInfo</td>
    </tr>
@@ -4490,6 +4490,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>否</td>
       <td>String(64)</td>
       <td>子商户自定义备注信息</td>
+   </tr>
+   <tr>
+      <td>device_name</td>
+      <td>是</td>
+      <td>String</td>
+      <td>设备名称</td>
    </tr>
 </table>
 

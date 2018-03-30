@@ -140,8 +140,8 @@ ImSDK3.x版本优化了SDK的初始化流程和较多的模块接口，接口逻
 <b>TIMFriendshipManager</b> | GetFriendListV2:custom:meta:succ:fail: | setUserConfig:配置需要拉取的资料字段<br>getFriendList:succ:fail:
 <b>TIMFriendshipProxy</b> | GetFriendList<br>GetFriendsProfile:<br>GetFriendGroupList<br>GetFriendGroup: | <b>TIMFriendshipManager</b><br> getFriendsProfile:<br>getFriendGroup:
 <b>TIMGroupManager</b> | 接口名首字母大写 | 接口名首字母小写
-<b>TIMGroupManager</b> | GetGroupPublicInfoV2:flags:custom:succ:fail: | setUserConfig:配置需要拉取的资料字段<br>getGroupPublicInfo:succ:fail:
-<b>TIMGroupManager</b> | GetGroupMemberV2:flags:custom:nextSeq:succ:fail: | getGroupMembers:ByFilter:flags:custom:nextSeq:succ:fail:
+<b>TIMGroupManager</b> | GetGroupPublicInfoV2:flags:<br>custom:succ:fail: | setUserConfig:配置需要拉取的资料字段<br>getGroupPublicInfo:succ:fail:
+<b>TIMGroupManager</b> | GetGroupMemberV2:flags:<br>custom:nextSeq:succ:fail: | getGroupMembers:ByFilter:flags:<br>custom:nextSeq:succ:fail:
 <b>消息</b> | <b>TIMSoundElem、TIMFileElem</b> | 仅保留指定文件路径方式上传和下载资源
 <b>消息</b> | <b> TIMImageElem</b> | 仅保留指定文件路径方式下载资源
 <b>消息</b> | <b> TIMMessage delFromStorage</b> | <b>TIMMessage remove</b>

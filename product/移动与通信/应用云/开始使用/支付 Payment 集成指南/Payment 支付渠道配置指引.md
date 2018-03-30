@@ -54,7 +54,7 @@ Payment 支持微信支付和手 Q 支付的 [APP 支付](http://kf.qq.com/faq/1
 
 ![confirm](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_confirm_conf2.png?raw=true)
 
-配置好对应的渠道信息、回调地址和平台参数后，点击【保存&预览】：
+配置好对应的渠道信息、回调地址和平台参数后，单击【保存&预览】：
 
 ![](http://tac-android-libs-1253960454.cosgz.myqcloud.com/resources/payment_input_config.png?raw=true)
 
