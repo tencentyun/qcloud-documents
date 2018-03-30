@@ -146,6 +146,16 @@ analysisOptions.strategy = TACAnalyticsStrategyInstant;
 [TACApplication configurateWithOptions:options];
 ~~~
 
+支持修改的配置列表：
+
+|名称|类型|作用|
+|----|---|--------------|
+| strategy| TACAnalyticsStrategy|  Analytics数据上报策略,您只能选择一种上报策略，不可叠加使用|
+|minBatchReportCount |NSInteger |  最大批量发送消息个数，默认30，注意仅在发送策略为BATCH时有效|
+|sendPeriodMillis|uint64_t|上报策略为PERIOD时发送间隔，单位毫秒，默认一天（24*60*60*1000）|
+|sessionTimeoutMillis|uint64_t|会话超时时长，在该时间段内用户再次应用则视为同一次会话，默认30000ms。|
+|autoTrackPageEvents|BOOL|设置是否开启自动统计页面访问，默认开启|
+|smartReporting|BOOL| 智能上报，开启以后设备接入WIFI会实时上报。否则按照全局策略上报。默认打开。|
 
 ### 控制自动页面追踪
 
