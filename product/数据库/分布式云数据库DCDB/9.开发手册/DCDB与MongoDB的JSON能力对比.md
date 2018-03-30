@@ -7,11 +7,13 @@
 ## DCDB 与 MongoDB 的 JSON 能力对比
 ### 建表语法
 **DCDB**
+```
 Create table inventory(id int primary key auto_increment, value json) shardkey=id;
-
+```
 **MongoDB**
+```
 sh.shardCollection("test.inventory", {"_id":"hashed"})
-
+```
 ### **INSERT/UPDATE/DELETE Document**
 <table>
   <tbody>
@@ -75,7 +77,7 @@ sh.shardCollection("test.inventory", {"_id":"hashed"})
     "$.size.uom", "cm", <br>
     "$.status", "P") <br>
 where value->"$.item"="paper" limit 1;<br>
-<br>不携带shardkey的语句会在多个节点上执行，语法结构可能会修改多条数据，而携带shardkey可以确保正确只修改1条数据执行
+<br>不携带 shardkey 的语句会在多个节点上执行，语法结构可能会修改多条数据，而携带 shardkey 可以确保正确只修改 1 条数据执行
 </span><br>
     </td>
    </tr>
@@ -107,14 +109,14 @@ where value->"$.qty"<50 ;
    { item: "paper" },<br>
    { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 40 } ] }
 )<br>
-)<br><br>不携带shardkey报错，携带shardkey可以正确执行
+)<br><br>不携带 shardkey 报错，携带 shardkey 可以正确执行
 </span><br>
     </td>
     <td>
      <span style="font-size:14px;">update inventory set value= '{ "item": "paper", "instock":<br> [ { "warehouse": "A", "qty": 60 }, <br>{ "warehouse": "B", "qty": 40 }]}'<br>
 where value->"$.item"="paper" limit 1
 )
-<br><br>不携带shardkey的语句会在多个节点上执行，语法结构可能会修改多条数据，而携带shardkey可以确保正确只修改1条数据执行
+<br><br>不携带 shardkey 的语句会在多个节点上执行，语法结构可能会修改多条数据，而携带 shardkey 可以确保正确只修改 1 条数据执行
 </span><br>
     </td>
    </tr>
@@ -124,11 +126,11 @@ where value->"$.item"="paper" limit 1
     </td>
     <td>
      <span style="font-size:14px;">db.inventory.deleteOne( { status: "A" } )
-		 <br>不携带shardkey报错，携带shardkey可以正确执行</span><br>
+		 <br>不携带 shardkey 报错，携带 shardkey 可以正确执行</span><br>
     </td>
     <td>
      <span style="font-size:14px;">delete from inventory where value->"$.status"="A" limit 1;<br>
-不携带shardkey的语句会在多个节点上执行，语法结构可能会修改多条数据，而携带shardkey可以确保正确只修改1条数据执行
+不携带 shardkey 的语句会在多个节点上执行，语法结构可能会修改多条数据，而携带 shardkey 可以确保正确只修改 1 条数据执行
 </span><br>
     </td>
 		   </tr>    
@@ -290,6 +292,7 @@ create FULLTEXT index full_idx on stores(value_name, value_description);<br>
 </table>
 
 ### SHARDING
+
 ||MongoDB|	DCDB|
 |---- |-----| ----|
 |Ranged sharding	|支持	|不支持
@@ -378,7 +381,7 @@ db.users.aggregate([{
 ]);
 
 ```
-相对MongoDB，而DCDB在非shard表下可以运用json的字段做各种条件join，当在单个shard表下DCDB允许Join操作，但是不支持在多个shard表。（详细操作见见下面代码）
+相对 MongoDB，而 DCDB 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 DCDB 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见见下面代码）
 ```
 插入数据
 create table users(id int primary key auto_increment, value json);
