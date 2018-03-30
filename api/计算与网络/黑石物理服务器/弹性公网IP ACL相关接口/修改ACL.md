@@ -83,7 +83,7 @@ rule结构
 ### 输入
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	Action=DescribeEipAclBm
+	Action=EipAclBmSet
 	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
 	&Nonce=57333
 	&Timestamp=1507730884
