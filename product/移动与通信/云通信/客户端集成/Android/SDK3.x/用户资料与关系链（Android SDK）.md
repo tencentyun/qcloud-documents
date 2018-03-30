@@ -111,13 +111,11 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 
 ### 设置好友验证方式 
 
-可通过 `TIMFriendshipManager` 的 `modifyProfile` 方法设置好友验证方式，有以下几种验证方式：
+可通过 `TIMFriendshipManager` 的 `modifyProfile` 方法设置好友验证方式。用户可根据需要设置其中一种，**目前没有方法设置默认的好友验证方式，默认都是允许任何人添加好友**。有以下几种验证方式：
 
 - **允许任何人添加好友**
 - **拒绝任何人添加好友**
 - **添加好友需要验证**
-
-用户可根据需要设置其中一种，**目前没有方法设置默认的好友验证方式，默认都是允许任何人添加好友**。
 
 好友验证方式通过 ImSDK 中的 `TIMFriendAllowType` 来定义，具体定义如下。
 
@@ -135,7 +133,11 @@ TIM_FRIEND_INVALID
 TIM_FRIEND_NEED_CONFIRM
 ```
 
+
+以下示例中设置了自己的好友验证方式为需要验证，此时如果有用户申请加好友，会收到加好友的系统通知（详见 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)）。
+
 **示例：**
+
 ```
 //设置自己的好友验证方式为需要验证
 TIMFriendshipManager.ModifyUserProfileParam param = new TIMFriendshipManager.ModifyUserProfileParam();
@@ -156,7 +158,6 @@ TIMFriendshipManager.getInstance().modifyProfile(param, new TIMCallBack() {
 });
 ```
 
-此示例中设置了自己的好友验证方式为需要验证，此时如果有用户申请加好友，会收到加好友的系统通知（详见 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)）。
 
 ### 设置自己的头像
 
@@ -1228,7 +1229,7 @@ public List<TIMFriendGroup> getFriendsByGroups(@Nullable List<String> groups)
 
 ### 好友、资料变更回调
 
-如果没有开启关系链资料存储的情况下，必须通过系统消息来感知关系链资料变更，这种方式需要用户解析消息内容，层次结构较深；如果开启了存储的功能，可以用更加明显易用的回调 `TIMFriendshipProxyListener` 感知变更。通过 `TIMUserConfigSnsExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。
+如果没有开启关系链资料存储的情况下，必须通过系统消息来感知关系链资料变更，这种方式需要用户解析消息内容，层次结构较深；如果开启了存储的功能，可以用更加明显易用的回调 `TIMFriendshipProxyListener` 感知变更。通过 `TIMUserConfigSnsExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。通过设置 `TIMFriendshipProxyListener` 变更回调，可以在发生不同事件的时候感知不同的事件，之后可通过同步接口获取信息并更新 UI 操作。
 
 **`TIMFriendshipProxyListener` 主要的事件回调如下：**
 
@@ -1257,8 +1258,6 @@ void OnFriendProfileUpdate(List<TIMUserProfile> profiles);
  */
 void OnAddFriendReqs(List<TIMSNSChangeInfo> reqs);
 ```
-
-通过设置 `TIMFriendshipProxyListener` 变更回调，可以在发生不同事件的时候感知不同的事件，之后可通过同步接口获取信息并更新 UI 操作。
 
 **示例：**
 
@@ -1528,9 +1527,7 @@ TIM_PROFILE_SYSTEM_FRIEND_PROFILE_CHANGE,
 
 ## 未决请求
 
-未决请求即为等待处理的请求，比如设置了添加好友选项为需要验证，则对方申请添加好友时会有未决请求，如果同意或者拒绝这个申请，未决请求会变为已决。
-
-通过 `TIMFriendshipManagerExt` 的 `getFutureFriends` 方法可以从 Server 获取未决请求列表。
+未决请求即为等待处理的请求，比如设置了添加好友选项为需要验证，则对方申请添加好友时会有未决请求，如果同意或者拒绝这个申请，未决请求会变为已决。通过 `TIMFriendshipManagerExt` 的 `getFutureFriends` 方法可以从 Server 获取未决请求列表。
 
 **原型：***
 
