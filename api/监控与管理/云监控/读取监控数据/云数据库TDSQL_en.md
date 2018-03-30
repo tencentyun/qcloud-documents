@@ -29,8 +29,8 @@ The following request parameter list only provides API request parameters. Commo
 
 | Metric Name | Description | Unit |
 | --------------------- | ------------ | ---- |
-| data_disk_available   | Available size of data disk     | GB   |
-| binlog_disk_available | Available size of BINLOG disk | GB   |
+| data_disk_available   | Available size of data disk     | MB   |
+| binlog_disk_available | Available size of BINLOG disk | MB   |
 | select_total          | Number of SELECT requests   | Counts/sec  |
 | long_query            | Number of SELECT slow queries   | Counts/sec  |
 | update_total          | Number of UPDATE requests   | Counts/sec  |
