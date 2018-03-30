@@ -1,6 +1,5 @@
 ## 获取通讯管理器
-ImSDK 一切操作都是由通讯管理器 `TIMManager` 开始，SDK 操作第一步需要获取 `TIMManager` 单例。
-`getInstance`获取通讯管理器实例。
+ImSDK 一切操作都是由通讯管理器 `TIMManager` 开始，SDK 操作第一步需要获取 `TIMManager` 单例。`getInstance`获取通讯管理器实例原型如下。
 
 **原型：**
 
@@ -148,8 +147,7 @@ TIMManager.getInstance().init(getApplicationContext(), config);
 ```
 ## 用户配置
 
-在初始化 SDK 后，登录 SDK 之前，需要设置用户配置。
-ImSDK 的用户配置分四部分，分别如下：
+在初始化 SDK 后，登录 SDK 之前，需要设置用户配置。ImSDK 的用户配置分四部分，分别如下：
 + 基本用户配置 —— 通过 `TIMUserConfig` 进行配置。
 + 消息扩展用户配置 —— 通过 `TIMUserConfigMsgExt` 进行配置。
 + 群组管理扩展用户配置 —— 通过 `TIMUserConfigGroupExt` 进行配置。
@@ -350,7 +348,7 @@ public TIMUserConfig setConnectionListener(TIMConnListener listener)
 public TIMUserConfig setUserStatusListener(TIMUserStatusListener userStatusListener)
 ```
 
-用户状态变更通知监听器`TIMUserStatusListener`的定义如下：
+**用户状态变更通知监听器 `TIMUserStatusListener` 的定义如下：**
 
 ```
 /**
@@ -420,9 +418,7 @@ public TIMUserConfigMsgExt enableStorage(boolean storageEnabled)
 > * 如果不需要最近联系人可通过接口禁用： [最近联系人漫游](/doc/product/269/9232#4.2-.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。
 > * 如果不需要离线消息，可以再发消息时使用：[发送在线消息](/doc/product/269/9232#1.10-.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。
 
-在多终端情况下，未读消息计数由 Server 下发同步通知，SDK 在本地更新未读计数后，通知用户更新会话。通知会通过 `TIMRefreshListener` 中的 `onRefreshConversation` 接口来进行回调，对于关注多终端同步的用户，可以在这个接口中进行相关的同步处理。
-
-所以建议在登录之前，通过 `TIMUserConfig` 中的 `setRefreshListener` 接口来设置会话刷新监听。
+在多终端情况下，未读消息计数由 Server 下发同步通知，SDK 在本地更新未读计数后，通知用户更新会话。通知会通过 `TIMRefreshListener` 中的 `onRefreshConversation` 接口来进行回调，对于关注多终端同步的用户，可以在这个接口中进行相关的同步处理。所以建议在登录之前，通过 `TIMUserConfig` 中的 `setRefreshListener` 接口来设置会话刷新监听。
 
 **原型：**
 
@@ -469,18 +465,17 @@ public TIMUserConfigMsgExt setMessageRevokedListener(@NonNull TIMMessageRevokedL
 public void addMessageListener(TIMMessageListener listener) 
 ```
 
-以下为收到新消息回调。
+**以下为收到新消息回调：**
 
 ```
 public boolean onNewMessages(java.util.List msgs)
 ```
 
-以下为删除一个消息监听器的原型。消息监听器被删除后，将不再被调用。
+消息监听器被删除后，将不再被调用。**以下为删除一个消息监听器的原型：**
 
 ```
 public void removeMessageListener(TIMMessageListener listener)
 ```
-
 
 回调消息内容通过参数 `TIMMessage` 传递，通过 `TIMMessage` 可以获取消息和相关会话的详细信息，如消息文本，语音数据，图片等等，可参阅 [消息解析](/doc/product/269/消息收发（Android%20SDK）#2.1-.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90) 部分。
 
