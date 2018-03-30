@@ -107,7 +107,7 @@ TIMManager.getInstance().setLogListener(new TIMLogListener() {
 
 ## 用户状态变更
 
-用户状态变更的时候，SDK 会有相应的通知。通过 `TIMManager` 中的 `setUserStatusListener` 方法可以设置用户状态变更通知监听器来对相应的通知进行监听。目前用户状态变更有两种通知，具体可参见 [用户被踢下线通知](#.E7.94.A8.E6.88.B7.E8.A2.AB.E8.B8.A2.E4.B8.8B.E7.BA.BF.E9.80.9A.E7.9F.A56) 和 [用户票据过期通知](#.E7.94.A8.E6.88.B7.E7.A5.A8.E6.8D.AE.E8.BF.87.E6.9C.9F.E9.80.9A.E7.9F.A57)。
+用户状态变更的时候，SDK 会有相应的通知。通过 `TIMManager` 中的 `setUserStatusListener` 方法可以设置用户状态变更通知监听器来对相应的通知进行监听。目前用户状态变更有两种通知，具体可参见 [用户被踢下线通知](#.E7.94.A8.E6.88.B7.E8.A2.AB.E8.B8.A2.E4.B8.8B.E7.BA.BF.E9.80.9A.E7.9F.A5) 和 [用户票据过期通知](#.E7.94.A8.E6.88.B7.E7.A5.A8.E6.8D.AE.E8.BF.87.E6.9C.9F.E9.80.9A.E7.9F.A5)。
 
 **设置用户状态变更通知监听器的原型：**
 
