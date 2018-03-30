@@ -129,7 +129,7 @@ libs/x86_64/libwtcrypto.so
 
 ### 功能开发
 
-在工程中引入上述提及的 [ImSDK](https://cloud.tencent.com/product/im.html#sdk) 库文件，根据后续章节的开发指引进行功能的开发。其中函数调用顺序可参见（2.2 调用顺序介绍）。
+在工程中引入上述提及的 [ImSDK](https://cloud.tencent.com/product/im.html#sdk) 库文件，根据后续章节的开发指引进行功能的开发。其中函数调用顺序可参见 [调用顺序介绍](#.E8.B0.83.E7.94.A8.E9.A1.BA.E5.BA.8F.E4.BB.8B.E7.BB.8D)。
 
 ### 代码混淆规则
 
