@@ -243,9 +243,7 @@ TIMGroupManagerExt.getInstance().inviteGroupMember(
 public void applyJoinGroup(@NonNull String groupId, String reason, @NonNull TIMCallBack cb)
 ```
 
-以下示例中用户申请加入群组『@TGS#1JYSZEAEQ』，申请理由为『some reason』。
-
-**示例：**
+以下示例中用户申请加入群组『@TGS#1JYSZEAEQ』，申请理由为『some reason』。**示例：**
 
 ```
 TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", new TIMCallBack() {
@@ -380,9 +378,7 @@ TIMGroupManagerExt.getInstance().deleteGroupMember(param, new TIMValueCallBack<L
 
 ### 获取群成员列表
 
-ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
-
-获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
+ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
 
 **权限说明：**
 
@@ -575,7 +571,7 @@ public void modifyGroupOwner(@NonNull String groupId, @NonNull String identifier
 
 ### 其他接口
 
-- 获取指定类型成员（可按照管理员、群主、普通成员拉取）
+**获取指定类型成员（可按照管理员、群主、普通成员拉取）接口定义如下：**
 
 ```
 /**
@@ -896,13 +892,11 @@ public void getSelfInfo(@NonNull String groupId, @NonNull TIMValueCallBack<TIMGr
 
 ### 获取群内某个人的资料
 
-获取群成员资料的接口由 `TIMGroupManagerExt` 提供。
-
-默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)  进行设置。
+获取群成员资料的接口由 `TIMGroupManagerExt` 提供。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)  进行设置。
 
 **权限说明：**
 
-**直播大群：**只能获得部分成员的资料，包括群主、管理员和部分群成员。
+**直播大群**只能获得部分成员的资料，包括群主、管理员和部分群成员。
 
 **原型：**
 ```
@@ -1340,11 +1334,13 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 
 ###  修改群消息接收选项
 
+**权限说明：**
+
 - **公开群和私有群：**默认消息接收方式为接收并提醒。
 - **聊天室和互动直播聊天室：**默认为接收不提醒。
 
 
-其中 `TIMGroupReceiveMessageOpt` 定义如下。
+** `TIMGroupReceiveMessageOpt` 接口定义如下：**
 
 ```
 //不接收群消息， 服务器不会进行转发
@@ -1580,11 +1576,7 @@ public void refuse(String msg, TIMCallBack cb)
 
 ### 启用群资料存储
 
-ImSDK 在默认的情况下，不会存储用户的群资料数据，每次调用接口都是从服务端重新获取。
-
-如果需要 SDK 进行群资料存储，可以在**登录前**，通过 `TIMUserConfigGroupExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。同时可以设置存储的具体字段，参考 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)。
-
-另外，SDK 只会对群资料进行存储，不会对群成员资料进行存储。群成员资料可以在收到的群消息里直接获取，请参考 [消息发送者及其相关资料](/doc/product/269/9232#3.4-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E5.8F.8A.E5.85.B6.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)。
+ImSDK 在默认的情况下，不会存储用户的群资料数据，每次调用接口都是从服务端重新获取。如果需要 SDK 进行群资料存储，可以在**登录前**，通过 `TIMUserConfigGroupExt` 进行相应的配置，并通过 `TIMManager` 的 `setUserConfig` 将相关配置与当前通信管理器进行关联。同时可以设置存储的具体字段，参考 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5)。另外，SDK 只会对群资料进行存储，不会对群成员资料进行存储。群成员资料可以在收到的群消息里直接获取，请参考 [消息发送者及其相关资料](/doc/product/269/9232#3.4-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E5.8F.8A.E5.85.B6.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)。
 
 **`TIMUserConfigGroupExt` 接口定义如下：**
 
@@ -1627,8 +1619,7 @@ public TIMUserConfigGroupExt enableGroupStorage(boolean groupStorageEnabled)
 
 ### 群组资料获取同步接口
 
-为了方便读取，ImSDK 增加了群组资料的同步接口（**需要开启群资料存储**）。
-同步接口均由群组管理扩展包中的 `TIMGroupAssistant` 提供。
+为了方便读取，ImSDK 增加了群组资料的同步接口（**需要开启群资料存储**）。同步接口均由群组管理扩展包中的 `TIMGroupAssistant` 提供。
 
 **原型：**
 
