@@ -1,11 +1,11 @@
 ## 1 概述
 这里的离线指的是应用在没有退出登录的情况下，被系统或者用户杀掉。在这种情况下，如果还想收到ImSDK的消息提醒，可以集成云通信离线推送。
 
-ImSDK同时提供了适配小米、华为离线推送的方案。
+另外，ImSDK 从 2.1.0 版本开始，提供了适配小米、华为离线推送的方案。
 
 > 注意
 > 1. 对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
-> 2. 目前，离线推送只提供 [普通聊天消息](/doc/product/269/9232#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.811) 进行消息提醒，暂不提供对 [系统消息](/doc/product/269/9232#5-.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF43) 的消息提醒 。
+> 2. 目前，离线推送只提供 [普通聊天消息](/doc/product/269/%E6%B6%88%E6%81%AF%E6%94%B6%E5%8F%91%EF%BC%88Android%20SDK%EF%BC%89#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 进行消息提醒，暂不提供对 [系统消息](/doc/product/269/消息收发（Android%20SDK）#5-.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF) 的消息提醒 。
 
 
 
@@ -13,21 +13,22 @@ ImSDK同时提供了适配小米、华为离线推送的方案。
 
 ### 2.1 设置全局离线推送配置
 
-ImSDK提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。
+ImSDK从2.1.0版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。
 
-这个设置方法是由`TIMManager`提供的`setOfflinePushSettings`。
+这个设置方法是由`TIMManager`提供的`configOfflinePushSettings`。
 
 >注意：
 >1. 必须在登录成功后调用才生效。
 >2. 目前仅支持应用内置的声音文件。
 
 **原型 ：**
-```
+
+```java
 /**
  * 初始化离线推送配置，需登录后设置才生效
  * @param settings 离线推送配置信息
  */
-public void setOfflinePushSettings(TIMOfflinePushSettings settings)
+public void configOfflinePushSettings(TIMOfflinePushSettings settings)
 
 /**
  * 从服务器获取离线推送配置，需登录后才能获取
@@ -36,8 +37,15 @@ public void setOfflinePushSettings(TIMOfflinePushSettings settings)
 public void getOfflinePushSettings(final TIMValueCallBack<TIMOfflinePushSettings> cb)
 ```
 
+**参数说明：**
+
+参数|说明
+---|---
+settings|离线推送配置
+
 `TIMOfflinePushSettings`说明：
-```
+
+```java
 /**
  * 获取是否开启
  * @return true - 开启， false - 不开启
@@ -76,7 +84,8 @@ public void setGroupMsgRemindSound(Uri groupMsgRemindSound)
 ```
 
 **示例：**
-```
+
+```java
 TIMOfflinePushSettings settings = new TIMOfflinePushSettings();
 //开启离线推送
 settings.setEnabled(true);
@@ -85,19 +94,21 @@ settings.setC2cMsgRemindSound(Uri.parse("android.resource://" + getPackageName()
 //设置收到群离线消息时的提示声音，这里把声音文件放到了res/raw文件夹下
 settings.setGroupMsgRemindSound(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.dudulu));
 
-TIMManager.getInstance().setOfflinePushSettings(settings);
+TIMManager.getInstance().configOfflinePushSettings(settings);
 ```
 
 ### 2.2 设置单条消息的离线推送配置
 
-ImSDK提供针对单独每一条消息进行离线推送配置的功能。开发者可以针对某条消息设置是否开启离线推送、收到离线推送后提醒声音、离线推送消息描述及扩展字段等。
+ImSDK从2.2.0版本开始提供针对单独每一条消息进行离线推送配置的功能。开发者可以针对某条消息设置是否开启离线推送、收到离线推送后提醒声音、离线推送消息描述及扩展字段等。
 
 >注意：
 >1. 针对单条消息设置的离线推送配置优先级是最高的，也就是在同时设置了全局离线推送配置及单条消息离线推送配置的情况下，将以单条消息离线推送配置为准。
 >2. 目前Android设备的声音仅支持应用内置的声音文件。
+>3. 此章节是根据ImSDK 2.5.3来说明的，在接入低于2.5.3版本的ImSDK时，单条消息的离线推送配置请参考SDK下载包中的javadoc进行配置。
 
 **原型：**
-```
+
+```java
 /**
  * 设置当前消息在对方收到离线推送的时候的配置（可选，发送消息时设置）
  * @param settings 离线推送配置
@@ -112,9 +123,10 @@ public TIMMessageOfflinePushSettings getOfflinePushSettings()
 ```
 
 其中,
+
 **`TIMMessageOfflinePushSettings`：**
 
-```
+```java
 /**
  * 设置当前消息在对方收到离线推送时候展示内容（可选，发送消息时设置）
  * @param descr 正文内容
@@ -178,7 +190,8 @@ public void setIosSettings(IOSSettings iosSettings)
 ```
 
 **`TIMMessageOfflinePushSettings.AndroidSettings`：**
-```
+
+```java
 /**
  * 获取通知标题
  * @return 通知标题
@@ -218,9 +231,11 @@ public void setNotifyMode(NotifyMode mode)
 
 **`TIMMessageOfflinePushSettings.NotifyMode`:**
 
+
 `NotifyMode`只是针对第三方离线推送进行设置的，比如小米、华为的离线推送。
 
-```
+
+```java
 /**
  * 普通通知栏消息模式，离线消息下发后，点击通知栏消息直接启动应用，不会给应用进行回调
  */
@@ -233,7 +248,8 @@ NotifyMode.Custom
 ```
 
 **`TIMMessageOfflinePushSettings.IOSSettings`：**
-```
+
+```java
 /**
  * 获取当前消息在IOS设备上的离线推送提示声音
  * @return 声音文件路径，没有设置则返回null
@@ -260,7 +276,8 @@ public void setBadgeEnabled(boolean badgeEnabled)
 ```
 
 **示例：**
-```
+
+```java
 //构造一条消息
 TIMMessage msg = new TIMMessage();
 
@@ -317,7 +334,7 @@ msg.setOfflinePushSettings(settings);
 TIMConversation conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.C2C,    //会话类型：单聊
         peer); 						//会话对方用户帐号
-        
+
 //发送消息
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
@@ -337,60 +354,66 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ## 3 集成云通信离线推送
 
-因为离线推送依赖于守护进程(`:QALSERVICE`进程），所以为了保证离线推送的正常运作，需要对应用的**自启动权限**进行授权，而部分对Android系统进行了深度定制化的机型（华为、小米等）则需要将应用添加到应用白名单，保证应用被杀掉后，守护进程可以自动重启。
+ImSDK 从1.8.0版本开始提供了离线推送的功能。
+
+因为离线推送依赖于守护进程，所以为了保证离线推送的正常运作，需要对应用的**自启动权限**进行授权，而部分对Android系统进行了深度定制化的机型（华为、小米等）则需要将应用添加到应用白名单，保证应用被杀掉后，守护进程可以自动重启。
 
 ### 3.1 配置AndroidManifest
-由于ImSDK的离线推送依赖于服务，所以需要应用在AndroidManifest.xml的`<application></application>`中添加以下配置：
-```
-<!-- 【必须】消息收发service -->
-<service
-	android:name="com.tencent.qalsdk.service.QalService"
-	android:exported="true"
-	android:process=":QALSERVICE" >
-</service>
-<service  
-	android:name="com.tencent.qalsdk.service.QalAssistService"  
-	android:exported="false"
-	android:process=":QALSERVICE" >
-</service>   
 
-<!-- 【必须】 离线消息广播接收器 -->
+由于ImSDK的离线推送依赖于服务，所以需要应用在AndroidManifest.xml的`<application></application>`中添加以下配置：
+
+```xml
+<!--  消息收发service -->
+<service
+    android:name="com.tencent.qalsdk.service.QalService"
+    android:exported="false"
+    android:process=":QALSERVICE" >  
+</service>
+<!--  消息收发辅助service -->
+<service  
+    android:name="com.tencent.qalsdk.service.QalAssistService"  
+    android:exported="false"
+    android:process=":QALSERVICE" >
+ </service>
+<!--  离线消息广播接收器 -->
 <receiver
-	android:name="com.tencent.qalsdk.QALBroadcastReceiver"
-	android:exported="false">
-	<intent-filter>
-		<action android:name="com.tencent.qalsdk.broadcast.qal" />
-	</intent-filter>
+    android:name="com.tencent.qalsdk.QALBroadcastReceiver"
+    android:exported="false">
+    <intent-filter>
+        <action android:name="com.tencent.qalsdk.broadcast.qal" />
+    </intent-filter>
 </receiver>
-<receiver 
-	android:name="com.tencent.qalsdk.core.NetConnInfoCenter" android:process=":QALSERVICE">
-	<intent-filter>
-		<action android:name="android.intent.action.BOOT_COMPLETED" />
-	</intent-filter>
-	<intent-filter>
-		<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-	</intent-filter>
-   <intent-filter>
-		<action android:name="android.intent.action.TIME_SET" />
-	</intent-filter>
-	<intent-filter>
-		<action android:name="android.intent.action.TIMEZONE_CHANGED" />
-	</intent-filter>
-</receiver>    
+<!--  系统消息广播接收器 -->
+<receiver
+    android:name="com.tencent.qalsdk.core.NetConnInfoCenter"  android:process=":QALSERVICE">  
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.TIME_SET" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+    </intent-filter>
+</receiver>
 ```
 ### 3.2 设置离线推送处理
 #### 3.2.1 实现自己的Application类
 实现android.app.Application，假设命名为MyApplication，在AndroidManifes.xml中配置实现：
-```
+
+```xml
 <!-- 应用在实现的时候请将com.tencent.imsdk.test.MyApplication替换为自己的Application -->
 <application
 	android:allowBackup="true"
 	android:icon="@drawable/ic_launcher"
 	android:label="@string/app_name"
 	android:name="com.tencent.imsdk.test.MyApplication">
-	
+
 	<!-- 这里省略其他各种配置 -->
-	
+
 </application>
 ```
 
@@ -398,20 +421,20 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 在以上的准备做好后，必须注册相应的离线推送监听器才能收到消息通知。如果不需要离线消息通知，可以不进行监听器注册。
 注册离线推送监听器可以通过`TIMManager`中的`setOfflinePushListener`接口进行设置。
 
-> 注意：
-> 设置离线推送监听器，**需要保证在主进程进行设置**。
-
 **原型：**
 ```
-/**
- * 设置离线推送监听器
- * @param listener 离线推送监听器，详见{@see TIMOfflinePushListener}
- */
-public void setOfflinePushListener(final TIMOfflinePushListener listener)
+public void setOfflinePushListener(TIMOfflinePushListener listener)
 ```
+设置离线推送监听器，**需要保证在主进程进行设置**。
+
+**参数说明：**
+
+参数|说明
+---|---
+listener|离线推送监听器，详情请参考javadoc中类TIMOfflinePushListener的说明。
 
 **示例：**
-```
+```java
 public class MyApplication extends Application {
     @Override
     public void onCreate() {
@@ -421,13 +444,13 @@ public class MyApplication extends Application {
 		// 只能在主进程进行离线推送监听器注册
         if(MsfSdkUtils.isMainProcess(this)) {
             Log.d("MyApplication", "main process");
-						
+
 			// 设置离线推送监听器
             TIMManager.getInstance().setOfflinePushListener(new TIMOfflinePushListener() {
                 @Override
                 public void handleNotification(TIMOfflinePushNotification notification) {
                     Log.d("MyApplication", "recv offline push");
-										
+
 					// 这里的doNotify是ImSDK内置的通知栏提醒，应用也可以选择自己利用回调参数notification来构造自己的通知栏提醒
                     notification.doNotify(getApplicationContext(), R.drawable.ic_launcher);
                 }
@@ -449,12 +472,10 @@ public class MyApplication extends Application {
 
 **原型：**
 ```
-/**
- * 获取默认通知栏标题
- * @return 返回默认通知栏标题
- */
 public String getTitle()
 ```
+获取默认通知栏标题。
+
 
 #### 3.3.2 获取默认通知栏内容
 可以通过`getContent`接口来获取默认通知栏内容。
@@ -479,12 +500,9 @@ public String getTitle()
 
 **原型：**
 ```
-/**
- * 获取默认通知栏内容
- * @return 返回默认通知栏内容
- */
 public String getContent()
 ```
+获取默认通知栏内容。
 
 #### 3.3.3 获取会话ID
 通过`getConversationId`可以获取到离线消息的会话ID。
@@ -493,12 +511,9 @@ public String getContent()
 
 **原型：**
 ```
-/**
- * 获取会话ID
- * @return 会话ID
- */
 public String getConversationId()
 ```
+获取会话ID，失败时返回null。
 
 #### 3.3.4 获取会话类型
 
@@ -508,12 +523,9 @@ public String getConversationId()
 
 **原型：**
 ```
-/**
- * 获取会话类型
- * @return 会话类型
- */
 public TIMConversationType getConversationType()
 ```
+获取会话类型。
 
 #### 3.3.5 获取发送方用户ID
 
@@ -521,12 +533,9 @@ public TIMConversationType getConversationType()
 
 **原型：**
 ```
-/**
- * 获取发送方ID
- * @return 发送方ID，失败是返回null
- */
 public String getSenderIdentifier()
 ```
+获取发送方用户ID，失败时返回null。
 
 #### 3.3.6 获取发送者昵称
 通过`getSenderNickName`可以获取到消息发送方的昵称。
@@ -537,52 +546,43 @@ public String getSenderIdentifier()
 
 **原型：**
 ```
-/**
- * 获取发送方昵称/群名片（群消息时，优先返回群名片，当没有群名片时，返回昵称
- * @return 发送方昵称/群名片
- *           1.群消息时，如果群名片存在，返回群名片，如果没有群名片，返回个人昵称
- *           2.C2C消息时，如果个人昵称存在，返回个人昵称
- *           3.群名片或者个人昵称都没有设置时，返回null
- */
 public String getSenderNickName()
 ```
+获取发送方昵称/群名片（群消息时，优先返回群名片，当没有群名片时，返回昵称）。
 
 #### 3.3.7 获取群名称
 在收到群消息的时候，可以通过`getGroupName`获取到群名称。
 
 **原型：**
 ```
-/**
- * 获取群名称，只有在收到群消息时有效
- * @return 群名称，失败时返回null
- */
-public String getGroupName() 
+public String getGroupName()
 ```
+获取群名称，只有在收到群消息时有效，失败时返回null。
 
 #### 3.3.8 获取扩展字段
 收到自定义消息的时候，可以通过`getExt`获取到消息扩展字段。
 
 **原型：**
 ```
-/**
- * 获取后台推送对应的ext字段
- * @return 后台推送对应的ext字段
- */
 public byte[] getExt()
 ```
+获取自定义消息对应的ext字段。
 
 #### 3.3.9 应用默认通知栏提醒
 可以通过`doNotify`来应用ImSDK提供的默认通知栏提醒样式。
 
 **原型：**
 ```
-/**
- * 应用默认通知栏提醒
- * @param context 应用上下文
- * @param iconID 要显示在提醒中的图标的资源ID
- */
 public void doNotify(Context context, int iconID)
 ```
+应用默认通知栏提醒。
+
+**参数说明：**
+
+参数|说明
+---|---
+context|应用上下文。
+iconID|要显示在提醒中的图标的资源ID。
 
 ## 4 集成小米离线推送
 
@@ -592,7 +592,8 @@ public void doNotify(Context context, int iconID)
 
 >注：
 1. 收到离线消息时，默认通知标题为`a new message`。
-2. 如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。
+2. 此指引文档是根据小米推送SDKv3.0.3来写的，可能不适用于新版本的小米推送SDK，新版本的接入请直接参考小米官方文档。
+3. 如果不需要对小米设备做专门的离线推送适配，可以忽略此章节。
 
 ### 4.1 添加小米离线推送证书
 
@@ -606,7 +607,7 @@ public void doNotify(Context context, int iconID)
 
 #### 4.2.1 添加小米推送必须的权限
 
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -621,7 +622,7 @@ public void doNotify(Context context, int iconID)
 
 #### 4.2.2 配置小米推送服务需要的service和receiver
 
-```
+```xml
 <service
   android:enabled="true"
   android:process=":pushservice"
@@ -636,9 +637,9 @@ public void doNotify(Context context, int iconID)
 <service
   android:enabled="true"
   android:exported="true"
-  android:name="com.xiaomi.mipush.sdk.PushMessageHandler" /> 
+  android:name="com.xiaomi.mipush.sdk.PushMessageHandler" />
 <service android:enabled="true"
-  android:name="com.xiaomi.mipush.sdk.MessageHandleService" /> 
+  android:name="com.xiaomi.mipush.sdk.MessageHandleService" />
 <!--注：此service必须在小米推送SDK2.2.5版本以后（包括2.2.5版本）加入-->
 <receiver
   android:exported="true"
@@ -664,7 +665,7 @@ public void doNotify(Context context, int iconID)
 
 **示例：**
 
-```
+```java
 public class MiPushMessageReceiver extends PushMessageReceiver {
 
     private final String TAG = "MiPushMessageReceiver";
@@ -711,7 +712,8 @@ public class MiPushMessageReceiver extends PushMessageReceiver {
 ```
 
 将自定义的BroadcastReceiver注册到AndroidManifest.xml。
-```
+
+```xml
 <receiver
   android:exported="true"
   android:name="com.tencent.imsdk.MiPushMessageReceiver">
@@ -736,7 +738,7 @@ public class MiPushMessageReceiver extends PushMessageReceiver {
 `MiPushClient.registerPush`可在任意地方调用，如果在Application的onCreate中调用的话，需要注意的是因为`XMPushService`在AndroidManifest.xml中设置为运行在另外一个进程，这导致本Application会被实例化两次，所以我们需要让应用的主进程对推送服务进行初始化。
 
 **示例：**
-```
+```java
 public class MyApplication extends Application {
     private String MIPUSH_APPID = "your_appid";
     private String MIPUSH_APPKEY = "your_appkey";
@@ -772,7 +774,7 @@ public class MyApplication extends Application {
 **目前仅支持小米、华为设备，其他厂商设备上传无效。**
 
 **原型：**
-```
+```java
 /**
  * 设置第三方推送用户标识，需登录后设置才生效
  * @param token 用户标识
@@ -797,7 +799,7 @@ public class TIMOfflinePushToken {
      * @param token 用户标识
      */
     public void setToken(String token)
-		
+
     /**
      * 设置业务ID，这里的业务ID是指将离线推送相关证书上传到腾讯云的时候分配的ID
      * @param bussid 业务ID
@@ -807,7 +809,7 @@ public class TIMOfflinePushToken {
 ```
 
 **示例：**
-```
+```java
 //登录成功后，上报证书ID及设备token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
 param.setToken(token);
@@ -833,7 +835,8 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 >注：
 1. 收到离线消息时，默认通知标题为`a new message`。
-2. 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
+2. 此文档是根据华为推送SDKv2705来编写的，可能不适用于后续的新版本推送SDK，新版本华为推送SDK的接入请直接参考华为官方文档。
+3. 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
 
 ### 5.1 添加华为离线推送证书
 
@@ -847,7 +850,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 #### 5.2.1 添加华为推送必须的权限
 
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -857,7 +860,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 #### 5.2.2 配置化为推送服务需要的service和receiver
 
-```
+```xml
 <!-- 备注：Push相关的android组件需要添加到业务的AndroidManifest.xml,
 	 Push相关android组件运行在另外一个进程是为了防止Push服务异常而影响主业务 -->
 
@@ -896,7 +899,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 **示例：**
 
-```
+```java
 public class HwPushMessageReceiver extends PushEventReceiver{
 	private final String TAG = "HwPushMessageReceiver";
 	private String mToken = "";
@@ -932,22 +935,6 @@ public class HwPushMessageReceiver extends PushEventReceiver{
 			}
 			String content = "收到通知附加消息： " + extras.getString(BOUND_KEY.pushMsgKey);
 			Log.e(TAG, content);
-			//获取ext内容
-			try {
-                JSONArray objArray = new JSONArray(extras.getString(BOUND_KEY.pushMsgKey));
-                for(int i = 0; i < objArray.length(); i++){
-                    JSONObject obj = objArray.getJSONObject(i);
-                    if(obj.has("msgid")) {
-                        Log.e(TAG, "msgid:" + obj.getString("msgid"));
-                    }
-
-                    if(obj.has("ext")){
-                        Log.e(TAG, "ext:" + obj.getString("ext"));
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
 		}
 	}
 }
@@ -955,7 +942,7 @@ public class HwPushMessageReceiver extends PushEventReceiver{
 ```
 
 将自定义的BroadcastReceiver注册到AndroidManifest.xml。
-```
+```xml
 <!-- 第三方相关 :接收Push消息（注册、Push消息、Push连接状态、标签，LBS上报结果）广播 -->
 <receiver android:name="com.tencent.imsdk.test.HwPushMessageReceiver" >
 	<intent-filter>
@@ -981,7 +968,7 @@ public class HwPushMessageReceiver extends PushEventReceiver{
 `PushManager.requestToken`可在任意地方调用，如果在Application的onCreate中调用的话，需要注意的是因为`XMPushService`在AndroidManifest.xml中设置为运行在另外一个进程，这导致本Application会被实例化两次，所以我们需要让应用的主进程对推送服务进行初始化。
 
 **示例：**
-```
+```java
 public class MyApplication extends Application {
     private String MIPUSH_APPID = "your_appid";
     private String MIPUSH_APPKEY = "your_appkey";
@@ -1032,7 +1019,7 @@ public void setOfflinePushToken(TIMOfflinePushToken token)
 token|用户标识，包括证书ID， regId， TMID等
 
 `TIMOfflinePushToken`成员方法详细说明：
-```
+```java
 /**
  * 离线推送token配置类，目前只适用于第三方推送接入，比如小米推送、华为推送
  */
@@ -1042,7 +1029,7 @@ public class TIMOfflinePushToken {
      * @param token 用户标识
      */
     public void setToken(String token)
-		
+
     /**
      * 设置业务ID，这里的业务ID是指将离线推送相关证书上传到腾讯云的时候分配的ID
      * @param bussid 业务ID
@@ -1069,4 +1056,226 @@ TIMManager.getInstance().setOfflinePushToken(param);
 -keep class com.huawei.android. pushselfshow.**{*;}
 -keep class com.huawei.android. microkernel.**{*;}
 -keep class com.baidu.mapapi.**{*;}
+```
+
+
+## 6 集成魅族离线推送
+
+魅族推送(Push)是魅族公司向开发者提供的消息推送服务，通过在云端与客户端之间建立一条稳定，可靠的长连接，为开发者提供向客户端应用实时推送消息的服务，通过推送消息，魅族推送服务能有效地帮助开发者拉动用户活跃度，改善产品体验。只能在Flyme OS的设备上使用。
+
+为了保证APP被杀后，在魅族设备上仍然能够收到消息，需要集成魅族推送。目前，**SDK仅支持推送通知栏消息**。
+
+>注：
+1. 收到离线消息时，默认通知标题为`a new message`。
+2. 魅族官方建议在Flyme OS 5.0以上设备上获得最佳效果。
+2. 此文档是根据魅族推送PushSDK3.6来编写的，可能不适用于后续的新版本推送SDK，新版本推送SDK的接入请直接参考[魅族官方接入文档](https://github.com/MEIZUPUSH/PushDemo)。
+3. 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
+
+
+### 6.1 添加魅族离线推送证书
+
+从腾讯云管理中心的 [云通信-应用列表](https://console.cloud.tencent.com/avc) 进入相应应用的`应用配置`页面，在基本配置中根据指引添加`Android推送证书`。如何获得相应的推送证书可以参考 [Android推送证书申请](/doc/product/269/5331)。
+
+添加证书成功后，可以得到一个证书ID，这里可以把这个ID记录下来，后边有用。
+
+### 6.2 PushSDK引用配置
+
+集成魅族推送，需要引入魅族推送SDK，目前魅族推荐使用gradle的方式引用aar。需要在buld.gradle里添加以下语句：
+
+```
+dependencies {
+    compile 'com.meizu.flyme.internet:push-internal:3.6.+@aar'
+}
+```
+
+如果你需要使用jar,请参考 [Eclipse接入方式](https://comsince.github.io/2017/02/21/mzpushsdk-eclipse/)。
+
+### 6.3 兼容flyme5以下版本推送兼容配置
+
+因为魅族推送在Flyme 5.0以上系统的设备上才会有最佳的效果，但是也可能存在系统版本比较低的设备，所以可以做一下相应的兼容，以最大概率保证正常收到推送。
+
+> 注：Flyme 5.0以下的系统无法保证100%可以收到消息推送
+
+在 AndroidManifest.xml中添加以下配置：
+
+```
+  <!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息-->
+  <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"></uses-permission>
+  <permission android:name="包名.push.permission.MESSAGE" android:protectionLevel="signature"/>
+  <uses-permission android:name="包名.push.permission.MESSAGE"></uses-permission>
+    
+  <!--  兼容flyme3.0配置权限-->
+  <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
+  <permission android:name="你的包名.permission.C2D_MESSAGE"
+                    android:protectionLevel="signature"></permission>
+  <uses-permission android:name="你的包名.permission.C2D_MESSAGE"/>
+```
+
+### 6.4 自定义BroadcastReceiver类
+
+想要接收到离线推送的消息，需要自定义一个继承 `MzPushMessageReceiver` 的 `BroadcastReceiver`， 并实现其中的几个相关的接口, 主要关注`onRegisterStatus`和`onNotificationClicked`两个接口. 然后将此receiver注册到AndroidManifest.xml中。
+
+```java
+public class MyPushMsgReceiver extends MzPushMessageReceiver {
+
+    private static final String TAG = MeizuPushMessageReceiver.class.getSimpleName();
+
+    private static final int busiid = 3443;
+
+    /**
+     * 已废弃接口，不建议使用
+     */
+    @Override
+    public void onRegister(Context context, String pushId) {
+
+    }
+
+    /**
+     * 已废弃接口，不建议使用
+     */
+    @Override
+    public void onUnRegister(Context context, boolean success) {
+
+    }
+
+    /**
+     * Push开关状态回调
+     */
+    @Override
+    public void onPushStatus(Context context, PushSwitchStatus pushSwitchStatus) {
+
+    }
+
+    /**
+     * 订阅状态回调, 可以在这个接口获取PushId
+     */
+    @Override
+    public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
+        Log.d(TAG, "pushId: " + registerStatus.getPushId() + "|Expiretime: " + registerStatus.getExpireTime() + "|str: " + registerStatus.toString());
+
+
+        //上报busiid和pushid到腾讯云，需要在登录成功后进行上报
+        TIMOfflinePushToken token = new TIMOfflinePushToken();
+        token.setBussid(busiid);
+        token.setToken(registerStatus.getPushId());
+        TIMManager.getInstance().setOfflinePushToken(token, new TIMCallBack() {
+            @Override
+            public void onError(int i, String s) {
+                Log.e(TAG, "setOfflinePushToken failed, code: " + i + "|msg: " + s);
+            }
+
+            @Override
+            public void onSuccess() {
+                Log.i(TAG, "setOfflinePushToken succ");
+            }
+        });
+    }
+
+    /**
+     * 反订阅回调
+     */
+    @Override
+    public void onUnRegisterStatus(Context context, UnRegisterStatus unRegisterStatus) {
+
+    }
+
+    /**
+     * 标签状态回调
+     */
+    @Override
+    public void onSubTagsStatus(Context context, SubTagsStatus subTagsStatus) {
+
+    }
+
+    /**
+     * 别名状态回调
+     */
+    @Override
+    public void onSubAliasStatus(Context context, SubAliasStatus subAliasStatus) {
+
+    }
+
+    /**
+     * 通知栏点击回调
+     */
+    @Override
+    public void onNotificationClicked(Context context, MzPushMessage mzPushMessage) {
+
+        // 消息正文内容
+        String content = mzPushMessage.getContent();
+
+        // 消息扩展内容
+        String ext = mzPushMessage.getSelfDefineContentString();
+
+        Log.i(TAG, "onNotificationClicked content: " + content + "|selfDefined ext: " + ext);
+    }
+}
+
+```
+
+将这个自定义的`BroadcastReceiver`注册到AndroidManifest.xml中：
+
+```xml
+<!--mz push-->
+<!-- push应用定义消息receiver声明 -->
+<receiver android:name="包名.MyPushMsgReceiver">
+    <intent-filter>
+        <!-- 接收push消息 -->
+        <action android:name="com.meizu.flyme.push.intent.MESSAGE" />
+        <!-- 接收register消息 -->
+        <action android:name="com.meizu.flyme.push.intent.REGISTER.FEEDBACK" />
+        <!-- 接收unregister消息-->
+        <action android:name="com.meizu.flyme.push.intent.UNREGISTER.FEEDBACK"/>
+        <!-- 兼容低版本Flyme3推送服务配置 -->
+        <action android:name="com.meizu.c2dm.intent.REGISTRATION" />
+        <action android:name="com.meizu.c2dm.intent.RECEIVE" />
+        <category android:name="包名"></category>
+    </intent-filter>
+</receiver>
+```
+
+### 6.5 注册魅族推送服务
+
+以上步骤都已经准备好了之后，就可以**在登录IM成功**后，开始向魅族服务器注册魅族推送服务了。注册魅族推送服务需要调用魅族PushSDK提供的`register`方法。
+
+> 注: 魅族推送只适用于Flyme系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题
+
+```java
+//魅族推送只适用于Flyme系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题
+if(MzSystemUtils.isBrandMeizu()){
+    com.meizu.cloud.pushsdk.PushManager.register(this, APP_ID, APP_KEY);
+}
+```
+
+### 6.6 上报证书ID及设备token
+
+如果注册魅族推送服务成功，则会通过之前自定义 `BroadcastReceiver` 的 `onRegisterStatus` 接口回调当前设备的 `PushId`等信息。这个时候就已经可以收到魅族推送控制台进行推送的消息了。不需要如果想要收到腾讯云推送的消息，还需要最后一步，就是上报证书ID和设备token（这里设备token就是回调中的 PushId）。
+
+**示例：**
+
+```java
+/*
+* 订阅状态回调, 可以在这个接口获取PushId，并进行上报
+*/
+@Override
+public void onRegisterStatus(Context context, RegisterStatus registerStatus) {
+    Log.d(TAG, "pushId: " + registerStatus.getPushId() + "|Expiretime: " + registerStatus.getExpireTime() + "|str: " + registerStatus.toString());
+
+
+    //上报busiid和pushid到腾讯云，需要在登录成功后进行上报
+    TIMOfflinePushToken token = new TIMOfflinePushToken();
+    token.setBussid(busiid);
+    token.setToken(registerStatus.getPushId());
+    TIMManager.getInstance().setOfflinePushToken(token, new TIMCallBack() {
+        @Override
+        public void onError(int i, String s) {
+            Log.e(TAG, "setOfflinePushToken failed, code: " + i + "|msg: " + s);
+        }
+
+        @Override
+        public void onSuccess() {
+            Log.i(TAG, "setOfflinePushToken succ");
+        }
+    });
+}
 ```
