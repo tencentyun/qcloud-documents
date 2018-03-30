@@ -23,12 +23,11 @@ public TIMConversation getConversation(TIMConversationType type, String peer)
 String peer = "sample_user_1";  //获取与用户 "sample_user_1" 的会话
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.C2C,    //会话类型：单聊
-        peer);                      //会话对方用户帐号//对方 id
- 
+        peer);                      //会话对方用户帐号//对方id
  
 //获取群聊会话
 String groupId = "TGID1EDABEAEO";  //获取与群组 "TGID1LTTZEAEO" 的会话
- 
+
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.Group,      //会话类型：群组
         groupId);                       //群组 Id
@@ -58,7 +57,7 @@ public void sendMessage(@NonNull TIMMessage msg, @NonNull TIMValueCallBack<TIMMe
 ```
 //获取文本内容
 java.lang.String    getText()
- 
+
 //设置文本内容，text 传递需要发送的文本消息
 void    setText(java.lang.String text)
 ```
@@ -68,17 +67,17 @@ void    setText(java.lang.String text)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加文本内容
 TIMTextElem elem = new TIMTextElem();
 elem.setText("a new msg");
- 
-//将 elem 添加到消息
+
+//将elem添加到消息
 if(msg.addElement(elem) != 0) {
    Log.d(tag, "addElement failed");
    return;
 }
- 
+
 //发送消息
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
@@ -87,7 +86,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -112,19 +111,19 @@ public ArrayList<TIMImage> getImageList()
  * 获取原图本地文件路径，只对消息发送方有效
  * @return 本地文件路径
  */
-public String getPath() 
+public String getPath()
 
 /**
  * 发送消息时，设置待发送的原图文件路径
  * @param path 原图文件路径
  */
-public void setPath(String path) 
+public void setPath(String path)
 
 /**
  * 获取图片质量级别
  * @return 图片质量级别，0: 原图发送  1: 高压缩率图发送(图片较小)   2:高清图发送(图片较大)
  */
-public int getLevel() 
+public int getLevel()
 
 /**
  * 设置图片质量级别
@@ -136,7 +135,7 @@ public void setLevel(int level)
  * 取消图片上传
  * @return 取消图片上传是否成功
  */
-public boolean cancelUploading() 
+public boolean cancelUploading()
 
 /**
  * 获取图片上传任务 id, 调用 sendMessage 后此接口的返回值有效
@@ -148,7 +147,7 @@ public int getTaskId()
  * 获取图片类型
  * @return 图片类型
  */
-public int getImageFormat() 
+public int getImageFormat()
 ```
 
 发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `getImageList` 获取所有图片类型。`TIMImage` 存储了图片列表的类型，大小，宽高信息，如需要图片二进制数据，需通过 `getImage` 接口下载。
@@ -161,13 +160,13 @@ public int getImageFormat()
  * @param path 图片保存路径
  * @param cb 回调
  */
-public void getImage(@NonNull final String path, @NonNull final TIMCallBack cb) 
+public void getImage(@NonNull final String path, @NonNull final TIMCallBack cb)
 
 /**
  * 获取图片类型
  * @return 图片类型
  */
-public TIMImageType getType() 
+public TIMImageType getType()
 
 /**
  * 获取 uuid
@@ -191,7 +190,7 @@ public long getHeight()
  * 获取图片宽度
  * @return 图片宽度
  */
-public long getWidth() 
+public long getWidth()
 
 /**
  * 获取图片 url
@@ -207,7 +206,7 @@ public String getUrl()
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加图片
 TIMImageElem elem = new TIMImageElem();
 elem.setPath(Environment.getExternalStorageDirectory() + "/DCIM/Camera/1.jpg");
@@ -217,7 +216,7 @@ if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
     return;
 }
- 
+
 //发送消息
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
@@ -226,7 +225,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码 code 列表请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -244,7 +243,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
  * 获取表情索引
  * @return 表情索引
  */
-public int getIndex() 
+public int getIndex()
 
 /**
  * 设置表情索引
@@ -270,7 +269,7 @@ public void setData(byte[] data)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加表情
 TIMFaceElem elem = new TIMFaceElem();
 elem.setData(sampleByteArray); //自定义 byte[]
@@ -290,7 +289,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -321,25 +320,25 @@ public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack call
  * 获取需要发送的语音文件的路径，只对发送方有效
  * @return 语音文件路径
  */
-public String getPath() 
+public String getPath()
 
 /**
  * 设置需要发送的语音文件的路径（上传时，如果设置了文件路径，优先上传路径所指定的语音文件）
  * @param path 语音文件路径
  */
-public void setPath(String path) 
+public void setPath(String path)
 
 /**
  * 获取 uuid
  * @return uuid
  */
-public String getUuid() 
+public String getUuid()
 
 /**
  * 获取二进制数据长度
  * @return 二进制数据长度
  */
-public long getDataSize() 
+public long getDataSize()
 
 /**
  * 获取语音时长
@@ -357,7 +356,7 @@ public void setDuration(long duration)
  * 获取语音上传任务 id, 调用 sendMessage 后此接口的返回值有效
  * @return 语音文件上传任务id
  */
-public int getTaskId() 
+public int getTaskId()
 
 ```
 
@@ -366,7 +365,7 @@ public int getTaskId()
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加语音
 TIMSoundElem elem = new TIMSoundElem();
 elem.setPath(filePath); //填写语音文件路径
@@ -385,7 +384,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码code含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -403,13 +402,13 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
  * 获取位置描述
  * @return 位置描述
  */
-public String getDesc() 
+public String getDesc()
 
 /**
  * 设置位置描述
  * @param desc 位置描述
  */
-public void setDesc(String desc) 
+public void setDesc(String desc)
 
 /**
  * 获取经度
@@ -421,7 +420,7 @@ public double getLongitude()
  * 设置经度
  * @param longitude 经度
  */
-public void setLongitude(double longitude) 
+public void setLongitude(double longitude)
 
 /**
  * 获取纬度
@@ -442,13 +441,13 @@ public void setLatitude(double latitude)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加位置信息
 TIMLocationElem elem = new TIMLocationElem();
 elem.setLatitude(113.93);   //设置纬度
 elem.setLongitude(22.54);   //设置经度
 elem.setDesc("腾讯大厦");
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
@@ -503,13 +502,13 @@ public long getFileSize()
  * 获取显示文件名
  * @return 文件名
  */
-public String getFileName() 
+public String getFileName()
 
 /**
  * 设置显示文件名，在发送文件时进行设置
  * @param fileName 文件名
  */
-public void setFileName(String fileName) 
+public void setFileName(String fileName)
 
 /**
  * 获取上传文件所在路径，只对发送方有效
@@ -521,7 +520,7 @@ public String getPath()
  * 设置上传文件所在路径（上传时，如果设置了文件路径，优先上传路径所指定的文件）
  * @param path 文件路径
  */
-public void setPath(String path) 
+public void setPath(String path)
 
 /**
  * 获取文件上传任务 id, 调用 sendMessage 后此接口的返回值有效
@@ -535,7 +534,7 @@ public int getTaskId()
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加文件内容
 TIMFileElem elem = new TIMFileElem();
 elem.setPath(filePath); //设置文件路径
@@ -554,7 +553,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -573,7 +572,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
  * 获取自定义数据
  * @return 自定义数据
  */
-public byte[] getData() 
+public byte[] getData()
 
 /**
  * 设置自定义数据
@@ -585,7 +584,7 @@ public void setData(byte[] data)
  * 获取自定义描述
  * @return 自定义描述
  */
-public String getDesc() 
+public String getDesc()
 
 /**
  * 设置自定义描述
@@ -645,7 +644,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -698,7 +697,7 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 ```
 //获取消息元素
 TIMElem getElement(int i)
- 
+
 //获取元素个数
 long    getElementCount()
 ```
@@ -707,7 +706,7 @@ long    getElementCount()
 
 ```
 TIMMessage msg = /* 消息 */
- 
+
 for(int i = 0; i < msg.getElementCount(); ++i) {
 	TIMElem elem = msg.getElement(i);
 
@@ -732,7 +731,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
  * 从 SDK 取出 Elem 时可以调用，获取 Elem 包含的图片列表
  * @return elem 包含的图片列表
  */
-public ArrayList<TIMImage> getImageList() 
+public ArrayList<TIMImage> getImageList()
 ```
 
 **TIMImage说明：**
@@ -763,13 +762,13 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
         //图片元素
         TIMImageElem e = (TIMImageElem) elem;
         for(TIMImage image : e.getImageList()) {
- 
+
             //获取图片类型, 大小, 宽高
             Log.d(tag, "image type: " + image.getType() +
                     " image size " + image.getSize() +
                     " image height " + image.getHeight() +
                     " image width " + image.getWidth());
- 
+
             image.getImage(path, new TIMCallBack() {
                     @Override
                     public void onError(int code, String desc) {//获取图片失败
@@ -777,7 +776,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 						//错误码 code 含义请参见错误码表
 						Log.d(tag, "getImage failed. code: " + code + " errmsg: " + desc);
                     }
- 
+
                     @Override
                     public void onSuccess() {//成功，参数为图片数据
 						//doSomething
@@ -821,23 +820,23 @@ public void setCustomInt(int value)
 ```
 //下载文件到指定的保存路径
 void getToFile(String path, TIMCallBack callback)
- 
+
 //获取文件名
 java.lang.String    getFileName()
- 
+
 //获取文件大小
 long    getFileSize()
- 
+
 //获取uuid
 java.lang.String    getUuid()
-  
+
 //设置文件名
 void    setFileName(java.lang.String fileName)
 ```
 
 获取到消息时可只展示文件大小和显示名，通过接口 `getToFile` 下载文件资源。`getToFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，ImSDK 并不会存储资源文件。
 
-**原型： ** 
+**原型： **
 
 ```
 /**
@@ -897,10 +896,12 @@ public boolean isSelf()
 
 ### 消息发送者及其相关资料
 
-**对于群消息**，可以通过 `TIMMessage` 的方法 `getSender` 得到发送用户，另外也可以通过方法 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取用户自己的资料和所在群的资料。
+通过 `TIMMessage` 的方法 `getSender` 得到发送用户的用户ID。
 
-> **注意：**
-> 此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
+**对于群消息**，可以通过方法 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。
+> 注意：
+> 此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称）。
+> 只有接收到的群消息才能获取到相应的资料。
 
 ```
 /**
@@ -942,7 +943,7 @@ public long timestamp()
  * 将消息状态标记为删除
  * @return 成功或失败
  */
-public boolean remove() 
+public boolean remove()
 ```
 
 ### 消息 ID
@@ -1017,7 +1018,7 @@ ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfi
  * 启用已读回执，启用后在已读上报时会给对方发送回执，只对单聊会话有效
  */
 public void enableReadReceipt()
-    
+
 /**
  * 设置已读回执监听器
  * @param receiptListener 已读回执监听器
@@ -1099,16 +1100,17 @@ ImSDK 登录以后默认会获取最近联系人漫游，同时每个会话会�
  * 设置是否开启最近联系人功能（默认开启），登录前设置
  * @param recentContactEnabled true - 开启， false - 关闭
  */
-public TIMUserConfigMsgExt enableRecentContact(boolean recentContactEnabled) 
+public TIMUserConfigMsgExt enableRecentContact(boolean recentContactEnabled)
 ```
 
 ### 获取会话本地消息
 
-ImSDK 会在本地进行消息存储，可通过 `TIMConversationExt` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，**对于单聊，登录后会自动获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过 `getMessage` 获取漫游消息**。
- 
- > **注意：**
- > 对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。 
- 
+ImSDK 会在本地进行消息存储，可通过 `TIMConversationExt` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，**对于单聊，登录后会自动获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过`getMessage`获取漫游消息**。
+
+ > 注意：
+ > 对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
+
+
 **原型： **
 
 ```
@@ -1138,7 +1140,7 @@ conExt.getLocalMessage(10, //获取此会话最近的 10 条消息
         //错误码 code 含义请参见错误码表
         Log.d(tag, "get message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(List<TIMMessage> msgs) {//获取消息成功
         //遍历取得的消息
@@ -1146,7 +1148,7 @@ conExt.getLocalMessage(10, //获取此会话最近的 10 条消息
             lastMsg = msg;
             //可以通过 timestamp()获得消息的时间戳, isSelf()是否为自己发送的消息
             Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.msg.seq());
- 
+
         }
     }
 });
@@ -1154,11 +1156,11 @@ conExt.getLocalMessage(10, //获取此会话最近的 10 条消息
 
 ### 获取会话漫游消息
 
-对于群组，登录后可以获取漫游消息，对于 C2C，开通漫游服务后可以获取漫游消息，通过 `TIMConversationExt` 的 `getMessage` 接口可以获取漫游消息，如果本地消息全部都是连续的，则不会通过网络获取，如果本地消息不连续，会通过网络获取断层消息。
- 
- > **注意：**
- > 对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。 
- 
+对于群组，登录后可以获取漫游消息，对于C2C，开通漫游服务后可以获取漫游消息，通过 `TIMConversationExt` 的 `getMessage` 接口可以获取漫游消息，如果本地消息全部都是连续的，则不会通过网络获取，如果本地消息不连续，会通过网络获取断层消息。
+
+ > 注意：
+ > 对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
+
 **原型： **
 
 ```
@@ -1168,7 +1170,7 @@ conExt.getLocalMessage(10, //获取此会话最近的 10 条消息
  * @param lastMsg 已取得的最后一条消息
  * @param callback 回调, 参数中返回获取的消息列表
  */
-public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback) 
+public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback)
 ```
 
 **示例：**
@@ -1188,7 +1190,7 @@ conExt.getMessage(10, //获取此会话最近的 10 条消息
         //错误码 code 含义请参见错误码表
         Log.d(tag, "get message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(List<TIMMessage> msgs) {//获取消息成功
         //遍历取得的消息
@@ -1196,7 +1198,7 @@ conExt.getMessage(10, //获取此会话最近的 10 条消息
             lastMsg = msg;
             //可以通过 timestamp()获得消息的时间戳, isSelf()是否为自己发送的消息
             Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.msg.seq());
- 
+
         }
     }
 });
@@ -1220,7 +1222,7 @@ ImSDK 的 `TIMManagerExt` 中提供了两种删除会话的方式，一种只删
  * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 Id
  * @return true 成功  false 失败
  */
-public boolean deleteConversation(TIMConversationType type, String peer) 
+public boolean deleteConversation(TIMConversationType type, String peer)
 
 
 /**
