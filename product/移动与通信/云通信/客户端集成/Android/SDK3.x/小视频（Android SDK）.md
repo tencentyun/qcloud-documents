@@ -1,9 +1,8 @@
 ## 集成小视频功能扩展包
 
 
-从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 ImSDK 开发包，小视频功能扩展包。
+从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 ImSDK 开发包，小视频功能扩展包。ImSDK 包的功能见 [概述](https://cloud.tencent.com/document/product/269/9227)， 小视频功能扩展包各个文件功能如下。
 
-ImSDK 包的功能见 [概述](https://cloud.tencent.com/document/product/269/9227)， 小视频功能扩展包各个文件功能如下。
 ```
 ugc_ext_libs
 ├── arm64-v8a
@@ -21,6 +20,7 @@ ugc_ext_libs
 ├── okio-1.6.0.jar
 └── txrtmpsdk.jar
 ```
+
 | 包名 | 描述 | 
 |---------|---------|
 | imsdk_ugc_ext.jar | ImSDK 小视频功能扩展 Java 封装，提供小视频上传、小视频消息收发功能 |
@@ -56,8 +56,6 @@ buildTypes {
 **小视频存储功能**需要在控制台开通点播服务，开通方法如下。
 
 ![](https://mc.qcloudimg.com/static/img/7830ff8639567e4a9d60923349bf5a58/image.png)
-
-
 
 ## 录制小视频
 ### 画面预览
@@ -123,14 +121,12 @@ mTXCameraRecord.stopRecord();
 录制的过程和结果是通过 `TXRecordCommon.ITXVideoRecordListener`（位于 `TXRecordCommon.java` 中定义）接口反馈出来的。
 
 - `onRecordProgress` 用于反馈录制的进度，参数`millisecond`表示录制时长，单位毫秒。
-
 ```java
 @optional
 void onRecordProgress(long milliSecond);
 ``` 
 
 - `onRecordComplete` 反馈录制的结果，`TXRecordResult` 的 `retCode` 和 `descMsg` 字段分别表示错误码和错误描述信息，`videoPath` 表示录制完成的小视频文件路径，`coverImage` 为自动截取的小视频第一帧画面，便于在视频发布阶段使用。
-
 ```java   
 @optional
 void onRecordComplete(TXRecordResult result);
@@ -144,7 +140,7 @@ void onRecordComplete(TXRecordResult result);
 
 小视频消息由 `TIMUGCElem` 定义。它是 `TIMElem` 的一个子类，也就是说小视频也是消息的一种内容。 发送小视频的过程，就是将 `TIMUGCElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。详细如下。
 
-**TIMUGCElem 原型：**
+**`TIMUGCElem` 原型：**
 
 ```java
 /**
@@ -217,7 +213,7 @@ public String getVideoPath()
 public void setVideoPath(@NonNull String videoPath) 
 ```
 
-**TIMUGCCover 原型：**
+**`TIMUGCCover` 原型：**
 ```java
 /**
  * 构造封面实例
@@ -299,7 +295,7 @@ public long getSize()
 public void getImage(@NonNull String path, @NonNull TIMCallBack cb)
 ```
 
-**TIMUGCVideo 原型：**
+**`TIMUGCVideo` 原型：**
 ```java
 /**
  * 构造 UGC 视频实例
@@ -369,6 +365,7 @@ public void getVideo(@NonNull String path, @NonNull TIMCallBack cb)
 在消息发送期间，可以通过资源上传进度监听器 `TIMUploadProcessListener` 得到当前上传进度。进度监听器可以通过 `TIMUserConfig` 的 `setUploadProgressListener` 在登录前统一设置。
 
 **原型：**
+
 ```java
 /**
  * 设置上传进度监听器
@@ -437,9 +434,7 @@ con.sendMessage(message, new TIMValueCallBack<TIMMessage>() {
 
 接收方收到消息后，可通过 `TIMMessage` 中的 `getElement` 从 `TIMMessage` 中获取所有的消息节点，其中类型为 `TIMUGCElem` 的是小视频消息节点。然后通过节点中的 `TIMUGCCover` 和 `TIMUGCVideo` 对象获取该小视频的视频和封面图片文件信息及相应文件下载。
 
-以下示例从会话中取出 10 条消息，获取小视频消息并下载相应数据。
-
-**小视频解析示例：**
+以下示例从会话中取出 10 条消息，获取小视频消息并下载相应数据。**小视频解析示例：**
 
 ```java
 //获取一个群组会话实例
