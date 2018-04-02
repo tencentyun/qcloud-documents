@@ -120,6 +120,7 @@ m_pTmgContext->GetSDKVersion;
 >注意:1、加入房间默认不打开麦克风及扬声器。
 >2、在 EnterRoom 函数调用之前要先调用 SetAppInfo 函数及 SetAppVersion 函数进行相关信息的设置
 关于角色的设置，在 [游戏多媒体引擎语音角色说明](/document/product/607/15172)中有介绍。
+
 #### 函数原型
 ```
 ITMGContext virtual void EnterRoom(int relationId, const char* role, const char* authBuff,int buffLen)
