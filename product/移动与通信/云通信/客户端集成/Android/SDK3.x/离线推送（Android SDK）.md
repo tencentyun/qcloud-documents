@@ -1049,10 +1049,11 @@ TIMManager.getInstance().setOfflinePushToken(param);
 魅族推送（Push）是魅族公司向开发者提供的消息推送服务，通过在云端与客户端之间建立一条稳定，可靠的长连接，为开发者提供向客户端应用实时推送消息的服务，通过推送消息，魅族推送服务能有效地帮助开发者拉动用户活跃度，改善产品体验。只能在 Flyme OS 的设备上使用。为了保证 App 被杀后，在魅族设备上仍然能够收到消息，需要集成魅族推送。目前，**SDK 仅支持推送通知栏消息**。
 
 >注：
-> - 收到离线消息时，默认通知标题为 `a new message`。
-> - 魅族官方建议在 Flyme OS 5.0 以上设备上获得最佳效果。
-> - 此文档是根据魅族推送 PushSDK3.6 来编写的，可能不适用于后续的新版本推送 SDK，新版本推送 SDK 的接入请直接参考[魅族官方接入文档](https://github.com/MEIZUPUSH/PushDemo)。
-> - 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
+1. 收到离线消息时，默认通知标题为`a new message`。
+2. 魅族官方建议在Flyme OS 5.0以上设备上获得最佳效果。
+2. 此文档是根据魅族推送PushSDK3.6.3来编写的，可能不适用于后续的新版本推送SDK，新版本推送SDK的接入请直接参考[魅族官方接入文档](https://github.com/MEIZUPUSH/PushDemo)。
+3. 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
+
 
 
 ### 添加魅族离线推送证书
@@ -1065,7 +1066,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 ```
 dependencies {
-    compile 'com.meizu.flyme.internet:push-internal:3.6.+@aar'
+    compile 'com.meizu.flyme.internet:push-internal:3.6.3@aar'
 }
 ```
 
@@ -1223,8 +1224,8 @@ public class MyPushMsgReceiver extends MzPushMessageReceiver {
 > 注: 魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题。
 
 ```java
-//魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题
-if(MzSystemUtils.isBrandMeizu()){
+//魅族推送只适用于Flyme系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题
+if(MzSystemUtils.isBrandMeizu(getApplicationContext())){
     com.meizu.cloud.pushsdk.PushManager.register(this, APP_ID, APP_KEY);
 }
 ```
