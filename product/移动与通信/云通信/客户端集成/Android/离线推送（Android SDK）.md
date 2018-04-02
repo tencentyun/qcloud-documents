@@ -1067,7 +1067,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 >注：
 1. 收到离线消息时，默认通知标题为`a new message`。
 2. 魅族官方建议在Flyme OS 5.0以上设备上获得最佳效果。
-2. 此文档是根据魅族推送PushSDK3.6.3来编写的，可能不适用于后续的新版本推送SDK，新版本推送SDK的接入请直接参考[魅族官方接入文档](https://github.com/MEIZUPUSH/PushDemo)。
+2. 此文档是根据魅族推送PushSDK3.6来编写的，可能不适用于后续的新版本推送SDK，新版本推送SDK的接入请直接参考[魅族官方接入文档](https://github.com/MEIZUPUSH/PushDemo)。
 3. 如果不需要对华为设备做专门的离线推送适配，可以忽略此章节。
 
 
@@ -1083,7 +1083,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 ```
 dependencies {
-    compile 'com.meizu.flyme.internet:push-internal:3.6.3@aar'
+    compile 'com.meizu.flyme.internet:push-internal:3.6.+@aar'
 }
 ```
 
@@ -1097,7 +1097,7 @@ dependencies {
 
 在 AndroidManifest.xml中添加以下配置：
 
-```xml
+```
   <!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息-->
   <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"></uses-permission>
   <permission android:name="包名.push.permission.MESSAGE" android:protectionLevel="signature"/>
@@ -1241,7 +1241,7 @@ public class MyPushMsgReceiver extends MzPushMessageReceiver {
 
 ```java
 //魅族推送只适用于Flyme系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题
-if(MzSystemUtils.isBrandMeizu(getApplicationContext())){
+if(MzSystemUtils.isBrandMeizu()){
     com.meizu.cloud.pushsdk.PushManager.register(this, APP_ID, APP_KEY);
 }
 ```
