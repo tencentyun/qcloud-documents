@@ -50,7 +50,7 @@ WnsSDK 在初始化后，会和 Wns 后台建立并保持一个长连接，后�
 初始化完 Sdk 后，应用即可通过 Sdk 来发送数据. 根据发送的数据的类型的不同, 我们提供了两组接口：发送二进制数据和发送 http 数据，开发商可以根据后端的协议类型(protobuf 类的二进制数据 或 http 协议)选择不同的接口。
 #### 3.3.1、Http(s)数据收发
 对于发送 HTTP(s)数据, 我们提供了两种接口方式，分别如下
-**1、兼容系统接口方案：**
+**1. 兼容系统接口方案**：
 基于 iOS 系统的 URL Loading System 实现的， 只需引入 WnsURLProtocol.h，然后绑定 sdk 实例并向系统注册，代码如下
 
 ```
@@ -82,7 +82,7 @@ if (request.HTTPBody)
 >注意：
 >如果使用 NSURLSessionDataTask 或者使用了该类的第三方库(比如 AFNetworking), 还需要对 request 做以下设置
 
-** 2、Wns Sdk 接口方案**
+**2. Wns Sdk 接口方案**
 调用接口 sendHTTPRequest 来收发 Http(s)数据。
 
 开发商终端需要修改老的接口，替换为 Wns 的收发接口(该接口不支持 http 的 301，302 跳转)
