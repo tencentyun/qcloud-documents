@@ -2,7 +2,7 @@
 
 ## SDK初始化
 ### 获取单例
-TMGSDK 以单例的形式提供，所有调用都从 ITMGContext 开始，通过 ITMGDelegate 回调回传给应用，必须首先设置。
+GMESDK 以单例的形式提供，所有调用都从 ITMGContext 开始，通过 ITMGDelegate 回调回传给应用，必须首先设置。
 #### 函数原型
 ```
 ITMGContext virtual void TMGDelegate(ITMGDelegate* delegate)
@@ -14,7 +14,7 @@ m_pTmgContext = ITMGContextGetInstance();
 ```
 
 ### 消息传递
-TMG 的消息通过 ITMGDelegate 传给应用，消息类型参考 ITMG_MAIN_EVENT_TYPE，data 在 Windows 平台下是 json 字符串格式， 具体 key-value 参见说明文档。
+GME 的消息通过 ITMGDelegate 传给应用，消息类型参考 ITMG_MAIN_EVENT_TYPE，data 在 Windows 平台下是 json 字符串格式， 具体 key-value 参见说明文档。
 #### 函数原型
 ```
  ITMGDelegate virtual void OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data)
@@ -70,7 +70,7 @@ m_pTmgContext->TMGDelegate(p);
 
 ## 实时语音接入
 ### 设置相关信息
-获取相关信息，由腾讯云控制台申请，详情见 [游戏音视频接入指引](/document/product/607/10782)。
+获取相关信息，由腾讯云控制台申请，详情见 [游戏多媒体引擎接入指引](/document/product/607/10782)。
 >在 EnterRoom 函数调用之前要先调用 SetAppInfo 函数及 SetAppVersion 函数进行相关信息的设置
 
 此函数需要来自腾讯云控制台的 SdkAppId 号码及 accountType 号码作为参数，再加上 Id，这个 Id 是唯一标识一个用户，规则由 App 开发者自行制定，App 内不重复即可（Id 需参考鉴权使用文档）。
@@ -119,7 +119,8 @@ m_pTmgContext->GetSDKVersion;
 用生成的权鉴进房，会收到消息为 ITMG_MAIN_EVENT_TYPE_ENTER_ROOM 的回调。
 >注意:1、加入房间默认不打开麦克风及扬声器。
 >2、在 EnterRoom 函数调用之前要先调用 SetAppInfo 函数及 SetAppVersion 函数进行相关信息的设置
-关于角色的设置，在[游戏实时语音角色说明](/document/product/607/15172)中有介绍。
+关于角色的设置，在 [游戏多媒体引擎语音角色说明](/document/product/607/15172)中有介绍。
+
 #### 函数原型
 ```
 ITMGContext virtual void EnterRoom(int relationId, const char* role, const char* authBuff,int buffLen)
@@ -619,7 +620,10 @@ ITMGAudioCtrl virtual int UpdateSpatializer(std::string& identifier,float azimut
 
 #### 函数原理
 ![](https://main.qcloudimg.com/raw/0f90e8e84915c3f34482b1d40b0630c0.png)
-![](https://main.qcloudimg.com/raw/118701bd7cb1e8968530bf7a9b0e822a.png)
+
+从图看参数，假设接收端用户为 A 点位置，发送端用户为 B点位置 ,![](https://main.qcloudimg.com/raw/64491afbf45c2afc68039e704b77292e.png)与![](https://main.qcloudimg.com/raw/e82e5036a05a0e23f0baac39733fa427.png)为 azimuth 方位，![](https://main.qcloudimg.com/raw/affadf85b6c842c025e2ae9f8ef114d9.png)为 elevation 角度，AB 即为 distance_cm 距离。
+假设坐标 ![](https://main.qcloudimg.com/raw/8b06a9be42ac50d8653af271c057fa64.png)，转换为 ![](https://main.qcloudimg.com/raw/ff91cf1896f4f15eabc677586923400f.png)，其中 ![](https://main.qcloudimg.com/raw/1d8902af13daf380e312e36138eef7b5.png)
+则计算公式为：
 ![](https://main.qcloudimg.com/raw/e1aa4d09b144af4ea920d63cf9cac6bb.png)
 
 #### 示例代码
