@@ -1,7 +1,7 @@
 ## 1. API Description
 This API (DescribeScalingConfiguration) is used to query scaling configuration information. Users can specify scaling group ID to query all the scaling configurations under this group.
-Domain for API request: <font style="color:red">scaling.api.qcloud.com</font>
-Note: When calling the API, Region parameter is not mandatory!
+Domain for API request: scaling.api.qcloud.com
+Note: When calling the API, `Region` parameter is optional.
 
 
 ## 2. Input Parameters
@@ -73,7 +73,7 @@ For common errors on this API, refer to [AS Error Code](https://cloud.tencent.co
 https://scaling.api.qcloud.com/v2/index.php?
 &<Common request parameters>
 ```
-Example of returned result is as follows. The totalCount is 1, indicating that the user only has one scaling configuration. The scalingGroupIdSet parameter in this scaling configuration only contains one set of information, indicating that only one scaling group uses this scaling configuration.
+Example of returned result is as follows. The `totalCount` is 1, indicating that this user has only one scaling configuration. The `scalingGroupIdSet` parameter in this scaling configuration contains only one set of information, indicating that only one scaling group uses this scaling configuration.
 ```
 {
     "code":"0",
