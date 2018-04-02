@@ -1060,7 +1060,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->StopAllEffects();
 
 ## 离线语音接入
 ### 离线语音技术接入初始化
-初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[接入指引文档-TLS说明](/document/product/607/10782)。
+初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[游戏多媒体引擎接入指引](/document/product/607/10782)。
 #### 函数原型
 ```
 QAVSDK_API int QAVSDK_CALL QAVSDK_SIG_GenSig(unsigned int appId,const char* uin,const char* privateKey,char* retSigBuff,unsigned int buffLenght);
