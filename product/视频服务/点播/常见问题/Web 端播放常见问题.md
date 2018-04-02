@@ -163,3 +163,9 @@ IE8、9、10：不支持 Fullscreen API，不支持 webkitEnterFullScreen，全�
 ### 在 Hybrid APP 的 WebView 中自动播放失败
 **问题表现：**在 APP WebView 里自动播放失败。
 **解决方案：**需要设置 WebView 关于多媒体自动播放的属性。iOS：mediaPlaybackRequiresUserAction = NO。Android：webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
+
+## 其他问题
+
+### 播放器初始化后看不到视频画面
+**问题表现：**播放器初始化后，未开始播放前，看不到视频的画面，播放器区域黑屏。
+**解决方案：**WEB 播放器是否显示视频的首帧画面取决于该浏览器是否支持，目前并非所有浏览器都支持首帧画面，解决方案为设置视频的封面。
