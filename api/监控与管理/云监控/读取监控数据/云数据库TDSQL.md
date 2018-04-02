@@ -29,8 +29,8 @@ dimensions.0.value为实例的uuid
 
 | 指标名称                  | 含义           | 单位   |
 | --------------------- | ------------ | ---- |
-| data_disk_available   | 数据磁盘可用大小     | GB   |
-| binlog_disk_available | BINLOG磁盘可用大小 | GB   |
+| data_disk_available   | 数据磁盘可用大小     | MB   |
+| binlog_disk_available | BINLOG磁盘可用大小 | MB   |
 | select_total          | SELECT请求总数   | 次/秒  |
 | long_query            | SELECT慢查询数   | 次/秒  |
 | update_total          | UPDATE请求总数   | 次/秒  |

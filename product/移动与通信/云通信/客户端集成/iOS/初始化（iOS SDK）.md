@@ -44,7 +44,7 @@ TIMManager * manager = [TIMManager sharedInstance];
 @end
 ```
 
-回调消息内容通过参数TIMMessage传递，通过TIMMessage可以获取消息和相关会话的详细信息，如消息文本，语音数据，图片等等，可参阅（4.5消息解析）部分。
+回调消息内容通过参数TIMMessage传递，通过TIMMessage可以获取消息和相关会话的详细信息，如消息文本，语音数据，图片等等，可参阅 [消息解析](/doc/product/269/1569#2.1-.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)。
 
 **示例：**
 
@@ -64,7 +64,7 @@ TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
 [[TIMManager sharedInstance] setMessageListener:impl];
 ```
 
-示例中设置消息回调通知，并且在有新消息时直接打印消息，更详细的消息解析，可参阅（4.5消息解析）部分。
+示例中设置消息回调通知，并且在有新消息时直接打印消息，更详细的消息解析，可参阅 [消息解析](/doc/product/269/1569#2.1-.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)。
 
 ## 3. 网络事件通知
 
