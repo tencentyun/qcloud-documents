@@ -32,6 +32,11 @@
  <link href="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.css" rel="stylesheet">
  <script src="//imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.min.js"></script>
 ```
+>**注意事项：**
+> * 如果需要在 Chrome Firefox 等现代浏览器中通过 HTML5 播放 hls，需要在 tcplayer.min.js 之前引入 hls.js。
+```
+ <script src="//imgcache.qq.com/open/qcloud/video/tcplayer/lib/hls.min.0.8.8.js"></script>
+```
 ### step 2：放置播放器容器
 在需要展示播放器的页面位置加入播放器容器，例如：在 index.html 中加入如下代码（容器 ID 以及宽高都可以自定义）。
 ```
@@ -197,10 +202,11 @@ var player = TCPlayer('player-container-id', {
 需传入 swf url，如果浏览器使用 Flash 播放，将会去这个地址获取 Flash 播放器。Flash 播放器发起视频请求时，请求的 Referer 会带上该 url 或者带上页面的 url。
 
 >**注意事项：**
-> * 播放器在 Flash 模式下发起视频请求的 Referer 在 IE、Firefox 浏览器中会带上 swf url，与 Chrome 带上页面的 url 不同。
+> * 播放器在 Flash 模式下发起视频请求的 Referer 在 IE、Firefox 浏览器中会带上 swf url，与 Chrome 浏览器会带上页面的 url 的情况不同。
 > * 您也可以将 player.swf 文件下载后，存放到您的 CDN 服务器中，swf 参数传入指向您的 CDN 服务器路径。
-> * 腾讯云提供的隔离域名是每个用户独有的域名，一个 appID 对应一个域名，通常格式为 [appID].vod2.myqcloud.com
-> * 需要将播放器 swf url 的域名添加到白名单内
+> * 腾讯云提供的隔离域名是每个用户独有的域名，一个 appID 对应一个域名，通常格式为 [appID].vod2.myqcloud.com。
+> * 需要将播放器 swf url 的域名添加到白名单内，开启了Referer防盗链的视频才能在 Flash 模式下播放。
+> * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下。
 
 ### Key 防盗链
 开启流程请看 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)
@@ -218,7 +224,7 @@ var player = TCPlayer('player-container-id', {
 参数 t、us、sign的具体含义请查看 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)
 
 >**注意事项：**
-> * t、us、sign 必须严格按照 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)的规定进行生成，在播放器初始化参数中传递这3个参数，播放器将会获取视频防盗链地址进行播放。
+> * sign 的计算方法为：sign = md5(KEY+appId+fileId+t+us)，与 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)中的计算方式不同，其余参数一致。
 > * 如果同时开启了 Referer 防盗链，在 Referer 防盗链配置的示例代码基础上增加参数即可。
 
 ### 试看功能
@@ -238,7 +244,7 @@ var player = TCPlayer('player-container-id', {
 参数 t、us、sign、exper 的具体含义请查看 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)
 
 >**注意事项：**
-> * t、us、sign、exper 必须严格按照 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)的规定进行生成，在播放器初始化参数中传递这4个参数，播放器将会获取指定试看时长的视频防盗链地址进行播放。
+> * 带试看的 sign 计算方法为：sign = md5(KEY+appId+fileId+t+exper+us)，与 [Key 防盗链说明文档](https://cloud.tencent.com/document/product/266/14047)中的计算方式不同，其余参数一致。
 > * 播放器播放的视频时长是 exper 参数指定的长度，与已往在播放端控制播放时长的试看功能不同，播放器不会获取完整的视频。
 
 ### HLS 加密播放
@@ -247,5 +253,6 @@ var player = TCPlayer('player-container-id', {
 >**注意事项：**
 > * 如果播放页面或者Flash swf url 与解密秘钥服务器域名不一致，Key 服务器需要部署 corssdomain.xml 和 CORS（"跨域资源共享" Cross-origin resource sharing），允许 Flash 和 JavaScript 跨域获取解密秘钥。
 > * crossdomain.xml 中配置的是 swf url 的域名，并且 xml 文件必须放置在 Key 服务器的根目录。
+> * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下。
 > * 视频只能进行一次加密，不可多次加密，严格按照视频加密文档操作。
 > * 解密秘钥正确长度为16字节，起始和末尾位置不能有空白字符。
