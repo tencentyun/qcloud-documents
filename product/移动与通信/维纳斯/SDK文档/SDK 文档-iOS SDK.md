@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, WnsSDKStatus) {
 };
 
 ```
-接口说明：获取wns网络状态
+接口说明：获取 wns 网络状态
 参数说明：
 
 | 参数 | 类型 | 必选 | 说明 |
