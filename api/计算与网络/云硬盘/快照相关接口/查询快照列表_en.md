@@ -26,7 +26,7 @@ The following request parameter list only provides API request parameters. For o
 
 | Parameter Name | Type | Description |
 |---------|---------|---------|
-| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, refer to<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Code</a>. |
+| code | Int | Common error code; 0: Succeeded; other values: Failed. For more information, refer to <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="Common request parameters">Common Error Code</a>. |
 | message | String | Error message |
 | snapshotSet | Array [object] | Snapshot details |
 | totalCount | Int | Number of snapshots that meet the condition.

@@ -1,6 +1,6 @@
 ## 版本说明
 
-- 版本号：3.9.2754 @ 2017-12-15
+- 版本号：4.4.3774 @ 2018-03-23
 
 ## 文档索引
 
@@ -13,12 +13,13 @@
 
 - **标准版**
 
-包含短视频录制、视频发布、视频编辑、以及在线播放等短视频 APP 所需全部功能，SDK 集成无需商用授权，亦不绑定腾讯云。
+包含短视频录制、视频发布、视频编辑、以及在线播放等短视频 APP 所需全部功能，SDK 集成无需商用授权，亦不绑定腾讯云。    
+这里需要注意的是：ios版本点播使用的是系统播放器 AVPlayer ，暂不支持点播缓存等相关逻辑，后续会开放 IJK Player，支持点播所有逻辑，敬请期待。
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 3.9.2754 @ 2017-12-15 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.9/TXLiteAVSDK_UGC_iOS_3.9.2754.zip)   |
-| Android平台  | 3.9.2754 @ 2017-12-15 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.9/LiteAVSDK_UGC_Android_3.9.2754.zip) |
+| iOS平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/TXLiteAVSDK_UGC_Rename_iOS_4.4.3774.zip)   |
+| Android平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/LiteAVSDK_UGC_Android_4.4.3774.zip) |
 
 - **付费版**
 
@@ -26,5 +27,5 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 3.9.2754 @ 2017-12-15 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.9/TXLiteAVSDK_Enterprise_Rename_iOS_3.9.2754.zip) |
-| Android平台  | 3.9.2754 @ 2017-12-15 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/3.9/LiteAVSDK_Enterprise_Android_3.9.2754.zip) | 
+| iOS平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/TXLiteAVSDK_Enterprise_Rename_iOS_4.4.3774.zip) |
+| Android平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/LiteAVSDK_Enterprise_Android_4.4.3774.zip) | 

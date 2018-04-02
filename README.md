@@ -15,6 +15,7 @@
 （When+Where）使用产品的具体场景是什么？<br>
 （How）怎么使用这个产品？<br><br>
 
+
 * 分清读者对象，按不同的类型、不同层次的读者，决定怎样适应他们的需要。
 </td>
 </tr>
@@ -28,7 +29,7 @@
 </tr>
 <tr>
 <td>
-文档结构	
+文档结构
 </td><td>根据统一的内容框架（请参考《产品介绍页基本规范》、《产品文档页基本规范》、《API文档基本规范》）进行内容补充
 </td>
 </tr>
@@ -46,19 +47,23 @@
 </table>
 
 
-## 1. 字体、颜色规范
+##1. 字体、颜色规范
 
-腾讯云对外在线文档均由磐石统一编辑发布，采用Markdown编写方式。当前CSS渲染出的默认字体字号如下：
+腾讯云对外在线文档均由磐石统一编辑发布，采用 Markdown 编写方式。当前 CSS 渲染出的默认字体字号如下：
 
 > 注意：除代码块内文字可更改颜色（请使用html标准颜色如red\blue等），其余规范均不可更改。
 
 <table><tbody>
-<tr>
-<td rowspan="4">
-正文	</td><td>中文字体</td><td>	微软雅黑（PC） 苹方（Mac）</td></tr>
+ <tr>
+  <td rowspan="4">
+   正文	 
+  </td> 
+  <td>中文字体</td>
+  <td>微软雅黑（PC) 苹方（Mac) </td>
+ </tr>
 <tr><td>	英文字体</td><td>	PingFangSC-Light字集（苹方）</td></tr>
-	<tr><td>字体颜色</td><td>	#666</td></tr>
-	<tr><td>字号</td><td>		14px（五号）</td></tr>
+<tr><td>字体颜色</td><td>	#666</td></tr>
+<tr><td>字号</td><td>		14px（五号）</td></tr>
 <tr>
 <td rowspan="4">
 代码块/文本中的代码</td><td>	英文字体</td><td>	Consolas字集</td></tr>
@@ -113,7 +118,7 @@
   <tr>
     <td> 正文第一级列表</td>
     <td> 1. 列表项一<br>2. 列表项二	</td>
-   
+
   </tr>
   <tr>
     <td> 列表中的第二级列表</td>
@@ -216,7 +221,7 @@
 <tr><td>正确使用</td><td>错误使用</td></tr>
 <tr><td>腾讯云数据中心高速互联网</td><td>腾讯骨干网</td></tr><tr><td>App / 应用</td><td>APP、软件、程序</td></tr><tr><td>Android</td><td>android、安卓</td></tr><tr><td>iOS</td><td>ios、IOS</td></tr><tr><td>iPhone</td><td>IPHONE、iphone</td></tr>
 <tr><td>App Store</td><td>AppStore、app store</td></tr>
-<tr><td>WiFi</td><td>wifi、Wifi、Wi-fi</td></tr>
+<tr><td>Wi-Fi</td><td>wifi、Wifi、WiFi</td></tr>
 <tr><td>email</td><td>E-mail、Email</td></tr>
 <tr><td>IP</td><td>Ip、ip</td></tr>
 </tbody>

@@ -1,96 +1,180 @@
-## 1. API Description
-This API (UpdateCdnConfig) is used to modify the configuration information corresponding to the domain.
+## API Description
+This API (**UpdateCdnConfig**) is used to modify the configuration information of accelerated domain names.
 
-Domain for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: <font style="color:red">cdn.api.qcloud.com</font>
 
-1) Modify the configuration information of one domain at a time;
-2) The caching rules, cache type, hotlink protection, origin HOST header, origin server and other configuration information can be modified for specific domains;
-3) This API provides functions to [Modify origin server configuration](https://cloud.tencent.com/doc/api/231/1397) and [Modify caching rules](https://cloud.tencent.com/doc/api/231/3934).
+**Notes:** 
 
-[Call Demo](https://cloud.tencent.com/document/product/228/1734)
++ You can only modify the configuration information of one domain name at a time.
++ You can modify multiple configuration information of a specified domain name at a time.
++ Calling the API can reach 100 times/min at most.
 
-## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page for details. The Action field for this API is UpdateCdnConfig.
+**Supported Configuration:**
 
-| Parameter Name      | Required | Type          | Description                                       |
-| --------- | ---- | ----------- | ---------------------------------------- |
-| hostId    | Yes    | Int         | Domain ID to be set                              |
-| projectId | No    | Int         | Project ID corresponding to the domain to be set                           |
-| cache     | No    | JSON String | Cache configuration, as described below                             |
-| cacheMode | No    | String      | Cache mode. There are two modes: "simple" means cache completely depends on the the Console; "custom" means cache depends on the cache expiration time set by the Console and the minimum value in max-age set by origin server.  |
-| refer     | No    | JSON String | Hotlink protection configuration, as described below                             |
-| fwdHost   | No    | String      | Origin host header; host parameter in the HTTP header sent from CDN node to origin.     |
-| fullUrl   | No    | String      | Full-path URL cache. There are two modes: "on" means to enable; "off" means to disable.  |
-| origin    | No    | String      | Configuration of the origin server                                     |
++ Modify origin server configuration
++ Modify slave server information
++ Modify original-pull host
++ Enable/disable "Ignore query string"
++ Modify refer blacklist/whitelist configuration
++ Modify IP blacklist/whitelist configuration
++ Enable/disable video dragging
++ Modify cache expiration time configuration
++ Enable/disable advanced cache expiration configuration
++ Enable/disable intermediate server configuration
++ Configure capped bandwidth
++ Set response header
++ Set request header
 
-#### Details
+[View the example](https://cloud.tencent.com/document/product/228/1734)
 
-##### Configuration of Hotlink Protection
+## Input Parameters
+The following request parameter list only provides the API request parameters. Common request parameters are required when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page. The Action field for this API is UpdateCdnConfig.
 
-Example:
+| Parameter Name | Required | Type | Description |
+| -------------- | ---- | ------ | ---------------------------------------- |
+| hostId | No | Int | The ID of domain name to be modified |
+| host | No | String | The domain name to be modified |
+| origin | no | String | Origin server configuration. You can configure one domain name or multiple origin server IPs<br/>Available port range: 0-65535 <br/>Domain name mode: ```www.test.com:8080```<br/>IP mode: 1.1.1.1:8080, 2.2.2.2:8080 |
+| backupOrigin | no | String | Backup origin server configuration. You can configure one domain name or multiple origin server IPs<br/>Available port range: 0-65535<br/>Domain name mode: ```www.test.com:8080```<br/>IP mode: 1.1.1.1:8080, 2.2.2.2:8080 |
+| fwdHost | No | String | Origin-pull Host, which is the parameter "host" in the HTTP header sent from CDN node to origin. |
+| fullUrl | No | String | "Ignore Query String" configuration<br/>"on": Disable<br/>"off": Enable |
+| refer | No | String | Hotlink protection configuration. For more information, please see the description below |
+| accessIp | No | String | IP blacklist/whitelist configuration. For more information, please see the description below |
+| videoSwitch | No | String | Video dragging configuration<br/>"on": Enable <br/>"off": Disable |
+| cache | No | String | Cache expiration time configuration. For more information, please see the description below |
+| cacheMode | No | String | Cache mode setting<br/>"simple": Cache completely depends on the console<br/>"custom": Cache depends on the cache expiration time set by the console and the minimum value in max-age set by origin server |
+| middleResource | No | String | Intermediate server configuration<br/>"on": Enable<br/>"off": Disable |
+| capping | No | String | Capped bandwidth setting. For more information, please see the description below |
+| rspHeader | No | String | Response Header setting. For more information, please see the description below |
+| reqHeader | No | String | Request Header settings. For more information, please see the description below |
+
+### Descriptions of "refer", "accessIp", "cache", "capping", "rspHeader" and "reqHeader"
+
+#### refer
+
+**Sample Parameters** 
 
 ```
-[1,["qq.baidu.com", "*.baidu.com"]]
+[1,["qq.baidu.com", "*.baidu.com"],1]
 ```
 
 The first field specifies the type of refer:
 
-+ 0:  Do not configure hotlink protection;
-+ 1: Configure blacklist;
-+ 2: Configure whitelist;
+- 0: Do not set hotlink protection
+- 1: Set blacklist
+- 2: Set whitelist
 
-The second field is the specific namelist.
+The second field is the specific list. The third field indicates whether to include blank "refer":
 
-##### Configuration of Caching Rules
+- 1: Include blank "refer"
+- 0: Do not include blank "refer"
 
-Example of cache configuration:
+#### accessIp
+
+**Sample Parameters** 
 
 ```
-[[0,"all",1000],[1,".jpg;.js",2000],[2,"/www/html",3000],[3,"/index.html;/test/*.jpg",3000]]
+{"type":1,"list":["1.2.3.4","2.3.4.5"]}
 ```
 
-The first parameter is cache type:
+The first parameter "type" indicates the blacklist/whitelist type:
 
-There are four types:
+- 1: Blacklist
+- 2: Whitelist
 
-- 0: All types. This means all files are matched. This is the default cache configuration;
-- 1: File type. This means matching based on file extensions;
-- 2: Folder type. This means matching based on directories;
-- 3: Full-path file. This means matching based on home page or matching a specified file.
+The second parameter "list" indicates the corresponding blacklist IP list. IP address ranges can be configured in the following formats: /8, /16, /24.
 
-The second parameter specifies matching rule:
+A maximum of 100 and 50 IPs can be configured in a blacklist and a whitelist, respectively.
 
-- 0: "all" is entered in a fixed way;
-- 1: Surfix, such as .jps; .js, separated with ";"
-- 2: Directory, such as /www/html; /www/anc/, separated with ";"
-- 3: Full-path file, such resource full-path as /index.html;/test/\*.jpg, separated with ";". "\*" can only be used for matching.
+#### cache
 
-The third parameter specifies cache expiration time (in seconds).
+**Sample Parameters** 
 
+```
+[[0,"all",1000],[1,".jpg;.js",2000],[2,"/www/html",3000],[3,"/www/1.html",1000]]
+```
 
-## 3. Output Parameters
+The first parameter indicates the cache type. Four types are available:
 
-| Parameter Name     | Type     | Description                                       |
+- 0: All types. This means all files are matched. This is the default cache configuration.
+- 1: File type. This means matching files based on filename extensions.
+- 2: Folder type. This means matching based on directories.
+
+The second parameter specifies the matching rule:
+
+- 0: Always entered with "all".
+- 1: Suffix, such as .jps,.js, separated with ";".
+- 2: Directory, such as /www/html, /www/anc/, separated with ";".
+- 3: Full path, such as /www/1.html, /www/2.html, separated with ";".
+
+The third parameter specifies the cache expiration time (in seconds).
+
+"cache" is ranked according to the rule sequence in priority order (from top to bottom).
+
+#### capping
+
+**Sample Parameters**
+
+```
+{"bandwidth":1000000, "unit":"K", "overflow":"origin", "active":"yes"}
+```
+
+Description:
+
++ bandwidth: Capped bandwidth value (in Bps)
++ uint: The unit displayed on the console. Convert the above values (Bps) to other units. K means Kbps, M means Mbps, G means Gbps and T means Tbps.
++ overflow: A response is returned when the threshold is exceeded. "origin": Return to origin server in full volume. "404": 404 is returned for all requests.
++ active: "yes": "capping" is enabled. "no": "capping" is disabled.
+
+#### rspHeader
+
+**Sample Parameters** 
+
+```
+{"Content-Language":"zh_CN","Access-Control-Allow-Origin":"https://www.test.com"}
+```
+
+Response Header only supports the following header settings:
+
+- Content-Disposition
+- Content-Language
+- Access-Control-Allow-Origin
+- Access-Control-Allow-Methods
+- Access-Control-Max-Age
+- Access-Control-Expose-Headers
+
+According to HTTP protocol, Access-Control-Allow-Origin can only be set as "*" or a domain name (with a header of http:// or https://), and "value" cannot exceed 1,000 Bytes.
+
+#### reqHeader
+
+**Sample Parameters** 
+
+```
+{"cdn":"tencent"}
+```
+
+"value" cannot exceed 1,000 Bytes.
+
+## Output Parameters
+
+| Parameter Name | Type | Description |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page.  |
-| message  | String | Module error message description depending on API.                           |
-| codeDesc | String | English error message or error code at business side.                           |
+| code | Int | Common error code. 0: Successful; other values: Failed.<br/>For more information, please see [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Codes page. |
+| message | String | Module error message description depending on API. |
+| codeDesc | String | Error message or error code at business side.<br/>For more information, please see [Business Error Codes](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Codes page. |
 
+## Example
 
-## 4. Example
+### Sample Parameters
 
-### 4.1 Example of Input
+```
+host: www.test.com
+reqHeader: {"cdn":"tencent"}
+```
 
-> hostId: 1234
-> cache: [[0,"all",1000],[1,".jpg;.js",2000],[2,"/www/html",3000]]
-> cacheMode: custom
-> refer: [1,["qq.baidu.com", "*.baidu.com"]]
+### GET Request
 
-
-
-### 4.2 GET Request
-
-All the parameters are required to be added after URL in GET request:
+For a GET request, all the parameters are required to be appended to the URL:
 
 ```
 https://cdn.api.qcloud.com/v2/index.php?
@@ -99,23 +183,19 @@ Action=UpdateCdnConfig
 &Timestamp=1462872270
 &Nonce=541116052
 &Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-&hostId=207868
-&cache=%5B%5B0%2C%22all%22%2C1000%5D%2C%5B1%2C%22.jpg%3B.js%22%2C2000%5D%2C%5B2%2C%22%2Fwww%2Fhtml%22%2C3000%5D%5D
-&cacheMode=custom
-&refer=%5B1%2C%5B%22qq.baidu.com%22%2C+%22%2A.baidu.com%22%5D%5D
+&host=www.test.com
+&reqHeader=%7B%22cdn%22%3A%22tencent%22%7D
 ```
 
+### POST Request
 
-
-### 4.3 POST Request
-
-In POST request, the parameters will be filled in HTTP Request-body. The request address is:
+For a POST request, the parameters are input in HTTP Request-body. The request address is:
 
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
 
-Such formats of parameters as form-data, x-www-form-urlencoded are supported. The array of parameters is as follows:
+Formats such as form-data and x-www-form-urlencoded are supported for the parameters. The array of parameters is as follows:
 
 ```
 array (
@@ -124,17 +204,13 @@ array (
   'Timestamp' => 1462872294,
   'Nonce' => 479724541,
   'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-  'hostId' => '207868',
-  'cache' => '[[0,"all",1000],[1,".jpg;.js",2000],[2,"/www/html",3000]]',
-  'cacheMode' => 'custom',
-  'refer' => '[1,["qq.baidu.com", "*.baidu.com"]]'
+  'host' => 'www.test.com',
+  'reqHeader' => '{"cdn":"tencent"}'
 )
 ```
 
 
-### 4.4 Example of Returned Result
-
-#### Configuration Successful
+### Example of Result
 
 ```json
 {
@@ -144,15 +220,11 @@ array (
 }
 ```
 
-#### Configuration Failed
-
 ```json
 {
     "code": 4000,
-    "message": "(9130) refer error cdn invalid refer [refer should be json]",
-    "codeDesc": 9130
+    "message": "(9175) Deploying status cdn host in progress[host in progress]",
+    "codeDesc": "UserRequestError"
 }
 ```
-
-
 

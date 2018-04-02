@@ -6,7 +6,7 @@
 
 从官网下载ImSDK开发包，主要包括include文件夹和lib文件夹。各部分说明如下：
 - libs\c_includes C接口头文件
-- libs\includes C++借口头文件
+- libs\includes C++接口头文件
 - libs 动态C运行时库
 - static-rt-libs 静态C运行时库
 

@@ -48,3 +48,5 @@ Enter the URLs of objects to be prefetched (must contain http:// or https://), o
 ## Task Query
 
 You can query the status of submitted refresh and prefetch tasks in "History" section.
+![](//mc.qcloudimg.com/static/img/0a1014750c46acd6abb398beb3d3a099/image.png)
+

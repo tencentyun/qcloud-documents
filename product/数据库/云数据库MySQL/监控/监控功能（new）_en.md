@@ -76,7 +76,7 @@ Tencent Cloud Monitor provides the following monitored metrics for CDB instances
 | Distance between the Unsynchronized Master and Slave | master_slave_sync_distance | MB | Instance Dimension | [View MySQL's Official Guide][3] |
 
 
-For more information about how to use the monitoring metrics in the database, please see [Interface of Reading Monitored Data](https://cloud.tencent.com/document/product/248/11013https://cloud.tencent.com/document/api/248/11006) in the Cloud Monitor API.
+For more information about how to use the monitoring metrics in the database, please see [Interface of Reading Monitored Data](https://cloud.tencent.com/document/api/248/11006) in the Cloud Monitor API.
 
 > More monitoring metrics will be available in the future.
 

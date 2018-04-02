@@ -14,9 +14,13 @@
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
 | 创建计算环境 | [CreateComputeEnv](/document/api/599/12691) | 用于创建一个计算环境，包含一个或者多个 CVM 实例 |
+| 修改计算环境 | [ModifyComputeEnv](/document/api/599/13637) | 用于修改计算环境的期望节点数量 |
 | 删除计算环境 | [DeleteComputeEnv](/document/api/599/12692) | 用于删除一个计算环境 |
 | 查看计算环境列表 | [DescribeComputeEnvs](/document/api/599/12695) | 用于查看一个或者多个计算环境的概览信息 |
 | 查看计算环境信息 | [DescribeComputeEnv](/document/api/599/12694) | 查看计算环境详情 |
+| 查看计算环境活动信息 | [DescribeComputeEnvActivities](/document/api/599/13638) | 用于查询计算环境的活动信息 |
+| 查看计算环境的创建信息 | [DescribeComputeEnvCreateInfo](/document/product/599/14604) | 用于查看一个计算环境的创建信息，相当于查看计算环境对应的 CreateComputeEnv 的参数 |
+
 
 ## 3. 查看配置类接口
 | 接口功能 | Action ID | 功能描述 |

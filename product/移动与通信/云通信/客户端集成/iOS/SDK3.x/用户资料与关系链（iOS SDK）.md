@@ -1,4 +1,4 @@
-IM通讯云提供了关系链和用户资料托管，APP开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不通用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）。
+IM通讯云提供了关系链和用户资料托管，APP 开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不同用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）。
 
 本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 
 
@@ -73,7 +73,7 @@ profile.language = 1;
 
 ### 2.2 设置自己的自定义字段
 
-通过Server配置（内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能，如用户性别、地址等字段。
+通过 Server 配置（内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能，如用户性别、地址等字段。
 
 **原型：**
 
@@ -81,7 +81,7 @@ profile.language = 1;
 @interface TIMUserProfile : NSObject
 
 /**
- *  自定义字段集合,key是NSString*类型,value是NSData*类型
+ *  自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
  *  (key值按照后台配置的字符串传入)
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
@@ -93,7 +93,7 @@ profile.language = 1;
 
 ### 3.1 获取自己的资料 
 
-可通过 TIMFriendshipManager 的 getSelfProfile方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.999) 方法设置，此方法全局有效。
+可通过 TIMFriendshipManager 的 getSelfProfile 方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.999) 方法设置，此方法全局有效。
 
 **原型：**
 
@@ -218,7 +218,7 @@ customInfo | 个人资料的自定义属性
 
 ### 3.2 获取好友的资料
  
-可通过 TIMFriendshipManager的 getFriendsProfile 方法获取好友的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.999) 方法设置，此方法全局有效。此接口从网路获取数据。：
+可通过 TIMFriendshipManager 的 getFriendsProfile 方法获取好友的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.999) 方法设置，此方法全局有效。此接口从网路获取数据。：
 
 **原型：**
 
@@ -277,7 +277,7 @@ NSMutableArray * arr = [[NSMutableArray alloc] init];
 	NSLog(@"GetFriendsProfile fail: code=%d err=%@", code, err);
 }];
 ```
-示例中获取@"iOS_002"和@"iOS_003"两个用户的资料。 
+示例中获取 @"iOS_002" 和 @"iOS_003" 两个用户的资料。 
 
 ### 3.3 获取任何人的资料
 
@@ -340,11 +340,11 @@ NSMutableArray * arr = [[NSMutableArray alloc] init];
 	NSLog(@"GetFriendsProfile fail: code=%d err=%@", code, err);
 }];
 ```
-示例中获取@"iOS_002"和@"iOS_003"两个用户的资料。 
+示例中获取 @"iOS_002" 和 @"iOS_003" 两个用户的资料。 
 
 ### 3.4 按照字段获取用户资料
 
-ImSDK可以设置所需要拉取的资料字段，方便更灵活的获取资料。
+ImSDK 可以设置所需要拉取的资料字段，方便更灵活的获取资料。
 
 **原型：**
 ```
@@ -382,7 +382,7 @@ ImSDK可以设置所需要拉取的资料字段，方便更灵活的获取资料
 
 ### 4.1 好友备注
  
-可通过 TIMFriendshipManager的 setFriendRemark 方法设置好友备注，**需要注意好友备注必须先加为好友才可设置备注**： 
+可通过 TIMFriendshipManager 的 setFriendRemark 方法设置好友备注，**需要注意好友备注必须先加为好友才可设置备注**： 
 
 **原型：**
 
@@ -436,7 +436,7 @@ NSString * identifier = @"iOS_002";
 
 ### 4.2 设置好友自定义资料
 
-通过Server配置（内测功能）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能。**需要注意好友备注必须先加为好友才可设置备注**： 
+通过 Server 配置（内测功能）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能。**需要注意好友备注必须先加为好友才可设置备注**： 
 
 **原型：**
 
@@ -462,8 +462,8 @@ NSString * identifier = @"iOS_002";
  
 参数 | 说明
 --- | ---
-identifier | 好设置的好友identifier
-custom | 自定义属性，字典类型 key 为`NSString*`， value为 `NSData*`
+identifier | 好设置的好友 identifier
+custom | 自定义属性，字典类型 key 为 `NSString*`， value 为 `NSData*`
 succ | 成功回调，返回 TIMUserProfile 结构，包含用户资料 
 fail | 失败回调，会返回错误码和错误信息，详见错误码表 
 
@@ -477,7 +477,7 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
 
 ### 5.1 添加好友
  
-通过 TIMFriendshipManager的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为1000个： 
+通过 TIMFriendshipManager 的 addFriend 方法可以批量添加好友，目前所能支持的最大好友列表为 1000 个： 
 
 **原型：**
 
@@ -488,7 +488,7 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
 @interface TIMAddFriendRequest : NSObject
 
 /**
- *  用户identifier
+ *  用户 identifier
  */
 @property(nonatomic,retain) NSString* identifier;
 
@@ -530,7 +530,7 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
 参数 | 说明
 --- | ---
 users | 用户列表，TIMAddFriendRequest* 数组 
-succ | 成功回调，返回 TIMFriendResult*数组，包含用户添加结果 
+succ | 成功回调，返回 TIMFriendResult* 数组，包含用户添加结果 
 fail | 失败回调，会返回错误码和错误信息，详见错误码表 
 
 **返回值：**
@@ -550,7 +550,7 @@ addSource | 添加来源，固定字串，在页面上申请，留空表示未�
 
 **返回码说明：**
  
-成功回调会返回操作用户的TIMFriendResult结果数据，添加好友的错误码如下： 
+成功回调会返回操作用户的 TIMFriendResult 结果数据，添加好友的错误码如下： 
 
 ```
 typedef NS_ENUM(NSInteger, TIMFriendStatus) {
@@ -625,7 +625,7 @@ req.addWording = [NSString stringWithUTF8String:"i am 002"];
 
 ### 5.2 删除好友
  
-可通过 TIMFriendshipManager的 delFriend 方法可以批量删除好友： 
+可通过 TIMFriendshipManager 的 delFriend 方法可以批量删除好友： 
 
 **原型：**
 
@@ -652,7 +652,7 @@ req.addWording = [NSString stringWithUTF8String:"i am 002"];
 --- | ---
 delType | 删除类型，可选择删除双向好友或者单向好友 
 users | 要删除的用户列表 NSString* 列表 
-succ | 成功回调，返回 TIMFriendResult*数组，包含用户添加结果 
+succ | 成功回调，返回 TIMFriendResult* 数组，包含用户添加结果 
 fail | 失败回调，会返回错误码和错误信息，详见错误码表 
 
 **返回值：**
@@ -663,7 +663,7 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
 
 **返回码说明**：
  
-成功回调会返回操作用户的TIMFriendResult结果数据，删除好友的错误码如下： 
+成功回调会返回操作用户的 TIMFriendResult 结果数据，删除好友的错误码如下： 
 
 ```
 typedef NS_ENUM(NSInteger, TIMFriendStatus) {
@@ -706,7 +706,7 @@ NSMutableArray * del_users = [[NSMutableArray alloc] init];
 
 ### 5.3 获取所有好友
  
-可通过 TIMFriendshipManager的 getFriendList 方法可以获取所有好友，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.999) 方法设置，此方法全局有效。
+可通过 TIMFriendshipManager 的 getFriendList 方法可以获取所有好友，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#3.4-.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.999) 方法设置，此方法全局有效。
 
 **原型：**
 
@@ -729,7 +729,7 @@ NSMutableArray * del_users = [[NSMutableArray alloc] init];
 
 参数 | 说明
 --- | ---
-succ | 成功回调，返回好友列表，TIMUserProfile* 列表，只包含identifier，nickname，remark 三个字段 
+succ | 成功回调，返回好友列表，TIMUserProfile* 列表，只包含 identifier，nickname，remark 三个字段 
 fail | 失败回调，会返回错误码和错误信息，详见错误码表 
 
 **返回值：**
@@ -762,7 +762,7 @@ remark | 用户备注
 
 ### 5.4 同意/拒绝 好友申请
  
-可通过 TIMFriendshipManager的 doResponse方法可以获取所有好友： 
+可通过 TIMFriendshipManager 的 doResponse 方法可以获取所有好友： 
 
 **原型：**
 
@@ -820,7 +820,7 @@ typedef NS_ENUM(NSInteger, TIMFriendResponseType) {
 ```
 **参数说明：**
 
-users    响应的用户列表，TIMFriendResponse列表 
+users    响应的用户列表，TIMFriendResponse 列表 
 succ    成功回调，返回 TIMFriendResult* 列表 
 fail     失败回调，会返回错误码和错误信息，详见错误码表 
 
@@ -830,7 +830,7 @@ fail     失败回调，会返回错误码和错误信息，详见错误码表
 
 **返回码说明：**
  
-成功回调会返回操作用户的TIMFriendResult结果数据，处理用户请求的错误码如下： 
+成功回调会返回操作用户的 TIMFriendResult 结果数据，处理用户请求的错误码如下： 
 ```
 typedef NS_ENUM(NSInteger, TIMFriendStatus) {
     /**
@@ -888,7 +888,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 
 参数 | 说明
 --- | ---
-users | 要拉黑的用户identifier列表
+users | 要拉黑的用户 identifier 列表
 succ | 成功回调
 fail | 失败回调
 
@@ -1185,12 +1185,12 @@ fail | 失败回调
 通过 [6.6 获取指定的好友分组信息](#6.6-.E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E7.9A.84.E5.A5.BD.E5.8F.8B.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF27) 可以获取所有分组信息，另外，通过 [5.3 获取所有好友](#5.3-.E8.8E.B7.E5.8F.96.E6.89.80.E6.9C.89.E5.A5.BD.E5.8F.8B16)，也可以获取分组信息。
 
 ## 7. 关系链资料存储
-
-ImSDK提供了内存同步访问接口，减少开发者调用负担。
+ 
+ImSDK 提供了内存同步访问接口，减少开发者调用负担。
 
 ### 7.1 开启存储
 
-ImSDK默认不会进行存储，需要用户显示调用开启存储：
+ImSDK 默认不会进行存储，需要用户显示调用开启存储：
 
 **原型：**
 
@@ -1292,7 +1292,7 @@ ImSDK默认不会进行存储，需要用户显示调用开启存储：
 
 ## 8. 关系链变更系统通知
  
-TIMMessage中Elem类型 TIMSNSSystemElem 为关系链变更系统消息： 
+TIMMessage 中 Elem 类型 TIMSNSSystemElem 为关系链变更系统消息： 
 
 **原型：**
 
@@ -1467,7 +1467,7 @@ users | 申请的好友列表
 
 参数 | 说明
 --- | ---
-identifier |  用户identifier 
+identifier |  用户 identifier 
 wording |  申请理由 
 source | 申请来源，申请时填写，由系统页面分配的固定字串 
 
@@ -1488,11 +1488,11 @@ users | 删除未决请求的好友列表
  
 参数 | 说明
 --- | ---
-identifier |  用户identifier 
+identifier |  用户 identifier 
 
 ## 9. 好友资料变更系统通知
  
-TIMMessage中Elem类型 TIMProfileSystemElem 为关系链变更系统消息： 
+TIMMessage 中 Elem 类型 TIMProfileSystemElem 为关系链变更系统消息： 
 
 **原型：**
 
@@ -1532,13 +1532,13 @@ typedef NS_ENUM(NSInteger, TIM_PROFILE_SYSTEM_TYPE){
 --- | ---
 type | 资料变更类型 
 fromUser|  资料变更的用户 
-nickName | 昵称变更，注意，如果昵称没有变更，为nil 
+nickName | 昵称变更，注意，如果昵称没有变更，为 nil 
 
 ## 10. 未决请求
 
 未决请求即为等待处理的请求，比如设置了需要验证好友，对方申请时会有未决请求，如果同意或者拒绝这个申请，未决请求会变为已决。
 
-通过 TIMFriendshipManager 的 getFutureFriends 方法可以从Server获取未决请求列表。
+通过 TIMFriendshipManager 的 getFutureFriends 方法可以从 Server 获取未决请求列表。
 
 **原型：***
 
@@ -1551,7 +1551,7 @@ nickName | 昵称变更，注意，如果昵称没有变更，为nil
  *  @param flags        获取的资料标识
  *  @param futureFlag   获取的类型，按位设置
  *  @param custom       自定义字段，（尚未实现，填nil）
- *  @param meta         请求信息，参见TIMFriendFutureMeta
+ *  @param meta         请求信息，参见 TIMFriendFutureMeta
  *  @param succ  成功回调
  *  @param fail  失败回调
  *
@@ -1566,7 +1566,7 @@ nickName | 昵称变更，注意，如果昵称没有变更，为nil
 
 参数|说明
 ---|---
-flags | 获取的资料标志，详见TIMProfileFlag
+flags | 获取的资料标志，详见 TIMProfileFlag
 futureFlag | 获取的未决标记，如未决，已决，推荐等类型
 custom | 自定义字段，如要获取填写
 meta | 请求信息，参见 TIMFriendFutureMeta 定义

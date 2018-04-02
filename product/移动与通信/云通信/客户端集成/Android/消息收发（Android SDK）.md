@@ -28,11 +28,11 @@ String peer = "sample_user_1";  //获取与用户 "sample_user_1" 的会话
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.C2C,    //会话类型：单聊
         peer);                      //会话对方用户帐号//对方id
- 
- 
+
+
 //获取群聊会话
 String groupId = "TGID1EDABEAEO";  //获取与群组 "TGID1LTTZEAEO" 的会话
- 
+
 conversation = TIMManager.getInstance().getConversation(
         TIMConversationType.Group,      //会话类型：群组
         groupId);                       //群组Id
@@ -74,7 +74,7 @@ TIMTextElem 成员方法：
 ```
 //获取文本内容
 java.lang.String    getText()
- 
+
 //设置文本内容，text 传递需要发送的文本消息
 void    setText(java.lang.String text)
 ```
@@ -85,17 +85,17 @@ void    setText(java.lang.String text)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加文本内容
 TIMTextElem elem = new TIMTextElem();
 elem.setText("a new msg");
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
    Log.d(tag, "addElement failed");
    return;
 }
- 
+
 //发送消息
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
@@ -104,7 +104,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码code含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -140,22 +140,22 @@ TIMImage 成员方法：
 ```
 //获取图片高度
 long    getHeight()
- 
+
 //获取图片大小
 long    getSize()
- 
+
 //获取图片类型
 TIMImageType    getType()
- 
+
 //获取uuid
 java.lang.String    getUuid()
- 
+
 //获取图片宽度
 long    getWidth()
- 
+
 //获取图片，callback的OnSuccess接口中将返回图片二进制数据
 void    getImage(TIMValueCallBack<byte[]> callback)
- 
+
 //获取图片，存放于path指向的文件中
 void    getImage(final String path, final TIMCallBack cb)
 ```
@@ -166,17 +166,17 @@ void    getImage(final String path, final TIMCallBack cb)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加图片
 TIMImageElem elem = new TIMImageElem();
 elem.setPath(Environment.getExternalStorageDirectory() + "/DCIM/Camera/1.jpg");
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
     return;
 }
- 
+
 //发送消息
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
@@ -185,7 +185,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码code列表请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -218,12 +218,12 @@ void    setIndex(int index)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加表情
 TIMFaceElem elem = new TIMFaceElem();
 elem.setData(sampleByteArray); //自定义byte[]
 elem.setIndex(10);   //自定义表情索引
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
@@ -238,7 +238,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码code含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -249,7 +249,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ### 1.5 语音消息发送
 
-语音消息由 TIMSoundElem 定义，其中data存储语音数据，语音数据需要提供时长信息，以秒为单位，**注意，一条消息只能有一个语音Elem，添加多条语音Elem时，AddElem函数返回错误1，添加不生效，另外，语音和文件elem不一定会按照添加时的顺序获取，建议逐个判断elem类型展示，而且语音和文件elem也不保证按照发送的elem顺序排序**。 
+语音消息由 TIMSoundElem 定义，其中data存储语音数据，语音数据需要提供时长信息，以秒为单位，**注意，一条消息只能有一个语音Elem，添加多条语音Elem时，AddElem函数返回错误1，添加不生效，另外，语音和文件elem不一定会按照添加时的顺序获取，建议逐个判断elem类型展示，而且语音和文件elem也不保证按照发送的elem顺序排序**。
 
 TIMSoundElem 成员方法：
 
@@ -257,16 +257,16 @@ TIMSoundElem 成员方法：
 ```
 //获取二进制数据长度
 long    getDataSize()
- 
+
 //获取语音时长
 long    getDuration()
- 
+
 //下载语音
 void    getSound(TIMValueCallBack<byte[]> callback)
- 
+
 //获取uuid
 java.lang.String    getUuid()
- 
+
 //设置二进制数据
 void    setData(byte[] data)
 
@@ -282,12 +282,12 @@ void    setDuration(long duration)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加语音
 TIMSoundElem elem = new TIMSoundElem();
 elem.setPath(filePath); //填写语音文件路径
 elem.setDuration(20);  //填写语音时长
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
@@ -301,7 +301,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码code含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -318,19 +318,19 @@ TIMLocationElem 成员方法：
 ```
 //获取位置描述
 java.lang.String    getDesc()
- 
+
 //获取纬度
 double  getLatitude()
- 
+
 //获取经度
 double  getLongitude()
- 
+
 //设置位置描述
 void    setDesc(java.lang.String desc)
- 
+
 //设置纬度
 void    setLatitude(double latitude)
- 
+
 //设置经度
 void    setLongitude(double longitude)
 ```
@@ -341,13 +341,13 @@ void    setLongitude(double longitude)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加位置信息
 TIMLocationElem elem = new TIMLocationElem();
 elem.setLatitude(113.93);   //设置纬度
 elem.setLongitude(22.54);   //设置经度
 elem.setDesc("腾讯大厦");
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
@@ -378,16 +378,16 @@ TIMFileElem 成员方法：
 ```
 //获取文件
 void    getFile(TIMValueCallBack<byte[]> callback)
- 
+
 //获取文件名
 java.lang.String    getFileName()
- 
+
 //获取文件大小
 long    getFileSize()
- 
+
 //获取uuid
 java.lang.String    getUuid()
- 
+
 //设置待发送的文件二进制数据
 void    setData(byte[] data)
 
@@ -404,12 +404,12 @@ void    setFileName(java.lang.String fileName)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 //添加文件内容
 TIMFileElem elem = new TIMFileElem();
 elem.setPath(filePath); //设置文件路径
 elem.setFileName("myfile.bin"); //设置消息展示用的文件名称
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
@@ -423,7 +423,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码code含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -431,7 +431,124 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 });
 ```
 
-### 1.8 自定义消息发送
+### 1.8 短视频消息发送
+
+短视频消息由TIMVideoElem定义，它是TIMElem的一个子类，也就是说视频截图与视频内容也是消息的一种内容。发送短视频的过程，就是将TIMVideoElem加入到TIMMessage中，然后随消息一起发送出去。详细如下：
+
+**TIMVideoElem原型：**
+
+```
+/**
+ * 获取微视频上传任务id, 调用sendMessage后此接口的返回值有效
+ * @return 微视频上传任务id
+ */
+public long getTaskId()
+
+/**
+ * 设置微视频信息，在发送消息时进行设置
+ * @param video 微视频信息，详见{@see TIMVideo}
+ */
+public void setVideo(TIMVideo video)
+
+/**
+ * 获取视频信息
+ * @return 视频信息，详见{@see TIMVideo}
+ */
+public TIMVideo getVideoInfo()
+
+/**
+ * 设置视频文件路径，在发送消息时进行设置
+ * @param path 视频文件路径
+ */
+public void setVideoPath(String path)
+
+/**
+ * 获取视频文件路径
+ * @return 视频文件路径
+ */
+public String getVideoPath()
+
+/**
+ * 设置微视频截图信息，在发送消息时进行设置
+ * @param snapshot 微视频截图信息，详见{@see TIMSnapshot}
+ */
+public void setSnapshot(TIMSnapshot snapshot)
+
+/**
+ * 获取视频截图信息
+ * @return 视频截图信息，详见{@see TIMSnapshot}
+ */
+public TIMSnapshot getSnapshotInfo()
+
+/**
+ * 设置微视频截图文件路径，在发送消息时进行设置
+ * @param path 微视频截图文件路径
+ */
+public void setSnapshotPath(String path)
+
+/**
+ * 获取微视频截图文件路径
+ * @return 微视频截图文件路径
+ */
+public String getSnapshotPath()
+
+/**
+ * 获取上传进度
+ * @return 上传进度
+ */
+public int getUploadingProgress()
+```
+
+**示例：**
+
+```
+//构造一条消息
+TIMMessage message = new TIMMessage();
+
+//构建一个视频elem
+TIMVideoElem elem = new TIMVideoElem();
+
+//添加视频内容, 其中的FileUtil类可以参考demo中的实现
+TIMVideo video = new TIMVideo();
+video.setType("MP4");
+video.setDuaration(MediaUtil.getInstance().getDuration(FileUtil.getCacheFilePath(fileName)));
+elem.setVideo(video);
+elem.setVideoPath(FileUtil.getCacheFilePath(fileName));
+
+//添加视频截图, 其中的FileUtil类可以参考demo中的实现
+Bitmap thumb = ThumbnailUtils.createVideoThumbnail(FileUtil.getCacheFilePath(fileName), MediaStore.Images.Thumbnails.MINI_KIND);
+elem.setSnapshotPath(FileUtil.createFile(thumb, new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())));
+TIMSnapshot snapshot = new TIMSnapshot();
+snapshot.setType("PNG");
+snapshot.setHeight(thumb.getHeight());
+snapshot.setWidth(thumb.getWidth());
+elem.setSnapshot(snapshot);
+
+//将短视频elem添加到消息中
+if(message.addElement(elem) != 0){
+    Log.e("tag", "addElement failed");
+    return;
+}
+
+//发送消息
+conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
+    @Override
+    public void onError(int code, String desc) {//发送消息失败
+        //错误码code和错误描述desc，可用于定位请求失败原因
+        //错误码code含义请参见错误码表
+        Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
+    }
+
+    @Override
+    public void onSuccess(TIMMessage msg) {//发送消息成功
+        Log.e(tag, "SendMsg ok");
+    }
+});
+
+```
+
+
+### 1.9 自定义消息发送
 
 自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，ImSDK只负责透传。另外如果需要iOS APNs推送，还需要提供一段推送文本描述，方便展示。
 
@@ -443,13 +560,13 @@ TIMCustomElem 成员方法：
 ```
 //获取自定义数据
 byte[]  getData()
- 
+
 //获取自定义描述
 java.lang.String    getDesc()
- 
+
 //设置自定义数据
 void    setData(byte[] data)
- 
+
 //设置自定义描述
 void    setDesc(java.lang.String desc)
 ```
@@ -460,15 +577,15 @@ void    setDesc(java.lang.String desc)
 ```
 //构造一条消息
 TIMMessage msg = new TIMMessage();
- 
+
 // xml协议的自定义消息
 String sampleXml = "<!--?xml version='1.0' encoding="utf-8"?-->testTitlethis is custom msgtest msg body";
- 
+
 //向TIMMessage中添加自定义内容
 TIMCustomElem elem ＝ new TIMCustomElem();
 elem.setData(sampleXml.getBytes());      //自定义byte[]
 elem.setDesc("this is one custom message"); //自定义描述信息
- 
+
 //将elem添加到消息
 if(msg.addElement(elem) != 0) {
     Log.d(tag, "addElement failed");
@@ -482,7 +599,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
         //错误码code含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(TIMMessage msg) {//发送消息成功
         Log.e(tag, "SendMsg ok");
@@ -492,12 +609,12 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 示例中拼接一段xml消息，具体展示由开发者决定。
 
-### 1.9 Elem顺序 
+### 1.10 Elem顺序
 
 目前文件和语音Elem不一定会按照添加顺序传输，其他Elem按照顺序，不过建议不要过于依赖Elem顺序进行处理，应该逐个按照Elem类型处理，防止异常情况下进程Crash。
 
 
-### 1.10 在线消息
+### 1.11 在线消息
 
 对于某些场景，需要发送在线消息，即用户在线时收到消息，如果用户不在线，下次登录也不会看到消息，可用于通知类消息，这种消息不会进行存储，也不会计入未读计数。发送接口与sendMessage类似，**注意：2.5.3版本以前只针对单聊消息有效。2.5.3版本以后对群组消息有效(暂不支持AVChatRoom和BChatRoom类型)**
 
@@ -511,7 +628,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 public void sendOnlineMessage(TIMMessage msg, TIMValueCallBack<TIMMessage> callback)
 ```
 
-### 1.11 消息转发
+### 1.12 消息转发
 
 在2.4.0及以上版本，在`TIMMessage`中提供了`copyFrom`接口，可以方便地拷贝其他消息的内容到当前消息，然后将消息重新发送给其他人。
 
@@ -563,7 +680,7 @@ public void removeMessageListener(TIMMessageListener listener)
 ```
 //获取消息元素
 TIMElem getElement(int i)
- 
+
 //获取元素个数
 long    getElementCount()
 ```
@@ -572,7 +689,7 @@ long    getElementCount()
 
 ```
 TIMMessage msg = /* 消息 */
- 
+
 for(int i = 0; i < msg.getElementCount(); ++i) {
 	TIMElem elem = msg.getElement(i);
 
@@ -618,22 +735,22 @@ TIMImage 成员方法：
 ```
 //获取图片高度
 long    getHeight()
- 
+
 //获取图片，保存于path指向的文件中
 void    getImage(java.lang.String path, TIMCallBack cb)
- 
+
 //获取图片
 void    getImage(TIMValueCallBack<byte[]> cb)
- 
+
 //获取图片大小
 long    getSize()
- 
+
 //图片规格，有三种Thumb、Large、Original，分别代表缩略图、大图、原图
 TIMImageType    getType()
- 
+
 //图片ID，全局唯一，图片标识，相同uuid的图片可以不再重复下载
 java.lang.String    getUuid()
- 
+
 //获取图片宽度
 long    getWidth()
 ```
@@ -661,13 +778,13 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
         //图片元素
         TIMImageElem e = (TIMImageElem) elem;
         for(TIMImage image : e.getImageList()) {
- 
+
             //获取图片类型, 大小, 宽高
             Log.d(tag, "image type: " + image.getType() +
                     " image size " + image.getSize() +
                     " image height " + image.getHeight() +
                     " image width " + image.getWidth());
- 
+
             image.getImage(new TIMValueCallBack<byte[]>() {
                     @Override
                     public void onError(int code, String desc) {//获取图片失败
@@ -675,7 +792,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
                     //错误码code含义请参见错误码表
                     Log.d(tag, "getImage failed. code: " + code + " errmsg: " + desc);
                     }
- 
+
                     @Override
                     public void onSuccess(byte[] data) {//成功，参数为图片数据
                     //doSomething
@@ -696,19 +813,19 @@ TIMSoundElem 成员方法：
 ```
 //获取二进制数据长度
 long    getDataSize()
- 
+
 //获取语音时长
 long    getDuration()
- 
+
 //下载语音文件到指定的保存路径
 public void getSoundToFile(String path, TIMCallBack callback)
- 
+
 //获取uuid，可作为唯一标识，方便用户缓存
 java.lang.String    getUuid()
- 
+
 //设置二进制数据
 void    setData(byte[] data)
- 
+
 //设置语音时长
 void    setDuration(long duration)
 ```
@@ -749,26 +866,26 @@ TIMFileElem 成员方法：
 ```
 //下载文件到指定的保存路径
 void getToFile(String path, TIMCallBack callback)
- 
+
 //获取文件名
 java.lang.String    getFileName()
- 
+
 //获取文件大小
 long    getFileSize()
- 
+
 //获取uuid
 java.lang.String    getUuid()
- 
+
 //设置待发送的文件二进制数据
 void    setData(byte[] data)
- 
+
 //设置文件名
 void    setFileName(java.lang.String fileName)
 ```
 
 获取到消息时可只展示文件大小和显示名，通过接口 getToFile 下载文件资源。getToFile 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据uuid作为key进行外部存储，ImSDK并不会存储资源文件。
 
-**原型： ** 
+**原型： **
 
 ```
 public void getToFile(String path, TIMCallBack callback)
@@ -781,6 +898,172 @@ public void getToFile(String path, TIMCallBack callback)
 ---|---
 path|指定保存路径
 callback| 回调
+
+
+### 2.5 接收短视频消息
+
+收到消息后，可用过 getElement 从 TIMMessage 中获取所有的Elem节点，其中TIMVideoElem为文件消息节点，通过其中的TIMVideo和TIMSnapshot对象获取视频和截图内容，原型如下：
+
+**TIMVideo:**
+```
+/**
+* 设置视频文件类型，发送消息时进行设置
+* @param type 视频文件类型
+*/
+public void setType(String type)
+
+/**
+* 获取视频文件类型
+* @return 返回视频文件类型
+*/
+public String getType()
+
+/**
+* 设置视频时长，发送消息时进行设置
+* @param duaration 视频时长
+*/
+public void setDuaration(long duaration)
+
+/**
+* 获取视频时长
+* @return 返回视频时长
+*/
+public long getDuaration()
+
+/**
+* 获取视频文件uuid
+* @return uuid，可作为唯一标示用于缓存的key
+*/
+public String getUuid()
+
+/**
+* 获取视频文件大小
+* @return 返回视频文件大小
+*/
+public long getSize()
+
+/**
+* 获取视频
+* @param path 视频保存路径
+* @param cb 回调
+*/
+public void getVideo(@NonNull final String path, @NonNull final TIMCallBack cb)
+```
+
+**TIMSnapshot:**
+```
+/**
+ * 构造函数(多用户)
+ * @param strIdentifer 帐号
+ */
+public TIMSnapshot(String strIdentifer)
+
+/**
+ * 获取截图文件uuid
+ * @return uuid，可作为唯一标示用于缓存的key
+ */
+public String getUuid()
+
+/**
+ * 设置截图文件类型，发送消息时进行设置
+ * @param type 视频文件类型
+ */
+public void setType(String type)
+
+/**
+ * 获取截图文件类型
+ * @return 返回视频文件类型
+ */
+public String getType()
+
+/**
+ * 获取截图文件大小
+ * @return 返回截图文件大小
+ */
+public long getSize()
+
+/**
+ * 获取截图高度
+ * @return 截图高度
+ */
+public long getHeight()
+
+/**
+ * 设置截图高度，发送消息时进行设置
+ * @param height 截图高度
+ */
+public void setHeight(long height)
+
+/**
+ * 获取截图宽度
+ * @return 截图宽度
+ */
+public long getWidth()
+
+/**
+ * 设置截图宽度，发送消息时进行设置
+ * @param width 截图宽度
+ */
+public void setWidth(long width)
+
+/**
+ * 获取截图
+ * @param path 保存截图的路径
+ * @param cb 回调
+ */
+public void getImage(final String path, final TIMCallBack cb)
+```
+
+**示例：**
+
+```
+//遍历一条消息的元素列表
+for(int i = 0; i < msg.getElementCount(); ++i) {
+    TIMElem elem = msg.getElement(i);
+    if (elem.getType() == TIMElemType.Video) {
+        //视频元素
+        TIMVideoElem e = (TIMVideoElem) elem;
+
+        //获取视频截图信息
+        TIMSnapshot snapshot = e.getSnapshotInfo();
+        String snapshot_uuid = snapshot.getUuid();
+        String snapshot_type = snapshot.getType();
+        long height = snapshot.getHeight();
+        long width = snapshot.getWidth();
+        long snapshot_size = snapshot.getSize();
+        //下载视频截图，并保存到snapshotSavePath
+        snapshot.getImage(snapshotSavePath, new TIMCallBack() {
+            @Override
+            public void onError(int code, String desc) {
+                Log.e(tag, "getImage failed, code:" + code + "|desc:" + desc);
+            }
+
+            @Override
+            public void onSuccess() {
+                Log.e(tag, "getImage succ");
+            }
+        });
+
+        //获取视频信息
+        TIMVideo video = e.getVideoInfo();
+        String video_type = video.getType();
+        String video_uuid = video.getUuid();
+        long duaration = video.getDuaration();
+        long video_size = video.getSize();
+        video.getVideo(videoSavePath, new TIMCallBack() {
+            @Override
+            public void onError(int code, String desc) {
+                Log.e(tag, "getVideo failed, code:" + code + "|desc:" + desc);
+            }
+
+            @Override
+            public void onSuccess() {
+                Log.e(tag, "getVideo succ");
+            }
+        });
+    }
+}
+```
 
 ## 3 消息属性
 
@@ -929,7 +1212,7 @@ public TIMGroupReceiveMessageOpt getRecvFlag()
  * 启用已读回执，启用后在已读上报时会给对方发送回执，只对单聊会话有效
  */
 public void enableReadReceipt()
-    
+
 /**
  * 设置已读回执监听器
  * @param receiptListener 已读回执监听器
@@ -996,7 +1279,7 @@ public TIMMessageLocator getMessageLocator()
 ```
 //根据索引获取会话
 TIMConversation getConversationByIndex(long i)
- 
+
 //获取本地保存的会话数
 long    getConversationCount()
 ```
@@ -1006,13 +1289,13 @@ long    getConversationCount()
 ```
 //获取会话个数
 long cnt = TIMManager.getInstance().getConversationCount();
- 
+
 //遍历会话列表
 for(long i = 0; i < cnt; ++i) {
     //根据索引获取会话
-    TIMConversation conversation = 
+    TIMConversation conversation =
             TIMManager.getInstance().getConversationByIndex(i);
-     
+
     Log.d(tag, "get conversation. type: " + conversation.getType());
 }
 ```
@@ -1039,7 +1322,7 @@ public void disableRecentContact()
 ### 4.3 获取会话本地消息
 
 ImSDK 会在本地进行消息存储，可通过 TIMConversation 方法的 getLocalMessage 获取，此方法为异步方法，需要通过设置回调得到消息数据，对于单聊，登录后可以获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过getMessage获取漫游消息。
- 
+
 **原型： **
 
 ```
@@ -1068,7 +1351,7 @@ conversation.getLocalMessage(10, //获取此会话最近的10条消息
         //错误码code含义请参见错误码表
         Log.d(tag, "get message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(List<TIMMessage> msgs) {//获取消息成功
         //遍历取得的消息
@@ -1076,18 +1359,18 @@ conversation.getLocalMessage(10, //获取此会话最近的10条消息
             lastMsg = msg;
             //可以通过timestamp()获得消息的时间戳, isSelf()是否为自己发送的消息
             Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.msg.seq());
- 
+
         }
     }
 });
 ```
 
-对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。 
+对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
 
 ### 4.4 获取会话漫游消息
 
 对于群组，登录后可以获取漫游消息，对于C2C，开通漫游服务后可以获取漫游消息，通过 ImSDK 的 getMessage 接口可以获取漫游消息，如果本地消息全部都是连续的，则不会通过网络获取，如果本地消息不连续，会通过网络获取断层消息。
- 
+
 **原型： **
 
 ```
@@ -1116,7 +1399,7 @@ conversation.getMessage(10, //获取此会话最近的10条消息
         //错误码code含义请参见错误码表
         Log.d(tag, "get message failed. code: " + code + " errmsg: " + desc);
     }
- 
+
     @Override
     public void onSuccess(List<TIMMessage> msgs) {//获取消息成功
         //遍历取得的消息
@@ -1124,13 +1407,13 @@ conversation.getMessage(10, //获取此会话最近的10条消息
             lastMsg = msg;
             //可以通过timestamp()获得消息的时间戳, isSelf()是否为自己发送的消息
             Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.msg.seq());
- 
+
         }
     }
 });
 ```
 
-对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。 
+对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
 
 ### 4.5 删除会话
 
@@ -1150,8 +1433,8 @@ public boolean deleteConversationAndLocalMsgs(TIMConversationType type, String p
 
 参数|说明
 ---|---
-type|会话类型，如果是单聊，填写 TIMConversationType.C2C，如果是群聊，填写TIMConversationType.Group 
-peer|会话标识，单聊情况下，peer为对方用户identifier，群聊情况下，peer为群组Id 
+type|会话类型，如果是单聊，填写 TIMConversationType.C2C，如果是群聊，填写TIMConversationType.Group
+peer|会话标识，单聊情况下，peer为对方用户identifier，群聊情况下，peer为群组Id
 
 其中 deleteConversation 仅删除会话，deleteConversationAndMessages 删除会话以及消息。
 
@@ -1165,7 +1448,7 @@ TIMManager.getInstance().deleteConversation(TIMConversationType.C2C, "hello");
 ### 4.6 同步获取会话最后的消息
 
 UI展示最近联系人列表时，时常会展示用户的最后一条消息，在1.9.2以后版本增加了同步获取接口，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登陆后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要APP层进行屏蔽。
- 
+
 **原型： **
 
 ```
@@ -1177,12 +1460,12 @@ public List<TIMMessage> getLastMsgs(long count)
 
 参数|说明
 ---|---
-count | 需要获取的消息数，注意这里最多为20 
+count | 需要获取的消息数，注意这里最多为20
 
 ### 4.7 禁用会话本地存储
 
 直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。在ImSDK 2.2.0及更高级版本中增加了针对单个会话禁用本地存储的功能，开发者可以根据需要调用`TIMConversation`中的`disableStorage`接口禁用相应的会话本地存储。
- 
+
 **原型： **
 
 ```
@@ -1199,7 +1482,7 @@ ImSDK 2.2.0及以上版本增加了会话草稿功能，开发者可以通过`TI
 
 > 1. 草稿只能本地有效，更换终端或者清除数据后将看不到草稿。
 > 2. 草稿信息会存本地数据库，重新登录后依然可以获取。
- 
+
 **原型： **
 
 ```

@@ -36,7 +36,9 @@ As shown above, the fragments in the blue box represents the message lifecycle. 
 **Message rewind** The messages for rewind will be sorted based on their production time rather than the deletion time.
 As shown in the figure below:
 
-![](//mc.qcloudimg.com/static/img/7ff35a9529762ca3d832c19e643f782b/image.jpg)
+![](https://mc.qcloudimg.com/static/img/72f46baaf2e145e488550197fa7197b8/image.jpg)
+
+
 
 
 

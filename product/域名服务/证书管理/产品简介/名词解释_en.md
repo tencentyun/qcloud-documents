@@ -1,0 +1,6 @@
+| Term | Full Name | Description |
+|---|---|---|
+| SSL Certificates | Secure Socket Layer Certificates | SSL certificates are a computer identification mechanism and can be obtained from identity verification agencies. Theoretically, anyone can issue an SSL certificate to you, that is, the individual or organization that issues the SSL certificate to you will sign your public key. Generally, international credible SSL certificates are issued by CAs voluntarily or upon applications from users.
+| HTTPS | Hypertext Transfer Protocol Secure, also known as HTTP over TLS, HTTP over SSL or HTTP Secure) | HTTPS is a secure network transfer protocol. On computer network, HTTPS communicates via Hypertext Transfer Protocol and uses SSL/TLS to encrypt packets. HTTPS is mainly developed to verify the identity of web servers and protect the privacy and integrity of the exchanged data. The protocol was first proposed by Netscape in 1994.|
+| CA | Certificate Authority | Also known as e-commerce certification center, or e-commerce certification authority. CAs issue and manage digital certificates, and are responsible for verifying the validity of public keys in the public key system as trusted third parties in e-commerce transactions. |
+

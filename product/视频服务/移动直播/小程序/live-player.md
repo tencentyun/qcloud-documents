@@ -8,13 +8,43 @@
 
 > 通过 wx.getSystemInfo 可以获取当前基础库版本信息
 
-## 类目支持
-出于政策和合规的考虑，暂时没有放开所有类目的小程序对 &lt;live-player&gt; 标签的支持，现阶段已经支持的类目有：
-- 【社交】—— 直播
-- 【教育】—— 在线教育
-- 【医疗】—— 互联网医院
-- 【金融】—— 基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融
-- 【政务民生】
+## 使用限制
+出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
+
+- 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
+
+<table>
+  <tr align="center">
+    <th width="200px">主类目</th>
+    <th width="700px">子类目</th>
+  </tr>
+  <tr align="center">
+    <td>【社交】</td>
+		<td>直播</td>
+  </tr>
+	<tr align="center">
+    <td>【教育】</td>
+		<td>在线教育</td>
+  </tr>
+	<tr align="center">
+    <td>【医疗】</td>
+		<td>互联网医院，公立医院</td>
+  </tr>
+	<tr align="center">
+    <td>【政务民生】</td>
+		<td>所有二级类目</td>
+  </tr>
+	<tr align="center">
+    <td>【金融】</td>
+		<td>基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融</td>
+  </tr>
+</table>
+
+- 符合类目要求的小程序，需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限，如下图所示：
+
+![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+
+注意：如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
 ## 属性定义
 | 属性名 | 类型 | 默认值 | 说明 |
@@ -76,6 +106,9 @@ live 模式主要用于直播类场景，比如赛事直播、在线教育、远
 - **background-mute**
 微信切到后台以后是否继续播放声音，用于避免锁屏对于当前小程序正在播放的视频内容的影响。
 
+- **sound-mode**  
+设置播放模式，可设值为: ear与speaker，ear代表使用听筒播放， speaker代表使用扬声器。默认为扬声器
+
 - **debug**
  调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946#2.-.E5.8F.91.E7.8E.B0.E9.97.AE.E9.A2.98.E7.9A.84.E2.80.9C.E7.9C.BC.E7.9D.9B.E2.80.9D) 中有详细说明。
 
@@ -84,23 +117,26 @@ live 模式主要用于直播类场景，比如赛事直播、在线教育、远
 - **wx.createLivePlayerContext()**
 通过 wx.createLivePlayerContext() 可以将 &lt;live-player&gt; 标签和 javascript 对象关联起来，之后即可操作该对象。
 
-- **start** 
-开始播放，如果 &lt;live-player&gt; 的 autoplay 属性设置为 false（默认值），那么就可以使用 start 来手动启动播放。
+- **play** 
+开始播放，如果 &lt;live-player&gt; 的 autoplay 属性设置为 false（默认值），那么就可以使用 play 来手动启动播放。
 
 - **stop**
 停止播放。
 
-- **pause**
-暂停播放，对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这跟点播是有很大不同的。
+- **pause**  
+暂停播放，停留在最后画面
 
-- **resume**
-继续播放，请与 pause 操作配对使用。
+- **resume**  
+继续播放，与pause成对使用
+
+- **mute**
+设置静音。
 
 - **requestFullScreen**
-进入全屏幕
+进入全屏幕。
 
 - **exitFullScreen**
-退出全屏幕
+退出全屏幕。
 
 ```javascript
 var player = wx.createLivePlayerContext('pusher');

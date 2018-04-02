@@ -7,7 +7,7 @@ Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。
 语法示例：
 ```
 HEAD / HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

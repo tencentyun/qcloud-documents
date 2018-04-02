@@ -1,35 +1,29 @@
-## 简介
+## 接口概述
 
+### 服务简介
 本接口用于识别身份证上的姓名、证件号、地址等信息。
 
-## 计费说明
-请查看[计费说明](/document/product/641/12399)。
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-## 说明
-| 概念    | 解释              |
-| ----- | --------------- |
-| appid | 项目ID, 接入项目的唯一标识 |
-><font color="#0000cc">**注意：** </font>
-> 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
+### url 说明
+支持 http 和 https 两种协议：
 
-## 调用URL
+`http://recognition.image.myqcloud.com/ocr/idcard`
 
-```
-http://recognition.image.myqcloud.com/ocr/idcard
-```
+`https://recognition.image.myqcloud.com/ocr/idcard`
 
-## 请求包header
-
-接口采用 http 协议，支持多 url 和多本地图片文件，每个请求最多支持 20 张图片或 url 。
-
-所有请求都要求含有下表列出的头部信息：
+## 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
-| Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
-| Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
+| host           | recognition.image.myqcloud.com           | 腾讯云文字识别服务器域名                              |
+| content-length | 包体总长度                               | 整个请求包体内容的总长度，单位：字节（Byte）        |
+| content-type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。      |
+| authorization  | 鉴权签名                              |多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409) |
+>**注意：**
+>如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ## 使用图片 URL
 ### 请求参数
@@ -38,9 +32,8 @@ http://recognition.image.myqcloud.com/ocr/idcard
 
 | 参数        | 是否必选 | 类型        | 说明             |
 | --------- | ---- | --------- | -------------- |
-| appid     | 必选   | string    | 项目ID           |
+| appid     | 必选   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。           |
 | bucket    | 必选   | string    | 图片空间           |
-| ret_image | 必选   | int       | 0 不返回图片，1 返回图片 |
 | url_list  | 必选   | string 数组 | 图片 url 列表      |
 
 
@@ -69,14 +62,13 @@ data 字段具体内容（身份证有照片的一面）：
 | birth                     | string        | 出生日期                            |
 | address                   | string        | 地址                              |
 | id                        | string        | 身份证号                            |
-| frontimage                | string(bytes) | OCR 识别的身份证正面照片（card_type 为0时返回） |
 | name_confidence_all       | array(int)    | 证件姓名置信度，取值范围[0,100]             |
 | sex_confidence_all        | array(int)    | 性别置信度，取值范围[0,100]               |
 | nation_confidence_all     | array(int)    | 民族置信度，取值范围[0,100]               |
 | birth_confidence_all      | array(int)    | 出生日期置信度，取值范围[0,100]             |
 | address_confidence_all    | array(int)    | 地址置信度，取值范围[0,100]               |
 | id_confidence_all         | array(int)    | 身份证号置信度,，取值范围[0,100]            |
-| frontimage_confidence_all | array(int)    | 正面照片置信度，取值范围[0,100]             |
+
 
 data 字段具体内容（身份证反面）：
 
@@ -88,12 +80,10 @@ data 字段具体内容（身份证反面）：
 | valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
 
 
-><font color="#0000cc">**注意：** </font>
+>**注意：** 
 >如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
-### 示例
-
-#### 请求包
+### 请求示例
 ```
 POST /ocr/idcardHTTP/1.1
 Authorization: FL26MsO1nhrZGuXdin10DE5tnDdhPTEwMDAwMDEmYj1xaW5pdXRlc3QyJms9QUtJRG1PNWNQVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJnQ9MTQ2OTE3NTIzMCZlPTE0NjkxNzYyMzA=
@@ -112,7 +102,7 @@ Content-Type: "application/json"
 }
 ```
 
-#### 回包
+### 返回示例
 
 ```
 {
@@ -188,14 +178,14 @@ Content-Type: "application/json"
 ## 使用图片文件
 
 ### 请求参数
-图片文件 OCR 使用 HTML 表单上传一个或多个文件，文件内容通过多重表单格式（ multipart/form-data ）编码。
+使用 multipart/form-data 格式：
 
 | 参数        | 是否必选 | 类型           | 描述                                       |
 | --------- | ---- | ------------ | ---------------------------------------- |
 | appid     | 是    | uint         | 项目ID                                     |
 | bucket    | 是    | string       | 图片空间                                     |
-| card_type | 是    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面                |
-| image     | 是    | image/jpeg 等 | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| card_type | 否    | int          | 0 为身份证有照片的一面，1 为身份证有国徽的一面；如果未指定，默认为0。     |
+| image     | 是    | image/jpeg 等 | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
 
 ### 返回内容
 
@@ -229,7 +219,7 @@ data 字段具体内容（身份证有照片的一面）：
 | address_confidence_all | array(int) | 地址置信度，取值范围[0,100]   |
 | id_confidence_all      | array(int) | 身份证号置信度，取值范围[0,100] |
 
-><font color="#0000cc">**注意：** </font>
+>**注意：** 
 >如未识别出某字段（如 name），则该字段对应的置信度（如 name_confidence）为-1。
 
 data 字段具体内容（身份证反面）：
@@ -241,13 +231,10 @@ data 字段具体内容（身份证反面）：
 | authority_confidence_all  | array(int) | 发证机关置信度，取值范围[0,100]  |
 | valid_date_confidence_all | array(int) | 证件有效期置信度，取值范围[0,100] |
 
-><font color="#0000cc">**注意：** </font>
+>**注意：** 
 >如未识别出某字段（如 name ），则该字段对应的置信度（如 name_confidence ）为-1。
 
-
-### 示例
-
-#### 请求包
+### 请求示例
 ```
 POST /ocr/idcard HTTP/1.1
 Content-Type:multipart/form-data;boundary=-------------------------acebdf13572468
@@ -280,7 +267,7 @@ Content-Type: image/jpeg
 ---------------------------acebdf13572468
 ```
 
-#### 回包
+### 返回示例
 
 ```
 {

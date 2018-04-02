@@ -1,4 +1,4 @@
-**1. 代码说明**
+#### 代码说明
 ctx：页面的设备上下文；
 monitor 监控对象：需要根据接口情况设置接口名称、耗时、返回值类型、返回码、请求包大小、响应包大小和采样率等信息，详见 doc/api 目录下的文档。
 ```java
@@ -6,7 +6,7 @@ void StatService.reportAppMonitorStat (
 Context ctx, StatAppMonitor monitor)
 <span style="font-family:'sans serif', tahoma, verdana, helvetica;font-size:14px;line-height:1.5;"><strong>参数：</strong></span><span style="font-family:'sans serif', tahoma, verdana, helvetica;font-size:14px;line-height:1.5;">  </span>
 ```
-**2. 调用位置**
+#### 调用位置
 被监控的接口：StatAppMonitor 方法名列表
 <table style="width:740px;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
 		<tbody>
@@ -56,7 +56,7 @@ Context ctx, StatAppMonitor monitor)
 					<p>
 						<span style="font-size:14px;">LOGIC_FAILURE_RESULT_TYPE</span> 
 					</p>
-<br>
+
 				</td>
 			</tr>
 			<tr>

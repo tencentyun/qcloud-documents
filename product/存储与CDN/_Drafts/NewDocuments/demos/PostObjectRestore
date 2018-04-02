@@ -1,0 +1,23 @@
+
+**请求示例:**
+
+```
+POST /arvin/arvin6.txt?restore HTTP/1.1
+Accept: */*
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host:arvin1-7319456.cn-north.myqcloud.com
+Content-Length: 105
+Content-Type: application/x-www-form-urlencoded
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 202 Accepted
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Thu, 15 Jun 2017 12:37:29 GMT
+Server: tencent-cos
+x-cos-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+```

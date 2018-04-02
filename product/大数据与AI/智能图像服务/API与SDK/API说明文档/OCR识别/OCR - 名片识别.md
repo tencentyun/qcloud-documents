@@ -14,9 +14,9 @@
 
 ## 调用URL
 
-```
-http://service.image.myqcloud.com/ocr/namecard
-```
+支持 http 和 https 两种协议：
+
+`http://service.image.myqcloud.com/ocr/namecard`
 
 ## 请求包header
 接口采用 http 协议，支持多 url 和多本地图片文件，每个请求最多支持 20 张图片或 url 。
@@ -24,7 +24,7 @@ http://service.image.myqcloud.com/ocr/namecard
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | service.image.myqcloud.com               | 万象优图服务器域名                                |
+| Host           | service.image.myqcloud.com               | 腾讯云文字识别服务器域名                                |
 | Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
 | Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
 | Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |

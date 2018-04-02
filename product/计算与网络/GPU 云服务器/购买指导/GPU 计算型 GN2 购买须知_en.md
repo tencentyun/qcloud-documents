@@ -1,4 +1,4 @@
-##Purchasing GPU Computing GN2 Instance
+## Purchasing GPU Computing GN2 Instance
 The following need to be considered before purchase:
 1. Make sure you have got an understanding of [Tencent Cloud GCC instances](/doc/product/560/8015l) and their [configurations and prices](/doc/product/560/8025). Be sure to purchase them based on your actual demand. Refund is not available once you have successfully made the purchase.
 2. Currently, **Guangzhou Zone 3**, **Shanghai Zone 1**, **Shanghai Zone 2**, **Beijing Zone 2** and **Shenzhen Finance Zone 1** are available for GPU rendering GA2 instances. More regions will be supported soon.
@@ -60,7 +60,7 @@ In this step, you need to:
 
 After the configuration, click "Buy Now".
 ### 6. Check the Instance
-After the payment is made, go to the [Console](https://console.qcloud.com/cvm) to check the purchased instance in your mailbox.
+After the payment is made, go to the [Console](https://console.cloud.tencent.com/cvm) to check the purchased instance in your mailbox.
 When a GCC instance is purchased, you will receive an internal message containing information such as instance name, public IP address, private IP address, login name, and initial login password. Use these information to log in to and manage your instance. You're recommended to change your login password as soon as possible for security.
 ![](//mc.qcloudimg.com/static/img/2003b614e24ea973f9c03a9c084380ce/image.png)
 

@@ -1,6 +1,6 @@
 ## 开发准备
 ### SDK获取
-万象优图的 php SDK 下载地址：[php-SDK-V2.0](https://github.com/tencentyun/image-php-sdk-v2.0)。
+智能图像的 php SDK 下载地址：[php-SDK-V2.0](https://github.com/tencentyun/image-php-sdk-v2.0)。
 ## 快速入门
 
 ### 在腾讯云申请业务的授权

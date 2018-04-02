@@ -48,14 +48,17 @@ Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommi
 ![Alt text](https://mc.qcloudimg.com/static/img/0b74fedbf69a1ce31d8fcd0f3baff7e5/Image+015.png)
 
 ### 通过证书信息使用kubectl操作集群
-#### 方法一：每次请求附带证书信息
+#### 方法一：单次kubectl操作请求 附带证书信息
+该方法试用单次操作集群，不将容器集群的证书信息保存到机器上。
+
 请求方法：
 kubectl 命令 -s "域名信息" --username=用户名 --password=密码 --certificate-authority=证书路径，如：
 ```shell
 kubectl get node -s "https://cls-66668888.ccs.tencent-cloud.com" --username=admin --password=6666o9oIB2gHD88882quIfLMy6666 --certificate-authority=/etc/kubernetes/cluster-ca.crt
 ```
 
-#### 方法二：修改kubectl配置文件  
+#### 方法二： 修改kubectl配置文件 ， 长期有效
+该方法适用于长期通过kubectl操作集群， 一次配置，只要文件不修改就长期有效
 
 设置kubectl配置,修改以下命令中的密码、证书信息
 ```shell

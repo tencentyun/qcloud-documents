@@ -102,8 +102,8 @@
 | Feature | Action ID | Description |
 |---------|---------|---------|
 | Create a Direct Connect gateway | [CreateDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4824) | Create a Direct Connect gateway. |
-| Modify Direct Connect gateway attributes | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | Modify Direct Connect gateway attributes. |
-| Delete a Direct Connect gateway | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | Delete a Direct Connect gateway. |
+| Modify Direct Connect gateway attributes | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | Modify Direct Connect gateway attributes. |
+| Delete a Direct Connect gateway | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | Delete a Direct Connect gateway. |
 | Query a Direct Connect gateway | [DescribeDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4827) | Query a Direct Connect gateway. |
 | Create local IP translation for Direct Connect gateway | [CreateLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5185) | Create local IP translation for Direct Connect gateway. |
 | Delete local IP translation for Direct Connect gateway | [DeleteLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5186) | Delete local IP translation for Direct Connect gateway. |
@@ -155,4 +155,11 @@
 | Migrate an ENI | [MigrateNetworkInterface](https://cloud.tencent.com/doc/api/245/5384) | Migrate an ENI. |
 | Migrate a private IP | [MigratePrivateIpAddress](https://cloud.tencent.com/doc/api/245/5385) | Migrate a private IP. |
 
-
+## 13. FlowLog Related APIs
+| Feature | Action ID | Description |
+|---------|---------|---------|
+| Create a FlowLog | [CreateFlowLog](流日志相关接口/创建流日志.en) |  Create a FlowLog。 |
+| Delete a FlowLog | [DeleteFlowLog](流日志相关接口/删除流日志.en) |  Delete a FlowLog。 |
+| Query FlowLog information | [DescribeFlowLog](流日志相关接口/查询流日志信息.en) | Query FlowLog information。 |
+| Query FlowLog list | [DescribeFlowLogs](流日志相关接口/查询流日志列表.en) | Query FlowLog list。 |
+| Modify a FlowLog | [ModifyFlowLogAttribute](流日志相关接口/修改流日志属性.en) | Modify a FlowLog。 |

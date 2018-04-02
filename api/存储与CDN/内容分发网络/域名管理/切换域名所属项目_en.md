@@ -1,49 +1,49 @@
-## 1. API Description
+## API Description
 
-This API (UpdateCdnProject) is used to switch the project of domain.
+**UpdateCdnProject** is used to switch the project of a domain name.
 
-Domain name for API request:<font style="color:red">cdn.api.qcloud.com</font>
+Domain name for API request: <font style="color:red">cdn.api.qcloud.com</font>
 
-[Call Demo](https://cloud.tencent.com/document/product/228/1734)
+**Notes:**
 
-## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. See the [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page for details. The Action field for this API is UpdateCdnProject.
++ Projects are shared for all Tencent Cloud products. You can go to [Project Management](https://console.cloud.tencent.com/project) to view the project ID.
++ The frequency of calling the API is limited to 100 times/min.
 
-| Parameter Name | Required | Type | Description          |
-| -------------- | -------- | ---- | -------------------- |
-| projectId      | Yes      | Int  | Project ID to be set |
-| hostId         | Yes      | Int  | Domain ID            |
+[View the example](https://cloud.tencent.com/document/product/228/1734)
 
+## Input Parameters
+The following request parameter list only provides the API request parameters. Common request parameters are required when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/doc/api/231/4473) page. The Action field for this API is UpdateCdnProject.
 
+| Parameter Name | Required | Type | Description |
+| --------- | ---- | ---- | ------------ |
+| projectId | Yes | Int | Project ID to set |
+| hostId | Yes | Int | Domain ID |
 
-#### Note
+### Notes
 
-+ You can use APIs [Query Domain Information by Domain Name](https://cloud.tencent.com/doc/api/231/3938) and [Query Domain Information](https://cloud.tencent.com/doc/api/231/3937) to obtain the ID of the host;
-+ The project of domains in Closed or Deploying status cannot be switched via this API.
+You can use APIs [Query Domain Name Information by Domain Name](https://cloud.tencent.com/doc/api/231/3938) and [Query Domain Name Information](https://cloud.tencent.com/doc/api/231/3937) to obtain the ID of the host.
 
+## Output Parameters
 
-## 3. Output Parameters
-
-| Parameter Name | Type   | Description                              |
-| -------------- | ------ | ---------------------------------------- |
-| code           | Int    | Common error code; 0: Succeeded; other values: Failed. For more information, refer to [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on Error Code page. |
-| message        | String | Module error message description depending on API. |
-| codeDesc       | String | English error message or error code at business side. |
-
-
-## 4. Example
-
-### 4.1 Example of Input
-
-> hostId: 1234
->
-> projectId: 0
+| Parameter Name | Type | Description |
+| -------- | ------ | ---------------------------------------- |
+| code | Int | Common error code. 0: Successful; other values: Failed.<br/>For more information, please see [Common Error Codes](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Codes page. |
+| message | String | Module error message description depending on API. |
+| codeDesc | String | Error message or error code at business side.<br/>For more information, please see [Business Error Codes](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) on the Error Codes page. |
 
 
+## Example
 
-### 4.2 GET Request
+### Sample Parameters
 
-All the parameters are required to be added after URL in GET request:
+```
+hostId: 1234
+projectId: 0
+```
+
+### GET Request
+
+For a GET request, all the parameters are required to be appended to the URL:
 
 ```
 https://cdn.api.qcloud.com/v2/index.php?
@@ -56,17 +56,15 @@ Action=UpdateCdnProject
 &projectId=0
 ```
 
+### POST Request
 
-
-### 4.3 POST Request
-
-In POST request, the parameters will be filled in HTTP Request-body. The request address is:
+For a POST request, the parameters are input in HTTP Request-body. The request address is:
 
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
 
-Such formats of parameters as form-data, x-www-form-urlencoded are supported. The array of parameters is as follows:
+Formats such as form-data and x-www-form-urlencoded are supported for the parameters. The array of parameters is as follows:
 
 ```
 array (
@@ -81,9 +79,7 @@ array (
 ```
 
 
-### 4.4 Example of Returned Result
-
-#### Switch Successful
+### Example of Result
 
 ```json
 {
@@ -92,8 +88,6 @@ array (
     "codeDesc": "Success"
 }
 ```
-
-#### Switch Failed
 
 ```json
 {

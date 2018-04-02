@@ -8,13 +8,43 @@
 
 > 通过 wx.getSystemInfo 可以获取当前基础库版本信息
 
-## 类目支持
-出于政策和合规的考虑，暂时没有放开所有类目的小程序对 &lt;live-pusher&gt; 标签的支持，现阶段已经支持的类目有：
-- 【社交】—— 直播
-- 【教育】—— 在线教育
-- 【医疗】—— 互联网医院
-- 【金融】—— 基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融
-- 【政务民生】
+## 使用限制
+出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
+
+- 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
+
+<table>
+  <tr align="center">
+    <th width="200px">主类目</th>
+    <th width="700px">子类目</th>
+  </tr>
+  <tr align="center">
+    <td>【社交】</td>
+		<td>直播</td>
+  </tr>
+	<tr align="center">
+    <td>【教育】</td>
+		<td>在线教育</td>
+  </tr>
+	<tr align="center">
+    <td>【医疗】</td>
+		<td>互联网医院，公立医院</td>
+  </tr>
+	<tr align="center">
+    <td>【政务民生】</td>
+		<td>所有二级类目</td>
+  </tr>
+	<tr align="center">
+    <td>【金融】</td>
+		<td>基金、信托、保险、银行、证券/期货、非金融机构自营小额贷款、征信业务、消费金融</td>
+  </tr>
+</table>
+
+- 符合类目要求的小程序，需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限，如下图所示：
+
+![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+
+注意：如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
 ## 属性定义
 | 属性名 | 类型 | 默认值 | 说明 |
@@ -23,8 +53,8 @@
 | mode | String | RTC |  SD, HD, FHD, RTC|
 | autopush | Boolean | false | 是否自动启动推流 |
 | muted | Boolean | false | 是否静音 |
-| enable-camera | String | true | 开启\关闭摄像头  |
-| auto-focus | String | true | 手动\自动对焦 |
+| enable-camera | Boolean | true | 开启\关闭摄像头  |
+| auto-focus | Boolean | true | 手动\自动对焦 |
 | orientation | String | vertical | vertical, horizontal |
 | beauty |  Number | 0 | 美颜指数，取值 0 - 9，数值越大效果越明显 |
 | whiteness  | Number | 0 | 美白指数，取值 0 - 9，数值越大效果越明显 |
@@ -85,13 +115,14 @@ SD、HD 和 FHD 主要用于直播类场景，比如赛事直播、在线教育�
 | 场景        | mode |  min-bitrate | max-bitrate |  audio-quality |  说明  |
 |-------------|:-------:| :-------------: | :-------:| :--------: | ------------ -|
 | 标清直播 | SD   | 300kbps | 800kbps  | high | 窄带场景，比如户外或者网络不稳定的情况下适用 |
-| 高清直播 | HD   | 600kbps | 1200kbps | high | 常规直播软件所采用的清晰度级别，推荐使用 |
-| 超清直播 | FHD  | 600kbps | 1800kbps | high | 观众是手机为主的话不太需要，大屏幕观看才有意义 |
-| 视频客服（用户） | RTC | 200kbps | 500kbps   | high | 声音为主画面为辅的场景，所以画质不要求太高 | 
+| 高清直播 | HD   | 600kbps | 1200kbps | high | 目前主流的APP所采用的参数设定，普通直播场景推荐使用这一档 |
+| 超清直播 | FHD  | 600kbps | 1800kbps | high | 对清晰度要求比较苛刻的场景，普通手机观看使用 HD 即可 |
+| 视频客服（用户） | RTC | 200kbps | 500kbps   | high | 这是一种声音为主，画面为辅的场景，所以画质不要设置的太高 | 
 | 车险定损（车主） | RTC | 200kbps | 1200kbps | high | 由于可能要看车况详情，画质上限会设置的高一些 |
-| 多人会议（主讲） | RTC | 200kbps | 1000kbps | low | 多人场景下要选用低音质，主讲人画质可以适当高一些 |
-| 多人会议（参与） | RTC | 150kbps | 300kbps   | low | 作为会议参与者，不需要太高的画质，有画面就可以了 |
+| 多人会议（主讲） | RTC | 200kbps | 1000kbps | high | 主讲人画质可以适当高一些，参与的质量可以设置的低一些 |
+| 多人会议（参与） | RTC | 150kbps | 300kbps   | low | 作为会议参与者，不需要太高的画质和音质 |
 
+> 如果不是对带宽特别没有信心的应用场景，audio-quality选项请不要选择 low，其音质和延迟感都要会比 high 模式差很多。
 
 ## 对象操作
 - **wx.createLivePusherContext()**
@@ -112,10 +143,13 @@ SD、HD 和 FHD 主要用于直播类场景，比如赛事直播、在线教育�
 - **switchCamera**
 切换前后摄像头
 
+- **snapshot**
+推流截图，截图大小跟组件的大小一致。截图成功图片的临时路径为ret.tempImagePath
+
 ```javascript
 var pusher = wx.createLivePusherContext('pusher');
 pusher.start({
-    success: function(){
+    success: function(ret){
 		    console.log('start push success!')
 		}
 		fail: function(){

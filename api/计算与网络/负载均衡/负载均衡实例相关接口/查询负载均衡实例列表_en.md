@@ -22,6 +22,11 @@ Domain for API access: lb.api.qcloud.com
 <td> Int
 <td> Type of the cloud load balancer instance <br>1: public network (without daily rate) 2: public network (with daily rate) 3: private network.
 <tr>
+<td>forward
+<td> No
+<td> Int
+<td>1: Application; 0: Classic; -1: all
+<tr>
 <td> loadBalancerName
 <td> No
 <td> String
@@ -119,6 +124,10 @@ loadBalancerName, createTime, domain and loadBalancerType.
 <td> loadBalancerType
 <td> Int
 <td> Type of the cloud load balancer instance <br>1: public network (without daily rate) 2: public network (with daily rate) 3: private network.
+<tr>
+<td>forward
+<td>Int
+<td>Application CLB identification, 1:Application CLB   0: Classic CLB
 <tr>
 <td> domain
 <td> String

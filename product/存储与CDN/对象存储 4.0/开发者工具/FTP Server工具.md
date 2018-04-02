@@ -3,11 +3,11 @@ COS FTP Server 工具支持通过 FTP 协议直接操作 COS 中的对象和目�
 ### 系统环境
 操作系统：Linux，推荐使用腾讯云 CentOS 7 系列 CVM，暂不支持 Windows 系统。
 
-Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](/doc/product/436/10866) 进行安装与配置。
+Python 解释器版本：Python 2.7，可参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 
 依赖库：
-- cos-python-sdk-v5（included），requests（not included），argparse（not included）
-- pyftpdlib(included)
+- requests
+- argparse
 
 ### 下载与安装
 GitHub 链接：[COS FTP Server 工具](https://github.com/tencentyun/cos-ftp-server-V5)。
@@ -57,13 +57,11 @@ Bucket 作为整个 FTP Server 的根目录，Bucket 下面可以建立若干个
 `conf/vsftpd.conf`为 FTP Server 工具的配置文件，相关配置项的说明如下：
 ```conf
 [COS_ACCOUNT]
-cos_appid = 12XXXXXX
-# 用户自己的 APPID
 cos_secretid = XXXXXX
 cos_secretkey = XXXXXX
 # SecretId 和 SecretKey 可以在以下地址获取：https://console.cloud.tencent.com/cam/capi
-cos_bucket = XXXXX
-# 要操作的 Bucket 名称，需要注意的是 COS V5 控制台上的 Bucket 采用了 <Bucket>-<APPID> 的命名方式，这里只填写 Bucket 即可。
+cos_bucket = BucketName-appid
+# 要操作的bucket，bucket的格式为：bucektname-appid组成。示例：cos_bucket = mybucket-125888888888。
 cos_region = ap-xxx
 # Bucket 所在的地域，目前支持的地域请参照【可用地域-适用于 XML API 部分】：https://cloud.tencent.com/document/product/436/6224
 cos_user_home_dir = /home/cos_ftp/data
@@ -89,6 +87,9 @@ single_file_max_size = 21474836480
 min_part_size       = default
 upload_thread_num   = default
 max_connection_num  = 512
+max_list_file       = 10000                # ls命令最大可列出的文件数目，建议不要设置太大，否则ls命令延时会很高
+log_level           = INFO                 # 设置日志输出的级别
+log_dir             = log                  # 设置日志的存放目录，默认是在ftp server目录下的log目录中
 ```
 配置中OPTIONAL选项是用于调整上传性能的可选项，一般情况下保持默认值即可。根据机器的性能合理地调整上传分片的大小和并发上传的线程数，可以获得更好的上传速度。 max_connection_num 为最大连接数的限制选项，设置为0表示不限制最大连接数，可以根据机器情况进行调整。 
 ## 运行
@@ -102,6 +103,12 @@ python ftp_server.py
 ## 停止
 `Ctrl + C`即可取消 FTP Server 运行（直接运行，或 screen 方式放在后台运行）。
 ## FAQ
+
+### 配置文件中的masquerade_address这个选项有何作用？何时需要配置masquerade_address
+当FTP Server运行在一个多网卡的Server上，并且FTP Server采用了PASSIVE模式时（一般地，FTP客户端位于一个NAT网关之后时，都需要启用PASSIVE模式），此时需要使用masquerade_address选项来唯一绑定一个passive模式下用于reply的IP。 例如，FTP Server有多个IP地址，如内网IP为10.XXX.XXX.XXX，外网IP为123.XXX.XXX.XXX。 客户端通过外网IP连接到FTP Server，同时客户端使用的是PASSIVE模式传输，此时，若FTP Server未指定masquerade_address具体绑定到外网IP地址，则Server在PASSIVE模式下，reply时，有可能会走内网地址。就会出现客户端能连接上Ftp server，但是不能从Server端获取任何数据回复的问题。
+
+如果需要配置masquerade_address，建议指定为客户端连接Server所使用的那个IP地址。
+
 #### 上传大文件的时候，中途取消，为什么 COS 上会留有已上传的文件？
 由于适用于 COS V5 版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
 

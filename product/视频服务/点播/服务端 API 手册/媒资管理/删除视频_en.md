@@ -2,23 +2,31 @@
 DeleteVodFile
 
 ## Feature Description
-1. This API is used to delete video files;
+1. This API is used to delete video files.
 2. After a video is deleted, all its dependent objects (transcoding result, image sprite, etc.) will also be deleted.
+3. CDN cache needs to be refreshed each time when the files are deleted. Specify 1 for isFlushCdn, and the upper limit is 10,000 times per day by default.
+
+## Event Notification
+
+When files have been deleted, Event Notification-Notification on File Deletion is triggered, based on which the App backend monitors the execution status of task flow.
+
+For more information, please see Server Event Notifications.
 
 ## Request Method
 
 ### Request Domain
 vod.api.qcloud.com
 
-### Peak Calling Frequency
-100 counts/min
+### Max Calling Frequency
+100/min
 
-##### Parameter Description
-| Parameter Name | Required | Type | Description |
+### Parameters
+| Name | Required | Type | Description |
 |---------|---------|---------|---------|
 | fileId | Yes | string | File ID |
-| priority | Yes | Integer | You may enter 0. Priority 0: Medium. 1: High. 2: Low |
-| COMMON_PARAMS | Yes |  | Refer to [Common Parameters](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0) |
+| isFlushCdn | No | int | Whether to refresh CDN cache each time when files are deleted. It is not refreshed by default. When the value is 1, it is refreshed. |
+| priority | Yes | Integer | Priority. You can enter 0. (0: Medium; 1: High; 2: Low.) |
+| COMMON_PARAMS | Yes |  | For more information, please see [Common Request Parameters](/document/api/213/6976) |
 
 ### Request Example
 ```
@@ -29,22 +37,22 @@ https://vod.api.qcloud.com/v2/index.php?Action=DeleteVodFile
 ```
 ## API Response
 
-##### Parameter Description
+### Parameters
 | Name | Type | Description |
 |---------|---------|---------|
-| code | Integer | Error code, 0:  Succeeded, other values:  Failed |
+| code | Integer | Error code. 0: Successful; other values: Failed. |
 | message | String | Error message |
 
-### Error Code Description
+### Error Codes
 | Error Code | Description |
 |---------|---------|
-| 4000-7000 | Refer to [Common Error Codes](/document/product/266/7783)  |
+| 4000-7000 | For more information, please see [Common Error Codes](/document/product/266/7783)  |
 | 1000 | Invalid parameter  |
 | 1001 | Internal error  |
 | 1050 | Internal error  |
 | 1102 | Internal error  |
 | 1702 | Internal error  |
-| 10009 | Unexpected file status  |
+| 10009 | File status exception |
 
 ### Response Example
 

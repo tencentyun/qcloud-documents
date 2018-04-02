@@ -71,7 +71,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &namespace=qce/dcx
 &metricName=delay
 &dimensions.0.name=directconnectconnid 
-&dimensions.0.value=dc-081qsbc7
+&dimensions.0.value=dcx-081qsbc7
 &startTime=2016-06-28 14:10:00
 &endTime=2016-06-28 14:20:00
 </pre>

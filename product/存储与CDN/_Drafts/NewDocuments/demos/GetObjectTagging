@@ -1,0 +1,36 @@
+
+**请求示例**
+
+```
+GET /dog.jpg?tagging HTTP/1.1
+User-Agent: curl/7.29.0
+Accept: */*
+Host: chengwus3sdktj-1251668577.cos.ap-beijing-1.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516362907;1517362957&q-key-time=1516362907;1517362957&q-url-param-list=tagging&q-header-list=host&q-signature=af98c8e4b249aed72e89854a7879bc0e0e5127f4
+```
+
+**响应示例**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 202
+Connection: keep-alive
+Date: Fri, 19 Jan 2018 11:56:07 GMT
+Server: tencent-cos
+x-cos-request-id: NWE2MWRjZDdfMmJiMjM1MGFfNThmZV8xOTk4Mg==
+
+<?xml version='1.0' encoding='utf-8' ?>
+<Tagging>
+	<TagSet>
+		<Tag>
+			<Key>age</Key>
+			<Value>18</Value>
+		</Tag>
+		<Tag>
+			<Key>name</Key>
+			<Value>xiaoming</Value>
+		</Tag>
+	</TagSet>
+</Tagging>
+```

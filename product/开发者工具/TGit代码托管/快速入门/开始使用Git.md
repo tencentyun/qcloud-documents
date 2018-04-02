@@ -4,18 +4,22 @@
 1. 登录腾讯云账号。
 若是新用户需在腾讯云官网进行[【注册】](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F213)，注册指引可参考 [如何注册腾讯云](/doc/product/378/9603) 。
 
-2. 到 TGit 产品介绍页上单击【立即申请】，然后跳转到 TGit 产品申请页。
-![](https://mc.qcloudimg.com/static/img/c9f10ff0f08f1ef06e50c0608980742c/image.png)
+2. 到 [TGit 产品介绍页](https://cloud.tencent.com/product/TGit) 上单击【开通 DevMaster】
+![](https://mc.qcloudimg.com/static/img/b9c98c592a9362a463b9a5983ad76b7d/image.png)
 
-3. 填写好用户信息和业务信息，单击【提交申请】。
-![](https://mc.qcloudimg.com/static/img/ab8ec75b13f13dbf021253c99dfe154c/image.png)
+3. 跳转页面后，单击【公测申请】，然后跳转到 DevMaster 产品申请页，完成注册即可。
+![](https://mc.qcloudimg.com/static/img/25e225935245b6029c171d1a5ff730a4/image.png)
 
-## 步骤二：设置 TGit 账号
-1. 在登录了腾讯云账号后，输入链接 `http://git.qcloud.com`。
-![](https://mc.qcloudimg.com/static/img/652782802a37a32dd8fa151cb5b6d387/image.png)
-![](https://mc.qcloudimg.com/static/img/141e536aa5429f9604a776be2af0ee60/image.png)
+> TGit 产品已与 DevMaster 产品相关联，可以在 DevMaster 页面使用 TGit 代码托管功能。
 
-2. 第一次登录 TGit 平台时，需要设置账号和密码。
-![](https://mc.qcloudimg.com/static/img/d25446e16c68957e98e39efaacf32254/image.png)
+## 步骤二：初始化设置
+1. 首次登入 DevMaster 产品后，弹跳出初始化设置面板，设置 Git 帐号密码后，单击【下一步】。
+![](https://mc.qcloudimg.com/static/img/7a9b78deb2e04846f649bcbaaa98b17f/image.png)
+
+2. 在项目设置面板填写项目信息，单击【完成创建】即可完成初始化设置。
+![](https://mc.qcloudimg.com/static/img/ae4db10dd2ea62fc9c31d67c95a414d7/image.png)
+
+3. 跳转页面后，单击【代码】，即可进入 TGit 平台。
+![](https://mc.qcloudimg.com/static/img/71e81cababf08604ee7f752809d538e4/image.png)
 
 完成上述步骤后，就可以开始体验 TGit 平台了。

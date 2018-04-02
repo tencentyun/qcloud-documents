@@ -21,7 +21,7 @@ If you want to build your enterprise's hybrid cloud deployment, namely, to conne
 
 ## Flexible Resource Interconnection on Tencent Cloud
 The interconnection between resources in a VPC and other cloud resources can be achieved through peering connection and Classiclink.
-- **[Peering Connection](https://cloud.tencent.com/doc/product/215/5002)** is a service that connects two VPCs and makes them combined into one VPC in a sense. It can help you achieve "one server covering the globe" and disaster recovery deployment at "two regions, three centers" easily.
+- **[Peering Connection](https://intl.cloud.tencent.com/document/product/215/5000)** is a service that connects two VPCs and makes them combined into one VPC in a sense. It can help you achieve "one server covering the globe" and disaster recovery deployment at "two regions, three centers" easily.
 - **[Classiclink](https://cloud.tencent.com/doc/product/215/5002)** is a service that associates CVMs in the basic network with specified VPCs to allow them to communicate with each other, thus achieving the smooth connection of private network resources.
 
 ## Multi-dimensional and Comprehensive Security Protection

@@ -1,0 +1,3577 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"description": "对象存储服务（Cloud Object Storage）是面向企业和个人开发者提供的高可用，高稳定，强安全的云端存储服务。您可以将任意数量和形式的非结构化数据放入COS，并在其中实现数据的管理和处理。COS支持标准的Restful API接口，您可以快速上手使用，按实际使用量计费，无最低使用限制。",
+		"version": "1.0.0",
+		"title": "腾讯云对象存储COS API文档",
+		"termsOfService": "http://qcloud.com/product/cos"
+	},
+	"tags": [
+		{
+			"name": "object",
+			"description": "Object操作",
+			"externalDocs": {
+				"description": "了解更多关于对象存储object",
+				"url": "https://cloud.tencent.com/document/product/436"
+			}
+		},
+		{
+			"name": "bucket",
+			"description": "Bucket操作",
+			"externalDocs": {
+				"description": "了解更多关于对象存储Bucket",
+				"url": "https://cloud.tencent.com/document/product/436"
+			}
+		}
+	],
+	"servers": [
+		{
+			"url": "http://{bucket}.cos.{region}.myqcloud.com",
+			"description": "由Bucket以及地域信息region组成请求的地址",
+			"variables": {
+				"region": {
+					"enum": [
+						"ap-beijing-1",
+						"ap-beijing",
+						"ap-shanghai",
+						"ap-guangzhou",
+						"ap-chengdu",
+						"ap-singapore",
+						"ap-hongkong",
+						"na-toronto",
+						"eu-frankfurt"
+					],
+					"default": "ap-shanghai",
+					"description": "对象存储可用地域信息"
+				},
+				"bucket": {
+					"default": "demo",
+					"description": "对象存储存储桶名称"
+				}
+			}
+		}
+	],
+	"paths": {
+		"/": {
+			"get": {
+				"tags": [
+				  "serrvice"
+				],
+				"summary": "Get Service",
+				"description": "Get Service 接口是用来获取请求者名下的所有存储空间列表（Bucket list）。",
+				"operationId": "GetService",
+				"responses": {
+				  "200": {
+					"error_code" : "None",
+					"description": "查询成功，返回 application/xml 数据，包含Bucket中的对象信息",
+					"headers": {
+					  "x-cos-request-id": {
+						"description": "全局唯一的请求标识号",
+						"schema": {
+						  "type": "string"
+						}
+					  }
+					},
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#components/schemas/GetServiceResult"
+						}
+					  }
+					}
+				  },
+				  "400": {
+					"error_code" : "InvalidBucketName",
+					"description": "Bucket名称不合法",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "403": {
+					"error_code" : "SignatureDoesNotMatch",
+					"description": "提供的签名不符合规则，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error",
+						  "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+						}
+					  }
+					}
+				  },
+				  "404": {
+					"error_code" : "NoSuchBucket",
+					"description": "Bucket 不存在，返回该错误码",
+					"content": {
+					  "application-xml": {
+						"schema": {
+						  "$ref": "#/components/schemas/Error"
+						}
+					  }
+					}
+				  }
+				}
+			},
+			"get-2": {
+				"tags": [
+					"bucket"
+				],
+				"summary": "Get Bucket",
+				"description": "Get Bucket 请求等同于 List Object 请求，可以列出该 Bucket 下的部分或者全部 Object。此 API 调用者需要对 Bucket 有 Read 权限。",
+				"operationId": "GetBucket",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "prefix",
+						"description": "前缀匹配，用来规定返回的文件前缀地址",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "Prefix"
+						}
+					},
+					{
+						"in": "query",
+						"name": "delimiter",
+						"description": "定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "Delimiter"
+						}
+					},
+					{
+						"in": "query",
+						"name": "encoding-type",
+						"description": "规定返回值的编码方式，可选值：url",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "EncodingType"
+						}
+					},
+					{
+						"in": "query",
+						"name": "marker",
+						"description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从marker开始",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "Marker"
+						}
+					},
+					{
+						"in": "query",
+						"name": "max-keys",
+						"description": "单次返回最大的条目数量，默认1000",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "MaxKeys"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息",
+						"headers": {
+							"x-cos-request-id": {
+								"description": "全局唯一的请求标识号",
+								"schema": {
+									"type": "string"
+								}
+							}
+						},
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/ListBucketResult"
+								}
+							}
+						}
+					},
+					"400": {
+						"error_code": "InvalidBucketName",
+						"description": "Bucket名称不合法",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/GetBucket"
+			},
+			"put": {
+				"tags": [
+					"bucket"
+				],
+				"summary": "Put Bucket",
+				"description": "Put Bucket 接口请求可以在指定账号下创建一个 Bucket。该 API 接口不支持匿名请求，您需要使用帯 Authorization 签名认证的请求才能创建新的 Bucket 。创建 Bucket 的用户默认成为 Bucket 的持有者。",
+				"operationId": "PutBucket",
+				"parameters": [
+					{
+						"in": "header",
+						"name": "x-cos-acl",
+						"description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "public-read-write"
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-read",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-write",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-full-control",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "新建Bucket成功，返回 application/xml 数据，包含Bucket中的对象信息",
+						"headers": {
+							"x-cos-request-id": {
+								"description": "全局唯一的请求标识号",
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "TooManyBucket",
+						"description": "Bucket数量超过200限制",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"400-1": {
+						"error_code": "InvalidBucketName",
+						"description": "Bucket名称不合法",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "InvalidBucketName",
+						"description": "Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"oneOf": [
+										{
+											"description": "ddd",
+											"type": "string"
+										},
+										{
+											"description": "eee",
+											"type": "string"
+										}
+									]
+								}
+							}
+						}
+					},
+					"409": {
+						"error_code": "BucketAlreadyExists",
+						"description": "CreateBucket指定的BucketName已经使用，请选择新的BucketName",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					}
+                },
+                "Demo": "demos/PutBucket"
+            },
+            "delete": {
+                "tags": [
+                  "bucket"
+                ],
+                "summary": "Delete Bucket",
+                "description": "Delete Bucket 接口请求可以在指定账号下删除 Bucket，删除之前要求 Bucket 内的内容为空，只有删除了 Bucket 内的信息，才能删除 Bucket 本身 。",
+                "operationId": "DeleteBucket",
+                "responses": {
+                  "204": {
+                    "error_code" : "None",
+                    "description": "删除Bucket成功，返回 application/xml 数据",
+                    "headers": {
+                      "x-cos-request-id": {
+                        "description": "全局唯一的请求标识号",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "403": {
+                    "error_code" : "AccessDenied",
+                    "description": "删除 Bucket 同样需要携带签名，如果试图删除一个没有访问权限的 Bucket，就会返回该错误",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                    },
+                  "404": {
+                    "error_code" : "InvalidBucketName",
+                    "description": "Bucket 不存在，返回该错误码",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "oneOf": [
+                            {
+                              "description" : "ddd",
+                              "type": "string"
+                            },
+                            {
+                              "description" : "eee",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "409": {
+                    "error_code" : "BucketNotEmpty",
+                    "description": "不能删除一个非空的 Bucket",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Demo": "demos/DeleteBucket"
+            },
+            "head": {
+                "tags": [
+                  "bucket"
+                ],
+                "summary": "Head Bucket",
+                "description": "Head Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。Head 的权限与 Read 一致。当该 Bucket 存在时，返回 HTTP 状态码 200；当该 Bucket 无访问权限时，返回 HTTP 状态码 403；当该 Bucket 不存在时，返回 HTTP 状态码 404。",
+                "operationId": "HeadBucket",
+                "responses": {
+                  "200": {
+                    "error_code" : "None",
+                    "description": "该 Bucket 存在",
+                    "headers": {
+                      "x-cos-request-id": {
+                        "description": "全局唯一的请求标识号",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "403": {
+                    "error_code" : "SignatureDoesNotMatch",
+                    "description": "提供的签名不符合规则，返回该错误码",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "$ref": "#/components/schemas/Error",
+                          "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                        }
+                      }
+                    }
+                  },
+                  "404": {
+                    "error_code" : "NoSuchBucket",
+                    "description": "该 Bucket 不存在",
+                    "content": {
+                      "application-xml": {
+                        "schema": {
+                          "oneOf": [
+                            {
+                              "description" : "ddd",
+                              "type": "string"
+                            },
+                            {
+                              "description" : "eee",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "Demo": "demos/HeadBucket"
+            }
+		},
+		"/?cors": {
+			"put": {
+				"tags": [
+					"bucket CORS"
+				],
+				"summary": "Put Bucket CORS",
+				"description": "Put Bucket CORS 接口用来请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64 KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。",
+				"operationId": "PutBucketCORS",
+				"requestBody": {
+					"description": "请求的请求体为跨域规则",
+					"required": true,
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/BucketCorsRequest",
+								"description": "设置的具体跨域规则"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "上传成功,响应体返回为空"
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/PutBucketCORS"
+			},
+			"get": {
+				"tags": [
+					"bucket CORS"
+				],
+				"summary": "Get Bucket CORS",
+				"description": "Get Bucket CORS 接口实现 Bucket 持有者在 Bucket 上进行跨域资源共享的信息配置。（CORS 是一个 W3C 标准，全称是\"跨域资源共享\"（Cross-origin resource sharing））。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。",
+				"operationId": "GetBucketCORS",
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "获取跨域资源共享的信息配置成功",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/BucketCorsRequest"
+								}
+							}
+						}
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404-1": {
+						"error_code": "NoSuchCORSConfiguration",
+						"description": "跨域配置不存在",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+                },
+                "Demo": "demos/GetBucketCORS"
+			},
+			"delete": {
+				"tags": [
+					"bucket CORS"
+				],
+				"summary": "Delete Bucket CORS",
+				"description": "Delete Bucket CORS 接口请求实现删除跨域访问配置信息。",
+				"operationId": "DeleteBucketCORS",
+				"responses": {
+					"204": {
+						"error_code": "None",
+						"description": "删除成功, 响应体返回为空"
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+        "Demo": "demos/DeleteBucketCORS"
+			}
+		},
+		"/{ObjectName}": {
+			"parameters": [
+				{
+					"name": "ObjectName",
+					"in": "path",
+					"description": "COS 中存储的具体文件，是存储的基本实体",
+					"required": true,
+					"schema": {
+						"type": "string"
+					},
+					"style": "simple"
+				}
+			],
+			"put": {
+				"tags": [
+					"object"
+				],
+				"summary": "Put Object",
+				"description": "Put Object 接口请求可以将本地的文件（Object）上传至指定 Bucket 中。该操作需要请求者对 Bucket 有 WRITE 权限。",
+				"operationId": "PutObject",
+				"requestBody": {
+					"description": "请求的请求体为 Object 文件内容",
+					"required": true,
+					"content": {
+						"*/*": {
+							"schema": {
+								"type": "string",
+								"description": "Object内容"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-Length",
+						"description": "RFC 2616 中定义的 HTTP 请求内容长度（字节)",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-Disposition",
+						"description": "RFC 2616 中定义的文件名称，将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-Encoding",
+						"description": "RFC 2616 中定义的编码格式，将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-Type",
+						"description": "RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Expect",
+						"description": "当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Expires",
+						"description": "RFC 2616 中定义的缓存策略，将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-meta-*",
+						"description": "允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2KB",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-storage-class",
+						"description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"STANDARD",
+								"STANDARD_IA",
+								"NEARLINE"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义对消息内容（不包括头部）计算 MD5 值获得 128 比特位数字，对该数字进行 base64 编码为一个消息的 Content-MD5 值。该请求头可用于检查数据是否与发送时一致。虽然该请求头是可选的，但我们建议使用该请求头进行端到端检查",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-acl",
+						"description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"public-read",
+								"private",
+								"public-read-write"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-read",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-write",
+						"description": "赋予被授权者写的权限。格式：x-cos-grant-write: id=\" \",id=\" \"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-full-control",
+						"description": "赋予被授权者读写权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "上传成功,响应体返回为空",
+						"headers": {
+							"ETag": {
+								"description": "上传文件内容的MD5值",
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "InvalidURI",
+						"description": "对象 key 长度限制为 850，如果超过 850 会返回该错误",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-1": {
+						"error_code": "EntityTooLarge",
+						"description": "如果添加的文件长度超过5G，会返回该错误",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-2": {
+						"error_code": "InvalidDigest",
+						"description": "如果用户上传文件时携带 Content-MD5 头部，COS 会校验 body 的 Md5 和用户携带的 MD5 是否一致，如果不一致将返回该错误",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-3": {
+						"error_code": "KeyTooLong",
+						"description": "上传文件时携带的以x-cos-meta开头的自定义头部，每个自定义头部的key和value加起来不能超过4k，否则返回该错误",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "如果试图添加的 Object 所在的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"411": {
+						"error_code": "MissingContentLength",
+						"description": "如果上传文件时，没有添加 Content-Length 头部，会返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put-1": {
+				"tags": [
+					"object"
+				],
+				"summary": "Put Object Copy",
+				"description": "Put Object Copy 请求实现将一个文件从源路径复制到目标路径。建议文件大小 1MB 到 5GB，超过 5GB 的文件请使用分块上传 Upload - Copy。在拷贝的过程中，文件元属性和 ACL 可以被修改。\n用户可以通过该接口实现文件移动，文件重命名，修改文件属性和创建副本。",
+				"operationId": "PutObjectCopy",
+				"parameters": [
+					{
+						"in": "header",
+						"name": "x-cos-copy-source",
+						"description": "源文件 URL 路径，可以通过 versionid 子资源指定历史版本",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-metadata-directive",
+						"description": "是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced。",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-Modified-Since",
+						"description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-Unmodified-Since",
+						"description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-Match",
+						"description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-None-Match",
+						"description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-storage-class",
+						"description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"STANDARD",
+								"STANDARD_IA",
+								"NEARLINE"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-acl",
+						"description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"public-read",
+								"private",
+								"public-read-write"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-read",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-write",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-full-control",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-meta-*",
+						"description": "其他自定义的文件头部",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "拷贝成功,返回响应体",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/CopyObjectResult"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put-2": {
+				"tags": [
+					"object"
+				],
+				"summary": "Upload Part Copy",
+				"description": "Upload Part - Copy 请求实现将一个文件的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源文件，x-cos-copy-source-range 指定字节范围。允许分块的大小为 5 MB - 5 GB",
+				"operationId": "UploadPartCopy",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "partNumber",
+						"description": "分块拷贝的块号",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "PartNumber"
+						}
+					},
+					{
+						"in": "query",
+						"name": "uploadId",
+						"description": "使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "UploadId"
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source",
+						"description": "源文件 URL 路径，可以通过 versionid 子资源指定历史版本",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-range",
+						"description": "源文件的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。\n例如 bytes=0-9 表示你希望拷贝源文件的开头10个字节的数据 ， 如果不指定，则表示拷贝整个文件",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-Modified-Since",
+						"description": "当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-Unmodified-Since",
+						"description": "当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-Match",
+						"description": "当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-copy-source-If-None-Match",
+						"description": "当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-storage-class",
+						"description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"STANDARD",
+								"STANDARD_IA",
+								"NEARLINE"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-acl",
+						"description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"public-read",
+								"private",
+								"public-read-write"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-read",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-write",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"。"
+						}
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-full-control",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；<br>当需要给子账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\"，<br>当需要给根账户授权时，id=\"qcs::cam::uin/\\<OwnerUin>:uin/\\<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "id=\"qcs::cam::uin/\\<OwnerUin>:uin/<SubUin>\""
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "拷贝成功,返回响应体。",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/CopyObjectResult"
+								}
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": [
+					"object"
+				],
+				"summary": "Get Object",
+				"description": "Get Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）下载至本地。该操作需要请求者对 Bucket 有 READ 权限。",
+				"operationId": "GetObject",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "response-content-type",
+						"description": "设置响应头部中的 Content-Type 参数",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "ContentType"
+						}
+					},
+					{
+						"in": "query",
+						"name": "response-content-language",
+						"description": "设置响应头部中的 Content-Language 参数",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "ContentLanguage"
+						}
+					},
+					{
+						"in": "query",
+						"name": "response-expires",
+						"description": "设置响应头部中的 Content-Expires 参数",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "ResponseExpires"
+						}
+					},
+					{
+						"in": "query",
+						"name": "response-cache-control",
+						"description": "设置响应头部中的 Cache-Control 参数",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "ResponseCacheControl"
+						}
+					},
+					{
+						"in": "query",
+						"name": "response-content-disposition",
+						"description": "设置响应头部中的 Content-Disposition 参数",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "ResponseContentDisposition"
+						}
+					},
+					{
+						"in": "query",
+						"name": "response-content-encoding",
+						"description": "设置响应头部中的 Content-Encoding 参数",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "ResponseContentEncoding"
+						}
+					},
+					{
+						"in": "header",
+						"name": "Range",
+						"description": "RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "If-Unmodified-Since",
+						"description": "如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回 412 (precondition failed)",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "If-Modified-Since",
+						"description": "当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回 304(not modified)",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "If-Match",
+						"description": "当 ETag 与指定的内容一致，才返回文件。否则返回 412 (precondition failed)",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "If-None-Match",
+						"description": "当 ETag 与指定的内容不一致，才返回文件。否则返回 304 (not modified)",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "下载成功，文件内容在响应体中",
+						"headers": {
+							"x-cos-meta- *": {
+								"description": "用户自定义的元数据",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"x-cos-object-type": {
+								"description": "用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"x-cos-storage-class": {
+								"description": "Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE",
+								"schema": {
+									"type": "string"
+								}
+							}
+						},
+						"content": {
+							"*/*": {
+								"schema": {
+									"description": "下载文件的内容",
+									"example": 123
+								}
+							}
+						}
+					},
+					"400": {
+						"error_code": "InvalidArgument",
+						"description": "提供的参数错误",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchKey",
+						"description": "如果下载的文件不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			},
+			"options": {
+				"tags": [
+					"object"
+				],
+				"summary": "Options Object",
+				"description": "Options Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 HEADER 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回 403 Forbidden。可以通过 Put Bucket CORS 接口来开启 Bucket 的 CORS 支持。",
+				"operationId": "OptionsObject",
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Origin",
+						"description": "模拟跨域访问的请求来源域名",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Access-Control-Request-Method",
+						"description": "模拟跨域访问的请求 HTTP 方法",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Access-Control-Request-Headers",
+						"description": "模拟跨域访问的请求头部",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "跨域成功",
+						"headers": {
+							"x-cos-request-id": {
+								"description": "全局唯一的请求标识号",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"Access-Control-Allow-Origin": {
+								"description": "模拟跨域访问的请求来源域名，当来源不允许的时候，此 Header 不返回",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"Access-Control-Allow-Methods": {
+								"description": "模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"Access-Control-Allow-Headers": {
+								"description": "模拟跨域访问的请求头部，当模拟任何请求头部不允许的时候，此 Header 不返回该请求头部",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"Access-Control-Expose-Headers": {
+								"description": "模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"Access-Control-Max-Age": {
+								"description": "设置 OPTIONS 请求得到结果的有效期",
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"head": {
+				"tags": [
+					"object"
+				],
+				"summary": "Head Object",
+				"description": "Head Object 接口请求可以获取对应 Object 的 meta 信息数据，Head 的权限与 Get 的权限一致。",
+				"operationId": "HeadObject",
+				"parameters": [
+					{
+						"in": "header",
+						"name": "If-Modified-Since",
+						"description": "当 Object 在指定时间后被修改，则返回对应 Object 的 meta 信息，否则返回 304",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "查询成功",
+						"headers": {
+							"x-cos-request-id": {
+								"description": "全局唯一的请求标识号",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"x-cos-meta- *": {
+								"description": "用户自定义的 meta",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"x-cos-object-type": {
+								"description": "用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"x-cos-storage-class": {
+								"description": "Object 的存储级别，枚举值：STANDARD,STANDARD_IA, NEARLINE",
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"object"
+				],
+				"summary": "Delete Object",
+				"description": "Delete Object 接口请求可以在 COS 的 Bucket 中将一个文件（Object）删除。该操作需要请求者对 Bucket 有 WRITE 权限。",
+				"operationId": "DeleteObject",
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "查询成功"
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/{ObjectName}?append&position={position}": {
+			"parameters": [
+				{
+					"name": "ObjectName",
+					"in": "path",
+					"description": "COS上要追加的文件名",
+					"required": true,
+					"schema": {
+						"type": "string"
+					},
+					"style": "simple"
+				}
+			],
+			"post": {
+				"tags": [
+					"object"
+				],
+				"summary": "Append Object",
+				"description": "Append Object 接口请求可以将一个对象以分块追加的方式上传至指定存储桶中。对象首次使用 Append Object 接口上传时，该对象的属性自动为 appendable ，使用其他接口上传时则属性自动为 normal （如果该对象已存在则属性会被覆盖为 normal），可以使用 Get Object 或 Head Object 接口获取 x-cos-object-type 响应头来判断对象属性。对象属性为 appendable 时才能使用本接口追加上传。\n追加上传的对象每个分块最小为4K， 建议大小1M - 5G。 如果 Position 的值和当前对象的长度不致， COS 会返回409 错误。 如果追加一个 normal 属性的文件， COS 会返回409 ObjectNotAppendable。 ",
+				"operationId": "AppendObject",
+				"requestBody": {
+					"description": "请求的请求体为追加的Object 文件内容",
+					"required": true,
+					"content": {
+						"*/*": {
+							"schema": {
+								"type": "string",
+								"description": "object内容"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-Length",
+						"description": "RFC 2616 中定义的 HTTP 请求内容长度（字节)",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-Disposition",
+						"description": "RFC 2616 中定义的文件名称，将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-Encoding",
+						"description": "RFC 2616 中定义的编码格式，将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-Type",
+						"description": "RFC 2616 中定义的内容类型（MIME），将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Expect",
+						"description": "当使用 Expect: 100-continue 时，在收到服务端确认后，才会发送请求内容",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Expires",
+						"description": "RFC 2616 中定义的缓存策略，将作为 Object 元数据保存",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-meta-*",
+						"description": "允许用户自定义的头部信息，将作为 Object 元数据返回。大小限制 2K",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-storage-class",
+						"description": "设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE，默认值：STANDARD",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"STANDARD",
+								"STANDARD_IA",
+								"NEARLINE"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义对消息内容（不包括头部）计算 MD5 值获得 128 比特位数字，对该数字进行 base64 编码为一个消息的 Content-MD5 值。该请求头可用于检查数据是否与发送时一致。虽然该请求头是可选的，但我们建议使用该请求头进行端到端检查",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-acl",
+						"description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"public-read",
+								"private",
+								"public-read-write"
+							]
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-read",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-write",
+						"description": "赋予被授权者写的权限。格式：x-cos-grant-write: id=\" \",id=\" \"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-full-control",
+						"description": "赋予被授权者读写权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "追加成功,响应体返回为空",
+						"headers": {
+							"ETag": {
+								"description": "上传文件内容的MD5值",
+								"schema": {
+									"type": "string"
+								}
+							},
+							"x-cos-next-append-position": {
+								"description": "下一次追加操作的起始点，单位：字节",
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "InvalidURI",
+						"description": "对象 key 长度限制为 850，如果超过 850 会返回该错误",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400": {
+						"error_code": "InvalidArgument",
+						"description": "如果请求中未携带 position 参数，会返回400 Bad Request",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"409": {
+						"error_code": "InvalidObjectState",
+						"description": "如果对一个非 appendable 的文件进行 append 操作，那么会返回 409 Confilct",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"411": {
+						"error_code": "MissingContentLength",
+						"description": "如果追加文件时，没有添加 Content-Length 头部，会返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/{ObjectName}?uploadId={UploadId}": {
+			"parameters": [
+				{
+					"name": "ObjectName",
+					"in": "path",
+					"description": "COS 中存储的具体文件，是存储的基本实体",
+					"required": true,
+					"schema": {
+						"type": "string"
+					},
+					"style": "simple"
+				},
+				{
+					"name": "UploadId",
+					"in": "query",
+					"description": "标识本次分块上传的 ID。使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置。",
+					"required": true,
+					"schema": {
+						"type": "string"
+					},
+					"style": "simple"
+				}
+			],
+			"get": {
+				"tags": [
+					"object"
+				],
+				"summary": "ListParts",
+				"description": "List Parts 用来查询特定分块上传中的已上传的块，即罗列出指定 UploadId 所属的所有已上传成功的分块。",
+				"operationId": "ListParts",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "encoding-type",
+						"description": "规定返回值的编码方式",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "url"
+						}
+					},
+					{
+						"in": "query",
+						"name": "max-parts",
+						"description": "单次返回最大的条目数量，默认 1000",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "MaxParts"
+						}
+					},
+					{
+						"in": "query",
+						"name": "part-number-marker",
+						"description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"example": "PartNumberMarker"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "查询成功，返回 application/xml 数据，包含已完成的分片信息",
+						"headers": {
+							"x-cos-request-id": {
+								"description": "全局唯一的请求标识号",
+								"schema": {
+									"type": "string"
+								}
+							}
+						},
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/ListPartsResult"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/{ObjectName}?restore": {
+			"parameters": [
+				{
+					"name": "ObjectName",
+					"in": "path",
+					"description": "要恢复到COS上的文件名",
+					"required": true,
+					"schema": {
+						"type": "string"
+					},
+					"style": "simple"
+				}
+			],
+			"post": {
+				"tags": [
+					"object"
+				],
+				"summary": "PostObjectRestore",
+				"description": "POST Object restore 接口可以对一个通过 COS 归档为 archive 类型的对象进行恢复，恢复出的可读取对象是临时的，您可以设置需要保持可读，以及随后删除该临时副本的时间。您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为 archive 类型对象的副本，被归档的源对象在此期间将始终存在。",
+				"operationId": "PostObjectRestore",
+				"requestBody": {
+					"description": "该请求操作的实现需要有请求体",
+					"required": true,
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/RestoreRequest",
+								"description": "具体的请求参数"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"202": {
+						"error_code": "None",
+						"description": "恢复成功",
+						"headers": {
+							"x-cos-request-id": {
+								"description": "全局唯一的请求标识号",
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"409": {
+						"error_code": "RestoreAlreadyInProgress",
+						"description": "对象已经在恢复中",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/?lifecycle": {
+			"put": {
+				"tags": [
+					"bucket lifecycle"
+				],
+				"summary": "Put Bucket Lifecycle",
+				"description": "COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生命周期。",
+				"operationId": "PutBucketLifecycle",
+				"requestBody": {
+					"description": "请求的请求体为生命周期配置规则",
+					"required": true,
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/BucketLifecycle",
+								"description": "设置的具体生命周期规则"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "上传成功,响应体返回为空"
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "MalformedXML",
+						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-1": {
+						"error_code": "InvalidRequest",
+						"description": "请求不合法，如果错误描述中显示\"Conflict lifecycle rule\"，那么表示xml数据中的多条 rule 有相互冲突的部分。",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-2": {
+						"error_code": "InvalidArgument",
+						"description": "请求参数不合法，如果错误描述中显示\"Rule ID must be unique. Found same ID for more than one rule\"， 那么表示有多个 Rule 的 id 字段相同。",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+        },
+        "Demo": "demos/PutBucketLifecycle"
+			},
+			"get": {
+				"tags": [
+					"bucket lifecycle"
+				],
+				"summary": "Get Bucket Lifecycle",
+				"description": "Get Bucket Lifecycle 用来查询 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration。",
+				"operationId": "GetBucketLifecycle",
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "获取生命周期配置成功",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/BucketLifecycle"
+								}
+							}
+						}
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404-1": {
+						"error_code": "NoSuchLifecycleConfiguration",
+						"description": "生命周期配置不存在",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+        },
+        "Demo": "demos/GetBucketLifecycle"
+			},
+			"delete": {
+				"tags": [
+					"bucket lifecycle"
+				],
+				"summary": "Delete Bucket Lifecycle",
+				"description": "Delete Bucket Lifecycle 用来删除 Bucket 的生命周期配置。如果该 Bucket 没有配置生命周期规则会返回 NoSuchLifecycleConfiguration",
+				"operationId": "DeleteBucketLifecycle",
+				"responses": {
+					"204": {
+						"error_code": "None",
+						"description": "删除成功, 响应体返回为空"
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+        },
+        "Demo": "demos/DeleteBucketLifecycle"
+			}
+        },
+        "/?location": {
+            "get": {
+              "tags": [
+                "bucket"
+              ],
+              "summary": "Get Bucket Location",
+              "description": "Get Bucket Location 接口用于获取 Bucket 所在的地域信息，该 GET 操作使用 location 子资源返回 Bucket 所在的区域，只有 Bucket 持有者才有该 API 接口的操作权限。",
+              "operationId": "GetBucketLocation",
+              "responses": {
+                "200": {
+                  "error_code" : "None",
+                  "description": "上传成功,响应体返回为空",
+                   "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#components/schemas/GetBucketLocationResult"
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "error_code" : "SignatureDoesNotMatch",
+                  "description": "提供的签名不符合规则，返回该错误码",
+                  "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Error",
+                        "description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+                      }
+                    }
+                  }
+                },
+                "404": {
+                  "error_code" : "NoSuchBucket",
+                  "description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+                  "content": {
+                    "application-xml": {
+                      "schema": {
+                        "$ref": "#/components/schemas/Error"
+                      }
+                    }
+                  }
+                }
+              },
+              "Demo": "demos/GetBucketLocation"
+            }
+        },
+		"/?tagging": {
+			"put": {
+				"tags": [
+					"bucket tagging"
+				],
+				"summary": "Put Bucket Tagging",
+				"description": "COS 支持为已存在的 Bucket 设置标签(Tag)",
+				"operationId": "PutBucketTagging",
+				"requestBody": {
+					"description": "要设置的标签集合",
+					"required": true,
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/Tag",
+								"description": "设置的标签集合"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"204": {
+						"error_code": "None",
+						"description": "设置成功,响应体返回为空"
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "MalformedXML",
+						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-1": {
+						"error_code": "BadRequest",
+						"description": "如超过了允许一个 Bucket 最大设置的 Tag 数量, 目前最大支持10",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-2": {
+						"error_code": "InvalidTag",
+						"description": "Tag 的 key 和 value 中包含了保留字符串 cos: ",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-3": {
+						"error_code": "InvalidTag",
+						"description": "Tag 的 key 长度超过了128个字符或者 value 超过了256个字符",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-4": {
+						"error_code": "InvalidTag",
+						"description": "Tag 的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-5": {
+						"error_code": "InvalidTag",
+						"description": "Tag 的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/PutBucketTagging"
+			},
+			"get": {
+				"tags": [
+					"bucket tagging"
+				],
+				"summary": "Get Bucket Tagging",
+				"description": "Get Bucket Tagging 用来查询 Bucket 的标签集合。",
+				"operationId": "GetBucketTagging",
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "获取标签成功",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/Tag"
+								}
+							}
+						}
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404-1": {
+						"error_code": "NoSuchTagSet",
+						"description": "Buckte不包含Tag",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/GetBucketTagging"
+			},
+			"delete": {
+				"tags": [
+					"bucket tagging"
+				],
+				"summary": "Delete Bucket Tagging",
+				"description": "删除 Bucket 的 Tag",
+				"operationId": "DeleteBucketTagging",
+				"responses": {
+					"204": {
+						"error_code": "None",
+						"description": "删除成功, 响应体返回为空"
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/DeleteBucketTagging"
+			}
+		},
+		"/{ObjectName}?tagging": {
+			"put": {
+				"tags": [
+					"object tagging"
+				],
+				"summary": "Put Object Tagging",
+				"description": "为 Object 设置标签(Tag)",
+				"operationId": "PutObjectTagging",
+				"requestBody": {
+					"description": "要设置的标签集合",
+					"required": true,
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/Tag",
+								"description": "设置的标签集合"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"name": "ObjectName",
+						"in": "path",
+						"description": "要设置的文件路径",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"204": {
+						"error_code": "None",
+						"description": "设置成功,响应体返回为空"
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "Object 所在的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404-1": {
+						"error_code": "NoSuchKey",
+						"description": "Object 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "MalformedXML",
+						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-1": {
+						"error_code": "BadRequest",
+						"description": "如超过了允许一个 Object 最大设置的 Tag 数量, 目前最大支持10",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-2": {
+						"error_code": "InvalidTag",
+						"description": "Tag 的 key 和 value 中包含了保留字符串 cos: ",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-3": {
+						"error_code": "InvalidTag",
+						"description": "Tag 的 key 长度超过了128个字符或者 value 超过了256个字符",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-4": {
+						"error_code": "InvalidTag",
+						"description": "Tag的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-5": {
+						"error_code": "InvalidTag",
+						"description": "Tag 的 key 和 value 包含了非法字符, 目前只支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/PutObjectTagging"
+			},
+			"get": {
+				"tags": [
+					"object tagging"
+				],
+				"parameters": [
+					{
+						"name": "ObjectName",
+						"in": "path",
+						"description": "要获取 Tag 的文件路径",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"summary": "Get Object Tagging",
+				"description": "Get Object Tagging 用来查询 Object 的标签集合。",
+				"operationId": "GetObjectTagging",
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "获取 Tag 成功",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/Tag"
+								}
+							}
+						}
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404-1": {
+						"error_code": "NoSuchKey",
+						"description": "文件路径不存在",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/GetObjectTagging"
+			},
+			"delete": {
+				"tags": [
+					"object tagging"
+				],
+				"parameters": [
+					{
+						"name": "ObjectName",
+						"in": "path",
+						"description": "要获取 Tag 的文件路径",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"summary": "Delete Object Tagging",
+				"description": "删除 Object 的 Tag",
+				"operationId": "DeleteObjectTagging",
+				"responses": {
+					"204": {
+						"error_code": "None",
+						"description": "删除成功, 响应体返回为空"
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"404-1": {
+						"error_code": "NoSuchKey",
+						"description": "文件路径不存在",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				},
+                "Demo": "demos/DeleteObjectTagging"
+			}
+		},
+		"/?acl": {
+			"put": {
+				"tags": [
+					"bucket acl"
+				],
+				"summary": "Put Bucket ACL",
+				"description": "Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header:\"x-cos-acl\"，\"x-cos-grant-read\"，\"x-cos-grant-write\"，\"x-cos-grant-full-control\" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。",
+				"operationId": "PutBucketACL",
+				"requestBody": {
+					"description": "请求的请求体为ACL配置规则",
+					"required": false,
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/ACL",
+								"description": "设置的ACL配置规则"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-acl",
+						"description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read。",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-read",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；当需要给子账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<SubUin>\"，当需要给根账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-write",
+						"description": "赋予被授权者写的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；当需要给子账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<SubUin>\"，当需要给根账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-full-control",
+						"description": "赋予被授权者写的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；当需要给子账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<SubUin>\"，当需要给根账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "上传成功,响应体返回为空"
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "MalformedXML",
+						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-1": {
+						"error_code": "InvalidRequest",
+						"description": "请求不合法，如果错误描述中显示\"header acl and body acl conflict\"，那么表示不能头部和body都有acl参数。",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": [
+					"bucket acl"
+				],
+				"summary": "Get Bucket ACL",
+				"description": "Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间（Bucket）的访问权限控制列表。",
+				"operationId": "GetBucketACL",
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "获取ACL配置成功",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/ACL"
+								}
+							}
+						}
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/{ObjectName}/?acl": {
+			"put": {
+				"tags": [
+					"object acl"
+				],
+				"summary": "Put Object ACL",
+				"description": "Put Object ACL 接口用来对某个 Bucket 中的某个的 Object 进行 ACL 表的配置，您可以通过 Header:\"x-cos-acl\"，\"x-cos-grant-read\"，\"x-cos-grant-write\"，\"x-cos-grant-full-control\" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。",
+				"operationId": "PutObjectACL",
+				"requestBody": {
+					"description": "请求的请求体为ACL配置规则",
+					"required": false,
+					"content": {
+						"application/xml": {
+							"schema": {
+								"$ref": "#/components/schemas/ACL",
+								"description": "设置的ACL配置规则"
+							}
+						}
+					}
+				},
+				"parameters": [
+					{
+						"in": "header",
+						"name": "Content-MD5",
+						"description": "RFC 1864 中定义的 128位 内容 MD5 算法校验值，用以验证请求体在传输过程中是否有损坏",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-acl",
+						"description": "定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read。",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-read",
+						"description": "赋予被授权者读的权限。格式：x-cos-grant-read: id=\" \",id=\" \"；当需要给子账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<SubUin>\"，当需要给根账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-write",
+						"description": "赋予被授权者写的权限。格式：x-cos-grant-write: id=\" \",id=\" \"；当需要给子账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<SubUin>\"，当需要给根账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					},
+					{
+						"in": "header",
+						"name": "x-cos-grant-full-control",
+						"description": "赋予被授权者写的权限。格式：x-cos-grant-full-control: id=\" \",id=\" \"；当需要给子账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<SubUin>\"，当需要给根账户授权时， id = \"qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>\"",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"style": "simple"
+					}
+				],
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "上传成功,响应体返回为空"
+					},
+					"403": {
+						"error_code": "SignatureDoesNotMatch",
+						"description": "提供的签名不符合规则，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error",
+									"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+								}
+							}
+						}
+					},
+					"404": {
+						"error_code": "NoSuchBucket",
+						"description": "如果试图添加的规则所在的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-0": {
+						"error_code": "MalformedXML",
+						"description": "XML 格式不合法，请跟 restful api 文档仔细比对",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"400-1": {
+						"error_code": "InvalidRequest",
+						"description": "请求不合法，如果错误描述中显示\"header acl and body acl conflict\"，那么表示不能头部和body都有acl参数。",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": [
+					"object acl"
+				],
+				"summary": "Get Object ACL",
+				"description": "Get Object ACL 接口用来获取某个 Bucket 下的某个 Object 的访问权限。",
+				"operationId": "GetObjectACL",
+				"responses": {
+					"200": {
+						"error_code": "None",
+						"description": "获取ACL配置成功",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#components/schemas/ACL"
+								}
+							}
+						}
+					},
+					"404-0": {
+						"error_code": "NoSuchBucket",
+						"description": "当访问的 Bucket 不存在，返回该错误码",
+						"content": {
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Error": {
+				"type": "object",
+				"properties": {
+					"Code": {
+						"type": "string",
+						"description": "错误码用来定位唯一的错误条件，用来确定错误场景，具体错误码见下文"
+					},
+					"Message": {
+						"type": "string",
+						"description": "包含具体的错误信息"
+					},
+					"Resource": {
+						"type": "string",
+						"description": "资源地址：Bucket地址或者Object地址"
+					},
+					"RequestId": {
+						"type": "string",
+						"description": "当请求发送时，服务端将会自动为请求生成一个唯一的 ID。使用遇到问题时，request-id能更快地协助 COS 定位问题"
+					},
+					"TraceId": {
+						"type": "string",
+						"description": "当请求出错时，服务端将会自动为这个错误生成一个唯一的 ID。使用遇到问题时，trace-id能更快地协助 COS 定位问题。当请求出错时，trace-id与request-id唯一对应"
+					}
+				}
+			},
+			"ListBucketResult": {
+				"type": "object",
+				"description": "保存 Get Bucket 请求结果的所有信息",
+				"properties": {
+                    "ListBucketResult": {
+                        "type": "object",
+                        "description": "保存 Get Bucket 请求结果的所有信息",
+                        "properties": {
+                            "Name": {
+                                "type": "string",
+                                "description": "说明 Bucket 的信息"
+                            },
+                            "Encoding-Type": {
+                                "type": "string",
+                                "description": "编码格式"
+                            },
+                            "Prefix": {
+                                "type": "string",
+                                "description": "前缀匹配，用来规定响应请求返回的文件前缀地址"
+                            },
+                            "Marker": {
+                                "type": "string",
+                                "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
+                            },
+                            "MaxKeys": {
+                                "type": "string",
+                                "description": "单次响应请求内返回结果的最大的条目数量"
+                            },
+                            "IsTruncated": {
+                                "type": "boolean",
+                                "description": "响应请求条目是否被截断，布尔值：true，false"
+                            },
+                            "NextMarker": {
+                                "type": "string",
+                                "description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
+                            },
+                            "Contents": {
+                                "type": "object",
+                                "description": "元数据信息",
+                                "properties": {
+                                    "Key": {
+                                        "type": "string",
+                                        "description": "Object 的 Key"
+                                    },
+                                    "LastModified": {
+                                        "type": "string",
+                                        "description": "说明 Object 最后被修改时间"
+                                    },
+                                    "ETag": {
+                                        "type": "string",
+                                        "description": "文件的 MD-5 算法校验值"
+                                    },
+                                    "Size": {
+                                        "type": "string",
+                                        "description": "说明文件大小，单位是 Byte"
+                                    },
+                                    "Owner": {
+                                        "type": "object",
+                                        "description": "Bucket 持有者信息",
+                                        "properties": {
+                                            "ID": {
+                                                "type": "string",
+                                                "description": "Bucket 的 AppID"
+                                            }
+                                        }
+                                    },
+                                    "StorageClass": {
+                                        "type": "string",
+                                        "description": "Object 的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
+                                    }
+                                }
+                            },
+                            "CommonPrefixes": {
+                                "type": "object",
+                                "description": "将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix",
+                                "properties": {
+                                    "Prefix": {
+                                        "type": "string",
+                                        "description": "单条 Common 的前缀"
+                                    }
+                                }
+                            }
+                        }
+                    }
+				}
+			},
+			"ListPartsResult": {
+				"type": "object",
+				"description": "保存 List Parts 请求结果的所有信息",
+				"properties": {
+                    "ListPartsResult": {
+                        "type": "object",
+                        "description": "保存 List Parts 请求结果的所有信息",
+                        "properties": {
+                            "Bucket": {
+                                "type": "string",
+                                "description": "分块上传的目标 Bucket，存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000"
+                            },
+                            "Encoding-Type": {
+                                "type": "string",
+                                "description": "编码格式"
+                            },
+                            "Key": {
+                                "type": "string",
+                                "description": "Object的名字"
+                            },
+                            "UploadId": {
+                                "type": "string",
+                                "description": "标识本次分块上传的 ID"
+                            },
+                            "Initiator": {
+                                "type": "object",
+                                "description": "用来表示这些分块所有者的信息",
+                                "properties": {
+                                    "ID": {
+                                        "type": "string",
+                                        "description": "创建者的一个唯一标识"
+                                    },
+                                    "DisplayName": {
+                                        "type": "string",
+                                        "description": "创建者的用户名描述"
+                                    }
+                                }
+                            },
+                            "Owner": {
+                                "type": "object",
+                                "description": "用来表示这些分块所有者的信息",
+                                "properties": {
+                                    "ID": {
+                                        "type": "string",
+                                        "description": "创建者的一个唯一标识"
+                                    },
+                                    "DisplayName": {
+                                        "type": "string",
+                                        "description": "创建者的用户名描述"
+                                    }
+                                }
+                            },
+                            "StorageClass": {
+                                "type": "string",
+                                "description": "用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE"
+                            },
+                            "PartNumberMarker": {
+                                "type": "string",
+                                "description": "默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始"
+                            },
+                            "NextPartNumberMarker": {
+                                "type": "string",
+                                "description": "假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点"
+                            },
+                            "MaxParts": {
+                                "type": "string",
+                                "description": "单次返回最大的条目数量"
+                            },
+                            "IsTruncated": {
+                                "type": "boolean",
+                                "description": "响应请求条目是否被截断，布尔值：true，false"
+                            },
+                            "Part": {
+                                "type": "object",
+                                "description": "元数据信息",
+                                "properties": {
+                                    "PartNumber": {
+                                        "type": "string",
+                                        "description": "块的编号"
+                                    },
+                                    "LastModified": {
+                                        "type": "string",
+                                        "description": "说明块最后被修改时间"
+                                    },
+                                    "ETag": {
+                                        "type": "string",
+                                        "description": "块的 MD-5 算法校验值"
+                                    },
+                                    "Size": {
+                                        "type": "string",
+                                        "description": "说明块大小，单位是 Byte"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+			},
+			"BucketCorsRequest": {
+				"type": "object",
+				"description": "设置 Bucket 的跨域资源共享权限",
+				"properties": {
+					"CORSConfiguration": {
+						"type": "object",
+						"description": "说明跨域资源共享配置的所有信息，最多可以包含100条 CORSRule",
+						"properties": {
+							"CORSRule": {
+								"type": "object",
+								"description": "说明跨域资源共享配置的所有信息，最多可以包含100条 CORSRule",
+								"properties": {
+									"ID": {
+										"type": "string",
+										"description": "配置规则的 ID，可选填"
+									},
+									"AllowedOrigin": {
+										"type": "array",
+										"items": {
+											"type": "string"
+										},
+										"description": "允许的访问来源，支持通配符 * 格式为：协议://域名[:端口]如：http://www.qq.com"
+									},
+									"AllowedMethod": {
+										"type": "array",
+										"items": {
+											"type": "string"
+										},
+										"description": "允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE"
+									},
+									"AllowedHeader": {
+										"type": "array",
+										"items": {
+											"type": "string"
+										},
+										"description": "在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 *"
+									},
+									"MaxAgeSeconds": {
+										"type": "integer",
+										"description": "设置 OPTIONS 请求得到结果的有效期"
+									},
+									"ExposeHeader": {
+										"type": "array",
+										"items": {
+											"type": "string"
+										},
+										"description": "设置浏览器可以接收到的来自服务器端的自定义头部信息"
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"RestoreRequest": {
+				"type": "object",
+				"description": "设置将归档对象恢复到COS的请求",
+				"properties": {
+					"Days": {
+						"type": "integer",
+						"description": "设置临时副本的过期时间"
+					},
+					"CASJobParameters": {
+						"type": "object",
+						"description": "复原的过程类型配置信息",
+						"properties": {
+							"Tier": {
+								"type": "string",
+								"description": "具体复原过程类型，枚举值： Expedited ，Standard,Bulk；默认值：Standard"
+							}
+						}
+					}
+				}
+			},
+			"CopyObjectResult": {
+				"type": "object",
+				"description": "返回复制结果信息",
+				"properties": {
+					"ETag": {
+						"type": "string",
+						"description": "返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化"
+					},
+					"LastModified": {
+						"type": "string",
+						"description": "返回文件最后修改时间，GMT 格式"
+					}
+				}
+			},
+            "GetBucketLocationResult": {
+              "type": "object",
+              "description": "返回 Bucket 所在的园区",
+              "properties": {
+                "LocationConstraint": {
+                  "type": "string",
+                  "description": "说明 Bucket 所在地域，枚举值参见 可用地域 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等"
+                }
+              }
+            },
+			"Tag": {
+				"type": "object",
+				"description": "标签集合",
+				"properties": {
+					"Tagging": {
+						"type": "object",
+						"description": "标签集合",
+						"properties": {
+							"TagSet": {
+								"type": "object",
+								"description": "标签集合",
+								"properties": {
+									"Tag": {
+										"type": "array",
+										"description": "标签集合, 最多支持10个标签",
+										"items": {
+											"type": "object",
+											"properties": {
+												"Key": {
+													"type": "string",
+													"description": "标签的Key, 长度不超过128字节, 支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线"
+												},
+												"Value": {
+													"type": "string",
+													"description": "标签的Value, 长度不超过256字节, 支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"ACL": {
+				"type": "object",
+				"description": "ACL配置信息",
+				"properties": {
+					"AccessControlPolicy": {
+						"type": "object",
+						"description": "保存 Get Bucket ACL 结果的容器",
+						"AccessControlList": {
+							"properties": {
+								"Grant": {
+									"type": "object",
+									"description": "单条授权信息。一个 AccessControlList 可以拥有 100 条 Grant",
+									"Grantee": {
+										"type": "object",
+										"description": "说明被授权者的信息。如果是授权给某个用户组，例如公有读，那么type填Group，使用URI来表示用户组;授权给具体某个用户type填CanonicalUser，用ID来表示某个具体用户。",
+										"properties": {
+											"ID": {
+												"type": "string",
+												"description": "用户的 ID，如果是根帐号，格式为：qcs::cam::uin/<OwnerUin>:uin/<OwnerUin> 如果是子帐号，格式为： qcs::cam::uin/<OwnerUin>:uin/<SubUin>"
+											},
+											"URI": {
+												"type": "string",
+												"description": "所有用户:http://cam.qcloud.com/groups/global/AllUsers; 所有认证用户:http://cam.qcloud.com/groups/global/AuthenticatedUsers"
+											},
+											"DisplayName": {
+												"type": "string",
+												"description": "用户的名称"
+											}
+										}
+									},
+									"Permission": {
+										"type": "string",
+										"description": "指明授予被授权者的权限信息，枚举值：READ，WRITE，FULL_CONTROL"
+									}
+								}
+							}
+						},
+						"Owner": {
+							"type": "object",
+							"description": "Bucket 持有者信息",
+							"properties": {
+								"ID": {
+									"type": "string",
+									"description": "Bucket 持有者 ID，格式：qcs::cam::uin/<OwnerUin>:uin/<SubUin> 如果是根帐号，<OwnerUin> 和 <SubUin> 是同一个值"
+								},
+								"DisplayName": {
+									"type": "string",
+									"description": "Bucket 持有者的名称"
+								}
+							}
+						}
+					}
+				}
+			},
+			"BucketLifecycle": {
+				"type": "object",
+				"description": " Bucket 的生命周期",
+				"properties": {
+					"LifecycleConfiguration": {
+						"type": "object",
+						"description": "生命周期配置",
+						"properties": {
+							"Rule": {
+								"type": "object",
+								"description": "生命周期规则描述",
+								"properties": {
+									"ID": {
+										"type": "string",
+										"description": "配置规则的 ID，可选填"
+									},
+									"Filter": {
+										"type": "object",
+										"description": "Filter 用于描述规则影响的 Object 集合",
+										"properties": {
+											"And": {
+												"type": "object",
+												"description": "用于组合 Prefix 与 Tag",
+												"properties": {
+													"Prefix": {
+														"type": "string",
+														"description": "指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个"
+													},
+													"Tag": {
+														"type": "object",
+														"description": "标签，Tag 可以有零个或者多个",
+														"properties": {
+															"Key": {
+																"type": "string",
+																"description": "Tag 的 Key,长度不超过128字节,不能cos:为前缀开头,仅支持字母、数字、空格和+-=._:/这几个符号"
+															},
+															"Value": {
+																"type": "string",
+																"description": "Tag 的 Value,长度不超过256字节,仅支持字母、数字、空格和+-=._:/这几个符号"
+															}
+														}
+													}
+												}
+											},
+											"Prefix": {
+												"type": "string",
+												"description": "指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个"
+											},
+											"Tag": {
+												"type": "object",
+												"description": "标签，Tag 可以有零个或者多个",
+												"properties": {
+													"Key": {
+														"type": "string",
+														"description": "Tag 的 Key,长度不超过128字节,不能cos:为前缀开头,仅支持字母、数字、空格和+-=._:/这几个符号"
+													},
+													"Value": {
+														"type": "string",
+														"description": "Tag 的 Value,长度不超过256字节,仅支持字母、数字、空格和+-=._:/这几个符号"
+													}
+												}
+											}
+										}
+									},
+									"Status": {
+										"type": "string",
+										"description": "指明规则是否启用，枚举值：Enabled，Disabled"
+									},
+									"Expiration": {
+										"type": "object",
+										"description": "规则过期属性",
+										"properties": {
+											"Days": {
+												"type": "integer",
+												"description": "指明规则对应的动作在对象最后的修改日期过后多少天操作，对于 Expiration，该字段有效值为正整数"
+											},
+											"Date": {
+												"type": "string",
+												"description": "指明规则对应的动作在何时操作"
+											},
+											"ExpiredObjectDeleteMarker": {
+												"type": "boolean",
+												"description": "删除过期对象删除标记，枚举值 true，false"
+											}
+										}
+									},
+									"Transition": {
+										"type": "array",
+										"description": "规则转换属性，对象何时转换被转换为 Standard_IA 或 Nearline",
+										"items": {
+											"type": "object",
+											"properties": {
+												"Days": {
+													"type": "integer",
+													"description": "指明规则对应的动作在对象最后的修改日期过后多少天操作，对于 Expiration，该字段有效值为非负整数"
+												},
+												"Date": {
+													"type": "string",
+													"description": "指明规则对应的动作在何时操作"
+												},
+												"StorageClass": {
+													"type": "string",
+													"description": "指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA, NEARLINE"
+												}
+											}
+										}
+									},
+									"AbortIncompleteMultipartUpload": {
+										"type": "object",
+										"description": "设置允许分片上传保持运行的最长时间",
+										"properties": {
+											"DaysAfterInitiation": {
+												"type": "integer",
+												"description": "指明分片上传开始后多少天内必须完成上传"
+											}
+										}
+									},
+									"NoncurrentVersionExpiration": {
+										"type": "object",
+										"description": "指明非当前版本对象何时过期",
+										"properties": {
+											"NoncurrentDays": {
+												"type": "interger",
+												"description": "指明规则对应的动作在对象变成非当前版本多少天后执行， 对于NoncurrentVersionExpiration, 该字段有效值为正整数"
+											}
+										}
+									},
+									"NoncurrentVersionTransition": {
+										"type": "object",
+										"description": "指明非当前版本对象何时过期",
+										"properties": {
+											"NoncurrentDays": {
+												"type": "interger",
+												"description": "指明规则对应的动作在对象变成非当前版本多少天后执行， 对于NoncurrentVersionTransition, 该字段有效值为非负整数"
+											},
+											"StorageClass": {
+												"type": "string",
+												"description": "指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA, NEARLINE"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+            "GetServiceResult": {
+              "type": "object",
+              "description": "Get Service 所有的返回信息",
+              "properties": {
+                "ListAllMyBucketsResult": {
+                  "type": "object",
+                  "description": "说明本次响应的所有信息",
+                  "properties": {
+                    "Owner": {
+                      "type": "object",
+                      "description": "说明 Bucket 持有者的信息",
+                      "properties": {
+                        "ID": {
+                          "type": "string",
+                          "description": "Bucket 所有者的 ID"
+                        },
+                        "DisplayName": {
+                          "type": "string",
+                          "description": "Bucket 所有者的名字信息"
+                        }
+                      }
+                    },
+                    "Buckets": {
+                      "type": "object",
+                      "description": "说明本次响应的所有 Bucket 列表信息",
+                      "properties": {
+                        "Bucket": {
+                          "type": "object",
+                          "description": "单个 Bucket 的信息",
+                          "properties": {
+                            "Name":{
+                              "type": "string",
+                              "description": "Bucket 的名称"
+                            },
+                            "Location":{
+                              "type": "string",
+                              "description": "Bucket 所在地域。枚举值参见 可用地域 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等"
+                            },
+                            "CreateDate":{
+                              "type": "string",
+                              "description": "Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z"
+                            }
+
+                          }
+                        },
+                        "DisplayName": {
+                          "type": "string",
+                          "description": "Bucket 所有者的名字信息"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+		}
+	}
+}

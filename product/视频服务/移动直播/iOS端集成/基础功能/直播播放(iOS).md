@@ -105,15 +105,28 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 [_txLivePlayer removeVideoWidget]; // 记得销毁view控件
 ```
 
-### step 7: 硬件加速
-对于蓝光级别（1080p）的画质，简单采用软件解码的方式很难获得较为流畅的播放体验，所以如果您的场景是以游戏直播为主，一般都推荐开启硬件加速。
+<h3 id="Message">step 7: 消息接收</h3>
+此功能可以在推流端将一些自定义 message 随着音视频线路直接下发到观众端，适用场景例如：
+（1）冲顶大会：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
+（2）秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
+（3）在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。
 
-软解和硬解的切换需要在切换之前先**stopPlay**，切换之后再**startPlay**，否则会产生比较严重的花屏问题。
+通过如下方案可以使用此功能：
+- TXLivePlayConfig 中的 **enableMessage** 开关置为 **YES**。
+- TXLivePlayer 通过 **TXLivePlayListener** 监听消息，消息编号：**PLAY_EVT_GET_MESSAGE （2012）**
 
-```objectivec
-  [_txLivePlayer stopPlay];
-  _txLivePlayer.enableHWAcceleration = YES;
-  [_txLivePlayer startPlay:_flvUrl type:_type];
+```objectiveC
+ -(void) onPlayEvent:(int)EvtID withParam:(NSDictionary *)param {
+    [self asyncRun:^{
+        if (EvtID == PLAY_EVT_GET_MESSAGE) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([_delegate respondsToSelector:@selector(onPlayerMessage:)]) {
+                    [_delegate onPlayerMessage:param[@"EVT_GET_MSG"]];
+                }
+            });
+        }
+    }];
+}
 ```
 
 ### step 8: 屏幕截图
@@ -143,6 +156,41 @@ _txLivePlayer.recordDelegate = recordListener;
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/9367#6.-.E6.96.87.E4.BB.B6.E5.8F.91.E5.B8.8310)。
 
 
+<h2 id="Delay">延时调节</h2>
+腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场，游戏以及混合场景。
+
+- **三种模式的特性对比**
+
+| 控制模式 | 卡顿率 | 平均延迟 | 适用场景 | 原理简述 |
+|---------|---------|---------| ------ | ----- |
+| 极速模式 | 较流畅偏高 | 2s- 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
+| 流畅模式 | 卡顿率最低 | >= 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（比如吃鸡）非常适合，卡顿率最低|
+| 自动模式 | 网络自适应 | 2s-8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
+
+
+- **三种模式的对接代码**
+
+```objectivec
+TXLivePlayConfig*  _config = [[TXLivePlayConfig alloc] init];
+//自动模式
+_config.bAutoAdjustCacheTime   = YES;
+_config.minAutoAdjustCacheTime = 1; 
+_config.maxAutoAdjustCacheTime = 5;
+//极速模式
+_config.bAutoAdjustCacheTime   = YES;
+_config.minAutoAdjustCacheTime = 1;
+_config.maxAutoAdjustCacheTime = 1;
+//流畅模式
+_config.bAutoAdjustCacheTime   = NO;
+_config.cacheTime              = 5;
+
+[_txLivePlayer setConfig:_config];
+
+//设置完成之后再启动播放
+```
+
+> 更多关于卡顿和延迟优化的技术知识，可以阅读[视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
+
 <h2 id="RealTimePlay">超低延时播放</h2>
 支持 <font color='red'>**400ms**</font> 左右的超低延迟播放时腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**，等等，关于这个特性，您需要知道：
 
@@ -156,11 +204,10 @@ _txLivePlayer.recordDelegate = recordListener;
 在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，SDK 会使用 RTMP-UDP 协议拉取直播流。
 
 - **该功能有并发播放限制**
-目前最多同时<font color="red"> 10 路 </font>并发播放，所以您只能在互动场景中使用（比如连麦主播 或者 夹娃娃直播中的操作者这一路）。
+目前最多同时<font color="red"> 10 路 </font>并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（比如连麦时只给主播使用， 或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于CDN线路）。
 
 - **Obs的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7879)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。如果是 Windows 端，请使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)， Obs 的推流端积压比较严重，是无法达到低延时效果的。
-
 
 ## SDK事件监听
 你可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
@@ -168,14 +215,15 @@ _txLivePlayer.recordDelegate = recordListener;
 ### 1. 播放事件
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
+| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
+| PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
+| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 |PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果有转菊花什么的这个时候该停了 | 
 |PLAY_EVT_PLAY_LOADING	|  2007|  视频播放loading，如果能够恢复，之后会有BEGIN事件|  
+|PLAY_EVT_GET_MESSAGE	|  2012|  用于接收夹在音视频流中的消息，详情参考[消息接受](#Message)|  
 
 - **不要在收到 PLAY_LOADING 后隐藏播放画面**
 因为PLAY_LOADING -> PLAY_BEGIN 的时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个半透明的 loading 动画。
-
-- **LOADING 频繁与否多是由 cacheTime 决定的**
-TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime 属性被设置的很小，那么 LOADING 就会变得非常频繁，如果你您发现有频繁 LOADING 的情况出现，请参考[卡顿&延迟](#.E5.8D.A1.E9.A1.BF.26amp.3B.E5.BB.B6.E8.BF.9F) 进行校调。
 
 ### 2. 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -184,11 +232,9 @@ TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放 | 
 
 - **<font color='red'>如何判断直播已结束？</font>**
-如果是**点播**，我们可以通过 PLAY_EVT_PLAY_END 事件判断是否已经播放结束。
+基于各种标准的实现原理不同，很多直播流通常没有结束事件（2006）抛出，此时可预期的表现是：主播结束推流后，SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
 
- 如果是**直播**，仅靠 SDK 本身是无法获知主播是否已经结束推流的。可预期的表现是：主播结束推流后，SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
-
- 出现这个问题的原因是标准播放协议中本身没有通用的 STOP 标准，所以推荐的做法是通过聊天室群发 **“直播已结束”** 这类系统消息来完成你的目标。
+ 所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
 
 
 ### 3. 警告事件
@@ -207,14 +253,6 @@ TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime
 | PLAY_WARNING_SEVER_CONN_FAIL     |  3002  | RTMP服务器连接失败（仅播放RTMP地址时会抛送）|
 | PLAY_WARNING_SHAKE_FAIL          |  3003  | RTMP服务器握手失败（仅播放RTMP地址时会抛送）|
 
-### 4. 连接事件
-此外还有几个连接服务器的事件，主要用于测定和统计服务器连接时间，您也无需关心：
-
-| 事件ID                     |    数值  |  含义说明                    |   
-| :-----------------------  |:-------- |  :------------------------ | 
-| PLAY_EVT_CONNECT_SUCC     |  2001    | 已经连接服务器                |
-| PLAY_EVT_RTMP_STREAM_BEGIN|  2002    | 已经连接服务器，开始拉流（仅播放RTMP地址时会抛送） |
-| PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
 ## 视频宽高 
@@ -236,39 +274,4 @@ TXLivePlayConfig 中可以配置播放器的 cacheTime 属性，如果 cacheTime
 |	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
-
-## 卡顿&延迟
-在直播场景下，能决定一款 APP 产品的用户体验好坏的关键指标就是：卡顿率的高低和延迟的高低。
-
-**播放器本身在其中起到了更为关键的决定性作用**，同样的网络环境和播放地址，不同的播放器可能会表现出完全不同的延迟和卡顿率。（比如 PC 浏览器上主流的 flash 播放器会因为播放策略过于简单粗暴，产生延迟越对越多的问题）
-
-所以，在您完成本篇文档前面部分罗列的功能代码对接后，请务必阅读 [卡顿优化-播放端优化](https://cloud.tencent.com/document/product/454/7946#5.-.E6.92.AD.E6.94.BE.E7.AB.AF.E7.9A.84.E4.BC.98.E5.8C.969) 来校调出最适合您的业务场景的播放模式。
-
-- **三种模式的特性对比**
-
-![](//mc.qcloudimg.com/static/img/1d5a860ff74f9d026a36c04dd8bb27ef/image.jpg)
-
-- **三种模式的对接代码**
-
-```objectivec
-TXLivePlayConfig*  _config = [[TXLivePlayConfig alloc] init];
-//自动模式
-_config.bAutoAdjustCacheTime   = YES;
-_config.minAutoAdjustCacheTime = 1; 
-_config.maxAutoAdjustCacheTime = 5;
-//极速模式
-_config.bAutoAdjustCacheTime   = YES;
-_config.minAutoAdjustCacheTime = 1;
-_config.maxAutoAdjustCacheTime = 1;
-//流畅模式
-_config.bAutoAdjustCacheTime   = NO;
-_config.cacheTime              = 5;
-
-[_txLivePlayer setConfig:_config];
-
-//设置完成之后再启动播放
-
-```
-
-注意：各家云商一般都会在CDN端引入 **1.5s - 2s** 左右的延迟，这是不可避免的，所以 **总延迟 = CDN延迟 + CacheTime。**
 

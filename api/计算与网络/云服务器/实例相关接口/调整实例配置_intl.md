@@ -7,7 +7,6 @@ Domain name for API request: cvm.api.qcloud.com
 * Currently, using this API for adjusting models is only supported for the instances with a [system disk type](/document/api/213/9452#block_device) of `CLOUD_BASIC`, `CLOUD_PREMIUM` and `CLOUD_SSD`.
 * Currently, this API cannot be used to adjust the models of [CDH](/document/product/416) instances.
 * Currently, model adjustment is not supported for different models and systems. That is, the `InstanceType` specified when you use this API and the original instance model need to be of the same series.
-* For prepaid instances, using this API will charge a fee. Please ensure that the user account has sufficient balance.
 
 
 ## 2. Input Parameters

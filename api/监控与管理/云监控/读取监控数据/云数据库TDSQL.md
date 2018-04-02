@@ -29,8 +29,8 @@ dimensions.0.value为实例的uuid
 
 | 指标名称                  | 含义           | 单位   |
 | --------------------- | ------------ | ---- |
-| data_disk_available   | 数据磁盘可用大小     | GB   |
-| binlog_disk_available | BINLOG磁盘可用大小 | GB   |
+| data_disk_available   | 数据磁盘可用大小     | MB   |
+| binlog_disk_available | BINLOG磁盘可用大小 | MB   |
 | select_total          | SELECT请求总数   | 次/秒  |
 | long_query            | SELECT慢查询数   | 次/秒  |
 | update_total          | UPDATE请求总数   | 次/秒  |
@@ -40,7 +40,7 @@ dimensions.0.value为实例的uuid
 | disk_iops             | 磁盘IOPS       | 次/秒  |
 | conn_active           | 总连接数       | 次/秒  |
 | conn_running          | 活跃连接数          | 次/秒  |
-| is_mater_switched     | 监控是否主备切换     | 无    |
+| is_master_switched    | 监控是否主备切换     | 无    |
 | cpu_usage_rate        | CPU使用率       | %    |
 
 

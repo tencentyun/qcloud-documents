@@ -5,8 +5,8 @@
 | [Query Read-only Instance List](/document/api/236/6417) | GetCdbReadOnlyInstances | Query the list of read-only instances. You can input one or more master instance IDs to query the list of read-only instances associated with the master instance(s) |
 | [Create Instance (Pay-by-usage)](/document/api/236/5175)| CreateCdbHour | Create cloud database instances, with the billing model of Pay-by-usage |
 | [Query Price (Pay-by-usage)](/document/api/236/5176)| InquiryCdbPriceHour | Query the pay-by-usage price of a certain type of Cloud Database instance |
-| [Query Supported Specifications](supporting custom availability zones and configurations)](/document/api/236/6109)| DescribeCdbProductListNew | Query supported specifications of cloud database instances, and support the creation of instances according to availability zones and custom specifications. Recommended to use |
-| [Query Supported Specifications](/document/api/236/1333)] DescribeCdbProductList | Query supported specifications of cloud database instances |
+| [Query Supported Specifications(supporting custom availability zones and configurations)](/document/api/236/6109) | DescribeCdbProductListNew | Query supported specifications of cloud database instances, and support the creation of instances according to availability zones and custom specifications. Recommended to use |
+| [Query Supported Specifications](/document/api/236/1333) DescribeCdbProductList | Query supported specifications of cloud database instances |
 | [Initialize Instance](/document/api/236/5335) | CdbMysqlInit | Initialize a cloud database instance, and meanwhile can set the character set, port, root account password and table name case sensitivity of the instance during initialization.  |
 | [Query Details on Initialization Task](/document/api/236/5334) | GetCdbInitInfo | Query details on the progress of the asynchronous task about initializing a cloud database instance through the initialization task ID |
 | [Upgrade Instance](/document/api/236/7164) | UpgradeCdb | Upgrade cloud database instances. Instance types include master instance, disaster recovery instance and read-only instance.

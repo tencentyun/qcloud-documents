@@ -1,4 +1,4 @@
-## Notes About Purchasing GPU Rendering GN2 Instances
+## Notes About Purchasing GPU Rendering GA2 Instances
 The following need to be considered before purchase:
 1. Make sure you have got an understanding of [Tencent Cloud GCC instances](/doc/product/560/8015l) and their [configurations and prices](/doc/product/560/8025). Be sure to purchase them based on your actual demand. Refund is not available once you have successfully made the purchase.
 2. Currently, only **Beijing Zone 2** is available for GPU rendering GA2 instances. More regions will be supported soon.

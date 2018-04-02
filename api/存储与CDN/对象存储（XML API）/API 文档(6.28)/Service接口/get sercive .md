@@ -88,13 +88,13 @@ Container 节点 Buckets 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Bucket  | ListAllMyBucketsResult.Buckets | 单个 Bucket 的信息  | Container    |
+| Bucket  | ListAllMyBucketsResult.Buckets | 单个 Bucket 的信息| Container    |
 
 Container 节点 Bucket 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Name      | ListAllMyBucketsResult.Buckets.Bucket | Bucket 的名称                               | String    |
+| Name      | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：mybucket-1250000000| String    |
 | Location        | ListAllMyBucketsResult.Buckets.Bucket  | Bucket 所在地域。枚举值参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等 | String    |
 | CreateDate          | ListAllMyBucketsResult.Buckets.Bucket | Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z  | Date   |
 
@@ -135,17 +135,17 @@ x-cos-request-id: NThjMjA1NGFfNTViMjM1XzI0NWRfMjA4OGIx
     </Owner>
     <Buckets>
         <Bucket>
-            <Name>01</Name>
+            <Name>01-1250000000</Name>
             <Location>ap-beijing</Location>
             <CreateDate>2016-09-13 15:20:15</CreateDate>
         </Bucket>
         <Bucket>
-            <Name>0111</Name>
+            <Name>0111-1250000000</Name>
             <Location>ap-hongkong</Location>
             <CreateDate>2017-01-11 17:23:51</CreateDate>
         </Bucket>
         <Bucket>
-            <Name>1201new</Name>
+            <Name>1201new-1250000000</Name>
             <Location>eu-frankfurt</Location>
             <CreateDate>2016-12-01 09:45:02</CreateDate>
         </Bucket>

@@ -6,7 +6,7 @@ Delete Bucket 接口请求可以在指定账号下删除 Bucket，删除之前�
 语法示例：
 ```
 DELETE / HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```

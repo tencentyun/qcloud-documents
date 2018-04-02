@@ -1,0 +1,1 @@
+Project-based differential permission management is unavailable. If you want to differentiate permission management for resources in a project, it is recommended to perform individual authorization for resources via policy syntax. Label-based permission management will be available soon.

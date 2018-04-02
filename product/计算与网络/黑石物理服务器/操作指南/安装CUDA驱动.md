@@ -181,6 +181,67 @@ echo "cuda installed successfully"
 exit 0
 ```
 
+
+### Ubuntu16、CUDA toolkit 8
+```
+#!/bin/bash
+# install p40 cuda for ubuntu16
+# version 0.1: haleyhuang
+# result
+#       0       OK
+#       1       install fail
+#       2       configure fail
+#       3       others
+
+date
+
+apt-get update
+dpkg --configure -a
+apt-get -f -y install
+
+lsmod | grep mlx4_en
+if [ $? -eq 0 ]; then
+    echo 'install igb modprobe mlx4_en; modprobe --ignore-install igb' > /etc/modprobe.d/mlx4_en.conf
+fi
+
+wget http://mirrors.tencentyun.com/install/monitor_bm/cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
+if [ $? -ne 0 ]; then
+    echo "can't wget cuda!!!"
+    exit 1
+fi
+
+wget http://mirrors.tencentyun.com/install/monitor_bm/cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64.deb
+if [ $? -ne 0 ]; then
+    echo "can't wget cuda patch!!!"
+    exit 1
+fi
+ 
+dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb && \
+apt-get update && apt-get install -y cuda && \
+dpkg -i cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64.deb
+if [ $? -ne 0 ]; then
+    echo "cuda install fail!!!"
+    exit 1
+fi
+
+# for cuda env
+echo $PATH | grep cuda
+if [ $? -ne 0 ]; then
+    echo 'export PATH=/usr/local/cuda/bin:$PATH' >> /etc/profile
+    echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> /etc/profile
+fi
+
+rm -f cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
+rm -f cuda-repo-ubuntu1604-8-0-local-cublas-performance-update_8.0.61-1_amd64.deb
+
+sync
+sync
+
+echo "cuda installed successfully"
+
+exit 0
+```
+
 ## 运行脚本
 修改脚本的可执行权限， chmod +x xxxxx.sh <br/>
 执行脚本，如果提示：`cuda installed successfully` ，则表示安装成功。

@@ -1,5 +1,16 @@
 In the CDN Console, you can active, close and delete acceleration service or modify project for acceleration domains that have already connected to CDN.
 
+## Activate Acceleration Service
+You can **Activate** a domain whose status is **Closed**. It will take about 5 minutes to activate the acceleration service.
+
+Log in to [CDN Console](https://console.cloud.tencent.com/cdn). In the **Domain Management** page, right click on the domain whose acceleration service is to be activated, and then click **Activate CDN**:
+
+![](https://mc.qcloudimg.com/static/img/82b4f0ddec79abc9edd2df466bae4e00/3.png)
+
+You can also check the domain to be activated and click **Activate CDN** button above the domains:
+
+![](https://mc.qcloudimg.com/static/img/76866b1623e02334220ef376a8536982/4.png)
+
 ## Close Acceleration Service
 You can **Close** a domain whose status is **Activated**. Once closed, domain configuration will be retained but acceleration service will no longer be provided.It takes about 5 minutes to close the service.
 
@@ -11,16 +22,6 @@ You can also check the domain to be closed and select **Close CDN** from the **M
 
 ![](https://mc.qcloudimg.com/static/img/84d0b71f77a357f187c6a486b06121b0/2.png)
 
-## Activate Acceleration Service
-You can **Activate** a domain whose status is **Closed**. It will take about 5 minutes to activate the acceleration service.
-
-Log in to [CDN Console](https://console.cloud.tencent.com/cdn). In the **Domain Management** page, right click on the domain whose acceleration service is to be activated, and then click **Activate CDN**:
-
-![](https://mc.qcloudimg.com/static/img/82b4f0ddec79abc9edd2df466bae4e00/3.png)
-
-You can also check the domain to be activated and click **Activate CDN** button above the domains:
-
-![](https://mc.qcloudimg.com/static/img/76866b1623e02334220ef376a8536982/4.png)
 
 ## Delete Acceleration Domain
 You can **Delete** a domain whose status is **Closed**. Domain configuration will not be retained once deleted.

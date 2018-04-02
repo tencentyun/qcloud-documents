@@ -82,9 +82,9 @@ GET /?uploads&delimiter=Delimiter&encoding-type=EncodingType&prefix=Prefix&max-u
     </Owner>
     <Initiated></Initiated>
   </Upload>
-  <CommonPrefixs>
+  <CommonPrefixes>
     <Prefix></Prefix>
-  </CommonPrefixs>
+  </CommonPrefixes>
 </ListMultipartUploadsResult>
 ```
 具体的数据内容如下：
@@ -108,7 +108,7 @@ Container 节点 ListMultipartUploadsResult 的内容：
 | Prefix | ListMultipartUploadsResult | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix |  String |
 | Delimiter | ListMultipartUploadsResult | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的object作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 |  String |
 | Upload | ListMultipartUploadsResult  | 每个 Upload 的信息 |  Container |
-| CommonPrefixs | ListMultipartUploadsResult | 将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix |  Container |
+| CommonPrefixes | ListMultipartUploadsResult | 将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix |  Container |
 
 Container 节点 Upload 的内容：
 
@@ -133,11 +133,11 @@ Container 节点 Owner 的内容：
 | ------------ | ------------------------------------- | --------- |:--|
 | UID | ListMultipartUploadsResult.Upload.Owner | Object 的持有者 ID  | String    |
 
-Container 节点 CommonPrefixs 的内容：
+Container 节点 CommonPrefixes 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| Prefix | ListMultipartUploadsResult.CommonPrefixs | 显示具体的CommonPrefixs | String    |
+| Prefix | ListMultipartUploadsResult.CommonPrefixes | 显示具体的CommonPrefixes | String    |
 
 ### 错误分析
 以下描述此请求可能会发生的一些特殊的且常见的错误情况：

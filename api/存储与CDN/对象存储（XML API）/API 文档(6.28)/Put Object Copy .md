@@ -36,30 +36,38 @@ PUT /destinationObject HTTP/1.1
 **必选头部**
 该请求操作的实现使用如下必选头部：
 
-| 名称                                    | 描述                                       | 类型     | 必选   |
-| ------------------------------------- | ---------------------------------------- | ------ | ---- |
-| x-cos-copy-source                     | 源文件 URL 路径，可以通过 versionid 子资源指定历史版本                                 | String | 是    |
+| 名称                | 描述                                  | 类型     | 必选   |
+| ----------------- | ----------------------------------- | ------ | ---- |
+| x-cos-copy-source | 源文件 URL 路径，可以通过 versionid 子资源指定历史版本 | String | 是    |
 
 
 **推荐头部**
 该请求操作的实现使用如下推荐请求头部信息：
 
-| 名称               | 描述      | 类型     | 必选   |
-| ---------------- | ---------- | ------ | -------- |
+| 名称                                    | 描述                                       | 类型     | 必选   |
+| ------------------------------------- | ---------------------------------------- | ------ | ---- |
 | x-cos-metadata-directive              | 是否拷贝元数据，枚举值：Copy, Replaced，默认值 Copy。假如标记为 Copy，忽略 Header 中的用户元数据信息直接复制；假如标记为 Replaced，按 Header 信息修改元数据。当目标路径和原路径一致，即用户试图修改元数据时，必须为 Replaced | String | 否    |
 | x-cos-copy-source-If-Modified-Since   | 当 Object 在指定时间后被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-Unmodified-Since | 当 Object 在指定时间后未被修改，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Match 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-Match            | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回 412。可与x-cos-copy-source-If-Unmodified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
 | x-cos-copy-source-If-None-Match       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回 412。可与 x-cos-copy-source-If-Modified-Since 一起使用，与其他条件联合使用返回冲突。 | String | 否    |
-| x-cos-storage-class                   | 存储级别，枚举值：存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE；默认值：STANDARD | String | 否    |
+| x-cos-storage-class                   | 存储级别，枚举值：存储级别，枚举值：STANDARD，STANDARD_IA，NEARLINE；默认值：STANDARD | String | 否    |
 | x-cos-acl                             | 允许用户自定义文件权限。<br />有效值：private , public-read，默认值：private。 | String | 否    |
-| x-cos-grant-read                      |   赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
-| x-cos-grant-write                     | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;"  | String | 否    |
-| X-cos-grant-full-control              | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;"  | String | 否    |
+| x-cos-grant-read                      | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
+| x-cos-grant-write                     | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
+| X-cos-grant-full-control              | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | 否    |
 | x-cos-meta-*                          | 其他自定义的文件头部                               | String | 否    |
 
+**服务端加密相关头部**
+
+该请求操作指定腾讯云 COS 在数据存储时，应用数据加密的保护策略。腾讯云 COS 会帮助您在数据写入数据中心时自动加密，并在您取用该数据时自动解密。目前支持使用腾讯云 COS 主密钥对数据进行 AES-256 加密。如果您需要对数据启用服务端加密，则需传入以下头部：
+
+| 名称                           | 描述                                       | 类型     | 必选     |
+| ---------------------------- | ---------------------------------------- | ------ | ------ |
+| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
 
 ### 请求体
+
 该请求的请求体为空。
 
 
@@ -85,10 +93,18 @@ PUT /destinationObject HTTP/1.1
 | ---------------- | ---------------------------------------- | ------ |
 | CopyObjectResult | 返回复制结果信息                                 | String |
 | ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
-| LastModified     | 返回文件最后修改时间，GMT 格式                         | String |
+| LastModified     | 返回文件最后修改时间，GMT 格式                        | String |
 
+**服务端加密相关响应**
 
-## 实际案例
+如果在上传时指定使用了服务端加密，响应头部将会包含如下信息：
+
+| 名称                           | 描述                                       | 类型     |
+| ---------------------------- | ---------------------------------------- | ------ |
+| x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
+
+### 实际案例
+
 若需要跨帐号复制则需要先设置被复制帐号的 ACL，了解 ACL 详细请参见 [Put Object ACL](https://cloud.tencent.com/document/product/436/7748) 章节。
 ### 请求
 ```

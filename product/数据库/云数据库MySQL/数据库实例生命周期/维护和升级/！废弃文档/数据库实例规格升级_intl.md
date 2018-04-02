@@ -1,6 +1,6 @@
 ### How to Upgrade Cloud Database Instance Specification by Yourself
 Once you have logged into cloud database console, you can upgrade the specification of specified instance through "Upgrade" operation.
-![ ](//mc.qcloudimg.com/static/img/8061f3b657ebc7fe5c0e3c6f59d92b7c/image.png)
+![](//mc.qcloudimg.com/static/img/76f13f9030f49071b3b94fac15dabe38/image.png)
 
 ### How to Calculate Fees
 After the upgrade, the fees will be calculated based on the price of the new instance specification next billing period.

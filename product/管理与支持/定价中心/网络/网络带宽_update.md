@@ -1,134 +1,51 @@
 ### 带宽价格  
 
 #### 包年包月
+不同地域根据选择带宽的不同，单价不同，具体细则如下：
 
-<table class="brandwidth" align="center">
-<tr>
+| 地域 |选择带宽 ≦ 2Mbps |  2Mbps < 选择带宽 ≦ 5Mbps | 选择带宽 >5Mbps |
+|---------|---------|---------| --------| 
+| 广州<br>上海<br>北京<br>香港<br>新加坡| 20 元/Mbps/月 |  ≦ 2Mbps 的部分：20 元/Mbps/月<br>\> 2Mbps 的部分：25 元/Mbps/月 | ≦ 2Mbps的部分：20 元/Mbps/月<br>\> 2Mbps 且 ≦ 5Mbps 的部分：25 元/Mbps/月<br>\> 5Mbps 的部分：90 元/Mbps/月 |
+| 成都| 18 元/Mbps/月 |  ≦ 2Mbps 的部分：18 元/Mbps/月<br>\> 2Mbps 的部分：22 元/Mbps/月 | ≦ 2Mbps的部分：18 元/Mbps/月<br>\> 2Mbps 且 ≦ 5Mbps 的部分：22 元/Mbps/月<br>\> 5Mbps 的部分：80 元/Mbps/月 |
 
-<th style="width: 10%;" rowspan="1">地域</th>
+| 地域 |选择带宽 ≦ 5Mbps | 选择带宽 >5Mbps |
+|---------|---------|---------| 
+| 多伦多<br>硅谷 | 30 元/Mbps/月 |   ≦ 5Mbps 的部分：30 元/Mbps/月<br>\> 5Mbps 的部分：100 元/Mbps/月 |
+| 韩国<br>法兰克福 | 20 元/Mbps/月 |   ≦ 5Mbps 的部分：20 元/Mbps/月<br>\> 5Mbps 的部分：80 元/Mbps/月 |
 
-<th style="width: 20%;" colspan="1"> 选择带宽<2Mbps </th>
 
-<th style="width: 20%;" colspan="4"> 2Mbps<选择带宽<5Mbps</th>
+#### 按量计费（小时带宽）
 
-<th style="width: 20%;" colspan="2"> 选择带宽>5Mbps</th>
+不同地域根据选择带宽的不同，单价不同，具体细则如下：
 
-</tr>
+| 地域 | 选择带宽 ≦ 5Mbps | 选择带宽 >5Mbps |
+|---------|---------|---------| 
+| 大陆、多伦多、硅谷、韩国、法兰克福 | 0.063 元/Mbps/小时 | ≦ 5Mbps的部分：0.063 元/Mbps/小时<br>＞5Mbps的部分：0.25 元/Mbps/小时  |
+| 香港 | 0.08 元/Mbps/小时 | ≦ 5Mbps的部分：0.08 元/Mbps/小时<br>＞5Mbps的部分：0.25 元/Mbps/小时  |
+| 新加坡、成都 | 0.0625 元/Mbps/小时 | ≦ 5Mbps的部分：0.0625 元/Mbps/小时<br>＞5Mbps的部分：0.25 元/Mbps/小时  |
 
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 大陆</td>
-<td style="width: 20%; "align="center" colspan="1"> 20.00</td>
-<td style="width: 20%; "align="center" colspan="4"> 25.00</td>
-<td style="width: 20%; "align="center" colspan="4">90.00</td>
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 香港</td>
-<td style="width: 20%; "align="center" colspan="1"> 20.00</td>
-<td style="width: 20%; "align="center" colspan="4"> 25.00</td>
-<td style="width: 20%; "align="center" colspan="4">90.00</td>
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 新加坡</td>
-<td style="width: 20%; "align="center" colspan="1"> 20.00</td>
-<td style="width: 20%; "align="center" colspan="4"> 25.00</td>
-<td style="width: 20%; "align="center" colspan="4">90.00</td>
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 北美</td>
-<td style="width: 20%; "align="center" colspan="1"> 20.00</td>
-<td style="width: 20%; "align="center" colspan="4"> 30.00</td>
-<td style="width: 20%; "align="center" colspan="4">100.00</td>
-</tr>
+>**注意：**
+- 若 1 小时内多次更换网络带宽，以最高带宽计费。
+- 计费精确到秒，按小时结算。
 
-</tr>
-</table>
 
-#### 按量计费
-<table class="brandwith" align="center">
-<tr>
+#### 按流量计费
+不同地域的流量单价不同，具体细则如下：
 
-<th style="width: 10%;" rowspan="2">地域</th>
+| 地域 |价格 | 
+|---------|---------|
+| 大陆、新加坡、韩国、法兰克福 | 0.80 元/GB | 
+| 香港 | 1.00 元/GB | 
+| 多伦多、硅谷 | 0.50 元/GB |
 
-<th style="width: 20%;" colspan="4"> 按量计费（元/Mbps/小时） </th>
-
-<th style="width: 20%;" colspan="4"> 按量计费（元/GB）</th>
-
-</tr>
-<tr>
-<td style="width: 20%; "align="center" colspan="2"> 选择带宽<2Mbps</td>
-<td style="width: 20%; "align="center" colspan="2"> 选择带宽>5Mbps</td>
-<td style="width: 20%; "align="center" colspan="4"> 流量价格</td>
-
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 大陆</td>
-<td style="width: 20%; "align="center" colspan="2"> 0.0630</td>
-<td style="width: 20%; "align="center" colspan="2"> 0.25</td>
-<td style="width: 20%; "align="center" colspan="4">0.80</td>
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 香港</td>
-<td style="width: 20%; "align="center" colspan="2"> 0.0800</td>
-<td style="width: 20%; "align="center" colspan="2">0.25</td>
-<td style="width: 20%; "align="center" colspan="4">1.00</td>
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 新加坡</td>
-<td style="width: 20%; "align="center" colspan="2"> 0.0625</td>
-<td style="width: 20%; "align="center" colspan="2"> 0.25</td>
-<td style="width: 20%; "align="center" colspan="4">0.80</td>
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 北美</td>
-<td style="width: 20%; "align="center" colspan="2"> 0.0630</td>
-<td style="width: 20%; "align="center" colspan="2"> 0.25</td>
-<td style="width: 20%; "align="center" colspan="4">0.50</td>
-</tr>
-
-</tr>
-</table>
 
 
 #### 共享带宽包
 
-<table class="brandwidth" align="center">
-<tr>
-
-<th style="width: 10%;" rowspan="1">地域</th>
-
-<th style="width: 20%;" colspan="2"> 带宽包内（元/Mbps） </th>
-
-<th style="width: 20%;" colspan="2"> 超出带宽包(元/Mbps)</th>
-
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 大陆</td>
-<td style="width: 20%; "align="center" colspan="2"> 100.00</td>
-<td style="width: 20%; "align="center" colspan="2">108.00</td>
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 香港</td>
-<td style="width: 20%; "align="center" colspan="2"> 100.00</td>
-<td style="width: 20%; "align="center" colspan="2">108.00</td>
-
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 新加坡</td>
-<td style="width: 20%; "align="center" colspan="2"> 100.00</td>
-<td style="width: 20%; "align="center" colspan="2"> 108.00</td>
-
-</tr>
-<tr>
-<td style="width: 10%; "align="center" colspan="1"> 北美</td>
-<td style="width: 20%; "align="center" colspan="2"> 200.00</td>
-<td style="width: 20%; "align="center" colspan="2"> 216.00</td>
-
-</tr>
-
-
-</table>
-
-
+| 地域 | 带宽包内带宽单价 | 超出带宽包的带宽单价 |
+|---------|---------|---------|
+| 北京、上海、广州、香港、新加坡、硅谷、韩国 | 100 元/Mbps | 108 元/Mbps |
+| 多伦多 | 200 元/Mbps | 216 元/Mbps |
 
 
 
@@ -145,7 +62,7 @@
 
 </tr>
 <tr>
-<td style="width: 10%; "align="center" colspan="1"> 大陆、法兰克福</td>
+<td style="width: 10%; "align="center" colspan="1"> 大陆、法兰克福、韩国</td>
 <td style="width: 20%; "align="center" colspan="2"> 0.20</td>
 
 </tr>

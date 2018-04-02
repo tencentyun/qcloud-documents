@@ -26,7 +26,7 @@ The client signs the HTTP request, and then sends it to Tencent Cloud for signat
 
 ## Preparations
 1. APPID, SecretId and SecretKey. 
-   They are available on the [Cloud API Key](https://console.cloud.tencent.com/capi) page of console.
+   They are available on the [Cloud API Key](https://console.cloud.tencent.com/cam/capi) page of console.
 2. Specify the development languages:
    Support but not limited to Java, PHP, C Sharp, C++, node.js, Python, and specify the corresponding HMAC-SHA1, SHA1 functions.
 
@@ -134,7 +134,7 @@ Parameter | Value
 A user wants to download and upload objects using the API calling method, and make a signature to the calling.
 
 ### Preparations
-Obtain APPID, SecretId, and SecretKey by logging in to the [Cloud API Key](https://console.cloud.tencent.com/capi) page, and specify the development language as follows:
+Obtain APPID, SecretId, and SecretKey by logging in to the [Cloud API Key](https://console.tencent.cloud.com/cam/capi) page, and specify the development language as follows:
 
 APPID | SecretId | SecretKey | Development Language
 ---|---|---|---

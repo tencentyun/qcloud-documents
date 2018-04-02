@@ -1,3 +1,5 @@
+## Public CLB Instances
+
 Public Cloud load balance instance gets requests from the client via the Internet, and allocates these requests to backend servers bound to the listeners. After creating a cloud load balancer, Tencent Cloud will assign a public network domain and a VIP address to it. DNS server will resolve the domain and VIP address. Public Cloud load balance will also allow users to bind CNAME and A Record, and map them to a customized domain which is easy to read. Public load balance instance will be assigned with fixed BGP public IP so as to receive the requests such as HTTP, HTTPS, TCP and UDP from the client as well as support such services provided by CLB as session persistence and health check. For more information about the usage restrictions of the public load balance instance, please refer to [Usage Restrictions](/doc/product/214/6187).
 
 You can add multiple [Cloud Load Balancer Listener](/doc/product/214/6151) to a public cloud load balance instance to forward different requests.
@@ -46,5 +48,5 @@ It is recommended to use private load balance.
 It is free to use private load balance instance. 
 
 ### Creating Private Load Balance Instance
-For creating private load balance instance, please refer to [Creating Load Balance Instance](/doc/product/214/6149).
+To create private load balance instance, please refer to [Creating Load Balance Instance](/doc/product/214/6149).
  

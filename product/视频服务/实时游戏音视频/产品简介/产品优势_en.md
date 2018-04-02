@@ -1,5 +1,5 @@
 
-| Our Advantages | Why choose Tencent Mobile Gaming |
+| Our Advantages | Why choose Game Multimedia Engine |
 |---------|---------|
 | **Game Scene Customization** | The audio/video codes are deeply optimized for game scenes, to make its bitrate, latency, system resource consumption and other key technical metrics up to the leading level in the industry |
 | **Top Infrastructure** | The self-built ten-gigabit data center is equipped with top-level 20-line BGP network and more than 800 nodes, which allows players to enjoy stable and high-speed game experience |

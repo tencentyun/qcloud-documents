@@ -168,7 +168,7 @@
 | CREATING | Creating
 | BINDING | Binding
 | BIND | Bound
-| UNBINGING | Unbinding
+| UNBINDING | Unbinding
 | UNBIND | Unbound
 | OFFLINING | Deactivating
 | CREATE_FAILED | Creation failed

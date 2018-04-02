@@ -60,10 +60,10 @@ NSString *appid = dic[@"COOPERATOR_APPID"];
 | Key | Type | Value |
 |---------|---------|---------|
 | IS_COOPERATOR| Boolean| 外部应用填“YES”|
-| COOPERATOR_APPID| String| 注册后由系统或管理员分配提供|
+| COOPERATOR_APPID| String| 云官网注册获得|
 | TIME_OUT| Number| 请求httpdns超时设定时间，单位：ms，建议设置1000ms|
-| DNS_ID| String| 注册后由系统或管理员分配提供|
-| DNS_KEY| String| 注册后由系统或管理员分配提供|
+| DNS_ID| String| 云官网注册获得|
+| DNS_KEY| String| 云官网注册获得|
 | Debug| Boolean| 日志开关配置，YES为打开MSDKDns日志，No为关闭MSDKDns日志，建议在接入测试阶段打开日志，以便排查问题，上线后可以关闭
 | IS_TEST| Boolean| 测试开关配置，当选择YES，即是指使用官方提供的demo进行测试，无需申请ID与KEY，如需正式接入，需要注册申请ID与KEY，当您的项目有了自己的ID与KEY后，此选项设置为空
 

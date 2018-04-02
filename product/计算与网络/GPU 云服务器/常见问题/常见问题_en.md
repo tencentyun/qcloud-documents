@@ -2,7 +2,7 @@
 A: NVIDIA Tesla is a new product line introduced by NVIDIA following the launch of professional acceleration card QUADRO and the entertainment graphics card GeForce series, which is mainly used for scenarios that require high performance computing in a broad range of scientific research. With NVIDIA(r) Tesla(r) GPU accelerator, it can handle the workloads that require super strict HPC in ultra-large data centers faster.
 
 **Q: What is computing acceleration?**
-A: Computing acceleration is used to perform floating-point computing and graphic processing with a hardware accelerator or a coprocessor, which is more efficient than using a software running on CPU. Tencent Cloud offers two computing acceleration models: GCC computing GN2 for generic computing, and GCC rendering GA2 for graphics-intensive applications.
+A: Computing acceleration is used to perform floating-point computing and graphic processing with a hardware accelerator or a coprocessor, which is more efficient than using a software running on CPU. Tencent Cloud offers three computing acceleration models: GCC computing (GN2, GN8) for generic computing, and GCC rendering GA2 for graphics-intensive applications.
 
 **Q: What are the advantages of GPU over CPU?**
 A: GPU has more arithmetic logic units (ALU) than CPU and supports large-scale multi-threaded parallel computing.

@@ -18,7 +18,7 @@ The following request parameter list only provides API request parameters. For o
 |---------|---------|---------|---------|
 | Version | String | Yes | API version number, used to identify the API version you are requesting. For the first version of this API, input "2017-03-12". |
 | InstanceIds.N | Array of Strings | Yes | ID(s) of one or more instances you want to modify. This can be obtained from `InstanceId` in the returned values of API [`DescribeInstances`](/document/api/213/9388). The maximum number of instances in a batch for each request is 100. |
-| ProjectId | Integer | Yes | Project ID. During the query of instance using the API [DescribeInstances](/document/api/213/9388), the project ID can be used to filter the results.
+| ProjectId | Integer | Yes | Project ID. A project can be created using the API [AddProject](https://intl.cloud.tencent.com/document/product/378/4398). During the query of instance using the API [DescribeInstances](/document/api/213/9388), the project ID can be used to filter the results.
 
 
 ## 3. Output Parameters

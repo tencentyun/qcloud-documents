@@ -38,11 +38,25 @@ mVodPlayer.setPlayerView(mView);
 ```
 
 ### step 3: 启动播放
+TXVodPlayer支持两种播放模式，您可以根据需要自行选择
+1. 通过url方式
 TXVodPlayer 内部会自动识别播放协议，您只需要将您的播放 URL 传给 startPlay 函数即可。
 ```java
 String url = "http://1252463788.vod2.myqcloud.com/xxxxx/v.f20.mp4";
 mVodPlayer.startPlay(url); 
 ```
+2. 通过fileId方式
+```objectivec
+TXPlayerAuthBuilder authBuilder = new TXPlayerAuthBuilder();
+authBuilder.setAppId(1252463788);
+authBuilder.setFileId("4564972819220421305");
+mVodPlayer.startPlay(authBuilder); 
+```
+在[点播视频管理](https://console.cloud.tencent.com/video/videolist) 找到对应的文件。点开后在右侧视频详情中，可以看到appId和fileId。
+
+![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
+
+通过fileId方式播放，播放器会向后台请求真实的播放地址。如果此时网络异常或fileId不存在，则会收到`TXLiveConstants.PLAY_ERR_GET_PLAYINFO_FAIL`事件，反之收到`TXLiveConstants.PLAY_EVT_GET_PLAYINFO_SUCC`表示请求成功。
 
 ### step 4: 画面调整
 
@@ -170,7 +184,7 @@ playerB.startPlay(urlB); // 不会立刻开始播放，而只会开始加载视�
 
 等到视频 A 播放结束，自动（或者用户手动切换到）视频B时，调用 resume 函数即可实现立刻播放。
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     // 在视频 A 播放结束的时候，直接启动视频 B 的播放，可以做到无缝切换
     if (event == PLAY_EVT_PLAY_END) {
            playerA.stop();
@@ -201,6 +215,15 @@ TXVodPlayConfig 中的 headers 可以用来设置 http 请求头，比如常用�
  mVodPlayer.enableHardwareDecode(true);
  mVodPlayer.startPlay(flvUrl, type);
 ```
+
+### step 15: 多码率文件
+SDK支持hls的多码率格式，方便用户切换不同码率的播放流。在收到PLAY_EVT_PLAY_BEGIN事件后，可以通过下面方法获取多码率数组
+```java
+ArrayList<TXBitrateItem> bitrates = mVodPlayer.getSupportedBitrates(); //获取多码率数组
+```
+
+在播放过程中，可以随时通过`mVodPlayer.setBitrateIndex(int)`切换码率。切换过程中，会重新拉取另一条流的数据，因此会有稍许卡顿。SDK针对腾讯云的多码率文件做过优化，可以做到切换无卡顿。
+
 
 ## 进度展示
 
@@ -266,6 +289,7 @@ public void onPlayEvent(int event, Bundle param) {
 | :-------------------  |:-------- |  :------------------------ | 
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束   | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放 | 
+|PLAY_ERR_HLS_KEY       | -2305 | HLS解密key获取失败 |
 
 ### 3. 警告事件
 如下的这些事件您可以不用关心，它只是用来告知您 SDK 内部的一些事件。
@@ -293,6 +317,15 @@ public void onPlayEvent(int event, Bundle param) {
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 网络接收到首个可渲染的视频数据包(IDR)  |
 
 
+### 5. 分辨率事件
+以下事件用于获取画面变化信息，您也无需关心：
+
+| 事件ID                     |    数值  |  含义说明                    |   
+| :-----------------------  |:-------- |  :------------------------ | 
+| PLAY_EVT_CHANGE_RESOLUTION|  2009    | 视频分辨率改变               |
+| PLAY_EVT_CHANGE_ROATION   |  2011    | MP4视频旋转角度 |
+
+
 ## 视频宽高 
 **视频的宽高（分辨率）是多少？**
 站在 SDK 的角度，如果只是拿到一个 URL 字符串，它是回答不出这个问题的。要知道视频画面的宽和高各是多少个 pixel, SDK 需要先访问云端服务器，直到加载到足够能够分析出视频画面大小的信息才行，所以对于视频信息而言，SDK 也只能以通知的方式告知您的应用程序。 
@@ -310,3 +343,12 @@ public void onPlayEvent(int event, Bundle param) {
 |   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器IP | 
+
+## 视频信息
+如果通过fileId方式播放且请求成功，SDK会将一些请求信息通知到上层。您需要在收到`TXLiveConstants.PLAY_EVT_GET_PLAYINFO_SUCC`事件后，解析param中的信息。
+
+|   视频信息                   |  含义说明                   |   
+| :------------------------  |  :------------------------ | 
+| EVT_PLAY_COVER_URL     | 视频封面地址 | 
+| EVT_PLAY_URL  | 视频播放地址 |
+| EVT_PLAY_DURATION | 视频时长 |

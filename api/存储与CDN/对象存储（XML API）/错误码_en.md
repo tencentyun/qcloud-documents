@@ -64,7 +64,7 @@ Corresponding HTTP status code: 3XX, 4XX, 5XX
 | InvalidPart                         | Part is missing or SectionID is invalid                 | 400 Bad Request                     |
 | InvalidPolicyDocunment              | Policy configuration file is invalid                         | 400 Bad Request                     |
 | InvalidURI                          | URI is invalid                            | 400 Bad Request                     |
-| KeyTooLong                          | Your key is too long                            | 400 Bad Request                     |
+| KeyTooLong                          | File path is too long                            | 400 Bad Request                     |
 | MalformedACLError                   | Described ACL policy does not comply with XML syntax                  | 400 Bad Request                     |
 | MalformedPOSTRequest                | The Body content of the POST request is invalid         | 400 Bad Request                     |
 | MalformedXML                        | "body" in XML format does not comply with XML syntax                 | 400 Bad Request                     |

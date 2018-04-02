@@ -8,7 +8,7 @@ The CDB rollback tool can roll back the cloud database or table to the specified
 
 In order to ensure the security of data in the database or table, the tool will authenticate a request.
 
-### 1.2 Service Limits
+### 1.1 Service Limits
 
 **Environment limit**  
 
