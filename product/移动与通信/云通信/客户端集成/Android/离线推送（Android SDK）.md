@@ -1083,7 +1083,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 
 ```
 dependencies {
-    compile 'com.meizu.flyme.internet:push-internal:3.6.+@aar'
+    compile 'com.meizu.flyme.internet:push-internal:3.6.3@aar'
 }
 ```
 

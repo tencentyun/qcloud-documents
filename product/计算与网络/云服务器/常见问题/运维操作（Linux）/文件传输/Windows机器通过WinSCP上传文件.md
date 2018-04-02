@@ -13,8 +13,7 @@ WinSCP 是一个在 Windows 环境下使用 SSH 的开源图形化 SFTP 客户�
  - 密码：云服务器的用户名对应的密码。
  - 用户名：云服务器的系统用户名。
 	 - SUSE/CentOS/Debian 系统：root
-		- Windows 系统：Administrator
-		- Ubuntu 系统：ubuntu
+	 - Ubuntu 系统：ubuntu
 3. 信息填写完毕之后单击 **登录**，界面如下:
 ![](//mccdn.qcloud.com/img56b0272d4ed3a.png)
 4. 登录成功之后，鼠标选中左侧本地文件，拖拽到右侧的远程站点，即可将文件上传到 Linux 云服务器。

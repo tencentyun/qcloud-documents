@@ -2,9 +2,7 @@
 
 ### 通用消息发送
 
-**会话获取**
-
-会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息，发消息时首先需要先获取会话，获取会话需要指定会话类型（群组 & 单聊），以及会话对方标志（对方帐号或者群号）。获取会话由 `TIMManager` 中的  `getConversation`  实现。
+**会话获取：**会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息，发消息时首先需要先获取会话，获取会话需要指定会话类型（群组 & 单聊），以及会话对方标志（对方帐号或者群号）。获取会话由 `TIMManager` 中的  `getConversation`  实现。
 
 **原型：**
 
@@ -35,15 +33,11 @@ conversation = TIMManager.getInstance().getConversation(
         groupId);                       //群组 Id
 ```
 
-**消息发送**
-
-通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。ImSDK 中消息的解释可参阅 [ImSDK对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。
-
-ImSDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
+**消息发送：**通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。ImSDK 中消息的解释可参阅 [ImSDK对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。ImSDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151013075817_75666.png)
 
-发消息通过 `TIMConversation` 的方法 `sendMessage` 实现：
+发消息通过 `TIMConversation` 的方法 `sendMessage` 实现。
 
 **原型：**
 
@@ -56,11 +50,9 @@ ImSDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIME
 public void sendMessage(@NonNull TIMMessage msg, @NonNull TIMValueCallBack<TIMMessage> callback)
 ```    
 
-以下分别对发送文本和图片等类型的消息提供示例。
-
 ### 文本消息发送
 
-文本消息由 `TIMTextElem` 定义。`TIMTextElem` 成员方法如下。
+文本消息由 `TIMTextElem` 定义。**`TIMTextElem` 成员方法如下：**
 
 ```
 //获取文本内容
@@ -106,7 +98,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 图片消息由 `TIMImageElem` 定义。它是 `TIMElem` 的一个子类，也就是说图片也是消息的一种内容。 发送图片的过程，就是将 `TIMImageElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。
 
-`TIMImageElem` 成员方法如下。
+**`TIMImageElem` 成员方法如下：**
 
 ```
 /**
@@ -158,12 +150,9 @@ public int getTaskId()
 public int getImageFormat()
 ```
 
-发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `getImageList` 获取所有图片类型。
+发送图片时，只需要设置图片路径 `path`。发送成功后可通过 `getImageList` 获取所有图片类型。`TIMImage` 存储了图片列表的类型，大小，宽高信息，如需要图片二进制数据，需通过 `getImage` 接口下载。
 
-`TIMImage` 存储了图片列表的类型，大小，宽高信息，如需要图片二进制数据，需通过 `getImage` 接口下载。
-
-`TIMImage` 成员方法如下。
-
+**`TIMImage` 成员方法如下：**
 
 ```
 /**
@@ -245,10 +234,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ```
 ### 表情消息发送
 
-表情消息由 `TIMFaceElem` 定义，SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用data存储表情二进制信息以及字符串 key，都由用户自定义，SDK 内部只做透传：
+表情消息由 `TIMFaceElem` 定义，SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用data存储表情二进制信息以及字符串 key，都由用户自定义，SDK 内部只做透传。
 
-`TIMFaceElem` 成员方法如下。
-
+**`TIMFaceElem` 成员方法如下：**
 
 ```
 /**
@@ -318,8 +306,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 > - 一条消息只能有一个语音  `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > - 语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 
-`TIMSoundElem` 成员方法如下。
-
+**`TIMSoundElem` 成员方法如下：**
 
 ```
 /**
@@ -407,8 +394,8 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ### 地理位置消息发送
 
 地理位置消息由 `TIMLocationElem` 定义，其中 `desc` 存储位置的描述信息， `longitude`、`latitude` 分别表示位置的经度和纬度。
-`TIMLocationElem` 成员方法如下。
 
+**`TIMLocationElem` 成员方法如下：**
 
 ```
 /**
@@ -489,7 +476,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 > - 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > -  语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 
-`TIMFileElem` 成员方法如下。
+**`TIMFileElem` 成员方法如下：**
 
 ```
 /**
@@ -576,12 +563,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ### 自定义消息发送
 
-自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，ImSDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。
+自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，ImSDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。自定义消息由 `TIMCustomElem` 定义，其中 `data` 存储消息的二进制数据，其数据格式由开发者定义，`desc` 存储描述文本。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 Push 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
 
-自定义消息由 `TIMCustomElem` 定义，其中 `data` 存储消息的二进制数据，其数据格式由开发者定义，`desc` 存储描述文本。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 Push 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
-
-`TIMCustomElem` 成员方法：
-
+**`TIMCustomElem` 成员方法如下：**
 
 ```
 /**
@@ -633,9 +617,7 @@ public byte[] getSound()
 public void setSound(byte[] data)
 ```
 
-示例中拼接一段 XML 消息，具体展示由开发者决定。
-
-**示例：**
+示例中拼接一段 XML 消息，具体展示由开发者决定。**示例：**
 
 ```
 //构造一条消息
@@ -710,9 +692,7 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 
 ### 消息解析
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点：
-
-遍历`Elem` 原型如下。
+收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点。**遍历`Elem` 原型如下：**
 
 ```
 //获取消息元素
@@ -744,8 +724,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 
 ### 接收图片消息
 
-接收方收到消息后，可通过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMElemType.Image` 的是图片消息节点。然后通过 `TIMImageElem` 中的 `getImageList` 获取该图片的所有规格，目前最多包含三种规格: 缩略图、大图、原图， 每种规格保存在一个 `TIMImage` 对象中。
-
+接收方收到消息后，可通过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMElemType.Image` 的是图片消息节点。然后通过 `TIMImageElem` 中的 `getImageList` 获取该图片的所有规格，目前最多包含三种规格：原图、大图、缩略图， 每种规格保存在一个 `TIMImage` 对象中。
 
 ```
 /**
@@ -755,7 +734,6 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 public ArrayList<TIMImage> getImageList()
 ```
 
-
 **TIMImage说明：**
 
 获取到消息时通过imageList得到所有的图片规格，为 `TIMImage` 数据，得到 `TIMImage` 后可通过图片大小进行占位，通过接口 `getImage` 下载不同规格的图片进行展示。
@@ -763,12 +741,11 @@ public ArrayList<TIMImage> getImageList()
 > **注意：**
 > 下载的数据需要由开发者缓存，ImSDK 每次调用 `getImage` 都会从服务端重新下载数据。建议通过图片的 `uuid` 作为 `key` 进行图片文件的存储。
 
-**图片规格说明：**
+**图片规格说明：**每幅图片有三种规格，分别是 Original(原图)、Large(大图)、Thumb(缩略图)。
 
-每幅图片有三种规格，分别是 Original(原图)、Large(大图)、Thumb(缩略图)。
-**原图：**指用户发送的原始图片，尺寸和大小都保持不变。
-**大图：**是将原图等比压缩，压缩后宽、高中较小的一个等于720像素。
-**缩略图：**是将原图等比压缩，压缩后宽、高中较小的一个等于198像素。
+- **原图：**指用户发送的原始图片，尺寸和大小都保持不变。
+- **大图：**是将原图等比压缩，压缩后宽、高中较小的一个等于720像素。
+- **缩略图：**是将原图等比压缩，压缩后宽、高中较小的一个等于198像素。
 
 >- 如果原图尺寸就小于 198 像素，则三种规格都保持原始尺寸，不需压缩。
 >- 如果原图尺寸在 198~720 之间，则大图和原图一样，不需压缩。
@@ -813,9 +790,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 
 ### 接收语音消息
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMElemType.Sound` 的为语音消息节点。
-
-获取到消息时可通过时长占位，通过接口 `getSoundToFile` 下载语音资源，`getSoundToFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，ImSDK 并不会存储资源文件。
+收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMElemType.Sound` 的为语音消息节点。获取到消息时可通过时长占位，通过接口 `getSoundToFile` 下载语音资源，`getSoundToFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，ImSDK 并不会存储资源文件。
 
 **原型：   **
 
@@ -828,9 +803,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 ```
 
-**语音消息已读状态：**
-
-语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户点击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#3.8-.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户点击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
 
 **原型：**
 ```
@@ -840,9 +813,9 @@ public void setCustomInt(int value)
 
 ### 接收小文件消息
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中 `TIMFileElem` 为文件消息节点.
+收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中 `TIMFileElem` 为文件消息节点。
 
-`TIMFileElem` 成员方法如下。
+**`TIMFileElem` 成员方法如下：**
 
 ```
 //下载文件到指定的保存路径
@@ -878,7 +851,8 @@ public void getToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 ## 消息属性
 
 可通过 `TIMMessage` 或者 `TIMMessageExt` 的成员方法获取消息属性。
-其中 `TIMMessageExt` 实例获取方法如下。
+
+** `TIMMessageExt` 实例获取方法如下：**
 
 ```
 //获取消息扩展实例， 其中参数 msg 是 TIMMessage 的一个对象
@@ -1260,9 +1234,7 @@ public boolean deleteConversation(TIMConversationType type, String peer)
 public boolean deleteConversationAndLocalMsgs(TIMConversationType type, String peer)
 ```
 
-以下示例中删除了与用户 hello 的 C2C 会话。
-
-**示例：**
+以下示例中删除了与用户 hello 的 C2C 会话。**示例：**
 
 ```
 TIMManagerExt.getInstance().deleteConversation(TIMConversationType.C2C, "hello");
@@ -1327,7 +1299,8 @@ public TIMMessageDraft getDraft()
 public boolean hasDraft()
 ```
 
-`TIMMessageDraft`说明如下。
+**`TIMMessageDraft`说明如下：**
+
 ```
 /**
  * 获取草稿中的消息元素列表
@@ -1390,7 +1363,9 @@ ImSDK 提供了根据提供参数查找相应消息的功能，只能精准查�
 public void findMessages(@NonNull List<TIMMessageLocator> locators, TIMValueCallBack<List<TIMMessage>> cb)
 ```
 
-其中参数中的 `TIMMessageLocator` 可以通过 `TIMMessageExt` 中的 `getMessageLocator` 方法来获取，原型如下：
+其中参数中的 `TIMMessageLocator` 可以通过 `TIMMessageExt` 中的 `getMessageLocator` 方法来获取。
+
+**原型：**
 
 ```
 /**
@@ -1472,11 +1447,9 @@ public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
 
 会话类型（TIMConversationType）除了 C2C 单聊和 Group 群聊以外，还有一种系统消息，系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是关系链系统消息，一种是群系统消息。
 
-关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
-
-当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅 [群事件消息](/doc/product/269/9236#9.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
-
-当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](/doc/product/269/9236#10.-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
+- 关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
+- 当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅 [群事件消息](/doc/product/269/9236#9.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
+- 当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](/doc/product/269/9236#10.-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
 
 
 ## 设置后台消息通知栏提醒
