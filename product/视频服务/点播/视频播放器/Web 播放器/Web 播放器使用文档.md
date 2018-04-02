@@ -37,6 +37,7 @@
 ```
  <script src="//imgcache.qq.com/open/qcloud/video/tcplayer/lib/hls.min.0.8.8.js"></script>
 ```
+
 ### step 2：放置播放器容器
 在需要展示播放器的页面位置加入播放器容器，例如：在 index.html 中加入如下代码（容器 ID 以及宽高都可以自定义）。
 ```
