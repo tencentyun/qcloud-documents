@@ -12,7 +12,7 @@ Domain name for API request: bmvpc.api.qcloud.com
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
-| vpcId | Yes | String | VPC ID assigned by the system. Both vpcId before the upgrade and unVpcId after the upgrade are supported.  |
+| unVpcId | Yes | String | VPC ID assigned by the system, for example vpc-kd7d06of. You can acquire it by calling the `DescribeBmVpcEx` API. |
 | ips | Yes | Array | Array of released IPs.  |
 
 
@@ -31,7 +31,7 @@ Domain name for API request: bmvpc.api.qcloud.com
  
  | Error Code | Error Message | Description |
 |---------|---------|---------|
-| -3047 |InvalidBmVpc.NotFound| Invalid VPC. VPC resource does not exist. Please verify whether the resource information entered is correct.  |
+| -3047 |InvalidBmVpc.NotFound| Invalid VPC. VPC resource does not exist. Please check the information you entered.  |
 
 ## 5. Example
  
