@@ -41,9 +41,9 @@
 
 ## 第三步：集成 SDK
 
-每一个 MobileLine 服务都是一个单独的 SDK，其中 `com.tencent.tac:tac-core` 是其他所有模块的基础模块，`com.tencent.tac:tac-crash` 是 MobileLine Crash 上报服务，因此您在使用我们的 Crash 上报服务时必须同时添加这两个服务。
+每一个 MobileLine 服务都是一个单独的 SDK，其中 com.tencent.tac:tac-core 移动分析服务是其他所有模块的基础模块，com.tencent.tac:tac-crash 是 MobileLine Crash 上报服务，因此您在使用我们的 Crash 上报服务时必须同时添加这两个服务。
 
-在您的应用级 build.gradle（通常是 app/build.gradle）添加 Crash 的依赖：
+在您的应用级 build.gradle（通常是 app/build.gradle）添加移动分析服务和 Crash 上报服务的依赖：
 
 ```
 dependencies {
