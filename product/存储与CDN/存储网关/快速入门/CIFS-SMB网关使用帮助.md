@@ -172,23 +172,19 @@ NFS 网关、CIFS/SMB 网关 | 4核 CPU/16GB 内存/4Mbps 带宽 | 8核 CPU/32GB
 #### 选择 CVM 地域与机型
 跳转到 CVM 购买页后，选择计费模式、地域、可用区、系列及机型。
 <p style="color: red;"> 注意，部署网关的 CVM 可以与 CSG 分布在不同的地域，但是跨地域访问会产生相应的网络流量。同时，为了保证网关正常运行， 请根据本篇第一章要求选择合适的主机配置。若选择低于该配置的主机，存储网关将无法正常启动。<p> 
-
 ![](https://mc.qcloudimg.com/static/img/b744953d0eeb21f02ba8666a0716958c/image.png)
- 
+
 #### 选择 CSG 镜像
 若是从 CSG 的控制台跳转到 CVM 购买页，则此处仅需确认镜像为 CSG 镜像即可。
 ![](https://mc.qcloudimg.com/static/img/f37783fc72d541b7e7e7f63d6434cf2f/image.png)
 
 若是直接购买 CVM，则需要选择 "服务市场" 选项，在弹出的窗口中搜索 "存储网关" 并选择所需要的网关类型。**注："NFS 网关" 与 "CIFS/SMB 网关" 与 "卷网关" 共用 "[腾讯云存储网关（CSG）镜像 - 卷网关](https://market.cloud.tencent.com/products/4276?productId=4276&_ga=1.138077944.992563734.1509872671#)"的镜像。**
-
 ![](https://mc.qcloudimg.com/static/img/d87443a2452c4ee76f05bea4b0d491df/image.png)
 说明：CSG 镜像包含的系统为 CentOS 7.2 版本。
 
 #### 选择存储与网络
 为存储网关配置存储及网络。在购买 CVM 流程中**不用选择数据盘（数据盘设置为 0GB）**。 
 ![](https://mc.qcloudimg.com/static/img/4e1de73e91cb3b4eab390e142d09af59/image.png)
-
-
 
 #### 设置服务器相关信息并购买机器
 为该存储网关设置主机名称及安全组。 端口开放需求请参考[存储网关安全组要求](https://cloud.tencent.com/document/product/581/9775#.E7.BD.91.E7.BB.9C.E5.8F.8A.E7.BD.91.E5.85.B3.E5.AE.89.E5.85.A8.E7.BB.84)，设置完成后确认购买机器。
@@ -201,14 +197,11 @@ Password: csg123
 ```
 
 #### 为服务器增加磁盘
-
 购买完云服务器后，需要回到[CVM 控制台](https://console.cloud.tencent.com/cvm)。 在 CVM 控制台新建至少 2 块 10GB 以上的云硬盘并挂载到该主机上（网关正常运行至少需要2块以上磁盘，请根据业务需要选择缓存/上传缓冲磁盘/元数据磁盘大小，磁盘后期还可根据需要自行添加）。<span style="color: red;"> 注意，为了保障卷网关、磁带网关的读写性能，缓存磁盘的容量必须为上传缓冲磁盘容量的 1.5 倍以上。</span>
-
 ![](https://mc.qcloudimg.com/static/img/fdec74fc8ef0b0481eb14ef91c44f89a/image.png)
 ![](https://mc.qcloudimg.com/static/img/92c386037e4aeff1dfcf91a1d6fc6994/image.png)
 
 ### 连接到网关
-
 在网关控制台上输入网关所在主机 IP， 点击【连接到网关】，激活过程将网关与您的腾讯云账户关联。您的网关 VM 必须正在运行才能成功激活。
  
 - 网关运行于本地主机
@@ -221,9 +214,8 @@ Password: csg123
  
  *说明：若激活失败，请检查您输入的 IP 地址是否正确。如果该 IP 地址正确，则请确认已将网络设置为 "允许浏览器访问" 。*
  
-
+ 
 ### 激活网关
-
 配置网关时区、填写网关名称及时区以激活网关。 在此处可以选择数据写入模式，即，
 
 - 高速模式：数据先写入内存，然后从内存写入磁盘。**说明：该模式数据写入速度较快，但如果遇到异常掉电等情况可能会造成内存中缓存数据丢失。**
@@ -231,11 +223,8 @@ Password: csg123
 - 稳定模式：数据直接写入磁盘。**说明：该模式数据写入后稳定性高，异常掉电等情况也可以从磁盘中进行数据恢复。**
 ![](https://mc.qcloudimg.com/static/img/4012fdd301ee6ed62a30a92ec54f12b7/image.png)
 
-
   
 ### 配置本地磁盘并完成创建  
-
-
 在获取本地磁盘信息后，请根据业务情况将各个磁盘分别设置为 "上传缓冲区" 或 "缓存"。设置完毕后，点击【完成】并退出网关创建向导。*说明：本地磁盘一旦设置用途后不允许更改（仅可新增或者删除）。若在本地磁盘列表中未找到自己的磁盘，请点击【刷新】按钮。* 
 
 - 上传缓冲区：用于存储待上传数据，推荐容量为业务 "每日写入数据量" 的120% 。例如，每日写入数据为 300GB ，则上传缓冲区容量为 360 GB。 *注意：存储网关分配的上传网络带宽最少可使每天写入的数据顺利上传至云端。*
@@ -253,13 +242,10 @@ Password: csg123
 
 
 ## 创建 CIFS/SMB 文件系统
-
 完成网关的创建之后，您需要为该网关分配云端的存储空间（即文件系统），用于存储用户上传的数据。
 在 "CSG 控制台-网关" 页面或 "文件共享->文件系统" 页面， 点击【创建文件系统】或 【新建】。
-
 ![](https://mc.qcloudimg.com/static/img/1d5c0529709738e1a6527e6a63e77d11/image.png)
 ![](https://mc.qcloudimg.com/static/img/63321f86e1e25578a3b55e1c349bfa04/image.png)
-
 
 在弹出的窗口中进行相关设置：
 
@@ -271,10 +257,7 @@ Password: csg123
 
  ![](https://mc.qcloudimg.com/static/img/0dfe1fb6f83853ec41c25d547e5e41cf/image.png) 
 
-
-
 ## 使用 CIFS/SMB 文件系统
-
 创建文件系统后，请在其他服务器或客户端上按照如下指引进行配置，挂载该文件系统并使用。SMB 网关支持 CIFS、 SMB2.0 及 SMB 3.0。
 
 **注意：若在 CVM 上使用网关，建议将网关部署在各来访客户端的 VPC 下；如果在不同 VPC 时，请使用 [对等连接](https://cloud.tencent.com/document/product/215/5000) 方法实现网络互通。**
