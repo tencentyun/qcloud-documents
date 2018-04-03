@@ -1,3 +1,4 @@
+
 移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
@@ -55,6 +56,8 @@
 
 ![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/addRelease.png)
 
+> 控制台向导上默认您只集成最基础的 `analytics` 服务。
+
 如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
 
 例如，您只想集成 `analytics` 服务，
@@ -86,8 +89,7 @@ dependencies {
 	compile 'com.tencent.tac:tac-crash:1.0.0'
 }
 ```
-
-> 控制台向导上默认您只集成最基础的 `analytics` 服务。
+> 在使用腾讯计费服务时，除了在您的 Android 项目下集成 `payment` 服务外，还需要您自己设置好和 `payment` 后台交互的服务器，并在 MobileLine Payment 控制台上配置好渠道信息才可以正常使用，具体配置方法请参见 [Payment接入指南]()。除了 `payment` 服务之外，其他的服务均可以无需其他配置，直接正常使用。
 
 ## 第四步：初始化
 
