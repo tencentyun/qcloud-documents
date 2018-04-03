@@ -700,8 +700,8 @@ mLiveRoom.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
 - 示例代码：
 
 ```
-mLiveRoom.incCustomInfo(“praise”,1);
-# ```
+mLiveRoom.incCustomInfo(“praise”,1); 
+```
 
 ### 40.decCustomInfo
 
