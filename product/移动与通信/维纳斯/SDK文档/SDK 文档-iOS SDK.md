@@ -9,7 +9,7 @@
 接口说明：初始化 Wns 系统
 参数说明：
 
-| 参数 | 类型 | 必选 | 说## initWithAppID
+| 参数 | 类型 | 必选 | 说明 initWithAppID
 
 ```
 - (instancetype)initWithAppID:(int)appID
