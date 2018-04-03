@@ -62,18 +62,18 @@ dependencies {
 如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
 
 #### 1. 下载服务资源压缩包
-
-1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip) 并解压。
-2. 下载 [移动开发平台（MobileLine） Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-payment-1.0.0.zip) 并解压。
+ 
+- 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip) 并解压。
+- 下载 [移动开发平台（MobileLine） Payment 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-payment-1.0.0.zip) 并解压。
                              
 #### 2. 集成 jar 包
 
 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。资源文件中只包含了微信支付渠道的 jar 包，如果您需要同时接入 QQ 支付，那么必须将 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 也添加到您工程的 `libs` 目录。
 
 #### 3. 集成 资源文件
-
-1. 将Payment 资源包中的 `assets` 目录下的文件拷贝到您工程的 `assets` 目录下
-2. 将Payment 资源包中的 `res` 目录下的所有文件拷贝到您工程的 `res` 目录下，注意 `values.xml` 需要和您原来的字符串文件合并。
+ 
+- 将Payment 资源包中的 `assets` 目录下的文件拷贝到您工程的 `assets` 目录下
+- 将Payment 资源包中的 `res` 目录下的所有文件拷贝到您工程的 `res` 目录下，注意 `values.xml` 需要和您原来的字符串文件合并。
 
 #### 4. 修改 AndroidManifest.xml 文件
 
