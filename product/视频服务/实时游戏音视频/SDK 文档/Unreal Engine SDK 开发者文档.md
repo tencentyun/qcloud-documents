@@ -83,7 +83,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType, const char
 
 ## 实时语音接入
 ### 初始化工作
-获取相关信息，由腾讯云控制台申请，详情见 [接入指引](/document/product/607/10782)。
+获取相关信息，由腾讯云控制台申请，详情见 [游戏多媒体引擎接入指引](/document/product/607/10782)。
 在 EnterRoom 函数调用之前要先获取 ITMGContext ，ITMGContext 以单例的形式提供，所有调用都从 ITMGContext 开始，由 ITMGDelegate 回调回传给应用，必须首先设置。
 #### 示例代码
 ```
@@ -235,7 +235,7 @@ QAVSDK_AuthBuffer_GenAuthBuffer(appId, roomId, "", account, accountType, expTime
 >注意:
 >1、加入房间默认不打开麦克风及扬声器。
 >2、在 EnterRoom 函数调用之前要先调用 SetAppInfo 函数进行相关信息的设置。
->关于角色的设置，在 [游戏实时语音角色说明](/document/product/607/15172)中有介绍。
+>关于角色的设置，在 [游戏多媒体引擎语音角色说明](/document/product/607/15172)中有介绍。
 
 #### 函数原型
 ```
@@ -369,7 +369,7 @@ void AUEDemoLevelScriptActor::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char*
 
 ### 角色设置
 改变流控角色。该方法用于加入频道前设置用户角色，同时允许用户在加入频道后切换角色。
-默认自动建 6 个角色，分别为：”esports””Rhost””Raudience””Werewolf””host””audience”。详细的角色说明请见[游戏实时语音角色说明文档](/document/product/607/15172)。
+默认自动建 6 个角色，分别为：”esports””Rhost””Raudience””Werewolf””host””audience”。详细的角色说明请见[游戏多媒体引擎语音角色说明](/document/product/607/15172)。
 #### 函数原型
 ```
 ITMGRoom virtual void ChangeRole(const char* role, const unsigned char* authBuff, int authBuffLenght)
@@ -1060,7 +1060,7 @@ ITMGContextGetInstance()->GetAudioEffectCtrl()->StopAllEffects();
 
 ## 离线语音接入
 ### 离线语音技术接入初始化
-初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[接入指引文档-TLS说明](/document/product/607/10782)。
+初始化需要传入鉴权 access token 给 TLS 相关函数。鉴权的获取详细流程见[游戏多媒体引擎接入指引](/document/product/607/10782)。
 #### 函数原型
 ```
 QAVSDK_API int QAVSDK_CALL QAVSDK_SIG_GenSig(unsigned int appId,const char* uin,const char* privateKey,char* retSigBuff,unsigned int buffLenght);

@@ -20,6 +20,6 @@
 具体接入开发指南见：[**人脸验证 SDK 接入**](https://cloud.tencent.com/document/product/655/13824)
 
 ## 流程图示
-![](https://mc.qcloudimg.com/static/img/4d00e6ab49729162edb64f958e782db8/Face+SDK.png)
+![face](https://main.qcloudimg.com/raw/61718f9b1ea5c50090ec646157d8e150.png)
 
 更多产品鉴权流程：[登录鉴权概览](https://cloud.tencent.com/document/product/655/13663)
