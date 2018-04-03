@@ -24,7 +24,7 @@ openssl s_client -connect gateway.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 
 1.2.1. 设置步骤
 
-首先，登录[苹果开发者中心网站](Developer.apple.com/account)。然后点击Certificates,Identifiers & Profiles
+首先，登录[苹果开发者中心网站](https://Developer.apple.com/account)。然后点击Certificates,Identifiers & Profiles
 ![开发者网站](http://developer.qq.com/wiki/xg/imgs/20151118164839_43490.jpg)
 
 
