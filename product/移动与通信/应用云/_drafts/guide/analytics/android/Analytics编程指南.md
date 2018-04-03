@@ -1,36 +1,16 @@
-## 添加 SDK
+## 手动集成 SDK
 
-如果希望将 Analytics 库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
+如果您无法通过 gradle 远程依赖的方式来集成 SDK，我们提供了手动的方式来集成服务：
 
-### 通过 gradle 远程依赖集成
-
-如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
-
-
-在您的应用级 build.gradle（通常是 app/build.gradle）添加 Analytics 的依赖：
-
-```
-dependencies {
-    //增加这行
-    compile 'com.tencent.tac:tac-core:1.0.0'
-}
-```
- 
-添加完成后，单击您 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
-
-### 手动集成
-
-如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
-
-#### 1. 下载资源压缩包
+### 1. 下载资源压缩包
 
 下载请点击 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
 
-#### 2. 集成 jar 包
+### 2. 集成 jar 包
 
 将解压得到的所有 jar 文件拷贝到您工程或模块的 libs 目录下。
 
-#### 3. 修改您工程的 AndroidManifest.xml 文件
+### 3. 修改您工程的 AndroidManifest.xml 文件
 
 请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件。
 
