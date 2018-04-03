@@ -89,7 +89,7 @@ dependencies {
 	compile 'com.tencent.tac:tac-crash:1.0.0'
 }
 ```
-> 在使用腾讯计费服务时，除了在您的 Android 项目下集成 `payment` 服务外，还需要您自己设置好和 `payment` 交互的服务器，并在 MobileLine 控制台上配置好渠道信息才可以正常使用，具体配置方法请参见 [Payment接入指南]()。
+> 在使用腾讯计费服务时，除了在您的 Android 项目下集成 `payment` 服务外，还需要您自己设置好和 `payment` 后台交互的服务器，并在 MobileLine Payment 控制台上配置好渠道信息才可以正常使用，具体配置方法请参见 [Payment接入指南]()。除了 `payment` 服务之外，其他的服务均可以无需其他配置，直接正常使用。
 
 ## 第四步：初始化
 
