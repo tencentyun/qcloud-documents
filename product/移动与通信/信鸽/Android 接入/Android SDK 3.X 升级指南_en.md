@@ -1,4 +1,4 @@
-1.[Required] Extract the latest jar package in the SDK documentation to replace the current version of XGPush SDK.
+1. [Required] Extract the latest jar package in the SDK documentation to replace the current version of XGPush SDK.
 2. [Required] Extract libtpnsSecurity.so and libxguardian.so to replace the old version depending on the required platform.
 3. [Required] Set XGPushActivity. It is recommended to set the Android:exported of user-defined MessageReceiver to "false".
  
