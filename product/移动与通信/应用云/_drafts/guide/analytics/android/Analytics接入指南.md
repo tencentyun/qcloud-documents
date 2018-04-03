@@ -10,7 +10,7 @@
 
 ### 创建项目
 
-首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，如图这里创建了一个名为 MyGreatApp 的项目：
+首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，例如，下图这里创建了一个名为 MyGreatApp 的项目：
 
 ![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newProject.png)
 
