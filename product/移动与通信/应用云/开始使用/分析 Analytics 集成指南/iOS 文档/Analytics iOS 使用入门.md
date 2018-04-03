@@ -78,7 +78,8 @@ import TACCore
 ###### 步骤 2 配置一个 TACApplication  共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置。
 
 
-######  使用默认配置，通常对于 移动开发平台（MobileLine） 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的：
+######  使用默认配置
+通常对于 移动开发平台（MobileLine） 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的：
 
 Objective-C 代码示例：
 
@@ -90,9 +91,9 @@ Swift 代码示例：
 ~~~
 	TACApplication.configurate();
 ~~~
-##### 需要通过编程的方式自定义某些参数：
+###### 需要通过编程的方式自定义某些参数：
 
-通常对于移动开发平台（MobileLine）的项目它的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
+但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
 
 Objective-C 代码示例：
 
