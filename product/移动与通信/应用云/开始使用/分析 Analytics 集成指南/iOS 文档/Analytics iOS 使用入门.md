@@ -11,17 +11,17 @@
 
 ### 通过 CocoaPods 集成 （**推荐**）
 
-如果您是设置一个新项目，则需要安装 SDK ，您可能已经在创建移动开发平台（MobileLine）项目的过程中完成此步操作。
+如果您是设置一个新项目，则需要安装 SDK（您可能已经在创建移动开发平台项目的过程中完成此步操作）。
 
 我们 **强烈建议** 使用 CocoaPods 来安装相关的库。这样可以方便您后期 **维护** 和 **即时** 收到我们的 **SDK 更新** 。您可以根据 [安装说明](https://guides.cocoapods.org/using/getting-started.html#getting-started) 来安装并使用 CocoaPods 。如果您不想使用 CocoaPods ，则可以按照 **手工集成** 的方式直接集成 SDK 框架。
 
-如果您计划下载并运行某个快速入门实例，实例中会提供 Xcode 项目和 Podfile 。不过您还是需要安装 Pod 并下载 tac_services_configurations.json 文件。如果您希望将移动开发平台（MobileLine）库集成至自己的某个项目中，则需要为想要使用的库添加 Pod。
+如果您计划下载并运行某个快速入门实例，实例中会提供 Xcode 项目和 Podfile，则需要安装 Pod 并下载 tac_services_configurations.json 文件。如果您希望将移动开发平台（MobileLine）库集成至自己的某个项目中，则需要为想要使用的库添加 Pod。
 
 
 #### 为新项目添加 移动开发平台（MobileLine）  iOS 库
 
-##### 1. 如果没有 Xcode 项目，请新建一个。
-##### 2. 如果还没有 Podfile，请创建一个。
+##### - 如果没有 Xcode 项目，请新建一个。
+##### - 如果还没有 Podfile，请创建一个。
 
 ~~~
 $ cd your-project directory
