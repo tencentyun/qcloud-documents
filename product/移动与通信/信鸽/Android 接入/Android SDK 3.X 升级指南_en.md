@@ -1,6 +1,6 @@
-1. [Required] Extract the latest jar package in the SDK documentation to replace the current version of XGPush SDK.
-2. [Required] Extract libtpnsSecurity.so and libxguardian.so to replace the old version depending on the required platform.
-3. [Required] Set XGPushActivity. It is recommended to set the Android:exported of user-defined MessageReceiver to "false".
+1.[Required] Extract the latest jar package in the SDK documentation to replace the current version of XGPush SDK.
+2.[Required] Extract libtpnsSecurity.so and libxguardian.so to replace the old version depending on the required platform.
+3.[Required] Set XGPushActivity. It is recommended to set the Android:exported of user-defined MessageReceiver to "false".
  
 ```
 <activity android:name="com.tencent.android.tpush.XGPushActivity" android:exported="false" > </activity> 
@@ -15,7 +15,7 @@
       </intent-filter> 
 </receiver>
 ```
-4. [Required] Check whether `com.tencent.android.tpush.service.XGPushServiceV3` and `com.tencent.android.tpush.rpc.XGRemoteService` have been configured. If not, the feature is unavailable.
+4.[Required] Check whether `com.tencent.android.tpush.service.XGPushServiceV3` and `com.tencent.android.tpush.rpc.XGRemoteService` have been configured. If not, the feature is unavailable.
 
 ```
 <!-- [Required] XGPush service -->
@@ -35,7 +35,7 @@
            </intent-filter>
        </service>
 ```
-5. [Required] Check whether ` com.tencent.android.tpush.XGPushProvider`, `com.tencent.android.tpush.SettingsContentProvider`, and `com.tencent.mid.api.MidProvider` have been configured. If not, the feature is unavailable.
+5.[Required] Check whether ` com.tencent.android.tpush.XGPushProvider`, `com.tencent.android.tpush.SettingsContentProvider`, and `com.tencent.mid.api.MidProvider` have been configured. If not, the feature is unavailable.
 
 ```
 <!-- [Required] [Note] Modify authorities to package name .AUTH_XGPUSH. For example, package name in demo is: com.qq.xgdemo-->
@@ -56,7 +56,7 @@
            android:exported="true" >
        </provider>
 ```
-1. [Optional] Permission management
+1.[Optional] Permission management
 ```
 <!-- [Required] Permissions required for XGPush SDK   -->
    <uses-permission android:name="android.permission.INTERNET" />
