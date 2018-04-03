@@ -7,7 +7,7 @@ Import the SDK into the project following the steps below:
 1. Create or open an Android project. For how to create an Android project, please see the Development Environment section.
 2. Copy all the files in the libs directory under the XGPush SDK directory to the project's libs (or lib) directory.
 3. Select the XGPush jar package in the libs (or lib) directory, select Build Path from the shown menu, and select Add to Build Path to add the SDK to the project's reference directory.
-4. .so file is a necessary component of XGPush. It supports armeabi, armeabi-v7a, misp and x86. You need to add based on the platform supported by your .so file.
+4. So file is a necessary component of XGPush. It supports armeabi, armeabi-v7a, misp and x86. You need to add based on the platform supported by your .so file.
  a. If you do not use other .so files in your project, it is recommended to copy the four platform directories into your own project;
  b. If you already have .so files, you only need to copy the files in the corresponding directory of XGPush;
  c. If the game is connected via MSDK, only .so in the armeabi directory is required in most cases;
