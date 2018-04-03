@@ -109,7 +109,7 @@ public class MyCustomApp extends Application {
 
 设置好您的后台服务器后，您必须在 MobileLine 控制台上进行参数配置，首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac/)，然后选择您自己的应用，并选择【我的米大师】-> 【参数配置】-> 【修改】：
 
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/payment/24FCB01C-3685-461B-8A4B-8C0BB4576CAB.png)
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/payment/A00C563F-1D04-41C6-A037-992B0C6DB080.png)
 
 点击修改后，您需要填写**回调地址**、**应用签名**和**应用包名**参数：
 
