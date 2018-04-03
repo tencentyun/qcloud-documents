@@ -19,18 +19,11 @@ DDoS 高防包只能为同区域的腾讯云公网 IP 提供高防服务，请�
 DDoS 高防包购买完成后，在 DDoS 高防包管理页面列表中即可以看到分配的高防包资源。高防包可以直接对腾讯云公网 IP 地址提升 DDoS 防护能力.
 本部分介绍添加 IP 的配置方法。
 1. 在宙斯盾安全防护产品控制台，在左侧目录中选择【DDoS 高防包】 即可以进入 DDoS 高防包管理页；
- 
  ![](https://i.imgur.com/EyS5666.jpg)
-
 2. 在高防包列表中，单击【绑定 IP 数】列的 IP 数量，即可接入防护 IP 列表；
-
  ![](https://i.imgur.com/SWyyKSx.jpg)
-
 3. 在防护 IP 列表下，单击【添加 IP】，并选取需要添加到高防包中防护的 IP 地址；
-
  ![](https://i.imgur.com/nPTbOqg.jpg)
-
  ![](https://i.imgur.com/itOyZcR.jpg)
-
 4. 完成添加后，该 IP 地址即可以得到宙斯盾安全防护系统的保护了。
 ![](https://i.imgur.com/7wzmM0D.jpg)
