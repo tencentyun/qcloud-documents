@@ -109,11 +109,11 @@ public class MyCustomApp extends Application {
 
 设置好您的后台服务器后，您必须在 MobileLine 控制台上进行参数配置，首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac/)，然后选择您自己的应用，并选择【我的米大师】-> 【参数配置】-> 【修改】：
 
-![](replaceme)
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/payment/A00C563F-1D04-41C6-A037-992B0C6DB080.png)
 
 点击修改后，您需要填写**回调地址**、**应用签名**和**应用包名**参数：
 
-![](replaceme)
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/payment/2AAFE408-47E7-4A5C-B039-E4050501940A.png)
 
 |参数|含义|备注|
 |:--|:--|:--|
@@ -124,7 +124,9 @@ public class MyCustomApp extends Application {
 |应用包名|您自己 Android 应用的包名|请注意必须和您Android 应用的 applicationId 保持一致。|
 
 > 您可以用如下命令生成应用签名，这里假设您的签名文件 alias 为 androiddebugkey，签名文件的示例路径： ~/.android/debug.keystore。
+>
 > `keytool -exportcert -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore`
+>
 > 生成的 SHA1 值即为您的应用签名。
 
 填写好所有参数后，请点击【保存 & 预览】按钮将应用发布到沙箱，点击后你可以直接关闭参数配置页并在沙箱中调试应用，当然，您也可以直接发布到线上环境。

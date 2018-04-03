@@ -12,6 +12,7 @@ If there was no request for the domain on that day, no log would be generated. I
 
 ## Log Field Description
 The order and meaning of fields in the downloaded log are shown in the following table:
+
 | Order | Log Content                |
 | ----- | -------------------------- |
 | 1     | Request time               |
