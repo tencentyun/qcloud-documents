@@ -56,6 +56,8 @@
 
 ![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/addRelease.png)
 
+> 控制台向导上默认您只集成最基础的 `analytics` 服务。
+
 如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
 
 例如，您只想集成 `analytics` 服务，
@@ -87,8 +89,7 @@ dependencies {
 	compile 'com.tencent.tac:tac-crash:1.0.0'
 }
 ```
-
-> 控制台向导上默认您只集成最基础的 `analytics` 服务。
+> 在使用腾讯计费服务时，除了在您的 Android 项目下集成 `payment` 服务外，还需要您自己设置好和 `payment` 交互的服务器，并在 MobileLine 控制台上配置好渠道信息才可以正常使用，具体配置方法请参见 [Payment接入指南]()。
 
 ## 第四步：初始化
 
