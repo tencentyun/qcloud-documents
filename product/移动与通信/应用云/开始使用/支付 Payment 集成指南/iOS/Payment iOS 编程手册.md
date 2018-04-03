@@ -37,7 +37,7 @@ appMetadata|NSString*|额外的一些元数据
 
 
 
-resultCode是本次支付返回的错误码，具体有：
+resultCode 是本次支付返回的错误码，具体有：
 
 返回码名称 | 值 | 描述
 ---- | --- | ----
