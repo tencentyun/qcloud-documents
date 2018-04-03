@@ -26,7 +26,7 @@ sdk 接受数据限制长度为 512K 字节
 >注意：
 >需要将 jar 文件和对应的 so 添加 到工程中。
 
-这里的 armeabi 的 so 文件夹是必须添加，其它 so 文件夹可以按需添加，如果你的工程中有对应的 so 文件夹就必须加入相应文件夹的 so。例如工程 libs 目录下已经有 arm64-v8a 目录，则需要添加到 WNSsdk 中相关的  arm64-v8a 文件夹下的 64 位系统的相关 so，否则 64 位上的机器会崩溃。**
+这里的 armeabi 的 so 文件夹是必须添加，其它 so 文件夹可以按需添加，如果你的工程中有对应的 so 文件夹就必须加入相应文件夹的 so。例如工程 libs 目录下已经有 arm64-v8a 目录，则需要添加到 WNSsdk 中相关的  arm64-v8a 文件夹下的 64 位系统的相关 so，否则 64 位上的机器会崩溃。
 
 ### 配置 AndroidManifest.xml
 wns_SDK  需要使用的系统权限如下图（可参考示例工程）：
@@ -138,11 +138,10 @@ HttpClent 实例使用 WnsService.getWnsHttpClient()来获取，然后使用Http
 
 >注意：
 >发送和接受数据大小限制为 512KB。
->业务侧最好打印出 response.getFirstHeader  (WnsService.KEY_HTTP_RESULT)中的数据
-以便于 bug 定位。
+>业务侧最好打印出 response.getFirstHeader  (WnsService.KEY_HTTP_RESULT)中的数据，以便于 bug 定位。
 **此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276)。**
 
-如下图所示:
+如下图所示：
 ```
 //[必须] 定义wns的引用，从而使用其内部方法
 private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); 
@@ -372,12 +371,12 @@ public class MyPushService extends AbstractPushService{
 
 ## 调试类接口
 
-在接入 Wns 的过程中, 当遇上某些问题需要和 Wns 侧一起定位问题时, 可以通过以下接口设置客户端连接到Wns的测试环境，Wns 的测试环境也可以连接到开发商的测试服务器环境中，这样便于快速的定位到具体的问题。
+在接入 Wns 的过程中， 当遇上某些问题需要和 Wns 侧一起定位问题时， 可以通过以下接口设置客户端连接到Wns的测试环境，Wns 的测试环境也可以连接到开发商的测试服务器环境中，这样便于快速的定位到具体的问题。
 要使用测试环境，开发商必须按下面来要求来设置
 1. 终端调用 Wns Sdk 接口：setDebugIP，确保连接到 Wns 测试环境。
 2. 开发商必须在 Wns 控制台配置好，开发商测试环境服务器路由信息。
 
-另外, 如果出现 Wns 连接或者收发出错的问题时, 可以通过 Sdk 接口 keyLog 拿到提示信息并打印出来, 提供给相关工作人员查看, 以方便查找问题。
+另外，如果出现 Wns 连接或者收发出错的问题时，可以通过 Sdk 接口 keyLog 拿到提示信息并打印出来，提供给相关工作人员查看，以方便查找问题。
 
 
 ## Wns 快速验证模式
