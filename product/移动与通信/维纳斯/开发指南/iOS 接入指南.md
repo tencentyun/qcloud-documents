@@ -15,12 +15,12 @@ sdk 接受数据限制长度为 512K 字节
 
 ## 3、Sdk 使用说明
 ### 3.1、名词解释
-appID：为开发商在控制台申请的应用 ID。
-appVersion：是开发商应用程序的版本号，如"1.0"等。
-appChannel：是开发商用来区分发布的渠道的，各种下载渠道，如 appstore、应用宝、百度手机助手。 赋值如"appstore"。
-uid：业务用户的唯一标识。
-wid：wns 为每个终端分配的唯一标识。
-appVersion 和 appChannel 是使用在上报统计和服务质量监控的。
+**appID**：为开发商在控制台申请的应用 ID。
+**appVersion**：是开发商应用程序的版本号，如"1.0"等。
+**appChannel**：是开发商用来区分发布的渠道的，各种下载渠道，如 appstore、应用宝、百度手机助手。 赋值如"appstore"。
+**uid**：业务用户的唯一标识。
+**wid**：wns 为每个终端分配的唯一标识。
+**appVersion** 和 **appChannel** 是使用在上报统计和服务质量监控的。
 
 
 终端使用 Sdk 主要包括下面几个步骤
