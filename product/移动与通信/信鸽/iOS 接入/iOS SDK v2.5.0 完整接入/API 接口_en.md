@@ -17,7 +17,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 ```
 in UIApplicationDelegate before using XGPush.
 
-#### 1 APIs
+#### 1. APIs
 ```
 /**
 Initializing XGPush
@@ -59,7 +59,7 @@ in UIApplicationDelegate to sign up for for XGPush.
 >**Note:**
 >account is the account that needs to be configured according to business needs. It can be the user's name or ID, etc, and its length should contain more than two bytes. Do not use simple strings such as "myAccount", "test", or "123456". If you do not want to configure an account, pass nil.
 
-#### 1 APIs
+#### 1. APIs
 ```
 /**
 Register the device
@@ -124,7 +124,7 @@ NSLog(@"[XGPush Demo] device token is %@", deviceTokenStr);
 ## Configuring/Deleting tags
 Developers can configure tags for different users and then push based on tags. Pushing based on tags allows all devices under a tag to receive the push. A device can be configured with multiple tags.
 
-#### 1 APIs
+#### 1. APIs
 ```
 /**
 Configure a tag
@@ -174,7 +174,7 @@ Developers can configure accounts for different users and push based on accounts
 >1. Only one account can be configured for a device. When you configure a new account, the previous account will automatically become invalid. A maximum of 15 devices can be bound to an account. If the number of devices bound to an account exceeds 15, a random device will be unbounded. After that, the remaining devices can be registered.
 > 2. Earlier version APIs without callback requires calling the registered devices after an account is configured/deleted, while new version APIs with callback does not need to do so.
 
-#### 1 APIs
+#### 1. APIs
 
 ```
 /**
@@ -222,7 +222,7 @@ Deregistered devices cannot receive any push.
 >**Note:**
 >**To re-enable push, you need to call the registerAPNS and registerDevice again.**
 
-#### 1 APIs
+#### 1. APIs
 
 ```
 /**
