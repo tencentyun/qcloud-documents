@@ -7,7 +7,7 @@
  - 未知类型 BOT：   是指未公开的 BOT 类型。
  - 自定义类型 BOT： 是指用户自己配置的 BOT 类型。
 
- ![1](https://main.qcloudimg.com/raw/86acf437bdda2f0c07f5a1159ff8ebd0.png)
+ ![1](https://main.qcloudimg.com/raw/80f75e08b94456a5b966d4b2e3e64cfa.png)
 2. 单击【BOT 设置】，此页面有【已知类型预设】和【自定义策略】两个选项卡。
 ### 已知类型预设
 单击选项卡，进入已知类型预设界面，展示的信息有 BOT 类型、BOT 种类数、动作以及操作，操作选项有【监控】和【拦截】。
@@ -15,7 +15,7 @@
  - 监控动作：监控正常请求中是否存在恶意的 BOT 行为，但不进行拦截。
  - 拦截动作：对检测到的恶意 BOT 行为，进行拦截，拦截结果在域名的 “防护设置” 将自动生成自定义策略。
 
- ![2](https://main.qcloudimg.com/raw/ab6688725ab9b41d98f5e3094639408a.png)
+ ![2](https://main.qcloudimg.com/raw/939a830742eff05b7562025742bce9ae.png)
 ### 自定义策略
 单击选项卡，进入自定义策略界面，单击【添加策略】；
  ![3](https://main.qcloudimg.com/raw/0d579157a429b1ae1eea676866ed7db6.png)
@@ -25,13 +25,13 @@
 
  #### 温馨提示：  
  - 监控动作：监控正常请求中，是否存在恶意的 BOT 行为，但不进行拦截。
- - 拦截动作：对检测到的恶意 BOT 行为进行拦截，拦截结果在域名的** “防护设置”** 将自动生成自定义策略。
+ - 拦截动作：对检测到的恶意 BOT 行为，进行拦截，拦截结果在域名的【防护设置】将自动生成自定义策略。
  - 放行动作：不进行监控，也不拦截。
 配置说明请参见表格 [自定义策略配置说明](#peizhi)
- ![4](https://main.qcloudimg.com/raw/cf7b9c85acc1b6ed7ab02765bca6fead.png)
+ ![4](https://main.qcloudimg.com/raw/6d963c5f67cbaf521421482093f3a6d8.png)
 
 3. 单击【BOT 详情】，此页面共有【未知类型】、【已知类型】和【自定义类型】三个选项卡，此处以【未知类型】为例。
-![5](https://main.qcloudimg.com/raw/585f4006402e640254520b9f02939c09.png)
+![5](https://main.qcloudimg.com/raw/755687bf21ccf4ff6d92e84a17c8dbfc.png)
 如需了解某 BOT 详情，可点击该条数据后的【查看详情】：
 #### 温馨提示：
  - IP 类型：idc 为互联网数据中心，bs 为基站。
@@ -51,8 +51,8 @@
 | 匹配字段 | 逻辑符号 | 匹配内容 |
 |---------|---------|---------|
 | 存在 referer | 存在或不存在 | - |
-| 请求速率 | 大于 | 次 / 分 |
-| 请求次数	 | 大于 | 次 |
+| 请求速率 | ＞ | 次 / 分 |
+| 请求次数	 | ＞ | 次 |
 | referer 内容 | 包含 | 如 no-referrer-when-downgrade |
 | 存在 UA | 存在或不存在 | - |
 | UA 内容 | 包含 | 如 Mozilla |
