@@ -1,168 +1,93 @@
+在 [MobileLine Android 集成手册]() 中，我们根据控制台向导提供了最简单的方式来接入 MobileLine 的各种服务，同时您也可以不完全依赖向导来接入我们的 Crash 上报以及其他服务。
 
-## 准备工作
+## 准备
 
-在开始使用移动开发平台（MobileLine） Crash 服务前，确保您已经完成：[安装和配置 SDK](https://cloud.tencent.com/document/product/666/14305)
+您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
-## 添加 SDK
+## 第一步：创建 MobileLine 项目和应用
 
-如果希望将 Crash 库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
+在使用我们的服务前，您必须先在 [MobileLine 控制台](https://console.cloud.tencent.com/tac) 上创建项目，每个项目下可以包含多个应用，如 Android 或者 IOS 应用，当然，您也可以在同一个项目下创建多个 Android 或者 IOS 应用。
 
-### 通过 gradle 远程依赖集成
+### 创建项目
 
-如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖。**
+首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，例如，下图这里创建了一个名为 MyGreatApp 的项目：
 
-#### 1. 使用 jcenter 作为仓库来源。
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newProject.png)
 
-在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
-```
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        ...
-    }
-}
+### 创建应用
 
-allprojects {
-    repositories {
-         jcenter()
-    }
-}
-```
+创建好项目后，我们在 MyGreatApp 项目下创建应用，点击【创建 IOS 应用】或者【创建 Android 应用】按钮来创建应用，如图这里【创建 Android 应用】：
 
-#### 2. 添加 Crash 库依赖。
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newApp.png)
 
-在您的应用级 build.gradle（通常是 app/build.gradle）添加 Crash 的依赖：
+填写好 **应用名称** 和 **应用包名** 后，选择下一步。到此，您便已创建好了一个 MobileLine 应用，此时，您可以点击关闭向导。
+
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/loginApp.png)
+
+> 如果您之前已经创建过 MobileLine 应用了，那么你可以选择使用之前的 MobileLine 应用或者创建一个新的应用。
+
+## 第二步：添加配置文件
+
+在您创建好的应用上点击【下载配置】来下载该应用的配置文件的压缩包：
+
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/downloadConfig2.png)
+
+解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
+
+<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
+
+> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
+
+## 第三步：集成 SDK
+
+每一个 MobileLine 服务都是一个单独的 SDK，其中 com.tencent.tac:tac-core 移动分析服务是其他所有模块的基础模块，com.tencent.tac:tac-crash 是 MobileLine Crash 上报服务，因此您在使用我们的 Crash 上报服务时必须同时添加这两个服务。
+
+在您的应用级 build.gradle（通常是 app/build.gradle）添加移动分析服务和 Crash 上报服务的依赖：
 
 ```
 dependencies {
+    //增加这两行
+    compile 'com.tencent.tac:tac-core:1.0.0' 
+	compile 'com.tencent.tac:tac-crash:1.0.0'
+}
+```
+
+## 第四步：初始化
+
+集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单，只需要您在 `Application` 的子类中调用 `TACApplication.configure(this)` 语句，然后在 `AndroidManifest.xml` 注册该 `Application` 子类即可。
+
+### 在 `Application` 子类中添加初始代码
+
+如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
+
+```
+public class MyCustomApp extends Application {
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    ...
     //增加这行
-    compile 'com.tencent.tac:tac-crash:1.0.0'
-}
-```
-
-#### 3. 如果需要上报 Native 异常，添加 Native Crash 库依赖。
- 
-如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，您可以集成 native 异常上报库。
-
-在您的应用级 build.gradle（通常是 app/build.gradle）添加 Native Crash 的依赖：
-
-```
-android {
-    defaultConfig {
-        ndk {
-            // 设置支持的SO库架构
-            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
-        }
-    }
+    TACApplication.configure(this);
+  }
 }
 
-dependencies {
-    //增加这行
-    compile 'com.tencent.tac:tac-nativecrash:1.0.0'
-}
 ```
+### 在 `AndroidManifest.xml` 文件中注册
 
-然后，点击您 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
-
-### 手动集成
-
-如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
-
-#### 1. 下载服务资源压缩包。
-
-1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
-2. 下载 [移动开发平台（MobileLine） Crash 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-crash-1.0.0.zip)，并解压。
-
-#### 2. 集成 jar 包。
-- 将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
-
-#### 3. 如果需要上报 Native 异常，集成 Native Crash 包。
- 
-如果您的工程有 Native 代码（C/C++）或者集成了其他第三方 SO 库，您可以集成 [native crash 上报库](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-nativecrash-1.0.0.zip)。
- 
-- 如果您是采用 Eclipse 开发，将 `native crash 上报库`解压后的 `jni` 目录下的内容 拷贝到您工程您工程的 `libs` 目录。
-- 如果您是采用 Android Studio 开发，将`native crash 上报库`解压后的 `jni` 目录下的内容 拷贝到 app 模块的 `main` 文件夹下的 `jniLibs` 目录下 。如果不存在该目录，请新建一个。
-
-#### 4. 修改您工程的 AndroidManifest.xml 文件。
-
-请按照下面的示例代码修改您工程下的 AndroidManifest.xml 文件：
+在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
 
 ```
-<!-- 添加 Crash 需要的权限 -->
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_LOGS" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.example.tac">
+  <application
+    <!-- 这里替换成你自己的 Application 子类 -->
+    android:name="com.example.tac.MyCustomApp"
+    ...>
+  </application>
+</manifest>
 ```
 
-## 避免混淆
+> 如果该工程之前已经添加过 MobileLine 初始化代码，那么请不要重复添加。
 
-如果您的应用开启了混淆，请在 Proguard 混淆文件中增加以下配置，避免 Crash 被混淆：
-
-```
--dontwarn com.tencent.bugly.**
--keep public class com.tencent.bugly.**{*;}
-```
-
-## 添加符号表和 mapping 文件上传插件
-
-如果您的工程使用了 so 文件或者对代码进行了混淆，您需要添加插件来上传符号表和 mapping 文件。
-
-### 通过 gradle 远程依赖上传
-
-#### 1. 在工程根目录下的 build.gradle 文件中添加依赖。
- 
-```
-buildscript {
-	 ......
-    dependencies {
-        ......
-        classpath 'com.tencent.tac:tac-crash-plugin:1.0.0'
-    }
-}
-```
-
-#### 2. 在您应用 module 下的 build.gradle 文件中添加插件依赖。
- 
-请加在您 build.gralde 文件的头部。
-
-```
-apply plugin: 'com.android.application'
-// 添加这一行
-apply plugin: 'com.tencent.tac.crash'
-```
-
-依赖完成之后，我们会在您编译打包的过程中自动上传符号表，您不需要其他操作。
-
-### 手动上传
-
-1. 下载 [符号表工具](https://bugly.qq.com/v2/sdk?id=37d1ad19-a4b0-4eed-9146-55d87fc79f8d)。
-2. 根据 UUID 定位 Debug SO 文件，具体可参考工具包中的使用文档。
-3. 使用工具生成符号表文件（zip 文件），具体的使用方法可参考工具包中的使用文档。
-4. 在移动开发平台（MobileLine）的控制台上传符号表文件。
- 
-如果您的项目只使用了混淆代码 (Proguard)，而没有 Native 工程，只需要直接上传 Proguard 生成的 Mapping 文件即可。
-
-
-## 配置服务
-
-Crash 服务使用默认参数即可，不需要额外配置。如果您已经配置好 TACApplication 单例，这个过程已经自动完成。
-
-### 高级配置
-
-如果您需要自定义服务的策略，您可以使用 TACCrashOptions 修改一些具体的策略：
-
-```
-TACApplicationOptions applicationOptions = TACApplication.options();
-
-TACCrashOptions crashOptions = applicationOptions.sub("crash");
-```
-
-具体的 API 请参考编程手册文档。
-
->**注意：**
->请在 Crash 服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效。
+到此您已经成功接入了 MobileLine Crash 上报服务。
