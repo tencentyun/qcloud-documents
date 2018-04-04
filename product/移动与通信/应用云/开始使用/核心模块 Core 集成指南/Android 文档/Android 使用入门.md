@@ -7,7 +7,7 @@
 
 ## 第一步：创建项目和应用
 
-在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](replaceme)。
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
 > 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
@@ -69,7 +69,7 @@ dependencies {
 	compile 'com.tencent.tac:tac-crash:1.0.0'
 }
 ```
-> 使用 payment 计费服务和 storage 存储服务时还需要额外的配置，详情请参见 [payment 集成指南](replaceme) 和 [storage 集成指南](replaceme)。
+> 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
 
 ## 第四步：初始化
 
