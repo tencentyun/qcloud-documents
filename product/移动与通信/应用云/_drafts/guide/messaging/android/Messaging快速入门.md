@@ -25,8 +25,8 @@
 
 ```
 dependencies {
-	// 增加这两行
-	compile 'com.tencent.tac:tac-core:1.0.0'
+    // 增加这两行
+    compile 'com.tencent.tac:tac-core:1.0.0'
     compile 'com.tencent.tac:tac-messaging:1.0.0'
 }
 ```
