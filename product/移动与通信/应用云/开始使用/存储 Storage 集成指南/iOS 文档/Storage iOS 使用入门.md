@@ -173,7 +173,7 @@ Swift 代码示例：
 ### 配置 TACStorage 的使用权限。
 
 
-请先参考[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068) 搭建用于构建链式密钥的服务器。
+请先参考[快速搭建移动应用传输服务](https://cloud.tencent.com/document/product/436/9068) 搭建用于构建临时密钥的服务器。
 
 TACStorage 后台为腾讯云 COS 服务，在使用 COS 服务的时候需要对请求进行权限校验，来确保对应的请求是否有权限访问对应的资源。因而您需要在您的代码中实现 `QCloudCredentailFenceQueueDelegate` 协议来提供相关的权限信息。
 
