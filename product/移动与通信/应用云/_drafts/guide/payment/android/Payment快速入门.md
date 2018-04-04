@@ -36,7 +36,7 @@ dependencies {
 
 集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
 
-### 在 `Application` 子类中添加初始代码
+### 在 `Application` 子类中添加初始代码（如果已做请跳过）
 
 如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
 
@@ -52,7 +52,10 @@ public class MyCustomApp extends Application {
 }
 
 ```
-### 在 `AndroidManifest.xml` 文件中注册
+
+> 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
+
+### 在 `AndroidManifest.xml` 文件中注册（如果已做请跳过）
 
 在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
 
@@ -67,7 +70,8 @@ public class MyCustomApp extends Application {
 </manifest>
 ```
 
-> 如果该工程之前已经添加过 MobileLine 初始化代码，那么请不要重复添加。
+> 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
+
 
 ### 启动服务
 
