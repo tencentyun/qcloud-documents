@@ -279,7 +279,7 @@ type表示迁移类型，用户根据迁移需求填写对应的标识。例如�
 
     `sh start_migrate.sh -Dcommon.cosPath=/savepoint0403_10/`
 
- - 特别说明
+> 特别说明
 
     1.工具支持配置项读取方式有两种：命令行读取或配置文件读取。
     
