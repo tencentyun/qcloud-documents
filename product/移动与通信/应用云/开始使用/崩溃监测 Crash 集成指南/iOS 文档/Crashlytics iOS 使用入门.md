@@ -8,49 +8,32 @@
 
 ## 第一步：创建项目和应用
 
-在使用我们的服务前，您必须先在 [MobileLine 控制台](https://console.cloud.tencent.com/tac) 上创建项目，每个项目下可以包含多个应用，如 iOS 或者 Android 应用，当然，您也可以在同一个项目下创建多个 iOS 或者 Android 应用。
 
-### 创建项目
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，如图这里创建了一个名为 MyGreatApp 的项目：
-
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newProject.png)
-
-
-### 创建应用
-
-创建好项目后，我们在 MyGreatApp 项目下创建应用，点击【创建 iOS 应用】或者【创建 Android 应用】按钮来创建应用，如图这里【创建 iOS 应用】：
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgvdnbtfj31b80aoaat.jpg)
-
-填写好 **应用名称** 和 **应用包名** 后，选择下一步。到此，您便已创建好了一个 MobileLine 项目。
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgwqc45aj31bc0fb75l.jpg)
-
-> 您可以完全按照我们控制台上的向导来集成 MobileLine SDK，控制台上默认指导您集成我们的最基本的 TACCore 模块，这是 MobileLine 中核心的基础功能，包含了应用基本数据的上报和分析。
-
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
 
 ## 第二步：添加配置文件
 
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
+
 创建好应用后，您可以点击红框中的【tac\_services\_configurations.zip】来下载该应用的配置文件的压缩包：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgxkxz3sj31c40pgn7m.jpg)
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
 
 解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续点击【下一步】。
+
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
 
 > 切记**不要**将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
 
 
 
+
+
 ## 第三步：集成 SDK
-
-
-添加好配置文件并点击【下一步】后，向导如图所示：
-
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1fpzh1nijelj30x21djaky.jpg)
-
-
 
 
 如果还没有 Podfile，请创建一个。
@@ -215,7 +198,10 @@ Swift 代码示例：
 ~~~
 
 
-最后点击【完成】，到此您已经成功接入了 MobileLine 服务。
+## 第五步：启动服务
+
+移动崩溃监测 服务无需启动，到此您已经成功接入了 MobileLine 移动崩溃监测服务。
+
 
 ## 后续步骤
 
