@@ -2,7 +2,7 @@ The params field of each API URL structure has common parameters:
 
 | Parameter Name | Type | Required | Description |
 |-|-|-|-|
-| access_id | uint | Yes | The unique identifier of the App, which is returned by the management system when the App is submitted. It can be found in [xg.qq.com Console](xg.qq.com) |
+| access_id | uint | Yes | The unique identifier of the App, which is returned by the management system when the App is submitted. It can be found in [xg.qq.com Console](http://xg.qq.com) |
 | cal_type | int | No | 0: offline calculation, 1: real-time statistics. Default: 0 |
 | timestamp | uint | Yes | The unix timestamp of this request, which is used to confirm the validity period of the request. By default, a request whose timestamp is deviated from the server time (Beijing time) by more than 600 seconds will be rejected. |
 | valid_time | uint | No | Determine the validity period (in sec) of the request in combination with timestamp. The maximum value is 600. If this parameter is not set or invalid, the validity period is calculated using the default 600 seconds. |
