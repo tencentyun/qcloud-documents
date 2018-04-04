@@ -1,171 +1,93 @@
+在 [MobileLine Android 集成手册]() 中，我们根据控制台向导提供了最简单的方式来接入 MobileLine 的各种服务，同时您也可以不完全依赖向导来接入我们的移动存储以及其他服务。
 
-## 准备工作
+## 准备
 
-在开始使用移动开发平台（MobileLine） Storage 服务前，确保您已经完成：[安装和配置 SDK](https://cloud.tencent.com/document/product/666/14305)
+您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
-## 添加 SDK
+## 第一步：创建 MobileLine 项目和应用
 
-如果希望将 Storage 库集成至自己的某个项目中，可以通过 gradle 远程依赖或者 jar 包两种方式集成。
+在使用我们的服务前，您必须先在 [MobileLine 控制台](https://console.cloud.tencent.com/tac) 上创建项目，每个项目下可以包含多个应用，如 Android 或者 IOS 应用，当然，您也可以在同一个项目下创建多个 Android 或者 IOS 应用。
 
-### 通过 gradle 远程依赖集成
+### 创建项目
 
-如果您使用 Android Studio 作为开发工具或者使用 gradle 编译系统，**我们推荐您使用此方式集成依赖**。
+首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，例如，下图这里创建了一个名为 MyGreatApp 的项目：
 
-#### 1. 使用 jcenter 作为仓库来源
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newProject.png)
 
-在工程根目录下的 build.gradle 使用 jcenter 作为远程仓库：
 
-```
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        ...
-    }
-}
+### 创建应用
 
-allprojects {
-    repositories {
-         jcenter()
-    }
-}
-```
+创建好项目后，我们在 MyGreatApp 项目下创建应用，点击【创建 IOS 应用】或者【创建 Android 应用】按钮来创建应用，如图这里【创建 Android 应用】：
 
-#### 2. 添加 Storage 库依赖
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newApp.png)
 
-在您的应用级 build.gradle（通常是 app/build.gradle）添加 Storage 的依赖：
+填写好 **应用名称** 和 **应用包名** 后，选择下一步。到此，您便已创建好了一个 MobileLine 应用，此时，您可以点击关闭向导。
+
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/loginApp.png)
+
+> 如果您之前已经创建过 MobileLine 应用了，那么你可以选择使用之前的 MobileLine 应用或者创建一个新的应用。
+
+## 第二步：添加配置文件
+
+在您创建好的应用上点击【下载配置】来下载该应用的配置文件的压缩包：
+
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/downloadConfig2.png)
+
+解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
+
+<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
+
+> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
+
+## 第三步：集成 SDK
+
+每一个 MobileLine 服务都是一个单独的 SDK，其中 `com.tencent.tac:tac-core` 移动分析服务是其他所有模块的基础模块，`com.tencent.tac:tac-storage` 是 MobileLine 移动存储服务，因此您在使用我们的移动存储服务时必须同时添加这两个服务。
+
+在您的应用级 build.gradle（通常是 app/build.gradle）添加移动分析和移动存储服务的依赖：
 
 ```
 dependencies {
+    //增加这两行
+    compile 'com.tencent.tac:tac-core:1.0.0' 
+    compile 'com.tencent.tac:tac-storage:1.0.0' 
+}
+```
+
+## 第四步：初始化
+
+集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单，只需要您在 `Application` 的子类中调用 `TACApplication.configure(this)` 语句，然后在 `AndroidManifest.xml` 注册该 `Application` 子类即可。
+
+### 在 `Application` 子类中添加初始代码
+
+如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
+
+```
+public class MyCustomApp extends Application {
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    ...
     //增加这行
-    compile 'com.tencent.tac:tac-storage:1.0.0'
+    TACApplication.configure(this);
+  }
 }
-```
-
-然后，单击 IDE 的 【gradle】 同步按钮，会自动将依赖包同步到本地。
-
-### 手动集成
-
-如果您无法采用远程依赖的方式，您可以通过以下方式手动集成。
-
-#### 1. 下载服务资源压缩包。
-
-1. 下载 [移动开发平台（MobileLine）核心框架资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-core-1.0.0.zip)，并解压。
-
-2. 下载 [移动开发平台（MobileLine） Storage 资源包](http://tac-android-libs-1253960454.cosgz.myqcloud.com/1.0.0/tac-storage-1.0.0.zip)，并解压。
-
-#### 2. 集成 jar 包。
-
-将资源文件中的所有 jar 包拷贝到您工程的 `libs` 目录。
-
-## 配置服务
-
-Storage 服务因为需要一个有效的签名提供者，无法直接使用默认配置，您有两种方式可以提供签名。**请在 Storage 服务启动前完成配置，一旦服务启动，后续所有的参数修改都不会生效**。
-
-### 1. 提供一个返回有效签名的 HTTP 网络接口
-
-您可以在自己的后台服务器部署该接口，并在 SDK 端通过调用 TACStorageOptions 的 setCredentialProvider 方法配置。SDK 会在需要签名的时候，自动调用该接口获取签名。
 
 ```
-// 请确保已经正确配置好服务框架，否则options()方法会返回null
-TACApplicationOptions applicationOptions = TACApplication.options();
+### 在 `AndroidManifest.xml` 文件中注册
 
-TACStorageOptions storageOptions = applicationOptions.sub("storage");
-// 配置签名获取接口
-storageOptions.setCredentialProvider(new HttpRequest.Builder<String>()
-	.scheme("http")					// "http" 或者 "https"
-	.host("<SERVER_HOST>")			// 服务器地址
-	.path("<PATH>")					// 路径
-	.method("GET")
-	.query("<name>", "<value>")		// Http query参数
-	.header("<name>", "<value>")	// Http header参数
-	.build());
-```
-
-接口的通用返回格式如下：
+在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
 
 ```
-{
-	"credentials": {
-		"sessionToken": "xxxxxxx",
-		"tmpSecretId": "xxxxxxx",
-		"tmpSecretKey": "xxxxxxx"
-	},
-	"expiredTime": 1522038254,
-	"bucket": "p123123-storage-1251668577",   // bucket名称
-	"region": "ap-shanghai"   // bucket所在地区
-}
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.example.tac">
+  <application
+    <!-- 这里替换成你自己的 Application 子类 -->
+    android:name="com.example.tac.MyCustomApp"
+    ...>
+  </application>
+</manifest>
 ```
 
-### 2. 自己实现一个签名提供者
+> 如果该工程之前已经添加过 MobileLine 初始化代码，那么请不要重复添加。
 
-如果您希望自己定义协议或者请求过程，您可以继承 SDK 提供的 BasicLifecycleCredentialProvider 类，实现 fetchNewCredentials 方法，获取签名。
-
-```
-// 此处使用本地密钥生成签名，只是作为示例。请不要把密钥放在客户端。
-
-public class LocalCredentialProvider extends BasicLifecycleCredentialProvider{
-    private String secretKey;
-    private long keyDuration;
-    private String secretId;
-
-     public LocalCredentialProvider(String secretId, String secretKey, long keyDuration) {
-        this.secretId = secretId;
-        this.secretKey = secretKey;
-        this.keyDuration = keyDuration;
-     }
-
-     /**
-     返回 BasicQCloudCredentials
-     */
-     @Override
-     public QCloudLifecycleCredentials fetchNewCredentials() throws CosXmlClientException {
-         long current = System.currentTimeMillis() / 1000L;
-         long expired = current + duration;
-         String keyTime = current+";"+expired;
-         return new BasicQCloudCredentials(secretId, secretKeyToSignKey(secretKey, keyTime), keyTime);
-     }
-
-     private String secretKeyToSignKey(String secretKey, String keyTime) {
-         String signKey = null;
-         try {
-              if (secretKey == null) {
-                   throw new IllegalArgumentException("secretKey is null");
-              }
-              if (keyTime == null) {
-                    throw new IllegalArgumentException("qKeyTime is null");
-              }
-         } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-         }
-         try {
-             byte[] byteKey = secretKey.getBytes("utf-8");
-             SecretKey hmacKey = new SecretKeySpec(byteKey, "HmacSHA1");
-             Mac mac = Mac.getInstance("HmacSHA1");
-             mac.init(hmacKey);
-             signKey = StringUtils.toHexString(mac.doFinal(keyTime.getBytes("utf-8")));
-        } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-        } catch (InvalidKeyException e) {
-                e.printStackTrace();
-        }
-      return signKey;
-    }
-}
-```
-
-然后，调用 TACStorageOptions 的 setCredentialProvider 方法设置签名提供者：
-
-```
-LocalCredentialProvider crendentialProvider = ...;
-
-// 请确保已经正确配置好服务框架，否则options()方法会返回null
-TACApplicationOptions applicationOptions = TACApplication.options();
-
-TACStorageOptions storageOptions = applicationOptions.sub("storage");
-// 配置签名获取接口
-storageOptions.setCredentialProvider(crendentialProvider);
-```
+到此您已经成功接入了 MobileLine 移动存储服务。
