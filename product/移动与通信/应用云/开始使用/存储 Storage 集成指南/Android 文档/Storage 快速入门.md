@@ -71,6 +71,10 @@ public class MyCustomApp extends Application {
 
 > 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
 
+### 配置签名服务
+
+Storage 服务需要一个有效的签名提供者来提供签名，配置签名服务请参见 [配置签名服务](replaceme)。
+
 ### 启动服务
 
 Storage 服务无需启动，您可以直接使用，到此您已经成功接入了 MobileLine 移动存储服务。
