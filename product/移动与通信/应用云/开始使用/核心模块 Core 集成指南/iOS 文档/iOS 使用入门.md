@@ -240,7 +240,7 @@ MobileLine iOS SDK 会自动帮您启动对应的服务，比如分析（Analyti
 | 腾讯移动分析（MTA） |  默认启动   |  analytics|
 | 腾讯移动推送（信鸽）|  默认启动 |  messaging  |
 | 腾讯崩溃服务（bugly）|  默认启动   |  crash      |
-| 移动存储（Storage） |  按需使用   |  storage   |
+| 移动存储（Storage） | 按需使用   |  storage   |
 | 授权（Authorization）|  按需使用   |  social  |
 | 腾讯计费（米大师）|  按需使用   |  payment  |
 
