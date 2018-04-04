@@ -233,7 +233,7 @@ Swift 代码示例：
 
 ### 启动服务
 
-MobileLine iOS SDK 会自动帮您启动对应的服务。有些服务比如Storage是按需启动，当您使用的时候，调用其接口即可。
+MobileLine iOS SDK 会自动帮您启动对应的服务，比如分析（Analytics）服务。有些服务比如Storage是按需启动，当您使用的时候，调用其接口即可。
 
 
 
