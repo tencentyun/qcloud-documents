@@ -64,7 +64,7 @@ source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
-如果您想集成我们的各种服务，那么您只需要在 Podfile 中添加对应的服务依赖即可：
+如果您想集成我们的各种服务，那么您只需要在 Podfile 中添加对应的服务依赖即可，比如：
 
 ```
 pod 'TACCore'
