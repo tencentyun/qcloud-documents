@@ -231,16 +231,8 @@ Swift 代码示例：
 
 ### 启动服务
 
-MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务快速入门的【启动服务】部分：
+MobileLine iOS SDK 会自动帮您启动对应的服务。有些服务比如Storage是按需启动，当您使用的时候，调用其接口即可。
 
-|功能|服务名称|入门指南|
-|:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](https://cloud.tencent.com/document/product/666/14315)|
-|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](https://cloud.tencent.com/document/product/666/14350)|
-|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14311)|
-|腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14614)|
-|移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14351)|
-|授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14333)|
 
 
 ## 后续步骤
