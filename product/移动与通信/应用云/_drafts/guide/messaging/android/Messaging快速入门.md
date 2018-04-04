@@ -73,7 +73,7 @@ public class MyCustomApp extends Application {
 
 ### 注册 messaging 服务回调
 
-在启动 messaging 服务前，您必须注册 messaging 服务回调接口，用于接收消息在不同状态下的
+在启动 messaging 服务前，您必须注册 messaging 服务回调接口，用于接收消息在不同状态下的通知：
 
 #### 继承 `TACMessagingReceiver` 类
 
