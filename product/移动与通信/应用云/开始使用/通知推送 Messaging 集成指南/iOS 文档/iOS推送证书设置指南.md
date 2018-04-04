@@ -1,4 +1,4 @@
-## 1.1. iOS 证书命令
+## iOS 证书命令
 
 证书有效期
 ```
@@ -6,15 +6,15 @@ openssl x509 -in xxx.pem -noout -dates
 ```
 连接 APNS 测试证书是否合法
 
-1、开发环境
+1. 开发环境
 ```
 openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 ```
-2、生产环境
+2. 生产环境
 ```
 openssl s_client -connect gateway.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 ```
-## 1.2. 指南介绍
+## 指南介绍
 
 本指南用于介绍 iOS 证书如何设置
 
@@ -22,7 +22,7 @@ openssl s_client -connect gateway.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 
 
 
-1.2.1. 设置步骤
+### 设置步骤
 
 首先，登录 [苹果开发者中心网站](https://Developer.apple.com/account)。然后点击 Certificates,Identifiers & Profiles
 ![开发者网站](http://developer.qq.com/wiki/xg/imgs/20151118164839_43490.jpg)
@@ -62,7 +62,7 @@ openssl s_client -connect gateway.push.apple.com:2195 -cert xxx.pem -key xxx.pem
 
 ![Keychain Access export p12](http://developer.qq.com/wiki/xg/imgs/20151118170642_42628.jpg)
 
-1.2.2. 生成 pem 格式的证书
+### 生成 pem 格式的证书
 
 完成上述操作后，打开终端，进入到 p12 文件所在执行以下命令:
 ```
