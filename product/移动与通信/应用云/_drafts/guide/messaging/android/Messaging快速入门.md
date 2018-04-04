@@ -118,6 +118,8 @@ public class MyReceiver extends TACMessagingReceiver {
 
 #### 在 `AndroidManifest.xml` 文件中注册
 
+在创建好 `TACMessagingReceiver` 的子类后，您需要在工程的 AndroidManifest.xml 文件中注册该类：
+
 ```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.example.tac">
