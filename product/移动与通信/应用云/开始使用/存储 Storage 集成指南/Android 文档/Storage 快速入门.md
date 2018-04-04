@@ -73,7 +73,7 @@ public class MyCustomApp extends Application {
 
 ### 配置签名服务
 
-Storage 服务需要一个有效的签名提供者来提供签名，配置签名服务请参见 [配置签名服务](replaceme)。
+Storage 服务需要一个有效的签名提供者来提供签名，配置签名服务请参见 [配置签名服务](https://cloud.tencent.com/document/product/666/15350)。
 
 ### 启动服务
 
