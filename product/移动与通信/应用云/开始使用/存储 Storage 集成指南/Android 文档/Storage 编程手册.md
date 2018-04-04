@@ -1,110 +1,207 @@
-## 集成 QQ 支付
+## 文件引用
 
-无论您是采用 gradle 远程依赖还是手动集成的方式来接入 Payment 服务，如果您需要接入 QQ 支付，那么您都必须手动添加 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 到您工程的 `libs` 目录。
+### 创建引用
 
-> ** 注意：**
-> 因为 `mqqopenpay.jar` 没有上传到 jcenter 仓库下，因此在 gradle 远程依赖的方式下我们暂时无法自动帮您添加。
+引用可以看作是指向云端文件的指针：要上传、下载或删除文件，或要获取或更新文件的元数据，请创建引用。
+ 
+```
+TACStorageService storage = TACStorageService.getInstance();
 
-## 商品下单
+TACStorageReference reference = storage.rootReference();
+```
 
-在您发起支付前，需要先在后台调用我们的 [下单接口](https://cloud.tencent.com/document/product/666/14600) 进行下单，下单成功后，服务器会给您返回本次下单的具体信息，下单服务器返回的数据示例如下：
+上面的代码是获取整个 bucket 的根目录的引用，如果想要创建某个子文件的引用，可以使用：
 
 ```
-{
-    "ret" : 0,
-    "transaction_id" : "E-180202180100144947",
-    "out_trade_no" : "open_1517568769743",
-    "pay_info" :"data=%7B%22appid%22%3A%22TC100008%22%2C%22user_id%22%3A%22rickenwang%22%2C%22out_trade_no%22%3A%22open_1517568769743%22%2C%22product_id%22%3A%22product_test%22%2C%22pay_method%22%3A%22wechat%22%7D&sign=PplSFOrimAfU1dobsFvva09limmtk%2BIr9D5dxFwwV%2BEdjq9dROhB6fwx9hwf1H27FMT83qQdlSgHtLo52Rv97MoL7nR5xNJFph9G7Gd2KRmgJFQ2IlGfHVE%2BeekjPhRQCELt5MMbDuSEOOGJN4agMiCs9yOXJbusCYAa68bcZTOnGgfDOsbpNvpsQt9JA%2BQ%2FAVDyymXv0f6e%2BibpXlTy3Fu3lQZKzPUiiojl97Kpi4I0J6CGCWsxRp4XqWSF7k90o1NMOcbUnzJ87MSCXq5NA1iynYxrD5Cc5KusJxpy84udTtD9XzdznXpO%2BQJBoO2v0RzGGgT2OJQfgRLqsNNgzw%3D%3D"
-}
+TACStorageReference reference = storage.referenceWithPath('images');
 ```
-我们强烈建议您在自己的后台服务器上下单，然后由服务器给终端返回下单信息，直接在终端进行下单操作可能会泄漏您的密钥信息。
 
-## 初始化支付请求
+### 引用导航
 
-每次发起支付前，您必须先初始化一个 ```PaymentRequest``` 支付请求对象。
-
-**支付请求 ```PaymentRequest```**
-
-参数名称 | 参数描述 | 类型 | 备注
----- | --- | ---- | ----
-userId | 发起支付的 userId | String  | 最好和下单时的 user_id 保持一致
-payInfo | 支付信息 |  String | 下单接口返回的 pay_info 字段
-
-每次初始化支付请求都必须先进行下单获取支付信息，同一个支付信息不可以多次使用，初始化示例代码如下：
+引用可以向上或者向下导航：
 
 ```
-// 1、向您自己的服务器请求下单信息，也即下单服务器返回的 pay_info 字段。
-//   请您自己根据实际情况自己设计和实现 getPayInfoFromServer() 方法
-String payInfo = getPayInfoFromServer();
+// 获取根节点的引用
+TACStorageReference rootRef = reference.root();
 
-// 2、初始化 PaymentRequest 实例
-String userId = "tencent";
-PaymentRequest paymentRequest = new PaymentRequest(userId, payInfo);
+// 获得父节点的引用
+TACStorageReference parentRef = reference.parent();
+
+// 获取当前引用下某个子节点的引用
+TACStorageReference childRef = reference.child('imageA.jpg');
 
 ```
 
-## 发起支付请求
+### 引用属性
 
-初始化好支付请求 ```paymentRequest``` 后，您就可以通过 ```TACPaymentService``` 实例来发起支付请求了，具体示例代码如下：
-
-```
-// 1、获取 TACPaymentService 实例
-TACPaymentService paymentService = TACPaymentService.getInstance();
-
-// 2、通过 TACPaymentService 实例发起支付
-paymentService.launchPayment(context, paymentRequest, new TACPaymentCallback() {
-    @Override
-    public void onResult(int resultCode, PaymentResult paymentResult) {
-    
-        // 支付码 resultCode
-        // 支付结果 paymentResult
-    }
-});
+您可以使用 getPath()、getName() 和 getBucket() 方法检查引用，以便更好地了解它们指向的文件。
 
 ```
+// 获取文件路径
+reference.getPath();
 
-## 返回支付结果
+// 获取文件名
+reference.getName();
 
-在您发起支付后，SDK 会最终给您返回流程错误码 ```resultCode``` 和支付结果 ```PaymentResult```。
+// 获取文件所在bucket
+reference.getBucket();
 
-**流程错误码```resultCode```**
-
-错误码名称 | 值 | 描述
----- | --- | ----
-PAYRESULT_SUCC | 0 | 支付流程成功
-PAYRESULT_ERROR |  -1 | 支付流程失败
-PAYRESULT_CANCEL | -2 | 用户取消
-PAYRESULT_PARAMERROR | -3 | 参数错误
-PAYRESULT_UNKNOWN | -4 | 支付流程结果未知
-
-**支付结果 ```PaymentResult```**
-
-参数名称 | 参数描述 | 类型
----- | --- | ----
-code | 内部错误码 | String 
-message | 错误信息 |  String 
-metaData  | 自定义拓展信息 | Map\<String, String\> 
-
-
-## 添加自定义信息
-
-在发起支付时，您可以添加自定义信息。
-
-```
-String key = "name";
-String value = "xiaoming";
-paymentRequest.addMetaData(key, value);
-
-// other code
-   ...
-
+// 获取bucket所在区域
+reference.getRegion();
 ```
 
-该次支付结束后，回调中 PaymentResult 对象会携带您添加的自定义信息。
+## 上传文件
+
+### 上传文件
+
+您可以将内存中的数据，本地文件路径，或者是数据流传输到远程 Storage 中。
 
 ```
-public void onResult(int resultCode, PaymentResult result) {
-	
-    Map<String, String> metaData = result.getMetaData();
-}
+StorageReference storageRef = storage.referenceWithPath('images/imageA.jpg');
+
+// 通过内存中的数据上传文件
+byte[] tmpData = new byte[200];
+reference.putData(tmpData, null));
+
+// 上传本地文件
+File localFile = new File("path/to/file");
+reference.putFile(Uri.fromFile(localFile), null);
+
+// 上传数据流
+InputStream stream = new FileInputStream(new File("path/to/file"));
+reference.putStream(stream, null);
+```
+
+### 添加文件元数据
+
+在上传文件时，您还可以带上元数据。此元数据包含常见的文件元数据属性，如 name、size 和 contentType（通常称为 MIME 类型）。
+
+```
+StorageReference storageRef = storage.referenceWithPath('images/imageA.jpg');
+TACStorageMetadata metadata = new TACStorageMetadata.Builder().contentLanguage("CN").build();
+
+// 通过内存中的数据上传文件，并带上metadata
+reference.putData(tmpData, metadata));
+
+// 上传本地文件，并带上metadata
+reference.putFile(Uri.fromFile(localFile), metadata);
+
+// 上传数据流，并带上metadata
+reference.putStream(stream, metadata);
+```
+
+
+### 管理上传
+
+如果您想要管理上传的行为，可以调用 pause 和 resume，注意暂停和继续只针对大文件的上传有效：
+
+```
+TACStorageUploadTask uploadTask = reference.putData(tmpData, TACMetadata));
+
+// 暂停任务
+uploadTask.pause();
+
+// 继续任务
+uploadTask.resume();
+
+```
+
+### 通过重新启动进程继续上传
+
+对于本地的大文件上传，我们支持断点续传，您可以本地记录上传的 uploadId，在下次 app 启动的时候从上次停止的地方上传，而不会重头开始，节省您的带宽和时间。
+
+```
+TACStorageReference reference = tacStorageService.referenceWithPath("/tac_test/multipart");
+File uploadFile = createFile(10 * 1024 * 1024);
+TACStorageUploadTask uploadTask = reference.putFile(Uri.fromFile(uploadFile), null)
+      .addProgressListener(new StorageProgressListener<TACStorageTaskSnapshot>() {
+            @Override
+            public void onProgress(TACStorageTaskSnapshot snapshot) {
+                uploadId = snapshot.getUploadId();
+            }
+      });
+```
+
+您可以在 uploadId 存放在您本地的 sharedPreference，下次启动后，您可以继续上传：
+
+```
+// 传入上次的 uploadId，将会从之前断开的地方继续上传
+TACStorageReference reference = tacStorageService.referenceWithPath("/tac_test/multipart");
+reference.putFile(Uri.fromFile(uploadFile), null, uploadId);
+```
+
+## 下载文件
+
+您可以调用 downloadToFile 方法，将一个远程文件下载到本地：
+
+```
+TACStorageReference reference = storage.referenceWithPath("/tac_test/multipart");
+Uri fileUri = Uri.fromFile(new File(getExternalCacheDir() + File.separator + "local_tmp"));
+reference.downloadToFile(fileUri);
+```
+
+## 删除文件
+
+您可以调用 delete 方法，删除一个远程文件：
+
+```
+TACStorageReference reference = storage.referenceWithPath("/tac_test/multipart");
+reference.delete();
+```
+
+## 添加任务结果监听
+
+您可以调用 TACStorageTask 的 addResultListener 方法，监听任务结果：
+
+```
+TACStorageUploadTask uploadTask = reference.putData(tmpData, TACMetadata));
+uploadTask.addResultListener(new StorageResultListener<TACStorageTaskSnapshot>() {
+            @Override
+            public void onSuccess(final TACStorageTaskSnapshot snapshot) {
+                showMessage(new Runnable() {
+                    @Override
+                    public void run() {
+                        // 上传成功
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(final TACStorageTaskSnapshot snapshot) {
+                showMessage(new Runnable() {
+                    @Override
+                    public void run() {
+                        // 上传失败
+                        Exception exception = snapshot.getError();
+                    }
+                });
+            }
+
+```
+
+## 添加任务进度监听
+
+针对下载和上传任务，您可以使用 addProgressListener 方法可以监听数据的进度：
+
+```
+TACStorageUploadTask uploadTask = reference.putData(tmpData, TACMetadata));
+uploadTask.addProgressListener(new StorageProgressListener<TACStorageTaskSnapshot>() {
+            @Override
+            public void onProgress(TACStorageTaskSnapshot snapshot) {
+                Log.i("QCloudStorage", "progress = " + snapshot.getBytesTransferred() + "," +
+                        snapshot.getTotalByteCount());
+            }
+        });
+```
+
+## 取消任务
+
+您可以调用 cancel 方法取消任务，请注意，根据任务当时的运行进度，**取消指令不一定能成功**。
+
+```
+TACStorageReference reference = tacStorageService.referenceWithPath("/tac_test/multipart3");
+File uploadFile = createFile(10 * 1024 * 1024);
+TACStorageUploadTask uploadTask = reference.putFile(Uri.fromFile(uploadFile), null);
+
+uploadTask.cancel();
 ```
