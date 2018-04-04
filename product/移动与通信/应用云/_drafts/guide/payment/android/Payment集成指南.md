@@ -2,7 +2,7 @@
 
 - 您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 - 其次您需要 [配置后台服务器](https://cloud.tencent.com/document/product/666/14600)。
-- 最后您需要 [申请支付渠道信息](https://cloud.tencent.com/document/product/666/14599)
+- 最后您需要 [添加支付渠道信息](https://cloud.tencent.com/document/product/666/14599)
 
 ## 第一步：创建项目和应用（如果已做请跳过）
 
