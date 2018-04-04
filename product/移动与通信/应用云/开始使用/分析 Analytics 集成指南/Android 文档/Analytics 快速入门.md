@@ -25,8 +25,8 @@
 
 ```
 dependencies {
-	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.0.0'
+    // 增加这行
+    compile 'com.tencent.tac:tac-core:1.0.0'
 }
 ```
 
