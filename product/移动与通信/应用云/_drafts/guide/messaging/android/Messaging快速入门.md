@@ -156,7 +156,7 @@ public class MyCustomApp extends Application {
 }
 ```
 
-> 注意：您也可以选择在其他地方启动 analytics 服务，但是必须保证在初始化代码后调用。
+> 注意：您也可以选择在其他地方启动 messaging 服务，但是必须保证在初始化代码后调用。
 
 
-到此您已经成功接入了 MobileLine 移动分析服务。
+到此您已经成功接入了 MobileLine 消息推送服务。
