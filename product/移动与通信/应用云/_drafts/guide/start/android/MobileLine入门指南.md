@@ -108,7 +108,7 @@ public class MyCustomApp extends Application {
 
 ### 启动服务
 
-MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务的入门指南的【启动服务】部分：
+MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务入门指南的【启动服务】部分：
 
 |功能|服务名称|入门指南|
 |:---|:---|:---|
