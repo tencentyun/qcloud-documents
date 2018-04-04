@@ -112,12 +112,12 @@ MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启
 
 |功能|服务名称|入门指南|
 |:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](replaceme)|
-|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](replaceme)|
-|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](replaceme)|
-|腾讯计费（米大师）|payment|[Payment 快速入门](replaceme)|
-|移动存储（Storage）|storage|[Storage 快速入门](replaceme)|
-|授权（Authorization）|authorization|[Authorization 快速入门](replaceme)|
+|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](https://cloud.tencent.com/document/product/666/14313)|
+|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](https://cloud.tencent.com/document/product/666/14323)|
+|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14309)|
+|腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14593)|
+|移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14327)|
+|授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
 
 ## 后续步骤
 
