@@ -73,6 +73,4 @@ public class MyCustomApp extends Application {
 
 ### 启动服务
 
-authorization 服务无需启动，您可以直接使用。
-
-到此您已经成功接入了 MobileLine 授权服务。
+Authorization 服务无需启动，您可以直接使用，到此您已经成功接入了 MobileLine 授权服务。
