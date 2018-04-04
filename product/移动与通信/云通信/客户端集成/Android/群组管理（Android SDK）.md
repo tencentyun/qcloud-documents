@@ -311,7 +311,7 @@ TIMValueCallBack<List<TIMGroupMemberResult>> cb = new TIMValueCallBack<List<TIMG
         }
     }
 };
-//将list中的用户加入群组
+//将 list 中的用户加入群组
 TIMGroupManager.getInstance().inviteGroupMember(
         groupId,   //群组 ID
         list,      //待加入群组的用户列表
