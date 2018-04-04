@@ -4,11 +4,11 @@
 - 其次您需要 [配置后台服务器](https://cloud.tencent.com/document/product/666/14600)。
 - 最后您需要 [添加支付渠道信息](https://cloud.tencent.com/document/product/666/14599)
 
-## 第一步：创建项目和应用（如果已做请跳过）
+## 第一步：创建项目和应用（已完成请跳过）
 
-在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](replaceme)。
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-## 第二步：添加配置文件（如果已做请跳过）
+## 第二步：添加配置文件（已完成请跳过）
 
 在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
@@ -18,7 +18,7 @@
 
 <img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
 
-> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
+> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 ## 第三步：集成 SDK
 
@@ -36,7 +36,7 @@ dependencies {
 
 集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
 
-### 在 `Application` 子类中添加初始代码（如果已做请跳过）
+### 在 `Application` 子类中添加初始代码（已完成请跳过）
 
 如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
 
@@ -55,7 +55,7 @@ public class MyCustomApp extends Application {
 
 > 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
 
-### 在 `AndroidManifest.xml` 文件中注册（如果已做请跳过）
+### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
 
 在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
 
