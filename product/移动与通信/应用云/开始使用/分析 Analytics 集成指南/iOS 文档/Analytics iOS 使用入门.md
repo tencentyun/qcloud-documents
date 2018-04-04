@@ -15,7 +15,7 @@
 
 我们 **强烈建议** 使用 CocoaPods 来安装相关的库。这样可以方便您后期 **维护** 和 **即时** 收到我们的 **SDK 更新** 。您可以根据 [安装说明](https://guides.cocoapods.org/using/getting-started.html#getting-started) 来安装并使用 CocoaPods 。如果您不想使用 CocoaPods ，则可以按照 **手工集成** 的方式直接集成 SDK 框架。
 
-如果您计划下载并运行某个快速入门实例，实例中会提供 Xcode 项目和 Podfile，则需要安装 Pod 并下载 tac_services_configurations.json 文件。如果您希望将移动开发平台（MobileLine）库集成至自己的某个项目中，则需要为想要使用的库添加 Pod。
+如果您计划下载并运行某个快速入门实例，实例中会提供 Xcode 项目和 Podfile，则需要安装 Pod 并下载 tac_services_configurations.plist 文件。如果您希望将移动开发平台（MobileLine）库集成至自己的某个项目中，则需要为想要使用的库添加 Pod。
 
 
 #### 为新项目添加 移动开发平台（MobileLine）  iOS 库
@@ -54,7 +54,7 @@ $ pod install
 $ open your-project.xcworkspace
 ~~~
 
-##### 5. 从移动开发平台（MobileLine）控制台中下载一个 tac_services_configurations.json 文件并将其添加到您的应用中。
+##### 5. 从移动开发平台（MobileLine）控制台中下载一个 tac_services_configurations.plist 文件并将其添加到您的应用中。
 
 ##### 6. 初始化代码配置
 
@@ -78,7 +78,7 @@ import TACCore
 ###### 步骤 2 配置一个 TACApplication  共享实例，通常是在应用的 application:didFinishLaunchingWithOptions: 方法中配置。
 
 
-######  使用默认配置，通常对于 移动开发平台（MobileLine） 的项目他的配置信息都是通过读取 tac_services_configurations.json 文件来获取的：
+######  使用默认配置，通常对于 移动开发平台（MobileLine） 的项目他的配置信息都是通过读取 tac_services_configurations.plist 文件来获取的：
 
 Objective-C 代码示例：
 
@@ -92,7 +92,7 @@ Swift 代码示例：
 ~~~
 ##### 需要通过编程的方式自定义某些参数：
 
-通常对于移动开发平台（MobileLine）的项目它的配置信息都是通过读取 tac_services_configurations.json 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
+通常对于移动开发平台（MobileLine）的项目它的配置信息都是通过读取 tac_services_configurations.plist 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
 
 Objective-C 代码示例：
 
