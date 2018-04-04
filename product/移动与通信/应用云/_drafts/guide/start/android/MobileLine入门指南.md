@@ -108,16 +108,16 @@ public class MyCustomApp extends Application {
 
 ### 启动服务
 
-MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务入门指南的【启动服务】部分：
+MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务快速入门的【启动服务】部分：
 
 |功能|服务名称|入门指南|
 |:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|[Analytics 入门指南](replaceme)|
-|腾讯移动推送（信鸽）|messaging|[Messaging 入门指南](replaceme)|
-|腾讯崩溃服务（bugly）|crash|[Crash 入门指南](replaceme)|
-|腾讯计费（米大师）|payment|[Payment 入门指南](replaceme)|
-|移动存储（Storage）|storage|[Storage 入门指南](replaceme)|
-|授权（Authorization）|authorization|[Authorization 入门指南](replaceme)|
+|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](replaceme)|
+|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](replaceme)|
+|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](replaceme)|
+|腾讯计费（米大师）|payment|[Payment 快速入门](replaceme)|
+|移动存储（Storage）|storage|[Storage 快速入门](replaceme)|
+|授权（Authorization）|authorization|[Authorization 快速入门](replaceme)|
 
 ## 后续步骤
 
