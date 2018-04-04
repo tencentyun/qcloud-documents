@@ -10,6 +10,21 @@ try {
 }
 ```
 
+## 测试您的代码
+
+您可以不必花费时间等待应用出现崩溃，通过以下方法主动触发异常，以测试 SDK 是否正常工作。
+
+```
+// 模拟java异常
+TACCrashSimulator.testJavaCrash();
+
+// 模拟ANR异常
+TACCrashSimulator.testANRCrash();
+
+// 模拟Native异常
+TACCrashSimulator.testNativeCrash();
+```
+
 ## 自定义日志
 
 我们提供了自定义 Log 的接口，用于记录一些开发者关心的调试日志，可以更全面地反应 App 异常时的前后文环境。使用方式与 android.util.Log 一致。用户传入 TAG 和日志内容。该日志将在 Logcat 输出，并在发生异常时上报，上报 Log 最大 30K。
@@ -127,21 +142,6 @@ final TACCrashOptions tacCrashOptions = tacApplicationOptions.sub("crash");
 tacCrashOptions.enableANRCrashMonitor(false);
 ```
 
-
-## 模拟异常
-
-您可以通过以下方法主动触发异常，以便测试 SDK 是否正常工作。
-
-```
-// 模拟java异常
-TACCrashSimulator.testJavaCrash();
-
-// 模拟ANR异常
-TACCrashSimulator.testANRCrash();
-
-// 模拟Native异常
-TACCrashSimulator.testNativeCrash();
-```
 ## 用户策略行为
 
 ### 设置标签
