@@ -1,80 +1,232 @@
+# MobileLine iOS 移动推送快速入门
+
+移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入移动崩溃监测。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
 
-在开始使用移动开发平台（MobileLine） Messaging 之前，您需要：
+为了使用移动开发平台（MobileLine）iOS 版本的 SDK，您首先需要一个 iOS 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
-1. 一个启用了移动开发平台（MobileLine）的应用。
-2. 您集成了 [TACCore](https://cloud.tencent.com/document/product/666/14306)。
+## 第一步：创建项目和应用
 
-## 将移动开发平台（MobileLine） Messaging 代码库添加到您的 Xcode 项目中
+在使用我们的服务前，您必须先在 [MobileLine 控制台](https://console.cloud.tencent.com/tac) 上创建项目，每个项目下可以包含多个应用，如 iOS 或者 Android 应用，当然，您也可以在同一个项目下创建多个 iOS 或者 Android 应用。
 
-> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
+### 创建项目
+
+首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，如图这里创建了一个名为 MyGreatApp 的项目：
+
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newProject.png)
+
+
+### 创建应用
+
+创建好项目后，我们在 MyGreatApp 项目下创建应用，点击【创建 iOS 应用】或者【创建 Android 应用】按钮来创建应用，如图这里【创建 iOS 应用】：
+
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgvdnbtfj31b80aoaat.jpg)
+
+填写好 **应用名称** 和 **应用包名** 后，选择下一步。到此，您便已创建好了一个 MobileLine 项目。
+
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgwqc45aj31bc0fb75l.jpg)
+
+> 您可以完全按照我们控制台上的向导来集成 MobileLine SDK，控制台上默认指导您集成我们的最基本的 TACCore 模块，这是 MobileLine 中核心的基础功能，包含了应用基本数据的上报和分析。
 
 
 
-### 1. 在您的项目中集成移动开发平台（MobileLine） SDK：
- 
-并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源
+## 第二步：添加配置文件
+
+创建好应用后，您可以点击红框中的【tac\_services\_configurations.zip】来下载该应用的配置文件的压缩包：
+
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgxkxz3sj31c40pgn7m.jpg)
+
+解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续点击【下一步】。
+
+> 切记**不要**将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
+
+
+
+## 第三步：集成 SDK
+
+
+添加好配置文件并点击【下一步】后，向导如图所示：
+
+![](https://ws4.sinaimg.cn/large/006tKfTcgy1fpzh1nijelj30x21djaky.jpg)
+
+
+
+
+如果还没有 Podfile，请创建一个。
+
+~~~
+$ cd your-project directory
+$ pod init
+~~~
+
+并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
 
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
->**注意：**
-一定要添加 [CocoaPods](https://github.com/CocoaPods/Specs) 的原始源，否则会造成部分仓库找不到的问题。
 
-### 2. 添加 TACMessaging 到您的 Podfile，您可以按照以下方法在 Podfile 中纳入一个 Pod：
- 
-~~~
+如果您想集成我们的各种服务，那么您只需要在 Podfile 中添加对应的服务依赖即可：
+```
 pod 'TACMessaging'
+```
+
+### 配置程序需要脚本
+
+> 如果您在其他模块中完成了此步骤，请不要重复执行。
+
+为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
+
+脚本主要包括两个：
+
+1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
+2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
+
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
+
+请按照以下步骤来添加脚本：
+
+##### 添加构建之前运行的脚本
+
+1. 在导航栏中打开您的工程。
+2. 打开 Tab `Build Phases`。
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
+> **注意：**
+请确保该脚本在 `Build Phases` 中排序为第二。
+4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
+
+需要黏贴的代码
+
+~~~
+#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
 ~~~
 
-### 3. 安装 Pod 并打开 .xcworkspace 文件以便在 Xcode 中查看该项目：
- 
+其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
+
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
+   
+  ~~~
+  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh
+  ~~~
+* 如果您使用手工集成的方式则为 `您存储 TACCore 库的地址`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
+   
+  ~~~
+   export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.before.sh
+  ~~~
+
+
+##### 添加构建之后运行的脚本
+
+1. 在导航栏中打开您的工程。
+2. 打开 Tab `Build Phases`。
+3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
+> **注意：**
+>  请确保该脚本在 `Build Phases` 中排序需要放到最后。
+4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
+
+需要黏贴的代码
+
 ~~~
-$ pod install
-$ open your-project.xcworkspace
+#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
 ~~~
 
-### 4. 在 UIApplicationDelegate 子类中导入 TACMessaging 模块：
+其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
+
+* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
+	
+  ~~~
+  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh
+  ~~~
+* 如果您使用手工集成的方式则为 `[您存储 TACCore 库的地址]`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
+    
+  ~~~
+  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
+  [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
+  ~~~
+
+
+## 第四步：初始化
+
+集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。整个初始化的过程很简单。
+
+### 步骤 1 在 UIApplicationDelegate 子类中导入移动开发平台（MobileLine）模块。
+
 Objective-C 代码示例：
+
 ~~~
-import <TACMessaging/TACMessaging.h>
+#import <TACCore/TACCore.h>
 ~~~
 Swift 代码示例：
+
 ~~~
-import TACMessaging
+import TACCore
 ~~~
 
 
-### 5. 配置 TACApplication 共享实例，通常是在 `application:didFinishLaunchingWithOptions:` 方法中配置：
- 
-一般情况下您使用默认配置就可以了，用以下代码使用默认配置启动 Crash 服务。如果您在引入其它模块的时候，调用了该方法，请不要重复调用。
+### 步骤 2 配置一个 TACApplication 共享实例，通常是在应用的 `application:didFinishLaunchingWithOptions:` 方法中配置。
+
+
+######  使用默认配置
+
+通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configuration.plist 文件来获取的。
 
 Objective-C 代码示例：
+
 ~~~
     [TACApplication configurate];
 ~~~
+
 Swift 代码示例：
+
 ~~~
 	TACApplication.configurate();
 ~~~
 
-如果您需要进行自定义的配置，则可以使用以下方法，我们使用了 Objective-C 的语法特性 Category 和一些 Runtime 的技巧保障了，只有在您引入了 TACMessaging 模块的时候，才能从 TACApplicaitonOptiosn 里面看到其对应的配置属性，如果你没有引入 TACMessaging 模块这些属性就不存在。
->**注意：**
-请不要在没有引入 TACMessaging 模块的时候使用这些配置，这将会导致编译不通过。
+
+
+
+###### 通过编程的方式自定义某些参数
+
+通常对于移动开发平台（MobileLine）的项目他的配置信息都是通过读取 tac_services_configurations.zip 文件来获取的。但是，您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
 
 Objective-C 代码示例：
+
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
 	// 自定义配置
-	//     options.messagingOptions.[Key] = [Value];
+	// opions.xxx= xxx
+    //
     [TACApplication configurateWithOptions:options];
 ~~~
+
 Swift 代码示例：
+
 ~~~
 	let options = TACApplicationOptions.default()
 	// 自定义配置
-	// options?.messagingOptions.[Key] = [Value];
+	// opions.xxx= xxx
 	TACApplication.configurate(with: options);
 ~~~
+
+
+最后点击【完成】，到此您已经成功接入了 MobileLine 服务。
+
+## 后续步骤
+
+
+### 了解 MobileLine：
+
+- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/MobileLineDemo)
+
+### 向您的应用添加 MobileLine 功能：
+
+- 借助 [Analytics](https://cloud.tencent.com/document/product/666/14822) 深入分析用户行为。
+- 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
+- 借助 [crash](https://cloud.tencent.com/document/product/666/14824) 确定应用崩溃的时间和原因。
+- 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
+- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
+- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力
