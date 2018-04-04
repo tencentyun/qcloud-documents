@@ -1,3 +1,10 @@
+## 集成 QQ 支付
+
+无论您是采用 gradle 远程依赖还是手动集成的方式来接入 Payment 服务，如果您需要接入 QQ 支付，那么您都必须手动添加 [mqqopenpay.jar](http://tac-android-libs-1253960454.cosgz.myqcloud.com/jars/mqqopenpay.jar) 到您工程的 `libs` 目录。
+
+> ** 注意：**
+> 因为 `mqqopenpay.jar` 没有上传到 jcenter 仓库下，因此在 gradle 远程依赖的方式下我们暂时无法自动帮您添加。
+
 ## 商品下单
 
 在您发起支付前，需要先在后台调用我们的 [下单接口](https://cloud.tencent.com/document/product/666/14600) 进行下单，下单成功后，服务器会给您返回本次下单的具体信息，下单服务器返回的数据示例如下：
