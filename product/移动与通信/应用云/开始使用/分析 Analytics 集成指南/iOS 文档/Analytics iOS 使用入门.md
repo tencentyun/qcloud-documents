@@ -1,6 +1,6 @@
-# MobileLine iOS 快速入门
+# MobileLine iOS 移动授权快速入门
 
-移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
+移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入移动崩溃监测。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
 
@@ -8,65 +8,30 @@
 
 ## 第一步：创建项目和应用
 
-在使用我们的服务前，您必须先在 [MobileLine 控制台](https://console.cloud.tencent.com/tac) 上创建项目，每个项目下可以包含多个应用，如 iOS 或者 Android 应用，当然，您也可以在同一个项目下创建多个 iOS 或者 Android 应用。
 
-### 创建项目
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，如图这里创建了一个名为 MyGreatApp 的项目：
-
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newProject.png)
-
-
-### 创建应用
-
-创建好项目后，我们在 MyGreatApp 项目下创建应用，点击【创建 iOS 应用】或者【创建 Android 应用】按钮来创建应用，如图这里【创建 iOS 应用】：
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgvdnbtfj31b80aoaat.jpg)
-
-填写好 **应用名称** 和 **应用包名** 后，选择下一步。到此，您便已创建好了一个 MobileLine 项目。
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgwqc45aj31bc0fb75l.jpg)
-
-> 您可以完全按照我们控制台上的向导来集成 MobileLine SDK，控制台上默认指导您集成我们的最基本的 TACCore 模块，这是 MobileLine 中核心的基础功能，包含了应用基本数据的上报和分析。
-
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
 
 ## 第二步：添加配置文件
 
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
+
 创建好应用后，您可以点击红框中的【tac\_services\_configurations.zip】来下载该应用的配置文件的压缩包：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgxkxz3sj31c40pgn7m.jpg)
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
 
 解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续点击【下一步】。
+
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
 
 > 切记**不要**将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
 
 
 
 ## 第三步：集成 SDK
-
-
-> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
-
-每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 app 中，下表展示了 MobileLine 各种服务所对应的库。
-
-
-以下库分别对应各种移动开发平台（MobileLine）的功能。
-
-| cocoapods | 服务名称 | 功能 |
-|:----|:-----------|:-----------|
-|  TACCore   |  analytics | 分析 |
-|  TACMessaging |  messaging | 推送 |
-|  TACCrash   |  crash     | 异常上报 |
-|  TACStorage   |  storage   | Cloud Storage |
-|  TACAuthorization   |  social | 第三方登录与授权（QQ、WeChat） |
-|  TACPayment   |  payment | 支付 |
-
-添加好配置文件并点击【下一步】后，向导如图所示：
-
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1fpzh1nijelj30x21djaky.jpg)
-
-
 
 
 如果还没有 Podfile，请创建一个。
@@ -86,28 +51,83 @@ source "https://github.com/CocoaPods/Specs"
 如果您想集成我们的各种服务，那么您只需要在 Podfile 中添加对应的服务依赖即可：
 
 ```
-pod 'TACCore'
+pod 'TACAuthorization'
 ```
 
-如果您想集成 `messaging` 服务：
+目前我们支持两个渠道的支付能力：
+
+|模块名|渠道名称|
+|:--|:--|
+|TACAuthorizationQQ|QQ|
+|TACAuthorizationWechat|微信|
+
+如果您需要两个渠道的能力则需要添加依赖
+
 
 ```
-pod 'TACMessaging'
+pod 'TACAuthorizationQQ'
+pod 'TACAuthorizationWechat'
 ```
 
-如果您想同时集成 `messaging` 和 `crash` 服务：
+如果您使用了QQ支付，则您将引入 TACSocialQQ 模块，请参考该模块的配置，并添加配置文件 `tac_services_configurations_qq.plist`，并将文件添加进XCode工程中。文件内容如下：
 
-```
-pod 'TACMessaging'
-pod 'TACCrash'
-```
 
-> 控制台向导上默认您只集成最基础的 `analytics` 服务。
+~~~
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>services</key>
+    <dict>
+        <key>social</key>
+        <dict>
+            <key>qq</key>
+            <dict>
+                <key>appId</key>
+                <string>请填充您的 AppId</string>
+                <key>appKey</key>
+                <string>请填充您的 APPKey</string>
+                <key>permissions</key>
+                <array>
+                    <string>get_user_info</string>
+                    <string>get_simple_userinfo</string>
+                    <string>add_t</string>
+                </array>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>
+~~~
+
+如果您使用微信支付，则您将引入 TACSocialWechat模块，请参考该模块的配置，并添加配置文件 `tac_services_configurations_wechat.plist`，并将文件添加进XCode工程中。文件内容如下：
+
+~~~
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>services</key>
+    <dict>
+        <key>social</key>
+        <dict>
+            <key>wechat</key>
+            <dict>
+                <key>appId</key>
+                <string>wx256642f480c15e3e</string>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>
+~~~
 
 
 ### 配置程序需要脚本
 
-为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
+> 如果您在其他模块中完成了此步骤，请不要重复执行。
+
+为了极致的简化 SDK 的接入流程，我们使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
 
 脚本主要包括两个：
 
@@ -220,35 +240,12 @@ Swift 代码示例：
 ~~~
 
 
+## 第五步：启动服务
 
-
-###### 通过编程的方式自定义某些参数
-
-您可能也有需求在程序运行时，去改变一些特定的参数来改变程序的行为。为了支持您的这种需求，我们增加了修改程序配置的接口，您可以仿照如下形式来修改移动开发平台（MobileLine）的配置。
-
-Objective-C 代码示例：
-
-~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	// opions.xxx= xxx
-    //
-    [TACApplication configurateWithOptions:options];
-~~~
-
-Swift 代码示例：
-
-~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// opions.xxx= xxx
-	TACApplication.configurate(with: options);
-~~~
-
-
-最后点击【完成】，到此您已经成功接入了 MobileLine 服务。
+移动授权 服务无需启动，到此您已经成功接入了 MobileLine 移动授权服务。
 
 ## 后续步骤
+
 
 ### 了解 MobileLine：
 
