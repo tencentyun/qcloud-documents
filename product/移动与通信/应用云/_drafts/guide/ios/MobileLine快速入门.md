@@ -8,62 +8,46 @@
 
 ## 第一步：创建项目和应用
 
-在使用我们的服务前，您必须先在 [MobileLine 控制台](https://console.cloud.tencent.com/tac) 上创建项目，每个项目下可以包含多个应用，如 iOS 或者 Android 应用，当然，您也可以在同一个项目下创建多个 iOS 或者 Android 应用。
 
-### 创建项目
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](replaceme)。
 
-首先登录 [MobileLine 控制台](https://console.cloud.tencent.com/tac) ，然后点击【创建第一个项目】按钮来创建一个新的项目，如图这里创建了一个名为 MyGreatApp 的项目：
-
-![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/mobileLine/guide/newProject.png)
-
-
-### 创建应用
-
-创建好项目后，我们在 MyGreatApp 项目下创建应用，点击【创建 iOS 应用】或者【创建 Android 应用】按钮来创建应用，如图这里【创建 iOS 应用】：
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgvdnbtfj31b80aoaat.jpg)
-
-填写好 **应用名称** 和 **应用包名** 后，选择下一步。到此，您便已创建好了一个 MobileLine 项目。
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgwqc45aj31bc0fb75l.jpg)
-
-> 您可以完全按照我们控制台上的向导来集成 MobileLine SDK，控制台上默认指导您集成我们的最基本的 TACCore 模块，这是 MobileLine 中核心的基础功能，包含了应用基本数据的上报和分析。
-
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
 
 ## 第二步：添加配置文件
 
 创建好应用后，您可以点击红框中的【tac\_services\_configurations.zip】来下载该应用的配置文件的压缩包：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgxkxz3sj31c40pgn7m.jpg)
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
 
 解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续点击【下一步】。
+
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
 
 > 切记**不要**将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
 
 
 
+
 ## 第三步：集成 SDK
+
+
+> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
 
 每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 app 中，下表展示了 MobileLine 各种服务所对应的库。
 
 
 以下库分别对应各种移动开发平台（MobileLine）的功能。
 
-| cocoapods | 服务名称 | 功能 |
+| 功能 | cocoapods | 服务名称 |
 |:----|:-----------|:-----------|
-|  TACCore   |  analytics | 分析 |
-|  TACMessaging |  messaging | 推送 |
-|  TACCrash   |  crash     | 异常上报 |
-|  TACStorage   |  storage   | Cloud Storage |
-|  TACAuthorization   |  social | 第三方登录与授权（QQ、WeChat） |
-|  TACPayment   |  payment | 支付 |
-
-添加好配置文件并点击【下一步】后，向导如图所示：
-
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1fpzh1nijelj30x21djaky.jpg)
-
-
+| 腾讯移动分析（MTA |  TACCore   |  analytics|
+| 腾讯移动推送（信鸽）|  TACMessaging |  messaging  |
+| 腾讯崩溃服务（bugly）|  TACCrash   |  crash      |
+| 移动存储（Storage） |  TACStorage   |  storage   |
+| 授权（Authorization）|  TACAuthorization   |  social  |
+| 腾讯计费（米大师）|  TACPayment   |  payment  |
 
 
 如果还没有 Podfile，请创建一个。
@@ -104,7 +88,7 @@ pod 'TACCrash'
 
 ### 配置程序需要脚本
 
-为了极致的简化 SDK 的接入流程,我们使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
+为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
 
 脚本主要包括两个：
 
@@ -243,7 +227,21 @@ Swift 代码示例：
 ~~~
 
 
-最后点击【完成】，到此您已经成功接入了 MobileLine 服务。
+
+
+### 启动服务
+
+MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务快速入门的【启动服务】部分：
+
+|功能|服务名称|入门指南|
+|:---|:---|:---|
+|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](https://cloud.tencent.com/document/product/666/14315)|
+|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](https://cloud.tencent.com/document/product/666/14350)|
+|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14311)|
+|腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14614)|
+|移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14351)|
+|授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14333)|
+
 
 ## 后续步骤
 
