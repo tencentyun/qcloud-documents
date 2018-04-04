@@ -42,7 +42,7 @@
 
 | 功能 | cocoapods | 服务名称 |
 |:----|:-----------|:-----------|
-| 腾讯移动分析（MTA |  TACCore   |  analytics|
+| 腾讯移动分析（MTA） |  TACCore   |  analytics|
 | 腾讯移动推送（信鸽）|  TACMessaging |  messaging  |
 | 腾讯崩溃服务（bugly）|  TACCrash   |  crash      |
 | 移动存储（Storage） |  TACStorage   |  storage   |
