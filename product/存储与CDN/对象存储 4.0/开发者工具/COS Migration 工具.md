@@ -48,6 +48,7 @@ COS Migration是一个集成了有关COS数据迁移功能的一体化工具。�
  - Linux：
   
     解压并保存到某个目录
+    
     ```unzip cos_migrate_tool_v5-master.zip && cd cos_migrate_tool_v5-master```
 
 - 迁移工具结构
