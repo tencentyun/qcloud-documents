@@ -77,6 +77,8 @@ public class MyCustomApp extends Application {
 
 #### 继承 `TACMessagingReceiver` 类
 
+您必须创建一个 `TACMessagingReceiver` 子类用于接收我们的消息回调：
+
 ```
 public class MyReceiver extends TACMessagingReceiver {
 
