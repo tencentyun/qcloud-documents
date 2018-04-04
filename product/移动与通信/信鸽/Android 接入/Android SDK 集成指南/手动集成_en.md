@@ -1,5 +1,5 @@
 ### Registering and Downloading SDK
-Go to XGPush Console [xg.qq.com](xg.qq.com) and log in to the Application Registration page using QQ number. Enter the "Application Name" and "Application Package Name" (must be consistent with the application), select **Operating System** and **Category**, and then click **New Application**. After the application is successfully created, click **Application Configuration** to see its AccessId, AccessKey, and other information.
+Go to XGPush Console [xg.qq.com](http://xg.qq.com) and log in to the Application Registration page using QQ number. Enter the "Application Name" and "Application Package Name" (must be consistent with the application), select **Operating System** and **Category**, and then click **New Application**. After the application is successfully created, click **Application Configuration** to see its AccessId, AccessKey, and other information.
 After registration is completed, download the latest version of the Android SDK to your local computer and decompress it.
 
 ### Configuring Projects
