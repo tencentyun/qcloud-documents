@@ -2,11 +2,11 @@
 
 您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
-## 第一步：创建项目和应用（已完成请跳过）
+## 第一步：创建项目和应用（如果已做请跳过）
 
 在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](replaceme)。
 
-## 第二步：添加配置文件（已完成请跳过）
+## 第二步：添加配置文件（如果已做请跳过）
 
 在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
 
@@ -16,7 +16,7 @@
 
 <img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
 
-> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
+> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
 
 
 ## 第三步：集成 SDK
