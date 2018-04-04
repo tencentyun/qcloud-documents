@@ -25,8 +25,9 @@
 
 ```
 dependencies {
-	// 增加这行
+	// 增加这两行
 	compile 'com.tencent.tac:tac-core:1.0.0'
+    compile 'com.tencent.tac:tac-authorization:1.0.0'
 }
 ```
 
@@ -72,23 +73,4 @@ public class MyCustomApp extends Application {
 
 ### 启动服务
 
-MobileLine Android SDK 不会自动帮您启动 analytics 服务，请在初始化时创建的 `Application` 子类的 `onCreate()` 方法中来启动 analytics 服务：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    TACApplication.configure(this); // 初始化服务
-    
-    // 添加这行，必须在初始化服务后调用
-    TACAnalyticsService.getInstance().start(this);
-  }
-}
-```
-
-> 注意：您也可以选择在其他地方启动 analytics 服务，但是必须保证在初始化代码后调用。
-
-
-到此您已经成功接入了 MobileLine 移动分析服务。
+Authorization 服务无需启动，您可以直接使用，到此您已经成功接入了 MobileLine 授权服务。

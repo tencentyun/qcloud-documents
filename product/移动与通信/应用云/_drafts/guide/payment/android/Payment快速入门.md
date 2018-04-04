@@ -1,6 +1,8 @@
-## 准备工作
+## 准备
 
-您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
+- 您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
+- 其次您需要 [配置后台服务器](https://cloud.tencent.com/document/product/666/14600)。
+- 最后您需要 [添加支付渠道信息](https://cloud.tencent.com/document/product/666/14599)
 
 ## 第一步：创建项目和应用（如果已做请跳过）
 
@@ -18,15 +20,15 @@
 
 > 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
 
-
 ## 第三步：集成 SDK
 
-您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 analytics 服务依赖：
+您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 payment 服务依赖：
 
 ```
 dependencies {
-	// 增加这行
-	compile 'com.tencent.tac:tac-core:1.0.0'
+    // 增加这两行
+    compile 'com.tencent.tac:tac-core:1.0.0'
+    compile 'com.tencent.tac:tac-payment:1.0.0'
 }
 ```
 
@@ -70,25 +72,7 @@ public class MyCustomApp extends Application {
 
 > 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
 
+
 ### 启动服务
 
-MobileLine Android SDK 不会自动帮您启动 analytics 服务，请在初始化时创建的 `Application` 子类的 `onCreate()` 方法中来启动 analytics 服务：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    TACApplication.configure(this); // 初始化服务
-    
-    // 添加这行，必须在初始化服务后调用
-    TACAnalyticsService.getInstance().start(this);
-  }
-}
-```
-
-> 注意：您也可以选择在其他地方启动 analytics 服务，但是必须保证在初始化代码后调用。
-
-
-到此您已经成功接入了 MobileLine 移动分析服务。
+Payment 服务无需启动，到此您已经成功接入了 MobileLine 移动付费服务。
