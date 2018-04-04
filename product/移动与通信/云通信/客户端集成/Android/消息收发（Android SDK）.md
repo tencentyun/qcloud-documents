@@ -518,7 +518,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 > **注意：**
 >- ImSDK 2.5.3 之前版本只对单聊消息有效。
->- ImSDK 2.5.3 及之后版本，增加对群消息的支持(暂不支持 AVChatRoom 和 BChatRoom 类型)。**如果需要支持这种群消息，请注意各平台都需要升级到2.5.3及以上版本。**
+>- ImSDK 2.5.3 及之后版本，增加对群消息的支持(暂不支持 AVChatRoom 和 BChatRoom 类型)。**如果需要支持这种群消息，请注意各平台都需要升级到 2.5.3 及以上版本。**
 
 **原型：**
 
@@ -597,7 +597,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 
 接收方收到消息后，可通过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMImageElem` 的是图片消息节点。然后通过 `imageList` 获取该图片的所有规格用来展示。
 
-**TIMImageElem 成员方法：**
+**`TIMImageElem` 成员方法：**
 
 ```
 java.util.ArrayListgetImageList()
@@ -1385,7 +1385,7 @@ public TIMMessageLocator setSelf(boolean self)
 
 - **关系链变更系统消息：**当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](/doc/product/269/用户资料与关系链（Android%20SDK）#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
 
-- **群事件消息：**当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅[群事件消息](/doc/product/269/群组管理（Android%20SDK）#8.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
+- **群事件消息：**当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅 [群事件消息](/doc/product/269/群组管理（Android%20SDK）#8.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
 
 - **群系统消息：**当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](/doc/product/269/群组管理（Android%20SDK）#9.-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
 
