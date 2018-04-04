@@ -88,28 +88,28 @@ public class MyReceiver extends TACMessagingReceiver {
         Log.d("messaging", "MyReceiver::OnRegisterResult : code is " + errorCode + ", token is " + token.getTokenString());
     }
 
-    // 收到应用内消息后回调此接口。
+    // 反注册后回调此接口。
     @Override
-    public void onTextMessage(Context context, TACMessagingText message) {
-        Log.d("messaging", "MyReceiver::OnTextMessage : message is " + message);
+    public void onUnregisterResult(Context context, int code) {
+        Log.d("messaging", "MyReceiver::onUnregisterResult : code is " + code);
     }
 
-    // 收到通知消息后回调此接口。
+    // 收到通知栏消息后回调此接口。
     @Override
     public void onNotificationShowed(Context context, TACNotification notification, int notificationId) {
         Log.d("messaging", "MyReceiver::OnNotificationShowed : notification is " + notification + " notification id is " + notificationId);
     }
 
-    // 用户处理通知消息后回调此接口。
+    // 用户处理通知栏消息后回调此接口，如用户点击或滑动取消通知。
     @Override
     public void onNotificationClicked(Context context, TACNotification notification, long actionType) {
         Log.d("messaging", "MyReceiver::onNotificationClicked : notification is " + notification + " actionType is " + actionType);
     }
-
-    // 反注册后回调此接口
+    
+    // 收到应用内消息后回调此接口。
     @Override
-    public void onUnregisterResult(Context context, int code) {
-        Log.d("messaging", "MyReceiver::onUnregisterResult : code is " + code);
+    public void onTextMessage(Context context, TACMessagingText message) {
+        Log.d("messaging", "MyReceiver::OnTextMessage : message is " + message);
     }
 
 }
