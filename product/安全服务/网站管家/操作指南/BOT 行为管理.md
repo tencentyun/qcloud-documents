@@ -31,8 +31,9 @@
 配置说明请参见表格 [自定义策略配置说明](#peizhi)
 
 3. 单击【BOT 详情】，此页面共有【未知类型】、【已知类型】和【自定义类型】三个选项卡，此处以【未知类型】为例。
-![5](https://main.qcloudimg.com/raw/755687bf21ccf4ff6d92e84a17c8dbfc.png)
+ ![5](https://main.qcloudimg.com/raw/755687bf21ccf4ff6d92e84a17c8dbfc.png)
 如需了解某 BOT 详情，可点击该条数据后的【查看详情】：
+ ![6](https://main.qcloudimg.com/raw/3c8c880b17fb94def64e4c2616ae6644.png)
 #### 温馨提示：
  - IP 类型：idc 为互联网数据中心，bs 为基站。
  - 行为信息熵：0.5 为参考值，值越小说明行为越异常。
@@ -42,7 +43,6 @@
  >BOT 的 AI 模型会学习数据访问模式，当数据达到一定数量会生成模型。
  >AI 模型的学习过程取决于网站类型和访问流量，正常的情况下学习周期为两周。
 
- ![6](https://main.qcloudimg.com/raw/3c8c880b17fb94def64e4c2616ae6644.png)
 
 附：
 <span id="peizhi">
@@ -56,7 +56,7 @@
 | referer 内容 | 包含 | 如 no-referrer-when-downgrade |
 | 存在 UA | 存在或不存在 | - |
 | UA 内容 | 包含 | 如 Mozilla |
-| UA 类型 | 属于 | - |
+| UA 类型 | 属于 | 自行勾选 |
 | 请求参数 | 包含 | 如 15 |
 | 请求路径 | 包含 | 如 /admin |
 | IP 范围 | 包含 | 支持单个 IP、IP 段 |
