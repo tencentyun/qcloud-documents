@@ -25,6 +25,7 @@
 >    - max_string_length：自定义字符串类型的值最大可支持的长度，取值范围为正整数，默认为256。<br>
 >    - default_date_format：自定义维度列和指标列 date类型的格式，默认为strict_date_optional_time或epoch_millis。<br>
 >    - indexed_fields：指定指标列中需要保留索引的字段，可指定多个，以数组形式指定。<br>
+>    - default_type：指定新增字段的默认类型。可选项为tag、field，系统默认值为tag。<br>
 >
 > |过期时间 |    子表时长|
 > |---------|---------|

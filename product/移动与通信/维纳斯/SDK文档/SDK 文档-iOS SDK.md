@@ -1,5 +1,5 @@
 
-## initWithAppID
+### initWithAppID
 
 ```
 - (instancetype)initWithAppID:(int)appID
@@ -9,7 +9,7 @@
 接口说明：初始化 Wns 系统
 参数说明：
 
-| 参数 | 类型 | 必选 | 说## initWithAppID
+| 参数 | 类型 | 必选 | 说明 initWithAppID
 
 ```
 - (instancetype)initWithAppID:(int)appID
@@ -26,7 +26,7 @@
 | appChannel | NSString | 否 | app 的发布渠道信息:该值填"DEBUG"和"RDM"时, 后台会分别使用 DEBUG 和 RDM 证书进行苹果推送, 填其它值时, 默认使用正式的证书来进行苹果推送 |
 
 
-## reset
+### reset
 ```
 - (void)reset:(BOOL)reconnect;
 ```
@@ -38,7 +38,7 @@
 | reconnect | BOOL | 是 | 重置连接方式 YES：先关闭现有 WNS 通道再重新建立  NO：只关闭现有 WNS 通道 |
 
 
-## setStatusCallback
+### setStatusCallback
 ```
 - (void)setStatusCallback:(WnsStatusCallback)callback;
 
@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger, WnsSDKStatus) {
 | callback | WnsStatusCallback | 是 | 在 WnsStatusCallback 回调 block 中同步当前 wns 通道状态|
 
 
-## setLogCallback
+### setLogCallback
 ```
 - (void)setLogCallback:(WnsLogCallback)callback;
 
@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 |---------|---------|---------|---------|
 | callback | WnsLogCallback | 是 | 在 WnsLogCallback 回调 block 中获取 wns sdk 记录在本地的 log 信息|
 
-## bind
+### bind
 ```
 - (void)bind:(NSString *)uid completion:(void(^)(NSError *error))completion;
 ```
@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | completion | block | 是 | 调用结果的回调 block|
 
 
-## unbind
+### unbind
 ```
 - (void)unbind:(NSString *)uid completion:(void(^)(NSError *error))completion;
 ```
@@ -108,7 +108,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | completion | block | 是 | 调用结果的回调 block|
 
 
-## sendRequest
+### sendRequest
 ```
 - (long)sendRequest:(NSData *)data
                 cmd:(NSString *)cmd
@@ -136,7 +136,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | completion (wnsSubError) | NSError | 是 | 回调中 wns 的子返回码|
 
 
-## sendHTTPRequest
+### sendHTTPRequest
 ```
 - (long)sendHTTPRequest:(NSURLRequest *)request
                     cmd:(NSString *)cmd
@@ -166,7 +166,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 
 
 
-## cancelRequest
+### cancelRequest
 ```
 - (void)cancelRequest:(long)seqno;
 ```
@@ -178,14 +178,14 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | seqno | long | 是 | 请求序列号，从 sendRequest 或 sendHTTPRequest 调用返回的序列号 |
 
 
-## cancelAllRequest
+### cancelAllRequest
 ```
 - (void)cancelAllRequest;
 ```
 接口说明：取消所有请求
 
 
-## setPushDataReceiveBlock
+### setPushDataReceiveBlock
 ```
 - (void)setPushDataReceiveBlock:(void(^)(NSString *cmd, NSData *data, NSError *error))completion;
 ```
@@ -199,7 +199,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | completion (error) | NSError | 是 |  异常对象|
 
 
-## registerRemoteNotification
+### registerRemoteNotification
 ```
 - (void)registerRemoteNotification:(NSString *)deviceToken completion:(void(^)(NSError *error))completion;
 ```
@@ -212,7 +212,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | completion (data) | block | 是 |  注册结果回调|
 
 
-## setLogLevel
+### setLogLevel
 ```
 - (void)setLogLevel:(WnsSDKLogLevel)level;
 
@@ -234,7 +234,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | level | WnsSDKLogLevel | 是 |  具体的 log 级别|
 
 
-## log
+### log
 ```
 - (void)log:(WnsSDKLogLevel)level file:(const char *)file func:(const char *)func line:(int)line module:(NSString*)module EFDict:(NSDictionary *)extDict msg:(NSString *)fmt, ...;
 
@@ -262,7 +262,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | fmt | NSString | 是 |  动态参数的 log 信息|
 
 
-## setAutoTestMode
+### setAutoTestMode
 ```
 - (void)setAutoTestMode:(BOOL)isEnable;
 ```
@@ -274,7 +274,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | isEnable | BOOL | 是 |  是否启用|
 
 
-## setDebugIP
+### setDebugIP
 ```
 - (void)setDebugIP:(NSString *)ip port:(unsigned short)port;
 ```
@@ -287,7 +287,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | port | unsigned short | 是 |  可选的端口：80或0|
 
 
-## reportDebugLog
+### reportDebugLog
 ```
 - (void)reportDebugLog:(NSString *)title content:(NSString *)content beginTime:(NSTimeInterval)beginTime endTime:(NSTimeInterval)endTime;
 ```
@@ -302,7 +302,7 @@ typedef NS_ENUM(NSInteger, WnsSDKLogLevel) {
 | endTime | NSTimeInterval | 是 |  这个时间后的 log 不上报|
 
 
-## getWnsCarrierType
+### getWnsCarrierType
 ```
 - (WnsSDKCarrierType)getWnsCarrierType;
 
@@ -323,7 +323,7 @@ typedef NS_ENUM(NSInteger, WnsSDKCarrierType) {
 ```
 
 
-## wid
+### wid
 ```
 - (int64_t)wid;
 ```
@@ -334,7 +334,7 @@ typedef NS_ENUM(NSInteger, WnsSDKCarrierType) {
 	int64_t : 用户的wid
 ```
 
-## keyLog
+### keyLog
 ```
 - (NSString *)keyLog;
 ```
