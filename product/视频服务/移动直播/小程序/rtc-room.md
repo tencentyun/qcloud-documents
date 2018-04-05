@@ -49,7 +49,7 @@ rtcroom.pause();
 ### 示例代码
 ```
 // Page.wxml 文件
-<rtcroom id="rtcroomid"
+<rtc-room id="rtcroomid"
 	roomID="{{roomID}}"
 	roomName="{{roomName}}"
 	template="1v3"
@@ -57,7 +57,7 @@ rtcroom.pause();
 	muted="{{muted}}"
 	debug="{{debug}}"
 	bindonRoomEvent="onRoomEvent">
-</rtcroom>
+</rtc-room>
 
 
 // Page.js 文件
@@ -169,7 +169,7 @@ rtcroom.getRoomList({
 
 - 在 page 目录下的 wxml 文件中使用标签
 ```xml
-<rtcroom id="rtcroomid"
+<rtc-room id="rtcroomid"
 	roomID="{{roomID}}"
 	roomName="{{roomName}}"
 	template="1v3"
@@ -177,7 +177,7 @@ rtcroom.getRoomList({
 	muted="{{muted}}"
 	debug="{{debug}}"
 	bindonRoomEvent="onRoomEvent">
-</rtcroom>
+</rtc-room>
 ```
 
 ### step6: 如何创建房间
@@ -216,8 +216,6 @@ this.setData({
 rtcroom.start();
 ```
 
-
-
 <h2 id="CustomUI"> 界面定制 </h2>
 
 如果我们默认实现的 "1v1" 和 "1v3" 两种界面布局不符合您的要求，您也可以根据项目需要对界面进行定制：
@@ -225,11 +223,11 @@ rtcroom.start();
 - **创建界面模版**
 
 ```html
-//第一步：新建/pages/templates/template文件夹，并创建template.wxml和template.wxss文件
+//第一步：新建 /pages/templates/mytemplate 文件夹，并创建 mytemplate.wxml 和 mytemplate.wxss 文件
 
-//第二步：编写template.wxml和template.wxss文件
-//template.wxml
-<template name='selftemplate'>
+//第二步：编写 mytemplate.wxml 和 mytemplate.wxss 文件
+//mytemplate.wxml
+<template name='mytemplate'>
     <view class='videoview'>
         <view class="pusher-box">
             <live-pusher
@@ -281,7 +279,7 @@ rtcroom.start();
     </view>
 </template>
 
-//template.wxss
+//mytemplate.wxss
 .videoview {
   background-repeat:no-repeat;
   background-size: cover;
@@ -291,22 +289,21 @@ rtcroom.start();
 
 ```
 
-- **rtcroom组件引入模版**
+- **rtc-room 组件引入模版**
 
 ```html
-//rtcroom组件中的rtcroom.wxml引入模版
-<import src='/pages/templates/template/template.wxml'/>
+//为 <rtc-room> 组件中的 liveroom.wxml 文件添加自定义模版
+<import src='/pages/templates/mytemplate/mytemplate.wxml'/>
 <view class='conponent-box'>
     <view styles="width:100%;height=100%;" wx:if="{{template=='1v3' || template=='1v1'}}">
-        <template is='selftemplate' data="{{pushURL, aspect, 
+        <template is='mytemplate' data="{{pushURL, aspect, 
 				      minBitrate, maxBitrate, beauty, muted, debug, members}}"/>
     </view>
 </view>
 
-//rtcroom组件中的rtcroom.wxss引入模版样式
-@import "../templates/gridroomtemplate/gridroomtemplate.wxss";
+//为 <rtc-room> 组件中的 liveroom.wxss 文件添加自定义样式
+@import "../templates/mytemplate/mytemplate.wxss";
 ```
-
 ## 其它平台
 **&lt;rtc-room&gt;** 也有 Windows、iOS、Android 等平台下的对等实现，您可以参考下表中的资料。同时， 阅读 [设计文档](https://cloud.tencent.com/document/product/454/14617)，您可以了解该解决方案的内部设计原理。
 
