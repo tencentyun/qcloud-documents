@@ -148,7 +148,7 @@ liveroom.login({
 });
 ```
 
-参考 [DOC](https://cloud.tencent.com/document/product/454/14617#Server) 可以了解上面的这些参数应该怎么填写。
+参考 [DOC](https://cloud.tencent.com/document/product/454/14606#Server) 可以了解上面的这些参数应该怎么填写。
 
 ### step4: 获取房间列表（可选）
 如果您不想自己实现房间列表，而是使用房间服务自带的房间列表，您可以通过调用 `/utils/liveroom.js` 的 `getRoomList` 函数获取到列表信息。
