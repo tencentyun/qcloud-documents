@@ -5,8 +5,8 @@
 您可以扫描如下二维码，或在微信小程序里搜索“腾讯视频云”，即可打开我们的 demo 小程序，内部的 **双人音视频** 和 **多人音视频** 即为 &lt;rtc-room&gt; 的典型应用场景。
 ![](https://mc.qcloudimg.com/static/img/9851dba2c86161bc9e14a08b5b82dfd2/image.png)
 
-
-## 属性定义
+## 标签详解
+### 属性定义
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | '1v3','1v1'             | 必要，标识组件使用的界面模版（用户如果需要自定义界面，请看[界面定制](#CustomUI)） |
@@ -17,19 +17,7 @@
 | debug     | Boolean | true, false             | 可选，默认false，是否打印推流debug信息   |
 | bindonRoomEvent     | function |              | 必要，监听rtcroom组件返回的事件   |
 
-## 示例代码
-```
-<rtcroom id="rtcroomid"
-	roomID="{{roomID}}"
-	roomName="{{roomName}}"
-	template="1v3"
-	beauty="{{beauty}}"
-	muted="{{muted}}"
-	debug="{{debug}}"
-	bindonRoomEvent="onRoomEvent">
-</rtcroom>
-```
-## 对象操作
+### 操作接口
 
 **&lt;rtc-room&gt;** 组件包含如下操作接口，您需要先通过 selectComponent 获取 &lt;rtc-room&gt; 标签的引用，之后就可以进行相应的操作了。
 
@@ -47,7 +35,7 @@ var rtcroom = this.selectComponent("#rtcroomid")
 rtcroom.pause();
 ```
 
-## 事件说明
+### 事件通知
 **&lt;rtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，事件参数格式如下
 
 ```json
@@ -83,19 +71,81 @@ rtcroom.pause();
  })
 ```
 
+### 示例代码
+```
+// Page.wxml 文件
+<rtcroom id="rtcroomid"
+	roomID="{{roomID}}"
+	roomName="{{roomName}}"
+	template="1v3"
+	beauty="{{beauty}}"
+	muted="{{muted}}"
+	debug="{{debug}}"
+	bindonRoomEvent="onRoomEvent">
+</rtcroom>
+
+
+// Page.js 文件
+Page({
+    data: {
+    	//...
+        roomID: '',
+        roomName: '',
+        beauty: 3,
+        muted: false,
+        debug: false,
+    },
+    //...
+    onRoomEvent: function(e){
+        switch(e.detail.tag){
+            case 'roomClosed': {
+                //房间已经关闭
+                break;
+            }
+            case 'error': {
+                //发生错误
+                var code = e.detail.code;
+                var detail = e.detail.detail;
+                break;
+            }
+            case 'recvTextMsg': {
+                //收到文本消息
+                var text = e.detail.detail;
+                break;
+            }
+        }
+    },
+
+  onShow: function () {
+  },
+
+  onHide: function () {
+  },
+  
+  onRead: function() {
+  	var rtcroom = this.selectComponent("#rtcroomid")
+  	this.setData({
+  		roomName: '测试',
+  	});
+	rtcroom.start();
+  },
+
+})
+```
 
 
 
-## 准备工作
+## 使用指引
+
+### step0: 准备工作
+
 - **开通服务**
 小程序音视频依赖腾讯云提供的直播（[LVB](https://console.cloud.tencent.com/live)）和云通讯（[IM](https://console.cloud.tencent.com/avc)）两项基础服务，您可以点击链接免费开通，其中云通讯服务开通即可使用，直播服务由于涉黄涉政风险较大，需要腾讯云人工审核开通。
 
 - **下载源码**
 **&lt;rtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。点击 [小程序源码](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) 下载源码包，您可以在 `wxlite` 文件夹下获取到所需文件。
 
-## 使用指引
-
-### step1: 登录房间服务
+### step1: 登录房间服务（必需）
 在使用 **&lt;rtc-room&gt;** 标签前需要先调用 `/utils/rtcroom.js` 的 `login` 方法进行登录，登录的目的是要连接后台房间服务（RoomService）。
 
 ```
@@ -133,45 +183,16 @@ rtcroom.getRoomList({
 });
 ```
 
-### step3: 在page下的json配置文件内引用组件
+### step3: 在工程中引入组件
+- 在 page 目录下的 json 配置文件内引用组件，这一步是必须的，因为 &lt;rtc-room&gt; 并非原生标签。
 ```json
  "usingComponents": {
     "rtcroom": "/pages/rtcroomcomponent/rtcroom"
   }
 ```
 
-### step4: 在page下的wxml文件中使用标签
-
-
-
-
-
-
-### step5: 获取组件实例对象并调用接口
-
-
-
-- rtcroom组件搭建完成后，您需要调用rtcroom.start()才能使得组件开始工作。
-
-```
-//创建房间
-this.setData({
-	roomName: '测试'
-});
-rtcroom.start();
-
-//进入房间
-//房间号可以通过获取房间列表的时候得到(如果进入的房间不存在，那么后台将会为您新建该房间)
-this.setData({
-	roomID: 12345
-});
-rtcroom.start();
-```
-
-## (6) 实例参考
-
-```javascript
-// Page.wxml 文件
+- 在 page 目录下的 wxml 文件中使用标签
+```xml
 <rtcroom id="rtcroomid"
 	roomID="{{roomID}}"
 	roomName="{{roomName}}"
@@ -181,57 +202,44 @@ rtcroom.start();
 	debug="{{debug}}"
 	bindonRoomEvent="onRoomEvent">
 </rtcroom>
-
-
-// Page.js 文件
-Page({
-    data: {
-    	//...
-        roomID: '',
-        roomName: '',
-        beauty: 3,
-        muted: false,
-        debug: false,
-    },
-    //...
-    onRoomEvent: function(e){
-        switch(e.detail.tag){
-            case 'roomClosed': {
-                //房间已经关闭
-                break;
-            }
-            case 'error': {
-                //发生错误
-                var code = e.detail.code;
-                var detail = e.detail.detail;
-                break;
-            }
-            case 'recvTextMsg': {
-                //收到文本消息
-                var text = e.detail.detail;
-                break;
-            }
-        }
-    },
-
-  onShow: function () {
-  },
-
-  onHide: function () {
-  },
-  
-  onRead: function() {
-  	var rtcroom = this.selectComponent("#rtcroomid")
-  	this.setData({
-  		roomName: '测试',
-  	});
-	rtcroom.start();
-  },
-
-})
 ```
 
-以上已经完成了rtcroom组件的使用，但如果你希望修改组件的界面，那么你可以继续看下去。
+### step5: 如何创建房间
+
+- 如果您希望由后台房间服务（RoomService）自动分配一个 roomid， 那么您只需要给 &lt;rtc-room&gt; 指定 roomName 就可以。
+
+```
+//创建房间（RoomService 自动分配 roomid）
+this.setData({
+	roomName: '测试'
+});
+rtcroom.start();
+```
+
+- 如果您希望自己指定 roomid， 那么您需要先设定 roomID 属性，才可以调用 start() 函数。
+
+```
+//创建房间 (由您来指定 roomid)
+this.setData({
+	roomID: 12345
+});
+rtcroom.start();
+```
+
+- 不论哪种方案，只有 **start()** 函数被调用时，房间才会真正的被创建。
+
+### step6: 如何加入房间
+
+- 如果一个 roomid 对应的房间已经被创建了，那么 start() 就不再是创建房间，而是直接进入房间。
+
+```
+//创建房间 (由您来指定 roomid)
+this.setData({
+	roomID: 12345
+});
+rtcroom.start();
+```
+
 
 
 <h2 id="CustomUI"> 界面定制 </h2>
@@ -323,9 +331,6 @@ Page({
 @import "../templates/gridroomtemplate/gridroomtemplate.wxss";
 ```
 
-
-
-
 ## 其它平台
 **&lt;rtc-room&gt;** 也有 Windows、iOS、Android 等平台下的对等实现，您可以参考下表中的资料。同时， 阅读 [设计文档](https://cloud.tencent.com/document/product/454/14617)，您可以了解该解决方案的内部设计原理。
 
@@ -338,4 +343,9 @@ Page({
 | Android | [DOWNLOAD](https://cloud.tencent.com/document/product/454/7873#Android) | [API](https://cloud.tencent.com/document/product/454/15026) |
 
 ## 录制指引
-进入直播控制台，在
+- step1： [开通](https://console.cloud.tencent.com/video) 腾讯云点播服务。
+
+- step2：进入[直播控制台](https://console.cloud.tencent.com/live)（小程序音视频流媒体是基于直播服务构建的），在【接入管理>>接入配置>>直播录制】中，开启录制功能。（注意：这里说的录制费用是按并发收费的，不是每一路都收费）
+![](https://main.qcloudimg.com/raw/6dfeba07c25151be7025dab0245398ff.jpg)
+
+- step3：在点播的[视频管理](https://console.cloud.tencent.com/video/videolist)界面中，您可以看到这些录制的文件，您也可以通过点播服务的 REST API 获取到这些文件。
