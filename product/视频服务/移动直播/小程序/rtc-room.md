@@ -45,31 +45,6 @@ rtcroom.pause();
   "detail": "对应事件的详细参数"
 }
 ```
-如下代码展示具体用法：
-```
-//wxml
- <rtcroom  /*...*/ bindonRoomEvent="onRoomEvent" ></rtcroom>
-
- //js
- Page({
-   //...
-   onRoomEvent: function(e){
-     var args = e.detail;
-     switch (args.tag) {
-       case 'roomClosed':
-			//房间已经被关闭，退出房间
-			break;
-       case 'error':
-			console.error("收到错误:", e.detail.detail);
-			//退出房间
-			break;
-		case 'recvTextMsg':
-			console.log('收到消息:', e.detail.detail);
-			break;
-     }
-   }
- })
-```
 
 ### 示例代码
 ```
@@ -137,15 +112,16 @@ Page({
 
 ## 使用指引
 
-### step0: 准备工作
+### step1: 开通相关云服务
 
-- **开通服务**
 小程序音视频依赖腾讯云提供的直播（[LVB](https://console.cloud.tencent.com/live)）和云通讯（[IM](https://console.cloud.tencent.com/avc)）两项基础服务，您可以点击链接免费开通，其中云通讯服务开通即可使用，直播服务由于涉黄涉政风险较大，需要腾讯云人工审核开通。
 
-- **下载源码**
+### step2: 下载自定义组件源码
+
 **&lt;rtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。点击 [小程序源码](https://cloud.tencent.com/document/product/454/7873#XiaoChengXu) 下载源码包，您可以在 `wxlite` 文件夹下获取到所需文件。
 
-### step1: 登录房间服务（必需）
+### step3: 登录房间服务（必需）
+
 在使用 **&lt;rtc-room&gt;** 标签前需要先调用 `/utils/rtcroom.js` 的 `login` 方法进行登录，登录的目的是要连接后台房间服务（RoomService）。
 
 ```
@@ -163,7 +139,7 @@ rtcroom.login({
 
 参考 [DOC](https://cloud.tencent.com/document/product/454/14617#Server) 可以了解上面的这些参数应该怎么填写。
 
-### step2: 获取房间列表（可选）
+### step4: 获取房间列表（可选）
 如果您不想自己实现房间列表，而是使用房间服务自带的房间列表，您可以通过调用 `/utils/rtcroom.js` 的 `getRoomList` 函数获取到列表信息。
 
 ```
@@ -183,7 +159,7 @@ rtcroom.getRoomList({
 });
 ```
 
-### step3: 在工程中引入组件
+### step5: 在工程中引入组件
 - 在 page 目录下的 json 配置文件内引用组件，这一步是必须的，因为 &lt;rtc-room&gt; 并非原生标签。
 ```json
  "usingComponents": {
@@ -204,7 +180,7 @@ rtcroom.getRoomList({
 </rtcroom>
 ```
 
-### step5: 如何创建房间
+### step6: 如何创建房间
 
 - 如果您希望由后台房间服务（RoomService）自动分配一个 roomid， 那么您只需要给 &lt;rtc-room&gt; 指定 roomName 就可以。
 
@@ -228,7 +204,7 @@ rtcroom.start();
 
 - 不论哪种方案，只有 **start()** 函数被调用时，房间才会真正的被创建。
 
-### step6: 如何加入房间
+### step7: 如何加入房间
 
 - 如果一个 roomid 对应的房间已经被创建了，那么 start() 就不再是创建房间，而是直接进入房间。
 
