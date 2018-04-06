@@ -341,7 +341,8 @@ liveroom.respondJoinReq(true, aduience);
 @import "../templates/mytemplate/mytemplate.wxss";
 ```
 
-## 其它平台
+<h2 id="PLATFORM">其它平台</h2>
+
 **&lt;live-room&gt;** 也有 Windows、iOS、Android 等平台下的对等实现，您可以参考下表中的资料。同时， 阅读 [设计文档](https://cloud.tencent.com/document/product/454/14617)，您可以了解该解决方案的内部设计原理。
 
 | 所属平台 | SDK下载 | 文档指引 |
@@ -358,4 +359,4 @@ liveroom.respondJoinReq(true, aduience);
 - step2：进入[直播控制台](https://console.cloud.tencent.com/live)（小程序音视频流媒体是基于直播服务构建的），在【接入管理>>接入配置>>直播录制】中，开启录制功能。（注意：这里说的录制费用是按并发收费的，不是每一路都收费）
 ![](https://main.qcloudimg.com/raw/6dfeba07c25151be7025dab0245398ff.jpg)
 
-- step3：在点播的[视频管理](https://console.cloud.tencent.com/video/videolist)界面中，您可以看到这些录制的文件，您也可以通过点播服务的 REST API 获取到这些文件。
+- step3：在点播的[视频管理](https://console.cloud.tencent.com/video/videolist)界面中，您可以看到这些录制的文件，您也可以通过点播服务的 [REST API](https://cloud.tencent.com/document/product/266/10688) 获取到这些文件。
