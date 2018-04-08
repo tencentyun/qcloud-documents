@@ -1,9 +1,5 @@
 
--
-
 ## 接口 WnsService
-
-
 public interface WnsService
 
 类说明：
@@ -82,8 +78,6 @@ TransferResult
 | 参数名 | 类型 | 必选|说明|
 |---------|---------|---------|---------|
 | app | int | 是 | returned from #sendRequest() |
-
-
 
 
 ### getWnsHttpClient

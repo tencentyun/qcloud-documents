@@ -21,7 +21,7 @@
 | exitRoom(ExitRoomCallback callback)    | 主播 OR 观众：退出房间    |
 | startLocalPreview(TXCloudVideoView videoView)   | 主播 OR 连麦观众：开启摄像头预览      |
 | stopLocalPreview()                                                | 停止摄像头预览                                  |
-| requestJoinPusher(int timeout, RequestJoinPusherCallback callback)     | 观众：发起连麦请求      |
+| requestJoinPusher(int timeout, RequestJoinPusherCallback callback)     | 观众：发起连麦请求      |``
 | joinPusher(final JoinPusherCallback cb)                      | 观众：进入连麦状态      |
 | quitPusher(final QuitPusherCallback cb)                      | 观众：退出连麦状态      |
 | acceptJoinPusher(String userID)                                 | 主播：接受来自观众的连麦请求 |
@@ -43,11 +43,16 @@
 | stopBGM()                                  | 停止播放背景音乐                          |
 | pauseBGM()                               | 暂停播放背景音乐                          |
 | resumeBGM()                             | 继续播放背景音乐                          |
-| setMicVolume()                           | 设置混音时麦克风的音量大小                     |
-| setBGMVolume()                         | 设置混音时背景音乐的音量大小                    |
-| startRecord(videoFilePath)          | 开始视频录制                            |
+| setMicVolume(x)                           | 设置混音时麦克风的音量大小                     |
+| setBGMVolume(x)                         | 设置混音时背景音乐的音量大小                    |
+| getMusicDuration(fileName)                         | 获取背景音乐时长                    |
+| startRecord(recordType)          | 开始视频录制                            |
 | stopRecord()                              | 停止视频录制                            |
 | setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener) | 设置视频录制回调    |
+| incCustomInfo(fieldName, count)          |   增加房间自定义数值fieldName                          |
+| decCustomInfo(fieldName, count)                              |   减少房间自定义数值fieldName                          |
+| updateSelfUserInfo(userName, userAvatar)                              |   更新liveroom的用户信息                          |
+| setPauseImage(bitmap)                         | 设置后台时推送的图片                    |
 
 ## ILiveRoomListener
 
@@ -276,7 +281,7 @@ mLiveRoom.startLocalPreview(mCaptureView);
 
 ### 10. stopLocalPreview
 
-- 接口定义：void stopLocalPreview(boolean isNeedClearLastImg)
+- 接口定义：void stopLocalPreview()
 - 接口说明：（主播 OR 连麦观众）关闭摄像头预览。
 - 示例代码：
 
@@ -611,32 +616,42 @@ mLiveRoom.setMirror(true);
 | x    | float | 音量大小，1为正常音量，建议值为0~2，如果需要调大音量可以设置更大的值。推荐在 UI 上实现相应的一个滑动条，由主播自己设置 |
 
 
-### 35.startRecord
+### 35.getMusicDuration
 
-- 接口定义： int startRecord(final String videoFilePath)
-- 接口说明：开始录制视频。该接口用于主播端将推流预览实时保存到本地文件。
-- 特别注意：该接口需要在 createRoom 成功后调用，另外生成的视频文件由您的应用层代码负责管理，SDK不做清理。
+- 接口定义：int getMusicDuration(String path)
+- 接口说明：获取背景音乐时长。返回结果单位为毫秒。
+- 参数说明：
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| path    | String | path == null 获取当前播放歌曲时长；path != null 获取path路径歌曲时长 |
+
+
+### 36.startRecord
+
+- 接口定义： int startRecord(int recordType)
+- 接口说明：开始录制视频。该接口用于观众端将观看的视频实时保存到本地文件。
+- 特别注意：该接口需要在 enterRoom 成功后调用，另外生成的视频文件由您的应用层代码负责管理，SDK不做清理。
 - 返回结果：接口返回 0 启动录制成功；-1 表示正在录制，忽略这次录制启动；-2 表示还未开始推流，这次启动录制失败。
 - 参数说明：
 
 | 参数            | 类型     | 说明                               |
 | ------------- | ------ | -------------------------------- |
-| videoFilePath | String | 录制的视频文件位于手机中的绝对路径，调用者保证应用拥有该路径权限 |
+| recordType | int | 录制类型，目前只支持纯视频录制TXRecordCommon.RECORD_TYPE_STREAM_SOURCE|
 
 - 示例代码：
 
 ```
-String videoFile = Environment.getExternalStorageDirectory() + File.separator + "TXUGC/test.mp4";
-mLiveRoom.startRecord(videoFile);
+mLiveRoom.startRecord(TXRecordCommon.RECORD_TYPE_STREAM_SOURCE);
 ```
 
-### 36.stopRecord
+### 37.stopRecord
 
-- 接口定义： void stopRecord()
+- 接口定义： int stopRecord()
 - 接口说明：停止录制视频。录制结果会通过录制回调异步通知出来。
 
 
-### 37.setVideoRecordListener
+### 38.setVideoRecordListener
 
 - 接口定义： void setVideoRecordListener(TXRecordCommon.ITXVideoRecordListener listener)
 - 接口说明：设置视频录制回调，用于接收视频录制进度及录制结果。
@@ -670,6 +685,51 @@ mLiveRoom.setVideoRecordListener(new TXRecordCommon.ITXVideoRecordListener(){
     }
 });
 ```
+
+### 39.incCustomInfo
+
+- 接口定义： void incCustomInfo(String fieldName, int count)
+- 接口说明：增加自定义fieldName统计值。该接口用于统计房间的点赞，礼物等总数。最终的累计值可以通过房间信息roominfo的custom字段获得
+- 参数说明：
+
+| 参数            | 类型     | 说明                               |
+| ------------- | ------ | -------------------------------- |
+| fieldName | String | 需要统计的字段名称|
+| count | int | 一次统计增加的值，一般一次增加1|
+
+- 示例代码：
+
+```
+mLiveRoom.incCustomInfo(“praise”,1); 
+```
+
+### 40.decCustomInfo
+
+- 接口定义： void decCustomInfo(String fieldName, int count)
+- 接口说明：减少自定义fieldName统计值。该接口用于统计房间的点赞，礼物等总数。最终的累计值可以通过房间信息roominfo的custom字段获得
+- 参数说明：
+
+| 参数            | 类型     | 说明                               |
+| ------------- | ------ | -------------------------------- |
+| fieldName | String | 需要统计的字段名称|
+| count | int | 一次统计减少的值，一般一次减少1|
+
+
+### 41. updateSelfUserInfo
+
+- 接口定义： void updateSelfUserInfo(String userName, String userAvatar)
+- 接口说明：更新用户的昵称和头像信息。该接口主要用于用户修改昵称或者头像后实时更新liveroom的信息
+
+
+### 42.setPauseImage
+
+- 接口定义：void setPauseImage(Bitmap bitmap)
+- 接口说明：设置从前台切换到后台时，推送的图片。
+- 参数说明：
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| bitmap    | Bitmap | 背景图片bitmap |
 
 
 ## ILiveRoomListener 接口详情

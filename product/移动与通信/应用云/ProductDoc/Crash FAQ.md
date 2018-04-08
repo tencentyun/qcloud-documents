@@ -1,4 +1,3 @@
-## FAQ
 
 ### IOS 常见问题
 
@@ -6,7 +5,7 @@
 
 1. 检查 Crashlytics 是否已经正常启动；
 2. 网络是否可用；
-3. 在测试时若之前有上报突然不上报了，可能是触发了 Crashlytics 的流量保护机制，请卸载App后再测试（并不会影响真实用户Crash准确率）
+3. 在测试时若之前有上报突然不上报了，可能是触发了 Crashlytics 的流量保护机制，请卸载 App 后再测试（并不会影响真实用户 Crash 准确率）
 4. 是否有使用具有捕获 Crash 功能的其他第三方组件，若有将 Crashlytics 的初始化放在该组件后面；
 
 
@@ -38,13 +37,13 @@ Crashlytics 会在发生 Crash 时尝试尽量上报。如果失败，会在下�
 
 您的行号信息有可能在编译或混淆apk的时候已经丢失了。符号表中是没有行号信息的。
 
-6、用了 Crashlytics 的库应用启动不了，提示发生UnsatisfiedLinkError异常？
+6、用了 Crashlytics 的库应用启动不了，提示发生 UnsatisfiedLinkError 异常？
 
-通常是因为安装包中各CPU架构目录下所需要的动态库缺少导致的。
+通常是因为安装包中各 CPU 架构目录下所需要的动态库缺少导致的。
 
 7、Crashlytics 收集了设备哪些信息？有用户隐私吗？
 
-Crashlytics 收集的信息都是为了更真实地为开发者还原Crash场景服务的，并不涉及用户隐私信息：
-Crash 环境：Crash 信息及线程堆栈，ROM/RAM/SD卡容量、网络/语言等状态
+Crashlytics 收集的信息都是为了更真实地为开发者还原 Crash 场景服务的，并不涉及用户隐私信息：
+Crash 环境：Crash 信息及线程堆栈，ROM/RAM/SD 卡容量、网络/语言等状态
 App 信息：包名、版本、所属进程名
 设备信息：IMEI 等设备识别，用于判断 Crash 设备统计。

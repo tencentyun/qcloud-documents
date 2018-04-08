@@ -792,7 +792,7 @@ public class TIMOfflinePushToken {
 
 **示例：**
 ```java
-//登录成功后，上报证书ID及设备token
+//登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
 param.setToken(token);
 param.setBussid(bussId);
@@ -982,7 +982,7 @@ public class MyApplication extends Application {
 
 想要 ImSDK 通过华为推送进行离线消息推送，必须在**登录成功后**将前面步骤拿到的**证书 ID** 及**设备 token** 上报到腾讯云服务器。这一步骤可以通过 `TIMManager` 中的 `setOfflinePushToken` 方法来实现。
 
-> **注意**
+> **注意：**
 > 目前仅支持小米、华为设备，其他厂商设备上传无效。
 
 **原型：**
@@ -1220,7 +1220,7 @@ public class MyPushMsgReceiver extends MzPushMessageReceiver {
 
 以上步骤都已经准备好了之后，就可以**在登录 IM 成功**后，开始向魅族服务器注册魅族推送服务了。注册魅族推送服务需要调用魅族 PushSDK 提供的 `register` 方法。
 
-> 注: 魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题。
+> 注：魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题。
 
 ```java
 //魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题

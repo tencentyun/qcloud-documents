@@ -25,8 +25,11 @@
 | stopBGM()                                  | 停止播放背景音乐                          |
 | pauseBGM()                               | 暂停播放背景音乐                          |
 | resumeBGM()                             | 继续播放背景音乐                          |
-| setMicVolume()                           | 设置混音时麦克风的音量大小                     |
-| setBGMVolume()                         | 设置混音时背景音乐的音量大小                    |
+| setMicVolume(x)                           | 设置混音时麦克风的音量大小                     |
+| setBGMVolume(x)                         | 设置混音时背景音乐的音量大小                    |
+| getMusicDuration(fileName)                         | 获取背景音乐时长                    |
+| setBitrateRange(minBitrate, maxBitrate)                         | 设置视频码率范围                    |
+| setPauseImage(bitmap)                         | 设置后台时推送的图片                    |
 
 ## IRTCRoomListener
 
@@ -452,6 +455,37 @@ mRTCRoom.setMirror(true);
 | x    | float | 音量大小，1为正常音量，建议值为0~2，如果需要调大音量可以设置更大的值。推荐在 UI 上实现相应的一个滑动条，由主播自己设置 |
 
 
+### 26.getMusicDuration
+
+- 接口定义：int getMusicDuration(String path)
+- 接口说明：获取背景音乐时长。返回结果单位为毫秒。
+- 参数说明：
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| path    | String | path == null 获取当前播放歌曲时长；path != null 获取path路径歌曲时长 |
+
+
+### 27.setBitrateRange
+
+- 接口定义：void setBitrateRange(int minBitrate, int maxBitrate)
+- 接口说明：设置视频的码率区间。双人一般设为400到800；多人一般设为200到400
+- 参数说明：
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| minBitrate    | int | 最小码率 |
+| maxBitrate    | int | 最大码率 |
+
+### 28.setPauseImage
+
+- 接口定义：void setPauseImage(Bitmap bitmap)
+- 接口说明：设置从前台切换到后台时，推送的图片。
+- 参数说明：
+
+| 参数   | 类型    | 说明                                       |
+| ---- | ----- | ---------------------------------------- |
+| bitmap    | Bitmap | 背景图片bitmap |
 
 
 ## IRTCRoomListener 接口详情
