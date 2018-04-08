@@ -1,4 +1,4 @@
-IM 通讯云提供了关系链和用户资料托管，App 开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不通用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）。本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 以下介绍到的方法，除非特别说明，均属于 `TIMFriendshipManager` 中提供的方法。
+IM 通讯云提供了关系链和用户资料托管，App 开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不同用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#2.3-.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）。本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 以下介绍到的方法，除非特别说明，均属于 `TIMFriendshipManager` 中提供的方法。
 
 ## 关系链资料介绍
 
@@ -116,7 +116,6 @@ cb |回调
 
 ```
 String faceUrl = "http://faceurl";
-
 TIMFriendshipManager.getInstance().setFaceUrl(faceUrl, new TIMCallBack(){
 	@Override
 	public void onError(int code, String desc) {
@@ -124,7 +123,6 @@ TIMFriendshipManager.getInstance().setFaceUrl(faceUrl, new TIMCallBack(){
 		//错误码 code 列表请参见错误码表
 		Log.e(tag, "setFaceUrl failed: " + code + " desc" + desc);
 	}
-
 	@Override
 	public void onSuccess() {
 		Log.e(tag, "setFaceUrl succ");
@@ -426,7 +424,7 @@ TIMFriendshipManager.getInstance().getUsersProfile(users, new TIMValueCallBack<L
 
 ### 按照字段获取用户资料
 
-1.9 以后版本可以通过 TIMManager 中的 initFriendshipSettings 方法设置所需要拉取的资料字段，方便更灵活的获取资料。需登录前设置，若不设置则默认拉取所有基本字段，不拉取自定义字段。
+1.9 以后版本可以通过 `TIMManager` 中的 `initFriendshipSettings` 方法设置所需要拉取的资料字段，方便更灵活的获取资料。需登录前设置，若不设置则默认拉取所有基本字段，不拉取自定义字段。
 
 **原型：**
 ```
@@ -437,8 +435,8 @@ public void initFriendshipSettings(long flags,@Nullable List<String> customField
 
 参数|说明
 ---|---
-flags|关系链默认拉取资料标识，按位设置,参见 TIMFriendshipManager.TIM_PROFILE_FLAG_NICK 等
-customFields|自定义字段列表, 可以填 null
+flags|关系链默认拉取资料标识，按位设置，参见 TIMFriendshipManager.TIM_PROFILE_FLAG_NICK 等
+customFields|自定义字段列表，可以填 null
 
 ## 关系链相关资料
 
@@ -467,7 +465,6 @@ cb | 回调
 ```
 String remark = "002_remark";
 String identifier = "sample_user_002";
-
 TIMFriendshipManager.getInstance().setFriendRemark(identifier, remark, 
         new TIMCallBack() {//回调接口
             @Override
@@ -505,7 +502,7 @@ cb | 回调
 
 ### 添加好友
 
-通过 `TIMFriendshipManager` 的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为 1000 个： 
+通过 `TIMFriendshipManager` 的 `addFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为 1000 个。
 
 **原型：   **
 
@@ -514,10 +511,12 @@ public void addFriend(java.util.List<TIMAddFriendRequest> users,
                       TIMValueCallBack<java.util.List<TIMFriendResult>> cb)
 ```
 
-**参数：**
+**参数说明：**
  
-- `users`：要添加的用户列表 `TIMAddFriendRequest` 列表 
-- `cb`：回调，onSuccess函数的参数中返回 `TIMFriendResult` 列表，详见 `TIMFriendResult`
+ | 参数 | 说明 |
+| --- | --- |
+| users | 要添加的用户列表 TIMAddFriendRequest 列表 |
+| cb | 回调，onSuccess 函数的参数中返回 TIMFriendResult 列表，详见 TIMFriendResult |
 
 **`TIMAddFriendRequest` 成员方法： **
 
@@ -572,8 +571,8 @@ reqList.add(req);
 TIMFriendshipManager.getInstance().addFriend(reqList, new TIMValueCallBack<List<TIMFriendResult>>() {
 	@Override
 	public void onError(int code, String desc){
-		//错误码code和错误描述desc，可用于定位请求失败原因
-		//错误码code列表请参见错误码表
+		//错误码 code 和错误描述 desc，可用于定位请求失败原因
+		//错误码 code 列表请参见错误码表
 		Log.e(tag, "addFriend failed: " + code + " desc");
 	}
 	@Override
@@ -598,11 +597,14 @@ public void delFriend(TIMDelFriendType delType,
                       TIMValueCallBack<java.util.List<TIMFriendResult>> cb)
 ```
 
-**参数：**
+**参数说明：**
  
-- `delType`：删除类型（单向好友、双向好友） 
-- `users`：要删除的用户列表 `TIMAddFriendRequest` 列表 
-- `cb`：回调，`onSuccess` 函数的参数中返回 `TIMFriendResult` 列表，详见 `TIMFriendResult`
+ 
+ | 参数 | 说明 |
+| --- | --- |
+| delType | 删除类型（单向好友、双向好友） |
+| users | 要删除的用户列表 TIMAddFriendRequest 列表 |
+| cb | 回调，onSuccess 函数的参数中返回 TIMFriendResult 列表，详见 TIMFriendResult |
 
 **示例：**
 
@@ -639,9 +641,11 @@ TIMFriendshipManager.getInstance().delFriend(TIMDelFriendType.TIM_FRIEND_DEL_BOT
 public void getFriendList(TIMValueCallBack<java.util.List<TIMUserProfile>> cb)
 ```
 
-**参数：**
+**参数说明：**
  
-- `cb`：回调，`OnSuccess` 函数的参数中返回所有好友的 `TIMUserProfile` 列表,只包含 `identifier`，`nickname`，`remark` 三个字段，其他字段需要通过拉取好友的详细资料获得
+| 参数 | 说明 |
+| --- | --- |
+| cb | 回调，OnSuccess 函数的参数中返回所有好友的 TIMUserProfile 列表，只包含 identifier，nickname，remark 三个字段，其他字段需要通过拉取好友的详细资料获得 |
  
 **示例：**
 
@@ -675,10 +679,12 @@ public void addFriendResponse(TIMFriendAddResponse response,
                               TIMValueCallBack<TIMFriendResult> cb)
 ```
 
-**参数：**
+**参数说明：**
  
-- `response` ：回应内容 
-- `cb`：`onSuccess` 函数的参数中返回 `TIMFriendResult` 列表，详见 `TIMFriendResult`
+ | 参数 | 说明 |
+| --- | --- |
+| response | 回应内容  |
+| cb | onSuccess 函数的参数中返回 TIMFriendResult 列表，详见 TIMFriendResult |
 
 **`TIMFriendAddResponse` 成员方法：**
 
@@ -716,7 +722,7 @@ public void addBlackList(List<String> identifiers, TIMValueCallBack<List<TIMFrie
 参数 | 说明
 --- | ---
 identifiers | 要添加到黑名单的用户列表
-cb | 回调, onSuccess 函数的参数中返回 TIMFriendResult 列表
+cb | 回调，onSuccess 函数的参数中返回 TIMFriendResult 列表
 
 ### 把用户从黑名单删除
 
@@ -743,7 +749,7 @@ public void getBlackList(TIMValueCallBack<List<String>> cb)
 
 参数 | 说明
 --- | ---
-cb | 回调, onSuccess 函数的参数中返回黑名单用户 identifier 列表
+cb | 回调，onSuccess 函数的参数中返回黑名单用户 identifier 列表
 
 
 ## 好友分组
@@ -843,7 +849,7 @@ public void getFriendGroups(List<String> groupNames, TIMValueCallBack<List<TIMFr
 
 参数 | 说明
 --- | ---
-groupNames | 要获取信息的好友分组名称列表, 为 null 则获取所有的好友分组信息
+groupNames | 要获取信息的好友分组名称列表，为 null 则获取所有的好友分组信息
 cb | 回调，在 onSuccess 回调的参数中返回好友分组列表，详见 TIMFriendGroup
 
 
@@ -928,7 +934,7 @@ void OnAddFriends(List<TIMUserProfile> users);
 /**
  *  删除好友通知
  *
- *  @param identifiers 用户id列表
+ *  @param identifiers 用户 id 列表
  */
 void OnDelFriends(List<String> identifiers);
 /**
@@ -990,14 +996,18 @@ TIM_SNS_SYSTEM_DEL_FRIEND_REQ
 
 **成员方法：**
  
-`getSubType` ：TIM_SNS_SYSTEM_ADD_FRIEND 
-`getChangeInfoList` ：成为好友的用户列表 
+| 成员方法 | 说明 |
+| --- | --- |
+| getSubType | TIM_SNS_SYSTEM_ADD_FRIEND |
+| getChangeInfoList | 成为好友的用户列表 |
 
 **`TIMSNSChangeInfo` 参数说明：**
  
-`getIdentifier` ： 用户 `identifier`
+| 参数 | 说明 |
+| --- | --- |
+| getIdentifier | 用户 identifier |
 
-###删除好友系统通知 
+### 删除好友系统通知 
 
 当两个用户解除好友关系时，会收到删除好友系统消息。
 
@@ -1005,12 +1015,16 @@ TIM_SNS_SYSTEM_DEL_FRIEND_REQ
 
 **成员方法：**
  
-`getSubType` ：TIM_SNS_SYSTEM_DEL_FRIEND 
-`getChangeInfoList` ：删除好友的用户列表 
+| 成员方法 | 说明 |
+| --- | --- |
+| getSubType | TIM_SNS_SYSTEM_DEL_FRIEND |
+| getChangeInfoList | 删除好友的用户列表 |
 
 **TIMSNSChangeInfo 参数说明：**
  
-getIdentifier ： 用户 `identifier`
+| 参数 | 说明 |
+| --- | --- |
+| getIdentifier | 用户 identifier |
 
 ### 好友申请系统通知 
 
@@ -1020,14 +1034,18 @@ getIdentifier ： 用户 `identifier`
 
 **成员方法：**
  
-`getSubType` ：TIM_SNS_SYSTEM_ADD_FRIEND_REQ 
-`getChangeInfoList` ：申请的好友列表 
+| 成员方法 | 说明 |
+| --- | --- |
+| getSubType | TIM_SNS_SYSTEM_ADD_FRIEND_REQ |
+| getChangeInfoList | 申请的好友列表 |
 
 **`TIMSNSChangeInfo` 参数说明：**
  
-`getIdentifier` ： 用户 `identifier`
-`getWording` ： 申请理由 
-`getSource` ： 申请来源，申请时填写，由系统页面分配的固定字串 
+| 参数 | 说明 |
+| --- | --- |
+| getIdentifier | 用户 identifier |
+| getWording | 申请理由 |
+| getSource | 申请来源，申请时填写，由系统页面分配的固定字串  |
 
 ### 删除未决请求通知 
 
@@ -1035,12 +1053,16 @@ getIdentifier ： 用户 `identifier`
 
 **成员方法：**
  
-`getSubType` ：TIM_SNS_SYSTEM_DEL_FRIEND_REQ 
-`getChangeInfoList` ：删除未决请求的好友列表 
+| 成员方法 | 说明 |
+| --- | --- |
+| getSubType | TIM_SNS_SYSTEM_DEL_FRIEND_REQ |
+| getChangeInfoList | 删除未决请求的好友列表 |
 
 **TIMSNSChangeInfo 参数说明：**
  
-`getIdentifier` ： 用户 `identifier`
+| 参数 | 说明 |
+| --- | --- |
+| getIdentifier | 用户 identifier |
 
 ## 好友资料变更系统通知 
 
@@ -1051,7 +1073,7 @@ getIdentifier ： 用户 `identifier`
 ```
 //获取资料变更的用户名
 java.lang.String	getFromUser()
-//获取资料变更的昵称，如果昵称没有变更，则昵称为null
+//获取资料变更的昵称，如果昵称没有变更，则昵称为 null
 java.lang.String	getNickName()
 //获取资料变更类型
 TIMProfileSystemType	getSubType()
@@ -1061,7 +1083,7 @@ TIMProfileSystemType	getSubType()
 
 未决请求即为等待处理的请求，比如设置了需要验证好友，对方申请时会有未决请求，如果同意或者拒绝这个申请，未决请求会变为已决。通过 `TIMFriendshipManager` 的 `getFutureFriends` 方法可以从 Server 获取未决请求列表。
 
-**原型：***
+**原型：**
 
 ```
 public void getFutureFriends(long flags, long futureFlags, List<String> custom,
@@ -1077,6 +1099,3 @@ futureFlag | 获取的未决标记，如未决，已决，推荐等类型
 custom | 自定义字段，如要获取填写
 meta | 请求信息，参见 TIMFriendFutureMeta 定义
 cb | 回调
-
-
-
