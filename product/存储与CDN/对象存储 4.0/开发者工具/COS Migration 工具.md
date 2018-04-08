@@ -18,12 +18,11 @@ COS Migration是一个集成了有关COS数据迁移功能的一体化工具。�
 
 - 断点续传
 
-- 分块上传
+- 分块上传 
 
 - 并行上传
 
 - 迁移校验
-
 
 
 ## 使用环境
@@ -63,6 +62,7 @@ COS Migration是一个集成了有关COS数据迁移功能的一体化工具。�
     |——log   #工具执行中生成的日志
     |——opbin #用于编译的脚本
     |——src   #工具的源码
+    |——tmp   #临时文件存储目录
     |——pom.xml #项目配置文件
     |——README  #说明文档
     |——start_migrate.sh  #Linux 下迁移启动脚本
@@ -113,13 +113,14 @@ type表示迁移类型，用户根据迁移需求填写对应的标识。例如�
     storageClass=Standard
     cosPath=/
     https=off
-    tmpFolder=/a/b/c/tmp
+    tmpFolder=./tmp
     smallFileThreshold=5242880
     smallFileExecutorNum=64
     bigFileExecutorNum=8
     entireFileMd5Attached=on
     daemonMode=off
     daemonModeInterVal=60
+    executeTimeWindow=0,24
 
 
 
@@ -132,13 +133,17 @@ type表示迁移类型，用户根据迁移需求填写对应的标识。例如�
 | storageClass|存储类型：Standard - 标准存储, Standard_IA - 低频存储 |Standard|
 | cosPath|要迁移到的cos路径, /表示迁移到bucket的根路径下, /aaa/bbb/表示要迁移到bucket的/aaa/bbb/下面, 如果/aaa/bbb/不存在,则会自动建立|/|
 | https| 是否使用HTTPS传输：on - 开启，off - 关闭(开启传输速度较慢，适用于对传输安全要求高的场景)|off|
-| tmpFolder|从其他云存储迁移至cos的过程中，用于存储临时文件的目录, 迁移完成后会删除（要求格式为绝对路径：Linux下分隔符为单斜杠，如/a/b/c； Windows下分隔符为两个反斜杠，如E:\\\a\\\b\\\c）|-|
+| tmpFolder|从其他云存储迁移至cos的过程中，用于存储临时文件的目录, 迁移完成后会删除（要求格式为绝对路径：Linux下分隔符为单斜杠，如/a/b/c； Windows下分隔符为两个反斜杠，如E:\\\a\\\b\\\c）。默认为工具所在路径下的tmp目录|./tmp|
 | smallFileThreshold| 小文件阈值的字节，大于等于这个阈值使用分块上传，否则使用简单上传，默认5MB |5242880|
 | smallFileExecutorNum|小文件(文件小于smallFileThreshold)的并发度，使用简单上传, 如果是通过外网来连接COS, 且带宽较小, 请减小改并发度|64|
 | bigFileExecutorNum| 大文件(文件大于等于smallFileThreshold)的并发度，使用分块上传。如果是通过外网来连接COS, 且带宽较小, 请减小改并发度|8|
 | entireFileMd5Attached|表示迁移工具将全文的MD5计算后，存入文件的自定义头部x-cos-meta-md5中, 用于后续的校验，因为COS的分块上传的大文件的etag不是全文的md5|on|
 | daemonMode|是否启用damon模式：on - 开启，off - 关闭（damon表示程序会循环不停的去执行同步，每一轮同步的间隔由damonModeInterVal参数设置）|off|
 | daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
+| executeTimeWindow|执行时间窗口（时刻粒度为小时），该参数定义迁移工具每天执行的时间段。例如参数3，21表示在每天的3：00至21：00间执行迁移，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度|0，24|
+
+
+
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
@@ -326,18 +331,25 @@ COS迁移工具是有状态的，已经迁移成功的会记录在db目录下，
 
     请确认秘钥信息，bucket信息，region信息是否正确，并且是否具有操作权限。如果是子账号，请让父账号授予相应的权限；如果是本地迁移和其他云存储迁移, 需要对bucket具有数据写入和读取权限；如果是bucket copy, 还需要对源bucket具有数据读取权限。
 
-4. 迁移失败，日志显示503 Slow Down，该怎么办？
+
+4. 从其他云存储迁移cos失败，显示Read timed out，该怎么办？
+
+    一般来说，这种失败情况是由网络带宽不足所造成，导致从其他云存储下载数据超时。比如，将aws海外的数据迁移到COS，在下载数据到本地时由于带宽能力不足，导致时延较高，可能会出现read time out。因此，解决方法为增大 机器的网络带宽能力，建议在迁移之前用wget测试下载速度。
+
+
+
+5. 迁移失败，日志显示503 Slow Down，该怎么办？
 
 
     这是触发频控所导致，COS目前对一个账号具有每秒800 QPS的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
 
-5. 迁移失败，日志显示404 NoSuchBucket，该怎么办？
+6. 迁移失败，日志显示404 NoSuchBucket，该怎么办？
 
 
     请确认你的秘钥信息，bucket信息，region信息是否正确。
 
 
-6. 其他问题
+7. 其他问题
 
 
     请重新运行迁移工具，若仍然失败的，请将配置信息(秘钥信息请隐藏)与log目录打包后[提交工单](https://console.cloud.tencent.com/workorder/category)。
