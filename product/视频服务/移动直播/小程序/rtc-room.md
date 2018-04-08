@@ -15,7 +15,7 @@
 | beauty    | Number  | 0~5                     | 可选，默认5, 美颜级别 0～5  |
 | muted     | Boolean | true, false             | 可选，默认false，是否静音    |
 | debug     | Boolean | true, false             | 可选，默认false，是否打印推流debug信息   |
-| bindonRoomEvent     | function |              | 必要，监听rtcroom组件返回的事件   |
+| bindonRoomEvent     | function |              | 必要，监听&lt;rtc-room&gt;组件返回的事件   |
 
 ### 操作接口
 
@@ -163,7 +163,7 @@ rtcroom.getRoomList({
 - 在 page 目录下的 json 配置文件内引用组件，这一步是必须的，因为 &lt;rtc-room&gt; 并非原生标签。
 ```json
  "usingComponents": {
-    "rtcroom": "/pages/rtcroomcomponent/rtcroom"
+    "rtc-room": "/pages/rtc-room/rtc-room"
   }
 ```
 
@@ -209,7 +209,6 @@ rtcroom.start();
 - 如果一个 roomid 对应的房间已经被创建了，那么 start() 就不再是创建房间，而是直接进入房间。
 
 ```
-//创建房间 (由您来指定 roomid)
 this.setData({
 	roomID: 12345
 });
