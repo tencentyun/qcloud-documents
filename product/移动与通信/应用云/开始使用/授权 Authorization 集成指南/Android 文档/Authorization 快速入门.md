@@ -16,18 +16,18 @@
 
 <img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
 
-> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机敏感信息泄露。
+> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
 ## 第三步：集成 SDK
 
-您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 crash 服务依赖：
+您需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加 analytics 服务依赖：
 
 ```
 dependencies {
     // 增加这两行
     compile 'com.tencent.tac:tac-core:1.0.0'
-    compile 'com.tencent.tac:tac-crash:1.0.0'
+    compile 'com.tencent.tac:tac-authorization:1.0.0'
 }
 ```
 
@@ -73,23 +73,4 @@ public class MyCustomApp extends Application {
 
 ### 启动服务
 
-MobileLine Android SDK 不会自动帮您启动 crash 服务，请在初始化时创建的 `Application` 子类的 `onCreate()` 方法中来启动 crash 服务：
-
-```
-public class MyCustomApp extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    ...
-    TACApplication.configure(this); // 初始化服务
-    
-    // 添加这行，必须在初始化服务后调用
-    TACCrashService.getInstance().start(this);
-  }
-}
-```
-
-> 注意：您也可以选择在其他地方启动 crash 服务，但是必须保证在初始化代码后调用。
-
-
-到此您已经成功接入了 MobileLine Crash 上报服务。
+Authorization 服务无需启动，您可以直接使用，到此您已经成功接入了 MobileLine 授权服务。

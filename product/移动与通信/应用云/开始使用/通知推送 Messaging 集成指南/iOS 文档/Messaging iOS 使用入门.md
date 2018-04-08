@@ -31,17 +31,6 @@
 
 
 
-## 第二步：添加配置文件
-
-创建好应用后，您可以点击红框中的【tac\_services\_configurations.zip】来下载该应用的配置文件的压缩包：
-
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpzgxkxz3sj31c40pgn7m.jpg)
-
-解压后将 tac_services_configurations.plist 文件集成进项目中。其中有一个  tac_services_configurations_unpackage.plist 文件，请将该文件放到您工程的根目录下面(**切记不要将改文件添加进工程中**)。 添加好配置文件后，继续点击【下一步】。
-
-> 切记**不要**将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
-
-
 
 ## 第三步：集成 SDK
 
@@ -60,7 +49,8 @@ source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
 source "https://github.com/CocoaPods/Specs"
 ~~~
 
-如果您想集成我们的各种服务，那么您只需要在 Podfile 中添加对应的服务依赖即可：
+添加 Podfile 依赖：
+
 ```
 pod 'TACMessaging'
 ```

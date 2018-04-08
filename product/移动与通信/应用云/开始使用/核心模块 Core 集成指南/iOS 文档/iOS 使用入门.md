@@ -42,7 +42,7 @@
 
 | 功能 | cocoapods | 服务名称 |
 |:----|:-----------|:-----------|
-| 腾讯移动分析（MTA |  TACCore   |  analytics|
+| 腾讯移动分析（MTA） |  TACCore   |  analytics|
 | 腾讯移动推送（信鸽）|  TACMessaging |  messaging  |
 | 腾讯崩溃服务（bugly）|  TACCrash   |  crash      |
 | 移动存储（Storage） |  TACStorage   |  storage   |
@@ -65,6 +65,8 @@ source "https://github.com/CocoaPods/Specs"
 ~~~
 
 如果您想集成我们的各种服务，那么您只需要在 Podfile 中添加对应的服务依赖即可：
+
+例如，您只想集成 analytics 服务
 
 ```
 pod 'TACCore'
@@ -231,16 +233,17 @@ Swift 代码示例：
 
 ### 启动服务
 
-MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务快速入门的【启动服务】部分：
+MobileLine iOS SDK 会自动帮您启动对应的服务，比如分析（Analytics）服务。有些服务比如Storage是按需启动，当您使用的时候，调用其接口即可。
 
-|功能|服务名称|入门指南|
-|:---|:---|:---|
-|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](https://cloud.tencent.com/document/product/666/14315)|
-|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](https://cloud.tencent.com/document/product/666/14350)|
-|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14311)|
-|腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14614)|
-|移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14351)|
-|授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14333)|
+| 功能 | 启动方式 | 服务名称 |
+|:----|:-----------|:-----------|
+| 腾讯移动分析（MTA） |  默认启动   |  analytics|
+| 腾讯移动推送（信鸽）|  默认启动 |  messaging  |
+| 腾讯崩溃服务（bugly）|  默认启动   |  crash      |
+| 移动存储（Storage） | 按需使用   |  storage   |
+| 授权（Authorization）|  按需使用   |  social  |
+| 腾讯计费（米大师）|  按需使用   |  payment  |
+
 
 
 ## 后续步骤

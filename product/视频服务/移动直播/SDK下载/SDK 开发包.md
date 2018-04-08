@@ -371,7 +371,7 @@ RoomService 是 [LiveRoom](https://cloud.tencent.com/document/product/454/14606)
     <th width="80px">下载链接</th>
   </tr>
   <tr align="center">
-    <td>小程序</td>
+    <td>Node.js</td>
     <td>1.1.0</td>
     <td>LiveRoom 和 RTCRoom 的后台源码，可用于自行部署</a></td>
     <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Server") href="http://dldir1.qq.com/hudongzhibo/mlvb/RoomService.zip">DOWNLOAD</a></td>

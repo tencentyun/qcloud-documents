@@ -4,10 +4,10 @@ Analytics 默认会统计所有的页面访问，你不需要另外配置，如�
 
 ```
 // 页面访问开始
-TACAnalyticsService.getInstance().trackPageAppear(context, pageName);
+void TACAnalyticsService.getInstance().trackPageAppear(Context context, String pageName);
 
 // 页面访问结束
-TACAnalyticsService.getInstance().trackPageDisappear(context, pageName);
+void TACAnalyticsService.getInstance().trackPageDisappear(Context context, String pageName);
 ```
 
 ## 上报自定义事件
@@ -17,22 +17,22 @@ TACAnalyticsService.getInstance().trackPageDisappear(context, pageName);
 上报单次事件，可以调用：
 
 ```
-TACAnalyticsService.getInstance().trackEvent(context, TACAnalyticsEvent);
-
+void TACAnalyticsService.getInstance().trackEvent(Context context, TACAnalyticsEvent event);
 ```
 
 上报持续事件，可以调用：
 
 ```
 // 事件开始
-TACAnalyticsService.getInstance().trackEventDurationBegin(context, TACAnalyticsEvent);
+void TACAnalyticsService.getInstance().trackEventDurationBegin(Context context, TACAnalyticsEvent event);
 
 // 事件结束
-TACAnalyticsService.getInstance().trackEventDurationEnd(context, TACAnalyticsEvent);
+void TACAnalyticsService.getInstance().trackEventDurationEnd(Context context, TACAnalyticsEvent event);
 
 // 指定时间时长
-TACAnalyticsService.getInstance().trackEventDuration(context, TACAnalyticsEvent, duration);
+void TACAnalyticsService.getInstance().trackEventDuration(Context context, TACAnalyticsEvent event, long duration);
 ```
+> 上报的事件均必须先在控制台上进行配置，否则无法正确上报。
 
 ## 会话统计
 
