@@ -1,14 +1,17 @@
-## 1. ImSDK集成
+## ImSDK 集成
 
-本节主要介绍如何创建一个应用，并集成ImSDK。**【使用互动直播业务的开发者，请集成ImSDKv2版本】**。
+本节主要介绍如何创建一个应用，并集成 ImSDK。
 
-### 1.1 支持版本
+> **注意：**
+> 使用互动直播业务的开发者，请集成 ImSDKv2 版本。
 
-ImSDK.framework 支持iOS 7.0 及以上系统。
+### 支持版本
 
-### 1.2 下载ImSDK
+`ImSDK.framework` 支持 iOS 7.0 及以上系统。
 
-从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载ImSDK开发包，主要包括：ImSDK.framework、IMMessageExt.framework、IMGroupExt.framework、IMFriendshipExt.framework、TLSSDK.framework、QALSDK.framework。各个包的说明如下：
+### 下载 ImSDK
+
+从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 ImSDK 开发包，主要包括：`ImSDK.framework`、`IMMessageExt.framework`、`IMGroupExt.framework`、`IMFriendshipExt.framework`、`TLSSDK.framework`、`QALSDK.framework`。各个包的说明如下：
 
 必选SDK：**必须是一个版本成套使用，不同版本不可混用**
 
