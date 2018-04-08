@@ -749,7 +749,7 @@ TIMManager.getInstance().setOfflinePushToken(param);
 如果使用需要混淆打包应用，为了防止小米离线推送功能异常，需要添加以下混淆规则，仅供参考。**示例：**
 
 ```
-#这里com.tencent.imsdk.MiPushMessageReceiver改成app中定义的完整类名
+#这里 com.tencent.imsdk.MiPushMessageReceiver 改成 App 中定义的完整类名
 -keep com.tencent.imsdk.MiPushMessageReceiver {*;}
 #可以防止一个误报的 warning 导致无法成功编译，如果编译使用的 Android 版本是 23。
 -dontwarn com.xiaomi.push.**
