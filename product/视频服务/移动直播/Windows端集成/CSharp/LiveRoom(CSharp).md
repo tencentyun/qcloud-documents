@@ -10,65 +10,65 @@
 
 ## LiveRoom
 
-| 名称                                                         | 描述                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| instance()                                                   | 获取LiveRoom单例，通过单例调用LiveRoom的接口                 |
-| setCallback(ILiveRoomCallback callback)                      | 设置回调 LiveRoom 的回调代理，监听 LiveRoom 的内部状态和接口的执行结果 |
+| 名称                                       | 描述                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| instance()                               | 获取LiveRoom单例，通过单例调用LiveRoom的接口           |
+| setCallback(ILiveRoomCallback callback)  | 设置回调 LiveRoom 的回调代理，监听 LiveRoom 的内部状态和接口的执行结果 |
 | login(string serverDomain, LiveAuthData authData, ILoginLiveCallback callback) | 登录业务服务器RoomService，登录后才能够正常使用其他接口和使用IM功能 |
-| logout()                                                     | 登出业务服务器RoomService，请注意在leaveRoom调用后，再调用logout，否则leaveRoom会调用失败 |
-| getRoomList(int index, int cnt, IGetLiveRoomListCallback callback) | 获取房间列表，房间数量比较多时，可以分页获取                 |
-| getAudienceList(string roomID)                               | 获取观众列表，只返回最近进入房间的 30 位观众                 |
-| createRoom(string roomID, string roomInfo)                   | 创建房间，后台的房间列表中会添加一个新房间，同时主播端会进入推流模式 |
-| enterRoom(string roomID, IntPtr rendHwnd, Rectangle rect)    | 进入房间                                                     |
-| leaveRoom()                                                  | 离开房间，如果是大主播，这个房间会被后台销毁，如果是小主播或者观众，不影响其他人继续观看 |
-| sendRoomTextMsg(string msg)                                  | 发送普通文本消息，比如直播场景中，发送弹幕                   |
-| sendRoomCustomMsg(string cmd, string msg)                    | 发送自定义消息，比如直播场景中，发送点赞、送花等消息         |
-| startLocalPreview(IntPtr rendHwnd, Rectangle rect)           | 启动默认的摄像头预览                                         |
-| updateLocalPreview(IntPtr rendHwnd, Rectangle rect)          | 重设摄像头预览区域，当您指定的本地 HWND 的窗口尺寸发生变化时，可以通过这个函数重新调整视频渲染区域 |
-| stopLocalPreview()                                           | 关闭摄像头预览                                               |
-| startScreenPreview(IntPtr rendHwnd, IntPtr captureHwnd, Rectangle renderRect, Rectangle captureRect) | 启动屏幕分享                                                 |
-| stopScreenPreview()                                          | 关闭屏幕分享                                                 |
-| addRemoteView(IntPtr rendHwnd, Rectangle rect, string userID) | 播放房间内其他主播的视频                                     |
+| logout()                                 | 登出业务服务器RoomService，请注意在leaveRoom调用后，再调用logout，否则leaveRoom会调用失败 |
+| getRoomList(int index, int cnt, IGetLiveRoomListCallback callback) | 获取房间列表，房间数量比较多时，可以分页获取                   |
+| getAudienceList(string roomID)           | 获取观众列表，只返回最近进入房间的 30 位观众                 |
+| createRoom(string roomID, string roomInfo) | 创建房间，后台的房间列表中会添加一个新房间，同时主播端会进入推流模式       |
+| enterRoom(string roomID, IntPtr rendHwnd, Rectangle rect) | 进入房间                                     |
+| leaveRoom()                              | 离开房间，如果是大主播，这个房间会被后台销毁，如果是小主播或者观众，不影响其他人继续观看 |
+| sendRoomTextMsg(string msg)              | 发送普通文本消息，比如直播场景中，发送弹幕                    |
+| sendRoomCustomMsg(string cmd, string msg) | 发送自定义消息，比如直播场景中，发送点赞、送花等消息               |
+| startLocalPreview(IntPtr rendHwnd, Rectangle rect) | 启动默认的摄像头预览                               |
+| updateLocalPreview(IntPtr rendHwnd, Rectangle rect) | 重设摄像头预览区域，当您指定的本地 HWND 的窗口尺寸发生变化时，可以通过这个函数重新调整视频渲染区域 |
+| stopLocalPreview()                       | 关闭摄像头预览                                  |
+| startScreenPreview(IntPtr rendHwnd, IntPtr captureHwnd, Rectangle renderRect, Rectangle captureRect) | 启动屏幕分享                                   |
+| stopScreenPreview()                      | 关闭屏幕分享                                   |
+| addRemoteView(IntPtr rendHwnd, Rectangle rect, string userID) | 播放房间内其他主播的视频                             |
 | updateRemotePreview(IntPtr rendHwnd, Rectangle rect, string userID) | 重设指定userID的视频预览区域，当您指定的本地 HWND 的窗口尺寸发生变化时，可以通过这个函数重新调整视频渲染区域 |
-| removeRemoteView(string userID)                              | 停止播放其他主播的视频                                       |
-| setMute(bool mute)                                           | 静音接口                                                     |
-| setVideoQuality(LiveVideoQuality quality, LiveAspectRatio ratio) | 设置画面质量预设选项                                         |
-| setBeautyStyle(LiveBeautyStyle beautyStyle, int beautyLevel, int whitenessLevel) | 设置美颜和美白效果                                           |
-| requestJoinPusher()                                          | 观众端发起请求连麦                                           |
-| acceptJoinPusher(string userID)                              | 大主播接受连麦请求，并通知给连麦发起方                       |
-| rejectJoinPusher(string userID, string reason)               | 大主播拒绝连麦请求，并通知给连麦发起方                       |
-| kickoutSubPusher(string userID)                              | 大主播踢掉某一个小主播                                       |
+| removeRemoteView(string userID)          | 停止播放其他主播的视频                              |
+| setMute(bool mute)                       | 静音接口                                     |
+| setVideoQuality(LiveVideoQuality quality, LiveAspectRatio ratio) | 设置画面质量预设选项                               |
+| setBeautyStyle(LiveBeautyStyle beautyStyle, int beautyLevel, int whitenessLevel) | 设置美颜和美白效果                                |
+| requestJoinPusher()                      | 观众端发起请求连麦                                |
+| acceptJoinPusher(string userID)          | 大主播接受连麦请求，并通知给连麦发起方                      |
+| rejectJoinPusher(string userID, string reason) | 大主播拒绝连麦请求，并通知给连麦发起方                      |
+| kickoutSubPusher(string userID)          | 大主播踢掉某一个小主播                              |
 
 ## ILoginLiveCallback
 
-| 名称                                           | 描述                |
-| ---------------------------------------------- | ------------------- |
+| 名称                                       | 描述           |
+| ---------------------------------------- | ------------ |
 | onLogin(LiveResult res, LiveAuthData authData) | login登录结果的回调 |
 
 ## IGetLiveRoomListCallback
 
-| 名称                                                    | 描述               |
-| ------------------------------------------------------- | ------------------ |
+| 名称                                       | 描述        |
+| ---------------------------------------- | --------- |
 | onGetRoomList(LiveResult res, List<LiveRoomData> rooms) | 获取房间列表的回调 |
 
 ## ILiveRoomCallback
 
-| 名称                                                         | 描述                       |
-| ------------------------------------------------------------ | -------------------------- |
-| onCreateRoom(LiveResult res, string roomID)                  | 创建房间的回调             |
-| onEnterRoom(LiveResult res)                                  | 进入房间的回调             |
-| onUpdateRoomData(LiveResult res, LiveRoomData roomData)      | 房间信息变更的回调         |
+| 名称                                       | 描述                |
+| ---------------------------------------- | ----------------- |
+| onCreateRoom(LiveResult res, string roomID) | 创建房间的回调           |
+| onEnterRoom(LiveResult res)              | 进入房间的回调           |
+| onUpdateRoomData(LiveResult res, LiveRoomData roomData) | 房间信息变更的回调         |
 | void onGetAudienceList(LiveResult res, List<LiveAudienceData> audiences) | 查询观众列表的回调         |
-| onPusherJoin(LiveMemberData member)                          | 连麦观众进入房间的回调     |
-| void onPusherQuit(LiveMemberData member)                     | 连麦观众退出房间的回调     |
-| onRoomClosed(string roomID)                                  | 房间解散的回调             |
-| onRecvRoomTextMsg(string roomID, string userID, string userName, string userAvatar, string msg) | 收到普通文本消息           |
-| onRecvRoomCustomMsg(string roomID, string userID, string userName, string userAvatar, string cmd, string message) | 收到自定义消息             |
-| onError(LiveResult res, string userID)                       | LiveRoom内部发生错误的通知 |
-| onRecvJoinPusherRequest(string roomID, string userID, string userName, string userAvatar) | 接收到连麦请求             |
-| onRecvAcceptJoinPusher(string roomID, string msg)            | 接收到接受连麦请求的回复   |
-| onRecvRejectJoinPusher(string roomID, string msg)            | 接收到拒绝连麦请求的回复   |
-| onRecvKickoutSubPusher(string roomID)                        | 接收大主播踢小主播的通知   |
+| onPusherJoin(LiveMemberData member)      | 连麦观众进入房间的回调       |
+| void onPusherQuit(LiveMemberData member) | 连麦观众退出房间的回调       |
+| onRoomClosed(string roomID)              | 房间解散的回调           |
+| onRecvRoomTextMsg(string roomID, string userID, string userName, string userAvatar, string msg) | 收到普通文本消息          |
+| onRecvRoomCustomMsg(string roomID, string userID, string userName, string userAvatar, string cmd, string message) | 收到自定义消息           |
+| onError(LiveResult res, string userID)   | LiveRoom内部发生错误的通知 |
+| onRecvJoinPusherRequest(string roomID, string userID, string userName, string userAvatar) | 接收到连麦请求           |
+| onRecvAcceptJoinPusher(string roomID, string msg) | 接收到接受连麦请求的回复      |
+| onRecvRejectJoinPusher(string roomID, string msg) | 接收到拒绝连麦请求的回复      |
+| onRecvKickoutSubPusher(string roomID)    | 接收大主播踢小主播的通知      |
 
 ## LiveRoom对象接口的详情
 
@@ -93,8 +93,8 @@
 
 - 参数：
 
-| 参数     | 类型              | 描述                             |
-| -------- | ----------------- | -------------------------------- |
+| 参数       | 类型                | 描述                        |
+| -------- | ----------------- | ------------------------- |
 | callback | ILiveRoomCallback | ILiveRoomCallback 类型的代理接口 |
 
 - 示例：
@@ -108,20 +108,20 @@
       }
       
       void ILiveRoomCallback.onCreateRoom(LiveResult res, string roomID)
-	    {
-	    
-	    }
-	  
+      {
+      
+      }
+    
       void ILiveRoomCallback.onEnterRoom(LiveResult res)
-	    {
-	  
-	    }
-	  
+      {
+    
+      }
+    
       void ILiveRoomCallback.onUpdateRoomData(LiveResult res, LiveRoomData roomData)
-	    {
-	  
-	    }
-	  
+      {
+    
+      }
+    
       ...
   }
   ```
@@ -136,11 +136,11 @@
 
 - 参数：
 
-| 参数         | 类型               | 描述                                                         |
-| ------------ | ------------------ | ------------------------------------------------------------ |
+| 参数           | 类型                 | 描述                                       |
+| ------------ | ------------------ | ---------------------------------------- |
 | serverDomain | string             | RoomService的URL地址，安全起见，建议访问https加密链接， 参考 [DOC](https://cloud.tencent.com/document/product/454/14606#ClientFLOW) |
 | authData     | LiveAuthData       | RoomService提供的登录信息，包括IM相关的配置字段，在login成功后，获取到token字段，参考 [DOC](https://cloud.tencent.com/document/product/454/14606#ClientFLOW) |
-| callback     | ILoginLiveCallback | ILoginLiveCallback 类型的代理接口，回调login的结果           |
+| callback     | ILoginLiveCallback | ILoginLiveCallback 类型的代理接口，回调login的结果    |
 
 - 示例：
 
@@ -179,11 +179,11 @@
 
 - 参数：
 
-| 参数     | 类型                     | 描述                                                         |
-| -------- | ------------------------ | ------------------------------------------------------------ |
+| 参数       | 类型                       | 描述                                       |
+| -------- | ------------------------ | ---------------------------------------- |
 | index    | int                      | 分页获取，初始默认可设置为0，后续获取为起始房间索引（如第一次设置index=0, cnt=5,获取第二页时可用index=5） |
-| count    | int                      | 每次调用，最多返回房间个数；0表示所有满足条件的房间          |
-| callback | IGetLiveRoomListCallback | IGetLiveRoomListCallback 类型的代理接口，查询结果的回调      |
+| count    | int                      | 每次调用，最多返回房间个数；0表示所有满足条件的房间               |
+| callback | IGetLiveRoomListCallback | IGetLiveRoomListCallback 类型的代理接口，查询结果的回调 |
 
 - 示例：
 
@@ -198,8 +198,8 @@
 - 说明：获取观众列表，只返回最近进入房间的 30 位观众
 - 参数：
 
-| 参数   | 类型   | 描述                                          |
-| ------ | ------ | --------------------------------------------- |
+| 参数     | 类型     | 描述                             |
+| ------ | ------ | ------------------------------ |
 | roomID | string | 房间ID，在 getRoomList 接口房间列表中查询得到 |
 
 - 示例：
@@ -216,8 +216,8 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数     | 类型   | 描述                                                         |
-| -------- | ------ | ------------------------------------------------------------ |
+| 参数       | 类型     | 描述                                       |
+| -------- | ------ | ---------------------------------------- |
 | roomID   | string | 房间ID，若传入空字符串，则后台会为您分配roomID，否则，传入的roomID作为这个房间的ID |
 | roomInfo | string | 自定义数据，该字段包含在房间信息中，推荐您将 roomInfo 定义为 json 格式，这样可以有很强的扩展性 |
 
@@ -236,11 +236,11 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数     | 类型      | 描述                                                         |
-| -------- | --------- | ------------------------------------------------------------ |
+| 参数       | 类型        | 描述                                       |
+| -------- | --------- | ---------------------------------------- |
 | roomID   | string    | roomID - 要进入的房间ID，在 getRoomList 接口房间列表中查询得到 |
-| rendHwnd | IntPtr    | 承载预览画面的 HWND                                          |
-| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域                             |
+| rendHwnd | IntPtr    | 承载预览画面的 HWND                             |
+| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域                      |
 
 - 示例：
 
@@ -270,8 +270,8 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数 | 类型         | 描述     |
-| ---- | ------------ | -------- |
+| 参数   | 类型     | 描述   |
+| ---- | ------ | ---- |
 | msg  | string | 文本消息 |
 
 - 示例：
@@ -288,10 +288,10 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数 | 类型         | 描述                           |
-| ---- | ------------ | ------------------------------ |
+| 参数   | 类型     | 描述                 |
+| ---- | ------ | ------------------ |
 | cmd  | string | 自定义cmd，收发双方协商好的cmd |
-| msg  | string | 自定义消息                     |
+| msg  | string | 自定义消息              |
 
 - 示例：
 
@@ -308,10 +308,10 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数     | 类型      | 描述                                                         |
-| -------- | --------- | ------------------------------------------------------------ |
+| 参数       | 类型        | 描述                                       |
+| -------- | --------- | ---------------------------------------- |
 | rendHwnd | IntPtr    | 承载预览画面的 HWND，目前 SDK 是采用 OpenGL 向 HWND 上绘制图像的,rendHwnd = null时无需预览视频 |
-| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域                             |
+| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域                      |
 
 - 示例：
 
@@ -329,10 +329,10 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数     | 类型      | 描述                                                         |
-| -------- | --------- | ------------------------------------------------------------ |
+| 参数       | 类型        | 描述                                       |
+| -------- | --------- | ---------------------------------------- |
 | rendHwnd | IntPtr    | 承载预览画面的 HWND，目前 SDK 是采用 OpenGL 向 HWND 上绘制图像的,rendHwnd = null时无需预览视频 |
-| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域                             |
+| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域                      |
 
 - 示例：
 
@@ -362,12 +362,12 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数        | 类型      | 描述                                                         |
-| ----------- | --------- | ------------------------------------------------------------ |
+| 参数          | 类型        | 描述                                       |
+| ----------- | --------- | ---------------------------------------- |
 | rendHwnd    | IntPtr    | 承载预览画面的 HWND，目前 SDK 是采用 OpenGL 向 HWND 上绘制图像的,rendHwnd = null时无需预览视频 |
 | captureHwnd | IntPtr    | 指定录取窗口，若为null，则 captureRect 不起效，并且录取整个屏幕；若不为null，则录取这个窗口的画面 |
-| renderRect  | Rectangle | 指定视频图像在 rendHwnd 上的渲染区域                         |
-| captureRect | Rectangle | 指定录取窗口客户区的区域                                     |
+| renderRect  | Rectangle | 指定视频图像在 rendHwnd 上的渲染区域                  |
+| captureRect | Rectangle | 指定录取窗口客户区的区域                             |
 
 - 返回值：成功 or 失败
 
@@ -403,11 +403,11 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数     | 类型         | 描述                             |
-| -------- | ------------ | -------------------------------- |
-| rendHwnd | IntPtr       | 承载预览画面的 HWND              |
-| rect     | Rectangle    | 指定视频图像在 HWND 上的渲染区域 |
-| userID   | string | 用户ID                           |
+| 参数       | 类型        | 描述                  |
+| -------- | --------- | ------------------- |
+| rendHwnd | IntPtr    | 承载预览画面的 HWND        |
+| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域 |
+| userID   | string    | 用户ID                |
 
 - 示例：
 
@@ -425,11 +425,11 @@ m_liveRoom.getRoomList(roomID);
 - 说明：重设指定userID的视频预览区域，当您指定的本地 HWND 的窗口尺寸发生变化时，可以通过这个函数重新调整视频渲染区域
 - 参数：
 
-| 参数     | 类型         | 描述                             |
-| -------- | ------------ | -------------------------------- |
-| rendHwnd | IntPtr       | 承载预览画面的 HWND              |
-| rect     | Rectangle    | 指定视频图像在 HWND 上的渲染区域 |
-| userID   | string | 用户ID                           |
+| 参数       | 类型        | 描述                  |
+| -------- | --------- | ------------------- |
+| rendHwnd | IntPtr    | 承载预览画面的 HWND        |
+| rect     | Rectangle | 指定视频图像在 HWND 上的渲染区域 |
+| userID   | string    | 用户ID                |
 
 - 示例：
 
@@ -449,8 +449,8 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数   | 类型         | 描述   |
-| ------ | ------------ | ------ |
+| 参数     | 类型     | 描述   |
+| ------ | ------ | ---- |
 | userID | string | 用户ID |
 
 - 示例：
@@ -467,8 +467,8 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数 | 类型 | 描述     |
-| ---- | ---- | -------- |
+| 参数   | 类型   | 描述   |
+| ---- | ---- | ---- |
 | mute | bool | 是否静音 |
 
 - 示例：
@@ -485,9 +485,9 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数    | 类型           | 描述                                                      |
-| ------- | -------------- | --------------------------------------------------------- |
-| quality | LiveVideoQuality | 画质，参考 LiveRoomUtil.h 中定义的 LiveVideoQuality 枚举值  |
+| 参数      | 类型               | 描述                                       |
+| ------- | ---------------- | ---------------------------------------- |
+| quality | LiveVideoQuality | 画质，参考 LiveRoomUtil.h 中定义的 LiveVideoQuality 枚举值 |
 | ratio   | LiveAspectRatio  | 宽高比，参考 LiveRoomUtil.h 中定义的 LiveAspectRatio 枚举值 |
 
 - 示例：
@@ -505,11 +505,11 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数           | 类型           | 描述                                                         |
-| -------------- | -------------- | ------------------------------------------------------------ |
-| beautyStyle    | TXEBeautyStyle | 参考 LiveRoomUtil.h 中定义的 LiveBeautyStyle 枚举值            |
-| beautyLevel    | int            | 美颜级别取值范围 1 ~ 9； 0 表示关闭，1 ~ 9值越大，效果越明显 |
-| whitenessLevel | int            | 美白级别取值范围 1 ~ 9； 0 表示关闭，1 ~ 9值越大，效果越明显 |
+| 参数             | 类型             | 描述                                       |
+| -------------- | -------------- | ---------------------------------------- |
+| beautyStyle    | TXEBeautyStyle | 参考 LiveRoomUtil.h 中定义的 LiveBeautyStyle 枚举值 |
+| beautyLevel    | int            | 美颜级别取值范围 1 ~ 9； 0 表示关闭，1 ~ 9值越大，效果越明显    |
+| whitenessLevel | int            | 美白级别取值范围 1 ~ 9； 0 表示关闭，1 ~ 9值越大，效果越明显    |
 
 - 示例：
 
@@ -538,8 +538,8 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数   | 类型   | 描述   |
-| ------ | ------ | ------ |
+| 参数     | 类型     | 描述   |
+| ------ | ------ | ---- |
 | userID | string | 用户ID |
 
 - 示例：
@@ -556,9 +556,9 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数   | 类型   | 描述       |
-| ------ | ------ | ---------- |
-| userID | string | 用户ID     |
+| 参数     | 类型     | 描述    |
+| ------ | ------ | ----- |
+| userID | string | 用户ID  |
 | reason | string | 拒绝的原因 |
 
 - 示例：
@@ -575,8 +575,8 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数   | 类型   | 描述   |
-| ------ | ------ | ------ |
+| 参数     | 类型     | 描述   |
+| ------ | ------ | ---- |
 | userID | string | 用户ID |
 
 - 示例：
@@ -597,10 +597,10 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数     | 类型            | 描述                                                         |
-| -------- | --------------- | ------------------------------------------------------------ |
-| res      | LiveResult | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类       |
-| authData | LiveAuthData    | RoomService提供的登录信息，包括IM相关的配置字段，在login成功后，获取到token字段 |
+| 参数       | 类型           | 描述                                       |
+| -------- | ------------ | ---------------------------------------- |
+| res      | LiveResult   | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
+| authData | LiveAuthData | RoomService提供的登录信息，包括IM相关的配置字段，在login成功后，获取到token字段 |
 
 - 示例：
 
@@ -636,15 +636,15 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数  | 类型                           | 描述                                                   |
-| ----- | ------------------------------ | ------------------------------------------------------ |
-| res   | LiveResult                | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
-| rooms | List<LiveRoomData> | 房间信息的列表                                         |
+| 参数    | 类型                 | 描述                                       |
+| ----- | ------------------ | ---------------------------------------- |
+| res   | LiveResult         | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
+| rooms | List<LiveRoomData> | 房间信息的列表                                  |
 
 - 示例：
 
   ```c#
-  class RoomListDialog : IGetRoomListCallback
+  class RoomListDialog : IGetLiveRoomListCallback
   {
   	void IGetRoomListCallback.onGetRoomList(LiveResult res, List<LiveRoomData> rooms)
       {
@@ -677,10 +677,10 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数   | 类型            | 描述                                                   |
-| ------ | --------------- | ------------------------------------------------------ |
+| 参数     | 类型         | 描述                                       |
+| ------ | ---------- | ---------------------------------------- |
 | res    | LiveResult | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
-| roomID | string          | 房间ID                                                 |
+| roomID | string     | 房间ID                                     |
 
 - 示例：
 
@@ -712,8 +712,8 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数 | 类型            | 描述                                                   |
-| ---- | --------------- | ------------------------------------------------------ |
+| 参数   | 类型         | 描述                                       |
+| ---- | ---------- | ---------------------------------------- |
 | res  | LiveResult | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
 
 - 示例：
@@ -745,9 +745,9 @@ m_liveRoom.getRoomList(roomID);
 
 - 参数：
 
-| 参数     | 类型              | 描述                                                     |
-| -------- | ----------------- | -------------------------------------------------------- |
-| res      | LiveResult   | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类   |
+| 参数       | 类型           | 描述                                       |
+| -------- | ------------ | ---------------------------------------- |
+| res      | LiveResult   | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
 | roomData | LiveRoomData | 房间信息，参考 LiveRoomUtil.h 中定义的 LiveRoomData 类 |
 
 - 示例：
@@ -777,10 +777,10 @@ m_liveRoom.getRoomList(roomID);
 - 说明：查询观众列表的回调
 - 参数：
 
-| 参数      | 类型                               | 描述                                                   |
-| --------- | ---------------------------------- | ------------------------------------------------------ |
-| res       | LiveResult                    | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
-| audiences | List<LiveAudienceData> | 观众信息的列表                                         |
+| 参数        | 类型                     | 描述                                       |
+| --------- | ---------------------- | ---------------------------------------- |
+| res       | LiveResult             | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
+| audiences | List<LiveAudienceData> | 观众信息的列表                                  |
 
 - 示例：
 
@@ -811,8 +811,8 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数   | 类型                | 描述                                                       |
-| ------ | ------------------- | ---------------------------------------------------------- |
+| 参数     | 类型             | 描述                                       |
+| ------ | -------------- | ---------------------------------------- |
 | member | LiveMemberData | 成员信息，参考 LiveRoomUtil.h 中定义的 LiveMemberData 类 |
 
 - 示例：
@@ -839,8 +839,8 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数   | 类型                | 描述                                                       |
-| ------ | ------------------- | ---------------------------------------------------------- |
+| 参数     | 类型             | 描述                                       |
+| ------ | -------------- | ---------------------------------------- |
 | member | LiveMemberData | 成员信息，参考 LiveRoomUtil.h 中定义的 LiveMemberData 类 |
 
 - 示例：
@@ -867,8 +867,8 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数   | 类型   | 描述   |
-| ------ | ------ | ------ |
+| 参数     | 类型     | 描述   |
+| ------ | ------ | ---- |
 | roomID | string | 房间ID |
 
 - 示例：
@@ -894,12 +894,12 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数       | 类型         | 描述         |
-| ---------- | ------------ | ------------ |
-| roomID     | string | 房间ID       |
-| userID     | string | 发送者ID     |
-| userName   | string | 发送者昵称   |
-| userAvatar | string | 发送者头像   |
+| 参数         | 类型     | 描述     |
+| ---------- | ------ | ------ |
+| roomID     | string | 房间ID   |
+| userID     | string | 发送者ID  |
+| userName   | string | 发送者昵称  |
+| userAvatar | string | 发送者头像  |
 | message    | string | 文本消息内容 |
 
 - 示例：
@@ -924,13 +924,13 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数       | 类型         | 描述           |
-| ---------- | ------------ | -------------- |
-| roomID     | string | 房间ID         |
-| userID     | string | 发送者ID       |
-| userName   | string | 发送者昵称     |
-| userAvatar | string | 发送者头像     |
-| cmd        | string | 自定义cmd      |
+| 参数         | 类型     | 描述      |
+| ---------- | ------ | ------- |
+| roomID     | string | 房间ID    |
+| userID     | string | 发送者ID   |
+| userName   | string | 发送者昵称   |
+| userAvatar | string | 发送者头像   |
+| cmd        | string | 自定义cmd  |
 | message    | string | 自定义消息内容 |
 
 - 示例：
@@ -955,10 +955,10 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数   | 类型            | 描述                                                   |
-| ------ | --------------- | ------------------------------------------------------ |
+| 参数     | 类型         | 描述                                       |
+| ------ | ---------- | ---------------------------------------- |
 | res    | LiveResult | 执行结果，参考 LiveRoomUtil.h 中定义的 LiveResult 类 |
-| userID | string          | 用户ID                                                 |
+| userID | string     | 用户ID                                     |
 
 - 示例：
 
@@ -982,10 +982,10 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数       | 类型   | 描述       |
-| ---------- | ------ | ---------- |
-| roomID     | string | 房间ID     |
-| userID     | string | 发送者ID   |
+| 参数         | 类型     | 描述    |
+| ---------- | ------ | ----- |
+| roomID     | string | 房间ID  |
+| userID     | string | 发送者ID |
 | userName   | string | 发送者昵称 |
 | userAvatar | string | 发送者头像 |
 
@@ -1014,8 +1014,8 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数   | 类型   | 描述   |
-| ------ | ------ | ------ |
+| 参数     | 类型     | 描述   |
+| ------ | ------ | ---- |
 | roomID | string | 房间ID |
 | msg    | string | 消息   |
 
@@ -1045,8 +1045,8 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数   | 类型   | 描述   |
-| ------ | ------ | ------ |
+| 参数     | 类型     | 描述   |
+| ------ | ------ | ---- |
 | roomID | string | 房间ID |
 | msg    | string | 消息   |
 
@@ -1076,8 +1076,8 @@ class MainDialog : ILiveRoomCallback
 
 - 参数：
 
-| 参数   | 类型   | 描述   |
-| ------ | ------ | ------ |
+| 参数     | 类型     | 描述   |
+| ------ | ------ | ---- |
 | roomID | string | 房间ID |
 
 - 示例：

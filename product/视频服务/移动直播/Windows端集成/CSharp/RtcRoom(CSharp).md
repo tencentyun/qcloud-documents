@@ -1,4 +1,4 @@
-# 实时音视频（RTCRoom ）接口（C++）
+# 实时音视频（RTCRoom ）接口（CSharp）
 
 ## RTCRoom
 
@@ -461,7 +461,7 @@
           	// 登录成功，保存authData信息
           }
       }
-  };
+  }
 
   // 参见RTCRoom.login接口，了解回调的使用
   ...
@@ -487,7 +487,7 @@
 - 示例：
 
   ```c#
-  class RoomListDialog : IGetRoomListCallback
+  class RoomListDialog : IGetRTCRoomListCallback
   {
   	void onGetRoomList(RTCResult res, List<RTCRoomData> rooms)
       {
@@ -500,7 +500,7 @@
           	// 查询成功，处理rooms数据
           }
       }
-  };
+  }
 
   // 参见RTCRoom.getRoomList接口，了解回调的使用
   ...
@@ -544,7 +544,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 2. onEnterRoom
@@ -577,7 +577,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 3. onUpdateRoomData
@@ -611,7 +611,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 4. onPusherJoin
@@ -642,7 +642,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 5. onPusherQuit
@@ -674,7 +674,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 6. onRoomClosed
@@ -701,7 +701,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 7. onRecvRoomTextMsg
@@ -731,7 +731,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 8. onRecvRoomCustomMsg
@@ -762,7 +762,7 @@
       }
       
       ...
-  };
+  }
   ```
 
 ### 9. onError
@@ -789,5 +789,5 @@
       }
       
       ...
-  };
+  }
   ```
