@@ -44,8 +44,8 @@
 | onCreateRoom(const RTCResult& res, const std::string& roomID) | 创建房间的回调            |
 | onEnterRoom(const RTCResult& res)                            | 进入房间的回调            |
 | onUpdateRoomData(const RTCResult& res, const RTCRoomData& roomData) | 房间信息变更的回调        |
-| onPusherJoin(const RTCMemberData& member)                    | 连麦观众进入房间的回调    |
-| void onPusherQuit(const RTCMemberData& member)               | 连麦观众退出房间的回调    |
+| onPusherJoin(const RTCMemberData& member)                    | 成员进入房间的回调    |
+| void onPusherQuit(const RTCMemberData& member)               | 成员退出房间的回调    |
 | onRoomClosed(const std::string& roomID)                      | 房间解散的回调            |
 | onRecvRoomTextMsg(const char * roomID, const char * userID, const char * userName, const char * userAvatar, const char * msg) | 收到普通文本消息          |
 | onRecvRoomCustomMsg(const char * roomID, const char * userID, const char * userName, const char * userAvatar, const char * cmd, const char * message) | 收到自定义消息            |
@@ -81,7 +81,7 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
       MainDialog();
@@ -476,7 +476,7 @@
   public:
   	virtual void onLogin(const RTCResult& res, const RTCAuthData& authData)
       {
-      	if (LIVEROOM_SUCCESS != res.ec)
+      	if (RTCROOM_SUCCESS != res.ec)
           {
           	// 登录失败
           }
@@ -516,7 +516,7 @@
   public:
   	virtual void onGetRoomList(const RTCResult& res, const std::vector<RTCRoomData>& rooms)
       {
-      	if (LIVEROOM_SUCCESS != res.ec)
+      	if (RTCROOM_SUCCESS != res.ec)
           {
           	// 查询失败
           }
@@ -553,18 +553,18 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onCreateRoom(const RTCResult& res, const std::string& roomID)
       {
-      	if (LIVEROOM_SUCCESS != res.ec)
+      	if (RTCROOM_SUCCESS != res.ec)
           {
           	// 创建房间失败，弹框提示
           }
           else
           {
-          	// 创建房间成功，其他观众可以观看直播
+          	// 创建房间成功，其他观众可以参与会议
           	// 紧接着处理onUpdateRoomData回调
           }
       }
@@ -588,12 +588,12 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onEnterRoom(const RTCResult& res)
       {
-      	if (LIVEROOM_SUCCESS != res.ec)
+      	if (RTCROOM_SUCCESS != res.ec)
           {
           	// 进入房间失败，弹框提示
           }
@@ -623,12 +623,12 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onUpdateRoomData(const RTCResult& res, const RTCRoomData& roomData)
       {
-      	if (LIVEROOM_SUCCESS != res.ec)
+      	if (RTCROOM_SUCCESS != res.ec)
           {
           	// 更新失败，弹框提示
           }
@@ -646,7 +646,7 @@
 
 - 定义：virtual void onPusherJoin(const RTCMemberData& member)
 
-- 说明：连麦观众进入房间的回调
+- 说明：成员进入房间的回调
 
 - 参数：
 
@@ -657,12 +657,12 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onPusherJoin(const RTCMemberData& member)
       {
-      	// 通常连麦观众请求连麦，打开连麦观众的画面和音频
+      	// 成员进入房间，打开成员的画面和音频
       	m_RTCRoom->addRemoteView(rendHwnd, rect, member.userID);
       	...
       }
@@ -675,7 +675,7 @@
 
 - 定义：virtual void onPusherQuit(const RTCMemberData& member)
 
-- 说明：连麦观众退出房间的回调
+- 说明：成员退出房间的回调
 
 - 参数：
 
@@ -686,12 +686,12 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onPusherQuit(const RTCMemberData& member)
       {
-      	// 通常连麦观众关闭连麦，关闭连麦观众的画面和音频
+      	// 成员退出房间，关闭成员的画面和音频
       	m_RTCRoom->removeRemoteView(member.userID);
       	...
       }
@@ -715,7 +715,7 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onRoomClosed(const std::string& roomID)
@@ -747,7 +747,7 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onRecvRoomTextMsg(const char * roomID, const char * userID, const char * userName, const char * userAvatar, const char * msg)
@@ -779,7 +779,7 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onRecvRoomCustomMsg(const char * roomID, const char * userID, const char * userName, const char * userAvatar, const char * cmd, const char * message)
@@ -807,12 +807,12 @@
 - 示例：
 
   ```c++
-  class MainDialog : public ILiveRoomCallback
+  class MainDialog : public IRTCRoomCallback
   {
   public:
   	virtual void onError(const RTCResult& res, const std::string& userID)
       {
-      	// 弹框提示错误，根据错误严重程序，是否关闭直播
+      	// 弹框提示错误，根据错误严重程序，是否解散或者退出会议
       }
       
       ...
