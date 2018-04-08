@@ -66,7 +66,7 @@ http://aai.qcloud.com/asr/v1/<appid>
 {
 "projectid":0,
 "sub_service_type":0,
-"engine_model_type":16k_0,
+"engine_model_type":"16k_0",
 "url":"http://test.qq.com/rec_callback",
 "res_text_format":0,
 "res_type":1,
