@@ -28,8 +28,8 @@
 
 | 参数名称   | 必选 | 类型            | 描述                                       |
 | ------ | ---- | ------------- | ---------------------------------------- |
-| app_id | 是   | string        | 优图开放平台申请的 AppId                          |
-| image  | 否   | string(Bytes) | 使用 base64 编码的二进制图片数据                     |
+| appid | 是   | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                          |
+| image  | 否   | string(bytes) | 使用 base64 编码的二进制图片数据                     |
 | url    | 否  | string        | 图片 url 地址，url 与 image 两者填一个即可。同时赋值时，则以 url 指定的图像作为输入 |
 
 
@@ -54,7 +54,7 @@ words说明
 | 字段         | 类型     | 说明                             |
 | ---------- | ------ | ------------------------------ |
 | character  | string | 识别出的单字字符                       |
-| confidence | float  | 识别出的单字字符对应的置信度，取值范围[0.0,100.0] |
+| confidence | float  | 识别出的单字字符对应的置信度，取值范围[0,100] |
 
 
 ## 实际示例
@@ -101,7 +101,7 @@ words说明
 | 401  | 权限验证失败               |
 | 403  | 鉴权信息不合法，禁止访问         |
 | 404  | 请求失败                 |
-| 411  | 请求没有指定 ContentLength |
+| 411  | 请求没有指定 content length |
 | 413  | 请求包体太大               |
 | 424  | 请求的方法没有找到            |
 | 500  | 服务内部错误               |
