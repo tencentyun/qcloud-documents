@@ -92,13 +92,13 @@ Page({
                 var text = e.detail.detail;
                 break;
             }
-						case 'jionPusher': {
+			case 'joinPusher': {
                 //收到来自观众的连麦请求
                 var audience = e.detail;
                 var name = audience.userName;
                 var id = audience.userID;
                 // 允许请求
-                liveroom.agreeJionPusher(true, audience)
+                liveroom.respondJoinReq(true, audience)
                 break;
             }
         }
@@ -264,54 +264,45 @@ liveroom.respondJoinReq(true, aduience);
 //第二步：编写 mytemplate.wxml 和 mytemplate.wxss 文件
 //mytemplate.wxml
 <template name='mytemplate'>
-    <view class='videoview'>
-        <view class="pusher-box">
-            <live-pusher
-                id="rtcpusher"
-                autopush
-                mode="RTC"
-                url="{{pushURL}}"
-                aspect="{{aspect}}"
-                min-bitrate="{{minBitrate}}"
-                max-bitrate="{{maxBitrate}}"
-                audio-quality="high"
-                beauty="{{beauty}}"
-                muted="{{muted}}"
-                waiting-image="https://mc.qcloudimg.com/static/img/
-								     daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg"
-                background-mute="{{true}}"
-                debug="{{debug}}"
-                bindstatechange="onPush"
-                binderror="onError">
-                <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image>
-                <cover-view class='character' style='padding: 0 5px;'>我</cover-view>
-            </live-pusher>
-        </view>
-        <view class="player-box" wx:for="{{members}}" wx:key="userID"> 
-            <view class='poster'>
-                <cover-image class='set'
-			       src="https://miniprogram-1252463788.file.myqcloud.com/roomset_{{index + 2}}.png">
-				</cover-image>
-            </view>
-            <live-player
-                id="{{item.userID}}"
-                autoplay
-                mode="RTC"
-                wx:if="{{item.accelerateURL}}"
-                object-fit="fillCrop"
-                min-cache="0.1"
-                max-cache="0.3"
-                src="{{item.accelerateURL}}"
-                debug="{{debug}}"
-                background-mute="{{true}}"
-                bindstatechange="onPlay">
+ <view class='inner-container'>
+        <live-pusher wx:if="{{isCaster&&mainPusherInfo.url}}" id="pusher" mode="RTC" enable-camera="{{true}}" url="{{mainPusherInfo.url}}" beauty="{{beauty}}" muted="{{muted}}" aspect="{{mainPusherInfo.aspect}}" waiting-image="https://mc.qcloudimg.com/static/img/daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg"
+            background-mute="{{true}}" debug="{{debug}}" bindstatechange="onMainPush" binderror="onMainError">
+            <!-- <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image> -->
+            <cover-view class='character' style='padding: 0 5px;'>我（{{userName}}）</cover-view>
+        </live-pusher>
+
+        <block wx:for="{{visualPlayers}}" wx:key="{{index}}">
+            <live-player wx:if="{{item.url}}" autoplay id="player" mode="{{item.mode}}" object-fit="fillCrop" src="{{item.url}}" debug="{{item.debug}}" background-mute="{{item.mute}}" bindstatechange="onMainPlayState" binderror="onMainPlayError">
                 <cover-view class='loading' wx:if="{{item.loading}}">
                     <cover-image src="/pages/Resources/loading_image0.png"></cover-image>
                 </cover-view>
-                <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image>
+                <!-- <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image> -->
                 <cover-view class='character' style='padding: 0 5px;'>{{item.userName}}</cover-view>
-            </live-player>  
-        </view> 
+            </live-player>
+        </block>
+    </view>
+
+    <view class='list-container'>
+        <view class='.list-item-box' wx:if="{{!isCaster && linkPusherInfo.url}}">
+            <live-pusher wx:if="{{!isCaster && linkPusherInfo.url}}" id="audience_pusher" mode="RTC" url="{{linkPusherInfo.url}}" beauty="{{beauty}}" muted="{{muted}}" 
+            aspect="{{linkPusherInfo.aspect ? linkPusherInfo.aspect : '3:4'}}" waiting-image="https://mc.qcloudimg.com/static/img/daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg"
+                background-mute="true" debug="{{debug}}" bindstatechange="onLinkPush" binderror="onLinkError">
+                <cover-image class='character' src="/pages/Resources/mask.png"></cover-image>
+                <cover-view class='character' style='padding: 0 5px;'>我（{{userName}}）</cover-view>
+                <cover-view class='close-ico' bindtap="quitLink">x</cover-view>
+            </live-pusher>
+        </view>
+
+        <view class='.list-item-box' wx:for="{{members}}" wx:key="{{item.userID}}">
+            <live-player id="{{item.userID}}" autoplay mode="RTC" object-fit="fillCrop" min-cache="0.1" max-cache="0.3" src="{{item.accelerateURL}}" debug="{{debug}}" background-mute="{{true}}">
+                <cover-view class="close-ico" wx:if="{{item.userID == userID || isCaster}}" bindtap="kickoutSubPusher" data-userid="{{item.userID}}">x</cover-view>
+                <cover-view class='loading' wx:if="{{false}}">
+                    <cover-image src="/pages/Resources/loading_image0.png"></cover-image>
+                </cover-view>
+                <cover-image class='character' src="/pages/Resources/mask.png"></cover-image>
+                <cover-view class='character' style='padding: 0 5px;'>{{item.userName}}</cover-view>
+            </live-player>
+        </view>
     </view>
 </template>
 
