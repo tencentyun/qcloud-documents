@@ -46,7 +46,7 @@ item说明
 | 字段         | 类型          | 说明                                       |
 | ---------- | ----------- | ---------------------------------------- |
 | itemstring | string      | 字段字符串                                    |
-| itemcoord  | object      | 字段在图像中的像素坐标，包括左上角坐标 x,y，以及宽、高width,height |
+| itemcoord  | object      | 字段在图像中的像素坐标，包括左上角坐标 （x,y），以及宽、高 |
 | words      | array(word) | 字段识别出来的每个字的信息                            |
 
 words说明
