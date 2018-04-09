@@ -11,7 +11,8 @@
 
 在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
+>**注意：**
+>如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
 
 ## 第二步：添加配置文件
@@ -26,7 +27,7 @@
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
 
 > **注意：**
->不要**将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
+>不要将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
 
 
 ## 第三步：集成 SDK
