@@ -33,31 +33,31 @@ Linux 或 Windows 环境
 #### Windows
  解压并保存到某个目录，例如
 ```
- C:\Users\Administrator\Downloads\cos_migrate
+C:\Users\Administrator\Downloads\cos_migrate
 ```
 
 #### Linux
 解压并保存到某个目录
 ```
-		unzip cos_migrate_tool_v5-master.zip && cd cos_migrate_tool_v5-master
+unzip cos_migrate_tool_v5-master.zip && cd cos_migrate_tool_v5-master
 ```
 
 #### 迁移工具结构
 正确解压后的 COS Migration 工具目录结构如下所示：
 ```
-    COS_Migrate_tool
-    |——conf  #配置文件所在目录
-    |   |——config.ini  #迁移配置文件
-    |——db    #存储迁移成功的记录
-    |——dep   #程序主逻辑编译生成的JAR包
-    |——log   #工具执行中生成的日志
-    |——opbin #用于编译的脚本
-    |——src   #工具的源码
-    |——tmp   #临时文件存储目录
-    |——pom.xml #项目配置文件
-    |——README  #说明文档
-    |——start_migrate.sh  #Linux 下迁移启动脚本
-    |——start_migrate.bat #Windows 下迁移启动脚本
+COS_Migrate_tool
+|——conf  #配置文件所在目录
+|   |——config.ini  #迁移配置文件
+|——db    #存储迁移成功的记录
+|——dep   #程序主逻辑编译生成的JAR包
+|——log   #工具执行中生成的日志
+|——opbin #用于编译的脚本
+|——src   #工具的源码
+|——tmp   #临时文件存储目录
+|——pom.xml #项目配置文件
+|——README  #说明文档
+|——start_migrate.sh  #Linux 下迁移启动脚本
+|——start_migrate.bat #Windows 下迁移启动脚本
 ```
 
 >**说明：**
@@ -70,8 +70,8 @@ Linux 或 Windows 环境
 #### 3.1 配置迁移类型
 type 表示迁移类型，用户根据迁移需求填写对应的标识。例如，需要将本地数据迁移至 COS，则`[migrateType]`的配置内容是`type=migrateLocal`。
 ```
-    [migrateType]
-    type=migrateLocal
+[migrateType]
+type=migrateLocal
 ```
 目前支持的迁移类型如下：
 
@@ -87,23 +87,23 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
 ```
-    # 迁移工具的公共配置分节，包含了要迁移到得目标COS的账户信息 
-    [common]
-    secretId=AKIDXXXXXXXXXXXXXXXXX
-    secretKey=GYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-    bucketName=mybcket-1251668577
-    region=ap-guangzhou
-    storageClass=Standard
-    cosPath=/
-    https=off
-    tmpFolder=./tmp
-    smallFileThreshold=5242880
-    smallFileExecutorNum=64
-    bigFileExecutorNum=8
-    entireFileMd5Attached=on
-    daemonMode=off
-    daemonModeInterVal=60
-    executeTimeWindow=0,24
+# 迁移工具的公共配置分节，包含了要迁移到得目标COS的账户信息 
+[common]
+secretId=AKIDXXXXXXXXXXXXXXXXX
+secretKey=GYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+bucketName=mybcket-1251668577
+region=ap-guangzhou
+storageClass=Standard
+cosPath=/
+https=off
+tmpFolder=./tmp
+smallFileThreshold=5242880
+smallFileExecutorNum=64
+bigFileExecutorNum=8
+entireFileMd5Attached=on
+daemonMode=off
+daemonModeInterVal=60
+executeTimeWindow=0,24
 ```
 
 | 名称 | 描述 |默认值|
@@ -126,13 +126,15 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
+
 **3.3.1 配置本地数据源 migrateLocal**
+
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
-      # 从本地迁移到COS配置分节
-      [migrateLocal]
-      localPath=E:\\code\\java\\workspace\\cos_migrate_tool\\test_data
-      exeludes=
+# 从本地迁移到COS配置分节
+[migrateLocal]
+localPath=E:\\code\\java\\workspace\\cos_migrate_tool\\test_data
+exeludes=
 ```
 
 | 配置项 | 描述 |
@@ -141,17 +143,18 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 |exeludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 
 **3.3.2 配置阿里 OSS 数据源 migrateAli**
+
 若从阿里云 OSS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
-    # 从阿里 OSS 迁移到COS配置分节
-      [migrateAli]
-      bucket=mybucket-test
-      accessKeyId=xxxxxxxxxx
-      accessKeySecret=yyyyyyyyyyy
-      endPoint= OSS -cn-shenzhen.aliyuncs.com
-      prefix=
-      proxyHost=
-      proxyPort=
+# 从阿里 OSS 迁移到COS配置分节
+[migrateAli]
+bucket=mybucket-test
+accessKeyId=xxxxxxxxxx
+accessKeySecret=yyyyyyyyyyy
+endPoint= OSS -cn-shenzhen.aliyuncs.com
+prefix=
+proxyHost=
+proxyPort=
 ```
 | 配置项 | 描述 |
 | ------| ------ |
@@ -164,17 +167,18 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 |proxyPort|代理的端口|
 
 **3.3.3 配置AWS数据源 migrateAws**
+
 若从 AWS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
-    # 从AWS迁移到COS配置分节
-      [migrateAws]
-      bucket=aws-emr-test
-      accessKeyId=xxxxxxxxxx
-      accessKeySecret=yyyyyyyyyyyyyyyy
-      endPoint=s3.us-east-1.amazonaws.com
-      prefix=
-      proxyHost=
-      proxyPort=
+# 从AWS迁移到COS配置分节
+[migrateAws]
+bucket=aws-emr-test
+accessKeyId=xxxxxxxxxx
+accessKeySecret=yyyyyyyyyyyyyyyy
+endPoint=s3.us-east-1.amazonaws.com
+prefix=
+proxyHost=
+proxyPort=
 ```
 
 | 配置项 | 描述 |
@@ -188,17 +192,18 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 |proxyPort|代理的端口|
 
 ##### 3.3.4 配置七牛数据源 migrateQiniu
+
 若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
-    # 从七牛迁移到COS配置分节
-      [migrateQiniu]
-      bucket=mybuckettest
-      accessKeyId=xxxxxxxxxx
-      accessKeySecret=yyyyyyyyyyyyyyyy
-      endPoint=wwww.bkt.clouddn.com
-      prefix=
-      proxyHost=
-      proxyPort=
+# 从七牛迁移到COS配置分节
+[migrateQiniu]
+bucket=mybuckettest
+accessKeyId=xxxxxxxxxx
+accessKeySecret=yyyyyyyyyyyyyyyy
+endPoint=wwww.bkt.clouddn.com
+prefix=
+proxyHost=
+proxyPort=
 ```
 
 | 配置项 | 描述 |
@@ -213,25 +218,31 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 
 
 ##### 3.3.5 配置 URL 列表数据源 migrateUrl
-若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 
-    # 从url列表下载迁移到COS配置分节
-      [migrateUrl]
-      urllistPath=/data/mydata/url    
+若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
+```
+# 从url列表下载迁移到COS配置分节
+[migrateUrl]
+ ```
+      
+      
 | 配置项 | 描述 |
 | ------| ------ |
 |urllistPath|url列表项，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
 
 
 ##### 3.3.6 配置 Bucket 相互复制 migrateBucketCopy
+
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-    # 从源bucket迁移到目标bucket配置分节
-      [migrateBucketCopy]
-      srcRegion=ap-shanghai  
-      srcBucketName=mysrcbucket-1251668555
-      srcSecretId=xxxxxxxxxxx
-      srcSecretKey=yyyyyyyyyyyyyyyy
-      srcCosPath=/
+```
+# 从源bucket迁移到目标bucket配置分节
+[migrateBucketCopy]
+srcRegion=ap-shanghai  
+srcBucketName=mysrcbucket-1251668555
+srcSecretId=xxxxxxxxxxx
+srcSecretKey=yyyyyyyyyyyyyyyy
+srcCosPath=/
+ ```
 
 | 配置项 | 描述 |
 | ------| ------ |
