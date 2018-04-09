@@ -33,31 +33,31 @@ Linux 或 Windows 环境
 #### Windows
  解压并保存到某个目录，例如
 ```
- C:\Users\Administrator\Downloads\cos_migrate
+C:\Users\Administrator\Downloads\cos_migrate
 ```
 
 #### Linux
 解压并保存到某个目录
 ```
-		unzip cos_migrate_tool_v5-master.zip && cd cos_migrate_tool_v5-master
+unzip cos_migrate_tool_v5-master.zip && cd cos_migrate_tool_v5-master
 ```
 
 #### 迁移工具结构
 正确解压后的 COS Migration 工具目录结构如下所示：
 ```
-    COS_Migrate_tool
-    |——conf  #配置文件所在目录
-    |   |——config.ini  #迁移配置文件
-    |——db    #存储迁移成功的记录
-    |——dep   #程序主逻辑编译生成的JAR包
-    |——log   #工具执行中生成的日志
-    |——opbin #用于编译的脚本
-    |——src   #工具的源码
-    |——tmp   #临时文件存储目录
-    |——pom.xml #项目配置文件
-    |——README  #说明文档
-    |——start_migrate.sh  #Linux 下迁移启动脚本
-    |——start_migrate.bat #Windows 下迁移启动脚本
+COS_Migrate_tool
+|——conf  #配置文件所在目录
+|   |——config.ini  #迁移配置文件
+|——db    #存储迁移成功的记录
+|——dep   #程序主逻辑编译生成的JAR包
+|——log   #工具执行中生成的日志
+|——opbin #用于编译的脚本
+|——src   #工具的源码
+|——tmp   #临时文件存储目录
+|——pom.xml #项目配置文件
+|——README  #说明文档
+|——start_migrate.sh  #Linux 下迁移启动脚本
+|——start_migrate.bat #Windows 下迁移启动脚本
 ```
 
 >**说明：**
@@ -70,8 +70,8 @@ Linux 或 Windows 环境
 #### 3.1 配置迁移类型
 type 表示迁移类型，用户根据迁移需求填写对应的标识。例如，需要将本地数据迁移至 COS，则`[migrateType]`的配置内容是`type=migrateLocal`。
 ```
-    [migrateType]
-    type=migrateLocal
+[migrateType]
+type=migrateLocal
 ```
 目前支持的迁移类型如下：
 
