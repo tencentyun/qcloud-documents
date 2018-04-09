@@ -34,7 +34,7 @@
 
 >**注意：** 
 >无论您使用哪种代码集成方式，都请**配置程序需要脚本**。
->如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载移动开发平台（MobileLine）所需要的 SDK 集合文件，并仔细阅读文件中的 Readme.md 文档。
+>如果您选择手工集成，则需要先下载移动开发平台（MobileLine）所需要的 [SDK 集合文件](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip)，并仔细阅读文件中的 Readme.md 文档。
 
 每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 app 中，下表展示了 MobileLine 各种服务所对应的库。
 
