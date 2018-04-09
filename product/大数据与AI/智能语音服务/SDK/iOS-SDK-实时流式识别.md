@@ -17,7 +17,7 @@
 
 #### SDK 导入
 
-iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一个` .a` 静态库和一个头文件文件夹 Headers。
+iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一个` .a` 静态库和一个头文件文件夹 include。
 
 #### 工程配置
 
