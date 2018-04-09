@@ -111,7 +111,7 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 | secretId| 用户密钥 SecretId，可在 [云 API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 查看 |-|
 | secretKey| 用户密钥 SecretKey，可在 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 查看|-|
 | bucketName| 目的 Bucket 的名称, 合法命名规则为 {name}-{appid}，即 Bucket 名必须包含 APPID，例如 movie-1251000000 |-|
-| region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [可用地域](https://www.qcloud.com/document/product/436/6224) |-|
+| region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224) |-|
 | storageClass|存储类型：Standard - 标准存储，Standard_IA - 低频存储 |Standard|
 | cosPath|要迁移到的 COS 路径。**/** 表示迁移到 Bucket 的根路径下，**/aaa/bbb/** 表示要迁移到 Bucket的 /aaa/bbb/ 下，若 /aaa/bbb/ 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
@@ -235,7 +235,7 @@ type 表示迁移类型，用户根据迁移需求填写对应的标识。例如
 
 | 配置项 | 描述 |
 | ------| ------ |
-|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://www.qcloud.com/document/product/436/6224)|
+|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)|
 |srcBucketName|源 Bucket 的名称, 合法命名规则为 {name}-{appid}，即 Bucket 名必须包含 APPID，例如 movie-1251000000|
 |srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在[云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝。|
 |srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 secretId 相同，否则是跨账号 Bucket 拷贝。|
