@@ -67,6 +67,7 @@ COS_Migrate_tool
 ### 3. 修改 config.ini 配置文件
 在执行迁移启动脚本之前，需先进行 config.ini 配置文件修改（路径：`./conf/config.ini`），config.ini 内容可以分为以下几部分：
 
+
 #### 3.1 配置迁移类型
 type 表示迁移类型，用户根据迁移需求填写对应的标识。例如，需要将本地数据迁移至 COS，则`[migrateType]`的配置内容是`type=migrateLocal`。
 ```
