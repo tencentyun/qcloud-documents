@@ -82,35 +82,36 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 
 ### step 4: 设定清晰度
 
-如果您是第一次接触我们的SDK，<font color='red'>不推荐</font>您通过 TXLivePushConfig 设置分辨率、码率等视频参数，参数配置不当可能影响最终的画质表现，推荐您使用 setVideoQuality 接口的可以设定推流的画面清晰度：
+如果您是第一次接触音视频，<font color='red'>**不推荐**</font> 您自行设置分辨率、码率等视频参数，参数配置不当可能影响最终的画质表现，推荐您使用 TXLivePusher::setVideoQuality 接口的可以设定推流的画面清晰度：
 
-![](//mc.qcloudimg.com/static/img/c52dc506047402db04ac285fa7520e65/image.png)
+![](https://main.qcloudimg.com/raw/6e66be90ff14bb8f0603c70668a27ec8.png)
 
-- **quality**
-SDK 提供了六种基础档位，根据我们服务大多数客户的经验进行积累和配置。其中 STANDARD、HIGH、SUPER 适用于直播模式，MAIN_PUBLISHER 和 SUB_PUBLISHER 适用于连麦直播中的大小画面，VIDEOCHAT 用于实时音视频。
+- **推荐参数设置**
 
-- **adjustBitrate**
-是否开启 Qos 流量控制，开启后SDK 会根据主播上行网络的好坏自动调整视频码率。相应的代价就是，主播如果网络不好，画面会很模糊且有很多马赛克。
+| 应用场景 | quality |  adjustBitrate | adjustResolution |
+|:-------:|:-------:|:-------:|
+| 秀场直播 | VIDEO_QUALITY_HIGH_DEFINITION 或 <br> VIDEO_QUALITY_SUPER_DEFINITION  | NO | NO |
+| 手游直播 | VIDEO_QUALITY_SUPER_DEFINITION  | YES | YES |
+| 连麦（主画面） | VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | YES | YES | 
+| 连麦（小画面） | VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER  | NO | NO |
+| 视频通话| VIDEO_QUALITY_REALTIEM_VIDEOCHAT | YES | YES | 
 
-- **adjustResolution**
-是否允许动态分辨率，开启后 SDK 会根据当前的视频码率选择相匹配的分辨率，这样能获得更好的清晰度。相应的代价就是，动态分辨率的直播流所录制下来的文件，在很多播放器上会有兼容性问题。
+- **内部数据指标**
 
-- **参数配置指引表**
-
-| 参数quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 适用场景 | 带宽费用 | 
-|---------|---------|---------|---------|---------|---------|
-| VIDEO_QUALITY_STANDARD_DEFINITION | YES | YES | 300~800kbps| 270x480 ~ 360x640| 网络较差的场景| 低|
-| VIDEO_QUALITY_STANDARD_DEFINITION | YES | NO |300~800kbps|360x640| 网络较差的场景|低|
-| VIDEO_QUALITY_STANDARD_DEFINITION | NO | NO | 800kbps | 360x640| 网络较差的场景|低|
-| VIDEO_QUALITY_HIGH_DEFINITION | YES | YES |600~1500kbps| 360x640~540x960| 网络不确定场景| 中|
-| VIDEO_QUALITY_HIGH_DEFINITION | YES | NO |600~1500kbps| 540x960| 常规秀场直播| 中|
-| VIDEO_QUALITY_HIGH_DEFINITION | NO | NO |1200kbps| 540x960| 常规秀场直播| 中|
-| VIDEO_QUALITY_SUPER_DEFINITION | YES | YES | 600~1800kbps|360x640~720x1280|手游直播|高|
-| VIDEO_QUALITY_SUPER_DEFINITION | YES | NO |600~1800kbps|720x1280|手游直播|高|
-| VIDEO_QUALITY_SUPER_DEFINITION | NO | NO |1800kbps|720x1280|手游直播|高|
-| VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | YES | YES |600~1500kbps| 360x640~540x960| 连麦大画面|N/A|
-| VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER | NO | NO |350kbps| 320x480| 连麦小画面| N/A|
-| VIDEO_QUALITY_REALTIEM_VIDEOCHAT | YES | YES | 200~800kbps| 190x320~360x640| 实时通话|N/A|
+| quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| STANDARD | YES | YES | 300~800kbps| 270x480 ~ 360x640| 
+| STANDARD | YES | NO |300~800kbps|360x640| 
+| STANDARD | NO | NO | 800kbps | 360x640| 
+| HIGH | YES | YES |600~1500kbps| 360x640~540x960| 
+| HIGH | YES | NO |600~1500kbps| 540x960| 
+| HIGH | NO | NO |1200kbps| 540x960| 
+| SUPER | YES | YES | 600~1800kbps|360x640~720x1280|
+| SUPER | YES | NO |600~1800kbps|720x1280|
+| SUPER | NO | NO |1800kbps|720x1280|
+| MAIN_PUBLISHER | YES | YES |600~1500kbps| 360x640~540x960| 
+| SUB_PUBLISHER | NO | NO |350kbps| 320x480| 
+| VIDEOCHAT | YES | YES | 200~800kbps| 190x320~360x640| 
 
 ### step 5: 美颜滤镜
 
@@ -209,7 +210,10 @@ _config.watermarkPos = (CGPoint){10, 10};
 从 **SDK 1.6.1** 开始，我们引入了一种解决方案，如下是从观众端的视角看去，该方案可以达到的效果： 
 ![](https://mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
 
-- **9.1) 设置pauseImg**
+- **9.1) 调整XCode设置**
+![](https://main.qcloudimg.com/raw/64e1d95634ebed1de71ad3b84492f37e.jpg)
+
+- **9.2) 设置pauseImg**
 在开始推流前，使用 LivePushConfig 的 pauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
 
 ```objectivec
@@ -222,7 +226,7 @@ _config.watermarkPos = (CGPoint){10, 10};
     [_txLivePublisher setConfig:_config];
 ```
 
-- **9.2) 设置App后台（短暂）运行**
+- **9.3) 设置App后台（短暂）运行**
 App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济于事，所以我们使用下面的代码让App在切到后台后还可再跑几分钟，这段时间如果主播应付一下紧急电话，也就算是“功德圆满”。
 
 ```objectivec
@@ -237,7 +241,7 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济�
     }];
 }
 ```
-- **9.3) 切后台处理**
+- **9.4) 切后台处理**
 推流中，如果App被切了后台，也就是在 8.2 中的 handleEnterBackground 里，调用 TXLivePush 的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 pauseImg 持续推流。
 
 ```
@@ -250,7 +254,7 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济�
 }
 ```
 
-- **9.4) 切前台处理**
+- **9.5) 切前台处理**
  等待App切回前台之后，调用TXLivePush 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
  
 ```objectivec
@@ -261,12 +265,17 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 再有本事也无济�
 }
 ```
 
-### step 10: 网络质量提示
-如何了解主播当前的网络质量好坏？
+### step 10: 卡顿预警提示
 
-- 【方案一】：通过 TXLivePushListener 里的 **onNetStatus # NET_STATUS_CODEC_CACHE ** 可以获取积压情况，积压情况在 5 以内属于正常，超过 5 代表网速跟不上，数值越大代表网络质量越差。
+- 如果主播网络质量不好，我们应该怎么做？ 
+- 主动降低清晰度来确保流畅性？ 这样观众端的感受就是模糊和马赛克。
+- 主动丢掉一部分视频帧，以确保画面还能持续有一定的清晰度？这样观众端的感受就是持续卡顿。
+- 以上都是我们不想要的？那怎么办？
+- “既然马儿跑得快，又让马儿不吃草。”  我们都知道，这是不可能的事情。
 
-- 【方案二】：通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿，此时可以提示主播 “您当前的网络状况不佳，推荐您离 WiFi 近一点”。
+通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。
+
+此时可以提示主播 **“您当前的网络状况不佳，推荐您离 WiFi 近一点，尽量不要让 WiFi 穿墙”**。
 
 ### step 11: 横屏推流
 大多数情况下，用户习惯以“竖屏持握”进行直播拍摄，观看端看到的也是竖屏样式；有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果。

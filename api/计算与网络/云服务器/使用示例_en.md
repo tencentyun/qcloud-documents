@@ -4,7 +4,7 @@ The following use case shows how to create and terminate an instance using APIs.
 ## 1. Query Instance Model List
 
 Before an instance is created, you need to specify a model because it determines the number of CPU cores and memory size of an instance. Therefore, call the API [Query Instance Model List](/document/api/213/9391) or view the product documentation [Instance Type](/document/product/213/11518) to obtain the appropriate model parameters with specified CPU cores and memory size. In this example, the model parameters are obtained using the query API. Assume that you want to obtain a model as follows:
-> The Series 2 CVM instance (Guangzhong Zone 2, two CPU cores, and 4 GB memory)
+> Series 2 CVM instance (Guangzhong Zone 2, two CPU cores, and 4 GB memory)
 
 The model can be obtained using the following request. For more information on each parameter, please see [Query Instance Model List](/document/api/213/9391).
 

@@ -74,39 +74,34 @@ mLivePusher.startPusher(rtmpUrl);
 
 使用 setVideoQuality 接口的可以设定推流的画面清晰度：
 
-![](//mc.qcloudimg.com/static/img/c52dc506047402db04ac285fa7520e65/image.png)
+![](https://main.qcloudimg.com/raw/6e66be90ff14bb8f0603c70668a27ec8.png)
 
-- **quality**
-SDK 提供了六种基础档位，根据我们服务大多数客户的经验进行积累和配置。其中 STANDARD、HIGH、SUPER 适用于直播模式，MAIN_PUBLISHER 和 SUB_PUBLISHER 适用于连麦直播中的大小画面，VIDEOCHAT 用于实时音视频。
+- **推荐参数设置**
 
-- **adjustBitrate**
-是否开启 Qos 流量控制，开启后 SDK 会根据主播上行网络的好坏自动调整视频码率。相应的代价就是，主播如果网络不好，画面会很模糊且有很多马赛克。
+| 应用场景 | quality |  adjustBitrate | adjustResolution |
+|:-------:|:-------:|:-------:|
+| 秀场直播 | VIDEO_QUALITY_HIGH_DEFINITION 或 <br> VIDEO_QUALITY_SUPER_DEFINITION  | false | false |
+| 手游直播 | VIDEO_QUALITY_SUPER_DEFINITION  | true | true |
+| 连麦（主画面） | VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | true | true | 
+| 连麦（小画面） | VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER  | false | false |
+| 视频通话| VIDEO_QUALITY_REALTIEM_VIDEOCHAT | true | true | 
 
-- **adjustResolution**
-是否允许动态分辨率，开启后 SDK 会根据当前的视频码率选择相匹配的分辨率，这样能获得更好的清晰度。相应的代价就是，动态分辨率的直播流所录制下来的文件，在很多播放器上会有兼容性问题。
+- **内部数据指标**
 
-- **参数配置指引表**
-
-| 参数quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 适用场景 | 带宽费用 | 
-|---------|---------|---------|---------|---------|---------|
-| VIDEO_QUALITY_STANDARD_DEFINITION | true | true | 300~800kbps| 270x480 ~ 360x640| 网络较差的场景| 低|
-| VIDEO_QUALITY_STANDARD_DEFINITION | true | false |300~800kbps|360x640| 网络较差的场景|低|
-| VIDEO_QUALITY_STANDARD_DEFINITION | false | false | 800kbps | 360x640| 网络较差的场景|低|
-| VIDEO_QUALITY_HIGH_DEFINITION | true | true |600~1500kbps| 360x640~540x960| 网络不确定场景| 中|
-| VIDEO_QUALITY_HIGH_DEFINITION | true | false |600~1500kbps| 540x960| 常规秀场直播| 中|
-| VIDEO_QUALITY_HIGH_DEFINITION | false | false |1200kbps| 540x960| 常规秀场直播| 中|
-| VIDEO_QUALITY_SUPER_DEFINITION | true | true | 600~1800kbps|360x640~720x1280|手游直播|高|
-| VIDEO_QUALITY_SUPER_DEFINITION | true | false |600~1800kbps|720x1280|手游直播|高|
-| VIDEO_QUALITY_SUPER_DEFINITION | false | false |1800kbps|720x1280|手游直播|高|
-| VIDEO_QUALITY_LINKMIC_MAIN_PUBLISHER | true | true |600~1500kbps| 360x640~540x960| 连麦大画面|N/A|
-| VIDEO_QUALITY_LINKMIC_SUB_PUBLISHER | false | false |350kbps| 320x480| 连麦小画面| N/A|
-| VIDEO_QUALITY_REALTIEM_VIDEOCHAT | true | true | 200~800kbps| 190x320~360x640| 实时通话|N/A|
-
-
-```Java
-// 设置推流分辨率为 540P
-mLivePusher.setVideoQuality(TXLiveConstants.VIDEO_QUALITY_HIGH_DEFINITION, true, true);
-```
+| quality | adjustBitrate | adjustResolution | 码率范围 | 分辨率范围 | 
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| STANDARD | true | true | 300~800kbps| 270x480 ~ 360x640| 
+| STANDARD | true | false |300~800kbps|360x640| 
+| STANDARD | true | false | 800kbps | 360x640| 
+| HIGH | true | true |600~1500kbps| 360x640~540x960| 
+| HIGH | true | false |600~1500kbps| 540x960| 
+| HIGH | false | false |1200kbps| 540x960| 
+| SUPER | true | true | 600~1800kbps|360x640~720x1280|
+| SUPER | true | false |600~1800kbps|720x1280|
+| SUPER | false | false |1800kbps|720x1280|
+| MAIN_PUBLISHER | true | true |600~1500kbps| 360x640~540x960| 
+| SUB_PUBLISHER | false | false |350kbps| 320x480| 
+| VIDEOCHAT | true | true | 200~800kbps| 190x320~360x640| 
 
 ### step 5: 美颜滤镜
 ![](//mc.qcloudimg.com/static/img/aac647073cf0641141900e775e929418/image.png)
@@ -268,7 +263,7 @@ public interface ITXVideoRecordListener {
 我们可以采用如下方案规避：
 ![](//mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
 
-- **9.1、设置 pauseImg**
+- **10.1、设置 pauseImg**
 在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
 ```java
     mLivePushConfig.setPauseImg(300,5);
@@ -280,13 +275,13 @@ public interface ITXVideoRecordListener {
     mLivePusher.setConfig(mLivePushConfig);  
 ```
 
-- **9.2、设置setPauseFlag**
+- **10.2、设置setPauseFlag**
 在开始推流前，使用 TXLivePushConfig 的 setPauseFlag 接口设置切后台 pause 推流时需要停止哪些采集，停止视频采集则会推送 pauseImg 设置的默认图，停止音频采集则会推送静音数据。
 >  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO|PAUSE_FLAG_PAUSE_AUDIO);//表示同时停止视频和音频采集，并且推送填充用的音视频流；
 >         
 >  setPauseFlag(PAUSE_FLAG_PAUSE_VIDEO);//表示停止摄像头采集视频画面，但保持麦克风继续采集声音，用于主播更衣等场景；
 
-- **9.3、切后台处理**
+- **10.3、切后台处理**
 推流中，如果App被切了后台，调用 TXLivePusher 中的 pausePush 接口函数，之后，SDK 虽然采集不到摄像头的画面了，但可以用您刚才设置的 PauseImg 持续推流。
 ```java
 // activity 的 onStop 生命周期函数
@@ -297,7 +292,7 @@ public void onStop(){
     mLivePusher.pausePusher(); // 通知 SDK 进入“后台推流模式”了
 }
 ```
-- **9.4、切前台处理**
+- **10.4、切前台处理**
 等待App切回前台之后，调用 TXLivePusher 的 resumePush 接口函数，之后，SDK 会继续采集摄像头的画面进行推流。
 ```java
 // activity 的 onStop 生命周期函数
@@ -318,11 +313,15 @@ public void onResume() {
 **<font color='red'>注意</font>**：使用该功能注意保护主播隐私。
 
 ### step 11: 网络质量提示
-如何了解主播当前的网络质量好坏？
+- 如果主播网络质量不好，我们应该怎么做？ 
+- 主动降低清晰度来确保流畅性？ 这样观众端的感受就是模糊和马赛克。
+- 主动丢掉一部分视频帧，以确保画面还能持续有一定的清晰度？这样观众端的感受就是持续卡顿。
+- 以上都是我们不想要的？那怎么办？
+- “既然马儿跑得快，又让马儿不吃草。”  我们都知道，这是不可能的事情。
 
-- 【方案一】：通过 TXLivePushListener 里的 **onNetStatus # [NET_STATUS_CODEC_CACHE](https://cloud.tencent.com/document/product/454/9872) ** 可以获取积压情况，积压情况在 5 以内属于正常，超过 5 代表网速跟不上，数值越大代表网络质量越差。
+通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。
 
-- 【方案二】：通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿，此时可以提示主播 “您当前的网络状况不佳，推荐您离 WiFi 近一点”。
+此时可以提示主播 **“您当前的网络状况不佳，推荐您离 WiFi 近一点，尽量不要让 WiFi 穿墙”**。
 
 ### step 12: 横屏推流
 有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果：
