@@ -4,7 +4,7 @@ public static SNGAPM getInstance(Application app, int id, String ver)
 ```
 参数如下
 app： 当前应用的 app 对象
-id：为[获取项目 id](链接待补)中项目分配的 id
+id：为[获取项目 id](https://cloud.tencent.com/document/product/683/15220)中项目分配的 id
 ver：产品版本号
 ### 设置 SNGAPM 相关参数。
 ```
