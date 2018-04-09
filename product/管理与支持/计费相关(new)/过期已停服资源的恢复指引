@@ -1,4 +1,30 @@
-||产品||续费恢复指引||
+<table style="display:table">
+    <tbody>
+        <tr>
+            <td style="background-color:#CCCCCC;">
+                <strong>
+                    产品
+                </strong>
+            </td>
+            <td style="background-color:#CCCCCC;">
+                <strong>
+                    续费恢复指引
+                </strong>
+            </td>
+        </tr>
+    		<td>
+    			云服务器 CVM
+    		</td>
+    		<td>
+          停服已隔离的资源可为您保留7天，您可前往[CVM回收站](https://console.cloud.tencent.com/cvm/recycle/cvm
+)进行续费恢复操作。
+        </td> 
+
+
+
+
+
+
 ||云服务器||停服已隔离的资源可为您保留7天，您可前往回收站进行续费恢复操作。||
 ||专用宿主机||停服已隔离的资源可为您保留7天，您可前往回收站进行续费恢复操作。||
 ||云硬盘||停服已隔离的资源可为您保留7天，您可前往回收站进行续费恢复操作。||
