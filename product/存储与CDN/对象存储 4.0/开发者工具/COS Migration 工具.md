@@ -128,6 +128,7 @@ executeTimeWindow=0,24
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
 
 **3.3.1 配置本地数据源 migrateLocal**
+
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从本地迁移到COS配置分节
@@ -142,6 +143,7 @@ exeludes=
 |exeludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 
 **3.3.2 配置阿里 OSS 数据源 migrateAli**
+
 若从阿里云 OSS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从阿里 OSS 迁移到COS配置分节
@@ -165,6 +167,7 @@ proxyPort=
 |proxyPort|代理的端口|
 
 **3.3.3 配置AWS数据源 migrateAws**
+
 若从 AWS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从AWS迁移到COS配置分节
@@ -189,6 +192,7 @@ proxyPort=
 |proxyPort|代理的端口|
 
 ##### 3.3.4 配置七牛数据源 migrateQiniu
+
 若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从七牛迁移到COS配置分节
@@ -214,6 +218,7 @@ proxyPort=
 
 
 ##### 3.3.5 配置 URL 列表数据源 migrateUrl
+
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从url列表下载迁移到COS配置分节
@@ -227,6 +232,7 @@ proxyPort=
 
 
 ##### 3.3.6 配置 Bucket 相互复制 migrateBucketCopy
+
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从源bucket迁移到目标bucket配置分节
