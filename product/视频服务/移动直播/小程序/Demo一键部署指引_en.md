@@ -58,7 +58,7 @@ For policy and compliance considerations, &lt;live-pusher&gt; and &lt;live-playe
 
 Note: If a mini program cannot work properly while the above settings are correct. That may be because the cache within the WeChat is not updated. Delete the mini program, restart WeChat, and try again.
 
-## 3. Activate Tencent Cloud Service at No Cost
+## 3. Activate Tencent Cloud Service
 ### Activating LVB
 
 #### 1. Apply for Activation of LVB
