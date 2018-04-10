@@ -100,7 +100,7 @@ p.fileId = @"4564972819220421305";
 ```
 
 ### step 6: 结束播放
-结束播放时，如果要推出当前的UI界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁view控件，否则会产生内存泄露或闪屏问题。
+结束播放时，如果要退出当前的UI界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁view控件，否则会产生内存泄露或闪屏问题。
 
 ```objectivec
 // 停止播放
