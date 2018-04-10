@@ -100,7 +100,7 @@ p.fileId = @"4564972819220421305";
 ```
 
 ### step 6: 结束播放
-结束播放时，如果要推出当前的UI界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁view控件，否则会产生内存泄露或闪屏问题。
+结束播放时，如果要退出当前的UI界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁view控件，否则会产生内存泄露或闪屏问题。
 
 ```objectivec
 // 停止播放
@@ -224,37 +224,19 @@ NSArray *bitrates = [_txVodPlayer supportedBitrates]; //获取多码率数组
 
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
-```objectivec
--(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param {
+```objective
+-(void) onPlayEvent:(TXVodPlayer *)player event:(int)EvtID withParam:(NSDictionary*)param {
     if (EvtID == PLAY_EVT_PLAY_PROGRESS) {
-		    // 加载进度, 单位是秒
+		    // 加载进度, 单位是秒, 小数部分为毫秒
 		    float playable = [param[EVT_PLAYABLE_DURATION] floatValue];
 				[_loadProgressBar setValue:playable];
 				
-		    // 播放进度, 单位是秒
+		    // 播放进度, 单位是秒, 小数部分为毫秒
 		    float progress = [param[EVT_PLAY_PROGRESS] floatValue];
 				[_seekProgressBar setValue:progress];
 				
-			// 视频总长, 单位是秒
+			// 视频总长, 单位是秒, 小数部分为毫秒
 			float duration = [param[EVT_PLAY_DURATION] floatValue];
-			// 可以用于设置时长显示等等
-	}
-}
-```
-如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
-```objective
--(void) onPlayEvent:(int)EvtID withParam:(NSDictionary*)param {
-    if (EvtID == PLAY_EVT_PLAY_PROGRESS) {
-		    // 加载进度, 单位是毫秒
-		    float playable_ms = [param[EVT_PLAYABLE_DURATION_MS] floatValue];
-				[_loadProgressBar setValue:playable];
-				
-		    // 播放进度, 单位是毫秒
-		    float progress_ms = [param[EVT_PLAY_PROGRESS_MS] floatValue];
-				[_seekProgressBar setValue:progress];
-				
-			// 视频总长, 单位是毫秒
-			float duration_ms = [param[EVT_PLAY_DURATION_MS] floatValue];
 			// 可以用于设置时长显示等等
 	}
 }
