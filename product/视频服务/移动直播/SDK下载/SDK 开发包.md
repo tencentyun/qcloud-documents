@@ -350,14 +350,14 @@ table td {
   </tr>
   <tr align="center">
     <td>小程序</td>
-    <td>1.2.378</td>
+    <td>1.2.609</td>
     <td>基于小程序音视频能力构建的双人、多人实时音视频解决方案，包含小程序与后台全部源码</a></td>
-    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.487.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.609.zip">DOWNLOAD</a></td>
   </tr>
 </table>
 
 - **一键部署**
-此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**server** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
+此套源码包含两个部分，**wxlite** 文件夹中的源码为小程序源码，**simpleserver** 文件夹中的源码为后台 node.js 源码，该套支持在腾讯云平台进行一键部署，使您能在 5 分钟时间里即拥有一个自己的调试环境，部署方法可参考 [DOC](https://cloud.tencent.com/document/product/454/12554)。
 
 <h2 id="Server">后台源码</h2>
 
