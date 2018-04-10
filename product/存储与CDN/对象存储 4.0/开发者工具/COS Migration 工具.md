@@ -190,9 +190,8 @@ proxyPort=
 |prefix|要迁移的路径的前缀, 如果是迁移 Bucket下所有的数据, 则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
-
-##### 3.3.4 配置七牛数据源 migrateQiniu
-
+ 
+**3.3.4 配置七牛数据源 migrateQiniu**
 若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从七牛迁移到COS配置分节
@@ -216,9 +215,8 @@ proxyPort=
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
-
-##### 3.3.5 配置 URL 列表数据源 migrateUrl
-
+ 
+**3.3.5 配置 URL 列表数据源 migrateUrl**
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从url列表下载迁移到COS配置分节
@@ -230,9 +228,8 @@ proxyPort=
 | ------| ------ |
 |urllistPath|url列表项，要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如 /a/b/c； <br>Windows 下分隔符为两个反斜杠，如E:\\\a\\\b\\\c。<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移|
 
-
-##### 3.3.6 配置 Bucket 相互复制 migrateBucketCopy
-
+ 
+**3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```
 # 从源bucket迁移到目标bucket配置分节
