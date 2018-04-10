@@ -186,27 +186,27 @@ var player = TCPlayer('player-container-id', {
 [图片贴片](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-image-patch.html)
 
 >**注意事项：**
-> * 贴片建议使用体积不超过50KB且尺寸不超过播放器显示区域的图片，避免因图片过大影响视频初始化速度。
+> * 贴片建议使用体积不超过50KB 且尺寸不超过播放器显示区域的图片，避免因图片过大影响视频初始化速度。
 > * 控制台播放器配置在设置后，大概需要10分钟使所有 CDN 节点生效该配置。
 > * 在浏览器劫持视频播放的情况下，设置的贴片将无法显示。
 
 ### 缩略图预览
 腾讯云点播播放器支持缩略图预览，开启该功能有两种方式：
 1. 通过服务端API生成视频的缩略图与 VTT 文件，相关文档[雪碧图(ImageSprite)](https://cloud.tencent.com/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE(imagesprite))
-2. 自行生成缩略图文件与 VTT 文件，并将两个文件的 URL 传递给播放器，参考示例“缩略图预览-传入缩略图与VTT文件”
+2. 自行生成缩略图文件与 VTT 文件，并将两个文件的 URL 传递给播放器，参考示例“缩略图预览-传入缩略图与 VTT 文件”
 
 开启成功的效果如下图：
 ![](https://main.qcloudimg.com/raw/cf668bbf1a991c347fbeacb6555831c1.png)
 
 示例：
 [缩略图预览-服务端生成](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-vtt-thumbnail.html)
-[缩略图预览-传入缩略图与VTT文件](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-vtt-thumbnail-src.html)
+[缩略图预览-传入缩略图与 VTT 文件](https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-vtt-thumbnail-src.html)
 >**注意事项：**
 > * 该功能仅支持在桌面端浏览器。
 > * 在浏览器劫持视频播放的情况下，该功能无法使用。
 > * 生成的缩略图越多，进度条预览越精确，而缩略图越多，图片越大加载越慢，需要取舍平衡。
 
-### 切换fileID播放
+### 切换 fileID 播放
 通过实例化对象的 loadVideoByID(args) 方法，可以更换视频进行播放。该方法支持的参数如下：
 ```
 player.loadVideoByID({
@@ -220,7 +220,7 @@ player.loadVideoByID({
 ```
 
 示例：
-[切换fileID播放](http://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-change-file.html)
+[切换 fileID 播放](http://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-change-file.html)
 
 ### HLS Master Playlist
 HLS 规范的 Master Playlist 可以根据网络速度自适应码率播放，在视频下载过程中，如果网络速度满足下载高码率的 ts 分片时，播放器将切换播放高码率的 ts 分片，反之播放低码率的 ts 分片。移动端和桌面端大部分浏览器都支持该特性。
