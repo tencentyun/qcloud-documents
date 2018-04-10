@@ -11,14 +11,14 @@
   </tr>
   <tr align="center">
     <td>iOS</td>
-    <td>4.1</td>
+    <td>4.4</td>
 		<td><a href="https://itunes.apple.com/us/app/rtmp-tui-liu-jing-ling/id1152295397?l=zh&ls=1&mt=8
 ">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/b9c3da61900be18622b5cf5a3984ffa1/image.png" /></td>
   </tr>
 	<tr align="center">
     <td>Android</td>
-    <td>4.1</td>
+    <td>4.4</td>
 		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/601b4555080a5bf3a15be22ff9a66783/image.png" /></td>
   </tr>
