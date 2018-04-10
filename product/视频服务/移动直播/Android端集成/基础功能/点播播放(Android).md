@@ -234,7 +234,7 @@ ArrayList<TXBitrateItem> bitrates = mVodPlayer.getSupportedBitrates(); //获取�
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是秒
@@ -254,7 +254,7 @@ public void onPlayEvent(int event, Bundle param) {
 
 如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是毫秒
