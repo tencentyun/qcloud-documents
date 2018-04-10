@@ -218,5 +218,5 @@ node setConfigInfo.js 1   //1表示传送私钥给腾讯云RoomService后台
 ##### 4. 如果需要上线或者部署正式环境怎么办？
 - 请申请域名并做备案
 - 请将服务端代码部署到申请的服务器上
-- 请将业务server域名、RoomService域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com，RoomService域名为：https://room.qcloud.com
+- 请将业务server域名、RoomService域名及IM域名配置到小程序控制台request合法域名里面，其中IM域名为：https://webim.tim.qq.com ，RoomService域名为：https://room.qcloud.com
  
