@@ -11,7 +11,13 @@ table td {
     box-sizing: content-box;
     box-shadow: 0 0 0px #ccc;
     margin: 0px 0;
-}
+}    
+.markdown-text-box table td, .markdown-text-box table th {
+    padding: 8px 13px;
+    border: 1px solid #d9d9d9;
+    word-wrap: break-word;
+    text-align: center;
+}    
 </style>
 
 
