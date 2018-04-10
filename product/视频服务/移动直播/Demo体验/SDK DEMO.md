@@ -37,13 +37,13 @@
   </tr>
   <tr align="center">
     <td>iOS</td>
-    <td>4.1</td>
+    <td>4.4</td>
 		<td><a href="https://itunes.apple.com/cn/app/id1132521667?mt=8">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/92f5be86a4f0f7f85e45ff5cc3688825/image.png" /></td>
   </tr>
   <tr align="center">
     <td>Android</td>
-    <td>4.1</td>
+    <td>4.4</td>
 		<td><a href="http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk">点击安装</a></td>
 		<td><img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://mc.qcloudimg.com/static/img/1cb8096aef77bf9a16dba52476b322f6/image.png" /></td>
   </tr>
