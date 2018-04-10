@@ -357,7 +357,7 @@ table td {
   <tr align="center">
     <td>小程序</td>
     <td>1.2.609</td>
-    <td>基于小程序音视频能力构建的双人、多人实时音视频解决方案，包含小程序与后台全部源码</a></td>
+    <td>小程序 Demo “腾讯视频云” 的前后台源代码</a></td>
     <td><a onclick=MtaH5.clickStat("Wiki_Download_SDK_Xiaochengxu_RTCRoom") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaochengxu/RTCRoomRelease_1.2.609.zip">DOWNLOAD</a></td>
   </tr>
 </table>
