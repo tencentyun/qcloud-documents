@@ -35,7 +35,7 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.2"
 
 - **其他方法**
 **方法1：** 将 [源代码	](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) 直接引入到项目工程中。
-**方法2：**将 [JAR包]( http://central.maven.org/maven2/com/github/qcloudsms/sms/0.9.2/sms-0.9.2.jar) 直接引入到您的工程中。
+**方法2：**将 [JAR包]( https://github.com/qcloudsms/qcloudsms_java/tree/master/releases/qcloudsms-1.0.2.jar) 直接引入到您的工程中。
 >**注意：**
 由于 qcloudsms 中需要使用以下四个依赖项目：
 [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar) ，[httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar)，[httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar)，[httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar)，采用方法 1，方法 2 都需要将以上四个 jar 包导入工程。
