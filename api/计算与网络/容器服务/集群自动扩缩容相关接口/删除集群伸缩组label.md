@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口 (DeleteClusterAsgLabel) 用于删除集群伸缩组label。
+本接口（DeleteClusterAsgLabel）用于删除集群伸缩组 label。
 
 接口请求域名：<font style="color:red">ccs.api.qcloud.com</font>
 
@@ -8,13 +8,13 @@
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](https://www.qcloud.com/document/api/457/9463)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://www.qcloud.com/document/api/457/9463) 页面。
 
 | 参数名称 | 描述 | 必选  | 类型 |
 |---------|---------|---------|---------|
-| clusterId   |集群ID，请填写[查询集群列表](https://www.qcloud.com/document/api/457/9448)接口中返回的clusterId字段。| 是    | String |
-| autoScalingGroupId   |伸缩组ID| 是    | String |
-| labelKeys   |需要删除的label的key列表| 是    | Array |
+| clusterId   |集群 ID，请填写 [查询集群列表](https://www.qcloud.com/document/api/457/9448) 接口中返回的 clusterId 字段| 是    | String |
+| autoScalingGroupId   |伸缩组 ID| 是    | String |
+| labelKeys   |需要删除的 label 的 key 列表| 是    | Array |
 
 
 
@@ -22,8 +22,8 @@
  
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 公共错误码。0表示成功，其他值表示失败| Int |
-| codeDesc |业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。| String |
+| code | 公共错误码。0 表示成功，其他值表示失败| Int |
+| codeDesc |业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因| String |
 | message | 模块错误信息描述，与接口相关| String |
 
 
