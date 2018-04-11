@@ -27,6 +27,23 @@ Saving to: `index.html'
 若服务正常，显示结果如下。
 ![](//mc.qcloudimg.com/static/img/fce31b900d308c4a5d57b1d316574a58/image.png)
 
+> 注意：
+> 如果云服务器系统是 CentOS 7.0 以下版本（如 CentOS 6.8），在使用 yum 安装完 Nginx 之后直接启动服务会失败
+> ![](https://main.qcloudimg.com/raw/1dd4752b6f5fa0a1e90368110a58a1ed.png)
+> 需要修改 Nginx 的配置文件才能成功启动服务
+
+1. 首先检查系统版本来确定是否需要修改配置文件。输入命令：`cat /etc/redhat-release`。
+![](https://main.qcloudimg.com/raw/e449c9c58d7a58cc0bc7e133ba910a81.png)
+
+2. 确定系统版本在 7.0 以下后，修改 /etc/nginx/conf.d 下的 default.conf 文件，注释掉 [::]:80 配置行。
+  - 注释前：
+![](https://main.qcloudimg.com/raw/92464436c50f491e5af651c81da6a4ea.png)
+  - 注释后：
+![](https://main.qcloudimg.com/raw/6658bdfba8e32507a04e0e9dfd4428ff.png)
+
+3. 重启 Nginx 服务即可成功。输入命令：`service nginx restart`。
+![](https://main.qcloudimg.com/raw/bb7c39e35e1bba0888f1fcdee9435a6b.png)
+
 ## 安装配置 MySQL
 1. 安装 MySQL。输入以下命令：
  - 适用于 CentOS 7.0 或以后版本：
