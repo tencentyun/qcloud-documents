@@ -24,13 +24,13 @@ qcloudsms 可以采用多种方式进行配置，我们提供以下三种方法�
 <dependency>
   	<groupId>com.github.qcloudsms</groupId>
   	<artifactId>sms</artifactId>
-  	<version>0.9.2</version>
+  	<version>1.0.2</version>
 </dependency>
 ```
 
 - **sbt**
 ```
-libraryDependencies += "com.github.qcloudsms" % "sms" % "0.9.2"
+libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.2"
 ```
 
 - **其他方法**
