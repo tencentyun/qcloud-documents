@@ -2,18 +2,13 @@
 GetCdnLogList
 
 ## 功能说明
-获取指定时间段内的点播CDN日志文件下载链接
+获取指定时间段内的点播 CDN 日志文件下载链接。
 
 ### 详细说明
-1. 获取点播CDN日志文件下载链接
-2. 默认情况下CDN日志每小时生成一个文件，若某一个小时未产生访问日志，则不会生成下载链接，也不会返回日志链接
-3. 只能查询到最近30天内的CDN日志下载链接
-4. 返回的数据是请求时间段内的日志下载链接列表，日志下载链接的有效期为24小时
-
-*本接口只支持点播4.0*
-
-## 事件通知
-无
+1. 获取点播 CDN 日志文件下载链接。
+2. 默认情况下 CDN 日志每小时生成一个文件，若某一个小时未产生访问日志，则不会生成下载链接，也不会返回日志链接。
+3. 只能查询到最近30天内的 CDN 日志下载链接。
+4. 返回的数据是请求时间段内的日志下载链接列表，日志下载链接的有效期为24小时。
 
 ### 请求域名
 vod.api.qcloud.com
@@ -22,40 +17,40 @@ vod.api.qcloud.com
 100次/分钟
 
 ### 参数说明
-| 参数名称      | 必填 | 类型    | 说明                                                                                                                      |
-| ------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
-| startDate     | 是   | String  | 起始时间，格式为yyyy-MM-dd HH:mm:ss，如2017-08-01 00:00:00。如果只包含日期，默认时间为00：00：00                          |
-| endDate       | 是   | String  | 结束时间，格式为yyyy-MM-dd HH:mm:ss，如2017-08-07 23:00:00。如果只包含日期，默认时间为23:00:00                            |
-| hosts         | 否   | Array   | 域名列表，查询指定域名的CDN日志文件,如果请求不带hosts参数，返回所有域名的日志下载链接                                     |
-| oversea       | 否   | Integer | 是否获取海外CDN节点的日志文件，0:只获取国内CDN节点的日志文件，1：获取海外CDN节点的日志文件，默认只返回国内CDN日志下载链接 |
-| COMMON_PARAMS | 是   |         | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                           |
+| 参数名称      | 必填 | 类型    | 说明                                                                                                                                  |
+| ------------- | ---- | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| startTime     | 是   | Integer | 起始时间，Unix 时间戳，如北京时间2018-03-01 00:00:00的 Unix 时间戳为1519833600                                                        |
+| endTime       | 是   | Integer | 结束时间，Unix 时间戳，如北京时间2018-03-02 00:00:00的 Unix 时间戳为1519920000                                                        |
+| hosts         | 否   | Array   | 域名列表，查询指定域名的 CDN 日志文件，如果请求不带 hosts 参数，返回所有域名的日志下载链接                                            |
+| oversea       | 否   | Integer | 是否获取海外 CDN 节点的日志文件<ul><li>0：只获取国内 CDN 节点的日志文件，默认为0；</li><li>1：获取海外 CDN 节点的日志文件。</li></ul> |
+| COMMON_PARAMS | 是   |         | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                       |
 
 ### 请求示例
 ```
-https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList&startDate=2017-08-01&endDate=2017-08-07&COMMON_PARAMS
+https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
+&startTime=1519833600
+&endTime=1519920000
+&hosts.0=123.vod2.myqcloud.com
+&COMMON_PARAMS
 ```
 
 ## 接口应答
 
 ### 参数说明
-| 参数名称 | 类型    | 说明                          |
-| -------- | ------- | ----------------------------- |
-| code     | Integer | 错误码, 0: 成功, 其他值: 失败 |
-| message  | String  | 错误信息                      |
-| data     | object  | 结果数据                      |
-| list     | Array   | CDN日志列表                   |
-
-### CdnLogData 日志下载信息
-| host    | String | 域名                                          |
-| logList | Array  | 域名下的日志下载链接列表，字段信息参见LogInfo |
-
+| 参数名称     | 类型    | 说明                                           |
+| ------------ | ------- | ---------------------------------------------- |
+| code         | Integer | 错误码，0：成功；其他值：失败                  |
+| message      | String  | 错误信息                                       |
+| data         | Array   | CDN 日志列表                                   |
+| data.host    | String  | 域名                                           |
+| data.logList | Array   | 域名下的日志下载链接列表，字段信息参见 LogInfo |
 
 ### LogInfo日志下载链接信息
-| 参数名称 | 类型   | 说明                                                              |
-| -------- | ------ | ----------------------------------------------------------------- |
-| time     | String | 日志所属日期， 格式为：yyyy-MM-dd，如2017-08-06                   |
-| name     | String | 日志名称，格式为：日期小时-域名如2016050301-123.vod2.myqcloud.com |
-| link     | String | 日志下载链接                                                      |
+| 参数名称 | 类型   | 说明                                                                                     |
+| -------- | ------ | ---------------------------------------------------------------------------------------- |
+| date     | String | 日志所属日期， 格式为：yyyy-MM-dd，如2018-03-01                                         |
+| name     | String | 日志名称，格式为：yyyyMMddHH-host， 即日期小时-域名，如 2018030112-123.vod2.myqcloud.com |
+| link     | String | 日志下载链接，24小时内下载有效                                                           |
 
 
 ### 错误码说明
@@ -63,7 +58,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList&startDate=2017-08-0
 | --------- | -------------------------------------------- |
 | 4000-7000 | 参见[公共错误码](/document/product/266/7783) |
 | 1000      | 无效参数                                     |
-| 1001      | 用户信息错误                                 |
 
 ### 应答示例
 
@@ -71,15 +65,13 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList&startDate=2017-08-0
 {
 	"code": 0,
 	"message": "",
-	"data": {
-		"list": [{
-			"host": "123.vod2.myqcloud.com",
-			"logList": [{
-				"time": "2017-08-06",
-				"name": "2017081617-123.vod2.myqcloud.com",
-				"link: ": "http: //log-download.cdn.qcloud.com/20170806/17/2017080617-123.vod2.myqcloud.com.gz?st=LZi3oQXkjkeBe1xTFTGPFQ&e=1501743762"
-			}]
+	"data": [{
+		"host": "123.vod2.myqcloud.com",
+		"logList": [{
+			"date": "2018-03-01",
+			"name": "2018030112-123.vod2.myqcloud.com",
+			"link: ": "http: //log-download.cdn.qcloud.com/20180301/12/2018030112-123.vod2.myqcloud.com.gz?st=LZi3oQXkjkeBe1xTFTGPFQ&e=1501743762"
 		}]
-	}
+	}]
 }
 ```
