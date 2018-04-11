@@ -1,4 +1,4 @@
-欢迎使用云呼叫中心（Clound Call Center，CCC）。
+欢迎使用云呼叫中心（Cloud Call Center，CCC）。
 
 
 云呼叫中心（Cloud Call Center，CCC）为您提供便捷的互动式呼叫中心管理服务。

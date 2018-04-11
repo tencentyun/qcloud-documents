@@ -1,10 +1,10 @@
-# 应用云 Crashlytics iOS 编程手册
+
 
 ## 服务启动与停止
 
 当您集成了 Crashlytics 服务之后，系统将会在程序启动的时候自动启动服务。
 
-如果您不希望在启动的时候默认启动 Crashlytics 服务，您可以在配置中设置关掉 (例如在AppDelegate中加入如下代码)：
+如果您不希望在启动的时候默认启动 Crashlytics 服务，您可以在配置中设置关掉 (例如在 AppDelegate 中加入如下代码)：
 
 ~~~
     TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
@@ -34,7 +34,6 @@
 
 ## 手动上报异常
 
-
 ~~~
 /**
  上报异常信息
@@ -45,7 +44,7 @@
 
 ~~~
 
-## 定制 崩溃 服务
+## 定制崩溃服务
 
 ### 开启卡顿监控
 
@@ -62,25 +61,25 @@
 ## 用户策略行为
 
 ### 设置标签
-自定义标签，用于标明App的某个“场景”。在发生Crash时会显示该Crash所在的“场景”，以最后设置的标签为准，标签id需大于0。例：当用户进入界面A时，打上9527的标签：
+自定义标签，用于标明 App 的某个“场景”。在发生 Crash 时会显示该 Crash 所在的“场景”，以最后设置的标签为准，标签 id 需大于 0 。例：当用户进入界面 A 时，打上 9527 的标签：
 
 ```
 [TACCrashService shareService].userSenceTag =999;
 ```
 
-打标签之前，需要在Bugly产品页配置中添加标签，取得标签ID后在代码中上报。
+打标签之前，需要在 Bugly 产品页配置中添加标签，取得标签 ID 后在代码中上报。
 
 ### 设置自定义Map参数
 
-自定义Map参数可以保存发生Crash时的一些自定义的环境信息。在发生Crash时会随着异常信息一起上报并在页面展示。
+自定义 Map 参数可以保存发生 Crash 时的一些自定义的环境信息。在发生 Crash 时会随着异常信息一起上报并在页面展示。
 
 ```
 [[TACCrashService shareService] setUserValue:@"value" forKey:@"key"];
 ```
 
-最多可以有9对自定义的key-value（超过则添加失败）；
-key限长50字节，value限长200字节，过长截断；
-key必须匹配正则：[a-zA-Z[0-9]]+。
+最多可以有 9 对自定义的 key-value（超过则添加失败）；
+key 限长 50 字节，value 限长 200 字节，过长截断；
+key 必须匹配正则：[a-zA-Z[0-9]]+。
 
 
 ## 其他功能

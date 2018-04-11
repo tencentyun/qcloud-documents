@@ -4,9 +4,9 @@ The log collection service does not allow you to collect log files directly from
 
 ## How to Make the Configuration
 
-For example, application prints the log file to the file system path `/var/log/nginx/access.log` in the container. You can configure log collection rules as follows:
+For example, application prints the log file to the file system path `/data/app-log/nginx.log` in the container. You can configure log collection rules as follows:
 
-1. When creating an application, mount the path `/var/log/nginx` where the log file locates in the container to the CVM path `/data/app-log/nginx`.
+1. When creating an application, mount the path `/data/app-log/nginx` where the log file locates in the container to the CVM path `/var/log/nginx`.
 ![][1]
 ![][2]
 

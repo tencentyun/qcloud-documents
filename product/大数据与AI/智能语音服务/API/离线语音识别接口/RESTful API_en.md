@@ -7,7 +7,7 @@ The request structure of RESTful API for offline speech recognition is as follow
 | Version | Yes | String | HTTPS protocol version | 
 | URL | Yes | String | HTTPS request address | 
 | Https Headers | Yes | Dataset | HTTPS request header | 
-| Https Method | Yes | String | HTTPS request method. The HTTPS request method for offline speech recognition is POST
+| Https Method | Yes | String | HTTPS request method. The HTTPS request method for offline speech recognition is POST.
 | Https Body | Yes | String | HTTPS request body, i.e. voice data. Enter a value when source_type is 1. Its maximum size is 5M. | 
 
 The URL structure is as follows:
@@ -36,7 +36,7 @@ The description of the fields in the URL is as follows (the value of each field 
 | sub_service_type | Yes | Uint | Subservice type. 0: Offline speech recognition; 1: Streaming speech recognition. | 
 | engine_model_type | Yes | String | Engine type. 8k_0:  phone 8k universal model; 16k_0: 16k universal model | 
 | callback_url | Yes | String | Callback URL, the result received by the user, with a length between 0 and 2048. |
-| channel_num | No | Uint | The number of speech channels. 1 and 2 are supported for phone 8k universal model, and only 1 is supported for other models. |
+| channel_num | No | Unit | The number of speech channels. 1 and 2 are supported for phone 8k universal model, and only 1 is supported for other models. |
 | res_text_format | Yes | Uint | The method by which the recognized result text is encoded. 0: UTF-8; 1: GB2312; 2: GBK; 3: BIG5 |
 | res_type | No | Uint | The method by which the result is returned. 0: Synchronous return; 1: Asynchronous return. Only asynchronous return is supported. |
 | source_type | Yes | Uint | Voice data source. 0: Voice URL; 1: Voice Data (post body) |
@@ -66,7 +66,7 @@ Request Parameters:
 {
 "projectid":0,
 "sub_service_type":0,
-"engine_model_type":1,
+"engine_model_type":"16k_0",
 "url":"http://test.qq.com/rec_callback",
 "res_text_format":0,
 "res_type":1,
@@ -161,14 +161,14 @@ Error codes are as follows:
 | 1016 | ERROR_URL_TOO_LONG | The length of url exceeds 2048 |
 | 1018 | ERROR_APPID_NOT_REGI | Unregistered APPID |
 | 1019 | ERROR_APPID_PROJECTID_TEMPLATENAME_MISMATCH | The APPID and ProjectId do not match template_name |
-| 1020 | ERROR_PROCESS_FAILED | nternal error on the server |
+| 1020 | ERROR_PROCESS_FAILED | Internal error on the server |
 | 1021 | ERROR_PROXY_BAD_AUTH | Signature does not meet rules |
 | 1023 | ERROR_PROXY_AUTH_TOO_LONG_EXPIRED | Too long signature validity period |
 | 1024 | ERROR_PROXY_AUTH_EXPIRED | Expired signature |
 | 1026 | ERROR_PROXY_AUTH_SECRETID_NOEXIST | Signature secretId error |
 | 1028 | ERROR_PROXY_AUTH_REPLAY_ATTACK | Replay attack |
 | 1029 | ERROR_PROXY_AUTH_FAILED | Failed to pass signature verification |
-| 1031 | ERROR_AUDIO_TOO_LARGE | Too large voice data (more than 5M) |
+| 1031 | ERROR_AUDIO_TOO_LARGE | Too large voice data (more than 5 MB) |
 | 1033 | ERROR_UNKNOWN | Other unknown errors |
 
 ## PHP Sample Code
@@ -220,5 +220,6 @@ $req_url = "https://$req_url?$arg_str";
 echo "curl -sv -H 'Authorization:$signature' '$req_url' -d ''\n";
 
 ```
-
+> **Note:**
+> If a php script is embedded into an html page, &times may be translated as x, and a 404 error will be returned. This problem will not occur in pure php codes. To solve this problem, replace & with &amp; (with the semicolon) in PHP codes.
 

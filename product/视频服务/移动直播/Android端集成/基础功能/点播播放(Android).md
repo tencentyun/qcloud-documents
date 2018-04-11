@@ -108,7 +108,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 如果是点播播放结束后，也想保留最后一帧画面，您可以在收到播放结束事件后什么也不做，默认停在最后一帧。
 
 ### step 7: 屏幕截图
-通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
+通过调用 **snapshot** 您可以截取当前视频为一帧画面，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
 
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
@@ -234,7 +234,7 @@ ArrayList<TXBitrateItem> bitrates = mVodPlayer.getSupportedBitrates(); //获取�
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是秒
@@ -254,7 +254,7 @@ public void onPlayEvent(int event, Bundle param) {
 
 如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是毫秒

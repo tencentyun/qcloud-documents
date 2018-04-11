@@ -1,47 +1,37 @@
-## 简介
+## 接口概述
 
-OCR - 车牌号识别用于识别图像上的车牌号码。
+### 服务简介
+本接口用于识别用户上传照片的车牌号码。
 
-## 计费
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-请查看[计费说明](/document/product/641/12399)。
-
-## 说明
-
-(1) 每个请求的包体大小限制为6MB。
-
-(2) 所有接口都为POST方法。
-
-(3) 不支持 .gif这类的多帧动图。
-
-## 调用URL
-
+### url 说明
 支持 http 和 https 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/plate`
 
+`https://recognition.image.myqcloud.com/ocr/plate`
+
 ## 请求方式
-
-支持指定图片URL和上传本地图片文件两种方式。
-
-#### 请求包header
+### 请求头 header
 
 所有请求都要求含有下表列出的头部信息：
 
 | 参数名            | 值                              | 描述                                       |
 | -------------- | ------------------------------ | ---------------------------------------- |
-| Host           | recognition.image.myqcloud.com | 图像识别服务器域名                                |
-| Content-Length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）                 |
-| Content-Type   | application/json               | 标准json格式                                 |
+| Host           | recognition.image.myqcloud.com | 腾讯云文字识别服务器域名                        |
+| Content-Length | 包体总长度                          | 每个请求的包体大小限制为 6MB，不支持 .gif 类型的动图  |
+| Content-Type   | application/json               | 标准 json 格式                                 |
 | Authorization  | 鉴权签名                           | 用于鉴权的签名，使用多次有效签名。[详情](/document/product/641/12409) |
 
 #### 请求参数
 
-| 参数名   | 是否必须 | 类型     | 参数说明                                  |
+| 参数名   | 必选 | 类型     | 参数说明                                  |
 | ----- | ---- | ------ | ------------------------------------- |
-| appid | 必须   | String | 项目ID                                  |
-| image | 可选   | String | 使用base64编码的二进制图片数据                    |
-| url   | 可选   | String | 图片的url, image和url只提供一个即可,如果都提供,只使用url |
+| appid | 是   | String | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                                  |
+| image | 否   | String | 使用base64编码的二进制图片数据                    |
+| url   | 否   | String | 图片的url, image和url只提供一个即可,如果都提供,只使用url |
 
 #### 返回内容
 
@@ -63,9 +53,9 @@ items说明
 | &nbsp;     | height | Int    | item框高度   |
 | itemconf   | &nbsp; | Float  | 字段识别结果置信度 |
 
-## 示例
+## 请求示例
 
-#### 使用url的请求包
+#### 使用 url 的请求示例
 
 ```
 POST /ocr/plate HTTP/1.1
@@ -80,7 +70,7 @@ Content-Type: application/json
 }
 ```
 
-#### 使用image的请求包
+#### 使用 image 的请求示例
 
 ```
 POST /ocr/plate HTTP/1.1
@@ -95,7 +85,7 @@ Content-Type: application/json
 }
 ```
 
-#### 回包
+#### 返回示例
 
 ```
 HTTP/1.1 200 OK

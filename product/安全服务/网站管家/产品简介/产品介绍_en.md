@@ -11,7 +11,7 @@ Tencent Cloud WAF can effectively prevent SQL injection, XSS cross-site scriptin
 </tr>
 <tr>
 <td align="center">Web application firewall</td>
-<td>WAF can effectively prevent SQL injection, XSS cross-site scripting, trojan upload, unauthorized access and other OWASP attacks, and allows you to customize defense rules by configuring IP, URL path, Referer, POST and other parameters.</td>
+<td>WAF can effectively prevent SQL injection, XSS (cross-site scripting), trojan upload, unauthorized access and other OWASP attacks, and allows you to customize defense rules by configuring IP, URL path, Referer, POST and other parameters.</td>
 </tr>
 <tr>
 <td align="center">Defense against CC attacks</td>

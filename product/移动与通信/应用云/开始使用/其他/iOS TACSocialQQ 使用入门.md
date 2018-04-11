@@ -1,16 +1,16 @@
-TACSocialQQ 封装了 [TencentOpenAPI](wiki.connect.qq.com/ios_sdk环境搭建) QQ 互联的 SDK，您可以通过引入 TACSocialQQ 来引入 QQ 互联能力。同时，TACSocialQQ 提供了更方便的改 SDK 集成方式，请不要重复引入 TencentOpenAPI 。
+TACSocialQQ 封装了 [TencentOpenAPI](http://wiki.connect.qq.com/ios_sdk%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA) QQ 互联的 SDK，您可以通过引入 TACSocialQQ 来引入 QQ 互联能力。同时，TACSocialQQ 提供了更方便的改 SDK 集成方式，请不要重复引入 TencentOpenAPI 。
 
 ## 准备工作
 
-在开始使用应用云 TACSocialQQ 之前，您需要：
+在开始使用移动开发平台（MobileLine） TACSocialQQ 之前，您需要：
 
-1. 一个启用了应用云的应用。
+1. 一个启用了移动开发平台（MobileLine）的应用。
 2. 您集成了 TACCore。
 
-## 将应用云 TACSocialQQ 代码库添加到您的 Xcode 项目中
+## 将移动开发平台（MobileLine） TACSocialQQ 代码库添加到您的 Xcode 项目中
 
 
-### 1. 在您的项目中集成应用云 SDK，并在您的 Podfile 文件中添加应用云的私有源：
+### 1. 在您的项目中集成移动开发平台（MobileLine） SDK，并在您的 Podfile 文件中添加移动开发平台（MobileLine）的私有源：
  
 ~~~
 source "https://git.cloud.tencent.com/qcloud_u/cocopoads-repo"
@@ -136,7 +136,7 @@ Swift 代码示例：
 #### 配置 TACSocialQQ 中的配置脚本 (主要为第三方登陆模块的配置脚本)
 
 
-为了配合 TencentOpenApi 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据： [TACCore 集成指南]() 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
+为了配合 TencentOpenApi 的使用，需要 Info.plist 里面注册回调 scheme 和 query scheme。为了方便您快速集成，和减少集成过程中的挫折。我们使用了自动化的技术来执行上报的操作。请确保根据： [TACCore 集成指南](https://cloud.tencent.com/document/product/666/14306) 中的脚本配置章节正确配置了运行脚本，尤其是构建之前运行脚本。
 
 
 TACSocialQQ 中的脚本会自动的帮助您完成以下功能：

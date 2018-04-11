@@ -1,54 +1,42 @@
-## 简介
-通用 OCR 技术提供图片整体文字的检测和识别服务，返回文字框位置与文字内容。支持多场景、任意版面下整图文字的识别，以及中英文、字母、数字的识别。被广泛应用于印刷文档识别、广告图文字识别、街景店招识别、菜单识别、视频标题识别、互联网头像文字识别等。
+## 接口概述
 
-## 计费说明
+### 服务简介
+通用 OCR 技术提供图片整体文字的检测和识别服务，返回文字框位置与文字内容。支持多场景、任意版面下整图文字的识别，以及中英文、字母、数字的识别。
+应用场景：印刷文档识别、广告图文字识别、街景店招识别、菜单识别、视频标题识别、互联网头像文字识别等。
 
-请查看[计费说明](/document/product/641/12399)。
+### 计费说明
+本接口按实际使用量计费，具体定价请查看 [计费说明](/document/product/641/12399)。
 
-## 说明
-
-| 概念    | 解释              |
-| ----- | --------------- |
-| appid | 项目ID, 接入项目的唯一标识 |
-><font color="#0000cc">**注意：** </font>
-> 如果开发者使用的是 V1 版本，则 appid 为其当时生成的 appid。
-
-## 调用URL
-
+### url 说明
 支持 http 和 https 两种协议：
 
 `http://recognition.image.myqcloud.com/ocr/general`
 
-## 请求包header
-接口采用 http 协议，支持指定图片 URL 和上传本地图片文件两种方式。
-所有请求都要求含有下表列出的头部信息：
+`https://recognition.image.myqcloud.com/ocr/general`
+
+## 请求方式
+
+### 请求头 header
+所有请求都要求含有以下头部信息：
 
 | 参数名            | 值                                        | 描述                                       |
 | -------------- | ---------------------------------------- | ---------------------------------------- |
-| Host           | recognition.image.myqcloud.com           | 万象优图服务器域名                                |
-| Content-Length | 包体总长度                                    | 整个请求包体内容的总长度，单位：字节（Byte）                 |
-| Content-Type   | application/json  或者  multipart/form-data | 根据不同接口选择                                 |
-| Authorization  | 鉴权签名                                     | 用于[**鉴权**](/document/product/641/12409)的签名 |
+| host           | recognition.image.myqcloud.com           | 腾讯云文字识别服务器域名                   |
+| content-length | 包体总长度                          | 整个请求包体内容的总长度，单位：字节（Byte）                 |
+| content-type   | application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片 image，选择 multipart/form-data。      |
+| authorization  | 鉴权签名                         | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/641/12409) |
 
-><font color="#0000cc">**注意：** </font>
-> (1) 每个请求的包体大小限制为 6MB。
-> (2) 所有接口都为 POST 方法。
-> (3) 不支持 .gif 这类的动图。
+>**注意：**
+如选择 multipart/form-data，请使用 http 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
+### 请求参数
 
-
-## 请求参数
-
-使用image则使用 multipart/form-data格式
-
-不使用image则使用 application/json格式
-
-| 参数名    | 是否必须 | 类型     | 参数说明                                     |
+| 参数名    | 必选 | 类型     | 参数说明                                     |
 | ------ | ---- | ------ | ---------------------------------------- |
-| appid  | 必须   | string | 项目ID                                     |
-| bucket | 必须   | string | 空间名称                                     |
-| image  | 可选   | binary | 图片内容                                     |
-| url    | 可选   | string | 图片的 url , image 和 url 只提供一个即可，如果都提供，只使用 url |
+| appid  | 是   | string | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                   |
+| bucket | 是   | string | 空间名称                                     |
+| image  | 否   | binary | 图片内容                                     |
+| url    | 否   | string | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 ## 返回内容
 
@@ -59,7 +47,7 @@
 | code            | int         | 错误码               |
 | message         | string      | 错误描述              |
 
-Item说明
+item 说明：
 
 | 字段         |   &nbsp;     | 类型          | 说明          |
 | ---------- | ------ | ----------- | ----------- |
@@ -70,16 +58,16 @@ Item说明
 |    &nbsp;        | height | int         | item 框高度    |
 | words      |    &nbsp;    | array(word) | 每个字的信息      |
 
-word说明
+words 说明：
 
 | 字段         | 类型     | 说明                      |
 | ---------- | ------ | ----------------------- |
 | character  | string | 单字的内容                   |
 | confidence | float  | 这个字的置信度,取值范围[0.0,100.0] |
 
-## 示例
+## 请求示例
 
-### 使用 url 的请求包
+### 使用 url 的请求示例
 
 ```
 POST /ocr/general HTTP/1.1
@@ -95,7 +83,7 @@ Content-Type: application/json
   }
 ```
 
-### 使用 image 的请求包
+### 使用 image 的请求示例
 
 ```
 POST /ocr/general HTTP/1.1
@@ -120,7 +108,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ----------------acebdf13572468--
 ```
 
-### 回包
+### 返回示例
 
 ```
 HTTP/1.1 200 OK

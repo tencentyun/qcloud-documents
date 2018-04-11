@@ -1,6 +1,4 @@
-## Overview
-
-The PHP SDK is used to upload videos and cover image files stored in the servers into Tencent Cloud VOD system.
+Tencent Cloud VOD provides PHP SDK for the scenario of uploading videos from server. For more information about upload process, please see [Upload Videos from Server](/document/product/266/9759).
 
 ## Integration Method
 
@@ -13,20 +11,18 @@ The PHP SDK is used to upload videos and cover image files stored in the servers
 }
 ```
 
-### Using Source File
-If the composer tool is not reruired for dependency management in the project, you can download the source code directly into the project:
+### Importing Using Source File
+If the composer tool is not used for dependency management in the project, you can directly download the source code and import it into the project:
 
 * [Access from Github >>](https://github.com/tencentyun/vod-php-sdk-v5)
 * [Click to download PHP SDK >>](https://github.com/tencentyun/vod-php-sdk-v5/archive/master.zip)
 
-Copy the source codes in the src file and cos-sdk-v5, qcloudapi-sdk-php in the file test/non-composer to the project directory of the same level
+Copy the source code in the src file as well as cos-sdk-v5 and qcloudapi-sdk-php in the file test/non-composer to the project directory of the same level
 
-## Steps for Upload
-### Step 1: Initialize Configuration
-Initialize configuration using the cloud API key
-
-**For the integration using composer**
-
+## Simple Upload of Video
+### Initializing Upload Object
+Initialize VodApi using the Cloud API key
+**When you import the video using composer**
 ```
 <?php
 require 'vendor/autoload.php';
@@ -36,7 +32,7 @@ use Vod\VodApi;
 VodApi::initConf("your secretId", "your secretKey");
 ```
 
-**For the integration using source code**
+**When you import the video using source code**
 ```php
 <?php
 require './cos-sdk-v5/cos-autoloader.php';
@@ -49,42 +45,8 @@ use Vod\VodApi;
 VodApi::initConf("your secretId", "your secretKey");
 ```
 
-### Step 2: Call the upload method to start uploading
-
-Method Signature
-```
-public static function upload(array $src, $parameter = null)
-```
-
-Method Parameters
-**The src parameter**
-
-| Parameter Name | Description | Type | Required |
-| ------------ | ------------ |  ------------ | ------------  |
-| videoPath | Video path | String | Yes |
-| coverPath | Cover path | String | No |
-
-**The parameter parameter**
-
-| Parameter Name | Description | Type |
-| ------------ | ------------ |  ------------ | 
-| videoName | Video name | String | 
-| sourceContext | User-defined context | String | 
-| storageRegion | Specified storage region | String | 
-| procedure | Task flow | String | 
-
-Returned values
-
-| Name | Description | Type |
-| ------------ | ------------ |  ------------ | 
-| code | Status code, 0: Successful, others: Failed | Integer | 
-| message | Message | String | 
-| data | Returned data | Object |
-| data.fileId | Video file ID | String |
-| data.video.url | Video Url | String |
-| data.cover.url | Cover Url | String |
-
-#### Upload Video
+### Calling Upload
+Pass video address to start uploading
 ```
 $result = VodApi::upload(
     array (
@@ -94,7 +56,9 @@ $result = VodApi::upload(
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
 
-#### Uploading Videos with Cover Images
+## Advanced Features
+### Uploading Cover
+Pass both video address and cover address
 ```
 $result = VodApi::upload(
     array (
@@ -105,7 +69,8 @@ $result = VodApi::upload(
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
 
-#### Uploading Videos and Specifying the Task Flow
+### Specifying Task Flow
+Pass the task flow parameter. For more information, please see [Overview of Task Flow](/document/product/266/11700). The task flow will be processed automatically after the video is uploaded.
 ```
 $result = VodApi::upload(
     array (
@@ -119,7 +84,8 @@ $result = VodApi::upload(
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
 
-#### Uploading Videos to Specified Region
+### Specifying Upload Region
+Pass a specified region ID to upload a video to the specified region. For more information, please see [Upload Videos from Server](/document/product/266/9759).
 ```
 $result = VodApi::upload(
     array (
@@ -132,12 +98,52 @@ $result = VodApi::upload(
 );
 echo "upload to vod result: " . json_encode($result) . "\n";
 ```
-## Error Codes
 
-| Error Code | Description |
+## API Description
+Initialize upload object `VodApi::initConf(secretId, secretKey)`
+
+| Parameter Name | Description | Type | Required |
+| --------- | ---------------------- | ------- | ---- |
+| secretId | Cloud API Key ID | String | Yes |
+| secretKey | Cloud API Key | String | Yes |
+
+Upload method `VodApi.upload(src, parameter)`
+
+**src**
+
+| Parameter Name | Description | Type | Required |
+| ------------ | ------------ |  ------------ | ------------  |
+| videoPath | Video path | String | Yes |
+| coverPath | Cover path | String | No |
+
+**parameter**
+
+| Parameter Name | Description | Type | Required |
+| ------------ | ------------ |  ------------ |   ------------  |
+| videoName | Video name | String | No |
+| sourceContext | User-defined context | String | No |
+| storageRegion | Specified storage region | String | No |
+| procedure | Task flow | String | No |
+
+Upload Result 
+
+| Member Variable Name | Description | Type |
+| -------- | --------- | ------ |
+| code | Result code | Int | 
+| message | Message | String | 
+| data | Returned data | Object |
+| data.fileId | VOD file ID | String |
+| data.video.url | Address where the video is stored | String |
+| data.cover.url | Address where the cover is stored | String |
+
+## Error Codes
+After calling SDK to upload a video, you can check the video upload status with the code in the result.
+
+| Status Code | Description |
 | ----------- | ----------------- |
+| 0 | Uploaded successfully |
 | 31001 | Invalid session_key in user request |
 | 31002 | The VOD signature in user request already exists |
-| 31003 | Uploaded file does not exist |
+| 31003 | The file to be uploaded does not exist |
 | 32001 | Service error |
 

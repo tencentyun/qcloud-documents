@@ -121,6 +121,23 @@ idfa</td>
 <td>String</td>
 <td>业务 ID，在多个业务中使用此服务，通过此 ID 区分统计数据</td>
 </tr>
+<tr>
+<td> idCryptoType</td>
+<td> Uint</td>
+<td> 身份证加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256
+</td>
+</tr>
+<tr>
+<td> phoneCryptoType</td>
+<td> Uint</td>
+<td> 手机号加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256</td>
+</tr>
+<tr>
+<td> nameCryptoType</td>
+<td> Uint</td>
+<td> 姓名加密类型</br>0：不加密（默认值）</br>1：md5</br>2：sha256
+</td>
+</tr>
 </table>
 
 ## 响应参数
@@ -149,7 +166,7 @@ RiskDetail 类型说明
 
 - 风险码
 
-  风险码及其说明请参见 [风险码](http://sdssdsd) 页面。
+  风险码及其说明请参见 [风险码](https://cloud.tencent.com/document/product/668/14278) 页面。
 
 ## 请求示例
 

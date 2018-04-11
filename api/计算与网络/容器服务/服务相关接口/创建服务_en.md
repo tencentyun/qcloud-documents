@@ -6,7 +6,7 @@ Domain name for API request: `ccs.api.qcloud.com`.
 ## 2. Input Parameters
 The following request parameter list only provides API request parameters. For additional parameters, please see [Common Request Parameters](/doc/api/457/9463).
 
-| Parameter| Description | Type | Required |
+| Parameter Name | Description | Type | Required | 
 |---------|---------|---------|---------
 | clusterId | Cluster ID, which needs to be entered The field clusterId returned via the API [Query Cluster List](/doc/api/457/9448) | String | Yes |
 | serviceName | Service name, which is composed of lowercase letters, numbers and "-" with a length no more than 63 characters. It starts with a lowercase letter and ends with a lowercase letter or a number. | String | Yes |
@@ -14,12 +14,12 @@ The following request parameter list only provides API request parameters. For a
 | replicas | Number of pod replicas | Int | Yes |
 | accessType | Service access method. If it is not specified, default is ClusterIP.<br>LoadBalancer: This creates a public network load balancer for the service. Traffic is forwarded to the service when you access the IP and port of this load balancer.<br>SvcLBTypeInner: This creates a private network load balancer for the service and occupies an IP under the subnet (you need to specify subnetId).<br>ClusterIP: Access from outside the cluster is not allowed. Only the other services within the cluster can access the service. Default is ClusterIP.<br>None: Network access is not available. The parameter portMappings.n is not requred in this case. | String | No |
 | portMappings.n | Port mapping information. When accessType is None, network access is not provided | Object Array | No | 
-| volumes.n | Container volume definition. If this is not specified, the field `volumeMounts.n` in the container object is not required either. | Object Array | No |
+| volumes.n | Container volume definition. If this is not specified, the field volumeMounts.n in the container object is not required either. | Object Array | No |
 | containers.n | Container array. You need to define at least one container for a service. The defined containers are launched upon service creation. | Object Array | Yes |
 | namespace | Namespace. Enter the field namespace returned via the API [Query Cluster Namespace](/doc/api/457/9430). Default is "default". | String | No |
-| subnetId | Subnet ID. Enter the field `unSubnetId` (unified subnet ID) returned via the API [Query Subnet List](/doc/api/215/1371). This is required if `accessType` is `SvcLBTypeInner`. | String | No |
-| nodeAffinity | Node affinity. Clusters of version 1.4.6 are not supported. The scheduling for node affinity uses `nodeAffinity` hard scheduling (`requiredDuringSchedulingIgnoredDuringExecution`) of Kubernetes. When Pod found that no node that meets the conditions is available for scheduling, scheduling may fail. | Object Array | No |
-| podAffinity | Pod affinity. Clusters of version 1.4.6 are not supported. The pod under the service is specified to rely on the deployment of other pods. The scheduling for pod affinity uses `podAffinity` hard scheduling (`requiredDuringSchedulingIgnoredDuringExecution`) of Kubernetes. When Pod found that no node that meets the conditions is available for scheduling, scheduling may fail. | Object Array | No |
+| subnetId | Subnet ID. Enter the field unSubnetId (unified subnet ID) returned via the API [Query Subnet List](/doc/api/215/1371). This is requied if "accessType" is "SvcLBTypeInner". | String | No |
+| nodeAffinity | Node affinity. Clusters of version 1.4.6 are not supported. The scheduling for node affinity uses nodeAffinity hard scheduling (requiredDuringSchedulingIgnoredDuringExecution) of Kubernetes. When Pod found that no node that meets the conditions is available for scheduling, scheduling may fail. | Object Array | No |
+| podAffinity | Pod affinity. Clusters of version 1.4.6 are not supported. The pod under the service is specified to rely on the deployment of other pods. The scheduling for pod affinity uses podAffinity hard scheduling (requiredDuringSchedulingIgnoredDuringExecution) of Kubernetes. When Pod found that no node that meets the conditions is available for scheduling, scheduling may fail. | Object Array | No |
 
 `portMappings` is described as followed:
 
@@ -35,13 +35,13 @@ The following request parameter list only provides API request parameters. For a
 | Field | Description | Type | Required | 
 |---------|---------|---------|---------|
 | name | Container volume name | String | Yes |
-| volumeType | Container volume type. "hostPath", "cbsDisk", "configMap" and "nfsDisk" are supported.<br>**Note: For cbsDisk, the number of service pods must be 1, because multiple nodes cannot be mounted to a CBS disk at a time.** | String | Yes | 
+| volumeType | Container volume type. "hostPath", "cbsDisk", "configMap" and "nfsDisk" are supported.<br>**Note: For cbsDisk, the number of service pods must be 1, because multiple nodes cannot be mounted to a cbs disk at a time.** | String | Yes | 
 | hostPath | When volumeType is hostPath, container volume directory on the host is mapped to the container when the container launches. If this field is left empty, a temporary directory is created on the Node for the container volume and deleted when the container is terminated. This directory and the data in it are retained if hostPath is specified. | String | No |
-| cbsDiskId | When `volumeType` is `cbsDisk`, this field is required. This is the ID of CBS network disk. This CBS disk is mounted to the host in which the container resides and mapped to the container when the container launches. It is unmounted from the host when the container is terminated. Enter the field `storageId` (cloud disk ID) returned via the API [Query Cloud Disk Information](/doc/api/362/2519). | String | No |  
-| nfsPath | When `volumeType` is `nfsDisk`, this field is required. This is the path where NFS disk is mounted, for example,` 127.0.0.1:/exports`. | String | No | 
-| configId | When `volumeType` is `configMap`, this field is required. This is the ID of the configuration item to be mounted. | String | No | 
-| configVersion | When `volumeType` is `configMap`, this field is required. This is the version of the configuration item to be mounted. | String | No |
-| configKeys.n | When `volumeType` is `configMap`, this field is required. This is the array of the key for the configuration item to be mounted. | Object Array | No |
+| cbsDiskId | When volumeType is cbsDisk, this field is required. This is the ID of cbs network disk. This cbs disk is mounted to the host in which the container resides and mapped to the container when the container launches. It is unmounted from the host when the container is terminated. Enter the field storageId (cloud disk ID) returned via the API [Query Cloud Disk Information](/doc/api/362/2519). | String | No |  
+| nfsPath | When volumeType is nfsDisk, this field is required. This is the path where NFS disk is mounted, for example,` 127.0.0.1:/exports`. | String | No | 
+| configId | When volumeType is configMap, this field is required. This is the ID of the configuration item to be mounted. | String | No | 
+| configVersion | When volumeType is configMap, this field is required. This is the version of the configuration item to be mounted. | String | No |
+| configKeys.n | When volumeType is configMap, this field is required. This is the array of the key for the configuration item to be mounted. | Object Array | No |
 
 `containers` is described as follows:
 
@@ -80,17 +80,17 @@ For more information on the definition of `healthCheck`, please see [Service Hea
 
 | Field | Description | Type |
 |---------|---------|---------|
-| type | Available value: `liveChec`k or `readyCheck`. `liveCheck` is used to check whether the container is alive. Container is restarted if the check fails. `readyCheck` is used to check whether the container is ready, and request forwarding towards the container is stopped if the check fails. | String |
-| healthNum | Threshold for success check. Value range: 1-10. `liveCheck` can only be performed once It means the container is considered to be alive if the check succeeds for this number of times consecutively. For example, if `type` is `liveCheck` and `healthNum` is 1, then the container is considered alive if the check returns successful result for 1 time in a row. | Int |
-| unhealthNum | Threshold for failure check. Value range: 1-10. It means the container is considered to be dead if the check fails for this number of times consecutively. For example, if `type` is `liveCheck` and `unhealthNum` is 3, then the container is considered dead if the check returns failed result for 3 times in a row. | Int |
+| type | Available value: liveCheck or readyCheck. "liveCheck" is used to check whether the container is alive. Container is restarted if the check fails. "readyCheck" is used to check whether the container is ready, and request forwarding towards the container is stopped if the check fails. | String |
+| healthNum | Threshold for success check. Value range: 1-10. "liveCheck" can only be performed once It means the container is considered to be alive if the check succeeds for this number of times consecutively. For example, if "type" is "liveCheck" and "healthNum" is 1, then the container is considered alive if the check returns successful result for 1 time in a row. | Int |
+| unhealthNum | Threshold for failure check. Value range: 1-10. It means the container is considered to be dead if the check fails for this number of times consecutively. For example, if "type" is "liveCheck" and "unhealthNum" is 3, then the container is considered dead if the check returns failed result for 3 times in a row. | Int |
 | intervalTime | Interval time between health checks (in sec), that is, the time until the next health check. Value range: 2-300. | Int |
 | timeOut | Operation timeout for health checks (in sec). Value range: 2-60 seconds. | Int |
-| delayTime | After the container starts up, the time to wait before health check is enabled (in sec). Default is 0 (enable immediately). Value range: 0-60 seconds. Note, if `type` is `readyCheck`, the container is considered unready within the `delayTime` period after it launches, during which requests are not forwarded to this container when you access the corresponding service. |Int |
+| delayTime | After the container starts up, the time to wait before health check is enabled (in sec). Default is 0 (enable immediately). Value range: 0-60 seconds. Note, if "type" is "readyCheck", the container is considered unready within the delayTime period after it launches, during which requests are not forwarded to this container when you access the corresponding service. |Int |
 | checkMethod | Type of check (methodTcp, methodHttp, methodCmd) | String |
-| port | Port. Value range: 1-65535. It is valid when `checkMethod` is `methodTcp` or `methodHttp`. If `checkType` is `methodTcp`, connection probe is performed towards this container port during the check process. The probe is considered successful if connection is successful, otherwise it is considered as failed. If `checkType` is `methodHttp`, an HTTP or HTTPS request is sent to this container port. The probe is considered successful if the returned `httpcode` falls within 200-399, otherwise it is considered as failed. | Int |
-| protocol | The protocol used when HTTP probe is performed on the container, which is valid when `checkMethod` is `methodHttp`. Only HTTP and HTTPS are supported. |String |
-| path | This is valid when `checkMethod` is `methodHttp`. When HTTP probe is performed on the container, a URL is created: `protocol://containerIp:port/path`, the probe is then executed by initiating a GET operation towards this URL. `protocol"` and `port` are the parameters specified above. | String |
-| cmd | This is valid when `checkMethod` is `methodCmd`. The command `cmd` is executed on the container when probe is performed. The probe is considered successful if the returned result is 0, otherwise it is considered as failed. | String |
+| port | Port. Value range: 1-65535. It is valid when checkMethod is methodTcp or methodHttp. If checkType is methodTcp, connection probe is performed towards this container port during the check process. The probe is considered successful if connection is successful, otherwise it is considered as failed. If "checkType" is "methodHttp", an HTTP or HTTPS request is sent to this container port. The probe is considered successful if the returned httpcode falls within 200-399, otherwise it is considered as failed. | Int |
+| protocol | The protocol used when HTTP probe is performed on the container, which is valid when checkMethod is methodHttp. Only HTTP and HTTPS are supported. |String |
+| path | This is valid when checkMethod is methodHttp. When HTTP probe is performed on the container, a URL is created:` protocol://containerIp:port/path`, the probe is then executed by initiating a GET operation towards this URL. "protocol" and "port" are the parameters specified above. | String |
+| cmd | This is valid when checkMethod is methodCmd. The command "cmd" is executed on the container when probe is performed. The probe is considered successful if the returned result is 0, otherwise it is considered as failed. | String |
 
 `nodeAffinity` is described as follows:
 
@@ -102,7 +102,7 @@ For more information on the definition of `healthCheck`, please see [Service Hea
 
 >For example, the label of Node1 is: NodeType = S1.SMALL1, the label of Node2 is NodeType = S1.SMALL2, and the label of Node 3 is NodeType =  S1.MEDIUM2. If the parameter nodeAffinity is specified as NodeType In S1.SMALL1 when you create a service, the container of the service is scheduled under Node1.
 
-"Containers" is described as follows:
+`containers` is described as follows:
 
 | Field | Description | Type |
 |---------|---------|---------|

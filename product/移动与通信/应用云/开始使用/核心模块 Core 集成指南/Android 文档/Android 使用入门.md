@@ -1,117 +1,135 @@
-# 应用云 Android 使用入门
+
+移动开发平台（MobileLine）使用起来非常容易，只需要简单的 4 步，您便可快速接入。接入后，您即可获得我们提供的各项能力，减少您在开发应用时的重复工作，提升开发效率。
 
 ## 准备工作
 
-在开始使用应用云服务前，您需要一个应用云项目和适用于您的应用的配置文件：
+您首先需要一个 Android 工程，这个工程可以是您现有的工程，也可以是您新建的一个空的工程。
 
- 1. 如果还没有应用云项目，请在应用云 [控制台]() 中创建一个。
- 2. 输入您应用的包名，这个包名必须是唯一的，并且和您最终发布的应用包名一致。
- 3. 根据提示，下载配置文件压缩包，并在本地解压。您可以随时重新下载此文件。
- 4. 将 tac\_service_configurations.json 文件并放到您应用模块的 assets 文件夹下。
- 5. 将 tac\_service_configurations_unpackage.json 文件并放到您应用模块的根目录下。
+## 第一步：创建项目和应用
+
+在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
+
+> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
+
+## 第二步：添加配置文件
+
+在您创建好的应用上点击【下载配置】按钮来下载该应用的配置文件的压缩包：
+
+![](http://tacimg-1253960454.cosgz.myqcloud.com/guides/project/downloadConfig.png)
+
+解压该压缩包，您会得到 `tac_service_configurations.json` 和 `tac_service_configurations_unpackage.json` 两个文件，请您如图所示添加到您自己的工程中去。
+
+<img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
+
+> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
 
 
-## 配置 服务框架SDK
+## 第三步：集成 SDK
 
-您并不需要额外单独安装应用云的 `服务框架SDK` 到您的应用中。当您集成某个应用云的服务时，我们已经自动为您添加了框架SDK。配置SDK的前提是您已经集成了一个或者多个应用云服务。
+下表展示了 MobileLine 各种服务所对应的库。
 
-应用云所有服务都必须在 TACApplication 单例配置完成之后才能正常使用。因此，我们建议您在 Application 的 onCreate 方法中执行该操作。
+|功能|服务名称|Gradle 依赖项|
+|:---|:---|:---|
+|腾讯移动分析（MTA）|analytics|com.tencent.tac:tac-core:1.0.0|
+|腾讯移动推送（信鸽）|messaging|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-messaging:1.0.0|
+|腾讯崩溃服务（bugly）|crash|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-crash:1.0.0|
+|腾讯计费（米大师）|payment|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-payment:1.0.0|
+|移动存储（Storage）|storage|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-storage:1.0.0|
+|授权（Authorization）|authorization|com.tencent.tac:tac-core:1.0.0<br>com.tencent.tac:tac-authorization:1.0.0|
 
-请注意，如果您使用了多个应用云服务，只要配置一次即可，**TACApplication 单例必须且只允许配置一次**。
 
-您可以有两种方式配置，默认配置和高级配置。通常情况下，您使用默认配置即可。
+如果您想集成我们的各种服务，那么您只需要在您应用级 build.gradle 文件（通常是 app/build.gradle）中添加对应的服务依赖即可：
 
-
-### 使用默认配置
-
-默认配置可以使用 TACApplication 的 configure(Context) 方法，应用云会自动依照下载的配置文件，完成配置工作。
-
-```
-TACApplication.configure(context);
-```
-
-### 使用配置文件自定义配置
-
-应用云 SDK 统一配置服务，会读取所有位于您位于应用模块的 assets 里面符合正则条件：`tac_services_configurations*.json`，并合并其里面的内容，然后传递给配置服务，进行对应的服务配置。
-
-例如以下文件名都是合法的配置文件：
-
-```
-tac_services_configurations_custom.json
-tac_services_configurations_payment.json
-```
-
-在读取配置文件的时候，我们会按照字典顺序依次读取( a > z )，并对所有的配置进行合并。如果在多个配置文件中存在多个重复的 Key，则会以顺序靠后的配置文件中的内容为准。
-
-例如文件 `tac_services_configurations_payment.json ` 与 `tac_services_configurations_custom.json` 都存在以 `payment` 为 Key 的内容，则会用 `tac_services_configurations_payment.json ` 中的覆盖掉  `tac_services_configurations_custom.json ` 中的。
-
-每个配置文件的格式都必须和 `tac_services_configurations.json` 保持一致，然后覆写您需要修改的参数，例如
+例如，您只想集成 `analytics` 服务，
 
 ```
-{
-  "services": {
-    "crash": {
-      "excludeModuleFilters": [
-      ]
-    }
-  }
+dependencies {
+	// 增加这行
+	compile 'com.tencent.tac:tac-core:1.0.0'
 }
 ```
 
-因此，如果您有自定义配置参数的需求，可以通过这种多文件配置的方式，而不需要修改代码。
-
-
-### 代码动态修改配置
-
-如果您需要在代码中动态修改一些服务的配置，可以使用 TACApplication 的 configureWithOptions(Context, TACApplicationOptions) 方法，下面是修改 Analytics 配置的示例代码：
+如果您想集成 `messaging` 服务：
 
 ```
-// 获取一个新的默认配置实例
-TACApplicationOptions applicationOptions = TACApplicationOptions.newDefaultOptions(context);
-
-// 获取您想要自定义配置的服务参数，例如 Analytics
-TACAnalyticsOptions analyticsOptions = applicationOptions.sub("analytics");
-// 修改 Analytics 的上报策略，具体配置项请参考每个依赖库的API文档
-analyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
-
-// 修改完成后，用新参数用配置SDK
-TACApplication.configureWithOptions(context, applicationOptions);
+dependencies {
+	// 增加这两行，其中 analytics 服务是所有其他模块的基础，因此必须添加 analytics 依赖
+	compile 'com.tencent.tac:tac-core:1.0.0' 
+	compile 'com.tencent.tac:tac-messaging:1.0.0'
+}
 ```
 
-每个服务都对应一个参数配置，可以通过服务的名称获取，例如获取推送服务的配置参数，可以使用：
+如果您想同时集成 `messaging` 和 `crash` 服务：
 
 ```
-TACMessagingOptions messagingOptions = applicationOptions.sub("messaging");
+dependencies {
+	// 增加这三行，其中 analytics 服务是所有其他模块的基础，因此必须添加 analytics 依赖
+	compile 'com.tencent.tac:tac-core:1.0.0' 
+	compile 'com.tencent.tac:tac-messaging:1.0.0'
+	compile 'com.tencent.tac:tac-crash:1.0.0'
+}
+```
+> 使用 payment 计费等服务时还需要额外的配置，详情请参见各自服务的快速入门。
+
+## 第四步：初始化
+
+集成好我们提供的 SDK 后，您需要在您自己的工程中添加初始化代码，从而让 MobileLine 服务在您的应用中进行自动配置。
+
+### 在 `Application` 子类中添加初始代码
+
+如果您自己的应用中已经有了 `Application` 的子类，请在该类的 `onCreate()` 方法中添加配置代码，如果没有，请自行创建：
+
+```
+public class MyCustomApp extends Application {
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    ...
+    //增加这行
+    TACApplication.configure(this);
+  }
+}
+
+```
+### 在 `AndroidManifest.xml` 文件中注册
+
+在创建好 `Application` 的子类并添加好初始化代码后，您需要在工程的 `AndroidManifest.xml` 文件中注册该 `Application` 类：
+
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.example.tac">
+  <application
+    <!-- 这里替换成你自己的 Application 子类 -->
+    android:name="com.example.tac.MyCustomApp"
+    ...>
+  </application>
+</manifest>
 ```
 
-具体的服务名称列表可以参考文档下方的可用库列表。
+### 启动服务
 
-### 获取当前配置
+MobileLine Android SDK 不会自动帮您启动服务，需要您自己手动启动，详情请参考各个服务快速入门的【启动服务】部分：
 
-配置完成之后，您任何时候都可以使用 TACApplication 的 options( ) 方法获取当前的配置参数。**您可以再次修改参数，但请在每个服务启动前完成它对应的参数配置，一旦服务启动，后续所有对它的参数修改都不会生效**：
+|功能|服务名称|入门指南|
+|:---|:---|:---|
+|腾讯移动分析（MTA）|analytics|[Analytics 快速入门](https://cloud.tencent.com/document/product/666/14313)|
+|腾讯移动推送（信鸽）|messaging|[Messaging 快速入门](https://cloud.tencent.com/document/product/666/14323)|
+|腾讯崩溃服务（bugly）|crash|[Crash 快速入门](https://cloud.tencent.com/document/product/666/14309)|
+|腾讯计费（米大师）|payment|[Payment 快速入门](https://cloud.tencent.com/document/product/666/14593)|
+|移动存储（Storage）|storage|[Storage 快速入门](https://cloud.tencent.com/document/product/666/14327)|
+|授权（Authorization）|authorization|[Authorization 快速入门](https://cloud.tencent.com/document/product/666/14331)|
 
-```
-TACApplicationOptions currentOptions = TACApplication.options( );
+## 后续步骤
 
-```
+### 了解 MobileLine：
 
-## debug 模式
+- 查看 [MoblieLine 应用示例](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/QCloudTACSample)
 
-如果你想打开 debug 模式，查看应用云的日志，可以通过以下命令开启：
+### 向您的应用添加 MobileLine 功能：
 
-```
-adb shell setprop log.tag.tac DEBUG
-```
-
-## 可用的库
-
-以下库分别对应各种应用云的功能。
-
-| gradle | 服务名称 | 功能 |
-|:----|:-----------|:-----------|
-|  com.tencent.tac:tac-core:1.0.0   |  analytics | 分析 |
-|  com.tencent.tac:tac-messaging:1.0.0   |  messaging | 推送 |
-|  com.tencent.tac:tac-crash:1.0.0   |  crash     | 异常上报 |
-|  com.tencent.tac:tac-storage:1.0.0   |  storage   | Cloud Storage |
-|  com.tencent.tac:tac-authorization:1.0.0   |  social | 登录 |
-|  com.tencent.tac:tac-payment:1.0.0   |  payment | 支付 |
+- 借助 [Analytics](https://cloud.tencent.com/document/product/666/14822) 深入分析用户行为。
+- 借助 [messaging](https://cloud.tencent.com/document/product/666/14826) 向用户发送通知。
+- 借助 [crash](https://cloud.tencent.com/document/product/666/14824) 确定应用崩溃的时间和原因。
+- 借助 [storage](https://cloud.tencent.com/document/product/666/14828) 存储和访问用户生成的内容（如照片或视频）。
+- 借助 [authorization](https://cloud.tencent.com/document/product/666/14830) 来进行用户身份验证。
+- 借助 [payment](https://cloud.tencent.com/document/product/666/14832) 获取微信和手 Q 支付能力

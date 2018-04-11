@@ -102,8 +102,8 @@
 | Feature | Action ID | Description |
 |---------|---------|---------|
 | Create a Direct Connect gateway | [CreateDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4824) | Create a Direct Connect gateway. |
-| Modify Direct Connect gateway attributes | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | Modify Direct Connect gateway attributes. |
-| Delete a Direct Connect gateway | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | Delete a Direct Connect gateway. |
+| Modify Direct Connect gateway attributes | [ModifyDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4826) | Modify Direct Connect gateway attributes. |
+| Delete a Direct Connect gateway | [DeleteDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4825) | Delete a Direct Connect gateway. |
 | Query a Direct Connect gateway | [DescribeDirectConnectGateway](https://cloud.tencent.com/doc/api/245/4827) | Query a Direct Connect gateway. |
 | Create local IP translation for Direct Connect gateway | [CreateLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5185) | Create local IP translation for Direct Connect gateway. |
 | Delete local IP translation for Direct Connect gateway | [DeleteLocalIPTranslationNatRule](https://cloud.tencent.com/doc/api/245/5186) | Delete local IP translation for Direct Connect gateway. |

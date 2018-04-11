@@ -102,13 +102,15 @@ stable 用法使用步骤：(两台设备选举主机优先权相同, 非常主�
 ### 步骤 1. 申请 VIP
 在某个子网内申请 VIP（VPC 内用户主动申请的 IP 都可作为 VIP），**控制台或 云 API**均可申请，由于 VIP 绑定于弹性网卡上，弹性网卡分为主网卡和辅助网卡，而 VPC 内每台 CVM 在创建时会默认分配一个主网卡，因此您可以选择在主服务器所绑定的主弹性网卡上申请 VIP :
 
-- **控制台**操作：点击查看 [在弹性网卡上分配内网 IP（Qcloud 控制台）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910) （推荐）
+- **控制台**操作：点击查看 [在弹性网卡上分配内网 IP（Qcloud 控制台）](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88qcloud.E6.8E.A7.E5.88.B6.E5.8F.B0.EF.BC.8910) （推荐） 
 
 >**注意：**
+ 1. 这个操作的重点是给网卡分配内网IP，而不是分配另一个网卡。
+ 2. 注意：不要把vip配置到/etc/sysconfig/network-scripts/的脚本中
  1. 后续配置完成后，在主备设备上启用 keepalived 服务，可以看到 VIP 出现在主设备上，并可以从 VPC 其它子机内 ping 通该 VIP 或外网 VIP。（请同时注意安全组对您主备云主机的网络隔离的功能，建议在实验阶段为主备云主机设置全通安全组）
- 2. 申请到 VIP 后，云主机内不会自动在网卡配置上 VIP，但 VPC 管理平台已为您建立好了 VIP 相关功能。
-1） VIP不用于 keepalived 时，需要您在分配内网 IP 后，在云服务器内配置该内网 IP 才能使 VIP 在云主机内可见，点击查看[分配内网IP（云服务器系统内）的方法](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911) 。
-2）本文配置的 keepalived 可在使用时帮您在云主机网卡配置 VIP 实现云主机内可见。
+ 2. 申请到 VIP 后，云主机内不会自动在网卡配置上 VIP，但 VPC 管理平台已为您建立好了 VIP 相关功能。但云主机内不会自动感知自己有这个VIP，以下两种方式可以让你在云主机内看见网卡内看见vip。
+1） 未使用本文配置的 keepalived 管理Vip时，需要您在分配内网 IP 后，在云服务器内配置该内网 IP 才能使 VIP 在云主机内可见，点击查看[分配内网IP（云服务器系统内）的方法](https://cloud.tencent.com/document/product/215/6513#.E5.88.86.E9.85.8D.E5.86.85.E7.BD.91ip.EF.BC.88.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.B3.BB.E7.BB.9F.E5.86.85.EF.BC.8911) 。 云主机内配置命令： `ip addr add $vip dev $ethX` ；查看命令：`ip addr show $ethx`
+2）本文配置的 keepalived 可在使用时帮您在云主机网卡配置 VIP 实现云主机内可见。  注意：用keepalived管理时，不要把vip配置到/etc/sysconfig/network-scripts/的脚本中。
 
 
 ### 步骤 2. 主备子机安装 keepalived（1.3.5 版本以上）
@@ -330,12 +332,13 @@ step3: 将以下 python 代码保存成 vip.py 放到 SDK 的 src 同级目录, 
 具体参数参考: https://cloud.tencent.com/doc/api/245/1361
 """
 
-#pip 安装使用方式使用
+
 import os
 import time
 import json
 import sys
-from QcloudApi.qcloudapi import QcloudApi 
+from QcloudApi.qcloudapi import QcloudApi 	#pip 安装使用方式使用 -- 推荐
+#from src.QcloudApi.qcloudapi import QcloudApi 	#源码 安装使用方式使用
 
 #当前机器主网卡和主 IP
 interface = {"eth0":"10.0.1.17"}            #该 IP 要有外网 IP
@@ -499,8 +502,6 @@ interface=eth0 #您的网络接口名
 
 state_file=/var/keepalived/state
 vip_last_check_result_file=/var/keepalived/vip_last_check_result
-query_vip_asker=/etc/keepalived/query_vip.py
-vip_migrater=/etc/keepalived/vip.py
 vip_operater=/etc/keepalived/vip.py
 state=`cat $state_file`
 

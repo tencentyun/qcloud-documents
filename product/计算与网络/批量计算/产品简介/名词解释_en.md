@@ -12,7 +12,7 @@ The most important configurable attributes of a task are as follows:
 * ``Standard output``: You can configure the mapping address (COS) of standard output. The message of an application output to stdout and stderr is uploaded to a corresponding address after a task is completed, to trace the computing process.
 
 ## Instance
-Instance is a CVM instance. You can specify one or more instances to execute a single task. An instance is the minimum unit scheduled and executed by Batch. You can set the number of instances required to run concurrently in task configuration. When a task is launched, Batch can create the specified number of instances with the same configuration. These instances can be differentiated by environment variables in the running program.
+Instance refers to a CVM instance. You can specify one or more instances to execute a single task. Instance is the minimum unit scheduled and executed by Batch. You can set the number of instances required to run concurrently in task configuration. When a task is launched, Batch can create the specified number of instances with the same configuration. These instances can be differentiated by environment variables in the running program.
 
 A typical scenario of multiple instances is that the input data can be split and processed concurrently, so that you can make full advantage of elastic resources on the cloud to implement concurrent computing, thus improving work efficiency.
 ## Image

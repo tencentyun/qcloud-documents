@@ -143,10 +143,13 @@ SD、HD 和 FHD 主要用于直播类场景，比如赛事直播、在线教育�
 - **switchCamera**
 切换前后摄像头
 
+- **snapshot**
+推流截图，截图大小跟组件的大小一致。截图成功图片的临时路径为ret.tempImagePath
+
 ```javascript
 var pusher = wx.createLivePusherContext('pusher');
 pusher.start({
-    success: function(){
+    success: function(ret){
 		    console.log('start push success!')
 		}
 		fail: function(){
