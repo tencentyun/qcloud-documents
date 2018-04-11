@@ -1,4 +1,3 @@
-## 数据转发到消息队列 CMQ Topic
 
 ### 概述
 规则引擎支持用户配置规则将符合条件的设备上报数据转发到消息队列 CMQ Topic，用户在 [CMQ 控制台](https://console.cloud.tencent.com/mq/topic?rid=1) 或者使用云 API 订阅 CMQ Topic 后，就可以接收到来自 CMQ Topic 的消息推送。 CMQ Topic 的消息推送机制为用户提供了高可靠的异步接收消息的能力。
