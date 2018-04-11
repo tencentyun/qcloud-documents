@@ -1,6 +1,6 @@
 ## 1. 接口描述
  
-本接口 (ModifyClusterAsgRange) 用于修改集群伸缩组的最大值、最小值和label，此接口对label的修改是重置。
+本接口（ModifyClusterAsgRange）用于修改集群伸缩组的最大值、最小值和 label，此接口对 label 的修改是重置。
 
 接口请求域名：<font style="color:red">ccs.api.qcloud.com</font>
 
@@ -8,12 +8,12 @@
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](https://www.qcloud.com/document/api/457/9463)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://www.qcloud.com/document/api/457/9463) 页面。
 
 | 参数名称 | 描述 | 必选  | 类型 |
 |---------|---------|---------|---------|
-| clusterId   |集群ID，请填写[查询集群列表](https://www.qcloud.com/document/api/457/9448)接口中返回的clusterId字段。| 是    | String |
-| autoScalingGroupId   |伸缩组ID| 是    | String |
+| clusterId   |集群 ID，请填写 [查询集群列表](https://www.qcloud.com/document/api/457/9448) 接口中返回的 clusterId 字段。| 是    | String |
+| autoScalingGroupId   |伸缩组 ID| 是    | String |
 |minSize|伸缩组最小值|否|Int|
 |maxSize|伸缩组最大值，伸缩组的最大值弹性伸缩本身有限制，详见弹性伸缩说明文档。|否|Int|
 | label   |label| 否    | Array |
@@ -24,8 +24,8 @@
  
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 公共错误码。0表示成功，其他值表示失败| Int |
-| codeDesc |业务侧错误码。成功时返回Success，错误时返回具体业务错误原因。| String |
+| code | 公共错误码。0 表示成功，其他值表示失败| Int |
+| codeDesc |业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。| String |
 | message | 模块错误信息描述，与接口相关| String |
 
 
