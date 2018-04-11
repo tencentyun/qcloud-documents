@@ -9,11 +9,11 @@
 1. 登录 [规则引擎](https://console.cloud.tencent.com/iotcloud/rules/rule) 控制台页面，点击所要配置的规则。
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_cmqtopic01.png)
 
-2. 点击【添加行为操作】按钮，并选择“数据转发到消息队列(CMQ-Topic)选项”, 最后点击【创建】即可。
+2. 单击【添加行为操作】按钮，并选择“数据转发到消息队列(CMQ-Topic)选项”, 最后单击【创建】即可。
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_cmqtopic02.png)
 
 
-**说明**：第一次使用时会提示用户授权访问 CMQ Topic，用户需点击【立即授权】才能继续创建。
+**说明**：第一次使用时会提示用户授权访问 CMQ Topic，用户需单击【立即授权】才能继续创建。
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_cmqtopic03.png)
 
 ![image](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/iot_cmqtopic04.png)
@@ -21,4 +21,4 @@
 
 
 ### 相关文档
-1. [使用云API创建 CMQ Topic 订阅](https://cloud.tencent.com/document/api/406/5853)
+ [使用云API创建 CMQ Topic 订阅](https://cloud.tencent.com/document/api/406/5853)
