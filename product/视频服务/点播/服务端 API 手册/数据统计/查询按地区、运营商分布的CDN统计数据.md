@@ -65,7 +65,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 #### StatData
 | 参数名称  | 类型    | 说明                       |
 | --------- | ------- | -------------------------- |
-| timeStamp | Integer | 统计项所属时间，Unix时间戳 |
+| timeStamp | Integer | 统计项所属时间，Unix 时间戳 |
 | value     | Integer | CDN 统计项数值             |
 
 
