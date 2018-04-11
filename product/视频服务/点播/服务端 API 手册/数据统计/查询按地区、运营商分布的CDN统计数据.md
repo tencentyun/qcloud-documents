@@ -35,7 +35,7 @@ vod.api.qcloud.com
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 &hosts.0=123.vod2.myqcloud.com
-&date=2017-03-20
+&date=2018-03-01
 &statType=flux
 &COMMON_PARAMS
 ```
