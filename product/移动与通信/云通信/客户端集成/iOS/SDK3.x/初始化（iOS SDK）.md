@@ -247,7 +247,7 @@ cfg.logFunc = ^(NSString* content) {
 }
 @end
 TIMUserStatusListenerImpl * impl = [[TIMUserStatusListenerImpl alloc] init];
-TIMSdkConfig * cfg = [[TIMSdkConfig alloc] init];
+TIMUserConfig * cfg = [[TIMUserConfig alloc] init];
 cfg.userStatusListener = impl;
 ```
 

@@ -3,7 +3,7 @@
 地址为实例的 IP 和 PORT，可从控制台获取到，例如 10.13.20.15:9200
 
 ### 2.请求路径和方法 ###
-路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称<br>方法：PUT<br>注意：`metric` 允许使用小写英文字母、数字、 \_ 、 - 的组合，且不能以 \_ 或 - 开头
+路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称<br>方法：PUT<br>注意：`metric` 命名限制请参考[系统限制](https://cloud.tencent.com/document/product/652/13611)。
 ### 3.请求参数 ###
 无
 ### 4.请求内容 ###
