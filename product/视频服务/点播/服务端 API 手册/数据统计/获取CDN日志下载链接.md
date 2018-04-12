@@ -97,10 +97,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 14       | HTTP协议标识                                |
 | 15       | 缓存 HIT/MISS                               |
 
-#### 注意事项
-日志中记录的带宽或流量数据为应用层（HTTP 协议）回包数据，由于 TCP 协议丢包、三次握手、重传等机制，比通过 TCP 层统计得出的消耗带宽或消耗流量要小。
-
-
 #### <span id="provdef">省份编号映射</span>
 | 编号 | 省份   |
 | ---- | ------ |
