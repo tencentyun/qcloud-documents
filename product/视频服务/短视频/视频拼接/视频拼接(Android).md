@@ -1,7 +1,8 @@
 ## 1 复用现有UI
 视频拼接器具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码。 videojoiner 目录包含短视频拼接器的 UI 源码。
-
+<br/>
 ![image](https://mc.qcloudimg.com/static/img/56c9b39bef26c66449ca39ba14a4f588/short_video_joiner.png)
+
 - TCVideoJoinerActivity 用于实现上图中的视频拼接列表，支持上下拖拽调整顺序。
 - TCVideoJoinerPreviewActivity 用于预览拼接后的视频观看效果。
 
@@ -14,7 +15,7 @@
 ### 2. 设置预览View  
 视频合成需要创建 TXVideoJoiner 对象，同 TXVideoEditer 类似，预览功能也需要上层提供预览 FrameLayout：
 
-```objective-c
+```
 //准备预览 View        
 TXVideoEditConstants.TXPreviewParam param = new TXVideoEditConstants.TXPreviewParam();
 param.videoView = mVideoView;
@@ -28,15 +29,15 @@ mTXVideoJoiner.initWithPreview(param);
 mTXVideoJoiner.setVideoPathList(mVideoSourceList);
 ```
 设置好预览view同时传入待合成的视频文件数组后，可以开始播放预览，合成模块提供了一组接口来做视频的播放预览：
+
 - startPlay表示视频播放开始
 - pausePlay表示视频播放暂停
 - resumePlay表示视频播放恢复
 
 ### 3.生成最终文件
 预览效果满意后调用生成接口即可生成合成后的文件：
-```objective-c
+```
 mTXVideoJoiner.setVideoJoinerListener(this);
 mTXVideoJoiner.joinVideo(TXVideoEditConstants.VIDEO_COMPRESSED_540P, mVideoOutputPath);
 ```
 合成时指定文件压缩质量和输出路径，输出的进度和结果会通过 TXVideoJoiner.TXVideoJoinerListener 以回调的形式通知用户。
- 
