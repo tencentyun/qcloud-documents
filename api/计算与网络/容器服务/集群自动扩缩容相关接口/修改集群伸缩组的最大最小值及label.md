@@ -12,7 +12,7 @@
 
 | 参数名称 | 描述 | 必选  | 类型 |
 |---------|---------|---------|---------|
-| clusterId   |集群 ID，请填写 [查询集群列表](https://cloud.tencent.com/document/api/457/9448) 接口中返回的 clusterId 字段。| 是    | String |
+| clusterId   |集群 ID，请填写 [查询集群列表](https://cloud.tencent.com/document/api/457/9448) 接口中返回的 clusterId 字段| 是    | String |
 | autoScalingGroupId   |伸缩组 ID| 是    | String |
 |minSize|伸缩组最小值|否|Int|
 |maxSize|伸缩组最大值，伸缩组的最大值弹性伸缩本身有限制，详见弹性伸缩说明文档|否|Int|
