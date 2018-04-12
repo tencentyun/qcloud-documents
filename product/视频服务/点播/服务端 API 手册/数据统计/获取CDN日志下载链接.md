@@ -50,7 +50,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | name     | String | 日志名称，格式为：yyyyMMddHH-host， 即日期小时-域名，如 2018030112-123.vod2.myqcloud.com |
 | link     | String | 日志下载链接，24小时内下载有效                                                           |
 
-
 ### 错误码说明
 | 错误码    | 含义说明                                     |
 | --------- | -------------------------------------------- |
@@ -79,6 +78,10 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 13       | HTTP Method                                 |
 | 14       | HTTP协议标识                                |
 | 15       | 缓存 HIT/MISS                               |
+
+#### 注意事项
+日志中记录的带宽或流量数据为应用层（HTTP 协议）回包数据，由于 TCP 协议丢包、三次握手、重传等机制，比通过 TCP 层统计得出的消耗带宽或消耗流量要小。
+
 
 #### <span id="provdef">省份编号映射</span>
 | 编号 | 省份   |
@@ -130,11 +133,9 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | -1   | 海外运营商 |
 | 0    | 其他运营商 |
 
-#### 注意事项
-日志中记录的带宽或流量数据为应用层（HTTP 协议）回包数据，由于 TCP 协议丢包、三次握手、重传等机制，比通过 TCP 层统计得出的消耗带宽或消耗流量要小。
-
 #### 海外地区编号映射
 海外 CDN 节点日志文件中的省份编号字段表示海外地区编号
+
 | 编号 | 海外地区     |
 | ---- | ------------ |
 | 73   | 印度         |
