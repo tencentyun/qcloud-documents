@@ -12,7 +12,7 @@
 
 | 参数名称 | 描述 | 必选  | 类型 |
 |---------|---------|---------|---------|
-| clusterId   |集群 ID，请填写 [查询集群列表](https://cloud.tencent.com/document/api/457/9448) 接口中返回的 clusterId 字段。| 是    | String |  
+| clusterId   |集群 ID，请填写 [查询集群列表](https://cloud.tencent.com/document/api/457/9448) 接口中返回的 clusterId 字段| 是    | String |  
 | autoScalingGroupId   |伸缩组 ID| 是    | String |
 | label   |label| 否    | Array |
 
@@ -23,7 +23,7 @@
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
 | code | 公共错误码。0 表示成功，其他值表示失败| Int |
-| codeDesc |业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。| String |
+| codeDesc |业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因| String |
 | message | 模块错误信息描述，与接口相关| String |
 
 
