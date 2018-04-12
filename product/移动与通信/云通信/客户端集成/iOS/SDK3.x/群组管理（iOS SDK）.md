@@ -155,7 +155,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
  */
 @property(nonatomic,retain) NSString* faceURL;
 /**
- *  自定义字段集合,key 是 NSString*类型,value 是 NSData*类型
+ *  自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 /**
@@ -181,7 +181,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 
 参数|说明
 ---|---
-groupInfo|可设置的参数，详见 TIMCreateGroupInfo 定义。
+groupInfo|可设置群 ID、群名、群类型、入群选项、最大成员数、群公告、群简介、群头像等
 succ|成功回调
 fail|失败回调
 
@@ -287,7 +287,7 @@ fail | 失败回调
 
 ```
 NSMutableArray * members = [[NSMutableArray alloc] init];
-// 添加一个用户iOS_002
+// 添加一个用户 iOS_002
 [members addObject:@"iOS_002"];
 // @"TGID1JYSZEAEQ" 为群组 ID
 [[TIMGroupManager sharedInstance] inviteGroupMember:@"TGID1JYSZEAEQ" members:members succ:^(NSArray* arr) {
@@ -475,7 +475,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 
 **权限说明：**
  
-- **任何群组类型:**都可以获取成员列表。
+- **任何群组类型：**都可以获取成员列表。
 - **直播大群：**只能拉取部分成员（包括群主、管理员和部分成员）。
 
 **原型：**
@@ -528,8 +528,8 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 
 参数|说明
 ---|---
-group | `NSString*` 类型，群组 ID 
-succ | 成功回调（返回`TIMGroupMemberInfo*`数组） 
+group | NSString\* 类型，群组 ID 
+succ | 成功回调（返回 TIMGroupMemberInfo\* 数组） 
 fail | 失败回调 
 
 以下示例中获取群『TGID1JYSZEAEQ』的成员列表，`list` 为 `TIMGroupMemberInfo*` 数据，存储成员的相关信息。 **示例：**
@@ -545,9 +545,7 @@ fail | 失败回调
 }];
 ```
 
-如果群组人数过多，建议使用**分页接口**。
-
-**原型：**
+如果群组人数过多，建议使用**分页接口**。**原型：**
 
 ```
 @interface TIMGroupManager (Ext)
@@ -687,8 +685,8 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组　ID 
-user| 用户　ID 
+group | 群组 ID 
+user| 用户 ID 
 succ | 成功回调 
 fail | 失败回调 
 
@@ -708,8 +706,8 @@ fail | 失败回调
 
 **权限说明：**
  
-- 只有**群主和管理员**才有权限进行全员禁言的操作。
-- **所有群组类型**都支持全员禁言的操作。
+- **群主、管理员：**有权限进行全员禁言的操作。
+- **所有群组类型：**都支持全员禁言的操作。
 
 **原型：**
 
@@ -775,13 +773,11 @@ fail | 失败回调
 
 ### 群成员获取群组资料
 
-`getGroupInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
+`getGroupInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。群资料信息由 `TIMGroupInfo` 定义。通过 `TIMGroupManager` 的方法 `getGroupInfo` 可获取群组资料。
 
 **权限说明：**
  
-- 获取群组资料接口只能由群成员调用，非群成员无法通过此方法获取资料，需要调用；
-
-群资料信息由 `TIMGroupInfo` 定义。通过 `TIMGroupManager` 的方法 `getGroupInfo` 可获取群组资料。
+- 获取群组资料接口只能由群成员调用，非群成员无法通过此方法获取资料，需要调用。
 
 **原型：**
 
@@ -858,14 +854,11 @@ fail | 失败回调
  *  群组中的本人信息
  */
 @property(nonatomic,retain) TIMGroupSelfInfo* selfInfo;
-
 /**
  *  自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
-
 @end
-
 @interface TIMGroupManager (Ext)
 /**
  *  获取群信息
@@ -953,7 +946,7 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 
 **权限说明：**
 
-- 直播大群拉取不到本人资料。
+- **直播大群：**不能拉取到本人资料。
 
 **原型：**
 
@@ -1164,15 +1157,15 @@ fail | 失败回调
  *  @return 0 成功
  */
 - (int)modifyGroupFaceUrl:(NSString*)group url:(NSString*)url succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
+
 **参数说明：**
 
 参数|说明
 ---|---
-group | 群组Id 
-url| 群头像地址（最长100字节） 
+group | 群组 ID 
+url| 群头像地址（最长 100 字节） 
 succ | 成功回调 
 fail | 失败回调 
 
@@ -1186,14 +1179,14 @@ fail | 失败回调
 }];
 ```
 
-### 5.5 修改加群选项 
+### 修改加群选项 
 
-通过 modifyGroupAddOpt可以修改加群选项： 
+通过 `modifyGroupAddOpt` 可以修改加群选项。 
 
 **权限说明：**
  
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改加群选项； 
-对于私有群，只能通过邀请加入群组，不能主动申请加入某个群组； 
+- **公开群、聊天室、直播大群：**只有群主或者管理员可以修改加群选项。
+- **私有群：**只能通过邀请加入群组，不能主动申请加入某个群组。
 
 **原型：**
 
@@ -1203,7 +1196,7 @@ fail | 失败回调
 /**
  *  修改加群选项
  *
- *  @param group            群组Id
+ *  @param group            群组 ID
  *  @param opt              加群选项，详见 TIMGroupAddOpt
  *  @param succ             成功回调
  *  @param fail             失败回调
@@ -1211,7 +1204,6 @@ fail | 失败回调
  *  @return 0 成功
  */
 - (int)modifyGroupAddOpt:(NSString*)group opt:(TIMGroupAddOpt)opt succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -1219,12 +1211,12 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
+group | 群组 ID 
 opt| 加群选项，可设置为允许任何人加入、需要审核、禁止任何人加入 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例修改群『TGID1JYSZEAEQ』为禁止任何人加入。 **示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupAddOpt:@"TGID1JYSZEAEQ" opt:TIM_GROUP_ADD_FORBID succ:^() {
@@ -1234,33 +1226,29 @@ fail | 失败回调
 }];
 ```
 
-示例修改群 @"TGID1JYSZEAEQ" 为禁止任何人加入。 
+### 修改群维度自定义字段 
 
-### 5.6 修改群维度自定义字段 
-
-通过 modifyGroupCustomInfo可以对群维度自定义字段进行修改： 
+通过 `modifyGroupCustomInfo` 可以对群维度自定义字段进行修改。
 
 **权限说明：**
  
-后台配置相关的key和权限； 
+- 通过后台配置相关的 key 和权限。 
 
 **原型： **
 
 ```
 @interface TIMGroupManager (Ext)
-
 /**
  *  修改群自定义字段集合
  *
- *  @param group      群组Id
- *  @param customInfo 自定义字段集合,key是NSString*类型,value是NSData*类型
+ *  @param group      群组 ID
+ *  @param customInfo 自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
  *  @param succ       成功回调
  *  @param fail       失败回调
  *
  *  @return 0 成功
  */
 - (int)modifyGroupCustomInfo:(NSString*)group customInfo:(NSDictionary*)customInfo succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -1268,12 +1256,12 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
-customInfo| 自定义字段集合,key是NSString*类型,value是NSData*类型 
+group | 群组 ID 
+customInfo| 自定义字段集合，key 是 NSString\* 类型，value 是 NSData\* 类型 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例修改群『TGID1JYSZEAEQ』为禁止任何人加入。**示例：**
 
 ```
 // 设置自定义数据
@@ -1281,7 +1269,6 @@ NSMutalbeDictionary *customInfo = [[NSMutableDictionary alloc] init];
 NSString *key = @"custom key";
 NSData *data = [NSData dataWithBytes:"custom value" length:13];
 [customInfo setObject:data forKey:key];
-
 [[TIMGroupManager sharedInstance] modifyGroupCustomInfo:@"TGID1JYSZEAEQ" customInfo:customInfo succ:^() {
 	NSLog(@"modify group customInfo succ");
 }fail:^(int code, NSString* err) {
@@ -1289,16 +1276,14 @@ NSData *data = [NSData dataWithBytes:"custom value" length:13];
 }];
 ```
 
-示例修改群 @"TGID1JYSZEAEQ" 为禁止任何人加入。
+### 修改用户群内身份 
 
-### 5.7 修改用户群内身份 
-
-通过 modifyGroupMemberInfoSetRole可以对群成员的身份进行修改： 
+通过 `modifyGroupMemberInfoSetRole` 可以对群成员的身份进行修改。
 
 **权限说明：**
  
-只有群主或者管理员可以进行对群成员的身份进行修改； 
-直播大群不支持修改用户群内身份；
+- **群主、管理员：**可以进行对群成员的身份进行修改。
+- **直播大群：**不支持修改用户群内身份。
 
 **原型：**
 
@@ -1312,13 +1297,13 @@ NSData *data = [NSData dataWithBytes:"custom value" length:13];
 
 参数|说明
 ---|---
-group | 群组Id 
-identifier | 要修改的群成员的Id 
-role | 修改后的身份类型。不能修改为群主类型，详见TIMGroupMemberRole 
+group | 群组 ID 
+identifier | 要修改的群成员的 ID 
+role | 修改后的身份类型，不能修改为群主类型
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例设置群『TGID1JYSZEAEQ』的成员『iOS_001』为管理员。 **示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupMemberInfoSetRole:@"TGID1JYSZEAEQ" user:@"iOS_001" role:TIM_GROUP_MEMBER_ADMIN succ:^() {
@@ -1328,15 +1313,15 @@ fail | 失败回调
 }];
 ```
 
-示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 为管理员。 
 
-### 5.8 对群成员进行禁言 
 
-通过 modifyGroupMemberInfoSetSilence可以对群成员进行禁言并设置禁言时长： 
+### 对群成员进行禁言 
+
+通过 `modifyGroupMemberInfoSetSilence` 可以对群成员进行禁言并设置禁言时长。
 
 **权限说明：**
  
-只有群主或者管理员可以进行对群成员进行禁言； 
+- **群主、管理员：**可以进行对群成员进行禁言。
 
 **原型：**
 
@@ -1350,13 +1335,13 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
-identifier | 要禁言的群成员的Id 
-stime | 禁言时间， 单位秒 
+group | 群组 ID 
+identifier | 要禁言的群成员的 ID 
+stime | 禁言时间，单位秒 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例设置群『TGID1JYSZEAEQ』的成员『iOS_001』禁言 120 秒。 **示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupMemberInfoSetSilence:@"TGID1JYSZEAEQ" user:@"iOS_001" stime:120 succ:^() {
@@ -1366,11 +1351,9 @@ fail | 失败回调
 }];
 ```
 
-示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 禁言120s。 
+### 修改群名片 
 
-### 5.9 修改群名片 
-
-通过 modifyGroupMemberInfoSetNameCard可以对群成员资料的群名片进行修改： 
+通过 `modifyGroupMemberInfoSetNameCard` 可以对群成员资料的群名片进行修改。
 
 **原型： **
 
@@ -1384,13 +1367,13 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
-identifier | 要修改的群成员的Id 
+group | 群组 ID 
+identifier | 要修改的群成员的 ID 
 nameCard | 要设置的群名片 
 succ | 成功回调 
 fail | 失败回调
 
-**示例：**
+以下示例设置群『TGID1JYSZEAEQ』的成员『iOS_001』群名片为『iOS_001_namecard』。 **示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupMemberInfoSetNameCard:@"TGID1JYSZEAEQ" user:@"iOS_001" nameCard:@"iOS_001_namecard" succ:^() {
@@ -1400,11 +1383,11 @@ fail | 失败回调
 }];
 ```
 
-示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 群名片为 @"iOS_001_namecard"。 
 
-### 5.10 修改群成员维度自定义字段 
 
-通过 modifyGroupMemberInfoSetCustomInfo可以对群成员维度自定义字段进行修改： 
+### 修改群成员维度自定义字段 
+
+通过 `modifyGroupMemberInfoSetCustomInfo` 可以对群成员维度自定义字段进行修改。
 
 **原型：**
 
@@ -1418,13 +1401,13 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
-identifier | 要设置自定义属性的群成员的Id 
-customInfo | 自定义字段集合,key是NSString*类型,value是NSData*类型 
-succ | 成功回调 
-fail | 失败回调 
+group | 群组 ID 
+identifier | 要设置自定义属性的群成员的 ID 
+customInfo | 自定义字段集合，key 是 NSString\* 类型，value 是 NSData\* 类型 
+succ | 成功回调
+fail | 失败回调
 
-**示例：**
+以下示例设置群『TGID1JYSZEAEQ』的成员『iOS_001』的自定义属性。**示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupMemberInfoSetSilence:@"TGID1JYSZEAEQ" user:@"iOS_001" customInfo:customInfo succ:^() {
@@ -1434,11 +1417,9 @@ fail | 失败回调
 }];
 ```
 
-示例设置群 @"TGID1JYSZEAEQ" 的成员 @"iOS_001" 的自定义属性。
+### 修改接收群消息选项
 
-### 5.11 修改接收群消息选项
-
-通过 modifyReciveMessageOpt可以设置群消息的接收选项：(默认情况下公开群和私有群是接收并离线推送，聊天室和直播大群是接收不离线推送)
+通过 `modifyReciveMessageOpt` 可以设置群消息的接收选项。默认情况下，公开群和私有群是接收并离线推送群消息，聊天室和直播大群是接收但不离线推送群消息。
 
 **原型：**
 
@@ -1452,12 +1433,12 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
-opt | 接收消息选项，详见TIMGroupReceiveMessageOpt 
+group | 群组 ID 
+opt | 接收消息选项
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例设置群『TGID1JYSZEAEQ』的接收消息选项为接收在线消息，不接收离线推送。**示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyReciveMessageOpt:@"TGID1JYSZEAEQ" opt:TIM_GROUP_RECEIVE_NOT_NOTIFY_MESSAGE succ:^() {
@@ -1467,26 +1448,24 @@ fail | 失败回调
 }];
 ```
 
-示例设置群 @"TGID1JYSZEAEQ" 的接收消息选项为接收在线消息，不接收离线推送。
+## 群组未决信息 
 
+### 拉取群未决相关信息 
 
-## 6. 群组未决信息 
-
-### 6.1 拉取群未决相关信息 
-
-通过getPendencyFromServer 接口可拉取群未决相关信息。此处的群未决消息泛指所有需要审批的群相关的操作。例如：加群待审批，拉人入群待审批等等。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
+通过 `getPendencyFromServer` 接口可拉取群未决相关信息。此处的群未决消息泛指所有需要审批的群相关的操作（例如：加群待审批，拉人入群待审批等等）。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
 
 **权限说明：**
 
-**只有审批人有权限拉取相关信息。**
-例如：UserA申请加入群GroupA，则群管理员可获取此未决相关信息，UserA因为没有审批权限，不需要过去未决信息。 
-         如果AdminA拉UserA进去GroupA，则UserA可以拉取此未决相关信息，因为该未决信息待UserA审批。 
+- **审批人：**有权限拉取相关信息。
+
+> 注：
+>- 如果 UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要拉取未决信息。 
+>- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。 
 
 **原型：**
 
 ```
 @interface TIMGroupManager (Ext)
-
 /**
  *  获取群组未决列表
  *
@@ -1497,7 +1476,6 @@ fail | 失败回调
  *  @return 0 成功
  */
 - (int)getPendencyFromServer:(TIMGroupPendencyOption*)option succ:(TIMGetGroupPendencyListSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -1509,12 +1487,14 @@ option|未决参数配置
 succ|成功回调，返回未决列表
 fail|失败回调
  
-拉取未决的option相关操作： 
-属性说明： 
-timestamp：拉取的开始时戳。如果从最新的未决条目开始拉取，则填0或不填。若分页，则回调中返回下一个分页的拉取起始时戳。 
-numPerPage：一次拉取的最多条目数，用于分页。 
+ **option参数说明：**
+ 
+| 参数 | 说明 |
+| --- | --- |
+| timestamp | 拉取的开始时戳。若从最新的未决条目开始拉取，则填 0 或不填。若分页，则回调中返回下一个分页的拉取起始时戳 |
+| numPerPage | 一次拉取的最多条目数，用于分页 |
 
-拉取未决的回调说明： 
+**回调原型：** 
 
 ```
 /**
@@ -1526,69 +1506,60 @@ numPerPage：一次拉取的最多条目数，用于分页。
 typedef void (^TIMGetGroupPendencyListSucc)(TIMGroupPendencyMeta * meta, NSArray * pendencies);
 ```
 
-**参数说明：**
+**回调参数说明：**
 
 参数|说明
 ---|---
-meta|拉取操作返回的相关信息，包含分页信息和拉取状态等。 
-pendencies|拉取的未决条目数组 .
+meta|拉取操作返回的相关信息，包含分页信息和拉取状态等
+pendencies|拉取的未决条目数组
 
 **属性说明： **
 
 属性|说明
 ---|---
-nextStartTime|拉取下一个分页的起始时戳，用于传入拉取配置中。为0时表示没有后面的分页了。 
-readTimeSeq|已读时戳，用来判定未决条目是否已读。 
-unReadCnt|所有未读条目个数。不限制于本次分页中。 
+nextStartTime|拉取下一个分页的起始时戳，为 0 时表示没有后面的分页了
+readTimeSeq|已读时戳，用来判定未决条目是否已读 
+unReadCnt|所有未读条目个数，不限制于本次分页中 
 
-未决条目相关属性： 
+**未决条目相关属性：** 
 
 ```
 /**
   *  未决申请
   */
 @interface TIMGroupPendencyItem : TIMCodingModel
-
 /**
- *  相关群组id
+ *  相关群组 ID
  */
 @property(nonatomic,retain) NSString* groupId;
-
 /**
-  *  请求者id，请求加群:请求者，邀请加群:邀请人
+  *  请求者 ID，请求加群:请求者，邀请加群:邀请人
   */
 @property(nonatomic,retain) NSString* fromUser;
-
 /**
-  *  判决者id，请求加群:0，邀请加群:被邀请人
+  *  判决者 ID，请求加群:0，邀请加群:被邀请人
   */
 @property(nonatomic,retain) NSString* toUser;
-
 /**
   *  未决添加时间
   */
 @property(nonatomic,assign) uint64_t addTime;
-
 /**
   *  未决请求类型
   */
 @property(nonatomic,assign) TIMGroupPendencyGetType getType;
-
 /**
   *  已决标志
   */
 @property(nonatomic,assign) TIMGroupPendencyHandleStatus handleStatus;
-
 /**
   *  已决结果
   */
 @property(nonatomic,assign) TIMGroupPendencyHandleResult handleResult;
-
 /**
   *  申请或邀请附加信息
   */
 @property(nonatomic,retain) NSString* requestMsg;
-
 /**
   *  审批信息：同意或拒绝信息
   */
@@ -1600,14 +1571,14 @@ unReadCnt|所有未读条目个数。不限制于本次分页中。
 
 属性|说明
 ---|---
-groupId|群ID 
-fromUser|未决发起者ID 
-toUser|未决审批者ID 
+groupId|群 ID 
+fromUser|未决发起者 ID 
+toUser|未决审批者 ID 
 addTime|添加未决时间 
-getType|枚举未决条目类型： 请求加群；邀请加群 
-handleStatus|枚举未决条目状态：未决；他人已决；操作者已决 说明：UserA申请加入Group，AdminA审批通过。则AdminB拉取的此未决条目的类型为，他们已决。
-handleResult|枚举审批结果：同意；拒绝 
-requestMsg/handleMsg|申请、审批时的hello word
+getType|枚举未决条目类型： 请求加群、邀请加群 
+handleStatus|枚举未决条目状态：未决、他人已决、操作者已决（例如：UserA 申请加入 Group，AdminA 审批通过。则 AdminB 拉取的此未决条目的类型为，他人已决。）
+handleResult|枚举审批结果：同意、拒绝 
+requestMsg/handleMsg|申请、审批时的留言信息
  
 **示例：**
 
@@ -1615,7 +1586,6 @@ requestMsg/handleMsg|申请、审批时的hello word
   TIMGroupPendencyOption option = [[TIMGroupPendencyOption alloc] init];
   option.timestamp = 0;
   option.numPerPage = 10;
-    
   [[TIMGroupManager sharedInstance] getPendencyFromServer:option succ:^(TIMGroupPendencyMeta *meta, NSArray *pendencies) {
       NSLog(@"get pendencies succ");
   } fail:^(int code, NSString *msg) {
@@ -1623,15 +1593,14 @@ requestMsg/handleMsg|申请、审批时的hello word
   }];
 ```
 
-### 6.2上报群未决已读 
+### 上报群未决已读 
 
-对于未决信息，sdk可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。 
+对于未决信息，SDK 可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。 
 
 **原型：**
 
 ```
 @interface TIMGroupManager (Ext)
-
 /**
  *  群未决已读上报
  *
@@ -1663,15 +1632,14 @@ fail|失败回调
     }];
 ```
 
-### 6.3 处理群未决信息 
+### 处理群未决信息 
 
-对于群的未决信息，sdk增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。 
+对于群的未决信息，SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。 
 
 **原型：**
 
 ```
 @interface TIMGroupPendencyItem: NSObject
-
 /**
  *  同意申请
  *
@@ -1680,7 +1648,6 @@ fail|失败回调
  *  @param fail     失败回调，返回错误码和错误描述
  */
 - (void)accept:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 /**
  *  拒绝申请
  *
@@ -1696,13 +1663,11 @@ fail|失败回调
 
 ```
 TIMGroupPendencyItem *item = [pendencies firstObject];
-    
 [item accept:@"thanks for inviting" succ:^{
     NSLog(@"accept succ");
 } fail:^(int code, NSString *msg) {
     NSLog(@"accept fail: %d->%@", code, msg);
-}];
-    
+}];    
 [item refuse:@"i dont want to join" succ:^{
     NSLog(@"refuse succ");
 } fail:^(int code, NSString *msg) {
@@ -1710,28 +1675,26 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
 }];
 ```
 
-## 7. 群资料存储
+## 群资料存储
 
-这里仅存储群资料，并未对群成员的资料获取，在群消息中携带了用户的相关字段，建议直接从消息中获取。
+群资料存储仅保存群相关资料，不保存群成员资料。若需要获取群成员资料，建议通过群消息中携带的用户字段进行获取。
 
-### 7.1 启用群资料存储
+### 启用群资料存储
 
 **原型：**
 
 ```
 @interface TIMUserConfig : NSObject
-
 /**
  *  开启群组数据本地缓存功能（加载群组扩展包有效）
  */
 @property(nonatomic,assign) BOOL enableGroupAssistant;
-
 @end
 ```
 
-###  7.2 群组资料获取同步接口
+### 群组资料获取同步接口
 
-为了方便读取，可以使用群组资料的同步接口（需要开启群资料存储），
+为了方便读取，可以使用群组资料的同步接口（需要开启群资料存储）。
 
 **原型：**
 
@@ -1740,93 +1703,86 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
  *  群组助手
  */
 @interface TIMGroupManager (Ext)
-
 /**
  *  获取用户所在群组信息
  *
- *  @param groups 群组id（NSString*）列表，nil时返回群组列表
+ *  @param groups 群组 ID（NSString*）列表，nil 时返回群组列表
  *
- *  @return 群组信息（TIMGroupInfo*)列表，assistant未同步时返回nil
+ *  @return 群组信息（TIMGroupInfo*)列表，assistant 未同步时返回 nil
  */
 - (NSArray*)getGroupInfo:(NSArray*)groups;
-
 @end
 ```
 
-### 7.3 群通知回调
+### 群通知回调
 
-如果开启了存储，可以设置监听感知群事件，当有对应事件发生时，会进行回调：
+如果开启了存储，可以设置监听感知群事件，当有对应事件发生时，会进行回调。
 
 **原型：**
 
 ```
 @protocol TIMGroupListener <NSObject>
 @optional
-
 /**
  *  有新用户加入群时的通知回调
  *
- *  @param groupId     群ID
+ *  @param groupId     群 ID
  *  @param membersInfo 加群用户的群资料（TIMGroupMemberInfo*）列表
  */
 - (void)onMemberJoin:(NSString*)groupId membersInfo:(NSArray*)membersInfo;
-
 /**
  *  有群成员退群时的通知回调
  *
- *  @param groupId 群ID
- *  @param members 退群成员的identifier（NSString*）列表
+ *  @param groupId 群 ID
+ *  @param members 退群成员的 identifier（NSString*）列表
  */
 - (void)onMemberQuit:(NSString*)groupId members:(NSArray*)members;
-
 /**
  *  群成员信息更新的通知回调
  *
- *  @param groupId     群ID
+ *  @param groupId     群 ID
  *  @param membersInfo 更新后的群成员资料（TIMGroupMemberInfo*）列表
  */
 - (void)onMemberUpdate:(NSString*)groupId membersInfo:(NSArray*)membersInfo;
-
 /**
  *  加入群的通知回调
  *
  *  @param groupInfo 加入群的群组资料
  */
 - (void)onGroupAdd:(TIMGroupInfo*)groupInfo;
-
 /**
  *  解散群的通知回调
  *
- *  @param groupId 解散群的群ID
+ *  @param groupId 解散群的群 ID
  */
 - (void)onGroupDelete:(NSString*)groupId;
-
 /**
  *  群资料更新的通知回调
  *
  *  @param groupInfo 更新后的群资料信息
  */
 - (void)onGroupUpdate:(TIMGroupInfo*)groupInfo;
-
 @end
 ```
 
 **参数说明：**
 
-群成员变更时通过onMemberUpdate回调，参数`TIMGroupMemberInfo*`为变更后的成员信息，可以根据字段更新界面。
+| 参数 | 说明 |
+| --- | --- |
+| onMemberUpdate | 群成员变更回调 |
+| membersInfo | 为变更后的成员信息，可以根据字段更新界面 |
 
+## 群事件消息 
 
-## 8 群事件消息 
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可选择是否予以展示，以及如何展示（例如：忽略或者根据需要展示给用户）。 提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息，参见 [新消息通知](/doc/product/269/9148#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。如下图中，展示一条修改群名的事件消息。
 
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的Elem标识，通过新消息回调返回消息（参见2.3. 新消息通知）：
-如下图中，展示一条修改群名的事件消息： 
 ![](//mccdn.qcloud.com/static/img/cc5b0e33ed6bd492fca7d8fb8469307a/image.jpg)
 
 **消息原型：** 	
 
 ```
 /**
- *  群Tips类型
+ *  群 Tips 类型
  */
 typedef NS_ENUM(NSInteger, TIM_GROUP_TIPS_TYPE){
     /**
@@ -1858,43 +1814,34 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_TIPS_TYPE){
      */
     TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE         = 0x07,
 };
-
-
 /**
- *  群Tips
+ *  群 Tips
  */
 @interface TIMGroupTipsElem : TIMElem
-
 /**
- *  群Tips类型
+ *  群 Tips 类型
  */
 @property(nonatomic,assign) TIM_GROUP_TIPS_TYPE type;
-
 /**
  *  操作人用户名
  */
 @property(nonatomic,retain) NSString * opUser;
-
 /**
  *  被操作人列表 NSString* 数组
  */
 @property(nonatomic,retain) NSArray * userList;
-
 /**
  *  在群名变更时表示变更后的群名，否则为 nil
  */
 @property(nonatomic,retain) NSString * groupName;
-
 /**
  *  群信息变更： TIM_GROUP_TIPS_TYPE_INFO_CHANGE 时有效，为 TIMGroupTipsElemGroupInfo 结构体列表
  */
 @property(nonatomic,retain) NSArray * groupChangeList;
-
 /**
  *  成员变更： TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE 时有效，为 TIMGroupTipsElemMemberInfo 结构体列表
  */
 @property(nonatomic,retain) NSArray * memberChangeList;
-
 /**
  *  操作者用户资料
  */
@@ -1911,18 +1858,15 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_TIPS_TYPE){
  *  变更成员群内资料
  */
 @property(nonatomic,retain) NSDictionary * changedGroupMemberInfo;
-
 @end
 ```
-调用方可选择是否予以展示，以及如何展示。 
 
-**示例：** 
+以下示例中注册新消息回调，打印用户进入群组和离开群组的事件通知，其他事件通知用法相同。 **示例：** 
 
 ```
 @interface TIMMessageListenerImpl : NSObject
 - (void)onNewMessage:(NSArray*) msgs;
 @end
-
 @implementation TIMMessageListenerImpl
 - (void)onNewMessage:(NSArray*) msgs {
     for (TIMMessage * msg in msgs) {
@@ -1949,110 +1893,98 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_TIPS_TYPE){
 }
 @end
 ```
-示例中注册新消息回调，打印用户进入群组和离开群组的事件通知，其他事件通知用法相同，具体含义可参见下面章节： 
 
-### 8.1 用户加入群组 
+### 用户加入群组 
 
-触发时机：当有用户加入群组时（包括申请入群和被邀请入群），群组内会由系统发出通知，开发者可选择展示样式。可以更新群成员列表。 
+**触发时机：**当有用户加入群组时（包括申请入群和被邀请入群），群组内会由系统发出通知，开发者可选择展示样式。可以更新群成员列表。收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_INVITE`。 
 
-收到的消息type为 TIM_GROUP_TIPS_TYPE_INVITE。 
-
-**TIMGroupTipsElem 参数说明：** 
+**`TIMGroupTipsElem` 参数说明：** 
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_TIPS_TYPE_INVITE 
-opUser | 申请入群：申请人/邀请入群：邀请人 
+opUser | 申请入群：申请人 / 邀请入群：邀请人 
 groupName | 群名 
 userList | 入群的用户列表 
 
-### 8.2 用户退出群组 
+### 用户退出群组 
 
-触发时机：当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。 
-收到的消息type为 TIM_GROUP_TIPS_TYPE_QUIT_GRP。 
+**触发时机：**当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。 收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_QUIT_GRP`。 
 
-**TIMGroupTipsElem 参数说明：**
+**`TIMGroupTipsElem` 参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_TIPS_TYPE_QUIT_GRP 
-opUser | 退出用户identifier 
+opUser | 退出用户 identifier 
 groupName | 群名 
 
-### 8.3 用户被踢出群组 
+### 用户被踢出群组 
 
-触发时机：当有用户被踢时，群组内会由系统发出通知。可以选择更新群成员列表。 
-收到的消息type为 TIM_GROUP_TIPS_TYPE_KICKED。 
+**触发时机：**当有用户被踢时，群组内会由系统发出通知。可以选择更新群成员列表。 收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_KICKED`。 
 
-**TIMGroupTipsElem 参数说明：**
+**`TIMGroupTipsElem` 参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_TIPS_TYPE_KICKED 
-opUser | 被踢用户identifier 
+opUser | 被踢用户 identifier 
 groupName | 群名 
 
-### 8.4 被设置/取消管理员 
+### 被设置/取消管理员 
 
-触发时机：当有用户被设置为管理员或者被取消管理员身份时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。 
-收到的消息type为 TIM_GROUP_TIPS_TYPE_SET_ADMIN 和 TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN 。 
+**触发时机：**当有用户被设置为管理员或者被取消管理员身份时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。 收到的消息 type 为 `TIM_GROUP_TIPS_TYPE_SET_ADMIN` 和 `TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN`。 
 
-**TIMGroupTipsElem 参数说明： **
+**`TIMGroupTipsElem` 参数说明： **
 
 参数 | 说明
 ---|---
 type | 设置：TIM_GROUP_TIPS_TYPE_SET_ADMIN 
 取消 | TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN 
-opUser | 操作用户identifier 
+opUser | 操作用户 identifier 
 groupName | 群名 
 userList | 被设置/取消管理员身份的用户列表 
 
-### 8.5 群资料变更 
+### 群资料变更 
 
-触发时机：当群资料变更，如群名、群简介等，会有系统消息发出，可更新相关展示字段。或者选择性把消息展示给用户。 
+**触发时机：**当群资料变更（如群名、群简介等），会有系统消息发出，此时可以更新相关展示字段，选择性把消息展示给用户。 
 
-**TIMGroupTipsElem 参数说明：**
+**`TIMGroupTipsElem` 参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_TIPS_TYPE_INFO_CHANGE 
-opUser | 操作用户identifier 
+opUser | 操作用户 identifier 
 groupName | 群名 
-groupChangeInfo | 群变更的具体资料信息，为TIMGroupTipsElemGroupInfo 结构体列表 
+groupChangeInfo | 群变更的具体资料信息，为 TIMGroupTipsElemGroupInfo 结构体列表 
 
-**TIMGroupTipsElemGroupInfo 原型：**
+**`TIMGroupTipsElemGroupInfo` 原型：**
 
 ```
 /**
- *  群tips，群变更信息
+ *  群 tips，群变更信息
  */
 @interface TIMGroupTipsElemGroupInfo : NSObject
-
 /**
  *  群名，如果没有变更，为 nil
  */
 @property(nonatomic,retain) NSString * groupName;
-
 /**
  *  群简介： 没有变更时为 nil
  */
 @property(nonatomic,retain) NSString * introduction;
-
 /**
  *  群公告： 没有变更时为 nil
  */
 @property(nonatomic,retain) NSString * notification;
-
 /**
  *  群头像： 没有变更时为 nil
  */
 @property(nonatomic,retain) NSString * faceUrl;
-
 /**
  *  群主： 没有变更时为 nil
  */
 @property(nonatomic,retain) NSString * owner;
-
 @end
 ```
 
@@ -2060,33 +1992,36 @@ groupChangeInfo | 群变更的具体资料信息，为TIMGroupTipsElemGroupInfo 
 
 参数 | 说明
 ---|---
-groupName | 变更后的群名，如果没有变更则为nil 
-introduction | 变更后的群简介，如果没有变更则为nil 
-notification | 变更后的群公告，如果没有变更则为nil 
-faceUrl | 变更后的群头像URL，如果没有变更则为nil 
-owner | 变更后的群主，如果没有变更则为nil 
+groupName | 变更后的群名，如果没有变更则为 nil 
+introduction | 变更后的群简介，如果没有变更则为 nil 
+notification | 变更后的群公告，如果没有变更则为 nil 
+faceUrl | 变更后的群头像 URL，如果没有变更则为 nil 
+owner | 变更后的群主，如果没有变更则为 nil 
 
-### 8.6 群成员资料变更 
+### 群成员资料变更 
 
-触发时机：当群成员的群相关资料变更时，包括群内用户被禁言、群内成员角色变更，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。（**注意：这里的资料仅跟群相关资料，比如禁言时间、成员角色变更等，不包括用户昵称等本身资料，对于群内人数可能过多，不建议实时更新，建议的做法是直接显示消息体内的资料，参考：[消息发送者以及相关资料](/doc/product/269/9150#3.4-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E4.BB.A5.E5.8F.8A.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.9922)，如果本地有保存用户资料，可根据消息体内资料判断是否有变更，在收到此用户一条消息后更新资料。**）。
- 
-**TIMGroupTipsElem 参数说明：**
+**触发时机：**当群成员的群相关资料变更时，包括群内用户被禁言、群内成员角色变更，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。
+
+> **注意：**
+>- 这里的资料仅跟群相关资料，比如禁言时间、成员角色变更等，不包括用户昵称等本身资料，对于群内人数可能过多，不建议实时更新，建议的做法是直接显示消息体内的资料，参考：[消息发送者以及相关资料](/doc/product/269/9150#3.4-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E4.BB.A5.E5.8F.8A.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.9922)
+>- 如果本地有保存用户资料，可根据消息体内资料判断是否有变更，在收到此用户一条消息后更新资料。
+
+**`TIMGroupTipsElem` 参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE 
-opUser | 操作用户identifier 
+opUser | 操作用户 identifier 
 groupName | 群名 
-memberInfoList | 变更的群成员的具体资料信息，为TIMGroupTipsElemMemberInfo结构体列表
+memberInfoList | 变更的群成员的具体资料信息，为 `TIMGroupTipsElemMemberInfo` 结构体列表
  
-**TIMGroupTipsElemMemberInfo 原型：**
+**`TIMGroupTipsElemMemberInfo` 原型：**
  
 ```
 /**
- *  群tips，成员变更信息
+ *  群 tips，成员变更信息
  */
 @interface TIMGroupTipsElemMemberInfo : NSObject
-
 /**
  *  变更用户
  */
@@ -2095,19 +2030,19 @@ memberInfoList | 变更的群成员的具体资料信息，为TIMGroupTipsElemMe
  *  禁言时间（秒，还剩多少秒可以发言）
  */
 @property(nonatomic,assign) uint32_t shutupTime;
-
 @end
 ```
+
 **参数说明：**
 
 参数 | 说明
 ---|---
-identifier | 变更的用户identifier 
+identifier | 变更的用户 identifier 
 shutupTime | 被禁言的时间 
 
-### 8.7 群事件消息监听器
+### 群事件消息监听器
 
-聊天室和直播大群的群事件消息需要通过注册监听器获得，消息Elem中包含群的成员数。
+聊天室和直播大群的群事件消息需要通过注册监听器获得，消息 `Elem` 中包含群的成员数。
 
 ```
 /**
@@ -2116,17 +2051,18 @@ shutupTime | 被禁言的时间
 @protocol TIMGroupEventListener <NSObject>
 @optional
 /**
- *  群tips回调
+ *  群 tips 回调
  *
- *  @param elem  群tips消息
+ *  @param elem  群 tips 消息
  */
 - (void)onGroupTipsEvent:(TIMGroupTipsElem*)elem;
 @end
 ```
 
-## 9 群系统消息 
+## 群系统消息 
 
 当有用户申请加群等事件发生时，管理员会收到邀请加群系统消息，用户可根据情况接受请求或者拒绝，相应的消息通过群系统消息展示给用户。 
+
 **群系统消息类型定义： **
 
 ```
@@ -2191,54 +2127,42 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_SYSTEM_TYPE){
      */
     TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REFUSE_TYPE         = 0x0e,
  };
-
-
 /**
  *  群系统消息
  */
 @interface TIMGroupSystemElem : TIMElem
-
 /**
  * 操作类型
  */
 @property(nonatomic,assign) TIM_GROUP_SYSTEM_TYPE type;
-
 /**
- * 群组Id
+ * 群组 ID
  */
 @property(nonatomic,retain) NSString * group;
-
 /**
  * 操作人
  */
 @property(nonatomic,retain) NSString * user;
-
 /**
  * 操作理由
  */
 @property(nonatomic,retain) NSString * msg;
-
-
 /**
  *  消息标识，客户端无需关心
  */
 @property(nonatomic,assign) uint64_t msgKey;
-
 /**
  *  消息标识，客户端无需关心
  */
 @property(nonatomic,retain) NSData * authKey;
-
 /**
  *  操作人资料
  */
 @property(nonatomic,retain) TIMUserProfile * opUserInfo;
-
 /**
  *  操作人群成员资料
  */
 @property(nonatomic,retain) TIMGroupMemberInfo * opGroupMemberInfo;
-
 /**
  *  同意申请，目前只对申请加群和被邀请入群消息生效
  *
@@ -2247,7 +2171,6 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_SYSTEM_TYPE){
  *  @param fail 失败回调，返回错误码和错误描述
  */
 - (void)accept:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 /**
  *  拒绝申请，目前只对申请加群和被邀请入群消息生效
  *
@@ -2256,7 +2179,6 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_SYSTEM_TYPE){
  *  @param fail 失败回调，返回错误码和错误描述
  */
 - (void)refuse:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -2265,18 +2187,17 @@ typedef NS_ENUM(NSInteger, TIM_GROUP_SYSTEM_TYPE){
 参数 | 说明
 ---|---
 type | 消息类型 
-group | 群组Id 
+group | 群组 ID 
 user | 操作人 
 msg | 操作理由 
-msgKey & authKey | 消息的标识，客户端无需关心，调用accept和refuse时由SDK读取 
+msgKey & authKey | 消息的标识，客户端无需关心，调用 accept 和 refuse 时由 SDK 读取 
 
-**示例： **
+以下示例中处理收到群系统消息，如果是入群申请则默认同意，如果是群解散通知则打印信息。其他类型消息解析方式相同。 **示例： **
 
 ```
 @interface TIMMessageListenerImpl : NSObject
 - (void)onNewMessage:(NSArray*) msgs;
 @end
-
 @implementation TIMMessageListenerImpl
 - (void)onNewMessage:(NSArray*) msgs {
     for (TIMMessage * msg in msgs) {
@@ -2301,160 +2222,152 @@ msgKey & authKey | 消息的标识，客户端无需关心，调用accept和refu
 }
 @end
 ```
-示例中收到群系统消息，如果是入群申请，默认同意，如果是群解散通知，打印信息。其他类型消息解析方式相同。 
 
-### 9.1 申请加群消息 
+### 申请加群消息 
 
-触发时机：当有用户申请加群时，群管理员会收到申请加群消息，可展示给用户，由用户决定是否同意对方加群，如果同意，调用accept方法，拒绝调用refuse方法。 
-消息类型为：TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE 
+**触发时机：**当有用户申请加群时，群管理员会收到申请加群消息，可展示给用户，由用户决定是否同意对方加群。 消息类型为 `TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE`。
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_ADD_GROUP_REQUEST_TYPE 
-group | 群组Id，表示是哪个群的申请 
+group | 群组 ID，表示是哪个群的申请 
 user | 申请人 
-msg | 申请理由，（可选） 
+msg | 申请理由（可选） 
 
 **方法说明：**
  
-当同意申请人入群，可调用accept方法 
-当不同意申请人入群，可调用refuse方法。 
+- 同意申请人入群，可调用 accept 方法 
+- 不同意申请人入群，可调用 refuse 方法。 
 
-### 9.2 申请加群同意/拒绝消息 
+### 申请加群同意/拒绝消息 
 
-触发时机：当管理员同意加群请求时，申请人会收到同意入群的消息，当管理员拒绝时，收到拒绝入群的消息。 
+**触发时机：**当管理员同意加群请求时，申请人会收到同意入群的消息，当管理员拒绝时，收到拒绝入群的消息。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | 同意：TIM_GROUP_SYSTEM_ADD_GROUP_ACCEPT_TYPE 
-| 拒绝：TIM_GROUP_SYSTEM_ADD_GROUP_REFUSE_TYPE 
-group | 群组Id，表示是哪个群通过/拒绝了 
-user | 处理请求的管理员identifier 
+type | 同意：TIM_GROUP_SYSTEM_ADD_GROUP_ACCEPT_TYPE<br>拒绝：TIM_GROUP_SYSTEM_ADD_GROUP_REFUSE_TYPE 
+group | 群组 ID，表示是哪个群通过/拒绝了 
+user | 处理请求的管理员 identifier 
 msg | 同意或者拒绝理由（可选） 
 
-### 9.3 邀请入群消息 
+### 邀请入群消息 
 
-触发时机：当有用户被邀请群时，该用户会收到邀请入群消息，可展示给用户，由用户决定是否同意入群，如果同意，调用accept方法，拒绝调用refuse方法。 
-消息类型为：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REQUEST_TYPE 
+**触发时机：**当有用户被邀请群时，该用户会收到邀请入群消息，可展示给用户，由用户决定是否同意入群，如果同意，调用 accept 方法，拒绝调用 refuse 方法。 消息类型为 `TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REQUEST_TYPE` 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REQUEST_TYPE 
-group | 群组Id，表示是哪个群的邀请 
+group | 群组 ID，表示是哪个群的邀请 
 user | 邀请人 
 
 **方法说明：**
  
-当同意邀请入群，可调用accept方法 
-当不同意邀请入群，可调用refuse方法。
+- 同意申请人入群，可调用 accept 方法。
+- 不同意申请人入群，可调用 refuse 方法。 
 
-### 9.4 邀请入群同意/拒绝消息 
+### 邀请入群同意/拒绝消息 
 
-触发时机：当被邀请者同意入群请求时，邀请者会收到同意入群的消息，当被邀请者拒绝时，邀请者会收到拒绝入群的消息。 
+**触发时机：**当被邀请者同意入群请求时，邀请者会收到同意入群的消息，当被邀请者拒绝时，邀请者会收到拒绝入群的消息。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | 同意：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_ACCEPT_TYPE 
-| 拒绝：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REFUSE_TYPE 
-group | 群组Id，表示是对哪个群通过/拒绝了 
-user | 处理请求的用户identifier 
+type | 同意：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_ACCEPT_TYPE<br>拒绝：TIM_GROUP_SYSTEM_INVITE_TO_GROUP_REFUSE_TYPE 
+group | 群组 ID，表示是对哪个群通过/拒绝了 
+user | 处理请求的用户 identifier 
 msg | 同意或者拒绝理由（可选） 
 
-### 9.5 被管理员踢出群组 
+### 被管理员踢出群组 
 
-触发时机：当用户被管理员踢出群组时，申请人会收到被踢出群的消息。 
+**触发时机：**当用户被管理员踢出群组时，申请人会收到被踢出群的消息。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_KICK_OFF_FROM_GROUP_TYPE 
-group | 群组Id，表示在哪个群里被踢了 
-user | 操作管理员identifier 
+group | 群组 ID，表示在哪个群里被踢了 
+user | 操作管理员 identifier 
 
-### 9.6 群被解散 
+### 群被解散 
 
-触发时机：当群被解散时，全员会收到解散群消息。 
+**触发时机：**当群被解散时，全员会收到解散群消息。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_DELETE_GROUP_TYPE 
-group | 群组Id，表示哪个群被解散了 
-user | 操作管理员identifier 
+group | 群组 ID，表示哪个群被解散了 
+user | 操作管理员 identifier 
 
-### 9.7 创建群消息 
+### 创建群消息 
 
-触发时机：当群创建时，创建者会收到创建群消息。 
-当调用创建群方法成功回调后，即表示创建成功，此消息主要为多终端同步，如果有在其他终端登录，做为更新群列表的时机，本终端可以选择忽略。 
+**触发时机：**当群创建时，创建者会收到创建群消息。当调用创建群方法成功回调后，即表示创建成功，此消息主要为多终端同步，如果有在其他终端登录，做为更新群列表的时机，本终端可以选择忽略。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_CREATE_GROUP_TYPE 
-group | 群组Id，表示创建的群Id 
+group | 群组 ID，表示创建的群 ID 
 user | 创建者，这里也就是用户自己 
 
-### 9.8 邀请加群 
+### 邀请加群 
 
-触发时机：当用户被邀请加入群组时，该用户会收到邀请消息，注意：创建群组时初始成员无需邀请即可入群。 
+**触发时机：**当用户被邀请加入群组时，该用户会收到邀请消息，**创建群组时初始成员无需邀请即可入群。 **
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_INVITED_TO_GROUP_TYPE 
-group | 群组Id，邀请进入哪个群 
+group | 群组 ID，邀请进入哪个群 
 user | 操作人，表示哪个用户的邀请 
 
 **方法说明：**
 
-当用户同意入群，可调用accept方法 
-当用户不同意，可调用refuse方法。 
+- 同意申请人入群，可调用 accept 方法。
+- 不同意申请人入群，可调用 refuse 方法。 
 
-### 9.9 主动退群 
+### 主动退群 
 
-触发时机：当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。 
-当用户调用QuitGroup时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以做为更新群列表的时机，本终端可以选择忽略。 
+**触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以做为更新群列表的时机，本终端可以选择忽略。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_QUIT_GROUP_TYPE 
-group | 群组Id，表示退出的哪个群 
+group | 群组 ID，表示退出的哪个群 
 user | 操作人，这里即为用户自己 
 
-### 9.10 设置/取消管理员 
+### 设置/取消管理员 
 
-触发时机：当用户被设置为管理员时，可收到被设置管理员的消息通知，当用户被取消管理员时，可收到取消通知，可提示用户。 
+**触发时机：**当用户被设置为管理员时，可收到被设置管理员的消息通知，当用户被取消管理员时，可收到取消通知，可提示用户。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
-type | 取消管理员身份:TIM_GROUP_SYSTEM_GRANT_ADMIN_TYPE 
-授予管理员身份|TIM_GROUP_SYSTEM_CANCEL_ADMIN_TYPE 
-group | 群组Id，表示哪个群的事件 
+type | 取消管理员身份：TIM_GROUP_SYSTEM_GRANT_ADMIN_TYPE<br>授予管理员身份：TIM_GROUP_SYSTEM_CANCEL_ADMIN_TYPE 
+group | 群组 ID，表示哪个群的事件 
 user | 操作人 
 
-### 9.11 群被回收 
+### 群被回收 
 
-触发时机：当群组被系统回收时，全员可收到群组被回收消息。 
+**触发时机：**当群组被系统回收时，全员可收到群组被回收消息。 
 
 **参数说明：**
 
 参数 | 说明
 ---|---
 type | TIM_GROUP_SYSTEM_REVOKE_GROUP_TYPE 
-group | 群组Id，表示哪个群被回收了 
+group | 群组 ID，表示哪个群被回收了 
