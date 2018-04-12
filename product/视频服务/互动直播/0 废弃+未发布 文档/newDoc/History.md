@@ -1,45 +1,56 @@
 # iLiveSDK版本更新
 
-## `iLiveSDK Android V1.7.2(2017-10-30)`
- - 更新AVSDK 1.9.5.12 (修复退房回调中stopContext异常)
- - ILiveSDK中添加setCaptureMode(配置是否需要悬浮窗权限)
+## `iLiveSDK Android V1.8.5(2018-04-04)`
+ - 更新AVSDK到1.9.8.2
+ - 优化事件上报及日志上报功能
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
-## `iLiveSDK iOS V1.7.1.12078(2017-10-30)`
-* 修改上麦接口，将role参数改成option参数，方便相机和麦克风配置
-* 推流接口参数配置，增加recordId（“客户端手动推流，自动录制” 时，录制文件在后台可以用recordId来识别），增加字段pushSvrType（推流server类型），在当前版本中使用默认值。
-* 修复在磁盘空间不足时，日志模块crash问题
-* 修复cocos2d渲染和ilivesdk渲染冲突的问题
-* 去掉TILLiveSDK内部的pch文件
-* 增加极速模式
-* 增加预览接口
-* 增加预览分辨率设置
-* 增加OpenAL.framework
+## `iLiveSDK iOS 1.8.4.13473(2018-04-04)`
+* 修复日志上报导致的crash问题
+* 更新avsdk1.9.8
+* 分离日志上报模块，单独成立ILiveLogReport.Framework
+* 调整ILiveSDK内部日志上报机制
+* 修复登录时crash问题
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo/blob/master/doc/ILiveSDK_ChangeList.md)
 
-## `iLiveSDK PC V1.7.0.0(2017-09-25)`
-* 升级到avsdk 1.9.5;
-* 支持大咖模式(先创建房间，主播和观众不分先后顺序加入房间
+## `iLiveSDK PC V1.8.2.0(2018-04-08)`
+* 更新avsdk 1.9.8.2;
+* 视频播放支持到720p;
+* 允许指定创建房间所用的IM群类型;
+* 登录接口增加默认spear配置参数;
+* 去掉SkinBeauty.dll(此dll经常被360杀掉);
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## `iLiveSDK IE V1.3.0.0(2017-09-25)`
-* SDK内部升级到avsdk 1.9.5;
-* 增加房间内直播质量回调接口;
+## `iLiveSDK IE V1.5.0.1(2018-02-09)`
+* 获取设备列表为空时，统一返回错误码ERR_NOT_FOUND(8022);
+* SDK内部优化;
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Web_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## `iLiveSDK mac V1.7.0.11812(2017-09-25)`
-* 修复 被踢下线，再次登录时出现1003错误的问题
-* 房间失去连接时，释放内部资源
-* 增加内部关键日志打印
-* 增加极速模式
+## `iLiveSDK mac V1.8.3.13017(2018-1-29)`
+###### 1.8.3.13017(2018-1-29)
+1、修复打开/关闭摄像头失败时无回调问题
+2、增加一个登录接口，支持本地配置spear配置(在网络不稳定拉去spear配置容易失败的场景下可以用到)
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
 # AVSDK 版本更新记录
+## `AVSDK 1.9.8  2018-03-25`
+
+* 互动直播支持后台转码，主播和观众端可自由选择H264和H265以及不同分辨率
+* 支持视频H265软硬编解码
+* 提高视频分辨率，支持全景直播
+* 播片支持720p以上分辨率
+* 极速模式优化，同一房间支持更多人
+* PC端主播高音质开播音乐时可听到本地音乐
+* PC端优化音频前处理
+* 极速模式参数支持云端控制，控制更灵活
+* Android端支持外部设置OpenGL的shader矩阵
+* 低分辨支持192*144
+
 ## `AVSDK 1.9.5  2017-09-15`
 * 新增极速模式，支持1V1，1V多音视频通话，满足实时音视频沟通场景。
 * iOS/Android端支持啸叫抑制。
