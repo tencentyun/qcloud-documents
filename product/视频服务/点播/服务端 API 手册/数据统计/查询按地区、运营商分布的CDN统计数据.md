@@ -25,8 +25,8 @@ vod.api.qcloud.com
 | hosts         | 是   | Array  | 域名列表，如果为空，查询所有点播域名的统计数据，如果域名超过5个，返回错误                                                                                                           |
 | date          | 是   | String | 查询日期，格式为 yyyy-MM-dd，如2018-03-01                                                                                                                                           |
 | statType      | 是   | String | CDN 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li><li>hitrate：请求命中率，单位为万分比</li></ul> |
-| provNames     | 否   | Array  | 省份英文名称列表，如果为空，查询所有省份的数据                                                                                                                                      |
-| ispNames      | 否   | Array  | 运营商英文名称列表，如果为空，查询所有运营商的数据                                                                                                                                  |
+| provNames     | 否   | Array  | 要查询的[省份英文名称列表](#provNameList) ，见，如 Beijin，如果为空，查询所有省份的数据                                                                                             |
+| ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile，如如果为空，查询所有运营商的数据                                                                                       |
 | COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                     |
 
 ### 请求示例
@@ -34,20 +34,22 @@ vod.api.qcloud.com
 https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 &hosts.0=123.vod2.myqcloud.com
 &date=2018-03-01
+&provNames.0=Guangdong
+&ispNames.0=China Mobile
+&ipsNames.1=China Unicom
 &statType=flux
 &COMMON_PARAMS
 ```
 ## 接口应答
 
 ### 参数说明
-| 参数名称      | 类型    | 说明                                         |
-| ------------- | ------- | -------------------------------------------- |
-| code          | Integer | 错误码，0：成功， 其他值：失败               |
-| message       | String  | 错误信息                                     |
-| data          | Object  | 结果数据                                     |
-| data.statType | String  | CDN 统计数据类型，和请求的 statType 参数一致 |
-| data.list     | Array   | 统计数据列表，见 HostProvIspStatData 说明    |
-|               |
+| 参数名称      | 类型    | 说明                                            |
+| ------------- | ------- | ----------------------------------------------- |
+| code          | Integer | 错误码，0：成功， 其他值：失败                  |
+| message       | String  | 错误信息                                        |
+| data          | Object  | 结果数据                                        |
+| data.statType | String  | CDN 统计数据类型，和请求的 statType 参数一致    |
+| data.hostData | Array   | 每个域名的统计数据，见 HostProvIspStatData 说明 |
 
 #### HostProvIspData省份统计数据
 | 参数名称                | 类型   | 说明                          |
@@ -67,7 +69,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 | value     | Integer | 统计项数值                    |
 
 
-### 省份地区名称映射
+### <span id="provNameList">省份地区名称映射</span>
 | 英文名称              | 中文名称 |
 | --------------------- | -------- |
 | Anhui                 | 安徽     |
@@ -106,7 +108,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 | Other                 | 其它     |
 
  
-### 运营商名称映射
+### <span id="ispNameList">运营商名称映射</span>
 | 英文名称                     | 中文名称   |
 | ---------------------------- | ---------- |
 | China Unicom                 | 中国联通   |
@@ -132,7 +134,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 	"message": "",
 	"data": {
 		"statType": "flux",
-		"list": [{
+		"hostData": [{
 			"host": "123.vod2.myqcloud.com",
 			"provIspData": [{
 					"provZhName": "广东",
