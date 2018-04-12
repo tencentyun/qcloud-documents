@@ -13,7 +13,8 @@
 - 图7是气泡字幕操作界面
 
 
-编译运行Demo体验，从资源下载处下载[Android完整版开发包](https://cloud.tencent.com/document/product/454/7873)，解压出来运行RTMPAndroidDemoSrc工程，在运行起来后的主界面中点选视频编辑即可选择视频进入进行编辑功能体验。
+编译运行Demo体验，从资源下载处下载[Android完整版开发包](https://cloud.tencent.com/document/product/454/7873)，解压出来运行Demo工程，在运行起来后的主界面中点选视频编辑即可选择视频进入进行编辑功能体验。
+Android编辑的代码位置：com.tencent.liteav.demo.shortvideo包名下面，其中choose.TCVideoChooseActivity为本地视频列表界面，editor.TCVideoPreprocessActivity为视频预处理界面，TCVideoEditerActivity为视频编辑界面，editor.bgm包下为背景音的实现，editor.bubble包下为气泡字幕的实现，editor.cutter包下为裁剪实现，editor.filter包下为静态滤镜实现，editor.motion包下为滤镜动效实现，editor.paster包下为动态/静态贴纸实现，editor.time包下为时间特效的实现。
 
 ## 1 复用现有UI
 视频编辑具有比较复杂的交互逻辑，这也决定了其 UI 复杂度很高，所以我们比较推荐复用 SDK 开发包中的 UI 源码，使用时从Demo中拷贝以下文件夹到自己的工程:
@@ -93,6 +94,7 @@ mTXVideoEditer.setVideoGenerateListener(this);
 mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_540P, mVideoOutputPath);
 ```
 输出时指定文件压缩质量和输出路径，输出的进度和结果会通过`TXVideoEditer.TXVideoGenerateListener`以回调的形式通知用户。
+注意：输出文件路径请在外部新建一个空文件，传入绝对路径，不要和原视频的路径相同。
 
 ### 4. 美颜滤镜
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo提供了9种滤镜选择，同时也可以设置自定义的滤镜。
@@ -126,6 +128,17 @@ public void setVideoVolume(float volume);
 public void setBGMVolume(float volume);
 ```
 其中 volume 表示声音的大小， 取值范围 0 ~ 1 ， 0 表示静音， 1 表示原声大小。
+
+设置从视频的某一个位置起开始添加背景音乐
+
+```
+public void setBGMAtVideoTime(long videoStartTime);
+```
+设置背景音乐是否循环播放：true-循环播放，false-不循环播放
+
+```
+public void setBGMLoop(boolean looping);
+```
 
 Demo示例：
 
@@ -246,9 +259,11 @@ TXEffectType_DARK_DRAEM        - 滤镜特效3
 TXEffectType_ROCK_LIGHT        - 滤镜特效4
 
 public void deleteLastEffect();
+public void deleteAllEffect();
 ```
 调用 deleteLastEffect() 删除最后一次设置的滤镜特效。
-
+调用 deleteAllEffect() 删除所有设置的滤镜特效。
+<br/>		
 Demo示例：
 在1-2s之间应用第一种滤镜特效；在3-4s之间应用第2种滤镜特效；删除3-4s设置的滤镜特效
 
@@ -266,7 +281,7 @@ mTXVideoEditer.deleteLastEffect();
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
 
 ```
-public void setSpeedList(List<TXVideoEditConstants.TXSpeed> speedList)；
+public void setSpeedList(List speedList)；
 
 //TXSpeed 的参数如下：
 public final static class TXSpeed {
@@ -286,7 +301,7 @@ Demo示例：
 
 ```
 // SDK拥有支持多段变速的功能。 此DEMO仅展示一段慢速播放
-List<TXVideoEditConstants.TXSpeed> list = new ArrayList<>(1);
+List list = new ArrayList<>(1);
 TXVideoEditConstants.TXSpeed speed = new TXVideoEditConstants.TXSpeed();
 speed.startTime = startTime;                                // 开始时间
 speed.endTime = mTXVideoEditer.getTXVideoInfo().duration;  // 结束时间
@@ -298,7 +313,7 @@ mTXVideoEditer.setSpeedList(list);
 ```
 ### 11. 倒放
 您可以将视频画面倒序播放。通过调用 **setReverse(true)** 开启倒序播放，调用 **setReverse(false)** 停止倒序播放。
-首次倒放视频需要花费一定时间对视频进行处理，需要调用 **setTXVideoReverseListener()** 进行监听是否倒放处理完成。
+注意：**setTXVideoReverseListener()**  老版本首次监听是否倒放完成在新版本无需调用即可生效。
 
 Demo示例：
 
@@ -314,7 +329,7 @@ mTXVideoEditer.setReverse(true);
 设置重复片段方法：
 
 ```
-public void setRepeatPlay(List<TXVideoEditConstants.TXRepeat> repeatList);
+public void setRepeatPlay(List repeatList);
 
 //TXRepeat 的参数如下：
 public final static class TXRepeat {
@@ -329,7 +344,7 @@ Demo示例：
 ```
 long currentPts = mVideoProgressController.getCurrentTimeMs();
 
-List<TXVideoEditConstants.TXRepeat> repeatList = new ArrayList<>();
+List repeatList = new ArrayList<>();
 TXVideoEditConstants.TXRepeat repeat = new TXVideoEditConstants.TXRepeat();
 repeat.startTime = currentPts;
 repeat.endTime = currentPts + DEAULT_DURATION_MS;
@@ -345,7 +360,7 @@ mTXVideoEditer.setRepeatPlay(repeatList);
 设置静态贴纸的方法：
 
 ```
-public void setPasterList(List<TXVideoEditConstants.TXPaster> pasterList);
+public void setPasterList(List pasterList);
 
 // TXPaster 的参数如下：
 public final static class TXPaster {
@@ -360,7 +375,7 @@ public final static class TXPaster {
 设置动态贴纸的方法：
 
 ```
-public void setAnimatedPasterList(List<TXVideoEditConstants.TXAnimatedPaster> animatedPasterList);
+public void setAnimatedPasterList(List animatedPasterList);
 
 // TXAnimatedPaster 的参数如下：
 public final static class TXAnimatedPaster {
@@ -374,8 +389,8 @@ public final static class TXAnimatedPaster {
 Demo示例：
 
 ```
-List<TXVideoEditConstants.TXAnimatedPaster> animatedPasterList = new ArrayList<>();
-List<TXVideoEditConstants.TXPaster> pasterList = new ArrayList<>();
+List animatedPasterList = new ArrayList<>();
+List pasterList = new ArrayList<>();
 for (int i = 0; i < mTCLayerViewGroup.getChildCount(); i++) {
     PasterOperationView view = (PasterOperationView) mTCLayerViewGroup.getOperationView(i);
     TXVideoEditConstants.TXRect rect = new TXVideoEditConstants.TXRect();
@@ -447,7 +462,7 @@ SDK内部将获取到该动态贴纸对应的config.json，并且按照json中�
 设置气泡字幕的方法为：
 
 ```
-public void setSubtitleList(List<TXVideoEditConstants.TXSubtitle> subtitleList);
+public void setSubtitleList(List subtitleList);
 
 //TXSubtitle 的参数如下：
 public final static class TXSubtitle {
@@ -523,6 +538,25 @@ mTXVideoEditer.setSubtitleList(mSubtitleList); // 设置字幕列表
 
 您也可以修改相关控件源代码，来满足自身的业务要求。
 
+### 15. 自定义视频输出
+设置最终生成视频的压缩分辨率和输出路径
+```
+public void generateVideo(int videoCompressed, String videoOutputPath) 
+```
+参数videoCompressed在TXVideoEditConstants中可选常量
+```
+VIDEO_COMPRESSED_360P ——压缩至360P分辨率（360*640）
+VIDEO_COMPRESSED_480P ——压缩至480P分辨率（640*480）
+VIDEO_COMPRESSED_540P ——压缩至540P分辨率 (960*540)
+VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
+```
+如果源视频的分辨率小于设置的常量对应的分辨率，按照原视频的分辨率；
+如果源视频的分辨率大于设置的常量对象的分辨率，进行视频压缩至相应分辨率
+ <br/>  
+目前支持自定义视频的码率，这里建议设置的范围 600-12000kbps，如果设置了这个码率，SDK最终压缩视频时会优先选取这个码率，注意码率不要太大或太小，码率太大，视频的体积会很大，码率太小，视频会模糊不清。
+```
+public void setVideoBitrate(int videoBitrate);
+```
 
-### 15. 释放
+### 16. 释放
 当您不再使用mTXVideoEditer对象时，一定要记得调用 **releasee()** 释放它。

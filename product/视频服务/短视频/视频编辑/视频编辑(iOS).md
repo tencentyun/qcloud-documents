@@ -106,9 +106,30 @@ UIImage* image = [UIImage imageWithContentsOfFile:path];
 设置背景音乐的方法为：
 
 ```
-- (void) setBGM:(NSString *)path startTime:(float)startTime endTime:(float)endTime;
+- (void) setBGM:(NSString *)path result:(void(^)(int))result;
 ```
-其中 path 为音乐文件路径，startTime 为音乐的起始时间，endTime 为音乐的结束时间。
+其中 path 为音乐文件路径。
+
+设置背景音乐的开始和结束方法为：
+
+```
+- (void) setBGMStartTime:(float)startTime endTime:(float)endTime;
+```
+其中 startTime 为音乐起始时间，endTime 为音乐结束时间。
+
+设置背景音乐是否循环播放方法为：
+
+```
+- (void) setBGMLoop:(BOOL)isLoop;
+```
+其中 isLoop 为音乐是否循环播放。
+
+设置背景音乐在视频的添加的起始位置方法为：
+
+```
+- (void) setBGMAtVideoTime:(float)time;
+```
+其中 time 为音乐在视频添加的起始位置。
 
 设置视频和背景声音大小的方法为： 
  
@@ -123,9 +144,13 @@ Demo示例：
 ```
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
 path = [path stringByAppendingPathComponent:@"defalut.mp3"];
-[_ugcEdit setBGM:path startTime:1 endTime:10];
-[_ugcEdit setVideoVolume:0.5];
-[_ugcEdit setBGMVolume:0.5];
+[_ugcEdit setBGM:_BGMPath result:^(int result) {
+    if (result == 0) {
+        [_ugcEdit setBGMStartTime:0 endTime:10];
+        [_ugcEdit setBGMVolume:1];
+        [_ugcEdit setVideoVolume:1];
+     }
+}];
 ```
 
 ### 6. 设置全局水印
@@ -188,8 +213,10 @@ typedef  NS_ENUM(NSInteger,TXEffectType)
 };
 
 - (void) deleteLastEffect;
+- (void) deleteAllEffect;
 ```
-调用 deleteLastEffect() 删除最后一次设置的滤镜特效。
+调用 deleteLastEffect() 删除最后一次设置的滤镜特效。  
+调用 deleteAllEffect()  删除所有设置的滤镜特效。
 
 Demo示例：
 在1-2s之间应用第一种滤镜特效；在3-4s之间应用第2种滤镜特效；删除3-4s设置的滤镜特效
@@ -208,7 +235,7 @@ Demo示例：
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
 
 ```
-- (void) setSpeedList:(NSArray<TXSpeed *> *)speedList;
+- (void) setSpeedList:(NSArray *)speedList;
 
 //TXSpeed 的参数如下：
 @interface TXSpeed: NSObject
@@ -253,7 +280,7 @@ Demo示例：
 设置重复片段方法：
 
 ```
-- (void) setRepeatPlay:(NSArray<TXRepeat *> *)repeatList;
+- (void) setRepeatPlay:(NSArray *)repeatList;
 
 //TXRepeat 的参数如下：
 @interface TXRepeat: NSObject
@@ -280,7 +307,7 @@ repeat.repeatTimes = 3;  //重复次数
 设置静态贴纸的方法：
 
 ```
-- (void) setPasterList:(NSArray<TXPaster *> *)pasterList;
+- (void) setPasterList:(NSArray *)pasterList;
 
 // TXPaster 的参数如下：
 @interface TXPaster: NSObject
@@ -295,7 +322,7 @@ repeat.repeatTimes = 3;  //重复次数
 设置动态贴纸的方法：
 
 ```
-- (void) setAnimatedPasterList:(NSArray<TXAnimatedPaster *> *)animatedPasterList;
+- (void) setAnimatedPasterList:(NSArray *)animatedPasterList;
 
 // TXAnimatedPaster 的参数如下：
 @interface TXAnimatedPaster: NSObject
@@ -310,7 +337,7 @@ repeat.repeatTimes = 3;  //重复次数
 Demo示例：
 
 ```
-- (void)setVideoPasters:(NSArray<VideoPasterInfo*>*)videoPasterInfos
+- (void)setVideoPasters:(NSArray*)videoPasterInfos
 {
     NSMutableArray* animatePasters = [NSMutableArray new];
     NSMutableArray* staticPasters = [NSMutableArray new];
@@ -372,7 +399,7 @@ SDK内部将获取到该动态贴纸对应的config.json，并且按照json中�
 设置字幕的方法为：  
 
 ```
-- (void) setSubtitleList:(NSArray<TXSubtitle *> *)subtitleList;
+- (void) setSubtitleList:(NSArray *)subtitleList;
 
 TXSubtitle 的参数如下：
 @interface TXSubtitle: NSObject
@@ -442,4 +469,4 @@ videoTextInfos = @[VideoTextInfo1, VideoTextInfo2 ...];
 
 我们在Demo中提供了一个自动排版的控件。若在当前字体大小下，字幕过长时，控件将自动缩小字号，直到能够恰好放下所有字幕文字为止。
 
-您也可以修改相关控件源代码，来满足自身的业务要求。
+您也可以修改相关控件源代码，来满足自身的业务要求。 
