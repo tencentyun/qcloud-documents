@@ -31,7 +31,7 @@
 | IMMessageExt.framework | IM 全量消息能力扩展包 | 包含消息本地存储、会话列表、最近联系人、拉取漫游消息、消息的未读计数、已读回执、草稿等功能
 | IMGroupExt.framework | IM 全量群组能力扩展包 | 包含全量的群组类型和群组资料、全量的群成员能力、全量的群组管理能力 |
 | IMFriendshipExt.framework | IM 全量关系链资料能力扩展包 | 包含全量的关系链能力 |
-| IMSDKBugly.framework | Crash 上报功能 | 推荐使用，可以在控制台页面查看 Crash 率等信息。如果不加入此 SDK，需要调用 TIMManager sharedInstance disableCrashReport 禁用此功能 |
+| IMSDKBugly.framework | Crash 上报功能 | 推荐使用，可以在控制台页面查看 Crash 率等信息。如果不加入此 SDK，需要调用 `[TIMManager sharedInstance] disableCrashReport]; ` 禁用此功能 |
 | IMUGCExt.framework | IM 小视频 UGC 消息能力扩展包 | 发送小视频消息 TIMUGCElem 功能、上传小视频功能 |
 | TXRTMPSDK.framework | 小视频录制、编辑能力扩展包 | 包含小视频录制功能、小视频编辑功能，其他能力请参见 [移动直播 SDK 文档](https://cloud.tencent.com/document/product/454/7876) |
 
@@ -64,8 +64,8 @@
 **添加以下依赖库：**
 
 > **注意：**
-> `ImSDK.framework`、`IMMessageExt.framework`、`IMGroupExt.framework`、`IMFriendshipExt.framework`、`TLSSDK.framework`、`QALSDK.framework` 为下载的 ImSDK，其余均为系统内置库。
-> 需要在【Build Setting】-【Other Linker Flags】添加 `-ObjC`。
+>- `ImSDK.framework`、`IMMessageExt.framework`、`IMGroupExt.framework`、`IMFriendshipExt.framework`、`TLSSDK.framework`、`QALSDK.framework` 为下载的 ImSDK，其余均为系统内置库。
+>- 需要在【Build Setting】-【Other Linker Flags】添加 `-ObjC`。
 
 ```
 CoreTelephony.framework
@@ -104,7 +104,7 @@ IMSDKBugly.framework
 iOS ImSDK 对象主要分为通讯管理器、会话、消息、群管理，具体的含义参见下表。
 
 | 对象 | 介绍 | 功能 |
-| ---| --- | --- |
+| --- | --- | --- |
 | TIMManager | 管理器类 | 负责基本的 SDK 操作，包含初始化登录、注销、创建会话等 |
 | TIMConversation | 会话 | 负责会话相关操作，包含发送消息、获取会话消息缓存、获取未读计数等 |
 | TIMMessage | 消息 | 包含文本、图片等不同类型消息 |
