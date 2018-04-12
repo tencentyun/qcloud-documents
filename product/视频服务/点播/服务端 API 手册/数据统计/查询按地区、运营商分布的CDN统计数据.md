@@ -52,7 +52,7 @@ vod.api.qcloud.com
 | regionIspData.ispZhName     | String | 运营商中文名称                                     |
 | regionIspData.statData      | Array  | 统计数据列表，每5分钟汇总一个统计数据，见 StatData |
 
-#### StatData
+#### StatData 数据说明
 | 参数名称  | 类型    | 说明                          |
 | --------- | ------- | ----------------------------- |
 | timeStamp | Integer | 统计数据所属时间，Unix 时间戳 |
