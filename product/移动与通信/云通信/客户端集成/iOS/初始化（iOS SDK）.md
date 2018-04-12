@@ -248,7 +248,7 @@ ImSDK 内部集成了 Bugly 系统（http://bugly.qq.com )，当应用 Crash 后
 
 ## 设置日志级别
 
-ImSDK 内部日志级别可通过 setLogLevel 进行修改，控制 ImSDK 的日志输出。可以通过设置日志级别为 `TIM_LOG_NONE` 来关闭 ImSDK 的日志输出，提升性能，建议在开发期间打开日志，方便排查问题。
+ImSDK 内部日志级别可通过 `setLogLevel` 进行修改，控制 ImSDK 的日志输出。可以通过设置日志级别为 `TIM_LOG_NONE` 来关闭 ImSDK 的日志输出，提升性能，建议在开发期间打开日志，方便排查问题。
 
 **原型：**
 
