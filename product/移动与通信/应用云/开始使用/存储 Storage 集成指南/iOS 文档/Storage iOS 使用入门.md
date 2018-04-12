@@ -22,7 +22,7 @@
 >**注意：**
 >如果您已经添加过配置文件，请跳过此步。
 
-创建好应用后，您可以点击红框中的【tac\_services\_configurations.zip】来下载该应用的配置文件的压缩包：
+创建好应用后，您可以点击红框中的【下载配置】来下载该应用的配置文件的压缩包：
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
 
