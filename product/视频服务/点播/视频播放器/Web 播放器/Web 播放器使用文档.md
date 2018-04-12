@@ -192,7 +192,7 @@ var player = TCPlayer('player-container-id', {
 
 ### 缩略图预览
 腾讯云点播播放器支持缩略图预览，开启该功能有两种方式：
-1. 通过服务端 API 生成视频的缩略图与 VTT 文件，相关文档[雪碧图(ImageSprite)](https://cloud.tencent.com/document/product/266/11702#.E9.9B.AA.E7.A2.A7.E5.9B.BE(imagesprite))
+1. 通过服务端 API 生成视频的缩略图与 VTT 文件，相关文档[视频截图综述-雪碧图](https://cloud.tencent.com/document/product/266/11702)
 2. 自行生成缩略图文件与 VTT 文件，并将两个文件的 URL 传递给播放器，参考示例“缩略图预览-传入缩略图与 VTT 文件”
 
 开启成功的效果如下图：
@@ -301,7 +301,7 @@ var player = TCPlayer('player-container-id', {
 开启流程请看[视频加密文档](https://cloud.tencent.com/document/product/266/9638)
 
 >**注意事项：**
-> * 如果播放页面或者Flash swf url 与解密秘钥服务器域名不一致，Key 服务器需要部署 corssdomain.xml 和 CORS（"跨域资源共享" Cross-origin resource sharing），允许 Flash 和 JavaScript 跨域获取解密秘钥。
+> * 如果播放页面或者 Flash swf url 与解密秘钥服务器域名不一致，Key 服务器需要部署 corssdomain.xml 和 CORS（"跨域资源共享" Cross-origin resource sharing），允许 Flash 和 JavaScript 跨域获取解密秘钥。
 > * crossdomain.xml 中配置的是 swf url 的域名，并且 xml 文件必须放置在 Key 服务器的根目录。
 > * 播放器的 Flash swf 文件默认存放在 imgcache.qq.com 域名下。
 > * 视频只能进行一次加密，不可多次加密，严格按照视频加密文档操作。
