@@ -2,16 +2,14 @@
 DescribeCdnProvIspDetailStat
 
 ## 功能说明
-用于查询指定域名指定日期、指定运营商、指定省份的国内 CDN 节点消耗明细。由于运营商/省份需要从日志中分析，数据延迟大概为20-30分钟，可以查询最近60天内的数据。
+查询指定域名指定日期按运营商、省份统计的国内 CDN 节点统计数据明细（流量、带宽、请求数、请求命中率）
 
-### 详细说明
-1. 本接口只查询国内 CDN 节点的消耗明细。
-2. 由于省份-运营商组合结果非常多，且本接口返回的为细粒度的数据，数据量较大，暂时不支持太多域名同时查询，一次最多可查询5个域名。
-3. 若不填充省份仅指定运营商，则返回的全国每一个省份在该运营商的消耗明细，支持指定多个运营商查询。
-4. 若不填充运营商，仅指定省份，则返回该省份每一个运营商的消耗明细，支持指定多个省份查询。
-5. 若不填充运营商，也不指定省份，则返回每个省份每一个运营商的消耗明细。
-6. 若该省份或运营商无数据，则不会返回。
-7. 返回的流量数据的单位是 byte（字节），带宽的单位是bps （比特每秒）。
+1. 由于省份、运营商数据需要从日志中分析，数据延迟大概为20-30分钟。可以查询最近60天内的数据。
+2. 不指定省份仅指定运营商，返回该运营商各个省份的统计数据，可以指定多个运营商进行查询。
+3. 不指定运营商仅指定省份，返回该省份各个运营商的统计数据，可以指定多个省份进行查询。
+4. 不指定运营商也不指定省份，返回每个省份每个运营商的统计数据。
+5. 若某个省份或运营商无数据，不会返回。
+6. 返回的明细数据粒度为5分钟。
 
 ## 请求方式
 
@@ -22,34 +20,36 @@ vod.api.qcloud.com
 100次/分钟
 
 ### 参数说明
-| 参数名称      | 必填 | 类型   | 说明                                                                                                                                                                                                                  |
-| ------------- | ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hosts         | 是   | Array  | 域名列表，一次最多查询5个域名。如果为空，将查询所有域名的统计数据（如果域名超过5个，返回错误）                                                                                                                        |
-| date          | 是   | string | 查询日期，格式为 yyyy-MM-dd，如 2018-03-20                                                                                                                                                                            |
-| statType      | 是   | string | CDN 统计数据类型 <ul><li> flux：表示流量明细，单位是字节（byte）;</li><li>bandwidth：表示峰值带宽明细，单位是比特每秒（bps）;</li><li>requests：表示请求数明细;</li><li>hitrate：表示平均请求命中率明细，单位为万分比 |
-| provNames     | 否   | Array  | 省份英文名称列表，如果为空，表示查询所有省份的数据                                                                                                                                                                    |
-| ispNames      | 否   | Array  | 运营商英文名称列表，如果为空，表示查询所有运营商的数据                                                                                                                                                                |
-| COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                                                       |
+| 参数名称      | 必填 | 类型   | 说明                                                                                                                                                                                |
+| ------------- | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hosts         | 是   | Array  | 域名列表，如果为空，查询所有点播域名的统计数据，如果域名超过5个，返回错误                                                                                                           |
+| date          | 是   | String | 查询日期，格式为 yyyy-MM-dd，如2018-03-01                                                                                                                                           |
+| statType      | 是   | String | CDN 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li><li>hitrate：请求命中率，单位为万分比</li></ul> |
+| provNames     | 否   | Array  | 要查询的[省份英文名称列表](#provNameList) ，见，如 Beijin，如果为空，查询所有省份的数据                                                                                             |
+| ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile，如如果为空，查询所有运营商的数据                                                                                       |
+| COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                     |
 
 ### 请求示例
 ```
 https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 &hosts.0=123.vod2.myqcloud.com
 &date=2018-03-01
+&provNames.0=Guangdong
+&ispNames.0=China Mobile
+&ipsNames.1=China Unicom
 &statType=flux
 &COMMON_PARAMS
 ```
 ## 接口应答
 
 ### 参数说明
-| 参数名称      | 类型    | 说明                                                  |
-| ------------- | ------- | ----------------------------------------------------- |
-| code          | Integer | 错误码, 0：成功, 其他值：失败                         |
-| message       | String  | 错误信息                                              |
-| data          | Object  | 结果数据                                              |
-| data.statType | String  | CDN 统计数据类型，和请求的 statType 参数一致          |
-| data.list     | Array   | 省份、运营商统计数据列表，见 HostProvIspStatData 说明 |
-|               |
+| 参数名称      | 类型    | 说明                                            |
+| ------------- | ------- | ----------------------------------------------- |
+| code          | Integer | 错误码，0：成功， 其他值：失败                  |
+| message       | String  | 错误信息                                        |
+| data          | Object  | 结果数据                                        |
+| data.statType | String  | CDN 统计数据类型，和请求的 statType 参数一致    |
+| data.hostData | Array   | 每个域名的统计数据，见 HostProvIspStatData 说明 |
 
 #### HostProvIspData省份统计数据
 | 参数名称                | 类型   | 说明                          |
@@ -63,13 +63,13 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 | provIspData.statData    | Array  | 统计数据明细列表，见 StatData |
 
 #### StatData
-| 参数名称  | 类型    | 说明                       |
-| --------- | ------- | -------------------------- |
-| timeStamp | Integer | 统计项所属时间，Unix 时间戳 |
-| value     | Integer | CDN 统计项数值             |
+| 参数名称  | 类型    | 说明                          |
+| --------- | ------- | ----------------------------- |
+| timeStamp | Integer | 统计数据所属时间，Unix 时间戳 |
+| value     | Integer | 统计项数值                    |
 
 
-### 省份地区名称映射
+### <span id="provNameList">省份地区名称映射</span>
 | 英文名称              | 中文名称 |
 | --------------------- | -------- |
 | Anhui                 | 安徽     |
@@ -82,7 +82,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 | Guizhou               | 贵州     |
 | Hainan                | 海南     |
 | Hebei                 | 河北     |
-| Heilongjian           | 黑龙江    |
+| Heilongjiang          | 黑龙江    |
 | Henan                 | 河南     |
 | Hubei                 | 湖北     |
 | Hunan                 | 湖南     |
@@ -98,7 +98,6 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 | Shaanxi               | 陕西     |
 | Shanghai              | 上海     |
 | Sichuan               | 四川     |
-| Taiwan                | 台湾     |
 | Tianjin               | 天津     |
 | Tibet                 | 西藏     |
 | Xinjiang              | 新疆     |
@@ -109,7 +108,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 | Other                 | 其它     |
 
  
-### 运营商名称映射
+### <span id="ispNameList">运营商名称映射</span>
 | 英文名称                     | 中文名称   |
 | ---------------------------- | ---------- |
 | China Unicom                 | 中国联通   |
@@ -135,7 +134,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnProvIspDetailStat
 	"message": "",
 	"data": {
 		"statType": "flux",
-		"list": [{
+		"hostData": [{
 			"host": "123.vod2.myqcloud.com",
 			"provIspData": [{
 					"provZhName": "广东",
