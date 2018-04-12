@@ -27,7 +27,7 @@
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
 
 > **注意：**
->不要将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
+>请您按照图示来添加配置文件， `tac_service_configurations_unpackage.plist`文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
 ## 第三步：集成 SDK
