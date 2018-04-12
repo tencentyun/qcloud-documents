@@ -48,7 +48,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | -------- | ------ | ---------------------------------------------------------------------------------------- |
 | date     | String | 日志所属日期， 格式为：yyyy-MM-dd，如2018-03-01                                          |
 | name     | String | 日志名称，格式为：yyyyMMddHH-host， 即日期小时-域名，如 2018030112-123.vod2.myqcloud.com |
-| link     | String | 日志下载链接，24小时内下载有效，下载的日志文件内容参见[日志文件说明](#logfile)           |
+| link     | String | 日志下载链接，24小时内下载有效，日志文件内容参见[日志文件说明](#logfile)           |
 
 ### 错误码说明
 | 错误码    | 含义说明                                     |
