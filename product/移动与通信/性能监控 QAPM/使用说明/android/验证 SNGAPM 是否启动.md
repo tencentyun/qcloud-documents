@@ -1,4 +1,4 @@
-验证 QAPM 是否启动，可在 run 调用前调用
+验证 SNGAPM 是否启动，可在 run 调用前调用
 ```
 apm.set("debug", true);
 ```
@@ -13,4 +13,4 @@ apm.run();
 ```
 D/SNGAPM_MagnifierSDK: Magnifier SDK Start success, LEAKINSPECTOR : true, IO : true, DB : true, LOOPER : true, CEILING : true, BATTERY : false
 ```
-登录到 SNGAPM 主页，可以看到内存泄漏、触顶、卡顿的上报。
+APP 使用一段时间后, 登录到 SNGAPM 主页，可以看到内存泄漏、触顶、卡顿的等上报。
