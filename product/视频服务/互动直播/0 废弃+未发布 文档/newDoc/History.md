@@ -1,5 +1,9 @@
 # iLiveSDK版本更新
 
+## `iLiveSDK Android V1.8.5(2018-04-12)(2018-04-04)`
+ - 更新AVSDK到1.9.8.2
+ - 优化事件上报及日志上报功能
+ 
 ## `iLiveSDK Android V1.7.2(2017-10-30)`
  - 更新AVSDK 1.9.5.12 (修复退房回调中stopContext异常)
  - ILiveSDK中添加setCaptureMode(配置是否需要悬浮窗权限)
@@ -40,6 +44,19 @@
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
 # AVSDK 版本更新记录
+## `AVSDK 1.9.8  2018-03-25`
+
+* 互动直播支持后台转码，主播和观众端可自由选择H264和H265以及不同分辨率
+* 支持视频H265软硬编解码
+* 提高视频分辨率，支持全景直播
+* 播片支持720p以上分辨率
+* 极速模式优化，同一房间支持更多人
+* PC端主播高音质开播音乐时可听到本地音乐
+* PC端优化音频前处理
+* 极速模式参数支持云端控制，控制更灵活
+* Android端支持外部设置OpenGL的shader矩阵
+* 低分辨支持192*144
+
 ## `AVSDK 1.9.5  2017-09-15`
 * 新增极速模式，支持1V1，1V多音视频通话，满足实时音视频沟通场景。
 * iOS/Android端支持啸叫抑制。
