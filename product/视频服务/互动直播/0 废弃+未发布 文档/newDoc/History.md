@@ -6,7 +6,7 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
-## `iLiveSDK iOS 1.8.4.13473(2018-4-4)`
+## `iLiveSDK iOS 1.8.4.13473(2018-04-04)`
 * 修复日志上报导致的crash问题
 * 更新avsdk1.9.8
 * 分离日志上报模块，单独成立ILiveLogReport.Framework
