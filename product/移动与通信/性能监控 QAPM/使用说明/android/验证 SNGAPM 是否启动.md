@@ -1,4 +1,4 @@
-验证 SNGAPM 是否启动，可在 run 调用前调用
+验证 QAPM 是否启动，可在 run 调用前调用
 ```
 apm.set("debug", true);
 ```
