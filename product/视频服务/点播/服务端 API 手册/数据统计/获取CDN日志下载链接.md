@@ -22,15 +22,6 @@ vod.api.qcloud.com
 | hosts         | 否   | Array   | 域名列表，查询指定域名的 CDN 日志下载链接，如果请求不带 hosts 参数，返回所有域名的 CDN 日志下载链接，如果hosts数目超过20个，返回错误 |
 | COMMON_PARAMS | 是   |         | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                      |
 
-### 请求示例
-```
-https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
-&startTime=1519833600
-&endTime=1519920000
-&hosts.0=123.vod2.myqcloud.com
-&COMMON_PARAMS
-```
-
 ## 接口应答
 
 ### 参数说明
@@ -56,6 +47,16 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 4000-7000 | 参见[公共错误码](/document/product/266/7783) |
 | 1000      | 无效参数                                     |
 
+
+## 示例
+### 请求实例
+```
+https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
+&startTime=1519833600
+&endTime=1519920000
+&hosts.0=123.vod2.myqcloud.com
+&COMMON_PARAMS
+```
 
 ### 应答示例
 
