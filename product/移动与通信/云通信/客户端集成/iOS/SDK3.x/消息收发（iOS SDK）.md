@@ -1464,7 +1464,10 @@ fail | 失败回调
 
 ### 撤回消息
 
-ImSDK 提供获撤回消息的接口，成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知。收到一条消息撤回通知后，可以根据 `TIMMessage` 中的方法判断是否需要对消息进行撤回操作。
+ImSDK 提供获撤回消息的接口，可以通过调用 `TIMConversation` 的 `revokeMessage` 接口来撤回自己发送的消息。成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知。
+
+> **注意：**
+>- 仅 C2C 和 GROUP 会话有效，onlineMessage 无效、AVChatRoom 和 BChatRoom 无效
 
 **原型： **
 
@@ -1511,7 +1514,7 @@ fail | 失败回调
 ---|---
 locator | 消息定位符 sessId、sessType、isFromRevokeNotify 属性有效，请不要使用该定位符进行 findMessage 操作
 
-**原型： **
+收到一条消息撤回通知后，可以根据 `TIMMessage` 中的方法判断是否需要对消息进行撤回操作。**原型：**
 
 ```
 @interface TIMMessage (MsgExt)

@@ -1,15 +1,15 @@
 
-## 1. 群组综述 
+## 群组综述 
 
-IM云通讯有多种群组类型，其特点以及限制因素可参考[群组系统](/doc/product/269/群组系统)。群组使用唯一Id标识，通过群组Id可以进行不同操作。
+IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
-## 2. 群组消息 
+## 群组消息 
 
-群组消息与C2C消息相同，仅在获取Conversation时的会话类型不同，可参照 [消息发送](/doc/product/269/9150#1.-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.8111) 部分。
+群组消息与 C2C （单聊）消息相同，仅在获取 `Conversation` 时的会话类型不同，可参照 [消息发送](/doc/product/269/9150#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
 
-## 3. 群组管理
+## 群组管理
 
-群组相关操作都由 TIMGroupManager 实现，需要用户登录成功后操作。
+群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
 
 **获取单例原型：**
 
@@ -19,11 +19,18 @@ IM云通讯有多种群组类型，其特点以及限制因素可参考[群组�
 @end
 ```
 
-### 3.1 创建内置类型群组
+### 创建内置类型群组
 
-CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateChatRoomGroup创建聊天室，创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组Id，可通过群组Id获取Conversation收发消息等。云通信中内置了私有群、公开群、聊天室、互动直播聊天室和在线成员广播大群五种群组类型，详情请见[群组形态介绍](/doc/product/269/群组系统#2-.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)
+云通信中内置了私有群、公开群、聊天室、互动直播聊天室和在线成员广播大群五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 `Conversation` 收发消息等。
 
-另外 CreateAVChatRoomGroup 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
+**创建群组说明：**
+
+| 方法 | 说明 |
+| --- | --- |
+| CreatePrivateGroup | 创建私有群 |
+| CreatePublicGroup | 创建公开群 |
+| CreateChatRoomGroup | 创建聊天室 |
+| CreateAVChatRoomGroup | 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104) |
  
 **原型：**
 
@@ -40,7 +47,6 @@ CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateCh
  *  @return 0 成功
  */
 - (int)createPrivateGroup:(NSArray*)members groupName:(NSString*)groupName succ:(TIMCreateGroupSucc)succ fail:(TIMFail)fail;
-
 /**
  *  创建公开群
  *
@@ -52,7 +58,6 @@ CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateCh
  *  @return 0 成功
  */
 - (int)createPublicGroup:(NSArray*)members groupName:(NSString*)groupName succ:(TIMCreateGroupSucc)succ fail:(TIMFail)fail;
-
 /**
  *  创建聊天室
  *
@@ -64,8 +69,6 @@ CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateCh
  *  @return 0 成功
  */
 - (int)createChatRoomGroup:(NSArray*)members groupName:(NSString*)groupName succ:(TIMCreateGroupSucc)succ fail:(TIMFail)fail;
-
-
 /**
  *  创建音视频聊天室（可支持超大群，详情可参考wiki文档）
  *
@@ -76,7 +79,6 @@ CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateCh
  *  @return 0 成功
  */
 - (int)createAVChatRoomGroup:(NSString*)groupName succ:(TIMCreateGroupSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -84,15 +86,21 @@ CreatePrivateGroup 创建私有群，CreatePublicGroup创建公开群，CreateCh
 
 参数 | 说明
 ---|---
-members | NSString列表，指定加入群组的成员，创建者默认加入，无需指定（公开群、聊天室、私有群内最多10000人，直播大群没有限制） 
-groupName | NSString 类型，指定群组名称（最长30字节） 
-groupId | NSString 类型，指定群组Id
-succ | 成功回调，返回群组Id 
-fail | 失败回调示例：
+members | NSString 列表，指定加入群组的成员，创建者默认加入，无需指定（公开群、聊天室、私有群内最多 10000 人，直播大群没有限制） 
+groupName | NSString 类型，指定群组名称（最长 30 字节） 
+groupId | NSString 类型，指定群组 ID
+succ | 成功回调，返回群组 ID 
+fail | 失败回调
+
+以下示例创建一个私有群组，并且把用户『iOS_002』拉入群组。 **示例：**
+
+> 注：
+>- 创建者默认加入群组，无需显式指定。
+>- 公开群和聊天室调用方式和参数相同，仅方法名不同。 
 
 ```
 NSMutableArray * members = [[NSMutableArray alloc] init];
-// 添加一个用户iOS_002
+// 添加一个用户 iOS_002
 [members addObject:@"iOS_002"];
 [[TIMGroupManager sharedInstance] createPrivateGroup:members groupName:@"GroupName" succ:^(NSString * group) {
 	NSLog(@"create group succ, sid=%@", group);
@@ -101,79 +109,61 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 }];
 ```
 
-示例创建一个私有群组，并且把用户@"iOS_002"拉入群组，创建者默认加入群组，无需显式指定。 
-公开群和聊天室调用方式和参数相同，仅方法名不同。 
+### 创建指定属性群组
 
-### 3.2 创建指定属性群组
-
-在创建群组时，除了设置默认的成员以及群名外，还可以设置如群公告、群简介等字段，通过以下接口可以设置：
+在创建群组时，除了设置默认的成员以及群名外，还可以设置如群公告、群简介等字段。
 
 ```
-
 /**
  *  创建群参数
  */
 @interface TIMCreateGroupInfo : TIMCodingModel
-
 /**
- *  群组Id,nil则使用系统默认Id
+ *  群组 ID,nil 则使用系统默认 ID
  */
 @property(nonatomic,retain) NSString* group;
-
 /**
  *  群名
  */
 @property(nonatomic,retain) NSString* groupName;
-
 /**
  *  群类型：Private,Public,ChatRoom,AVChatRoom
  */
 @property(nonatomic,retain) NSString* groupType;
-
 /**
- *  是否设置入群选项，Private类型群组请设置为false
+ *  是否设置入群选项，Private 类型群组请设置为 false
  */
 @property(nonatomic,assign) BOOL setAddOpt;
-
 /**
  *  入群选项
  */
 @property(nonatomic,assign) TIMGroupAddOpt addOpt;
-
 /**
- *  最大成员数，填0则系统使用默认值
+ *  最大成员数，填 0 则系统使用默认值
  */
 @property(nonatomic,assign) uint32_t maxMemberNum;
-
 /**
  *  群公告
  */
 @property(nonatomic,retain) NSString* notification;
-
 /**
  *  群简介
  */
 @property(nonatomic,retain) NSString* introduction;
-
 /**
  *  群头像
  */
 @property(nonatomic,retain) NSString* faceURL;
-
 /**
- *  自定义字段集合,key是NSString*类型,value是NSData*类型
+ *  自定义字段集合,key 是 NSString*类型,value 是 NSData*类型
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
-
 /**
  *  创建成员（TIMCreateGroupMemberInfo*）列表
  */
 @property(nonatomic,retain) NSArray* membersInfo;
-
 @end
-
 @interface TIMGroupManager (Ext)
-
 /**
  *  创建群组
  *
@@ -184,7 +174,6 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
  *  @return 0 成功
  */
 - (int)createGroup:(TIMCreateGroupInfo*)groupInfo succ:(TIMCreateGroupSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -196,7 +185,7 @@ groupInfo|可设置的参数，详见 TIMCreateGroupInfo 定义。
 succ|成功回调
 fail|失败回调
 
-**示例：**
+以下示例创建一个指定属性的私有群，并把用户 『iOS_001』加入群组，创建者默认加入群，无需显示指定。**示例：**
 
 ```
 // 创建群组信息
@@ -209,17 +198,14 @@ groupInfo.maxMemberNum = 3;
 groupInfo.notification = @"this is a notification";
 groupInfo.introduction = @"this is a introduction";
 groupInfo.faceURL = nil;
-
 // 创建群成员信息
 TIMCreateGroupMemberInfo *memberInfo = [[TIMCreateGroupMemberInfo alloc] init];
 memberInfo.member = @"iOS_001";
 memberInfo.role = TIM_GROUP_MEMBER_ROLE_ADMIN;
-
 // 添加群成员信息
 NSMutableArray *membersInfo = [[NSMutableArray alloc] init];
 [membersInfo addObject:memberInfo];
 groupInfo.membersInfo = membersInfo;
-
 // 创建指定属性群组
 [[TIMGroupManager sharedInstance] createGroup:groupInfo succ:^(NSString * group) {
 	NSLog(@"create group succ, sid=%@", group);
@@ -227,20 +213,18 @@ groupInfo.membersInfo = membersInfo;
 	NSLog(@"failed code: %d %@", code, err);
 }];
 ```
-示例创建一个指定属性的私有群，并把用户 @"iOS_001" 加入群组，创建者默认加入群，无需显示指定。
 
-### 3.3 自定义群组Id创建群组
+### 自定义群组 ID 创建群组
 
-默认创建群组时，IM通讯云服务器会生成一个唯一的Id，以便后续操作，另外，如果用户需要自定义群组Id，在创建时可指定Id，通过 3.2 创建指定属性群组 也可以实现自定义群组Id的功能。
+默认创建群组时，IM 通讯云服务器会生成一个唯一的 ID，以便后续操作，另外，如果用户需要自定义群组 ID，在创建时可指定 ID，通过 [创建指定属性群组](#.E5.88.9B.E5.BB.BA.E6.8C.87.E5.AE.9A.E5.B1.9E.E6.80.A7.E7.BE.A4.E7.BB.84) 也可以实现自定义群组 ID 的功能。
 
 ```
 @interface TIMGroupManager : NSObject
-
 /**
  *  创建群组
  *
  *  @param type       群类型,Private,Public,ChatRoom,AVChatRoom
- *  @param groupId    自定义群组id，为空时系统自动分配
+ *  @param groupId    自定义群组 ID，为空时系统自动分配
  *  @param groupName  群组名称
  *  @param succ       成功回调
  *  @param fail       失败回调
@@ -248,7 +232,6 @@ groupInfo.membersInfo = membersInfo;
  *  @return 0 成功
  */
 - (int)createGroup:(NSString*)type groupId:(NSString*)groupId groupName:(NSString*)groupName succ:(TIMCreateGroupSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -259,19 +242,19 @@ groupInfo.membersInfo = membersInfo;
 type|群组类型
 members|初始成员列表
 groupName|群组名称
-groupId|自定义群组Id
+groupId|自定义群组 ID
 succ|成功回调
 fail|失败回调
 
-### 3.4 邀请用户入群
+### 邀请用户入群
 
-TIMGroupManager 的接口 inviteGroupMember 可以拉（邀请）用户进入群组。
+`TIMGroupManager` 的接口 `inviteGroupMember` 可以邀请用户进入群组。
 
 **权限说明：**
  
-只有私有群可以拉用户入群； 
-不允许群成员邀请他人入群，但创建群时可以直接拉人入群；
-直播大群不能邀请用户入群；
+- **私有群：**只有私有群可以拉用户入群 。
+- **直播大群：**不能邀请用户入群。
+- 不允许群成员邀请他人入群，但创建群时可以直接拉人入群。
 
 **原型：**
 
@@ -280,7 +263,7 @@ TIMGroupManager 的接口 inviteGroupMember 可以拉（邀请）用户进入群
 /**
  *  邀请好友入群
  *
- *  @param group   群组Id
+ *  @param group   群组 ID
  *  @param members 要加入的成员列表（NSString* 类型数组）
  *  @param succ    成功回调
  *  @param fail    失败回调
@@ -295,18 +278,18 @@ TIMGroupManager 的接口 inviteGroupMember 可以拉（邀请）用户进入群
  
 参数|说明
 ---|---
-group | NSString 类型，群组Id 
+group | NSString 类型，群组 ID 
 members | NSString 列表，加入群组用户列表 
 succ | 成功回调，TIMGroupMemberResult 数组，返回成功加入群组的用户列表以及成功状态 
 fail | 失败回调 
 
-**示例：**
+以下示例中邀请好友『iOS_002』加入群组 ID『TGID1JYSZEAEQ』，成功后返回操作列表以及成功状态，其中 `result.status` 表示当前用户操作是否成功。 **示例：**
 
 ```
 NSMutableArray * members = [[NSMutableArray alloc] init];
 // 添加一个用户iOS_002
 [members addObject:@"iOS_002"];
-// @"TGID1JYSZEAEQ" 为群组Id
+// @"TGID1JYSZEAEQ" 为群组 ID
 [[TIMGroupManager sharedInstance] inviteGroupMember:@"TGID1JYSZEAEQ" members:members succ:^(NSArray* arr) {
 	for (TIMGroupMemberResult * result in arr) {
 		NSLog(@"user %@ status %d", result.member, result.status);
@@ -316,8 +299,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 }];
 ```
 
-示例中邀请好友 @"iOS_002" 加入群组Id @"TGID1JYSZEAEQ"，成功后返回操作列表以及成功状态。 
-其中 result.status表示当前用户操作是否成功，具体定义如下： 
+**`result.status` 原型：**
 
 ```
 /**
@@ -339,16 +321,16 @@ typedef NS_ENUM(NSInteger, TIMGroupMemberStatus) {
 };
 ```
 
-### 3.5 申请加入群组 
+### 申请加入群组 
 
-TIMGroupManager 的接口 joinGroup可以主动申请进入群组，此操作只对公开群和聊天室有效。 
+`TIMGroupManager` 的接口 `joinGroup` 可以主动申请进入群组。此操作只对公开群和聊天室有效。 
 
 **权限说明：**
  
-私有群不能由用户主动申请入群； 
-公开群和聊天室可以主动申请进入； 
-如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群主设置为任何人可加入，则直接入群成功；
-直播大群可以任意加入群组。
+- **私有群：**不能由用户主动申请入群。
+- **公开群、聊天室：**可以主动申请进入。 
+- **直播大群：**可以任意加入群组。
+- 如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群主设置为任何人可加入，则直接入群成功。
 
 **原型：**
 
@@ -357,7 +339,7 @@ TIMGroupManager 的接口 joinGroup可以主动申请进入群组，此操作只
 /**
  *  申请加群
  *
- *  @param group 申请加入的群组Id
+ *  @param group 申请加入的群组 ID
  *  @param msg   申请消息
  *  @param succ  成功回调（申请成功等待审批）
  *  @param fail  失败回调
@@ -367,16 +349,17 @@ TIMGroupManager 的接口 joinGroup可以主动申请进入群组，此操作只
 - (int)joinGroup:(NSString*)group msg:(NSString*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
+
 **参数说明：**
 
 参数|说明
 ---|---
-group | NSString 类型，群组Id 
+group | NSString 类型，群组 ID 
 msg  | 申请理由 
 succ | 成功回调 
 fail | 失败回调
 
-**示例：**
+以下示例中用户申请加入群组『TGID1JYSZEAEQ』，申请理由为『Apply Join Group』。**示例：**
 
 ```
 [[TIMGroupManager sharedInstance] joinGroup:@"TGID1JYSZEAEQ" msg:@"Apply Join Group" succ:^(){
@@ -386,16 +369,14 @@ fail | 失败回调
 }];
 ```
 
-示例中用户申请加入群组@"TGID1JYSZEAEQ"，申请理由为@"Apply Join Group"。
-
-### 3.6 退出群组 
+### 退出群组 
 
 群组成员可以主动退出群组。 
 
 **权限说明：**
  
-对于私有群，全员可退出群组； 
-对于公开群、聊天室和直播大群，群主不能退出； 
+- **私有群：**全员可退出群组。 
+- **公开群、聊天室、直播大群：**群主不能退出。
 
 **原型：**
 
@@ -404,7 +385,7 @@ fail | 失败回调
 /**
  *  主动退出群组
  *
- *  @param group 群组Id
+ *  @param group 群组 ID
  *  @param succ  成功回调
  *  @param fail  失败回调
  *
@@ -418,14 +399,14 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | NSString 类型，群组Id 
+group | NSString 类型，群组 ID 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例中主动退出群组 『TGID1JYSZEAEQ』。 **示例：**
 
 ```
-// @"TGID1JYSZEAEQ" 为群组Id
+// @"TGID1JYSZEAEQ" 为群组 ID
 [[TIMGroupManager sharedInstance] quitGroup:@"TGID1JYSZEAEQ" succ:^() {
 	NSLog(@"succ");
 } fail:^(int code, NSString* err) {
@@ -433,17 +414,15 @@ fail | 失败回调
 }];
 ```
 
-示例中主动退出群组 @"TGID1JYSZEAEQ"。 
-
-### 3.7 删除群组成员 
+### 删除群组成员 
 
 群组成员也可以删除其他成员，函数参数信息与加入群组相同。 
 
 **权限说明：**
  
-对于私有群：只有创建者可删除群组成员 
-对于公开群和聊天室：只有管理员和群主可以踢人 
-对于直播大群：不能踢人
+- **私有群：**只有创建者可删除群组成员。
+- **公开群、聊天室：**只有管理员和群主可以踢人。 
+- **对于直播大群：**不能踢人。
 
 **原型：**
 
@@ -452,7 +431,7 @@ fail | 失败回调
 /**
  *  删除群成员
  *
- *  @param group   群组Id
+ *  @param group   群组 ID
  *  @param reason  删除原因
  *  @param members 要删除的成员列表
  *  @param succ    成功回调
@@ -468,21 +447,19 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | NSString 类型，群组Id 
+group | NSString 类型，群组 ID 
 reason | NSString 类型，原因
 members | `NSString*` 数组，被操作的用户列表 
 succ | 成功回调，`TIMGroupMemberResult` 数组，返回成功加入群组的用户列表已经成功状态 
 fail | 失败回调 
 
-**示例：**
+以下示例中把好友『iOS_002』从群组『TGID1JYSZEAEQ』中删除，执行成功后返回操作列表以及操作状态。 **示例：**
 
 ```
 NSMutableArray * members = [[NSMutableArray alloc] init];
-
-// 添加一个用户iOS_002
+// 添加一个用户 iOS_002
 [members addObject:@"iOS_002"];
-
-// @"TGID1JYSZEAEQ" 为群组Id
+// @"TGID1JYSZEAEQ" 为群组 ID
 [[TIMGroupManager sharedInstance] deleteGroupMember:@"TGID1JYSZEAEQ" reason:@"违反群规则" members:members succ:^(NSArray* arr) {
 	for (TIMGroupMemberResult * result in arr) {
 		NSLog(@"user %@ status %d", result.member, result.status);
@@ -492,16 +469,14 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 }];
 ```
 
-示例中把好友 @"iOS_002" 从群组 @"TGID1JYSZEAEQ" 中删除，执行成功后返回操作列表以及操作状态。 
+### 获取群成员列表 
 
-### 3.8 获取群成员列表 
-
-getGroupMembers 方法可获取群内成员列表，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过【4.1 设置拉取字段】进行设置。
+`getGroupMembers` 方法可获取群内成员列表，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
 
 **权限说明：**
  
-任何群组类型都可以获取成员列表； 
-直播大群只能拉取部分成员列表：包括群主、管理员和部分成员；
+- **任何群组类型:**都可以获取成员列表。
+- **直播大群：**只能拉取部分成员（包括群主、管理员和部分成员）。
 
 **原型：**
 
@@ -510,44 +485,36 @@ getGroupMembers 方法可获取群内成员列表，默认拉取内置字段，�
  *  成员操作返回值
  */
 @interface TIMGroupMemberInfo : TIMCodingModel
-
 /**
  *  被操作成员
  */
 @property(nonatomic,retain) NSString* member;
-
 /**
  *  群名片
  */
 @property(nonatomic,retain) NSString* nameCard;
-
 /**
  *  加入群组时间
  */
 @property(nonatomic,assign) time_t joinTime;
-
 /**
  *  成员类型
  */
 @property(nonatomic,assign) TIMGroupMemberRole role;
-
 /**
  *  禁言时间（剩余秒数）
  */
 @property(nonatomic,assign) uint32_t silentUntil;
-
 /**
- *  自定义字段集合,key是NSString*类型,value是NSData*类型
+ *  自定义字段集合,key 是 NSString*类型,value 是 NSData*类型
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
-
 @end
-
 @interface TIMGroupManager (Ext)
 /**
  *  获取群成员列表
  *
- *  @param group 群组Id
+ *  @param group 群组 ID
  *  @param succ  成功回调(TIMGroupMemberInfo列表)
  *  @param fail  失败回调
  *
@@ -561,14 +528,14 @@ getGroupMembers 方法可获取群内成员列表，默认拉取内置字段，�
 
 参数|说明
 ---|---
-group | `NSString*` 类型，群组Id 
+group | `NSString*` 类型，群组 ID 
 succ | 成功回调（返回`TIMGroupMemberInfo*`数组） 
 fail | 失败回调 
 
-**示例：**
+以下示例中获取群『TGID1JYSZEAEQ』的成员列表，`list` 为 `TIMGroupMemberInfo*` 数据，存储成员的相关信息。 **示例：**
 
 ```
-// @"TGID1JYSZEAEQ" 为群组Id
+// @"TGID1JYSZEAEQ" 为群组 ID
 [[TIMGroupManager sharedInstance] getGroupMembers:@"TGID1JYSZEAEQ" succ:^(NSArray* list) {
 	for (TIMGroupMemberInfo * info in list) {
 		NSLog(@"user=%@ joinTime=%lu role=%d", info.member, info.joinTime, info.role);
@@ -578,64 +545,60 @@ fail | 失败回调
 }];
 ```
 
-示例中获取群 @"TGID1JYSZEAEQ" 的成员列表，list 为 `TIMGroupMemberInfo*` 数据，存储成员的相关信息。 
+如果群组人数过多，建议使用**分页接口**。
 
-另外，如果群组人数过多，建议使用分页接口：
+**原型：**
 
 ```
-
 @interface TIMGroupManager (Ext)
-
 /**
  *  获取指定类型的成员列表（支持按字段拉取，分页）
  *
- *  @param group      群组Id：（NSString*) 列表
+ *  @param group      群组 ID：（NSString*) 列表
  *  @param filter     群成员角色过滤方式
  *  @param flags      拉取资料标志
- *  @param custom     要获取的自定义key（NSString*）列表
- *  @param nextSeq    分页拉取标志，第一次拉取填0，回调成功如果不为零，需要分页，传入再次拉取，直至为0
+ *  @param custom     要获取的自定义 key（NSString*）列表
+ *  @param nextSeq    分页拉取标志，第一次拉取填 0，回调成功如果不为零，需要分页，传入再次拉取，直至为 0
  *  @param succ       成功回调
  *  @param fail       失败回调
  */
 - (int)getGroupMembers:(NSString*)group ByFilter:(TIMGroupMemberFilter)filter flags:(TIMGetGroupMemInfoFlag)flags custom:(NSArray*)custom nextSeq:(uint64_t)nextSeq succ:(TIMGroupMemberSuccV2)succ fail:(TIMFail)fail;
-
 @end
 ```
 
-### 3.9 获取加入的群组列表 
+### 获取加入的群组列表 
 
-通过 getGroupList 可以获取当前用户加入的所有群组： 
+通过 `getGroupList` 可以获取当前用户加入的所有群组。
 
 **权限说明：**
  
-此接口可以获取自己所加入的群列表，返回的TIMGroupInfo只包含group\groupName\groupType 信息；
-此接口只能获得加入的部分直播大的列表；
+- 可以获取自己所加入的群列表，返回的 `TIMGroupInfo` 只包含 `group`、`groupName`、`groupType` 信息。
+- 只能获得加入的部分直播大群的列表。
  
 **原型：**
 
 ```
 @interface TIMGroupManager (Ext)
-
 /**
  *  获取群列表
  *
- *  @param succ 成功回调，NSArray列表为 TIMGroupInfo，结构体只包含 group\groupName\groupType\faceUrl\selfInfo 信息
+ *  @param succ 成功回调，NSArray 列表为 TIMGroupInfo，结构体只包含 group\groupName\groupType\faceUrl\selfInfo 信息
  *  @param fail 失败回调
  *
  *  @return 0 成功
  */
 - (int)getGroupList:(TIMGroupListSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
+
 **参数说明：**
 
 参数|说明
 ---|---
-succ | 成功回调，返回群组Id列表，TIMGroupInfo数组 
+succ | 成功回调，返回群组 ID 列表，TIMGroupInfo 数组 
 fail | 失败回调 
 
-**示例：**
+以下示例中获取群组列表，并打印群组 ID，群类型（Private、Public、ChatRoom）以及群名。**示例：**
 
 ```
 [[TIMGroupManager sharedInstance] getGroupList:^(NSArray * list) {
@@ -647,16 +610,14 @@ fail | 失败回调
 }];
 ```
 
-示例中获取群组列表，并打印群组Id，群类型（Private/Public/ChatRoom）以及群名。 
+### 解散群组
 
-### 3.10 解散群组
-
-通过 DeleteGroup 可以解散群组。 
+通过 `DeleteGroup` 可以解散群组。 
 
 **权限说明：**
  
-对于私有群，任何人都无法解散群组 
-对于公开群、聊天室和直播大群，群主可以解散群组： 
+- **私有群：**任何人都无法解散群组。 
+- **公开群、聊天室、直播大群：**群主可以解散群组。 
 
 **原型：**
 
@@ -666,7 +627,7 @@ fail | 失败回调
 /**
  *  解散群组
  *
- *  @param group 群组Id
+ *  @param group 群组 ID
  *  @param succ  成功回调
  *  @param fail  失败回调
  *
@@ -676,15 +637,16 @@ fail | 失败回调
 
 @end
 ```
+
 **参数说明：**
 
 参数 | 说明
 ---|---
-group | 群组Id 
-succ | 成功回调，返回群组Id列表，NSString数组 
+group | 群组 ID 
+succ | 成功回调，返回群组 ID 列表，NSString 数组 
 fail | 失败回调 
 
-**示例：**
+以下示例中解散群组『TGID1JYSZEAEQ』。**示例：**
 
 ```
 [[TIMGroupManager sharedInstance] deleteGroup:@"TGID1JYSZEAEQ" succ:^() {
@@ -693,34 +655,31 @@ fail | 失败回调
 	NSLog(@"failed code: %d %@", code, err);
 }];
 ```
-示例中解散群组 @"TGID1JYSZEAEQ"。
 
-### 3.11 转让群组 
+### 转让群组 
 
-通过 modifyGroupOwner可以转让群组。 
+通过 `modifyGroupOwner` 可以转让群组。 
 
 **权限说明：**
  
-只有群主才有权限进行群转让操作；
-直播大群不能进行群转让操作；
+- 只有**群主**才有权限进行群转让操作。
+- **直播大群**不能进行群转让操作。
 
 **原型：**
 
 ```
 @interface TIMGroupManager (Ext)
-
 /**
  *  转让群给新群主
  *
- *  @param group      群组Id
- *  @param identifier 新的群主Id
+ *  @param group      群组 ID
+ *  @param identifier 新的群主 ID
  *  @param succ       成功回调
  *  @param fail       失败回调
  *
  *  @return 0 成功
  */
 - (int)modifyGroupOwner:(NSString*)group user:(NSString*)identifier succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -728,12 +687,12 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
-user| 用户Id 
+group | 群组　ID 
+user| 用户　ID 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例中转让群组『TGID1JYSZEAEQ』给用户『iOS_001』。 **示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupOwner:@"TGID1JYSZEAEQ" user:@"iOS_001" succ:^() {
@@ -742,26 +701,24 @@ fail | 失败回调
 	NSLog(@"failed code: %d %@", code, err);
 }];
 ```
-示例中转让群组 @"TGID1JYSZEAEQ"给用户@"iOS_001"。 
 
-### 3.12 全员禁言 
+### 全员禁言 
 
-通过 modifyGroupAllShutup 可以设置群组全员禁言。 
+通过 `modifyGroupAllShutup` 可以设置群组全员禁言。 
 
 **权限说明：**
  
-只有群主和管理员才有权限进行全员禁言的操作；
-所有群组类型都支持全员禁言的操作；
+- 只有**群主和管理员**才有权限进行全员禁言的操作。
+- **所有群组类型**都支持全员禁言的操作。
 
 **原型：**
 
 ```
 @interface TIMGroupManager (Ext)
-
 /**
  *  修改群组全员禁言属性
  *
- *  @param group   群组Id
+ *  @param group   群组 ID
  *  @param shutup  是否禁言
  *  @param succ    成功回调
  *  @param fail    失败回调
@@ -769,7 +726,6 @@ fail | 失败回调
  *  @return 0 成功
  */
 - (int)modifyGroupAllShutup:(NSString*)group shutup:(BOOL)shutup succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -777,12 +733,12 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
+group | 群组 ID 
 shutup | 是否设置为禁言 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+示例中设置群组『TGID1JYSZEAEQ』为全员禁言的状态。客户端可以通过 `getGroupList` 和 `getGroupInfo` 接口获取当前群组全员禁言的属性。**示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupAllShutup:@"TGID1JYSZEAEQ" shutup:YES succ:^() {
@@ -791,29 +747,24 @@ fail | 失败回调
 	NSLog(@"failed code: %d %@", code, err);
 }];
 ```
-示例中设置群组 @"TGID1JYSZEAEQ" 为全员禁言的状态。客户端可以通过 getGroupList 和 getGroupInfo 接口获取当前群组全员禁言的属性。
 
-## 4. 获取群资料
+## 获取群资料
 
-### 4.1 设置拉取字段
+### 设置拉取字段
 
-拉取用户资料默认返回部分内置字段，如果需要自定义字段，或者不拉取某些字段，可以通过接口进行设置，此设置对所有资料相关接口有效：
+拉取用户资料默认返回部分内置字段，如果需要自定义字段，或者不拉取某些字段，可以通过接口进行设置，此设置对所有资料相关接口有效。
 
 ```
 @interface TIMGroupInfoOption : NSObject
-
 /**
- *  需要获取的群组信息标志（TIMGetGroupBaseInfoFlag）,默认为0xffffff
+ *  需要获取的群组信息标志（TIMGetGroupBaseInfoFlag）,默认为 0xffffff
  */
 @property(nonatomic,assign) uint64_t groupFlags;
-
 /**
  *  需要获取群组资料的自定义信息（NSString*）列表
  */
 @property(nonatomic,retain) NSArray * groupCustom;
-
 @end
-
 @interface TIMUserConfig : NSObject
 /**
  *  设置默认拉取的群组资料
@@ -822,16 +773,15 @@ fail | 失败回调
 @end
 ```
 
-### 4.2 群成员获取群组资料
+### 群成员获取群组资料
 
-getGroupInfo方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置。
+`getGroupInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
 
 **权限说明：**
  
-注意：获取群组资料接口只能由群成员调用，非群成员无法通过此方法获取资料，需要调用；
-群资料信息由TIMGroupInfo定义： 
+- 获取群组资料接口只能由群成员调用，非群成员无法通过此方法获取资料，需要调用；
 
-通过 TIMGroupManager 的方法 getGroupInfo 可获取群组资料： 
+群资料信息由 `TIMGroupInfo` 定义。通过 `TIMGroupManager` 的方法 `getGroupInfo` 可获取群组资料。
 
 **原型：**
 
@@ -840,9 +790,8 @@ getGroupInfo方法可以获取群组资料。默认拉取基本资料，如果�
  *  群资料信息
  */
 @interface TIMGroupInfo : TIMCodingModel
-
 /**
- *  群组Id
+ *  群组 ID
  */
 @property(nonatomic,retain) NSString* group;
 /**
@@ -877,49 +826,41 @@ getGroupInfo方法可以获取群组资料。默认拉取基本资料，如果�
  *  群成员数量
  */
 @property(nonatomic,assign) uint32_t memberNum;
-
 /**
  *  入群类型
  */
 @property(nonatomic,assign) TIMGroupAddOpt addOpt;
-
 /**
  *  群公告
  */
 @property(nonatomic,retain) NSString* notification;
-
 /**
  *  群简介
  */
 @property(nonatomic,retain) NSString* introduction;
-
 /**
  *  群头像
  */
 @property(nonatomic,retain) NSString* faceURL;
-
 /**
  *  最后一条消息
  */
 @property(nonatomic,retain) TIMMessage* lastMsg;
-
 /**
  *  在线成员数量
  */
 @property(nonatomic,assign) uint32_t onlineMemberNum;
-
 /**
  *  群组成员可见类型
  */
 @property(nonatomic,assign) TIMGroupMemberVisibleType isMemberVisible;
-
 /**
  *  群组中的本人信息
  */
 @property(nonatomic,retain) TIMGroupSelfInfo* selfInfo;
 
 /**
- *  自定义字段集合,key是NSString*类型,value是NSData*类型
+ *  自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 
@@ -943,15 +884,14 @@ getGroupInfo方法可以获取群组资料。默认拉取基本资料，如果�
 参数|说明
 ---|---
 groups |NSString 数组，需要获取资料的群组列表 
-succ | 成功回调，返回群组资料列表，TIMGroupInfo数组 
+succ | 成功回调，返回群组资料列表，TIMGroupInfo 数组 
 fail | 失败回调 
 
-**示例：**
+以下示例中获取群组『TGID1JYSZEAEQ』的详细信息。 **示例：**
 
 ```
 NSMutableArray * groupList = [[NSMutableArray alloc] init];
 [groupList addObject:@"TGID1JYSZEAEQ"];
-
 [[TIMGroupManager sharedInstance] getGroupInfo:groupList succ:^(NSArray * groups) {
 	for (TIMGroupInfo * info in groups) {
 		NSLog(@"get group succ, infos=%@", info);
@@ -960,15 +900,14 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 	NSLog(@"failed code: %d %@", code, err);
 }];
 ```
-示例中获取群组 @"TGID1JYSZEAEQ" 的详细信息。 
 
-### 4.3 非群成员获取群组资料
+### 非群成员获取群组资料
 
-getGroupInfo方法只对群成员有效，非成员需要调用 getGroupPublicInfo 实现，只能获取公开信息。默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置。
+`getGroupInfo` 方法只对群成员有效，非成员需要调用 `getGroupPublicInfo` 实现，只能获取公开信息。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
 
 **权限说明：**
  
-任意用户可以获取群公开资料
+- 任意用户可以获取群公开资料。
 
 **原型：**
 
@@ -991,15 +930,14 @@ getGroupInfo方法只对群成员有效，非成员需要调用 getGroupPublicIn
 参数|说明
 ---|---
 groups |NSString 数组，需要获取资料的群组列表 
-succ | 成功回调，返回群组资料列表，TIMGroupInfo数组 
+succ | 成功回调，返回群组资料列表，TIMGroupInfo 数组 
 fail | 失败回调 
 
-**示例：**
+以下示例中获取群组『TGID1JYSZEAEQ』的公开信息。**示例：**
 
 ```
 NSMutableArray * groupList = [[NSMutableArray alloc] init];
 [groupList addObject:@"TGID1JYSZEAEQ"];
-
 [[TIMGroupManager sharedInstance] getGroupPublicInfo:groupList succ:^(NSArray * groups) {
 	for (TIMGroupInfo * info in groups) {
 		NSLog(@"get group succ, infos=%@", info);
@@ -1008,16 +946,14 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 	NSLog(@"failed code: %d %@", code, err);
 }];
 ```
-示例中获取群组 @"TGID1JYSZEAEQ" 的公开信息。 
 
+### 获取本人在群里的资料
 
-### 4.4 获取本人在群里的资料
-
-如果需要获取在所有群内的资料，可以通过 [getGroupList](#3.9-.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A812) 拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下接口，建议通过GetGroupList获取，没有必要调用以下接口单独获取。默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置。
+如果需要获取在所有群内的资料，可以通过 [getGroupList](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8) 拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下接口，建议通过 `GetGroupList` 获取，没有必要调用以下接口单独获取。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
 
 **权限说明：**
 
-直播大群拉取不到本人资料；
+- 直播大群拉取不到本人资料。
 
 **原型：**
 
@@ -1026,7 +962,7 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 /**
  *  获取本人在群组内的成员信息
  *
- *  @param group 群组Id
+ *  @param group 群组 ID
  *  @param succ  成功回调，返回信息
  *  @param fail  失败回调
  *
@@ -1034,11 +970,10 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
  */
 - (int)getGroupSelfInfo:(NSString*)group succ:(TIMGroupSelfSucc)succ fail:(TIMFail)fail;
 @end
-
 /**
  *  获取接受消息选项
  *
- *  @param group            群组Id
+ *  @param group            群组 ID
  *  @param succ             成功回调
  *  @param fail             失败回调
  *
@@ -1051,30 +986,28 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 
 参数|说明
 ---|---
-group | 群组Id
+group | 群组 ID
 succ |  成功回调，返回用户本人在群内的资料
 fail | 失败回调
 
-### 4.5 获取群内某个人的资料
+### 获取群内某个人的资料
 
-默认拉取基本资料，如果想拉取自定义资料，可通过【4.1 设置拉取字段】进行设置。
+默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
 
 **权限说明：**
 
-直播大群只能获得部分成员的资料：包括群主、管理员和部分群成员；
+- **直播大群：**只能获得部分成员的资料（包括群主、管理员和部分群成员）。 
 
- 
+## 修改群资料 
 
-## 5. 修改群资料 
+### 修改群名 
 
-### 5.1 修改群名 
-
-通过 modifyGroupName可以修改群组名称： 
+通过 `modifyGroupName` 可以修改群组名称。
 
 **权限说明：**
  
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群名； 
-对于私有群，任何人可修改群名； 
+- **公开群、聊天室和直播大群：**只有群主或者管理员可以修改群名。
+- **私有群：**任何人可修改群名。
 
 **原型：**
 
@@ -1083,7 +1016,7 @@ fail | 失败回调
 /**
  *  修改群名
  *
- *  @param group     群组Id
+ *  @param group     群组 ID
  *  @param groupName 新群名
  *  @param succ      成功回调
  *  @param fail      失败回调
@@ -1098,12 +1031,12 @@ fail | 失败回调
 
 参数 | 说明
 ---|---
-group | 群组Id 
+group | 群组 ID 
 groupName | 修改后的群名 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例修改群『TGID1JYSZEAEQ』的名字为『ModifyGroupName』。**示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupName:@"TGID1JYSZEAEQ" groupName:@"ModifyGroupName" succ:^() {
@@ -1113,16 +1046,14 @@ fail | 失败回调
 }];
 ```
 
-示例修改群 @"TGID1JYSZEAEQ" 的名字为 @"ModifyGroupName"。
+### 修改群简介 
 
-### 5.2 修改群简介 
-
-通过 modifyGroupIntroduction可以修改群组简介： 
+通过 `modifyGroupIntroduction` 可以修改群组简介。
 
 **权限说明：**
  
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群简介； 
-对于私有群，任何人可修改群简介； 
+- **公开群、聊天室、直播大群：**只有群主或者管理员可以修改群简介。
+- **私有群：**任何人可修改群简介。
 
 **原型：**
 
@@ -1132,7 +1063,7 @@ fail | 失败回调
 /**
  *  修改群简介
  *
- *  @param group            群组Id
+ *  @param group            群组 ID
  *  @param introduction     群简介
  *  @param succ             成功回调
  *  @param fail             失败回调
@@ -1143,12 +1074,13 @@ fail | 失败回调
 
 @end
 ```
+
 **参数说明：**
 
 参数 |说明
 ---|---
-group |  群组Id 
-introduction | 群简介，简介最长120字节 
+group |  群组 ID 
+introduction | 群简介，简介最长 120 字节 
 succ | 成功回调 
 fail | 失败回调 
 
@@ -1162,32 +1094,30 @@ fail | 失败回调
 }];
 ```
 
-### 5.3 修改群公告 
+### 修改群公告 
 
-通过 modifyGroupNotification可以修改群组公告： 
+通过 `modifyGroupNotification` 可以修改群组公告。 
 
 **权限说明：**
  
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群公告； 
-对于私有群，任何人可修改群公告； 
+- **公开群、聊天室、直播大群：**只有群主或者管理员可以修改群公告。
+- **私有群：**任何人可修改群公告。
 
 **原型：**
 
 ```
 @interface TIMGroupManager (Ext)
-
 /**
  *  修改群公告
  *
- *  @param group            群组Id
- *  @param notification     群公告（最长150字节）
+ *  @param group            群组 ID
+ *  @param notification     群公告（最长 150 字节）
  *  @param succ             成功回调
  *  @param fail             失败回调
  *
  *  @return 0 成功
  */
 - (int)modifyGroupNotification:(NSString*)group notification:(NSString*)notification succ:(TIMSucc)succ fail:(TIMFail)fail;
-
 @end
 ```
 
@@ -1195,12 +1125,12 @@ fail | 失败回调
 
 参数|说明
 ---|---
-group | 群组Id 
-notification | 群公告，群公告最长150字节 
+group | 群组 ID 
+notification | 群公告，群公告最长 150 字节 
 succ | 成功回调 
 fail | 失败回调 
 
-**示例：**
+以下示例修改群『TGID1JYSZEAEQ』的公告为『test notification』。 **示例：**
 
 ```
 [[TIMGroupManager sharedInstance] modifyGroupNotification:@"TGID1JYSZEAEQ" notification:@"test notification" succ:^() {
@@ -1210,16 +1140,14 @@ fail | 失败回调
 }];
 ```
 
-示例修改群 @"TGID1JYSZEAEQ" 的公告为 @"test notification"。 
+### 修改群头像 
 
-### 5.4 修改群头像 
-
-通过 modifyGroupFaceUrl可以修改群头像： 
+通过 `modifyGroupFaceUrl` 可以修改群头像。 
 
 **权限说明：**
  
-对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群头像； 
-对于私有群，任何人可修改群头像； 
+- **公开群、聊天室、直播大群：**只有群主或者管理员可以修改群头像。
+- **私有群：**任何人可修改群头像。
 
 **原型：**
 
@@ -1228,8 +1156,8 @@ fail | 失败回调
 /**
  *  修改群头像
  *
- *  @param group            群组Id
- *  @param url              群头像地址（最长100字节）
+ *  @param group            群组 ID
+ *  @param url              群头像地址（最长 100 字节）
  *  @param succ             成功回调
  *  @param fail             失败回调
  *
