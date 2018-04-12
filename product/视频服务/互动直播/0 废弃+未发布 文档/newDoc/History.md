@@ -1,12 +1,12 @@
 # iLiveSDK版本更新
 
-## `iLiveSDK Android V1.8.5(2018-04-04)`
+## iLiveSDK Android V1.8.5(2018-04-04)
  - 更新AVSDK到1.9.8.2
  - 优化事件上报及日志上报功能
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Android_Suixinbo/blob/master/doc/ILiveSDK/release%20note.md)
 
-## `iLiveSDK iOS 1.8.4.13473(2018-04-04)`
+## iLiveSDK iOS 1.8.4.13473(2018-04-04)
 * 修复日志上报导致的crash问题
 * 更新avsdk1.9.8
 * 分离日志上报模块，单独成立ILiveLogReport.Framework
@@ -15,7 +15,7 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_iOS_Suixinbo/blob/master/doc/ILiveSDK_ChangeList.md)
 
-## `iLiveSDK PC V1.8.2.0(2018-04-08)`
+## iLiveSDK PC V1.8.2.0(2018-04-08)
 * 更新avsdk 1.9.8.2;
 * 视频播放支持到720p;
 * 允许指定创建房间所用的IM群类型;
@@ -24,13 +24,13 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## `iLiveSDK IE V1.5.0.1(2018-02-09)`
+## iLiveSDK IE V1.5.0.1(2018-02-09)
 * 获取设备列表为空时，统一返回错误码ERR_NOT_FOUND(8022);
 * SDK内部优化;
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Web_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## `iLiveSDK mac V1.8.3.13017(2018-1-29)`
+## iLiveSDK mac V1.8.3.13017(2018-1-29)
 ###### 1.8.3.13017(2018-1-29)
 1、修复打开/关闭摄像头失败时无回调问题
 2、增加一个登录接口，支持本地配置spear配置(在网络不稳定拉去spear配置容易失败的场景下可以用到)
@@ -38,7 +38,7 @@
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
 # AVSDK 版本更新记录
-## `AVSDK 1.9.8  2018-03-25`
+## AVSDK 1.9.8  2018-03-25
 
 * 互动直播支持后台转码，主播和观众端可自由选择H264和H265以及不同分辨率
 * 支持视频H265软硬编解码
@@ -51,7 +51,7 @@
 * Android端支持外部设置OpenGL的shader矩阵
 * 低分辨支持192*144
 
-## `AVSDK 1.9.5  2017-09-15`
+## AVSDK 1.9.5  2017-09-15
 * 新增极速模式，支持1V1，1V多音视频通话，满足实时音视频沟通场景。
 * iOS/Android端支持啸叫抑制。
 * iOS/android端支持通话前进行麦克风采集测试。
@@ -59,7 +59,7 @@
 * xplatform私有化，避免与APP，其他SDK中使用的xplatform版本冲突。
 * MAC端，检测插入有线耳机时候，切换使用高音质的采集播放，提升音质体验。
 
-## `AVSDK 1.9.2  2017-07-24`
+## AVSDK 1.9.2  2017-07-24
 * 新增视频编解码硬件加速能力(PC)。
 * 新增屏幕分享能力(MAC)。
 * 针对实时通信场景和游戏场景，优化音视频质量(PC/android/iOS)。
@@ -69,7 +69,7 @@
 * 进一步完善质量监控和上报能力(PC/android/iOS)。
 * 系统性解决native多线程安全问题(PC/android/iOS)。
 
-## `AVSDK 1.9.1  2017-05-27`
+## AVSDK 1.9.1  2017-05-27
 * 本地录制MP4视频(PC)
 * 进房前开预览(android/iOS)
 * 滤镜+挂件 性能优化(android/iOS)
@@ -77,25 +77,25 @@
 * 高音质AEC功能优化(android)
 
 
-## `AVSDK 1.9.0  2017-03-21`
+## AVSDK 1.9.0  2017-03-21
 * 跨房间连麦，主播和主播之间可以互动。
 * 滤镜+挂件的趣味聊法，SDK内置，方便客户集成。
 * 支持Mac平台。
 * PC端 支持3D音效。
 
-## `AVSDK 1.8.5  2017-01-18`
+## AVSDK 1.8.5  2017-01-18
 * 直播场景进房速度优化
 * 新增主播变声功能(android/iOS)
 * 除了imsdk通道以外，AVSDK内部实现了一套通道。安卓可以使用AVSDK里面自己实现的http通道，iOS可以使用https通道(android/iOS)
 * 可以自动请求屏幕分享视频
 * 可以动态改变屏幕分享区域(Windows)
 
-## `常见问题更新    2017-01-18`
+## 常见问题更新    2017-01-18
 
 * [适应更多旋转裁剪场景](https://cloud.tencent.com/document/product/268/7647)
 * [直播时支持背景音乐](https://cloud.tencent.com/document/product/268/8297)
 
-## `随心播后台 2.0.0    2017-01-18`
+## 随心播后台 2.0.0    2017-01-18
 
 * 独立账户模式的随心播后台终于来了，需要iLive SDK1.2.0配合使用。
 * [QuickStart文档](https://cloud.tencent.com/document/product/268/7603)
@@ -104,13 +104,13 @@
 * 支持旁路推流和录制回调
 * 完善了和随心播的交互协议，可以作为业务流程设计的参考
 
-## `截图鉴黄功能发布 2017-01-05`
+## 截图鉴黄功能发布 2017-01-05
 
 大家都知道，直播行业里截图鉴黄是绕不过的功能。
 
 腾讯视频云为客户提供了强大的截图和鉴黄功能。具体使用方法请参考[文档](https://cloud.tencent.com/document/product/268/8109)。
 
-## `AV_iOS_SDK1.8.4    2016-12-28`
+## AV_iOS_SDK1.8.4    2016-12-28
 * 直播场景进房速度优化
 * 新增高音质连麦功能(android)
 * 原http通道改为https(iOS)
@@ -120,7 +120,7 @@
 * 外部视频输入流采集接口新增是否使能本地渲染的选项(android/ iOS)
 * 获取质量参数接口新增客户端IP
 
-## `AV_iOS_SDK1.8.2    2016-08-12`
+## AV_iOS_SDK1.8.2    2016-08-12
 * 视频添加水印功能
 * sdk节点上报
 * 音视频包收发模块重构
@@ -131,7 +131,7 @@
 * 摄像头采集参数设置通知
 * 部分接口调整
 
-## `AV_Android_SDK1.8.2    2016-08-12`
+## AV_Android_SDK1.8.2    2016-08-12
 * 视频添加水印功能
 * sdk节点上报
 * 音视频包收发模块重构
@@ -142,11 +142,11 @@
 * 摄像头采集参数设置通知
 * 部分接口调整
 
-## `AV_iOS_SDK1.8.1.1    2016-06-21`
+## AV_iOS_SDK1.8.1.1    2016-06-21
 * 修复部分crash问题
 * 修复切后台再切回直播间的黑屏问题
 
-## `AV_Android_SDK1.8.1.1    2016-06-21`
+## AV_Android_SDK1.8.1.1    2016-06-21
 * create context 加主线程保护
 * 修改流控参数和编码器状态不同步导致黑屏的问题 
 * 修改change role导致的crash
@@ -154,12 +154,12 @@
 * 修复收包时有可能的内存泄露
 * 修复切后台再切回直播间的黑屏问题
 
-## `AV_WIN_SDK1.8.1.1    2016-06-21`
+## AV_WIN_SDK1.8.1.1    2016-06-21
 * 修改收包逻辑可能引发大量内存泄漏的问题
 * 解决进入房间后同时满足以下条件而可能发生crash的问题
 * 解决Demo在进行"进入房间-开启屏幕分享-退出房间-再次进入房间-请求其他人的屏幕分享"操作后可能没有渲染屏幕分享画面的问题
 
-## `AV_iOS_SDK1.8.1    2016-06-06`
+## AV_iOS_SDK1.8.1    2016-06-06
 **1. SDK新增功能 **
 
 * 视频硬件编码
@@ -205,7 +205,7 @@
 *  修复iOS端请求其他人的视频，手动结束SDK的进程
 *  偶现蓝屏重启的问题
 
-## `AV_Android_SDK1.8.1    2016-06-06`
+## AV_Android_SDK1.8.1    2016-06-06
 **1. SDK新增功能 **
 
 * 视频硬件编码
@@ -239,7 +239,7 @@
 *  修复LG NEXUS6 Android 6.0切换摄像头花屏问题
 * 修复Android端主播模式视频内存GC频繁的问题
 
-## `AV_Windows_SDK1.8.1    2016-06-06`
+## AV_Windows_SDK1.8.1    2016-06-06
 **1. SDK新增功能 **
 
 * 视频采集支持16:9宽高比
@@ -260,7 +260,7 @@
 * 修复没有上行权限又修改为有上行权限后，打开摄像头远端看不到其视频态的问题
 * 修复麦克风热插拔后开启屏幕分享导致的1301错误问题
 
-## `AV_iOS_SDK1.7    2016-3-17`
+## AV_iOS_SDK1.7    2016-3-17
 
 **1. SDK新增功能 **
 
@@ -275,7 +275,7 @@
 * 解决网络状态变化可能引起的crash
 * 解决请求屏幕分享画面，有时画面出现的时间很慢问题。
 
-## `AV_Android_SDK1.7   2016-3-17`
+## AV_Android_SDK1.7   2016-3-17
 
 **1. SDK新增功能 **
 
@@ -291,7 +291,7 @@
 * 解决进入房间，打开前置摄像头，开启闪光灯，无响应问题。
 * 解决requestviewlist导致crash的问题
 
-## `AV_Windows C++SDK1.7   2016-3-17`
+## AV_Windows C++SDK1.7   2016-3-17
 
 **1. SDK新增功能**
 
@@ -305,7 +305,7 @@
 
 
 
-## `AV_iOS_SDK1.6    2016-1-11`
+## AV_iOS_SDK1.6    2016-1-11
 
 **1. SDK新增功能 **
 
@@ -319,7 +319,7 @@
 * 解决在"解码-渲染"流程中，处理同一个人的视频帧时，由于图像分辨率变化而可能导致的crash或者画面花屏。
 * 解决执行外部捕获相关逻辑后去开启摄像头可能导致的crash。
 
-## `AV_Android_SDK1.6    2016-1-11`
+## AV_Android_SDK1.6    2016-1-11
 
 **1. SDK新增功能 **
 
@@ -336,7 +336,7 @@
 * 解决执行外部捕获相关逻辑后去开启摄像头可能导致的crash。
 * 解决反复执行“进入房间-打开摄像头-退出房间”过程中的偶现crash。
 
-## `AV_Windows C++_SDK1.6    2016-1-11`
+## AV_Windows C++_SDK1.6    2016-1-11
 
 **1. SDK新增功能**
 
