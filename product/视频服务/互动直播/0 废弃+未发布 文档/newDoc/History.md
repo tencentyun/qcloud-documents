@@ -24,17 +24,16 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_PC_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## `iLiveSDK IE V1.3.0.0(2017-09-25)`
-* SDK内部升级到avsdk 1.9.5;
-* 增加房间内直播质量回调接口;
+## `iLiveSDK IE V1.5.0.1(2018-02-09)`
+* 获取设备列表为空时，统一返回错误码ERR_NOT_FOUND(8022);
+* SDK内部优化;
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Web_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-## `iLiveSDK mac V1.7.0.11812(2017-09-25)`
-* 修复 被踢下线，再次登录时出现1003错误的问题
-* 房间失去连接时，释放内部资源
-* 增加内部关键日志打印
-* 增加极速模式
+## `iLiveSDK mac V1.8.3.13017(2018-1-29)`
+###### 1.8.3.13017(2018-1-29)
+1、修复打开/关闭摄像头失败时无回调问题
+2、增加一个登录接口，支持本地配置spear配置(在网络不稳定拉去spear配置容易失败的场景下可以用到)
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
