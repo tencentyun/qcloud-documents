@@ -163,6 +163,8 @@ mVodPlayer.setConfig(mConfig);
 mVodPlayer.startPlay(playUrl);                         
 ```
 
+> 缓存的文件可能会被系统图库扫描到，如果您不希望缓存的文件出现在系统图库中，您可以在缓存目录下新建一个名为“.nomedia”的空文件。系统图库发现该文件存在后，会跳过扫描此目录。
+
 ### step 10: 预加载
 在短视频播放场景中，预加载功能对于流畅的观看体验很有帮助：在观看当前视频的同时，在后台加载即将要播放的下一个视频URL，这样一来，当用户真正切换到下一个视频时，已经不需要从头开始加载了，而是可以做到立刻播放。
 
@@ -234,7 +236,7 @@ ArrayList<TXBitrateItem> bitrates = mVodPlayer.getSupportedBitrates(); //获取�
 ![](//mc.qcloudimg.com/static/img/6ac5e2fe87e642e6c2e6342d72464f4a/image.png)
 
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是秒
@@ -254,7 +256,7 @@ public void onPlayEvent(int event, Bundle param) {
 
 如果点播播放场景需要获取到毫秒级别的时间戳来加载字幕，您需要用到以下回调。
 ```java
-public void onPlayEvent(int event, Bundle param) {
+public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     
     if (event == PLAY_EVT_PLAY_PROGRESS) {
             // 加载进度, 单位是毫秒

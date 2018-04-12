@@ -47,7 +47,7 @@ items（ json 数组）：
 
 | 参数         | 类型     | 描述                                       |
 | ---------- | ------ | ---------------------------------------- |
-| item       | string | 字段名称（取值为注册号、公司名称、地址）                     |
+| item       | string | 字段名称（取值为注册号、法定代表人、公司名字、地址、营业期限）                     |
 | itemstring | string | 字段结果                                     |
 | itemcoord  | object | 字段在图像中的像素坐标，包括左上角坐标 x, y，以及宽、高 width, height |
 | itemconf   | float  | 识别结果对应的置信度                               |
@@ -66,21 +66,14 @@ items（ json 数组）：
 
 ```
 POST /ocr/bizlicense HTTP/1.1
-
 Authorization:FL26MsO1nhrZGuXdin10DE5tnDdhPTEwMDAwMDEmYj1xaW5pdXRlc3QyJms9QUtJRG1PNWNQVzNMREdKc2FyREVEY1ExRnByWlZDMW9wZ3FYJnQ9MTQ2OTE3NTIzMCZlPTE0NjkxNzYyMzA=
-
 Host: recognition.image.myqcloud.com
-
 Content-Length: 302
-
 Content-Type: "application/json"
 
 {
-
 "appid":"appid",
-
 "url":"http://www.test.com/aaa.jpg"
-
 } 
 ```
 
@@ -88,35 +81,17 @@ Content-Type: "application/json"
 
 ```
 POST /ocr/bizlicenseHTTP/1.1
-
 Content-Type:multipart/form-data;boundary=-------------------------acebdf13572468
-
 Authorization:Signature
-
 Host: recognition.image.myqcloud.com
-
 Content-Length:ContentLength
-
- 
-
 ---------------------------acebdf13572468
-
 Content-Disposition:form-data; name="appid";
-
- 
-
 appid
-
 ---------------------------acebdf13572468
-
 Content-Disposition:form-data; name="image"; filename="image _2.jpg "
-
 Content-Type:image/jpeg
-
- 
-
-image_content
-
+ image_content
 ---------------------------acebdf13572468
 ```
 
@@ -124,105 +99,55 @@ image_content
 ### 返回示例
 ```
 {
-
    "code": 0,
-
    "message": "OK",
-
    "data": {
-
        "session_id": "12531712471066566515",
-
        "items": [
-
            {
-
                 "item": "注册号",
-
                 "itemcoord": {
-
                     "x": 703,
-
                     "y": 689,
-
                     "width": 272,
-
                     "height": 34
-
                 },
-
                 "itemconf":0.9979159235954284,
-
                 "itemstring":"310114002784042",
-
                 "coords": [],
-
                 "words": [],
-
                 "candword": []
-
            },
-
            {
-
                 "item": "公司名称",
-
                 "itemcoord": {
-
                     "x": 446,
-
                     "y": 805,
-
                     "width": 380,
-
                     "height": 37
-
                 },
-
                 "itemconf":0.9843763709068298,
-
                 "itemstring": "上海横策营销策划有限公司",
-
                 "coords": [],
-
                 "words": [],
-
                 "candword": []
-
            },
-
            {
-
                 "item": "地址",
-
                 "itemcoord": {
-
                     "x": 445,
-
                     "y": 902,
-
                     "width": 567,
-
                     "height": 38
-
                },
-
                 "itemconf":0.9998522996902466,
-
                 "itemstring": "上海市徐汇区虹梅路1905号西部203室",
-
                 "coords": [],
-
                 "words": [],
-
                 "candword": []
-
            }
-
        ]
-
     }
-
 }
 ```
 
