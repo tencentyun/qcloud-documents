@@ -48,7 +48,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | -------- | ------ | ---------------------------------------------------------------------------------------- |
 | date     | String | 日志所属日期， 格式为：yyyy-MM-dd，如2018-03-01                                          |
 | name     | String | 日志名称，格式为：yyyyMMddHH-host， 即日期小时-域名，如 2018030112-123.vod2.myqcloud.com |
-| link     | String | 日志下载链接，24小时内下载有效                                                           |
+| link     | String | 日志下载链接，24小时内下载有效，下载的日志文件内容参见[日志文件说明](#logfile)           |
 
 ### 错误码说明
 | 错误码    | 含义说明                                     |
@@ -56,7 +56,25 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 4000-7000 | 参见[公共错误码](/document/product/266/7783) |
 | 1000      | 无效参数                                     |
 
-### 日志文件说明
+
+### 应答示例
+
+```javascript
+{
+	"code": 0,
+	"message": "",
+	"data": [{
+		"host": "123.vod2.myqcloud.com",
+		"domesticLogList": [{
+			"date": "2018-03-01",
+			"name": "2018030112-123.vod2.myqcloud.com",
+			"link: ": "http: //log-download.cdn.qcloud.com/20180301/12/2018030112-123.vod2.myqcloud.com.gz?st=LZi3oQXkjkeBe1xTFTGPFQ&e=1501743762"
+		}]
+	}]
+}
+```
+
+## <span id="logfile">日志文件说明</span>
 将下载好的日志数据文件解压，以文本方式查看日志文件，可以看到各字段信息以空格隔开。
 
 日志中对应的字段顺序（从左到右）及含义如下表所示：
@@ -158,20 +176,3 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 编号 | 海外地区   |
 | ---- | ---------- |
 | -1   | 海外运营商 |
-
-### 应答示例
-
-```javascript
-{
-	"code": 0,
-	"message": "",
-	"data": [{
-		"host": "123.vod2.myqcloud.com",
-		"domesticLogList": [{
-			"date": "2018-03-01",
-			"name": "2018030112-123.vod2.myqcloud.com",
-			"link: ": "http: //log-download.cdn.qcloud.com/20180301/12/2018030112-123.vod2.myqcloud.com.gz?st=LZi3oQXkjkeBe1xTFTGPFQ&e=1501743762"
-		}]
-	}]
-}
-```
