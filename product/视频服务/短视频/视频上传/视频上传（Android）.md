@@ -28,6 +28,7 @@
 ### 2、压缩视频
  - 压缩视频会减小视频大小，但是也会降低视频的清晰度，您可以根据自己的需求决定是否进行压缩。
  - 对选择的视频进行压缩，使用TXVideoEditer.generateVideo(int videoCompressed, String videoOutputPath)接口，支持4种分辨率的压缩，后续会增加自定义码率的压缩。
+ 
 ### 3、发布视频
 把刚才生成的 MP4 文件发布到腾讯云上，App 需要拿到上传文件用的短期有效上传签名，这部分有独立的文档介绍，详情请参考[签名派发](http://tapd.oa.com/Qcloud_MLVB/markdown_wikis/edit/Android%2525E7%2525AB%2525AF%2525E4%2525B8%25258A%2525E4%2525BC%2525A0/0)
 TXUGCPublish（位于 TXUGCPublish.java）负责将 MP4 文件发布到腾讯云视频分发平台上，以确保视频观看的就近调度、秒开播放、动态加速 以及海外接入等需求。
