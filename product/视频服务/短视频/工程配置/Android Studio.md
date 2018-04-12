@@ -1,8 +1,14 @@
-## 1 系统要求
+
+## 1 短视频licence集成
+
+- 获取到短视频基础版 SDK License后，需要重命名为TXUgcSDK.licence，在您的应用中需要把licence拷贝到指定的目录下。Android端拷贝目录为context.getExternalFilesDir(null)，即“/sdcard/android/data/应用包名/files/”目录下，比如SDK demo中的文件路径为/sdcard/android/data/files/TXUgcSDK.licence。当您的licence过期了，可以登录腾讯云点播控制台获取最新的licence，替换您应用中的licence即可。
+- 需要注意的是：licence名称“TXUgcSDK.licence”以及路径“/sdcard/android/data/应用包名/files/TXUgcSDK.licence”不要写错。
+
+## 2 系统要求
 
 SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( Android 4.3) API 18 以上的系统才能开启硬件编码。
 
-## 2 开发环境
+## 3 开发环境
 
 以下是SDK的开发环境，APP开发环境不需要与SDK一致，但要保证兼容：
 
@@ -12,16 +18,16 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
   - targetSdkVersion: 21
 - Android Studio（推荐您也使用Android Studio，当然您也可以使用Eclipse+ADT）
 
-## 3 集成攻略（aar）
+## 4 集成攻略（aar）
 
-### 3.1 新建工程
+### 4.1 新建工程
 ![](//mc.qcloudimg.com/static/img/ac2efe1a787a8c23a9250214a84fce44/image.jpg)
 
-### 3.2 拷贝文件
+### 4.2 拷贝文件
 
 将 aar 包放在工程 libs 目录下即可
 
-### 3.3 工程配置
+### 4.3 工程配置
 - 在工程app目录下的build.gradle中，添加引用aar包的代码：
 ```
 dependencies {
@@ -60,9 +66,9 @@ allprojects {
 
 - 最后编译一下工程 Rebuild Project。
 
-## 4 集成攻略（jar）
+## 5 集成攻略（jar）
 
-### 4.1 库说明
+### 5.1 库说明
 
 解压 LiteAVSDK_UGC_3.9.2794.zip 压缩包后得到libs目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
 
@@ -79,11 +85,11 @@ allprojects {
 | libtxsdl.so                  | ijkplayer 开源库，用于点播播放功能，解决一些奇葩视频格式的兼容问题        |
 
 
-### 4.2 拷贝文件
+### 5.2 拷贝文件
 
 如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs**目录下，这是android studio 默认的 jni 加载目录。
 
-### 4.3 工程配置
+### 5.3 工程配置
 
 在工程app目录下的 build.gradle 中，添加引用 jar 包和 so 库的代码。
 
@@ -95,10 +101,10 @@ dependencies {
 }
 ```
 
-## 5 短视频发布功能集成
+## 6 短视频发布功能集成
 短视频发布是以源代码形式提供的。
 
-### 5.1 文件说明
+### 6.1 文件说明
 
 短视频上传相关库，在**Demo\app\libs**目录下找到用于短视频上传的jar包，文件清单如下：
 
@@ -114,12 +120,12 @@ dependencies {
 
 短视频上传源代码，在**Demo\app\src\main\java\com\tencent\liteav\demo\videoupload**目录下
 
-### 5.2 拷贝文件
+### 6.2 拷贝文件
 
 将刚才得到的jar包拷贝到**Demo\app\src\main\libs**目录下，这是android studio 默认的 jar lib 加载目录。
 将刚才得到的源代码目录**videoupload**拷贝到自己的工程源码目录下，记得修改源代码里的package名。
 
-### 5.3 工程配置
+### 6.3 工程配置
 
 在工程app目录下的 build.gradle 中，添加引用 jar 包的代码。
 
@@ -129,7 +135,7 @@ dependencies {
 }
 ```
 
-## 6 配置APP权限
+## 7 配置APP权限
 
 在 AndroidManifest.xml 中配置 APP 的权限，音视频类 APP 一般需要以下权限：
 
@@ -148,11 +154,11 @@ dependencies {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
-## 7 验证
+## 8 验证
 
 在工程中调用SDK接口，获取SDK版本信息，以验证工程设备是否正确。
 
-### 7.1 引用SDK
+### 8.1 引用SDK
 
 在 MainActivity.java 中引用 SDK 的class：
 
@@ -160,7 +166,7 @@ dependencies {
 import com.tencent.rtmp.TXLiveBase;
 ```
 
-### 7.2 调用接口
+### 8.2 调用接口
 
 在onCreate中调用getSDKVersioin接口获取版本号：
 ```
@@ -168,13 +174,13 @@ String sdkver = TXLiveBase.getSDKVersionStr();
 Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 ```
 
-### 7.3 编译运行
+### 8.3 编译运行
 如果前面各步骤都操作正确，demo工程将顺利编译通过，运行之后将在logcat中看到如下log信息：
 `09-26 19:30:36.547 19577-19577/ D/liteavsdk: liteav sdk version is : 3.9.2794`
 
-<a name="online_so">&nbsp;</a>
+ 
 
-## 8 LOG打印
+## 9 LOG打印
 
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及log的级别，具体代码如下：
 - **setConsoleEnabled**
@@ -193,7 +199,7 @@ TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
 
-##  9 常见问题排查
+##  10 常见问题排查
 如果您将 SDK 导入到您的工程，编译运行出现类似以下错误：
 
 ```

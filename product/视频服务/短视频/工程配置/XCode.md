@@ -1,4 +1,8 @@
 
+## 短视频licence集成
+- 获取到短视频基础版 SDK License后，需要重命名为TXUgcSDK.licence， 然后将重命名后的 licence 链接到 Xcode 工程中，当您的 licence 过期了，可以登录腾讯云点播控制台获取最新的licence，替换您应用中的licence即可。
+- 需要注意的是：licence名称为“TXUgcSDK.licence” ， licence 被链接进了Xcode工程，保证SDK内部能读取到 licence 信息。
+
 ## Xcode工程设置
 
 ### 支持平台
@@ -80,7 +84,7 @@ SDK用到了一些类别的方法，加载类别方法需要在工程配置：Bu
 设置是否在 xcode 的控制台打印 SDK 的相关输出。
 
 - **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到当前App的 **Documents/logs** 文件夹下。
+设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到当前App的 **Documents/logs** 文件夹下。
 如果您需要我们的技术支持，建议将次开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 
 - **Log 文件的查看**
