@@ -27,8 +27,8 @@ vod.api.qcloud.com
 | hosts         | 是   | Array  | 域名列表，如果为空，查询所有点播域名的统计数据，如果域名超过5个，返回错误                                                                                                           |
 | date          | 是   | String | 查询日期，格式为 yyyy-MM-dd ，如2018-03-01                                                                                                                                          |
 | statType      | 是   | String | CDN 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li><li>hitrate：请求命中率，单位为万分比</li></ul> |
-| regionNames   | 否   | Array  | 要查询的[地区英文名称列表](#regionNameList)，如 Beijin ，如果为空，查询所有地区的数据                                                                                               |
-| ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile ，如如果为空，查询所有运营商的数据                                                                                      |
+| regionNames   | 否   | Array  | 要查询的[地区英文名称列表](#regionNameList)，如 Beijing ，如果为空，查询所有地区的数据                                                                                               |
+| ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile ，如果为空，查询所有运营商的数据                                                                                      |
 | COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                     |
 
 ## 接口应答
