@@ -178,9 +178,27 @@ Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 如果前面各步骤都操作正确，demo工程将顺利编译通过，运行之后将在logcat中看到如下log信息：
 `09-26 19:30:36.547 19577-19577/ D/liteavsdk: liteav sdk version is : 3.9.2794`
 
- 
+## 9 减少 APK 体积
 
-## 9 LOG打印
+整个 SDK 的体积主要来自于 so 文件，这些 so 文件是 SDK 正常运行所依赖的音视频编解码库、图像处理库 以及 声学处理组件，如果短视频SDK 的功能不是 App 的核心功能，您可以考虑采用在线加载的方式减少最终 apk 安装包的大小。
+
+### 9.1 上传 SO 文件
+
+将 SDK 压缩包中的 so 文件上传到 CDN，并记录下载地址，比如 http://xxx.com/so_files.zip。
+
+### 9.2 启动准备
+
+在用户启动 SDK 相关功能前，比如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
+
+### 9.3 下载 SO 文件
+
+在用户等待过程中，APP 就可以到 http://xxx.com/so_files.zip 下载 so 文件，并存入应用目录下（比如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
+
+### 9.4 加载 SO 文件
+
+等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。
+
+## 10 LOG打印
 
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及log的级别，具体代码如下：
 - **setConsoleEnabled**
@@ -199,7 +217,7 @@ TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
 
-##  10 常见问题排查
+##  11 常见问题排查
 如果您将 SDK 导入到您的工程，编译运行出现类似以下错误：
 
 ```
