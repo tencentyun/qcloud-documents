@@ -29,10 +29,10 @@
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Web_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
-#### iLiveSDK mac V1.8.3.13017(2018-1-29)
-###### 1.8.3.13017(2018-1-29)
-1、修复打开/关闭摄像头失败时无回调问题
-2、增加一个登录接口，支持本地配置spear配置(在网络不稳定拉去spear配置容易失败的场景下可以用到)
+#### iLiveSDK mac V1.8.4.13473(2018-4-12)
+* 1、更新avsdk1.9.8
+* 2、分离日志上报模块，单独成立ILiveLogReport.Framework
+* 4、调整ILiveSDK内部日志上报机制
 
 [更多版本](https://github.com/zhaoyang21cn/iLiveSDK_Mac_Suixinbo/blob/master/doc/iLiveSDK_ChangeList.md)
 
