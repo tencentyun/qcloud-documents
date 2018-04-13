@@ -1,6 +1,6 @@
 ## 版本说明
 
-- 版本号：4.4.3774 @ 2018-03-23
+- 版本号：4.5.4018 @ 2018-03-23
 
 ## 文档索引
 
@@ -18,8 +18,8 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/TXLiteAVSDK_UGC_Rename_iOS_4.4.3774.zip)   |
-| Android平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/LiteAVSDK_UGC_Android_4.4.3774.zip) |
+| iOS平台  | 4.5.4018 @ 2018-04-13 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/TXLiteAVSDK_UGC_Rename_iOS_4.5.4018.zip)   |
+| Android平台  | 4.5.4018 @ 2018-04-13 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/LiteAVSDK_UGC_Android_4.5.4018.zip) |
 
 - **付费版**
 
@@ -27,5 +27,5 @@
 
 | 操作系统 | 版本说明|下载链接 |
 | :---------: |  ---- | :----: | 
-| iOS平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/TXLiteAVSDK_Enterprise_Rename_iOS_4.4.3774.zip) |
-| Android平台  | 4.4.3774 @ 2018-03-23 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/LiteAVSDK_Enterprise_Android_4.4.3774.zip) | 
+| iOS平台  | 4.5.4018 @ 2018-04-13 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/TXLiteAVSDK_Enterprise_Rename_iOS_4.4.3774.zip) |
+| Android平台  | 4.5.4018 @ 2018-04-13 | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/4.4/LiteAVSDK_Enterprise_Android_4.4.3774.zip) | 
