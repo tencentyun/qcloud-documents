@@ -18,4 +18,4 @@ IP 封堵是指在访问您域名的流量通过腾讯云清洗集群时，会�
 - 未购买 BGP 高防产品的客户，建议您购[ BGP 高防产品](https://console.cloud.tencent.com/dayu/basic)，以保证您的业务正常进行；
 - 已购买 BGP 高防产品的客户，建议您 [升级](https://console.cloud.tencent.com/dayu/basic) 产品，提前解封。
 
-**特别提醒**：开启 [弹性防护](https://cloud.tencent.com/document/product/297/15554)，可帮您抵御大规模流量攻击，按天按量计费，灵活付费，节约您的成本。您可观看 [弹性防护开启教程]() ，进行弹性防护的开启。
+**特别提醒**：开启 [弹性防护](https://cloud.tencent.com/document/product/297/15554)，可帮您抵御大规模流量攻击，按天按量计费，灵活付费，节约您的成本。您可观看 [弹性防护开启教程](https://cloud.tencent.com/document/product/297/15563) ，进行弹性防护的开启。
