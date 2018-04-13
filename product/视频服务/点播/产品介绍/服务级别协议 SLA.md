@@ -1,5 +1,3 @@
-## 点播（VOD）服务级别协议（Service Level Agreement，SLA）
-
 腾讯云点播（VOD）服务级别协议（Service Level Agreement，SLA）规定了腾讯云面向客户提供的视频点播服务（VOD）服务的品质、水准、性能、可用性指标及赔偿方案。
 
 #### 服务功能
