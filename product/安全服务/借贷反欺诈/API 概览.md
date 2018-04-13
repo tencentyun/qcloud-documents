@@ -152,7 +152,7 @@ idfa</td>
 | message | String | 模块错误信息描述，与接口相关。 |
 | idfound | Int | 表示该条记录中的身份证能否查到</br>1：能查到</br>-1：查不到 |
 | found | Int | 表示该条记录能否查到</br>1：能查到</br>-1：查不到 |
-| riskScore | UInt | 0-100：欺诈分值</br>值越高欺诈可能性越大</br>-1：查询不到数据 |
+| riskScore | UInt | 0-100：欺诈分值</br>值越高欺诈可能性越大 |
 | riskInfo | RiskDetail | 扩展字段，对风险类型的说明；</br>riskScore 为 0 ：无此字段 |
 
 RiskDetail 类型说明
