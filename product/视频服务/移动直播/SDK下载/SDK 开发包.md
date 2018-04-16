@@ -284,8 +284,8 @@ table td {
 - **商用版本**
   商用企业版相较于专业版，增加了基于腾讯优图实验室专利技术的人脸特效功能，下载地址为 <a onclick=MtaH5.clickStat("wiki_download_sdk_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_Enterprise_Android_4.5.4021.zip">【点击下载商用版】</a>，此版本非免费提供，需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。使用方法见 [特效功能指引](https://cloud.tencent.com/document/product/454/9020)。
 
-
 <h2 id="Windows"> Windows SDK (2.0.0) </h2>
+
 <table>
   <tr align="center">
     <th width="200px">功能特性</th>
@@ -338,11 +338,10 @@ table td {
 </table>
 
 
-- **新增功能**
->C++ 支持录屏、截图快照、系统扬声器或进程混音。
->C++ Demo UI 交互升级 。
+ - **新增功能**
+> C++ 支持录屏、截图快照、系统扬声器或进程混音。
+> C++ Demo UI 交互升级 。
 > ActiveX支持指定区域录屏、截图快照、系统扬声器混音。
-
 
 - **Why not Obs?**
 本 SDK 目前还处于初级阶段，我们正在持续努力中，所以本 SDK 相比于 OBS 功能要少很多，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到 400ms 以内的延迟效果。
