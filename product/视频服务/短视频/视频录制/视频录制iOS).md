@@ -1,6 +1,6 @@
 ## 对接攻略
 短视频录制即采集摄像头画面和麦克风声音，经过图像和声音处理后，进行编码压缩最终生成期望清晰度的 MP4 文件。
-可以通过开发包中的DEMO工程体验录制的功能
+可以通过开发包中的 DEMO 工程体验录制的功能
 ![](https://main.qcloudimg.com/raw/4f8195d62fdb7e78ccd11609aad0c87d.png )
 ## 接口介绍 
 腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制与发布，其详细定义如下：
@@ -14,7 +14,7 @@
 | `TXUGCPartsManager.h` | 视频片段管理类，用于视频的多段录制，回删等 |
 
 ### 1. 画面预览
-TXUGCRecord（位于 TXUGCRecord.h） 负责小视频的录制功能，我们的第一个工作是先把预览功能实现。startCamera 函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
+TXUGCRecord（位于 TXUGCRecord.h） 负责小视频的录制功能。startCamera 函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
 
 ```ObjectiveC
 UIView *    preViewContainer;                    //准备一个预览摄像头画面的 view
