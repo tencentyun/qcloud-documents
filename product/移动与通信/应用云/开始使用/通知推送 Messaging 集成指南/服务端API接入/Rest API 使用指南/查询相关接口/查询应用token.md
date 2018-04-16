@@ -2,7 +2,7 @@
 URL 路径：`http://接口域名/v2/application/get_app_token_info?params`
 
 ### 请求参数
-除了 [通用参数](https://cloud.tencent.com/document/product/548/14705) 外，还包括如下参数：
+除了 [通用参数](https://cloud.tencent.com/document/product/666/15603) 外，还包括如下参数：
 
 |参数名|	类型	|必需	|默认值|	描述|
 |-|-|-|-|-|
