@@ -32,12 +32,12 @@
   <tr align="center">
     <td>iOS 平台</td>
     <td>4.5.4018 @ 2018-04-13</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_Enterprise_Rename_iOS_4.5.4018.zip">ZIP</a></td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/TXLiteAVSDK_Enterprise_Rename_iOS_4.5.4018.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
     <td>4.5.4021 @ 2018-04-13</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_Enterprise_Android_4.5.4021.zip">ZIP</a></td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/4.5/LiteAVSDK_Enterprise_Android_4.5.4021.zip">ZIP</a></td>
   </tr>
 </table>
 
@@ -53,12 +53,12 @@
   <tr align="center">
     <td>iOS 平台</td>
     <td>4.5.4018 @ 2018-04-13</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">ZIP</a></td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">ZIP</a></td>
   </tr>
   <tr align="center">
     <td>Android 平台</td>
     <td>4.5.4021 @ 2018-04-13</td>
-    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android_4.5.4021.zip">ZIP</a></td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android_4.5.4021.zip">ZIP</a></td>
   </tr>
 </table>
 
