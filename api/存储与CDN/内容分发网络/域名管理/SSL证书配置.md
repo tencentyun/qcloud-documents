@@ -17,15 +17,15 @@
 ## 入参说明
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 SetHttpsInfo。
 
-| 参数名称        | 是否必选 | 类型     | 描述                                       |
-| ----------- | ---- | ------ | ---------------------------------------- |
-| host        | 是    | String | 需要配置证书的域名                                |
-| httpsType   | 否    | Int    | 配置类型设置<br/>"0" ：清除https配置，无需填写证书及私钥参数<br/>"1"：上传自有证书，并 http 回源<br/>"2"：上传自有证书，并协议跟随回源<br/>"3"：使用托管证书，并 http 回源<br/>"4"：使用托管证书，并 协议跟随回源<br/>1&2 域名未配置证书或配置的是托管证书，则 必须上传 cert 及 privateKey<br/>3&4 域名未配置证书或配置的是自有证书，则必须传递 certId |
-| cert        | 否    | String | PEM格式证书                                  |
-| privateKey  | 否    | String | PEM格式私钥                                  |
-| forceSwitch | 否    | Int    | 强制跳转开关<br/>"1"：http强制跳转<br/>"-1"：关闭http强制跳转<br/>"2"：开启https强制跳转<br/>"-2"：关闭https强制跳转 |
-| http2       | 否    | String | HTTP2.0 开关<br/>"on"：开启 HTTP2.0<br/>"off"：关闭 HTTP2.0 |
-| certId      | 否    | String | 证书ID，可通过接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取 |
+| 参数名称    | 是否必选 | 类型   | 描述                                                         |
+| ----------- | -------- | ------ | ------------------------------------------------------------ |
+| host        | 是       | String | 需要配置证书的域名                                           |
+| httpsType   | 否       | Int    | 配置类型设置<br/>"0" ：清除https配置，无需填写证书及私钥参数<br/>"1"：上传自有证书，并 http 回源<br/>"2"：上传自有证书，并协议跟随回源<br/>"3"：使用托管证书，并 http 回源<br/>"4"：使用托管证书，并 协议跟随回源<br/>1&2 域名未配置证书或配置的是自有证书，则 必须上传 cert 及 privateKey<br/>3&4 域名未配置证书或配置的是托管证书，则必须传递 certId |
+| cert        | 否       | String | PEM格式证书                                                  |
+| privateKey  | 否       | String | PEM格式私钥                                                  |
+| forceSwitch | 否       | Int    | 强制跳转开关<br/>"1"：http强制跳转<br/>"-1"：关闭http强制跳转<br/>"2"：开启https强制跳转<br/>"-2"：关闭https强制跳转 |
+| http2       | 否       | String | HTTP2.0 开关<br/>"on"：开启 HTTP2.0<br/>"off"：关闭 HTTP2.0  |
+| certId      | 否       | String | 证书ID，可通过接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取 |
 
 ## 出参说明
 | 参数名称     | 类型     | 描述                                       |
