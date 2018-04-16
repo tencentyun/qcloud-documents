@@ -71,6 +71,21 @@ public class MyCustomApp extends Application {
 
 > 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
 
+### debug模式下开启实时上报
+
+analytics 服务默认采用批量上报策略，在本地缓存事件到达一定数据之后才能集中上报。如果您在调试时希望能从控制台实时看到手机的上报事件，可以通过下面的方式开启实时上报：
+
+```
+final TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
+
+// 上报策略设置为立即发送
+tacAnalyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
+```
+
+> 注意：您必须在启动服务器修改策略，一旦服务启动，修改就不会生效。
+> 
+> 由于每次上报都会建立网络连接，会增加对用户手机流量的消耗，同时也会损耗手机电量，因此建议您在 release 模式下采用默认的批量上报策略。
+
 ### 启动服务
 
 MobileLine Android SDK 不会自动帮您启动 analytics 服务，请在初始化时创建的 `Application` 子类的 `onCreate()` 方法中来启动 analytics 服务：
