@@ -83,7 +83,8 @@ TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics")
 tacAnalyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
 ```
 
-> 由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
+>**注意：**
+>由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
 
 ### 启动服务
 
