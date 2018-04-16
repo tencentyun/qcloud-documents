@@ -72,19 +72,6 @@ source "https://github.com/CocoaPods/Specs"
 pod 'TACCore'
 ```
 
-如果您想集成 `messaging` 服务：
-
-```
-pod 'TACMessaging'
-```
-
-如果您想同时集成 `messaging` 和 `crash` 服务：
-
-```
-pod 'TACMessaging'
-pod 'TACCrash'
-```
-
 > 控制台向导上默认您只集成最基础的 `analytics` 服务。
 
 
