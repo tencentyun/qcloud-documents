@@ -1,10 +1,10 @@
 ### 初始化 QAPM
 ```
-public static QAPM getInstance(Application app, int id, String ver)
+public static QAPM getInstance(Application app, String key, String ver)
 ```
 参数如下
 app： 当前应用的 app 对象
-id：为[获取项目 id](https://cloud.tencent.com/document/product/683/15220)中项目分配的 id
+key：为[获取项目 app_key](https://cloud.tencent.com/document/product/683/15220)中项目分配的 key
 ver：产品版本号
 ### 设置 QAPM 相关参数。
 ```
@@ -12,13 +12,15 @@ public static QAPM set(String key, Object value)
 ```
 参数如下
 key 可选为"uuid"、"uin"、"host"、"debug"、"leakfix"、"listener"
-value - uuid：string 类型。设置上报数据里的 UUID，用于拉取被混淆堆栈的 mapping（注：在 RDM 上编译时，可以通过编译脚本把 UUID 写到 assets 或者 AndroidManifest.xml 里，细节可以咨询 RDM 的同学）。
+value - uuid：string 类型。设置上报数据里的UUID，用于标记该版本被混淆堆栈的mapping。
+//        此UUID为用户自主生成，跟产品的某个版本挂钩，即同一个版本号编译出来的包，mapping是同一个文件。
+//        因此，建议采用“产品ID + 版本号”作为入参的方式生成UUID，具体生成函数各产品可以自行决定，
+//        建议最终生成UUID格式的字符串（格式类似e6ae1282-ceb8-4237-89bd-2d23d00a8e33）。
 uin: string 类型。设置上报数据里附带的 QQ 号。即上报的用户账号。
-host: string 类型。设置上报数据到哪个集群。请向 QAPM 负责同学（kangtian）申请一个集群域名
 debug: bool 类型。是否开启调试日志，true 为开启，false 为不开启，默认为 false。
 leakfix: bool 类型。是否开启自动泄漏修复。true 为开启，false 为不开启，默认为false。
 listener: 可为 InspectorListener/MemoryCellingListener/BatteryReportListener 类型，用于设置相关监听回调用。
-返回值：SNGAPM 对象。
+返回值：QAPM 对象。
 >host 必须设置，而且必须在 run 前设置。先向 QAPM 负责同学（kangtian）申请一个集群域名。
 
 ### 启动监控。
