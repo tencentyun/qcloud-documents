@@ -11,7 +11,7 @@ CC 防护的原理是对全站进行 QPS 进行监控，当达到设置的 QPS �
 当您选择开启或者修改 CC 防护的配置后，配置将实时生效。
 
 ## 如何开启 CC 防护 ( 根据自身业务情况选择开启 ) ？
-1.  登录   [大禹网络安全](https://console.cloud.tencent.com/dayu/basic)  控制台，在 “ BGP  高防包 ” 控制页中找到您所购买的 BGP 高防包实例；
+1.  登录 [大禹网络安全](https://console.cloud.tencent.com/dayu/basic)  控制台，在 “ BGP  高防包 ” 控制页中找到您所购买的 BGP 高防包实例；
 ![](https://main.qcloudimg.com/raw/78dff8603cf7b5b09dd9580f50d305d7.png)
 2. 选择所要开启 CC 防护的 BGP 高防包实例，点击实例名称进入 BGP 高防服务包详情页面。
   ![](https://main.qcloudimg.com/raw/7b49887a3ade760ed476ab5e3c1ae721.png)
