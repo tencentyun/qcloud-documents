@@ -32,7 +32,7 @@ ccs.api.qcloud.com
 
 ## 示例
 
-输入
+### 输入
 
 ```
   https://domain/v2/index.php?Action=ResetClusterAsgLabel
@@ -41,7 +41,7 @@ ccs.api.qcloud.com
   &label.key=val
   &其它公共参数
 ```
-输出
+### 输出
 
 ```
 {
