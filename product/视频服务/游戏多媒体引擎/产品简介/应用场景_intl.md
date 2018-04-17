@@ -1,4 +1,4 @@
-﻿## Table Games
+## Table Games
 The traditional role-playing table game, Werewolf, now can also be played online. Players greet each other before they start, speak in turn during the game, and summarize the game after it is ended. This cannot take place without interaction using real-time voice and video chat. GME provides real-time audio-video services that focus on picture clarity and sound quality. The services are specifically customized for such table games so that players' needs for audio-video interaction are met.
 
 ## Casual Games

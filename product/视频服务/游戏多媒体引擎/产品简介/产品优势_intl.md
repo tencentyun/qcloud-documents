@@ -1,4 +1,4 @@
-﻿## Customization of Game Scenes
+## Customization of Game Scenes
 The audio/video encoders/decoders are highly optimized for game scenes, so that bit rate, latency, system resource consumption, and other key technical metrics can reach the leading level in the industry.
 
 ## Top-level Infrastructure
