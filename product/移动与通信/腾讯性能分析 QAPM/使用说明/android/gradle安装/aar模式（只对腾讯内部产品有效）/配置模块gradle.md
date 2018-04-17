@@ -2,5 +2,5 @@
 在对应模块 gradle 中加入对 QAPM 的模块依赖,如下所示。
 
 ```
-compile(name: 'QAPM',ext: "aar")
+compile(name: 'QAPM', ext: "aar")
 ```
