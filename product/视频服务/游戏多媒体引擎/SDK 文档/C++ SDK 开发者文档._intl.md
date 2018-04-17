@@ -1,4 +1,4 @@
-﻿Welcome to the Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes access technologies for C++ development so that C++ developers can easily debug and access APIs for Tencent Cloud GME.
+Welcome to the Tencent Cloud Game Multimedia Engine (GME) SDK. This document describes access technologies for C++ development so that C++ developers can easily debug and access APIs for Tencent Cloud GME.
 
 ## SDK Initialization
 ### Get a Singleton
@@ -117,8 +117,9 @@ Then, the value of **AuthBuffer** is generated for encryption and authentication
 
 ### Enter a Room
 When a user enters a room with a generated **AuthBuffer** value, the ITMG_MAIN_EVENT_TYPE_ENTER_ROOM message is received as a callback.
->Notes: 1. The microphone and speakers are disabled by default when a user enters a room.
->2. The SetAppInfo and SetAppVersion functions need to be called to set relevant information before the EnterRoom function.
+>Notes: 
+>- The microphone and speakers are disabled by default when a user enters a room.
+>- The SetAppInfo and SetAppVersion functions need to be called to set relevant information before the EnterRoom function.
 For more information about role settings, see the [GME Voice Role Description](/document/product/607/15172).
 
 #### Function Prototype
