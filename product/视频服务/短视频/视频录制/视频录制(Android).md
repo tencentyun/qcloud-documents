@@ -1,9 +1,8 @@
-
 ## 对接攻略
 短视频录制即采集摄像头画面和麦克风声音，经过图像和声音处理后，进行编码压缩最终生成期望清晰度的 MP4 文件。
 可以通过开发包中的DEMO工程体验录制的功能
 ![](https://main.qcloudimg.com/raw/4f8195d62fdb7e78ccd11609aad0c87d.png )
-Android录制功能的代码位置：com.tencent.liteav.demo.videorecord包名下面，其中TCVideoSettingActivity是录制设置界面，TCVideoRecordActivity是录制界面，另外需要拷贝界面中所需的资源文件，就可以实现录制的界面效果和功能了。
+Android录制功能的代码位置：com.tencent.liteav.demo.videorecord 包名下面，其中 TCVideoSettingActivity 是录制设置界面，TCVideoRecordActivity 是录制界面，另外需要拷贝界面中所需的资源文件，就可以实现录制的界面效果和功能了。
 ## 接口介绍 
 腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制与发布，其详细定义如下：
 
@@ -124,27 +123,21 @@ mTXCameraRecord.stopRecord();
 ```
 
 录制的过程和结果是通过 TXRecordCommon.ITXVideoRecordListener（位于 TXRecordCommon.java 中定义）接口反馈出来的：
-
 - onRecordProgress 用于反馈录制的进度，参数millisecond表示录制时长，单位毫秒:
 ```java
 @optional
 void onRecordProgress(long milliSecond);
 ```
-
 - onRecordComplete 反馈录制的结果，TXRecordResult 的 retCode 和 descMsg 字段分别表示错误码和错误描述信息，videoPath 表示录制完成的小视频文件路径，coverImage 为自动截取的小视频第一帧画面，便于在视频发布阶段使用。
 ```java   
 @optional
 void onRecordComplete(TXRecordResult result);
 ```
-
 - onRecordEvent 录制事件回调，包含事件id和事件相关的参数(key,value)格式
-
 ```java   
 @optional
 void onRecordEvent(final int event, final Bundle param);
 ```
-
-
 
 ### 4.多段录制与回删
 

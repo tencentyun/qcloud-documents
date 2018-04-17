@@ -1,20 +1,20 @@
 
-## 订阅主题
+## 订阅 tag
 
-您可以针对不同的用户订阅主题，然后在前台根据主题群发通知。 一个应用最多有10000个 tag， 每个 token 在一个应用下最多100个 tag， tag 中不准包含空格。
+您可以针对不同的用户订阅 tag，然后在前台根据 tag 群发通知。 一个应用最多有10000个 tag， 每个 token 在一个应用下最多100个 tag， tag 中不准包含空格。
 
-### 订阅主题
-
-```
-TACMessagingService messagingService = TACMessagingService.getInstance();
-messagingService.subscribeToTopic(Context context, String topic);
-```
-
-### 取消订阅主题
+### 订阅 tag
 
 ```
 TACMessagingService messagingService = TACMessagingService.getInstance();
-messagingService.unsubscribeFromTopic(Context context, String topic);
+messagingService.subscribeToTopic(Context context, String tag);
+```
+
+### 取消订阅 tag
+
+```
+TACMessagingService messagingService = TACMessagingService.getInstance();
+messagingService.unsubscribeFromTopic(Context context, String tag);
 ```
 
 ## 停止 Messaging 服务

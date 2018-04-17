@@ -52,6 +52,7 @@ public class MyCustomApp extends Application {
 
 ```
 
+>**注意：**
 > 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
 
 ### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
@@ -69,7 +70,22 @@ public class MyCustomApp extends Application {
 </manifest>
 ```
 
-> 如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
+>**注意：**
+>如果您的 `Application` 子类已经在 `AndroidManifest.xml` 文件中注册，请不要重复注册。
+
+
+### 开启实时上报
+
+Analytics 服务默认采用批量上报策略，在本地缓存事件到达一定数量之后才能集中上报。如果您在调试时，希望每个事件都独立上报，从而能在控制台实时看到手机的上报事件，可以通过下面的方式开启实时上报：
+
+```
+TACAnalyticsOptions tacAnalyticsOptions = tacApplicationOptions.sub("analytics");
+
+tacAnalyticsOptions.strategy(TACAnalyticsStrategy.INSTANT);
+```
+
+>**注意：**
+>由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
 
 ### 启动服务
 
@@ -89,7 +105,8 @@ public class MyCustomApp extends Application {
 }
 ```
 
-> 注意：您也可以选择在其他地方启动 analytics 服务，但是必须保证在初始化代码后调用。
+>**注意：**
+>您也可以选择在其他地方启动 Analytics 服务，但是必须保证在初始化代码后调用。
 
 
 到此您已经成功接入了 MobileLine 移动分析服务。

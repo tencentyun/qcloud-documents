@@ -32,19 +32,20 @@ void TACAnalyticsService.getInstance().trackEventDurationEnd(Context context, TA
 // 指定时间时长
 void TACAnalyticsService.getInstance().trackEventDuration(Context context, TACAnalyticsEvent event, long duration);
 ```
+> **注意:**
 > 上报的事件均必须先在控制台上进行配置，否则无法正确上报。
 
 ## 会话统计
 
 会话统计用于统计启动次数，由 SDK 本身维护，通常开发者无需额外设置或调用接口。
 
-以下3种情况下，会视为用户打开一次新的会话：
+以下三种情况下，会视为用户打开一次新的会话：
 
 1. 应用第一次启动，或者应用进程在后台被杀掉之后启动
 
 2. 应用退到后台或锁屏超过一定时间之后再次回到前台，默认是 30 秒，你也可以根据业务需要修改。
 
-3. 调用 SDK 提供的startNewSession()函数
+3. 调用 SDK 提供的 startNewSession() 函数
 
 ```
 void TACAnalyticsService.getInstance().exchangeNewSession(Context context)
