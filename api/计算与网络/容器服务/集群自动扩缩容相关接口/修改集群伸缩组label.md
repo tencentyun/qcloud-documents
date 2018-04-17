@@ -1,10 +1,11 @@
 ## 1. 接口描述
- 
+
 本接口（ModifyClusterAsgLabel）用于修改集群伸缩组 label，只修改传入 label 中对应的 key，label 中的原有 key 保持不变。
 
-接口请求域名：<font style="color:red">ccs.api.qcloud.com</font>
-
-
+接口请求域名：
+```
+ccs.api.qcloud.com
+```
 
 ## 2. 输入参数
 
