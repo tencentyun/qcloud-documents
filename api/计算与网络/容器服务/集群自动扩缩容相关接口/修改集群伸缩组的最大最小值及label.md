@@ -2,9 +2,10 @@
  
 本接口（ModifyClusterAsgRange）用于修改集群伸缩组的最大值、最小值和 label，此接口对 label 的修改是重置。
 
-接口请求域名：<font style="color:red">ccs.api.qcloud.com</font>
-
-
+接口请求域名：
+```
+ccs.api.qcloud.com
+```
 
 ## 2. 输入参数
 
