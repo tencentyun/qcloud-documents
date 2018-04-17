@@ -52,6 +52,7 @@ public class MyCustomApp extends Application {
 
 ```
 
+>**注意：**
 > 如果您同时集成了我们多个服务，只需要添加一次初始化代码，请不要重复添加。
 
 ### 在 `AndroidManifest.xml` 文件中注册（已完成请跳过）
