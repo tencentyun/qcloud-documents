@@ -59,15 +59,14 @@ public static QAPM set(String key, Object value)
    <![endif]>
   </table>
 	
->注意：
->host 必须设置，而且必须在 run 前设置。先向 QAPM 负责同学（kangtian）申请一个集群域名。
+
 
 ### 启动监控。
 ```
 public boolean run(int func)
 ```
 >注意：
->默认全开为63（QAPM.ALL），正式发布的版本，建议以 run(24)来启动，因为下述三个功能（1、2、4）对应用性能都略有影响。在正式版本上，除了触顶时的内存快照之外，只采集监控型数据，不采集分析型数据。
+>默认全开为63（QAPM.ALL），正式发布的版本，建议以 run(24)来启动，因为下述三个功能（1、2、4）对应用性能都略有影响。
 
 <table width="531" border="0" cellpadding="0" cellspacing="0" style='width:398.25pt;border-collapse:collapse;table-layout:fixed;'>
    <col width="72" span="2" style='width:54.00pt;'/>
@@ -98,7 +97,7 @@ public boolean run(int func)
     <td x:str>32：电量(QAPM.BATTERY)</td>
    </tr>
    <tr height="18" style='height:13.50pt;'>
-    <td x:str>63(QAPM.ALL)：开启以上全部监控</td>
+    <td x:str>63：开启以上全部监控(QAPM.ALL)</td>
    </tr>
    <tr height="18" style='height:13.50pt;'>
     <td class="xl68" height="18" style='height:13.50pt;' x:str>返回值</td>
