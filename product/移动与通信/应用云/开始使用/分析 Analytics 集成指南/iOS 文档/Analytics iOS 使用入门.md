@@ -11,12 +11,13 @@
 
 在使用我们的服务前，您必须先在 MobileLine 控制台上 [创建项目和应用](https://cloud.tencent.com/document/product/666/15345)。
 
-> 如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
+>**注意：**
+>如果您已经在 MobileLine 控制台上创建过了项目和应用，请跳过此步。
 
 
 ## 第二步：添加配置文件
 
-创建好应用后，您可以点击红框中的【tac\_services\_configurations.zip】来下载该应用的配置文件的压缩包：
+创建好应用后，您可以点击红框中的【下载配置】来下载该应用的配置文件的压缩包：
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fq0pubol92j31kw093gnw.jpg)
 
@@ -25,15 +26,16 @@
 
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1forbnw3ijyj31bi11wnch.jpg)
 
-> 切记**不要**将文件 `tac_service_configurations_unpackage.plist` 添加进工程，文件中包含了不可泄露的机密信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的机密信息泄露。
-
-
+> **注意：**
+>请您按照图示来添加配置文件， `tac_service_configurations_unpackage.plist`文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
 ## 第三步：集成 SDK
 
 
-> 无论您使用哪种代码集成方式，都请**配置程序需要脚本**。如果您选择手工集成，则需要先从：[下载地址](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip),下载 移动开发平台（MobileLine）所需要的 SDK 集合文件。并仔细阅读文件中的 Readme.md 文档。
+>**注意：** 
+>无论您使用哪种代码集成方式，都请**配置程序需要脚本**。
+>如果您选择手工集成，则需要先下载移动开发平台（MobileLine）所需要的 [SDK 集合文件](http://ios-release-1253960454.cossh.myqcloud.com/tac.zip)，并仔细阅读文件中的 Readme.md 文档。
 
 每一个 MobileLine 服务都是一个单独的 SDK，其中 `TACCore` 是其他所有模块的基础模块，因此您必须至少将 `analytics` 模块集成到您的 app 中，下表展示了 MobileLine 各种服务所对应的库。
 
@@ -68,19 +70,6 @@ source "https://github.com/CocoaPods/Specs"
 
 ```
 pod 'TACCore'
-```
-
-如果您想集成 `messaging` 服务：
-
-```
-pod 'TACMessaging'
-```
-
-如果您想同时集成 `messaging` 和 `crash` 服务：
-
-```
-pod 'TACMessaging'
-pod 'TACCrash'
 ```
 
 > 控制台向导上默认您只集成最基础的 `analytics` 服务。
@@ -227,6 +216,17 @@ Swift 代码示例：
 ~~~
 
 
+#### 开启实时上报
+Analytics 服务默认采用批量上报策略，在本地缓存事件到达一定数量之后才能集中上报。如果您在调试时，希望每个事件都独立上报，从而能在控制台实时看到手机的上报事件，可以通过下面的方式开启实时上报：
+
+
+~~~
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+ options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
+[TACApplication configurateWithOptions:options];
+~~~
+
+> 注意： 由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
 
 ### 启动服务
 

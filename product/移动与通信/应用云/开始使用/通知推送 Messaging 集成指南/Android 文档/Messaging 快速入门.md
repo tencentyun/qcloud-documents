@@ -16,7 +16,8 @@
 
 <img src="http://tac-android-libs-1253960454.cosgz.myqcloud.com/tac_android_configuration.jpg" width="50%" height="50%">
 
-> 请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
+>**注意：**
+>请您按照图示来添加配置文件，`tac_service_configurations_unpackage.json` 文件中包含了敏感信息，请不要打包到 apk 文件中，MobileLine SDK 也会对此进行检查，防止由于您误打包造成的敏感信息泄露。
 
 
 ## 第三步：集成 SDK
@@ -151,7 +152,7 @@ public class MyCustomApp extends Application {
     TACApplication.configure(this); // 初始化服务
     
     // 添加这行，必须在初始化服务后调用
-    TACMessagingService.getInstance().start(context);
+    TACMessagingService.getInstance().start(this);
   }
 }
 ```
