@@ -1,15 +1,10 @@
-## 概述 
-
 ### 推送原理
-
 如想要接收 APNs 离线消息通知，需要在腾讯云管理平台提交 Push 证书，在客户端每次登录时，获取并通过 API 接口上报 Token。APNs 推送功能只用于通知用户，如果 App 在前台，以 `onNewMessage` 回调获取新消息为准，`didReceiveRemoteNotification` 获取到的消息由于不可控，可以忽略。详细推送原理可参阅：[Apple Push Notification Service](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
 
 ### 证书申请流程
-
 APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product/269/Apple推送证书申请)。
 
 ### 上传证书到控制台
-
 完成 APNs 证书申请以后，需要把生成的 p12 证书上传到控制台。
 
 > **注意：**
@@ -124,13 +119,11 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 ```
 
 ## 推送格式 
-
 **推送格式示例：**
 
 <img src="//mccdn.qcloud.com/static/img/719853e769ad57dfaad2077e5815dd68/image.png" width=480 />
 
 ### 通用推送规则
-
 对于单聊消息，APNs 推送规则如下，其中昵称是发送方用户昵称，如果未设置昵称，则只显示内容。
 
 ```
@@ -144,12 +137,12 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 ```
 
 ### 不同类型消息推送规则
-
 APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用关心是否托管账号还是独立账号，只要设置了昵称或者群名推送消息就会带上。 
 
 > 注：
 >- 一条消息中包含文本 `Elem` 和图片 `Elem`，文本内容为 Test，最终显示的内容为：`Test[图片]`。
 >- 另外一条消息中内容为空，则不进行下发，例如如果消息中只有自定义 `Elem`，并且 `desc` 为空，则不进行下发。
+
 
 | 参数 | 说明 |
 | --- | --- |
@@ -165,7 +158,6 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
 
 
 ## 推送声音
-
 ### 设置自己的推送声音
 
 不同用户可能想使用不通的推送声音，SDK 提供了设置用户声音的接口，可实现单聊声音、群组声音、音视频（暂不支持）声音的设置，也可在用户级别设置是否接收推送。
