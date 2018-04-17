@@ -1,4 +1,4 @@
-## 1. 接口描述
+## 接口描述
  
 本接口（ResetClusterAsgLabel）用于重置集群伸缩组 label，传入的 label 会完全替换伸缩组的已有 label。
 
@@ -8,7 +8,7 @@ ccs.api.qcloud.com
 ```
 
 
-## 2. 输入参数
+## 输入参数
 
 以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/api/457/9463) 页面。
 
@@ -20,7 +20,7 @@ ccs.api.qcloud.com
 
 
 
-## 3. 输出参数
+## 输出参数
  
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
@@ -30,7 +30,7 @@ ccs.api.qcloud.com
 
 
 
-## 4. 示例
+## 示例
 
 输入
 
