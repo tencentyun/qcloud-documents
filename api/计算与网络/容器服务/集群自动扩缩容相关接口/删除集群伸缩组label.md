@@ -30,7 +30,7 @@ ccs.api.qcloud.com
 
 ## 示例
 
-输入
+### 输入
 
 ```
   https://domain/v2/index.php?Action=DeleteClusterAsgLabel
@@ -39,7 +39,7 @@ ccs.api.qcloud.com
   &labelKeys.0=key
   &其它公共参数
 ```
-输出
+### 输出
 
 ```
 {
