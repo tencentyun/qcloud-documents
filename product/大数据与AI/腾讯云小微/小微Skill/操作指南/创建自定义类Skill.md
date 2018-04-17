@@ -8,7 +8,7 @@
 
  1. 输入【名称】，在【QSkill 类型】处勾选【自定义类型】，完成后单击右下角【提交】。
 
-![](https://mc.qcloudimg.com/static/img/c3af40c4f106eb179eb4c363ced3a0c2/image.png)
+![](https://main.qcloudimg.com/raw/042fa6ed5945517a8d7d18d943b221e1.png)
 
  2. 选择【基本配置】，填写完必要信息后单击右下角【开始配置】。
 

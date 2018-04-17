@@ -1,17 +1,11 @@
-## 概述
-
 这里的离线指的是应用在没有退出登录的情况下，被系统或者用户杀掉。在这种情况下，如果还想收到 ImSDK 的消息提醒，可以集成云通信离线推送。另外，ImSDK 从 2.1.0 版本开始，提供了适配小米、华为离线推送的方案。
 
 > **注意：**
 > - 对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
 > - 目前，离线推送只提供 [普通聊天消息](/doc/product/269/%E6%B6%88%E6%81%AF%E6%94%B6%E5%8F%91%EF%BC%88Android%20SDK%EF%BC%89#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 进行消息提醒，暂不提供对 [系统消息](/doc/product/269/消息收发（Android%20SDK）#5-.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF) 的消息提醒 。
 
-
-
 ## 设置离线推送配置
-
 ### 设置全局离线推送配置
-
 ImSDK 从 2.1.0 版本开始提供了设置全局离线推送配置的功能，可以设置是否开启离线推送、收到离线推送时的提示声音等。这个设置方法是由 `TIMManager` 提供的 `configOfflinePushSettings`。
 
 > **注意：**
@@ -95,7 +89,6 @@ TIMManager.getInstance().configOfflinePushSettings(settings);
 ```
 
 ### 设置单条消息的离线推送配置
-
 ImSDK 从 2.2.0 版本开始提供针对单独每一条消息进行离线推送配置的功能。开发者可以针对某条消息设置是否开启离线推送、收到离线推送后提醒声音、离线推送消息描述及扩展字段等。
 
 > **注意：**
@@ -344,11 +337,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ```
 
 ## 集成云通信离线推送
-
 ImSDK 从 1.8.0 版本开始提供了离线推送的功能。因为离线推送依赖于守护进程，所以为了保证离线推送的正常运作，需要对应用的**自启动权限**进行授权，而部分对 Android 系统进行了深度定制化的机型（华为、小米等）则需要将应用添加到应用白名单，保证应用被杀掉后，守护进程可以自动重启。
 
 ### 配置 AndroidManifest
-
 由于 ImSDK 的离线推送依赖于服务，所以需要应用在 `AndroidManifest.xml` 的 `<application></application>` 中添加以下配置：
 
 ```xml
@@ -391,7 +382,6 @@ ImSDK 从 1.8.0 版本开始提供了离线推送的功能。因为离线推送�
 ```
 
 ### 设置离线推送处理
-
 #### 实现自己的 Application 类
 
 实现 `android.app.Application`，假设命名为 `MyApplication`，在 `AndroidManifes.xml` 中配置实现：
@@ -792,7 +782,7 @@ public class TIMOfflinePushToken {
 
 **示例：**
 ```java
-//登录成功后，上报证书ID及设备token
+//登录成功后，上报证书 ID 及设备 token
 TIMOfflinePushToken param = new TIMOfflinePushToken();
 param.setToken(token);
 param.setBussid(bussId);
@@ -982,7 +972,7 @@ public class MyApplication extends Application {
 
 想要 ImSDK 通过华为推送进行离线消息推送，必须在**登录成功后**将前面步骤拿到的**证书 ID** 及**设备 token** 上报到腾讯云服务器。这一步骤可以通过 `TIMManager` 中的 `setOfflinePushToken` 方法来实现。
 
-> **注意**
+> **注意：**
 > 目前仅支持小米、华为设备，其他厂商设备上传无效。
 
 **原型：**
@@ -1220,7 +1210,7 @@ public class MyPushMsgReceiver extends MzPushMessageReceiver {
 
 以上步骤都已经准备好了之后，就可以**在登录 IM 成功**后，开始向魅族服务器注册魅族推送服务了。注册魅族推送服务需要调用魅族 PushSDK 提供的 `register` 方法。
 
-> 注: 魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题。
+> 注：魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题。
 
 ```java
 //魅族推送只适用于 Flyme 系统,因此可以先行判断是否为魅族机型，再进行订阅，避免在其他机型上出现兼容性问题

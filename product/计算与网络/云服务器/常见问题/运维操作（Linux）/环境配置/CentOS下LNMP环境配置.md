@@ -9,8 +9,22 @@ service nginx start
 chkconfig --levels 235 nginx on
 ```
 
-2. 启动 Nginx 服务。输入命令：`service nginx restart `。
-
+2. 启动 Nginx 服务。
+云服务器系统版本为 CentOS 7.0 及以上，可直接启动服务。系统版本为 CentOS 7.0 以下（如 CentOS 6.8），直接启动服务会失败，需要先修改 Nginx 的配置文件。
+ 1. 请先检查系统版本。CentOS 7.0 以下版本进行第 ii 步，CentOS 7.0 及以上版本进行第 iii 步。输入命令：
+```
+cat /etc/redhat-release
+```
+ 2. 确定系统版本在 CentOS 7.0 以下后，修改 /etc/nginx/conf.d 下的 default.conf 文件，注释掉 [::]:80 配置行。
+     - 注释前：
+![](https://main.qcloudimg.com/raw/92464436c50f491e5af651c81da6a4ea.png)
+     - 注释后：
+![](https://main.qcloudimg.com/raw/6658bdfba8e32507a04e0e9dfd4428ff.png)
+ 3. 启动 Nginx 服务
+```
+service nginx restart 
+```
+ 
 3. 命令行测试 Nginx 服务是否正常运行。输入命令：`wget http://127.0.0.1` 。
 若服务正常，显示结果如下。
 ```
@@ -23,7 +37,7 @@ Saving to: `index.html'
 2013-02-20 17:07:26 (37.9 MB/s) - `index.html' saved [151/151]
 ```
 
-3. 浏览器中测试 Nginx 服务是否正常运行。访问 CentOS 云服务器公网 IP。
+4. 浏览器中测试 Nginx 服务是否正常运行。访问 CentOS 云服务器公网 IP。
 若服务正常，显示结果如下。
 ![](//mc.qcloudimg.com/static/img/fce31b900d308c4a5d57b1d316574a58/image.png)
 

@@ -24,18 +24,18 @@ Tencent Cloud SMS can be configured in many ways, three of which are as follows:
 <dependency>
   	<groupId>com.github.qcloudsms</groupId>
   	<artifactId>sms</artifactId>
-  	<version>0.9.2</version>
+  	<version>1.0.2</version>
 </dependency>
 ```
 
 - **sbt**
 ```
-libraryDependencies += "com.github.qcloudsms" % "sms" % "0.9.2"
+libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.2"
 ```
 
 - **Other methods**
 **Method 1:** Reference the [source code](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) into the project directly.
-**Method 2:** Reference the [JAR package](http://central.maven.org/maven2/com/github/qcloudsms/sms/0.9.2/sms-0.9.2.jar) into the project directly.
+**Method 2:** Reference the [JAR package](https://github.com/qcloudsms/qcloudsms_java/tree/master/releases/qcloudsms-1.0.2.jar) into the project directly.
 >**Note:**
 Since the following four dependencies are required in Tencent Cloud SMS:
 [Org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar), [httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar), [httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar), and [httpmine](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar), these four JAR packages need to be imported into the project in both method 1 and 2.

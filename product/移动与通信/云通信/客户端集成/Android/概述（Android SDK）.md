@@ -1,13 +1,11 @@
 ## ImSDK 集成
-
 本节主要介绍如何创建一个应用，并集成 ImSDK。
 ### 支持版本
-
 ImSDK 支持 JDK 1.6 和 Android SDK version 14 以上系统。
 
 ### 下载 ImSDK
 
-点击下载 [ImSDK](https://cloud.tencent.com/product/im.html#sdk)，包含以下库文件：
+ImSDK 下载地址： [ImSDK](https://cloud.tencent.com/product/im.html#sdk)，包含以下库文件：
 
 ```
 libs/bugly_1.3.0_imsdk_release.jar
@@ -53,7 +51,6 @@ libs/x86_64/libwtcrypto.so
 | tls_sdk.jar | 帐号系统 JAR 包 |
 | wup-1.0.0-SNAPSHOT.jar | 无线统一协议 JAR 包 |
 | soload.jar | 提高 ImSDK so 库的加载成功率 |
-
 
 
 
@@ -129,7 +126,7 @@ libs/x86_64/libwtcrypto.so
 
 ### 功能开发
 
-在工程中引入上述提及的 [ImSDK](https://cloud.tencent.com/product/im.html#sdk) 库文件，根据后续章节的开发指引进行功能的开发。其中函数调用顺序可参见（2.2 调用顺序介绍）。
+在工程中引入上述提及的 [ImSDK](https://cloud.tencent.com/product/im.html#sdk) 库文件，根据后续章节的开发指引进行功能的开发。其中函数调用顺序可参见 [调用顺序介绍](#.E8.B0.83.E7.94.A8.E9.A1.BA.E5.BA.8F.E4.BB.8B.E7.BB.8D)。
 
 ### 代码混淆规则
 
@@ -150,14 +147,13 @@ libs/x86_64/libwtcrypto.so
 
 ImSDK 中会话（Conversation）分为两种：
 
-- **C2C 会话：**表示单聊情况自己与对方建立的对话，读取消息和发送消息都是通过会话完成。
+- **C2C 会话：**表示单聊情况下自己与对方建立的对话，读取消息和发送消息都是通过会话完成。
 - **群会话：**表示群聊情况下，群内成员组成的会话，群会话内发送消息群成员都可接收到。
 
 如下图所示，一个会话表示与一个好友的对话。
-
 ![](//mccdn.qcloud.com/static/img/6a12c1ea947e7b36a7abe25e55c33608/image.jpg)
 
-**消息：**ImSDK 中消息（Message）表示要发送给对方的内容，消息包括若干属性，如是否自己已读，是否已经发送成功，发送人帐号，消息产生时间等。一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、图片、表情等等，消息支持多种 `Elem` 组合发送。
+**消息：**ImSDK 中消息（Message）表示要发送给对方的内容，消息包括若干属性，如是否自己已读，是否已经发送成功，发送人帐号，消息产生时间等。一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、图片、表情等，消息支持多种 `Elem` 组合发送。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151012094526_95348.png)
 

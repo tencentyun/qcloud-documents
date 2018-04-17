@@ -40,7 +40,7 @@ The key terms involved in the document are as follows:
 >  And so on (starting from 0).
 
 
-##API Quick Start
+## API Quick Start
 
 Let's start from APIs for postpaid CVMs:
 

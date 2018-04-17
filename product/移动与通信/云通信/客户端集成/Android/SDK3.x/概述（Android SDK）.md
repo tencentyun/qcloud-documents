@@ -62,9 +62,7 @@ libs
 
 
 ### 创建应用
-
 #### 加入 ImSDK 库
-
 将以上步骤中下载得到的库文件复制到工程 `libs/` 文件夹下。
 
 > **注意：**
@@ -74,6 +72,8 @@ libs
 #### 添加相关权限
 
 创建一个新工程，并在 `AndroidManifest.xml` 中添加以下权限：
+> **注意：**
+> Android 6.0 以上的机型，其中一些权限需要在应用中手动申请。可以参照 Demo 的写法。
 
 ```
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -91,9 +91,6 @@ libs
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
-
-> **注意：**
-> Android 6.0 以上的机型，其中一些权限需要在应用中手动申请。可以参照 Demo 的写法。
 
 #### 声明相关服务及广播接收器
 
@@ -144,9 +141,7 @@ libs
 
 
 ### 功能开发
-
 在工程中根据以上说明引入库文件，依照后续章节的开发指引进行功能的开发。
-
 
 ### 代码混淆规则
 如果你的项目中使用 proguard 等工具做了代码混淆，请保留以下选项。
@@ -163,9 +158,7 @@ libs
 ```
 
 ## ImSDK 基本概念
-
 **会话：**ImSDK 中会话(Conversation)分为两种，一种是 C2C 会话，表示单聊情况自己与对方建立的对话，读取消息和发送消息都是通过会话完成；另一种是群会话，表示群聊情况下，群内成员组成的会话，群会话内发送消息群成员都可接收到。如下图所示，一个会话表示与一个好友的对话。
-
 ![](//mccdn.qcloud.com/static/img/6a12c1ea947e7b36a7abe25e55c33608/image.jpg)
 
 **消息：**ImSDK 中消息(Message)表示要发送给对方的内容，消息包括若干属性，如是否自己已读，是否已经发送成功，发送人帐号，消息产生时间等；一条消息由若干 Elem 组合而成，每种 Elem 可以是文本、图片、表情等等，消息支持多种 Elem 组合发送。
@@ -175,7 +168,6 @@ libs
 **群组 ID：**群组 ID 唯一标识一个群，由后台生成，创建群组时返回。
 
 ### ImSDK 对象简介
-
 ImSDK 对象主要分为通讯管理器，会话、消息，群管理，具体的含义参见下表：
 
 | 对象 | 介绍 | 功能 |
@@ -185,10 +177,8 @@ ImSDK 对象主要分为通讯管理器，会话、消息，群管理，具体�
 | TIMMessage | 消息 | 包括文本、图片等不同类型消息。可以通过扩展类 `TIMMessageExt` 使用更多消息相关高级功能 | 
 | TIMGroupManager | 群组管理器 | 负责创建群组、加群、退群等，可以通过扩展类 `TIMGroupManagerExt` 使用更多群组相关高级功能 |
 | TIMFriendshipManager | 资料关系链管理器 | 负责资料获取、修改和关系链信息，可以通过扩展类 `TIMFriendshipManagerExt` 使用更多资料关系链管理相关高级功能 |
-
 	
 ### 调用顺序介绍
-
 ImSDK 调用 API 需要遵循以下顺序，其余辅助方法需要在登录成功后调用。
 
 <table style="width:100%;">

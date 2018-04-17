@@ -3,7 +3,7 @@
 地址为实例的 IP 和 PORT，可从控制台获取到，例如 10.13.20.15:9200
 
 ### 2.请求路径和方法 ###
-路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称<br>方法：PUT<br>注意：`metric` 允许使用小写英文字母、数字、 \_ 、 - 的组合，且不能以 \_ 或 - 开头
+路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称<br>方法：PUT<br>注意：`metric` 命名限制请参考[系统限制](https://cloud.tencent.com/document/product/652/13611)。
 ### 3.请求参数 ###
 无
 ### 4.请求内容 ###
@@ -25,6 +25,7 @@
 >    - max_string_length：自定义字符串类型的值最大可支持的长度，取值范围为正整数，默认为256。<br>
 >    - default_date_format：自定义维度列和指标列 date类型的格式，默认为strict_date_optional_time或epoch_millis。<br>
 >    - indexed_fields：指定指标列中需要保留索引的字段，可指定多个，以数组形式指定。<br>
+>    - default_type：指定新增字段的默认类型。可选项为tag、field，系统默认值为tag。<br>
 >
 > |过期时间 |    子表时长|
 > |---------|---------|
