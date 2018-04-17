@@ -14,7 +14,7 @@ m_pTmgContext = ITMGContextGetInstance();
 ```
 
 ### 消息传递
-GME 的消息通过 ITMGDelegate 传给应用，消息类型参考 ITMG_MAIN_EVENT_TYPE，data 在 Windows 平台下是 json 字符串格式， 具体 key-value 参见说明文档。
+GME 的消息通过 ITMGDelegate 传给应用，消息类型参考 ITMG_MAIN_EVENT_TYPE，data 在 Windows 平台下是 json 字符串格式，具体 key-value 参见下表。
 #### 函数原型
 ```
  ITMGDelegate virtual void OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data)
@@ -180,7 +180,7 @@ m_pTmgContext->ExitRoom();
 ```
 
 ### 退出房间回调
-退出房间完成回调，SDK 通过此回调通知 APP 成功退出了房间，事件为 ITMG_MAIN_EVENT_TYPE_EXIT_ROOM。
+退出房间完成回调，SDK 通过此回调通知 App 成功退出了房间，事件为 ITMG_MAIN_EVENT_TYPE_EXIT_ROOM。
 #### 示例代码
 ```
 class Callback : public ITMGDelegate
@@ -339,7 +339,7 @@ ITMGAudioCtrl virtual int EnableMic(bool bEnabled, const char* pMicId)
 
 |参数     | 类型         |描述|
 | ------------- |-------------|-------------
-| enable    |bool     |如果需要关闭麦克风，则传入的参数为 true，如果打开麦克风，则参数为 false		|
+| enable    |bool     |如果需要打开麦克风，则传入的参数为 true，如果关闭麦克风，则参数为 false		|
 | pMicId    |char     |麦克风ID																	|
 #### 示例代码
 ```
@@ -574,7 +574,7 @@ m_pTmgContext.GetRoom().GetQualityTips();
 
 ## 3D音效接入
 ### 开关3D音效
-此函数用于开关 3D音效，返回值为 int 类型数值。
+此函数用于开关 3D 音效，返回值为 int 类型数值。
 #### 函数原型
 ```
 ITMGAudioCtrl virtual int EnableSpatializer(bool bEnabled)

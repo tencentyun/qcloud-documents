@@ -13,6 +13,6 @@ sourceSets {
 
 3. 在 dependencies 模块中添加代码
 ```
-compile files('libs/MagnifierSDK.jar')
+compile files('libs/QAPM.jar')
 ```
 ![](https://main.qcloudimg.com/raw/fb73598035a87a5a5badbd8c12cc6fe0.png)

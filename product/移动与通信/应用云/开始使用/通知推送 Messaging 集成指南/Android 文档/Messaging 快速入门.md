@@ -152,7 +152,7 @@ public class MyCustomApp extends Application {
     TACApplication.configure(this); // 初始化服务
     
     // 添加这行，必须在初始化服务后调用
-    TACMessagingService.getInstance().start(context);
+    TACMessagingService.getInstance().start(this);
   }
 }
 ```
