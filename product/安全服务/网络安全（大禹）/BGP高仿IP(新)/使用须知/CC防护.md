@@ -11,8 +11,7 @@
 - 当您选择开启或者修改 CC 防护的配置后，配置将实时生效。
 
 ## 如何开启 CC 防护 ( 根据自身业务情况选择开启 ) ？
-1.  登录控制台 BGP  高防 IP 配置页面；
-登录   [大禹网络安全](https://console.cloud.tencent.com/dayu/basic)  控制台，在 “ BGP  高防  IP  ”控制页中找到您所购买的 BGP 高防 IP 实例；
+1. 登录   [大禹网络安全](https://console.cloud.tencent.com/dayu/basic)  控制台，在 “ BGP  高防  IP  ”控制页中找到您所购买的 BGP 高防 IP 实例；
 ![](https://main.qcloudimg.com/raw/d9d8a9d3bca8ba7ec791065be15358c0.png)
 2. 选择所要开启 CC 防护的 BGP 高防 IP 实例，点击实例名称进入 BGP 高防 IP 详情页面；
 ![](https://main.qcloudimg.com/raw/89fa28959d6409a918ce1a7c6e65bc70.png)
