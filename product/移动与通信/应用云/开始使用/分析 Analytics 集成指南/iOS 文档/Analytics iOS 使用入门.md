@@ -44,7 +44,7 @@
 
 | 功能 | cocoapods | 服务名称 |
 |:----|:-----------|:-----------|
-| 腾讯移动分析（MTA |  TACCore   |  analytics|
+| 腾讯移动分析（MTA） |  TACCore   |  analytics|
 | 腾讯移动推送（信鸽）|  TACMessaging |  messaging  |
 | 腾讯崩溃服务（bugly）|  TACCrash   |  crash      |
 | 移动存储（Storage） |  TACStorage   |  storage   |
@@ -71,7 +71,7 @@ source "https://github.com/CocoaPods/Specs"
 ```
 pod 'TACCore'
 ```
-
+>**注意：**
 > 控制台向导上默认您只集成最基础的 `analytics` 服务。
 
 
@@ -226,7 +226,8 @@ TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOption
 [TACApplication configurateWithOptions:options];
 ~~~
 
-> 注意： 由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
+> **注意：** 
+> 由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
 
 ### 启动服务
 
