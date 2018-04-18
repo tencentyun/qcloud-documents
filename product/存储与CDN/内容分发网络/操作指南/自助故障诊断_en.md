@@ -50,7 +50,7 @@ The Report Details page is divided into two sections, "Diagnosis object" and "Di
 3. Failed to obtain node IP: Under circumstances such as when the IP of the diagnosis domain is hijacked, or the connection to the node failed, the diagnosis result will be "failed to obtain node IP". It is suggested that you contact Tencent Cloud technicians.
 
 **Item 3: Site availability**
-1. Normal: If the connections to the node and the origin server are normal, the diagnosis result will be "normal connections to node and origin server"
+1. Normal: If the connections to the node and the origin server are normal, the diagnosis result will be "normal connections to node and origin server".
 2. Abnormal: If the connections to the node or the origin server are abnormal, the diagnosis result will be "abnormal connection to node" or "abnormal connection to origin server" or "abnormal connection to both node and origin server". It is suggested that you contact Tencent Cloud technicians.
 
 **Item 4: Link quality**
