@@ -1,4 +1,4 @@
-#### IM SDK3.3.0 2018-4-4
+#### IM SDK 3.3.0 2018-4-4
 **iOS：**
 1. TIMUserProfile 新增 level 和 role 两个字段
 
