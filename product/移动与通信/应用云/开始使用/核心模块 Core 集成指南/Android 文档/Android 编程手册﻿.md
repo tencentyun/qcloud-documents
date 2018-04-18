@@ -28,7 +28,7 @@ public class MyCustomApp extends Application {
 ```
 
 >**注意：**
->configureWithOptions 只能被调用一次，请完全修改好配置再调用 configureWithOptions，让配置生效。
+>configureWithOptions 只能被调用一次，如果您有多个服务的配置需要修改，请全部修改好再调用 configureWithOptions，让配置生效。
 
 ### 在 `AndroidManifest.xml` 文件中注册
 
