@@ -15,4 +15,4 @@ sourceSets {
 ```
 compile files('libs/QAPM.jar')
 ```
-![](https://main.qcloudimg.com/raw/fb73598035a87a5a5badbd8c12cc6fe0.png)
+![](https://main.qcloudimg.com/raw/fff3b98c8ee7e4d1b4d34f9305c7a443.png)
