@@ -22,9 +22,9 @@ qcloudsms 可以采用多种方式进行配置，我们提供以下三种方法�
  要使用 qcloudsms 功能，需要在 pom.xml 中添加如下依赖： 
 ```
 <dependency>
-  	<groupId>com.github.qcloudsms</groupId>
-  	<artifactId>sms</artifactId>
-  	<version>1.0.2</version>
+  <groupId>com.github.qcloudsms</groupId>
+  <artifactId>qcloudsms</artifactId>
+  <version>1.0.2</version>
 </dependency>
 ```
 

@@ -1,6 +1,6 @@
 ## How to Calculate SMS Length
 Number of characters in an SMS message = number of characters in signature + number of characters in SMS template content
-An SMS message sent each time should not exceed 450 characters. Chinese character, English letter, number, space or symbol is counted as a character.
+An SMS message sent each time should not exceed 500 characters. Chinese character, English letter, number, space or symbol is counted as a character.
 - **China SMS messages:** The signature symbol is 【】. The maximum length of an SMS message is 70 characters. If an SMS message is longer than that, it is considered as a long message and is divided into several messages with each no longer than 67 characters.
 - **International (only English):** The SMS signature is []. The maximum length of an SMS message is 140 characters. If an SMS message is longer than that, it is considered as a long message and divided into several messages with each no longer than 134 characters.
 - **International (other language text):** The signature symbol is []. The maximum length of an SMS message is 70 characters. If an SMS message is longer than that, it is considered as a long message and is divided into several messages with each no longer than 67 characters.

@@ -2,5 +2,5 @@
 在对应模块 gradle 中加入对 QAPM 的模块依赖,如下所示。
 
 ```
-compile 'com.tencent.sngapm:magnifiersdk:1.0.0-SNAPSHOT'
+compile(name: 'QAPM', ext: "aar")
 ```
