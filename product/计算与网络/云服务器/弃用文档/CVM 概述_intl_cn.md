@@ -63,5 +63,5 @@
 ## CVM 定价
 CVM 支持包年包月和按量付费。更多信息，请参考 [ CVM 实例价格](/doc/product/213/2176) 。
 
-CVM 及相关资源的价格信息，请参考 [产品定价](https://buy.cloud.tencent.com/calculator/cvm) 。
+CVM 及相关资源的价格信息，请参考 [定价中心](https://buy.cloud.tencent.com/price/cvm) 。
 
