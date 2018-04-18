@@ -1,6 +1,6 @@
 ## TLS 登录（托管模式）
 
-Demo 集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于 TLS 账号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://cloud.tencent.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在 Demo 中如何集成托管模式下的 Web 版 TLS SDK。
+Demo 集成了托管模式下的腾讯登录服务（Tencent Login Service，TLS），当帐号为独立模式时，请跳过这一小节，关于 TLS 帐号集成（托管模式和独立模式）更多详细介绍，请参考链接：[云通信帐号登录集成](http://cloud.tencent.com/doc/product/269/%E8%B4%A6%E5%8F%B7%E7%99%BB%E5%BD%95%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E)，这里只介绍在 Demo 中如何集成托管模式下的 Web 版 TLS SDK。
 
 **在 `index.html` 引入 Web 版 TLS SDK：** 
 
@@ -113,7 +113,7 @@ function sdkLogin() {
 |---------|---------|---------|
 |sdkAppID	|用户标识接入 SDK 的应用 ID，必填|	String|
 |appIDAt3rd	|App 用户使用 OAuth 授权体系分配的 Appid，必填	|String|
-|accountType|	账号类型，必填|	Integer|
+|accountType|	帐号类型，必填|	Integer|
 |identifier	|用户帐号，选填	|String|
 |identifierNick|	用户昵称，选填	|String|
 |userSig	|鉴权 Token，identifier 不为空时，必填	|String|
