@@ -13,7 +13,7 @@
 1. 第三方开发者向腾讯云申请为域名签发证书第三方开发者向腾讯云提供开发者后台域名，例如 `www.example.com`。
 1. 腾讯云给开发者后台域名 `www.example.com` 签发证书和私钥，`www.example.com.crt` 和 `www.example.com.key`。
 1. 腾讯云给开发者后台提供用于验证请求方（腾讯）证书的 CA 证书 [TencentQQAuthCA.crt](http://share.weiyun.com/7d86303625fda66998bcc46f79320503)。
-2.  参照 [Apache HTTPS 双向认证配置参考](#apache-https.E5.8F.8C.E5.90.91.E8.AE.A4.E8.AF.81.E9.85.8D.E7.BD.AE.E5.8F.82.E8.80.83) 进行配置。
+2.  参照 [Apache HTTPS 双向认证配置参考](#apache-https-.E5.8F.8C.E5.90.91.E8.AE.A4.E8.AF.81.E9.85.8D.E7.BD.AE.E5.8F.82.E8.80.83) 进行配置。
 	
 ## Apache HTTPS 双向认证配置参考
 
