@@ -4,7 +4,7 @@
 首先您需要创建集群。集群是指容器运行所需云资源的集合，包含了若干台云主机、负载均衡器等腾讯云资源。
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的【集群】，单击集群列表页的【+ 新建】。
-![](//mc.qcloudimg.com/static/img/3e20524b9aaa91e937bcfd02270d69c7/image.png)
+![](https://main.qcloudimg.com/raw/93941a4de61062f42e0a8f4c540b9d36.png)
 3. 设置集群的基本信息。
  - **集群名称**：您要创建的集群的名称。不超过60个字符。
  - **计费模式**：提供包年包月和按量计费两种计费模式，详细对比请查看 [计费模式说明](/doc/product/213/2180)。
@@ -13,11 +13,11 @@
  - **节点网络**：为集群内主机分配在节点网络地址范围内的 IP 地址。参阅 [容器及节点网络设置](/doc/product/457/9083)。
  - **容器网络**：为集群内容器分配在容器网络地址范围内的 IP 地址。参阅 [容器及节点网络设置](/doc/product/457/9083)。
  - **集群描述**：创建集群的相关信息。该信息将显示在 **集群信息** 页面。
-![Alt text](https://mc.qcloudimg.com/static/img/d52ff827c724c74c38a595d646cb0ca6/image.png)
+![Alt text](https://main.qcloudimg.com/raw/d92a500790f77575b14ffc47f5506a6b.png)
 4. 选择机型 (支持系统盘为云盘的所有机型)。
  - **系列**：提供 **系列 1** 和 **系列 2** 。详细对比参看 [实例类型概述](/doc/product/213/7153#.E5.8F.AF.E7.94.A8.E5.AE.9E.E4.BE.8B.E7.B1.BB.E5.9E.8B2) 。
  - **机型**：机型选择方案参看 [确定云服务器配置方案](/doc/product/213/2764#.E7.A1.AE.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE.E6.96.B9.E6.A1.88)。
-![Alt text](https://mc.qcloudimg.com/static/img/e13c49f3333a1c482bbc158ffaff9653/image.png) 
+![Alt text](https://main.qcloudimg.com/raw/e3cc267b474a09e84c630a307f22acd3.png) 
 5. 填写云主机配置并单击 【完成】。
  - **系统盘**：固定为 50G 。
  - **数据盘**：步长 10G ，最高为 4000G 。
@@ -29,9 +29,9 @@
 	iii.**自动生成密码**：自动生成的密码将通过站内信发送给您。
  - **安全组**：安全组具有防火墙的功能，用于设置云主机 CVM 的网络访问控制。参阅  [容器服务安全组设置](/doc/product/457/9084) 。
  - **云主机数量**：选择服务器数量。
-![Alt text](https://mc.qcloudimg.com/static/img/eff41bd979d9572c773dd2dca6230261/image.png)
+![Alt text](https://main.qcloudimg.com/raw/33400238d456e6d4f06d15676452f677.png)
 6. 创建完成的集群将出现在集群列表中。
-![Alt text](https://mc.qcloudimg.com/static/img/e8224896e742266489f3e4f56c27b95e/image.png)
+![Alt text](https://main.qcloudimg.com/raw/89eb566462e9127b267a67e04ee2ed39.png)
 
 ## 步骤2：创建服务
 您现已创建了集群，接下来就是创建服务。服务是由多个相同配置的容器和访问这些容器的规则组成的微服务。
