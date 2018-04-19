@@ -25,5 +25,5 @@ URL 预热：URL 预热功能暂时仅对 CDN 大客户开放。若节点上已�
 ### 5. 怎么查看缓存刷新的记录？
 您可以在 CDN 控制台中查看缓存刷新的记录，详情请参阅 [操作记录](https://cloud.tencent.com/document/product/228/6299#.E6.93.8D.E4.BD.9C.E8.AE.B0.E5.BD.95)。
 
-### 6. 为什么预热或刷机目录不生效？
+### 6. 为什么预热或刷新目录不生效？
 请检查源站 Last-Modified 是否变动，Last-Modified 若有变动会导致回源失败。若您无法解决问题，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 让运维人员进行处理。
