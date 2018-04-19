@@ -66,7 +66,7 @@ public static QAPM set(String key, Object value)
 public boolean run(int func)
 ```
 >注意：
->默认全开为63（QAPM.ALL），正式发布的版本，建议以 run(24)来启动，因为下述三个功能（1、2、4）对应用性能都略有影响。
+>默认全开为9（QAPM.LEAKINSPECTOR + QAPM.LOOPER），正式发布的版本，建议以 run(8)来启动，因为下述三个功能（1、2、4）对应用性能都略有影响。
 
 <table width="531" border="0" cellpadding="0" cellspacing="0" style='width:398.25pt;border-collapse:collapse;table-layout:fixed;'>
    <col width="72" span="2" style='width:54.00pt;'/>
