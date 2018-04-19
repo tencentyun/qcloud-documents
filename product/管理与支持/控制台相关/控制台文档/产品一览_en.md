@@ -131,7 +131,6 @@ Tencent Cloud Console Service List
 | GVoice | GameVoice | [GVoice Console](https://console.cloud.tencent.com/gameservice) | [Game Voice Console Operation Guide](https://cloud.tencent.com/document/product/556) |
 | NLP | Natural Language Processing | [NLP Console](https://console.cloud.tencent.com/nlp/manage_app.cgi) | [NLP Console Operation Guide](https://cloud.tencent.com/document/product/271) |
 | TMT | TENCENT Machine Translation | [TMT Console](https://console.cloud.tencent.com/tmt/manage) | [TMT Console Operation Guide](https://cloud.tencent.com/document/product/551) |
-| TML | Tencent Machine Learning | [TML Console](https://console.cloud.tencent.com/tml/apply) | [TML Console Operation Guide](https://cloud.tencent.com/document/product/272) |
 | CSR | Customer Service Robot | [CSR Console](https://console.cloud.tencent.com/prophet) | [CSR Console Operation Guide](https://cloud.tencent.com/document/product/645) |
 
 ### Big Data Application Service
