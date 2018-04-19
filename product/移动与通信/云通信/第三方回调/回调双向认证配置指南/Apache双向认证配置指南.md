@@ -6,7 +6,7 @@
 
 1. 开发者准备权威第三方为 `www.example.com` 签发的证书 `www.example.com.crt` 和派发的私钥 `www.example.com.key`。注意必须是权威的第三方机构（如天威、globalsign 等）签发的证书。
 1. 腾讯云给开发者后台提供用于验证请求方（腾讯）证书的 CA 证书 [TencentQQAuthCA.crt](http://share.weiyun.com/7d86303625fda66998bcc46f79320503)。
-1. 参照 [Apache HTTPS 双向认证配置参考](#apache-https.E5.8F.8C.E5.90.91.E8.AE.A4.E8.AF.81.E9.85.8D.E7.BD.AE.E5.8F.82.E8.80.83) 进行配置。
+1. 参照 [Apache HTTPS 双向认证配置参考](#apache-https-.E5.8F.8C.E5.90.91.E8.AE.A4.E8.AF.81.E9.85.8D.E7.BD.AE.E5.8F.82.E8.80.83) 进行配置。
 
 ### 情况2：第三方开发者向腾讯云申请为域名签发证书
 
