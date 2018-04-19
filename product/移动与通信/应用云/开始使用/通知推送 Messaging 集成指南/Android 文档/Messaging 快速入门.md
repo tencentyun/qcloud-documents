@@ -135,7 +135,7 @@ I/messaging: MyReceiver::OnRegisterResult : code is 0, token is 495689dbfda473ef
 
 打开 [MobileLine 控制台](https://console.cloud.tencent.com/tac)，选择【创建推送】下的【通知栏消息】，并填写好 **通知标题** 和 **通知内容**，然后选择单选框中的【单个设备】，然后将注册成功后回调时打印的设备唯一标识 token 信息拷贝到编辑框中（示例这里为 495689dbfda473ef44de899cf45111fd83031156 ），然后点击【确认推送】。
 
-![](replaceme)
+![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification_simple.png)
 
 ### 查看回调信息
 
