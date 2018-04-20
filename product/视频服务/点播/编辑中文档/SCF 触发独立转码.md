@@ -33,7 +33,7 @@
 SCF 向转码服务发起请求是通过部署一段代码实现的，为了方便开发者，腾讯云点播提供了代码模版。开发者通过修改几个参数，即可以控制输出 Bucket、输出文件路径、转码规格。
 
 1. 创建 SecretId 和 SecretKey：SCF 代码请求转码服务时，需要使用到开发者的 SecketId 和 SecretKey，用于鉴权。获取 SecketId 和 SecretKey 的方法请参考[申请安全凭证](https://cloud.tencent.com/document/api/213/6984#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)
-2. 下载 SCF [代码模版](https://main.qcloudimg.com/raw/63c82dcc941a538dee90ec8b6535b9cc.zip)，解压，修改配置文件 `config.json`，按实际情况修改其中的配置参数（含义见下表）。
+2. 下载 SCF [代码模版](https://main.qcloudimg.com/raw/38e2258e7ca2716fe993425740cc6dc3.zip)，解压，修改配置文件 `config.json`，按实际情况修改其中的配置参数（含义见下表）。
 3. 将修改后的代码重新打包成 zip 文件，命名为 RequestVideoTranscodeDemo.zip
 
 | 配置参数 | 含义 | 用法 |
