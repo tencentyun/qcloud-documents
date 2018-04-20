@@ -1,7 +1,7 @@
 # 获取设备推送 token
 
 
-注册成功后，会返回设备 token，token 用于标识设备唯一性，同时也是 Messagign 服务维持与后台连接的唯一身份标识。在 Android SDK 中，您可以在接入 Messaging 服务时，通过重写注册的 `TACMessagingReceiver` 子类的 `onRegisterResult()` 方法来获取 token。
+注册成功后，会返回设备 token，token 用于标识设备唯一性，同时也是 Messaging 服务维持与后台连接的唯一身份标识。在 Android SDK 中，您可以在接入 Messaging 服务时，通过重写注册的 `TACMessagingReceiver` 子类的 `onRegisterResult()` 方法来获取 token。
 
 ```
 
