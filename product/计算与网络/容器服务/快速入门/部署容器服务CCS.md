@@ -106,7 +106,7 @@
 在本教程中，您启动了两种资源：集群和服务。在此步骤中，您将清除所有的资源以免产生不必要的费用。
 ### 删除集群
 1. 单击左侧导航栏中的【集群】，单击集群列表页面右侧【更多】下的【删除】。
-![](https://main.qcloudimg.com/raw/67bb7759c65432534aaf530ff572c0ce.png)
+![](https://main.qcloudimg.com/raw/d7e49a6c27755ccc1a84aea8879837dd.png)
 2. 单击【确定】。
 ![](https://main.qcloudimg.com/raw/fd84ce3368edcfc37a65b71bf0cf04d8.png)
 >**注意：**
