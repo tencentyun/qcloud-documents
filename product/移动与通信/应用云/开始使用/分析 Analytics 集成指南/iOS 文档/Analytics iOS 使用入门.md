@@ -233,6 +233,26 @@ TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOption
 
 移动分析 服务无需手动启动，到此您已经成功接入了 MobileLine 移动分析服务。
 
+
+### 验证服务数据
+
+#### 1. 查看服务启动情况
+
+app 启动后，您可以从 Console 中看到服务的启动日志：
+
+~~~
+2018-04-20 15:08:51.699182+0800 TACSamples[305:16243] [Info]Analytics服务启动...
+~~~
+
+
+#### 2. 控制台查看数据
+
+打开 MobileLine 的[控制台](https://console.cloud.tencent.com/tac)，在移动分析的实时数据里面，您可以看到页面访问的数据，如下图：
+
+![](http://tacimg-1253960454.file.myqcloud.com/guides/%E6%8E%A7%E5%88%B6%E5%8F%B0-%E6%95%B0%E6%8D%AE%E6%A6%82%E8%A7%88-%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.png)
+
+
+
 ## 后续步骤
 
 ### 了解 MobileLine：
