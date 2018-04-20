@@ -11,7 +11,7 @@
 | 参数名称          | 是否必选 | 类型     | 描述                                       |
 | ------------- | ---- | ------ | ---------------------------------------- |
 | serviceId     | 是    | String | API 所在的服务唯一 ID。                            |
-| apiId         | 否    | String | API 唯一 ID。                                 |
+| apiId         | 是    | String | API 唯一 ID。                                 |
 | requestHeader | 否    | String | API 的前端请求头部，是 json_dump 后的数据。               |
 | requestQuery  | 否    | String | API 的前端请求 Query，是 json_dump 后的数据。            |
 | requestPath   | 否    | String | API 的请求 Path，是 json_dump 后的数据。               |
