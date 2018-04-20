@@ -5,10 +5,10 @@ You can obtain the SDK as follows.
 
 ### Download the SDK. 
 Click the Tencent Cloud [Game Multimedia Engine](https://cloud.tencent.com/product/tmg?idx=1).  
-![](https://main.qcloudimg.com/raw/0372fd5cef701700a372599913829393.png)
+![](https://main.qcloudimg.com/raw/4adb8befc9875a0823d1512f28ae046d.png)
 
 On the displayed page, click "Developer Resources". Download the SDK resource package for iOS.
-![](https://main.qcloudimg.com/raw/d5251a02177595c6e5f1635a5cb65cb9.png)
+![](https://main.qcloudimg.com/raw/d7285fefc196e41aeedbf0193a9fc138.png)
 
 Click **Download**. Decompress the downloaded SDK resource package. The following figure shows the folders in the package.
 

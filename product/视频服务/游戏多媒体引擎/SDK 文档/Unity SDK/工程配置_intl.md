@@ -5,10 +5,10 @@ You can obtain the SDK as follows.
 
 ### Download the SDK. 
 Click the Tencent Cloud [Game Multimedia Engine](https://cloud.tencent.com/product/tmg?idx=1).  
-![](https://main.qcloudimg.com/raw/0372fd5cef701700a372599913829393.png)
+![](https://main.qcloudimg.com/raw/4adb8befc9875a0823d1512f28ae046d.png)
 
 On the displayed page, click "Developer Resources". Download the SDK resource package for Unity.
-![](https://main.qcloudimg.com/raw/21ab6755249edc303446c552b3a63a82.png)
+![](https://main.qcloudimg.com/raw/15eeb8590b0273603198d52f9846874a.png)
 
 Click **Download**. Decompress the downloaded SDK resource package. The following figure shows the folders in the package.
 

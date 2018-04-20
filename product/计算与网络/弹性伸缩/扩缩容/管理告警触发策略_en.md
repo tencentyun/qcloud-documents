@@ -26,13 +26,13 @@ For example, you have an e-commerce web application that currently runs on five 
 1. Open the [Console](https://console.cloud.tencent.com/autoscaling/config), and select **Scaling Group** in the navigation bar.
 
 2. Select the scaling group to be modified, and click the scaling group ID to enter the basic information page.
-![](//mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
+![](http://mccdn.qcloud.com/static/img/bae3ec563534769d6c38143b60299d74/image.png)
 
 3. Select **Alarm Trigger Policy** in the top navigation bar, and manage the alarm trigger policy associated with the scaling group on this page.
 	- Click **New** to add a new alarm trigger policy;
 	- Click **Delete** to delete the alarm trigger policy.
 
-![](//mccdn.qcloud.com/static/img/7b4b02c3f0aa3fe5921029b6471d3ada/image.png)
+![](http://mccdn.qcloud.com/static/img/7b4b02c3f0aa3fe5921029b6471d3ada/image.png)
 
 
 ## Exclude a Server from the Alarm Scaling Policy

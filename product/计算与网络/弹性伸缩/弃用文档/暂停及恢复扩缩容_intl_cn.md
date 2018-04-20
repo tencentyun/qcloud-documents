@@ -34,7 +34,7 @@
 
 打开[控制台](https://console.cloud.tencent.com/autoscaling/config)，选择导航条中的【伸缩组】，在伸缩组列表的右侧点击【启用】即可。
 
-![](//mc.qcloudimg.com/static/img/2a2d2d5704b53b4705a39798b53f8425/image.jpg)
+![](http://mc.qcloudimg.com/static/img/2a2d2d5704b53b4705a39798b53f8425/image.jpg)
 
 
 

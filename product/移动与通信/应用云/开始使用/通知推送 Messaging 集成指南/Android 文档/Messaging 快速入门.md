@@ -91,6 +91,22 @@ public class MyReceiver extends TACMessagingReceiver {
         Log.i("messaging", "MyReceiver::onNotificationDeleted : notification is " + tacNotification + " pushChannel " + pushChannel);
 
     }
+    
+    // 绑定标签回调
+    @Override
+    public void onBindTagResult(Context context, int code, String tag) {
+
+        Log.i("messaging", "MyReceiver::onBindTagResult : code is " + code + " tag " + tag);
+
+    }
+
+    // 解绑标签回调
+    @Override
+    public void onUnbindTagResult(Context context, int code, String tag) {
+
+        Log.i("messaging", "MyReceiver::onUnbindTagResult : code is " + code + " tag " + tag);
+    }
+
 
 }
 
