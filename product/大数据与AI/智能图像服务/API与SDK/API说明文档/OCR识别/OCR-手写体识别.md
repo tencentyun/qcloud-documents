@@ -34,7 +34,7 @@
 | ------ | ---- | ------------- | ---------------------------------------- |
 | appid | 是   | string        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看                                 |
 | image  | 否   | binary | 图片文件，支持多个                  |
-| url    | 否   | String        | mage 和 url 只提供一个即可；如果都提供，只使用 url |
+| url    | 否   | String        | image 和 url 只提供一个即可；如果都提供，只使用 url |
 
 ## 返回内容
 

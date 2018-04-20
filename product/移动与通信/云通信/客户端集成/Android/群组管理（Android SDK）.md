@@ -1,29 +1,23 @@
 ## 群组综述
-
 IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
-
 群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，可参照 [消息发送](/doc/product/269/消息收发（Android%20SDK）#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)  部分。
 
 ## 群组管理
-
 群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
 
 **获取单例原型：**
-
 ```
 public static TIMGroupManager getInstance()
 ```
 
 ### 创建内置类型群组
-
 可通过 `createGroup` 接口创建群组，创建时可指定群组类型，群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
 
 另外 `CreateAVChatRoomGroup` 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104)。
 
-**原型： **
-
+**原型： **|
 ```
 //创建群组
 public void createGroup(java.lang.String type,
@@ -36,15 +30,14 @@ public void createAVChatroomGroup(String groupName, TIMValueCallBack<String> cb)
 
 **参数说明：**
 
-参数|说明
----|---
-type | 群类型：私有群（Private）、公开群（Public）、聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
-members | 待加入群组的成员列表，创建者默认加入，无需指定（群内最多 10000 人）
-groupName | 群组名称（最长 30 字节）
-cb | 回调，OnSuccess 函数的参数中将返回创建成功的群组 ID
+|参数|说明|
+|---|---|
+|type | 群类型：私有群（Private）、公开群（Public）、聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）|
+|members | 待加入群组的成员列表，创建者默认加入，无需指定（群内最多 10000 人）|
+|groupName | 群组名称（最长 30 字节）|
+|cb | 回调，OnSuccess 函数的参数中将返回创建成功的群组 ID|
 
 **示例：**
-
 ```
 //创建待加入群组的用户列表
 ArrayList<String> list = new ArrayList<String>();
@@ -87,24 +80,21 @@ TIMGroupManager.getInstance().createAVChatroomGroup("TVShow", new TIMValueCallBa
 ```
 
 ### 创建指定属性群组
-
 在创建群组时，除了设置默认的成员以及群名外，如果还需要设置如群 ID、群公告、群简介等字段，可以通过以下接口来根据指定的信息创建群组。
 
 **原型：**
-
 ```
 public void createGroup(TIMGroupManager.CreateGroupParam param, TIMValueCallBack<String> cb)
 ```
 
 **参数说明：**
 
-参数|说明
----|---
-param | 创建群组需要的信息集, 详见 TIMGroupManager.CreateGroupParam
-cb | 回调，OnSuccess 函数的参数中将返回创建成功的群组 ID
+|参数|说明|
+|---|---|
+|param | 创建群组需要的信息集, 详见 TIMGroupManager.CreateGroupParam|
+|cb | 回调，OnSuccess 函数的参数中将返回创建成功的群组 ID|
 
 **`TIMGroupManager.CreateGroupParam` 属性设置方法：**
-
 ```
 /**
  * 设置要创建的群的类型（必填）
@@ -194,7 +184,6 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 ```
 
 ### 自定义群组 ID 创建群组
-
 默认创建群组时，IM 通讯云服务器会生成一个唯一的 ID，以便后续操作，另外，如果用户需要自定义群组 ID，在创建时可指定 ID，通过 [创建指定属性群组](#.E5.88.9B.E5.BB.BA.E6.8C.87.E5.AE.9A.E5.B1.9E.E6.80.A7.E7.BE.A4.E7.BB.84) 也可以实现自定义群组 ID 的功能。创建群组，可以指定群组类型、群组名和群组 ID。
 
 **原型：**
@@ -204,13 +193,13 @@ public void createGroup(String type, List<String> members, String groupName, Str
 
 **参数说明：**
 
-参数|说明
----|---
-type | 群类型：私有群（Private）、公开群（Public）、聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）
-members | 待加入群组的成员列表，创建者默认加入，无需指定（群内最多 10000 人）
-groupName | 群组名称（最长 30 字节）
-groupId | 自定义群组 ID
-cb | 回调，OnSuccess 函数的参数中将返回创建成功的群组 ID
+|参数|说明|
+|---|---|
+|type | 群类型：私有群（Private）、公开群（Public）、聊天室（ChatRoom）、互动直播聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）|
+|members | 待加入群组的成员列表，创建者默认加入，无需指定（群内最多 10000 人）|
+|groupName | 群组名称（最长 30 字节）|
+|groupId | 自定义群组 ID|
+|cb | 回调，OnSuccess 函数的参数中将返回创建成功的群组 ID|
 
 **示例：**
 
@@ -246,7 +235,6 @@ TIMGroupManager.getInstance().createGroup(
 ```
 
 ### 邀请用户入群
-
 `TIMGroupManager` 的接口 `InviteGroupMember` 可以拉（邀请）用户进入群组。
 
 **权限说明：**
@@ -311,7 +299,7 @@ TIMValueCallBack<List<TIMGroupMemberResult>> cb = new TIMValueCallBack<List<TIMG
         }
     }
 };
-//将list中的用户加入群组
+//将 list 中的用户加入群组
 TIMGroupManager.getInstance().inviteGroupMember(
         groupId,   //群组 ID
         list,      //待加入群组的用户列表
@@ -319,7 +307,6 @@ TIMGroupManager.getInstance().inviteGroupMember(
 ```
 
 ### 申请加入群组
-
 `TIMGroupManager` 的接口 `applyJoinGroup` 可以主动申请进入群组，此操作只对公开群和聊天室有效。
 
 **权限说明：**
@@ -329,7 +316,6 @@ TIMGroupManager.getInstance().inviteGroupMember(
 - **直播大群：**可以任意加入群组。
 
 **原型：**
-
 ```
 public void applyJoinGroup(java.lang.String groupId,
                   java.lang.String reason,
@@ -344,7 +330,8 @@ groupId | 群组 ID
 reason | 申请理由（选填）
 cb | 回调
 
-以下示例中用户申请加入群组『TGID1JYSZEAEQ』，申请理由为『some reason』。**示例：**
+以下示例中用户申请加入群组『TGID1JYSZEAEQ』，申请理由为『some reason』。
+**示例：**
 
 ```
 TIMGroupManager.getInstance().applyJoinGroup("TGID1JYSZEAEQ", "some reason", new TIMCallBack() {
@@ -362,7 +349,6 @@ TIMGroupManager.getInstance().applyJoinGroup("TGID1JYSZEAEQ", "some reason", new
 ```
 
 ### 退出群组
-
 群组成员可以主动退出群组。
 
 **权限说明：**
@@ -406,7 +392,6 @@ TIMGroupManager.getInstance().quitGroup(
 ```
 
 ### 删除群组成员
-
 群组成员也可以删除其他成员，函数参数信息与加入群组相同。
 
 **权限说明：**
@@ -589,7 +574,6 @@ TIMGroupManager.getInstance().getGroupList(cb);
 ```
 
 ### 解散群组
-
 通过 `deleteGroup` 可以解散群组。
 
 **权限说明：**
@@ -629,11 +613,9 @@ TIMGroupManager.getInstance().deleteGroup(groupId, new TIMCallBack() {
 ```
 
 ### 转让群组
-
 通过 `modifyGroupOwner` 可以进行群转让，更换群主。
 
 **权限说明：**
-
 - 只有群主可以进行群转让操作。
 
 **原型：**
@@ -653,7 +635,6 @@ identifier | 新群主的 identifier
 cb | 回调
 
 ### 删除群组成员（带原因）
-
 群组成员也可以删除其他成员，函数参数信息与加入群组相同。
 
 **权限说明：**
@@ -706,7 +687,6 @@ TIMGroupManager.getInstance().deleteGroupMemberWithReason("TGID1JYSZEAEQ", "some
 ```
 
 ### 其他接口
-
 **获取指定类型成员（可按照管理员、群主、普通成员拉取）：**
 
 ```
@@ -724,7 +704,6 @@ public void getGroupMembersByFilter(String groupId, long flags, TIMGroupMemberRo
 ```
 
 ## 获取群组资料
-
 ### 设置拉取字段
 
 拉取用户资料默认返回部分内置字段，如果需要自定义字段，或者不拉取某些字段，可以通过 `TIMManager` 中的 `initGroupSettings` 接口进行设置（**此接口 1.9 版本以上提供**），此设置对所有资料相关接口（`getGroupList` 除外）有效，全局有效。初始化群设置**需登录前设置，若不设置则默认拉取所有基本字段，不拉取自定义字段**。
@@ -795,7 +774,6 @@ TIMManager.getInstance().initGroupSettings(settings);
 ```
 
 ### 群成员获取群组资料
-
 `getGroupDetailInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。
 
 **权限说明：**
@@ -936,7 +914,6 @@ TIMGroupManager.getInstance().getGroupDetailInfo(
 ```
 
 ### 非群成员获取群组资料
-
 当用户不在群组时，可以通过接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。
 
 **原型：**
@@ -975,11 +952,9 @@ TIMGroupManager.getInstance().getGroupPublicInfo(groupList, new TIMValueCallBack
 ```
 
 ### 获取本人在群里的资料
-
 如果需要获取本人在所有群内的资料，可以通过 [GetGroupList](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8) 拉取加入的群列表时得到（1.9 版本以后支持）。另外，如果需要单独获取某个群组，可使用以下接口，建议通过 `GetGroupList` 获取，没有必要调用以下接口单独获取。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。
 
 **权限说明：**
-
 - 直播大群无法获取本人在群内的资料。
 
 **原型：**
@@ -995,11 +970,9 @@ groupId | 群组 ID
 cb | 回调， 在 OnSuccess 函数的参数中返回自身信息
 
 ### 获取群内某个人的资料
-
 （1.9 版本提供）默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置（1.9 版本以上引入）。
 
 **权限说明：**
-
 - 直播大群只能获得部分成员的资料：包括群主、管理员和部分群成员。
 
 **原型：**
@@ -1018,7 +991,6 @@ cb | 回调，OnSuccess 函数的参数中返回群组成员列表
 
 
 ## 修改群资料
-
 ### 修改群名
 
 通过 `modifyGroupName` 可以修改群组名称。
@@ -1065,7 +1037,6 @@ TIMGroupManager.getInstance().modifyGroupName(
 ```
 
 ### 修改群简介
-
 通过 `modifyGroupIntroduction` 可以修改群组简介。
 
 **权限说明：**
@@ -1110,7 +1081,6 @@ TIMGroupManager.getInstance().modifyGroupIntroduction(groupId, "hello everyone",
 ```
 
 ### 修改群公告
-
 通过 `modifyGroupNotification` 可以修改群组公告。
 
 **权限说明：**
@@ -1155,7 +1125,6 @@ TIMGroupManager.getInstance().modifyGroupNotification(groupId, "be attention to 
 ```
 
 ### 修改群头像
-
 通过 `modifyGroupFaceUrl` 可以修改群头像。
 
 **权限说明：**
@@ -1200,7 +1169,6 @@ TIMGroupManager.getInstance().modifyGroupFaceUrl(groupId, "http://newface.url/",
 ```
 
 ### 修改加群选项
-
 通过 `modifyGroupAddOpt` 可以修改加群选项。
 
 **权限说明：**
@@ -1245,7 +1213,6 @@ TIMGroupManager.getInstance().modifyGroupAddOpt(groupId, TIMGroupAddOpt.TIM_GROU
 ```
 
 ### 修改群维度自定义字段
-
 通过 `modifyGroupCustomInfo` 可以对群维度自定义字段进行修改。
 
 **权限说明：**
@@ -1293,7 +1260,6 @@ try {
 ```
 
 ### 修改用户群内身份
-
 通过 `modifyGroupMemberInfoSetRole` 可以对群成员的身份进行修改。
 
 **权限说明：**
@@ -1338,11 +1304,9 @@ TIMGroupManager.getInstance().modifyGroupMemberInfoSetRole(groupId, user, TIMGro
 ```
 
 ### 对群成员进行禁言
-
 通过 `modifyGroupMemberInfoSetSilence` 可以对群成员进行禁言并设置禁言时长。
 
 **权限说明：**
-
 - **只有群主或者管理员**可以进行对群成员进行禁言。
 
 **原型： **
@@ -1382,7 +1346,6 @@ TIMGroupManager.getInstance().modifyGroupMemberInfoSetSilence(groupId, user, 10,
 ```
 
 ### 修改群名片
-
 通过 `modifyGroupMemberInfoSetNameCard` 可以对群成员资料的群名片进行修改。
 
 **原型：**
@@ -1421,7 +1384,6 @@ TIMGroupManager.getInstance().modifyGroupMemberInfoSetNameCard(groupId,
 ```
 
 ### 修改群成员维度自定义字段
-
 通过 `modifyGroupMemberInfoSetCustomInfo` 可以对群成员资料的自定义信息进行修改。
 
 **原型：**
@@ -1462,7 +1424,6 @@ TIMGroupManager.getInstance().modifyGroupMemberInfoSetCustomInfo(groupId,
 ```
 
 ### 修改群消息接收选项
-
 通过 `modifyReceiveMessageOpt` 可以修改所在群的群消息接收及提醒方式，对公开群和私有群，默认方式为接收并提醒，对于聊天室和互动直播聊天室，默认为接收不提醒。
 
 **原型：**
@@ -1509,7 +1470,6 @@ TIMGroupManager.getInstance().modifyReceiveMessageOpt(groupId, TIMGroupReceiveMe
 ```
 
 ## 群组未决信息
-
 **群组未决信息**泛指所有需要审批的群相关的操作。例如：加群待审批，拉人入群待审批等等。 群组未决信息由类`TIMGroupPendencyItem` 表示。
 
 **`TIMGroupPendencyItem`的成员方法：**
@@ -1540,7 +1500,6 @@ void	refuse(java.lang.String msg, TIMCallBack cb)
 ```
 
 ### 拉取群未决列表
-
 通过 `getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。  
 
 **权限说明：**
@@ -1994,7 +1953,6 @@ getOpUser	| 处理请求的管理员 identifier
 getOpReason	| 同意或者拒绝理由（可选）
 
 ### 邀请入群请求消息
-
 **触发时机：**当用户被邀请加入群组（**此时用户还没有加入到群组，需要用户审批**）时，该用户会收到邀请消息。创建群组时初始成员无需邀请即可入群。
 
 **`TIMGroupSystemElem` 成员方法返回说明：**
@@ -2011,7 +1969,6 @@ getOpUser	| 操作人，表示哪个用户的邀请
 - 当用户不同意，可调用 `refuse` 方法。
 
 ### 邀请入群同意/拒绝消息
-
 **触发时机：**当被邀请者同意入群请求时，邀请者会收到同意入群的消息。当被邀请者拒绝时，邀请者收到拒绝入群的消息。
 
 **`TIMGroupSystemElem` 成员方法返回说明：**
@@ -2024,9 +1981,7 @@ getOpUser	| 处理请求的管理员 identifier
 getOpReason	| 同意或者拒绝理由（可选）
 
 ### 被管理员踢出群组
-
 **触发时机：**当用户被管理员踢出群组时，申请人会收到被踢出群的消息。
-
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
 方法|返回说明
@@ -2036,9 +1991,7 @@ getGroupId	| 群组 ID，表示在哪个群里被踢了
 getOpUser	| 操作管理员 identifier
 
 ### 群被解散
-
 **触发时机：**当群被解散时，全员会收到解散群消息。
-
 **TIMGroupSystemElem 成员方法返回说明：**
 
 方法|返回说明
@@ -2048,9 +2001,7 @@ getGroupId	| 群组 ID，表示哪个群被解散了
 getOpUser	| 操作管理员 identifier
 
 ### 创建群消息
-
 **触发时机：**当群创建时，创建者会收到创建群消息。当调用创建群方法成功回调后，即表示创建成功，此消息主要为多终端同步，如果有在其他终端登录，做为更新群列表的时机，本终端可以选择忽略。
-
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
 方法|返回说明
@@ -2061,9 +2012,7 @@ getOpUser	| 创建者，这里也就是用户自己
 
 
 ### 邀请入群消息
-
 **触发时机：**当用户被邀请加入到群组（**此时用户已经加入到群组**）时，该用户会收到邀请消息，创建群组时初始成员无需邀请即可入群。
-
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
 方法|返回说明
@@ -2073,9 +2022,7 @@ getGroupId	| 群组 ID，邀请进入哪个群
 getOpUser	| 操作人，表示哪个用户的邀请
 
 ### 主动退群
-
 **触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以做为更新群列表的时机，本终端可以选择忽略。
-
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
 方法|返回说明
@@ -2087,7 +2034,6 @@ getOpUser	| 操作人，这里即为用户自己
 ### 设置/取消管理员
 
 **触发时机：**当用户被设置为管理员时，可收到被设置管理员的消息通知，当用户被取消管理员时，可收到取消通知，可提示用户。
-
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
 方法|返回说明
@@ -2099,7 +2045,6 @@ getOpUser	| 操作人
 ### 群被回收
 
 **触发时机：**当群组被系统回收时，全员可收到群组被回收消息。
-
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
 方法|返回说明

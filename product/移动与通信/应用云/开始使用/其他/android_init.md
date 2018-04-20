@@ -23,9 +23,6 @@ buildscript {
     repositories {
         jcenter()
     }
-    dependencies {
-        ...
-    }
 }
 
 allprojects {
@@ -43,42 +40,8 @@ allprojects {
 ```
 dependencies {
     //增加这行
-    compile 'com.tencent.tac:tac-core:1.0.0'
+    compile 'com.tencent.tac:tac-core:1.0.1'
 }
 ```
 
 然后，点击 IDE 的 gradle 同步按钮，会自动将依赖包同步到本地。
-
-
-# 添加初始化代码
-
-1.在应用模块 `Application` 子类的 `onCreate` 方法中添加以下初始化代码:
-
-```
-public class MyCustomApp extends Application {
-
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		...
-		// 增加这行
-		TACApplication.configure(this);
-	}
-	
-}
-```
-
-2.在 `AndroidManifest.xml` 添加 自定义的 Application 子类：
-
-```
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tac">
-
-    <application
-        android:name="com.example.tac.MyCustomApp"
-        ...
-    </application>
-</manifest>
-```
-
-

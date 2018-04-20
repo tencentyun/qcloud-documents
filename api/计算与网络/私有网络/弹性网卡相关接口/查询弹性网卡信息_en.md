@@ -4,7 +4,7 @@ This API (DescribeNetworkInterfaces) is used to query the information of ENI.
 Domain for API request: <font style="color:red">vpc.api.qcloud.com</font>
 
 ## 2. Input Parameters
-The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information, refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeNetworkInterfaces.
+The following request parameter list only provides API request parameters. Common request parameters need to be added when the API is called. For more information,refer to <a href="/doc/api/372/4153" title="Common request parameters">Common Request Parameters</a>. The Action field for this API is DescribeNetworkInterfaces.
 
 | Parameter Name | Required | Type | Description |
 |---------|---------|---------|---------|
@@ -15,7 +15,7 @@ The following request parameter list only provides API request parameters. Commo
 | instanceId | No | String | CVM instance ID, for example: ins-xx44545f |
 | offset | No | Int | Offset of initial line. Default is 0 |
 | limit | No | Int | Number of lines per page. Default is 20. Maximum is 50.  |
-| orderField | No | String | Sort by a certain field, <br>which can be: eniName, createTime. Default is createTime |
+| orderField | No | String | Sort by a certain field,<br>which can be: eniName, createTime. Default is createTime |
 | orderDirection | No | String | Ascending (asc) or descending (desc). Default is desc |
 
 ## 3. Output Parameters
