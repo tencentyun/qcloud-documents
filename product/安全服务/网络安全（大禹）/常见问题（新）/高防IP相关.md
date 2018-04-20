@@ -4,7 +4,7 @@
 ### 高防 IP 回源的域名是否需要 ICP 备案？
 回源的域名需要 ICP 备案。
 ### 高防 IP 支持 HTTPS 吗？
-高防 IP 不仅支持 HTTPS，还支持 TCP / UDP / HTTP 协议。
+高防 IP 支持 HTTPS。
 ### 高防 IP 的 IP 回源支持 ipv6 吗？
 高防 IP 的 IP 回源不支持 ipv6 。
 ### 高防 IP 服务是否支持 HTTPS 双向认证？
