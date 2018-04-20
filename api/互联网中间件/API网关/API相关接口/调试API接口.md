@@ -17,7 +17,8 @@
 | requestPath   | 否    | String | API 的请求 Path，是 json_dump 后的数据。               |
 | requestMethod | 否    | String | API 的请求方法。只支持 HEAD、GET、POST、PUT、PATCH 和 DELETE。 |
 | requestBody   | 否    | String | API 的请求 Body。                              |
-| contentType   | 否    | String | 调试请求的内容类型。当前只支持 application/json 和 application/x-www-form-urlencoded，不传的话，默认为 application/x-www-form-urlencoded。 |
+| requestBodyDict| 否 | Dict | API 的请求 Body，当 API 有设置 Body 类型入参时，用数组格式传入。|
+| contentType| 否 | String | 调试请求的内容类型。当前只支持 application/json 和 application/x-www-form-urlencoded，不传的话，默认为 application/x-www-form-urlencoded。|
 
 ## 输出参数
 | 参数名称         | 类型     | 描述                                       |
@@ -41,14 +42,11 @@ https://apigateway.api.qcloud.com/v2/index.php?
 &Action=RunApi
 &serviceId=service-XX
 &apiId=api-XX
-&requestHeader.a=a
-&requestHeader.b=b
-&requestQuery.a=a
-&requestQuery.b=b
-&requestPath.a=a
-&requestPath.b=b
+&requestHeader={"headerKey1":"headerValue1","headerKey2":"headerValue2"}
+&requestQuery={"queryKey1":"queryValue1","queryKey2":"queryValue2"}
+&requestPath={"pathKey1":"pathValue1","pathKey2":"pathValue2"}
 &requestMethod=GET
-&requestBody=testbody
+&requestBody=abalabala
 &contentType=application/json
 ```
 返回示例如下：
@@ -58,7 +56,7 @@ https://apigateway.api.qcloud.com/v2/index.php?
     "message":"",
     "codeDesc":"Success",
 	"returnHeader":"abcd",
-	"returnBody":"test"，
+	"returnBody":"efgh"，
 	"returnCode":200,
 	"delay":300,
 }
