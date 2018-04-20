@@ -11,6 +11,7 @@ apm.run();
 ```
 那么在启动时候会看到类似如下的日志输出
 ```
-D/QAPM_Magnifier: QAPM SDK Start success, LEAKINSPECTOR : true, IO : true, DB : true, LOOPER : true, CEILING : true, BATTERY : false
+I/QAPM_Magnifier: QAPM SDK start success! PID: 22199, APM_VERSION: 1.0.0-SNAPSHOT, SWITCH : 63。
+I/QAPM_Magnifier: LEAKINSPECTOR : true, IO : false, DB : false, LOOPER : true, CEILING : false, BATTERY : false, SAMPLE : false
 ```
 APP 使用一段时间后, 登录到[QAPM 主页](http://qapm.qq.com)，可以看到内存泄漏、触顶、卡顿的等上报。
