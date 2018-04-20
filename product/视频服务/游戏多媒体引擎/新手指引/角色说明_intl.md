@@ -46,7 +46,7 @@ To add a custom role, you can click **Add and Configure User Role** at the botto
 
 Add and configure a role, enter relevant information, and click **Save**.
 
-![](https://main.qcloudimg.com/raw/47796a9344efc37dd350e44fa8835868.png)
+![](https://main.qcloudimg.com/raw/2cd225126270b29027e49ac0b8a59acb.png)
 
 ## Use of Roles
 Each role has a name, which is entered as a parameter in the relevant function.
