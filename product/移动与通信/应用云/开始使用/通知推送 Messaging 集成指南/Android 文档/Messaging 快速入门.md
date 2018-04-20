@@ -94,16 +94,16 @@ public class MyReceiver extends TACMessagingReceiver {
     
     // 绑定标签回调
     @Override
-    public void onBindTagResult(Context context, int code, String tag) {
-
+    public void onBindTagResult(Context context, int code, String tag) {
+        Toast.makeText(context, "绑定标签成功：tag = " + tag, Toast.LENGTH_LONG).show();
         Log.i("messaging", "MyReceiver::onBindTagResult : code is " + code + " tag " + tag);
 
     }
 
     // 解绑标签回调
     @Override
-    public void onUnbindTagResult(Context context, int code, String tag) {
-
+    public void onUnbindTagResult(Context context, int code, String tag) {
+        Toast.makeText(context, "解绑标签成功：tag = " + tag, Toast.LENGTH_LONG).show();
         Log.i("messaging", "MyReceiver::onUnbindTagResult : code is " + code + " tag " + tag);
     }
 
