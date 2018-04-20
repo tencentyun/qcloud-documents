@@ -337,7 +337,7 @@ function signature($identifier, $sdkappid, $private_key_path)
 
 ## 其他平台接口
 
-- [JavaScript](https://github.com/tencentyun/tls-sig-api-node)
+- [JavaScript](https://www.npmjs.com/package/tls-sig-api)
 - [Python]( https://pypi.org/project/tls-sig-api/)
 - [Go](http://bbs.qcloud.com/thread-21826-1-1.html)
 - [Java](https://mvnrepository.com/artifact/com.github.tencentyun/tls-sig-api)
