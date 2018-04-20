@@ -9,4 +9,4 @@
 
 > 注：已绑定伸缩组的启动配置无法删除。
 
-![](//mccdn.qcloud.com/static/img/63162a40f0b01336f1c1d2dd6fa50f5b/image.png)
+![](http://mccdn.qcloud.com/static/img/63162a40f0b01336f1c1d2dd6fa50f5b/image.png)

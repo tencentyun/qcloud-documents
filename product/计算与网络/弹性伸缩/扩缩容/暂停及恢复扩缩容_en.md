@@ -34,7 +34,7 @@ If you have finished troubleshooting or performed operations when the scaling gr
 
 Open the [Console](https://console.cloud.tencent.com/autoscaling/config), select **Scaling Group** in the navigation bar, and click **Enable** at the right side of the scaling group list.
 
-![](//mc.qcloudimg.com/static/img/2a2d2d5704b53b4705a39798b53f8425/image.jpg)
+![](http://mc.qcloudimg.com/static/img/2a2d2d5704b53b4705a39798b53f8425/image.jpg)
 
 
 
