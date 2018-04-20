@@ -7,9 +7,10 @@ If you have a Tencent Cloud account, go to the next step.
 
 ### 2. Log in to GME Console.
 Open the [home page of the Tencent Cloud official website](https://cloud.tencent.com/). In the top menu bar, click **Products**, and then choose **Video Services** -> **Game Multimedia Engine** to open the [GME introduction page](https://cloud.tencent.com/product/tmg?idx=1).  
+![](https://main.qcloudimg.com/raw/4adb8befc9875a0823d1512f28ae046d.png)
 
 Click **Use Now** on the [GME introduction page](https://cloud.tencent.com/product/tmg?idx=1) and log in to [GME Console](https://console.cloud.tencent.com/gme) with your Tencent Cloud account.
-![](https://main.qcloudimg.com/raw/603f2694de75b31ab389ba9d3db9efd0.png)
+
 
 ### 3. Create an application.
 After the login, if you do not have any applications, you need to create one. Click **Create Application**. In the pop-up dialog box, enter the information about your new application, select services as required, and click **OK**. After the application is created, it is displayed on the application list.
