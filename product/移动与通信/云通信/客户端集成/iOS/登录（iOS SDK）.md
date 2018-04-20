@@ -11,7 +11,7 @@
 ```
 // 登录信息
 @interface TIMLoginParam : NSObject{
-    NSString*       accountType;         // 用户的账号类型
+    NSString*       accountType;         // 用户的帐号类型
     NSString*       identifier;              // 用户名
     NSString*       userSig;             // 鉴权 Token
     NSString*       appidAt3rd;          // App 用户使用 OAuth 授权体系分配的 Appid
@@ -167,7 +167,7 @@ login_param.sdkAppId = 123456;
 
 ## 获取当前登录用户
 
-通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。返回值为当前登录的用户名，需要注意的是，如果是自有账号登录，用户名与登录所传入的 `identifier` 相同，如果是第三方账号（如微信登录、QQ 登录等），登录后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
+通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。返回值为当前登录的用户名，需要注意的是，如果是自有帐号登录，用户名与登录所传入的 `identifier` 相同，如果是第三方帐号（如微信登录、QQ 登录等），登录后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
 
 **原型：**
 
