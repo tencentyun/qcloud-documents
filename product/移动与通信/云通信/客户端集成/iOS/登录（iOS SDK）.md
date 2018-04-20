@@ -129,7 +129,7 @@ LoginCallback * login_cb = [[LoginCallback alloc] init];
 /**
  *  初始化存储，仅查看历史消息时使用，如果要收发消息等操作，如 login 成功，不需要调用此函数
  *
- *  @param param 登陆参数（userSig 不用填写）
+ *  @param param 登录参数（userSig 不用填写）
  *  @param succ  成功回调，收到回调时，可以获取会话列表和消息
  *  @param fail  失败回调
  *
@@ -165,18 +165,18 @@ login_param.sdkAppId = 123456;
 }];
 ```
 
-## 获取当前登陆用户
+## 获取当前登录用户
 
-通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登陆。返回值为当前登陆的用户名，需要注意的是，如果是自有账号登陆，用户名与登陆所传入的 `identifier` 相同，如果是第三方账号（如微信登陆、QQ 登陆等），登陆后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
+通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。返回值为当前登录的用户名，需要注意的是，如果是自有账号登录，用户名与登录所传入的 `identifier` 相同，如果是第三方账号（如微信登录、QQ 登录等），登录后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
 
 **原型：**
 
 ```
 @interface TIMManager : NSObject
 /**
- *  获取当前登陆的用户
+ *  获取当前登录的用户
  *
- *  @return 如果登陆返回用户的 identifier，如果未登录返回 nil
+ *  @return 如果登录返回用户的 identifier，如果未登录返回 nil
  */
 -(NSString*) getLoginUser;
 @end

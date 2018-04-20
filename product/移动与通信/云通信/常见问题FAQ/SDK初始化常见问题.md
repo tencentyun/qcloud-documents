@@ -54,7 +54,7 @@ login imserver failed. code: 6012 errmsg: operation timeout: wait server rsp tim
 
 ## 互踢
 
-云通信默认情况下，一个账号不可以在多台手机上登陆，会出现互踢，详细逻辑参见 [用户被踢下线通知](/doc/product/269/1559#.E7.94.A8.E6.88.B7.E8.A2.AB.E8.B8.A2.E4.B8.8B.E7.BA.BF.E9.80.9A.E7.9F.A5)。
+云通信默认情况下，一个账号不可以在多台手机上登录，会出现互踢，详细逻辑参见 [用户被踢下线通知](/doc/product/269/1559#.E7.94.A8.E6.88.B7.E8.A2.AB.E8.B8.A2.E4.B8.8B.E7.BA.BF.E9.80.9A.E7.9F.A5)。
 
 ## 多终端同时在线
 
