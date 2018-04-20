@@ -71,8 +71,8 @@
   v **环境变量**：变量名只能包含大小写字母、数字及下划线，并且不能以数字开头。
  ![](https://main.qcloudimg.com/raw/83f89d392f38bb8bcbbe427f15960b3d.png)
 - **实例数量**
- i. **手动调节**：直接设定实例数量。一个实例由相关的一个或多个容器构成。可单击 + 或 - 控制实例数量。
- ii. **手动调节**：满足任一设定条件，则自动调节实例（pod）数目。
+  i. **手动调节**：直接设定实例数量。一个实例由相关的一个或多个容器构成。可单击 + 或 - 控制实例数量。
+  ii. **手动调节**：满足任一设定条件，则自动调节实例（pod）数目。
  ![](https://main.qcloudimg.com/raw/10129daba44bfa7d7573c968cab8c4a4.png)
  4. 访问设置。
  - **服务访问方式**：服务的访问方式决定了这个服务的网络属性，不同访问方式的服务可以提供不同网络能力。提供的四种访问方式详细介绍请参阅 [服务访问方式设置](https://cloud.tencent.com/document/product/457/9098)。
@@ -90,7 +90,7 @@
 - **Namespace 列表**：Namespace 是对一组资源和对象的抽象集合。单击【Namespace 列表】，可以对 Namespace 进行新建和删除操作。
 - **伸缩组列表**：显示伸缩组列表信息。
 - **集群信息**：显示了集群的基本信息。
-![](https://main.qcloudimg.com/raw/1666d4a49b5c0639e59d2182a40a9a2c.png)
+![](https://main.qcloudimg.com/raw/1c4cc3731ff8bfd75d99a70ec78b8da4.png)
 
 ### 查看服务
 1. 单击左侧导航栏中的【服务】，单击服务列表页服务的【名称】。
@@ -100,7 +100,7 @@
 - **服务信息**：显示了服务基本信息、配置信息和端口映射信息。
 - **事件**：创建服务时会跳转至此页面，显示服务创建时流水事件。
 - **日志**：显示相关日志信息。
-![](https://main.qcloudimg.com/raw/adecff88f7771ca115acc546350e2e97.png)
+![](https://main.qcloudimg.com/raw/b3104be008721633eeb29064a7e923dd.png)
 
 ## 步骤4：删除资源
 在本教程中，您启动了两种资源：集群和服务。在此步骤中，您将清除所有的资源以免产生不必要的费用。
@@ -114,7 +114,7 @@
 
 ### 删除服务
 1. 单击左侧导航栏中的【服务】，单击服务列表右侧【更多】下的【删除】。
-![](https://main.qcloudimg.com/raw/911bebe25770c618eccc5f023170071e.png)
+![](https://main.qcloudimg.com/raw/2bbc2ff87f7520d4903b7b91316fc1e4.png)
 2. 单击【确定】。
 ![](https://main.qcloudimg.com/raw/3a4b0bec6291d38a52464f18b30ac01a.png)
 
