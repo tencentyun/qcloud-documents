@@ -337,9 +337,11 @@ function signature($identifier, $sdkappid, $private_key_path)
 
 ## 其他平台接口
 
-- [JavaScript](http://bbs.qcloud.com/thread-17311-1-1.html)
-- [Python](http://bbs.qcloud.com/thread-14366-1-1.html)
+- [JavaScript](https://github.com/tencentyun/tls-sig-api-node)
+- [Python]( https://pypi.org/project/tls-sig-api/)
 - [Go](http://bbs.qcloud.com/thread-21826-1-1.html)
+- [Java](https://mvnrepository.com/artifact/com.github.tencentyun/tls-sig-api)
+- [PHP](https://packagist.org/packages/tencent/tls-sig-api)
 
 ## TLS 后台 API 下载
 下载 [TLS 后台 API ](http://share.weiyun.com/2b3abe0e3f185c440cf455647455f661)。
