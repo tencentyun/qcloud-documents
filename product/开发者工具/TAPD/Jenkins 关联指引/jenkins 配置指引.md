@@ -17,12 +17,13 @@
 ![](https://main.qcloudimg.com/raw/53667e6c1fe0eabe75f6bd4a3842c7a0.png)
 ![](https://main.qcloudimg.com/raw/6dd23b0c4851924ddcb3401946ad3b45.png)
 
-**字段说明**
+字段说明
 - Webhook 地址： Jenkins 与 TAPD 通过 Webhook 关联，可将第2步中获取的 Webhook 配置填入。也可以进入 TAPD 项目设置-应用设置，选择【持续集成】配置并获取地址填入 
 - Secret Token： 用于 Webhook 安全校验，可将第 2 步中获取的Webhook配置填入。也可以进入TAPD 项目设置-应用设置，选择【持续集成】配置并获取
 - Jenkins 名称： 给 Jenkins 命名，方便在 TAPD 管理 Jenkins 配置时，根据名称选择调用对应 Jenkins 服务 （格式要求：8-20 位字符，请输入中英文、下划线、英文句号和数字，且只能以中英文开头） 
 - Jenkins 管理员： 填写 Jenkins 的管理员账号，以便管理 Job 构建 
-- Jenkins 访问地址： 请确保当前 jenkins 服务器已开通外网访问策略，并填写可以从外网访问的 jenkins 主页链接地址（示例：http://123.207.x.x/jenkins）, 以支持从 TAPD 访问当前 Jenkins
+- Jenkins 访问地址： 请确保当前 jenkins 服务器已开通外网访问策略，并填写可以从外网访问的 jenkins 主页链接地址,以支持从 TAPD 访问当前 Jenkins，格式示例如下
+`http://123.207.x.x/jenkins`
 
 5. 访问 TAPD，在目标项目下开启【持续集成】应用并完成应用配置
 开启【持续集成】应用并完成应用配置。
