@@ -27,8 +27,8 @@
 ```
 dependencies {
     // 增加这两行
-    compile 'com.tencent.tac:tac-core:1.0.1'
-    compile 'com.tencent.tac:tac-messaging:1.0.1'
+    compile 'com.tencent.tac:tac-core:1.1.0'
+    compile 'com.tencent.tac:tac-messaging:1.1.0'
 }
 ```
 
@@ -153,6 +153,8 @@ I/messaging: MyReceiver::OnRegisterResult : code is 0, token is 495689dbfda473ef
 
 ![](https://tacimg-1253960454.cos.ap-guangzhou.myqcloud.com/guides/Messaging/console_push_notification_simple.png)
 
+> 您也可以通过我们的后台接口来发送消息，具体请参考 [Rest API 使用指南](https://cloud.tencent.com/document/product/666/15584) 或者 [服务端 SDK](https://cloud.tencent.com/document/product/666/15606)
+
 ### 查看回调信息
 
 在控制台上发送通知栏消息后，当 SDK 接收到该消息时会回调 `onNotificationArrived()` 方法，示例 `MyReceiver` 会打印如下日志：
@@ -161,4 +163,3 @@ I/messaging: MyReceiver::OnRegisterResult : code is 0, token is 495689dbfda473ef
 I/messaging: MyReceiver::onNotificationArrived : notification is TACNotification [msgId=1463713536, title=AndroidDemo, content=content, customContent={}, activity=com.android.demo.MainActivity, notificationActionType1] pushChannel XINGE
 ```
 如果您的应用收到了通知栏通知，并且打印了如上日志，则说明您已经成功将 Messaging 服务集成到您的应用中，否则请参考 [常见问题](https://cloud.tencent.com/document/product/666/14825)。
-
