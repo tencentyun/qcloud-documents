@@ -122,7 +122,6 @@
 ![](https://main.qcloudimg.com/raw/2bbc2ff87f7520d4903b7b91316fc1e4.png)
 2. 单击【确定】。
 ![](https://main.qcloudimg.com/raw/3a4b0bec6291d38a52464f18b30ac01a.png)
-
 ## 更多
 通过本教程，您已经了解如何在腾讯云容器服务 CSS 中配置、部署和删除服务。使用腾讯云容器服务 CSS，您将无需安装、运维、扩展您的集群管理基础设施，只需进行简单的 API 调用，便可启动和停止 Docker 应用程序，查询集群的完整状态，以及使用各种云服务。
 
