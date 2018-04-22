@@ -5,7 +5,7 @@
 在移动开发平台（MobileLine）控制台中关联您的应用
 
 1. 安装 [移动开发平台（MobileLine） SDK](https://console.cloud.tencent.com/tac)。
-2. 在 [移动开发平台（MobileLine） 控制台](https://console.cloud.tencent.com/tac)中，将您的应用添加到您的移动开发平台（MobileLine）项目中。
+2. 在 [移动开发平台（MobileLine） 控制台](https://console.cloud.tencent.com/tac) 中，将您的应用添加到您的移动开发平台（MobileLine）项目中。
 3. 参考 [Analytics 配置文档](https://console.cloud.tencent.com/tac)，配置并初始化  Analytics。
 
 
@@ -50,11 +50,11 @@ TACAnalyticsEvent* event = [TACAnalyticsEvent eventWithIdentifier:@"demo-appear-
 
 会话统计用于统计启动次数，由SDK本身维护，通常开发者无需额外设置或调用接口。
 
-以下3种情况下，会视为用户打开一次新的会话：
+以下 3 种情况下，会视为用户打开一次新的会话：
 
 1. 应用第一次启动，或者应用进程在后台被杀掉之后启动
 
-2. 应用退到后台或锁屏超过一定时间之后再次回到前台，默认是30秒，你也可以根据业务需要修改。
+2. 应用退到后台或锁屏超过一定时间之后再次回到前台，默认是 30 秒，你也可以根据业务需要修改。
 
 3. 调用 SDK 提供的TACAnalyticsService 的 exchangeNewSection 方法
 
@@ -150,11 +150,11 @@ analysisOptions.strategy = TACAnalyticsStrategyInstant;
 
 |名称|类型|作用|
 |----|---|--------------|
-| strategy| TACAnalyticsStrategy|  Analytics数据上报策略,您只能选择一种上报策略，不可叠加使用|
-|minBatchReportCount |NSInteger |  最大批量发送消息个数，默认30，注意仅在发送策略为BATCH时有效|
+| strategy| TACAnalyticsStrategy|  Analytics数据上报策略,您只能选择一种上报策略，不可叠加使用。|
+|minBatchReportCount |NSInteger |  最大批量发送消息个数，默认30，注意仅在发送策略为BATCH时有效。|
 |sendPeriodMillis|uint64_t|上报策略为PERIOD时发送间隔，单位毫秒，默认一天（24*60*60*1000）|
 |sessionTimeoutMillis|uint64_t|会话超时时长，在该时间段内用户再次应用则视为同一次会话，默认30000ms。|
-|autoTrackPageEvents|BOOL|设置是否开启自动统计页面访问，默认开启|
+|autoTrackPageEvents|BOOL|设置是否开启自动统计页面访问，默认开启。|
 |smartReporting|BOOL| 智能上报，开启以后设备接入WIFI会实时上报。否则按照全局策略上报。默认打开。|
 
 ### 控制自动页面追踪

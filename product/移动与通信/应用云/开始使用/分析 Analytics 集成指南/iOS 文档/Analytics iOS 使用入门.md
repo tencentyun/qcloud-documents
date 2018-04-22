@@ -44,7 +44,7 @@
 
 | 功能 | cocoapods | 服务名称 |
 |:----|:-----------|:-----------|
-| 腾讯移动分析（MTA |  TACCore   |  analytics|
+| 腾讯移动分析（MTA） |  TACCore   |  analytics|
 | 腾讯移动推送（信鸽）|  TACMessaging |  messaging  |
 | 腾讯崩溃服务（bugly）|  TACCrash   |  crash      |
 | 移动存储（Storage） |  TACStorage   |  storage   |
@@ -72,84 +72,8 @@ source "https://github.com/CocoaPods/Specs"
 pod 'TACCore'
 ```
 
+>**注意：**
 > 控制台向导上默认您只集成最基础的 `analytics` 服务。
-
-
-### 配置程序需要脚本
-
-为了极致的简化 SDK 的接入流程我们，使用 shell 脚本，帮助您自动化的去执行一些繁琐的操作，比如 crash 自动上报，在 Info.plist 里面注册各种第三方 SDK 的回调 scheme。因而，需要您添加以下脚本来使用我们自动化的加入流程。
-
-脚本主要包括两个：
-
-1. 在构建之前运行的脚本，该类型的脚本会修改一些程序的配置信息，比如在 Info.plist 里面增加 qqwallet 的 scheme 回调。
-2. 在构建之后运行的脚本，该类型的脚本在执行结束后做一些动作，比如 Crash 符号表上报。
-
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fnttw83xayj317i0ro44j.jpg)
-
-请按照以下步骤来添加脚本：
-
-##### 添加构建之前运行的脚本
-
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before
-> **注意：**
-请确保该脚本在 `Build Phases` 中排序为第二。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
-
-需要黏贴的代码
-
-~~~
-#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.before.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.before.sh
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
-
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-   
-  ~~~
-  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.before.sh
-  ~~~
-* 如果您使用手工集成的方式则为 `您存储 TACCore 库的地址`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-   
-  ~~~
-   export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-   [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.before.sh
-  ~~~
-
-
-
-
-##### 添加构建之后运行的脚本
-
-1. 在导航栏中打开您的工程。
-2. 打开 Tab `Build Phases`。
-3. 点击 `Add a new build phase` , 并选择 `New Run Script Phase`，您可以将改脚本命名 TAC Run Before。
-> **注意：**
->  请确保该脚本在 `Build Phases` 中排序需要放到最后。
-4. 根据自己集成的模块和集成方式将代码粘贴入  `Type a script...` 文本框:。
-
-需要黏贴的代码
-
-~~~
-#export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-${TAC_CORE_FRAMEWORK_PATH}/Scripts/tac.run.all.after.sh
-~~~
-
-其中 `THIRD_FRAMEWORK_PATH` 变量的取值根据您的安装方式而不同：
-
-* 如果您使用 Cocoapods 来集成的则为 `${PODS_ROOT}/TACCore`，您需要黏贴的代码实例如下：
-	
-  ~~~
-  ${SRCROOT}/Pods/TACCore/Scripts/tac.run.all.after.sh
-  ~~~
-* 如果您使用手工集成的方式则为 `[您存储 TACCore 库的地址]`，即您 TACCore framework 的引入路径，您需要黏贴的代码实例如下：
-    
-  ~~~
-  #export TAC_SCRIPTS_BASE_PATH=[自定义执行脚本查找路径，我们会在该路径下寻找所有以“tac.run.all.after.sh”命名的脚本，并执行，如果您不需要自定义不用动这里]
-  [您存储 TACCore 库的地址]/TACCore.framework/Scripts/tac.run.all.after.sh
-  ~~~
 
 
 ## 第四步：初始化
@@ -226,11 +150,32 @@ TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOption
 [TACApplication configurateWithOptions:options];
 ~~~
 
-> 注意： 由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
+> **注意：** 
+> 由于每次上报都会建立网络连接，会增加手机流量，也会损耗手机电量，影响终端体验，因此建议您在 release 模式下关闭实时上报，采用默认的批量上报策略。
 
 ### 启动服务
 
 移动分析 服务无需手动启动，到此您已经成功接入了 MobileLine 移动分析服务。
+
+
+### 验证服务数据
+
+#### 1. 查看服务启动情况
+
+app 启动后，您可以从 Console 中看到服务的启动日志：
+
+~~~
+2018-04-20 15:08:51.699182+0800 TACSamples[305:16243] [Info]Analytics服务启动...
+~~~
+
+
+#### 2. 控制台查看数据
+
+打开 MobileLine 的[控制台](https://console.cloud.tencent.com/tac)，在移动分析的实时数据里面，您可以看到页面访问的数据，如下图：
+
+![](http://tacimg-1253960454.file.myqcloud.com/guides/%E6%8E%A7%E5%88%B6%E5%8F%B0-%E6%95%B0%E6%8D%AE%E6%A6%82%E8%A7%88-%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE.png)
+
+
 
 ## 后续步骤
 
