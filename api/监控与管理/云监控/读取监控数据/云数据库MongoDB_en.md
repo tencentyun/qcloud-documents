@@ -11,7 +11,7 @@ Dimensions.0.value=subject to the queried dimension
 
 The following describes the value of dimensions.0.value.
 MongoDB provided by Tencent Cloud is a cluster service. You can use the API to query the monitoring data of MongoDB from three dimensions: "cluster", "replica set", and "node".
-其中:
+among them:
 "Cluster" represents a MongoDB instance you bought. You can query the number of read/write requests, capacity utilization, and timeout requests of the entire instance from this dimension.
 The dimension of "replica set" can be used to query the internal capacity utilization and master-slave delay of a replica set in the cluster. A replica set instance contains only one replica set and each shard of a sharding instance is a replica.
 The dimension of "node" can be used to query information such as CPU and memory of a node in a cluster.
