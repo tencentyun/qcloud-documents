@@ -31,6 +31,7 @@ dependencies {
     compile 'com.tencent.tac:tac-messaging:1.1.0'
 }
 ```
+> `'com.tencent.tac:tac-messaging:1.1.0' ` 默认引入了厂商通道推送包，如果不需要集成厂商推送，您可以改用 `'com.tencent.tac:tac-messaging-lite:1.1.0'`
 
 ## 第四步：注册回调
 
