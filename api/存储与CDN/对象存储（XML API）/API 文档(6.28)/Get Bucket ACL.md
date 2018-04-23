@@ -1,5 +1,5 @@
 ## 功能描述
-Get Bucket ACL 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间（Bucket）的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
+GET Bucket acl 接口用来获取 Bucket 的 ACL(access control list)， 即用户空间（Bucket）的访问权限控制列表。 此 API 接口只有 Bucket 的持有者有权限操作。
 
 ## 请求
 
@@ -108,7 +108,7 @@ Container 节点 Grantee 的内容：
 
 | 节点名称（关键字）          |父节点 | 描述                                    | 类型        |
 | ------------ | ------------------------------------- | --------- |:--|
-| ID | AccessControlPolicy.Owner | 用用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt; 或  qcs::cam::anyone:anyone （指代所有用户）如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |
+| ID | AccessControlPolicy.Owner | 用户的 ID，如果是根帐号，格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt; 或  qcs::cam::anyone:anyone （指代所有用户）如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;|  String |
 | DisplayName | AccessControlPolicy.Owner |  用户的名称 |  String |
 ## 实际案例
 
