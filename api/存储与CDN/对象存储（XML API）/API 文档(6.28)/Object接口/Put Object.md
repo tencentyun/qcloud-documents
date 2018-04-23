@@ -1,5 +1,5 @@
 ## 功能描述 
-Put Object 接口为简单上传接口，可以将本地的小于 5 GB 的文件（Object）上传至指定 Bucket 中，大于 5 GB 的文件请使用分片接口上传（Upload Part）。该操作需要请求者对 Bucket 有 WRITE 权限。
+PUT Object 接口为简单上传接口，可以将本地的小于 5 GB 的文件（Object）上传至指定 Bucket 中，大于 5 GB 的文件请使用分片接口上传（Upload Part）。该操作需要请求者对 Bucket 有 WRITE 权限。
 ### 细节分析
 1. 需要有 Bucket 的写权限；
 2. 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但 Object 大小只等于 Content-Length 中定义的大小，其他数据将被丢弃；
@@ -53,8 +53,8 @@ PUT /<ObjectName> HTTP/1.1
 | Content-MD5         | RFC 1864 中定义对消息内容（不包括头部）计算 MD5 值获得 128 比特位数字，对该数字进行 base64 编码为一个消息的 Content-MD5 值。该请求头可用于检查数据是否与发送时一致。虽然该请求头是可选的，但我们建议使用该请求头进行端到端检查 | String | 否    |
 
 **权限相关头部**
-该请求操作的实现可以用 Put 请求中的 x-cos-acl 头来设置 Object 访问权限。有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
->了解更多 ACL 请求可详细请参见 [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 文档。
+该请求操作的实现可以用 PUT 请求中的 x-cos-acl 头来设置 Object 访问权限。有三种访问权限：public-read-write，public-read 和 private。如果不设置，默认为 private 权限。也可以单独明确赋予用户读、写或读写权限。内容如下：
+>了解更多 ACL 请求可详细请参见 [PUT Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 文档。
 
 | 名称                       | 描述                                       | 类型     | 必选   |
 | :----------------------- | :--------------------------------------- | :----- | :--- |

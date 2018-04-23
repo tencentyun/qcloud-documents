@@ -1,8 +1,8 @@
 ## 功能描述
-Put Bucket ACL 接口用来写入 Bucket 的 ACL 表，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 ACL 信息，或者通过 Body 以 XML 格式传入 ACL 信息。
+PUT Bucket acl 接口用来写入 Bucket 的 acl 表，您可以通过 Header："x-cos-acl"，"x-cos-grant-read"，"x-cos-grant-write"，"x-cos-grant-full-control" 传入 acl 信息，或者通过 Body 以 XML 格式传入 acl 信息。
 ><font color="#0000cc">**注意：** </font>
 - Header 和 Body 只能选择其中一种，否则响应返回会冲突。
-- Put Bucket ACL 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
+- PUT Bucket acl 是一个覆盖操作，传入新的 acl 将覆盖原有 acl。
 - 只有 Bucket 创建者才有权操作。
 
 ### 细节分析
@@ -41,7 +41,7 @@ PUT /?acl HTTP/1.1
 
 |名称|描述|类型|必选|
 |:---|:-- |:--|:--|
-| x-cos-acl | 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
+| x-cos-acl | 定义 Object 的 acl 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
 | x-cos-grant-read | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String |  否 |
 | x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" |String |  否 |
 | x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "；<br/>当需要给子账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&tl;SubUin&gt;"，<br/>当需要给根账户授权时，id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String|  否 |
@@ -74,7 +74,7 @@ PUT /?acl HTTP/1.1
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:--|
-| AccessControlPolicy |无| 保存 Get Bucket ACL 结果的容器 | Container |是|
+| AccessControlPolicy |无| 保存 GET Bucket acl 结果的容器 | Container |是|
 
 Container 节点 AccessControlPolicy 的内容：
 

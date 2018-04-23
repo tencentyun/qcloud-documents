@@ -3,14 +3,6 @@
 >注意：
 >数据迁移目前只支持 PostgreSQL 数据库的版本是9.3.x,9.5.x，同时9.3.x 不支持增量同步，9.5.x 需要通过在线 [同步插件][1] 才能支持，具体配置操作详见 [同步插件配置](#.E5.90.8C.E6.AD.A5.E6.8F.92.E4.BB.B6.E9.85.8D.E7.BD.AE)。
 
-## 注意事项
-**指定库表迁移**
-- 如lower_case_table_name 在迁移校验任务会检查源和目标的此项配置是否一致，不一致报错，会提前避免lower_case_table_name引起的目标实例重启问题。 
-
-**整实例迁移** 
-- 迁移配置，如源实例一些必须要重启的参数如lower_case_table_name与目标实例不同，设置需要重启目标实例。 
-- 导入冷备，阿里云迁移重建主从， 需要重启目标实例。
-
 ## 操作步骤
 
 ### 新建DTS数据迁移服务
@@ -101,19 +93,20 @@
 ![](https://main.qcloudimg.com/raw/4c6727dbdfcc9ced708406ca75ac97eb.png)
 
 ## 同步插件配置
-1. 下载同步插件
-[点击下载][1]
-
-2. 拷贝 dts_decoding 到 pgsql  lib 目录下
-![](https://main.qcloudimg.com/raw/a27745adde89c64a7d19f3de3176d5c8.png)
-
-3. 配置 postgresql.conf 文件
+1. 下载并拷贝 [dts_decoding][1] 到 PostgreSQL 安装路径的lib目录下
 ![](https://main.qcloudimg.com/raw/7958a443bc4564a95242949b2951d648.png)
+2. 修改 data 目录 postgresql.conf 配置文件
+```
+wal_level >= logical
+ 可用 max_replication_slots >= 迁移的数据库数目
+ 可用 max_wal_senders       >= 迁移的数据库数目
+ ```
 ![](https://main.qcloudimg.com/raw/231de9bb2bead27f73beed2a9279eeb4.png)
-
-4. 配置pg_hba.conf 文件
-![](https://main.qcloudimg.com/raw/9ea1ec694a672b98f168a81ee7080c6a.png)
 ![](https://main.qcloudimg.com/raw/dd91f8795d5d8a06349e50b99ccb54ce.png)
+3. 修改 data 目录 pg_hba.conf 配置文件
+ 需要配置 replication 连接 
+![](https://main.qcloudimg.com/raw/9ea1ec694a672b98f168a81ee7080c6a.png)
+4. 重启源实例
 
 >注意：
 >如果使用指定库表功能，表使用了 rule 或者关联了其他表，有可能会导致增量迁移插入数据不成功，原因是一些 SQL 不在迁移的支持功能中。如果发生这种问题，可以使用 schema 迁移功能或者全部实例迁移功能。

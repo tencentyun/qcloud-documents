@@ -104,13 +104,13 @@ import TACCore
 Objective-C 代码示例：
 
 ~~~
-    [TACApplication configurate];
+[TACApplication configurate];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	TACApplication.configurate();
+TACApplication.configurate();
 ~~~
 
 
@@ -123,20 +123,19 @@ Swift 代码示例：
 Objective-C 代码示例：
 
 ~~~
-    TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
-	// 自定义配置
-	// opions.xxx= xxx
-    //
-    [TACApplication configurateWithOptions:options];
+TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
+// 自定义配置
+// opions.xxx= xxx
+[TACApplication configurateWithOptions:options];
 ~~~
 
 Swift 代码示例：
 
 ~~~
-	let options = TACApplicationOptions.default()
-	// 自定义配置
-	// opions.xxx= xxx
-	TACApplication.configurate(with: options);
+let options = TACApplicationOptions.default()
+// 自定义配置
+// opions.xxx= xxx
+TACApplication.configurate(with: options);
 ~~~
 
 
@@ -146,8 +145,16 @@ Analytics 服务默认采用批量上报策略，在本地缓存事件到达一�
 
 ~~~
 TACApplicationOptions* options = [TACApplicationOptions defaultApplicationOptions];
- options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
+options.analyticsOptions.strategy = TACAnalyticsStrategyInstant;
 [TACApplication configurateWithOptions:options];
+~~~
+
+Swift 代码示例：
+
+~~~
+let options = TACApplicationOptions.default();
+options?.analyticsOptions.strategy = TACAnalyticsStrategy.instant;
+TACApplication.configurate(with: options);
 ~~~
 
 > **注意：** 

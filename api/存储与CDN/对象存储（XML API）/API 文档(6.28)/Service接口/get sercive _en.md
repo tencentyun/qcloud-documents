@@ -1,5 +1,5 @@
 ## Description
-The API Get Service is used to obtain all Bucket lists of the requester. The API does not support anonymous requests. To obtain Bucket list, you should use a request authenticated by Authorization signature. In addition, this API can only obtain the Bucket list under the account to which the AccessID in signature belongs.
+The API GET Service is used to obtain all Bucket lists of the requester. The API does not support anonymous requests. To obtain Bucket list, you should use a request authenticated by Authorization signature. In addition, this API can only obtain the Bucket list under the account to which the AccessID in signature belongs.
 
 ## Request
 

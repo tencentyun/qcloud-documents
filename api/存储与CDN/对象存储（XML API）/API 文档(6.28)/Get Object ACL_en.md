@@ -1,5 +1,5 @@
 ## Description
-Get Object ACL API is used to obtain access permission of an Object under a Bucket. Only the Bucket owner is allowed to perform the action.
+GET Object acl API is used to obtain access permission of an Object under a Bucket. Only the Bucket owner is allowed to perform the action.
 ## Request
 
 Syntax:
@@ -72,7 +72,7 @@ Detailed data content is shown as below:
 
 | Node Name (Keyword) | Parent Node | Description | Type |
 |:---|:-- |:--|:--|
-| AccessControlPolicy | None | Container for saving results of Get Object ACL | Container |
+| AccessControlPolicy | None | Container for saving results of GET Object acl | Container |
 
 Content of Container node AccessControlPolicy:
 
